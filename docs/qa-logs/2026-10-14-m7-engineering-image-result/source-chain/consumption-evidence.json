@@ -1,0 +1,31 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T220705Z-073cbb0d",
+  "disposition": "qualified",
+  "expected_rc": 0,
+  "outputs": [
+    {
+      "issue": 588,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01",
+      "release_when": "Original capture reviewed and compact original source-chain receipts retained for installed588; no large payload produced."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/coordinator-review.json",
+      "sha256": "56da62c57d63f798d20584276dd016e2bd40d445146ce0452c7162723b55e7bd"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/source-receipt.reviewed.json",
+      "sha256": "38fcbaf6ba55d270c8ebc1c6e5f409400fea7bf1fd503d24a65759a06cf09c05"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/launcher-result.json",
+      "sha256": "8424f5014cc7724bad082bd986b8dcc2fd2e3f91f176ca04d1a355b994975056"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T220705Z-073cbb0d/runner-result.json",
+      "sha256": "014a5ed4900a9fb92fac886e82a8ffe2d51b66ada6d4270efd5681bbbdd95724"
+    }
+  ]
+}

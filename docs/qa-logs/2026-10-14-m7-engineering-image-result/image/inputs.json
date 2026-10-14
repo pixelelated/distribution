@@ -1,0 +1,15 @@
+{
+  "scope": "completed image identity and selected installed mappings; no runtime qualification",
+  "build_owner": "/workspace/tmp/pix-m7-engineering-build-20261014-01",
+  "build_run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T204343Z-b7a72fc6",
+  "source": "d6a87f05c1935516115b2cca1af22151a0209224",
+  "verifier_sha256": "9e1ff0ef7a9cc4995cfff64da08bd651e80374dc277b0e89ae886c5102d12a1f",
+  "work_seconds": 1500,
+  "cleanup_seconds": 15,
+  "host_cpu_affinity": [
+    0
+  ],
+  "per_process_virtual_memory_bytes": 8589934592,
+  "scratch_ceiling_bytes": 25769803776,
+  "evidence_basis": "Existing verifier max raw16GiB+SYSTEM4GiB+kernel128MiB+bounded small receipts. No compilation, VM, service, mount or provider."
+}

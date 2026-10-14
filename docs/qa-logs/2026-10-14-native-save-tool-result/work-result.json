@@ -1,0 +1,126 @@
+{
+  "status": "PASS",
+  "pid": 803122,
+  "stages": [
+    {
+      "name": "build",
+      "argv": [
+        "/bin/bash",
+        "/workspace/tmp/pix-m7-mkdcdisc-20261014-01/source/build-tool.sh",
+        "/tmp/m7-mkdcdisc-source-plan-20261014/mkdcdisc-2b98b0d9.tar.gz",
+        "/tmp/m7-mkdcdisc-source-plan-20261014/libisofs-dev_1.5.6.pl01-1.1ubuntu3_amd64.deb",
+        "/workspace/tmp/pix-m7-mkdcdisc-20261014-01/scratch/work"
+      ],
+      "original_returncode": 0,
+      "timed_out": false,
+      "signals": [],
+      "reaped": [],
+      "cleanup_errors": [],
+      "timeout_seconds": 600,
+      "file_limit_bytes": 268435456,
+      "identity": {
+        "pid": 803123,
+        "ppid": 803122,
+        "start_ticks": 110707572
+      },
+      "remaining_children": [],
+      "elapsed_seconds": 12.479683615965769
+    },
+    {
+      "name": "author",
+      "argv": [
+        "/workspace/tmp/pix-m7-mkdcdisc-20261014-01/scratch/work/build/mkdcdisc",
+        "-B",
+        "/workspace/tmp/pix-m7-mkdcdisc-20261014-01/scratch/game/1ST_READ.BIN",
+        "-D",
+        "/workspace/tmp/pix-m7-mkdcdisc-20261014-01/scratch/game/tetris2-disc",
+        "-p",
+        "/workspace/tmp/pix-m7-mkdcdisc-20261014-01/scratch/game/IP.BIN",
+        "-o",
+        "/workspace/tmp/pix-m7-mkdcdisc-20261014-01/scratch/Tetris2-M7.cdi"
+      ],
+      "original_returncode": 0,
+      "timed_out": false,
+      "signals": [],
+      "reaped": [],
+      "cleanup_errors": [],
+      "timeout_seconds": 120,
+      "file_limit_bytes": 1073741824,
+      "identity": {
+        "pid": 804463,
+        "ppid": 803122,
+        "start_ticks": 110708820
+      },
+      "remaining_children": [],
+      "elapsed_seconds": 4.14729599095881
+    }
+  ],
+  "cleanup_errors": [],
+  "tool": {
+    "path": "/workspace/tmp/pix-m7-mkdcdisc-20261014-01/scratch/work/build/mkdcdisc",
+    "bytes": 819816,
+    "sha256": "242f66606943e8f56edffe9a2404faed6dbdfdbd128c19f569c7da1f13ac35fc"
+  },
+  "disc": {
+    "path": "/workspace/tmp/pix-m7-mkdcdisc-20261014-01/scratch/Tetris2-M7.cdi",
+    "bytes": 740202281,
+    "sha256": "e4ff051cccb1f37d1260edaf9a6b57257e51b8c920f92bb4319db73ca04197d7"
+  },
+  "artifacts": {
+    "LICENSE": {
+      "bytes": 1506,
+      "sha256": "401de7e6c57323f469ee02f2671401d11656ae237d5cb787be9fe0adffe8c9e6"
+    },
+    "THIRD-PARTY-NOTICES.md": {
+      "bytes": 9770,
+      "sha256": "ea6941b45d396fc72022313beb0a047402f33e63214181262837e8d72b2f4ebf"
+    },
+    "Tetris2-BSD-3-Clause.txt": {
+      "bytes": 1479,
+      "sha256": "9469dfde81bf47499d29238569530eada409e2e0e23992d4a3a6f4090413bde8"
+    },
+    "Tetris2-M7.cdi": {
+      "bytes": 740202281,
+      "sha256": "e4ff051cccb1f37d1260edaf9a6b57257e51b8c920f92bb4319db73ca04197d7"
+    },
+    "mkdcdisc": {
+      "bytes": 819816,
+      "sha256": "242f66606943e8f56edffe9a2404faed6dbdfdbd128c19f569c7da1f13ac35fc"
+    }
+  },
+  "final_resources": {
+    "monotonic": 1107092.764964266,
+    "logical_private_bytes": 792873145,
+    "files": 1073,
+    "cgroup": {
+      "memory.max": "4294967296",
+      "memory.swap.max": "0",
+      "memory.oom.group": "1",
+      "memory.current": "937197568",
+      "memory.peak": "2253901824",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+      "cpu.max": "100000 100000",
+      "cpu.stat": "usage_usec 14484543\nuser_usec 12559876\nsystem_usec 1924666\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 168\nnr_throttled 1\nthrottled_usec 37\nnr_bursts 0\nburst_usec 0",
+      "pids.max": "128",
+      "pids.current": "1"
+    }
+  },
+  "final_census": {
+    "signals": [],
+    "reaped": [],
+    "remaining_children": []
+  },
+  "final_cgroup": {
+    "memory.max": "4294967296",
+    "memory.swap.max": "0",
+    "memory.oom.group": "1",
+    "memory.current": "937197568",
+    "memory.peak": "2253901824",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+    "cpu.max": "100000 100000",
+    "cpu.stat": "usage_usec 14495859\nuser_usec 12566147\nsystem_usec 1929711\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 169\nnr_throttled 1\nthrottled_usec 37\nnr_bursts 0\nburst_usec 0",
+    "pids.max": "128",
+    "pids.current": "1"
+  },
+  "elapsed_seconds": 17.082808695966378
+}

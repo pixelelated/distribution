@@ -1,0 +1,83 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T204343Z-b7a72fc6",
+  "disposition": "qualified",
+  "expected_rc": 0,
+  "outputs": [
+    {
+      "issue": 588,
+      "kind": "build-cache",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/build.pixelelated-GENERIC_X64.x86_64",
+      "release_when": "Immediately queued assembled-image qualification and required corresponding-source custody accepted"
+    },
+    {
+      "issue": 588,
+      "kind": "firmware",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/release",
+      "release_when": "Clean and retained-storage engineering qualification and compact image/source record accepted; review next immediate consumer"
+    },
+    {
+      "issue": 588,
+      "kind": "firmware",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/target",
+      "release_when": "Clean and retained-storage engineering qualification and compact image/source record accepted; review next immediate consumer"
+    },
+    {
+      "issue": 493,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.doc_cache",
+      "release_when": "Original results consumed and compact build records retained; generated staging no longer needed"
+    },
+    {
+      "issue": 493,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.es_cache",
+      "release_when": "Original results consumed and compact build records retained; generated staging no longer needed"
+    },
+    {
+      "issue": 493,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs",
+      "release_when": "Original results consumed and compact build records retained; generated staging no longer needed"
+    },
+    {
+      "issue": 493,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-engineering-build-20261014-01",
+      "release_when": "Original results consumed and compact evidence retained; preserve required corresponding-source inputs"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-engineering-build-20261014-01/completed-readback.json",
+      "sha256": "f94baa8598b741780460f0672b3e1534ca15e2ebc472d07f9f2e4f5140295196"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-engineering-build-20261014-01/owner-result.json",
+      "sha256": "6ea1d882ebc98dccad491c41b3bbec47d2247f2c4b794443daecd6e80423b0aa"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-engineering-build-20261014-01/resource-result.json",
+      "sha256": "b2323a2284e20677a4dc690ef428a7efc1ca96716441473a3e4802ba2bb4d692"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-engineering-build-20261014-01/launcher-result.json",
+      "sha256": "2275f4bf76f83b21184956120f9f30d22620b5f71a665bfc3fbb786e7e7aa10f"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-engineering-build-20261014-01/inner.rc",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-engineering-build-20261014-01/tool-wrapper.rc",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T204343Z-b7a72fc6/runner-result.json",
+      "sha256": "4c352fb880ea95d1e084411fcdd5c92ad1d948074d416d96663991ee13b4fc80"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T204343Z-b7a72fc6/build.status",
+      "sha256": "08a735b663fa8389ef93ba41976152acabc8fbb0d6ce3b1349f4ff4a47bf7d50"
+    }
+  ]
+}

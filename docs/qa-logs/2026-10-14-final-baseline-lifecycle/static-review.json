@@ -1,0 +1,33 @@
+{
+  "status": "SOURCE_ONLY_UNRUN",
+  "python_ast": {
+    "census.py": {
+      "sha256": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2",
+      "bytes": 2865
+    },
+    "close.py": {
+      "sha256": "3dffc70188c54b08650ec95a34d3209b7ed95c9f6c2b4ac8f6fe76cf7c999a35",
+      "bytes": 4754
+    },
+    "prepare.py": {
+      "sha256": "2ac07468279880b888cbba1318de3db39093b4d35d76d8732b9debdaf9033db2",
+      "bytes": 7591
+    },
+    "run.py": {
+      "sha256": "837b3cda94c0762e456e85aee395f049f712bf880c74dbc69763eeeb0276dac7",
+      "bytes": 16336
+    }
+  },
+  "fixture_product_imports": false,
+  "runtime_vm_backend_container_compiler_build_executed": false,
+  "source_or_shared_records_edited": false,
+  "original_tools_unchanged": true,
+  "notes": [
+    "Existing 15 standard rows plus SFTP/S3 once; no opt-in RA/link cases",
+    "Dynamic completed verifier and package/ES source pin bindings",
+    "Qualified unchanged census.py with subreaper/pidfd cleanup",
+    "Actual wait status separate from timeout; original report PASS/SKIP parsing",
+    "Unique backend ownership checked before unchanged down helpers",
+    "No peer or runtime qualification claimed"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-14T22:08:03.487576+00:00",
+  "reviewer": "coordinator/root",
+  "scope": "Actual completed final source/bytecompile/native provenance only; no runtime or clean-state claim",
+  "original_receipt_sha256": "6df70f0e5179161f3c12cbb894a3806d136f5404951dec791aa087224cc533e9",
+  "checked": [
+    "35original evidence hashes and sizes",
+    "exact112source manifest and45emittedpycs",
+    "original install309 DONE/nestedBUILD/45compileall lines and reviewed fail-fast source chain",
+    "pre/staged/final24allocated ELF sections equal and finalbytes match independentimageverifier"
+  ],
+  "limits": [
+    "Nestedbuild/compileall0 inferred; no standalonewait",
+    "Originalstripexitunknown",
+    "No bytecode import or native execution in this readback"
+  ],
+  "pids_absent": [
+    824486,
+    824487,
+    824488,
+    824540
+  ]
+}

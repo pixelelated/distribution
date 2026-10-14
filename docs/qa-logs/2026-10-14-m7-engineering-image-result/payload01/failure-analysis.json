@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-14T21:59:36.372442+00:00",
+  "result": "FAILED original2 preserved",
+  "update_original_exit": 0,
+  "install_original_exit": 2,
+  "owner_original_exit": 2,
+  "pids_absent": [
+    781103,
+    781104,
+    781105,
+    781158
+  ],
+  "cause": "Wrapper PATH excludes /usr/sbin and /sbin. Actual host sfdisk/e2fsck/debugfs in /usr/sbin; state checker turns missing command into input-invalid. No install policy verdict or source-chain execution.",
+  "source_original_sha256": "423e0807ad74d54aa60dda4c1b81032b91e556c0b978000c59f75e1d8a8e8e4e",
+  "independent_review": "proxy_native_build source/host-location readback agrees; no replay."
+}

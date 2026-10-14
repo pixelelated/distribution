@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "category": "input-invalid",
+      "count": 0,
+      "path": "<input>",
+      "status": "error"
+    }
+  ],
+  "error_count": 1,
+  "limitations": [
+    "not a whole-image or arbitrary-secret scan",
+    "no generic compiled GamesDB key detection or service identity provenance",
+    "no custom ES system paths, environment overrides, external media or arbitrary archives",
+    "no interpretation of operation success, bytes transferred, actor or metadata origin",
+    "scrub epoch bounds do not establish origin; clock steps can cause refusal",
+    "retained-upgrade permits runtime state; it does not prove upgrade preservation"
+  ],
+  "policy": "pixelelated-selected-state-v1",
+  "schema": 1,
+  "scope": [
+    "selected system, ES, RetroArch, standalone account files and recovery siblings",
+    "rclone configuration and active selection; cloud device identity and activity cache",
+    "exact zero-work startup scrub marker with first-boot proc epoch bounds",
+    "gamelist.xml under selected ES/config/ROM roots; playcount and lastplayed only",
+    "known QA name prefixes, proxy state, token files and RetroArch history playlists",
+    "ES ELF known compiled ScreenScraper/RetroAchievements URL-pair patterns; only the exact NUL-delimited shared JELOS developer pair is allowed (#566)",
+    "img.gz: supported two-partition image and empty storage seed policy"
+  ],
+  "status": "error"
+}

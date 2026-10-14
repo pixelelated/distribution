@@ -1,0 +1,39 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T220044Z-db34c9e3",
+  "disposition": "qualified",
+  "expected_rc": 0,
+  "outputs": [
+    {
+      "issue": 588,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-02",
+      "release_when": "Original payload and source-chain evidence reviewed and compact records retained; private scratch retired after owner consumption."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-02/completed-readback.json",
+      "sha256": "266100e0445a033eb344cba72e454316eda73ff6bb8c53c9ec0c456426aa0974"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-02/update.json",
+      "sha256": "bf8a7d24686498f0e0ada59a753769ee8579536f5a7c0fddcee374dd51c8e030"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-02/install.json",
+      "sha256": "527856c95ee37b6c38175c1eede556bf8f4acac567cf999214c086e723dfa19c"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-02/shared-identity.stdout",
+      "sha256": "796f675206a1e9f27981449d5c4b06f2177d480a33d823adea6e38f868e4fdbe"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-02/launcher-result.json",
+      "sha256": "f77614657784c16d22e79f544f2a58d1af778e127afe93554348bad61e8c32c0"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T220044Z-db34c9e3/runner-result.json",
+      "sha256": "60c5fe3610955dfe45d8378e0073bb45f8241b3fa816aaf085313764c16215d1"
+    }
+  ]
+}

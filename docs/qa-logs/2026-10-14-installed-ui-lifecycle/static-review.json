@@ -1,0 +1,46 @@
+{
+  "status": "SOURCE_ONLY_UNRUN",
+  "python_ast": {
+    "census.py": {
+      "sha256": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2",
+      "bytes": 2865
+    },
+    "close.py": {
+      "sha256": "69b086346e63e8821a84f36e7b2173ba0973d3b9010eb30d2c6b24e5d16f7ace",
+      "bytes": 5017
+    },
+    "guest-postcheck.py": {
+      "sha256": "6698ad390ad0a3c76e846e37230e4df9708ff12d2c68a9e4440d2ceecb0886ab",
+      "bytes": 1817
+    },
+    "prepare.py": {
+      "sha256": "a2f0b3144108b974dc21d8c98093843194cfd2550f02ffaad185e8e4ca02dcdc",
+      "bytes": 6944
+    },
+    "vm-lifecycle.py": {
+      "sha256": "fa5af4d5224a35cfc1f637cbad904e946ad7f02e3f7e82189cb789b5545d4485",
+      "bytes": 17112
+    }
+  },
+  "original_packet_and_archive_byte_identity": true,
+  "fixture_or_product_imports": false,
+  "runtime_vm_browser_service_or_build_executed": false,
+  "product_shared_or_running_build_edits": false,
+  "review_scope": [
+    "canonical normal user-network QEMU argv, 4CPU/8GiB/default boot/16GiB minimum",
+    "original untouched clean proof precedes QA SSH key and marker",
+    "sealed original smoke and all immutable dependencies retained",
+    "real wait results and timeout indications separate; original record refusal outside mutation",
+    "qualified unchanged census.py, read-back subreaper, pidfd-only descendant cleanup, original waits and separately owned QEMU",
+    "export excludes private SSH key, guest raw config and browser profile",
+    "existing admission/runner/launcher schema compatibility"
+  ],
+  "limitations": [
+    "no independent peer approval claimed",
+    "runtime timing/output/resource behavior remains unrun",
+    "root allocates ports/host namespace after completed image readback",
+    "ordinary restoration comes from sealed smoke; hard failure may require disposal and is never PASS"
+  ],
+  "revision": "02",
+  "parent_manifest_sha256": "7527f36d896c090448268d3c4730ae36edfb3a7ac960473759b10ddfb5854c5d"
+}

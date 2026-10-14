@@ -1,0 +1,43 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T220836Z-eba592c9",
+  "disposition": "failed-investigated",
+  "expected_rc": 1,
+  "outputs": [
+    {
+      "issue": 588,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-installed-clean588-20261014-01/vm",
+      "release_when": "Original clean/proxy/owner/watch/stop receipts exported and reviewed, actual owners gone; consume admission then explicitly retire disk/media/UEFI."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-installed-clean588-evidence-20261014-01/analysis.json",
+      "sha256": "dcd3dbe19a42dcb5dbfd5459ac25e8a61b5b19119e0b15e9b4deade6fc827882"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-clean588-evidence-20261014-01/original-records.tar.gz",
+      "sha256": "95e250d631b8d596c0a5171c9421ee8b546698bd4f8c22b73deffa7feb1e8901"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-clean588-evidence-20261014-01/original-records.json",
+      "sha256": "b4106530fed8114999bbfa8eede526d9eede6ceca65bdcf235056a0f12808213"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-clean588-evidence-20261014-01/host-exits.json",
+      "sha256": "474df0341b5dafde98ec43e6261c646f3b37e5bb42f5801db23f9728254752d2"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-clean588-evidence-20261014-01/clean-report.json",
+      "sha256": "440ccf32424ca3cd6fe9dfad5bae857f4f46c88835bc0d720e7768697eb73d5b"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-clean588-evidence-20261014-01/marker-readback/marker.stdout",
+      "sha256": "92aace64ebcfc1ceebadee5d0e47fbda0af53b2c34984afc5330be9b8678cefd"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-clean588-evidence-20261014-01/marker-readback/result.json",
+      "sha256": "04f7f8d0a18c84e31eb274119a45a9d4418a117fdcc5773a1334bfff0243754c"
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "status": "PASS",
+  "distribution_commit": "d6a87f05c1935516115b2cca1af22151a0209224",
+  "startup_source_sha256": "432bb07ac6b0abcdcb38800d7c75a92c768b2b6bea583a1bab6834bb7f7b0d00",
+  "prepared_python_files": 112,
+  "package_task": "install",
+  "package_sequence": "309",
+  "package_task_original_exit": 0,
+  "package_build_original_exit": 0,
+  "package_build_exit_basis": "inferred nested scripts/build success through original install309 DONE0, fresh BUILD log and reviewed unguarded fail-fast call chain; no standalone build wait",
+  "python_compile_original_exit": 0,
+  "python_compile_exit_basis": "inferred original compileall success through install309 DONE0, exact reviewed set-e call chain, all45 original Compiling lines and emitted pycs; no independent child wait claimed",
+  "standalone_build_wait_recorded": false,
+  "standalone_compileall_wait_recorded": false,
+  "final_files_match_image_verification": true,
+  "post_strip_rchash_sha256": "6c484a2947a5f2a7c187e60dd93de73593d5fa98d57309bfb4b5f07bf390220d",
+  "pins": {
+    "raofflineproxy": "c7ebd1b6e777f3751ff0ecdf8aba54045844e00d",
+    "rcheevos": "1433173220a7eaede6a9ed7a18e94117be1821e0",
+    "libchdr": "607694ca0812edfc9cc2030c64634fc2393668de"
+  },
+  "reviewed_source_to_bytecode_and_strip_chain": true,
+  "clean_ready_report_verified": false,
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/build-owner-result.json",
+      "bytes": 2014,
+      "sha256": "6ea1d882ebc98dccad491c41b3bbec47d2247f2c4b794443daecd6e80423b0aa"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/build-inputs.json",
+      "bytes": 1907,
+      "sha256": "e6ece3632d2cb118c53c3be111c5e764ed177dc352c010644385bc6ca1d26eb7"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/build-runner-result.json",
+      "bytes": 104,
+      "sha256": "4c352fb880ea95d1e084411fcdd5c92ad1d948074d416d96663991ee13b4fc80"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/image-inner-result.json",
+      "bytes": 1976,
+      "sha256": "8e2426d38a7959a7b3854b6d48813637ad7124c5998e1562fde289e4f3bc0a93"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/image-verification-original.json",
+      "bytes": 33912,
+      "sha256": "ceb051f88b91de761b1a128c6dc2f7c40cf0421293e8ac4f8aa3eac50e2e5272"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/raofflineproxy-package.mk",
+      "bytes": 8358,
+      "sha256": "e13f5bb22eae74c73ecb4141c3580f2627b9f8cfc317840656d90ed017e0f13d"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/raofflineproxy-build_target",
+      "bytes": 146,
+      "sha256": "bd518511c2a220a60a84eaea9f07f5e4af71af20fec0040eb326abd885249fb7"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/raofflineproxy-unpack-stamp",
+      "bytes": 118,
+      "sha256": "ed2d1d58cc70156c337fb83b07e3f228493fc5ec11f804063a7ed16829aa7768"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/clean-raofflineproxy-host-result.json",
+      "bytes": 131,
+      "sha256": "78b34b77897d1748d834e68b4083e8cda961cda203742ce692fc50a9670d5fd6"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/raofflineproxy-rcheevos-package.mk",
+      "bytes": 1394,
+      "sha256": "5921284cea44d2ea6ea560830bcef6ef15c760183f9de3a5db02853fe274e194"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/raofflineproxy-rcheevos-build_target",
+      "bytes": 155,
+      "sha256": "4bf87fbe29cf45ed0838c7ab8c9869375e52e27a227205389bf5846a0f944d3e"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/raofflineproxy-rcheevos-unpack-stamp",
+      "bytes": 127,
+      "sha256": "5bef2f0137b51d99c8ab22bedb1c3ec66ea396c959a243ffe1440912cf1467ca"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/clean-raofflineproxy-rcheevos-host-result.json",
+      "bytes": 140,
+      "sha256": "d63cb7dcbfd7a12f1a836e0c2a9f08a5a70e0d87aff4f853e5d7883cf2c97c66"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/raofflineproxy-libchdr-package.mk",
+      "bytes": 1409,
+      "sha256": "a9570c9a2633015af220fb7da564eeb5e2b79c943b2450eca7a7a27f2628ae43"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/raofflineproxy-libchdr-build_target",
+      "bytes": 154,
+      "sha256": "7be6ca15c5f8af2aa2359664086dec524da83d557fac4ed8406ad5c2cc06d12e"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/raofflineproxy-libchdr-unpack-stamp",
+      "bytes": 126,
+      "sha256": "8f0273455a1edfb24ac3f78a2e5413e8f0b0baeb49d57c7ba403768ab111732d"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/clean-raofflineproxy-libchdr-host-result.json",
+      "bytes": 139,
+      "sha256": "65ec4b4f7d8d738d0e246dc7bee4b8f6327eb0b37f02c95351af1770de1bd3b0"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/prepared112-actual.json",
+      "bytes": 12404,
+      "sha256": "82bd3725d04c72346d3221ec59e816ae9661baa01d4f7029723aad32eade2324"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/package-install-309.log",
+      "bytes": 15895,
+      "sha256": "1b34fb99dbba604353b7d573d2b0632d511f67f154a1283a577bd67bb1abdc32"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/package-jobs.json",
+      "bytes": 289,
+      "sha256": "df5033d19b49b73ce3429307b9ca7808009dc9f5e741713b18554df1896fba38"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/package-patches.json",
+      "bytes": 6749,
+      "sha256": "384b947f9162c9f1e492c8527ec452aae90a46b43e460dbe6dc5f67351b5913d"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/config-path",
+      "bytes": 2593,
+      "sha256": "5780f40c181faa27e4d797656c3f606f02c01ad8a6cf8dd733348134ded6637e"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/config-options",
+      "bytes": 6504,
+      "sha256": "6af86f70f5ab67dff4c316cf9ff731caa2cda9d985dcfa0f5e30f47211f83142"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/config-functions",
+      "bytes": 63830,
+      "sha256": "8424e64733fe6bc84839853d8dbf99c40cf5e9f60bcfb8e0eed882637bb633a3"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/scripts-install",
+      "bytes": 5797,
+      "sha256": "7fefd07feeeb0d3610a3877e3455cbed54d6fd65e3a93e373fa04d26bac80334"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/scripts-build",
+      "bytes": 24173,
+      "sha256": "91d9b9c65d97c0ddbaccf26f3e4338c23287873b7d00d74b6c5cd69c3fa8321b"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/scripts-pkgbuild",
+      "bytes": 2553,
+      "sha256": "8fcf717e911abe4a4dd6e6a0f76deb2bdd41d17a3b1acb2366eac43aaa7416e8"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/scripts-pkgbuilder.py",
+      "bytes": 36571,
+      "sha256": "ae6ef2891bf62606d67c224772679cef5e8425f883c1f8e2c650cefa497d8adc"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/tools-watch-build",
+      "bytes": 10146,
+      "sha256": "44a6d87505fd6a465c384d2f30bfeda5f4fe436978d227d8b0c4bae73da7e0bc"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/projects-ROCKNIX-packages-network-raofflineproxy-package.mk",
+      "bytes": 8358,
+      "sha256": "e13f5bb22eae74c73ecb4141c3580f2627b9f8cfc317840656d90ed017e0f13d"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/chain-binding.json",
+      "bytes": 3351,
+      "sha256": "ddea192882a531cd6560b0114c7ab9461eec3dd662254848b70cc6bf03b4566f"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/prepared112.expected.json",
+      "bytes": 13056,
+      "sha256": "a25e05588e008ffb80317d0162b614fa81153746a45a8dad671f1297506b2a87"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/emitted-pyc.json",
+      "bytes": 16438,
+      "sha256": "bfc4b4ba6ace54ec71708ba46f249d423320f23f4cff739161c33bdf2e0973a2"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/native-compiled-inputs.json",
+      "bytes": 17416,
+      "sha256": "e84fe12d9198f084b9b03d874de236785eb5b44f93313f2917e4797cd0a8f442"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/native-chain.json",
+      "bytes": 16813,
+      "sha256": "4a90a7138052b2703373f767a2d57dea9c768418ff86ce84405d8315e1514bbb"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/coordinator-review.json",
+      "bytes": 844,
+      "sha256": "56da62c57d63f798d20584276dd016e2bd40d445146ce0452c7162723b55e7bd"
+    }
+  ],
+  "scope": "Bounded final build readback; coordinator must verify original image verification and source/compile/strip evidence before setting PASS/reviewed. No bytecode decompile, recompilation or native runtime."
+}

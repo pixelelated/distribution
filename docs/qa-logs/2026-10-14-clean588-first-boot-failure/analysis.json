@@ -1,0 +1,21 @@
+{
+  "status": "FAIL",
+  "original_exit": 1,
+  "clean_helper_exit": 2,
+  "installed_588_case_executed": false,
+  "blocked_count": 1,
+  "error_count": 0,
+  "only_blocker": [
+    {
+      "category": "cloud-log-scrub-activity",
+      "count": 1,
+      "path": "/storage/.cache/cloud_sync/log-scrubbed",
+      "present": true,
+      "status": "blocked"
+    }
+  ],
+  "marker": "scrubbed=1792015744 files=1 lines=0\nes_log_scrubbed=1792015744 files=0 lines=0\n",
+  "finding": "files inspected is not lines redacted: actual cloud family files1/lines0 and ES files0/lines0; no-NIC startup cloud_device_id --if-present writes fixed no-adapter INFO before scrub. Live /var/log was volatile and is not retrospectively claimed observed. Narrow checker correction and fresh untouched boot required.",
+  "cleanup_errors": [],
+  "original_serial_sha256": "281f48cb6476170e733ec4084ed204254bd3ed4979611ce492fc96d05c446247"
+}

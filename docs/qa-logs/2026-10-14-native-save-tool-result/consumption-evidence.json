@@ -1,0 +1,45 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T220311Z-36685af4",
+  "disposition": "qualified",
+  "expected_rc": 0,
+  "outputs": [
+    {
+      "issue": 575,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-mkdcdisc-20261014-01/scratch",
+      "release_when": "Original build/author/scope/watcher channels reviewed and consumed; retain tool/CDI/licenses/inputs hashes before retiring private compilation and temporary authoring state."
+    },
+    {
+      "issue": 575,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-mkdcdisc-20261014-01/artifacts",
+      "release_when": "Tool and authored CDI retained for the pending installed native save fixture, then retire after that owner is consumed."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-mkdcdisc-evidence-20261014-01/original-records.tar.gz",
+      "sha256": "cee589369fd8857eb885f9c93eff36f29524cbbbbdb21f3d0ba2577dcb4ac925"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-mkdcdisc-evidence-20261014-01/original-records.json",
+      "sha256": "a8f6c9cf23422669074ead410f28a7f7c261584c7501717f9f08f4a53b510c3f"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-mkdcdisc-evidence-20261014-01/host-exits.json",
+      "sha256": "e252e21421f3ce9ddbd9afd8ebbc4f2d1672379848a715de6a31f879016ae832"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-mkdcdisc-evidence-20261014-01/export-result.json",
+      "sha256": "9e8e5861d0389d688dc07a83c15925bc73fb1b2d254f8a842af886132c659464"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-mkdcdisc-20261014-01/owner-result.json",
+      "sha256": "69c8a250d4722f623a39e1222b829ee3990c72159b27132748652d10a9bab527"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-mkdcdisc-20261014-01/work-result.json",
+      "sha256": "69824abb6b72208a0614db9ad450baafcd54b6e963e6b2a83a134aa5f82fca45"
+    }
+  ]
+}

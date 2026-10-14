@@ -1,0 +1,51 @@
+{
+  "status": "SOURCE_ONLY_UNRUN",
+  "validation": "AST/hash/schema/source review only; no packet program or fixture import executed",
+  "files": [
+    {
+      "path": "census.py",
+      "bytes": 2865,
+      "sha256": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2",
+      "ast_python310": "PASS"
+    },
+    {
+      "path": "close.py",
+      "bytes": 8510,
+      "sha256": "86855aed8d08a936e76102e9cc61530723693d14f0119c8667bc2c03054255f0",
+      "ast_python310": "PASS"
+    },
+    {
+      "path": "prepare.py",
+      "bytes": 8287,
+      "sha256": "3e1c54ad86c9e38613433b52cfa8a84bdf92ce5069e7a41270d7fc6f91fedff3",
+      "ast_python310": "PASS"
+    },
+    {
+      "path": "run-guest.py",
+      "bytes": 12495,
+      "sha256": "2f4d399695f5da3d2349a38afcd0cbb0be331d91923e1f1c52c320753acf315b",
+      "ast_python310": "PASS"
+    },
+    {
+      "path": "vm-lifecycle.py",
+      "bytes": 13050,
+      "sha256": "98958d20309a718af550966c72d33fe9abbb06dfea745caadb22483cc64c11b7",
+      "ast_python310": "PASS"
+    }
+  ],
+  "checks": {
+    "five_python_asts": true,
+    "original_adapter_all21_members_equal": true,
+    "original_adapter_inner_seal_verified": true,
+    "qualified_census_byte_equal": true,
+    "source_originals_archive_readback": true,
+    "original_worker240_retained": true,
+    "actual_verifier_and_source_receipt_fields_reviewed": true
+  },
+  "work_seconds": 2100,
+  "host_cleanup_seconds": 150,
+  "guest_wrapper_work_seconds": 420,
+  "guest_wrapper_cleanup_seconds": 90,
+  "original_fixture_command_seconds": 310,
+  "remaining": "Root review, completed final source/custody, allocation, guest execution and original exit/evidence review. No independent reviewer or runtime PASS claimed."
+}

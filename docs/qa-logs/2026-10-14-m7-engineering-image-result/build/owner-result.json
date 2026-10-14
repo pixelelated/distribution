@@ -1,0 +1,87 @@
+{
+  "status": "PASS",
+  "stages": [
+    {
+      "stage": "clean-emulationstation",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    },
+    {
+      "stage": "clean-raofflineproxy-rcheevos",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    },
+    {
+      "stage": "clean-raofflineproxy-libchdr",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    },
+    {
+      "stage": "clean-raofflineproxy",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    },
+    {
+      "stage": "clean-gstreamer",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    },
+    {
+      "stage": "clean-rclone",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    },
+    {
+      "stage": "clean-rocknix",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    },
+    {
+      "stage": "clean-dolphin-sa",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    },
+    {
+      "stage": "qt6",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    },
+    {
+      "stage": "dolphin-sa",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    },
+    {
+      "stage": "image",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    }
+  ],
+  "cleanup": [],
+  "signals": [],
+  "surviving_host_command_groups": {
+    "12741": [],
+    "13440": [],
+    "13734": [],
+    "14045": [],
+    "14787": [],
+    "15090": [],
+    "15814": [],
+    "16116": [],
+    "16421": [],
+    "445194": [],
+    "492297": []
+  },
+  "elapsed_seconds": 4320.487165831029
+}

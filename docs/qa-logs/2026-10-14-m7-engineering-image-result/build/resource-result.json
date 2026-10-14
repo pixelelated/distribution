@@ -1,0 +1,23 @@
+{
+  "errors": [],
+  "all_threads_exited": true,
+  "status": "PASS",
+  "host_sample_count": 863,
+  "allocation_sample_count": 9,
+  "maximum_observed_allocated_bytes_by_root": {
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/build.pixelelated-GENERIC_X64.x86_64": 125592436736,
+    "/workspace/cache/rocknix-sources": 68200853504,
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/target": 4245250048,
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/release": 0,
+    "/workspace/tmp/pix-m7-engineering-build-20261014-01": 14426112
+  },
+  "incomplete_disk_sample_count": 0,
+  "disk_peak_limit": "sampled maxima with scan durations; not continuous or atomic peaks; maxima during incomplete samples are unknown",
+  "minimum_host_mem_available_bytes": 49237041152,
+  "maximum_total_minus_available_bytes": 16139010048,
+  "minimum_swap_free_bytes": 2015449088,
+  "swap_page_deltas": {
+    "pswpin": 646,
+    "pswpout": 349182
+  }
+}

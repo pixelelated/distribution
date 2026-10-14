@@ -1,0 +1,39 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T215822Z-27de46bd",
+  "disposition": "failed-investigated",
+  "expected_rc": 2,
+  "outputs": [
+    {
+      "issue": 588,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-01",
+      "release_when": "Original payload and source-chain evidence reviewed and compact records retained; private scratch retired after owner consumption."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-01/failure-analysis.json",
+      "sha256": "b6afd84d284fcab6274d4299ffc91e7fb5ad478d095a8b3c25adecb6fa10059c"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-01/payload-check.original.sh",
+      "sha256": "423e0807ad74d54aa60dda4c1b81032b91e556c0b978000c59f75e1d8a8e8e4e"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-01/update.json",
+      "sha256": "bf8a7d24686498f0e0ada59a753769ee8579536f5a7c0fddcee374dd51c8e030"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-01/install.json",
+      "sha256": "79367d231e9f6a777646bb08836d8862d7074a3e2998362f8775a2b942ceddb3"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-01/launcher-result.json",
+      "sha256": "0f7dca37a10d9e5ca05c5e99c9a1eba1c44ddf50b54227933c833ebab21e786f"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T215822Z-27de46bd/runner-result.json",
+      "sha256": "45def29fe50ad3730188dfe083a15f64b9d8cc048a14f9c0e14d6defce34d34b"
+    }
+  ]
+}

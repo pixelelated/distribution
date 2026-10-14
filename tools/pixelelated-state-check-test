@@ -90,6 +90,18 @@ def scrub_marker(root, first=SCRUB_EPOCH + 10, second=SCRUB_EPOCH + 11,
                f"es_log_scrubbed={second} files={files2} lines={lines2}\n")
 
 
+def no_adapter_scrub(root, *, data=None, mtime=SCRUB_EPOCH + 9, **marker):
+    scrub_marker(root, files1=1, **marker)
+    # Public fixed diagnostic from cloud_device_id, with a synthetic calendar
+    # value. Its file mtime, not the fixture host's timezone, binds the boot.
+    normal = ("[2033-05-18 03:33:29] [INFO] [cloud_device_id] "
+              "no stored id and no adapter to derive one from yet; not seeding the identity "
+              "from machine-id at this caller's request (--if-present)\n")
+    log = put(root, "storage/.cache/log/cloud_sync.log", normal if data is None else data)
+    os.utime(log, ns=(mtime * 1000000000, mtime * 1000000000))
+    return log
+
+
 def alter_scrub(root, rewrite):
     path = scrub_marker(root)
     path.write_text(rewrite(path.read_text()))
@@ -263,6 +275,45 @@ def root_controls(work):
     case("scrub-zero-work-future", lambda r: scrub_marker(r, second=SCRUB_EPOCH + 102), 1, "log-scrub-outside-boot")
     case("scrub-zero-work-reversed-epochs", lambda r: scrub_marker(r, first=SCRUB_EPOCH + 12), 1, "log-scrub-outside-boot")
     case("scrub-cloud-files-present", lambda r: scrub_marker(r, files1=1), 1, "cloud-log-scrub-activity")
+    case("scrub-no-adapter-current-boot", no_adapter_scrub, clear="startup-no-adapter-log-scrub")
+    case("scrub-no-adapter-boot-boundary", lambda r: no_adapter_scrub(r, mtime=SCRUB_EPOCH),
+         clear="startup-no-adapter-log-scrub")
+    case("scrub-no-adapter-stale-log", lambda r: no_adapter_scrub(r, mtime=SCRUB_EPOCH - 1),
+         1, "log-scrub-outside-boot")
+    case("scrub-no-adapter-post-scrub-log", lambda r: no_adapter_scrub(r, mtime=SCRUB_EPOCH + 11),
+         1, "log-scrub-outside-boot")
+    case("scrub-no-adapter-stale-marker", lambda r: no_adapter_scrub(r, first=SCRUB_EPOCH - 1),
+         1, "log-scrub-outside-boot")
+    case("scrub-no-adapter-redactions", lambda r: no_adapter_scrub(r, lines1=1),
+         1, "cloud-log-scrub-activity")
+    case("scrub-no-adapter-es-history", lambda r: no_adapter_scrub(r, files2=1),
+         1, "cloud-log-scrub-activity")
+    case("scrub-no-adapter-other-content", lambda r: no_adapter_scrub(r, data=CANARY),
+         1, "cloud-log-scrub-activity")
+    def extra_no_adapter_line(root):
+        path = no_adapter_scrub(root)
+        path.write_bytes(path.read_bytes() + CANARY.encode() + b"\n")
+    case("scrub-no-adapter-extra-line", extra_no_adapter_line, 1, "cloud-log-scrub-activity")
+    def rotated_no_adapter(root):
+        no_adapter_scrub(root)
+        put(root, "storage/.cache/log/cloud_sync.log.1", CANARY)
+    case("scrub-no-adapter-rotation", rotated_no_adapter, 1, "cloud-log-scrub-activity")
+    def linked_no_adapter(root):
+        path = no_adapter_scrub(root)
+        path.rename(path.with_name("startup-log"))
+        path.symlink_to("startup-log")
+    case("scrub-no-adapter-linked-log", linked_no_adapter, 2)
+    case("scrub-no-adapter-unreadable-log", lambda r: no_adapter_scrub(r).chmod(0), 2)
+    def invalid_no_adapter_date(root):
+        path = no_adapter_scrub(root)
+        path.write_bytes(path.read_bytes().replace(b"2033-05-18", b"2033-99-99"))
+    case("scrub-no-adapter-malformed-date", invalid_no_adapter_date, 2)
+    def multiple_no_adapter_files(root):
+        no_adapter_scrub(root)
+        scrub_marker(root, files1=2)
+    case("scrub-no-adapter-multiple-files", multiple_no_adapter_files, 1, "cloud-log-scrub-activity")
+    case("scrub-no-adapter-clean-image-preseed", no_adapter_scrub, 1, "preseeded-log-scrub", "clean-image")
+    case("scrub-no-adapter-retained", no_adapter_scrub, category="retained-log-scrub", mode="retained-upgrade")
     case("scrub-es-files-present", lambda r: scrub_marker(r, files2=1), 1, "cloud-log-scrub-activity")
     case("scrub-changed-lines-present", lambda r: scrub_marker(r, lines2=1), 1, "cloud-log-scrub-activity")
     case("scrub-missing-family", lambda r: alter_scrub(r, lambda s: s.splitlines(keepends=True)[0]), 2)

@@ -1,0 +1,49 @@
+{
+  "admitted": "2026-10-14T21:58:22.377240+00:00",
+  "available_bytes": 2837274148864,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+  "consumed": "2026-10-14T21:59:36.414061+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+  "deleted_bytes": 0,
+  "evidence_sha256": "c25abba9f3340955d8a6f0f4da367cc450aa8c82ac3f90ae21989d0c81a9326c",
+  "id": "8214e62b39a84e64bb9bd0fa4699cbfd",
+  "original_result": {
+    "command_rc": 2,
+    "monitor_rc": 0,
+    "runner_rc": 2,
+    "utc": "2026-10-14T21:58:32.442403+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 588,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-01",
+      "release_when": "Original payload and source-chain evidence reviewed and compact records retained; private scratch retired after owner consumption."
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "acf945a519bf32c0feaabcc79ba6fb77b8e150fbbbcc4dd9d56eba15d46c2c42",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 34359738368,
+  "retention_plan_sha256": "f6c686a25ac637655b6c0f62e68042d8eecb47c5507e5203b9a41b4e203986de",
+  "retention_report_sha256": "0fde4076da366bc7b9fc96fa903e3647a1d44a87d97b89b9c3f5617a8b10a208",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T215822Z-27de46bd",
+  "runner_pid": 781104,
+  "runner_start": "110678625",
+  "source": {
+    "head": "d6a87f05c1935516115b2cca1af22151a0209224",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix-m7-payload-chain-20261014-01",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

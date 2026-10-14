@@ -1,0 +1,35 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T222221Z-74eec818",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 588,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-installed-clean588-20261014-02/vm",
+      "release_when": "Original clean/proxy/owner/watch/stop receipts exported and reviewed, actual owners gone; consume admission then explicitly retire disk/media/UEFI."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-installed-clean588-evidence-20261014-02/export-result.json",
+      "sha256": "c288df5f1b33240e8ebb78bca9effcc8120c6fd92b4de87441b70da9d1fe40cc"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-clean588-evidence-20261014-02/host-exits.json",
+      "sha256": "1136dcca3a6fbf3097576561c1a787e747fdd6d3f8337297ff4e8ea97cfaedbe"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-clean588-evidence-20261014-02/guest-manifest.json",
+      "sha256": "97a4d938fbd9488f67733443a76331b4960f8420187f631d4eb28c5feec8c27d"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-clean588-evidence-20261014-02/original-records.json",
+      "sha256": "ce0f256a7f97a4051a454dcedc46dcdcf69ed286471727cfcc14f321c50e4486"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-clean588-evidence-20261014-02/analysis.json",
+      "sha256": "f22408bc2d9ba7d2ac4715246e12870ac7f96144177407e56e74bb555cd86237"
+    }
+  ]
+}

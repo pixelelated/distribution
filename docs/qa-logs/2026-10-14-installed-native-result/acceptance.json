@@ -1,0 +1,35 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T221755Z-eab0bf3c",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 584,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-installed-native-20261014-01/vm",
+      "release_when": "Export original preparation/installed/descendant/host exits and tiny CHD; actual owners absent; coordinator consumes admission before retiring owned disk/media/UEFI."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-installed-native-evidence-20261014-01/export-result.json",
+      "sha256": "46287a8482c95be11527eab542b294a189307196603d88b50ab70a1bc814bb9b"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-native-evidence-20261014-01/host-exits.json",
+      "sha256": "75576bba7c08b4af43e491447977905e9b27b19d409a6b12f9a015c9e1b0e952"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-native-evidence-20261014-01/guest-manifest.json",
+      "sha256": "c2051b3955d152203f63e3be3e3e5349725cebc1d54713b2c9f04d44b767fd54"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-native-evidence-20261014-01/original-records.json",
+      "sha256": "e6c1cf82e44455e22807252729bb58e90c26705a8cccc94d26ccdf55acdb4bde"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-native-evidence-20261014-01/analysis.json",
+      "sha256": "c2a152bee23074d929c5e6c017061163a1af05d1f6345e5dc3dd4e6d94a343d9"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "status": "PREPARED_UNRUN",
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+  "commit": "d6a87f05c1935516115b2cca1af22151a0209224",
+  "es_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "vnc": 121,
+  "helper": "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+  "custody": {
+    "status": "PASS",
+    "distribution_commit": "d6a87f05c1935516115b2cca1af22151a0209224",
+    "es_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+    "reviewed_install_to_system_identity": true,
+    "build_run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T204343Z-b7a72fc6",
+    "image": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261014T204314Z.gd6a87f05c193-from-ROCKNIX.img.gz",
+      "sha256": "655ce3dc8b375cb2f30dbad2783e314a6882149727ef98b30f2147f0fe347509",
+      "raw_bytes": 4333764608
+    },
+    "system": {
+      "path": "/workspace/tmp/pix-m7-image-readback-20261014-01/artifacts/SYSTEM",
+      "sha256": "cca91bec2513aa32cfb713a81042acee720f12619bb66431019c7a76dc3eb6a0",
+      "root": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/build.pixelelated-GENERIC_X64.x86_64/image/system"
+    },
+    "boot_config": {
+      "path": "/workspace/tmp/pix-m7-image-readback-20261014-01/artifacts/syslinux.cfg",
+      "sha256": "0d7363c758454c63b449f04122495eff4b25482c4d6ab229e4e6808595ac37b0"
+    },
+    "source_receipt": {
+      "path": "/workspace/tmp/pix-m7-source-chain-20261014-01/source-chain/source-receipt.reviewed.json",
+      "sha256": "38fcbaf6ba55d270c8ebc1c6e5f409400fea7bf1fd503d24a65759a06cf09c05"
+    },
+    "update_report": {
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-02/update.json",
+      "sha256": "bf8a7d24686498f0e0ada59a753769ee8579536f5a7c0fddcee374dd51c8e030"
+    },
+    "install_report": {
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-02/install.json",
+      "sha256": "527856c95ee37b6c38175c1eede556bf8f4acac567cf999214c086e723dfa19c"
+    },
+    "image_verification": {
+      "path": "/workspace/tmp/pix-m7-image-readback-20261014-01/artifacts/result.json",
+      "sha256": "ceb051f88b91de761b1a128c6dc2f7c40cf0421293e8ac4f8aa3eac50e2e5272"
+    }
+  },
+  "custody_sha256": "e3d1c4b0da298d74b4859ae5175f79dd094ecfbf8c73999e87c62b68cedb61ad",
+  "tools": {
+    "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm": "5b058ed8a8b11135cd5997e3d925939baff30726033125acf1244863a756318d",
+    "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/profile.json": "26c420ecb0cc7aae29050554c55f522e62337cf6726619a59337c073f1c65406",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/tools/vm-serial": "1fed507a546a9c23fdc360012ccc6ffadc2793fabaa137ff2dc73141bdc2c921",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/tools/vm-stop": "2e4314cd63ff4f476c8ce1376e9f1ed262f2467789ec339b3855ddedc16213e8",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/tools/watch-build": "44a6d87505fd6a465c384d2f30bfeda5f4fe436978d227d8b0c4bae73da7e0bc",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/tools/watch-job": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/tools/watch-build-submit": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/tools/pixelelated-state-check-test": "d78d5a7c31a29ee2dfae966184ef91ab235cca4ce21afd9caacd49a7f9b2c01b",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/tools/pixelelated-state-check": "a0b03f17ed8493ec79a3dc33eefedeb7a00b20e06a70804b7653ee9f660e30a8",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/docs/qa-logs/2026-10-13-clean-state-565/run-first-boot.sh": "a49a0bb3f8b5ed937dafc7524c70e2ce9ce74e925478d421dc0f7e3a20e957da"
+  },
+  "code": {
+    "vm-lifecycle.py": "9b36a61fade3d0affeb77f70c7df1b7c6534707a007ea622bb8657370fd66f24",
+    "run-guest.py": "051091d2c2597f27789f09f6ace69685cede11fffad04e84c0088a83cb230b86",
+    "close.py": "a355236349397c6b6b3dc3090fe62956363dfccb19bd02b5b9a498e94e47fbf9"
+  },
+  "work_seconds": 900,
+  "cleanup_seconds": 90
+}

@@ -1,0 +1,133 @@
+{
+  "utc": "2026-10-14T21:56:11.387760+00:00",
+  "pids_absent": [
+    10955,
+    10956,
+    10957,
+    11011
+  ],
+  "stages": [
+    {
+      "stage": "clean-dolphin-sa",
+      "original_host_rc": 0,
+      "original_inner_rc": 0,
+      "wrapper_rc": 0,
+      "container": "c879e0365412d22a3e1f9d9d6efdddaad34280c6b38b8c3dc405776541bdca76",
+      "inspect_returncode": 1,
+      "absence_diagnostic": "error: no such object: c879e0365412d22a3e1f9d9d6efdddaad34280c6b38b8c3dc405776541bdca76",
+      "peak_memory_bytes": 14635008,
+      "oom_kill": 0
+    },
+    {
+      "stage": "clean-emulationstation",
+      "original_host_rc": 0,
+      "original_inner_rc": 0,
+      "wrapper_rc": 0,
+      "container": "756e3e6d07ca3e545b7b7db2ae83685b704e494b6642a9661ee51945a4a13f4c",
+      "inspect_returncode": 1,
+      "absence_diagnostic": "error: no such object: 756e3e6d07ca3e545b7b7db2ae83685b704e494b6642a9661ee51945a4a13f4c",
+      "peak_memory_bytes": 32485376,
+      "oom_kill": 0
+    },
+    {
+      "stage": "clean-gstreamer",
+      "original_host_rc": 0,
+      "original_inner_rc": 0,
+      "wrapper_rc": 0,
+      "container": "053c2bbce655a8ec57e5d5c359bd4d63f70f6189680c4d45e17c2d0cfce4a989",
+      "inspect_returncode": 1,
+      "absence_diagnostic": "error: no such object: 053c2bbce655a8ec57e5d5c359bd4d63f70f6189680c4d45e17c2d0cfce4a989",
+      "peak_memory_bytes": 14127104,
+      "oom_kill": 0
+    },
+    {
+      "stage": "clean-raofflineproxy",
+      "original_host_rc": 0,
+      "original_inner_rc": 0,
+      "wrapper_rc": 0,
+      "container": "6db944ed7d086d5d4a17c2579f8187203d68ed161bae1ab8a6732d5b241259bd",
+      "inspect_returncode": 1,
+      "absence_diagnostic": "error: no such object: 6db944ed7d086d5d4a17c2579f8187203d68ed161bae1ab8a6732d5b241259bd",
+      "peak_memory_bytes": 13889536,
+      "oom_kill": 0
+    },
+    {
+      "stage": "clean-raofflineproxy-libchdr",
+      "original_host_rc": 0,
+      "original_inner_rc": 0,
+      "wrapper_rc": 0,
+      "container": "f910da7ee116a8f277bd7f88d0a407d394d28d52229954f4cdb38547f18f6653",
+      "inspect_returncode": 1,
+      "absence_diagnostic": "error: no such object: f910da7ee116a8f277bd7f88d0a407d394d28d52229954f4cdb38547f18f6653",
+      "peak_memory_bytes": 14213120,
+      "oom_kill": 0
+    },
+    {
+      "stage": "clean-raofflineproxy-rcheevos",
+      "original_host_rc": 0,
+      "original_inner_rc": 0,
+      "wrapper_rc": 0,
+      "container": "91bf71b632dcee767df523dd7d287068ffd42d84ba84d269b72b4a51fb43131b",
+      "inspect_returncode": 1,
+      "absence_diagnostic": "error: no such object: 91bf71b632dcee767df523dd7d287068ffd42d84ba84d269b72b4a51fb43131b",
+      "peak_memory_bytes": 13824000,
+      "oom_kill": 0
+    },
+    {
+      "stage": "clean-rclone",
+      "original_host_rc": 0,
+      "original_inner_rc": 0,
+      "wrapper_rc": 0,
+      "container": "d6f52153267cd07c31c0571d1f5ba880af6d2bb0cc003b0eb915e58fa546d64d",
+      "inspect_returncode": 1,
+      "absence_diagnostic": "error: no such object: d6f52153267cd07c31c0571d1f5ba880af6d2bb0cc003b0eb915e58fa546d64d",
+      "peak_memory_bytes": 13615104,
+      "oom_kill": 0
+    },
+    {
+      "stage": "clean-rocknix",
+      "original_host_rc": 0,
+      "original_inner_rc": 0,
+      "wrapper_rc": 0,
+      "container": "bd14e7e094e64e6ed2f96a9110d7dcffd518c1db991d52e47426fa953ba896b3",
+      "inspect_returncode": 1,
+      "absence_diagnostic": "error: no such object: bd14e7e094e64e6ed2f96a9110d7dcffd518c1db991d52e47426fa953ba896b3",
+      "peak_memory_bytes": 14610432,
+      "oom_kill": 0
+    },
+    {
+      "stage": "dolphin-sa",
+      "original_host_rc": 0,
+      "original_inner_rc": 0,
+      "wrapper_rc": 0,
+      "container": "2e15b94be8c3f566574c079af27102ebb0a024dc66beef421a17accf3f451e03",
+      "inspect_returncode": 1,
+      "absence_diagnostic": "error: no such object: 2e15b94be8c3f566574c079af27102ebb0a024dc66beef421a17accf3f451e03",
+      "peak_memory_bytes": 8060215296,
+      "oom_kill": 0
+    },
+    {
+      "stage": "image",
+      "original_host_rc": 0,
+      "original_inner_rc": 0,
+      "wrapper_rc": 0,
+      "container": "f8a68eab2a665f494be6d22369d22b909b07167d92ccc9b0a21e214f31f95b89",
+      "inspect_returncode": 1,
+      "absence_diagnostic": "error: no such object: f8a68eab2a665f494be6d22369d22b909b07167d92ccc9b0a21e214f31f95b89",
+      "peak_memory_bytes": 30337138688,
+      "oom_kill": 0
+    },
+    {
+      "stage": "qt6",
+      "original_host_rc": 0,
+      "original_inner_rc": 0,
+      "wrapper_rc": 0,
+      "container": "b7a407b81b1480993acaa1e41baec872b4f55ba782e560c31b920ff16f12b4ee",
+      "inspect_returncode": 1,
+      "absence_diagnostic": "error: no such object: b7a407b81b1480993acaa1e41baec872b4f55ba782e560c31b920ff16f12b4ee",
+      "peak_memory_bytes": 16673763328,
+      "oom_kill": 0
+    }
+  ],
+  "accepted_scope": "Original compilation completion and resource/cleanup contract only; final image and runtime qualification remain separate."
+}

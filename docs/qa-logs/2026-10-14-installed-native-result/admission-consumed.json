@@ -1,0 +1,49 @@
+{
+  "admitted": "2026-10-14T22:17:55.801292+00:00",
+  "available_bytes": 2836528263168,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+  "consumed": "2026-10-14T22:19:14.572252+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+  "deleted_bytes": 0,
+  "evidence_sha256": "fae463f109bda7329154ad45ebe90dc64d6c3c9cef5b5486f0f021d6e9ca4ce5",
+  "id": "2ea3ef4c6ee540c4b4dd617f4b8156da",
+  "original_result": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-14T22:18:40.987483+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 584,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-installed-native-20261014-01/vm",
+      "release_when": "Export original preparation/installed/descendant/host exits and tiny CHD; actual owners absent; coordinator consumes admission before retiring owned disk/media/UEFI."
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "8aae51b154350bfcb17ff7835552824514be2dfcfcbc7282b2d6e3942b3f91fc",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 34963718144,
+  "retention_plan_sha256": "740a49d6a237c14a244942d1f3413be3b049d33d71c4d80997a0bd9aca6d1f4e",
+  "retention_report_sha256": "2e918c14be10f57521312d33eeac04ec07dbfd080ac4ac653eafb39d87d0b433",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T221755Z-eab0bf3c",
+  "runner_pid": 871370,
+  "runner_start": "110795967",
+  "source": {
+    "head": "d6a87f05c1935516115b2cca1af22151a0209224",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix-m7-installed-native-20261014-01/lifecycle-owner",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

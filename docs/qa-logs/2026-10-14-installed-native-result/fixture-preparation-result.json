@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "scope": "deterministic fixture preparation only",
+  "calls": [
+    {
+      "argv": [
+        "/tmp/pix-input/installed-native/inputs/writer",
+        "/run/pix-installed-native/preparation/writer-files"
+      ],
+      "pid": 1963,
+      "process_group": 1963,
+      "returncode": 0,
+      "timed_out": false,
+      "elapsed": 0.31463732899999997,
+      "executable_sha256": "6a663a88b8eb2c573cf92ebb361f2d6c0dd20b2400e20f3c60ddd684eb7b6aed"
+    },
+    {
+      "argv": [
+        "/tmp/pix-input/installed-native/inputs/chdman-closure/ld-linux-x86-64.so.2",
+        "--library-path",
+        "/tmp/pix-input/installed-native/inputs/chdman-closure/lib",
+        "/tmp/pix-input/installed-native/inputs/chdman-closure/chdman",
+        "createcd",
+        "-i",
+        "/run/pix-installed-native/preparation/writer-files/saturn.cue",
+        "-o",
+        "/run/pix-installed-native/preparation/saturn.chd",
+        "-c",
+        "none",
+        "-np",
+        "1"
+      ],
+      "pid": 1972,
+      "process_group": 1972,
+      "returncode": 0,
+      "timed_out": false,
+      "elapsed": 0.015732349000000312,
+      "executable_sha256": "ce676fd2c523729f7660bfaf1e34f7c221cb70bb7c238feb8ffd46c9bc00ff29"
+    }
+  ],
+  "fixtures": {
+    "synthetic.iso": {
+      "sha256": "83c6dacc46797bc7d4bdcb4aa2dd253c290316c07c4cda8f6ca1afb889c44121",
+      "bytes": 393216
+    },
+    "dolphin-none.rvz": {
+      "sha256": "4526c1597cf8f2c00a236796fcf5433ce56a81d7d4a157f4ae75f58a307bc48f",
+      "bytes": 159504
+    },
+    "dolphin-zstd.rvz": {
+      "sha256": "bb3c40134d089fdcf97502f2cff30db9f3b7073ddd61c39adb993a2d24b4d2b9",
+      "bytes": 33268
+    },
+    "saturn.chd": {
+      "sha256": "00c0dde6752938cf74d815fd5ca37df00a2da4b483284c003f0408f30fefe88b",
+      "bytes": 39168
+    }
+  }
+}

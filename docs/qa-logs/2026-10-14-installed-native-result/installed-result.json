@@ -1,0 +1,535 @@
+{
+  "status": "PASS",
+  "scope": "installed bytecode/native ISO/NONE/Zstd/CHD continuation; no gameplay or Wii AES data proof",
+  "hashes": [
+    {
+      "name": "synthetic.iso",
+      "sha256": "83c6dacc46797bc7d4bdcb4aa2dd253c290316c07c4cda8f6ca1afb889c44121",
+      "candidates": [
+        "118545082f24fc195a446d1ee7bbf816"
+      ],
+      "error": null
+    },
+    {
+      "name": "dolphin-none.rvz",
+      "sha256": "4526c1597cf8f2c00a236796fcf5433ce56a81d7d4a157f4ae75f58a307bc48f",
+      "candidates": [
+        "118545082f24fc195a446d1ee7bbf816"
+      ],
+      "error": null
+    },
+    {
+      "name": "dolphin-zstd.rvz",
+      "sha256": "bb3c40134d089fdcf97502f2cff30db9f3b7073ddd61c39adb993a2d24b4d2b9",
+      "candidates": [
+        "118545082f24fc195a446d1ee7bbf816"
+      ],
+      "error": null
+    },
+    {
+      "name": "saturn.chd",
+      "sha256": "00c0dde6752938cf74d815fd5ca37df00a2da4b483284c003f0408f30fefe88b",
+      "candidates": [
+        "4cd9c8e41cd8d137be15bbe6a93ae1d8"
+      ],
+      "error": null
+    }
+  ],
+  "verification_sha256": "ceb051f88b91de761b1a128c6dc2f7c40cf0421293e8ac4f8aa3eac50e2e5272",
+  "system": {
+    "bytes": 2073112576,
+    "sha256": "cca91bec2513aa32cfb713a81042acee720f12619bb66431019c7a76dc3eb6a0"
+  },
+  "source": "d6a87f05c1935516115b2cca1af22151a0209224",
+  "es_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "boot_id": "d72ab4d6-0403-4d86-a3e8-727acbfcd94c",
+  "pid": 1975,
+  "preparation_sha256": "6b8a4e39bd418c130efaea7025f0ef03d280aa9dc0a0c869c3e4feadd53ff4d7",
+  "library_names": {
+    "rchash": "libraproxy_rchash.so",
+    "zstd": "libzstd.so.1",
+    "crypto": "libcrypto.so.3"
+  },
+  "modules": {
+    "raofflineproxy": {
+      "path": "/usr/lib/python3.14/site-packages/raofflineproxy/__init__.pyc",
+      "sha256": "566e3e650d785f969bc634728dc327f8a67f76784fa26374279d260dbcb816b2"
+    },
+    "raofflineproxy.native_codecs": {
+      "path": "/usr/lib/python3.14/site-packages/raofflineproxy/native_codecs.pyc",
+      "sha256": "ca3a4d8264d9cd6c286160a8cb7351f8a73451409d2a8d88be5e797b9d5d857a"
+    },
+    "raofflineproxy.rom_hashing": {
+      "path": "/usr/lib/python3.14/site-packages/raofflineproxy/rom_hashing.pyc",
+      "sha256": "c5164554539843de5928d411f5432a589407ddf98657952236f4830753a2cf68"
+    },
+    "raofflineproxy.rvz_datasource": {
+      "path": "/usr/lib/python3.14/site-packages/raofflineproxy/rvz_datasource.pyc",
+      "sha256": "c2f8053db96b46ff51316032e0c2aeb0a16aecde655805f387fe60e615397978"
+    }
+  },
+  "installed": {
+    "etc/os-release": {
+      "bytes": 710,
+      "sha256": "6ed9c64ec54f0275653a8a0a63ecddad422d071799190362c3dbbf7e71f33034",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/etc/os-release",
+        "links": []
+      }
+    },
+    "usr/bin/python3": {
+      "bytes": 14304,
+      "sha256": "1324452a1b3437ef26e0d39794ede6fb7c1c2c0c5960a050feace157ffe50b33",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/python3.14",
+        "links": [
+          {
+            "path": "/usr/bin/python3",
+            "target": "python3.14"
+          }
+        ]
+      }
+    },
+    "usr/lib/libraproxy_rchash.so": {
+      "bytes": 390096,
+      "sha256": "6c484a2947a5f2a7c187e60dd93de73593d5fa98d57309bfb4b5f07bf390220d",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/libraproxy_rchash.so",
+        "links": []
+      }
+    },
+    "usr/lib/libzstd.so.1": {
+      "bytes": 659232,
+      "sha256": "8526c748a90b34d9872159fdd311071ed1c391c879b41295848282fcace4e2f4",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/libzstd.so.1.5.7",
+        "links": [
+          {
+            "path": "/usr/lib/libzstd.so.1",
+            "target": "libzstd.so.1.5.7"
+          }
+        ]
+      }
+    },
+    "usr/lib/libcrypto.so.3": {
+      "bytes": 6181168,
+      "sha256": "66d713b67c3d811ab73894b294ff40d7985a3273d26f493bdc9f59b79f2e2f77",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libcrypto.so.3",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/__init__.pyc": {
+      "bytes": 279,
+      "sha256": "566e3e650d785f969bc634728dc327f8a67f76784fa26374279d260dbcb816b2",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/__init__.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/auth.pyc": {
+      "bytes": 5971,
+      "sha256": "04c4cce4335d1b5e25ed4632126ac582433af42b9aa4c9753c77db901c0043da",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/auth.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/award_signing.pyc": {
+      "bytes": 2582,
+      "sha256": "870c5e772c6c38c65a2fe8821af0a95b6ac513d56b0a0a7492153d75b4e2245c",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/award_signing.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/batocera_conf.pyc": {
+      "bytes": 9498,
+      "sha256": "e13ea0f8a94c2590ec284d6708efcca55a230814cd1393ab01634f9867c87bd2",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/batocera_conf.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/boot.pyc": {
+      "bytes": 4086,
+      "sha256": "7aac3bc7ab3954b84b44281f270b60ee38a0fae51b27a19fcf0530dcd05f4226",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/boot.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/cache_budget.pyc": {
+      "bytes": 8044,
+      "sha256": "bf07a9babe2a7a3b0e0c15e2f2f962db9a30c3370c4e4323fa6e9d75c13d07d5",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/cache_budget.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/cache_keys.pyc": {
+      "bytes": 6173,
+      "sha256": "15e554208db8ac2185ad55ce4ca27791d8d50c2645bd3cc8719600de9cc06630",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/cache_keys.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/cache_queue.pyc": {
+      "bytes": 16252,
+      "sha256": "1092159fd9f64565f133ea27e31438a49fe47472dec277cb656df3a773d090f9",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/cache_queue.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/config.pyc": {
+      "bytes": 28252,
+      "sha256": "7d4d78e451332042ec28c068939d42c9af23b69210d7353c462c0a9940f695ea",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/config.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/darkos_service.pyc": {
+      "bytes": 13223,
+      "sha256": "88cd85a0aca686cd0942991b434d1b58012875c3ea0f4e940f9761826c6c8b5c",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/darkos_service.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/dolphin_cfg.pyc": {
+      "bytes": 9376,
+      "sha256": "89419439276367d380c43c001c5d9a24ade8b145e650e04de1f5f8808b534455",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/dolphin_cfg.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/es_export.pyc": {
+      "bytes": 5035,
+      "sha256": "5b4f2a3a37decf1a1847e57e1eb8ad9a9f48c0925ab4875a792cf4aa9aa842e8",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/es_export.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/flusher.pyc": {
+      "bytes": 23155,
+      "sha256": "bd83b2a034abfd0022d1ddc29e2b8c11f0632641b624f3d48899c2d54ba7cb47",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/flusher.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/game_meta.pyc": {
+      "bytes": 4032,
+      "sha256": "a6eb6366545e20ed5d20e2befd77dd0d52df23cbdd1171324a787baff8292160",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/game_meta.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/image_cache.pyc": {
+      "bytes": 25659,
+      "sha256": "afce22a2afc67b2a8214cde959f7b587b05c975a6e90b52e6841677f65b4275e",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/image_cache.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/knulli_service.pyc": {
+      "bytes": 4476,
+      "sha256": "4de7c687b70347a7fa46f3de26e831c63b1b41c4ebc1aaf9c29c4d7ade5285aa",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/knulli_service.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/last_played.pyc": {
+      "bytes": 4455,
+      "sha256": "8fafd64d87c5771b13fdaa1cf40c54d7329377eb1f7665beb31baa2cbcfb7a63",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/last_played.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/log_uploader.pyc": {
+      "bytes": 20856,
+      "sha256": "57b887f92c7e496640827b0810b97c41bd5ea6ec3ad1f3da6c854b63a4ed1465",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/log_uploader.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/lowerdeck.pyc": {
+      "bytes": 6523,
+      "sha256": "5f45d7f58a38c3810afb7b6548195490ec95640e2c553505bdb446ffafd584e8",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/lowerdeck.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/main.pyc": {
+      "bytes": 41810,
+      "sha256": "8f736b2540c8ffa682b3a3d3e1a393fd482f196b646ac0a5e67c7fc91663734b",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/main.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/menu_input.pyc": {
+      "bytes": 5198,
+      "sha256": "8d3e59d5f7dccfa77046bb7eaf1f0af1b56b62439394e980622230550e7f1cb6",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/menu_input.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/menu_sdl.pyc": {
+      "bytes": 174624,
+      "sha256": "e3d1561d38027fbbebebd1898655bc31fce3faed31dacd651e0058a2441917a1",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/menu_sdl.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/native_codecs.pyc": {
+      "bytes": 8926,
+      "sha256": "ca3a4d8264d9cd6c286160a8cb7351f8a73451409d2a8d88be5e797b9d5d857a",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/native_codecs.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/network.pyc": {
+      "bytes": 33602,
+      "sha256": "c7285011a638cfed76ec0195ea3f06fb2a9b55f5336486b02801b7736b630ab8",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/network.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/pending_awards.pyc": {
+      "bytes": 8957,
+      "sha256": "ae451225b48ad40bb76fb06d9689153c69427f937226d972a1bf23b68cb492c6",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/pending_awards.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/platform.pyc": {
+      "bytes": 24948,
+      "sha256": "81a7945a8b078a248692b38431b6c966638a91f0ddffeda2b677408a7758f948",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/platform.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/ppsspp_cfg.pyc": {
+      "bytes": 9668,
+      "sha256": "6e5f460d53129c6483c825ae64a4b238a71527bf8c8e284bab36c04066816804",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/ppsspp_cfg.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/proxy_service.pyc": {
+      "bytes": 81816,
+      "sha256": "b6951e3015337407b43ea42d715646c4ae552ea0c547a7f7b52eba564ac2b28e",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/proxy_service.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/rate_limit.pyc": {
+      "bytes": 3655,
+      "sha256": "55054583b217079586d3c90b118597e3aa9d46908b7c0e640b6adbcdef0282aa",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/rate_limit.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/retroarch_cfg.pyc": {
+      "bytes": 31410,
+      "sha256": "d2404488ba6fe79a08d583813871640c7dcf344cea11d2fcdfe357218adc3219",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/retroarch_cfg.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/rom_browser.pyc": {
+      "bytes": 71953,
+      "sha256": "8f64842d6313237d6da0efa59d644d0efbffc5bf9910c3a01350061f5c70be6d",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/rom_browser.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/rom_cache.pyc": {
+      "bytes": 25900,
+      "sha256": "d927394f2d4bc627f6f092d031d7399351b7ad4260d519f296c28f51ca45ba24",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/rom_cache.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/rom_hashing.pyc": {
+      "bytes": 14300,
+      "sha256": "c5164554539843de5928d411f5432a589407ddf98657952236f4830753a2cf68",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/rom_hashing.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/rvz_datasource.pyc": {
+      "bytes": 41939,
+      "sha256": "c2f8053db96b46ff51316032e0c2aeb0a16aecde655805f387fe60e615397978",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/rvz_datasource.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/service.pyc": {
+      "bytes": 20457,
+      "sha256": "02b4e38ca427b9f630bf56d8e23382d9297dcb4f37eb02214b217b304d6ad07a",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/service.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/smart_cache.pyc": {
+      "bytes": 39461,
+      "sha256": "bd5792bb3f370e0325b1d0432d1cac50266a9e1e294a11b7ee251580c74a2181",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/smart_cache.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/state.pyc": {
+      "bytes": 8732,
+      "sha256": "eab1660a54673d276f4fb7e3d0eabbd127ecc868c458a8dbd2ade42f6f47c0de",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/state.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/storage.pyc": {
+      "bytes": 78516,
+      "sha256": "99e14148a1ac9f80d8dd005c6433982eb02f4bc4508dd28747ff3538c2b31d29",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/storage.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/storage_corruption.pyc": {
+      "bytes": 4074,
+      "sha256": "ed14fcf0fe2c155fbce9cc3bb9ff69d925e0d3628d5fd03963f196c9c7c81661",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/storage_corruption.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/ui.pyc": {
+      "bytes": 22535,
+      "sha256": "66dc726cb7203f556ed8959fdfcd0295babc96ebdd31bf2a9d9cd5b9aa0d0418",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/ui.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/update.pyc": {
+      "bytes": 40444,
+      "sha256": "0088b2164067c9e6d6be019376e41432b61d9411af069a6c6b11a56dddb9d02d",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/update.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/usage_report.pyc": {
+      "bytes": 11759,
+      "sha256": "7c72676553759ad4c90f6ef47cc5b045978dc55a21a77b35b19971aa1745ec37",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/usage_report.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/usage_stats.pyc": {
+      "bytes": 22490,
+      "sha256": "7e5993266737d003ac4d0c00becc374d10d5a9b7ce2333cb23b0bae7dc6edec9",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/usage_stats.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/utils.pyc": {
+      "bytes": 8151,
+      "sha256": "577a6432626ec8f1078a3fb3a8c155b92a677be48452b1117559bd74fe52fbc4",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/utils.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/watch_folders.pyc": {
+      "bytes": 11788,
+      "sha256": "88dea0d23e26dfabc75af73d614b7d7bb94d4444de7ef99c9112416234fd47c6",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/watch_folders.pyc",
+        "links": []
+      }
+    }
+  },
+  "native_maps_sha256": "007e4d71050e9187033f6396e3f2b28baf6930e3643d5ebd9f7194cda365c770",
+  "elapsed": 0.05816386400000084
+}

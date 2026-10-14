@@ -59,7 +59,7 @@ SERVICE = {"client_id", "client_secret"}
 QA_NAME = re.compile(r"^(?:qa[-_]|\.qa[-_]|pixelelated-qa|rocknix-qa|test-fixture)", re.I)
 SCOPE = ["selected system, ES, RetroArch, standalone account files and recovery siblings",
          "rclone configuration and active selection; cloud device identity and activity cache",
-         "exact zero-work startup scrub marker with first-boot proc epoch bounds",
+         "zero-redaction startup scrub marker; only the exact current-boot no-adapter diagnostic may be inspected",
          "gamelist.xml under selected ES/config/ROM roots; playcount and lastplayed only",
          "known QA name prefixes, proxy state, token files and RetroArch history playlists",
          "ES ELF known compiled ScreenScraper/RetroAchievements URL-pair patterns; "
@@ -75,6 +75,14 @@ LOCALE_ALIAS = "/usr/config/emulationstation/locale"
 LOCALE_SHARED = "/usr/share/locale"
 LOCALE_RUNTIME = "/storage/.config/locale"
 SCRUB_MARKER = "/storage/.cache/cloud_sync/log-scrubbed"
+SCRUB_STARTUP_LOG = "/storage/.cache/log/cloud_sync.log"
+# cloud_device_id --if-present intentionally logs this before autostart when
+# no adapter exists yet (#151/D-NET-005). FILES counts inspected files, not
+# redactions; one such current-boot diagnostic is not prior player activity.
+NO_ADAPTER_DIAGNOSTIC = (
+    b"no stored id and no adapter to derive one from yet; not seeding the identity "
+    b"from machine-id at this caller's request (--if-present)"
+)
 
 
 class Invalid(Exception):
@@ -226,7 +234,7 @@ class Local:
         require(self.info(path)[0] == "dir")
         return sorted(p.name for p in self.resolve(path).iterdir())
 
-    def read(self, path, limit=LIMIT):
+    def read(self, path, limit=LIMIT, *, with_mtime=False):
         info = self.info(path)
         require(info and info[0] == "file" and info[1] <= limit)
         fd = os.open(self.resolve(path), os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
@@ -238,7 +246,7 @@ class Local:
         require(len(data) <= limit and len(data) == after.st_size)
         require((before.st_ino, before.st_size, before.st_mtime_ns, before.st_ctime_ns) ==
                 (after.st_ino, after.st_size, after.st_mtime_ns, after.st_ctime_ns))
-        return data
+        return (data, after.st_mtime_ns) if with_mtime else data
 
     def boot_window(self):
         # These two proc files have st_size=0 while containing kernel data, so
@@ -435,11 +443,33 @@ class Check:
             require(marker is not None)
             first, files1, lines1, second, files2, lines2 = map(int, marker.groups())
             work = int(bool(files1 or lines1)) + int(bool(files2 or lines2))
-            if work:
+            if work and (files1, lines1, files2, lines2) != (1, 0, 0, 0):
                 return {"cloud-log-scrub-activity": work}
             start, end = self.fs.boot_window()
             if not start <= first <= second <= end:
                 return {"log-scrub-outside-boot": 1}
+            if work:
+                info = self.fs.info(SCRUB_STARTUP_LOG)
+                if info is None:
+                    return {"cloud-log-scrub-activity": work}
+                require(info[0] == "file" and self.fs.link(SCRUB_STARTUP_LOG) is None)
+                # No rotation, partial scrub, extra line or arbitrary clean log
+                # gets this exception. ES logs remain covered by files2 == 0.
+                family = [name for name in self.fs.children("/storage/.cache/log")
+                          if name == "cloud_sync.log" or name.startswith("cloud_sync.log.")]
+                log, mtime = self.fs.read(SCRUB_STARTUP_LOG, 4096, with_mtime=True)
+                line = re.fullmatch(rb"\[([0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2})\] "
+                                    rb"\[INFO\] \[cloud_device_id\] " +
+                                    re.escape(NO_ADAPTER_DIAGNOSTIC) + rb"\n", log)
+                if family != ["cloud_sync.log"] or line is None:
+                    return {"cloud-log-scrub-activity": work}
+                datetime.strptime(line[1].decode("ascii"), "%Y-%m-%d %H:%M:%S")
+                # The log has no timezone suffix. Do not borrow the host's TZ
+                # to date an offline root: use the stable file read's epoch
+                # mtime, from this boot and no later than the scrub's second.
+                if not start * 1000000000 <= mtime < (first + 1) * 1000000000:
+                    return {"log-scrub-outside-boot": 1}
+                return {"startup-no-adapter-log-scrub": 0}
             return {"startup-log-scrub": 0}
         if kind == "gamelist":
             root = xml(data, "gameList")

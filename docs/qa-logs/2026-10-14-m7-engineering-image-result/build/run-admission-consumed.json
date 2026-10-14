@@ -1,0 +1,85 @@
+{
+  "admitted": "2026-10-14T20:43:43.560521+00:00",
+  "available_bytes": 2861560205312,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+  "consumed": "2026-10-14T21:56:11.431592+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+  "deleted_bytes": 0,
+  "evidence_sha256": "8aacf323602b712d17b58197b593d41088c5ee18b477fd7246ab3f167171928d",
+  "id": "b97f7e5e8026436db0ba508217b9688f",
+  "original_result": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-14T21:55:46.802654+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 588,
+      "kind": "build-cache",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/build.pixelelated-GENERIC_X64.x86_64",
+      "release_when": "Immediately queued assembled-image qualification and required corresponding-source custody accepted"
+    },
+    {
+      "issue": 588,
+      "kind": "firmware",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/release",
+      "release_when": "Clean and retained-storage engineering qualification and compact image/source record accepted; review next immediate consumer"
+    },
+    {
+      "issue": 588,
+      "kind": "firmware",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/target",
+      "release_when": "Clean and retained-storage engineering qualification and compact image/source record accepted; review next immediate consumer"
+    },
+    {
+      "issue": 493,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.doc_cache",
+      "release_when": "Original results consumed and compact build records retained; generated staging no longer needed"
+    },
+    {
+      "issue": 493,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.es_cache",
+      "release_when": "Original results consumed and compact build records retained; generated staging no longer needed"
+    },
+    {
+      "issue": 493,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs",
+      "release_when": "Original results consumed and compact build records retained; generated staging no longer needed"
+    },
+    {
+      "issue": 493,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-engineering-build-20261014-01",
+      "release_when": "Original results consumed and compact evidence retained; preserve required corresponding-source inputs"
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "c239642b39924c8c96e1c948612765dbb61fc3841d7e4d77d431f87e37b95aad",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 260713832448,
+  "retention_plan_sha256": "9183bb141785c8b92373e560fa306f186aef9f9cc7f996d3d0aa90f9054c3d3f",
+  "retention_report_sha256": "a63c5ee729482a4ae5b5471a2c860e814efdf31aadbe8abe58b0dcb814552872",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T204343Z-b7a72fc6",
+  "runner_pid": 10956,
+  "runner_start": "110230743",
+  "source": {
+    "head": "d6a87f05c1935516115b2cca1af22151a0209224",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix-m7-engineering-build-20261014-01",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

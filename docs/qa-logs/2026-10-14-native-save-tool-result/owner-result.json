@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "original_scope_returncode": 0,
+  "timed_out": false,
+  "cleanup": [],
+  "argv": [
+    "systemd-run",
+    "--user",
+    "--scope",
+    "--unit=pix-m7-mkdcdisc-20261014-01.scope",
+    "--property=MemoryMax=4294967296",
+    "--property=MemorySwapMax=0",
+    "--property=CPUQuota=100%",
+    "--property=TasksMax=128",
+    "--property=OOMPolicy=kill",
+    "--property=RuntimeMaxSec=800",
+    "/usr/bin/python3",
+    "-I",
+    "-S",
+    "-B",
+    "/workspace/tmp/pix-m7-mkdcdisc-20261014-01/work.py"
+  ],
+  "scope_client_identity": {
+    "pid": 803122,
+    "start_ticks": 110707565
+  },
+  "remaining_scope_pids": [],
+  "elapsed_seconds": 17.404983944958076
+}

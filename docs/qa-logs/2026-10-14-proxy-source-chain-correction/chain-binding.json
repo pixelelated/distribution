@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "distribution_commit": "d6a87f05c1935516115b2cca1af22151a0209224",
+  "prepared112_sha256": "a25e05588e008ffb80317d0162b614fa81153746a45a8dad671f1297506b2a87",
+  "original_producer_sha256": "5c457b0cba75143869044d3154c2685be4730f4bb5630e06d534cf13393881b3",
+  "source_roots": {
+    "linux/raofflineproxy": 45,
+    "linux/tests": 67
+  },
+  "chain_files": {
+    "config/path": {
+      "sha256": "5780f40c181faa27e4d797656c3f606f02c01ad8a6cf8dd733348134ded6637e",
+      "reviewed_line_spans": [
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    "config/options": {
+      "sha256": "6af86f70f5ab67dff4c316cf9ff731caa2cda9d985dcfa0f5e30f47211f83142",
+      "reviewed_line_spans": [
+        [
+          38,
+          39
+        ],
+        [
+          184,
+          185
+        ]
+      ]
+    },
+    "config/functions": {
+      "sha256": "8424e64733fe6bc84839853d8dbf99c40cf5e9f60bcfb8e0eed882637bb633a3",
+      "reviewed_line_spans": [
+        [
+          1257,
+          1268
+        ],
+        [
+          1400,
+          1416
+        ]
+      ]
+    },
+    "scripts/install": {
+      "sha256": "7fefd07feeeb0d3610a3877e3455cbed54d6fd65e3a93e373fa04d26bac80334",
+      "reviewed_line_spans": [
+        [
+          8,
+          14
+        ],
+        [
+          40,
+          52
+        ]
+      ]
+    },
+    "scripts/build": {
+      "sha256": "91d9b9c65d97c0ddbaccf26f3e4338c23287873b7d00d74b6c5cd69c3fa8321b",
+      "reviewed_line_spans": [
+        [
+          7,
+          13
+        ],
+        [
+          485,
+          492
+        ],
+        [
+          596,
+          614
+        ]
+      ]
+    },
+    "scripts/pkgbuild": {
+      "sha256": "8fcf717e911abe4a4dd6e6a0f76deb2bdd41d17a3b1acb2366eac43aaa7416e8",
+      "reviewed_line_spans": [
+        [
+          7,
+          20
+        ],
+        [
+          60,
+          79
+        ]
+      ]
+    },
+    "scripts/pkgbuilder.py": {
+      "sha256": "ae6ef2891bf62606d67c224772679cef5e8425f883c1f8e2c650cefa497d8adc",
+      "reviewed_line_spans": [
+        [
+          24,
+          57
+        ],
+        [
+          285,
+          353
+        ],
+        [
+          723,
+          730
+        ]
+      ]
+    },
+    "tools/watch-build": {
+      "sha256": "44a6d87505fd6a465c384d2f30bfeda5f4fe436978d227d8b0c4bae73da7e0bc",
+      "reviewed_line_spans": [
+        [
+          87,
+          95
+        ]
+      ]
+    },
+    "projects/ROCKNIX/packages/network/raofflineproxy/package.mk": {
+      "sha256": "e13f5bb22eae74c73ecb4141c3580f2627b9f8cfc317840656d90ed017e0f13d",
+      "reviewed_line_spans": [
+        [
+          116,
+          127
+        ]
+      ]
+    }
+  },
+  "original_package_job": {
+    "original_line": "DONE 309 10 install raofflineproxy:target 9.6062 1.7511 72 15.6969 1792014726.4726 1792014742.1694 /workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/.threads/logs/309.log",
+    "task": "install",
+    "sequence": "309",
+    "log_sha256": "1b34fb99dbba604353b7d573d2b0632d511f67f154a1283a577bd67bb1abdc32"
+  },
+  "basis": "DONE309 records the original pkgbuild/install subprocess result. Its fresh BUILD and compileall log plus exact reviewed unguarded install-to-build, makeinstall_target, python_compile calls under config/path set-e support inferred nested build/compileall success; no standalone wait receipt exists."
+}

@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "original_exit": 0,
+  "scope": "untouched clean default boot and installed startup reconnect service; no real accounts/providers",
+  "clean_report_sha256": "8b9fb33eb09c42609ebe96498de430b75c0cced4a3b8ae7d67f061b63fe14a9e",
+  "installed_payload_sha256": "1f3461f9238cfb21ff692c0cddd7684f4161e4d6a5e8a2dbe3b1aabe48a574b3",
+  "initial_probe_online": false,
+  "online_probes": 2,
+  "probe_interval_seconds": 18.029838701000003,
+  "flush_calls": 1,
+  "peer_applied": 1,
+  "pending_after": 0,
+  "installed_identity_unchanged": true,
+  "controller_restored": true,
+  "service_wait_statuses": [
+    "0",
+    "0"
+  ],
+  "owner_seconds": 26.009865616999996,
+  "lifecycle_seconds": 96.1552665233612,
+  "limitations": [
+    "Existing source_pins_verified:false retained in original fixture; separate completed source-chain review binds final native/package inputs.",
+    "Outer VM watchdog/resources used; no per-service kernel memory cap claimed.",
+    "Synthetic fixture only; no physical device or real provider exercise."
+  ]
+}

@@ -241,7 +241,7 @@ def main():
                   'usr/lib/autostart/daemons/006-raofflineproxy', 'usr/bin/systemctl',
                   'usr/lib/systemd/systemd', 'usr/lib/libzstd.so.1',
                   'usr/lib/libcrypto.so.3', 'usr/lib/libsystemd.so.0',
-                  'usr/bin/cloud-signin-window', 'usr/bin/rclone',
+                  'usr/bin/cloud-signin-window', 'usr/bin/rclone', 'usr/bin/busybox',
                   'usr/bin/gst-inspect-1.0', 'usr/lib/gstreamer-1.0/gst-plugin-scanner',
                   'usr/lib/gstreamer-1.0/libgstopengl.so',
                   'usr/lib/libgstcontroller-1.0.so.0', 'usr/lib/libgstreamer-1.0.so.0',
