@@ -1,0 +1,35 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T223438Z-d3641943",
+  "expected_rc": 1,
+  "disposition": "failed-investigated",
+  "outputs": [
+    {
+      "issue": 567,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-installed567-20261014-02/vm",
+      "release_when": "Export/review original clean, fixture, worker, ES, peer, owner, monitor and stop exits; owners absent; consume admission before exact disk/media/UEFI retirement."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-installed567-evidence-20261014-02/export-result.json",
+      "sha256": "784d266f22ee8fbf6879bfc98a3fdeb290ec750b2afc83368b8f935efac9796c"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed567-evidence-20261014-02/host-exits.json",
+      "sha256": "08b8190304b8580abcc5314a447c2b18be72b7b6cf6850d4d28b9d4ea6e37e1a"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed567-evidence-20261014-02/guest-readback.json",
+      "sha256": "93a1159bc3017efa1ed4205e99197d4c7c05d44a7e2439d9736437420f2f7192"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed567-evidence-20261014-02/original-host-records.json",
+      "sha256": "766b170f729e74f4e471df49dbc07ccec1e0ebfcc5ddd0a22930634369726a3b"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed567-evidence-20261014-02/analysis.json",
+      "sha256": "5a3ca3f00bf643d3d54d457692fdb33edd4657bc5b5c37baef2539b1655527a1"
+    }
+  ]
+}

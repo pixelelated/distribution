@@ -1,0 +1,35 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T223725Z-3f0b1484",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 565,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-retained20-20261014-02/vm",
+      "release_when": "Export and review original four phases/backup-child/update/host exits; actual owners absent; consume admission before retiring exact disk/input media/UEFI and private synthetic state."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-retained20-evidence-20261014-02/export-result.json",
+      "sha256": "c611ff2a39cac467350fa72d94453193960c8e213fdf035c19d7b8017164868f"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-retained20-evidence-20261014-02/host-exits.json",
+      "sha256": "bfa008d5bd6c769be1897be74aa2e2e48ff4c1e0eba1681485d1cdcbe71a138b"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-retained20-evidence-20261014-02/guest-manifest.json",
+      "sha256": "9a8487c4f9830a5806f485f4af1e71d7fcaaaef91acf6095c6a9a4a9c7cb7e68"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-retained20-evidence-20261014-02/original-records.json",
+      "sha256": "19fbb198b87f93464c56101151e2bfde6e0a145783ebfb2c2f8c26688afe0260"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-retained20-evidence-20261014-02/analysis.json",
+      "sha256": "0be9c8547a6e72b3b9e534ba30e53b5c11af62a2dd4e56f12d5790477d08485e"
+    }
+  ]
+}

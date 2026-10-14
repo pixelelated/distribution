@@ -1,0 +1,49 @@
+{
+  "admitted": "2026-10-14T22:25:53.790779+00:00",
+  "available_bytes": 2836521648128,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+  "consumed": "2026-10-14T22:31:38.600433+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+  "deleted_bytes": 0,
+  "evidence_sha256": "257c14a7491dc1c7bbfc1c0897930de393ea42814f7967c600c8b3b4d4b0f572",
+  "id": "e2138380e1384841a87e0d6e36e9cbb0",
+  "original_result": {
+    "command_rc": 1,
+    "monitor_rc": 0,
+    "runner_rc": 1,
+    "utc": "2026-10-14T22:28:44.688554+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 565,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-retained20-20261014-01/vm",
+      "release_when": "Export and review original four phases/backup-child/update/host exits; actual owners absent; consume admission before retiring exact disk/input media/UEFI and private synthetic state."
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "a203f230a14b40aa8b57ba275a405ad97b807e7b4e4ef71c078afc7a5ee8608a",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 37691064320,
+  "retention_plan_sha256": "7e22b227c09fdb04fc882505557695e61a67b9fedc51b49c4bb14e6816089bfe",
+  "retention_report_sha256": "4cade084178de516232f1d38b716d767f3b31baa4746e2b6767793d092fc5087",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T222553Z-a5673ef1",
+  "runner_pid": 915128,
+  "runner_start": "110843766",
+  "source": {
+    "head": "d6a87f05c1935516115b2cca1af22151a0209224",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix-m7-retained20-20261014-01/lifecycle-owner",
+  "volume": "/workspace",
+  "volume_device": 66304
+}
