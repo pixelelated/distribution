@@ -68,3 +68,26 @@ dolphin-build stage, admissiona1f27c627dc24d32b0870c3aa96dbbf0. Its existing
 07:00:54UTC family deadline,4GiB memory/no swap,2CPU and6GiB sampled scratch
 limit remain. This entry records the start, not completion. See the saved
 session checkpoint for current status. No retained source/toolchain mutation.
+
+## Compilation finished; original wrapper failure retained
+
+At06:28:54UTC the original submission returned1. All831 compile/link steps
+returned0 in703.295seconds, producing14,000,048-byte DolphinTool SHA256
+f36a2c5f2f31e961ce605cc1c762f1e839f1880a0b1feeba4e09a1fccaa90d5b.
+Container memory peak765,542,400bytes; no OOM or monitor error. Cleanup PASS,
+watchdog0, host owners exited, admission consumed failed-investigated.
+
+The final generated-file guard rejected two expected upstream byproducts:
+Flatpak/org.DolphinEmu.dolphin-emu.metainfo.xml (empty→2605bytes) and
+Source/Core/Common/scmrev.h (empty→261bytes). Root CMakeLists777–805 creates
+empty placeholders then declares dolphin_scmrev BYPRODUCTS; ScmRevGen.cmake
+populates both at build time. Other73 configured files are unchanged. Coordinator
+readback also verifies all13,424 source bytes/modes and exact file inventory.
+The original failure is retained under attempt04-build; no rebuild is planned.
+The source lane prepares narrow output recovery and ELF closure before the
+binary can be accepted for a VM invocation. No converter has executed.
+
+Superseded owner03 source/configuration scratch is now retired223,055,872bytes;
+all76 generated diagnostic/inventory files remain in a compact verified archive.
+Owner04 is stopped but retained for immediate output qualification. No active
+compiler/container/VM remains from this work.
