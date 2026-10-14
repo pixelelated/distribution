@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-14T19:06:27.327945+00:00",
+  "runtime_executed": false,
+  "copy_build_or_full_scan_executed_by_this_lane": false,
+  "results": [
+    {
+      "path": "build-owner.py",
+      "check": "ast.parse",
+      "result": "PASS"
+    },
+    {
+      "path": "host-resources.py",
+      "check": "ast.parse",
+      "result": "PASS"
+    },
+    {
+      "path": "inner-build.py",
+      "check": "ast.parse",
+      "result": "PASS"
+    },
+    {
+      "path": "measure-capacity.py",
+      "check": "ast.parse",
+      "result": "PASS"
+    },
+    {
+      "path": "prepare-owner.py",
+      "check": "ast.parse",
+      "result": "PASS"
+    },
+    {
+      "path": "prepare-plan.py",
+      "check": "ast.parse",
+      "result": "PASS"
+    },
+    {
+      "path": "copy-cache.sh",
+      "check": "bash -n",
+      "result": "PASS"
+    }
+  ],
+  "runtime_contracts_pending": "Coordinator first bounded clean stage validates actual Docker/cgroup/handshake and resource observer; this receipt proves syntax only"
+}
