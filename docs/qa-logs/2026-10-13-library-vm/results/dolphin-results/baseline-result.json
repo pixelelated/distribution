@@ -1,0 +1,86 @@
+{
+  "status": "EXPECTED_BASELINE_FAILURE",
+  "cases": [
+    {
+      "case": "gamecube-real-state",
+      "source_sha256": "e28886067a11e50f897fa3073f191801876bca68e69b8797ddf56c83ec6b9882",
+      "original_launcher_fragment_exit": 0,
+      "original_preservation_assertion_exit": 1,
+      "lost_or_replaced_paths": [
+        ".config/dolphin-emu/StateSaves/retained.state"
+      ],
+      "emulator_stub_calls": 1
+    },
+    {
+      "case": "gamecube-real-region",
+      "source_sha256": "e28886067a11e50f897fa3073f191801876bca68e69b8797ddf56c83ec6b9882",
+      "original_launcher_fragment_exit": 0,
+      "original_preservation_assertion_exit": 1,
+      "lost_or_replaced_paths": [
+        ".config/dolphin-emu/GC/USA/retained.gci"
+      ],
+      "emulator_stub_calls": 1
+    },
+    {
+      "case": "gamecube-card-conflict",
+      "source_sha256": "e28886067a11e50f897fa3073f191801876bca68e69b8797ddf56c83ec6b9882",
+      "original_launcher_fragment_exit": 0,
+      "original_preservation_assertion_exit": 1,
+      "lost_or_replaced_paths": [
+        ".config/dolphin-emu/GC/MemoryCardA.USA.raw"
+      ],
+      "emulator_stub_calls": 1
+    },
+    {
+      "case": "gamecube-real-shared-data",
+      "source_sha256": "e28886067a11e50f897fa3073f191801876bca68e69b8797ddf56c83ec6b9882",
+      "original_launcher_fragment_exit": 0,
+      "original_preservation_assertion_exit": 1,
+      "lost_or_replaced_paths": [
+        ".local/share/dolphin-emu/StateSaves/retained.state"
+      ],
+      "emulator_stub_calls": 1
+    },
+    {
+      "case": "wii-real-state",
+      "source_sha256": "b6cedc30a88cfbd8689678b629739fffb1d6024137c1e5c7440dfc6f64bfcb4b",
+      "original_launcher_fragment_exit": 0,
+      "original_preservation_assertion_exit": 1,
+      "lost_or_replaced_paths": [
+        ".config/dolphin-emu/StateSaves/retained.state"
+      ],
+      "emulator_stub_calls": 1
+    },
+    {
+      "case": "wii-real-region",
+      "source_sha256": "b6cedc30a88cfbd8689678b629739fffb1d6024137c1e5c7440dfc6f64bfcb4b",
+      "original_launcher_fragment_exit": 0,
+      "original_preservation_assertion_exit": 1,
+      "lost_or_replaced_paths": [
+        ".config/dolphin-emu/GC/USA/retained.gci"
+      ],
+      "emulator_stub_calls": 1
+    },
+    {
+      "case": "wii-card-conflict",
+      "source_sha256": "b6cedc30a88cfbd8689678b629739fffb1d6024137c1e5c7440dfc6f64bfcb4b",
+      "original_launcher_fragment_exit": 0,
+      "original_preservation_assertion_exit": 1,
+      "lost_or_replaced_paths": [
+        ".config/dolphin-emu/GC/MemoryCardA.USA.raw"
+      ],
+      "emulator_stub_calls": 1
+    },
+    {
+      "case": "wii-real-shared-data",
+      "source_sha256": "b6cedc30a88cfbd8689678b629739fffb1d6024137c1e5c7440dfc6f64bfcb4b",
+      "original_launcher_fragment_exit": 0,
+      "original_preservation_assertion_exit": 1,
+      "lost_or_replaced_paths": [
+        ".local/share/dolphin-emu/StateSaves/retained.state"
+      ],
+      "emulator_stub_calls": 1
+    }
+  ],
+  "runtime_boundary": "synthetic component only; mounts injected; no emulator"
+}

@@ -1,0 +1,30 @@
+{"case": "synthetic.iso", "version": "baseline", "rc": 0, "stdout": "118545082f24fc195a446d1ee7bbf816\n", "stderr": "", "timed_out": false, "binary_sha256": "6b8ea6fb7ec80f520a3a3c2811d36e2817c34f3ea6b3b74c25422f0de327a363", "source_commit": "a7dcdbb38009d8d2a81c7c2b4bc1d8c2d0d38a20", "fixture_sha256": "83c6dacc46797bc7d4bdcb4aa2dd253c290316c07c4cda8f6ca1afb889c44121", "expected_rc": 0, "expected_stdout": "118545082f24fc195a446d1ee7bbf816\n", "result": "PASS"}
+{"case": "none.rvz", "version": "baseline", "rc": 2, "stdout": "FAIL\n", "stderr": "", "timed_out": false, "binary_sha256": "6b8ea6fb7ec80f520a3a3c2811d36e2817c34f3ea6b3b74c25422f0de327a363", "source_commit": "a7dcdbb38009d8d2a81c7c2b4bc1d8c2d0d38a20", "fixture_sha256": "619520814570cc970ef3becdd23686389a332d4f99e4d8488860372f6f935608", "expected_rc": 2, "expected_stdout": "FAIL\n", "result": "PASS"}
+{"case": "packed-none.rvz", "version": "baseline", "rc": 2, "stdout": "FAIL\n", "stderr": "", "timed_out": false, "binary_sha256": "6b8ea6fb7ec80f520a3a3c2811d36e2817c34f3ea6b3b74c25422f0de327a363", "source_commit": "a7dcdbb38009d8d2a81c7c2b4bc1d8c2d0d38a20", "fixture_sha256": "18062e512925aac1cd75fadb95f6edb7dcdb3f5d399c0302a24ab34c7dfd0658", "expected_rc": 2, "expected_stdout": "FAIL\n", "result": "PASS"}
+{"case": "packed-zstd.rvz", "version": "baseline", "rc": 2, "stdout": "FAIL\n", "stderr": "", "timed_out": false, "binary_sha256": "6b8ea6fb7ec80f520a3a3c2811d36e2817c34f3ea6b3b74c25422f0de327a363", "source_commit": "a7dcdbb38009d8d2a81c7c2b4bc1d8c2d0d38a20", "fixture_sha256": "f1c92b3a38e0c671e64f6e1b7025df867372266a9d3c29a67fef22d345bcdba1", "expected_rc": 2, "expected_stdout": "FAIL\n", "result": "PASS"}
+{"case": "uppercase.RVZ", "version": "baseline", "rc": 2, "stdout": "FAIL\n", "stderr": "", "timed_out": false, "binary_sha256": "6b8ea6fb7ec80f520a3a3c2811d36e2817c34f3ea6b3b74c25422f0de327a363", "source_commit": "a7dcdbb38009d8d2a81c7c2b4bc1d8c2d0d38a20", "fixture_sha256": "f1c92b3a38e0c671e64f6e1b7025df867372266a9d3c29a67fef22d345bcdba1", "expected_rc": 2, "expected_stdout": "FAIL\n", "result": "PASS"}
+{"case": "mixed-zstd.rvz", "version": "baseline", "rc": 2, "stdout": "FAIL\n", "stderr": "", "timed_out": false, "binary_sha256": "6b8ea6fb7ec80f520a3a3c2811d36e2817c34f3ea6b3b74c25422f0de327a363", "source_commit": "a7dcdbb38009d8d2a81c7c2b4bc1d8c2d0d38a20", "fixture_sha256": "db6e10b6f006663d5562eee13d918dd39b5fb39bac7bd089e92e4a911c69a54a", "expected_rc": 2, "expected_stdout": "FAIL\n", "result": "PASS"}
+{"case": "ordinary.nes", "version": "baseline", "rc": 0, "stdout": "6d2fc9abd70a8d230dc90b972aa9a00e\n", "stderr": "", "timed_out": false, "binary_sha256": "6b8ea6fb7ec80f520a3a3c2811d36e2817c34f3ea6b3b74c25422f0de327a363", "source_commit": "a7dcdbb38009d8d2a81c7c2b4bc1d8c2d0d38a20", "fixture_sha256": "802ee3e2251ae4860760e1d3c0c8d3ab152c99da324876e0eb7493d9483a6ab1", "expected_rc": 0, "expected_stdout": "6d2fc9abd70a8d230dc90b972aa9a00e\n", "result": "PASS"}
+{"case": "empty.iso", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "short-magic.iso", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "short-apploader.iso", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "short-dol.iso", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "short-section.iso", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "bad-magic.rvz", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "short-header.rvz", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "short-second-header.rvz", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "short-container.rvz", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "bad-header-sha1.rvz", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "bad-second-sha1.rvz", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "unsupported-compression.rvz", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "unsupported-wii.rvz", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "oversized-chunk.rvz", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "oversized-raw-count.rvz", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "oversized-group-count.rvz", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "oversized-disc.rvz", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "group-outside-file.rvz", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "group-index-outside-table.rvz", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "packed-overflow.rvz", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "corrupt-zstd.rvz", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "section-outside-disc.iso", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}
+{"case": "section-outside-disc.rvz", "result": "SKIP", "reason": "old malformed-input behavior has no asserted contract"}

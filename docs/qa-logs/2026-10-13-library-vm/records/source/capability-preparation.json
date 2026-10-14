@@ -1,0 +1,12 @@
+{
+  "rc": 0,
+  "scope": "VM image does not ship GameCube; add only canonical SM8550/AMD64 declaration for UI proof; no native-emulator support claim",
+  "inputs": {
+    "config/emulators/gamecube.conf": "c6578e035879b5bdeb8b7ef49d51c51a69f0bb9f7d9df64f7fd0699d8a22ddb0",
+    "projects/ROCKNIX/packages/virtual/emulators/package.mk": "6854fffa68b06cc5d1cf86272d0936a4e835a95f873c0ad633f3c3e831a60431"
+  },
+  "original_systems_sha256": "f8f665849c7668ebbc0ab39d8ec5d910417b7290436453e8b3d91e064c1450ec",
+  "staged_systems_sha256": "432408843ffc50a44d61820b0a60e178e452d81ec312ce4b0c47aa4d82d6397b",
+  "installed": "432408843ffc50a44d61820b0a60e178e452d81ec312ce4b0c47aa4d82d6397b  /usr/config/emulationstation/es_systems.cfg\n588958bdafdf6060048688e49d8a7083c2ea084d19047e543c6984c2dc63f947  /usr/config/emulationstation/es_features.cfg\n93644274c719f2e34088a593cbb89ea36a2f733c2809dca59cb9b2c583f1a47a  /usr/config/emulationstation/es_savestates.cfg\n430a82e948948f1d895dd73d76bd831dd9089e0f61f1f1ef8479e556e72e7162  /usr/bin/runemu.sh\n",
+  "launch_events": ""
+}

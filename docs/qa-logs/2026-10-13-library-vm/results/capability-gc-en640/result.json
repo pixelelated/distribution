@@ -1,0 +1,10 @@
+{
+  "rc": 1,
+  "started": 1791933185.9187295,
+  "lang": "en_US",
+  "mode": "gc-auto",
+  "before": "8b0d8447-1537-4047-8c6c-360e345265ef\n5397\n8752b5391ea8728c1a088d0a80e3776469692dda665e8f07f062fed3206263d2  /proc/5397/exe",
+  "after": "8b0d8447-1537-4047-8c6c-360e345265ef\n5397\n8752b5391ea8728c1a088d0a80e3776469692dda665e8f07f062fed3206263d2  /proc/5397/exe",
+  "error": "Command '['ssh', '-i', '/workspace/tmp/pix-m7-library-vm-20261013/vm/qa-key', '-p', '10608', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=8', '-o', 'StrictHostKeyChecking=yes', '-o', 'UserKnownHostsFile=/workspace/tmp/pix-m7-library-vm-20261013/vm/known_hosts', 'root@127.0.0.1', '. /etc/profile >/dev/null 2>&1; printf \"%s=\" system.language; get_setting system.language; printf \"%s=\" global.autosave; get_setting global.autosave; printf \"%s=\" gamecube.autosave; get_setting gamecube.autosave; printf \"%s=\" dreamcast.autosave; get_setting dreamcast.autosave; printf \"%s=\" gamecube.emulator; get_setting gamecube.emulator; printf \"%s=\" gamecube.core; get_setting gamecube.core; printf \"%s=\" dreamcast.emulator; get_setting dreamcast.emulator; printf \"%s=\" dreamcast.core; get_setting dreamcast.core; printf \"%s=\" \\'gamecube[\"pixelelated-capability.dol\"].emulator\\'; get_setting \\'gamecube[\"pixelelated-capability.dol\"].emulator\\'; printf \"%s=\" \\'gamecube[\"pixelelated-capability.dol\"].core\\'; get_setting \\'gamecube[\"pixelelated-capability.dol\"].core\\'; printf \"%s=\" \\'dreamcast[\"pixelelated-capability.cdi\"].emulator\\'; get_setting \\'dreamcast[\"pixelelated-capability.cdi\"].emulator\\'; printf \"%s=\" \\'dreamcast[\"pixelelated-capability.cdi\"].core\\'; get_setting \\'dreamcast[\"pixelelated-capability.cdi\"].core\\'']' returned non-zero exit status 1.",
+  "ended": 1791933221.5806067
+}

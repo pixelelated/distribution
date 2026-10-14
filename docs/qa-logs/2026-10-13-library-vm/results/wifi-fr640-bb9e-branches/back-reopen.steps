@@ -1,0 +1,13 @@
+key x
+wait 1
+shot pending
+key z
+wait-for-change
+settle
+shot returned
+key x
+wait 1
+shot reattached
+wait 8
+settle
+shot complete

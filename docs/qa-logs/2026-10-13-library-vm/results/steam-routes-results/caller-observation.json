@@ -1,0 +1,202 @@
+{
+  "expected_calls": [
+    "ensure_fex_rootfs",
+    "link_steam_library",
+    "ensure_steam_desktop_stub",
+    "install_steam_runtime_arm64",
+    "install_steam_client_arm64",
+    "install_bundled_proton_files",
+    "install_proton_cachyos",
+    "install_proton_ge",
+    "run_steam_first_launch"
+  ],
+  "observed_calls": [
+    "ensure_fex_rootfs",
+    "link_steam_library",
+    "ensure_steam_desktop_stub",
+    "install_steam_runtime_arm64",
+    "install_steam_client_arm64",
+    "install_bundled_proton_files",
+    "install_proton_cachyos",
+    "install_proton_ge",
+    "run_steam_first_launch"
+  ],
+  "boundary_events": [
+    {
+      "argv": [
+        "set",
+        "-9 steam FEX"
+      ],
+      "command": "set_kill",
+      "kind": "boundary-exit",
+      "monotonic_ns": 2777462204795,
+      "original_exit": 0,
+      "pid": 18
+    },
+    {
+      "argv": [
+        "--distro-name=arch",
+        "--distro-version=rolling",
+        "-y",
+        "-x",
+        "--force-ui=tty"
+      ],
+      "command": "FEXRootFSFetcher",
+      "kind": "boundary-exit",
+      "monotonic_ns": 2777537844530,
+      "original_exit": 0,
+      "pid": 21
+    },
+    {
+      "argv": [
+        "-fsSL",
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "30",
+        "--max-filesize",
+        "128",
+        "https://repo.steampowered.com/steamrt3c/images/latest-public-stable.txt"
+      ],
+      "command": "curl",
+      "kind": "boundary-exit",
+      "monotonic_ns": 2777609614967,
+      "original_exit": 0,
+      "pid": 26
+    },
+    {
+      "kind": "archive-copy",
+      "monotonic_ns": 2777631753308,
+      "name": "runtime.tar.xz",
+      "pid": 27,
+      "sha256": "1f576aa2114a58b60ff76c3445e9bf3f6d1ceb74a65ab13223dd132667d385ea"
+    },
+    {
+      "argv": [
+        "-t",
+        "3",
+        "-T",
+        "30",
+        "-O",
+        "/storage/.local/share/Steam/.steam-runtime-update/runtime.tar.xz",
+        "https://repo.steampowered.com/steamrt3c/images/qa-20261013/steam-runtime-steamrt-arm64.tar.xz"
+      ],
+      "command": "wget",
+      "kind": "boundary-exit",
+      "monotonic_ns": 2777631772157,
+      "original_exit": 0,
+      "pid": 27
+    },
+    {
+      "argv": [
+        "-fsSL",
+        "https://api.github.com/repos/CachyOS/proton-cachyos/releases/latest"
+      ],
+      "command": "curl",
+      "kind": "boundary-exit",
+      "monotonic_ns": 2777672329864,
+      "original_exit": 0,
+      "pid": 29
+    },
+    {
+      "kind": "archive-copy",
+      "monotonic_ns": 2777729079932,
+      "name": "cachy.tar.xz",
+      "pid": 45,
+      "sha256": "443affc6631ef5e45853c2a5433294035bdcead928a8e455c247f61d9e59a1a9"
+    },
+    {
+      "argv": [
+        "-t",
+        "3",
+        "-T",
+        "30",
+        "-O",
+        "/storage/.local/share/Steam/.proton-variant-stage/archive",
+        "https://synthetic.invalid/proton-cachyos-qa-arm64.tar.xz"
+      ],
+      "command": "wget",
+      "kind": "boundary-exit",
+      "monotonic_ns": 2777729110344,
+      "original_exit": 0,
+      "pid": 45
+    },
+    {
+      "argv": [
+        "-fsSL",
+        "https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest"
+      ],
+      "command": "curl",
+      "kind": "boundary-exit",
+      "monotonic_ns": 2777765662385,
+      "original_exit": 0,
+      "pid": 46
+    },
+    {
+      "kind": "archive-copy",
+      "monotonic_ns": 2777821247120,
+      "name": "ge.tar.gz",
+      "pid": 62,
+      "sha256": "48d6f4d5364c33cb5467e7c93463a3075dd0fbc29504b8d99a71565ca55dd47a"
+    },
+    {
+      "argv": [
+        "-t",
+        "3",
+        "-T",
+        "30",
+        "-O",
+        "/storage/.local/share/Steam/.proton-variant-stage/archive",
+        "https://synthetic.invalid/GE-Protonqa-aarch64.tar.gz"
+      ],
+      "command": "wget",
+      "kind": "boundary-exit",
+      "monotonic_ns": 2777821267134,
+      "original_exit": 0,
+      "pid": 62
+    },
+    {
+      "argv": [
+        "-deckard",
+        "-exitsteam"
+      ],
+      "command": "steam",
+      "kind": "boundary-exit",
+      "monotonic_ns": 2777862152138,
+      "original_exit": 0,
+      "pid": 63
+    },
+    {
+      "argv": [
+        "restart",
+        "systemd-binfmt"
+      ],
+      "command": "systemctl",
+      "kind": "boundary-exit",
+      "monotonic_ns": 2777890174860,
+      "original_exit": 0,
+      "pid": 64
+    }
+  ],
+  "preservation_checks": {
+    ".local/share/Steam": true,
+    ".local/share/Steam/steamapps": true,
+    ".local/share/Steam/userdata": true,
+    ".local/share/Steam/depotcache": true,
+    ".local/share/Steam/steamrtarm64": true,
+    ".local/share/Steam/compatibilitytools.d/proton-cachyos-old-arm64": true,
+    ".local/share/Steam/compatibilitytools.d/GE-Protonold-aarch64": true,
+    "games-internal": true,
+    "games-external": true,
+    ".local/share/fex-emu/RootFS/OtherRoot": true,
+    ".local/share/fex-emu/RootFS/ArchLinux.sqsh": true,
+    ".config/fex-emu/AppConfig/extra.json": true
+  },
+  "fex_generation": "new-fex",
+  "full_success_message": true,
+  "binfmt_controls": {
+    "box64": "0\n",
+    "box32": "0\n",
+    "x86": "0\n"
+  }
+}

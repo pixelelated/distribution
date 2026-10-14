@@ -1,0 +1,139 @@
+{
+  "status": "FAIL",
+  "evidence": "whole sealed caller with synthetic boundaries; not native acceptance",
+  "installer_sha256": "a7a67c6b1e0f90a63fdcef79bb6aa60a413dc1927dbf0d53f6068e3a720fe80f",
+  "packet_manifest_sha256": "eb7bab566327bf76991a348e74e5425edbef2334b0cd5b09b5761e06f3acdc29",
+  "python": "3.14.7 (main, Oct  4 2026, 04:40:27) [GCC 15.2.0]",
+  "python_executable_sha256": "1324452a1b3437ef26e0d39794ede6fb7c1c2c0c5960a050feace157ffe50b33",
+  "vm_vendor": "QEMU",
+  "free_bytes_before": 3221225472,
+  "limits": {
+    "work_seconds": 60,
+    "cleanup_seconds": 10,
+    "retained_bytes": 67108864,
+    "minimum_free_bytes": 2483027968,
+    "archive_bytes_each": 1048576,
+    "log_bytes_each": 2097152
+  },
+  "attempts": 1,
+  "installer_original_exit": null,
+  "tools": {
+    "unshare": {
+      "path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "mount": {
+      "path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "chroot": {
+      "path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "bash": {
+      "path": "/usr/bin/bash",
+      "sha256": "3aa5dd1a0ddd72c8019c40f8a4c929796eb5a99d182570334ede50374724527a"
+    },
+    "sh": {
+      "path": "/usr/bin/bash",
+      "sha256": "3aa5dd1a0ddd72c8019c40f8a4c929796eb5a99d182570334ede50374724527a"
+    },
+    "sleep": {
+      "path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "mkdir": {
+      "path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "touch": {
+      "path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "chmod": {
+      "path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "cp": {
+      "path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "rm": {
+      "path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "ln": {
+      "path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "grep": {
+      "path": "/usr/bin/grep",
+      "sha256": "94137a009d4961723d2a41e037a6eeff4656fadf395aecfa40bd8b57ce3a3d6f"
+    },
+    "head": {
+      "path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "basename": {
+      "path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "sed": {
+      "path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "strings": {
+      "path": "/usr/bin/strings",
+      "sha256": "1711d385cf381dc577759993a3511b7f01323493299ccc8f127b682daae496f7"
+    },
+    "python3": {
+      "path": "/usr/bin/python3.14",
+      "sha256": "1324452a1b3437ef26e0d39794ede6fb7c1c2c0c5960a050feace157ffe50b33"
+    }
+  },
+  "archives": {
+    "ge.tar.gz": {
+      "sha256": "8405c63e0e621c565f0db6a2fa3ef44a8d72a72abc3ecce60685fc67d43f0ba7",
+      "bytes": 467
+    },
+    "cachy.tar.xz": {
+      "sha256": "443affc6631ef5e45853c2a5433294035bdcead928a8e455c247f61d9e59a1a9",
+      "bytes": 508
+    },
+    "runtime.tar.xz": {
+      "sha256": "1f576aa2114a58b60ff76c3445e9bf3f6d1ceb74a65ab13223dd132667d385ea",
+      "bytes": 268
+    }
+  },
+  "owner_argv": [
+    "/usr/bin/busybox",
+    "--mount",
+    "--pid",
+    "--net",
+    "--ipc",
+    "--uts",
+    "--fork",
+    "--kill-child=KILL",
+    "--mount-proc",
+    "/usr/bin/python3",
+    "-I",
+    "-S",
+    "-B",
+    "/tmp/pix-steam-installed-source/docs/qa-logs/2026-10-13-steam-installed-return-source/fixture.py",
+    "--namespace-worker",
+    "/run/qa-steam-installed-scratch/steam-installed-return-first"
+  ],
+  "supervision": {
+    "suite_exit": 127,
+    "intervention": false,
+    "descendants_at_exit": [],
+    "adopted_exits": [],
+    "quiescent": true
+  },
+  "guard": null,
+  "namespace_owner_exit": 127,
+  "error": "FileNotFoundError(2, 'No such file or directory')",
+  "elapsed_seconds": 0.14207947900013096,
+  "retained_bytes": 398950,
+  "remaining_descendants": []
+}

@@ -1,0 +1,34 @@
+watch-build: recording in /workspace/tmp/pix-m7-library-vm-20261013/.build-runs/20261013T235004Z-b2710dfe
+settle: still after 1.3s
+changed after 0.1s (`key down`, line 3)
+settle: still after 1.4s
+changed after 0.1s (`key x`, line 6)
+settle: still after 1.4s
+captured /workspace/tmp/pix-m7-library-vm-20261013/capability-system-fr1280/support-dialog/01-support-dialog.png
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 3)
+settle: still after 1.4s
+changed after 0.1s (`key up`, line 6)
+settle: still after 1.3s
+changed after 0.1s (`key left`, line 9)
+settle: still after 1.4s
+captured /workspace/tmp/pix-m7-library-vm-20261013/capability-system-fr1280/retroarch-selection/01-retroarch-selection.png
+settle: still after 1.3s
+changed after 0.1s (`key right`, line 3)
+settle: still after 1.4s
+captured /workspace/tmp/pix-m7-library-vm-20261013/capability-system-fr1280/auto-restored/01-auto-restored.png
+settle: still after 1.3s
+changed after 0.1s (`key z`, line 3)
+settle: still after 1.4s
+changed after 0.1s (`key z`, line 6)
+settle: still after 1.3s
+changed after 0.1s (`key z`, line 9)
+settle: still after 1.4s
+changed after 0.1s (`key z`, line 12)
+settle: still after 1.3s
+captured /workspace/tmp/pix-m7-library-vm-20261013/capability-system-fr1280/returned/01-returned.png
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-library-vm-20261013/capability-system-finish.py", line 15, in <module>
+    result['settings_before']=read(settings);result['settings_after']=read(observed);assert result['settings_before']==result['settings_after']
+                                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

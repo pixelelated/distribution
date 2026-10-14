@@ -1,0 +1,1565 @@
+{
+  "status": "PASS",
+  "evidence": "corrected FEX-only synthetic component; original combined run remains FAIL",
+  "source": {
+    "path": "/run/qa-steam-corrected-source/projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+    "sha256": "9e1ce7b52279c9d057eb3acf7caa4d03843871b2fec5ccc15b06287b4de67402",
+    "bytes": 67550,
+    "device": 22,
+    "inode": 8978,
+    "mtime_ns": 1791933687000000000,
+    "helpers": {
+      "root": "3b6ee65d5217b7490a74cdcde7b855a4e256f1f5cfed304c9a174378cfca8703",
+      "fex": "7c852917dabfea01e424a1af7b23d0355bcf18b313127d82b70e7aa83877e261",
+      "runtime": "7e8e87052ccd62e04b9a52e57bf8c638450938ba10c2ba85c564e9ea1b552431",
+      "proton": "5513e6cd600b86720cd318ae70dbad9f83fbb55d3ef2f184b69a59a7a7a3aed3"
+    },
+    "shell_functions": {
+      "root": "0dac5223f7c6cd9014e66af0b15d26867d9b39d20b277341d86d4b73bdd7879b",
+      "fex": "56ad3290e42eb9d09467ab6ffdb435adda0feab6991c03fb2a1181dfaceff097",
+      "runtime": "854579a5252e40a1a77bbe227955ecebbfc7c8d12b1bb5593c7d85763f23c06b",
+      "proton": "28ac907691f0a9b140fa054a12966713c64492ff10b0effa19294646fb6f2873"
+    }
+  },
+  "python": "3.14.7 (main, Oct  4 2026, 04:40:27) [GCC 15.2.0]",
+  "executable": "/usr/bin/python3",
+  "executable_sha256": "1324452a1b3437ef26e0d39794ede6fb7c1c2c0c5960a050feace157ffe50b33",
+  "binding_sha256": "4663ff7111ba49d7f11c26a7bc0090533dfca6c533664bc17273683ec950d1d9",
+  "driver_sha256": "626529329115fcd337aa0caa446077e6b1e488af41396d11ede6f2f995d13b2d",
+  "manifest_sha256": "cac75df6a754f1d3c46a0ae2694fa7a3fdb9478f451e6668ad82a37d540dd916",
+  "parent_manifest_sha256": "85743d08643726b11f7b1c0d5a268b93c5756eb0d5fae5c9fe19cdeaece4c000",
+  "prior_observation_sha256": "20174cb5fba0029c182e1728e0ca41ae3c103c4dbe2d9947aa6c483ead22bace",
+  "network_guard": "socket construction refused before fixture dispatch",
+  "subreaper": true,
+  "scratch_free_bytes_before": 520523776,
+  "limits": {
+    "wall_seconds": 75,
+    "retained_bytes": 33554432,
+    "minimum_initial_free_bytes": 301989888
+  },
+  "suites": [
+    {
+      "component": "fex",
+      "status": "PASS",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/run/qa-steam-corrected-source/docs/qa-logs/2026-10-13-steam-combined-source/null-sink-correction/fex_fixture.py",
+        "--installer",
+        "/run/qa-steam-corrected-source/projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+        "--scratch",
+        "/run/qa-steam-scratch/corrected-tmp/first/fex/tmp/fex579-fixture-once"
+      ],
+      "cwd": "/run/qa-steam-corrected-source",
+      "source": {
+        "path": "/run/qa-steam-corrected-source/projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+        "sha256": "9e1ce7b52279c9d057eb3acf7caa4d03843871b2fec5ccc15b06287b4de67402",
+        "bytes": 67550,
+        "device": 22,
+        "inode": 8978,
+        "mtime_ns": 1791933687000000000,
+        "helpers": {
+          "root": "3b6ee65d5217b7490a74cdcde7b855a4e256f1f5cfed304c9a174378cfca8703",
+          "fex": "7c852917dabfea01e424a1af7b23d0355bcf18b313127d82b70e7aa83877e261",
+          "runtime": "7e8e87052ccd62e04b9a52e57bf8c638450938ba10c2ba85c564e9ea1b552431",
+          "proton": "5513e6cd600b86720cd318ae70dbad9f83fbb55d3ef2f184b69a59a7a7a3aed3"
+        },
+        "shell_functions": {
+          "root": "0dac5223f7c6cd9014e66af0b15d26867d9b39d20b277341d86d4b73bdd7879b",
+          "fex": "56ad3290e42eb9d09467ab6ffdb435adda0feab6991c03fb2a1181dfaceff097",
+          "runtime": "854579a5252e40a1a77bbe227955ecebbfc7c8d12b1bb5593c7d85763f23c06b",
+          "proton": "28ac907691f0a9b140fa054a12966713c64492ff10b0effa19294646fb6f2873"
+        }
+      },
+      "fixture_sha256": "c74804a0858998103a5b4d5f262651849418f47e2836e5734f2144f8f505d952",
+      "original_fixture_sha256": "63c5ef229d06a52805ed16932b2bb0bcf3a6ffa93da1220107da5e5d97459c1f",
+      "result_path": "/run/qa-steam-scratch/corrected-tmp/first/fex/tmp/fex579-fixture-once/result.json",
+      "attempts": 1,
+      "supervision": {
+        "suite_exit": 0,
+        "intervention": false,
+        "descendants_at_exit": [
+          {
+            "pid": 13504,
+            "state": "Z",
+            "ppid": 13392,
+            "start_ticks": 126417
+          },
+          {
+            "pid": 13506,
+            "state": "Z",
+            "ppid": 13392,
+            "start_ticks": 126418
+          },
+          {
+            "pid": 13490,
+            "state": "Z",
+            "ppid": 13392,
+            "start_ticks": 126314
+          },
+          {
+            "pid": 13510,
+            "state": "Z",
+            "ppid": 13392,
+            "start_ticks": 126423
+          },
+          {
+            "pid": 13514,
+            "state": "Z",
+            "ppid": 13392,
+            "start_ticks": 126428
+          }
+        ],
+        "adopted_exits": [
+          {
+            "pid": 13490,
+            "exit": -9
+          },
+          {
+            "pid": 13504,
+            "exit": 1
+          },
+          {
+            "pid": 13506,
+            "exit": -9
+          },
+          {
+            "pid": 13510,
+            "exit": -9
+          },
+          {
+            "pid": 13514,
+            "exit": -9
+          }
+        ],
+        "quiescent": true
+      },
+      "suite_exit": 0,
+      "guard": null,
+      "source_after": {
+        "path": "/run/qa-steam-corrected-source/projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+        "sha256": "9e1ce7b52279c9d057eb3acf7caa4d03843871b2fec5ccc15b06287b4de67402",
+        "bytes": 67550,
+        "device": 22,
+        "inode": 8978,
+        "mtime_ns": 1791933687000000000,
+        "helpers": {
+          "root": "3b6ee65d5217b7490a74cdcde7b855a4e256f1f5cfed304c9a174378cfca8703",
+          "fex": "7c852917dabfea01e424a1af7b23d0355bcf18b313127d82b70e7aa83877e261",
+          "runtime": "7e8e87052ccd62e04b9a52e57bf8c638450938ba10c2ba85c564e9ea1b552431",
+          "proton": "5513e6cd600b86720cd318ae70dbad9f83fbb55d3ef2f184b69a59a7a7a3aed3"
+        },
+        "shell_functions": {
+          "root": "0dac5223f7c6cd9014e66af0b15d26867d9b39d20b277341d86d4b73bdd7879b",
+          "fex": "56ad3290e42eb9d09467ab6ffdb435adda0feab6991c03fb2a1181dfaceff097",
+          "runtime": "854579a5252e40a1a77bbe227955ecebbfc7c8d12b1bb5593c7d85763f23c06b",
+          "proton": "28ac907691f0a9b140fa054a12966713c64492ff10b0effa19294646fb6f2873"
+        }
+      },
+      "original_wait_ledger_sha256": "1d7bf40e1c018da2ae17b146ccf451e371cb332c827444a482835ee5daa5c4fd",
+      "original_wait_statuses": [
+        {
+          "child_pid": 13395,
+          "exit": 1,
+          "monotonic_ns": 1261101613667,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13398,
+          "exit": 1,
+          "monotonic_ns": 1261112774101,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13402,
+          "exit": 1,
+          "monotonic_ns": 1261130221730,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13407,
+          "exit": 0,
+          "monotonic_ns": 1261161679055,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13408,
+          "exit": 0,
+          "monotonic_ns": 1261193161138,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13409,
+          "exit": 1,
+          "monotonic_ns": 1261220987312,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13410,
+          "exit": 0,
+          "monotonic_ns": 1261251921398,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13411,
+          "exit": 1,
+          "monotonic_ns": 1261279479750,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13412,
+          "exit": 0,
+          "monotonic_ns": 1261310239361,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13413,
+          "exit": 1,
+          "monotonic_ns": 1261338092812,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13414,
+          "exit": 0,
+          "monotonic_ns": 1261369035120,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13415,
+          "exit": 1,
+          "monotonic_ns": 1261400053824,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13416,
+          "exit": 0,
+          "monotonic_ns": 1261431070951,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13417,
+          "exit": 1,
+          "monotonic_ns": 1261456937177,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13418,
+          "exit": 0,
+          "monotonic_ns": 1261488542198,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13419,
+          "exit": 1,
+          "monotonic_ns": 1261512557724,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13420,
+          "exit": 0,
+          "monotonic_ns": 1261536160680,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13421,
+          "exit": 1,
+          "monotonic_ns": 1261559765448,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13422,
+          "exit": 0,
+          "monotonic_ns": 1261583111252,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13423,
+          "exit": 1,
+          "monotonic_ns": 1261607292989,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13424,
+          "exit": 0,
+          "monotonic_ns": 1261630539532,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13425,
+          "exit": 1,
+          "monotonic_ns": 1261660506329,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13426,
+          "exit": 0,
+          "monotonic_ns": 1261683805045,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13427,
+          "exit": 1,
+          "monotonic_ns": 1261721702849,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13428,
+          "exit": 0,
+          "monotonic_ns": 1261752965252,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13429,
+          "exit": 1,
+          "monotonic_ns": 1261787838443,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13430,
+          "exit": 0,
+          "monotonic_ns": 1261819435347,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13431,
+          "exit": 1,
+          "monotonic_ns": 1261859108660,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13432,
+          "exit": 0,
+          "monotonic_ns": 1261882948493,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13433,
+          "exit": 1,
+          "monotonic_ns": 1261916096267,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13441,
+          "exit": 0,
+          "monotonic_ns": 1261943672764,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13442,
+          "exit": 1,
+          "monotonic_ns": 1261979354905,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13443,
+          "exit": 0,
+          "monotonic_ns": 1262003438066,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13444,
+          "exit": 1,
+          "monotonic_ns": 1262035465220,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13445,
+          "exit": 0,
+          "monotonic_ns": 1262059435300,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13446,
+          "exit": 1,
+          "monotonic_ns": 1262084727997,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13447,
+          "exit": 0,
+          "monotonic_ns": 1262108543333,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13448,
+          "exit": 1,
+          "monotonic_ns": 1262141292058,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13449,
+          "exit": 0,
+          "monotonic_ns": 1262165170111,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13450,
+          "exit": 1,
+          "monotonic_ns": 1262190591441,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13451,
+          "exit": 1,
+          "monotonic_ns": 1262217167797,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13452,
+          "exit": 1,
+          "monotonic_ns": 1262255451559,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13453,
+          "exit": 0,
+          "monotonic_ns": 1262279173765,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13454,
+          "exit": 1,
+          "monotonic_ns": 1262317452059,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13455,
+          "exit": 0,
+          "monotonic_ns": 1262341474855,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13456,
+          "exit": 1,
+          "monotonic_ns": 1262379972021,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13457,
+          "exit": 0,
+          "monotonic_ns": 1262403910454,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13458,
+          "exit": 1,
+          "monotonic_ns": 1262443282984,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13459,
+          "exit": 0,
+          "monotonic_ns": 1262467309076,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13460,
+          "exit": -9,
+          "monotonic_ns": 1262505091517,
+          "wait_status": 9,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13461,
+          "exit": 0,
+          "monotonic_ns": 1262516599046,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13462,
+          "exit": 0,
+          "monotonic_ns": 1262539461366,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13463,
+          "exit": -9,
+          "monotonic_ns": 1262576384014,
+          "wait_status": 9,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13464,
+          "exit": 0,
+          "monotonic_ns": 1262588070010,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13465,
+          "exit": 0,
+          "monotonic_ns": 1262611697417,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13466,
+          "exit": -9,
+          "monotonic_ns": 1262649845379,
+          "wait_status": 9,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13467,
+          "exit": 0,
+          "monotonic_ns": 1262661618986,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13468,
+          "exit": 0,
+          "monotonic_ns": 1262685354599,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13469,
+          "exit": -9,
+          "monotonic_ns": 1262724140087,
+          "wait_status": 9,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13470,
+          "exit": 0,
+          "monotonic_ns": 1262736340715,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13471,
+          "exit": 0,
+          "monotonic_ns": 1262759846101,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13472,
+          "exit": -9,
+          "monotonic_ns": 1262798939329,
+          "wait_status": 9,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13473,
+          "exit": 0,
+          "monotonic_ns": 1262811239274,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13474,
+          "exit": 0,
+          "monotonic_ns": 1262834520402,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13475,
+          "exit": -9,
+          "monotonic_ns": 1262875196847,
+          "wait_status": 9,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13476,
+          "exit": 0,
+          "monotonic_ns": 1262887691913,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13477,
+          "exit": -9,
+          "monotonic_ns": 1262928476923,
+          "wait_status": 9,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13478,
+          "exit": 0,
+          "monotonic_ns": 1262940516139,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13479,
+          "exit": 1,
+          "monotonic_ns": 1262974452679,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13480,
+          "exit": 1,
+          "monotonic_ns": 1263018672290,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13482,
+          "exit": 0,
+          "monotonic_ns": 1263068731828,
+          "wait_status": 0,
+          "waiter_pid": 13481
+        },
+        {
+          "child_pid": 13481,
+          "exit": 0,
+          "monotonic_ns": 1263069376887,
+          "wait_status": 0,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13485,
+          "exit": 1,
+          "monotonic_ns": 1263109033091,
+          "wait_status": 256,
+          "waiter_pid": 13484
+        },
+        {
+          "child_pid": 13484,
+          "exit": 1,
+          "monotonic_ns": 1263109693377,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13489,
+          "exit": -9,
+          "monotonic_ns": 1264140644020,
+          "wait_status": 9,
+          "waiter_pid": 13488
+        },
+        {
+          "child_pid": 13488,
+          "exit": 1,
+          "monotonic_ns": 1264142985099,
+          "wait_status": 256,
+          "waiter_pid": 13487
+        },
+        {
+          "child_pid": 13487,
+          "exit": 1,
+          "monotonic_ns": 1264144117614,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13503,
+          "exit": -9,
+          "monotonic_ns": 1264189785302,
+          "wait_status": 9,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13505,
+          "exit": -9,
+          "monotonic_ns": 1264190977609,
+          "wait_status": 9,
+          "waiter_pid": 13504
+        },
+        {
+          "child_pid": 13509,
+          "exit": -9,
+          "monotonic_ns": 1264245263359,
+          "wait_status": 9,
+          "waiter_pid": 13508
+        },
+        {
+          "child_pid": 13508,
+          "exit": 1,
+          "monotonic_ns": 1264245772465,
+          "wait_status": 256,
+          "waiter_pid": 13507
+        },
+        {
+          "child_pid": 13507,
+          "exit": 1,
+          "monotonic_ns": 1264246406045,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        },
+        {
+          "child_pid": 13513,
+          "exit": -9,
+          "monotonic_ns": 1265293598759,
+          "wait_status": 9,
+          "waiter_pid": 13512
+        },
+        {
+          "child_pid": 13512,
+          "exit": 1,
+          "monotonic_ns": 1265294188462,
+          "wait_status": 256,
+          "waiter_pid": 13511
+        },
+        {
+          "child_pid": 13511,
+          "exit": 1,
+          "monotonic_ns": 1265294992834,
+          "wait_status": 256,
+          "waiter_pid": 13394
+        }
+      ],
+      "result_sha256": "95b98949835f28d40697b664ea7b8462f8c3b45e2722020fb34ff6a28f054bc7",
+      "reported_status": "PASS",
+      "recorded_case_exits": [
+        {
+          "name": "baseline-download",
+          "exit": 1,
+          "status": "PASS"
+        },
+        {
+          "name": "baseline-extract",
+          "exit": 1,
+          "status": "PASS"
+        },
+        {
+          "name": "baseline-overlay",
+          "exit": 1,
+          "status": "PASS"
+        },
+        {
+          "name": "fresh-success",
+          "exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "refresh-success",
+          "exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "fetch-error",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "partial-extract-error",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "exit0-no-extract",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "unexpected-rootfs",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "missing-overlay-0",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "missing-overlay-1",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "missing-overlay-2",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "missing-overlay-3",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "bad-layer",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "unexpected-icd",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "missing-provider",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "missing-env",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "wrong-elf",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "escaping-overlay",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "config-copy-error",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "low-space",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "enospc-overlay",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "root-alias",
+          "exit": 1,
+          "status": "PASS"
+        },
+        {
+          "name": "config-alias",
+          "exit": 1,
+          "status": "PASS"
+        },
+        {
+          "name": "activation-error-1",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "activation-error-2",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "activation-error-3",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "activation-error-4",
+          "exit": 1,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "kill-prepared",
+          "exit": -9,
+          "recovery_exit": 0,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "kill-rename-1",
+          "exit": -9,
+          "recovery_exit": 0,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "kill-rename-2",
+          "exit": -9,
+          "recovery_exit": 0,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "kill-rename-3",
+          "exit": -9,
+          "recovery_exit": 0,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "kill-rename-4",
+          "exit": -9,
+          "recovery_exit": 0,
+          "retry_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "kill-committed",
+          "exit": -9,
+          "recovery_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "kill-cleanup",
+          "exit": -9,
+          "recovery_exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "refuse-unknown-journal",
+          "exit": 1,
+          "status": "PASS"
+        },
+        {
+          "name": "refuse-foreign-live",
+          "exit": 1,
+          "status": "PASS"
+        },
+        {
+          "name": "guardian-success",
+          "exit": 0,
+          "status": "PASS"
+        },
+        {
+          "name": "guardian-nonzero",
+          "exit": 1,
+          "status": "PASS"
+        },
+        {
+          "name": "guardian-timeout",
+          "exit": 1,
+          "status": "PASS"
+        },
+        {
+          "name": "guardian-owner-kill",
+          "exit": -9,
+          "status": "PASS"
+        },
+        {
+          "name": "guardian-owner-term",
+          "exit": 1,
+          "status": "PASS"
+        },
+        {
+          "name": "guardian-term",
+          "exit": 1,
+          "status": "PASS"
+        }
+      ],
+      "guard_controls": [
+        {
+          "name": "null-request",
+          "status": "PASS"
+        },
+        {
+          "name": "null-request-cloexec",
+          "status": "PASS"
+        },
+        {
+          "name": "kind-regular",
+          "status": "PASS"
+        },
+        {
+          "name": "kind-symlink",
+          "status": "PASS"
+        },
+        {
+          "name": "kind-block",
+          "status": "PASS"
+        },
+        {
+          "name": "kind-wrong-major",
+          "status": "PASS"
+        },
+        {
+          "name": "kind-wrong-minor",
+          "status": "PASS"
+        },
+        {
+          "name": "outside-write",
+          "status": "PASS"
+        },
+        {
+          "name": "outside-create",
+          "status": "PASS"
+        },
+        {
+          "name": "outside-traversal",
+          "status": "PASS"
+        },
+        {
+          "name": "null-relative",
+          "status": "PASS"
+        },
+        {
+          "name": "null-dot",
+          "status": "PASS"
+        },
+        {
+          "name": "null-dotdot",
+          "status": "PASS"
+        },
+        {
+          "name": "null-double-slash",
+          "status": "PASS"
+        },
+        {
+          "name": "null-symlink",
+          "status": "PASS"
+        },
+        {
+          "name": "null-bytes",
+          "status": "PASS"
+        },
+        {
+          "name": "other-zero",
+          "status": "PASS"
+        },
+        {
+          "name": "other-full",
+          "status": "PASS"
+        },
+        {
+          "name": "null-write-only",
+          "status": "PASS"
+        },
+        {
+          "name": "null-create",
+          "status": "PASS"
+        },
+        {
+          "name": "null-truncate",
+          "status": "PASS"
+        },
+        {
+          "name": "null-append",
+          "status": "PASS"
+        },
+        {
+          "name": "null-exclusive",
+          "status": "PASS"
+        },
+        {
+          "name": "null-text-open",
+          "status": "PASS"
+        },
+        {
+          "name": "null-chmod",
+          "status": "PASS"
+        },
+        {
+          "name": "null-chown",
+          "status": "PASS"
+        },
+        {
+          "name": "null-utime",
+          "status": "PASS"
+        },
+        {
+          "name": "null-unlink",
+          "status": "PASS"
+        },
+        {
+          "name": "null-rename-target",
+          "status": "PASS"
+        },
+        {
+          "name": "null-rename-source",
+          "status": "PASS"
+        },
+        {
+          "name": "null-symlink-target",
+          "status": "PASS"
+        },
+        {
+          "name": "null-xattr",
+          "status": "PASS"
+        },
+        {
+          "name": "scratch-write",
+          "status": "PASS"
+        },
+        {
+          "name": "null-open-type",
+          "status": "PASS"
+        },
+        {
+          "name": "null-open-identity",
+          "status": "PASS"
+        },
+        {
+          "name": "null-open-eof",
+          "status": "PASS"
+        },
+        {
+          "name": "null-fd-alias",
+          "status": "PASS"
+        },
+        {
+          "name": "null-integer-fd",
+          "status": "PASS"
+        },
+        {
+          "name": "null-identity-stable",
+          "status": "PASS"
+        }
+      ],
+      "null_open_ledger_sha256": "b2dc18e360b8d9ee525be81d3c3a6fda6504f04baae7c7564b2e728718cb4bd6",
+      "null_opens": [
+        {
+          "flags": 524290,
+          "identity": {
+            "device": 7,
+            "inode": 4,
+            "mode": 8630,
+            "rdev": 259
+          },
+          "mode": null,
+          "monotonic_ns": 1261091348861,
+          "path": "/dev/null",
+          "pid": 13394
+        },
+        {
+          "flags": 524290,
+          "identity": {
+            "device": 7,
+            "inode": 4,
+            "mode": 8630,
+            "rdev": 259
+          },
+          "mode": null,
+          "monotonic_ns": 1263053467601,
+          "path": "/dev/null",
+          "pid": 13482
+        },
+        {
+          "flags": 524290,
+          "identity": {
+            "device": 7,
+            "inode": 4,
+            "mode": 8630,
+            "rdev": 259
+          },
+          "mode": null,
+          "monotonic_ns": 1263094783181,
+          "path": "/dev/null",
+          "pid": 13485
+        },
+        {
+          "flags": 524290,
+          "identity": {
+            "device": 7,
+            "inode": 4,
+            "mode": 8630,
+            "rdev": 259
+          },
+          "mode": null,
+          "monotonic_ns": 1263134767027,
+          "path": "/dev/null",
+          "pid": 13488
+        },
+        {
+          "flags": 524290,
+          "identity": {
+            "device": 7,
+            "inode": 4,
+            "mode": 8630,
+            "rdev": 259
+          },
+          "mode": null,
+          "monotonic_ns": 1264171065209,
+          "path": "/dev/null",
+          "pid": 13504
+        },
+        {
+          "flags": 524290,
+          "identity": {
+            "device": 7,
+            "inode": 4,
+            "mode": 8630,
+            "rdev": 259
+          },
+          "mode": null,
+          "monotonic_ns": 1264225348406,
+          "path": "/dev/null",
+          "pid": 13508
+        },
+        {
+          "flags": 524290,
+          "identity": {
+            "device": 7,
+            "inode": 4,
+            "mode": 8630,
+            "rdev": 259
+          },
+          "mode": null,
+          "monotonic_ns": 1264272150912,
+          "path": "/dev/null",
+          "pid": 13512
+        }
+      ],
+      "verified_case_exits": [
+        {
+          "case": "baseline-download",
+          "original_exits": {
+            "exit": 1
+          }
+        },
+        {
+          "case": "baseline-extract",
+          "original_exits": {
+            "exit": 1
+          }
+        },
+        {
+          "case": "baseline-overlay",
+          "original_exits": {
+            "exit": 1
+          }
+        },
+        {
+          "case": "fresh-success",
+          "original_exits": {
+            "exit": 0
+          }
+        },
+        {
+          "case": "refresh-success",
+          "original_exits": {
+            "exit": 0
+          }
+        },
+        {
+          "case": "fetch-error",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "partial-extract-error",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "exit0-no-extract",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "unexpected-rootfs",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "missing-overlay-0",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "missing-overlay-1",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "missing-overlay-2",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "missing-overlay-3",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "bad-layer",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "unexpected-icd",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "missing-provider",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "missing-env",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "wrong-elf",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "escaping-overlay",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "config-copy-error",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "low-space",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "enospc-overlay",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "root-alias",
+          "original_exits": {
+            "exit": 1
+          }
+        },
+        {
+          "case": "config-alias",
+          "original_exits": {
+            "exit": 1
+          }
+        },
+        {
+          "case": "activation-error-1",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "activation-error-2",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "activation-error-3",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "activation-error-4",
+          "original_exits": {
+            "exit": 1,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "kill-prepared",
+          "original_exits": {
+            "exit": -9,
+            "recovery_exit": 0,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "kill-rename-1",
+          "original_exits": {
+            "exit": -9,
+            "recovery_exit": 0,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "kill-rename-2",
+          "original_exits": {
+            "exit": -9,
+            "recovery_exit": 0,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "kill-rename-3",
+          "original_exits": {
+            "exit": -9,
+            "recovery_exit": 0,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "kill-rename-4",
+          "original_exits": {
+            "exit": -9,
+            "recovery_exit": 0,
+            "retry_exit": 0
+          }
+        },
+        {
+          "case": "kill-committed",
+          "original_exits": {
+            "exit": -9,
+            "recovery_exit": 0
+          }
+        },
+        {
+          "case": "kill-cleanup",
+          "original_exits": {
+            "exit": -9,
+            "recovery_exit": 0
+          }
+        },
+        {
+          "case": "refuse-unknown-journal",
+          "original_exits": {
+            "exit": 1
+          }
+        },
+        {
+          "case": "refuse-foreign-live",
+          "original_exits": {
+            "exit": 1
+          }
+        },
+        {
+          "case": "guardian-success",
+          "original_exits": {
+            "exit": 0
+          }
+        },
+        {
+          "case": "guardian-nonzero",
+          "original_exits": {
+            "exit": 1
+          }
+        },
+        {
+          "case": "guardian-timeout",
+          "original_exits": {
+            "exit": 1
+          }
+        },
+        {
+          "case": "guardian-owner-kill",
+          "original_exits": {
+            "exit": -9
+          }
+        },
+        {
+          "case": "guardian-owner-term",
+          "original_exits": {
+            "exit": 1
+          }
+        },
+        {
+          "case": "guardian-term",
+          "original_exits": {
+            "exit": 1
+          }
+        }
+      ],
+      "elapsed_seconds": 4.330351556000096,
+      "retained_bytes": 4739472,
+      "stdout.log_sha256": "5bce9a146cf8cd2fc535b177e26840b8f6653ba6815841d052dd8c86ed63fdc9",
+      "stderr.log_sha256": "6f0c2bbcd5bbe40bc355f09352c0d4dc1c8dcc4519314588534fc3b5df1bcb2c"
+    }
+  ],
+  "elapsed_seconds": 4.359293047999927,
+  "retained_bytes": 4813320,
+  "remaining_descendants": []
+}

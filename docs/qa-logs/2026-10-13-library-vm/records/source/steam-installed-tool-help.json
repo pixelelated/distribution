@@ -1,0 +1,17 @@
+{
+  "unshare": {
+    "rc": 0,
+    "stdout": "",
+    "stderr": "BusyBox v1.36.1 (2026-10-05 03:37:19 UTC) multi-call binary.\n\nUsage: unshare [OPTIONS] [PROG ARGS]\n\n\t-m,--mount[=FILE]\tUnshare mount namespace\n\t-u,--uts[=FILE]\t\tUnshare UTS namespace (hostname etc.)\n\t-i,--ipc[=FILE]\t\tUnshare System V IPC namespace\n\t-n,--net[=FILE]\t\tUnshare network namespace\n\t-p,--pid[=FILE]\t\tUnshare PID namespace\n\t-U,--user[=FILE]\tUnshare user namespace\n\t-f\t\t\tFork before execing PROG\n\t-r\t\t\tMap current user to root (implies -U)\n\t--mount-proc[=DIR]\tMount /proc filesystem first (implies -m)\n\t--propagation slave|shared|private|unchanged\n\t\t\t\tModify mount propagation in mount namespace\n\t--setgroups allow|deny\tControl the setgroups syscall in user namespaces\n"
+  },
+  "mount": {
+    "rc": 0,
+    "stdout": "",
+    "stderr": "BusyBox v1.36.1 (2026-10-05 03:37:19 UTC) multi-call binary.\n\nUsage: mount [OPTIONS] [-o OPT] DEVICE NODE\n\nMount a filesystem. Filesystem autodetection requires /proc.\n\n\t-a\t\tMount all filesystems in fstab\n\t-f\t\tDry run\n\t-i\t\tDon't run mount helper\n\t-v\t\tVerbose\n\t-r\t\tRead-only mount\n\t-t FSTYPE[,...]\tFilesystem type(s)\n\t-O OPT\t\tMount only filesystems with option OPT (-a only)\n-o OPT:\n\tloop\t\tIgnored (loop devices are autodetected)\n\t[a]sync\t\tWrites are [a]synchronous\n\t[no]atime\tDisable/enable updates to inode access times\n\t[no]diratime\tDisable/enable atime updates to directories\n\t[no]relatime\tDisable/enable atime updates relative to modification time\n\t[no]dev\t\t(Dis)allow use of special device files\n\t[no]exec\t(Dis)allow use of executable files\n\t[no]suid\t(Dis)allow set-user-id-root programs\n\t[r]shared\tConvert [recursively] to a shared subtree\n\t[r]slave\tConvert [recursively] to a slave subtree\n\t[r]private\tConvert [recursively] to a private subtree\n\t[un]bindable\tMake mount point [un]able to be bind mounted\n\t[r]bind\t\tBind a file or directory [recursively] to another location\n\tmove\t\tRelocate an existing mount point\n\tremount\t\tRemount a mounted filesystem, changing flags\n\tro\t\tSame as -r\n\nThere are filesystem-specific -o flags.\n"
+  },
+  "chroot": {
+    "rc": 127,
+    "stdout": "",
+    "stderr": "sh: line 1: /usr/bin/chroot: No such file or directory\n"
+  }
+}

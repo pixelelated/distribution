@@ -1,0 +1,31 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261013T230401Z-6e76cbbd",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 574,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-library-vm-20261013/vm",
+      "release_when": "Consume original results, stop guest, preserve compact reviewed evidence, retire disk/keys; target executables retire after immediate qualification."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-library-vm-20261013/vm-result.json",
+      "sha256": "08f9dee9d1f619faa536160ac1f0857d3581ff83b7966372391a5f81c660c55f"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-vm-20261013/consumption.json",
+      "sha256": "6795324bbb19875bd6f7d8257a2947017cdde2f9b7494ee156e9cd2219ca1da9"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-vm-20261013/steam-applets-results/result.json",
+      "sha256": "659d6058b2a8a812e60e3fe7aaacd2f8e66446eaab24566b3615809a482d10e4"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-vm-20261013/capability-system-fr1280/readback-result.json",
+      "sha256": "4b2d7a7881bfade4ce64f6a75dfa3c9a15a11c0f4107bb33e46b95269ae3cbef"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+watch-build: recording in /workspace/tmp/pix-m7-library-vm-20261013/.build-runs/20261013T235221Z-481d1505
+/workspace/tmp/pix-m7-library-vm-20261013/capability-system-readback.py:8: SyntaxWarning: "\." is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\."? A raw string is also an option.
+  result['installed_defaults']=out("for p in /usr/config/system/configs/system.cfg /usr/config/system/configs/system.cfg.defaults /storage/.config/system/configs/system.cfg.defaults; do test ! -f \"$p\" || { echo \"$p\"; sed -n '/^gamecube\.emulator=/p; /^gamecube\.core=/p' \"$p\"; }; done")

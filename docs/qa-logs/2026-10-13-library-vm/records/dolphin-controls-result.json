@@ -1,0 +1,23 @@
+{
+  "rc": 0,
+  "started": 1791933928.3348792,
+  "stages": [
+    {
+      "name": "baseline",
+      "rc": 1,
+      "expected_rc": 1,
+      "seconds": 0.21687078475952148,
+      "status": "EXPECTED_BASELINE_FAILURE",
+      "case_count": 8
+    },
+    {
+      "name": "candidate",
+      "rc": 0,
+      "expected_rc": 0,
+      "seconds": 2.2070844173431396,
+      "status": "PASS",
+      "case_count": 104
+    }
+  ],
+  "ended": 1791933931.668079
+}

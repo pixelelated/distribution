@@ -1,0 +1,389 @@
+{
+  "rc": 0,
+  "started": 1791934164.7879918,
+  "cases": [
+    {
+      "name": "clean-gc",
+      "rc": 0,
+      "expected": 0,
+      "before": {
+        ".config/dolphin-emu/GC/font_western.bin": {
+          "sha256": "90f2e40137ef459528c934c006cd6af5291f9498fb5d3d8c2119b20338c7021c",
+          "inode": 7,
+          "mode": 420
+        }
+      },
+      "after": {
+        "roms/bios/GC/font_western.bin": {
+          "sha256": "90f2e40137ef459528c934c006cd6af5291f9498fb5d3d8c2119b20338c7021c",
+          "inode": 10,
+          "mode": 420
+        },
+        ".config/dolphin-emu/GC/font_western.bin": {
+          "sha256": "90f2e40137ef459528c934c006cd6af5291f9498fb5d3d8c2119b20338c7021c",
+          "inode": 7,
+          "mode": 420
+        }
+      }
+    },
+    {
+      "name": "switch-wii",
+      "rc": 0,
+      "expected": 0,
+      "before": {
+        "roms/bios/GC/MemoryCardB.USA.raw": {
+          "sha256": "5570ff732fa8ef58e6494b1eba979a38ec67212f82e3af5dbd9675f2dee0758e",
+          "inode": 35,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardA.USA.raw": {
+          "sha256": "ad4e88cd3d741f3883f14988baa533138c4bee6cb90d9f083913273a24c7fe3e",
+          "inode": 34,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardB.JAP.raw": {
+          "sha256": "3d1d820290f02ec4e03a13ccc5839f8cfb6f0f0d60fcb783cb88e94cfc2f5535",
+          "inode": 33,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardA.JAP.raw": {
+          "sha256": "7e19a5a04578a8e518c9d76e47cc018a9823d186b2b88877fbb6d58cefe0ee1f",
+          "inode": 32,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardB.EUR.raw": {
+          "sha256": "0fdb93645375f24e7a2193a53e33b367702cb240884d1a338a5efa7a903a00b6",
+          "inode": 31,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardA.EUR.raw": {
+          "sha256": "52bec7b22a79ee5175439090cd2b73ce4ba2ed527dbaa3a41f6a088110a56525",
+          "inode": 30,
+          "mode": 420
+        },
+        "roms/bios/GC/font_western.bin": {
+          "sha256": "90f2e40137ef459528c934c006cd6af5291f9498fb5d3d8c2119b20338c7021c",
+          "inode": 10,
+          "mode": 420
+        },
+        "roms/savestates/gamecube/retained.state": {
+          "sha256": "ce508e742f7ba2e99265e835ff99eef7a23bd50d417622929819e65f41721f47",
+          "inode": 36,
+          "mode": 420
+        },
+        ".config/dolphin-emu/GC/font_western.bin": {
+          "sha256": "90f2e40137ef459528c934c006cd6af5291f9498fb5d3d8c2119b20338c7021c",
+          "inode": 7,
+          "mode": 420
+        }
+      },
+      "after": {
+        "roms/bios/GC/MemoryCardB.USA.raw": {
+          "sha256": "5570ff732fa8ef58e6494b1eba979a38ec67212f82e3af5dbd9675f2dee0758e",
+          "inode": 35,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardA.USA.raw": {
+          "sha256": "ad4e88cd3d741f3883f14988baa533138c4bee6cb90d9f083913273a24c7fe3e",
+          "inode": 34,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardB.JAP.raw": {
+          "sha256": "3d1d820290f02ec4e03a13ccc5839f8cfb6f0f0d60fcb783cb88e94cfc2f5535",
+          "inode": 33,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardA.JAP.raw": {
+          "sha256": "7e19a5a04578a8e518c9d76e47cc018a9823d186b2b88877fbb6d58cefe0ee1f",
+          "inode": 32,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardB.EUR.raw": {
+          "sha256": "0fdb93645375f24e7a2193a53e33b367702cb240884d1a338a5efa7a903a00b6",
+          "inode": 31,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardA.EUR.raw": {
+          "sha256": "52bec7b22a79ee5175439090cd2b73ce4ba2ed527dbaa3a41f6a088110a56525",
+          "inode": 30,
+          "mode": 420
+        },
+        "roms/bios/GC/font_western.bin": {
+          "sha256": "90f2e40137ef459528c934c006cd6af5291f9498fb5d3d8c2119b20338c7021c",
+          "inode": 10,
+          "mode": 420
+        },
+        "roms/savestates/gamecube/retained.state": {
+          "sha256": "ce508e742f7ba2e99265e835ff99eef7a23bd50d417622929819e65f41721f47",
+          "inode": 36,
+          "mode": 420
+        },
+        ".config/dolphin-emu/GC/font_western.bin": {
+          "sha256": "90f2e40137ef459528c934c006cd6af5291f9498fb5d3d8c2119b20338c7021c",
+          "inode": 7,
+          "mode": 420
+        }
+      }
+    },
+    {
+      "name": "switch-back-gc",
+      "rc": 0,
+      "expected": 0,
+      "before": {
+        "roms/bios/GC/MemoryCardB.USA.raw": {
+          "sha256": "5570ff732fa8ef58e6494b1eba979a38ec67212f82e3af5dbd9675f2dee0758e",
+          "inode": 35,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardA.USA.raw": {
+          "sha256": "ad4e88cd3d741f3883f14988baa533138c4bee6cb90d9f083913273a24c7fe3e",
+          "inode": 34,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardB.JAP.raw": {
+          "sha256": "3d1d820290f02ec4e03a13ccc5839f8cfb6f0f0d60fcb783cb88e94cfc2f5535",
+          "inode": 33,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardA.JAP.raw": {
+          "sha256": "7e19a5a04578a8e518c9d76e47cc018a9823d186b2b88877fbb6d58cefe0ee1f",
+          "inode": 32,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardB.EUR.raw": {
+          "sha256": "0fdb93645375f24e7a2193a53e33b367702cb240884d1a338a5efa7a903a00b6",
+          "inode": 31,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardA.EUR.raw": {
+          "sha256": "52bec7b22a79ee5175439090cd2b73ce4ba2ed527dbaa3a41f6a088110a56525",
+          "inode": 30,
+          "mode": 420
+        },
+        "roms/bios/GC/font_western.bin": {
+          "sha256": "90f2e40137ef459528c934c006cd6af5291f9498fb5d3d8c2119b20338c7021c",
+          "inode": 10,
+          "mode": 420
+        },
+        "roms/savestates/wii/retained.state": {
+          "sha256": "5ac985cff8700db2a20652425ab620854c25d8b2bdbe526fa917ccc1d8d3b696",
+          "inode": 39,
+          "mode": 420
+        },
+        "roms/savestates/gamecube/retained.state": {
+          "sha256": "ce508e742f7ba2e99265e835ff99eef7a23bd50d417622929819e65f41721f47",
+          "inode": 36,
+          "mode": 420
+        },
+        ".config/dolphin-emu/GC/font_western.bin": {
+          "sha256": "90f2e40137ef459528c934c006cd6af5291f9498fb5d3d8c2119b20338c7021c",
+          "inode": 7,
+          "mode": 420
+        }
+      },
+      "after": {
+        "roms/bios/GC/MemoryCardB.USA.raw": {
+          "sha256": "5570ff732fa8ef58e6494b1eba979a38ec67212f82e3af5dbd9675f2dee0758e",
+          "inode": 35,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardA.USA.raw": {
+          "sha256": "ad4e88cd3d741f3883f14988baa533138c4bee6cb90d9f083913273a24c7fe3e",
+          "inode": 34,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardB.JAP.raw": {
+          "sha256": "3d1d820290f02ec4e03a13ccc5839f8cfb6f0f0d60fcb783cb88e94cfc2f5535",
+          "inode": 33,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardA.JAP.raw": {
+          "sha256": "7e19a5a04578a8e518c9d76e47cc018a9823d186b2b88877fbb6d58cefe0ee1f",
+          "inode": 32,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardB.EUR.raw": {
+          "sha256": "0fdb93645375f24e7a2193a53e33b367702cb240884d1a338a5efa7a903a00b6",
+          "inode": 31,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardA.EUR.raw": {
+          "sha256": "52bec7b22a79ee5175439090cd2b73ce4ba2ed527dbaa3a41f6a088110a56525",
+          "inode": 30,
+          "mode": 420
+        },
+        "roms/bios/GC/font_western.bin": {
+          "sha256": "90f2e40137ef459528c934c006cd6af5291f9498fb5d3d8c2119b20338c7021c",
+          "inode": 10,
+          "mode": 420
+        },
+        "roms/savestates/wii/retained.state": {
+          "sha256": "5ac985cff8700db2a20652425ab620854c25d8b2bdbe526fa917ccc1d8d3b696",
+          "inode": 39,
+          "mode": 420
+        },
+        "roms/savestates/gamecube/retained.state": {
+          "sha256": "ce508e742f7ba2e99265e835ff99eef7a23bd50d417622929819e65f41721f47",
+          "inode": 36,
+          "mode": 420
+        },
+        ".config/dolphin-emu/GC/font_western.bin": {
+          "sha256": "90f2e40137ef459528c934c006cd6af5291f9498fb5d3d8c2119b20338c7021c",
+          "inode": 7,
+          "mode": 420
+        }
+      }
+    },
+    {
+      "name": "retained-real-state",
+      "rc": 250,
+      "expected": 250,
+      "before": {
+        "roms/bios/GC/MemoryCardB.USA.raw": {
+          "sha256": "5570ff732fa8ef58e6494b1eba979a38ec67212f82e3af5dbd9675f2dee0758e",
+          "inode": 35,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardA.USA.raw": {
+          "sha256": "ad4e88cd3d741f3883f14988baa533138c4bee6cb90d9f083913273a24c7fe3e",
+          "inode": 34,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardB.JAP.raw": {
+          "sha256": "3d1d820290f02ec4e03a13ccc5839f8cfb6f0f0d60fcb783cb88e94cfc2f5535",
+          "inode": 33,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardA.JAP.raw": {
+          "sha256": "7e19a5a04578a8e518c9d76e47cc018a9823d186b2b88877fbb6d58cefe0ee1f",
+          "inode": 32,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardB.EUR.raw": {
+          "sha256": "0fdb93645375f24e7a2193a53e33b367702cb240884d1a338a5efa7a903a00b6",
+          "inode": 31,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardA.EUR.raw": {
+          "sha256": "52bec7b22a79ee5175439090cd2b73ce4ba2ed527dbaa3a41f6a088110a56525",
+          "inode": 30,
+          "mode": 420
+        },
+        "roms/bios/GC/font_western.bin": {
+          "sha256": "90f2e40137ef459528c934c006cd6af5291f9498fb5d3d8c2119b20338c7021c",
+          "inode": 10,
+          "mode": 420
+        },
+        "roms/savestates/wii/retained.state": {
+          "sha256": "5ac985cff8700db2a20652425ab620854c25d8b2bdbe526fa917ccc1d8d3b696",
+          "inode": 39,
+          "mode": 420
+        },
+        "roms/savestates/gamecube/retained.state": {
+          "sha256": "ce508e742f7ba2e99265e835ff99eef7a23bd50d417622929819e65f41721f47",
+          "inode": 36,
+          "mode": 420
+        },
+        ".config/dolphin-emu/StateSaves/ambiguous.state": {
+          "sha256": "260777dd0057aa03197a29f393d3ca9a56d4b5b0bed32523a8640e0282abac08",
+          "inode": 42,
+          "mode": 420
+        },
+        ".config/dolphin-emu/GC/font_western.bin": {
+          "sha256": "90f2e40137ef459528c934c006cd6af5291f9498fb5d3d8c2119b20338c7021c",
+          "inode": 7,
+          "mode": 420
+        }
+      },
+      "after": {
+        "roms/bios/GC/MemoryCardB.USA.raw": {
+          "sha256": "5570ff732fa8ef58e6494b1eba979a38ec67212f82e3af5dbd9675f2dee0758e",
+          "inode": 35,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardA.USA.raw": {
+          "sha256": "ad4e88cd3d741f3883f14988baa533138c4bee6cb90d9f083913273a24c7fe3e",
+          "inode": 34,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardB.JAP.raw": {
+          "sha256": "3d1d820290f02ec4e03a13ccc5839f8cfb6f0f0d60fcb783cb88e94cfc2f5535",
+          "inode": 33,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardA.JAP.raw": {
+          "sha256": "7e19a5a04578a8e518c9d76e47cc018a9823d186b2b88877fbb6d58cefe0ee1f",
+          "inode": 32,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardB.EUR.raw": {
+          "sha256": "0fdb93645375f24e7a2193a53e33b367702cb240884d1a338a5efa7a903a00b6",
+          "inode": 31,
+          "mode": 420
+        },
+        "roms/bios/GC/MemoryCardA.EUR.raw": {
+          "sha256": "52bec7b22a79ee5175439090cd2b73ce4ba2ed527dbaa3a41f6a088110a56525",
+          "inode": 30,
+          "mode": 420
+        },
+        "roms/bios/GC/font_western.bin": {
+          "sha256": "90f2e40137ef459528c934c006cd6af5291f9498fb5d3d8c2119b20338c7021c",
+          "inode": 10,
+          "mode": 420
+        },
+        "roms/savestates/wii/retained.state": {
+          "sha256": "5ac985cff8700db2a20652425ab620854c25d8b2bdbe526fa917ccc1d8d3b696",
+          "inode": 39,
+          "mode": 420
+        },
+        "roms/savestates/gamecube/retained.state": {
+          "sha256": "ce508e742f7ba2e99265e835ff99eef7a23bd50d417622929819e65f41721f47",
+          "inode": 36,
+          "mode": 420
+        },
+        ".config/dolphin-emu/StateSaves/ambiguous.state": {
+          "sha256": "260777dd0057aa03197a29f393d3ca9a56d4b5b0bed32523a8640e0282abac08",
+          "inode": 42,
+          "mode": 420
+        },
+        ".config/dolphin-emu/GC/font_western.bin": {
+          "sha256": "90f2e40137ef459528c934c006cd6af5291f9498fb5d3d8c2119b20338c7021c",
+          "inode": 7,
+          "mode": 420
+        }
+      }
+    },
+    {
+      "name": "second-clean",
+      "rc": 0,
+      "expected": 0,
+      "before": {},
+      "after": {}
+    },
+    {
+      "name": "nested-save-mount",
+      "rc": 250,
+      "expected": 250,
+      "before": {},
+      "after": {}
+    },
+    {
+      "name": "read-only-roms",
+      "rc": 250,
+      "expected": 250,
+      "before": {},
+      "after": {}
+    },
+    {
+      "name": "missing-roms-mount",
+      "rc": 250,
+      "expected": 250,
+      "before": {},
+      "after": {}
+    }
+  ],
+  "mountinfo_before": "444 443 7:0 / / ro,relatime - squashfs /dev/loop0 ro,errors=continue\n445 444 254:1 / /flash ro,noatime - vfat /dev/vda1 ro,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro\n446 444 254:2 / /storage rw,noatime - ext4 /dev/vda2 rw\n447 446 254:2 /games-internal/roms /storage/roms rw,noatime - ext4 /dev/vda2 rw\n448 444 0:7 / /dev rw,relatime - devtmpfs devtmpfs rw,size=3822468k,nr_inodes=955617,mode=755\n449 448 0:23 / /dev/shm rw,nosuid,nodev - tmpfs tmpfs rw\n450 448 0:24 / /dev/pts rw,nosuid,noexec,relatime - devpts devpts rw,gid=5,mode=620,ptmxmode=000\n451 448 0:17 / /dev/mqueue rw,nosuid,nodev,noexec,relatime - mqueue mqueue rw\n452 444 0:20 / /proc rw,relatime - proc proc rw\n453 452 0:37 / /proc/sys/fs/binfmt_misc rw,relatime - autofs systemd-1 rw,fd=32,pgrp=1,timeout=0,minproto=5,maxproto=5,direct\n454 453 0:38 / /proc/sys/fs/binfmt_misc rw,nosuid,nodev,noexec,relatime - binfmt_misc binfmt_misc rw\n455 444 0:21 / /sys rw,relatime - sysfs sysfs rw\n456 455 0:25 / /sys/fs/cgroup ro,nosuid,nodev,noexec - tmpfs tmpfs ro,size=4096k,nr_inodes=1024,mode=755\n457 456 0:26 / /sys/fs/cgroup/unified rw,nosuid,nodev,noexec,relatime - cgroup2 cgroup2 rw,nsdelegate\n458 456 0:27 / /sys/fs/cgroup/systemd rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,xattr,name=systemd\n459 456 0:30 / /sys/fs/cgroup/devices rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,devices\n460 456 0:31 / /sys/fs/cgroup/cpu,cpuacct rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,cpu,cpuacct\n461 456 0:32 / /sys/fs/cgroup/perf_event rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,perf_event\n462 456 0:33 / /sys/fs/cgroup/blkio rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,blkio\n463 456 0:34 / /sys/fs/cgroup/freezer rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,freezer\n464 456 0:35 / /sys/fs/cgroup/net_cls,net_prio rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,net_cls,net_prio\n465 456 0:36 / /sys/fs/cgroup/pids rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,pids\n466 455 0:28 / /sys/fs/pstore rw,nosuid,nodev,noexec,relatime - pstore none rw\n467 455 0:29 / /sys/fs/bpf rw,nosuid,nodev,noexec,relatime - bpf bpf rw,mode=700\n468 455 0:8 / /sys/kernel/debug rw,nosuid,nodev,noexec,relatime - debugfs debugfs rw\n469 455 0:12 / /sys/kernel/tracing rw,nosuid,nodev,noexec,relatime - tracefs tracefs rw\n470 455 0:19 / /sys/kernel/config rw,nosuid,nodev,noexec,relatime - configfs configfs rw\n471 455 0:42 / /sys/fs/fuse/connections rw,nosuid,nodev,noexec,relatime - fusectl fusectl rw\n472 444 0:22 / /run rw,nosuid,nodev - tmpfs tmpfs rw,size=1591576k,nr_inodes=819200,mode=755\n473 472 0:69 / /run/qa-steam-scratch rw,relatime - tmpfs tmpfs rw,size=524288k,mode=700\n474 444 0:39 / /tmp rw,nosuid,nodev - tmpfs tmpfs rw,size=3978936k,nr_inodes=1048576\n475 474 0:52 / /tmp/database rw,relatime - overlay none rw,lowerdir=/usr/share/libretro-database,upperdir=/storage/database,workdir=/storage/.tmp/database-workdir,uuid=on\n476 474 0:51 / /tmp/assets rw,relatime - overlay none rw,lowerdir=/usr/share/retroarch-assets,upperdir=/storage/assets,workdir=/storage/.tmp/assets-workdir,uuid=on\n477 474 0:57 / /tmp/overlays rw,relatime - overlay none rw,lowerdir=/usr/share/retroarch-overlays,upperdir=/storage/overlays,workdir=/storage/.tmp/overlays-workdir,uuid=on\n478 474 0:60 / /tmp/cores rw,relatime - overlay none rw,lowerdir=/usr/lib/libretro,upperdir=/storage/cores,workdir=/storage/.tmp/cores-workdir,uuid=on\n479 474 0:61 / /tmp/joypads rw,relatime - overlay none rw,lowerdir=/usr/share/libretro/autoconfig,upperdir=/storage/joypads,workdir=/storage/.tmp/joypads-workdir,uuid=on\n489 474 0:66 / /tmp/shaders rw,relatime - overlay none rw,lowerdir=/usr/share/common-shaders:/usr/share/glsl-shaders:/usr/share/slang-shaders,upperdir=/storage/shaders,workdir=/storage/.tmp/shaders-workdir,uuid=on\n490 474 0:70 / /tmp/pix581-run rw,relatime - tmpfs tmpfs rw,size=262144k,mode=700\n491 444 0:40 / /var rw,relatime - tmpfs tmpfs rw\n492 491 254:2 /.cache/log /var/log rw,noatime - ext4 /dev/vda2 rw\n493 444 254:2 /qa570flows/emulationstation /usr/bin/emulationstation rw,noatime - ext4 /dev/vda2 rw\n494 444 254:2 /qa570flows/rclone-fixture /usr/bin/rclone rw,noatime - ext4 /dev/vda2 rw\n495 444 254:2 /qa575/es_systems.cfg /usr/config/emulationstation/es_systems.cfg rw,noatime - ext4 /dev/vda2 rw\n496 444 254:2 /qa575/no-launch /usr/bin/runemu.sh rw,noatime - ext4 /dev/vda2 rw\n497 444 254:2 /qa-wifi-577-fr640-bb9e/wifictl /usr/bin/wifictl rw,noatime - ext4 /dev/vda2 rw\n498 474 0:71 / /tmp/pix581-mounted rw,relatime - tmpfs tmpfs rw,size=131072k,mode=700\n499 498 0:71 /storage/roms /tmp/pix581-mounted/storage/roms rw,relatime - tmpfs tmpfs rw,size=131072k,mode=700\n",
+  "helper_sha256": "9a30fb496132411444b8d3a0b4cb4b3f2fba6e0e6e688667a0083136c3d59895",
+  "card_link_writes": 6,
+  "ended": 1791934165.0832858
+}

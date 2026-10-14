@@ -1,0 +1,24 @@
+{
+  "commit": "b2868df82ed3199e628721ad6fb3f1fb95a3a04a",
+  "archive_sha256": "0e49b0a7577ff90224b695d6f6590d116ab0db6277c5c20470ebff87b1d4747b",
+  "packet": "docs/qa-logs/2026-10-13-dolphin-preservation-source",
+  "files": {
+    "foundation_commit": "0c1049caf64751809143f88c1cfe3a1e0bf6dac3",
+    "issue": 581,
+    "runtime": "UNRUN",
+    "rules_commit": "0ea6eaf74ad47503c05955d1c0bd4bd00bdfb816",
+    "candidate_files": {
+      "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_gc.sh": "cc6da2e146adfc5423fb58462888e0cab0a4904deb90f5066392484b8447c9c2",
+      "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh": "e8ff87c570d7a96eb641d42637d35ac93580f6a48dd7ea40e060f1b827eb407a",
+      "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/dolphin-save-paths": "9a30fb496132411444b8d3a0b4cb4b3f2fba6e0e6e688667a0083136c3d59895",
+      "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk": "9dc251df09495db8b6d80d5be2a2fb4f02bbedc6374759b57373b3aa63411d5b",
+      "projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh": "6b85165aa4ae9068a1cd82b46f88afd23c3d81578b80043b555eb6e122463d81"
+    },
+    "baseline_files": {
+      "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_gc.sh": "e28886067a11e50f897fa3073f191801876bca68e69b8797ddf56c83ec6b9882",
+      "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh": "b6cedc30a88cfbd8689678b629739fffb1d6024137c1e5c7440dfc6f64bfcb4b",
+      "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk": "0041085b62ce9fdcbbc0fe54956a68cc304ddabeadf26cb718ae9eab620928da",
+      "projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh": "966d013d4be4e600e0963da7d5be2556a457f35f14007c05ee3b229bf3d93de2"
+    }
+  }
+}

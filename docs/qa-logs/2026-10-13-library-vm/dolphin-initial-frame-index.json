@@ -1,0 +1,51 @@
+{
+  "reviewed_utc": "2026-10-14T00:23:50Z",
+  "qualification": "Presentation reviewed; original caller assertion failure1 remains. Complete flow not accepted.",
+  "es_source": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+  "es_binary": "8752b5391ea8728c1a088d0a80e3776469692dda665e8f07f062fed3206263d2",
+  "products": {
+    "runemu.sh": "deb95aee74d3ddd80638a9ab2f940f5b3b080f4d3ec01f669ea8dbd44179ad20",
+    "start_dolphin_gc.sh": "54575d7f9b458f3141bfab10be2ee39a209b4858c7b7aff9b23f9d14a5aade09",
+    "start_dolphin_wii.sh": "7b92b93ca882511d87d36315cbb7842d2c93c78198b73c82fa1ad0469cb33147",
+    "dolphin-save-paths": "57ecf422f3a13b7bc3394cd85a0f93627c7a74fca6ddea5f4f4166a137e47382"
+  },
+  "frame_resources": {
+    "/usr/share/themes/es-theme-art-book-next/theme.xml": "f19b1c9b28748fecb50e48df1aad0ff03717e9d206509e8e64b2346e6374d15c",
+    "/usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo": "7113cf7c7f7ac9aaf8edce4ecda231bdaebd8850d588a6bd5a2bc3c15f8b7167"
+  },
+  "frames": [
+    {
+      "path": "frames/dolphin-v3-gc-state-fr1280/entry.png",
+      "sha256": "810f4eac3daef691c4b64bc90246403e55f7374900f0404e1a73fea82a42ff7e",
+      "language": "fr_FR",
+      "size": [
+        1280,
+        800
+      ],
+      "presentation_review": "same selected synthetic library entry",
+      "flow_verdict": "failed trace oracle; no complete-flow PASS"
+    },
+    {
+      "path": "frames/dolphin-v3-gc-state-fr1280/native-error.png",
+      "sha256": "00e0a334f658812461020d276c125ba18f59ae872c498bfb3b91714973f0b6b1",
+      "language": "fr_FR",
+      "size": [
+        1280,
+        800
+      ],
+      "presentation_review": "visible, fully fitting French text; no English protocol discriminator",
+      "flow_verdict": "failed trace oracle; no complete-flow PASS"
+    },
+    {
+      "path": "frames/dolphin-v3-gc-state-fr1280/returned.png",
+      "sha256": "810f4eac3daef691c4b64bc90246403e55f7374900f0404e1a73fea82a42ff7e",
+      "language": "fr_FR",
+      "size": [
+        1280,
+        800
+      ],
+      "presentation_review": "same selected synthetic library entry",
+      "flow_verdict": "failed trace oracle; no complete-flow PASS"
+    }
+  ]
+}

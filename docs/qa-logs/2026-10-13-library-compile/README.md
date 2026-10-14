@@ -28,3 +28,9 @@ consumed the same original successful results without rerunning tests.
 Next: synthetic target decoder/equivalence/rejection/retry controls and EN/FR
 installed capability/hint frames in a fresh admitted VM. Additional shared Wii
 ISO/CHD, sanitizer and independent-format regression proof remains necessary.
+
+The generated `capability/capability.cpp.gz` preserves the exact tested C++
+bytes, including inherited trailing whitespace. Decompress it for inspection;
+`capability.cpp.sha256` binds those original bytes. The initial local evidence
+commit exposed the whitespace to `git diff --check`; this representation change
+keeps the evidence intact without altering the tested source or rerunning it.

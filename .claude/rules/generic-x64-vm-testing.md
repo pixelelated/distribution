@@ -345,6 +345,13 @@ things that cost a cycle each before they were written down:
   button** — the wrap runs rows → buttons → rows. So the bottom of GAME
   SETTINGS is three `up`s from the top (BACK, the last row, the one above),
   not one. The button bar is a focus stop on every page.
+- **Keep a BusyBox applet's invocation path separate from its binary identity.**
+  Hash the resolved executable, but invoke the original installed applet path
+  (or explicitly name its applet); `realpath unshare` may be `busybox`, whose
+  argv then has different meaning. Check the installed help before borrowing
+  util-linux flags. A private namespace fixture still owns timeout, descendant
+  termination and reaping; dropping an unsupported flag alone is not cleanup
+  proof (#579/#581, October13).
 - **Native text editors receive printable keyboard keys as text.** A monitor
   `z` can type a character instead of acting as the mapped controller Back.
   For a keyboard-driven `GuiTextEditPopupKeyboard` cancellation, use `esc`

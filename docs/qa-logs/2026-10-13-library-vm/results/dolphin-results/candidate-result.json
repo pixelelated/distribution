@@ -1,0 +1,929 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "gamecube-fresh",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-fresh-no-config",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-canonical-data",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-current-links",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-other-system-link",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-relative-links",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-known-dangling-state",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-known-dangling-cards",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-real-state",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-empty-real-state",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-real-region",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-empty-real-region",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-real-card",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-card-conflict",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-equal-card-conflict",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-real-shared-data",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-unexpected-state-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-loop-state-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-unexpected-region-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-unexpected-card-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-unexpected-shared-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-canonical-state-file",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-canonical-state-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-canonical-region-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-canonical-card-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-canonical-card-directory",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-config-gc-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-canonical-gc-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-roms-missing",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-roms-unmounted",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-nested-mount",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-unwritable-canonical",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-unwritable-card",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-unwritable-config",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-concurrent-lock",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-copy-failure",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": 0,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-link-permission-failure",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": 0,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-racing-link-file",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-unknown-pending",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-leftover-known-link",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-kill-copy",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": -9,
+      "retry_exit": 250,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-kill-state-created",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": -9,
+      "retry_exit": 0,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-kill-state-swapped",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": -9,
+      "retry_exit": 0,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-term-state-created",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": 0,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-term-state-swapped",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": 0,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-racing-state-file",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-copy-budget",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-linked-seed",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-triforce-seed",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-triforce-conflict",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-canonical-copy-race",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "gamecube-unsupported-rename",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-fresh",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-fresh-no-config",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-canonical-data",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-current-links",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-other-system-link",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-relative-links",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-known-dangling-state",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-known-dangling-cards",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-real-state",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-empty-real-state",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-real-region",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-empty-real-region",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-real-card",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-card-conflict",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-equal-card-conflict",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-real-shared-data",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-unexpected-state-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-loop-state-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-unexpected-region-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-unexpected-card-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-unexpected-shared-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-canonical-state-file",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-canonical-state-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-canonical-region-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-canonical-card-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-canonical-card-directory",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-config-gc-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-canonical-gc-link",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-roms-missing",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-roms-unmounted",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-nested-mount",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-unwritable-canonical",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-unwritable-card",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-unwritable-config",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-concurrent-lock",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-copy-failure",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": 0,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-link-permission-failure",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": 0,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-racing-link-file",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-unknown-pending",
+      "check_exit": 250,
+      "prepare_invoked": false,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-leftover-known-link",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-kill-copy",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": -9,
+      "retry_exit": 250,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-kill-state-created",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": -9,
+      "retry_exit": 0,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-kill-state-swapped",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": -9,
+      "retry_exit": 0,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-term-state-created",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": 0,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-term-state-swapped",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": 0,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-racing-state-file",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-copy-budget",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-linked-seed",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-triforce-seed",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-triforce-conflict",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 0,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-canonical-copy-race",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    },
+    {
+      "case": "wii-unsupported-rename",
+      "check_exit": 0,
+      "prepare_invoked": true,
+      "helper_exit": 250,
+      "retry_exit": null,
+      "status": "PASS"
+    }
+  ],
+  "runtime_boundary": "synthetic component only; mounts injected; no emulator",
+  "gamecube_guards": [
+    {
+      "case": "check",
+      "launcher_guard_exit": 250,
+      "emulator_stub_calls": 0
+    },
+    {
+      "case": "prepare",
+      "launcher_guard_exit": 250,
+      "emulator_stub_calls": 0
+    },
+    {
+      "case": "none",
+      "launcher_guard_exit": 0,
+      "emulator_stub_calls": 1
+    }
+  ],
+  "wii_guards": [
+    {
+      "case": "check",
+      "launcher_guard_exit": 250,
+      "emulator_stub_calls": 0
+    },
+    {
+      "case": "prepare",
+      "launcher_guard_exit": 250,
+      "emulator_stub_calls": 0
+    },
+    {
+      "case": "none",
+      "launcher_guard_exit": 0,
+      "emulator_stub_calls": 1
+    }
+  ],
+  "native_error": [
+    {
+      "case": "owned",
+      "runemu_exit": 250
+    },
+    {
+      "case": "owned-hotkey",
+      "runemu_exit": 250
+    },
+    {
+      "case": "other-emulator",
+      "runemu_exit": 1
+    },
+    {
+      "case": "wrong-exit",
+      "runemu_exit": 1
+    },
+    {
+      "case": "symlink-message",
+      "runemu_exit": 1
+    },
+    {
+      "case": "missing-message",
+      "runemu_exit": 1
+    },
+    {
+      "case": "wrong-message",
+      "runemu_exit": 1
+    },
+    {
+      "case": "clean",
+      "runemu_exit": 0
+    },
+    {
+      "case": "hotkey-signal",
+      "runemu_exit": 0
+    },
+    {
+      "case": "hotkey-marker",
+      "runemu_exit": 0
+    },
+    {
+      "case": "stale-True",
+      "clear_exit": 0,
+      "message_exists": false
+    },
+    {
+      "case": "stale-False",
+      "clear_exit": 0,
+      "message_exists": true
+    },
+    {
+      "case": "stale-clear-directory",
+      "clear_exit": 1,
+      "emulator_stub_calls": 0
+    }
+  ]
+}

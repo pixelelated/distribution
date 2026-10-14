@@ -1,0 +1,350 @@
++ . /etc/profile
+++ export PATH=/usr/bin:/bin
+++ PATH=/usr/bin:/bin
+++ export HOME=/storage
+++ HOME=/storage
+++ export DEVICE_HAS_FAN=false DEVICE_HAS_DUAL_SCREEN=false DEVICE_MANGOHUD_SUPPORT=false
+++ DEVICE_HAS_FAN=false
+++ DEVICE_HAS_DUAL_SCREEN=false
+++ DEVICE_MANGOHUD_SUPPORT=false
+++ export VERBOSE=false
+++ VERBOSE=false
++ . /etc/os-release
+++ NAME='pix581 disposable fixture'
+++ DEVICE_HAS_FAN=false
+++ DEVICE_HAS_DUAL_SCREEN=false
+++ DEVICE_MANGOHUD_SUPPORT=false
++ performance
++ fixture_record performance
++ printf '%s\n' performance
++ ARGUMENTS='/storage/roms/qa581/synthetic.iso -Pgamecube --emulator=dolphin --core=dolphin-sa --controllers=1'
++ PLATFORM=
++ for ARG in "${@:2}"
++ case "${ARG}" in
++ PLATFORM=gamecube
++ break
++ CORE='dolphin-sa --controllers=1'
++ CORE=dolphin-sa
++ EMULATOR='dolphin --core=dolphin-sa --controllers=1'
++ EMULATOR=dolphin
++ ROMNAME=/storage/roms/qa581/synthetic.iso
++ BASEROMNAME=synthetic.iso
++ GAMEFOLDER=/storage/roms/qa581/
+++ get_setting controllers.bluetooth.enabled
+++ case "$1" in
+++ printf '0\n'
++ BLUETOOTH_STATE=0
++ ES_CONFIG=/storage/.emulationstation/es_settings.cfg
++ VERBOSE=false
++ LOG_DIRECTORY=/var/log
++ LOG_FILE=exec.log
++ RUN_SHELL=/usr/bin/bash
++ RETROARCH_TEMP_CONFIG=/storage/.config/retroarch/retroarch.cfg
++ RETROARCH_APPEND_CONFIG=/tmp/.retroarch.cfg
++ NETWORK_PLAY=No
++ SET_SETTINGS_TMP=/tmp/shader
++ OUTPUT_LOG=/var/log/exec.log
+++ basename /usr/bin/runemu.sh
++ SCRIPT_NAME=runemu.sh
++ DOLPHIN_LAUNCH=false
++ EXIT_HOTKEY_MARKER=/tmp/.process-kill-requested
++ GAME_GUIDE_PATH_CHECK=/storage/roms/qa581/synthetic.txt
++ '[' '!' -f /storage/roms/qa581/synthetic.txt ']'
++ GAME_GUIDE_PATH_CHECK='No Game Guide Found'
++ /usr/bin/game-guides-tool /storage/roms/qa581/synthetic.iso
++ case $(get_setting system.loglevel) in
+++ get_setting system.loglevel
+++ case "$1" in
+++ printf 'verbose\n'
++ case $(get_setting system.loglevel) in
++ LOG=true
++ VERBOSE=true
++ loginit /storage/roms/qa581/synthetic.iso -Pgamecube --emulator=dolphin --core=dolphin-sa
++ rm -f /var/log/exec.log
++ '[' true == true ']'
++ redact_credentials
+++ date
++ '[' 0 -gt 0 ']'
++ cat
++ clear_screen
++ true
++ log /usr/bin/runemu.sh 'Clearing screen'
++ '[' true == true ']'
++ [[ ! -d /var/log ]]
++ redact_credentials 'runemu.sh: /usr/bin/runemu.sh Clearing screen'
++ '[' 1 -gt 0 ']'
++ printf '%s\n' 'runemu.sh: /usr/bin/runemu.sh Clearing screen'
++ tee -a /var/log/exec.log
++ clear
++ :
++ bluetooth disable
++ '[' disable == disable ']'
++ true
++ log /usr/bin/runemu.sh 'Disabling BT'
++ '[' true == true ']'
++ [[ ! -d /var/log ]]
++ tee -a /var/log/exec.log
++ redact_credentials 'runemu.sh: /usr/bin/runemu.sh Disabling BT'
++ '[' 1 -gt 0 ']'
++ printf '%s\n' 'runemu.sh: /usr/bin/runemu.sh Disabling BT'
++ [[ 0 == 1 ]]
++ set_kill stop
++ fixture_record set_kill stop
++ printf '%s\n' 'set_kill stop'
++ true
++ log /usr/bin/runemu.sh 'Configuring for dolphin'
++ '[' true == true ']'
++ [[ ! -d /var/log ]]
++ redact_credentials 'runemu.sh: /usr/bin/runemu.sh Configuring for dolphin'
++ '[' 1 -gt 0 ']'
++ printf '%s\n' 'runemu.sh: /usr/bin/runemu.sh Configuring for dolphin'
++ tee -a /var/log/exec.log
++ case ${EMULATOR} in
++ case ${PLATFORM} in
++ DOLPHIN_LAUNCH=true
++ RUNTHIS='${RUN_SHELL} /usr/bin/start_dolphin_gc.sh "${ROMNAME}" "${PLATFORM}" "${CORE}"'
++ clear_screen
++ true
++ log /usr/bin/runemu.sh 'Clearing screen'
++ '[' true == true ']'
++ [[ ! -d /var/log ]]
++ redact_credentials 'runemu.sh: /usr/bin/runemu.sh Clearing screen'
++ '[' 1 -gt 0 ']'
++ printf '%s\n' 'runemu.sh: /usr/bin/runemu.sh Clearing screen'
++ tee -a /var/log/exec.log
++ clear
++ :
++ true
++ log /usr/bin/runemu.sh 'executing game: /storage/roms/qa581/synthetic.iso'
++ '[' true == true ']'
++ [[ ! -d /var/log ]]
++ redact_credentials 'runemu.sh: /usr/bin/runemu.sh executing game: /storage/roms/qa581/synthetic.iso'
++ '[' 1 -gt 0 ']'
++ tee -a /var/log/exec.log
++ printf '%s\n' 'runemu.sh: /usr/bin/runemu.sh executing game: /storage/roms/qa581/synthetic.iso'
++ true
++ log /usr/bin/runemu.sh 'script to execute: ${RUN_SHELL} /usr/bin/start_dolphin_gc.sh "${ROMNAME}" "${PLATFORM}" "${CORE}"'
++ '[' true == true ']'
++ [[ ! -d /var/log ]]
++ tee -a /var/log/exec.log
++ redact_credentials 'runemu.sh: /usr/bin/runemu.sh script to execute: ${RUN_SHELL} /usr/bin/start_dolphin_gc.sh "${ROMNAME}" "${PLATFORM}" "${CORE}"'
++ '[' 1 -gt 0 ']'
++ printf '%s\n' 'runemu.sh: /usr/bin/runemu.sh script to execute: ${RUN_SHELL} /usr/bin/start_dolphin_gc.sh "${ROMNAME}" "${PLATFORM}" "${CORE}"'
+++ get_setting cores gamecube synthetic.iso
+++ case "$1" in
+++ :
++ CORES=
++ true
++ log /usr/bin/runemu.sh 'Configure big.little ()'
++ '[' true == true ']'
++ [[ ! -d /var/log ]]
++ redact_credentials 'runemu.sh: /usr/bin/runemu.sh Configure big.little ()'
++ '[' 1 -gt 0 ']'
++ printf '%s\n' 'runemu.sh: /usr/bin/runemu.sh Configure big.little ()'
++ tee -a /var/log/exec.log
++ case ${CORES} in
++ unset EMUPERF
+++ get_setting cooling.profile
+++ case "$1" in
+++ :
++ COOLINGPROFILE=
+++ get_setting gpuperf gamecube synthetic.iso
+++ case "$1" in
+++ :
++ GPUPERF=
++ '[' '!' -z ']'
++ '[' false = true ']'
+++ get_setting display_mode gamecube synthetic.iso
+++ case "$1" in
+++ :
++ DISPLAY_MODE=
++ '[' '!' -z '' ']'
+++ get_setting forcepack gamecube synthetic.iso
+++ case "$1" in
+++ :
++ FORCEPACK=
++ '[' '!' -z '' ']'
+++ get_setting threads gamecube synthetic.iso
+++ case "$1" in
+++ :
++ NUMTHREADS=
++ '[' -n '' ']'
+++ get_setting cpugovernor gamecube synthetic.iso
+++ case "$1" in
+++ :
++ CPU_GOVERNOR=
++ true
++ log /usr/bin/runemu.sh 'Set emulation performance mode to ()'
++ '[' true == true ']'
++ [[ ! -d /var/log ]]
++ redact_credentials 'runemu.sh: /usr/bin/runemu.sh Set emulation performance mode to ()'
++ '[' 1 -gt 0 ']'
++ printf '%s\n' 'runemu.sh: /usr/bin/runemu.sh Set emulation performance mode to ()'
++ tee -a /var/log/exec.log
++ '[' false == true ']'
++ rm -f /tmp/.process-kill-requested
++ [[ /storage/roms/qa581/synthetic.iso == *\.sh ]]
++ true
+++ eval echo '${RUN_SHELL}' /usr/bin/start_dolphin_gc.sh '"${ROMNAME}"' '"${PLATFORM}"' '"${CORE}"'
++++ echo /usr/bin/bash /usr/bin/start_dolphin_gc.sh /storage/roms/qa581/synthetic.iso gamecube dolphin-sa
++ log /usr/bin/runemu.sh 'Executing /usr/bin/bash /usr/bin/start_dolphin_gc.sh /storage/roms/qa581/synthetic.iso gamecube dolphin-sa'
++ '[' true == true ']'
++ [[ ! -d /var/log ]]
++ tee -a /var/log/exec.log
++ redact_credentials 'runemu.sh: /usr/bin/runemu.sh Executing /usr/bin/bash /usr/bin/start_dolphin_gc.sh /storage/roms/qa581/synthetic.iso gamecube dolphin-sa'
++ '[' 1 -gt 0 ']'
++ printf '%s\n' 'runemu.sh: /usr/bin/runemu.sh Executing /usr/bin/bash /usr/bin/start_dolphin_gc.sh /storage/roms/qa581/synthetic.iso gamecube dolphin-sa'
++ '[' true = true ']'
++ rm -f /tmp/launch_error.log
++ eval '${RUN_SHELL}' /usr/bin/start_dolphin_gc.sh '"${ROMNAME}"' '"${PLATFORM}"' '"${CORE}"'
+++ /usr/bin/bash /usr/bin/start_dolphin_gc.sh /storage/roms/qa581/synthetic.iso gamecube dolphin-sa
++ . /etc/profile
+++ export PATH=/usr/bin:/bin
+++ PATH=/usr/bin:/bin
+++ export HOME=/storage
+++ HOME=/storage
+++ export DEVICE_HAS_FAN=false DEVICE_HAS_DUAL_SCREEN=false DEVICE_MANGOHUD_SUPPORT=false
+++ DEVICE_HAS_FAN=false
+++ DEVICE_HAS_DUAL_SCREEN=false
+++ DEVICE_MANGOHUD_SUPPORT=false
+++ export VERBOSE=false
+++ VERBOSE=false
+++ echo dolphin-sa
+++ sed 's#^/.*/##'
++ DOLPHIN_CORE=dolphin-sa
++ '[' dolphin-sa = dolphin-qt-gc ']'
++ DOLPHIN_CORE=dolphin-emu-nogui
++ set_kill set '-9 dolphin-emu-nogui'
++ fixture_record set_kill set '-9 dolphin-emu-nogui'
++ printf '%s\n' 'set_kill set -9 dolphin-emu-nogui'
++ control-gen_init.sh
++ source /storage/.config/gptokeyb/control.ini
+++ param_device='Synthetic QA controller'
++ get_controls
++ DEVICE=
++ param_device='Synthetic QA controller'
++ CONF_DIR=/storage/.config/dolphin-emu
++ DOLPHIN_INI=Dolphin.ini
++ GFX_INI=GFX.ini
++ CONTROLLER_INI=GCPadNew.ini
++ /usr/bin/python3 -I -S -B /usr/bin/dolphin-save-paths check gamecube
++ exit 250
++ ret_error=250
++ performance
++ fixture_record performance
++ printf '%s\n' performance
++ clear_screen
++ true
++ log /usr/bin/runemu.sh 'Clearing screen'
++ '[' true == true ']'
++ [[ ! -d /var/log ]]
++ redact_credentials 'runemu.sh: /usr/bin/runemu.sh Clearing screen'
++ tee -a /var/log/exec.log
++ '[' 1 -gt 0 ']'
++ printf '%s\n' 'runemu.sh: /usr/bin/runemu.sh Clearing screen'
++ clear
++ :
++ [[ false == true ]]
+++ get_setting display_mode gamecube synthetic.iso
+++ case "$1" in
+++ :
++ DISPLAY_MODE=
++ '[' '!' -z '' ']'
++ '[' false = true ']'
+++ get_setting system.gpuperf
+++ case "$1" in
+++ :
++ GPUPERF=
++ '[' '!' -z ']'
++ true
++ log /usr/bin/runemu.sh 'Restore system GPU performance mode (auto)'
++ '[' true == true ']'
++ [[ ! -d /var/log ]]
++ tee -a /var/log/exec.log
++ redact_credentials 'runemu.sh: /usr/bin/runemu.sh Restore system GPU performance mode (auto)'
++ '[' 1 -gt 0 ']'
++ printf '%s\n' 'runemu.sh: /usr/bin/runemu.sh Restore system GPU performance mode (auto)'
++ rm -f /tmp/.gpu_performance_level
++ gpu_performance_level auto
++ fixture_record gpu_performance_level auto
++ printf '%s\n' 'gpu_performance_level auto'
+++ get_setting system.threads
+++ case "$1" in
+++ :
++ NUMTHREADS=
++ true
++ log /usr/bin/runemu.sh 'Restore active threads ()'
++ '[' true == true ']'
++ [[ ! -d /var/log ]]
++ redact_credentials 'runemu.sh: /usr/bin/runemu.sh Restore active threads ()'
++ '[' 1 -gt 0 ']'
++ printf '%s\n' 'runemu.sh: /usr/bin/runemu.sh Restore active threads ()'
++ tee -a /var/log/exec.log
++ '[' -n '' ']'
++ gpu_profiling off
++ fixture_record gpu_profiling off
++ printf '%s\n' 'gpu_profiling off'
++ true
++ log /usr/bin/runemu.sh 'Checking errors: 250 '
++ onlinethreads all 1
++ '[' true == true ']'
++ [[ ! -d /var/log ]]
++ fixture_record onlinethreads all 1
++ printf '%s\n' 'onlinethreads all 1'
++ redact_credentials 'runemu.sh: /usr/bin/runemu.sh Checking errors: 250 '
++ '[' 1 -gt 0 ']'
++ printf '%s\n' 'runemu.sh: /usr/bin/runemu.sh Checking errors: 250 '
++ tee -a /var/log/exec.log
++ EXIT_HOTKEY_PRESSED=false
++ '[' -e /tmp/.process-kill-requested ']'
++ '[' true = true ']'
++ '[' 250 = 250 ']'
++ '[' -f /tmp/launch_error.log ']'
++ '[' '!' -L /tmp/launch_error.log ']'
++ IFS=
++ read -r DOLPHIN_ERROR_TITLE
++ '[' 'DOLPHIN DID NOT START' = 'DOLPHIN DID NOT START' ']'
+++ mktemp /tmp/.dolphin-visible-error.XXXXXX
++ DOLPHIN_VISIBLE_ERROR=/tmp/.dolphin-visible-error.dBkj0s
++ sed 1d /tmp/launch_error.log
++ mv -f /tmp/.dolphin-visible-error.dBkj0s /tmp/launch_error.log
++ quit 250
++ true
++ log /usr/bin/runemu.sh 'Cleaning up and exiting'
++ '[' true == true ']'
++ [[ ! -d /var/log ]]
++ redact_credentials 'runemu.sh: /usr/bin/runemu.sh Cleaning up and exiting'
++ '[' 1 -gt 0 ']'
++ printf '%s\n' 'runemu.sh: /usr/bin/runemu.sh Cleaning up and exiting'
++ tee -a /var/log/exec.log
++ bluetooth enable
++ '[' enable == disable ']'
++ '[' enable == enable ']'
++ true
++ log /usr/bin/runemu.sh 'Enabling BT'
++ '[' true == true ']'
++ [[ ! -d /var/log ]]
++ tee -a /var/log/exec.log
++ redact_credentials 'runemu.sh: /usr/bin/runemu.sh Enabling BT'
++ '[' 1 -gt 0 ']'
++ printf '%s\n' 'runemu.sh: /usr/bin/runemu.sh Enabling BT'
++ [[ 0 == 1 ]]
++ set_kill set emulationstation
++ fixture_record set_kill set emulationstation
++ printf '%s\n' 'set_kill set emulationstation'
++ clear_screen
++ true
++ log /usr/bin/runemu.sh 'Clearing screen'
++ '[' true == true ']'
++ [[ ! -d /var/log ]]
++ redact_credentials 'runemu.sh: /usr/bin/runemu.sh Clearing screen'
++ tee -a /var/log/exec.log
++ '[' 1 -gt 0 ']'
++ printf '%s\n' 'runemu.sh: /usr/bin/runemu.sh Clearing screen'
++ clear
++ :
+++ get_setting system.cpugovernor
+++ case "$1" in
+++ :
++ DEVICE_CPU_GOVERNOR=
++ exit 250

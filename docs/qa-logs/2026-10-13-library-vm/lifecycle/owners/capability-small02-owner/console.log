@@ -1,0 +1,33 @@
+watch-build: recording in /workspace/tmp/pix-m7-library-vm-20261013/.build-runs/20261013T231723Z-732cddd5
+settle: still after 1.3s
+changed after 0.0s (`key s`, line 3)
+settle: still after 1.7s
+captured /workspace/tmp/pix-m7-library-vm-20261013/capability-gc-auto-en_US-640-02/game-options/01-game-options.png
+settle: still after 1.3s
+changed after 0.1s (`key s`, line 3)
+settle: still after 1.3s
+captured /workspace/tmp/pix-m7-library-vm-20261013/capability-gc-auto-en_US-640-02/advanced-options/01-advanced-options.png
+settle: still after 1.3s
+changed after 0.1s (`key down`, line 3)
+settle: still after 1.3s
+changed after 0.0s (`key x`, line 6)
+settle: still after 1.3s
+captured /workspace/tmp/pix-m7-library-vm-20261013/capability-gc-auto-en_US-640-02/support-dialog/01-support-dialog.png
+settle: still after 1.3s
+changed after 0.1s (`key x`, line 3)
+settle: still after 1.3s
+captured /workspace/tmp/pix-m7-library-vm-20261013/capability-gc-auto-en_US-640-02/support-returned/01-support-returned.png
+settle: still after 1.3s
+changed after 0.0s (`key z`, line 3)
+settle: still after 1.3s
+captured /workspace/tmp/pix-m7-library-vm-20261013/capability-gc-auto-en_US-640-02/returned/01-returned.png
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-library-vm-20261013/capability-case02.py", line 39, in <module>
+    assert not c.stderr, (k,c.stderr)
+           ^^^^^^^^^^^^
+AssertionError: ('gamecube["pixelelated-capability.dol"].emulator', 'awk: bad regex \'^system.gamecube["pixelelated-capability.dol"].emulator=\': Invalid range end\nawk: bad regex \'^gamecube["pixelelated-capability.dol"].emulator=\': Invalid range end\nawk: bad regex \'^global.gamecube["pixelelated-capability.dol"].emulator=\': Invalid range end\n')
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-library-vm-20261013/capability-small02.py", line 10, in <module>
+    assert c.returncode==0,name
+           ^^^^^^^^^^^^^^^
+AssertionError: capability-gc-auto-en_US-640-02

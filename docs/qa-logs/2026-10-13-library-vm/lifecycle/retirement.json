@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-14T00:31:52.913155+00:00",
+  "retired": [
+    {
+      "path": "/workspace/tmp/pix-m7-library-vm-20261013/vm/OVMF.fd",
+      "allocated_bytes": 540672,
+      "absent": true
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-vm-20261013/vm/disk.qcow2",
+      "allocated_bytes": 2377338880,
+      "absent": true
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-vm-20261013/vm/known_hosts",
+      "allocated_bytes": 4096,
+      "absent": true
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-vm-20261013/vm/qa-key",
+      "allocated_bytes": 4096,
+      "absent": true
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-library-vm-20261013/vm/qa-key.pub",
+      "allocated_bytes": 4096,
+      "absent": true
+    }
+  ],
+  "released_allocated_bytes": 2377891840,
+  "automatic_cleanup": false,
+  "immediate_test_disk_retired": true
+}

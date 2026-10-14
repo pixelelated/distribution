@@ -174,6 +174,46 @@ offers INCREMENT PER SAVE and DO NOT INCREMENT; INCREMENT SLOT went with
 Batocera's `001-no-next-slot` patch, under which the launched slot is the
 current slot, never the next free one.
 
+### Candidate save-state capability guidance (#575)
+
+The next-source candidate retains the global SAVE STATES controls, values, and
+ordering. AUTO SAVE/LOAD explains that it applies only to supported emulators;
+SHOW SAVE STATE MANAGER explains that the manager is for RetroArch. This is
+candidate documentation: the production ES pin is still `c8dc72cf9e`.
+
+```mermaid
+flowchart TD
+    GS[GAME SETTINGS] --> SS[SAVE STATES: global scope descriptions]
+    GS --> SY[PER SYSTEM ADVANCED CONFIGURATION]
+    GO[Game options, including collection items] --> AD[ADVANCED GAME OPTIONS]
+    SY --> E{Effective emulator, resolving AUTO}
+    AD --> E
+    E -->|Dolphin or standalone Flycast| H[SAVE STATE SUPPORT]
+    H --> D[Information: use emulator-native options; in-game saves are separate]
+    D -->|OK or Back| H
+    E -->|RetroArch| R[Existing supported-core controls and manager eligibility]
+```
+
+SAVE STATE SUPPORT sits immediately after EMULATOR and before SYSTEM OPTIONS.
+It is informational and never launches a game or changes a save preference.
+Changing the emulator rebuilds the page and updates the row; a collection item
+uses its original system. The dialog says:
+
+> THE AUTO SAVE/LOAD SETTING AND SAVE STATE MANAGER DO NOT APPLY TO THIS EMULATOR.
+>
+> USE THE EMULATOR'S OWN SAVE OPTIONS. IN-GAME SAVES ARE SEPARATE.
+
+The [reviewed candidate frame index](qa-logs/2026-10-13-library-vm/frame-index.json)
+binds EN/FR, 640×480/1280×800 screens to ES `bb9e2785f88c`. Its rejected French
+description frames remain failure evidence. Follow-up catalog-only candidate
+`09afa4893a6a` shortens the global auto-state, global manager, and per-game
+state descriptions; compilation and replacement frames are still due. The
+[prepared capability matrix](qa-logs/2026-10-13-save-capability-source/flow-and-vm-fixtures.md)
+keeps engine save/load observations separate from menu proof. Synthetic GameCube
+system declarations supply the VM menu fixture; no Dolphin engine ran in these
+UI cases. Existing manager, numbered-slot, and ordinary game-save semantics
+above remain unchanged.
+
 ## Cloud (our subtree)
 
 **Current source and image boundary.** Engineering replacement19 uses
@@ -322,6 +362,31 @@ FROM THE CLOUD open their transfer choices after the read-only scan. The
 retired #363 boot step no longer intervenes, including after settings restore.
 
 **Since RC-11, and since D-UI-078 (#187, #192, #241).** A transfer started from BACK UP TO THE CLOUD, RESTORE FROM THE CLOUD or MATCH runs on a page that owns the screen until it ends; the one way out while it runs is CANCEL, which asks first and names what cancelling means (`WHAT'S ALREADY IN PLACE STAYS. THE NEXT BACKUP OR RESTORE FINISHES WHAT THIS ONE DIDN'T.`), then stops the run and ends the page on `SKIPPED - YOU CANCELLED IT`. (For a week in RC-11 the page could be left with B and the row that launched it followed the run; D-UI-078 reversed that on 2026-09-21 -- "we should only allow things to run in the background when they're fast" -- and this paragraph described the reversed design until audit #258 PL-006.) After the run ends and its page is dismissed, the row that launched it reads `LAST <date> - COMPLETED` (or `COULDN'T FINISH` / `SKIPPED - ...`) until the outcome page has been seen once, then goes back to its one-line description (D-UI-070); the other two rows dim while one is current. Launching a game while a sync runs asks -- the sentence naming it, then STOP IT AND PLAY or KEEP WAITING (D-CLOUD-129 for the sync the player started, since RC-12 build 4; D-CLOUD-130 for the automatic startup and after-a-game syncs, since build 7; until then the first were refused and the second cancelled without asking); the same question guards a transfer that is current, which with the page sat in is not a state a press can reach. The startup card's first step reads `CHECKING THE CONNECTION...` when the interface sees a link and `WAITING FOR A NETWORK, UP TO 60 SECONDS...` when it does not; `SKIPPED - YOU'RE NOT ONLINE` follows the wait as before.
+
+
+### Dolphin save-location refusal (#581, candidate)
+
+Before a Dolphin launch, existing private state directories or conflicting memory
+cards are preserved. A refused preparation returns through runemu to ES's native
+error dialog: localized title, a request to back up and organize the conflicting
+locations, both paths, and confirmation that no saved data was deleted. OK returns
+to the same selected game. The engine is not launched on refusal.
+
+```mermaid
+flowchart LR
+    A[Launch GameCube or Wii] --> B{Save paths safe?}
+    B -->|Yes| C[Prepare links and launch Dolphin]
+    B -->|Retained data or conflict| D[Native error: action and both paths]
+    D -->|OK| A1[Return to selected game]
+```
+
+[Source-bound reviewed frames](qa-logs/2026-10-13-library-vm/dolphin-frame-index.json)
+cover French retained-state/card refusals and English fresh Wii setup at1280×800,
+using complete staged90cd callers and compiled ESbb9e with recording engines.
+Remaining cases,640×480,final-image/upgrade and native engines remain unqualified.
+The [initial failed fixture](qa-logs/2026-10-13-library-vm/dolphin-initial-frame-index.json)
+retains its own outcome; the source and screenshots are not a promoted product pin.
+
 
 ### FINISH RESTORE SETUP (the checklist after a settings restore)
 
