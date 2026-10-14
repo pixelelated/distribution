@@ -1,0 +1,2836 @@
+{
+  "status": "PASS_SOURCE_ONLY",
+  "base": "1ede30a1be476f65eb79614596dd4a98f2630b59",
+  "scope": "Static metadata/listing evaluation; no compiler, configure, build, install, native engine, guest or service execution",
+  "product_paths": [
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/GENERIC_X64/Dolphin.ini",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/GENERIC_X64/GamecubeControllerProfiles",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/GENERIC_X64/Hotkeys.ini",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/GENERIC_X64/WiiControllerProfiles",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk",
+    "projects/ROCKNIX/packages/virtual/emulators/package.mk"
+  ],
+  "structural_proof": "Removing only the three explicit GENERIC_X64 cases and copyright line reproduces baseline emulators recipe; removing only GENERIC_X64 renderer override reproduces baseline Dolphin recipe. Other config/patch inputs unchanged.",
+  "metadata_profiles": [
+    {
+      "device": "H700",
+      "arch": "arm",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "4a6b588bae94ad47f9f2bb2c010f0dfe95a1c61507c4dec1b2e9ded2f146856b",
+      "after_sha256": "4a6b588bae94ad47f9f2bb2c010f0dfe95a1c61507c4dec1b2e9ded2f146856b"
+    },
+    {
+      "device": "H700",
+      "arch": "arm",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "c0d36431140a402f494ac1e090322da8f133d41f14dc2df29f7a0e40b2e429ca",
+      "after_sha256": "c0d36431140a402f494ac1e090322da8f133d41f14dc2df29f7a0e40b2e429ca"
+    },
+    {
+      "device": "H700",
+      "arch": "arm",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "8d495440916b87fac2cc1d6231d9a32a7a231071971972cae175465ef4e7a198",
+      "after_sha256": "8d495440916b87fac2cc1d6231d9a32a7a231071971972cae175465ef4e7a198"
+    },
+    {
+      "device": "H700",
+      "arch": "arm",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "acd910a8f210e22c23e94a6e54d59e2a9dd0fb394e6895d8d513d4a5cdfca768",
+      "after_sha256": "acd910a8f210e22c23e94a6e54d59e2a9dd0fb394e6895d8d513d4a5cdfca768"
+    },
+    {
+      "device": "H700",
+      "arch": "aarch64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "d24242038090c35c005193bfb64ce367d3996fefddbd9d3f0f0939f4a4b778f2",
+      "after_sha256": "d24242038090c35c005193bfb64ce367d3996fefddbd9d3f0f0939f4a4b778f2"
+    },
+    {
+      "device": "H700",
+      "arch": "aarch64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "c9299080094a821e8aa4dd9a0295ac608c40618d54643241639a4e6c25342ccb",
+      "after_sha256": "c9299080094a821e8aa4dd9a0295ac608c40618d54643241639a4e6c25342ccb"
+    },
+    {
+      "device": "H700",
+      "arch": "aarch64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "fa42d5570baa771aa748b22b03783cc52bc890560c9b04ddfa182b7140a6da70",
+      "after_sha256": "fa42d5570baa771aa748b22b03783cc52bc890560c9b04ddfa182b7140a6da70"
+    },
+    {
+      "device": "H700",
+      "arch": "aarch64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "a24d9d190cd2c6b54452947de54ba27583e658dc1b07fdf2e83766e7b381520a",
+      "after_sha256": "a24d9d190cd2c6b54452947de54ba27583e658dc1b07fdf2e83766e7b381520a"
+    },
+    {
+      "device": "H700",
+      "arch": "x86_64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "4a6b588bae94ad47f9f2bb2c010f0dfe95a1c61507c4dec1b2e9ded2f146856b",
+      "after_sha256": "4a6b588bae94ad47f9f2bb2c010f0dfe95a1c61507c4dec1b2e9ded2f146856b"
+    },
+    {
+      "device": "H700",
+      "arch": "x86_64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "c0d36431140a402f494ac1e090322da8f133d41f14dc2df29f7a0e40b2e429ca",
+      "after_sha256": "c0d36431140a402f494ac1e090322da8f133d41f14dc2df29f7a0e40b2e429ca"
+    },
+    {
+      "device": "H700",
+      "arch": "x86_64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "8d495440916b87fac2cc1d6231d9a32a7a231071971972cae175465ef4e7a198",
+      "after_sha256": "8d495440916b87fac2cc1d6231d9a32a7a231071971972cae175465ef4e7a198"
+    },
+    {
+      "device": "H700",
+      "arch": "x86_64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "acd910a8f210e22c23e94a6e54d59e2a9dd0fb394e6895d8d513d4a5cdfca768",
+      "after_sha256": "acd910a8f210e22c23e94a6e54d59e2a9dd0fb394e6895d8d513d4a5cdfca768"
+    },
+    {
+      "device": "RK3326",
+      "arch": "arm",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "4a6b588bae94ad47f9f2bb2c010f0dfe95a1c61507c4dec1b2e9ded2f146856b",
+      "after_sha256": "4a6b588bae94ad47f9f2bb2c010f0dfe95a1c61507c4dec1b2e9ded2f146856b"
+    },
+    {
+      "device": "RK3326",
+      "arch": "arm",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "c0d36431140a402f494ac1e090322da8f133d41f14dc2df29f7a0e40b2e429ca",
+      "after_sha256": "c0d36431140a402f494ac1e090322da8f133d41f14dc2df29f7a0e40b2e429ca"
+    },
+    {
+      "device": "RK3326",
+      "arch": "arm",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "8d495440916b87fac2cc1d6231d9a32a7a231071971972cae175465ef4e7a198",
+      "after_sha256": "8d495440916b87fac2cc1d6231d9a32a7a231071971972cae175465ef4e7a198"
+    },
+    {
+      "device": "RK3326",
+      "arch": "arm",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "acd910a8f210e22c23e94a6e54d59e2a9dd0fb394e6895d8d513d4a5cdfca768",
+      "after_sha256": "acd910a8f210e22c23e94a6e54d59e2a9dd0fb394e6895d8d513d4a5cdfca768"
+    },
+    {
+      "device": "RK3326",
+      "arch": "aarch64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "d24242038090c35c005193bfb64ce367d3996fefddbd9d3f0f0939f4a4b778f2",
+      "after_sha256": "d24242038090c35c005193bfb64ce367d3996fefddbd9d3f0f0939f4a4b778f2"
+    },
+    {
+      "device": "RK3326",
+      "arch": "aarch64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "c9299080094a821e8aa4dd9a0295ac608c40618d54643241639a4e6c25342ccb",
+      "after_sha256": "c9299080094a821e8aa4dd9a0295ac608c40618d54643241639a4e6c25342ccb"
+    },
+    {
+      "device": "RK3326",
+      "arch": "aarch64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "fa42d5570baa771aa748b22b03783cc52bc890560c9b04ddfa182b7140a6da70",
+      "after_sha256": "fa42d5570baa771aa748b22b03783cc52bc890560c9b04ddfa182b7140a6da70"
+    },
+    {
+      "device": "RK3326",
+      "arch": "aarch64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "a24d9d190cd2c6b54452947de54ba27583e658dc1b07fdf2e83766e7b381520a",
+      "after_sha256": "a24d9d190cd2c6b54452947de54ba27583e658dc1b07fdf2e83766e7b381520a"
+    },
+    {
+      "device": "RK3326",
+      "arch": "x86_64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "4a6b588bae94ad47f9f2bb2c010f0dfe95a1c61507c4dec1b2e9ded2f146856b",
+      "after_sha256": "4a6b588bae94ad47f9f2bb2c010f0dfe95a1c61507c4dec1b2e9ded2f146856b"
+    },
+    {
+      "device": "RK3326",
+      "arch": "x86_64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "c0d36431140a402f494ac1e090322da8f133d41f14dc2df29f7a0e40b2e429ca",
+      "after_sha256": "c0d36431140a402f494ac1e090322da8f133d41f14dc2df29f7a0e40b2e429ca"
+    },
+    {
+      "device": "RK3326",
+      "arch": "x86_64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "8d495440916b87fac2cc1d6231d9a32a7a231071971972cae175465ef4e7a198",
+      "after_sha256": "8d495440916b87fac2cc1d6231d9a32a7a231071971972cae175465ef4e7a198"
+    },
+    {
+      "device": "RK3326",
+      "arch": "x86_64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "acd910a8f210e22c23e94a6e54d59e2a9dd0fb394e6895d8d513d4a5cdfca768",
+      "after_sha256": "acd910a8f210e22c23e94a6e54d59e2a9dd0fb394e6895d8d513d4a5cdfca768"
+    },
+    {
+      "device": "RK3399",
+      "arch": "arm",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "5427bf105f059cfea22c1057354561322de830543f5c5a56d0a2b10f4f5ff743",
+      "after_sha256": "5427bf105f059cfea22c1057354561322de830543f5c5a56d0a2b10f4f5ff743"
+    },
+    {
+      "device": "RK3399",
+      "arch": "arm",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "58ef6e4da0c7ede67ea30a7e380f1a26ff51fd2e2b3e584174d6b3aff0d550eb",
+      "after_sha256": "58ef6e4da0c7ede67ea30a7e380f1a26ff51fd2e2b3e584174d6b3aff0d550eb"
+    },
+    {
+      "device": "RK3399",
+      "arch": "arm",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "baa1ce66fe0442ceafa3f0d2eae538ebc68a2e9ef06eb0ed68c224073b213f03",
+      "after_sha256": "baa1ce66fe0442ceafa3f0d2eae538ebc68a2e9ef06eb0ed68c224073b213f03"
+    },
+    {
+      "device": "RK3399",
+      "arch": "arm",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "965812305f56de746601feabe698aaecf01645eb01fdb4c5a3ceaabcbf788349",
+      "after_sha256": "965812305f56de746601feabe698aaecf01645eb01fdb4c5a3ceaabcbf788349"
+    },
+    {
+      "device": "RK3399",
+      "arch": "aarch64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "31c87b36e309df6ba90f115f36cc943afafa656834c5bb61b0b835189d123954",
+      "after_sha256": "31c87b36e309df6ba90f115f36cc943afafa656834c5bb61b0b835189d123954"
+    },
+    {
+      "device": "RK3399",
+      "arch": "aarch64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "1c3e57f390865b5c978f6c402b4ad8191be6e9de5ae360035e78b43b36852d2a",
+      "after_sha256": "1c3e57f390865b5c978f6c402b4ad8191be6e9de5ae360035e78b43b36852d2a"
+    },
+    {
+      "device": "RK3399",
+      "arch": "aarch64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "efadf4fcbd8b52a7054600bc03d83f7837a74be91f88c77b456a2f5934bb4d13",
+      "after_sha256": "efadf4fcbd8b52a7054600bc03d83f7837a74be91f88c77b456a2f5934bb4d13"
+    },
+    {
+      "device": "RK3399",
+      "arch": "aarch64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "5bfadf58501bf7de76443c2b4e5cb722d170ace075a17c9b7c03e5a334c50121",
+      "after_sha256": "5bfadf58501bf7de76443c2b4e5cb722d170ace075a17c9b7c03e5a334c50121"
+    },
+    {
+      "device": "RK3399",
+      "arch": "x86_64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "5427bf105f059cfea22c1057354561322de830543f5c5a56d0a2b10f4f5ff743",
+      "after_sha256": "5427bf105f059cfea22c1057354561322de830543f5c5a56d0a2b10f4f5ff743"
+    },
+    {
+      "device": "RK3399",
+      "arch": "x86_64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "58ef6e4da0c7ede67ea30a7e380f1a26ff51fd2e2b3e584174d6b3aff0d550eb",
+      "after_sha256": "58ef6e4da0c7ede67ea30a7e380f1a26ff51fd2e2b3e584174d6b3aff0d550eb"
+    },
+    {
+      "device": "RK3399",
+      "arch": "x86_64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "baa1ce66fe0442ceafa3f0d2eae538ebc68a2e9ef06eb0ed68c224073b213f03",
+      "after_sha256": "baa1ce66fe0442ceafa3f0d2eae538ebc68a2e9ef06eb0ed68c224073b213f03"
+    },
+    {
+      "device": "RK3399",
+      "arch": "x86_64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "965812305f56de746601feabe698aaecf01645eb01fdb4c5a3ceaabcbf788349",
+      "after_sha256": "965812305f56de746601feabe698aaecf01645eb01fdb4c5a3ceaabcbf788349"
+    },
+    {
+      "device": "RK3566",
+      "arch": "arm",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "83f00bd9896a0d19ab2cd8eb15146abcf3729058a3d79a299b09a012622a534a",
+      "after_sha256": "83f00bd9896a0d19ab2cd8eb15146abcf3729058a3d79a299b09a012622a534a"
+    },
+    {
+      "device": "RK3566",
+      "arch": "arm",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "f6a8f472c576187a430879faff6c37bc121c9beb0a9f761e9252dd3ce01718f5",
+      "after_sha256": "f6a8f472c576187a430879faff6c37bc121c9beb0a9f761e9252dd3ce01718f5"
+    },
+    {
+      "device": "RK3566",
+      "arch": "arm",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "b8a1a8c2a0a08d140c1058ae73d60ae62c759b26e4de7f684ccd9f422eb1e9fb",
+      "after_sha256": "b8a1a8c2a0a08d140c1058ae73d60ae62c759b26e4de7f684ccd9f422eb1e9fb"
+    },
+    {
+      "device": "RK3566",
+      "arch": "arm",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "5a727f1334e01285d64c1bac6f067395f931e34a0bc413cc1c78cde5eda5db66",
+      "after_sha256": "5a727f1334e01285d64c1bac6f067395f931e34a0bc413cc1c78cde5eda5db66"
+    },
+    {
+      "device": "RK3566",
+      "arch": "aarch64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "16c158eaf6a4f16b712a82a26a178b1115ac1a2ef51b8d4a2ad7691e2ea3bd97",
+      "after_sha256": "16c158eaf6a4f16b712a82a26a178b1115ac1a2ef51b8d4a2ad7691e2ea3bd97"
+    },
+    {
+      "device": "RK3566",
+      "arch": "aarch64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "7cc158a5a6218820e88103fe32fe3ace4041b270b05534c33fb2c65c85834a43",
+      "after_sha256": "7cc158a5a6218820e88103fe32fe3ace4041b270b05534c33fb2c65c85834a43"
+    },
+    {
+      "device": "RK3566",
+      "arch": "aarch64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "3972c0c35ac756bfdc3896e4aeaffa0544f50d391b2dc0b088b47938df1fb6c8",
+      "after_sha256": "3972c0c35ac756bfdc3896e4aeaffa0544f50d391b2dc0b088b47938df1fb6c8"
+    },
+    {
+      "device": "RK3566",
+      "arch": "aarch64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "79923bc1e3125a0a6470360718edf271bff1259c90ee05a3adbdc9bdb0037d42",
+      "after_sha256": "79923bc1e3125a0a6470360718edf271bff1259c90ee05a3adbdc9bdb0037d42"
+    },
+    {
+      "device": "RK3566",
+      "arch": "x86_64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "83f00bd9896a0d19ab2cd8eb15146abcf3729058a3d79a299b09a012622a534a",
+      "after_sha256": "83f00bd9896a0d19ab2cd8eb15146abcf3729058a3d79a299b09a012622a534a"
+    },
+    {
+      "device": "RK3566",
+      "arch": "x86_64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "f6a8f472c576187a430879faff6c37bc121c9beb0a9f761e9252dd3ce01718f5",
+      "after_sha256": "f6a8f472c576187a430879faff6c37bc121c9beb0a9f761e9252dd3ce01718f5"
+    },
+    {
+      "device": "RK3566",
+      "arch": "x86_64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "b8a1a8c2a0a08d140c1058ae73d60ae62c759b26e4de7f684ccd9f422eb1e9fb",
+      "after_sha256": "b8a1a8c2a0a08d140c1058ae73d60ae62c759b26e4de7f684ccd9f422eb1e9fb"
+    },
+    {
+      "device": "RK3566",
+      "arch": "x86_64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "5a727f1334e01285d64c1bac6f067395f931e34a0bc413cc1c78cde5eda5db66",
+      "after_sha256": "5a727f1334e01285d64c1bac6f067395f931e34a0bc413cc1c78cde5eda5db66"
+    },
+    {
+      "device": "RK3576",
+      "arch": "arm",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "83f00bd9896a0d19ab2cd8eb15146abcf3729058a3d79a299b09a012622a534a",
+      "after_sha256": "83f00bd9896a0d19ab2cd8eb15146abcf3729058a3d79a299b09a012622a534a"
+    },
+    {
+      "device": "RK3576",
+      "arch": "arm",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "f6a8f472c576187a430879faff6c37bc121c9beb0a9f761e9252dd3ce01718f5",
+      "after_sha256": "f6a8f472c576187a430879faff6c37bc121c9beb0a9f761e9252dd3ce01718f5"
+    },
+    {
+      "device": "RK3576",
+      "arch": "arm",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "b8a1a8c2a0a08d140c1058ae73d60ae62c759b26e4de7f684ccd9f422eb1e9fb",
+      "after_sha256": "b8a1a8c2a0a08d140c1058ae73d60ae62c759b26e4de7f684ccd9f422eb1e9fb"
+    },
+    {
+      "device": "RK3576",
+      "arch": "arm",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "5a727f1334e01285d64c1bac6f067395f931e34a0bc413cc1c78cde5eda5db66",
+      "after_sha256": "5a727f1334e01285d64c1bac6f067395f931e34a0bc413cc1c78cde5eda5db66"
+    },
+    {
+      "device": "RK3576",
+      "arch": "aarch64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "16c158eaf6a4f16b712a82a26a178b1115ac1a2ef51b8d4a2ad7691e2ea3bd97",
+      "after_sha256": "16c158eaf6a4f16b712a82a26a178b1115ac1a2ef51b8d4a2ad7691e2ea3bd97"
+    },
+    {
+      "device": "RK3576",
+      "arch": "aarch64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "7cc158a5a6218820e88103fe32fe3ace4041b270b05534c33fb2c65c85834a43",
+      "after_sha256": "7cc158a5a6218820e88103fe32fe3ace4041b270b05534c33fb2c65c85834a43"
+    },
+    {
+      "device": "RK3576",
+      "arch": "aarch64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "3972c0c35ac756bfdc3896e4aeaffa0544f50d391b2dc0b088b47938df1fb6c8",
+      "after_sha256": "3972c0c35ac756bfdc3896e4aeaffa0544f50d391b2dc0b088b47938df1fb6c8"
+    },
+    {
+      "device": "RK3576",
+      "arch": "aarch64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "79923bc1e3125a0a6470360718edf271bff1259c90ee05a3adbdc9bdb0037d42",
+      "after_sha256": "79923bc1e3125a0a6470360718edf271bff1259c90ee05a3adbdc9bdb0037d42"
+    },
+    {
+      "device": "RK3576",
+      "arch": "x86_64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "83f00bd9896a0d19ab2cd8eb15146abcf3729058a3d79a299b09a012622a534a",
+      "after_sha256": "83f00bd9896a0d19ab2cd8eb15146abcf3729058a3d79a299b09a012622a534a"
+    },
+    {
+      "device": "RK3576",
+      "arch": "x86_64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "f6a8f472c576187a430879faff6c37bc121c9beb0a9f761e9252dd3ce01718f5",
+      "after_sha256": "f6a8f472c576187a430879faff6c37bc121c9beb0a9f761e9252dd3ce01718f5"
+    },
+    {
+      "device": "RK3576",
+      "arch": "x86_64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "b8a1a8c2a0a08d140c1058ae73d60ae62c759b26e4de7f684ccd9f422eb1e9fb",
+      "after_sha256": "b8a1a8c2a0a08d140c1058ae73d60ae62c759b26e4de7f684ccd9f422eb1e9fb"
+    },
+    {
+      "device": "RK3576",
+      "arch": "x86_64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "5a727f1334e01285d64c1bac6f067395f931e34a0bc413cc1c78cde5eda5db66",
+      "after_sha256": "5a727f1334e01285d64c1bac6f067395f931e34a0bc413cc1c78cde5eda5db66"
+    },
+    {
+      "device": "RK3588",
+      "arch": "arm",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "290601a65e4e27d63daf3f08dae5e8ed0927948e7124f46afa2e6e83b415a2ca",
+      "after_sha256": "290601a65e4e27d63daf3f08dae5e8ed0927948e7124f46afa2e6e83b415a2ca"
+    },
+    {
+      "device": "RK3588",
+      "arch": "arm",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "cffe88a2052c300db339a6ec70352a1b0115429de75895f8254dc285cb3eaaac",
+      "after_sha256": "cffe88a2052c300db339a6ec70352a1b0115429de75895f8254dc285cb3eaaac"
+    },
+    {
+      "device": "RK3588",
+      "arch": "arm",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "d8ed804a37121c99e079a4206a956d53b3fa2a43bcca6e15dc2040e8e0977738",
+      "after_sha256": "d8ed804a37121c99e079a4206a956d53b3fa2a43bcca6e15dc2040e8e0977738"
+    },
+    {
+      "device": "RK3588",
+      "arch": "arm",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "8a06486b34925502f86a60ef282a55cee2c916cac83659fccce508c9ef044309",
+      "after_sha256": "8a06486b34925502f86a60ef282a55cee2c916cac83659fccce508c9ef044309"
+    },
+    {
+      "device": "RK3588",
+      "arch": "aarch64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "07982c3ae78b52300e6f08d1aefc9c6a432df76b397c9b3cc97ebc2c0f176746",
+      "after_sha256": "07982c3ae78b52300e6f08d1aefc9c6a432df76b397c9b3cc97ebc2c0f176746"
+    },
+    {
+      "device": "RK3588",
+      "arch": "aarch64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "93835b0b398a4a8a547843ea8dea609b062f503fb170da3632719440af6aa133",
+      "after_sha256": "93835b0b398a4a8a547843ea8dea609b062f503fb170da3632719440af6aa133"
+    },
+    {
+      "device": "RK3588",
+      "arch": "aarch64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "30645addb7169a1f30388352df8fe09bdd5d8f22eaf3e2cb79d96f7f967019a9",
+      "after_sha256": "30645addb7169a1f30388352df8fe09bdd5d8f22eaf3e2cb79d96f7f967019a9"
+    },
+    {
+      "device": "RK3588",
+      "arch": "aarch64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "09b623270dcb0e5e6f5b34c306192d7c7fce466352c5dea51fc2bfb917d37e50",
+      "after_sha256": "09b623270dcb0e5e6f5b34c306192d7c7fce466352c5dea51fc2bfb917d37e50"
+    },
+    {
+      "device": "RK3588",
+      "arch": "x86_64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "290601a65e4e27d63daf3f08dae5e8ed0927948e7124f46afa2e6e83b415a2ca",
+      "after_sha256": "290601a65e4e27d63daf3f08dae5e8ed0927948e7124f46afa2e6e83b415a2ca"
+    },
+    {
+      "device": "RK3588",
+      "arch": "x86_64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "cffe88a2052c300db339a6ec70352a1b0115429de75895f8254dc285cb3eaaac",
+      "after_sha256": "cffe88a2052c300db339a6ec70352a1b0115429de75895f8254dc285cb3eaaac"
+    },
+    {
+      "device": "RK3588",
+      "arch": "x86_64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "d8ed804a37121c99e079a4206a956d53b3fa2a43bcca6e15dc2040e8e0977738",
+      "after_sha256": "d8ed804a37121c99e079a4206a956d53b3fa2a43bcca6e15dc2040e8e0977738"
+    },
+    {
+      "device": "RK3588",
+      "arch": "x86_64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "8a06486b34925502f86a60ef282a55cee2c916cac83659fccce508c9ef044309",
+      "after_sha256": "8a06486b34925502f86a60ef282a55cee2c916cac83659fccce508c9ef044309"
+    },
+    {
+      "device": "SM4450",
+      "arch": "arm",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "8230c0c7d4564cf1ab4b3fd7ab81f93903850b368b2cc07da860f3dc626c21c3",
+      "after_sha256": "8230c0c7d4564cf1ab4b3fd7ab81f93903850b368b2cc07da860f3dc626c21c3"
+    },
+    {
+      "device": "SM4450",
+      "arch": "arm",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "14621bf2e76a50d279b75f97dd2c583378bb740a0b01e2dab1ebb4cd61ec4b07",
+      "after_sha256": "14621bf2e76a50d279b75f97dd2c583378bb740a0b01e2dab1ebb4cd61ec4b07"
+    },
+    {
+      "device": "SM4450",
+      "arch": "arm",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "bf8ae195b0570316f4e00ebc9f0e41197123ef25275cfaf5820b56dda0a98649",
+      "after_sha256": "bf8ae195b0570316f4e00ebc9f0e41197123ef25275cfaf5820b56dda0a98649"
+    },
+    {
+      "device": "SM4450",
+      "arch": "arm",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "7a9e327c102a24807eea9e9a85e9dcbf10096ee960b108d16ae7c4952a002ecf",
+      "after_sha256": "7a9e327c102a24807eea9e9a85e9dcbf10096ee960b108d16ae7c4952a002ecf"
+    },
+    {
+      "device": "SM4450",
+      "arch": "aarch64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "45f89f31a5dad10664443632d15803c4e46dd36ad3404d25e061671e0e617c4d",
+      "after_sha256": "45f89f31a5dad10664443632d15803c4e46dd36ad3404d25e061671e0e617c4d"
+    },
+    {
+      "device": "SM4450",
+      "arch": "aarch64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "5c0dc18dc9ae4a6b80fb656be626f5c9c02fa0111ea9d89f76851b5822225961",
+      "after_sha256": "5c0dc18dc9ae4a6b80fb656be626f5c9c02fa0111ea9d89f76851b5822225961"
+    },
+    {
+      "device": "SM4450",
+      "arch": "aarch64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "0c99564bf59334092dcabed48a07d88966c04cd73c896ba72ea6551b81708b72",
+      "after_sha256": "0c99564bf59334092dcabed48a07d88966c04cd73c896ba72ea6551b81708b72"
+    },
+    {
+      "device": "SM4450",
+      "arch": "aarch64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "3c7ddcd74dee0dd676b2a332d1051c63dd9fdbc846cce891602fb2863e32d336",
+      "after_sha256": "3c7ddcd74dee0dd676b2a332d1051c63dd9fdbc846cce891602fb2863e32d336"
+    },
+    {
+      "device": "SM4450",
+      "arch": "x86_64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "8230c0c7d4564cf1ab4b3fd7ab81f93903850b368b2cc07da860f3dc626c21c3",
+      "after_sha256": "8230c0c7d4564cf1ab4b3fd7ab81f93903850b368b2cc07da860f3dc626c21c3"
+    },
+    {
+      "device": "SM4450",
+      "arch": "x86_64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "14621bf2e76a50d279b75f97dd2c583378bb740a0b01e2dab1ebb4cd61ec4b07",
+      "after_sha256": "14621bf2e76a50d279b75f97dd2c583378bb740a0b01e2dab1ebb4cd61ec4b07"
+    },
+    {
+      "device": "SM4450",
+      "arch": "x86_64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "bf8ae195b0570316f4e00ebc9f0e41197123ef25275cfaf5820b56dda0a98649",
+      "after_sha256": "bf8ae195b0570316f4e00ebc9f0e41197123ef25275cfaf5820b56dda0a98649"
+    },
+    {
+      "device": "SM4450",
+      "arch": "x86_64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "7a9e327c102a24807eea9e9a85e9dcbf10096ee960b108d16ae7c4952a002ecf",
+      "after_sha256": "7a9e327c102a24807eea9e9a85e9dcbf10096ee960b108d16ae7c4952a002ecf"
+    },
+    {
+      "device": "SM6115",
+      "arch": "arm",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "f3fb1ee3a5deb547937c1e0ced2a38563bd95d19ed469734663e6ff6de5736e9",
+      "after_sha256": "f3fb1ee3a5deb547937c1e0ced2a38563bd95d19ed469734663e6ff6de5736e9"
+    },
+    {
+      "device": "SM6115",
+      "arch": "arm",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "bab9804a500eae87ad81bec3394404073169309bcef45c860a8527d7dd11c50d",
+      "after_sha256": "bab9804a500eae87ad81bec3394404073169309bcef45c860a8527d7dd11c50d"
+    },
+    {
+      "device": "SM6115",
+      "arch": "arm",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "63e884724bbe345c58b89daf2d016fb576b0993a132bbcc7e4ea6165ec3d0de2",
+      "after_sha256": "63e884724bbe345c58b89daf2d016fb576b0993a132bbcc7e4ea6165ec3d0de2"
+    },
+    {
+      "device": "SM6115",
+      "arch": "arm",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "86cc6dc3a5541e0e2098582d35227379fa2f4cbb0fae1a4aa8be14c4408ebfe4",
+      "after_sha256": "86cc6dc3a5541e0e2098582d35227379fa2f4cbb0fae1a4aa8be14c4408ebfe4"
+    },
+    {
+      "device": "SM6115",
+      "arch": "aarch64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "0323b779ce47023afd13569367f0c08fe29659aaa8340b8ce7a372eb967a8e59",
+      "after_sha256": "0323b779ce47023afd13569367f0c08fe29659aaa8340b8ce7a372eb967a8e59"
+    },
+    {
+      "device": "SM6115",
+      "arch": "aarch64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "c4466b9a817fea90cd2037f052a1a288c160bdd4b0d869b5af82e151eaf70787",
+      "after_sha256": "c4466b9a817fea90cd2037f052a1a288c160bdd4b0d869b5af82e151eaf70787"
+    },
+    {
+      "device": "SM6115",
+      "arch": "aarch64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "b1f6eb6dd43fcdf3be5630e1e8a3262a0c8fa5daac499e2f38e15ceb252d5ec4",
+      "after_sha256": "b1f6eb6dd43fcdf3be5630e1e8a3262a0c8fa5daac499e2f38e15ceb252d5ec4"
+    },
+    {
+      "device": "SM6115",
+      "arch": "aarch64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "be65f721c292cf9f7b2b62faa74f0241485761a4f64388e3a41fe70bf273bb86",
+      "after_sha256": "be65f721c292cf9f7b2b62faa74f0241485761a4f64388e3a41fe70bf273bb86"
+    },
+    {
+      "device": "SM6115",
+      "arch": "x86_64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "f3fb1ee3a5deb547937c1e0ced2a38563bd95d19ed469734663e6ff6de5736e9",
+      "after_sha256": "f3fb1ee3a5deb547937c1e0ced2a38563bd95d19ed469734663e6ff6de5736e9"
+    },
+    {
+      "device": "SM6115",
+      "arch": "x86_64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "bab9804a500eae87ad81bec3394404073169309bcef45c860a8527d7dd11c50d",
+      "after_sha256": "bab9804a500eae87ad81bec3394404073169309bcef45c860a8527d7dd11c50d"
+    },
+    {
+      "device": "SM6115",
+      "arch": "x86_64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "63e884724bbe345c58b89daf2d016fb576b0993a132bbcc7e4ea6165ec3d0de2",
+      "after_sha256": "63e884724bbe345c58b89daf2d016fb576b0993a132bbcc7e4ea6165ec3d0de2"
+    },
+    {
+      "device": "SM6115",
+      "arch": "x86_64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "86cc6dc3a5541e0e2098582d35227379fa2f4cbb0fae1a4aa8be14c4408ebfe4",
+      "after_sha256": "86cc6dc3a5541e0e2098582d35227379fa2f4cbb0fae1a4aa8be14c4408ebfe4"
+    },
+    {
+      "device": "SM8250",
+      "arch": "arm",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "d44cedad10558e2986385bb1d85f98bb57ee336c614eb610a8af429e9187189e",
+      "after_sha256": "d44cedad10558e2986385bb1d85f98bb57ee336c614eb610a8af429e9187189e"
+    },
+    {
+      "device": "SM8250",
+      "arch": "arm",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "18ebf6fe83243e0086280858b49a0b0c815bb9728925b0fe1bf24264960d44cd",
+      "after_sha256": "18ebf6fe83243e0086280858b49a0b0c815bb9728925b0fe1bf24264960d44cd"
+    },
+    {
+      "device": "SM8250",
+      "arch": "arm",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "66f2c016fc1e43b550bae1f209699a23f36a75e54ffb6e754023dfaadbee9ac1",
+      "after_sha256": "66f2c016fc1e43b550bae1f209699a23f36a75e54ffb6e754023dfaadbee9ac1"
+    },
+    {
+      "device": "SM8250",
+      "arch": "arm",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "a46c5db6cad24a1ac199a5adeaba571ced96259386194702b5ab44106d6b3211",
+      "after_sha256": "a46c5db6cad24a1ac199a5adeaba571ced96259386194702b5ab44106d6b3211"
+    },
+    {
+      "device": "SM8250",
+      "arch": "aarch64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "4b216e588c0ca7de40576cbb810345c2493571bc23e490f91e38e5374e41e714",
+      "after_sha256": "4b216e588c0ca7de40576cbb810345c2493571bc23e490f91e38e5374e41e714"
+    },
+    {
+      "device": "SM8250",
+      "arch": "aarch64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "c011f0a524896012430cbe2188253944a69758bd7f717ed1796e6bd7fbdbc2f6",
+      "after_sha256": "c011f0a524896012430cbe2188253944a69758bd7f717ed1796e6bd7fbdbc2f6"
+    },
+    {
+      "device": "SM8250",
+      "arch": "aarch64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "7b1c85c69770e99651aecf776c6b88eda541465445d4a0d8f352238825d28aad",
+      "after_sha256": "7b1c85c69770e99651aecf776c6b88eda541465445d4a0d8f352238825d28aad"
+    },
+    {
+      "device": "SM8250",
+      "arch": "aarch64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "e414e5e76a45e6bd387fb4756e24ccd514d2b8e21e47bb25563a70cb9d3bef5f",
+      "after_sha256": "e414e5e76a45e6bd387fb4756e24ccd514d2b8e21e47bb25563a70cb9d3bef5f"
+    },
+    {
+      "device": "SM8250",
+      "arch": "x86_64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "d44cedad10558e2986385bb1d85f98bb57ee336c614eb610a8af429e9187189e",
+      "after_sha256": "d44cedad10558e2986385bb1d85f98bb57ee336c614eb610a8af429e9187189e"
+    },
+    {
+      "device": "SM8250",
+      "arch": "x86_64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "18ebf6fe83243e0086280858b49a0b0c815bb9728925b0fe1bf24264960d44cd",
+      "after_sha256": "18ebf6fe83243e0086280858b49a0b0c815bb9728925b0fe1bf24264960d44cd"
+    },
+    {
+      "device": "SM8250",
+      "arch": "x86_64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "66f2c016fc1e43b550bae1f209699a23f36a75e54ffb6e754023dfaadbee9ac1",
+      "after_sha256": "66f2c016fc1e43b550bae1f209699a23f36a75e54ffb6e754023dfaadbee9ac1"
+    },
+    {
+      "device": "SM8250",
+      "arch": "x86_64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "a46c5db6cad24a1ac199a5adeaba571ced96259386194702b5ab44106d6b3211",
+      "after_sha256": "a46c5db6cad24a1ac199a5adeaba571ced96259386194702b5ab44106d6b3211"
+    },
+    {
+      "device": "SM8550",
+      "arch": "arm",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "929dfea1f094170e620e7da11a472b26c891fc3a7508ed0225a84d9e8fa3e99c",
+      "after_sha256": "929dfea1f094170e620e7da11a472b26c891fc3a7508ed0225a84d9e8fa3e99c"
+    },
+    {
+      "device": "SM8550",
+      "arch": "arm",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "5e0c5628d192b4c1746b2e9b8f26dd250911183a9256cd039132c74931e771c6",
+      "after_sha256": "5e0c5628d192b4c1746b2e9b8f26dd250911183a9256cd039132c74931e771c6"
+    },
+    {
+      "device": "SM8550",
+      "arch": "arm",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "7e1068124a3f74b539a399de36874d715a65d1bd5dcbd533d7e349714c19ad80",
+      "after_sha256": "7e1068124a3f74b539a399de36874d715a65d1bd5dcbd533d7e349714c19ad80"
+    },
+    {
+      "device": "SM8550",
+      "arch": "arm",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "1037bc068a93d73b0598ddd00a2f588ddcef2c53da2009dd3df455176a5b30f0",
+      "after_sha256": "1037bc068a93d73b0598ddd00a2f588ddcef2c53da2009dd3df455176a5b30f0"
+    },
+    {
+      "device": "SM8550",
+      "arch": "aarch64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "0df6381cf9fc970e15e88283d1ef1aaa91efdf72639f53e89435507e4342f5ad",
+      "after_sha256": "0df6381cf9fc970e15e88283d1ef1aaa91efdf72639f53e89435507e4342f5ad"
+    },
+    {
+      "device": "SM8550",
+      "arch": "aarch64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "d1006a3744a96bbfe152bc626fda6e1cc25453fe2af2560836e98d4f1612772f",
+      "after_sha256": "d1006a3744a96bbfe152bc626fda6e1cc25453fe2af2560836e98d4f1612772f"
+    },
+    {
+      "device": "SM8550",
+      "arch": "aarch64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "27f41b5e7fac2e0a3227a8cf9ada2fae8cec2f7ee5dd74f8e4a6b4ae6a797684",
+      "after_sha256": "27f41b5e7fac2e0a3227a8cf9ada2fae8cec2f7ee5dd74f8e4a6b4ae6a797684"
+    },
+    {
+      "device": "SM8550",
+      "arch": "aarch64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "6d7f4021c3326a4e96ccc3c92dc20c3ab4f6318e45e672c828f5de1e0c84d3d1",
+      "after_sha256": "6d7f4021c3326a4e96ccc3c92dc20c3ab4f6318e45e672c828f5de1e0c84d3d1"
+    },
+    {
+      "device": "SM8550",
+      "arch": "x86_64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "929dfea1f094170e620e7da11a472b26c891fc3a7508ed0225a84d9e8fa3e99c",
+      "after_sha256": "929dfea1f094170e620e7da11a472b26c891fc3a7508ed0225a84d9e8fa3e99c"
+    },
+    {
+      "device": "SM8550",
+      "arch": "x86_64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "5e0c5628d192b4c1746b2e9b8f26dd250911183a9256cd039132c74931e771c6",
+      "after_sha256": "5e0c5628d192b4c1746b2e9b8f26dd250911183a9256cd039132c74931e771c6"
+    },
+    {
+      "device": "SM8550",
+      "arch": "x86_64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "7e1068124a3f74b539a399de36874d715a65d1bd5dcbd533d7e349714c19ad80",
+      "after_sha256": "7e1068124a3f74b539a399de36874d715a65d1bd5dcbd533d7e349714c19ad80"
+    },
+    {
+      "device": "SM8550",
+      "arch": "x86_64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "1037bc068a93d73b0598ddd00a2f588ddcef2c53da2009dd3df455176a5b30f0",
+      "after_sha256": "1037bc068a93d73b0598ddd00a2f588ddcef2c53da2009dd3df455176a5b30f0"
+    },
+    {
+      "device": "SM8650",
+      "arch": "arm",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "c8ce16130572c605497158ea7c1a30a04aed31c9ce4b900d7b6b542539cdb27d",
+      "after_sha256": "c8ce16130572c605497158ea7c1a30a04aed31c9ce4b900d7b6b542539cdb27d"
+    },
+    {
+      "device": "SM8650",
+      "arch": "arm",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "20708b40bc457f1f9c8065e14256a41afda25f38491ad9d557ee3acdf0ab37a6",
+      "after_sha256": "20708b40bc457f1f9c8065e14256a41afda25f38491ad9d557ee3acdf0ab37a6"
+    },
+    {
+      "device": "SM8650",
+      "arch": "arm",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "970f3c22edff3f3667798a701bdc276a74d9f7a815dcba740e508f4b99c1d0da",
+      "after_sha256": "970f3c22edff3f3667798a701bdc276a74d9f7a815dcba740e508f4b99c1d0da"
+    },
+    {
+      "device": "SM8650",
+      "arch": "arm",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "b3cecd491cef486ed735357a019164a38f46dac0059fcf71c0cb2346cbbe4d2c",
+      "after_sha256": "b3cecd491cef486ed735357a019164a38f46dac0059fcf71c0cb2346cbbe4d2c"
+    },
+    {
+      "device": "SM8650",
+      "arch": "aarch64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "d62fa54847a7c948505ac8f975067b69e8f0515b8f72a46cf180962238f106ed",
+      "after_sha256": "d62fa54847a7c948505ac8f975067b69e8f0515b8f72a46cf180962238f106ed"
+    },
+    {
+      "device": "SM8650",
+      "arch": "aarch64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "7098c0d991de406d3c2afb3e2309b7bc79e9e1284cb490de4633bcb7523dec47",
+      "after_sha256": "7098c0d991de406d3c2afb3e2309b7bc79e9e1284cb490de4633bcb7523dec47"
+    },
+    {
+      "device": "SM8650",
+      "arch": "aarch64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "46518db034eb47cfc026a34a0d262650b9dceb62476feb8e7990e66521192abf",
+      "after_sha256": "46518db034eb47cfc026a34a0d262650b9dceb62476feb8e7990e66521192abf"
+    },
+    {
+      "device": "SM8650",
+      "arch": "aarch64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "d3ad5e6e01f8b065007247e815f777a3b4d912a19d5f6e328e091e0781bf1caa",
+      "after_sha256": "d3ad5e6e01f8b065007247e815f777a3b4d912a19d5f6e328e091e0781bf1caa"
+    },
+    {
+      "device": "SM8650",
+      "arch": "x86_64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "c8ce16130572c605497158ea7c1a30a04aed31c9ce4b900d7b6b542539cdb27d",
+      "after_sha256": "c8ce16130572c605497158ea7c1a30a04aed31c9ce4b900d7b6b542539cdb27d"
+    },
+    {
+      "device": "SM8650",
+      "arch": "x86_64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "20708b40bc457f1f9c8065e14256a41afda25f38491ad9d557ee3acdf0ab37a6",
+      "after_sha256": "20708b40bc457f1f9c8065e14256a41afda25f38491ad9d557ee3acdf0ab37a6"
+    },
+    {
+      "device": "SM8650",
+      "arch": "x86_64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "970f3c22edff3f3667798a701bdc276a74d9f7a815dcba740e508f4b99c1d0da",
+      "after_sha256": "970f3c22edff3f3667798a701bdc276a74d9f7a815dcba740e508f4b99c1d0da"
+    },
+    {
+      "device": "SM8650",
+      "arch": "x86_64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "b3cecd491cef486ed735357a019164a38f46dac0059fcf71c0cb2346cbbe4d2c",
+      "after_sha256": "b3cecd491cef486ed735357a019164a38f46dac0059fcf71c0cb2346cbbe4d2c"
+    },
+    {
+      "device": "SM8750",
+      "arch": "arm",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "c8ce16130572c605497158ea7c1a30a04aed31c9ce4b900d7b6b542539cdb27d",
+      "after_sha256": "c8ce16130572c605497158ea7c1a30a04aed31c9ce4b900d7b6b542539cdb27d"
+    },
+    {
+      "device": "SM8750",
+      "arch": "arm",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "20708b40bc457f1f9c8065e14256a41afda25f38491ad9d557ee3acdf0ab37a6",
+      "after_sha256": "20708b40bc457f1f9c8065e14256a41afda25f38491ad9d557ee3acdf0ab37a6"
+    },
+    {
+      "device": "SM8750",
+      "arch": "arm",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "970f3c22edff3f3667798a701bdc276a74d9f7a815dcba740e508f4b99c1d0da",
+      "after_sha256": "970f3c22edff3f3667798a701bdc276a74d9f7a815dcba740e508f4b99c1d0da"
+    },
+    {
+      "device": "SM8750",
+      "arch": "arm",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "b3cecd491cef486ed735357a019164a38f46dac0059fcf71c0cb2346cbbe4d2c",
+      "after_sha256": "b3cecd491cef486ed735357a019164a38f46dac0059fcf71c0cb2346cbbe4d2c"
+    },
+    {
+      "device": "SM8750",
+      "arch": "aarch64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "d62fa54847a7c948505ac8f975067b69e8f0515b8f72a46cf180962238f106ed",
+      "after_sha256": "d62fa54847a7c948505ac8f975067b69e8f0515b8f72a46cf180962238f106ed"
+    },
+    {
+      "device": "SM8750",
+      "arch": "aarch64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "7098c0d991de406d3c2afb3e2309b7bc79e9e1284cb490de4633bcb7523dec47",
+      "after_sha256": "7098c0d991de406d3c2afb3e2309b7bc79e9e1284cb490de4633bcb7523dec47"
+    },
+    {
+      "device": "SM8750",
+      "arch": "aarch64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "46518db034eb47cfc026a34a0d262650b9dceb62476feb8e7990e66521192abf",
+      "after_sha256": "46518db034eb47cfc026a34a0d262650b9dceb62476feb8e7990e66521192abf"
+    },
+    {
+      "device": "SM8750",
+      "arch": "aarch64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "d3ad5e6e01f8b065007247e815f777a3b4d912a19d5f6e328e091e0781bf1caa",
+      "after_sha256": "d3ad5e6e01f8b065007247e815f777a3b4d912a19d5f6e328e091e0781bf1caa"
+    },
+    {
+      "device": "SM8750",
+      "arch": "x86_64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "c8ce16130572c605497158ea7c1a30a04aed31c9ce4b900d7b6b542539cdb27d",
+      "after_sha256": "c8ce16130572c605497158ea7c1a30a04aed31c9ce4b900d7b6b542539cdb27d"
+    },
+    {
+      "device": "SM8750",
+      "arch": "x86_64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "20708b40bc457f1f9c8065e14256a41afda25f38491ad9d557ee3acdf0ab37a6",
+      "after_sha256": "20708b40bc457f1f9c8065e14256a41afda25f38491ad9d557ee3acdf0ab37a6"
+    },
+    {
+      "device": "SM8750",
+      "arch": "x86_64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "970f3c22edff3f3667798a701bdc276a74d9f7a815dcba740e508f4b99c1d0da",
+      "after_sha256": "970f3c22edff3f3667798a701bdc276a74d9f7a815dcba740e508f4b99c1d0da"
+    },
+    {
+      "device": "SM8750",
+      "arch": "x86_64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "b3cecd491cef486ed735357a019164a38f46dac0059fcf71c0cb2346cbbe4d2c",
+      "after_sha256": "b3cecd491cef486ed735357a019164a38f46dac0059fcf71c0cb2346cbbe4d2c"
+    },
+    {
+      "device": "S922X",
+      "arch": "arm",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "e00dcc0887bccc237b06a75782a6cc4662599223a155a45a4d2978714e4f214c",
+      "after_sha256": "e00dcc0887bccc237b06a75782a6cc4662599223a155a45a4d2978714e4f214c"
+    },
+    {
+      "device": "S922X",
+      "arch": "arm",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "d9fc53297b2073a902c0d46ee0df1c976e0c0d1cb9f269a7b214cd6b3492297d",
+      "after_sha256": "d9fc53297b2073a902c0d46ee0df1c976e0c0d1cb9f269a7b214cd6b3492297d"
+    },
+    {
+      "device": "S922X",
+      "arch": "arm",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "cda905279136461aea425629759b8af4dfb35ea6c6c1202304a9c6998ec9931d",
+      "after_sha256": "cda905279136461aea425629759b8af4dfb35ea6c6c1202304a9c6998ec9931d"
+    },
+    {
+      "device": "S922X",
+      "arch": "arm",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "382ccf740262ed33dbd19e3365cc26dadc64261fce6a912dd533d09575f35f6d",
+      "after_sha256": "382ccf740262ed33dbd19e3365cc26dadc64261fce6a912dd533d09575f35f6d"
+    },
+    {
+      "device": "S922X",
+      "arch": "aarch64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "946b29c8739fa756a3745768e8bf28dcf7d765a036ca9dac558ef4cecee06825",
+      "after_sha256": "946b29c8739fa756a3745768e8bf28dcf7d765a036ca9dac558ef4cecee06825"
+    },
+    {
+      "device": "S922X",
+      "arch": "aarch64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "74d30715805e6652b11b2feed49c0589d0e61ac3c67f22a983b0fd676086bb94",
+      "after_sha256": "74d30715805e6652b11b2feed49c0589d0e61ac3c67f22a983b0fd676086bb94"
+    },
+    {
+      "device": "S922X",
+      "arch": "aarch64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "617fbb01bb7fa9c461cfb1bca12b8bdcd385b56d73c415fe5f8bff0e5d311d35",
+      "after_sha256": "617fbb01bb7fa9c461cfb1bca12b8bdcd385b56d73c415fe5f8bff0e5d311d35"
+    },
+    {
+      "device": "S922X",
+      "arch": "aarch64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "10557b2ee38e0aa7695d18f0bac6cf0a4e8f70667e21f1e68b0a076b860a070c",
+      "after_sha256": "10557b2ee38e0aa7695d18f0bac6cf0a4e8f70667e21f1e68b0a076b860a070c"
+    },
+    {
+      "device": "S922X",
+      "arch": "x86_64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "e00dcc0887bccc237b06a75782a6cc4662599223a155a45a4d2978714e4f214c",
+      "after_sha256": "e00dcc0887bccc237b06a75782a6cc4662599223a155a45a4d2978714e4f214c"
+    },
+    {
+      "device": "S922X",
+      "arch": "x86_64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "d9fc53297b2073a902c0d46ee0df1c976e0c0d1cb9f269a7b214cd6b3492297d",
+      "after_sha256": "d9fc53297b2073a902c0d46ee0df1c976e0c0d1cb9f269a7b214cd6b3492297d"
+    },
+    {
+      "device": "S922X",
+      "arch": "x86_64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "cda905279136461aea425629759b8af4dfb35ea6c6c1202304a9c6998ec9931d",
+      "after_sha256": "cda905279136461aea425629759b8af4dfb35ea6c6c1202304a9c6998ec9931d"
+    },
+    {
+      "device": "S922X",
+      "arch": "x86_64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "382ccf740262ed33dbd19e3365cc26dadc64261fce6a912dd533d09575f35f6d",
+      "after_sha256": "382ccf740262ed33dbd19e3365cc26dadc64261fce6a912dd533d09575f35f6d"
+    },
+    {
+      "device": "AMD64",
+      "arch": "arm",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "6f0784ff6a053e18bb09729f56279a31b90f356f055249fe85250ced9812fa2c",
+      "after_sha256": "6f0784ff6a053e18bb09729f56279a31b90f356f055249fe85250ced9812fa2c"
+    },
+    {
+      "device": "AMD64",
+      "arch": "arm",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "0781affc346862bcb88a8c29a2ba70de07d08626ff2c7dc5b44424571c1d657c",
+      "after_sha256": "0781affc346862bcb88a8c29a2ba70de07d08626ff2c7dc5b44424571c1d657c"
+    },
+    {
+      "device": "AMD64",
+      "arch": "arm",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "c6c70e5d7d5e46894389e14d76c7025e6d0deeb3d8adbe061ed1ef01ba5b5a9e",
+      "after_sha256": "c6c70e5d7d5e46894389e14d76c7025e6d0deeb3d8adbe061ed1ef01ba5b5a9e"
+    },
+    {
+      "device": "AMD64",
+      "arch": "arm",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "76a8cf8c4116fc0c93a9139c7f2d9952844a6af4979e6c01a864c4fd7a180f49",
+      "after_sha256": "76a8cf8c4116fc0c93a9139c7f2d9952844a6af4979e6c01a864c4fd7a180f49"
+    },
+    {
+      "device": "AMD64",
+      "arch": "aarch64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "8022e8c237a2809500a4f71baa54bb164585425c75df15d6b58ae6df03a36a65",
+      "after_sha256": "8022e8c237a2809500a4f71baa54bb164585425c75df15d6b58ae6df03a36a65"
+    },
+    {
+      "device": "AMD64",
+      "arch": "aarch64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "be4d2a95ccddb50e28071f536c733e5207cc53c82047cf389497f4ac19293a5d",
+      "after_sha256": "be4d2a95ccddb50e28071f536c733e5207cc53c82047cf389497f4ac19293a5d"
+    },
+    {
+      "device": "AMD64",
+      "arch": "aarch64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "5d5ddd61f6923a5bec850476f3433a99d591b13a46656213475383a5fefaecb3",
+      "after_sha256": "5d5ddd61f6923a5bec850476f3433a99d591b13a46656213475383a5fefaecb3"
+    },
+    {
+      "device": "AMD64",
+      "arch": "aarch64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "d7a4cec1e86fe77f93569e6bf04b26b70e6428937f803bd0d0823a2199841fcc",
+      "after_sha256": "d7a4cec1e86fe77f93569e6bf04b26b70e6428937f803bd0d0823a2199841fcc"
+    },
+    {
+      "device": "AMD64",
+      "arch": "x86_64",
+      "target_type": "default",
+      "unchanged": true,
+      "before_sha256": "6f0784ff6a053e18bb09729f56279a31b90f356f055249fe85250ced9812fa2c",
+      "after_sha256": "6f0784ff6a053e18bb09729f56279a31b90f356f055249fe85250ced9812fa2c"
+    },
+    {
+      "device": "AMD64",
+      "arch": "x86_64",
+      "target_type": "emus_only",
+      "unchanged": true,
+      "before_sha256": "0781affc346862bcb88a8c29a2ba70de07d08626ff2c7dc5b44424571c1d657c",
+      "after_sha256": "0781affc346862bcb88a8c29a2ba70de07d08626ff2c7dc5b44424571c1d657c"
+    },
+    {
+      "device": "AMD64",
+      "arch": "x86_64",
+      "target_type": "cores_only",
+      "unchanged": true,
+      "before_sha256": "c6c70e5d7d5e46894389e14d76c7025e6d0deeb3d8adbe061ed1ef01ba5b5a9e",
+      "after_sha256": "c6c70e5d7d5e46894389e14d76c7025e6d0deeb3d8adbe061ed1ef01ba5b5a9e"
+    },
+    {
+      "device": "AMD64",
+      "arch": "x86_64",
+      "target_type": "none",
+      "unchanged": true,
+      "before_sha256": "76a8cf8c4116fc0c93a9139c7f2d9952844a6af4979e6c01a864c4fd7a180f49",
+      "after_sha256": "76a8cf8c4116fc0c93a9139c7f2d9952844a6af4979e6c01a864c4fd7a180f49"
+    },
+    {
+      "device": "GENERIC_X64",
+      "arch": "arm",
+      "target_type": "default",
+      "unchanged": false,
+      "before_sha256": "43b2f58ab51c41ddfc0b66eb2620266b8f83e43e5e6effbfdc337dea36e720b5",
+      "after_sha256": "b3b465875630101a64bb3c269c24e9e7056e4a878344902d242930279703eeb3"
+    },
+    {
+      "device": "GENERIC_X64",
+      "arch": "arm",
+      "target_type": "emus_only",
+      "unchanged": false,
+      "before_sha256": "152620d62825310ac2805897a61eae135f97b3768903cfde9185b3d2b72d19b5",
+      "after_sha256": "19fc3c8cf23d69806350ae63e3a581c0edac70b2b966f9abf62d8e863ed205fe"
+    },
+    {
+      "device": "GENERIC_X64",
+      "arch": "arm",
+      "target_type": "cores_only",
+      "unchanged": false,
+      "before_sha256": "a14a2c017e6a26f6e069eec03361e0684b531d8a341310db7e2ba935eb58290b",
+      "after_sha256": "8677f4728e8bb2b70828b458c6ff65b5d65703af59a8a7ab3c3d13e4d276937d"
+    },
+    {
+      "device": "GENERIC_X64",
+      "arch": "arm",
+      "target_type": "none",
+      "unchanged": false,
+      "before_sha256": "d8a2ff8bab8a5fc89aada2bad47e47717896581e47fa57ac7a185c950aaf61db",
+      "after_sha256": "efb3742aa71683c4387a5235defca8db6b2e70cb0b52b58ea5c3f2d17306bb6a"
+    },
+    {
+      "device": "GENERIC_X64",
+      "arch": "aarch64",
+      "target_type": "default",
+      "unchanged": false,
+      "before_sha256": "c912b6845895d402c41a37b052d781b00337514685661191301c69b15b0e2426",
+      "after_sha256": "17d066485f7826446b7ea58484448a4c3697b80956636f13d15ca8aba474acd2"
+    },
+    {
+      "device": "GENERIC_X64",
+      "arch": "aarch64",
+      "target_type": "emus_only",
+      "unchanged": false,
+      "before_sha256": "51f927b92fc09b0cf5845153f10fa64309952fc664b6fc9919b4cb552cf7527e",
+      "after_sha256": "33bfca27ea8ccec49cb9ebd6d92cea7a9ae58a1d03fa30e8117af7822bfe6100"
+    },
+    {
+      "device": "GENERIC_X64",
+      "arch": "aarch64",
+      "target_type": "cores_only",
+      "unchanged": false,
+      "before_sha256": "5b904d3ea2451e4255cab38aefe6e0c5dcae7fd5dbd66559878c1df20c776f12",
+      "after_sha256": "2811800c5ed288578ac436891ddfda58498fff3f34a0d82ea6e609a14497fedb"
+    },
+    {
+      "device": "GENERIC_X64",
+      "arch": "aarch64",
+      "target_type": "none",
+      "unchanged": false,
+      "before_sha256": "edc369806b60d0ddfff852714ef1ebaea595ee16678e930756019d1d80fcf59e",
+      "after_sha256": "c776f0f5b0d696464fc613d52d82cfb5714330eff544e7e3c28a4f5e75b89b6e"
+    },
+    {
+      "device": "GENERIC_X64",
+      "arch": "x86_64",
+      "target_type": "default",
+      "unchanged": false,
+      "before_sha256": "43b2f58ab51c41ddfc0b66eb2620266b8f83e43e5e6effbfdc337dea36e720b5",
+      "after_sha256": "b3b465875630101a64bb3c269c24e9e7056e4a878344902d242930279703eeb3"
+    },
+    {
+      "device": "GENERIC_X64",
+      "arch": "x86_64",
+      "target_type": "emus_only",
+      "unchanged": false,
+      "before_sha256": "152620d62825310ac2805897a61eae135f97b3768903cfde9185b3d2b72d19b5",
+      "after_sha256": "19fc3c8cf23d69806350ae63e3a581c0edac70b2b966f9abf62d8e863ed205fe"
+    },
+    {
+      "device": "GENERIC_X64",
+      "arch": "x86_64",
+      "target_type": "cores_only",
+      "unchanged": false,
+      "before_sha256": "a14a2c017e6a26f6e069eec03361e0684b531d8a341310db7e2ba935eb58290b",
+      "after_sha256": "8677f4728e8bb2b70828b458c6ff65b5d65703af59a8a7ab3c3d13e4d276937d"
+    },
+    {
+      "device": "GENERIC_X64",
+      "arch": "x86_64",
+      "target_type": "none",
+      "unchanged": false,
+      "before_sha256": "d8a2ff8bab8a5fc89aada2bad47e47717896581e47fa57ac7a185c950aaf61db",
+      "after_sha256": "efb3742aa71683c4387a5235defca8db6b2e70cb0b52b58ea5c3f2d17306bb6a"
+    }
+  ],
+  "renderer_profiles": [
+    {
+      "device": "H700",
+      "display": "wl",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "H700",
+      "display": "wl",
+      "opengl": "no",
+      "opengles": "yes",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "H700",
+      "display": "x11",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "no",
+      "unchanged": true,
+      "before_renderer": "OGL",
+      "after_renderer": "OGL",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "RK3326",
+      "display": "wl",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "RK3326",
+      "display": "wl",
+      "opengl": "no",
+      "opengles": "yes",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "RK3326",
+      "display": "x11",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "no",
+      "unchanged": true,
+      "before_renderer": "OGL",
+      "after_renderer": "OGL",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "RK3399",
+      "display": "wl",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "RK3399",
+      "display": "wl",
+      "opengl": "no",
+      "opengles": "yes",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "RK3399",
+      "display": "x11",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "no",
+      "unchanged": true,
+      "before_renderer": "OGL",
+      "after_renderer": "OGL",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "RK3566",
+      "display": "wl",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "RK3566",
+      "display": "wl",
+      "opengl": "no",
+      "opengles": "yes",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "RK3566",
+      "display": "x11",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "no",
+      "unchanged": true,
+      "before_renderer": "OGL",
+      "after_renderer": "OGL",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "RK3576",
+      "display": "wl",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "RK3576",
+      "display": "wl",
+      "opengl": "no",
+      "opengles": "yes",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "RK3576",
+      "display": "x11",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "no",
+      "unchanged": true,
+      "before_renderer": "OGL",
+      "after_renderer": "OGL",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "RK3588",
+      "display": "wl",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "RK3588",
+      "display": "wl",
+      "opengl": "no",
+      "opengles": "yes",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "RK3588",
+      "display": "x11",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "no",
+      "unchanged": true,
+      "before_renderer": "OGL",
+      "after_renderer": "OGL",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "SM4450",
+      "display": "wl",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "SM4450",
+      "display": "wl",
+      "opengl": "no",
+      "opengles": "yes",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "SM4450",
+      "display": "x11",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "no",
+      "unchanged": true,
+      "before_renderer": "OGL",
+      "after_renderer": "OGL",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "SM6115",
+      "display": "wl",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "SM6115",
+      "display": "wl",
+      "opengl": "no",
+      "opengles": "yes",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "SM6115",
+      "display": "x11",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "no",
+      "unchanged": true,
+      "before_renderer": "OGL",
+      "after_renderer": "OGL",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "SM8250",
+      "display": "wl",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "SM8250",
+      "display": "wl",
+      "opengl": "no",
+      "opengles": "yes",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "SM8250",
+      "display": "x11",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "no",
+      "unchanged": true,
+      "before_renderer": "OGL",
+      "after_renderer": "OGL",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "SM8550",
+      "display": "wl",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "SM8550",
+      "display": "wl",
+      "opengl": "no",
+      "opengles": "yes",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "SM8550",
+      "display": "x11",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "no",
+      "unchanged": true,
+      "before_renderer": "OGL",
+      "after_renderer": "OGL",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "SM8650",
+      "display": "wl",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "SM8650",
+      "display": "wl",
+      "opengl": "no",
+      "opengles": "yes",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "SM8650",
+      "display": "x11",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "no",
+      "unchanged": true,
+      "before_renderer": "OGL",
+      "after_renderer": "OGL",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "SM8750",
+      "display": "wl",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "SM8750",
+      "display": "wl",
+      "opengl": "no",
+      "opengles": "yes",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "SM8750",
+      "display": "x11",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "no",
+      "unchanged": true,
+      "before_renderer": "OGL",
+      "after_renderer": "OGL",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "S922X",
+      "display": "wl",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "S922X",
+      "display": "wl",
+      "opengl": "no",
+      "opengles": "yes",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "S922X",
+      "display": "x11",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "no",
+      "unchanged": true,
+      "before_renderer": "OGL",
+      "after_renderer": "OGL",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "AMD64",
+      "display": "wl",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "AMD64",
+      "display": "wl",
+      "opengl": "no",
+      "opengles": "yes",
+      "vulkan": "yes",
+      "unchanged": true,
+      "before_renderer": "Vulkan",
+      "after_renderer": "Vulkan",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "AMD64",
+      "display": "x11",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "no",
+      "unchanged": true,
+      "before_renderer": "OGL",
+      "after_renderer": "OGL",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "GENERIC_X64",
+      "display": "wl",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "yes",
+      "unchanged": false,
+      "before_renderer": "Vulkan",
+      "after_renderer": "OGL",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "GENERIC_X64",
+      "display": "wl",
+      "opengl": "no",
+      "opengles": "yes",
+      "vulkan": "yes",
+      "unchanged": false,
+      "before_renderer": "Vulkan",
+      "after_renderer": "OGL",
+      "compile_inputs_unchanged": true
+    },
+    {
+      "device": "GENERIC_X64",
+      "display": "x11",
+      "opengl": "yes",
+      "opengles": "no",
+      "vulkan": "no",
+      "unchanged": true,
+      "before_renderer": "OGL",
+      "after_renderer": "OGL",
+      "compile_inputs_unchanged": true
+    }
+  ],
+  "listing_profiles": [
+    {
+      "device": "H700",
+      "section": "Nintendo GameCube",
+      "before": [],
+      "after": []
+    },
+    {
+      "device": "H700",
+      "section": "Nintendo Triforce",
+      "before": [],
+      "after": []
+    },
+    {
+      "device": "H700",
+      "section": "Nintendo Wii/ware",
+      "before": [],
+      "after": []
+    },
+    {
+      "device": "RK3326",
+      "section": "Nintendo GameCube",
+      "before": [],
+      "after": []
+    },
+    {
+      "device": "RK3326",
+      "section": "Nintendo Triforce",
+      "before": [],
+      "after": []
+    },
+    {
+      "device": "RK3326",
+      "section": "Nintendo Wii/ware",
+      "before": [],
+      "after": []
+    },
+    {
+      "device": "RK3399",
+      "section": "Nintendo GameCube",
+      "before": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ],
+      "after": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ]
+    },
+    {
+      "device": "RK3399",
+      "section": "Nintendo Triforce",
+      "before": [
+        "core triforce dolphin dolphin-sa-gc true",
+        "core triforce dolphin dolphin-qt-gc false",
+        "script Start Dolphin.sh",
+        "system triforce"
+      ],
+      "after": [
+        "core triforce dolphin dolphin-sa-gc true",
+        "core triforce dolphin dolphin-qt-gc false",
+        "script Start Dolphin.sh",
+        "system triforce"
+      ]
+    },
+    {
+      "device": "RK3399",
+      "section": "Nintendo Wii/ware",
+      "before": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ],
+      "after": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ]
+    },
+    {
+      "device": "RK3566",
+      "section": "Nintendo GameCube",
+      "before": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ],
+      "after": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ]
+    },
+    {
+      "device": "RK3566",
+      "section": "Nintendo Triforce",
+      "before": [],
+      "after": []
+    },
+    {
+      "device": "RK3566",
+      "section": "Nintendo Wii/ware",
+      "before": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ],
+      "after": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ]
+    },
+    {
+      "device": "RK3576",
+      "section": "Nintendo GameCube",
+      "before": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ],
+      "after": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ]
+    },
+    {
+      "device": "RK3576",
+      "section": "Nintendo Triforce",
+      "before": [],
+      "after": []
+    },
+    {
+      "device": "RK3576",
+      "section": "Nintendo Wii/ware",
+      "before": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ],
+      "after": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ]
+    },
+    {
+      "device": "RK3588",
+      "section": "Nintendo GameCube",
+      "before": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ],
+      "after": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ]
+    },
+    {
+      "device": "RK3588",
+      "section": "Nintendo Triforce",
+      "before": [],
+      "after": []
+    },
+    {
+      "device": "RK3588",
+      "section": "Nintendo Wii/ware",
+      "before": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ],
+      "after": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ]
+    },
+    {
+      "device": "SM4450",
+      "section": "Nintendo GameCube",
+      "before": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ],
+      "after": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ]
+    },
+    {
+      "device": "SM4450",
+      "section": "Nintendo Triforce",
+      "before": [
+        "core triforce dolphin dolphin-sa-gc true",
+        "core triforce dolphin dolphin-qt-gc false",
+        "script Start Dolphin.sh",
+        "system triforce"
+      ],
+      "after": [
+        "core triforce dolphin dolphin-sa-gc true",
+        "core triforce dolphin dolphin-qt-gc false",
+        "script Start Dolphin.sh",
+        "system triforce"
+      ]
+    },
+    {
+      "device": "SM4450",
+      "section": "Nintendo Wii/ware",
+      "before": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ],
+      "after": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ]
+    },
+    {
+      "device": "SM6115",
+      "section": "Nintendo GameCube",
+      "before": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ],
+      "after": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ]
+    },
+    {
+      "device": "SM6115",
+      "section": "Nintendo Triforce",
+      "before": [
+        "core triforce dolphin dolphin-sa-gc true",
+        "core triforce dolphin dolphin-qt-gc false",
+        "script Start Dolphin.sh",
+        "system triforce"
+      ],
+      "after": [
+        "core triforce dolphin dolphin-sa-gc true",
+        "core triforce dolphin dolphin-qt-gc false",
+        "script Start Dolphin.sh",
+        "system triforce"
+      ]
+    },
+    {
+      "device": "SM6115",
+      "section": "Nintendo Wii/ware",
+      "before": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ],
+      "after": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ]
+    },
+    {
+      "device": "SM8250",
+      "section": "Nintendo GameCube",
+      "before": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ],
+      "after": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ]
+    },
+    {
+      "device": "SM8250",
+      "section": "Nintendo Triforce",
+      "before": [
+        "core triforce dolphin dolphin-sa-gc true",
+        "core triforce dolphin dolphin-qt-gc false",
+        "script Start Dolphin.sh",
+        "system triforce"
+      ],
+      "after": [
+        "core triforce dolphin dolphin-sa-gc true",
+        "core triforce dolphin dolphin-qt-gc false",
+        "script Start Dolphin.sh",
+        "system triforce"
+      ]
+    },
+    {
+      "device": "SM8250",
+      "section": "Nintendo Wii/ware",
+      "before": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ],
+      "after": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ]
+    },
+    {
+      "device": "SM8550",
+      "section": "Nintendo GameCube",
+      "before": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ],
+      "after": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ]
+    },
+    {
+      "device": "SM8550",
+      "section": "Nintendo Triforce",
+      "before": [
+        "core triforce dolphin dolphin-sa-gc true",
+        "core triforce dolphin dolphin-qt-gc false",
+        "script Start Dolphin.sh",
+        "system triforce"
+      ],
+      "after": [
+        "core triforce dolphin dolphin-sa-gc true",
+        "core triforce dolphin dolphin-qt-gc false",
+        "script Start Dolphin.sh",
+        "system triforce"
+      ]
+    },
+    {
+      "device": "SM8550",
+      "section": "Nintendo Wii/ware",
+      "before": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ],
+      "after": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ]
+    },
+    {
+      "device": "SM8650",
+      "section": "Nintendo GameCube",
+      "before": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ],
+      "after": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ]
+    },
+    {
+      "device": "SM8650",
+      "section": "Nintendo Triforce",
+      "before": [
+        "core triforce dolphin dolphin-sa-gc true",
+        "core triforce dolphin dolphin-qt-gc false",
+        "script Start Dolphin.sh",
+        "system triforce"
+      ],
+      "after": [
+        "core triforce dolphin dolphin-sa-gc true",
+        "core triforce dolphin dolphin-qt-gc false",
+        "script Start Dolphin.sh",
+        "system triforce"
+      ]
+    },
+    {
+      "device": "SM8650",
+      "section": "Nintendo Wii/ware",
+      "before": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ],
+      "after": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ]
+    },
+    {
+      "device": "SM8750",
+      "section": "Nintendo GameCube",
+      "before": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ],
+      "after": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ]
+    },
+    {
+      "device": "SM8750",
+      "section": "Nintendo Triforce",
+      "before": [
+        "core triforce dolphin dolphin-sa-gc true",
+        "core triforce dolphin dolphin-qt-gc false",
+        "script Start Dolphin.sh",
+        "system triforce"
+      ],
+      "after": [
+        "core triforce dolphin dolphin-sa-gc true",
+        "core triforce dolphin dolphin-qt-gc false",
+        "script Start Dolphin.sh",
+        "system triforce"
+      ]
+    },
+    {
+      "device": "SM8750",
+      "section": "Nintendo Wii/ware",
+      "before": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ],
+      "after": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ]
+    },
+    {
+      "device": "S922X",
+      "section": "Nintendo GameCube",
+      "before": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ],
+      "after": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ]
+    },
+    {
+      "device": "S922X",
+      "section": "Nintendo Triforce",
+      "before": [],
+      "after": []
+    },
+    {
+      "device": "S922X",
+      "section": "Nintendo Wii/ware",
+      "before": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ],
+      "after": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ]
+    },
+    {
+      "device": "AMD64",
+      "section": "Nintendo GameCube",
+      "before": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ],
+      "after": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "core gamecube retroarch dolphin false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ]
+    },
+    {
+      "device": "AMD64",
+      "section": "Nintendo Triforce",
+      "before": [
+        "core triforce dolphin dolphin-sa-gc true",
+        "core triforce dolphin dolphin-qt-gc false",
+        "script Start Dolphin.sh",
+        "system triforce"
+      ],
+      "after": [
+        "core triforce dolphin dolphin-sa-gc true",
+        "core triforce dolphin dolphin-qt-gc false",
+        "script Start Dolphin.sh",
+        "system triforce"
+      ]
+    },
+    {
+      "device": "AMD64",
+      "section": "Nintendo Wii/ware",
+      "before": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ],
+      "after": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wiiware dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "core wiiware dolphin dolphin-qt-wii false",
+        "core wii retroarch dolphin false",
+        "core wiiware retroarch dolphin false",
+        "system wii",
+        "system wiiware"
+      ]
+    },
+    {
+      "device": "GENERIC_X64",
+      "section": "Nintendo GameCube",
+      "before": [],
+      "after": [
+        "core gamecube dolphin dolphin-sa-gc true",
+        "core gamecube dolphin dolphin-qt-gc false",
+        "script Start Dolphin.sh",
+        "system gamecube"
+      ]
+    },
+    {
+      "device": "GENERIC_X64",
+      "section": "Nintendo Triforce",
+      "before": [],
+      "after": []
+    },
+    {
+      "device": "GENERIC_X64",
+      "section": "Nintendo Wii/ware",
+      "before": [],
+      "after": [
+        "core wii dolphin dolphin-sa-wii true",
+        "core wii dolphin dolphin-qt-wii false",
+        "system wii"
+      ]
+    }
+  ],
+  "generic_dolphin_metadata": {
+    "PKG_VERSION": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+    "PKG_DEPENDS_TARGET": "toolchain libevdev libdrm ffmpeg zlib libpng lzo libusb zstd ecm openal-soft pulseaudio alsa-lib libfmt hidapi curl SDL3 qt6 Python3 mesa glu libglvnd wayland wayland-protocols swaywm-env xwayland xrandr libXi vulkan-loader vulkan-headers",
+    "PKG_CMAKE_OPTS_TARGET": " -DENABLE_EGL=ON -DENABLE_X11=ON                            -DENABLE_WAYLAND=ON -DENABLE_VULKAN=ON -DENABLE_QT=ON                          -DUSE_RETRO_ACHIEVEMENTS=ON                          -DENABLE_HEADLESS=OFF                          -DCMAKE_EXE_LINKER_FLAGS=-flto=2                          -DCMAKE_BUILD_TYPE=Release                          -DDISTRIBUTOR=ROCKNIX                          -DENABLE_NOGUI=ON                          -DENABLE_EVDEV=ON                          -DENABLE_SDL=ON                          -DUSE_DISCORD_PRESENCE=OFF                          -DBUILD_SHARED_LIBS=OFF                          -DLINUX_LOCAL_DEV=OFF                          -DENABLE_PULSEAUDIO=ON                          -DENABLE_ALSA=ON                          -DENABLE_TESTS=OFF                          -DENABLE_LLVM=OFF                          -DENABLE_ANALYTICS=OFF                          -DENABLE_LTO=ON                          -DENCODE_FRAMEDUMPS=OFF                          -DENABLE_AUTOUPDATE=OFF                          -DUSE_MGBA=OFF                          -DENABLE_CLI_TOOL=OFF                          -DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+    "GRENDERER": "OGL"
+  },
+  "symlink_proofs": [
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/GENERIC_X64/GamecubeControllerProfiles",
+      "target": "../controllers/GamecubeControllerProfiles",
+      "target_exists": true,
+      "target_files": [
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/controllers/GamecubeControllerProfiles/GCPadNew.ini.east.inline",
+          "sha256": "09f34c419692f9aa41c6e9b381d85922cccc8163d184574ed26f4de073460652"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/controllers/GamecubeControllerProfiles/GCPadNew.ini.east.stacked",
+          "sha256": "8c8e5333d7d24f406e555634f142a4d4406e94a24fad7cd0f5c3709f8668680a"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/controllers/GamecubeControllerProfiles/GCPadNew.ini.south.inline",
+          "sha256": "1500c49234d47f856a034da10fe39119ba6846034f705cfc5aca8a8f8c81d52a"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/controllers/GamecubeControllerProfiles/GCPadNew.ini.south.stacked",
+          "sha256": "04fd777a3b8286411d797064d99410d8e6782aec35fe1e4bbe5f23d6894960cd"
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/GENERIC_X64/Hotkeys.ini",
+      "target": "../controllers/Hotkeys.ini",
+      "target_exists": true,
+      "target_files": [
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/controllers/Hotkeys.ini",
+          "sha256": "21e5f4a334b73f9cd59fb05cbde9f0d671e2ca79b9e3beb03f637b88f36a32e5"
+        }
+      ]
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/GENERIC_X64/WiiControllerProfiles",
+      "target": "../controllers/WiiControllerProfiles",
+      "target_exists": true,
+      "target_files": [
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/controllers/WiiControllerProfiles/classic.ini",
+          "sha256": "d41770db82d9e9877854057893414c2b6511f6fe0b510fbffe4dd7bbd596672f"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/controllers/WiiControllerProfiles/hremote.ini",
+          "sha256": "714f4045ac8b03b65e4760be0c112e1ee9c4f67d1e7762a1567a4172138085ce"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/controllers/WiiControllerProfiles/nunchuck.ini",
+          "sha256": "6578588e362f807d08efd7953c4d7c22b3025a1b68a80990a80e686aa8e44a9e"
+        },
+        {
+          "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/controllers/WiiControllerProfiles/vremote.ini",
+          "sha256": "6ee4fa6c31ee5e1fd2f644bb71ab452962b86bae6330eb038fcf3eeef92e1a54"
+        }
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "argv": [
+        "tools/pkgcheck",
+        "emulators",
+        "dolphin-sa"
+      ],
+      "original_exit": 0,
+      "stdout": "[WARN] 132: projects/ROCKNIX/packages/virtual/emulators/package.mk: unknown function         : install_script()\n",
+      "stderr": "projects/ROCKNIX/packages/virtual/emulators/package.mk...\nprojects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk...\n"
+    },
+    {
+      "argv": [
+        "bash",
+        "-n",
+        "projects/ROCKNIX/packages/virtual/emulators/package.mk"
+      ],
+      "original_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "bash",
+        "-n",
+        "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk"
+      ],
+      "original_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "original_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "unchanged_handheld_devices": [
+    "H700",
+    "RK3326",
+    "RK3399",
+    "RK3566",
+    "RK3576",
+    "RK3588",
+    "SM4450",
+    "SM6115",
+    "SM8250",
+    "SM8550",
+    "SM8650",
+    "SM8750",
+    "S922X"
+  ],
+  "unchanged_amd64": true,
+  "python_note": "This static evaluator launches Bash solely for metadata and literal case expansion with recording-only listing functions; it never calls package configure/build/install functions.",
+  "product_inputs": [
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/GENERIC_X64/Dolphin.ini",
+      "git_mode": "100644",
+      "sha256": "e352eafa7fd9a99c3075377a9236142808d0c0131e6711af07ce42792202e9e1",
+      "git_blob": "ea11e42374dde69cd026ccb31a8a7af831c5b6b5"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/GENERIC_X64/GamecubeControllerProfiles",
+      "git_mode": "120000",
+      "sha256": "da915ca310098410a9307f46ec5d48e67a2b0fc4cdaab4a33c7aeb6c3f7e2c4b",
+      "git_blob": "afefcdedd83f0a93bfa543e5ae3695329250e604"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/GENERIC_X64/Hotkeys.ini",
+      "git_mode": "120000",
+      "sha256": "e5d0ca91ef95f1e559b45f45dbd05bbd3fccf3b60d6691d8ae69a4a83ba9359b",
+      "git_blob": "de694e6ad33061a05c67df794043e8befd3dfd2d"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/GENERIC_X64/WiiControllerProfiles",
+      "git_mode": "120000",
+      "sha256": "797e7d1e201a286c96620596984aa3bb349db6eb62b9539a9041cfeac37d42b4",
+      "git_blob": "d789730540c8e5dcada86eee82304af27d31c687"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk",
+      "git_mode": "100644",
+      "sha256": "2ec538f085f22a42c187918560605c1cdde353ac06421a3d38467950f14cb19e",
+      "git_blob": "beef5706a2c52bafb54b766a5927c9b8b306b772"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/virtual/emulators/package.mk",
+      "git_mode": "100644",
+      "sha256": "cfef0ff40b7b3146b2bd35be4a68e4087a1e680da1d22aff07ae2724754bb899",
+      "git_blob": "a9908b89cf708d2c7fd76fc3d7fac92d93fd017f"
+    }
+  ]
+}

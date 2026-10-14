@@ -41,6 +41,12 @@ else
   GRENDERER="OGL"
 fi
 
+# The developer VM has Vulkan headers/loader but no guest Vulkan ICD.
+# Keep both compiled backends; automatic launches use its working GL path.
+if [ "${DEVICE}" = "GENERIC_X64" ]; then
+  GRENDERER="OGL"
+fi
+
 # Every device builds both frontends: nogui plays games, Qt provides the settings
 # UI from the Tools menu. RetroAchievements lives in Core (AchievementManager) and
 # is driven entirely by RetroAchievements.ini, so it is not tied to either one.
