@@ -137,3 +137,19 @@ review found extra full-size bytearray in padding return conversion and global
 failed-set causing traversal of unrelated indexed roots. w4:p8 received additive
 revision request (memoryview, root-scoped traversal, no-walk control), separately
 from#584 routing. Keep sealed819 unchanged. No runtime resources active.
+
+## 03:00 UTC resumed handoff state
+
+Sealed22cfb2385a proxy additive revision is imported at
+docs/qa-logs/2026-10-14-proxy-rvz-revision-source/. Review hold resolved in source:
+memoryview removes full temporary bytearray, scan-root predicate narrows traversal,
+new unrelated-root control. Use new probe with adjacent original819packet; UNRUN.
+#584 routing remains w4:p8 source-only. w4:p9 MD5 target plan still preparing.
+w4:p7 Steam b09fcbb02b is complete/imported; source-only idle pending archive proof.
+
+Fresh recovery-owner01 under pix-steam-public-download-20261014 is COMPLETE0:
+recovery01 PASS, hashchild0,110373661bytes unchanged/SHA8b31d0..., no new download.
+Original acquisition FAIL1 untouched. Watcher20261014T025623Z-b73ccd63 all0, actual
+hostPIDs3635080/3635083/3635091/3635137 absent. Compact sealed public recovery
+packet records result. No host archive decoding/payload execution. Retain archive
+for immediate offline verification. No current runtime. Never replay recovery.

@@ -1,0 +1,43 @@
+--- sealed-6c27/vm_verify.py
++++ correction/vm_verify.py
+@@ -33,6 +33,7 @@
+     parser.add_argument('--output', required=True, type=Path)
+     parser.add_argument('--archive', required=True, type=Path)
+     parser.add_argument('--admission', required=True, type=Path)
++    parser.add_argument('--recovery', type=Path, help='Explicit separate recovery receipt; original download FAIL is retained')
+     args = parser.parse_args()
+     report = {'status': 'FAIL', 'phase': 'verify', 'evidence': 'Offline VM integrity/structure only; not native/product acceptance', 'children': []}
+     output = None
+@@ -58,9 +59,20 @@
+         runner.require(expiry.tzinfo is not None and expiry > datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(seconds=limits['verification_seconds'] + limits['cleanup_seconds']), 'VM allocation must cover verification and cleanup')
+         archive = args.archive
+         runner.require(archive.is_absolute() and archive.resolve(strict=True) == archive and archive.parent.parent == root and archive.name == 'archive.zip', 'Stage the original download directory directly under VM scratch')
+-        download = json.loads((archive.parent / 'result.json').read_bytes())
+         selected = json.loads((HERE / 'bound/selected.json').read_bytes())
+-        runner.require(download['status'] == 'PASS' and download['phase'] == 'download' and download['packet_manifest_sha256'] == runner.sha(HERE / 'SHA256SUMS'), 'Need original successful revised-host receipt, not a rewritten b393 receipt')
++        if args.recovery is None:
++            download = json.loads((archive.parent / 'result.json').read_bytes())
++            runner.require(download['status'] == 'PASS' and download['phase'] == 'download' and download['packet_manifest_sha256'] == runner.sha(HERE / 'SHA256SUMS'), 'Need original successful revised-host receipt, not a rewritten b393 receipt')
++        else:
++            receipt = args.recovery
++            runner.require(receipt.is_absolute() and receipt.resolve(strict=True) == receipt and receipt.name == 'result.json'
++                           and receipt.parent.parent == root and receipt.parent != archive.parent and receipt.stat().st_dev == info.st_dev,
++                           'Stage separate recovery owner directly under the same VM scratch')
++            # runner.seal already verified this local adapter; no payload import.
++            spec = importlib.util.spec_from_file_location('sealed_metadata_recovery', HERE / 'recover.py')
++            recovery = importlib.util.module_from_spec(spec)
++            spec.loader.exec_module(recovery)
++            download = recovery.accept_recovery(runner, source, receipt, archive.parent)
+         runner.require(download['archive_sha256'] == selected['sha256_from_manifest'] and download['archive_bytes'] == selected['size'] and download['attempts'] == 1, 'Host receipt archive identity/attempt count mismatch')
+         runner.require(archive.stat().st_dev == info.st_dev, 'Archive escaped VM scratch mount')
+         requested = args.output
+@@ -70,7 +82,8 @@
+             json.dump({'packet_manifest_sha256': runner.sha(HERE / 'SHA256SUMS'), 'output': str(output)}, attempt)
+         report.update(packet_manifest_sha256=runner.sha(HERE / 'SHA256SUMS'), admission=admission, limits=limits,
+                       python=sys.version, python_sha256=runner.sha(Path(sys.executable).resolve()),
+-                      original_host_receipt_sha256=runner.sha(archive.parent / 'result.json'))
++                      original_host_receipt_sha256=runner.sha(archive.parent / 'result.json'),
++                      recovery_receipt_sha256=runner.sha(args.recovery) if args.recovery is not None else None)
+         libc = ctypes.CDLL(None, use_errno=True)
+         runner.require(libc.prctl(36, 1, 0, 0, 0) == 0, 'Cannot arm subreaper')
+         runner.require(hasattr(os, 'pidfd_open') and hasattr(signal, 'pidfd_send_signal'), 'Linux pidfd support required')

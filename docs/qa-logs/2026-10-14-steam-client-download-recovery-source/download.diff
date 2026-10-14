@@ -1,0 +1,11 @@
+--- sealed-6c27/download.py
++++ correction/download.py
+@@ -112,7 +112,7 @@
+         remaining()
+         report.update(status='PASS', archive_path=str(archive), archive_bytes=identity['bytes'], archive_sha256=identity['sha256'],
+                       full_hash_status='PASS', http_payload_bytes=metadata['size_download'],
+-                      http_reported_header_bytes=metadata['size_header'], http_reported_request_bytes=metadata['request_size'],
++                      http_reported_header_bytes=metadata['size_header'], http_reported_request_bytes=metadata['size_request'],
+                       decoding='NOT PERFORMED; separately allocated offline VM only')
+     except BaseException as error:
+         report.update(error=repr(error), traceback=traceback.format_exc(limit=8))

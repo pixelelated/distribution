@@ -1,0 +1,564 @@
+{
+  "evidence": "Proposed canonical staging mapping from public metadata; not applied or tested",
+  "raw_posix_top_level_entries": {
+    "steamrtarm64\\libs": {
+      "entries": 1,
+      "compressed_bytes": 0,
+      "uncompressed_bytes": 0
+    },
+    "steamrtarm64\\swiftshader": {
+      "entries": 1,
+      "compressed_bytes": 0,
+      "uncompressed_bytes": 0
+    },
+    "steamrtarm64": {
+      "entries": 50,
+      "compressed_bytes": 110366149,
+      "uncompressed_bytes": 339635503
+    },
+    "steamrtarm64\\libs\\libcurl.so": {
+      "entries": 1,
+      "compressed_bytes": 16,
+      "uncompressed_bytes": 16
+    },
+    "steamrtarm64\\libs\\libnghttp2.so": {
+      "entries": 1,
+      "compressed_bytes": 21,
+      "uncompressed_bytes": 21
+    },
+    "steamrtarm64\\libs\\libnghttp2.so.14": {
+      "entries": 1,
+      "compressed_bytes": 21,
+      "uncompressed_bytes": 21
+    }
+  },
+  "proposed_payload_root": "steamrtarm64",
+  "names_changed": [
+    {
+      "index": 0,
+      "raw_name": "steamrtarm64\\libs/",
+      "canonical_name": "steamrtarm64/libs/",
+      "kind": "directory",
+      "compressed_bytes": 0,
+      "uncompressed_bytes": 0
+    },
+    {
+      "index": 1,
+      "raw_name": "steamrtarm64\\swiftshader/",
+      "canonical_name": "steamrtarm64/swiftshader/",
+      "kind": "directory",
+      "compressed_bytes": 0,
+      "uncompressed_bytes": 0
+    },
+    {
+      "index": 22,
+      "raw_name": "steamrtarm64\\libs\\libcurl.so",
+      "canonical_name": "steamrtarm64/libs/libcurl.so",
+      "kind": "symlink",
+      "compressed_bytes": 16,
+      "uncompressed_bytes": 16
+    },
+    {
+      "index": 24,
+      "raw_name": "steamrtarm64\\libs\\libnghttp2.so",
+      "canonical_name": "steamrtarm64/libs/libnghttp2.so",
+      "kind": "symlink",
+      "compressed_bytes": 21,
+      "uncompressed_bytes": 21
+    },
+    {
+      "index": 25,
+      "raw_name": "steamrtarm64\\libs\\libnghttp2.so.14",
+      "canonical_name": "steamrtarm64/libs/libnghttp2.so.14",
+      "kind": "symlink",
+      "compressed_bytes": 21,
+      "uncompressed_bytes": 21
+    }
+  ],
+  "stored_links": [
+    {
+      "raw_name": "steamrtarm64\\libs\\libcurl.so",
+      "canonical_name": "steamrtarm64/libs/libcurl.so",
+      "relative_target": "libcurl.so.4.8.0",
+      "canonical_target": "steamrtarm64/libs/libcurl.so.4.8.0",
+      "target_present_in_central_directory": true
+    },
+    {
+      "raw_name": "steamrtarm64\\libs\\libnghttp2.so",
+      "canonical_name": "steamrtarm64/libs/libnghttp2.so",
+      "relative_target": "libnghttp2.so.14.20.1",
+      "canonical_target": "steamrtarm64/libs/libnghttp2.so.14.20.1",
+      "target_present_in_central_directory": true
+    },
+    {
+      "raw_name": "steamrtarm64\\libs\\libnghttp2.so.14",
+      "canonical_name": "steamrtarm64/libs/libnghttp2.so.14",
+      "relative_target": "libnghttp2.so.14.20.1",
+      "canonical_target": "steamrtarm64/libs/libnghttp2.so.14.20.1",
+      "target_present_in_central_directory": true
+    }
+  ],
+  "members": [
+    {
+      "index": 0,
+      "raw_name": "steamrtarm64\\libs/",
+      "canonical_name": "steamrtarm64/libs/",
+      "kind": "directory",
+      "compressed_bytes": 0,
+      "uncompressed_bytes": 0
+    },
+    {
+      "index": 1,
+      "raw_name": "steamrtarm64\\swiftshader/",
+      "canonical_name": "steamrtarm64/swiftshader/",
+      "kind": "directory",
+      "compressed_bytes": 0,
+      "uncompressed_bytes": 0
+    },
+    {
+      "index": 2,
+      "raw_name": "steamrtarm64/builddate.txt",
+      "canonical_name": "steamrtarm64/builddate.txt",
+      "kind": "regular",
+      "compressed_bytes": 32,
+      "uncompressed_bytes": 30
+    },
+    {
+      "index": 3,
+      "raw_name": "steamrtarm64/chromehtml.so",
+      "canonical_name": "steamrtarm64/chromehtml.so",
+      "kind": "regular",
+      "compressed_bytes": 935314,
+      "uncompressed_bytes": 2923856
+    },
+    {
+      "index": 4,
+      "raw_name": "steamrtarm64/crashhandler.so",
+      "canonical_name": "steamrtarm64/crashhandler.so",
+      "kind": "regular",
+      "compressed_bytes": 492550,
+      "uncompressed_bytes": 1220704
+    },
+    {
+      "index": 5,
+      "raw_name": "steamrtarm64/filesystem_stdio.so",
+      "canonical_name": "steamrtarm64/filesystem_stdio.so",
+      "kind": "regular",
+      "compressed_bytes": 328303,
+      "uncompressed_bytes": 873536
+    },
+    {
+      "index": 6,
+      "raw_name": "steamrtarm64/fossilize_replay",
+      "canonical_name": "steamrtarm64/fossilize_replay",
+      "kind": "regular",
+      "compressed_bytes": 1275197,
+      "uncompressed_bytes": 3403544
+    },
+    {
+      "index": 7,
+      "raw_name": "steamrtarm64/friendsui.so",
+      "canonical_name": "steamrtarm64/friendsui.so",
+      "kind": "regular",
+      "compressed_bytes": 2238016,
+      "uncompressed_bytes": 7671936
+    },
+    {
+      "index": 8,
+      "raw_name": "steamrtarm64/gameoverlayrenderer.so",
+      "canonical_name": "steamrtarm64/gameoverlayrenderer.so",
+      "kind": "regular",
+      "compressed_bytes": 243742,
+      "uncompressed_bytes": 726968
+    },
+    {
+      "index": 9,
+      "raw_name": "steamrtarm64/gameoverlayui",
+      "canonical_name": "steamrtarm64/gameoverlayui",
+      "kind": "regular",
+      "compressed_bytes": 2440,
+      "uncompressed_bytes": 7800
+    },
+    {
+      "index": 10,
+      "raw_name": "steamrtarm64/gameoverlayui.so",
+      "canonical_name": "steamrtarm64/gameoverlayui.so",
+      "kind": "regular",
+      "compressed_bytes": 2313898,
+      "uncompressed_bytes": 8126696
+    },
+    {
+      "index": 11,
+      "raw_name": "steamrtarm64/gldriverquery",
+      "canonical_name": "steamrtarm64/gldriverquery",
+      "kind": "regular",
+      "compressed_bytes": 35673,
+      "uncompressed_bytes": 174496
+    },
+    {
+      "index": 12,
+      "raw_name": "steamrtarm64/icudtl.dat",
+      "canonical_name": "steamrtarm64/icudtl.dat",
+      "kind": "regular",
+      "compressed_bytes": 4593425,
+      "uncompressed_bytes": 10468208
+    },
+    {
+      "index": 13,
+      "raw_name": "steamrtarm64/libVkLayer_khronos_validation.so",
+      "canonical_name": "steamrtarm64/libVkLayer_khronos_validation.so",
+      "kind": "regular",
+      "compressed_bytes": 4571747,
+      "uncompressed_bytes": 16715320
+    },
+    {
+      "index": 14,
+      "raw_name": "steamrtarm64/libVkLayer_steam_fossilize.so",
+      "canonical_name": "steamrtarm64/libVkLayer_steam_fossilize.so",
+      "kind": "regular",
+      "compressed_bytes": 428955,
+      "uncompressed_bytes": 1095320
+    },
+    {
+      "index": 15,
+      "raw_name": "steamrtarm64/libaom.so.3",
+      "canonical_name": "steamrtarm64/libaom.so.3",
+      "kind": "regular",
+      "compressed_bytes": 1333672,
+      "uncompressed_bytes": 2703080
+    },
+    {
+      "index": 16,
+      "raw_name": "steamrtarm64/libaudio.so",
+      "canonical_name": "steamrtarm64/libaudio.so",
+      "kind": "regular",
+      "compressed_bytes": 359063,
+      "uncompressed_bytes": 983888
+    },
+    {
+      "index": 17,
+      "raw_name": "steamrtarm64/libdav1d.so.6",
+      "canonical_name": "steamrtarm64/libdav1d.so.6",
+      "kind": "regular",
+      "compressed_bytes": 377452,
+      "uncompressed_bytes": 758944
+    },
+    {
+      "index": 18,
+      "raw_name": "steamrtarm64/libmiles.so",
+      "canonical_name": "steamrtarm64/libmiles.so",
+      "kind": "regular",
+      "compressed_bytes": 183413,
+      "uncompressed_bytes": 403424
+    },
+    {
+      "index": 19,
+      "raw_name": "steamrtarm64/libminigbm.so",
+      "canonical_name": "steamrtarm64/libminigbm.so",
+      "kind": "regular",
+      "compressed_bytes": 401913,
+      "uncompressed_bytes": 2046456
+    },
+    {
+      "index": 20,
+      "raw_name": "steamrtarm64/libopenvr_api.so",
+      "canonical_name": "steamrtarm64/libopenvr_api.so",
+      "kind": "regular",
+      "compressed_bytes": 125700,
+      "uncompressed_bytes": 333320
+    },
+    {
+      "index": 21,
+      "raw_name": "steamrtarm64/libpulsecommon-10.0.so",
+      "canonical_name": "steamrtarm64/libpulsecommon-10.0.so",
+      "kind": "regular",
+      "compressed_bytes": 191004,
+      "uncompressed_bytes": 592072
+    },
+    {
+      "index": 22,
+      "raw_name": "steamrtarm64\\libs\\libcurl.so",
+      "canonical_name": "steamrtarm64/libs/libcurl.so",
+      "kind": "symlink",
+      "compressed_bytes": 16,
+      "uncompressed_bytes": 16
+    },
+    {
+      "index": 23,
+      "raw_name": "steamrtarm64/libs/libcurl.so.4.8.0",
+      "canonical_name": "steamrtarm64/libs/libcurl.so.4.8.0",
+      "kind": "regular",
+      "compressed_bytes": 313569,
+      "uncompressed_bytes": 760920
+    },
+    {
+      "index": 24,
+      "raw_name": "steamrtarm64\\libs\\libnghttp2.so",
+      "canonical_name": "steamrtarm64/libs/libnghttp2.so",
+      "kind": "symlink",
+      "compressed_bytes": 21,
+      "uncompressed_bytes": 21
+    },
+    {
+      "index": 25,
+      "raw_name": "steamrtarm64\\libs\\libnghttp2.so.14",
+      "canonical_name": "steamrtarm64/libs/libnghttp2.so.14",
+      "kind": "symlink",
+      "compressed_bytes": 21,
+      "uncompressed_bytes": 21
+    },
+    {
+      "index": 26,
+      "raw_name": "steamrtarm64/libs/libnghttp2.so.14.20.1",
+      "canonical_name": "steamrtarm64/libs/libnghttp2.so.14.20.1",
+      "kind": "regular",
+      "compressed_bytes": 84845,
+      "uncompressed_bytes": 304688
+    },
+    {
+      "index": 27,
+      "raw_name": "steamrtarm64/libsdkencryptedappticket.so",
+      "canonical_name": "steamrtarm64/libsdkencryptedappticket.so",
+      "kind": "regular",
+      "compressed_bytes": 599760,
+      "uncompressed_bytes": 1601472
+    },
+    {
+      "index": 28,
+      "raw_name": "steamrtarm64/libtier0_s.so",
+      "canonical_name": "steamrtarm64/libtier0_s.so",
+      "kind": "regular",
+      "compressed_bytes": 150462,
+      "uncompressed_bytes": 368552
+    },
+    {
+      "index": 29,
+      "raw_name": "steamrtarm64/libvideo.so",
+      "canonical_name": "steamrtarm64/libvideo.so",
+      "kind": "regular",
+      "compressed_bytes": 3771973,
+      "uncompressed_bytes": 9741136
+    },
+    {
+      "index": 30,
+      "raw_name": "steamrtarm64/libvk_swiftshader.so",
+      "canonical_name": "steamrtarm64/libvk_swiftshader.so",
+      "kind": "regular",
+      "compressed_bytes": 6327518,
+      "uncompressed_bytes": 16882424
+    },
+    {
+      "index": 31,
+      "raw_name": "steamrtarm64/libvstdlib_s.so",
+      "canonical_name": "steamrtarm64/libvstdlib_s.so",
+      "kind": "regular",
+      "compressed_bytes": 476500,
+      "uncompressed_bytes": 1224744
+    },
+    {
+      "index": 32,
+      "raw_name": "steamrtarm64/libvulkan.so",
+      "canonical_name": "steamrtarm64/libvulkan.so",
+      "kind": "regular",
+      "compressed_bytes": 166319,
+      "uncompressed_bytes": 592464
+    },
+    {
+      "index": 33,
+      "raw_name": "steamrtarm64/libvulkan.so.1",
+      "canonical_name": "steamrtarm64/libvulkan.so.1",
+      "kind": "regular",
+      "compressed_bytes": 166319,
+      "uncompressed_bytes": 592464
+    },
+    {
+      "index": 34,
+      "raw_name": "steamrtarm64/reaper",
+      "canonical_name": "steamrtarm64/reaper",
+      "kind": "regular",
+      "compressed_bytes": 5951,
+      "uncompressed_bytes": 19336
+    },
+    {
+      "index": 35,
+      "raw_name": "steamrtarm64/steam",
+      "canonical_name": "steamrtarm64/steam",
+      "kind": "regular",
+      "compressed_bytes": 3967871,
+      "uncompressed_bytes": 10124968
+    },
+    {
+      "index": 36,
+      "raw_name": "steamrtarm64/steam_monitor",
+      "canonical_name": "steamrtarm64/steam_monitor",
+      "kind": "regular",
+      "compressed_bytes": 230997,
+      "uncompressed_bytes": 529152
+    },
+    {
+      "index": 37,
+      "raw_name": "steamrtarm64/steamclient.so",
+      "canonical_name": "steamrtarm64/steamclient.so",
+      "kind": "regular",
+      "compressed_bytes": 15572369,
+      "uncompressed_bytes": 47238400
+    },
+    {
+      "index": 38,
+      "raw_name": "steamrtarm64/steamerrorreporter",
+      "canonical_name": "steamrtarm64/steamerrorreporter",
+      "kind": "regular",
+      "compressed_bytes": 62448,
+      "uncompressed_bytes": 158240
+    },
+    {
+      "index": 39,
+      "raw_name": "steamrtarm64/steamoverlayvulkanlayer.so",
+      "canonical_name": "steamrtarm64/steamoverlayvulkanlayer.so",
+      "kind": "regular",
+      "compressed_bytes": 292039,
+      "uncompressed_bytes": 833016
+    },
+    {
+      "index": 40,
+      "raw_name": "steamrtarm64/steamservice.so",
+      "canonical_name": "steamrtarm64/steamservice.so",
+      "kind": "regular",
+      "compressed_bytes": 3630072,
+      "uncompressed_bytes": 9180928
+    },
+    {
+      "index": 41,
+      "raw_name": "steamrtarm64/steamsysinfo",
+      "canonical_name": "steamrtarm64/steamsysinfo",
+      "kind": "regular",
+      "compressed_bytes": 1010867,
+      "uncompressed_bytes": 2585944
+    },
+    {
+      "index": 42,
+      "raw_name": "steamrtarm64/steamui.so",
+      "canonical_name": "steamrtarm64/steamui.so",
+      "kind": "regular",
+      "compressed_bytes": 12010158,
+      "uncompressed_bytes": 39084592
+    },
+    {
+      "index": 43,
+      "raw_name": "steamrtarm64/steamwebhelper",
+      "canonical_name": "steamrtarm64/steamwebhelper",
+      "kind": "regular",
+      "compressed_bytes": 3581671,
+      "uncompressed_bytes": 10301976
+    },
+    {
+      "index": 44,
+      "raw_name": "steamrtarm64/steamwebhelper.sh",
+      "canonical_name": "steamrtarm64/steamwebhelper.sh",
+      "kind": "regular",
+      "compressed_bytes": 262,
+      "uncompressed_bytes": 398
+    },
+    {
+      "index": 45,
+      "raw_name": "steamrtarm64/streaming_client",
+      "canonical_name": "steamrtarm64/streaming_client",
+      "kind": "regular",
+      "compressed_bytes": 6599306,
+      "uncompressed_bytes": 14598048
+    },
+    {
+      "index": 46,
+      "raw_name": "steamrtarm64/swiftshader/libEGL.so",
+      "canonical_name": "steamrtarm64/swiftshader/libEGL.so",
+      "kind": "regular",
+      "compressed_bytes": 418798,
+      "uncompressed_bytes": 1874248
+    },
+    {
+      "index": 47,
+      "raw_name": "steamrtarm64/swiftshader/libEGL.so.TOC",
+      "canonical_name": "steamrtarm64/swiftshader/libEGL.so.TOC",
+      "kind": "regular",
+      "compressed_bytes": 889,
+      "uncompressed_bytes": 2574
+    },
+    {
+      "index": 48,
+      "raw_name": "steamrtarm64/swiftshader/libGLESv2.so",
+      "canonical_name": "steamrtarm64/swiftshader/libGLESv2.so",
+      "kind": "regular",
+      "compressed_bytes": 26705237,
+      "uncompressed_bytes": 97036984
+    },
+    {
+      "index": 49,
+      "raw_name": "steamrtarm64/swiftshader/libGLESv2.so.TOC",
+      "canonical_name": "steamrtarm64/swiftshader/libGLESv2.so.TOC",
+      "kind": "regular",
+      "compressed_bytes": 2784,
+      "uncompressed_bytes": 9261
+    },
+    {
+      "index": 50,
+      "raw_name": "steamrtarm64/v8_context_snapshot.bin",
+      "canonical_name": "steamrtarm64/v8_context_snapshot.bin",
+      "kind": "regular",
+      "compressed_bytes": 199230,
+      "uncompressed_bytes": 670093
+    },
+    {
+      "index": 51,
+      "raw_name": "steamrtarm64/vgui2_s.so",
+      "canonical_name": "steamrtarm64/vgui2_s.so",
+      "kind": "regular",
+      "compressed_bytes": 1443378,
+      "uncompressed_bytes": 3455168
+    },
+    {
+      "index": 52,
+      "raw_name": "steamrtarm64/vgui_panel_zoo",
+      "canonical_name": "steamrtarm64/vgui_panel_zoo",
+      "kind": "regular",
+      "compressed_bytes": 2078623,
+      "uncompressed_bytes": 8458872
+    },
+    {
+      "index": 53,
+      "raw_name": "steamrtarm64/vk_swiftshader_icd.json",
+      "canonical_name": "steamrtarm64/vk_swiftshader_icd.json",
+      "kind": "regular",
+      "compressed_bytes": 89,
+      "uncompressed_bytes": 107
+    },
+    {
+      "index": 54,
+      "raw_name": "steamrtarm64/vulkandriverquery",
+      "canonical_name": "steamrtarm64/vulkandriverquery",
+      "kind": "regular",
+      "compressed_bytes": 64336,
+      "uncompressed_bytes": 174736
+    }
+  ],
+  "absent_archive_roots": [
+    "linuxarm64",
+    "package",
+    "compatibilitytools.d",
+    "steamapps",
+    "userdata",
+    "depotcache"
+  ],
+  "activation_outside_payload": [
+    "package/beta (exact file only)",
+    "/storage/.steam/steam (link only)",
+    "/storage/.steam/sdkarm64 (link only; target absent from this ZIP)"
+  ],
+  "preserve": [
+    "entire existing valid client and self-update state",
+    "linuxarm64 SDK tree if present",
+    "all unlisted package and .steam contents",
+    "runtime, FEX, Proton, games, saves and unrelated entries"
+  ],
+  "raw_extraction_behavior": "BusyBox source has no backslash normalization; literal five siblings inferred, not executed",
+  "production_status": "No decoder or product change authorized/applied; canonical normalization requires explicit qualification"
+}

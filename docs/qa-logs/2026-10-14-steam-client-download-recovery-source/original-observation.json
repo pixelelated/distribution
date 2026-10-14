@@ -1,0 +1,107 @@
+{
+  "status": "FAIL",
+  "phase": "download",
+  "started_utc": "2026-10-14T02:34:08.982678+00:00",
+  "finished_utc": "2026-10-14T02:34:33.030389+00:00",
+  "attempts": 1,
+  "packet_manifest_sha256": "f88e5e146855873625a8003d598e5e5a633ece5923f75d9f88caed140fe09544",
+  "error": "KeyError('request_size')",
+  "elapsed_work_and_cleanup_seconds": 24.029309488949366,
+  "preflight_free_bytes": 2980112158720,
+  "preflight_required_bytes": 181676829,
+  "free_bytes_after": 2980001734656,
+  "evidence": "Read-only parse of original small receipts; no current archive rehash or decoding",
+  "original_wrapper_exit": 1,
+  "launcher_result": {
+    "utc": "2026-10-14T02:34:34.058796+00:00",
+    "pid": 3529185,
+    "runner_returncode": 1,
+    "submission_is_not_completion": true
+  },
+  "children": [
+    {
+      "original_exit": 0,
+      "intervention": null,
+      "remaining_process_group": [],
+      "cleanup_timeout": null,
+      "cleanup_seconds": 0.025998170021921396,
+      "elapsed_seconds": 0.030685459030792117
+    },
+    {
+      "original_exit": 0,
+      "intervention": null,
+      "remaining_process_group": [],
+      "cleanup_timeout": null,
+      "cleanup_seconds": 0.015595879987813532,
+      "elapsed_seconds": 23.91492376406677
+    },
+    {
+      "original_exit": 0,
+      "intervention": null,
+      "remaining_process_group": [],
+      "cleanup_timeout": null,
+      "cleanup_seconds": 0.015396245988085866,
+      "elapsed_seconds": 0.08222633099649101
+    }
+  ],
+  "original_sha256_receipt": {
+    "status": "PASS",
+    "evidence": "Size/SHA256 only; no archive parsing, decoding or execution",
+    "bytes": 110373661,
+    "sha256": "8b31d0b0aa844d906b690283da41403b601a9b36b1f80b7819d1f85bb27854fc"
+  },
+  "curl_metadata": {
+    "http_code": 200,
+    "num_redirects": 0,
+    "url_effective": "https://client-update.steamstatic.com/bins_linuxarm64_linuxarm64.zip.5a9a95afdc2ee6a000092a6205716b0f6efe899c",
+    "ssl_verify_result": 0,
+    "size_download": 110373661,
+    "size_header": 555,
+    "size_request": 221,
+    "num_retries": 0,
+    "proxy_used": 0,
+    "exitcode": 0
+  },
+  "historical_originals": {
+    "curl-version.result.json": {
+      "sha256": "fa90ed2dad713f61db4506f201944b903ef153a0ee4b8e13a62d0912495b8c8e",
+      "bytes": 232
+    },
+    "curl-version.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "curl-version.stdout": {
+      "sha256": "f06be6c70b25ae737afebd2e19407c0b4f16e567bff2fb91f3f705fc38369f1d",
+      "bytes": 579
+    },
+    "result.json": {
+      "sha256": "b0dfc983637c0914e1779aaa513adf3614ce7be0524e276f193948d2adf2976c",
+      "bytes": 22329
+    },
+    "sha256.result.json": {
+      "sha256": "8cf8a9c3fb044784798f4c988cfa243d1f47dc4c5bd6516fed5ff8177575188d",
+      "bytes": 484
+    },
+    "sha256.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "sha256.stdout": {
+      "sha256": "abcaf297cfdd95f24acf311af6bbfa12a9df41c76ff780bbd85e376afe7e56e6",
+      "bytes": 192
+    },
+    "transport.result.json": {
+      "sha256": "76385daaaf1df4cf3a0a62aff76d5d061369b4d9cc63bfd1425bbcf1adf885f9",
+      "bytes": 931
+    },
+    "transport.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "transport.stdout": {
+      "sha256": "73fb1a4dda7a6222af76173ea3ded43a21a3175f353ea9c8a7fd5a8148309a36",
+      "bytes": 18333
+    }
+  }
+}

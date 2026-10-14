@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "evidence": "static AST/hash/diff/whitespace only",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "parsed": [
+    "candidates/list_jobs.py",
+    "candidates/rvz_datasource.py",
+    "fixtures/probe.py",
+    "static-check.py"
+  ],
+  "base_manifest_sha256": "3f69dab6fae3b458cbfe8c1a59cb7f110e5ca9b89703607b4e31968e97f4c800",
+  "runtime": "UNRUN",
+  "cases_prepared": 44
+}

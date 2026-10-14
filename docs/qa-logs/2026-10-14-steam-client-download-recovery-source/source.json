@@ -1,0 +1,208 @@
+{
+  "parent_commit": "6c27adda2326d4f5792051abdc738ad49e53ea8c",
+  "prior_packet": "docs/qa-logs/2026-10-14-steam-client-host-download-source",
+  "prior_files": {
+    "README.md": "23c83d9dccd3c28b0b723229d85f72ff8df047112b2178a91c7bde759054ab38",
+    "SHA256SUMS": "f88e5e146855873625a8003d598e5e5a633ece5923f75d9f88caed140fe09544",
+    "bound/central.bin": "87cfbdc22d206c398dd8d3295511098696c54aa1829a48dd740029cc6f9cffa6",
+    "bound/layout.json": "4a3a6a1ff38d483cb1316472eaf2766964b5682cb2fb05b222ea58aed092e23f",
+    "bound/manifest.body": "65079d08bbcc0e7fdc3d9b153aadc4c9befc62913c3e4ee0b02425690366f15f",
+    "bound/members.json": "017bd0cfbe0c2d0f8e47f7657550deaa471941e50e6d8351fcfd74363f71dff5",
+    "bound/ownership-plan.json": "55dcf120b0918b224f189d70a1346f7ffd3c8c8cf7f0106d2981ebcc8f6a208d",
+    "bound/prefix.bin": "e613354a6e9dfb9d69cc21fee51850b15fbc944b796f32884b6f15d287e88123",
+    "bound/selected.json": "bf84b5fdfb42e5a499319c475b66af955046b5de817bfd4967c4b7f49816ee47",
+    "bound/zip-end.json": "12ad8dfc94acdba7c5cb4d16d3cce8bee203f60f7502bdb6d151c942320b38a1",
+    "download.py": "a15807ea820603c3d74a607d6b614e7ce6999ff070b5466462c52dc21378bf28",
+    "hash_archive.py": "57df8e75ab532f52be82ba2d3bf55bd207a8958b3f92b95baff88c98cdd8a31d",
+    "runner.py": "bf548c63a08f1805b08cb267895af03c1468daacd23a104268dc05efa944dbf8",
+    "source.json": "658a1849f8647c02e7a41baeb83c977c231a9123c05f86dce6a40cb3a0d2d5ae",
+    "static-initial.json": "c31bbe5111285e1118912b4f23bf11fe18608496f769db9db74a34f56ece3573",
+    "static-result.json": "ccc2763e5ce1cb69c65f96a253873f03a1db17ff6068bdc1b480167915bddf56",
+    "verify_archive.py": "84d8951b926651ac44929b1e642f57808d7d85fbe6940159e724887942725b51",
+    "verify_static.py": "7e77e5be98876984a67965cbfc30ce9654f781895ad07815dd47059f5e3dca8f",
+    "vm-admission.schema.json": "2a0c2183bc475beb56771f3e4de0b6fd2778bc9da03fc9ea6c0ec884c73c543d",
+    "vm_verify.py": "4666e1d53265a6b3ebe237e3eacc23980a9b0de0eba53d43fedcee0551247fd3",
+    "whitespace-original.json": "4887899470a98370625dfd0af228c399de05461864a7579abd24010c60363244"
+  },
+  "original_packet_manifest_sha256": "f88e5e146855873625a8003d598e5e5a633ece5923f75d9f88caed140fe09544",
+  "original_download_dir": "/workspace/tmp/pix-steam-public-download-20261014/download01",
+  "original_owner_dir": "/workspace/tmp/pix-steam-public-download-20261014/owner",
+  "original_download_files": {
+    "curl-version.result.json": {
+      "sha256": "fa90ed2dad713f61db4506f201944b903ef153a0ee4b8e13a62d0912495b8c8e",
+      "bytes": 232
+    },
+    "curl-version.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "curl-version.stdout": {
+      "sha256": "f06be6c70b25ae737afebd2e19407c0b4f16e567bff2fb91f3f705fc38369f1d",
+      "bytes": 579
+    },
+    "result.json": {
+      "sha256": "b0dfc983637c0914e1779aaa513adf3614ce7be0524e276f193948d2adf2976c",
+      "bytes": 22329
+    },
+    "sha256.result.json": {
+      "sha256": "8cf8a9c3fb044784798f4c988cfa243d1f47dc4c5bd6516fed5ff8177575188d",
+      "bytes": 484
+    },
+    "sha256.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "sha256.stdout": {
+      "sha256": "abcaf297cfdd95f24acf311af6bbfa12a9df41c76ff780bbd85e376afe7e56e6",
+      "bytes": 192
+    },
+    "transport.result.json": {
+      "sha256": "76385daaaf1df4cf3a0a62aff76d5d061369b4d9cc63bfd1425bbcf1adf885f9",
+      "bytes": 931
+    },
+    "transport.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "transport.stdout": {
+      "sha256": "73fb1a4dda7a6222af76173ea3ded43a21a3175f353ea9c8a7fd5a8148309a36",
+      "bytes": 18333
+    }
+  },
+  "original_owner_files": {
+    "launcher-start.json": {
+      "sha256": "6a3a8ed29176271e7fba29fb343749965c51e4c9939eafef2ca62383ea04fa6e",
+      "bytes": 159
+    },
+    "launcher-submission.json": {
+      "sha256": "1103cace7c3c6654f658bedf37d844dbd30da21340b40dd49a3c2951784bd966",
+      "bytes": 322
+    },
+    "launcher-pid.json": {
+      "sha256": "3e76ea43bb983cb9e620a1f0ef9a4062957a5cf7384e91419400fef1b14e6115",
+      "bytes": 66
+    },
+    "launcher-result.json": {
+      "sha256": "1672b6cd4804a11c8bec8cff99f27fd5650c123055243413d7a9e7eddc303505",
+      "bytes": 132
+    },
+    "tool-wrapper.rc": {
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    "console.log": {
+      "sha256": "288ef6a3b2eae34004547efad088b5a744a3436bad407ee906167dc714606327",
+      "bytes": 22444
+    }
+  },
+  "original_child_argv": {
+    "curl-version": [
+      "/usr/bin/curl",
+      "-q",
+      "--version"
+    ],
+    "transport": [
+      "/usr/bin/curl",
+      "-q",
+      "--fail",
+      "--silent",
+      "--show-error",
+      "--http1.1",
+      "--noproxy",
+      "*",
+      "--proto",
+      "=https",
+      "--proto-redir",
+      "=https",
+      "--max-redirs",
+      "0",
+      "--retry",
+      "0",
+      "--connect-timeout",
+      "10",
+      "--max-time",
+      "180",
+      "--max-filesize",
+      "110373661",
+      "--header",
+      "If-Match: \"6ace8266-6942b1d\"",
+      "--header",
+      "Accept-Encoding: identity",
+      "--dump-header",
+      "-",
+      "--output",
+      "/workspace/tmp/pix-steam-public-download-20261014/download01/archive.zip",
+      "--write-out",
+      "\nPIX_INTAKE_CURL_JSON\n%{json}\n",
+      "https://client-update.steamstatic.com/bins_linuxarm64_linuxarm64.zip.5a9a95afdc2ee6a000092a6205716b0f6efe899c"
+    ],
+    "sha256": [
+      "/usr/bin/python3",
+      "-I",
+      "-S",
+      "-B",
+      "/workspace/repos/rocknix.worktrees/m7-steam-preservation-integration/docs/qa-logs/2026-10-14-steam-client-host-download-source/hash_archive.py",
+      "--archive",
+      "/workspace/tmp/pix-steam-public-download-20261014/download01/archive.zip"
+    ]
+  },
+  "observed_archive_stat_only": {
+    "dev": 66304,
+    "ino": 192170976,
+    "mode": 33152,
+    "nlink": 1,
+    "uid": 1000,
+    "gid": 1000,
+    "size": 110373661,
+    "mtime_ns": 1791945272893683984,
+    "ctime_ns": 1791945272893683984
+  },
+  "bound_files": {
+    "bound/central.bin": "87cfbdc22d206c398dd8d3295511098696c54aa1829a48dd740029cc6f9cffa6",
+    "bound/layout.json": "4a3a6a1ff38d483cb1316472eaf2766964b5682cb2fb05b222ea58aed092e23f",
+    "bound/manifest.body": "65079d08bbcc0e7fdc3d9b153aadc4c9befc62913c3e4ee0b02425690366f15f",
+    "bound/members.json": "017bd0cfbe0c2d0f8e47f7657550deaa471941e50e6d8351fcfd74363f71dff5",
+    "bound/ownership-plan.json": "55dcf120b0918b224f189d70a1346f7ffd3c8c8cf7f0106d2981ebcc8f6a208d",
+    "bound/prefix.bin": "e613354a6e9dfb9d69cc21fee51850b15fbc944b796f32884b6f15d287e88123",
+    "bound/selected.json": "bf84b5fdfb42e5a499319c475b66af955046b5de817bfd4967c4b7f49816ee47",
+    "bound/zip-end.json": "12ad8dfc94acdba7c5cb4d16d3cce8bee203f60f7502bdb6d151c942320b38a1"
+  },
+  "runner_sha256": "bf548c63a08f1805b08cb267895af03c1468daacd23a104268dc05efa944dbf8",
+  "verifier_sha256": "84d8951b926651ac44929b1e642f57808d7d85fbe6940159e724887942725b51",
+  "limits": {
+    "transport_seconds": 180,
+    "connect_seconds": 10,
+    "cleanup_seconds": 10,
+    "http_payload_bytes": 110373661,
+    "host_reserve_bytes": 67108864,
+    "host_report_allowance_bytes": 4194304,
+    "verification_seconds": 90,
+    "scratch_bytes": 805306368,
+    "decoded_bytes": 402653184,
+    "member_bytes": 134217728,
+    "entries": 128,
+    "worker_address_space_bytes": 402653184,
+    "log_bytes_each": 65536
+  },
+  "revised_contract": "One public immutable object. Exact HTTP payload cap; no aggregate TLS/TCP/DNS wire cap or quota claim. Total wire bytes UNMEASURED. Host uses ordinary free-space preflight. Offline decoding remains a separate allocated VM phase.",
+  "runtime": "UNRUN new correction/recovery/adapter; no archive bytes read or decoded in source preparation",
+  "original_result": "FAIL1 remains immutable; three children0 accepted; final request_size KeyError",
+  "primary_source": {
+    "url": "https://curl.se/docs/manpage.html#-w",
+    "read_date": "2026-10-14",
+    "field": "size_request",
+    "meaning": "HTTP request bytes; not aggregate wire traffic"
+  },
+  "issue_read": {
+    "number": 582,
+    "updated_at": "2026-10-14T01:38:14Z",
+    "comments": [
+      6158946607
+    ]
+  },
+  "rules_source": {
+    "next": "0ea6eaf74ad47503c05955d1c0bd4bd00bdfb816",
+    "worktree_stale": true,
+    "checkpoint": "historical; no old commands replayed"
+  }
+}

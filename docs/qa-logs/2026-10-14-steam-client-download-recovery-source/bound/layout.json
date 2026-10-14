@@ -1,0 +1,79 @@
+{
+  "central_sha256": "87cfbdc22d206c398dd8d3295511098696c54aa1829a48dd740029cc6f9cffa6",
+  "entries": 55,
+  "roots": {
+    "steamrtarm64\\libs": {
+      "entries": 1,
+      "compressed_bytes": 0,
+      "uncompressed_bytes": 0
+    },
+    "steamrtarm64\\swiftshader": {
+      "entries": 1,
+      "compressed_bytes": 0,
+      "uncompressed_bytes": 0
+    },
+    "steamrtarm64": {
+      "entries": 50,
+      "compressed_bytes": 110366149,
+      "uncompressed_bytes": 339635503
+    },
+    "steamrtarm64\\libs\\libcurl.so": {
+      "entries": 1,
+      "compressed_bytes": 16,
+      "uncompressed_bytes": 16
+    },
+    "steamrtarm64\\libs\\libnghttp2.so": {
+      "entries": 1,
+      "compressed_bytes": 21,
+      "uncompressed_bytes": 21
+    },
+    "steamrtarm64\\libs\\libnghttp2.so.14": {
+      "entries": 1,
+      "compressed_bytes": 21,
+      "uncompressed_bytes": 21
+    }
+  },
+  "total_compressed_bytes": 110366207,
+  "total_uncompressed_bytes": 339635561,
+  "kinds": {
+    "directory": 2,
+    "regular": 50,
+    "symlink": 3
+  },
+  "methods": {
+    "0": 5,
+    "8": 50
+  },
+  "flags": {
+    "0": 55
+  },
+  "unsafe_paths": [
+    "steamrtarm64\\libs/",
+    "steamrtarm64\\swiftshader/",
+    "steamrtarm64\\libs\\libcurl.so",
+    "steamrtarm64\\libs\\libnghttp2.so",
+    "steamrtarm64\\libs\\libnghttp2.so.14"
+  ],
+  "duplicates": [],
+  "casefold_collisions": [],
+  "largest_member": {
+    "index": 48,
+    "name": "steamrtarm64/swiftshader/libGLESv2.so",
+    "name_hex": "737465616d727461726d36342f73776966747368616465722f6c6962474c455376322e736f",
+    "version_made_by": 20,
+    "version_needed": 20,
+    "flags": 0,
+    "compression_method": 8,
+    "crc32": "972bc221",
+    "compressed_bytes": 26705237,
+    "uncompressed_bytes": 97036984,
+    "external_attributes": 2176188416,
+    "unix_mode": null,
+    "kind": "regular",
+    "local_header_offset": 79875376,
+    "extra_fields": [],
+    "comment_bytes": 0,
+    "unsafe_path": false
+  },
+  "evidence": "Remote central directory metadata only, not extracted/verified member bytes"
+}

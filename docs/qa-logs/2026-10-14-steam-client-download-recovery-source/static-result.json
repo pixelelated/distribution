@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "evidence_level": "static AST/bytes and original small-receipt parse only",
+  "runtime": "UNRUN corrected download/recovery/VM adapter; no archive payload opened",
+  "prior_packet_files_unchanged": 21,
+  "unchanged_current_files": [
+    "runner.py",
+    "hash_archive.py",
+    "verify_archive.py",
+    "vm-admission.schema.json",
+    "bound/central.bin",
+    "bound/layout.json",
+    "bound/manifest.body",
+    "bound/members.json",
+    "bound/ownership-plan.json",
+    "bound/prefix.bin",
+    "bound/selected.json",
+    "bound/zip-end.json"
+  ],
+  "python_asts": [
+    "download.py",
+    "hash_archive.py",
+    "recover.py",
+    "runner.py",
+    "verify_archive.py",
+    "verify_static.py",
+    "vm_verify.py"
+  ],
+  "download_single_literal_change_only": true,
+  "original_download_predicates_preserved": 20,
+  "original_download_child_invocations_unchanged": true,
+  "original_VM_predicates_preserved": 19,
+  "VM_decoder_invocation_fd_limits_admission_and_cleanup_unchanged": true,
+  "recovery_child": "one unchanged hash_archive.py child; no download or decoder invocation",
+  "original_receipts_bound_and_unchanged": 16,
+  "observed_original_wrapper_status": "FAIL1",
+  "observed_curl_size_request": 221,
+  "limits": {
+    "transport_seconds": 180,
+    "connect_seconds": 10,
+    "cleanup_seconds": 10,
+    "http_payload_bytes": 110373661,
+    "host_reserve_bytes": 67108864,
+    "host_report_allowance_bytes": 4194304,
+    "verification_seconds": 90,
+    "scratch_bytes": 805306368,
+    "decoded_bytes": 402653184,
+    "member_bytes": 134217728,
+    "entries": 128,
+    "worker_address_space_bytes": 402653184,
+    "log_bytes_each": 65536
+  },
+  "remaining": [
+    "Coordinator recovery run and source-bound negative controls",
+    "Separate admitted offline VM verification before any archive-format conclusion"
+  ]
+}

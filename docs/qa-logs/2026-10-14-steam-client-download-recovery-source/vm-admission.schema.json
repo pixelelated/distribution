@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Offline VM allocation only; no host acquisition admission/quota required",
+  "type": "object",
+  "required": [
+    "coordinator",
+    "packet_manifest_sha256",
+    "scratch_mount",
+    "scratch_max_bytes",
+    "expires_utc"
+  ],
+  "properties": {
+    "coordinator": {
+      "const": "w4:p2"
+    },
+    "packet_manifest_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "scratch_mount": {
+      "type": "string",
+      "description": "Actual allocated VM private tmpfs mount, mode0700,noexec,nosuid,nodev"
+    },
+    "scratch_max_bytes": {
+      "const": 805306368
+    },
+    "expires_utc": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "status": "PASS",
+  "phase": "metadata-recovery",
+  "schema": 1,
+  "children": [
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/workspace/repos/rocknix.worktrees/m7-steam-preservation-integration/docs/qa-logs/2026-10-14-steam-client-download-recovery-source/hash_archive.py",
+        "--archive",
+        "/workspace/tmp/pix-steam-public-download-20261014/download01/archive.zip"
+      ],
+      "original_exit": 0,
+      "intervention": null,
+      "remaining_process_group": [],
+      "cleanup_seconds": 0.01587208895944059,
+      "elapsed_seconds": 0.07951661408878863
+    }
+  ],
+  "started_utc": "2026-10-14T02:56:23.453421+00:00",
+  "evidence": "New receipt: original transport/hash evidence plus fresh read-only full SHA256; no decoding",
+  "new_download_attempts": 0,
+  "wire_accounting": "UNMEASURED; no aggregate TLS/TCP/DNS wire cap or quota claimed",
+  "packet_manifest_sha256": "0f885f19b56e12d334a3109e58ad345528cf0ba8c82f2bef28aee2cb09f742ef",
+  "limits": {
+    "transport_seconds": 180,
+    "connect_seconds": 10,
+    "cleanup_seconds": 10,
+    "http_payload_bytes": 110373661,
+    "host_reserve_bytes": 67108864,
+    "host_report_allowance_bytes": 4194304,
+    "verification_seconds": 90,
+    "scratch_bytes": 805306368,
+    "decoded_bytes": 402653184,
+    "member_bytes": 134217728,
+    "entries": 128,
+    "worker_address_space_bytes": 402653184,
+    "log_bytes_each": 65536
+  },
+  "attempts": 1,
+  "original_status": "FAIL",
+  "original_wrapper_exit": 1,
+  "original_packet_manifest_sha256": "f88e5e146855873625a8003d598e5e5a633ece5923f75d9f88caed140fe09544",
+  "original_result_sha256": "b0dfc983637c0914e1779aaa513adf3614ce7be0524e276f193948d2adf2976c",
+  "original_download_files": {
+    "curl-version.result.json": {
+      "sha256": "fa90ed2dad713f61db4506f201944b903ef153a0ee4b8e13a62d0912495b8c8e",
+      "bytes": 232
+    },
+    "curl-version.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "curl-version.stdout": {
+      "sha256": "f06be6c70b25ae737afebd2e19407c0b4f16e567bff2fb91f3f705fc38369f1d",
+      "bytes": 579
+    },
+    "result.json": {
+      "sha256": "b0dfc983637c0914e1779aaa513adf3614ce7be0524e276f193948d2adf2976c",
+      "bytes": 22329
+    },
+    "sha256.result.json": {
+      "sha256": "8cf8a9c3fb044784798f4c988cfa243d1f47dc4c5bd6516fed5ff8177575188d",
+      "bytes": 484
+    },
+    "sha256.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "sha256.stdout": {
+      "sha256": "abcaf297cfdd95f24acf311af6bbfa12a9df41c76ff780bbd85e376afe7e56e6",
+      "bytes": 192
+    },
+    "transport.result.json": {
+      "sha256": "76385daaaf1df4cf3a0a62aff76d5d061369b4d9cc63bfd1425bbcf1adf885f9",
+      "bytes": 931
+    },
+    "transport.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "transport.stdout": {
+      "sha256": "73fb1a4dda7a6222af76173ea3ded43a21a3175f353ea9c8a7fd5a8148309a36",
+      "bytes": 18333
+    }
+  },
+  "original_owner_files": {
+    "launcher-start.json": {
+      "sha256": "6a3a8ed29176271e7fba29fb343749965c51e4c9939eafef2ca62383ea04fa6e",
+      "bytes": 159
+    },
+    "launcher-submission.json": {
+      "sha256": "1103cace7c3c6654f658bedf37d844dbd30da21340b40dd49a3c2951784bd966",
+      "bytes": 322
+    },
+    "launcher-pid.json": {
+      "sha256": "3e76ea43bb983cb9e620a1f0ef9a4062957a5cf7384e91419400fef1b14e6115",
+      "bytes": 66
+    },
+    "launcher-result.json": {
+      "sha256": "1672b6cd4804a11c8bec8cff99f27fd5650c123055243413d7a9e7eddc303505",
+      "bytes": 132
+    },
+    "tool-wrapper.rc": {
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    },
+    "console.log": {
+      "sha256": "288ef6a3b2eae34004547efad088b5a744a3436bad407ee906167dc714606327",
+      "bytes": 22444
+    }
+  },
+  "archive_path": "/workspace/tmp/pix-steam-public-download-20261014/download01/archive.zip",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "python_sha256": "52e0a13e60a981d8c4b6478be2ba5176f69da07948a056bf49cf6f077e30cb41",
+  "preflight_free_bytes": 2980015935488,
+  "preflight_required_bytes": 181676829,
+  "archive_bytes": 110373661,
+  "archive_sha256": "8b31d0b0aa844d906b690283da41403b601a9b36b1f80b7819d1f85bb27854fc",
+  "full_hash_status": "PASS",
+  "fresh_hash_files": {
+    "sha256.result.json": {
+      "bytes": 487,
+      "sha256": "8d0e9190abdf08f2f6d96d54d9947e5f8d993020f5a40f9968fa080182f010f5"
+    },
+    "sha256.stdout": {
+      "bytes": 192,
+      "sha256": "abcaf297cfdd95f24acf311af6bbfa12a9df41c76ff780bbd85e376afe7e56e6"
+    },
+    "sha256.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "archive_identity": [
+    66304,
+    192170976,
+    33152,
+    1,
+    110373661,
+    1791945272893683984,
+    1791945272893683984
+  ],
+  "http_payload_bytes": 110373661,
+  "http_reported_header_bytes": 555,
+  "http_reported_request_bytes": 221,
+  "decoding": "NOT PERFORMED; separately allocated offline VM only",
+  "elapsed_work_and_cleanup_seconds": 0.08268855500500649,
+  "finished_utc": "2026-10-14T02:56:23.541297+00:00"
+}

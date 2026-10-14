@@ -1,0 +1,56 @@
+{
+  "status": "UNRUN; source preparation only",
+  "positive": [
+    {
+      "operation": "host metadata recovery with unchanged hash helper",
+      "input": "exact retained download01/ and owner/; new recovery01/",
+      "expect": "new PASS0 metadata-recovery; original FAIL1 byte-identical; new hash child0, exact size/SHA, no network/decode/cleanup intervention"
+    },
+    {
+      "operation": "offline VM explicit receipt path",
+      "input": "real retained archive and original receipts plus successful separate recovery receipts",
+      "expect": "all original admission/resource predicates; complete staged hash before decode; real CRC/layout/ELF result without executing payload"
+    }
+  ],
+  "negative_controls": [
+    {
+      "input": "original FAIL result without --recovery",
+      "expect": "VM adapter refuses before decoder launch"
+    },
+    {
+      "input": "changed original receipt byte, child nonzero/intervention, altered source/limit/URL or changed original hash receipt",
+      "expect": "exact original binding or predicate refusal; no hash/decoder acceptance"
+    },
+    {
+      "input": "recovery receipt copied from another packet, original_status changed to PASS, missing fresh hash child or failed hash child",
+      "expect": "explicit recovery contract refusal before decoder launch"
+    },
+    {
+      "input": "small same-length byte mutation of a separately owned archive copy, never original",
+      "expect": "fresh full SHA fails; no decoding, original unchanged"
+    },
+    {
+      "input": "truncated separate archive copy or symlink to original",
+      "expect": "exact length or regular single-link/O_NOFOLLOW refusal"
+    },
+    {
+      "input": "original recovery output path reused",
+      "expect": "refuse overwrite; all old bytes preserved"
+    },
+    {
+      "input": "deadline or interruption during separately allocated hash control",
+      "expect": "new FAIL; original native child status and intervention/cleanup receipts retained; no original modification"
+    },
+    {
+      "input": "staged archive corrupted after successful host recovery",
+      "expect": "unchanged VM verifier full hash rejects before any decoder member"
+    }
+  ],
+  "constraints": [
+    "No original-owner mutations",
+    "No network downloads",
+    "No host decoding or payload execution",
+    "No fixture run by preparing worker",
+    "Fresh coordinator ownership and resource allocation for runtime"
+  ]
+}
