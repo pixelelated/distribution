@@ -1,0 +1,42 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T224528Z-dd0e235c",
+  "expected_rc": 1,
+  "disposition": "failed-investigated",
+  "outputs": [
+    {
+      "issue": 571,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-01",
+      "release_when": "Original clean/smoke/restoration/owner results exported and reviewed; actual VM and descendants gone, admission consumed, then explicitly retire disk and temporary key."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-evidence-20261014-01/config.json",
+      "sha256": "ab71e5f928eb6c52c945e9cb065190e243ecd83f0b16a7f940a745a439185571"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-evidence-20261014-01/export-result.json",
+      "sha256": "71f4943055681dab06f40460ecd92149d7365bf782006ce306c7cf7df1d91aad"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-evidence-20261014-01/host-exits.json",
+      "sha256": "1253bc341bfeb725bcc4c42f78fd86901b216a21f521f59b171abcd1ed4a1c81"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-evidence-20261014-01/original-records.json",
+      "sha256": "212f4f7d7d86f8ec3d2700927b775e8417a420351d7f54a167d3845c3d25c8c3"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-evidence-20261014-01/original-records.tar.gz",
+      "sha256": "aefc048c54bfa2ce3cb7718d37ba6a300b496e229a4d512dfd5dd692d3f04b0f"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-evidence-20261014-01/vm-result.json",
+      "sha256": "50b5e75b4147ce72a7aee1739c68d4e70ede8b3d00408345982f18d0fce0198d"
+    }
+  ],
+  "requires_coordinator_review": true,
+  "channels_coherent": true,
+  "monitor_succeeded": true
+}

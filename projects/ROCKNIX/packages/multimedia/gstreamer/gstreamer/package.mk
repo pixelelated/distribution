@@ -47,8 +47,7 @@ pre_configure_target() {
 }
 
 post_makeinstall_target() {
-  # WebKit uses the GL plugin, which links libgstcontroller (#572). The
-  # generic cleanup removes that runtime dependency; keep it in this OS.
+  # Keep libgstcontroller for GL and libgstnet for the installed UDP, RTP,
+  # RTSP and adaptive-demux plugins from gst-plugins-good (#572).
   safe_remove ${INSTALL}/usr/share
-  safe_remove ${INSTALL}/usr/lib/libgstnet-1.0*
 }

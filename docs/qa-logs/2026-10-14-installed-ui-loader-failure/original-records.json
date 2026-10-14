@@ -1,0 +1,692 @@
+[
+  {
+    "path": "owner/admission-plan.json",
+    "bytes": 751,
+    "sha256": "38e1b089a567affe0d65552da63c292d89bf583857399ef0bec97b0d18ec97e3"
+  },
+  {
+    "path": "owner/admission.json",
+    "bytes": 1654,
+    "sha256": "0d66f73116974b8458ad7887d2a7166cc63193e07dfa637a141e54b789d9264d"
+  },
+  {
+    "path": "owner/census.py",
+    "bytes": 2865,
+    "sha256": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2"
+  },
+  {
+    "path": "owner/clean/first-boot.serial",
+    "bytes": 53707,
+    "sha256": "8dc8b9bcc80beb75c6752a71b466ed16d1799da78fd8d4661404e1f90c560dc4"
+  },
+  {
+    "path": "owner/clean/first-boot.sh",
+    "bytes": 60637,
+    "sha256": "150dc75f230eec500fbb1486415d391465023810f862ccc13dde9752d33aa568"
+  },
+  {
+    "path": "owner/clean/report.json",
+    "bytes": 51603,
+    "sha256": "519e250d0d323435d0c8ad4fcb2d368ff5f81b1099e962e4b5c880b2b3e3afde"
+  },
+  {
+    "path": "owner/close.py",
+    "bytes": 5017,
+    "sha256": "69b086346e63e8821a84f36e7b2173ba0973d3b9010eb30d2c6b24e5d16f7ace"
+  },
+  {
+    "path": "owner/config.json",
+    "bytes": 6883,
+    "sha256": "ab71e5f928eb6c52c945e9cb065190e243ecd83f0b16a7f940a745a439185571"
+  },
+  {
+    "path": "owner/guest-postcheck.py",
+    "bytes": 1817,
+    "sha256": "6698ad390ad0a3c76e846e37230e4df9708ff12d2c68a9e4440d2ceecb0886ab"
+  },
+  {
+    "path": "owner/lifecycle-owner/console.log",
+    "bytes": 123,
+    "sha256": "5d5c06f1e532d0c3cfd122ba1e475b56dbcac2577285b44bd88aaf958942dc6a"
+  },
+  {
+    "path": "owner/lifecycle-owner/launcher-pid.json",
+    "bytes": 66,
+    "sha256": "8808b01e6fc0ad0421a1b269ae60bedf05ba329c2654f9ba9314317b49e59d6e"
+  },
+  {
+    "path": "owner/lifecycle-owner/launcher-result.json",
+    "bytes": 132,
+    "sha256": "a008ac8cddb85efebf0d3fc2f9f36e488a7e71ea5820c933e1e2e37a1fb0d666"
+  },
+  {
+    "path": "owner/lifecycle-owner/launcher-start.json",
+    "bytes": 167,
+    "sha256": "821e7054fcf0970771dfd21d778a7775420176f98fcd68b716bb1c809cebc52e"
+  },
+  {
+    "path": "owner/lifecycle-owner/launcher-submission.json",
+    "bytes": 338,
+    "sha256": "74ec3427d7fb993067243175b69e2ac31af70a09ccfc5e915bcbccc216a7a34e"
+  },
+  {
+    "path": "owner/lifecycle-owner/tool-wrapper.rc",
+    "bytes": 2,
+    "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+  },
+  {
+    "path": "owner/lifecycle-owner/watch-build-submit.py",
+    "bytes": 4090,
+    "sha256": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e"
+  },
+  {
+    "path": "owner/records/001-source.exit.json",
+    "bytes": 248,
+    "sha256": "4d7a510d6bcb2d2b94c412441ec68eb2eebfdda4ec9fedaa67536816dc78c65d"
+  },
+  {
+    "path": "owner/records/001-source.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/001-source.stdout",
+    "bytes": 41,
+    "sha256": "8a80abfe340a3ae7b00325c6523643618ce3d0cd928145d0462b24de39b67a25"
+  },
+  {
+    "path": "owner/records/002-convert.exit.json",
+    "bytes": 342,
+    "sha256": "f528b1ce33475ccd142cab74e531e59a68f26529c8f8d6ac57a67ae7b72b87e8"
+  },
+  {
+    "path": "owner/records/002-convert.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/002-convert.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/003-resize.exit.json",
+    "bytes": 241,
+    "sha256": "847de2f8310ac0571a650d6395d6467885a95e2c9e7a46f45b461dbbac628e95"
+  },
+  {
+    "path": "owner/records/003-resize.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/003-resize.stdout",
+    "bytes": 15,
+    "sha256": "beb1acdda83a132f9422d47185569d16211557867b240bf8d65e291d9760d9ae"
+  },
+  {
+    "path": "owner/records/004-qemu-args.exit.json",
+    "bytes": 847,
+    "sha256": "8d135d1a9db37b3071a457cc218beeef50551e9048afa81ddfbad5cdfc024f72"
+  },
+  {
+    "path": "owner/records/004-qemu-args.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/004-qemu-args.stdout",
+    "bytes": 1243,
+    "sha256": "a769f9ee0762b001b69f237bc294558fa54cfdb09d1f8d76f4e058f4c312f880"
+  },
+  {
+    "path": "owner/records/005-qemu-start.exit.json",
+    "bytes": 842,
+    "sha256": "e7c4d35d6feca8af6f559161789ef8390a35823351904bc8df062603235c8a02"
+  },
+  {
+    "path": "owner/records/005-qemu-start.stderr",
+    "bytes": 284,
+    "sha256": "eed0cfa0660a0693cfc50636fc0958634d6c39ba80f1651ca24c36655c4b0a44"
+  },
+  {
+    "path": "owner/records/005-qemu-start.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/006-serial-ready.exit.json",
+    "bytes": 344,
+    "sha256": "b63532f95dc18c429c00232bac1382d536d20db0088d42297660972a12115165"
+  },
+  {
+    "path": "owner/records/006-serial-ready.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/006-serial-ready.stdout",
+    "bytes": 17,
+    "sha256": "472330d987ad84e5176900b9087b06e28e96fd09f3c165d10b5583216dd04d97"
+  },
+  {
+    "path": "owner/records/007-untouched-clean.exit.json",
+    "bytes": 399,
+    "sha256": "7d6901b6750d798e4da9b1d879c3aa64f983dc8779197e5fa978ebc27fe89264"
+  },
+  {
+    "path": "owner/records/007-untouched-clean.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/007-untouched-clean.stdout",
+    "bytes": 101,
+    "sha256": "e43264360a6be255dd56fb0c88a7de1d09808921113528c9e9a2cebfea5c1e80"
+  },
+  {
+    "path": "owner/records/008-boot.exit.json",
+    "bytes": 747,
+    "sha256": "9b6f80753239d9e35f9301d44ee03f6ca2dcba77e1dc1a4c7dfb50cbd81786ae"
+  },
+  {
+    "path": "owner/records/008-boot.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/008-boot.stdout",
+    "bytes": 1047,
+    "sha256": "d9ac4edfef94408914b1c5a574add0fecdbda482af55aaccd2f948a7b899d44c"
+  },
+  {
+    "path": "owner/records/009-keygen.exit.json",
+    "bytes": 321,
+    "sha256": "ce028e598c8c0961b9018fc055ffb76713c41ac6594fa5364069aeaac2e94499"
+  },
+  {
+    "path": "owner/records/009-keygen.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/009-keygen.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/010-ssh-provision.exit.json",
+    "bytes": 850,
+    "sha256": "aec0af6ce220ea1acac66191c17fa0ed879416565b56e95b7e520c73d3cf267b"
+  },
+  {
+    "path": "owner/records/010-ssh-provision.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/010-ssh-provision.stdout",
+    "bytes": 26,
+    "sha256": "d9b265f562e86fde2c92531df84f7ea1848d6f562eed88d37290930f768f8755"
+  },
+  {
+    "path": "owner/records/011-ssh-host-key.exit.json",
+    "bytes": 496,
+    "sha256": "1d88b57c63c4727ee748da80da8603eda78cc2e63adad63fcc6ce93eee164eac"
+  },
+  {
+    "path": "owner/records/011-ssh-host-key.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/011-ssh-host-key.stdout",
+    "bytes": 144,
+    "sha256": "c1fc06b2af25555a8ebc25bb25b7f34101906efdbfa5274382346a79959cce59"
+  },
+  {
+    "path": "owner/records/012-ssh-boot.exit.json",
+    "bytes": 617,
+    "sha256": "484d03a3959382654ee727e283d6e14d51ba73d4decea7c27869d0443587dbc0"
+  },
+  {
+    "path": "owner/records/012-ssh-boot.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/012-ssh-boot.stdout",
+    "bytes": 37,
+    "sha256": "645d60263a9c4cec099009c2b27a9ecb7dfed0e2ea8d0b5cca6ae0f2cb9e0976"
+  },
+  {
+    "path": "owner/records/013-prepare-smoke.exit.json",
+    "bytes": 796,
+    "sha256": "7d8f1e53a445807f9dfb64682081e85ff664b3515566fcc8183bcb4398aed351"
+  },
+  {
+    "path": "owner/records/013-prepare-smoke.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/013-prepare-smoke.stdout",
+    "bytes": 60,
+    "sha256": "2b674ee5b367ba335725c89a11ba31a0c76fcc072dc73ae19706326199e35cf4"
+  },
+  {
+    "path": "owner/records/014-original-smoke.exit.json",
+    "bytes": 307,
+    "sha256": "99e25dfcf7d9673aa3079170cc502e2fc942ea57293af76a5c96a290b481bed3"
+  },
+  {
+    "path": "owner/records/014-original-smoke.stderr",
+    "bytes": 898,
+    "sha256": "ebef8413b735d0c11fc4086204b9d62dc6710ecc41e3a7754d41b4e39d5636d8"
+  },
+  {
+    "path": "owner/records/014-original-smoke.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/015-final-sync.exit.json",
+    "bytes": 588,
+    "sha256": "c0521fe2f7fd4b691541e12ccf4a1f0eb1990309e5a23f6c43a239c1b3542b19"
+  },
+  {
+    "path": "owner/records/015-final-sync.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/015-final-sync.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/016-vm-stop.exit.json",
+    "bytes": 345,
+    "sha256": "c56bc4db65684b77e4c54004173f273e975634ee084720b59c3a0081451fcbaa"
+  },
+  {
+    "path": "owner/records/016-vm-stop.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/records/016-vm-stop.stdout",
+    "bytes": 38,
+    "sha256": "b48c2ede2503d019bc3ffed379631ed7be9d44e9bd0d980f3ce073d6aa0d9b11"
+  },
+  {
+    "path": "owner/records/boot.json",
+    "bytes": 1025,
+    "sha256": "c08e4fb788e8fd012ea66e92f279b2d206cdb74e980d9d4246f1d207c50db3fe"
+  },
+  {
+    "path": "owner/records/host-process-identities.json",
+    "bytes": 11589,
+    "sha256": "174155270f8fc65431d9e7cb007cd86dc32a3251e9c461403b693b9ef2a398e7"
+  },
+  {
+    "path": "owner/records/image-inputs.original.json",
+    "bytes": 1618,
+    "sha256": "e26dc0e59e7cf1daa45f873906373ceaec5fcf7c0113be2cee7cf4b237790a05"
+  },
+  {
+    "path": "owner/records/image-verification.original.json",
+    "bytes": 33912,
+    "sha256": "ceb051f88b91de761b1a128c6dc2f7c40cf0421293e8ac4f8aa3eac50e2e5272"
+  },
+  {
+    "path": "owner/records/qemu-generated.json",
+    "bytes": 1544,
+    "sha256": "c0e5690ad06f7c67221959fb6b7b78a0ed415d7c42a2c3d527c88af91b3dd99f"
+  },
+  {
+    "path": "owner/records/qemu-start.json",
+    "bytes": 1782,
+    "sha256": "72e9b321cc6a8e25f874e6518cef320b83fedb0a46aa042e466e460bbf9f47bd"
+  },
+  {
+    "path": "owner/records/resources.jsonl",
+    "bytes": 33001,
+    "sha256": "02288c311fb7b206e192a887ac72400620be57c495664af7d0b9deea6d5f236c"
+  },
+  {
+    "path": "owner/records/watch-owner.json",
+    "bytes": 1314,
+    "sha256": "8f08128971e0fcdf79cb3a1cb8318e140c659782aec968871401382934f9ef79"
+  },
+  {
+    "path": "owner/retention-plan.json",
+    "bytes": 1709,
+    "sha256": "542d4208e37a8753c1db6ad195c4dfa4afb0479e0d8b17d0b51f9cba5c450258"
+  },
+  {
+    "path": "owner/retention-report.json",
+    "bytes": 6987,
+    "sha256": "3ceab60a19bf81998221e06f3f60f6f82e74b51b07be25404efe2882d129a870"
+  },
+  {
+    "path": "owner/run.path",
+    "bytes": 97,
+    "sha256": "2ead0b7b5a7d4234256f9eae1c290733fce8155e983fd4f19c161cdddfcb64b9"
+  },
+  {
+    "path": "owner/smoke/binding.json",
+    "bytes": 4546,
+    "sha256": "634aa59da92da0458731430749c5f5fe7e7a8127db91390af227aa18e5e9c404"
+  },
+  {
+    "path": "owner/smoke/cleanup.stdout",
+    "bytes": 46,
+    "sha256": "4f6865a4aa006de27b97067bf5472ab90d3acff7572473d3d9a3559d0c1055a0"
+  },
+  {
+    "path": "owner/smoke/config-custody.py",
+    "bytes": 1973,
+    "sha256": "62b0a2ea9c04bb5fb1673328a617b95b4b5446c0cab6dfc75dc294ae6387c39b"
+  },
+  {
+    "path": "owner/smoke/configuration-restored.json",
+    "bytes": 137,
+    "sha256": "2464b40874dfc2cb7e576d1c3a46ef47b49fcfd2b59bac50da700b695ce3490a"
+  },
+  {
+    "path": "owner/smoke/fake-rclone-phone03",
+    "bytes": 2916,
+    "sha256": "e9600bf8458d3f31ebfd355d9fe705cf40e60d957e00c49f21e56eceebe85656"
+  },
+  {
+    "path": "owner/smoke/guest-preflight.py",
+    "bytes": 2713,
+    "sha256": "30d02f3e594f926be556d3dbf41810f4b2d88d8748617c3159f8162abf6a522e"
+  },
+  {
+    "path": "owner/smoke/loader.stderr",
+    "bytes": 876,
+    "sha256": "afc23be25468fb955c16e682a33fbd1244b9f8d2e98f3f6230ec92153f78f082"
+  },
+  {
+    "path": "owner/smoke/loader.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/smoke/phone-installed-client04.py",
+    "bytes": 3506,
+    "sha256": "f8d6f4394766c79e44198a6c0f7ebd5854f2091714aa7d3a768345f95dbd4287"
+  },
+  {
+    "path": "owner/smoke/phone-smoke.py",
+    "bytes": 5805,
+    "sha256": "5a77d96e39462653db87b2f18b6b5ac8fbd4996ea097aeb778df85a6b1cc23e3"
+  },
+  {
+    "path": "owner/smoke/recent-smoke.py",
+    "bytes": 3474,
+    "sha256": "8a31c0b1a95569ddf59fcb0041bfda02217fe9d699347bd5db881a72cc5eeaf8"
+  },
+  {
+    "path": "owner/smoke/result.json",
+    "bytes": 2969,
+    "sha256": "d55057e193c08887c9b62884bbb639477c49c1766d2547e8c61be2cd90e770c7"
+  },
+  {
+    "path": "owner/smoke/run.py",
+    "bytes": 6485,
+    "sha256": "c2223cefd25310a8b93758a88bab7fa29fb5dcefdfad342136e7bc595e50f65a"
+  },
+  {
+    "path": "owner/smoke/ssh-command.json",
+    "bytes": 361,
+    "sha256": "fc2cfd04082d8c3dae8392d1123d03cfd17f8f45fdcd4ee3f0494657fef5f018"
+  },
+  {
+    "path": "owner/smoke/ui.py",
+    "bytes": 979,
+    "sha256": "ce7caa363c37ca67c187c640a6cc7ad463eb0d08aa4e00f2a332f680a8bbfe1e"
+  },
+  {
+    "path": "owner/smoke/wifi-initial.py",
+    "bytes": 2320,
+    "sha256": "657db1e2bf6fbd1224c4d934ed68024c7470b0a4974881e68d9845653d521ff2"
+  },
+  {
+    "path": "owner/smoke/wifi-smoke.py",
+    "bytes": 1977,
+    "sha256": "a6da0e41a03b04c890262facd57e16c8f206bf7b8a6525c16b76bbe5ba0d4401"
+  },
+  {
+    "path": "owner/source/smoke/README.md",
+    "bytes": 7771,
+    "sha256": "70424415c12bdd5749b5ec2fdb9a3206cd24051851770b4eed100010fa083e25"
+  },
+  {
+    "path": "owner/source/smoke/SHA256SUMS",
+    "bytes": 2138,
+    "sha256": "c46457c66881e965ba4d5c078a9082aa341fba4dac7679c60665de391e9b1b35"
+  },
+  {
+    "path": "owner/source/smoke/accepted/fake-rclone-phone03",
+    "bytes": 2731,
+    "sha256": "9ddc2a92971078993af99a8f7b7635da273f0d6e1070c40c08945783fbc0c638"
+  },
+  {
+    "path": "owner/source/smoke/accepted/phone-installed-client04.py",
+    "bytes": 3520,
+    "sha256": "43946ea182160a7785baa120fc721aa5cbbd4960dedc32e72fd36738714fcf54"
+  },
+  {
+    "path": "owner/source/smoke/accepted/phone-installed04.py",
+    "bytes": 6245,
+    "sha256": "8095d1b8fe08066f858785affc9adfa56b3f6fa3a9372e65b130c11f68647cf2"
+  },
+  {
+    "path": "owner/source/smoke/accepted/recent-matrix.py",
+    "bytes": 3362,
+    "sha256": "5e97b8df9bc5a764e97f2f40cde712d84a5def7e540bdc57bb8d8c08f9dbcdee"
+  },
+  {
+    "path": "owner/source/smoke/accepted/ui.py",
+    "bytes": 979,
+    "sha256": "ce7caa363c37ca67c187c640a6cc7ad463eb0d08aa4e00f2a332f680a8bbfe1e"
+  },
+  {
+    "path": "owner/source/smoke/accepted/wifi-branches.py",
+    "bytes": 2716,
+    "sha256": "ddecf1b4c2be79d89c01d0ab277542b193e8ac7943f004e8ced8868aa4110da1"
+  },
+  {
+    "path": "owner/source/smoke/accepted/wifi-initial.py",
+    "bytes": 2320,
+    "sha256": "657db1e2bf6fbd1224c4d934ed68024c7470b0a4974881e68d9845653d521ff2"
+  },
+  {
+    "path": "owner/source/smoke/applicability.json",
+    "bytes": 3908,
+    "sha256": "4b7ac66a5184a72d8e6329213760b47cf544961b6c0eef97ec22636571abf495"
+  },
+  {
+    "path": "owner/source/smoke/catalog-delta.txt",
+    "bytes": 1793,
+    "sha256": "56c9d39f086551dcaeddb33e362fd6aa037a397c659c49582196c14338e3b90f"
+  },
+  {
+    "path": "owner/source/smoke/config-custody.py",
+    "bytes": 1973,
+    "sha256": "62b0a2ea9c04bb5fb1673328a617b95b4b5446c0cab6dfc75dc294ae6387c39b"
+  },
+  {
+    "path": "owner/source/smoke/dependencies.json",
+    "bytes": 2739,
+    "sha256": "c4e9c39ca2104f0892a8e0b7453b371d02648c4eada83e38fad7baa18fe37fbd"
+  },
+  {
+    "path": "owner/source/smoke/fake-rclone-phone03",
+    "bytes": 2916,
+    "sha256": "e9600bf8458d3f31ebfd355d9fe705cf40e60d957e00c49f21e56eceebe85656"
+  },
+  {
+    "path": "owner/source/smoke/guest-preflight.py",
+    "bytes": 2713,
+    "sha256": "30d02f3e594f926be556d3dbf41810f4b2d88d8748617c3159f8162abf6a522e"
+  },
+  {
+    "path": "owner/source/smoke/minio-image-inspect.json",
+    "bytes": 489,
+    "sha256": "06ff0d619df22efe66f60b94d3259c28875c88f940bfca40ccf23efc83f28b53"
+  },
+  {
+    "path": "owner/source/smoke/original-inputs.json",
+    "bytes": 1747,
+    "sha256": "69995f6cc86dab65ca7a68c63ee211eb08a14bf227b5023ac4fe34642e70d4fd"
+  },
+  {
+    "path": "owner/source/smoke/phone-installed-client04.py",
+    "bytes": 3506,
+    "sha256": "f8d6f4394766c79e44198a6c0f7ebd5854f2091714aa7d3a768345f95dbd4287"
+  },
+  {
+    "path": "owner/source/smoke/phone-smoke.py",
+    "bytes": 5805,
+    "sha256": "5a77d96e39462653db87b2f18b6b5ac8fbd4996ea097aeb778df85a6b1cc23e3"
+  },
+  {
+    "path": "owner/source/smoke/prepare.py",
+    "bytes": 2765,
+    "sha256": "2913cc457de51102b42b1eed0dc5521afe77fb8de60a177a66ef66d86fa95c19"
+  },
+  {
+    "path": "owner/source/smoke/recent-smoke.py",
+    "bytes": 3474,
+    "sha256": "8a31c0b1a95569ddf59fcb0041bfda02217fe9d699347bd5db881a72cc5eeaf8"
+  },
+  {
+    "path": "owner/source/smoke/run.py",
+    "bytes": 6485,
+    "sha256": "c2223cefd25310a8b93758a88bab7fa29fb5dcefdfad342136e7bc595e50f65a"
+  },
+  {
+    "path": "owner/source/smoke/static-review.json",
+    "bytes": 1248,
+    "sha256": "d73f8efafd55e65416b4c668630710f30dd81732e3b6c2a7f950dace7e47e6cf"
+  },
+  {
+    "path": "owner/source/smoke/ui.py",
+    "bytes": 979,
+    "sha256": "ce7caa363c37ca67c187c640a6cc7ad463eb0d08aa4e00f2a332f680a8bbfe1e"
+  },
+  {
+    "path": "owner/source/smoke/wifi-initial.py",
+    "bytes": 2320,
+    "sha256": "657db1e2bf6fbd1224c4d934ed68024c7470b0a4974881e68d9845653d521ff2"
+  },
+  {
+    "path": "owner/source/smoke/wifi-smoke.py",
+    "bytes": 1977,
+    "sha256": "a6da0e41a03b04c890262facd57e16c8f206bf7b8a6525c16b76bbe5ba0d4401"
+  },
+  {
+    "path": "owner/ssh-command.json",
+    "bytes": 403,
+    "sha256": "4edf0b6d8510a8ef67b36589f455587dbb8c6c4544443e6bf0d4d7cb481fef98"
+  },
+  {
+    "path": "owner/vm-lifecycle.py",
+    "bytes": 17065,
+    "sha256": "1ae79ae65ff71e7a81975b17cfb16fe3cf8a103f391e2a720445baa068b6b144"
+  },
+  {
+    "path": "owner/vm-result.json",
+    "bytes": 12143,
+    "sha256": "50b5e75b4147ce72a7aee1739c68d4e70ede8b3d00408345982f18d0fce0198d"
+  },
+  {
+    "path": "run/admission-input.json",
+    "bytes": 1654,
+    "sha256": "0d66f73116974b8458ad7887d2a7166cc63193e07dfa637a141e54b789d9264d"
+  },
+  {
+    "path": "run/admission-plan.json",
+    "bytes": 751,
+    "sha256": "8fcdfc09688d955cf5618f31ac4d8b8acd57b5e3693f73b912c36a2fc11f10f6"
+  },
+  {
+    "path": "run/admission.json",
+    "bytes": 1662,
+    "sha256": "6192a0d18578df89d05f518df120a6037316c38579155ffe09a63f1802a90f39"
+  },
+  {
+    "path": "run/build.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run/build.pid",
+    "bytes": 8,
+    "sha256": "3d8d07cd803e706e4d5f9bfa7b1c75f58b48f13cf42d57f9b8f0d645fbffc979"
+  },
+  {
+    "path": "run/build.rc",
+    "bytes": 2,
+    "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+  },
+  {
+    "path": "run/build.start",
+    "bytes": 33,
+    "sha256": "74f16916fea4c40b058e292a92c2865e489ee915af1039cd8acfbad744b8ceb6"
+  },
+  {
+    "path": "run/build.status",
+    "bytes": 599,
+    "sha256": "1e9cbebddc34960637b4bffa6f31f5ded52f6c2707075c941fe2de084c05c0cf"
+  },
+  {
+    "path": "run/build.status.pid",
+    "bytes": 8,
+    "sha256": "ff87efa9d4296a5449416359af15c84e3cadfb4a3d9ad7e8b4646348a332819d"
+  },
+  {
+    "path": "run/command.pid",
+    "bytes": 8,
+    "sha256": "816f86440f6ddda7dbb014e02be09e699f880a707b89724e16ff3053d7f95041"
+  },
+  {
+    "path": "run/retention-plan.json",
+    "bytes": 1709,
+    "sha256": "0e8ec87dafd237a0eb9fbd5a0a8b83654c80fb325104f973b4e78a99f898fe2d"
+  },
+  {
+    "path": "run/retention-report.json",
+    "bytes": 6987,
+    "sha256": "c3aebe128680e2b96d3edf215eef421439b6f3ee58aa6ff9106fe7fabc2c1461"
+  },
+  {
+    "path": "run/runner-result.json",
+    "bytes": 104,
+    "sha256": "21736aa612074ca8d7ad3d3c36fe11a1714898e5186422f80f935cf6d628c50a"
+  },
+  {
+    "path": "run/watch-job",
+    "bytes": 12661,
+    "sha256": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2"
+  },
+  {
+    "path": "run/watcher.err",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "run/watcher.interval",
+    "bytes": 2,
+    "sha256": "f0b5c2c2211c8d67ed15e75e656c7862d086e9245420892a7de62cd9ec582a06"
+  },
+  {
+    "path": "run/watcher.pid",
+    "bytes": 8,
+    "sha256": "ff87efa9d4296a5449416359af15c84e3cadfb4a3d9ad7e8b4646348a332819d"
+  }
+]

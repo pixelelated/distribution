@@ -1,0 +1,221 @@
+{
+  "status": "PREPARED_UNRUN",
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+  "commit": "d6a87f05c1935516115b2cca1af22151a0209224",
+  "es_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "retained_id": "m7-retained-20261014-02",
+  "previous_boots": [
+    {
+      "boot_id": "dc5e77ac-d06b-4f6d-badb-96dd5acb7c74",
+      "os_release": "OS_NAME=\"pixelelated\"\nPRETTY_NAME=\"pixelelated 0.0.1-dev\"\nVERSION=\"0.0.1-dev+20261011T194522Z.g1a0266484423\"\nOS_VERSION=\"0.0.1-dev\"\nVERSION_ID=\"0.0.1-dev\"\nBUILD_VERSION=\"0.0.1-dev+20261011T194522Z.g1a0266484423\"\nBUILD_TIMESTAMP=\"20261011T194522Z\"\nBUILD_DIRTY=\"no\"\nOS_BUILD=\"dev\"\nGIT_ORGANIZATION=\"pixelelated\"\nGIT_REPO=\"distribution\"\nHOME_URL=\"https://pixelelated.com\"\nBUILD_ID=\"1a026648442321609b2288c2c9c06803817f9df2\"\nBUILD_BRANCH=\"build/m7-pixelelated-replacement20\"\nBUILD_DATE=\"2026-10-11T19:45:22Z\"\nHW_DEVICE=\"GENERIC_X64\"\nHW_ARCH=\"x86_64\"\nHW_CPU=\"Generic x86_64\"\nDISTRO_DEVICE=\"GENERIC_X64\"\nBUILDER_NAME=\"pixelelated-build\"\nBUILDER_VERSION=\"sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39\"\n",
+      "interfaces": [
+        "lo"
+      ],
+      "label": "baseline"
+    },
+    {
+      "boot_id": "b9d28fc7-15e8-4be0-9e98-c9ed84cc2360",
+      "os_release": "OS_NAME=\"pixelelated\"\nPRETTY_NAME=\"pixelelated 0.0.1-dev\"\nVERSION=\"0.0.1-dev+20261014T204314Z.gd6a87f05c193\"\nOS_VERSION=\"0.0.1-dev\"\nVERSION_ID=\"0.0.1-dev\"\nBUILD_VERSION=\"0.0.1-dev+20261014T204314Z.gd6a87f05c193\"\nBUILD_TIMESTAMP=\"20261014T204314Z\"\nBUILD_DIRTY=\"no\"\nOS_BUILD=\"dev\"\nGIT_ORGANIZATION=\"pixelelated\"\nGIT_REPO=\"distribution\"\nHOME_URL=\"https://pixelelated.com\"\nBUILD_ID=\"d6a87f05c1935516115b2cca1af22151a0209224\"\nBUILD_BRANCH=\"build/m7-p5-20261014-01\"\nBUILD_DATE=\"2026-10-14T20:43:14Z\"\nHW_DEVICE=\"GENERIC_X64\"\nHW_ARCH=\"x86_64\"\nHW_CPU=\"Generic x86_64\"\nDISTRO_DEVICE=\"GENERIC_X64\"\nBUILDER_NAME=\"pixelelated-build\"\nBUILDER_VERSION=\"sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39\"\n",
+      "interfaces": [
+        "lo"
+      ],
+      "label": "candidate"
+    }
+  ],
+  "retained_owner": "/workspace/tmp/pix-m7-retained20-20261014-02",
+  "retained_evidence": "/workspace/tmp/pix-m7-retained20-evidence-20261014-02",
+  "base": {
+    "path": "/workspace/tmp/pix-m7-retained20-20261014-02/vm/disk.qcow2",
+    "shape": {
+      "device": 66304,
+      "inode": 191671688,
+      "bytes": 8631549952,
+      "mtime_ns": 1792017610178716730,
+      "mode": 33152
+    }
+  },
+  "ovmf": {
+    "path": "/workspace/tmp/pix-m7-retained20-20261014-02/vm/OVMF.fd",
+    "sha256": "40e2eb63b6d7c734b81623bf0f6937940d87e348a893289ce8d5330f4d800c58"
+  },
+  "helper": "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+  "vnc": 130,
+  "tools": {
+    "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm": "5b058ed8a8b11135cd5997e3d925939baff30726033125acf1244863a756318d",
+    "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/profile.json": "26c420ecb0cc7aae29050554c55f522e62337cf6726619a59337c073f1c65406",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/tools/vm-serial": "1fed507a546a9c23fdc360012ccc6ffadc2793fabaa137ff2dc73141bdc2c921",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/tools/vm-stop": "2e4314cd63ff4f476c8ce1376e9f1ed262f2467789ec339b3855ddedc16213e8",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/tools/watch-build": "44a6d87505fd6a465c384d2f30bfeda5f4fe436978d227d8b0c4bae73da7e0bc",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/tools/watch-job": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/tools/watch-build-submit": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/tools/host-maintenance/build-admission": "3e2ad9d6eed47f53d1547880286e4bed69848b956be490f17f354d9df70bb942",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/tools/host-maintenance/retention-report": "1187725512f1a0586bc4d7812a886076c71bc6fdd460f6cd4a73e91198518798"
+  },
+  "code": {
+    "vm-lifecycle.py": "53ccbad8ed3cd0d45eef8ddad15ebc2204b2dbc92fae0a521729a97161e81f3c",
+    "guest.py": "22c34e33ff209e3364f4d8535d3ff2615da4fefa191e4c72d4bacd3c5f1cd580",
+    "close.py": "833e4b1f1efe3bf6f6b4995396ec24744d98cfa1d3fbd43e80d332c81a8f6aaf",
+    "census.py": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2"
+  },
+  "provenance": {
+    "/workspace/tmp/pix-m7-image-readback-20261014-01/artifacts/result.json": {
+      "copy": "provenance/00-result.json",
+      "sha256": "ceb051f88b91de761b1a128c6dc2f7c40cf0421293e8ac4f8aa3eac50e2e5272"
+    },
+    "/workspace/tmp/pix-m7-image-readback-20261014-01/artifacts/inputs.json": {
+      "copy": "provenance/01-inputs.json",
+      "sha256": "e26dc0e59e7cf1daa45f873906373ceaec5fcf7c0113be2cee7cf4b237790a05"
+    },
+    "/workspace/tmp/pix-m7-retained20-20261014-02/config.json": {
+      "copy": "provenance/02-config.json",
+      "sha256": "491340de5cfcfb7647755ce6b116ee1a1b619ee804fbe29f45ff083539d9cf88"
+    },
+    "/workspace/tmp/pix-m7-retained20-20261014-02/vm-result.json": {
+      "copy": "provenance/03-vm-result.json",
+      "sha256": "7fa6f8766df6075ad50f14e4496bc36eed2a89680706b4b9ca6c2845195b0e64"
+    },
+    "/workspace/tmp/pix-m7-retained20-20261014-02/guest-manifest.json": {
+      "copy": "provenance/04-guest-manifest.json",
+      "sha256": "9a8487c4f9830a5806f485f4af1e71d7fcaaaef91acf6095c6a9a4a9c7cb7e68"
+    },
+    "/workspace/tmp/pix-m7-retained20-20261014-02/vm-stop.log": {
+      "copy": "provenance/05-vm-stop.log",
+      "sha256": "3bea03834582e7a9c411a7a8415430973ab14c13ff708f7986df13b7cf8540ba"
+    },
+    "/workspace/tmp/pix-m7-retained20-20261014-02/guest/seed.json": {
+      "copy": "provenance/06-seed.json",
+      "sha256": "f875cbe35c4dbde745f2386ff79d105271c41da71553d1832738fbedbd65eab8"
+    },
+    "/workspace/tmp/pix-m7-retained20-20261014-02/guest/before.json": {
+      "copy": "provenance/07-before.json",
+      "sha256": "0550604bfe67dd42b39ab2669fe36f091c726bbbeb2a8a8bfaff81b9f6074b36"
+    },
+    "/workspace/tmp/pix-m7-retained20-20261014-02/guest/after.json": {
+      "copy": "provenance/08-after.json",
+      "sha256": "32b0451d9494815a39377cabee8910c71f45a4a9d64069d2844b780cc3488148"
+    },
+    "/workspace/tmp/pix-m7-retained20-20261014-02/guest/backup.json": {
+      "copy": "provenance/09-backup.json",
+      "sha256": "82f9aae36c8ac4b2421fd8fab826781fc651f04e20244dda238c23d8f150d251"
+    },
+    "/workspace/tmp/pix-m7-retained20-20261014-02/guest/backup-child.json": {
+      "copy": "provenance/10-backup-child.json",
+      "sha256": "6b54b527fe94cb273d14dc7cd8dbf7e95580f9ae22fa7f3f119ec85099a49485"
+    },
+    "/workspace/tmp/pix-m7-retained20-evidence-20261014-02/analysis.json": {
+      "copy": "provenance/11-analysis.json",
+      "sha256": "0be9c8547a6e72b3b9e534ba30e53b5c11af62a2dd4e56f12d5790477d08485e"
+    },
+    "/workspace/tmp/pix-m7-retained20-evidence-20261014-02/acceptance.json": {
+      "copy": "provenance/12-acceptance.json",
+      "sha256": "b315ce4e30176ec5d48f2e9f5fb0e1d321f34fd9cd372018dc10bb5c7add1e52"
+    },
+    "/workspace/tmp/pix-m7-retained20-evidence-20261014-02/host-exits.json": {
+      "copy": "provenance/13-host-exits.json",
+      "sha256": "bfa008d5bd6c769be1897be74aa2e2e48ff4c1e0eba1681485d1cdcbe71a138b"
+    },
+    "/workspace/tmp/pix-m7-retained20-evidence-20261014-02/export-result.json": {
+      "copy": "provenance/14-export-result.json",
+      "sha256": "c611ff2a39cac467350fa72d94453193960c8e213fdf035c19d7b8017164868f"
+    },
+    "/workspace/tmp/pix-m7-retained20-evidence-20261014-02/admission-consumed.json": {
+      "copy": "provenance/15-admission-consumed.json",
+      "sha256": "b253bf2ad10962848fcddc7cacde5fd0ab4ffed1fdf9eae4a571ed0a9e7801be"
+    }
+  },
+  "members": {
+    "etc/os-release": {
+      "bytes": 710,
+      "sha256": "6ed9c64ec54f0275653a8a0a63ecddad422d071799190362c3dbbf7e71f33034",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/etc/os-release",
+        "links": []
+      }
+    },
+    "usr/bin/emulationstation": {
+      "bytes": 11831632,
+      "sha256": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/emulationstation",
+        "links": []
+      }
+    },
+    "usr/bin/cloud-signin-window": {
+      "bytes": 35720,
+      "sha256": "6cbc445686d3d484ff20450342776e9eb92b47f6112a0352be1a50b334eef81b",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/cloud-signin-window",
+        "links": []
+      }
+    },
+    "usr/bin/gst-inspect-1.0": {
+      "bytes": 60928,
+      "sha256": "84cf7ece4ae3df1343e85b4339b74e4b8d2836d07d073b1750582d61a97b8e19",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/gst-inspect-1.0",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/gst-plugin-scanner": {
+      "bytes": 14352,
+      "sha256": "0258b6e81d0332e4a39e1f0f2a8654c189fa3db1fde4866adec02ab59b38f815",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/gst-plugin-scanner",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstopengl.so": {
+      "bytes": 290768,
+      "sha256": "06dc2524e928252248c2f02c08928f155bef2c75644f7fcadccbbd6081dfa1a6",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstopengl.so",
+        "links": []
+      }
+    },
+    "usr/lib/libgstcontroller-1.0.so.0": {
+      "bytes": 60048,
+      "sha256": "ac4646378c64be84832bae33a084ab3b98ad3cfb131574c08cb1eadae32e2a1c",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libgstcontroller-1.0.so.0.2902.0",
+        "links": [
+          {
+            "path": "/usr/lib/libgstcontroller-1.0.so.0",
+            "target": "libgstcontroller-1.0.so.0.2902.0"
+          }
+        ]
+      }
+    },
+    "usr/lib/libgstreamer-1.0.so.0": {
+      "bytes": 948896,
+      "sha256": "8820d44ba911da1862e4b15189c99f9076a1536ac5048bef122f4a3634536682",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libgstreamer-1.0.so.0.2902.0",
+        "links": [
+          {
+            "path": "/usr/lib/libgstreamer-1.0.so.0",
+            "target": "libgstreamer-1.0.so.0.2902.0"
+          }
+        ]
+      }
+    }
+  },
+  "retained_receipts": {
+    "seed.json": "f875cbe35c4dbde745f2386ff79d105271c41da71553d1832738fbedbd65eab8",
+    "before.json": "0550604bfe67dd42b39ab2669fe36f091c726bbbeb2a8a8bfaff81b9f6074b36",
+    "after.json": "32b0451d9494815a39377cabee8910c71f45a4a9d64069d2844b780cc3488148",
+    "backup.json": "82f9aae36c8ac4b2421fd8fab826781fc651f04e20244dda238c23d8f150d251",
+    "backup-child.json": "6b54b527fe94cb273d14dc7cd8dbf7e95580f9ae22fa7f3f119ec85099a49485"
+  },
+  "work_seconds": 900,
+  "cleanup_seconds": 180,
+  "host_record_limit_bytes": 67108864,
+  "host_pid_namespace": 4026531836
+}

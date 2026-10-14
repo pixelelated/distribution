@@ -1,0 +1,49 @@
+{
+  "admitted": "2026-10-14T22:52:48.161682+00:00",
+  "available_bytes": 2823369039872,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+  "consumed": "2026-10-14T22:54:12.395789+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+  "deleted_bytes": 0,
+  "evidence_sha256": "74fb487d0d61f0ccbf6c80dcada6fe74682df5b0bf568bca3dfaf19a018b5b9e",
+  "id": "8acd748c1d90496db74025c242680624",
+  "original_result": {
+    "command_rc": 1,
+    "monitor_rc": 0,
+    "runner_rc": 1,
+    "utc": "2026-10-14T22:53:23.321636+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 572,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-retained-loader-20261014-01",
+      "release_when": "Review original loader/state/base-hash/owner receipts, actual owners absent and admission consumed, then retire this overlay/OVMF. The previous retained base has its separate owner; coordinator retires it only after this named consumer is done."
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "220b68ed9087d52a0e4a0e67fbcfb2dc63cbbfaa710384984b5d5813f231f114",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 17314086912,
+  "retention_plan_sha256": "67767b835384be819c8992035619b10c338c92608f96bdd36412497885468fe9",
+  "retention_report_sha256": "9fdd1c83b8b6eda3bbb0b0db8872c3464299ecc818cefc8074a31b1a51227fe3",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01/.build-runs/20261014T225248Z-1a4bbb8e",
+  "runner_pid": 1051298,
+  "runner_start": "111005203",
+  "source": {
+    "head": "d6a87f05c1935516115b2cca1af22151a0209224",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix-m7-retained-loader-20261014-01/lifecycle-owner",
+  "volume": "/workspace",
+  "volume_device": 66304
+}
