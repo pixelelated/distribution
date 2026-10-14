@@ -1,0 +1,16 @@
+{
+  "status": "FAIL",
+  "original_exit": 1,
+  "scope": "actual main/systemd lifecycle fixture",
+  "passed": [
+    "unified hierarchy effective limits",
+    "mode755 packaged controller readiness",
+    "all five worker starts",
+    "synthetic signed award queued"
+  ],
+  "failure": "post-stop properties reset ExecMainCode=0; fixture requires CLD_EXITED=1/status0",
+  "observed_shutdown": "observer1877 shows five workers joined, Storage.close afterwards, run_service_foreground and main return, no live Python threads; journal Deactivated successfully",
+  "next_hypothesis": "systemd garbage-collects inactive unreferenced unit and subsequent show reloads empty exec metadata; retain a D-Bus RefUnit on a live connection and preserve original assertion",
+  "product_change": false,
+  "full_lifecycle_pass": false
+}

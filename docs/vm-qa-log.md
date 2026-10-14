@@ -300,3 +300,17 @@ No account/device/cloud action, physical cure, pin move or RC designation.
 Fresh no-NIC accepted VM20 allocations,8GiB/4CPU640×480. Unchanged Steam03e130 interrupted-publish26.67s and committed-self-update27.26s pass original caller1,0 with13 protected paths. CRC attempt10 caller1,1 FAIL is preserved; additive fixture8f0eaf attempt11 passes1,0/13 paths in26.60s. Separate file-cap control observes EFBIG27 and fresh-file success. All original owners exited, admissions consumed and completed VM disks/media retired. Synthetic transport/client-exec denial, not native Steam qualification. [Results](qa-logs/2026-10-14-steam-client-first-caller/README.md).
 
 Actual-main proxy packet57a138 attempt01 FAILs before proxy startup: expected unified cgroup root absent. Direct subsequent VM facts show systemd255.8 hybrid. No service behavior accepted, no cleanup intervention/survivors; original receipts retained, reservation consumed and disk/media retired. [Evidence](qa-logs/2026-10-14-proxy-service-runtime/README.md).
+
+### 2026-10-14 17:30 UTC — CHD and actual proxy lifecycle
+
+Fresh no-NIC VM20,8GiB/4CPU640×480. CHD native02 outer1.786s / case0.946s PASS:
+234 hashes, eight original children0, actual converter and installed/private
+loader proof. Proxy service05 PASS139.59s: copied packaged unit/main, exact112
+Python files, real15s/60s worker clocks, manual/automatic restart and signed
+queue/SQLite/cleanup. Explicit private unified boot has actual kernel bounds;
+older native ELF source provenance remainsfalse. Original failed fixtures are
+preserved separately. All original owners exited/admissions consumed, completed
+disks/media retired. #588 startup-window, installed/default boot/final-image and
+gameplay acceptance remain. No performance, physical or new RC claim.
+[CHD](qa-logs/2026-10-14-chd-native-runtime/README.md),
+[proxy](qa-logs/2026-10-14-proxy-service-runtime/README.md).

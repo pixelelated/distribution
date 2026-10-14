@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "calls": [
+    {
+      "label": "installed-loader",
+      "original_returncode": 0,
+      "timed_out": false
+    },
+    {
+      "label": "private-loader",
+      "original_returncode": 0,
+      "timed_out": false
+    },
+    {
+      "label": "direct-help",
+      "original_returncode": 1,
+      "timed_out": false
+    },
+    {
+      "label": "private-help",
+      "original_returncode": 1,
+      "timed_out": false
+    },
+    {
+      "label": "selected-chd-cases",
+      "original_returncode": 0,
+      "timed_out": false
+    }
+  ],
+  "case_output": "/tmp/pix-output/pix574-chd-native02",
+  "ordered_hash_rows": 234,
+  "original_case_exit": 0,
+  "chdman_sha256": "766640dfccf2239503fbead2f172098b784d1bbec3f113ffa51264f7f5e1b129",
+  "full_image_qualified": false
+}

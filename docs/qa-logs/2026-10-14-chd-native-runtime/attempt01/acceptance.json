@@ -1,0 +1,35 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T172115Z-6392cd25",
+  "expected_rc": 1,
+  "disposition": "failed-investigated",
+  "outputs": [
+    {
+      "issue": 574,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix574-chd-native-vm-20261014-01/vm",
+      "release_when": "Original guest/guard/lifecycle receipts exported and verified; actual owners exited; consume admission then remove disk/media/UEFI. Preserve only immediate-next-test synthetic inputs."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-chd-native-runtime/attempt01/export-result.json",
+      "sha256": "536c6843f4ce7af8c91855248ff638b7793d4649bf1c38691f68908ea2e32b16"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-chd-native-runtime/attempt01/host-exits.json",
+      "sha256": "9d020baecad02487a1cfa8780bed71fef88cb8bcf893966d0f5922f6f9c0c37e"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-chd-native-runtime/attempt01/guest-manifest.json",
+      "sha256": "500b198605721a928898d61122cb596c7772cb1871977fd3c31aa81ddcb72d21"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-chd-native-runtime/attempt01/original-records.json",
+      "sha256": "d84cbe9752dc652b7dc91cb58db3709f1b79b95a1f6522b1e972553ce11e9596"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-chd-native-runtime/attempt01/analysis.json",
+      "sha256": "0c742a3d7c66961f6507b66b887001aff2b1bb428888cb4fd57810c0ec435c76"
+    }
+  ]
+}

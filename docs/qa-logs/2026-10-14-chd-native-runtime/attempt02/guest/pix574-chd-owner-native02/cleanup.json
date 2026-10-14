@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "remaining": [],
+  "surviving_observed": [],
+  "signals": [],
+  "adopted_original_waits": [],
+  "all_observed": [
+    {
+      "pid": 1959,
+      "ppid": 1958,
+      "pgrp": 1959,
+      "session": 1959,
+      "start_ticks": 1823,
+      "state": "R",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix-input/pix574-chd/owner/guest-work.py",
+        "--run-id",
+        "native02",
+        "--output",
+        "/tmp/pix-output/pix574-chd-owner-native02",
+        "--deadline",
+        "253.230472251"
+      ]
+    },
+    {
+      "pid": 1971,
+      "ppid": 1959,
+      "pgrp": 1971,
+      "session": 1971,
+      "start_ticks": 1893,
+      "state": "R",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix-input/pix574-chd/packet/run-chd-regressions.py",
+        "--output",
+        "/tmp/pix-output/pix574-chd-native02",
+        "--chdman-sha256",
+        "766640dfccf2239503fbead2f172098b784d1bbec3f113ffa51264f7f5e1b129"
+      ]
+    },
+    {
+      "pid": 1972,
+      "ppid": 1971,
+      "pgrp": 1972,
+      "session": 1972,
+      "start_ticks": 1902,
+      "state": "R",
+      "argv": [
+        "/run/pix574-chd/artifacts/candidate/pix574-fixture-writer",
+        "/run/pix574-chd/work/fixtures"
+      ]
+    },
+    {
+      "pid": 1974,
+      "ppid": 1971,
+      "pgrp": 1974,
+      "session": 1974,
+      "start_ticks": 1953,
+      "state": "Z",
+      "argv": []
+    },
+    {
+      "pid": 1985,
+      "ppid": 1971,
+      "pgrp": 1985,
+      "session": 1985,
+      "start_ticks": 1978,
+      "state": "R",
+      "argv": [
+        "/run/pix574-chd/artifacts/candidate/pix574-regression-hash",
+        "16",
+        "saturn",
+        "/run/pix574-chd/work/fixtures/saturn.chd",
+        "gamecube",
+        "/run/pix574-chd/work/rvz-cases/mixed-zstd.rvz",
+        "nes",
+        "/run/pix574-chd/work/rvz-cases/ordinary.nes",
+        "saturn",
+        "/run/pix574-chd/work/fixtures/saturn.cue"
+      ]
+    }
+  ],
+  "forced": false
+}

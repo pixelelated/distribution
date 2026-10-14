@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "synthetic_only": true,
+  "image_sha256": "1a23cf5740dbb69cdca76d753a0f6121c35e6e12f27649e792aeebc71e8cc490",
+  "boot_id": "3e9eaa70-6ba2-4fc1-bbac-fbe40e0c5cd6",
+  "ports": [
+    8080,
+    18081
+  ],
+  "prepared": "prepared",
+  "prepared_source_sha256": "ec5c1ebdb7fed53cceec40c65c77212b16de688d043375b971a288059054b661",
+  "inputs": {
+    "iso": {
+      "path": "synthetic.iso",
+      "bytes": 393216,
+      "sha256": "83c6dacc46797bc7d4bdcb4aa2dd253c290316c07c4cda8f6ca1afb889c44121"
+    },
+    "rvz_none": {
+      "path": "dolphin-none.rvz",
+      "bytes": 159504,
+      "sha256": "4526c1597cf8f2c00a236796fcf5433ce56a81d7d4a157f4ae75f58a307bc48f"
+    },
+    "rvz_zstd": {
+      "path": "dolphin-zstd.rvz",
+      "bytes": 33268,
+      "sha256": "bb3c40134d089fdcf97502f2cff30db9f3b7073ddd61c39adb993a2d24b4d2b9"
+    }
+  },
+  "synthetic_manifest": {
+    "path": "synthetic-manifest.json",
+    "bytes": 6720,
+    "sha256": "e60b610aa9ee9c584ef3d628378c2768919d7dee49dcdb3b5ddd781f29ffee4c"
+  },
+  "expected_hash": "118545082f24fc195a446d1ee7bbf816",
+  "oracle": {
+    "dolphin_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+    "dolphin_sha256": "f36a2c5f2f31e961ce605cc1c762f1e839f1880a0b1feeba4e09a1fccaa90d5b",
+    "result": {
+      "path": "oracle/result.json",
+      "bytes": 1501,
+      "sha256": "7e86fe6ec13dafe12de51b7d622ad5b28fdf1d10d2cdfa74bc3cef2faa6cc19f"
+    },
+    "receipts": {
+      "encode-none": {
+        "path": "oracle/encode-none.json",
+        "bytes": 587,
+        "sha256": "c64368f15ecc84704ec2e48e22910e5c6fffddc52595c334d07b513fe161665a"
+      },
+      "roundtrip-none": {
+        "path": "oracle/roundtrip-none.json",
+        "bytes": 547,
+        "sha256": "9f946e39881cf8bc2416c68f424c24e00c5f15e729349fc608ffbc9eb8515396"
+      },
+      "hash-none": {
+        "path": "oracle/hash-none.json",
+        "bytes": 376,
+        "sha256": "10a3b0389d181134aa98476f3b30730c6897f381551dd11e58201af4fc3c55e1"
+      },
+      "encode-zstd": {
+        "path": "oracle/encode-zstd.json",
+        "bytes": 587,
+        "sha256": "8ce0faff902de38b96d7094c9045494bd66d10054886840aa448d5679ecc25d4"
+      },
+      "roundtrip-zstd": {
+        "path": "oracle/roundtrip-zstd.json",
+        "bytes": 546,
+        "sha256": "23810e968b853fa9e483c71340e4b0cd3d4cdbc244922e8a1face81d6fa158f0"
+      },
+      "hash-zstd": {
+        "path": "oracle/hash-zstd.json",
+        "bytes": 376,
+        "sha256": "408c8fd19a34b025f0f3f7eb8d8d7ba15871ee34b6b17f489abcfde74a63883d"
+      }
+    },
+    "hash_stdout": {
+      "none": {
+        "path": "oracle/hash-none.stdout",
+        "bytes": 33,
+        "sha256": "909f3ef3c56fdf35690e25a340f0ef137f3e9772f0dbb2202805348d0e0948bb"
+      },
+      "zstd": {
+        "path": "oracle/hash-zstd.stdout",
+        "bytes": 33,
+        "sha256": "909f3ef3c56fdf35690e25a340f0ef137f3e9772f0dbb2202805348d0e0948bb"
+      }
+    }
+  },
+  "libraries": {
+    "rchash": {
+      "path": "/usr/lib/libraproxy_rchash.so",
+      "resolved_path": "/usr/lib/libraproxy_rchash.so",
+      "sha256": "6c484a2947a5f2a7c187e60dd93de73593d5fa98d57309bfb4b5f07bf390220d",
+      "soname": "libraproxy_rchash.so"
+    },
+    "zstd": {
+      "path": "/usr/lib/libzstd.so.1",
+      "resolved_path": "/usr/lib/libzstd.so.1.5.7",
+      "sha256": "8526c748a90b34d9872159fdd311071ed1c391c879b41295848282fcace4e2f4",
+      "soname": "libzstd.so.1"
+    },
+    "crypto": {
+      "path": "/usr/lib/libcrypto.so.3",
+      "resolved_path": "/usr/lib/libcrypto.so.3",
+      "sha256": "66d713b67c3d811ab73894b294ff40d7985a3273d26f493bdc9f59b79f2e2f77",
+      "soname": "libcrypto.so.3"
+    }
+  },
+  "native_provenance": {
+    "image_sha256": "1a23cf5740dbb69cdca76d753a0f6121c35e6e12f27649e792aeebc71e8cc490",
+    "source_pins_verified": false,
+    "qualification": "Installed library bytes will be measured by admission. This older accepted image does not yet have a reviewed receipt linking those ELF bytes to the current RAOfflineProxy/rcheevos/libchdr pins. A fixture PASS alone cannot establish that linkage."
+  }
+}

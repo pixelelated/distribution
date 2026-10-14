@@ -1,0 +1,13 @@
+{
+  "status": "FAIL",
+  "original_exit": 1,
+  "passed": [
+    "RefUnit retained CLD_EXITED1/status0 and closed its connection",
+    "graceful stop preserves signed award and all workers join before storage close",
+    "manual start/restart and automatic SIGKILL recovery keep exact pending row"
+  ],
+  "failure": "natural ConnectivityMonitor did not flush after reconnect in25s",
+  "evidence": "online_state true, pending row remains, no flush trace, no thread errors or cleanup intervention; startup monitor first probe may observe newly opened peer before establishing offline state",
+  "next": "observe initial background refresh return; require offline baseline before deliberate reconnect. Separately investigate startup transition window; do not claim no product race.",
+  "full_lifecycle_pass": false
+}

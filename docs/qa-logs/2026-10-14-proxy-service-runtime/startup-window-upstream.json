@@ -1,0 +1,18 @@
+{
+  "checked_utc": "2026-10-14T17:24:35.271269+00:00",
+  "head": "2d19684e0800f6da33ff1841d27e083c1e467142",
+  "source_sha256": "fc9c23b25227346199c6793b0e0b410bb53dd74c89e94c27e7173507b1d3d0f6",
+  "source_url": "https://github.com/misantronic/RAOfflineProxy/blob/2d19684e0800f6da33ff1841d27e083c1e467142/linux/raofflineproxy/proxy_service.py",
+  "excerpts": [
+    {
+      "line": 973,
+      "text": "class ConnectivityMonitor(threading.Thread):\n    def __init__(self, server: ProxyRuntimeServer, interval_seconds: int = 15):\n        super().__init__(daemon=True)\n        self.server = server\n        self.interval_seconds = interval_seconds\n        self.stop_event = threading.Event()\n        self.watched_inodes = _capture_file_inodes([DATABASE_FILE])\n\n    def stop(self) -> None:\n        self.stop_event.set()\n\n    def run(self) -> None:\n        was_online = self.server.refresh_reachability(force_probe=True)\n        save_online_state(was_online)\n        while not self.stop_event.wait(self.interval_seconds):\n            if self.watched_inodes and _files_replaced_underneath(self.watched_inodes):\n                # A reinstall deleted our log/database out from under this\n                # process while it kept them open; exit so the next\n                # \"start proxy\" spawns a fresh process against current files\n                # instead of silently running as an invisible orphan.\n                LOGGER.error(\"Data files were deleted or replaced underneath this process; exiting\")\n                os._exit(1)\n            is_online = self.server.refresh_reachability(force_probe=True)\n            if is_online and not was_online:\n                LOGGER.info(\"Connectivity restored; attempting flush\")\n                self.server.flush_pending_awards()\n            if is_online != was_online:\n                save_online_state(is_online)\n            was_online = is_online\n\n\nclass GameActivityTracker:\n    # Monotonic on purpose: handhelds without an RTC battery jump their wall clock by years\n    # once NTP syncs, which would make a wall-clock idle timer fire or stall at random.\n    def __init__(self, clock=time.monotonic) -> None:\n        self._clock = clock\n        self._last_activity_at: float | None = None\n"
+    },
+    {
+      "line": 1326,
+      "text": "        initial_online = server.refresh_reachability(force_probe=True)\n        save_online_state(initial_online)\n        if initial_online:\n            server.flush_pending_awards()\n            retry_storage_corruption_report()\n        connectivity_monitor.start()\n        periodic_refresh.start()\n        cache_queue_worker.start()\n        folder_watcher.start()\n        usage_reporter.start()\n\n        if stop_event is None:\n            serving_thread.join()\n        else:\n            while not stop_event.wait(0.5):\n                continue\n\n        server.shutdown()\n        serving_thread.join(timeout=5)\n    finally:\n        stop_workers(\n            [\n                connectivity_monitor,\n                periodic_refresh,\n                cache_queue_worker,\n                folder_watcher,\n                usage_reporter,\n            ]\n        )\n        usage_stats.flush()\n        stop_ra_proxy_chain()\n        server.server_close()\n        storage.close()"
+    }
+  ],
+  "open_search_pending_awards": [],
+  "limitation": "Narrow open-issue search; not proof that no matching report exists. No upstream submission."
+}

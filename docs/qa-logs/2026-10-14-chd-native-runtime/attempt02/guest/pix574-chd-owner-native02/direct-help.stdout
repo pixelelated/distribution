@@ -1,0 +1,22 @@
+chdman - MAME Compressed Hunks of Data (CHD) manager 0.289 (24cffe763621b164fc10be2ae3660f140be25182)
+Usage:
+   /run/pix574-chd/chdman info: displays information about a CHD
+   /run/pix574-chd/chdman verify: verifies a CHD's integrity
+   /run/pix574-chd/chdman createraw: create a raw CHD from the input file
+   /run/pix574-chd/chdman createhd: create a hard disk CHD from the input file
+   /run/pix574-chd/chdman createcd: create a CD CHD from the input file
+   /run/pix574-chd/chdman createdvd: create a DVD CHD from the input file
+   /run/pix574-chd/chdman createld: create a laserdisc CHD from the input file
+   /run/pix574-chd/chdman extractraw: extract raw file from a CHD input file
+   /run/pix574-chd/chdman extracthd: extract raw hard disk file from a CHD input file
+   /run/pix574-chd/chdman extractcd: extract CD file from a CHD input file
+   /run/pix574-chd/chdman extractdvd: extract DVD file from a CHD input file
+   /run/pix574-chd/chdman extractld: extract laserdisc AVI from a CHD input file
+   /run/pix574-chd/chdman copy: copy data from one CHD to another of the same type
+   /run/pix574-chd/chdman addmeta: add metadata to the CHD
+   /run/pix574-chd/chdman delmeta: remove metadata from the CHD
+   /run/pix574-chd/chdman dumpmeta: dump metadata from the CHD to stdout or to a file
+   /run/pix574-chd/chdman listtemplates: list hard disk templates
+
+For help with any command, run:
+   /run/pix574-chd/chdman help <command>

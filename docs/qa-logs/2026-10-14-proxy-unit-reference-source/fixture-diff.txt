@@ -1,0 +1,46 @@
+--- 718e7d7/run.py
++++ unit-reference/run.py
+@@ -248,6 +248,7 @@
+     created = False
+     peer = None
+     bulk = None
++    unit_reference = None
+     try:
+         need(os.geteuid() == 0 and 'QEMU' in Path('/sys/class/dmi/id/sys_vendor').read_text(), 'allocated root QEMU guest only')
+         need(Path('/proc/1/comm').read_text().strip() == 'systemd', 'actual systemd PID1 required')
+@@ -372,6 +373,10 @@
+             stream.write(drop)
+         REPORT['unit'] = {'base_sha256': UNIT_SHA, 'dropin_sha256': DROP_SHA, 'dropin': drop}
+         command(['systemctl', 'daemon-reload'])
++        reference_module = module('service_unit_reference', PACKET / 'unit_reference.py')
++        reference_binding = json.loads((PACKET / 'unit-reference-binding.json').read_text())
++        unit_reference = reference_module.UnitReference(UNIT, reference_binding['sha256'])
++        REPORT['unit_reference'] = unit_reference.record
+         action('start')
+         p = properties()
+         need(p['MainPID'] == '0' and p['ConditionResult'] == 'no', 'missing-marker condition did not skip startup')
+@@ -387,6 +392,7 @@
+         dump(OUT / 'pending-before-stop.json', queued)
+         action('stop')
+         stopped = properties()
++        REPORT['first_stopped_properties'] = stopped
+         need(stopped['ExecMainCode'] == '1' and stopped['ExecMainStatus'] == '0' and stopped['Result'] == 'success', 'graceful stop was forced/failed')
+         gone(first, True)
+         need(rows() == queued and not (STATE / 'service.pid').exists(), 'stop changed queue or left tracked pid')
+@@ -453,6 +459,7 @@
+         REF.ready()
+         action('stop')
+         final = properties()
++        REPORT['last_stopped_properties'] = final
+         need(final['Result'] == 'success' and final['ExecMainCode'] == '1' and final['ExecMainStatus'] == '0', 'final stop forced/failed')
+         gone(fourth, True)
+         need(cgroup_members(REPORT['incarnations'][str(fourth)]['properties']['ControlGroup']) == [], 'service descendants remain')
+@@ -490,6 +497,8 @@
+                 command(['systemctl', 'reset-failed', UNIT], allowed=(0, 1))
+             except BaseException as error:
+                 REPORT['cleanup_errors'].append(str(error))
++        if unit_reference is not None:
++            unit_reference.close()
+         if REPORT['cleanup_errors']:
+             REPORT['status'] = 'FAIL'
+         if 'REF' in globals():

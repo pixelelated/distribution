@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/tmp/pix-input/pix574-chd/owner/guest-work.py", line 59, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+                                             ~~~~^^
+  File "/tmp/pix-input/pix574-chd/owner/guest-work.py", line 49, in main
+    stdout,stderr=call(label,argv);require('chdman' in (stdout+stderr).lower(),'converter help absent')
+                  ~~~~^^^^^^^^^^^^
+  File "/tmp/pix-input/pix574-chd/owner/guest-work.py", line 44, in call
+    require(receipt['returncode']==0 and not receipt['timed_out'],'original child failed: '+label)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/pix-input/pix574-chd/owner/guest_support.py", line 17, in require
+    if not value:raise RuntimeError(message)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: original child failed: direct-help

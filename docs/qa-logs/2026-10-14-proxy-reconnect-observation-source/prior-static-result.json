@@ -1,0 +1,30 @@
+{
+  "status": "STATIC_ONLY_PASS",
+  "interpreter": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "packet_ast": [
+    "bootstrap/sitecustomize.py",
+    "census.py",
+    "owner-reference.py",
+    "owner.py",
+    "reference_native.py",
+    "run.py"
+  ],
+  "prepared_manifest_files": 112,
+  "exact_reused_reference_and_census": true,
+  "exact_packaged_unit_and_prepared_controller": true,
+  "exact_accepted_synthetic_seed_bytes": true,
+  "only_proxy_attribute_substitutions": [
+    "ctypes.util.find_library",
+    "network.has_active_network_interface"
+  ],
+  "no_explicit_flush_or_worker_interval_replacement": true,
+  "source_pins_verified": false,
+  "runtime": "UNRUN",
+  "fixture_import_or_execution": false,
+  "database_opened": false,
+  "compiler_or_service_execution": false,
+  "original_static_command_exit": 0,
+  "accepted_owner_manifest_binds_both_seed_files": true,
+  "final_ast_hash_original_exit": 0,
+  "guard_refusal_main_not_started": "source-only; negative controls remain UNRUN"
+}

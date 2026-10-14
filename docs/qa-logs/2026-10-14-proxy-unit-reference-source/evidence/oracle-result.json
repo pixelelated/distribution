@@ -1,0 +1,44 @@
+{
+  "result": "PASS",
+  "cases": [
+    {
+      "label": "decode-0",
+      "output_sha256": "83c6dacc46797bc7d4bdcb4aa2dd253c290316c07c4cda8f6ca1afb889c44121"
+    },
+    {
+      "label": "decode-1",
+      "output_sha256": "83c6dacc46797bc7d4bdcb4aa2dd253c290316c07c4cda8f6ca1afb889c44121"
+    },
+    {
+      "label": "decode-2",
+      "output_sha256": "83c6dacc46797bc7d4bdcb4aa2dd253c290316c07c4cda8f6ca1afb889c44121"
+    },
+    {
+      "label": "decode-3",
+      "output_sha256": "83c6dacc46797bc7d4bdcb4aa2dd253c290316c07c4cda8f6ca1afb889c44121"
+    },
+    {
+      "label": "decode-4",
+      "output_sha256": "83c6dacc46797bc7d4bdcb4aa2dd253c290316c07c4cda8f6ca1afb889c44121"
+    },
+    {
+      "label": "encode-none",
+      "output_sha256": "4526c1597cf8f2c00a236796fcf5433ce56a81d7d4a157f4ae75f58a307bc48f"
+    },
+    {
+      "label": "roundtrip-none",
+      "output_sha256": "83c6dacc46797bc7d4bdcb4aa2dd253c290316c07c4cda8f6ca1afb889c44121"
+    },
+    {
+      "label": "encode-zstd",
+      "output_sha256": "bb3c40134d089fdcf97502f2cff30db9f3b7073ddd61c39adb993a2d24b4d2b9"
+    },
+    {
+      "label": "roundtrip-zstd",
+      "output_sha256": "83c6dacc46797bc7d4bdcb4aa2dd253c290316c07c4cda8f6ca1afb889c44121"
+    }
+  ],
+  "dolphin_sha256": "f36a2c5f2f31e961ce605cc1c762f1e839f1880a0b1feeba4e09a1fccaa90d5b",
+  "hash_binary_sha256": "5e00ed65dc6ae8031c54c4309d3f1876be4b380e438a15b8281104402e9375b2",
+  "limits": "synthetic GameCube NONE/Zstandard only; no full-disc/gameplay integrity claim"
+}

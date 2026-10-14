@@ -1,0 +1,14 @@
+{
+  "status": "FAIL",
+  "original_exit": 1,
+  "passed": [
+    "installed interpreter --list0",
+    "private qualified interpreter --list0",
+    "actual converter ran and printed version0.289 and command help"
+  ],
+  "failure": "fixture expected help exit0; actual help returned1",
+  "source": "src/tools/chdman.cpp general_usage returns1, help dispatch calls it; expected help exit1 is intentional, not a loader/converter crash",
+  "cases_started": false,
+  "cleanup": "PASS no forced cleanup",
+  "next": "exact help1 assertion only; all format/loader commands still require0"
+}

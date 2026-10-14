@@ -1,135 +1,124 @@
 # Saved Session State
 
-Updated2026-10-14 17:03UTC. User asked whether background work was happening and
-requested continuing M7. Prior checkpoint was actually idle; this session resumed
-visible lanes and completed the new scoped runs below. Coordinator Herdr w4:p2:
-`/workspace/repos/rocknix.worktrees/m7-player-setup`, feature/m7-player-setup.
-Harness conflict-resolution is stale/untouched. Published next0ea6eaf74ad47503c05955d1c0bd4bd00bdfb816.
-Current base62f3ba31b247a94414fb77155ad4ea9a0c5005ac; enclosing commit holds latest
-records. Read next rules plus local D-WORKFLOW-164/165/166 and D-RA-047, today's
-work log, docs/releases/next-candidate-work.md and live milestone7.
+Updated2026-10-14 17:32UTC. User asked whether background work was happening and
+requested continuing M7. Prior checkpoint was idle. This turn resumed visible
+source lanes, completed Steam recovery, built/qualified CHD, and qualified the
+actual proxy service lifecycle within scope. All launched jobs completed.
+Coordinator: /workspace/repos/rocknix.worktrees/m7-player-setup,
+feature/m7-player-setup (Herdr w4:p2). Harness conflict-resolution stays untouched.
+Published next0ea6eaf74ad47503c05955d1c0bd4bd00bdfb816. Local milestone evidence
+commit8d0de18f32076321a003e4df7a8f7e25ad076915 plus enclosing follow-up commit.
+No push/product integration/pin promotion/firmware/device/account/provider action.
+Read next rules plus local D-WORKFLOW-164/165/166 and D-RA-047, today's work log,
+docs/releases/next-candidate-work.md and live milestone7 before continuing.
 
-## Current runtime and visible lanes
+## Runtime and visible lanes
 
-CHD owner04 built PASS under source1015ccf0. All4 original stages consumed,
-actual host owners exited. Build run20261014T170255Z-dd6afbdc,
-admissionf787f597b7ab4567a75e7ec28a73ec80. Original receipts exported in
-chdman-build-runtime/attempt04-build-pass. Keep owner04 work only for immediately
-queued closure/native format proof. No active runtime at this exact checkpoint.
-Earlier runtime owners exited
-in actual host PID namespace4026531836; admissions consumed. Completed disks,
-media and failed CHD private work trees are retired. Logs/receipts/source remain.
-No firmware, product integration, ES pin promotion, external audit, push,
-physical-device/account/provider action occurred. Off-session notifications are
-still unconfigured: future jobs need active supervision and explicit original
-result consumption. Never replay old owner directories/clocks/admissions.
+No owned runtime remains. Every original runner/launcher/guest/container result
+was inspected, actual host PIDs exited in namespace4026531836, admissions consumed.
+Completed VM disks/media and failed/successful CHD compiler trees are retired.
+Compact source/logs/manifests/results remain. Never replay consumed owners,
+clocks or admissions. No off-session notification mechanism is configured;
+new long jobs require active supervision and explicit result delivery.
 
-- pix-memory w4:p8, m7-browser-memory-570: DONE1015ccf0f4918a07d3875e746dd3b42b730b5218, copied exactly. Source-only shared-runtime correction now under coordinator owner04 build.
-- pix-gtk4 w4:p7: DONE718e7d7d8cbd86492d0e759b63ab7119fbfa207c, copied exactly.
-  Proxy owner02 one private boot change verified unified hierarchy and actual
-  kernel1GiB/128task owner and512MiB/64task service limits. Original service start
-  failed203/EXEC because the staged controller was0664 while package installs0755.
-  All originals retained, reservation consumed, VM retired2282663936B. Fresh
-  owner03 is PREPARED ONLY at /workspace/tmp/pix583-service-vm-20261014-03, same
-  boot seam and unchanged718e7d7 source, exact controller staged0755. No report/
-  admission/run yet. Next: post #583 plan, report/admit/submit after current CHD
-  build, then inspect original result and retire. Inputs /tmp/pix583-service03-inputs.json;
-  guest script copied into owner; mode receipt in coordinator runtime packet.
-- pix-nova w4:p9: follow-up cannot run due refreshed-token/sign-in error after
-  earlier429. Do not call it active. Coordinator prepared exact closure-owner04
-  binding locally from c24a32, all10 executable Python files byte-identical.
-  docs/qa-logs/2026-10-14-chdman-closure-owner04; plan refuses until successful
-  consumed owner04 build. No target hash guessed; no worker runtime.
+- pix-memory w4:p8 DONE1015ccf0f4918a07d3875e746dd3b42b730b5218, exact packet copied.
+- pix-gtk4 w4:p7 DONE718e7d7d8cbd86492d0e759b63ab7119fbfa207c, exact packet copied.
+- pix-nova w4:p9 last DONEc24a32c1d3e1a9977d3226a9baf17a677d3567e5; follow-up hit
+  stale sign-in/refresh-token error after429. Not active. Coordinator completed
+  narrow closure-owner binding locally. Do not repeatedly prompt failed lane.
+No delegated runtime or shared/product edits were authorized to these lanes.
 
-## New verified results and failures
+## Newly accepted evidence
 
-Steam product03e130e4b3c244337f2e6d782b392a2c444c28e7 unchanged:
-- interrupt-published-retry PASS26.67s, original caller/trace1,0,13 protected paths.
-- committed-self-update-retry PASS27.26s, original1,0,13 protected; synthetic
-  independent self-update preserved. No real client/self-update/power-loss claim.
-- CRC attempt10 FAIL1,1: first actual CRC refusal correct, second synthetic
-  transfer fails. Shared10806B log exceeds inherited10676B output file limit.
-  Original errno was not retained. Additive fixture8f0eaf isolates per-process
-  logs. Fresh attempt11 PASS26.60s, original1,0/13 protected;65 events/13897B bind
- 24 original streams. Separate VM control directly observes EFBIG27 for old sizes
-  and633B fresh-file success. No installer limit change or native client execution.
-All four new Steam VMs retired9,112,821,760bytes; actual exits/consumption retained
-in docs/qa-logs/2026-10-14-steam-client-first-caller. Broader recovery/installed
-qualification still owed; do not repeat accepted earlier cases.
+Steam unchanged03e130e4b3c244337f2e6d782b392a2c444c28e7:
+interrupt-published26.67s, committed-self-update27.26s, corrected CRC retry26.60s
+all preserve13 protected paths with original callers1,0. Original CRC failure
+is preserved; additive8f0eaf fixes shared fixture log crossing inherited file
+cap, not installer limits. A separate VM control directly sees EFBIG27. Four
+new Steam VMs retired9,112,821,760B. Broader recovery/native/installed still owed.
+See2026-10-14-steam-client-first-caller; do not replay accepted cases.
 
-CHD converter preparation, docs/qa-logs/2026-10-14-chdman-build-runtime:
-1. 7d4366 owner01 exportFAIL before extraction: exact archive includes two Zstd
-   test symlinks.26a527 omits only those exact non-build aliases with receipt.
-2. owner02 export/bootstrap PASS, configureFAIL make2/container1: libretro Lua
-   overwrites selected SDL OSD.2608923 guards three retro-only assignments while
-   retaining every configure option and selected graph. Work retired993542144B.
-3. owner03 under2608923 export/bootstrap/configure PASS; target compilation
-   reaches final link thenFAIL make2/container1: static-libgcc conflicts with
-   shared libstdc++ unwind dependency. All4 stages consumed, watchdog0/normal
-   cleanup.380 original files losslessly exported; work retired1011810304B.
-   No accepted converter binary. Next source-only fix explicitly selects shared
-   GCC runtime and updates exact graph assertions; unchanged1job/4GiB/no swap/
-   2CPU/6GiB sampled scratch/one1800s family clock. Fresh owner04 now has export/bootstrap/configure PASS; actual build PASS and consumed, no old retry.
-Existing Dolphin decode/encode/roundtrip and MD5 proofs remain accepted.
+CHD owner04 source1015ccf0 export/bootstrap/configure/build PASS; all original
+channels0, cleanup no force. Actual chdman5,993,144B SHA
+766640dfccf2239503fbead2f172098b784d1bbec3f113ffa51264f7f5e1b129.
+Static closure PASS,7files27,533,560B, manifest
+b5f8642027dc1aeaae7fd04d402c8ee11b27510fd21b6b06445fd4f44c45a49b.
+Native02 PASS outer1.786s/cases0.946s:8case children0,234 ordered hashes, actual
+converter-produced Saturn CHD, ISO/CUE/CHD parity/reset and64 CHD→RVZ→NES→CUE
+transitions. Both installed/private loader lists0; exact MAME help probes1
+by design. Original native01 wrong help-exit expectation retained.
+Run20261014T172737Z-3010941d, admissione10ef94addf04b59aacada864b4456ca consumed;
+VM retired2,338,144,256B. Compiler work retired1,017,810,944B.
+Docs2026-10-14-chdman-build-runtime and2026-10-14-chd-native-runtime.
+Original archive/OSD/link failures remain; product package unchanged.
 
-Proxy source57a138 actual main/systemd attempt01 FAIL before any product start:
-fixture requires v2 at /sys/fs/cgroup, VM20 boots systemd255.8 hybrid. All original
-outer1, monitor0, no timeout/intervention/survivor. VM retired2279911424B.
-Originals under docs/qa-logs/2026-10-14-proxy-service-runtime/attempt01.
-Direct guest facts: Steam attempt11/guest/steam/guest-*.txt; cgroup2 is mounted at
-/sys/fs/cgroup/unified, separate name=systemd hierarchy, no memory-v1 mount.
-Worker retained kernel/config supports v2 memory/PID controllers. New proof must
-check real effective limits; merely reporting MemoryMax does not prove enforcement.
-The prior native proxy PASS11.46s is unchanged and is not full-service acceptance.
+Proxy service05 PASS139.59s, original payload/owner/lifecycle/runner/launcher0,
+monitor0/no forced cleanup/survivor. Current112Python files, copied packaged
+unit and controller0755, actual main/run-service and all five workers. Signed
+award retained across clean stop/manual restart/SIGKILL Restart=on-failure;
+normal observed offline→online applies exactly once; real15s and two60s polls,
+bulk lock, empty folder and no-consent usage; all workers join before DBclose.
+Hourly refresh only waits. Source ad733a64 manifest. Run20261014T172312Z-ecf5adaf,
+admission8d7729dd746048028e88aa5643ae34e7 consumed; VM retired2,282,893,312B.
+Scope limitations: older installed native ELF source provenance false; explicit
+private unified-cgroup boot/effective kernel limits, not default hybrid boot or
+final installed image. Original failed attempts01-04 retained in
+2026-10-14-proxy-service-runtime. Fixture-only RefUnit prevents systemd GC from
+erasing original exit fields; connection closes. No unit/timer bypass.
 
-## Immediate next commands and inputs
+## Immediate next work: #588 then remaining native/integration seams
 
-Inspect worker completion/source manifest before copying. Use exact committed
-packet paths only; SHA256SUMS recursively. Shared source/rules remain coordinator
-owned. Runtime allocation serialized; no worker delegated runtime.
+#588 M7.P5 investigates potential pending-award startup reconnect race. Actual
+attempt04 became online but retained queued award/no flush. Source startup
+probe/conditional flush precedes ConnectivityMonitor's separate initial probe;
+connection return between them may initialize was_online=true and miss flush.
+Normal lifecycle05 explicitly observes initial background false and therefore
+does not cover/dismiss this window. Controlled causal reproduction is UNRUN.
+Current upstream2d19684e0800f6da33ff1841d27e083c1e467142 has same sequence; exact
+source/hash/open-search records in proxy-service-runtime/startup-window-upstream.json.
+Potential contribution recorded under #585; no upstream submission before initial
+build. Read #588 acceptance criteria before new fixture/patch. Preserve signed
+queue and original authentication/refusal behavior; no owner data repair needed.
 
-CHD stage protocol: new immutable packet plan.py --checkout COORD --owner fresh04
---stage chdman-export; watched record-only retention report; inspect; build-admission
-prepare; watch-build-submit with that admission and run-stage.py; verify original
-result/cleanup and actual host exits, consume via
-`docs/qa-logs/2026-10-14-chdman-build-runtime/coordinator/consume-stage.py`.
-Explicitly select bootstrap→configure→build only after each original completion.
-No tracked edits between admission and observed command launch. Export originals
-using sibling export-family.py before retirement. Successful build is followed
-by readelf-only closure with fresh ownership, then actual CHD/Saturn/CUE VM parity
-under prepared76f44e (234 ordered hashes;7 native +1 Python children). Closure
-currently bound to failed owner03 must not run or guess future binary hashes.
+Retain /workspace/tmp/pix583-native-prepared-20261014-02 (112 exact .py files);
+no re-preparation. Source packet proxy-reconnect-observation-source contains
+latest fixture, unit-reference-source its earlier derivative. Never edit old
+accepted packets in place. Some raw evidence/source files are losslessly
+gzipped to preserve exact whitespace. Execution manifests remain separately in
+execution-SHA256SUMS.txt; use chd-native-runtime/coordinator/
+materialize-execution-packet.py to restore the original packet before fresh staging.
+The recorded ad733a64/ebd487f4 hashes are original execution manifests, not the
+updated storage manifests. Fresh no-NIC VM wrappers live in
+2026-10-14-independent-format-runtime/coordinator/pix-m7-new-vm.py and
+pix-m7-close-vm.py. consume-vm.py in chd-native-runtime/coordinator consumes
+original results after manual analysis then retires only exact owned VM directory.
+It requires qualified for rc0/failed-investigated for rc1, never manufactured success.
+Proxy unified boot insertion remains in proxy-service-runtime/coordinator; original
+900s total lifecycle includes one planned private reboot, no reset/extension.
 
-Proxy: retain `/workspace/tmp/pix583-native-prepared-20261014-02` (112 exact .py
-files), no re-preparation. Prepared57a138 source plus future cgroup correction
-uses wholly synthetic state and no NIC. Actual copied packaged unit/main, worker
-timers, stop/restart/idle crash/queue retention/reconnect/locking remain scope.
-Old-image native source provenance staysfalse; final installed source still owed.
-Fresh VM lifecycle helper in independent-format-runtime/coordinator records900s
-outer work alarm, guest own bounds and original return codes. Close helper exports
-success/failure and proves host exits; consume admission separately then retire.
-
+Small CHD closure bundle retained only for immediately subsequent current-native
+proxy/format integration:
+/workspace/tmp/pix574-chdman-closure-20261014-04/stages/chdman-closure/chdman-closure-01/vm20-bundle.
+Retire after successor. Full compiler work and all completed VMs are gone.
+MD5 binaries /workspace/tmp/pix574-md5-target-20261014/artifacts and qualified
+Dolphin bundle/three small independent inputs still serve immediate integration.
 Accepted VM20 image under m7-pixelelated-replacement20/target:
-`pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261011T194522Z.g1a0266484423-from-ROCKNIX.img.gz`
+pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261011T194522Z.g1a0266484423-from-ROCKNIX.img.gz
 SHA1a23cf5740dbb69cdca76d753a0f6121c35e6e12f27649e792aeebc71e8cc490.
-No-NIC helper6709d7c30b in m7-offline-vm-567. Cross SDK physical root replacement20
-is readonly-mounted at old m7-pixelelated prefix inside pinned offline builder;
-do not rewrite its absolute symlinks. Source archive MAME24cffe remains unchanged.
-MD5 artifacts /workspace/tmp/pix574-md5-target-20261014/artifacts; qualified Dolphin
-bundle and three small independent format inputs remain for immediate next proof.
-Detailed previous scope/paths: archived/saved-session-state-next-20261014T165000Z.md
-and archived/saved-session-state-next-20261014T152100Z.md.
+No-NIC helper6709d7c30b in m7-offline-vm-567. SDK physical root replacement20
+readonly-mounted at old m7-pixelelated prefix in pinned builder; do not rewrite
+its cache symlinks. Earlier paths/scope: archived170300Z,165000Z,152100Z checkpoints.
 
-## M7 order after these component seams
+## Remaining M7 order
 
-#574/#583/#584 remaining native provenance/service/formats; #581 English640 long
-card/native proof and #567 actual proxy/UI; remaining Steam recovery/installed;
-compose #563 stableROCKNIX20261001c445081a59518f37d9776e5412dd7b14910696f7;
-#565 actual payload and clean/retained-state, #349 restore, #566 actual compiled
-UI/backup; combined VM/audit, then H700 followed bySM8550; #528/#344 publication.
-No known failure waived and no RC designated. Existing accepted component frames,
-78.01MiB browser handoff proof and phone/Wi-Fi/Recent fixes remain accepted.
-#558 shutdown/#561 LED are nonblocking watches; original LED writer remains unknown.
-#587 future browser-owned proxy stop/restart and GTK4/lazy imports are not added
-RC gates. #585 upstream submissions follow initial build/relevant qualification.
-No consumed owner-device authorization is replayed.
+#588 startup-window → #574/#583/#584 current native-source provenance, installed
+default-boot service and Dolphin integration/gameplay → #581 English640 long
+card/native proof and #567 actual proxy/UI → remaining Steam recovery/installed →
+#563 stableROCKNIX20261001c445081a59518f37d9776e5412dd7b14910696f7 composition →
+#565 actual payload/clean/retained state, #349restore, #566 compiledUI/backup →
+combinedVM/audit → H700 thenSM8550 → #528/#344publication.
+No known failure waived/no RC designated. Prior accepted browser78.01MiB bounded
+handoff proof and phone/Wi-Fi/Recent frames remain. #558shutdown/#561LED watches,
+#587future browser-owned proxy stop/restart and GTK4/lazy import exploration are
+not additional RC gates. #585upstream submissions follow initial build.
+Do not replay consumed owner-device approvals.

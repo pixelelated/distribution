@@ -1,0 +1,168 @@
+{
+  "status": "PASS",
+  "owner": {
+    "status": "PASS",
+    "original_worker_returncode": 0,
+    "error": null,
+    "elapsed": 1.7864154840000026,
+    "total_limit_seconds": 240,
+    "cleanup": "PASS",
+    "forced_cleanup": false,
+    "sys_lookup_measured": false,
+    "scratch_retained": "/run/pix574-chd",
+    "stager_copy_retained": "/tmp/pix574-dolphin-native02",
+    "output": "/tmp/pix-output/pix574-chd-owner-native02"
+  },
+  "worker": {
+    "status": "PASS",
+    "calls": [
+      {
+        "label": "installed-loader",
+        "original_returncode": 0,
+        "timed_out": false
+      },
+      {
+        "label": "private-loader",
+        "original_returncode": 0,
+        "timed_out": false
+      },
+      {
+        "label": "direct-help",
+        "original_returncode": 1,
+        "timed_out": false
+      },
+      {
+        "label": "private-help",
+        "original_returncode": 1,
+        "timed_out": false
+      },
+      {
+        "label": "selected-chd-cases",
+        "original_returncode": 0,
+        "timed_out": false
+      }
+    ],
+    "case_output": "/tmp/pix-output/pix574-chd-native02",
+    "ordered_hash_rows": 234,
+    "original_case_exit": 0,
+    "chdman_sha256": "766640dfccf2239503fbead2f172098b784d1bbec3f113ffa51264f7f5e1b129",
+    "full_image_qualified": false
+  },
+  "selected_cases": {
+    "status": "PASS",
+    "checks": [
+      "make",
+      "make-rvz",
+      "chd-create",
+      "baseline-repaired-formats",
+      "baseline-repaired-repeat",
+      "candidate-formats",
+      "candidate-repeat",
+      "rvz-cd-transition"
+    ],
+    "chdman_sha256": "766640dfccf2239503fbead2f172098b784d1bbec3f113ffa51264f7f5e1b129",
+    "environment": {
+      "PATH": "/usr/bin:/bin",
+      "LANG": "C",
+      "LC_ALL": "C",
+      "HOME": "/run/pix574-chd/work/home",
+      "TMPDIR": "/run/pix574-chd/work/tmp",
+      "USER": "pix574-synthetic",
+      "LOGNAME": "pix574-synthetic",
+      "XDG_CONFIG_HOME": "/run/pix574-chd/work/config",
+      "XDG_CACHE_HOME": "/run/pix574-chd/work/cache",
+      "LD_LIBRARY_PATH": "/run/pix574-chd/lib:/run/pix574-chd/artifacts/lib:/run/pix574-chd/chdman-lib",
+      "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1:abort_on_error=1",
+      "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+    },
+    "candidate_commit": "314da58d68820a79b26f99a5b6c12f9bb37054d5",
+    "baseline_repair": {
+      "path": "external/libcheevos/libretro-common/src/utils/md5.c",
+      "before": "8d62d9eacf70e07b3dd93a3e219b052413893b2398d70e1be318a981e9047e08",
+      "after": "102310fd9991c20a7eaf7e4fffd175f9c79607dbac82f65f067a085bfeebb1c0",
+      "label": "a7dcdbb plus exact 314da58d md5.c only; not the old pristine baseline"
+    },
+    "total_outer_limit_seconds": 240,
+    "work_deadline_monotonic": 253.972606054,
+    "outer_cleanup_required": true,
+    "scope": "uncompressed single-track CHD and new CHD-bearing transitions only; not native proxy/Wii image/gameplay",
+    "ordered_hash_rows": 234,
+    "wrapper_invocations": 5,
+    "fixtures": {
+      "fixtures/saturn.chd": "00c0dde6752938cf74d815fd5ca37df00a2da4b483284c003f0408f30fefe88b",
+      "fixtures/wii-helper-short-section.bin": "480d30d8828033b761512744f147bfd55011148912f8a1dc72c1e0359995638d",
+      "fixtures/wii-helper-partition.bin": "d7451e84c4a5c14ec50bcd3a12cb7f00b4d0a9f4caed125f4c64312cdd4348af",
+      "fixtures/saturn.cue": "e75fe6c4b71b046403f5495c1123493c9eb64f91e3ca5be717576356b27c42e7",
+      "fixtures/saturn.iso": "1667c085209281d01537b41cb79f0a24ece20c2b5b28e8cf866d5e6f15a91d80",
+      "fixtures/saturn.bin": "1667c085209281d01537b41cb79f0a24ece20c2b5b28e8cf866d5e6f15a91d80",
+      "fixtures/official-gamecube.iso": "db16548902c77bf52c0b1a2f1a5cdec3d0dc2e347d2960c97d96841e5f2b3039",
+      "rvz-cases/manifest.json": "e60b610aa9ee9c584ef3d628378c2768919d7dee49dcdb3b5ddd781f29ffee4c",
+      "rvz-cases/section-outside-disc.rvz": "e4386e98ccca575da93a4ae38770aea7731faf52a07d2ab061f4d835e7afa6b5",
+      "rvz-cases/section-outside-disc.iso": "04d967f8ed292025d8517a6bb547e6e60471381f77cbbf22104594b6605cca56",
+      "rvz-cases/corrupt-zstd.rvz": "1a6b72bc4602edf2c2912e8ac7f2b327f52873ccacbb8f8787e71c8af24c22e3",
+      "rvz-cases/packed-overflow.rvz": "1cbda8ec42ab2c317d524158981040e9171fd907f71bb5cfd1235d41a90370bb",
+      "rvz-cases/group-index-outside-table.rvz": "9cac3a0722ce8567e11b53460c5ccca75d0a93cf6e52d3f29ab05266b3c858af",
+      "rvz-cases/group-outside-file.rvz": "d0779e0d7ac87a5b2ea83549f94a9283d2cc5d21fcf353cce44e14c01be5a013",
+      "rvz-cases/oversized-disc.rvz": "fb1dd968a21ac49cada2875545eb73df0e139dcfa2212be87769023642b807c7",
+      "rvz-cases/oversized-group-count.rvz": "2a437289cc873589c0729bf7c51f8fde0311d14063cbbef757873190846b058d",
+      "rvz-cases/oversized-raw-count.rvz": "6a7b301064d91dd2c5a1d4400c615e384d7ec8c6c4efe930d2cd616b723f13e0",
+      "rvz-cases/oversized-chunk.rvz": "7082095f1bbc90c9950f4085f7faab0b1181e882690c53dbe623fbf2dc345784",
+      "rvz-cases/unsupported-wii.rvz": "212b8748c536268cd5765dcc133499173d59159bf224a6777cb9bf7e13f51b18",
+      "rvz-cases/unsupported-compression.rvz": "11bd750855095a09b6db9688398bf7a877c371a7a2fcc021b465e7e128975d48",
+      "rvz-cases/bad-second-sha1.rvz": "911ad98ef148417eeb5681fafb41159417e85477c450c68dfab15fd8c55f04f9",
+      "rvz-cases/bad-header-sha1.rvz": "e833065848fd58766aad16935769c1f4b952a2d9d133edefac8d2226a50d5fb8",
+      "rvz-cases/short-container.rvz": "7a9b7332b5b0be4008ea70a7ece81eeb43a3b0c3aec3b0afe99225cadaeb6d75",
+      "rvz-cases/short-second-header.rvz": "cf9487eb71a3edb844ba3ff87182c5d6d37e37b2ccd94d1d6c71d307a85157ae",
+      "rvz-cases/short-header.rvz": "632459fe9009621c1f66b8ecf55030774723a13376b9a8b3a682802c54849653",
+      "rvz-cases/bad-magic.rvz": "31bf2ad1fe5bda3ed22e569480c526758028ae5d8eb228dfe54182d9a284b7f1",
+      "rvz-cases/short-section.iso": "302b5cd0c02c439113afaf25d51834adda0bd1fc463cc58b6e2669ba05ebf565",
+      "rvz-cases/short-dol.iso": "9e0eac47895ace189e847726d1422afaee182fd64a8feefdf583f84a45f193b7",
+      "rvz-cases/short-apploader.iso": "3f6a49999cb49e8d49fc67e9f441aafdd1779f4d7b27f0bac65abdfa89cbb0d9",
+      "rvz-cases/short-magic.iso": "e74558355e0811129445ad28615920fde1376bbfd985a66aee523a4b5b2ef383",
+      "rvz-cases/empty.iso": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "rvz-cases/ordinary.nes": "802ee3e2251ae4860760e1d3c0c8d3ab152c99da324876e0eb7493d9483a6ab1",
+      "rvz-cases/mixed-zstd.rvz": "8780ec2d229f9c52e3cbc209aff94783a4a47bd3149839334a989390ed9e3046",
+      "rvz-cases/uppercase.RVZ": "b758c06b8059f56315cb4acce9c1e8b77b5fb96612685b978f839925265ad36c",
+      "rvz-cases/packed-zstd.rvz": "b758c06b8059f56315cb4acce9c1e8b77b5fb96612685b978f839925265ad36c",
+      "rvz-cases/packed-none.rvz": "6957064b1c201862e6ee92f5cf53863672c6df12d2c28d00d2f728ae4855c4ab",
+      "rvz-cases/none.rvz": "c1d7eaee4fd92a73d90e29527c91439d0592b96c97f0d8b5711f3b0e8a282224",
+      "rvz-cases/synthetic.iso": "83c6dacc46797bc7d4bdcb4aa2dd253c290316c07c4cda8f6ca1afb889c44121"
+    },
+    "elapsed": 0.9455682150000015
+  },
+  "original_case_receipts": [
+    {
+      "file": "baseline-repaired-formats.json",
+      "returncode": 0
+    },
+    {
+      "file": "baseline-repaired-repeat.json",
+      "returncode": 0
+    },
+    {
+      "file": "candidate-formats.json",
+      "returncode": 0
+    },
+    {
+      "file": "candidate-repeat.json",
+      "returncode": 0
+    },
+    {
+      "file": "chd-create.json",
+      "returncode": 0
+    },
+    {
+      "file": "make-rvz.json",
+      "returncode": 0
+    },
+    {
+      "file": "make.json",
+      "returncode": 0
+    },
+    {
+      "file": "rvz-cd-transition.json",
+      "returncode": 0
+    }
+  ],
+  "scope": "actual chdman/Saturn CHD/CUE/ISO/reset/CHD-RVZ-NES transitions only; not installed proxy native provenance or full image"
+}

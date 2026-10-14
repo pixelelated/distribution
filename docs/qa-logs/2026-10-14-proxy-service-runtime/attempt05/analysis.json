@@ -1,0 +1,194 @@
+{
+  "status": "PASS",
+  "elapsed_seconds": 139.59141753699998,
+  "steps": [
+    "graceful stop preserved exact signed row; workers joined before SQLite close",
+    "manual and one automatic restart preserved exact signed row and new owned listener",
+    "natural 15s reconnect and two 60s queue polls; real bulk lock; empty folder and no-consent usage rounds"
+  ],
+  "cleanup_errors": [],
+  "offline_background_baseline": {
+    "class": "ProxyRuntimeServer",
+    "event": "return",
+    "function": "refresh_reachability",
+    "kind": "trace",
+    "monotonic": 37.854629621,
+    "pid": 2076,
+    "result": "False",
+    "source": "linux/raofflineproxy/proxy_service.py",
+    "thread": "Thread-2",
+    "tid": 2108
+  },
+  "peer": {
+    "calls": [
+      {
+        "method": "HEAD",
+        "action": "HEAD",
+        "user": "",
+        "params": {},
+        "mode": "normal"
+      },
+      {
+        "method": "GET",
+        "action": "patch",
+        "user": "fixture-a",
+        "params": {
+          "r": "patch",
+          "g": "10",
+          "u": "fixture-a",
+          "t": "<synthetic-token-a>"
+        },
+        "mode": "normal"
+      },
+      {
+        "method": "POST",
+        "action": "awardachievement",
+        "user": "fixture-a",
+        "params": {
+          "r": "awardachievement",
+          "a": "104",
+          "g": "10",
+          "u": "fixture-a",
+          "t": "<synthetic-token-a>",
+          "h": "0",
+          "v": "b6c5dcbe901d6c33137ada300415f7ae",
+          "o": "33",
+          "ra_chain_payload_hash": "9b8bfdabaef8237e3839e33dd949b304aa28eda3767f5280f4c9ed2cd0bd2aa1",
+          "ra_chain_prev_hash": "genesis",
+          "ra_chain_sig": "VGRZ87YVNuQBHRHLCwBmjhjLR2j08N3XXa/ZB82hN7c=",
+          "ra_chain_pubkey": "YjlmNTQzYmI3Y2Y4ZWIzMmU5NTMxYjQzMzczNWJkODAxNmVlNmZmYjFmM2VlYzM0YjFmYTA0ZGI4ODRkYzBiOQ=="
+        },
+        "mode": "normal"
+      },
+      {
+        "method": "GET",
+        "action": "unlocks",
+        "user": "fixture-a",
+        "params": {
+          "r": "unlocks",
+          "g": "10",
+          "h": "0",
+          "u": "fixture-a",
+          "t": "<synthetic-token-a>"
+        },
+        "mode": "normal"
+      },
+      {
+        "method": "HEAD",
+        "action": "HEAD",
+        "user": "",
+        "params": {},
+        "mode": "normal"
+      },
+      {
+        "method": "HEAD",
+        "action": "HEAD",
+        "user": "",
+        "params": {},
+        "mode": "normal"
+      },
+      {
+        "method": "HEAD",
+        "action": "HEAD",
+        "user": "",
+        "params": {},
+        "mode": "normal"
+      },
+      {
+        "method": "HEAD",
+        "action": "HEAD",
+        "user": "",
+        "params": {},
+        "mode": "normal"
+      },
+      {
+        "method": "HEAD",
+        "action": "HEAD",
+        "user": "",
+        "params": {},
+        "mode": "normal"
+      },
+      {
+        "method": "HEAD",
+        "action": "HEAD",
+        "user": "",
+        "params": {},
+        "mode": "normal"
+      },
+      {
+        "method": "GET",
+        "action": "gameid",
+        "user": "fixture-a",
+        "params": {
+          "r": "gameid",
+          "m": "e5830000000000000000000000000001",
+          "u": "fixture-a",
+          "t": "<synthetic-token-a>"
+        },
+        "mode": "normal"
+      }
+    ],
+    "applied": [
+      [
+        "fixture-a",
+        104
+      ]
+    ],
+    "errors": []
+  },
+  "first_stopped_properties": {
+    "Restart": "on-failure",
+    "RestartUSec": "5s",
+    "TimeoutStopUSec": "15s",
+    "RuntimeMaxUSec": "infinity",
+    "MainPID": "0",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainCode": "1",
+    "ExecMainStatus": "0",
+    "ExecStart": "{ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 -m raofflineproxy.main run-service ; ignore_errors=no ; start_time=[Wed 2026-10-14 13:24:21 EDT] ; stop_time=[Wed 2026-10-14 13:24:25 EDT] ; pid=1883 ; code=exited ; status=0 }",
+    "ExecStartPost": "{ path=/usr/bin/raofflineproxy-ctl ; argv[]=/usr/bin/raofflineproxy-ctl listening --wait 30 ; ignore_errors=no ; start_time=[Wed 2026-10-14 13:24:21 EDT] ; stop_time=[Wed 2026-10-14 13:24:22 EDT] ; pid=1884 ; code=exited ; status=0 }",
+    "ControlGroup": "",
+    "MemoryMax": "536870912",
+    "Environment": "RAOFFLINEPROXY_CONFIG_DIR=/storage/.config/raofflineproxy HOME=/storage XDG_CONFIG_HOME=/storage/.config MALLOC_ARENA_MAX=2 PYTHONPATH=/run/pix583-service-packet/bootstrap:/run/pix583-service-inputs/prepared/tree/linux PYTHONDONTWRITEBYTECODE=1 PYTHONNOUSERSITE=1 DEVICE_HAS_DUAL_SCREEN=false PIX583_STORAGE_ID=63:15 RAOFFLINEPROXY_RCHASH_LIB=/usr/lib/libraproxy_rchash.so",
+    "KillMode": "control-group",
+    "BindsTo": "pix583-service-proof-owner.service",
+    "LoadState": "loaded",
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "FragmentPath": "/run/systemd/system/pix583-service-proof.service",
+    "DropInPaths": "/run/systemd/system/pix583-service-proof.service.d/fixture.conf",
+    "ConditionResult": "yes",
+    "StartLimitIntervalUSec": "5min",
+    "StartLimitBurst": "5",
+    "InvocationID": "96d49e1876ff465585eb55e6f8ecf97a"
+  },
+  "last_stopped_properties": {
+    "Restart": "on-failure",
+    "RestartUSec": "5s",
+    "TimeoutStopUSec": "15s",
+    "RuntimeMaxUSec": "infinity",
+    "MainPID": "0",
+    "Result": "success",
+    "NRestarts": "1",
+    "ExecMainCode": "1",
+    "ExecMainStatus": "0",
+    "ExecStart": "{ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 -m raofflineproxy.main run-service ; ignore_errors=no ; start_time=[Wed 2026-10-14 13:24:37 EDT] ; stop_time=[Wed 2026-10-14 13:26:40 EDT] ; pid=2076 ; code=exited ; status=0 }",
+    "ExecStartPost": "{ path=/usr/bin/raofflineproxy-ctl ; argv[]=/usr/bin/raofflineproxy-ctl listening --wait 30 ; ignore_errors=no ; start_time=[Wed 2026-10-14 13:24:37 EDT] ; stop_time=[Wed 2026-10-14 13:24:38 EDT] ; pid=2077 ; code=exited ; status=0 }",
+    "ControlGroup": "",
+    "MemoryMax": "536870912",
+    "Environment": "RAOFFLINEPROXY_CONFIG_DIR=/storage/.config/raofflineproxy HOME=/storage XDG_CONFIG_HOME=/storage/.config MALLOC_ARENA_MAX=2 PYTHONPATH=/run/pix583-service-packet/bootstrap:/run/pix583-service-inputs/prepared/tree/linux PYTHONDONTWRITEBYTECODE=1 PYTHONNOUSERSITE=1 DEVICE_HAS_DUAL_SCREEN=false PIX583_STORAGE_ID=63:15 RAOFFLINEPROXY_RCHASH_LIB=/usr/lib/libraproxy_rchash.so",
+    "KillMode": "control-group",
+    "BindsTo": "pix583-service-proof-owner.service",
+    "LoadState": "loaded",
+    "ActiveState": "inactive",
+    "SubState": "dead",
+    "FragmentPath": "/run/systemd/system/pix583-service-proof.service",
+    "DropInPaths": "/run/systemd/system/pix583-service-proof.service.d/fixture.conf",
+    "ConditionResult": "yes",
+    "StartLimitIntervalUSec": "5min",
+    "StartLimitBurst": "5",
+    "InvocationID": "cce10e847b4a4234a55d78767e39e224"
+  },
+  "scope": "Exact prepared Python and packaged service in disposable unified VM20, older native ELF source provenance false; excludes startup connectivity window/default boot/final image"
+}

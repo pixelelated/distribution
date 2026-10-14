@@ -1,0 +1,49 @@
+{
+  "admitted": "2026-10-14T17:17:45.955647+00:00",
+  "available_bytes": 2978494758912,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+  "consumed": "2026-10-14T17:21:09.740480+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+  "deleted_bytes": 0,
+  "evidence_sha256": "1c102d1ba44c1049935a0da1233185f874ef4cc35b1d3122dc988c1b2ed337ea",
+  "id": "bd6daa8a86224d978e797e052e3e044a",
+  "original_result": {
+    "command_rc": 1,
+    "monitor_rc": 0,
+    "runner_rc": 1,
+    "utc": "2026-10-14T17:19:46.432376+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 583,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix583-service-vm-20261014-04/vm",
+      "release_when": "Original guest/guard/lifecycle receipts exported and verified; actual owners exited; consume admission then remove disk/media/UEFI. Preserve only immediate-next-test synthetic inputs."
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "668b5ef7dcc41334ea5510a3eb3bc6c713bf13abca122ac6d63ebff705ab40d3",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 22050504704,
+  "retention_plan_sha256": "b17113bfc0172274bb2681a69b2ffecad44ef1a814d37f3ba25750a8377b70ca",
+  "retention_report_sha256": "2498d863c56742a164cab9b7f1a4cdc1d0d44f557815ec1f145d8418cee22c20",
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T171745Z-57927c6a",
+  "runner_pid": 3170976,
+  "runner_start": "108994983",
+  "source": {
+    "head": "8d0de18f32076321a003e4df7a8f7e25ad076915",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix583-service-vm-20261014-04/lifecycle-owner",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

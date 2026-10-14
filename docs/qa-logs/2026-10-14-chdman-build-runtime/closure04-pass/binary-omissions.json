@@ -1,0 +1,45 @@
+{
+  "original_archive": {
+    "sha256": "8dae4bdd14a381987b14d7e9a302fecd5e1cf65a49eba18db7af977b566e1061",
+    "bytes": 10275125
+  },
+  "omitted_exact_elfs": [
+    {
+      "path": "owner/stages/chdman-closure/chdman-closure-01/vm20-bundle/chdman",
+      "bytes": 5993144,
+      "sha256": "766640dfccf2239503fbead2f172098b784d1bbec3f113ffa51264f7f5e1b129"
+    },
+    {
+      "path": "owner/stages/chdman-closure/chdman-closure-01/vm20-bundle/ld-linux-x86-64.so.2",
+      "bytes": 1352760,
+      "sha256": "ce676fd2c523729f7660bfaf1e34f7c221cb70bb7c238feb8ffd46c9bc00ff29"
+    },
+    {
+      "path": "owner/stages/chdman-closure/chdman-closure-01/vm20-bundle/lib/libSDL2-2.0.so.0",
+      "bytes": 2278184,
+      "sha256": "a8a7411fbd73b92a6f21a69d7e8cc2fd62ae515cdfe1c29becd99b25f81f8777"
+    },
+    {
+      "path": "owner/stages/chdman-closure/chdman-closure-01/vm20-bundle/lib/libc.so.6",
+      "bytes": 12131504,
+      "sha256": "706476bbd3f1ba328f6d29ce3d0731a440fbaf1948ae5cd0fb8e0e5c1f9a2f6f"
+    },
+    {
+      "path": "owner/stages/chdman-closure/chdman-closure-01/vm20-bundle/lib/libgcc_s.so.1",
+      "bytes": 178640,
+      "sha256": "421566e56262d76771c56578d1e87c80a2b33e702e4c21c29a4cf1e456fbe174"
+    },
+    {
+      "path": "owner/stages/chdman-closure/chdman-closure-01/vm20-bundle/lib/libm.so.6",
+      "bytes": 3040600,
+      "sha256": "56c53dca79e350f7b6298a5c4bc7a9bbc379103342b0e7efd8a9557b078782a9"
+    },
+    {
+      "path": "owner/stages/chdman-closure/chdman-closure-01/vm20-bundle/lib/libstdc++.so.6",
+      "bytes": 2558728,
+      "sha256": "7f12166a8c5e62340b67ff213b4859d002b45e49ed114550049bb895f26455cc"
+    }
+  ],
+  "reason": "live exact bundle retained externally for next native VM proof; no binary duplication in records",
+  "retained_files": 122
+}

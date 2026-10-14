@@ -1,0 +1,35 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T171745Z-57927c6a",
+  "expected_rc": 1,
+  "disposition": "failed-investigated",
+  "outputs": [
+    {
+      "issue": 583,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix583-service-vm-20261014-04/vm",
+      "release_when": "Original guest/guard/lifecycle receipts exported and verified; actual owners exited; consume admission then remove disk/media/UEFI. Preserve only immediate-next-test synthetic inputs."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-service-runtime/attempt04/export-result.json",
+      "sha256": "9c008349187a73ef8231d9f4c319fdc9a3aa78983b93034907f06912be0cf7b2"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-service-runtime/attempt04/host-exits.json",
+      "sha256": "dd33856daa75dfb1fd59920a913d457fbd9e8c0cf7c8175b05e6d6420d24ea3c"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-service-runtime/attempt04/guest-manifest.json",
+      "sha256": "baa9483a6b776472e9a5cdfff7f5d7725e55d739e392a077696fd03bde1dee27"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-service-runtime/attempt04/original-records.json",
+      "sha256": "133064a618fe7c9d4a0de4dbe4041b989c0b75934b749d32a013881555908867"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-service-runtime/attempt04/analysis.json",
+      "sha256": "c7dfae13821f9b17348996bdf3344b517a4fd22aba1d990fcd0a2276cfc948d2"
+    }
+  ]
+}

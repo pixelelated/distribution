@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "remaining": [],
+  "surviving_observed": [],
+  "signals": [],
+  "adopted_original_waits": [],
+  "all_observed": [
+    {
+      "pid": 1953,
+      "ppid": 1952,
+      "pgrp": 1953,
+      "session": 1953,
+      "start_ticks": 1821,
+      "state": "R",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix-input/pix574-chd/owner/guest-work.py",
+        "--run-id",
+        "native01",
+        "--output",
+        "/tmp/pix-output/pix574-chd-owner-native01",
+        "--deadline",
+        "253.214260109"
+      ]
+    }
+  ],
+  "forced": false
+}

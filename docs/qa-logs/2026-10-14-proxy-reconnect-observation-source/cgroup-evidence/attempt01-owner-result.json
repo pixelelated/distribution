@@ -1,0 +1,54 @@
+{
+  "status": "FAIL",
+  "original_child_exit": 1,
+  "timed_out": false,
+  "signals": [],
+  "cleanup_errors": [],
+  "reaped": [],
+  "runner_sha256": {
+    "owner.py": "bd62af794d48bbc38b186b30374f356d45e410c7786b867fe96b3c7c412ea48b",
+    "run.py": "65a35ab4f82f756b538f654c277f1825eae315832da5f5f17cd73bd77b38f6c6",
+    "census.py": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2",
+    "reference_native.py": "d9aa72ed4682a70ca29b59b06dbda3fd64be6bf8e93e159506942ad827a6ae16",
+    "bootstrap/sitecustomize.py": "490478273b2ec141cb05cc3a9662c9067f60083cba8d8c2a4245c1c944ce93fe",
+    "bindings.json": "d7f94255d24030c017cd6617c2c1f76d1e6a378ee5790d9591a67de4e210efe3",
+    "raofflineproxy.service": "c42689768684263e69d3a904223faf2bab270a5956fde3af5af640f1f26b4233",
+    "raofflineproxy-ctl": "47391a3bbcaa0f2262cdee12f09bd48d17f7fedf0237a1a661a21b085b2f71f7"
+  },
+  "owner_identity": {
+    "pid": 1968,
+    "ppid": 1,
+    "start_ticks": 1815
+  },
+  "argv": [
+    "/usr/bin/python3",
+    "-I",
+    "-S",
+    "-B",
+    "/run/pix583-service-packet/run.py",
+    "--output",
+    "/run/pix583-service-owner/run01/payload"
+  ],
+  "child_identity": {
+    "pid": 1969,
+    "ppid": 1968,
+    "start_ticks": 1838
+  },
+  "error": "AssertionError: original service driver failed; no retry",
+  "remaining_children": [],
+  "elapsed_seconds": 0.07018768999999736,
+  "artifacts": {
+    "payload/result.json": {
+      "bytes": 254,
+      "sha256": "551a29880ee4e680cb98c2eca47a9b30c4c46bd274c679aa1e31fb8cc4713909"
+    },
+    "stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout": {
+      "bytes": 84,
+      "sha256": "91fe5254904444af8ca2e497bc6ce1ea0cd0251e42567fadef04a9ce044c505a"
+    }
+  }
+}
