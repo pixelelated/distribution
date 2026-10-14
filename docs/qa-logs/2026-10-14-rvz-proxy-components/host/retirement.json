@@ -1,0 +1,64 @@
+{
+  "utc": "2026-10-14T03:32:02.426996+00:00",
+  "retired": [
+    {
+      "path": "/workspace/tmp/pix-m7-rvz-vm-20261014/vm",
+      "regular_files": 7,
+      "logical_bytes": 2898280448,
+      "allocated_bytes": 2473189376
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-rvz-vm-20261014/export",
+      "regular_files": 830,
+      "logical_bytes": 381472,
+      "allocated_bytes": 2457600
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-rvz-vm-20261014/extra-tree",
+      "regular_files": 84,
+      "logical_bytes": 972500,
+      "allocated_bytes": 1175552
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-rvz-vm-20261014/route02-tree",
+      "regular_files": 31,
+      "logical_bytes": 199911,
+      "allocated_bytes": 270336
+    },
+    {
+      "path": "/workspace/tmp/pix574-md5-target-20261014/builds",
+      "regular_files": 280,
+      "logical_bytes": 107770143,
+      "allocated_bytes": 108371968
+    },
+    {
+      "path": "/workspace/tmp/pix574-md5-target-20261014/tmp",
+      "regular_files": 0,
+      "logical_bytes": 0,
+      "allocated_bytes": 0
+    },
+    {
+      "path": "/workspace/tmp/pix574-md5-target-20261014/sources",
+      "regular_files": 687,
+      "logical_bytes": 11530155,
+      "allocated_bytes": 13012992
+    },
+    {
+      "path": "/workspace/tmp/pix574-md5-recovery-20261014/input",
+      "regular_files": 44,
+      "logical_bytes": 32522773,
+      "allocated_bytes": 32645120
+    }
+  ],
+  "allocated_bytes_reclaimed": 2631122944,
+  "kept": [
+    {
+      "path": "/workspace/tmp/pix574-md5-target-20261014/artifacts",
+      "purpose": "Immediate queued independent-format/native-hash proof; nine verified target artifacts only; retire after that evidence is consumed."
+    },
+    {
+      "path": "/workspace/tmp/pix-steam-public-download-20261014/download01/archive.zip",
+      "purpose": "Single verified archive for pending offline installer qualification; do not redownload."
+    }
+  ]
+}

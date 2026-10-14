@@ -1,0 +1,57 @@
+{
+  "read_path": "/workspace/tmp/pix-m7-rvz-vm-20261014/md5-host01/stdout",
+  "sha256": "2d88cab7bb6a66ad6a93d97f57ed533b3d53e2ff07b28555460cace9289712a6",
+  "bytes": 3455,
+  "observed_channel": "host stdout containing accepted runtime summary and serial marker0",
+  "controls": 43,
+  "target_checks": [
+    "baseline-repaired-md5-264",
+    "candidate-md5-264",
+    "make",
+    "baseline-repaired-formats",
+    "baseline-repaired-repeat",
+    "candidate-formats",
+    "candidate-repeat",
+    "baseline-repaired-wii-helper",
+    "candidate-wii-helper",
+    "candidate-wii-short"
+  ],
+  "independent_digest_comparisons": 528,
+  "source_binding_sha256": "e91e6d25636752c349bfafc6fbe9e745454ac32669c8b9d1185ff3dbde987d2c",
+  "compile_recovery": {
+    "schema": 1,
+    "disposition": "ACCEPT_ARTIFACTS_AFTER_EXACT_CLEANUP_RECOVERY",
+    "original_owner": "/workspace/tmp/pix574-md5-target-20261014",
+    "original_packet_commit": "0962c63941beffe20ac92c0c504356cc19e37d79",
+    "known_owner_sha256": "bbf2d322339c618eb44988242cd95205f3e9e95d8b9aebc158ad261ded8c9ee7",
+    "recovery_manifest_sha256": "6fc402c40ce2185d99a2168cff1b9d33f5568e765cf22ad23615a899568a36d5",
+    "original_outer_status": "FAIL",
+    "original_launcher_wrapper_watcher_exit": 1,
+    "original_docker_exit": 0,
+    "runtime_status": "UNRUN",
+    "absence_proof_sha256": "199fb9298162eeace543b67b5f5e8941796d40bc28860b0918ff4ce54790b248",
+    "source_binding_sha256": "e91e6d25636752c349bfafc6fbe9e745454ac32669c8b9d1185ff3dbde987d2c",
+    "source_snapshots_verified": {
+      "candidate": 276,
+      "baseline-repaired": 271,
+      "fixture": 140
+    },
+    "artifacts": {
+      "artifacts/lib/libasan.so.8": "73963db53c40af52818792cba7ebae1ae6897cd94a004942c8ff76f361484412",
+      "artifacts/lib/libubsan.so.1": "a8d91f5d7efbd684a69546912ead43513ccec34bb275fe1616b68551780c9eca",
+      "artifacts/candidate/pix574-wii-partition-probe": "030bd0dd7c94fea25cdeb4bf03b0371f84ca09260b6aa2076e0279b79ca3e729",
+      "artifacts/candidate/pix574-regression-hash": "5e00ed65dc6ae8031c54c4309d3f1876be4b380e438a15b8281104402e9375b2",
+      "artifacts/candidate/pix574-md5-alignment": "5f8f9da5ad0c324f7cf04637ee4d60ba1d406996e3dc2f61e49a8a0e277a84e4",
+      "artifacts/candidate/pix574-fixture-writer": "6a663a88b8eb2c573cf92ebb361f2d6c0dd20b2400e20f3c60ddd684eb7b6aed",
+      "artifacts/baseline-repaired/pix574-wii-partition-probe": "068d4d20f4d3182dc744000d89ed631481a9523bfcf89dea58f9893318d08ea2",
+      "artifacts/baseline-repaired/pix574-regression-hash": "e95d6423e52bc2e1d78802738760142ec800591682f76706a3dfb935a7da3d6a",
+      "artifacts/baseline-repaired/pix574-md5-alignment": "bb9c83c4631d7a6d86bfa3a636d80895e06be7f71ac68214e2f5173e27d44ab7"
+    },
+    "contracts": {
+      "records/contract-candidate.json": "b8dc6deb77ecb5eba7104dc856588d0f724cb367f10292d3e9e1e127985a8106",
+      "records/contract-baseline-repaired.json": "f0304edae1a42661b60968d617860c143fd9b54033d18f79ef2fc8150f17d639"
+    }
+  },
+  "raw_per_target_receipt_export": "not yet read by this worker; coordinator exports after guest closes",
+  "upstream_standalone": "UNRUN"
+}

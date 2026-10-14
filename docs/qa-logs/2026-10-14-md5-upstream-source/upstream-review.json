@@ -1,0 +1,326 @@
+{
+  "observed_utc": "2026-10-14T03:25:53.908934+00:00",
+  "head": {
+    "commit": "a3194c18ba65ef89734e1898a2f61403c255d368",
+    "date": "2026-10-11T12:07:05Z",
+    "url": "https://github.com/libretro/libretro-common/commit/a3194c18ba65ef89734e1898a2f61403c255d368"
+  },
+  "queries": [
+    {
+      "url": "https://api.github.com/search/issues?q=repo%3Alibretro/libretro-common%20md5&per_page=100",
+      "status": 200,
+      "utc": "2026-10-14T03:20:36.827696+00:00",
+      "link": null,
+      "bytes": 79,
+      "response_sha256": "c9938edecb99d754b2d039ac9eec320a94c769b6a6417921e2dcbef9e2fe01a0",
+      "total_count": 0,
+      "incomplete_results": false,
+      "results": []
+    },
+    {
+      "url": "https://api.github.com/search/issues?q=repo%3Alibretro/libretro-common%20alignment&per_page=100",
+      "status": 200,
+      "utc": "2026-10-14T03:20:36.912360+00:00",
+      "link": null,
+      "bytes": 2633,
+      "response_sha256": "f8f5f53ad7aa88d463ae34fee0d8a01819345f1f5f2ef908c00a74d4064c681c",
+      "total_count": 1,
+      "incomplete_results": false,
+      "results": [
+        {
+          "number": 175,
+          "title": "Fix CHD alignment lzma/zlib issue",
+          "url": "https://github.com/libretro/libretro-common/pull/175",
+          "state": "closed",
+          "kind": "pull_request"
+        }
+      ]
+    },
+    {
+      "url": "https://api.github.com/search/issues?q=repo%3Alibretro/libretro-common%20misaligned&per_page=100",
+      "status": 200,
+      "utc": "2026-10-14T03:20:36.875164+00:00",
+      "link": null,
+      "bytes": 79,
+      "response_sha256": "c9938edecb99d754b2d039ac9eec320a94c769b6a6417921e2dcbef9e2fe01a0",
+      "total_count": 0,
+      "incomplete_results": false,
+      "results": []
+    },
+    {
+      "url": "https://api.github.com/search/issues?q=repo%3Alibretro/libretro-common%20%22strict%20aliasing%22&per_page=100",
+      "status": 200,
+      "utc": "2026-10-14T03:22:21.330405+00:00",
+      "link": null,
+      "bytes": 79,
+      "response_sha256": "c9938edecb99d754b2d039ac9eec320a94c769b6a6417921e2dcbef9e2fe01a0",
+      "total_count": 0,
+      "incomplete_results": false,
+      "results": []
+    },
+    {
+      "url": "https://api.github.com/search/issues?q=repo%3Alibretro/libretro-common%20%22undefined%20behavior%22&per_page=100",
+      "status": 200,
+      "utc": "2026-10-14T03:22:25.326131+00:00",
+      "link": null,
+      "bytes": 2624,
+      "response_sha256": "2812aacdb39ddea25bf5398e5a0fe351630f73a8ef380aee0f6a71e30006239f",
+      "total_count": 1,
+      "incomplete_results": false,
+      "results": [
+        {
+          "number": 155,
+          "title": "Implement and use generic mips libco",
+          "url": "https://github.com/libretro/libretro-common/pull/155",
+          "state": "closed",
+          "kind": "pull_request"
+        }
+      ]
+    },
+    {
+      "url": "https://api.github.com/search/issues?q=repo%3Alibretro/libretro-common%20%22MD5_SET%22&per_page=100",
+      "status": 200,
+      "utc": "2026-10-14T03:22:25.302479+00:00",
+      "link": null,
+      "bytes": 79,
+      "response_sha256": "c9938edecb99d754b2d039ac9eec320a94c769b6a6417921e2dcbef9e2fe01a0",
+      "total_count": 0,
+      "incomplete_results": false,
+      "results": []
+    }
+  ],
+  "file_history": [
+    {
+      "commit": "39eae6ac1c4e4dd809f27cec210ace8d62a5c0a5",
+      "date": "2026-08-23T02:13:03Z",
+      "message": "Resync",
+      "url": "https://github.com/libretro/libretro-common/commit/39eae6ac1c4e4dd809f27cec210ace8d62a5c0a5",
+      "file_sha256": "eac29a1b5ce298408fb43d3b9bbf80aac0429d65c2ae6bca23b4f376c018c566",
+      "word_load_lines": [
+        "(*(uint32_t*)&ptr[(n) * 4])"
+      ]
+    },
+    {
+      "commit": "7040de62ea08e982ca0d3f432b244b494e25fed5",
+      "date": "2026-04-19T19:33:11Z",
+      "message": "Resync",
+      "url": "https://github.com/libretro/libretro-common/commit/7040de62ea08e982ca0d3f432b244b494e25fed5",
+      "file_sha256": "b2395cdacb73c2dde68e4ede779bb530858aca005f463a34198b3dc511a627b4",
+      "word_load_lines": [
+        "(*(uint32_t*)&ptr[(n) * 4])"
+      ]
+    },
+    {
+      "commit": "5cb6e217833af863a6efc684fd859da9f46a65f8",
+      "date": "2024-07-01T15:30:40Z",
+      "message": "Resync",
+      "url": "https://github.com/libretro/libretro-common/commit/5cb6e217833af863a6efc684fd859da9f46a65f8",
+      "file_sha256": "61678d42d82db4172c4b23d3cb1be60af94d12dde453642fe6fe32efe94f77ca",
+      "word_load_lines": [
+        "(*(MD5_u32plus *)&ptr[(n) * 4])"
+      ]
+    },
+    {
+      "commit": "12f050f490f61c1b5a582c7e9e4a104b9a5a83a3",
+      "date": "2020-12-28T18:58:13Z",
+      "message": "Resync",
+      "url": "https://github.com/libretro/libretro-common/commit/12f050f490f61c1b5a582c7e9e4a104b9a5a83a3",
+      "file_sha256": "8d62d9eacf70e07b3dd93a3e219b052413893b2398d70e1be318a981e9047e08",
+      "word_load_lines": [
+        "(*(MD5_u32plus *)&ptr[(n) * 4])"
+      ]
+    },
+    {
+      "commit": "5568b4ef937a60c3cb94267f135532874e7007e2",
+      "date": "2020-01-30T16:48:20Z",
+      "message": "Updates",
+      "url": "https://github.com/libretro/libretro-common/commit/5568b4ef937a60c3cb94267f135532874e7007e2",
+      "file_sha256": "4065615983a947a8fbdb7fe1f58ff2e9ba517e74271334e29fb4b9b631da8e30",
+      "word_load_lines": [
+        "(*(MD5_u32plus *)&ptr[(n) * 4])"
+      ]
+    },
+    {
+      "commit": "3530655b5ab8db7a6f454bf1f05d760ff23b6f3d",
+      "date": "2017-01-17T18:20:46Z",
+      "message": "Updates",
+      "url": "https://github.com/libretro/libretro-common/commit/3530655b5ab8db7a6f454bf1f05d760ff23b6f3d",
+      "file_sha256": "9a51a1764676af4aacb1eb52f57d28055ad465dc071031aa16c8ee76b1917d8f",
+      "word_load_lines": [
+        "(*(MD5_u32plus *)&ptr[(n) * 4])"
+      ]
+    },
+    {
+      "commit": "998e52b6c6621885e7f3ccefdaad81c24e8fd410",
+      "date": "2016-09-30T00:49:53Z",
+      "message": "Update",
+      "url": "https://github.com/libretro/libretro-common/commit/998e52b6c6621885e7f3ccefdaad81c24e8fd410",
+      "file_sha256": "9df8abfc0eda64d02390c36169f0551fed66ce92770a95d80dbc13a64bfdbdbe",
+      "word_load_lines": [
+        "(*(MD5_u32plus *)&ptr[(n) * 4])"
+      ]
+    },
+    {
+      "commit": "2b10335e092f415c1496a9efa93bc47843b59129",
+      "date": "2015-10-21T00:16:20Z",
+      "message": "Update libretro-common",
+      "url": "https://github.com/libretro/libretro-common/commit/2b10335e092f415c1496a9efa93bc47843b59129",
+      "file_sha256": "248f61bb2aa4f398112f886781db1d92293145c5401c4703dfe7f68fbbb950d1",
+      "word_load_lines": [
+        "(*(MD5_u32plus *)&ptr[(n) * 4])"
+      ]
+    },
+    {
+      "commit": "d1260037db0e77afe93726586e70ff5ef2ba3ca8",
+      "date": "2015-10-02T16:08:28Z",
+      "message": "Updates",
+      "url": "https://github.com/libretro/libretro-common/commit/d1260037db0e77afe93726586e70ff5ef2ba3ca8",
+      "file_sha256": "03f9f798d27305cc75041c6938e95c0a88b5127c2718f99bd402c1bbd0e17b3e",
+      "word_load_lines": []
+    },
+    {
+      "commit": "7162c8df9297899a5a1cac6af1bbd964915ec0d3",
+      "date": "2015-09-05T23:38:09Z",
+      "message": "Update",
+      "url": "https://github.com/libretro/libretro-common/commit/7162c8df9297899a5a1cac6af1bbd964915ec0d3",
+      "file_sha256": "8df57f4acd23ec376ce6b46d1170195edb72dd0fa06b4aeb528d42a5fa9018e2",
+      "word_load_lines": []
+    },
+    {
+      "commit": "d4776183730fab9f45d1453b02e1a723325394f5",
+      "date": "2015-06-26T14:03:40Z",
+      "message": "Synchronize with RetroArch",
+      "url": "https://github.com/libretro/libretro-common/commit/d4776183730fab9f45d1453b02e1a723325394f5",
+      "file_sha256": "7644e153f3344f9749e06c4d50eeaf29b86455a730334850450739edb874a425",
+      "word_load_lines": []
+    }
+  ],
+  "related_prs": [
+    {
+      "number": 175,
+      "title": "Fix CHD alignment lzma/zlib issue",
+      "url": "https://github.com/libretro/libretro-common/pull/175",
+      "state": "closed",
+      "merged": true,
+      "body": "",
+      "comment_count": 0,
+      "files": [
+        "formats/libchdr/libchdr_lzma.c",
+        "formats/libchdr/libchdr_zlib.c",
+        "include/libchdr/libchdr_zlib.h",
+        "include/libchdr/lzma.h"
+      ],
+      "md5_overlap": false
+    },
+    {
+      "number": 155,
+      "title": "Implement and use generic mips libco",
+      "url": "https://github.com/libretro/libretro-common/pull/155",
+      "state": "closed",
+      "merged": true,
+      "body": null,
+      "comment_count": 0,
+      "files": [
+        "libco/libco.c",
+        "libco/mips.c",
+        "samples/libco/mips/README.md",
+        "samples/libco/mips/mips_test.c"
+      ],
+      "md5_overlap": false
+    }
+  ],
+  "contribution_guide": {
+    "tree_sha256": "0d94a8b6256b0ccfc574664549ab1bad98971010b02f77b3fbb3a8fbf1c91d44",
+    "recursive_tree_truncated": false,
+    "root_contribution_guide_or_pr_template_found": false
+  },
+  "upstream_releases": [],
+  "source_comparison": {
+    "downstream_candidate": "314da58d68820a79b26f99a5b6c12f9bb37054d5",
+    "downstream_md5_sha256": "102310fd9991c20a7eaf7e4fffd175f9c79607dbac82f65f067a085bfeebb1c0",
+    "driver_sha256": "2c4a9d7a0f49e6bcc0df0e5954e9a2637ba4a02ffc46a322a6465055a7dc5b7a",
+    "upstream_md5_sha256": "eac29a1b5ce298408fb43d3b9bbf80aac0429d65c2ae6bca23b4f376c018c566",
+    "upstream_patched_md5_sha256": "abb534583be673948400ec78931e748cd16db176084669293c7b1c261dd78119",
+    "helper_adaptation": "Exact314 helper/comment/macro, with MD5_u32plus spelled uint32_t; no other upstream product bytes changed."
+  },
+  "latest_md5_change": {
+    "commit": "39eae6ac1c4e4dd809f27cec210ace8d62a5c0a5",
+    "change": "Remove Apple-only guard; unaligned load unchanged. Current HEAD md5 bytes equal39eae."
+  },
+  "raw_receipts": {
+    "pull-155-files-receipt.json": "7d120292c86904499578bd8b216f38c050a1923fdabd51ee608eecd19163943b",
+    "pull-155-files.json": "fd53f15f48cf138bd83bd468df21f46a2f1ba0cd55bd058befb96a609c486b4c",
+    "pull-155-receipt.json": "e7832d0fc95938fdbfaf7bcd74bfab1e48479c3c5c36450f73cc8437fc8c7d4a",
+    "pull-155.json": "3841b4dd871ac2ca992785130be77999412c0e155fed5e7dba586c94e7d2648e",
+    "pull-155-comments-receipt.json": "f71b2c3ce43458c3d5ecc9172ffb5497789aa4d05edf965be239800aeb3de5e3",
+    "pull-155-comments.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "undefined-issues-receipt.json": "8e1b1839f869eee1dd2f986c533ad7000049a72752a40b5334ec1128b133b8e1",
+    "undefined-issues": "2812aacdb39ddea25bf5398e5a0fe351630f73a8ef380aee0f6a71e30006239f",
+    "macro-issues-receipt.json": "34d76af9c852166b4a35bcbeddfbf858db53bc6270f71fc5317a6971f8a00d90",
+    "macro-issues": "c9938edecb99d754b2d039ac9eec320a94c769b6a6417921e2dcbef9e2fe01a0",
+    "aliasing-issues-receipt.json": "3f433d01bc6643fce237406dbfe19861dfed7d36e86e3a1bf897a20778b2a970",
+    "aliasing-issues": "c9938edecb99d754b2d039ac9eec320a94c769b6a6417921e2dcbef9e2fe01a0",
+    "source-include__boolean.h-receipt.json": "9aa29e3c379a1fe5922c0f20c3b72bf1fc4ab0293b97842f0269d29a58fcb773",
+    "source-include__boolean.h": "9ae2871b702c3c7d89b5e0e40de28895e72bd0177e1d6da32cde6f59e46bb36e",
+    "source-include__retro_inline.h-receipt.json": "a7cff0cffa5b0eeacf2ee79617bda3cb4c858db824f972f406e8078e7913e8fb",
+    "source-include__retro_inline.h": "7543242f56677091d46e3bc9a8b7d567a0df631cb8cdb1878970feaa53f77403",
+    "history-d4776183730fab9f45d1453b02e1a723325394f5.c-receipt.json": "303e472206628a0b29cb3cbc2fd5874e3a351c090e3753e0e061b5297a8fc319",
+    "history-d4776183730fab9f45d1453b02e1a723325394f5.c": "7644e153f3344f9749e06c4d50eeaf29b86455a730334850450739edb874a425",
+    "source-include__retro_common_api.h-receipt.json": "011aa9a99beb00a33a588e82e98dfed5313a51cce06b4b301bfe3b4aa69167e3",
+    "source-include__retro_common_api.h": "e7a811f84a29193bdb6aa2a4586c072b569fe8c039bbb17b658c58927e14f37a",
+    "source-include__compat__msvc.h-receipt.json": "fafc59d5dde46de9cca713bf9981e6ed5a88151a5cbdec86053d183ffb767678",
+    "source-include__compat__msvc.h": "1baf8f5a3ed1abcb8eeefdda72f663ce49391e12cc5fbe9ca32fbae66dbf524d",
+    "source-test__utils__test_utils.c-receipt.json": "135c6463c1d9b83cd8199762eb8ebb6402ba8b27dced5a806d6778e8edf5cf67",
+    "source-test__utils__test_utils.c": "a3efafee14926a6bcfe2ee092b6862be50d63f15f9354852cd746f25976ac8cd",
+    "history-7162c8df9297899a5a1cac6af1bbd964915ec0d3.c-receipt.json": "5c45486bb1c237ed7ee5eed08715cf03a352bc60f9f63c871f707ec2e74ceef6",
+    "history-7162c8df9297899a5a1cac6af1bbd964915ec0d3.c": "8df57f4acd23ec376ce6b46d1170195edb72dd0fa06b4aeb528d42a5fa9018e2",
+    "history-d1260037db0e77afe93726586e70ff5ef2ba3ca8.c-receipt.json": "98075e4c33fd91bb5051669fd43676fa0d9cbad14cce861948cb94192a04045d",
+    "history-d1260037db0e77afe93726586e70ff5ef2ba3ca8.c": "03f9f798d27305cc75041c6938e95c0a88b5127c2718f99bd402c1bbd0e17b3e",
+    "history-3530655b5ab8db7a6f454bf1f05d760ff23b6f3d.c-receipt.json": "07314a7b2c47ec29f5ab30fd5118ad559219b3c4d810f1640c22df16dc4eb52c",
+    "history-3530655b5ab8db7a6f454bf1f05d760ff23b6f3d.c": "9a51a1764676af4aacb1eb52f57d28055ad465dc071031aa16c8ee76b1917d8f",
+    "history-2b10335e092f415c1496a9efa93bc47843b59129.c-receipt.json": "ee9a8a5a1425eeb3746e20b93ec3ebbc2fc66e8b4d11f29907639e22bf5f15b0",
+    "history-2b10335e092f415c1496a9efa93bc47843b59129.c": "248f61bb2aa4f398112f886781db1d92293145c5401c4703dfe7f68fbbb950d1",
+    "history-998e52b6c6621885e7f3ccefdaad81c24e8fd410.c-receipt.json": "552d373694c6ef26d980b51d70993ae71e052e0f71d47a01757d004c17503976",
+    "history-998e52b6c6621885e7f3ccefdaad81c24e8fd410.c": "9df8abfc0eda64d02390c36169f0551fed66ce92770a95d80dbc13a64bfdbdbe",
+    "history-12f050f490f61c1b5a582c7e9e4a104b9a5a83a3.c-receipt.json": "6d81f85182b3c78121367deead5f7f8fe796e1d6d45878c289a39a1d4fee543c",
+    "history-12f050f490f61c1b5a582c7e9e4a104b9a5a83a3.c": "8d62d9eacf70e07b3dd93a3e219b052413893b2398d70e1be318a981e9047e08",
+    "history-39eae6ac1c4e4dd809f27cec210ace8d62a5c0a5.c-receipt.json": "c347b7eb98be6836694af3a7d2c0d27a53da61378438b2922f14e7beb8497e1e",
+    "history-39eae6ac1c4e4dd809f27cec210ace8d62a5c0a5.c": "eac29a1b5ce298408fb43d3b9bbf80aac0429d65c2ae6bca23b4f376c018c566",
+    "history-5568b4ef937a60c3cb94267f135532874e7007e2.c-receipt.json": "01ccb5e02067a0a21f97a6e9c043fdb155147947c14bce34b787bcbebce20701",
+    "history-5568b4ef937a60c3cb94267f135532874e7007e2.c": "4065615983a947a8fbdb7fe1f58ff2e9ba517e74271334e29fb4b9b631da8e30",
+    "history-5cb6e217833af863a6efc684fd859da9f46a65f8.c-receipt.json": "f2dcbb73531b2a44ccae1ba6bea7c77d1570ed8d03c40d7376f0dd1751a52dda",
+    "history-5cb6e217833af863a6efc684fd859da9f46a65f8.c": "61678d42d82db4172c4b23d3cb1be60af94d12dde453642fe6fe32efe94f77ca",
+    "history-7040de62ea08e982ca0d3f432b244b494e25fed5.c-receipt.json": "9dcc7c92f3f4938058658191ebb0f97ec6983f1ec6307b4597dea71e23cc1edc",
+    "history-7040de62ea08e982ca0d3f432b244b494e25fed5.c": "b2395cdacb73c2dde68e4ede779bb530858aca005f463a34198b3dc511a627b4",
+    "upstream-tools-README.md-receipt.json": "14b70c36f42e816dbb133cbfe718dcca157a02ca6398f408a8d8f01889263c7f",
+    "upstream-tools-README.md": "a2f8879b673a063268400a4aabe9a71a2da0d24744c88c25d1cd6ae83f1e5329",
+    "upstream-Makefile.test-receipt.json": "1aa9eb84bcf22d136c48f8acd96c4217cda98c7d7735ab5e00e14d02c855f963",
+    "upstream-Makefile.test": "943011e90d949d45da47d90291ccb5f009b406a70dc33db9507e928239b591d9",
+    "upstream-lrc_hash.h-receipt.json": "9359c0bb2b94ac9ff6e71a17b83dffe2eb90a05709ac2dedd4c7d0f60312b924",
+    "upstream-lrc_hash.h": "9891fb7b8bdc2c3237e7534d271b3c64a4b17d293c2c1c6ac36f2bc3ffed8e28",
+    "upstream-md5.c-receipt.json": "d7ec68af0ba2935727e35e351ff7efa09af93b8575b6af562305248fbb0cedd0",
+    "upstream-md5.c": "eac29a1b5ce298408fb43d3b9bbf80aac0429d65c2ae6bca23b4f376c018c566",
+    "releases-receipt.json": "09ec34f1180c3604cb3ac0b7f39ca045c6591fdc6bb20752fa1bd60d3d40fd88",
+    "releases.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "latest-md5-change-receipt.json": "26d7e5236afd1b9f67c5dfe8fa3c49919cce79b6a5143f434aedccab14f557bc",
+    "latest-md5-change.json": "fef1348ad0415ad9bc2ef62fd99f090f17ea190768ec17d6a05542a9905e208a",
+    "pull-175-files-receipt.json": "684a91d014c8c2328b2779c4ff32f6253f1f7421767fb8faf8148e1e020bb3fb",
+    "pull-175-files.json": "a46a946c9b20f5154d241c40e872201de47d8f16ced378b5b4966cf6409b1fc3",
+    "tree-receipt.json": "b521f29e51b54c556a593a6056713417a5dc1e98d2cc68c87fc9de4d4c72fb28",
+    "tree.json": "0d94a8b6256b0ccfc574664549ab1bad98971010b02f77b3fbb3a8fbf1c91d44",
+    "pull-175-receipt.json": "90df9c0e083679005b6261a79fa5b0b526fb705989349899eeaf27cdef19af4b",
+    "pull-175.json": "c44e88c7b5573462065e5af298a36ca8db669a03e97ca5671d060b8fd8d6f6bb",
+    "pull-175-comments-receipt.json": "ac45a90626a3fce2feb8da17053d5ea92220b413488db9706ff36103c47d2fc1",
+    "pull-175-comments.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "md5-history-receipt.json": "20ba4ca7ccdde530a6621457cb3e38f74145400e3ceed90ccf8122a4792f1ccb",
+    "md5-history.json": "0644f3676892de7d2d3b7b035dcda2f1d4e3ef1a7764110ff45362c637ddab49",
+    "head-receipt.json": "4104cb3da742bf3fa1e178dc63425299161090253769da5829f3db88c8f86985",
+    "head.json": "e2c087dc5ee880646d48edccdc0ae5219ee4e23924950393a7122554df33a5ac",
+    "alignment-issues-receipt.json": "80655af5a970523784bf4cf0dbbe2674ad49f637f79017adf7142599bf0f120f",
+    "alignment-issues.json": "f8f5f53ad7aa88d463ae34fee0d8a01819345f1f5f2ef908c00a74d4064c681c",
+    "misaligned-issues-receipt.json": "955501c0694353fd398ecb8ab3e7455617c6c1f8b02498ec990f2d93202d4ebf",
+    "misaligned-issues.json": "c9938edecb99d754b2d039ac9eec320a94c769b6a6417921e2dcbef9e2fe01a0",
+    "md5-issues-receipt.json": "f316e116a857dd0802c5d9de95f27976244f994c8f28150e8bc218a8e6316ad2",
+    "md5-issues.json": "c9938edecb99d754b2d039ac9eec320a94c769b6a6417921e2dcbef9e2fe01a0"
+  }
+}

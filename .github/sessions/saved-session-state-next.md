@@ -1,155 +1,111 @@
 # Saved Session State
 
-Updated 2026-10-14 02:40 UTC. Continue M7 toward next0.0.1 RC.
-Coordinator Herdr w4:p2: /workspace/repos/rocknix.worktrees/m7-player-setup,
-feature/m7-player-setup; published next0ea6eaf74ad47503c05955d1c0bd4bd00bdfb816 unchanged.
-Harness conflict-resolution untouched. Read next rules, this checkout's new
-engineering-practices D-WORKFLOW-164, latest worklog and live milestone7.
-No production pin, firmware/RC, device/cloud/account/save operation, upstream
-submission or external audit transfer has happened in this continuation.
+Updated 2026-10-14 03:38 UTC. Continue M7 toward the next 0.0.1 candidate.
 
-## Current state — no active runtime allocation
+Coordinator Herdr `w4:p2` owns `/workspace/repos/rocknix.worktrees/m7-player-setup`,
+branch `feature/m7-player-setup`. Published `next` remains
+`0ea6eaf74ad47503c05955d1c0bd4bd00bdfb816`. The harness checkout
+`conflict-resolution` is stale and untouched. Read `next` rules, the local
+engineering-practices addition D-WORKFLOW-164, today's work log and live milestone7.
+Git history identifies the final local record commit; it has not been pushed.
 
-Offline owner /workspace/tmp/pix-m7-offline-vm-20261014 COMPLETE/RETIRED:
-35 original submitted owners consumed, actual PIDs exited; lifecycle0 finished
-02:30:14 before02:35 hard stop. Both standard8GiB4CPU no-NIC640/1280 profiles
-completed. Disk/UEFI/input/output/extra media and raw export retired;
-2,652,819,456allocated bytes reclaimed, admission454e2bcc854444eb86aa6e9161788e79
-consumed. NO guest, serial socket, port5996 or command from this owner is reusable.
-Do not replay old scripts. Sandbox /proc is not host PID evidence.
+No production script/pin, firmware, RC designation, device/cloud/account/save
+operation, external audit transfer or upstream submission occurred in this continuation.
 
-Durable source/log/frame proof: docs/qa-logs/2026-10-14-offline-components/.
-README and41-frame index state exact limits;3776retained files sealed bySHA256SUMS.
-Raw duplicate PPMs, synthetic ROMs, caches, executables, private keys and raw
-configs excluded; archive-disposition retains original member sizes/hashes.
-Original failed attempts stay failed. Canonical menu map updated.
-Sanitizer compilation packet2026-10-14-library-sanitizers/ also sealed157files.
+## Runtime is complete and retired
 
-Public Steam acquisition owner /workspace/tmp/pix-steam-public-download-20261014
-COMPLETE1/exited. Its curl0 downloaded exact110373661bytes in23.9s; fullSHA child0
-matches8b31d0b0aa844d906b690283da41403b601a9b36b1f80b7819d1f85bb27854fc.
-Wrapper fails only at final optional curl metadata lookup request_size; actual
-field size_request. All3children0/nointervention/remainingtasks, allhostPIDsabsent.
-Original FAIL remains. NO redownload. Existing archive.zip retained solely for
-next immediate offline inspection. No host decode/execution occurred. Source
-worker prepares additive correction and honest recovery receipt. Sanitized public
-record2026-10-14-steam-public-intake/ (11files) omits endpoint addresses/certs.
+`/workspace/tmp/pix-m7-rvz-vm-20261014` completed at03:24 UTC. All ten original
+submission owners were consumed and actual host PIDs, including QEMU3686526,
+were absent. Lifecycle exited0 and unmounted output before stopped-disk export.
+Admission `72c06db260934b7683c44a75ef5025a5` is consumed. Disks, UEFI, media,
+duplicate staging and MD5 compile objects/source snapshots were removed:
+2,631,122,944 allocated bytes. No socket, port5998 or prior command is reusable.
+The previous offline owner is also retired. Never replay either allocation.
+Sandbox `/proc` does not establish host process absence.
 
-## Existing Herdr source-only workers
+Read [component evidence](../../docs/qa-logs/2026-10-14-rvz-proxy-components/README.md)
+for exact sources, original failures, receipts and limitations. The packet retains
+830 small guest output files in an archive, readable key results and complete
+launcher/runner/watcher records. A final closeout print failed after retirement;
+independent readback confirmed consumed state and every retired path absent.
 
-- w4:p8 pix-memory owns m7-browser-memory-570, #583: trace exact proxy pin+local
-  patches/current upstream RVZ discovery/hash/cache, minimal adaptation and test
-  plan. Preliminary padding-offset rounding finding is source-only, not proven
-  cause of owner's missing achievements. Local packet still in progress; consume
-  exact final commit and hashes before integration. No runtime allocation.
-- w4:p7 pix-gtk4 now owns m7-steam-preservation-integration, #582: source-only
-  acquisition metadata correction and recovery using existing archive/original
-  receipts. No network, redownload, host decode or runtime. Completed index
-  log correction84faea63d9 is already executed/accepted below.
-- w4:p9 pix-nova now owns m7-rvz-regressions-574: source-only target compile/
-  runtime plan for MD5 candidate314da58d68820a79b26f99a5b6c12f9bb37054d5 from
-  /home/max/Development/emulationstation-next.worktrees/m7-md5-alignment.
- 264digest controls and repaired-baseline/candidate wrapper proof due. No build,
- container/VM or new allocation. Independent format tools1c0e93 remainUNRUN.
+Only nine original target artifacts (~32MB) under
+`/workspace/tmp/pix574-md5-target-20261014/artifacts` and the single public archive
+`/workspace/tmp/pix-steam-public-download-20261014/download01/archive.zip`
+remain for immediately queued qualification. Do not redownload or recompile them.
+The MD5 compile admission is already consumed as failed-investigated: Docker and
+all stages exited0, but the wrapper remains1 due to capitalization in its exact
+container-absence parser. Recovery8568 binds the original source/artifact identities.
 
-Their Herdr startup cwd may be historical; ownership above is explicit.
-Coordinator owns runtime/admissions/shared records/integration. Reuse these
-visible lanes; no internal subagents. Inspect acknowledgment before new prompts.
+## Results and remaining work
 
-## Completed component results and remaining limits
+- **#583:** The proxy already supports RVZ. Its current upstream reader matches
+  our pin; Linux RVZ support#51 is already included. Revised padding candidate
+  passes126 unaligned comparisons where the original fails all126, plus72 aligned
+  and6 malformed controls each. All44 listing controls pass: explicit retry of
+  an exact zero-hash RVZ preserves automatic mode, valid unmatched hashes,
+  unrelated indexed roots and synthetic queue bytes. An ASCII-codec preload
+  corrects only the fixture. Native hashing, installed libraries, independent
+  Dolphin parity, cache/account/award/reconnect and codec/error coverage remain.
+  This is neither a memory measurement nor the established cause on the Nova.
+- **#584:** Dolphin routing candidatec225 passes126 full-script configuration
+  cases with fixture3a65. The original missing `/proc/.../children` failure stays
+  failed. Listener presence is not service identity/readiness. Native Dolphin
+  and installed service qualification remain. The source packet is imported;
+  the product script is still only in its worker commit. No #581 save-path change.
+- **#574:** MD5 candidate314da58d passes43 recovery controls,264 independent
+  digest rows per repaired composition (528 comparisons), GameCube ISO/Saturn
+  ISO+CUE repeats, two Wii helpers and expected truncated-input exit2. All ten
+  target commands are accepted with empty sanitizer stderr. Pristine inherited
+  UB and original compile-wrapper failures remain. Full formats/CHD, independent
+  DolphinTool, whole Wii images, ARM/big-endian and final frontend remain open.
+  Upstream packeta58b2313 contains a one-file `utils/md5.c` patch, public reproducer
+  and local PR draft. Current-upstream standalone compilation/runtime is UNRUN.
+  Its destination is libretro/libretro-common, not rcheevos.
+- **#582:** Separate hash recovery and offline archive inspection pass:55 member
+  CRCs,339635561 decoded bytes, five backslash mappings, three stored symlinks and
+  required AArch64 ELF structures. No payload execution. The original acquisition
+  remains1. Packet153f0663 documents existing/self-updated-client recognition and
+  profile/STEAM_DOT ordering alternatives. Its25 controls are specifications;
+  there is no implemented installer repair. Do not silently reject working old
+  clients to satisfy a synthetic test.
 
-#567 four native ES API branches PASS with fixture84faea63d9: success, missing
-account77/no stamp, failed lookup/no topup, no-new-work/no requests. Success
-identifies one synthetic game and calls simulated ctl once. ES/listener0,
-no forced/remainingtasks, output guardPASS. This is not actual proxy or UI proof.
-Original8MiBFSIZE failure is PulseAudio64MiBmemfd, not browserRAM regression.
-Nine corrected output/limit controls pass. Intermediate missing-log failure is
-unsupported --log-path plus warning-only default; supported privateINI and
-information level fix the fixture, original40s readinessbound unchanged.
-Old parent census omitted /var/log; do not claim full log containment there.
-#567comment6159645050 binds disposition. Actual proxy (#583), UI/final image due.
+Earlier accepted component evidence remains in
+`docs/qa-logs/2026-10-14-offline-components/` (41 reviewed frames): #575 French
+replacement descriptions pass both sizes; #581 French640 refusals pass, updated
+English640 long-card-path frame and native engines remain; #567 four native ES
+API branches pass with simulated ctl, actual proxy/UI/image qualification remains.
+Actual ESbb9e/SHA8752... is separate from production c8dc72. Original failures stay.
 
-#581 three small03 and four small04 callers complete; small05 two remaining
-French640 refusals PASS with display-only card-path newline1a7714fd81 and
-fixture5a385f12e3.32selection/5entry/30path controlsPASS, sixnew reviewedframes.
-Retained trees identical; controlled runemu250/engine0; ES/session/unshare/
-restore0/no tasks. Updated English640 card layout frame still due. Earlier
-black/clock-only FRentry assessment was WRONG: originalPNG/PPM has selected
-view. The timeout beforeinput remains failed; new subset supplies separateproof.
-No native Dolphin/final-image/upgrade qualification. #581comment6159645285.
+## Existing Herdr source lanes — no runtime rights
 
-#575 French09afa catalog compiled; all3replacement descriptions now pass global/
-per-game640/1280frames, no game launch, final1280settings byte-identical. Global
-640 normalizes only incremental0to2 per D-UI-083 (both off); parsed preferences
-unchanged. Old rawcmpfailure retained. #575comment6159645579. Production ES
-c8dc72 unchanged; actual stagedbinarybb9eSHA8752b539... remains source-bound.
+- `w4:p8` pix-memory owns `m7-browser-memory-570`; complete and idle after
+  c22554a4c0966d48ba405ef1640938d2a417817b and
+  3a65a2d4d274105cd5a1b2e72c44450f7dbbdafe. Original819 and revision22cf are retained.
+- `w4:p9` pix-nova owns `m7-rvz-regressions-574`; complete and idle after
+  a58b2313845a824af1dfe150a77b610dd38c0213. Source0962 and recovery8568 are imported.
+  Independent format plan1c0e93b4b34501928c79f9ade5b2b4c1442331a4 remains UNRUN.
+- `w4:p7` pix-gtk4 owns `m7-steam-preservation-integration`; complete and idle
+  after decision packet153f0663eb6de8467e873996db81042a969ac0c6. No runtime granted.
 
-#574 whole-library ASan/UBSan compile03 PASS; first runtime stopped1 on inherited
-libretro-common MD5 unalignedload. Do not disable sanitizer. Memcpy candidate
-314da58d6 is local, UNCOMPILED/UNRUN. Independent concurrentRVZreader lifetime and
-5Dolphin padding vectorsPASS0/emptystderr; fullformat/CHD/nativeDolphin tool proof
-still due. MD5 upstream is libretro/libretro-common utils/md5.c39eae, NOT rcheevos;
-initial routing note corrected explicitly in #574comment6159426278 and worklog.
+Startup directories may be historical; these explicit assignments govern. Reuse
+the visible lanes, no internal subagents. Coordinator owns runtime, admissions,
+integration and shared records. No source-only handoff grants runtime authority.
 
-#582 synthetic CRC fixture71e66 reproduces failedextract1 then retry0 despite
-missingexecutable/noacquisition. Separate valid-existing-client0preservesdata.
-Fresh-client andallowed-aliasfullcallersPASS. Public ZIP acquired as above,
-offline inspection and productrepairpending; do not delete unknown partialdata.
+## Next work in order
 
-## Owner steering and next actions
+1. Review and freshly admit independent DolphinTool/CHD plan1c0e93, then native
+   proxy/hash/cache protocol proof with the corrected reader. Separately verify
+   the current-upstream MD5 reproducer before any submission is proposed.
+2. Finish #581 English640/native proof and #567 actual proxy/UI. Resolve #582's
+   existing-client/profile contract while preserving compatibility, then implement
+   and qualify the installer repair. Specifications are not executable fixtures.
+3. Compose #563 ROCKNIX stable20261001 foundation; #565 payload/clean/retained
+   state and #349; #566 developer identity; combined VM/audit; #555 H700 then
+   SM8550; #528/#344 custody/publication. #493 automatic retirement is separate.
+   #395 off-session notifications are not armed; long jobs need active supervision.
 
-New #583 records owner RVZ proxy request verbatim. Existing D-RA-016 and
-D-WORKFLOW-138 already require proxy contributions; new D-WORKFLOW-164 makes
-consideration explicit for every applicable component fix, with minimal patch,
-upstream target/current comparison and public regression evidence. Rules and
-register checks pass. No upstream posting authorized merely by preparation.
-
-Consume the three source-only handoffs, review exact patches, prepare fresh
-finite admission for MD5 compile then offline runtime/Steam inspection. Never
-reopen the retiredVM. Need independentformattools build afterresourceplan.
-Preserve priorfailure evidence and existingclient/data. No externalreviewtransfer
-or physicaloperation follows automatically. Current shared changes are local;
-check gitstatus/log for recordcommit and do not presume publishednextcontains them.
-
-M7order remains:575/574/setup+583 ->581 ->567 ->Steam564/579/580/582 ->563
-stable20261001 ->565payload/clean/retained+349 ->566developeridentity ->combined
-VM/audit ->555H700thenSM8550 ->528/344. #493automaticretirement separate; #395
-alerts notarmed (active supervision required). ScreenScraperidentity clarification
-pending; no secret values requested. No knownfailure waived or issueclosed.
-
-[Previous checkpoint](archived/saved-session-state-next-20261014T022000Z.md)
-
-## 02:49 UTC source handoff update
-
-Proxy packet819d1c30ec6bc4d7354babecec1b84ceed960189 received/hashverified and
-imported at docs/qa-logs/2026-10-14-proxy-rvz-source/. Read its README/bindings.
-Two candidates (padding byteoffset, explicit RVZ zero-sentinel recovery) are
-UNRUN; production scripts/pins untouched. Source/report criterion and rule
-criterion recorded on#583; runtime open. New#584 Dolphin offline-toggle routing
-gap; w4:p8 now owns minimal cheevos_dolphin.sh candidate+full-script synthetic
-controls in m7-browser-memory-570, source-only. w4:p7 Steamrecovery and w4:p9
-MD5targetplan continue source-only. No runtime active. Shared record commit
-d029982dd30b28711f3cb6cf774fc9d052675d6c exists locally; this importedpacket/update
-is the following uncommitted change until next record commit. No push.
-
-02:50 UTC review hold: do not run819 candidate packet as accepted fix yet. Root
-review found extra full-size bytearray in padding return conversion and global
-failed-set causing traversal of unrelated indexed roots. w4:p8 received additive
-revision request (memoryview, root-scoped traversal, no-walk control), separately
-from#584 routing. Keep sealed819 unchanged. No runtime resources active.
-
-## 03:00 UTC resumed handoff state
-
-Sealed22cfb2385a proxy additive revision is imported at
-docs/qa-logs/2026-10-14-proxy-rvz-revision-source/. Review hold resolved in source:
-memoryview removes full temporary bytearray, scan-root predicate narrows traversal,
-new unrelated-root control. Use new probe with adjacent original819packet; UNRUN.
-#584 routing remains w4:p8 source-only. w4:p9 MD5 target plan still preparing.
-w4:p7 Steam b09fcbb02b is complete/imported; source-only idle pending archive proof.
-
-Fresh recovery-owner01 under pix-steam-public-download-20261014 is COMPLETE0:
-recovery01 PASS, hashchild0,110373661bytes unchanged/SHA8b31d0..., no new download.
-Original acquisition FAIL1 untouched. Watcher20261014T025623Z-b73ccd63 all0, actual
-hostPIDs3635080/3635083/3635091/3635137 absent. Compact sealed public recovery
-packet records result. No host archive decoding/payload execution. Retain archive
-for immediate offline verification. No current runtime. Never replay recovery.
+D-WORKFLOW-164 explicitly requires upstream contribution consideration, extending
+D-WORKFLOW-162 and earlier proxy decisions D-RA-016/D-WORKFLOW-138. No issue was
+closed or known failure waived. Full earlier details and links remain in the
+[previous checkpoint](archived/saved-session-state-next-20261014T030000Z.md).

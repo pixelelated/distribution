@@ -1,0 +1,10 @@
+--- sealed22cf/probe.py
++++ fixture-correction/probe.py
+@@ -9,6 +9,7 @@
+ import ast
+ import contextlib
+ import dataclasses
++import encodings.ascii  # Preload ElementTree default encoding before the strict file guard.
+ import hashlib
+ import io
+ import json

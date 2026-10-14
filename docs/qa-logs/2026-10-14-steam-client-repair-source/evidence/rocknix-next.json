@@ -1,0 +1,54 @@
+{
+  "read_utc": "2026-10-14T03:18:18.448439+00:00",
+  "argv": [
+    "gh",
+    "api",
+    "repos/ROCKNIX/distribution/commits/next"
+  ],
+  "exit": 0,
+  "stderr": "",
+  "response": {
+    "sha": "becc8cb2a97b8b44b25d39dd5b6aa8f77b0af1c5",
+    "html_url": "https://github.com/ROCKNIX/distribution/commit/becc8cb2a97b8b44b25d39dd5b6aa8f77b0af1c5",
+    "commit": {
+      "author": {
+        "name": "Noxwell",
+        "email": "78569681+beebono@users.noreply.github.com",
+        "date": "2026-10-13T19:48:27Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-13T19:48:27Z"
+      },
+      "message": "Merge pull request #3497 from beebono/rgds-vib\n\ndts/inputplumber: move vibrator to shared dtsi, enable it for rgdsplus",
+      "tree": {
+        "sha": "680c87e9d20aa7b02260fd4db1625e5e1beb4c24",
+        "url": "https://api.github.com/repos/ROCKNIX/distribution/git/trees/680c87e9d20aa7b02260fd4db1625e5e1beb4c24"
+      },
+      "url": "https://api.github.com/repos/ROCKNIX/distribution/git/commits/becc8cb2a97b8b44b25d39dd5b6aa8f77b0af1c5",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqzosLCRC1aQ7uu5UhlAAAENkQAF9sFUlBnoj49KP76/4hSnsi\n0RsXN5GMq16WAKl9SV1mKe5r/4yVjpE1jqupQY9Xr3ZjgSEyd+eFX+rZW1mQUAHN\nB3rNr+Zak6aBEoFIHg4z7cY3H32pyL+lIZJIpLudpTBrLK0JPmWehRHDjvJOb5Iz\n/urZejwbMSJLbhmx6T6LtHShsWhIXoq3/NY6Me2+BY5lmrfvgQoz+rY7JoYmw6M3\nJU9Clml3tXpYXKCMEXDQ+gfaj4dEq5DGuPE/pYuanQgE7+gvLBgVfnXmdua4lP4K\nf1eX9hoKWqD05RcAB910Ixx3kbxQqNrWFn1BqbVS78k6pTocDhb9lbg8prQtWSPn\ng4+UjHcNyFemvG7zj1Uie0QsfgkcjYaQzDoMNe/jm7WNfrFX8YMp2qUsqvlhiyNK\nYYmEcrFwq3vS8oRDVz4cFAp06qVBA7YYE+jpvz+nVNE+Xq2pZMjQVWmrIrzlVI16\nQMi/Bz7HjydFvs966Ma4JSAko78V6iAvwlmK6PVqxaGt1xhDM38cRe2ADSA+7Dfq\nTwSaP+4rl9QdfJXloTRE9lYtlOiYFXm5vKFBGbhJ4fQkeawU+LG7b41QAtCaz0Fw\ng+BTr5BLbseiQckfxjoCNcvRCr7iN6o7zjhks4UZeU4Iugr5s4XzG3XH6ylyUygg\nMCuqHwF13FtotASlLjmk\n=UPbw\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 680c87e9d20aa7b02260fd4db1625e5e1beb4c24\nparent de2908623f678701065ee3bc2618729253666ee1\nparent e901f3b9e364b9cb8edd8cc2dae061c7a8f9d7ee\nauthor Noxwell <78569681+beebono@users.noreply.github.com> 1791920907 +0000\ncommitter GitHub <noreply@github.com> 1791920907 +0000\n\nMerge pull request #3497 from beebono/rgds-vib\n\ndts/inputplumber: move vibrator to shared dtsi, enable it for rgdsplus\n",
+        "verified_at": "2026-10-13T19:48:43Z"
+      }
+    },
+    "parents": [
+      {
+        "sha": "de2908623f678701065ee3bc2618729253666ee1",
+        "url": "https://api.github.com/repos/ROCKNIX/distribution/commits/de2908623f678701065ee3bc2618729253666ee1",
+        "html_url": "https://github.com/ROCKNIX/distribution/commit/de2908623f678701065ee3bc2618729253666ee1"
+      },
+      {
+        "sha": "e901f3b9e364b9cb8edd8cc2dae061c7a8f9d7ee",
+        "url": "https://api.github.com/repos/ROCKNIX/distribution/commits/e901f3b9e364b9cb8edd8cc2dae061c7a8f9d7ee",
+        "html_url": "https://github.com/ROCKNIX/distribution/commit/e901f3b9e364b9cb8edd8cc2dae061c7a8f9d7ee"
+      }
+    ]
+  },
+  "intake_record_sha256_before_projection": "4f68ba7502a99b4d8bb526739a97b8f9438f3387710d82773366270bc2cb75a1",
+  "projection": "Selected response fields retained below; unneeded API metadata and unrelated search-result bodies/assets omitted. This is not the original HTTP byte stream."
+}

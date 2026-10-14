@@ -1,0 +1,14 @@
+function set_kill() {
+  if [ "${1}" = "set" ]
+  then
+    cat <<EOF >/tmp/.process-kill-data
+${2}
+EOF
+  elif [ "${1}" = "stop" ]
+  then
+    if [ -e "/tmp/.process-kill-data" ]
+    then
+      rm -f "/tmp/.process-kill-data"
+    fi
+  fi
+}

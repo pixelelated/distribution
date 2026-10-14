@@ -1,0 +1,270 @@
+{
+  "read_utc": "2026-10-14T03:18:24.845313+00:00",
+  "argv": [
+    "gh",
+    "api",
+    "search/issues?q=repo%3AValveSoftware/steam-for-linux%20is%3Aissue%20%22bootstrap%22%20%22corrupt%22&per_page=30"
+  ],
+  "exit": 0,
+  "stderr": "",
+  "response": {
+    "total_count": 28,
+    "incomplete_results": false,
+    "items": [
+      {
+        "number": 2284,
+        "title": "Steam launcher fails without error message when trying to update and disk space is low.",
+        "state": "open",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/2284",
+        "created_at": "2013-04-07T18:56:24Z",
+        "updated_at": "2019-07-18T02:39:17Z",
+        "closed_at": null
+      },
+      {
+        "number": 10543,
+        "title": "Steam blacked out on startup",
+        "state": "open",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/10543",
+        "created_at": "2024-02-28T04:00:37Z",
+        "updated_at": "2024-06-01T00:53:02Z",
+        "closed_at": null
+      },
+      {
+        "number": 10412,
+        "title": "Steamwebhelper is not responding: steam-runtime-sniper.tar.xz not fully unpacked",
+        "state": "open",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/10412",
+        "created_at": "2024-01-20T18:11:22Z",
+        "updated_at": "2024-11-04T14:59:30Z",
+        "closed_at": null
+      },
+      {
+        "number": 5511,
+        "title": "Error: You are missing the following 32-bit libraries, and Steam may not run: libc.so.6",
+        "state": "open",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/5511",
+        "created_at": "2018-06-02T17:19:30Z",
+        "updated_at": "2022-12-04T19:08:23Z",
+        "closed_at": null
+      },
+      {
+        "number": 13369,
+        "title": "steamwebhelper is leaking RAM like no tomorrow, causing an OOM",
+        "state": "open",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/13369",
+        "created_at": "2026-07-01T16:16:56Z",
+        "updated_at": "2026-09-11T18:56:47Z",
+        "closed_at": null
+      },
+      {
+        "number": 11602,
+        "title": "Steam ends up in crash loop if steam-runtime-sniper.tar.xz is corrupted",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/11602",
+        "created_at": "2024-12-26T20:33:36Z",
+        "updated_at": "2025-03-08T01:30:24Z",
+        "closed_at": "2025-03-08T01:30:19Z"
+      },
+      {
+        "number": 10576,
+        "title": "Steamwebhelper ERROR:broker_posix.cc(43) Invalid node channel message",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/10576",
+        "created_at": "2024-03-04T04:59:49Z",
+        "updated_at": "2024-06-21T03:46:28Z",
+        "closed_at": "2024-06-21T03:46:27Z"
+      },
+      {
+        "number": 10538,
+        "title": "steam crashing if the filesystem is readonly",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/10538",
+        "created_at": "2024-02-27T20:13:44Z",
+        "updated_at": "2024-03-01T23:17:22Z",
+        "closed_at": "2024-03-01T23:17:21Z"
+      },
+      {
+        "number": 6749,
+        "title": "Remote Play Crackling Audio",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/6749",
+        "created_at": "2019-12-08T08:13:23Z",
+        "updated_at": "2023-08-12T16:36:54Z",
+        "closed_at": "2022-12-15T19:10:43Z"
+      },
+      {
+        "number": 4982,
+        "title": "Error: Steam \"needs at least 250MB\" free space when plenty of space",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/4982",
+        "created_at": "2017-05-19T21:06:11Z",
+        "updated_at": "2023-11-16T23:37:03Z",
+        "closed_at": "2020-01-03T14:37:43Z"
+      },
+      {
+        "number": 9659,
+        "title": "After UI Update Steam Client Launches Logs In No Window Pops Up",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/9659",
+        "created_at": "2023-06-18T04:27:44Z",
+        "updated_at": "2023-06-18T13:01:48Z",
+        "closed_at": "2023-06-18T13:01:48Z"
+      },
+      {
+        "number": 7171,
+        "title": "Cannot install Steam for Linux",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/7171",
+        "created_at": "2020-06-07T13:58:52Z",
+        "updated_at": "2022-12-30T23:37:35Z",
+        "closed_at": "2022-12-30T23:37:31Z"
+      },
+      {
+        "number": 9023,
+        "title": "Pop OS grey box at login",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/9023",
+        "created_at": "2022-12-20T16:18:10Z",
+        "updated_at": "2022-12-22T16:42:49Z",
+        "closed_at": "2022-12-22T16:42:49Z"
+      },
+      {
+        "number": 3820,
+        "title": "An X Error occurred X Error of failed request:  BadValue (integer parameter out of range for operation)",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/3820",
+        "created_at": "2015-04-29T01:09:53Z",
+        "updated_at": "2023-03-07T15:04:27Z",
+        "closed_at": "2015-12-26T14:41:51Z"
+      },
+      {
+        "number": 8962,
+        "title": "LogonFailure No Connection Spontaneous Network Breakage from Old Big Picture",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/8962",
+        "created_at": "2022-11-28T21:44:45Z",
+        "updated_at": "2022-12-02T16:25:52Z",
+        "closed_at": "2022-12-02T16:17:25Z"
+      },
+      {
+        "number": 3671,
+        "title": "Moved ~/.local/share/steam. Ran steam. It deleted everything on system owned by user.",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/3671",
+        "created_at": "2015-01-14T23:28:17Z",
+        "updated_at": "2021-06-02T11:59:18Z",
+        "closed_at": "2017-03-10T13:37:14Z"
+      },
+      {
+        "number": 5309,
+        "title": "Steam runtime corrupt upon system shutdown / restart in big picture mode",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/5309",
+        "created_at": "2017-12-30T17:59:42Z",
+        "updated_at": "2020-06-05T16:01:35Z",
+        "closed_at": "2020-06-05T16:01:28Z"
+      },
+      {
+        "number": 5760,
+        "title": "Steam doesn't turn on on ubuntu 18.04 lts",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/5760",
+        "created_at": "2018-09-14T12:07:25Z",
+        "updated_at": "2019-07-18T02:41:15Z",
+        "closed_at": "2018-09-14T18:15:43Z"
+      },
+      {
+        "number": 4077,
+        "title": "Latest update (Oct 20 2015, 09:10:53) no longer starts on machines without support for SSE3",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/4077",
+        "created_at": "2015-10-20T20:07:38Z",
+        "updated_at": "2017-12-06T15:18:23Z",
+        "closed_at": "2015-10-21T23:09:44Z"
+      },
+      {
+        "number": 3180,
+        "title": "Kubuntu 13.10 64bit environment, segfault on start",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/3180",
+        "created_at": "2014-03-01T10:29:09Z",
+        "updated_at": "2017-01-08T02:39:40Z",
+        "closed_at": "2017-01-08T02:39:40Z"
+      },
+      {
+        "number": 4314,
+        "title": "User level installer overwrites root owned files",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/4314",
+        "created_at": "2016-02-12T18:53:01Z",
+        "updated_at": "2016-02-12T22:17:38Z",
+        "closed_at": "2016-02-12T19:57:41Z"
+      },
+      {
+        "number": 3020,
+        "title": "Bizzare Segmentation Fault Bug on Ubuntu 13.04",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/3020",
+        "created_at": "2013-12-06T23:57:37Z",
+        "updated_at": "2013-12-11T21:00:53Z",
+        "closed_at": "2013-12-11T21:00:53Z"
+      },
+      {
+        "number": 2583,
+        "title": "steam.sh: line 704: Segmentation fault ",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/2583",
+        "created_at": "2013-06-10T02:05:58Z",
+        "updated_at": "2013-12-04T22:57:05Z",
+        "closed_at": "2013-06-11T21:28:00Z"
+      },
+      {
+        "number": 2822,
+        "title": "Steam segfaults while starting after kernel and drivers update",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/2822",
+        "created_at": "2013-09-02T16:58:43Z",
+        "updated_at": "2013-11-03T16:38:28Z",
+        "closed_at": "2013-11-01T11:28:29Z"
+      },
+      {
+        "number": 2932,
+        "title": "[steam client] [regression] Steam for Linux now depends on NetworkManager and a managed connection which is up even when normal connectivity exists.",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/2932",
+        "created_at": "2013-10-20T00:29:19Z",
+        "updated_at": "2013-10-20T17:51:30Z",
+        "closed_at": "2013-10-20T17:51:30Z"
+      },
+      {
+        "number": 2881,
+        "title": "Unpack runtime failed, error code 2",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/2881",
+        "created_at": "2013-09-27T12:28:05Z",
+        "updated_at": "2013-09-27T18:17:23Z",
+        "closed_at": "2013-09-27T18:17:23Z"
+      },
+      {
+        "number": 2019,
+        "title": "Segfault when starting Steam (steam.sh line 700)",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/2019",
+        "created_at": "2013-02-26T03:22:28Z",
+        "updated_at": "2013-07-19T16:01:41Z",
+        "closed_at": "2013-03-05T01:55:54Z"
+      },
+      {
+        "number": 1226,
+        "title": "Segmentation fault in steam.sh: line 561",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/1226",
+        "created_at": "2013-02-03T12:13:30Z",
+        "updated_at": "2013-11-06T20:21:27Z",
+        "closed_at": "2013-11-06T20:21:27Z"
+      }
+    ]
+  },
+  "intake_record_sha256_before_projection": "97dcd47a84a6a4db9cca6dcf31010e922c61e527e953b6e8f6637feba4d60615",
+  "projection": "Selected response fields retained below; unneeded API metadata and unrelated search-result bodies/assets omitted. This is not the original HTTP byte stream."
+}

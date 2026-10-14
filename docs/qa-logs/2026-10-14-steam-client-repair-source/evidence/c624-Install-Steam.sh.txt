@@ -1,0 +1,1565 @@
+#!/bin/bash
+
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+
+set -e
+set -o pipefail
+
+STEAM="${STEAM:-/storage/.local/share/Steam}"
+STEAM_GAMES_ROOT="${STEAM_GAMES_ROOT:-/storage/games-internal/roms/steam}"
+# --- Logging & Error Handling Helpers ---
+log_info() { echo -e "[\033[1;34mINFO\033[0m] $1"; }
+log_success() { echo -e "[\033[1;32mSUCCESS\033[0m] $1"; sleep 10; exit 0; }
+die() { echo -e "[\033[1;31mERROR\033[0m] $1" >&2; sleep 10; exit 1; }
+# ----------------------------------------
+
+# Inspect before profiles or installer functions can write. The saved plan is
+# process-local; no marker, directory, lock, or test file is created by preflight.
+steam_root_layout() {
+  /usr/bin/python3 -I -S -B - "$1" "${STEAM}" "${STEAM_GAMES_ROOT}" "${STEAM_ROOT_PLAN:-}" <<'PY_STEAM_ROOT'
+import json
+import os
+from pathlib import Path
+import re
+import stat
+import sys
+
+STORAGE = Path("/storage")
+MOUNTINFO = Path("/proc/self/mountinfo")
+MEDIA = Path("/var/media")
+
+
+def beneath(path, parent):
+    return path == parent or parent in path.parents
+
+
+def input_path(value):
+    if (not value.startswith("/") or value != os.path.normpath(value)
+            or value.startswith("//") or any(ord(c) < 32 for c in value)):
+        raise ValueError("The Steam folder path is not an absolute, unambiguous path.")
+    return Path(value)
+
+
+def read_mounts():
+    with MOUNTINFO.open() as stream:
+        raw = stream.read(1024 * 1024 + 1)
+    if not raw or len(raw) > 1024 * 1024:
+        raise ValueError("Storage availability could not be checked.")
+    rows = []
+    for line in raw.splitlines():
+        fields = line.split()
+        split = fields.index("-")
+        if split < 6 or len(fields) != split + 4:
+            raise ValueError("Storage availability could not be checked.")
+        point = re.sub(r"\\([0-7]{3})", lambda m: chr(int(m[1], 8)), fields[4])
+        rows.append((Path(point), fields))
+    return rows
+
+
+def inspect(steam_value, library_value):
+    steam = input_path(steam_value)
+    rows = read_mounts()
+    used = {}
+    required = (STORAGE, STORAGE / "games-external", STORAGE / "roms")
+    reserved = (*required, STORAGE / "games-internal", MEDIA, Path("/"))
+
+    def available(path):
+        wanted = [p for p in required if beneath(path, p)]
+        if beneath(path, MEDIA) and path != MEDIA:
+            wanted.append(MEDIA / path.relative_to(MEDIA).parts[0])
+        for point in wanted:
+            matches = [row for row in rows if row[0] == point]
+            if len(matches) != 1:
+                raise ValueError("The Steam storage is unavailable or has overlapping mounts.")
+            used[str(point)] = matches[0][1]
+        covers = [row for row in rows if beneath(path, row[0])]
+        if not covers:
+            raise ValueError("The Steam storage is unavailable.")
+        depth = max(len(row[0].parts) for row in covers)
+        covers = [row for row in covers if len(row[0].parts) == depth]
+        if len(covers) != 1 or covers[0][0] == Path("/"):
+            raise ValueError("The Steam storage is unavailable or ambiguous.")
+        point, fields = covers[0]
+        if "rw" not in fields[5].split(",") or "rw" not in fields[-1].split(","):
+            raise ValueError("The Steam storage is read-only.")
+        used[str(point)] = fields
+
+    # FEX/config also use /storage, even when the Steam alias points elsewhere.
+    available(STORAGE)
+
+    def probe(path):
+        available(path)
+        current, pending, entries, links = Path("/"), list(path.parts[1:]), [], 0
+        while pending:
+            part = pending.pop(0)
+            if part in ("", "."):
+                continue
+            if part == "..":
+                current = current.parent
+                continue
+            candidate = current / part
+            if candidate in required or candidate.parent == MEDIA:
+                available(candidate)
+            try:
+                info = candidate.lstat()
+            except FileNotFoundError:
+                if ".." in pending:
+                    raise ValueError("The Steam folder path is ambiguous.")
+                resolved = candidate.joinpath(*pending)
+                available(resolved)
+                if resolved in reserved:
+                    raise ValueError("The Steam folder path is ambiguous.")
+                if not os.access(current, os.W_OK | os.X_OK):
+                    raise ValueError("The Steam folder is not writable.")
+                return {"path": str(resolved), "exists": False, "entries": entries}
+            entry = [str(candidate), info.st_dev, info.st_ino, info.st_mode]
+            if stat.S_ISLNK(info.st_mode):
+                links += 1
+                if links > 40 or not stat.S_ISDIR(candidate.stat().st_mode):
+                    raise ValueError("The Steam folder link is unavailable or invalid.")
+                target = os.readlink(candidate)
+                if any(ord(c) < 32 for c in target):
+                    raise ValueError("The Steam folder link is ambiguous.")
+                entry.append(target)
+                entries.append(entry)
+                target_path = Path(target)
+                if target_path.is_absolute():
+                    current = Path("/")
+                    pending = list(target_path.parts[1:]) + pending
+                else:
+                    pending = list(target_path.parts) + pending
+                continue
+            if not stat.S_ISDIR(info.st_mode):
+                raise ValueError("A file is blocking the Steam folder.")
+            entries.append(entry)
+            current = candidate
+        available(current)
+        if current in reserved or not os.access(current, os.W_OK | os.X_OK):
+            raise ValueError("The Steam folder is ambiguous or not writable.")
+        return {"path": str(current), "exists": True, "entries": entries}
+
+    root = probe(steam)
+    plan = {"steam": steam_value, "library": library_value, "root": root}
+    if not root["exists"]:
+        library = probe(input_path(library_value))
+        a, b = Path(root["path"]), Path(library["path"])
+        if beneath(a, b) or beneath(b, a):
+            raise ValueError("The Steam folder and library paths overlap.")
+        plan["target"] = library
+    plan["mounts"] = used
+    return plan
+
+
+def open_directory(path):
+    # Use the resolved path and no-follow directory descriptors. mkdir only
+    # adds missing directories; neither it nor symlink replaces an existing entry.
+    fd = os.open("/", os.O_RDONLY | os.O_DIRECTORY)
+    try:
+        for part in Path(path).parts[1:]:
+            flags = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
+            try:
+                child = os.open(part, flags, dir_fd=fd)
+            except FileNotFoundError:
+                os.mkdir(part, dir_fd=fd)
+                child = os.open(part, flags, dir_fd=fd)
+            os.close(fd)
+            fd = child
+        return fd
+    except BaseException:
+        os.close(fd)
+        raise
+
+
+def main():
+    mode, steam, library, saved = sys.argv[1:]
+    plan = inspect(steam, library)
+    if mode == "inspect":
+        print(json.dumps(plan, sort_keys=True))
+        return
+    if mode not in ("verify", "link") or plan != json.loads(saved):
+        raise ValueError("The Steam folder or storage changed. Try again when it is available.")
+    if mode == "verify" or plan["root"]["exists"]:
+        return
+    target_fd = open_directory(plan["target"]["path"])
+    os.close(target_fd)
+    root = Path(plan["root"]["path"])
+    parent_fd = open_directory(root.parent)
+    try:
+        os.symlink(library, root.name, dir_fd=parent_fd)
+    finally:
+        os.close(parent_fd)
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except (OSError, ValueError, RuntimeError) as error:
+        print("Steam folder check: " + str(error), file=sys.stderr)
+        sys.exit(1)
+PY_STEAM_ROOT
+}
+
+fetch_proton_latest_release() {
+  local api_url="$1"
+  local asset_pattern="$2"
+  local tag_prefix_to_strip="$3"
+  local var_prefix="$4"
+  local display_name="$5"
+
+  log_info "Fetching latest ${display_name} release from GitHub..."
+
+  local release_json
+  release_json=$(curl -fsSL "${api_url}") || die "Failed to fetch ${display_name} latest release info."
+
+  # Extract tag name
+  local version_tag
+  version_tag=$(echo "${release_json}" | grep -oP '"tag_name":\s*"\K[^"]+' | head -n 1) || die "Failed to parse ${display_name} version tag."
+  [ -n "${version_tag}" ] || die "${display_name} version tag is empty."
+
+  # Extract download URL for specified asset pattern, excluding checksums
+  local download_url
+  download_url=$(echo "${release_json}" | grep -oP '"browser_download_url":\s*"\K[^"]*'"${asset_pattern}"'[^"]*' | grep -v '\.sha512sum' | head -n 1) || die "Failed to parse ${display_name} download URL."
+  [ -n "${download_url}" ] || die "Could not find ${asset_pattern} asset in ${display_name} release."
+
+  # Extract filename from URL
+  local tar_name
+  tar_name=$(basename "${download_url}") || die "Failed to extract ${display_name} filename."
+  [ -n "${tar_name}" ] || die "${display_name} filename is empty."
+
+  local version_clean="${version_tag}"
+  if [ -n "${tag_prefix_to_strip}" ]; then
+    version_clean="${version_tag#${tag_prefix_to_strip}}"
+  fi
+
+  # Infer directory name based on tar filename
+  local dir_name
+  dir_name=$(echo "${tar_name}" | sed 's/\.[^.]*$//' | sed 's/\.[^.]*$//')  # Remove .tar.xz or .tar.gz
+
+  # Set global variables dynamically
+  eval "${var_prefix}_VERSION_FULL='${version_clean}'"
+  eval "${var_prefix}_TAR='${tar_name}'"
+  eval "${var_prefix}_DIR='${dir_name}'"
+  eval "${var_prefix}_URL='${download_url}'"
+
+  log_info "${display_name} latest version: ${version_clean}"
+  log_info "${display_name} download URL: ${download_url}"
+}
+
+ensure_fex_rootfs() {
+  log_info "Preparing the Steam support environment. This may take a while..."
+  # FEXRootFSFetcher also writes Config.json. Isolate that write, then commit
+  # the fully overlaid RootFS and packaged config together. Never clean by glob.
+  if /usr/bin/python3 -I -S -B - "${FEX_DATA}" <<'PY_STEAM_FEX'
+import fcntl
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import resource
+import selectors
+import shutil
+import signal
+import stat
+import subprocess
+import sys
+import time
+
+CONFIG = Path("/storage/.config/fex-emu")
+DEFAULTS = Path("/usr/config/fex-emu")
+OVERLAYS = (
+    (Path("/usr/lib/liblsfg-vk-layer.so"), "usr/lib/liblsfg-vk-layer.so"),
+    (Path("/usr/share/fex-emu/liblsfg-vk-layer-x86.so"), "usr/lib/liblsfg-vk-layer-x86.so"),
+    (Path("/usr/share/vulkan/implicit_layer.d/VkLayer_LSFGVK_frame_generation.json"),
+     "usr/share/vulkan/implicit_layer.d/VkLayer_LSFGVK_frame_generation.json"),
+    (Path("/usr/share/fex-emu/VkLayer_LSFGVK_frame_generation-x86.json"),
+     "usr/share/vulkan/implicit_layer.d/VkLayer_LSFGVK_frame_generation-x86.json"),
+)
+FETCHER = "/usr/bin/FEXRootFSFetcher"
+RESERVE = 256 * 1024 * 1024
+MAX_FILE = 2 * 1024 * 1024 * 1024
+MAX_TREE = 16 * 1024 * 1024 * 1024
+MAX_CONFIG = 64 * 1024 * 1024
+MAX_ENTRIES = 250000
+FETCH_SECONDS = 900
+TOTAL_SECONDS = 1800
+ICD = "usr/share/vulkan/icd.d/freedreno_icd.x86_64.json"
+
+
+def ident(path):
+    try:
+        info = path.lstat()
+    except FileNotFoundError:
+        return None
+    if not stat.S_ISDIR(info.st_mode):
+        raise RuntimeError("FEX replacement requires real directories: " + str(path))
+    return [info.st_dev, info.st_ino]
+
+
+def no_mounts(path):
+    boundary = path.absolute()
+    for row in Path("/proc/self/mountinfo").read_text().splitlines():
+        field = row.split()[4]
+        mount = Path(re.sub(r"\\([0-7]{3})", lambda m: chr(int(m[1], 8)), field))
+        if mount == boundary or boundary in mount.parents:
+            raise RuntimeError("Release mounted FEX paths before refreshing: " + str(path))
+
+
+def parents(path):
+    # No symlinked destination ancestors: do not normalize another storage view.
+    for item in reversed((path, *path.parents)):
+        if ident(item) is None:
+            item.mkdir()
+        ident(item)
+
+
+def capacity(path, required=0):
+    info = os.statvfs(path)
+    if info.f_bavail * info.f_frsize < RESERVE + required:
+        raise RuntimeError("Not enough free space to keep the existing FEX environment.")
+
+
+def tree_budget(path, limit):
+    no_mounts(path)
+    total = count = 0
+    for base, dirs, files in os.walk(path, followlinks=False):
+        for name in dirs + files:
+            info = (Path(base) / name).lstat()
+            if not (stat.S_ISREG(info.st_mode) or stat.S_ISDIR(info.st_mode) or stat.S_ISLNK(info.st_mode)):
+                raise RuntimeError("Unsupported entry in the FEX staging tree.")
+            count += 1
+            total += info.st_size + 4096
+            if info.st_size > MAX_FILE or total > limit or count > MAX_ENTRIES:
+                raise RuntimeError("FEX staging exceeds the bounded file/space budget.")
+    return total
+
+
+def inside(root, relative):
+    path = root / relative
+    target = path.resolve(strict=True)
+    if not target.is_relative_to(root.resolve(strict=True)) or not target.is_file():
+        raise RuntimeError("Missing or escaping FEX file: " + relative)
+    return target
+
+
+def document(path):
+    if path.stat().st_size > 1024 * 1024:
+        raise RuntimeError("FEX metadata exceeds its size bound.")
+    data = json.loads(path.read_text())
+    if not isinstance(data, dict):
+        raise RuntimeError("FEX metadata is not a JSON object.")
+    return data
+
+
+def elf(path, machine):
+    with path.open("rb") as stream:
+        header = stream.read(20)
+    if (len(header) != 20 or header[:6] != b"\x7fELF\x02\x01"
+            or int.from_bytes(header[18:20], "little") != machine):
+        raise RuntimeError("Missing or wrong-architecture FEX binary: " + str(path))
+
+
+def digest(path):
+    result = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            result.update(block)
+    return result.hexdigest()
+
+
+def validate(root, config):
+    ident(root)
+    ident(config)
+    required = ["usr/bin/env", "usr/lib/ld-linux-x86-64.so.2", "usr/lib/libc.so.6",
+                "graphics_provider.json", ICD] + [rel for _, rel in OVERLAYS]
+    for rel in required[:3]:
+        elf(inside(root, rel), 62)
+    if not document(inside(root, "graphics_provider.json")):
+        raise RuntimeError("Empty graphics provider description.")
+    if document(inside(root, ICD)).get("ICD", {}).get("library_path") != "libvulkan_freedreno.so":
+        raise RuntimeError("Freedreno ICD does not select the host driver.")
+    elf(inside(root, OVERLAYS[0][1]), 183)
+    elf(inside(root, OVERLAYS[1][1]), 62)
+    for index, suffix in ((2, ""), (3, "_x86")):
+        layer = document(inside(root, OVERLAYS[index][1])).get("layer", {})
+        if (layer.get("name") != "VK_LAYER_LSFGVK_frame_generation" + suffix
+                or layer.get("library_path") != "/usr/lib/liblsfg-vk-layer" + ("-x86" if suffix else "") + ".so"):
+            raise RuntimeError("Invalid LSFG layer description.")
+    if document(inside(config, "Config.json")).get("Config", {}).get("RootFS") != "ArchLinux":
+        raise RuntimeError("FEX config does not select the prepared ArchLinux tree.")
+    packaged = {}
+    for base, dirs, files in os.walk(DEFAULTS, followlinks=False):
+        for name in dirs + files:
+            source = Path(base) / name
+            if source.is_symlink():
+                raise RuntimeError("Unexpected link in packaged FEX config.")
+            if source.is_file():
+                rel = str(source.relative_to(DEFAULTS))
+                packaged[rel] = digest(inside(config, rel))
+                if packaged[rel] != digest(source):
+                    raise RuntimeError("Packaged FEX config copy failed validation: " + rel)
+    return {"root": {rel: digest(inside(root, rel)) for rel in required}, "config": packaged}
+
+
+def overlay(root):
+    for source, rel in OVERLAYS:
+        # A RootFS symlink must never redirect a host-side overlay copy.
+        dest = root / rel
+        parent = dest.parent.resolve(strict=True)
+        if not parent.is_relative_to(root.resolve(strict=True)) or dest.is_symlink():
+            raise RuntimeError("Unsafe FEX overlay destination: " + rel)
+        if not source.is_file() or source.stat().st_size > MAX_CONFIG:
+            raise RuntimeError("Required FEX overlay is missing or oversized: " + source.name)
+        shutil.copy2(source, dest)
+    for rel, section, key, old, new in (
+        (OVERLAYS[3][1], "layer", "name", "VK_LAYER_LSFGVK_frame_generation", "VK_LAYER_LSFGVK_frame_generation_x86"),
+        (ICD, "ICD", "library_path", "/usr/lib/libvulkan_freedreno.so", "libvulkan_freedreno.so"),
+    ):
+        path = inside(root, rel)
+        data = document(path)
+        if data.get(section, {}).get(key) not in (old, new):
+            raise RuntimeError("Unexpected FEX overlay metadata: " + rel)
+        data[section][key] = new
+        path.write_text(json.dumps(data, indent=2) + "\n")
+
+
+def config_copy(source, destination):
+    # Preserve extra config files, but apply the packaged defaults just as the
+    # previous cp -r did. Do not follow any existing config link when overlaying.
+    ident(source)
+    for base, dirs, files in os.walk(source, followlinks=False):
+        relative = Path(base).relative_to(source)
+        target = destination / relative
+        if target.is_symlink():
+            raise RuntimeError("Refusing a linked config overlay directory.")
+        target.mkdir(exist_ok=True)
+        for name in dirs + files:
+            item, out = Path(base) / name, target / name
+            if out.is_symlink():
+                raise RuntimeError("Refusing a linked config overlay entry.")
+            if item.is_symlink():
+                if out.exists():
+                    raise RuntimeError("Conflicting config link.")
+                out.symlink_to(os.readlink(item))
+            elif item.is_file():
+                if out.exists() and not out.is_file():
+                    raise RuntimeError("Conflicting config entry.")
+                shutil.copy2(item, out)
+        shutil.copystat(base, target)
+
+
+def fetch_environment(work):
+    # No inherited FEX_*, STEAM_COMPAT_*, or loader/config overrides.
+    # HOME must exist or FEX falls back to passwd/PWD. Both FEX paths need '/'.
+    environment = {"PATH": "/usr/bin:/bin", "LANG": "C", "LC_ALL": "C",
+            "HOME": str(work / "home"), "PWD": str(work / "home"),
+            "TMPDIR": str(work / "tmp"), "XDG_DATA_HOME": str(work / "data"),
+            "XDG_CONFIG_HOME": str(work / "fetch-config"), "XDG_CACHE_HOME": str(work / "cache"),
+            "FEX_APP_DATA_LOCATION": str(work / "data") + "/",
+            "FEX_APP_CONFIG_LOCATION": str(work / "fetch-config") + "/",
+            "FEX_APP_CACHE_LOCATION": str(work / "cache") + "/"}
+    # Keep the existing transport's explicit proxy settings; never log values.
+    for key in ("http_proxy", "https_proxy", "all_proxy", "no_proxy",
+                "HTTP_PROXY", "HTTPS_PROXY", "ALL_PROXY", "NO_PROXY"):
+        if key in os.environ:
+            environment[key] = os.environ[key]
+    return environment
+
+
+def fetch_rootfs(work):
+    # The guardian survives SIGKILL of the updater, holds its inherited flock,
+    # and kills the entire fetcher/curl/extractor group on pipe EOF or timeout.
+    read_fd, write_fd = os.pipe()
+    guardian = os.fork()
+    if guardian == 0:
+        os.close(write_fd)
+        os.setsid()
+        for sig in (signal.SIGINT, signal.SIGTERM, signal.SIGHUP, signal.SIGALRM):
+            signal.signal(sig, interrupted)
+        signal.alarm(0)
+        proc = None
+        result = 1
+        try:
+            resource.setrlimit(resource.RLIMIT_FSIZE, (MAX_FILE, MAX_FILE))
+            resource.setrlimit(resource.RLIMIT_CORE, (0, 0))
+            proc = subprocess.Popen(
+                [FETCHER, "--distro-name=arch", "--distro-version=rolling", "-y", "-x", "--force-ui=tty"],
+                cwd=work / "home", env=fetch_environment(work), stdin=subprocess.DEVNULL,
+                stdout=subprocess.PIPE, stderr=subprocess.STDOUT, start_new_session=True)
+            deadline = time.monotonic() + FETCH_SECONDS
+            next_scan = 0.0
+            selector = selectors.DefaultSelector()
+            selector.register(read_fd, selectors.EVENT_READ)
+            selector.register(proc.stdout, selectors.EVENT_READ)
+            logged = 0
+            with (work / "fetch.log").open("wb") as log:
+                while True:
+                    capacity(work)
+                    if time.monotonic() >= next_scan:
+                        tree_budget(work / "data", MAX_TREE)
+                        next_scan = time.monotonic() + 1
+                    if time.monotonic() >= deadline:
+                        raise RuntimeError("FEX fetch/extraction reached its time limit.")
+                    for key, _ in selector.select(0.2):
+                        if key.fd == read_fd:
+                            raise RuntimeError("FEX updater exited; cancelling its fetcher group.")
+                        chunk = os.read(key.fd, 65536)
+                        if not chunk:
+                            selector.unregister(key.fileobj)
+                        else:
+                            saved = chunk[:max(0, 65536 - logged)]
+                            log.write(saved)
+                            logged += len(saved)
+                    code = proc.poll()
+                    if code is not None:
+                        if code != 0:
+                            raise RuntimeError("FEX fetcher exited " + str(code))
+                        result = 0
+                        break
+        except BaseException as error:
+            print("FEX fetch stopped: " + str(error), file=sys.stderr, flush=True)
+        finally:
+            for sig in (signal.SIGINT, signal.SIGTERM, signal.SIGHUP, signal.SIGALRM):
+                signal.signal(sig, signal.SIG_IGN)
+            if proc is not None:
+                try:
+                    os.killpg(proc.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+                try:
+                    proc.wait(timeout=5)
+                except subprocess.TimeoutExpired:
+                    result = 1
+            os.close(read_fd)
+            os._exit(result)
+    os.close(read_fd)
+    try:
+        _, status = os.waitpid(guardian, 0)
+        if os.waitstatus_to_exitcode(status) != 0:
+            raise RuntimeError("FEX download or extraction did not finish.")
+    finally:
+        # On a catchable interruption the guardian sees EOF and kills children
+        # before rollback can remove their staging directory. Mask repeated
+        # catchable signals while waiting; SIGKILL still leaves the guardian's
+        # inherited lock held until its process group has been killed.
+        mask = signal.pthread_sigmask(signal.SIG_BLOCK,
+                                     {signal.SIGINT, signal.SIGTERM, signal.SIGHUP, signal.SIGALRM})
+        try:
+            os.close(write_fd)
+            try:
+                os.waitpid(guardian, 0)
+            except ChildProcessError:
+                pass
+        finally:
+            signal.pthread_sigmask(signal.SIG_SETMASK, mask)
+
+
+class FexUpdate:
+    def __init__(self, data):
+        self.data = data
+        self.root = data / "RootFS" / "ArchLinux"
+        self.config = CONFIG
+        parents(self.root.parent)
+        parents(self.config.parent)
+        self.device = self.data.stat().st_dev
+        if self.config.parent.stat().st_dev != self.device:
+            raise RuntimeError("FEX root and config must share a filesystem for recovery.")
+        self.work = data / ".steam-fex-update"
+        self.state = None
+        self.check_live()
+
+    def check_live(self):
+        for path in (self.root, self.config):
+            value = ident(path)
+            if value is not None and value[0] != self.device:
+                raise RuntimeError("FEX destination is on another filesystem.")
+            no_mounts(path)
+
+    def write_state(self):
+        pending = self.work / "state.tmp"
+        with pending.open("w") as stream:
+            json.dump(self.state, stream)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(pending, self.work / "state.json")
+        fd = os.open(self.work, os.O_RDONLY | os.O_DIRECTORY)
+        try:
+            os.fsync(fd)
+        finally:
+            os.close(fd)
+
+    def clean(self):
+        no_mounts(self.work)
+        for item in self.work.iterdir():
+            if item.name == "state.json":
+                continue
+            if item.is_dir() and not item.is_symlink():
+                shutil.rmtree(item)
+            else:
+                item.unlink()
+        (self.work / "state.json").unlink(missing_ok=True)
+        self.work.rmdir()
+        self.state = None
+
+    def recover(self):
+        if ident(self.work) is None:
+            return
+        no_mounts(self.work)
+        journal = self.work / "state.json"
+        if not journal.exists():
+            # Before first journal publication only this temporary file may
+            # exist. After final cleanup the directory may be empty.
+            entries = list(self.work.iterdir())
+            if entries:
+                if len(entries) != 1 or entries[0].name != "state.tmp" or not stat.S_ISREG(entries[0].lstat().st_mode):
+                    raise RuntimeError("Unrecognized FEX staging directory; retaining it.")
+                entries[0].unlink()
+            self.work.rmdir()
+            return
+        if journal.is_symlink() or not journal.is_file() or journal.stat().st_size > 65536:
+            raise RuntimeError("Invalid FEX recovery journal; retaining it.")
+        self.state = json.loads(journal.read_text())
+        if (self.state.get("format") != 1 or self.state.get("data") != str(self.data)
+                or self.state.get("config") != str(self.config)
+                or self.state.get("phase") not in ("staging", "prepared", "committed")):
+            raise RuntimeError("Unrecognized FEX recovery journal; retaining it.")
+        self.check_live()
+        phase = self.state["phase"]
+        if phase == "committed":
+            if (any(ident(getattr(self, name)) != self.state["new"][name] for name in ("root", "config"))
+                    or validate(self.root, self.config) != self.state["validation"]):
+                raise RuntimeError("Committed FEX environment changed; retaining recovery data.")
+        elif phase == "prepared":
+            for name in ("config", "root"):
+                live = getattr(self, name)
+                old, new = self.state["old"][name], self.state["new"][name]
+                previous = self.work / ("previous-" + name)
+                current = ident(live)
+                if current == old:
+                    if ident(previous) is not None:
+                        raise RuntimeError("Ambiguous FEX recovery copy; retaining it.")
+                    continue
+                if old is not None and ident(previous) != old:
+                    raise RuntimeError("Previous FEX identity changed; retaining recovery data.")
+                if current == new:
+                    discard = self.work / ("discard-" + name)
+                    if ident(discard) is not None:
+                        raise RuntimeError("Ambiguous FEX discard path; retaining it.")
+                    os.rename(live, discard)
+                elif current is not None:
+                    raise RuntimeError("FEX destination changed outside this update.")
+                if old is not None:
+                    os.rename(previous, live)
+        self.clean()
+
+    def begin(self):
+        self.work.mkdir(mode=0o700)
+        self.state = {"format": 1, "data": str(self.data), "config": str(self.config), "phase": "staging",
+                      "old": {name: ident(getattr(self, name)) for name in ("root", "config")}}
+        self.write_state()
+        for name in ("home", "tmp", "data", "cache", "fetch-config", "new-config"):
+            (self.work / name).mkdir()
+
+    def stage(self):
+        # Inspect required local inputs before allowing a download.
+        if ident(DEFAULTS) is None:
+            raise RuntimeError("Packaged FEX config is missing.")
+        needed = tree_budget(DEFAULTS, MAX_CONFIG)
+        if ident(self.config) is not None:
+            needed += tree_budget(self.config, MAX_CONFIG)
+        capacity(self.work, needed)
+        for source, _ in OVERLAYS:
+            if not source.is_file() or source.stat().st_size > MAX_CONFIG:
+                raise RuntimeError("Required FEX overlay is missing or oversized: " + source.name)
+        config = self.work / "new-config"
+        if ident(self.config) is not None:
+            config_copy(self.config, config)
+        config_copy(DEFAULTS, config)
+        tree_budget(config, MAX_CONFIG)
+        fetch_rootfs(self.work)
+        root = self.work / "data" / "RootFS" / "ArchLinux"
+        if ident(root) is None:
+            raise RuntimeError("Fetcher did not produce an extracted ArchLinux directory.")
+        if document(inside(self.work / "fetch-config", "Config.json")).get("Config", {}).get("RootFS") != "ArchLinux":
+            raise RuntimeError("Fetcher selected an unexpected RootFS or left an unextracted image.")
+        tree_budget(self.work / "data", MAX_TREE)
+        overlay(root)
+        capacity(self.work)
+        self.check_live()
+        validation = validate(root, config)
+        if any(ident(getattr(self, name)) != self.state["old"][name] for name in ("root", "config")):
+            raise RuntimeError("FEX destination changed while preparing its replacement.")
+        self.state.update(phase="prepared", new={"root": ident(root), "config": ident(config)}, validation=validation)
+        self.write_state()
+
+    def activate(self):
+        for name, staged in (("root", self.work / "data" / "RootFS" / "ArchLinux"),
+                             ("config", self.work / "new-config")):
+            live = getattr(self, name)
+            if ident(live) != self.state["old"][name]:
+                raise RuntimeError("FEX destination changed before activation.")
+            if self.state["old"][name] is not None:
+                os.rename(live, self.work / ("previous-" + name))
+            os.rename(staged, live)
+        if validate(self.root, self.config) != self.state["validation"]:
+            raise RuntimeError("Activated FEX environment failed validation.")
+        self.state["phase"] = "committed"
+        self.write_state()
+        self.clean()
+
+
+def interrupted(signum, frame):
+    raise InterruptedError("FEX refresh interrupted by signal " + str(signum))
+
+
+def main():
+    update = FexUpdate(Path(sys.argv[1]))
+    fd = os.open(update.data / ".steam-fex-update.lock", os.O_WRONLY | os.O_CREAT | os.O_NOFOLLOW | os.O_NONBLOCK, 0o600)
+    try:
+        if not stat.S_ISREG(os.fstat(fd).st_mode) or os.fstat(fd).st_nlink != 1:
+            raise RuntimeError("Invalid FEX update lock.")
+        fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        for sig in (signal.SIGINT, signal.SIGTERM, signal.SIGHUP, signal.SIGALRM):
+            signal.signal(sig, interrupted)
+        signal.alarm(TOTAL_SECONDS)
+        try:
+            update.recover()
+            capacity(update.data)
+            update.begin()
+            update.stage()
+            update.activate()
+            return 0
+        except Exception as error:
+            print("FEX refresh failed: " + str(error), file=sys.stderr)
+            signal.alarm(0)
+            # Do not interrupt rollback with a second catchable termination.
+            for sig in (signal.SIGINT, signal.SIGTERM, signal.SIGHUP):
+                signal.signal(sig, signal.SIG_IGN)
+            try:
+                update.recover()
+            except Exception as recovery_error:
+                print("FEX recovery data retained at " + str(update.work) + ": " + str(recovery_error), file=sys.stderr)
+            return 1
+        finally:
+            signal.alarm(0)
+    finally:
+        os.close(fd)
+
+
+if __name__ == "__main__":
+    try:
+        sys.exit(main())
+    except Exception as error:
+        print("FEX refresh refused: " + str(error), file=sys.stderr)
+        sys.exit(1)
+PY_STEAM_FEX
+  then
+    log_info "Steam support environment is ready."
+  else
+    die "The Steam support environment could not be updated. Try Install Steam again."
+  fi
+}
+
+link_steam_library() {
+  log_info "Checking Steam library..."
+  steam_root_layout link || die "The Steam library could not be prepared. Installation stopped."
+}
+
+ensure_steam_desktop_stub() {
+  log_info "Ensuring Steam desktop stub exists..."
+  mkdir -p "${APPLICATIONS}"
+  touch "${APPLICATIONS}/Steam.desktop" || die "Failed to create Steam.desktop stub."
+}
+
+install_steam_runtime_arm64() {
+  log_info "Downloading and installing Steam runtime (ARM64)..."
+  # Keep the existing runtime until the complete staged archive and both library
+  # links validate. The journal also recovers a process killed between renames.
+  # This transaction does not cover the separate FEX/client/Proton operations.
+  if python3 - "${STEAM}" "${RUNTIME_TAR_VERSION_URL}" "${RUNTIME_TAR_BASE}" <<'PY_STEAM_RUNTIME'
+import ctypes
+import fcntl
+import hashlib
+import json
+import lzma
+import os
+from pathlib import Path, PurePosixPath
+import re
+import resource
+import shutil
+import signal
+import stat
+import subprocess
+import sys
+import tarfile
+
+RUNTIME = "steam-runtime-steamrt-arm64"
+LINKS = ("libibus-1.0.so.5", "libva.so.2")
+RESERVE = 256 * 1024 * 1024
+MAX_ARCHIVE = 2 * 1024 * 1024 * 1024
+MAX_EXPANDED = 16 * 1024 * 1024 * 1024
+MAX_MEMBERS = 250000
+MAX_LINK_BACKUP = 64 * 1024 * 1024
+
+
+def identity(path):
+    try:
+        info = path.lstat()
+    except FileNotFoundError:
+        return None
+    if not stat.S_ISDIR(info.st_mode):
+        raise RuntimeError("Runtime transaction directory is not a real directory: " + str(path))
+    return [info.st_dev, info.st_ino]
+
+
+def describe(path):
+    if path.is_symlink():
+        return {"kind": "link", "target": os.readlink(path)}
+    if not path.exists():
+        return {"kind": "absent"}
+    if not path.is_file():
+        raise RuntimeError("Refusing to replace a non-file library entry: " + str(path))
+    info = path.stat()
+    if info.st_size > MAX_LINK_BACKUP:
+        raise RuntimeError("Existing library entry exceeds the bounded backup size.")
+    return {"kind": "file", "sha256": digest(path), "mode": stat.S_IMODE(info.st_mode),
+            "mtime_ns": info.st_mtime_ns}
+
+
+def digest(path):
+    with path.open("rb") as stream:
+        return hashlib.file_digest(stream, "sha256").hexdigest()
+
+
+def capacity(root, needed):
+    if shutil.disk_usage(root).free < needed + RESERVE:
+        raise RuntimeError("Not enough free space to keep the previous Steam runtime while replacing it.")
+
+
+def directory(path, device):
+    if path.is_symlink() or not path.is_dir() or path.stat().st_dev != device:
+        raise RuntimeError("Runtime update needs real directories on the Steam filesystem: " + str(path))
+
+
+def no_mounts(path):
+    # st_dev alone misses a bind mount on the same filesystem. Never walk a
+    # mounted subtree while retiring or rolling back an owned runtime tree.
+    boundary = path.resolve()
+    for line in Path("/proc/self/mountinfo").read_text().splitlines():
+        field = line.split()[4]
+        mount = Path(re.sub(r"\\([0-7]{3})", lambda m: chr(int(m[1], 8)), field))
+        if mount == boundary or boundary in mount.parents:
+            raise RuntimeError("Mounted runtime paths must be released before replacement: " + str(path))
+
+
+def validate(runtime):
+    directory(runtime, runtime.parent.stat().st_dev)
+    platforms = list(runtime.glob("steamrt3c_platform_*"))
+    if len(platforms) != 1 or platforms[0].is_symlink() or not platforms[0].is_dir():
+        raise RuntimeError("Expected one complete Steam ARM64 platform directory.")
+    targets = {}
+    for name in LINKS:
+        matches = list((platforms[0] / "files/lib/aarch64-linux-gnu").glob(name + ".*"))
+        if len(matches) != 1:
+            raise RuntimeError("Missing or ambiguous runtime library: " + name)
+        target = matches[0]
+        if not target.resolve(strict=True).is_relative_to(runtime.resolve(strict=True)):
+            raise RuntimeError("Runtime library escapes the staged runtime.")
+        with target.open("rb") as stream:
+            header = stream.read(20)
+        if (len(header) != 20 or header[:6] != b"\x7fELF\x02\x01"
+                or header[16:20] != b"\x03\x00\xb7\x00"):
+            raise RuntimeError("Runtime library is not an ARM64 shared object: " + name)
+        targets[name] = {"path": str(target.relative_to(runtime)), "sha256": digest(target)}
+    return targets
+
+
+class RuntimeUpdate:
+    def __init__(self, root):
+        self.link_root = Path(os.path.abspath(root))
+        self.root = root.resolve(strict=True)
+        if self.root == Path("/"):
+            raise RuntimeError("Refusing the filesystem root as the Steam directory.")
+        self.device = self.root.stat().st_dev
+        self.work = self.root / ".steam-runtime-update"
+        self.live = self.root / RUNTIME
+        self.lib = self.root / "lib/aarch64-linux-gnu"
+        self.state = None
+
+    def write_state(self):
+        pending = self.work / "state.tmp"
+        with pending.open("w") as stream:
+            json.dump(self.state, stream)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(pending, self.work / "state.json")
+        fd = os.open(self.work, os.O_RDONLY | os.O_DIRECTORY)
+        try:
+            os.fsync(fd)
+        finally:
+            os.close(fd)
+
+    def clean(self):
+        # Keep the journal until all other owned remnants are gone. A killed
+        # cleanup is retried without accumulating another staging tree.
+        for child in self.work.iterdir():
+            if child.name == "state.json":
+                continue
+            if child.is_dir() and not child.is_symlink():
+                no_mounts(child)
+                shutil.rmtree(child)
+            else:
+                child.unlink()
+        (self.work / "state.json").unlink(missing_ok=True)
+        self.work.rmdir()
+        self.state = None
+
+    def check_parents(self):
+        for path in (self.root / "lib", self.lib):
+            if path.exists() or path.is_symlink():
+                directory(path, self.device)
+                no_mounts(path)
+
+    def recover(self):
+        if not self.work.exists() and not self.work.is_symlink():
+            return
+        directory(self.work, self.device)
+        journal = self.work / "state.json"
+        if not journal.exists():
+            # mkdir can be interrupted before the first journal is written.
+            # An empty directory is safe to remove; unknown contents are not.
+            self.work.rmdir()
+            return
+        if journal.is_symlink() or not journal.is_file() or journal.stat().st_size > 65536:
+            raise RuntimeError("Refusing an invalid runtime recovery journal.")
+        self.state = json.loads(journal.read_text())
+        if (self.state.get("format") != 1 or self.state.get("root") != str(self.root)
+                or self.state.get("link_root") != str(self.link_root)):
+            raise RuntimeError("Unrecognized runtime recovery journal; retaining it.")
+        no_mounts(self.work)
+        phase = self.state["phase"]
+        if phase in ("prepared", "committed"):
+            no_mounts(self.live)
+            if (set(self.state["targets"]) != set(LINKS)
+                    or set(self.state["links"]) != set(LINKS)
+                    or any(p not in ("lib/aarch64-linux-gnu", "lib")
+                           for p in self.state["created_dirs"])):
+                raise RuntimeError("Invalid runtime recovery paths; retaining them.")
+            for target in self.state["targets"].values():
+                relative = PurePosixPath(target["path"])
+                if relative.is_absolute() or ".." in relative.parts or not relative.parts:
+                    raise RuntimeError("Invalid runtime recovery target.")
+        self.check_parents()
+        if phase == "committed":
+            if identity(self.live) != self.state["candidate_id"] or validate(self.live) != self.state["targets"]:
+                raise RuntimeError("Committed runtime changed; keeping its recovery copy.")
+            for name in LINKS:
+                if describe(self.lib / name) != self.new_link(name):
+                    raise RuntimeError("Committed library link changed; keeping its recovery copy.")
+        elif phase == "prepared":
+            old_id = self.state["old_id"]
+            live_id = identity(self.live)
+            backup = self.work / "previous"
+            if old_id is not None and live_id == old_id:
+                pass  # Not activated yet, or rollback was itself interrupted.
+            else:
+                if old_id is not None and identity(backup) != old_id:
+                    raise RuntimeError("Previous runtime identity changed; no automatic cleanup.")
+                if live_id == self.state["candidate_id"]:
+                    os.replace(self.live, self.work / "discard")
+                elif live_id is not None:
+                    raise RuntimeError("Active runtime identity changed; no automatic cleanup.")
+                if old_id is not None:
+                    os.replace(backup, self.live)
+            for name in LINKS:
+                saved = self.state["links"][name]
+                live = self.lib / name
+                current = describe(live)
+                if current == saved:
+                    continue
+                if current != self.new_link(name):
+                    raise RuntimeError("Library link changed outside the update; retaining recovery data.")
+                if saved["kind"] == "absent":
+                    live.unlink()
+                else:
+                    restore = self.work / ("restore-" + name)
+                    restore.unlink(missing_ok=True)
+                    shutil.copy2(self.work / ("saved-" + name), restore, follow_symlinks=False)
+                    os.replace(restore, live)
+            for relative in self.state["created_dirs"]:
+                path = self.root / relative
+                if path.exists():
+                    path.rmdir()  # Never remove another writer's contents.
+        elif phase != "staging":
+            raise RuntimeError("Unknown runtime recovery phase; retaining it.")
+        self.clean()
+
+    def new_link(self, name):
+        return {"kind": "link", "target": str(self.link_root / RUNTIME / self.state["targets"][name]["path"])}
+
+    def begin(self):
+        self.work.mkdir(mode=0o700)
+        self.state = {"format": 1, "root": str(self.root), "link_root": str(self.link_root), "phase": "staging"}
+        self.write_state()
+        (self.work / "unpack").mkdir()
+
+    def prepare(self):
+        candidate = self.work / "unpack" / RUNTIME
+        targets = validate(candidate)
+        self.check_parents()
+        links = {name: describe(self.lib / name) for name in LINKS}
+        capacity(self.root, sum((self.lib / name).stat().st_size for name in LINKS
+                               if links[name]["kind"] == "file"))
+        for name in LINKS:
+            if links[name]["kind"] != "absent":
+                shutil.copy2(self.lib / name, self.work / ("saved-" + name), follow_symlinks=False)
+        old_id = identity(self.live)
+        no_mounts(self.live)
+        if old_id is not None and old_id[0] != self.device:
+            raise RuntimeError("Previous runtime is on a different filesystem.")
+        self.state.update(phase="prepared", targets=targets, links=links, old_id=old_id,
+                          candidate_id=identity(candidate),
+                          created_dirs=[p for p in ("lib/aarch64-linux-gnu", "lib")
+                                        if not (self.root / p).exists()])
+        self.write_state()  # The complete rollback description precedes every rename.
+
+    def activate(self):
+        self.lib.mkdir(parents=True, exist_ok=True)
+        if self.state["old_id"] is not None:
+            os.replace(self.live, self.work / "previous")
+        os.replace(self.work / "unpack" / RUNTIME, self.live)
+        for name in LINKS:
+            pending = self.work / ("new-" + name)
+            pending.symlink_to(self.new_link(name)["target"])
+            os.replace(pending, self.lib / name)
+        if validate(self.live) != self.state["targets"]:
+            raise RuntimeError("Activated runtime failed validation.")
+        for name in LINKS:
+            if describe(self.lib / name) != self.new_link(name) or not (self.lib / name).is_file():
+                raise RuntimeError("Activated runtime library link failed validation.")
+        self.state["phase"] = "committed"
+        self.write_state()  # Only this point permits retiring the superseded tree.
+        self.clean()
+
+
+def fetch_archive(update, version_url, base_url):
+    owner_pid = os.getpid()
+
+    def child_setup(limit=None):
+        # SIGKILL cannot run a Python cleanup handler. Linux must kill the
+        # transport child with its owner, before another updater can retry.
+        libc = ctypes.CDLL(None, use_errno=True)
+        if libc.prctl(1, signal.SIGKILL, 0, 0, 0) != 0:  # PR_SET_PDEATHSIG
+            raise OSError(ctypes.get_errno(), "Cannot bind downloader lifetime to installer")
+        if os.getppid() != owner_pid:  # Parent may have died before prctl.
+            os.kill(os.getpid(), signal.SIGKILL)
+        if limit is not None:
+            resource.setrlimit(resource.RLIMIT_FSIZE, (limit, limit))
+
+    version = subprocess.run(["curl", "-fsSL", "--connect-timeout", "10", "--max-time", "30",
+                              "--max-filesize", "128", version_url],
+                             check=True, capture_output=True, timeout=35, preexec_fn=child_setup).stdout.decode().strip()
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]{0,79}", version):
+        raise RuntimeError("Invalid Steam runtime version.")
+    capacity(update.root, 1)
+    budget = min(MAX_ARCHIVE, shutil.disk_usage(update.root).free - RESERVE)
+    archive = update.work / "runtime.tar.xz"
+
+    subprocess.run(["wget", "-t", "3", "-T", "30", "-O", str(archive),
+                    base_url + "/" + version + "/" + RUNTIME + ".tar.xz"],
+                   check=True, timeout=900, preexec_fn=lambda: child_setup(budget))
+    return archive
+
+
+def unpack_archive(update, archive):
+    # Inspect the complete compressed stream (including its integrity footer)
+    # before extraction; never use the live Steam directory as tar's destination.
+    needed = 0
+    seen = set()
+    with lzma.open(archive, "rb") as stream:
+        with tarfile.open(fileobj=stream, mode="r|") as archive_stream:
+            for member in archive_stream:
+                path = PurePosixPath(member.name)
+                if (path.is_absolute() or ".." in path.parts or not path.parts
+                        or path.parts[0] != RUNTIME or path.as_posix() in seen or member.size < 0):
+                    raise RuntimeError("Unsafe or duplicate runtime archive path.")
+                if not (member.isfile() or member.isdir() or member.issym() or member.islnk()):
+                    raise RuntimeError("Unsupported runtime archive entry.")
+                seen.add(path.as_posix())
+                needed += ((member.size + 4095) // 4096) * 4096 + 8192
+                if len(seen) > MAX_MEMBERS or needed > MAX_EXPANDED:
+                    raise RuntimeError("Runtime archive exceeds the bounded extraction budget.")
+        while True:
+            chunk = stream.read(1024 * 1024)
+            if stream.tell() > MAX_EXPANDED:
+                raise RuntimeError("Runtime archive exceeds the decoded-stream budget.")
+            if not chunk:
+                break
+    capacity(update.root, needed)
+    with tarfile.open(archive, "r:xz") as payload:
+        payload.extractall(update.work / "unpack", filter="data")
+    capacity(update.root, 0)
+    archive.unlink()
+
+
+def interrupted(signum, frame):
+    raise InterruptedError("Steam runtime update interrupted by signal " + str(signum))
+
+
+def main():
+    update = RuntimeUpdate(Path(sys.argv[1]))
+    # A persistent lock inode serializes this component; never unlink the lock
+    # file while another invocation may have opened it. No service is started.
+    lock_path = update.root / ".steam-runtime-update.lock"
+    fd = os.open(lock_path, os.O_WRONLY | os.O_CREAT | os.O_NOFOLLOW | os.O_NONBLOCK, 0o600)
+    try:
+        if not stat.S_ISREG(os.fstat(fd).st_mode):
+            raise RuntimeError("Runtime update lock is not a regular file.")
+        fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        for sig in (signal.SIGINT, signal.SIGTERM, signal.SIGHUP, signal.SIGALRM):
+            signal.signal(sig, interrupted)
+        signal.alarm(1800)
+        try:
+            update.recover()
+            update.check_parents()
+            capacity(update.root, 1)
+            update.begin()
+            archive = fetch_archive(update, sys.argv[2], sys.argv[3])
+            unpack_archive(update, archive)
+            update.prepare()
+            update.activate()
+            return 0
+        except Exception as error:
+            print("Steam runtime replacement failed: " + str(error), file=sys.stderr)
+            signal.alarm(0)
+            try:
+                update.recover()
+            except Exception as recovery_error:
+                print("Runtime recovery needs attention; previous data is retained at "
+                      + str(update.work) + ": " + str(recovery_error), file=sys.stderr)
+            return 1
+        finally:
+            signal.alarm(0)
+    finally:
+        os.close(fd)
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+PY_STEAM_RUNTIME
+  then
+    return 0
+  fi
+  die "Steam runtime replacement failed. The installer has stopped."
+}
+
+install_steam_client_arm64() {
+  if [ -d "${CLIENT_DIR}" ]; then
+    log_info "Steam client already exists. Skipping."
+    return 0
+  fi
+  log_info "Downloading and installing Steam client (ARM64)..."
+  local manifest target_file zip_path
+
+  manifest=$(curl -fsSL "${STEAM_MANIFEST_URL}" | strings) || die "Failed to fetch Steam manifest."
+  target_file=$(echo "${manifest}" | grep -oP 'bins_linuxarm64_linuxarm64\.zip\.(?!vz\.)[^"]+') || die "Failed to parse target file from manifest."
+  zip_path="${STEAM}/linuxarm64.zip"
+
+  wget -c -t 5 -O "${zip_path}" "${STEAM_CDN}/${target_file}" || die "Failed to download Steam client zip."
+  unzip -o "${zip_path}" -d "${STEAM}" || die "Failed to extract Steam client."
+  rm -f "${zip_path}"
+
+  chmod +x "${CLIENT_DIR}/steam" || die "Failed to make Steam client executable."
+
+  mkdir -p "${STEAM}/package"
+  echo publicbeta > "${STEAM}/package/beta"
+  mkdir -p "${STEAM_DOT}"
+  ln -sfn "${STEAM}" "${STEAM_DOT}/steam" || die "Failed to symlink STEAM_DOT/steam."
+  ln -sfn "${STEAM}/linuxarm64" "${STEAM_DOT}/sdkarm64" || die "Failed to symlink STEAM_DOT/sdkarm64."
+  mkdir -p "${STEAM}/compatibilitytools.d/"
+}
+
+install_bundled_proton_files() {
+  log_info "Installing bundled Proton files..."
+  cp -f "/usr/share/steam/registry.vdf" "${STEAM_DOT}" || die "Failed to copy registry.vdf."
+}
+
+install_proton_variant() {
+  local display_name="$1"
+  # The fifth argument is retained for caller compatibility, never for deletion:
+  # games can select an older named version even after a new version installs.
+  log_info "Checking and installing ${display_name}; keeping existing versions..."
+  if /usr/bin/python3 -I -S -B - "${STEAM}" "$2" "$3" "$4" "$5" <<'PY_PROTON_VARIANT'
+import ctypes
+import fcntl
+import gzip
+import json
+import lzma
+import os
+from pathlib import Path, PurePosixPath
+import posixpath
+import re
+import resource
+import shutil
+import signal
+import stat
+import subprocess
+import sys
+import tarfile
+from urllib.parse import urlsplit
+
+RESERVE = 256 * 1024**2
+MAX_ARCHIVE = 2 * 1024**3
+MAX_EXPANDED = 16 * 1024**3
+MAX_MEMBERS = 250000
+WORK = ".proton-variant-stage"
+LOCK = ".proton-variant.lock"
+FAMILIES = {"proton-cachyos-*-arm64": (r"proton-cachyos-[A-Za-z0-9._+-]+-arm64", ".tar.xz"),
+            "GE-Proton*-aarch64": (r"GE-Proton[A-Za-z0-9._+-]+-aarch64", ".tar.gz")}
+
+
+def directory(path, device):
+    info = path.lstat()
+    if not stat.S_ISDIR(info.st_mode) or info.st_dev != device:
+        raise RuntimeError("Proton installation requires a real directory on the Steam filesystem.")
+
+
+def no_mounts(path):
+    for line in Path("/proc/self/mountinfo").read_text().splitlines():
+        field = line.split()[4]
+        mount = Path(re.sub(r"\\([0-7]{3})", lambda m: chr(int(m[1], 8)), field))
+        if mount == path or path in mount.parents:
+            raise RuntimeError("A mounted Proton staging or target path must be released first.")
+
+
+def capacity(root, needed):
+    if shutil.disk_usage(root).free < needed + RESERVE:
+        raise RuntimeError("Not enough space to install Proton while keeping existing versions.")
+
+
+def manifest(path):
+    if path.is_symlink() or not path.is_file() or not 0 < path.stat().st_size <= 65536:
+        raise RuntimeError("Missing or unsupported Proton manifest.")
+    raw = path.read_text(encoding="utf-8")
+    tokens, offset = [], 0
+    pattern = re.compile(r'\s+|//[^\n]*|"(?:\\.|[^"\\])*"|[{}]')
+    for match in pattern.finditer(raw):
+        if match.start() != offset:
+            raise RuntimeError("Malformed Proton manifest.")
+        offset = match.end()
+        token = match[0]
+        if not token.isspace() and not token.startswith("//"):
+            tokens.append(token)
+    if offset != len(raw):
+        raise RuntimeError("Malformed Proton manifest.")
+    index = 0
+
+    def object_value(depth=0):
+        nonlocal index
+        if depth > 16:
+            raise RuntimeError("Proton manifest nesting exceeds the supported format.")
+        result = {}
+        while index < len(tokens) and tokens[index] != "}":
+            key = json.loads(tokens[index])
+            index += 1
+            if not isinstance(key, str) or key in result or index == len(tokens):
+                raise RuntimeError("Malformed or duplicate Proton manifest field.")
+            if tokens[index] == "{":
+                index += 1
+                value = object_value(depth + 1)
+                if index == len(tokens) or tokens[index] != "}":
+                    raise RuntimeError("Unclosed Proton manifest object.")
+                index += 1
+            else:
+                value = json.loads(tokens[index])
+                index += 1
+            result[key] = value
+        return result
+
+    result = object_value()
+    if index != len(tokens):
+        raise RuntimeError("Unexpected Proton manifest closing brace.")
+    return result
+
+
+def validate(target, device):
+    directory(target, device)
+    no_mounts(target)
+    tool = manifest(target / "toolmanifest.vdf")["manifest"]
+    if tool.get("version") != "2" or tool.get("commandline") != "/proton %verb%":
+        raise RuntimeError("Unsupported Proton command manifest.")
+    entries = manifest(target / "compatibilitytool.vdf")["compatibilitytools"]["compat_tools"]
+    if not isinstance(entries, dict) or len(entries) != 1:
+        raise RuntimeError("Expected one Proton compatibility tool.")
+    name, entry = next(iter(entries.items()))
+    if (not name or "##" in name or not isinstance(entry, dict) or entry.get("install_path") != "."
+            or entry.get("from_oslist") != "windows" or entry.get("to_oslist") != "linux"):
+        raise RuntimeError("Unsupported Proton compatibility manifest.")
+    for relative in ("proton", "filelock.py", "version", "files/bin-arm64/wine", "files/bin-arm64/wineserver"):
+        path = target / relative
+        resolved = path.resolve(strict=True)
+        if not resolved.is_relative_to(target) or not resolved.is_file() or resolved.stat().st_size == 0:
+            raise RuntimeError("Missing or escaping required Proton payload: " + relative)
+        if relative == "proton" or relative.startswith("files/"):
+            if not resolved.stat().st_mode & 0o111:
+                raise RuntimeError("Required Proton launcher is not executable: " + relative)
+        if relative.startswith("files/"):
+            with resolved.open("rb") as stream:
+                header = stream.read(20)
+            if (len(header) != 20 or header[:6] != b"\x7fELF\x02\x01" or header[18:20] != b"\xb7\x00"
+                    or header[16:18] not in (b"\x02\x00", b"\x03\x00")):
+                raise RuntimeError("Required Proton payload is not ARM64 ELF: " + relative)
+
+
+def unpack(archive, stage, name, root, suffix):
+    # Validate every member and the compressed footer before extraction. Python's
+    # data filter then checks resolved link paths again during extraction.
+    members, seen, expanded = [], {}, 0
+    opener = lzma.open if suffix == ".tar.xz" else gzip.open
+    with opener(archive, "rb") as compressed:
+        class BoundedReader:
+            count = 0
+
+            def read(self, size):
+                data = compressed.read(size)
+                self.count += len(data)
+                if self.count > MAX_EXPANDED + MAX_MEMBERS * 8192:
+                    raise RuntimeError("Proton tar stream exceeds the size bound.")
+                return data
+
+        reader = BoundedReader()
+        with tarfile.open(fileobj=reader, mode="r|") as bundle:
+            for member in bundle:
+                path = PurePosixPath(member.name)
+                if (path.is_absolute() or ".." in path.parts or not path.parts or path.parts[0] != name
+                        or str(path) in seen or member.size < 0 or member.issparse()
+                        or not (member.isdir() or member.isfile() or member.issym() or member.islnk())):
+                    raise RuntimeError("Unsafe or unsupported Proton archive member.")
+                if len(path.parts) == 1 and not member.isdir():
+                    raise RuntimeError("Proton archive root must be a directory.")
+                if member.issym() or member.islnk():
+                    link = PurePosixPath(member.linkname)
+                    base = str(path.parent) if member.issym() else ""
+                    resolved = PurePosixPath(posixpath.normpath(posixpath.join(base, str(link))))
+                    if link.is_absolute() or not resolved.parts or resolved.parts[0] != name:
+                        raise RuntimeError("Proton archive link escapes its version directory.")
+                    if member.islnk() and seen.get(str(resolved)) != "file":
+                        raise RuntimeError("Proton hard link must name an earlier regular file.")
+                seen[str(path)] = "file" if member.isfile() else "other"
+                expanded += ((member.size + 4095) // 4096) * 4096 + 8192
+                members.append(member)
+                if expanded > MAX_EXPANDED or len(members) > MAX_MEMBERS:
+                    raise RuntimeError("Proton archive exceeds the extraction bound.")
+        while reader.read(1024 * 1024):
+            pass
+    capacity(root, expanded)
+    stage.mkdir()
+    with tarfile.open(archive, "r:*") as bundle:
+        bundle.extractall(stage, members=members, filter="data")
+
+
+def cleanup(work, lock_info, device):
+    if not os.path.lexists(work):
+        return
+    directory(work, device)
+    no_mounts(work)
+    children = {path.name for path in work.iterdir()}
+    if not children:  # Interrupted before the ownership link or after unlinking it.
+        work.rmdir()
+        return
+    owner = work / "owner"
+    info = owner.lstat()
+    if (not stat.S_ISREG(info.st_mode) or (info.st_dev, info.st_ino) != lock_info
+            or not children <= {"owner", "archive", "unpack"}):
+        raise RuntimeError("Unrecognized Proton staging contents; leaving them untouched.")
+    for name in ("archive", "unpack"):
+        path = work / name
+        if path.is_symlink() or path.is_file():
+            path.unlink()
+        elif path.exists():
+            directory(path, device)
+            shutil.rmtree(path)
+    owner.unlink()  # Ownership anchor is always removed last, for retry after a kill.
+    work.rmdir()
+
+
+def activate(candidate, target):
+    # Linux renameat2 refuses any existing target, including a concurrently created
+    # empty directory. Never replace a player-owned same-name installation.
+    libc = ctypes.CDLL(None, use_errno=True)
+    rename = libc.renameat2
+    rename.argtypes = [ctypes.c_int, ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p, ctypes.c_uint]
+    rename.restype = ctypes.c_int
+    if rename(-100, os.fsencode(candidate), -100, os.fsencode(target), 1) != 0:
+        raise OSError(ctypes.get_errno(), "Could not activate staged Proton without replacing existing data")
+
+
+def install(root, url, tar_name, name, family):
+    pattern, suffix = FAMILIES[family]
+    if not re.fullmatch(pattern, name) or tar_name != name + suffix:
+        raise RuntimeError("Unsupported Proton family or archive name.")
+    parsed = urlsplit(url)
+    if parsed.scheme != "https" or not parsed.netloc or parsed.username or parsed.password:
+        raise RuntimeError("Proton download requires an HTTPS release URL.")
+    root = Path(root).resolve(strict=True)
+    if root == Path("/"):
+        raise RuntimeError("Refusing the filesystem root as a Steam directory.")
+    device = root.stat().st_dev
+    directory(root, device)
+    fd = os.open(root / LOCK, os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW | os.O_NONBLOCK, 0o600)
+    try:
+        info = os.fstat(fd)
+        if not stat.S_ISREG(info.st_mode) or info.st_size:
+            raise RuntimeError("Unsupported Proton installer lock.")
+        fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        work = root / WORK
+        lock_info = (info.st_dev, info.st_ino)
+        cleanup(work, lock_info, device)
+        dest = root / "compatibilitytools.d"
+        if not os.path.lexists(dest):
+            dest.mkdir()
+        directory(dest, device)
+        no_mounts(dest)
+        target = dest / name
+        if os.path.lexists(target):
+            try:
+                validate(target, device)
+            except Exception as error:
+                raise RuntimeError("Existing Proton target is incomplete or unsupported; kept untouched: "
+                                   + name + ". Resolve that version separately before retrying.") from error
+            print("Requested Proton version passes payload checks; keeping it unchanged.")
+            return
+        capacity(root, MAX_ARCHIVE)
+        work.mkdir(mode=0o700)
+        try:
+            os.link(root / LOCK, work / "owner", follow_symlinks=False)
+            archive = work / "archive"
+            parent = os.getpid()
+
+            def child_setup():
+                libc = ctypes.CDLL(None, use_errno=True)
+                if libc.prctl(1, signal.SIGKILL, 0, 0, 0) != 0 or os.getppid() != parent:
+                    os._exit(125)
+                resource.setrlimit(resource.RLIMIT_FSIZE, (MAX_ARCHIVE, MAX_ARCHIVE))
+
+            subprocess.run(["wget", "-t", "3", "-T", "30", "-O", str(archive), url],
+                           check=True, timeout=900, preexec_fn=child_setup)
+            if not 0 < archive.stat().st_size <= MAX_ARCHIVE:
+                raise RuntimeError("Proton download is empty or exceeds the size bound.")
+            unpack(archive, work / "unpack", name, root, suffix)
+            candidate = work / "unpack" / name
+            validate(candidate, device)
+            capacity(root, 0)
+            activate(candidate, target)
+            print("Proton installed; every existing version has been kept.")
+        finally:
+            cleanup(work, lock_info, device)
+    finally:
+        os.close(fd)  # Keep the lock inode: never unlink a lock another caller may hold.
+
+
+def interrupted(signum, frame):
+    raise InterruptedError("Proton installation interrupted; existing versions are kept.")
+
+
+def main():
+    for signum in (signal.SIGINT, signal.SIGTERM, signal.SIGHUP, signal.SIGALRM):
+        signal.signal(signum, interrupted)
+    signal.alarm(1800)
+    try:
+        install(*sys.argv[1:])
+    except Exception as error:
+        print("Proton installation stopped: " + str(error), file=sys.stderr)
+        return 1
+    finally:
+        signal.alarm(0)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+PY_PROTON_VARIANT
+  then
+    return 0
+  else
+    die "Could not install ${display_name}. Existing Proton versions have been kept."
+  fi
+}
+
+install_proton_cachyos() {
+  install_proton_variant \
+    "Proton-CachyOS" \
+    "${PROTON_CACHYOS_URL}" \
+    "${PROTON_CACHYOS_TAR}" \
+    "${PROTON_CACHYOS_DIR}" \
+    "proton-cachyos-*-arm64"
+}
+
+install_proton_ge() {
+  install_proton_variant \
+    "Proton-GE" \
+    "${PROTON_GE_URL}" \
+    "${PROTON_GE_TAR}" \
+    "${PROTON_GE_DIR}" \
+    "GE-Proton*-aarch64"
+}
+
+run_steam_first_launch() {
+  log_info "Running Steam first launch routine..."
+  echo 0 > /proc/sys/fs/binfmt_misc/x86 || true
+  echo 0 > /proc/sys/fs/binfmt_misc/box32 || true
+  echo 0 > /proc/sys/fs/binfmt_misc/box64 || true
+
+  if [ "${DEVICE_HAS_DUAL_SCREEN}" = "true" ]; then
+    swaymsg 'seat seat1 fallback true' || log_info "Swaymsg dual screen setup failed, ignoring."
+  fi
+
+  # Allow Steam launch commands to fail cleanly if needed, though they shouldn't
+  LD_LIBRARY_PATH="${STEAM}/lib/aarch64-linux-gnu/" "${CLIENT_DIR}/steam" -deckard -exitsteam || log_info "Native Steam execution exited with an error."
+
+  if [ "${DEVICE_HAS_DUAL_SCREEN}" = "true" ]; then
+    swaymsg 'seat seat1 fallback false' || log_info "Swaymsg dual screen teardown failed, ignoring."
+  fi
+
+  systemctl restart systemd-binfmt || die "Failed to restart systemd-binfmt."
+}
+
+# --- Execution ---
+# Freeze the checked inputs before profile scripts can run or change the roots.
+STEAM_ROOT_PLAN="$(steam_root_layout inspect)" || die "Steam storage is not ready. Nothing was installed."
+readonly STEAM STEAM_GAMES_ROOT STEAM_ROOT_PLAN
+source /etc/profile
+STEAM_DOT="${STEAM_DOT:-/storage/.steam}"
+APPLICATIONS="${APPLICATIONS:-/storage/.local/share/applications}"
+FEX_DATA="/storage/.local/share/fex-emu"
+FEX_ARCH_ROOT="${FEX_DATA}/RootFS/ArchLinux"
+FEX_ARCH_USR_LIB="${FEX_ARCH_ROOT}/usr/lib"
+RUNTIME_DIR="${STEAM}/steam-runtime-steamrt-arm64"
+CLIENT_DIR="${STEAM}/steamrtarm64"
+RUNTIME_TAR_BASE="https://repo.steampowered.com/steamrt3c/images"
+RUNTIME_TAR_VERSION_URL="${RUNTIME_TAR_BASE}/latest-public-stable.txt"
+STEAM_MANIFEST_URL="https://client-update.fastly.steamstatic.com/steam_client_publicbeta_linuxarm64"
+STEAM_CDN="https://client-update.steamstatic.com"
+PROTON_CACHYOS_RELEASE_API="https://api.github.com/repos/CachyOS/proton-cachyos/releases/latest"
+PROTON_GE_RELEASE_API="https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest"
+unset MESA_LOADER_DRIVER_OVERRIDE
+
+steam_root_layout verify || die "Steam storage changed. Installation stopped."
+set_kill set "-9 steam FEX"
+log_info "Starting Steam Installation Process..."
+
+ensure_fex_rootfs
+link_steam_library
+ensure_steam_desktop_stub
+install_steam_runtime_arm64
+install_steam_client_arm64
+install_bundled_proton_files
+fetch_proton_latest_release "${PROTON_CACHYOS_RELEASE_API}" "arm64" "cachyos-" "PROTON_CACHYOS" "Proton-CachyOS"
+install_proton_cachyos
+fetch_proton_latest_release "${PROTON_GE_RELEASE_API}" "aarch64" "" "PROTON_GE" "Proton-GE"
+install_proton_ge
+run_steam_first_launch
+
+echo ""
+log_success "Steam installed successfully. You can now start it from EmulationStation from the Steam section."

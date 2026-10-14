@@ -1,0 +1,14 @@
+{
+  "commit": "c6240ed3984a2b2c2e67f1df9fa0ddc3c37889a2",
+  "argv": [
+    "git",
+    "show",
+    "--format=fuller",
+    "c6240ed3984a2b2c2e67f1df9fa0ddc3c37889a2",
+    "--",
+    "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh"
+  ],
+  "original_exit": 0,
+  "stdout_sha256": "e8ac839362fcc25b3d75cb8de12b979a7c30ca9715287d1c25f8abe4501cc2d4",
+  "stdout": "commit c6240ed3984a2b2c2e67f1df9fa0ddc3c37889a2\nAuthor:     blitterbot <blitterbot@rasteratops.com>\nAuthorDate: Tue Oct 13 23:50:50 2026 +0000\nCommit:     blitterbot <blitterbot@rasteratops.com>\nCommitDate: Tue Oct 13 23:50:50 2026 +0000\n\n    steam: return from successful FEX preparation\n    \n    Use the returning informational logger after FEX refresh so the normal installer caller reaches library, runtime, client, and Proton preparation. Keep the terminal success logger and final installation message unchanged.\n    \n    Source-only validation; complete caller VM fixture remains UNRUN.\n    \n    Refs #564, #579, #580\n\ndiff --git a/projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh b/projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh\nindex 3915509d7e..94a41f044e 100755\n--- a/projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh\t\n+++ b/projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh\t\n@@ -755,7 +755,7 @@ if __name__ == \"__main__\":\n         sys.exit(1)\n PY_STEAM_FEX\n   then\n-    log_success \"Steam support environment is ready.\"\n+    log_info \"Steam support environment is ready.\"\n   else\n     die \"The Steam support environment could not be updated. Try Install Steam again.\"\n   fi\n"
+}

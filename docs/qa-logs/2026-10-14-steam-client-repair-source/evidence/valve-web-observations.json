@@ -1,0 +1,15 @@
+{
+  "read_date_utc": "2026-10-14",
+  "mechanism": "web.run official-page text inspection; no linked archives fetched",
+  "observations": [
+    {
+      "url": "https://repo.steampowered.com/steam/",
+      "finding": "Minimal launcher/bootstrapper; self-update mechanism downloads further components."
+    },
+    {
+      "url": "https://repo.steampowered.com/steam/archive/stable/",
+      "finding": "Latest versioned amd64 launcher link inspected is steam-launcher_1.0.0.87_amd64.deb dated 2026-Jun-26 15:35. No binary/source archive fetched or inspected."
+    }
+  ],
+  "claim_limit": "Page observations only. Not source evidence that a launcher release fixes the ARM64 installer or defines read-only legacy completeness."
+}

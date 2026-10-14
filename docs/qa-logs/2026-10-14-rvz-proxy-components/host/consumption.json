@@ -1,0 +1,227 @@
+{
+  "utc": "2026-10-14T03:29:02.816296+00:00",
+  "qemu_pid_absent": 3686526,
+  "owners": [
+    {
+      "owner": "/workspace/tmp/pix-m7-rvz-vm-20261014/extra01-owner",
+      "rc": 0,
+      "launcher": {
+        "utc": "2026-10-14T03:14:16.679674+00:00",
+        "pid": 3724864,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "run": "/workspace/tmp/pix-m7-rvz-vm-20261014/control/.build-runs/20261014T031411Z-35b4a40f",
+      "result": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-14T03:14:16.669209+00:00"
+      },
+      "host_pids_absent": [
+        3724864,
+        3724865,
+        3724876,
+        3724905
+      ]
+    },
+    {
+      "owner": "/workspace/tmp/pix-m7-rvz-vm-20261014/md5-owner",
+      "rc": 0,
+      "launcher": {
+        "utc": "2026-10-14T03:18:08.150731+00:00",
+        "pid": 3745158,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "run": "/workspace/tmp/pix-m7-rvz-vm-20261014/control/.build-runs/20261014T031803Z-1bf177d5",
+      "result": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-14T03:18:08.141638+00:00"
+      },
+      "host_pids_absent": [
+        3745158,
+        3745159,
+        3745162,
+        3745191
+      ]
+    },
+    {
+      "owner": "/workspace/tmp/pix-m7-rvz-vm-20261014/proxy-owner",
+      "rc": 2,
+      "launcher": {
+        "utc": "2026-10-14T03:08:05.854067+00:00",
+        "pid": 3694740,
+        "runner_returncode": 2,
+        "submission_is_not_completion": true
+      },
+      "disposition": "refused before payload: existing lifecycle worktree lock",
+      "host_pids_absent": [
+        3694740
+      ]
+    },
+    {
+      "owner": "/workspace/tmp/pix-m7-rvz-vm-20261014/proxy-owner02",
+      "rc": 1,
+      "launcher": {
+        "utc": "2026-10-14T03:09:47.742680+00:00",
+        "pid": 3702549,
+        "runner_returncode": 1,
+        "submission_is_not_completion": true
+      },
+      "run": "/workspace/tmp/pix-m7-rvz-vm-20261014/control/.build-runs/20261014T030942Z-52677685",
+      "result": {
+        "command_rc": 1,
+        "monitor_rc": 0,
+        "runner_rc": 1,
+        "utc": "2026-10-14T03:09:47.733600+00:00"
+      },
+      "host_pids_absent": [
+        3702549,
+        3702550,
+        3702552,
+        3702581
+      ]
+    },
+    {
+      "owner": "/workspace/tmp/pix-m7-rvz-vm-20261014/proxy-owner03",
+      "rc": 0,
+      "launcher": {
+        "utc": "2026-10-14T03:14:42.289734+00:00",
+        "pid": 3727226,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "run": "/workspace/tmp/pix-m7-rvz-vm-20261014/control/.build-runs/20261014T031437Z-0607b800",
+      "result": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-14T03:14:42.281196+00:00"
+      },
+      "host_pids_absent": [
+        3727226,
+        3727229,
+        3727241,
+        3727271
+      ]
+    },
+    {
+      "owner": "/workspace/tmp/pix-m7-rvz-vm-20261014/report-owner",
+      "rc": 0,
+      "launcher": {
+        "utc": "2026-10-14T03:06:06.193000+00:00",
+        "pid": 3684022,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T030601Z-ea5634ae",
+      "result": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-14T03:06:06.184151+00:00"
+      },
+      "host_pids_absent": [
+        3684022,
+        3684027,
+        3684030,
+        3684059
+      ]
+    },
+    {
+      "owner": "/workspace/tmp/pix-m7-rvz-vm-20261014/routing-owner",
+      "rc": 1,
+      "launcher": {
+        "utc": "2026-10-14T03:15:17.220087+00:00",
+        "pid": 3730491,
+        "runner_returncode": 1,
+        "submission_is_not_completion": true
+      },
+      "run": "/workspace/tmp/pix-m7-rvz-vm-20261014/control/.build-runs/20261014T031512Z-d4012f79",
+      "result": {
+        "command_rc": 1,
+        "monitor_rc": 0,
+        "runner_rc": 1,
+        "utc": "2026-10-14T03:15:17.209765+00:00"
+      },
+      "host_pids_absent": [
+        3730491,
+        3730492,
+        3730503,
+        3730548
+      ]
+    },
+    {
+      "owner": "/workspace/tmp/pix-m7-rvz-vm-20261014/routing-owner02",
+      "rc": 0,
+      "launcher": {
+        "utc": "2026-10-14T03:22:58.381042+00:00",
+        "pid": 3769333,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "run": "/workspace/tmp/pix-m7-rvz-vm-20261014/control/.build-runs/20261014T032248Z-fd4c8160",
+      "result": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-14T03:22:58.372707+00:00"
+      },
+      "host_pids_absent": [
+        3769333,
+        3769334,
+        3769335,
+        3769364
+      ]
+    },
+    {
+      "owner": "/workspace/tmp/pix-m7-rvz-vm-20261014/steam-owner",
+      "rc": 0,
+      "launcher": {
+        "utc": "2026-10-14T03:10:51.549764+00:00",
+        "pid": 3707867,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "run": "/workspace/tmp/pix-m7-rvz-vm-20261014/control/.build-runs/20261014T031046Z-f2ebc6b6",
+      "result": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-14T03:10:51.539724+00:00"
+      },
+      "host_pids_absent": [
+        3707867,
+        3707868,
+        3707878,
+        3707907
+      ]
+    },
+    {
+      "owner": "/workspace/tmp/pix-m7-rvz-vm-20261014/vm-owner",
+      "rc": 0,
+      "launcher": {
+        "utc": "2026-10-14T03:24:21.619101+00:00",
+        "pid": 3685977,
+        "runner_returncode": 0,
+        "submission_is_not_completion": true
+      },
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T030623Z-a2b4ca57",
+      "result": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-14T03:24:21.608820+00:00"
+      },
+      "host_pids_absent": [
+        3685977,
+        3685978,
+        3685979,
+        3686033
+      ]
+    }
+  ]
+}

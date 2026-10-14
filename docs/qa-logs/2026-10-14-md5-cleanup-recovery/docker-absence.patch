@@ -1,0 +1,17 @@
+--- a/compile.py
++++ b/compile.py
+@@ -159,0 +160,8 @@
++def absent(code, stdout, stderr, cid):
++    """Only a complete Docker not-found diagnostic for this full owned CID."""
++    return (re.fullmatch(r'[0-9a-f]{64}', cid) is not None and code == 1
++            and stdout in ('', '\n') and re.fullmatch(
++                r'(?i:(?:error: |error response from daemon: )?no such (?:object|container): )'
++                + re.escape(cid) + r'\n?', stderr) is not None)
++
++
+@@ -165 +173 @@
+-        check = subprocess.run(['docker','inspect','--format','{{.State.Running}}',cid],capture_output=True,text=True,timeout=15)
++        check = subprocess.run(['docker','inspect','--type','container','--format','{{.State.Running}}',cid],capture_output=True,text=True,timeout=15)
+@@ -168 +176 @@
+-            require('No such object' in check.stderr and cid in check.stderr, 'container absence is not established')
++            require(absent(check.returncode, check.stdout, check.stderr, cid), 'container absence is not established')

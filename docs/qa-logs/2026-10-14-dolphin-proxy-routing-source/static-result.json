@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "evidence": "static AST/hash/source/whitespace and bash -n only",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "runtime": "UNRUN",
+  "checks": [
+    {
+      "argv": [
+        "bash",
+        "-n",
+        "/workspace/repos/rocknix.worktrees/m7-browser-memory-570/docs/qa-logs/2026-10-14-dolphin-proxy-routing-source/source/cheevos_dolphin.before.sh"
+      ],
+      "original_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "bash",
+        "-n",
+        "/workspace/repos/rocknix.worktrees/m7-browser-memory-570/docs/qa-logs/2026-10-14-dolphin-proxy-routing-source/source/cheevos_dolphin.after.sh"
+      ],
+      "original_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "bash",
+        "-n",
+        "/workspace/repos/rocknix.worktrees/m7-browser-memory-570/docs/qa-logs/2026-10-14-dolphin-proxy-routing-source/source/cheevos_ppsspp.sh"
+      ],
+      "original_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "bash",
+        "-n"
+      ],
+      "stdin": "synthetic PROFILE literal",
+      "original_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh"
+      ],
+      "original_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "prepared_cases_per_variant": 63,
+  "prepared_script_invocations": 126,
+  "listener_equal_ppsspp": true,
+  "original_body_preserved_except_additions": true,
+  "prior_packet_entries_verified": {
+    "2026-10-14-proxy-rvz-source": 46,
+    "2026-10-14-proxy-rvz-revision-source": 11
+  },
+  "bindings_sha256": "b2771499d182f434113ba3ba6d340c1442645e8aa9e65a210f957b8013fd18b4",
+  "before_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+  "after_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec"
+}

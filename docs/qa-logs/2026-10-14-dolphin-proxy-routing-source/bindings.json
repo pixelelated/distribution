@@ -1,0 +1,165 @@
+{
+  "evidence": "source attribution only; runtime UNRUN",
+  "issue": 584,
+  "distribution_parent": "22cfb2385acce6d9c20b20d2f7f40970808777b3",
+  "next": "0ea6eaf74ad47503c05955d1c0bd4bd00bdfb816",
+  "product_path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh",
+  "before_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+  "after_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+  "dolphin_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+  "bundled_rcheevos_pin": "926e4608f8dca7989267c787bbefb3ab1c835ac5",
+  "source": {
+    "dolphin/Source/Core/Core/Config/AchievementSettings.cpp": {
+      "commit": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+      "path": "Source/Core/Core/Config/AchievementSettings.cpp",
+      "sha256": "36e87e4b431b4367114ae42e6b0709def3496cd0db59b8a8ed99ffaad015fd32",
+      "git_blob": "538461e474e080687a98725ddd692a62707fdc14",
+      "bytes": 1712,
+      "excerpt_ranges": [
+        [
+          1,
+          19
+        ]
+      ]
+    },
+    "dolphin/Source/Core/Core/AchievementManager.cpp": {
+      "commit": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+      "path": "Source/Core/Core/AchievementManager.cpp",
+      "sha256": "7c02bfdd08c232a66c03b4c21aa92116badc156b367c44d934cdd4c358cd9e5e",
+      "git_blob": "88af95f42c32f285fd5c253e39261493ad1956f0",
+      "bytes": 55383,
+      "excerpt_ranges": [
+        [
+          1,
+          8
+        ],
+        [
+          64,
+          84
+        ],
+        [
+          1301,
+          1359
+        ]
+      ]
+    },
+    "dolphin/Externals/rcheevos/CMakeLists.txt": {
+      "commit": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+      "path": "Externals/rcheevos/CMakeLists.txt",
+      "sha256": "6ea2d5d73d507f1f987cc10469e6728b1f436e5232b33940be589826c7549ae8",
+      "git_blob": "dd754873395154d018f7f9ec287f1a2e221ddf47",
+      "bytes": 2782,
+      "excerpt_ranges": [
+        [
+          1,
+          200
+        ]
+      ]
+    },
+    "rcheevos/src/rc_client.c": {
+      "commit": "926e4608f8dca7989267c787bbefb3ab1c835ac5",
+      "path": "src/rc_client.c",
+      "sha256": "1087332b5b8f58593206ae220fe609e6122d371033c3f14e3fd3dd06e215107b",
+      "git_blob": "dc104dd23d2e7e63ca3d04e07256a8412b71be17",
+      "bytes": 251620,
+      "excerpt_ranges": [
+        [
+          1,
+          5
+        ],
+        [
+          6802,
+          6828
+        ]
+      ]
+    },
+    "rcheevos/src/rapi/rc_api_common.c": {
+      "commit": "926e4608f8dca7989267c787bbefb3ab1c835ac5",
+      "path": "src/rapi/rc_api_common.c",
+      "sha256": "601d932f4152fb2f611c15633aef561c7df8458cddd3593b8e6e78fdfef9d493",
+      "git_blob": "3a261fba46c25bc8c1ec04bca091127debef8946",
+      "bytes": 39592,
+      "excerpt_ranges": [
+        [
+          1,
+          5
+        ],
+        [
+          1193,
+          1218
+        ]
+      ]
+    },
+    "rcheevos/test/rapi/test_rc_api_common.c": {
+      "commit": "926e4608f8dca7989267c787bbefb3ab1c835ac5",
+      "path": "test/rapi/test_rc_api_common.c",
+      "sha256": "eace719550a2987b230e34d480b215d94ae5fcf8cd16e0b7579144d059af7578",
+      "git_blob": "d0547182472a44dd4e86794022c3772afae52805",
+      "bytes": 33169,
+      "excerpt_ranges": [
+        [
+          1,
+          5
+        ],
+        [
+          592,
+          610
+        ]
+      ]
+    }
+  },
+  "distribution_references": {
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk": {
+      "sha256": "0041085b62ce9fdcbbc0fe54956a68cc304ddabeadf26cb718ae9eab620928da",
+      "equal_next": true
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/scripts/cheevos_ppsspp.sh": {
+      "sha256": "34f92107cebd6dfc824c7832d25e46bd936d7cbdfec36af2a4f74ca3ea378b41",
+      "equal_next": true
+    },
+    "projects/ROCKNIX/packages/network/raofflineproxy/system.d/raofflineproxy.service": {
+      "sha256": "c42689768684263e69d3a904223faf2bab270a5956fde3af5af640f1f26b4233",
+      "equal_next": true
+    },
+    "projects/ROCKNIX/packages/network/raofflineproxy/package.mk": {
+      "sha256": "e13f5bb22eae74c73ecb4141c3580f2627b9f8cfc317840656d90ed017e0f13d",
+      "equal_next": true
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_gc.sh": {
+      "sha256": "e28886067a11e50f897fa3073f191801876bca68e69b8797ddf56c83ec6b9882",
+      "equal_next": true
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh": {
+      "sha256": "b6cedc30a88cfbd8689678b629739fffb1d6024137c1e5c7440dfc6f64bfcb4b",
+      "equal_next": true
+    }
+  },
+  "dolphin_patch_sha256": {
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/000-hotkeys.patch": "919901e00f0b5cdeb9c2a984fe89314ac5c13a39d52f6934c4e9984929f9a514",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/001-padorder.patch": "7946fe52a63615f19f08ee27ca076412df8e157656eb7d8a77fd4689670fabc2",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/002-savestate-names.patch": "a995d5ea04799665cd1a4a07c9946cdd76d6a8e7c5a650cf2c04aaeea5b88250",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/003-hide-osd-msg.patch": "aff59ff72816cbbca5190990706091670db93552d3593cf770805993d92fd8b9",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/004-enable-240p-res.patch": "9219d0e09aa26e1938d769391f8e1054e240fbd4c1ea535477cb85f9a347c9ad",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/005-set-defaults.patch": "26268cfcf90bb22ec2c055ec31a765093b8e68fd601039e881fb0d97bf3e5147",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/006-dolphin-version.patch": "5d35614315d158c8f66322544611dd0264f0c340f32efbdd14758e0ee39015d3",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/008-bios-dir.patch": "185392ac32cc7b6bf423c25eaca5295ee58418cd6fc49a2589173bab1350ba49",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/009-supress-warnings.patch": "336c561d4aa189a6a3f710e02a5de01c9a0e879178db3f3101fc6d0f09bd6b58",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/010-codehandlers-bin-path.patch": "909d83c9df4534df35b6d8815261587f234e31795005d1ed6dc5e0aa5734c4f9",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/011-wayland-cmake.patch": "1f803b919fab6e427e4a6844b69c86bd9e7de0fadd55a4bdccea28fe801b7f66",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/012-wayland-surface-dimensions.patch": "2a9732be6aa77ee1efef86439f618b9b2d81f63fe819875108421c11e152234e",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/013-wayland-egl.patch": "2745b773a8e19d878975c5d72006149cd00185c6b87c1ad217c2ca57f032f86b",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/014-wayland-vulkan.patch": "a9fb8fa04ac84a1cbe49a617c3383158e982600de515a20aa5c73c00cd50cf12",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/015-wayland-nogui-platform.patch": "7595b467f7dbaefa9c841b004ec6db52350b478ee1ab86a4684511b659e6e132",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/016-wayland-qt-platform.patch": "11d89a4ac2100be8a59d798119c76003c7e56ba99f2d3b774d06532a73c77106"
+  },
+  "fixture_inputs": {
+    "source/cheevos_dolphin.after.sh": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+    "source/cheevos_dolphin.before.sh": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+    "source/cheevos_ppsspp.sh": "34f92107cebd6dfc824c7832d25e46bd936d7cbdfec36af2a4f74ca3ea378b41",
+    "source/host-url-excerpts.md": "14ad3afb8aa1857df08f5086469471fdc4754722461aa45b6a0e43fb7a4003cb",
+    "source/ppsspp-listener.sh": "1539e4f888447532039f6c12ad3415db6eb2057f3509c62031bf450239db4c4e",
+    "source/proxy-main.py.txt": "71d5a2a0796ed2b7199118268569d70ec3c6daf78f8a7851b2bf1187d21bf429",
+    "source/raofflineproxy.service": "c42689768684263e69d3a904223faf2bab270a5956fde3af5af640f1f26b4233",
+    "source/RAOfflineProxy-LICENSE": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+  }
+}

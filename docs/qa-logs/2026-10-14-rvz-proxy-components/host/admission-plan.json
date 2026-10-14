@@ -1,0 +1,21 @@
+{
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+  "retention_plan": "/workspace/tmp/pix-m7-rvz-vm-20261014/retention-plan.json",
+  "retention_report": "/workspace/tmp/pix-m7-rvz-vm-20261014/retention-report.json",
+  "stage": "m7-rvz-proxy-md5-offline-vm",
+  "profiles": [
+    {
+      "PROJECT": "ROCKNIX",
+      "DEVICE": "GENERIC_X64",
+      "ARCH": "x86_64"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "/workspace/tmp/pix-m7-rvz-vm-20261014/vm",
+      "issue": 583,
+      "kind": "qa-scratch",
+      "release_when": "After exact guest stop and original result consumption, preserve compact receipts; retire all guest/raw/input/output/UEFI and synthetic scratch. No VM history retention."
+    }
+  ]
+}

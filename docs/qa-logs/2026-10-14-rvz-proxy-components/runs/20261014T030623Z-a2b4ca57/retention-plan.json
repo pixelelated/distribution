@@ -1,0 +1,39 @@
+{
+  "builds": [
+    {
+      "basis": "Fresh no-NIC GENERIC_X64 guest, standard8GiB/4CPU GLauto640,30min hardbound. Source-only proxy/routing probes, public Steam archive hash/CRC/layout, MD5 repaired target tests only after exact wrapper-recovery proof. 256MiB readonly input plus256MiB output and at most256MiB additive source media. No provider/device/account/native emulator or full cache copy.",
+      "evidence": [
+        {
+          "path": "/workspace/tmp/pix-m7-rvz-vm-20261014/records/image-size.json",
+          "sha256": "33419eb48e80d3b5f728711713c65ea9eb23d740879aac229f30429afcce0fb2"
+        },
+        {
+          "path": "/workspace/tmp/pix-m7-rvz-vm-20261014/records/inputs.json",
+          "sha256": "f37643a8fe99151e85aaefd4f5bb8d98a0a8f1d6a3861461b24541fd95514de5"
+        },
+        {
+          "path": "/workspace/tmp/pix-m7-rvz-vm-20261014/vm-lifecycle.py",
+          "sha256": "15efa8e2a344f979663213f361028496f67083adf21f92e55bc6571181672998"
+        }
+      ],
+      "name": "m7-rvz-proxy-md5-offline-vm",
+      "terms_bytes": {
+        "guest_disk": 17179869184,
+        "input_and_late_stage": 536870912,
+        "output_and_records": 536870912,
+        "sparse_raw_allowance": 4333764608
+      }
+    }
+  ],
+  "candidates": [],
+  "protected": [
+    "/workspace/tmp/pix-m7-rvz-vm-20261014/records",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/host-maintenance",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261011T194522Z.g1a0266484423-from-ROCKNIX.img.gz"
+  ],
+  "reference_stores": [],
+  "scan_roots": [
+    "/workspace/tmp/pix-m7-rvz-vm-20261014/scan"
+  ],
+  "volume": "/workspace"
+}

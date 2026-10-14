@@ -1,0 +1,18 @@
+{
+  "direct_source_contracts": [
+    {
+      "product": "libretro-common/src/utils/md5.c",
+      "consumer": "md5-alignment.c",
+      "missing": []
+    },
+    {
+      "product": "hash_disc.c",
+      "consumer": "wii-partition-probe.c",
+      "missing": []
+    }
+  ],
+  "uninstrumented_or_disabled": [],
+  "rvz_feature_contract": true,
+  "translation_units": 112,
+  "status": "PASS"
+}

@@ -1,0 +1,35 @@
+{"status": "FAIL", "result": "/run/pix583-revision01/result.json"}
+Traceback (most recent call last):
+  File "/usr/lib/python3.14/xml/etree/ElementTree.py", line 763, in _get_writer
+AttributeError: 'PosixPath' object has no attribute 'write'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/pix-input/packets/2026-10-14-proxy-rvz-revision-source/fixtures/probe.py", line 395, in <module>
+    main()
+  File "/tmp/pix-input/packets/2026-10-14-proxy-rvz-revision-source/fixtures/probe.py", line 381, in main
+    check_listing(output, result['listing'])
+  File "/tmp/pix-input/packets/2026-10-14-proxy-rvz-revision-source/fixtures/probe.py", line 237, in check_listing
+    gamelist = folder/'gamelist.xml'; ET.ElementTree(xml).write(gamelist)
+  File "/usr/lib/python3.14/xml/etree/ElementTree.py", line 737, in write
+  File "/usr/lib/python3.14/contextlib.py", line 141, in __enter__
+  File "/usr/lib/python3.14/xml/etree/ElementTree.py", line 768, in _get_writer
+  File "/usr/lib/python3.14/encodings/__init__.py", line 100, in search_function
+  File "<frozen importlib._bootstrap>", line 1371, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1342, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 938, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 755, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1013, in get_code
+  File "<frozen importlib._bootstrap_external>", line 950, in get_data
+  File "/tmp/pix-input/packets/2026-10-14-proxy-rvz-revision-source/fixtures/probe.py", line 356, in audit
+    if not permitted(path, write): raise PermissionError('outside fixture file denied')
+PermissionError: outside fixture file denied
+
+PIX_RC_dbe659784e9c455c9dbccf938688977e:1
+
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-rvz-vm-20261014/guest-command.py", line 8, in <module>
+    assert c.returncode==0 and result['guest_rc']==0,result;result['rc']=0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'rc': 1, 'started': 1791947382.7163296, 'transport_rc': 0, 'guest_rc': 1, 'ended': 1791947383.6664505}

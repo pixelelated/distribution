@@ -1,0 +1,40 @@
+{
+  "id": "72c06db260934b7683c44a75ef5025a5",
+  "plan": "/workspace/tmp/pix-m7-rvz-vm-20261014/admission-plan.json",
+  "plan_sha256": "79c136530517afc1691d18adc4a59ec5129d82b5fa5fc3d985255081b0248599",
+  "registry_generation": 30,
+  "reserved_bytes": 0,
+  "schema": 1,
+  "state": {
+    "available_bytes": 2979858825216,
+    "checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+    "container_checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+    "outputs": [
+      {
+        "issue": 583,
+        "kind": "qa-scratch",
+        "path": "/workspace/tmp/pix-m7-rvz-vm-20261014/vm",
+        "release_when": "After exact guest stop and original result consumption, preserve compact receipts; retire all guest/raw/input/output/UEFI and synthetic scratch. No VM history retention."
+      }
+    ],
+    "profiles": [
+      {
+        "ARCH": "x86_64",
+        "DEVICE": "GENERIC_X64",
+        "PROJECT": "ROCKNIX"
+      }
+    ],
+    "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+    "required_bytes": 22587375616,
+    "retention_plan_sha256": "4451386e3e91b4fcfb4b759bc742d07a0a49887a1ce9eb7f665c7fe9df8bf7cd",
+    "retention_report_sha256": "5f062b80b14444b17afb8d0713b83816a091205d5930ab1e324f24275883d6a6",
+    "source": {
+      "head": "0ba5bc48af03eadd417f535353f20770c51c6cf7",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "volume": "/workspace",
+    "volume_device": 66304
+  },
+  "tool_sha256": "3e2ad9d6eed47f53d1547880286e4bed69848b956be490f17f354d9df70bb942",
+  "utc": "2026-10-14T03:06:23.699101+00:00"
+}

@@ -1,0 +1,15 @@
+[
+  "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/cmake",
+  "-S",
+  "/packet",
+  "-B",
+  "/work/builds/candidate",
+  "-G",
+  "Ninja",
+  "-DCMAKE_TOOLCHAIN_FILE=/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/etc/cmake-x86_64-rocknix-linux-gnu.conf",
+  "-DES_SOURCE=/work/sources/candidate",
+  "-DSEALED_PACKET=/work/sources/fixture/docs/qa-logs/2026-10-13-rvz-regression-source",
+  "-DMD5_CONTROL_SOURCE=/work/sources/candidate/tests/md5-alignment.c",
+  "-DENABLE_RVZ_HASH=ON",
+  "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+]

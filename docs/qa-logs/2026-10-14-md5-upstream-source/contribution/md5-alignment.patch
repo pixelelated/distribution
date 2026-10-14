@@ -1,0 +1,18 @@
+diff --git a/utils/md5.c b/utils/md5.c
+--- a/utils/md5.c
++++ b/utils/md5.c
+@@ -72,4 +72,13 @@
+ #if defined(__i386__) || defined(__x86_64__) || defined(__vax__)
++/* These hosts are little-endian, but input need not satisfy C alignment or
++ * effective-type requirements. memcpy preserves the unaligned fast path
++ * without dereferencing an incompatible or misaligned word pointer. */
++static uint32_t MD5_load_word(const unsigned char *input)
++{
++	uint32_t word;
++	memcpy(&word, input, sizeof(word));
++	return word;
++}
+ #define MD5_SET(n) \
+-	(*(uint32_t*)&ptr[(n) * 4])
++	MD5_load_word(&ptr[(n) * 4])
+ #define MD5_GET(n) \

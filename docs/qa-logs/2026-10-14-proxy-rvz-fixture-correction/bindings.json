@@ -1,0 +1,21 @@
+{
+  "base_commit": "819d1c30ec6bc4d7354babecec1b84ceed960189",
+  "base_manifest_sha256": "3f69dab6fae3b458cbfe8c1a59cb7f110e5ca9b89703607b4e31968e97f4c800",
+  "evidence": "source review correction only; UNRUN",
+  "candidates": {
+    "rvz_datasource.py": {
+      "target": "linux/raofflineproxy/rvz_datasource.py",
+      "baseline_sha256": "5fe8d058b6a1c06c04696308eab0206ea3c3e60075a2b88137065583fbb0cea1",
+      "reviewed_candidate_sha256": "b29684d2cc0419cd1c02b61b562d422635a08f6fdb40a83ca5e12d838c9e56c3",
+      "candidate_sha256": "b0d28c147c24c0e6909e8e754915ab4323d766b7fbd711b16c2ce949bd8f3407",
+      "uncompressed_patch_sha256": "77c99c068d04c3ecf712c93a6c177cece7c2e72b955484a7a5cc998824352b44"
+    },
+    "raofflineproxy-ctl": {
+      "target": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl",
+      "baseline_sha256": "dc4a69f986249e8ef8b1da799dd8b47376699a5609e5b35617d1965e61b198cc",
+      "reviewed_candidate_sha256": "9c896e18f46b76b6c72be6a1f11664c613c7efa7b63bb49993128b89916be137",
+      "candidate_sha256": "47391a3bbcaa0f2262cdee12f09bd48d17f7fedf0237a1a661a21b085b2f71f7",
+      "uncompressed_patch_sha256": "69b37c310650dd7b344f3080084e62b2406bc5738d4bf8bde84c3c761c09f7a4"
+    }
+  }
+}

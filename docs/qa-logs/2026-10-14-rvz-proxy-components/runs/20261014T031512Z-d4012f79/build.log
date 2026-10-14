@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/tmp/pix-extra/packets/2026-10-14-dolphin-proxy-routing-source/fixtures/probe.py", line 303, in main
+    live=Path(f'/proc/self/task/{parent}/children').read_text().split()
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 771, in open
+FileNotFoundError: [Errno 2] No such file or directory: '/proc/self/task/4306/children'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/pix-extra/packets/2026-10-14-dolphin-proxy-routing-source/fixtures/probe.py", line 369, in <module>
+    main()
+    ~~~~^^
+  File "/tmp/pix-extra/packets/2026-10-14-dolphin-proxy-routing-source/fixtures/probe.py", line 343, in main
+    owned=Path(f'/proc/self/task/{parent}/children').read_text().split()
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 771, in open
+FileNotFoundError: [Errno 2] No such file or directory: '/proc/self/task/4306/children'
+
+PIX_RC_4f89809b194546b29a7394d2f8c17fa6:1
+
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-rvz-vm-20261014/guest-command.py", line 8, in <module>
+    assert c.returncode==0 and result['guest_rc']==0,result;result['rc']=0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'rc': 1, 'started': 1791947712.1777446, 'transport_rc': 0, 'guest_rc': 1, 'ended': 1791947712.6943164}

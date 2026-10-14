@@ -1,0 +1,680 @@
+[
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -o CMakeFiles/pix574-md5-alignment.dir/work/sources/candidate/tests/md5-alignment.c.o -c /work/sources/candidate/tests/md5-alignment.c",
+  "file": "/work/sources/candidate/tests/md5-alignment.c",
+  "output": "/work/builds/candidate/CMakeFiles/pix574-md5-alignment.dir/work/sources/candidate/tests/md5-alignment.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-g++ -I/work/sources/candidate/external/libcheevos -std=gnu++17 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/CMakeFiles/pix574-public-wii-trace.dir/public-wii-trace.cpp.o -c /work/sources/fixture/docs/qa-logs/2026-10-13-rvz-regression-source/wii-public-path/public-wii-trace.cpp",
+  "file": "/work/sources/fixture/docs/qa-logs/2026-10-13-rvz-regression-source/wii-public-path/public-wii-trace.cpp",
+  "output": "/work/builds/candidate/controls/wii-controls/CMakeFiles/pix574-public-wii-trace.dir/public-wii-trace.cpp.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-g++ -I/work/builds/candidate/controls/wii-controls/sealed-controls/fixture-code -I/work/sources/candidate/external/libcheevos/rcheevos/include -std=gnu++17 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/CMakeFiles/pix574-fixture-writer.dir/fixture-writer.cpp.o -c /work/sources/fixture/docs/qa-logs/2026-10-13-rvz-regression-source/fixture-writer.cpp",
+  "file": "/work/sources/fixture/docs/qa-logs/2026-10-13-rvz-regression-source/fixture-writer.cpp",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/CMakeFiles/pix574-fixture-writer.dir/fixture-writer.cpp.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -I/work/builds/candidate/controls/wii-controls/sealed-controls/fixture-code -I/work/sources/candidate/external/libcheevos/rcheevos/include -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -fwrapv -o controls/wii-controls/sealed-controls/CMakeFiles/pix574-fixture-writer.dir/fixture-code/data.c.o -c /work/builds/candidate/controls/wii-controls/sealed-controls/fixture-code/data.c",
+  "file": "/work/builds/candidate/controls/wii-controls/sealed-controls/fixture-code/data.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/CMakeFiles/pix574-fixture-writer.dir/fixture-code/data.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-g++ -I/work/sources/candidate/external/libcheevos -std=gnu++17 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/CMakeFiles/pix574-regression-hash.dir/regression-hash.cpp.o -c /work/sources/fixture/docs/qa-logs/2026-10-13-rvz-regression-source/regression-hash.cpp",
+  "file": "/work/sources/fixture/docs/qa-logs/2026-10-13-rvz-regression-source/regression-hash.cpp",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/CMakeFiles/pix574-regression-hash.dir/regression-hash.cpp.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DPIX574_HASH_DISC_SOURCE=\\\"/work/sources/candidate/external/libcheevos/rcheevos/src/rhash/hash_disc.c\\\" -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/rcheevos/src/rhash -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -o controls/wii-controls/sealed-controls/CMakeFiles/pix574-wii-partition-probe.dir/wii-partition-probe.c.o -c /work/sources/fixture/docs/qa-logs/2026-10-13-rvz-regression-source/wii-partition-probe.c",
+  "file": "/work/sources/fixture/docs/qa-logs/2026-10-13-rvz-regression-source/wii-partition-probe.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/CMakeFiles/pix574-wii-partition-probe.dir/wii-partition-probe.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-g++ -I/work/builds/candidate/controls/wii-controls/sealed-controls/oracle -I/work/sources/fixture/docs/qa-logs/2026-10-13-rvz-regression-source/oracle-support -std=gnu++17 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/CMakeFiles/pix574-padding-oracle.dir/padding-oracle.cpp.o -c /work/sources/fixture/docs/qa-logs/2026-10-13-rvz-regression-source/padding-oracle.cpp",
+  "file": "/work/sources/fixture/docs/qa-logs/2026-10-13-rvz-regression-source/padding-oracle.cpp",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/CMakeFiles/pix574-padding-oracle.dir/padding-oracle.cpp.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-g++ -I/work/builds/candidate/controls/wii-controls/sealed-controls/oracle -I/work/sources/fixture/docs/qa-logs/2026-10-13-rvz-regression-source/oracle-support -std=gnu++17 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/CMakeFiles/pix574-padding-oracle.dir/upstream/dolphin-LaggedFibonacciGenerator.cpp.o -c /work/sources/fixture/docs/qa-logs/2026-10-13-rvz-regression-source/upstream/dolphin-LaggedFibonacciGenerator.cpp",
+  "file": "/work/sources/fixture/docs/qa-logs/2026-10-13-rvz-regression-source/upstream/dolphin-LaggedFibonacciGenerator.cpp",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/CMakeFiles/pix574-padding-oracle.dir/upstream/dolphin-LaggedFibonacciGenerator.cpp.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-g++ -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip -std=gnu++17   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/cheevos.cpp.o -c /work/sources/candidate/external/libcheevos/cheevos.cpp",
+  "file": "/work/sources/candidate/external/libcheevos/cheevos.cpp",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/cheevos.cpp.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rapi/rc_api_common.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rapi/rc_api_common.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rapi/rc_api_common.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rapi/rc_api_common.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rapi/rc_api_info.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rapi/rc_api_info.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rapi/rc_api_info.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rapi/rc_api_info.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rapi/rc_api_runtime.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rapi/rc_api_runtime.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rapi/rc_api_runtime.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rapi/rc_api_runtime.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rapi/rc_api_user.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rapi/rc_api_user.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rapi/rc_api_user.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rapi/rc_api_user.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/alloc.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/alloc.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/alloc.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/alloc.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/compat.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/compat.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/compat.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/compat.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/condition.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/condition.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/condition.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/condition.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/condset.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/condset.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/condset.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/condset.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/consoleinfo.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/consoleinfo.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/consoleinfo.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/consoleinfo.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/format.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/format.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/format.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/format.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/lboard.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/lboard.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/lboard.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/lboard.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/memref.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/memref.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/memref.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/memref.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/operand.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/operand.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/operand.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/operand.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/rc_libretro.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/rc_libretro.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/rc_libretro.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/rc_libretro.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/richpresence.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/richpresence.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/richpresence.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/richpresence.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/runtime.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/runtime.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/runtime.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/runtime.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/runtime_progress.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/runtime_progress.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/runtime_progress.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/runtime_progress.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/trigger.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/trigger.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/trigger.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/trigger.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/value.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/value.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rcheevos/value.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rcheevos/value.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rhash/hash.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rhash/hash.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rhash/hash.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rhash/hash.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rhash/hash_zip.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rhash/hash_zip.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rhash/hash_zip.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rhash/hash_zip.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rhash/hash_rom.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rhash/hash_rom.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rhash/hash_rom.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rhash/hash_rom.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rhash/hash_encrypted.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rhash/hash_encrypted.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rhash/hash_encrypted.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rhash/hash_encrypted.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rhash/hash_disc.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rhash/hash_disc.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rhash/hash_disc.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rhash/hash_disc.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rhash/cdreader.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rhash/cdreader.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rhash/cdreader.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rhash/cdreader.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rhash/aes.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rhash/aes.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rhash/aes.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rhash/aes.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rurl/url.c.o -c /work/sources/candidate/external/libcheevos/rcheevos/src/rurl/url.c",
+  "file": "/work/sources/candidate/external/libcheevos/rcheevos/src/rurl/url.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rcheevos/src/rurl/url.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/file/file_path.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/file/file_path.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/file/file_path.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/file/file_path.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/file/file_path_io.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/file/file_path_io.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/file/file_path_io.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/file/file_path_io.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/file/retro_dirent.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/file/retro_dirent.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/file/retro_dirent.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/file/retro_dirent.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/compat/compat_strl.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/compat/compat_strl.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/compat/compat_strl.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/compat/compat_strl.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/compat/compat_strcasestr.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/compat/compat_strcasestr.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/compat/compat_strcasestr.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/compat/compat_strcasestr.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/compat/compat_posix_string.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/compat/compat_posix_string.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/compat/compat_posix_string.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/compat/compat_posix_string.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/compat/fopen_utf8.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/compat/fopen_utf8.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/compat/fopen_utf8.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/compat/fopen_utf8.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/memmap/memalign.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/memmap/memalign.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/memmap/memalign.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/memmap/memalign.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/memmap/memmap.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/memmap/memmap.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/memmap/memmap.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/memmap/memmap.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/formats/cdfs/cdfs.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/formats/cdfs/cdfs.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/formats/cdfs/cdfs.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/formats/cdfs/cdfs.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/formats/libchdr/libchdr_bitstream.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/formats/libchdr/libchdr_bitstream.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/formats/libchdr/libchdr_bitstream.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/formats/libchdr/libchdr_bitstream.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/formats/libchdr/libchdr_cdrom.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/formats/libchdr/libchdr_cdrom.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/formats/libchdr/libchdr_cdrom.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/formats/libchdr/libchdr_cdrom.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/formats/libchdr/libchdr_chd.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/formats/libchdr/libchdr_chd.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/formats/libchdr/libchdr_chd.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/formats/libchdr/libchdr_chd.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/formats/libchdr/libchdr_huffman.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/formats/libchdr/libchdr_huffman.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/formats/libchdr/libchdr_huffman.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/formats/libchdr/libchdr_huffman.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/formats/libchdr/libchdr_flac.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/formats/libchdr/libchdr_flac.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/formats/libchdr/libchdr_flac.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/formats/libchdr/libchdr_flac.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/formats/m3u/m3u_file.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/formats/m3u/m3u_file.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/formats/m3u/m3u_file.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/formats/m3u/m3u_file.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/chd_stream.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/streams/chd_stream.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/streams/chd_stream.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/chd_stream.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/file_stream.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/streams/file_stream.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/streams/file_stream.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/file_stream.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/file_stream_transforms.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/streams/file_stream_transforms.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/streams/file_stream_transforms.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/file_stream_transforms.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/interface_stream.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/streams/interface_stream.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/streams/interface_stream.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/interface_stream.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/memory_stream.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/streams/memory_stream.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/streams/memory_stream.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/memory_stream.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/rzip_stream.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/streams/rzip_stream.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/streams/rzip_stream.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/rzip_stream.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/stdin_stream.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/streams/stdin_stream.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/streams/stdin_stream.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/stdin_stream.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/trans_stream.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/streams/trans_stream.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/streams/trans_stream.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/trans_stream.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/trans_stream_pipe.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/streams/trans_stream_pipe.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/streams/trans_stream_pipe.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/trans_stream_pipe.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/trans_stream_zlib.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/streams/trans_stream_zlib.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/streams/trans_stream_zlib.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/streams/trans_stream_zlib.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/string/stdstring.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/string/stdstring.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/string/stdstring.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/string/stdstring.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/utils/md5.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/utils/md5.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/utils/md5.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/utils/md5.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/vfs/vfs_implementation.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/vfs/vfs_implementation.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/vfs/vfs_implementation.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/vfs/vfs_implementation.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/vfs/vfs_implementation_cdrom.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/vfs/vfs_implementation_cdrom.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/vfs/vfs_implementation_cdrom.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/vfs/vfs_implementation_cdrom.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/lists/dir_list.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/lists/dir_list.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/lists/dir_list.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/lists/dir_list.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/lists/string_list.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/lists/string_list.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/lists/string_list.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/lists/string_list.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/time/rtime.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/time/rtime.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/time/rtime.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/time/rtime.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/cdrom/cdrom.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/cdrom/cdrom.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/cdrom/cdrom.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/cdrom/cdrom.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/encodings/encoding_crc32.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/encodings/encoding_crc32.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/encodings/encoding_crc32.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/encodings/encoding_crc32.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/encodings/encoding_utf.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/encodings/encoding_utf.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/encodings/encoding_utf.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/encodings/encoding_utf.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/LzmaDec.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/7zip/LzmaDec.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/7zip/LzmaDec.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/LzmaDec.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/LzmaEnc.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/7zip/LzmaEnc.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/7zip/LzmaEnc.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/LzmaEnc.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/7zBuf.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/7zip/7zBuf.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/7zip/7zBuf.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/7zBuf.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/7zCrc.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/7zip/7zCrc.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/7zip/7zCrc.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/7zCrc.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/7zDec.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/7zip/7zDec.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/7zip/7zDec.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/7zDec.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/7zFile.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/7zip/7zFile.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/7zip/7zFile.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/7zFile.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/7zStream.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/7zip/7zStream.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/7zip/7zStream.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/7zStream.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/Bcj2.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/7zip/Bcj2.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/7zip/Bcj2.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/Bcj2.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/Bra.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/7zip/Bra.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/7zip/Bra.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/Bra.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/Delta.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/7zip/Delta.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/7zip/Delta.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/Delta.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/CpuArch.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/7zip/CpuArch.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/7zip/CpuArch.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/CpuArch.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/7zArcIn.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/7zip/7zArcIn.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/7zip/7zArcIn.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/7zArcIn.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/BraIA64.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/7zip/BraIA64.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/7zip/BraIA64.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/BraIA64.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/LzFind.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/7zip/LzFind.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/7zip/LzFind.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/LzFind.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/Lzma2Dec.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/7zip/Lzma2Dec.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/7zip/Lzma2Dec.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/7zip/Lzma2Dec.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/adler32.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libz/adler32.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libz/adler32.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/adler32.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/compress.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libz/compress.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libz/compress.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/compress.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/deflate.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libz/deflate.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libz/deflate.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/deflate.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/gzclose.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libz/gzclose.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libz/gzclose.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/gzclose.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/gzlib.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libz/gzlib.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libz/gzlib.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/gzlib.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/gzread.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libz/gzread.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libz/gzread.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/gzread.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/gzwrite.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libz/gzwrite.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libz/gzwrite.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/gzwrite.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/inffast.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libz/inffast.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libz/inffast.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/inffast.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/inflate.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libz/inflate.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libz/inflate.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/inflate.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/inftrees.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libz/inftrees.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libz/inftrees.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/inftrees.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/libz-crc32.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libz/libz-crc32.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libz/libz-crc32.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/libz-crc32.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/trees.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libz/trees.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libz/trees.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/trees.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/uncompr.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libz/uncompr.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libz/uncompr.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/uncompr.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/zutil.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libz/zutil.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libz/zutil.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libz/zutil.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/bitmath.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/bitmath.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/bitmath.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/bitmath.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/bitreader.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/bitreader.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/bitreader.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/bitreader.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/cpu.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/cpu.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/cpu.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/cpu.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/crc.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/crc.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/crc.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/crc.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/fixed.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/fixed.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/fixed.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/fixed.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/float.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/float.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/float.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/float.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/format.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/format.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/format.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/format.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/lpc.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/lpc.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/lpc.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/lpc.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/md5.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/md5.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/md5.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/md5.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/memory.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/memory.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/memory.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/memory.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/stream_decoder.c.o -c /work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/stream_decoder.c",
+  "file": "/work/sources/candidate/external/libcheevos/libretro-common/src/libFLAC/stream_decoder.c",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/libretro-common/src/libFLAC/stream_decoder.c.o"
+},
+{
+  "directory": "/work/builds/candidate",
+  "command": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-g++ -DHAVE_LROUND -DHAVE_RVZ_HASH -DRC_DISABLE_LUA -I/work/sources/candidate/external/libcheevos/rcheevos/include -I/work/sources/candidate/external/libcheevos/libretro-common/include -I/work/sources/candidate/external/libcheevos/libretro-common/src/7zip -std=gnu++17   -D_7ZIP_ST -DHAVE_CDROM -DHAVE_CHD -DWANT_SUBCODE -DWANT_RAW_DATA_SECTOR -DHAVE_ZLIB -DHAVE_7ZIP -DHAVE_FLAC -DFLAC__NO_DLL -DFLAC__HAS_OGG=0 -fsanitize=address,undefined -fno-sanitize-recover=all -fno-omit-frame-pointer -g -o controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rvz_hash.cpp.o -c /work/sources/candidate/external/libcheevos/rvz_hash.cpp",
+  "file": "/work/sources/candidate/external/libcheevos/rvz_hash.cpp",
+  "output": "/work/builds/candidate/controls/wii-controls/sealed-controls/libcheevos/CMakeFiles/libcheevos.dir/rvz_hash.cpp.o"
+}
+]

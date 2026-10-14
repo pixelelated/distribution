@@ -1,0 +1,247 @@
+{
+  "schema": 1,
+  "status": "SPECIFIED_UNRUN_NOT_IMPLEMENTED",
+  "installer_baseline": "c6240ed3984a2b2c2e67f1df9fa0ddc3c37889a2",
+  "candidate": null,
+  "fixture_entrypoint": null,
+  "reason": "Existing-client and profile-derived STEAM_DOT contracts need an explicit decision before product/fixture code.",
+  "execution_contract": {
+    "whole_script": true,
+    "prior_packets_immutable": true,
+    "coordinator_allocation_required": true,
+    "runtime_authorized": false,
+    "source_boundaries": "Copy whole resulting installer unchanged; do not execute only extracted helpers. Keep FEX/runtime/Proton helper bodies fixed. Record transport and final engine/service boundaries; use real candidate ZIP reader and filesystem operations.",
+    "containment": "Reuse reviewed no-NIC disposable GENERIC_X64 namespace/PID1/pidfd-parent-death/subreaper/readonly native-root/private storage/proc/binfmt/null/route/socket guards. No host/device/owner client or account.",
+    "receipts": "Record first installer/child/signal exits before assessing; original failed result immutable; deliberate retry separate. Outer PASS may mean expected refusal verified, never original install success.",
+    "preservation": "Before/after paths, types, modes, dev/inode, lengths, full hashes, link targets; explicitly allowed owned additions separate. Atomic helper refreshes have their existing narrowly documented identity exceptions.",
+    "allocations": "One fresh output per independent control. No hidden retry or suite allocation. Finite deadlines/log/artifact/free-space/hard capacity forecast must be reviewed for the resulting fixture.",
+    "readiness": "Synthetic archive/ELF structure never establishes native launch, external loader resolution, self-update, signature trust, shipped-image dependency closure or power-loss safety."
+  },
+  "cases": [
+    {
+      "id": "fresh-real-root",
+      "seed": "Existing supported real Steam root with no client; separate SDK tree, game/save, runtime, FEX, Proton, channel/alias custom sentinels.",
+      "injection": "Synthetic ZIP follows all 55 observed member names/types, all five mappings and all three relative links, with self-created structurally valid nonbootable payloads. Only the final client execution is recorded at an explicit whole-caller execution boundary.",
+      "required_observation": "Original full caller 0 only after the candidate's complete validation/metadata commit; canonical complete tree; no literal-backslash siblings created; all unrelated/custom state unchanged. No native-readiness claim.",
+      "policy": "A/B",
+      "boundary": "No shell stub or truncated ELF may masquerade as a positive strict ELF validation input.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "fresh-allowed-internal-alias",
+      "seed": "Same fresh client under existing Steam -> /storage/games-internal/roms/steam alias.",
+      "injection": "Normal caller; record logical and physical destination identities independently.",
+      "required_observation": "Alias inode/mode/target and unrelated tree remain identical; only the exact owned new client and permitted absent metadata added.",
+      "policy": "A/B",
+      "boundary": "Use the existing root-plan resolution, not host path.resolve on namespace-absolute links.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "fresh-metadata-separate-filesystem",
+      "seed": "Allowed Steam alias on one synthetic filesystem, .steam on another, both supported and writable.",
+      "injection": "Normal caller.",
+      "required_observation": "Parent-local metadata publication succeeds without cross-filesystem rename assumptions; existing SDK files and alias targets preserved.",
+      "policy": "A/B",
+      "boundary": "Requires a separately admitted disposable mount fixture; not prepared or allocated here.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "verified-existing-client",
+      "seed": "Complete candidate-owned synthetic bootstrap plus its verifiable inventory, extra custom file, nondefault beta and existing accepted .steam aliases.",
+      "injection": "No client network or decode supplied; other full-caller synthetic inputs remain available.",
+      "required_observation": "Read-only inventory revalidation passes; client/receipt/channel/aliases/custom/SDK identities and bytes unchanged; no client download or rewrite. Whole-caller later helper changes separately accounted.",
+      "policy": "A",
+      "boundary": "Receipt schema depends on the implementation decision; this is not the historical shell-sentinel valid-existing test.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "unknown-complete-legacy",
+      "seed": "Structurally complete-looking legacy synthetic client; no trustworthy current inventory; custom files and chosen channel retained.",
+      "injection": "Invoke whole script with recording profile sentinel.",
+      "required_observation": "A: refusal before profile, set_kill, transport, FEX/runtime/Proton and client execution; all before/after manifests identical. B: expected disposition remains undecided until exact structural predicate is defined.",
+      "policy": "DECISION",
+      "boundary": "Never label the seeded legacy tree corrupt merely because it is unverified.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "self-update-invalidates-old-inventory",
+      "seed": "Start from complete verified synthetic client, then model a legitimate companion byte/version change while preserving old receipt.",
+      "injection": "No network or execution allowed to repair/reclassify.",
+      "required_observation": "A: truthful unverified-state refusal before any mutation; all current bytes retained. B: supported-layout predicate must explicitly cover/reject this state.",
+      "policy": "DECISION",
+      "boundary": "Modeled self-update is not actual native self-update qualification.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "directory-only-partial",
+      "seed": "Only steamrtarm64/00-complete-marker exists from a historical failed extraction; no executable.",
+      "injection": "Whole script, not extracted function.",
+      "required_observation": "Nonzero original refusal before profile/set_kill/FEX/runtime writes; no installed-success text; no acquisition; old partial bytes/inodes retained.",
+      "policy": "A/B",
+      "boundary": "Old selected-function failure/retry evidence is preserved and not rerun as the repaired result.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "installed-marker-only",
+      "seed": "Client directory and package/steam_client_linuxarm64.installed marker exist; required companion absent.",
+      "injection": "Whole script; vary executable absent/present.",
+      "required_observation": "Neither the marker nor executable alone permits success. Refuse before writes and keep metadata unchanged.",
+      "policy": "A/B",
+      "boundary": "The marker contents are synthetic; not an invented Valve manifest grammar.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "legacy-backslash-siblings",
+      "seed": "Client missing/partial, with each of the five literal-backslash siblings and unrelated root entries pre-existing.",
+      "injection": "Whole script.",
+      "required_observation": "Nonmutating ambiguity refusal; no migration, unlink, rename, normalization or recursive cleanup of old siblings.",
+      "policy": "A/B",
+      "boundary": "Five mappings apply only to newly owned stage bytes.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "acquisition-failure-and-explicit-retry",
+      "seed": "Fresh client, retained unrelated storage.",
+      "injection": "Recording transport writes a bounded partial archive then returns original 23. Separate deliberate retry supplies good bytes under a fresh attempt receipt.",
+      "required_observation": "First original nonzero preserved; no final client/installed receipt. Cleanup only proven stage ownership. Retry succeeds deterministically with good input; first failure is never overwritten by retry PASS.",
+      "policy": "A/B",
+      "boundary": "Retain manifest/transport/hash/decode/caller exits independently; never retry automatically inside fixture.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "acquisition-timeout-descendant",
+      "seed": "Fresh client.",
+      "injection": "Synthetic transport child and its descendant exceed deadline inside allocated private namespaces; record PIDs/start identities.",
+      "required_observation": "Finite whole-process-group termination/reaping plus outer containment; original timeout and any intervention recorded; no publication. No descendants before another allocation.",
+      "policy": "A/B",
+      "boundary": "Cannot replace original timeout with successful wrapper cleanup.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "hash-mismatch",
+      "seed": "Fresh client with a valid-looking archive whose full digest disagrees with selected manifest.",
+      "injection": "Recording transport succeeds.",
+      "required_observation": "Full-hash rejection before decoder opens payload; no published client or metadata; unrelated state preserved.",
+      "policy": "A/B",
+      "boundary": "Global hash mismatch must not be claimed as CRC coverage.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "crc-failure-and-explicit-retry",
+      "seed": "Fresh client.",
+      "injection": "Corrupt a later member CRC at local +14 and central +16, leaving earlier valid entries; bind selected manifest SHA256 to the intentionally corrupt ZIP so full-file hash passes. Retry uses a newly bound good ZIP.",
+      "required_observation": "Original CRC/decode and full-caller failures retained; earlier output remains stage-owned only; no misleading installed state. Separate retry completes without accepting partial directory.",
+      "policy": "A/B",
+      "boundary": "Reuse corrected 71e CRC-offset source intent; do not edit old receipts or old generator.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "validation-failure",
+      "seed": "Fresh client.",
+      "injection": "Independently choose missing required member, invalid ELF/program-header range, missing regular link target, or unexpected canonical root; one defect per case.",
+      "required_observation": "Reject before activation; original validation reason preserved; complete unrelated manifests unchanged. Each variant independently allocated.",
+      "policy": "A/B",
+      "boundary": "Required-member and ELF acceptance contracts need a selected implementation before executable fixtures.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "zip-structure-refusals",
+      "seed": "Fresh client.",
+      "injection": "Independent duplicate/case collision, traversal, unreviewed backslash, local/central mismatch, unsupported type, overlapping local data and link-outside-tree variants.",
+      "required_observation": "Each rejects before final tree or metadata publication; no symlink traversal or writes outside owned stage.",
+      "policy": "A/B",
+      "boundary": "Do not combine variants into one failure then claim every check executed.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "bounded-output-and-space",
+      "seed": "Fresh client with known free-space/hard-quota fixture.",
+      "injection": "Independently declared aggregate/member/entry overrun, actual expansion overrun, stage-write ENOSPC, and report/log cap.",
+      "required_observation": "Bounded original failure, no published partial client, owned cleanup or explicit held state. Exact reclaimed/retained observations and cleanup exit preserved.",
+      "policy": "A/B",
+      "boundary": "No cap reduction in product solely to pass test; controlled limits/injection require exact reviewed fixture binding.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "metadata-conflict-preflight",
+      "seed": "Fresh client with different existing beta, conflicting .steam/steam or sdkarm64, preserved SDK/custom data.",
+      "injection": "Recording profile writes its sentinel if reached.",
+      "required_observation": "Under full-before-write policy: refuse before profile sentinel and all other writes. Under post-profile policy: narrower claim must be explicit, never report before-all-writes.",
+      "policy": "DECISION",
+      "boundary": "Input selection for profile-provided STEAM_DOT must be decided first.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "metadata-io-failure",
+      "seed": "Fresh stage validated; absent eligible metadata nodes.",
+      "injection": "Fail one exact parent-local metadata operation using an admitted read-only/ENOSPC boundary, after receipt records before/created identity.",
+      "required_observation": "Original failure preserved; only candidate-created matching nodes reverted; client absent; unrelated .steam/package/SDK entries unchanged; explicit later retry.",
+      "policy": "A/B",
+      "boundary": "Do not rely on chmod to induce EACCES while running as root; phase/operation binding awaits implementation.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "publication-collision",
+      "seed": "Fresh validated stage and prepared metadata.",
+      "injection": "A separate synthetic actor creates a destination sentinel immediately before no-replace publication.",
+      "required_observation": "Original publication refusal; concurrent destination survives unchanged; only provably owned metadata/stage may retire; no overwrite/whole-root replacement.",
+      "policy": "A/B",
+      "boundary": "Actor/timing uses a recorded implementation phase, not a sleep guess.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "interrupt-before-publication",
+      "seed": "Fresh stage after validation and journaled metadata preparation.",
+      "injection": "Kill only recorded installer group at exact durable phase; preserve original signal receipt, then separately invoke full-script recovery.",
+      "required_observation": "No accepted partial client; recovery validates root/node identities and cleans or completes only its own transaction; original failure remains separate.",
+      "policy": "A/B",
+      "boundary": "Signal interruption is not power-loss evidence.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "interrupt-after-directory-rename",
+      "seed": "Client directory published, commit receipt not finalized.",
+      "injection": "Recorded phase interruption, then explicit full-caller recovery.",
+      "required_observation": "Recovery precedes any existing-client skip; verify complete tree plus metadata and journal identities, then complete or refuse safely. Directory existence is insufficient.",
+      "policy": "A/B",
+      "boundary": "Precise journal schema/phase names are pending; no injection hook invented yet.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "changed-recovery-identity",
+      "seed": "Known interrupted transaction.",
+      "injection": "Replace one stage/metadata inode or parent/root alias with another actor's sentinel before explicit retry.",
+      "required_observation": "Recovery refuses cleanup; changed sentinel and unknown state remain untouched; original failure and held paths reported.",
+      "policy": "A/B",
+      "boundary": "Ownership is exact identity plus validated journal, not a directory naming convention.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "unknown-journal-and-stage",
+      "seed": "Unknown pre-existing .steam-client-update-style directory/receipt with custom data.",
+      "injection": "Whole script.",
+      "required_observation": "Refuse ownership ambiguity; zero broad removal and no success from marker. Keep complete before/after byte/type/inode/link manifests.",
+      "policy": "A/B",
+      "boundary": "The final stage name is not assigned until implementation; this case adapts to its bound name.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "active-consumer-or-lock",
+      "seed": "Independent synthetic client/updater or installer lock, with required visibility.",
+      "injection": "Read-only admission before candidate write.",
+      "required_observation": "Refuse active/conflicting/unknown visibility without stopping another process; no writes. Lock serializes installer only; no claim it excludes all Steam updater races.",
+      "policy": "A/B",
+      "boundary": "Actual native quiescence and permissions remain installed-image qualifications.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    },
+    {
+      "id": "profile-input-compatibility",
+      "seed": "Profile sets alternate STEAM_DOT and writes a sentinel; separate environment-override control.",
+      "injection": "Whole script from its real entrypoint.",
+      "required_observation": "Freeze policy: environment override preserved; profile override rejected by explicit contract. Preserve-profile policy: actual selected path used, with profile effects honestly accounted.",
+      "policy": "DECISION",
+      "boundary": "This is a source compatibility choice, not just test plumbing.",
+      "status": "UNRUN_SPECIFICATION_ONLY"
+    }
+  ]
+}

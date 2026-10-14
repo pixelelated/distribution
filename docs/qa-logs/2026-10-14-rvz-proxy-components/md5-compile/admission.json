@@ -1,0 +1,58 @@
+{
+  "id": "f8afde8ea8764ef9ba75ddbbea3e874b",
+  "plan": "/workspace/tmp/pix574-md5-target-20261014/admission-plan.json",
+  "plan_sha256": "d9bbb6f4b37776fac499070b0d6095d124c70302792b5ce18ed544b7b6d26f06",
+  "registry_generation": 28,
+  "reserved_bytes": 0,
+  "schema": 1,
+  "state": {
+    "available_bytes": 2980014600192,
+    "checkout": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574",
+    "container_checkout": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574",
+    "outputs": [
+      {
+        "issue": 574,
+        "kind": "build-cache",
+        "path": "/workspace/tmp/pix574-md5-target-20261014/builds",
+        "release_when": "Consume original command/container/watcher/launcher results; preserve compact source/compile/failure receipts. Retire builds/tmp/snapshots after compile acceptance; artifacts only after the newly allocated target checks are consumed. No automatic deletion."
+      },
+      {
+        "issue": 574,
+        "kind": "qa-scratch",
+        "path": "/workspace/tmp/pix574-md5-target-20261014/tmp",
+        "release_when": "Consume original command/container/watcher/launcher results; preserve compact source/compile/failure receipts. Retire builds/tmp/snapshots after compile acceptance; artifacts only after the newly allocated target checks are consumed. No automatic deletion."
+      },
+      {
+        "issue": 574,
+        "kind": "qa-scratch",
+        "path": "/workspace/tmp/pix574-md5-target-20261014/sources",
+        "release_when": "Consume original command/container/watcher/launcher results; preserve compact source/compile/failure receipts. Retire builds/tmp/snapshots after compile acceptance; artifacts only after the newly allocated target checks are consumed. No automatic deletion."
+      },
+      {
+        "issue": 574,
+        "kind": "qa-scratch",
+        "path": "/workspace/tmp/pix574-md5-target-20261014/artifacts",
+        "release_when": "Consume original command/container/watcher/launcher results; preserve compact source/compile/failure receipts. Retire builds/tmp/snapshots after compile acceptance; artifacts only after the newly allocated target checks are consumed. No automatic deletion."
+      }
+    ],
+    "profiles": [
+      {
+        "ARCH": "x86_64",
+        "DEVICE": "GENERIC_X64",
+        "PROJECT": "ROCKNIX"
+      }
+    ],
+    "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+    "required_bytes": 1912602624,
+    "retention_plan_sha256": "f1a98a405ddac5b7e937152fdc4ef2da33bc54cae1a71d0ea13296a1cd50f364",
+    "retention_report_sha256": "37fd92b0cb28470272bf1afeaac308e50d1ab18fce969acc2d9b342d66c63211",
+    "source": {
+      "head": "0962c63941beffe20ac92c0c504356cc19e37d79",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "volume": "/workspace",
+    "volume_device": 66304
+  },
+  "tool_sha256": "3e2ad9d6eed47f53d1547880286e4bed69848b956be490f17f354d9df70bb942",
+  "utc": "2026-10-14T03:01:51.428689+00:00"
+}

@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "evidence": "SOURCE_STATIC_ONLY; policy decision before implementation",
+  "created_utc": "2026-10-14T03:26:07.068082+00:00",
+  "assignment_issue": 582,
+  "branch": "feature/m7-steam-preservation-integration",
+  "packet_parent_commit": "b09fcbb02b07b3af1c0e1cd0da2790e569ee922f",
+  "installer_commit": "c6240ed3984a2b2c2e67f1df9fa0ddc3c37889a2",
+  "installer_path": "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+  "installer_sha256": "a7a67c6b1e0f90a63fdcef79bb6aa60a413dc1927dbf0d53f6068e3a720fe80f",
+  "client_span_sha256": "037fa82e1ccbdc875b10aafe67649b02b83857b887226a94e77ac3891c3388d3",
+  "line_bindings": {
+    "install_steam_client_arm64() {": [
+      1157
+    ],
+    "source /etc/profile": [
+      1532
+    ],
+    "STEAM_DOT=\"${STEAM_DOT:-/storage/.steam}\"": [
+      1533
+    ],
+    "steam_root_layout inspect": [
+      1530
+    ],
+    "readonly STEAM STEAM_GAMES_ROOT STEAM_ROOT_PLAN": [
+      1531
+    ],
+    "steam_root_layout verify": [
+      1548
+    ],
+    "set_kill set": [
+      1549
+    ],
+    "\"${CLIENT_DIR}/steam\" -deckard": [
+      1519
+    ],
+    "log_success \"Steam installed": [
+      1565
+    ],
+    "install_steam_client_arm64": [
+      1157,
+      1556
+    ]
+  },
+  "profile_path": "projects/ROCKNIX/packages/sysutils/busybox/config/profile",
+  "profile_sha256": "66019fab58aab9b05c1288afb399efd9d20a93504b3955718cb5282965455757",
+  "set_kill_source_path": "projects/ROCKNIX/packages/rocknix/profile.d/001-functions",
+  "set_kill_source_sha256": "2a67891c9a3090ddae78d4b729ce7b8f5c41d853e0975b4ce0203df7789e4ab5",
+  "set_kill_span_sha256": "f4ef286551bf9ae754280b672cf4dd7e9bacf5936bc7f4d56fce203101e2b056",
+  "history": [
+    {
+      "commit": "ff40ff1897fa5687bc0e50103e50acc9cd90d7d3",
+      "copy": "evidence/history-ff40ff1897fa.json",
+      "sha256": "604c71a83a79a66864c25bc04efa2aa39e61b3f41717ae7581ec4de1aab75b78",
+      "stdout_sha256": "a544ad21b1e5eebe17693a5be5e5cb404e1d9dd5f7e8ca5e3a07c9096789ec67"
+    },
+    {
+      "commit": "f546596cc8a882b795a0cb535839c0e49d551023",
+      "copy": "evidence/history-f546596cc8a8.json",
+      "sha256": "79eae6388bdc205b1833c96d3f9b88614c2d76f89de6f6cd7406dd7da4a8b609",
+      "stdout_sha256": "5db47b315052ee3921749b9ff015d849f91a23f91eff75467c50d3fc2dcd38e2"
+    },
+    {
+      "commit": "d50674f4dee9cc5cc65330c6e912a39702d1f154",
+      "copy": "evidence/history-d50674f4dee9.json",
+      "sha256": "70693e9069a7e8fff2ca7b1403e067d90f2db83f38766f567166ab7be1e7fb63",
+      "stdout_sha256": "452bede4741d6cedc04db39cef73d706ec6ff7d3c64641c6aa803608d6dbe852"
+    },
+    {
+      "commit": "ba0c530bf0f4626ff99daedf65a18a7ead69111c",
+      "copy": "evidence/history-ba0c530bf0f4.json",
+      "sha256": "7cba26e22874254a3ce5e99eb1884667ae193572d6df729f3cda296575a9b2d8",
+      "stdout_sha256": "93d633a7ced5000afbaf01e44ab464dfe79589428a3783252a904b1fac4d91c0"
+    },
+    {
+      "commit": "c6240ed3984a2b2c2e67f1df9fa0ddc3c37889a2",
+      "copy": "evidence/history-c6240ed3984a.json",
+      "sha256": "27cc3cc08099530ce819863c1c12bee94882f20f609d898e871625038802f329",
+      "stdout_sha256": "e8ac839362fcc25b3d75cb8de12b979a7c30ca9715287d1c25f8abe4501cc2d4"
+    }
+  ],
+  "readback": {
+    "/workspace/tmp/pix-m7-rvz-vm-20261014/early-readback/steam-inspection.json": {
+      "copy": "evidence/steam-inspection.json",
+      "sha256": "f2fd32e894124470f68f68193ba2b6225f8e3b45fc3ca1a14051055d316bd0a6",
+      "bytes": 49653
+    },
+    "/workspace/tmp/pix-m7-rvz-vm-20261014/early-readback/steam-inspection.transport.json": {
+      "copy": "evidence/steam-inspection.transport.json",
+      "sha256": "a61b981bc861a4330aada1bb2154b057b7ff8f569dc5344bf14b6f8b74d1f3ad",
+      "bytes": 328
+    }
+  },
+  "prior_packet_manifest_sha256": {
+    "docs/qa-logs/2026-10-14-steam-client-alias-source": "fed43a4f0f9cfc6a4e7bca283250f086d158bf92e31db019332d54e651a91d80",
+    "docs/qa-logs/2026-10-14-steam-client-crc-source": "c3833f8e19d1655cd923458ba5872a08e386a2d310758e80e38936b3aeb784e8",
+    "docs/qa-logs/2026-10-14-steam-client-archive-intake": "81bd157a038204f07ea8025dc07337827a3393687152fbce698ce361dc9d4988",
+    "docs/qa-logs/2026-10-14-steam-client-download-recovery-source": "0f885f19b56e12d334a3109e58ad345528cf0ba8c82f2bef28aee2cb09f742ef"
+  },
+  "runtime": "UNRUN; no candidate or fixture launch allocated",
+  "product_edits": false,
+  "contract_choice": "PENDING; no elapsed-time assumption",
+  "implemented_fixture_cases": 0
+}

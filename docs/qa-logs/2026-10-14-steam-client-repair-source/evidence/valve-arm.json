@@ -1,0 +1,36 @@
+{
+  "read_utc": "2026-10-14T03:18:22.731561+00:00",
+  "argv": [
+    "gh",
+    "api",
+    "search/issues?q=repo%3AValveSoftware/steam-for-linux%20is%3Aissue%20linuxarm64&per_page=30"
+  ],
+  "exit": 0,
+  "stderr": "",
+  "response": {
+    "total_count": 2,
+    "incomplete_results": false,
+    "items": [
+      {
+        "number": 13689,
+        "title": "[Remote Play] ARM64 client: V4L2 decoder never probes AV1, so AV1 is unavailable even when the decoder supports it",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/13689",
+        "created_at": "2026-10-04T18:48:56Z",
+        "updated_at": "2026-10-04T21:55:37Z",
+        "closed_at": "2026-10-04T21:55:37Z"
+      },
+      {
+        "number": 13544,
+        "title": "[Gamepad UI][ARM64] Quick Access Menu freezes the Steam UI while games keep running",
+        "state": "closed",
+        "html_url": "https://github.com/ValveSoftware/steam-for-linux/issues/13544",
+        "created_at": "2026-08-24T19:01:10Z",
+        "updated_at": "2026-08-24T19:30:11Z",
+        "closed_at": "2026-08-24T19:10:17Z"
+      }
+    ]
+  },
+  "intake_record_sha256_before_projection": "e33059229701567b8aef17a257cfdb0f40bbceec6f60c0871110e173b496a9b7",
+  "projection": "Selected response fields retained below; unneeded API metadata and unrelated search-result bodies/assets omitted. This is not the original HTTP byte stream."
+}

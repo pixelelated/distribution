@@ -1,0 +1,62 @@
+{
+  "owner": "/workspace/tmp/pix574-md5-target-20261014",
+  "original_packet_commit": "0962c63941beffe20ac92c0c504356cc19e37d79",
+  "cid": "b7c9f6521969d856b3b392a8b3ffeb351d5e857d144faecb8f51d5fb36d123dd",
+  "input_binding_sha256": "e91e6d25636752c349bfafc6fbe9e745454ac32669c8b9d1185ff3dbde987d2c",
+  "evidence": {
+    "result.json": "949b09f2dcbf286ff07322a1ebb16153dc409e43a0a208091309092d76905e27",
+    "compile-result.json": "f385e7d2dcea86d93734160053b6070627a9df6f37a86b24370f0748d27fceda",
+    "container.cid": "b019ac9cad12e63d08c5fc9d3c3bad3dc8210b7318fc22341f2ecb45f58ea43a",
+    "records/container-final-inspect.json": "9d9d3392a4a02162a4e84bb05f32c7e486d63ae5ff77ea412ea4ead72490bc10",
+    "container-absence-readback.json": "199fb9298162eeace543b67b5f5e8941796d40bc28860b0918ff4ce54790b248",
+    "records/source-composition.json": "cfab63642de5f3773d2a37d0a64c0bde18500d80b4d3cfbf604bcf9fe60587c5",
+    "records/docker-command.json": "4195f0a846b79fea117d9e8644ca434bbe773691e83b51c46c9aa37be245345c",
+    "records/stages.json": "df40f3e0c0fe0873beb7313d7fc7755e57f8a1f6ad7584374207004227bc577b",
+    "submit/launcher-result.json": "e30a6c800de9610e7f8a4887f7129e97302867a013cec694f24ea91f31624186",
+    "submit/tool-wrapper.rc": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "records/contract-candidate.json": "b8dc6deb77ecb5eba7104dc856588d0f724cb367f10292d3e9e1e127985a8106",
+    "records/contract-baseline-repaired.json": "f0304edae1a42661b60968d617860c143fd9b54033d18f79ef2fc8150f17d639",
+    "records/compile_commands-candidate.json": "73244db44d5955beb44692c1cf380c555278a16705d9e11bca7544c0e9089533",
+    "records/compile_commands-baseline-repaired.json": "dd8f5d7b7d230ce88452c713be4ce91f2ad9ca92b001f7133ceb140023a5d58e",
+    "evidence/watcher-build.rc": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+  },
+  "original_packet": {
+    "static-result.json": "df0289fb08ebdf089a4e314b4f1da4422e4f7f144aefebd947e0da8fb000ee90",
+    "CMakeLists.txt": "4cdc7132c6796c3cefa10e0ed9f84ea8a5f4f52551804489d211210556cd5ca9",
+    "README.md": "901ec1d4803d9ef32b8d882200a760a418cc34ac427623858eeee5eb308e3a77",
+    "build-target.py": "69db046d6caeda29ba99f62b2ce799db4681786d5602dac8e206d105d2bdef9c",
+    "plan.py": "08ae16abd37af03732de650469d7f01bc7559c3602fb4f88eb622db1dcf76cf2",
+    "SHA256SUMS": "73b72eea79844c140958cbda888848d6b595b0b82df06517f558ec92de88b7ca",
+    "run-guest.py": "cb5659e3bcff2b2680cb62a6c38a0e2509f138087e189299a0641e03e3f47749",
+    "input-bindings.json": "e91e6d25636752c349bfafc6fbe9e745454ac32669c8b9d1185ff3dbde987d2c",
+    "compile.py": "bc0b8f6a6a2e8e87826ea598fedf45c8415c8e771a34b0fba46d01a1ca64b1de"
+  },
+  "artifacts": {
+    "artifacts/lib/libasan.so.8": "73963db53c40af52818792cba7ebae1ae6897cd94a004942c8ff76f361484412",
+    "artifacts/lib/libubsan.so.1": "a8d91f5d7efbd684a69546912ead43513ccec34bb275fe1616b68551780c9eca",
+    "artifacts/candidate/pix574-wii-partition-probe": "030bd0dd7c94fea25cdeb4bf03b0371f84ca09260b6aa2076e0279b79ca3e729",
+    "artifacts/candidate/pix574-regression-hash": "5e00ed65dc6ae8031c54c4309d3f1876be4b380e438a15b8281104402e9375b2",
+    "artifacts/candidate/pix574-md5-alignment": "5f8f9da5ad0c324f7cf04637ee4d60ba1d406996e3dc2f61e49a8a0e277a84e4",
+    "artifacts/candidate/pix574-fixture-writer": "6a663a88b8eb2c573cf92ebb361f2d6c0dd20b2400e20f3c60ddd684eb7b6aed",
+    "artifacts/baseline-repaired/pix574-wii-partition-probe": "068d4d20f4d3182dc744000d89ed631481a9523bfcf89dea58f9893318d08ea2",
+    "artifacts/baseline-repaired/pix574-regression-hash": "e95d6423e52bc2e1d78802738760142ec800591682f76706a3dfb935a7da3d6a",
+    "artifacts/baseline-repaired/pix574-md5-alignment": "bb9c83c4631d7a6d86bfa3a636d80895e06be7f71ac68214e2f5173e27d44ab7"
+  },
+  "contracts": {
+    "records/contract-candidate.json": "b8dc6deb77ecb5eba7104dc856588d0f724cb367f10292d3e9e1e127985a8106",
+    "records/contract-baseline-repaired.json": "f0304edae1a42661b60968d617860c143fd9b54033d18f79ef2fc8150f17d639"
+  },
+  "exited_host_pids": [
+    3662011,
+    3662012,
+    3662015,
+    3662069,
+    3662805
+  ],
+  "watcher_build_rc": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/.build-runs/20261014T030151Z-4472ff3b/build.rc",
+  "source_snapshot_counts": {
+    "candidate": 276,
+    "baseline-repaired": 271,
+    "fixture": 140
+  }
+}

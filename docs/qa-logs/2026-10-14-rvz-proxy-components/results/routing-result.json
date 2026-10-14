@@ -1,0 +1,2995 @@
+{
+  "status": "PASS",
+  "evidence": "full configuration script with synthetic inputs only",
+  "python": "3.14.7 (main, Oct  4 2026, 04:40:27) [GCC 15.2.0]",
+  "bindings_sha256": "b2771499d182f434113ba3ba6d340c1442645e8aa9e65a210f957b8013fd18b4",
+  "cases": [
+    {
+      "name": "before-gates-00",
+      "variant": "before",
+      "input": {
+        "name": "gates-00",
+        "toggle": "0",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-gates-01",
+      "variant": "before",
+      "input": {
+        "name": "gates-01",
+        "toggle": "0",
+        "hardcore": "0",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "before-gates-02",
+      "variant": "before",
+      "input": {
+        "name": "gates-02",
+        "toggle": "0",
+        "hardcore": "1",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532418]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "70fedf3e502754d92e23bcc8f810612428c0fa4d7d8439b6bd417d932f1c23f1"
+    },
+    {
+      "name": "before-gates-03",
+      "variant": "before",
+      "input": {
+        "name": "gates-03",
+        "toggle": "0",
+        "hardcore": "1",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532341]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "cc9276c10958eb9b12d658caa60ae63023e3de67506bf7c2e4b8201e9851401f"
+    },
+    {
+      "name": "before-gates-04",
+      "variant": "before",
+      "input": {
+        "name": "gates-04",
+        "toggle": "0",
+        "hardcore": "",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-gates-05",
+      "variant": "before",
+      "input": {
+        "name": "gates-05",
+        "toggle": "0",
+        "hardcore": "",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "before-gates-06",
+      "variant": "before",
+      "input": {
+        "name": "gates-06",
+        "toggle": "0",
+        "hardcore": "unknown",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532341]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-gates-07",
+      "variant": "before",
+      "input": {
+        "name": "gates-07",
+        "toggle": "0",
+        "hardcore": "unknown",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532342]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "before-gates-08",
+      "variant": "before",
+      "input": {
+        "name": "gates-08",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-gates-09",
+      "variant": "before",
+      "input": {
+        "name": "gates-09",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532341]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "before-gates-10",
+      "variant": "before",
+      "input": {
+        "name": "gates-10",
+        "toggle": "1",
+        "hardcore": "1",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "70fedf3e502754d92e23bcc8f810612428c0fa4d7d8439b6bd417d932f1c23f1"
+    },
+    {
+      "name": "before-gates-11",
+      "variant": "before",
+      "input": {
+        "name": "gates-11",
+        "toggle": "1",
+        "hardcore": "1",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "cc9276c10958eb9b12d658caa60ae63023e3de67506bf7c2e4b8201e9851401f"
+    },
+    {
+      "name": "before-gates-12",
+      "variant": "before",
+      "input": {
+        "name": "gates-12",
+        "toggle": "1",
+        "hardcore": "",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532343]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-gates-13",
+      "variant": "before",
+      "input": {
+        "name": "gates-13",
+        "toggle": "1",
+        "hardcore": "",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "before-gates-14",
+      "variant": "before",
+      "input": {
+        "name": "gates-14",
+        "toggle": "1",
+        "hardcore": "unknown",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532342]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-gates-15",
+      "variant": "before",
+      "input": {
+        "name": "gates-15",
+        "toggle": "1",
+        "hardcore": "unknown",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "before-gates-16",
+      "variant": "before",
+      "input": {
+        "name": "gates-16",
+        "toggle": "",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532341]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-gates-17",
+      "variant": "before",
+      "input": {
+        "name": "gates-17",
+        "toggle": "",
+        "hardcore": "0",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "before-gates-18",
+      "variant": "before",
+      "input": {
+        "name": "gates-18",
+        "toggle": "",
+        "hardcore": "1",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532419]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "70fedf3e502754d92e23bcc8f810612428c0fa4d7d8439b6bd417d932f1c23f1"
+    },
+    {
+      "name": "before-gates-19",
+      "variant": "before",
+      "input": {
+        "name": "gates-19",
+        "toggle": "",
+        "hardcore": "1",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "cc9276c10958eb9b12d658caa60ae63023e3de67506bf7c2e4b8201e9851401f"
+    },
+    {
+      "name": "before-gates-20",
+      "variant": "before",
+      "input": {
+        "name": "gates-20",
+        "toggle": "",
+        "hardcore": "",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-gates-21",
+      "variant": "before",
+      "input": {
+        "name": "gates-21",
+        "toggle": "",
+        "hardcore": "",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532342]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "before-gates-22",
+      "variant": "before",
+      "input": {
+        "name": "gates-22",
+        "toggle": "",
+        "hardcore": "unknown",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-gates-23",
+      "variant": "before",
+      "input": {
+        "name": "gates-23",
+        "toggle": "",
+        "hardcore": "unknown",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "before-gates-24",
+      "variant": "before",
+      "input": {
+        "name": "gates-24",
+        "toggle": "unknown",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-gates-25",
+      "variant": "before",
+      "input": {
+        "name": "gates-25",
+        "toggle": "unknown",
+        "hardcore": "0",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532418]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "before-gates-26",
+      "variant": "before",
+      "input": {
+        "name": "gates-26",
+        "toggle": "unknown",
+        "hardcore": "1",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "70fedf3e502754d92e23bcc8f810612428c0fa4d7d8439b6bd417d932f1c23f1"
+    },
+    {
+      "name": "before-gates-27",
+      "variant": "before",
+      "input": {
+        "name": "gates-27",
+        "toggle": "unknown",
+        "hardcore": "1",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "cc9276c10958eb9b12d658caa60ae63023e3de67506bf7c2e4b8201e9851401f"
+    },
+    {
+      "name": "before-gates-28",
+      "variant": "before",
+      "input": {
+        "name": "gates-28",
+        "toggle": "unknown",
+        "hardcore": "",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532341]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-gates-29",
+      "variant": "before",
+      "input": {
+        "name": "gates-29",
+        "toggle": "unknown",
+        "hardcore": "",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "before-gates-30",
+      "variant": "before",
+      "input": {
+        "name": "gates-30",
+        "toggle": "unknown",
+        "hardcore": "unknown",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-gates-31",
+      "variant": "before",
+      "input": {
+        "name": "gates-31",
+        "toggle": "unknown",
+        "hardcore": "unknown",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532342]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "before-table-ipv4-32",
+      "variant": "before",
+      "input": {
+        "name": "table-ipv4-32",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532421]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-table-ipv4-33",
+      "variant": "before",
+      "input": {
+        "name": "table-ipv4-33",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "ipv4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "before-table-wildcard4-34",
+      "variant": "before",
+      "input": {
+        "name": "table-wildcard4-34",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "wildcard4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-table-wildcard4-35",
+      "variant": "before",
+      "input": {
+        "name": "table-wildcard4-35",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "wildcard4"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532341]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "before-table-mapped6-36",
+      "variant": "before",
+      "input": {
+        "name": "table-mapped6-36",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "mapped6"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-table-mapped6-37",
+      "variant": "before",
+      "input": {
+        "name": "table-mapped6-37",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "mapped6"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "before-table-loopback6-38",
+      "variant": "before",
+      "input": {
+        "name": "table-loopback6-38",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "loopback6"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532342]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-table-loopback6-39",
+      "variant": "before",
+      "input": {
+        "name": "table-loopback6-39",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "loopback6"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "before-table-wildcard6-40",
+      "variant": "before",
+      "input": {
+        "name": "table-wildcard6-40",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "wildcard6"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-table-wildcard6-41",
+      "variant": "before",
+      "input": {
+        "name": "table-wildcard6-41",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "wildcard6"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532341]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "before-table-wrong-port-42",
+      "variant": "before",
+      "input": {
+        "name": "table-wrong-port-42",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "wrong-port"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-table-wrong-port-43",
+      "variant": "before",
+      "input": {
+        "name": "table-wrong-port-43",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "wrong-port"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "before-table-established-44",
+      "variant": "before",
+      "input": {
+        "name": "table-established-44",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "established"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532342]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-table-established-45",
+      "variant": "before",
+      "input": {
+        "name": "table-established-45",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "established"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "before-table-other-address-46",
+      "variant": "before",
+      "input": {
+        "name": "table-other-address-46",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "other-address"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532343]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-table-other-address-47",
+      "variant": "before",
+      "input": {
+        "name": "table-other-address-47",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "other-address"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "before-table-empty-48",
+      "variant": "before",
+      "input": {
+        "name": "table-empty-48",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "empty"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-table-empty-49",
+      "variant": "before",
+      "input": {
+        "name": "table-empty-49",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "empty"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532341]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "before-table-missing-50",
+      "variant": "before",
+      "input": {
+        "name": "table-missing-50",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "missing"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532477]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 11,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-table-missing-51",
+      "variant": "before",
+      "input": {
+        "name": "table-missing-51",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "missing"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 11,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "before-table-unreadable-52",
+      "variant": "before",
+      "input": {
+        "name": "table-unreadable-52",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "unreadable"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532342]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "before-table-unreadable-53",
+      "variant": "before",
+      "input": {
+        "name": "table-unreadable-53",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "unreadable"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "before-early-disabled-54",
+      "variant": "before",
+      "input": {
+        "name": "early-disabled-54",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4",
+        "early": "disabled"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 1,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "da90f829698713cdb05075a2fe92330e3c598d513e303cf734e637d90df8a022"
+    },
+    {
+      "name": "before-early-disabled-55",
+      "variant": "before",
+      "input": {
+        "name": "early-disabled-55",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4",
+        "early": "disabled"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 1,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532341]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "da90f829698713cdb05075a2fe92330e3c598d513e303cf734e637d90df8a022"
+    },
+    {
+      "name": "before-early-empty-enabled-56",
+      "variant": "before",
+      "input": {
+        "name": "early-empty-enabled-56",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4",
+        "early": "empty-enabled"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 1,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "da90f829698713cdb05075a2fe92330e3c598d513e303cf734e637d90df8a022"
+    },
+    {
+      "name": "before-early-empty-enabled-57",
+      "variant": "before",
+      "input": {
+        "name": "early-empty-enabled-57",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4",
+        "early": "empty-enabled"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 1,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "da90f829698713cdb05075a2fe92330e3c598d513e303cf734e637d90df8a022"
+    },
+    {
+      "name": "before-early-missing-token-58",
+      "variant": "before",
+      "input": {
+        "name": "early-missing-token-58",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4",
+        "early": "missing-token"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 1,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532342]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "da90f829698713cdb05075a2fe92330e3c598d513e303cf734e637d90df8a022"
+    },
+    {
+      "name": "before-early-missing-token-59",
+      "variant": "before",
+      "input": {
+        "name": "early-missing-token-59",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4",
+        "early": "missing-token"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 1,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "da90f829698713cdb05075a2fe92330e3c598d513e303cf734e637d90df8a022"
+    },
+    {
+      "name": "before-encore-new-unofficial",
+      "variant": "before",
+      "input": {
+        "name": "encore-new-unofficial",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4",
+        "encore": "1",
+        "unofficial": "1",
+        "legacy": "0"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "bb913821059399e4f84c0da022930b83a2635445a4c30e514a42d63d39db7e94"
+    },
+    {
+      "name": "before-legacy-unofficial",
+      "variant": "before",
+      "input": {
+        "name": "legacy-unofficial",
+        "toggle": "0",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4",
+        "unofficial": "",
+        "legacy": "1"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532341]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "ddd21ee50c512a1000ef3ef79a43e7a7ceda4063985ce37f8e5926dae0f04e5a"
+    },
+    {
+      "name": "before-new-unofficial-wins",
+      "variant": "before",
+      "input": {
+        "name": "new-unofficial-wins",
+        "toggle": "0",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4",
+        "unofficial": "0",
+        "legacy": "1"
+      },
+      "script_sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-gates-00",
+      "variant": "after",
+      "input": {
+        "name": "gates-00",
+        "toggle": "0",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-gates-01",
+      "variant": "after",
+      "input": {
+        "name": "gates-01",
+        "toggle": "0",
+        "hardcore": "0",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "after-gates-02",
+      "variant": "after",
+      "input": {
+        "name": "gates-02",
+        "toggle": "0",
+        "hardcore": "1",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "70fedf3e502754d92e23bcc8f810612428c0fa4d7d8439b6bd417d932f1c23f1"
+    },
+    {
+      "name": "after-gates-03",
+      "variant": "after",
+      "input": {
+        "name": "gates-03",
+        "toggle": "0",
+        "hardcore": "1",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532341]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "cc9276c10958eb9b12d658caa60ae63023e3de67506bf7c2e4b8201e9851401f"
+    },
+    {
+      "name": "after-gates-04",
+      "variant": "after",
+      "input": {
+        "name": "gates-04",
+        "toggle": "0",
+        "hardcore": "",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-gates-05",
+      "variant": "after",
+      "input": {
+        "name": "gates-05",
+        "toggle": "0",
+        "hardcore": "",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "after-gates-06",
+      "variant": "after",
+      "input": {
+        "name": "gates-06",
+        "toggle": "0",
+        "hardcore": "unknown",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532343]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-gates-07",
+      "variant": "after",
+      "input": {
+        "name": "gates-07",
+        "toggle": "0",
+        "hardcore": "unknown",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "after-gates-08",
+      "variant": "after",
+      "input": {
+        "name": "gates-08",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "f92351b223cabc12a817d39156c639734a23fb3ea5c810043d5902056f868f9b"
+    },
+    {
+      "name": "after-gates-09",
+      "variant": "after",
+      "input": {
+        "name": "gates-09",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "f92351b223cabc12a817d39156c639734a23fb3ea5c810043d5902056f868f9b"
+    },
+    {
+      "name": "after-gates-10",
+      "variant": "after",
+      "input": {
+        "name": "gates-10",
+        "toggle": "1",
+        "hardcore": "1",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532342]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "70fedf3e502754d92e23bcc8f810612428c0fa4d7d8439b6bd417d932f1c23f1"
+    },
+    {
+      "name": "after-gates-11",
+      "variant": "after",
+      "input": {
+        "name": "gates-11",
+        "toggle": "1",
+        "hardcore": "1",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "cc9276c10958eb9b12d658caa60ae63023e3de67506bf7c2e4b8201e9851401f"
+    },
+    {
+      "name": "after-gates-12",
+      "variant": "after",
+      "input": {
+        "name": "gates-12",
+        "toggle": "1",
+        "hardcore": "",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532341]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-gates-13",
+      "variant": "after",
+      "input": {
+        "name": "gates-13",
+        "toggle": "1",
+        "hardcore": "",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "after-gates-14",
+      "variant": "after",
+      "input": {
+        "name": "gates-14",
+        "toggle": "1",
+        "hardcore": "unknown",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-gates-15",
+      "variant": "after",
+      "input": {
+        "name": "gates-15",
+        "toggle": "1",
+        "hardcore": "unknown",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "after-gates-16",
+      "variant": "after",
+      "input": {
+        "name": "gates-16",
+        "toggle": "",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532342]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-gates-17",
+      "variant": "after",
+      "input": {
+        "name": "gates-17",
+        "toggle": "",
+        "hardcore": "0",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "after-gates-18",
+      "variant": "after",
+      "input": {
+        "name": "gates-18",
+        "toggle": "",
+        "hardcore": "1",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "70fedf3e502754d92e23bcc8f810612428c0fa4d7d8439b6bd417d932f1c23f1"
+    },
+    {
+      "name": "after-gates-19",
+      "variant": "after",
+      "input": {
+        "name": "gates-19",
+        "toggle": "",
+        "hardcore": "1",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532418]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "cc9276c10958eb9b12d658caa60ae63023e3de67506bf7c2e4b8201e9851401f"
+    },
+    {
+      "name": "after-gates-20",
+      "variant": "after",
+      "input": {
+        "name": "gates-20",
+        "toggle": "",
+        "hardcore": "",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-gates-21",
+      "variant": "after",
+      "input": {
+        "name": "gates-21",
+        "toggle": "",
+        "hardcore": "",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532341]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "after-gates-22",
+      "variant": "after",
+      "input": {
+        "name": "gates-22",
+        "toggle": "",
+        "hardcore": "unknown",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-gates-23",
+      "variant": "after",
+      "input": {
+        "name": "gates-23",
+        "toggle": "",
+        "hardcore": "unknown",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "after-gates-24",
+      "variant": "after",
+      "input": {
+        "name": "gates-24",
+        "toggle": "unknown",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532342]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-gates-25",
+      "variant": "after",
+      "input": {
+        "name": "gates-25",
+        "toggle": "unknown",
+        "hardcore": "0",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "after-gates-26",
+      "variant": "after",
+      "input": {
+        "name": "gates-26",
+        "toggle": "unknown",
+        "hardcore": "1",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532343]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "70fedf3e502754d92e23bcc8f810612428c0fa4d7d8439b6bd417d932f1c23f1"
+    },
+    {
+      "name": "after-gates-27",
+      "variant": "after",
+      "input": {
+        "name": "gates-27",
+        "toggle": "unknown",
+        "hardcore": "1",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "cc9276c10958eb9b12d658caa60ae63023e3de67506bf7c2e4b8201e9851401f"
+    },
+    {
+      "name": "after-gates-28",
+      "variant": "after",
+      "input": {
+        "name": "gates-28",
+        "toggle": "unknown",
+        "hardcore": "",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-gates-29",
+      "variant": "after",
+      "input": {
+        "name": "gates-29",
+        "toggle": "unknown",
+        "hardcore": "",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532533]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "after-gates-30",
+      "variant": "after",
+      "input": {
+        "name": "gates-30",
+        "toggle": "unknown",
+        "hardcore": "unknown",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-gates-31",
+      "variant": "after",
+      "input": {
+        "name": "gates-31",
+        "toggle": "unknown",
+        "hardcore": "unknown",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "51ef84754120746cf8b171427bfde3e091a6532c787eeeeaf9867415d5bd79be"
+    },
+    {
+      "name": "after-table-ipv4-32",
+      "variant": "after",
+      "input": {
+        "name": "table-ipv4-32",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532341]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "f92351b223cabc12a817d39156c639734a23fb3ea5c810043d5902056f868f9b"
+    },
+    {
+      "name": "after-table-ipv4-33",
+      "variant": "after",
+      "input": {
+        "name": "table-ipv4-33",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "ipv4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "f92351b223cabc12a817d39156c639734a23fb3ea5c810043d5902056f868f9b"
+    },
+    {
+      "name": "after-table-wildcard4-34",
+      "variant": "after",
+      "input": {
+        "name": "table-wildcard4-34",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "wildcard4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532342]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "f92351b223cabc12a817d39156c639734a23fb3ea5c810043d5902056f868f9b"
+    },
+    {
+      "name": "after-table-wildcard4-35",
+      "variant": "after",
+      "input": {
+        "name": "table-wildcard4-35",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "wildcard4"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "f92351b223cabc12a817d39156c639734a23fb3ea5c810043d5902056f868f9b"
+    },
+    {
+      "name": "after-table-mapped6-36",
+      "variant": "after",
+      "input": {
+        "name": "table-mapped6-36",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "mapped6"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "f92351b223cabc12a817d39156c639734a23fb3ea5c810043d5902056f868f9b"
+    },
+    {
+      "name": "after-table-mapped6-37",
+      "variant": "after",
+      "input": {
+        "name": "table-mapped6-37",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "mapped6"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532342]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "f92351b223cabc12a817d39156c639734a23fb3ea5c810043d5902056f868f9b"
+    },
+    {
+      "name": "after-table-loopback6-38",
+      "variant": "after",
+      "input": {
+        "name": "table-loopback6-38",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "loopback6"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532341]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-table-loopback6-39",
+      "variant": "after",
+      "input": {
+        "name": "table-loopback6-39",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "loopback6"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "after-table-wildcard6-40",
+      "variant": "after",
+      "input": {
+        "name": "table-wildcard6-40",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "wildcard6"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532343]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-table-wildcard6-41",
+      "variant": "after",
+      "input": {
+        "name": "table-wildcard6-41",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "wildcard6"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "after-table-wrong-port-42",
+      "variant": "after",
+      "input": {
+        "name": "table-wrong-port-42",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "wrong-port"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532420]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-table-wrong-port-43",
+      "variant": "after",
+      "input": {
+        "name": "table-wrong-port-43",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "wrong-port"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "after-table-established-44",
+      "variant": "after",
+      "input": {
+        "name": "table-established-44",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "established"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-table-established-45",
+      "variant": "after",
+      "input": {
+        "name": "table-established-45",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "established"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532341]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "after-table-other-address-46",
+      "variant": "after",
+      "input": {
+        "name": "table-other-address-46",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "other-address"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-table-other-address-47",
+      "variant": "after",
+      "input": {
+        "name": "table-other-address-47",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "other-address"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532417]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "after-table-empty-48",
+      "variant": "after",
+      "input": {
+        "name": "table-empty-48",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "empty"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-table-empty-49",
+      "variant": "after",
+      "input": {
+        "name": "table-empty-49",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "empty"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "after-table-missing-50",
+      "variant": "after",
+      "input": {
+        "name": "table-missing-50",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "missing"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532419]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 11,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-table-missing-51",
+      "variant": "after",
+      "input": {
+        "name": "table-missing-51",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "missing"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 11,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "after-table-unreadable-52",
+      "variant": "after",
+      "input": {
+        "name": "table-unreadable-52",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "unreadable"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532341]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    },
+    {
+      "name": "after-table-unreadable-53",
+      "variant": "after",
+      "input": {
+        "name": "table-unreadable-53",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "https://custom.example.invalid",
+        "table": "unreadable"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "caf631f8175315db1361adba5fd15b60c452b6e15069b9d12df09b3b348e35c4"
+    },
+    {
+      "name": "after-early-disabled-54",
+      "variant": "after",
+      "input": {
+        "name": "early-disabled-54",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4",
+        "early": "disabled"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 1,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532360]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "da90f829698713cdb05075a2fe92330e3c598d513e303cf734e637d90df8a022"
+    },
+    {
+      "name": "after-early-disabled-55",
+      "variant": "after",
+      "input": {
+        "name": "early-disabled-55",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4",
+        "early": "disabled"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 1,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "da90f829698713cdb05075a2fe92330e3c598d513e303cf734e637d90df8a022"
+    },
+    {
+      "name": "after-early-empty-enabled-56",
+      "variant": "after",
+      "input": {
+        "name": "early-empty-enabled-56",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4",
+        "early": "empty-enabled"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 1,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532342]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "da90f829698713cdb05075a2fe92330e3c598d513e303cf734e637d90df8a022"
+    },
+    {
+      "name": "after-early-empty-enabled-57",
+      "variant": "after",
+      "input": {
+        "name": "early-empty-enabled-57",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4",
+        "early": "empty-enabled"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 1,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "da90f829698713cdb05075a2fe92330e3c598d513e303cf734e637d90df8a022"
+    },
+    {
+      "name": "after-early-missing-token-58",
+      "variant": "after",
+      "input": {
+        "name": "early-missing-token-58",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4",
+        "early": "missing-token"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 1,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532477]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "da90f829698713cdb05075a2fe92330e3c598d513e303cf734e637d90df8a022"
+    },
+    {
+      "name": "after-early-missing-token-59",
+      "variant": "after",
+      "input": {
+        "name": "early-missing-token-59",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "custom.example.invalid:1234",
+        "table": "ipv4",
+        "early": "missing-token"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 1,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532343]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "da90f829698713cdb05075a2fe92330e3c598d513e303cf734e637d90df8a022"
+    },
+    {
+      "name": "after-encore-new-unofficial",
+      "variant": "after",
+      "input": {
+        "name": "encore-new-unofficial",
+        "toggle": "1",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4",
+        "encore": "1",
+        "unofficial": "1",
+        "legacy": "0"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532340]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "006d6069d432573dc2303d05192a028e2a6fbb3997e53986f9afe2d65314d986"
+    },
+    {
+      "name": "after-legacy-unofficial",
+      "variant": "after",
+      "input": {
+        "name": "legacy-unofficial",
+        "toggle": "0",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4",
+        "unofficial": "",
+        "legacy": "1"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532341]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "ddd21ee50c512a1000ef3ef79a43e7a7ceda4063985ce37f8e5926dae0f04e5a"
+    },
+    {
+      "name": "after-new-unofficial-wins",
+      "variant": "after",
+      "input": {
+        "name": "new-unofficial-wins",
+        "toggle": "0",
+        "hardcore": "0",
+        "host": "",
+        "table": "ipv4",
+        "unofficial": "0",
+        "legacy": "1"
+      },
+      "script_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "original_exit": 0,
+      "status": "PASS",
+      "containment": {
+        "net_namespace": "net:[4026532339]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "protected_files_unchanged": 13,
+      "ini_sha256": "36a7fe80f426a4927f08d1b325e7fc153a444a48a189de9afcf5bb068a0ea3df"
+    }
+  ],
+  "runtime": "actual guest bash/cat, ELF dependencies copied",
+  "parent_net_namespace": "net:[4026531833]",
+  "fixture_sha256": "35e8daa514262c3f40ccae8009f71c5e3069ff966ea9c1d4dedaa7c1e08482c4",
+  "revision_bindings_sha256": "313f58513492763b08b82961b50a22b0d785bff3d2faf319b0ff14f35ad3a927",
+  "original_fixture_sha256": "0bdf47a895245730ca77a2ae058d19df701e2464862051bc782684967a98d69f",
+  "signals": [],
+  "runtime_files": [
+    {
+      "requested_path": "/usr/bin/bash",
+      "resolved_identity_path": "/usr/bin/bash",
+      "guest_invocation_path": "/bin/bash",
+      "sha256": "3aa5dd1a0ddd72c8019c40f8a4c929796eb5a99d182570334ede50374724527a",
+      "bytes": 1218080
+    },
+    {
+      "requested_path": "/lib64/ld-linux-x86-64.so.2",
+      "resolved_identity_path": "/usr/lib/ld-linux-x86-64.so.2",
+      "guest_invocation_path": "/lib64/ld-linux-x86-64.so.2",
+      "sha256": "43ba6fe60411686238d8a53eb4338fcf4d6893e6e961614f3806e84e86d2804c",
+      "bytes": 221472
+    },
+    {
+      "requested_path": "/usr/lib/libreadline.so.8",
+      "resolved_identity_path": "/usr/lib/libreadline.so.8.3",
+      "guest_invocation_path": "/usr/lib/libreadline.so.8",
+      "sha256": "b61a9b4a3c3bd754182cee1416352e5d42f3834400a508fe533486ccd9b60142",
+      "bytes": 366976
+    },
+    {
+      "requested_path": "/usr/lib/libc.so.6",
+      "resolved_identity_path": "/usr/lib/libc.so.6",
+      "guest_invocation_path": "/usr/lib/libc.so.6",
+      "sha256": "aa6a91c5ac22c7832d6ef094bb684b2dbc016f9b08a98f262a3ac97a12684cfc",
+      "bytes": 2052352
+    },
+    {
+      "requested_path": "/usr/lib/ld-linux-x86-64.so.2",
+      "resolved_identity_path": "/usr/lib/ld-linux-x86-64.so.2",
+      "guest_invocation_path": "/usr/lib/ld-linux-x86-64.so.2",
+      "sha256": "43ba6fe60411686238d8a53eb4338fcf4d6893e6e961614f3806e84e86d2804c",
+      "bytes": 221472
+    },
+    {
+      "requested_path": "/usr/bin/cat",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "guest_invocation_path": "/bin/cat",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346",
+      "bytes": 574456
+    },
+    {
+      "requested_path": "/usr/lib/libm.so.6",
+      "resolved_identity_path": "/usr/lib/libm.so.6",
+      "guest_invocation_path": "/usr/lib/libm.so.6",
+      "sha256": "baddd30a004cc2ca98385c1f047fe5ca3a00db085ab01a104642c4fa998c7ace",
+      "bytes": 763936
+    }
+  ],
+  "runtime_bytes": 5418744,
+  "remaining_children": [],
+  "cleanup_descendants": [],
+  "observation_errors": [],
+  "elapsed_seconds": 3.554191926000044,
+  "retained_bytes": 5597217
+}

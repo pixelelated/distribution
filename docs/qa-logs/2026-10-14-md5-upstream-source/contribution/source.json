@@ -1,0 +1,18 @@
+{
+  "upstream_repository": "https://github.com/libretro/libretro-common",
+  "upstream_commit": "a3194c18ba65ef89734e1898a2f61403c255d368",
+  "upstream_md5_last_change": "39eae6ac1c4e4dd809f27cec210ace8d62a5c0a5",
+  "source_files": {
+    "utils/md5.c": "eac29a1b5ce298408fb43d3b9bbf80aac0429d65c2ae6bca23b4f376c018c566",
+    "include/lrc_hash.h": "9891fb7b8bdc2c3237e7534d271b3c64a4b17d293c2c1c6ac36f2bc3ffed8e28",
+    "include/compat/msvc.h": "1baf8f5a3ed1abcb8eeefdda72f663ce49391e12cc5fbe9ca32fbae66dbf524d",
+    "include/retro_inline.h": "7543242f56677091d46e3bc9a8b7d567a0df631cb8cdb1878970feaa53f77403",
+    "include/retro_common_api.h": "e7a811f84a29193bdb6aa2a4586c072b569fe8c039bbb17b658c58927e14f37a",
+    "include/boolean.h": "9ae2871b702c3c7d89b5e0e40de28895e72bd0177e1d6da32cde6f59e46bb36e"
+  },
+  "patched_md5_sha256": "abb534583be673948400ec78931e748cd16db176084669293c7b1c261dd78119",
+  "alignment_control_sha256": "2c4a9d7a0f49e6bcc0df0e5954e9a2637ba4a02ffc46a322a6465055a7dc5b7a",
+  "expected_digest_rows": 264,
+  "type_compatibility_define": "MD5_u32plus=uint32_t",
+  "status": "upstream standalone build/runtime UNRUN"
+}

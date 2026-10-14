@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "evidence": "AST/source/hash inspection only",
+  "runtime": "UNRUN",
+  "all_original_helpers_except_main_AST_identical": [
+    "cases",
+    "configure",
+    "elf_dependencies",
+    "expected_ini",
+    "require",
+    "sha",
+    "snapshot",
+    "stage_runtime"
+  ],
+  "isolate_AST_identical": true,
+  "expectation_tail_identical": true,
+  "bounds_preserved": true,
+  "cases_per_variant": 63,
+  "total_cases": 126,
+  "original_packets_verified": [
+    "c225",
+    "819",
+    "22cf"
+  ],
+  "no_numeric_or_process_group_signal_calls": true,
+  "product_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+  "original_fixture_sha256": "0bdf47a895245730ca77a2ae058d19df701e2464862051bc782684967a98d69f",
+  "revised_fixture_sha256": "35e8daa514262c3f40ccae8009f71c5e3069ff966ea9c1d4dedaa7c1e08482c4",
+  "uncompressed_delta_sha256": "f6bd86ba10bc261c4fc149806728fa8aabe2929b216d5f44fc73446a49b46688"
+}

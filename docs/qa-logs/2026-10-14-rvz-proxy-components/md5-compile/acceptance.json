@@ -1,0 +1,49 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/.build-runs/20261014T030151Z-4472ff3b",
+  "expected_rc": 1,
+  "disposition": "failed-investigated",
+  "outputs": [
+    {
+      "path": "/workspace/tmp/pix574-md5-target-20261014/builds",
+      "issue": 574,
+      "kind": "build-cache",
+      "release_when": "Consume original command/container/watcher/launcher results; preserve compact source/compile/failure receipts. Retire builds/tmp/snapshots after compile acceptance; artifacts only after the newly allocated target checks are consumed. No automatic deletion."
+    },
+    {
+      "path": "/workspace/tmp/pix574-md5-target-20261014/tmp",
+      "issue": 574,
+      "kind": "qa-scratch",
+      "release_when": "Consume original command/container/watcher/launcher results; preserve compact source/compile/failure receipts. Retire builds/tmp/snapshots after compile acceptance; artifacts only after the newly allocated target checks are consumed. No automatic deletion."
+    },
+    {
+      "path": "/workspace/tmp/pix574-md5-target-20261014/sources",
+      "issue": 574,
+      "kind": "qa-scratch",
+      "release_when": "Consume original command/container/watcher/launcher results; preserve compact source/compile/failure receipts. Retire builds/tmp/snapshots after compile acceptance; artifacts only after the newly allocated target checks are consumed. No automatic deletion."
+    },
+    {
+      "path": "/workspace/tmp/pix574-md5-target-20261014/artifacts",
+      "issue": 574,
+      "kind": "qa-scratch",
+      "release_when": "Consume original command/container/watcher/launcher results; preserve compact source/compile/failure receipts. Retire builds/tmp/snapshots after compile acceptance; artifacts only after the newly allocated target checks are consumed. No automatic deletion."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix574-md5-target-20261014/result.json",
+      "sha256": "949b09f2dcbf286ff07322a1ebb16153dc409e43a0a208091309092d76905e27"
+    },
+    {
+      "path": "/workspace/tmp/pix574-md5-target-20261014/compile-result.json",
+      "sha256": "f385e7d2dcea86d93734160053b6070627a9df6f37a86b24370f0748d27fceda"
+    },
+    {
+      "path": "/workspace/tmp/pix574-md5-target-20261014/records/container-final-inspect.json",
+      "sha256": "9d9d3392a4a02162a4e84bb05f32c7e486d63ae5ff77ea412ea4ead72490bc10"
+    },
+    {
+      "path": "/workspace/tmp/pix574-md5-target-20261014/container-absence-readback.json",
+      "sha256": "199fb9298162eeace543b67b5f5e8941796d40bc28860b0918ff4ce54790b248"
+    }
+  ]
+}

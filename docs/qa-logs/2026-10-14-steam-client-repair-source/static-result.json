@@ -1,0 +1,34 @@
+{
+  "status": "PASS_STATIC_ONLY",
+  "checked_utc": "2026-10-14T03:29:48.530220+00:00",
+  "installer_sha256": "a7a67c6b1e0f90a63fdcef79bb6aa60a413dc1927dbf0d53f6068e3a720fe80f",
+  "product_changed": false,
+  "checks": {
+    "exact_c624_source": true,
+    "copied_source_byte_identity": true,
+    "json_parsed": 28,
+    "copied_readback_byte_identity": true,
+    "prior_packet_manifests_and_files_unchanged": true,
+    "bash_syntax": {
+      "argv": [
+        "bash",
+        "-n",
+        "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh"
+      ],
+      "exit": 0
+    },
+    "embedded_python_ast_only": [
+      "PY_STEAM_ROOT",
+      "PY_STEAM_FEX",
+      "PY_STEAM_RUNTIME",
+      "PY_PROTON_VARIANT"
+    ],
+    "control_specification_count": 25,
+    "git_diff_check_exit": 0,
+    "staged_git_diff_check_exit": 0,
+    "upstream_intake_projection": "10 identified records; metadata-only projection after read; exact selected source content and owning issue/comments retained"
+  },
+  "runtime": "UNRUN; no fixture/generator/compiler/VM/native archive decode executed",
+  "implementation": "NOT STARTED: explicit compatibility choice pending",
+  "executable_fixture_cases": 0
+}

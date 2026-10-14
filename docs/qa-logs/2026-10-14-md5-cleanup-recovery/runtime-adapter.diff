@@ -1,0 +1,16 @@
+--- 0962/run-guest.py
++++ recovery/run-guest.py
+@@ -8,0 +9 @@
++import runpy
+@@ -14 +15,2 @@
+-HERE = Path(__file__).resolve().parent
++RECOVERY = Path(__file__).resolve().parent
++HERE = RECOVERY.parent / 'packet'
+@@ -80 +82 @@
+-    require(compiled['status']==outer['status']=='PASS' and outer['original_docker_exit']==0,'new compile and original container result must pass')
++    recovery = runpy.run_path(str(RECOVERY/'recovery.py'))['validate_export'](args.input)
+@@ -101,0 +104 @@
++    write(out/'compile-recovery.json',recovery)
+@@ -106 +109 @@
+-    result={'status':'FAIL','checks':[],'source_binding_sha256':sha(HERE/'input-bindings.json'),
++    result={'status':'FAIL','checks':[],'compile_acceptance':recovery,'source_binding_sha256':sha(HERE/'input-bindings.json'),

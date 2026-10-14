@@ -1,0 +1,5 @@
+{
+  "argv_command": "python3 -I -S -B -c 'from pathlib import Path;import base64,hashlib;p=Path('\"'\"'/tmp/pix-output/steam-inspection01/receipts/inspection.json'\"'\"');b=p.read_bytes();print(\"PIXDATA:\"+base64.b64encode(b).decode());print(\"PIXHASH:\"+hashlib.sha256(b).hexdigest())'",
+  "transport_rc": 0,
+  "stderr": ""
+}

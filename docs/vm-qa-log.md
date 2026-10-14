@@ -292,3 +292,5 @@ Original shared-bind identity refusal1/report refusal2 retained. All10owners
 consumed/exited, exact guest retired and2275385344allocated bytes recovered.
 No account/device/cloud action, physical cure, pin move or RC designation.
 [Source, original results and frame index](qa-logs/2026-10-13-es-trim-comparison/README.md).
+
+| 2026-10-14 03:24 UTC | #574/#583/#584/#582 component qualification | AcceptedVM20 SHA1a23cf57; fresh no-NIC8GiB4CPU640×480, staged candidates | Proxy reader126mismatches→0,44listing controls; Dolphin126configuration cases; MD543recovery controls/528digest comparisons; Steam55CRC/ELF inspection PASS. Original fixture/compile/acquisition failures preserved, exact recovery separate. | Native Dolphin/proxy gameplay/cache/awards/reconnect, independent full formats, native Steam, ARM and final image/upgrade remain open. No UI/timing claim. | docs/qa-logs/2026-10-14-rvz-proxy-components/;10original owners consumed, allPIDs exited,2.63GBscratch retired | Not measured | Not measured | Not measured |

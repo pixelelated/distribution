@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-14T03:03:47.656499+00:00",
+  "exact_container_absent": true,
+  "checks": [
+    {
+      "argv": [
+        "docker",
+        "inspect",
+        "--type",
+        "container",
+        "--format",
+        "{{.State.Running}}",
+        "b7c9f6521969d856b3b392a8b3ffeb351d5e857d144faecb8f51d5fb36d123dd"
+      ],
+      "original_exit": 1,
+      "stdout": "\n",
+      "stderr": "Error response from daemon: No such container: b7c9f6521969d856b3b392a8b3ffeb351d5e857d144faecb8f51d5fb36d123dd\n"
+    },
+    {
+      "argv": [
+        "docker",
+        "ps",
+        "-a",
+        "--no-trunc",
+        "--format",
+        "{{.ID}}"
+      ],
+      "original_exit": 0,
+      "stdout": "36900e5df0f0b86d7b87e1c767aa8967885ce1ffdea95d525adc057874da56a4\nab585a2cd4411afef403b405dd42132f3bfc28d06630706c17be5c5b71878fc9\n54a1d102beb4e6e7bd2655096b81d942eda73b1cb71da28eefed11962d726bb3\nd944c4839a63a7fdc9aa24c7a019ba460f483ec81a03dd5e9d7debabd7cafc45\n415e13aa53968d32bf62b5ec9311d07a83581db0c5e980157b7c77448e33b129\n23d0b7373921c524cce2946ab5fe8f951177a026db724acf55ab9d12a9568167\n08e48291f553739210b2506bd6f7cf6164a52a305f2e9d036e85c87b2346c6f0\nb636a1aad6a6208aa9ccb14ea949666e8760542dc55f2e2d72473774601cd4d4\nfd066788e58feeff6ea9a2427bfc7fcedc5b9a705cce3812e7c9a50d607568b4\n730a163216626a1258f55c3638fcb4299557a89ec178914e6accb2a273d8ba58\n1a02c04eac1c5450f0e54d2a5b64f0c453794c8bce87bcc5659b194f67014b86\n36e2e5fa8eca2b90db6e437c0f7ceb08928bde0ae9d6091ce70ffc129a442d88\n2582d203b8cc4bc31cd9c48e92ec3dcd71030217faa05b1955ce39036c1cb358\n6662d419148a9bd9788af97191984d2fa63556aac3ed0e18d316deb61785e6be\n0102bc14908397ccda6c6e423c8ca0cbca84a6e916fcb369d4b78b646ad0abe6\n7e505a312f26604901996a183d344f495c47a702af83e6bda400ca2e41236958\n8c3e136cb143babed1d45f470083785de973abb16b713dc2984551b10deaa611\na3571466955b0332ae6ad26fe5445f5fa9242533c5d2c7c89a8e21c5964bafaa\nbcf29004e7ae1f1b483966d930ea89f26da43b59b9267a42289b344b2780aeee\n2e4c1d8f193f9b881ae6765bb34e1ed47159c028404269ae3cc3cb530b439b3b\n",
+      "stderr": ""
+    }
+  ],
+  "host_pids_absent": [
+    3662011,
+    3662012,
+    3662015,
+    3662069,
+    3662805
+  ],
+  "original_wrapper_status": 1,
+  "compile_status": "PASS; runtime UNRUN"
+}

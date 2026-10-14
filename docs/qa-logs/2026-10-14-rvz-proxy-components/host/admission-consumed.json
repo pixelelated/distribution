@@ -1,0 +1,49 @@
+{
+  "admitted": "2026-10-14T03:06:23.890783+00:00",
+  "available_bytes": 2979858755584,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+  "consumed": "2026-10-14T03:32:02.469677+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+  "deleted_bytes": 0,
+  "evidence_sha256": "4682f3e08d5faab69f2bdb6525ec440cd960e37fc7d55c11ad11b4585b5af44e",
+  "id": "72c06db260934b7683c44a75ef5025a5",
+  "original_result": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-14T03:24:21.608820+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 583,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-rvz-vm-20261014/vm",
+      "release_when": "After exact guest stop and original result consumption, preserve compact receipts; retire all guest/raw/input/output/UEFI and synthetic scratch. No VM history retention."
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "2475b8c2d797419848ae436f8381b72f6ae65b003b26407d3688eb8cd31c9a9f",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 22587375616,
+  "retention_plan_sha256": "4451386e3e91b4fcfb4b759bc742d07a0a49887a1ce9eb7f665c7fe9df8bf7cd",
+  "retention_report_sha256": "5f062b80b14444b17afb8d0713b83816a091205d5930ab1e324f24275883d6a6",
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T030623Z-a2b4ca57",
+  "runner_pid": 3685978,
+  "runner_start": "103886776",
+  "source": {
+    "head": "0ba5bc48af03eadd417f535353f20770c51c6cf7",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix-m7-rvz-vm-20261014/vm-owner",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

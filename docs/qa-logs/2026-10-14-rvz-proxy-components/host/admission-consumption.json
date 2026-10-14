@@ -1,0 +1,31 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T030623Z-a2b4ca57",
+  "disposition": "qualified",
+  "expected_rc": 0,
+  "outputs": [
+    {
+      "path": "/workspace/tmp/pix-m7-rvz-vm-20261014/vm",
+      "issue": 583,
+      "kind": "qa-scratch",
+      "release_when": "After exact guest stop and original result consumption, preserve compact receipts; retire all guest/raw/input/output/UEFI and synthetic scratch. No VM history retention."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-rvz-vm-20261014/vm-result.json",
+      "sha256": "53aa8ad475d8589654d8c1da023d4ff6ee560eb3e026bdf3b06c46ca2ac9317d"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-rvz-vm-20261014/consumption.json",
+      "sha256": "8d69e6b6de0b799b9abf7925039f17361b89d6fc6c7fedc0e896a19f47f0e8ee"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-rvz-vm-20261014/retirement.json",
+      "sha256": "de72a8cb5cee00ace78adee8bdfca2e4dce862581bdf61b03f86007abbc1521c"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-rvz-proxy-components/guest-receipts.tar.gz",
+      "sha256": "9e838cd1b6cdb641be75a2ff6df3e2ce267dba1b06324a05c2ab9fa5f0b55c1c"
+    }
+  ]
+}

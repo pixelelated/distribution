@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "stages": [
+    {
+      "label": "configure-baseline-repaired",
+      "original_exit": 0,
+      "timed_out": false,
+      "elapsed": 0.31479658908210695
+    },
+    {
+      "label": "compile-baseline-repaired",
+      "original_exit": 0,
+      "timed_out": false,
+      "elapsed": 9.392068107961677
+    },
+    {
+      "label": "configure-candidate",
+      "original_exit": 0,
+      "timed_out": false,
+      "elapsed": 0.31499247800093144
+    },
+    {
+      "label": "compile-candidate",
+      "original_exit": 0,
+      "timed_out": false,
+      "elapsed": 10.397811730974354
+    }
+  ],
+  "started": 1791946912.7340026,
+  "input_binding_sha256": "e91e6d25636752c349bfafc6fbe9e745454ac32669c8b9d1185ff3dbde987d2c",
+  "candidate_commit": "314da58d68820a79b26f99a5b6c12f9bb37054d5",
+  "baseline_repair": {
+    "path": "external/libcheevos/libretro-common/src/utils/md5.c",
+    "before": "8d62d9eacf70e07b3dd93a3e219b052413893b2398d70e1be318a981e9047e08",
+    "after": "102310fd9991c20a7eaf7e4fffd175f9c79607dbac82f65f067a085bfeebb1c0",
+    "label": "a7dcdbb plus exact 314da58d md5.c only; not the old pristine baseline"
+  },
+  "artifacts": {
+    "artifacts/lib/libasan.so.8": "73963db53c40af52818792cba7ebae1ae6897cd94a004942c8ff76f361484412",
+    "artifacts/lib/libubsan.so.1": "a8d91f5d7efbd684a69546912ead43513ccec34bb275fe1616b68551780c9eca",
+    "artifacts/candidate/pix574-wii-partition-probe": "030bd0dd7c94fea25cdeb4bf03b0371f84ca09260b6aa2076e0279b79ca3e729",
+    "artifacts/candidate/pix574-regression-hash": "5e00ed65dc6ae8031c54c4309d3f1876be4b380e438a15b8281104402e9375b2",
+    "artifacts/candidate/pix574-md5-alignment": "5f8f9da5ad0c324f7cf04637ee4d60ba1d406996e3dc2f61e49a8a0e277a84e4",
+    "artifacts/candidate/pix574-fixture-writer": "6a663a88b8eb2c573cf92ebb361f2d6c0dd20b2400e20f3c60ddd684eb7b6aed",
+    "artifacts/baseline-repaired/pix574-wii-partition-probe": "068d4d20f4d3182dc744000d89ed631481a9523bfcf89dea58f9893318d08ea2",
+    "artifacts/baseline-repaired/pix574-regression-hash": "e95d6423e52bc2e1d78802738760142ec800591682f76706a3dfb935a7da3d6a",
+    "artifacts/baseline-repaired/pix574-md5-alignment": "bb9c83c4631d7a6d86bfa3a636d80895e06be7f71ac68214e2f5173e27d44ab7"
+  },
+  "contract_reports": {
+    "records/contract-candidate.json": "b8dc6deb77ecb5eba7104dc856588d0f724cb367f10292d3e9e1e127985a8106",
+    "records/contract-baseline-repaired.json": "f0304edae1a42661b60968d617860c143fd9b54033d18f79ef2fc8150f17d639"
+  },
+  "ended": 1791946933.2637954,
+  "max_child_rss_kib": 322228,
+  "memory.peak": "410615808\n",
+  "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n"
+}

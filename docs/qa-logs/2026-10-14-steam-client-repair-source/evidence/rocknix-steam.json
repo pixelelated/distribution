@@ -1,0 +1,171 @@
+{
+  "read_utc": "2026-10-14T03:18:22.231489+00:00",
+  "argv": [
+    "gh",
+    "api",
+    "search/issues?q=repo%3AROCKNIX/distribution%20is%3Apull-request%20Steam%20install&per_page=30"
+  ],
+  "exit": 0,
+  "stderr": "",
+  "response": {
+    "total_count": 17,
+    "incomplete_results": false,
+    "items": [
+      {
+        "number": 2802,
+        "title": "Add decky-loader and nodejs",
+        "state": "open",
+        "html_url": "https://github.com/ROCKNIX/distribution/pull/2802",
+        "created_at": "2026-05-28T03:09:39Z",
+        "updated_at": "2026-08-18T14:48:19Z",
+        "closed_at": null
+      },
+      {
+        "number": 2692,
+        "title": "Initial packages for gyroscope / accelerometer",
+        "state": "open",
+        "html_url": "https://github.com/ROCKNIX/distribution/pull/2692",
+        "created_at": "2026-05-11T09:45:34Z",
+        "updated_at": "2026-08-18T14:48:18Z",
+        "closed_at": null
+      },
+      {
+        "number": 3258,
+        "title": "steam: install latest custom protons",
+        "state": "closed",
+        "html_url": "https://github.com/ROCKNIX/distribution/pull/3258",
+        "created_at": "2026-09-01T16:35:25Z",
+        "updated_at": "2026-09-01T16:36:45Z",
+        "closed_at": "2026-09-01T16:36:44Z"
+      },
+      {
+        "number": 3204,
+        "title": "steam: use PV container for protons",
+        "state": "closed",
+        "html_url": "https://github.com/ROCKNIX/distribution/pull/3204",
+        "created_at": "2026-08-18T07:25:20Z",
+        "updated_at": "2026-08-18T07:35:45Z",
+        "closed_at": "2026-08-18T07:35:45Z"
+      },
+      {
+        "number": 3111,
+        "title": "network: add sing-box package (VLESS/Reality tun VPN)",
+        "state": "closed",
+        "html_url": "https://github.com/ROCKNIX/distribution/pull/3111",
+        "created_at": "2026-08-04T08:34:10Z",
+        "updated_at": "2026-10-10T16:04:10Z",
+        "closed_at": "2026-10-10T16:04:10Z"
+      },
+      {
+        "number": 3235,
+        "title": "fonts: add Simplified Chinese font support",
+        "state": "closed",
+        "html_url": "https://github.com/ROCKNIX/distribution/pull/3235",
+        "created_at": "2026-08-24T03:10:32Z",
+        "updated_at": "2026-09-17T19:51:25Z",
+        "closed_at": "2026-09-17T19:51:24Z"
+      },
+      {
+        "number": 2880,
+        "title": "fontconfig: keep binaries; add script to tools for additional fonts",
+        "state": "closed",
+        "html_url": "https://github.com/ROCKNIX/distribution/pull/2880",
+        "created_at": "2026-06-12T02:00:39Z",
+        "updated_at": "2026-09-17T19:53:07Z",
+        "closed_at": "2026-09-17T19:53:07Z"
+      },
+      {
+        "number": 3074,
+        "title": "SM8750 konkr pocket fit elite support",
+        "state": "closed",
+        "html_url": "https://github.com/ROCKNIX/distribution/pull/3074",
+        "created_at": "2026-07-28T19:25:22Z",
+        "updated_at": "2026-08-09T18:04:47Z",
+        "closed_at": "2026-07-30T22:22:38Z"
+      },
+      {
+        "number": 2875,
+        "title": "Add CJK font support",
+        "state": "closed",
+        "html_url": "https://github.com/ROCKNIX/distribution/pull/2875",
+        "created_at": "2026-06-09T20:31:35Z",
+        "updated_at": "2026-09-19T22:33:07Z",
+        "closed_at": "2026-09-19T22:33:07Z"
+      },
+      {
+        "number": 2983,
+        "title": "gamescope: Vulkan Compositor without VK_EXT_robustness2",
+        "state": "closed",
+        "html_url": "https://github.com/ROCKNIX/distribution/pull/2983",
+        "created_at": "2026-07-05T19:29:33Z",
+        "updated_at": "2026-07-12T18:30:27Z",
+        "closed_at": "2026-07-12T18:30:27Z"
+      },
+      {
+        "number": 2954,
+        "title": "SM8550 deep suspend/resume",
+        "state": "closed",
+        "html_url": "https://github.com/ROCKNIX/distribution/pull/2954",
+        "created_at": "2026-07-01T13:07:14Z",
+        "updated_at": "2026-08-04T23:23:34Z",
+        "closed_at": "2026-08-04T19:20:42Z"
+      },
+      {
+        "number": 3116,
+        "title": "SM8550: defer rsinput haptics playback out of atomic context",
+        "state": "closed",
+        "html_url": "https://github.com/ROCKNIX/distribution/pull/3116",
+        "created_at": "2026-08-05T03:15:47Z",
+        "updated_at": "2026-08-05T08:27:06Z",
+        "closed_at": "2026-08-05T08:27:06Z"
+      },
+      {
+        "number": 2767,
+        "title": "SM8250: enable parents for display pixel clocks",
+        "state": "closed",
+        "html_url": "https://github.com/ROCKNIX/distribution/pull/2767",
+        "created_at": "2026-05-20T22:40:22Z",
+        "updated_at": "2026-06-01T08:17:37Z",
+        "closed_at": "2026-06-01T08:17:36Z"
+      },
+      {
+        "number": 2629,
+        "title": "Network: Add NetworkManager with iwd Wi-Fi backend",
+        "state": "closed",
+        "html_url": "https://github.com/ROCKNIX/distribution/pull/2629",
+        "created_at": "2026-04-29T11:47:55Z",
+        "updated_at": "2026-05-01T20:56:42Z",
+        "closed_at": "2026-05-01T20:56:39Z"
+      },
+      {
+        "number": 3019,
+        "title": "rockchip: gamescope",
+        "state": "closed",
+        "html_url": "https://github.com/ROCKNIX/distribution/pull/3019",
+        "created_at": "2026-07-12T18:29:56Z",
+        "updated_at": "2026-07-13T10:36:26Z",
+        "closed_at": "2026-07-13T09:48:05Z"
+      },
+      {
+        "number": 2656,
+        "title": "Add Heroic Games Launcher support on ROCKNIX.",
+        "state": "closed",
+        "html_url": "https://github.com/ROCKNIX/distribution/pull/2656",
+        "created_at": "2026-05-05T10:08:47Z",
+        "updated_at": "2026-05-12T14:16:57Z",
+        "closed_at": "2026-05-12T14:16:53Z"
+      },
+      {
+        "number": 2613,
+        "title": "SM8750: Add support for the Ayn Odin 3 and SM8750 platform",
+        "state": "closed",
+        "html_url": "https://github.com/ROCKNIX/distribution/pull/2613",
+        "created_at": "2026-04-26T12:51:10Z",
+        "updated_at": "2026-05-08T10:14:06Z",
+        "closed_at": "2026-05-03T13:21:27Z"
+      }
+    ]
+  },
+  "intake_record_sha256_before_projection": "417faaa3157c01bab830cbf880f7bc9d6d18d331d4012a0b642e7fdbb1c149d6",
+  "projection": "Selected response fields retained below; unneeded API metadata and unrelated search-result bodies/assets omitted. This is not the original HTTP byte stream."
+}

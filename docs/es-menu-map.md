@@ -785,3 +785,18 @@ status while field readiness separately gates queued text. Error details overlay
 the controls without moving them. [Proposed exact flows](qa-logs/2026-10-13-wifi-picker-source/flow-and-copy.md)
 and [browser branches](qa-logs/2026-10-13-library-setup-source/browser-window-failure.md)
 are candidate references, not a claim that the accepted image has changed.
+
+
+### Offline achievements → Dolphin routing (#584, source candidate)
+
+The existing offline-achievements control and game-launch navigation are unchanged.
+Candidatec225 routes a Dolphin launch to127.0.0.1:8080 only when the saved toggle
+is exactly1, raw hardcore is exactly0 and an IPv4-capable listener is present.
+Otherwise it keeps the configured custom host; disabled achievements and missing
+token retain their existing early exits. No saved setting or account is rewritten.
+[Configuration-only proof](qa-logs/2026-10-14-rvz-proxy-components/README.md)
+contains126 before/after full-script cases and unchanged synthetic settings.
+This round has no ES source/copy/layout change or new screenshots. Existing
+offline-settings/game-launch frame references remain the presentation baseline;
+native Dolphin/service/login/cache/award/reconnect and combined-source UI proof
+remain open. Listener presence alone is not proxy identity or readiness.

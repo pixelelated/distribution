@@ -1,0 +1,39 @@
+{
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574",
+  "retention_plan": "/workspace/tmp/pix574-md5-target-20261014/retention-plan.json",
+  "retention_report": "/workspace/tmp/pix574-md5-target-20261014/retention-report.json",
+  "stage": "m7-md5-target-314da58d",
+  "profiles": [
+    {
+      "PROJECT": "ROCKNIX",
+      "DEVICE": "GENERIC_X64",
+      "ARCH": "x86_64"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "/workspace/tmp/pix574-md5-target-20261014/builds",
+      "issue": 574,
+      "kind": "build-cache",
+      "release_when": "Consume original command/container/watcher/launcher results; preserve compact source/compile/failure receipts. Retire builds/tmp/snapshots after compile acceptance; artifacts only after the newly allocated target checks are consumed. No automatic deletion."
+    },
+    {
+      "path": "/workspace/tmp/pix574-md5-target-20261014/tmp",
+      "issue": 574,
+      "kind": "qa-scratch",
+      "release_when": "Consume original command/container/watcher/launcher results; preserve compact source/compile/failure receipts. Retire builds/tmp/snapshots after compile acceptance; artifacts only after the newly allocated target checks are consumed. No automatic deletion."
+    },
+    {
+      "path": "/workspace/tmp/pix574-md5-target-20261014/sources",
+      "issue": 574,
+      "kind": "qa-scratch",
+      "release_when": "Consume original command/container/watcher/launcher results; preserve compact source/compile/failure receipts. Retire builds/tmp/snapshots after compile acceptance; artifacts only after the newly allocated target checks are consumed. No automatic deletion."
+    },
+    {
+      "path": "/workspace/tmp/pix574-md5-target-20261014/artifacts",
+      "issue": 574,
+      "kind": "qa-scratch",
+      "release_when": "Consume original command/container/watcher/launcher results; preserve compact source/compile/failure receipts. Retire builds/tmp/snapshots after compile acceptance; artifacts only after the newly allocated target checks are consumed. No automatic deletion."
+    }
+  ]
+}

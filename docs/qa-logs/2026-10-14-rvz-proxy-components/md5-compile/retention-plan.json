@@ -1,0 +1,36 @@
+{
+  "volume": "/workspace",
+  "scan_roots": [
+    "/workspace/tmp/pix574-md5-target-20261014/scan"
+  ],
+  "reference_stores": [],
+  "protected": [
+    "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-14-md5-target-source",
+    "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/tools/host-maintenance",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20",
+    "/home/max/Development/emulationstation-next.worktrees/m7-md5-alignment"
+  ],
+  "candidates": [],
+  "builds": [
+    {
+      "name": "m7-md5-target-314da58d",
+      "terms_bytes": {
+        "two_sanitized_libraries": 1073741824,
+        "compiler_scratch": 536870912,
+        "artifacts_logs": 268435456,
+        "public_source_snapshots": 33554432
+      },
+      "basis": "Attempt03 full target-library compile PASS at435642368-byte cgroup peak and zeroOOM; reuse4GiB/2CPU cap and one compiler job. Conservative old disk allowance plus32MiB public source snapshots; no cache copy. Fresh runtime admission is separate.",
+      "evidence": [
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-14-md5-target-source/input-bindings.json",
+          "sha256": "e91e6d25636752c349bfafc6fbe9e745454ac32669c8b9d1185ff3dbde987d2c"
+        },
+        {
+          "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-library-sanitizers/attempt03/compile-result.json",
+          "sha256": "91ef82bf425103e41e64a6f0e17f83fd88456077315e7b9517166ea57285013f"
+        }
+      ]
+    }
+  ]
+}
