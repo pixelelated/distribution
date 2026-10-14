@@ -26,6 +26,11 @@ DOLPHIN_INI="Dolphin.ini"
 GFX_INI="GFX.ini"
 CONTROLLER_INI="GCPadNew.ini"
 
+# Refuse ambiguous retained save paths before any configuration preparation.
+if ! /usr/bin/python3 -I -S -B /usr/bin/dolphin-save-paths check gamecube; then
+  exit 250
+fi
+
 # Dolphin writes its shader and pipeline caches here but will not create the
 # directory itself, so an orderly shutdown had nothing to flush into.
 mkdir -p "/storage/.cache/dolphin-emu"
@@ -59,24 +64,9 @@ if [ ! -f "${CONF_DIR}/GamecubeControllerProfiles/GCPadNew.ini.custom" ]; then
         cp -r "/usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.south.stacked" "${CONF_DIR}/GamecubeControllerProfiles/GCPadNew.ini.custom"
 fi
 
-# Link Save States to /roms/savestates/gamecube
-if [ ! -d "/storage/roms/savestates/gamecube/" ]; then
-    mkdir -p "/storage/roms/savestates/gamecube/"
-fi
-
-rm -rf ${CONF_DIR}/StateSaves
-ln -sf /storage/roms/savestates/gamecube ${CONF_DIR}/StateSaves
-
-# Copy bios, memory cards and other system stuff to roms
-if [ ! -d "/storage/roms/bios/GC/" ]; then
-    mkdir -p /storage/roms/bios/GC/{USA,JAP,EUR}
-    cp -r ${CONF_DIR}/GC /storage/roms/bios/
-fi
-
-# Create Triforce Bios folder if does not exist
-if [ ! -d "/storage/roms/bios/GC/Triforce" ]; then
-    mkdir -p /storage/roms/bios/GC/Triforce
-    cp -r ${CONF_DIR}/GC/Triforce /storage/roms/bios/GC/
+# Prepare only known save links; retained real data requires an explicit choice.
+if ! /usr/bin/python3 -I -S -B /usr/bin/dolphin-save-paths prepare gamecube; then
+  exit 250
 fi
 
 # Make sure all Triforce Gecko codes are copied to GameSettings
@@ -84,32 +74,6 @@ for f in /usr/config/dolphin-emu/triforce_gecko_codes/*; do
   [ -e "/storage/.config/dolphin-emu/GameSettings/$(basename "$f")" ] || cp -fH "$f" "/storage/.config/dolphin-emu/GameSettings/"
 done
 rm -rf "/storage/.config/dolphin-emu/triforce_gecko_codes"
-
-# Link bios and memory cards to roms
-for REGION in EUR JAP USA
-do
-  # Link bios
-  rm -rf "${CONF_DIR}/GC/${REGION}"
-  ln -sf "/storage/roms/bios/GC/${REGION}" "${CONF_DIR}/GC/${REGION}"
-
-  # Link memory cards, copying to roms/bios first as needed
-  for SLOT in A B
-  do
-    MEM_CARD_FILE="MemoryCard${SLOT}.${REGION}.raw"
-    CONFIG_MEM_CARD="${CONF_DIR}/GC/${MEM_CARD_FILE}"
-    ROMS_BIOS_MEM_CARD="/storage/roms/bios/GC/${MEM_CARD_FILE}"
-
-    if [ -f "${ROMS_BIOS_MEM_CARD}" ]; then
-      # Exists in roms/bios, remove from .config and link
-      rm -f "${CONFIG_MEM_CARD}"
-      ln -sf "${ROMS_BIOS_MEM_CARD}" "${CONFIG_MEM_CARD}"
-    elif [ -f "${CONFIG_MEM_CARD}" ]; then
-      # Only exists in .config, move to roms/bios and link
-      mv -f "${CONFIG_MEM_CARD}" "${ROMS_BIOS_MEM_CARD}"
-      ln -sf "${ROMS_BIOS_MEM_CARD}" "${CONFIG_MEM_CARD}"
-    fi
-  done
-done
 
 # Emulation Station Features
 GAME=$(echo "${1}"| sed "s#^/.*/##")
@@ -455,9 +419,7 @@ for CFG in "${CONF_DIR}/Hotkeys.ini" "${CONF_DIR}/GCPadNew.ini" "${CONF_DIR}/Wii
   fi
 done
 
-# Link  .config/dolphin-emu to .local
-rm -rf /storage/.local/share/dolphin-emu
-ln -sf /storage/.config/dolphin-emu /storage/.local/share/dolphin-emu
+# The shared Dolphin data link was checked and prepared before settings writes.
 
 @EXPORTS@
 

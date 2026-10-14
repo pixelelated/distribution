@@ -45,6 +45,7 @@ NETWORK_PLAY="No"
 SET_SETTINGS_TMP="/tmp/shader"
 OUTPUT_LOG="${LOG_DIRECTORY}/${LOG_FILE}"
 SCRIPT_NAME=$(basename "$0")
+DOLPHIN_LAUNCH=false
 
 ### The marker the global exit hotkey leaves behind (input_sense,
 ### execute_kill): cleared before the emulator starts, consumed by the exit
@@ -360,9 +361,11 @@ case ${EMULATOR} in
         RUNTHIS='${RUN_SHELL} "${ROMNAME}"'
       ;;
       "gamecube"|"triforce")
+        DOLPHIN_LAUNCH=true
         RUNTHIS='${RUN_SHELL} /usr/bin/start_dolphin_gc.sh "${ROMNAME}" "${PLATFORM}" "${CORE}"'
       ;;
       "wii"|"wiiware")
+        DOLPHIN_LAUNCH=true
         RUNTHIS='${RUN_SHELL} /usr/bin/start_dolphin_wii.sh "${ROMNAME}" "${PLATFORM}" "${CORE}"'
       ;;
       "ports")
@@ -484,10 +487,16 @@ rm -f "${EXIT_HOTKEY_MARKER}"
 # If the rom is a shell script just execute it, useful for DOSBOX and ScummVM scan scripts
 if [[ "${ROMNAME}" == *".sh" ]] && [ ! "${PLATFORM}" = "ports" ] && [ ! "${PLATFORM}" = "windows" ]; then
         ${VERBOSE} && log $0 "Executing shell script ${ROMNAME}"
+        DOLPHIN_LAUNCH=false
         "${ROMNAME}" &>>${OUTPUT_LOG}
         ret_error=$?
 else
         ${VERBOSE} && log $0 "Executing $(eval echo ${RUNTHIS})"
+        # A Dolphin preparation refusal owns only this launch's native message.
+        # Other emulator exit codes must not acquire a stale custom error.
+        if [ "${DOLPHIN_LAUNCH}" = true ]; then
+                rm -f /tmp/launch_error.log || quit 1
+        fi
         eval ${RUNTHIS} &>>${OUTPUT_LOG}
         ret_error=$?
 fi
@@ -579,6 +588,23 @@ if [ -e "${EXIT_HOTKEY_MARKER}" ]
 then
         EXIT_HOTKEY_PRESSED=true
         rm -f "${EXIT_HOTKEY_MARKER}"
+fi
+# Dolphin preparation uses the existing ES custom-error channel. Require its
+# fresh message as well as its status; a native emulator's numeric exit alone
+# is not a preparation refusal. This precedes the hotkey's clean-exit mapping.
+if [ "${DOLPHIN_LAUNCH}" = true ] && [ "${ret_error}" = 250 ] &&
+   [ -f /tmp/launch_error.log ] && [ ! -L /tmp/launch_error.log ]; then
+        IFS= read -r DOLPHIN_ERROR_TITLE < /tmp/launch_error.log
+        if [ "${DOLPHIN_ERROR_TITLE}" = "DOLPHIN DID NOT START" ]; then
+                # Remove the fixed ownership line before ES displays localized text.
+                DOLPHIN_VISIBLE_ERROR=$(mktemp /tmp/.dolphin-visible-error.XXXXXX) || quit 1
+                if ! sed '1d' /tmp/launch_error.log > "${DOLPHIN_VISIBLE_ERROR}" ||
+                   ! mv -f "${DOLPHIN_VISIBLE_ERROR}" /tmp/launch_error.log; then
+                        rm -f "${DOLPHIN_VISIBLE_ERROR}"
+                        quit 1
+                fi
+                quit 250
+        fi
 fi
 case "${ret_error}" in
   0)
