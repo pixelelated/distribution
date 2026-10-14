@@ -1,0 +1,139 @@
+{
+  "status": "SOURCE_REVIEWED_UNRUN",
+  "utc": "2026-10-14T23:38:41.487272+00:00",
+  "source_path": "/tmp/pix-m7-baseline-harness-correction-20261014",
+  "manifest_sha256": "2a18cc346403bb8324c0a4a5d11bcb15d9f1e395d002da66cd72eac017b20eb5",
+  "review": "Root read all new executable source and exact lifecycle diffs; retained lifecycle byte equality and packet hashes verified. No runtime acceptance claimed. Frozen product and active owner unchanged.",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 7051,
+      "sha256": "5032b09721f0360a4a33099c77fe86561bf719a9659613bc4bd6deed4cf879f8"
+    },
+    {
+      "path": "SHA256SUMS",
+      "bytes": 2149,
+      "sha256": "2a18cc346403bb8324c0a4a5d11bcb15d9f1e395d002da66cd72eac017b20eb5"
+    },
+    {
+      "path": "census.py",
+      "bytes": 2865,
+      "sha256": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2"
+    },
+    {
+      "path": "close.py",
+      "bytes": 4806,
+      "sha256": "f0da83fa5df428052b510e56af157f0eb719939ccca519109b3e4c2370634cdb"
+    },
+    {
+      "path": "close.py.diff",
+      "bytes": 687,
+      "sha256": "fcda3e32b955e0371271b1c37367e324b974979e43c76fbf617fc0ba86cb89ac"
+    },
+    {
+      "path": "evidence/original-host-proc.json",
+      "bytes": 1474,
+      "sha256": "d6fe36918624bfe59abc56162e14180e2ea689510fdee7acfd50cfe79e7b276f"
+    },
+    {
+      "path": "evidence/original-scripts.log",
+      "bytes": 155586,
+      "sha256": "8c4c0b077317cc42b49974daf606376eb40dd4942c8056b1c29c116befa8678f"
+    },
+    {
+      "path": "evidence/qa20-final-result.json",
+      "bytes": 381,
+      "sha256": "e4bd39a5fbfc0d4096dad059c74d160986f5d100e69041acc991cae76f722edc"
+    },
+    {
+      "path": "evidence/qa20-first-run.py",
+      "bytes": 3946,
+      "sha256": "73fd3b9f98124ee707965e7083624e0acd403d3a6596a684d78859febb1b1883"
+    },
+    {
+      "path": "evidence/qa20-original-failures.txt",
+      "bytes": 1456,
+      "sha256": "265ebb22938f4c1ebed6aada532fce6de49aad3ef19cda11329c919bef8b7f5a"
+    },
+    {
+      "path": "failure-map.json",
+      "bytes": 3863,
+      "sha256": "3e95be276ff7f85ec815299a9ea4606293f8fa6258078f9be36cb20f322e7464"
+    },
+    {
+      "path": "last-good-scripts-test.diff",
+      "bytes": 724,
+      "sha256": "fe95b6c16912517957be7929adb62dd8a76ccf18503568f488282f99b1473eef"
+    },
+    {
+      "path": "original/census.py",
+      "bytes": 2865,
+      "sha256": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2"
+    },
+    {
+      "path": "original/close.py",
+      "bytes": 4754,
+      "sha256": "3dffc70188c54b08650ec95a34d3209b7ed95c9f6c2b4ac8f6fe76cf7c999a35"
+    },
+    {
+      "path": "original/last-good-scripts-test",
+      "bytes": 1167555,
+      "sha256": "ebd9a4669d8e96d6a18a874f95058911ed2a7b38329a5236891ef3bdd6894d20"
+    },
+    {
+      "path": "original/parent-SHA256SUMS",
+      "bytes": 549,
+      "sha256": "0776021f30c01c2a9aff49446f2ad056365be3c5884ac14d10e1d778e622d047"
+    },
+    {
+      "path": "original/prepare.py",
+      "bytes": 7591,
+      "sha256": "2ac07468279880b888cbba1318de3db39093b4d35d76d8732b9debdaf9033db2"
+    },
+    {
+      "path": "original/run.py",
+      "bytes": 16336,
+      "sha256": "837b3cda94c0762e456e85aee395f049f712bf880c74dbc69763eeeb0276dac7"
+    },
+    {
+      "path": "original/vm-qa",
+      "bytes": 40581,
+      "sha256": "17b3f693377e8b67b0a4fb4e50b980b65cf0a8f2c5ec81920ee19930ae210d15"
+    },
+    {
+      "path": "prepare.py",
+      "bytes": 10178,
+      "sha256": "24748968def7ba91d5ead113b97354e21a63de42da0122dd8831294f1ee6b5b3"
+    },
+    {
+      "path": "prepare.py.diff",
+      "bytes": 9722,
+      "sha256": "777f2760d133beb8878a6b2edd5183e7141f853b319f7587449836b52756480e"
+    },
+    {
+      "path": "run.py",
+      "bytes": 17463,
+      "sha256": "5ed44531cbb111b9fca34262e0e50538d3ef1f6379a4bf532d296a1a5638572e"
+    },
+    {
+      "path": "run.py.diff",
+      "bytes": 6508,
+      "sha256": "fe3923864a3e52618980e7332eb5e4df2762473c891812d49f3c74cce2062513"
+    },
+    {
+      "path": "static-review.json",
+      "bytes": 915,
+      "sha256": "eb189492794b60901c0bc6a67265380c60daf2924b77e7e52ee023611033dc0a"
+    },
+    {
+      "path": "tools/last-good-scripts-test",
+      "bytes": 1167697,
+      "sha256": "b8495055873e4ce506fa0a5c72ed62bbfe97f3dab5823d161078742400f75066"
+    },
+    {
+      "path": "tools/vm-qa",
+      "bytes": 40581,
+      "sha256": "17b3f693377e8b67b0a4fb4e50b980b65cf0a8f2c5ec81920ee19930ae210d15"
+    }
+  ]
+}

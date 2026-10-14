@@ -1,11 +1,11 @@
 # Saved Session State
 
-Updated: 2026-10-14 23:20 UTC. Continue authorized M7 work toward the next
+Updated: 2026-10-14 23:35 UTC. Continue authorized M7 work toward the next
 0.0.1 candidate; saving this checkpoint is not a pause. Harness
 conflict-resolution stays untouched. Coordinator is
 `/workspace/repos/rocknix.worktrees/m7-player-setup`, feature/m7-player-setup.
-Primary `/workspace/repos/rocknix` stays next. Current published product head is
-fac608ff89940ce358ea9b8a95e9a08a6fe26568. No formal goal exists.
+Primary `/workspace/repos/rocknix` stays next. Published record head is0457ac18cd061e159d19aa46f53a57eed94e42c0;
+frozen product head remains fac608ff89940ce358ea9b8a95e9a08a6fe26568. Both hosted checks pass. No formal goal exists.
 
 ## Active: standard VM and local-cloud qualification
 
@@ -17,6 +17,16 @@ VNC9/10, WebDAV9010, SFTP9013, MinIO9012; dead port9011 stays unbound.
 5700s work plus180s cleanup. Allocation recorded on#344 comment6180641734.
 Monitor original records, reports and lifecycle-owner/launcher-result.json.
 No repeat of accepted rows on failure; original failed reports stay failed.
+
+Current scripts row failed with seven checks; #589 owns the correction. Four
+named helper processes are confirmed host zombies adopted by1332854, not live
+work. The owner must reap exited adopted children during observation without
+stealing the active Popen wait. PL-016 reads the old status element; #571 moved
+prose into status-message. Prior#550/#551 were different failures. Worker
+proxy_native_build prepares source-only correction and same-image scripts-only
+plus pending SFTP/S3 continuation. Do not edit the active owner or frozen tree.
+WebDAV round-trip, exit and time-to-play passed; walks/frame-diff still active.
+Raw host readback: /tmp/pix-m7-baseline-failure-proc-20261014.json.
 
 After real completion: read source README in
 docs/qa-logs/2026-10-14-final-baseline-lifecycle, call the prepared close.py
@@ -58,18 +68,27 @@ Current ROCKNIX project recipe already retains it, so no upstream PR is needed.
   preserved, protected base SHA/stat equal,13 installed members and3 strict
   default loader commands PASS. All22 host commands and original channels0;
   admission1945bac5 consumed. Original failed UI and diagnostic remain failed.
-  This completes#572's final fresh/retained dependency criterion; publish exact
-  evidence then update its one remaining criterion and close.
+  #572 is now CLOSED after published exact proof and individual criterion review.
 - Payload03 run231822Z-4d412ada: actual update/install selected-policy reports
   and positive shared-developer reader PASS, original channels0/owners gone,
   admission5044f96f consumed. Temporary extraction empty and retired. This is
   not public release preparation: dev identities are intentionally rejected.
 
 Retained loader overlay/input and original retained02 base need retirement now
-that their last immediate consumer is complete. Agent dolphin_english_proof is
-preparing exact guarded cleanup source only. Preserve all compact receipts.
+that their last immediate consumer is complete. Prepared cleanup revision `/tmp/m7-retained-media-retirement-20261014-02`,
+seal08adc1be, has root-reviewed full diff. Execute after the active standard
+owner exits to avoid its unrelated transient/zombie census. Use README exact
+one-shot command; preserve all compact originals. No cleanup has run yet.
 
 ## Remaining serialized runtime
+
+#570/#571/#578 CLOSED after exact criterion/source/readback review.
+#570 closure at23:41:01 retains physical-cause uncertainty and concrete watch;
+root reviewed eight original retry/cancel cases, source continuity and final
+installed/retained evidence. See browser-final-disposition packet. #577 has a
+focused missing-case source continuation being prepared by proxy_startup_588;
+no runtime allocated. Root reviewed source packet513fad8e; retained at
+docs/qa-logs/2026-10-14-wifi-remaining-lifecycle/. Runtime still UNRUN.
 
 1. Finish the active standard/cloud owner above.
 2. Steam14 remaining owner `/workspace/tmp/pix582-remaining-vm-20261014-02`,
@@ -106,7 +125,10 @@ Nova original account/history writer remains unknown, not invented.
 
 Then applicable code-auditor Milestone independent review/fixes, H700 followed
 by SM8550 under#555; separate#528/#344/#337/#359 publication/source/custody.
-Formal audit NOT started; skill/review levels read for preparation only. Old
+Formal audit #590 STARTED: sole serial orchestrator /root/m7_candidate_audit,
+exclusive docs/audits/2026_10_14-milestone-m7-next-candidate/. Frozen product
+fac608ff/ES3178 stays unchanged; root owns concurrent qualification and runtime.
+Primary research/source review active; no external call or completed audit claimed. Old
 packet-specific approvals are not blanket new transfers. Prepare exact
 sanitized packets before any required transfer question. No owner-device or
 real-provider action currently authorized by this allocation.
@@ -117,3 +139,10 @@ Herdr visible lanes remain auth-blocked; internal source helpers are active.
 Milestone body owns order; next-candidate-work.md carries dated readiness.
 Normal record/push gates apply. Current record changes are uncommitted.
 Earlier details: archived/saved-session-state-next-20261014T231000Z.md.
+
+Current cheap checks: rules/register/work-log index pass. ceremony-check --gate
+returns0 but reports the audit cadence due (12 closures); #590 is active, not
+complete. Do not describe hosted checks for future record commits as green.
+Wi-Fi owner prepared only: /workspace/tmp/pix-m7-installed-wifi-remaining-20261014-01,
+SSH10631/VNC131; no admission/runtime. A second source inspection found no
+actionable fixture issue; timing/frames still require execution.

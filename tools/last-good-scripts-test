@@ -6265,7 +6265,9 @@ group(async function typedBeforeOpen() {
   const state = p.byId.state ? p.byId.state.textContent : "";
   p.setProbe("waiting");
   await p.poll();
-  const waiting = p.byId.state ? p.byId.state.textContent : "";
+  // #571 keeps prose in the status details; historical --old pages use #state.
+  const waitingNode = p.byId["status-message"] || p.byId.state;
+  const waiting = waitingNode ? waitingNode.textContent : "";
   result(!/send button/i.test(waiting) && waiting.length > 0,
     "the waiting line names no button that is not there: " + JSON.stringify(waiting),
     "the waiting line reads " + JSON.stringify(waiting) + " -- there is no send button (PL-016)");

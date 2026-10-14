@@ -1,0 +1,536 @@
+{
+  "scope": "Read-only evidence/criterion mapping; no runtime/test/import/allocation, product/shared edits or tracker writes. #588 CLOSED, excluded.",
+  "distribution": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+  "es": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "image_sha256": "d816d36abc66b292500b0719e672c98c33eb0cd4fc7fc0bf19f7e26e4108bb16",
+  "source_notes": "Exact git-show hashes in source-identities.json; selected d6a\u2192fac final install/SYSTEM byte continuity in byte_continuity input. New final-image normal loader/handoff rows do not reclassify old failures.",
+  "criteria": [
+    {
+      "issue": 570,
+      "criterion": 1,
+      "quote": "Source-bound comparison identifies relevant changes and earliest supported good/bad evidence, retaining uncertain attribution.",
+      "status": "ALREADY_CHECKED",
+      "evidence": [
+        "memory"
+      ],
+      "covered": "Live issue preserves source history and uncertain original incident attribution.",
+      "remaining_or_limit": "None within this criterion; no new runtime proposed."
+    },
+    {
+      "issue": 570,
+      "criterion": 2,
+      "quote": "Sanitized load/log observations distinguish browser, input bridge and resource/network candidates without exposing authentication contents.",
+      "status": "ALREADY_CHECKED",
+      "evidence": [
+        "memory"
+      ],
+      "covered": "Existing sanitized H700/VM observations separate pressure/input/engine/provider hypotheses; no retrospective root-cause claim.",
+      "remaining_or_limit": "None within this criterion; no new runtime proposed."
+    },
+    {
+      "issue": 570,
+      "criterion": 3,
+      "quote": "Reproduce any confirmed software defect with a synthetic VM fixture, repair it and retain reviewed flow/frame and timing evidence; otherwise record a watch item with a concrete next observation.",
+      "status": "SOFTWARE_EVIDENCE_COMPLETE_WITH_WATCH_DISPOSITION",
+      "evidence": [
+        "memory",
+        "setup",
+        "frames",
+        "ui",
+        "ui_phone",
+        "ui_lifecycle",
+        "retained_update_loader"
+      ],
+      "covered": "Actual compiled old/new/new/old comparison and repeat handoff, reviewed timing/frames, later failure/retry/cancel controls, then actual final fac608 browser/phone/return PASS. Final loader defect is independently repaired; current retained-update loader command also exited 0.",
+      "remaining_or_limit": "Closing text must retain a watch item for the unreproduced physical hang: if it recurs, capture exact page/navigation, input acknowledgement, pressure/reclaim and recovery on the named separately authorized bench. 78.01 MiB measured saving is not a faster-provider or physical-cure claim. No need to rerun the comparison. Root owns acceptance of just-completed retained owner; standard-image baseline remains release-wide."
+    },
+    {
+      "issue": 571,
+      "criterion": 1,
+      "quote": "Trace status lifecycle and separate page loading from a genuine control-session failure; preserve useful feedback on real failure.",
+      "status": "SUPPORTED",
+      "evidence": [
+        "phone_component",
+        "phone_component_source",
+        "ui_companion"
+      ],
+      "covered": "Exact cloud_oauth 95c626f8 status distinguishes loading from bridge failure; actual two-page navigation delivers first571/second571 with connected state.",
+      "remaining_or_limit": "None within this criterion; no new runtime proposed."
+    },
+    {
+      "issue": 571,
+      "criterion": 2,
+      "quote": "Fixed header glyph has accessible state text, readable long-name truncation and stable keyboard/control positions through transitions.",
+      "status": "SUPPORTED",
+      "evidence": [
+        "phone_component",
+        "phone_component_source",
+        "frames"
+      ],
+      "covered": "Four EN/FR 320/768 source-bound component cases assert ARIA labels/status, long-name ellipsis, fixed geometry/scroll extent/focus. Selected frames reviewed; not all 48.",
+      "remaining_or_limit": "None within this criterion; no new runtime proposed."
+    },
+    {
+      "issue": 571,
+      "criterion": 3,
+      "quote": "Synthetic navigation, failure/reconnect and ended-session controls verify behavior; reviewed narrow/wide EN/FR frames and canonical flow/IA references accompany source changes.",
+      "status": "SUPPORTED",
+      "evidence": [
+        "phone_component",
+        "phone_component_source",
+        "frames",
+        "ui_phone",
+        "ui_companion",
+        "menu_map"
+      ],
+      "covered": "Synthetic transport/HTTP failure, recovery and ended state have component controls; actual installed bridge/navigation/input plus final fac608 normal handoff/return pass. Relevant cloud_oauth bytes identical.",
+      "remaining_or_limit": "No physical-phone, real provider authentication or screen-reader execution claim. Such facts are not requested by this VM criterion."
+    },
+    {
+      "issue": 571,
+      "criterion": 4,
+      "quote": "Verify input and touch/pointer behavior remain usable, with no extra scrolling or focus loss introduced by status updates.",
+      "status": "SUPPORTED",
+      "evidence": [
+        "phone_component",
+        "phone_component_source",
+        "ui_companion"
+      ],
+      "covered": "Existing component explicitly dispatches mouse drag and touchstart/end, checks queued movement/tap/key order and geometry/focus; final actual installed typing works across navigation.",
+      "remaining_or_limit": "Synthetic events are explicit; no new full frame matrix or physical touch-device requirement."
+    },
+    {
+      "issue": 574,
+      "criterion": 1,
+      "quote": "Record source and installed-artifact evidence for standalone/core selection, RA compile support, launch configuration and relevant runtime gates without credentials.",
+      "status": "PARTIAL_INSTALLED_NATIVE_CAPABILITY",
+      "evidence": [
+        "library",
+        "installed_hashes",
+        "new_image",
+        "byte_continuity",
+        "native_prepared"
+      ],
+      "covered": "Recipe/source and final selected bytes identify standalone launchers, cheevos bridge, Dolphin ELF/profiles and actual installed proxy native/bytecode. Final d6a\u2192fac selected members unchanged.",
+      "remaining_or_limit": "Hash-library execution is not Dolphin engine startup/RA gate execution. Prepared native gameplay owner02 has no runtime result at review; its selected emulator/core/effective settings and actual engine observation remain. Original Nova selected emulator/core was not established by the timed-out read; do not infer it from platform."
+    },
+    {
+      "issue": 574,
+      "criterion": 2,
+      "quote": "Trace GameCube recognition through ES/offline indexing separately from Dolphin in-game support, including the reported format and a supported test fixture.",
+      "status": "SUPPORTED_FRONTEND_FORMAT_SCOPE",
+      "evidence": [
+        "library",
+        "installed_hashes",
+        "installed_hash_acceptance",
+        "byte_continuity"
+      ],
+      "covered": "Reported RVZ failure traced separately from standalone Dolphin. Compiled RVZ/retry controls and later native format/CHD evidence are accepted. Installed ISO/NONE RVZ/Zstd RVZ all return 118545082f24fc195a446d1ee7bbf816; Saturn CHD returns 4cd9c8e41cd8d137be15bbe6a93ae1d8. Exact installed relevant bytes carried to fac608.",
+      "remaining_or_limit": "Synthetic format equality is not gameplay, a real title match or an achievement award. No real account/award gate is added."
+    },
+    {
+      "issue": 574,
+      "criterion": 3,
+      "quote": "Reproduce any confirmed defect in a disposable VM; repair it with source-bound regression evidence, or document a verified upstream/format limitation with accurate player guidance.",
+      "status": "SUPPORTED_CONFIRMED_FRONTEND_REPAIR",
+      "evidence": [
+        "library",
+        "installed_hashes",
+        "installed_hash_acceptance"
+      ],
+      "covered": "Confirmed frontend recognition defect has source-bound compiled/native synthetic regression and installed proof; prior failed MD5/help fixtures remain failures.",
+      "remaining_or_limit": "Standalone in-game behavior stays separate; native owner cannot assert RA identification from a DOL homebrew, which does not have a normal title context."
+    },
+    {
+      "issue": 574,
+      "criterion": 4,
+      "quote": "Record the disposition and any necessary flow/screenshot documentation; distinguish absent sets, unmatched ROMs and unsupported runtime instead of silently presenting them as equivalent.",
+      "status": "PARTIAL_DISPOSITION",
+      "evidence": [
+        "library",
+        "library_frames",
+        "setup",
+        "frames",
+        "menu_map"
+      ],
+      "covered": "Reviewed offline notice/indexing/retry and capability presentation exist with exact-source references; absent metadata, format mismatch and unsupported runtime must remain distinct.",
+      "remaining_or_limit": "Finalize issue disposition after native capability/runtime receipt; identify unsupported/no-set/unmatched cases accurately. This read found no need to replay accepted format controls; it does not certify every real owner ROM/set."
+    },
+    {
+      "issue": 575,
+      "criterion": 1,
+      "quote": "Bind the observed systems to selected emulator/core and effective automatic save/load settings; artifact/source receipt separates global preference, runtime implementation, and manager support.",
+      "status": "PARTIAL",
+      "evidence": [
+        "library",
+        "offline_components",
+        "native_prepared"
+      ],
+      "covered": "Compiled capability UI resolves AUTO/RetroArch/standalone and preserves explicit preferences; source separates manager support from native states.",
+      "remaining_or_limit": "Observed Nova game emulator/core remains unknown from the earlier failed read; label unknown rather than infer. Prepared native owner must record its actual selected core and effective settings. This is a read-only device fact if incident attribution is still required, not permission for device gameplay."
+    },
+    {
+      "issue": 575,
+      "criterion": 2,
+      "quote": "Document and verify behavior for RetroArch, standalone Dolphin and standalone Flycast using disposable VM fixtures: ordinary in-game save, manual state, exit auto-state and manager visibility are separate observations.",
+      "status": "MISSING_NATIVE_ROWS_AND_CURRENT_RA_ROW",
+      "evidence": [
+        "native_plan",
+        "native_prepared",
+        "historical_ra"
+      ],
+      "covered": "Historical #196 proves real RetroArch manual slot/auto-exit behavior; standard exit probe covers actual battery RAM write/flush and exit. Neither UI02 nor source-preservation recording-engine controls execute Dolphin/Flycast saves.",
+      "remaining_or_limit": "Existing criterion explicitly names ordinary in-game save, manual state, exit auto-state and manager visibility separately for RetroArch, standalone Dolphin and standalone Flycast. Current standard exit/TTP/walks supply only their documented rows; native owner02 supplies planned lawful Wii SuDokuL and Flycast Tetris2, presently UNRUN. Do not call BASIC listing I/O an in-game save, SD a GC card/NAND, or manager absence a save failure. No broad SDK work or new game corpus."
+    },
+    {
+      "issue": 575,
+      "criterion": 3,
+      "quote": "If the current UI implies unsupported behavior, correct capability gating or help text with EN/FR flow references and exact-source screenshots; do not silently promise session preservation.",
+      "status": "SUPPORTED",
+      "evidence": [
+        "library",
+        "library_frames",
+        "offline_components",
+        "menu_map"
+      ],
+      "covered": "Exact compiled global/per-game AUTO/RA/standalone capability rows and EN/FR descriptions at both sizes are reviewed. Final GuiMenu equals bb9e; French accepted replacement text carried. Explicit preferences preserved; global640 legacy incremental0\u21922 is documented equivalent-off normalization.",
+      "remaining_or_limit": "Do not replay the entire capability matrix merely because a final whole-image build exists; bind unchanged source/catalog entries. UI02 itself did not visit these rows."
+    },
+    {
+      "issue": 575,
+      "criterion": 4,
+      "quote": "Any proposed standalone integration proves exit/load/slot/path handling, clean and retained-storage behavior, existing state preservation and relevant hardcore restrictions; otherwise record the supported limitation explicitly and scope enhancement separately.",
+      "status": "LIMITATION_ROUTE_AVAILABLE",
+      "evidence": [
+        "library",
+        "offline_components",
+        "english640",
+        "native_plan"
+      ],
+      "covered": "No new standalone state-manager/automatic integration proposed. Product help explicitly says global AUTO SAVE/LOAD and manager do not apply; native save options and ordinary saves are separate. Existing #581 source/launcher preservation controls remain accepted, English640 missing frame already completed.",
+      "remaining_or_limit": "Retain explicit unsupported global integration limitation and scope enhancement separately; actual existing native behavior still belongs to criterion2. Do not turn optional new standalone integration or GC memory-card/NAND extension into a new gate."
+    },
+    {
+      "issue": 577,
+      "criterion": 1,
+      "quote": "Same-source VM frame sequences show unchanged dialog/list/footer bounds before, during and after initial/refresh scans, with search status within the list area; cover 640\u00d7480 and 1280\u00d7800, English and French.",
+      "status": "SUPPORTED",
+      "evidence": [
+        "setup",
+        "frames",
+        "library",
+        "library_frames",
+        "ui_wifi_initial"
+      ],
+      "covered": "Prior exact-source EN/FR 640/1280 initial/refresh frame sequences and reviewed bounds carry. Final bb9e\u21923178 GuiWifi is identical; later French REFRESH correction reviewed. Fresh actual final installed UI initial frame path passes.",
+      "remaining_or_limit": "None within this criterion; no new runtime proposed."
+    },
+    {
+      "issue": 577,
+      "criterion": 2,
+      "quote": "The delayed initial scan has an in-list searching state; a delayed refresh preserves the last list and safe focus. Completed zero results and failed scans have distinct outcomes and an actionable retry, proved by fixture transcript and reviewed branch frames.",
+      "status": "SUPPORTED_UI_BRANCHES_BACKEND_COMPOSITION_OPEN",
+      "evidence": [
+        "setup",
+        "wifi_branches",
+        "frames",
+        "ui_wifi_branches",
+        "wifi_backend"
+      ],
+      "covered": "Delayed initial/list retention, nonzero failure vs successful zero and retry shown in accepted source-bound UI. UI02 actual ES preserves prior rows on synthetic enumeration failure. Actual repaired backend separately passed 37 controls (74 baseline/candidate total).",
+      "remaining_or_limit": "Existing reconciled body and comment6155791255 explicitly leave repaired real backend through final UI composition outstanding. UI02 replaces wifictl and cannot close that exact statement. Small real-wifictl + lower nmcli seam can reuse accepted contracts; no radio claim."
+    },
+    {
+      "issue": 577,
+      "criterion": 3,
+      "quote": "A long list scrolls within the stable viewport without clipping the buttons; repeat refresh preserves the selected network when present and deterministically selects a valid row when it disappears, proved by input walk and frames.",
+      "status": "PARTIAL_DISAPPEARANCE_NOT_FOUND",
+      "evidence": [
+        "wifi_branches",
+        "frames"
+      ],
+      "covered": "Actual retained walk covers long-list scroll and same-result refresh, including all four locale/size branch results.",
+      "remaining_or_limit": "Existing checkbox also requires selected-network disappearance and deterministic valid fallback. Actual plan contains two identical 36-entry lists; no disappearance row located. Active standard suite has no Wi-Fi walk; docs/networking.steps is not in suite and does not cover disappearance."
+    },
+    {
+      "issue": 577,
+      "criterion": 4,
+      "quote": "Repeated refresh, back/exit during a pending scan, late completion and retry do not duplicate jobs, access a destroyed screen or activate stale rows; bounded fixture transcript records the outcome and all worker exits.",
+      "status": "SUPPORTED_EXISTING_BOUNDED_UI_SCOPE",
+      "evidence": [
+        "wifi_branches",
+        "setup",
+        "ui_wifi_branches"
+      ],
+      "covered": "Repeated activation, delayed Back/reopen/late completion and retry keep same frontend; exactly six start/end scan events with expected rc sequence; owner/lifecycle exits retained. Final UI02 repeats narrow refresh/duplicate/failure scope.",
+      "remaining_or_limit": "No lifetime sanitizer claim beyond existing controls. No need to invent one for this checkbox or replay already accepted pending-exit branches."
+    },
+    {
+      "issue": 577,
+      "criterion": 5,
+      "quote": "Saved/connected/open/protected/unknown/manual-input/profile-choice/forget flows retain their behavior in the VM regression transcript, including no password prompt for confirmed open networks.",
+      "status": "PARTIAL_CONNECTED_FORGET_NOT_FOUND",
+      "evidence": [
+        "wifi_routes",
+        "wifi_open_failed_owner",
+        "setup",
+        "walk_network_docs",
+        "walk_suite"
+      ],
+      "covered": "Original failed routing owner retains completed open-connect subcase with no password prompt. Corrected02 passes protected/unknown/manual cancel, saved join and multiple-profile choice.",
+      "remaining_or_limit": "Connected-row action and FORGET action/confirmation outcomes are not in those actual cases. Do not mark the failed original owner as wholly passing. Standard suite does not select docs/networking.steps; even that optional docs walk only opens the forget dialog, never confirms an actual synthetic deletion. Prepare only missing connected/forget routes and preserve sibling profile."
+    },
+    {
+      "issue": 577,
+      "criterion": 6,
+      "quote": "Canonical flow/reference and reviewed exact-source happy/branch frame index accompany the final source; syntax checks and affected VM checks pass before pin promotion. Public setup documentation receives the corresponding follow-up.",
+      "status": "PARTIAL_DOC_FOLLOWUP_AND_COMPOSITION",
+      "evidence": [
+        "setup",
+        "frames",
+        "library_frames",
+        "menu_map",
+        "walk_suite"
+      ],
+      "covered": "Canonical references, syntax/build and reviewed source-bound frame indexes exist; final installed narrow UI PASS adds actual composition for ES/frontend.",
+      "remaining_or_limit": "Backend composition and missing rows above remain. Public setup-documentation follow-up is explicitly named in this checkbox; no corresponding delivered follow-up was located in reviewed scope. #511 says website publication is not an RC gate. Track/document the follow-up without inventing a live-site prerequisite or blocking firmware compilation."
+    },
+    {
+      "issue": 578,
+      "criterion": 1,
+      "quote": "Bounded VM control distinguishes missing/default, spaced and canonical `favorites,recent` settings; HTTP status and list membership prove the parser/default mismatch, with original failed fixture preserved.",
+      "status": "ALREADY_CHECKED",
+      "evidence": [
+        "setup"
+      ],
+      "covered": "Original parser/default reproduction and failed fixture retained by existing checked criterion.",
+      "remaining_or_limit": "None within this criterion; no new runtime proposed."
+    },
+    {
+      "issue": 578,
+      "criterion": 2,
+      "quote": "The corrected compiled frontend on a clean configuration exposes the intended default collections; synthetic ROM-only has no Recent entry, while importing matching history creates the expected entry without launching a game.",
+      "status": "SUPPORTED_CURRENT_IMAGE",
+      "evidence": [
+        "ui_recent",
+        "setup",
+        "frames"
+      ],
+      "covered": "Actual final ES3178/8ce916 on fac608: ROM-only Favorites200/Recent200 each count0; imported history each count1, no game launch. Original cases exit0.",
+      "remaining_or_limit": "None within this criterion; no new runtime proposed."
+    },
+    {
+      "issue": 578,
+      "criterion": 3,
+      "quote": "Explicit retained collection choices are preserved; no forced enablement of a collection the player disabled. Focused regression evidence covers the chosen default/parser repair.",
+      "status": "SUPPORTED_CURRENT_IMAGE",
+      "evidence": [
+        "ui_recent",
+        "setup",
+        "frames"
+      ],
+      "covered": "Final retained-favorites configuration exposes Favorites200/count1 and Recent404/count0; saved_choice_preserved true. Prior nine parser/default/retained-choice controls carry with unchanged CollectionSystemManager and Settings bytes.",
+      "remaining_or_limit": "This fresh guest retained-choice case is not itself an OS-update proof. Existing actual retained20\u2192d6a proof and just-completed d6a\u2192fac update carry selected state separately; no need a duplicate collection-matrix update campaign. Original Nova metadata author remains unknown, separate #565."
+    },
+    {
+      "issue": 578,
+      "criterion": 4,
+      "quote": "Canonical collection flow/reference and reviewed same-source clean/retained frames accompany the fix; syntax check precedes pin promotion.",
+      "status": "SUPPORTED_BY_EXACT_SOURCE_APPLICABILITY",
+      "evidence": [
+        "frames",
+        "setup",
+        "menu_map"
+      ],
+      "covered": "Reviewed clean/retained frames at accepted a7 source, corrected Automatic Collections frames, syntax-before-pin evidence and unchanged collection code/strings carry to3178. Current runtime API rows bind final installed ELF.",
+      "remaining_or_limit": "Legacy source_commit6b1dd in reused fixture JSON names the fixture input; actual final binary/source identity comes from bound final verifier and process executable SHA, not that legacy label. UI02 frame captures are not all independently reviewed; retain prior reviewed frame index."
+    }
+  ],
+  "inputs": {
+    "setup": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-setup-qualification/installed/README.md",
+      "bytes": 5537,
+      "sha256": "7a1efbefab012957d8300bc468b4ca214d992f9fa71c2eec737ba3ae0db7afe9"
+    },
+    "frames": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-setup-qualification/installed/frame-index.json",
+      "bytes": 27190,
+      "sha256": "cf3a27027bb52fc6c42366e5ca7295b44e483e526d52ee32ee071168b9c1f6a5"
+    },
+    "phone_component": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-setup-qualification/installed/results/phone-locale02/result.json",
+      "bytes": 836,
+      "sha256": "ff49414f62aa0b3bb529c81809136053f6c0dca1d0b8cadf389bf42812958d0c"
+    },
+    "phone_component_source": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-setup-qualification/installed/fixtures/phone-locale-fixture02.py",
+      "bytes": 16867,
+      "sha256": "99125e823568ba9491b79378b5b7908de41155eb0a22c02a4930e2b29a8e5689"
+    },
+    "wifi_branches": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-setup-qualification/installed/results/wifi-en640-branches/result.json",
+      "bytes": 428,
+      "sha256": "7680c7b464253e445d6c829310f92eb672c68952ab3153d8d3d2e616fea8f623"
+    },
+    "wifi_routes": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-setup-qualification/installed/results/wifi-routes-en64002/result.json",
+      "bytes": 1286,
+      "sha256": "c7655cf8411f6430899f7a926a17fda018583dcf82c31304d4cd299607fa442d"
+    },
+    "wifi_open_failed_owner": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-setup-qualification/installed/results/wifi-routes-en640/result.json",
+      "bytes": 669,
+      "sha256": "aa15b12a62f219f2c4d9b0282715a88f768668bb970cd54870f10c0f9946adbd"
+    },
+    "wifi_backend": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-setup-qualification/installed/results/backend-controls/result.json",
+      "bytes": 310,
+      "sha256": "6a626f7e821f831004c444ebdf9c279bb8440f61abd5377aecfc86edd36b3955"
+    },
+    "library": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/README.md",
+      "bytes": 5475,
+      "sha256": "f9586f65bce004be5c42ae2e7d406a9017df661d051c040e6eb041e5538c044a"
+    },
+    "library_frames": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/frame-index.json",
+      "bytes": 25753,
+      "sha256": "693d81c449f71a4c3dd2d07515250d061c86934a487a778f6acd6afbe4014685"
+    },
+    "offline_components": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-offline-components/README.md",
+      "bytes": 5913,
+      "sha256": "f1dc242e70abe3ef73b048896dda35d1be2ed635158b42ea776b051d3a5bab50"
+    },
+    "english640": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-dolphin-english640-runtime/README.md",
+      "bytes": 1662,
+      "sha256": "2282d96bff6c4d2a3e6cce4b21d9f3af6bf011c92622ccf79a80f91fd5012cbe"
+    },
+    "installed_hashes": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-installed-native-result/installed-result.json",
+      "bytes": 19920,
+      "sha256": "bb4fc3a0a74f447ac2ef2558aa6516960865ce3ab3d0173c748741dba1c6d8c1"
+    },
+    "installed_hash_acceptance": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-installed-native-result/analysis.json",
+      "bytes": 428,
+      "sha256": "c2a152bee23074d929c5e6c017061163a1af05d1f6345e5dc3dd4e6d94a343d9"
+    },
+    "memory": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-es-trim-comparison/README.md",
+      "bytes": 5565,
+      "sha256": "503dafe0cc817a59a90bb98e12fbf2a93aab964155f720231e3138f5d986d1e8"
+    },
+    "native_plan": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-native-homebrew-fixtures/README.md",
+      "bytes": 12265,
+      "sha256": "f35fecebf5d426ed12b9c8d820a799f4ffbb96bd272551dc774c5b632fb1a3a9"
+    },
+    "native_prepared": {
+      "path": "/workspace/tmp/pix-m7-native-gameplay-20261014-02/config.json",
+      "bytes": 5618,
+      "sha256": "5feb0f10f2dce824733a421e4fe668d13ff31f573d7d78237ec0ad3aa3159fc4"
+    },
+    "ui": {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/result.json",
+      "bytes": 10697,
+      "sha256": "104d83105930505b8dc7be7ee1534f476f12b0db824867e6723aebfce29c5fea"
+    },
+    "ui_lifecycle": {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/vm-result.json",
+      "bytes": 13167,
+      "sha256": "1c71ff7e9fca36c4e4fd0c10c17a43448ae3a663c6227f4743c2a8cc1eaa4071"
+    },
+    "ui_phone": {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/phone-final-en640/result.json",
+      "bytes": 2678,
+      "sha256": "ff5d518ed099149b1c9695ea28f5adc784af003b547b923c21e505bdf84da48b"
+    },
+    "ui_companion": {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/phone-final-en640/companion/result.json",
+      "bytes": 1277,
+      "sha256": "13e202d1f35a99fba5a9632e9c9d5c1c907481b3989d6870da247f914372197f"
+    },
+    "ui_recent": {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/recent-en640/result.json",
+      "bytes": 2046,
+      "sha256": "35ab38f83e12e224cd899f290fcda485f52c842948a1a4441848095c7f8894bf"
+    },
+    "ui_wifi_initial": {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/wifi-en640-initial/result.json",
+      "bytes": 375,
+      "sha256": "a9025f4d4b9370e0ecaaf0ffabe6f5951fbc3534118abeadae422e4bff8e8ec9"
+    },
+    "ui_wifi_branches": {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/wifi-en640-branches/result.json",
+      "bytes": 305,
+      "sha256": "3732b5f7a3b649ccfd290be86b59280c85133e30b5918f6def031c9e4d40b69e"
+    },
+    "ui_restore": {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/configuration-restored.json",
+      "bytes": 137,
+      "sha256": "2464b40874dfc2cb7e576d1c3a46ef47b49fcfd2b59bac50da700b695ce3490a"
+    },
+    "ui_postcheck": {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/records/guest-postcheck.json",
+      "bytes": 2468,
+      "sha256": "91ce66bc5b2bbc2697dc0ae4bffa143a347728d338997e14c7b7823f847f77c0"
+    },
+    "ui_host_exits": {
+      "path": "/workspace/tmp/pix-m7-installed-ui-export-20261014-02/host-exits.json",
+      "bytes": 78680,
+      "sha256": "e6afcf91c58b125567819fbfd69ecebcd82f2a6937a07024ebb8ea0d77c012c5"
+    },
+    "ui_export": {
+      "path": "/workspace/tmp/pix-m7-installed-ui-export-20261014-02/export-result.json",
+      "bytes": 376,
+      "sha256": "dd16c2e95e34c2f5253afb344f4150caa5dd2cd7759943a8e3874f0f812fca42"
+    },
+    "new_image": {
+      "path": "/workspace/tmp/pix-m7-image-readback-20261014-02/artifacts/result.json",
+      "bytes": 35548,
+      "sha256": "748ee36035166f2f5c437c168b02f9de77f9c761b4196fa0ff1618834376ab28"
+    },
+    "byte_continuity": {
+      "path": "/workspace/tmp/pix-m7-image-readback-20261014-02/selected-product-continuity.json",
+      "bytes": 5972,
+      "sha256": "7970f19e679a547a6573661a60145bd30e7a9c4a3c7a17151c190f62594c340d"
+    },
+    "retained_update_lifecycle": {
+      "path": "/workspace/tmp/pix-m7-retained-loader-update-20261014-01/vm-result.json",
+      "bytes": 68185,
+      "sha256": "6585a91574a4dcc97aed5a4837c7fd92c978dccc5089f0ecc6dbe7e553683387"
+    },
+    "retained_update_state": {
+      "path": "/workspace/tmp/pix-m7-retained-loader-update-20261014-01/records/state-after.json",
+      "bytes": 592,
+      "sha256": "94b381f9adf8259fca3c3e73afc6155bf097fbca7bfef75fadd3b3f7bca95137"
+    },
+    "retained_update_loader": {
+      "path": "/workspace/tmp/pix-m7-retained-loader-update-20261014-01/records/guest-loader.json",
+      "bytes": 15787,
+      "sha256": "0a726baee040377ce8c97bf72f2f6e2f86da367d8c8f21e6f30bbbf745da4f67"
+    },
+    "walk_suite": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/vm-walks/suite.txt",
+      "bytes": 6694,
+      "sha256": "6f5b47c95a50601daeeeda82565cf38863e551412c92e4e7e02344cb170cee9f"
+    },
+    "walk_network_docs": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/vm-walks/docs/networking.steps",
+      "bytes": 1914,
+      "sha256": "2b5af5164f014d30ec83f3a8315d244e9d89e74f9b9ce6a2c6b411036ea0b995"
+    },
+    "historical_ra": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/vm-qa-log.md",
+      "bytes": 202831,
+      "sha256": "3e40d7301744b718e5cdceb8543558b9b6632469128c409a25f50a7861280b42"
+    },
+    "menu_map": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/es-menu-map.md",
+      "bytes": 57460,
+      "sha256": "0b289cfd8118fd50913805158aea9ef437717a411a9f7f496b5ef900709f7068"
+    }
+  }
+}

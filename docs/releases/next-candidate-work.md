@@ -11,6 +11,21 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## October14 23:39 remaining qualification
+
+#572, #571 and #578 are closed after individual final-image criteria review.
+The active standard suite passed WebDAV, emulator exit and time-to-play; its
+scripts row found two host-harness defects tracked in #589. Six stopped-helper
+assertions encounter unreaped children, and PL-016 reads the old phone status
+element. Original failures are retained. Source-reviewed corrections will run
+only scripts and pending SFTP/S3 after the current walks/frame-diff finish.
+The focused #577 installed-backend/UI continuation is also reviewed and unrun.
+
+Formal audit #590 has started under one independent serial orchestrator against
+frozen fac608ff/ES3178, alongside root-owned serialized VM qualification. No
+Fable call or completed audit is claimed. H700 then SM8550 remain after relevant
+qualification and audit findings are resolved.
+
 ## October14 23:20 qualification update
 
 The corrected fac608ff engineering image is built and verified. #588 is closed
@@ -72,6 +87,8 @@ Earlier packet UNRUN labels describe their preparation time; later exact-source
 receipts supply scoped completion. No failed original result is rewritten.
 
 ## Observations to monitor and work intentionally deferred
+
+- **Original browser hang (#570):** the software investigation and confirmed recovery/packaging repairs are complete. The severe physical slowdown remains unexplained. On a separately authorized recurrence, capture exact build/navigation phase, input timing, process identities, pressure/reclaim and bounded kernel evidence, and whether closing restores the same frontend/boot. No physical cure or provider-speed claim; no duplicate VM or owner-device gate.
 
 - **Nova shutdown restarting (#558):** normal power-off requests and later boot
   are recorded; no retained crash dump or confirmed cause. Read-only triage is

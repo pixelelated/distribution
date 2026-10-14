@@ -1,0 +1,86 @@
+{
+  "distribution": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+  "es": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "record_head": "0457ac18cd061e159d19aa46f53a57eed94e42c0",
+  "api_whole_file_identical": true,
+  "api_sha256": "58b90ef823dda386654ce4e30bd876a5d9f21d624c1aafae6d97c84419750045",
+  "api_refs": [
+    "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43",
+    "a7dcdbb38009d8d2a81c7c2b4bc1d8c2d0d38a20",
+    "3178b832b8d134198b2b4eede4f725d4ed283f8c"
+  ],
+  "recovery_function_identical": true,
+  "recovery_sha256": "fffe119fb515c7ad318700bba086a9d2f6c8dd49f273e4075c6a8f5e2eda8ff1",
+  "GuiMenu_other_differences": "Only save-state help additions at original lines 5798, 5825 and 10852; cloud section unchanged. Full exact diff included.",
+  "catalogs": {
+    "fr": {
+      "path": "locale/lang/fr/LC_MESSAGES/emulationstation2.po",
+      "selected_effective_messages_equal": true,
+      "messages": [
+        {
+          "msgid": "THE SIGN-IN WINDOW DID NOT OPEN OR STOPPED WORKING.\n\nTRY AGAIN, OR CANCEL SIGN-IN.",
+          "entry_present": true,
+          "msgstr": "LA FEN\u00caTRE DE CONNEXION NE S\u2019EST PAS OUVERTE OU A CESS\u00c9 DE FONCTIONNER.\n\nR\u00c9ESSAYEZ OU ANNULEZ LA CONNEXION.",
+          "effective_text": "LA FEN\u00caTRE DE CONNEXION NE S\u2019EST PAS OUVERTE OU A CESS\u00c9 DE FONCTIONNER.\n\nR\u00c9ESSAYEZ OU ANNULEZ LA CONNEXION.",
+          "fallback": false
+        },
+        {
+          "msgid": "TRY AGAIN",
+          "entry_present": true,
+          "msgstr": "R\u00c9ESSAYER",
+          "effective_text": "R\u00c9ESSAYER",
+          "fallback": false
+        },
+        {
+          "msgid": "CANCEL SIGN-IN",
+          "entry_present": true,
+          "msgstr": "ANNULER LA CONNEXION",
+          "effective_text": "ANNULER LA CONNEXION",
+          "fallback": false
+        }
+      ]
+    },
+    "en_GB": {
+      "path": "locale/lang/en_GB/LC_MESSAGES/emulationstation2.po",
+      "selected_effective_messages_equal": true,
+      "messages": [
+        {
+          "msgid": "THE SIGN-IN WINDOW DID NOT OPEN OR STOPPED WORKING.\n\nTRY AGAIN, OR CANCEL SIGN-IN.",
+          "entry_present": true,
+          "msgstr": "THE SIGN-IN WINDOW DID NOT OPEN OR STOPPED WORKING.\n\nTRY AGAIN, OR CANCEL SIGN-IN.",
+          "effective_text": "THE SIGN-IN WINDOW DID NOT OPEN OR STOPPED WORKING.\n\nTRY AGAIN, OR CANCEL SIGN-IN.",
+          "fallback": false
+        },
+        {
+          "msgid": "TRY AGAIN",
+          "entry_present": false,
+          "msgstr": null,
+          "effective_text": "TRY AGAIN",
+          "fallback": true
+        },
+        {
+          "msgid": "CANCEL SIGN-IN",
+          "entry_present": false,
+          "msgstr": null,
+          "effective_text": "CANCEL SIGN-IN",
+          "fallback": true
+        }
+      ]
+    }
+  },
+  "ancestry": [
+    {
+      "ancestor": "f7b71db0a70e1c48627f70847ecbc95bb1cb4a43",
+      "descendant": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+      "original_rc": 0
+    },
+    {
+      "ancestor": "a7dcdbb38009d8d2a81c7c2b4bc1d8c2d0d38a20",
+      "descendant": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+      "original_rc": 0
+    }
+  ],
+  "final_installed_es_sha256": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036",
+  "final_SYSTEM_sha256": "ddeca0768aa0ee74f5b1cf6557d8a3cb165a89cff542d646d1f16c136726f9fc",
+  "limits": "Source applicability plus actual installed continuation; no renewed final-image memory comparison or historical full binary identity claim."
+}
