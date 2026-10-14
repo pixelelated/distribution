@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "stage": "dolphin-closure-loader",
+  "started": 1791960735.224922,
+  "original_attach_exit": 0,
+  "container_result_sha256": "e176228c722d796974dabe720a0a47f85259a1ff89d739572e2c966d8c8f368e",
+  "cleanup": {
+    "status": "PASS",
+    "forced_stop": false,
+    "started": 1791960738.7984173,
+    "initial": {
+      "id": "bac3ba8224ce35d8267f391184ec3400bab2cd8e4483acfa1de2d32c45763acf",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "2026-10-14T06:52:18.653988332Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 0,
+        "Restarting": false,
+        "Running": false,
+        "StartedAt": "2026-10-14T06:52:15.4366588Z",
+        "Status": "exited"
+      },
+      "labels": {
+        "org.opencontainers.image.version": "22.04",
+        "pix574.owner": "7035422e13f2ab9734d34de42dc07034",
+        "pix574.stage": "dolphin-closure-loader"
+      },
+      "memory": 4294967296,
+      "nano_cpus": 2000000000
+    },
+    "container_terminal_state": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 0,
+      "FinishedAt": "2026-10-14T06:52:18.653988332Z",
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 0,
+      "Restarting": false,
+      "Running": false,
+      "StartedAt": "2026-10-14T06:52:15.4366588Z",
+      "Status": "exited"
+    },
+    "exact_cid": "bac3ba8224ce35d8267f391184ec3400bab2cd8e4483acfa1de2d32c45763acf",
+    "exact_id_absent": true,
+    "observed_host_processes": [
+      {
+        "pid": 537261,
+        "start_ticks": 105241947,
+        "state": "S",
+        "pgrp": 537261,
+        "session": 537261,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 537306,
+        "start_ticks": 105242120,
+        "state": "R",
+        "pgrp": 537306,
+        "session": 537306,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      }
+    ],
+    "survivors": [],
+    "remaining_cgroup_pids": [],
+    "ended": 1791960738.9938138
+  },
+  "original_container_exit": 0,
+  "watchdog_original_exit": 0,
+  "ended": 1791960739.3082333,
+  "final_disk": {
+    "allocated_bytes": 348434432,
+    "apparent_bytes": 299379132
+  }
+}

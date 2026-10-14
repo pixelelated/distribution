@@ -1,0 +1,704 @@
+{
+  "status": "PASS",
+  "evidence": "whole sealed caller with synthetic boundaries; not native acceptance",
+  "installer_sha256": "fab7cdb4ad8adbcea147be54092bb7ce2005010447be4ab8192c94d8bbe9229d",
+  "packet_manifest_sha256": "f8e7f184f8d7d178a19d45f27f7e9c52f2ea50c7b19089c36d6eff1f560512a3",
+  "python": "3.14.7 (main, Oct  4 2026, 04:40:27) [GCC 15.2.0]",
+  "python_executable_sha256": "1324452a1b3437ef26e0d39794ede6fb7c1c2c0c5960a050feace157ffe50b33",
+  "vm_vendor": "QEMU",
+  "free_bytes_before": 3221225472,
+  "limits": {
+    "work_seconds": 90,
+    "transport_timeout_case_work_seconds": 240,
+    "cleanup_seconds": 10,
+    "retained_bytes": 67108864,
+    "minimum_free_bytes": 2483027968,
+    "archive_bytes_each": 1048576,
+    "log_bytes_each": 2097152,
+    "required_disposable_capacity_mib": 3072
+  },
+  "allocated_case_invocations": 1,
+  "installer_original_exit": 0,
+  "case": "fresh-profile-parent-alias",
+  "tools": {
+    "unshare": {
+      "invoke_path": "/usr/bin/unshare",
+      "resolved_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "mount": {
+      "invoke_path": "/usr/bin/mount",
+      "resolved_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "chroot": {
+      "invoke_path": "/usr/sbin/chroot",
+      "resolved_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "bash": {
+      "invoke_path": "/usr/bin/bash",
+      "resolved_path": "/usr/bin/bash",
+      "sha256": "3aa5dd1a0ddd72c8019c40f8a4c929796eb5a99d182570334ede50374724527a"
+    },
+    "sh": {
+      "invoke_path": "/usr/bin/sh",
+      "resolved_path": "/usr/bin/bash",
+      "sha256": "3aa5dd1a0ddd72c8019c40f8a4c929796eb5a99d182570334ede50374724527a"
+    },
+    "sleep": {
+      "invoke_path": "/usr/bin/sleep",
+      "resolved_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "mkdir": {
+      "invoke_path": "/usr/bin/mkdir",
+      "resolved_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "touch": {
+      "invoke_path": "/usr/bin/touch",
+      "resolved_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "chmod": {
+      "invoke_path": "/usr/bin/chmod",
+      "resolved_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "cp": {
+      "invoke_path": "/usr/bin/cp",
+      "resolved_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "rm": {
+      "invoke_path": "/usr/bin/rm",
+      "resolved_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "ln": {
+      "invoke_path": "/usr/bin/ln",
+      "resolved_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "grep": {
+      "invoke_path": "/usr/bin/grep",
+      "resolved_path": "/usr/bin/grep",
+      "sha256": "94137a009d4961723d2a41e037a6eeff4656fadf395aecfa40bd8b57ce3a3d6f"
+    },
+    "head": {
+      "invoke_path": "/usr/bin/head",
+      "resolved_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "basename": {
+      "invoke_path": "/usr/bin/basename",
+      "resolved_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "sed": {
+      "invoke_path": "/usr/bin/sed",
+      "resolved_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "strings": {
+      "invoke_path": "/usr/bin/strings",
+      "resolved_path": "/usr/bin/strings",
+      "sha256": "1711d385cf381dc577759993a3511b7f01323493299ccc8f127b682daae496f7"
+    },
+    "python3": {
+      "invoke_path": "/usr/bin/python3",
+      "resolved_path": "/usr/bin/python3.14",
+      "sha256": "1324452a1b3437ef26e0d39794ede6fb7c1c2c0c5960a050feace157ffe50b33"
+    }
+  },
+  "archives": {
+    "client-good.zip": {
+      "sha256": "870827a5e50cf1d3e4f6978ac6d60e8069b121963d099b1df5699f9b470235e5",
+      "bytes": 10676
+    },
+    "ge.tar.gz": {
+      "sha256": "41ca2cc0a3d9b54e6ac07b74a0ffd785043150bc8807ad70f5564db62d27fe76",
+      "bytes": 467
+    },
+    "cachy.tar.xz": {
+      "sha256": "443affc6631ef5e45853c2a5433294035bdcead928a8e455c247f61d9e59a1a9",
+      "bytes": 508
+    },
+    "runtime.tar.xz": {
+      "sha256": "1f576aa2114a58b60ff76c3445e9bf3f6d1ceb74a65ab13223dd132667d385ea",
+      "bytes": 268
+    }
+  },
+  "supervision_controls": [
+    {
+      "name": "parent-exit-after-arm",
+      "status": "PASS",
+      "attempts": 1,
+      "namespace_owner_original_exit": -9,
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix-input/docs/qa-logs/2026-10-14-steam-client-corrections-source/fixture.py",
+        "--namespace-launcher",
+        "/run/pix582-scratch/fresh-client-03",
+        "--namespace-control",
+        "parent-exit-after-arm"
+      ],
+      "live_before_rescue": [],
+      "supervision": {
+        "suite_exit": -9,
+        "intervention": false,
+        "descendants_at_exit": [
+          {
+            "pid": 1973,
+            "state": "Z",
+            "ppid": 1964,
+            "start_ticks": 1890
+          }
+        ],
+        "adopted_exits": [
+          {
+            "pid": 1973,
+            "exit": -9
+          }
+        ],
+        "quiescent": true
+      },
+      "remaining_descendants": []
+    },
+    {
+      "name": "parent-exit-before-arm",
+      "status": "PASS",
+      "attempts": 1,
+      "namespace_owner_original_exit": -9,
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix-input/docs/qa-logs/2026-10-14-steam-client-corrections-source/fixture.py",
+        "--namespace-launcher",
+        "/run/pix582-scratch/fresh-client-03",
+        "--namespace-control",
+        "parent-exit-before-arm"
+      ],
+      "live_before_rescue": [],
+      "supervision": {
+        "suite_exit": -9,
+        "intervention": false,
+        "descendants_at_exit": [
+          {
+            "pid": 1976,
+            "state": "Z",
+            "ppid": 1964,
+            "start_ticks": 1903
+          }
+        ],
+        "adopted_exits": [
+          {
+            "pid": 1976,
+            "exit": 77
+          }
+        ],
+        "quiescent": true
+      },
+      "remaining_descendants": []
+    }
+  ],
+  "owner_argv": [
+    "/usr/bin/python3",
+    "-I",
+    "-S",
+    "-B",
+    "/tmp/pix-input/docs/qa-logs/2026-10-14-steam-client-corrections-source/fixture.py",
+    "--namespace-launcher",
+    "/run/pix582-scratch/fresh-client-03"
+  ],
+  "supervision": {
+    "suite_exit": 0,
+    "intervention": false,
+    "descendants_at_exit": [],
+    "adopted_exits": [],
+    "quiescent": true
+  },
+  "guard": null,
+  "namespace_owner_exit": 0,
+  "trace_driver_exit": 0,
+  "caller": {
+    "case": "fresh-profile-parent-alias",
+    "original_installer_exits": [
+      0
+    ],
+    "protected": {
+      ".local/share/Steam/steamapps": true,
+      ".local/share/Steam/userdata": true,
+      ".local/share/Steam/depotcache": true,
+      ".local/share/Steam/linuxarm64": true,
+      ".local/share/Steam/custom-root-file": true,
+      ".local/share/Steam/compatibilitytools.d/proton-cachyos-old-arm64": true,
+      ".local/share/Steam/compatibilitytools.d/GE-Protonold-aarch64": true,
+      "games-internal/roms/other-library": true,
+      "games-internal/roms/steam/unrelated": true,
+      "games-external": true,
+      ".steam/fixture-existing": true,
+      ".local/share/fex-emu/RootFS/OtherRoot": true,
+      ".local/share/fex-emu/RootFS/ArchLinux.sqsh": true,
+      "profile": true,
+      "link": true,
+      "support": true,
+      "elsewhere/deep": true,
+      "elsewhere/support/preserve": true
+    },
+    "complete_caller": true,
+    "native_client_execution": "DENIED; not qualification",
+    "retry_count": 0,
+    "profile_effects_rollback": false,
+    "unknown_state_preserved": false,
+    "boundary_events": [
+      {
+        "argv": [],
+        "command": "exec-denial",
+        "kind": "boundary-exit",
+        "monotonic_ns": 19644046214,
+        "original_exit": 77,
+        "pid": 15
+      },
+      {
+        "argv": [],
+        "command": "exec-allowed",
+        "kind": "boundary-exit",
+        "monotonic_ns": 19842639468,
+        "original_exit": 17,
+        "pid": 17
+      },
+      {
+        "argv": [],
+        "command": "exec-many-syscalls",
+        "kind": "boundary-exit",
+        "monotonic_ns": 20147676298,
+        "original_exit": 19,
+        "pid": 19
+      },
+      {
+        "kind": "guard-control-ready",
+        "monotonic_ns": 20377473752,
+        "pid": 21,
+        "point": "blocked-wait"
+      },
+      {
+        "attempt": 1,
+        "helper": "root",
+        "kind": "helper-start",
+        "mode": null,
+        "monotonic_ns": 22388992473,
+        "pid": 25,
+        "stdin_sha256": "0a8d0bee1678099e9b45de8dcd97b36267ff7ee289d0d9f8d0b17b8192d9b332"
+      },
+      {
+        "attempt": 1,
+        "helper": "root",
+        "kind": "helper-exit",
+        "mode": null,
+        "monotonic_ns": 22392263216,
+        "original_exit": 0,
+        "pid": 25,
+        "stdin_sha256": "0a8d0bee1678099e9b45de8dcd97b36267ff7ee289d0d9f8d0b17b8192d9b332"
+      },
+      {
+        "attempt": 1,
+        "helper": "client",
+        "kind": "helper-start",
+        "mode": "tree",
+        "monotonic_ns": 22441489412,
+        "pid": 27,
+        "stdin_sha256": "a14cbe3ad5a6e717238d5d994811b521e852a24ca625652ac81125d16f294fed"
+      },
+      {
+        "attempt": 1,
+        "helper": "client",
+        "kind": "helper-exit",
+        "mode": "tree",
+        "monotonic_ns": 22461822198,
+        "original_exit": 0,
+        "pid": 27,
+        "stdin_sha256": "a14cbe3ad5a6e717238d5d994811b521e852a24ca625652ac81125d16f294fed"
+      },
+      {
+        "argv": [],
+        "command": "profile",
+        "kind": "boundary-exit",
+        "monotonic_ns": 22553990200,
+        "original_exit": 0,
+        "pid": 28
+      },
+      {
+        "attempt": 1,
+        "helper": "root",
+        "kind": "helper-start",
+        "mode": null,
+        "monotonic_ns": 22597299889,
+        "pid": 29,
+        "stdin_sha256": "0a8d0bee1678099e9b45de8dcd97b36267ff7ee289d0d9f8d0b17b8192d9b332"
+      },
+      {
+        "attempt": 1,
+        "helper": "root",
+        "kind": "helper-exit",
+        "mode": null,
+        "monotonic_ns": 22600470002,
+        "original_exit": 0,
+        "pid": 29,
+        "stdin_sha256": "0a8d0bee1678099e9b45de8dcd97b36267ff7ee289d0d9f8d0b17b8192d9b332"
+      },
+      {
+        "attempt": 1,
+        "helper": "client",
+        "kind": "helper-start",
+        "mode": "metadata",
+        "monotonic_ns": 22643964397,
+        "pid": 31,
+        "stdin_sha256": "a14cbe3ad5a6e717238d5d994811b521e852a24ca625652ac81125d16f294fed"
+      },
+      {
+        "attempt": 1,
+        "helper": "client",
+        "kind": "helper-exit",
+        "mode": "metadata",
+        "monotonic_ns": 22662434915,
+        "original_exit": 0,
+        "pid": 31,
+        "stdin_sha256": "a14cbe3ad5a6e717238d5d994811b521e852a24ca625652ac81125d16f294fed"
+      },
+      {
+        "argv": [
+          "set",
+          "-9 steam FEX"
+        ],
+        "command": "set_kill",
+        "kind": "boundary-exit",
+        "monotonic_ns": 22744627052,
+        "original_exit": 0,
+        "pid": 32
+      },
+      {
+        "attempt": 1,
+        "helper": "fex",
+        "kind": "helper-start",
+        "mode": null,
+        "monotonic_ns": 22782183915,
+        "pid": 33,
+        "stdin_sha256": "2381da57a79e9c2b07238f71e2cfd3b57bf106a0ba3b43ad0471700bef918b49"
+      },
+      {
+        "argv": [
+          "--distro-name=arch",
+          "--distro-version=rolling",
+          "-y",
+          "-x",
+          "--force-ui=tty"
+        ],
+        "command": "FEXRootFSFetcher",
+        "kind": "boundary-exit",
+        "monotonic_ns": 22884604690,
+        "original_exit": 0,
+        "pid": 35
+      },
+      {
+        "attempt": 1,
+        "helper": "fex",
+        "kind": "helper-exit",
+        "mode": null,
+        "monotonic_ns": 22925200510,
+        "original_exit": 0,
+        "pid": 33,
+        "stdin_sha256": "2381da57a79e9c2b07238f71e2cfd3b57bf106a0ba3b43ad0471700bef918b49"
+      },
+      {
+        "attempt": 1,
+        "helper": "root",
+        "kind": "helper-start",
+        "mode": null,
+        "monotonic_ns": 22964216965,
+        "pid": 36,
+        "stdin_sha256": "0a8d0bee1678099e9b45de8dcd97b36267ff7ee289d0d9f8d0b17b8192d9b332"
+      },
+      {
+        "attempt": 1,
+        "helper": "root",
+        "kind": "helper-exit",
+        "mode": null,
+        "monotonic_ns": 22967301001,
+        "original_exit": 0,
+        "pid": 36,
+        "stdin_sha256": "0a8d0bee1678099e9b45de8dcd97b36267ff7ee289d0d9f8d0b17b8192d9b332"
+      },
+      {
+        "attempt": 1,
+        "helper": "runtime",
+        "kind": "helper-start",
+        "mode": null,
+        "monotonic_ns": 23007246664,
+        "pid": 39,
+        "stdin_sha256": "1c6edbf421b7037124671d48361716167ec933934406c10aa4ca02c3082eefae"
+      },
+      {
+        "argv": [
+          "-fsSL",
+          "--connect-timeout",
+          "10",
+          "--max-time",
+          "30",
+          "--max-filesize",
+          "128",
+          "https://repo.steampowered.com/steamrt3c/images/latest-public-stable.txt"
+        ],
+        "command": "curl",
+        "kind": "boundary-exit",
+        "monotonic_ns": 23105778744,
+        "original_exit": 0,
+        "pid": 40
+      },
+      {
+        "kind": "archive-copy",
+        "monotonic_ns": 23191707711,
+        "name": "runtime.tar.xz",
+        "pid": 41,
+        "sha256": "1f576aa2114a58b60ff76c3445e9bf3f6d1ceb74a65ab13223dd132667d385ea"
+      },
+      {
+        "argv": [
+          "-t",
+          "3",
+          "-T",
+          "30",
+          "-O",
+          "/storage/.local/share/Steam/.steam-runtime-update/runtime.tar.xz",
+          "https://repo.steampowered.com/steamrt3c/images/qa-20261013/steam-runtime-steamrt-arm64.tar.xz"
+        ],
+        "command": "wget",
+        "kind": "boundary-exit",
+        "monotonic_ns": 23191799007,
+        "original_exit": 0,
+        "pid": 41
+      },
+      {
+        "attempt": 1,
+        "helper": "runtime",
+        "kind": "helper-exit",
+        "mode": null,
+        "monotonic_ns": 23238313291,
+        "original_exit": 0,
+        "pid": 39,
+        "stdin_sha256": "1c6edbf421b7037124671d48361716167ec933934406c10aa4ca02c3082eefae"
+      },
+      {
+        "attempt": 1,
+        "helper": "client",
+        "kind": "helper-start",
+        "mode": "install",
+        "monotonic_ns": 23277099162,
+        "pid": 42,
+        "stdin_sha256": "a14cbe3ad5a6e717238d5d994811b521e852a24ca625652ac81125d16f294fed"
+      },
+      {
+        "argv": [
+          "--disable",
+          "--fail",
+          "--silent",
+          "--show-error",
+          "--location",
+          "--proto",
+          "=https",
+          "--proto-redir",
+          "=https",
+          "--max-redirs",
+          "5",
+          "--connect-timeout",
+          "10",
+          "--max-time",
+          "30",
+          "--max-filesize",
+          "2097152",
+          "--output",
+          "-",
+          "https://client-update.fastly.steamstatic.com/steam_client_publicbeta_linuxarm64"
+        ],
+        "command": "curl",
+        "kind": "boundary-exit",
+        "monotonic_ns": 23420668506,
+        "original_exit": 0,
+        "pid": 43
+      },
+      {
+        "attempt": 1,
+        "kind": "archive-copy",
+        "monotonic_ns": 23528117944,
+        "name": "client.zip",
+        "pid": 44,
+        "sha256": "870827a5e50cf1d3e4f6978ac6d60e8069b121963d099b1df5699f9b470235e5"
+      },
+      {
+        "argv": [
+          "--disable",
+          "--fail",
+          "--silent",
+          "--show-error",
+          "--location",
+          "--proto",
+          "=https",
+          "--proto-redir",
+          "=https",
+          "--max-redirs",
+          "5",
+          "--connect-timeout",
+          "10",
+          "--max-time",
+          "180",
+          "--max-filesize",
+          "10676",
+          "--output",
+          "-",
+          "https://client-update.steamstatic.com/bins_linuxarm64_linuxarm64.zip.70876f187da1b5d3add0296340309fbff43a84b2"
+        ],
+        "command": "curl",
+        "kind": "boundary-exit",
+        "monotonic_ns": 23528239368,
+        "original_exit": 0,
+        "pid": 44
+      },
+      {
+        "attempt": 1,
+        "helper": "client",
+        "kind": "helper-exit",
+        "mode": "install",
+        "monotonic_ns": 23637442057,
+        "original_exit": 0,
+        "pid": 42,
+        "stdin_sha256": "a14cbe3ad5a6e717238d5d994811b521e852a24ca625652ac81125d16f294fed"
+      },
+      {
+        "argv": [
+          "-fsSL",
+          "https://api.github.com/repos/CachyOS/proton-cachyos/releases/latest"
+        ],
+        "command": "curl",
+        "kind": "boundary-exit",
+        "monotonic_ns": 23727804159,
+        "original_exit": 0,
+        "pid": 46
+      },
+      {
+        "attempt": 1,
+        "helper": "proton",
+        "kind": "helper-start",
+        "mode": null,
+        "monotonic_ns": 23781306092,
+        "pid": 61,
+        "stdin_sha256": "18d2bed395aa8c5242964ecf513d0d6a202ad139db5591c5c82b1a798460da2f"
+      },
+      {
+        "kind": "archive-copy",
+        "monotonic_ns": 23881023496,
+        "name": "cachy.tar.xz",
+        "pid": 62,
+        "sha256": "443affc6631ef5e45853c2a5433294035bdcead928a8e455c247f61d9e59a1a9"
+      },
+      {
+        "argv": [
+          "-t",
+          "3",
+          "-T",
+          "30",
+          "-O",
+          "/storage/.local/share/Steam/.proton-variant-stage/archive",
+          "https://synthetic.invalid/proton-cachyos-qa-arm64.tar.xz"
+        ],
+        "command": "wget",
+        "kind": "boundary-exit",
+        "monotonic_ns": 23881132347,
+        "original_exit": 0,
+        "pid": 62
+      },
+      {
+        "attempt": 1,
+        "helper": "proton",
+        "kind": "helper-exit",
+        "mode": null,
+        "monotonic_ns": 23924898626,
+        "original_exit": 0,
+        "pid": 61,
+        "stdin_sha256": "18d2bed395aa8c5242964ecf513d0d6a202ad139db5591c5c82b1a798460da2f"
+      },
+      {
+        "argv": [
+          "-fsSL",
+          "https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest"
+        ],
+        "command": "curl",
+        "kind": "boundary-exit",
+        "monotonic_ns": 24023739043,
+        "original_exit": 0,
+        "pid": 63
+      },
+      {
+        "attempt": 1,
+        "helper": "proton",
+        "kind": "helper-start",
+        "mode": null,
+        "monotonic_ns": 24078575293,
+        "pid": 78,
+        "stdin_sha256": "18d2bed395aa8c5242964ecf513d0d6a202ad139db5591c5c82b1a798460da2f"
+      },
+      {
+        "kind": "archive-copy",
+        "monotonic_ns": 24175593181,
+        "name": "ge.tar.gz",
+        "pid": 79,
+        "sha256": "41ca2cc0a3d9b54e6ac07b74a0ffd785043150bc8807ad70f5564db62d27fe76"
+      },
+      {
+        "argv": [
+          "-t",
+          "3",
+          "-T",
+          "30",
+          "-O",
+          "/storage/.local/share/Steam/.proton-variant-stage/archive",
+          "https://synthetic.invalid/GE-Protonqa-aarch64.tar.gz"
+        ],
+        "command": "wget",
+        "kind": "boundary-exit",
+        "monotonic_ns": 24175685469,
+        "original_exit": 0,
+        "pid": 79
+      },
+      {
+        "attempt": 1,
+        "helper": "proton",
+        "kind": "helper-exit",
+        "mode": null,
+        "monotonic_ns": 24218465037,
+        "original_exit": 0,
+        "pid": 78,
+        "stdin_sha256": "18d2bed395aa8c5242964ecf513d0d6a202ad139db5591c5c82b1a798460da2f"
+      },
+      {
+        "argv": [
+          "restart",
+          "systemd-binfmt"
+        ],
+        "command": "systemctl",
+        "kind": "boundary-exit",
+        "monotonic_ns": 24321187828,
+        "original_exit": 0,
+        "pid": 81
+      }
+    ]
+  },
+  "elapsed_seconds": 15.943558197999998,
+  "retained_bytes": 1102877,
+  "remaining_descendants": []
+}

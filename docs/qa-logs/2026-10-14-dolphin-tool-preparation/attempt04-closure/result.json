@@ -1,0 +1,71 @@
+{
+  "status": "FAIL",
+  "stage": "dolphin-closure",
+  "started": 1791960236.5040622,
+  "original_attach_exit": 1,
+  "container_result_sha256": "07de1f3a5f217f0deb155253a545a035b498e848442243a7f3a72c75e158dc20",
+  "error": "RuntimeError('original child/container failure')",
+  "cleanup": {
+    "status": "PASS",
+    "forced_stop": false,
+    "started": 1791960239.0160232,
+    "initial": {
+      "id": "68f4ad3d7994ecc7615470bb737c808ee9baf05c1d009ddcaf1934541cd2250e",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 1,
+        "FinishedAt": "2026-10-14T06:43:58.050918448Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 0,
+        "Restarting": false,
+        "Running": false,
+        "StartedAt": "2026-10-14T06:43:56.772666025Z",
+        "Status": "exited"
+      },
+      "labels": {
+        "org.opencontainers.image.version": "22.04",
+        "pix574.owner": "db10a88f51182eba28246e695f7975c2",
+        "pix574.stage": "dolphin-closure"
+      },
+      "memory": 4294967296,
+      "nano_cpus": 2000000000
+    },
+    "container_terminal_state": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 1,
+      "FinishedAt": "2026-10-14T06:43:58.050918448Z",
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 0,
+      "Restarting": false,
+      "Running": false,
+      "StartedAt": "2026-10-14T06:43:56.772666025Z",
+      "Status": "exited"
+    },
+    "exact_cid": "68f4ad3d7994ecc7615470bb737c808ee9baf05c1d009ddcaf1934541cd2250e",
+    "exact_id_absent": true,
+    "observed_host_processes": [
+      {
+        "pid": 499013,
+        "start_ticks": 105192079,
+        "state": "S",
+        "pgrp": 499013,
+        "session": 499013,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      }
+    ],
+    "survivors": [],
+    "remaining_cgroup_pids": [],
+    "ended": 1791960239.1955097
+  },
+  "original_container_exit": 1,
+  "watchdog_original_exit": 0,
+  "ended": 1791960239.5603356,
+  "final_disk": {
+    "allocated_bytes": 286793728,
+    "apparent_bytes": 247213279
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "stage": "dolphin-build-recover",
+  "started": 1791960162.1010745,
+  "original_attach_exit": 0,
+  "container_result_sha256": "6fb5e4b69f4c290ef22321b7b30fa02f08458d57eff13156adbf49ba75f7a9c4",
+  "cleanup": {
+    "status": "PASS",
+    "forced_stop": false,
+    "started": 1791960164.6709714,
+    "initial": {
+      "id": "a0a5557728e80214bba6b9f0fad5fa9efdfdc63aec6d983e0c93c8677a8b5f80",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "2026-10-14T06:42:44.259093183Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 0,
+        "Restarting": false,
+        "Running": false,
+        "StartedAt": "2026-10-14T06:42:42.367279397Z",
+        "Status": "exited"
+      },
+      "labels": {
+        "org.opencontainers.image.version": "22.04",
+        "pix574.owner": "2411b02aed20713815f0d02fa395f3c1",
+        "pix574.stage": "dolphin-build-recover"
+      },
+      "memory": 4294967296,
+      "nano_cpus": 2000000000
+    },
+    "container_terminal_state": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 0,
+      "FinishedAt": "2026-10-14T06:42:44.259093183Z",
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 0,
+      "Restarting": false,
+      "Running": false,
+      "StartedAt": "2026-10-14T06:42:42.367279397Z",
+      "Status": "exited"
+    },
+    "exact_cid": "a0a5557728e80214bba6b9f0fad5fa9efdfdc63aec6d983e0c93c8677a8b5f80",
+    "exact_id_absent": true,
+    "observed_host_processes": [
+      {
+        "pid": 492170,
+        "start_ticks": 105184639,
+        "state": "S",
+        "pgrp": 492170,
+        "session": 492170,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      }
+    ],
+    "survivors": [],
+    "remaining_cgroup_pids": [],
+    "ended": 1791960164.8497052
+  },
+  "original_container_exit": 0,
+  "watchdog_original_exit": 0,
+  "ended": 1791960165.1640248,
+  "final_disk": {
+    "allocated_bytes": 286461952,
+    "apparent_bytes": 247093393
+  }
+}

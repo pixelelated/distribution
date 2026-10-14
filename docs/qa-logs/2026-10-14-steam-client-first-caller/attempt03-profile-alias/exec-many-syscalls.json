@@ -1,0 +1,31 @@
+{
+  "status": "RETURNED",
+  "client_executed": false,
+  "native_client_success": false,
+  "argv": [
+    "/usr/sbin/chroot",
+    "/run/pix582-scratch/fresh-client-03/rootfs",
+    "/usr/bin/python3",
+    "-I",
+    "-S",
+    "-B",
+    "/qa/boundary.py",
+    "exec-many-syscalls"
+  ],
+  "denied_execs": [],
+  "original_exits": [
+    {
+      "pid": 19,
+      "exit": 19
+    }
+  ],
+  "original_caller_exit": 19,
+  "meaning": "ptrace returns EACCES at synthetic client exec; normal caller sees its failure",
+  "wait_calls": 8014,
+  "syscall_stops": 8009,
+  "wait_seconds": 0.18611107299994245,
+  "main_loop_poll_sleeps": 0,
+  "cleanup_exits": [],
+  "remaining_traced": [],
+  "elapsed_seconds": 0.23725102200000237
+}

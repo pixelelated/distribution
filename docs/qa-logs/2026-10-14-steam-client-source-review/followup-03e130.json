@@ -1,0 +1,95 @@
+{
+  "schema": 1,
+  "review_date_utc": "2026-10-14",
+  "issue": 582,
+  "evidence_level": "SOURCE / STATIC ONLY; all corrected runtime controls UNRUN",
+  "historical_review_commit": "8aec3a667482c021b86b6b9632d4f9ac8ee24dd0",
+  "reviewed_parent_commit": "a057a2a7e94c372642fd66ff9795125487f1fa75",
+  "reviewed_commit": "03e130e4b3c244337f2e6d782b392a2c444c28e7",
+  "reviewed_checkout": "/workspace/repos/rocknix.worktrees/m7-steam-preservation-integration",
+  "reviewed_packet": "docs/qa-logs/2026-10-14-steam-client-corrections-source",
+  "installer": {
+    "path": "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+    "sha256": "fab7cdb4ad8adbcea147be54092bb7ce2005010447be4ab8192c94d8bbe9229d",
+    "client_helper_body_sha256": "1d9611d9e01813b3dc3026649756ceb86e25bf881f2e6811b267c8f213abb28f",
+    "client_helper_stdin_sha256": "a14cbe3ad5a6e717238d5d994811b521e852a24ca625652ac81125d16f294fed"
+  },
+  "reviewed_files_sha256": {
+    "README.md": "b80bef217d43a8da3b2efcc8cef613f3fbf7da8abd5306a6495c82d51ca59b5f",
+    "source.json": "a10cb44e8951e1af5a18acd58fe63f1d3cfbb1373ae1a1e4191a62fd349a0e01",
+    "SHA256SUMS": "f8e7f184f8d7d178a19d45f27f7e9c52f2ea50c7b19089c36d6eff1f560512a3",
+    "acceptance-intake.json": "f2451e59bdd5b24ef97f1009dd0ccfeece89e276c27c15476cb61df0054ed390",
+    "client-helper.py": "a14cbe3ad5a6e717238d5d994811b521e852a24ca625652ac81125d16f294fed",
+    "exec-guard.py": "00210b59a8c7fe25559e7ff561f1c112197bf8ef9a876523b5c457f486da4d59",
+    "fixture.py": "7c13d9be1a356e6f61f0ef9c7ea78b0a1bc2c12659030797e72cd66c68a49f8b",
+    "payload.py": "2876448cd57eb8dc7f29c2eb25d536d1b5cf83637c618ba6be13d15d97060ee8",
+    "python-boundary.py": "dbd56b6c108f5dc6b15893f27c58e50c05f90513b02d05d2a3bab9e46666deb5",
+    "boundary.py": "aafc7d6a419297d9083350fb658543f8578b992704633565f068371a586a89e3",
+    "transfer-child.py": "cedeb1244888fb9f5a752f356efdcd5f4ae70dc5731a20c0dd0af9fad569c6da",
+    "static-check.py": "df520715aa6c84604849f9dcd09748fd50630d4fd6b6fc9b7cd96ac43ab5f1d6",
+    "evidence/attempt01-exec-1.json": "55d96b5b8a6bb9bbeb6ad3a4c8bb320fe4a69931338d502189bb456a341b5e48"
+  },
+  "historical_review_files_unchanged_sha256": {
+    "README.md": "63f0283658f4b4da42e3cdab24820b66ef2cef86bfe43f39f9e08c2be4270055",
+    "source.json": "2fc477ccf066eac8e532ac84b96f704eaf9a97f5d8f78573e0520a5c891f7d10",
+    "SHA256SUMS": "fc3c772ba3cfafd463c1ca6afc5e711a736b3b28e57634a2c0a7b5bfa23b2aac"
+  },
+  "disposition": {
+    "S582-1": "ADDRESSED IN SOURCE; portable numeric census and durable hold on unknown transfer quiescence",
+    "S582-2": "ADDRESSED IN SOURCE; component symlink/parent resolution and destination revalidation",
+    "exec_guard": "No concrete defect found in reviewed blocking-wait delta; denial unchanged; deadline/cleanup controls UNRUN",
+    "additional_concrete_findings": []
+  },
+  "static_validation": {
+    "command": "python3 -I -S -B - (review-only stdin: ast.parse, SHA256, JSON and read-only git show comparisons; no fixture imports)",
+    "original_exit": 0,
+    "interpreter": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+    "corrected_packet_manifest_entries_verified": 26,
+    "packet_python_ast_only": [
+      "boundary.py",
+      "client-helper.py",
+      "exec-guard.py",
+      "fixture.py",
+      "payload.py",
+      "python-boundary.py",
+      "static-check.py",
+      "transfer-child.py"
+    ],
+    "product_outside_client_heredoc_byte_identical": true,
+    "exec_denial_branch_ast_identical": true,
+    "ptrace_options_and_trace_read_text_functions_ast_identical": true,
+    "main_wait_flags": 1073741824,
+    "main_wait_sleep_calls": 0,
+    "allocation_limits_unchanged": true,
+    "unchanged_client_contract_function_asts": [
+      "bootstrap",
+      "elf",
+      "inspect_tree",
+      "metadata",
+      "same_metadata",
+      "install",
+      "main",
+      "Transaction.cleanup",
+      "Transaction.remove",
+      "Transaction.commit",
+      "Transaction.published"
+    ],
+    "fixture_or_product_import": false,
+    "fixture_or_product_execution": false,
+    "compiler_or_test_suite": false
+  },
+  "pending_controls": [
+    "fresh-client-real-root (includes mandatory denial/allowed/busy/idle exec controls)",
+    "fresh-profile-parent-alias",
+    "existing-profile-parent-alias",
+    "detached-transfer-child",
+    "proc-census-error",
+    "transport-timeout (separate allocation)"
+  ],
+  "acceptance_limits": [
+    "No corrected VM run performed by this reviewer",
+    "Original attempt01 FAIL and null caller exit unchanged",
+    "No native ARM64, real-archive install, live consumer, self-update, power-loss or installed-image acceptance",
+    "Source disposition is not containment approval or measured speedup"
+  ]
+}

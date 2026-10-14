@@ -1,6 +1,9 @@
 # Independent Dolphin tool preparation — October14
 
-Work for #574. No converter binary or format PASS is established yet.
+Work for #574. The target binary and its static library bundle are now
+accepted for VM testing. Actual loading and format conversion remain
+unrun. The sections below preserve the original attempts and their results.
+
 The source-only plan1c0e93 and runner eb70be990b were reviewed;48 finite host
 controls passed. Compatibility source6797dd4853 passed52 controls, including
 chunk-boundary SHA256 cases. These controls do not establish container behavior.
@@ -91,3 +94,32 @@ Superseded owner03 source/configuration scratch is now retired223,055,872bytes;
 all76 generated diagnostic/inventory files remain in a compact verified archive.
 Owner04 is stopped but retained for immediate output qualification. No active
 compiler/container/VM remains from this work.
+
+## Accepted output and static ELF closure — next is actual VM use
+
+Source0171115 passes77 focused controls. The separately admitted build-output
+recovery passes all original channels0, full pristine source and exact generated
+outputs; original build-wrapper1 remains. Its admission is consumed.
+
+First closure remains FAIL1: readelf0 found PT_INTERP /lib64/ld-linux-x86-64.so.2,
+but the SDK has the loader under sysroot/usr/lib. The image creates /lib64 as an
+alias to /usr/lib; glibc installs there. No host library was substituted.
+
+Narrow source4d15c80dce passes14 loader-mapping controls and the new
+dolphin-closure-loader stage. All original child/container/watcher/launcher0,
+cleanupPASS, watchdog0, host PIDs absent, successful admission consumed. Exact
+byte-bound canonical loader and both observed interpreter paths agree.
+
+Static closure covers19 ELF objects,38 version-provider checks,2,629 Sys resources
+and original notices. The public QA bundle contains2,680 files/50,726,779 bytes;
+manifest SHA25649b06305f103df552a9d6c7a145627a66b8cd5e240d34ddceb1df3592175ec0d.
+It remains outside Git at owner04/stages/dolphin-closure-loader/vm20-bundle for
+immediate VM staging. Compact raw readelf/owner records and bundle-manifest.json
+are retained here; no compiler object or runtime binary is embedded in this
+packet. No target or loader was executed. Actual installed loading, Sys lookup,
+independent conversion/hash parity and native proxy tests remain.
+
+Owner04 has no active process/container. All original stages are consumed and
+must not be replayed. Its07:00:54UTC clock is not reusable or extendable; a new
+VM allocation is independent and must bind the accepted bundle. Retain current
+work/bundle only through immediate converter qualification, then retire scratch.

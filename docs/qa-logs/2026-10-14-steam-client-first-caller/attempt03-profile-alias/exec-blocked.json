@@ -1,0 +1,33 @@
+{
+  "status": "FAIL",
+  "client_executed": false,
+  "native_client_success": false,
+  "argv": [
+    "/usr/sbin/chroot",
+    "/run/pix582-scratch/fresh-client-03/rootfs",
+    "/usr/bin/python3",
+    "-I",
+    "-S",
+    "-B",
+    "/qa/boundary.py",
+    "exec-blocked"
+  ],
+  "denied_execs": [],
+  "original_exits": [],
+  "original_caller_exit": null,
+  "meaning": "ptrace returns EACCES at synthetic client exec; normal caller sees its failure",
+  "wait_calls": 4010,
+  "syscall_stops": 4005,
+  "wait_seconds": 1.9753465529999943,
+  "main_loop_poll_sleeps": 0,
+  "cleanup_exits": [
+    {
+      "pid": 21,
+      "exit": -9,
+      "meaning": "guard cleanup; not an original caller result"
+    }
+  ],
+  "error": "RuntimeError('Exec boundary deadline')",
+  "remaining_traced": [],
+  "elapsed_seconds": 2.010655238000002
+}

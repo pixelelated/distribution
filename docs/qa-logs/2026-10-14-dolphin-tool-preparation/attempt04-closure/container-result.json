@@ -1,0 +1,47 @@
+{
+  "status": "FAIL",
+  "stage": "dolphin-closure",
+  "started": 1791960236.858666,
+  "children": [
+    {
+      "argv": [
+        "python3",
+        "-I",
+        "-S",
+        "-B",
+        "/runner/closure.py"
+      ],
+      "started": 1791960237.8418493,
+      "label": "elf-inventory",
+      "identity": {
+        "pid": 7,
+        "start_ticks": 105192184,
+        "state": "R",
+        "pgrp": 7,
+        "session": 7,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      "pid": 7,
+      "original_exit": 1,
+      "reaped": true,
+      "ended": 1791960238.0430079
+    }
+  ],
+  "source_before": {
+    "files": 13424,
+    "inventory_sha256": "0c2c9efcec739af5993a6b71ef031959a0dd674999a6025ce5e7b3052d353371",
+    "converter_pristine": true
+  },
+  "generated_before": {
+    "files": 75,
+    "changed_originals": 2,
+    "unchanged_originals": 73,
+    "binding_sha256": "13a29f22af3c69b0304d97c00df0411fc80feb6132300d2cec74952c853de438",
+    "binary_sha256": "f36a2c5f2f31e961ce605cc1c762f1e839f1880a0b1feeba4e09a1fccaa90d5b"
+  },
+  "error": "RuntimeError('original child failed: elf-inventory')",
+  "sampler_exited": true,
+  "monitor_errors": [],
+  "ended": 1791960238.043582,
+  "max_child_rss_kib": 27720
+}
