@@ -215,6 +215,34 @@ def root_controls(work):
          b"devid=\0&devpassword=\0z=\0&y=\0"))
     case("compiled-ra-service", lambda r: binary_fragments(r,
          b"z=" + CANARY.encode() + b"&y=" + CANARY.encode() + b"\0"), 1, "developer-service-identity")
+    shared = b"jelos"
+    approved = b"devid=" + shared + b"&devpassword=" + shared
+    for mode in ("clean-image", "first-boot", "retained-upgrade"):
+        case("compiled-shared-" + mode, lambda r: binary_fragments(r, b"\0" + approved + b"\0"),
+             category="approved-shared-developer-identity", mode=mode)
+    for name, fragment in (
+            ("id", b"devid=" + CANARY.encode() + b"&devpassword=" + shared),
+            ("password", b"devid=" + shared + b"&devpassword=" + CANARY.encode()),
+            ("prefix", b"other" + approved), ("suffix", approved + b"other"),
+            ("query", approved + b"&extra=value"), ("case", approved.upper().replace(b"DEVID", b"devid").replace(b"DEVPASSWORD", b"devpassword"))):
+        case("compiled-shared-refuse-" + name,
+             lambda r, fragment=fragment: binary_fragments(r, b"\0" + fragment + b"\0"),
+             1, "developer-service-identity")
+    case("compiled-shared-no-terminator", lambda r: binary_fragments(r, b"\0" + approved),
+         1, "developer-service-identity")
+    case("compiled-shared-with-private", lambda r: binary_fragments(r, b"\0" + approved +
+         b"\0devid=" + CANARY.encode() + b"&devpassword=" + CANARY.encode() + b"\0"),
+         1, "developer-service-identity")
+    case("compiled-shared-with-ra", lambda r: binary_fragments(r, b"\0" + approved +
+         b"\0z=" + CANARY.encode() + b"&y=" + CANARY.encode() + b"\0"),
+         1, "developer-service-identity")
+    case("shared-defaults-still-refused", lambda r: put(r, "usr/config/emulationstation/es_settings.cfg",
+         '<config><string name="ScreenScraperDevId" value="jelos"/>'
+         '<string name="ScreenScraperDevPass" value="jelos"/></config>'),
+         1, "developer-service-identity")
+    case("shared-player-still-refused", lambda r: put(r, "usr/config/emulationstation/es_settings.cfg",
+         '<config><string name="ScreenScraperUser" value="jelos"/>'
+         '<string name="ScreenScraperPass" value="jelos"/></config>'), 1, "player-account")
     def remote(root):
         put(root, "storage/.config/rclone/rclone.conf",
             "[synthetic]\ntype = webdav\nurl = http://127.0.0.1:1\npass = " + CANARY + "\n")

@@ -24,15 +24,21 @@ PKG_CMAKE_OPTS_TARGET+=" -DROCKNIX=1 \
                          -DUSE_SYSTEM_PUGIXML=1 \
                          -DGLES3=1"
 
-# The ScreenScraper developer pair is entered on the device, not compiled in,
-# so no fork image carries a key (#64). A SCREENSCRAPER_DEV_LOGIN in the build
-# environment still wins and hides the rows.
+# #566 / D-WORKFLOW-166: provision the shared JELOS developer identity below.
+# Keep runtime support for alternate builds; a compiled pair hides developer
+# entry rows while the player's own ScreenScraper account stays separate.
 PKG_CMAKE_OPTS_TARGET+=" -DSCREENSCRAPER_RUNTIME_DEV_LOGIN=1"
 
 # Upstream replaced the S922X test with a build option (2026-09).
 [ "${BATTERYPLUS_SUPPORT}" = "yes" ] && PKG_CMAKE_OPTS_TARGET+=" -DBATTERYPLUS=1"
 
 pre_configure_target() {
+  # This public shared developer account is the explicit interim choice. An
+  # intentional build override remains supported, but does not gain the shared
+  # identity exception in the image's selected-state gate (#565/#566).
+  local screenscraper_shared_dev="jelos"
+  export SCREENSCRAPER_DEV_LOGIN="${SCREENSCRAPER_DEV_LOGIN:-devid=${screenscraper_shared_dev}&devpassword=${screenscraper_shared_dev}}"
+
   for key in SCREENSCRAPER_DEV_LOGIN \
              GAMESDB_APIKEY \
              CHEEVOS_DEV_LOGIN; do

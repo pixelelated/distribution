@@ -651,7 +651,7 @@ here.** The reason column is the point; a line with no reason is not a decision.
 - FAVORITE SONGS -- upstream background-music picker, unchanged here
 - SCREENSAVER SETTINGS -- upstream screensaver page, unchanged here
 - AI GAME TRANSLATION -- upstream feature, not configured on our images
-- SCREENSCRAPER -- upstream scraper page; our fork's change is the developer pair inside it (#64), not the page's shape
+- SCREENSCRAPER -- existing scraper page and player account rows; #566 provisions the interim developer login and hides its developer-entry rows when compiled in. The flow and qualification boundary are below.
 - NETPLAY SETTINGS -- upstream netplay page, unchanged here
 - CONNECT TO NETPLAY -- upstream netplay browser, unchanged here
 - ADD TO CUSTOM COLLECTION... -- upstream collections flow, unchanged here
@@ -800,3 +800,33 @@ This round has no ES source/copy/layout change or new screenshots. Existing
 offline-settings/game-launch frame references remain the presentation baseline;
 native Dolphin/service/login/cache/award/reconnect and combined-source UI proof
 remain open. Listener presence alone is not proxy identity or readiness.
+
+## ScreenScraper developer provisioning (#566)
+
+D-WORKFLOW-166 chooses the shared JELOS developer identity for the next build;
+replacement credentials are backlog #586. The page's location and personal
+account settings stay unchanged. The recipe candidate uses existing compiled-pair
+precedence, so a normal build has no developer ID/password entry step. A build
+without a compiled pair retains the runtime fallback under #64.
+
+```mermaid
+flowchart TD
+  S[Scraper settings] --> P[ScreenScraper page]
+  P --> A[Player account settings]
+  P --> C{Compiled developer login present?}
+  C -->|Yes: normal pixelelated build| H[Developer entry rows hidden]
+  C -->|No: runtime fallback build| D[Developer ID and password rows]
+  A --> T[Start scrape]
+  H --> T
+  D --> T
+  T --> O{Authentication outcome}
+  O -->|Accepted| R[Existing scrape progress and result]
+  O -->|Player or developer rejection| E[Existing distinct account or service error]
+```
+
+The diagram describes the intended candidate flow, not an accepted new image.
+Qualification record: [interim provisioning](qa-logs/2026-10-14-screenscraper-provisioning/README.md).
+Required reviewed frames remain UNRUN: EN/FR at640x480 and1280x800 for the
+accounts/options page, normal hidden-developer-row path and account/service
+errors; preserve the fallback path in its separately identified build. Source,
+compiler definitions and actual executing binary must accompany the frame index.

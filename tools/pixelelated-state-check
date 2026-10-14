@@ -62,7 +62,8 @@ SCOPE = ["selected system, ES, RetroArch, standalone account files and recovery 
          "exact zero-work startup scrub marker with first-boot proc epoch bounds",
          "gamelist.xml under selected ES/config/ROM roots; playcount and lastplayed only",
          "known QA name prefixes, proxy state, token files and RetroArch history playlists",
-         "ES ELF known compiled ScreenScraper/RetroAchievements URL-pair patterns",
+         "ES ELF known compiled ScreenScraper/RetroAchievements URL-pair patterns; "
+         "only the exact NUL-delimited shared JELOS developer pair is allowed (#566)",
          "img.gz: supported two-partition image and empty storage seed policy"]
 LIMITATIONS = ["not a whole-image or arbitrary-secret scan",
                "no generic compiled GamesDB key detection or service identity provenance",
@@ -360,11 +361,14 @@ class Check:
 
     def row(self, path, category, count=0, present=True, error=False):
         retained = self.mode == "retained-upgrade" and path.startswith("/storage/")
+        approved_service = (path == "/usr/bin/emulationstation" and
+                            category == "approved-shared-developer-identity")
         if category == "unsupported-config-override" and count:
             error = True
         self.rows.append({"path": path, "category": category, "present": present,
                           "count": count, "status": "error" if error else
-                          "allowed" if count and retained else "blocked" if count else "clear"})
+                          "allowed" if count and (retained or approved_service) else
+                          "blocked" if count else "clear"})
 
     def file(self, path, kind, required=False, label=None):
         label = label or path
@@ -391,7 +395,18 @@ class Check:
             value = rb"[^\x00\s&\"'<>]+"
             patterns = [rb"devid=" + value + rb"&devpassword=" + value,
                         rb"z=" + value + rb"&y=" + value]
-            return {"developer-service-identity": sum(len(re.findall(p, data)) for p in patterns)}
+            matches = [match for pattern in patterns for match in re.finditer(pattern, data)]
+            # D-WORKFLOW-166 permits this one public developer pair in the ELF,
+            # never player accounts, RA keys or seeded runtime settings. Require
+            # the complete C string: prefixes, suffixes and changed pairs refuse.
+            shared = b"jelos"
+            approved = b"devid=" + shared + b"&devpassword=" + shared
+            allowed = sum(match.group() == approved and match.start() > 0 and
+                          data[match.start() - 1:match.start()] == b"\0" and
+                          data[match.end():match.end() + 1] == b"\0"
+                          for match in matches)
+            return {"developer-service-identity": len(matches) - allowed,
+                    "approved-shared-developer-identity": allowed}
         if kind == "opaque-account":
             return {"player-account-file": int(bool(data.strip()))}
         if kind in ("selection", "device-identity"):
