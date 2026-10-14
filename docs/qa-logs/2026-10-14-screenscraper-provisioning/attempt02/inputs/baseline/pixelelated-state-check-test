@@ -1,0 +1,670 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present pixelelated
+"""Disposable #565 controls. No imports of the gate, providers, or real accounts.
+
+--self-test runs root-policy subprocess controls. --payload-tests additionally
+creates tiny synthetic SYSTEM/update/install payloads and release bundles using
+installed filesystem tools (no distro build). Coordinator allocates these runs.
+--prepare-guest-script FILE only writes a first-boot read-only serial script.
+All fixture data is synthetic; no caller-supplied storage is seeded or cleaned.
+"""
+import argparse
+import base64
+import gzip
+import hashlib
+import io
+import json
+import os
+from pathlib import Path
+import shutil
+import stat
+import subprocess
+import sys
+import tarfile
+import tempfile
+
+
+HERE = Path(__file__).resolve().parent
+GATE = HERE / "pixelelated-state-check"
+CANARY = "synthetic-" + "player-565-do-not-display"
+SCRUB_EPOCH = 2000000000  # synthetic clock, never the host/guest boot clock
+CLOUD = ('SAVESPATH="/storage/roms"\nSAVES_REMOTE="/pixelelated/Saves"\n'
+         'SETTINGS_REMOTE="/pixelelated/Backups"\nCONTENT_REMOTE="/pixelelated/Content"\n'
+         'RCLONEOPTS="--progress --filter-from /storage/.config/cloud_sync-rules.txt"\n')
+
+
+def require(ok):
+    if not ok:
+        raise RuntimeError("fixture assertion failed")
+
+
+def put(root, path, data):
+    p = root / path.lstrip("/")
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_bytes(data.encode() if isinstance(data, str) else data)
+    return p
+
+
+def clean(root, runtime=True):
+    defaults = {
+        "system/configs/system.cfg": 'global.retroachievements.username=\nglobal.retroachievements.password=\n',
+        "emulationstation/es_settings.cfg": '<config/>\n',
+        "retroarch/retroarch.cfg": 'cheevos_username = ""\ncheevos_password = ""\ncheevos_token = ""\n',
+        "cloud_sync.conf": CLOUD,
+    }
+    for prefix in ("usr/config", "storage/.config") if runtime else ("usr/config",):
+        for name, data in defaults.items():
+            put(root, prefix + "/" + name, data)
+    put(root, "usr/config/cloud_sync.conf.defaults",
+        "".join("DEFAULT_" + line + "\n" for line in CLOUD.splitlines()))
+    put(root, "etc/retroarch.cfg", 'video_driver = "gl"\n')
+    # A parser fixture with an ELF header, not a functional ES executable.
+    put(root, "usr/bin/emulationstation", b"\x7fELF\x02" + b"\0" * 59)
+    if runtime:
+        put(root, "storage/roms/synthetic/gamelist.xml",
+            '<gameList><game><path>./synthetic.rom</path><name>Synthetic</name>'
+            '<playcount>0</playcount></game></gameList>')
+
+
+def shipped_locale(root, first="/usr/share/locale", second="/storage/.config/locale"):
+    # Exact ES post_install chain: absent storage target in an immutable SYSTEM.
+    (root / "usr/share").mkdir(parents=True, exist_ok=True)
+    (root / "usr/config/emulationstation/locale").symlink_to(first)
+    (root / "usr/share/locale").symlink_to(second)
+
+
+def locale_target_escape(root):
+    shipped_locale(root)
+    (root / "storage/.config").mkdir(parents=True, exist_ok=True)
+    (root / "storage/.config/locale").symlink_to("/../outside")
+
+
+def scrub_marker(root, first=SCRUB_EPOCH + 10, second=SCRUB_EPOCH + 11,
+                 files1=0, lines1=0, files2=0, lines2=0, boot=True):
+    if boot:
+        put(root, "proc/stat", "cpu 0 0 0 0\nbtime " + str(SCRUB_EPOCH) + "\nprocesses 1\n")
+        put(root, "proc/uptime", "100.00 175.00\n")
+    return put(root, "storage/.cache/cloud_sync/log-scrubbed",
+               f"scrubbed={first} files={files1} lines={lines1}\n"
+               f"es_log_scrubbed={second} files={files2} lines={lines2}\n")
+
+
+def alter_scrub(root, rewrite):
+    path = scrub_marker(root)
+    path.write_text(rewrite(path.read_text()))
+
+
+def snapshot(root):
+    # Compare synthetic fixture bytes directly in memory, never hash credentials.
+    result = {}
+    for p in root.rglob("*"):
+        meta = p.lstat()
+        if stat.S_ISLNK(meta.st_mode):
+            value = os.readlink(p)
+        elif stat.S_ISREG(meta.st_mode):
+            value = p.read_bytes() if meta.st_mode & 0o444 else None
+        else:
+            value = None
+        result[str(p.relative_to(root))] = (meta.st_mode, value)
+    return result
+
+
+def invoke(args, expected, category=None, env=None):
+    p = subprocess.run([sys.executable, "-B", str(GATE), *args], capture_output=True, timeout=45, env=env)
+    require(p.returncode == expected and not p.stderr)
+    output = p.stdout.decode()
+    require(CANARY not in output)
+    require(all(str(epoch) not in output for epoch in
+                (SCRUB_EPOCH, SCRUB_EPOCH + 10, SCRUB_EPOCH + 11)))
+    report = json.loads(output)
+    require(report["status"] == {0: "pass", 1: "blocked", 2: "error"}[expected])
+    if category:
+        require(any(row["category"] == category and row.get("count", 0) > 0
+                    for row in report["checks"]))
+    return report
+
+
+def root_controls(work):
+    rows = []
+    def case(name, mutate=None, expected=0, category=None, mode="first-boot", clear=None):
+        root = work / name
+        root.mkdir()
+        clean(root)
+        if mutate:
+            mutate(root)
+        before = snapshot(root)
+        report = invoke(["--root", str(root), "--mode", mode], expected, category)
+        if clear:
+            require(any(row["category"] == clear and row["status"] == "clear" and
+                        row["count"] == 0 and row["present"] for row in report["checks"]))
+        require(snapshot(root) == before)
+        rows.append({"case": name, "status": "pass", "state_unchanged": True})
+
+    case("clean-first-boot")
+    case("clean-image", mode="clean-image")
+    comments = '# RetroArch defaults\n\n  # video_driver = "gl"\n# cheevos_token = "' + CANARY + '"\n'
+    case("retroarch-comment-only-default", lambda r: put(r, "etc/retroarch.cfg", comments))
+    case("retroarch-comment-only-image", lambda r: put(r, "etc/retroarch.cfg", comments), mode="clean-image")
+    case("retroarch-comment-default-include", lambda r: put(r, "etc/retroarch.cfg",
+         comments + '#include "/outside/' + CANARY + '"\n'), 2)
+    case("retroarch-comment-default-reference", lambda r: put(r, "etc/retroarch.cfg",
+         comments + '#reference "/outside/' + CANARY + '"\n'), 2)
+    case("retroarch-comment-default-nul", lambda r: put(r, "etc/retroarch.cfg", comments + '\0'), 2)
+    case("retroarch-comment-default-malformed-assignment", lambda r: put(r, "etc/retroarch.cfg",
+         comments + 'video_driver="unterminated\n'), 2)
+    case("retroarch-comment-default-active-account", lambda r: put(r, "etc/retroarch.cfg",
+         comments + 'cheevos_token="' + CANARY + '"\n'), 1, "player-account")
+    case("retroarch-empty-default", lambda r: put(r, "etc/retroarch.cfg", ""), 2)
+    case("retroarch-blank-default", lambda r: put(r, "etc/retroarch.cfg", " \n\t\n"), 2)
+    case("retroarch-section-only-default", lambda r: put(r, "etc/retroarch.cfg", "[empty]\n"), 2)
+    case("retroarch-semicolon-only-default", lambda r: put(r, "etc/retroarch.cfg", "; unsupported\n"), 2)
+    case("system-comment-only-still-refuses", lambda r: put(r, "usr/config/system/configs/system.cfg", comments), 2)
+    case("cloud-comment-only-still-refuses", lambda r: put(r, "usr/config/cloud_sync.conf", comments), 2)
+    case("runtime-retroarch-comment-only-still-refuses", lambda r: put(r, "storage/.config/retroarch/retroarch.cfg", comments), 2)
+    case("shipped-locale-dangling-clean-image", shipped_locale, mode="clean-image")
+    case("shipped-locale-dangling-first-boot", shipped_locale, 2)
+    def materialized_locale(root):
+        shipped_locale(root)
+        put(root, "storage/.config/locale/en/translation.mo", b"synthetic translation")
+    case("shipped-locale-materialized", materialized_locale)
+    def locale_history(root):
+        materialized_locale(root)
+        put(root, "storage/.config/locale/gamelist.xml",
+            '<gameList><game><playcount>1</playcount></game></gameList>')
+    case("shipped-locale-materialized-history", locale_history, 1, "playcount", "clean-image")
+    case("locale-altered-first-hop", lambda r: shipped_locale(r, first="/storage/.config/locale"),
+         2, mode="clean-image")
+    case("locale-altered-second-hop", lambda r: shipped_locale(r, second="/storage/.config/other"),
+         2, mode="clean-image")
+    case("locale-first-hop-escape", lambda r: shipped_locale(r, first="../../../../../outside"),
+         2, mode="clean-image")
+    case("locale-target-escape", locale_target_escape, 2, mode="clean-image")
+    def unrelated_dangling_locale(root):
+        shipped_locale(root)
+        (root / "usr/config/emulationstation/other").symlink_to("/usr/share/locale")
+    case("locale-unrelated-dangling", unrelated_dangling_locale, 2, mode="clean-image")
+    case("never-played-zero", lambda r: put(r, "storage/roms/synthetic/gamelist.xml",
+         '<gameList><game><playcount>0</playcount><lastplayed>0</lastplayed></game></gameList>'))
+    case("identical-default-repeat", lambda r: put(r, "usr/config/system/configs/system.cfg",
+         'global.retroachievements.username=\nuzebox.integerscale=1\nuzebox.integerscale=1\n'))
+    case("es-lexical-playcount", lambda r: put(r, "storage/roms/synthetic/gamelist.xml",
+         '<gameList><game><playcount>00</playcount></game></gameList>'), 1, "playcount")
+    account = lambda root: put(root, "storage/.config/system/configs/system.cfg",
+                              "global.retroachievements.username=" + CANARY + "\n")
+    case("player-runtime", account, 1, "player-account")
+    case("retained-player", account, mode="retained-upgrade")
+    case("player-default", lambda r: put(r, "usr/config/retroarch/retroarch.cfg",
+         'cheevos_token = "' + CANARY + '"\n'), 1, "player-account", "retained-upgrade")
+    case("recovery-copy", lambda r: put(r, "storage/.config/system/configs/system.cfg.backup",
+         "global.retroachievements.token=" + CANARY + "\n"), 1, "player-account")
+    case("atomic-copy", lambda r: put(r, "storage/.config/system/configs/system.cfg.tmp.123",
+         "global.retroachievements.key=" + CANARY + "\n"), 1, "player-account")
+    case("runtime-service", lambda r: put(r, "storage/.config/emulationstation/es_settings.cfg",
+         '<config><string name="ScreenScraperDevPass" value="' + CANARY + '"/></config>'),
+         1, "developer-service-identity")
+    def compiled(root):
+        path = root / "usr/bin/emulationstation"
+        path.write_bytes(path.read_bytes() + b"\0devid=" + CANARY.encode() +
+                         b"&devpassword=" + CANARY.encode() + b"\0")
+    case("compiled-service", compiled, 1, "developer-service-identity")
+    def binary_fragments(root, fragment):
+        path = root / "usr/bin/emulationstation"
+        path.write_bytes(path.read_bytes() + fragment)
+    case("bare-runtime-fragments", lambda r: binary_fragments(r,
+         b"devid=\0&devpassword=\0z=\0&y=\0"))
+    case("compiled-ra-service", lambda r: binary_fragments(r,
+         b"z=" + CANARY.encode() + b"&y=" + CANARY.encode() + b"\0"), 1, "developer-service-identity")
+    shared = b"jelos"
+    approved = b"devid=" + shared + b"&devpassword=" + shared
+    for mode in ("clean-image", "first-boot", "retained-upgrade"):
+        case("compiled-shared-" + mode, lambda r: binary_fragments(r, b"\0" + approved + b"\0"),
+             category="approved-shared-developer-identity", mode=mode)
+    for name, fragment in (
+            ("id", b"devid=" + CANARY.encode() + b"&devpassword=" + shared),
+            ("password", b"devid=" + shared + b"&devpassword=" + CANARY.encode()),
+            ("prefix", b"other" + approved), ("suffix", approved + b"other"),
+            ("query", approved + b"&extra=value"), ("case", approved.upper().replace(b"DEVID", b"devid").replace(b"DEVPASSWORD", b"devpassword"))):
+        case("compiled-shared-refuse-" + name,
+             lambda r, fragment=fragment: binary_fragments(r, b"\0" + fragment + b"\0"),
+             1, "developer-service-identity")
+    case("compiled-shared-no-terminator", lambda r: binary_fragments(r, b"\0" + approved),
+         1, "developer-service-identity")
+    case("compiled-shared-with-private", lambda r: binary_fragments(r, b"\0" + approved +
+         b"\0devid=" + CANARY.encode() + b"&devpassword=" + CANARY.encode() + b"\0"),
+         1, "developer-service-identity")
+    case("compiled-shared-with-ra", lambda r: binary_fragments(r, b"\0" + approved +
+         b"\0z=" + CANARY.encode() + b"&y=" + CANARY.encode() + b"\0"),
+         1, "developer-service-identity")
+    case("shared-defaults-still-refused", lambda r: put(r, "usr/config/emulationstation/es_settings.cfg",
+         '<config><string name="ScreenScraperDevId" value="jelos"/>'
+         '<string name="ScreenScraperDevPass" value="jelos"/></config>'),
+         1, "developer-service-identity")
+    case("shared-player-still-refused", lambda r: put(r, "usr/config/emulationstation/es_settings.cfg",
+         '<config><string name="ScreenScraperUser" value="jelos"/>'
+         '<string name="ScreenScraperPass" value="jelos"/></config>'), 1, "player-account")
+    def remote(root):
+        put(root, "storage/.config/rclone/rclone.conf",
+            "[synthetic]\ntype = webdav\nurl = http://127.0.0.1:1\npass = " + CANARY + "\n")
+        put(root, "storage/.config/rclone/active-connection", "synthetic\n")
+    case("configured-remote", remote, 1, "configured-remote")
+    case("retained-remote", remote, mode="retained-upgrade")
+    case("encrypted-remote", lambda r: put(r, "storage/.config/rclone/rclone.conf",
+         "RCLONE_ENCRYPT_V0:\n" + CANARY), 2)
+    case("remote-missing-type", lambda r: put(r, "storage/.config/rclone/rclone.conf",
+         "[synthetic]\npass = " + CANARY + "\n"), 2)
+    stamp = lambda r: put(r, "storage/.cache/cloud_sync/last-backup", "1234567890 0\n")
+    case("completed-empty-stamp", stamp, 1, "cloud-activity")
+    case("retained-stamp", stamp, mode="retained-upgrade")
+    case("malformed-stamp", lambda r: put(r, "storage/.cache/cloud_sync/last-restore", CANARY), 2)
+    case("scrub-zero-work-current-boot", scrub_marker, clear="startup-log-scrub")
+    case("scrub-zero-work-boot-boundary", lambda r: scrub_marker(r, first=SCRUB_EPOCH), clear="startup-log-scrub")
+    case("scrub-zero-work-stale", lambda r: scrub_marker(r, first=SCRUB_EPOCH - 1), 1, "log-scrub-outside-boot")
+    case("scrub-zero-work-future", lambda r: scrub_marker(r, second=SCRUB_EPOCH + 102), 1, "log-scrub-outside-boot")
+    case("scrub-zero-work-reversed-epochs", lambda r: scrub_marker(r, first=SCRUB_EPOCH + 12), 1, "log-scrub-outside-boot")
+    case("scrub-cloud-files-present", lambda r: scrub_marker(r, files1=1), 1, "cloud-log-scrub-activity")
+    case("scrub-es-files-present", lambda r: scrub_marker(r, files2=1), 1, "cloud-log-scrub-activity")
+    case("scrub-changed-lines-present", lambda r: scrub_marker(r, lines2=1), 1, "cloud-log-scrub-activity")
+    case("scrub-missing-family", lambda r: alter_scrub(r, lambda s: s.splitlines(keepends=True)[0]), 2)
+    case("scrub-duplicate-family", lambda r: alter_scrub(r, lambda s: s.replace("es_log_scrubbed", "scrubbed")), 2)
+    case("scrub-unknown-trailing-data", lambda r: alter_scrub(r, lambda s: s + CANARY), 2)
+    case("scrub-malformed-count", lambda r: alter_scrub(r, lambda s: s.replace("files=0", "files=-1")), 2)
+    case("scrub-malformed-epoch", lambda r: scrub_marker(r, first=0), 2)
+    case("scrub-no-boot-snapshot", lambda r: scrub_marker(r, boot=False), 2)
+    def malformed_boot(root):
+        scrub_marker(root)
+        put(root, "proc/stat", "btime invalid\n")
+    case("scrub-malformed-boot-snapshot", malformed_boot, 2)
+    def duplicate_boot(root):
+        scrub_marker(root)
+        put(root, "proc/stat", ("btime " + str(SCRUB_EPOCH) + "\n") * 2)
+    case("scrub-duplicate-boot-epoch", duplicate_boot, 2)
+    def unreadable_uptime(root):
+        scrub_marker(root)
+        (root / "proc/uptime").chmod(0)
+    case("scrub-unreadable-uptime", unreadable_uptime, 2)
+    def malformed_uptime(root):
+        scrub_marker(root)
+        put(root, "proc/uptime", "-1.00 0.00\n")
+    case("scrub-malformed-uptime", malformed_uptime, 2)
+    def link_scrub(root):
+        path = scrub_marker(root)
+        target = root / "scrub-target"
+        path.rename(target)
+        path.symlink_to("/scrub-target")
+    case("scrub-marker-symlink", link_scrub, 2)
+    def renamed_scrub(root):
+        path = scrub_marker(root)
+        path.rename(path.with_name("log-scrubbed.tmp"))
+    case("scrub-other-filename-still-residue", renamed_scrub, 1, "cloud-state-residue")
+    case("scrub-clean-image-preseed", lambda r: scrub_marker(r, boot=False), 1, "preseeded-log-scrub", "clean-image")
+    case("scrub-clean-image-empty-preseed", lambda r: put(r, "storage/.cache/cloud_sync/log-scrubbed", ""),
+         1, "preseeded-log-scrub", "clean-image")
+    case("scrub-retained-history", lambda r: scrub_marker(r, first=1, second=2, files1=2, lines1=3, boot=False),
+         category="retained-log-scrub", mode="retained-upgrade")
+    case("scrub-retained-legacy-family", lambda r: put(r, "storage/.cache/cloud_sync/log-scrubbed",
+         "scrubbed=1 files=2 lines=3\n"), category="retained-log-scrub", mode="retained-upgrade")
+    case("scrub-retained-es-only", lambda r: put(r, "storage/.cache/cloud_sync/log-scrubbed",
+         "es_log_scrubbed=1 files=2 lines=3\n"), category="retained-log-scrub", mode="retained-upgrade")
+    case("scrub-retained-es-first-retry", lambda r: put(r, "storage/.cache/cloud_sync/log-scrubbed",
+         "es_log_scrubbed=1 files=2 lines=3\nscrubbed=2 files=4 lines=5\n"),
+         category="retained-log-scrub", mode="retained-upgrade")
+    case("scrub-retained-duplicate-family", lambda r: put(r, "storage/.cache/cloud_sync/log-scrubbed",
+         "es_log_scrubbed=1 files=2 lines=3\nes_log_scrubbed=2 files=4 lines=5\n"), 2, mode="retained-upgrade")
+    case("scrub-retained-unknown-family", lambda r: put(r, "storage/.cache/cloud_sync/log-scrubbed",
+         "scrubbed=1 files=2 lines=3\nunknown_scrubbed=2 files=4 lines=5\n"), 2, mode="retained-upgrade")
+    case("scrub-first-boot-es-only-refuses", lambda r: alter_scrub(r, lambda s: s.splitlines(keepends=True)[1]), 2)
+    case("scrub-first-boot-es-first-refuses", lambda r: alter_scrub(r, lambda s: ''.join(reversed(s.splitlines(keepends=True)))), 2)
+    case("scrub-retained-malformed", lambda r: put(r, "storage/.cache/cloud_sync/log-scrubbed", CANARY),
+         2, mode="retained-upgrade")
+    def history(root):
+        put(root, "storage/roms/synthetic/gamelist.xml",
+            '<gameList><game><path>./synthetic.rom</path><playcount>5</playcount>'
+            '<lastplayed>20000101T010203</lastplayed></game></gameList>')
+    case("imported-history", history, 1, "playcount")
+    case("retained-history", history, mode="retained-upgrade")
+    case("es-fallback-history", lambda r: put(r,
+         "storage/.config/emulationstation/gamelists/synthetic/gamelist.xml",
+         '<gameList><game><lastplayed>20000101T010203</lastplayed></game></gameList>'),
+         1, "lastplayed")
+    case("history-malformed-xml", lambda r: put(r, "storage/roms/synthetic/gamelist.xml",
+         "<gameList>" + CANARY), 2)
+    case("history-malformed-count", lambda r: put(r, "storage/roms/synthetic/gamelist.xml",
+         '<gameList><game><playcount>not-a-count</playcount></game></gameList>'), 2)
+    case("history-malformed-date", lambda r: put(r, "storage/roms/synthetic/gamelist.xml",
+         '<gameList><game><lastplayed>20009999T010203</lastplayed></game></gameList>'), 2)
+    case("qa-name-is-private", lambda r: put(r, "storage/qa-" + CANARY, CANARY), 1, "qa-residue")
+    case("proxy-cache", lambda r: put(r, "storage/.config/raofflineproxy/cache.sqlite", CANARY),
+         1, "account-cache-residue")
+    case("standalone-token", lambda r: put(r,
+         "storage/.config/ppsspp/PSP/SYSTEM/ppsspp_retroachievements.dat", CANARY),
+         1, "player-account-file")
+    case("standalone-ini", lambda r: put(r, "storage/.config/flycast/emu.cfg",
+         "[achievements]\nToken = " + CANARY + "\n"), 1, "player-account")
+    case("dolphin-apitoken-only", lambda r: put(r, "storage/.config/dolphin-emu/RetroAchievements.ini",
+         "[Achievements]\nApiToken = " + CANARY + "\n"), 1, "player-account")
+    case("dolphin-apitoken-default", lambda r: put(r, "usr/config/dolphin-emu/RetroAchievements.ini",
+         "[Achievements]\nApiToken = " + CANARY + "\n"), 1, "player-account", "clean-image")
+    case("dolphin-apitoken-retained", lambda r: put(r, "storage/.config/dolphin-emu/RetroAchievements.ini",
+         "[Achievements]\nApiToken = " + CANARY + "\n"), mode="retained-upgrade")
+    melon_empty = "RA_Enabled=0\nRA_Username=null\nRA_Password=null\nRA_Token=null\n"
+    case("melonds-null-default", lambda r: put(r, "usr/config/melonDS/melonDS.ini", melon_empty),
+         mode="clean-image")
+    case("melonds-null-runtime", lambda r: put(r, "storage/.config/melonDS/melonDS.ini", melon_empty))
+    case("melonds-token-only", lambda r: put(r, "storage/.config/melonDS/melonDS.ini",
+         melon_empty.replace("RA_Token=null", "RA_Token=" + CANARY)), 1, "player-account")
+    case("melonds-username-only", lambda r: put(r, "usr/config/melonDS/melonDS.ini",
+         melon_empty.replace("RA_Username=null", "RA_Username=" + CANARY)), 1, "player-account")
+    case("melonds-password-only", lambda r: put(r, "storage/.config/melonDS/melonDS.ini",
+         melon_empty.replace("RA_Password=null", "RA_Password=" + CANARY)), 1, "player-account")
+    case("melonds-quoted-null-is-populated", lambda r: put(r, "storage/.config/melonDS/melonDS.ini",
+         'RA_Token="null"\n'), 1, "player-account")
+    case("melonds-section-null-is-populated", lambda r: put(r, "storage/.config/melonDS/melonDS.ini",
+         '[Achievements]\nRA_Token=null\n'), 1, "player-account")
+    case("melonds-uppercase-null-is-populated", lambda r: put(r, "storage/.config/melonDS/melonDS.ini",
+         'RA_Token=NULL\n'), 1, "player-account")
+    case("melonds-other-key-case-null-is-populated", lambda r: put(r, "storage/.config/melonDS/melonDS.ini",
+         'ra_token=null\n'), 1, "player-account")
+    case("other-emulator-null-is-populated", lambda r: put(r, "storage/.config/flycast/emu.cfg",
+         'RA_Token=null\n'), 1, "player-account")
+    case("history-playlist", lambda r: put(r, "storage/.config/retroarch/content_history.lpl",
+         json.dumps({"items": [{"path": CANARY}]})), 1, "play-history")
+    case("missing-required", lambda r: (r / "usr/config/system/configs/system.cfg").unlink(), 2)
+    case("empty-required", lambda r: put(r, "usr/config/system/configs/system.cfg", ""), 2)
+    case("unreadable-required", lambda r: (r / "usr/config/system/configs/system.cfg").chmod(0), 2)
+    case("malformed-es", lambda r: put(r, "usr/config/emulationstation/es_settings.cfg",
+         '<config><string name="ScreenScraperPass"/></config>'), 2)
+    case("xml-entity", lambda r: put(r, "usr/config/emulationstation/es_settings.cfg",
+         '<!DOCTYPE config [<!ENTITY x "' + CANARY + '">]><config/>'), 2)
+    case("duplicate-field", lambda r: put(r, "usr/config/system/configs/system.cfg",
+         'global.retroachievements.username=\nglobal.retroachievements.username=' + CANARY), 2)
+    case("effective-override", lambda r: put(r, "storage/.config/cloud_sync.conf",
+         CLOUD.replace("--progress", "--config /outside/" + CANARY)), 2,
+         "unsupported-config-override", "retained-upgrade")
+    case("retroarch-include", lambda r: put(r, "storage/.config/retroarch/retroarch.cfg",
+         '#include "/outside/' + CANARY + '"\ncheevos_username=""\n'), 2)
+    def dangling(root):
+        p = root / "usr/config/system/configs/system.cfg"
+        p.unlink()
+        p.symlink_to("/missing")
+    case("dangling-required", dangling, 2)
+    def cycle(root):
+        p = root / "usr/config/system/configs/system.cfg"
+        p.unlink()
+        p.symlink_to("system.cfg")
+    case("symlink-cycle", cycle, 2)
+    def fifo(root):
+        p = root / "usr/config/system/configs/system.cfg"
+        p.unlink()
+        os.mkfifo(p)
+    case("fifo-required", fifo, 2)
+    invoke(["--root", str(work / "absent"), "--mode", "first-boot"], 2)
+    invoke(["--root", str(work), "--mode", CANARY], 2)
+    invoke(["--root", str(work), "--mode", "first-boot", "--require-ready"], 2)
+    rows.extend({"case": n, "status": "pass"} for n in
+                ("absent-root", "invalid-mode", "readiness-requires-guest-root"))
+    return rows
+
+
+def run(argv, stdin=None):
+    p = subprocess.run(argv, input=stdin, capture_output=True, timeout=180)
+    require(p.returncode == 0)
+    return p.stdout
+
+
+def make_tar(root, destination):
+    system = destination.with_suffix(".system")
+    run(["mksquashfs", str(root), str(system), "-noappend", "-processors", "1", "-no-progress"])
+    with tarfile.open(destination, "w") as archive:
+        archive.add(system, arcname="synthetic/target/SYSTEM", recursive=False)
+    return system
+
+
+def make_image(system, destination, contaminated=False):
+    disk = destination.with_suffix("")
+    with disk.open("xb") as stream:
+        stream.truncate(80 * 1024**2)
+    run(["sfdisk", str(disk)], b"label: dos\nstart=2048,size=65536,type=c\nstart=67584,size=65536,type=83\n")
+    fat = destination.with_suffix(".fat")
+    with fat.open("xb") as stream:
+        stream.truncate(32 * 1024**2)
+    run(["mkfs.vfat", str(fat)])
+    run(["mcopy", "-i", str(fat), str(system), "::/SYSTEM"])
+    ext = destination.with_suffix(".ext4")
+    seed = destination.with_suffix(".seed")
+    seed.mkdir()
+    (seed / ".please_resize_me").touch()
+    if contaminated:
+        (seed / "qa-state").write_text("synthetic")
+    with ext.open("xb") as stream:
+        stream.truncate(32 * 1024**2)
+    run(["mkfs.ext4", "-F", "-q", "-d", str(seed), str(ext)])
+    with disk.open("r+b") as output:
+        for source, offset in ((fat, 2048 * 512), (ext, 67584 * 512)):
+            output.seek(offset)
+            with source.open("rb") as stream:
+                shutil.copyfileobj(stream, output)
+    with disk.open("rb") as stream, gzip.open(destination, "wb") as output:
+        shutil.copyfileobj(stream, output)
+
+
+def release_bundle(parent, payload_path):
+    # Whole synthetic artifact hashes are required by the existing candidate store;
+    # no credential-field hash is computed or written.
+    commit, stamp, version = "1" * 40, "20261013T000000Z", "0.0.1-rc.1"
+    build = version + "+" + stamp + ".g" + commit[:12]
+    base = "pixelelated-GENERIC_X64.x86_64-" + build
+    bundle = parent / "incoming"
+    bundle.mkdir()
+    name = base + ".tar"
+    shutil.copyfile(payload_path, bundle / name)
+    identity = {"schema": 1, "name": "pixelelated", "dirty": "no", "release_version": version,
+                "build_timestamp": stamp, "build_commit": commit, "build_version": build,
+                "image_name": base, "device": "GENERIC_X64", "arch": "x86_64"}
+    put(bundle, base + ".identity.json", json.dumps(identity))
+    digest = hashlib.sha256((bundle / name).read_bytes()).hexdigest()
+    put(bundle, name + ".sha256", digest + "  " + name + "\n")
+    files = {p.name: {"sha256": hashlib.sha256(p.read_bytes()).hexdigest(), "bytes": p.stat().st_size}
+             for p in bundle.iterdir()}
+    manifest = json.dumps({"schema": 1, "inputs": {"distribution_commit": commit}, "files": files})
+    put(bundle, "manifest.json", manifest)
+    dest = parent / hashlib.sha256(manifest.encode()).hexdigest()
+    bundle.rename(dest)
+    return dest
+
+
+def ext4_listing_controls(work, image):
+    # Exercise the gate through its payload CLI, without importing it. Only the
+    # debugfs listing response is synthetic; the image and other readers remain
+    # real. Native clean/dirty image controls run separately before these cases.
+    shim = put(work, "debugfs-shim/debugfs", "#!" + sys.executable + "\n" + '''import json
+import os
+from pathlib import Path
+import sys
+if len(sys.argv) != 4 or sys.argv[1] != "-R":
+    sys.exit(2)
+responses = json.loads(Path(os.environ["PIX565_DEBUGFS_RESPONSE"]).read_text())
+if sys.argv[2] not in responses:
+    sys.exit(2)
+sys.stdout.write(responses[sys.argv[2]])
+''')
+    shim.chmod(0o755)
+    root = ("/2/040755/0/0/.//\n/2/040755/0/0/..//\n"
+            "/11/040700/0/0/lost+found//\n/12/100644/0/0/.please_resize_me/0/\n")
+    lost = "/11/040700/0/0/.//\n/2/040755/0/0/..//\n"
+    slots = "/0/000000/0/0//0/\n" * 3
+    cases = (
+        ("unused-slots-lost-found", "ls -p /lost+found", lost + slots, 0),
+        ("unused-slots-root", "ls -p /", root + slots, 0),
+        ("unused-slots-without-dots", "ls -p /lost+found", slots, 2),
+        ("zero-inode-named-entry", "ls -p /lost+found", lost + "/0/000000/0/0/" + CANARY + "/0/\n", 2),
+        ("zero-inode-live-mode", "ls -p /lost+found", lost + "/0/100644/0/0//0/\n", 2),
+        ("zero-inode-owner", "ls -p /lost+found", lost + "/0/000000/1/0//0/\n", 2),
+        ("zero-inode-size", "ls -p /lost+found", lost + "/0/000000/0/0//1/\n", 2),
+        ("zero-inode-short-record", "ls -p /lost+found", lost + "/0/000000/0//0/\n", 2),
+        ("zero-inode-alternate-spelling", "ls -p /lost+found", lost + "/00/000000/0/0//0/\n", 2),
+        ("unused-slot-trailing-data", "ls -p /lost+found", lost + "/0/000000/0/0//0/extra\n", 2),
+        ("live-entry-beside-unused-slots", "ls -p /lost+found",
+         lost + slots + "/13/100644/0/0/" + CANARY + "/0/\n", 1),
+    )
+    rows = []
+    for name, directory, output, expected in cases:
+        responses = {"ls -p /": root, "ls -p /lost+found": lost}
+        responses[directory] = output
+        response = put(work, "debugfs-shim/response.json", json.dumps(responses))
+        env = {**os.environ, "PATH": str(shim.parent) + os.pathsep + os.environ.get("PATH", ""),
+               "PIX565_DEBUGFS_RESPONSE": str(response)}
+        invoke(["--payload", str(image)], expected,
+               "storage-seed-residue" if expected == 1 else None, env=env)
+        rows.append({"case": "debugfs-" + name, "status": "pass", "synthetic_reader_output": True})
+    return rows
+
+
+def payload_controls(work):
+    rows = []
+    for name, contaminated in (("clean", False), ("contaminated", True)):
+        root = work / (name + "-root")
+        root.mkdir()
+        clean(root, runtime=False)
+        shipped_locale(root)
+        put(root, "etc/retroarch.cfg", '# Synthetic upstream-style defaults\n# video_driver = "gl"\n')
+        if contaminated:
+            put(root, "usr/config/system/configs/system.cfg",
+                "global.retroachievements.username=" + CANARY + "\n")
+        tar = work / (name + ".tar")
+        system = make_tar(root, tar)
+        report = invoke(["--payload", str(tar)], 1 if contaminated else 0,
+                        "player-account" if contaminated else None)
+        require(any(row["category"] == "runtime-locale-deferred" and row["status"] == "clear"
+                    for row in report["checks"]))
+        rows.append({"case": "tar-" + name + "-shipped-locale", "status": "pass"})
+        if not contaminated:
+            invoke(["--payload", str(tar)], 2, env={**os.environ, "PATH": "/nonexistent"})
+            rows.append({"case": "missing-payload-reader", "status": "pass"})
+        parent = work / (name + "-bundle")
+        parent.mkdir()
+        bundle = release_bundle(parent, tar)
+        p = subprocess.run([sys.executable, "-B", str(HERE / "fork-publish-release"),
+                            "--prepare", str(bundle)], capture_output=True, timeout=180)
+        require(CANARY.encode() not in p.stdout + p.stderr)
+        require(p.returncode == (1 if contaminated else 0))
+        if not contaminated:
+            plan = json.loads(p.stdout)
+            require(plan["publication_performed"] is False and plan["draft"] is True)
+            require(len(plan["selected_state_inspection"]) == 1)
+            for dirty_storage in (False, True):
+                image = work / ("dirty-storage.img.gz" if dirty_storage else "clean.img.gz")
+                make_image(system, image, dirty_storage)
+                invoke(["--payload", str(image)], 1 if dirty_storage else 0,
+                       "storage-seed-residue" if dirty_storage else None)
+                rows.append({"case": "image-dirty-storage" if dirty_storage else "image-clean",
+                             "status": "pass"})
+            rows += ext4_listing_controls(work, work / "clean.img.gz")
+        rows.append({"case": "prepare-" + name, "status": "pass"})
+    for name, mutate in (("locale-altered-second-hop", lambda r: shipped_locale(
+            r, second="/storage/.config/other")), ("locale-target-escape", locale_target_escape)):
+        root = work / (name + "-payload-root")
+        root.mkdir()
+        clean(root, runtime=False)
+        mutate(root)
+        path = work / (name + ".tar")
+        make_tar(root, path)
+        invoke(["--payload", str(path)], 2)
+        rows.append({"case": "tar-" + name, "status": "pass"})
+    root = work / "preseeded-scrub-root"
+    root.mkdir()
+    clean(root, runtime=False)
+    shipped_locale(root)
+    scrub_marker(root, boot=False)
+    path = work / "preseeded-scrub.tar"
+    make_tar(root, path)
+    invoke(["--payload", str(path)], 1, "preseeded-log-scrub")
+    rows.append({"case": "tar-zero-work-scrub-preseed-refused", "status": "pass"})
+    # Regression for unsquashfs cat_scan fnmatch: bracketed and matching literal
+    # sibling coexist, but only the bracketed file is contaminated. Reading the
+    # clean match or skipping the unsupported spelling must not produce a pass.
+    root = work / "literal-reader-root"
+    root.mkdir()
+    clean(root, runtime=False)
+    shipped_locale(root)
+    put(root, "usr/config/system/configs/system.cfg.bak[1]",
+        "global.retroachievements.token=" + CANARY + "\n")
+    put(root, "usr/config/system/configs/system.cfg.bak1",
+        "global.retroachievements.token=\n")
+    path = work / "literal-reader.tar"
+    make_tar(root, path)
+    report = invoke(["--payload", str(path)], 1, "player-account")
+    require(any(row["path"] == "/usr/config/system/configs/system.cfg.*" and
+                row["category"] == "player-account" and row["count"] == 1 and
+                row["status"] == "blocked" for row in report["checks"]))
+    rows.append({"case": "tar-literal-bracketed-recovery-file", "status": "pass"})
+    parent = work / "literal-reader-bundle"
+    parent.mkdir()
+    bundle = release_bundle(parent, path)
+    p = subprocess.run([sys.executable, "-B", str(HERE / "fork-publish-release"),
+                        "--prepare", str(bundle)], capture_output=True, timeout=180)
+    require(p.returncode == 1 and CANARY.encode() not in p.stdout + p.stderr)
+    rows.append({"case": "prepare-literal-bracketed-recovery-file", "status": "pass"})
+    for name, members in (("missing-system", [("synthetic/target/KERNEL", b"not-system")]),
+                          ("invalid-squashfs", [("synthetic/target/SYSTEM", b"not-system")]),
+                          ("traversal", [("../SYSTEM", b"not-system")]),
+                          ("duplicate-system", [("synthetic/target/SYSTEM", b"x")] * 2)):
+        path = work / (name + ".tar")
+        with tarfile.open(path, "w") as archive:
+            for member_name, data in members:
+                member = tarfile.TarInfo(member_name)
+                member.size = len(data)
+                archive.addfile(member, io.BytesIO(data))
+        invoke(["--payload", str(path)], 2)
+        rows.append({"case": name, "status": "pass"})
+    bad = put(work, "invalid.img.gz", b"not-gzip")
+    invoke(["--payload", str(bad)], 2)
+    unknown = put(work, "unknown.bin", b"synthetic")
+    invoke(["--payload", str(unknown)], 2)
+    rows.extend({"case": n, "status": "pass"} for n in ("invalid-gzip", "unsupported-payload"))
+    return rows
+
+
+def prepare_guest(path):
+    # Source travels inline through the serial helper, leaving no fixture in /storage.
+    encoded = base64.b64encode(GATE.read_bytes()).decode()
+    script = """#!/bin/sh
+set -u
+python3 -B -c 'import base64; exec(compile(base64.b64decode(""" + json.dumps(encoded) + """), "<state-check>", "exec"))' --root / --mode first-boot --require-ready
+rc=$?
+echo "PIX_STATE_565_RC=$rc"
+exit "$rc"
+"""
+    with path.open("x") as stream:
+        stream.write(script)
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--self-test", action="store_true")
+    mode.add_argument("--payload-tests", action="store_true")
+    mode.add_argument("--prepare-guest-script", type=Path)
+    args = parser.parse_args()
+    if args.prepare_guest_script:
+        prepare_guest(args.prepare_guest_script)
+        print("prepared first-boot script; not executed")
+        return 0
+    if args.payload_tests:
+        require(all(shutil.which(name) for name in ("mksquashfs", "unsquashfs", "sfdisk", "mcopy",
+                                                  "mkfs.vfat", "mkfs.ext4", "e2fsck", "debugfs")))
+    with tempfile.TemporaryDirectory(prefix="pix565-controls-") as directory:
+        work = Path(directory)
+        rows = root_controls(work)
+        if args.payload_tests:
+            rows += payload_controls(work)
+    print(json.dumps({"schema": 1, "status": "pass", "control_count": len(rows), "controls": rows}, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        sys.exit(main())
+    except Exception:
+        print('{"schema":1,"status":"error","category":"fixture-or-reader-failure"}')
+        sys.exit(2)

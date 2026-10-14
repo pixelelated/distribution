@@ -505,17 +505,17 @@ present in the build environment: `SCREENSCRAPER_DEV_LOGIN`
 a member login is not accepted in its place), `CHEEVOS_DEV_LOGIN`
 (`z=<user>&y=<web API key>`, per RetroAchievements account), `GAMESDB_APIKEY`,
 `HFS_DEV_LOGIN`. Without them the matching scraper is not built — **except
-ScreenScraper on fork builds**: since #64 (2026-09-05) the package sets
-`SCREENSCRAPER_RUNTIME_DEV_LOGIN`, the scraper is always built, and the
-developer pair is typed on the device under the scraper's ACCOUNTS tab beside the
-account (DEVELOPER ID / DEVELOPER PASSWORD, held back from settings backups).
-That describes the current recipe, not the newly selected release behavior.
-D-WORKFLOW-166 selects the existing shared JELOS developer identity for interim
-provisioning under #566, so ordinary players need only their own separate account.
+ScreenScraper on fork builds**: #64 enables `SCREENSCRAPER_RUNTIME_DEV_LOGIN`,
+so the scraper remains available without a compiled pair. Under #566 /
+D-WORKFLOW-166, pre_configure_target supplies the selected shared JELOS developer
+identity when no explicit build override is set. Existing compiled-pair precedence
+hides developer-entry rows; the player's account remains separate. An intentional
+local override still works but does not receive the shared-identity release-check
+exception. A build without a compiled pair retains the runtime developer rows.
 #586 tracks replacement credentials later; it is not a current-candidate gate.
-Provisioning, applicable credential checks and source-bound UI/backup/clean/upgrade
-proof remain due. Do not embed personal player credentials or treat the interim
-choice as a blanket exception for other keys.
+Recipe selection and selected-state controls passed on the VM; actual rebuilt
+binary, UI/frame, backup and clean/upgrade image qualification remain under #566.
+Never embed personal player credentials as the developer default.
 
 They live in **`~/.ROCKNIX/options`, mode 0600, as `export` lines** — the
 Makefile includes that file on the host and in the container. Nothing else
@@ -533,8 +533,10 @@ Current controls and the historical guard boundary:
 - The ES recipe logs `USING: <key> (set)`, never the value.
 - D-INFRA-007 describes a historical binary-credential guard. The current
   `tools/fork-publish-release --prepare` only prepares a release plan and runs
-  #565's selected-state inspection; it explicitly leaves credential surfaces
-  outside that policy as a remaining gate. Do not claim the old binary scan or
+  #565's selected-state inspection, including known compiled ScreenScraper/RA
+  pair patterns. #566 allows only the exact NUL-delimited shared developer pair
+  in the ES ELF, not seeded settings or personal accounts. Credential surfaces
+  outside that selected policy remain a separate gate. Do not claim the old binary scan or
   `FORK_ALLOW_EMBEDDED_CREDENTIALS` override still executes. #566 must qualify
   actual artifact checks for the chosen provisioning route, preserving private
   credential exclusions rather than disabling checks broadly.

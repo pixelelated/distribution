@@ -1,0 +1,42 @@
+{
+  "volume": "/workspace",
+  "scan_roots": [
+    "/workspace/tmp/pix566-vm-20261014a/scan"
+  ],
+  "reference_stores": [],
+  "protected": [
+    "/workspace/tmp/pix566-vm-20261014a/records",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/host-maintenance",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261011T194522Z.g1a0266484423-from-ROCKNIX.img.gz"
+  ],
+  "candidates": [],
+  "builds": [
+    {
+      "name": "m7-screenscraper-root-recipe-vm",
+      "terms_bytes": {
+        "sparse_raw_allowance": 4333764608,
+        "guest_disk": 17179869184,
+        "input_output_records": 536870912
+      },
+      "basis": "Accepted VM20 image measured raw size and16GiB logical guest; previous equivalent guest allocation2.63GB actual. Fresh no-NIC8GiB/4CPU GLauto640x480,15min ceiling. Source-only gate root and recipe subprocess controls; no compiler, service authentication, owner data or device. Retire disks after stopped result export.",
+      "evidence": [
+        {
+          "path": "/workspace/tmp/pix566-vm-20261014a/records/image-size.json",
+          "sha256": "33419eb48e80d3b5f728711713c65ea9eb23d740879aac229f30429afcce0fb2"
+        },
+        {
+          "path": "/workspace/tmp/pix566-vm-20261014a/records/inputs.json",
+          "sha256": "98a8b30ea0eff5b54de79c6abd1cad21210f8516603844683e62967bcd59d1fe"
+        },
+        {
+          "path": "/workspace/tmp/pix566-vm-20261014a/vm-lifecycle.py",
+          "sha256": "7a7db8834226918b04e19ddad960a21722533c432462f1ea5facad0b0ac6d33d"
+        },
+        {
+          "path": "/workspace/tmp/pix566-vm-20261014a/run-guest.sh",
+          "sha256": "768dd94509d6b7dea747fa5d10f0748e03fb766545b05db12fc1c823041902a3"
+        }
+      ]
+    }
+  ]
+}

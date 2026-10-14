@@ -1,0 +1,14 @@
+{
+  "status": "failed-investigated",
+  "original_rc": 1,
+  "reason": "Nested report Python contained an unescaped newline in a string literal. Finally stopped QEMU without flushing the mounted output; stopped-disk debugfs inventory has no checks directory. No test pass is accepted from this attempt.",
+  "pids_absent": [
+    86990,
+    87042,
+    86991,
+    87446,
+    86989,
+    83182
+  ],
+  "retry": "Fresh owner and disk, raw heredoc preservation plus finally sync/unmount before stop. Candidate source remains19221f4762."
+}

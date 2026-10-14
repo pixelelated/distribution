@@ -1,0 +1,31 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T052201Z-111f0f00",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 566,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix566-vm-20261014b/vm",
+      "release_when": "After original lifecycle/watcher/launcher results and exact guest exit, export compact source/results then retire guest, media and UEFI; no VM history."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-screenscraper-provisioning/attempt02/guest/checks/result.json",
+      "sha256": "b90813a160c8938362572e480647ebaea7947738b7423920802f17fbb161811e"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-screenscraper-provisioning/attempt02/vm-result.json",
+      "sha256": "d4c4ca60563fe0b62159090cfe9cd24dcae4cef3d21cc2e167321b9f7fc8d282"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-screenscraper-provisioning/attempt02/host-exits.json",
+      "sha256": "adc5e14410a630f023b13a41184b3ed9c0a1d8cfefc65babfa0c473e3c692bd9"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-screenscraper-provisioning/attempt02/unmount-640x480.txt",
+      "sha256": "1e24ec7421d8cdbfc285a8a42cfb7db254151dc28eea49c63202154319be7a13"
+    }
+  ]
+}

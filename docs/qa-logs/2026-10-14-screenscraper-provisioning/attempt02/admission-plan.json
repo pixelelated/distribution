@@ -1,0 +1,21 @@
+{
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+  "retention_plan": "/workspace/tmp/pix566-vm-20261014b/retention-plan.json",
+  "retention_report": "/workspace/tmp/pix566-vm-20261014b/retention-report.json",
+  "stage": "m7-screenscraper-root-recipe-vm",
+  "profiles": [
+    {
+      "PROJECT": "ROCKNIX",
+      "DEVICE": "GENERIC_X64",
+      "ARCH": "x86_64"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "/workspace/tmp/pix566-vm-20261014b/vm",
+      "issue": 566,
+      "kind": "qa-scratch",
+      "release_when": "After original lifecycle/watcher/launcher results and exact guest exit, export compact source/results then retire guest, media and UEFI; no VM history."
+    }
+  ]
+}

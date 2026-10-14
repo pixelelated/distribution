@@ -1,6 +1,6 @@
 # Saved Session State
 
-Updated 2026-10-14 05:04 UTC. Continue M7 toward the next 0.0.1 candidate.
+Updated 2026-10-14 05:28 UTC. Continue M7 toward the next 0.0.1 candidate.
 
 Coordinator Herdr `w4:p2` owns `/workspace/repos/rocknix.worktrees/m7-player-setup`,
 branch `feature/m7-player-setup`. Published `next` remains
@@ -9,8 +9,9 @@ branch `feature/m7-player-setup`. Published `next` remains
 engineering-practices addition D-WORKFLOW-164, today's work log and live milestone7.
 Git history identifies the final local record commit; it has not been pushed.
 
-No production script/pin, firmware, RC designation, device/cloud/account/save
-operation, external audit transfer or upstream submission occurred in this continuation.
+ScreenScraper recipe and selected-state candidate19221 is local with scoped VM
+proof. No ES pin, firmware, RC designation, device/cloud/account/save operation,
+external audit transfer or upstream submission occurred in this continuation.
 
 ## Runtime is complete and retired
 
@@ -77,16 +78,19 @@ English640 long-card-path frame and native engines remain; #567 four native ES
 API branches pass with simulated ctl, actual proxy/UI/image qualification remains.
 Actual ESbb9e/SHA8752... is separate from production c8dc72. Original failures stay.
 
-## Existing Herdr source lanes — no runtime rights
+## Existing Herdr source lanes — active source-only continuation
 
-- `w4:p8` pix-memory owns `m7-browser-memory-570`; complete and idle after
-  c22554a4c0966d48ba405ef1640938d2a417817b and
-  3a65a2d4d274105cd5a1b2e72c44450f7dbbdafe. Original819 and revision22cf are retained.
-- `w4:p9` pix-nova owns `m7-rvz-regressions-574`; complete and idle after
-  a58b2313845a824af1dfe150a77b610dd38c0213. Source0962 and recovery8568 are imported.
-  Independent format plan1c0e93b4b34501928c79f9ade5b2b4c1442331a4 remains UNRUN.
-- `w4:p7` pix-gtk4 owns `m7-steam-preservation-integration`; complete and idle
-  after decision packet153f0663eb6de8467e873996db81042a969ac0c6. No runtime granted.
+- `w4:p8` pix-memory owns `m7-browser-memory-570`; active on a native proxy/hash/
+  cache/award/reconnect fixture, reusing prior qualified modules. Source only,
+  runtime held. Last sealed source3a65a2d4; new packet not yet returned.
+- `w4:p9` pix-nova owns `m7-rvz-regressions-574`; active on the minimal source
+  export/Dolphin-configure runner for plan1c0e93. Coordinator requested this
+  tranche first to start real tool compilation; later CHD/link closure can follow.
+  Source only; no export/configure/build granted yet. Last sealed sourcea58b2313.
+- `w4:p7` pix-gtk4 owns `m7-steam-preservation-integration`; active on #582
+  transaction source/full-caller fixtures. Preserve legacy/self-updated clients
+  and post-profile STEAM_DOT overrides; structure recognition is not native
+  readiness. Last sealed decision153f0663. No runtime granted.
 
 Startup directories may be historical; these explicit assignments govern. Reuse
 the visible lanes, no internal subagents. Coordinator owns runtime, admissions,
@@ -145,3 +149,21 @@ Default LED preference; its original writer remains unknown. #568's backlog
 question is phase attribution (last-game work versus later image/cache work),
 not a pending owner wording choice. M7 and issue bodies have verified readback.
 No runtime, device action, upstream submission or push in this clarification.
+
+## Latest completed runtime — ScreenScraper #566 (05:22 UTC)
+
+Candidate19221f4762298b10e44a08f2c3e7371c7ddeb0d1 supplies the shared JELOS
+developer default while preserving explicit local overrides. Its selected-state
+gate allows only that exact NUL-delimited compiled pair; personal/default/RA
+credentials remain excluded.127 root-policy and4 recipe VM controls pass;
+unchanged baseline failures are separately retained. Actual rebuilt ES/UI/frames,
+backup and clean/upgrade image checks remain due; no provider call or pin move.
+
+Both new owners `/workspace/tmp/pix566-vm-20261014a` and `...b` are complete,
+admissions consumed and all recorded PIDs absent. Disks/media/UEFI removed:
+4,554,809,344bytes. Do not reuse their ports, owners or allocations. attempt01
+remains1 (report quoting and unflushed output); corrected attempt02 original
+lifecycle/runner/watcher/launcher0. Compact evidence lives in
+docs/qa-logs/2026-10-14-screenscraper-provisioning/. No current runtime.
+M7/#566 tracker results verified; #561 retains the source-level interrupted
+warning-flash lead without attributing the historical red preference to a test.
