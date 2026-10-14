@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "stage": "dolphin-export",
+  "started": 1791957013.3557496,
+  "original_attach_exit": 0,
+  "container_result_sha256": "8e4f5d1448e0e82970c1ad35132e81b396b84903776747e20270c4506ca24865",
+  "cleanup": {
+    "status": "PASS",
+    "forced_stop": false,
+    "started": 1791957016.790248,
+    "initial": {
+      "id": "d7a147bf4d40bdc1ccfa95ae461c09f52496750acb078dfd4f6351a7233eca64",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "2026-10-14T05:50:16.462188112Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 0,
+        "Restarting": false,
+        "Running": false,
+        "StartedAt": "2026-10-14T05:50:13.57212098Z",
+        "Status": "exited"
+      },
+      "labels": {
+        "org.opencontainers.image.version": "22.04",
+        "pix574.owner": "224150167b65136b2e53b44229670db1",
+        "pix574.stage": "dolphin-export"
+      },
+      "memory": 4294967296,
+      "nano_cpus": 2000000000
+    },
+    "container_terminal_state": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 0,
+      "FinishedAt": "2026-10-14T05:50:16.462188112Z",
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 0,
+      "Restarting": false,
+      "Running": false,
+      "StartedAt": "2026-10-14T05:50:13.57212098Z",
+      "Status": "exited"
+    },
+    "exact_cid": "d7a147bf4d40bdc1ccfa95ae461c09f52496750acb078dfd4f6351a7233eca64",
+    "exact_id_absent": true,
+    "observed_host_processes": [
+      {
+        "pid": 238064,
+        "start_ticks": 104869759,
+        "state": "S",
+        "pgrp": 238064,
+        "session": 238064,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 238095,
+        "start_ticks": 104869785,
+        "state": "R",
+        "pgrp": 238095,
+        "session": 238095,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 238121,
+        "start_ticks": 104869866,
+        "state": "R",
+        "pgrp": 238121,
+        "session": 238121,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      }
+    ],
+    "survivors": [],
+    "remaining_cgroup_pids": [],
+    "ended": 1791957017.0191681
+  },
+  "original_container_exit": 0,
+  "watchdog_original_exit": 0,
+  "ended": 1791957017.4344277,
+  "final_disk": {
+    "allocated_bytes": 214507520,
+    "apparent_bytes": 177896770
+  }
+}

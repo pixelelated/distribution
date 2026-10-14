@@ -1,0 +1,127 @@
+{
+  "status": "FAIL",
+  "stage": "dolphin-configure",
+  "started": 1791957695.9987617,
+  "original_attach_exit": 1,
+  "container_result_sha256": "699c141578f7cb2f0f39dfaaf383d3fcb186a561afb964f3b15180cd4ea1316b",
+  "error": "RuntimeError('original child/container failure')",
+  "cleanup": {
+    "status": "PASS",
+    "forced_stop": false,
+    "started": 1791957701.566364,
+    "initial": {
+      "id": "222b484d060e319d126208aa0cb4273b1837e029882c1fdbf80a64ce8d1d8e5c",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 1,
+        "FinishedAt": "2026-10-14T06:01:41.238248638Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 0,
+        "Restarting": false,
+        "Running": false,
+        "StartedAt": "2026-10-14T06:01:36.276216038Z",
+        "Status": "exited"
+      },
+      "labels": {
+        "org.opencontainers.image.version": "22.04",
+        "pix574.owner": "d3eeb7ae3c50f7ae1ff3477879459a4e",
+        "pix574.stage": "dolphin-configure"
+      },
+      "memory": 4294967296,
+      "nano_cpus": 2000000000
+    },
+    "container_terminal_state": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 1,
+      "FinishedAt": "2026-10-14T06:01:41.238248638Z",
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 0,
+      "Restarting": false,
+      "Running": false,
+      "StartedAt": "2026-10-14T06:01:36.276216038Z",
+      "Status": "exited"
+    },
+    "exact_cid": "222b484d060e319d126208aa0cb4273b1837e029882c1fdbf80a64ce8d1d8e5c",
+    "exact_id_absent": true,
+    "observed_host_processes": [
+      {
+        "pid": 293299,
+        "start_ticks": 104938029,
+        "state": "S",
+        "pgrp": 293299,
+        "session": 293299,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 293337,
+        "start_ticks": 104938131,
+        "state": "S",
+        "pgrp": 293337,
+        "session": 293337,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 293385,
+        "start_ticks": 104938150,
+        "state": "S",
+        "pgrp": 293337,
+        "session": 293337,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 293386,
+        "start_ticks": 104938150,
+        "state": "S",
+        "pgrp": 293386,
+        "session": 293337,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 293387,
+        "start_ticks": 104938150,
+        "state": "S",
+        "pgrp": 293386,
+        "session": 293337,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 293388,
+        "start_ticks": 104938150,
+        "state": "S",
+        "pgrp": 293386,
+        "session": 293337,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 293389,
+        "start_ticks": 104938150,
+        "state": "R",
+        "pgrp": 293386,
+        "session": 293337,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 294537,
+        "start_ticks": 104938351,
+        "state": "R",
+        "pgrp": 293337,
+        "session": 293337,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      }
+    ],
+    "survivors": [],
+    "remaining_cgroup_pids": [],
+    "ended": 1791957701.745452
+  },
+  "original_container_exit": 1,
+  "watchdog_original_exit": 0,
+  "ended": 1791957702.0599222,
+  "final_disk": {
+    "allocated_bytes": 220459008,
+    "apparent_bytes": 183465700
+  }
+}

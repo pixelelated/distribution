@@ -1,0 +1,35 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T060716Z-e6300d84",
+  "expected_rc": 1,
+  "disposition": "failed-investigated",
+  "outputs": [
+    {
+      "issue": 582,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix582-client-vm-20261014-01/vm",
+      "release_when": "Export exact original first-caller/guard/lifecycle results from stopped output, verify all host exits, then retire guest/media/UEFI; no history disk."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt01/result.json",
+      "sha256": "46042348ce51c28b1fd0e04b9dc6fd05be22cf0a9e0beee5969c796a5be6e9eb"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt01/host-exits.json",
+      "sha256": "5f5e9db6cb39035f5e1b5d02a41ecf1c846a30b3c90a228326d7a94f1e13625a"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt01/vm-result.json",
+      "sha256": "70ca6067cdc6be70e478da6799e57a946b39b8105338e5bda51696e891268e83"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt01/finally-flush.txt",
+      "sha256": "a8423f256116f3d8e0408feacdd1bf3bae755278ef6914e88e4ce3e9316d9700"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt01/original-records.json",
+      "sha256": "081d08fc5d2486bc47ffc32a44b00b390e48a37bc2e87686376ed0bbb5b4c431"
+    }
+  ]
+}

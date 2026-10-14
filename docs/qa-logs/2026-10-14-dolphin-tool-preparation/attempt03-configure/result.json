@@ -1,0 +1,247 @@
+{
+  "status": "FAIL",
+  "stage": "dolphin-configure",
+  "started": 1791957069.1124983,
+  "original_attach_exit": 1,
+  "container_result_sha256": "7fdf4c3a0d46f471a617d2d145dbfc6fe5831291aeed4bd505349593e9a413bf",
+  "error": "RuntimeError('original child/container failure')",
+  "cleanup": {
+    "status": "PASS",
+    "forced_stop": false,
+    "started": 1791957075.6947098,
+    "initial": {
+      "id": "8597e6da55ec099b90d65d46e96853980e8b5a54d5f224bda648acc8a55c1f03",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 1,
+        "FinishedAt": "2026-10-14T05:51:14.772614673Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 0,
+        "Restarting": false,
+        "Running": false,
+        "StartedAt": "2026-10-14T05:51:09.384613158Z",
+        "Status": "exited"
+      },
+      "labels": {
+        "org.opencontainers.image.version": "22.04",
+        "pix574.owner": "1748a51f804613cd6935ccf5dd9fcf64",
+        "pix574.stage": "dolphin-configure"
+      },
+      "memory": 4294967296,
+      "nano_cpus": 2000000000
+    },
+    "container_terminal_state": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 1,
+      "FinishedAt": "2026-10-14T05:51:14.772614673Z",
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 0,
+      "Restarting": false,
+      "Running": false,
+      "StartedAt": "2026-10-14T05:51:09.384613158Z",
+      "Status": "exited"
+    },
+    "exact_cid": "8597e6da55ec099b90d65d46e96853980e8b5a54d5f224bda648acc8a55c1f03",
+    "exact_id_absent": true,
+    "observed_host_processes": [
+      {
+        "pid": 243329,
+        "start_ticks": 104875341,
+        "state": "S",
+        "pgrp": 243329,
+        "session": 243329,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 243368,
+        "start_ticks": 104875442,
+        "state": "S",
+        "pgrp": 243368,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 243386,
+        "start_ticks": 104875457,
+        "state": "S",
+        "pgrp": 243368,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 243387,
+        "start_ticks": 104875457,
+        "state": "S",
+        "pgrp": 243368,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 243390,
+        "start_ticks": 104875463,
+        "state": "S",
+        "pgrp": 243368,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 243391,
+        "start_ticks": 104875463,
+        "state": "R",
+        "pgrp": 243368,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 243775,
+        "start_ticks": 104875563,
+        "state": "S",
+        "pgrp": 243368,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 243776,
+        "start_ticks": 104875563,
+        "state": "S",
+        "pgrp": 243776,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 243777,
+        "start_ticks": 104875563,
+        "state": "S",
+        "pgrp": 243776,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 243778,
+        "start_ticks": 104875563,
+        "state": "S",
+        "pgrp": 243776,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 243779,
+        "start_ticks": 104875563,
+        "state": "R",
+        "pgrp": 243776,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 244518,
+        "start_ticks": 104875659,
+        "state": "S",
+        "pgrp": 243368,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 244524,
+        "start_ticks": 104875661,
+        "state": "S",
+        "pgrp": 244524,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 244525,
+        "start_ticks": 104875661,
+        "state": "S",
+        "pgrp": 244524,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 244526,
+        "start_ticks": 104875661,
+        "state": "S",
+        "pgrp": 244524,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 244527,
+        "start_ticks": 104875661,
+        "state": "S",
+        "pgrp": 244524,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 244528,
+        "start_ticks": 104875661,
+        "state": "R",
+        "pgrp": 244524,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 244933,
+        "start_ticks": 104875761,
+        "state": "S",
+        "pgrp": 243368,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 244939,
+        "start_ticks": 104875763,
+        "state": "S",
+        "pgrp": 244939,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 244940,
+        "start_ticks": 104875763,
+        "state": "S",
+        "pgrp": 244939,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 244941,
+        "start_ticks": 104875763,
+        "state": "S",
+        "pgrp": 244939,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 244942,
+        "start_ticks": 104875763,
+        "state": "S",
+        "pgrp": 244939,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 244943,
+        "start_ticks": 104875763,
+        "state": "R",
+        "pgrp": 244939,
+        "session": 243368,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      }
+    ],
+    "survivors": [],
+    "remaining_cgroup_pids": [],
+    "ended": 1791957075.8908288
+  },
+  "original_container_exit": 1,
+  "watchdog_original_exit": 0,
+  "ended": 1791957076.2054236,
+  "final_disk": {
+    "allocated_bytes": 220438528,
+    "apparent_bytes": 183458142
+  }
+}

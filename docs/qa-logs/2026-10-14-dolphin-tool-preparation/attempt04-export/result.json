@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "stage": "dolphin-export",
+  "started": 1791957654.2146435,
+  "original_attach_exit": 0,
+  "container_result_sha256": "9ed335abb5195c439e17e064f8832b348d298944ebb9be6e069776fd8c5eecf1",
+  "cleanup": {
+    "status": "PASS",
+    "forced_stop": false,
+    "started": 1791957657.7025452,
+    "initial": {
+      "id": "267a9ca705a9cd66f5a8609193890df529427ad4b8c9c616203b0bacf7b6e2c6",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "2026-10-14T06:00:57.088411866Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 0,
+        "Restarting": false,
+        "Running": false,
+        "StartedAt": "2026-10-14T06:00:54.48035554Z",
+        "Status": "exited"
+      },
+      "labels": {
+        "org.opencontainers.image.version": "22.04",
+        "pix574.owner": "b8e41a0938ed0bc85c33c6260719cd0a",
+        "pix574.stage": "dolphin-export"
+      },
+      "memory": 4294967296,
+      "nano_cpus": 2000000000
+    },
+    "container_terminal_state": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 0,
+      "FinishedAt": "2026-10-14T06:00:57.088411866Z",
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 0,
+      "Restarting": false,
+      "Running": false,
+      "StartedAt": "2026-10-14T06:00:54.48035554Z",
+      "Status": "exited"
+    },
+    "exact_cid": "267a9ca705a9cd66f5a8609193890df529427ad4b8c9c616203b0bacf7b6e2c6",
+    "exact_id_absent": true,
+    "observed_host_processes": [
+      {
+        "pid": 289372,
+        "start_ticks": 104933851,
+        "state": "R",
+        "pgrp": 289372,
+        "session": 289372,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 289399,
+        "start_ticks": 104933867,
+        "state": "R",
+        "pgrp": 289399,
+        "session": 289399,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      }
+    ],
+    "survivors": [],
+    "remaining_cgroup_pids": [],
+    "ended": 1791957657.8807101
+  },
+  "original_container_exit": 0,
+  "watchdog_original_exit": 0,
+  "ended": 1791957658.2954216,
+  "final_disk": {
+    "allocated_bytes": 214507520,
+    "apparent_bytes": 177896435
+  }
+}

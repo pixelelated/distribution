@@ -1,0 +1,71 @@
+{
+  "reviewed_commit": "a057a2a7e94c372642fd66ff9795125487f1fa75",
+  "baseline_commit": "c6240ed3984a2b2c2e67f1df9fa0ddc3c37889a2",
+  "evidence_level": "read-only source/AST/hash review; no fixture import/execution or runtime",
+  "source_sha256": {
+    "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh": "7a46ace9ea0a8f1c9509380e2826fcef318ae0f211f7fee6900ddb7c6735aa9b",
+    "docs/qa-logs/2026-10-14-steam-client-transaction-source/README.md": "0faea758c688fc41989b0433f1d4dc043c7156a3abf71267021c1f7a1fc08350",
+    "docs/qa-logs/2026-10-14-steam-client-transaction-source/criteria.md": "aa2f9e77910f35ca6d1d19e01b1821ccbedc0927a2b60cadf9dadeb1cf2a5362",
+    "docs/qa-logs/2026-10-14-steam-client-transaction-source/acceptance-intake.json": "73276fe10a945a8b4bfac3f1b7169fd6cbf514dd26bb0790220550fa16ec9d7a",
+    "docs/qa-logs/2026-10-14-steam-client-transaction-source/source.json": "325a80c399d5593f7f6d4cbefcfd2bacfc28dcaea904f97337998d413d6db5e9",
+    "docs/qa-logs/2026-10-14-steam-client-transaction-source/client-helper.py": "30ef39ac2a29b129ffe62893f8f1c3c697b9abef0e7c3ee98908ee278a465319",
+    "docs/qa-logs/2026-10-14-steam-client-transaction-source/fixture.py": "095632e700638b8253d60f2cccea7d28491802f25e22c0cf9cb936f3e36a0439",
+    "docs/qa-logs/2026-10-14-steam-client-transaction-source/boundary.py": "28a48f8fb00c72ad933c4a4a767ae495575313637ba5510a9df625365190fd3b",
+    "docs/qa-logs/2026-10-14-steam-client-transaction-source/python-boundary.py": "d6e363d4b2e9117db5c40ba40b9f582147efdfbb830868a4d392b1ce29c239d6"
+  },
+  "helper_body_sha256": "903d0859ee3ffc45ba18301bd6b948fcfba48c950c2a9fbe0ea9f843763168ab",
+  "helper_stdin_sha256": "30ef39ac2a29b129ffe62893f8f1c3c697b9abef0e7c3ee98908ee278a465319",
+  "helper_exact_embedded_copy": true,
+  "non_client_functions_byte_identical": [
+    "steam_root_layout",
+    "fetch_proton_latest_release",
+    "ensure_fex_rootfs",
+    "link_steam_library",
+    "ensure_steam_desktop_stub",
+    "install_steam_runtime_arm64",
+    "install_bundled_proton_files",
+    "install_proton_variant",
+    "install_proton_cachyos",
+    "install_proton_ge",
+    "run_steam_first_launch"
+  ],
+  "changed_existing_function": [
+    "install_steam_client_arm64"
+  ],
+  "historical_kernel_evidence": {
+    "path": "docs/qa-logs/2026-10-14-dolphin-proxy-routing-census-source/original-host01.stdout",
+    "sha256": "36c79d31974f68553f65e135463472d8fa50a6f77738be41794012c3eb70ace1",
+    "meaning": "Prior optional proc task/children failure; not a new Steam runtime result"
+  },
+  "static_validation": {
+    "final_exit": 0,
+    "earlier_exit": 1,
+    "earlier_reason": "Reviewer compared helper-with-final-newline against body-only digest. Corrected distinction using sealed body and stdin identities; no source defect or runtime occurred."
+  },
+  "findings": [
+    {
+      "id": "S582-1",
+      "priority": "P1",
+      "helper_lines": [
+        584,
+        585
+      ],
+      "installer_lines": [
+        1752,
+        1753
+      ]
+    },
+    {
+      "id": "S582-2",
+      "priority": "P2",
+      "helper_lines": [
+        440,
+        442
+      ],
+      "installer_lines": [
+        1608,
+        1610
+      ]
+    }
+  ]
+}

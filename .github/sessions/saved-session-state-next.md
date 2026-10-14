@@ -1,169 +1,83 @@
 # Saved Session State
 
-Updated 2026-10-14 05:28 UTC. Continue M7 toward the next 0.0.1 candidate.
+Updated 2026-10-14 06:20UTC. Continue M7 toward the next0.0.1 candidate.
+Coordinator Herdr w4:p2 owns /workspace/repos/rocknix.worktrees/m7-player-setup,
+feature/m7-player-setup. Harness conflict-resolution is stale/untouched.
+Published next0ea6eaf74ad47503c05955d1c0bd4bd00bdfb816; local HEAD0a72df2111
+before this record commit. Source candidate19221 supplies #566 shared JELOS
+default with127+4 offline VM controls. No new pin/firmware/device/provider action.
+Read next rules plus local D-WORKFLOW-164/166, today's log and live M7.
 
-Coordinator Herdr `w4:p2` owns `/workspace/repos/rocknix.worktrees/m7-player-setup`,
-branch `feature/m7-player-setup`. Published `next` remains
-`0ea6eaf74ad47503c05955d1c0bd4bd00bdfb816`. The harness checkout
-`conflict-resolution` is stale and untouched. Read `next` rules, the local
-engineering-practices addition D-WORKFLOW-164, today's work log and live milestone7.
-Git history identifies the final local record commit; it has not been pushed.
+## ACTIVE: DolphinTool single-job compilation — consume before new runtime
 
-ScreenScraper recipe and selected-state candidate19221 is local with scoped VM
-proof. No ES pin, firmware, RC designation, device/cloud/account/save operation,
-external audit transfer or upstream submission occurred in this continuation.
+Owner /workspace/tmp/pix574-dolphin-configure-20261014-04, stage dolphin-build.
+Source runnerb65f782e20 on m7-rvz-regressions-574. Admission
+a1f27c627dc24d32b0870c3aa96dbbf0, watch run
+.build-runs/20261014T061705Z-ff3c1699 in that worker checkout. Launcher365093.
+Started06:17UTC, existing family deadline07:00:54UTC; no clock reset/extension.
+One job,4GiB/no swap,2CPU,6GiB sampled scratch. No network; retained toolchain
+read-only. Actively supervise actual original result.json, container-result,
+submit/launcher-result, watched build/runner and actual host exits. No off-session
+notification. Never edit this runner or terminate by argv pattern during run.
 
-## Runtime is complete and retired
+Recovery of owner04 is separately PASS0/consumed with88 controls, all75 generated
+files unchanged and correct806 command categories. Original configure FAIL1
+remains. Read docs/qa-logs/2026-10-14-dolphin-tool-preparation/README.md.
+/tmp/pix574-consume-stage.py takes OWNER STAGE expected_rc; then
+/tmp/pix574-preserve-stage.py OWNER STAGE evidence-name. They verify cleanup and
+host /proc under escalation. Use only for unconsumed completed stage; open(x)
+receipts intentionally forbid replay. Future ELF/format/runtime remains untested.
 
-`/workspace/tmp/pix-m7-rvz-vm-20261014` completed at03:24 UTC. All ten original
-submission owners were consumed and actual host PIDs, including QEMU3686526,
-were absent. Lifecycle exited0 and unmounted output before stopped-disk export.
-Admission `72c06db260934b7683c44a75ef5025a5` is consumed. Disks, UEFI, media,
-duplicate staging and MD5 compile objects/source snapshots were removed:
-2,631,122,944 allocated bytes. No socket, port5998 or prior command is reusable.
-The previous offline owner is also retired. Never replay either allocation.
-Sandbox `/proc` does not establish host process absence.
+## Completed current runtime and small retained inputs
 
-Read [component evidence](../../docs/qa-logs/2026-10-14-rvz-proxy-components/README.md)
-for exact sources, original failures, receipts and limitations. The packet retains
-830 small guest output files in an archive, readable key results and complete
-launcher/runner/watcher records. A final closeout print failed after retirement;
-independent readback confirmed consumed state and every retired path absent.
+Steam /workspace/tmp/pix582-client-vm-20261014-01 first full caller FAIL1 at89.6s,
+exec boundary deadline in Proton-CachyOS. Original installer exit absent. All
+children/QEMU/owners exited; finally output flush passed. Admission36d49 consumed,
+disk/media/UEFI retired2,278,125,568bytes. Do not replay. Original compact packet:
+docs/qa-logs/2026-10-14-steam-client-first-caller/. Review8aec3a imported separately.
 
-Only nine original target artifacts (~32MB) under
-`/workspace/tmp/pix574-md5-target-20261014/artifacts` and the single public archive
-`/workspace/tmp/pix-steam-public-download-20261014/download01/archive.zip`
-remain for immediately queued qualification. Do not redownload or recompile them.
-The MD5 compile admission is already consumed as failed-investigated: Docker and
-all stages exited0, but the wrapper remains1 due to capitalization in its exact
-container-absence parser. Recovery8568 binds the original source/artifact identities.
+Proxy native preparation f52786 passes16 patches/both112-file manifests;
+/workspace/tmp/pix583-native-prepared-20261014-02 retains2MiB for next VM.
+Attempt01failed offset guard is preserved; partial source retired. Native fixture
+docs/qa-logs/2026-10-14-proxy-native-integration-source/ remains UNRUN until
+independent Dolphin converter/closure qualification. No listener/service active.
 
-## Results and remaining work
+Earlier #566 owners and component VM are consumed/retired, not running. Keep
+9 target MD5 artifacts /workspace/tmp/pix574-md5-target-20261014/artifacts and
+single public Steam archive /workspace/tmp/pix-steam-public-download-20261014/download01/archive.zip
+only for queued qualification. Dolphin owner03 superseded source/config scratch
+still awaits compact diagnostic preservation and retirement; owner04 is active.
 
-- **#583:** The proxy already supports RVZ. Its current upstream reader matches
-  our pin; Linux RVZ support#51 is already included. Revised padding candidate
-  passes126 unaligned comparisons where the original fails all126, plus72 aligned
-  and6 malformed controls each. All44 listing controls pass: explicit retry of
-  an exact zero-hash RVZ preserves automatic mode, valid unmatched hashes,
-  unrelated indexed roots and synthetic queue bytes. An ASCII-codec preload
-  corrects only the fixture. Native hashing, installed libraries, independent
-  Dolphin parity, cache/account/award/reconnect and codec/error coverage remain.
-  This is neither a memory measurement nor the established cause on the Nova.
-- **#584:** Dolphin routing candidatec225 passes126 full-script configuration
-  cases with fixture3a65. The original missing `/proc/.../children` failure stays
-  failed. Listener presence is not service identity/readiness. Native Dolphin
-  and installed service qualification remain. The source packet is imported;
-  the product script is still only in its worker commit. No #581 save-path change.
-- **#574:** MD5 candidate314da58d passes43 recovery controls,264 independent
-  digest rows per repaired composition (528 comparisons), GameCube ISO/Saturn
-  ISO+CUE repeats, two Wii helpers and expected truncated-input exit2. All ten
-  target commands are accepted with empty sanitizer stderr. Pristine inherited
-  UB and original compile-wrapper failures remain. Full formats/CHD, independent
-  DolphinTool, whole Wii images, ARM/big-endian and final frontend remain open.
-  Upstream packeta58b2313 contains a one-file `utils/md5.c` patch, public reproducer
-  and local PR draft. Current-upstream standalone compilation/runtime is UNRUN.
-  Its destination is libretro/libretro-common, not rcheevos.
-- **#582:** Separate hash recovery and offline archive inspection pass:55 member
-  CRCs,339635561 decoded bytes, five backslash mappings, three stored symlinks and
-  required AArch64 ELF structures. No payload execution. The original acquisition
-  remains1. Packet153f0663 documents existing/self-updated-client recognition and
-  profile/STEAM_DOT ordering alternatives. Its25 controls are specifications;
-  there is no implemented installer repair. Do not silently reject working old
-  clients to satisfy a synthetic test.
+## Existing visible source lanes
 
-Earlier accepted component evidence remains in
-`docs/qa-logs/2026-10-14-offline-components/` (41 reviewed frames): #575 French
-replacement descriptions pass both sizes; #581 French640 refusals pass, updated
-English640 long-card-path frame and native engines remain; #567 four native ES
-API branches pass with simulated ctl, actual proxy/UI/image qualification remains.
-Actual ESbb9e/SHA8752... is separate from production c8dc72. Original failures stay.
+- pix-nova w4:p9, assigned m7-rvz-regressions-574 (startup m7-clean-state-565):
+  returned b65f782e20; preparing separate ELF closure/staging source packet.
+  No runtime; must not change active configure/build runner.
+- pix-gtk4 w4:p7, assigned m7-steam-preservation-integration (startup m7-gtk4-576):
+  sealed a057a2a7e94c372642fd66ff9795125487f1fa75, now source-only remediation.
+  Review: missing optional proc children breaks detached transport cleanup;
+  normpath incorrectly handles nested symlink/parent profile destinations.
+  Also diagnose ptrace polling overhead before a bounded fresh caller rerun.
+- pix-memory w4:p8, m7-browser-memory-570: returned review8aec3a667482c021b86b6b9632d4f9ac8ee24dd0,
+  no active allocation/task; retain for remediation review when ready.
 
-## Existing Herdr source lanes — active source-only continuation
+Reuse these authorized Herdr lanes; no new hierarchy. Coordinator alone owns
+runtime/admission/integration/shared records. All original failures remain.
 
-- `w4:p8` pix-memory owns `m7-browser-memory-570`; active on a native proxy/hash/
-  cache/award/reconnect fixture, reusing prior qualified modules. Source only,
-  runtime held. Last sealed source3a65a2d4; new packet not yet returned.
-- `w4:p9` pix-nova owns `m7-rvz-regressions-574`; active on the minimal source
-  export/Dolphin-configure runner for plan1c0e93. Coordinator requested this
-  tranche first to start real tool compilation; later CHD/link closure can follow.
-  Source only; no export/configure/build granted yet. Last sealed sourcea58b2313.
-- `w4:p7` pix-gtk4 owns `m7-steam-preservation-integration`; active on #582
-  transaction source/full-caller fixtures. Preserve legacy/self-updated clients
-  and post-profile STEAM_DOT overrides; structure recognition is not native
-  readiness. Last sealed decision153f0663. No runtime granted.
+## Next critical path
 
-Startup directories may be historical; these explicit assignments govern. Reuse
-the visible lanes, no internal subagents. Coordinator owns runtime, admissions,
-integration and shared records. No source-only handoff grants runtime authority.
+Finish target compilation and ELF closure, then independent format and native
+proxy hash/cache/account/award/reconnect proof. #581 English640/native engine
+and #567 actual proxy/UI remain; repair/requalify Steam before stable20261001
+#563 composition. Then final payload/clean/retained/#349/#566/combined VM/audit,
+H700 thenSM8550, #528/#344 custody/publication. No RC designation. #585 upstream
+submissions follow initial current build, not its critical path. #558/#561 are
+nonblocking watches. LED saved Red explained behavior; persistent warning setter
+interruption is plausible, no historical test writer proved; Default restored.
 
-## Next work in order
-
-1. Review and freshly admit independent DolphinTool/CHD plan1c0e93, then native
-   proxy/hash/cache protocol proof with the corrected reader. Upstream-only MD5
-   reproduction is deferred until after the initial current build (D-WORKFLOW-165);
-   local sanitizer/format qualification remains required.
-2. Finish #581 English640/native proof and #567 actual proxy/UI. Resolve #582's
-   existing-client/profile contract while preserving compatibility, then implement
-   and qualify the installer repair. Specifications are not executable fixtures.
-3. Compose #563 ROCKNIX stable20261001 foundation; #565 payload/clean/retained
-   state and #349; #566 interim shared-developer provisioning and qualification;
-   combined VM/audit; #555 H700 then SM8550; #528/#344 custody/publication. #493 automatic retirement is separate.
-   #395 off-session notifications are not armed; long jobs need active supervision.
-
-D-WORKFLOW-164 explicitly requires upstream contribution consideration, extending
-D-WORKFLOW-162 and earlier proxy decisions D-RA-016/D-WORKFLOW-138. No issue was
-closed or known failure waived. Full earlier details and links remain in the
-[previous checkpoint](archived/saved-session-state-next-20261014T030000Z.md).
-
-
-## October14 owner direction — running contribution list and open testing work
-
-#585 is the live upstream contribution queue, linked from docs/upstream/README.md.
-D-WORKFLOW-165 holds submissions until the initial current M7 build and relevant
-qualification are complete. Preserve candidates now; do not spend the build's
-critical path on submission-only preparation. Existing #168 proxy drafts remain
-in the queue and require current-base rechecks later. No upstream post authorized.
-
-docs/releases/next-candidate-work.md now distinguishes unfinished implementation,
-passing components awaiting combined-image proof, physical observations and
-explicit backlog. Browser/phone/Wi-Fi/Recent fixes are not untouched; Steam client
-bootstrap repair, native RVZ/proxy proof, final payload/clean/upgrade and developer
-provisioning remain. #558 shutdown cause is unknown; #561 LED preference is monitored.
-#568 final-game progress, #562 ROM integrity and #560 fast shutdown remain backlog.
-This review starts no runtime and changes no production source or device state.
-
-## October14 ScreenScraper selection and watch-item clarification
-
-D-WORKFLOW-166 settles #566's interim choice: use the existing shared JELOS
-developer identity. #586 separately evaluates replacement credentials and is
-backlog, not an M7 prerequisite. No recipe, ES source, build environment or
-credential was changed here. #566 still owes provisioning, executable artifact
-checks, separate player account behavior and UI/backup/clean/upgrade proof.
-device-builds.md now distinguishes the actual prepare-only publisher/selected
-state gate from the obsolete binary-credential guard described historically.
-
-#558 stays open as a nonblocking watch until reliable reproduction or useful
-recurrence evidence makes repair actionable; no speculative fix or repeated
-shutdown experiment is scheduled. #561 already monitors the owner-restored
-Default LED preference; its original writer remains unknown. #568's backlog
-question is phase attribution (last-game work versus later image/cache work),
-not a pending owner wording choice. M7 and issue bodies have verified readback.
-No runtime, device action, upstream submission or push in this clarification.
-
-## Latest completed runtime — ScreenScraper #566 (05:22 UTC)
-
-Candidate19221f4762298b10e44a08f2c3e7371c7ddeb0d1 supplies the shared JELOS
-developer default while preserving explicit local overrides. Its selected-state
-gate allows only that exact NUL-delimited compiled pair; personal/default/RA
-credentials remain excluded.127 root-policy and4 recipe VM controls pass;
-unchanged baseline failures are separately retained. Actual rebuilt ES/UI/frames,
-backup and clean/upgrade image checks remain due; no provider call or pin move.
-
-Both new owners `/workspace/tmp/pix566-vm-20261014a` and `...b` are complete,
-admissions consumed and all recorded PIDs absent. Disks/media/UEFI removed:
-4,554,809,344bytes. Do not reuse their ports, owners or allocations. attempt01
-remains1 (report quoting and unflushed output); corrected attempt02 original
-lifecycle/runner/watcher/launcher0. Compact evidence lives in
-docs/qa-logs/2026-10-14-screenscraper-provisioning/. No current runtime.
-M7/#566 tracker results verified; #561 retains the source-level interrupted
-warning-flash lead without attributing the historical red preference to a test.
+Read docs/releases/next-candidate-work.md for implemented vs pending scope and
+[earlier checkpoint](archived/saved-session-state-next-20261014T052800Z.md) for
+accepted component receipts, source pins, image path and completed owners.
+Accepted VM20 input SHA1a23cf5740dbb69cdca76d753a0f6121c35e6e12f27649e792aeebc71e8cc490;
+no-NIC helper at m7-offline-vm-567 commit6709d7c30b. New VM needs fresh admission.
+Sandbox /proc cannot prove host exits; use escalation. No off-session alerts.

@@ -1,0 +1,68 @@
+{
+  "status": "FAIL",
+  "stage": "dolphin-configure",
+  "started": 1791957696.3557377,
+  "children": [
+    {
+      "argv": [
+        "python3",
+        "-I",
+        "-S",
+        "-B",
+        "/runner/configure.py"
+      ],
+      "started": 1791957697.313317,
+      "label": "selected-stage",
+      "identity": {
+        "pid": 8,
+        "start_ticks": 104938131,
+        "state": "R",
+        "pgrp": 8,
+        "session": 8,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      "pid": 8,
+      "original_exit": 0,
+      "reaped": true,
+      "ended": 1791957700.5190408
+    },
+    {
+      "argv": [
+        "python3",
+        "-I",
+        "-S",
+        "-B",
+        "/runner/configuration.py"
+      ],
+      "started": 1791957701.029189,
+      "label": "configuration-inventory",
+      "identity": {
+        "pid": 1063,
+        "start_ticks": 104938502,
+        "state": "R",
+        "pgrp": 1063,
+        "session": 1063,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      "pid": 1063,
+      "original_exit": 1,
+      "reaped": true,
+      "ended": 1791957701.230227
+    }
+  ],
+  "source_before": {
+    "files": 13424,
+    "inventory_sha256": "0c2c9efcec739af5993a6b71ef031959a0dd674999a6025ce5e7b3052d353371",
+    "converter_pristine": true
+  },
+  "source_after": {
+    "files": 13424,
+    "inventory_sha256": "0c2c9efcec739af5993a6b71ef031959a0dd674999a6025ce5e7b3052d353371",
+    "converter_pristine": true
+  },
+  "error": "RuntimeError('original child failed: configuration-inventory')",
+  "sampler_exited": true,
+  "monitor_errors": [],
+  "ended": 1791957701.2308106,
+  "max_child_rss_kib": 46848
+}

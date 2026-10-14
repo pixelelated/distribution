@@ -1,0 +1,41 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/.build-runs/20261014T054208Z-3a6aed32",
+  "expected_rc": 1,
+  "disposition": "failed-investigated",
+  "outputs": [
+    {
+      "issue": 574,
+      "kind": "build-cache",
+      "path": "/workspace/tmp/pix574-dolphin-configure-20261014-02/work",
+      "release_when": "Retire after selected converter VM qualification; preserve compact source/artifact/failure receipts."
+    },
+    {
+      "issue": 574,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix574-dolphin-configure-20261014-02/stages",
+      "release_when": "Preserve original child/container/watcher/launcher channels and host identity/cleanup receipts before scratch retirement."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix574-dolphin-configure-20261014-02/stages/dolphin-export/result.json",
+      "sha256": "57cf97be5f0716187eee00c9a7f36f8b62918d980eba6cb60bae92544110470f"
+    },
+    {
+      "path": "/workspace/tmp/pix574-dolphin-configure-20261014-02/stages/dolphin-export/container-result.json",
+      "sha256": "5b323ac2200e5f5240433b9a5b212b4b98b537b51515cafa5681ea7600cec735"
+    },
+    {
+      "path": "/workspace/tmp/pix574-dolphin-configure-20261014-02/stages/dolphin-export/host-completion.json",
+      "sha256": "710c4415f5d4f5ef338e40c1eb7defee3aabc36744990aeb69bab5ca562507e3"
+    },
+    {
+      "path": "/workspace/tmp/pix574-dolphin-configure-20261014-02/stages/dolphin-export/watchdog-result.json",
+      "sha256": "9a82748fd15c4bba6ea917244dae8d06c8567b94530f859749dea2afc6ab4bac"
+    },
+    {
+      "path": "/workspace/tmp/pix574-dolphin-configure-20261014-02/stages/dolphin-export/submit/launcher-result.json",
+      "sha256": "a59825beae9aa3ae156436adf8ee1c8c2d16e03e4182b3b16714574b091a4909"
+    }
+  ]
+}

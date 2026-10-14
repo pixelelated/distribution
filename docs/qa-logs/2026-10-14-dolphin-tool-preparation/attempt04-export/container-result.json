@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "stage": "dolphin-export",
+  "started": 1791957654.5728624,
+  "children": [
+    {
+      "argv": [
+        "python3",
+        "-I",
+        "-S",
+        "-B",
+        "/runner/export.py",
+        "dolphin"
+      ],
+      "started": 1791957654.6743767,
+      "label": "export",
+      "identity": {
+        "pid": 7,
+        "start_ticks": 104933867,
+        "state": "R",
+        "pgrp": 7,
+        "session": 7,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      "pid": 7,
+      "original_exit": 0,
+      "reaped": true,
+      "ended": 1791957656.477493
+    }
+  ],
+  "source_after": {
+    "files": 13424,
+    "inventory_sha256": "0c2c9efcec739af5993a6b71ef031959a0dd674999a6025ce5e7b3052d353371",
+    "converter_pristine": true
+  },
+  "final_cgroup": {
+    "memory.current": "269914112",
+    "memory.peak": "284614656",
+    "memory.max": "4294967296",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+    "memory.swap.max": "0",
+    "cpu.stat": "usage_usec 2160125\nuser_usec 1556295\nsystem_usec 603830\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 25\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+    "cpu.max": "200000 100000",
+    "pids.current": "2",
+    "pids.max": "256"
+  },
+  "final_disk": {
+    "allocated_bytes": 218546176,
+    "apparent_bytes": 182007592
+  },
+  "sampler_exited": true,
+  "monitor_errors": [],
+  "ended": 1791957657.0832875,
+  "max_child_rss_kib": 79964
+}

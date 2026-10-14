@@ -24,12 +24,14 @@ not the build needed to perform them. No new test or build started in this revie
 | Nova account/history isolation — #565 | Provenance investigation completed to available evidence; library-copy test separates ROM-only from gamelist history. Selected clean-state and payload guards have positive/negative controls. Original account entry remains unknown. | Inspect the actual next firmware payload; clean install must lack personal accounts/fabricated history, while retained-storage upgrade preserves legitimate settings/history. |
 | Recent default — #578 | One-literal compiled default fix and nine default/explicit-choice controls pass; imported gamelist history can populate Recent, a ROM alone cannot. | Final-source/image proof while preserving explicit player choices. Historical Nova Recent entries are not evidence that this new default fix fabricated history. |
 | ScreenScraper developer provisioning — #566 | Runtime versus compiled behavior and separate player accounts are traced. The owner selected the existing shared JELOS developer identity (D-WORKFLOW-166); recipe/gate candidate19221 passes127 root-policy and4 environment-selection VM controls. | Qualify the actual rebuilt binary, UI/frames, backup and clean/upgrade images. Replacement credentials are backlog #586, not a candidate dependency. Preserve unrelated private-credential protections. |
-| Steam installation recovery — #564/#579/#580/#582 | Runtime/FEX/Proton preservation and complete synthetic caller controls pass within scope. Partial-client retry defect reproduced; real55-member client archive CRC/layout inspection passes. | Bootstrap repair is not yet implemented: settle legacy/self-updated-client recognition and metadata/profile ordering, implement bounded recovery, then native/installed qualification. This was found during the20261001 intake, not reported from gameplay. |
+| Steam installation recovery — #564/#579/#580/#582 | Runtime/FEX/Proton preservation and complete synthetic caller controls pass within scope. Partial-client retry defect reproduced; real55-member client archive CRC/layout inspection passes. | Client transactiona057 is implemented but its first full-caller VM case reached the fixture deadline. Independent review found two concrete cleanup/path-resolution defects; repair and renewed caller/native/installed qualification remain. This was found during the20261001 intake, not reported from gameplay. |
 
 Evidence: [installed setup](../qa-logs/2026-10-13-setup-qualification/installed/README.md),
 [library/preservation components](../qa-logs/2026-10-13-library-vm/README.md),
 [October14 frame completion](../qa-logs/2026-10-14-offline-components/README.md),
-[RVZ/proxy/MD5 and archive results](../qa-logs/2026-10-14-rvz-proxy-components/README.md).
+[RVZ/proxy/MD5 and archive results](../qa-logs/2026-10-14-rvz-proxy-components/README.md),
+[Dolphin preparation](../qa-logs/2026-10-14-dolphin-tool-preparation/README.md),
+[Steam first caller and review](../qa-logs/2026-10-14-steam-client-first-caller/README.md).
 Earlier packet UNRUN labels describe their preparation time; later exact-source
 receipts supply scoped completion. No failed original result is rewritten.
 
@@ -41,7 +43,9 @@ receipts supply scoped completion. No failed original result is rewritten.
   useful recurrence evidence before repair work. This watch item does not block
   the candidate and is not fixed.
 - **RG SP red LED (#561):** a saved Red preference explained the observed color;
-  Default is restored by the owner. Original writer is unknown. Monitor subsequent
+  Default is restored by the owner. The low-battery warning uses a persistent
+  setter; interruption before restoring the prior choice is a plausible lead,
+  not a proved test-script write. Original writer remains unknown. Monitor subsequent
   use/upgrades; the deferred interruption matrix is not an active build gate.
 - **Last-game/finishing progress (#568), ROM/cloud integrity comparison (#562),
   fast-shutdown value (#560), reusable upstream intake procedure (#559),

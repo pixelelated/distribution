@@ -1,0 +1,60 @@
+{
+  "status": "FAIL",
+  "stage": "dolphin-export",
+  "started": 1791956353.6333978,
+  "original_attach_exit": 1,
+  "error": "RuntimeError('container readiness failed')",
+  "cleanup": {
+    "status": "PASS",
+    "forced_stop": false,
+    "started": 1791956354.068701,
+    "initial": {
+      "id": "1273ab47afdfc6e39e3b1d23f78ddd1c613589e49fc9e5ab94cde562f2ba900f",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 1,
+        "FinishedAt": "2026-10-14T05:39:14.013198987Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 0,
+        "Restarting": false,
+        "Running": false,
+        "StartedAt": "2026-10-14T05:39:13.899007575Z",
+        "Status": "exited"
+      },
+      "labels": {
+        "org.opencontainers.image.version": "22.04",
+        "pix574.owner": "0656477dfd5edbf92fe0e510ce8475f2",
+        "pix574.stage": "dolphin-export"
+      },
+      "memory": 4294967296,
+      "nano_cpus": 2000000000
+    },
+    "container_terminal_state": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 1,
+      "FinishedAt": "2026-10-14T05:39:14.013198987Z",
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 0,
+      "Restarting": false,
+      "Running": false,
+      "StartedAt": "2026-10-14T05:39:13.899007575Z",
+      "Status": "exited"
+    },
+    "exact_cid": "1273ab47afdfc6e39e3b1d23f78ddd1c613589e49fc9e5ab94cde562f2ba900f",
+    "exact_id_absent": true,
+    "observed_host_processes": [],
+    "survivors": [],
+    "ended": 1791956354.4496727
+  },
+  "original_container_exit": 1,
+  "watchdog_original_exit": 0,
+  "ended": 1791956354.714214,
+  "final_disk": {
+    "allocated_bytes": 176128,
+    "apparent_bytes": 33286
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "scope": "AST/hash/source only; corrected preparation and all runtime UNRUN",
+  "command": [
+    "/usr/bin/python3",
+    "-I",
+    "-S",
+    "-B",
+    "docs/qa-logs/2026-10-14-proxy-native-integration-source/static-check.py"
+  ],
+  "original_exit": 0,
+  "stdout": "{\n  \"status\": \"PASS\",\n  \"evidence\": \"static only; no fixture imports/execution\",\n  \"python\": \"3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]\",\n  \"ast_files\": 12,\n  \"evidence_files\": 12,\n  \"patches\": 16,\n  \"bound_python_files\": 112,\n  \"candidate_delta\": [\n    \"linux/raofflineproxy/rvz_datasource.py\"\n  ],\n  \"census_functions_identical\": [\n    \"direct_children\",\n    \"proc_identity\",\n    \"signal_child\"\n  ],\n  \"bindings_sha256\": \"d66230e0c13c527b20b00d305b2fd9da4b0f65585aa4591a2a8bd29a1add2682\"\n}\n",
+  "stderr": "",
+  "original_preparation": {
+    "command_exit": 1,
+    "patch002_exit": 0,
+    "retained": true
+  },
+  "unchanged_files": {
+    "bindings.json": "d66230e0c13c527b20b00d305b2fd9da4b0f65585aa4591a2a8bd29a1add2682",
+    "runner-seal.json": "77992882ef99d44283ba24e98d67560d78ff86ef2f588788c9371ec4eccbb708",
+    "fixtures/run.py": "d9aa72ed4682a70ca29b59b06dbda3fd64be6bf8e93e159506942ad827a6ae16",
+    "fixtures/owner.py": "b313f8e8847d4622f41db5dbe7a22c81f9cfa761a238f1170420a3c47ddd09cf",
+    "fixtures/census.py": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2"
+  }
+}

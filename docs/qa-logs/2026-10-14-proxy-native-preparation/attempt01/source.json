@@ -1,0 +1,46 @@
+{
+  "status": "FAIL",
+  "runtime": "source preparation only",
+  "patches": [
+    {
+      "name": "001-dorequest-4xx-passthrough.patch",
+      "sha256": "e322a8dd83354185fb3a774fe5d1adabebfcd199a06e18c40c255dffe9197239",
+      "original_exit": 0,
+      "stdout": "patching file linux/raofflineproxy/proxy_service.py\n",
+      "stderr": ""
+    },
+    {
+      "name": "002-no-synthetic-casual-only-achievement.patch",
+      "sha256": "4bbc21724eba0e005d2cf82b2d5944d6a4a137fc9a95969fcd30bcf7b8bb222b",
+      "original_exit": 0,
+      "stdout": "patching file linux/raofflineproxy/rom_cache.py\nHunk #1 succeeded at 40 (offset 3 lines).\nHunk #2 succeeded at 62 (offset 3 lines).\n",
+      "stderr": ""
+    }
+  ],
+  "bindings_sha256": "d66230e0c13c527b20b00d305b2fd9da4b0f65585aa4591a2a8bd29a1add2682",
+  "argv": [
+    "docs/qa-logs/2026-10-14-proxy-native-integration-source/fixtures/prepare.py",
+    "--repo",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup",
+    "--archive",
+    "/workspace/cache/rocknix-sources/raofflineproxy/raofflineproxy-c7ebd1b6e777f3751ff0ecdf8aba54045844e00d.tar.gz",
+    "--output",
+    "/workspace/tmp/pix583-native-prepared-20261014-01"
+  ],
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "interpreter": {
+    "path": "/usr/bin/python3",
+    "sha256": "52e0a13e60a981d8c4b6478be2ba5176f69da07948a056bf49cf6f077e30cb41"
+  },
+  "patch_version": {
+    "original_exit": 0,
+    "stdout": "GNU patch 2.8\nCopyright 1989-2025 Free Software Foundation, Inc.\nCopyright 1984-1988 Larry Wall\n\nLicense GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.\nThis is free software: you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.\n\nWritten by Larry Wall and Paul Eggert\n",
+    "stderr": ""
+  },
+  "patch_executable": {
+    "invocation": "/usr/bin/patch",
+    "resolved_identity": "/usr/bin/patch",
+    "sha256": "44ecd416d1958be9c2b60488fa893e76aae8d0f81d2fedb9e83eb661da0ee18c"
+  },
+  "error": "RuntimeError: patch failed or shifted: 002-no-synthetic-casual-only-achievement.patch"
+}

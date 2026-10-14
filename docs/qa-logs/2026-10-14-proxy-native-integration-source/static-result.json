@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "scope": "static AST/hash/source/shell syntax only; no fixture or product import/execution",
+  "earlier_static_failure": {
+    "original_exit": 1,
+    "command": "inline python3 -I -S -B AST parse of packet *.py",
+    "stderr": "IndentationError: expected an indented block after for statement on line 395 (run.py line 396)",
+    "disposition": "Corrected indentation in new unsealed fixture; later full AST check passed. No runtime was attempted."
+  },
+  "checks": [
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "docs/qa-logs/2026-10-14-proxy-native-integration-source/static-check.py"
+      ],
+      "original_exit": 0,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"evidence\": \"static only; no fixture imports/execution\",\n  \"python\": \"3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]\",\n  \"ast_files\": 12,\n  \"evidence_files\": 12,\n  \"patches\": 16,\n  \"bound_python_files\": 112,\n  \"candidate_delta\": [\n    \"linux/raofflineproxy/rvz_datasource.py\"\n  ],\n  \"census_functions_identical\": [\n    \"direct_children\",\n    \"proc_identity\",\n    \"signal_child\"\n  ],\n  \"bindings_sha256\": \"d66230e0c13c527b20b00d305b2fd9da4b0f65585aa4591a2a8bd29a1add2682\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "bash",
+        "-n",
+        "docs/qa-logs/2026-10-14-proxy-native-integration-source/evidence/raofflineproxy-ctl"
+      ],
+      "original_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "bash",
+        "-n",
+        "docs/qa-logs/2026-10-14-proxy-native-integration-source/evidence/cheevos_dolphin.after.sh"
+      ],
+      "original_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--quiet",
+        "e0f532718e",
+        "--",
+        "projects/ROCKNIX/packages/network/raofflineproxy"
+      ],
+      "original_exit": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+# Independent Dolphin tool preparation — October14
+
+Work for #574. No converter binary or format PASS is established yet.
+The source-only plan1c0e93 and runner eb70be990b were reviewed;48 finite host
+controls passed. Compatibility source6797dd4853 passed52 controls, including
+chunk-boundary SHA256 cases. These controls do not establish container behavior.
+
+Can this be done on the VM? Target converter behavior belongs in the disposable
+GENERIC_X64 guest. Preparing its target toolchain and proving host Docker/PID/
+cgroup/admission cleanup uses the build host. No owner device or account data.
+
+## Original attempts
+
+| Owner | Original outcome | Diagnosis and retained limit |
+| --- | --- | --- |
+| attempt01 | FAIL1 | Pinned builder Python lacks hashlib.file_digest. No source-export child started. Narrow chunked-hash correction6797dd4853; no retry of this owner. |
+| attempt02 | FAIL1 | Git archive applies upstream *.sln text eol=crlf, changing two committed blob sizes. Exact byte guard refused; do not waive it or count a partial export as source proof. |
+
+Both exact containers were removed normally, watchdogs exited0, and original
+launcher/runner/watcher/command host PIDs were absent. Admissions were consumed
+as failed-investigated. The failed source scratch was retired:149,970,944
+allocated bytes. Original failures are never rewritten as passing recovery.
+
+Each attempt retains readable result/cleanup/acceptance/retirement files and a
+lossless original-records.tar.gz. original-records.json binds every member's
+original bytes. Git archive altered Source/dolphin-emu.sln36853→37348bytes and
+docs/DSP/DSP_InterC/DSP_InterC.sln877→897bytes, exactly matching495/20LF-to-CRLF
+expansions. Cached source was read-only throughout.
+
+The next source exporter reads Git blob objects directly so attributes cannot
+transform bytes or omit export-ignore paths. New export/configure need fresh
+admissions. Source integrity, generated compile flags, compilation, ELF/loader
+closure, independent formats and native proxy integration remain separate gates.
+
+## Exact export and first actual configure
+
+Sourcee6a97dd758 passes57 controls and attempt03-export:13,424 exact files,
+173,273,422 tracked source bytes, original channels0, no OOM, normal container
+removal and actual host exits. The export admission was consumed qualified.
+
+Attempt03-configure remains FAIL1. CMake itself exited0 and source before/after
+manifests match. Configuration-inventory exited1 because compiler normal
+variables were incorrectly required in CMakeCache. Generated commands contain
+the correct target compiler, but701 of806 commands lack requested release flags
+because the retained toolchain overrides them. Pinned MbedTLS96 commands use
+-O2; cpp-ipc9 commands explicitly append-O2. Preserve those source-backed
+exceptions, require-O1/-DNDEBUG elsewhere, and verify actual generated commands.
+The follow-up uses a private toolchain wrapper; retained inputs remain unchanged.
+Original configure admission consumed failed-investigated, all cleanup PASS.
+The~220MiB private source/configuration remains temporarily for the corrective
+readback; no target converter has been compiled or executed.
+
+## Correct flags, separate recovery and target compilation
+
+Attempt04-export passes with sourceede19c15f9. CMake again exits0 and emits the
+requested ordinary flags. Its inventory still returns1: the guard incorrectly
+classifies the cpp-ipc C file as requiring the C++-only O2 override. Original
+configure FAIL1, successful cleanup and consumed failure remain unchanged.
+
+Runnerb65f782e20 passes88 controls. A separately admitted read-only recovery
+verifies all75 original generated files (5,451,316 bytes), original source and
+failed receipts. It passes701 ordinary O1/DNDEBUG commands,96 pinned MbedTLS O2
+commands and9 pinned cpp-ipc C++ O2 commands. All recovery original channels0;
+container/watchdog cleanup and actual host exits pass, admission consumed.
+
+The single-job DolphinTool compile was submitted at06:17UTC to owner04's new
+dolphin-build stage, admissiona1f27c627dc24d32b0870c3aa96dbbf0. Its existing
+07:00:54UTC family deadline,4GiB memory/no swap,2CPU and6GiB sampled scratch
+limit remain. This entry records the start, not completion. See the saved
+session checkpoint for current status. No retained source/toolchain mutation.

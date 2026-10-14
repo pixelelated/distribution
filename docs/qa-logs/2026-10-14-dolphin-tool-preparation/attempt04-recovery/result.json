@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "stage": "dolphin-recover",
+  "started": 1791958576.6312706,
+  "original_attach_exit": 0,
+  "container_result_sha256": "676a908f83907090f6e6dccf3d336bb25866d2e81d041c59e2da0151e4fb3882",
+  "cleanup": {
+    "status": "PASS",
+    "forced_stop": false,
+    "started": 1791958579.162661,
+    "initial": {
+      "id": "ce618df8f9e269524c60540e07132a241c4ae763401345b9c0def448e1d8acd4",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "2026-10-14T06:16:19.059795122Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 0,
+        "Restarting": false,
+        "Running": false,
+        "StartedAt": "2026-10-14T06:16:16.895652365Z",
+        "Status": "exited"
+      },
+      "labels": {
+        "org.opencontainers.image.version": "22.04",
+        "pix574.owner": "78e2b7c1c250e688b758f92a8ba61ef4",
+        "pix574.stage": "dolphin-recover"
+      },
+      "memory": 4294967296,
+      "nano_cpus": 2000000000
+    },
+    "container_terminal_state": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 0,
+      "FinishedAt": "2026-10-14T06:16:19.059795122Z",
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 0,
+      "Restarting": false,
+      "Running": false,
+      "StartedAt": "2026-10-14T06:16:16.895652365Z",
+      "Status": "exited"
+    },
+    "exact_cid": "ce618df8f9e269524c60540e07132a241c4ae763401345b9c0def448e1d8acd4",
+    "exact_id_absent": true,
+    "observed_host_processes": [
+      {
+        "pid": 360890,
+        "start_ticks": 105026092,
+        "state": "S",
+        "pgrp": 360890,
+        "session": 360890,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 360923,
+        "start_ticks": 105026186,
+        "state": "R",
+        "pgrp": 360923,
+        "session": 360923,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      }
+    ],
+    "survivors": [],
+    "remaining_cgroup_pids": [],
+    "ended": 1791958579.391683
+  },
+  "original_container_exit": 0,
+  "watchdog_original_exit": 0,
+  "ended": 1791958579.7063024,
+  "final_disk": {
+    "allocated_bytes": 220786688,
+    "apparent_bytes": 183603028
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "status": "FAIL",
+  "stage": "dolphin-export",
+  "started": 1791956529.3644066,
+  "children": [
+    {
+      "argv": [
+        "python3",
+        "-I",
+        "-S",
+        "-B",
+        "/runner/export.py",
+        "dolphin"
+      ],
+      "started": 1791956529.5662167,
+      "label": "export",
+      "identity": {
+        "pid": 8,
+        "start_ticks": 104821356,
+        "state": "R",
+        "pgrp": 8,
+        "session": 8,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      "pid": 8,
+      "original_exit": 1,
+      "reaped": true,
+      "ended": 1791956530.569288
+    }
+  ],
+  "error": "RuntimeError('original child failed: export')",
+  "sampler_exited": true,
+  "monitor_errors": [],
+  "ended": 1791956530.5697937,
+  "max_child_rss_kib": 36092
+}

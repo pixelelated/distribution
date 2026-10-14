@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "stage": "dolphin-recover",
+  "started": 1791958576.9912102,
+  "children": [
+    {
+      "argv": [
+        "python3",
+        "-I",
+        "-S",
+        "-B",
+        "/runner/configuration.py"
+      ],
+      "started": 1791958577.8680146,
+      "label": "configuration-inventory",
+      "identity": {
+        "pid": 8,
+        "start_ticks": 105026186,
+        "state": "R",
+        "pgrp": 8,
+        "session": 8,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      "pid": 8,
+      "original_exit": 0,
+      "reaped": true,
+      "ended": 1791958578.4696734
+    }
+  ],
+  "source_before": {
+    "files": 13424,
+    "inventory_sha256": "0c2c9efcec739af5993a6b71ef031959a0dd674999a6025ce5e7b3052d353371",
+    "converter_pristine": true
+  },
+  "generated_before": {
+    "files": 75,
+    "binding_sha256": "f3adc88b9520ff6e9277b18ae47a305e0ed45865870239358e886de981519a56"
+  },
+  "generated_after": {
+    "files": 75,
+    "binding_sha256": "f3adc88b9520ff6e9277b18ae47a305e0ed45865870239358e886de981519a56"
+  },
+  "original_failure_preserved": true,
+  "source_after": {
+    "files": 13424,
+    "inventory_sha256": "0c2c9efcec739af5993a6b71ef031959a0dd674999a6025ce5e7b3052d353371",
+    "converter_pristine": true
+  },
+  "final_cgroup": {
+    "memory.current": "27295744",
+    "memory.peak": "32587776",
+    "memory.max": "4294967296",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+    "memory.swap.max": "0",
+    "cpu.stat": "usage_usec 1871778\nuser_usec 1450125\nsystem_usec 421653\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 20\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+    "cpu.max": "200000 100000",
+    "pids.current": "2",
+    "pids.max": "256"
+  },
+  "final_disk": {
+    "allocated_bytes": 223322112,
+    "apparent_bytes": 187127783
+  },
+  "sampler_exited": true,
+  "monitor_errors": [],
+  "ended": 1791958579.0536547,
+  "max_child_rss_kib": 28536
+}

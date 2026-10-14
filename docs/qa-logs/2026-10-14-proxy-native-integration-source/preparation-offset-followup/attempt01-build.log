@@ -1,0 +1,12 @@
+{"status": "FAIL", "receipt": "/workspace/tmp/pix583-native-prepared-20261014-01/source.json"}
+Traceback (most recent call last):
+  File "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-native-integration-source/fixtures/prepare.py", line 81, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-native-integration-source/fixtures/prepare.py", line 65, in main
+    need(got.returncode==0 and not re.search(r'fuzz|offset|FAILED|Reversed',row['stdout']+row['stderr']),'patch failed or shifted: '+patch.name)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-native-integration-source/fixtures/prepare.py", line 20, in need
+    if not value:raise RuntimeError(message)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: patch failed or shifted: 002-no-synthetic-casual-only-achievement.patch
