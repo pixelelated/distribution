@@ -1,0 +1,36 @@
+{
+  "runtime_executed": false,
+  "controls_not_run": 7,
+  "checks": [
+    {
+      "name": "candidate-functions bash -n",
+      "returncode": 0
+    },
+    {
+      "name": "body.bash bash -n",
+      "returncode": 0
+    },
+    {
+      "name": "fixture Python 3.10 AST",
+      "result": "PASS"
+    },
+    {
+      "name": "BODY, function hashes, candidate file, patch, original bindings exact parity",
+      "result": "PASS"
+    },
+    {
+      "name": "private XML wrapper sh -n",
+      "returncode": 0
+    },
+    {
+      "name": "current baseline, checkout inputs, templates, XML binary/libraries and packet hashes",
+      "result": "PASS"
+    },
+    {
+      "name": "full staged diff whitespace check",
+      "returncode": 2,
+      "reason": "Only unchanged original patch blank context line (generated-doc-output.patch:5); preserved exact patch bytes."
+    }
+  ],
+  "body_sha256": "32526cc69d32704dc4443dec2fbbb9ceebe4b1633bc43e3ba8f2f32c483e997f"
+}

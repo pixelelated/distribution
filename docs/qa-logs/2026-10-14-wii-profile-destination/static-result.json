@@ -1,0 +1,24 @@
+{
+  "runtime_executed": false,
+  "checks": [
+    {
+      "name": "fixture AST",
+      "status": "PASS",
+      "body_executed": false
+    },
+    {
+      "name": "source full launcher bash -n",
+      "original_exit": 0,
+      "body_executed": false
+    },
+    {
+      "name": "candidate full launcher bash -n",
+      "original_exit": 0,
+      "body_executed": false
+    },
+    {
+      "name": "single destination change, exact patch and complete source bindings",
+      "status": "PASS"
+    }
+  ]
+}

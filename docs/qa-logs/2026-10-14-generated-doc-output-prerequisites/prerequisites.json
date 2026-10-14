@@ -1,0 +1,39 @@
+{
+  "original_packet_commit": "e71b57cc43460b07b1637508a46358d52bebbffb",
+  "original_fixture_sha256": "b5f6c4df56a0559d660ad684a93ca2bef13b4535eb70f065dbf925781627d946",
+  "checkout_files": {
+    "projects/ROCKNIX/config.xml": "c8d8947f8e17f757e938307e1f2fac00e0a823a8d1a993d527cbf6021662c89e",
+    "tools/host-maintenance/build-admission": "3e2ad9d6eed47f53d1547880286e4bed69848b956be490f17f354d9df70bb942",
+    "scripts/get_env": "2f8f54906d02fbce048bb2975f5a2e69057ae47de365b1e26b9508a051be43a2",
+    "Makefile": "8322fcfa85d0a0159ac05ce17058e23f8e18418d2344adf82456b5813b6094fa"
+  },
+  "templates": {
+    "templates/HEADER.md": null,
+    "templates/SUPPORTED_EMULATORS_AND_CORES.md": null
+  },
+  "toolchain": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain",
+  "toolchain_files": {
+    "bin/xmlstarlet": "3ee557da6cbdefa8475f01fab30c7c92053b84ca7bcb795c7bde973e421aadd8",
+    "lib/libexslt.so.0": "afe067bde037d8b56509f3c6df2236805f8ac51139caeb8f874c515e015476e1",
+    "lib/libxslt.so.1": "cf29844770fe5844e8b9d1fb7ccd305e44c1b982cda6038d44ae69a7863e60b8",
+    "lib/libxml2.so.16": "fb1c3f6d4406630cb6485426f030f411d234f28c1f7222ce988da70f70d63115"
+  },
+  "xml_queries": {
+    "GENERIC_X64": "",
+    "H700": "DDR4\nDDR3\n"
+  },
+  "original_failure": {
+    "owner": "/workspace/tmp/pix493-generated-doc-control-20261014-01",
+    "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T185231Z-00f63ebf",
+    "command_rc": 1,
+    "monitor_rc": 0,
+    "runner_rc": 1,
+    "cause": "Full functions source-time CONFIGXML expansion needs PROJECT_DIR; documentation functions were not reached.",
+    "artifacts": {
+      "/workspace/tmp/pix493-generated-doc-control-20261014-01/console.log": "f0a36e0c0c5caa39cfcbe77c741ee22c579c0fa8d873679772231272185f6fe6",
+      "/workspace/tmp/pix493-generated-doc-control-20261014-01/launcher-result.json": "ffafef974fdcdd22a7fdc31f7f3602b1a46e8343f96dd94e9866f1f2c4ec6e66",
+      "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T185231Z-00f63ebf/runner-result.json": "46336257ae047caac05c38bcaed2694e0702e0a8e604731d93b8dd64e27a920a"
+    }
+  },
+  "runtime_executed_by_source_lane": false
+}

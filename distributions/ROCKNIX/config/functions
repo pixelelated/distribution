@@ -9,6 +9,12 @@ clean_doc_cache() {
 }
 
 start_system_doc() {
+  # Watched builds keep generated documentation out of frozen tracked inputs.
+  # Direct documentation generation retains the configured source-tree path.
+  if [ -n "${RASTERATOPS_BUILD_RUN:-}" ]; then
+    SYSDOCROOT="${BUILD:?Build output directory is required}/documentation/PER_DEVICE_DOCUMENTATION/${DEVICE}"
+    SYSDOC="${SYSDOCROOT}/SUPPORTED_EMULATORS_AND_CORES"
+  fi
   if [ -z "${SYSDOC}" ]
   then
     echo "Unable to generate documentation, define SYSDOC in options."
@@ -16,7 +22,7 @@ start_system_doc() {
   fi
   if [ ! -d "${SYSDOCROOT}" ]
   then
-    mkdir ${SYSDOCROOT}
+    mkdir -p "${SYSDOCROOT}"
   fi
   if [ -e "${SYSDOC}.md" ]
   then

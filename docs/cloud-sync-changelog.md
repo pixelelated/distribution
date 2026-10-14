@@ -1,5 +1,57 @@
 # Cloud sync, backup and restore — change summary
 
+
+## Browser, setup and offline achievements (2026-10-14, component-qualified source)
+
+The combined source is prepared for the next engineering image. The dated
+[readiness list](releases/next-candidate-work.md) identifies passing component
+proof and the remaining installed-image checks. These changes are not yet on
+the owner's handhelds.
+
+- **The frontend releases unused memory before opening the browser.** The
+  compiled handoff reclaimed78.01MiB in the bounded VM comparison; repeated
+  open/return and recovery controls pass (#570). This is not a claim that every
+  authentication page is fast or that device memory pressure is eliminated.
+- **Phone keyboard status takes less space and stays stable during navigation.**
+  The compact status and fixed geometry pass installed bridge/input controls
+  (#571). A page transition no longer needs a shifting status ribbon.
+- **Wi-Fi results keep their place while searching.** The picker retains its
+  viewport and scrollable results, with searching, empty and failure states
+  inside the list (#577). UI and backend components pass; combined-image
+  connection regression remains.
+- **Updating the game list explains offline-achievement preparation first.**
+  The notice follows the offline-achievement setting (#567). The confirmation
+  and indexing branches pass; actual service integration is still due.
+- **Supported GameCube RVZ files can be identified for achievements.** The
+  reader, padding repair, scanner and routing have format/component proof
+  (#574/#583/#584). Native Dolphin gameplay and final installed integration
+  remain required; no universal emulator or format support is implied.
+- **Pending offline awards resume submission when connectivity returns during startup.**
+  #588 repairs a missed offline-to-online edge. The original service failure,
+  corrected actual-service run and ten controlled component cases are retained.
+  Existing signed queue and authentication rules are unchanged; final default
+  boot and installed-image qualification remain.
+- **Standalone save-state help reflects emulator capabilities.** English/French
+  help and Dolphin data-preservation refusal/return frames pass (#575/#581).
+  Game saves remain distinct from automatic save states; native save/reload
+  behavior is still to be qualified.
+- **Fresh frontend settings select Recent and Favorites consistently.** Explicit
+  collection choices remain unchanged (#578). Copied gamelist history can
+  populate Recent without gameplay; game files alone do not create history.
+- **The shared scraper developer identity is supplied by the build.** The
+  player's ScreenScraper account remains separate (#566). Source-policy and
+  environment controls pass; the rebuilt binary, UI and backup checks remain.
+
+## Steam recovery (2026-10-14, component-qualified source)
+
+- **An interrupted Steam client installation can be retried while keeping the
+  existing profile.** The installer stages and verifies the client separately,
+  retains the previous working state on failure, and recognizes an already
+  committed update (#579/#580/#582). Controlled caller cases, including corrupt
+  archive, timeout, interruption and profile-link paths, pass. The real client
+  archive layout and CRC were inspected; native installed qualification is
+  still required on the combined image.
+
 ## Unavailable hardware information (2026-10-11, source-qualified)
 
 - **Missing frequency readings are clear.** INFORMATION shows `Not Available`

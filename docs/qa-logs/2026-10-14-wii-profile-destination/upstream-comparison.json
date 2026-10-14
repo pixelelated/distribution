@@ -1,0 +1,51 @@
+{
+  "read_at_utc": "2026-10-14T19:03:27.439433+00:00",
+  "repository": "ROCKNIX/distribution",
+  "branch": "next",
+  "head": "50097e80c92f96cf301f8ae146fef41e39c37608",
+  "source_url": "https://github.com/ROCKNIX/distribution/blob/50097e80c92f96cf301f8ae146fef41e39c37608/projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh",
+  "sha256": "a90b110bb18e4ae1d2a2509d5c2fd7086ece03ef09ea319931caccd1d9ba7c70",
+  "same_incorrect_destination_present": true,
+  "wii_profile_lines": [
+    {
+      "line": 50,
+      "text": "# Check if Wii controller dir exists in .config/dolphin-emu/WiiControllerProfiles"
+    },
+    {
+      "line": 51,
+      "text": "if [ ! -d \"${CONF_DIR}/WiiControllerProfiles\" ]; then"
+    },
+    {
+      "line": 52,
+      "text": "cp -r \"/usr/config/dolphin-emu/WiiControllerProfiles\" \"${CONF_DIR}/dolphin-emu/\""
+    },
+    {
+      "line": 56,
+      "text": "if [ ! -f \"${CONF_DIR}/WiiControllerProfiles/custom.ini\" ]; then"
+    },
+    {
+      "line": 57,
+      "text": "cp -r \"${CONF_DIR}/WiiControllerProfiles/vremote.ini\" \"${CONF_DIR}/WiiControllerProfiles/custom.ini\""
+    },
+    {
+      "line": 292,
+      "text": "cp -r ${CONF_DIR}/WiiControllerProfiles/classic.ini ${CONF_DIR}/WiimoteNew.ini"
+    },
+    {
+      "line": 294,
+      "text": "cp -r ${CONF_DIR}/WiiControllerProfiles/vremote.ini ${CONF_DIR}/WiimoteNew.ini"
+    },
+    {
+      "line": 296,
+      "text": "cp -r ${CONF_DIR}/WiiControllerProfiles/nunchuck.ini ${CONF_DIR}/WiimoteNew.ini"
+    },
+    {
+      "line": 298,
+      "text": "cp -r ${CONF_DIR}/WiiControllerProfiles/custom.ini ${CONF_DIR}/WiimoteNew.ini"
+    },
+    {
+      "line": 300,
+      "text": "cp -r ${CONF_DIR}/WiiControllerProfiles/hremote.ini ${CONF_DIR}/WiimoteNew.ini"
+    }
+  ]
+}

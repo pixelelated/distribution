@@ -1,0 +1,1 @@
+Original execution packet e2536b9aa5454d95b7e908beab112c73cade350f is unchanged except lossless gzip storage of the unified patch. Original hashes remain in execution-SHA256SUMS.txt; restore using stored-artifacts.json. Source-time UNRUN labels describe preparation; subsequent executed controls are in ../2026-10-14-generated-doc-runtime/attempt02/.

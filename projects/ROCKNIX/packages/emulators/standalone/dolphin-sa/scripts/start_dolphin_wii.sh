@@ -54,7 +54,7 @@ fi
 
 # Check if Wii controller dir exists in .config/dolphin-emu/WiiControllerProfiles
 if [ ! -d "${CONF_DIR}/WiiControllerProfiles" ]; then
-        cp -r "/usr/config/dolphin-emu/WiiControllerProfiles" "${CONF_DIR}/dolphin-emu/"
+        cp -r "/usr/config/dolphin-emu/WiiControllerProfiles" "${CONF_DIR}/"
 fi
 
 # Check if Wii custom controller profile exists in .config/dolphin-emu

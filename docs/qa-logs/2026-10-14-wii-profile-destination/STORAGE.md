@@ -1,0 +1,1 @@
+The unified patch, original blame output and original nunchuck profile are losslessly gzip-stored to preserve their whitespace. Original source hashes remain in execution-SHA256SUMS.txt; restore using stored-artifacts.json. No runtime was run by this packet. The exact corrected launcher is integrated into the coordinator for next-image qualification.
