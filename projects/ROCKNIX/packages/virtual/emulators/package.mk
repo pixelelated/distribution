@@ -1,5 +1,6 @@
 # SPDX-License-Identifier: GPL-2.0
 # Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)
+# Copyright (C) 2026 ROCKNIX (https://github.com/ROCKNIX)
 
 PKG_NAME="emulators"
 PKG_LICENSE="GPLv2"
@@ -92,6 +93,10 @@ case "${DEVICE}" in
     [ "${ENABLE_32BIT}" == "true" ] && EMUS_32BIT="box86 pcsx_rearmed-lr"
     PKG_EMUS+=" aethersx2-sa azahar-sa bigpemu-sa dolphin-sa drastic-sa duckstation-sa melonds-sa vita3k-sa armsx2-sa"
     LIBRETRO_CORES+=" beetle-psx-lr beetle-saturn-lr bsnes-lr bsnes-hd-lr dolphin-lr uae4arm-lr"
+    ;;
+  GENERIC_X64)
+    # Native standalone Dolphin supports the developer VM qualification path.
+    PKG_EMUS+=" dolphin-sa"
     ;;
   AMD64)
     PKG_EMUS+=" ares-sa azahar-sa cemu-sa dolphin-sa gopher64-sa mednafen melonds-sa nanoboyadvance-sa \
@@ -654,6 +659,12 @@ makeinstall_target() {
 
   ### Nintendo GameCube
   case ${DEVICE} in
+    GENERIC_X64)
+      add_emu_core gamecube dolphin dolphin-sa-gc true
+      add_emu_core gamecube dolphin dolphin-qt-gc false
+      install_script "Start Dolphin.sh"
+      add_es_system gamecube
+      ;;
     RK3399|RK3576|RK3566|RK3588|SM4450|SM6115|SM8250|SM8550|SM8650|SM8750|S922X|AMD64)
       add_emu_core gamecube dolphin dolphin-sa-gc true
       add_emu_core gamecube dolphin dolphin-qt-gc false
@@ -675,6 +686,11 @@ makeinstall_target() {
 
   ### Nintendo Wii/ware
   case ${DEVICE} in
+    GENERIC_X64)
+      add_emu_core wii dolphin dolphin-sa-wii true
+      add_emu_core wii dolphin dolphin-qt-wii false
+      add_es_system wii
+      ;;
     RK3399|RK3576|RK3566|RK3588|SM4450|SM6115|SM8250|SM8550|SM8650|SM8750|S922X|AMD64)
       add_emu_core wii dolphin dolphin-sa-wii true
       add_emu_core wiiware dolphin dolphin-sa-wii true

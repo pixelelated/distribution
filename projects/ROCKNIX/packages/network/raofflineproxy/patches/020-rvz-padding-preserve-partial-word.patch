@@ -1,0 +1,22 @@
+--- a/linux/raofflineproxy/rvz_datasource.py
++++ b/linux/raofflineproxy/rvz_datasource.py
+@@ -663,12 +663,16 @@
+ 
+     word_index = 0
+     bytes_to_skip = absolute_offset % _SECTOR_SIZE
++    # Keep the partial word: skipping it through the word writer would
++    # round the requested byte offset up and discard its remaining bytes.
++    leading_bytes = bytes_to_skip % 4
++    bytes_to_skip -= leading_bytes
+     if bytes_to_skip > 0:
+         word_index = _write_lagged_fibonacci_bytes(buffer, bytearray(bytes_to_skip), bytes_to_skip, word_index)
+ 
+-    output = bytearray(size)
+-    _write_lagged_fibonacci_bytes(buffer, output, size, word_index)
+-    return bytes(output)
++    output = bytearray(size + leading_bytes)
++    _write_lagged_fibonacci_bytes(buffer, output, len(output), word_index)
++    return bytes(memoryview(output)[leading_bytes:])
+ 
+ 
+ def _write_lagged_fibonacci_bytes(buffer: list, output: bytearray, byte_count: int, initial_word_index: int) -> int:

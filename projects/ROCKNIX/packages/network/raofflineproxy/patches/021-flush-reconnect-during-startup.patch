@@ -1,0 +1,30 @@
+--- a/linux/raofflineproxy/proxy_service.py
++++ b/linux/raofflineproxy/proxy_service.py
+@@ -1089,6 +1089,7 @@
+         self.interval_seconds = interval_seconds
+         self.stop_event = threading.Event()
+         self.watched_inodes = _capture_file_inodes([DATABASE_FILE])
++        self.initial_online = False
+ 
+     def stop(self) -> None:
+         self.stop_event.set()
+@@ -1096,6 +1097,11 @@
+     def run(self) -> None:
+         was_online = self.server.refresh_reachability(force_probe=True)
+         save_online_state(was_online)
++        # Carry the startup observation across the first worker probe. A link
++        # returning between them must not become an unhandled online baseline.
++        if was_online and not self.initial_online and not self.stop_event.is_set():
++            LOGGER.info("Connectivity restored; attempting flush")
++            self.server.flush_pending_awards()
+         while not self.stop_event.wait(self.interval_seconds):
+             if self.watched_inodes and _files_replaced_underneath(self.watched_inodes):
+                 # A reinstall deleted our log/database out from under this
+@@ -1469,6 +1475,7 @@
+         if initial_online:
+             server.flush_pending_awards()
+             retry_storage_corruption_report(config_data)
++        connectivity_monitor.initial_online = initial_online
+         connectivity_monitor.start()
+         periodic_refresh.start()
+         cache_queue_worker.start()

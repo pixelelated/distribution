@@ -1,0 +1,346 @@
+#!/usr/bin/python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 ROCKNIX (https://github.com/ROCKNIX)
+"""Prepare Dolphin's known save links without converting retained real data."""
+import argparse
+import ctypes
+import fcntl
+import os
+from pathlib import Path
+import re
+import shutil
+import signal
+import stat
+import sys
+import tempfile
+
+REGIONS = ("EUR", "JAP", "USA")
+MAX_COPY_FILES = 4096
+MAX_COPY_BYTES = 64 * 1024 * 1024
+
+
+# The first line is a fixed ownership discriminator consumed by runemu, not UI.
+ERROR_OWNER = "DOLPHIN DID NOT START"
+MESSAGES_FR = {
+    'Existing Dolphin data needs attention. Back up these locations, then use the file manager to choose and arrange the saved data before trying again. No saved data was removed.':
+        'Les données Dolphin existantes nécessitent votre attention. Sauvegardez ces emplacements, puis utilisez le gestionnaire de fichiers pour choisir et organiser les données à conserver avant de réessayer. Aucune donnée sauvegardée n’a été supprimée.',
+    'Dolphin storage path is outside its expected root.':
+        'L’emplacement de stockage Dolphin se trouve hors du dossier prévu.',
+    'Dolphin save storage is not writable. Check the game storage and folder permissions, then try again.':
+        'Impossible d’écrire dans le stockage des sauvegardes Dolphin. Vérifiez le stockage des jeux et les permissions des dossiers, puis réessayez.',
+    'Game storage is not ready. Reconnect it and try again. No saved data was removed.':
+        'Le stockage des jeux n’est pas prêt. Reconnectez-le et réessayez. Aucune donnée sauvegardée n’a été supprimée.',
+    'A Dolphin save path is separately mounted. Check the storage layout before trying again.':
+        'Un emplacement de sauvegarde Dolphin possède un montage distinct. Vérifiez l’organisation du stockage avant de réessayer.',
+    "Dolphin's retained GC resources exceed the preparation limit. Arrange them in the file manager before trying again.":
+        'Les ressources GameCube conservées dépassent la limite de préparation. Organisez-les dans le gestionnaire de fichiers avant de réessayer.',
+    'Dolphin configuration is missing. Check the installed defaults before trying again.':
+        'La configuration Dolphin est absente. Vérifiez la configuration fournie avec le système avant de réessayer.',
+    'Dolphin save preparation was interrupted. Saved data was kept. Try again.':
+        'La préparation des sauvegardes Dolphin a été interrompue. Les données sauvegardées ont été conservées. Réessayez.',
+    'Dolphin save preparation lock is unavailable. Try again after the other launch finishes.':
+        'La préparation des sauvegardes Dolphin est indisponible. Réessayez après la fin de l’autre lancement.',
+    'Dolphin save preparation is already running. Wait for it to finish, then try again.':
+        'La préparation des sauvegardes Dolphin est déjà en cours. Attendez sa fin, puis réessayez.',
+    'Dolphin could not prepare save storage. Check the storage connection and permissions, then try again. Saved data was kept.':
+        'Dolphin n’a pas pu préparer le stockage des sauvegardes. Vérifiez la connexion du stockage et les permissions, puis réessayez. Les données sauvegardées ont été conservées.',
+}
+
+
+def message_language():
+    # ES exports LANGUAGE; use the same precedence as the cloud companion page.
+    value = next((os.environ[key] for key in ("LANGUAGE", "LC_ALL", "LC_MESSAGES", "LANG")
+                  if os.environ.get(key)), "en")
+    primary = value.split(":", 1)[0].replace("-", "_").split("_", 1)[0].split(".", 1)[0].split("@", 1)[0].lower()
+    return "fr" if primary == "fr" else "en"
+
+
+def visible_path(path):
+    # The native message wraps only at whitespace. Keep this known long card
+    # path intact except for a display line break at its final slash.
+    prefix = "/storage/.config/dolphin-emu/GC/"
+    leaf = path.removeprefix(prefix)
+    if path.startswith(prefix) and re.fullmatch(r"MemoryCard[AB]\.(EUR|JAP|USA)\.raw", leaf):
+        return prefix + "\n" + leaf
+    return path
+
+
+def visible_error(message):
+    language = message_language()
+    title = "DOLPHIN N’A PAS DÉMARRÉ" if language == "fr" else "DOLPHIN DID NOT START"
+    # Translate only the known sentence, never player data paths below it.
+    sentence, separator, paths = message.partition("\n")
+    if language == "fr":
+        sentence = MESSAGES_FR.get(sentence, sentence)
+    paths = "\n".join(visible_path(path) for path in paths.split("\n"))
+    return title + "\n\n" + sentence + separator + paths + "\n"
+
+
+class Refused(Exception):
+    pass
+
+
+def kind(path):
+    try:
+        mode = path.lstat().st_mode
+    except FileNotFoundError:
+        return "absent"
+    if stat.S_ISLNK(mode):
+        return "link"
+    if stat.S_ISDIR(mode):
+        return "dir"
+    if stat.S_ISREG(mode):
+        return "file"
+    return "other"
+
+
+def link_target(path):
+    return Path(os.path.abspath(path.parent / os.readlink(path)))
+
+
+def reject(path, destination=None):
+    detail = "\n" + str(path)
+    if destination is not None:
+        detail += "\n" + str(destination)
+    raise Refused("Existing Dolphin data needs attention. Back up these locations, then use the file manager "
+                  "to choose and arrange the saved data before trying again. No saved data was removed." + detail)
+
+
+def directories(path, boundary):
+    # Missing descendants are fine; existing parents must not redirect traversal.
+    if not path.is_relative_to(boundary):
+        raise Refused("Dolphin storage path is outside its expected root.")
+    for item in (boundary, *reversed(path.relative_to(boundary).parents)):
+        if item == boundary:
+            current = boundary
+        else:
+            current = boundary / item
+        if kind(current) not in ("dir", "absent"):
+            reject(current)
+    if kind(path) not in ("dir", "absent"):
+        reject(path)
+
+
+def mounts():
+    result = set()
+    for line in Path("/proc/self/mountinfo").read_text().splitlines():
+        field = line.split()[4]
+        result.add(Path(re.sub(r"\\([0-7]{3})", lambda m: chr(int(m[1], 8)), field)))
+    return result
+
+
+def writable(path):
+    current = path
+    while kind(current) == "absent":
+        current = current.parent
+    # Mode check also catches a read-only player directory when the launcher is root.
+    mode = current.stat().st_mode
+    if not mode & 0o222 or not os.access(current, os.W_OK):
+        raise Refused("Dolphin save storage is not writable. Check the game storage and folder permissions, then try again.\n" + str(path))
+
+
+def plan(storage, system):
+    conf = storage / ".config/dolphin-emu"
+    roms = storage / "roms"
+    shared = storage / ".local/share/dolphin-emu"
+    mounted = mounts()
+    if kind(storage) != "dir" or kind(roms) != "dir" or roms not in mounted:
+        raise Refused("Game storage is not ready. Reconnect it and try again. No saved data was removed.")
+    for path in (conf, roms / "savestates", roms / "bios/GC", shared.parent):
+        directories(path, storage)
+    # Do not rewrite a save path hidden behind a nested/bind mount.
+    for mount in mounted:
+        if any(mount == path or path in mount.parents for path in (conf, shared, roms / "savestates", roms / "bios")):
+            raise Refused("A Dolphin save path is separately mounted. Check the storage layout before trying again.\n" + str(mount))
+    directories(conf / "GC", storage)
+    for temporary in (roms / "bios/.GC.dolphin-new", roms / "bios/GC/.Triforce.dolphin-new"):
+        if kind(temporary) != "absent":
+            reject(temporary)
+    links = [(conf / "StateSaves", roms / "savestates" / system,
+              (roms / "savestates/gamecube", roms / "savestates/wii")),
+             (shared, conf, (conf,))]
+    dirs = [roms / "savestates" / system, roms / "bios/GC", conf / "GC", shared.parent]
+    for name in ("gamecube", "wii"):
+        directories(roms / "savestates" / name, storage)
+    for region in REGIONS:
+        canonical = roms / "bios/GC" / region
+        directories(canonical, storage)
+        dirs.append(canonical)
+        links.append((conf / "GC" / region, canonical, (canonical,)))
+        for slot in ("A", "B"):
+            card = "MemoryCard" + slot + "." + region + ".raw"
+            canonical = roms / "bios/GC" / card
+            if kind(canonical) not in ("absent", "file"):
+                reject(canonical)
+            if kind(canonical) == "file":
+                writable(canonical)
+            links.append((conf / "GC" / card, canonical, (canonical,)))
+    directories(conf / "GC", storage)
+    directories(roms / "bios/GC/Triforce", storage)
+    for source, destination, allowed in links:
+        value = kind(source)
+        if value == "link":
+            if link_target(source) not in allowed:
+                reject(source, destination)
+        elif value != "absent":
+            # A real StateSaves tree has no reliable GC/Wii ownership tag. Even
+            # equal-looking region/card copies need an explicit retention choice.
+            reject(source, destination)
+    pending = conf / ".dolphin-state-link"
+    if kind(pending) != "absent" and (kind(pending) != "link" or link_target(pending) not in links[0][2]):
+        reject(pending, conf / "StateSaves")
+    for path in (*dirs, conf, shared.parent):
+        writable(path)
+    return conf, roms, dirs, links, pending
+
+
+def copy_new_tree(source, target, skip=()):
+    # Historical GC/Triforce seeding is copy-only and only to an absent target.
+    # A killed copy leaves one reserved stage and refuses retry until reviewed.
+    # Canonical data is never replaced, and the original config tree stays intact.
+    # Shipped resources are real files; refuse retained redirects before copying.
+    if kind(source) == "absent":
+        target.mkdir()
+        return
+    if kind(source) != "dir":
+        reject(source, target)
+    count = total = 0
+    def unreadable(error):
+        raise error
+
+    for base, dirs, files in os.walk(source, followlinks=False, onerror=unreadable):
+        if Path(base) == source:
+            dirs[:] = [name for name in dirs if name not in skip]
+            files = [name for name in files if name not in skip]
+        for name in dirs + files:
+            path = Path(base) / name
+            if kind(path) not in ("dir", "file"):
+                reject(path, target)
+            count += 1
+            if kind(path) == "file":
+                total += path.lstat().st_size
+            if count > MAX_COPY_FILES or total > MAX_COPY_BYTES:
+                raise Refused("Dolphin's retained GC resources exceed the preparation limit. Arrange them in the file manager before trying again.")
+    temporary = target.parent / ("." + target.name + ".dolphin-new")
+    temporary.mkdir(mode=0o700)
+    owned = temporary.lstat()
+    try:
+        shutil.copytree(source, temporary, symlinks=True, dirs_exist_ok=True,
+                        ignore=lambda base, names: set(skip) if Path(base) == source else set())
+        rename(temporary, target, 1)  # RENAME_NOREPLACE: canonical data wins a race.
+    finally:
+        if kind(temporary) != "absent":
+            current = temporary.lstat()
+            if (current.st_dev, current.st_ino) != (owned.st_dev, owned.st_ino) or kind(temporary) != "dir":
+                reject(temporary)
+            if any(m == temporary or temporary in m.parents for m in mounts()):
+                reject(temporary)
+            shutil.rmtree(temporary)  # Only this invocation's private, unactivated copy.
+
+
+def rename(first, second, flags):
+    libc = ctypes.CDLL(None, use_errno=True)
+    operation = libc.renameat2
+    operation.argtypes = [ctypes.c_int, ctypes.c_char_p, ctypes.c_int, ctypes.c_char_p, ctypes.c_uint]
+    operation.restype = ctypes.c_int
+    if operation(-100, os.fsencode(first), -100, os.fsencode(second), flags):
+        raise OSError(ctypes.get_errno(), "Could not switch Dolphin's save-state link")
+
+
+def apply(storage, system):
+    conf, roms, dirs, links, pending = plan(storage, system)
+    if kind(conf) != "dir":
+        raise Refused("Dolphin configuration is missing. Check the installed defaults before trying again.")
+    # Seed only an absent GC root, retaining the existing launchers' resource copy.
+    (roms / "bios").mkdir(exist_ok=True)
+    if kind(roms / "bios/GC") == "absent":
+        managed = (*REGIONS, *("MemoryCard" + slot + "." + region + ".raw"
+                              for region in REGIONS for slot in ("A", "B")))
+        copy_new_tree(conf / "GC", roms / "bios/GC", skip=managed)
+    if system == "gamecube" and kind(roms / "bios/GC/Triforce") == "absent":
+        copy_new_tree(conf / "GC/Triforce", roms / "bios/GC/Triforce")
+    for directory in dirs:
+        directory.mkdir(parents=True, exist_ok=True)
+    if kind(pending) == "link":
+        if link_target(pending) not in links[0][2]:
+            reject(pending, conf / "StateSaves")
+        pending.unlink()  # Only a recognized leftover symlink; never its target.
+    for source, destination, allowed in links:
+        value = kind(source)
+        if value == "absent":
+            source.symlink_to(destination)  # Exclusive creation; never overwrites a racing entry.
+        elif value == "link" and link_target(source) == destination:
+            continue
+        elif source == conf / "StateSaves" and value == "link" and link_target(source) in allowed:
+            previous = source.lstat()
+            pending.symlink_to(destination)
+            rename(pending, source, 2)  # RENAME_EXCHANGE keeps the displaced object.
+            moved = pending.lstat()
+            if (moved.st_dev, moved.st_ino) != (previous.st_dev, previous.st_ino) or kind(pending) != "link":
+                # Keep the unexpected object; do not delete data moved by a race.
+                # Refusal identifies the reserved path for explicit recovery.
+                reject(pending, source)
+            pending.unlink()
+        else:
+            reject(source, destination)
+
+
+def write_error(path, message):
+    # ES already consumes this native launch-error file on exit 250.
+    fd, temporary = tempfile.mkstemp(prefix=".dolphin-launch-error-", dir=path.parent)
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8", errors="backslashreplace") as stream:
+            stream.write(ERROR_OWNER + "\n" + visible_error(message))
+        os.replace(temporary, path)
+    finally:
+        if os.path.lexists(temporary):
+            os.unlink(temporary)
+
+
+def interrupted(signum, frame):
+    raise Refused("Dolphin save preparation was interrupted. Saved data was kept. Try again.")
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("phase", choices=("check", "prepare"))
+    parser.add_argument("system", choices=("gamecube", "wii"))
+    parser.add_argument("--storage", type=Path, default=Path("/storage"))
+    parser.add_argument("--lock", type=Path, default=Path("/run/dolphin-save-paths.lock"))
+    parser.add_argument("--error-file", type=Path, default=Path("/tmp/launch_error.log"))
+    args = parser.parse_args()
+    try:
+        for sig in (signal.SIGINT, signal.SIGTERM, signal.SIGHUP, signal.SIGALRM):
+            signal.signal(sig, interrupted)
+        signal.alarm(30)
+        storage = Path(os.path.abspath(args.storage))
+        fd = os.open(args.lock, os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW | os.O_NONBLOCK, 0o600)
+        try:
+            if not stat.S_ISREG(os.fstat(fd).st_mode):
+                raise Refused("Dolphin save preparation lock is unavailable. Try again after the other launch finishes.")
+            try:
+                fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except BlockingIOError:
+                raise Refused("Dolphin save preparation is already running. Wait for it to finish, then try again.") from None
+            if args.phase == "check":
+                plan(storage, args.system)
+            else:
+                apply(storage, args.system)
+        finally:
+            os.close(fd)
+        return 0
+    except Exception as error:
+        message = str(error) if isinstance(error, Refused) else "Dolphin could not prepare save storage. Check the storage connection and permissions, then try again. Saved data was kept."
+        print(message, file=sys.stderr)
+        print("Dolphin preparation detail: " + str(error), file=sys.stderr)
+        try:
+            write_error(args.error_file, message)
+        except OSError:
+            print("Could not write the native launch error message.", file=sys.stderr)
+        return 250
+    finally:
+        signal.alarm(0)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

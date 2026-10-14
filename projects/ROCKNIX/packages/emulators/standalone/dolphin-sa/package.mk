@@ -6,7 +6,7 @@ PKG_VERSION="6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4" #2606
 PKG_LICENSE="GPL-2.0-or-later"
 PKG_SITE="https://github.com/dolphin-emu/dolphin"
 PKG_URL="${PKG_SITE}.git"
-PKG_DEPENDS_TARGET="toolchain libevdev libdrm ffmpeg zlib libpng lzo libusb zstd ecm openal-soft pulseaudio alsa-lib libfmt hidapi curl SDL3 qt6"
+PKG_DEPENDS_TARGET="toolchain libevdev libdrm ffmpeg zlib libpng lzo libusb zstd ecm openal-soft pulseaudio alsa-lib libfmt hidapi curl SDL3 qt6 Python3"
 PKG_LONGDESC="Dolphin is a GameCube / Wii / Triforce emulator, allowing you to play games for these two platforms on PC with improvements. "
 
 PKG_DOLPHIN_VERSION_MAJOR="2606"
@@ -38,6 +38,12 @@ if [ "${VULKAN_SUPPORT}" = "yes" ]; then
   GRENDERER="Vulkan"
 else
   PKG_CMAKE_OPTS_TARGET+=" -DENABLE_VULKAN=OFF"
+  GRENDERER="OGL"
+fi
+
+# The developer VM has Vulkan headers/loader but no guest Vulkan ICD.
+# Keep both compiled backends; automatic launches use its working GL path.
+if [ "${DEVICE}" = "GENERIC_X64" ]; then
   GRENDERER="OGL"
 fi
 
