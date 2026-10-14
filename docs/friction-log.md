@@ -715,3 +715,11 @@ cycle; source qualification and landing are still pending.
 - 2026-10-14 18:42 UTC — #583: pinned builder Python3.10 lacks hashlib.file_digest; stream the same verified descriptor and retain fstat/rewind identity instead. Original export1 preserved; additive successful family uses unchanged archives/recipe/compiler.
 - 2026-10-14 18:42 UTC — #588: a provenance adapter assumed short dependency names instead of actual receipt package keys. Match the real schema and statically verify the bound metadata before a new VM allocation; original pre-service failure is not causal reproduction.
 - 2026-10-14 18:42 UTC — #563: syntax --with quote paths cannot override an angled external include. --tree now places its external -I root before cached headers; actual failed then successful five-TU runs preserve the diagnosis. No product declaration workaround.
+
+### 2026-10-14 19:14 UTC — pending-history citation coverage (#367)
+
+Publication preparation refused nine unpublished commit messages without issue
+references. Feature-worktree ceremony checks had inspected next rather than
+the pending history. Corrected metadata preserves all source trees and original
+evidence IDs through a recorded mapping/retained local graph; normal issue
+coverage now passes368commits. No public push or guard bypass occurred.

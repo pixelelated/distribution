@@ -8,15 +8,15 @@ feature/m7-player-setup. Harness conflict-resolution stays untouched.
 
 ## Immediate next commands
 
-Product composition is complete in the enclosing commit: stable20261001,
+Product composition is ready apart from the newly confirmed #566 error-copy correction: stable20261001,
 qualified Steam/Dolphin/proxy fixes including #588, published ES
  a5c7ff998831c8215f135a42a6f695e75230451d, minimal full standalone Dolphin on
 GENERIC_X64, tested generated-doc output redirection and one-line Wii profile
 copy correction. Final output/cache guard remains unchanged. Review receipts
 and exact remaining scopes in docs/releases/next-candidate-work.md.
 
-Publish this final source to next after required guards, verify remote head,
-create build/m7-p5-20261014-01 at
+Publish this integration source after required guards, verify remote head,
+then create build/m7-p5-20261014-01 at
 /workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01. Do not build here.
 Final source-only plan packet docs/qa-logs/2026-10-14-m7-engineering-image-plan
 comes from890423c21ae1307c94cd17830155f500a6cb6177; its manifest is
@@ -71,3 +71,25 @@ After image: actual installed/default-boot proxy/native hash/Dolphin gameplay,
 Steam, clean/retained #565/#566, #349 restore and combined UI/cloud tests, then
 applicable milestone audit, H700 thenSM8550, publication requirements.
 #558/#561 observation and #587/GTK4/lazyimports remain outside active RC gates.
+
+## Publication follow-up —19:14UTC
+
+The next-only ceremony gate caught nine unpublished commits with missing issue
+references. Metadata repair preserves all source trees and authors, re-signs35
+descendants, retains original graph feature/m7-pre-citation-20261014 and maps IDs
+in docs/qa-logs/2026-10-14-issue-citation-repair. New integration tip before this
+record is289e6d741e581861cd31235724cddd76f8737a38. No public history rewritten.
+Do not merge old feature ancestry back; copy reviewed new packet/product content
+or map the corrected base. Original evidence hashes remain valid through tree
+parity/mapping. Issue coverage passes368commits. No push ran before this fix.
+
+New#566 finding: compiled shared developer identity hides developer rows, but
+PairRejected copy still tells players to edit those rows. ES source worker is
+preparing conditional compiled/runtime copy plus translations and actual-frame
+proof route. Native state worker found no sibling error-route mismatch. Resolve
+and prove this before final ES pin/engineering compilation. Independent cache
+copy may proceed from this published integration head while frontend work
+continues; preserve source until copy owner exits/consumes, then fast-forward the
+build checkout to final published source before fresh compile admission. The
+cache is copied accepted parent output, not a new image or final-source claim.
+Final build-plan ES constant/config must match the new qualified ES commit.
