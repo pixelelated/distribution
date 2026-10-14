@@ -509,14 +509,21 @@ ScreenScraper on fork builds**: since #64 (2026-09-05) the package sets
 `SCREENSCRAPER_RUNTIME_DEV_LOGIN`, the scraper is always built, and the
 developer pair is typed on the device under the scraper's ACCOUNTS tab beside the
 account (DEVELOPER ID / DEVELOPER PASSWORD, held back from settings backups).
-So the options file is for RetroAchievements, TheGamesDB and HfsDB only, and
-a fork image never needs to carry a ScreenScraper key.
+That describes the current recipe, not the newly selected release behavior.
+D-WORKFLOW-166 selects the existing shared JELOS developer identity for interim
+provisioning under #566, so ordinary players need only their own separate account.
+#586 tracks replacement credentials later; it is not a current-candidate gate.
+Provisioning, applicable credential checks and source-bound UI/backup/clean/upgrade
+proof remain due. Do not embed personal player credentials or treat the interim
+choice as a blanket exception for other keys.
 
 They live in **`~/.ROCKNIX/options`, mode 0600, as `export` lines** — the
 Makefile includes that file on the host and in the container. Nothing else
 needs to know them. The maintainer's rule (D-INFRA-006): builds are local, so a
 value in a build log is tolerable; a value leaving through a build or through
-git is not. The guards, each proven against a constructed violation:
+git is not. D-WORKFLOW-166 narrowly refines this for the selected shared
+ScreenScraper developer identity; unrelated private values stay excluded.
+Current controls and the historical guard boundary:
 
 - `scripts/get_env` forwards the environment into the container **minus
   anything secret-shaped**, except those four by name. It used to forward
@@ -524,19 +531,21 @@ git is not. The guards, each proven against a constructed violation:
   `.env` and every container. `.env` is now 0600 and removed when the
   container exits.
 - The ES recipe logs `USING: <key> (set)`, never the value.
-- `tools/fork-publish-release` looks at the build root's ES binary; if it
-  contains `devpassword=` or an `&y=KEY`, it publishes only to a **private**
-  repo and refuses a public or unknown one (D-INFRA-007). It cannot strip a
-  key from a built binary; rebuild with the keys commented out.
-  `FORK_ALLOW_EMBEDDED_CREDENTIALS=yes` overrides it, for accounts created for
-  the fork and nothing else.
+- D-INFRA-007 describes a historical binary-credential guard. The current
+  `tools/fork-publish-release --prepare` only prepares a release plan and runs
+  #565's selected-state inspection; it explicitly leaves credential surfaces
+  outside that policy as a remaining gate. Do not claim the old binary scan or
+  `FORK_ALLOW_EMBEDDED_CREDENTIALS` override still executes. #566 must qualify
+  actual artifact checks for the chosen provisioning route, preserving private
+  credential exclusions rather than disabling checks broadly.
 - `.githooks/pre-push` scans every pushed branch (`fork-workflow.md`).
 
 The maintainer's rule, verbatim: *"if the build is only being generated on my
 build server and only being played by me, the key can be in my build, but
 beyond that, it needs to be stripped out."* So personal credentials in the
 options file are fine for images that stay here and on your own devices;
-anything anyone else can download is built without them.
+anything anyone else can download is built without those personal credentials.
+The separately selected shared developer identity is covered by D-WORKFLOW-166.
 
 ## Publishing
 

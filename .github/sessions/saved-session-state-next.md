@@ -1,6 +1,6 @@
 # Saved Session State
 
-Updated 2026-10-14 04:45 UTC. Continue M7 toward the next 0.0.1 candidate.
+Updated 2026-10-14 05:04 UTC. Continue M7 toward the next 0.0.1 candidate.
 
 Coordinator Herdr `w4:p2` owns `/workspace/repos/rocknix.worktrees/m7-player-setup`,
 branch `feature/m7-player-setup`. Published `next` remains
@@ -102,8 +102,8 @@ integration and shared records. No source-only handoff grants runtime authority.
    existing-client/profile contract while preserving compatibility, then implement
    and qualify the installer repair. Specifications are not executable fixtures.
 3. Compose #563 ROCKNIX stable20261001 foundation; #565 payload/clean/retained
-   state and #349; #566 developer identity; combined VM/audit; #555 H700 then
-   SM8550; #528/#344 custody/publication. #493 automatic retirement is separate.
+   state and #349; #566 interim shared-developer provisioning and qualification;
+   combined VM/audit; #555 H700 then SM8550; #528/#344 custody/publication. #493 automatic retirement is separate.
    #395 off-session notifications are not armed; long jobs need active supervision.
 
 D-WORKFLOW-164 explicitly requires upstream contribution consideration, extending
@@ -124,6 +124,24 @@ docs/releases/next-candidate-work.md now distinguishes unfinished implementation
 passing components awaiting combined-image proof, physical observations and
 explicit backlog. Browser/phone/Wi-Fi/Recent fixes are not untouched; Steam client
 bootstrap repair, native RVZ/proxy proof, final payload/clean/upgrade and developer
-identity remain. #558 shutdown cause is unknown; #561 LED preference is monitored.
+provisioning remain. #558 shutdown cause is unknown; #561 LED preference is monitored.
 #568 final-game progress, #562 ROM integrity and #560 fast shutdown remain backlog.
 This review starts no runtime and changes no production source or device state.
+
+## October14 ScreenScraper selection and watch-item clarification
+
+D-WORKFLOW-166 settles #566's interim choice: use the existing shared JELOS
+developer identity. #586 separately evaluates replacement credentials and is
+backlog, not an M7 prerequisite. No recipe, ES source, build environment or
+credential was changed here. #566 still owes provisioning, executable artifact
+checks, separate player account behavior and UI/backup/clean/upgrade proof.
+device-builds.md now distinguishes the actual prepare-only publisher/selected
+state gate from the obsolete binary-credential guard described historically.
+
+#558 stays open as a nonblocking watch until reliable reproduction or useful
+recurrence evidence makes repair actionable; no speculative fix or repeated
+shutdown experiment is scheduled. #561 already monitors the owner-restored
+Default LED preference; its original writer remains unknown. #568's backlog
+question is phase attribution (last-game work versus later image/cache work),
+not a pending owner wording choice. M7 and issue bodies have verified readback.
+No runtime, device action, upstream submission or push in this clarification.

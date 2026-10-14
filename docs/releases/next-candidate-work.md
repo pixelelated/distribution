@@ -23,7 +23,7 @@ not the build needed to perform them. No new test or build started in this revie
 | Notice before offline-achievement preparation — #567 | Conditional confirmation UI and four native ES indexing API branches pass; actual preparation was represented by a controlled ctl substitute. | Actual proxy/top-up integration on the composed source and final image; do not equate the substitute with offline-service qualification. |
 | Nova account/history isolation — #565 | Provenance investigation completed to available evidence; library-copy test separates ROM-only from gamelist history. Selected clean-state and payload guards have positive/negative controls. Original account entry remains unknown. | Inspect the actual next firmware payload; clean install must lack personal accounts/fabricated history, while retained-storage upgrade preserves legitimate settings/history. |
 | Recent default — #578 | One-literal compiled default fix and nine default/explicit-choice controls pass; imported gamelist history can populate Recent, a ROM alone cannot. | Final-source/image proof while preserving explicit player choices. Historical Nova Recent entries are not evidence that this new default fix fabricated history. |
-| ScreenScraper developer identity — #566 | Runtime versus compiled developer credentials and separate player account behavior are traced; provider documentation checked. | Establish an authorized pixelelated developer identity, then provision and qualify UI/backup/clean/upgrade behavior. No credential values belong in the tracker. Existing working fallback remains. |
+| ScreenScraper developer provisioning — #566 | Runtime versus compiled behavior and separate player accounts are traced. The owner selected the existing shared JELOS developer identity for interim use (D-WORKFLOW-166). | Implement and qualify provisioning, actual artifact checks and UI/backup/clean/upgrade behavior. Replacement credentials are backlog #586, not a candidate dependency. Preserve unrelated private-credential protections. |
 | Steam installation recovery — #564/#579/#580/#582 | Runtime/FEX/Proton preservation and complete synthetic caller controls pass within scope. Partial-client retry defect reproduced; real55-member client archive CRC/layout inspection passes. | Bootstrap repair is not yet implemented: settle legacy/self-updated-client recognition and metadata/profile ordering, implement bounded recovery, then native/installed qualification. This was found during the20261001 intake, not reported from gameplay. |
 
 Evidence: [installed setup](../qa-logs/2026-10-13-setup-qualification/installed/README.md),
@@ -37,12 +37,17 @@ receipts supply scoped completion. No failed original result is rewritten.
 
 - **Nova shutdown restarting (#558):** normal power-off requests and later boot
   are recorded; no retained crash dump or confirmed cause. Read-only triage is
-  complete; a scoped recurrence investigation remains. Do not call this fixed.
+  complete. At the owner's October14 direction, await a reliable reproducer or
+  useful recurrence evidence before repair work. This watch item does not block
+  the candidate and is not fixed.
 - **RG SP red LED (#561):** a saved Red preference explained the observed color;
   Default is restored by the owner. Original writer is unknown. Monitor subsequent
   use/upgrades; the deferred interruption matrix is not an active build gate.
 - **Last-game/finishing progress (#568), ROM/cloud integrity comparison (#562),
-  fast-shutdown value (#560), reusable upstream intake procedure (#559):** backlog.
+  fast-shutdown value (#560), reusable upstream intake procedure (#559),
+  replacement ScreenScraper credentials (#586):** backlog. #568 asks whether the
+  last game is active or post-game work is continuing; no owner copy choice is
+  pending. A finishing label must follow actual game-processing completion.
 - **GTK4 and lazy proxy imports (#576/#570):** diagnostic alternatives under
   D-WORKFLOW-163, not mandatory migrations for this RC. Target lazy-import savings
   were only390KiB; no GTK4 memory benefit has been measured.
