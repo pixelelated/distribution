@@ -1,5 +1,18 @@
 # Saved Session State
 
+Updated2026-10-14 20:47UTC. M7 engineering build is RUNNING; continue actively supervising and preparing installed qualification. No RC designated. Harness conflict-resolution untouched.
+
+## Immediate live work
+
+- Frozen build checkout `/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01`, branch`build/m7-p5-20261014-01`, exact published distribution`d6a87f05c1935516115b2cca1af22151a0209224`; ES3178b832b8d134198b2b4eede4f725d4ed283f8c published and selected. Primary/coordinator also atd6a87. Never edit the running checkout or its helpers.
+- Active owner `/workspace/tmp/pix-m7-engineering-build-20261014-01`, run`.build-runs/20261014T204343Z-b7a72fc6`, admissionb97f7e5e8026436db0ba508217b9688f, launcher10955. Read console.log, run.path, stages/*/host-result.json/inner-result.json/cgroup.jsonl, host-resources.jsonl, owner-result.json/resource-result.json and original runner/monitor/launcher results. Submission is not completion. Host PID namespace4026531836 (escalated calls). First clean actual observer/mount/nonce/cgroup contract passes; eight scoped cleans0; Qt6 host compilation active. Keep source frozen. No other runtime owner.
+- Accepted independent cache reused, no repeat copy. 24GiB/no-swap4CPU cold stages→40GiB/fullaffinity image;6hfamily,5sresource and600sallocation sampling. First resources show noOOM and ample RAM/disk. No swap reclaim needed. Actual launch packet docs/qa-logs/2026-10-14-m7-engineering-build-launch. M7 body and566comment6178051622 updated/readback.
+- After actual build completion: verify original exits/actual owners gone and consume admission, bind outputs/install/source/strip receipts, payload/untouchedclean gate, installed588/defaultboot, nativecodec/Dolphin/save, retained real20→new and actualbackup, relevantcloud/UI/time-to-play. Then milestoneaudit/fixes→H700→SM8550. Do not add image-dependent prerequisites before image creation; do not call engineering output an RC.
+- Source-only authorized workers: proxy_native_build implementing installed567 adapter from local plan797a6a7b; dolphin_english_proof preparing nativeWii/Dreamcast save fixtures from licensed homebrew, noGCSDGecko claim; proxy_startup_588 preparing minimal installed-clean/defaultboot outer lifecycle using existing sealed source. No runtime/VM/compiler allocation for these workers. No old worker ancestry merge; carry exact owned packet content only.
+
+## Prior preparation detail (historical launch instructions now completed)
+
+
 Updated 2026-10-14 20:37 UTC. Continue actual M7 toward the combined engineering image, installed qualification and next RC. No firmware compilation or RC designation yet. Harness conflict-resolution remains untouched. Herdr lanes are authentication-blocked and not active; explicitly authorized internal workers are used.
 
 ## Immediate action: publish final source, then start engineering build
@@ -39,3 +52,5 @@ Native homebrew plan91123b57 at2026-10-14-native-homebrew-fixtures, additive loo
 After image: actual payload/clean/retained565/566, installed588/nativecodec574/583/584, Dolphin/native581/575, actual567preparation, installedSteam564/579/580/582,349WebDAV/SFTP/localS3 restore, combined browser/phone/WiFi/Recent UI and time-to-play. Then milestone audit/findings, H700 thenSM8550 under555; satisfy528/344/337/359 publication requirements. No known bug waived forRC.558/561observations and587suspension/576GTK4/lazyimports/568/562/586backlog are not new gates. Existing device approvals consumed; no device/provider action underway.
 
 Previous checkpoint: archived/saved-session-state-next-20261014T203746Z.md .
+
+Previous checkpoint: archived/saved-session-state-next-20261014T204624Z.md.

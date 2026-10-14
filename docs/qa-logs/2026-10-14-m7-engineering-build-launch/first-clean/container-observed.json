@@ -1,0 +1,34 @@
+{
+  "id": "756e3e6d07ca3e545b7b7db2ae83685b704e494b6642a9661ee51945a4a13f4c",
+  "image_id": "sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "image_reference": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "user": "1000:1000",
+  "workdir": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+  "mounts": [
+    {
+      "Source": "/workspace/tmp/pix-m7-engineering-build-20261014-01",
+      "Destination": "/build-owner",
+      "RW": true
+    },
+    {
+      "Source": "/home/max/.ROCKNIX/options",
+      "Destination": "/home/max/.ROCKNIX/options",
+      "RW": true
+    },
+    {
+      "Source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-01",
+      "Destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+      "RW": true
+    },
+    {
+      "Source": "/workspace/repos/rocknix/.git",
+      "Destination": "/workspace/repos/rocknix/.git",
+      "RW": true
+    },
+    {
+      "Source": "/workspace/cache/rocknix-sources",
+      "Destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated/sources",
+      "RW": true
+    }
+  ]
+}

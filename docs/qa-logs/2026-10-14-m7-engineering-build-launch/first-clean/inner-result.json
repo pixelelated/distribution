@@ -1,0 +1,58 @@
+{
+  "stage": "clean-emulationstation",
+  "original_command_rc": 0,
+  "wrapper_rc": 0,
+  "uid": 1000,
+  "gid": 1000,
+  "visible_cpus": 4,
+  "nproc": 4,
+  "effective_tmpdir": "/tmp",
+  "actual_mktemp": true,
+  "before": {
+    "monotonic": 1102331.682629441,
+    "memory_current": 17723392,
+    "memory_peak": 17817600,
+    "memory_max": "25769803776",
+    "memory_swap_max": "0",
+    "memory_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "io_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=5725\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=5725\n",
+    "io_stat": "259:1 rbytes=9662464 wbytes=0 rios=206 wios=0 dbytes=0 dios=0\n252:0 rbytes=9662464 wbytes=0 rios=206 wios=0 dbytes=0 dios=0\n"
+  },
+  "host_observation_handshake": {
+    "stage": "clean-emulationstation",
+    "nonce": "364704ab1953b876a7c19dd4dc65a69b",
+    "container_id": "756e3e6d07ca3e545b7b7db2ae83685b704e494b6642a9661ee51945a4a13f4c"
+  },
+  "child_pid": 8,
+  "started_monotonic": 1102331.784821064,
+  "after": {
+    "monotonic": 1102332.78521514,
+    "memory_current": 27688960,
+    "memory_peak": 32485376,
+    "memory_max": "25769803776",
+    "memory_swap_max": "0",
+    "memory_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "io_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=16436\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=16436\n",
+    "io_stat": "259:0 rbytes=643072 wbytes=0 rios=58 wios=0 dbytes=0 dios=0\n259:1 rbytes=19361792 wbytes=0 rios=368 wios=0 dbytes=0 dios=0\n252:0 rbytes=19361792 wbytes=0 rios=368 wios=0 dbytes=0 dios=0\n"
+  },
+  "elapsed_seconds": 1.0007986589334905,
+  "signals": []
+}

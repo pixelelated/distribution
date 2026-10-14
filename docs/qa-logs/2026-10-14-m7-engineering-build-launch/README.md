@@ -1,0 +1,9 @@
+# M7 engineering build launched — #493 / #566 / #588
+
+Distribution d6a87f05c1935516115b2cca1af22151a0209224 and ES3178b832b8d134198b2b4eede4f725d4ed283f8c were published and exact remote refs verified. Repository gates and package lint passed. Existing build/m7-p5-20261014-01 advanced to that source, keeping the accepted independent cache. No second cache copy ran.
+
+At20:43:43UTC, owner `/workspace/tmp/pix-m7-engineering-build-20261014-01` started run `20261014T204343Z-b7a72fc6` with admission b97f7e5e8026436db0ba508217b9688f. Final input seal is e6ece3632d2cb118c53c3be111c5e764ed177dc352c010644385bc6ca1d26eb7. The watched retention report found zero deletion candidates,2,861,560,295,424 available bytes and260,713,832,448 required bytes including conservative growth/QA/margin allowances. No reclaim was counted or performed. Presence-only checks found no relevant credential/build override and no active lines in mounted options.
+
+The first clean stage verified actual container digest, independent checkout/source/main.git mounts, nonroot uid, TMPDIR/mktemp,4visibleCPUs,24GiB/no-swap cgroup and nonce-bound host observation; original host/inner/wrapper exits0. All eight scoped clean stages subsequently completed0 and Qt6 compilation began. Five-second host/cgroup and bounded periodic allocated-root observations remain active, with the six-hour family bound and host resource floors. Source/helper bytes stay frozen.
+
+These are launch and first-stage receipts, not build completion or image acceptance. Read the live owner's console.log/run.path/owner-result.json/resource-result.json and original runner/monitor/launcher results; require actual owner/container exit before consumption. The coordinator actively supervises, and no off-session chat notifier is claimed. Installed #588/default-boot, native/clean/retained/UI/cloud qualification and milestone audit remain downstream. No RC is designated.

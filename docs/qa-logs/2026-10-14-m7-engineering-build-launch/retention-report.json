@@ -1,0 +1,227 @@
+{
+  "utc": "2026-10-14T20:43:29.189010+00:00",
+  "schema": 1,
+  "deletion_performed": false,
+  "result": "REPORT_COMPLETE",
+  "protected": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20",
+      "identity": {
+        "device": 66304,
+        "inode": 55772655,
+        "size": 4096,
+        "mtime_ns": 1791748178354684745,
+        "allocated_bytes": 4096,
+        "uid": 1000,
+        "links": 23,
+        "mode": 16893
+      }
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64",
+      "identity": {
+        "device": 66304,
+        "inode": 55772727,
+        "size": 4096,
+        "mtime_ns": 1791748132562184665,
+        "allocated_bytes": 4096,
+        "uid": 1000,
+        "links": 13,
+        "mode": 16877
+      }
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/target",
+      "identity": {
+        "device": 66304,
+        "inode": 116024861,
+        "size": 4096,
+        "mtime_ns": 1791748178141682419,
+        "allocated_bytes": 4096,
+        "uid": 1000,
+        "links": 2,
+        "mode": 16877
+      }
+    },
+    {
+      "path": "/workspace/cache/rocknix-sources",
+      "identity": {
+        "device": 66304,
+        "inode": 25690114,
+        "size": 20480,
+        "mtime_ns": 1791758902719677496,
+        "allocated_bytes": 20480,
+        "uid": 1000,
+        "links": 680,
+        "mode": 16877
+      }
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-capacity-20261014-01/measurement.json",
+      "identity": {
+        "device": 66304,
+        "inode": 192702346,
+        "size": 712,
+        "mtime_ns": 1792004150286786190,
+        "allocated_bytes": 4096,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      }
+    }
+  ],
+  "inventory": {
+    "directories": 1,
+    "errors": [],
+    "disks": [],
+    "source_fixtures": [],
+    "references": [],
+    "active": [],
+    "container_mounts": [
+      {
+        "container": "36900e5df0f0",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-artifact-workspace-963_postgres-logs-data/_data"
+      },
+      {
+        "container": "ab585a2cd441",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-artifact-workspace-963_postgres-data/_data"
+      },
+      {
+        "container": "54a1d102beb4",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-pipeline-self-heal-821_postgres-data/_data"
+      },
+      {
+        "container": "d944c4839a63",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-pipeline-self-heal-821_postgres-logs-data/_data"
+      },
+      {
+        "container": "415e13aa5396",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-pipeline-recovery-821_postgres-logs-data/_data"
+      },
+      {
+        "container": "23d0b7373921",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-pipeline-recovery-821_postgres-data/_data"
+      },
+      {
+        "container": "08e48291f553",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-pipeline-failure-821_postgres-logs-data/_data"
+      },
+      {
+        "container": "b636a1aad6a6",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-pipeline-failure-821_postgres-data/_data"
+      },
+      {
+        "container": "fd066788e58f",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-session-readiness-829_postgres-data/_data"
+      },
+      {
+        "container": "730a16321662",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-session-readiness-829_postgres-logs-data/_data"
+      },
+      {
+        "container": "1a02c04eac1c",
+        "running": false,
+        "source": "/home/max/Development/groundhog.worktrees/m17-p0-decision-register/initial_artifacts"
+      },
+      {
+        "container": "36e2e5fa8eca",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-m17-p0-decision-register_postgres-logs-data/_data"
+      },
+      {
+        "container": "2582d203b8cc",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-m17-p0-decision-register_postgres-data/_data"
+      },
+      {
+        "container": "6662d419148a",
+        "running": false,
+        "source": "/home/max/Development/groundhog"
+      },
+      {
+        "container": "6662d419148a",
+        "running": false,
+        "source": "/home/max/.azure"
+      },
+      {
+        "container": "6662d419148a",
+        "running": false,
+        "source": "/home/max/.ssh"
+      },
+      {
+        "container": "6662d419148a",
+        "running": false,
+        "source": "/home/max/.config/gh"
+      },
+      {
+        "container": "0102bc149083",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-notetaker-03_postgres-data/_data"
+      },
+      {
+        "container": "7e505a312f26",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-notetaker-03_postgres-logs-data/_data"
+      },
+      {
+        "container": "8c3e136cb143",
+        "running": true,
+        "source": "/var/lib/docker/volumes/groundhog_devcontainer_postgres-data/_data"
+      },
+      {
+        "container": "a3571466955b",
+        "running": true,
+        "source": "/var/lib/docker/volumes/groundhog_devcontainer_postgres-logs-data/_data"
+      },
+      {
+        "container": "bcf29004e7ae",
+        "running": false,
+        "source": "/var/lib/docker/volumes/agents-i-d-like-to-tackle-all-of-the-d9ae1d72_groundhog_db/_data"
+      },
+      {
+        "container": "2e4c1d8f193f",
+        "running": false,
+        "source": "/var/lib/docker/volumes/agents-i-d-like-to-tackle-all-of-the-d9ae1d72_groundhog_logs_db/_data"
+      }
+    ],
+    "scope": "All directories under explicit roots; directory symlinks not followed. QCOW magic in img/raw and named virtual disks; JSON references in explicit stores. Actual process argv and all container mounts. No whole-host root FD census claimed."
+  },
+  "candidates": [],
+  "builds": [
+    {
+      "name": "m7-engineering-build",
+      "terms_bytes": {
+        "additional_warm_package_growth": 37375533056,
+        "qt6_source_expansion_allowance": 8589934592,
+        "qt6_host_object_allowance": 34359738368,
+        "qt6_target_object_allowance": 34359738368,
+        "qt6_installation_allowance": 8589934592,
+        "dolphin_lto_and_new_dependency_allowance": 8589934592,
+        "source_download_growth": 8589934592,
+        "firmware_outputs": 17179869184,
+        "immediate_clean_and_upgrade_qa": 34359738368,
+        "operating_margin": 68719476736
+      },
+      "required_bytes": 260713832448,
+      "available_bytes": 2861560295424,
+      "fits_now": true,
+      "eligible_reclaim_bytes": 0,
+      "headroom_after_proposed_bytes": 2600846462976,
+      "basis": "Current exact-root allocation measurement plus explicit growth/QA/margin allowances. Existing source cache and parent payloads already reduce f_bavail; no reclamation counted. No deletion candidates; the empty explicit scan is not historical-volume classification."
+    }
+  ],
+  "preservation_additional_bytes": 0,
+  "limitations": "Evidence is already independently retained. Available bytes exclude filesystem reserve. A report is not deletion authority; refresh identities, dependencies and active use before execution.",
+  "plan_sha256": "9183bb141785c8b92373e560fa306f186aef9f9cc7f996d3d0aa90f9054c3d3f",
+  "tool_sha256": "1187725512f1a0586bc4d7812a886076c71bc6fdd460f6cd4a73e91198518798"
+}
