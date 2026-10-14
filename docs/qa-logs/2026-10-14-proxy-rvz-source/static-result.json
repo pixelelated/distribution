@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "evidence": "AST/source/hash/whitespace inspection ONLY",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "parsed_files": [
+    "candidates/list_jobs.py",
+    "candidates/rvz_datasource.py",
+    "fixtures/probe.py",
+    "research/current-rvz_datasource.py",
+    "source/cache_keys.py",
+    "source/list_jobs.py",
+    "source/rom_browser.py",
+    "source/rom_hashing.py",
+    "source/rvz_datasource.py",
+    "static-check.py"
+  ],
+  "sealed_input_files": 20,
+  "patches": [
+    {
+      "name": "rvz_datasource.py",
+      "uncompressed_patch_sha256": "444f1fbe05f7f1922c1656474789791576fc398db0b6bc9d16152dfa010a4502",
+      "candidate_sha256": "b29684d2cc0419cd1c02b61b562d422635a08f6fdb40a83ca5e12d838c9e56c3"
+    },
+    {
+      "name": "raofflineproxy-ctl",
+      "uncompressed_patch_sha256": "5a821e83c14612a513e91065bc7987a96af0693f0df54c2eb101c1169ec89050",
+      "candidate_sha256": "9c896e18f46b76b6c72be6a1f11664c613c7efa7b63bb49993128b89916be137"
+    }
+  ],
+  "runtime": "UNRUN; no fixture import or execution"
+}

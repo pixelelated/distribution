@@ -1,0 +1,217 @@
+{
+  "evidence": "source/static only; all new fixture executions UNRUN",
+  "distribution_head": "a824edbd209d1971b2c814cf86528bae0add9c51",
+  "next": "0ea6eaf74ad47503c05955d1c0bd4bd00bdfb816",
+  "proxy_pin": "c7ebd1b6e777f3751ff0ecdf8aba54045844e00d",
+  "proxy_archive_sha256": "88eef31acfa4104b20258bd5cea514ade30e6cdf35767ffc958009851d61898b",
+  "upstream_current": "2d19684e0800f6da33ff1841d27e083c1e467142",
+  "files": {
+    "linux/raofflineproxy/rvz_datasource.py": {
+      "patched_sha256": "5fe8d058b6a1c06c04696308eab0206ea3c3e60075a2b88137065583fbb0cea1",
+      "upstream_sha256": "5fe8d058b6a1c06c04696308eab0206ea3c3e60075a2b88137065583fbb0cea1",
+      "source_path": "/workspace/tmp/pix541-refresh72/final-patched/linux/raofflineproxy/rvz_datasource.py"
+    },
+    "linux/raofflineproxy/rom_hashing.py": {
+      "patched_sha256": "872e35753db781adc7c0d1250f39b81e80eb455ca5b75bc8dbe4400b98884908",
+      "upstream_sha256": "872e35753db781adc7c0d1250f39b81e80eb455ca5b75bc8dbe4400b98884908",
+      "source_path": "/workspace/tmp/pix541-refresh72/final-patched/linux/raofflineproxy/rom_hashing.py"
+    },
+    "linux/raofflineproxy/rom_browser.py": {
+      "patched_sha256": "9b8bbe81f46e6e47347c5cd04339194421913a6094f36b2dbe642fe6f5312f5e",
+      "upstream_sha256": "b32544b89138efd588662d105865888039880c7ae5de82fb515de71f21184c53",
+      "source_path": "/workspace/tmp/pix541-refresh72/final-patched/linux/raofflineproxy/rom_browser.py"
+    },
+    "linux/raofflineproxy/cache_keys.py": {
+      "patched_sha256": "db137411c8cf87639b1c344e2159821a237254b193556bb13d0ee522c9b800a7",
+      "upstream_sha256": "db137411c8cf87639b1c344e2159821a237254b193556bb13d0ee522c9b800a7",
+      "source_path": "/workspace/tmp/pix541-refresh72/final-patched/linux/raofflineproxy/cache_keys.py"
+    },
+    "linux/raofflineproxy/native_codecs.py": {
+      "patched_sha256": "f9bcbc5262a600e0019d84767506007a9613a0c61fefc19808cecab7ad419a73",
+      "upstream_sha256": "f9bcbc5262a600e0019d84767506007a9613a0c61fefc19808cecab7ad419a73",
+      "source_path": "/workspace/tmp/pix541-refresh72/final-patched/linux/raofflineproxy/native_codecs.py"
+    },
+    "linux/raofflineproxy/rom_cache.py": {
+      "patched_sha256": "06425340072978b7d862f37bb653cfefe13354d7af022a9ed151be46a1c0a22c",
+      "upstream_sha256": "10ddd030864090e26ad628f014b356775f34ce2e97b1582501198e0722c43180",
+      "source_path": "/workspace/tmp/pix541-refresh72/final-patched/linux/raofflineproxy/rom_cache.py"
+    },
+    "linux/raofflineproxy/smart_cache.py": {
+      "patched_sha256": "dbb3f8e7eac2b1dc3b6790161b9ecfc9e1e2dbe86abbe79aedcdb297f8b15eef",
+      "upstream_sha256": "dbb3f8e7eac2b1dc3b6790161b9ecfc9e1e2dbe86abbe79aedcdb297f8b15eef",
+      "source_path": "/workspace/tmp/pix541-refresh72/final-patched/linux/raofflineproxy/smart_cache.py"
+    },
+    "linux/raofflineproxy/proxy_service.py": {
+      "patched_sha256": "42fbdb000f64e791fcee4437448e1841f8b6ebd81bb97d358f84fcfe98f65a75",
+      "upstream_sha256": "fc9c23b25227346199c6793b0e0b410bb53dd74c89e94c27e7173507b1d3d0f6",
+      "source_path": "/workspace/tmp/pix541-refresh72/final-patched/linux/raofflineproxy/proxy_service.py"
+    },
+    "linux/raofflineproxy/auth.py": {
+      "patched_sha256": "22ee4476c64fd8cc0de54bdef26cf7cdc1064c7bcfb8161f1a0204f6ef5a3cd8",
+      "upstream_sha256": "fd562e441a432065eb69911de37dea996c54fd82233b2ce7f7d695a93c797980",
+      "source_path": "/workspace/tmp/pix541-refresh72/final-patched/linux/raofflineproxy/auth.py"
+    },
+    "linux/raofflineproxy/pending_awards.py": {
+      "patched_sha256": "e5e0f3918600c3d188ecd12e11dc2c8833fda2ee419187aeb5f2204bf64298b4",
+      "upstream_sha256": "e5e0f3918600c3d188ecd12e11dc2c8833fda2ee419187aeb5f2204bf64298b4",
+      "source_path": "/workspace/tmp/pix541-refresh72/final-patched/linux/raofflineproxy/pending_awards.py"
+    },
+    "linux/raofflineproxy/storage.py": {
+      "patched_sha256": "6173c4a1583971f4e67bd9011cf4f6275b0126c668a3b1bc5fcc2d5ccd4f82cb",
+      "upstream_sha256": "6173c4a1583971f4e67bd9011cf4f6275b0126c668a3b1bc5fcc2d5ccd4f82cb",
+      "source_path": "/workspace/tmp/pix541-refresh72/final-patched/linux/raofflineproxy/storage.py"
+    },
+    "linux/raofflineproxy/main.py": {
+      "patched_sha256": "71d5a2a0796ed2b7199118268569d70ec3c6daf78f8a7851b2bf1187d21bf429",
+      "upstream_sha256": "71d5a2a0796ed2b7199118268569d70ec3c6daf78f8a7851b2bf1187d21bf429",
+      "source_path": "/workspace/tmp/pix541-refresh72/final-patched/linux/raofflineproxy/main.py"
+    },
+    "linux/raofflineproxy/config.py": {
+      "patched_sha256": "3184e88b2eac7b5da3a5e0f5906ae193f1dcda7df7e0849d05cd5ec91fe5e3bb",
+      "upstream_sha256": "1d32a2d97f6338b5913f17442ca4f5ecf5ef123f6fe7afa1db68fdde645ad1ef",
+      "source_path": "/workspace/tmp/pix541-refresh72/final-patched/linux/raofflineproxy/config.py"
+    },
+    "linux/raofflineproxy/watch_folders.py": {
+      "patched_sha256": "290bb8f6cc4655cdf533e0e433d53e9fd9d8636d3a304f7264ae17d29f1dbb15",
+      "upstream_sha256": "290bb8f6cc4655cdf533e0e433d53e9fd9d8636d3a304f7264ae17d29f1dbb15",
+      "source_path": "/workspace/tmp/pix541-refresh72/final-patched/linux/raofflineproxy/watch_folders.py"
+    },
+    "linux/raofflineproxy/es_export.py": {
+      "patched_sha256": "33e41f4f1f0d6ae78e0cdb2daa793ee42d6dae7a2c9091ebec9f4976f42e30ee",
+      "upstream_sha256": "33e41f4f1f0d6ae78e0cdb2daa793ee42d6dae7a2c9091ebec9f4976f42e30ee",
+      "source_path": "/workspace/tmp/pix541-refresh72/final-patched/linux/raofflineproxy/es_export.py"
+    },
+    "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl": {
+      "sha256": "dc4a69f986249e8ef8b1da799dd8b47376699a5609e5b35617d1965e61b198cc",
+      "equal_next": true
+    },
+    "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-indexed": {
+      "sha256": "4c6d5a8d509661e2951acba968c248187590684f4fcac3388bd7ed69e1c30042",
+      "equal_next": true
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh": {
+      "sha256": "344d6f4445efafbcfe37264b3e1fbe5e50c8757d9d16484a77389ddd8543c8a9",
+      "equal_next": true
+    },
+    "projects/ROCKNIX/packages/network/raofflineproxy/package.mk": {
+      "sha256": "e13f5bb22eae74c73ecb4141c3580f2627b9f8cfc317840656d90ed017e0f13d",
+      "equal_next": true
+    },
+    "projects/ROCKNIX/packages/network/raofflineproxy-rcheevos/package.mk": {
+      "sha256": "5921284cea44d2ea6ea560830bcef6ef15c760183f9de3a5db02853fe274e194",
+      "equal_next": true
+    },
+    "projects/ROCKNIX/packages/network/raofflineproxy/system.d/raofflineproxy.service": {
+      "sha256": "c42689768684263e69d3a904223faf2bab270a5956fde3af5af640f1f26b4233",
+      "equal_next": true
+    },
+    "third_party/rcheevos_glue/rchash_glue.c": {
+      "patched_sha256": "1f19351c5ea08dcd055eff7ecf8b6375ddd8094753b29b9971c3f48ce2c04ec3",
+      "upstream_sha256": "1f19351c5ea08dcd055eff7ecf8b6375ddd8094753b29b9971c3f48ce2c04ec3"
+    },
+    "third_party/rcheevos_glue/rchash_glue.h": {
+      "patched_sha256": "e23ea9099160cbd44860bd9e80f21d5d4d7c808ddd5532afe021dc8e6c383347",
+      "upstream_sha256": "e23ea9099160cbd44860bd9e80f21d5d4d7c808ddd5532afe021dc8e6c383347"
+    },
+    "dolphin-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/docs/WiaAndRvz.md": {
+      "sha256": "8f03805ed0540b7bc019afcb80792958fc4e60faa421d7beceaad24b03bcdb03"
+    },
+    "dolphin-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/DiscIO/LaggedFibonacciGenerator.cpp": {
+      "sha256": "1383ea61666e710b44b288788cd2354cf11f4da455ec0fa55d296311b1e1f422"
+    },
+    "es-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/es-app/src/RetroAchievements.cpp": {
+      "sha256": "2faa6a176c4901b088d30d7f5972fd3f3abb4230f76061beb2295bf169c1b697"
+    },
+    "es-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/es-app/src/ThreadedHasher.cpp": {
+      "sha256": "f5893c4d353f62c25a4ab946235557b623e99716b675194260feaa9dd7f6ab64"
+    },
+    "es-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78/external/libcheevos/cheevos.cpp": {
+      "sha256": "7d5287535f062e28c95c0d8c65a4657f53ce452e78a917805a0ee2d5f93fecb4"
+    },
+    "rcheevos-1433173220a7eaede6a9ed7a18e94117be1821e0/src/rhash/hash_disc.c": {
+      "sha256": "b1e1eecf055a398596d62f7031b289adfaded30283bca0c45f822b86885d57ee"
+    }
+  },
+  "patches": [
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/001-dorequest-4xx-passthrough.patch",
+      "sha256": "e322a8dd83354185fb3a774fe5d1adabebfcd199a06e18c40c255dffe9197239"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/002-no-synthetic-casual-only-achievement.patch",
+      "sha256": "4bbc21724eba0e005d2cf82b2d5944d6a4a137fc9a95969fcd30bcf7b8bb222b"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/003-flush-stamp.patch",
+      "sha256": "c543966c8bc24c65d379ccdebb20083056b9d88c19c650aad3505f41899c8d2d"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/004-no-cap-on-cached-games.patch",
+      "sha256": "70c6f05baf75cf932fbdf7651a8df47bf2a2cf6bac9cec66b34b12cef2a55344"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/005-keep-the-refresh-thread-alive.patch",
+      "sha256": "fbbb0ed4cbec91248d496ee039e11792c4a111100400dfdc762f376c9c6bf135"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/007-cached-sign-in-of-the-configured-account.patch",
+      "sha256": "6ef15a93bcd662d10856a0a771f56677bf50326dd3d9ff0f5c9f6febd6f16d3a"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/008-log-upload-opt-in.patch",
+      "sha256": "e8d80fab8eabad8d0b4b40113e1e9c01a50fa72c33e35e5a2ac5bd1dedfef53c"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/009-unique-image-temp-names.patch",
+      "sha256": "1642ff92d8b37c937e32bf6aba712d14461b31bfecb8a3de45698c51ccf97514"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/010-store-only-header.patch",
+      "sha256": "7a07da2058da6b13281e57cc4a08e154fcd5d006286325e7b4fd022eed76c5f9"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/011-offline-login-header.patch",
+      "sha256": "09670dcaa8f7b74ffd0b0e01a4103880157955ed8e902b0918d65c02e2977154"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/012-offline-image-miss.patch",
+      "sha256": "4ef3b0259af88953ea5652207f474e83b4ef551996eeffc6dd7a9d7d3d5fab33"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/013-validate-a-cached-image-before-publishing-it.patch",
+      "sha256": "b7e16f2ab9c97f550deeaf55a21a315b83f432a5f1c90d04b15bca8a728d7003"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/015-bounded-name-lookup.patch",
+      "sha256": "5626e7bbb3fa018be1395030b0ca794d5412aa8d907d80c339c902979e72bac8"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/016-say-what-became-of-a-download.patch",
+      "sha256": "061bcdedffaf9ee6c7028e204998a406f5861b60e2903d987e7713b219707a80"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/018-pixelelated-platform-identity.patch",
+      "sha256": "ab0c2a95ae10dfbd0f06b5c834b87cf12a40856f4550389fcb7b20aa7b21f999"
+    },
+    {
+      "path": "projects/ROCKNIX/packages/network/raofflineproxy/patches/019-consent-cache-initial-observation.patch",
+      "sha256": "6561b622cec2d58be6bda83cdbf60c197f885e93089edd4f5811088babb2d93a"
+    }
+  ],
+  "candidates": {
+    "rvz_datasource.py": {
+      "target": "linux/raofflineproxy/rvz_datasource.py",
+      "baseline_sha256": "5fe8d058b6a1c06c04696308eab0206ea3c3e60075a2b88137065583fbb0cea1",
+      "candidate_sha256": "b29684d2cc0419cd1c02b61b562d422635a08f6fdb40a83ca5e12d838c9e56c3",
+      "patch": "rvz_datasource.py.patch.gz",
+      "uncompressed_patch_sha256": "444f1fbe05f7f1922c1656474789791576fc398db0b6bc9d16152dfa010a4502"
+    },
+    "raofflineproxy-ctl": {
+      "target": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl",
+      "baseline_sha256": "dc4a69f986249e8ef8b1da799dd8b47376699a5609e5b35617d1965e61b198cc",
+      "candidate_sha256": "9c896e18f46b76b6c72be6a1f11664c613c7efa7b63bb49993128b89916be137",
+      "patch": "raofflineproxy-ctl.patch.gz",
+      "uncompressed_patch_sha256": "5a821e83c14612a513e91065bc7987a96af0693f0df54c2eb101c1169ec89050"
+    }
+  }
+}

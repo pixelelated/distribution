@@ -118,3 +118,22 @@ alerts notarmed (active supervision required). ScreenScraperidentity clarificati
 pending; no secret values requested. No knownfailure waived or issueclosed.
 
 [Previous checkpoint](archived/saved-session-state-next-20261014T022000Z.md)
+
+## 02:49 UTC source handoff update
+
+Proxy packet819d1c30ec6bc4d7354babecec1b84ceed960189 received/hashverified and
+imported at docs/qa-logs/2026-10-14-proxy-rvz-source/. Read its README/bindings.
+Two candidates (padding byteoffset, explicit RVZ zero-sentinel recovery) are
+UNRUN; production scripts/pins untouched. Source/report criterion and rule
+criterion recorded on#583; runtime open. New#584 Dolphin offline-toggle routing
+gap; w4:p8 now owns minimal cheevos_dolphin.sh candidate+full-script synthetic
+controls in m7-browser-memory-570, source-only. w4:p7 Steamrecovery and w4:p9
+MD5targetplan continue source-only. No runtime active. Shared record commit
+d029982dd30b28711f3cb6cf774fc9d052675d6c exists locally; this importedpacket/update
+is the following uncommitted change until next record commit. No push.
+
+02:50 UTC review hold: do not run819 candidate packet as accepted fix yet. Root
+review found extra full-size bytearray in padding return conversion and global
+failed-set causing traversal of unrelated indexed roots. w4:p8 received additive
+revision request (memoryview, root-scoped traversal, no-walk control), separately
+from#584 routing. Keep sealed819 unchanged. No runtime resources active.

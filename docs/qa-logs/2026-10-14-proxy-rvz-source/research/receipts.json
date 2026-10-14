@@ -1,0 +1,247 @@
+[
+  {
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/583",
+      "--jq",
+      "{number,title,body,state,updated_at,html_url}"
+    ],
+    "exit": 0,
+    "utc": "2026-10-14T02:30:50.330436+00:00",
+    "stdout_sha256": "4e053afcba1d4422fe5878447cc74e65aa2dc81aacb11ebd0bd9f71af84c2967",
+    "retained": "issue-583.json",
+    "projection": "complete bodies/comments; API envelope omitted by recorded jq"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/583/comments",
+      "--jq",
+      "[.[]|{id,body,created_at,html_url}]"
+    ],
+    "exit": 0,
+    "utc": "2026-10-14T02:30:50.760678+00:00",
+    "stdout_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "retained": "comments-583.json",
+    "projection": "complete bodies/comments; API envelope omitted by recorded jq"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/574",
+      "--jq",
+      "{number,title,body,state,updated_at,html_url}"
+    ],
+    "exit": 0,
+    "utc": "2026-10-14T02:30:51.233375+00:00",
+    "stdout_sha256": "3fb4def2c770b4551f25e29dbe7c909b5f9e49e9c888c1ea2bae8d29f3046348",
+    "retained": "issue-574.json",
+    "projection": "complete bodies/comments; API envelope omitted by recorded jq"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "repos/pixelelated/distribution/issues/574/comments",
+      "--jq",
+      "[.[]|{id,body,created_at,html_url}]"
+    ],
+    "exit": 0,
+    "utc": "2026-10-14T02:30:51.655909+00:00",
+    "stdout_sha256": "72267445aa3125d5b13a3d33cc17f8de855bcbc5abacd773fe884bad3d494c00",
+    "retained": "comments-574.json",
+    "projection": "complete bodies/comments; API envelope omitted by recorded jq"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "repos/misantronic/RAOfflineProxy/issues/51",
+      "--jq",
+      "{number,title,body,state,closed_at,html_url}"
+    ],
+    "exit": 0,
+    "utc": "2026-10-14T02:30:52.088478+00:00",
+    "stdout_sha256": "9160058d1f95141e68aff771457b8a5220f63fa56e8be2e217f30affba966faa",
+    "retained": "upstream-51.json",
+    "projection": "complete bodies/comments; API envelope omitted by recorded jq"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "repos/misantronic/RAOfflineProxy/issues/51/comments",
+      "--jq",
+      "[.[]|{id,body,created_at,html_url}]"
+    ],
+    "exit": 0,
+    "utc": "2026-10-14T02:30:52.557148+00:00",
+    "stdout_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "retained": "upstream-51-comments.json",
+    "projection": "complete bodies/comments; API envelope omitted by recorded jq"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "repos/misantronic/RAOfflineProxy/releases/latest",
+      "--jq",
+      "{tag_name,published_at,body,html_url}"
+    ],
+    "exit": 0,
+    "utc": "2026-10-14T02:30:52.952221+00:00",
+    "stdout_sha256": "97566916fb2c0145509dc96b2e8dfbf6aa6328b0cb0c74ec396ab40163248c31",
+    "retained": "upstream-release.json",
+    "projection": "complete bodies/comments; API envelope omitted by recorded jq"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "repos/misantronic/RAOfflineProxy/compare/c7ebd1b6e777f3751ff0ecdf8aba54045844e00d...2d19684e0800f6da33ff1841d27e083c1e467142",
+      "--jq",
+      "{status,ahead_by,commits:[.commits[]|{sha,message:.commit.message}],files:[.files[]|{filename,status,sha}]}"
+    ],
+    "exit": 0,
+    "utc": "2026-10-14T02:30:53.582207+00:00",
+    "stdout_sha256": "f67073596c80b3979e1ffaf565e4df0d207165dcadafed042bb65ab1522bf46a",
+    "retained": "upstream-compare.json",
+    "projection": "complete bodies/comments; API envelope omitted by recorded jq"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "search/issues?q=repo:misantronic/RAOfflineProxy+RVZ+is:issue&per_page=100",
+      "--jq",
+      "{total_count,incomplete_results,items:[.items[]|{number,title,body,state,html_url}]}"
+    ],
+    "exit": 0,
+    "utc": "2026-10-14T02:30:54.074868+00:00",
+    "stdout_sha256": "3cd9034dff36118cdd70b33ee6dd401b789f1544dc4b0664400a64270a9c6d5b",
+    "retained": "upstream-rvz-issues.json",
+    "projection": "complete bodies/comments; API envelope omitted by recorded jq"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "search/issues?q=repo:misantronic/RAOfflineProxy+RVZ+is:pull-request&per_page=100",
+      "--jq",
+      "{total_count,incomplete_results,items:[.items[]|{number,title,body,state,html_url}]}"
+    ],
+    "exit": 0,
+    "utc": "2026-10-14T02:30:54.566956+00:00",
+    "stdout_sha256": "c9895bc18f5fa8084d290ccc6acbbff5efb5c2a3b65e0d2452d57e598d90b8d1",
+    "retained": "upstream-rvz-prs.json",
+    "projection": "complete bodies/comments; API envelope omitted by recorded jq"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "search/issues?q=repo:misantronic/RAOfflineProxy+padding+is:issue&per_page=100",
+      "--jq",
+      "{total_count,incomplete_results,items:[.items[]|{number,title,body,state,html_url}]}"
+    ],
+    "exit": 0,
+    "utc": "2026-10-14T02:30:55.345629+00:00",
+    "stdout_sha256": "75b26d9964a9f0647dd14b198757744eceaaea3d838b50a5123907d625167c71",
+    "retained": "upstream-padding-issues.json",
+    "projection": "complete bodies/comments; API envelope omitted by recorded jq"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "search/issues?q=repo:misantronic/RAOfflineProxy+padding+is:pull-request&per_page=100",
+      "--jq",
+      "{total_count,incomplete_results,items:[.items[]|{number,title,body,state,html_url}]}"
+    ],
+    "exit": 0,
+    "utc": "2026-10-14T02:30:55.783264+00:00",
+    "stdout_sha256": "75b26d9964a9f0647dd14b198757744eceaaea3d838b50a5123907d625167c71",
+    "retained": "upstream-padding-prs.json",
+    "projection": "complete bodies/comments; API envelope omitted by recorded jq"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "repos/ROCKNIX/distribution/pulls/3038",
+      "--jq",
+      "{number,title,body,state,merged,merged_at,merge_commit_sha,html_url}"
+    ],
+    "exit": 0,
+    "utc": "2026-10-14T02:30:56.631313+00:00",
+    "stdout_sha256": "6d96ffcff1f5c11c96898f083f2ef2ac4bcd95e95c69b36697700fd6b7823bb3",
+    "retained": "rocknix-3038.json",
+    "projection": "complete bodies/comments; API envelope omitted by recorded jq"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "repos/misantronic/RAOfflineProxy/contents/linux/raofflineproxy/rvz_datasource.py?ref=2d19684e0800f6da33ff1841d27e083c1e467142",
+      "-H",
+      "Accept: application/vnd.github.raw+json"
+    ],
+    "exit": 0,
+    "utc": "2026-10-14T02:30:57.674623+00:00",
+    "stdout_sha256": "5fe8d058b6a1c06c04696308eab0206ea3c3e60075a2b88137065583fbb0cea1",
+    "retained": "current-rvz_datasource.py"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "repos/ROCKNIX/distribution/contents/projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh?ref=next",
+      "-H",
+      "Accept: application/vnd.github.raw+json"
+    ],
+    "exit": 0,
+    "utc": "2026-10-14T02:30:58.591731+00:00",
+    "stdout_sha256": "21673e7de149c9a43356257ee1b832e10cb05d0da4e3265401798c80c333ce87",
+    "retained": "rocknix-cheevos_dolphin.sh"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "repos/ROCKNIX/distribution/contents/projects/ROCKNIX/packages/network/raofflineproxy/package.mk?ref=next"
+    ],
+    "utc": "2026-10-14T02:37:52.242295+00:00",
+    "exit": 1,
+    "retained": "rocknix-proxy-recipe.json",
+    "stdout_sha256": "e45906ce02e79f16fb87a838d86bb4e497e37a9591f97608fa013bbcd8b9cbc2"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "search/issues?q=repo:misantronic/RAOfflineProxy+GameCube+is:issue&per_page=100",
+      "--jq",
+      "{total_count,incomplete_results,items:[.items[]|{number,title,body,state,html_url}]}"
+    ],
+    "utc": "2026-10-14T02:37:52.798054+00:00",
+    "exit": 0,
+    "retained": "upstream-gamecube-issues.json",
+    "stdout_sha256": "3eedcc0afdbab23704566b22f061c38b14d36177cf6e74e93d0ed58bcbd97a87"
+  },
+  {
+    "argv": [
+      "gh",
+      "api",
+      "repos/misantronic/RAOfflineProxy/pulls/50",
+      "--jq",
+      "{number,title,body,state,merged,merge_commit_sha,html_url}"
+    ],
+    "utc": "2026-10-14T02:37:54.553463+00:00",
+    "exit": 0,
+    "retained": "upstream-50.json",
+    "stdout_sha256": "68fe6b3ecd88ca34e5c2775506ed8b508fd8f7f41843ced4a01a25f49415c6cb"
+  }
+]
