@@ -1,0 +1,11 @@
+--- historical/make-fixtures.py
++++ candidate/make-fixtures.py
+@@ -113,6 +113,8 @@
+     put32(data, 0x48 + 8, 3 if compressor else 0)
+     put32(data, 0x48 + 12, 0x20000)
+     data[0x58:0xd8] = raw[:0x80]
++    # Even an empty Wii partition table requires its SHA-1 in the RVZ header.
++    data[0x48 + 0xa0:0x48 + 0xb4] = hashlib.sha1(b'').digest()
+     groups, regions, locations = [], [], []
+     for begin, end in ((0, 0x30000), (0x30000, len(raw))):
+         first = len(groups)

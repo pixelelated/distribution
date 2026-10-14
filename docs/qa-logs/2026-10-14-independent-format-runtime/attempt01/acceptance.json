@@ -1,0 +1,43 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T150406Z-5bb5898a",
+  "expected_rc": 1,
+  "disposition": "failed-investigated",
+  "outputs": [
+    {
+      "issue": 574,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix574-format-vm-20261014-01/vm",
+      "release_when": "Original guest/guard/lifecycle receipts exported and verified; actual owners exited; consume admission then remove disk/media/UEFI. Preserve only immediate-next-test synthetic inputs."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-independent-format-runtime/attempt01/export-result.json",
+      "sha256": "1efaa035b7cf2a47acf0739381afe21780d16369c8e17da99a1ff5851a36bbed"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-independent-format-runtime/attempt01/host-exits.json",
+      "sha256": "067ba155a1940e87f71447dfe5203d1f670020622844171d9be5fcd3cae89a05"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-independent-format-runtime/attempt01/guest-manifest.json",
+      "sha256": "8814d07fc537d62c641381999ee0366b8c7ead5377fc8039bd4131a0a9e58462"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-independent-format-runtime/attempt01/original-records.json",
+      "sha256": "f16a132383ffc352397c57536ca4240761cc44916ba3435809f36026722af13e"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-independent-format-runtime/attempt01/guest/pix574-format-format01/result.json",
+      "sha256": "ed5dbec779834e19724e000f6b492cb6e3701cf3c42979af50aa2c19377b3b2e"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-independent-format-runtime/attempt01/guest/pix574-format-format01/cleanup.json",
+      "sha256": "edfb0e27b99f4c785cef6fca9acc9da0bd6ebe1cbd237ff1b0ff99d9d992de3e"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-independent-format-runtime/attempt01/guest/pix574-format-format01/oracle/decode-0.json",
+      "sha256": "6f884d329382f692714d5f89c1c75133ece9d1b21deb8548efba39cf3f809798"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+Usage: convert [options]... [FILE]...
+
+Options:
+  -h, --help            show this help message and exit
+  -u USER, --user=USER  User folder path, required for temporary processing
+                        files. Will be automatically created if this option is
+                        not set.
+  -i FILE, --input=FILE
+                        Path to disc image FILE.
+  -o FILE, --output=FILE
+                        Path to the destination FILE.
+  -f FORMAT, --format=FORMAT
+                        Container format to use. Default is RVZ. [%choices]
+  -s, --scrub           Scrub junk data as part of conversion.
+  -b BLOCK_SIZE, --block_size=BLOCK_SIZE
+                        Block size for GCZ/WIA/RVZ formats, as an integer.
+                        Suggested value for RVZ: 131072 (128 KiB)
+  -c COMPRESSION, --compression=COMPRESSION
+                        Compression method to use when converting to WIA/RVZ.
+                        Suggested value for RVZ: zstd [%choices]
+  -l COMPRESSION_LEVEL, --compression_level=COMPRESSION_LEVEL
+                        Level of compression for the selected method. Ignored
+                        if 'none'. Suggested value for zstd: 5

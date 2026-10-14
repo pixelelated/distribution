@@ -9,7 +9,7 @@ owns execution order; this table is a dated readiness reference.
 Open does not mean untouched: several fixes have compiled/installed component
 proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
-not the build needed to perform them. No new test or build started in this review.
+not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
 ## Testing findings still in the current candidate
 
@@ -18,19 +18,21 @@ not the build needed to perform them. No new test or build started in this revie
 | Browser slowdown and memory pressure — #570/#572 | Actual compiled ES handoff change reclaims78.01MiB in a bounded VM comparison; repeated handoff and recovery pass. GStreamer controller/scanner recipe/install and fresh-registry controls pass. | Final combined image/dependency closure and relevant UI/clean/retained checks; H700 corroboration remains a separate physical observation. No claim of a universal WebKit or speed cure. |
 | Phone keyboard status — #571 | Compact stable status, translated component checks and actual installed bridge navigation/input pass; keyboard geometry remains fixed. | Final-source integration and affected assembled-image regression. This is no longer an unimplemented ribbon proposal. |
 | Wi-Fi picker — #577 | Stable initial/refresh/empty/error/scroll UI, existing connection routes and separate backend failure controls pass. Subsequent compiled French hint frames are retained. | Combined corrected backend through UI, final image and retained settings. Synthetic enumeration is not a physical radio measurement. |
-| GameCube RVZ and offline achievements — #574/#583/#584 | Frontend reader/retry, MD5 sanitizer subset, proxy padding/scanner and Dolphin routing configuration have passing component evidence. | DolphinTool now compiled with accepted static ELF closure; actual loading/conversion, CHD/native hash parity, installed proxy/service and cache/account/award/reconnect coverage; final frontend/image integration. |
+| GameCube RVZ and offline achievements — #574/#583/#584 | Frontend reader/retry, MD5 sanitizer subset, proxy padding/scanner and Dolphin routing configuration have passing component evidence. Actual Dolphin decoding/encoding/whole-data roundtrips and native proxy ISO/RVZ/cache/account/award/reconnect integration now pass within scope. | CHD/native parity, current native-build provenance, installed full service/periodic workers and Dolphin gameplay, plus final frontend/image integration. The original synthetic header failure and its additive correction remain recorded; protocol proof is not full-service qualification. |
 | Standalone save-state expectations and Dolphin data preservation — #575/#581 | Capability/help and EN/FR frames, retained-data refusal and save-path controls pass within scope; shorter French descriptions verified. | Updated English640 long-card-path frame, native emulator/save behavior and clean/retained installed paths. Ordinary game saves and automatic save states remain different capabilities. |
 | Notice before offline-achievement preparation — #567 | Conditional confirmation UI and four native ES indexing API branches pass; actual preparation was represented by a controlled ctl substitute. | Actual proxy/top-up integration on the composed source and final image; do not equate the substitute with offline-service qualification. |
 | Nova account/history isolation — #565 | Provenance investigation completed to available evidence; library-copy test separates ROM-only from gamelist history. Selected clean-state and payload guards have positive/negative controls. Original account entry remains unknown. | Inspect the actual next firmware payload; clean install must lack personal accounts/fabricated history, while retained-storage upgrade preserves legitimate settings/history. |
 | Recent default — #578 | One-literal compiled default fix and nine default/explicit-choice controls pass; imported gamelist history can populate Recent, a ROM alone cannot. | Final-source/image proof while preserving explicit player choices. Historical Nova Recent entries are not evidence that this new default fix fabricated history. |
 | ScreenScraper developer provisioning — #566 | Runtime versus compiled behavior and separate player accounts are traced. The owner selected the existing shared JELOS developer identity (D-WORKFLOW-166); recipe/gate candidate19221 passes127 root-policy and4 environment-selection VM controls. | Qualify the actual rebuilt binary, UI/frames, backup and clean/upgrade images. Replacement credentials are backlog #586, not a candidate dependency. Preserve unrelated private-credential protections. |
-| Steam installation recovery — #564/#579/#580/#582 | Runtime/FEX/Proton preservation and complete synthetic caller controls pass within scope. Partial-client retry defect reproduced; real55-member client archive CRC/layout inspection passes. | Client transaction03e130 addresses both independent review findings in source; corrected full caller and fresh profile-symlink VM cases pass. Existing-profile, detached-child/census/timeout, broader recovery and native/installed qualification remain; original a057 fixture failure is retained. This was found during the20261001 intake, not reported from gameplay. |
+| Steam installation recovery — #564/#579/#580/#582 | Runtime/FEX/Proton preservation and complete synthetic caller controls pass within scope. Partial-client retry defect reproduced; real55-member client archive CRC/layout inspection passes. | Client transaction03e130 addresses both independent review findings in source; corrected full caller and fresh profile-symlink VM cases pass. Existing-profile, detached-child, census-failure and real transport-timeout cases now pass. Broader recovery and native/installed qualification remain; original a057 fixture failure is retained. This was found during the20261001 intake, not reported from gameplay. |
 
 Evidence: [installed setup](../qa-logs/2026-10-13-setup-qualification/installed/README.md),
 [library/preservation components](../qa-logs/2026-10-13-library-vm/README.md),
 [October14 frame completion](../qa-logs/2026-10-14-offline-components/README.md),
 [RVZ/proxy/MD5 and archive results](../qa-logs/2026-10-14-rvz-proxy-components/README.md),
 [Dolphin preparation](../qa-logs/2026-10-14-dolphin-tool-preparation/README.md),
+[independent formats](../qa-logs/2026-10-14-independent-format-runtime/README.md),
+[native proxy integration](../qa-logs/2026-10-14-proxy-native-runtime/README.md),
 [Steam first caller and review](../qa-logs/2026-10-14-steam-client-first-caller/README.md).
 Earlier packet UNRUN labels describe their preparation time; later exact-source
 receipts supply scoped completion. No failed original result is rewritten.
@@ -52,6 +54,7 @@ receipts supply scoped completion. No failed original result is rewritten.
   replacement ScreenScraper credentials (#586):** backlog. #568 asks whether the
   last game is active or post-game work is continuing; no owner copy choice is
   pending. A finishing label must follow actual game-processing completion.
+- **Temporary proxy shutdown during browsing (#587):** future measured lifecycle experiment, conditional on preserving queued awards, cache work and next-game readiness (D-RA-047). No production behavior change or extra RC gate.
 - **GTK4 and lazy proxy imports (#576/#570):** diagnostic alternatives under
   D-WORKFLOW-163, not mandatory migrations for this RC. Target lazy-import savings
   were only390KiB; no GTK4 memory benefit has been measured.

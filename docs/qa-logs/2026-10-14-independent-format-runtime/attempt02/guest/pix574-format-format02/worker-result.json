@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "originals": [
+    {
+      "label": "decode-0",
+      "returncode": 0,
+      "executable_sha256": "f36a2c5f2f31e961ce605cc1c762f1e839f1880a0b1feeba4e09a1fccaa90d5b"
+    },
+    {
+      "label": "decode-1",
+      "returncode": 0,
+      "executable_sha256": "f36a2c5f2f31e961ce605cc1c762f1e839f1880a0b1feeba4e09a1fccaa90d5b"
+    },
+    {
+      "label": "decode-2",
+      "returncode": 0,
+      "executable_sha256": "f36a2c5f2f31e961ce605cc1c762f1e839f1880a0b1feeba4e09a1fccaa90d5b"
+    },
+    {
+      "label": "decode-3",
+      "returncode": 0,
+      "executable_sha256": "f36a2c5f2f31e961ce605cc1c762f1e839f1880a0b1feeba4e09a1fccaa90d5b"
+    },
+    {
+      "label": "decode-4",
+      "returncode": 0,
+      "executable_sha256": "f36a2c5f2f31e961ce605cc1c762f1e839f1880a0b1feeba4e09a1fccaa90d5b"
+    },
+    {
+      "label": "encode-none",
+      "returncode": 0,
+      "executable_sha256": "f36a2c5f2f31e961ce605cc1c762f1e839f1880a0b1feeba4e09a1fccaa90d5b"
+    },
+    {
+      "label": "roundtrip-none",
+      "returncode": 0,
+      "executable_sha256": "f36a2c5f2f31e961ce605cc1c762f1e839f1880a0b1feeba4e09a1fccaa90d5b"
+    },
+    {
+      "label": "hash-none",
+      "returncode": 0,
+      "executable_sha256": "5e00ed65dc6ae8031c54c4309d3f1876be4b380e438a15b8281104402e9375b2"
+    },
+    {
+      "label": "encode-zstd",
+      "returncode": 0,
+      "executable_sha256": "f36a2c5f2f31e961ce605cc1c762f1e839f1880a0b1feeba4e09a1fccaa90d5b"
+    },
+    {
+      "label": "roundtrip-zstd",
+      "returncode": 0,
+      "executable_sha256": "f36a2c5f2f31e961ce605cc1c762f1e839f1880a0b1feeba4e09a1fccaa90d5b"
+    },
+    {
+      "label": "hash-zstd",
+      "returncode": 0,
+      "executable_sha256": "5e00ed65dc6ae8031c54c4309d3f1876be4b380e438a15b8281104402e9375b2"
+    }
+  ],
+  "sys_lookup_measured": false,
+  "counts": {
+    "synthetic_decodes": 5,
+    "independent_encodes": 2,
+    "roundtrips": 2,
+    "candidate_hashes": 2
+  },
+  "retained_rvz": [
+    "oracle/dolphin-none.rvz",
+    "oracle/dolphin-zstd.rvz"
+  ],
+  "limits": "GameCube NONE/Zstandard only; no native proxy, gameplay, Wii, CHD or observed Sys lookup claim"
+}

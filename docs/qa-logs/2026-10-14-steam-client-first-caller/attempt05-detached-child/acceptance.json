@@ -1,0 +1,43 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T145358Z-4a218283",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 582,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix582-client-vm-20261014-05/vm",
+      "release_when": "Original guest/guard/lifecycle receipts exported and verified; actual owners exited; consume admission then remove disk/media/UEFI. Preserve only immediate-next-test synthetic inputs."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt05-detached-child/result.json",
+      "sha256": "c4d238e52231ba1bd81011960e732ec41cd2fd93c3e86133cd21230275f03054"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt05-detached-child/namespace-result.json",
+      "sha256": "ecf25846c49cd09251920f4ad9f7441289fcaabf27c0a24dd4d8346750069cca"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt05-detached-child/host-exits.json",
+      "sha256": "5dc32e5ddc03d71481934db7bf6ea3596121717be175a505a97be28772624bc6"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt05-detached-child/vm-result.json",
+      "sha256": "d3ac90a5ffb755c3f476f800dae1329ac70249d8f9b612392957fb23beb72656"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt05-detached-child/guest-manifest.json",
+      "sha256": "42d31f22ccfd9ddc0a422ecbe2d198c5fa49c46567fb2dd973bafc692b55442a"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt05-detached-child/original-records.json",
+      "sha256": "8fa44e117a03460369ae0e0c78325ee915cb35eab1749045bd4170d21a654557"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt05-detached-child/unmount-640x480.txt",
+      "sha256": "1e24ec7421d8cdbfc285a8a42cfb7db254151dc28eea49c63202154319be7a13"
+    }
+  ]
+}

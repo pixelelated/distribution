@@ -1,0 +1,47 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T144754Z-0ee8f02a",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 582,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix582-client-vm-20261014-04/vm",
+      "release_when": "Original guest/guard/lifecycle receipts exported and verified; actual owners exited; consume admission then remove disk/media/UEFI. Preserve only immediate-next-test synthetic inputs."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt04-existing-profile/result.json",
+      "sha256": "7a54e1d43a1f57f546b753768ab049c76266202d29a9717a4be1948412efbb25"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt04-existing-profile/exec-1.json",
+      "sha256": "ee4f2ba3d9c5a8d3edc2fe6562840141f013c01e4f2cf071a74af0bedd164b3c"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt04-existing-profile/namespace-result.json",
+      "sha256": "e2dd16c2b108611afc90a79787fef2ec835feb801f041f21bfb523b01fca2ec4"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt04-existing-profile/host-exits.json",
+      "sha256": "d1f705f12539fcc315c5738c8ed28c3082728836c01859bf5c30cd5171cb28d4"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt04-existing-profile/vm-result.json",
+      "sha256": "3fb5fca25d0ce1d06d8a021cb95cfedcdcb1bb2935b47e06630ad94b1cda958f"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt04-existing-profile/guest-manifest.json",
+      "sha256": "3c73d810d1f94d664bd1aa5cfc217cb4450b561172bbd87017fea94034dd3e8a"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt04-existing-profile/original-records.json",
+      "sha256": "263ced7357da7dcf0b930ef0f3535fa8fdc0048750048c73d1ba4f994621c007"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt04-existing-profile/unmount-640x480.txt",
+      "sha256": "1e24ec7421d8cdbfc285a8a42cfb7db254151dc28eea49c63202154319be7a13"
+    }
+  ]
+}

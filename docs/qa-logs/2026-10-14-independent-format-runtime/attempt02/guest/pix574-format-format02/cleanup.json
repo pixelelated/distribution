@@ -1,0 +1,160 @@
+{
+  "status": "PASS",
+  "remaining": [],
+  "surviving_observed": [],
+  "signals": [],
+  "adopted_original_waits": [],
+  "all_observed": [
+    {
+      "pid": 1961,
+      "ppid": 1960,
+      "pgrp": 1961,
+      "session": 1961,
+      "start_ticks": 1814,
+      "state": "R",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix-input/pix574-format/packet/guest-work.py",
+        "--run-id",
+        "format02",
+        "--output",
+        "/tmp/pix-output/pix574-format-format02",
+        "--deadline",
+        "253.141194398"
+      ]
+    },
+    {
+      "pid": 1962,
+      "ppid": 1961,
+      "pgrp": 1962,
+      "session": 1962,
+      "start_ticks": 1835,
+      "state": "D",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix-input/pix574-format/stager/guest-stage.py",
+        "--input",
+        "/tmp/pix-input/pix574-format/bundle",
+        "--manifest-sha256",
+        "49b06305f103df552a9d6c7a145627a66b8cd5e240d34ddceb1df3592175ec0d",
+        "--run-id",
+        "format02"
+      ]
+    },
+    {
+      "pid": 1974,
+      "ppid": 1961,
+      "pgrp": 1974,
+      "session": 1974,
+      "start_ticks": 2012,
+      "state": "R",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix-input/pix574-format/original/make-fixtures.py",
+        "--output",
+        "/run/pix574-scratch/cases",
+        "--zstd-library",
+        "/run/pix574-scratch/bundle/lib/libzstd.so.1"
+      ]
+    },
+    {
+      "pid": 1976,
+      "ppid": 1975,
+      "pgrp": 1976,
+      "session": 1976,
+      "start_ticks": 2050,
+      "state": "D",
+      "argv": [
+        "/run/pix574-scratch/bundle/dolphin-tool",
+        "convert",
+        "-u",
+        "/tmp/pix-output/pix574-format-format02/oracle/dolphin-user",
+        "-i",
+        "/run/pix574-scratch/cases/none.rvz",
+        "-o",
+        "/tmp/pix-output/pix574-format-format02/oracle/decoded-0.iso",
+        "-f",
+        "iso"
+      ]
+    },
+    {
+      "pid": 1975,
+      "ppid": 1961,
+      "pgrp": 1975,
+      "session": 1975,
+      "start_ticks": 2043,
+      "state": "S",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix-input/pix574-format/oracle/run-independent-format.py",
+        "--dolphin-tool",
+        "/run/pix574-scratch/bundle/dolphin-tool",
+        "--hash-binary",
+        "/run/pix574-scratch/hash/pix574-regression-hash",
+        "--cases",
+        "/run/pix574-scratch/cases",
+        "--original-packet",
+        "/tmp/pix-input/pix574-format/original",
+        "--output",
+        "/tmp/pix-output/pix574-format-format02/oracle",
+        "--dolphin-sha256",
+        "f36a2c5f2f31e961ce605cc1c762f1e839f1880a0b1feeba4e09a1fccaa90d5b",
+        "--hash-sha256",
+        "5e00ed65dc6ae8031c54c4309d3f1876be4b380e438a15b8281104402e9375b2"
+      ]
+    },
+    {
+      "pid": 1985,
+      "ppid": 1975,
+      "pgrp": 1985,
+      "session": 1985,
+      "start_ticks": 2060,
+      "state": "R",
+      "argv": [
+        "/run/pix574-scratch/bundle/dolphin-tool",
+        "convert",
+        "-u",
+        "/tmp/pix-output/pix574-format-format02/oracle/dolphin-user",
+        "-i",
+        "/run/pix574-scratch/cases/uppercase.RVZ",
+        "-o",
+        "/tmp/pix-output/pix574-format-format02/oracle/decoded-3.iso",
+        "-f",
+        "iso"
+      ]
+    },
+    {
+      "pid": 2006,
+      "ppid": 1975,
+      "pgrp": 2006,
+      "session": 2006,
+      "start_ticks": 2071,
+      "state": "R",
+      "argv": [
+        "/run/pix574-scratch/bundle/dolphin-tool",
+        "convert",
+        "-u",
+        "/tmp/pix-output/pix574-format-format02/oracle/dolphin-user",
+        "-i",
+        "/tmp/pix-output/pix574-format-format02/oracle/dolphin-none.rvz",
+        "-o",
+        "/tmp/pix-output/pix574-format-format02/oracle/roundtrip-none.iso",
+        "-f",
+        "iso"
+      ]
+    }
+  ],
+  "forced": false
+}

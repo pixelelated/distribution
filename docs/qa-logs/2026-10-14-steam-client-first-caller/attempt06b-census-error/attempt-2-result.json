@@ -1,0 +1,55 @@
+{
+  "attempt": 2,
+  "installer_exit": 1,
+  "trace_driver_exit": 1,
+  "trace": {
+    "status": "RETURNED",
+    "client_executed": false,
+    "native_client_success": false,
+    "argv": [
+      "/usr/sbin/chroot",
+      "/run/pix582-scratch/census-error-06/rootfs",
+      "/bin/bash",
+      "--noprofile",
+      "--norc",
+      "-x",
+      "/usr/config/modules/Install Steam.sh"
+    ],
+    "denied_execs": [],
+    "original_exits": [
+      {
+        "pid": 50,
+        "exit": 0
+      },
+      {
+        "pid": 49,
+        "exit": 0
+      },
+      {
+        "pid": 52,
+        "exit": 1
+      },
+      {
+        "pid": 51,
+        "exit": 1
+      },
+      {
+        "pid": 53,
+        "exit": 0
+      },
+      {
+        "pid": 48,
+        "exit": 1
+      }
+    ],
+    "original_caller_exit": 1,
+    "meaning": "ptrace returns EACCES at synthetic client exec; normal caller sees its failure",
+    "wait_calls": 5000,
+    "syscall_stops": 4972,
+    "wait_seconds": 10.088775926999993,
+    "main_loop_poll_sleeps": 0,
+    "cleanup_exits": [],
+    "remaining_traced": [],
+    "elapsed_seconds": 10.130874738000003
+  }
+}

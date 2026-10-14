@@ -1,0 +1,242 @@
+[
+  {
+    "name": "synthetic.iso",
+    "expected": "118545082f24fc195a446d1ee7bbf816",
+    "baseline": "118545082f24fc195a446d1ee7bbf816",
+    "console": "gamecube",
+    "sha256": "83c6dacc46797bc7d4bdcb4aa2dd253c290316c07c4cda8f6ca1afb889c44121",
+    "bytes": 393216
+  },
+  {
+    "name": "none.rvz",
+    "expected": "118545082f24fc195a446d1ee7bbf816",
+    "baseline": "FAIL",
+    "console": "gamecube",
+    "sha256": "619520814570cc970ef3becdd23686389a332d4f99e4d8488860372f6f935608",
+    "bytes": 328068
+  },
+  {
+    "name": "packed-none.rvz",
+    "expected": "118545082f24fc195a446d1ee7bbf816",
+    "baseline": "FAIL",
+    "console": "gamecube",
+    "sha256": "18062e512925aac1cd75fadb95f6edb7dcdb3f5d399c0302a24ab34c7dfd0658",
+    "bytes": 323488
+  },
+  {
+    "name": "packed-zstd.rvz",
+    "expected": "118545082f24fc195a446d1ee7bbf816",
+    "baseline": "FAIL",
+    "console": "gamecube",
+    "sha256": "f1c92b3a38e0c671e64f6e1b7025df867372266a9d3c29a67fef22d345bcdba1",
+    "bytes": 901
+  },
+  {
+    "name": "uppercase.RVZ",
+    "expected": "118545082f24fc195a446d1ee7bbf816",
+    "baseline": "FAIL",
+    "console": "gamecube",
+    "sha256": "f1c92b3a38e0c671e64f6e1b7025df867372266a9d3c29a67fef22d345bcdba1",
+    "bytes": 901
+  },
+  {
+    "name": "mixed-zstd.rvz",
+    "expected": "118545082f24fc195a446d1ee7bbf816",
+    "baseline": "FAIL",
+    "console": "gamecube",
+    "sha256": "db6e10b6f006663d5562eee13d918dd39b5fb39bac7bd089e92e4a911c69a54a",
+    "bytes": 136421
+  },
+  {
+    "name": "ordinary.nes",
+    "expected": "6d2fc9abd70a8d230dc90b972aa9a00e",
+    "baseline": "6d2fc9abd70a8d230dc90b972aa9a00e",
+    "console": "nes",
+    "sha256": "802ee3e2251ae4860760e1d3c0c8d3ab152c99da324876e0eb7493d9483a6ab1",
+    "bytes": 50
+  },
+  {
+    "name": "empty.iso",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "name": "short-magic.iso",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "e74558355e0811129445ad28615920fde1376bbfd985a66aee523a4b5b2ef383",
+    "bytes": 30
+  },
+  {
+    "name": "short-apploader.iso",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "3f6a49999cb49e8d49fc67e9f441aafdd1779f4d7b27f0bac65abdfa89cbb0d9",
+    "bytes": 9302
+  },
+  {
+    "name": "short-dol.iso",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "9e0eac47895ace189e847726d1422afaee182fd64a8feefdf583f84a45f193b7",
+    "bytes": 65568
+  },
+  {
+    "name": "short-section.iso",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "302b5cd0c02c439113afaf25d51834adda0bd1fc463cc58b6e2669ba05ebf565",
+    "bytes": 131328
+  },
+  {
+    "name": "bad-magic.rvz",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "1d225c5414f84e89b32bf64b61c56f3e3eb121e362143e129584577a2e6b55f2",
+    "bytes": 328068
+  },
+  {
+    "name": "short-header.rvz",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "c6c7f6c6a702ede8f7a7136de3a99c82ae259e2072c39677a565fdb68e18cf78",
+    "bytes": 71
+  },
+  {
+    "name": "short-second-header.rvz",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "e6f41c2a3045aa26313df4168015a66fe52f07c70f7407eb84b6935b96536b54",
+    "bytes": 256
+  },
+  {
+    "name": "short-container.rvz",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "e96b159b1e5549bd53b3a52b1bb7ce62479eab605bd840e527aff5642867c490",
+    "bytes": 328065
+  },
+  {
+    "name": "bad-header-sha1.rvz",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "056cc3579c7ef17a91221c0d7c4ffc6ecbf11eedf3c654bdff9a7b98b8335446",
+    "bytes": 328068
+  },
+  {
+    "name": "bad-second-sha1.rvz",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "d3770040d18f053beb26f1d845c4c120fa7e589f629c301da7ab2e46969eac8b",
+    "bytes": 328068
+  },
+  {
+    "name": "unsupported-compression.rvz",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "dd529f89a1b2cf9a0eb9716bb2b4aa1450747036795c885a3b6ef9dacbcc1a91",
+    "bytes": 328068
+  },
+  {
+    "name": "unsupported-wii.rvz",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "62dd23f6b9c9c1a165256af1350915b38c1d39fc614844d4b078f5399ba69bca",
+    "bytes": 328068
+  },
+  {
+    "name": "oversized-chunk.rvz",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "05b5679789160c8849491496fa636670bdce168850193b9a81ffa4ca28204cb3",
+    "bytes": 328068
+  },
+  {
+    "name": "oversized-raw-count.rvz",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "7a04bc72fafb6be548093174fac2fcb2079db2b1836eed40e9860cf9800d9035",
+    "bytes": 328068
+  },
+  {
+    "name": "oversized-group-count.rvz",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "c72b59e0a903c6ebee137b880acd90deee41b0720ce282890da2005c0df621f1",
+    "bytes": 328068
+  },
+  {
+    "name": "oversized-disc.rvz",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "51b0c1e8207b5e3c5764140a89344e92d69b8ae2cf4cd8ae58347fb61e8b16c3",
+    "bytes": 328068
+  },
+  {
+    "name": "group-outside-file.rvz",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "8a35d7c65b127204ae7ee5670de364df0fb6f215e24c9d3c20cd88c05b4c8ea5",
+    "bytes": 328068
+  },
+  {
+    "name": "group-index-outside-table.rvz",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "d480a798f18ec30ad05024e209a8876905482107627f3dd79df96743ca320374",
+    "bytes": 328068
+  },
+  {
+    "name": "packed-overflow.rvz",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "2b97aa0c665433da6b0957ca449597266c300a75a7510eca9d671b79cd5ab556",
+    "bytes": 323488
+  },
+  {
+    "name": "corrupt-zstd.rvz",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "1adc185e0f322c82428a2553fa1f3e0dcc7c0f1f256b9d3ffe8e0bad7a99d358",
+    "bytes": 901
+  },
+  {
+    "name": "section-outside-disc.iso",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "04d967f8ed292025d8517a6bb547e6e60471381f77cbbf22104594b6605cca56",
+    "bytes": 393216
+  },
+  {
+    "name": "section-outside-disc.rvz",
+    "expected": null,
+    "baseline": null,
+    "console": "gamecube",
+    "sha256": "ef19d5d02b5f9b558812abe117e8e618f1e4796056bc93f8424ba11a711278f2",
+    "bytes": 901
+  }
+]

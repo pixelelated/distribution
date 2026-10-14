@@ -1,0 +1,123 @@
+{
+  "scope": "source inspection only; no generator/fixture execution or import",
+  "historical_generator_sha256": "69e0e5226fec7f1e863cfe74fa1f497f5e4bde3818ac39238d0b90a4d9a1b0d6",
+  "candidate_generator_sha256": "1dd4eb12ed20ed2c51e24cc45041a5c688a61e9a5ac03f45f9bb4630e7cc592b",
+  "visible_runtime_binding_changes": {
+    "original/make-fixtures.py": {
+      "before": {
+        "host_source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-rvz-source/make-fixtures.py",
+        "bytes": 9352,
+        "sha256": "69e0e5226fec7f1e863cfe74fa1f497f5e4bde3818ac39238d0b90a4d9a1b0d6"
+      },
+      "candidate": {
+        "host_source": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-14-rvz-empty-partition-source/make-fixtures.py",
+        "bytes": 9493,
+        "sha256": "1dd4eb12ed20ed2c51e24cc45041a5c688a61e9a5ac03f45f9bb4630e7cc592b"
+      }
+    },
+    "oracle/source-bindings.json": {
+      "before": {
+        "host_source": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-13-rvz-regression-source/source-bindings.json",
+        "bytes": 74275,
+        "sha256": "4f44154ad0e9a0969a705229e435847debe18e402e80769772e75c46e8059a77"
+      },
+      "candidate": {
+        "host_source": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-14-rvz-empty-partition-source/oracle-source-bindings.json",
+        "bytes": 74275,
+        "sha256": "f91a3da2bdca9311bdf6a51d627fc14af23f8e5ebd865db9965104733216349f"
+      }
+    }
+  },
+  "unchanged_function_asts": {
+    "u32": "73ea3a5ac2b9f81a462ccf883be52766a16ead7d41f773d02480e2f29e0ddc7a",
+    "put32": "f6a6fb288635bc68cb5a7e25cdee6d174816376fb3e49c13d9c790f8d4a89de2",
+    "put64": "4b05a468578613c472fe60b8eb449982150e5f72f6be905f985213585a63dfe6",
+    "padding": "66a300fd6a8e6f45196c52e03502b958340ad6444e43c0a8c4eaea571dfe4a41",
+    "Zstd": "1b7bb6acd46d105336486259ffeb92fa9a952fd8d0138f8d91c6c26b8dd6c826",
+    "raw_disc": "c73b85c003012a8ebd3beb640e630eb66b5a1624bbe4f6eb558b95dbea39eacd",
+    "oracle": "55f8a61745282eb446905335bf779d69351114939d984f56ad2d3ccd18914ccb",
+    "seal": "3165e62a6e1b3a8b4a5ea05c8a0f37f3673b5bb049169aa501cfabdb08cdb71f",
+    "main": "0a7f3102a07209486a308977b2aaa0ab64c84baf1e90638bd9558fbb9ee546ee"
+  },
+  "first_deterministic_source_refusal": {
+    "field": "Header2.partition_entries_hash",
+    "file_range_hex": "0xe8:0xfc",
+    "historical": "0000000000000000000000000000000000000000",
+    "required_sha1_empty": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "retained_raw": {
+    "name": "synthetic.iso",
+    "bytes": 393216,
+    "sha256": "83c6dacc46797bc7d4bdcb4aa2dd253c290316c07c4cda8f6ca1afb889c44121",
+    "expected_gamecube_md5": "118545082f24fc195a446d1ee7bbf816"
+  },
+  "pinned_dolphin_commit": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+  "pinned_sources": {
+    "Source/Core/DiscIO/WIABlob.cpp": {
+      "host_source": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/DiscIO/WIABlob.cpp",
+      "sha256": "bd54bfa87d24ac7fedd8c8aca6cdabe127e2f7670ec77366f3b4f7bbe0070268"
+    },
+    "Source/Core/DiscIO/WIABlob.h": {
+      "host_source": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/DiscIO/WIABlob.h",
+      "sha256": "8b6e40f881e384157032a35f61c483d478686e2a709c7b2f7963ce7625820703"
+    },
+    "Source/Core/Common/DirectIOFile.cpp": {
+      "host_source": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/Common/DirectIOFile.cpp",
+      "sha256": "121713d64ee1ba9bee40c417454cbe397c4733e7fc59215e41106311095ef65e"
+    },
+    "docs/WiaAndRvz.md": {
+      "host_source": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/docs/WiaAndRvz.md",
+      "sha256": "8f03805ed0540b7bc019afcb80792958fc4e60faa421d7beceaad24b03bcdb03"
+    }
+  },
+  "official_checked_date": "2026-10-14",
+  "official_master_commit": "8d2ad1a662472955497e5bb79d7b9ec6999e1f0d",
+  "official_sources": {
+    "Source/Core/DiscIO/WIABlob.cpp": {
+      "url": "https://raw.githubusercontent.com/dolphin-emu/dolphin/8d2ad1a662472955497e5bb79d7b9ec6999e1f0d/Source/Core/DiscIO/WIABlob.cpp",
+      "sha256": "bd54bfa87d24ac7fedd8c8aca6cdabe127e2f7670ec77366f3b4f7bbe0070268"
+    },
+    "Source/Core/DiscIO/WIABlob.h": {
+      "url": "https://raw.githubusercontent.com/dolphin-emu/dolphin/8d2ad1a662472955497e5bb79d7b9ec6999e1f0d/Source/Core/DiscIO/WIABlob.h",
+      "sha256": "8b6e40f881e384157032a35f61c483d478686e2a709c7b2f7963ce7625820703"
+    },
+    "docs/WiaAndRvz.md": {
+      "url": "https://raw.githubusercontent.com/dolphin-emu/dolphin/8d2ad1a662472955497e5bb79d7b9ec6999e1f0d/docs/WiaAndRvz.md",
+      "sha256": "8f03805ed0540b7bc019afcb80792958fc4e60faa421d7beceaad24b03bcdb03"
+    }
+  },
+  "initialize_comparison": "identical after removing whitespace",
+  "normalized_initialize_sha256": "f9e22a2ef78e1f5320ec4fcbe55666600e44405c6f7a50548206df3475a17fcc",
+  "attempt01_evidence_root": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-independent-format-runtime/attempt01",
+  "attempt01_receipt_files": {
+    "acceptance.json": {
+      "bytes": 2321,
+      "sha256": "1ea4c1bbe9f658174c4bd0031026aa85471acf730dd9029197b87be0925d38b0"
+    },
+    "guest/pix574-format-format01/oracle/decode-0.json": {
+      "bytes": 512,
+      "sha256": "6f884d329382f692714d5f89c1c75133ece9d1b21deb8548efba39cf3f809798"
+    },
+    "guest/pix574-format-format01/oracle/decode-0.stderr": {
+      "bytes": 43,
+      "sha256": "0efa17570bc2d6c30e1d554ff0a786acfadb2e8c62e3fe986eca8ad045a6ccef"
+    },
+    "guest/pix574-format-format01/oracle.stderr": {
+      "bytes": 831,
+      "sha256": "0a67b65fb3a2384dc1bf96e5f8126e3a470f9b3403f325c5c2539aa583111eef"
+    },
+    "guest/pix574-format-format01/synthetic-manifest.json": {
+      "bytes": 6720,
+      "sha256": "88f0216c8ae512d26a5d9ce6a655931218c0503116b7858b76fe7358d7381c4d"
+    },
+    "guest/pix574-format-format01/result.json": {
+      "bytes": 411,
+      "sha256": "ed5dbec779834e19724e000f6b492cb6e3701cf3c42979af50aa2c19377b3b2e"
+    },
+    "guest/pix574-format-format01/cleanup.json": {
+      "bytes": 2447,
+      "sha256": "edfb0e27b99f4c785cef6fca9acc9da0bd6ebe1cbd237ff1b0ff99d9d992de3e"
+    }
+  },
+  "original_failure_preserved": true
+}

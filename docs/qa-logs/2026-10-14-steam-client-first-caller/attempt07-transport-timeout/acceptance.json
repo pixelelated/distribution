@@ -1,0 +1,43 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T150734Z-20e96b41",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 582,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix582-client-vm-20261014-07/vm",
+      "release_when": "Original guest/guard/lifecycle receipts exported and verified; actual owners exited; consume admission then remove disk/media/UEFI. Preserve only immediate-next-test synthetic inputs."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt07-transport-timeout/result.json",
+      "sha256": "531a3dad3784e67ea8c7af3cbb25c22cde63bdda7bb817ae447487754594b270"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt07-transport-timeout/namespace-result.json",
+      "sha256": "beed5388d2b46270ae5a49deb2c6750a41f2c26ead851d4f0d28b80b49fc9d8a"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt07-transport-timeout/host-exits.json",
+      "sha256": "05aabdf550453e90343a478e4d48927b6bebff59f2cfc61196a56fb851b7aefd"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt07-transport-timeout/vm-result.json",
+      "sha256": "2da7fc1f405fd497c8de98215f318f3cb42dd4c58780092c0230983fe6670ad5"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt07-transport-timeout/guest-manifest.json",
+      "sha256": "f9131729e7e1201da9ff0d561d932c9362c472405397707abbb098c1a88b1d97"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt07-transport-timeout/original-records.json",
+      "sha256": "045e1f5060591fc28784effe65f70b125a1b87ef4348aac8cff15a2b219f5c99"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt07-transport-timeout/unmount-640x480.txt",
+      "sha256": "1e24ec7421d8cdbfc285a8a42cfb7db254151dc28eea49c63202154319be7a13"
+    }
+  ]
+}

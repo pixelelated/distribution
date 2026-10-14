@@ -1,0 +1,35 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "-I",
+    "-S",
+    "-B",
+    "/tmp/pix-input/pix574-format/oracle/run-independent-format.py",
+    "--dolphin-tool",
+    "/run/pix574-scratch/bundle/dolphin-tool",
+    "--hash-binary",
+    "/run/pix574-scratch/hash/pix574-regression-hash",
+    "--cases",
+    "/run/pix574-scratch/cases",
+    "--original-packet",
+    "/tmp/pix-input/pix574-format/original",
+    "--output",
+    "/tmp/pix-output/pix574-format-format01/oracle",
+    "--dolphin-sha256",
+    "f36a2c5f2f31e961ce605cc1c762f1e839f1880a0b1feeba4e09a1fccaa90d5b",
+    "--hash-sha256",
+    "5e00ed65dc6ae8031c54c4309d3f1876be4b380e438a15b8281104402e9375b2"
+  ],
+  "executable_sha256": "1324452a1b3437ef26e0d39794ede6fb7c1c2c0c5960a050feace157ffe50b33",
+  "timeout": false,
+  "identity": {
+    "pid": 1971,
+    "ppid": 1957,
+    "pgrp": 1971,
+    "session": 1971,
+    "start_ticks": 1979,
+    "state": "R"
+  },
+  "pid": 1971,
+  "process_group": 1971
+}

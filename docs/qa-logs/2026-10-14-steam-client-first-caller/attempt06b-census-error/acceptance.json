@@ -1,0 +1,43 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T145931Z-3d2363ed",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 582,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix582-client-vm-20261014-06b/vm",
+      "release_when": "Original guest/guard/lifecycle receipts exported and verified; actual owners exited; consume admission then remove disk/media/UEFI. Preserve only immediate-next-test synthetic inputs."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt06b-census-error/result.json",
+      "sha256": "81d9761fa849c329180b9526dc1e27780e51d494f95ff137c49e971404bff15d"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt06b-census-error/namespace-result.json",
+      "sha256": "f276d496837126bde10685f79bc0bcf9467bc8d033aaa7568eddda3d0d6b48df"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt06b-census-error/host-exits.json",
+      "sha256": "3cfaf46658247bacfec33f53836e0062917eacaddcc7c2f92d15833ae1fd01e3"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt06b-census-error/vm-result.json",
+      "sha256": "2007a79318e6d7cee2fb6acd19b3d22269ee96c623aa92eb6a19d1128a6ccf66"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt06b-census-error/guest-manifest.json",
+      "sha256": "dc857a96d7df7b35d558894c449fd1c712672c3147b2f410bf05e8e4fe765351"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt06b-census-error/original-records.json",
+      "sha256": "a28e2bece8a79a78ac33a02bd2f042b3ab6ec92cce41c22ea16aa1f303b9ea80"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt06b-census-error/unmount-640x480.txt",
+      "sha256": "1e24ec7421d8cdbfc285a8a42cfb7db254151dc28eea49c63202154319be7a13"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-14T14:59:31.063388+00:00",
+  "status": "REFUSED_BEFORE_COMMAND",
+  "original_runner_exit": 125,
+  "monitor_exit": 0,
+  "command_started": false,
+  "vm_started": false,
+  "reservation_created": false,
+  "admission_id": "596e4369ffaa4706b3f5bafe7077bce3",
+  "actual_host_pids_absent": [
+    2514211,
+    2514213,
+    2514214,
+    2514214
+  ],
+  "reason": "Checkpoint edit raced admission source-state check. New owner required; never relabel original refusal."
+}

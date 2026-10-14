@@ -1,0 +1,42 @@
+{
+  "validation": "SOURCE_STATIC_ONLY",
+  "runtime": "UNRUN",
+  "imports_of_prepared_sources": false,
+  "python_files": {
+    "controls.py": {
+      "sha256": "68734136b411119ded969a80b1e5bd7ab693acff46f763f111a70ec638ca0ad9",
+      "bytes": 2702,
+      "ast_python311": "PASS",
+      "lines": 61
+    },
+    "guest-run.py": {
+      "sha256": "cf2d31af2f2cab7a85cbc8e6b1c0bf52583d7fdac8546681104392c00a3b3c01",
+      "bytes": 9809,
+      "ast_python311": "PASS",
+      "lines": 168
+    },
+    "guest-work.py": {
+      "sha256": "3e1cfcdaa62e42cfcca8e9dc291759562da74c4c623e406863c4ea1f8474dd40",
+      "bytes": 9426,
+      "ast_python311": "PASS",
+      "lines": 140
+    },
+    "guest_support.py": {
+      "sha256": "60a5d7a5fd6bf30d28481673e623b20b0d6a740f6096d404366b4857d1a33e55",
+      "bytes": 5145,
+      "ast_python311": "PASS",
+      "lines": 129
+    }
+  },
+  "exact_bound_inputs": 12,
+  "exact_source_evidence": 6,
+  "accepted_bundle_manifest_sha256": "49b06305f103df552a9d6c7a145627a66b8cd5e240d34ddceb1df3592175ec0d",
+  "controls_prepared_not_executed": 22,
+  "scope": "new packet only; immutable stager/oracle/product/owners unchanged",
+  "static_contract_assertions": 9,
+  "old_packets_modified": false,
+  "static_elf_interp_readback": {
+    "dolphin": "/lib64/ld-linux-x86-64.so.2",
+    "candidate": "/lib64/ld-linux-x86-64.so.2"
+  }
+}

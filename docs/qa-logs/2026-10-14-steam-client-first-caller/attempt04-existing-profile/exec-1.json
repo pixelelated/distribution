@@ -1,0 +1,265 @@
+{
+  "status": "RETURNED",
+  "client_executed": false,
+  "native_client_success": false,
+  "argv": [
+    "/usr/sbin/chroot",
+    "/run/pix582-scratch/existing-profile-04/rootfs",
+    "/bin/bash",
+    "--noprofile",
+    "--norc",
+    "-x",
+    "/usr/config/modules/Install Steam.sh"
+  ],
+  "denied_execs": [
+    {
+      "pid": 78,
+      "path": "/storage/.local/share/Steam/steamrtarm64/steam",
+      "forced_errno": 13,
+      "syscall_not_executed": true
+    }
+  ],
+  "original_exits": [
+    {
+      "pid": 25,
+      "exit": 0
+    },
+    {
+      "pid": 24,
+      "exit": 0
+    },
+    {
+      "pid": 27,
+      "exit": 0
+    },
+    {
+      "pid": 26,
+      "exit": 0
+    },
+    {
+      "pid": 28,
+      "exit": 0
+    },
+    {
+      "pid": 29,
+      "exit": 0
+    },
+    {
+      "pid": 31,
+      "exit": 0
+    },
+    {
+      "pid": 30,
+      "exit": 0
+    },
+    {
+      "pid": 32,
+      "exit": 0
+    },
+    {
+      "pid": 35,
+      "exit": 0
+    },
+    {
+      "pid": 34,
+      "exit": 0
+    },
+    {
+      "pid": 33,
+      "exit": 0
+    },
+    {
+      "pid": 36,
+      "exit": 0
+    },
+    {
+      "pid": 37,
+      "exit": 0
+    },
+    {
+      "pid": 38,
+      "exit": 0
+    },
+    {
+      "pid": 40,
+      "exit": 0
+    },
+    {
+      "pid": 41,
+      "exit": 0
+    },
+    {
+      "pid": 39,
+      "exit": 0
+    },
+    {
+      "pid": 42,
+      "exit": 0
+    },
+    {
+      "pid": 43,
+      "exit": 0
+    },
+    {
+      "pid": 44,
+      "exit": 0
+    },
+    {
+      "pid": 46,
+      "exit": 0
+    },
+    {
+      "pid": 47,
+      "exit": 0
+    },
+    {
+      "pid": 48,
+      "exit": 0
+    },
+    {
+      "pid": 45,
+      "exit": 0
+    },
+    {
+      "pid": 50,
+      "exit": 0
+    },
+    {
+      "pid": 52,
+      "exit": 0
+    },
+    {
+      "pid": 51,
+      "exit": 0
+    },
+    {
+      "pid": 53,
+      "exit": 0
+    },
+    {
+      "pid": 49,
+      "exit": 0
+    },
+    {
+      "pid": 54,
+      "exit": 0
+    },
+    {
+      "pid": 56,
+      "exit": 0
+    },
+    {
+      "pid": 57,
+      "exit": 0
+    },
+    {
+      "pid": 58,
+      "exit": 0
+    },
+    {
+      "pid": 55,
+      "exit": 0
+    },
+    {
+      "pid": 60,
+      "exit": 0
+    },
+    {
+      "pid": 59,
+      "exit": 0
+    },
+    {
+      "pid": 61,
+      "exit": 0
+    },
+    {
+      "pid": 63,
+      "exit": 0
+    },
+    {
+      "pid": 64,
+      "exit": 0
+    },
+    {
+      "pid": 65,
+      "exit": 0
+    },
+    {
+      "pid": 62,
+      "exit": 0
+    },
+    {
+      "pid": 67,
+      "exit": 0
+    },
+    {
+      "pid": 68,
+      "exit": 0
+    },
+    {
+      "pid": 69,
+      "exit": 0
+    },
+    {
+      "pid": 70,
+      "exit": 0
+    },
+    {
+      "pid": 66,
+      "exit": 0
+    },
+    {
+      "pid": 71,
+      "exit": 0
+    },
+    {
+      "pid": 73,
+      "exit": 0
+    },
+    {
+      "pid": 74,
+      "exit": 0
+    },
+    {
+      "pid": 75,
+      "exit": 0
+    },
+    {
+      "pid": 72,
+      "exit": 0
+    },
+    {
+      "pid": 77,
+      "exit": 0
+    },
+    {
+      "pid": 76,
+      "exit": 0
+    },
+    {
+      "pid": 78,
+      "exit": 126
+    },
+    {
+      "pid": 79,
+      "exit": 0
+    },
+    {
+      "pid": 80,
+      "exit": 0
+    },
+    {
+      "pid": 23,
+      "exit": 0
+    }
+  ],
+  "original_caller_exit": 0,
+  "meaning": "ptrace returns EACCES at synthetic client exec; normal caller sees its failure",
+  "wait_calls": 77931,
+  "syscall_stops": 77636,
+  "wait_seconds": 11.280386639000032,
+  "main_loop_poll_sleeps": 0,
+  "cleanup_exits": [],
+  "remaining_traced": [],
+  "elapsed_seconds": 11.698636720999996
+}

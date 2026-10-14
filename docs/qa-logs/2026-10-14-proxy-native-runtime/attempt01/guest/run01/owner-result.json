@@ -1,0 +1,116 @@
+{
+  "status": "PASS",
+  "original_child_exit": 0,
+  "timed_out": false,
+  "signals": [],
+  "cleanup_errors": [],
+  "reaped": [],
+  "runner_sha256": {
+    "run.py": "d9aa72ed4682a70ca29b59b06dbda3fd64be6bf8e93e159506942ad827a6ae16",
+    "owner.py": "b313f8e8847d4622f41db5dbe7a22c81f9cfa761a238f1170420a3c47ddd09cf",
+    "census.py": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2"
+  },
+  "owner_identity": {
+    "pid": 2137,
+    "ppid": 2136,
+    "start_ticks": 5574
+  },
+  "argv": [
+    "/usr/bin/python3",
+    "-I",
+    "-S",
+    "-B",
+    "/run/pix583-native-packet/fixtures/run.py",
+    "--admission",
+    "/run/pix583-native-inputs/admission.json",
+    "--admission-sha256",
+    "0d8a418cd75b89555a7a09e4215d86613af747e2078b32ddbbff858f82b727e8",
+    "--output",
+    "/run/pix583-native-owner/run01/payload"
+  ],
+  "child_identity": {
+    "pid": 2138,
+    "ppid": 2137,
+    "start_ticks": 5581
+  },
+  "remaining_children": [],
+  "elapsed_seconds": 11.457892583999993,
+  "artifacts": {
+    "payload/account-state/award_secret.key": {
+      "bytes": 32,
+      "sha256": "b9f543bb7cf8eb32e9531b433735bd8016ee6ffb1f3eec34b1fa04db884dc0b9"
+    },
+    "payload/account-state/cached_game_ids.txt": {
+      "bytes": 6,
+      "sha256": "4a1547d4d4d247f66eb1df3b9a673357715e8e64761f48b32fa592ae764d2383"
+    },
+    "payload/account-state/config.json": {
+      "bytes": 490,
+      "sha256": "c4d0fa0b672e2e93907c1328434d686d1f0358a36e648136277cad9a97cc2ba7"
+    },
+    "payload/account-state/content_history.lpl": {
+      "bytes": 12,
+      "sha256": "eef46741adfc3a9f76294d3b78f37a45f113092ac9d44ee77c7a038a88ff09a1"
+    },
+    "payload/account-state/empty-ppsspp.ini": {
+      "bytes": 9,
+      "sha256": "c1169d1a0351f90c0d6aa4e03134b4fe30d2d5c49743335940f61ccfe89432a4"
+    },
+    "payload/account-state/last-flush": {
+      "bytes": 13,
+      "sha256": "374b431de636c3c72fd42820e58a0e4578a823bb08a9456f516f259b27f7d877"
+    },
+    "payload/account-state/proxy.sqlite3": {
+      "bytes": 45056,
+      "sha256": "15ef336b5284d9d1cad1678eb01074ad38e6f19c7f650b84f936e5bbc173e5b8"
+    },
+    "payload/account-state/retroarch.cfg": {
+      "bytes": 167,
+      "sha256": "e0d5ce956bacd0640b373cdfb0afcfab6caa03fbabb13f881613ae84ed2f3fe7"
+    },
+    "payload/account-state/system.cfg": {
+      "bytes": 40,
+      "sha256": "66ea251cd11ba1d1c39daeed36a3ea6e3b17298d7656d32dd35527f787f4fb71"
+    },
+    "payload/cursor.next": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "payload/es/es_systems_custom.cfg": {
+      "bytes": 128,
+      "sha256": "a98f81b2cac283afab5032d5ee933f7352f14449ae1f39ac043c3d30705e0eed"
+    },
+    "payload/jobs": {
+      "bytes": 73,
+      "sha256": "6a28aaaf7441c358f4dd6eb46ebf8584c4136d76789a73a0c7c77725a913c2d1"
+    },
+    "payload/native-maps.txt": {
+      "bytes": 23122,
+      "sha256": "c390839e8db88824901ec028f5493ece0058cd862614494fd484a8b0f985b578"
+    },
+    "payload/result.json": {
+      "bytes": 32439,
+      "sha256": "8143545dd8923a225faf8727a0abb5e92c9ffd72e3eebb9bdd9bd057c57a5c07"
+    },
+    "payload/roms/gamecube/gamelist.xml": {
+      "bytes": 123,
+      "sha256": "8d26a34f480bb4ad097394d13182a45b1413ec71a9d5a8a9d64b2f8494ecffc3"
+    },
+    "payload/roms/gamecube/independent.rvz": {
+      "bytes": 33268,
+      "sha256": "bb3c40134d089fdcf97502f2cff30db9f3b7073ddd61c39adb993a2d24b4d2b9"
+    },
+    "payload/tampered.sqlite3": {
+      "bytes": 36864,
+      "sha256": "66d437c091abe2f0b41bbd0a22f258793063e0798b5587d217710aa30521c67d"
+    },
+    "stderr": {
+      "bytes": 1968,
+      "sha256": "15d66de06d46d04720965513118f9f96828b26026feb06a5ec2e0985692807dc"
+    },
+    "stdout": {
+      "bytes": 83,
+      "sha256": "d2a9700499e206c88ec52d02eb0a900799d5354ce19cd5029bd947e924fe6e90"
+    }
+  }
+}

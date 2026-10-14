@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/tmp/pix-input/pix574-format/packet/guest-work.py", line 140, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/tmp/pix-input/pix574-format/packet/guest-work.py", line 104, in main
+    run('oracle',[sys.executable,'-I','-S','-B',INPUT/'oracle/run-independent-format.py',
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  '--dolphin-tool',program,'--hash-binary',hash_binary,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  '--cases',SCRATCH/'cases','--original-packet',INPUT/'original',
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  '--output',out/'oracle','--dolphin-sha256',binding['dolphin_sha256'],
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  '--hash-sha256',binding['hash_sha256']],235,target)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/pix-input/pix574-format/packet/guest-work.py", line 49, in run
+    require(child.returncode==0,label+': original child failed')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/pix-input/pix574-format/packet/guest_support.py", line 17, in require
+    if not value:raise RuntimeError(message)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: oracle: original child failed

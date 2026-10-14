@@ -1,0 +1,17 @@
+{
+  "PATH": "/usr/bin:/bin",
+  "LANG": "C",
+  "LC_ALL": "C",
+  "HOME": "/run/pix574-scratch/home",
+  "USER": "pix574-synthetic",
+  "LOGNAME": "pix574-synthetic",
+  "TMPDIR": "/run/pix574-scratch/tmp",
+  "XDG_CONFIG_HOME": "/run/pix574-scratch/config",
+  "XDG_CACHE_HOME": "/run/pix574-scratch/cache",
+  "XDG_DATA_HOME": "/run/pix574-scratch/data",
+  "XDG_STATE_HOME": "/run/pix574-scratch/state",
+  "PYTHONDONTWRITEBYTECODE": "1",
+  "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1:abort_on_error=1",
+  "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1",
+  "LD_LIBRARY_PATH": "/run/pix574-scratch/bundle/lib:/run/pix574-scratch/hash/lib"
+}

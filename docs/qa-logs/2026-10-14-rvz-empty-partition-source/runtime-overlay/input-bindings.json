@@ -1,0 +1,105 @@
+{
+  "source_parent_commit": "d92e127fa5e04bb0e9403dfe5e51e15288e5da4c",
+  "coordinator_checkpoint": "4960aaa",
+  "bundle_host_source": "/workspace/tmp/pix574-dolphin-configure-20261014-04/stages/dolphin-closure-loader/vm20-bundle",
+  "bundle_manifest_sha256": "49b06305f103df552a9d6c7a145627a66b8cd5e240d34ddceb1df3592175ec0d",
+  "dolphin_sha256": "f36a2c5f2f31e961ce605cc1c762f1e839f1880a0b1feeba4e09a1fccaa90d5b",
+  "hash_sha256": "5e00ed65dc6ae8031c54c4309d3f1876be4b380e438a15b8281104402e9375b2",
+  "hash_candidate_commit": "314da58d68820a79b26f99a5b6c12f9bb37054d5",
+  "files": {
+    "stager/guest-stage.py": {
+      "host_source": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-14-dolphin-loader-resolution/guest-stage.py",
+      "bytes": 4525,
+      "sha256": "b437c1e10aa74167e530f426a51053524693aed565f9fcf19f7ececdaeb2e544"
+    },
+    "oracle/run-independent-format.py": {
+      "host_source": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-13-rvz-regression-source/run-independent-format.py",
+      "bytes": 3475,
+      "sha256": "08f3f9814128ee562457dc7cb2d10e2dd1769ee60e25aa68ef1ef94789fe842a"
+    },
+    "oracle/bounded.py": {
+      "host_source": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-13-rvz-regression-source/bounded.py",
+      "bytes": 3074,
+      "sha256": "aa07e90550352af2af81e3819c096d3f124970b14ffd96fd1663d565902c9552"
+    },
+    "oracle/source-bindings.json": {
+      "host_source": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-14-rvz-empty-partition-source/oracle-source-bindings.json",
+      "bytes": 74275,
+      "sha256": "f91a3da2bdca9311bdf6a51d627fc14af23f8e5ebd865db9965104733216349f"
+    },
+    "original/make-fixtures.py": {
+      "host_source": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-14-rvz-empty-partition-source/make-fixtures.py",
+      "bytes": 9493,
+      "sha256": "1dd4eb12ed20ed2c51e24cc45041a5c688a61e9a5ac03f45f9bb4630e7cc592b"
+    },
+    "original/upstream/rvz-go-license": {
+      "host_source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-rvz-source/upstream/rvz-go-license",
+      "bytes": 1512,
+      "sha256": "8e937a4f1e8d29fb77b8433044b21906774513e307153a53c68bd638c87a1b09"
+    },
+    "hash/pix574-regression-hash": {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/artifacts/candidate/pix574-regression-hash",
+      "bytes": 7906968,
+      "sha256": "5e00ed65dc6ae8031c54c4309d3f1876be4b380e438a15b8281104402e9375b2"
+    },
+    "hash/lib/libasan.so.8": {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/artifacts/lib/libasan.so.8",
+      "bytes": 11044192,
+      "sha256": "73963db53c40af52818792cba7ebae1ae6897cd94a004942c8ff76f361484412"
+    },
+    "hash/lib/libubsan.so.1": {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/artifacts/lib/libubsan.so.1",
+      "bytes": 3486696,
+      "sha256": "a8d91f5d7efbd684a69546912ead43513ccec34bb275fe1616b68551780c9eca"
+    },
+    "evidence/md5-compile-result.json": {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/compile-result.json",
+      "bytes": 2669,
+      "sha256": "f385e7d2dcea86d93734160053b6070627a9df6f37a86b24370f0748d27fceda"
+    },
+    "evidence/md5-original-result.json": {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/result.json",
+      "bytes": 307,
+      "sha256": "949b09f2dcbf286ff07322a1ebb16153dc409e43a0a208091309092d76905e27"
+    },
+    "evidence/md5-contract-candidate.json": {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/records/contract-candidate.json",
+      "bytes": 384,
+      "sha256": "b8dc6deb77ecb5eba7104dc856588d0f724cb367f10292d3e9e1e127985a8106"
+    }
+  },
+  "scope": "Additive empty-partition checksum generator correction; same guest driver, actual ELF inputs and limits; attempt01 FAIL1 retained.",
+  "guest_limits": {
+    "total_seconds": 240,
+    "work_seconds": 235,
+    "cleanup_reserve_seconds": 5,
+    "private_scratch_bytes": 2147483648
+  },
+  "source_evidence": {
+    "Source/Core/Common/FileUtil.cpp": {
+      "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/Common/FileUtil.cpp",
+      "sha256": "e16cf2aafa18a2388747546ee5a7bdfcf05bfe3ae14ab4153ddbb2e920483f73"
+    },
+    "Source/Core/UICommon/UICommon.cpp": {
+      "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/UICommon/UICommon.cpp",
+      "sha256": "5d8e5b3ecfa526b66ab488a7a38fe49434c0aab4fb5204419bfc1e5f433ff58c"
+    },
+    "Source/Core/DolphinTool/ConvertCommand.cpp": {
+      "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/DolphinTool/ConvertCommand.cpp",
+      "sha256": "d965160a5969dc6582dacbf2e537eed0d98667b7b6ed1ae6cf13348eb1788da0"
+    },
+    "Source/Core/DolphinTool/ToolMain.cpp": {
+      "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/DolphinTool/ToolMain.cpp",
+      "sha256": "ed02cea4a455deea41a2602d75c93cb140e0162561571a30c0d0b6df924520ba"
+    },
+    "Externals/cpp-optparse/cpp-optparse/OptionParser.cpp": {
+      "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/cpp-optparse/cpp-optparse/OptionParser.cpp",
+      "sha256": "68c6e81a0b09c8b69217756d3506fc01c4f06768c8b3dcf2c2b24f4f33f873fb"
+    },
+    "accepted-generated/CMakeCache.txt": {
+      "path": "/workspace/tmp/pix574-dolphin-configure-20261014-04/work/format-tools/dolphin-build/CMakeCache.txt",
+      "sha256": "b42e77bed40bcfec409506c09472cd5c0a3e78e92e7a3068ab01913fdb26bd67",
+      "observed_line": "LINUX_LOCAL_DEV:BOOL=ON"
+    }
+  }
+}

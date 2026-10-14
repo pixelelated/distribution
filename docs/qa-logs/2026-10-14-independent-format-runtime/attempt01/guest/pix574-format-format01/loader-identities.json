@@ -1,0 +1,27 @@
+{
+  "installed": {
+    "invocation_path": "/lib64/ld-linux-x86-64.so.2",
+    "resolved_path": "/usr/lib/ld-linux-x86-64.so.2",
+    "bytes": 221472,
+    "mode": 493,
+    "sha256": "43ba6fe60411686238d8a53eb4338fcf4d6893e6e961614f3806e84e86d2804c"
+  },
+  "private": {
+    "invocation_path": "/run/pix574-scratch/bundle/ld-linux-x86-64.so.2",
+    "resolved_path": "/run/pix574-scratch/bundle/ld-linux-x86-64.so.2",
+    "bytes": 1352760,
+    "mode": 493,
+    "sha256": "ce676fd2c523729f7660bfaf1e34f7c221cb70bb7c238feb8ffd46c9bc00ff29"
+  },
+  "hash_binary_installed_loader": {
+    "invocation_path": "/lib64/ld-linux-x86-64.so.2",
+    "resolved_path": "/usr/lib/ld-linux-x86-64.so.2",
+    "bytes": 221472,
+    "mode": 493,
+    "sha256": "43ba6fe60411686238d8a53eb4338fcf4d6893e6e961614f3806e84e86d2804c"
+  },
+  "sys_lookup_measured": false,
+  "sys_source_contract": "LINUX_LOCAL_DEV uses /proc/self/exe parent + /Sys; both private ELF files are siblings of Sys",
+  "help_limit": "OptionParser exits before SetUserDirectory/UICommon::Init",
+  "identical_bytes": false
+}

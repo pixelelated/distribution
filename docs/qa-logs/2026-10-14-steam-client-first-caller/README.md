@@ -1,8 +1,10 @@
 # Steam full-caller and profile-path cases — #582
 
-Current status: the corrected full caller and fresh profile-parent alias
-cases pass. Existing-profile, child cleanup, failure recovery, and native
-installation qualification remain. The first failed run is retained below.
+Current status: corrected full caller, fresh/existing profile-parent alias,
+detached child, census-failure and real transport-timeout cases pass. Broader
+recovery/compatibility and native/installed-image qualification remain.
+Historical first failures and earlier next-work notes are retained below;
+the October14 targeted-results table supersedes those next-work notes.
 
 ## Original attempt
 
@@ -62,3 +64,30 @@ Remaining independent allocations: existing-profile-parent-alias,
 detached-transfer-child, proc-census-error, then the real180s transport-timeout
 case, plus the broader existing/recovery matrix and native/installed proof.
 No source pin, product integration, firmware or RC designation follows here.
+
+## Existing profile-parent alias — PASS, 14:48 UTC
+
+Fresh no-network VM attempt04-existing-profile passes with the unchanged
+03e130 candidate: complete caller, trace, fixture and lifecycle all exit 0.
+The fixture took 15.01 seconds and preserved all 22 protected entries, including
+the existing client/channel, resolved profile, lexical decoy and unrelated data.
+The synthetic client exec was denied; native Steam readiness is still unproved.
+Original guard results, manifests and output are retained in the attempt packet.
+Every host/QEMU/child owner exited, the admission is consumed, and 2,277,924,864
+allocated disposable bytes were retired. No run from this owner remains active.
+The remaining targeted cases are detached child, census failure and transport
+timeout, followed by the broader recovery and native/installed qualification.
+
+## October14 remaining targeted caller checks
+
+All four targeted cases passed on separate fresh no-network VM20 guests with the unchanged03e130 installer/fixture. These are synthetic caller/transaction proofs, not native Steam execution or complete installed-image qualification.
+
+| Packet | Original observations | Scope/result |
+| --- | --- | --- |
+| attempt04-existing-profile | 15.010742164s; caller0;22 protected entries unchanged | Existing profile and parent alias preserved; native client denied |
+| attempt05-detached-child | 15.365351534s; caller0;13 entries unchanged; child45 exit-9 | Product cleanup ends detached descriptor holder; no harness rescue |
+| attempt06-admission-refusal | launcher/runner125 before command; no command.pid, VM or registry reservation | Checkpoint edit raced source fingerprint; retained original refusal, never admitted |
+| attempt06b-census-error | 24.818389396s; intended callers1,1;13 entries unchanged | Unknown-live state stays held; second attempt refuses before install; independent fixture actor releases child77, not product quiescence |
+| attempt07-transport-timeout | 196.987076506s; intended caller1;13 entries unchanged; child exit-9 | Real180s product timeout, original230s trace/240s fixture; no installed state or harness rescue |
+
+Each admitted run has original fixture/namespace/lifecycle/watcher/launcher0, exported original traces, actual host/process exits, consumed admission and retirement receipt. The negative installer exits remain negative. Total four disposable VM allocations retired:9,112,907,776bytes. Broader19-case recovery/compatibility matrix and native/installed-image proof remain; the6bebc365 aggregate proposal is HELD/UNRUN and was not used. Prior a057 failure remains unchanged.

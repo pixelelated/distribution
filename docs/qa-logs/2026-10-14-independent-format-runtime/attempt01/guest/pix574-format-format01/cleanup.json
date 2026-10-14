@@ -1,0 +1,100 @@
+{
+  "status": "PASS",
+  "remaining": [],
+  "surviving_observed": [],
+  "signals": [],
+  "adopted_original_waits": [],
+  "all_observed": [
+    {
+      "pid": 1957,
+      "ppid": 1956,
+      "pgrp": 1957,
+      "session": 1957,
+      "start_ticks": 1821,
+      "state": "R",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix-input/pix574-format/packet/guest-work.py",
+        "--run-id",
+        "format01",
+        "--output",
+        "/tmp/pix-output/pix574-format-format01",
+        "--deadline",
+        "253.210366342"
+      ]
+    },
+    {
+      "pid": 1958,
+      "ppid": 1957,
+      "pgrp": 1958,
+      "session": 1958,
+      "start_ticks": 1838,
+      "state": "R",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix-input/pix574-format/stager/guest-stage.py",
+        "--input",
+        "/tmp/pix-input/pix574-format/bundle",
+        "--manifest-sha256",
+        "49b06305f103df552a9d6c7a145627a66b8cd5e240d34ddceb1df3592175ec0d",
+        "--run-id",
+        "format01"
+      ]
+    },
+    {
+      "pid": 1970,
+      "ppid": 1957,
+      "pgrp": 1970,
+      "session": 1970,
+      "start_ticks": 1968,
+      "state": "R",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix-input/pix574-format/original/make-fixtures.py",
+        "--output",
+        "/run/pix574-scratch/cases",
+        "--zstd-library",
+        "/run/pix574-scratch/bundle/lib/libzstd.so.1"
+      ]
+    },
+    {
+      "pid": 1971,
+      "ppid": 1957,
+      "pgrp": 1971,
+      "session": 1971,
+      "start_ticks": 1979,
+      "state": "R",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix-input/pix574-format/oracle/run-independent-format.py",
+        "--dolphin-tool",
+        "/run/pix574-scratch/bundle/dolphin-tool",
+        "--hash-binary",
+        "/run/pix574-scratch/hash/pix574-regression-hash",
+        "--cases",
+        "/run/pix574-scratch/cases",
+        "--original-packet",
+        "/tmp/pix-input/pix574-format/original",
+        "--output",
+        "/tmp/pix-output/pix574-format-format01/oracle",
+        "--dolphin-sha256",
+        "f36a2c5f2f31e961ce605cc1c762f1e839f1880a0b1feeba4e09a1fccaa90d5b",
+        "--hash-sha256",
+        "5e00ed65dc6ae8031c54c4309d3f1876be4b380e438a15b8281104402e9375b2"
+      ]
+    }
+  ],
+  "forced": false
+}

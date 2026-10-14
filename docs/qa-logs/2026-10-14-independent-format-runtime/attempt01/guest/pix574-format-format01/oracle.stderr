@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/tmp/pix-input/pix574-format/oracle/run-independent-format.py", line 59, in <module>
+    main()
+    ~~~~^^
+  File "/tmp/pix-input/pix574-format/oracle/run-independent-format.py", line 42, in main
+    convert('decode-'+str(index),args.cases/row['name'],dest,'iso')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/pix-input/pix574-format/oracle/run-independent-format.py", line 38, in convert
+    bounded.require(receipt['returncode']==0 and dest.is_file(),label+': original conversion failed')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/pix-input/pix574-format/oracle/bounded.py", line 44, in require
+    raise RuntimeError(message)
+RuntimeError: decode-0: original conversion failed

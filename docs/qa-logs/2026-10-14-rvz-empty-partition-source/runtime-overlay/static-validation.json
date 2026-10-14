@@ -1,0 +1,46 @@
+{
+  "status": "SOURCE_STATIC_ONLY",
+  "runtime": "UNRUN",
+  "prepared_sources_imported": false,
+  "new_python_sources": {
+    "header-controls.py": {
+      "sha256": "c0d15c8b5167eb79d02d7e3c84052c79c14d60a736fc025721c79129e585b65b",
+      "ast_python311": "PASS"
+    },
+    "make-fixtures.py": {
+      "sha256": "1dd4eb12ed20ed2c51e24cc45041a5c688a61e9a5ac03f45f9bb4630e7cc592b",
+      "ast_python311": "PASS"
+    }
+  },
+  "reused_runtime_code": {
+    "guest-run.py": {
+      "sha256": "cf2d31af2f2cab7a85cbc8e6b1c0bf52583d7fdac8546681104392c00a3b3c01",
+      "source_commit": "d92e127fa5e04bb0e9403dfe5e51e15288e5da4c",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-14-independent-format-guest/guest-run.py"
+    },
+    "guest-work.py": {
+      "sha256": "3e1cfcdaa62e42cfcca8e9dc291759562da74c4c623e406863c4ea1f8474dd40",
+      "source_commit": "d92e127fa5e04bb0e9403dfe5e51e15288e5da4c",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-14-independent-format-guest/guest-work.py"
+    },
+    "guest_support.py": {
+      "sha256": "60a5d7a5fd6bf30d28481673e623b20b0d6a740f6096d404366b4857d1a33e55",
+      "source_commit": "d92e127fa5e04bb0e9403dfe5e51e15288e5da4c",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-14-independent-format-guest/guest_support.py"
+    },
+    "controls.py": {
+      "sha256": "68734136b411119ded969a80b1e5bd7ab693acff46f763f111a70ec638ca0ad9",
+      "source_commit": "d92e127fa5e04bb0e9403dfe5e51e15288e5da4c",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-14-independent-format-guest/controls.py"
+    }
+  },
+  "oracle_code_unchanged": true,
+  "only_oracle_binding_change": "original_generator_sha256",
+  "only_input_descriptor_changes": [
+    "original/make-fixtures.py",
+    "oracle/source-bindings.json"
+  ],
+  "raw_padding_hash_and_main_asts": "UNCHANGED",
+  "candidate_output_hashes": "NOT_GENERATED",
+  "original_attempt01": "FAIL1 preserved; decode-0 original1; no later format commands"
+}

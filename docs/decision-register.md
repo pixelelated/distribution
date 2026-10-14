@@ -700,6 +700,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-WORKFLOW-166 | 2026-10-14 | **Use the existing shared JELOS ScreenScraper developer identity as the interim choice for #566; evaluate replacement credentials separately in #586.** This refines D-QA-005/006's runtime-only policy: the intended release route provisions the selected shared developer identity so ordinary players need only their separate personal account. Dedicated credentials are not a prerequisite for the current candidate. Implementation and actual artifact/UI/backup/clean/upgrade checks remain due; this choice neither claims new provider authorization nor permits personal accounts, RA tokens or other unrelated private credentials in public images. D-INFRA-006/007 protections remain for those values; any exception must be limited to the named shared developer identity and verified by an executable check. | maintainer, 2026-10-14; #566; #586; `.claude/rules/device-builds.md` |
 
+| D-RA-047 | 2026-10-14 | **Evaluate temporarily stopping the offline proxy during browser use as future work, conditional on preserving proxy functionality.** The owner requested a memory-pressure experiment, especially for low-RAM H700 devices, and explicitly permits rejecting it if lifecycle or background-work reliability suffers. Record measured memory benefit and restart/readiness cost; preserve queued awards, cache integrity, the enabled preference and D-UI-095 in-flight-send behavior. This does not select a production stop policy or add a gate to the current M7 candidate. | #587; #570; D-UI-095 |
+
 ## Open decisions
 
 
