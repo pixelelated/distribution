@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-14",
+  "scope": "Read-only original logs/generated source and SDK file hashes; prospective QA packet only",
+  "static_command": "python3 -I -S -B docs/qa-logs/2026-10-14-chdman-runtime-link-source/static-check.py",
+  "static_original_exit": 0,
+  "bash_n_original_exit": 0,
+  "runtime": "UNRUN",
+  "runner_imported": false,
+  "ELF_tools_or_binary_execution": false,
+  "source_snapshots": "Four selected GCC15.2 source members,351203 uncompressed bytes, retained as gzip with byte hashes. No build-tree export. MAME source retained from immutable2608923 packet.",
+  "prior_failure": "Exact owner03 original channels retained as gzip; no retry/reclassification",
+  "source_inspection_complete": "No further dependence on owner03 work tree; coordinator owns retirement.",
+  "source_only_tool_errors": "Initial rg/ls probing found no expanded GCC build tree; inspected immutable GCC archive instead. One apply_patch message was rejected for duplicate target operations before changes; rewritten as separate packet edits. No runtime failed or retried by worker."
+}

@@ -1,0 +1,617 @@
+{
+  "status": "PASS",
+  "stage": "chdman-bootstrap",
+  "started": 1791995120.3288817,
+  "children": [
+    {
+      "argv": [
+        "bash",
+        "/plan/build-stage.sh",
+        "chdman-bootstrap"
+      ],
+      "started": 1791995123.8461714,
+      "label": "selected-stage",
+      "identity": {
+        "pid": 8,
+        "start_ticks": 108680784,
+        "state": "R",
+        "pgrp": 8,
+        "session": 8,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      "pid": 8,
+      "original_exit": 0,
+      "reaped": true,
+      "ended": 1791995127.0615878
+    }
+  ],
+  "source_before": {
+    "files": 31411,
+    "inventory_sha256": "e98b4bb656b9e2bce330cca3557c7b8fd2d1ee9a48c77571f802348f55f57117",
+    "converter_pristine": true,
+    "one_documented_link_policy_patch": "scripts/genie.lua"
+  },
+  "generated_before": {},
+  "source_after": {
+    "files": 31411,
+    "inventory_sha256": "e98b4bb656b9e2bce330cca3557c7b8fd2d1ee9a48c77571f802348f55f57117",
+    "converter_pristine": true,
+    "one_documented_link_policy_patch": "scripts/genie.lua"
+  },
+  "generated_after": {
+    "3rdparty/genie/bin/linux/genie": {
+      "sha256": "73e5a28d635606fb493e9fc14efef2a96ae5815d8120b48f318e0ee10421a73c",
+      "bytes": 572336,
+      "mode": 493
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_chdir.d": {
+      "sha256": "95ad0bdce3c7c2e51db8843f08ad6ca96530df379dca667a688351b788fcb91f",
+      "bytes": 499,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/premake_main.d": {
+      "sha256": "2eaf0b2ac9ef7663e3b849e953dd5acbb245fac530c284af82e565adb30a0bb9",
+      "bytes": 507,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_pathsearch.o": {
+      "sha256": "9d918cbb21c1e13928178de2a81e197b5935a6771bf2ae7fc740b0e6a6a802a0",
+      "bytes": 2560,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_chdir.o": {
+      "sha256": "f0847a713b7a275130bafe09e84de831fbac91f31c72ad1273afaba41249204d",
+      "bytes": 1856,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_mkdir.d": {
+      "sha256": "50b7f3b4d4ac1db1bf68bb2dc06f3353db6113490be251b346368975ed65b14c",
+      "bytes": 499,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/path_getabsolute.d": {
+      "sha256": "0fcea3b9a95430b2d56edf87d215e3337984ebb7745bc8e60cd1ea6a4fe31b18",
+      "bytes": 518,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_ticks.d": {
+      "sha256": "fb5d2e8b70f5440e221daa8291f80dfecbf73b3f0bcdb550d215f18c223ea193",
+      "bytes": 499,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/premake.o": {
+      "sha256": "fd31c33558968a2056370fa62a9081acfb838358329d3a0e75e67b647d4018a8",
+      "bytes": 10440,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_is64bit.o": {
+      "sha256": "fdb22685f217f2dc64ef37183fccf8b617d6a35e805d13cff1fb9c71c9889e8a",
+      "bytes": 1376,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_is64bit.d": {
+      "sha256": "9ab6ab332ea168e4b98bc6f8a0d14fc0fab5977880c13aa823b909eef68db2a4",
+      "bytes": 503,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_getcwd.d": {
+      "sha256": "3b24d5c9611dd1888a3e0047d58691690170e9e285e9f3c6c177f731c0a001ed",
+      "bytes": 501,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/premake.d": {
+      "sha256": "08f9885bff198a4fbf65f0d65e5ba0e5d8b41b757a3e428e549fe6962edab0df",
+      "bytes": 551,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_stat.o": {
+      "sha256": "664a7677c8ea64a04f8ed145aa97b17f18733ca4e383a624ce8c9e6b0b145a77",
+      "bytes": 2808,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_pathsearch.d": {
+      "sha256": "66fec3a8ad5315b63d309587d0ca581376a96fa770682bb8d3c83b2e4fab5c15",
+      "bytes": 509,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_stat.d": {
+      "sha256": "fd503e681503ab4cdb5fb5566d92c298e4101823457d36a877784c8f64583e6e",
+      "bytes": 497,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_isdir.d": {
+      "sha256": "87265e4d5970bce87b749a590463b8d00894c5c624db891e533076dd13465dc2",
+      "bytes": 499,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_uuid.d": {
+      "sha256": "26e237bd063ba77f5b7ad71818929d5d73d81c1a8e28a43cf4c6e490412f32c3",
+      "bytes": 497,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/scripts.d": {
+      "sha256": "939ddd9931eaf9d69572658c23a148896e21da4aa5a8e24908a51694b4563db3",
+      "bytes": 57,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/string_endswith.o": {
+      "sha256": "e7668a939d625b1d4cd8c6a74c24406afadb0cf4dcc2510bc483d2994bdda8bb",
+      "bytes": 1760,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_rmdir.d": {
+      "sha256": "04b4af24dfb97f9d4aa1edc985c054044d63a968b2d6c68afe54d6e0152a3757",
+      "bytes": 499,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_isfile.o": {
+      "sha256": "605286339f05ae70b45537c64487505c4e8fd52b12a317e1de750b5a33304f6c",
+      "bytes": 1784,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_mkdir.o": {
+      "sha256": "850567acbf05986ca5c02ae8987c6f2d8f7a439ebc74a9163d4b931b10f1bf26",
+      "bytes": 1864,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/path_getabsolute.o": {
+      "sha256": "a4a8d3699911dfbf2467acd308dc9e6dcd9e6480aa399dbf8d52668b001dd722",
+      "bytes": 1728,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_copyfile.o": {
+      "sha256": "fe16d0223b5ca746b97ea24e5248bcd810d7490decfe06abe75e24e26c53916d",
+      "bytes": 2104,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/scripts.o": {
+      "sha256": "9163c1c9444e24323ce6fac5623cc9f3075f4886ead19fb8940677359fc7b926",
+      "bytes": 368600,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_uuid.o": {
+      "sha256": "4d5a5a2edcc505dccef7ed18ba43ea03ebc20ad5b4604d0ed564a34fdb0a33f2",
+      "bytes": 2760,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_copyfile.d": {
+      "sha256": "50da2247ae098f434b94f2a3f88a0cb935249c0d3acb2e33092d7368a05f5731",
+      "bytes": 505,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/path_getrelative.d": {
+      "sha256": "a1d70ab9386b7fea7686be4ad7cb0f4d9e299da3241ccde06be94eacca88f41c",
+      "bytes": 518,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/path_isabsolute.o": {
+      "sha256": "5967556e409fbe3577748fe420f3e4b5d14f221ebb8486fd86dcfc8e356a9d81",
+      "bytes": 1544,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_isdir.o": {
+      "sha256": "59008a82e6810bec829a0c9e92cef290ab3ceed720634b59ad80e57404f37821",
+      "bytes": 1680,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/path_helpers.o": {
+      "sha256": "71150f9dec5395a43b715489dde85d0adc424a31e413f86a2dbac66bcb1c6c3b",
+      "bytes": 2520,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_isfile.d": {
+      "sha256": "7586c1ec70ace1124c0b0332423cacb100fa12933fbed61c25c3b7551c8a1aac",
+      "bytes": 501,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/path_helpers.d": {
+      "sha256": "dcf38c2ac420d3534083c46101ebd6609bfa2ab9d0e11051ce345ae0f81f1232",
+      "bytes": 507,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/string_endswith.d": {
+      "sha256": "dcf6798dd16657e0d480f682a56a0e5025d231929a4dd9783023d7b3eebac995",
+      "bytes": 513,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/string_hash.o": {
+      "sha256": "cdb18abba8fbe1630193672ca80d854131bf4679f70b48ad38740e2317de53cd",
+      "bytes": 1640,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_ticks.o": {
+      "sha256": "b7e7d673a154dd96133a86ced89081b508dab6fc7ceb17b3c68f0c5814172b9b",
+      "bytes": 1592,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/path_isabsolute.d": {
+      "sha256": "9b90451e8bcbdbb1ffbc7378eed766995df15cf09d34f06226243d67a8cd4a8e",
+      "bytes": 513,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_getcwd.o": {
+      "sha256": "644e0285cb10333af57140fc9494c3f0001b427aaed3d9ae67219ad54427ac84",
+      "bytes": 1648,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_match.d": {
+      "sha256": "9c3b9c1c565f3686d8beb096050f30a17b7604f126670e923a1c5604342ff7f4",
+      "bytes": 499,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_match.o": {
+      "sha256": "f152cf55f57483dcf5d51bdb1e8ab2f1f8ca797586c3b734685edc52a5e9af41",
+      "bytes": 3936,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/os_rmdir.o": {
+      "sha256": "87f8fcffed74a26127151038bd7fdf88ba3a12345d26b32f12e2a92a70a1a93f",
+      "bytes": 1856,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/string_hash.d": {
+      "sha256": "537497ef1b3ebd1a961a9b57ca91bcac919c83dec8919104336d34fc51088fdc",
+      "bytes": 505,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/path_getrelative.o": {
+      "sha256": "97e7240d145b11341b61ade71932f4d19daede6d9204a2ae2d8e48ed2b1cfa3e",
+      "bytes": 1792,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/premake_main.o": {
+      "sha256": "9e6729522532ce32d36a831165c3e3b1d8fcaa42c80bdedbda3f2d1e8da7e82b",
+      "bytes": 2088,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lbaselib.d": {
+      "sha256": "f760390be329b44e51024a819d9c357fc1ee23dd05082efbf3864e65c7b6ec12",
+      "bytes": 490,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/linit.d": {
+      "sha256": "caaaf23c7c22a6a97e52ae759c28a9733e669ba1eca3a738a4b3c74d9a1a361f",
+      "bytes": 484,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lvm.d": {
+      "sha256": "c21f21494986cf7912bf50bbe708475f92f45c37ca0578a8ff508254de2aa800",
+      "bytes": 1402,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lauxlib.d": {
+      "sha256": "0808b418dd64efaf5f497820e044e64b6ea6429ae1d97bfb64f17fde9a844164",
+      "bytes": 408,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lparser.o": {
+      "sha256": "562a03992bde2e08ec4d18343adcd812ee6084d0c5a2ce5b23ef2f467d4f7fe7",
+      "bytes": 27144,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/ldblib.o": {
+      "sha256": "c83d3dca77420b643a214fe47eff38fac306e025e5561c0ce55917569b3ddc98",
+      "bytes": 17552,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lctype.d": {
+      "sha256": "372bd4d34136169e460f4a1754a250985261e391a169a615403afcdf23a832d9",
+      "bytes": 483,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lcode.o": {
+      "sha256": "c8240b0d48cfc8a0fc701e5412469a6c1da9de4228cb4f30e30df89a576d2649",
+      "bytes": 15552,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/llex.o": {
+      "sha256": "7dd18b4044e3d751df91bc7f24ae7b9e1be423d17b6ad4049050238b06e0471c",
+      "bytes": 15768,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lstrlib.d": {
+      "sha256": "4ea64693fefb21c6392540f41fccc07d51ad2ffaaa5a84549b5be21d7c953531",
+      "bytes": 488,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/ldebug.d": {
+      "sha256": "6b793abba9190963c13e5e1ed8994e79797c52e52e176fab76cc2d41df199206",
+      "bytes": 1720,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lbitlib.o": {
+      "sha256": "86fb292e52d692c5ea8d5b160762609f22a078efba7162951432431a8de06020",
+      "bytes": 1536,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/loadlib.o": {
+      "sha256": "7b27efee8642350524b311132e7a1d05325060ac2f192dde29c4385d20def76a",
+      "bytes": 18136,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/loadlib.d": {
+      "sha256": "5d750438fa44dea2fd98b05af551723975d6e884a6cb84a911a7bab28a8789b3",
+      "bytes": 488,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/ltable.d": {
+      "sha256": "42bd0085420d73900cc64b7bdeb69f9b60ed2138646f2f012d8a59705cc4aae5",
+      "bytes": 1249,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lopcodes.o": {
+      "sha256": "069994339b6462837d57d6578d45f1d3e5acf1f87534304824f657643195f5b8",
+      "bytes": 3200,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lcorolib.o": {
+      "sha256": "559cce9e781e81de7a22c079730c4b554e4d6cdc34d8cabfe8f2235cb5942fe5",
+      "bytes": 6888,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lobject.o": {
+      "sha256": "ad2b9e271c325dd0119ead82c522df4786ff877f0c94baee6e49789920ceca1e",
+      "bytes": 9440,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/linit.o": {
+      "sha256": "0cfcaf89968bf86156a872aa35d825674b3070323bd868321dcc0ed7071d4880",
+      "bytes": 2912,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lctype.o": {
+      "sha256": "cf218b7211ff69092d0fd96966c5b2e07d0485aca797c9bf725368f49c3f8d87",
+      "bytes": 1296,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lutf8lib.o": {
+      "sha256": "d26086d22f1e42f2ac14663f9945c2e62314c9b9d3daa62d54a3ca6ad569f2e6",
+      "bytes": 7920,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/ldebug.o": {
+      "sha256": "436d3d84ad0f83ff07ef77b9bf1aeb938f00adda90f18f58e1071d17b6e6e68b",
+      "bytes": 11824,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/ldump.o": {
+      "sha256": "0b6d403adea9fc17e38715da8bb219afc346dfc97d5e6ed10b622b1985a6d5ea",
+      "bytes": 3552,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/loslib.d": {
+      "sha256": "b38dfda934c8b84edd1dd0ba5351004a06505337f2832d47c73f6ccb3c7273b5",
+      "bytes": 486,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/ldo.d": {
+      "sha256": "7696edecab2a4999d457ed8e9a3ade8ba8bf97149768615e58ff4e02802b996d",
+      "bytes": 1645,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lstring.d": {
+      "sha256": "55d09f4fd0549b61a268dd3baf699cd7ef5ddf382f9d70387480a6e67d55c65d",
+      "bytes": 1100,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lapi.d": {
+      "sha256": "3ef62d3053e2ed58e9395946a581d274fb8142383d226f30d59d3324e7f2d17b",
+      "bytes": 1481,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/ldo.o": {
+      "sha256": "b416042e227987ef95989b5cd58416938d9a98b83141c3c26a7594d655ab8c19",
+      "bytes": 10672,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lauxlib.o": {
+      "sha256": "4862d99fca1b4272f2a6b4f603ad90304298a075356b8c327605b835dfc03660",
+      "bytes": 28272,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lstate.o": {
+      "sha256": "cdce341ddeec7f2ea1905a989f05903af4ceafd9cfd67a28e69d6ec6b46e9be6",
+      "bytes": 5664,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lmem.o": {
+      "sha256": "c744ea3cbacd2f4c5f27179ef665497e19f0b163356a03e72b7523444aa70ecf",
+      "bytes": 2256,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lstate.d": {
+      "sha256": "2a044d917d5efa29f6c46e4534d6f82d3b0800dd93bd7934ef8f7a68d49bee88",
+      "bytes": 1405,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/ltablib.d": {
+      "sha256": "d47e2a54cc5911aa855bda7aad6d57675027e995a1eb009b1375eb438bb456cc",
+      "bytes": 488,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lparser.d": {
+      "sha256": "634fed99c8ba724f96611330e24ba7e87960289fe50e400de158f9dc988a8d80",
+      "bytes": 1569,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/ltm.d": {
+      "sha256": "5127d88194b26438260ef819f94e58758400d7231e2bb515b5defa89fbe2c0e7",
+      "bytes": 1243,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lcorolib.d": {
+      "sha256": "bddcbf1f77e2e67be7c381f182a90696833c549391248f6b676cff5046c536c3",
+      "bytes": 490,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lvm.o": {
+      "sha256": "8e80ac04e027d60fa1f51ef803de867abe9041cff67b4b91728f6a442119aac4",
+      "bytes": 20856,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lfunc.o": {
+      "sha256": "97d1563298b2705060f260b69dc826664e47474b0e61657e5a6c05b622f41963",
+      "bytes": 3136,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lstring.o": {
+      "sha256": "1d3558fe19508da33731d2976430d28d1893b850ff2d57baaa8de1b34d9459a7",
+      "bytes": 3376,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/loslib.o": {
+      "sha256": "66caba907d0f13170e03e5e420cd10d17db1cfe01e78604664fd08baced8e138",
+      "bytes": 11680,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lfunc.d": {
+      "sha256": "4036c04ea3946e21f55a58abe08d3dae30bd2fc2203265c8032e0106010b2072",
+      "bytes": 938,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lutf8lib.d": {
+      "sha256": "eb366015e2a0fbb7973d8c94e1b00dadb487c151285608135be964df74d8f318",
+      "bytes": 490,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/ldblib.d": {
+      "sha256": "a8fa4b149f87f1a10cc0152b924d46321c561f38a96d3850b5f5b256ec9e8677",
+      "bytes": 486,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lundump.o": {
+      "sha256": "b75b48ad1ae093cfbb24e7cc5d59a15c94e120bca748175bd38bdb8f4da5c771",
+      "bytes": 6456,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lstrlib.o": {
+      "sha256": "caee39f1ed32ada69da4be6d9d4bcf802cf031b0c90a204c4451ddb6b145b41c",
+      "bytes": 32600,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lmathlib.o": {
+      "sha256": "8a75fff812713ff58661079e9d270b73415631d295e7034823424241c0e38ee3",
+      "bytes": 13584,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/ltable.o": {
+      "sha256": "a02083134566dc48c851860e13a53eca994a2cc4a0a5111c2ffe8eac03f16b40",
+      "bytes": 7928,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lmem.d": {
+      "sha256": "b861fac1982cac1cd044ffad7c829887b3859baed0defd7d4d49cac2cae098c5",
+      "bytes": 1012,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lcode.d": {
+      "sha256": "b2c83e816cf2047e31fab68fd544682bcbd4fac60eb17dfd0afbadfe88476a11",
+      "bytes": 1561,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/liolib.o": {
+      "sha256": "43e4dc96d8cab333d212237d42f75ea552a1822dcb9c814fa1794aa91bebde79",
+      "bytes": 21616,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lopcodes.d": {
+      "sha256": "607656aaddd5e3e52077436cf411c7e49717f835403d591b0c9af8492dd4461a",
+      "bytes": 494,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lgc.d": {
+      "sha256": "9f9eaa5fa38aee15608a33f7ac2f955406aa0f5336da173d4aa43b5b43b62dd6",
+      "bytes": 1247,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lobject.d": {
+      "sha256": "c26c174e9298a3b483ade6bf340bd3a7ff5b2c2754a17b51074606bb00e83964",
+      "bytes": 1251,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lundump.d": {
+      "sha256": "758867313fbb7e37ea477ec0bb09a7a1787b88cad7100e47d5bbe42e0ea29c21",
+      "bytes": 1260,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/liolib.d": {
+      "sha256": "9bb245a024689d7428c7e09a94858a740c3214b0c87e7044052e4768c3970ffa",
+      "bytes": 486,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lmathlib.d": {
+      "sha256": "02491313a16814b5190fb7b2fdc50aa13b701a3bda5123fed668e5a51ca2147d",
+      "bytes": 490,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lgc.o": {
+      "sha256": "4f91f8dbaa8cff8c22e11c6390c39de9f02f5428697379f45574ad62aef715af",
+      "bytes": 12496,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lbitlib.d": {
+      "sha256": "de82ce68ea6c437cebde18786b0560895f958aa6232d47db3e59f16dc47865c9",
+      "bytes": 488,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lzio.o": {
+      "sha256": "0cef50a021b931a7307fce373cf924db5f8f7e3c155b562fc117d2d6fb6019ba",
+      "bytes": 2008,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/ldump.d": {
+      "sha256": "b57117eb0fd609ea9debeb700c369be5175326ca27929e7221f9ee4bcaafa1e3",
+      "bytes": 868,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lzio.d": {
+      "sha256": "383030fa9a3d629136b19f35c4970c0dc6e5c96a1284ec68cb925941556ac69b",
+      "bytes": 787,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/llex.d": {
+      "sha256": "996371d19458670db3463e8e179aa866dcfc63b4434680aa47e568581fc22c42",
+      "bytes": 1329,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/ltablib.o": {
+      "sha256": "d2bb4a39a6cf5660b4e5110834664b11ccb36d2833e074df20d05c3f3b97d54c",
+      "bytes": 11456,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lbaselib.o": {
+      "sha256": "3054d038566b813fd4947f1a393d1f67a51efa192ff366e89cdf44711eb82d5a",
+      "bytes": 18584,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/ltm.o": {
+      "sha256": "71b13c269d1dec5b3047a14fb85f3ae8373ed90cb118f9d60973a710afa16e22",
+      "bytes": 5560,
+      "mode": 420
+    },
+    "3rdparty/genie/build/gmake.linux/obj/Release/src/host/lua-5.3.0/src/lapi.o": {
+      "sha256": "9a9bdbc53757f4bdc7a5d6f8e05b39233156addea0cda3789e2dd4e9f798ab1c",
+      "bytes": 20096,
+      "mode": 420
+    }
+  },
+  "final_cgroup": {
+    "memory.current": "71262208",
+    "memory.peak": "112889856",
+    "memory.max": "4294967296",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+    "memory.swap.max": "0",
+    "cpu.stat": "usage_usec 9447309\nuser_usec 7255871\nsystem_usec 2191438\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 96\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+    "cpu.max": "200000 100000",
+    "pids.current": "2",
+    "pids.max": "256"
+  },
+  "final_disk": {
+    "allocated_bytes": 993779712,
+    "apparent_bytes": 920937953
+  },
+  "sampler_exited": true,
+  "monitor_errors": [],
+  "ended": 1791995130.0049353,
+  "max_child_rss_kib": 80612
+}

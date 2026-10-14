@@ -1,0 +1,11 @@
+{
+  "status": "FAIL",
+  "source_commit": "2608923ba0ab80752e555adb393d7a029baeaf8c",
+  "export_bootstrap_configure": "PASS",
+  "original_make_exit": 2,
+  "container_attach_launcher_exit": 1,
+  "watchdog_exit": 0,
+  "cleanup": "PASS without intervention",
+  "observed_failure": "Final target link: shared libstdc++ unresolved _Unwind_*@GCC_3.0; static libgcc linkage under investigation.",
+  "next": "Source-only linkage inspection; original work temporarily retained for that immediate inspection; no accepted converter binary."
+}

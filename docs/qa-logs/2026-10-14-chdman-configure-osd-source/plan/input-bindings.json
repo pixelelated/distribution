@@ -1,0 +1,789 @@
+{
+  "prepared_utc": "2026-10-14T01:09:41.905143+00:00",
+  "parent_commit": "7180edfedf39a34322fc209c8727567bffaf2501",
+  "scope": "source-only plan; no configure/build/tool execution",
+  "dolphin": {
+    "repository": "https://github.com/dolphin-emu/dolphin",
+    "cache": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+    "commit": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+    "selected_git_exports": [
+      {
+        "path": ".",
+        "commit": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+        "tree": "292c76fce96513e6948e60bfa879a058e14047c2",
+        "tracked_blob_files": 6739,
+        "tracked_blob_bytes": 63632341,
+        "clean": true
+      },
+      {
+        "path": "Externals/cpp-optparse/cpp-optparse",
+        "commit": "2265d647232249a53a03b411099863ceca35f0d3",
+        "tree": "d739b5b8007f89e92f7e0e6be9d6182c7e192408",
+        "tracked_blob_files": 10,
+        "tracked_blob_bytes": 48330,
+        "clean": true
+      },
+      {
+        "path": "Externals/fmt/fmt",
+        "commit": "e424e3f2e607da02742f73db84873b8084fc714c",
+        "tree": "cc409a93cfb86f3c466b37341f53e205d87717f5",
+        "tracked_blob_files": 128,
+        "tracked_blob_bytes": 3021562,
+        "clean": true
+      },
+      {
+        "path": "Externals/glslang/glslang",
+        "commit": "a57276bf558f5cf94d3a9854ebdf5a2236849a5a",
+        "tree": "cfec6b90899c2a0c0df59c9aded51669db1a1cac",
+        "tracked_blob_files": 3131,
+        "tracked_blob_bytes": 42999966,
+        "clean": true
+      },
+      {
+        "path": "Externals/imgui/imgui",
+        "commit": "45acd5e0e82f4c954432533ae9985ff0e1aad6d5",
+        "tree": "0a96947d7544ace1fb19669d8b54eb184b17ea67",
+        "tracked_blob_files": 250,
+        "tracked_blob_bytes": 7290772,
+        "clean": true
+      },
+      {
+        "path": "Externals/implot/implot",
+        "commit": "3da8bd34299965d3b0ab124df743fe3e076fa222",
+        "tree": "5923fd272c481c4b9c6233f0439ba382b07ae113",
+        "tracked_blob_files": 11,
+        "tracked_blob_bytes": 687690,
+        "clean": true
+      },
+      {
+        "path": "Externals/tinygltf/tinygltf",
+        "commit": "c5641f2c22d117da7971504591a8f6a41ece488b",
+        "tree": "a7cf1528184bb3e14fd0a87b8a909088c1de8737",
+        "tracked_blob_files": 1343,
+        "tracked_blob_bytes": 25103049,
+        "clean": true
+      },
+      {
+        "path": "Externals/xxhash/xxHash",
+        "commit": "e626a72bc2321cd320e953a0ccf1584cad60f363",
+        "tree": "9d4f447c856962a98e22f144bd9b0315ab4d18f8",
+        "tracked_blob_files": 87,
+        "tracked_blob_bytes": 5440024,
+        "clean": true
+      },
+      {
+        "path": "Externals/minizip-ng/minizip-ng",
+        "commit": "55db144e03027b43263e5ebcb599bf0878ba58de",
+        "tree": "82ba3217143743aa225232ef784bfd0d2e6b65bb",
+        "tracked_blob_files": 126,
+        "tracked_blob_bytes": 2110436,
+        "clean": true
+      },
+      {
+        "path": "Externals/libspng/libspng",
+        "commit": "fb768002d4288590083a476af628e51c3f1d47cd",
+        "tree": "6f98e1ffb7272520991831281282627c6b0ccefb",
+        "tracked_blob_files": 262,
+        "tracked_blob_bytes": 531914,
+        "clean": true
+      },
+      {
+        "path": "Externals/SFML/SFML",
+        "commit": "0fa201c969e48ecc253581c5841ce73f44d42f49",
+        "tree": "955a3dd8cc7e5a8632380d6e71ec04510c5b1c00",
+        "tracked_blob_files": 745,
+        "tracked_blob_bytes": 16838606,
+        "clean": true
+      },
+      {
+        "path": "Externals/hidapi/hidapi-src",
+        "commit": "d6b2a974608dec3b76fb1e36c189f22b9cf3650c",
+        "tree": "3dcff337558b16a0b76f1ffe2d4063d6d9824f4b",
+        "tracked_blob_files": 192,
+        "tracked_blob_bytes": 1953974,
+        "clean": true
+      },
+      {
+        "path": "Externals/watcher/watcher",
+        "commit": "b03bdcfc11549df595b77239cefe2643943a3e2f",
+        "tree": "013973393c8476d3c379ac2a25c7c6f4a6dd5cc7",
+        "tracked_blob_files": 123,
+        "tracked_blob_bytes": 611147,
+        "clean": true
+      },
+      {
+        "path": "Externals/cpp-ipc/cpp-ipc",
+        "commit": "ce0773b3e6d5abaa8d104100c5704321113853ca",
+        "tree": "b4efe261efe7745abf7877ad3ed8c72f444604ba",
+        "tracked_blob_files": 277,
+        "tracked_blob_bytes": 3003611,
+        "clean": true
+      }
+    ],
+    "tracked_blob_bytes_total": 173273422,
+    "source_files": {
+      "CMakeLists.txt": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/CMakeLists.txt",
+        "bytes": 32740,
+        "sha256": "e4eec921c43c240108a7b8556a57fd5aeb74b868a3568dc9e43f9e4969d08a22"
+      },
+      "Source/CMakeLists.txt": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/CMakeLists.txt",
+        "bytes": 3586,
+        "sha256": "be5f3e8225221b141a1da614f8853c2e93993f4bd46d60d2118758a0356c9388"
+      },
+      "Source/Core/CMakeLists.txt": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/CMakeLists.txt",
+        "bytes": 2403,
+        "sha256": "a477334a4f21395bfb195f03d63bd612fffcf52ea23c535748a66b4732120151"
+      },
+      "Source/Core/DolphinTool/CMakeLists.txt": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/DolphinTool/CMakeLists.txt",
+        "bytes": 775,
+        "sha256": "3164a0e0117adb951a26afce1da41fe9984076b7b7f5a766f7820e4749070154"
+      },
+      "Source/Core/DolphinTool/ConvertCommand.cpp": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/DolphinTool/ConvertCommand.cpp",
+        "bytes": 10857,
+        "sha256": "d965160a5969dc6582dacbf2e537eed0d98667b7b6ed1ae6cf13348eb1788da0"
+      },
+      "Source/Core/DolphinTool/ToolMain.cpp": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/DolphinTool/ToolMain.cpp",
+        "bytes": 1686,
+        "sha256": "ed02cea4a455deea41a2602d75c93cb140e0162561571a30c0d0b6df924520ba"
+      },
+      "Source/Core/DiscIO/CMakeLists.txt": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/DiscIO/CMakeLists.txt",
+        "bytes": 1464,
+        "sha256": "c17dc89111c2cbc31d53f4945c03462d75d17fb5a9d0db82cf39bbfb67c1c993"
+      },
+      "Source/Core/Common/CMakeLists.txt": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/Common/CMakeLists.txt",
+        "bytes": 8218,
+        "sha256": "397e573af72f98abb80ec3480c76eae7d03ab67ee7db78a7d484e1eddc6f8427"
+      },
+      "Source/Core/Core/CMakeLists.txt": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/Core/CMakeLists.txt",
+        "bytes": 22392,
+        "sha256": "38f54c97b41f187cecfaf692d7a59e28f1b486c34607e5e5c38b66030b1646b8"
+      },
+      "Source/Core/UICommon/CMakeLists.txt": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/UICommon/CMakeLists.txt",
+        "bytes": 1560,
+        "sha256": "f93738a2a01b11b49beee0590ad8fab2dc0c2f1b2bc3ace80f38d508458f64e8"
+      },
+      "Source/Core/UICommon/UICommon.cpp": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/UICommon/UICommon.cpp",
+        "bytes": 19303,
+        "sha256": "5d8e5b3ecfa526b66ab488a7a38fe49434c0aab4fb5204419bfc1e5f433ff58c"
+      },
+      "Source/Core/VideoCommon/CMakeLists.txt": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/VideoCommon/CMakeLists.txt",
+        "bytes": 7184,
+        "sha256": "daf2a9c5c486a38087026a2c583ff433d4c7a120725108d04f8727fca3f7409d"
+      },
+      "CMake/DolphinLibraryTools.cmake": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/CMake/DolphinLibraryTools.cmake",
+        "bytes": 5843,
+        "sha256": "0a9440383a307b394045bc529cb75f2c365b716b6310cff632f3a696bcda8b8c"
+      },
+      "CMake/ScmRevGen.cmake": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/CMake/ScmRevGen.cmake",
+        "bytes": 2721,
+        "sha256": "0587397f09cababcd0bcad2fc03dfd804e3e9bbfa9695a80d320a5c25a9fcd3e"
+      },
+      "Externals/glslang/CMakeLists.txt": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/glslang/CMakeLists.txt",
+        "bytes": 579,
+        "sha256": "78fcc1a1a83e08dd2378ebb21fddda75a3392f1aa3feff41f94fdff1d150b246"
+      },
+      "Externals/minizip-ng/CMakeLists.txt": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/minizip-ng/CMakeLists.txt",
+        "bytes": 1427,
+        "sha256": "cb835be6933254cdf3eb00b3c2655c85124a7fdad8060b987d94184bd950b0e3"
+      },
+      "Externals/hidapi/CMakeLists.txt": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/hidapi/CMakeLists.txt",
+        "bytes": 681,
+        "sha256": "d9ca70c42e848e8863611b5c5970f18f8212db64d9a4e3957e58d2ace114e77b"
+      },
+      "COPYING": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/COPYING",
+        "bytes": 494,
+        "sha256": "695114256e306a5e1ca407bc6e2a11877b112328dbe990253b52f59726e01b4b"
+      },
+      "Source/Core/Common/FileUtil.cpp": {
+        "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Source/Core/Common/FileUtil.cpp",
+        "bytes": 34224,
+        "sha256": "e16cf2aafa18a2388747546ee5a7bdfcf05bfe3ae14ab4153ddbb2e920483f73"
+      }
+    },
+    "data_sys": {
+      "path": "/workspace/cache/rocknix-sources/dolphin-sa/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Data/Sys",
+      "files": 2629,
+      "bytes": 5806819,
+      "contract": "LINUX_LOCAL_DEV: stage beside binary as Sys/; exact contents bound by selected main Git tree"
+    }
+  },
+  "chdman": {
+    "archive": {
+      "path": "/workspace/cache/rocknix-sources/mame-lr/mame-lr-24cffe763621b164fc10be2ae3660f140be25182.tar.gz",
+      "bytes": 213471628,
+      "sha256": "4867bee5dbd4129e6eea095fe8f8e9725563998710cc9620190e90529ef8931b"
+    },
+    "repository": "https://github.com/libretro/mame",
+    "commit": "24cffe763621b164fc10be2ae3660f140be25182",
+    "version": "0.289",
+    "archive_root": "mame-24cffe763621b164fc10be2ae3660f140be25182",
+    "members": 33835,
+    "regular_bytes": 897821359,
+    "special_members": [],
+    "source_files": {
+      "makefile": {
+        "bytes": 52745,
+        "sha256": "cfe33c43ec78c581c1e212d981acc463d48e3ebdd4cb9cc891cac3db9387d740",
+        "git_blob_sha": "8c62521dec1740118798e3d8c472de22d3f367ab"
+      },
+      "scripts/genie.lua": {
+        "bytes": 37976,
+        "sha256": "b3dd93f153fa40fa69983f1cc24ee2119510a3459c22a378c6a4d80c4cef97d3",
+        "git_blob_sha": "b2f8da65fb00a5f9e31890ff15a8add74e3a9192"
+      },
+      "scripts/toolchain.lua": {
+        "bytes": 20567,
+        "sha256": "19b057222291c321c2a876a84c5b167c0999d0fde45b79da52f1a56266efdc64",
+        "git_blob_sha": "61b45a145ecd06f65b8d9973a9c972f5b89f7c64"
+      },
+      "scripts/src/tools.lua": {
+        "bytes": 15314,
+        "sha256": "61ebcf7f19b8031969caf09d1644c4f88cd502597a3dd4f6ae47dea89bb8e1c8",
+        "git_blob_sha": "33695f26de61bc96603f68a236e3c9bd1b1ece8b"
+      },
+      "scripts/src/lib.lua": {
+        "bytes": 5505,
+        "sha256": "fc11b7f7df007d636e873b85509456620c50abdca10c7c4b1b0c1bd51342bc83",
+        "git_blob_sha": "7179ac4b1a100f430507e8dedeeccd37803478a7"
+      },
+      "scripts/src/3rdparty.lua": {
+        "bytes": 77748,
+        "sha256": "e6b5021066fc2c41c39723bf12d5a85a79edb61ab97c6814e523ce8c157930cc",
+        "git_blob_sha": "bf844506fb96966364d6abe0bdceb4ad2c6c2dcf"
+      },
+      "scripts/src/osd/sdl.lua": {
+        "bytes": 12079,
+        "sha256": "f501fcb7c4942f77f1b4640a922186866f81211985aeae9fedf277bd282db4e4",
+        "git_blob_sha": "a53b7fe858fbb02ac1b424a9a3f40c11e74aaac3"
+      },
+      "scripts/src/osd/sdl_cfg.lua": {
+        "bytes": 2992,
+        "sha256": "d744a6c1e344a65f5c845320b25057be546aad4334e6f84e20f9a6e58ce2e00b",
+        "git_blob_sha": "a5f0d79e159c049293d46098d3d6193fc4408a5c"
+      },
+      "3rdparty/genie/build/gmake.linux/genie.make": {
+        "bytes": 21280,
+        "sha256": "3a16eb1888faa0c3befbcfcb8c7fdb3c52910b459856fc4a07ebb238f896981e",
+        "git_blob_sha": "30f5bcb741a717a899936ae40c7573a3d3eea222"
+      },
+      "src/tools/chdman.cpp": {
+        "bytes": 123585,
+        "sha256": "b656fd945cb89e1591a468c02d09694c3568901da898dee6c6ddc218c63e2c06",
+        "git_blob_sha": "b3ed31cae5c441cac3318ad3ab03bafc29a3154c"
+      },
+      "src/lib/util/chd.cpp": {
+        "bytes": 108718,
+        "sha256": "3457547391c9b545be445084353f83261dfb87d4e25e7b96c4d43aad46a3c521",
+        "git_blob_sha": "454d78afd14b593d451ddcfb23847781b9810c4a"
+      },
+      "src/lib/util/chdcodec.cpp": {
+        "bytes": 62806,
+        "sha256": "9f1853c4bd2a9c44131c829aaebeb69a1aef6d092d08ba7450a284a2e142da93",
+        "git_blob_sha": "e045701f2ece899edbfb73121f103d9006794ddf"
+      },
+      "src/lib/util/cdrom.cpp": {
+        "bytes": 111536,
+        "sha256": "0a15cc16644131a6193d441c2f8400efcdf9e6f82bd65d4ca5466ba4f1fbee4a",
+        "git_blob_sha": "27196024dfe92affc90cdbd8ce9951731434ba8c"
+      },
+      "COPYING": {
+        "bytes": 11549,
+        "sha256": "60e9b2e1e0832d74696a9a0317693bb6cbe317747caad589a338e2c7636933e4",
+        "git_blob_sha": "ed91193d3c99fd1eff28cac5f550fc953b1fef45"
+      }
+    },
+    "official_mame0289_byte_identity": [
+      "src/tools/chdman.cpp",
+      "scripts/src/tools.lua"
+    ],
+    "private_source_adjustment": {
+      "file": "scripts/genie.lua",
+      "patch": "chdman-shared-libstdcxx.patch",
+      "before_sha256": "b3dd93f153fa40fa69983f1cc24ee2119510a3459c22a378c6a4d80c4cef97d3",
+      "after_sha256": "60be68969448508ba3a130f64044ec196f6d52970337889474c85bcb075c40ba",
+      "reason": "Retained target libstdc++.a absent; same one-token removal as mame-lr package post_unpack. Retain -static-libgcc; qualify actual dynamic libstdc++ after link. Patch remains UNAPPLIED, source prep UNRUN."
+    },
+    "private_osd_adjustment": {
+      "file": "scripts/toolchain.lua",
+      "patch": "chdman-preserve-selected-osd.patch",
+      "before_sha256": "19b057222291c321c2a876a84c5b167c0999d0fde45b79da52f1a56266efdc64",
+      "after_sha256": "b45c6d1fa1d4d4a824d1f739ab749d2ae776dfb23b7a040b89bc4d2c67c2219b",
+      "reason": "Prospective QA scratch only: guard the three libretro-only _OPTIONS assignments by the explicitly selected retro OSD; preserve requested SDL, all passed flags, existing core/link/codec selection. UNRUN."
+    }
+  },
+  "toolchain": {
+    "physical_root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain",
+    "required_container_root": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain",
+    "files": {
+      "bin/cmake": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/cmake",
+        "bytes": 21979056,
+        "sha256": "b9ce030bba96e383bbd06b9b31d747c42357f9e090510ac8e5005b0eb437edb0"
+      },
+      "bin/ninja": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/ninja",
+        "bytes": 8961600,
+        "sha256": "01e064593347ea344c5acbe9a19cc512fb1f447c02d89b3c14fc02d160175c0d"
+      },
+      "bin/make": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/make",
+        "bytes": 305536,
+        "sha256": "36d2fe856710d3bbdd8c786668b254a6e1c2a79421ba35016383b48d7942b2e8"
+      },
+      "bin/pkg-config": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/pkg-config",
+        "bytes": 671752,
+        "sha256": "83baa65c2f7caa000f378c83f6ede97f490b056b5aa11ee14a1d9906a882f45f"
+      },
+      "bin/ccache": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/ccache",
+        "bytes": 2117648,
+        "sha256": "10b5a47839b8efe981eb854e4d78eb711a94bc5b809811c2ee8d3e16bf82d731"
+      },
+      "bin/x86_64-rocknix-linux-gnu-gcc": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc",
+        "bytes": 260,
+        "sha256": "bb9cdcbaaf3f3b08bbfcad9d0b9c46cc5d7da800c74ff4efa1b170dd14b70c9b"
+      },
+      "bin/x86_64-rocknix-linux-gnu-g++": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-g++",
+        "bytes": 260,
+        "sha256": "e8a6b9a743de84695ac57f0b09d8351e457415673af400db586f687039a9c2b8"
+      },
+      "bin/x86_64-rocknix-linux-gnu-gcc-15.2.0": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc-15.2.0",
+        "bytes": 2376992,
+        "sha256": "2afee500ca1f46ee18ef5c1997a6235e0fe1f8a58f580381c451ab221f659755"
+      },
+      "bin/x86_64-rocknix-linux-gnu-g++-15.2.0": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-g++-15.2.0",
+        "bytes": 2377072,
+        "sha256": "5b29d7396d99f8734438060273efb21b80b68576efb4c5346fcf322765c26401"
+      },
+      "bin/x86_64-rocknix-linux-gnu-ar": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-ar",
+        "bytes": 414984,
+        "sha256": "ca872a7bd7f2aebb17f8d4924085bedcdc406c7ae74381aa97445bab17c3d7f9"
+      },
+      "etc/cmake-x86_64-rocknix-linux-gnu.conf": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/etc/cmake-x86_64-rocknix-linux-gnu.conf",
+        "bytes": 983,
+        "sha256": "f34cdc2874aa3c571cf25d5aa8654243a423cf3b759f980045adbfcb16d07e35"
+      }
+    },
+    "pkgconfig": {
+      "fmt": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/pkgconfig/fmt.pc",
+        "bytes": 200,
+        "sha256": "aa0c2834a1da30e0295588df372627873869ff04e3201c62445473ad40fa5760",
+        "version": "9.1.0"
+      },
+      "libenet": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/pkgconfig/libenet.pc",
+        "bytes": 239,
+        "sha256": "3a140218597e61033ca431f2147688449ed48532a308b11466ce3d0fbb25b721",
+        "version": "1.3.18"
+      },
+      "liblzma": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/pkgconfig/liblzma.pc",
+        "bytes": 355,
+        "sha256": "1011d4298fedc60306966d7a15ddeac149859ca7d06957f0a975b294cf1a0c8a",
+        "version": "5.8.1"
+      },
+      "libzstd": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/pkgconfig/libzstd.pc",
+        "bytes": 450,
+        "sha256": "6be6509db2917982f897399b87cac6ec0dc00726029f21cc483b2eba67464c82",
+        "version": "1.5.7"
+      },
+      "zlib": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/pkgconfig/zlib.pc",
+        "bytes": 275,
+        "sha256": "3790cfdf44767b6d1e75da0f2b92d394203d10feaff79dd548b76f9d3340805c",
+        "version": "1.3.2"
+      },
+      "lzo2": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/pkgconfig/lzo2.pc",
+        "bytes": 504,
+        "sha256": "b7600a76b67595cb7262b1baefd280b61c17198b294cdcabaf1a15007af2de0e",
+        "version": "2.10"
+      },
+      "liblz4": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/pkgconfig/liblz4.pc",
+        "bytes": 390,
+        "sha256": "da6b7e1da42356a3092b501913cc00112fbd6cd35a12af17f09aeb4492cbe8ea",
+        "version": "1.10.0"
+      },
+      "libusb-1.0": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/pkgconfig/libusb-1.0.pc",
+        "bytes": 307,
+        "sha256": "cc15b2438fab85372abd53438968b3fe89263b7a4b72078c34a5809c8953e386",
+        "version": "1.0.30"
+      },
+      "libcurl": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/pkgconfig/libcurl.pc",
+        "bytes": 1623,
+        "sha256": "64437cb17ea87ad852a413765b4dc3b4bb6f8bff16e7ccc72de64c3c46c7a819",
+        "version": "8.21.0"
+      },
+      "pugixml": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/pkgconfig/pugixml.pc",
+        "bytes": 278,
+        "sha256": "0a5ba1add471e4ea4645599e6b6e6a05e46bc60a4dfd83bbfbb5daee5a3b3fb0",
+        "version": "1.16"
+      },
+      "libudev": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/pkgconfig/libudev.pc",
+        "bytes": 569,
+        "sha256": "0385419fda580c999fbeaa5fed30654fe0c05314c815713f49b7fc7e53ba7239",
+        "version": "255"
+      },
+      "flac": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/pkgconfig/flac.pc",
+        "bytes": 243,
+        "sha256": "abc3d664368476a8fb1f2bfc8a9779e820df16da11fc6669561b0c492cb13496",
+        "version": "1.5.0"
+      },
+      "expat": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/pkgconfig/expat.pc",
+        "bytes": 277,
+        "sha256": "9ccbcad4c805ec4467ef3d4394a9c81feb9075bd56298191c2f404f63bac3d62",
+        "version": "2.8.2"
+      },
+      "sdl2": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/pkgconfig/sdl2.pc",
+        "bytes": 495,
+        "sha256": "ea0377a6892d03566a337713b9a05b49ac64701bc9e71ea33d1470f1fe61962a",
+        "version": "2.32.10"
+      },
+      "fontconfig": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/pkgconfig/fontconfig.pc",
+        "bytes": 419,
+        "sha256": "1f6928929d327fca0d702c93e29d278b5181519f2acc0821ef1384c51887bdbc",
+        "version": "2.18.3"
+      },
+      "libxxhash": {
+        "present": false
+      },
+      "minizip-ng": {
+        "present": false
+      },
+      "spng": {
+        "present": false
+      }
+    },
+    "builder_image": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+    "target_library_inputs": {
+      "bz2": {
+        "kind": "shared",
+        "symlink_chain": [
+          {
+            "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libbz2.so",
+            "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libbz2.so.1.0.8"
+          }
+        ],
+        "physical_referent": {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libbz2.so.1.0.8",
+          "bytes": 88616,
+          "sha256": "c7024dd479c06f3a597809836d4d515b78c7abbde3ed337acbc400ed710a4278"
+        },
+        "requires_recorded_container_mount": true
+      },
+      "z": {
+        "kind": "shared",
+        "symlink_chain": [
+          {
+            "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libz.so",
+            "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libz.so.1.3.2"
+          }
+        ],
+        "physical_referent": {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libz.so.1.3.2",
+          "bytes": 115008,
+          "sha256": "48b6e50548b1ff875b605d374d65ef1c11095671d530fe0dc6c48668b3bb1d1f"
+        },
+        "requires_recorded_container_mount": true
+      },
+      "zstd": {
+        "kind": "shared",
+        "symlink_chain": [
+          {
+            "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libzstd.so",
+            "target": "libzstd.so.1"
+          },
+          {
+            "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libzstd.so.1",
+            "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libzstd.so.1.5.7"
+          }
+        ],
+        "physical_referent": {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libzstd.so.1.5.7",
+          "bytes": 697048,
+          "sha256": "8163ae3e23db5488aea98740482a456e198c71cf834286e9ba863d26a4f6f698"
+        },
+        "requires_recorded_container_mount": true
+      },
+      "lzma": {
+        "kind": "shared",
+        "symlink_chain": [
+          {
+            "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/liblzma.so",
+            "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/liblzma.so.5.8.1"
+          }
+        ],
+        "physical_referent": {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/liblzma.so.5.8.1",
+          "bytes": 224872,
+          "sha256": "8bdaa394f6282a06fac291575ce4651d51d9b15565bef7cfc107a9b3335e178d"
+        },
+        "requires_recorded_container_mount": true
+      },
+      "lzo2": {
+        "kind": "static",
+        "physical_referent": {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/liblzo2.a",
+          "bytes": 255748,
+          "sha256": "a36de1245efea8acdbb65fd614478cafd36c79e76e2beb1531bd9076bb6643e6"
+        }
+      },
+      "lz4": {
+        "kind": "static",
+        "physical_referent": {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/liblz4.a",
+          "bytes": 211730,
+          "sha256": "8b8ccd74b869c9df924e9ac5799b99fda0eb027b92e1dc9008b602bb79b259ce"
+        }
+      },
+      "enet": {
+        "kind": "shared",
+        "symlink_chain": [
+          {
+            "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libenet.so",
+            "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libenet.so.7.0.6"
+          }
+        ],
+        "physical_referent": {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libenet.so.7.0.6",
+          "bytes": 55648,
+          "sha256": "21e7b6037b4c336616f296f6b3b3660a93774021bd8dee9a475be073bd6db54e"
+        },
+        "requires_recorded_container_mount": true
+      },
+      "usb-1.0": {
+        "kind": "shared",
+        "symlink_chain": [
+          {
+            "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libusb-1.0.so",
+            "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libusb-1.0.so.0.6.0"
+          }
+        ],
+        "physical_referent": {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libusb-1.0.so.0.6.0",
+          "bytes": 107760,
+          "sha256": "d20cf186af4acf2fe4ca73d5baec4522a06d8415b60b288abbc9b28ad311e535"
+        },
+        "requires_recorded_container_mount": true
+      },
+      "curl": {
+        "kind": "shared",
+        "symlink_chain": [
+          {
+            "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libcurl.so",
+            "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libcurl.so.4.8.0"
+          }
+        ],
+        "physical_referent": {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libcurl.so.4.8.0",
+          "bytes": 886848,
+          "sha256": "d42dc4e8566f218d939a93c8170bb72e3cdb5102bf571fc53fd651a2558aeb51"
+        },
+        "requires_recorded_container_mount": true
+      },
+      "pugixml": {
+        "kind": "static",
+        "physical_referent": {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libpugixml.a",
+          "bytes": 328094,
+          "sha256": "dddf921549c50966bd2049b32c8f380fc8a202bb210250840acc1f9b0af910f6"
+        }
+      },
+      "udev": {
+        "kind": "shared",
+        "symlink_chain": [
+          {
+            "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libudev.so",
+            "target": "libudev.so.1"
+          },
+          {
+            "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libudev.so.1",
+            "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libudev.so.1.7.8"
+          }
+        ],
+        "physical_referent": {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libudev.so.1.7.8",
+          "bytes": 289064,
+          "sha256": "1dec62dd0e9dd61933e3066f742aa86e91acdc9c88a2df9a72f5db21995511f7"
+        },
+        "requires_recorded_container_mount": true
+      },
+      "FLAC": {
+        "kind": "static",
+        "physical_referent": {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libFLAC.a",
+          "bytes": 667856,
+          "sha256": "4f325480ff9ad45618f9a75d9095df98b100d0cc0b942584a3fc950d44fe51df"
+        }
+      },
+      "expat": {
+        "kind": "shared",
+        "symlink_chain": [
+          {
+            "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libexpat.so",
+            "target": "libexpat.so.1"
+          },
+          {
+            "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libexpat.so.1",
+            "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libexpat.so.1.12.2"
+          }
+        ],
+        "physical_referent": {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libexpat.so.1.12.2",
+          "bytes": 197584,
+          "sha256": "7dfe171e4be433c399ea66f446a10a56291df453790e62617a3fdffbdaf179ad"
+        },
+        "requires_recorded_container_mount": true
+      },
+      "SDL2": {
+        "kind": "shared",
+        "symlink_chain": [
+          {
+            "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libSDL2.so",
+            "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libSDL2-2.0.so.0.3200.10"
+          }
+        ],
+        "physical_referent": {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libSDL2-2.0.so.0.3200.10",
+          "bytes": 2278184,
+          "sha256": "a8a7411fbd73b92a6f21a69d7e8cc2fd62ae515cdfe1c29becd99b25f81f8777"
+        },
+        "requires_recorded_container_mount": true
+      },
+      "fontconfig": {
+        "kind": "shared",
+        "symlink_chain": [
+          {
+            "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libfontconfig.so",
+            "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libfontconfig.so.1.16.1"
+          }
+        ],
+        "physical_referent": {
+          "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libfontconfig.so.1.16.1",
+          "bytes": 522448,
+          "sha256": "728ac785b9330d0d90e90d711f529ae73f169c1f25dc5f26bfe77106bb62c38f"
+        },
+        "requires_recorded_container_mount": true
+      }
+    },
+    "library_path_note": "Absolute sysroot symlinks name the old build prefix. Host exists() on these links is false until replacement20 is mounted at that prefix. Physical referents were hashed without changing links. LZO/LZ4/pugixml/FLAC are static-only here; MAME plan uses bundled FLAC to avoid its system archive private Ogg dependency.",
+    "chdman_cxx_runtime": {
+      "static_libstdcxx_present": false,
+      "inspection": "Recursive retained toolchain filename inventory found no libstdc++.a; libstdc++fs.a and libstdc++exp.a do not replace it.",
+      "libgcc": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/libgcc.a",
+        "bytes": 6339012,
+        "sha256": "12e203a9b8c122cd733d8dab9dc58844e11942cdc3c9311e0c5c1ca7ff9beaea"
+      },
+      "libgcc_eh": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/libgcc_eh.a",
+        "bytes": 335634,
+        "sha256": "a90c74381c17d0c3d2e352a1c7759c18ec718ef54c5ae6c5aaeff84c3b8fe0cb"
+      },
+      "libstdcxx_shared": {
+        "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/lib/libstdc++.so.6.0.34",
+        "bytes": 2558728,
+        "sha256": "7f12166a8c5e62340b67ff213b4859d002b45e49ed114550049bb895f26455cc"
+      }
+    }
+  },
+  "sealed_manifests": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-13-rvz-regression-source/SHA256SUMS",
+      "bytes": 3307,
+      "sha256": "c7498506c5111f1b324de3e5abbd950af48bb2a5d95c1f6e0f87e8276612b08f"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-13-rvz-regression-source/wii-public-path/SHA256SUMS",
+      "bytes": 4852,
+      "sha256": "dca4b5d5cff1c94a4c6cb6a36917927e3155aa70391bb2f41f8d6925b68c3f23"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-13-rvz-regression-source/wii-release-boundary/SHA256SUMS",
+      "bytes": 2633,
+      "sha256": "0136080b90a3bf4ca0b4e20ff48e08285eab1f583a7a465b46edf3ab43bc6cae"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-13-rvz-regression-source/cmake-contract-fix/SHA256SUMS",
+      "bytes": 710,
+      "sha256": "8c8e0b76a9b88ca62b2633e65ac6a6f9a237f21d8618e304eb4124c2a7b506df"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-13-rvz-regression-source/cmake-all-direct-contracts/SHA256SUMS",
+      "bytes": 1012,
+      "sha256": "940a1c43aeaf056451cd4a7b94f6d120c6dcdad2613430771d3a26edf070b573"
+    }
+  ],
+  "runners": {
+    "run-regressions.py": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-13-rvz-regression-source/run-regressions.py",
+      "bytes": 6640,
+      "sha256": "4574cab8957a185970fbc2a3fa48e7bcd5e072a43be0367750faa3bc62b6cd42"
+    },
+    "run-independent-format.py": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-13-rvz-regression-source/run-independent-format.py",
+      "bytes": 3475,
+      "sha256": "08f3f9814128ee562457dc7cb2d10e2dd1769ee60e25aa68ef1ef94789fe842a"
+    }
+  },
+  "source_custody_manifests": [
+    {
+      "path": "/workspace/artifacts/pixelelated-release-sources/m7-git-266c8393884189dec9419628b3e7e527b965598d7b9b31e4ea31fd9af2204dc9/manifest.json",
+      "bytes": 556878,
+      "sha256": "266c8393884189dec9419628b3e7e527b965598d7b9b31e4ea31fd9af2204dc9"
+    },
+    {
+      "path": "/workspace/artifacts/pixelelated-release-sources/m7-archives-a7022b76da76a9f6771bb7693d6f6e25854c6731db0750bb46dde29f14d49fce/manifest.json",
+      "bytes": 1048919,
+      "sha256": "a7022b76da76a9f6771bb7693d6f6e25854c6731db0750bb46dde29f14d49fce"
+    }
+  ],
+  "package_recipes": {
+    "dolphin-sa": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk",
+      "bytes": 4829,
+      "sha256": "0041085b62ce9fdcbbc0fe54956a68cc304ddabeadf26cb718ae9eab620928da"
+    },
+    "mame-lr": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/projects/ROCKNIX/packages/emulators/libretro/mame-lr/package.mk",
+      "bytes": 1915,
+      "sha256": "3a512de15a89cc951c1fa55facdc26ea65dfd080e547ca37ce6349c9bcf9462d"
+    }
+  }
+}

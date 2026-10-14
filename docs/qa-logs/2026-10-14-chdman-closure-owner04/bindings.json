@@ -1,0 +1,39 @@
+{
+  "lifecycle_source_commit": "4d15c80dce0b91eb0adf40fd24f156c5e771238a",
+  "lifecycle_source_path": "docs/qa-logs/2026-10-14-dolphin-loader-resolution",
+  "closure_packet_root": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-chdman-closure-owner04/closure",
+  "closure_manifest_sha256": "4f89d8aa2ce0c54cedc5703e5035648cece8088f41c9ca39a0f907a006da1188",
+  "sealed_plan_commit": "1015ccf0f4918a07d3875e746dd3b42b730b5218",
+  "sealed_plan_root": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-chdman-runtime-link-source/plan",
+  "sealed_plan_manifest_sha256": "ea2c321f6ae511eaf07f288a882778477cdef613300b53f3e58a8042c190f4c9",
+  "build_owner": "/workspace/tmp/pix574-chdman-build-20261014-04",
+  "build_checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+  "build_runner_commit": "1015ccf0f4918a07d3875e746dd3b42b730b5218",
+  "build_runner_path": "docs/qa-logs/2026-10-14-chdman-runtime-link-source",
+  "build_runner_manifest_sha256": "bc80f396a126305b17489d79123510cc27a99b5a25b630a602228d590c96402e",
+  "common_functions_unchanged": [
+    "require",
+    "read",
+    "write",
+    "sha",
+    "verify_packet",
+    "identity",
+    "same_process",
+    "absent",
+    "command",
+    "safe_member",
+    "host_cgroup"
+  ],
+  "verbatim_files": {
+    "docker_owner.py": "276baaa41d855161873b6d3a979463d2ff0a3bb8fd28ddbd8ed4502959354d31",
+    "watchdog.py": "b21d2e255f0094b5f48eef6e009972633298629b7f0c4c7b44ec7eef0148c18b"
+  },
+  "stage": "chdman-closure",
+  "seconds": 180,
+  "memory_bytes": 4294967296,
+  "cpus": 2,
+  "scratch_stop_bytes": 1073741824,
+  "runtime": "UNRUN; fresh closure-only owner, no original clock reuse, no target execution",
+  "bridge_source_commit": "41684b51c3e837837c9734f14a419885f5ff030a",
+  "closure_base_commit": "94ca020acc65f9038f3a44a2f894be40868b1e1a"
+}

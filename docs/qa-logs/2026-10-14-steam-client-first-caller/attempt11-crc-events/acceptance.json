@@ -1,0 +1,43 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T163843Z-4e4efb12",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 582,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix582-client-vm-20261014-11/vm",
+      "release_when": "Original guest/guard/lifecycle receipts exported and verified; actual owners exited; consume admission then remove disk/media/UEFI. Preserve only immediate-next-test synthetic inputs."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt11-crc-events/result.json",
+      "sha256": "d96ff4151f7841f391a23ae8fc9af1842154b014baec1febfacbfbe15ab9e0ed"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt11-crc-events/namespace-result.json",
+      "sha256": "8b0545993106e399c4cfe75221270157ac6c4717b29332b160d36dea5c96fa73"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt11-crc-events/host-exits.json",
+      "sha256": "be2c44b71ea1dac8a4f882e30450a91480daf0c75320a8636f9d0167d532ee5b"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt11-crc-events/vm-result.json",
+      "sha256": "f342c5f0b904b77a156a8b5c84ba3db747d8ecc481662ca490a73726293f1835"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt11-crc-events/guest-manifest.json",
+      "sha256": "1d271dc4d195d49e2fdc33b0d58e9de6274b4af364b93599b9a0f8ec03333d1f"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt11-crc-events/original-records.json",
+      "sha256": "e8ee2db54809a32dd6bdcc97c515140982f75d335ed22ad5c3ce84ce2d06a1ce"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt11-crc-events/unmount-640x480.txt",
+      "sha256": "1e24ec7421d8cdbfc285a8a42cfb7db254151dc28eea49c63202154319be7a13"
+    }
+  ]
+}

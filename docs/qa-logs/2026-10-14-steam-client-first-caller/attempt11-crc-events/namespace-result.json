@@ -1,0 +1,717 @@
+{
+  "status": "RETURNED",
+  "namespaces": {
+    "mnt": "mnt:[4026532390]",
+    "pid": "pid:[4026532393]",
+    "net": "net:[4026532395]",
+    "ipc": "ipc:[4026532392]",
+    "uts": "uts:[4026532391]"
+  },
+  "parent_death_guard": {
+    "signal": 9,
+    "readback": 9,
+    "parent_pidfd_alive_after_arm": true,
+    "pidfd_closed": true
+  },
+  "mount_commands": [
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "--make-rprivate",
+        "/"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "--bind",
+        "/run/pix582-scratch/crc-failure-retry-events-11/rootfs",
+        "/run/pix582-scratch/crc-failure-retry-events-11/rootfs"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "--bind",
+        "/usr",
+        "/run/pix582-scratch/crc-failure-retry-events-11/rootfs/system/usr"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "-o",
+        "remount,bind,ro,nosuid,nodev",
+        "/run/pix582-scratch/crc-failure-retry-events-11/rootfs/system/usr"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "--bind",
+        "/run/pix582-scratch/crc-failure-retry-events-11/storage",
+        "/run/pix582-scratch/crc-failure-retry-events-11/rootfs/storage"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "--bind",
+        "/run/pix582-scratch/crc-failure-retry-events-11/qa",
+        "/run/pix582-scratch/crc-failure-retry-events-11/rootfs/qa"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "--bind",
+        "/run/pix582-scratch/crc-failure-retry-events-11/tmp",
+        "/run/pix582-scratch/crc-failure-retry-events-11/rootfs/tmp"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "-t",
+        "proc",
+        "-o",
+        "nosuid,nodev,noexec",
+        "proc",
+        "/run/pix582-scratch/crc-failure-retry-events-11/rootfs/proc"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "-o",
+        "remount,ro,nosuid,nodev,noexec",
+        "/run/pix582-scratch/crc-failure-retry-events-11/rootfs/proc"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "--bind",
+        "/run/pix582-scratch/crc-failure-retry-events-11/binfmt",
+        "/run/pix582-scratch/crc-failure-retry-events-11/rootfs/proc/sys/fs/binfmt_misc"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "--bind",
+        "/dev/null",
+        "/run/pix582-scratch/crc-failure-retry-events-11/rootfs/dev/null"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "-o",
+        "remount,bind,ro,nosuid,nodev",
+        "/run/pix582-scratch/crc-failure-retry-events-11/rootfs"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    }
+  ],
+  "installer_exit": 0,
+  "evidence": "complete sealed installer, synthetic profile/fetch/payload/engine boundaries",
+  "null_identity": {
+    "device": 7,
+    "inode": 4,
+    "mode": 8630,
+    "rdev": 259
+  },
+  "interpreter": "3.14.7 (main, Oct  4 2026, 04:40:27) [GCC 15.2.0]",
+  "mountinfo_before": "493 492 7:0 / / ro,relatime - squashfs /dev/loop0 ro,errors=continue\n494 493 254:1 / /flash ro,noatime - vfat /dev/vda1 ro,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro\n495 493 254:2 / /storage rw,noatime - ext4 /dev/vda2 rw\n496 495 254:2 /games-internal/roms /storage/roms rw,noatime - ext4 /dev/vda2 rw\n497 493 0:7 / /dev rw,relatime - devtmpfs devtmpfs rw,size=3819544k,nr_inodes=954886,mode=755\n498 497 0:23 / /dev/shm rw,nosuid,nodev - tmpfs tmpfs rw\n499 497 0:24 / /dev/pts rw,nosuid,noexec,relatime - devpts devpts rw,gid=5,mode=620,ptmxmode=000\n500 497 0:17 / /dev/mqueue rw,nosuid,nodev,noexec,relatime - mqueue mqueue rw\n501 493 0:20 / /proc rw,relatime - proc proc rw\n502 501 0:37 / /proc/sys/fs/binfmt_misc rw,relatime - autofs systemd-1 rw,fd=32,pgrp=0,timeout=0,minproto=5,maxproto=5,direct\n503 502 0:38 / /proc/sys/fs/binfmt_misc rw,nosuid,nodev,noexec,relatime - binfmt_misc binfmt_misc rw\n504 493 0:21 / /sys rw,relatime - sysfs sysfs rw\n505 504 0:25 / /sys/fs/cgroup ro,nosuid,nodev,noexec - tmpfs tmpfs ro,size=4096k,nr_inodes=1024,mode=755\n506 505 0:26 / /sys/fs/cgroup/unified rw,nosuid,nodev,noexec,relatime - cgroup2 cgroup2 rw,nsdelegate\n507 505 0:27 / /sys/fs/cgroup/systemd rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,xattr,name=systemd\n508 505 0:30 / /sys/fs/cgroup/cpu,cpuacct rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,cpu,cpuacct\n509 505 0:31 / /sys/fs/cgroup/net_cls,net_prio rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,net_cls,net_prio\n510 505 0:32 / /sys/fs/cgroup/pids rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,pids\n511 505 0:33 / /sys/fs/cgroup/blkio rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,blkio\n512 505 0:34 / /sys/fs/cgroup/perf_event rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,perf_event\n513 505 0:35 / /sys/fs/cgroup/freezer rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,freezer\n514 505 0:36 / /sys/fs/cgroup/devices rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,devices\n515 504 0:28 / /sys/fs/pstore rw,nosuid,nodev,noexec,relatime - pstore none rw\n516 504 0:29 / /sys/fs/bpf rw,nosuid,nodev,noexec,relatime - bpf bpf rw,mode=700\n517 504 0:8 / /sys/kernel/debug rw,nosuid,nodev,noexec,relatime - debugfs debugfs rw\n518 504 0:12 / /sys/kernel/tracing rw,nosuid,nodev,noexec,relatime - tracefs tracefs rw\n519 504 0:41 / /sys/fs/fuse/connections rw,nosuid,nodev,noexec,relatime - fusectl fusectl rw\n520 504 0:19 / /sys/kernel/config rw,nosuid,nodev,noexec,relatime - configfs configfs rw\n521 493 0:22 / /run rw,nosuid,nodev - tmpfs tmpfs rw,size=1591608k,nr_inodes=819200,mode=755\n522 521 0:72 / /run/pix582-scratch rw,nosuid,nodev,relatime - tmpfs tmpfs rw,size=3145728k,mode=700\n523 493 0:39 / /tmp rw,nosuid,nodev - tmpfs tmpfs rw,nr_inodes=1048576\n524 523 0:52 / /tmp/cores rw,relatime - overlay none rw,lowerdir=/usr/lib/libretro,upperdir=/storage/cores,workdir=/storage/.tmp/cores-workdir,uuid=on\n525 523 0:51 / /tmp/assets rw,relatime - overlay none rw,lowerdir=/usr/share/retroarch-assets,upperdir=/storage/assets,workdir=/storage/.tmp/assets-workdir,uuid=on\n526 523 0:57 / /tmp/overlays rw,relatime - overlay none rw,lowerdir=/usr/share/retroarch-overlays,upperdir=/storage/overlays,workdir=/storage/.tmp/overlays-workdir,uuid=on\n527 523 0:58 / /tmp/database rw,relatime - overlay none rw,lowerdir=/usr/share/libretro-database,upperdir=/storage/database,workdir=/storage/.tmp/database-workdir,uuid=on\n528 523 0:63 / /tmp/joypads rw,relatime - overlay none rw,lowerdir=/usr/share/libretro/autoconfig,upperdir=/storage/joypads,workdir=/storage/.tmp/joypads-workdir,uuid=on\n529 523 0:66 / /tmp/shaders rw,relatime - overlay none rw,lowerdir=/usr/share/common-shaders:/usr/share/glsl-shaders:/usr/share/slang-shaders,upperdir=/storage/shaders,workdir=/storage/.tmp/shaders-workdir,uuid=on\n530 523 8:0 / /tmp/pix-input ro,relatime - ext4 /dev/disk/by-label/PIXINPUT ro\n531 523 8:16 / /tmp/pix-output rw,relatime - ext4 /dev/disk/by-label/PIXOUTPUT rw\n532 493 0:40 / /var rw,relatime - tmpfs tmpfs rw\n533 532 254:2 /.cache/log /var/log rw,noatime - ext4 /dev/vda2 rw\n534 532 8:0 / /var/media/PIXINPUT ro,nosuid,nodev,noexec,noatime - ext4 /dev/sda ro\n535 532 8:16 / /var/media/PIXOUTPUT rw,nosuid,nodev,noexec,noatime - ext4 /dev/sdb rw\n537 501 0:74 / /proc rw,nosuid,nodev,noexec,relatime - proc proc rw\n538 522 0:72 /crc-failure-retry-events-11/rootfs /run/pix582-scratch/crc-failure-retry-events-11/rootfs ro,nosuid,nodev,relatime - tmpfs tmpfs rw,size=3145728k,mode=700\n539 538 7:0 /usr /run/pix582-scratch/crc-failure-retry-events-11/rootfs/system/usr ro,nosuid,nodev,relatime - squashfs /dev/loop0 ro,errors=continue\n540 538 0:72 /crc-failure-retry-events-11/storage /run/pix582-scratch/crc-failure-retry-events-11/rootfs/storage rw,nosuid,nodev,relatime - tmpfs tmpfs rw,size=3145728k,mode=700\n541 538 0:72 /crc-failure-retry-events-11/qa /run/pix582-scratch/crc-failure-retry-events-11/rootfs/qa rw,nosuid,nodev,relatime - tmpfs tmpfs rw,size=3145728k,mode=700\n542 538 0:72 /crc-failure-retry-events-11/tmp /run/pix582-scratch/crc-failure-retry-events-11/rootfs/tmp rw,nosuid,nodev,relatime - tmpfs tmpfs rw,size=3145728k,mode=700\n543 538 0:75 / /run/pix582-scratch/crc-failure-retry-events-11/rootfs/proc ro,nosuid,nodev,noexec,relatime - proc proc ro\n544 543 0:72 /crc-failure-retry-events-11/binfmt /run/pix582-scratch/crc-failure-retry-events-11/rootfs/proc/sys/fs/binfmt_misc rw,nosuid,nodev,relatime - tmpfs tmpfs rw,size=3145728k,mode=700\n545 538 0:7 /null /run/pix582-scratch/crc-failure-retry-events-11/rootfs/dev/null rw,relatime - devtmpfs devtmpfs rw,size=3819544k,nr_inodes=954886,mode=755\n",
+  "route_oracle_controls": [
+    {
+      "name": "empty",
+      "expected_accept": true,
+      "actual_accept": true,
+      "observation": {
+        "representation": "empty",
+        "data_rows": 0
+      }
+    },
+    {
+      "name": "header-only",
+      "expected_accept": true,
+      "actual_accept": true,
+      "observation": {
+        "representation": "header-only",
+        "data_rows": 0
+      }
+    },
+    {
+      "name": "header-no-newline",
+      "expected_accept": true,
+      "actual_accept": true,
+      "observation": {
+        "representation": "header-only",
+        "data_rows": 0
+      }
+    },
+    {
+      "name": "header-spaces",
+      "expected_accept": true,
+      "actual_accept": true,
+      "observation": {
+        "representation": "header-only",
+        "data_rows": 0
+      }
+    },
+    {
+      "name": "header-with-default-route",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "New network namespace route table has data or unrecognized text"
+      }
+    },
+    {
+      "name": "single-headerless-route",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "New network namespace route table has data or unrecognized text"
+      }
+    },
+    {
+      "name": "malformed-header",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "New network namespace route table has data or unrecognized text"
+      }
+    },
+    {
+      "name": "duplicate-header",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "New network namespace route table has data or unrecognized text"
+      }
+    },
+    {
+      "name": "blank-line",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "New network namespace route table has data or unrecognized text"
+      }
+    },
+    {
+      "name": "whitespace-only",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "New network namespace route table has data or unrecognized text"
+      }
+    },
+    {
+      "name": "header-extra-blank-line",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "New network namespace route table has data or unrecognized text"
+      }
+    },
+    {
+      "name": "non-table-text",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "New network namespace route table has data or unrecognized text"
+      }
+    },
+    {
+      "name": "embedded-nul",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "New network namespace route table has data or unrecognized text"
+      }
+    },
+    {
+      "name": "non-string",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "Route table was not text"
+      }
+    }
+  ],
+  "routes_before": "",
+  "route_oracle": {
+    "representation": "empty",
+    "data_rows": 0
+  },
+  "exec_guard_controls": [
+    {
+      "case": "exec-denial",
+      "driver_exit": 77,
+      "original_caller_exit": 77,
+      "status": "PASS"
+    },
+    {
+      "case": "exec-allowed",
+      "driver_exit": 17,
+      "original_caller_exit": 17,
+      "status": "PASS"
+    },
+    {
+      "case": "exec-many-syscalls",
+      "driver_exit": 19,
+      "original_caller_exit": 19,
+      "status": "PASS"
+    },
+    {
+      "case": "exec-blocked",
+      "driver_exit": 1,
+      "original_caller_exit": null,
+      "status": "PASS"
+    }
+  ],
+  "attempts": [
+    {
+      "attempt": 1,
+      "installer_exit": 1,
+      "trace_driver_exit": 1,
+      "trace": {
+        "status": "RETURNED",
+        "client_executed": false,
+        "native_client_success": false,
+        "argv": [
+          "/usr/sbin/chroot",
+          "/run/pix582-scratch/crc-failure-retry-events-11/rootfs",
+          "/bin/bash",
+          "--noprofile",
+          "--norc",
+          "-x",
+          "/usr/config/modules/Install Steam.sh"
+        ],
+        "denied_execs": [],
+        "original_exits": [
+          {
+            "pid": 25,
+            "exit": 0
+          },
+          {
+            "pid": 24,
+            "exit": 0
+          },
+          {
+            "pid": 27,
+            "exit": 0
+          },
+          {
+            "pid": 26,
+            "exit": 0
+          },
+          {
+            "pid": 28,
+            "exit": 0
+          },
+          {
+            "pid": 29,
+            "exit": 0
+          },
+          {
+            "pid": 31,
+            "exit": 0
+          },
+          {
+            "pid": 30,
+            "exit": 0
+          },
+          {
+            "pid": 32,
+            "exit": 0
+          },
+          {
+            "pid": 35,
+            "exit": 0
+          },
+          {
+            "pid": 34,
+            "exit": 0
+          },
+          {
+            "pid": 33,
+            "exit": 0
+          },
+          {
+            "pid": 36,
+            "exit": 0
+          },
+          {
+            "pid": 37,
+            "exit": 0
+          },
+          {
+            "pid": 38,
+            "exit": 0
+          },
+          {
+            "pid": 40,
+            "exit": 0
+          },
+          {
+            "pid": 41,
+            "exit": 0
+          },
+          {
+            "pid": 39,
+            "exit": 0
+          },
+          {
+            "pid": 43,
+            "exit": 0
+          },
+          {
+            "pid": 44,
+            "exit": 0
+          },
+          {
+            "pid": 42,
+            "exit": 1
+          },
+          {
+            "pid": 45,
+            "exit": 0
+          },
+          {
+            "pid": 23,
+            "exit": 1
+          }
+        ],
+        "original_caller_exit": 1,
+        "meaning": "ptrace returns EACCES at synthetic client exec; normal caller sees its failure",
+        "wait_calls": 55029,
+        "syscall_stops": 54893,
+        "wait_seconds": 10.911755598999918,
+        "main_loop_poll_sleeps": 0,
+        "cleanup_exits": [],
+        "remaining_traced": [],
+        "elapsed_seconds": 11.195372837
+      }
+    },
+    {
+      "attempt": 2,
+      "installer_exit": 0,
+      "trace_driver_exit": 0,
+      "trace": {
+        "status": "RETURNED",
+        "client_executed": false,
+        "native_client_success": false,
+        "argv": [
+          "/usr/sbin/chroot",
+          "/run/pix582-scratch/crc-failure-retry-events-11/rootfs",
+          "/bin/bash",
+          "--noprofile",
+          "--norc",
+          "-x",
+          "/usr/config/modules/Install Steam.sh"
+        ],
+        "denied_execs": [
+          {
+            "pid": 104,
+            "path": "/storage/.local/share/Steam/steamrtarm64/steam",
+            "forced_errno": 13,
+            "syscall_not_executed": true
+          }
+        ],
+        "original_exits": [
+          {
+            "pid": 49,
+            "exit": 0
+          },
+          {
+            "pid": 48,
+            "exit": 0
+          },
+          {
+            "pid": 51,
+            "exit": 0
+          },
+          {
+            "pid": 50,
+            "exit": 0
+          },
+          {
+            "pid": 52,
+            "exit": 0
+          },
+          {
+            "pid": 53,
+            "exit": 0
+          },
+          {
+            "pid": 55,
+            "exit": 0
+          },
+          {
+            "pid": 54,
+            "exit": 0
+          },
+          {
+            "pid": 56,
+            "exit": 0
+          },
+          {
+            "pid": 59,
+            "exit": 0
+          },
+          {
+            "pid": 58,
+            "exit": 0
+          },
+          {
+            "pid": 57,
+            "exit": 0
+          },
+          {
+            "pid": 60,
+            "exit": 0
+          },
+          {
+            "pid": 61,
+            "exit": 0
+          },
+          {
+            "pid": 62,
+            "exit": 0
+          },
+          {
+            "pid": 64,
+            "exit": 0
+          },
+          {
+            "pid": 65,
+            "exit": 0
+          },
+          {
+            "pid": 63,
+            "exit": 0
+          },
+          {
+            "pid": 67,
+            "exit": 0
+          },
+          {
+            "pid": 68,
+            "exit": 0
+          },
+          {
+            "pid": 66,
+            "exit": 0
+          },
+          {
+            "pid": 69,
+            "exit": 0
+          },
+          {
+            "pid": 70,
+            "exit": 0
+          },
+          {
+            "pid": 72,
+            "exit": 0
+          },
+          {
+            "pid": 73,
+            "exit": 0
+          },
+          {
+            "pid": 74,
+            "exit": 0
+          },
+          {
+            "pid": 71,
+            "exit": 0
+          },
+          {
+            "pid": 76,
+            "exit": 0
+          },
+          {
+            "pid": 78,
+            "exit": 0
+          },
+          {
+            "pid": 77,
+            "exit": 0
+          },
+          {
+            "pid": 79,
+            "exit": 0
+          },
+          {
+            "pid": 75,
+            "exit": 0
+          },
+          {
+            "pid": 80,
+            "exit": 0
+          },
+          {
+            "pid": 82,
+            "exit": 0
+          },
+          {
+            "pid": 83,
+            "exit": 0
+          },
+          {
+            "pid": 84,
+            "exit": 0
+          },
+          {
+            "pid": 81,
+            "exit": 0
+          },
+          {
+            "pid": 86,
+            "exit": 0
+          },
+          {
+            "pid": 85,
+            "exit": 0
+          },
+          {
+            "pid": 87,
+            "exit": 0
+          },
+          {
+            "pid": 89,
+            "exit": 0
+          },
+          {
+            "pid": 90,
+            "exit": 0
+          },
+          {
+            "pid": 91,
+            "exit": 0
+          },
+          {
+            "pid": 88,
+            "exit": 0
+          },
+          {
+            "pid": 93,
+            "exit": 0
+          },
+          {
+            "pid": 95,
+            "exit": 0
+          },
+          {
+            "pid": 94,
+            "exit": 0
+          },
+          {
+            "pid": 96,
+            "exit": 0
+          },
+          {
+            "pid": 92,
+            "exit": 0
+          },
+          {
+            "pid": 97,
+            "exit": 0
+          },
+          {
+            "pid": 99,
+            "exit": 0
+          },
+          {
+            "pid": 100,
+            "exit": 0
+          },
+          {
+            "pid": 101,
+            "exit": 0
+          },
+          {
+            "pid": 98,
+            "exit": 0
+          },
+          {
+            "pid": 103,
+            "exit": 0
+          },
+          {
+            "pid": 102,
+            "exit": 0
+          },
+          {
+            "pid": 104,
+            "exit": 126
+          },
+          {
+            "pid": 105,
+            "exit": 0
+          },
+          {
+            "pid": 106,
+            "exit": 0
+          },
+          {
+            "pid": 47,
+            "exit": 0
+          }
+        ],
+        "original_caller_exit": 0,
+        "meaning": "ptrace returns EACCES at synthetic client exec; normal caller sees its failure",
+        "wait_calls": 96269,
+        "syscall_stops": 95958,
+        "wait_seconds": 11.478315885999372,
+        "main_loop_poll_sleeps": 0,
+        "cleanup_exits": [],
+        "remaining_traced": [],
+        "elapsed_seconds": 12.062840092000002
+      }
+    }
+  ],
+  "trace_driver_exit": 0,
+  "adopted_exits": [],
+  "remaining_descendants": []
+}

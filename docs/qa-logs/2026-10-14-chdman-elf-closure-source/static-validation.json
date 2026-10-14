@@ -1,0 +1,54 @@
+{
+  "status": "STATIC_CHECKS_PASS_RUNTIME_UNRUN",
+  "methods": [
+    "AST parse only, feature_version=(3,10)",
+    "exact source segment/file comparisons",
+    "JSON parse and SHA256 binding checks",
+    "sole closure command call inspected; argv begins pinned readelf, never target/loader"
+  ],
+  "python": {
+    "closure.py": {
+      "ast_python_3_10": "PASS",
+      "sha256": "986e746b77fff6d20ab0baf049730539c77aec45ca3b07d041a7cd8856924033",
+      "lines": 223,
+      "verbatim_functions": [
+        "library_name",
+        "metadata",
+        "resolve_library",
+        "version_contract"
+      ]
+    },
+    "common.py": {
+      "ast_python_3_10": "PASS",
+      "sha256": "cf7e0951dc52ab98e94cd6983c4dcd3d0f96cd41c648dadd7de48abcb00fc13f",
+      "lines": 91,
+      "verbatim_functions": [
+        "require",
+        "read",
+        "write",
+        "sha",
+        "verify_packet",
+        "identity",
+        "command",
+        "safe_member"
+      ]
+    },
+    "loader_resolution.py": {
+      "verbatim_file": true,
+      "sha256": "9f998586a343c4592e5ad6efc820bd4fc8741573416f50f5cfb87a682581d39d"
+    },
+    "loader-binding.json": {
+      "verbatim_file": true,
+      "sha256": "59de04de4260490b844f3444e9c72849ba321f767367f17007ba1dbba050be34"
+    }
+  },
+  "sealed_plan_input_sha256": "d3841143585153f060f19144a7e3fb55e003b88dfdd8b4c752374845e61296a4",
+  "reference_chd_runner_inputs_unchanged": true,
+  "retained_runtime_core_hashes_read_only_compared": true,
+  "readelf_and_canonical_loader_read_only_sha256_compared": true,
+  "runtime_executed": false,
+  "fixture_imports": false,
+  "readelf_executed": false,
+  "container_vm_compiler_target_executed": false,
+  "limitations": "Static validation only. Future actual chdman dependency set, receipt schema compatibility, loading/help and format regressions remain UNRUN. Reused helpers retain earlier provenance; changed main has no runtime proof."
+}

@@ -1,0 +1,47 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T161142Z-31bf91bc",
+  "expected_rc": 1,
+  "disposition": "failed-investigated",
+  "outputs": [
+    {
+      "issue": 582,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix582-client-vm-20261014-10/vm",
+      "release_when": "Original guest/guard/lifecycle receipts exported and verified; actual owners exited; consume admission then remove disk/media/UEFI. Preserve only immediate-next-test synthetic inputs."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt10-crc-failure/result.json",
+      "sha256": "a76fc7dd38d38008acddc7e1d1c78db525895f5fa3259e7f3b0e562c587ecade"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt10-crc-failure/namespace-result.json",
+      "sha256": "710f4595b108670b0400fa4103def0385462d2ab6245df9d073058c9b58e7c42"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt10-crc-failure/host-exits.json",
+      "sha256": "0147ba3a5988fdd85b7057e5482f214c76f6e2f5ae344b67e66551ad084c2867"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt10-crc-failure/vm-result.json",
+      "sha256": "fc3ad22340351e4a9707eb14b0e172196bf490bf0ccc250d7a9f6a1c50825fb2"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt10-crc-failure/guest-manifest.json",
+      "sha256": "e38cc552fb8ff44d7720f3d07c46e2b1cdb1ea3069d4cfe89a9aaa2292210e9f"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt10-crc-failure/original-records.json",
+      "sha256": "47fc6358a57993049976ca70308a66fafc408c75b2c56db48512525985647ec1"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt10-crc-failure/finally-flush.txt",
+      "sha256": "a8423f256116f3d8e0408feacdd1bf3bae755278ef6914e88e4ce3e9316d9700"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt10-crc-failure/analysis.json",
+      "sha256": "9106e2fc02ab6f54046b68f4d65b8b9357d44a26178733e77e550325f3e92ecb"
+    }
+  ]
+}

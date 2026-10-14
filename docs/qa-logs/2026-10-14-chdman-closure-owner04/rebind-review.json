@@ -1,0 +1,23 @@
+{
+  "basis_commit": "c24a32c1d3e1a9977d3226a9baf17a677d3567e5",
+  "basis_path": "docs/qa-logs/2026-10-14-chdman-closure-owner03",
+  "new_build_source_commit": "1015ccf0f4918a07d3875e746dd3b42b730b5218",
+  "unchanged_executable_files": [
+    "closure/closure.py",
+    "closure/common.py",
+    "closure/loader_resolution.py",
+    "common.py",
+    "docker_owner.py",
+    "inner.py",
+    "plan.py",
+    "prerequisites.py",
+    "run-stage.py",
+    "watchdog.py"
+  ],
+  "all_executable_bytes_identical": true,
+  "new_plan_input_sha256": "2c44449c4eb15eb2de617d0d13ba3bf8410f2739761534318553b60b47873379",
+  "new_runner_manifest": "bc80f396a126305b17489d79123510cc27a99b5a25b630a602228d590c96402e",
+  "dynamic_target_hash_required": true,
+  "runtime": "UNRUN; no original failed-build acceptance, no allocation",
+  "historical_owner03_message_strings": "Retained in unchanged code; contracts read the newly sealed plan/receipts."
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "stage": "copy/source-binding preparation",
+    "original_exit": 1,
+    "error": "KeyError: 'candidate'",
+    "meaning": "reviewer used the bindings manifest key against a preparation receipt; no fixture imported or executed"
+  },
+  {
+    "stage": "corrected source-binding preparation",
+    "original_exit": 0,
+    "correction": "assert prepared receipt files equals immutable native bindings candidate"
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "checked_utc_date": "2026-10-14",
+  "method": "Read-only gh api contents; compared returned official Git blob SHA with cached source bytes. No binary download.",
+  "checks": [
+    {
+      "repository": "dolphin-emu/dolphin",
+      "ref": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+      "path": "Source/Core/DolphinTool/CMakeLists.txt",
+      "git_blob_sha": "562ba1dc0a5102ccbab1c4282d0bc4a499dfb9dc",
+      "bytes": 775,
+      "api": "https://api.github.com/repos/dolphin-emu/dolphin/contents/Source/Core/DolphinTool/CMakeLists.txt?ref=6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+      "local_blob_equal": true
+    },
+    {
+      "repository": "dolphin-emu/dolphin",
+      "ref": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+      "path": "Source/Core/DolphinTool/ConvertCommand.cpp",
+      "git_blob_sha": "a590c3071c8039a45f2f369fcdadb63f9a0d2b67",
+      "bytes": 10857,
+      "api": "https://api.github.com/repos/dolphin-emu/dolphin/contents/Source/Core/DolphinTool/ConvertCommand.cpp?ref=6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+      "local_blob_equal": true
+    },
+    {
+      "repository": "mamedev/mame",
+      "ref": "mame0289",
+      "path": "src/tools/chdman.cpp",
+      "git_blob_sha": "b3ed31cae5c441cac3318ad3ab03bafc29a3154c",
+      "bytes": 123585,
+      "api": "https://api.github.com/repos/mamedev/mame/contents/src/tools/chdman.cpp?ref=mame0289",
+      "local_blob_equal": true
+    },
+    {
+      "repository": "mamedev/mame",
+      "ref": "mame0289",
+      "path": "scripts/src/tools.lua",
+      "git_blob_sha": "33695f26de61bc96603f68a236e3c9bd1b1ece8b",
+      "bytes": 15314,
+      "api": "https://api.github.com/repos/mamedev/mame/contents/scripts/src/tools.lua?ref=mame0289",
+      "local_blob_equal": true
+    }
+  ],
+  "documentation": [
+    "https://docs.mamedev.org/tools/chdman.html",
+    "https://docs.mamedev.org/initialsetup/compilingmame.html"
+  ],
+  "browser_limit": "Dolphin exact-pin browser open returned cache miss; authenticated read-only official contents API succeeded."
+}

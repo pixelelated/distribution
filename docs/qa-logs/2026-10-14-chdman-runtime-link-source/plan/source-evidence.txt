@@ -1,0 +1,143 @@
+Static excerpts from the exact cached MAME archive. Full-file hashes in input-bindings.json.
+
+MAME source headers: BSD-3-Clause, MAMEdev Team and named contributors. Complete original licences remain with the retained archive and future source export.
+
+makefile
+630: ifdef TOOLS
+631: ifneq '$(TOOLS)' '0'
+632: PARAMS += --with-tools
+633: endif
+634: endif
+635:
+636: ifndef EMULATOR
+637: PARAMS += --with-emulator
+638: else
+639: ifeq '$(EMULATOR)' '1'
+640: PARAMS += --with-emulator
+641: endif
+642: endif
+
+makefile
+1331: $(PROJECTDIR)/$(MAKETYPE)-linux/Makefile: makefile $(SCRIPTS) $(GENIE)
+1332: 	$(SILENT) $(GENIE) $(PARAMS) $(TARGET_PARAMS) --gcc=linux-gcc --gcc_version=$(GCC_VERSION) $(MAKETYPE)
+1333:
+1334: .PHONY: linux_x64
+1335: linux_x64: generate $(PROJECTDIR)/$(MAKETYPE)-linux/Makefile
+1336: 	$(SILENT) $(MAKE) $(MAKEPARAMS) -C $(PROJECTDIR)/$(MAKETYPE)-linux config=$(CONFIG)64 precompile
+1337: 	$(SILENT) $(MAKE) $(MAKEPARAMS) -C $(PROJECTDIR)/$(MAKETYPE)-linux config=$(CONFIG)64
+
+makefile
+1551: $(GENIE): $(GENIE_SRC)
+1552: 	$(SILENT) $(MAKE) $(MAKEPARAMS) -C 3rdparty/genie/build/gmake.$(GENIEOS) -f genie.make
+
+makefile
+1600: ifeq (posix,$(SHELLTYPE))
+1601: $(GENDIR)/version.cpp: makefile $(GENDIR)/git_desc | $(GEN_FOLDERS)
+1602: 	@echo '#define BARE_BUILD_VERSION "0.289"' > $@
+1603: 	@echo '#define BARE_VCS_REVISION "$(NEW_GIT_VERSION)"' >> $@
+1604: 	@echo 'extern const char bare_build_version[];' >> $@
+1605: 	@echo 'extern const char bare_vcs_revision[];' >> $@
+1606: 	@echo 'extern const char build_version[];' >> $@
+1607: 	@echo 'const char bare_build_version[] = BARE_BUILD_VERSION;' >> $@
+1608: 	@echo 'const char bare_vcs_revision[] = BARE_VCS_REVISION;' >> $@
+1609: 	@echo 'const char build_version[] = BARE_BUILD_VERSION " (" BARE_VCS_REVISION ")";' >> $@
+
+scripts/src/tools.lua
+56: -- chdman
+57: --------------------------------------------------
+58:
+59: project("chdman")
+60: uuid ("7d948868-42db-432a-9bb5-70ce5c5f4620")
+61: kind "ConsoleApp"
+62:
+63: flags {
+64: 	"Symbols", -- always include minimum symbols for executables
+65: }
+66:
+67: if _OPTIONS["SEPARATE_BIN"]~="1" then
+68: 	targetdir(MAME_DIR)
+69: end
+70:
+71: links {
+72: 	"utils",
+73: 	ext_lib("expat"),
+74: 	"7z",
+75: 	"ocore_" .. _OPTIONS["osd"],
+76: 	ext_lib("zlib"),
+77: 	ext_lib("zstd"),
+78: 	ext_lib("flac"),
+79: 	ext_lib("utf8proc"),
+80: }
+81:
+82: includedirs {
+83: 	MAME_DIR .. "src/osd",
+84: 	MAME_DIR .. "src/lib/util",
+85: 	MAME_DIR .. "3rdparty",
+86: }
+87: includedirs {
+88: 	ext_includedir("flac"),
+89: }
+90:
+91: files {
+92: 	MAME_DIR .. "src/tools/chdman.cpp",
+93: 	GEN_DIR .. "version.cpp",
+94: }
+95:
+96: configuration { "mingw*" or "vs*" }
+97: 	targetextension ".exe"
+98:
+99: configuration { }
+100:
+101: strip()
+102:
+103: --------------------------------------------------
+
+src/tools/chdman.cpp
+684: 	{ OPTION_INPUT_LENGTH_BYTES,    "ib",   true, " <length>: effective length of input in bytes" },
+685: 	{ OPTION_INPUT_LENGTH_HUNKS,    "ih",   true, " <length>: effective length of input in hunks" },
+686: 	{ OPTION_INPUT_LENGTH_FRAMES,   "if",   true, " <length>: effective length of input in frames" },
+687: 	{ OPTION_HUNK_SIZE,             "hs",   true, " <bytes>: size of each hunk, in bytes" },
+688: 	{ OPTION_UNIT_SIZE,             "us",   true, " <bytes>: size of each unit, in bytes" },
+689: 	{ OPTION_COMPRESSION,           "c",    true, " <none|type1[,type2[,...]]>: which compression codecs to use (up to 4)" },
+690: 	{ OPTION_IDENT,                 "id",   true, " <filename>: name of ident file to provide CHS information" },
+691: 	{ OPTION_CHS,                   "chs",  true, " <cylinders,heads,sectors>: specifies CHS geometry directly" },
+692: 	{ OPTION_SECTOR_SIZE,           "ss",   true, " <bytes>: size of each hard disk sector" },
+693: 	{ OPTION_TAG,                   "t",    true, " <tag>: 4-character tag for metadata" },
+694: 	{ OPTION_INDEX,                 "ix",   true, " <index>: indexed instance of this metadata tag" },
+695: 	{ OPTION_VALUE_TEXT,            "vt",   true, " <text>: text for the metadata" },
+696: 	{ OPTION_VALUE_FILE,            "vf",   true, " <file>: file containing data to add" },
+697: 	{ OPTION_NUMPROCESSORS,         "np",   true, " <processors>: limit the number of processors to use during compression" },
+698: 	{ OPTION_NO_CHECKSUM,           "nocs", false, ": do not include this metadata information in the overall SHA-1" },
+
+src/tools/chdman.cpp
+762: 	{ COMMAND_CREATE_CD, do_create_cd, ": create a CD CHD from the input file",
+763: 		{
+764: 			REQUIRED OPTION_OUTPUT,
+765: 			OPTION_OUTPUT_PARENT,
+766: 			OPTION_OUTPUT_FORCE,
+767: 			REQUIRED OPTION_INPUT,
+768: 			OPTION_HUNK_SIZE,
+769: 			OPTION_COMPRESSION,
+770: 			OPTION_NUMPROCESSORS
+771: 		}
+
+src/tools/chdman.cpp
+1375: 	// special case: 'none'
+1376: 	if (*compression_str->second == "none")
+1377: 	{
+1378: 		compression[0] = compression[1] = compression[2] = compression[3] = CHD_CODEC_NONE;
+1379: 		return;
+
+src/tools/chdman.cpp
+1409: static void parse_numprocessors(const parameters_map &params)
+1410: {
+1411: 	auto numprocessors_str = params.find(OPTION_NUMPROCESSORS);
+1412: 	if (numprocessors_str == params.end())
+1413: 		return;
+1414:
+1415: 	int count = atoi(numprocessors_str->second->c_str());
+1416: 	if (count > 0)
+1417: 	{
+1418: 		extern int osd_num_processors;
+1419: 		osd_num_processors = count;
+1420: 	}

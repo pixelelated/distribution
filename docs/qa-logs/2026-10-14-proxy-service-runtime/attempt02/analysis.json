@@ -1,0 +1,10 @@
+{
+  "status": "FAIL_STAGING",
+  "original_exit": 1,
+  "boot_transition": "Two distinct verified boots; explicit unified cgroup mode",
+  "kernel_limits": "owner1GiB/128tasks, service prestart512MiB/64tasks PASS",
+  "error": "ExecStartPost controller203/EXEC; source input mode0664 lacks execute; production package.mk sets0755",
+  "service_main_exit": "15/TERM after readiness ExecStartPost failed; no lifecycle acceptance",
+  "cleanup_intervention": false,
+  "next": "Stage exact controller bytes at packaged0755 in fresh owner; preserve original packet and failure."
+}

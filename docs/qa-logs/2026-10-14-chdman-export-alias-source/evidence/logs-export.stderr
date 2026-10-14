@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/runner/export.py", line 80, in <module>
+    if __name__=='__main__':main()
+  File "/runner/export.py", line 36, in main
+    require(member.isdir() or member.isreg(),'special archive member refused')
+  File "/runner/common.py", line 19, in require
+    if not ok: raise RuntimeError(message)
+RuntimeError: special archive member refused

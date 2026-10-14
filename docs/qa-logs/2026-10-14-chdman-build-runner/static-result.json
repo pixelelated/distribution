@@ -1,0 +1,57 @@
+{
+  "status": "STATIC_ONLY_PASS",
+  "python_3_10_grammar": [
+    "common.py",
+    "docker_owner.py",
+    "export.py",
+    "inner.py",
+    "mame.py",
+    "plan.py",
+    "run-stage.py",
+    "static-check.py",
+    "watchdog.py"
+  ],
+  "unchanged_lifecycle_files": [
+    "docker_owner.py",
+    "watchdog.py"
+  ],
+  "unchanged_common_functions": [
+    "require",
+    "read",
+    "write",
+    "sha",
+    "verify_packet",
+    "identity",
+    "same_process",
+    "absent",
+    "command",
+    "safe_member",
+    "host_cgroup"
+  ],
+  "unchanged_host_functions": [
+    "replace_state",
+    "disk_usage",
+    "verify_inputs"
+  ],
+  "unchanged_inner_functions": [
+    "telemetry",
+    "disk_usage",
+    "sample",
+    "child"
+  ],
+  "sealed_plan_byte_identical": true,
+  "build_stage_sha256": "404de7c3979e70be2a549ff2cd258bea3322d449f15f22d00fb240f37b86dc67",
+  "patch_sha256": "9f06384032a195a15fbd9e6224b16dcec4e14829c2ce67320fe3794abeb28c8f",
+  "bash_n_exit": 0,
+  "stages": [
+    "chdman-export",
+    "chdman-bootstrap",
+    "chdman-configure",
+    "chdman-build"
+  ],
+  "family_seconds": 1800,
+  "runner_imported": false,
+  "archive_exported": false,
+  "configure_build_container_or_target_execution": false,
+  "runtime": "UNRUN; no behavior/readiness claim from AST or prior lifecycle qualification"
+}

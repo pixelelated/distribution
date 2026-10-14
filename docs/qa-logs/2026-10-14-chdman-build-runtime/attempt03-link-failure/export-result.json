@@ -1,0 +1,27 @@
+{
+  "lossless_export_verified": true,
+  "files": 380,
+  "stages": {
+    "chdman-bootstrap": {
+      "status": "PASS",
+      "original_container_exit": 0,
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T164249Z-9a6eb39d"
+    },
+    "chdman-build": {
+      "status": "FAIL",
+      "original_container_exit": 1,
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T164454Z-08915a82"
+    },
+    "chdman-configure": {
+      "status": "PASS",
+      "original_container_exit": 0,
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T164335Z-cad8f527"
+    },
+    "chdman-export": {
+      "status": "PASS",
+      "original_container_exit": 0,
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T164153Z-ebf7470f"
+    }
+  },
+  "work_retired": false
+}

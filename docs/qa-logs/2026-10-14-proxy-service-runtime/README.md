@@ -1,0 +1,5 @@
+# Actual proxy service lifecycle — October14
+
+Attempt01, exact source57a138de95d0824617ebb5bd7b2476928d773650, FAIL before product startup. The driver requires cgroup v2 at the root; accepted VM20 instead boots systemd255.8 hybrid. No systemctl commands or proxy start occurred. Original driver/owner/systemd/lifecycle/launcher1, monitor0, no timeout/intervention/survivor. Admission5aa413 consumed and2,279,911,424 allocated VM/media bytes retired.
+
+The original fixture archive, source identities, guest/result channels and actual host exit proof are retained under attempt01. Source-only compatibility review follows. This is not evidence of a product service defect or main/systemd acceptance. Subsequent read-only mount/cgroup facts are under ../2026-10-14-steam-client-first-caller/attempt11-crc-events/guest/steam. The hybrid hierarchy includes cgroup2 at /sys/fs/cgroup/unified and a separate name=systemd hierarchy; no memory controller mount is visible. Kernel capability and effective limits require explicit checks before adapting the proof.

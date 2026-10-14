@@ -1,0 +1,9 @@
+8:devices:/system.slice/serial-debug-shell.service
+7:freezer:/
+6:perf_event:/
+5:blkio:/
+4:pids:/system.slice/serial-debug-shell.service
+3:net_cls,net_prio:/
+2:cpu,cpuacct:/
+1:name=systemd:/system.slice/serial-debug-shell.service
+0::/system.slice/serial-debug-shell.service

@@ -294,3 +294,9 @@ No account/device/cloud action, physical cure, pin move or RC designation.
 [Source, original results and frame index](qa-logs/2026-10-13-es-trim-comparison/README.md).
 
 | 2026-10-14 03:24 UTC | #574/#583/#584/#582 component qualification | AcceptedVM20 SHA1a23cf57; fresh no-NIC8GiB4CPU640×480, staged candidates | Proxy reader126mismatches→0,44listing controls; Dolphin126configuration cases; MD543recovery controls/528digest comparisons; Steam55CRC/ELF inspection PASS. Original fixture/compile/acquisition failures preserved, exact recovery separate. | Native Dolphin/proxy gameplay/cache/awards/reconnect, independent full formats, native Steam, ARM and final image/upgrade remain open. No UI/timing claim. | docs/qa-logs/2026-10-14-rvz-proxy-components/;10original owners consumed, allPIDs exited,2.63GBscratch retired | Not measured | Not measured | Not measured |
+
+### 2026-10-14 16:44 UTC — Steam recovery and proxy service prerequisite
+
+Fresh no-NIC accepted VM20 allocations,8GiB/4CPU640×480. Unchanged Steam03e130 interrupted-publish26.67s and committed-self-update27.26s pass original caller1,0 with13 protected paths. CRC attempt10 caller1,1 FAIL is preserved; additive fixture8f0eaf attempt11 passes1,0/13 paths in26.60s. Separate file-cap control observes EFBIG27 and fresh-file success. All original owners exited, admissions consumed and completed VM disks/media retired. Synthetic transport/client-exec denial, not native Steam qualification. [Results](qa-logs/2026-10-14-steam-client-first-caller/README.md).
+
+Actual-main proxy packet57a138 attempt01 FAILs before proxy startup: expected unified cgroup root absent. Direct subsequent VM facts show systemd255.8 hybrid. No service behavior accepted, no cleanup intervention/survivors; original receipts retained, reservation consumed and disk/media retired. [Evidence](qa-logs/2026-10-14-proxy-service-runtime/README.md).

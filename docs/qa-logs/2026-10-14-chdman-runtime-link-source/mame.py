@@ -1,0 +1,145 @@
+#!/usr/bin/env python3
+"""Chdman-only source/generated contracts. No compiler or converter execution."""
+import json
+import os
+from pathlib import Path
+import re
+import stat
+from common import HERE, SEQUENCES, read, require, safe_member, sha, write
+
+PROJECT='build/projects/sdl/mame/gmake-linux'
+GENIE='3rdparty/genie/bin/linux/genie'
+LIBRARIES={'utils','expat','7z','ocore_sdl','zlib','zstd','flac','utf8proc'}
+
+
+def predecessors(owner,stage):
+    for name in SEQUENCES['chdman'][:SEQUENCES['chdman'].index(stage)]:
+        previous=owner/'stages'/name;result=read(previous/'result.json')
+        require(result['stage']==name and result['status']=='PASS' and result['original_attach_exit']==0
+                and result['original_container_exit']==0 and result['watchdog_original_exit']==0
+                and result['cleanup']['status']=='PASS' and not result['cleanup']['forced_stop'],
+                'predecessor original/cleanup did not pass: '+name)
+        require(read(previous/'selection.json')['runner_manifest_sha256']==sha(HERE/'SHA256SUMS'),
+                'predecessor used different runner source')
+        watched=read(previous/'watch-run.json');run=Path(watched['run'])
+        require(sha(run/'admission.json')==watched['admission_sha256'],'predecessor admission changed')
+        consumed=read(run/'admission-consumed.json')
+        require(consumed['state']=='consumed' and consumed['run']==str(run)
+                and all(consumed['original_result'][k]==0 for k in ('runner_rc','command_rc','monitor_rc')),
+                'predecessor original result must be consumed before next stage')
+    if stage=='chdman-build':
+        previous=owner/'stages/chdman-configure'
+        require(sha(owner/'work/format-tools/configured-generated.json')==
+                read(previous/'configured-generated-binding.json')['sha256'],'configured inventory changed')
+
+
+def root_for(work,binding):return work/binding['chdman']['archive_root']
+
+
+def files_in(root):
+    result={}
+    def error(exc):raise exc
+    for directory,dirs,files in os.walk(root,followlinks=False,onerror=error):
+        for name in dirs:
+            require(not (Path(directory)/name).is_symlink(),'source directory alias')
+        for name in files:
+            path=Path(directory)/name;info=path.lstat()
+            require(stat.S_ISREG(info.st_mode) and path.resolve()==path,'nonregular/aliased file')
+            relative=str(path.relative_to(root));safe_member(relative)
+            result[relative]={'sha256':sha(path),'bytes':info.st_size,'mode':stat.S_IMODE(info.st_mode)}
+    return result
+
+
+def generated_path(name):
+    return (name.startswith('build/') or name.startswith('3rdparty/genie/build/gmake.linux/obj/')
+            or name in (GENIE,'chdman'))
+
+
+def inspect_source(work,family,binding):
+    require(family=='chdman','wrong source family')
+    inventory=read(work/'source-inventory.json');actual=files_in(root_for(work,binding))
+    require(inventory['family']=='chdman' and inventory['archive_sha256']==binding['chdman']['archive']['sha256'],
+            'source inventory provenance changed')
+    require(sha(work/'pristine-source-inventory.json')==inventory['pristine_inventory_sha256'],'pristine inventory changed')
+    expected=inventory['files'];pristine=read(work/'pristine-source-inventory.json')['files']
+    require(set(pristine)==set(expected),'patch changed file inventory')
+    patches=[binding['chdman']['private_source_adjustment'],binding['chdman']['private_osd_adjustment']]
+    require({p['file'] for p in patches}=={'scripts/genie.lua','scripts/toolchain.lua'},'unexpected patch scope')
+    for patch in patches:
+        require(pristine[patch['file']]['sha256']==patch['before_sha256']
+                and expected[patch['file']]['sha256']==patch['after_sha256'],'patch source binding differs: '+patch['file'])
+    require(all(v==pristine[n] for n,v in expected.items() if n not in {p['file'] for p in patches}),'nonpatch source changed')
+    changed={n:actual.get(n) for n,v in expected.items() if actual.get(n)!=v}
+    require(not changed,'original exported file changed/disappeared; actual hashes: '+json.dumps(changed,sort_keys=True))
+    require(all(generated_path(n) for n in set(actual)-set(expected)),'unexpected new source-tree path')
+    return {'files':len(expected),'inventory_sha256':sha(work/'source-inventory.json'),
+            'converter_pristine':True,'one_documented_link_policy_patch':patches[0]['file'],
+            'documented_osd_selection_patch':patches[1]['file']}
+
+
+def generated(work,binding):
+    expected=read(work/'source-inventory.json')['files'];actual=files_in(root_for(work,binding))
+    extra={n:v for n,v in actual.items() if n not in expected}
+    require(all(generated_path(n) for n in extra),'unexpected generated path')
+    return extra
+
+
+def frozen_generated(work,binding):
+    expected=read(work/'configured-generated.json');actual=generated(work,binding)
+    require(expected and all(actual.get(n)==v for n,v in expected.items()),'configured/bootstrap generated bytes changed')
+
+
+def assignment(text,name):
+    values=re.findall(r'^[ \t]*(?:override[ \t]+)?'+re.escape(name)+r'[ \t]*[:+?]?=[ \t]*(.*?)[ \t]*$',text,re.M)
+    require(len(values)==1,'missing/ambiguous generated assignment: '+name)
+    return values[0]
+
+
+def release(text):
+    rows=re.findall(r'^ifeq \(\$\(config\),release64\)\n(.*?)^endif$',text,re.M|re.S)
+    require(len(rows)==1,'missing/ambiguous release64 block')
+    return rows[0]
+
+
+def configuration(work,binding):
+    root=root_for(work,binding);project=root/PROJECT;tc=binding['toolchain']['required_container_root']
+    solution=(project/'Makefile').read_text()
+    require(solution.startswith('# GNU Make solution makefile autogenerated by GENie'),'unexpected generator')
+    # Inspect the exact selected dependency graph; other generated tools are not build goals.
+    dependencies={};queue=['chdman'];selected={}
+    while queue:
+        name=queue.pop()
+        if name in selected:continue
+        require(name in LIBRARIES|{'chdman'},'unexpected selected dependency: '+name)
+        rule=re.findall(r'^'+re.escape(name)+r':[ \t]*([^\n]*)\n([^\n]*)',solution,re.M)
+        require(len(rule)==1,'missing/ambiguous solution target: '+name)
+        deps=rule[0][0].split();require(set(deps)<=LIBRARIES,'unexpected target prerequisites')
+        require(rule[0][1].strip()=='@${MAKE} --no-print-directory -C . -f '+name+'.make','unexpected submake recipe')
+        dependencies[name]=deps;queue.extend(deps)
+        path=project/(name+'.make');text=path.read_text();block=release(text)
+        for variable,suffix in [('CC','gcc'),('CXX','g++'),('AR','ar')]:
+            require(assignment(text.split('ifeq ($(config),',1)[0],variable)==tc+'/bin/x86_64-rocknix-linux-gnu-'+suffix,
+                    'wrong generated target tool: '+name+'/'+variable)
+        for variable in ('ALL_CFLAGS','ALL_CXXFLAGS'):
+            flags=assignment(block,variable)
+            require(re.findall(r'(?<!\S)-O\S+',flags)==['-O1'] and '-flto' not in flags and '-fopenmp' not in flags,
+                    'unexpected selected release flags: '+name+'/'+variable)
+        require('-static-libstdc++' not in block and '-static-libgcc' not in block and '-flto' not in block,
+                'forbidden static C++/GCC or LTO policy')
+        if name=='chdman':
+            require(assignment(block,'ALL_LDFLAGS').split().count('-shared-libgcc')==1,
+                    'explicit shared libgcc policy absent/ambiguous')
+            require(assignment(block,'LINKCMD').startswith('$(CXX) -o $(TARGET)'),'wrong target linker')
+            libs=assignment(block,'LIBS')+' '+assignment(block,'LDDEPS')
+            require(all('/lib'+n+'.a' in libs for n in LIBRARIES),'bundled static library missing')
+            require(assignment(block,'TARGET')=='$(TARGETDIR)/chdman','wrong target output')
+            require((project/assignment(block,'TARGETDIR')).resolve()==root,'target outside private source root')
+        else:
+            require(assignment(block,'LINKCMD').startswith('$(AR)'),'bundled dependency not an archive')
+        selected[name]={'path':str(path),'sha256':sha(path),'release64':block}
+    require(set(selected)==LIBRARIES|{'chdman'},'incomplete selected chdman dependency graph')
+    version=(root/'build/generated/version.cpp').read_text()
+    require('#define BARE_BUILD_VERSION "0.289"' in version and binding['chdman']['commit'] in version,'generated version differs')
+    return {'status':'PASS','selection':'chdman only; config=release64; -j1; no target execution',
+            'target_compiler_root':tc,'makefile_sha256':sha(project/'Makefile'),
+            'dependencies':dependencies,'selected':selected,'version_sha256':sha(root/'build/generated/version.cpp')}

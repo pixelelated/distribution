@@ -1,0 +1,77 @@
+{
+  "sealed_plan_commit": "1015ccf0f4918a07d3875e746dd3b42b730b5218",
+  "sealed_input_sha256": "2c44449c4eb15eb2de617d0d13ba3bf8410f2739761534318553b60b47873379",
+  "closure_source_commit": "4d15c80dce0b91eb0adf40fd24f156c5e771238a",
+  "closure_source_path": "docs/qa-logs/2026-10-14-dolphin-loader-resolution",
+  "readelf": {
+    "relative_path": "bin/x86_64-rocknix-linux-gnu-readelf",
+    "sha256": "831dfa5f667cdaab85df5e27d88107899b18bdfaa0b6d72bd4909d7832f3aa9b"
+  },
+  "retained_runtime_evidence": {
+    "path": "/workspace/tmp/pix574-dolphin-configure-20261014-04/stages/dolphin-closure-loader/elf-closure.json",
+    "sha256": "0890de8ce358d4fb84d85b34f54df1c513892b1592f66f4b18b49a7aff039bf8",
+    "use": "Selected retained runtime bytes only; no replay of retired owner04; no CHD execution claim"
+  },
+  "retained_runtime": {
+    "x86_64-rocknix-linux-gnu/sysroot/usr/lib/libstdc++.so.6.0.34": {
+      "sha256": "7f12166a8c5e62340b67ff213b4859d002b45e49ed114550049bb895f26455cc",
+      "bytes": 2558728
+    },
+    "x86_64-rocknix-linux-gnu/lib/libstdc++.so.6.0.34": {
+      "sha256": "7f12166a8c5e62340b67ff213b4859d002b45e49ed114550049bb895f26455cc",
+      "bytes": 2558728
+    },
+    "x86_64-rocknix-linux-gnu/lib/libgcc_s.so.1": {
+      "sha256": "421566e56262d76771c56578d1e87c80a2b33e702e4c21c29a4cf1e456fbe174",
+      "bytes": 178640
+    },
+    "x86_64-rocknix-linux-gnu/sysroot/usr/lib/libm.so.6": {
+      "sha256": "56c53dca79e350f7b6298a5c4bc7a9bbc379103342b0e7efd8a9557b078782a9",
+      "bytes": 3040600
+    },
+    "x86_64-rocknix-linux-gnu/sysroot/usr/lib/libc.so.6": {
+      "sha256": "706476bbd3f1ba328f6d29ce3d0731a440fbaf1948ae5cd0fb8e0e5c1f9a2f6f",
+      "bytes": 12131504
+    }
+  },
+  "common_functions_unchanged": [
+    "require",
+    "read",
+    "write",
+    "sha",
+    "verify_packet",
+    "identity",
+    "command",
+    "safe_member"
+  ],
+  "closure_functions_unchanged": [
+    "library_name",
+    "metadata",
+    "resolve_library",
+    "version_contract"
+  ],
+  "reference_chd_runner": {
+    "commit": "1015ccf0f4918a07d3875e746dd3b42b730b5218",
+    "path": "docs/qa-logs/2026-10-14-chdman-runtime-link-source",
+    "files": {
+      "inner.py": {
+        "bytes": 10354,
+        "sha256": "04266763179fb190de85bba68bfd2cbb023d446562dfc0b1b416d4906719fe50"
+      },
+      "mame.py": {
+        "bytes": 8766,
+        "sha256": "b9bf2bce1aa6696c3fef795f266f28770ac7ca060f815978662911836fe47e64"
+      },
+      "run-stage.py": {
+        "bytes": 14896,
+        "sha256": "8dabd8f79e938f978cb2b3f414d2a37516b1ccfe7f2100381af0d9a4bdf2ee75"
+      },
+      "bindings.json": {
+        "bytes": 1728,
+        "sha256": "45068f18204b43d3641485ebf889b5d5e7090b4f25f1178c970cf1d4c2360bfa"
+      }
+    }
+  },
+  "runtime": "UNRUN owner04 shared-runtime binding; all closure executable code unchanged from c24a32; dynamic original target hash required",
+  "closure_base_commit": "94ca020acc65f9038f3a44a2f894be40868b1e1a"
+}

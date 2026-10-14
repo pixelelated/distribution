@@ -1,0 +1,52 @@
+{
+  "parent_commit": "7d4366c2b85213f2b41fa6cafbaac0e0a6dffb5c",
+  "parent_manifest_sha256": "163999360d29809e80a89006d63299ffeae9fe0e99b15524a38a4ee8b39ca609",
+  "original_owner": "/workspace/tmp/pix574-chdman-build-20261014-01",
+  "original_status": "FAIL; export/container/attach/launcher 1, watchdog 0; cleanup PASS",
+  "evidence": [
+    {
+      "source": "/workspace/tmp/pix574-chdman-build-20261014-01/stages/chdman-export/export.json",
+      "copy": "evidence/export.json",
+      "bytes": 396,
+      "sha256": "144c7e825cc46157c8a69e06ee1c8ac2da8a012e9a42aceb415541f0c1c69748"
+    },
+    {
+      "source": "/workspace/tmp/pix574-chdman-build-20261014-01/stages/chdman-export/result.json",
+      "copy": "evidence/result.json",
+      "bytes": 2251,
+      "sha256": "b7ec2027267ea1d2d373d9543b3f4fd11e359c67b5f3ba2982e618cf72b9da62"
+    },
+    {
+      "source": "/workspace/tmp/pix574-chdman-build-20261014-01/stages/chdman-export/container-result.json",
+      "copy": "evidence/container-result.json",
+      "bytes": 762,
+      "sha256": "6c396b3934c68b73e93e4238dc6fa52ed831338dc4d3d24c62b9da398e4502ba"
+    },
+    {
+      "source": "/workspace/tmp/pix574-chdman-build-20261014-01/stages/chdman-export/cleanup-complete.json",
+      "copy": "evidence/cleanup-complete.json",
+      "bytes": 23,
+      "sha256": "041dff8cee4c14767a03435eb9f84a05152b2dc00e322d74a702b6f6944a4bdf"
+    },
+    {
+      "source": "/workspace/tmp/pix574-chdman-build-20261014-01/stages/chdman-export/watchdog-result.json",
+      "copy": "evidence/watchdog-result.json",
+      "bytes": 69,
+      "sha256": "9a82748fd15c4bba6ea917244dae8d06c8567b94530f859749dea2afc6ab4bac"
+    },
+    {
+      "source": "/workspace/tmp/pix574-chdman-build-20261014-01/stages/chdman-export/logs/export.stderr",
+      "copy": "evidence/logs-export.stderr",
+      "bytes": 379,
+      "sha256": "6e39bef80c443a8d0ce1f9c3dbd86f968cfffc96499da00d3eb1970499fcd93f"
+    },
+    {
+      "source": "/workspace/tmp/pix574-chdman-build-20261014-01/stages/chdman-export/submit/launcher-result.json",
+      "copy": "evidence/submit-launcher-result.json",
+      "bytes": 132,
+      "sha256": "7dc06d6656aa208828b854ad9bb406b0bcd4a7b6b50c5ea68a077525a26438a1"
+    }
+  ],
+  "runtime": "UNRUN",
+  "scope": "Omit exactly two non-build zstd CLI test symlinks; all regular source, build-stage, patch and lifecycle machinery unchanged"
+}

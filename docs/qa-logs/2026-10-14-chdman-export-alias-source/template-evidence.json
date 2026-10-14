@@ -1,0 +1,113 @@
+{
+  "method": "Read-only selected archive member streams; no source tree extraction, generator/compiler or target execution.",
+  "archive_path": "/workspace/cache/rocknix-sources/mame-lr/mame-lr-24cffe763621b164fc10be2ae3660f140be25182.tar.gz",
+  "archive_expected_sha256": "4867bee5dbd4129e6eea095fe8f8e9725563998710cc9620190e90529ef8931b",
+  "whole_archive_hash_measured_this_worker_turn": false,
+  "members": {
+    "3rdparty/genie/build/gmake.linux/genie.make": {
+      "bytes": 21280,
+      "sha256": "3a16eb1888faa0c3befbcfcb8c7fdb3c52910b459856fc4a07ebb238f896981e",
+      "excerpts": [
+        {
+          "first_line": 35,
+          "last_line": 37,
+          "text": "CC  = gcc\nCXX = g++\nAR  = ar"
+        },
+        {
+          "first_line": 49,
+          "last_line": 69,
+          "text": "ifeq ($(config),release)\n  OBJDIR              = obj/Release\n  TARGETDIR           = ../../bin/linux\n  override TARGET              = $(TARGETDIR)/genie\n  DEFINES            += -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64\n  INCLUDES           += -I\"../../src/host/lua-5.3.0/src\"\n  ALL_CPPFLAGS       += $(CPPFLAGS) -MMD -MP -MP $(DEFINES) $(INCLUDES)\n  ALL_ASMFLAGS       += $(ASMFLAGS) $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Wall -Wextra -Os $(MPARAM) -Wno-implicit-fallthrough\n  ALL_CFLAGS         += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Wall -Wextra -Os $(MPARAM) -Wno-implicit-fallthrough\n  ALL_CXXFLAGS       += $(CXXFLAGS) $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Wall -Wextra -Os $(MPARAM) -Wno-implicit-fallthrough\n  ALL_OBJCFLAGS      += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Wall -Wextra -Os $(MPARAM) -Wno-implicit-fallthrough\n  ALL_OBJCPPFLAGS    += $(CXXFLAGS) $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH) -Wall -Wextra -Os $(MPARAM) -Wno-implicit-fallthrough\n  ALL_RESFLAGS       += $(RESFLAGS) $(DEFINES) $(INCLUDES)\n  ALL_LDFLAGS        += $(LDFLAGS) -L\".\" -s -rdynamic\n  LIBDEPS            +=\n  LDDEPS             +=\n  LDRESP              =\n  LIBS               += $(LDDEPS) -ldl -lm\n  EXTERNAL_LIBS      +=\n  LINKOBJS            = $(OBJECTS)\n  LINKCMD             = $(CC) -o $(TARGET) $(LINKOBJS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) $(LIBS)"
+        }
+      ]
+    },
+    "3rdparty/genie/src/actions/make/make_cpp.lua": {
+      "bytes": 20436,
+      "sha256": "acaf86cbaa545662053df5b8722250fa816c957f401b217fd4ebdc4ffdebb8fe",
+      "excerpts": [
+        {
+          "first_line": 258,
+          "last_line": 260,
+          "text": "\t\t_p('CC  = %s', cc.cc)\n\t\t_p('CXX = %s', cc.cxx)\n\t\t_p('AR  = %s', cc.ar)"
+        },
+        {
+          "first_line": 302,
+          "last_line": 312,
+          "text": "\tfunction premake.gmake_cpp_config(prj, cfg, cc)\n\t\t_p('ifeq ($(config),%s)', _MAKE.esc(cfg.shortname))\n\n\t\t-- if this platform requires a special compiler or linker, list it here\n\t\tcpp.platformtools(cfg, cc)\n\n\t\tlocal targetDir = _MAKE.esc(cfg.buildtarget.directory)\n\n\t\t_p('  ' .. (table.contains(premake.make.override,\"OBJDIR\") and \"override \" or \"\") ..    'OBJDIR              = %s', _MAKE.esc(cfg.objectsdir))\n\t\t_p('  ' .. (table.contains(premake.make.override,\"TARGETDIR\") and \"override \" or \"\") .. 'TARGETDIR           = %s', iif(targetDir == \"\", \".\", targetDir))\n\t\t_p('  ' .. (table.contains(premake.make.override,\"TARGET\") and \"override \" or \"\") ..    'TARGET              = $(TARGETDIR)/%s', _MAKE.esc(cfg.buildtarget.name))"
+        },
+        {
+          "first_line": 427,
+          "last_line": 429,
+          "text": "\t\t_p('  ALL_ASMFLAGS       += $(ASMFLAGS) $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH)%s', make.list(table.join(cc.getcflags(cfg), cfg.buildoptions, cfg.buildoptions_asm)))\n\t\t_p('  ALL_CFLAGS         += $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH)%s', make.list(table.join(cc.getcflags(cfg), cfg.buildoptions, cfg.buildoptions_c)))\n\t\t_p('  ALL_CXXFLAGS       += $(CXXFLAGS) $(CFLAGS) $(ALL_CPPFLAGS) $(ARCH)%s', make.list(table.join(cc.getcflags(cfg), cc.getcxxflags(cfg), cfg.buildoptions, cfg.buildoptions_cpp)))"
+        },
+        {
+          "first_line": 464,
+          "last_line": 501,
+          "text": "\t\t\tlibdeps = make.list(_MAKE.esc(libdeps))\n\t\t\tlddeps  = make.list(_MAKE.esc(lddeps))\n\t\telse\n\t\t\tlibdeps = make.list(_MAKE.esc(premake.getlinks(cfg, \"siblings\", \"fullpath\")))\n\t\t\tlddeps  = libdeps\n\t\tend\n\n\t\t_p('  ALL_LDFLAGS        += $(LDFLAGS)%s', make.list(table.join(cc.getlibdirflags(cfg), cc.getldflags(cfg), cfg.linkoptions)))\n\t\t_p('  LIBDEPS            +=%s', libdeps)\n\t\t_p('  LDDEPS             +=%s', lddeps)\n\n\t\tif cfg.flags.UseLDResponseFile then\n\t\t\t_p('  LDRESP              = $(OBJDIR)/%s_libs', prj.name)\n\t\t\t_p('  LIBS               += @$(LDRESP)%s', make.list(cc.getlinkflags(cfg)))\n\t\telse\n\t\t\t_p('  LDRESP              =')\n\t\t\t_p('  LIBS               += $(LDDEPS)%s', make.list(cc.getlinkflags(cfg)))\n\t\tend\n\n\t\t_p('  EXTERNAL_LIBS      +=%s', make.list(cc.getlibfiles(cfg)))\n\t\t_p('  LINKOBJS            = %s', (cfg.flags.UseObjectResponseFile and \"@$(OBJRESP)\" or \"$(OBJECTS)\"))\n\n\t\tif cfg.kind == \"StaticLib\" then\n\t\t\tif (not prj.options.ArchiveSplit) then\n\t\t\t\t_p('  LINKCMD             = $(AR) %s $(TARGET)', make.list(cc.getarchiveflags(prj, cfg, false)))\n\t\t\telse\n\t\t\t\t_p('  LINKCMD             = $(AR) %s $(TARGET)', make.list(cc.getarchiveflags(prj, cfg, false)))\n\t\t\t\t_p('  LINKCMD_NDX         = $(AR) %s $(TARGET)', make.list(cc.getarchiveflags(prj, cfg, true)))\n\t\t\tend\n\t\telse\n\t\t\tlocal tool = iif(cfg.language == \"C\", \"CC\", \"CXX\")\n\t\t\tlocal startgroup = ''\n\t\t\tlocal endgroup = ''\n\t\t\tif (cfg.flags.LinkSupportCircularDependencies) then\n\t\t\t\tstartgroup = '-Wl,--start-group '\n\t\t\t\tendgroup   = ' -Wl,--end-group'\n\t\t\tend\n\t\t\t_p('  LINKCMD             = $(%s) -o $(TARGET) $(LINKOBJS) $(RESOURCES) $(ARCH) $(ALL_LDFLAGS) %s$(LIBS)%s', tool, startgroup, endgroup)"
+        }
+      ]
+    },
+    "3rdparty/genie/src/actions/make/make_solution.lua": {
+      "bytes": 2546,
+      "sha256": "643ec302708af8cf0f9ebfd4b602ac58cadaa08bd2fe1b07e7762031c215dadd",
+      "excerpts": [
+        {
+          "first_line": 38,
+          "last_line": 45,
+          "text": "\t\t-- write the project build rules\n\t\tfor _, prj in ipairs(sln.projects) do\n\t\t\t_p('%s: %s', _MAKE.esc(prj.name), table.concat(_MAKE.esc(table.extract(premake.getdependencies(prj), \"name\")), \" \"))\n\t\t\tif (not sln.messageskip) or (not table.contains(sln.messageskip, \"SkipBuildingMessage\")) then\n\t\t\t\t_p('\\t@echo \"==== Building %s ($(config)) ====\"', prj.name)\n\t\t\tend\n\t\t\t_p('\\t@${MAKE} --no-print-directory -C %s -f %s', _MAKE.esc(path.getrelative(sln.location, prj.location)), _MAKE.esc(_MAKE.getmakefilename(prj, true)))\n\t\t\t_p('')"
+        }
+      ]
+    },
+    "scripts/genie.lua": {
+      "bytes": 37976,
+      "sha256": "b3dd93f153fa40fa69983f1cc24ee2119510a3459c22a378c6a4d80c4cef97d3",
+      "excerpts": [
+        {
+          "first_line": 487,
+          "last_line": 556,
+          "text": "\t\"x32\",\n\t\"x64\",\n\t\"Native\", -- for targets where bitness is not specified\n}\n\nlanguage \"C++\"\n\nflags {\n\t\"StaticRuntime\",\n}\n\n\tif not _OPTIONS[\"NOWERROR\"] then\n\t\tflags{\n\t\t\t\"FatalWarnings\",\n\t\t}\n\tend\n\n\nconfiguration { \"Debug\", \"vs20*\" }\n\tflags {\n\t\t\"Symbols\",\n\t\t\"NoMultiProcessorCompilation\",\n\t}\n\nconfiguration { \"Release\", \"vs20*\" }\n\tflags {\n\t\t\"Optimize\",\n\t\t\"NoEditAndContinue\",\n\t\t\"NoIncrementalLink\",\n\t}\n\tif _OPTIONS[\"SYMBOLS\"] then\n\t\tflags {\n\t\t\t\"Symbols\",\n\t\t}\n\tend\n\n-- Force Visual Studio targets to use bundled SDL2\nif string.sub(_ACTION,1,4) == \"vs20\" and _OPTIONS[\"osd\"]==\"sdl\" then\n\tif _OPTIONS[\"with-bundled-sdl2\"]==nil then\n\t\t_OPTIONS[\"with-bundled-sdl2\"] = \"1\"\n\tend\nend\n-- Build SDL2 for Android\nif _OPTIONS[\"osd\"] == \"retro\" then\n-- RETRO HACK no sdl for libretro android\nelse\nif _OPTIONS[\"targetos\"] == \"android\" then\n\t_OPTIONS[\"with-bundled-sdl2\"] = \"1\"\nend\nend\n-- RETRO HACK END no sdl for libretro android\n\nconfiguration {}\n\nmsgcompile (\"Compiling $(subst ../,,$<)...\")\n\nmsgcompile_objc (\"Objective-C compiling $(subst ../,,$<)...\")\n\nmsgresource (\"Compiling resources $(subst ../,,$<)...\")\n\nmsglinking (\"Linking $(notdir $@)...\")\n\nmsgarchiving (\"Archiving $(notdir $@)...\")\n\nmsgprecompile (\"Precompiling $(subst ../,,$<)...\")\n\nmessageskip { \"SkipCreatingMessage\", \"SkipBuildingMessage\", \"SkipCleaningMessage\" }\n\nif _OPTIONS[\"with-emulator\"] then\n\tif (_OPTIONS[\"PROJECT\"] ~= nil) then"
+        },
+        {
+          "first_line": 846,
+          "last_line": 865,
+          "text": "-- if we are optimizing, include optimization options\nif _OPTIONS[\"OPTIMIZE\"] then\n\tbuildoptions {\n\t\t\"-O\".. _OPTIONS[\"OPTIMIZE\"],\n\t\t\"-fno-strict-aliasing\"\n\t}\n\tif _OPTIONS[\"OPT_FLAGS\"] then\n\t\tbuildoptions {\n\t\t\t_OPTIONS[\"OPT_FLAGS\"]\n\t\t}\n\tend\n\tif _OPTIONS[\"LTO\"]==\"1\" then\n\t\tbuildoptions {\n-- windows native mingw GCC 5.2 fails with -flto=x with x > 1. bug unfixed as of this commit\n\t\t\t\"-flto=1\",\n-- if ld fails, just buy more RAM or uncomment this!\n--          \"-Wl,-no-keep-memory\",\n\t\t\t\"-Wl,-v\",\n-- silence redefine warnings from discrete.c.\n\t\t\t\"-Wl,-allow-multiple-definition\","
+        },
+        {
+          "first_line": 998,
+          "last_line": 1009,
+          "text": "\n\tend\nend\n\n-- On Linux targets link libgcc and libstdc++ statically.  See #137\nif _OPTIONS[\"targetos\"]==\"linux\" then\n\t\tlinkoptions {\n\t\t\t\"-static-libgcc -static-libstdc++\"\n\t\t}\nend\n\n"
+        }
+      ]
+    },
+    "scripts/src/tools.lua": {
+      "bytes": 15314,
+      "sha256": "61ebcf7f19b8031969caf09d1644c4f88cd502597a3dd4f6ae47dea89bb8e1c8",
+      "excerpts": [
+        {
+          "first_line": 59,
+          "last_line": 80,
+          "text": "project(\"chdman\")\nuuid (\"7d948868-42db-432a-9bb5-70ce5c5f4620\")\nkind \"ConsoleApp\"\n\nflags {\n\t\"Symbols\", -- always include minimum symbols for executables\n}\n\nif _OPTIONS[\"SEPARATE_BIN\"]~=\"1\" then\n\ttargetdir(MAME_DIR)\nend\n\nlinks {\n\t\"utils\",\n\text_lib(\"expat\"),\n\t\"7z\",\n\t\"ocore_\" .. _OPTIONS[\"osd\"],\n\text_lib(\"zlib\"),\n\text_lib(\"zstd\"),\n\text_lib(\"flac\"),\n\text_lib(\"utf8proc\"),\n}"
+        }
+      ]
+    },
+    "scripts/toolchain.lua": {
+      "bytes": 20567,
+      "sha256": "19b057222291c321c2a876a84c5b167c0999d0fde45b79da52f1a56266efdc64",
+      "excerpts": [
+        {
+          "first_line": 217,
+          "last_line": 227,
+          "text": "\tif (_OPTIONS[\"CC\"] ~= nil) then\n\t\tpremake.gcc.cc  = _OPTIONS[\"CC\"]\n\tend\n\tif (_OPTIONS[\"CXX\"] ~= nil) then\n\t\tpremake.gcc.cxx  = _OPTIONS[\"CXX\"]\n\tend\n\tif (_OPTIONS[\"LD\"] ~= nil) then\n\t\tpremake.gcc.ld  = _OPTIONS[\"LD\"]\n\tend\n\tif (_OPTIONS[\"AR\"] ~= nil) then\n\t\tpremake.gcc.ar  = _OPTIONS[\"AR\"]"
+        }
+      ]
+    }
+  },
+  "contract_mapping": {
+    "solution_recipe": "make_solution.lua 40-44; scripts/genie.lua disables SkipBuildingMessage branch, so one recursive make recipe line",
+    "compiler_assignments": "make_cpp.lua 258-260 emits global CC/CXX/AR; scripts/toolchain.lua 217-227 sets exact override tools",
+    "release_section": "make_cpp.lua 303 emits config shortname; release64 selected by unchanged build-stage",
+    "c_cxx_flags": "make_cpp.lua 427-429; scripts/genie.lua OPTIMIZE=1 adds -O1; native GENie deliberately uses its separate release -Os",
+    "libraries": "chdman tools.lua links eight siblings; make_cpp.lua 467-480 emits their full paths in LDDEPS and references it in LIBS",
+    "link_command": "make_cpp.lua 486-501 selects AR for archives, CXX for global C++ application",
+    "empty_fields": "assignment parser uses horizontal whitespace only; empty LDDEPS cannot absorb next line"
+  }
+}

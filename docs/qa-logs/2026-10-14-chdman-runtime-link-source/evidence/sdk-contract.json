@@ -1,0 +1,82 @@
+{
+  "physical_toolchain_root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain",
+  "required_container_root": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain",
+  "files": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-g++",
+      "symlink": null,
+      "exists": true,
+      "bytes": 260,
+      "sha256": "e8a6b9a743de84695ac57f0b09d8351e457415673af400db586f687039a9c2b8",
+      "file_kind": "text",
+      "packet_path": "evidence/sdk-gxx-wrapper.sh"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-g++-15.2.0",
+      "symlink": null,
+      "exists": true,
+      "bytes": 2377072,
+      "sha256": "5b29d7396d99f8734438060273efb21b80b68576efb4c5346fcf322765c26401",
+      "file_kind": "ELF bytes, no ELF inspection"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/lib/libstdc++.so",
+      "symlink": "libstdc++.so.6.0.34",
+      "exists": true,
+      "bytes": 2558728,
+      "sha256": "7f12166a8c5e62340b67ff213b4859d002b45e49ed114550049bb895f26455cc",
+      "file_kind": "ELF bytes, no ELF inspection"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/lib/libstdc++.so.6.0.34",
+      "symlink": null,
+      "exists": true,
+      "bytes": 2558728,
+      "sha256": "7f12166a8c5e62340b67ff213b4859d002b45e49ed114550049bb895f26455cc",
+      "file_kind": "ELF bytes, no ELF inspection"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/lib/libgcc_s.so",
+      "symlink": null,
+      "exists": true,
+      "bytes": 178640,
+      "sha256": "421566e56262d76771c56578d1e87c80a2b33e702e4c21c29a4cf1e456fbe174",
+      "file_kind": "ELF bytes, no ELF inspection"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/lib/libgcc_s.so.1",
+      "symlink": null,
+      "exists": true,
+      "bytes": 178640,
+      "sha256": "421566e56262d76771c56578d1e87c80a2b33e702e4c21c29a4cf1e456fbe174",
+      "file_kind": "ELF bytes, no ELF inspection"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/libgcc.a",
+      "symlink": null,
+      "exists": true,
+      "bytes": 6339012,
+      "sha256": "12e203a9b8c122cd733d8dab9dc58844e11942cdc3c9311e0c5c1ca7ff9beaea",
+      "file_kind": "archive bytes"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/lib/gcc/x86_64-rocknix-linux-gnu/15.2.0/libgcc_eh.a",
+      "symlink": null,
+      "exists": true,
+      "bytes": 335634,
+      "sha256": "a90c74381c17d0c3d2e352a1c7759c18ec718ef54c5ae6c5aaeff84c3b8fe0cb",
+      "file_kind": "archive bytes"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libgcc_s.so",
+      "symlink": null,
+      "exists": false
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libgcc_s.so.1",
+      "symlink": null,
+      "exists": false
+    }
+  ],
+  "scope": "Read-only file bytes/hash/symlink inspection only; no readelf, nm, compiler, linker, ldd, target load or execution. Actual SDK compiler source provenance not established."
+}

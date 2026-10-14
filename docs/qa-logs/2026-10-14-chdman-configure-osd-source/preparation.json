@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-14",
+  "scope": "Source-only additive owner03 correction; no runner imported/executed",
+  "source_read_limit": "15 selected archive members totaling less than1MiB; retained gzip snapshots with compressed/uncompressed hashes; immutable archive SHA256 verified read-only",
+  "static_command": "python3 -I -S -B docs/qa-logs/2026-10-14-chdman-configure-osd-source/static-check.py",
+  "static_original_exit": 0,
+  "static_result": "static-result.json",
+  "bash_n_original_exit": 0,
+  "original_owner02_channels": "evidence/owner02-bindings.json",
+  "other_observation": "An initial read-only command using owner02 work cwd failed with ENOENT after coordinator retired private source; continued from exact immutable archive. No work tree recreation or runtime retry."
+}

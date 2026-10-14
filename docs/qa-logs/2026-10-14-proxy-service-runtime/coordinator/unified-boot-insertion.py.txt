@@ -1,0 +1,25 @@
+  initial_boot=serial('cat /proc/sys/kernel/random/boot_id').strip()
+  assert len(initial_boot)==36 and all(c in '0123456789abcdef-' for c in initial_boot)
+  provision="""set -eu
+cp /flash/syslinux.cfg /tmp/pix-output/proxy-cgroup-syslinux.before.cfg
+python3 -I -S -B /tmp/pix-input/service-packet/prepare-boot-text.py --input /flash/syslinux.cfg --output /tmp/pix-output/proxy-cgroup-syslinux.cfg
+mount -o remount,rw /flash
+cp /tmp/pix-output/proxy-cgroup-syslinux.cfg /flash/syslinux.cfg
+cmp -s /flash/syslinux.cfg /tmp/pix-output/proxy-cgroup-syslinux.cfg
+sha256sum /flash/syslinux.cfg > /tmp/pix-output/proxy-cgroup-applied.sha256
+sync
+mount -o remount,ro /flash
+sync
+umount /tmp/pix-output
+umount /tmp/pix-input
+systemd-run --unit=pix583-qa-unified-reboot --on-active=2s /usr/bin/systemctl reboot
+"""
+  out=serial('( '+provision+'\n ); pxrc=$?; printf "PIX_BOOT_PROVISION_RC:%s\\n" "$pxrc"',seconds=40)
+  (r/'boot-provision.txt').write_text(out);assert 'PIX_BOOT_PROVISION_RC:0' in out,out
+  new_boot_test='test "$(cat /proc/sys/kernel/random/boot_id)" != '+shlex.quote(initial_boot)+' && test -f /sys/fs/cgroup/cgroup.controllers && test "$(pgrep emulationstation | wc -l)" = 1'
+  call([repo/'tools/vm-serial','--socket',v/'serial.sock','wait','--for',new_boot_test,'--up-to','240'],timeout=260)
+  out=serial('python3 -I -S -B -c '+shlex.quote(topology)+'; pxrc=$?; printf "PIX_TOPOLOGY_RC:%s\\n" "$pxrc"');(r/'topology-unified.txt').write_text(out);assert 'PIX_TOPOLOGY_RC:0' in out,out
+  unified_boot=serial('cat /proc/sys/kernel/random/boot_id').strip();assert unified_boot!=initial_boot
+  (r/'boot-transition.json').write_text(json.dumps({'initial_boot_id':initial_boot,'qualification_boot_id':unified_boot,'planned_reboots':1,'scope':'private disposable flash only; unchanged accepted image and default product configuration','deadline_not_reset':True},indent=2)+'\n')
+  out=serial(command);(r/'media-unified.txt').write_text(out);assert 'PIX_MEDIA_RC:0' in out,out
+  out=serial('cat /proc/cmdline > /tmp/pix-output/unified-cmdline.txt; cat /proc/self/mountinfo > /tmp/pix-output/unified-mountinfo.txt; cat /proc/1/cgroup > /tmp/pix-output/unified-pid1-cgroup.txt; cat /sys/fs/cgroup/cgroup.controllers > /tmp/pix-output/unified-controllers.txt; cat /proc/sys/kernel/random/boot_id > /tmp/pix-output/unified-boot-id.txt; sync')

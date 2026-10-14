@@ -1,0 +1,187 @@
+{
+  "scope": "CHD and cross-format subset only; no completed MD5/Wii/padding/reader/Dolphin/proxy replay",
+  "parent_commit": "052b36080fe8c9f0f8c9ef6307175bc6786cf9ff",
+  "candidate_commit": "314da58d68820a79b26f99a5b6c12f9bb37054d5",
+  "baseline_repair": {
+    "path": "external/libcheevos/libretro-common/src/utils/md5.c",
+    "before": "8d62d9eacf70e07b3dd93a3e219b052413893b2398d70e1be318a981e9047e08",
+    "after": "102310fd9991c20a7eaf7e4fffd175f9c79607dbac82f65f067a085bfeebb1c0",
+    "label": "a7dcdbb plus exact 314da58d md5.c only; not the old pristine baseline"
+  },
+  "historical_runner": {
+    "host_source": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-13-rvz-regression-source/run-regressions.py",
+    "bytes": 6640,
+    "sha256": "4574cab8957a185970fbc2a3fa48e7bcd5e072a43be0367750faa3bc62b6cd42"
+  },
+  "historical_source_binding": {
+    "host_source": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-13-rvz-regression-source/source-bindings.json",
+    "bytes": 74275,
+    "sha256": "4f44154ad0e9a0969a705229e435847debe18e402e80769772e75c46e8059a77"
+  },
+  "historical_candidate_commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+  "historical_baseline_commit": "a7dcdbb38009d8d2a81c7c2b4bc1d8c2d0d38a20",
+  "artifacts": {
+    "lib/libasan.so.8": {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/artifacts/lib/libasan.so.8",
+      "bytes": 11044192,
+      "sha256": "73963db53c40af52818792cba7ebae1ae6897cd94a004942c8ff76f361484412"
+    },
+    "lib/libubsan.so.1": {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/artifacts/lib/libubsan.so.1",
+      "bytes": 3486696,
+      "sha256": "a8d91f5d7efbd684a69546912ead43513ccec34bb275fe1616b68551780c9eca"
+    },
+    "candidate/pix574-wii-partition-probe": {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/artifacts/candidate/pix574-wii-partition-probe",
+      "bytes": 839832,
+      "sha256": "030bd0dd7c94fea25cdeb4bf03b0371f84ca09260b6aa2076e0279b79ca3e729"
+    },
+    "candidate/pix574-regression-hash": {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/artifacts/candidate/pix574-regression-hash",
+      "bytes": 7906968,
+      "sha256": "5e00ed65dc6ae8031c54c4309d3f1876be4b380e438a15b8281104402e9375b2"
+    },
+    "candidate/pix574-md5-alignment": {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/artifacts/candidate/pix574-md5-alignment",
+      "bytes": 88392,
+      "sha256": "5f8f9da5ad0c324f7cf04637ee4d60ba1d406996e3dc2f61e49a8a0e277a84e4"
+    },
+    "candidate/pix574-fixture-writer": {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/artifacts/candidate/pix574-fixture-writer",
+      "bytes": 469304,
+      "sha256": "6a663a88b8eb2c573cf92ebb361f2d6c0dd20b2400e20f3c60ddd684eb7b6aed"
+    },
+    "baseline-repaired/pix574-wii-partition-probe": {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/artifacts/baseline-repaired/pix574-wii-partition-probe",
+      "bytes": 839792,
+      "sha256": "068d4d20f4d3182dc744000d89ed631481a9523bfcf89dea58f9893318d08ea2"
+    },
+    "baseline-repaired/pix574-regression-hash": {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/artifacts/baseline-repaired/pix574-regression-hash",
+      "bytes": 7245840,
+      "sha256": "e95d6423e52bc2e1d78802738760142ec800591682f76706a3dfb935a7da3d6a"
+    },
+    "baseline-repaired/pix574-md5-alignment": {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/artifacts/baseline-repaired/pix574-md5-alignment",
+      "bytes": 88424,
+      "sha256": "bb9c83c4631d7a6d86bfa3a636d80895e06be7f71ac68214e2f5173e27d44ab7"
+    }
+  },
+  "corrected_generator": {
+    "host_source": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-14-rvz-empty-partition-source/make-fixtures.py",
+    "bytes": 9493,
+    "sha256": "1dd4eb12ed20ed2c51e24cc45041a5c688a61e9a5ac03f45f9bb4630e7cc592b"
+  },
+  "zstd_library": {
+    "host_source": "/workspace/tmp/pix574-dolphin-configure-20261014-04/stages/dolphin-closure-loader/vm20-bundle/lib/libzstd.so.1",
+    "bytes": 697048,
+    "sha256": "8163ae3e23db5488aea98740482a456e198c71cf834286e9ba863d26a4f6f698"
+  },
+  "corrected_cases": {
+    "synthetic.iso": {
+      "name": "synthetic.iso",
+      "expected": "118545082f24fc195a446d1ee7bbf816",
+      "baseline": "118545082f24fc195a446d1ee7bbf816",
+      "console": "gamecube",
+      "sha256": "83c6dacc46797bc7d4bdcb4aa2dd253c290316c07c4cda8f6ca1afb889c44121",
+      "bytes": 393216
+    },
+    "mixed-zstd.rvz": {
+      "name": "mixed-zstd.rvz",
+      "expected": "118545082f24fc195a446d1ee7bbf816",
+      "baseline": "FAIL",
+      "console": "gamecube",
+      "sha256": "8780ec2d229f9c52e3cbc209aff94783a4a47bd3149839334a989390ed9e3046",
+      "bytes": 136421
+    },
+    "ordinary.nes": {
+      "name": "ordinary.nes",
+      "expected": "6d2fc9abd70a8d230dc90b972aa9a00e",
+      "baseline": "6d2fc9abd70a8d230dc90b972aa9a00e",
+      "console": "nes",
+      "sha256": "802ee3e2251ae4860760e1d3c0c8d3ab152c99da324876e0eb7493d9483a6ab1",
+      "bytes": 50
+    }
+  },
+  "expected": {
+    "official_gc": "c7803b704fa43d22d8f6e55f4789cb45",
+    "saturn": "4cd9c8e41cd8d137be15bbe6a93ae1d8",
+    "rvz": "118545082f24fc195a446d1ee7bbf816",
+    "nes": "6d2fc9abd70a8d230dc90b972aa9a00e"
+  },
+  "completed_proof_records": [
+    {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/compile-result.json",
+      "bytes": 2669,
+      "sha256": "f385e7d2dcea86d93734160053b6070627a9df6f37a86b24370f0748d27fceda"
+    },
+    {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/result.json",
+      "bytes": 307,
+      "sha256": "949b09f2dcbf286ff07322a1ebb16153dc409e43a0a208091309092d76905e27"
+    },
+    {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/records/contract-candidate.json",
+      "bytes": 384,
+      "sha256": "b8dc6deb77ecb5eba7104dc856588d0f724cb367f10292d3e9e1e127985a8106"
+    },
+    {
+      "host_source": "/workspace/tmp/pix574-md5-target-20261014/records/contract-baseline-repaired.json",
+      "bytes": 384,
+      "sha256": "f0304edae1a42661b60968d617860c143fd9b54033d18f79ef2fc8150f17d639"
+    },
+    {
+      "host_source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-rvz-proxy-components/md5-recovery/recovery-acceptance.json",
+      "bytes": 2171,
+      "sha256": "36c6c9ce39c11d8d2334bc280338a1c3824bd8740cf9998cc2b525d6708f9e07"
+    },
+    {
+      "host_source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-rvz-proxy-components/results/md5-result.json",
+      "bytes": 2817,
+      "sha256": "b8b44ab4c3819136c4f4ae2a1389b01e490ec4ecc8c3330a40a0e3ded209d2e8"
+    },
+    {
+      "host_source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-independent-format-runtime/attempt02/guest/pix574-format-format02/result.json",
+      "bytes": 368,
+      "sha256": "c70b55089feda2504eb966960b9a3a593aeff6c2363a27c56a66ac38d9ed8d1d"
+    },
+    {
+      "host_source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-independent-format-runtime/attempt02/guest/pix574-format-format02/synthetic-manifest.json",
+      "bytes": 6720,
+      "sha256": "e60b610aa9ee9c584ef3d628378c2768919d7dee49dcdb3b5ddd781f29ffee4c"
+    },
+    {
+      "host_source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-native-runtime/attempt01/guest/run01/payload/result.json",
+      "bytes": 32439,
+      "sha256": "8143545dd8923a225faf8727a0abb5e92c9ffd72e3eebb9bdd9bd057c57a5c07"
+    }
+  ],
+  "missing_for_selected_subset": [
+    "target chdman binary and exact loader/library closure from coordinator pending build"
+  ],
+  "not_in_nine_and_not_required": [
+    "pix574-rvz-reader-probe",
+    "pix574-padding-oracle"
+  ],
+  "chdman_pending": {
+    "source_commit": "24cffe763621b164fc10be2ae3660f140be25182",
+    "build_plan_commit": "1c0e93b4b34501928c79f9ade5b2b4c1442331a4",
+    "binary_sha256": null,
+    "post_link_closure": "REQUIRED; unknown until built"
+  },
+  "limits": {
+    "outer_seconds": 240,
+    "work_seconds": 235,
+    "cleanup_reserve_seconds": 5,
+    "private_bytes": 2147483648,
+    "new_native_children": 7,
+    "all_children": 8,
+    "wrapper_invocations": 5,
+    "ordered_hash_rows": 234
+  },
+  "padding_license": {
+    "host_source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-rvz-source/upstream/rvz-go-license",
+    "bytes": 1512,
+    "sha256": "8e937a4f1e8d29fb77b8433044b21906774513e307153a53c68bd638c87a1b09"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/mame-lr/mame-lr-24cffe763621b164fc10be2ae3660f140be25182.tar.gz",
+  "archive_bytes": 213471628,
+  "archive_sha256": "4867bee5dbd4129e6eea095fe8f8e9725563998710cc9620190e90529ef8931b",
+  "members": {
+    "3rdparty/genie/build/gmake.linux/genie.make": {
+      "sha256": "3a16eb1888faa0c3befbcfcb8c7fdb3c52910b459856fc4a07ebb238f896981e",
+      "bytes": 21280,
+      "member": "mame-24cffe763621b164fc10be2ae3660f140be25182/3rdparty/genie/build/gmake.linux/genie.make",
+      "mode": 436,
+      "packet_path": "evidence/source/3rdparty/genie/build/gmake.linux/genie.make.gz",
+      "compressed_sha256": "ce255abe97ff47cf98351b13f5a65f0c84e8ca7e804304add557f6bc2bf5809d"
+    },
+    "3rdparty/genie/src/_premake_main.lua": {
+      "sha256": "8448552719ad67e3eda605ce736fb97898060347fa674bd69e4922412e17b369",
+      "bytes": 4451,
+      "member": "mame-24cffe763621b164fc10be2ae3660f140be25182/3rdparty/genie/src/_premake_main.lua",
+      "mode": 436,
+      "packet_path": "evidence/source/3rdparty/genie/src/_premake_main.lua.gz",
+      "compressed_sha256": "a8a072472f501f44d62022c1fbc1eda77f2df1a1a2c092da4c7ec1e64b716ab6"
+    },
+    "3rdparty/genie/src/base/api.lua": {
+      "sha256": "dc524ef3fd3e21ae23e8cf280fed6b118dbaba3e79b138e2ffbb2d0e80b6f879",
+      "bytes": 29885,
+      "member": "mame-24cffe763621b164fc10be2ae3660f140be25182/3rdparty/genie/src/base/api.lua",
+      "mode": 436,
+      "packet_path": "evidence/source/3rdparty/genie/src/base/api.lua.gz",
+      "compressed_sha256": "73404da4acdc3d39ea7076efefcac2242f7541c6dbe2db6b87bb4d12587ee274"
+    },
+    "3rdparty/genie/src/base/option.lua": {
+      "sha256": "ec32020f1beeefb424a82ebb52b7223abe7d723a002e3bb62380447da806cac5",
+      "bytes": 2209,
+      "member": "mame-24cffe763621b164fc10be2ae3660f140be25182/3rdparty/genie/src/base/option.lua",
+      "mode": 436,
+      "packet_path": "evidence/source/3rdparty/genie/src/base/option.lua.gz",
+      "compressed_sha256": "2deb5a3ece10e2aa2e24f9a29c7c7d64612c2146c5a1cab44fdd2084c9febae6"
+    },
+    "3rdparty/genie/src/base/premake.lua": {
+      "sha256": "36b4e3f1d86362d1822eb4abd1dced8bb6b15d6834daeb6ad76a5c251327b6f8",
+      "bytes": 2923,
+      "member": "mame-24cffe763621b164fc10be2ae3660f140be25182/3rdparty/genie/src/base/premake.lua",
+      "mode": 436,
+      "packet_path": "evidence/source/3rdparty/genie/src/base/premake.lua.gz",
+      "compressed_sha256": "c1a429fb6b439391b52b3a1f4a8f199ed7c6dec8fb171d574c60623dbfda71a7"
+    },
+    "makefile": {
+      "sha256": "cfe33c43ec78c581c1e212d981acc463d48e3ebdd4cb9cc891cac3db9387d740",
+      "bytes": 52745,
+      "member": "mame-24cffe763621b164fc10be2ae3660f140be25182/makefile",
+      "mode": 436,
+      "packet_path": "evidence/source/makefile.gz",
+      "compressed_sha256": "74857045badf95fb690144b8e55700e4d74b020d4cf5332aac73e73e2ecee1d5"
+    },
+    "scripts/extlib.lua": {
+      "sha256": "524d641f660a75b7fe9bce2f731633e16913f28dba797ac1e9d0e49063cf3141",
+      "bytes": 3111,
+      "member": "mame-24cffe763621b164fc10be2ae3660f140be25182/scripts/extlib.lua",
+      "mode": 436,
+      "packet_path": "evidence/source/scripts/extlib.lua.gz",
+      "compressed_sha256": "842ac5c85d980a37bd3430c47944dcb21d0bfc7e0450b01f961ab761cdebf83a"
+    },
+    "scripts/genie.lua": {
+      "sha256": "b3dd93f153fa40fa69983f1cc24ee2119510a3459c22a378c6a4d80c4cef97d3",
+      "bytes": 37976,
+      "member": "mame-24cffe763621b164fc10be2ae3660f140be25182/scripts/genie.lua",
+      "mode": 436,
+      "packet_path": "evidence/source/scripts/genie.lua.gz",
+      "compressed_sha256": "6dbb5360f173723c9b25e0bd29faa1b84d4e3c5e0104c73ef8e140250e73a764"
+    },
+    "scripts/src/osd/modules.lua": {
+      "sha256": "f673df8cd1a085f91ba413e17d90a57b5a9600b8c2bba017ef3e25963f99a567",
+      "bytes": 25283,
+      "member": "mame-24cffe763621b164fc10be2ae3660f140be25182/scripts/src/osd/modules.lua",
+      "mode": 436,
+      "packet_path": "evidence/source/scripts/src/osd/modules.lua.gz",
+      "compressed_sha256": "4cf007fdb18eed539c916e1b793295e2f033b2374b3e589ea07d755a50e85210"
+    },
+    "scripts/src/osd/retro.lua": {
+      "sha256": "f30746280bc40906dd242f9c89c60140d893738100b789165eb9eb449a2d4bdd",
+      "bytes": 5276,
+      "member": "mame-24cffe763621b164fc10be2ae3660f140be25182/scripts/src/osd/retro.lua",
+      "mode": 436,
+      "packet_path": "evidence/source/scripts/src/osd/retro.lua.gz",
+      "compressed_sha256": "bc433bf72f1f5d1bc25c4cc79e9a0a81d0923e1756fa9f915abe61d17579824a"
+    },
+    "scripts/src/osd/sdl.lua": {
+      "sha256": "f501fcb7c4942f77f1b4640a922186866f81211985aeae9fedf277bd282db4e4",
+      "bytes": 12079,
+      "member": "mame-24cffe763621b164fc10be2ae3660f140be25182/scripts/src/osd/sdl.lua",
+      "mode": 436,
+      "packet_path": "evidence/source/scripts/src/osd/sdl.lua.gz",
+      "compressed_sha256": "8c9d50b8c490cfde19f03bd4a634e93652e459b370174dd520a15ffaa646bff6"
+    },
+    "scripts/src/osd/sdl_cfg.lua": {
+      "sha256": "d744a6c1e344a65f5c845320b25057be546aad4334e6f84e20f9a6e58ce2e00b",
+      "bytes": 2992,
+      "member": "mame-24cffe763621b164fc10be2ae3660f140be25182/scripts/src/osd/sdl_cfg.lua",
+      "mode": 436,
+      "packet_path": "evidence/source/scripts/src/osd/sdl_cfg.lua.gz",
+      "compressed_sha256": "8d45eb5d9fb0fc48e1ceafac0d0aabc56b75998b20dbac3218a3ff9850915b1c"
+    },
+    "scripts/src/tools.lua": {
+      "sha256": "61ebcf7f19b8031969caf09d1644c4f88cd502597a3dd4f6ae47dea89bb8e1c8",
+      "bytes": 15314,
+      "member": "mame-24cffe763621b164fc10be2ae3660f140be25182/scripts/src/tools.lua",
+      "mode": 436,
+      "packet_path": "evidence/source/scripts/src/tools.lua.gz",
+      "compressed_sha256": "512bca01bfdf3a41c434d4f32f1892f6ee66f6dc9f9ab1a368e515075298c66f"
+    },
+    "scripts/toolchain.lua": {
+      "sha256": "19b057222291c321c2a876a84c5b167c0999d0fde45b79da52f1a56266efdc64",
+      "bytes": 20567,
+      "member": "mame-24cffe763621b164fc10be2ae3660f140be25182/scripts/toolchain.lua",
+      "mode": 436,
+      "packet_path": "evidence/source/scripts/toolchain.lua.gz",
+      "compressed_sha256": "3cf9b053022ffdb73fd509b26906926138c853e212a3e695a43a6e9fdf78fc04"
+    },
+    "scripts/src/osd/retro_modules.lua": {
+      "sha256": "2c03acda235686cf7db0ccb25d9585f802e72f7d5932f32f49dfa9fb1eeb76bf",
+      "bytes": 6521,
+      "member": "mame-24cffe763621b164fc10be2ae3660f140be25182/scripts/src/osd/retro_modules.lua",
+      "mode": 436,
+      "packet_path": "evidence/source/scripts/src/osd/retro_modules.lua.gz",
+      "compressed_sha256": "db99f37bf9abb62414733d1b95a026f525d3110d57cda34d2b51af1af1bbf01e"
+    }
+  },
+  "method": "Static bounded selected-member read; no exporter, generator, compiler or source-tree build executed."
+}

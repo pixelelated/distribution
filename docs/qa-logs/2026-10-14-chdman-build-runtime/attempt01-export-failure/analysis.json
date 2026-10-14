@@ -1,0 +1,22 @@
+{
+  "original_status": "FAIL",
+  "source_extracted": false,
+  "compiler_started": false,
+  "cause": "Exporter rejected two exact upstream Zstd CLI test symlinks; special_members[] did not mean archive had no symlinks.",
+  "archive_sha256": "4867bee5dbd4129e6eea095fe8f8e9725563998710cc9620190e90529ef8931b",
+  "symlinks": [
+    {
+      "path": "3rdparty/zstd/tests/cli-tests/bin/unzstd",
+      "target": "zstd",
+      "mode": 511,
+      "size": 0
+    },
+    {
+      "path": "3rdparty/zstd/tests/cli-tests/bin/zstdcat",
+      "target": "zstd",
+      "mode": 511,
+      "size": 0
+    }
+  ],
+  "next": "Source-only narrow correction, fresh owner; historical runner/failure unchanged."
+}

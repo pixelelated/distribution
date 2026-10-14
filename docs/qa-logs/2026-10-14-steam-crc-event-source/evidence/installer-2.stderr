@@ -1,0 +1,70 @@
++ set -e
++ set -o pipefail
++ STEAM=/storage/.local/share/Steam
++ STEAM_GAMES_ROOT=/storage/games-internal/roms/steam
+++ steam_root_layout inspect
+++ /usr/bin/python3 -I -S -B - inspect /storage/.local/share/Steam /storage/games-internal/roms/steam ''
++ STEAM_ROOT_PLAN='{"library": "/storage/games-internal/roms/steam", "mounts": {"/storage": ["540", "538", "0:72", "/crc-failure-retry-10/storage", "/storage", "rw,nosuid,nodev,relatime", "-", "tmpfs", "tmpfs", "rw,size=3145728k,mode=700"]}, "root": {"entries": [["/storage", 72, 3, 16877], ["/storage/.local", 72, 53, 16877], ["/storage/.local/share", 72, 54, 16877], ["/storage/.local/share/Steam", 72, 55, 16877]], "exists": true, "path": "/storage/.local/share/Steam"}, "steam": "/storage/.local/share/Steam"}'
++ readonly STEAM STEAM_GAMES_ROOT STEAM_ROOT_PLAN
+++ steam_client_state tree
+++ /usr/bin/python3 -I -S -B - tree '{"library": "/storage/games-internal/roms/steam", "mounts": {"/storage": ["540", "538", "0:72", "/crc-failure-retry-10/storage", "/storage", "rw,nosuid,nodev,relatime", "-", "tmpfs", "tmpfs", "rw,size=3145728k,mode=700"]}, "root": {"entries": [["/storage", 72, 3, 16877], ["/storage/.local", 72, 53, 16877], ["/storage/.local/share", 72, 54, 16877], ["/storage/.local/share/Steam", 72, 55, 16877]], "exists": true, "path": "/storage/.local/share/Steam"}, "steam": "/storage/.local/share/Steam"}' '' '' ''
++ STEAM_CLIENT_PLAN='{"kind": "fresh", "root": "/storage/.local/share/Steam"}'
++ readonly STEAM_CLIENT_PLAN
++ source /etc/profile
+++ export PATH=/usr/bin:/bin
+++ PATH=/usr/bin:/bin
+++ /usr/bin/python3 -I -S -B /qa/boundary.py profile
++ STEAM_DOT=/storage/.steam
++ APPLICATIONS=/storage/.local/share/applications
++ FEX_DATA=/storage/.local/share/fex-emu
++ FEX_ARCH_ROOT=/storage/.local/share/fex-emu/RootFS/ArchLinux
++ FEX_ARCH_USR_LIB=/storage/.local/share/fex-emu/RootFS/ArchLinux/usr/lib
++ RUNTIME_DIR=/storage/.local/share/Steam/steam-runtime-steamrt-arm64
++ CLIENT_DIR=/storage/.local/share/Steam/steamrtarm64
++ RUNTIME_TAR_BASE=https://repo.steampowered.com/steamrt3c/images
++ RUNTIME_TAR_VERSION_URL=https://repo.steampowered.com/steamrt3c/images/latest-public-stable.txt
++ STEAM_MANIFEST_URL=https://client-update.fastly.steamstatic.com/steam_client_publicbeta_linuxarm64
++ STEAM_CDN=https://client-update.steamstatic.com
++ PROTON_CACHYOS_RELEASE_API=https://api.github.com/repos/CachyOS/proton-cachyos/releases/latest
++ PROTON_GE_RELEASE_API=https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest
++ unset MESA_LOADER_DRIVER_OVERRIDE
++ steam_root_layout verify
++ /usr/bin/python3 -I -S -B - verify /storage/.local/share/Steam /storage/games-internal/roms/steam '{"library": "/storage/games-internal/roms/steam", "mounts": {"/storage": ["540", "538", "0:72", "/crc-failure-retry-10/storage", "/storage", "rw,nosuid,nodev,relatime", "-", "tmpfs", "tmpfs", "rw,size=3145728k,mode=700"]}, "root": {"entries": [["/storage", 72, 3, 16877], ["/storage/.local", 72, 53, 16877], ["/storage/.local/share", 72, 54, 16877], ["/storage/.local/share/Steam", 72, 55, 16877]], "exists": true, "path": "/storage/.local/share/Steam"}, "steam": "/storage/.local/share/Steam"}'
+++ steam_client_state metadata
+++ /usr/bin/python3 -I -S -B - metadata '{"library": "/storage/games-internal/roms/steam", "mounts": {"/storage": ["540", "538", "0:72", "/crc-failure-retry-10/storage", "/storage", "rw,nosuid,nodev,relatime", "-", "tmpfs", "tmpfs", "rw,size=3145728k,mode=700"]}, "root": {"entries": [["/storage", 72, 3, 16877], ["/storage/.local", 72, 53, 16877], ["/storage/.local/share", 72, 54, 16877], ["/storage/.local/share/Steam", 72, 55, 16877]], "exists": true, "path": "/storage/.local/share/Steam"}, "steam": "/storage/.local/share/Steam"}' /storage/.steam '{"kind": "fresh", "root": "/storage/.local/share/Steam"}' ''
++ STEAM_CLIENT_METADATA_PLAN='{"dot": {"entries": [["/storage", 72, 3, 16384], ["/storage/.steam", 72, 70, 16384]], "exists": true, "input": "/storage/.steam", "path": "/storage/.steam"}, "mounts": {"/storage": ["540", "538", "0:72", "/crc-failure-retry-10/storage", "/storage", "rw,nosuid,nodev,relatime", "-", "tmpfs", "tmpfs", "rw,size=3145728k,mode=700"]}, "nodes": [{"before": null, "kind": "directory", "path": "/storage/.local/share/Steam/package", "value": null}, {"before": null, "kind": "file", "path": "/storage/.local/share/Steam/package/beta", "value": "7075626c6963626574610a"}, {"before": {"id": [72, 70, 16384]}, "kind": "directory", "path": "/storage/.steam", "value": null}, {"before": null, "kind": "link", "path": "/storage/.steam/steam", "value": "/storage/.local/share/Steam"}, {"before": null, "kind": "link", "path": "/storage/.steam/sdkarm64", "value": "/storage/.local/share/Steam/linuxarm64"}]}'
++ readonly STEAM_DOT STEAM_CLIENT_METADATA_PLAN
++ set_kill set '-9 steam FEX'
++ /usr/bin/python3 -I -S -B /qa/boundary.py set_kill set '-9 steam FEX'
++ log_info 'Starting Steam Installation Process...'
++ echo -e '[\033[1;34mINFO\033[0m] Starting Steam Installation Process...'
++ ensure_fex_rootfs
++ log_info 'Preparing the Steam support environment. This may take a while...'
++ echo -e '[\033[1;34mINFO\033[0m] Preparing the Steam support environment. This may take a while...'
++ /usr/bin/python3 -I -S -B - /storage/.local/share/fex-emu
++ log_info 'Steam support environment is ready.'
++ echo -e '[\033[1;34mINFO\033[0m] Steam support environment is ready.'
++ link_steam_library
++ log_info 'Checking Steam library...'
++ echo -e '[\033[1;34mINFO\033[0m] Checking Steam library...'
++ steam_root_layout link
++ /usr/bin/python3 -I -S -B - link /storage/.local/share/Steam /storage/games-internal/roms/steam '{"library": "/storage/games-internal/roms/steam", "mounts": {"/storage": ["540", "538", "0:72", "/crc-failure-retry-10/storage", "/storage", "rw,nosuid,nodev,relatime", "-", "tmpfs", "tmpfs", "rw,size=3145728k,mode=700"]}, "root": {"entries": [["/storage", 72, 3, 16877], ["/storage/.local", 72, 53, 16877], ["/storage/.local/share", 72, 54, 16877], ["/storage/.local/share/Steam", 72, 55, 16877]], "exists": true, "path": "/storage/.local/share/Steam"}, "steam": "/storage/.local/share/Steam"}'
++ ensure_steam_desktop_stub
++ log_info 'Ensuring Steam desktop stub exists...'
++ echo -e '[\033[1;34mINFO\033[0m] Ensuring Steam desktop stub exists...'
++ mkdir -p /storage/.local/share/applications
++ touch /storage/.local/share/applications/Steam.desktop
++ install_steam_runtime_arm64
++ log_info 'Downloading and installing Steam runtime (ARM64)...'
++ echo -e '[\033[1;34mINFO\033[0m] Downloading and installing Steam runtime (ARM64)...'
++ python3 - /storage/.local/share/Steam https://repo.steampowered.com/steamrt3c/images/latest-public-stable.txt https://repo.steampowered.com/steamrt3c/images
++ return 0
++ install_steam_client_arm64
++ steam_client_state install
++ /usr/bin/python3 -I -S -B - install '{"library": "/storage/games-internal/roms/steam", "mounts": {"/storage": ["540", "538", "0:72", "/crc-failure-retry-10/storage", "/storage", "rw,nosuid,nodev,relatime", "-", "tmpfs", "tmpfs", "rw,size=3145728k,mode=700"]}, "root": {"entries": [["/storage", 72, 3, 16877], ["/storage/.local", 72, 53, 16877], ["/storage/.local/share", 72, 54, 16877], ["/storage/.local/share/Steam", 72, 55, 16877]], "exists": true, "path": "/storage/.local/share/Steam"}, "steam": "/storage/.local/share/Steam"}' /storage/.steam '{"kind": "fresh", "root": "/storage/.local/share/Steam"}' '{"dot": {"entries": [["/storage", 72, 3, 16384], ["/storage/.steam", 72, 70, 16384]], "exists": true, "input": "/storage/.steam", "path": "/storage/.steam"}, "mounts": {"/storage": ["540", "538", "0:72", "/crc-failure-retry-10/storage", "/storage", "rw,nosuid,nodev,relatime", "-", "tmpfs", "tmpfs", "rw,size=3145728k,mode=700"]}, "nodes": [{"before": null, "kind": "directory", "path": "/storage/.local/share/Steam/package", "value": null}, {"before": null, "kind": "file", "path": "/storage/.local/share/Steam/package/beta", "value": "7075626c6963626574610a"}, {"before": {"id": [72, 70, 16384]}, "kind": "directory", "path": "/storage/.steam", "value": null}, {"before": null, "kind": "link", "path": "/storage/.steam/steam", "value": "/storage/.local/share/Steam"}, {"before": null, "kind": "link", "path": "/storage/.steam/sdkarm64", "value": "/storage/.local/share/Steam/linuxarm64"}]}'
+Steam client setup stopped: Steam client transfer failed (exit 1).
++ die 'Steam client setup could not finish. Existing client files were kept.'
++ echo -e '[\033[1;31mERROR\033[0m] Steam client setup could not finish. Existing client files were kept.'
+[[1;31mERROR[0m] Steam client setup could not finish. Existing client files were kept.
++ sleep 10
++ exit 1

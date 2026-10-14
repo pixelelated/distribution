@@ -1,0 +1,41 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T162706Z-c9eabb5e",
+  "expected_rc": 1,
+  "disposition": "failed-investigated",
+  "outputs": [
+    {
+      "issue": 574,
+      "kind": "build-cache",
+      "path": "/workspace/tmp/pix574-chdman-build-20261014-02/work",
+      "release_when": "Retire after selected converter VM qualification; preserve compact source/artifact/failure receipts."
+    },
+    {
+      "issue": 574,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix574-chdman-build-20261014-02/stages",
+      "release_when": "Preserve original child/container/watcher/launcher channels and host identity/cleanup receipts before scratch retirement."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix574-chdman-build-20261014-02/stages/chdman-configure/result.json",
+      "sha256": "b065883b2186b8c9d8766876b1ffa22271e6bd41763ae4700675f7a1bf2549bd"
+    },
+    {
+      "path": "/workspace/tmp/pix574-chdman-build-20261014-02/stages/chdman-configure/container-result.json",
+      "sha256": "3b8591af25f1bcb2ba697bd0215aea11a0d0521f026023c8931efe538acbc57b"
+    },
+    {
+      "path": "/workspace/tmp/pix574-chdman-build-20261014-02/stages/chdman-configure/host-completion.json",
+      "sha256": "14f3400e7fc4a5a55ebea22d579ee13c9dc8e2429c0a58269b97d2f586c1d845"
+    },
+    {
+      "path": "/workspace/tmp/pix574-chdman-build-20261014-02/stages/chdman-configure/watchdog-result.json",
+      "sha256": "9a82748fd15c4bba6ea917244dae8d06c8567b94530f859749dea2afc6ab4bac"
+    },
+    {
+      "path": "/workspace/tmp/pix574-chdman-build-20261014-02/stages/chdman-configure/submit/launcher-result.json",
+      "sha256": "ca118fec4aecc1b12b39f0ce8ec09cf9117adb36ea313262477029d0b89c78c0"
+    }
+  ]
+}

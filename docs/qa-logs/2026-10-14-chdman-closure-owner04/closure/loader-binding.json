@@ -1,0 +1,29 @@
+{
+  "program_interpreter": "/lib64/ld-linux-x86-64.so.2",
+  "interpreter_map": {
+    "/lib64/ld-linux-x86-64.so.2": "usr/lib/ld-linux-x86-64.so.2",
+    "/usr/lib/ld-linux-x86-64.so.2": "usr/lib/ld-linux-x86-64.so.2"
+  },
+  "canonical": {
+    "relative_to_toolchain": "x86_64-rocknix-linux-gnu/sysroot/usr/lib/ld-linux-x86-64.so.2",
+    "bytes": 1352760,
+    "mode": 493,
+    "sha256": "ce676fd2c523729f7660bfaf1e34f7c221cb70bb7c238feb8ffd46c9bc00ff29"
+  },
+  "source_files": {
+    "scripts/image": {
+      "sha256": "4c5d26ea688c6c033cd80af6dcb7eae944b3d67bb3b410d54d6856d2651f8fee",
+      "bytes": 16621
+    },
+    "packages/devel/glibc/package.mk": {
+      "sha256": "7f61903291b2ba2b5ae00e54f28d849871a6ffe5e366a7fdd50480660dfe8059",
+      "bytes": 5385
+    }
+  },
+  "sdk_absent_paths": [
+    "lib64",
+    "lib",
+    "usr/lib64"
+  ],
+  "explanation": "SDK has no image-level legacy aliases; image x86_64 lib64 symlink and glibc /usr/lib install resolve both observed PT_INTERP strings to these exact retained bytes."
+}

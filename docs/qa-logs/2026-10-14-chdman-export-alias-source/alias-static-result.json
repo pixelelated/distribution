@@ -1,0 +1,52 @@
+{
+  "status": "STATIC_ONLY_PASS",
+  "archive_sha256": "4867bee5dbd4129e6eea095fe8f8e9725563998710cc9620190e90529ef8931b",
+  "archive_bytes": 213471628,
+  "archive_members": 33835,
+  "regular_bytes": 897821359,
+  "exact_omissions": [
+    {
+      "path": "3rdparty/zstd/tests/cli-tests/bin/unzstd",
+      "target": "zstd",
+      "mode": 511,
+      "bytes": 0
+    },
+    {
+      "path": "3rdparty/zstd/tests/cli-tests/bin/zstdcat",
+      "target": "zstd",
+      "mode": 511,
+      "bytes": 0
+    }
+  ],
+  "selected_templates_rechecked": [
+    "3rdparty/genie/build/gmake.linux/genie.make",
+    "3rdparty/genie/src/actions/make/make_cpp.lua",
+    "3rdparty/genie/src/actions/make/make_solution.lua",
+    "scripts/genie.lua",
+    "scripts/src/tools.lua",
+    "scripts/toolchain.lua"
+  ],
+  "unchanged_files": [
+    "bindings.json",
+    "common.py",
+    "docker_owner.py",
+    "inner.py",
+    "mame.py",
+    "plan.py",
+    "plan/build-stage.sh",
+    "plan/chdman-shared-libstdcxx.patch",
+    "plan/dolphin-options.cmake",
+    "plan/dolphin-submodules.tsv",
+    "plan/input-bindings.json",
+    "plan/source-evidence.txt",
+    "plan/static-checks.json",
+    "plan/upstream-check.json",
+    "run-stage.py",
+    "static-check.py",
+    "template-evidence.json",
+    "watchdog.py"
+  ],
+  "original_failure_preserved": true,
+  "runner_imported": false,
+  "export_configure_build_runtime": "UNRUN"
+}

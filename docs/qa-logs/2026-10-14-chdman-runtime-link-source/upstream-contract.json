@@ -1,0 +1,8 @@
+{
+  "checked_date": "2026-10-14",
+  "primary_url": "https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Link-Options.html",
+  "browser_read": "SUCCESS; official version-specific documentation",
+  "applicability": "GCC15.2 documents explicit shared/static libgcc selection and G++ shared-libgcc default for C++ exception propagation; exact retained GCC15.2 source text independently binds the driver decision. Owner03 forces the static override while its shared libstdc++ requires libgcc_s.so.1. This is a local QA link-policy mismatch, not evidence of an upstream compiler defect or a need to bump pins.",
+  "proposed_change": "Replace -static-libgcc with explicit -shared-libgcc in the existing shared-C++ scratch patch; do not change -O1/LTO/OpenMP/codec archives/features.",
+  "limits": "No compiler -###, linker, readelf, ELF introspection, binary loading or execution performed. Source contracts and original linker diagnostics do not prove the next link or target loader succeeds."
+}

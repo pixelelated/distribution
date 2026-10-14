@@ -1,0 +1,43 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T152530Z-99e00066",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 583,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix583-native-vm-20261014-01/vm",
+      "release_when": "Original guest/guard/lifecycle receipts exported and verified; actual owners exited; consume admission then remove disk/media/UEFI. Preserve only immediate-next-test synthetic inputs."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-native-runtime/attempt01/export-result.json",
+      "sha256": "ea543ab0ca881fe16a78cb3976fe8ef65867acbe9ef4be0734f1273cc6a7aa05"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-native-runtime/attempt01/host-exits.json",
+      "sha256": "22e401f9a60b26d58d7f66e10752d4c4e824993771906b09c9b8c407b6812fcc"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-native-runtime/attempt01/guest-manifest.json",
+      "sha256": "0510469abbc118a56dc703a55aea2a0a934e9e4c61c2cd979fa522fbd0c605df"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-native-runtime/attempt01/original-records.json",
+      "sha256": "aa0b651e3b9ffee14a27118b83f75c8aa82b1765be23a25ac9a8782afbf6e88c"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-native-runtime/attempt01/guest/admission.json",
+      "sha256": "0d8a418cd75b89555a7a09e4215d86613af747e2078b32ddbbff858f82b727e8"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-native-runtime/attempt01/guest/run01/owner-result.json",
+      "sha256": "bf32b3a2512c01fff5ece00a8d5ea25cd8d7378f73f60c64c2a2851e269b0a54"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-native-runtime/attempt01/guest/run01/payload/result.json",
+      "sha256": "8143545dd8923a225faf8727a0abb5e92c9ffd72e3eebb9bdd9bd057c57a5c07"
+    }
+  ]
+}

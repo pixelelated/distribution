@@ -1,0 +1,106 @@
+{
+  "chdman-export": {
+    "status": "PASS",
+    "original_attach_exit": 0,
+    "original_container_exit": 0,
+    "watchdog_original_exit": 0,
+    "original_launcher_exit": 0,
+    "cleanup_status": "PASS",
+    "forced_stop": false,
+    "survivors": [],
+    "remaining_cgroup_pids": [],
+    "container_elapsed_seconds": 10.139190196990967,
+    "original_children": [
+      {
+        "label": "export",
+        "exit": 0
+      }
+    ],
+    "source_after": {
+      "files": 31411,
+      "inventory_sha256": "2beabc1c0eb42d5cd835f86f4b9ac3058ae9ffaccbf3cb964a2edf91c2cf1462",
+      "converter_pristine": true,
+      "one_documented_link_policy_patch": "scripts/genie.lua",
+      "documented_osd_selection_patch": "scripts/toolchain.lua"
+    },
+    "error": null
+  },
+  "chdman-bootstrap": {
+    "status": "PASS",
+    "original_attach_exit": 0,
+    "original_container_exit": 0,
+    "watchdog_original_exit": 0,
+    "original_launcher_exit": 0,
+    "cleanup_status": "PASS",
+    "forced_stop": false,
+    "survivors": [],
+    "remaining_cgroup_pids": [],
+    "container_elapsed_seconds": 9.604214906692505,
+    "original_children": [
+      {
+        "label": "selected-stage",
+        "exit": 0
+      }
+    ],
+    "source_after": {
+      "files": 31411,
+      "inventory_sha256": "2beabc1c0eb42d5cd835f86f4b9ac3058ae9ffaccbf3cb964a2edf91c2cf1462",
+      "converter_pristine": true,
+      "one_documented_link_policy_patch": "scripts/genie.lua",
+      "documented_osd_selection_patch": "scripts/toolchain.lua"
+    },
+    "error": null
+  },
+  "chdman-configure": {
+    "status": "PASS",
+    "original_attach_exit": 0,
+    "original_container_exit": 0,
+    "watchdog_original_exit": 0,
+    "original_launcher_exit": 0,
+    "cleanup_status": "PASS",
+    "forced_stop": false,
+    "survivors": [],
+    "remaining_cgroup_pids": [],
+    "container_elapsed_seconds": 9.546940088272095,
+    "original_children": [
+      {
+        "label": "selected-stage",
+        "exit": 0
+      }
+    ],
+    "source_after": {
+      "files": 31411,
+      "inventory_sha256": "2beabc1c0eb42d5cd835f86f4b9ac3058ae9ffaccbf3cb964a2edf91c2cf1462",
+      "converter_pristine": true,
+      "one_documented_link_policy_patch": "scripts/genie.lua",
+      "documented_osd_selection_patch": "scripts/toolchain.lua"
+    },
+    "error": null
+  },
+  "chdman-build": {
+    "status": "FAIL",
+    "original_attach_exit": 1,
+    "original_container_exit": 1,
+    "watchdog_original_exit": 0,
+    "original_launcher_exit": 1,
+    "cleanup_status": "PASS",
+    "forced_stop": false,
+    "survivors": [],
+    "remaining_cgroup_pids": [],
+    "container_elapsed_seconds": 50.99465894699097,
+    "original_children": [
+      {
+        "label": "selected-stage",
+        "exit": 2
+      }
+    ],
+    "source_after": {
+      "files": 31411,
+      "inventory_sha256": "2beabc1c0eb42d5cd835f86f4b9ac3058ae9ffaccbf3cb964a2edf91c2cf1462",
+      "converter_pristine": true,
+      "one_documented_link_policy_patch": "scripts/genie.lua",
+      "documented_osd_selection_patch": "scripts/toolchain.lua"
+    },
+    "error": "RuntimeError('original child failed: selected-stage')"
+  }
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "empty",
+    "raw": "",
+    "accept": true
+  },
+  {
+    "name": "header-only",
+    "raw": "Iface\tDestination\tGateway\tFlags\tRefCnt\tUse\tMetric\tMask\t\tMTU\tWindow\tIRTT\n",
+    "accept": true
+  },
+  {
+    "name": "header-no-newline",
+    "raw": "Iface\tDestination\tGateway\tFlags\tRefCnt\tUse\tMetric\tMask\t\tMTU\tWindow\tIRTT",
+    "accept": true
+  },
+  {
+    "name": "header-spaces",
+    "raw": "Iface Destination Gateway Flags RefCnt Use Metric Mask MTU Window IRTT\n",
+    "accept": true
+  },
+  {
+    "name": "header-with-default-route",
+    "raw": "Iface\tDestination\tGateway\tFlags\tRefCnt\tUse\tMetric\tMask\t\tMTU\tWindow\tIRTT\neth0\t00000000\t0100000A\t0003\t0\t0\t100\t00000000\t0\t0\t0\n",
+    "accept": false
+  },
+  {
+    "name": "single-headerless-route",
+    "raw": "eth0\t00000000\t0100000A\t0003\t0\t0\t100\t00000000\t0\t0\t0\n",
+    "accept": false
+  },
+  {
+    "name": "malformed-header",
+    "raw": "Interface\tDestination\tGateway\tFlags\tRefCnt\tUse\tMetric\tMask\t\tMTU\tWindow\tIRTT\n",
+    "accept": false
+  },
+  {
+    "name": "duplicate-header",
+    "raw": "Iface\tDestination\tGateway\tFlags\tRefCnt\tUse\tMetric\tMask\t\tMTU\tWindow\tIRTT\nIface\tDestination\tGateway\tFlags\tRefCnt\tUse\tMetric\tMask\t\tMTU\tWindow\tIRTT\n",
+    "accept": false
+  },
+  {
+    "name": "blank-line",
+    "raw": "\n",
+    "accept": false
+  },
+  {
+    "name": "whitespace-only",
+    "raw": " \t",
+    "accept": false
+  },
+  {
+    "name": "header-extra-blank-line",
+    "raw": "Iface\tDestination\tGateway\tFlags\tRefCnt\tUse\tMetric\tMask\t\tMTU\tWindow\tIRTT\n\n",
+    "accept": false
+  },
+  {
+    "name": "non-table-text",
+    "raw": "no routes\n",
+    "accept": false
+  },
+  {
+    "name": "embedded-nul",
+    "raw": "Iface\tDestination\tGateway\tFlags\tRefCnt\tUse\tMetric\tMask\t\tMTU\tWindow\tIRTT\u0000\n",
+    "accept": false
+  },
+  {
+    "name": "non-string",
+    "raw": null,
+    "accept": false
+  }
+]

@@ -1,0 +1,1477 @@
+{
+  "basis": "Read-only source/observed argv inspection, not make/Lua evaluation or a configure success claim",
+  "observed_owner02_generator_argv": [
+    "3rdparty/genie/bin/linux/genie",
+    "--with-system-expat=0",
+    "--with-system-zlib=0",
+    "--with-system-zstd=0",
+    "--with-system-flac=0",
+    "--with-system-utf8proc=0",
+    "--CC=/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc",
+    "--CXX=/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-g++",
+    "--LD=/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-g++",
+    "--AR=/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-ar",
+    "--SYMBOLS=0",
+    "--with-tools",
+    "--OPTIMIZE=1",
+    "--NOWERROR=1",
+    "--target=mame",
+    "--subtarget=mame",
+    "--build-dir=build",
+    "--USE_TAPTUN=0",
+    "--USE_PCAP=0",
+    "--NO_OPENGL=1",
+    "--NO_USE_MIDI=1",
+    "--NO_USE_PORTAUDIO=1",
+    "--NO_USE_PULSEAUDIO=1",
+    "--NO_USE_PIPEWIRE=1",
+    "--USE_QTDEBUG=0",
+    "--NO_X11=1",
+    "--NO_USE_XINPUT=1",
+    "--NO_USE_XINPUT_WII_LIGHTGUN_HACK=1",
+    "--LTO=0",
+    "--OPENMP=0",
+    "--PYTHON_EXECUTABLE=python3",
+    "--STRIP_SYMBOLS=0",
+    "--precompile=0",
+    "--osd=sdl",
+    "--targetos=linux",
+    "--PLATFORM=x86",
+    "--gcc=linux-gcc",
+    "--gcc_version=15.2.0",
+    "gmake"
+  ],
+  "unchanged_configure_make_assignments": [
+    {
+      "name": "TARGET",
+      "value": "mame",
+      "makefile_uses": [
+        {
+          "line": 275,
+          "text": "TARGET := $(PROJECT)"
+        },
+        {
+          "line": 278,
+          "text": "ifndef TARGET"
+        },
+        {
+          "line": 279,
+          "text": "TARGET := mame"
+        },
+        {
+          "line": 283,
+          "text": "SUBTARGET := $(TARGET)"
+        },
+        {
+          "line": 724,
+          "text": "ifdef TARGET"
+        },
+        {
+          "line": 725,
+          "text": "PARAMS += --target='$(TARGET)'"
+        },
+        {
+          "line": 933,
+          "text": "\t$(wildcard src/$(TARGET)/$(SUBTARGET_FULL).mak)"
+        },
+        {
+          "line": 940,
+          "text": "SCRIPTS += projects/$(PROJECT)/scripts/target/$(TARGET)/$(SUBTARGET_FULL).lua"
+        },
+        {
+          "line": 992,
+          "text": "PROJECT_NAME := $(TARGET)$(SUBTARGET_FULL)"
+        },
+        {
+          "line": 1090,
+          "text": "ifeq ($(TARGET),$(SUBTARGET_FULL))"
+        },
+        {
+          "line": 1091,
+          "text": "FULLTARGET := $(TARGET)"
+        },
+        {
+          "line": 1093,
+          "text": "FULLTARGET := $(TARGET)$(SUBTARGET_FULL)"
+        },
+        {
+          "line": 1566,
+          "text": "GEN_FOLDERS := $(GENDIR)/$(TARGET)/layout/ $(GENDIR)/$(TARGET)/$(SUBTARGET_FULL)/ $(GENDIR)/mame/drivers/ $(GENDIR)/mame/machine/"
+        },
+        {
+          "line": 1569,
+          "text": "LAYOUTS=$(wildcard $(SRC)/$(TARGET)/layout/*.lay)"
+        },
+        {
+          "line": 1575,
+          "text": "ifneq (,$(wildcard src/$(TARGET)/$(TARGET).mak))"
+        },
+        {
+          "line": 1576,
+          "text": "include src/$(TARGET)/$(TARGET).mak"
+        }
+      ]
+    },
+    {
+      "name": "SUBTARGET",
+      "value": "mame",
+      "makefile_uses": [
+        {
+          "line": 282,
+          "text": "ifndef SUBTARGET"
+        },
+        {
+          "line": 283,
+          "text": "SUBTARGET := $(TARGET)"
+        },
+        {
+          "line": 286,
+          "text": "SUBTARGET_FULL := $(subst -,_,$(SUBTARGET))"
+        }
+      ]
+    },
+    {
+      "name": "OSD",
+      "value": "sdl",
+      "makefile_uses": [
+        {
+          "line": 455,
+          "text": "ifndef OSD"
+        },
+        {
+          "line": 457,
+          "text": "OSD := sdl"
+        },
+        {
+          "line": 460,
+          "text": "OSD := windows"
+        },
+        {
+          "line": 462,
+          "text": "OSD := sdl"
+        },
+        {
+          "line": 464,
+          "text": "OSD := sdl"
+        },
+        {
+          "line": 466,
+          "text": "OSD := sdl"
+        },
+        {
+          "line": 468,
+          "text": "OSD := sdl"
+        },
+        {
+          "line": 470,
+          "text": "OSD := sdl3"
+        },
+        {
+          "line": 472,
+          "text": "OSD := sdl3"
+        },
+        {
+          "line": 475,
+          "text": "endif # OSD"
+        },
+        {
+          "line": 732,
+          "text": "ifdef OSD"
+        },
+        {
+          "line": 733,
+          "text": "TARGET_PARAMS += --osd='$(OSD)'"
+        },
+        {
+          "line": 921,
+          "text": "\t$(wildcard scripts/src/osd/$(OSD)*.lua) \\"
+        },
+        {
+          "line": 932,
+          "text": "\t$(wildcard src/osd/$(OSD)/$(OSD).mak) \\"
+        },
+        {
+          "line": 1076,
+          "text": "ifeq ($(OSD), retro)"
+        },
+        {
+          "line": 1095,
+          "text": "PROJECTDIR := $(BUILDDIR)/projects/$(OSD)/$(FULLTARGET)"
+        },
+        {
+          "line": 1205,
+          "text": "ifneq ($(OSD), retro)"
+        },
+        {
+          "line": 1224,
+          "text": "ifeq ($(OSD), retro)"
+        },
+        {
+          "line": 1247,
+          "text": "ifeq ($(OSD), retro)"
+        },
+        {
+          "line": 1269,
+          "text": "ifeq ($(OSD), retro)"
+        },
+        {
+          "line": 1292,
+          "text": "ifeq ($(OSD), retro)"
+        },
+        {
+          "line": 1571,
+          "text": "ifneq (,$(wildcard src/osd/$(OSD)/$(OSD).mak))"
+        },
+        {
+          "line": 1572,
+          "text": "include src/osd/$(OSD)/$(OSD).mak"
+        }
+      ]
+    },
+    {
+      "name": "TARGETOS",
+      "value": "linux",
+      "makefile_uses": [
+        {
+          "line": 313,
+          "text": "ifndef TARGETOS"
+        },
+        {
+          "line": 316,
+          "text": "TARGETOS := windows"
+        },
+        {
+          "line": 340,
+          "text": "TARGETOS := $(OS)"
+        },
+        {
+          "line": 360,
+          "text": "else # TARGETOS"
+        },
+        {
+          "line": 362,
+          "text": "endif # TARGETOS"
+        },
+        {
+          "line": 395,
+          "text": "TARGETOS := asmjs"
+        },
+        {
+          "line": 443,
+          "text": "ifneq ($(TARGETOS),asmjs)"
+        },
+        {
+          "line": 459,
+          "text": "ifeq ($(TARGETOS),windows)"
+        },
+        {
+          "line": 461,
+          "text": "else ifeq ($(TARGETOS),linux)"
+        },
+        {
+          "line": 463,
+          "text": "else ifeq ($(TARGETOS),freebsd)"
+        },
+        {
+          "line": 465,
+          "text": "else ifeq ($(TARGETOS),netbsd)"
+        },
+        {
+          "line": 467,
+          "text": "else ifeq ($(TARGETOS),openbsd)"
+        },
+        {
+          "line": 469,
+          "text": "else ifeq ($(TARGETOS),macosx)"
+        },
+        {
+          "line": 471,
+          "text": "else ifeq ($(TARGETOS),asmjs)"
+        },
+        {
+          "line": 473,
+          "text": "endif # TARGETOS"
+        },
+        {
+          "line": 740,
+          "text": "ifdef TARGETOS"
+        },
+        {
+          "line": 741,
+          "text": "TARGET_PARAMS += --targetos='$(TARGETOS)'"
+        },
+        {
+          "line": 1043,
+          "text": "ifneq ($(TARGETOS),asmjs)"
+        },
+        {
+          "line": 1100,
+          "text": "all: $(GENIE) $(TARGETOS)$(ARCHITECTURE)"
+        }
+      ]
+    },
+    {
+      "name": "CROSS_BUILD",
+      "value": "1",
+      "makefile_uses": [
+        {
+          "line": 361,
+          "text": "CROSS_BUILD := 1"
+        },
+        {
+          "line": 572,
+          "text": "ifndef CROSS_BUILD"
+        },
+        {
+          "line": 578,
+          "text": "ifndef CROSS_BUILD"
+        },
+        {
+          "line": 584,
+          "text": "ifndef CROSS_BUILD"
+        },
+        {
+          "line": 590,
+          "text": "ifndef CROSS_BUILD"
+        }
+      ]
+    },
+    {
+      "name": "PTR64",
+      "value": "1",
+      "makefile_uses": [
+        {
+          "line": 364,
+          "text": "ifdef PTR64"
+        },
+        {
+          "line": 365,
+          "text": "ifeq ($(PTR64),1)"
+        }
+      ]
+    },
+    {
+      "name": "TOOLS",
+      "value": "1",
+      "makefile_uses": [
+        {
+          "line": 630,
+          "text": "ifdef TOOLS"
+        },
+        {
+          "line": 631,
+          "text": "ifneq '$(TOOLS)' '0'"
+        }
+      ]
+    },
+    {
+      "name": "EMULATOR",
+      "value": "0",
+      "makefile_uses": [
+        {
+          "line": 636,
+          "text": "ifndef EMULATOR"
+        },
+        {
+          "line": 639,
+          "text": "ifeq '$(EMULATOR)' '1'"
+        }
+      ]
+    },
+    {
+      "name": "TESTS",
+      "value": "0",
+      "makefile_uses": [
+        {
+          "line": 644,
+          "text": "ifdef TESTS"
+        },
+        {
+          "line": 645,
+          "text": "ifneq '$(TESTS)' '0'"
+        }
+      ]
+    },
+    {
+      "name": "BENCHMARKS",
+      "value": "0",
+      "makefile_uses": [
+        {
+          "line": 650,
+          "text": "ifdef BENCHMARKS"
+        },
+        {
+          "line": 651,
+          "text": "ifneq '$(BENCHMARKS)' '0'"
+        }
+      ]
+    },
+    {
+      "name": "IGNORE_GIT",
+      "value": "1",
+      "makefile_uses": [
+        {
+          "line": 1063,
+          "text": "\tIGNORE_GIT := 1"
+        },
+        {
+          "line": 1066,
+          "text": "\tIGNORE_GIT := 1"
+        },
+        {
+          "line": 1075,
+          "text": "ifneq ($(IGNORE_GIT),1)"
+        }
+      ]
+    },
+    {
+      "name": "NEW_GIT_VERSION",
+      "value": "24cffe763621b164fc10be2ae3660f140be25182",
+      "makefile_uses": [
+        {
+          "line": 1077,
+          "text": "NEW_GIT_VERSION := $(shell git rev-parse --short HEAD)"
+        },
+        {
+          "line": 1079,
+          "text": "NEW_GIT_VERSION := $(shell git describe --dirty)"
+        },
+        {
+          "line": 1082,
+          "text": "NEW_GIT_VERSION := unknown"
+        },
+        {
+          "line": 1084,
+          "text": "ifeq ($(NEW_GIT_VERSION),)"
+        },
+        {
+          "line": 1085,
+          "text": "NEW_GIT_VERSION := unknown"
+        },
+        {
+          "line": 1591,
+          "text": "ifneq ($(NEW_GIT_VERSION),$(OLD_GIT_VERSION))"
+        },
+        {
+          "line": 1597,
+          "text": "\t@echo $(NEW_GIT_VERSION) > $@"
+        },
+        {
+          "line": 1603,
+          "text": "\t@echo '#define BARE_VCS_REVISION \"$(NEW_GIT_VERSION)\"' >> $@"
+        },
+        {
+          "line": 1613,
+          "text": "\t@echo #define BARE_VCS_REVISION \"$(NEW_GIT_VERSION)\" >> $@"
+        }
+      ]
+    },
+    {
+      "name": "PYTHON_EXECUTABLE",
+      "value": "python3",
+      "makefile_uses": [
+        {
+          "line": 437,
+          "text": "ifndef PYTHON_EXECUTABLE"
+        },
+        {
+          "line": 440,
+          "text": "PYTHON := $(PYTHON_EXECUTABLE)"
+        },
+        {
+          "line": 856,
+          "text": "ifdef PYTHON_EXECUTABLE"
+        },
+        {
+          "line": 857,
+          "text": "PARAMS += --PYTHON_EXECUTABLE='$(PYTHON_EXECUTABLE)'"
+        }
+      ]
+    },
+    {
+      "name": "VERBOSE",
+      "value": "1",
+      "makefile_uses": [
+        {
+          "line": 296,
+          "text": "ifdef VERBOSE"
+        },
+        {
+          "line": 1721,
+          "text": "ifndef VERBOSE"
+        }
+      ]
+    },
+    {
+      "name": "NOWERROR",
+      "value": "1",
+      "makefile_uses": [
+        {
+          "line": 720,
+          "text": "ifdef NOWERROR"
+        },
+        {
+          "line": 721,
+          "text": "PARAMS += --NOWERROR='$(NOWERROR)'"
+        }
+      ]
+    },
+    {
+      "name": "PRECOMPILE",
+      "value": "0",
+      "makefile_uses": [
+        {
+          "line": 888,
+          "text": "ifdef PRECOMPILE"
+        },
+        {
+          "line": 889,
+          "text": "PARAMS += --precompile='$(PRECOMPILE)'"
+        }
+      ]
+    },
+    {
+      "name": "OPTIMIZE",
+      "value": "1",
+      "makefile_uses": [
+        {
+          "line": 612,
+          "text": "ifndef OPTIMIZE"
+        },
+        {
+          "line": 613,
+          "text": "OPTIMIZE = 3"
+        },
+        {
+          "line": 672,
+          "text": "ifdef OPTIMIZE"
+        },
+        {
+          "line": 673,
+          "text": "PARAMS += --OPTIMIZE=$(OPTIMIZE)"
+        }
+      ]
+    },
+    {
+      "name": "SYMBOLS",
+      "value": "0",
+      "makefile_uses": [
+        {
+          "line": 601,
+          "text": "SYMBOLS = 1"
+        },
+        {
+          "line": 608,
+          "text": "SYMBOLS = 1"
+        },
+        {
+          "line": 617,
+          "text": "ifdef SYMBOLS"
+        },
+        {
+          "line": 618,
+          "text": "PARAMS += --SYMBOLS='$(SYMBOLS)'"
+        },
+        {
+          "line": 619,
+          "text": "ifneq '$(SYMBOLS)' '0'"
+        }
+      ]
+    },
+    {
+      "name": "STRIP_SYMBOLS",
+      "value": "0",
+      "makefile_uses": [
+        {
+          "line": 864,
+          "text": "ifdef STRIP_SYMBOLS"
+        },
+        {
+          "line": 865,
+          "text": "PARAMS += --STRIP_SYMBOLS='$(STRIP_SYMBOLS)'"
+        }
+      ]
+    },
+    {
+      "name": "LTO",
+      "value": "0",
+      "makefile_uses": [
+        {
+          "line": 836,
+          "text": "ifdef LTO"
+        },
+        {
+          "line": 837,
+          "text": "PARAMS += --LTO='$(LTO)'"
+        }
+      ]
+    },
+    {
+      "name": "OPENMP",
+      "value": "0",
+      "makefile_uses": [
+        {
+          "line": 848,
+          "text": "ifdef OPENMP"
+        },
+        {
+          "line": 849,
+          "text": "PARAMS += --OPENMP='$(OPENMP)'"
+        }
+      ]
+    },
+    {
+      "name": "NO_OPENGL",
+      "value": "1",
+      "makefile_uses": [
+        {
+          "line": 752,
+          "text": "ifdef NO_OPENGL"
+        },
+        {
+          "line": 753,
+          "text": "PARAMS += --NO_OPENGL='$(NO_OPENGL)'"
+        },
+        {
+          "line": 1227,
+          "text": "\t$(SILENT) $(GENIE) $(PARAMS) $(TARGET_PARAMS) --gcc=android-arm --gcc_version=$(CLANG_VERSION) --osd=retro --targetos=android --PLATFORM=arm --NO_USE_MIDI=1 --NO_OPENGL=1 --USE_QTDEBUG=0 --DONT_USE_NETWORK=1 --NOASM=1 $(MAKETYPE)"
+        },
+        {
+          "line": 1250,
+          "text": "\t$(SILENT) $(GENIE) $(PARAMS) $(TARGET_PARAMS) --gcc=android-arm64 --gcc_version=$(CLANG_VERSION) --osd=retro --targetos=android --PLATFORM=arm64 --NO_USE_MIDI=1 --NO_OPENGL=1 --USE_QTDEBUG=0 --DONT_USE_NETWORK=1 --NOASM=1 $(MAKETYPE)"
+        },
+        {
+          "line": 1272,
+          "text": "\t$(SILENT)  $(GENIE) $(PARAMS) $(TARGET_PARAMS) --gcc=android-x86 --gcc_version=$(CLANG_VERSION) --osd=retro --targetos=android --PLATFORM=x86 --NO_USE_MIDI=1 --NO_OPENGL=1 --USE_QTDEBUG=0 --DONT_USE_NETWORK=1 --NOASM=1 $(MAKETYPE)"
+        },
+        {
+          "line": 1294,
+          "text": "\t$(SILENT) $(GENIE) $(PARAMS) $(TARGET_PARAMS) --gcc=android-x64 --gcc_version=$(CLANG_VERSION) --osd=retro --targetos=android --PLATFORM=x64 --NO_USE_MIDI=1 --NO_OPENGL=1 --USE_QTDEBUG=0 --DONT_USE_NETWORK=1 --NOASM=1 $(MAKETYPE)"
+        }
+      ]
+    },
+    {
+      "name": "NO_X11",
+      "value": "1",
+      "makefile_uses": [
+        {
+          "line": 800,
+          "text": "ifdef NO_X11"
+        },
+        {
+          "line": 801,
+          "text": "PARAMS += --NO_X11='$(NO_X11)'"
+        }
+      ]
+    },
+    {
+      "name": "NO_USE_XINPUT",
+      "value": "1",
+      "makefile_uses": [
+        {
+          "line": 804,
+          "text": "ifdef NO_USE_XINPUT"
+        },
+        {
+          "line": 805,
+          "text": "PARAMS += --NO_USE_XINPUT='$(NO_USE_XINPUT)'"
+        }
+      ]
+    },
+    {
+      "name": "NO_USE_XINPUT_WII_LIGHTGUN_HACK",
+      "value": "1",
+      "makefile_uses": [
+        {
+          "line": 808,
+          "text": "ifdef NO_USE_XINPUT_WII_LIGHTGUN_HACK"
+        },
+        {
+          "line": 809,
+          "text": "PARAMS += --NO_USE_XINPUT_WII_LIGHTGUN_HACK='$(NO_USE_XINPUT_WII_LIGHTGUN_HACK)'"
+        }
+      ]
+    },
+    {
+      "name": "NO_USE_MIDI",
+      "value": "1",
+      "makefile_uses": [
+        {
+          "line": 760,
+          "text": "ifdef NO_USE_MIDI"
+        },
+        {
+          "line": 761,
+          "text": "PARAMS += --NO_USE_MIDI='$(NO_USE_MIDI)'"
+        },
+        {
+          "line": 1227,
+          "text": "\t$(SILENT) $(GENIE) $(PARAMS) $(TARGET_PARAMS) --gcc=android-arm --gcc_version=$(CLANG_VERSION) --osd=retro --targetos=android --PLATFORM=arm --NO_USE_MIDI=1 --NO_OPENGL=1 --USE_QTDEBUG=0 --DONT_USE_NETWORK=1 --NOASM=1 $(MAKETYPE)"
+        },
+        {
+          "line": 1250,
+          "text": "\t$(SILENT) $(GENIE) $(PARAMS) $(TARGET_PARAMS) --gcc=android-arm64 --gcc_version=$(CLANG_VERSION) --osd=retro --targetos=android --PLATFORM=arm64 --NO_USE_MIDI=1 --NO_OPENGL=1 --USE_QTDEBUG=0 --DONT_USE_NETWORK=1 --NOASM=1 $(MAKETYPE)"
+        },
+        {
+          "line": 1272,
+          "text": "\t$(SILENT)  $(GENIE) $(PARAMS) $(TARGET_PARAMS) --gcc=android-x86 --gcc_version=$(CLANG_VERSION) --osd=retro --targetos=android --PLATFORM=x86 --NO_USE_MIDI=1 --NO_OPENGL=1 --USE_QTDEBUG=0 --DONT_USE_NETWORK=1 --NOASM=1 $(MAKETYPE)"
+        },
+        {
+          "line": 1294,
+          "text": "\t$(SILENT) $(GENIE) $(PARAMS) $(TARGET_PARAMS) --gcc=android-x64 --gcc_version=$(CLANG_VERSION) --osd=retro --targetos=android --PLATFORM=x64 --NO_USE_MIDI=1 --NO_OPENGL=1 --USE_QTDEBUG=0 --DONT_USE_NETWORK=1 --NOASM=1 $(MAKETYPE)"
+        }
+      ]
+    },
+    {
+      "name": "NO_USE_PORTAUDIO",
+      "value": "1",
+      "makefile_uses": [
+        {
+          "line": 764,
+          "text": "ifdef NO_USE_PORTAUDIO"
+        },
+        {
+          "line": 765,
+          "text": "PARAMS += --NO_USE_PORTAUDIO='$(NO_USE_PORTAUDIO)'"
+        }
+      ]
+    },
+    {
+      "name": "NO_USE_PULSEAUDIO",
+      "value": "1",
+      "makefile_uses": [
+        {
+          "line": 768,
+          "text": "ifdef NO_USE_PULSEAUDIO"
+        },
+        {
+          "line": 769,
+          "text": "PARAMS += --NO_USE_PULSEAUDIO='$(NO_USE_PULSEAUDIO)'"
+        }
+      ]
+    },
+    {
+      "name": "NO_USE_PIPEWIRE",
+      "value": "1",
+      "makefile_uses": [
+        {
+          "line": 772,
+          "text": "ifdef NO_USE_PIPEWIRE"
+        },
+        {
+          "line": 773,
+          "text": "PARAMS += --NO_USE_PIPEWIRE='$(NO_USE_PIPEWIRE)'"
+        }
+      ]
+    },
+    {
+      "name": "USE_QTDEBUG",
+      "value": "0",
+      "makefile_uses": [
+        {
+          "line": 776,
+          "text": "ifdef USE_QTDEBUG"
+        },
+        {
+          "line": 777,
+          "text": "PARAMS += --USE_QTDEBUG='$(USE_QTDEBUG)'"
+        },
+        {
+          "line": 1227,
+          "text": "\t$(SILENT) $(GENIE) $(PARAMS) $(TARGET_PARAMS) --gcc=android-arm --gcc_version=$(CLANG_VERSION) --osd=retro --targetos=android --PLATFORM=arm --NO_USE_MIDI=1 --NO_OPENGL=1 --USE_QTDEBUG=0 --DONT_USE_NETWORK=1 --NOASM=1 $(MAKETYPE)"
+        },
+        {
+          "line": 1250,
+          "text": "\t$(SILENT) $(GENIE) $(PARAMS) $(TARGET_PARAMS) --gcc=android-arm64 --gcc_version=$(CLANG_VERSION) --osd=retro --targetos=android --PLATFORM=arm64 --NO_USE_MIDI=1 --NO_OPENGL=1 --USE_QTDEBUG=0 --DONT_USE_NETWORK=1 --NOASM=1 $(MAKETYPE)"
+        },
+        {
+          "line": 1272,
+          "text": "\t$(SILENT)  $(GENIE) $(PARAMS) $(TARGET_PARAMS) --gcc=android-x86 --gcc_version=$(CLANG_VERSION) --osd=retro --targetos=android --PLATFORM=x86 --NO_USE_MIDI=1 --NO_OPENGL=1 --USE_QTDEBUG=0 --DONT_USE_NETWORK=1 --NOASM=1 $(MAKETYPE)"
+        },
+        {
+          "line": 1294,
+          "text": "\t$(SILENT) $(GENIE) $(PARAMS) $(TARGET_PARAMS) --gcc=android-x64 --gcc_version=$(CLANG_VERSION) --osd=retro --targetos=android --PLATFORM=x64 --NO_USE_MIDI=1 --NO_OPENGL=1 --USE_QTDEBUG=0 --DONT_USE_NETWORK=1 --NOASM=1 $(MAKETYPE)"
+        }
+      ]
+    },
+    {
+      "name": "USE_TAPTUN",
+      "value": "0",
+      "makefile_uses": [
+        {
+          "line": 744,
+          "text": "ifdef USE_TAPTUN"
+        },
+        {
+          "line": 745,
+          "text": "PARAMS += --USE_TAPTUN='$(USE_TAPTUN)'"
+        }
+      ]
+    },
+    {
+      "name": "USE_PCAP",
+      "value": "0",
+      "makefile_uses": [
+        {
+          "line": 748,
+          "text": "ifdef USE_PCAP"
+        },
+        {
+          "line": 749,
+          "text": "PARAMS += --USE_PCAP='$(USE_PCAP)'"
+        }
+      ]
+    },
+    {
+      "name": "USE_SYSTEM_LIB_ZLIB",
+      "value": "0",
+      "makefile_uses": [
+        {
+          "line": 489,
+          "text": "ifdef USE_SYSTEM_LIB_ZLIB"
+        },
+        {
+          "line": 490,
+          "text": "PARAMS += --with-system-zlib='$(USE_SYSTEM_LIB_ZLIB)'"
+        },
+        {
+          "line": 1702,
+          "text": "ifndef USE_SYSTEM_LIB_ZLIB"
+        }
+      ]
+    },
+    {
+      "name": "USE_SYSTEM_LIB_ZSTD",
+      "value": "0",
+      "makefile_uses": [
+        {
+          "line": 493,
+          "text": "ifdef USE_SYSTEM_LIB_ZSTD"
+        },
+        {
+          "line": 494,
+          "text": "PARAMS += --with-system-zstd='$(USE_SYSTEM_LIB_ZSTD)'"
+        }
+      ]
+    },
+    {
+      "name": "USE_SYSTEM_LIB_FLAC",
+      "value": "0",
+      "makefile_uses": [
+        {
+          "line": 501,
+          "text": "ifdef USE_SYSTEM_LIB_FLAC"
+        },
+        {
+          "line": 502,
+          "text": "PARAMS += --with-system-flac='$(USE_SYSTEM_LIB_FLAC)'"
+        },
+        {
+          "line": 1714,
+          "text": "ifndef USE_SYSTEM_LIB_FLAC"
+        }
+      ]
+    },
+    {
+      "name": "USE_SYSTEM_LIB_EXPAT",
+      "value": "0",
+      "makefile_uses": [
+        {
+          "line": 485,
+          "text": "ifdef USE_SYSTEM_LIB_EXPAT"
+        },
+        {
+          "line": 486,
+          "text": "PARAMS += --with-system-expat='$(USE_SYSTEM_LIB_EXPAT)'"
+        }
+      ]
+    },
+    {
+      "name": "USE_SYSTEM_LIB_UTF8PROC",
+      "value": "0",
+      "makefile_uses": [
+        {
+          "line": 521,
+          "text": "ifdef USE_SYSTEM_LIB_UTF8PROC"
+        },
+        {
+          "line": 522,
+          "text": "PARAMS += --with-system-utf8proc='$(USE_SYSTEM_LIB_UTF8PROC)'"
+        }
+      ]
+    },
+    {
+      "name": "CC",
+      "value": "/usr/bin/gcc",
+      "makefile_uses": [
+        {
+          "line": 394,
+          "text": "ifeq ($(findstring emcc,$(CC)),emcc)"
+        },
+        {
+          "line": 444,
+          "text": "CC := $(SILENT)gcc"
+        },
+        {
+          "line": 571,
+          "text": "PARAMS += --CC='$(OVERRIDE_CC)'"
+        },
+        {
+          "line": 573,
+          "text": "CC := $(OVERRIDE_CC)"
+        },
+        {
+          "line": 998,
+          "text": "GCC_VERSION      := $(shell $(TOOLCHAIN)$(subst @,,$(CC)) -dumpfullversion 2> /dev/null)"
+        },
+        {
+          "line": 999,
+          "text": "CLANG_VERSION    := $(shell $(TOOLCHAIN)$(subst @,,$(CC)) --version 2> /dev/null| head -n 1 | grep clang | sed \"s/^.*[^0-9]\\([0-9][0-9]*\\.[0-9][0-9]*\\.[0-9][0-9]*\\).*$$/\\1/\" | head -n 1)"
+        },
+        {
+          "line": 1003,
+          "text": "GCC_VERSION      := $(shell $(TOOLCHAIN)$(subst @,,$(CC)) -dumpfullversion 2> NUL)"
+        },
+        {
+          "line": 1004,
+          "text": "CLANG_VERSION    := $(shell $(TOOLCHAIN)$(subst @,,$(CC)) --version 2> NUL| head -n 1 | grep clang | sed \"s/^.*[^0-9]\\([0-9][0-9]*\\.[0-9][0-9]*\\.[0-9][0-9]*\\).*$$/\\1/\" | head -n 1)"
+        },
+        {
+          "line": 1028,
+          "text": "GCC_VERSION      := $(shell $(TOOLCHAIN)$(subst @,,$(CC)) -dumpfullversion 2> /dev/null)"
+        },
+        {
+          "line": 1030,
+          "text": "ifeq ($(findstring emcc,$(CC)),emcc)"
+        },
+        {
+          "line": 1031,
+          "text": "CLANG_VERSION    := $(shell $(TOOLCHAIN)$(subst @,,$(CC))  -v  2>&1 >/dev/null | grep 'clang version' | head -n 1 | grep -e 'version [0-9]\\+\\.[0-9]\\+\\(\\.[0-9]\\+\\)\\?' -o | grep -e '[0-9]\\+\\.[0-9]\\+\\(\\.[0-9]\\+\\)\\?' -o | tail -n 1)"
+        },
+        {
+          "line": 1033,
+          "text": "CLANG_VERSION    := $(shell $(TOOLCHAIN)$(subst @,,$(CC))  --version  2> /dev/null | head -n 1 | grep -e 'version [0-9]\\+\\.[0-9]\\+\\(\\.[0-9]\\+\\)\\?' -o | grep -e '[0-9]\\+\\.[0-9]\\+\\(\\.[0-9]\\+\\)\\?' -o | tail -n 1)"
+        },
+        {
+          "line": 1744,
+          "text": "\t$(SILENT) $(MAKE) -C 3rdparty/bgfx -f makefile shaderc CC=\"$(CC)\" CXX=\"$(CXX)\" MINGW=\"$(MINGW)\" SILENT=\"$(SILENT)\""
+        }
+      ]
+    },
+    {
+      "name": "CXX",
+      "value": "/usr/bin/g++",
+      "makefile_uses": [
+        {
+          "line": 446,
+          "text": "CXX:= $(SILENT)g++"
+        },
+        {
+          "line": 577,
+          "text": "PARAMS += --CXX='$(OVERRIDE_CXX)'"
+        },
+        {
+          "line": 579,
+          "text": "CXX := $(OVERRIDE_CXX)"
+        },
+        {
+          "line": 1744,
+          "text": "\t$(SILENT) $(MAKE) -C 3rdparty/bgfx -f makefile shaderc CC=\"$(CC)\" CXX=\"$(CXX)\" MINGW=\"$(MINGW)\" SILENT=\"$(SILENT)\""
+        }
+      ]
+    },
+    {
+      "name": "OVERRIDE_CC",
+      "value": "$cc",
+      "makefile_uses": [
+        {
+          "line": 570,
+          "text": "ifdef OVERRIDE_CC"
+        },
+        {
+          "line": 571,
+          "text": "PARAMS += --CC='$(OVERRIDE_CC)'"
+        },
+        {
+          "line": 573,
+          "text": "CC := $(OVERRIDE_CC)"
+        },
+        {
+          "line": 1025,
+          "text": "ifdef OVERRIDE_CC"
+        },
+        {
+          "line": 1026,
+          "text": "GCC_VERSION      := $(shell $(TOOLCHAIN)$(subst @,,$(OVERRIDE_CC)) -dumpfullversion 2> /dev/null)"
+        }
+      ]
+    },
+    {
+      "name": "OVERRIDE_CXX",
+      "value": "$cxx",
+      "makefile_uses": [
+        {
+          "line": 576,
+          "text": "ifdef OVERRIDE_CXX"
+        },
+        {
+          "line": 577,
+          "text": "PARAMS += --CXX='$(OVERRIDE_CXX)'"
+        },
+        {
+          "line": 579,
+          "text": "CXX := $(OVERRIDE_CXX)"
+        }
+      ]
+    },
+    {
+      "name": "OVERRIDE_LD",
+      "value": "$cxx",
+      "makefile_uses": [
+        {
+          "line": 582,
+          "text": "ifdef OVERRIDE_LD"
+        },
+        {
+          "line": 583,
+          "text": "PARAMS += --LD='$(OVERRIDE_LD)'"
+        },
+        {
+          "line": 585,
+          "text": "LD := $(OVERRIDE_LD)"
+        }
+      ]
+    },
+    {
+      "name": "OVERRIDE_AR",
+      "value": "$ar",
+      "makefile_uses": [
+        {
+          "line": 588,
+          "text": "ifdef OVERRIDE_AR"
+        },
+        {
+          "line": 589,
+          "text": "PARAMS += --AR='$(OVERRIDE_AR)'"
+        },
+        {
+          "line": 591,
+          "text": "AR := $(OVERRIDE_AR)"
+        }
+      ]
+    }
+  ],
+  "all_observed_generator_options": [
+    {
+      "argv": "--with-system-expat=0",
+      "declaration": {
+        "source": "scripts/extlib.lua",
+        "line": 32,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--with-system-zlib=0",
+      "declaration": {
+        "source": "scripts/extlib.lua",
+        "line": 37,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--with-system-zstd=0",
+      "declaration": {
+        "source": "scripts/extlib.lua",
+        "line": 42,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--with-system-flac=0",
+      "declaration": {
+        "source": "scripts/extlib.lua",
+        "line": 52,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--with-system-utf8proc=0",
+      "declaration": {
+        "source": "scripts/extlib.lua",
+        "line": 77,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--CC=/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 175,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--CXX=/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-g++",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 180,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--LD=/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-g++",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 185,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--AR=/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-ar",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 190,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--SYMBOLS=0",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 205,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--with-tools",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 119,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--OPTIMIZE=1",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 225,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--NOWERROR=1",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 293,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--target=mame",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 160,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--subtarget=mame",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 165,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--build-dir=build",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 10,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--USE_TAPTUN=0",
+      "declaration": {
+        "source": "scripts/src/osd/modules.lua",
+        "line": 601,
+        "allowed": [
+          "0",
+          "1"
+        ]
+      },
+      "static_disposition": "Declared on restored SDL path; supplied value allowed"
+    },
+    {
+      "argv": "--USE_PCAP=0",
+      "declaration": {
+        "source": "scripts/src/osd/modules.lua",
+        "line": 610,
+        "allowed": [
+          "0",
+          "1"
+        ]
+      },
+      "static_disposition": "Declared on restored SDL path; supplied value allowed"
+    },
+    {
+      "argv": "--NO_OPENGL=1",
+      "declaration": {
+        "source": "scripts/src/osd/modules.lua",
+        "line": 619,
+        "allowed": [
+          "0",
+          "1"
+        ]
+      },
+      "static_disposition": "Declared on restored SDL path; supplied value allowed"
+    },
+    {
+      "argv": "--NO_USE_MIDI=1",
+      "declaration": {
+        "source": "scripts/src/osd/modules.lua",
+        "line": 649,
+        "allowed": [
+          "0",
+          "1"
+        ]
+      },
+      "static_disposition": "Declared on restored SDL path; supplied value allowed"
+    },
+    {
+      "argv": "--NO_USE_PORTAUDIO=1",
+      "declaration": {
+        "source": "scripts/src/osd/modules.lua",
+        "line": 666,
+        "allowed": [
+          "0",
+          "1"
+        ]
+      },
+      "static_disposition": "Declared on restored SDL path; supplied value allowed"
+    },
+    {
+      "argv": "--NO_USE_PULSEAUDIO=1",
+      "declaration": {
+        "source": "scripts/src/osd/modules.lua",
+        "line": 683,
+        "allowed": [
+          "0",
+          "1"
+        ]
+      },
+      "static_disposition": "Declared on restored SDL path; supplied value allowed"
+    },
+    {
+      "argv": "--NO_USE_PIPEWIRE=1",
+      "declaration": {
+        "source": "scripts/src/osd/modules.lua",
+        "line": 700,
+        "allowed": [
+          "0",
+          "1"
+        ]
+      },
+      "static_disposition": "Declared on restored SDL path; supplied value allowed"
+    },
+    {
+      "argv": "--USE_QTDEBUG=0",
+      "declaration": {
+        "source": "scripts/src/osd/modules.lua",
+        "line": 717,
+        "allowed": [
+          "0",
+          "1"
+        ]
+      },
+      "static_disposition": "Declared on restored SDL path; supplied value allowed"
+    },
+    {
+      "argv": "--NO_X11=1",
+      "declaration": {
+        "source": "scripts/src/osd/sdl.lua",
+        "line": 130,
+        "allowed": [
+          "0",
+          "1"
+        ]
+      },
+      "static_disposition": "Declared on restored SDL path; supplied value allowed"
+    },
+    {
+      "argv": "--NO_USE_XINPUT=1",
+      "declaration": {
+        "source": "scripts/src/osd/sdl.lua",
+        "line": 147,
+        "allowed": [
+          "0",
+          "1"
+        ]
+      },
+      "static_disposition": "Declared on restored SDL path; supplied value allowed"
+    },
+    {
+      "argv": "--NO_USE_XINPUT_WII_LIGHTGUN_HACK=1",
+      "declaration": {
+        "source": "scripts/src/osd/sdl.lua",
+        "line": 164,
+        "allowed": [
+          "0",
+          "1"
+        ]
+      },
+      "static_disposition": "Declared on restored SDL path; supplied value allowed"
+    },
+    {
+      "argv": "--LTO=0",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 307,
+        "allowed": [
+          "0",
+          "1"
+        ]
+      },
+      "static_disposition": "Declared on restored SDL path; supplied value allowed"
+    },
+    {
+      "argv": "--OPENMP=0",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 334,
+        "allowed": [
+          "0",
+          "1"
+        ]
+      },
+      "static_disposition": "Declared on restored SDL path; supplied value allowed"
+    },
+    {
+      "argv": "--PYTHON_EXECUTABLE=python3",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 352,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--STRIP_SYMBOLS=0",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 366,
+        "allowed": [
+          "0",
+          "1"
+        ]
+      },
+      "static_disposition": "Declared on restored SDL path; supplied value allowed"
+    },
+    {
+      "argv": "--precompile=0",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 23,
+        "allowed": [
+          "0",
+          "1"
+        ]
+      },
+      "static_disposition": "Declared on restored SDL path; supplied value allowed"
+    },
+    {
+      "argv": "--osd=sdl",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 139,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--targetos=linux",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 144,
+        "allowed": [
+          "android",
+          "asmjs",
+          "freebsd",
+          "netbsd",
+          "openbsd",
+          "linux",
+          "macosx",
+          "windows",
+          "haiku"
+        ]
+      },
+      "static_disposition": "Declared on restored SDL path; supplied value allowed"
+    },
+    {
+      "argv": "--PLATFORM=x86",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 395,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    },
+    {
+      "argv": "--gcc=linux-gcc",
+      "declaration": {
+        "source": "scripts/toolchain.lua",
+        "line": 14,
+        "allowed": [
+          "android-arm",
+          "android-arm64",
+          "android-x86",
+          "android-x64",
+          "asmjs",
+          "freebsd",
+          "freebsd-clang",
+          "linux-gcc",
+          "linux-clang",
+          "mingw32-gcc",
+          "mingw64-gcc",
+          "mingw-clang",
+          "netbsd",
+          "netbsd-clang",
+          "openbsd",
+          "openbsd-clang",
+          "osx",
+          "osx-clang"
+        ]
+      },
+      "static_disposition": "Declared on restored SDL path; supplied value allowed"
+    },
+    {
+      "argv": "--gcc_version=15.2.0",
+      "declaration": {
+        "source": "scripts/genie.lua",
+        "line": 170,
+        "allowed": null
+      },
+      "static_disposition": "Declared on restored SDL path; no enumerated value restriction"
+    }
+  ],
+  "generator_action": "gmake",
+  "missing_declarations_on_selected_sdl_path": [],
+  "removed_make_or_genie_options": [],
+  "remaining_qualification": "Actual generator/load/link behavior remains UNRUN; generated selected graph/flags/version checks unchanged."
+}

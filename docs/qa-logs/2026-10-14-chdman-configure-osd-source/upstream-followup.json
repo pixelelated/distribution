@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-14",
+  "checks": [
+    {
+      "url": "https://raw.githubusercontent.com/libretro/mame/24cffe763621b164fc10be2ae3660f140be25182/scripts/toolchain.lua",
+      "result": "Browser cache miss; exact hash-bound local archive source is authoritative for this packet."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/mamedev/mame/mame0289/scripts/toolchain.lua",
+      "result": "Official upstream MAME 0.289 source read; no libretro override block. The selected archive is libretro/mame and retains its documented core-oriented override. No upstream patch or pin change imported."
+    }
+  ],
+  "disposition": "QA-only standalone-tool adaptation of libretro source. No claim upstream core is broken, no generic upstream issue/submission proposed. Existing converter identity/source research retained in plan/upstream-check.json. No new release/fix applicability claim."
+}

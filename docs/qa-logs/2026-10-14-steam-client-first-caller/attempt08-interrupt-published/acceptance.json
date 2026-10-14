@@ -1,0 +1,43 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T160436Z-c6ba5c5a",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 582,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix582-client-vm-20261014-08/vm",
+      "release_when": "Original guest/guard/lifecycle receipts exported and verified; actual owners exited; consume admission then remove disk/media/UEFI. Preserve only immediate-next-test synthetic inputs."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt08-interrupt-published/result.json",
+      "sha256": "0c7e00fd63db8512d490e7673bfc26600ad4d840d6f839a5d24828d57a5b326a"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt08-interrupt-published/namespace-result.json",
+      "sha256": "13d9df5630c0667de99b1ff7298d49590579d8c99a41b6c49a781a90bdaf4792"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt08-interrupt-published/host-exits.json",
+      "sha256": "32658e523bf0dc39dae29caf4eacc9b119f09fd7bdc5412a4c35c220ea4f3ca5"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt08-interrupt-published/vm-result.json",
+      "sha256": "260114b61f215bb0bd8eef244f7791551167b9646629b88c5b49fd1dca558e43"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt08-interrupt-published/guest-manifest.json",
+      "sha256": "5b28bb77bf4b318670f81c7620c99e9b01b18fdd4ce66ff02624b516bafe6529"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt08-interrupt-published/original-records.json",
+      "sha256": "8cb09b511d3ddbdfe0d111810974927cf69a7955e07db64c20670c035459b216"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt08-interrupt-published/unmount-640x480.txt",
+      "sha256": "1e24ec7421d8cdbfc285a8a42cfb7db254151dc28eea49c63202154319be7a13"
+    }
+  ]
+}

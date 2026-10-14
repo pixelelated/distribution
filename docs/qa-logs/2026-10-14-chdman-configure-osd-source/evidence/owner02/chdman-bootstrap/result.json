@@ -1,0 +1,150 @@
+{
+  "status": "PASS",
+  "stage": "chdman-bootstrap",
+  "started": 1791995119.9740257,
+  "original_attach_exit": 0,
+  "container_result_sha256": "51d4d9e8ee20e6791cd340b6e8c6e3ae26c3652fd4a256353c24bbcf478fb345",
+  "cleanup": {
+    "status": "PASS",
+    "forced_stop": false,
+    "started": 1791995130.7905648,
+    "initial": {
+      "id": "ed65a36824cf77383cceb7552f07e0980fde7d8a21dab0a2a491e3c801e45ff7",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "2026-10-14T16:25:30.02276449Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 0,
+        "Restarting": false,
+        "Running": false,
+        "StartedAt": "2026-10-14T16:25:20.243523963Z",
+        "Status": "exited"
+      },
+      "labels": {
+        "org.opencontainers.image.version": "22.04",
+        "pix574.owner": "0098127e25ccf50f872f356d7fbf1ba1",
+        "pix574.stage": "chdman-bootstrap"
+      },
+      "memory": 4294967296,
+      "nano_cpus": 2000000000
+    },
+    "container_terminal_state": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 0,
+      "FinishedAt": "2026-10-14T16:25:30.02276449Z",
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 0,
+      "Restarting": false,
+      "Running": false,
+      "StartedAt": "2026-10-14T16:25:20.243523963Z",
+      "Status": "exited"
+    },
+    "exact_cid": "ed65a36824cf77383cceb7552f07e0980fde7d8a21dab0a2a491e3c801e45ff7",
+    "exact_id_absent": true,
+    "observed_host_processes": [
+      {
+        "pid": 2913910,
+        "start_ticks": 108680427,
+        "state": "R",
+        "pgrp": 2913910,
+        "session": 2913910,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2914297,
+        "start_ticks": 108680784,
+        "state": "S",
+        "pgrp": 2914297,
+        "session": 2914297,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2914355,
+        "start_ticks": 108680848,
+        "state": "S",
+        "pgrp": 2914297,
+        "session": 2914297,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2914356,
+        "start_ticks": 108680848,
+        "state": "S",
+        "pgrp": 2914297,
+        "session": 2914297,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2914357,
+        "start_ticks": 108680848,
+        "state": "R",
+        "pgrp": 2914297,
+        "session": 2914297,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2914458,
+        "start_ticks": 108680945,
+        "state": "S",
+        "pgrp": 2914297,
+        "session": 2914297,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2914459,
+        "start_ticks": 108680945,
+        "state": "S",
+        "pgrp": 2914297,
+        "session": 2914297,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2914460,
+        "start_ticks": 108680945,
+        "state": "R",
+        "pgrp": 2914297,
+        "session": 2914297,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2914584,
+        "start_ticks": 108681064,
+        "state": "S",
+        "pgrp": 2914297,
+        "session": 2914297,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2914585,
+        "start_ticks": 108681064,
+        "state": "S",
+        "pgrp": 2914297,
+        "session": 2914297,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2914586,
+        "start_ticks": 108681064,
+        "state": "R",
+        "pgrp": 2914297,
+        "session": 2914297,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      }
+    ],
+    "survivors": [],
+    "remaining_cgroup_pids": [],
+    "ended": 1791995130.968853
+  },
+  "original_container_exit": 0,
+  "watchdog_original_exit": 0,
+  "ended": 1791995131.0324607,
+  "final_disk": {
+    "allocated_bytes": 983928832,
+    "apparent_bytes": 910808448
+  }
+}

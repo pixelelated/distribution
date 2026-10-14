@@ -1,0 +1,34 @@
+{
+  "sealed_plan_path": "docs/qa-logs/2026-10-14-chdman-runtime-link-source/plan",
+  "sealed_plan_manifest_sha256": "ea2c321f6ae511eaf07f288a882778477cdef613300b53f3e58a8042c190f4c9",
+  "lifecycle_source_commit": "b65f782e20485fd7a499c108450ce1dd094ec0a3",
+  "lifecycle_source_path": "/workspace/repos/rocknix.worktrees/m7-rvz-regressions-574/docs/qa-logs/2026-10-14-dolphin-configure-runner",
+  "lifecycle_input_sha256": {
+    "common.py": "2876a7a5c4bbb9437639bd3951e055db09585ef3681281fac8b206f265049217",
+    "docker_owner.py": "276baaa41d855161873b6d3a979463d2ff0a3bb8fd28ddbd8ed4502959354d31",
+    "watchdog.py": "b21d2e255f0094b5f48eef6e009972633298629b7f0c4c7b44ec7eef0148c18b",
+    "plan.py": "d4ea38fdc0aa8636f6c87361b6785c6c34f81d59062e5456747625c8b592e5ff",
+    "run-stage.py": "4b6f6af15391d474ec6e02605f0da69fab11d97b653a6125c827c9c62046f289",
+    "inner.py": "f34a596c1ac732a07cb2c01c8830ef600654b8ed3573604924e80e6af90c5d64"
+  },
+  "unchanged_copies": [
+    "docker_owner.py",
+    "watchdog.py"
+  ],
+  "stages": [
+    "chdman-export",
+    "chdman-bootstrap",
+    "chdman-configure",
+    "chdman-build"
+  ],
+  "runtime": "UNRUN prospective shared GCC/C++ runtime correction; owner03 final-link failure retained unchanged",
+  "family_seconds": 1800,
+  "compiler_jobs": 1,
+  "memory_bytes": 4294967296,
+  "cpus": 2,
+  "scratch_stop_bytes": 6442450944,
+  "historical_sealed_plan_commit": "1c0e93b4b34501928c79f9ade5b2b4c1442331a4",
+  "historical_sealed_plan_manifest_sha256": "f58655358feb6c0e75ee8f0ae5b9b02fdae985d075c5f6bcb66fcb0530604976",
+  "source_basis_commit": "2608923ba0ab80752e555adb393d7a029baeaf8c",
+  "source_basis_manifest_sha256": "349a57d0c81a03ef564bf2f9aec197a0fbf7e9b676106a8b00d375bea0b67c45"
+}

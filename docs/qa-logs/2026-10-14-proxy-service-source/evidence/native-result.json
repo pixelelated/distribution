@@ -1,0 +1,1182 @@
+{
+  "status": "PASS",
+  "evidence": "native bridge + synthetic local protocol, not full service/gameplay",
+  "steps": [
+    {
+      "name": "guard-negative-controls",
+      "status": "PASS"
+    },
+    {
+      "name": "native-ISO-independent-RVZ",
+      "status": "PASS",
+      "expected": "118545082f24fc195a446d1ee7bbf816"
+    },
+    {
+      "name": "scanner-native-handoff",
+      "stdout": "found=1 new=1 cached=0 indexed=0 hashing=1 truncated=0 cursor_saved=1\n",
+      "job_sha256": "6a28aaaf7441c358f4dd6eb46ebf8584c4136d76789a73a0c7c77725a913c2d1"
+    },
+    {
+      "name": "HTTP200-impostor-rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "offline-account-cache-isolation",
+      "status": "PASS"
+    },
+    {
+      "name": "offline-signing-and-dedup",
+      "status": "PASS",
+      "submitted": 3,
+      "retained": 2
+    },
+    {
+      "name": "SQLite-reopen-preserved-queue",
+      "status": "PASS"
+    },
+    {
+      "name": "tamper-refused-before-HTTP",
+      "status": "PASS",
+      "last_error": "chain broken at 0: stored payloadHash does not match recomputed hash"
+    },
+    {
+      "name": "upstream-auth-rejection-preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "patch-failure-retained",
+      "status": "PASS",
+      "outcome": {
+        "flushed": 0,
+        "total": 2,
+        "skipped_deleted": 0,
+        "skipped_stale": 0,
+        "pending_remaining": 2,
+        "last_error": "Could not refresh achievement data from server"
+      },
+      "rows": [
+        {
+          "id": 1,
+          "achievementId": 101,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=101&g=10&u=fixture-a&t=%3Csynthetic-token-a%3E&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1791991609312,
+          "retryCount": 0,
+          "lastError": null,
+          "status": "pending",
+          "payloadHash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+          "prevHash": "genesis",
+          "signature": "/4LNo6BT3ppBy8jbvPllyhq07T6o5RgkiakqcNtr8ws=",
+          "signedAt": 1791991609313
+        },
+        {
+          "id": 2,
+          "achievementId": 102,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=102&g=10&u=fixture-a&t=%3Csynthetic-token-a%3E&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1791991609325,
+          "retryCount": 0,
+          "lastError": null,
+          "status": "pending",
+          "payloadHash": "32955b20e62d305a2cd4cf2690e76911e876e28bd1af069e47a13c1d2e222a5e",
+          "prevHash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+          "signature": "S24j8IQROlca3d29XIaVFoFM7hILzhgbe3eQKfKSHn0=",
+          "signedAt": 1791991609326
+        }
+      ]
+    },
+    {
+      "name": "award401-retained",
+      "status": "PASS",
+      "outcome": {
+        "flushed": 0,
+        "total": 2,
+        "skipped_deleted": 0,
+        "skipped_stale": 0,
+        "pending_remaining": 2,
+        "last_error": null
+      },
+      "rows": [
+        {
+          "id": 1,
+          "achievementId": 101,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=101&g=10&u=fixture-a&t=%3Csynthetic-token-a%3E&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1791991609312,
+          "retryCount": 0,
+          "lastError": "Token rejected by server (HTTP 401)",
+          "status": "pending",
+          "payloadHash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+          "prevHash": "genesis",
+          "signature": "/4LNo6BT3ppBy8jbvPllyhq07T6o5RgkiakqcNtr8ws=",
+          "signedAt": 1791991609313
+        },
+        {
+          "id": 2,
+          "achievementId": 102,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=102&g=10&u=fixture-a&t=%3Csynthetic-token-a%3E&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1791991609325,
+          "retryCount": 0,
+          "lastError": "Token rejected by server (HTTP 401)",
+          "status": "pending",
+          "payloadHash": "32955b20e62d305a2cd4cf2690e76911e876e28bd1af069e47a13c1d2e222a5e",
+          "prevHash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+          "signature": "S24j8IQROlca3d29XIaVFoFM7hILzhgbe3eQKfKSHn0=",
+          "signedAt": 1791991609326
+        }
+      ]
+    },
+    {
+      "name": "award500-retained",
+      "status": "PASS",
+      "outcome": {
+        "flushed": 0,
+        "total": 2,
+        "skipped_deleted": 0,
+        "skipped_stale": 0,
+        "pending_remaining": 2,
+        "last_error": null
+      },
+      "rows": [
+        {
+          "id": 1,
+          "achievementId": 101,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=101&g=10&u=fixture-a&t=%3Csynthetic-token-a%3E&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1791991609312,
+          "retryCount": 1,
+          "lastError": "HTTP 500",
+          "status": "pending",
+          "payloadHash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+          "prevHash": "genesis",
+          "signature": "/4LNo6BT3ppBy8jbvPllyhq07T6o5RgkiakqcNtr8ws=",
+          "signedAt": 1791991609313
+        },
+        {
+          "id": 2,
+          "achievementId": 102,
+          "queryString": "/dorequest.php",
+          "requestBody": "r=awardachievement&a=102&g=10&u=fixture-a&t=%3Csynthetic-token-a%3E&h=0",
+          "userAgent": "RetroArch/1.21.0 (Linux)",
+          "queuedAt": 1791991609325,
+          "retryCount": 1,
+          "lastError": "HTTP 500",
+          "status": "pending",
+          "payloadHash": "32955b20e62d305a2cd4cf2690e76911e876e28bd1af069e47a13c1d2e222a5e",
+          "prevHash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+          "signature": "S24j8IQROlca3d29XIaVFoFM7hILzhgbe3eQKfKSHn0=",
+          "signedAt": 1791991609326
+        }
+      ]
+    },
+    {
+      "name": "reconnect-dedup-next-game",
+      "status": "PASS",
+      "outcome": {
+        "flushed": 2,
+        "total": 2,
+        "skipped_deleted": 0,
+        "skipped_stale": 0,
+        "pending_remaining": 0,
+        "last_error": null
+      }
+    }
+  ],
+  "requests": [
+    {
+      "action": "login2",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "75",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "User": "fixture-a",
+        "Token": "<synthetic-token-a>",
+        "Score": 0
+      },
+      "elapsed_ms": 6.890644000002055
+    },
+    {
+      "action": "login2",
+      "user": "fixture-b",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "75",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "User": "fixture-b",
+        "Token": "<synthetic-token-b>",
+        "Score": 0
+      },
+      "elapsed_ms": 6.204650000000811
+    },
+    {
+      "action": "login2",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "server": "BaseHTTP/0.6 Python/3.14.7",
+        "date": "Wed, 14 Oct 2026 15:26:49 GMT",
+        "x-ra-proxy": "1",
+        "x-ra-offline": "1",
+        "content-length": "57"
+      },
+      "body": {
+        "Success": true,
+        "User": "unrelated",
+        "Token": "<unrelated>"
+      },
+      "elapsed_ms": 0.5436599999981695
+    },
+    {
+      "action": "login2",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "82",
+        "x-ra-proxy": "1",
+        "x-ra-offline": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "User": "fixture-a",
+        "Token": "<synthetic-token-a>",
+        "Score": 0
+      },
+      "elapsed_ms": 6.57986699999924
+    },
+    {
+      "action": "patch",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "199",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "PatchData": {
+          "ID": 20,
+          "Title": "Synthetic Game 20",
+          "Achievements": [
+            {
+              "ID": 201,
+              "Title": "Synthetic 201",
+              "Description": "Public fixture only",
+              "Flags": 3,
+              "Points": 5,
+              "MemAddr": "0xH000000=1"
+            }
+          ]
+        }
+      },
+      "elapsed_ms": 5.695429999995838
+    },
+    {
+      "action": "unlocks",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "36",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "UserUnlocks": [
+          103
+        ]
+      },
+      "elapsed_ms": 4.612628999993262
+    },
+    {
+      "action": "unlocks",
+      "user": "fixture-b",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "36",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "UserUnlocks": [
+          104
+        ]
+      },
+      "elapsed_ms": 5.723520000003646
+    },
+    {
+      "action": "patch",
+      "user": "unconfigured-fixture-user",
+      "status": 503,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "46",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": false,
+        "Error": "no cached response"
+      },
+      "elapsed_ms": 4.330041999999423
+    },
+    {
+      "action": "login2",
+      "user": "unconfigured-fixture-user",
+      "status": 503,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "46",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": false,
+        "Error": "no cached response"
+      },
+      "elapsed_ms": 8.960625000000277
+    },
+    {
+      "action": "awardachievement",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "89",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "Score": 0,
+        "SoftcoreScore": 0,
+        "AchievementID": 101,
+        "Error": "queued_offline"
+      },
+      "elapsed_ms": 6.365705999996862
+    },
+    {
+      "action": "awardachievement",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "89",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "Score": 0,
+        "SoftcoreScore": 0,
+        "AchievementID": 101,
+        "Error": "queued_offline"
+      },
+      "elapsed_ms": 6.858141000002149
+    },
+    {
+      "action": "awardachievement",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "89",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "Score": 0,
+        "SoftcoreScore": 0,
+        "AchievementID": 102,
+        "Error": "queued_offline"
+      },
+      "elapsed_ms": 5.96150299999465
+    },
+    {
+      "action": "awardachievement",
+      "user": "fixture-a",
+      "status": 403,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "50",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": false,
+        "Error": "hardcore_not_supported"
+      },
+      "elapsed_ms": 0.34798500000476906
+    },
+    {
+      "action": "startsession",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "159",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "ServerNow": 1791991605,
+        "HardcoreUnlocks": [],
+        "Unlocks": [
+          {
+            "ID": 103,
+            "When": 1791991605
+          },
+          {
+            "ID": 101,
+            "When": 1791991605
+          },
+          {
+            "ID": 102,
+            "When": 1791991605
+          }
+        ]
+      },
+      "elapsed_ms": 4.975162999997451
+    },
+    {
+      "action": "startsession",
+      "user": "fixture-b",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "101",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "ServerNow": 1791991606,
+        "HardcoreUnlocks": [],
+        "Unlocks": [
+          {
+            "ID": 104,
+            "When": 1791991606
+          }
+        ]
+      },
+      "elapsed_ms": 8.10244000000182
+    },
+    {
+      "action": "login2",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "82",
+        "x-ra-proxy": "1",
+        "x-ra-offline": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "User": "fixture-a",
+        "Token": "<synthetic-token-a>",
+        "Score": 0
+      },
+      "elapsed_ms": 6.203913000000227
+    },
+    {
+      "action": "patch",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "199",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "PatchData": {
+          "ID": 20,
+          "Title": "Synthetic Game 20",
+          "Achievements": [
+            {
+              "ID": 201,
+              "Title": "Synthetic 201",
+              "Description": "Public fixture only",
+              "Flags": 3,
+              "Points": 5,
+              "MemAddr": "0xH000000=1"
+            }
+          ]
+        }
+      },
+      "elapsed_ms": 5.01224599999972
+    },
+    {
+      "action": "login2",
+      "user": "fixture-a",
+      "status": 401,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "61",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": false,
+        "Error": "Synthetic credential rejection"
+      },
+      "elapsed_ms": 3.670360000000983
+    },
+    {
+      "action": "login2",
+      "user": "fixture-a",
+      "status": 403,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "61",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": false,
+        "Error": "Synthetic credential rejection"
+      },
+      "elapsed_ms": 4.659541000002321
+    },
+    {
+      "action": "login2",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "70",
+        "x-ra-proxy": "1",
+        "x-ra-offline": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "User": "fixture-a",
+        "Token": "<synthetic-token-a>"
+      },
+      "elapsed_ms": 7.517301000007137
+    },
+    {
+      "action": "patch",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "199",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "PatchData": {
+          "ID": 20,
+          "Title": "Synthetic Game 20",
+          "Achievements": [
+            {
+              "ID": 201,
+              "Title": "Synthetic 201",
+              "Description": "Public fixture only",
+              "Flags": 3,
+              "Points": 5,
+              "MemAddr": "0xH000000=1"
+            }
+          ]
+        }
+      },
+      "elapsed_ms": 3.7745390000054613
+    },
+    {
+      "action": "startsession",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "159",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "ServerNow": 1791991613,
+        "HardcoreUnlocks": [],
+        "Unlocks": [
+          {
+            "ID": 101,
+            "When": 1791991613
+          },
+          {
+            "ID": 102,
+            "When": 1791991613
+          },
+          {
+            "ID": 103,
+            "When": 1791991613
+          }
+        ]
+      },
+      "elapsed_ms": 4.163794000007215
+    },
+    {
+      "action": "startsession",
+      "user": "fixture-a",
+      "status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "content-length": "73",
+        "x-ra-proxy": "1",
+        "connection": "close"
+      },
+      "body": {
+        "Success": true,
+        "ServerNow": 1791991607,
+        "HardcoreUnlocks": [],
+        "Unlocks": []
+      },
+      "elapsed_ms": 3.7825539999971625
+    }
+  ],
+  "thread_errors": [],
+  "admission_sha256": "0d8a418cd75b89555a7a09e4215d86613af747e2078b32ddbbff858f82b727e8",
+  "bindings_sha256": "d66230e0c13c527b20b00d305b2fd9da4b0f65585aa4591a2a8bd29a1add2682",
+  "source_receipt_sha256": "ec5c1ebdb7fed53cceec40c65c77212b16de688d043375b971a288059054b661",
+  "libraries": {
+    "rchash": {
+      "path": "/usr/lib/libraproxy_rchash.so",
+      "resolved_path": "/usr/lib/libraproxy_rchash.so",
+      "sha256": "6c484a2947a5f2a7c187e60dd93de73593d5fa98d57309bfb4b5f07bf390220d",
+      "soname": "libraproxy_rchash.so"
+    },
+    "zstd": {
+      "path": "/usr/lib/libzstd.so.1",
+      "resolved_path": "/usr/lib/libzstd.so.1.5.7",
+      "sha256": "8526c748a90b34d9872159fdd311071ed1c391c879b41295848282fcace4e2f4",
+      "soname": "libzstd.so.1"
+    },
+    "crypto": {
+      "path": "/usr/lib/libcrypto.so.3",
+      "resolved_path": "/usr/lib/libcrypto.so.3",
+      "sha256": "66d713b67c3d811ab73894b294ff40d7985a3273d26f493bdc9f59b79f2e2f77",
+      "soname": "libcrypto.so.3"
+    }
+  },
+  "native_provenance": {
+    "image_sha256": "1a23cf5740dbb69cdca76d753a0f6121c35e6e12f27649e792aeebc71e8cc490",
+    "source_pins_verified": false,
+    "qualification": "Installed library bytes will be measured by admission. This older accepted image does not yet have a reviewed receipt linking those ELF bytes to the current RAOfflineProxy/rcheevos/libchdr pins. A fixture PASS alone cannot establish that linkage."
+  },
+  "oracle": {
+    "dolphin_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+    "dolphin_sha256": "f36a2c5f2f31e961ce605cc1c762f1e839f1880a0b1feeba4e09a1fccaa90d5b",
+    "result": {
+      "path": "oracle/result.json",
+      "bytes": 1501,
+      "sha256": "7e86fe6ec13dafe12de51b7d622ad5b28fdf1d10d2cdfa74bc3cef2faa6cc19f"
+    },
+    "receipts": {
+      "encode-none": {
+        "path": "oracle/encode-none.json",
+        "bytes": 587,
+        "sha256": "c64368f15ecc84704ec2e48e22910e5c6fffddc52595c334d07b513fe161665a"
+      },
+      "roundtrip-none": {
+        "path": "oracle/roundtrip-none.json",
+        "bytes": 547,
+        "sha256": "9f946e39881cf8bc2416c68f424c24e00c5f15e729349fc608ffbc9eb8515396"
+      },
+      "hash-none": {
+        "path": "oracle/hash-none.json",
+        "bytes": 376,
+        "sha256": "10a3b0389d181134aa98476f3b30730c6897f381551dd11e58201af4fc3c55e1"
+      },
+      "encode-zstd": {
+        "path": "oracle/encode-zstd.json",
+        "bytes": 587,
+        "sha256": "8ce0faff902de38b96d7094c9045494bd66d10054886840aa448d5679ecc25d4"
+      },
+      "roundtrip-zstd": {
+        "path": "oracle/roundtrip-zstd.json",
+        "bytes": 546,
+        "sha256": "23810e968b853fa9e483c71340e4b0cd3d4cdbc244922e8a1face81d6fa158f0"
+      },
+      "hash-zstd": {
+        "path": "oracle/hash-zstd.json",
+        "bytes": 376,
+        "sha256": "408c8fd19a34b025f0f3f7eb8d8d7ba15871ee34b6b17f489abcfde74a63883d"
+      }
+    },
+    "hash_stdout": {
+      "none": {
+        "path": "oracle/hash-none.stdout",
+        "bytes": 33,
+        "sha256": "909f3ef3c56fdf35690e25a340f0ef137f3e9772f0dbb2202805348d0e0948bb"
+      },
+      "zstd": {
+        "path": "oracle/hash-zstd.stdout",
+        "bytes": 33,
+        "sha256": "909f3ef3c56fdf35690e25a340f0ef137f3e9772f0dbb2202805348d0e0948bb"
+      }
+    }
+  },
+  "python": "3.14.7 (main, Oct  4 2026, 04:40:27) [GCC 15.2.0]",
+  "interpreter": {
+    "path": "/usr/bin/python3",
+    "sha256": "1324452a1b3437ef26e0d39794ede6fb7c1c2c0c5960a050feace157ffe50b33"
+  },
+  "boot_id": "3e9eaa70-6ba2-4fc1-bbac-fbe40e0c5cd6",
+  "native_current_source_qualified": false,
+  "native_hashes": {
+    "iso": {
+      "candidates": [
+        "118545082f24fc195a446d1ee7bbf816"
+      ],
+      "error": null,
+      "sha256": "83c6dacc46797bc7d4bdcb4aa2dd253c290316c07c4cda8f6ca1afb889c44121"
+    },
+    "rvz_none": {
+      "candidates": [
+        "118545082f24fc195a446d1ee7bbf816"
+      ],
+      "error": null,
+      "sha256": "4526c1597cf8f2c00a236796fcf5433ce56a81d7d4a157f4ae75f58a307bc48f"
+    },
+    "rvz_zstd": {
+      "candidates": [
+        "118545082f24fc195a446d1ee7bbf816"
+      ],
+      "error": null,
+      "sha256": "bb3c40134d089fdcf97502f2cff30db9f3b7073ddd61c39adb993a2d24b4d2b9"
+    }
+  },
+  "sqlite_version": "3.53.4",
+  "service_identity": {
+    "pid": 2138,
+    "start_ticks": 5581,
+    "socket_inode": 6879,
+    "fd": 8,
+    "network_namespace": "net:[4026531833]",
+    "source_sha256": "42fbdb000f64e791fcee4437448e1841f8b6ebd81bb97d358f84fcfe98f65a75"
+  },
+  "queued_signed_rows": [
+    {
+      "id": 1,
+      "achievementId": 101,
+      "queryString": "/dorequest.php",
+      "requestBody": "r=awardachievement&a=101&g=10&u=fixture-a&t=%3Csynthetic-token-a%3E&h=0",
+      "userAgent": "RetroArch/1.21.0 (Linux)",
+      "queuedAt": 1791991609312,
+      "retryCount": 0,
+      "lastError": null,
+      "status": "pending",
+      "payloadHash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+      "prevHash": "genesis",
+      "signature": "/4LNo6BT3ppBy8jbvPllyhq07T6o5RgkiakqcNtr8ws=",
+      "signedAt": 1791991609313
+    },
+    {
+      "id": 2,
+      "achievementId": 102,
+      "queryString": "/dorequest.php",
+      "requestBody": "r=awardachievement&a=102&g=10&u=fixture-a&t=%3Csynthetic-token-a%3E&h=0",
+      "userAgent": "RetroArch/1.21.0 (Linux)",
+      "queuedAt": 1791991609325,
+      "retryCount": 0,
+      "lastError": null,
+      "status": "pending",
+      "payloadHash": "32955b20e62d305a2cd4cf2690e76911e876e28bd1af069e47a13c1d2e222a5e",
+      "prevHash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+      "signature": "S24j8IQROlca3d29XIaVFoFM7hILzhgbe3eQKfKSHn0=",
+      "signedAt": 1791991609326
+    }
+  ],
+  "stub_requests": [
+    {
+      "method": "GET",
+      "action": "gameid",
+      "user": "fixture-a",
+      "params": {
+        "r": "gameid",
+        "m": "118545082f24fc195a446d1ee7bbf816",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>"
+      },
+      "mode": "normal"
+    },
+    {
+      "method": "GET",
+      "action": "patch",
+      "user": "fixture-a",
+      "params": {
+        "r": "patch",
+        "g": "10",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>"
+      },
+      "mode": "normal"
+    },
+    {
+      "method": "GET",
+      "action": "unlocks",
+      "user": "fixture-a",
+      "params": {
+        "r": "unlocks",
+        "g": "10",
+        "h": "0",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>"
+      },
+      "mode": "normal"
+    },
+    {
+      "method": "GET",
+      "action": "achievementsets",
+      "user": "fixture-a",
+      "params": {
+        "r": "achievementsets",
+        "m": "118545082f24fc195a446d1ee7bbf816",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>"
+      },
+      "mode": "normal"
+    },
+    {
+      "method": "GET",
+      "action": "patch",
+      "user": "fixture-b",
+      "params": {
+        "r": "patch",
+        "g": "10",
+        "u": "fixture-b",
+        "t": "<synthetic-token-b>"
+      },
+      "mode": "normal"
+    },
+    {
+      "method": "GET",
+      "action": "unlocks",
+      "user": "fixture-b",
+      "params": {
+        "r": "unlocks",
+        "g": "10",
+        "h": "0",
+        "u": "fixture-b",
+        "t": "<synthetic-token-b>"
+      },
+      "mode": "normal"
+    },
+    {
+      "method": "GET",
+      "action": "achievementsets",
+      "user": "fixture-b",
+      "params": {
+        "r": "achievementsets",
+        "m": "118545082f24fc195a446d1ee7bbf816",
+        "u": "fixture-b",
+        "t": "<synthetic-token-b>"
+      },
+      "mode": "normal"
+    },
+    {
+      "method": "GET",
+      "action": "patch",
+      "user": "fixture-a",
+      "params": {
+        "r": "patch",
+        "g": "20",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>"
+      },
+      "mode": "normal"
+    },
+    {
+      "method": "GET",
+      "action": "unlocks",
+      "user": "fixture-a",
+      "params": {
+        "r": "unlocks",
+        "g": "20",
+        "h": "0",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>"
+      },
+      "mode": "normal"
+    },
+    {
+      "method": "GET",
+      "action": "achievementsets",
+      "user": "fixture-a",
+      "params": {
+        "r": "achievementsets",
+        "m": "22222222222222222222222222222222",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>"
+      },
+      "mode": "normal"
+    },
+    {
+      "method": "POST",
+      "action": "login2",
+      "user": "fixture-a",
+      "params": {
+        "r": "login2",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>"
+      },
+      "mode": "normal"
+    },
+    {
+      "method": "POST",
+      "action": "login2",
+      "user": "fixture-b",
+      "params": {
+        "r": "login2",
+        "u": "fixture-b",
+        "t": "<synthetic-token-b>"
+      },
+      "mode": "normal"
+    },
+    {
+      "method": "HEAD",
+      "action": "HEAD",
+      "user": "",
+      "params": {},
+      "mode": "normal"
+    },
+    {
+      "method": "POST",
+      "action": "login2",
+      "user": "fixture-a",
+      "params": {
+        "r": "login2",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>"
+      },
+      "mode": "login401"
+    },
+    {
+      "method": "POST",
+      "action": "login2",
+      "user": "fixture-a",
+      "params": {
+        "r": "login2",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>"
+      },
+      "mode": "login403"
+    },
+    {
+      "method": "GET",
+      "action": "patch",
+      "user": "fixture-a",
+      "params": {
+        "r": "patch",
+        "g": "10",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>"
+      },
+      "mode": "patch500"
+    },
+    {
+      "method": "GET",
+      "action": "patch",
+      "user": "fixture-a",
+      "params": {
+        "r": "patch",
+        "g": "10",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>"
+      },
+      "mode": "award401"
+    },
+    {
+      "method": "POST",
+      "action": "awardachievement",
+      "user": "fixture-a",
+      "params": {
+        "r": "awardachievement",
+        "a": "101",
+        "g": "10",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>",
+        "h": "0",
+        "ra_chain_payload_hash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+        "ra_chain_prev_hash": "genesis",
+        "ra_chain_sig": "/4LNo6BT3ppBy8jbvPllyhq07T6o5RgkiakqcNtr8ws=",
+        "ra_chain_pubkey": "YjlmNTQzYmI3Y2Y4ZWIzMmU5NTMxYjQzMzczNWJkODAxNmVlNmZmYjFmM2VlYzM0YjFmYTA0ZGI4ODRkYzBiOQ=="
+      },
+      "mode": "award401"
+    },
+    {
+      "method": "POST",
+      "action": "awardachievement",
+      "user": "fixture-a",
+      "params": {
+        "r": "awardachievement",
+        "a": "102",
+        "g": "10",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>",
+        "h": "0",
+        "ra_chain_payload_hash": "32955b20e62d305a2cd4cf2690e76911e876e28bd1af069e47a13c1d2e222a5e",
+        "ra_chain_prev_hash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+        "ra_chain_sig": "S24j8IQROlca3d29XIaVFoFM7hILzhgbe3eQKfKSHn0=",
+        "ra_chain_pubkey": "YjlmNTQzYmI3Y2Y4ZWIzMmU5NTMxYjQzMzczNWJkODAxNmVlNmZmYjFmM2VlYzM0YjFmYTA0ZGI4ODRkYzBiOQ=="
+      },
+      "mode": "award401"
+    },
+    {
+      "method": "GET",
+      "action": "patch",
+      "user": "fixture-a",
+      "params": {
+        "r": "patch",
+        "g": "10",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>"
+      },
+      "mode": "award500"
+    },
+    {
+      "method": "POST",
+      "action": "awardachievement",
+      "user": "fixture-a",
+      "params": {
+        "r": "awardachievement",
+        "a": "101",
+        "g": "10",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>",
+        "h": "0",
+        "ra_chain_payload_hash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+        "ra_chain_prev_hash": "genesis",
+        "ra_chain_sig": "/4LNo6BT3ppBy8jbvPllyhq07T6o5RgkiakqcNtr8ws=",
+        "ra_chain_pubkey": "YjlmNTQzYmI3Y2Y4ZWIzMmU5NTMxYjQzMzczNWJkODAxNmVlNmZmYjFmM2VlYzM0YjFmYTA0ZGI4ODRkYzBiOQ=="
+      },
+      "mode": "award500"
+    },
+    {
+      "method": "POST",
+      "action": "awardachievement",
+      "user": "fixture-a",
+      "params": {
+        "r": "awardachievement",
+        "a": "102",
+        "g": "10",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>",
+        "h": "0",
+        "ra_chain_payload_hash": "32955b20e62d305a2cd4cf2690e76911e876e28bd1af069e47a13c1d2e222a5e",
+        "ra_chain_prev_hash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+        "ra_chain_sig": "S24j8IQROlca3d29XIaVFoFM7hILzhgbe3eQKfKSHn0=",
+        "ra_chain_pubkey": "YjlmNTQzYmI3Y2Y4ZWIzMmU5NTMxYjQzMzczNWJkODAxNmVlNmZmYjFmM2VlYzM0YjFmYTA0ZGI4ODRkYzBiOQ=="
+      },
+      "mode": "award500"
+    },
+    {
+      "method": "GET",
+      "action": "patch",
+      "user": "fixture-a",
+      "params": {
+        "r": "patch",
+        "g": "10",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>"
+      },
+      "mode": "normal"
+    },
+    {
+      "method": "POST",
+      "action": "awardachievement",
+      "user": "fixture-a",
+      "params": {
+        "r": "awardachievement",
+        "a": "101",
+        "g": "10",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>",
+        "h": "0",
+        "v": "58387a466cd12accba0a3db5880836b5",
+        "o": "1",
+        "ra_chain_payload_hash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+        "ra_chain_prev_hash": "genesis",
+        "ra_chain_sig": "/4LNo6BT3ppBy8jbvPllyhq07T6o5RgkiakqcNtr8ws=",
+        "ra_chain_pubkey": "YjlmNTQzYmI3Y2Y4ZWIzMmU5NTMxYjQzMzczNWJkODAxNmVlNmZmYjFmM2VlYzM0YjFmYTA0ZGI4ODRkYzBiOQ=="
+      },
+      "mode": "normal"
+    },
+    {
+      "method": "POST",
+      "action": "awardachievement",
+      "user": "fixture-a",
+      "params": {
+        "r": "awardachievement",
+        "a": "102",
+        "g": "10",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>",
+        "h": "0",
+        "ra_chain_payload_hash": "32955b20e62d305a2cd4cf2690e76911e876e28bd1af069e47a13c1d2e222a5e",
+        "ra_chain_prev_hash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+        "ra_chain_sig": "S24j8IQROlca3d29XIaVFoFM7hILzhgbe3eQKfKSHn0=",
+        "ra_chain_pubkey": "YjlmNTQzYmI3Y2Y4ZWIzMmU5NTMxYjQzMzczNWJkODAxNmVlNmZmYjFmM2VlYzM0YjFmYTA0ZGI4ODRkYzBiOQ=="
+      },
+      "mode": "normal"
+    },
+    {
+      "method": "GET",
+      "action": "unlocks",
+      "user": "fixture-a",
+      "params": {
+        "r": "unlocks",
+        "g": "10",
+        "h": "0",
+        "u": "fixture-a",
+        "t": "<synthetic-token-a>"
+      },
+      "mode": "normal"
+    }
+  ],
+  "stub_errors": [],
+  "synthetic_applied": [
+    [
+      "fixture-a",
+      101
+    ],
+    [
+      "fixture-a",
+      102
+    ]
+  ],
+  "cleanup_errors": [],
+  "elapsed_seconds": 11.245718906,
+  "remaining_threads": [],
+  "remaining_listeners": [],
+  "retained_bytes": 139403
+}

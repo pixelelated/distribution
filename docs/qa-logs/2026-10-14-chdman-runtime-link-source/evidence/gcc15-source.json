@@ -1,0 +1,36 @@
+{
+  "archive": "/workspace/cache/rocknix-sources/gcc/gcc-15.2.0.tar.xz",
+  "bytes": 101056276,
+  "sha256": "438fd996826b0c82485a29da03a72d71d6e3541a83ec702df4271f6fe025d24e",
+  "members": {
+    "gcc/config/linux.h": {
+      "member": "gcc-15.2.0/gcc/config/linux.h",
+      "bytes": 8737,
+      "sha256": "ff3c91a68cc3ae6febdba4d6b0bd538082b784f6d292de80f3fed051bc6da78d",
+      "packet_path": "evidence/gcc15-source/gcc/config/linux.h.gz",
+      "compressed_sha256": "3a30edb3e37763967e433a92a7c6cbde533293cddba489b5afcf4786f8a016d8"
+    },
+    "gcc/gcc.cc": {
+      "member": "gcc-15.2.0/gcc/gcc.cc",
+      "bytes": 327950,
+      "sha256": "530a81a2152973c8f1ba9dd6a7525a449940d85600ccf1813f712e571f20d23c",
+      "packet_path": "evidence/gcc15-source/gcc/gcc.cc.gz",
+      "compressed_sha256": "1232fc8674c59ec6c6087963f077f75a0fc79c0f47ad857467bc37c12a07c0bc"
+    },
+    "gcc/cp/g++spec.cc": {
+      "member": "gcc-15.2.0/gcc/cp/g++spec.cc",
+      "bytes": 12543,
+      "sha256": "dc8bacdae3bb9fdb79500d2217abcf1e282bb420e8b37cee4784d15070bc2c20",
+      "packet_path": "evidence/gcc15-source/gcc/cp/g++spec.cc.gz",
+      "compressed_sha256": "61f4ccb35fc9d955a269d1ce0992b2752423a341583e660a4a7eacf52852d88f"
+    },
+    "libgcc/config/t-slibgcc": {
+      "member": "gcc-15.2.0/libgcc/config/t-slibgcc",
+      "bytes": 1973,
+      "sha256": "08000b04986e0807a5fac32ea388fe9307b95918c75af762f17345ab1fd7557a",
+      "packet_path": "evidence/gcc15-source/libgcc/config/t-slibgcc.gz",
+      "compressed_sha256": "0402397f3005e4e715784b0a60d78edf99230aef05b3d129bcf35bd7fd37cd8f"
+    }
+  },
+  "qualification": "Source text only; no claim these bytes built the accepted SDK ELFs."
+}

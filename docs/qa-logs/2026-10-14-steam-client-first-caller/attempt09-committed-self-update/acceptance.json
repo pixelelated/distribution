@@ -1,0 +1,43 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T160721Z-5424cbc6",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 582,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix582-client-vm-20261014-09/vm",
+      "release_when": "Original guest/guard/lifecycle receipts exported and verified; actual owners exited; consume admission then remove disk/media/UEFI. Preserve only immediate-next-test synthetic inputs."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt09-committed-self-update/result.json",
+      "sha256": "ad57c5d463f20d292c3f516ae16d926703df1ffc04dad5a423db67d58479fe0a"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt09-committed-self-update/namespace-result.json",
+      "sha256": "6cc4014829a197a7beabad969d8a0c6b595b523d51f6f7501c302091a246efc8"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt09-committed-self-update/host-exits.json",
+      "sha256": "16d51c81f1ffec97a9d037c08c5d9ecc5b89ccd1d5a83f490ecad3993f795022"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt09-committed-self-update/vm-result.json",
+      "sha256": "54fa79647ef728fb950f158f1554ef12f3ca29bba0d6950ad4c7f1cefc98b797"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt09-committed-self-update/guest-manifest.json",
+      "sha256": "248755e9285512decbef2970ab987906c524afc0d14176948e2e964a11edc3fc"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt09-committed-self-update/original-records.json",
+      "sha256": "d502c09b83c69a4c41911f03602bab60562913f85902db2c999c2ab8b6ff0e62"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt09-committed-self-update/unmount-640x480.txt",
+      "sha256": "1e24ec7421d8cdbfc285a8a42cfb7db254151dc28eea49c63202154319be7a13"
+    }
+  ]
+}

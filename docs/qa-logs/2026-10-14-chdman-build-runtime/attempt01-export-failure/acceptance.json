@@ -1,0 +1,41 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T161719Z-6dc95798",
+  "expected_rc": 1,
+  "disposition": "failed-investigated",
+  "outputs": [
+    {
+      "issue": 574,
+      "kind": "build-cache",
+      "path": "/workspace/tmp/pix574-chdman-build-20261014-01/work",
+      "release_when": "Retire after selected converter VM qualification; preserve compact source/artifact/failure receipts."
+    },
+    {
+      "issue": 574,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix574-chdman-build-20261014-01/stages",
+      "release_when": "Preserve original child/container/watcher/launcher channels and host identity/cleanup receipts before scratch retirement."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-chdman-build-runtime/attempt01-export-failure/result.json",
+      "sha256": "b7ec2027267ea1d2d373d9543b3f4fd11e359c67b5f3ba2982e618cf72b9da62"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-chdman-build-runtime/attempt01-export-failure/container-result.json",
+      "sha256": "6c396b3934c68b73e93e4238dc6fa52ed831338dc4d3d24c62b9da398e4502ba"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-chdman-build-runtime/attempt01-export-failure/host-exits.json",
+      "sha256": "b3ab82ba5c620b9cacd487855e8af59d0e8fdd0f0323d66640bd3d08e1275b7a"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-chdman-build-runtime/attempt01-export-failure/analysis.json",
+      "sha256": "ef4d297ad9d825154713fc76975ae43ae012970669266d7859df8b1979f6d5ec"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-chdman-build-runtime/attempt01-export-failure/original-records.json",
+      "sha256": "6ff12ec050acfe3dc09093546e95be78f9d225e62dacc81036771ad479cba5c1"
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+make: Entering directory '/work/format-tools/mame-24cffe763621b164fc10be2ae3660f140be25182/3rdparty/genie/build/gmake.linux'
+Creating obj/Release
+mkdir -p "obj/Release"
+Creating obj/Release/src/host
+mkdir -p "obj/Release/src/host"
+Creating obj/Release/src/host/lua-5.3.0/src
+mkdir -p "obj/Release/src/host/lua-5.3.0/src"
+Creating ../../bin/linux
+mkdir -p "../../bin/linux"
+lapi.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lapi.o" -c "../../src/host/lua-5.3.0/src/lapi.c"
+lauxlib.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lauxlib.o" -c "../../src/host/lua-5.3.0/src/lauxlib.c"
+lbaselib.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lbaselib.o" -c "../../src/host/lua-5.3.0/src/lbaselib.c"
+lbitlib.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lbitlib.o" -c "../../src/host/lua-5.3.0/src/lbitlib.c"
+lcode.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lcode.o" -c "../../src/host/lua-5.3.0/src/lcode.c"
+lcorolib.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lcorolib.o" -c "../../src/host/lua-5.3.0/src/lcorolib.c"
+lctype.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lctype.o" -c "../../src/host/lua-5.3.0/src/lctype.c"
+ldblib.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/ldblib.o" -c "../../src/host/lua-5.3.0/src/ldblib.c"
+ldebug.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/ldebug.o" -c "../../src/host/lua-5.3.0/src/ldebug.c"
+ldo.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/ldo.o" -c "../../src/host/lua-5.3.0/src/ldo.c"
+ldump.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/ldump.o" -c "../../src/host/lua-5.3.0/src/ldump.c"
+lfunc.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lfunc.o" -c "../../src/host/lua-5.3.0/src/lfunc.c"
+lgc.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lgc.o" -c "../../src/host/lua-5.3.0/src/lgc.c"
+linit.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/linit.o" -c "../../src/host/lua-5.3.0/src/linit.c"
+liolib.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/liolib.o" -c "../../src/host/lua-5.3.0/src/liolib.c"
+llex.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/llex.o" -c "../../src/host/lua-5.3.0/src/llex.c"
+lmathlib.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lmathlib.o" -c "../../src/host/lua-5.3.0/src/lmathlib.c"
+lmem.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lmem.o" -c "../../src/host/lua-5.3.0/src/lmem.c"
+loadlib.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/loadlib.o" -c "../../src/host/lua-5.3.0/src/loadlib.c"
+lobject.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lobject.o" -c "../../src/host/lua-5.3.0/src/lobject.c"
+lopcodes.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lopcodes.o" -c "../../src/host/lua-5.3.0/src/lopcodes.c"
+loslib.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/loslib.o" -c "../../src/host/lua-5.3.0/src/loslib.c"
+lparser.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lparser.o" -c "../../src/host/lua-5.3.0/src/lparser.c"
+lstate.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lstate.o" -c "../../src/host/lua-5.3.0/src/lstate.c"
+lstring.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lstring.o" -c "../../src/host/lua-5.3.0/src/lstring.c"
+lstrlib.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lstrlib.o" -c "../../src/host/lua-5.3.0/src/lstrlib.c"
+ltable.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/ltable.o" -c "../../src/host/lua-5.3.0/src/ltable.c"
+ltablib.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/ltablib.o" -c "../../src/host/lua-5.3.0/src/ltablib.c"
+ltm.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/ltm.o" -c "../../src/host/lua-5.3.0/src/ltm.c"
+lundump.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lundump.o" -c "../../src/host/lua-5.3.0/src/lundump.c"
+lutf8lib.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lutf8lib.o" -c "../../src/host/lua-5.3.0/src/lutf8lib.c"
+lvm.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lvm.o" -c "../../src/host/lua-5.3.0/src/lvm.c"
+lzio.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/lua-5.3.0/src/lzio.o" -c "../../src/host/lua-5.3.0/src/lzio.c"
+os_chdir.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/os_chdir.o" -c "../../src/host/os_chdir.c"
+os_copyfile.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/os_copyfile.o" -c "../../src/host/os_copyfile.c"
+os_getcwd.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/os_getcwd.o" -c "../../src/host/os_getcwd.c"
+os_is64bit.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/os_is64bit.o" -c "../../src/host/os_is64bit.c"
+os_isdir.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/os_isdir.o" -c "../../src/host/os_isdir.c"
+os_isfile.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/os_isfile.o" -c "../../src/host/os_isfile.c"
+os_match.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/os_match.o" -c "../../src/host/os_match.c"
+os_mkdir.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/os_mkdir.o" -c "../../src/host/os_mkdir.c"
+os_pathsearch.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/os_pathsearch.o" -c "../../src/host/os_pathsearch.c"
+os_rmdir.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/os_rmdir.o" -c "../../src/host/os_rmdir.c"
+os_stat.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/os_stat.o" -c "../../src/host/os_stat.c"
+os_ticks.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/os_ticks.o" -c "../../src/host/os_ticks.c"
+os_uuid.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/os_uuid.o" -c "../../src/host/os_uuid.c"
+path_getabsolute.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/path_getabsolute.o" -c "../../src/host/path_getabsolute.c"
+path_getrelative.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/path_getrelative.o" -c "../../src/host/path_getrelative.c"
+path_helpers.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/path_helpers.o" -c "../../src/host/path_helpers.c"
+path_isabsolute.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/path_isabsolute.o" -c "../../src/host/path_isabsolute.c"
+premake.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/premake.o" -c "../../src/host/premake.c"
+premake_main.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/premake_main.o" -c "../../src/host/premake_main.c"
+scripts.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/scripts.o" -c "../../src/host/scripts.c"
+string_endswith.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/string_endswith.o" -c "../../src/host/string_endswith.c"
+string_hash.c
+/usr/bin/gcc   -MMD -MP -MP -DNDEBUG -DLUA_COMPAT_MODULE -DLUA_USE_POSIX -DLUA_USE_DLOPEN -D_FILE_OFFSET_BITS=64 -I"../../src/host/lua-5.3.0/src"  -Wall -Wextra -Os  -Wno-implicit-fallthrough  -o "obj/Release/src/host/string_hash.o" -c "../../src/host/string_hash.c"
+Linking genie
+/usr/bin/gcc -o ../../bin/linux/genie obj/Release/src/host/lua-5.3.0/src/lapi.o obj/Release/src/host/lua-5.3.0/src/lauxlib.o obj/Release/src/host/lua-5.3.0/src/lbaselib.o obj/Release/src/host/lua-5.3.0/src/lbitlib.o obj/Release/src/host/lua-5.3.0/src/lcode.o obj/Release/src/host/lua-5.3.0/src/lcorolib.o obj/Release/src/host/lua-5.3.0/src/lctype.o obj/Release/src/host/lua-5.3.0/src/ldblib.o obj/Release/src/host/lua-5.3.0/src/ldebug.o obj/Release/src/host/lua-5.3.0/src/ldo.o obj/Release/src/host/lua-5.3.0/src/ldump.o obj/Release/src/host/lua-5.3.0/src/lfunc.o obj/Release/src/host/lua-5.3.0/src/lgc.o obj/Release/src/host/lua-5.3.0/src/linit.o obj/Release/src/host/lua-5.3.0/src/liolib.o obj/Release/src/host/lua-5.3.0/src/llex.o obj/Release/src/host/lua-5.3.0/src/lmathlib.o obj/Release/src/host/lua-5.3.0/src/lmem.o obj/Release/src/host/lua-5.3.0/src/loadlib.o obj/Release/src/host/lua-5.3.0/src/lobject.o obj/Release/src/host/lua-5.3.0/src/lopcodes.o obj/Release/src/host/lua-5.3.0/src/loslib.o obj/Release/src/host/lua-5.3.0/src/lparser.o obj/Release/src/host/lua-5.3.0/src/lstate.o obj/Release/src/host/lua-5.3.0/src/lstring.o obj/Release/src/host/lua-5.3.0/src/lstrlib.o obj/Release/src/host/lua-5.3.0/src/ltable.o obj/Release/src/host/lua-5.3.0/src/ltablib.o obj/Release/src/host/lua-5.3.0/src/ltm.o obj/Release/src/host/lua-5.3.0/src/lundump.o obj/Release/src/host/lua-5.3.0/src/lutf8lib.o obj/Release/src/host/lua-5.3.0/src/lvm.o obj/Release/src/host/lua-5.3.0/src/lzio.o obj/Release/src/host/os_chdir.o obj/Release/src/host/os_copyfile.o obj/Release/src/host/os_getcwd.o obj/Release/src/host/os_is64bit.o obj/Release/src/host/os_isdir.o obj/Release/src/host/os_isfile.o obj/Release/src/host/os_match.o obj/Release/src/host/os_mkdir.o obj/Release/src/host/os_pathsearch.o obj/Release/src/host/os_rmdir.o obj/Release/src/host/os_stat.o obj/Release/src/host/os_ticks.o obj/Release/src/host/os_uuid.o obj/Release/src/host/path_getabsolute.o obj/Release/src/host/path_getrelative.o obj/Release/src/host/path_helpers.o obj/Release/src/host/path_isabsolute.o obj/Release/src/host/premake.o obj/Release/src/host/premake_main.o obj/Release/src/host/scripts.o obj/Release/src/host/string_endswith.o obj/Release/src/host/string_hash.o     -L"." -s -rdynamic  -ldl -lm
+make: Leaving directory '/work/format-tools/mame-24cffe763621b164fc10be2ae3660f140be25182/3rdparty/genie/build/gmake.linux'

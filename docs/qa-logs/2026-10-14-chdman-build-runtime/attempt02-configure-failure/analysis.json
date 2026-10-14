@@ -1,0 +1,52 @@
+{
+  "status": "FAIL",
+  "export": "PASS",
+  "bootstrap": "PASS",
+  "configure_selected_child_exit": 2,
+  "configure_attach_container_launcher_exit": 1,
+  "watchdog_exit": 0,
+  "cause": "Exact GENie invocation refuses NO_USE_XINPUT while NO_X11=1. Native target compilation not started.",
+  "source_changed": false,
+  "next": "Small prospective option correction, old plan/failures preserved; new family admission.",
+  "stages": {
+    "chdman-export": {
+      "status": "PASS",
+      "original_attach_exit": 0,
+      "original_container_exit": 0,
+      "owners_exited": [
+        2908473,
+        2908527,
+        2908474,
+        2908472,
+        2908530,
+        2908545
+      ]
+    },
+    "chdman-bootstrap": {
+      "status": "PASS",
+      "original_attach_exit": 0,
+      "original_container_exit": 0,
+      "owners_exited": [
+        2913795,
+        2913848,
+        2913796,
+        2913794,
+        2913851,
+        2913865
+      ]
+    },
+    "chdman-configure": {
+      "status": "FAIL",
+      "original_attach_exit": 1,
+      "original_container_exit": 1,
+      "owners_exited": [
+        2923229,
+        2923282,
+        2923230,
+        2923228,
+        2923285,
+        2923301
+      ]
+    }
+  }
+}

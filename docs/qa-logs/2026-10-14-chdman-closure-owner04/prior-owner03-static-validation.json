@@ -1,0 +1,69 @@
+{
+  "status": "STATIC_PASS_RUNTIME_UNRUN",
+  "python": {
+    "closure/closure.py": {
+      "python_3_10_ast": "PASS",
+      "sha256": "164ee205425b5545eaaf4a5e755b7ecad9480f94d29583904f9ec3c215fc2b54"
+    },
+    "closure/common.py": {
+      "python_3_10_ast": "PASS",
+      "sha256": "cf7e0951dc52ab98e94cd6983c4dcd3d0f96cd41c648dadd7de48abcb00fc13f"
+    },
+    "closure/loader_resolution.py": {
+      "python_3_10_ast": "PASS",
+      "sha256": "9f998586a343c4592e5ad6efc820bd4fc8741573416f50f5cfb87a682581d39d"
+    },
+    "common.py": {
+      "python_3_10_ast": "PASS",
+      "sha256": "36cbbad34aee62f050c9f7c85c6963586364264e498a5dc5b0721c3e452e864a",
+      "byte_identical_to_41684b51": true
+    },
+    "docker_owner.py": {
+      "python_3_10_ast": "PASS",
+      "sha256": "276baaa41d855161873b6d3a979463d2ff0a3bb8fd28ddbd8ed4502959354d31",
+      "byte_identical_to_41684b51": true
+    },
+    "inner.py": {
+      "python_3_10_ast": "PASS",
+      "sha256": "fd71699198fd5ad2604e331c5f53445a292ae7f708352dbd7661c9a8d89b194d",
+      "byte_identical_to_41684b51": true
+    },
+    "plan.py": {
+      "python_3_10_ast": "PASS",
+      "sha256": "c3dc0183383983f577a8cf56e3dd731b8484edc7067d5b84da7b8e6b83cb87d4",
+      "byte_identical_to_41684b51": true
+    },
+    "prerequisites.py": {
+      "python_3_10_ast": "PASS",
+      "sha256": "f4ca8c0fa93032c897f0bc45434cc5cef0d60022cdfd08434fb91888d0da104d",
+      "byte_identical_to_41684b51": true
+    },
+    "run-stage.py": {
+      "python_3_10_ast": "PASS",
+      "sha256": "dbe300b2a0da7fc558a1741b09c49049aa28f48c09250fa7d4269ad2cb851840",
+      "byte_identical_to_41684b51": true
+    },
+    "watchdog.py": {
+      "python_3_10_ast": "PASS",
+      "sha256": "b21d2e255f0094b5f48eef6e009972633298629b7f0c4c7b44ec7eef0148c18b",
+      "byte_identical_to_41684b51": true
+    }
+  },
+  "bridge_modules_unchanged": 7,
+  "closure_unchanged_helpers": [
+    "common.py",
+    "loader_resolution.py",
+    "loader-binding.json"
+  ],
+  "closure_executable_delta": "One refusal diagnostic and exact two-patch receipt/file check; ELF/loader traversal and target-artifact binding unchanged.",
+  "revised_source_commit": "2608923ba0ab80752e555adb393d7a029baeaf8c",
+  "revised_committed_files_verified": 86,
+  "revised_plan_input_sha256": "b151b9218c6d91ef7148a14a7f0468c02c9ef299bce69c7cc7f556e9b6ce15ce",
+  "revised_plan_manifest_sha256": "1ff0f210cc3d88a4a761fff9dc1b81cc4e78c780f1367ed067d1abbaa0161ec0",
+  "revised_runner_manifest_sha256": "349a57d0c81a03ef564bf2f9aec197a0fbf7e9b676106a8b00d375bea0b67c45",
+  "toolchain_text_unchanged": true,
+  "method": "Source/AST parsing, exact file/source-segment comparisons, Git blob identities, JSON/recursive manifest SHA256 only; no prepared import or fixture invocation.",
+  "runtime_executed": false,
+  "binary_hash": "Not guessed or fixed: required from eventual successful original target-artifact.json.",
+  "limitations": "New plan/patch and bridge composition are UNRUN. Actual original build PASS/consumption and fresh closure allocation remain prerequisites; VM loading/help/format remains separate."
+}

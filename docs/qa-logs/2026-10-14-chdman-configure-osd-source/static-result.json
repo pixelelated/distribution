@@ -1,0 +1,34 @@
+{
+  "status": "STATIC_ONLY_PASS",
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "python_AST": [
+    "common.py",
+    "docker_owner.py",
+    "export.py",
+    "inner.py",
+    "mame.py",
+    "plan.py",
+    "run-stage.py",
+    "static-check.py",
+    "watchdog.py"
+  ],
+  "unchanged_runner_files": [
+    "common.py",
+    "docker_owner.py",
+    "watchdog.py",
+    "run-stage.py",
+    "inner.py"
+  ],
+  "unchanged_make_assignments": 43,
+  "observed_generator_options_source_checked": 37,
+  "source_members": 15,
+  "OSD_patch_only_two_added_lines": true,
+  "prior_failure_original_channels_preserved": true,
+  "basis_manifest_sha256": "2237c558dc1efb78fb889e803ab36a1be29d4715d119979167da04601b6fc96a",
+  "plan_manifest_sha256": "1ff0f210cc3d88a4a761fff9dc1b81cc4e78c780f1367ed067d1abbaa0161ec0",
+  "bash_n_exit": 0,
+  "runner_imported": false,
+  "archive_exported": false,
+  "Lua_GENie_compiler_container_VM_target_execution": false,
+  "runtime": "UNRUN; no generated-file/compile/format acceptance inferred"
+}

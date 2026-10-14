@@ -1,0 +1,12 @@
+make: Entering directory '/work/format-tools/mame-24cffe763621b164fc10be2ae3660f140be25182'
+GCC 15.2.0 detected
+mkdir -p "build/generated/mame/layout/"
+mkdir -p "build/generated/mame/mame/"
+mkdir -p "build/generated/mame/drivers/"
+mkdir -p "build/generated/mame/machine/"
+3rdparty/genie/bin/linux/genie --with-system-expat='0' --with-system-zlib='0' --with-system-zstd='0' --with-system-flac='0' --with-system-utf8proc='0' --CC='/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc' --CXX='/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-g++' --LD='/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-g++' --AR='/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-ar' --SYMBOLS='0' --with-tools --OPTIMIZE=1 --NOWERROR='1' --target='mame' --subtarget='mame' --build-dir='build' --USE_TAPTUN='0' --USE_PCAP='0' --NO_OPENGL='1' --NO_USE_MIDI='1' --NO_USE_PORTAUDIO='1' --NO_USE_PULSEAUDIO='1' --NO_USE_PIPEWIRE='1' --USE_QTDEBUG='0' --NO_X11='1' --NO_USE_XINPUT='1' --NO_USE_XINPUT_WII_LIGHTGUN_HACK='1' --LTO='0' --OPENMP='0' --PYTHON_EXECUTABLE='python3' --STRIP_SYMBOLS='0' --precompile='0' --osd='sdl' --targetos='linux' --PLATFORM='x86' --gcc=linux-gcc --gcc_version=15.2.0 gmake
+Error: invalid option 'NO_USE_XINPUT'
+stack traceback:
+	[C]: in function 'error'
+	[string "_WORKING_DIR        = os.getcwd()..."]:63: in function '_premake_main'
+make: Leaving directory '/work/format-tools/mame-24cffe763621b164fc10be2ae3660f140be25182'

@@ -1,0 +1,55 @@
+{
+  "admitted": "2026-10-14T16:17:19.372047+00:00",
+  "available_bytes": 2979573305344,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+  "consumed": "2026-10-14T16:20:31.180200+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+  "deleted_bytes": 0,
+  "evidence_sha256": "aeb6c4acccdb26f2c963892ce04266aec182648df3561bb43eeee86839802c3f",
+  "id": "465b8033e73f490cbc538146bcf1af6c",
+  "original_result": {
+    "command_rc": 1,
+    "monitor_rc": 0,
+    "runner_rc": 1,
+    "utc": "2026-10-14T16:17:24.359631+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 574,
+      "kind": "build-cache",
+      "path": "/workspace/tmp/pix574-chdman-build-20261014-01/work",
+      "release_when": "Retire after selected converter VM qualification; preserve compact source/artifact/failure receipts."
+    },
+    {
+      "issue": 574,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix574-chdman-build-20261014-01/stages",
+      "release_when": "Preserve original child/container/watcher/launcher channels and host identity/cleanup receipts before scratch retirement."
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "02578b5d448cba889c58cd488638764a03db814573755c82d761fbcb343b71a9",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 6442450944,
+  "retention_plan_sha256": "997f3b85237d958958701086a8e8678aea1318d75f8d2a86d95f4723c453c852",
+  "retention_report_sha256": "b3c306416e6035e94cc2239dba94dafb2ecbdefa892e2d4b83a35ef493b6c55b",
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T161719Z-6dc95798",
+  "runner_pid": 2876249,
+  "runner_start": "108632324",
+  "source": {
+    "head": "62f3ba31b247a94414fb77155ad4ea9a0c5005ac",
+    "tracked_diff_sha256": "5af842c8a1ac9c5f546604ae079eb4cda50f23b10b1372ef4bc0ff6904d04f91"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix574-chdman-build-20261014-01/stages/chdman-export/submit",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

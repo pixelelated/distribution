@@ -1,0 +1,91 @@
+{
+  "checked_utc": "2026-10-14T01:24:37.319136+00:00",
+  "evidence_level": "static source/input verification only",
+  "configure_build_fixture_runtime": "UNRUN",
+  "checks": {
+    "tracked_changes_before_staging": "none; only new scoped packet untracked",
+    "bash_n_build_stage": "PASS; shell syntax only, entrypoint not executed",
+    "bash_n_readme_blocks": {
+      "status": "PASS",
+      "blocks": 4,
+      "execution": false
+    },
+    "cmake_initial_cache_lexical": {
+      "status": "PASS",
+      "set_statements": 46,
+      "cmake_not_invoked": true,
+      "limit": "lexical shape and unique names; no configure or target resolution proof"
+    },
+    "input_file_bindings": {
+      "status": "PASS",
+      "verified": 75
+    },
+    "immutable_prior_packets": [
+      {
+        "manifest": "docs/qa-logs/2026-10-13-rvz-regression-source/SHA256SUMS",
+        "sha256": "c7498506c5111f1b324de3e5abbd950af48bb2a5d95c1f6e0f87e8276612b08f",
+        "verified_entries": 36
+      },
+      {
+        "manifest": "docs/qa-logs/2026-10-13-rvz-regression-source/wii-public-path/SHA256SUMS",
+        "sha256": "dca4b5d5cff1c94a4c6cb6a36917927e3155aa70391bb2f41f8d6925b68c3f23",
+        "verified_entries": 52
+      },
+      {
+        "manifest": "docs/qa-logs/2026-10-13-rvz-regression-source/wii-release-boundary/SHA256SUMS",
+        "sha256": "0136080b90a3bf4ca0b4e20ff48e08285eab1f583a7a465b46edf3ab43bc6cae",
+        "verified_entries": 28
+      },
+      {
+        "manifest": "docs/qa-logs/2026-10-13-rvz-regression-source/cmake-contract-fix/SHA256SUMS",
+        "sha256": "8c8e0b76a9b88ca62b2633e65ac6a6f9a237f21d8618e304eb4124c2a7b506df",
+        "verified_entries": 8
+      },
+      {
+        "manifest": "docs/qa-logs/2026-10-13-rvz-regression-source/cmake-all-direct-contracts/SHA256SUMS",
+        "sha256": "940a1c43aeaf056451cd4a7b94f6d120c6dcdad2613430771d3a26edf070b573",
+        "verified_entries": 11
+      }
+    ],
+    "dolphin_git_exports": {
+      "status": "PASS",
+      "trees": 14,
+      "head_tree_and_clean_tracked_state": true
+    },
+    "chdman_source_and_private_patch": {
+      "status": "PASS",
+      "archive_members_checked": 14,
+      "patch_compared_in_memory": true,
+      "applied_to_source": false,
+      "before_sha256": "b3dd93f153fa40fa69983f1cc24ee2119510a3459c22a378c6a4d80c4cef97d3",
+      "after_sha256": "60be68969448508ba3a130f64044ec196f6d52970337889474c85bcb075c40ba",
+      "patch_context_lines": 0
+    },
+    "required_cli_contracts": {
+      "status": "static inspection",
+      "dolphin_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+      "dolphin_commands": "convert -u USER -i IN -o OUT -f iso|rvz; rvz -b 131072 -c none|zstd -l 3",
+      "chdman_version": "0.289",
+      "chdman_commands": "createcd -i saturn.cue -o saturn.chd -c none -np 1",
+      "runtime_acceptance": "both sealed runners UNRUN"
+    },
+    "diff_whitespace_correction": {
+      "original_rc": 2,
+      "cause": "Added patch context mixed spaces/tabs and blank excerpt lines retained trailing whitespace.",
+      "correction": "Zero-context exact-file-hash-guarded patch, same before/after source bytes; blank excerpt lines stripped trailing display whitespace. Prior packets unchanged.",
+      "corrected_utc": "2026-10-14T01:25:26.714820+00:00"
+    },
+    "git_diff_cached_check": {
+      "status": "PASS",
+      "rc": 0
+    },
+    "missing_libstdcxx_archive": "Path.rglob also found zero libstdc++.a entries (including symlink entries) under retained toolchain."
+  },
+  "remaining": [
+    "Coordinator allocation and offline container availability",
+    "Source exports and one-token chdman link adjustment UNRUN",
+    "Native GENie bootstrap and exact target configure/build/link UNRUN",
+    "Target ELF/dynamic closure/help and independent RVZ/real CHD conversion UNRUN",
+    "Memory/time/scratch figures are planning limits, not measured results"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "status": "SOURCE_STATIC_ONLY",
+  "runtime": "UNRUN",
+  "prepared_sources_imported": false,
+  "python": {
+    "run-chd-regressions.py": {
+      "sha256": "b2e795a384bdf3f4e461ea15a7c2ebb97097e35fb16d6a3ec7dd978040db9e95",
+      "ast_python311": "PASS"
+    },
+    "bounded.py": {
+      "sha256": "aa07e90550352af2af81e3819c096d3f124970b14ffd96fd1663d565902c9552",
+      "ast_python311": "PASS"
+    }
+  },
+  "retained_artifacts_verified": 9,
+  "unchanged_bounded_helper": true,
+  "excluded_executable_names_absent": true,
+  "chdman": "PENDING_COORDINATOR_BUILD_AND_CLOSURE",
+  "new_selected_children": 8,
+  "native_children": 7,
+  "wrapper_invocations": 5,
+  "ordered_hash_rows": 234
+}

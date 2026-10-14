@@ -1,0 +1,319 @@
+{
+  "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-steam-client-first-caller/attempt10-crc-failure/guest/steam/fixture-records.tar.gz",
+  "archive_bytes": 44380,
+  "archive_sha256": "317d21f4c3a50ff24784340bf65a0c7b70fa8d188d49d87e0083eeb818044a60",
+  "members": [
+    {
+      "member": "crc-failure-retry-10/result.json",
+      "bytes": 7519,
+      "sha256": "a76fc7dd38d38008acddc7e1d1c78db525895f5fa3259e7f3b0e562c587ecade",
+      "copy": "evidence/result.json"
+    },
+    {
+      "member": "crc-failure-retry-10/after.json",
+      "bytes": 15241,
+      "sha256": "9f9cec9f3117cc7b864efa5d6fa146916b0c541e2937f9fbac8182eb3bc144d2"
+    },
+    {
+      "member": "crc-failure-retry-10/namespace-result.json",
+      "bytes": 18057,
+      "sha256": "710f4595b108670b0400fa4103def0385462d2ab6245df9d073058c9b58e7c42",
+      "copy": "evidence/namespace-result.json"
+    },
+    {
+      "member": "crc-failure-retry-10/attempt-2-storage.json",
+      "bytes": 15241,
+      "sha256": "9f9cec9f3117cc7b864efa5d6fa146916b0c541e2937f9fbac8182eb3bc144d2",
+      "copy": "evidence/attempt-2-storage.json"
+    },
+    {
+      "member": "crc-failure-retry-10/attempt-2-result.json",
+      "bytes": 2039,
+      "sha256": "34d684df67ddfe885048556b609b23c89c9fbf86a3e6fbda8723eed1b3656574",
+      "copy": "evidence/attempt-2-result.json"
+    },
+    {
+      "member": "crc-failure-retry-10/exec-2.json",
+      "bytes": 1725,
+      "sha256": "ed6f252e7883ae9c4d8afece3e83856e7e2b3e3ef4aeb7ceaf0363253cc8b9fb"
+    },
+    {
+      "member": "crc-failure-retry-10/installer-2.stderr",
+      "bytes": 8675,
+      "sha256": "ea5355ca2d855ed14d937f9050726adcca34eaa524286a2964b25c3e79eb7e84",
+      "copy": "evidence/installer-2.stderr"
+    },
+    {
+      "member": "crc-failure-retry-10/installer-2.stdout",
+      "bytes": 365,
+      "sha256": "595f04a550c3f02e0214c010c346045194a7b2867010a3da8fddcc791036b20b"
+    },
+    {
+      "member": "crc-failure-retry-10/attempt-1-storage.json",
+      "bytes": 15241,
+      "sha256": "9218fa8e2c20a3334d1ebbf49e4d5bdc1a40436d4171a58f884f4d6eda8432eb",
+      "copy": "evidence/attempt-1-storage.json"
+    },
+    {
+      "member": "crc-failure-retry-10/attempt-1-result.json",
+      "bytes": 2039,
+      "sha256": "0b7f77b079d5f330f51bd63d6616002ab9e67f57f1b80abf232e17f49f7c00bc",
+      "copy": "evidence/attempt-1-result.json"
+    },
+    {
+      "member": "crc-failure-retry-10/exec-1.json",
+      "bytes": 1725,
+      "sha256": "1280dcf8a1e27f793d2eeb6335ff09ba0e5d64c8e41569cc02a4f7c8304d1012"
+    },
+    {
+      "member": "crc-failure-retry-10/installer-1.stderr",
+      "bytes": 8704,
+      "sha256": "feb13eaad516a11bbc8bd8c96bf61492fe85dbe5817b59307da6dbc712737987",
+      "copy": "evidence/installer-1.stderr"
+    },
+    {
+      "member": "crc-failure-retry-10/installer-1.stdout",
+      "bytes": 365,
+      "sha256": "595f04a550c3f02e0214c010c346045194a7b2867010a3da8fddcc791036b20b"
+    },
+    {
+      "member": "crc-failure-retry-10/exec-blocked.json",
+      "bytes": 822,
+      "sha256": "964a8055d15faae69d89b045d6e15aa5e6ae47a7f5c18fdfe1696938ff0a2e21"
+    },
+    {
+      "member": "crc-failure-retry-10/exec-blocked.stderr",
+      "bytes": 562,
+      "sha256": "01265507d5df375a3c6f2b7564c1ae54494f86157327d0acf265848f74bddf9d"
+    },
+    {
+      "member": "crc-failure-retry-10/exec-blocked.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "crc-failure-retry-10/exec-many-syscalls.json",
+      "bytes": 713,
+      "sha256": "df259f2998bbce8e5d242a6a6b0c5c04ad3f878e8a4fc270126071ad87bdfbea"
+    },
+    {
+      "member": "crc-failure-retry-10/exec-many-syscalls.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "crc-failure-retry-10/exec-many-syscalls.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "crc-failure-retry-10/exec-allowed.json",
+      "bytes": 706,
+      "sha256": "c02dd48c95d3b7c6683a4a0a918d8738809074125164ceaf761c65ea35ec93ea"
+    },
+    {
+      "member": "crc-failure-retry-10/exec-allowed.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "crc-failure-retry-10/exec-allowed.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "crc-failure-retry-10/exec-denial.json",
+      "bytes": 842,
+      "sha256": "d5cb06ee84892951f17eb46fa9d5fc1a1b7473938cb7c81b44e4c913cf2caec7"
+    },
+    {
+      "member": "crc-failure-retry-10/exec-denial.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "crc-failure-retry-10/exec-denial.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "crc-failure-retry-10/launcher-caller.json",
+      "bytes": 519,
+      "sha256": "1159d743c919662296595b54fa424f5c2d976322605f7aa8c5044e9b19ba0da8"
+    },
+    {
+      "member": "crc-failure-retry-10/owner.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "crc-failure-retry-10/owner.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "crc-failure-retry-10/launcher-parent-exit-before-arm.json",
+      "bytes": 596,
+      "sha256": "bd91180010857b4d6e758973a09d20a908c57216d2ffdafd7c7caab7995e7330"
+    },
+    {
+      "member": "crc-failure-retry-10/launcher-parent-exit-after-arm.json",
+      "bytes": 594,
+      "sha256": "f783c1c1029dac342486bd8d6875e555011632b29f744abf963e517a24d133f9"
+    },
+    {
+      "member": "crc-failure-retry-10/supervision/parent-exit-before-arm/result.json",
+      "bytes": 792,
+      "sha256": "366394af66d76ca4923e16d968a3d93b56d37a663dfb6f59ca7c41d7ac5bf40d"
+    },
+    {
+      "member": "crc-failure-retry-10/supervision/parent-exit-before-arm/refusal.json",
+      "bytes": 88,
+      "sha256": "838bc940484a252e04580094a33b951501f71c66e8b85095f823ae7af16d131a"
+    },
+    {
+      "member": "crc-failure-retry-10/supervision/parent-exit-before-arm/ready",
+      "bytes": 31,
+      "sha256": "a13e74addb9c3d9ee663f7a09b60b061a4ade247d9c4a39e3e7e3419ab577b6a"
+    },
+    {
+      "member": "crc-failure-retry-10/supervision/parent-exit-before-arm/stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "crc-failure-retry-10/supervision/parent-exit-before-arm/stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "crc-failure-retry-10/supervision/parent-exit-after-arm/result.json",
+      "bytes": 790,
+      "sha256": "75e902d92313508be17741087182aa723633597b2eb7a8315afa3b30ff8cedd6"
+    },
+    {
+      "member": "crc-failure-retry-10/supervision/parent-exit-after-arm/ready",
+      "bytes": 51,
+      "sha256": "ca5370559bc67b4f2e41d028a470ddae15ace6bf366366cc33449160b1a6acb6"
+    },
+    {
+      "member": "crc-failure-retry-10/supervision/parent-exit-after-arm/guard.json",
+      "bytes": 89,
+      "sha256": "8f6dc1309d5d59f940036dd2bc907d730dbcea98789273c591f5a85589bf0e84"
+    },
+    {
+      "member": "crc-failure-retry-10/supervision/parent-exit-after-arm/detached-child-ready",
+      "bytes": 2,
+      "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3"
+    },
+    {
+      "member": "crc-failure-retry-10/supervision/parent-exit-after-arm/stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "crc-failure-retry-10/supervision/parent-exit-after-arm/stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "member": "crc-failure-retry-10/owner.json",
+      "bytes": 3678,
+      "sha256": "d65cb755e1e2cacc12c2c481f3571003e1b95748c51b2cdc59f477fc9315c258"
+    },
+    {
+      "member": "crc-failure-retry-10/before.json",
+      "bytes": 12875,
+      "sha256": "ae832d254806b030c07549b5fa4c782936226cdd30243bc585ef10e2c569a748"
+    },
+    {
+      "member": "crc-failure-retry-10/binfmt/box64",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "member": "crc-failure-retry-10/binfmt/box32",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "member": "crc-failure-retry-10/binfmt/x86",
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "member": "crc-failure-retry-10/qa/native-tools.json",
+      "bytes": 2844,
+      "sha256": "b14e825083c3deebc11d19e446faca413592dc0623d43408729b3b32c87445ea"
+    },
+    {
+      "member": "crc-failure-retry-10/qa/guard-should-not-run",
+      "bytes": 53,
+      "sha256": "c5b6c0143490bb67b0820030b587c8997c549ad3ea7cdf4ead5514590a96fbcf"
+    },
+    {
+      "member": "crc-failure-retry-10/qa/client-bad.json",
+      "bytes": 12156,
+      "sha256": "934f7d694db901d9edb7afe36b6913c572f3f400e9acb620aad1bd2c6143a8d4",
+      "copy": "evidence/qa-client-bad.json"
+    },
+    {
+      "member": "crc-failure-retry-10/qa/client-good.json",
+      "bytes": 12019,
+      "sha256": "3bf457e4f0c564450b5affc491e7fe7c2bae512a6cd8dc1570660a6b81a34c97",
+      "copy": "evidence/qa-client-good.json"
+    },
+    {
+      "member": "crc-failure-retry-10/qa/attempt.json",
+      "bytes": 15,
+      "sha256": "de48082d4ffb96b6e68d021638a00a735522bc93ff223f55379f5139de582093"
+    },
+    {
+      "member": "crc-failure-retry-10/qa/transfer-child.py",
+      "bytes": 2466,
+      "sha256": "cedeb1244888fb9f5a752f356efdcd5f4ae70dc5731a20c0dd0af9fad569c6da"
+    },
+    {
+      "member": "crc-failure-retry-10/qa/exec-guard.py",
+      "bytes": 7757,
+      "sha256": "00210b59a8c7fe25559e7ff561f1c112197bf8ef9a876523b5c457f486da4d59"
+    },
+    {
+      "member": "crc-failure-retry-10/qa/python-boundary.py",
+      "bytes": 5673,
+      "sha256": "dbd56b6c108f5dc6b15893f27c58e50c05f90513b02d05d2a3bab9e46666deb5"
+    },
+    {
+      "member": "crc-failure-retry-10/qa/source.json",
+      "bytes": 5567,
+      "sha256": "a10cb44e8951e1af5a18acd58fe63f1d3cfbb1373ae1a1e4191a62fd349a0e01"
+    },
+    {
+      "member": "crc-failure-retry-10/qa/layout.json",
+      "bytes": 23971,
+      "sha256": "5afbc973d2bc8c79cafafb2c7e3a301b11b192af946f77c5b64dfb2cc8278355"
+    },
+    {
+      "member": "crc-failure-retry-10/qa/case.json",
+      "bytes": 117,
+      "sha256": "fe2e7c3788afda8b44213455e579764c90f633519a541d226db4b1d2a947afff"
+    },
+    {
+      "member": "crc-failure-retry-10/qa/events.ndjson",
+      "bytes": 11027,
+      "sha256": "11d6c96b04f7471a8109f267a8d4533bb229d8ca15a54830ff693d25bbc625a6",
+      "copy": "evidence/qa-events.ndjson"
+    },
+    {
+      "member": "crc-failure-retry-10/qa/boundary.py",
+      "bytes": 9602,
+      "sha256": "aafc7d6a419297d9083350fb658543f8578b992704633565f068371a586a89e3"
+    },
+    {
+      "member": "crc-failure-retry-10/qa/payload.py",
+      "bytes": 17640,
+      "sha256": "2876448cd57eb8dc7f29c2eb25d536d1b5cf83637c618ba6be13d15d97060ee8"
+    }
+  ],
+  "access": "Read-only completed fixture evidence; no Steam payload archive access; original FAIL unchanged"
+}

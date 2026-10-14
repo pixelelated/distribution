@@ -1,0 +1,79 @@
+{
+  "status": "FAIL",
+  "stage": "chdman-export",
+  "started": 1791994639.4197342,
+  "original_attach_exit": 1,
+  "container_result_sha256": "6c396b3934c68b73e93e4238dc6fa52ed831338dc4d3d24c62b9da398e4502ba",
+  "error": "RuntimeError('original child/container failure')",
+  "cleanup": {
+    "status": "PASS",
+    "forced_stop": false,
+    "started": 1791994642.9408047,
+    "initial": {
+      "id": "0399dbd13267fc176d39265793cd2a2e4afeb6e3e95221a6cae72951e475149b",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 1,
+        "FinishedAt": "2026-10-14T16:17:22.568905307Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 0,
+        "Restarting": false,
+        "Running": false,
+        "StartedAt": "2026-10-14T16:17:19.7477772Z",
+        "Status": "exited"
+      },
+      "labels": {
+        "org.opencontainers.image.version": "22.04",
+        "pix574.owner": "9f140ed8b5ced7961f344702d79e260f",
+        "pix574.stage": "chdman-export"
+      },
+      "memory": 4294967296,
+      "nano_cpus": 2000000000
+    },
+    "container_terminal_state": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 1,
+      "FinishedAt": "2026-10-14T16:17:22.568905307Z",
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 0,
+      "Restarting": false,
+      "Running": false,
+      "StartedAt": "2026-10-14T16:17:19.7477772Z",
+      "Status": "exited"
+    },
+    "exact_cid": "0399dbd13267fc176d39265793cd2a2e4afeb6e3e95221a6cae72951e475149b",
+    "exact_id_absent": true,
+    "observed_host_processes": [
+      {
+        "pid": 2876369,
+        "start_ticks": 108632378,
+        "state": "S",
+        "pgrp": 2876369,
+        "session": 2876369,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2876399,
+        "start_ticks": 108632395,
+        "state": "R",
+        "pgrp": 2876399,
+        "session": 2876399,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      }
+    ],
+    "survivors": [],
+    "remaining_cgroup_pids": [],
+    "ended": 1791994643.1206028
+  },
+  "original_container_exit": 1,
+  "watchdog_original_exit": 0,
+  "ended": 1791994643.535488,
+  "final_disk": {
+    "allocated_bytes": 262144,
+    "apparent_bytes": 78023
+  }
+}

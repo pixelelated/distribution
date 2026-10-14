@@ -1,0 +1,1422 @@
+[
+  {
+    "path": "owner/clock.json",
+    "bytes": 166,
+    "sha256": "fdb008f31a2cd48ceeca529c6c2057bdeb7e7c601ad4a25efe0157c35b6473c8"
+  },
+  {
+    "path": "owner/family.json",
+    "bytes": 189,
+    "sha256": "43eee9b78894b6ecc5cd799eb56e0df6b0fa6539e0096af85db2e6dddd3bcd71"
+  },
+  {
+    "path": "owner/family.lock",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/acceptance.json",
+    "bytes": 1751,
+    "sha256": "f7a339c06dea5190f9baba73cdbc6323779a42fdc98ec8a16265878575a50f74"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/admission-plan.json",
+    "bytes": 1012,
+    "sha256": "e5c07b29d8e3e6100589a997a7ab433d69ad59ed30f8800fcd40f5b14e97e977"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/admission.json",
+    "bytes": 1888,
+    "sha256": "139dd2c0053d442e2e9cf2d6e8e20aee43a7c283f05c6fd6d533264d1ffefb96"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/bootstrap-artifact.json",
+    "bytes": 211,
+    "sha256": "8aab6b81654925380896de5a566af9ff8b62cb5205803874a2531e008645ff63"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/cleanup-complete.json",
+    "bytes": 23,
+    "sha256": "041dff8cee4c14767a03435eb9f84a05152b2dc00e322d74a702b6f6944a4bdf"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/cleanup.lock",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/compiler-inputs.json",
+    "bytes": 1657,
+    "sha256": "061f9bae0a49fcddf2c85ce3da34ede90888d0551cb6f1aa98aade4aa896645d"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/container-owner.json",
+    "bytes": 507,
+    "sha256": "a63205b14c39e8879ad287be1f4691df8a311318844ef0cf5e759051fab25173"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/container-resources.jsonl",
+    "bytes": 5093,
+    "sha256": "b24300c41369cabd83c8ab341cb2234274c41a1f20ae056fbffe8b7a111f0419"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/container-result.json",
+    "bytes": 25300,
+    "sha256": "51d4d9e8ee20e6791cd340b6e8c6e3ae26c3652fd4a256353c24bbcf478fb345"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/container.cid",
+    "bytes": 64,
+    "sha256": "3a2c4a704d167be7315039eae03a77aeaea5a36972ea100a2a39ca6672c3368f"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/docker-client.json",
+    "bytes": 209,
+    "sha256": "f2eb45a7d767024bd1d160b7c01a1cd5f1861841c797e7980200e32ab018f3b6"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/docker-create-command.json",
+    "bytes": 1408,
+    "sha256": "3338bba776361003b68b405f13caafeb80feaf7740bf7e513a02a02dcbe36347"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/expected-generated.json",
+    "bytes": 3,
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/expected-source.json",
+    "bytes": 200,
+    "sha256": "448d94b0ef03cc13904abf2510e81eb76bd1972d0559e59be152d761ae2d1111"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/generated-after.json",
+    "bytes": 22364,
+    "sha256": "1ca1a3fd792f8436a101f7bda534ee20dee7428045fc0d9de132352a7a1eb40c"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/generated-before.json",
+    "bytes": 3,
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-admitted.json",
+    "bytes": 254,
+    "sha256": "87596d20e7ec38dc93d15625b2bc0f7eecd2a6e6c25f7e48aa860d19057a7ff7"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-cgroup.json",
+    "bytes": 306,
+    "sha256": "b76630331852a2c685f9a94ef514384b773ba445d46f8d4976152e41a543d531"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-completion.json",
+    "bytes": 299,
+    "sha256": "639315ccb1df7b9ac00175531f467c7e461f2c392cf3d4f8f4ba657cd77f8819"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/1-create.json",
+    "bytes": 1974,
+    "sha256": "70d8d88141d42fb4b7d8433c48e01a5da24c41291bf7f8bed15f827a9b9fe811"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/1-create.start.json",
+    "bytes": 1881,
+    "sha256": "560759c024958897f8c599b2553264e103bfcf4ed721c92813f49cff878b21b2"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/1-create.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/1-create.stdout",
+    "bytes": 65,
+    "sha256": "2f52d5ad2c5e69ea7c937b29604439ba8f046ac96afa5bc058c8a5b5af0c20ad"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/2-inspect.json",
+    "bytes": 831,
+    "sha256": "f973e37d0e05f9d7b828ce1a87355be033ad30cd72a342655fcfc15ffc1954e6"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/2-inspect.start.json",
+    "bytes": 737,
+    "sha256": "ea51d8d44a0286bcaefefc095f7147fc174ac147df44a8758e368cdb3f087a19"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/2-inspect.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/2-inspect.stdout",
+    "bytes": 483,
+    "sha256": "80bac99b5f317ad7eb941f7a85921a201a107208414a50ccf59b157bee169ebc"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/3-inspect.json",
+    "bytes": 831,
+    "sha256": "848d20a4943a44d926dbbbf81bac55e5f215c33fbdd6eb0528d0731e86fb8053"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/3-inspect.start.json",
+    "bytes": 737,
+    "sha256": "5066d75352c4d7444a7ee6994b32cfa0686e6cf6f458ef9c81db20004d795846"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/3-inspect.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/3-inspect.stdout",
+    "bytes": 486,
+    "sha256": "3c7ba2399ce237999e3b225508d15227aaa70edcb3c780708ff86570b91fb78a"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/4-inspect.json",
+    "bytes": 831,
+    "sha256": "0cece3b3b053210055b5b9d345732c52e8e83e15739cdf2db5ac3a1558149fc3"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/4-inspect.start.json",
+    "bytes": 738,
+    "sha256": "ff40ed886f198ac03504087966f9c1592c8327d18a46a25256372ca88ed8f7fd"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/4-inspect.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/4-inspect.stdout",
+    "bytes": 486,
+    "sha256": "3c7ba2399ce237999e3b225508d15227aaa70edcb3c780708ff86570b91fb78a"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/5-remove.json",
+    "bytes": 614,
+    "sha256": "5bf4f4b9225329ab20704f71270ac529bdc21dad0166e04d461040ece1bb8de1"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/5-remove.start.json",
+    "bytes": 521,
+    "sha256": "a87f734799cba378a2d3bcd6e054180fb66f215f8c713792cdcbb454426fd73b"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/5-remove.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/5-remove.stdout",
+    "bytes": 65,
+    "sha256": "2f52d5ad2c5e69ea7c937b29604439ba8f046ac96afa5bc058c8a5b5af0c20ad"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/6-inspect.json",
+    "bytes": 830,
+    "sha256": "120e920e27f24eef639c1dcbdad7573f5dcb40c4b1c53f6d89204c668168282b"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/6-inspect.start.json",
+    "bytes": 738,
+    "sha256": "79c59af3f259d05260866e37c9b695e11d51b831c18ecc4d3f18f82154880d93"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/6-inspect.stderr",
+    "bytes": 112,
+    "sha256": "5d0385b884d077117e5d07e7467b3076e1a269ed295875e665788952c41e880f"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/6-inspect.stdout",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/7-all-container-ids.json",
+    "bytes": 615,
+    "sha256": "ffe8edb20c11fe0802766d3940d12d49fa1587ba995e71fd77a57a17373d788f"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/7-all-container-ids.start.json",
+    "bytes": 520,
+    "sha256": "77356f875db79c756e1ec482fba71ec2f9b3de7afccd950d77d8623f15c383c9"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/7-all-container-ids.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/7-all-container-ids.stdout",
+    "bytes": 1300,
+    "sha256": "df5ed24fdfcdd662c4a46d93e0b82ade18c32b1d79326bfecb803116da395300"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-docker/cleanup.json",
+    "bytes": 3395,
+    "sha256": "85a469b25e8a98a15b1b1fbddd387cbe59d24fa19cedb434803a480667d2d5c9"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/host-resources.jsonl",
+    "bytes": 96370,
+    "sha256": "e6e61cab2d6fcc6e194723c8aecd8d9a8991337a77f0a4b94fa626a51c633a84"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/inner-ready.json",
+    "bytes": 247,
+    "sha256": "f0081b36fd656c11316c5d0ced3835d7480a095fcc121d678565ea9151d1100b"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/logs/container.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/logs/container.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/logs/selected-stage.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/logs/selected-stage.stdout",
+    "bytes": 18600,
+    "sha256": "c000e39a0544e304459388b53bb50b806f9281e6992a93a7768e2816b632821f"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/observed-host-processes.json",
+    "bytes": 1606,
+    "sha256": "1dbdb0b217d4c3a0ddcbcc97e5967fe48eda86232b5e36e2b39c74c2e36298f9"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/result.json",
+    "bytes": 4075,
+    "sha256": "18e9315cf33176ea5879c132590b022da95484553cc96411acf482c360e9c7e3"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/retention-plan.json",
+    "bytes": 1582,
+    "sha256": "7feae3ae204f2d5390944b8321a085e1f2312d20525c4f48f6760f71ef66e5cb"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/retention-report.json",
+    "bytes": 6933,
+    "sha256": "bcdaf28b85266220bc402e3e9623b4d3efe2e5391049f98b6df992a448c1f0fb"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/selected-stage.json",
+    "bytes": 398,
+    "sha256": "ba78ead8be29ebc30a79cc226b21ce1dc1968d2d9c24a70a0ad02858fa160334"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/selection.json",
+    "bytes": 287,
+    "sha256": "fb6752b7fbf83d21d4a08d5c6f2ec8ee159f37f1b60170bc92e17deb758e31eb"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/started",
+    "bytes": 18,
+    "sha256": "fdc06f30d0bbc33afa687506a923452e9075df23c119a2f66f7607b9c7dd8904"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/submit/console.log",
+    "bytes": 259,
+    "sha256": "3e98a404a38b7085cfeece1541c1f4ec574b38a2900961f3ed4f10385f027fa1"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/submit/launcher-pid.json",
+    "bytes": 66,
+    "sha256": "81e2d3ef71f78d6967911b67ac1b952269eca77d763a01ea1e662aa837c7fae4"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/submit/launcher-result.json",
+    "bytes": 132,
+    "sha256": "fad61dc8117129b266ed6e38589321ebfa90688de1cd4f37c8347bb10aae3421"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/submit/launcher-start.json",
+    "bytes": 159,
+    "sha256": "471a876c21d52bf3d4184a2c507c1d5cdb70cbb851b0acff37d924f0649c426e"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/submit/launcher-submission.json",
+    "bytes": 322,
+    "sha256": "e9ce0fafc4b5487a20ec183f2d8b1d260ad565fc4fe994329ef8ddcbb8396bbc"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/submit/tool-wrapper.rc",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/submit/watch-build-submit.py",
+    "bytes": 4090,
+    "sha256": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/watch-run.json",
+    "bytes": 194,
+    "sha256": "512af07082d5b660002980594ed031ab18860ceca809cde68bca877b0a90d52c"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/watchdog-client.json",
+    "bytes": 209,
+    "sha256": "ea922dec2e0269fe808d225d0e25a48a51fa879f7a2225cb0a72234dd1c39468"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/watchdog-ready.json",
+    "bytes": 191,
+    "sha256": "129e32deb81ded066446396c5e354f10886b4a0e881d1ea05ca60c025b2cf529"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/watchdog-result.json",
+    "bytes": 69,
+    "sha256": "9a82748fd15c4bba6ea917244dae8d06c8567b94530f859749dea2afc6ab4bac"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/watchdog.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-bootstrap/watchdog.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-configure/acceptance.json",
+    "bytes": 1761,
+    "sha256": "f18111c40b6b0cea6e88ad5e496e4f8694d455e9828ec783bc48652ec673771e"
+  },
+  {
+    "path": "owner/stages/chdman-configure/admission-plan.json",
+    "bytes": 1012,
+    "sha256": "b24f94404ede9628a193108d6833b363a1e58542e75a70eb98588293a34e3ab5"
+  },
+  {
+    "path": "owner/stages/chdman-configure/admission.json",
+    "bytes": 1888,
+    "sha256": "3a2cf3651d316882c4bebafac2568b5bcaa73daac9994a4cae1d6395986ccf2e"
+  },
+  {
+    "path": "owner/stages/chdman-configure/cleanup-complete.json",
+    "bytes": 23,
+    "sha256": "041dff8cee4c14767a03435eb9f84a05152b2dc00e322d74a702b6f6944a4bdf"
+  },
+  {
+    "path": "owner/stages/chdman-configure/cleanup.lock",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-configure/compiler-inputs.json",
+    "bytes": 1657,
+    "sha256": "061f9bae0a49fcddf2c85ce3da34ede90888d0551cb6f1aa98aade4aa896645d"
+  },
+  {
+    "path": "owner/stages/chdman-configure/container-owner.json",
+    "bytes": 507,
+    "sha256": "6c18fbf694f0290ed30e180fdc5f826f1dcc03c1984d8f0e18545fcfbdabf3a8"
+  },
+  {
+    "path": "owner/stages/chdman-configure/container-resources.jsonl",
+    "bytes": 3438,
+    "sha256": "7d302f6e7fea0c0295afcbf1aee2d4bb9a3dc1dc5f91c4a567fed9607c081dfa"
+  },
+  {
+    "path": "owner/stages/chdman-configure/container-result.json",
+    "bytes": 49556,
+    "sha256": "3b8591af25f1bcb2ba697bd0215aea11a0d0521f026023c8931efe538acbc57b"
+  },
+  {
+    "path": "owner/stages/chdman-configure/container.cid",
+    "bytes": 64,
+    "sha256": "3c3775e4b5a2f12826c8d67a3d300d681443810b8f16856e53d8698bd85158ab"
+  },
+  {
+    "path": "owner/stages/chdman-configure/docker-client.json",
+    "bytes": 209,
+    "sha256": "962b8320b54ea1dd0c3af8eb0c0da24f66a4b4c63eeeb59eff2299ae62080958"
+  },
+  {
+    "path": "owner/stages/chdman-configure/docker-create-command.json",
+    "bytes": 1408,
+    "sha256": "5db1f600d657dc182cf477d9016925a4bad6450b607e36280937f3cf5d8e2970"
+  },
+  {
+    "path": "owner/stages/chdman-configure/expected-generated.json",
+    "bytes": 22364,
+    "sha256": "1ca1a3fd792f8436a101f7bda534ee20dee7428045fc0d9de132352a7a1eb40c"
+  },
+  {
+    "path": "owner/stages/chdman-configure/expected-source.json",
+    "bytes": 200,
+    "sha256": "448d94b0ef03cc13904abf2510e81eb76bd1972d0559e59be152d761ae2d1111"
+  },
+  {
+    "path": "owner/stages/chdman-configure/generated-after-failure.json",
+    "bytes": 23616,
+    "sha256": "2e6ac2e4e3aebb9bbb1a3cbeaa4d28338db929a0344b8fc4809bddcdc4b70dac"
+  },
+  {
+    "path": "owner/stages/chdman-configure/generated-before.json",
+    "bytes": 22364,
+    "sha256": "1ca1a3fd792f8436a101f7bda534ee20dee7428045fc0d9de132352a7a1eb40c"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-admitted.json",
+    "bytes": 254,
+    "sha256": "0363958d756a98612f9dd6f0c043cf98c64d3b70324c0f8816f058c647726cc9"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-cgroup.json",
+    "bytes": 306,
+    "sha256": "65a1cbfb2c46edf43a9290fab960ca0d82e8cedceb3a87aaf76e653c5df3e381"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-completion.json",
+    "bytes": 299,
+    "sha256": "14f3400e7fc4a5a55ebea22d579ee13c9dc8e2429c0a58269b97d2f586c1d845"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/1-create.json",
+    "bytes": 1974,
+    "sha256": "bc51e9024cfe7508120b0a8a97324ab3d40d08152661c8f49e09d1000715bec9"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/1-create.start.json",
+    "bytes": 1882,
+    "sha256": "ad3bbf1f031d715a175d5e4c7ef352f5f3cf8311b5169a0f816a2bdf04f5cb4e"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/1-create.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/1-create.stdout",
+    "bytes": 65,
+    "sha256": "6158e685d6677070ecb760a18216ca0928f6bc040954befee6b868ed3815efcc"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/2-inspect.json",
+    "bytes": 831,
+    "sha256": "fd3d1766c9d7dee9c1f3962d1b9e7f7a9c3279a733d95ccdb1f2647fe767597b"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/2-inspect.start.json",
+    "bytes": 737,
+    "sha256": "950335ea9e5405b984028f130e8ad6da68863fde96668f4215a5f0a109a17f5b"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/2-inspect.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/2-inspect.stdout",
+    "bytes": 483,
+    "sha256": "221fb3bed4614782885c45144a1b4c262c55ef8fa5471fa01ee909f168e843f2"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/3-inspect.json",
+    "bytes": 832,
+    "sha256": "7a88d31f2e31c77a7ef8bb9bf1d2a2dc5109edf1364e7eb653721eae0f1de18d"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/3-inspect.start.json",
+    "bytes": 738,
+    "sha256": "f2850af1df33630732d3919e27c86ebc3c83d28987790bbc1ae96a0883f26c87"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/3-inspect.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/3-inspect.stdout",
+    "bytes": 487,
+    "sha256": "ebf8a7d8e3fc4111fbf3d69ad1340fdad744e10551d7b2c79bbe9d2db929d01b"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/4-inspect.json",
+    "bytes": 832,
+    "sha256": "c27481ee942810aaa7d610522794d16e6557b86aa14a3d3370e35b28cdbfd464"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/4-inspect.start.json",
+    "bytes": 738,
+    "sha256": "ae03af0912f88cdd67984dbd017a8b4a65c20e77c21867aba791a25e43b8098d"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/4-inspect.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/4-inspect.stdout",
+    "bytes": 487,
+    "sha256": "ebf8a7d8e3fc4111fbf3d69ad1340fdad744e10551d7b2c79bbe9d2db929d01b"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/5-remove.json",
+    "bytes": 615,
+    "sha256": "5bceb4a043bfa9c16db3f5a5614607fce7e014d8fee8e42110bae434ef7124a9"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/5-remove.start.json",
+    "bytes": 522,
+    "sha256": "f9b7a1a4670a4ce8e03442fffcfd2d2d24baabe03b06bae98dcf2163c51f6bf5"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/5-remove.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/5-remove.stdout",
+    "bytes": 65,
+    "sha256": "6158e685d6677070ecb760a18216ca0928f6bc040954befee6b868ed3815efcc"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/6-inspect.json",
+    "bytes": 830,
+    "sha256": "e118f7143ab4ce1ff2a703a78f0cd3de814fd28a14a51a68d888392ff7a09952"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/6-inspect.start.json",
+    "bytes": 738,
+    "sha256": "b609a420e0828146d54178eb7d940e51b9421257191ab21dee080e86c48337d5"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/6-inspect.stderr",
+    "bytes": 112,
+    "sha256": "e27b6b27787aa65abcdec146dd1aa55418c7d0a6b3683f0a96df3e078299169d"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/6-inspect.stdout",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/7-all-container-ids.json",
+    "bytes": 614,
+    "sha256": "1b798383c9042b9da5e3aa2982c329ada56113d9bd4e443d740005a171f90544"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/7-all-container-ids.start.json",
+    "bytes": 520,
+    "sha256": "4476925cb6495e5721ac3cb7c311a25935c7fd809cefe4e41650635abc2cfe7a"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/7-all-container-ids.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/7-all-container-ids.stdout",
+    "bytes": 1300,
+    "sha256": "df5ed24fdfcdd662c4a46d93e0b82ade18c32b1d79326bfecb803116da395300"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-docker/cleanup.json",
+    "bytes": 1477,
+    "sha256": "4b37f4c82fe4a21537cc61800ff7afe96878ec30630d71406385ca3229261731"
+  },
+  {
+    "path": "owner/stages/chdman-configure/host-resources.jsonl",
+    "bytes": 70069,
+    "sha256": "d8d559262a2d93779715fd6b2a18b60bcce289ae0ddd053abe9c51c3cd01f321"
+  },
+  {
+    "path": "owner/stages/chdman-configure/inner-ready.json",
+    "bytes": 247,
+    "sha256": "9ff57943b1534f7782c74088f16e93ad85a7c9a878a368a1fd4f9b9fa2eff0e6"
+  },
+  {
+    "path": "owner/stages/chdman-configure/logs/container.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-configure/logs/container.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-configure/logs/selected-stage.stderr",
+    "bytes": 80,
+    "sha256": "d188c0fd9effcc38557882f3c2a0562f111cab005c4c5c641ea11decd71551f8"
+  },
+  {
+    "path": "owner/stages/chdman-configure/logs/selected-stage.stdout",
+    "bytes": 1739,
+    "sha256": "df563d78fbe294365ca4379a59d65723b1413fa42227238f5fe66ae4e392dc74"
+  },
+  {
+    "path": "owner/stages/chdman-configure/observed-host-processes.json",
+    "bytes": 146,
+    "sha256": "8974a674f704ccfd96cd1e7584afbc0131af53226356a93a8d31e86e3f4a9f05"
+  },
+  {
+    "path": "owner/stages/chdman-configure/result.json",
+    "bytes": 2060,
+    "sha256": "b065883b2186b8c9d8766876b1ffa22271e6bd41763ae4700675f7a1bf2549bd"
+  },
+  {
+    "path": "owner/stages/chdman-configure/retention-plan.json",
+    "bytes": 1582,
+    "sha256": "f08df5a24558ba6c9853c0da9ff011bdb5bdc68084421e5fdb8f393eb57671f0"
+  },
+  {
+    "path": "owner/stages/chdman-configure/retention-report.json",
+    "bytes": 6933,
+    "sha256": "af47b0beebebb2889db6821cf29f361e86538332d9db84ac67f9f6f2895a6238"
+  },
+  {
+    "path": "owner/stages/chdman-configure/selected-stage.json",
+    "bytes": 398,
+    "sha256": "e63809b2a449a78da0c4102d76447bcca20f91c675a769e35fc7d6ebb865f541"
+  },
+  {
+    "path": "owner/stages/chdman-configure/selection.json",
+    "bytes": 287,
+    "sha256": "223d420926deae96dc0bb9011f32ed3a1bd6a21f7f040fd805eff736644b7314"
+  },
+  {
+    "path": "owner/stages/chdman-configure/started",
+    "bytes": 18,
+    "sha256": "b2b92db01654423674eac04cbf6041fdbd5a9102b611b0ff40a38885b6b16a58"
+  },
+  {
+    "path": "owner/stages/chdman-configure/submit/console.log",
+    "bytes": 259,
+    "sha256": "75656c5be3a562720600ed97cfebf359d2deb479b3ec337eecf3b86566e92d1a"
+  },
+  {
+    "path": "owner/stages/chdman-configure/submit/launcher-pid.json",
+    "bytes": 66,
+    "sha256": "c6ca82ab92973a99efec7a3e600cfe3e25e9e4c6c2d884891260ad4a100d97e1"
+  },
+  {
+    "path": "owner/stages/chdman-configure/submit/launcher-result.json",
+    "bytes": 132,
+    "sha256": "ca118fec4aecc1b12b39f0ce8ec09cf9117adb36ea313262477029d0b89c78c0"
+  },
+  {
+    "path": "owner/stages/chdman-configure/submit/launcher-start.json",
+    "bytes": 159,
+    "sha256": "8dd4fa8064b7b41bf2682d0da7e8dc74c9919d9765eae46e3381eff46388d4b9"
+  },
+  {
+    "path": "owner/stages/chdman-configure/submit/launcher-submission.json",
+    "bytes": 322,
+    "sha256": "e000a7e47f21595a12019f7bd04585cf58b9ab9aca0bc835670ac8a747329e32"
+  },
+  {
+    "path": "owner/stages/chdman-configure/submit/tool-wrapper.rc",
+    "bytes": 2,
+    "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+  },
+  {
+    "path": "owner/stages/chdman-configure/submit/watch-build-submit.py",
+    "bytes": 4090,
+    "sha256": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e"
+  },
+  {
+    "path": "owner/stages/chdman-configure/watch-run.json",
+    "bytes": 194,
+    "sha256": "485224efce9b85b661f8ecc80e788bb19860d7ffe985da1e07c73ff376ef3189"
+  },
+  {
+    "path": "owner/stages/chdman-configure/watchdog-client.json",
+    "bytes": 209,
+    "sha256": "53a66c7246110dfe85bd90498a8e83b78d939e3d038d07f10c66d6013092d218"
+  },
+  {
+    "path": "owner/stages/chdman-configure/watchdog-ready.json",
+    "bytes": 191,
+    "sha256": "bc1476620d38939ef0109183a19421d38334bf2b33ba82158177c5dd47a94161"
+  },
+  {
+    "path": "owner/stages/chdman-configure/watchdog-result.json",
+    "bytes": 69,
+    "sha256": "9a82748fd15c4bba6ea917244dae8d06c8567b94530f859749dea2afc6ab4bac"
+  },
+  {
+    "path": "owner/stages/chdman-configure/watchdog.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-configure/watchdog.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-export/acceptance.json",
+    "bytes": 1736,
+    "sha256": "d2136b1522504ea806a4e61ac64baaa59c140e0e8cbfe448395edcc8b2a14296"
+  },
+  {
+    "path": "owner/stages/chdman-export/admission-plan.json",
+    "bytes": 1003,
+    "sha256": "a33b5389486d8cf43dc4dfabac4d6e6368208474c7ebe6683ed6b047b1dbe604"
+  },
+  {
+    "path": "owner/stages/chdman-export/admission.json",
+    "bytes": 1885,
+    "sha256": "33ca645a48ec7405b99ce5dc40b1ccf607eadb31a3e2a530afa36cb0d6f7a0d7"
+  },
+  {
+    "path": "owner/stages/chdman-export/cleanup-complete.json",
+    "bytes": 23,
+    "sha256": "041dff8cee4c14767a03435eb9f84a05152b2dc00e322d74a702b6f6944a4bdf"
+  },
+  {
+    "path": "owner/stages/chdman-export/cleanup.lock",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-export/compiler-inputs.json",
+    "bytes": 1657,
+    "sha256": "061f9bae0a49fcddf2c85ce3da34ede90888d0551cb6f1aa98aade4aa896645d"
+  },
+  {
+    "path": "owner/stages/chdman-export/container-owner.json",
+    "bytes": 504,
+    "sha256": "dbda12b3d6fa01dd91b66e96b4562a3c33e2163f60eb1f6226cd6ebc7cdceefe"
+  },
+  {
+    "path": "owner/stages/chdman-export/container-resources.jsonl",
+    "bytes": 5651,
+    "sha256": "d18225c8a62e32be9b7d4d2894a91ae2596f5b2514369cc413c3df616201e6b1"
+  },
+  {
+    "path": "owner/stages/chdman-export/container-result.json",
+    "bytes": 1577,
+    "sha256": "328ed1e2bb883077b17811a31057cfd165632e61818fb876ab8074893f4fa06a"
+  },
+  {
+    "path": "owner/stages/chdman-export/container.cid",
+    "bytes": 64,
+    "sha256": "f237d73d954ba74237f0e14b132d6de7a694639bf21b52f1cb802165d6aef793"
+  },
+  {
+    "path": "owner/stages/chdman-export/docker-client.json",
+    "bytes": 209,
+    "sha256": "1846a078c706191428491a7e5e4f1ea49c21cbfb305b3b90e93b7a605d1500cc"
+  },
+  {
+    "path": "owner/stages/chdman-export/docker-create-command.json",
+    "bytes": 1529,
+    "sha256": "bec596475c5d83cf70c40ea04fa43815af7f10bc5af2ba193ededa913a2c9e8c"
+  },
+  {
+    "path": "owner/stages/chdman-export/export.json",
+    "bytes": 396,
+    "sha256": "4c881c586d2eed7bbe66c5b07b1cc889bbeffa7f744d694920693ccd8dc4bdd7"
+  },
+  {
+    "path": "owner/stages/chdman-export/generated-after.json",
+    "bytes": 3,
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-admitted.json",
+    "bytes": 251,
+    "sha256": "791c7967cf1babc4362793aeb490fa6a19bc2791ca869b901cfca3492c032129"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-cgroup.json",
+    "bytes": 306,
+    "sha256": "5147be2f4ff0459670043cb710b0094c01aec4b507427dcdc3089726475b8a4f"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-completion.json",
+    "bytes": 299,
+    "sha256": "4cf762f93af06e43019a27b3afa9ea4a08c1f54f21592c1d7136a34db15f4faa"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/1-create.json",
+    "bytes": 2097,
+    "sha256": "1a70596085abf78bc0351997549c4b2d2d4607494b19c80c51387b9984599245"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/1-create.start.json",
+    "bytes": 2004,
+    "sha256": "c4b036a99799de2dc00f8c2406a285b35a21719f7e8df9c24a1913a8150afb59"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/1-create.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/1-create.stdout",
+    "bytes": 65,
+    "sha256": "8aa4def6e992507fb10b9aa45150140eedec63c413fb6c394611961f7c9d7156"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/2-inspect.json",
+    "bytes": 827,
+    "sha256": "c423d454516d2a9116a5c56784afe40b0e1a7e00e7fe2b3b45992cb29ffab0a5"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/2-inspect.start.json",
+    "bytes": 734,
+    "sha256": "6ae2359eab1573eb4fb843cc88074896b53fd6af22be7e2c8adba8a0606c1da6"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/2-inspect.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/2-inspect.stdout",
+    "bytes": 480,
+    "sha256": "62cf487826e26f1296b6a00c895768c81b7b88bc29a4ad6328000625b87a22dd"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/3-inspect.json",
+    "bytes": 828,
+    "sha256": "07baf92829f8a2b710cca63a2798e8e47f285904b6946ec017bc110c8837f531"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/3-inspect.start.json",
+    "bytes": 735,
+    "sha256": "ec7b5192090967199c2bda35b57b3b865e70742fd17085e242fb94ea5d8c96f7"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/3-inspect.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/3-inspect.stdout",
+    "bytes": 483,
+    "sha256": "45439b0adcf6136ef6242849d12f7735747182a9011904d7e580e38929a7deeb"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/4-inspect.json",
+    "bytes": 828,
+    "sha256": "7e91e5c2e9c9f70fe51acfe0dc646e985559c12fc56aa5fad9edd65e357b639e"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/4-inspect.start.json",
+    "bytes": 735,
+    "sha256": "78e3da3ca0400a62118ca5df523b1dfcef3ea6b940bd6cb38764333e078ecee9"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/4-inspect.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/4-inspect.stdout",
+    "bytes": 483,
+    "sha256": "45439b0adcf6136ef6242849d12f7735747182a9011904d7e580e38929a7deeb"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/5-remove.json",
+    "bytes": 612,
+    "sha256": "5a7e7efae3addf3f10119c2f7b28b8bd71175d3dba3c4180c19d01781f71c2bc"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/5-remove.start.json",
+    "bytes": 519,
+    "sha256": "1733cf77f90347635e40b05a3bb50b491b5bbc15d45101b0d92435ca2d4df6bd"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/5-remove.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/5-remove.stdout",
+    "bytes": 65,
+    "sha256": "8aa4def6e992507fb10b9aa45150140eedec63c413fb6c394611961f7c9d7156"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/6-inspect.json",
+    "bytes": 827,
+    "sha256": "4f2f92ad0b152e76c49ca5fa86c6ca951ba50f44537e9f3e9ba6bd68873aa47f"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/6-inspect.start.json",
+    "bytes": 735,
+    "sha256": "5b2a1cbaf8134f9e75f841950c6d4669c60e4907cc7770f256ad92b30dbfcb62"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/6-inspect.stderr",
+    "bytes": 112,
+    "sha256": "2756a6c7ba8c7b07cc7b636de519805a856f5ce61ba65e517e7075ae264551aa"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/6-inspect.stdout",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/7-all-container-ids.json",
+    "bytes": 611,
+    "sha256": "50da36b669a58db1c33f5acc936ea96784c6d85b7f3eb721418dd9d1c013a8e0"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/7-all-container-ids.start.json",
+    "bytes": 517,
+    "sha256": "179bc8e1c0c2046cb727b6f130776ef69d9dfae4dfdac98afd428c7a105a3e6b"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/7-all-container-ids.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/7-all-container-ids.stdout",
+    "bytes": 1300,
+    "sha256": "df5ed24fdfcdd662c4a46d93e0b82ade18c32b1d79326bfecb803116da395300"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-docker/cleanup.json",
+    "bytes": 1664,
+    "sha256": "a039357e106357ae2954b071cb9152666041be283094f8a04c4bc442e0f161b6"
+  },
+  {
+    "path": "owner/stages/chdman-export/host-resources.jsonl",
+    "bytes": 96355,
+    "sha256": "547a34795adb864a9264bf6cbdec7303c8da0e102aa8ae31e2c7859fb5c45aee"
+  },
+  {
+    "path": "owner/stages/chdman-export/inner-ready.json",
+    "bytes": 244,
+    "sha256": "1fa30f55b82b9983807063024d79d3279174d50c78718de141b16abe21f2449c"
+  },
+  {
+    "path": "owner/stages/chdman-export/logs/container.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-export/logs/container.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-export/logs/export.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-export/logs/export.stdout",
+    "bytes": 123,
+    "sha256": "c67cf58e68ada10e2efdd53d6a64ebd30a4212bc8e0ac9a0ca52274241c39769"
+  },
+  {
+    "path": "owner/stages/chdman-export/observed-host-processes.json",
+    "bytes": 292,
+    "sha256": "756ed67f03ffc7ac4f7a2cabdd47c74a4349fb49813dffb4d8cc5f6b426b319f"
+  },
+  {
+    "path": "owner/stages/chdman-export/patch-original.json",
+    "bytes": 585,
+    "sha256": "7b2e18b1dbe346156f16a35ebbee003279ab7dab3ceed7bf6bd8ba7ec2e04a7e"
+  },
+  {
+    "path": "owner/stages/chdman-export/patch-original.start.json",
+    "bytes": 493,
+    "sha256": "41983f873c1df14ad1a270bfb0417429697de28069f564daba99e01f93b7b59d"
+  },
+  {
+    "path": "owner/stages/chdman-export/patch-original.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-export/patch-original.stdout",
+    "bytes": 32,
+    "sha256": "aa49b7bab6b2ae73253fd285b89d5aa844b1e57b5208880a5b2adc88dd56faf8"
+  },
+  {
+    "path": "owner/stages/chdman-export/result.json",
+    "bytes": 2197,
+    "sha256": "11c12b04754b499e78f96fbc1fb0d72f1abec85d6c38f036a52983d2220db384"
+  },
+  {
+    "path": "owner/stages/chdman-export/retention-plan.json",
+    "bytes": 1576,
+    "sha256": "a80c6624feab2da5fb04c4b023615257b894dace53dbe3347b64369e2e76b73f"
+  },
+  {
+    "path": "owner/stages/chdman-export/retention-report.json",
+    "bytes": 6930,
+    "sha256": "a212d3f221ab655688ba8ed409d94e64cc09a4c0913a4dac4476c8186c6a7a38"
+  },
+  {
+    "path": "owner/stages/chdman-export/selection.json",
+    "bytes": 284,
+    "sha256": "7dace5354f45d106e447a56ecd42a513cddb1519b5b6b08aabad17f79a9ec132"
+  },
+  {
+    "path": "owner/stages/chdman-export/started",
+    "bytes": 17,
+    "sha256": "587a76e3bb9b091d60d13fcd041039e0308ecf144a8eaf16c0352337e27f5f9f"
+  },
+  {
+    "path": "owner/stages/chdman-export/submit/console.log",
+    "bytes": 253,
+    "sha256": "401bce7e37a6216c503e5154cd6db6eb2638d26a2884db8bc628da98ddfa6f35"
+  },
+  {
+    "path": "owner/stages/chdman-export/submit/launcher-pid.json",
+    "bytes": 66,
+    "sha256": "a770a18874c1c8bfef1cbd53b485ff7d2aeb2884482f49597df6c0d8a272dbf3"
+  },
+  {
+    "path": "owner/stages/chdman-export/submit/launcher-result.json",
+    "bytes": 132,
+    "sha256": "820791b8a72ccfa4548299c80483d6289e9b545477fe50f73c62850e83975425"
+  },
+  {
+    "path": "owner/stages/chdman-export/submit/launcher-start.json",
+    "bytes": 159,
+    "sha256": "a6a6a9b8ac40b45d88a000634c7c3ffcd2c11ab5872e6520608dc516aa131705"
+  },
+  {
+    "path": "owner/stages/chdman-export/submit/launcher-submission.json",
+    "bytes": 322,
+    "sha256": "456797f623c53a61cfb95120bec7a0228132c3385f2c00ec9e5cc2b4ae9645c7"
+  },
+  {
+    "path": "owner/stages/chdman-export/submit/tool-wrapper.rc",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "owner/stages/chdman-export/submit/watch-build-submit.py",
+    "bytes": 4090,
+    "sha256": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e"
+  },
+  {
+    "path": "owner/stages/chdman-export/watch-run.json",
+    "bytes": 194,
+    "sha256": "a774acbbf033b5ad6c02784177b725f3176d4305c9568d692cc11cf3822f70a0"
+  },
+  {
+    "path": "owner/stages/chdman-export/watchdog-client.json",
+    "bytes": 209,
+    "sha256": "9a4b7d3feb60c3600baae840fec19ff903f22712ac23bd0afe56416b72ba0361"
+  },
+  {
+    "path": "owner/stages/chdman-export/watchdog-ready.json",
+    "bytes": 191,
+    "sha256": "ee65c6325e4e0a99bc83bb9a10b78d972b89c061a6366f135cd2850f3838b378"
+  },
+  {
+    "path": "owner/stages/chdman-export/watchdog-result.json",
+    "bytes": 69,
+    "sha256": "9a82748fd15c4bba6ea917244dae8d06c8567b94530f859749dea2afc6ab4bac"
+  },
+  {
+    "path": "owner/stages/chdman-export/watchdog.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/stages/chdman-export/watchdog.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "owner/work/format-tools/omitted-test-aliases.json",
+    "bytes": 515,
+    "sha256": "384db1a62a7df6cff3cc54fb31ef1c9dce56ae7e5cfc2979ee0b6ad85f530ff9"
+  },
+  {
+    "path": "owner/work/format-tools/pristine-source-inventory.json",
+    "bytes": 5605452,
+    "sha256": "7e5d48bd2dc6bdfbc092d81057c29cf9c86f564fb47d4585ed74d2861b3b5bf7"
+  },
+  {
+    "path": "owner/work/format-tools/source-inventory.json",
+    "bytes": 5606576,
+    "sha256": "e98b4bb656b9e2bce330cca3557c7b8fd2d1ee9a48c77571f802348f55f57117"
+  },
+  {
+    "path": "runs/20261014T162420Z-b2d59623/admission-consumed.json",
+    "bytes": 2187,
+    "sha256": "6f43d4b8aebbf5c3166b8590ab29f3684c9eed39215633863d69410f266e0196"
+  },
+  {
+    "path": "runs/20261014T162420Z-b2d59623/admission-input.json",
+    "bytes": 1885,
+    "sha256": "33ca645a48ec7405b99ce5dc40b1ccf607eadb31a3e2a530afa36cb0d6f7a0d7"
+  },
+  {
+    "path": "runs/20261014T162420Z-b2d59623/admission-plan.json",
+    "bytes": 1003,
+    "sha256": "7edaf06a2c60ce0bbaaa7cf2bfa65069fa65d893fe93d56c5149fbb7a6bb82ef"
+  },
+  {
+    "path": "runs/20261014T162420Z-b2d59623/admission.json",
+    "bytes": 1865,
+    "sha256": "8c272af0b172a328bba6523fdd5e5aca46074de34933586f5f61957db16f405f"
+  },
+  {
+    "path": "runs/20261014T162420Z-b2d59623/build.log",
+    "bytes": 138,
+    "sha256": "7c8ed8e09ee6fcb653a13a7dc59dc3816260e8d1bb7b91f6a4398d663bac94a8"
+  },
+  {
+    "path": "runs/20261014T162420Z-b2d59623/build.pid",
+    "bytes": 8,
+    "sha256": "fe0deb1b0f2a376a2ddf3533525f58a255978bc2be72d3e74ea9995bd39e5249"
+  },
+  {
+    "path": "runs/20261014T162420Z-b2d59623/build.rc",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "runs/20261014T162420Z-b2d59623/build.start",
+    "bytes": 33,
+    "sha256": "9437f09cac125e78cb939a8741a6d04648db3ff7b241b03b4c16bb9d2ce10823"
+  },
+  {
+    "path": "runs/20261014T162420Z-b2d59623/build.status",
+    "bytes": 732,
+    "sha256": "619cef4b3dcd9b7b2b680805bf24f8d369202d17c19c3a9df29d15a68f1cd2b2"
+  },
+  {
+    "path": "runs/20261014T162420Z-b2d59623/build.status.pid",
+    "bytes": 8,
+    "sha256": "3cb74959197fe59fe9843f6382a3266762d63c6f053555e19b8ce52423a33752"
+  },
+  {
+    "path": "runs/20261014T162420Z-b2d59623/command.pid",
+    "bytes": 8,
+    "sha256": "8652f36a0dbd37523037a69e0100a17f41bb1ed26945a2faabb57e1c040573b8"
+  },
+  {
+    "path": "runs/20261014T162420Z-b2d59623/retention-plan.json",
+    "bytes": 1576,
+    "sha256": "f8b1ad2c1dd6403fcadc47bce7e68713033d79cb6e5392859675afa62c289c34"
+  },
+  {
+    "path": "runs/20261014T162420Z-b2d59623/retention-report.json",
+    "bytes": 6930,
+    "sha256": "f6ed78fd7c9474a4f6b0a46bb45c5e3d255ad1f56b9deba7876ada036f0e888a"
+  },
+  {
+    "path": "runs/20261014T162420Z-b2d59623/runner-result.json",
+    "bytes": 104,
+    "sha256": "ebe4552421b14eff066f1527d72f447bcbcfcc8686fe6c81153e5ae8b3dc1382"
+  },
+  {
+    "path": "runs/20261014T162420Z-b2d59623/watch-job",
+    "bytes": 12661,
+    "sha256": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2"
+  },
+  {
+    "path": "runs/20261014T162420Z-b2d59623/watcher.err",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "runs/20261014T162420Z-b2d59623/watcher.interval",
+    "bytes": 2,
+    "sha256": "f0b5c2c2211c8d67ed15e75e656c7862d086e9245420892a7de62cd9ec582a06"
+  },
+  {
+    "path": "runs/20261014T162420Z-b2d59623/watcher.pid",
+    "bytes": 8,
+    "sha256": "3cb74959197fe59fe9843f6382a3266762d63c6f053555e19b8ce52423a33752"
+  },
+  {
+    "path": "runs/20261014T162519Z-e6f3303b/admission-consumed.json",
+    "bytes": 2190,
+    "sha256": "de4fe9e031182434d47754c7bda1bd3444f3a756347f0f2e49ba0b9c1a1ffa31"
+  },
+  {
+    "path": "runs/20261014T162519Z-e6f3303b/admission-input.json",
+    "bytes": 1888,
+    "sha256": "139dd2c0053d442e2e9cf2d6e8e20aee43a7c283f05c6fd6d533264d1ffefb96"
+  },
+  {
+    "path": "runs/20261014T162519Z-e6f3303b/admission-plan.json",
+    "bytes": 1012,
+    "sha256": "6aff0a33b5051797a71ee274af3b2dc99e0a715b7690afb1bc96f14bf473d103"
+  },
+  {
+    "path": "runs/20261014T162519Z-e6f3303b/admission.json",
+    "bytes": 1868,
+    "sha256": "35136525db18e64992c12f1bce2cdad55deef91d1ba02327e18c7166cb0ec979"
+  },
+  {
+    "path": "runs/20261014T162519Z-e6f3303b/build.log",
+    "bytes": 144,
+    "sha256": "a269512296ea0feb2e2b22a92da3a7e418b705105864bdce41bd0437a35950fb"
+  },
+  {
+    "path": "runs/20261014T162519Z-e6f3303b/build.pid",
+    "bytes": 8,
+    "sha256": "07ca5f4110e9b46e69c2f0a164a204790b11e3d72bcd112eabe24871907b137c"
+  },
+  {
+    "path": "runs/20261014T162519Z-e6f3303b/build.rc",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "runs/20261014T162519Z-e6f3303b/build.start",
+    "bytes": 33,
+    "sha256": "1aee5ce7677b7990f08d22256c0436c95a97a6407469caa6b4b88a76ffd1d2a3"
+  },
+  {
+    "path": "runs/20261014T162519Z-e6f3303b/build.status",
+    "bytes": 735,
+    "sha256": "d205d5d4a4d3b57d5e4a550356840d754611cf8aed427e9f8d5c17b57a9f3cae"
+  },
+  {
+    "path": "runs/20261014T162519Z-e6f3303b/build.status.pid",
+    "bytes": 8,
+    "sha256": "420e45f55cb2246560ce328b3abd49859c66beeba43703d87f919f204e748177"
+  },
+  {
+    "path": "runs/20261014T162519Z-e6f3303b/command.pid",
+    "bytes": 8,
+    "sha256": "31b7534c1eda3179f4a095d34cc2aff5c77ff4500c93d3a83da55a40ffef8859"
+  },
+  {
+    "path": "runs/20261014T162519Z-e6f3303b/retention-plan.json",
+    "bytes": 1582,
+    "sha256": "51280ac9372c35966b8b823505809c00d3b38b98cc211260993e1433e9f89897"
+  },
+  {
+    "path": "runs/20261014T162519Z-e6f3303b/retention-report.json",
+    "bytes": 6933,
+    "sha256": "65cf838a558f4dd1654ee005332e0c7e73662e6c913a3913e697a0a8efa2f0e4"
+  },
+  {
+    "path": "runs/20261014T162519Z-e6f3303b/runner-result.json",
+    "bytes": 104,
+    "sha256": "ff6de5c7ea98a426b6cee760d8d3b9ecddf401cd510ee6e262ef7eaf119073e9"
+  },
+  {
+    "path": "runs/20261014T162519Z-e6f3303b/watch-job",
+    "bytes": 12661,
+    "sha256": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2"
+  },
+  {
+    "path": "runs/20261014T162519Z-e6f3303b/watcher.err",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "runs/20261014T162519Z-e6f3303b/watcher.interval",
+    "bytes": 2,
+    "sha256": "f0b5c2c2211c8d67ed15e75e656c7862d086e9245420892a7de62cd9ec582a06"
+  },
+  {
+    "path": "runs/20261014T162519Z-e6f3303b/watcher.pid",
+    "bytes": 8,
+    "sha256": "420e45f55cb2246560ce328b3abd49859c66beeba43703d87f919f204e748177"
+  },
+  {
+    "path": "runs/20261014T162706Z-c9eabb5e/admission-consumed.json",
+    "bytes": 2190,
+    "sha256": "010055be40fdfd7197b021e24dc3fe0ea1dc24bb804df83d6555b1fa32def4cc"
+  },
+  {
+    "path": "runs/20261014T162706Z-c9eabb5e/admission-input.json",
+    "bytes": 1888,
+    "sha256": "3a2cf3651d316882c4bebafac2568b5bcaa73daac9994a4cae1d6395986ccf2e"
+  },
+  {
+    "path": "runs/20261014T162706Z-c9eabb5e/admission-plan.json",
+    "bytes": 1012,
+    "sha256": "eabd3c2e7a686db7eeaaf5399a59dfbe54812cc6eace3ae45c322296ac827460"
+  },
+  {
+    "path": "runs/20261014T162706Z-c9eabb5e/admission.json",
+    "bytes": 1868,
+    "sha256": "fe700c49e9b63a65e8cdcdcf14aba0455b24df23bb217606a2898871bf9fa23a"
+  },
+  {
+    "path": "runs/20261014T162706Z-c9eabb5e/build.log",
+    "bytes": 144,
+    "sha256": "5f09eec91bd0ff0f528bf9e5ee50d35bbe7a65db469928cbd1d05c93a35c8227"
+  },
+  {
+    "path": "runs/20261014T162706Z-c9eabb5e/build.pid",
+    "bytes": 8,
+    "sha256": "4f65c5ef9ef0313e428b31d416cc586ce8034172aee3500fdfb36a7de894881e"
+  },
+  {
+    "path": "runs/20261014T162706Z-c9eabb5e/build.rc",
+    "bytes": 2,
+    "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+  },
+  {
+    "path": "runs/20261014T162706Z-c9eabb5e/build.start",
+    "bytes": 33,
+    "sha256": "ca15e4d7e93a89d8100a27b9ba733456998c78c5e0e0eeb8de639535652ae703"
+  },
+  {
+    "path": "runs/20261014T162706Z-c9eabb5e/build.status",
+    "bytes": 735,
+    "sha256": "d21c35ddee115fb927e507a3b60749b4a071c18b962d3ea17afd1319e4831be8"
+  },
+  {
+    "path": "runs/20261014T162706Z-c9eabb5e/build.status.pid",
+    "bytes": 8,
+    "sha256": "01c68b230400363ece0c0303fc7463fd464f53f458f6d5a48b0b69860d6e1b29"
+  },
+  {
+    "path": "runs/20261014T162706Z-c9eabb5e/command.pid",
+    "bytes": 8,
+    "sha256": "b420afc8b2925f234c3aac90d706247132bed19355ebc2e0356e026c1bb5bfee"
+  },
+  {
+    "path": "runs/20261014T162706Z-c9eabb5e/retention-plan.json",
+    "bytes": 1582,
+    "sha256": "d6d446d0e614a04fe572233432afdf723b82203b47c4271672266c8f076acb8a"
+  },
+  {
+    "path": "runs/20261014T162706Z-c9eabb5e/retention-report.json",
+    "bytes": 6933,
+    "sha256": "10866e5075c97cd46902199e9ad12a655f26410cf8476d06b13f1b56c3b79c91"
+  },
+  {
+    "path": "runs/20261014T162706Z-c9eabb5e/runner-result.json",
+    "bytes": 104,
+    "sha256": "3607867caad3b87554d8ce305fad4b8e5eda33dde9ef8070b5b453f85eab4dda"
+  },
+  {
+    "path": "runs/20261014T162706Z-c9eabb5e/watch-job",
+    "bytes": 12661,
+    "sha256": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2"
+  },
+  {
+    "path": "runs/20261014T162706Z-c9eabb5e/watcher.err",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "runs/20261014T162706Z-c9eabb5e/watcher.interval",
+    "bytes": 2,
+    "sha256": "f0b5c2c2211c8d67ed15e75e656c7862d086e9245420892a7de62cd9ec582a06"
+  },
+  {
+    "path": "runs/20261014T162706Z-c9eabb5e/watcher.pid",
+    "bytes": 8,
+    "sha256": "01c68b230400363ece0c0303fc7463fd464f53f458f6d5a48b0b69860d6e1b29"
+  }
+]
