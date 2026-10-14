@@ -1,0 +1,12 @@
+{
+  "case": "success",
+  "trigger": "api",
+  "passed": false,
+  "scope": "ES lookup + simulated ctl contract",
+  "diagnostic_only": true,
+  "es_exit_role": "ptrace wrapper; original ES exit is es-syscalls/result.json",
+  "failure": "ES API readiness: child exited early",
+  "es_exit": 153,
+  "es_forced": false,
+  "listener_exit": 0
+}

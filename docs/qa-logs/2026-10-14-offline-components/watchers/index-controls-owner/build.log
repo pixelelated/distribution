@@ -1,0 +1,84 @@
+{
+  "controls": [
+    {
+      "name": "named-oversize",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix567-fsize-fixture01/trace-es.py",
+        "--disposable-guest",
+        "--output",
+        "/tmp/pix567-fsize-controls01/named-oversize",
+        "--control",
+        "named-oversize"
+      ],
+      "original_wrapper_exit": 153,
+      "timeout": false,
+      "passed": true,
+      "original_tracee_exit": -25
+    },
+    {
+      "name": "memfd-oversize",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix567-fsize-fixture01/trace-es.py",
+        "--disposable-guest",
+        "--output",
+        "/tmp/pix567-fsize-controls01/memfd-oversize",
+        "--control",
+        "memfd-oversize"
+      ],
+      "original_wrapper_exit": 153,
+      "timeout": false,
+      "passed": true,
+      "original_tracee_exit": -25
+    },
+    {
+      "name": "memfd-within",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix567-fsize-fixture01/trace-es.py",
+        "--disposable-guest",
+        "--output",
+        "/tmp/pix567-fsize-controls01/memfd-within",
+        "--control",
+        "memfd-within"
+      ],
+      "original_wrapper_exit": 0,
+      "timeout": false,
+      "passed": true,
+      "original_tracee_exit": 0
+    },
+    {
+      "name": "thread-memfd-oversize",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix567-fsize-fixture01/trace-es.py",
+        "--disposable-guest",
+        "--output",
+        "/tmp/pix567-fsize-controls01/thread-memfd-oversize",
+        "--control",
+        "thread-memfd-oversize"
+      ],
+      "original_wrapper_exit": 153,
+      "timeout": false,
+      "passed": true,
+      "original_tracee_exit": -25
+    }
+  ],
+  "passed": true
+}
+
+PIX_RC_f44eaae9b7cd4598a15dc2c79d9225ae:0
+

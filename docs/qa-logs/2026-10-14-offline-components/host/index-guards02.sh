@@ -1,0 +1,12 @@
+set -e
+for i in 1 2 3 4 5; do test -e /dev/disk/by-label/PIXINDEX02 && break; sleep 1; done
+mkdir /tmp/pix-index02
+mount -t ext4 -o ro,noload /dev/disk/by-label/PIXINDEX02 /tmp/pix-index02
+python3 -I -S -B /tmp/pix-index02/docs/qa-logs/2026-10-14-library-index-fsize-correction/prepare-correction.py --sealed-fixture /tmp/pix-input/distribution/docs/qa-logs/2026-10-13-library-index-fixture --output /tmp/pix567-fsize-corrected-fixture01
+set +e
+python3 -I -S -B /tmp/pix567-fsize-corrected-fixture01/guard-controls.py --disposable-guest --output /tmp/pix567-fsize-guard-controls01 > /tmp/pix-output/index-guards02.stdout 2> /tmp/pix-output/index-guards02.stderr
+rc=$?
+printf '%s\n' "$rc" > /tmp/pix-output/index-guards02.rc
+tar -czf /tmp/pix-output/index-guards02.tar.gz -C /tmp pix567-fsize-guard-controls01
+cat /tmp/pix567-fsize-guard-controls01/result.json /tmp/pix-output/index-guards02.stderr
+exit "$rc"

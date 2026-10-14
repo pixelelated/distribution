@@ -1,0 +1,25 @@
+{
+  "status": "FAIL",
+  "error": "bounded stage timeout"
+}
+{
+  "original_exit": 1,
+  "observed_original_exits": {
+    "session": 1,
+    "frontend_restore": 0,
+    "interrupted_session": null,
+    "unshare": 1,
+    "es": 0,
+    "runemu": null
+  },
+  "cleanup_actions": [],
+  "error": "bounded stage timeout"
+}
+REFUSED: namespace runner failed; preserve original logs and exits
+[1;34mactive[m                 [0;0mos-release[m             [1;32mrecord-stub.py[m
+[0;0mdefaults-receipt.json[m  [0;0mowner.json[m             [0;0msession-runner.pid[m
+[0;0mfrontend-restore.exit[m  [1;34mproduct[m                [0;0msession.exit[m
+[0;0minstalled_flow.py[m      [0;0mprofile.sh[m             [0;0msource.json[m
+active
+
+PIX_RC_df1769615bc942b69212aafb4aa2d63a:0

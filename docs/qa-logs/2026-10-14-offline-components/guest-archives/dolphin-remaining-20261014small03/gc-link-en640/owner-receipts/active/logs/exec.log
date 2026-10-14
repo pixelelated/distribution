@@ -1,0 +1,63 @@
+Emulation Run Log - Started at Wed Oct 14 01:27:13 UTC 2026
+
+ARG1: /storage/roms/qa581/synthetic.iso
+ARG2: -Pgamecube
+ARG3: --emulator=dolphin
+ARG4: --core=dolphin-sa
+ARGS: /storage/roms/qa581/synthetic.iso -Pgamecube --emulator=dolphin --core=dolphin-sa
+EMULATOR: dolphin
+PLATFORM: gamecube
+CORE: dolphin-sa
+ROM NAME: /storage/roms/qa581/synthetic.iso
+BASE ROM NAME: synthetic.iso
+USING CONFIG: /storage/.config/retroarch/retroarch.cfg
+USING APPENDCONFIG : /tmp/.retroarch.cfg
+GAME GUIDE PATH: No Game Guide Found
+
+runemu.sh: /usr/bin/runemu.sh Clearing screen
+runemu.sh: /usr/bin/runemu.sh Disabling BT
+runemu.sh: /usr/bin/runemu.sh Configuring for dolphin
+runemu.sh: /usr/bin/runemu.sh Clearing screen
+runemu.sh: /usr/bin/runemu.sh executing game: /storage/roms/qa581/synthetic.iso
+runemu.sh: /usr/bin/runemu.sh script to execute: ${RUN_SHELL} /usr/bin/start_dolphin_gc.sh "${ROMNAME}" "${PLATFORM}" "${CORE}"
+runemu.sh: /usr/bin/runemu.sh Configure big.little ()
+runemu.sh: /usr/bin/runemu.sh Set emulation performance mode to ()
+runemu.sh: /usr/bin/runemu.sh Executing /usr/bin/bash /usr/bin/start_dolphin_gc.sh /storage/roms/qa581/synthetic.iso gamecube dolphin-sa
+GAME set to: synthetic.iso
+PLATFORM set to: gamecube
+CPU CORES set to: 
+AA set to: 
+ASPECT set to: 
+AUDIOBE set to: 
+ASWAPDISCS set to: 
+CLOCK set to: 
+DOLPHIN_BACKEND set to: 
+ENBCHEATS set to: 
+GRENDERER set to: 
+IRES set to: 
+FPS set to: 
+CON set to: 
+SWAPSHOULDER set to: 
+HKEY set to: 
+SAVETYPE set to: 
+SAVEREG set to: 
+SHADERM set to: 
+SHADERP set to: 
+VSYNC set to: 
+SKIPBIOS set to: 
+EFBACCESS set to: 
+EFBTEXTURE set to: 
+XFBTEXTURE set to: 
+TEXTURE_CACHE_ACCURACY set to: 
+SYNC_GPU_THREAD set to: 
+RUMBLE set to: 
+WHACK set to: 
+WPC set to: 
+Launching /usr/bin/dolphin-emu-nogui -p wayland -a HLE -e /storage/roms/qa581/synthetic.iso
+runemu.sh: /usr/bin/runemu.sh Clearing screen
+runemu.sh: /usr/bin/runemu.sh Restore system GPU performance mode (auto)
+runemu.sh: /usr/bin/runemu.sh Restore active threads ()
+runemu.sh: /usr/bin/runemu.sh Checking errors: 0 
+runemu.sh: /usr/bin/runemu.sh Cleaning up and exiting
+runemu.sh: /usr/bin/runemu.sh Enabling BT
+runemu.sh: /usr/bin/runemu.sh Clearing screen

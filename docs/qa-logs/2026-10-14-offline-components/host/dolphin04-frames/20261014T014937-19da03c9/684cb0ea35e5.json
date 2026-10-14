@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/workspace/repos/rocknix.worktrees/m7-dolphin-preservation-581/tools/vm-serial",
+    "--socket",
+    "/workspace/tmp/pix-m7-offline-vm-20261014/vm/serial.sock",
+    "--timeout",
+    "15",
+    "sh",
+    "/usr/bin/python3 -I -S -B /tmp/pix-input/dolphin/batch/guest-batch.py advance --token 09-error --review 'Native refusal and preservation accepted: caller250/check1/prepare0/engine0, both card paths visible, focused OK. VISUAL GAP: first long path wraps its final w onto a separate line at640; frame retained for copy/layout repair, not final visual acceptance.'; pix581_rc=$?; printf '\\nPIX581_EXIT_88adf5f2ccff41f8a47eff548989bc09=%s\\n' \"$pix581_rc\""
+  ],
+  "original_exit": 0,
+  "timed_out": false
+}

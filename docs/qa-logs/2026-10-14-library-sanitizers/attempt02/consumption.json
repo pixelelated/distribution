@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-14T00:50:21.448941+00:00",
+  "stages": [
+    {
+      "owner": "report-owner",
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T004708Z-142cda93",
+      "original_rc": 0,
+      "exited_pids": [
+        3020193,
+        3020194,
+        3020227,
+        3020197,
+        3020197
+      ],
+      "runner": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-14T00:47:13.444432+00:00"
+      }
+    },
+    {
+      "owner": "compile-owner",
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T004829Z-81444f6b",
+      "original_rc": 1,
+      "exited_pids": [
+        3026129,
+        3026130,
+        3026188,
+        3026134,
+        3026134
+      ],
+      "runner": {
+        "command_rc": 1,
+        "monitor_rc": 0,
+        "runner_rc": 1,
+        "utc": "2026-10-14T00:48:44.971578+00:00"
+      }
+    }
+  ],
+  "container_removed": true,
+  "container_id": "6a2b624ae49ad6b2894f7890268fe3dd00106aa09983cd849052aa688b7d7e38",
+  "diagnosis": "Fixture rvz-reader-probe direct includes lack libretro-common retro_common_api.h include path; configure0, compile1. Wii/public/main links completed; baseline/catalog not reached. No target runtime.",
+  "product_source_changed": false
+}

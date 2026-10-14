@@ -1,0 +1,229 @@
+{
+  "controls": [
+    {
+      "name": "singleton",
+      "expected_exit": 0,
+      "original_exit": 0,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "other-singleton",
+      "expected_exit": 0,
+      "original_exit": 0,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "both-remaining",
+      "expected_exit": 0,
+      "original_exit": 0,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "explicit-order",
+      "expected_exit": 0,
+      "original_exit": 0,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "missing",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "null",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "empty",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "string",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "wrong-item-type",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "duplicate",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "completed-gc-fresh-en640",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "completed-gc-link-en640",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "completed-wii-link-en640",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "completed-gc-state-en640",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "completed-wii-card-en640",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "completed-gc-busy-en640",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "completed-gc-busy-fr640",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "unknown",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "traversal",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "legacy-matrix",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "consumed-small03",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "consumed-small04",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "invalid-run",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "too-many",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "pending-receipt-root",
+      "expected_exit": 0,
+      "original_exit": 0,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "completed-requested",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "completed-unselected",
+      "expected_exit": 0,
+      "original_exit": 0,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "malformed-result",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "unsupported-result",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "symlink-result",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "file-case-directory",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    },
+    {
+      "name": "existing-run-output",
+      "expected_exit": 2,
+      "original_exit": 2,
+      "timeout": false,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

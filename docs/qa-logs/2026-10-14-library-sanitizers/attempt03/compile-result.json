@@ -1,0 +1,59 @@
+{
+  "rc": 0,
+  "stages": [
+    {
+      "stage": "configure candidate",
+      "rc": 0,
+      "seconds": 0.31407976150512695
+    },
+    {
+      "stage": "compile candidate",
+      "rc": 0,
+      "seconds": 11.796128988265991
+    },
+    {
+      "stage": "configure baseline",
+      "rc": 0,
+      "seconds": 0.2644009590148926
+    },
+    {
+      "stage": "compile baseline",
+      "rc": 0,
+      "seconds": 9.393614768981934
+    },
+    {
+      "stage": "French catalog",
+      "rc": 0,
+      "seconds": 0.015874624252319336
+    }
+  ],
+  "started": 1791939563.3126843,
+  "sanitizer_runtime_sources": {
+    "libasan.so.8": {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/lib/libasan.so.8.0.0",
+      "sha256": "73963db53c40af52818792cba7ebae1ae6897cd94a004942c8ff76f361484412"
+    },
+    "libubsan.so.1": {
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/lib/libubsan.so.1.0.0",
+      "sha256": "a8d91f5d7efbd684a69546912ead43513ccec34bb275fe1616b68551780c9eca"
+    }
+  },
+  "artifacts": {
+    "artifacts/fr.mo": "82f0abcf0fc95310b088ee7313eaa5738d0121d81667c8d0bbda06d9dadea472",
+    "artifacts/lib/libasan.so.8": "73963db53c40af52818792cba7ebae1ae6897cd94a004942c8ff76f361484412",
+    "artifacts/lib/libubsan.so.1": "a8d91f5d7efbd684a69546912ead43513ccec34bb275fe1616b68551780c9eca",
+    "artifacts/candidate/pix574-padding-oracle": "93ffc7b24821b0b488a5deb2af52a43072c024dc1590c69c9176d1054f186506",
+    "artifacts/candidate/pix574-rvz-reader-probe": "c1b033f1a31b0c0733588a4fea71f064af4405ff9d1d1dc173f50b2d44df4a4a",
+    "artifacts/candidate/pix574-wii-partition-probe": "54971a18c53a285a6e9ee65c40ff56bc3af5abfd299f7312a41c005c43657f54",
+    "artifacts/candidate/pix574-regression-hash": "33b9f9095d68d47d75a2db846b33c8894dd81ef88f24fcd5689a4f379f716545",
+    "artifacts/candidate/pix574-fixture-writer": "d0d7e9a90412230bf2dcbf9eb68ac7f76a0cd0a0f36406bea01a5192317a3fba",
+    "artifacts/candidate/pix574-public-wii-trace": "5a7ad4f94d3a95e5864dd6fb88b09555046f873d53a7a61811df09e612d89233",
+    "artifacts/baseline/pix574-wii-partition-probe": "a2ad8fc82d445d7dec758e01789d034a5d9b80954c6d26f447acf8942fb422e4",
+    "artifacts/baseline/pix574-regression-hash": "6a8bb66e83f30be3f9900499b7955d30045e5786a16f289d3074973b1c4663fb",
+    "artifacts/baseline/pix574-public-wii-trace": "e945bc391a18753529fb378ffde8bdd2ee473faad550aae11e94d3fbdc6626a4"
+  },
+  "ended": 1791939585.231201,
+  "max_child_rss_kib": 321684,
+  "memory_peak": "435642368\n",
+  "memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n"
+}

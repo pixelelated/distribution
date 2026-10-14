@@ -1,0 +1,15 @@
+set -e
+SYSTEMD_PAGER=cat systemctl stop essway.service
+mount --bind /tmp/pix-output/emulationstation /usr/bin/emulationstation
+mount --make-private /usr/bin/emulationstation
+mount --bind /tmp/pix-input/artifacts/fr.mo /usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo
+mount --make-private /usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo
+mount --bind /storage/qa575/es_systems.cfg /usr/config/emulationstation/es_systems.cfg
+mount --make-private /usr/config/emulationstation/es_systems.cfg
+mount --bind /storage/qa575/no-launch /usr/bin/runemu.sh
+mount --make-private /usr/bin/runemu.sh
+test ! -s /storage/qa575/launch-events
+cp /storage/.config/system/configs/system.cfg /tmp/pix-output/copy1280-settings-before.cfg
+SYSTEMD_PAGER=cat systemctl reset-failed essway.service
+SYSTEMD_PAGER=cat systemctl start essway.service
+sha256sum /usr/bin/emulationstation /usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo

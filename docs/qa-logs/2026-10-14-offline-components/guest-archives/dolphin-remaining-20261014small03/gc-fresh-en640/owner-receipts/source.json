@@ -1,0 +1,36 @@
+{
+  "product_commit": "90cd5efad765fcab49ea794122f6fcf45ff19e61",
+  "distribution_files": {
+    "projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh": "deb95aee74d3ddd80638a9ab2f940f5b3b080f4d3ec01f669ea8dbd44179ad20",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk": "9dc251df09495db8b6d80d5be2a2fb4f02bbedc6374759b57373b3aa63411d5b",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_gc.sh": "cc6da2e146adfc5423fb58462888e0cab0a4904deb90f5066392484b8447c9c2",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh": "e8ff87c570d7a96eb641d42637d35ac93580f6a48dd7ea40e060f1b827eb407a",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/dolphin-save-paths": "57ecf422f3a13b7bc3394cd85a0f93627c7a74fca6ddea5f4f4166a137e47382",
+    "projects/ROCKNIX/packages/ui/emulationstation/package.mk": "1427d497d1bedb74b9f10a857ec6624787589cce7061803c4b701925ee730974"
+  },
+  "es_reference_commit": "e87d0d1b4562adfb9e5b8b6882c0c655ed611afc",
+  "es_boundary_reference_files": {
+    "es-app/src/FileData.cpp": "8a677bd0eaf7d6172bef388b8f38da91a132e4adf1f9cdfdce98fd6e84ada33d",
+    "es-app/src/SystemData.cpp": "0cd174d8f7d25bce808901b52b4d970415dd177bcaec6588da08da0113869504",
+    "es-app/src/main.cpp": "93fc68f82617286d7c891b19237203a5cd20cf4a3c1b22e22e043b30346968dd",
+    "es-app/src/views/ViewController.cpp": "b5be9eae846710c6846eab0b57de88696804562814ed40535267d4102791cc96",
+    "es-core/src/Paths.cpp": "0ded8fcb9bfc9940fe730493e3c56e79c221c74959ef024e5f574353d4a9cbe2",
+    "es-core/src/Scripting.cpp": "f3535ffa62244ddc3e134e27701d3b39dbe465ff7cddade0efe4d5596b9b1e53",
+    "es-core/src/LocaleES.cpp": "a5328fc9550e55a686c0622fdbbf98278487dc840812e7a0d259ae67965011e2",
+    "es-core/src/utils/Platform.cpp": "edd72facac37487ebaa601e613582e0507fba03aabd8e1eff7350dd94114b886",
+    "es-core/src/InputManager.cpp": "8ccd43dbb75517030c234d2192e6134f42bf698c18b43f44252366448b2c9934"
+  },
+  "es_binary_binding": "Coordinator must supply its existing exact build source/binary receipt; the reference ES tree is not a claimed installed binary.",
+  "fixture_predecessor": "63e75897a75a51f76567b285a85e336e79943ff2",
+  "qualification": "source-staged caller proof; not shipped-image qualification",
+  "packaged_defaults": {
+    "receipt_sha256": "82ce35877c5da0bf0fa2c5b02bcff71e2d6729825e94c17758c8db5b95daa2ce",
+    "archive_sha256": "1a54b5971b7d9aca8a07fe6a3f69bee9d747a6ea4e46d7b1485a599881fd35a0",
+    "coordinator_receipt": "/workspace/tmp/pix-m7-library-vm-20261013/records/dolphin-packaged-defaults.json",
+    "coordinator_archive": "/workspace/tmp/pix-m7-library-vm-20261013/records/dolphin-packaged-defaults.tar.gz",
+    "entries": 2734,
+    "bytes": 5821615,
+    "provenance": "SM8550 staged-image defaults; coordinator receipt reports all package/image paths and content equal, with 22 group-write mode differences. Preserve image modes.",
+    "dolphin_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4"
+  }
+}

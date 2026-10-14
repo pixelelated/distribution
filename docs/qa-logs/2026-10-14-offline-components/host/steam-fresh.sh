@@ -1,0 +1,13 @@
+set -e
+mkdir /tmp/pix-steam-full
+mount -t tmpfs -o size=3g,mode=700 tmpfs /tmp/pix-steam-full
+export TMPDIR=/tmp/pix-steam-full
+set +e
+python3 -I -S -B /tmp/pix-input/steam/docs/qa-logs/2026-10-14-steam-client-alias-source/fixture.py --disposable-vm --case fresh-client-real-root --output /tmp/pix-steam-full/fresh01 > /tmp/pix-output/steam-fresh.stdout 2> /tmp/pix-output/steam-fresh.stderr
+rc=$?
+printf '%s\n' "$rc" > /tmp/pix-output/steam-fresh.rc
+if [ -f /tmp/pix-steam-full/fresh01/result.json ]; then cp /tmp/pix-steam-full/fresh01/result.json /tmp/pix-output/steam-fresh-result.json; cat /tmp/pix-output/steam-fresh-result.json; fi
+if [ -f /tmp/pix-steam-full/fresh01/caller-observation.json ]; then cat /tmp/pix-steam-full/fresh01/caller-observation.json; fi
+tar -czf /tmp/pix-output/steam-fresh.tar.gz -C /tmp/pix-steam-full fresh01
+cat /tmp/pix-output/steam-fresh.stderr
+exit "$rc"

@@ -1,0 +1,296 @@
+{
+  "status": "RETURNED",
+  "namespaces": {
+    "mnt": "mnt:[4026532311]",
+    "pid": "pid:[4026532314]",
+    "net": "net:[4026532315]",
+    "ipc": "ipc:[4026532313]",
+    "uts": "uts:[4026532312]"
+  },
+  "parent_death_guard": {
+    "signal": 9,
+    "readback": 9,
+    "parent_pidfd_alive_after_arm": true,
+    "pidfd_closed": true
+  },
+  "mount_commands": [
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "--make-rprivate",
+        "/"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "--bind",
+        "/tmp/pix-steam-full/alias01/rootfs",
+        "/tmp/pix-steam-full/alias01/rootfs"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "--bind",
+        "/usr",
+        "/tmp/pix-steam-full/alias01/rootfs/system/usr"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "-o",
+        "remount,bind,ro,nosuid,nodev",
+        "/tmp/pix-steam-full/alias01/rootfs/system/usr"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "--bind",
+        "/tmp/pix-steam-full/alias01/storage",
+        "/tmp/pix-steam-full/alias01/rootfs/storage"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "--bind",
+        "/tmp/pix-steam-full/alias01/qa",
+        "/tmp/pix-steam-full/alias01/rootfs/qa"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "--bind",
+        "/tmp/pix-steam-full/alias01/tmp",
+        "/tmp/pix-steam-full/alias01/rootfs/tmp"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "-t",
+        "proc",
+        "-o",
+        "nosuid,nodev,noexec",
+        "proc",
+        "/tmp/pix-steam-full/alias01/rootfs/proc"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "-o",
+        "remount,ro,nosuid,nodev,noexec",
+        "/tmp/pix-steam-full/alias01/rootfs/proc"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "--bind",
+        "/tmp/pix-steam-full/alias01/binfmt",
+        "/tmp/pix-steam-full/alias01/rootfs/proc/sys/fs/binfmt_misc"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "--bind",
+        "/dev/null",
+        "/tmp/pix-steam-full/alias01/rootfs/dev/null"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/mount",
+        "-n",
+        "-o",
+        "remount,bind,ro,nosuid,nodev",
+        "/tmp/pix-steam-full/alias01/rootfs"
+      ],
+      "original_exit": 0,
+      "stderr": ""
+    }
+  ],
+  "installer_exit": 0,
+  "evidence": "complete sealed installer, synthetic profile/fetch/payload/engine boundaries",
+  "null_identity": {
+    "device": 7,
+    "inode": 4,
+    "mode": 8630,
+    "rdev": 259
+  },
+  "installer_argv": [
+    "/usr/sbin/chroot",
+    "/tmp/pix-steam-full/alias01/rootfs",
+    "/bin/bash",
+    "--noprofile",
+    "--norc",
+    "-x",
+    "/usr/config/modules/Install Steam.sh"
+  ],
+  "interpreter": "3.14.7 (main, Oct  4 2026, 04:40:27) [GCC 15.2.0]",
+  "mountinfo_before": "445 444 7:0 / / ro,relatime - squashfs /dev/loop0 ro,errors=continue\n446 445 254:1 / /flash ro,noatime - vfat /dev/vda1 ro,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro\n447 445 254:2 / /storage rw,noatime - ext4 /dev/vda2 rw\n448 447 254:2 /games-internal/roms /storage/roms rw,noatime - ext4 /dev/vda2 rw\n449 445 0:7 / /dev rw,relatime - devtmpfs devtmpfs rw,size=3819544k,nr_inodes=954886,mode=755\n450 449 0:23 / /dev/shm rw,nosuid,nodev - tmpfs tmpfs rw\n451 449 0:24 / /dev/pts rw,nosuid,noexec,relatime - devpts devpts rw,gid=5,mode=620,ptmxmode=000\n452 449 0:17 / /dev/mqueue rw,nosuid,nodev,noexec,relatime - mqueue mqueue rw\n453 445 0:20 / /proc rw,relatime - proc proc rw\n454 453 0:37 / /proc/sys/fs/binfmt_misc rw,relatime - autofs systemd-1 rw,fd=32,pgrp=0,timeout=0,minproto=5,maxproto=5,direct\n455 454 0:38 / /proc/sys/fs/binfmt_misc rw,nosuid,nodev,noexec,relatime - binfmt_misc binfmt_misc rw\n456 445 0:21 / /sys rw,relatime - sysfs sysfs rw\n457 456 0:25 / /sys/fs/cgroup ro,nosuid,nodev,noexec - tmpfs tmpfs ro,size=4096k,nr_inodes=1024,mode=755\n458 457 0:26 / /sys/fs/cgroup/unified rw,nosuid,nodev,noexec,relatime - cgroup2 cgroup2 rw,nsdelegate\n459 457 0:27 / /sys/fs/cgroup/systemd rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,xattr,name=systemd\n460 457 0:30 / /sys/fs/cgroup/cpu,cpuacct rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,cpu,cpuacct\n461 457 0:31 / /sys/fs/cgroup/blkio rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,blkio\n462 457 0:32 / /sys/fs/cgroup/net_cls,net_prio rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,net_cls,net_prio\n463 457 0:33 / /sys/fs/cgroup/pids rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,pids\n464 457 0:34 / /sys/fs/cgroup/perf_event rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,perf_event\n465 457 0:35 / /sys/fs/cgroup/freezer rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,freezer\n466 457 0:36 / /sys/fs/cgroup/devices rw,nosuid,nodev,noexec,relatime - cgroup cgroup rw,devices\n467 456 0:28 / /sys/fs/pstore rw,nosuid,nodev,noexec,relatime - pstore none rw\n468 456 0:29 / /sys/fs/bpf rw,nosuid,nodev,noexec,relatime - bpf bpf rw,mode=700\n469 456 0:8 / /sys/kernel/debug rw,nosuid,nodev,noexec,relatime - debugfs debugfs rw\n470 456 0:12 / /sys/kernel/tracing rw,nosuid,nodev,noexec,relatime - tracefs tracefs rw\n471 456 0:19 / /sys/kernel/config rw,nosuid,nodev,noexec,relatime - configfs configfs rw\n472 456 0:41 / /sys/fs/fuse/connections rw,nosuid,nodev,noexec,relatime - fusectl fusectl rw\n473 445 0:22 / /run rw,nosuid,nodev - tmpfs tmpfs rw,size=1591608k,nr_inodes=819200,mode=755\n474 445 0:39 / /tmp rw,nosuid,nodev - tmpfs tmpfs rw,nr_inodes=1048576\n475 474 0:51 / /tmp/database rw,relatime - overlay none rw,lowerdir=/usr/share/libretro-database,upperdir=/storage/database,workdir=/storage/.tmp/database-workdir,uuid=on\n476 474 0:54 / /tmp/shaders rw,relatime - overlay none rw,lowerdir=/usr/share/common-shaders:/usr/share/glsl-shaders:/usr/share/slang-shaders,upperdir=/storage/shaders,workdir=/storage/.tmp/shaders-workdir,uuid=on\n477 474 0:57 / /tmp/joypads rw,relatime - overlay none rw,lowerdir=/usr/share/libretro/autoconfig,upperdir=/storage/joypads,workdir=/storage/.tmp/joypads-workdir,uuid=on\n478 474 0:60 / /tmp/assets rw,relatime - overlay none rw,lowerdir=/usr/share/retroarch-assets,upperdir=/storage/assets,workdir=/storage/.tmp/assets-workdir,uuid=on\n479 474 0:63 / /tmp/overlays rw,relatime - overlay none rw,lowerdir=/usr/share/retroarch-overlays,upperdir=/storage/overlays,workdir=/storage/.tmp/overlays-workdir,uuid=on\n489 474 0:66 / /tmp/cores rw,relatime - overlay none rw,lowerdir=/usr/lib/libretro,upperdir=/storage/cores,workdir=/storage/.tmp/cores-workdir,uuid=on\n490 474 8:0 / /tmp/pix-input ro,relatime - ext4 /dev/disk/by-label/PIXINPUT ro\n491 474 8:16 / /tmp/pix-output rw,relatime - ext4 /dev/disk/by-label/PIXOUTPUT rw\n492 474 0:69 / /tmp/pix-steam-small rw,relatime - tmpfs tmpfs rw,size=262144k,mode=700\n493 474 0:70 / /tmp/pix-steam-full rw,relatime - tmpfs tmpfs rw,size=3145728k,mode=700\n494 445 0:40 / /var rw,relatime - tmpfs tmpfs rw\n495 494 254:2 /.cache/log /var/log rw,noatime - ext4 /dev/vda2 rw\n496 494 8:0 / /var/media/PIXINPUT ro,nosuid,nodev,noexec,noatime - ext4 /dev/sda ro\n497 494 8:16 / /var/media/PIXOUTPUT rw,nosuid,nodev,noexec,noatime - ext4 /dev/sdb rw\n498 445 8:16 /emulationstation /usr/bin/emulationstation rw,relatime - ext4 /dev/disk/by-label/PIXOUTPUT rw\n499 445 8:0 /artifacts/fr.mo /usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo ro,relatime - ext4 /dev/disk/by-label/PIXINPUT ro\n501 453 0:72 / /proc rw,nosuid,nodev,noexec,relatime - proc proc rw\n502 493 0:70 /alias01/rootfs /tmp/pix-steam-full/alias01/rootfs ro,nosuid,nodev,relatime - tmpfs tmpfs rw,size=3145728k,mode=700\n503 502 7:0 /usr /tmp/pix-steam-full/alias01/rootfs/system/usr ro,nosuid,nodev,relatime - squashfs /dev/loop0 ro,errors=continue\n504 502 0:70 /alias01/storage /tmp/pix-steam-full/alias01/rootfs/storage rw,relatime - tmpfs tmpfs rw,size=3145728k,mode=700\n505 502 0:70 /alias01/qa /tmp/pix-steam-full/alias01/rootfs/qa rw,relatime - tmpfs tmpfs rw,size=3145728k,mode=700\n506 502 0:70 /alias01/tmp /tmp/pix-steam-full/alias01/rootfs/tmp rw,relatime - tmpfs tmpfs rw,size=3145728k,mode=700\n507 502 0:73 / /tmp/pix-steam-full/alias01/rootfs/proc ro,nosuid,nodev,noexec,relatime - proc proc ro\n508 507 0:70 /alias01/binfmt /tmp/pix-steam-full/alias01/rootfs/proc/sys/fs/binfmt_misc rw,relatime - tmpfs tmpfs rw,size=3145728k,mode=700\n509 502 0:7 /null /tmp/pix-steam-full/alias01/rootfs/dev/null rw,relatime - devtmpfs devtmpfs rw,size=3819544k,nr_inodes=954886,mode=755\n",
+  "route_oracle_controls": [
+    {
+      "name": "empty",
+      "expected_accept": true,
+      "actual_accept": true,
+      "observation": {
+        "representation": "empty",
+        "data_rows": 0
+      }
+    },
+    {
+      "name": "header-only",
+      "expected_accept": true,
+      "actual_accept": true,
+      "observation": {
+        "representation": "header-only",
+        "data_rows": 0
+      }
+    },
+    {
+      "name": "header-no-newline",
+      "expected_accept": true,
+      "actual_accept": true,
+      "observation": {
+        "representation": "header-only",
+        "data_rows": 0
+      }
+    },
+    {
+      "name": "header-spaces",
+      "expected_accept": true,
+      "actual_accept": true,
+      "observation": {
+        "representation": "header-only",
+        "data_rows": 0
+      }
+    },
+    {
+      "name": "header-with-default-route",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "New network namespace route table has data or unrecognized text"
+      }
+    },
+    {
+      "name": "single-headerless-route",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "New network namespace route table has data or unrecognized text"
+      }
+    },
+    {
+      "name": "malformed-header",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "New network namespace route table has data or unrecognized text"
+      }
+    },
+    {
+      "name": "duplicate-header",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "New network namespace route table has data or unrecognized text"
+      }
+    },
+    {
+      "name": "blank-line",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "New network namespace route table has data or unrecognized text"
+      }
+    },
+    {
+      "name": "whitespace-only",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "New network namespace route table has data or unrecognized text"
+      }
+    },
+    {
+      "name": "header-extra-blank-line",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "New network namespace route table has data or unrecognized text"
+      }
+    },
+    {
+      "name": "non-table-text",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "New network namespace route table has data or unrecognized text"
+      }
+    },
+    {
+      "name": "embedded-nul",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "New network namespace route table has data or unrecognized text"
+      }
+    },
+    {
+      "name": "non-string",
+      "expected_accept": false,
+      "actual_accept": false,
+      "observation": {
+        "refusal": "Route table was not text"
+      }
+    }
+  ],
+  "routes_before": "",
+  "route_oracle": {
+    "representation": "empty",
+    "data_rows": 0
+  },
+  "adopted_exits": [],
+  "remaining_descendants": []
+}

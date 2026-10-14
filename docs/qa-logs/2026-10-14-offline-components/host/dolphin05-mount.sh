@@ -1,0 +1,9 @@
+set -e
+SYSTEMD_PAGER=cat systemctl stop essway.service
+test ! -s /storage/qa575/launch-events
+cmp /storage/.config/system/configs/system.cfg /tmp/pix-output/copy-game-settings-before.cfg
+umount /usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo
+umount /tmp/pix-input
+for i in 1 2 3 4 5; do test -e /dev/disk/by-label/PIXDOLPHIN05 && break; sleep 1; done
+mount -t ext4 -o ro,noload /dev/disk/by-label/PIXDOLPHIN05 /tmp/pix-input
+SYSTEMD_PAGER=cat systemctl start essway.service

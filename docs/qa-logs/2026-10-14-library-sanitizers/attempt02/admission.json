@@ -1,0 +1,52 @@
+{
+  "id": "2a07857c777443d7bc6017374ff74569",
+  "plan": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-02/admission-plan.json",
+  "plan_sha256": "f53baf5ed5391d0da48d7cfda347e57af82b1ec3f3b685f24d712b05cae9417e",
+  "registry_generation": 22,
+  "reserved_bytes": 0,
+  "schema": 1,
+  "state": {
+    "available_bytes": 2980277276672,
+    "checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+    "container_checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+    "outputs": [
+      {
+        "issue": 574,
+        "kind": "build-cache",
+        "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-02/builds",
+        "release_when": "Consume original compile results and preserve compact evidence; retire objects/tmp. Keep target binaries/catalog only for immediate next VM checks, then retire."
+      },
+      {
+        "issue": 574,
+        "kind": "qa-scratch",
+        "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-02/tmp",
+        "release_when": "Consume original compile results and preserve compact evidence; retire objects/tmp. Keep target binaries/catalog only for immediate next VM checks, then retire."
+      },
+      {
+        "issue": 575,
+        "kind": "qa-scratch",
+        "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-02/artifacts",
+        "release_when": "Consume original compile results and preserve compact evidence; retire objects/tmp. Keep target binaries/catalog only for immediate next VM checks, then retire."
+      }
+    ],
+    "profiles": [
+      {
+        "ARCH": "x86_64",
+        "DEVICE": "GENERIC_X64",
+        "PROJECT": "ROCKNIX"
+      }
+    ],
+    "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+    "required_bytes": 1879048192,
+    "retention_plan_sha256": "e72afd6749882d572d3781b6a0351541530e5cbdd192b05e2ee3f9666182ef4d",
+    "retention_report_sha256": "fcf8f008f199755838a703ad307647244e8efce0df916e5f009c888d271a2335",
+    "source": {
+      "head": "9dc7a5001274e59194615b6330ff7d1ddc7be812",
+      "tracked_diff_sha256": "90809c39acbebddcbff788acb495e18b52cfd316d1ee3437b63f8956924ddfee"
+    },
+    "volume": "/workspace",
+    "volume_device": 66304
+  },
+  "tool_sha256": "3e2ad9d6eed47f53d1547880286e4bed69848b956be490f17f354d9df70bb942",
+  "utc": "2026-10-14T00:48:29.752814+00:00"
+}

@@ -1,0 +1,5 @@
+{"seq":1,"kind":"trace-start","tid":17597,"fsize":[8388608,8388608]}
+{"seq":2,"kind":"memfd-created","tid":17597,"descriptor":{"fd":4,"target":"/memfd:pix567-synthetic (deleted)","size":0,"inode":312,"device":1,"mode":32768,"fdinfo":{"pos":"0","flags":"02100002","mnt_id":"0","ino":"312"}}}
+{"seq":3,"kind":"growth-entry","tid":17597,"syscall":{"number":77,"name":"ftruncate","fd":4,"requested_length":8388608,"descriptor_before":{"fd":4,"target":"/memfd:pix567-synthetic (deleted)","size":0,"inode":312,"device":1,"mode":32768,"fdinfo":{"pos":"0","flags":"02100002","mnt_id":"0","ino":"312"}}}}
+{"seq":4,"kind":"growth-exit","tid":17597,"syscall":{"number":77,"name":"ftruncate","fd":4,"requested_length":8388608,"descriptor_before":{"fd":4,"target":"/memfd:pix567-synthetic (deleted)","size":0,"inode":312,"device":1,"mode":32768,"fdinfo":{"pos":"0","flags":"02100002","mnt_id":"0","ino":"312"}}},"return_value":0,"is_error":false}
+{"seq":5,"kind":"exit","tid":17597,"original_exit":0,"raw_wait_status":0}

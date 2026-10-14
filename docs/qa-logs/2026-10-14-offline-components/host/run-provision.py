@@ -1,0 +1,4 @@
+from pathlib import Path
+import subprocess,json,base64,shlex,time
+r=Path(__file__).parent;repo=Path('/workspace/repos/rocknix.worktrees/m7-player-setup');code=base64.b64encode((r/'guest-provision.py').read_bytes()).decode();cmd='printf %s '+shlex.quote(code)+' | base64 -d > /tmp/pix-provision.py; python3 -I -S -B /tmp/pix-provision.py; pxrc=$?; printf "PIX_GUEST_RC:%s\\n" "$pxrc"'
+p=subprocess.run([str(repo/'tools/vm-serial'),'--socket',str(r/'vm/serial.sock'),'--timeout','100','sh',cmd],capture_output=True,text=True,timeout=110);(r/'provision.stdout').write_text(p.stdout);(r/'provision.stderr').write_text(p.stderr);result={'transport_rc':p.returncode,'original_guest_zero':'PIX_GUEST_RC:0' in p.stdout};(r/'provision-host-result.json').write_text(json.dumps(result,indent=2)+'\n');print(p.stdout);assert p.returncode==0 and result['original_guest_zero'],result

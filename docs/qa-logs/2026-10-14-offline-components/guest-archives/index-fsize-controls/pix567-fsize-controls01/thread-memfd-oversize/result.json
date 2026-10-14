@@ -1,0 +1,112 @@
+{
+  "original_tracee_exit": -25,
+  "all_original_exits": {
+    "17600": -25,
+    "17599": -25
+  },
+  "failure": null,
+  "forced_tasks": [],
+  "remaining_traced_tasks": [],
+  "wait_stops": 50,
+  "event_bytes": 2030,
+  "EFBIG": [
+    {
+      "tid": 17600,
+      "syscall": {
+        "number": 77,
+        "name": "ftruncate",
+        "fd": 4,
+        "requested_length": 8392704,
+        "descriptor_before": {
+          "fd": 4,
+          "target": "/memfd:pix567-synthetic (deleted)",
+          "size": 0,
+          "inode": 2653,
+          "device": 1,
+          "mode": 32768,
+          "fdinfo": {
+            "pos": "0",
+            "flags": "02100002",
+            "mnt_id": "0",
+            "ino": "2653"
+          }
+        }
+      },
+      "return_value": -27,
+      "is_error": true,
+      "descriptor_after": {
+        "fd": 4,
+        "target": "/memfd:pix567-synthetic (deleted)",
+        "size": 0,
+        "inode": 2653,
+        "device": 1,
+        "mode": 32768,
+        "fdinfo": {
+          "pos": "0",
+          "flags": "02100002",
+          "mnt_id": "0",
+          "ino": "2653"
+        }
+      },
+      "fsize": [
+        8388608,
+        8388608
+      ]
+    }
+  ],
+  "SIGXFSZ": [
+    {
+      "tid": 17600,
+      "signal": 25,
+      "siginfo_signo": 25,
+      "siginfo_errno": 0,
+      "siginfo_code": 0,
+      "last_completed_syscall": {
+        "syscall": {
+          "number": 77,
+          "name": "ftruncate",
+          "fd": 4,
+          "requested_length": 8392704,
+          "descriptor_before": {
+            "fd": 4,
+            "target": "/memfd:pix567-synthetic (deleted)",
+            "size": 0,
+            "inode": 2653,
+            "device": 1,
+            "mode": 32768,
+            "fdinfo": {
+              "pos": "0",
+              "flags": "02100002",
+              "mnt_id": "0",
+              "ino": "2653"
+            }
+          }
+        },
+        "return_value": -27,
+        "is_error": true,
+        "descriptor_after": {
+          "fd": 4,
+          "target": "/memfd:pix567-synthetic (deleted)",
+          "size": 0,
+          "inode": 2653,
+          "device": 1,
+          "mode": 32768,
+          "fdinfo": {
+            "pos": "0",
+            "flags": "02100002",
+            "mnt_id": "0",
+            "ino": "2653"
+          }
+        },
+        "fsize": [
+          8388608,
+          8388608
+        ]
+      },
+      "pending_syscall": null
+    }
+  ],
+  "executions": [],
+  "diagnostic_only": true,
+  "limits_changed_for_ES": false
+}

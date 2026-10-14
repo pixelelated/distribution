@@ -1,0 +1,27 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T010522Z-117e535e",
+  "disposition": "qualified",
+  "expected_rc": 0,
+  "outputs": [
+    {
+      "issue": 567,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-offline-vm-20261014/vm",
+      "release_when": "Consume original results, stop exact guest, export compact receipts/frames, retire disk/input/output/UEFI; keep no completed VM history."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-offline-vm-20261014/vm-result.json",
+      "sha256": "3b9b7a9c52b53ff811883dd6e3dd3486ad896ab25bc6c476b7c94572635bed81"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-offline-vm-20261014/consumption.json",
+      "sha256": "e689409fc9c8e33b7e8c20f9a606ef8131b6a9aee3ed172120cec908564911f6"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-offline-vm-20261014/retirement.json",
+      "sha256": "6863bab0ce516b56274ff16059a540c5b31641a44619da4eacade2a9689001de"
+    }
+  ]
+}

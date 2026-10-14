@@ -1,0 +1,36 @@
+set -e
+SYSTEMD_PAGER=cat systemctl stop essway.service
+umount /tmp/pix-input
+mount -t ext4 -o ro,noload /dev/disk/by-label/PIXINPUT /tmp/pix-input
+mount --bind /tmp/pix-input/artifacts/fr.mo /usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo
+mount --make-private /usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo
+python3 -I -S -B - <<'INNER'
+from pathlib import Path
+import xml.etree.ElementTree as E,json,hashlib,subprocess,shlex,re
+r=Path('/storage/qa575');r.mkdir();conf=Path('/storage/.config/emulationstation/es_settings.cfg');original=conf.read_bytes();(r/'original-settings.cfg').write_bytes(original)
+raw=re.sub(r'^\s*<\?xml[^?]*\?>','',original.decode(),count=1);w=E.fromstring('<fixture>'+raw+'</fixture>');c=list(w)[0] if len(w)==1 and list(w)[0].tag=='config' else w;c.tag='config'
+settings={'Language':('string','fr_FR'),'StartupSystem':('string','gamecube'),'StartupOnGameList':('bool','true'),'CheevosCheckIndexesAtStart':('bool','false'),'NetPlayCheckIndexesAtStart':('bool','false'),'CollectionSystemsAuto':('string','favorites,recent'),'ScreenSaverTime':('int','0')}
+for node in list(c):
+ if node.get('name') in settings:c.remove(node)
+for key,(kind,value) in settings.items():E.SubElement(c,kind,name=key,value=value)
+conf.write_bytes(E.tostring(c));c=E.parse('/usr/config/emulationstation/es_systems.cfg').getroot();assert not any(n.findtext('name')=='gamecube' for n in c.findall('system'));g=E.SubElement(c,'system')
+for k,v in {'name':'gamecube','fullname':'GameCube','manufacturer':'Nintendo','release':'2001','hardware':'console','path':'/storage/roms/gamecube','extension':'.gcm .iso .gcz .ciso .wbfs .rvz .dol .m3u','platform':'gc','theme':'gc','command':'/usr/bin/runemu.sh %ROM% -P%SYSTEM% --core=%CORE% --emulator=%EMULATOR%'}.items():E.SubElement(g,k).text=v
+e=E.SubElement(g,'emulators')
+for name,cores in [('dolphin',['dolphin-sa-gc','dolphin-qt-gc']),('retroarch',['dolphin'])]:
+ x=E.SubElement(E.SubElement(e,'emulator',name=name),'cores')
+ for core in cores:E.SubElement(x,'core').text=core
+(r/'es_systems.cfg').write_bytes(E.tostring(c));(r/'launch-events').write_text('');(r/'no-launch').write_text('#!/bin/sh\nprintf unexpected-launch >> /storage/qa575/launch-events\nexit 250\n');(r/'no-launch').chmod(0o755)
+for source,target in [(r/'es_systems.cfg','/usr/config/emulationstation/es_systems.cfg'),(r/'no-launch','/usr/bin/runemu.sh')]:
+ subprocess.run(['mount','--bind',str(source),target],check=True);subprocess.run(['mount','--make-private',target],check=True)
+for system,extension in [('gamecube','.dol'),('dreamcast','.cdi')]:
+ d=Path('/storage/roms')/system;assert not list(d.rglob('*')) if d.exists() else True;d.mkdir(exist_ok=True);(d/('pixelelated-capability'+extension)).write_text('Synthetic UI fixture only. Never launch.\n')
+print('synthetic two-system library prepared; engine launches blocked')
+INNER
+. /etc/profile >/dev/null 2>&1
+set_setting system.language fr_FR
+set_setting global.autosave 1
+set_setting gamecube.autosave 0
+set_setting dreamcast.autosave 0
+cp /storage/.config/system/configs/system.cfg /tmp/pix-output/copy-settings-before.cfg
+SYSTEMD_PAGER=cat systemctl start essway.service
+sha256sum /usr/bin/emulationstation /usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo

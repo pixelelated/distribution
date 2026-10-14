@@ -1,0 +1,4 @@
+( set -e
+umount /tmp/pix-input
+mount -t ext4 -o ro,noload /dev/disk/by-label/PIXDOLPHIN04 /tmp/pix-input
+SYSTEMD_PAGER=cat systemctl start essway.service ); pxrc=$?; printf "\nPIX_RC_e9fc212fd4524142aec5ee88938b03f6:%s\n" "$pxrc"

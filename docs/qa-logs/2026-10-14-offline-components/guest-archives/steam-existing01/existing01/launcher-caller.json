@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "/usr/bin/unshare",
+    "-m",
+    "-p",
+    "-n",
+    "-i",
+    "-u",
+    "-f",
+    "--mount-proc",
+    "/usr/bin/python3",
+    "-I",
+    "-S",
+    "-B",
+    "/tmp/pix-extra/steam/docs/qa-logs/2026-10-14-steam-client-crc-source/fixture.py",
+    "--namespace-worker",
+    "/tmp/pix-steam-small/existing01",
+    "--parent-pidfd",
+    "4"
+  ],
+  "launcher_pid": 17475,
+  "parent_pidfd": 4,
+  "control": null,
+  "mechanism": "inherited self pidfd; worker arms parent-death SIGKILL then polls"
+}

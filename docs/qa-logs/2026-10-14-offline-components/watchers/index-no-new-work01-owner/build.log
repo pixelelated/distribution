@@ -1,0 +1,36 @@
+{
+  "worker_exit": 0,
+  "timeout": false,
+  "interrupted_signal": null,
+  "stragglers_killed": [],
+  "namespace_processes_remaining": [],
+  "terminal_output_capture": null,
+  "parent_unchanged": true,
+  "runtime_test_was_run": true,
+  "passed": true
+}
+{
+  "case": "no-new-work",
+  "trigger": "api",
+  "passed": true,
+  "scope": "ES lookup + simulated ctl contract",
+  "choice": "YES",
+  "endpoint_delta": {
+    "hashlibrary": 0,
+    "officialgameslist": 0,
+    "denied": 0,
+    "connections": 0,
+    "tls_errors": 0
+  },
+  "identified": 0,
+  "topup_exits": [],
+  "simulated_prepared": 0,
+  "library_loads": 2,
+  "es_exit": 0,
+  "es_forced": false,
+  "listener_exit": 0,
+  "output_guard_passed": true
+}
+
+PIX_RC_04333fb4f4794c5ca2060c52f701bea6:0
+

@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/workspace/repos/rocknix.worktrees/m7-dolphin-preservation-581/tools/vm-serial",
+    "--socket",
+    "/workspace/tmp/pix-m7-offline-vm-20261014/vm/serial.sock",
+    "--timeout",
+    "15",
+    "sh",
+    "/usr/bin/python3 -I -S -B /tmp/pix-input/dolphin/batch/guest-batch.py status; pix581_rc=$?; printf '\\nPIX581_EXIT_b5a0c21ac3fd405bb31b35c22d6372ca=%s\\n' \"$pix581_rc\""
+  ],
+  "original_exit": 0,
+  "timed_out": false
+}

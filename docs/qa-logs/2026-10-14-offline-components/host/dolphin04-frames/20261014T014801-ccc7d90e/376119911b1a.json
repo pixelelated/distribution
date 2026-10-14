@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/workspace/repos/rocknix.worktrees/m7-dolphin-preservation-581/tools/vm-serial",
+    "--socket",
+    "/workspace/tmp/pix-m7-offline-vm-20261014/vm/serial.sock",
+    "--timeout",
+    "15",
+    "sh",
+    "/usr/bin/python3 -I -S -B /tmp/pix-input/dolphin/batch/guest-batch.py advance --token 05-error --review 'Native error reviewed: Dolphin did not start, retained-data explanation and both exact paths fully visible, no saved data removed, focused OK fits640x480. Caller250/check1/prepare0/engine0 and identical retained tree accepted.'; pix581_rc=$?; printf '\\nPIX581_EXIT_d53d12b5ad7941e9bded565d5253e25d=%s\\n' \"$pix581_rc\""
+  ],
+  "original_exit": 0,
+  "timed_out": false
+}

@@ -1,0 +1,35 @@
+{
+  "controls": [
+    {
+      "case": "normal",
+      "status": "PASS",
+      "expected_refusal": false,
+      "error": null
+    },
+    {
+      "case": "missing-log",
+      "status": "PASS",
+      "expected_refusal": false,
+      "error": null
+    },
+    {
+      "case": "long-log",
+      "status": "PASS",
+      "expected_refusal": false,
+      "error": null
+    },
+    {
+      "case": "symlink-log",
+      "status": "PASS",
+      "expected_refusal": true,
+      "error": "symlinked entry evidence path"
+    },
+    {
+      "case": "missing-ready",
+      "status": "PASS",
+      "expected_refusal": true,
+      "error": "[Errno 2] No such file or directory: '/workspace/tmp/pix-m7-offline-vm-20261014/dolphin05-entry-controls/missing-ready/active/ready.json'"
+    }
+  ],
+  "status": "PASS"
+}

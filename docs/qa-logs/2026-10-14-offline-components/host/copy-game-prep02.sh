@@ -1,0 +1,13 @@
+set -e
+printf 'Readback accepted: only incremental0to2 normalization per D-UI-083; intended preferences identical.\n'
+test ! -s /storage/qa575/launch-events
+SYSTEMD_PAGER=cat systemctl stop essway.service
+set +e
+. /etc/profile >/dev/null 2>&1
+px_profile_rc=$?
+set -e
+test "$px_profile_rc" -eq 0
+set_setting 'gamecube["pixelelated-capability.dol"].emulator' retroarch
+set_setting 'gamecube["pixelelated-capability.dol"].core' dolphin
+cp /storage/.config/system/configs/system.cfg /tmp/pix-output/copy-game-settings-before.cfg
+SYSTEMD_PAGER=cat systemctl start essway.service

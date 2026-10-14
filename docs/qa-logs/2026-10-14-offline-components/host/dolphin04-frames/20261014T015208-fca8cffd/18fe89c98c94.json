@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/workspace/repos/rocknix.worktrees/m7-dolphin-preservation-581/tools/vm-serial",
+    "--socket",
+    "/workspace/tmp/pix-m7-offline-vm-20261014/vm/serial.sock",
+    "--timeout",
+    "15",
+    "sh",
+    "/usr/bin/python3 -I -S -B /tmp/pix-input/dolphin/batch/guest-batch.py advance --token 17-error --review 'French busy dialog reviewed: localized title/body with accents, wait-until-finished then retry, focused OK, allfit640. No protocolheader. Caller250/check1/prepare0/engine0 and preservedtree pass.'; pix581_rc=$?; printf '\\nPIX581_EXIT_882ee19152b64ae6aee7ad7e972015ad=%s\\n' \"$pix581_rc\""
+  ],
+  "original_exit": 0,
+  "timed_out": false
+}

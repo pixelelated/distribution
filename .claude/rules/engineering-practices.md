@@ -46,6 +46,26 @@ checks before claiming a fix; neither a closed report nor a version bump proves
 our case is resolved. This check does not authorize sending private diagnostics
 or posting to an upstream project.
 
+## Consider contributing every applicable fix upstream
+
+D-RA-016 and D-WORKFLOW-138 already require preparing RAOfflineProxy
+contributions. D-WORKFLOW-164 (#583) applies that discipline across components,
+extending the upstream research rule above: for every
+confirmed defect or reusable improvement, identify whether the responsible
+component, ROCKNIX, or both would benefit from our fix. Record the target and
+current-source comparison in its issue, including an existing matching change
+or the reason a change is specific to this fork. Do not wait until a release
+candidate is complete to notice an upstream opportunity.
+
+Keep independently useful fixes small and separable: retain upstream licenses
+and attribution, prepare a public synthetic reproducer and relevant regression
+evidence, and exclude personal data and unrelated fork behavior. A dependency
+fix belongs with its source owner; a distro integration fix may belong with
+ROCKNIX. Track related propagation separately instead of conflating the layers.
+Use the content-only PR workflow in `fork-workflow.md`. Source preparation and
+upstream consideration do not imply a submission has happened or grant new
+publication authority; record the eventual PR/report or explicit disposition.
+
 ## Verify design intent before "fixing" an apparent bug
 
 Before changing code that looks wrong, confirm it isn't intentional:

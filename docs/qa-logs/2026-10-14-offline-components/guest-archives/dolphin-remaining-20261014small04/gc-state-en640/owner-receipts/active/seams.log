@@ -1,0 +1,8 @@
+performance
+set_kill stop
+set_kill set -9 dolphin-emu-nogui
+performance
+gpu_performance_level auto
+gpu_profiling off
+onlinethreads all 1
+set_kill set emulationstation

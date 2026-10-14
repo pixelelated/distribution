@@ -1,0 +1,60 @@
+{
+  "archives": [
+    {
+      "path": "/workspace/tmp/pix-m7-offline-vm-20261014/records/rvz.tar",
+      "sha256": "94ac857007dc32c36547e8c10b343da90d295482a2e2345fec889a1b93de6645",
+      "commit": "7180edfedf39a34322fc209c8727567bffaf2501",
+      "destination": "rvz"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-offline-vm-20261014/records/distribution.tar",
+      "sha256": "2a1cb4fa3de8fd5c03f7a5de917bf6516a6bc2b210d49aa8f220060cfc5ab4c5",
+      "commit": "9dc7a5001274e59194615b6330ff7d1ddc7be812",
+      "destination": "distribution"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-offline-vm-20261014/records/steam.tar",
+      "sha256": "b9118617efc657c197ff9b993bcc7513de8872ed41ab2be2e95e34d082411b8c",
+      "commit": "317bf582d489c24ed2e5f80b9297e6f25f408bc1",
+      "destination": "steam"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-offline-vm-20261014/records/candidate-source.tar",
+      "sha256": "25fcfdcf6d12ddad6df38c4ac2d510d91d2295cc11d267d07ee8482d30d48452",
+      "commit": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+      "destination": "candidate-source"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-offline-vm-20261014/records/baseline-source.tar",
+      "sha256": "426326364a8bfbcd7e609a500279af8d5857d623f96bc4173d43910cecd49b5e",
+      "commit": "a7dcdbb38009d8d2a81c7c2b4bc1d8c2d0d38a20",
+      "destination": "baseline-source"
+    }
+  ],
+  "emulationstation": {
+    "path": "/workspace/tmp/pix-m7-library-build-20261013/scratch/emulationstation",
+    "sha256": "8752b5391ea8728c1a088d0a80e3776469692dda665e8f07f062fed3206263d2"
+  },
+  "artifacts": {
+    "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/artifacts",
+    "files": {
+      "artifacts/fr.mo": "82f0abcf0fc95310b088ee7313eaa5738d0121d81667c8d0bbda06d9dadea472",
+      "artifacts/lib/libasan.so.8": "73963db53c40af52818792cba7ebae1ae6897cd94a004942c8ff76f361484412",
+      "artifacts/lib/libubsan.so.1": "a8d91f5d7efbd684a69546912ead43513ccec34bb275fe1616b68551780c9eca",
+      "artifacts/candidate/pix574-padding-oracle": "93ffc7b24821b0b488a5deb2af52a43072c024dc1590c69c9176d1054f186506",
+      "artifacts/candidate/pix574-rvz-reader-probe": "c1b033f1a31b0c0733588a4fea71f064af4405ff9d1d1dc173f50b2d44df4a4a",
+      "artifacts/candidate/pix574-wii-partition-probe": "54971a18c53a285a6e9ee65c40ff56bc3af5abfd299f7312a41c005c43657f54",
+      "artifacts/candidate/pix574-regression-hash": "33b9f9095d68d47d75a2db846b33c8894dd81ef88f24fcd5689a4f379f716545",
+      "artifacts/candidate/pix574-fixture-writer": "d0d7e9a90412230bf2dcbf9eb68ac7f76a0cd0a0f36406bea01a5192317a3fba",
+      "artifacts/candidate/pix574-public-wii-trace": "5a7ad4f94d3a95e5864dd6fb88b09555046f873d53a7a61811df09e612d89233",
+      "artifacts/baseline/pix574-wii-partition-probe": "a2ad8fc82d445d7dec758e01789d034a5d9b80954c6d26f447acf8942fb422e4",
+      "artifacts/baseline/pix574-regression-hash": "6a8bb66e83f30be3f9900499b7955d30045e5786a16f289d3074973b1c4663fb",
+      "artifacts/baseline/pix574-public-wii-trace": "e945bc391a18753529fb378ffde8bdd2ee473faad550aae11e94d3fbdc6626a4"
+    }
+  },
+  "helper": {
+    "path": "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+    "commit": "6709d7c30b42b4554a3bc3b5f59f0927b0bbaf16",
+    "sha256": "5b058ed8a8b11135cd5997e3d925939baff30726033125acf1244863a756318d"
+  }
+}

@@ -1,0 +1,37 @@
+set -e
+set +e
+python3 -I -S -B - <<'INNER' > /tmp/pix-output/sanitizer-reader02.stdout 2> /tmp/pix-output/sanitizer-reader02.stderr
+from pathlib import Path
+import os,json,hashlib,importlib.util,resource
+root=Path('/tmp/pix574-sanitize');out=root/'reader02';out.mkdir();src=Path('/tmp/pix-input');packet=src/'rvz/docs/qa-logs/2026-10-13-rvz-regression-source';art=src/'artifacts'
+spec=importlib.util.spec_from_file_location('bounded',packet/'bounded.py');b=importlib.util.module_from_spec(spec);spec.loader.exec_module(b)
+binding=json.loads((packet/'source-bindings.json').read_text())
+for mode in ['baseline','candidate']:b.verify_sources(src/(mode+'-source'),binding[mode]['files'])
+manifest=json.loads((src/'input-files.json').read_text())
+for p in art.rglob('*'):
+ if p.is_file():assert b.sha(p)==manifest[str(p.relative_to(src))]
+env=os.environ.copy();env.update(LD_LIBRARY_PATH=str(art/'lib'),ASAN_OPTIONS='detect_leaks=1:halt_on_error=1:abort_on_error=1',UBSAN_OPTIONS='halt_on_error=1:print_stacktrace=1')
+resource.setrlimit(resource.RLIMIT_CORE,(0,0));resource.setrlimit(resource.RLIMIT_FSIZE,(64*1024**2,64*1024**2));checks=[];result={'status':'FAIL','scope':'instrumented RVZ reader lifetime and independent padding, not wrapper hashing'}
+def call(label,args,expected=None,rc=0,seconds=30):
+ receipt,text,err=b.run(out,label,args,seconds,env);assert receipt['returncode']==rc,(label,receipt);assert not err,(label,err)
+ if expected is not None:assert text==expected,(label,text,expected)
+ checks.append(label)
+try:
+ original=src/'distribution/docs/qa-logs/2026-10-13-rvz-source/make-fixtures.py';assert b.sha(original)==binding['original_generator_sha256']
+ cases=out/'cases';call('make-rvz',['/usr/bin/python3','-I','-S','-B',original,'--output',cases])
+ _,rows=b.synthetic_manifest(cases)
+ call('four-readers',[art/'candidate/pix574-rvz-reader-probe',cases/'synthetic.iso',*[cases/n for n in ['none.rvz','packed-none.rvz','packed-zstd.rvz','mixed-zstd.rvz']]],seconds=90)
+ vectors=out/'padding';call('dolphin-padding',[art/'candidate/pix574-padding-oracle',vectors])
+ spec=importlib.util.spec_from_file_location('generator',original);gen=importlib.util.module_from_spec(spec);spec.loader.exec_module(gen)
+ for i,(offset,length) in enumerate(zip([0,0x38013,0x7fff,0x8000,0x123],[4096,0x1234,0x8002,4096,257])):
+  seed=bytes(68) if i==4 else bytes((j*7+3)&255 for j in range(68));assert (vectors/(str(i)+'.bin')).read_bytes()==gen.padding(seed,offset,length)
+ checks.append('five-independent-padding-vectors')
+ result['status']='PASS'
+finally:
+ result['checks']=checks;(out/'result.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result),flush=True)
+INNER
+rc=$?
+printf '%s\n' "$rc" > /tmp/pix-output/sanitizer-reader02.rc
+tar -czf /tmp/pix-output/sanitizer-reader02.tar.gz -C /tmp/pix574-sanitize reader02
+cat /tmp/pix-output/sanitizer-reader02.stdout /tmp/pix-output/sanitizer-reader02.stderr
+exit "$rc"

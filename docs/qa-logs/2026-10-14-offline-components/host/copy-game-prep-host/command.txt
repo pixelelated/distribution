@@ -1,0 +1,13 @@
+( set -e
+cmp /tmp/pix-output/copy-settings-before.cfg /storage/.config/system/configs/system.cfg
+test ! -s /storage/qa575/launch-events
+SYSTEMD_PAGER=cat systemctl stop essway.service
+set +e
+. /etc/profile >/dev/null 2>&1
+px_profile_rc=$?
+set -e
+test "$px_profile_rc" -eq 0
+set_setting 'gamecube["pixelelated-capability.dol"].emulator' retroarch
+set_setting 'gamecube["pixelelated-capability.dol"].core' dolphin
+cp /storage/.config/system/configs/system.cfg /tmp/pix-output/copy-game-settings-before.cfg
+SYSTEMD_PAGER=cat systemctl start essway.service ); pxrc=$?; printf "\nPIX_RC_c9eb7e43a5d446d4922c71d06d55082c:%s\n" "$pxrc"

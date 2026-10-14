@@ -1,0 +1,169 @@
+{
+  "sealed_commit": "c6240ed3984a2b2c2e67f1df9fa0ddc3c37889a2",
+  "installer_path": "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+  "installer_sha256": "a7a67c6b1e0f90a63fdcef79bb6aa60a413dc1927dbf0d53f6068e3a720fe80f",
+  "helpers": {
+    "root": {
+      "marker": "PY_STEAM_ROOT",
+      "helper_sha256": "3b6ee65d5217b7490a74cdcde7b855a4e256f1f5cfed304c9a174378cfca8703",
+      "shell_start": "steam_root_layout",
+      "shell_end": "fetch_proton_latest_release",
+      "shell_function_sha256": "0dac5223f7c6cd9014e66af0b15d26867d9b39d20b277341d86d4b73bdd7879b"
+    },
+    "fex": {
+      "marker": "PY_STEAM_FEX",
+      "helper_sha256": "7c852917dabfea01e424a1af7b23d0355bcf18b313127d82b70e7aa83877e261",
+      "shell_start": "ensure_fex_rootfs",
+      "shell_end": "link_steam_library",
+      "shell_function_sha256": "c5f94da1f5a3c5e7d7c33474034ea5c012ce8f92589aee596d6189c59bf87f1e"
+    },
+    "runtime": {
+      "marker": "PY_STEAM_RUNTIME",
+      "helper_sha256": "7e8e87052ccd62e04b9a52e57bf8c638450938ba10c2ba85c564e9ea1b552431",
+      "shell_start": "install_steam_runtime_arm64",
+      "shell_end": "install_steam_client_arm64",
+      "shell_function_sha256": "854579a5252e40a1a77bbe227955ecebbfc7c8d12b1bb5593c7d85763f23c06b"
+    },
+    "proton": {
+      "marker": "PY_PROTON_VARIANT",
+      "helper_sha256": "5513e6cd600b86720cd318ae70dbad9f83fbb55d3ef2f184b69a59a7a7a3aed3",
+      "shell_start": "install_proton_variant",
+      "shell_end": "install_proton_cachyos",
+      "shell_function_sha256": "28ac907691f0a9b140fa054a12966713c64492ff10b0effa19294646fb6f2873"
+    }
+  },
+  "applet_revision": {
+    "namespace_tool_sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+  },
+  "evidence": "SOURCE / STATIC ONLY; exact old client function reproduction UNRUN, not whole caller",
+  "runtime": "UNRUN",
+  "limits": {
+    "work_seconds": 45,
+    "cleanup_seconds": 10,
+    "retained_bytes": 33554432,
+    "minimum_free_bytes": 134217728,
+    "archive_bytes_each": 1048576,
+    "log_bytes_each": 2097152
+  },
+  "case_revision": {
+    "cases": [
+      "partial-extraction-retry",
+      "valid-existing-client"
+    ]
+  },
+  "prior": {
+    "commit": "270e7c7e36d46344b3d0c5ec6e6f0e11ca067c36",
+    "packet": "docs/qa-logs/2026-10-14-steam-client-alias-source",
+    "files": {
+      "README.md": "fe724b4ac6d6fb029b42f48ca9e44a32686ffa5309ecd236eaa1cd424410161c",
+      "SHA256SUMS": "fed43a4f0f9cfc6a4e7bca283250f086d158bf92e31db019332d54e651a91d80",
+      "acceptance-intake.json": "fae6196a070c2899ef5451034e3c6d6d30b0c24590192ebd1ef8d506880a4e85",
+      "boundary.py": "6ff5b3da1a272c4115d3c167de8c54ad558fb507cc9a8719751893516e013761",
+      "evidence/prior-host-result.json": "1b40eb54ced145177d8c4d8c1923185eb07f629dc9475567b2f91373be2b871a",
+      "evidence/prior-namespace-result.json": "46411dcfded10c98b9dfce1d272ddc706a6e42c0183c071cf7e647a13fe1edcb",
+      "evidence/prior-result.json": "f16eca17fb66ea39771d3b508c2353004c49139a17b9c15adf47d7873ee66fb8",
+      "evidence/prior-source.json": "52597c41e5f5fc5bc76f58c492f227d1abcd93fed391ebb2bb3c2d9a399146e2",
+      "fixture.py": "a673c97a81dbda70ef113e9114ce4da2e744420207850d429ceba57d35ac4acf",
+      "packaged/Config.json": "fc10f006b7587e7ce1a5a57a412ecd6463627161c03a50b2471ad4367d6614c5",
+      "packaged/steamwebhelper.json": "e342841254a27b5e8f0cab30e39aa5792811a75da54f64a0ca23c4ffd3baf76b",
+      "payload.py": "923b5da67973fefde13f77c88a4fd5420b62e29595c51322501b64c109a62dfb",
+      "route-cases.json": "36a846f4984627a484cabb252dfb9aa1e30fd0d4d4528fe7d407346896ae48e3",
+      "source.json": "73411a0b7227b312b30a5c5bf31122e80197ad55ca168743f78328549c48d31c",
+      "static-result.json": "b509c0ebf62e08789a786d2097c29e3a2b9553a0a943c7a2e877f63954dadb49",
+      "verify_static.py": "e4ed0a2293484d129ef08d6526698cfae8d2988cc9d89f6775ca18b4fe82fb7e",
+      "zip-contract.json": "73fd14e0c9228ca86c960825924e7847a971ffcebfc5cb167e78e7bfc6caf5fd"
+    }
+  },
+  "client_span_sha256": "037fa82e1ccbdc875b10aafe67649b02b83857b887226a94e77ac3891c3388d3",
+  "read_utc": "2026-10-14T00:47:56.325125+00:00",
+  "shell_probe_sha256": "cd90316f0ad793242cf12df4430a7f94c7149670996314454d5009a5ca7a08fc",
+  "crc_revision": {
+    "prepared_utc": "2026-10-14T01:16:50.244352+00:00",
+    "parent_head": "49a586956a5447654c00a7331ec3c3366ea15086",
+    "prior_commit": "317bf582d489c24ed2e5f80b9297e6f25f408bc1",
+    "prior_packet": "docs/qa-logs/2026-10-14-steam-client-retry-source",
+    "prior_files": {
+      "README.md": "3a910e5e4e182a6881d545a40b20129bac02431301651055dac5533a59af0fe7",
+      "SHA256SUMS": "c2c3f80f8f6f998f2dc157623c105d8b194b78c7ca44ab4d13bf5ee244489b41",
+      "boundary.py": "62980b244ad1cdf4343f304ebbc4579f67d47420864ab08d8a970381d97ead89",
+      "client-function.sh": "cd90316f0ad793242cf12df4430a7f94c7149670996314454d5009a5ca7a08fc",
+      "disposition.md": "0eaac954bf2b09998494dc1ce11f351ccc516ee7447b56e4ceb21be7c57fc913",
+      "evidence/acceptance-intake.json": "0a3fed3e85b55be25b459f175bd75894cace37529c0e62450300822f08d81832",
+      "evidence/archaeology.json": "74e6d648b746ca8f19dff78f894a50e92c647bc00c3b87c720cd0526287387ef",
+      "evidence/source-comparison.json": "0499d374ead2fe6163bdf8d2d256daa69e7719ee6cce27cc0c7a7d30f3657095",
+      "evidence/static-first-failure.json": "3d4af70a39987b3ae9d55a33c061c3ecde6d1631bf64c34fc7c20c23beaf663f",
+      "evidence/upstream-intake.json": "1e701bd4136c0271d418acce770976059bde8899d6eac63f300be04f66fd51c3",
+      "evidence/upstream-next-Install-Steam.sh.txt": "b88672f607d581cb93d7774de37c04a463793c9843c3602f70d5562f91845be8",
+      "fixture.py": "3c60bbe4c2796276e3c60fd396b3e5b22c82cde890c23e1ceefbf3378ac11144",
+      "payload.py": "f1c3727f869ed2397472e47853387c30caf965caf68ed623b5174d2488153655",
+      "probe.py": "af11df2ee0f74a686bfe33457ebc2aa1e93cd187ba1066d0eea3878afe931314",
+      "route-cases.json": "36a846f4984627a484cabb252dfb9aa1e30fd0d4d4528fe7d407346896ae48e3",
+      "source.json": "950e9f9e768c14e03a5492ac69ed47689731afabc653f9b5f28ae681c4250608",
+      "static-result.json": "73cd3191de6d1cdd5ec185a59814eaa56423d15814a1d71188d202192f7e089b",
+      "verification.json": "59086afc4377a1e07fc0c70450a2805d98d2387dc9edac7b82c7d80c57b8759b",
+      "verify_static.py": "2daf10fb73790af22b547c87595eee72cef0bc2d7ba007d1a9a4f7975e03033e",
+      "zip-contract.json": "b0b57bfe9ad4dc6bc5e2951220643d00eafbc16a59b9abcf2b3529d8021d6839"
+    },
+    "changes": "payload.py only: three local CRC offsets 16 -> 14; diagnostic messages on existing assertions; central offsets/expectations/containment unchanged",
+    "runtime": "UNRUN; original 317b preparation failed before namespace/probe",
+    "unchanged_files": [
+      "fixture.py",
+      "boundary.py",
+      "probe.py",
+      "client-function.sh",
+      "route-cases.json",
+      "zip-contract.json"
+    ],
+    "receipts": {
+      "original-host-result.json": {
+        "original_path": "/workspace/tmp/pix-m7-offline-vm-20261014/steam-partial-host/result.json",
+        "original_bytes": 116,
+        "original_sha256": "3006f7595a0c2b13aef2be58e3b203293e481a9079cd602ecebbb829d8dc5a7f",
+        "stored_sha256": "3006f7595a0c2b13aef2be58e3b203293e481a9079cd602ecebbb829d8dc5a7f",
+        "encoding": "identity"
+      },
+      "original-host-stdout.txt": {
+        "original_path": "/workspace/tmp/pix-m7-offline-vm-20261014/steam-partial-host/stdout",
+        "original_bytes": 983,
+        "original_sha256": "7859504272ea4ffb919f8269b7b3082255b516b1729be7857a10f1d7b8efa126",
+        "stored_sha256": "7859504272ea4ffb919f8269b7b3082255b516b1729be7857a10f1d7b8efa126",
+        "encoding": "identity"
+      },
+      "original-host-stderr.txt": {
+        "original_path": "/workspace/tmp/pix-m7-offline-vm-20261014/steam-partial-host/stderr",
+        "original_bytes": 0,
+        "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "encoding": "identity"
+      },
+      "original-host-command.txt": {
+        "original_path": "/workspace/tmp/pix-m7-offline-vm-20261014/steam-partial-host/command.txt",
+        "original_bytes": 1015,
+        "original_sha256": "57d7a8c6b1bd2936b02e282222a187a8d5b68d117f41cd0462e52dd6fc532951",
+        "stored_sha256": "57d7a8c6b1bd2936b02e282222a187a8d5b68d117f41cd0462e52dd6fc532951",
+        "encoding": "identity"
+      },
+      "original-zip-layout.json": {
+        "original_path": "/workspace/tmp/pix-m7-offline-vm-20261014/steam-partial-zip-layout.txt",
+        "original_bytes": 464,
+        "original_sha256": "ad828329b94b6b8dc1353aceaccea87b2cdddb5fd840f20ebae8943c666ae15f",
+        "stored_sha256": "ad828329b94b6b8dc1353aceaccea87b2cdddb5fd840f20ebae8943c666ae15f",
+        "encoding": "identity"
+      },
+      "original-diagnosis.txt.gz": {
+        "original_path": "/workspace/tmp/pix-m7-offline-vm-20261014/steam-partial-diagnosis.txt",
+        "original_bytes": 488,
+        "original_sha256": "08a14a53555f1be5fb77c7c012a18f54ffe0ee95a4e172524f112055c9b099f4",
+        "stored_sha256": "236937a44fc29b63d41e4f63501b938542cc004cd26fed8fb2e7abb658d8d56b",
+        "encoding": "gzip"
+      },
+      "original-launcher-result.json": {
+        "original_path": "/workspace/tmp/pix-m7-offline-vm-20261014/steam-partial-owner/launcher-result.json",
+        "original_bytes": 132,
+        "original_sha256": "eb6709bc9aa726c89834c5a654fada73030a385008fd6c5aa5feb01a6d6fb5b9",
+        "stored_sha256": "eb6709bc9aa726c89834c5a654fada73030a385008fd6c5aa5feb01a6d6fb5b9",
+        "encoding": "identity"
+      }
+    }
+  }
+}

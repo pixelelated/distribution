@@ -1,0 +1,141 @@
+{
+  "product_commit": "90cd5efad765fcab49ea794122f6fcf45ff19e61",
+  "qualification": "source-staged caller proof; not shipped-image qualification",
+  "staged_products": {
+    "runemu.sh": "deb95aee74d3ddd80638a9ab2f940f5b3b080f4d3ec01f669ea8dbd44179ad20",
+    "start_dolphin_gc.sh": "54575d7f9b458f3141bfab10be2ee39a209b4858c7b7aff9b23f9d14a5aade09",
+    "start_dolphin_wii.sh": "7b92b93ca882511d87d36315cbb7842d2c93c78198b73c82fa1ad0469cb33147",
+    "dolphin-save-paths": "57ecf422f3a13b7bc3394cd85a0f93627c7a74fca6ddea5f4f4166a137e47382"
+  },
+  "product_root": "/tmp/pix-input/dolphin/product",
+  "defaults_root": "/tmp/pix-input/dolphin/defaults/dolphin-emu",
+  "es_source_coordinator_asserted": "bb9e2785f88c2b9de979022a2a9ded2cbce2f954",
+  "es_sha256": "8752b5391ea8728c1a088d0a80e3776469692dda665e8f07f062fed3206263d2",
+  "renderer": "Vulkan",
+  "wayland_socket": "/run/0-runtime-dir/wayland-1",
+  "parent_ns": {
+    "mnt": "mnt:[4026531832]",
+    "net": "net:[4026531833]",
+    "pid": "pid:[4026531836]"
+  },
+  "defaults": {
+    "receipt_sha256": "82ce35877c5da0bf0fa2c5b02bcff71e2d6729825e94c17758c8db5b95daa2ce",
+    "entries": 2734,
+    "bytes": 5821615,
+    "modes": "actual staged-image modes; 22 package/image differences retained",
+    "status": "PASS"
+  },
+  "created": 1791942431.064635,
+  "runtime": "UNRUN",
+  "tools": {
+    "bash": {
+      "invocation_path": "/usr/bin/bash",
+      "resolved_identity_path": "/usr/bin/bash",
+      "sha256": "3aa5dd1a0ddd72c8019c40f8a4c929796eb5a99d182570334ede50374724527a"
+    },
+    "sh": {
+      "invocation_path": "/usr/bin/sh",
+      "resolved_identity_path": "/usr/bin/bash",
+      "sha256": "3aa5dd1a0ddd72c8019c40f8a4c929796eb5a99d182570334ede50374724527a"
+    },
+    "python3": {
+      "invocation_path": "/usr/bin/python3",
+      "resolved_identity_path": "/usr/bin/python3.14",
+      "sha256": "1324452a1b3437ef26e0d39794ede6fb7c1c2c0c5960a050feace157ffe50b33"
+    },
+    "cat": {
+      "invocation_path": "/usr/bin/cat",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "cp": {
+      "invocation_path": "/usr/bin/cp",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "mv": {
+      "invocation_path": "/usr/bin/mv",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "rm": {
+      "invocation_path": "/usr/bin/rm",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "mkdir": {
+      "invocation_path": "/usr/bin/mkdir",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "sed": {
+      "invocation_path": "/usr/bin/sed",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "awk": {
+      "invocation_path": "/usr/bin/awk",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "grep": {
+      "invocation_path": "/usr/bin/grep",
+      "resolved_identity_path": "/usr/bin/grep",
+      "sha256": "94137a009d4961723d2a41e037a6eeff4656fadf395aecfa40bd8b57ce3a3d6f"
+    },
+    "cut": {
+      "invocation_path": "/usr/bin/cut",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "tr": {
+      "invocation_path": "/usr/bin/tr",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "basename": {
+      "invocation_path": "/usr/bin/basename",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "dirname": {
+      "invocation_path": "/usr/bin/dirname",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "date": {
+      "invocation_path": "/usr/bin/date",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "mktemp": {
+      "invocation_path": "/usr/bin/mktemp",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "tee": {
+      "invocation_path": "/usr/bin/tee",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "true": {
+      "invocation_path": "/usr/bin/true",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "unshare": {
+      "invocation_path": "/usr/bin/unshare",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346"
+    },
+    "emulationstation": {
+      "invocation_path": "/usr/bin/emulationstation",
+      "resolved_identity_path": "/usr/bin/emulationstation",
+      "sha256": "8752b5391ea8728c1a088d0a80e3776469692dda665e8f07f062fed3206263d2"
+    }
+  },
+  "frame_resources": {
+    "/usr/share/themes/es-theme-art-book-next/theme.xml": "f19b1c9b28748fecb50e48df1aad0ff03717e9d206509e8e64b2346e6374d15c",
+    "/usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo": "7113cf7c7f7ac9aaf8edce4ecda231bdaebd8850d588a6bd5a2bc3c15f8b7167"
+  }
+}

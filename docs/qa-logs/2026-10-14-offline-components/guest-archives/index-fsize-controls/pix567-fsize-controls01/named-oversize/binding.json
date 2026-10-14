@@ -1,0 +1,22 @@
+{
+  "command": [],
+  "control": "named-oversize",
+  "kernel": "7.1.2",
+  "architecture": "x86_64",
+  "fsize": [
+    8388608,
+    8388608
+  ],
+  "core": [
+    0,
+    0
+  ],
+  "expected_es_sha256": null,
+  "limits": {
+    "seconds": 30,
+    "wait_stops": 250000,
+    "tasks": 128,
+    "event_bytes": 2097152
+  },
+  "coverage": "new child and its traced descendants only; no existing process attached"
+}

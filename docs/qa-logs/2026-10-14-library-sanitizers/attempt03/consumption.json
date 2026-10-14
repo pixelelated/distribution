@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-14T01:00:48.757207+00:00",
+  "stages": [
+    {
+      "owner": "report-owner",
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T005904Z-b327ced7",
+      "original_rc": 0,
+      "exited_pids": [
+        3075566,
+        3075567,
+        3075596,
+        3075568,
+        3075568
+      ],
+      "runner": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-14T00:59:09.624857+00:00"
+      }
+    },
+    {
+      "owner": "compile-owner",
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T005922Z-082ced17",
+      "original_rc": 0,
+      "exited_pids": [
+        3077103,
+        3077104,
+        3077476,
+        3077105,
+        3077105
+      ],
+      "runner": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-14T00:59:48.161345+00:00"
+      }
+    }
+  ],
+  "container_removed": true,
+  "container_id": "8768788c5c022223e2f31d8f39602939aea8e13fad41a251051d4e646a84a6f2",
+  "qualification": "Compilation only: actual A/B sources unchanged, 9target executables and corrected catalog linked, full-library/probe sanitizer flags and direct-source contracts checked. Runtime not yet.",
+  "product_source_changed": false
+}

@@ -1,0 +1,150 @@
+{
+  "worker_exit": 1,
+  "timeout": false,
+  "interrupted_signal": null,
+  "stragglers_killed": [],
+  "namespace_processes_remaining": [],
+  "parent_unchanged": true,
+  "runtime_test_was_run": true,
+  "passed": false
+}
+{
+  "case": "success",
+  "trigger": "api",
+  "passed": false,
+  "scope": "ES lookup + simulated ctl contract",
+  "diagnostic_only": true,
+  "es_exit_role": "ptrace wrapper; original ES exit is es-syscalls/result.json",
+  "failure": "ES API readiness: child exited early",
+  "es_exit": 153,
+  "es_forced": false,
+  "listener_exit": 0
+}
+{
+  "original_tracee_exit": -25,
+  "all_original_exits": {
+    "17841": -25,
+    "17840": -25
+  },
+  "failure": null,
+  "forced_tasks": [],
+  "remaining_traced_tasks": [],
+  "wait_stops": 985,
+  "event_bytes": 2189,
+  "EFBIG": [
+    {
+      "tid": 17841,
+      "syscall": {
+        "number": 77,
+        "name": "ftruncate",
+        "fd": 8,
+        "requested_length": 67108864,
+        "descriptor_before": {
+          "fd": 8,
+          "target": "/memfd:pulseaudio (deleted)",
+          "size": 0,
+          "inode": 2654,
+          "device": 1,
+          "mode": 32768,
+          "fdinfo": {
+            "pos": "0",
+            "flags": "02100002",
+            "mnt_id": "0",
+            "ino": "2654"
+          }
+        }
+      },
+      "return_value": -27,
+      "is_error": true,
+      "descriptor_after": {
+        "fd": 8,
+        "target": "/memfd:pulseaudio (deleted)",
+        "size": 0,
+        "inode": 2654,
+        "device": 1,
+        "mode": 32768,
+        "fdinfo": {
+          "pos": "0",
+          "flags": "02100002",
+          "mnt_id": "0",
+          "ino": "2654"
+        }
+      },
+      "fsize": [
+        8388608,
+        8388608
+      ]
+    }
+  ],
+  "SIGXFSZ": [
+    {
+      "tid": 17841,
+      "signal": 25,
+      "siginfo_signo": 25,
+      "siginfo_errno": 0,
+      "siginfo_code": 0,
+      "last_completed_syscall": {
+        "syscall": {
+          "number": 77,
+          "name": "ftruncate",
+          "fd": 8,
+          "requested_length": 67108864,
+          "descriptor_before": {
+            "fd": 8,
+            "target": "/memfd:pulseaudio (deleted)",
+            "size": 0,
+            "inode": 2654,
+            "device": 1,
+            "mode": 32768,
+            "fdinfo": {
+              "pos": "0",
+              "flags": "02100002",
+              "mnt_id": "0",
+              "ino": "2654"
+            }
+          }
+        },
+        "return_value": -27,
+        "is_error": true,
+        "descriptor_after": {
+          "fd": 8,
+          "target": "/memfd:pulseaudio (deleted)",
+          "size": 0,
+          "inode": 2654,
+          "device": 1,
+          "mode": 32768,
+          "fdinfo": {
+            "pos": "0",
+            "flags": "02100002",
+            "mnt_id": "0",
+            "ino": "2654"
+          }
+        },
+        "fsize": [
+          8388608,
+          8388608
+        ]
+      },
+      "pending_syscall": null
+    }
+  ],
+  "executions": [
+    {
+      "tid": 17840,
+      "executable": "/usr/bin/emulationstation",
+      "sha256": "8752b5391ea8728c1a088d0a80e3776469692dda665e8f07f062fed3206263d2",
+      "fsize": [
+        8388608,
+        8388608
+      ],
+      "core": [
+        0,
+        0
+      ]
+    }
+  ],
+  "diagnostic_only": true,
+  "limits_changed_for_ES": false
+}
+
+PIX_RC_f3b94fe860c243109a0fe3cbb7517f9d:1

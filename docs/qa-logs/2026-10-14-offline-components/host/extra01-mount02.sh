@@ -1,0 +1,10 @@
+set -e
+ls /tmp/pix-output/dolphin-remaining-20261014small03
+ls -la /tmp/pix-output/dolphin-remaining-20261014small03/gc-state-en640
+cat /tmp/pix-output/dolphin-remaining-20261014small03/batch-session.exit
+SYSTEMD_PAGER=cat systemctl is-active essway.service
+umount /tmp/pix-input
+mount -t ext4 -o ro,noload /dev/disk/by-label/PIXINPUT /tmp/pix-input
+mkdir /tmp/pix-extra
+mount -t ext4 -o ro,noload /dev/disk/by-label/PIXEXTRA01 /tmp/pix-extra
+python3 -I -S -B /tmp/pix-extra/diagnostic/docs/qa-logs/2026-10-14-library-index-fsize-diagnostic/prepare-diagnostic.py --sealed-fixture /tmp/pix-input/distribution/docs/qa-logs/2026-10-13-library-index-fixture --output /tmp/pix567-fsize-fixture01

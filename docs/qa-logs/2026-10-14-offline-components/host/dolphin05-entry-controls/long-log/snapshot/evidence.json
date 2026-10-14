@@ -1,0 +1,45 @@
+{
+  "ready_marker": {
+    "ready": true,
+    "case": {
+      "language": "fr_FR"
+    }
+  },
+  "files": {
+    "ready.json": {
+      "present": true,
+      "snapshot": "0-ready.json",
+      "bytes": 43,
+      "truncated": false,
+      "sha256": "70a11cce22d5850dc32de2040bfbfdfb5be5e121de8a13eba0e6c47aaa58f664"
+    },
+    "case.json": {
+      "present": false
+    },
+    "es-pid.json": {
+      "present": false
+    },
+    "es.stdout": {
+      "present": false
+    },
+    "es.stderr": {
+      "present": false
+    },
+    "logs/es_log.txt": {
+      "present": true,
+      "snapshot": "5-es_log.txt",
+      "bytes": 65536,
+      "truncated": true,
+      "sha256": "1f8745f0d2d1387ec1af2211a3cf417b2e9e885e853472649c1d979d0e9370e3"
+    },
+    "storage/.config/emulationstation/es_settings.cfg": {
+      "present": false
+    },
+    "storage/.config/emulationstation/es_systems.cfg": {
+      "present": false
+    }
+  },
+  "meaning": "ES startup marker only. Review actual header, selected synthetic game and footer before explicit launch. No automatic key or deadline extension.",
+  "source": "bound main.cpp sets ready after goToStart and before its main render loop",
+  "logs": "unchanged native ES logging level; startup warnings alone do not prove a missing view"
+}

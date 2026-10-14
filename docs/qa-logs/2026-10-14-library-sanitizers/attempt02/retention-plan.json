@@ -1,0 +1,41 @@
+{
+  "volume": "/workspace",
+  "scan_roots": [
+    "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-02/scan"
+  ],
+  "reference_stores": [],
+  "protected": [
+    "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-02/records",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/host-maintenance",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20",
+    "/home/max/Development/emulationstation-next.worktrees/m7-rc-library-setup",
+    "/home/max/Development/emulationstation-next.worktrees/m7-rc-setup-570",
+    "/home/max/Development/emulationstation-next.worktrees/m7-library-copy-575"
+  ],
+  "candidates": [],
+  "builds": [
+    {
+      "name": "m7-rvz-sanitizers-and-copy-catalog",
+      "terms_bytes": {
+        "two_sanitized_libcheevos_builds": 1073741824,
+        "compiler_scratch": 536870912,
+        "binaries_catalog_records": 268435456
+      },
+      "basis": "No cache copy or full image: two isolated libcheevos sanitizer builds and nine controls plus one French catalog from read-only frozen source/toolchain. Conservative growth allowances, not measured peaks. Offline4GiB2CPU15min container. Current VM must close and reservation be consumed before this stage. Attempt01 failed on a fixture include path, no OOM; corrected CMake contract, new outputs, no reuse/copy of failed objects.",
+      "evidence": [
+        {
+          "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-02/records/source.json",
+          "sha256": "6d0e36bde2a1f43d8a832b343af9c02230b38d5e6a603d82df47f015d002ef93"
+        },
+        {
+          "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-02/build.py",
+          "sha256": "141a8ac53ce92a3fabe572cad7d3d88f7009f7143120ecbb1d0caf268a7ab394"
+        },
+        {
+          "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-02/inner.py",
+          "sha256": "6e7bcf0d35f75fcc843b49a10f1b0ec628b6027b18a1d8638f18c869c62aafe9"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "builds": [
+    {
+      "available_bytes": 2980268834816,
+      "basis": "Fresh offline4GiB2CPU15min, one compile job, exact sources/read-only toolchain, no cache copy. Attempts01/02 original failures consumed; all direct-source include/feature contracts checked before compilation; two full sanitized libcheevos builds, nine probes and corrected French catalog.",
+      "eligible_reclaim_bytes": 0,
+      "fits_now": true,
+      "headroom_after_proposed_bytes": 2978389786624,
+      "name": "m7-rvz-sanitizers-and-copy-catalog",
+      "required_bytes": 1879048192,
+      "terms_bytes": {
+        "binaries_catalog_records": 268435456,
+        "compiler_scratch": 536870912,
+        "two_sanitized_libcheevos_builds": 1073741824
+      }
+    }
+  ],
+  "candidates": [],
+  "deletion_performed": false,
+  "inventory": {
+    "active": [],
+    "container_mounts": [
+      {
+        "container": "36900e5df0f0",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-artifact-workspace-963_postgres-logs-data/_data"
+      },
+      {
+        "container": "ab585a2cd441",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-artifact-workspace-963_postgres-data/_data"
+      },
+      {
+        "container": "54a1d102beb4",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-pipeline-self-heal-821_postgres-data/_data"
+      },
+      {
+        "container": "d944c4839a63",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-pipeline-self-heal-821_postgres-logs-data/_data"
+      },
+      {
+        "container": "415e13aa5396",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-pipeline-recovery-821_postgres-logs-data/_data"
+      },
+      {
+        "container": "23d0b7373921",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-pipeline-recovery-821_postgres-data/_data"
+      },
+      {
+        "container": "08e48291f553",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-pipeline-failure-821_postgres-logs-data/_data"
+      },
+      {
+        "container": "b636a1aad6a6",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-pipeline-failure-821_postgres-data/_data"
+      },
+      {
+        "container": "fd066788e58f",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-session-readiness-829_postgres-data/_data"
+      },
+      {
+        "container": "730a16321662",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-session-readiness-829_postgres-logs-data/_data"
+      },
+      {
+        "container": "1a02c04eac1c",
+        "running": false,
+        "source": "/home/max/Development/groundhog.worktrees/m17-p0-decision-register/initial_artifacts"
+      },
+      {
+        "container": "36e2e5fa8eca",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-m17-p0-decision-register_postgres-logs-data/_data"
+      },
+      {
+        "container": "2582d203b8cc",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-m17-p0-decision-register_postgres-data/_data"
+      },
+      {
+        "container": "6662d419148a",
+        "running": false,
+        "source": "/home/max/Development/groundhog"
+      },
+      {
+        "container": "6662d419148a",
+        "running": false,
+        "source": "/home/max/.azure"
+      },
+      {
+        "container": "6662d419148a",
+        "running": false,
+        "source": "/home/max/.ssh"
+      },
+      {
+        "container": "6662d419148a",
+        "running": false,
+        "source": "/home/max/.config/gh"
+      },
+      {
+        "container": "0102bc149083",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-notetaker-03_postgres-data/_data"
+      },
+      {
+        "container": "7e505a312f26",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-notetaker-03_postgres-logs-data/_data"
+      },
+      {
+        "container": "8c3e136cb143",
+        "running": true,
+        "source": "/var/lib/docker/volumes/groundhog_devcontainer_postgres-data/_data"
+      },
+      {
+        "container": "a3571466955b",
+        "running": true,
+        "source": "/var/lib/docker/volumes/groundhog_devcontainer_postgres-logs-data/_data"
+      },
+      {
+        "container": "bcf29004e7ae",
+        "running": false,
+        "source": "/var/lib/docker/volumes/agents-i-d-like-to-tackle-all-of-the-d9ae1d72_groundhog_db/_data"
+      },
+      {
+        "container": "2e4c1d8f193f",
+        "running": false,
+        "source": "/var/lib/docker/volumes/agents-i-d-like-to-tackle-all-of-the-d9ae1d72_groundhog_logs_db/_data"
+      }
+    ],
+    "directories": 1,
+    "disks": [],
+    "errors": [],
+    "references": [],
+    "scope": "All directories under explicit roots; directory symlinks not followed. QCOW magic in img/raw and named virtual disks; JSON references in explicit stores. Actual process argv and all container mounts. No whole-host root FD census claimed.",
+    "source_fixtures": []
+  },
+  "limitations": "Evidence is already independently retained. Available bytes exclude filesystem reserve. A report is not deletion authority; refresh identities, dependencies and active use before execution.",
+  "plan_sha256": "e619e864ca7daf2f9add083b4367810efb04136e29425448e46051e114cbac76",
+  "preservation_additional_bytes": 0,
+  "protected": [
+    {
+      "identity": {
+        "allocated_bytes": 4096,
+        "device": 66304,
+        "inode": 192170488,
+        "links": 3,
+        "mode": 16893,
+        "mtime_ns": 1791939544468791053,
+        "size": 4096,
+        "uid": 1000
+      },
+      "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/records"
+    },
+    {
+      "identity": {
+        "allocated_bytes": 4096,
+        "device": 66304,
+        "inode": 111544155,
+        "links": 3,
+        "mode": 16893,
+        "mtime_ns": 1791914452035031035,
+        "size": 4096,
+        "uid": 1000
+      },
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/host-maintenance"
+    },
+    {
+      "identity": {
+        "allocated_bytes": 4096,
+        "device": 66304,
+        "inode": 55772655,
+        "links": 23,
+        "mode": 16893,
+        "mtime_ns": 1791748178354684745,
+        "size": 4096,
+        "uid": 1000
+      },
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20"
+    },
+    {
+      "identity": {
+        "allocated_bytes": 4096,
+        "device": 64512,
+        "inode": 14847284,
+        "links": 11,
+        "mode": 16893,
+        "mtime_ns": 1791931304479954928,
+        "size": 4096,
+        "uid": 1000
+      },
+      "path": "/home/max/Development/emulationstation-next.worktrees/m7-rc-library-setup"
+    },
+    {
+      "identity": {
+        "allocated_bytes": 4096,
+        "device": 64512,
+        "inode": 14843391,
+        "links": 11,
+        "mode": 16893,
+        "mtime_ns": 1791926809402161833,
+        "size": 4096,
+        "uid": 1000
+      },
+      "path": "/home/max/Development/emulationstation-next.worktrees/m7-rc-setup-570"
+    },
+    {
+      "identity": {
+        "allocated_bytes": 4096,
+        "device": 64512,
+        "inode": 14848580,
+        "links": 11,
+        "mode": 16893,
+        "mtime_ns": 1791934557882259952,
+        "size": 4096,
+        "uid": 1000
+      },
+      "path": "/home/max/Development/emulationstation-next.worktrees/m7-library-copy-575"
+    }
+  ],
+  "result": "REPORT_COMPLETE",
+  "schema": 1,
+  "tool_sha256": "1187725512f1a0586bc4d7812a886076c71bc6fdd460f6cd4a73e91198518798",
+  "utc": "2026-10-14T00:59:04.938345+00:00"
+}

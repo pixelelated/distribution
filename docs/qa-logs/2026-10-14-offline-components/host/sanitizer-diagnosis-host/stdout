@@ -1,0 +1,30 @@
+/baseline/external/libcheevos/libretro-common/src/utils/md5.c:110:3: runtime error: load of misaligned address 0x7bb3901f6822 for type 'MD5_u32plus', which requires 4 byte alignment
+0x7bb3901f6822: note: pointer points here
+ 33 5b  93 75 e1 96 73 10 9e 2f  8a ce 5a 46 05 ef c3 7a  58 b7 eb 19 2e 14 12 a4  8a 9a 42 62 00 00
+              ^ 
+    #0 0x00000045d504 in MD5_body /baseline/external/libcheevos/libretro-common/src/utils/md5.c:110
+    #1 0x000000460bdf in MD5_Update /baseline/external/libcheevos/libretro-common/src/utils/md5.c:238
+    #2 0x0000004259b7 in rc_hash_nintendo_disc_partition /baseline/external/libcheevos/rcheevos/src/rhash/hash_disc.c:505
+    #3 0x000000425d9d in rc_hash_gamecube /baseline/external/libcheevos/rcheevos/src/rhash/hash_disc.c:529
+    #4 0x00000040aaa2 in rc_hash_from_file /baseline/external/libcheevos/rcheevos/src/rhash/hash.c:882
+    #5 0x00000040e939 in rc_hash_generate_from_file /baseline/external/libcheevos/rcheevos/src/rhash/hash.c:1395
+    #6 0x000000404db6 in generateHashFromFile(char*, int, char const*) /baseline/external/libcheevos/cheevos.cpp:170
+    #7 0x000000403f6e in main /work/records/wii-composition/docs/qa-logs/2026-10-13-rvz-regression-source/regression-hash.cpp:20
+    #8 0x7fb392429253  (/usr/lib/libc.so.6+0x26253)
+    #9 0x7fb392429305 in __libc_start_main (/usr/lib/libc.so.6+0x26305)
+    #10 0x0000004037c0 in _start ../sysdeps/x86_64/start.S:115
+
+{
+  "argv": [
+    "/tmp/pix-input/artifacts/candidate/pix574-fixture-writer",
+    "/tmp/pix574-sanitize/run01/fixtures"
+  ],
+  "pid": 18352,
+  "process_group": 18352,
+  "returncode": 0,
+  "timed_out": false,
+  "elapsed": 0.1147560340000382,
+  "executable_sha256": "d0d7e9a90412230bf2dcbf9eb68ac7f76a0cd0a0f36406bea01a5192317a3fba"
+}
+
+PIX_RC_c59ef2ef82094b5999d24e9df23db2a7:0

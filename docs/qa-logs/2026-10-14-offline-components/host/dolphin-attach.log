@@ -1,0 +1,4 @@
+drive_add 0 if=none,id=pixdolphin,format=raw,readonly=on,file=/workspace/tmp/pix-m7-offline-vm-20261014/vm/dolphin-input.ext4
+(qemu) 
+device_add usb-storage,drive=pixdolphin,id=pixdolphindev,serial=pixdolphin
+(qemu) 

@@ -1,0 +1,12 @@
+watch-build: recording in /workspace/tmp/pix-m7-offline-vm-20261014/control/.build-runs/20261014T012155Z-dacaaed3
+{
+  "started": true,
+  "output": "/tmp/pix-output/dolphin-remaining-20261014small02",
+  "session_pid": 11421
+}
+
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-offline-vm-20261014/dolphin02-batch-monitor.py", line 8, in <module>
+    if (r/'dolphin02-abort').exists():raise RuntimeError('Coordinator abort')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Coordinator abort

@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/workspace/repos/rocknix.worktrees/m7-dolphin-preservation-581/tools/vm-serial",
+    "--socket",
+    "/workspace/tmp/pix-m7-offline-vm-20261014/vm/serial.sock",
+    "--timeout",
+    "15",
+    "sh",
+    "/usr/bin/python3 -I -S -B /tmp/pix-input/dolphin/batch/guest-batch.py advance --token 06-returned --review 'Return reviewed: same selected synthetic GameCube game and complete footer; native dialog dismissed, no overlay remains.'; pix581_rc=$?; printf '\\nPIX581_EXIT_5b6d10c817584c54a651f553ca7a3fd8=%s\\n' \"$pix581_rc\""
+  ],
+  "original_exit": 0,
+  "timed_out": false
+}

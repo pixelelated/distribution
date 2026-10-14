@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/workspace/repos/rocknix.worktrees/m7-dolphin-preservation-581/tools/vm-serial",
+    "--socket",
+    "/workspace/tmp/pix-m7-offline-vm-20261014/vm/serial.sock",
+    "--timeout",
+    "15",
+    "sh",
+    "/usr/bin/python3 -I -S -B /tmp/pix-input/dolphin/batch/guest-batch.py advance --token 10-returned --review 'Wii returned to same selected synthetic game and full footer; dialog gone. First-path wrapping remains a separate visual repair item.'; pix581_rc=$?; printf '\\nPIX581_EXIT_1ef8f9f9962a46709db753ed14248c5c=%s\\n' \"$pix581_rc\""
+  ],
+  "original_exit": 0,
+  "timed_out": false
+}

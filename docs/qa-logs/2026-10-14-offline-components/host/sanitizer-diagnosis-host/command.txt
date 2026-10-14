@@ -1,0 +1,4 @@
+( set -e
+cat /tmp/pix574-sanitize/run01/baseline-formats.stderr
+cat /tmp/pix574-sanitize/run01/baseline-formats.stdout
+cat /tmp/pix574-sanitize/run01/make.json ); pxrc=$?; printf "\nPIX_RC_c59ef2ef82094b5999d24e9df23db2a7:%s\n" "$pxrc"

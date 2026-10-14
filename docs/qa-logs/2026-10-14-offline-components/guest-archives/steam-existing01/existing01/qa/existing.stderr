@@ -1,0 +1,12 @@
++ set -e
++ set -o pipefail
++ STEAM=/storage/.local/share/Steam
++ STEAM_DOT=/storage/.steam
++ CLIENT_DIR=/storage/.local/share/Steam/steamrtarm64
++ STEAM_MANIFEST_URL=https://client-update.fastly.steamstatic.com/steam_client_publicbeta_linuxarm64
++ STEAM_CDN=https://client-update.steamstatic.com
++ install_steam_client_arm64
++ '[' -d /storage/.local/share/Steam/steamrtarm64 ']'
++ log_info 'Steam client already exists. Skipping.'
++ echo -e '[\033[1;34mINFO\033[0m] Steam client already exists. Skipping.'
++ return 0

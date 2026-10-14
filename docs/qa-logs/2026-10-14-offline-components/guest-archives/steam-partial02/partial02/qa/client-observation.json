@@ -1,0 +1,876 @@
+{
+  "status": "REPRODUCED",
+  "evidence": "exact old-source client function, synthetic transport, native unzip; not whole installer",
+  "case": "partial-extraction-retry",
+  "installer_sha256": "a7a67c6b1e0f90a63fdcef79bb6aa60a413dc1927dbf0d53f6068e3a720fe80f",
+  "shell_probe_sha256": "cd90316f0ad793242cf12df4430a7f94c7149670996314454d5009a5ca7a08fc",
+  "invocations": [
+    {
+      "name": "partial-first",
+      "original_exit": 1,
+      "timeout": false,
+      "events_before": 0,
+      "argv": [
+        "/bin/bash",
+        "--noprofile",
+        "--norc",
+        "-x",
+        "/qa/client-function.sh"
+      ],
+      "elapsed_seconds": 10.09861892899994,
+      "events_after": 5,
+      "storage": {
+        ".steam": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 99
+        },
+        "games-external": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 97
+        },
+        "games-internal": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 93
+        },
+        ".local": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 71
+        },
+        ".steam/fixture-existing": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 100,
+          "bytes": 25,
+          "sha256": "b5bf478b4b6cf20aa85129c14a8b901b5c3d3777474e880e9cd14902ca5ad794"
+        },
+        "games-external/preserve": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 98,
+          "bytes": 40,
+          "sha256": "d37bf52fe633b6f0ddc4a53bb8173d31cb74002c607343a13a1b2def598e5f8f"
+        },
+        "games-internal/roms": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 94
+        },
+        "games-internal/roms/steam": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 95
+        },
+        "games-internal/roms/steam/preserve": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 96,
+          "bytes": 17,
+          "sha256": "6a7af4361e3e098799936d319b13913fccab6f21f3ca182d62b1577692203d56"
+        },
+        ".local/share": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 72
+        },
+        ".local/share/fex-emu": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 89
+        },
+        ".local/share/Steam": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 73
+        },
+        ".local/share/fex-emu/RootFS": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 90
+        },
+        ".local/share/fex-emu/RootFS/ArchLinux": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 91
+        },
+        ".local/share/fex-emu/RootFS/ArchLinux/preserve": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 92,
+          "bytes": 22,
+          "sha256": "11d5bccf865d4cb8fbf3c473b16062cb56f25049bc701825b8791d23c8772162"
+        },
+        ".local/share/Steam/steamrtarm64": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 1394
+        },
+        ".local/share/Steam/lib": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 85
+        },
+        ".local/share/Steam/compatibilitytools.d": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 82
+        },
+        ".local/share/Steam/steam-runtime-steamrt-arm64": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 80
+        },
+        ".local/share/Steam/depotcache": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 78
+        },
+        ".local/share/Steam/userdata": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 76
+        },
+        ".local/share/Steam/steamapps": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 74
+        },
+        ".local/share/Steam/linuxarm64.zip": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 1393,
+          "bytes": 654,
+          "sha256": "dfbae997a03b6b4df064dc5871dfcf376114f57bb3050baa72ab4289d0b04870"
+        },
+        ".local/share/Steam/steamrtarm64/01-bad-crc": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 1396,
+          "bytes": 54,
+          "sha256": "139cd7eef8bbfa6d1ba8c1a4c2fd3ad671548edc21917b69711c9cc617d3b8fa"
+        },
+        ".local/share/Steam/steamrtarm64/00-complete-marker": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 1395,
+          "bytes": 40,
+          "sha256": "b311f7c73cac16d61f987d2b21ea2c72bc6658d2cc1576714a2e01418345dedd"
+        },
+        ".local/share/Steam/lib/aarch64-linux-gnu": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 86
+        },
+        ".local/share/Steam/lib/aarch64-linux-gnu/link-preserve": {
+          "mode": 41471,
+          "device": 69,
+          "inode": 88,
+          "link": "preserve"
+        },
+        ".local/share/Steam/lib/aarch64-linux-gnu/preserve": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 87,
+          "bytes": 11,
+          "sha256": "a1622cda43d37717b562988f9a730c129d06485dfd9e842c944fb67d306ec4a4"
+        },
+        ".local/share/Steam/compatibilitytools.d/old-proton": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 83
+        },
+        ".local/share/Steam/compatibilitytools.d/old-proton/preserve": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 84,
+          "bytes": 53,
+          "sha256": "058054bf545050cd36e2071a65933ef320d68c49927f55e76a580c7256babe43"
+        },
+        ".local/share/Steam/steam-runtime-steamrt-arm64/preserve": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 81,
+          "bytes": 49,
+          "sha256": "46986b4aace666a0ad1e441bde8fb10b7893ab8f4d66bf2587d427be2af10ef8"
+        },
+        ".local/share/Steam/depotcache/preserve": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 79,
+          "bytes": 32,
+          "sha256": "66b1bc94da3fb923bd80ebb003830f3314f34a4fd2c050e6a7f8584b5c9c5b6b"
+        },
+        ".local/share/Steam/userdata/preserve": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 77,
+          "bytes": 30,
+          "sha256": "1f7c9d449f5179975e12105f7050c37e6549eee8dd211b2d9022220d4425d3e9"
+        },
+        ".local/share/Steam/steamapps/preserve": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 75,
+          "bytes": 31,
+          "sha256": "4b08a9604e0d362c06d8497594039d389d11256c518b781c090010f1754a9ea0"
+        }
+      }
+    },
+    {
+      "name": "partial-retry",
+      "original_exit": 0,
+      "timeout": false,
+      "events_before": 5,
+      "argv": [
+        "/bin/bash",
+        "--noprofile",
+        "--norc",
+        "-x",
+        "/qa/client-function.sh"
+      ],
+      "elapsed_seconds": 0.0014925450000191631,
+      "events_after": 5,
+      "storage": {
+        ".steam": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 99
+        },
+        "games-external": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 97
+        },
+        "games-internal": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 93
+        },
+        ".local": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 71
+        },
+        ".steam/fixture-existing": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 100,
+          "bytes": 25,
+          "sha256": "b5bf478b4b6cf20aa85129c14a8b901b5c3d3777474e880e9cd14902ca5ad794"
+        },
+        "games-external/preserve": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 98,
+          "bytes": 40,
+          "sha256": "d37bf52fe633b6f0ddc4a53bb8173d31cb74002c607343a13a1b2def598e5f8f"
+        },
+        "games-internal/roms": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 94
+        },
+        "games-internal/roms/steam": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 95
+        },
+        "games-internal/roms/steam/preserve": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 96,
+          "bytes": 17,
+          "sha256": "6a7af4361e3e098799936d319b13913fccab6f21f3ca182d62b1577692203d56"
+        },
+        ".local/share": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 72
+        },
+        ".local/share/fex-emu": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 89
+        },
+        ".local/share/Steam": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 73
+        },
+        ".local/share/fex-emu/RootFS": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 90
+        },
+        ".local/share/fex-emu/RootFS/ArchLinux": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 91
+        },
+        ".local/share/fex-emu/RootFS/ArchLinux/preserve": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 92,
+          "bytes": 22,
+          "sha256": "11d5bccf865d4cb8fbf3c473b16062cb56f25049bc701825b8791d23c8772162"
+        },
+        ".local/share/Steam/steamrtarm64": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 1394
+        },
+        ".local/share/Steam/lib": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 85
+        },
+        ".local/share/Steam/compatibilitytools.d": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 82
+        },
+        ".local/share/Steam/steam-runtime-steamrt-arm64": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 80
+        },
+        ".local/share/Steam/depotcache": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 78
+        },
+        ".local/share/Steam/userdata": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 76
+        },
+        ".local/share/Steam/steamapps": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 74
+        },
+        ".local/share/Steam/linuxarm64.zip": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 1393,
+          "bytes": 654,
+          "sha256": "dfbae997a03b6b4df064dc5871dfcf376114f57bb3050baa72ab4289d0b04870"
+        },
+        ".local/share/Steam/steamrtarm64/01-bad-crc": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 1396,
+          "bytes": 54,
+          "sha256": "139cd7eef8bbfa6d1ba8c1a4c2fd3ad671548edc21917b69711c9cc617d3b8fa"
+        },
+        ".local/share/Steam/steamrtarm64/00-complete-marker": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 1395,
+          "bytes": 40,
+          "sha256": "b311f7c73cac16d61f987d2b21ea2c72bc6658d2cc1576714a2e01418345dedd"
+        },
+        ".local/share/Steam/lib/aarch64-linux-gnu": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 86
+        },
+        ".local/share/Steam/lib/aarch64-linux-gnu/link-preserve": {
+          "mode": 41471,
+          "device": 69,
+          "inode": 88,
+          "link": "preserve"
+        },
+        ".local/share/Steam/lib/aarch64-linux-gnu/preserve": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 87,
+          "bytes": 11,
+          "sha256": "a1622cda43d37717b562988f9a730c129d06485dfd9e842c944fb67d306ec4a4"
+        },
+        ".local/share/Steam/compatibilitytools.d/old-proton": {
+          "mode": 16877,
+          "device": 69,
+          "inode": 83
+        },
+        ".local/share/Steam/compatibilitytools.d/old-proton/preserve": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 84,
+          "bytes": 53,
+          "sha256": "058054bf545050cd36e2071a65933ef320d68c49927f55e76a580c7256babe43"
+        },
+        ".local/share/Steam/steam-runtime-steamrt-arm64/preserve": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 81,
+          "bytes": 49,
+          "sha256": "46986b4aace666a0ad1e441bde8fb10b7893ab8f4d66bf2587d427be2af10ef8"
+        },
+        ".local/share/Steam/depotcache/preserve": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 79,
+          "bytes": 32,
+          "sha256": "66b1bc94da3fb923bd80ebb003830f3314f34a4fd2c050e6a7f8584b5c9c5b6b"
+        },
+        ".local/share/Steam/userdata/preserve": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 77,
+          "bytes": 30,
+          "sha256": "1f7c9d449f5179975e12105f7050c37e6549eee8dd211b2d9022220d4425d3e9"
+        },
+        ".local/share/Steam/steamapps/preserve": {
+          "mode": 33188,
+          "device": 69,
+          "inode": 75,
+          "bytes": 31,
+          "sha256": "4b08a9604e0d362c06d8497594039d389d11256c518b781c090010f1754a9ea0"
+        }
+      }
+    }
+  ],
+  "before": {
+    ".steam": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 99
+    },
+    "games-external": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 97
+    },
+    "games-internal": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 93
+    },
+    ".local": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 71
+    },
+    ".steam/fixture-existing": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 100,
+      "bytes": 25,
+      "sha256": "b5bf478b4b6cf20aa85129c14a8b901b5c3d3777474e880e9cd14902ca5ad794"
+    },
+    "games-external/preserve": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 98,
+      "bytes": 40,
+      "sha256": "d37bf52fe633b6f0ddc4a53bb8173d31cb74002c607343a13a1b2def598e5f8f"
+    },
+    "games-internal/roms": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 94
+    },
+    "games-internal/roms/steam": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 95
+    },
+    "games-internal/roms/steam/preserve": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 96,
+      "bytes": 17,
+      "sha256": "6a7af4361e3e098799936d319b13913fccab6f21f3ca182d62b1577692203d56"
+    },
+    ".local/share": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 72
+    },
+    ".local/share/fex-emu": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 89
+    },
+    ".local/share/Steam": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 73
+    },
+    ".local/share/fex-emu/RootFS": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 90
+    },
+    ".local/share/fex-emu/RootFS/ArchLinux": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 91
+    },
+    ".local/share/fex-emu/RootFS/ArchLinux/preserve": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 92,
+      "bytes": 22,
+      "sha256": "11d5bccf865d4cb8fbf3c473b16062cb56f25049bc701825b8791d23c8772162"
+    },
+    ".local/share/Steam/lib": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 85
+    },
+    ".local/share/Steam/compatibilitytools.d": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 82
+    },
+    ".local/share/Steam/steam-runtime-steamrt-arm64": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 80
+    },
+    ".local/share/Steam/depotcache": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 78
+    },
+    ".local/share/Steam/userdata": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 76
+    },
+    ".local/share/Steam/steamapps": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 74
+    },
+    ".local/share/Steam/lib/aarch64-linux-gnu": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 86
+    },
+    ".local/share/Steam/lib/aarch64-linux-gnu/link-preserve": {
+      "mode": 41471,
+      "device": 69,
+      "inode": 88,
+      "link": "preserve"
+    },
+    ".local/share/Steam/lib/aarch64-linux-gnu/preserve": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 87,
+      "bytes": 11,
+      "sha256": "a1622cda43d37717b562988f9a730c129d06485dfd9e842c944fb67d306ec4a4"
+    },
+    ".local/share/Steam/compatibilitytools.d/old-proton": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 83
+    },
+    ".local/share/Steam/compatibilitytools.d/old-proton/preserve": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 84,
+      "bytes": 53,
+      "sha256": "058054bf545050cd36e2071a65933ef320d68c49927f55e76a580c7256babe43"
+    },
+    ".local/share/Steam/steam-runtime-steamrt-arm64/preserve": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 81,
+      "bytes": 49,
+      "sha256": "46986b4aace666a0ad1e441bde8fb10b7893ab8f4d66bf2587d427be2af10ef8"
+    },
+    ".local/share/Steam/depotcache/preserve": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 79,
+      "bytes": 32,
+      "sha256": "66b1bc94da3fb923bd80ebb003830f3314f34a4fd2c050e6a7f8584b5c9c5b6b"
+    },
+    ".local/share/Steam/userdata/preserve": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 77,
+      "bytes": 30,
+      "sha256": "1f7c9d449f5179975e12105f7050c37e6549eee8dd211b2d9022220d4425d3e9"
+    },
+    ".local/share/Steam/steamapps/preserve": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 75,
+      "bytes": 31,
+      "sha256": "4b08a9604e0d362c06d8497594039d389d11256c518b781c090010f1754a9ea0"
+    }
+  },
+  "first_failure_validated": true,
+  "events": [
+    {
+      "argv": [
+        "-fsSL",
+        "https://client-update.fastly.steamstatic.com/steam_client_publicbeta_linuxarm64"
+      ],
+      "command": "curl",
+      "kind": "boundary-exit",
+      "monotonic_ns": 1863830434472,
+      "original_exit": 0,
+      "pid": 17
+    },
+    {
+      "kind": "archive-copy",
+      "monotonic_ns": 1863858274933,
+      "name": "client.zip",
+      "pid": 22,
+      "sha256": "dfbae997a03b6b4df064dc5871dfcf376114f57bb3050baa72ab4289d0b04870"
+    },
+    {
+      "argv": [
+        "-c",
+        "-t",
+        "5",
+        "-O",
+        "/storage/.local/share/Steam/linuxarm64.zip",
+        "https://client-update.steamstatic.com/bins_linuxarm64_linuxarm64.zip.qa-retry-20261014"
+      ],
+      "command": "wget",
+      "kind": "boundary-exit",
+      "monotonic_ns": 1863858294623,
+      "original_exit": 0,
+      "pid": 22
+    },
+    {
+      "archive_sha256": "dfbae997a03b6b4df064dc5871dfcf376114f57bb3050baa72ab4289d0b04870",
+      "argv": [
+        "/usr/bin/unzip",
+        "-o",
+        "/storage/.local/share/Steam/linuxarm64.zip",
+        "-d",
+        "/storage/.local/share/Steam"
+      ],
+      "executable": "/system/usr/bin/busybox",
+      "executable_sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346",
+      "kind": "native-extraction",
+      "monotonic_ns": 1863885212446,
+      "original_exit": 1,
+      "pid": 23,
+      "timeout": false,
+      "tool": "unzip"
+    },
+    {
+      "argv": [
+        "-o",
+        "/storage/.local/share/Steam/linuxarm64.zip",
+        "-d",
+        "/storage/.local/share/Steam"
+      ],
+      "command": "unzip",
+      "kind": "boundary-exit",
+      "monotonic_ns": 1863885243861,
+      "original_exit": 1,
+      "pid": 23
+    }
+  ],
+  "after": {
+    ".steam": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 99
+    },
+    "games-external": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 97
+    },
+    "games-internal": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 93
+    },
+    ".local": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 71
+    },
+    ".steam/fixture-existing": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 100,
+      "bytes": 25,
+      "sha256": "b5bf478b4b6cf20aa85129c14a8b901b5c3d3777474e880e9cd14902ca5ad794"
+    },
+    "games-external/preserve": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 98,
+      "bytes": 40,
+      "sha256": "d37bf52fe633b6f0ddc4a53bb8173d31cb74002c607343a13a1b2def598e5f8f"
+    },
+    "games-internal/roms": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 94
+    },
+    "games-internal/roms/steam": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 95
+    },
+    "games-internal/roms/steam/preserve": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 96,
+      "bytes": 17,
+      "sha256": "6a7af4361e3e098799936d319b13913fccab6f21f3ca182d62b1577692203d56"
+    },
+    ".local/share": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 72
+    },
+    ".local/share/fex-emu": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 89
+    },
+    ".local/share/Steam": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 73
+    },
+    ".local/share/fex-emu/RootFS": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 90
+    },
+    ".local/share/fex-emu/RootFS/ArchLinux": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 91
+    },
+    ".local/share/fex-emu/RootFS/ArchLinux/preserve": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 92,
+      "bytes": 22,
+      "sha256": "11d5bccf865d4cb8fbf3c473b16062cb56f25049bc701825b8791d23c8772162"
+    },
+    ".local/share/Steam/steamrtarm64": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 1394
+    },
+    ".local/share/Steam/lib": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 85
+    },
+    ".local/share/Steam/compatibilitytools.d": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 82
+    },
+    ".local/share/Steam/steam-runtime-steamrt-arm64": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 80
+    },
+    ".local/share/Steam/depotcache": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 78
+    },
+    ".local/share/Steam/userdata": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 76
+    },
+    ".local/share/Steam/steamapps": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 74
+    },
+    ".local/share/Steam/linuxarm64.zip": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 1393,
+      "bytes": 654,
+      "sha256": "dfbae997a03b6b4df064dc5871dfcf376114f57bb3050baa72ab4289d0b04870"
+    },
+    ".local/share/Steam/steamrtarm64/01-bad-crc": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 1396,
+      "bytes": 54,
+      "sha256": "139cd7eef8bbfa6d1ba8c1a4c2fd3ad671548edc21917b69711c9cc617d3b8fa"
+    },
+    ".local/share/Steam/steamrtarm64/00-complete-marker": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 1395,
+      "bytes": 40,
+      "sha256": "b311f7c73cac16d61f987d2b21ea2c72bc6658d2cc1576714a2e01418345dedd"
+    },
+    ".local/share/Steam/lib/aarch64-linux-gnu": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 86
+    },
+    ".local/share/Steam/lib/aarch64-linux-gnu/link-preserve": {
+      "mode": 41471,
+      "device": 69,
+      "inode": 88,
+      "link": "preserve"
+    },
+    ".local/share/Steam/lib/aarch64-linux-gnu/preserve": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 87,
+      "bytes": 11,
+      "sha256": "a1622cda43d37717b562988f9a730c129d06485dfd9e842c944fb67d306ec4a4"
+    },
+    ".local/share/Steam/compatibilitytools.d/old-proton": {
+      "mode": 16877,
+      "device": 69,
+      "inode": 83
+    },
+    ".local/share/Steam/compatibilitytools.d/old-proton/preserve": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 84,
+      "bytes": 53,
+      "sha256": "058054bf545050cd36e2071a65933ef320d68c49927f55e76a580c7256babe43"
+    },
+    ".local/share/Steam/steam-runtime-steamrt-arm64/preserve": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 81,
+      "bytes": 49,
+      "sha256": "46986b4aace666a0ad1e441bde8fb10b7893ab8f4d66bf2587d427be2af10ef8"
+    },
+    ".local/share/Steam/depotcache/preserve": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 79,
+      "bytes": 32,
+      "sha256": "66b1bc94da3fb923bd80ebb003830f3314f34a4fd2c050e6a7f8584b5c9c5b6b"
+    },
+    ".local/share/Steam/userdata/preserve": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 77,
+      "bytes": 30,
+      "sha256": "1f7c9d449f5179975e12105f7050c37e6549eee8dd211b2d9022220d4425d3e9"
+    },
+    ".local/share/Steam/steamapps/preserve": {
+      "mode": 33188,
+      "device": 69,
+      "inode": 75,
+      "bytes": 31,
+      "sha256": "4b08a9604e0d362c06d8497594039d389d11256c518b781c090010f1754a9ea0"
+    }
+  }
+}

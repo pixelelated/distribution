@@ -1,0 +1,5 @@
+( set -e
+for i in 1 2 3 4 5; do test -e /dev/disk/by-label/PIXDOLPHIN04 && break; sleep 1; done
+test -e /dev/disk/by-label/PIXDOLPHIN04
+mount -t ext4 -o ro,noload /dev/disk/by-label/PIXDOLPHIN04 /tmp/pix-input
+SYSTEMD_PAGER=cat systemctl start essway.service ); pxrc=$?; printf "\nPIX_RC_d8f27cef18fb4a9f89e76c4a216713b0:%s\n" "$pxrc"

@@ -1,0 +1,13 @@
+state:       finished
+written:     2026-10-14 01:38:42 UTC   <- terminal result; heartbeat stops here
+watcher_pid: 3265018
+job_pid:     3265017  alive=yes
+started:     2026-10-14 01:38:37 UTC
+progress:    none matched
+log:         /workspace/tmp/pix-m7-offline-vm-20261014/control/.build-runs/20261014T013837Z-5da2f2c4/build.log  (last written 4s ago)
+activity:    /workspace/tmp/pix-m7-offline-vm-20261014/control/.build-runs/20261014T013837Z-5da2f2c4/build.log  (last written 4s ago)
+activity_dir: /workspace/tmp/pix-m7-offline-vm-20261014
+outcome:     rc=1
+tail:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  AssertionError: {'rc': 1, 'started': 1791941917.2464197, 'transport_rc': 0, 'guest_rc': 1, 'ended': 1791941918.255943}

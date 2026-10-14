@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "python3",
+    "-I",
+    "-S",
+    "-B",
+    "/workspace/repos/rocknix.worktrees/m7-dolphin-preservation-581/docs/qa-logs/2026-10-13-dolphin-preservation-source/installed-flow/remaining-serial/stage-input.py",
+    "--repo",
+    "/workspace/repos/rocknix.worktrees/m7-dolphin-preservation-581",
+    "--es-repo",
+    "/home/max/Development/emulationstation-next.worktrees/m7-rc-library-setup",
+    "--input",
+    "/workspace/tmp/pix-m7-offline-vm-20261014/vm/dolphin-input-tree",
+    "--archive",
+    "/workspace/tmp/pix-m7-library-vm-20261013/records/dolphin-packaged-defaults.tar.gz",
+    "--receipt",
+    "/workspace/tmp/pix-m7-library-vm-20261013/records/dolphin-packaged-defaults.json",
+    "--allocation",
+    "/workspace/tmp/pix-m7-offline-vm-20261014/records/dolphin-allocation01.json"
+  ],
+  "original_exit": 0,
+  "stdout": "STAGED ONLY: /workspace/tmp/pix-m7-offline-vm-20261014/vm/dolphin-input-tree/dolphin\n",
+  "stderr": ""
+}

@@ -1,0 +1,43 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T005922Z-082ced17",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 574,
+      "kind": "build-cache",
+      "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/builds",
+      "release_when": "Consume original compile results and preserve compact evidence; retire objects/tmp. Keep target binaries/catalog only for immediate next VM checks, then retire."
+    },
+    {
+      "issue": 574,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/tmp",
+      "release_when": "Consume original compile results and preserve compact evidence; retire objects/tmp. Keep target binaries/catalog only for immediate next VM checks, then retire."
+    },
+    {
+      "issue": 575,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/artifacts",
+      "release_when": "Consume original compile results and preserve compact evidence; retire objects/tmp. Keep target binaries/catalog only for immediate next VM checks, then retire."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/result.json",
+      "sha256": "0ae35c527fbca2a28ad236b55c0545c2d30368c6c9ea976c128151ace4e65f86"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/compile-result.json",
+      "sha256": "91ef82bf425103e41e64a6f0e17f83fd88456077315e7b9517166ea57285013f"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/consumption.json",
+      "sha256": "c338852d2f2a7a388e1e35339354512edbe02f4028a1e8e491c38bd41ae58ef9"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/compile-owner/console.log",
+      "sha256": "b868193507d5457a8641ad2febbcc3015507817714c83bc4fa2dc09bfaa99ea4"
+    }
+  ]
+}

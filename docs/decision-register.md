@@ -694,6 +694,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-UI-127 | 2026-10-13 | **Keep the Wi-Fi picker visible at a stable height while it scans, with scrolling for longer lists and the searching state inside the list area.** The maintainer reports disappearing results and an empty, collapsing first-search surface. Preserve the last results during refresh, distinguish empty results from failed scans, and retain safe focus/input and existing saved/open-network behavior. Screen-relative geometry and exact-source happy/branch frames are qualified on the VM before pin promotion; this records intended behavior, not a completed fix. | #577; D-UI-064/118/125; `docs/es-menu-map.md` |
 
+| D-WORKFLOW-164 | 2026-10-14 | **Consider upstream contributions for every confirmed fix or reusable improvement.** Extend D-WORKFLOW-162 beyond finding existing fixes: identify the component/ROCKNIX target, compare current upstream, and record a minimal independent patch with public regression evidence or an explicit duplicate/already-fixed/fork-specific disposition. Preserve licenses and separate dependency fixes from distro integration. Preparation does not imply submission or new publication authority. | #583; #574; `.claude/rules/engineering-practices.md`; `.claude/rules/fork-workflow.md` |
+
 ## Open decisions
 
 

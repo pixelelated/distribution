@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/workspace/repos/rocknix.worktrees/m7-dolphin-preservation-581/tools/vm-serial",
+    "--socket",
+    "/workspace/tmp/pix-m7-offline-vm-20261014/vm/serial.sock",
+    "--timeout",
+    "15",
+    "sh",
+    "/usr/bin/python3 -I -S -B /tmp/pix-input/dolphin/batch/guest-batch.py advance --token 13-error --review 'Busy EN native dialog reviewed: explains save preparation already running, wait then retry; title/body/OK fit640 without clipping. Expected250/check1/prepare0/engine0 and unchangeddata verified.'; pix581_rc=$?; printf '\\nPIX581_EXIT_994505161ad5423c9e36c0d30a8abd8a=%s\\n' \"$pix581_rc\""
+  ],
+  "original_exit": 0,
+  "timed_out": false
+}

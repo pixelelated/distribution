@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/workspace/repos/rocknix.worktrees/m7-dolphin-preservation-581/tools/vm-serial",
+    "--socket",
+    "/workspace/tmp/pix-m7-offline-vm-20261014/vm/serial.sock",
+    "--timeout",
+    "15",
+    "sh",
+    "/usr/bin/python3 -I -S -B /tmp/pix-input/dolphin/batch/guest-batch.py advance --token 07-complete --review 'Consumed gc-fresh originals: session process/session/frontend restore/unshare/ES/runemu all0, frontend active0 and no namespace processes; both frames reviewed.'; pix581_rc=$?; printf '\\nPIX581_EXIT_8e71c0e295c244e7a640b28d81a7e845=%s\\n' \"$pix581_rc\""
+  ],
+  "original_exit": 0,
+  "timed_out": false
+}

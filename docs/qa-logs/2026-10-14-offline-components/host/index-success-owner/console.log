@@ -1,0 +1,29 @@
+watch-build: recording in /workspace/tmp/pix-m7-offline-vm-20261014/control/.build-runs/20261014T011229Z-c419a4d6
+{
+  "worker_exit": 1,
+  "timeout": false,
+  "interrupted_signal": null,
+  "stragglers_killed": [],
+  "namespace_processes_remaining": [],
+  "parent_unchanged": true,
+  "runtime_test_was_run": true,
+  "passed": false
+}
+{
+  "case": "success",
+  "trigger": "api",
+  "passed": false,
+  "scope": "ES lookup + simulated ctl contract",
+  "failure": "ES API readiness: child exited early",
+  "es_exit": -25,
+  "es_forced": false,
+  "listener_exit": 0
+}
+
+PIX_RC_86067847176f43f6adc3f9ee848a68a9:1
+
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-offline-vm-20261014/guest-command.py", line 8, in <module>
+    assert c.returncode==0 and result['guest_rc']==0,result;result['rc']=0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'rc': 1, 'started': 1791940349.3563483, 'transport_rc': 0, 'guest_rc': 1, 'ended': 1791940350.3654597}

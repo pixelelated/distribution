@@ -1,0 +1,39 @@
+2026-10-13 22:13:41	[29916]	WARNING	Unknown element of type "notification"!
+2026-10-13 22:13:41	[29917]	WARNING	Unknown element of type "notification"!
+2026-10-13 22:13:41	[29915]	ERROR	HttpReq::onError (3) : Could not connect to server
+{
+  "passed": true,
+  "files": [
+    {
+      "name": "es.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "es.stderr",
+      "bytes": 237,
+      "sha256": "b1a75568220b67208531c05574d54f8e03e023353ec99bb6d7f9e6eb6947f66d"
+    }
+  ],
+  "copied_bytes": 237,
+  "allocated_bytes": 4096,
+  "available_bytes": 8384512,
+  "free_inodes": 60
+}
+{
+  "device": 72,
+  "fsize_worker": [
+    8388608,
+    67108864
+  ],
+  "fsize_es": [
+    67108864,
+    67108864
+  ],
+  "data_bytes": 8388608,
+  "inodes": 64,
+  "mountinfo": "589 557 0:72 / /tmp/pix567-corrected-success01/es-output rw,nosuid,nodev,noexec,relatime - tmpfs pix567-es-output rw,size=8192k,nr_inodes=64,mode=700",
+  "log_source": "/tmp/pix567-corrected-success01/es-output/logs"
+}
+
+PIX_RC_26d4ca09327d4bacaf3185aa808ea787:0

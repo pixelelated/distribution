@@ -1,0 +1,37 @@
+( set -e
+mkdir /tmp/pix574-sanitize
+mount -t tmpfs -o size=512m,mode=700 tmpfs /tmp/pix574-sanitize
+set +e
+python3 -I -S -B - <<'INNER' > /tmp/pix-output/sanitizer-subset.stdout 2> /tmp/pix-output/sanitizer-subset.stderr
+from pathlib import Path
+import os,json,hashlib,importlib.util,resource
+root=Path('/tmp/pix574-sanitize');out=root/'run01';out.mkdir();src=Path('/tmp/pix-input');packet=src/'rvz/docs/qa-logs/2026-10-13-rvz-regression-source';art=src/'artifacts'
+spec=importlib.util.spec_from_file_location('bounded',packet/'bounded.py');b=importlib.util.module_from_spec(spec);spec.loader.exec_module(b)
+binding=json.loads((packet/'source-bindings.json').read_text())
+for mode in ['baseline','candidate']:b.verify_sources(src/(mode+'-source'),binding[mode]['files'])
+manifest=json.loads((src/'input-files.json').read_text())
+for p in art.rglob('*'):
+ if p.is_file():assert b.sha(p)==manifest[str(p.relative_to(src))]
+env=os.environ.copy();env.update(LD_LIBRARY_PATH=str(art/'lib'),ASAN_OPTIONS='detect_leaks=1:halt_on_error=1:abort_on_error=1',UBSAN_OPTIONS='halt_on_error=1:print_stacktrace=1')
+resource.setrlimit(resource.RLIMIT_CORE,(0,0));resource.setrlimit(resource.RLIMIT_FSIZE,(64*1024**2,64*1024**2));checks=[];result={'status':'FAIL','scope':'sanitizer subset without CHD or independent full format oracle'}
+def call(label,args,expected=None,rc=0,seconds=30):
+ receipt,text,err=b.run(out,label,args,seconds,env);assert receipt['returncode']==rc,(label,receipt);assert not err,(label,err)
+ if expected is not None:assert text==expected,(label,text,expected)
+ checks.append(label)
+try:
+ fixtures=out/'fixtures';call('make',[art/'candidate/pix574-fixture-writer',fixtures])
+ for mode in ['baseline','candidate']:
+  exe=art/mode/'pix574-regression-hash';pairs=['gamecube',fixtures/'official-gamecube.iso','saturn',fixtures/'saturn.iso','saturn',fixtures/'saturn.cue'];answer='c7803b704fa43d22d8f6e55f4789cb45\n4cd9c8e41cd8d137be15bbe6a93ae1d8\n4cd9c8e41cd8d137be15bbe6a93ae1d8\n'
+  call(mode+'-formats',[exe,'1',*pairs],answer);call(mode+'-repeat',[exe,'16',*pairs],answer*16,seconds=60)
+ part=(fixtures/'wii-helper-partition.bin').read_bytes();expected=hashlib.md5(part[0x1000:0x35e0]+part[0x4100:0x4200]+part[0x5100:0x5280]).hexdigest()+'\n'
+ for mode in ['baseline','candidate']:call(mode+'-wii-helper',[art/mode/'pix574-wii-partition-probe',fixtures/'wii-helper-partition.bin'],expected)
+ call('candidate-wii-short',[art/'candidate/pix574-wii-partition-probe',fixtures/'wii-helper-short-section.bin'],'FAIL\n',2)
+ result['status']='PASS'
+finally:
+ result['checks']=checks;(out/'result.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result),flush=True)
+INNER
+rc=$?
+printf '%s\n' "$rc" > /tmp/pix-output/sanitizer-subset.rc
+tar -czf /tmp/pix-output/sanitizer-subset.tar.gz -C /tmp/pix574-sanitize run01
+cat /tmp/pix-output/sanitizer-subset.stdout /tmp/pix-output/sanitizer-subset.stderr
+exit "$rc" ); pxrc=$?; printf "\nPIX_RC_76ace1acd9e94a2d9a5fa62eab4479d8:%s\n" "$pxrc"

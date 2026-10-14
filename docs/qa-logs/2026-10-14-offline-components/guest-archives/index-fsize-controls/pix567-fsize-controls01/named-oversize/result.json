@@ -1,0 +1,111 @@
+{
+  "original_tracee_exit": -25,
+  "all_original_exits": {
+    "17591": -25
+  },
+  "failure": null,
+  "forced_tasks": [],
+  "remaining_traced_tasks": [],
+  "wait_stops": 6,
+  "event_bytes": 1809,
+  "EFBIG": [
+    {
+      "tid": 17591,
+      "syscall": {
+        "number": 77,
+        "name": "ftruncate",
+        "fd": 4,
+        "requested_length": 8392704,
+        "descriptor_before": {
+          "fd": 4,
+          "target": "/tmp/pix567-fsize-controls01/named-oversize/synthetic-file",
+          "size": 0,
+          "inode": 11763,
+          "device": 39,
+          "mode": 32768,
+          "fdinfo": {
+            "pos": "0",
+            "flags": "02100002",
+            "mnt_id": "48",
+            "ino": "11763"
+          }
+        }
+      },
+      "return_value": -27,
+      "is_error": true,
+      "descriptor_after": {
+        "fd": 4,
+        "target": "/tmp/pix567-fsize-controls01/named-oversize/synthetic-file",
+        "size": 0,
+        "inode": 11763,
+        "device": 39,
+        "mode": 32768,
+        "fdinfo": {
+          "pos": "0",
+          "flags": "02100002",
+          "mnt_id": "48",
+          "ino": "11763"
+        }
+      },
+      "fsize": [
+        8388608,
+        8388608
+      ]
+    }
+  ],
+  "SIGXFSZ": [
+    {
+      "tid": 17591,
+      "signal": 25,
+      "siginfo_signo": 25,
+      "siginfo_errno": 0,
+      "siginfo_code": 0,
+      "last_completed_syscall": {
+        "syscall": {
+          "number": 77,
+          "name": "ftruncate",
+          "fd": 4,
+          "requested_length": 8392704,
+          "descriptor_before": {
+            "fd": 4,
+            "target": "/tmp/pix567-fsize-controls01/named-oversize/synthetic-file",
+            "size": 0,
+            "inode": 11763,
+            "device": 39,
+            "mode": 32768,
+            "fdinfo": {
+              "pos": "0",
+              "flags": "02100002",
+              "mnt_id": "48",
+              "ino": "11763"
+            }
+          }
+        },
+        "return_value": -27,
+        "is_error": true,
+        "descriptor_after": {
+          "fd": 4,
+          "target": "/tmp/pix567-fsize-controls01/named-oversize/synthetic-file",
+          "size": 0,
+          "inode": 11763,
+          "device": 39,
+          "mode": 32768,
+          "fdinfo": {
+            "pos": "0",
+            "flags": "02100002",
+            "mnt_id": "48",
+            "ino": "11763"
+          }
+        },
+        "fsize": [
+          8388608,
+          8388608
+        ]
+      },
+      "pending_syscall": null
+    }
+  ],
+  "executions": [],
+  "diagnostic_only": true,
+  "limits_changed_for_ES": false
+}

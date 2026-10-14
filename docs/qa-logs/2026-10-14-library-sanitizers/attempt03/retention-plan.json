@@ -1,0 +1,41 @@
+{
+  "volume": "/workspace",
+  "scan_roots": [
+    "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/scan"
+  ],
+  "reference_stores": [],
+  "protected": [
+    "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/records",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/host-maintenance",
+    "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20",
+    "/home/max/Development/emulationstation-next.worktrees/m7-rc-library-setup",
+    "/home/max/Development/emulationstation-next.worktrees/m7-rc-setup-570",
+    "/home/max/Development/emulationstation-next.worktrees/m7-library-copy-575"
+  ],
+  "candidates": [],
+  "builds": [
+    {
+      "name": "m7-rvz-sanitizers-and-copy-catalog",
+      "terms_bytes": {
+        "two_sanitized_libcheevos_builds": 1073741824,
+        "compiler_scratch": 536870912,
+        "binaries_catalog_records": 268435456
+      },
+      "basis": "Fresh offline4GiB2CPU15min, one compile job, exact sources/read-only toolchain, no cache copy. Attempts01/02 original failures consumed; all direct-source include/feature contracts checked before compilation; two full sanitized libcheevos builds, nine probes and corrected French catalog.",
+      "evidence": [
+        {
+          "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/records/source.json",
+          "sha256": "88d9723e78d7ac1d8cb666f065c1f4c6c0dcd364ff469dd5192f51465dd51e3b"
+        },
+        {
+          "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/build.py",
+          "sha256": "6c1471460f6183a8b325f1d2b7d54dd9915f2ddc3c364090fb205b2cb3e8c00c"
+        },
+        {
+          "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/inner.py",
+          "sha256": "1e9d230bed38183a1e29a7ca828c720c01ec7ce1c693a32da55c473c1ec7f052"
+        }
+      ]
+    }
+  ]
+}

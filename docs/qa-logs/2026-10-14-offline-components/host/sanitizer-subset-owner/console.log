@@ -1,0 +1,14 @@
+watch-build: recording in /workspace/tmp/pix-m7-offline-vm-20261014/control/.build-runs/20261014T014028Z-3d01be9f
+{"status": "FAIL", "scope": "sanitizer subset without CHD or independent full format oracle", "checks": ["make"]}
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+  File "<stdin>", line 13, in call
+AssertionError: ('baseline-formats', {'argv': ['/tmp/pix-input/artifacts/baseline/pix574-regression-hash', '1', 'gamecube', '/tmp/pix574-sanitize/run01/fixtures/official-gamecube.iso', 'saturn', '/tmp/pix574-sanitize/run01/fixtures/saturn.iso', 'saturn', '/tmp/pix574-sanitize/run01/fixtures/saturn.cue'], 'pid': 18354, 'process_group': 18354, 'returncode': 1, 'timed_out': False, 'elapsed': 0.01580100399996809, 'executable_sha256': '6a8bb66e83f30be3f9900499b7955d30045e5786a16f289d3074973b1c4663fb'})
+
+PIX_RC_76ace1acd9e94a2d9a5fa62eab4479d8:1
+
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-offline-vm-20261014/guest-command.py", line 8, in <module>
+    assert c.returncode==0 and result['guest_rc']==0,result;result['rc']=0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'rc': 1, 'started': 1791942028.5048928, 'transport_rc': 0, 'guest_rc': 1, 'ended': 1791942029.744185}

@@ -1,0 +1,8 @@
+( set -e
+SYSTEMD_PAGER=cat systemctl stop essway.service
+test ! -s /storage/qa575/launch-events
+umount /usr/bin/emulationstation
+umount /usr/bin/runemu.sh
+umount /usr/config/emulationstation/es_systems.cfg
+sync
+ ); pxrc=$?; printf "\nPIX_RC_cc05999e9bfe463581cff69f12fcd896:%s\n" "$pxrc"

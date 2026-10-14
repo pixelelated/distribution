@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-14T00:40:54.587079+00:00",
+  "stages": [
+    {
+      "owner": "report-owner",
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T003837Z-a46098cf",
+      "original_rc": 0,
+      "exited_pids": [
+        2981115,
+        2981116,
+        2981169,
+        2981126,
+        2981126
+      ],
+      "runner": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-14T00:38:42.659247+00:00"
+      }
+    },
+    {
+      "owner": "compile-owner",
+      "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261014T003929Z-075def04",
+      "original_rc": 1,
+      "exited_pids": [
+        2985074,
+        2985075,
+        2985129,
+        2985076,
+        2985076
+      ],
+      "runner": {
+        "command_rc": 1,
+        "monitor_rc": 0,
+        "runner_rc": 1,
+        "utc": "2026-10-14T00:39:44.238282+00:00"
+      }
+    }
+  ],
+  "container_removed": true,
+  "container_id": "63488249e32c4e23b8e3a94c45c45dd371632ea6dd60642abf25540622d4f6b6",
+  "diagnosis": "Fixture wii-partition-probe direct includes lack libretro-common lrc_hash.h include path; configure0, compile1. Baseline/catalog not reached. No target runtime.",
+  "product_source_changed": false
+}

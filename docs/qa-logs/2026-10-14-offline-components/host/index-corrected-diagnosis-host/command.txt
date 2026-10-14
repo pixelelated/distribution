@@ -1,0 +1,4 @@
+( set -e
+cat /tmp/pix567-corrected-success01/es.stdout /tmp/pix567-corrected-success01/es.stderr /tmp/pix567-corrected-success01/output-guard.json /tmp/pix567-corrected-success01/output-guard-binding.json
+find /tmp/pix567-corrected-success01/logs -maxdepth 1 -type f -print
+ ); pxrc=$?; printf "\nPIX_RC_26d4ca09327d4bacaf3185aa808ea787:%s\n" "$pxrc"

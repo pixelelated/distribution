@@ -1,0 +1,293 @@
+{
+  "case": "fresh-client-real-root",
+  "physical_root": "/storage/.local/share/Steam",
+  "expected_calls": [
+    "ensure_fex_rootfs",
+    "link_steam_library",
+    "ensure_steam_desktop_stub",
+    "install_steam_runtime_arm64",
+    "install_steam_client_arm64",
+    "install_bundled_proton_files",
+    "install_proton_cachyos",
+    "install_proton_ge",
+    "run_steam_first_launch"
+  ],
+  "observed_calls": [
+    "ensure_fex_rootfs",
+    "link_steam_library",
+    "ensure_steam_desktop_stub",
+    "install_steam_runtime_arm64",
+    "install_steam_client_arm64",
+    "install_bundled_proton_files",
+    "install_proton_cachyos",
+    "install_proton_ge",
+    "run_steam_first_launch"
+  ],
+  "boundary_events": [
+    {
+      "argv": [
+        "set",
+        "-9 steam FEX"
+      ],
+      "command": "set_kill",
+      "kind": "boundary-exit",
+      "monotonic_ns": 545743490036,
+      "original_exit": 0,
+      "pid": 18
+    },
+    {
+      "argv": [
+        "--distro-name=arch",
+        "--distro-version=rolling",
+        "-y",
+        "-x",
+        "--force-ui=tty"
+      ],
+      "command": "FEXRootFSFetcher",
+      "kind": "boundary-exit",
+      "monotonic_ns": 545804491059,
+      "original_exit": 0,
+      "pid": 21
+    },
+    {
+      "argv": [
+        "-fsSL",
+        "--connect-timeout",
+        "10",
+        "--max-time",
+        "30",
+        "--max-filesize",
+        "128",
+        "https://repo.steampowered.com/steamrt3c/images/latest-public-stable.txt"
+      ],
+      "command": "curl",
+      "kind": "boundary-exit",
+      "monotonic_ns": 545890848822,
+      "original_exit": 0,
+      "pid": 26
+    },
+    {
+      "kind": "archive-copy",
+      "monotonic_ns": 545919498373,
+      "name": "runtime.tar.xz",
+      "pid": 27,
+      "sha256": "1f576aa2114a58b60ff76c3445e9bf3f6d1ceb74a65ab13223dd132667d385ea"
+    },
+    {
+      "argv": [
+        "-t",
+        "3",
+        "-T",
+        "30",
+        "-O",
+        "/storage/.local/share/Steam/.steam-runtime-update/runtime.tar.xz",
+        "https://repo.steampowered.com/steamrt3c/images/qa-20261013/steam-runtime-steamrt-arm64.tar.xz"
+      ],
+      "command": "wget",
+      "kind": "boundary-exit",
+      "monotonic_ns": 545919517069,
+      "original_exit": 0,
+      "pid": 27
+    },
+    {
+      "argv": [
+        "-fsSL",
+        "https://client-update.fastly.steamstatic.com/steam_client_publicbeta_linuxarm64"
+      ],
+      "command": "curl",
+      "kind": "boundary-exit",
+      "monotonic_ns": 545970201441,
+      "original_exit": 0,
+      "pid": 29
+    },
+    {
+      "kind": "archive-copy",
+      "monotonic_ns": 546006880449,
+      "name": "client.zip",
+      "pid": 34,
+      "sha256": "9c27cd51909b74892441f209653f5ae5d309d60a40e0a855e99a9501c1579deb"
+    },
+    {
+      "argv": [
+        "-c",
+        "-t",
+        "5",
+        "-O",
+        "/storage/.local/share/Steam/linuxarm64.zip",
+        "https://client-update.steamstatic.com/bins_linuxarm64_linuxarm64.zip.qa-20261014"
+      ],
+      "command": "wget",
+      "kind": "boundary-exit",
+      "monotonic_ns": 546006909966,
+      "original_exit": 0,
+      "pid": 34
+    },
+    {
+      "archive_sha256": "9c27cd51909b74892441f209653f5ae5d309d60a40e0a855e99a9501c1579deb",
+      "argv": [
+        "/usr/bin/unzip",
+        "-o",
+        "/storage/.local/share/Steam/linuxarm64.zip",
+        "-d",
+        "/storage/.local/share/Steam"
+      ],
+      "executable": "/system/usr/bin/busybox",
+      "executable_sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346",
+      "kind": "native-extraction",
+      "monotonic_ns": 546036730841,
+      "original_exit": 0,
+      "pid": 35,
+      "timeout": false,
+      "tool": "unzip"
+    },
+    {
+      "argv": [
+        "-o",
+        "/storage/.local/share/Steam/linuxarm64.zip",
+        "-d",
+        "/storage/.local/share/Steam"
+      ],
+      "command": "unzip",
+      "kind": "boundary-exit",
+      "monotonic_ns": 546036769610,
+      "original_exit": 0,
+      "pid": 35
+    },
+    {
+      "argv": [
+        "-fsSL",
+        "https://api.github.com/repos/CachyOS/proton-cachyos/releases/latest"
+      ],
+      "command": "curl",
+      "kind": "boundary-exit",
+      "monotonic_ns": 546074448303,
+      "original_exit": 0,
+      "pid": 45
+    },
+    {
+      "kind": "archive-copy",
+      "monotonic_ns": 546132021756,
+      "name": "cachy.tar.xz",
+      "pid": 61,
+      "sha256": "443affc6631ef5e45853c2a5433294035bdcead928a8e455c247f61d9e59a1a9"
+    },
+    {
+      "argv": [
+        "-t",
+        "3",
+        "-T",
+        "30",
+        "-O",
+        "/storage/.local/share/Steam/.proton-variant-stage/archive",
+        "https://synthetic.invalid/proton-cachyos-qa-arm64.tar.xz"
+      ],
+      "command": "wget",
+      "kind": "boundary-exit",
+      "monotonic_ns": 546132041155,
+      "original_exit": 0,
+      "pid": 61
+    },
+    {
+      "argv": [
+        "-fsSL",
+        "https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest"
+      ],
+      "command": "curl",
+      "kind": "boundary-exit",
+      "monotonic_ns": 546170978685,
+      "original_exit": 0,
+      "pid": 62
+    },
+    {
+      "kind": "archive-copy",
+      "monotonic_ns": 546222664559,
+      "name": "ge.tar.gz",
+      "pid": 78,
+      "sha256": "4f20e726f4de7d05291b10ba2ae7ae823a7633f6158ae73bbd1631e504510f6e"
+    },
+    {
+      "argv": [
+        "-t",
+        "3",
+        "-T",
+        "30",
+        "-O",
+        "/storage/.local/share/Steam/.proton-variant-stage/archive",
+        "https://synthetic.invalid/GE-Protonqa-aarch64.tar.gz"
+      ],
+      "command": "wget",
+      "kind": "boundary-exit",
+      "monotonic_ns": 546222685776,
+      "original_exit": 0,
+      "pid": 78
+    },
+    {
+      "argv": [
+        "-deckard",
+        "-exitsteam"
+      ],
+      "command": "steam",
+      "kind": "boundary-exit",
+      "monotonic_ns": 546261112366,
+      "original_exit": 0,
+      "pid": 79
+    },
+    {
+      "argv": [
+        "restart",
+        "systemd-binfmt"
+      ],
+      "command": "systemctl",
+      "kind": "boundary-exit",
+      "monotonic_ns": 546287231126,
+      "original_exit": 0,
+      "pid": 80
+    }
+  ],
+  "preservation_checks": {
+    ".local/share/Steam": true,
+    ".local/share/Steam/steamapps": true,
+    ".local/share/Steam/userdata": true,
+    ".local/share/Steam/depotcache": true,
+    ".local/share/Steam/compatibilitytools.d/proton-cachyos-old-arm64": true,
+    ".local/share/Steam/compatibilitytools.d/GE-Protonold-aarch64": true,
+    "games-internal": true,
+    "games-external": true,
+    "games-internal/roms/other-library": true,
+    "games-internal/roms/steam/unrelated": true,
+    ".steam/fixture-existing": true,
+    ".local/share/fex-emu/RootFS/OtherRoot": true,
+    ".local/share/fex-emu/RootFS/ArchLinux.sqsh": true,
+    ".config/fex-emu/AppConfig/extra.json": true
+  },
+  "fex_generation": "new-fex",
+  "full_success_message": true,
+  "binfmt_controls": {
+    "box64": "0\n",
+    "box32": "0\n",
+    "x86": "0\n"
+  },
+  "fresh_client": {
+    "archive_sha256": "9c27cd51909b74892441f209653f5ae5d309d60a40e0a855e99a9501c1579deb",
+    "decoder": {
+      "archive_sha256": "9c27cd51909b74892441f209653f5ae5d309d60a40e0a855e99a9501c1579deb",
+      "argv": [
+        "/usr/bin/unzip",
+        "-o",
+        "/storage/.local/share/Steam/linuxarm64.zip",
+        "-d",
+        "/storage/.local/share/Steam"
+      ],
+      "executable": "/system/usr/bin/busybox",
+      "executable_sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346",
+      "kind": "native-extraction",
+      "monotonic_ns": 546036730841,
+      "original_exit": 0,
+      "pid": 35,
+      "timeout": false,
+      "tool": "unzip"
+    },
+    "client_manifest_preserved_after_proton": true,
+    "support_links_and_beta": true
+  }
+}

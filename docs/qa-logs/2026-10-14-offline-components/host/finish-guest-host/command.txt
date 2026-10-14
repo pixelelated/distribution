@@ -1,0 +1,19 @@
+( set -e
+SYSTEMD_PAGER=cat systemctl stop essway.service
+test ! -s /storage/qa575/launch-events
+cmp /storage/.config/system/configs/system.cfg /tmp/pix-output/copy1280-settings-before.cfg
+python3 -I -S -B - <<'INNER'
+from pathlib import Path
+import hashlib,json
+r=Path('/tmp/pix-output');rows=[]
+for p in sorted(r.rglob('*')):
+ if p.is_file():rows.append({'path':str(p.relative_to(r)),'size':p.stat().st_size,'sha256':hashlib.file_digest(p.open('rb'),'sha256').hexdigest()})
+(r/'guest-export-manifest.json').write_text(json.dumps(rows,indent=2)+'\n')
+print(json.dumps({'files':len(rows),'bytes':sum(x['size'] for x in rows)}))
+INNER
+umount /usr/bin/emulationstation
+umount /usr/bin/runemu.sh
+umount /usr/config/emulationstation/es_systems.cfg
+umount /usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo
+sync
+ ); pxrc=$?; printf "\nPIX_RC_574c6ec4a66e400fad4b5fbd35c89881:%s\n" "$pxrc"

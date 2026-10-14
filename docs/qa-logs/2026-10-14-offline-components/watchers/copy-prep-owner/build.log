@@ -1,0 +1,9 @@
+synthetic two-system library prepared; engine launches blocked
+
+PIX_RC_2af292f139ce42769b871e9ccd8ad3d0:1
+
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-offline-vm-20261014/guest-command.py", line 8, in <module>
+    assert c.returncode==0 and result['guest_rc']==0,result;result['rc']=0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'rc': 1, 'started': 1791943230.0657754, 'transport_rc': 0, 'guest_rc': 1, 'ended': 1791943230.530408}

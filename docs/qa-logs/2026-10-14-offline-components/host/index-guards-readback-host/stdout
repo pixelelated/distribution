@@ -1,0 +1,81 @@
+{
+  "controls": [
+    {
+      "case": "thread-memfd-64m",
+      "passed": true,
+      "original_worker_exit": 0,
+      "forced_group_cleanup": false,
+      "retired_namespace_tasks": [],
+      "timeout": false
+    },
+    {
+      "case": "thread-memfd-over",
+      "passed": true,
+      "original_worker_exit": 0,
+      "forced_group_cleanup": false,
+      "retired_namespace_tasks": [],
+      "timeout": false
+    },
+    {
+      "case": "named-over-64m",
+      "passed": true,
+      "original_worker_exit": 0,
+      "forced_group_cleanup": false,
+      "retired_namespace_tasks": [],
+      "timeout": false
+    },
+    {
+      "case": "helper-over-8m",
+      "passed": true,
+      "original_worker_exit": 0,
+      "forced_group_cleanup": false,
+      "retired_namespace_tasks": [],
+      "timeout": false
+    },
+    {
+      "case": "combined-output-quota",
+      "passed": true,
+      "original_worker_exit": 0,
+      "forced_group_cleanup": false,
+      "retired_namespace_tasks": [],
+      "timeout": false
+    },
+    {
+      "case": "sparse-output-over-8m",
+      "passed": true,
+      "original_worker_exit": 0,
+      "forced_group_cleanup": false,
+      "retired_namespace_tasks": [],
+      "timeout": false
+    },
+    {
+      "case": "output-symlink",
+      "passed": true,
+      "original_worker_exit": 0,
+      "forced_group_cleanup": false,
+      "retired_namespace_tasks": [],
+      "timeout": false
+    },
+    {
+      "case": "missing-output-mount",
+      "passed": true,
+      "original_worker_exit": 0,
+      "forced_group_cleanup": false,
+      "retired_namespace_tasks": [],
+      "timeout": false
+    },
+    {
+      "case": "retained-terminal-output",
+      "passed": true,
+      "original_worker_exit": 0,
+      "forced_group_cleanup": false,
+      "retired_namespace_tasks": [],
+      "timeout": false
+    }
+  ],
+  "parent_mounts_unchanged": true,
+  "passed": true
+}
+nine guard controls verified
+
+PIX_RC_ee9b7f048556483cba7bbbd5d0222e98:0

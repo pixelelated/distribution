@@ -1,0 +1,11 @@
+( set -e
+export TMPDIR=/tmp/pix-steam-small
+set +e
+python3 -I -S -B /tmp/pix-extra/steam/docs/qa-logs/2026-10-14-steam-client-crc-source/fixture.py --disposable-vm --case valid-existing-client --output /tmp/pix-steam-small/existing01 > /tmp/pix-output/steam-existing01.stdout 2> /tmp/pix-output/steam-existing01.stderr
+rc=$?
+printf '%s\n' "$rc" > /tmp/pix-output/steam-existing01.rc
+if [ -f /tmp/pix-steam-small/existing01/result.json ]; then cp /tmp/pix-steam-small/existing01/result.json /tmp/pix-output/steam-existing01-result.json; cat /tmp/pix-output/steam-existing01-result.json; fi
+if [ -f /tmp/pix-steam-small/existing01/qa/client-observation.json ]; then cat /tmp/pix-steam-small/existing01/qa/client-observation.json; fi
+tar -czf /tmp/pix-output/steam-existing01.tar.gz -C /tmp/pix-steam-small existing01
+cat /tmp/pix-output/steam-existing01.stderr
+exit "$rc" ); pxrc=$?; printf "\nPIX_RC_8bd00046a83d45a8ba4207dd67e34f61:%s\n" "$pxrc"

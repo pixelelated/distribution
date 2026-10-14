@@ -1,0 +1,38 @@
+{
+  "name": "parent-exit-after-arm",
+  "status": "PASS",
+  "attempts": 1,
+  "namespace_owner_original_exit": -9,
+  "argv": [
+    "/usr/bin/python3",
+    "-I",
+    "-S",
+    "-B",
+    "/tmp/pix-extra/steam/docs/qa-logs/2026-10-14-steam-client-crc-source/fixture.py",
+    "--namespace-launcher",
+    "/tmp/pix-steam-small/existing01",
+    "--namespace-control",
+    "parent-exit-after-arm"
+  ],
+  "live_before_rescue": [],
+  "supervision": {
+    "suite_exit": -9,
+    "intervention": false,
+    "descendants_at_exit": [
+      {
+        "pid": 17470,
+        "state": "Z",
+        "ppid": 17468,
+        "start_ticks": 190734
+      }
+    ],
+    "adopted_exits": [
+      {
+        "pid": 17470,
+        "exit": -9
+      }
+    ],
+    "quiescent": true
+  },
+  "remaining_descendants": []
+}

@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/workspace/repos/rocknix.worktrees/m7-dolphin-preservation-581/tools/vm-serial",
+    "--socket",
+    "/workspace/tmp/pix-m7-offline-vm-20261014/vm/serial.sock",
+    "--timeout",
+    "15",
+    "sh",
+    "/usr/bin/python3 -I -S -B /tmp/pix-input/dolphin/batch/guest-batch.py advance --token 07-complete --review 'Consumed GameCube case originals: session, unshare, ES and frontend restore0; expected controlled runemu250; no remaining namespace tasks. Three frames reviewed.'; pix581_rc=$?; printf '\\nPIX581_EXIT_c7830d1171b24963aa978f9e3559b3a2=%s\\n' \"$pix581_rc\""
+  ],
+  "original_exit": 0,
+  "timed_out": false
+}

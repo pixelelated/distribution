@@ -1,0 +1,13 @@
+( set -e
+mkdir /tmp/pix-steam-small
+mount -t tmpfs -o size=256m,mode=700 tmpfs /tmp/pix-steam-small
+export TMPDIR=/tmp/pix-steam-small
+set +e
+python3 -I -S -B /tmp/pix-input/steam/docs/qa-logs/2026-10-14-steam-client-retry-source/fixture.py --disposable-vm --case partial-extraction-retry --output /tmp/pix-steam-small/partial01 > /tmp/pix-output/steam-partial.stdout 2> /tmp/pix-output/steam-partial.stderr
+rc=$?
+printf '%s\n' "$rc" > /tmp/pix-output/steam-partial.rc
+if [ -f /tmp/pix-steam-small/partial01/result.json ]; then cp /tmp/pix-steam-small/partial01/result.json /tmp/pix-output/steam-partial-result.json; cat /tmp/pix-output/steam-partial-result.json; fi
+if [ -f /tmp/pix-steam-small/partial01/qa/client-observation.json ]; then cat /tmp/pix-steam-small/partial01/qa/client-observation.json; fi
+tar -czf /tmp/pix-output/steam-partial.tar.gz -C /tmp/pix-steam-small partial01
+cat /tmp/pix-output/steam-partial.stderr
+exit "$rc" ); pxrc=$?; printf "\nPIX_RC_cb0ca03fc30a447d8d122e85f8e0007c:%s\n" "$pxrc"

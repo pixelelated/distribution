@@ -1,0 +1,30 @@
+{
+  "worker_exit": 1,
+  "timeout": false,
+  "interrupted_signal": null,
+  "stragglers_killed": [],
+  "namespace_processes_remaining": [],
+  "terminal_output_capture": null,
+  "parent_unchanged": true,
+  "runtime_test_was_run": true,
+  "passed": false
+}
+{
+  "case": "success",
+  "trigger": "api",
+  "passed": false,
+  "scope": "ES lookup + simulated ctl contract",
+  "failure": "missing ES log",
+  "es_exit": 0,
+  "es_forced": false,
+  "listener_exit": 0,
+  "output_guard_passed": true
+}
+
+PIX_RC_d37d907ecf4e490d994419a94a5b2bb6:1
+
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-offline-vm-20261014/guest-command02.py", line 8, in <module>
+    assert c.returncode==0 and result['guest_rc']==0,result;result['rc']=0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'rc': 1, 'started': 1791944022.3555675, 'transport_rc': 0, 'guest_rc': 1, 'ended': 1791944023.6327116}

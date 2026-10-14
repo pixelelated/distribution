@@ -1,0 +1,6 @@
+( set -e
+test ! -s /storage/qa575/launch-events
+cmp /storage/.config/system/configs/system.cfg /tmp/pix-output/copy1280-settings-before.cfg
+printf 'COPY1280 settings byte-identical; no launch event\n'
+find /tmp/pix-output -maxdepth 2 -type f -name '*.tar*' -print
+ ); pxrc=$?; printf "\nPIX_RC_c9f6300d8ef44722be1966728cb2ec7f:%s\n" "$pxrc"

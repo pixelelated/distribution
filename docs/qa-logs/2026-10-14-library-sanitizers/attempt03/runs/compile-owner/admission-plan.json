@@ -1,0 +1,33 @@
+{
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+  "outputs": [
+    {
+      "issue": 574,
+      "kind": "build-cache",
+      "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/builds",
+      "release_when": "Consume original compile results and preserve compact evidence; retire objects/tmp. Keep target binaries/catalog only for immediate next VM checks, then retire."
+    },
+    {
+      "issue": 574,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/tmp",
+      "release_when": "Consume original compile results and preserve compact evidence; retire objects/tmp. Keep target binaries/catalog only for immediate next VM checks, then retire."
+    },
+    {
+      "issue": 575,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/artifacts",
+      "release_when": "Consume original compile results and preserve compact evidence; retire objects/tmp. Keep target binaries/catalog only for immediate next VM checks, then retire."
+    }
+  ],
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "retention_plan": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/retention-plan.json",
+  "retention_report": "/workspace/tmp/pix-m7-rvz-sanitizer-build-20261014-03/retention-report.json",
+  "stage": "m7-rvz-sanitizers-and-copy-catalog"
+}

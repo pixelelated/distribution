@@ -1,0 +1,9 @@
+set -e
+set +e
+python3 -I -S -B /tmp/pix567-fsize-fixture01/controls.py --disposable-guest --output /tmp/pix567-fsize-controls01 > /tmp/pix-output/index-fsize-controls.stdout 2> /tmp/pix-output/index-fsize-controls.stderr
+rc=$?
+printf '%s\n' "$rc" > /tmp/pix-output/index-fsize-controls.rc
+cat /tmp/pix567-fsize-controls01/controls-result.json
+cat /tmp/pix-output/index-fsize-controls.stderr
+tar -czf /tmp/pix-output/index-fsize-controls.tar.gz -C /tmp pix567-fsize-controls01
+exit "$rc"

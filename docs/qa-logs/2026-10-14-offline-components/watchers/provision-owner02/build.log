@@ -1,0 +1,13 @@
+{"rc": 1, "started": 1791940064.4324515, "inputs_verified": 818, "boot": "6aeb063e-a6ef-4b5e-8c0c-c72d6a2629b7", "autostart": "Result=success\nExecMainStartTimestampMonotonic=5693299\nExecMainStatus=0\nActiveState=active\n", "prior_es": "db136580f0a46442bb3fe7ac9e31606b38b816c78efc8f9b4e267284daca6502", "ended": 1791940110.0491478}
+Traceback (most recent call last):
+  File [35m"/tmp/pix-provision.py"[0m, line [35m20[0m, in [35m<module>[0m
+    else:[1;31mraise RuntimeError('ES not idle')[0m
+         [1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mRuntimeError[0m: [35mES not idle[0m
+PIX_GUEST_RC:1
+
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-offline-vm-20261014/run-provision.py", line 4, in <module>
+    p=subprocess.run([str(repo/'tools/vm-serial'),'--socket',str(r/'vm/serial.sock'),'--timeout','100','sh',cmd],capture_output=True,text=True,timeout=110);(r/'provision.stdout').write_text(p.stdout);(r/'provision.stderr').write_text(p.stderr);result={'transport_rc':p.returncode,'original_guest_zero':'PIX_GUEST_RC:0' in p.stdout};(r/'provision-host-result.json').write_text(json.dumps(result,indent=2)+'\n');print(p.stdout);assert p.returncode==0 and result['original_guest_zero'],result
+                                                                                                                                                                                                                                                                                                                                                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'transport_rc': 0, 'original_guest_zero': False}

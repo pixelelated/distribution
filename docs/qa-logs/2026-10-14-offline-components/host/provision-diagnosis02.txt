@@ -1,0 +1,20 @@
+Oct 13 21:09:15 GENERIC-X64 systemctl[7127]: [0;1;39m[0;1;31m[0;1;39mEnvironment variable $HDMI_STATE not set, ignoring.[0m
+Oct 13 21:09:15 GENERIC-X64 systemctl[7130]: [0;1;39m[0;1;31m[0;1;39mEnvironment variable $PAN_MESA_DEBUG not set, ignoring.[0m
+Oct 13 21:09:15 GENERIC-X64 systemctl[7134]: [0;1;39m[0;1;31m[0;1;39mEnvironment variable $MALI_WAYLAND_AFBC not set, ignoring.[0m
+Oct 13 21:09:15 GENERIC-X64 systemctl[7135]: [0;1;39m[0;1;31m[0;1;39mEnvironment variable $MALI_DEFAULT_DISPLAY not set, ignoring.[0m
+Oct 13 21:09:15 GENERIC-X64 systemctl[7136]: [0;1;39m[0;1;31m[0;1;39mEnvironment variable $PAN_I_WANT_A_BROKEN_VULKAN_DRIVER not set, ignoring.[0m
+Oct 13 21:09:15 GENERIC-X64 systemctl[7137]: [0;1;39m[0;1;31m[0;1;39mEnvironment variable $DISABLE_WSI_LAYER not set, ignoring.[0m
+Oct 13 21:09:15 GENERIC-X64 systemctl[7138]: [0;1;39m[0;1;31m[0;1;39mEnvironment variable $ALSA_PRIMARY_CARD not set, ignoring.[0m
+Oct 13 21:09:15 GENERIC-X64 systemctl[7139]: [0;1;39m[0;1;31m[0;1;39mEnvironment variable $SDL_VIDEO_DISPLAY_PRIORITY not set, ignoring.[0m
+Oct 13 21:09:15 GENERIC-X64 systemctl[7140]: [0;1;39m[0;1;31m[0;1;39mEnvironment variable $TU_DEBUG not set, ignoring.[0m
+Oct 13 21:09:15 GENERIC-X64 systemctl[7141]: [0;1;39m[0;1;31m[0;1;39mEnvironment variable $MESA_LOADER_DRIVER_OVERRIDE not set, ignoring.[0m
+Oct 13 21:09:15 GENERIC-X64 start_es.sh[7143]: /usr/bin/start_es.sh: line 8: /usr/bin/emulationstation: Permission denied
+Oct 13 21:09:15 GENERIC-X64 systemd[1]: [0;1;39m[0;1;31m[0;1;39messway.service: Main process exited, code=exited, status=126/n/a[0m
+Oct 13 21:09:15 GENERIC-X64 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185messway.service: Failed with result 'exit-code'.[0m
+Oct 13 21:09:16 GENERIC-X64 systemd[1]: Stopped essway.service.
+644 /tmp/pix-input/emulationstation
+644 /usr/bin/emulationstation
+/dev/disk/by-label/PIXINPUT /tmp/pix-input ext4 ro,relatime 0 0
+/dev/disk/by-label/PIXOUTPUT /tmp/pix-output ext4 rw,relatime 0 0
+/dev/disk/by-label/PIXINPUT /usr/bin/emulationstation ext4 ro,relatime 0 0
+PIX_DIAG_DONE
