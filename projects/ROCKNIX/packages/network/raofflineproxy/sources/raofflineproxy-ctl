@@ -1531,6 +1531,7 @@ def by_history(paths):
 
 
 indexed_dirs = set()
+failed_rvz_paths = set()
 indexed_seen = 0
 indexed_jobs = {}
 for name, folder in es_systems():
@@ -1544,6 +1545,12 @@ for name, folder in es_systems():
     except OSError:
         indexed_dirs.add(folder)
     for path, (hash_value, id_text) in index.items():
+        # ES uses this sentinel for a failed read, not an unmatched hash.
+        # A deliberate scan may try the proxy's independent RVZ reader.
+        # Keep valid unmatched hashes and automatic top-ups index-only.
+        if path.suffix.lower() == ".rvz" and hash_value == "0" * 32:
+            failed_rvz_paths.add(path)
+            continue
         try:
             game_id = int(id_text)
         except ValueError:
@@ -1613,10 +1620,13 @@ if mode == "all":
         if not root.is_dir():
             continue
         try:
-            if root.resolve() in indexed_dirs:
-                continue
+            indexed_root = root.resolve() in indexed_dirs
         except OSError:
-            pass
+            indexed_root = root in indexed_dirs
+        # Only revisit a root that can actually contain one of the failed
+        # paths; use the same path form as the membership check in the walk.
+        if indexed_root and not any(path.is_relative_to(root) for path in failed_rvz_paths):
+            continue
         for dirpath, dirnames, filenames in os.walk(root):
             dirnames[:] = sorted(d for d in dirnames if not d.startswith(".") and d.lower() not in SKIP_DIRS)
             has_sheet = any(f.lower().endswith(DISC_SHEETS) for f in filenames)
@@ -1624,6 +1634,8 @@ if mode == "all":
                 if fn.startswith("."):
                     continue
                 path = Path(dirpath) / fn
+                if indexed_root and path not in failed_rvz_paths:
+                    continue
                 at_cursor = not passed and str(path) == cursor
                 # Before the cursor only the first cap's worth is ever
                 # taken (the circle's tail), so past that the walk only
