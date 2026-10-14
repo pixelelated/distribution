@@ -696,6 +696,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-WORKFLOW-164 | 2026-10-14 | **Consider upstream contributions for every confirmed fix or reusable improvement.** Extend D-WORKFLOW-162 beyond finding existing fixes: identify the component/ROCKNIX target, compare current upstream, and record a minimal independent patch with public regression evidence or an explicit duplicate/already-fixed/fork-specific disposition. Preserve licenses and separate dependency fixes from distro integration. Preparation does not imply submission or new publication authority. | #583; #574; `.claude/rules/engineering-practices.md`; `.claude/rules/fork-workflow.md` |
 
+| D-WORKFLOW-165 | 2026-10-14 | **Keep a running upstream-contribution queue and submit after the initial build is complete.** The maintainer requests a durable list of planned upstream fixes, with outward submissions held until the initial build from the current M7 fix set and relevant qualification are complete. Preserve minimal patches/evidence during local repairs, but defer submission-only work and upstream-only reproductions instead of making them build prerequisites. Local defect repair and release checks remain required; build completion alone does not authorize posting. #585 is the live cross-project queue, retaining #168's detailed proxy map and explicit conditional/fork-only dispositions. | #585; #168; D-WORKFLOW-164; `docs/upstream/README.md`; `.claude/rules/engineering-practices.md` |
+
 ## Open decisions
 
 

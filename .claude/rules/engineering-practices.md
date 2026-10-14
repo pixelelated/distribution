@@ -62,6 +62,20 @@ and attribution, prepare a public synthetic reproducer and relevant regression
 evidence, and exclude personal data and unrelated fork behavior. A dependency
 fix belongs with its source owner; a distro integration fix may belong with
 ROCKNIX. Track related propagation separately instead of conflating the layers.
+
+Maintain the live contribution queue in
+[#585](https://github.com/pixelelated/distribution/issues/585), reached from
+`docs/upstream/README.md`; link each fix's owner, intended upstream, evidence,
+remaining proof and eventual disposition. Preserve existing detailed maps such
+as #168 rather than losing earlier candidates when a new one is found.
+
+D-WORKFLOW-165: the maintainer has deferred outward submissions until the initial
+build from the current M7 fix set is complete and the relevant fixes are qualified.
+Preserve useful minimal patches while fixing the product. Submission-only work
+and upstream-only reproductions do not hold up that build; local correctness and
+release qualification still do. Build completion does not itself grant posting
+authority. Recheck current upstream and duplicates when the contribution is ready.
+
 Use the content-only PR workflow in `fork-workflow.md`. Source preparation and
 upstream consideration do not imply a submission has happened or grant new
 publication authority; record the eventual PR/report or explicit disposition.

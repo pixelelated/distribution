@@ -1,6 +1,6 @@
 # Saved Session State
 
-Updated 2026-10-14 03:38 UTC. Continue M7 toward the next 0.0.1 candidate.
+Updated 2026-10-14 04:45 UTC. Continue M7 toward the next 0.0.1 candidate.
 
 Coordinator Herdr `w4:p2` owns `/workspace/repos/rocknix.worktrees/m7-player-setup`,
 branch `feature/m7-player-setup`. Published `next` remains
@@ -95,8 +95,9 @@ integration and shared records. No source-only handoff grants runtime authority.
 ## Next work in order
 
 1. Review and freshly admit independent DolphinTool/CHD plan1c0e93, then native
-   proxy/hash/cache protocol proof with the corrected reader. Separately verify
-   the current-upstream MD5 reproducer before any submission is proposed.
+   proxy/hash/cache protocol proof with the corrected reader. Upstream-only MD5
+   reproduction is deferred until after the initial current build (D-WORKFLOW-165);
+   local sanitizer/format qualification remains required.
 2. Finish #581 English640/native proof and #567 actual proxy/UI. Resolve #582's
    existing-client/profile contract while preserving compatibility, then implement
    and qualify the installer repair. Specifications are not executable fixtures.
@@ -109,3 +110,20 @@ D-WORKFLOW-164 explicitly requires upstream contribution consideration, extendin
 D-WORKFLOW-162 and earlier proxy decisions D-RA-016/D-WORKFLOW-138. No issue was
 closed or known failure waived. Full earlier details and links remain in the
 [previous checkpoint](archived/saved-session-state-next-20261014T030000Z.md).
+
+
+## October14 owner direction — running contribution list and open testing work
+
+#585 is the live upstream contribution queue, linked from docs/upstream/README.md.
+D-WORKFLOW-165 holds submissions until the initial current M7 build and relevant
+qualification are complete. Preserve candidates now; do not spend the build's
+critical path on submission-only preparation. Existing #168 proxy drafts remain
+in the queue and require current-base rechecks later. No upstream post authorized.
+
+docs/releases/next-candidate-work.md now distinguishes unfinished implementation,
+passing components awaiting combined-image proof, physical observations and
+explicit backlog. Browser/phone/Wi-Fi/Recent fixes are not untouched; Steam client
+bootstrap repair, native RVZ/proxy proof, final payload/clean/upgrade and developer
+identity remain. #558 shutdown cause is unknown; #561 LED preference is monitored.
+#568 final-game progress, #562 ROM integrity and #560 fast shutdown remain backlog.
+This review starts no runtime and changes no production source or device state.

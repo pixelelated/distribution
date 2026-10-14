@@ -1,5 +1,22 @@
 # RAOfflineProxy contribution reconciliation
 
+## Current queue placement — October 14
+
+[#585](https://github.com/pixelelated/distribution/issues/585) is the cross-project
+running list; #168 remains this patch series' owner. D-WORKFLOW-165 holds outward
+submissions until the initial current M7 build is complete. The October2/6 mapping
+below is a dated source snapshot, not a fresh current-main check or submission.
+
+Add #583's RVZ unaligned-padding correction to the contribution candidates:
+revised22cf passes the synthetic reader matrix, with independent Dolphin/native
+ISO-RVZ hashing still due. The October14 upstream reader matches the inspected
+pin. [Source and result boundaries](../../qa-logs/2026-10-14-rvz-proxy-components/README.md).
+The explicit zero-hash RVZ retry is presently fork scanner integration; #584 is
+Dolphin launcher routing, not a proxy decoder fix. Keep these separate.
+
+## Historical October6 reconciliation and standalone evidence
+
+
 Mapping reviewed at upstream b09d604ecaba7c973028a659b69106b72d3c9514; seven additional drafts qualified directly against candidate source879b158995d412af434301ebdae581f66b8b6d57, 2026-10-06. The latter changes Android only; reviewed Linux/native bytes are identical.
 Owner #168; integration #361. Current source mapping; preparation/submission status remains explicit below. Nothing here means a contribution has been submitted or accepted.
 

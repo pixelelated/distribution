@@ -1,5 +1,76 @@
 # Next pixelelated candidate — working list
 
+Reconciled October14 under #585 against live issues, their latest comments and
+source-bound component evidence. The baseline is the last tested device build,
+`0.0.1-dev+20261011T222153Z.gbc9dfe8141d9` (#555–#557). This does not relabel it as
+a publicly designated RC. The [M7 milestone body](https://github.com/pixelelated/distribution/milestone/7)
+owns execution order; this table is a dated readiness reference.
+
+Open does not mean untouched: several fixes have compiled/installed component
+proof and remain open for the final composition. An engineering image must exist
+before its clean-install/upgrade checks can run; those checks hold RC designation,
+not the build needed to perform them. No new test or build started in this review.
+
+## Testing findings still in the current candidate
+
+| Work | Verified so far | Still required |
+| --- | --- | --- |
+| Browser slowdown and memory pressure — #570/#572 | Actual compiled ES handoff change reclaims78.01MiB in a bounded VM comparison; repeated handoff and recovery pass. GStreamer controller/scanner recipe/install and fresh-registry controls pass. | Final combined image/dependency closure and relevant UI/clean/retained checks; H700 corroboration remains a separate physical observation. No claim of a universal WebKit or speed cure. |
+| Phone keyboard status — #571 | Compact stable status, translated component checks and actual installed bridge navigation/input pass; keyboard geometry remains fixed. | Final-source integration and affected assembled-image regression. This is no longer an unimplemented ribbon proposal. |
+| Wi-Fi picker — #577 | Stable initial/refresh/empty/error/scroll UI, existing connection routes and separate backend failure controls pass. Subsequent compiled French hint frames are retained. | Combined corrected backend through UI, final image and retained settings. Synthetic enumeration is not a physical radio measurement. |
+| GameCube RVZ and offline achievements — #574/#583/#584 | Frontend reader/retry, MD5 sanitizer subset, proxy padding/scanner and Dolphin routing configuration have passing component evidence. | Independent DolphinTool/CHD/native hash parity, installed proxy/library/service and cache/account/award/reconnect coverage; final frontend/image integration. |
+| Standalone save-state expectations and Dolphin data preservation — #575/#581 | Capability/help and EN/FR frames, retained-data refusal and save-path controls pass within scope; shorter French descriptions verified. | Updated English640 long-card-path frame, native emulator/save behavior and clean/retained installed paths. Ordinary game saves and automatic save states remain different capabilities. |
+| Notice before offline-achievement preparation — #567 | Conditional confirmation UI and four native ES indexing API branches pass; actual preparation was represented by a controlled ctl substitute. | Actual proxy/top-up integration on the composed source and final image; do not equate the substitute with offline-service qualification. |
+| Nova account/history isolation — #565 | Provenance investigation completed to available evidence; library-copy test separates ROM-only from gamelist history. Selected clean-state and payload guards have positive/negative controls. Original account entry remains unknown. | Inspect the actual next firmware payload; clean install must lack personal accounts/fabricated history, while retained-storage upgrade preserves legitimate settings/history. |
+| Recent default — #578 | One-literal compiled default fix and nine default/explicit-choice controls pass; imported gamelist history can populate Recent, a ROM alone cannot. | Final-source/image proof while preserving explicit player choices. Historical Nova Recent entries are not evidence that this new default fix fabricated history. |
+| ScreenScraper developer identity — #566 | Runtime versus compiled developer credentials and separate player account behavior are traced; provider documentation checked. | Establish an authorized pixelelated developer identity, then provision and qualify UI/backup/clean/upgrade behavior. No credential values belong in the tracker. Existing working fallback remains. |
+| Steam installation recovery — #564/#579/#580/#582 | Runtime/FEX/Proton preservation and complete synthetic caller controls pass within scope. Partial-client retry defect reproduced; real55-member client archive CRC/layout inspection passes. | Bootstrap repair is not yet implemented: settle legacy/self-updated-client recognition and metadata/profile ordering, implement bounded recovery, then native/installed qualification. This was found during the20261001 intake, not reported from gameplay. |
+
+Evidence: [installed setup](../qa-logs/2026-10-13-setup-qualification/installed/README.md),
+[library/preservation components](../qa-logs/2026-10-13-library-vm/README.md),
+[October14 frame completion](../qa-logs/2026-10-14-offline-components/README.md),
+[RVZ/proxy/MD5 and archive results](../qa-logs/2026-10-14-rvz-proxy-components/README.md).
+Earlier packet UNRUN labels describe their preparation time; later exact-source
+receipts supply scoped completion. No failed original result is rewritten.
+
+## Observations to monitor and work intentionally deferred
+
+- **Nova shutdown restarting (#558):** normal power-off requests and later boot
+  are recorded; no retained crash dump or confirmed cause. Read-only triage is
+  complete; a scoped recurrence investigation remains. Do not call this fixed.
+- **RG SP red LED (#561):** a saved Red preference explained the observed color;
+  Default is restored by the owner. Original writer is unknown. Monitor subsequent
+  use/upgrades; the deferred interruption matrix is not an active build gate.
+- **Last-game/finishing progress (#568), ROM/cloud integrity comparison (#562),
+  fast-shutdown value (#560), reusable upstream intake procedure (#559):** backlog.
+- **GTK4 and lazy proxy imports (#576/#570):** diagnostic alternatives under
+  D-WORKFLOW-163, not mandatory migrations for this RC. Target lazy-import savings
+  were only390KiB; no GTK4 memory benefit has been measured.
+- **Automatic retirement (#493), off-session alerts (#395), FOSS observability
+  (#432), reset automation (#464/#240):** infrastructure follow-up. Current build
+  admission, owned cleanup and active result supervision remain required.
+
+#569's retained cloud-configuration diagnosis is closed; its history feeds #565.
+Previously completed USB/startup/version/cloud-management fixes and prior audits
+are not reopened simply by this inventory. Remaining restore regression is #349.
+
+## Build completion and upstream follow-up
+
+Finish the outstanding source/component work, compose #563's ROCKNIX20261001
+foundation, produce and qualify the combined GENERIC_X64 image/real retained
+upgrade, complete the applicable audit, then H700 and SM8550 under #555.
+#528/#344 and related source/licence/custody/identity/notes requirements still
+govern publication; they are distinct from creating an engineering image.
+
+[Running upstream queue #585](https://github.com/pixelelated/distribution/issues/585)
+holds submissions until the initial current build and relevant qualification are
+complete (D-WORKFLOW-165). Keep #168's existing ten proxy drafts, new RVZ/MD5
+fixes and smaller ROCKNIX candidates visible. Submission-only standalone proof
+and PR preparation are follow-up work, not additions to the critical path.
+
+## Historical October11 working list — superseded by the review above
+
+
 Recorded 2026-10-11 under #533, following the maintainer's request to document
 the list and begin #531. The [M7 milestone body](https://github.com/pixelelated/distribution/milestone/7)
 is the authoritative current order; this is a dated working reference, not a

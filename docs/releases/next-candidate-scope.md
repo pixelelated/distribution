@@ -8,6 +8,13 @@ The full original bodies/comments are retained in
 
 ## Current continuation — #563 adopts ROCKNIX 20261001
 
+October14: the [updated working list](next-candidate-work.md) reconciles all
+subsequent testing findings against their actual component evidence and remaining
+image/native gates. The live milestone owns current order. [Upstream queue#585](https://github.com/pixelelated/distribution/issues/585)
+retains contributions for after the initial current build (D-WORKFLOW-165);
+submission-only qualification is not a build prerequisite.
+
+
 D-WORKFLOW-161 selects stable20261001 at `c445081a59518f37d9776e5412dd7b14910696f7`
 for the next0.0.1 candidate, superseding D-WORKFLOW-111's September29 base.
 Source merge `f370dc8787` is isolated on `feature/m7-rocknix-20261001`;
