@@ -1,0 +1,137 @@
+{
+  "status": "SOURCE_APPLICABILITY_SUPPORTED_BY_EXISTING_RECEIPTS",
+  "current_source": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+  "accepted_original_source": "d6a87f05c1935516115b2cca1af22151a0209224",
+  "source_product_delta": [
+    "projects/ROCKNIX/packages/multimedia/gstreamer/gstreamer/package.mk"
+  ],
+  "unchanged_es": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "selected_installed_equal_count": 97,
+  "selected_installed_changed": [
+    "etc/os-release"
+  ],
+  "newly_inventoried_members": [
+    "usr/lib/gstreamer-1.0/libgstadaptivedemux2.so",
+    "usr/lib/gstreamer-1.0/libgstrtpmanager.so",
+    "usr/lib/gstreamer-1.0/libgstrtsp.so",
+    "usr/lib/gstreamer-1.0/libgstudp.so",
+    "usr/lib/libgstnet-1.0.so.0"
+  ],
+  "newly_inventoried_is_not_newly_installed_claim": "Four plugins existed in d6a; libgstnet is newly retained. Old verifier did not inventory those five members.",
+  "whole_image_byte_equality_claimed": false,
+  "proxy_source_scope": "All proxy/native dependency pins, patches, source recipes and build engine unchanged by exact product-path diff. Reuse original reviewed112-source/45-pyc/24-allocated-section chain; current independent verifier proves all45pycs and native final bytes/modes/rooted links equal. No recompile, source export, pyc import or new original-exit claim.",
+  "equal_proxy_pycs": [
+    "usr/lib/python3.14/site-packages/raofflineproxy/__init__.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/auth.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/award_signing.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/batocera_conf.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/boot.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/cache_budget.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/cache_keys.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/cache_queue.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/config.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/darkos_service.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/dolphin_cfg.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/es_export.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/flusher.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/game_meta.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/image_cache.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/knulli_service.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/last_played.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/log_uploader.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/lowerdeck.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/main.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/menu_input.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/menu_sdl.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/native_codecs.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/network.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/pending_awards.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/platform.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/ppsspp_cfg.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/proxy_service.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/rate_limit.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/retroarch_cfg.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/rom_browser.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/rom_cache.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/rom_hashing.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/rvz_datasource.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/service.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/smart_cache.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/state.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/storage.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/storage_corruption.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/ui.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/update.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/usage_report.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/usage_stats.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/utils.pyc",
+    "usr/lib/python3.14/site-packages/raofflineproxy/watch_folders.pyc"
+  ],
+  "native_final": {
+    "bytes": 390096,
+    "sha256": "6c484a2947a5f2a7c187e60dd93de73593d5fa98d57309bfb4b5f07bf390220d",
+    "mode": "-rw-r--r--",
+    "link_chain": {
+      "resolved": "/usr/lib/libraproxy_rchash.so",
+      "links": []
+    }
+  },
+  "retained_original_limits": [
+    "Nested build/compileall0 inferred through original install309 DONE and reviewed fail-fast chain; no standalone waits.",
+    "Original strip exit remains unknown.",
+    "Prior runtime/component proofs retain their original image/source scope; byte continuity supports applicability but does not create new-image runtime results."
+  ],
+  "release_preparation": {
+    "helper_sha256": "7c7a3b093d62361d31408cb80fbd8ad0028cb4ab605a49de7686ca82690a754c",
+    "helper_unchanged_from_d6a": true,
+    "actual_release_version": "0.0.1-dev",
+    "applicability": "Current engineering0.0.1-dev is intentionally rejected before payload gate by public-version predicate. Do not relabel or fabricate a release bundle. Eventual authorized public immutable bundle must use tools/fork-publish-release --prepare BUNDLE and independently inspect every final asset. No publication requested/performed."
+  },
+  "actual_new_payload_policy": "PENDING planned owner03; old payload02 results are not substituted for new tar/img bytes.",
+  "evidence": {
+    "/workspace/tmp/pix-m7-image-readback-20261014-02/artifacts/result.json": {
+      "sha256": "748ee36035166f2f5c437c168b02f9de77f9c761b4196fa0ff1618834376ab28",
+      "bytes": 35548
+    },
+    "/workspace/tmp/pix-m7-image-readback-20261014-02/artifacts/inputs.json": {
+      "sha256": "f8f1734baa5504774bd71c743257861b1b1850ca560a8b511ba14cdaa074ac46",
+      "bytes": 1618
+    },
+    "/workspace/tmp/pix-m7-image-readback-20261014-02/selected-product-continuity.json": {
+      "sha256": "7970f19e679a547a6573661a60145bd30e7a9c4a3c7a17151c190f62594c340d",
+      "bytes": 5972
+    },
+    "/workspace/tmp/pix-m7-image-readback-20261014-02/completed-readback.json": {
+      "sha256": "f764850ddac953218bc28764826f02b5ea63d07334e13c291883ae2d1e220b73",
+      "bytes": 413
+    },
+    "/workspace/tmp/pix-m7-image-readback-20261014-02/consumption-evidence.json": {
+      "sha256": "ecde7e678fcac752081a3b66caf45dd4ba2cdb459a601237628a4c817e38dcdd",
+      "bytes": 1282
+    },
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-m7-engineering-image-result/source-chain/coordinator-review.json": {
+      "sha256": "56da62c57d63f798d20584276dd016e2bd40d445146ce0452c7162723b55e7bd",
+      "bytes": 844
+    },
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-m7-engineering-image-result/source-chain/source-receipt.reviewed.json": {
+      "sha256": "38fcbaf6ba55d270c8ebc1c6e5f409400fea7bf1fd503d24a65759a06cf09c05",
+      "bytes": 9491
+    },
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-m7-engineering-image-result/payload02/update.json": {
+      "sha256": "bf8a7d24686498f0e0ada59a753769ee8579536f5a7c0fddcee374dd51c8e030",
+      "bytes": 48875
+    },
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-m7-engineering-image-result/payload02/install.json": {
+      "sha256": "527856c95ee37b6c38175c1eede556bf8f4acac567cf999214c086e723dfa19c",
+      "bytes": 49036
+    },
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-m7-engineering-image-result/payload02/shared-identity.stdout": {
+      "sha256": "796f675206a1e9f27981449d5c4b06f2177d480a33d823adea6e38f868e4fdbe",
+      "bytes": 257
+    },
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-m7-engineering-image-result/payload02/consumption-evidence.json": {
+      "sha256": "2aca12205ac3eddb31e2517805d849e28cf06eb4ab67709f6066fae61f37fe49",
+      "bytes": 1609
+    }
+  }
+}

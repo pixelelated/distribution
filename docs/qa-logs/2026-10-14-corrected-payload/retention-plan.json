@@ -1,0 +1,41 @@
+{
+  "volume": "/workspace",
+  "scan_roots": [
+    "/workspace/tmp/pix-m7-payload-chain-20261014-03/empty-scan"
+  ],
+  "reference_stores": [],
+  "protected": [
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/target",
+    "/workspace/tmp/pix-m7-image-readback-20261014-02/artifacts",
+    "/tmp/pix-m7-corrected-payload-continuation-20261014"
+  ],
+  "candidates": [],
+  "builds": [
+    {
+      "name": "m7-corrected-payload",
+      "terms_bytes": {
+        "scratch": 26843545600,
+        "operating_margin": 8589934592
+      },
+      "basis": "Same accepted payload02 allocation: actual two firmware selected-state inspections and cheap existing shared-identity report interpretation, oneCPU/8GiB AS/1500s plus15s timeout cleanup.25GiB private extraction allowance plus8GiB margin. No firmware copy, VM, build, source-chain producer, provider, or publication.",
+      "evidence": [
+        {
+          "path": "/workspace/tmp/pix-m7-payload-chain-20261014-03/run.sh",
+          "sha256": "3ac41a384c308e41fbea2e5284b7e43e9309de537e4622483c475370d2c341aa"
+        },
+        {
+          "path": "/workspace/tmp/pix-m7-payload-chain-20261014-03/launch.sh",
+          "sha256": "9860cf0295f460bde455fe7d65b515272854c5ce38a134e0158da0d7a6d74344"
+        },
+        {
+          "path": "/workspace/tmp/pix-m7-payload-chain-20261014-03/inputs.json",
+          "sha256": "ca3207a3d754b0cc1a94bf13e8236eaa0e9d8ab60a488257e2b33187dc088bf5"
+        },
+        {
+          "path": "/tmp/pix-m7-corrected-payload-continuation-20261014/source-applicability.json",
+          "sha256": "22d092efde3999034da6f0615be285db40141467245117e94a52edc4662075a3"
+        }
+      ]
+    }
+  ]
+}

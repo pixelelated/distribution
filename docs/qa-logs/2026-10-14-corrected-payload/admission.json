@@ -1,0 +1,40 @@
+{
+  "id": "5044f96fb0b54474a1a4886ad05b3496",
+  "plan": "/workspace/tmp/pix-m7-payload-chain-20261014-03/admission-plan.json",
+  "plan_sha256": "0c8ffa2ce1e8507e1a5956fb1c72a85fa68712d28d50032a4589ee1dd5cf2e7a",
+  "registry_generation": 204,
+  "reserved_bytes": 0,
+  "schema": 1,
+  "state": {
+    "available_bytes": 2803867570176,
+    "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02",
+    "container_checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02",
+    "outputs": [
+      {
+        "issue": 565,
+        "kind": "qa-scratch",
+        "path": "/workspace/tmp/pix-m7-payload-chain-20261014-03",
+        "release_when": "Original new-payload and shared-identity channels reviewed and consumed; compact source/applicability/input/state receipts retained; private extraction scratch empty/retired."
+      }
+    ],
+    "profiles": [
+      {
+        "ARCH": "x86_64",
+        "DEVICE": "GENERIC_X64",
+        "PROJECT": "ROCKNIX"
+      }
+    ],
+    "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+    "required_bytes": 35433480192,
+    "retention_plan_sha256": "27692b242ff2af00a064dc6a7fe3eb9d093c00e01579921f79d2afb0d421a591",
+    "retention_report_sha256": "d0ae199c1edefc23b2b59096d4b03d4a32f3391210248640f2504e5eed902a02",
+    "source": {
+      "head": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "volume": "/workspace",
+    "volume_device": 66304
+  },
+  "tool_sha256": "3e2ad9d6eed47f53d1547880286e4bed69848b956be490f17f354d9df70bb942",
+  "utc": "2026-10-14T23:18:21.922987+00:00"
+}

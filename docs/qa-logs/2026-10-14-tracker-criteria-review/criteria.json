@@ -1,0 +1,266 @@
+{
+  "schema": 1,
+  "proof_head": "829b0f6568ab50fa8e7e12fd7213cf923d3d59ab",
+  "closure_authorization": false,
+  "criteria": [
+    {
+      "id": "565-A1",
+      "issue": 565,
+      "issue_updated_at": "2026-10-14T22:37:23Z",
+      "current_checked": false,
+      "criterion_exact": "Record a source/artifact-bound, value-free inventory separating player username/password/token, developer API identity, and previously retained device settings.",
+      "status": "supported_with_limits",
+      "evidence_keys": [
+        "E01",
+        "E02",
+        "E05",
+        "E06"
+      ],
+      "limits_and_details": "REVIEW.md per-criterion row 565-A1",
+      "state_change_performed": false
+    },
+    {
+      "id": "565-A2",
+      "issue": 565,
+      "issue_updated_at": "2026-10-14T22:37:23Z",
+      "current_checked": true,
+      "criterion_exact": "Trace existing Nova sign-in to earlier evidence or explicitly retain unknown origin; never infer a clean image from a successful state-preserving upgrade.",
+      "status": "supported_with_limits",
+      "evidence_keys": [
+        "E02"
+      ],
+      "limits_and_details": "REVIEW.md per-criterion row 565-A2",
+      "state_change_performed": false
+    },
+    {
+      "id": "565-A3",
+      "issue": 565,
+      "issue_updated_at": "2026-10-14T22:37:23Z",
+      "current_checked": false,
+      "criterion_exact": "Verify a clean image starts with no personal player account and retained-storage upgrades keep the selected user's account, using disposable VM evidence and unchanged-settings receipts.",
+      "status": "supported_with_limits",
+      "evidence_keys": [
+        "E06",
+        "E07"
+      ],
+      "limits_and_details": "REVIEW.md per-criterion row 565-A3",
+      "state_change_performed": false
+    },
+    {
+      "id": "565-A4",
+      "issue": 565,
+      "issue_updated_at": "2026-10-14T22:37:23Z",
+      "current_checked": false,
+      "criterion_exact": "Verify public release preflight refuses personal build/runtime credentials; synthetic positive/negative fixtures exercise the guard and final accepted payload is checked. Repair any confirmed leak before publication.",
+      "status": "supported_with_limits",
+      "evidence_keys": [
+        "E04",
+        "E05",
+        "E08"
+      ],
+      "limits_and_details": "REVIEW.md per-criterion row 565-A4",
+      "state_change_performed": false
+    },
+    {
+      "id": "565-H1",
+      "issue": 565,
+      "issue_updated_at": "2026-10-14T22:37:23Z",
+      "current_checked": true,
+      "criterion_exact": "Bind displayed backup/restore dates to their actual local stamp fields and status; distinguish attempted, completed-empty and data-transferring operations using retained logs where available.",
+      "status": "supported_with_limits",
+      "evidence_keys": [
+        "E02"
+      ],
+      "limits_and_details": "REVIEW.md per-criterion row 565-H1",
+      "state_change_performed": false
+    },
+    {
+      "id": "565-H2",
+      "issue": 565,
+      "issue_updated_at": "2026-10-14T22:37:23Z",
+      "current_checked": true,
+      "criterion_exact": "Trace the two Recent entries to metadata fields and available setup/copy/restore records; state any remaining unknown origin explicitly.",
+      "status": "supported_with_limits",
+      "evidence_keys": [
+        "E02",
+        "E03"
+      ],
+      "limits_and_details": "REVIEW.md per-criterion row 565-H2",
+      "state_change_performed": false
+    },
+    {
+      "id": "565-H3",
+      "issue": 565,
+      "issue_updated_at": "2026-10-14T22:37:23Z",
+      "current_checked": false,
+      "criterion_exact": "Inspect exact firmware/default payloads and clean-boot storage for cloud activity stamps, play-history metadata, connection state and QA residue; publish only value-free results.",
+      "status": "supported_with_limits",
+      "evidence_keys": [
+        "E05",
+        "E06"
+      ],
+      "limits_and_details": "REVIEW.md per-criterion row 565-H3",
+      "state_change_performed": false
+    },
+    {
+      "id": "565-H4",
+      "issue": 565,
+      "issue_updated_at": "2026-10-14T22:37:23Z",
+      "current_checked": false,
+      "criterion_exact": "Exercise the isolation gate with synthetic contaminated and clean payloads; fresh installation has no fabricated activity while upgrade preserves legitimate existing history.",
+      "status": "supported_with_limits",
+      "evidence_keys": [
+        "E04",
+        "E06",
+        "E07",
+        "E08"
+      ],
+      "limits_and_details": "REVIEW.md per-criterion row 565-H4",
+      "state_change_performed": false
+    },
+    {
+      "id": "565-M1",
+      "issue": 565,
+      "issue_updated_at": "2026-10-14T22:37:23Z",
+      "current_checked": true,
+      "criterion_exact": "Record source-bound metadata paths and operational-script scope, distinguishing imported library history from firmware-seeded or retained account state. Evidence: accepted source paths above and docs/qa-logs/2026-10-13-nova-library-copy.md.",
+      "status": "supported_with_limits",
+      "evidence_keys": [
+        "E02"
+      ],
+      "limits_and_details": "REVIEW.md per-criterion row 565-M1",
+      "state_change_performed": false
+    },
+    {
+      "id": "565-M2",
+      "issue": 565,
+      "issue_updated_at": "2026-10-14T22:37:23Z",
+      "current_checked": true,
+      "criterion_exact": "Include a synthetic library-copy case in #565 VM qualification: ROM-only versus ROM-plus-gamelist.xml, expected Recent behavior, and unchanged account/activity-stamp state. Retain source-bound fixture results.",
+      "status": "supported_with_limits",
+      "evidence_keys": [
+        "E03"
+      ],
+      "limits_and_details": "REVIEW.md per-criterion row 565-M2",
+      "state_change_performed": false
+    },
+    {
+      "id": "566-D1",
+      "issue": 566,
+      "issue_updated_at": "2026-10-14T20:44:51Z",
+      "current_checked": true,
+      "criterion_exact": "Record the owner-selected interim JELOS developer identity and separate replacement work into #586 (D-WORKFLOW-166). This records the project decision, not new provider authorization or completed provisioning.",
+      "status": "supported_with_limits",
+      "evidence_keys": [
+        "E08",
+        "E10"
+      ],
+      "limits_and_details": "REVIEW.md per-criterion row 566-D1",
+      "state_change_performed": false
+    },
+    {
+      "id": "566-D2",
+      "issue": 566,
+      "issue_updated_at": "2026-10-14T20:44:51Z",
+      "current_checked": false,
+      "criterion_exact": "Implement and document the selected interim developer provisioning route and applicable artifact checks; reconcile current runtime-only comments and historical guard descriptions under D-WORKFLOW-166. Preserve unrelated private-credential protections; prove actual checks execute.",
+      "status": "supported_with_limits",
+      "evidence_keys": [
+        "E05",
+        "E08",
+        "E10"
+      ],
+      "limits_and_details": "REVIEW.md per-criterion row 566-D2",
+      "state_change_performed": false
+    },
+    {
+      "id": "566-D3",
+      "issue": 566,
+      "issue_updated_at": "2026-10-14T20:44:51Z",
+      "current_checked": false,
+      "criterion_exact": "Implement approved release provisioning without requiring ordinary players to enter developer credentials; keep their own account login distinct and preserve working runtime fallback as appropriate.",
+      "status": "supported_with_limits",
+      "evidence_keys": [
+        "E09",
+        "E10"
+      ],
+      "limits_and_details": "REVIEW.md per-criterion row 566-D3",
+      "state_change_performed": false
+    },
+    {
+      "id": "566-D4",
+      "issue": 566,
+      "issue_updated_at": "2026-10-14T20:44:51Z",
+      "current_checked": false,
+      "criterion_exact": "Review English/French accounts/options/error flows at small/large sizes, update canonical IA/menu/flow references and source-bound frames, and verify clean/upgrade plus credential backup exclusions.",
+      "status": "supported_with_limits",
+      "evidence_keys": [
+        "E06",
+        "E07",
+        "E09",
+        "E10"
+      ],
+      "limits_and_details": "REVIEW.md per-criterion row 566-D4",
+      "state_change_performed": false
+    },
+    {
+      "id": "567-F1",
+      "issue": 567,
+      "issue_updated_at": "2026-10-14T22:42:32Z",
+      "current_checked": false,
+      "criterion_exact": "Inventory exact entry-row/help/confirmation/progress text in the accepted ES pin and its flow/frame reference; establish whether the advance-explanation gap still exists.",
+      "status": "supported_with_limits",
+      "evidence_keys": [
+        "E11"
+      ],
+      "limits_and_details": "REVIEW.md per-criterion row 567-F1",
+      "state_change_performed": false
+    },
+    {
+      "id": "567-F2",
+      "issue": 567,
+      "issue_updated_at": "2026-10-14T22:42:32Z",
+      "current_checked": false,
+      "criterion_exact": "If needed, revise existing copy to explain that newly added games will be prepared for offline achievements when that feature is enabled, matching actual indexing/connectivity gates without implying every library update redownloads everything.",
+      "status": "supported_with_limits",
+      "evidence_keys": [
+        "E11",
+        "E13",
+        "E14"
+      ],
+      "limits_and_details": "REVIEW.md per-criterion row 567-F2",
+      "state_change_performed": false
+    },
+    {
+      "id": "567-F3",
+      "issue": 567,
+      "issue_updated_at": "2026-10-14T22:42:32Z",
+      "current_checked": false,
+      "criterion_exact": "Verify disabled/enabled, online/offline, and new/no-new game branches with source-bound VM receipts; preserve behavior and responsiveness.",
+      "status": "scope_sensitive_composed_evidence",
+      "evidence_keys": [
+        "E11",
+        "E12",
+        "E13",
+        "E14"
+      ],
+      "limits_and_details": "REVIEW.md per-criterion row 567-F3",
+      "state_change_performed": false
+    },
+    {
+      "id": "567-F4",
+      "issue": 567,
+      "issue_updated_at": "2026-10-14T22:42:32Z",
+      "current_checked": false,
+      "criterion_exact": "Update English/French strings, canonical menu/IA/flow reference and reviewed 640x480/1280x800 frames in the same change. If current copy already meets the request, close with exact-source reviewed-frame evidence instead.",
+      "status": "supported_with_limits",
+      "evidence_keys": [
+        "E10",
+        "E11",
+        "E12"
+      ],
+      "limits_and_details": "REVIEW.md per-criterion row 567-F4",
+      "state_change_performed": false
+    }
+  ]
+}

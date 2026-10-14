@@ -1,0 +1,31 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/.build-runs/20261014T230741Z-03fa3c03",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 572,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-image-readback-20261014-02/artifacts",
+      "release_when": "Immediate clean/default-boot/retained qualification no longer needs raw SYSTEM/KERNEL/image; compact original identity records retained."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-image-readback-20261014-02/completed-readback.json",
+      "sha256": "f764850ddac953218bc28764826f02b5ea63d07334e13c291883ae2d1e220b73"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-image-readback-20261014-02/artifacts/result.json",
+      "sha256": "748ee36035166f2f5c437c168b02f9de77f9c761b4196fa0ff1618834376ab28"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-image-readback-20261014-02/artifacts/inputs.json",
+      "sha256": "f8f1734baa5504774bd71c743257861b1b1850ca560a8b511ba14cdaa074ac46"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/.build-runs/20261014T230741Z-03fa3c03/runner-result.json",
+      "sha256": "04f69bb8c06fcc9616033b71d0d19981a731fb1fd7a974c29e61811fb8158982"
+    }
+  ]
+}

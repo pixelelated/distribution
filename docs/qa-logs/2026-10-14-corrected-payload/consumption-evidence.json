@@ -1,0 +1,35 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/.build-runs/20261014T231822Z-4d412ada",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-03",
+      "issue": 565,
+      "kind": "qa-scratch",
+      "release_when": "Original new-payload and shared-identity channels reviewed and consumed; compact source/applicability/input/state receipts retained; private extraction scratch empty/retired."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-03/completed-readback.json",
+      "sha256": "af0056ea2d1722a5c215055d60fac6744f855bbce8e4c1932d9b943198c984c0"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-03/inputs.json",
+      "sha256": "ca3207a3d754b0cc1a94bf13e8236eaa0e9d8ab60a488257e2b33187dc088bf5"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-03/update.json",
+      "sha256": "885ba6e2ee6d5d0f2366e83442274d2e4da81e0390cae22a2ac505f002a9f202"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-03/install.json",
+      "sha256": "44894b315b2c0c619871351483779aec40561755e458a859cfc3e60f7e9c5100"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-payload-chain-20261014-03/shared-identity.stdout",
+      "sha256": "796f675206a1e9f27981449d5c4b06f2177d480a33d823adea6e38f868e4fdbe"
+    }
+  ]
+}

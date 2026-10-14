@@ -1,0 +1,70 @@
+{
+  "status": "SOURCE_TEMPLATE_ONLY_UNRUN",
+  "scope": "Actual corrected update/install selected-state policy plus existing positive shared-identity report reader; accepted source applicability is a separate static receipt. No source producer/runtime/component rerun.",
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02",
+  "commit": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+  "commands": [
+    [
+      "payload",
+      [
+        "bash",
+        "/tmp/pix-m7-corrected-payload-continuation-20261014/payload-check.sh",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02",
+        "/workspace/tmp/pix-m7-payload-chain-20261014-03",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261014T230300Z.gfac608ff8994-from-ROCKNIX.tar",
+        "e409bc18236cebfe12b24cdaede092c338d51cfe601ea6b89b486ff5578a2e42",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261014T230300Z.gfac608ff8994-from-ROCKNIX.img.gz",
+        "d816d36abc66b292500b0719e672c98c33eb0cd4fc7fc0bf19f7e26e4108bb16"
+      ]
+    ],
+    [
+      "shared-identity",
+      [
+        "timeout",
+        "--kill-after=5s",
+        "30s",
+        "python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix-m7-corrected-payload-continuation-20261014/check-shared-identity.py",
+        "--update",
+        "/workspace/tmp/pix-m7-payload-chain-20261014-03/update.json",
+        "--install",
+        "/workspace/tmp/pix-m7-payload-chain-20261014-03/install.json"
+      ]
+    ]
+  ],
+  "final_readback": "/workspace/tmp/pix-m7-image-readback-20261014-02/artifacts",
+  "readback_sha256": "748ee36035166f2f5c437c168b02f9de77f9c761b4196fa0ff1618834376ab28",
+  "source_sha256": {
+    "/tmp/pix-m7-corrected-payload-continuation-20261014/payload-check.sh": "5116dd44682dc52da0c5d376e841492c2bd614271d6c2d70d7b873931f5ac809",
+    "/tmp/pix-m7-corrected-payload-continuation-20261014/check-shared-identity.py": "16864703bfd4e37bfda4e825d6cf7f7a7f3db4461b5bc995e066275c59f38542",
+    "/tmp/pix-m7-corrected-payload-continuation-20261014/source-inputs.json": "8fee5af5ee66d369de1d6bdb131e28ab5d7efd80dc206f5b637b552dc88a9b70",
+    "/tmp/pix-m7-corrected-payload-continuation-20261014/source-applicability.json": "22d092efde3999034da6f0615be285db40141467245117e94a52edc4662075a3",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/pixelelated-state-check": "6d061af89caba886bd3417ee96dc01e37675655aa1ed92f423b9db02164dff03",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/fork-publish-release": "7c7a3b093d62361d31408cb80fbd8ad0028cb4ab605a49de7686ca82690a754c",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/mcopy": "2050c806846eedb33308d2f6626985e36bbffe3a82d1292741e55d7e002f265d",
+    "/workspace/tmp/pix-m7-image-readback-20261014-02/artifacts/result.json": "748ee36035166f2f5c437c168b02f9de77f9c761b4196fa0ff1618834376ab28",
+    "/workspace/tmp/pix-m7-image-readback-20261014-02/artifacts/inputs.json": "f8f1734baa5504774bd71c743257861b1b1850ca560a8b511ba14cdaa074ac46",
+    "/workspace/tmp/pix-m7-image-readback-20261014-02/selected-product-continuity.json": "7970f19e679a547a6573661a60145bd30e7a9c4a3c7a17151c190f62594c340d",
+    "/workspace/tmp/pix-m7-image-readback-20261014-02/completed-readback.json": "f764850ddac953218bc28764826f02b5ea63d07334e13c291883ae2d1e220b73",
+    "/workspace/tmp/pix-m7-image-readback-20261014-02/consumption-evidence.json": "ecde7e678fcac752081a3b66caf45dd4ba2cdb459a601237628a4c817e38dcdd",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-m7-engineering-image-result/source-chain/coordinator-review.json": "56da62c57d63f798d20584276dd016e2bd40d445146ce0452c7162723b55e7bd",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-m7-engineering-image-result/source-chain/source-receipt.reviewed.json": "38fcbaf6ba55d270c8ebc1c6e5f409400fea7bf1fd503d24a65759a06cf09c05",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-m7-engineering-image-result/payload02/update.json": "bf8a7d24686498f0e0ada59a753769ee8579536f5a7c0fddcee374dd51c8e030",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-m7-engineering-image-result/payload02/install.json": "527856c95ee37b6c38175c1eede556bf8f4acac567cf999214c086e723dfa19c",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-m7-engineering-image-result/payload02/shared-identity.stdout": "796f675206a1e9f27981449d5c4b06f2177d480a33d823adea6e38f868e4fdbe",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-m7-engineering-image-result/payload02/consumption-evidence.json": "2aca12205ac3eddb31e2517805d849e28cf06eb4ab67709f6066fae61f37fe49"
+  },
+  "limits": {
+    "work_seconds": 1500,
+    "cleanup_seconds": 15,
+    "cpu": [
+      0
+    ],
+    "address_space_per_process": 8589934592,
+    "file_size_per_process": 17179869184,
+    "scratch": 26843545600
+  }
+}

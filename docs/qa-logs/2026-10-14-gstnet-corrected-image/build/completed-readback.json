@@ -1,0 +1,106 @@
+{
+  "utc": "2026-10-14T23:07:01.858413+00:00",
+  "pids_absent": [
+    1105171,
+    1105228,
+    1105172,
+    1105228,
+    1105173,
+    1105173
+  ],
+  "stages": [
+    {
+      "stage": "clean-gstreamer",
+      "original_host_rc": 0,
+      "original_inner_rc": 0,
+      "wrapper_rc": 0,
+      "container": "b0e1c9840e138d9714cd379b444e7030e292883b66b5bdac576ca07cbdd6f2f2",
+      "inspect_returncode": 1,
+      "absence_diagnostic": "error: no such object: b0e1c9840e138d9714cd379b444e7030e292883b66b5bdac576ca07cbdd6f2f2",
+      "peak_memory_bytes": 32985088,
+      "oom_kill": 0
+    },
+    {
+      "stage": "gstreamer",
+      "original_host_rc": 0,
+      "original_inner_rc": 0,
+      "wrapper_rc": 0,
+      "container": "ae7e784c08ae9fcd49222d4875b034434af7801ed18b5c0cd6116611dd49d723",
+      "inspect_returncode": 1,
+      "absence_diagnostic": "error: no such object: ae7e784c08ae9fcd49222d4875b034434af7801ed18b5c0cd6116611dd49d723",
+      "peak_memory_bytes": 464527360,
+      "oom_kill": 0
+    },
+    {
+      "stage": "image",
+      "original_host_rc": 0,
+      "original_inner_rc": 0,
+      "wrapper_rc": 0,
+      "container": "790c4930136e7104780df1ed6c744d78148d58a20da5a3f3be796ae73ba9459d",
+      "inspect_returncode": 1,
+      "absence_diagnostic": "error: no such object: 790c4930136e7104780df1ed6c744d78148d58a20da5a3f3be796ae73ba9459d",
+      "peak_memory_bytes": 29582913536,
+      "oom_kill": 0
+    }
+  ],
+  "original_runner": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-14T23:06:26.846874+00:00"
+  },
+  "original_owner": {
+    "status": "PASS",
+    "stages": [
+      {
+        "stage": "clean-gstreamer",
+        "original_host_make_rc": 0,
+        "container_observed": true,
+        "observation_handshake": true
+      },
+      {
+        "stage": "gstreamer",
+        "original_host_make_rc": 0,
+        "container_observed": true,
+        "observation_handshake": true
+      },
+      {
+        "stage": "image",
+        "original_host_make_rc": 0,
+        "container_observed": true,
+        "observation_handshake": true
+      }
+    ],
+    "cleanup": [],
+    "signals": [],
+    "surviving_host_command_groups": {
+      "1108595": [],
+      "1108946": [],
+      "1111137": []
+    },
+    "elapsed_seconds": 189.97772508393973
+  },
+  "original_resources": {
+    "errors": [],
+    "all_threads_exited": true,
+    "status": "PASS",
+    "host_sample_count": 36,
+    "allocation_sample_count": 2,
+    "maximum_observed_allocated_bytes_by_root": {
+      "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/build.pixelelated-GENERIC_X64.x86_64": 125592436736,
+      "/workspace/cache/rocknix-sources": 68200853504,
+      "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/target": 4245299200,
+      "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/release": 0,
+      "/workspace/tmp/pix-m7-engineering-build-20261014-02": 3354624
+    },
+    "incomplete_disk_sample_count": 0,
+    "disk_peak_limit": "sampled maxima with scan durations; not continuous or atomic peaks; maxima during incomplete samples are unknown",
+    "minimum_host_mem_available_bytes": 46854840320,
+    "maximum_total_minus_available_bytes": 18521210880,
+    "minimum_swap_free_bytes": 8589930496,
+    "swap_page_deltas": {
+      "pswpin": 0,
+      "pswpout": 0
+    }
+  }
+}

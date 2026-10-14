@@ -1,0 +1,307 @@
+{
+  "status": "PASS",
+  "started": 1792019390.7320898,
+  "stages": [
+    {
+      "name": "loader",
+      "argv": [
+        "ssh",
+        "-i",
+        "/workspace/tmp/pix-m7-installed-ui-20261014-02/vm/qa-key",
+        "-p",
+        "10618",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "IdentitiesOnly=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "UserKnownHostsFile=/workspace/tmp/pix-m7-installed-ui-20261014-02/vm/known_hosts",
+        "-o",
+        "ControlMaster=no",
+        "-o",
+        "ControlPath=none",
+        "root@127.0.0.1",
+        ". /etc/profile >/dev/null 2>&1; python3 /storage/qa570flows/guest-preflight.py"
+      ],
+      "started": 1792019391.5351803,
+      "timed_out": false,
+      "original_returncode": 0,
+      "ended": 1792019392.2873833
+    },
+    {
+      "name": "phone",
+      "argv": [
+        "python3",
+        "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/phone-smoke.py",
+        "phone-final-en640",
+        "phone",
+        "en_US"
+      ],
+      "started": 1792019393.3278885,
+      "timed_out": false,
+      "original_returncode": 0,
+      "ended": 1792019463.5199199
+    },
+    {
+      "name": "wifi-initial",
+      "argv": [
+        "python3",
+        "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/wifi-initial.py"
+      ],
+      "started": 1792019464.5963733,
+      "timed_out": false,
+      "original_returncode": 0,
+      "ended": 1792019491.1893988
+    },
+    {
+      "name": "wifi-refresh-failure",
+      "argv": [
+        "python3",
+        "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/wifi-smoke.py"
+      ],
+      "started": 1792019491.1896205,
+      "timed_out": false,
+      "original_returncode": 0,
+      "ended": 1792019514.0403416
+    },
+    {
+      "name": "recent",
+      "argv": [
+        "python3",
+        "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/recent-smoke.py"
+      ],
+      "started": 1792019514.3994749,
+      "timed_out": false,
+      "original_returncode": 0,
+      "ended": 1792019525.4460077
+    }
+  ],
+  "binding_sha256": "c5d45c661452380d9e136e03bf90a248aa2fb438a431d14277cf8b89cb05b0ee",
+  "loader_export": {
+    "files": 11,
+    "bytes": 614761
+  },
+  "before": {
+    "usr/bin/emulationstation": {
+      "sha256": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/cloud_oauth": {
+      "sha256": "95c626f8df07faef522683a857e48e31f85a58c6f738bcde24707574dc24d293",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/cloud-signin-window": {
+      "sha256": "6cbc445686d3d484ff20450342776e9eb92b47f6112a0352be1a50b334eef81b",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/rclone": {
+      "sha256": "ed887da83d3e2c07ff8acc60cb5b56dbe7bb4d73cc445b6ff71988f164c0558a",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/wifictl": {
+      "sha256": "c89ed28a50e4be78468fcee25dcfd68e0b1c67af25657c3d0ba9318c7576a48c",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/gst-inspect-1.0": {
+      "sha256": "84cf7ece4ae3df1343e85b4339b74e4b8d2836d07d073b1750582d61a97b8e19",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/gstreamer-1.0/gst-plugin-scanner": {
+      "sha256": "0258b6e81d0332e4a39e1f0f2a8654c189fa3db1fde4866adec02ab59b38f815",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/gstreamer-1.0/libgstopengl.so": {
+      "sha256": "06dc2524e928252248c2f02c08928f155bef2c75644f7fcadccbbd6081dfa1a6",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/libgstcontroller-1.0.so.0": {
+      "sha256": "ac4646378c64be84832bae33a084ab3b98ad3cfb131574c08cb1eadae32e2a1c",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/libgstnet-1.0.so.0": {
+      "sha256": "95228d04ae400ac3c79e3f676dd8d95d471837fb6de16d1fbd74dbe5cb29fdd1",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/libgstreamer-1.0.so.0": {
+      "sha256": "8820d44ba911da1862e4b15189c99f9076a1536ac5048bef122f4a3634536682",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo": {
+      "sha256": "f7b4fec7bacb7a7e2e53883c0c5f2bda1d14343d1c1392edf469904e95104a59",
+      "mode": "-rw-r--r--"
+    },
+    "usr/config/locale/en_GB/LC_MESSAGES/emulationstation2.mo": {
+      "sha256": "4461480d7b6a88d1eb9cfb0ac0423d325455694ab4c420cc8c4e36ff04cdc73a",
+      "mode": "-rw-r--r--"
+    }
+  },
+  "boot_id": "1d0fa2ea-db84-4be5-b0a2-e9b37abe1f59",
+  "after_phone": {
+    "usr/bin/emulationstation": {
+      "sha256": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/cloud_oauth": {
+      "sha256": "95c626f8df07faef522683a857e48e31f85a58c6f738bcde24707574dc24d293",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/cloud-signin-window": {
+      "sha256": "6cbc445686d3d484ff20450342776e9eb92b47f6112a0352be1a50b334eef81b",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/rclone": {
+      "sha256": "ed887da83d3e2c07ff8acc60cb5b56dbe7bb4d73cc445b6ff71988f164c0558a",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/wifictl": {
+      "sha256": "c89ed28a50e4be78468fcee25dcfd68e0b1c67af25657c3d0ba9318c7576a48c",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/gst-inspect-1.0": {
+      "sha256": "84cf7ece4ae3df1343e85b4339b74e4b8d2836d07d073b1750582d61a97b8e19",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/gstreamer-1.0/gst-plugin-scanner": {
+      "sha256": "0258b6e81d0332e4a39e1f0f2a8654c189fa3db1fde4866adec02ab59b38f815",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/gstreamer-1.0/libgstopengl.so": {
+      "sha256": "06dc2524e928252248c2f02c08928f155bef2c75644f7fcadccbbd6081dfa1a6",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/libgstcontroller-1.0.so.0": {
+      "sha256": "ac4646378c64be84832bae33a084ab3b98ad3cfb131574c08cb1eadae32e2a1c",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/libgstnet-1.0.so.0": {
+      "sha256": "95228d04ae400ac3c79e3f676dd8d95d471837fb6de16d1fbd74dbe5cb29fdd1",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/libgstreamer-1.0.so.0": {
+      "sha256": "8820d44ba911da1862e4b15189c99f9076a1536ac5048bef122f4a3634536682",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo": {
+      "sha256": "f7b4fec7bacb7a7e2e53883c0c5f2bda1d14343d1c1392edf469904e95104a59",
+      "mode": "-rw-r--r--"
+    },
+    "usr/config/locale/en_GB/LC_MESSAGES/emulationstation2.mo": {
+      "sha256": "4461480d7b6a88d1eb9cfb0ac0423d325455694ab4c420cc8c4e36ff04cdc73a",
+      "mode": "-rw-r--r--"
+    }
+  },
+  "after_wifi": {
+    "usr/bin/emulationstation": {
+      "sha256": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/cloud_oauth": {
+      "sha256": "95c626f8df07faef522683a857e48e31f85a58c6f738bcde24707574dc24d293",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/cloud-signin-window": {
+      "sha256": "6cbc445686d3d484ff20450342776e9eb92b47f6112a0352be1a50b334eef81b",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/rclone": {
+      "sha256": "ed887da83d3e2c07ff8acc60cb5b56dbe7bb4d73cc445b6ff71988f164c0558a",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/wifictl": {
+      "sha256": "c89ed28a50e4be78468fcee25dcfd68e0b1c67af25657c3d0ba9318c7576a48c",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/gst-inspect-1.0": {
+      "sha256": "84cf7ece4ae3df1343e85b4339b74e4b8d2836d07d073b1750582d61a97b8e19",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/gstreamer-1.0/gst-plugin-scanner": {
+      "sha256": "0258b6e81d0332e4a39e1f0f2a8654c189fa3db1fde4866adec02ab59b38f815",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/gstreamer-1.0/libgstopengl.so": {
+      "sha256": "06dc2524e928252248c2f02c08928f155bef2c75644f7fcadccbbd6081dfa1a6",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/libgstcontroller-1.0.so.0": {
+      "sha256": "ac4646378c64be84832bae33a084ab3b98ad3cfb131574c08cb1eadae32e2a1c",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/libgstnet-1.0.so.0": {
+      "sha256": "95228d04ae400ac3c79e3f676dd8d95d471837fb6de16d1fbd74dbe5cb29fdd1",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/libgstreamer-1.0.so.0": {
+      "sha256": "8820d44ba911da1862e4b15189c99f9076a1536ac5048bef122f4a3634536682",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo": {
+      "sha256": "f7b4fec7bacb7a7e2e53883c0c5f2bda1d14343d1c1392edf469904e95104a59",
+      "mode": "-rw-r--r--"
+    },
+    "usr/config/locale/en_GB/LC_MESSAGES/emulationstation2.mo": {
+      "sha256": "4461480d7b6a88d1eb9cfb0ac0423d325455694ab4c420cc8c4e36ff04cdc73a",
+      "mode": "-rw-r--r--"
+    }
+  },
+  "restored_products": {
+    "usr/bin/emulationstation": {
+      "sha256": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/cloud_oauth": {
+      "sha256": "95c626f8df07faef522683a857e48e31f85a58c6f738bcde24707574dc24d293",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/cloud-signin-window": {
+      "sha256": "6cbc445686d3d484ff20450342776e9eb92b47f6112a0352be1a50b334eef81b",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/rclone": {
+      "sha256": "ed887da83d3e2c07ff8acc60cb5b56dbe7bb4d73cc445b6ff71988f164c0558a",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/wifictl": {
+      "sha256": "c89ed28a50e4be78468fcee25dcfd68e0b1c67af25657c3d0ba9318c7576a48c",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/gst-inspect-1.0": {
+      "sha256": "84cf7ece4ae3df1343e85b4339b74e4b8d2836d07d073b1750582d61a97b8e19",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/gstreamer-1.0/gst-plugin-scanner": {
+      "sha256": "0258b6e81d0332e4a39e1f0f2a8654c189fa3db1fde4866adec02ab59b38f815",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/gstreamer-1.0/libgstopengl.so": {
+      "sha256": "06dc2524e928252248c2f02c08928f155bef2c75644f7fcadccbbd6081dfa1a6",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/libgstcontroller-1.0.so.0": {
+      "sha256": "ac4646378c64be84832bae33a084ab3b98ad3cfb131574c08cb1eadae32e2a1c",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/libgstnet-1.0.so.0": {
+      "sha256": "95228d04ae400ac3c79e3f676dd8d95d471837fb6de16d1fbd74dbe5cb29fdd1",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/lib/libgstreamer-1.0.so.0": {
+      "sha256": "8820d44ba911da1862e4b15189c99f9076a1536ac5048bef122f4a3634536682",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo": {
+      "sha256": "f7b4fec7bacb7a7e2e53883c0c5f2bda1d14343d1c1392edf469904e95104a59",
+      "mode": "-rw-r--r--"
+    },
+    "usr/config/locale/en_GB/LC_MESSAGES/emulationstation2.mo": {
+      "sha256": "4461480d7b6a88d1eb9cfb0ac0423d325455694ab4c420cc8c4e36ff04cdc73a",
+      "mode": "-rw-r--r--"
+    }
+  },
+  "cleanup": "PASS",
+  "ended": 1792019528.1625795
+}

@@ -1,0 +1,329 @@
+{
+  "status": "READ_ONLY_VISUAL_REVIEW_COMPLETE",
+  "source": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+  "es_source": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "executing_es_sha256": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036",
+  "boot_id": "1d0fa2ea-db84-4be5-b0a2-e9b37abe1f59",
+  "frames_reviewed": 19,
+  "actionable_visual_or_copy_defects": [],
+  "frames": [
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/phone-final-en640/initial/01-initial.png",
+      "relative_path": "phone-final-en640/initial/01-initial.png",
+      "bytes": 150174,
+      "sha256": "11607bec27d5f3c0709058d1d278a0ef073405f53d4c354b77a60bccebbb78fa",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "initial carousel",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "PICO-8 carousel, clock and bottom navigation are visible; not a phone-flow completion frame.",
+      "visual_defect_found": false,
+      "scope_limit": null
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/phone-final-en640/keyboard-choice.png",
+      "relative_path": "phone-final-en640/keyboard-choice.png",
+      "bytes": 22038,
+      "sha256": "c04609e5ebbe73c7647fbd970dd955065a283e0de5bed9dfa14ba6146f679483",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "keyboard choice",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "CONNECT CLOUD STORAGE / DROPBOX, full question, both keyboard choices and their explanatory lines fit. EXIT visible. No separate bottom help bar.",
+      "visual_defect_found": false,
+      "scope_limit": null
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/phone-final-en640/phone-pairing.png",
+      "relative_path": "phone-final-en640/phone-pairing.png",
+      "bytes": 31653,
+      "sha256": "72a7a63dfadd916f3c6e60005ff8142bc1ce4ed97d22c34b2ac5c1c8f02c0c00",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "phone pairing",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "QR, local fixture URL and complete THEN instructions fit. EXIT and CONTINUE are visible. No clipping or overlap observed.",
+      "visual_defect_found": false,
+      "scope_limit": null
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/phone-final-en640/browser-loaded.png",
+      "relative_path": "phone-final-en640/browser-loaded.png",
+      "bytes": 17341,
+      "sha256": "2cd66cbe5009ac76f2b9802977a5e5b40436209140b5c2f03a226864e518801f",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "browser page 1",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Local phone fixture 1 with empty focused input and no-account/cloud notice. Browser navigation help remains visible across bottom.",
+      "visual_defect_found": false,
+      "scope_limit": null
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/phone-final-en640/browser-received-second-page-text.png",
+      "relative_path": "phone-final-en640/browser-received-second-page-text.png",
+      "bytes": 20542,
+      "sha256": "0dbb85b530ddc4969aaa031adac13494d29869a5aadbb11b3945bb00030ab31e",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "browser page 2 delivered",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Local phone fixture 2 shows second571 in focused input; browser bottom navigation help fits. This is synthetic local page evidence.",
+      "visual_defect_found": false,
+      "scope_limit": null
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/phone-final-en640/connected.png",
+      "relative_path": "phone-final-en640/connected.png",
+      "bytes": 40525,
+      "sha256": "c099cec4bba9f6cdc49d15116fdf90057f84475818afc0606f098f6ecd6d6e7c",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "returned Cloud Folders",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "CLOUD FOLDERS explanation, Saves/Settings/ROMs/BIOS/Game Content paths, check-folders action and FINISH fit. Actual return destination visible; no real-provider claim.",
+      "visual_defect_found": false,
+      "scope_limit": null
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/phone-final-en640/companion/01-connected.png",
+      "relative_path": "phone-final-en640/companion/01-connected.png",
+      "bytes": 30843,
+      "sha256": "411713698ce04ab4a5fd7d83df8ada84be102200b18691d478f9871507e021c3",
+      "dimensions": [
+        320,
+        800
+      ],
+      "role": "companion connected",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "At320x800 the provider header intentionally ellipsizes to Keyboard for Dro...; checkmark status and all keyboard/pointer/Close page controls fit. Explanatory paragraph wraps without clipping.",
+      "visual_defect_found": false,
+      "scope_limit": null
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/phone-final-en640/companion/02-next-page.png",
+      "relative_path": "phone-final-en640/companion/02-next-page.png",
+      "bytes": 30843,
+      "sha256": "411713698ce04ab4a5fd7d83df8ada84be102200b18691d478f9871507e021c3",
+      "dimensions": [
+        320,
+        800
+      ],
+      "role": "companion next page",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Same connection header and control geometry remain; text field empty after the page transition. No control shift or overlap visible.",
+      "visual_defect_found": false,
+      "scope_limit": null
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/phone-final-en640/companion/03-second-delivered.png",
+      "relative_path": "phone-final-en640/companion/03-second-delivered.png",
+      "bytes": 30261,
+      "sha256": "ae09f371979d3856967149153a7291d0a26a4727824716960cd650f1043437e5",
+      "dimensions": [
+        320,
+        800
+      ],
+      "role": "companion masked input",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Delivered text is masked with bullets; header/status, keyboard controls, pointer area, explanatory copy and Close page remain in the same positions.",
+      "visual_defect_found": false,
+      "scope_limit": null
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/wifi-en640-initial/frames/01-network-settings.png",
+      "relative_path": "wifi-en640-initial/frames/01-network-settings.png",
+      "bytes": 31268,
+      "sha256": "5696bb8c55234e3d285ed737dc0f859f8e0d21450d5a0a388ab81fa93cde1ec1",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "network settings entry",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "NETWORK SETTINGS rows and values fit, Wi-Fi network reads NOT CONNECTED, BACK visible. Internet status here is not a radio-join proof.",
+      "visual_defect_found": false,
+      "scope_limit": null
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/wifi-en640-initial/frames/02-initial-search.png",
+      "relative_path": "wifi-en640-initial/frames/02-initial-search.png",
+      "bytes": 10234,
+      "sha256": "7b96c931b681cfc636af26502bbabd67937fda966a500d1381442a30abf0df9c",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "initial search",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "WI-FI NETWORKS title and SEARCHING WI-FI NETWORKS appear within the reserved list area; REFRESH / INPUT MANUALLY / BACK remain at bottom. No floating modal or moving dialog bounds.",
+      "visual_defect_found": false,
+      "scope_limit": null
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/wifi-en640-initial/frames/03-initial-results.png",
+      "relative_path": "wifi-en640-initial/frames/03-initial-results.png",
+      "bytes": 12514,
+      "sha256": "52e219ee93baf56bf8d0cdd732b5a7b08b757037ea0cc68bcbc690daeaa72f1b",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "initial results",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Three Test network rows fit; first row selected. Search status removed while title/list/button geometry stays fixed. Full title confirmed by direct re-view and pixel readback.",
+      "visual_defect_found": false,
+      "scope_limit": null
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/wifi-en640-branches/refresh/01-pending.png",
+      "relative_path": "wifi-en640-branches/refresh/01-pending.png",
+      "bytes": 14725,
+      "sha256": "373626a47008cf2de032f526101bbc41141a2cf49ead8612c53d4af191b61ea5",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "refresh pending",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "In-list SEARCHING status with all three prior rows retained beneath it; REFRESH has focus. Button/title positions remain fixed.",
+      "visual_defect_found": false,
+      "scope_limit": null
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/wifi-en640-branches/refresh/02-complete.png",
+      "relative_path": "wifi-en640-branches/refresh/02-complete.png",
+      "bytes": 12433,
+      "sha256": "a1a61072440d716142bb84747d03fc85e442d237edc8b8ca52307603f2c190b4",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "refresh complete",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Three prior rows remain and searching status is removed; REFRESH retains focus. Exact decoded title pixels match initial/pending/failure title.",
+      "visual_defect_found": false,
+      "scope_limit": null
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/wifi-en640-branches/failure/01-pending.png",
+      "relative_path": "wifi-en640-branches/failure/01-pending.png",
+      "bytes": 14725,
+      "sha256": "373626a47008cf2de032f526101bbc41141a2cf49ead8612c53d4af191b61ea5",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "failure pending",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "In-list searching status plus three previous rows; REFRESH remains focused. No overlap with the bottom buttons.",
+      "visual_defect_found": false,
+      "scope_limit": null
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/wifi-en640-branches/failure/02-complete.png",
+      "relative_path": "wifi-en640-branches/failure/02-complete.png",
+      "bytes": 17445,
+      "sha256": "37de20252f4759dbb4b89478db4191679b8fb2801d9db59c16b45ec14f70e910",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "failure complete",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Complete two-line COULDN'T SEARCH WI-FI NETWORKS. TRY AGAIN. / SHOWING PREVIOUS RESULTS. fits above all three prior rows. REFRESH / INPUT MANUALLY / BACK fit; failure is distinct from empty results.",
+      "visual_defect_found": false,
+      "scope_limit": null
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/recent-en640/default-rom-only.png",
+      "relative_path": "recent-en640/default-rom-only.png",
+      "bytes": 146245,
+      "sha256": "eb1bab4534b8596f1cea604f9194a1e443c68b4c75fb0c2e362c8e12b009ea69",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "post-case carousel only",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "PICO-8 carousel and bottom navigation visible. Does not visibly show Recent or prove empty membership; use the paired API result (Recent HTTP200, fixture_count0).",
+      "visual_defect_found": false,
+      "scope_limit": "API membership proof only; PNG shows carousel"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/recent-en640/default-history.png",
+      "relative_path": "recent-en640/default-history.png",
+      "bytes": 146476,
+      "sha256": "475701c835190ab891f1cf39903ce8097036841502194ceaa9239249ef213833",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "post-case carousel only",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "PICO-8 carousel visible. Does not visibly show the imported Recent entry; paired API result proves Recent HTTP200, fixture_count1.",
+      "visual_defect_found": false,
+      "scope_limit": "API membership proof only; PNG shows carousel"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/smoke/recent-en640/retained-favorites.png",
+      "relative_path": "recent-en640/retained-favorites.png",
+      "bytes": 156975,
+      "sha256": "da4fea4ba4777e16717bee03ea347bc0e0ae972feb1f046ac4bc77d5059f5b14",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "post-case carousel only",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "PICO-8 carousel visible. Does not independently prove Recent absence; paired API result proves Favorites HTTP200/count1 and Recent HTTP404/count0 with saved choice preserved.",
+      "visual_defect_found": false,
+      "scope_limit": "API membership proof only; PNG shows carousel"
+    }
+  ],
+  "evidence_caveats": [
+    "All three Recent PNGs show carousel only; source-bound API receipts establish membership.",
+    "Recent source_commit=6b1dd... is an inherited fixture constant, not the executing final ES identity; bind through smoke/binding.json and actual binary SHA.",
+    "Phone authorization/listing and Wi-Fi enumeration use explicit synthetic seams; no actual provider authentication or radio join claim.",
+    "This review covers English640x480 installed ES plus320x800 companion; it does not repeat previous French/large component review.",
+    "Existing smoke PASS/original stage0 receipts reviewed; final outer owner closure/export remains coordinator-owned."
+  ],
+  "source_label_trace": {
+    "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-setup-source/fixtures/probe-collections.py",
+    "lines": "17,78,82-94",
+    "meaning": "SOURCE literal is echoed as source_commit; actual supplied binary hash is separately compared to /proc/PID/exe"
+  },
+  "runtime_executed_by_reviewer": false,
+  "originals_modified": false
+}

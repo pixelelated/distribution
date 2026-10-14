@@ -1,0 +1,49 @@
+{
+  "admitted": "2026-10-14T23:09:09.682616+00:00",
+  "available_bytes": 2812456439808,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02",
+  "consumed": "2026-10-14T23:14:22.569451+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02",
+  "deleted_bytes": 0,
+  "evidence_sha256": "0bb52698bd9819d14986af6ef92452444665d3f7682dfe7b9d8eda4a80136d33",
+  "id": "322d54499c5d42aab2373bc56b68cd27",
+  "original_result": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-14T23:12:10.683280+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 571,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02",
+      "release_when": "Original clean/smoke/restoration/owner results exported and reviewed; actual VM and descendants gone, admission consumed, then explicitly retire disk and temporary key."
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "1ea7a63ecf06906244f0ff18bd19bf31f596f24ec3747e268b0d4c8b8c796d53",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 22587375616,
+  "retention_plan_sha256": "547bf22ccf7d1d4e3bb49f8b377b794bc355d3c883d8a828a0cc77fe4f172728",
+  "retention_report_sha256": "b474f2ecbfe3e78fbe437a65be4ea17f7139dcfe95972d6861dc3cd132fc5697",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/.build-runs/20261014T230909Z-21fa45d0",
+  "runner_pid": 1280721,
+  "runner_start": "111103355",
+  "source": {
+    "head": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix-m7-installed-ui-20261014-02/lifecycle-owner",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

@@ -1,0 +1,82 @@
+{
+  "rc": 0,
+  "name": "phone-final-en640",
+  "mode": "phone",
+  "language": "en_US",
+  "started": 1792019393.3591573,
+  "fixture_sha256": "e9600bf8458d3f31ebfd355d9fe705cf40e60d957e00c49f21e56eceebe85656",
+  "delegation_control": "rclone v1.75.2\n- os/version: unknown\n- os/kernel: 7.1.2 (x86_64)\n- os/type: linux\n- os/arch: amd64\n- go/version: go1.26.9\n- go/linking: static\n- go/tags: none\nConfiguration file doesn't exist, but rclone will use this path:\n/storage/.config/rclone/rclone.conf\n",
+  "before": {
+    "pid": "2320",
+    "start": "2666",
+    "boot": "1d0fa2ea-db84-4be5-b0a2-e9b37abe1f59",
+    "hash": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036"
+  },
+  "settles": [
+    {
+      "frame": "keyboard-choice",
+      "stable": true,
+      "seconds": 1.3346707820892334
+    },
+    {
+      "frame": "phone-pairing",
+      "stable": true,
+      "seconds": 1.320265769958496
+    },
+    {
+      "frame": "browser-loaded",
+      "stable": true,
+      "seconds": 1.324126958847046
+    },
+    {
+      "frame": "browser-received-second-page-text",
+      "stable": true,
+      "seconds": 1.3189737796783447
+    },
+    {
+      "frame": "connected",
+      "stable": true,
+      "seconds": 2.1578221321105957
+    }
+  ],
+  "after": {
+    "pid": "2320",
+    "start": "2666",
+    "boot": "1d0fa2ea-db84-4be5-b0a2-e9b37abe1f59",
+    "hash": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036"
+  },
+  "status": "signed-in",
+  "remote_names": [
+    "dropbox:"
+  ],
+  "delegation": [
+    {
+      "operation": "--version",
+      "original_sha256": "ed887da83d3e2c07ff8acc60cb5b56dbe7bb4d73cc445b6ff71988f164c0558a"
+    },
+    {
+      "operation": "config",
+      "original_sha256": "ed887da83d3e2c07ff8acc60cb5b56dbe7bb4d73cc445b6ff71988f164c0558a"
+    },
+    {
+      "operation": "listremotes",
+      "original_sha256": "ed887da83d3e2c07ff8acc60cb5b56dbe7bb4d73cc445b6ff71988f164c0558a"
+    },
+    {
+      "operation": "config",
+      "original_sha256": "ed887da83d3e2c07ff8acc60cb5b56dbe7bb4d73cc445b6ff71988f164c0558a"
+    },
+    {
+      "operation": "--config",
+      "original_sha256": "ed887da83d3e2c07ff8acc60cb5b56dbe7bb4d73cc445b6ff71988f164c0558a"
+    },
+    {
+      "operation": "config",
+      "original_sha256": "ed887da83d3e2c07ff8acc60cb5b56dbe7bb4d73cc445b6ff71988f164c0558a"
+    }
+  ],
+  "browser_log": "** Message: 19:10:49.755: load finished, asking the page for a field to focus\n** Message: 19:10:54.010: load finished, asking the page for a field to focus\n** Message: 19:10:58.320: load finished, asking the page for a field to focus\n",
+  "final_status": "idle",
+  "browser_absent": true,
+  "ended": 1792019463.2641518
+}

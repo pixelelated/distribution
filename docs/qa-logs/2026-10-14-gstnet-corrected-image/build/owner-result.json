@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "stages": [
+    {
+      "stage": "clean-gstreamer",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    },
+    {
+      "stage": "gstreamer",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    },
+    {
+      "stage": "image",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    }
+  ],
+  "cleanup": [],
+  "signals": [],
+  "surviving_host_command_groups": {
+    "1108595": [],
+    "1108946": [],
+    "1111137": []
+  },
+  "elapsed_seconds": 189.97772508393973
+}

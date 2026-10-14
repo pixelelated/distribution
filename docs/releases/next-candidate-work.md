@@ -11,6 +11,32 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## October14 23:20 qualification update
+
+The corrected fac608ff engineering image is built and verified. #588 is closed
+with actual installed startup/reconnect proof. #565, #566 and #567 are closed
+after individual criterion review; Nova's original account writer remains unknown.
+Fresh installed UI and retained-storage update both pass the strict GStreamer
+loader checks, completing #572's assembled-image criterion. Actual update and
+install payloads pass the selected account/history policy. All original owners
+exited normally, their admissions were consumed, and completed UI media was
+retired. The standard15-row VM suite plus WebDAV/SFTP/local S3 is now running.
+
+The19 reviewed fresh-image frames cover phone and Wi-Fi behavior. Recent
+membership is established by API receipts, not its carousel-only frames. The
+remaining Wi-Fi criterion review identified precise gaps to verify: selection
+when a result disappears, connected/forget actions, and the corrected backend
+through the UI. Existing successful same-result refresh and route controls
+must not be overstated or unnecessarily repeated. Native gameplay/save behavior
+and14 remaining Steam recovery cases still await their serialized allocations.
+
+Evidence: [corrected build/readback](../qa-logs/2026-10-14-gstnet-corrected-image/README.md),
+[fresh installed UI](../qa-logs/2026-10-14-corrected-image-ui/README.md),
+[retained update and loader](../qa-logs/2026-10-14-corrected-retained-loader/README.md),
+[actual payload policy](../qa-logs/2026-10-14-corrected-payload/README.md).
+The table below retains component detail; this dated update supersedes its
+pending final-image wording for those completed, explicitly named scopes.
+
 ## Testing findings still in the current candidate
 
 | Work | Verified so far | Still required |

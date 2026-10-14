@@ -1,0 +1,42 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/.build-runs/20261014T231504Z-04208eaf",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 572,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-retained-loader-update-20261014-01",
+      "release_when": "Review original loader/state/base-hash/owner receipts, actual owners absent and admission consumed, then retire this overlay/OVMF. The previous retained base has its separate owner; coordinator retires it only after this named consumer is done."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-retained-loader-update-evidence-20261014-01/config.json",
+      "sha256": "2574082d5d1cf666b80e4a98ffbcc7b071419f7ad74f36b117c97c4199818055"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-retained-loader-update-evidence-20261014-01/export-result.json",
+      "sha256": "549e5b5704d6341a697cec8d2fc759bb03dbe9a48e8049f648e549d877329ee1"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-retained-loader-update-evidence-20261014-01/host-exits.json",
+      "sha256": "5548cfba248718cbf35334cf040c878888508d2af32240a03ea401c479ea525d"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-retained-loader-update-evidence-20261014-01/original-records.json",
+      "sha256": "d18914378be857f85a6b963d6354779165e824977e4cd2ca2f298ee41af70128"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-retained-loader-update-evidence-20261014-01/original-records.tar.gz",
+      "sha256": "069a148e4d2c054c84ce79b2382c7e896d6ae0da98ece3cd7a3f1ef49612f438"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-retained-loader-update-evidence-20261014-01/vm-result.json",
+      "sha256": "6585a91574a4dcc97aed5a4837c7fd92c978dccc5089f0ecc6dbe7e553683387"
+    }
+  ],
+  "requires_coordinator_review": true,
+  "channels_coherent": true,
+  "monitor_succeeded": true
+}

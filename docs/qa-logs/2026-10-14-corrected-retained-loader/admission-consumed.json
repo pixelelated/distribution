@@ -1,0 +1,49 @@
+{
+  "admitted": "2026-10-14T23:15:04.281408+00:00",
+  "available_bytes": 2810052661248,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02",
+  "consumed": "2026-10-14T23:17:59.514711+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02",
+  "deleted_bytes": 0,
+  "evidence_sha256": "57c5504921ff8d3f1d406d3bdc453791dd3ea046ffab737624e92ea2497961f6",
+  "id": "1945bac5237049ef89855a8dcefa2e0f",
+  "original_result": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-14T23:17:30.170631+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 572,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-retained-loader-update-20261014-01",
+      "release_when": "Review original loader/state/base-hash/owner receipts, actual owners absent and admission consumed, then retire this overlay/OVMF. The previous retained base has its separate owner; coordinator retires it only after this named consumer is done."
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "6c1e0bddad3d5111cfe506209f1b0d1459d755cdb66d1efe7ea283501c1d9088",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 19571671040,
+  "retention_plan_sha256": "0a98063451e386d179aeda6562ba3e7bb807a32045eb4dd3c1783de2933316c3",
+  "retention_report_sha256": "d477d1d73a3ec2678423e10e960cc5b2e1f7e0a0cfa910bdf981b7a6d4f9f02d",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/.build-runs/20261014T231504Z-04208eaf",
+  "runner_pid": 1311285,
+  "runner_start": "111138816",
+  "source": {
+    "head": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix-m7-retained-loader-update-20261014-01/lifecycle-owner",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

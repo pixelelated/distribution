@@ -1,0 +1,150 @@
+{
+  "status": "PREPARED_UNRUN",
+  "source": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+  "es_source": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "members": {
+    "usr/bin/emulationstation": {
+      "bytes": 11831632,
+      "sha256": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/emulationstation",
+        "links": []
+      }
+    },
+    "usr/bin/cloud_oauth": {
+      "bytes": 126485,
+      "sha256": "95c626f8df07faef522683a857e48e31f85a58c6f738bcde24707574dc24d293",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/cloud_oauth",
+        "links": []
+      }
+    },
+    "usr/bin/cloud-signin-window": {
+      "bytes": 35720,
+      "sha256": "6cbc445686d3d484ff20450342776e9eb92b47f6112a0352be1a50b334eef81b",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/cloud-signin-window",
+        "links": []
+      }
+    },
+    "usr/bin/rclone": {
+      "bytes": 85657808,
+      "sha256": "ed887da83d3e2c07ff8acc60cb5b56dbe7bb4d73cc445b6ff71988f164c0558a",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/rclone",
+        "links": []
+      }
+    },
+    "usr/bin/wifictl": {
+      "bytes": 24892,
+      "sha256": "c89ed28a50e4be78468fcee25dcfd68e0b1c67af25657c3d0ba9318c7576a48c",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/wifictl",
+        "links": []
+      }
+    },
+    "usr/bin/gst-inspect-1.0": {
+      "bytes": 60928,
+      "sha256": "84cf7ece4ae3df1343e85b4339b74e4b8d2836d07d073b1750582d61a97b8e19",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/gst-inspect-1.0",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/gst-plugin-scanner": {
+      "bytes": 14352,
+      "sha256": "0258b6e81d0332e4a39e1f0f2a8654c189fa3db1fde4866adec02ab59b38f815",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/gst-plugin-scanner",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstopengl.so": {
+      "bytes": 290768,
+      "sha256": "06dc2524e928252248c2f02c08928f155bef2c75644f7fcadccbbd6081dfa1a6",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstopengl.so",
+        "links": []
+      }
+    },
+    "usr/lib/libgstcontroller-1.0.so.0": {
+      "bytes": 60048,
+      "sha256": "ac4646378c64be84832bae33a084ab3b98ad3cfb131574c08cb1eadae32e2a1c",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libgstcontroller-1.0.so.0.2902.0",
+        "links": [
+          {
+            "path": "/usr/lib/libgstcontroller-1.0.so.0",
+            "target": "libgstcontroller-1.0.so.0.2902.0"
+          }
+        ]
+      }
+    },
+    "usr/lib/libgstnet-1.0.so.0": {
+      "bytes": 73256,
+      "sha256": "95228d04ae400ac3c79e3f676dd8d95d471837fb6de16d1fbd74dbe5cb29fdd1",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libgstnet-1.0.so.0.2902.0",
+        "links": [
+          {
+            "path": "/usr/lib/libgstnet-1.0.so.0",
+            "target": "libgstnet-1.0.so.0.2902.0"
+          }
+        ]
+      }
+    },
+    "usr/lib/libgstreamer-1.0.so.0": {
+      "bytes": 948896,
+      "sha256": "8820d44ba911da1862e4b15189c99f9076a1536ac5048bef122f4a3634536682",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libgstreamer-1.0.so.0.2902.0",
+        "links": [
+          {
+            "path": "/usr/lib/libgstreamer-1.0.so.0",
+            "target": "libgstreamer-1.0.so.0.2902.0"
+          }
+        ]
+      }
+    },
+    "usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo": {
+      "bytes": 173612,
+      "sha256": "f7b4fec7bacb7a7e2e53883c0c5f2bda1d14343d1c1392edf469904e95104a59",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo",
+        "links": []
+      }
+    },
+    "usr/config/locale/en_GB/LC_MESSAGES/emulationstation2.mo": {
+      "bytes": 66454,
+      "sha256": "4461480d7b6a88d1eb9cfb0ac0423d325455694ab4c420cc8c4e36ff04cdc73a",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/locale/en_GB/LC_MESSAGES/emulationstation2.mo",
+        "links": []
+      }
+    }
+  },
+  "verification": {
+    "path": "/workspace/tmp/pix-m7-installed-ui-20261014-02/records/image-verification.original.json",
+    "sha256": "748ee36035166f2f5c437c168b02f9de77f9c761b4196fa0ff1618834376ab28"
+  },
+  "playwright_python": "/tmp/pixelelated-import-qa-venv/bin/python",
+  "chromium": "/home/max/.cache/ms-playwright/chromium-1223/chrome-linux64/chrome",
+  "chromium_sha256": "adc1c21ceed5c2a67184766376fe816ac03e556cc0ca3f782e8212235fe05c6f",
+  "seams": [
+    "synthetic rclone authorize/lsd; actual installed config/listremotes/version delegation",
+    "synthetic wifictl enumeration; no radio claim"
+  ]
+}
