@@ -1,0 +1,53 @@
+{
+  "utc": "2026-10-15T09:23:56.469278+00:00",
+  "result": "PASS",
+  "scope": "SM8550 firmware artifacts; no physical boot/smoke or RC/publication claim",
+  "bundle": "/workspace/artifacts/pixelelated-candidates/sha256/09addac6d353e2a30e06610d87fa46b72a4bdfa82c711fd77a658b9e7f1d3ca0",
+  "bundle_manifest_sha256": "09addac6d353e2a30e06610d87fa46b72a4bdfa82c711fd77a658b9e7f1d3ca0",
+  "distribution_commit": "9aa7affee9d4ad5e69725cab20b6d7ad84d93dea",
+  "architecture": [
+    {
+      "path": "usr/bin/emulationstation",
+      "arch": "aarch64",
+      "sha256": "99ff88e3d26b0b1323695af0b0eb422603dacb841f4d6178235862f8177a72a4"
+    },
+    {
+      "path": "usr/bin/retroarch",
+      "arch": "aarch64",
+      "sha256": "4e916754324aa7df6c6ceeebbd22a733688923cce6f709eba6312fd44ef493e6"
+    }
+  ],
+  "arm_handoff_files": 188,
+  "variants": [
+    {
+      "image": "pixelelated-SM8550.aarch64-0.0.1-dev+20261015T075604Z.g9aa7affee9d4-from-ROCKNIX.img.gz",
+      "variant": "SM8550",
+      "system_sha256": "b7954c80fb20cf907b85ed247dc0c528789752c0b08888f3b80b97c49e9dea98",
+      "kernel_sha256": "1a10f367c1a5388fb03d0f09134b434658abc6bc6bf19b05b5fa07ad81130e11",
+      "bootloader_files": {
+        "rocknix_abl/restore_backup_abl.sh": "add45f3872e645ba215c8e5b5efcd1ef45e32b8ccf7a9275d9bf8e0de6edd247",
+        "rocknix_abl/backup_abl.sh": "bb0a723734451add4e0b7294dc9b246933e9dbadf965c06234534c923ea2b037",
+        "rocknix_abl/flash_abl.sh": "ceaf2cea5b0c5597944daceb7bee0c5c7eb10641c68f07c3ac87965617838548",
+        "rocknix_abl/abl_signed-SM8550.elf": "8c27a70961476b327071ada2fd9b9c55dd2dcdc913eff3d33f2576133d7e398c",
+        "rocknix_abl/README": "a95dc2e5611ddc7aa5c6d0a93fd21498934eca7eee6d7aefca11c376217bf77c"
+      },
+      "first_sector": 32768,
+      "raw_sha256": "9b5f4acbf423bb7ad1afbf2a1922d69a3887044fc40d867c66d6109ec2b670a3",
+      "raw_bytes": 2198863872
+    }
+  ],
+  "scratch_removed": true,
+  "source_unchanged": true,
+  "independent_bundle_inodes": true,
+  "host_checker": {
+    "host_checker_sha256": "65ab515ec2c0ccdf474f08128cabf1dea774846a8add3725cd05d334b2e1eba6",
+    "host_checker_tests_sha256": "6e0b2eb945b913ad0c176dd532586463493e6984240e128ff771ce6264fd3eec",
+    "controls_run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T063831Z-c75018f3",
+    "controls_stdout_sha256": "269b280376fa289e31d290515f75760cb675abf11ff983eb6a5a726c56d20ca8",
+    "controls_count": 212,
+    "path": "/workspace/tmp/pix-m7-sm8550-reader-20261015-01/acceptance/pixelelated-state-check"
+  },
+  "producer_combined_run_returncode": 1,
+  "producer_failed_run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-05/.build-runs/20261015T081827Z-07dceee9",
+  "qualification_scope": "Independent artifact acceptance after consumed original ABL format reader failure; no successful combined producer claim"
+}

@@ -814,13 +814,15 @@ The initial PARTIAL above is preserved. Root allocated one host-only recipe lint
 
 **Source:** Issue #575, literal body line 30.
 **Written:** 2026-10-15T11:21:27.258664+00:00
-**Verdict:** PASS
+**Verdict:** PARTIAL (amended after Phase4.6; original primary PASS retained in the running log)
 
 **Evidence:** RetroArch ordinary-save original baseline02 archive exit.log has runemu0 and actual .srm first byte55 on normal/debounced exit; current baseline-continuation scripts.log383–401 verifies numbered slot, AUTO SAVE, START NEW GAME and effective auto-load/save. Personally viewed original #196 before/after640 frames: numbered02:16 tile persists, AUTO SAVE advances02:08 to02:17; dated QA ledger/work log bind original loaded slot and quit, not a new run. Native03 original cold frames plus exported415B Wii save93c59... contain entered r1c2=4 and VMU131072B5f72... decoded CRC-verified score164; directly viewed cold score164 and Wii continued31-empty scene. Native02 final f863 installed inputs and inventories separate native states: Wii .s01 unchanged3732..., visible timer00:31→paused01:00→restored00:30; Flycast manual4666... unchanged hash/mtime with globalOn/nativeOff, native autoOn/globalOff creates376c... and fourth cold scene matches before any manual load. Supervisor original0/native children absent, raw engine wait explicitly unknown.
 
 **Refutation attempted:** Did not use state-file presence alone as load proof: viewed scene restoration and paired snapshots. Ordinary-save data is distinct from .s01/.state. Kept native03 failed export-wrapper1 and first state fixture failure separate; native02 supplies missing completed state behavior. Historical RetroArch full raw launch transcript is not re-created from ledger prose; retained frames and unchanged current launcher controls are its inherited evidence boundary.
 
 **Notes:** No new RetroArch replay, no standalone frontend integration, no power-loss claim or owner configuration inference. Wii cold-frame warnings partially obscure top row; binary save content provides the entered-cell witness rather than pretending that pixel is clearly visible.
+
+**Phase4.6 amendment:** The external challenge and exact previous AC-064 wording establish that the later native proof closes Dolphin/Flycast, not the missing RetroArch exit-auto-state process/stat binding. Preserve the accepted subclaims above. Focused current VM proof is #606; no new runtime has run yet.
 
 ## Prior-verdict cross-check
 
@@ -880,7 +882,7 @@ The initial PARTIAL above is preserved. Root allocated one host-only recipe lint
 | AC-50 | #577 | AC-071 PASS | PASS | Agreement with prior PASS |
 | AC-51 | #577 | AC-072 PARTIAL | PASS | Later source/installed/supplemental evidence resolves original gap; prior frozen verdict retained |
 | AC-52 | #575 | AC-063 PASS | PASS | Agreement with prior PASS |
-| AC-53 | #575 | AC-064 PARTIAL | PASS | Later source/installed/supplemental evidence resolves original gap; prior frozen verdict retained |
+| AC-53 | #575 | AC-064 PARTIAL | PARTIAL | Native gaps resolved; RetroArch process/stat binding remains #606; prior frozen verdict retained |
 | AC-54 | #575 | AC-065 PASS | PASS | Agreement with prior PASS |
 | AC-55 | #575 | AC-066 PASS | PASS | Agreement with prior PASS |
 | AC-56 | #574 | AC-059 PARTIAL | PASS | Later source/installed/supplemental evidence resolves original gap; prior frozen verdict retained |
@@ -897,3 +899,42 @@ The initial PARTIAL above is preserved. Root allocated one host-only recipe lint
 | AC-67 | #349 | AC-004 SKIP | PASS | Prior scoped exclusion; independently verified inherited originals and later publication |
 
 48 criteria match the previous115-criterion scope;19 are newly added cadence scope. Differences from its frozen PARTIAL/FAIL rows are time/source/evidence changes, not a claim that the earlier auditor was wrong. #349 was deliberately SKIP there and its documentation was subsequently published. AC08 historical lint uncertainty is preserved with a new check, not a retrospective fabricated result. No unresolved contradictory verdict was established.
+
+## Phase4.6 source and receipt reconciliation
+
+## Final primary grading of both external responses
+
+Both immutable Fable5.1/xhigh responses passed provider-observed identity,
+provenance and byte-hash verification. Blind completed21:36:18UTC; refutation
+completed21:51:19UTC. Every original command/monitor/runner/launcher is0; no retry.
+Root verified all recorded process identities absent. No external call remains.
+
+| Leads | Primary disposition and deciding evidence |
+| --- | --- |
+| G-01 | Concrete volatile-journal mechanism; reboot/remount trigger unmeasured. PL-002/#608 owns reproduction and safe durable-identity recovery. Do not remove live ownership checks. |
+| G-02 | Confirmed inherited registry overwrite; no installer-ownership decision found. PL-001/#607. Prior helper scope excluded the copy, so narrow preservation generalizations. |
+| G-03/G-23/G-24 | Current archive contract passes; future inventory growth, real FEX limits and slow-link adequacy remain explicit #563 native/real-payload qualification. No observed current parser failure or new blanket gate. |
+| G-04/G-28 | Deliberate safe refusal of unowned/ambiguous retained state. PL-007/#611 clarifies recovery guidance. G-04's source is retained GC resources, not proven immutable-only: automatic deletion is not justified. |
+| G-05 | Refuted for normal production flow: exact ES switch writes literal0; ctl writes/reads0 before enabling offline mode. IPv6 wildcard exclusion is deliberate; checks/lead-verification/retroarch-hardcore/findings.md. |
+| G-06 | Reader annotation distinguished from real archive measurement; installed steam resolves to packaged bin_steam.sh. No newly measured header bytes. Receipt note supplies exact identities. |
+| G-11 | Confirmed recurring automatic retry of failed GameCube RVZ hashes, conditional on enabled indexing. PL-003/#609. No measured performance cost or browser-cause claim. Valid unmatched hashes remain protected. |
+| G-12/G-13 | Packet omissions resolved from exact patched IPv4 proxy binding and complete launcher blocks; no new live socket/gameplay claim. checks/lead-verification/dolphin-rvz/findings.md. |
+| G-14/G-15 | Original product/tool identities are distinct; actual continuation config binds corrected current harness and exact run.py. No historical1378-pass result is relabelled as current product execution. Receipt note. |
+| G-16 | Frozen readiness already retains f863 producer-reporting failure/unknown launcher wait. Independent artifact/VM success remains distinct; same caveat added to scorecard. |
+| G-17/G-18 | Exact preparation timestamp precedes actual launch; old/current four Python heredocs are byte-equal. Receipt note closes these source-binding omissions. |
+| G-19/G-27 | Actual composed claims equal frozen Git claims,391 rows with zero wildcard heads; vm-qa uses that path.78 original pixel-pair/scalar rows retained; no new all-frame review claim. |
+| G-20 | Current exact recipe lint0 supplies mechanical check. Historical original status remains unavailable. |
+| G-21 | Inherited release-metadata eval assignment is a concrete quoting boundary. PL-004/#610; safe VM control and repair required before affected deployment. |
+| G-22 | Existing #563 native first-launch/binfmt lifecycle qualification remains unproved. Frontend kill list names Steam/FEX, not proof that the shell is killed. Do not assert observed unrecovered binfmt state. |
+| G-25 | Original before/after manifests and logs show successful recovery followed by injected wget9; all retry1 outcomes remain1. No successful replacement-download claim. Receipt note. |
+| G-26 | Subreaper setup, driver0, joined worker and absent exact identities prove bounded cleanup. Clean grandchild individual wait statuses are not retained; no claim of all individual exit codes. Preserve this receipt limitation. |
+| G-29 | Preservation/no-defect wording narrowed in03/04; PL-006 owns record correction and exact evidence links. |
+| AC-53 challenge | Accepted: prior literal criterion included RetroArch. Native02/03 close Dolphin/Flycast only; missing RetroArch process/stat binding leaves aggregate PARTIAL. PL-005/#606 owns a focused current VM proof, not an exhaustive historical search. |
+
+The seven punch items distinguish product defects, predicted recovery risk,
+missing evidence and guidance. H700 package selection excludes Steam and Dolphin;
+actual packaged inventory and retained-device overrides remain separately checked.
+This does not exempt shared frontend code or authorize device actions. All source
+and receipt packets above were independently hash-verified into checks/lead-verification.
+
+Current literal score:66 PASS,1 PARTIAL (AC-53); no FAIL/SKIP/UNTESTABLE. No original runtime result is changed.

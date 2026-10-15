@@ -1,0 +1,112 @@
+{
+  "client": {
+    "type": "dir",
+    "mode": 493
+  },
+  "client/do-not-touch": {
+    "type": "file",
+    "mode": 420,
+    "size": 25,
+    "sha256": "ce869e8ec49df3a3da443e4700593b301c90121298b5a088a9076d1b43626562"
+  },
+  "compatibilitytools.d": {
+    "type": "dir",
+    "mode": 493
+  },
+  "compatibilitytools.d/existing-proton": {
+    "type": "dir",
+    "mode": 493
+  },
+  "compatibilitytools.d/existing-proton/do-not-touch": {
+    "type": "file",
+    "mode": 420,
+    "size": 25,
+    "sha256": "ce869e8ec49df3a3da443e4700593b301c90121298b5a088a9076d1b43626562"
+  },
+  "games": {
+    "type": "dir",
+    "mode": 493
+  },
+  "games/do-not-touch": {
+    "type": "file",
+    "mode": 420,
+    "size": 25,
+    "sha256": "ce869e8ec49df3a3da443e4700593b301c90121298b5a088a9076d1b43626562"
+  },
+  "lib": {
+    "type": "dir",
+    "mode": 493
+  },
+  "lib/aarch64-linux-gnu": {
+    "type": "dir",
+    "mode": 493
+  },
+  "lib/aarch64-linux-gnu/libibus-1.0.so.5": {
+    "type": "link",
+    "target": "/run/qa-steam-scratch/first/runtime/tmp/cases/kill-new-renamed/synthetic-steam/steam-runtime-steamrt-arm64/old-marker"
+  },
+  "lib/aarch64-linux-gnu/libva.so.2": {
+    "type": "file",
+    "mode": 420,
+    "size": 30,
+    "sha256": "7d44abd1acdf84a0392b20666c407ba4d4be552136d9ffe76f6a1f0d9b51488f"
+  },
+  "saves": {
+    "type": "dir",
+    "mode": 493
+  },
+  "saves/do-not-touch": {
+    "type": "file",
+    "mode": 420,
+    "size": 25,
+    "sha256": "ce869e8ec49df3a3da443e4700593b301c90121298b5a088a9076d1b43626562"
+  },
+  "steam-runtime-steamrt-arm64": {
+    "type": "dir",
+    "mode": 493
+  },
+  "steam-runtime-steamrt-arm64/README": {
+    "type": "file",
+    "mode": 420,
+    "size": 27,
+    "sha256": "5cd1174dd49839816f63bbad0a0465b958fb2372e44b4bcb114cd3cebcd43432"
+  },
+  "steam-runtime-steamrt-arm64/nested": {
+    "type": "dir",
+    "mode": 493
+  },
+  "steam-runtime-steamrt-arm64/nested/keep-all-files": {
+    "type": "file",
+    "mode": 420,
+    "size": 28672,
+    "sha256": "5cf507fd19ffbaad1c13cfd70a70b225fe4e0748d4d7b70e5833c3c539dc645a"
+  },
+  "steam-runtime-steamrt-arm64/steamrt3c_platform_fixture": {
+    "type": "dir",
+    "mode": 493
+  },
+  "steam-runtime-steamrt-arm64/steamrt3c_platform_fixture/files": {
+    "type": "dir",
+    "mode": 493
+  },
+  "steam-runtime-steamrt-arm64/steamrt3c_platform_fixture/files/lib": {
+    "type": "dir",
+    "mode": 493
+  },
+  "steam-runtime-steamrt-arm64/steamrt3c_platform_fixture/files/lib/aarch64-linux-gnu": {
+    "type": "dir",
+    "mode": 493
+  },
+  "steam-runtime-steamrt-arm64/steamrt3c_platform_fixture/files/lib/aarch64-linux-gnu/libibus-1.0.so.5.1": {
+    "type": "file",
+    "mode": 420,
+    "size": 468,
+    "sha256": "17c179858780250076065000109e2aaa5bacc0ff2f0e98833e6ad9e50672684b"
+  },
+  "steam-runtime-steamrt-arm64/steamrt3c_platform_fixture/files/lib/aarch64-linux-gnu/libva.so.2.1": {
+    "type": "file",
+    "mode": 420,
+    "size": 468,
+    "sha256": "17c179858780250076065000109e2aaa5bacc0ff2f0e98833e6ad9e50672684b"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "client": {
+    "type": "dir",
+    "mode": 493
+  },
+  "client/do-not-touch": {
+    "type": "file",
+    "mode": 420,
+    "size": 25,
+    "sha256": "ce869e8ec49df3a3da443e4700593b301c90121298b5a088a9076d1b43626562"
+  },
+  "compatibilitytools.d": {
+    "type": "dir",
+    "mode": 493
+  },
+  "compatibilitytools.d/existing-proton": {
+    "type": "dir",
+    "mode": 493
+  },
+  "compatibilitytools.d/existing-proton/do-not-touch": {
+    "type": "file",
+    "mode": 420,
+    "size": 25,
+    "sha256": "ce869e8ec49df3a3da443e4700593b301c90121298b5a088a9076d1b43626562"
+  },
+  "games": {
+    "type": "dir",
+    "mode": 493
+  },
+  "games/do-not-touch": {
+    "type": "file",
+    "mode": 420,
+    "size": 25,
+    "sha256": "ce869e8ec49df3a3da443e4700593b301c90121298b5a088a9076d1b43626562"
+  },
+  "lib": {
+    "type": "dir",
+    "mode": 493
+  },
+  "lib/aarch64-linux-gnu": {
+    "type": "dir",
+    "mode": 493
+  },
+  "lib/aarch64-linux-gnu/libibus-1.0.so.5": {
+    "type": "link",
+    "target": "/run/qa-steam-scratch/first/runtime/tmp/cases/kill-first-link/synthetic-steam/steam-runtime-steamrt-arm64/old-marker"
+  },
+  "lib/aarch64-linux-gnu/libva.so.2": {
+    "type": "file",
+    "mode": 420,
+    "size": 30,
+    "sha256": "7d44abd1acdf84a0392b20666c407ba4d4be552136d9ffe76f6a1f0d9b51488f"
+  },
+  "saves": {
+    "type": "dir",
+    "mode": 493
+  },
+  "saves/do-not-touch": {
+    "type": "file",
+    "mode": 420,
+    "size": 25,
+    "sha256": "ce869e8ec49df3a3da443e4700593b301c90121298b5a088a9076d1b43626562"
+  },
+  "steam-runtime-steamrt-arm64": {
+    "type": "dir",
+    "mode": 493
+  },
+  "steam-runtime-steamrt-arm64/.hidden": {
+    "type": "dir",
+    "mode": 493
+  },
+  "steam-runtime-steamrt-arm64/.hidden/kept-file": {
+    "type": "file",
+    "mode": 420,
+    "size": 21,
+    "sha256": "c68a6831e6ddfb8d8a8f4b1c01d00bf8cef42d61af6e80200b12314afd47dd56"
+  },
+  "steam-runtime-steamrt-arm64/nested": {
+    "type": "dir",
+    "mode": 493
+  },
+  "steam-runtime-steamrt-arm64/nested/another-file": {
+    "type": "file",
+    "mode": 420,
+    "size": 23,
+    "sha256": "d97e2fd9e0c938f42a5e096bf45f68953f275fbb0461aa7118e5fa9b79e76cc3"
+  },
+  "steam-runtime-steamrt-arm64/old-marker": {
+    "type": "file",
+    "mode": 420,
+    "size": 14,
+    "sha256": "e2be2a2b500f443afa4880e12be0792cb07856e898601ad425fadea0b3fd3027"
+  },
+  "steam-runtime-steamrt-arm64/relative-link": {
+    "type": "link",
+    "target": "old-marker"
+  }
+}

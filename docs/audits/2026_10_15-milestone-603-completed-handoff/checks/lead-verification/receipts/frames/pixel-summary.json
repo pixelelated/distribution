@@ -1,0 +1,1355 @@
+{
+  "original": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-frame-claims/pixel-inventory.json",
+  "original_sha256": "6827c253d8f4d2ec649a2baea13fda8aa4e07daa0e937b1d4ea959df37a16517",
+  "original_bytes": 3588002,
+  "scope": "metadata projection; no pixel comparison rerun",
+  "frames": [
+    {
+      "screen": "back-up-page/01-cloud-hub.png",
+      "baseline_sha256": "ef9aa00e4b21eee76f6a70e0457fe7cb23278d52771923bdd35bfa48cb432d98",
+      "current_sha256": "2407ad318213837e373fa7fca2a4acb22f82c75d3e8bf692ecdaee84ec52b3c3",
+      "changed_pixels": 201537,
+      "outside_existing_masks_and_claims": 201035,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "back-up-page/02-back-up-page.png",
+      "baseline_sha256": "a28a07a211ff8e0bbdb2e904a8d421b1ef4c6a2c4678887a45f5485820f8cff2",
+      "current_sha256": "485f5ad9412b9c3848eff4fcf7db5680a4524c7ece50fca381f0b0f09ab4d23c",
+      "changed_pixels": 229340,
+      "outside_existing_masks_and_claims": 228838,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "confirm-cloud-folder/01-cloud-hub.png",
+      "baseline_sha256": "df7dc4cc940bb9dfdc57e2598385f12235b1858273d74a071bc8a5ec8cdb9971",
+      "current_sha256": "654167ff853bb19060b4daab501ff92441e3d87a873308896555c5b91267f385",
+      "changed_pixels": 201505,
+      "outside_existing_masks_and_claims": 201035,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "confirm-cloud-folder/02-hub-change-folder-row.png",
+      "baseline_sha256": "84dee84c6ea3beaac09d83b23ea8db55e6f3373e277a8641ae0a56f46958de5e",
+      "current_sha256": "12e124d43e586c95b52760c7365df2af897d68af92154b9737d4c8ddc513d2df",
+      "changed_pixels": 359013,
+      "outside_existing_masks_and_claims": 201035,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "confirm-cloud-folder/03-folder-editor.png",
+      "baseline_sha256": "71d14ec5f96dcb82000c474a17cb5a91ccfd85c94f1cb6eed76334877f0159ec",
+      "current_sha256": "cc853331b4634091dd5ae710076265aa890fbd54e29c718a9064d708b838d62b",
+      "changed_pixels": 228704,
+      "outside_existing_masks_and_claims": 152955,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "confirm-cloud-folder/04-folder-result.png",
+      "baseline_sha256": "84dee84c6ea3beaac09d83b23ea8db55e6f3373e277a8641ae0a56f46958de5e",
+      "current_sha256": "ec4c201bbcad5675a323729de07f88bda70fe031a9b443625d667d2719f8ec0b",
+      "changed_pixels": 468256,
+      "outside_existing_masks_and_claims": 201035,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "confirm-cloud-folder/05-after-dismiss.png",
+      "baseline_sha256": "a35a0328540719b5a360258ac3c31f4ea260d8431e901e2b762829f25b5be82b",
+      "current_sha256": "12e124d43e586c95b52760c7365df2af897d68af92154b9737d4c8ddc513d2df",
+      "changed_pixels": 660112,
+      "outside_existing_masks_and_claims": 142737,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "continue-to-systems/01-cloud-hub.png",
+      "baseline_sha256": "69de5c21a77df05d8909479fe9331755d5f5c07a1c331a1d0e9704c416fca6ab",
+      "current_sha256": "191269ae0a6b336b4f8ed0fa80c23b4e257baa2269402681b32b8341060ccf6e",
+      "changed_pixels": 201560,
+      "outside_existing_masks_and_claims": 201035,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "continue-to-systems/02-back-up-page.png",
+      "baseline_sha256": "da180e1b637f2c9b6389179537b97b050986e901df97b415359321bf7cd7bad6",
+      "current_sha256": "733ee2e2e6d2ea78354c88dadfc3fbc95efcf627a0ce867e321137401dc4485e",
+      "changed_pixels": 229363,
+      "outside_existing_masks_and_claims": 228838,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "continue-to-systems/03-roms-flipped.png",
+      "baseline_sha256": "5eb8eac6c5e893d757f91d662b4ddf10a0632d94bb2fb592d06c8ca7012fd804",
+      "current_sha256": "e443a06caf967774655cd3d03f7d258631a08e3c55897c9ef05780041f23f440",
+      "changed_pixels": 229363,
+      "outside_existing_masks_and_claims": 228838,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "continue-to-systems/04-continue-focused.png",
+      "baseline_sha256": "d471cb0d57378facd42d015476833b3a2ccffd62897cc882987e95262457defc",
+      "current_sha256": "626d0a22555db187b88129938cfae92e7e50c691cd423fe20c151b6b190f607b",
+      "changed_pixels": 229363,
+      "outside_existing_masks_and_claims": 228838,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "continue-to-systems/05-systems-page.png",
+      "baseline_sha256": "f9f309aec5a241d0f58d821fb2bb62acdf53c5862a9f345a9fb94e2d53d94ce3",
+      "current_sha256": "468e71a43784421947d9fbfe9f352279c852b2c25dd595ece0357cca86f25816",
+      "changed_pixels": 282210,
+      "outside_existing_masks_and_claims": 206777,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "manager-fbn/01-0-carousel.png",
+      "baseline_sha256": "6efc5708fa27bfaaca5886cf37e84b5dd6a1cddf16da595bee59398f8c228b36",
+      "current_sha256": "3278e6a995ad7d4f96359f057c913c8ca37d49bb51896cc24197f06b78457f88",
+      "changed_pixels": 360253,
+      "outside_existing_masks_and_claims": 355159,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "manager-fbn/02-1-list.png",
+      "baseline_sha256": "c5a747f3929a8efc429dfadf5fde69f0ac24e6fe65132e3e02dbcc00e58e2b9e",
+      "current_sha256": "909312a6738e9101122a598bcbc77a3437da5393a397a23236d0a7f0a8dfa4a1",
+      "changed_pixels": 514,
+      "outside_existing_masks_and_claims": 0,
+      "residual_bounds": null,
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "manager-fbn/03-2-game-options.png",
+      "baseline_sha256": "065adad508130ba973d8a649950a1b09f2bea4d4daef85b069d0585c80519e39",
+      "current_sha256": "065adad508130ba973d8a649950a1b09f2bea4d4daef85b069d0585c80519e39",
+      "changed_pixels": 0,
+      "outside_existing_masks_and_claims": 0,
+      "residual_bounds": null,
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "manager-fbn/04-3-manager.png",
+      "baseline_sha256": "adc5cd84d8df072ec060ae6259420cc153d49c746c5712b7db4cc2400233a531",
+      "current_sha256": "a0e9ba08daeac8460f56d9dd7a226e4b4647411b03d6443c9344069ca5dec5d8",
+      "changed_pixels": 504,
+      "outside_existing_masks_and_claims": 0,
+      "residual_bounds": null,
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "manager-fbn/05-4-manager-next-tile.png",
+      "baseline_sha256": "71a28a3b47fe6fd2eda09eeb0080d28226d250989eca7137f4b47af02cafb6b4",
+      "current_sha256": "cf30cce2eb22ed9dcb37d06a9c022d75b9ae58e5633c62fa81feea72999420be",
+      "changed_pixels": 504,
+      "outside_existing_masks_and_claims": 0,
+      "residual_bounds": null,
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "manager-gb/01-0-carousel.png",
+      "baseline_sha256": "1be7326e4d32bcfa186e425a0ef3f319d103a4c8e1530969dae8bcda23d4c590",
+      "current_sha256": "6000fc3c801c13cabf1fbec8aab0931fa1394ae7932c481b0a8052cc8a38f1ce",
+      "changed_pixels": 817388,
+      "outside_existing_masks_and_claims": 0,
+      "residual_bounds": null,
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "manager-gb/02-1-list.png",
+      "baseline_sha256": "12956a23ea265415644fd73251b8e7626f75d1952098fb5bdcab712f00b8e8ed",
+      "current_sha256": "247c23891fe05af34931bc4a1074b3061a5652337a20503cd073a7f12ba4409a",
+      "changed_pixels": 16561,
+      "outside_existing_masks_and_claims": 0,
+      "residual_bounds": null,
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "manager-gb/03-2-game-options.png",
+      "baseline_sha256": "065adad508130ba973d8a649950a1b09f2bea4d4daef85b069d0585c80519e39",
+      "current_sha256": "fe7c2fe19662c1bfa8d548c618f385180582cc330686eaf5f795233a850b32b6",
+      "changed_pixels": 15026,
+      "outside_existing_masks_and_claims": 0,
+      "residual_bounds": null,
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "manager-gb/04-3-manager.png",
+      "baseline_sha256": "7a5cbc68822f5a9368deae76f0aa5bb9597689babf073a3fc4fa880d75d71cd8",
+      "current_sha256": "ba58701b8676180dd0c31b7a06f1bcbe79e3003bfeffa2f1081cbba91c706aec",
+      "changed_pixels": 53918,
+      "outside_existing_masks_and_claims": 0,
+      "residual_bounds": null,
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "manager-gb/05-4-manager-next-tile.png",
+      "baseline_sha256": "59153432d721af6c18bbf37b6e18d408dc7421a987459cf4e1449bc245b5dc13",
+      "current_sha256": "309bfe8fb02e304885f6653d60c06703fb477a976e203612a8d1593fed034380",
+      "changed_pixels": 53936,
+      "outside_existing_masks_and_claims": 0,
+      "residual_bounds": null,
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "manager-nes/01-0-carousel.png",
+      "baseline_sha256": "226d5b013389951a852960f3d11eb99d6a8af4f706d3ddaa93985aabf63291fa",
+      "current_sha256": "87e9b955cde78ce49e2672582d256090eab44eca0c1db8367d10cb1263d506c7",
+      "changed_pixels": 348784,
+      "outside_existing_masks_and_claims": 7868,
+      "residual_bounds": [
+        0,
+        0,
+        40,
+        382
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "manager-nes/02-1-list.png",
+      "baseline_sha256": "07417fbcf7c5cf646aa8d4e3211d728b5c7e0eba38cdf5274dbb3f5caca04aeb",
+      "current_sha256": "52a8c1aa35568de8006db6f38341d2f77fb11bf35a452a31bb55042cc462d471",
+      "changed_pixels": 582,
+      "outside_existing_masks_and_claims": 0,
+      "residual_bounds": null,
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "manager-nes/03-2-game-options.png",
+      "baseline_sha256": "92e4273afe24b875ec9d2491887dee2ba7c99f0bfaec57ebbf8f51d5f4178a24",
+      "current_sha256": "92e4273afe24b875ec9d2491887dee2ba7c99f0bfaec57ebbf8f51d5f4178a24",
+      "changed_pixels": 0,
+      "outside_existing_masks_and_claims": 0,
+      "residual_bounds": null,
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "manager-nes/04-3-manager.png",
+      "baseline_sha256": "dbf7f50df6b61f3e2fac1f19f0a4a830cda2ae6f50d416c855669aca1f8e4285",
+      "current_sha256": "2d2683ad87e8076d362fdc5c19c146daaa85cc2d254fce076f55d7d7379065a0",
+      "changed_pixels": 508,
+      "outside_existing_masks_and_claims": 0,
+      "residual_bounds": null,
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "manager-nes/05-4-manager-next-tile.png",
+      "baseline_sha256": "529c9c3bd87e0883c22f0297983b4104736c86c9315fed74b26a16f7de465782",
+      "current_sha256": "f8395e88efb8cd290d85d1ceaa5bfce6d073757dc2fa82e1c9b260438aac5a6c",
+      "changed_pixels": 508,
+      "outside_existing_masks_and_claims": 0,
+      "residual_bounds": null,
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "match-dialog/01-cloud-hub.png",
+      "baseline_sha256": "d760b6ac872ce4037fcb075a29a4ed38faa50e9412b00827b7ecb52e6728dc2f",
+      "current_sha256": "b0e964fa104bdc60709302ad7249f086b2b280bb3e3b9e6e88f3e4d9f4d0d986",
+      "changed_pixels": 201528,
+      "outside_existing_masks_and_claims": 201035,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "match-dialog/02-cloud-hub-match-row.png",
+      "baseline_sha256": "edce09b3f1161dfb3f0da70eabc6d0455332bd8c0266607e99e6f8d90d686523",
+      "current_sha256": "67d29c1bda5344a95f78306aea5c7fa075d1bd845253e35c706577f0e320311e",
+      "changed_pixels": 201528,
+      "outside_existing_masks_and_claims": 201035,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "match-dialog/03-match-confirm.png",
+      "baseline_sha256": "d236577c3a228d7ad8063919140d5bb059b79d36afe15c7824d979a8ee73c50d",
+      "current_sha256": "46634e58ca311c3241fb848fe8950d1a1e643ea561fda424f2740f403360041c",
+      "changed_pixels": 142773,
+      "outside_existing_masks_and_claims": 142280,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "match-dialog/04-match-done.png",
+      "baseline_sha256": "9aa9247d0e6181fd4fee37ea4d7836fe79ec10eec4083e41b7fd62cc831e101c",
+      "current_sha256": "82e040229ff13e8b6fc12022d8752aa99842bf6c787b7cafd960feb8be01112d",
+      "changed_pixels": 171580,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "restore-page/01-cloud-hub.png",
+      "baseline_sha256": "d760b6ac872ce4037fcb075a29a4ed38faa50e9412b00827b7ecb52e6728dc2f",
+      "current_sha256": "330a64362c91c8ec9057ea9b4d0f33674e77bb52034b72fe8bf13f740cfe5348",
+      "changed_pixels": 201542,
+      "outside_existing_masks_and_claims": 201035,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "restore-page/02-restore-page.png",
+      "baseline_sha256": "f3f0b55b3e8a8f4b627878f086505d63f03a130a4ded6e59c573d2d7104dadbb",
+      "current_sha256": "ad9290a82c7065b78d55e6b7c51461e8e92ff6d4e6f9baf528db5dfdb6aac049",
+      "changed_pixels": 236375,
+      "outside_existing_masks_and_claims": 228838,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer/01-cloud-hub.png",
+      "baseline_sha256": "0d4f267b2d510b9594fa933da714b81ed434da4a2d991bdb2959d33e142b6def",
+      "current_sha256": "891bc29da9b5a4b92a47c27d8e4da75cf0833a2dfe32a8b6a0967da90de87091",
+      "changed_pixels": 201578,
+      "outside_existing_masks_and_claims": 201035,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer/02-back-up-page.png",
+      "baseline_sha256": "bee6d85efd9708e45bb3c6509c71018ba3263299663f946e2a13869ca8c6fff5",
+      "current_sha256": "95a70e574604de70cd4aa33137a55c851c8b036c6e26890bd8b9773f61ec9539",
+      "changed_pixels": 229381,
+      "outside_existing_masks_and_claims": 228838,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer/03-roms-flipped.png",
+      "baseline_sha256": "a76d0267ac9eaa3201cb2d6c4d01a7eb5a39fb058e5a88ac81d0ab7eae840e90",
+      "current_sha256": "a3d602fbfd080463b77d3b3b1259c3b1228499420e15159413e711d68777ea6c",
+      "changed_pixels": 229381,
+      "outside_existing_masks_and_claims": 228838,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer/04-continue-focused.png",
+      "baseline_sha256": "0548967496b41776f3a822115131a7897f02c83bb3929b328e82b466d6b16f4d",
+      "current_sha256": "8fe04e4c3bd54e08620ee1197ee9a16272f316080ce6180ad6c03b24709d0265",
+      "changed_pixels": 229381,
+      "outside_existing_masks_and_claims": 228838,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer/05-systems-page.png",
+      "baseline_sha256": "ec4d6cc244afc188b0845192f9f72b77905dc8fa81fd971637bf116b0939cd61",
+      "current_sha256": "c2c2dd47dc097b933eb8a02070e37aa7d31943a96b4e5d181f303bf0e24b4282",
+      "changed_pixels": 226614,
+      "outside_existing_masks_and_claims": 226071,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer/06-selected-all.png",
+      "baseline_sha256": "e7763513953039b0a1333694e4d258eb02ec8836d6b861549c1eb9ab4f2482da",
+      "current_sha256": "35acbca50e42eac94d4454c507aaf3dabb4729f8f2249e1c139029e271ec2f93",
+      "changed_pixels": 226614,
+      "outside_existing_masks_and_claims": 226071,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer/07-transfer-running.png",
+      "baseline_sha256": "638123f3cdb9b49ed9e57ef1fc0415f988ad41d79ec9f605f49b453536fe47b5",
+      "current_sha256": "9a49e934949af49da436cf329daf90e6de981cb23ce750e98b2c82914c54d20d",
+      "changed_pixels": 179844,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer/08-transfer-done.png",
+      "baseline_sha256": "9ca117e0491b9f67014e9f9435c2d8ca957177c40658c067aec6d4a555157f61",
+      "current_sha256": "4611851d82538242e95ec491b6795fc7bc867db23de25e96285b2351ec914389",
+      "changed_pixels": 171746,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/01-cloud-hub.png",
+      "baseline_sha256": "3147af9686ac53b5b0d4529d6dc73c66fab8c7351439db8373a7494673e7f962",
+      "current_sha256": "b2edd5944359ce9065900621d686e7b5fdba9826a44061dc37046e9c312e1198",
+      "changed_pixels": 201559,
+      "outside_existing_masks_and_claims": 201035,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/02-back-up-page.png",
+      "baseline_sha256": "04e01cc91fef712131888b90904a4183f5f5e0ea4418c485c94353beef67282c",
+      "current_sha256": "ded2cb32ca22b01d90a4325b95306a43557ad4060a490d6a9f1fac497781312d",
+      "changed_pixels": 229362,
+      "outside_existing_masks_and_claims": 228838,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/03-roms-flipped.png",
+      "baseline_sha256": "c32eacdb8b2b8d2498efbfe3b3e3d52abd42ab8541d8cad306b0faf76d0f7892",
+      "current_sha256": "14a7906f2e7c245937bf4d14ed8004b5630775e4ecd26c86285ccdd672d9fe36",
+      "changed_pixels": 229362,
+      "outside_existing_masks_and_claims": 228838,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/04-continue-focused.png",
+      "baseline_sha256": "a497fc420fae96f654446560585c7206ce8507e560fe2cc179167582344f3db5",
+      "current_sha256": "c5dace8251e22a5fa79df4372577a96197047bd80be7b019f09edaf6e7f6f698",
+      "changed_pixels": 229362,
+      "outside_existing_masks_and_claims": 228838,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/05-systems-page.png",
+      "baseline_sha256": "79c9ecb1334e3e65c5a65069a3836089d07e41dc256df18e997f39e66cd22b75",
+      "current_sha256": "77c9beb3cc5b13d84948396cc40699d119c11e5a0d974c422fb4835eb7734ebb",
+      "changed_pixels": 282209,
+      "outside_existing_masks_and_claims": 206777,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/06-selected-all.png",
+      "baseline_sha256": "f9b2cbc09500b42597c796424936c21500707dc7269aed4ab8cefaaa448767db",
+      "current_sha256": "178c5a7d8363958a546a5c59ab2c15388f27e47db3ef11f715ee406dff2dc233",
+      "changed_pixels": 287585,
+      "outside_existing_masks_and_claims": 206777,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/07-t02.png",
+      "baseline_sha256": "4955b3c06b6e06a6c583e009919d50677916a6c6f126749afb40b167c9504593",
+      "current_sha256": "0ae145adaffa52546e02bec7361bab720c25c70968f364418d0b8ed9471e6dac",
+      "changed_pixels": 179831,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/08-t05.png",
+      "baseline_sha256": "fdd72ad2f5973ac7af1e3b679b98e03dffe995ae4cad434d863f6933f1f96bb6",
+      "current_sha256": "e2d2676fadbc78c9159cbafc007ed2a67b70abd504231cdd4fb032a60b8855e6",
+      "changed_pixels": 194060,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/09-t08.png",
+      "baseline_sha256": "fdd72ad2f5973ac7af1e3b679b98e03dffe995ae4cad434d863f6933f1f96bb6",
+      "current_sha256": "ae603946cdf1d3a4f6506928271c85a1c04188bd3a7f8fb1bb9de45c68dd3e7f",
+      "changed_pixels": 171940,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/10-t11.png",
+      "baseline_sha256": "fdd72ad2f5973ac7af1e3b679b98e03dffe995ae4cad434d863f6933f1f96bb6",
+      "current_sha256": "ae603946cdf1d3a4f6506928271c85a1c04188bd3a7f8fb1bb9de45c68dd3e7f",
+      "changed_pixels": 171940,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/11-t14.png",
+      "baseline_sha256": "fdd72ad2f5973ac7af1e3b679b98e03dffe995ae4cad434d863f6933f1f96bb6",
+      "current_sha256": "ae603946cdf1d3a4f6506928271c85a1c04188bd3a7f8fb1bb9de45c68dd3e7f",
+      "changed_pixels": 171940,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/12-t17.png",
+      "baseline_sha256": "fdd72ad2f5973ac7af1e3b679b98e03dffe995ae4cad434d863f6933f1f96bb6",
+      "current_sha256": "ae603946cdf1d3a4f6506928271c85a1c04188bd3a7f8fb1bb9de45c68dd3e7f",
+      "changed_pixels": 171940,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/13-t20.png",
+      "baseline_sha256": "fdd72ad2f5973ac7af1e3b679b98e03dffe995ae4cad434d863f6933f1f96bb6",
+      "current_sha256": "ae603946cdf1d3a4f6506928271c85a1c04188bd3a7f8fb1bb9de45c68dd3e7f",
+      "changed_pixels": 171940,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/14-t23.png",
+      "baseline_sha256": "fdd72ad2f5973ac7af1e3b679b98e03dffe995ae4cad434d863f6933f1f96bb6",
+      "current_sha256": "ae603946cdf1d3a4f6506928271c85a1c04188bd3a7f8fb1bb9de45c68dd3e7f",
+      "changed_pixels": 171940,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/15-t26.png",
+      "baseline_sha256": "fdd72ad2f5973ac7af1e3b679b98e03dffe995ae4cad434d863f6933f1f96bb6",
+      "current_sha256": "ae603946cdf1d3a4f6506928271c85a1c04188bd3a7f8fb1bb9de45c68dd3e7f",
+      "changed_pixels": 171940,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/16-t29.png",
+      "baseline_sha256": "fdd72ad2f5973ac7af1e3b679b98e03dffe995ae4cad434d863f6933f1f96bb6",
+      "current_sha256": "ae603946cdf1d3a4f6506928271c85a1c04188bd3a7f8fb1bb9de45c68dd3e7f",
+      "changed_pixels": 171940,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/17-t32.png",
+      "baseline_sha256": "fdd72ad2f5973ac7af1e3b679b98e03dffe995ae4cad434d863f6933f1f96bb6",
+      "current_sha256": "ae603946cdf1d3a4f6506928271c85a1c04188bd3a7f8fb1bb9de45c68dd3e7f",
+      "changed_pixels": 171940,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/18-t36.png",
+      "baseline_sha256": "fdd72ad2f5973ac7af1e3b679b98e03dffe995ae4cad434d863f6933f1f96bb6",
+      "current_sha256": "ae603946cdf1d3a4f6506928271c85a1c04188bd3a7f8fb1bb9de45c68dd3e7f",
+      "changed_pixels": 171940,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/19-t40.png",
+      "baseline_sha256": "fdd72ad2f5973ac7af1e3b679b98e03dffe995ae4cad434d863f6933f1f96bb6",
+      "current_sha256": "ae603946cdf1d3a4f6506928271c85a1c04188bd3a7f8fb1bb9de45c68dd3e7f",
+      "changed_pixels": 171940,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/20-t45.png",
+      "baseline_sha256": "fdd72ad2f5973ac7af1e3b679b98e03dffe995ae4cad434d863f6933f1f96bb6",
+      "current_sha256": "ae603946cdf1d3a4f6506928271c85a1c04188bd3a7f8fb1bb9de45c68dd3e7f",
+      "changed_pixels": 171940,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/21-t50.png",
+      "baseline_sha256": "fdd72ad2f5973ac7af1e3b679b98e03dffe995ae4cad434d863f6933f1f96bb6",
+      "current_sha256": "ae603946cdf1d3a4f6506928271c85a1c04188bd3a7f8fb1bb9de45c68dd3e7f",
+      "changed_pixels": 171940,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "run-transfer-frames/22-t60.png",
+      "baseline_sha256": "fdd72ad2f5973ac7af1e3b679b98e03dffe995ae4cad434d863f6933f1f96bb6",
+      "current_sha256": "ae603946cdf1d3a4f6506928271c85a1c04188bd3a7f8fb1bb9de45c68dd3e7f",
+      "changed_pixels": 171940,
+      "outside_existing_masks_and_claims": 171132,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "tick-game-content/01-cloud-hub.png",
+      "baseline_sha256": "dde7bf75882e334c9416643df16aa7e6f044ee8cf49800403aadf4a83c1d216e",
+      "current_sha256": "bd0dc2307f96f2beefb63dfb014714a4c0e74d50d8e675f9af18d0131375efd8",
+      "changed_pixels": 201577,
+      "outside_existing_masks_and_claims": 201035,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "tick-game-content/02-back-up-page.png",
+      "baseline_sha256": "58fc154f467e5eb1999bfab98d661288d0c7a48d1dba984fc492f2f0bd94f50a",
+      "current_sha256": "b5f1e77c3fd43456cae70ba3b005516a0591fe51e765184bb43eb5e77775f181",
+      "changed_pixels": 229380,
+      "outside_existing_masks_and_claims": 228838,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "tick-game-content/03-game-content-flipped.png",
+      "baseline_sha256": "972fe51fcb349dbc2e63248de4c85a8d4863fd357b7bb2807abaefdeef94d940",
+      "current_sha256": "a26ffeaee6d507c1d34d52cdaf7d343e3f505c7e93b3fc45e07c01880a7ea10c",
+      "changed_pixels": 229380,
+      "outside_existing_masks_and_claims": 228838,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "tick-roms/01-cloud-hub.png",
+      "baseline_sha256": "ca63b93a38c4f4065949328a426465761e2c05150257646532af96d6b57e9ace",
+      "current_sha256": "35434cda51e462871f4339f75b8013ac6a474bd44e017bfb536c805f2bbd1e41",
+      "changed_pixels": 201530,
+      "outside_existing_masks_and_claims": 201035,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "tick-roms/02-back-up-page.png",
+      "baseline_sha256": "c49f5a45eea63ebc66e50f2a0f2af3198cb0ca6dac84c51255c8df8ed3865b76",
+      "current_sha256": "1b39f4d0bc0c97c055a6b43cd0ca54f54d3e1cc21c0d7fe6217e44a5696c796f",
+      "changed_pixels": 229333,
+      "outside_existing_masks_and_claims": 228838,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "tick-roms/03-roms-flipped.png",
+      "baseline_sha256": "5f9545e317d7e56e493245388b498df5d66de781c2bbb547c52fc5c62cbea300",
+      "current_sha256": "a2d131dce0cf7ae8c7b533d542ce510034ab3390d5676698896c63a8a9f61f7e",
+      "changed_pixels": 229333,
+      "outside_existing_masks_and_claims": 228838,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "tick-settings/01-cloud-hub.png",
+      "baseline_sha256": "534a0b66db0f9e783dddc38e0b810d3c8061783c5d435893e7c4c7da4fe4392e",
+      "current_sha256": "c1d7ee59f969309bd7e592e58d4412c4f14ca0e3b0de3ea0c8d1680569065d27",
+      "changed_pixels": 201539,
+      "outside_existing_masks_and_claims": 201035,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "tick-settings/02-back-up-page.png",
+      "baseline_sha256": "3b83d9ad82bd749cdbf845ac930fe57feac5de3d65d78ff3e3543a98f7508267",
+      "current_sha256": "bf2446e4c4e57696844c3914260fe638e54aee310e79505bb510cb1a29bad3a4",
+      "changed_pixels": 229342,
+      "outside_existing_masks_and_claims": 228838,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "tick-settings/03-settings-flipped.png",
+      "baseline_sha256": "32d29dc2cf84eaf069ee7a42d70350677aba2bdcf5881d1bbb8d72bd29b011b7",
+      "current_sha256": "be0518e51b125016e37e3e9214a074c0ae352e0c33a4290fea8b79822dae8d1a",
+      "changed_pixels": 229342,
+      "outside_existing_masks_and_claims": 228838,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "to-change-cloud-folder/01-cloud-hub.png",
+      "baseline_sha256": "33248e841755226a5c98e41e0718b27a54220cb30d3aff99a2581ac53a7f361a",
+      "current_sha256": "1d38758f780ad1bb38e71ac360182aa753fb8bb40c82b169e4802683c835506e",
+      "changed_pixels": 201534,
+      "outside_existing_masks_and_claims": 201035,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "to-change-cloud-folder/02-hub-change-folder-row.png",
+      "baseline_sha256": "32d4b5565ef61c89842e5f6a9ba93c64e5db3d87405de3a54255023ae9e5540b",
+      "current_sha256": "09b66d2db67379d88cf6deb5a0758bff3dc7534c3159bf6147d81aea226ab7fa",
+      "changed_pixels": 359042,
+      "outside_existing_masks_and_claims": 201035,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "to-change-cloud-folder/03-folder-editor.png",
+      "baseline_sha256": "6d49954669423fa21835fb3806d721708a6db8fb080e8886bdda2a017d9e1e5c",
+      "current_sha256": "5bf32eb0cb24e67a080783f84cdd77fc51c498845f1c9eef7b6ddfca8ac936ad",
+      "changed_pixels": 228817,
+      "outside_existing_masks_and_claims": 152955,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "to-manage-cloud-storage/01-cloud-hub.png",
+      "baseline_sha256": "2d667045e352693b5885a7cb88a671676943caa25e46193a1dd4ac4a27d2eba2",
+      "current_sha256": "284cc0c4ecc490918382352f95842d87d6bae8a3e46124c8e575ee90aa6d99a7",
+      "changed_pixels": 201501,
+      "outside_existing_masks_and_claims": 201035,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "ui-settings-toggle/01-ui-settings-last-row.png",
+      "baseline_sha256": "ba9662427dcc85ea22c9e20f18a5a07ed1bdea8dd1793b15835f0d3d5cf63509",
+      "current_sha256": "0a1fc917941851f37df204f8387b9a7560092ec7c653591216a0b87c2af739b5",
+      "changed_pixels": 201577,
+      "outside_existing_masks_and_claims": 201042,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    },
+    {
+      "screen": "ui-settings-toggle/02-toggled.png",
+      "baseline_sha256": "a164b7cb79eec50a8a282f447fe03e85bfa21f69375f69324710a30bc3f0fa9b",
+      "current_sha256": "07d5c6485e4e037c8a701a577d2594d813f19a00cb77e4d9f4e9038aba68eccd",
+      "changed_pixels": 201577,
+      "outside_existing_masks_and_claims": 201042,
+      "residual_bounds": [
+        0,
+        0,
+        552,
+        708
+      ],
+      "outside_carousel_change_support": 0,
+      "outside_carousel_support_bounds": null,
+      "common_overlay_alpha_nonfit": 0,
+      "nonfit_bounds": null,
+      "nonfit_examples": []
+    }
+  ],
+  "all78_outside_support_zero": true,
+  "original_residual_pixels": 12786825,
+  "claims_byte_equal": true,
+  "claim_rows": 391,
+  "claim_heads": [
+    "d72084ccad"
+  ],
+  "new_578_rows": 348
+}

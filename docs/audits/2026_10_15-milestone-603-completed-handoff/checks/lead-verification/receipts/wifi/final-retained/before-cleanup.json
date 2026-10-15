@@ -1,0 +1,89 @@
+{
+  "binary_sha256": "76f18d97a46e9228ca4b7cb63a5406a4f0bb026f96763f3558d1ac942b1857c8",
+  "blocked_group": [
+    {
+      "pgid": 2552,
+      "pid": 2552,
+      "ppid": 2236,
+      "start_ticks": 7576,
+      "state": "S"
+    },
+    {
+      "pgid": 2552,
+      "pid": 2553,
+      "ppid": 2552,
+      "start_ticks": 7576,
+      "state": "S"
+    }
+  ],
+  "calls_after_exit": [
+    "2413 2409 current",
+    "2414 2410 has_ap_mode",
+    "2552 2236 list"
+  ],
+  "calls_before_exit": [
+    "2413 2409 current",
+    "2414 2410 has_ap_mode",
+    "2552 2236 list"
+  ],
+  "driver_exited": 83.398082895,
+  "driver_identity": {
+    "pgid": 2236,
+    "pid": 2236,
+    "ppid": 2234,
+    "start_ticks": 4995,
+    "state": "R"
+  },
+  "driver_original_returncode": 0,
+  "exit_requested": 83.244950019,
+  "forced_cleanup": [],
+  "join_logs": {
+    "joined": 1,
+    "stopping": 1
+  },
+  "known_bad": false,
+  "no_later_backend": true,
+  "normal_exit_signal": {
+    "identity": {
+      "pgid": 2236,
+      "pid": 2236,
+      "ppid": 2234,
+      "start_ticks": 4995,
+      "state": "R"
+    },
+    "outcome": "pidfd-signal",
+    "signal": 2
+  },
+  "observation_errors": [],
+  "observations": [
+    {
+      "pgid": 2552,
+      "pid": 2552,
+      "ppid": 2236,
+      "start_ticks": 7576,
+      "state": "S"
+    },
+    {
+      "pgid": 2552,
+      "pid": 2553,
+      "ppid": 2552,
+      "start_ticks": 7576,
+      "state": "S"
+    }
+  ],
+  "original_observation_returncode": 0,
+  "owned_identities_still_present": [],
+  "reaped": [
+    {
+      "exit_code": -9,
+      "pid": 2553,
+      "wait_status": 9
+    }
+  ],
+  "scan_group_stopped": 83.287094545,
+  "scope": "actual installed-path ES; explicit candidate overlay if staged",
+  "started": 49.934158355,
+  "status": "PASS",
+  "survivors_after_cleanup": null,
+  "survivors_after_normal_exit": []
+}

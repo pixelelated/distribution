@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "inputs_unchanged": true,
+  "stages": [
+    {
+      "name": "old-control",
+      "argv": [
+        "/usr/bin/python3",
+        "/tmp/pix-m7-frame-diff-review-20261015/claim-controls.py",
+        "--source",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/frame-diff",
+        "--out",
+        "/tmp/pix-m7-frame-diff-review-20261015/old-control01",
+        "--only",
+        "adjacent",
+        "--expect-old-failure"
+      ],
+      "original_returncode": 0,
+      "timed_out": false,
+      "elapsed_seconds": 0.06361342500895262,
+      "pid": 1862501,
+      "timeout_seconds": 40
+    },
+    {
+      "name": "candidate-controls",
+      "argv": [
+        "/usr/bin/python3",
+        "/tmp/pix-m7-frame-diff-review-20261015/claim-controls.py",
+        "--source",
+        "/tmp/pix-m7-frame-diff-review-20261015/frame-diff.candidate",
+        "--out",
+        "/tmp/pix-m7-frame-diff-review-20261015/controls01"
+      ],
+      "original_returncode": 0,
+      "timed_out": false,
+      "elapsed_seconds": 0.364135033916682,
+      "pid": 1862503,
+      "timeout_seconds": 60
+    },
+    {
+      "name": "retained-comparison",
+      "argv": [
+        "/usr/bin/python3",
+        "/tmp/pix-m7-frame-diff-review-20261015/frame-diff.candidate",
+        "compare",
+        "/workspace/artifacts/rocknix-images/walk-baseline",
+        "/workspace/tmp/pix-m7-final-baseline-20261014-02/artifacts/webdav/rocknix-images/qa-fac608ff89-webdav-a-20261014-2320/walks",
+        "--masks",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/vm-walks/masks.txt",
+        "--claims",
+        "/tmp/pix-m7-frame-diff-review-20261015/claims.composed.txt",
+        "--report",
+        "/tmp/pix-m7-frame-diff-review-20261015/continuation01.md"
+      ],
+      "original_returncode": 0,
+      "timed_out": false,
+      "elapsed_seconds": 11.749837985029444,
+      "pid": 1862524,
+      "timeout_seconds": 240
+    }
+  ]
+}

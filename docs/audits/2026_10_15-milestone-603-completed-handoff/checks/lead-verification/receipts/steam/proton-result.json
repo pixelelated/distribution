@@ -1,0 +1,469 @@
+{
+  "status": "PASS",
+  "evidence": "synthetic helper only; transport/space/mounts injected",
+  "installer_sha256": "9e1ce7b52279c9d057eb3acf7caa4d03843871b2fec5ccc15b06287b4de67402",
+  "helper_sha256": "5513e6cd600b86720cd318ae70dbad9f83fbb55d3ef2f184b69a59a7a7a3aed3",
+  "python": "3.14.7 (main, Oct  4 2026, 04:40:27) [GCC 15.2.0]",
+  "cases": [
+    {
+      "case": "success-ge",
+      "first_exit": 0,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 1
+    },
+    {
+      "case": "success-cachyos",
+      "first_exit": 0,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "04b4476fd4da7e59d5dbe66d8274e258c8fa2aa456245fd542543dc127048938",
+      "transport_calls": 1
+    },
+    {
+      "case": "complete-existing",
+      "first_exit": 0,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 0
+    },
+    {
+      "case": "empty-existing",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 0
+    },
+    {
+      "case": "partial-existing",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 0
+    },
+    {
+      "case": "bad-existing-elf",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 0
+    },
+    {
+      "case": "existing-symlink",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 0
+    },
+    {
+      "case": "download-failure",
+      "first_exit": 1,
+      "retry_exit": 0,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 1,
+      "retry_transport_calls": 1
+    },
+    {
+      "case": "download-timeout",
+      "first_exit": 1,
+      "retry_exit": 0,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 1,
+      "retry_transport_calls": 1
+    },
+    {
+      "case": "empty-download",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 1
+    },
+    {
+      "case": "oversized-download",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 1
+    },
+    {
+      "case": "corrupt-archive",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "490dec3c3b86c4df6e3bf92c4b68c5d146f68835dea35fdc4ab715e39b425d26",
+      "transport_calls": 1
+    },
+    {
+      "case": "truncated-footer-ge",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "1184cac5506494b9f0ac0153334fdc8c3eb00381a73e008da013e75ab3d73bb3",
+      "transport_calls": 1
+    },
+    {
+      "case": "truncated-footer-cachyos",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "a4ca4a02b04b650a3cfda68c87ba4a91360119f7b743024335f0447fc5a177fa",
+      "transport_calls": 1
+    },
+    {
+      "case": "traversal",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "839b7cace82b8d59776407c6631f1af3f09449d3b1f92c6f46cc390afb55610a",
+      "transport_calls": 1
+    },
+    {
+      "case": "absolute-path",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "3d716e4b71c484f14edcbe81c0e200766aa22157b0244a59d06fdb8c56e7c208",
+      "transport_calls": 1
+    },
+    {
+      "case": "other-root",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "1cb9eaa11ee2512773345129336436a369f5d7a4db0b94df89cf6def74fcd1ac",
+      "transport_calls": 1
+    },
+    {
+      "case": "duplicate-member",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "be94cdc8231d23f729478eed69697213fa63c6082548322d37c51dd5f40d660f",
+      "transport_calls": 1
+    },
+    {
+      "case": "special-file",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "a8bf3c2f8c93875dd994bc0bb016b394a9eef5204021318eff65c7b76b60e1bc",
+      "transport_calls": 1
+    },
+    {
+      "case": "escaping-link",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "4d90f9b663eb5ca48007ea44b81e33fed8d74e7e368ec96ed7bd860ba7a5bec9",
+      "transport_calls": 1
+    },
+    {
+      "case": "forward-hardlink",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "0660e34ae4b05816818dc107fbc32f72905ba15416e87e2c226f089fe3cea61c",
+      "transport_calls": 1
+    },
+    {
+      "case": "valid-links",
+      "first_exit": 0,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "cc2db1070cae2fbb458739ec84ebdb5bd1ccee37dad40b38970c61e1145d0e21",
+      "transport_calls": 1
+    },
+    {
+      "case": "missing-manifest",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "ff2aa1782f4801a1875be6329883655e8c7fc9fa1408f4e331911e27af000f8f",
+      "transport_calls": 1
+    },
+    {
+      "case": "bad-manifest",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "96e18f81dc5cfe14a0a0a799f25f2ee3534d31189a14876e8943bb72b97557cd",
+      "transport_calls": 1
+    },
+    {
+      "case": "duplicate-manifest-key",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "90e672bc9ad810863c364473cd3214e19af6c1f3d0758aa6a069d326504bc5f3",
+      "transport_calls": 1
+    },
+    {
+      "case": "bad-compatibility-manifest",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "4277d28aa04c5631d361cf45c1bb3a3b2e0c8a1b77eed44df8d4f84a142ab2bf",
+      "transport_calls": 1
+    },
+    {
+      "case": "missing-wine",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "1a06ce1ce4f5b402c7cbb9c704610e18a356295bf71d748a223d18fbad6f609f",
+      "transport_calls": 1
+    },
+    {
+      "case": "wrong-elf",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "d8ed9ae3d722e7fef18bf0f963cdc9e9e0f3cdf313f8f87b063367664b0b9630",
+      "transport_calls": 1
+    },
+    {
+      "case": "nonexecutable",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "8d0a90b24edfa0a0487510fc308e1dd0c15ac3de4c34af84000e8ca563778085",
+      "transport_calls": 1
+    },
+    {
+      "case": "escaping-required",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "aaf02632f1b0e4807d7479cc0fc7b66985af6fa92cd28c96876908c8ce3db779",
+      "transport_calls": 1
+    },
+    {
+      "case": "space-before-download",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 0
+    },
+    {
+      "case": "space-before-extraction",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 1
+    },
+    {
+      "case": "expanded-bound",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 1
+    },
+    {
+      "case": "member-bound",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 1
+    },
+    {
+      "case": "extract-failure",
+      "first_exit": 1,
+      "retry_exit": 0,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 1,
+      "retry_transport_calls": 1
+    },
+    {
+      "case": "activation-failure",
+      "first_exit": 1,
+      "retry_exit": 0,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 1,
+      "retry_transport_calls": 1
+    },
+    {
+      "case": "activation-race",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 1
+    },
+    {
+      "case": "cleanup-failure",
+      "first_exit": 1,
+      "retry_exit": 0,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 1,
+      "retry_transport_calls": 0
+    },
+    {
+      "case": "kill-download",
+      "first_exit": -9,
+      "retry_exit": 0,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 1,
+      "retry_transport_calls": 1
+    },
+    {
+      "case": "kill-extracted",
+      "first_exit": -9,
+      "retry_exit": 0,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 1,
+      "retry_transport_calls": 1
+    },
+    {
+      "case": "kill-activated",
+      "first_exit": -9,
+      "retry_exit": 0,
+      "status": "PASS",
+      "archive_sha256": "1086221fb0f34af70d2bc224cafa3fbba6d69be416f06cbb9d5e6822f78e5142",
+      "transport_calls": 1,
+      "retry_transport_calls": 0
+    },
+    {
+      "case": "term-download",
+      "first_exit": 1,
+      "retry_exit": 0,
+      "status": "PASS",
+      "archive_sha256": "b5121563ff00c09c1f680a34cc085e8fa9aacd235b879e3a46ddb95e1f846fd6",
+      "transport_calls": 1,
+      "retry_transport_calls": 1
+    },
+    {
+      "case": "term-extracted",
+      "first_exit": 1,
+      "retry_exit": 0,
+      "status": "PASS",
+      "archive_sha256": "b5121563ff00c09c1f680a34cc085e8fa9aacd235b879e3a46ddb95e1f846fd6",
+      "transport_calls": 1,
+      "retry_transport_calls": 1
+    },
+    {
+      "case": "term-activated",
+      "first_exit": 1,
+      "retry_exit": 0,
+      "status": "PASS",
+      "archive_sha256": "b5121563ff00c09c1f680a34cc085e8fa9aacd235b879e3a46ddb95e1f846fd6",
+      "transport_calls": 1,
+      "retry_transport_calls": 0
+    },
+    {
+      "case": "concurrent-lock",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "b5121563ff00c09c1f680a34cc085e8fa9aacd235b879e3a46ddb95e1f846fd6",
+      "transport_calls": 0
+    },
+    {
+      "case": "unknown-stage",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "b5121563ff00c09c1f680a34cc085e8fa9aacd235b879e3a46ddb95e1f846fd6",
+      "transport_calls": 0
+    },
+    {
+      "case": "empty-stage",
+      "first_exit": 0,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "b5121563ff00c09c1f680a34cc085e8fa9aacd235b879e3a46ddb95e1f846fd6",
+      "transport_calls": 1
+    },
+    {
+      "case": "owner-only-stage",
+      "first_exit": 0,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "b5121563ff00c09c1f680a34cc085e8fa9aacd235b879e3a46ddb95e1f846fd6",
+      "transport_calls": 1
+    },
+    {
+      "case": "symlink-stage",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "b5121563ff00c09c1f680a34cc085e8fa9aacd235b879e3a46ddb95e1f846fd6",
+      "transport_calls": 0
+    },
+    {
+      "case": "mounted-stage",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "b5121563ff00c09c1f680a34cc085e8fa9aacd235b879e3a46ddb95e1f846fd6",
+      "transport_calls": 0
+    },
+    {
+      "case": "symlink-destination",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "b5121563ff00c09c1f680a34cc085e8fa9aacd235b879e3a46ddb95e1f846fd6",
+      "transport_calls": 0
+    },
+    {
+      "case": "mounted-destination",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "b5121563ff00c09c1f680a34cc085e8fa9aacd235b879e3a46ddb95e1f846fd6",
+      "transport_calls": 0
+    },
+    {
+      "case": "wrong-family",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "b5121563ff00c09c1f680a34cc085e8fa9aacd235b879e3a46ddb95e1f846fd6",
+      "transport_calls": 0
+    },
+    {
+      "case": "wrong-archive-name",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "b5121563ff00c09c1f680a34cc085e8fa9aacd235b879e3a46ddb95e1f846fd6",
+      "transport_calls": 0
+    },
+    {
+      "case": "non-https",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "b5121563ff00c09c1f680a34cc085e8fa9aacd235b879e3a46ddb95e1f846fd6",
+      "transport_calls": 0
+    },
+    {
+      "case": "family-sequence",
+      "first_exit": 0,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "b5121563ff00c09c1f680a34cc085e8fa9aacd235b879e3a46ddb95e1f846fd6",
+      "transport_calls": 1,
+      "second_family_exit": 0
+    }
+  ]
+}

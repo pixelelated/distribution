@@ -4,9 +4,9 @@
 
 ## Architectural assessment
 
-Preservation work is coherent across installer transactions, native-save preparation, scanner lifetime and qualification readers. Steam components share a locked identity-bound journal and bounded staging; each component preserves unrelated prior state and retires only owned work. Dolphin prepares shared save paths before engine launch and publishes achievement sessions atomically. Wi-Fi owns its asynchronous read outside the screen and explicitly joins it on normal frontend shutdown. Tool-only PPSSPP/header/matcher corrections retain product-source identity.
+Preservation work is coherent across installer transactions, native-save preparation, scanner lifetime and qualification readers. The reviewed Steam transaction helpers use locked identity-bound journals and bounded staging for their declared trees. Their tests do not establish whole-installer state preservation: the later inherited registry copy overwrites existing bytes (PL-001/#607), and durable cross-boot journal recovery needs verification (PL-002/#608). Dolphin prepares shared save paths before engine launch and publishes achievement sessions atomically. Wi-Fi owns its asynchronous read outside the screen and explicitly joins it on normal frontend shutdown. Tool-only PPSSPP/header/matcher corrections retain product-source identity.
 
-Complexity remains concentrated in the embedded Steam Python transactions and RVZ parser. Their accepted tests cover defined failure and interruption cases; they do not establish arbitrary concurrent Steam-client safety, universal RVZ support or native ARM client execution. No new architectural defect survived source/original inspection.
+Complexity remains concentrated in the embedded Steam Python transactions and RVZ parser. Their accepted tests cover defined failure and interruption cases; they do not establish arbitrary concurrent Steam-client safety, universal RVZ support or native ARM client execution. The subsequent independent review found additional installer and RVZ issues; see the primary grading and punch list. The initial no-defect generalization is withdrawn.
 
 ## Instruction-file conformance
 

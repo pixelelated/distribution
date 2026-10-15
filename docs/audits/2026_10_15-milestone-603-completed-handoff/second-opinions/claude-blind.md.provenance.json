@@ -1,0 +1,130 @@
+{
+  "artifact_path": "../../../tmp/pix-m7-audit603-blind-20261015-01/claude-blind.md",
+  "output_file_sha256": "097db216f847d83b0a1fb9be82f72aa50355937c08251e3b48a807ee428a0fd6",
+  "source_file_paths": [],
+  "source_file_hashes": [],
+  "facilitator_version": "council-facilitator@1.14.0",
+  "prev_verdict_sha256": null,
+  "member": "claude",
+  "declared_model": "anthropic/claude-fable-5.1 (OpenRouter, effort=xhigh)",
+  "substrate": "openrouter",
+  "transport": "buffered",
+  "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+  "request": {
+    "started_at": "2026-10-15T21:14:18.354Z",
+    "system_prompt_sha256": null,
+    "user_prompt_sha256": "3da1c2290b787fc113a3bb5809ce11fd7acfe68b7bb717bc404d6203c9350345"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started_at": "2026-10-15T21:14:18.354Z",
+      "duration_ms": 1319086,
+      "max_tokens": 128000,
+      "transport": "buffered",
+      "http_status": 200,
+      "outcome": "success",
+      "outcome_reason": null,
+      "model_field": "anthropic/claude-fable-5.1",
+      "finish_reason": "stop",
+      "content_length": 13555,
+      "tokens": {
+        "prompt": 352903,
+        "completion": 102777,
+        "total": 455680,
+        "reasoning": 97022
+      },
+      "model_identity_source": "provider_response",
+      "served_provider": "Anthropic",
+      "served_provider_observations": [
+        "Anthropic"
+      ],
+      "content_sha256": "097db216f847d83b0a1fb9be82f72aa50355937c08251e3b48a807ee428a0fd6",
+      "usage": {
+        "prompt_tokens": 352903,
+        "completion_tokens": 102777,
+        "total_tokens": 455680,
+        "cost": 8.66788,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 8.66788,
+          "upstream_inference_prompt_cost": 3.52903,
+          "upstream_inference_completions_cost": 5.13885
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 97022,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_headers": {
+        "content-type": "application/json"
+      },
+      "response_body_sha256": "aa419e397520dc1dfbcbfabde842f4a4bf7968da4448d62815f60e2140527920"
+    }
+  ],
+  "final": {
+    "outcome": "success",
+    "assurance_tier": "local_capture_provider_attested",
+    "total_duration_ms": 1319088,
+    "retries_used": 0,
+    "file_artifact_sha256": "097db216f847d83b0a1fb9be82f72aa50355937c08251e3b48a807ee428a0fd6",
+    "usage": {
+      "prompt_tokens": 352903,
+      "completion_tokens": 102777,
+      "total_tokens": 455680,
+      "cost": 8.66788,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 8.66788,
+        "upstream_inference_prompt_cost": 3.52903,
+        "upstream_inference_completions_cost": 5.13885
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 97022,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "tokens": {
+      "prompt": 352903,
+      "completion": 102777,
+      "total": 455680,
+      "reasoning": 97022
+    },
+    "verification": {
+      "result": "PASS",
+      "match_kind": "semantic",
+      "declared": "anthropic/claude-fable-5.1 (OpenRouter, effort=xhigh)",
+      "observed": "anthropic/claude-fable-5.1",
+      "model_identity_source": "provider_response"
+    },
+    "effort_verification": {
+      "result": "PASS",
+      "declared": "xhigh",
+      "evidence": "reasoning_tokens",
+      "observed_reasoning_tokens": 97022
+    },
+    "provider_verification": {
+      "result": "NOT_PINNED",
+      "declared": null,
+      "evidence": "response_provider_field",
+      "observed": "Anthropic",
+      "observed_providers": [
+        "Anthropic"
+      ]
+    }
+  }
+}

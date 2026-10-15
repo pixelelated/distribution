@@ -1,10 +1,45 @@
 # Saved Session State
 
-Updated 2026-10-15 21:19 UTC. Current engineering firmware and portable local
+Updated 2026-10-15 22:07 UTC. Current engineering firmware and portable local
 source/notice delivery are accepted in their recorded scopes. Release-note draft,
 security readback and dependency reconciliation are complete; no build, VM or
 copy is active. Infrastructure topology remains deferred under D-WORKFLOW-113/125;
 release-source retrieval/backup remains a separate publication obligation.
+
+## Live audit continuation — read this before older status below
+
+Both authorized Fable5.1/xhigh calls are verified complete, with original
+command/monitor/runner/launcher0, no retries and all recorded process identities
+absent. Blind ended21:36:18UTC; refutation ended21:51:19UTC. No provider job is
+active and primary next62c382 is no longer frozen by a provider call. Do not
+resubmit either packet. Original provenance and results are retained under
+`docs/audits/2026_10_15-milestone-603-completed-handoff/`.
+
+Phase6 tracker is #612, actual child of #603; #606–611 are actual children of
+#612. Current score66PASS/1PARTIAL, AC-53 missing RetroArch exit-save process/stat
+binding. Seven punch items remain in Phase7 reconciliation; no completion marker.
+H700 applicability reader20261015T220831Z-ed601ef5 passed all original channels0
+and was consumed; actual listing/XML proves selected Steam/Dolphin package/menu
+absence. Compact93member evidence is retained under
+`docs/qa-logs/2026-10-15-h700-audit-applicability/`; extracted SYSTEM is retired.
+#606 run01 ended with original command/runner/launcher/VM1 and monitor0;
+its path predicate wrongly expected /tmp/cores overlay to resolve to the lowerdir.
+The clean gate/empty manager passed; no slot/save/quit input occurred. All owners
+exited; original185-member compact evidence and retirement receipt are retained
+at docs/qa-logs/2026-10-15-retroarch606-failure01/. Its admission is consumed and
+disk/OVMF retired. No VM is active. Corrected source packet02 is being prepared
+at /tmp/pix-m7-retroarch-exit-proof-source-20261015-02; wait for its new seal and
+review the minimal delta before a fresh serialized owner02. Do not modify or
+replay owner01. Actual exit-save proof and AC-53 remain incomplete/PARTIAL.
+#607–610 remain actual product/proof follow-ups before affected deployment/public
+RC. #611 is backlog guidance. Root corrects the overbroad audit-record claims.
+Feature3c31e2aa records the private/public split and is published; current audit
+reconciliation is uncommitted. No build, VM, provider call or device action is running.
+
+A read-only RG35XX SP SSH inspection question is pending after automatic approval
+review rejected its existing non-retained-host-key alias. Do not bypass that
+rejection or duplicate the question. No transfer/reboot approval is implied.
+Source contacts remain separately pending and nonblocking for private testing.
 
 ## Resume and authority
 
@@ -42,16 +77,9 @@ criteria remain. The owner may retain or discard an engineering version without
 publishing it. #344/#528 and M7 have matching body updates and readbacks in
 /tmp/pix-m7-private-test-boundary-20261015/. No device staging/reboot has occurred.
 
-Root is actively supervising #603 Phase4.6. The owner specifically directed
-completion of this audit; authorization.json records the unchanged two-call
-scope. Blind owner /tmp/pix-m7-audit603-blind-20261015-01, runtime checkout
-/workspace/repos/rocknix frozen at62c382f467, launcher1302767,
-run .build-runs/20261015T211418Z-4c668119. Watcher1302769 and Facilitator1302798
-were independently observed live. Poll status/launcher result within60seconds;
-verify identity/provenance/digest before assembling the bounded refutation.
-Do not replay the blind call or edit the runtime checkout while it is active.
-No disconnected notifier is available. No build, VM, device update or source
-copy is running; the external audit is the active job.
+The owner specifically directed completion of #603. Its two authorized provider
+calls are now complete; current audit disposition and next proof are above.
+No disconnected notifier is claimed and no provider call should be repeated.
 
 ## Completed current firmware and VM proof
 
@@ -232,21 +260,18 @@ review is complete with NO_CONCRETE_DEFECT_FOUND_IN_REVIEWED_DELTA. Compact
 originals docs/qa-logs/2026-10-15-post-audit-product-delta/ independently pass
 42 members / 38 files; seal d0325d4f660f390b13f0e920cb92980d1132d2af2b1a5b48d5dae19d8faab230.
 This is not an external/model-independent review or broad audit completion.
-Preserve this scope distinction; do not alter the pending exact packets.
+Preserve this scope distinction; do not alter the completed exact packets.
 
 ## Audit, CI and actual pending requests
 
-#603 primary review passed all 67 literal criteria across 15 completed issues at
-frozen `cdd92f10605517e789e09d13b6f4ba68573c2617`. Phases 1–4.5 are complete;
-no external call or Phase 5 completion marker exists. #604 is later separate work.
-Durable audit resume: `docs/audits/2026_10_15-milestone-603-completed-handoff/`,
-especially `second-opinions/transfer-request.md`.
-The owner has specifically directed completion of #603. The authorized
-Fable/OpenRouter scope remains blind790371B/3da1c2290b787fc113a3bb5809ce11fd7acfe68b7bb717bc404d6203c9350345
-and refutation base922168B/80450a6e6249f9b34e0a7cb6740dd268ea1b4bbbcc99b35077c0641e4d7ccdcc,
-plus only the verified sanitized blind response up to131072bytes. Root owns the
-active first call above; no old worker is an active orchestrator. No Phase5
-completion exists. The authorization does not extend to the source contacts.
+#603 reviewed67 criteria across15 completed issues at frozen
+`cdd92f10605517e789e09d13b6f4ba68573c2617`. Both external calls are verified and
+all25 numbered leads plus the AC-53 challenge are graded. The current score is
+66PASS/1PARTIAL; #606 owns the missing RetroArch proof. Phase6/7 tracker#612
+holds seven findings. No completion marker exists. #604 is separate work.
+Exact prompts remain immutable; authorization does not extend to source contacts.
+See the live continuation above, analysis and punch-list files, and actual Git
+state. Website/public source delivery remains separate from private handoff.
 
 At published `62c382f467`, both wordlists passed (38807765445 and 38807821938).
 Record CI38807822187 failed only outstanding audit cadence (16 completed closures,
@@ -266,7 +291,7 @@ is authorized or sent. Exact drafts and channel/evidence references:
 `docs/qa-logs/2026-10-15-source-contact-drafts/`. Original packet:
 `/tmp/pix-m7-abl-mame-contact-options-20261015`, seal
 `5de60eb4cc8c8f17c301d7029cce8fbef0b9c44a2bc664861364965338723e9d`.
-The source-contact and root-read requests remain pending; the named #603 audit is now authorized and active. Do not duplicate either pending question.
+The source-contact and root-read requests remain pending; the named #603 audit is in Phase7 reconciliation after both verified calls. Do not duplicate either pending question.
 
 Host uid/gid are 1000, PID namespace4026531836 and user namespace4026531837.
 Use actual host context for process/metadata checks; sandbox views may map owners

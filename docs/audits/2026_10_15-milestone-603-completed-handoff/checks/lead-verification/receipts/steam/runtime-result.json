@@ -1,0 +1,282 @@
+{
+  "evidence": "synthetic embedded helper only",
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "success",
+      "first_exit": 0,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "first-install",
+      "first_exit": 0,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "library-alias",
+      "first_exit": 0,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "version-failure",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "bad-version",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "download-failure",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "corrupt-archive",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "40ad4d4a028c670c93c944e021eed5e44eb2e344b213d984a08fc269f4b740dc"
+    },
+    {
+      "case": "missing-ibus",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "072cede5df75d964de83b17173fd3c0b79508cd37b8ca7b6e01871bc0cf156a9"
+    },
+    {
+      "case": "missing-va",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "a2cbabda51e9b365f19ec0ab74f8ddbd3ff6f91bf67e1f1a7863caddee1b298a"
+    },
+    {
+      "case": "wrong-elf",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "c00d28665145c0d4bfcc9b9fe9957eed6f2001dc7cf1aab3fadf107f5456e7f9"
+    },
+    {
+      "case": "two-platforms",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "d352349eb51870000faf341114099d182c27f74f2b2f8594158cca6916291cdb"
+    },
+    {
+      "case": "traversal",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "e21fcb4bb02635477810118de341046c92949386d30223ce0dfcb65024e5b949"
+    },
+    {
+      "case": "absolute-path",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "3a2219e5c9e8695a7622d31d8bbf67740281fb666a371e564e826725062fa562"
+    },
+    {
+      "case": "escaping-link",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "cd70298acac1a67d6c798e7f370b856718eb159ceecee5c724bd601034a53530"
+    },
+    {
+      "case": "duplicate-path",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "2c1a5aa5ef080161506f760de196974e0c83cc267d79c587e45fcda2561ee305"
+    },
+    {
+      "case": "archive-budget",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "member-budget",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "space-initial",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "space-extraction",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "extract-failure",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "backup-failure",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "old-rename-failure",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "new-rename-failure",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "ibus-rename-failure",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "va-rename-failure",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "validation-failure",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "kill-staging",
+      "first_exit": -9,
+      "retry_exit": 1,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "kill-old-renamed",
+      "first_exit": -9,
+      "retry_exit": 1,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "kill-new-renamed",
+      "first_exit": -9,
+      "retry_exit": 1,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "kill-first-link",
+      "first_exit": -9,
+      "retry_exit": 1,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "kill-second-link",
+      "first_exit": -9,
+      "retry_exit": 1,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "kill-committed",
+      "first_exit": -9,
+      "retry_exit": 1,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "term-new-renamed",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "concurrent-lock",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "recovery-failure",
+      "first_exit": 1,
+      "retry_exit": 1,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "cleanup-failure",
+      "first_exit": 1,
+      "retry_exit": 1,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "symlink-lib-parent",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "unknown-journal",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    },
+    {
+      "case": "mounted-runtime",
+      "first_exit": 1,
+      "retry_exit": null,
+      "status": "PASS",
+      "archive_sha256": "dde14c805f7755534b365d397e2a687279f7d0c3391564c65513ea41638a61ad"
+    }
+  ],
+  "python": "3.14.7 (main, Oct  4 2026, 04:40:27) [GCC 15.2.0]",
+  "source_sha256": "9e1ce7b52279c9d057eb3acf7caa4d03843871b2fec5ccc15b06287b4de67402",
+  "helper_sha256": "7e8e87052ccd62e04b9a52e57bf8c638450938ba10c2ba85c564e9ea1b552431"
+}

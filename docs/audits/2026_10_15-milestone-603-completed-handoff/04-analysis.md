@@ -1,16 +1,29 @@
 # Audit Analysis — completed M7 handoff (#603)
 
+**Punch-list tracker:** [#612](https://github.com/pixelelated/distribution/issues/612).
+
 **Date:** 2026-10-15. **Scope:** Milestone / Independent. **Primary:** OpenAI Codex, exact served model ID not exposed; identity source is developer instruction. **Frozen record:** cdd92f10605517e789e09d13b6f4ba68573c2617. **Products:** VM/H700 f8636de1d105275dbf9420bbabbbc26f79abb10f; SM9aa7affee9d4ad5e69725cab20b6d7ad84d93dea; ES16dbac5211eea7e70db7394372033be2be7df829; website6aac689c6feaa8d4afefbd5a8b2121e5206f14b9.
 
-**Status:** Primary Phases1–4.5 complete. Phase4.6 pending exact packet transfer authorization and both verified Facilitator calls. This audit is not complete; no Phase5/punch-list or completion marker is issued.
+**Status:** Phases1–6 complete, including both verified Fable calls and mandatory tracker#612. Seven punch items are graded; Phase7 reconciliation and focused #606 proof remain active. No audit-completion marker exists.
 
 ## Executive Summary
 
-The primary review independently evaluated67 literal criteria across15 completed issues, reading source, original command results, artifact identities, retained failures and representative exact-source frames before opening prior per-criterion verdicts. All67 are supported within their stated scopes. AC08 initially lacked a retained original lint result; a new root-allocated host lint on exact source returned0 and is recorded as a current check, not a recovered historical result.
+The independent review covers67 literal criteria across15 completed issues. Current
+score is66 PASS and1 PARTIAL: AC-53 retains accepted Dolphin/Flycast and RetroArch
+subclaims, but the historical RetroArch exit-auto-state process/stat binding is
+missing. #606 supplies one focused current VM proof. Initial67/67 wording is
+superseded; no old failure or prior audit score is rewritten.
 
-No new confirmed product defect survived primary review. The previous audit's frozen scores and six resolved findings are unchanged. Later evidence supports the present handoff: exact ABL/header acceptance, PPSSPP parser discrimination, final installed clean/retained behavior, native state continuation and published compatible-restore guidance. The historical #196 raw manual launch/stat transcript was not located; surviving before/after frames, accepted ledger and current launcher controls are explicitly separated. External independent review remains mandatory and pending; this is not RC/publication approval.
+Both Fable5.1/xhigh calls completed successfully through the Facilitator with
+verified identity, provenance, output hashes and original result channels. Seven
+punch items cover registry preservation, durable Steam recovery, repeated failed
+RVZ indexing, shell metadata assignment, RetroArch evidence, record precision
+and recovery guidance. No Critical/High finding was confirmed. Current-source
+and original-receipt grading resolves the packet omissions without rerunning
+accepted suites. Known product fixes retain affected-device/public RC gates;
+private H700 applicability is established separately under D-WORKFLOW-168.
 
-## Acceptance Criteria Scorecard
+## Acceptance-criteria scorecard
 
 Full literal text, evidence and attempted refutation are in02-forward-audit.md and criteria.json. IDs were counted from the67 unique `### AC-NN:` entries; the AC08 amendment is not an extra criterion.
 
@@ -68,7 +81,7 @@ Full literal text, evidence and attempted refutation are in02-forward-audit.md a
 | AC-50 | #577 | PASS | code + original execution/receipt readback + reviewed pixels |
 | AC-51 | #577 | PASS | code + original execution/receipt readback + reviewed pixels |
 | AC-52 | #575 | PASS | code + original execution/receipt readback |
-| AC-53 | #575 | PASS | source + originals/pixels; inherited RetroArch transcript limitation |
+| AC-53 | #575 | PARTIAL | source + originals/pixels; inherited RetroArch transcript limitation |
 | AC-54 | #575 | PASS | code + original execution/receipt readback + reviewed pixels |
 | AC-55 | #575 | PASS | code + original execution/receipt readback |
 | AC-56 | #574 | PASS | code + original execution/receipt readback |
@@ -84,7 +97,7 @@ Full literal text, evidence and attempted refutation are in02-forward-audit.md a
 | AC-66 | #349 | PASS | code + original execution/receipt readback + reviewed pixels |
 | AC-67 | #349 | PASS | code + original execution/receipt readback |
 
-**Pass rate:** 67/67 criteria fully met (100%) within their literal contracts. These counts are computed, not copied from the prior audit.
+**Pass rate:** 66/67 criteria fully met (98.5%); one PARTIAL (AC-53). These counts are computed from the current scorecard, not copied from the prior audit.
 
 ## Code Quality Assessment
 
@@ -92,15 +105,15 @@ Strengths: bounded staged replacement, identity-bound recovery, explicit refusal
 
 ## Cornerstone Conformance
 
-Overall HIGH within scope;03-retrospective.md records all30 canonical rule faces,74 blindspot entries (including duplicate-number29) and8 cross-system interactions. Single new host lint was explicitly allocated. No device/cloud/provider action, product edit, build or source-custody sweep occurred in this lane.
+Overall HIGH within scope;03-retrospective.md records all30 canonical rule faces,74 blindspot entries (including duplicate-number29) and8 cross-system interactions. The primary review allocated one new host lint and performed no device/cloud action, product edit, build or source-custody sweep. The root continuation subsequently ran the two authorized Facilitator calls serially; their actual outputs and exits are retained below.
 
 ## Spec Fidelity
 
-Aligned: all67 literal criteria, same-model restore, known-state preservation, explicit standalone capability limits, and synthetic/installed/native separation. No new standalone integration, physical boot/radio, real account award or universal format claim is introduced. The changed historical verdicts are later evidence/source resolutions; no original failure is rewritten.
+All67 literal criteria were evaluated;66 pass and AC-53 remains PARTIAL. Verified alignment includes same-model restore, the enumerated preservation scope, explicit standalone capability limits, and synthetic/installed/native separation. No new standalone integration, physical boot/radio, real account award or universal format claim is introduced. The changed historical verdicts are later evidence/source resolutions; no original failure is rewritten.
 
 ## Missing Artifacts
 
-Historical #600 pkgcheck receipt was not retained in the inspected packet; fresh current check remedies present verification without fabricating history. Historical #196 raw manual launch/stat output was not located by the bounded search; exact-source frames and accepted ledger remain. Independent Fable output/provenance does not yet exist and is a completion prerequisite, not an omitted test to call PASS.
+Historical #600 pkgcheck receipt was not retained in the inspected packet; fresh current check remedies present verification without fabricating history. Historical #196 raw manual launch/stat output was not located by the bounded search; exact-source frames and accepted ledger remain. Both verified Fable outputs/provenance now exist. The remaining RetroArch process/stat evidence is #606; it is not counted PASS.
 
 ## Risk Assessment
 
@@ -108,14 +121,14 @@ Historical #600 pkgcheck receipt was not retained in the inspected packet; fresh
 | --- | --- | --- | --- |
 | Native ARM/client safety inferred from portable Steam fixtures | Medium if scope broadened | Unsupported release claim | Explicit exclusions; real inspected archive is structural only, execution denied. No such expansion made. |
 | Old wrapper failures relabelled by later success | Medium if records collapsed | False evidence chain | Failed owners/statuses and unknown waits retained beside fresh readers; source identities exact. |
-| Historical RetroArch manual proof lacks original process/stat transcript | Low evidence limitation | Cannot independently re-derive every old byte/time assertion | Original manager frames and current launcher controls retained; no new runtime assertion, no observed regression. External reviewer asked to challenge sufficiency. |
-| Primary-only audit mistaken for independent completion | Completion blocker | Missing other-lab challenge | Phase4.6 fails closed; exact packets need separate transfer authorization. |
+| Historical RetroArch manual proof lacks original process/stat transcript | Low evidence limitation | Cannot independently re-derive every old byte/time assertion | Original manager frames and current launcher controls retained; no new runtime assertion, no observed regression. The external challenge identified the missing causal proof; #606 now owns it. |
+| Missing RetroArch exit-auto-state process binding | Low evidence gap | Overstated complete native-state proof | AC-53 PARTIAL; #606 focused current VM proof. |
 
 ## Coverage Boundary
 
 Examined: all67 criteria, current product/tool code at named frozen sources, compact original VM/host/firmware/publication records, selected process/file manifests, raw negative controls, current official metadata snapshots, and representative actual pixels. AC08 alone ran anew: host pkgcheck0, no compile/network. Every other runtime result is an original readback with its own source and timestamp.
 
-Deliberately not examined: entire inherited distribution, bulk firmware caches, open #528 corresponding-source collectors, owner ROMs/accounts/cloud, physical radio/boot/power, universal game/format corpus and concurrent native ARM Steam/FEX/Proton gameplay. Selected storage preservation does not cover every arbitrary file or adjacent backup. No new benchmarks/VM/replays were performed. Historical #196 ledger assertions are not raw launch/stat receipts. External text reviewer will receive no image pixels unless separately authorized; primary visual reads remain identified.
+Deliberately not examined: entire inherited distribution, bulk firmware caches, open #528 corresponding-source collectors, owner ROMs/accounts/cloud, physical radio/boot/power, universal game/format corpus and concurrent native ARM Steam/FEX/Proton gameplay. Selected storage preservation does not cover every arbitrary file or adjacent backup. No new benchmarks/VM/replays were performed. Historical #196 ledger assertions are not raw launch/stat receipts. Neither external text-review packet included image pixels; primary visual reads remain identified.
 
 ## Tier B visual-QA consolidation
 
@@ -138,7 +151,19 @@ No new mandatory rule is proposed: existing “verify the artifact” and retain
 
 ## Second opinion (Phase4.6)
 
-Primary OpenAI/Codex; exact model ID unknown. Depth Independent:2 perspectives,1 external reviewer,2 planned calls (blind then refutation). Selected installed recipe: anthropic/claude-fable-5.1 via OpenRouter, effort xhigh. Existing Facilitator only. At packet preparation, no provider call or transfer had occurred. Exact review-plan and sanitized packet manifests are prepared in `second-opinions/`. The sealed blind prompt is 790,371 bytes (SHA-256 `3da1c2290b787fc113a3bb5809ce11fd7acfe68b7bb717bc404d6203c9350345`); the fixed refutation base is 922,168 bytes (SHA-256 `80450a6e6249f9b34e0a7cb6740dd268ea1b4bbbcc99b35077c0641e4d7ccdcc`). The final second prompt may append only the verified sanitized blind answer under the requested 131,072-byte bound; its digest is not invented before the answer exists. `packet-verification.json` records successful static content/hash/sanitization checks. The owner subsequently directed completion of #603; authorization.json records the unchanged two-call scope. The first call started at21:14:18UTC under root supervision. Its verified result and the subsequent refutation remain outstanding at this continuation checkpoint. Both served-identity/provenance/output-digest checks and primary verification of every external lead are required before Phase5. A formal five-seat council is not part of this audit.
+Independent depth: OpenAI/Codex primary plus Anthropic Fable5.1/xhigh through
+OpenRouter/Facilitator, blind then refutation. Both served identities were
+provider-observed, both effort checks PASS, no retries, all original result
+channels0. Blind13649bytes/SHA097db216f847d83b0a1fb9be82f72aa50355937c08251e3b48a807ee428a0fd6;
+refutation22673bytes/SHA2bbc57474fe0ce041fcd966d2fec31034831201eaa11a67dc3e291f54840464f.
+The exact original authorized prompts remain unchanged. Provenance and original
+invocation records are retained; all recorded process identities were observed
+absent. No five-seat council, additional transfer or model substitution occurred.
+
+Every external lead is graded in second-opinions/primary-verification.md, backed
+by checks/lead-verification/. See05-punch-list.md for the seven actionable items
+and pre-existing scope. The later ZeroTier delta remains separately reviewed,
+outside these frozen external packets. No public or device authorization follows.
 
 ## Quality Self-Check
 
@@ -148,9 +173,20 @@ Primary OpenAI/Codex; exact model ID unknown. Depth Independent:2 perspectives,1
 | Conformance tables |03 includes rules/blindspots/interactions |
 | Coverage boundary |Present02 and04; actual source/run limits explicit |
 | Critical/High verification |No such fresh finding; false-positive attacks recorded |
-| Second opinion |Pending authorization and two verified calls; completion fails closed |
+| Second opinion |Two verified completed calls; every lead graded |
 | Instruction recommendations |Present; existing rule sufficient |
 | Tier B consolidation |Present; exact-source pixels distinguished from reports |
 | Verdict vocabulary |PASS/PARTIAL historical amendment; no invented runtime result |
 | Traceability/evidence/reproducibility |Primary paths/member names/source hashes retained; supplementary custody and packet manifest bind bytes |
-| Actionable/complete |Primary phases complete; no Phase5 before independent review |
+| Actionable/complete |Seven scoped punch items; Phase7 and #606 still active |
+
+### Evidence precision after refutation
+
+AC-10 distinguishes assembled image/artifact acceptance from original producer1.
+AC-37/49/51 installed proof retains f863 producer-reporting qualificationfalse
+and unknown launcher wait. AC-49 proves bounded joined-worker/group disappearance;
+it does not claim every clean grandchild numeric wait status. AC-27/56 combine
+source binding, controlled positive routing and separately scoped installed proof,
+not a new live positive socket observation. AC-30/31/33 preserve the enumerated
+transaction scope, excluding registry replacement. AC-62 recovery manifests/logs
+prove rollback before the intentionally failed next download; retry exits remain1.

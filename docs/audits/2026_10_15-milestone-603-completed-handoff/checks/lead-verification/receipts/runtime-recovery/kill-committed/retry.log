@@ -1,0 +1,4 @@
+MOCK_COMMAND ["curl", "-fsSL", "--connect-timeout", "10", "--max-time", "30", "--max-filesize", "128", "https://fixture.invalid/version"]
+MOCK_COMMAND ["wget", "-t", "3", "-T", "30", "-O", "/run/qa-steam-scratch/first/runtime/tmp/cases/kill-committed/synthetic-steam/.steam-runtime-update/runtime.tar.xz", "https://fixture.invalid/images/fixture-version/steam-runtime-steamrt-arm64.tar.xz"]
+Steam runtime replacement failed: Command '['wget', '-t', '3', '-T', '30', '-O', '/run/qa-steam-scratch/first/runtime/tmp/cases/kill-committed/synthetic-steam/.steam-runtime-update/runtime.tar.xz', 'https://fixture.invalid/images/fixture-version/steam-runtime-steamrt-arm64.tar.xz']' returned non-zero exit status 9.
+OWNER_EXIT 1

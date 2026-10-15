@@ -1,0 +1,591 @@
+[
+  {
+    "retained": "baseline/evidence/qa20-final-result.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-qualification-followups/baseline-correction.tar.gz::baseline-correction/evidence/qa20-final-result.json",
+    "bytes": 381,
+    "sha256": "e4bd39a5fbfc0d4096dad059c74d160986f5d100e69041acc991cae76f722edc",
+    "archive_sha256": "26e87c7f37f483d6bbd9777dc1f4bfe8bd0309c401085f24944729bc187bec4b"
+  },
+  {
+    "retained": "baseline/evidence/qa20-first-run.py",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-qualification-followups/baseline-correction.tar.gz::baseline-correction/evidence/qa20-first-run.py",
+    "bytes": 3946,
+    "sha256": "73fd3b9f98124ee707965e7083624e0acd403d3a6596a684d78859febb1b1883",
+    "archive_sha256": "26e87c7f37f483d6bbd9777dc1f4bfe8bd0309c401085f24944729bc187bec4b"
+  },
+  {
+    "retained": "baseline/last-good-scripts-test.diff",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-qualification-followups/baseline-correction.tar.gz::baseline-correction/last-good-scripts-test.diff",
+    "bytes": 724,
+    "sha256": "fe95b6c16912517957be7929adb62dd8a76ccf18503568f488282f99b1473eef",
+    "archive_sha256": "26e87c7f37f483d6bbd9777dc1f4bfe8bd0309c401085f24944729bc187bec4b"
+  },
+  {
+    "retained": "baseline/run.py",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-qualification-followups/baseline-correction.tar.gz::baseline-correction/run.py",
+    "bytes": 17463,
+    "sha256": "5ed44531cbb111b9fca34262e0e50538d3ef1f6379a4bf532d296a1a5638572e",
+    "archive_sha256": "26e87c7f37f483d6bbd9777dc1f4bfe8bd0309c401085f24944729bc187bec4b"
+  },
+  {
+    "retained": "baseline/config.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-baseline-continuation/config.json",
+    "bytes": 28381,
+    "sha256": "d70c710f57aa2006dfe64e85caa370591921865e4c23b0ae4770e50b9e499e73"
+  },
+  {
+    "retained": "baseline/result.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-baseline-continuation/result.json",
+    "bytes": 41465,
+    "sha256": "2ba4ac3276af0ed6db02b0cc13a4b8b620d10679ea3718790a0e2f380d98676a"
+  },
+  {
+    "retained": "baseline/host-exits.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-baseline-continuation/host-exits.json",
+    "bytes": 19550,
+    "sha256": "a5f653eb84f0d21111167ec514762775369bd8847779b1c23e053dcee2567489"
+  },
+  {
+    "retained": "baseline/consumption-draft.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-baseline-continuation/consumption-draft.json",
+    "bytes": 1793,
+    "sha256": "4ae79bd14145d584a526f13eee9129f0dd8adc8364cd95effb8c5fe9ae453edf"
+  },
+  {
+    "retained": "baseline/webdav/report.md",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-baseline-continuation/webdav/report.md",
+    "bytes": 676,
+    "sha256": "fc5f87004b23d70b2476a7ab51e237acef48161f2c5fdd24f7a9423401c8457a"
+  },
+  {
+    "retained": "baseline/original-to-frozen.diff",
+    "source": "computed exact byte diff; no patch application/execution",
+    "bytes": 693,
+    "sha256": "921774746052f5d5b293b879fcb2f657ffa0756194a5f106a654a75c31388c7a",
+    "derived": true
+  },
+  {
+    "retained": "baseline/binding-check.json",
+    "source": "exact named Git objects and original owner files",
+    "bytes": 785,
+    "sha256": "23ea02c040c16e489d1f884e1d3aba929066f9978746e061d5da8242ce13f3fa",
+    "derived": true
+  },
+  {
+    "retained": "frozen/readiness.md",
+    "source": "git:cdd92f10605517e789e09d13b6f4ba68573c2617:docs/releases/next-candidate-work.md",
+    "bytes": 38807,
+    "sha256": "d26c1e005d817a43cedab32a4d9af1ad54df0b08acfc10c76e03067faec9e675"
+  },
+  {
+    "retained": "frozen/steam-package.mk",
+    "source": "git:cdd92f10605517e789e09d13b6f4ba68573c2617:projects/ROCKNIX/packages/emulators/standalone/steam/package.mk",
+    "bytes": 1476,
+    "sha256": "7c3599251e7d3b6a7157457cef25ef61467cefa0880429b432f8fba9c431d5f7"
+  },
+  {
+    "retained": "frozen/vm-qa",
+    "source": "git:cdd92f10605517e789e09d13b6f4ba68573c2617:tools/vm-qa",
+    "bytes": 40581,
+    "sha256": "17b3f693377e8b67b0a4fb4e50b980b65cf0a8f2c5ec81920ee19930ae210d15"
+  },
+  {
+    "retained": "frames/claims.txt",
+    "source": "git:cdd92f10605517e789e09d13b6f4ba68573c2617:tools/vm-walks/claims.txt",
+    "bytes": 57101,
+    "sha256": "7764b6824a8489b1e22d793ac8adcbf90b559d3235e9d65189c55e618101cf5e"
+  },
+  {
+    "retained": "frames/claims.composed.txt",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-frame-claims/original-packet.tar.gz::packet/claims.composed.txt",
+    "bytes": 57101,
+    "sha256": "7764b6824a8489b1e22d793ac8adcbf90b559d3235e9d65189c55e618101cf5e",
+    "archive_sha256": "6c463ab9cce5defc51a2dd5a76d75a3b42328cf4505ca8b9c5339f47ca032588"
+  },
+  {
+    "retained": "frames/review.txt",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-frame-claims/review.txt",
+    "bytes": 9046,
+    "sha256": "27f22c5b371bd420dde19eebe599e5ea8e1db5f2fff4ac06bbe8d00d7d59c1de"
+  },
+  {
+    "retained": "frames/README.md",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-frame-claims/README.md",
+    "bytes": 1808,
+    "sha256": "54c0fe5097c7375fbdf20ec5c42694b1ce1b66ba982e74e019019cad16392a97"
+  },
+  {
+    "retained": "frames/proposed-578-background-regions.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-frame-claims/proposed-578-background-regions.json",
+    "bytes": 33475,
+    "sha256": "a4009bc6f9f4821e86e0c34bcd87615ebd45491fe5e1a64200c952784c8e71f0"
+  },
+  {
+    "retained": "frames/handoff-hashes.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-frame-claims/handoff-hashes.json",
+    "bytes": 1229,
+    "sha256": "9288ae30c78b7ee8507f556442f69db08fe1425dc2d3ff892bea5ee7ab46d7dc"
+  },
+  {
+    "retained": "frames/execution-result.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-frame-claims/original-packet.tar.gz::packet/execution01/result.json",
+    "bytes": 1965,
+    "sha256": "3e952d480fd3bda7016259d85fd79e9b6a98204cfe449a52eed6e9d24af19bc3",
+    "archive_sha256": "6c463ab9cce5defc51a2dd5a76d75a3b42328cf4505ca8b9c5339f47ca032588"
+  },
+  {
+    "retained": "frames/pixel-summary.json",
+    "source": "projection of existing published pixel inventory",
+    "bytes": 46999,
+    "sha256": "f48ba7a2e65cf329cb83ae301b959d3a509e67cd4e0e87d7fa51384bdfbefcc8",
+    "derived": true
+  },
+  {
+    "retained": "steam/old-Install-Steam.sh",
+    "source": "git:07a16c4d2f3cb923e171c0f6b8dd43aafc4282b2:projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+    "bytes": 67550,
+    "sha256": "9e1ce7b52279c9d057eb3acf7caa4d03843871b2fec5ccc15b06287b4de67402"
+  },
+  {
+    "retained": "steam/frozen-Install-Steam.sh",
+    "source": "git:cdd92f10605517e789e09d13b6f4ba68573c2617:projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+    "bytes": 124399,
+    "sha256": "1694f7a9b892988a67a3445c8f51031c5a5c8be02628b0be8031f233b512ad3b"
+  },
+  {
+    "retained": "steam/heredoc-bindings.json",
+    "source": "exact newline-preserving extraction between literal heredoc delimiters; no execution",
+    "bytes": 2917,
+    "sha256": "bfbfe5b42c68bcbee091e00bb3aed989ba060fa376b264982a18ac1d2d6d25cc",
+    "derived": true
+  },
+  {
+    "retained": "steam/runtime-result.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/result.json",
+    "bytes": 8471,
+    "sha256": "167fc330cca2f1cb929f405d443b44cf491dea1c8d8ea3531feec7e8f093c659",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "steam/proton-result.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::proton/tmp/cases/result.json",
+    "bytes": 14058,
+    "sha256": "b303057ad83d84fdbd3ec1891f104a9447d90840901644084dea0e51b8ddb85b",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "steam/root-result.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::root/tmp/cases/result.json",
+    "bytes": 4865,
+    "sha256": "1d7b6e806071808c948463910d14ffb3f7f19bfb4f8fa40fada15d9b2ba3dc3e",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-staging/before.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-staging/before.json",
+    "bytes": 2419,
+    "sha256": "093a6f7f176ebcaf43160619e16c8025ba1d6152f8069b565b9731f1f4e46c77",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-staging/after-first.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-staging/after-first.json",
+    "bytes": 2419,
+    "sha256": "093a6f7f176ebcaf43160619e16c8025ba1d6152f8069b565b9731f1f4e46c77",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-staging/after.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-staging/after.json",
+    "bytes": 2419,
+    "sha256": "093a6f7f176ebcaf43160619e16c8025ba1d6152f8069b565b9731f1f4e46c77",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-staging/retry.log",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-staging/retry.log",
+    "bytes": 717,
+    "sha256": "feb14b5de36428ad6e579bf53b89ba92d573e8bf283303eaacb925bde546f0d5",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-old-renamed/before.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-old-renamed/before.json",
+    "bytes": 2423,
+    "sha256": "1e181390128f8f529c472f4370dc0aba84a4d7233aae7474df77099bfe95c9c7",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-old-renamed/after-first.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-old-renamed/after-first.json",
+    "bytes": 1511,
+    "sha256": "7c2a464985271d90bbb2922f338c98fab92e37e55b7af5fb280f7ce986f8081e",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-old-renamed/after.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-old-renamed/after.json",
+    "bytes": 2423,
+    "sha256": "1e181390128f8f529c472f4370dc0aba84a4d7233aae7474df77099bfe95c9c7",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-old-renamed/retry.log",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-old-renamed/retry.log",
+    "bytes": 725,
+    "sha256": "9630f5680893d58d89a28ad206ac87ae7bd2c0410644c0f2f4b683c8f00a3a81",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-new-renamed/before.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-new-renamed/before.json",
+    "bytes": 2423,
+    "sha256": "5417e6aed90dc2e693dfa59fb511f9b38517b5da621c677d61c732e93584be19",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-new-renamed/after-first.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-new-renamed/after-first.json",
+    "bytes": 2992,
+    "sha256": "e469207f661d23e09f03193b1805115b00867a243069470833181c594ed554fe",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-new-renamed/after.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-new-renamed/after.json",
+    "bytes": 2423,
+    "sha256": "5417e6aed90dc2e693dfa59fb511f9b38517b5da621c677d61c732e93584be19",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-new-renamed/retry.log",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-new-renamed/retry.log",
+    "bytes": 725,
+    "sha256": "01b8e4d247c78ed0e9535d300ce27946bf27cdc84bb6b940339c729a4a957f89",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-first-link/before.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-first-link/before.json",
+    "bytes": 2422,
+    "sha256": "54a42fa15067866794122706720115b74a1426f680656442533fa9ddb5baf2b2",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-first-link/after-first.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-first-link/after-first.json",
+    "bytes": 3054,
+    "sha256": "c04d648ee088cd1684c17f0db6bb0e62b2220b58d92f300b58b52d5067802d62",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-first-link/after.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-first-link/after.json",
+    "bytes": 2422,
+    "sha256": "54a42fa15067866794122706720115b74a1426f680656442533fa9ddb5baf2b2",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-first-link/retry.log",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-first-link/retry.log",
+    "bytes": 723,
+    "sha256": "6fd76231c44555c731bed999f23659402527ce975e8b9e36dd2aa926e635dccd",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-second-link/before.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-second-link/before.json",
+    "bytes": 2423,
+    "sha256": "9eaadd2692a3f3733ebc46c54acc9d9e06c79ba7616f77b8292ab1bf5a39757b",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-second-link/after-first.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-second-link/after-first.json",
+    "bytes": 3132,
+    "sha256": "05e9e0829d7c9450bf4e61407620d64bcfd4fc0272dff40959c86ea86ecd4588",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-second-link/after.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-second-link/after.json",
+    "bytes": 2423,
+    "sha256": "9eaadd2692a3f3733ebc46c54acc9d9e06c79ba7616f77b8292ab1bf5a39757b",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-second-link/retry.log",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-second-link/retry.log",
+    "bytes": 725,
+    "sha256": "d648d660b099299d2ea25f54a7cbe4625d113e409e107ee9599daa3f0b38edb7",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-committed/before.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-committed/before.json",
+    "bytes": 2421,
+    "sha256": "61fc816d1ee9fe6eac80cfa5136591beed6f78b5460f4af025c9b0c9ab6a5b21",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-committed/after-first.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-committed/after-first.json",
+    "bytes": 3128,
+    "sha256": "095d024eaedb7927aad063896ed04394a3e6dc6ba42c08d580857025fd2b1a40",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-committed/after.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-committed/after.json",
+    "bytes": 3128,
+    "sha256": "095d024eaedb7927aad063896ed04394a3e6dc6ba42c08d580857025fd2b1a40",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/kill-committed/retry.log",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/kill-committed/retry.log",
+    "bytes": 721,
+    "sha256": "fd13c92dfb142bf94034b0be1f37abae948daf5402f05df1f66016e4ce14911b",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/recovery-failure/before.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/recovery-failure/before.json",
+    "bytes": 2423,
+    "sha256": "1a7536b9f6ea22d7b02b495371b599382c131865db6c64c5bb0308148327f966",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/recovery-failure/after-first.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/recovery-failure/after-first.json",
+    "bytes": 1574,
+    "sha256": "b78507f2230a1ed095ae779207431466b47795475a8e3efb490f44518c551623",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/recovery-failure/after.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/recovery-failure/after.json",
+    "bytes": 2423,
+    "sha256": "1a7536b9f6ea22d7b02b495371b599382c131865db6c64c5bb0308148327f966",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/recovery-failure/retry.log",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/recovery-failure/retry.log",
+    "bytes": 725,
+    "sha256": "13f4486da869e7bd54e6df2a2bacc025cbb9ae51a3c9836ddd25511a996a76c1",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/cleanup-failure/before.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/cleanup-failure/before.json",
+    "bytes": 2422,
+    "sha256": "4d05e0a848389d60415086760bdf4aaf8491992e44df8924ff10304d0cc88e08",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/cleanup-failure/after-first.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/cleanup-failure/after-first.json",
+    "bytes": 3130,
+    "sha256": "b7b5ebf62c55cb857ac00c5099e50d385ad12dc13f3bf96a5814944641a602d1",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/cleanup-failure/after.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/cleanup-failure/after.json",
+    "bytes": 3130,
+    "sha256": "b7b5ebf62c55cb857ac00c5099e50d385ad12dc13f3bf96a5814944641a602d1",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/cleanup-failure/retry.log",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz::runtime/tmp/cases/cleanup-failure/retry.log",
+    "bytes": 723,
+    "sha256": "1c79971880fee4a53b427c630a639887ee585cc3a53c80bc7b23991400f0fff5",
+    "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2"
+  },
+  {
+    "retained": "runtime-recovery/comparison.json",
+    "source": "comparison of retained manifest dictionaries and original retry logs",
+    "bytes": 1826,
+    "sha256": "a73ce276ca4347db45fb26770adcb69ec6f58127cafa165f19906b2a11d9f449",
+    "derived": true
+  },
+  {
+    "retained": "wifi/guest-wifi-observer.py",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-final-engineering-result/affected-source.tar.gz::affected/guest-wifi-observer.py",
+    "bytes": 13136,
+    "sha256": "f895b41eabc7f22d764b0ba1856ef5c873eb71c2b8d2dafd3c50fe14aa9636e3",
+    "archive_sha256": "c3ad2c8095559540095fb7917e5a053f0dda75ce5dfea897fe601e8f2d5e5ce6"
+  },
+  {
+    "retained": "wifi/guest_helpers.py",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-final-engineering-result/affected-source.tar.gz::affected/guest_helpers.py",
+    "bytes": 2199,
+    "sha256": "89a1c39a8b88e87ad4561014d0f32e5371787fe1a5aacf7b5147d6d42a99b9aa",
+    "archive_sha256": "c3ad2c8095559540095fb7917e5a053f0dda75ce5dfea897fe601e8f2d5e5ce6"
+  },
+  {
+    "retained": "wifi/final-clean/result.json",
+    "source": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate/result.json",
+    "bytes": 1790,
+    "sha256": "155ad890373795aea8669eeab153bedf7e1e3585e5cf08baf56edd96e8a1e741"
+  },
+  {
+    "retained": "wifi/final-clean/before-cleanup.json",
+    "source": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate/before-cleanup.json",
+    "bytes": 1742,
+    "sha256": "69b460a558c7d0c2f23405f54467dd00156dd2f520f48027e4f1d901209a5da3"
+  },
+  {
+    "retained": "wifi/final-clean/owner-result.json",
+    "source": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate/owner-result.json",
+    "bytes": 402,
+    "sha256": "50b01e4a7e78e1591b86ac009d616a111e4754a7c1ad331d9f62b3f70fd36397"
+  },
+  {
+    "retained": "wifi/final-clean/frontend.stderr",
+    "source": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate/frontend.stderr",
+    "bytes": 18126,
+    "sha256": "1929b9d3a30ceac696dfd31cb515493a61c2643bed9d7f11a44362b470fba020"
+  },
+  {
+    "retained": "wifi/final-clean/frontend.stdout",
+    "source": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate/frontend.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "retained": "wifi/final-retained/result.json",
+    "source": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate/result.json",
+    "bytes": 1870,
+    "sha256": "48694a7ba66357d2a8de31cecd525ac4978d67eeccad6d2b3fa685cd07af6a4c"
+  },
+  {
+    "retained": "wifi/final-retained/before-cleanup.json",
+    "source": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate/before-cleanup.json",
+    "bytes": 1822,
+    "sha256": "93991a52877980be1e0d3eae2f3c31413be1447ccdf3c4020d38c603ce1a5207"
+  },
+  {
+    "retained": "wifi/final-retained/owner-result.json",
+    "source": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate/owner-result.json",
+    "bytes": 402,
+    "sha256": "e515ce33485d1888afd3340e0f3e32e82589e6fc24670f63013ecb87a7523da0"
+  },
+  {
+    "retained": "wifi/final-retained/frontend.stderr",
+    "source": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate/frontend.stderr",
+    "bytes": 18127,
+    "sha256": "268d93300ea219145378bc2e60f5a26dce95c5cc3180acb672dbda25bc55df8b"
+  },
+  {
+    "retained": "wifi/final-retained/frontend.stdout",
+    "source": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate/frontend.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "retained": "sm/preparation.json",
+    "source": "/workspace/tmp/pix-m7-sm8550-refresh-20261015-02/preparation.json",
+    "bytes": 507,
+    "sha256": "aae9b3820aec6d1e0257bea7240813edd50d6afe4df830f22360293234d462c6"
+  },
+  {
+    "retained": "sm/launcher-submission.json",
+    "source": "/workspace/tmp/pix-m7-sm8550-refresh-20261015-02/launcher-submission.json",
+    "bytes": 340,
+    "sha256": "6b38b1895bc323a8200ee040b5d1a8b6dd8e5c943b4865c5aff8acb01020f35b"
+  },
+  {
+    "retained": "sm/launcher-start.json",
+    "source": "/workspace/tmp/pix-m7-sm8550-refresh-20261015-02/launcher-start.json",
+    "bytes": 167,
+    "sha256": "4ab8e24d423498d5cc11f670b184bc115008d5e87e14c39ccd82d09c5194ca11"
+  },
+  {
+    "retained": "sm/build.py",
+    "source": "/workspace/tmp/pix-m7-sm8550-refresh-20261015-02/build.py",
+    "bytes": 4653,
+    "sha256": "e7974aae1554294626b9acfaeb79ad01918959d5e3f479c127865514508239e1"
+  },
+  {
+    "retained": "sm/inside-build.sh",
+    "source": "/workspace/tmp/pix-m7-sm8550-refresh-20261015-02/inside-build.sh",
+    "bytes": 461,
+    "sha256": "469180247f3f204a08b04fb306c556376a52c22ad16eeda894a961cfc2e62820"
+  },
+  {
+    "retained": "sm/inputs-projection.json",
+    "source": "bounded selected fields of original inputs.json",
+    "bytes": 687,
+    "sha256": "56909185affb9dcd229009a5d7ba60db9df5098668f0ce154eab2bfb22138850",
+    "derived": true
+  },
+  {
+    "retained": "sm/prepare-owner.py",
+    "source": "/tmp/pix-m7-sm8550-abl-retry-20261015/prepare-owner.py",
+    "bytes": 14170,
+    "sha256": "3aef6c74ab61cff722d5c73b3201d7aef236fc3e30112095a36bddbd8c60b60c"
+  },
+  {
+    "retained": "sm/acceptance.json",
+    "source": "/tmp/pix-m7-audit603-20261015/extracted/abl-accepted/owner/acceptance/artifacts/acceptance.json",
+    "bytes": 2850,
+    "sha256": "b576f190e56c01ed534bbec593dc669c5fc034317a69ccb68af14cb568787dd0"
+  },
+  {
+    "retained": "sm/affected-products-staged.json",
+    "source": "/workspace/tmp/pix-m7-sm8550-reader-20261015-01/artifacts/affected-products-staged.json",
+    "bytes": 24874,
+    "sha256": "30a83282534388d66e294414c498e3ae0669636ca5cb802daa2c7bc66fe89849"
+  },
+  {
+    "retained": "sm/archive-reader-result.json",
+    "source": "/tmp/pix-m7-audit603-20261015/extracted/checksum/archive-reader/result.json",
+    "bytes": 3109,
+    "sha256": "d08a01330ad3e4923b2d979d3c02b17e7766e8aa24cc30a844f0932f712aa19c"
+  },
+  {
+    "retained": "sm/verify-additions.py",
+    "source": "/tmp/pix-m7-audit603-20261015/extracted/abl-accepted/owner/verify-additions.py",
+    "bytes": 11143,
+    "sha256": "cc831ed067f153f09630cc9ee1a422450f351fd80e49d527ebcf50693e52b50b"
+  },
+  {
+    "retained": "pkgcheck/invocation.json",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/audits/2026_10_15-milestone-603-completed-handoff/checks/pkgcheck-current/invocation.json",
+    "bytes": 887,
+    "sha256": "7fe0b8b91c0db56f7381243bf97c8691cc68db310d88b0cb32777a7cebb27d86"
+  },
+  {
+    "retained": "pkgcheck/stdout",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/audits/2026_10_15-milestone-603-completed-handoff/checks/pkgcheck-current/stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "retained": "pkgcheck/stderr",
+    "source": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/audits/2026_10_15-milestone-603-completed-handoff/checks/pkgcheck-current/stderr",
+    "bytes": 58,
+    "sha256": "e5f982060767c62a5dbdd5bab329ae36f244df210552dd768e0e197e5a7d8f3d"
+  },
+  {
+    "retained": "pkgcheck/package.mk",
+    "source": "git:cdd92f10605517e789e09d13b6f4ba68573c2617:projects/ROCKNIX/packages/tools/rocknix-abl/package.mk",
+    "bytes": 912,
+    "sha256": "6b07c262b11e8cc3fd45e8097b7fdb06a1f612cb31008daafdc3ecf68f892b3c"
+  },
+  {
+    "retained": "pkgcheck/pkgcheck",
+    "source": "git:cdd92f10605517e789e09d13b6f4ba68573c2617:tools/pkgcheck",
+    "bytes": 5556,
+    "sha256": "dea8addbc2a0a3c3d70da227d2be27f705e7d813ee129d0e43a5781215c04e18"
+  },
+  {
+    "retained": "h700/installed-inclusion.json",
+    "source": "/workspace/tmp/pix-m7-zerotier-h700-readback-20261015-01/artifacts/installed-inclusion.json",
+    "bytes": 17964,
+    "sha256": "8536dbe840425b880fe1cb152e93f5b6902921d75b92dbd7c8d35353bac89463"
+  }
+]

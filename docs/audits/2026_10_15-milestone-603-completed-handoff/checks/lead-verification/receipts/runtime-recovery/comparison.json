@@ -1,0 +1,66 @@
+[
+  {
+    "case": "kill-staging",
+    "before_equals_after": true,
+    "after_first_equals_after": true,
+    "retry_reached_injected_wget9": true,
+    "recovery_attention_message": false,
+    "retry_original_exit1": true
+  },
+  {
+    "case": "kill-old-renamed",
+    "before_equals_after": true,
+    "after_first_equals_after": false,
+    "retry_reached_injected_wget9": true,
+    "recovery_attention_message": false,
+    "retry_original_exit1": true
+  },
+  {
+    "case": "kill-new-renamed",
+    "before_equals_after": true,
+    "after_first_equals_after": false,
+    "retry_reached_injected_wget9": true,
+    "recovery_attention_message": false,
+    "retry_original_exit1": true
+  },
+  {
+    "case": "kill-first-link",
+    "before_equals_after": true,
+    "after_first_equals_after": false,
+    "retry_reached_injected_wget9": true,
+    "recovery_attention_message": false,
+    "retry_original_exit1": true
+  },
+  {
+    "case": "kill-second-link",
+    "before_equals_after": true,
+    "after_first_equals_after": false,
+    "retry_reached_injected_wget9": true,
+    "recovery_attention_message": false,
+    "retry_original_exit1": true
+  },
+  {
+    "case": "kill-committed",
+    "before_equals_after": false,
+    "after_first_equals_after": true,
+    "retry_reached_injected_wget9": true,
+    "recovery_attention_message": false,
+    "retry_original_exit1": true
+  },
+  {
+    "case": "recovery-failure",
+    "before_equals_after": true,
+    "after_first_equals_after": false,
+    "retry_reached_injected_wget9": true,
+    "recovery_attention_message": false,
+    "retry_original_exit1": true
+  },
+  {
+    "case": "cleanup-failure",
+    "before_equals_after": false,
+    "after_first_equals_after": true,
+    "retry_reached_injected_wget9": true,
+    "recovery_attention_message": false,
+    "retry_original_exit1": true
+  }
+]

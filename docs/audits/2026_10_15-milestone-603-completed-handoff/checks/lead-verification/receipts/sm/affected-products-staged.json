@@ -1,0 +1,669 @@
+{
+  "result": "PASS",
+  "utc": "2026-10-15T09:22:27.097363+00:00",
+  "device": "SM8550",
+  "source": "9aa7affee9d4ad5e69725cab20b6d7ad84d93dea",
+  "products": {
+    "usr/bin/cheevos_dolphin.sh": {
+      "sha256": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a",
+      "bytes": 5106,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/cheevos_dolphin.sh",
+        "links": []
+      }
+    },
+    "usr/bin/cloud_oauth": {
+      "sha256": "95c626f8df07faef522683a857e48e31f85a58c6f738bcde24707574dc24d293",
+      "bytes": 126485,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/cloud_oauth",
+        "links": []
+      }
+    },
+    "usr/bin/dolphin-emu": {
+      "sha256": "06c5915e4850a79988e23bca322b02c21230fa7edf3048b69866d282148bcd8e",
+      "bytes": 10265024,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/dolphin-emu",
+        "links": []
+      }
+    },
+    "usr/bin/dolphin-emu-nogui": {
+      "sha256": "dc8dce9a8131fbe2f86cdfd5b6fc6581b6469c6a09583f84aa51078d1e078ca8",
+      "bytes": 6817376,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/dolphin-emu-nogui",
+        "links": []
+      }
+    },
+    "usr/bin/dolphin-save-paths": {
+      "sha256": "507ccc96245bfc7aaca5e154ef0567cacccd0cbc9d0f999761d2fdee1fc245e8",
+      "bytes": 16727,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/dolphin-save-paths",
+        "links": []
+      }
+    },
+    "usr/bin/gst-inspect-1.0": {
+      "sha256": "1275369a27639e5bca9beb8c3714be35860c61dffd9060e9dc7e4cf1f70e9ada",
+      "bytes": 69024,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/gst-inspect-1.0",
+        "links": []
+      }
+    },
+    "usr/bin/python3": {
+      "sha256": "1e42511725cc61d142636f421705db29698a4daca2f2309a6ff0e110b9cb4102",
+      "bytes": 67496,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/python3.14",
+        "links": [
+          {
+            "path": "/usr/bin/python3",
+            "target": "python3.14"
+          }
+        ]
+      }
+    },
+    "usr/bin/raofflineproxy-ctl": {
+      "sha256": "47391a3bbcaa0f2262cdee12f09bd48d17f7fedf0237a1a661a21b085b2f71f7",
+      "bytes": 120981,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/raofflineproxy-ctl",
+        "links": []
+      }
+    },
+    "usr/bin/runemu.sh": {
+      "sha256": "deb95aee74d3ddd80638a9ab2f940f5b3b080f4d3ec01f669ea8dbd44179ad20",
+      "bytes": 23382,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/runemu.sh",
+        "links": []
+      }
+    },
+    "usr/bin/start_dolphin_gc.sh": {
+      "sha256": "260ecc03b3ea0781797f9c34a8b3eae064bd14afd52a9406874fd868bead1178",
+      "bytes": 18518,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/start_dolphin_gc.sh",
+        "links": []
+      }
+    },
+    "usr/bin/start_dolphin_wii.sh": {
+      "sha256": "6288f9d9bcbb8a92497bc29f61a8ded974478596e9fcf8e5c1d8148e6ac1f6d5",
+      "bytes": 16939,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/start_dolphin_wii.sh",
+        "links": []
+      }
+    },
+    "usr/bin/steam": {
+      "sha256": "a56d881670d9585c4ca946d5c4c1e5463039d8902976be10a74a38161158f394",
+      "bytes": 8303,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/steam/bin_steam.sh",
+        "links": [
+          {
+            "path": "/usr/bin/steam",
+            "target": "../lib/steam/bin_steam.sh"
+          }
+        ]
+      }
+    },
+    "usr/bin/wifictl": {
+      "sha256": "c89ed28a50e4be78468fcee25dcfd68e0b1c67af25657c3d0ba9318c7576a48c",
+      "bytes": 24892,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/wifictl",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/Dolphin.ini": {
+      "sha256": "3e256e68104abb86c2e0d5bf097221c656ddd75afa778d1da53b85f1653517aa",
+      "bytes": 2429,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/Dolphin.ini",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/GFX.ini": {
+      "sha256": "3a1fb275978e89f79c68723ff15dca73f7f81c126652e1b062871b8e3a8e7a67",
+      "bytes": 1127,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/GFX.ini",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.east.inline": {
+      "sha256": "09f34c419692f9aa41c6e9b381d85922cccc8163d184574ed26f4de073460652",
+      "bytes": 972,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.east.inline",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.east.stacked": {
+      "sha256": "8c8e5333d7d24f406e555634f142a4d4406e94a24fad7cd0f5c3709f8668680a",
+      "bytes": 970,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.east.stacked",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.south.inline": {
+      "sha256": "1500c49234d47f856a034da10fe39119ba6846034f705cfc5aca8a8f8c81d52a",
+      "bytes": 972,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.south.inline",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.south.stacked": {
+      "sha256": "04fd777a3b8286411d797064d99410d8e6782aec35fe1e4bbe5f23d6894960cd",
+      "bytes": 970,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.south.stacked",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/Hotkeys.ini": {
+      "sha256": "21e5f4a334b73f9cd59fb05cbde9f0d671e2ca79b9e3beb03f637b88f36a32e5",
+      "bytes": 567,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/Hotkeys.ini",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/WiiControllerProfiles/classic.ini": {
+      "sha256": "d41770db82d9e9877854057893414c2b6511f6fe0b510fbffe4dd7bbd596672f",
+      "bytes": 844,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/WiiControllerProfiles/classic.ini",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/WiiControllerProfiles/hremote.ini": {
+      "sha256": "714f4045ac8b03b65e4760be0c112e1ee9c4f67d1e7762a1567a4172138085ce",
+      "bytes": 498,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/WiiControllerProfiles/hremote.ini",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/WiiControllerProfiles/nunchuck.ini": {
+      "sha256": "6578588e362f807d08efd7953c4d7c22b3025a1b68a80990a80e686aa8e44a9e",
+      "bytes": 748,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/WiiControllerProfiles/nunchuck.ini",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/WiiControllerProfiles/vremote.ini": {
+      "sha256": "6ee4fa6c31ee5e1fd2f644bb71ab452962b86bae6330eb038fcf3eeef92e1a54",
+      "bytes": 497,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/WiiControllerProfiles/vremote.ini",
+        "links": []
+      }
+    },
+    "usr/config/locale/en_GB/LC_MESSAGES/emulationstation2.mo": {
+      "sha256": "4461480d7b6a88d1eb9cfb0ac0423d325455694ab4c420cc8c4e36ff04cdc73a",
+      "bytes": 66454,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/locale/en_GB/LC_MESSAGES/emulationstation2.mo",
+        "links": []
+      }
+    },
+    "usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo": {
+      "sha256": "f7b4fec7bacb7a7e2e53883c0c5f2bda1d14343d1c1392edf469904e95104a59",
+      "bytes": 173612,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo",
+        "links": []
+      }
+    },
+    "usr/config/modules/Install Steam.sh": {
+      "sha256": "1694f7a9b892988a67a3445c8f51031c5a5c8be02628b0be8031f233b512ad3b",
+      "bytes": 124399,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/config/modules/Install Steam.sh",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/gst-plugin-scanner": {
+      "sha256": "cba3f768cdacf870165dfd6e40df7b785a524f76d805c36d290df3aca2b1ce87",
+      "bytes": 67544,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/gst-plugin-scanner",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstadaptivedemux2.so": {
+      "sha256": "adddeb7e998bec319409fea47c119210a02747ffeff58c9ed8942566114a8950",
+      "bytes": 399968,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstadaptivedemux2.so",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstopengl.so": {
+      "sha256": "7e9af7002af071e31a2524cd98f5776a45dd04a6a5418d791c56d6118c400623",
+      "bytes": 335920,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstopengl.so",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstrtpmanager.so": {
+      "sha256": "2f9f373b8bd9209a0f9cfb70def5934c3db09d32f41b9ec1548a45d0335928af",
+      "bytes": 336640,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstrtpmanager.so",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstrtsp.so": {
+      "sha256": "aa2960aee7f88b818121a945d1725a663d3eb4164e0e14fb4bb445e498b796e9",
+      "bytes": 202624,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstrtsp.so",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstudp.so": {
+      "sha256": "7f33553496f766df45647ad32c6d0d8c5454e4932c5d3003d6627c0b719eab10",
+      "bytes": 69264,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstudp.so",
+        "links": []
+      }
+    },
+    "usr/lib/libgstcontroller-1.0.so.0": {
+      "sha256": "647b6929e2c3230347833f20ffa96a59a62a01c81ff39485fa69e18c76e919da",
+      "bytes": 68112,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libgstcontroller-1.0.so.0.2902.0",
+        "links": [
+          {
+            "path": "/usr/lib/libgstcontroller-1.0.so.0",
+            "target": "libgstcontroller-1.0.so.0.2902.0"
+          }
+        ]
+      }
+    },
+    "usr/lib/libgstmpegts-1.0.so.0": {
+      "sha256": "54a21ed61af95d4b975870edf3f728f2978c1cb5428d41e65b5438a29b0bf4c3",
+      "bytes": 198928,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libgstmpegts-1.0.so.0.2902.0",
+        "links": [
+          {
+            "path": "/usr/lib/libgstmpegts-1.0.so.0",
+            "target": "libgstmpegts-1.0.so.0.2902.0"
+          }
+        ]
+      }
+    },
+    "usr/lib/libgstnet-1.0.so.0": {
+      "sha256": "33a88f1bd46cc57cc515dac5ddbc11fa29ea431609f863a67242ae89845adc5b",
+      "bytes": 68960,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libgstnet-1.0.so.0.2902.0",
+        "links": [
+          {
+            "path": "/usr/lib/libgstnet-1.0.so.0",
+            "target": "libgstnet-1.0.so.0.2902.0"
+          }
+        ]
+      }
+    },
+    "usr/lib/libgstreamer-1.0.so.0": {
+      "sha256": "d614560a3604f03fd380af96f762b68e552d3b76346a93607d74ccbc5c1b4f3b",
+      "bytes": 928352,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libgstreamer-1.0.so.0.2902.0",
+        "links": [
+          {
+            "path": "/usr/lib/libgstreamer-1.0.so.0",
+            "target": "libgstreamer-1.0.so.0.2902.0"
+          }
+        ]
+      }
+    },
+    "usr/share/bootloader/rocknix_abl/README": {
+      "sha256": "a95dc2e5611ddc7aa5c6d0a93fd21498934eca7eee6d7aefca11c376217bf77c",
+      "bytes": 425,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/share/bootloader/rocknix_abl/README",
+        "links": []
+      }
+    },
+    "usr/share/bootloader/rocknix_abl/abl_signed-SM8550.elf": {
+      "sha256": "8c27a70961476b327071ada2fd9b9c55dd2dcdc913eff3d33f2576133d7e398c",
+      "bytes": 258048,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/share/bootloader/rocknix_abl/abl_signed-SM8550.elf",
+        "links": []
+      }
+    },
+    "usr/share/bootloader/rocknix_abl/backup_abl.sh": {
+      "sha256": "bb0a723734451add4e0b7294dc9b246933e9dbadf965c06234534c923ea2b037",
+      "bytes": 183,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/share/bootloader/rocknix_abl/backup_abl.sh",
+        "links": []
+      }
+    },
+    "usr/share/bootloader/rocknix_abl/flash_abl.sh": {
+      "sha256": "ceaf2cea5b0c5597944daceb7bee0c5c7eb10641c68f07c3ac87965617838548",
+      "bytes": 179,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/share/bootloader/rocknix_abl/flash_abl.sh",
+        "links": []
+      }
+    },
+    "usr/share/bootloader/rocknix_abl/restore_backup_abl.sh": {
+      "sha256": "add45f3872e645ba215c8e5b5efcd1ef45e32b8ccf7a9275d9bf8e0de6edd247",
+      "bytes": 155,
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/share/bootloader/rocknix_abl/restore_backup_abl.sh",
+        "links": []
+      }
+    },
+    "usr/share/dolphin-emu/sys/ApprovedInis.json": {
+      "sha256": "4556d3e02d7d0804313f3238454e35101ec72dbc0c3f95ff393d4f8292e07f46",
+      "bytes": 31627,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/ApprovedInis.json",
+        "links": [
+          {
+            "path": "/usr/share/dolphin-emu/sys",
+            "target": "../../config/dolphin-emu"
+          }
+        ]
+      }
+    },
+    "usr/share/dolphin-emu/sys/GameSettings/GMSE01.ini": {
+      "sha256": "0f3fa22da52b6b51d3ab524e248ea14cf044184cc1638d5681343cc85069b087",
+      "bytes": 3737,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/GameSettings/GMSE01.ini",
+        "links": [
+          {
+            "path": "/usr/share/dolphin-emu/sys",
+            "target": "../../config/dolphin-emu"
+          }
+        ]
+      }
+    },
+    "usr/share/dolphin-emu/sys/Resources/achievements_game.png": {
+      "sha256": "f0b39af2812f2650950361b8d3d7e0bb3bc0eb2e0cd8516b55f9b49b1fdef3a3",
+      "bytes": 1234,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_game.png",
+        "links": [
+          {
+            "path": "/usr/share/dolphin-emu/sys",
+            "target": "../../config/dolphin-emu"
+          }
+        ]
+      }
+    },
+    "usr/share/dolphin-emu/sys/Resources/achievements_locked.png": {
+      "sha256": "ea2aca58c279fd2b6a8bbf2e576564b855b8bf328561e5f39a71cf76e829d3dd",
+      "bytes": 560,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_locked.png",
+        "links": [
+          {
+            "path": "/usr/share/dolphin-emu/sys",
+            "target": "../../config/dolphin-emu"
+          }
+        ]
+      }
+    },
+    "usr/share/dolphin-emu/sys/Resources/achievements_player.png": {
+      "sha256": "a925afd5922ff7287c6c9d743a58f8d43d30a9eb39e739f6d4cddecce82be0cc",
+      "bytes": 1164,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_player.png",
+        "links": [
+          {
+            "path": "/usr/share/dolphin-emu/sys",
+            "target": "../../config/dolphin-emu"
+          }
+        ]
+      }
+    },
+    "usr/share/dolphin-emu/sys/Resources/achievements_unlocked.png": {
+      "sha256": "a5263c36bfae0f02de85410c7ef5cf3a2a2eb6e2271391d847ae30f6143cf4df",
+      "bytes": 583,
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_unlocked.png",
+        "links": [
+          {
+            "path": "/usr/share/dolphin-emu/sys",
+            "target": "../../config/dolphin-emu"
+          }
+        ]
+      }
+    }
+  },
+  "source_mappings": {
+    "usr/bin/cloud_oauth": "projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth",
+    "usr/bin/raofflineproxy-ctl": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl",
+    "usr/bin/runemu.sh": "projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh",
+    "usr/bin/wifictl": "projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl",
+    "usr/bin/start_dolphin_gc.sh": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_gc.sh",
+    "usr/bin/start_dolphin_wii.sh": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh",
+    "usr/bin/cheevos_dolphin.sh": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh",
+    "usr/bin/dolphin-save-paths": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/dolphin-save-paths",
+    "usr/config/modules/Install Steam.sh": "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+    "usr/config/dolphin-emu/Hotkeys.ini": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/SM8550/Hotkeys.ini",
+    "usr/config/dolphin-emu/Dolphin.ini": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/SM8550/Dolphin.ini",
+    "usr/config/dolphin-emu/GFX.ini": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/SM8550/GFX.ini",
+    "usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.south.inline": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/SM8550/GamecubeControllerProfiles/GCPadNew.ini.south.inline",
+    "usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.east.inline": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/SM8550/GamecubeControllerProfiles/GCPadNew.ini.east.inline",
+    "usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.south.stacked": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/SM8550/GamecubeControllerProfiles/GCPadNew.ini.south.stacked",
+    "usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.east.stacked": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/SM8550/GamecubeControllerProfiles/GCPadNew.ini.east.stacked",
+    "usr/config/dolphin-emu/WiiControllerProfiles/nunchuck.ini": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/SM8550/WiiControllerProfiles/nunchuck.ini",
+    "usr/config/dolphin-emu/WiiControllerProfiles/classic.ini": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/SM8550/WiiControllerProfiles/classic.ini",
+    "usr/config/dolphin-emu/WiiControllerProfiles/vremote.ini": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/SM8550/WiiControllerProfiles/vremote.ini",
+    "usr/config/dolphin-emu/WiiControllerProfiles/hremote.ini": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/SM8550/WiiControllerProfiles/hremote.ini"
+  },
+  "special": {
+    "gstreamer_profile": {
+      "device": "SM8550",
+      "gst_plugins_good_selected": true,
+      "expected_absent_paths": [],
+      "package_graph": "Frozen emulators device case -> Dolphin -> Qt6 -> gst-plugins-good on SM8550; WebKit requires core/base/bad on both."
+    },
+    "dolphin_patch018": {
+      "patch_sha256": "bc1d04f688f85ff3fc49a81fa40625d08c8f7839aa81e46baee6b50b443ee5f0",
+      "reverse_dry_run_exit": 0,
+      "stdout": "checking file Source/Core/DolphinNoGUI/MainNoGUI.cpp\n",
+      "stderr": "",
+      "actual_MainNoGUI_sha256": "fcf6416ddeb39878e77ec8967e26e5805fedafec2b2c1c21d049d8054787ae8e"
+    },
+    "abl_1_2_source_readback": {
+      "expected_manifest_sha256": "047dbd66f4a483a42a3625e09942ad2d490ebd374ad6348131ab9431fe4a6e60",
+      "root_archive_readback": {
+        "path": "/tmp/pix-m7-abl-archive-20261015/result.json",
+        "sha256": "d08a01330ad3e4923b2d979d3c02b17e7766e8aa24cc30a844f0932f712aa19c",
+        "bytes": 3109
+      },
+      "archive_sha256": "64034fb076ea0bb858beaa2f29dbef635e97d29f3e3d32c13bce61bd4af4cff7",
+      "LinuxLoader_commit": "e9d37131c0c2273076468156fb0f87aa6834202b",
+      "scope": "Exact retained archive member digest and unchanged support-file source mapping; implementation source/notice custody remains a separate hold."
+    },
+    "abl_1_2": {
+      "restore_backup_abl.sh": "add45f3872e645ba215c8e5b5efcd1ef45e32b8ccf7a9275d9bf8e0de6edd247",
+      "backup_abl.sh": "bb0a723734451add4e0b7294dc9b246933e9dbadf965c06234534c923ea2b037",
+      "flash_abl.sh": "ceaf2cea5b0c5597944daceb7bee0c5c7eb10641c68f07c3ac87965617838548",
+      "abl_signed-SM8550.elf": "8c27a70961476b327071ada2fd9b9c55dd2dcdc913eff3d33f2576133d7e398c",
+      "README": "a95dc2e5611ddc7aa5c6d0a93fd21498934eca7eee6d7aefca11c376217bf77c"
+    },
+    "abl_1_2_format": {
+      "class": "ELF32",
+      "encoding": "little-endian",
+      "e_machine": 40,
+      "header64_hex": "7f454c4601010100000000000000000002002800010000000000a09f340000000000000000000000340020000300000000000000000000000000000000000000",
+      "scope": "Exact signed release member, not Linux userland or native boot qualification"
+    },
+    "gstreamer_DT_NEEDED": {
+      "usr/bin/gst-inspect-1.0": [
+        "libgstreamer-1.0.so.0",
+        "libglib-2.0.so.0",
+        "libgobject-2.0.so.0",
+        "libc.so.6"
+      ],
+      "usr/lib/gstreamer-1.0/gst-plugin-scanner": [
+        "libgstreamer-1.0.so.0",
+        "libglib-2.0.so.0",
+        "libc.so.6"
+      ],
+      "usr/lib/gstreamer-1.0/libgstopengl.so": [
+        "libgstgl-1.0.so.0",
+        "libgstvideo-1.0.so.0",
+        "libgstallocators-1.0.so.0",
+        "libgstreamer-1.0.so.0",
+        "libgobject-2.0.so.0",
+        "libglib-2.0.so.0",
+        "libgstbase-1.0.so.0",
+        "libm.so.6",
+        "libgstcontroller-1.0.so.0",
+        "libpng16.so.16",
+        "libjpeg.so.8",
+        "libc.so.6"
+      ],
+      "usr/lib/libgstcontroller-1.0.so.0": [
+        "libgstreamer-1.0.so.0",
+        "libm.so.6",
+        "libglib-2.0.so.0",
+        "libgobject-2.0.so.0"
+      ],
+      "usr/lib/libgstnet-1.0.so.0": [
+        "libgstbase-1.0.so.0",
+        "libgstreamer-1.0.so.0",
+        "libgio-2.0.so.0",
+        "libgobject-2.0.so.0",
+        "libglib-2.0.so.0",
+        "libc.so.6"
+      ],
+      "usr/lib/libgstreamer-1.0.so.0": [
+        "libgobject-2.0.so.0",
+        "libglib-2.0.so.0",
+        "libgmodule-2.0.so.0",
+        "libm.so.6",
+        "libc.so.6"
+      ],
+      "usr/lib/libgstmpegts-1.0.so.0": [
+        "libgstreamer-1.0.so.0",
+        "libgobject-2.0.so.0",
+        "libglib-2.0.so.0",
+        "libgstbase-1.0.so.0",
+        "libc.so.6"
+      ],
+      "usr/lib/gstreamer-1.0/libgstadaptivedemux2.so": [
+        "libglib-2.0.so.0",
+        "libgstreamer-1.0.so.0",
+        "libgobject-2.0.so.0",
+        "libgsttag-1.0.so.0",
+        "libgstnet-1.0.so.0",
+        "libgstbase-1.0.so.0",
+        "libgstpbutils-1.0.so.0",
+        "libgio-2.0.so.0",
+        "libxml2.so.16",
+        "libnettle.so.9",
+        "libc.so.6"
+      ],
+      "usr/lib/gstreamer-1.0/libgstrtpmanager.so": [
+        "libgstbase-1.0.so.0",
+        "libgstreamer-1.0.so.0",
+        "libgobject-2.0.so.0",
+        "libglib-2.0.so.0",
+        "libgstnet-1.0.so.0",
+        "libgstrtp-1.0.so.0",
+        "libgstaudio-1.0.so.0",
+        "libgio-2.0.so.0",
+        "libc.so.6"
+      ],
+      "usr/lib/gstreamer-1.0/libgstrtsp.so": [
+        "libgstbase-1.0.so.0",
+        "libgstreamer-1.0.so.0",
+        "libgobject-2.0.so.0",
+        "libglib-2.0.so.0",
+        "libgstrtp-1.0.so.0",
+        "libgstrtsp-1.0.so.0",
+        "libgstsdp-1.0.so.0",
+        "libgio-2.0.so.0",
+        "libgstnet-1.0.so.0",
+        "libc.so.6"
+      ],
+      "usr/lib/gstreamer-1.0/libgstudp.so": [
+        "libgstreamer-1.0.so.0",
+        "libgobject-2.0.so.0",
+        "libglib-2.0.so.0",
+        "libgstbase-1.0.so.0",
+        "libgstnet-1.0.so.0",
+        "libgio-2.0.so.0",
+        "libc.so.6"
+      ]
+    },
+    "kernel": {
+      "recipe_version": "7.2",
+      "shared_patch_sha256": "81665288adedb443e7c555e11ecf40cd05d819b10c6a5761e7326a64576d3815",
+      "actual_build_stamp_sha256": "571a70ca97f7f4e6fd901c6706ee35f4bf7777cbd01759264aba377b65df32a0",
+      "scope": "Normal package clean/rebuild and canonical KERNEL assembly; no physical boot claim."
+    }
+  },
+  "comparison": "source and staged bytes; independent firmware readback still required"
+}

@@ -1,0 +1,287 @@
+{
+  "status": "PASS",
+  "evidence": "synthetic component only; adapted mount table; no whole installer",
+  "source_sha256": "9e1ce7b52279c9d057eb3acf7caa4d03843871b2fec5ccc15b06287b4de67402",
+  "python": "3.14.7 (main, Oct  4 2026, 04:40:27) [GCC 15.2.0]",
+  "cases": [
+    {
+      "case": "fresh-default",
+      "exits": {
+        "inspect": 0,
+        "verify": 0,
+        "link": 0
+      },
+      "pass": true
+    },
+    {
+      "case": "fresh-existing-library",
+      "exits": {
+        "inspect": 0,
+        "verify": 0,
+        "link": 0
+      },
+      "pass": true
+    },
+    {
+      "case": "real-root",
+      "exits": {
+        "inspect": 0,
+        "verify": 0,
+        "link": 0
+      },
+      "pass": true
+    },
+    {
+      "case": "canonical-alias",
+      "exits": {
+        "inspect": 0,
+        "verify": 0,
+        "link": 0
+      },
+      "pass": true
+    },
+    {
+      "case": "relative-alias",
+      "exits": {
+        "inspect": 0,
+        "verify": 0,
+        "link": 0
+      },
+      "pass": true
+    },
+    {
+      "case": "alias-chain",
+      "exits": {
+        "inspect": 0,
+        "verify": 0,
+        "link": 0
+      },
+      "pass": true
+    },
+    {
+      "case": "external-alias",
+      "exits": {
+        "inspect": 0,
+        "verify": 0,
+        "link": 0
+      },
+      "pass": true
+    },
+    {
+      "case": "merged-alias",
+      "exits": {
+        "inspect": 0,
+        "verify": 0,
+        "link": 0
+      },
+      "pass": true
+    },
+    {
+      "case": "media-alias",
+      "exits": {
+        "inspect": 0,
+        "verify": 0,
+        "link": 0
+      },
+      "pass": true
+    },
+    {
+      "case": "spaces-alias",
+      "exits": {
+        "inspect": 0,
+        "verify": 0,
+        "link": 0
+      },
+      "pass": true
+    },
+    {
+      "case": "unused-library-override",
+      "exits": {
+        "inspect": 0,
+        "verify": 0,
+        "link": 0
+      },
+      "pass": true
+    },
+    {
+      "case": "dangling-alias",
+      "exits": {
+        "inspect": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "alias-loop",
+      "exits": {
+        "inspect": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "alias-to-file",
+      "exits": {
+        "inspect": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "root-file",
+      "exits": {
+        "inspect": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "parent-file",
+      "exits": {
+        "inspect": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "library-file",
+      "exits": {
+        "inspect": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "dangling-library",
+      "exits": {
+        "inspect": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "relative-root",
+      "exits": {
+        "inspect": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "dotdot-root",
+      "exits": {
+        "inspect": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "overlapping-paths",
+      "exits": {
+        "inspect": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "storage-unmounted",
+      "exits": {
+        "inspect": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "storage-read-only",
+      "exits": {
+        "inspect": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "external-unmounted",
+      "exits": {
+        "inspect": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "merged-unmounted",
+      "exits": {
+        "inspect": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "media-unmounted",
+      "exits": {
+        "inspect": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "duplicate-mount",
+      "exits": {
+        "inspect": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "malformed-mountinfo",
+      "exits": {
+        "inspect": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "unreadable-mountinfo",
+      "exits": {
+        "inspect": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "changed-alias",
+      "exits": {
+        "inspect": 0,
+        "verify": 0,
+        "link": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "changed-root-inode",
+      "exits": {
+        "inspect": 0,
+        "verify": 0,
+        "link": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "changed-mount",
+      "exits": {
+        "inspect": 0,
+        "verify": 0,
+        "link": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "root-appeared",
+      "exits": {
+        "inspect": 0,
+        "verify": 0,
+        "link": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "late-root-directory",
+      "exits": {
+        "inspect": 0,
+        "verify": 0,
+        "link": 1
+      },
+      "pass": true
+    },
+    {
+      "case": "fresh-missing-parents",
+      "exits": {
+        "inspect": 0,
+        "verify": 0,
+        "link": 0
+      },
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/.build-runs/20261015T221538Z-05925cbc",
+  "expected_rc": 1,
+  "disposition": "failed-investigated",
+  "outputs": [
+    {
+      "issue": 606,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-proof-20261015-01",
+      "release_when": "Review untouched clean/RetroArch606 originals, manager frames and owner cleanup; consume admission then guarded retirement of only this owner."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-evidence-20261015-01/config.json",
+      "sha256": "0772c3a30e15c8870cef0ce0d10fd501f4ea982dad68340886f1f8fb1568c48b"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-evidence-20261015-01/export-result.json",
+      "sha256": "b3cb89bc77a3e5cc5a47beb754985efb2fcc85f11027ee6215a8202a2230b905"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-evidence-20261015-01/host-exits.json",
+      "sha256": "9897201649430e750c424a495ab9dbb22580c7b723e688907b2340bcd74caf93"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-evidence-20261015-01/original-records.json",
+      "sha256": "bd06392c01b03a0b9a4a13c30e249c4004daee6006fc664147052f1a23dd3264"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-evidence-20261015-01/original-records.tar.gz",
+      "sha256": "754353ff165e7e0e98aee49e531ea9dcb08a086ea2dd769951f761ba999f99a1"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-evidence-20261015-01/private-originals-held.json",
+      "sha256": "27cd3e3845600ad94ac44c4eb695d4753bf1863dd865af079b46968b811d61e0"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-evidence-20261015-01/vm-result.json",
+      "sha256": "bbad7434c4fcad74b7083551c375e55c1fb977a2039354f9ea9c30f551b8a0d3"
+    }
+  ],
+  "requires_coordinator_review": true,
+  "channels_coherent": true,
+  "monitor_succeeded": true
+}

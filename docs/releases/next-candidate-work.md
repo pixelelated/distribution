@@ -11,6 +11,21 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 22:11 UTC - Audit findings and private H700 proof (#603/#612)
+
+Both external audit passes are verified complete. The current score is66PASS and
+1PARTIAL; #606 owns focused current RetroArch process/file proof. Seven punch
+items have named follow-ups; Phase7 remains open. [Audit analysis](../audits/2026_10_15-milestone-603-completed-handoff/04-analysis.md)
+records the exact source and limits; no completion or public RC claim is made.
+
+[H700 actual-package inspection](../qa-logs/2026-10-15-h700-audit-applicability/README.md)
+passed against077197: shipped Steam/Dolphin payloads and GameCube/Wii/Steam menu
+entries are absent. #607/#608/#610 are affected-platform work; #609 shared RVZ
+code still requires the stated custom-system boundary. Retained device overrides
+are not ruled out by SYSTEM inspection. Private handoff follows applicable audit
+resolution and proof; #528 publication work and #511/#605 website remain separate.
+The extracted SYSTEM scratch is retired; no device update has started.
+
 ## 2026-10-15 21:16 UTC - Private testing follows the audit (#344/#603)
 
 The owner explicitly separates the internal test/gameplay image from public

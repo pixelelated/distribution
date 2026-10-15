@@ -1,0 +1,936 @@
+{
+  "verified_utc": "2026-10-15T22:10:17.373251+00:00",
+  "scope": "Exact H700 package/menu applicability; no full-image or device qualification",
+  "files": [
+    {
+      "member": "owner/admission-completion-evidence.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/admission-completion-evidence.json",
+      "sha256": "3876cfd9886fb0e2799b6ca9e4d6493a1e13f03218a1b7a2c987234c66af9af6",
+      "bytes": 11142,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102130631181731
+    },
+    {
+      "member": "owner/admission-plan.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/admission-plan.json",
+      "sha256": "9a867eae4de76743803d0c4630daeabc17d30b6b419342cc07dc3edd3808392e",
+      "bytes": 857,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102081132591621
+    },
+    {
+      "member": "owner/admission.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/admission.json",
+      "sha256": "559b2b013da9da4669bebb0985555e7e835f3bff3ec0b55c6a3b1a34d11b41db",
+      "bytes": 1659,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102100800981860
+    },
+    {
+      "member": "owner/after-results.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/after-results.json",
+      "sha256": "80a25575c414c06a06fccda4d6d8f26769c969185e249dd43da619532abfda96",
+      "bytes": 1116,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114492647587
+    },
+    {
+      "member": "owner/analyse.py",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/analyse.py",
+      "sha256": "41e5aa70c4c024e779e6f28ba8c36539c789464accf8af6893f066703037deb6",
+      "bytes": 4858,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102081131903466
+    },
+    {
+      "member": "owner/artifacts/applicability.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/artifacts/applicability.json",
+      "sha256": "ca15f322d398f33116a9d8e1289ecb312b40e42afd64fa8591a51cc66c4a2507",
+      "bytes": 138350,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114486205831
+    },
+    {
+      "member": "owner/artifacts/archive-hash.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/artifacts/archive-hash.json",
+      "sha256": "316d3b7202042f2a1f18f20dbe0eeb0c22c1bf440b794f75ab95fff883795d57",
+      "bytes": 524,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102112458507273
+    },
+    {
+      "member": "owner/artifacts/es-systems.process.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/artifacts/es-systems.process.json",
+      "sha256": "a0fbab6d175c4364c86280e5d76f4ea6a74a9b4a36b7169d26ac3438f875b14e",
+      "bytes": 103,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114259134291
+    },
+    {
+      "member": "owner/artifacts/es-systems.result.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/artifacts/es-systems.result.json",
+      "sha256": "81e5a4f24b8ba163b69b5c53a139ffa0f681787e3e6d8779bf707faa04c5126b",
+      "bytes": 489,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114262537419
+    },
+    {
+      "member": "owner/artifacts/es-systems.stderr",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/artifacts/es-systems.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114259134291
+    },
+    {
+      "member": "owner/artifacts/es-systems.stdout",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/artifacts/es-systems.stdout",
+      "sha256": "ac2f3a81c8dc8587879ef402cc331ea347c91ba7a85ccbddb77f1b025e5832cf",
+      "bytes": 85580,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114261008294
+    },
+    {
+      "member": "owner/artifacts/extraction.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/artifacts/extraction.json",
+      "sha256": "ffab3993fabcd94b6978f11ff64252b620c5eb7d3e912f8e2c5596ef39bc9fda",
+      "bytes": 476,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114204517412
+    },
+    {
+      "member": "owner/artifacts/os-release.process.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/artifacts/os-release.process.json",
+      "sha256": "a50f7040965d48722ef0a31db3a223a9c069b604cf1cef031bad545af973028d",
+      "bytes": 103,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114262715580
+    },
+    {
+      "member": "owner/artifacts/os-release.result.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/artifacts/os-release.result.json",
+      "sha256": "9bb5af4f7a32cdfbd5899fad82e341366498fdfc0c08fd26e5fb8707089d1903",
+      "bytes": 461,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114265590209
+    },
+    {
+      "member": "owner/artifacts/os-release.stderr",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/artifacts/os-release.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114262715580
+    },
+    {
+      "member": "owner/artifacts/os-release.stdout",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/artifacts/os-release.stdout",
+      "sha256": "26028bddd314d5f0a153e5bcbe59383cbb040d3bac2099031142b6ea61c64f11",
+      "bytes": 702,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114264008324
+    },
+    {
+      "member": "owner/artifacts/system-listing.process.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/artifacts/system-listing.process.json",
+      "sha256": "4d57862c83f3e177f809fc96fc20753b9459712b3ff8a45b37d2079378341b58",
+      "bytes": 103,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114205728421
+    },
+    {
+      "member": "owner/artifacts/system-listing.result.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/artifacts/system-listing.result.json",
+      "sha256": "1a6467cd2850e0df8c9293f49c5d65247db6949daae2f1d682cbf06bfdad16dd",
+      "bytes": 443,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114258896027
+    },
+    {
+      "member": "owner/artifacts/system-listing.stderr",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/artifacts/system-listing.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114205728421
+    },
+    {
+      "member": "owner/artifacts/system-listing.stdout",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/artifacts/system-listing.stdout",
+      "sha256": "1a9ea60c1604ce3f65c61bf597be86355dd55c2209fb95130da29f82251d3ffc",
+      "bytes": 8767077,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114257008253
+    },
+    {
+      "member": "owner/bindings.py",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/bindings.py",
+      "sha256": "ad6a89045b043552716638ec11926635b113e2d3e1eb608c8f9084a88625e765",
+      "bytes": 3798,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102081131956109
+    },
+    {
+      "member": "owner/cleanup.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/cleanup.json",
+      "sha256": "397c19c040c932cdcf96cec1669e2b797cf940aebfd904d3ec3067c1535824e9",
+      "bytes": 537,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114893186751
+    },
+    {
+      "member": "owner/collect.py",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/collect.py",
+      "sha256": "ef255ecf52dd9b7f02238663db2c8b68c78ad57cc5840ebc7a5320815d6fd187",
+      "bytes": 7425,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102081132000884
+    },
+    {
+      "member": "owner/collection-result.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/collection-result.json",
+      "sha256": "2d8bceb26262770e955838d73b9368983ca2b0f4c6ec3093717d32782ef6f470",
+      "bytes": 334,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114492681402
+    },
+    {
+      "member": "owner/console.log",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/console.log",
+      "sha256": "656b2e17bb6681b5dc57c7866daeb9ca7ffab89bfb6874c0f679e5cf11f31385",
+      "bytes": 122,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111045106455
+    },
+    {
+      "member": "owner/consume.py",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/consume.py",
+      "sha256": "ac960d2bb11ca2b9bca21e31ef7367c4c944b5900054a57c093b62b89dd00dc6",
+      "bytes": 6090,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102081132040179
+    },
+    {
+      "member": "owner/frozen-tools.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/frozen-tools.json",
+      "sha256": "b373f8657549a2a585f168abb12000597d6d4e3f1a5010020d717f4c29a5819f",
+      "bytes": 601,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102081132255760
+    },
+    {
+      "member": "owner/independent-readback.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/independent-readback.json",
+      "sha256": "45a1b932a1641ddce0d8e43fe510078b906cbd69b726e562fba634bdcf9beb50",
+      "bytes": 1076,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102130627897025
+    },
+    {
+      "member": "owner/inner.rc",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/inner.rc",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114893261180
+    },
+    {
+      "member": "owner/launcher-pid.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/launcher-pid.json",
+      "sha256": "10156047edc2e60a92a07b747180499ee510b35144e168e1d5da7c24dd15616f",
+      "bytes": 66,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102110980833190
+    },
+    {
+      "member": "owner/launcher-result.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/launcher-result.json",
+      "sha256": "633e07b7766fcefda3dd4f7921a743d9e216c85eb9da562473826c88116022c8",
+      "bytes": 132,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102116178001844
+    },
+    {
+      "member": "owner/launcher-start.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/launcher-start.json",
+      "sha256": "2581749f5b0f647e3319899e9b7f0e8bb9eb29b21d9d3410d036c767f619f31e",
+      "bytes": 166,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102110998125669
+    },
+    {
+      "member": "owner/launcher-submission.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/launcher-submission.json",
+      "sha256": "ec227348b0d83d8f54b8039eeab175bebac269e678bb340a1da8f811b8209607",
+      "bytes": 336,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102110980382938
+    },
+    {
+      "member": "owner/outer.rc",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/outer.rc",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114899402869
+    },
+    {
+      "member": "owner/preparation.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/preparation.json",
+      "sha256": "96963370e0016b800636fece3288c998e25568c4fe289ebb851117854d7c38fb",
+      "bytes": 463,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102081132432189
+    },
+    {
+      "member": "owner/process-identity.py",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/process-identity.py",
+      "sha256": "aa8b1a164a46d5dd49dafc27b567e9cfa5a68065fbcf26d52a00f1d824221984",
+      "bytes": 3367,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102081132074511
+    },
+    {
+      "member": "owner/reader-plan.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/reader-plan.json",
+      "sha256": "f97fc9e25c81f6f062988b4909679117c3652b60e974684147775a73515514d5",
+      "bytes": 2734,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102081132288805
+    },
+    {
+      "member": "owner/resources.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/resources.json",
+      "sha256": "31122558c55c9045ffe136fc8254fb7e6b2b7fcb001310e783225e270f14eb14",
+      "bytes": 481,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102081132222390
+    },
+    {
+      "member": "owner/result.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/result.json",
+      "sha256": "9b1aefe72af4f89749f490340aeb05ef387fe4f8c37ed41a09dca1dbe28640c8",
+      "bytes": 867,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114893235740
+    },
+    {
+      "member": "owner/retention-plan.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/retention-plan.json",
+      "sha256": "7d13f16922e1e9fdea6c2d2391ddf0d75b749df35f093bb3c48ffe501981d712",
+      "bytes": 1053,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102081132531472
+    },
+    {
+      "member": "owner/retention-report.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/retention-report.json",
+      "sha256": "5c5438172fa26ea693a62df6123d04abb355749821c21d26af4718b34bb7625d",
+      "bytes": 6432,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102093713968497
+    },
+    {
+      "member": "owner/retire-system.py",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/retire-system.py",
+      "sha256": "12a50358fc0d3759fbe0aa636a1971095062870160d778626a3180ea49f71e7a",
+      "bytes": 2247,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102081132106476
+    },
+    {
+      "member": "owner/run.path",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/run.path",
+      "sha256": "eb36172e9269d72cfcf4d6584cc8828ff16ae582828816b7a825194ca0288c56",
+      "bytes": 96,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111178175026
+    },
+    {
+      "member": "owner/run.py",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/run.py",
+      "sha256": "0be24cea0dda50eb45211b6e1f0b80d030836b1418cccd164de176b7eae34f96",
+      "bytes": 15351,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102081132141246
+    },
+    {
+      "member": "owner/run.sh",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/run.sh",
+      "sha256": "d6d4dbfdf5e830fa90871847d3d2f51d773586ec45e6ae9f480dcd4337def0c1",
+      "bytes": 325,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102081132181517
+    },
+    {
+      "member": "owner/seal.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/seal.json",
+      "sha256": "d3d45cf303d8674d67269c6b52c67d37c6da9f31a69f08bc732a03ed021a72c1",
+      "bytes": 1970,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102081132946261
+    },
+    {
+      "member": "owner/stage/applicability.exit",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/stage/applicability.exit",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114527174049
+    },
+    {
+      "member": "owner/stage/applicability.process.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/stage/applicability.process.json",
+      "sha256": "68fb0339d7a45bfa8a19ba7d9d489404ec2bd3671d00b1e807d464981950f49c",
+      "bytes": 409,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111495161731
+    },
+    {
+      "member": "owner/stage/applicability.result.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/stage/applicability.result.json",
+      "sha256": "f062af8241eb219765c65e8e94ebbf9086abf69d7f79a6ea8c55a2b45e9786d9",
+      "bytes": 718,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114527223071
+    },
+    {
+      "member": "owner/stage/applicability.stderr",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/stage/applicability.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111490980009
+    },
+    {
+      "member": "owner/stage/applicability.stdout",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/stage/applicability.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111490980009
+    },
+    {
+      "member": "owner/stage/result.json",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/stage/result.json",
+      "sha256": "d6c80c9e80f9de6087127b04578769abe076fc08930e0fe53279bbfe4a08a1c7",
+      "bytes": 222,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114527266569
+    },
+    {
+      "member": "owner/tool-wrapper.rc",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/tool-wrapper.rc",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102116177926139
+    },
+    {
+      "member": "owner/watch-build-submit.py",
+      "source": "/workspace/tmp/pix-m7-h700-applicability-20261015-01/watch-build-submit.py",
+      "sha256": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e",
+      "bytes": 4090,
+      "mode": 320,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102110980425022
+    },
+    {
+      "member": "run/admission-consumed.json",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-05/.build-runs/20261015T220831Z-ed601ef5/admission-consumed.json",
+      "sha256": "de4678d1e43dbce9906156d426523c699ce3056d2d6d551ae7109063c801deec",
+      "bytes": 1972,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102130676697181
+    },
+    {
+      "member": "run/admission-input.json",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-05/.build-runs/20261015T220831Z-ed601ef5/admission-input.json",
+      "sha256": "559b2b013da9da4669bebb0985555e7e835f3bff3ec0b55c6a3b1a34d11b41db",
+      "bytes": 1659,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111132463586
+    },
+    {
+      "member": "run/admission-plan.json",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-05/.build-runs/20261015T220831Z-ed601ef5/admission-plan.json",
+      "sha256": "9a867eae4de76743803d0c4630daeabc17d30b6b419342cc07dc3edd3808392e",
+      "bytes": 857,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111132518828
+    },
+    {
+      "member": "run/admission.json",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-05/.build-runs/20261015T220831Z-ed601ef5/admission.json",
+      "sha256": "e753a697f036cc6494db146892c9eacb83b4e96ed7c1ff679a0f7fe6485fc3b6",
+      "bytes": 1650,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111132401269
+    },
+    {
+      "member": "run/build.log",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-05/.build-runs/20261015T220831Z-ed601ef5/build.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111045106455
+    },
+    {
+      "member": "run/build.pid",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-05/.build-runs/20261015T220831Z-ed601ef5/build.pid",
+      "sha256": "932158be1ce9e278777a2ba727f8b00c2af1d45fd44a936ed8b9fbe13f37694f",
+      "bytes": 8,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111044853779
+    },
+    {
+      "member": "run/build.rc",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-05/.build-runs/20261015T220831Z-ed601ef5/build.rc",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102114900014819
+    },
+    {
+      "member": "run/build.start",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-05/.build-runs/20261015T220831Z-ed601ef5/build.start",
+      "sha256": "78e3ae0cec0f239211eaf97999d3aec94e56f85a0a26e2cc13f7c9bb240575a8",
+      "bytes": 33,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111044995972
+    },
+    {
+      "member": "run/build.status",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-05/.build-runs/20261015T220831Z-ed601ef5/build.status",
+      "sha256": "9b9e4a9c69eb266ae84320831704c0919d3197587630c5e261e888f0b35fbf00",
+      "bytes": 599,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102116133027410
+    },
+    {
+      "member": "run/build.status.pid",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-05/.build-runs/20261015T220831Z-ed601ef5/build.status.pid",
+      "sha256": "8277a95b008be18684d103dbd372f2368f4422c848a7a9741053ceda64e1be84",
+      "bytes": 8,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111058004587
+    },
+    {
+      "member": "run/command.pid",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-05/.build-runs/20261015T220831Z-ed601ef5/command.pid",
+      "sha256": "8c5cf8f4d4f95edba1f47a6da9d56a2efab28e53907d05bbe0bc5dc7c39ba1af",
+      "bytes": 8,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111140625120
+    },
+    {
+      "member": "run/retention-plan.json",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-05/.build-runs/20261015T220831Z-ed601ef5/retention-plan.json",
+      "sha256": "7d13f16922e1e9fdea6c2d2391ddf0d75b749df35f093bb3c48ffe501981d712",
+      "bytes": 1053,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111132571271
+    },
+    {
+      "member": "run/retention-report.json",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-05/.build-runs/20261015T220831Z-ed601ef5/retention-report.json",
+      "sha256": "a13b41e3daa9c51cb53378ba7e1b2a0e074feb3ffa0405e7af39a376560b6ac0",
+      "bytes": 6432,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111132657753
+    },
+    {
+      "member": "run/runner-result.json",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-05/.build-runs/20261015T220831Z-ed601ef5/runner-result.json",
+      "sha256": "0634be02fbb7aeb9ca2872db459ddacb8dd0ce980c4afe55c3cd726e6cd135b4",
+      "bytes": 104,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102116168092932
+    },
+    {
+      "member": "run/watch-job",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-05/.build-runs/20261015T220831Z-ed601ef5/watch-job",
+      "sha256": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2",
+      "bytes": 12661,
+      "mode": 320,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111045106455
+    },
+    {
+      "member": "run/watcher.err",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-05/.build-runs/20261015T220831Z-ed601ef5/watcher.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111045106455
+    },
+    {
+      "member": "run/watcher.interval",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-05/.build-runs/20261015T220831Z-ed601ef5/watcher.interval",
+      "sha256": "f0b5c2c2211c8d67ed15e75e656c7862d086e9245420892a7de62cd9ec582a06",
+      "bytes": 2,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111044918323
+    },
+    {
+      "member": "run/watcher.pid",
+      "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-05/.build-runs/20261015T220831Z-ed601ef5/watcher.pid",
+      "sha256": "8277a95b008be18684d103dbd372f2368f4422c848a7a9741053ceda64e1be84",
+      "bytes": 8,
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102111045552427
+    },
+    {
+      "member": "packet/README.md",
+      "source": "/tmp/pix-m7-h700-applicability-reader-plan-20261015-01/README.md",
+      "sha256": "17d9c19cac7d1059edde00cbe85434981ec5a5995b39281592ac1d6ae9256bb5",
+      "bytes": 5306,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792101865619469290
+    },
+    {
+      "member": "packet/SHA256SUMS",
+      "source": "/tmp/pix-m7-h700-applicability-reader-plan-20261015-01/SHA256SUMS",
+      "sha256": "3ad7089240be1be29479e4a74a9e6fd95b426092310b1d8e5787258696bb6eac",
+      "bytes": 1442,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792101950111926686
+    },
+    {
+      "member": "packet/changes.diff",
+      "source": "/tmp/pix-m7-h700-applicability-reader-plan-20261015-01/changes.diff",
+      "sha256": "e4f921000f4d0c0e245675ef117b84a57a3261c7d60647a4a42590aed1200e50",
+      "bytes": 45709,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792101950111340065
+    },
+    {
+      "member": "packet/commands.sh",
+      "source": "/tmp/pix-m7-h700-applicability-reader-plan-20261015-01/commands.sh",
+      "sha256": "8b7f927af0ce21b85e393da34c5dde1e841e067443dce80c0e9fa81d06c929b5",
+      "bytes": 1698,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792101865591469004
+    },
+    {
+      "member": "packet/frozen-tools.json",
+      "source": "/tmp/pix-m7-h700-applicability-reader-plan-20261015-01/frozen-tools.json",
+      "sha256": "b373f8657549a2a585f168abb12000597d6d4e3f1a5010020d717f4c29a5819f",
+      "bytes": 601,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792101594205123122
+    },
+    {
+      "member": "packet/prepare-owner.py",
+      "source": "/tmp/pix-m7-h700-applicability-reader-plan-20261015-01/prepare-owner.py",
+      "sha256": "099d1f35435a4b49dcfd98ba99f54325eafde9690477ba86b7c56ee322587373",
+      "bytes": 3709,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792101775694551027
+    },
+    {
+      "member": "packet/reader-plan.json",
+      "source": "/tmp/pix-m7-h700-applicability-reader-plan-20261015-01/reader-plan.json",
+      "sha256": "f97fc9e25c81f6f062988b4909679117c3652b60e974684147775a73515514d5",
+      "bytes": 2734,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792101594215225585
+    },
+    {
+      "member": "packet/resources.json",
+      "source": "/tmp/pix-m7-h700-applicability-reader-plan-20261015-01/resources.json",
+      "sha256": "31122558c55c9045ffe136fc8254fb7e6b2b7fcb001310e783225e270f14eb14",
+      "bytes": 481,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792101594200938780
+    },
+    {
+      "member": "packet/source-provenance.json",
+      "source": "/tmp/pix-m7-h700-applicability-reader-plan-20261015-01/source-provenance.json",
+      "sha256": "c9fce3311cdb9462dd2de9a1dfcecf76b3924df765eea7371d10f4e4eae15de4",
+      "bytes": 1777,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792101950111487777
+    },
+    {
+      "member": "packet/static-review.json",
+      "source": "/tmp/pix-m7-h700-applicability-reader-plan-20261015-01/static-review.json",
+      "sha256": "9fe63abf33dae3b18edde271a0ff314d48b0aa27afe50327a47a51d5750ceda5",
+      "bytes": 2027,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792101950111549502
+    },
+    {
+      "member": "packet/templates/analyse.py",
+      "source": "/tmp/pix-m7-h700-applicability-reader-plan-20261015-01/templates/analyse.py",
+      "sha256": "41e5aa70c4c024e779e6f28ba8c36539c789464accf8af6893f066703037deb6",
+      "bytes": 4858,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792101649788267651
+    },
+    {
+      "member": "packet/templates/bindings.py",
+      "source": "/tmp/pix-m7-h700-applicability-reader-plan-20261015-01/templates/bindings.py",
+      "sha256": "ad6a89045b043552716638ec11926635b113e2d3e1eb608c8f9084a88625e765",
+      "bytes": 3798,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792101649759267355
+    },
+    {
+      "member": "packet/templates/collect.py",
+      "source": "/tmp/pix-m7-h700-applicability-reader-plan-20261015-01/templates/collect.py",
+      "sha256": "ef255ecf52dd9b7f02238663db2c8b68c78ad57cc5840ebc7a5320815d6fd187",
+      "bytes": 7425,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792101700093779340
+    },
+    {
+      "member": "packet/templates/consume.py",
+      "source": "/tmp/pix-m7-h700-applicability-reader-plan-20261015-01/templates/consume.py",
+      "sha256": "ac960d2bb11ca2b9bca21e31ef7367c4c944b5900054a57c093b62b89dd00dc6",
+      "bytes": 6090,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792101775723551324
+    },
+    {
+      "member": "packet/templates/process-identity.py",
+      "source": "/tmp/pix-m7-h700-applicability-reader-plan-20261015-01/templates/process-identity.py",
+      "sha256": "aa8b1a164a46d5dd49dafc27b567e9cfa5a68065fbcf26d52a00f1d824221984",
+      "bytes": 3367,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792101594200837971
+    },
+    {
+      "member": "packet/templates/retire-system.py",
+      "source": "/tmp/pix-m7-h700-applicability-reader-plan-20261015-01/templates/retire-system.py",
+      "sha256": "12a50358fc0d3759fbe0aa636a1971095062870160d778626a3180ea49f71e7a",
+      "bytes": 2247,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792101865561468698
+    },
+    {
+      "member": "packet/templates/run.py",
+      "source": "/tmp/pix-m7-h700-applicability-reader-plan-20261015-01/templates/run.py",
+      "sha256": "0be24cea0dda50eb45211b6e1f0b80d030836b1418cccd164de176b7eae34f96",
+      "bytes": 15351,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792101950097858739
+    },
+    {
+      "member": "packet/templates/run.sh",
+      "source": "/tmp/pix-m7-h700-applicability-reader-plan-20261015-01/templates/run.sh",
+      "sha256": "d6d4dbfdf5e830fa90871847d3d2f51d773586ec45e6ae9f480dcd4337def0c1",
+      "bytes": 325,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792101775633150621
+    },
+    {
+      "member": "review/README.md",
+      "source": "/tmp/pix-m7-h700-applicability-reader-review-20261015-01/README.md",
+      "sha256": "71a09903313aa0d16fc5955cefdd115eb6a7ee0b8a7be798e724eab60e1fb6d4",
+      "bytes": 3552,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102092401785075
+    },
+    {
+      "member": "review/SHA256SUMS",
+      "source": "/tmp/pix-m7-h700-applicability-reader-review-20261015-01/SHA256SUMS",
+      "sha256": "3037430ab496bcab14c14083eb0cbced5eeefc6cb245c03e22ef2eee52c0ba59",
+      "bytes": 163,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102092457539625
+    },
+    {
+      "member": "review/source-readback.json",
+      "source": "/tmp/pix-m7-h700-applicability-reader-review-20261015-01/source-readback.json",
+      "sha256": "a98c22949c4e96b742e77dc5d5d3a9421d4bb607a67194cf392821ce1065f1e8",
+      "bytes": 5467,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792102066944180531
+    }
+  ]
+}
