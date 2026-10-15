@@ -8,6 +8,22 @@ Harness conflict-resolution untouched. Actual host PID namespace4026531836;
 host/network/outside-workspace writes require escalated exec. No formal goal.
 Saving is not a pause. No runtime/compiler/external call currently active.
 
+## Latest03:14 correction — no runtime active
+
+Both audit UI attempts are stopped and consumed as failed-investigated. The
+03:09 active1280 note below is historical. Owner1280-01 actual launch hit the
+existing dolphin-save-paths mount guard before cheevos; positivecheevoslog absent
+caused fixturefailure1. Diagnostic frame manuallyviewed confirms wrongbranch.
+Originalcleanup restored settings/installedhashes/ownedmounts; abortouter1,
+finallyflush/QEMUstop0, nohostchildren. Export112guest/192host rehashed; no final
+manifest, completenessfalse. Admission422d5d90 consumed. Durable
+2026-10-15-dolphin-ui-first-attempt; original owner/diagnostic-01 retains logs/frame.
+frame_diff_review prepares new640+1280source derivatives using ordinarycopy/
+rename custody instead of config-directory bind; require intendedhelperlog/text
+plus250. Auditor reviews. No in-flight source edits or productguardchanges.
+Root continues after sealed source; no new user approval needed. Do not stage
+active auditdir. Feature91cb3047 pushed/readback; latest compactfailure uncommitted.
+
 ## Live continuation at03:09 UTC — takes precedence over older state below
 
 Interim audit published b60400c7cc38b2d35059773ee0ffa3dbe7b34e50; auditor write

@@ -1,0 +1,20 @@
+{
+  "scope": "FAILED before intended achievements publication refusal; no EN/FR target flow qualified.",
+  "diagnosis": "Ordinary launcher dolphin-save-paths check correctly rejects config-directory bind mount before achievements helper. Actual exec.log and manually viewed1280 diagnostic frame identify separately-mounted-save-path error; helperlogabsent is expected. Exit250 alone cannot distinguish intended refusal.",
+  "original_runtime_rc": 1,
+  "original_refusal_action_rc": 1,
+  "restoration": {
+    "rc": 0,
+    "original_input_hashes_restored": true,
+    "mounts": []
+  },
+  "host_cleanup": "finally-flush0, QEMUstop0, no host children",
+  "export": {
+    "original_rc": 0,
+    "guest_files_rehashed": 112,
+    "host_archive_members_rehashed": 192,
+    "guest_finish_manifest_present": false,
+    "full_guest_manifest_claim": false
+  },
+  "next": "New sealed fixture uses same-filesystem ordinary copy/rename custody, preserves product mount guard and positively checks intended helper log/text. No in-flight modification."
+}
