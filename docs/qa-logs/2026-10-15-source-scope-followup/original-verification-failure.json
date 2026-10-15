@@ -1,0 +1,7 @@
+{
+  "tool_chunk": "a9cca9",
+  "original_returncode": 1,
+  "error": "AssertionError comparing tar permission bits with TarInfo full st_mode including file type",
+  "archive_changed": false,
+  "resolution": "Independent readback compares permission bits with stat.S_IMODE and verifies every original byte and metadata field; no archive or source recollection."
+}

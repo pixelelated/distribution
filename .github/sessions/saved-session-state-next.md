@@ -1,11 +1,53 @@
 # Saved Session State
 
-Updated 2026-10-15 11:50 UTC. Continue authorized M7 toward next0.0.1RC.
-Coordinator feature/m7-final-qualification-02; publisheda1e8a969f63237195c0deda0cd185f4f8c7a4f11.
-VM/H700f863,ES16dbac;SM9aa7 solelyABLchecksum productdifference. Root sole runtime
-allocator; no runtimeactive. Notice04 and rclone source02 passed/consumed.
-Audit603 primarycomplete; exact externaltransfers requested, NOT authorized yet.
-No newdevice/cloud/publicationauthority. Userterminalcleanup question pending.
+Updated 2026-10-15 12:35 UTC. Continue authorized M7 toward the next 0.0.1 RC.
+Coordinator: feature/m7-final-qualification-02, last published64cc45ece836af8611407cf4e87345273b52202d.
+VM/H700 source f8636de1; ES16dbac52; SM9aa7affe differs only by the ABL archive checksum.
+Root is sole runtime allocator. No host collector/build/VM is active or unconsumed.
+The #603 primary audit is complete; the exact external transfer approval is still pending.
+No new device/cloud/publication authority. Cleanup terminal-readback question remains pending.
+
+## Latest 2026-10-15 12:35 UTC — selected sources acquired and additive custody accepted
+
+Tailscale source run121748Z-d48dd6e7 passed all original channels and92 curl waits,
+consumed a944cf89 at12:19. All89 dependency ZIPs match embedded h1;130 notice
+candidates cover every module, with no collection gaps. Held body bytes163,585,749;
+50.952s. Source e39ee1b5,50 focused controls passed. Evidence:
+docs/qa-logs/2026-10-15-tailscale-source-acquisition/ (seal1c33b56e).
+Raw curl streams and source bodies remain private in owner01, outside Git.
+Automatic review rejected raw-stream archival because signed redirects may bear
+access; the successful packet omits all184 streams and preserves their hashes.
+Do not delete held source bodies before final source-custody integration.
+
+Additive source run123133Z-e603a11c passed all original channels and19 Git waits,
+consumed cb2b87b9. Source03 f1409a11;40 controls passed. New custody123,085,928B at
+/workspace/artifacts/pixelelated-release-sources/m7-additive-source-20261015-01.
+Two distribution maps, current ES, two changed cache archives and both rclone
+source/vendor archives retained; component index maps2366 rows/606 archives/43Git
+roots, reusing historical custody explicitly. No ES/pugixml cache extras observed.
+Evidence: docs/qa-logs/2026-10-15-additive-source-custody/ (seal15206d76).
+Sources01/02 never ran; source review fixed atime-sensitive comparison and invalid
+default-owner locator before source03 ran. No old artifact or failure was rewritten.
+
+Remaining-notice disposition143 files/4dirs root-verified12:16; FreeJ2ME137 files/
+25dirs root-verified12:26. Vendor texts retained; inherited MPEG wording remains a
+specific question. FEX current81-row metadata has53/61 direct derivations retained,
+8 absent; it describes build dependencies, not81 shipped packages. Actual FEX guest
+thunks are being mapped from accepted evidence. OpenABL source locator is recorded
+under#601; no source archive download, adoption or old ABL source clearance.
+
+Source-only workers: dolphin prepares one bounded shader-attribution pass from
+retained texts; source_custody_delta maps FEX guest-thunk/source scope; frame resolves
+Doom data notices from exact archive and bounded primary public evidence. Root owns
+shared records. No worker has runtime/device/cloud mutation allocation.
+
+#528 and M7 live bodies updated12:30 with source/audit first, then existing downstream
+gates. Both64cc wordlists passed; record38731037978 failed only outstanding audit
+cadence. #603 has67 primary criteria PASS; requested blind790371B/3da1c229 and
+refutationbase922168B/80450a6e plus verified sanitized blindresponse<=131072B still
+await approval. No provider call or Phase5 completion. Preserve exact packet bytes.
+Next: finish specific source/notice dispositions, integrate held sources, independent
+retrieval/off-host custody; physical/native/security/docs/RC-publication gates remain.
 
 ## Latest 2026-10-15 11:50 UTC — source and notice results accepted
 

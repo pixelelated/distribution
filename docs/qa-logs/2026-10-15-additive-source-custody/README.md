@@ -1,0 +1,13 @@
+# Additive current source custody — accepted #528 pass
+
+The offline run `20261015T123133Z-e603a11c` completed at 12:31:38 UTC in 4.637 seconds. All original collector, command, monitor, runner and launcher results are zero, as are all 19 Git waits. Admission `cb2b87b9816a4f1e987bb683fa5d53f3` was consumed after exact retained-file and process checks. No owned process remained; no network, build or target execution occurred.
+
+New required source custody totals 123,085,928 bytes at `/workspace/artifacts/pixelelated-release-sources/m7-additive-source-20261015-01`. It includes the two current distribution source maps (6,560 regular files and 180 symlinks each), the current ES tree (1,113 blobs and one separately referenced pugixml submodule), two new cache archives, and both held rclone source/vendor archives. Every new archive and snapshot was read back; every Git blob, executable mode and raw symlink target was checked. Existing Doom, pugixml and other historical source custody is reused explicitly. No current ES/pugixml untracked or ignored extra content was observed.
+
+The component index covers 2,366 rows across all five profiles: 606 unique source archives and 43 Git roots. This is exact current membership, not a new rehash of all historical source objects. New copies have independent inodes. The manifest SHA256 is `d94a901addb24bcc834c6571afd002c48674cbce2c0d9bccb312f7064ef6ba28`.
+
+Root verified source03 seal `f1409a1198925e0ab62749f0e9cc4ebfafe3442eaca3c70aceff50bf953f75b4` and controls02 seal `755cb7e4b71ffc887124123f1ccaf2f003fa5ed2b3c5977faa417779f36ddce5`. All 40 focused controls passed in 0.050 seconds; 150 bytes of private fixture scratch were removed. Source review corrected an access-time-sensitive symlink check and an invalid default-owner path before runtime. Earlier sealed candidates remain unrun and unchanged.
+
+The archive retains prepared source, controls, original run/owner records and compact custody indexes. Large source payloads remain outside Git. It also retains root verification of the FreeJ2ME packet and the live #528/M7 update originals. Exact bytes, permissions, ownership and nanosecond timestamps are indexed and verified.
+
+The frozen collection plan still lists Tailscale acquisition among its unresolved inputs because it was prepared earlier. That acquisition subsequently passed in the separate Tailscale packet; integrating those held sources into final release custody remains due. Current FEX/generated/Nix mapping, component terms, unknown rclone dirty-file details, independent retrieval, off-host custody and publication remain explicit. No release-source-complete or RC designation is claimed.

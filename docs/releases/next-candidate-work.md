@@ -11,6 +11,33 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 12:35 UTC — dependency sources and current source maps retained (#528)
+
+[Tailscale acquisition](../qa-logs/2026-10-15-tailscale-source-acquisition/README.md)
+passed for all 89 selected dependency ZIPs. Every checksum matches the embedded
+binary metadata, and all modules have retained notice candidates. The watched run
+and every original result are accepted and consumed. Large sources and raw download
+streams remain outside Git; the compact packet excludes signed redirect URLs.
+
+[Additive source custody](../qa-logs/2026-10-15-additive-source-custody/README.md)
+retains both current distribution maps, current ES source, two changed cache
+archives and the rclone source/vendor archives. Its index maps 2,366 component rows
+across all five profiles to 606 archive inputs and 43 Git roots. Older source custody
+is reused explicitly; this pass adds about 123 MB. All 19 Git commands and original
+job results passed, with no remaining owned process.
+
+[Remaining component dispositions](../qa-logs/2026-10-15-remaining-notice-disposition/README.md)
+and [FreeJ2ME vendor notices](../qa-logs/2026-10-15-freej2me-vendor-notices/README.md)
+resolve several selection and missing-notice questions. Specific shader/asset terms,
+FEX generated sources, inherited JLayer wording, ZeroTier header scope, Doom data
+terms and ABL implementation source still need resolution. Complete bundle delivery,
+independent retrieval and off-host custody remain required.
+
+The accepted engineering artifacts are unchanged. #603's 67 primary criteria passed;
+its separately requested external audit transfers remain pending. Source work
+continues in parallel before the existing device/native, security, documentation
+and publication gates. This is progress toward a candidate, not RC designation.
+
 ## 2026-10-15 11:50 UTC — selected notices and rclone source acquired (#528, #603)
 
 [The accepted notice supplement](../qa-logs/2026-10-15-notice-supplement/accepted/README.md)
