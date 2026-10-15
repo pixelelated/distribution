@@ -1,0 +1,23 @@
+{
+  "receipt": {
+    "endpoint": "repos/pixelelated/distribution/actions/runners?per_page=100",
+    "method": "GET",
+    "observed_utc": "2026-10-15T19:58:44.557098+00:00",
+    "exit_code": 1,
+    "http_status": 403,
+    "elapsed_seconds": 0.474829,
+    "raw_response_retained": false,
+    "response_body_bytes": 198,
+    "stderr_bytes": 64,
+    "allowed_response_headers": {
+      "date": "Thu, 15 Oct 2026 19:58:45 GMT",
+      "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+    },
+    "error": {
+      "message": "Resource not accessible by personal access token",
+      "status": "403",
+      "documentation_url": "https://docs.github.com/rest/actions/self-hosted-runners#list-self-hosted-runners-for-a-repository"
+    }
+  },
+  "data": null
+}

@@ -1,0 +1,34 @@
+{
+  "receipt": {
+    "endpoint": "repos/pixelelated/distribution/actions/runs/38783551822/jobs?per_page=100",
+    "method": "GET",
+    "observed_utc": "2026-10-15T19:59:12.984060+00:00",
+    "exit_code": 0,
+    "http_status": 200,
+    "elapsed_seconds": 0.678191,
+    "raw_response_retained": false,
+    "response_body_bytes": 3279,
+    "stderr_bytes": 0,
+    "allowed_response_headers": {
+      "date": "Thu, 15 Oct 2026 19:59:13 GMT",
+      "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+    }
+  },
+  "data": {
+    "total_count": 1,
+    "jobs": [
+      {
+        "id": 116589643630,
+        "name": "record",
+        "status": "completed",
+        "conclusion": "failure",
+        "labels": [
+          "ubuntu-24.04"
+        ],
+        "runner_name": "GitHub Actions 1000001019",
+        "runner_group_name": "GitHub Actions",
+        "html_url": "https://github.com/pixelelated/distribution/actions/runs/38783551822/job/116589643630"
+      }
+    ]
+  }
+}

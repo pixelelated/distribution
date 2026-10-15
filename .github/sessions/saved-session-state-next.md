@@ -1,17 +1,17 @@
 # Saved Session State
 
-Updated 2026-10-15 18:08 UTC. Both local source delivery and the small
-applicable-notice supplement passed independent readback and original-result
-consumption. No build, VM or copy remains active. Final compact notice receipts are independently verified and retained.
-The remaining source,
-audit and off-host decisions are the existing pending items below.
+Updated 2026-10-15 20:08 UTC. Current engineering firmware and portable local
+source/notice delivery are accepted in their recorded scopes. Release-note draft,
+security readback and dependency reconciliation are complete; no build, VM or
+copy is active. Infrastructure topology remains deferred under D-WORKFLOW-113/125;
+release-source retrieval/backup remains a separate publication obligation.
 
 ## Resume and authority
 
 Coordinator `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
 `feature/m7-final-qualification-02`; primary `/workspace/repos/rocknix` stays on
 `next`. Harness checkout `conflict-resolution` stays untouched. Published evidence
-head is c6c93cff54ffb11fe755514c7a8fe11cfe91a4ae; read current Git/remote state
+head is e51c029e659edd6365d6996b4fe9edfc9e711f21; read current Git/remote state
 before assuming a later docs commit has landed. This record change retains
 accepted evidence and updates documentation only; inspect Git for publication state. Product source is
 077197e6cd3ea31f33b28aaf3882a694b3423b53, ES16dbac5211eea7e70db7394372033be2be7df829,
@@ -163,14 +163,21 @@ checkpoint archived at saved-session-state-next-20261015T173000Z.md.
 
 ## Remaining order and boundaries
 
-1. Resolve the exact ABL/MAME questions after the existing upstream-contact
-   approval. Completed source/notice receipts are retained and verified. Source/notice local
-   delivery and relative readback already pass; do not replay completed work.
-2. Complete required off-host custody once destination/authority exist; a second
-   directory on this drive is not off-host backup.
-3. Complete #603 external audit after its existing exact pending answer.
-4. Continue #344/#563 physical/native, #265 security, #337/#359 documentation,
-   RC identity and publication requirements in the live M7 ordered body.
+1. Prepared docs/releases/0.0.1-release-note-draft.md has nine player bullets,
+   its evidence map and the remaining publication checklist. The security readback
+   under docs/qa-logs/2026-10-15-release-security-readback/ verifies permissions/expiry
+   and hosted-job observations; runner admin endpoints403 and expiry reminder stay
+   unverified. Do not replay this completed preparation; remaining tasks are named
+   in docs/releases/0.0.1-release-preparation.md. Deferred infrastructure is separate.
+2. Resolve exact ABL/MAME questions after the existing upstream-contact approval,
+   and complete #603 after its existing exact transfer answer. Neither pending
+   question is duplicated. Successful local source/notice delivery is not replayed.
+3. Complete #528's release-source dispositions, independent retrieval and required
+   backup custody before publication. D-WORKFLOW-107's provider comparison is before
+   the first bucket purchase; it is not a prerequisite for local preparation.
+4. Continue #344/#563 physical/native, #344 security, #337/#359 documentation,
+   RC identity and publication requirements in the live M7 ordered body. Applicable
+   source/audit completion still precedes device handoff; no device action is granted.
 
 Exact selected ABL LinuxLoader implementation is e9d37131c0c2273076468156fb0f87aa6834202b;
 public packaging is not implementation source. OpenABL is separate#601, not a
@@ -213,10 +220,10 @@ cover different packets. Do not duplicate the question or infer approval from
 time passing. Resume `m7_handoff_audit_603` only after the actual answer, using
 only the Council Facilitator and a fresh serialized allocation.
 
-At published `c6c93cff54`, both wordlists passed (38781996006 and 38781993338).
-Record CI38781993480 failed only
-outstanding audit cadence (16 completed closures, threshold12). All other record
-steps passed. Cheap pre-push checks remain required; do not call overall CI green.
+At published `e51c029e65`, both wordlists passed (38783553936 and 38783551906).
+Record CI38783551822 failed only outstanding audit cadence (16 completed closures,
+threshold12); all other record steps passed. Cheap pre-push checks remain required;
+do not call overall CI green or fabricate a completion marker.
 
 The other pending request is the root-only stopped-media read:
 `bash /tmp/pix-m7-stopped-media-root-readback-terminal-20261015/commands.sh`.

@@ -1,0 +1,284 @@
+{
+  "http200": 11,
+  "http403": 4,
+  "initial_sandbox_attempt": "13 original transport/CLI failures with no HTTP status remain at the packet root; none is represented as a403 or a successful endpoint read. Authorized host-read successor preserved separately.",
+  "raw_response_or_auth_material_retained": false,
+  "read_only_GET_requests": 15,
+  "receipts": [
+    {
+      "allowed_response_headers": {
+        "date": "Thu, 15 Oct 2026 19:58:44 GMT",
+        "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+      },
+      "elapsed_seconds": 0.435416,
+      "endpoint": "repos/pixelelated/distribution/actions/permissions",
+      "error": {
+        "documentation_url": "https://docs.github.com/rest/actions/permissions#get-github-actions-permissions-for-a-repository",
+        "message": "Resource not accessible by personal access token",
+        "status": "403"
+      },
+      "exit_code": 1,
+      "http_status": 403,
+      "method": "GET",
+      "observed_utc": "2026-10-15T19:58:44.129354+00:00",
+      "path": "host-read/actions-permissions.json",
+      "raw_response_retained": false,
+      "response_body_bytes": 196,
+      "sha256": "139a1ee663874ab117dcbe433fc6b05111b3e7264a578a4210d2d8cf03357afa",
+      "stderr_bytes": 64
+    },
+    {
+      "allowed_response_headers": {
+        "date": "Thu, 15 Oct 2026 19:58:44 GMT",
+        "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+      },
+      "elapsed_seconds": 0.738344,
+      "endpoint": "repos/pixelelated/distribution",
+      "exit_code": 0,
+      "http_status": 200,
+      "method": "GET",
+      "observed_utc": "2026-10-15T19:58:43.390839+00:00",
+      "path": "host-read/distribution-permissions.json",
+      "raw_response_retained": false,
+      "response_body_bytes": 17193,
+      "sha256": "903f35482fd847f24bb9cc019508a8d5924591993301c9128b9ce16d7c02e5cf",
+      "stderr_bytes": 0
+    },
+    {
+      "allowed_response_headers": {
+        "date": "Thu, 15 Oct 2026 19:58:44 GMT",
+        "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+      },
+      "elapsed_seconds": 1.165802,
+      "endpoint": "repos/pixelelated/emulationstation",
+      "exit_code": 0,
+      "http_status": 200,
+      "method": "GET",
+      "observed_utc": "2026-10-15T19:58:43.391090+00:00",
+      "path": "host-read/emulationstation-permissions.json",
+      "raw_response_retained": false,
+      "response_body_bytes": 19391,
+      "sha256": "a06839d109185a2826bb095065701b29282fe71d5df220f7f94ac998df3b0838",
+      "stderr_bytes": 0
+    },
+    {
+      "allowed_response_headers": {
+        "date": "Thu, 15 Oct 2026 19:58:43 GMT",
+        "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+      },
+      "elapsed_seconds": 0.465312,
+      "endpoint": "user",
+      "exit_code": 0,
+      "http_status": 200,
+      "method": "GET",
+      "observed_utc": "2026-10-15T19:58:43.390626+00:00",
+      "path": "host-read/identity.json",
+      "raw_response_retained": false,
+      "response_body_bytes": 1236,
+      "sha256": "77819ef9c0c651a3b622353930bb26c0417f7fcf5f91d5e39bf614d7036069c1",
+      "stderr_bytes": 0
+    },
+    {
+      "allowed_response_headers": {
+        "date": "Thu, 15 Oct 2026 19:58:43 GMT",
+        "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+      },
+      "elapsed_seconds": 0.671365,
+      "endpoint": "repos/pixelelated/distribution/issues/344",
+      "exit_code": 0,
+      "http_status": 200,
+      "method": "GET",
+      "observed_utc": "2026-10-15T19:58:43.390369+00:00",
+      "path": "host-read/issue-344.json",
+      "raw_response_retained": false,
+      "response_body_bytes": 49481,
+      "sha256": "1e0195db1116551f493a907422f14948870bff75a082326ad3a71b8a64f957a0",
+      "stderr_bytes": 0
+    },
+    {
+      "allowed_response_headers": {
+        "date": "Thu, 15 Oct 2026 19:58:45 GMT",
+        "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+      },
+      "elapsed_seconds": 0.592005,
+      "endpoint": "repos/pixelelated/distribution/branches/next",
+      "exit_code": 0,
+      "http_status": 200,
+      "method": "GET",
+      "observed_utc": "2026-10-15T19:58:44.623954+00:00",
+      "path": "host-read/next-branch.json",
+      "raw_response_retained": false,
+      "response_body_bytes": 4384,
+      "sha256": "293d632ea1593b3c05215cc426b548bae309c75761b265884d077527f549505d",
+      "stderr_bytes": 0
+    },
+    {
+      "allowed_response_headers": {
+        "date": "Thu, 15 Oct 2026 19:59:13 GMT",
+        "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+      },
+      "elapsed_seconds": 0.678191,
+      "endpoint": "repos/pixelelated/distribution/actions/runs/38783551822/jobs?per_page=100",
+      "exit_code": 0,
+      "http_status": 200,
+      "method": "GET",
+      "observed_utc": "2026-10-15T19:59:12.984060+00:00",
+      "path": "host-read/next-record-jobs.json",
+      "raw_response_retained": false,
+      "response_body_bytes": 3279,
+      "sha256": "28863cbef94ea234e1b4d390ad252e830151c98a3a3e2cb5bfaa648fc9caf421",
+      "stderr_bytes": 0
+    },
+    {
+      "allowed_response_headers": {
+        "date": "Thu, 15 Oct 2026 19:59:13 GMT",
+        "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+      },
+      "elapsed_seconds": 0.668592,
+      "endpoint": "repos/pixelelated/distribution/actions/runs/38783551906/jobs?per_page=100",
+      "exit_code": 0,
+      "http_status": 200,
+      "method": "GET",
+      "observed_utc": "2026-10-15T19:59:12.983793+00:00",
+      "path": "host-read/next-wordlist-jobs.json",
+      "raw_response_retained": false,
+      "response_body_bytes": 1934,
+      "sha256": "a1260355bbe7453e32aca26aba088136a700ef6be3c6a28b05175f639d11f4e1",
+      "stderr_bytes": 0
+    },
+    {
+      "allowed_response_headers": {
+        "date": "Thu, 15 Oct 2026 19:58:44 GMT",
+        "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+      },
+      "elapsed_seconds": 0.409823,
+      "endpoint": "orgs/pixelelated/actions/runners?per_page=100",
+      "error": {
+        "documentation_url": "https://docs.github.com/rest/actions/self-hosted-runners#list-self-hosted-runners-for-an-organization",
+        "message": "Resource not accessible by personal access token",
+        "status": "403"
+      },
+      "exit_code": 1,
+      "http_status": 403,
+      "method": "GET",
+      "observed_utc": "2026-10-15T19:58:44.564867+00:00",
+      "path": "host-read/organization-runners.json",
+      "raw_response_retained": false,
+      "response_body_bytes": 201,
+      "sha256": "1b04397b49cde9d986c46b13ddfa1e83752d155e4f249d2c33451e62ee878b41",
+      "stderr_bytes": 64
+    },
+    {
+      "allowed_response_headers": {
+        "date": "Thu, 15 Oct 2026 19:58:45 GMT",
+        "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+      },
+      "elapsed_seconds": 0.52734,
+      "endpoint": "repos/pixelelated/distribution/actions/runs?per_page=5",
+      "exit_code": 0,
+      "http_status": 200,
+      "method": "GET",
+      "observed_utc": "2026-10-15T19:58:45.022467+00:00",
+      "path": "host-read/recent-runs.json",
+      "raw_response_retained": false,
+      "response_body_bytes": 63082,
+      "sha256": "6d00906d122af29052dd8c403e452fcd2028e9cc601f72232c61b552643cfac9",
+      "stderr_bytes": 0
+    },
+    {
+      "allowed_response_headers": {
+        "date": "Thu, 15 Oct 2026 19:58:45 GMT",
+        "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+      },
+      "elapsed_seconds": 0.474829,
+      "endpoint": "repos/pixelelated/distribution/actions/runners?per_page=100",
+      "error": {
+        "documentation_url": "https://docs.github.com/rest/actions/self-hosted-runners#list-self-hosted-runners-for-a-repository",
+        "message": "Resource not accessible by personal access token",
+        "status": "403"
+      },
+      "exit_code": 1,
+      "http_status": 403,
+      "method": "GET",
+      "observed_utc": "2026-10-15T19:58:44.557098+00:00",
+      "path": "host-read/repository-runners.json",
+      "raw_response_retained": false,
+      "response_body_bytes": 198,
+      "sha256": "e1fb4f5b946e07728e18e8328ffbd4ed5d3ed1b6bbd5dc5dc7bf46e7b28904c7",
+      "stderr_bytes": 64
+    },
+    {
+      "allowed_response_headers": {
+        "date": "Thu, 15 Oct 2026 19:58:44 GMT",
+        "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+      },
+      "elapsed_seconds": 0.674354,
+      "endpoint": "repos/pixelelated/splash",
+      "exit_code": 0,
+      "http_status": 200,
+      "method": "GET",
+      "observed_utc": "2026-10-15T19:58:43.856284+00:00",
+      "path": "host-read/splash-permissions.json",
+      "raw_response_retained": false,
+      "response_body_bytes": 16745,
+      "sha256": "f7594b1950663628afa9a1fc6106d67a8ba38c6a62410219f3d4bafe4d66af29",
+      "stderr_bytes": 0
+    },
+    {
+      "allowed_response_headers": {
+        "date": "Thu, 15 Oct 2026 19:58:44 GMT",
+        "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+      },
+      "elapsed_seconds": 0.561419,
+      "endpoint": "repos/pixelelated/website",
+      "exit_code": 0,
+      "http_status": 200,
+      "method": "GET",
+      "observed_utc": "2026-10-15T19:58:44.062365+00:00",
+      "path": "host-read/website-permissions.json",
+      "raw_response_retained": false,
+      "response_body_bytes": 6535,
+      "sha256": "c6df13b053397fde4a22a3cd4624c25310d3e1447d41cd02c7f2710085947c99",
+      "stderr_bytes": 0
+    },
+    {
+      "allowed_response_headers": {
+        "date": "Thu, 15 Oct 2026 19:58:44 GMT",
+        "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+      },
+      "elapsed_seconds": 0.491384,
+      "endpoint": "repos/pixelelated/distribution/actions/permissions/workflow",
+      "error": {
+        "documentation_url": "https://docs.github.com/rest/actions/permissions#get-default-workflow-permissions-for-a-repository",
+        "message": "Resource not accessible by personal access token",
+        "status": "403"
+      },
+      "exit_code": 1,
+      "http_status": 403,
+      "method": "GET",
+      "observed_utc": "2026-10-15T19:58:44.530940+00:00",
+      "path": "host-read/workflow-permissions.json",
+      "raw_response_retained": false,
+      "response_body_bytes": 198,
+      "sha256": "5f0f3c077b201333b1652b0c7c621fcbc56263b9228a54360398d34cc4e39bb4",
+      "stderr_bytes": 64
+    },
+    {
+      "allowed_response_headers": {
+        "date": "Thu, 15 Oct 2026 19:58:45 GMT",
+        "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+      },
+      "elapsed_seconds": 0.415998,
+      "endpoint": "repos/pixelelated/distribution/actions/workflows?per_page=100",
+      "exit_code": 0,
+      "http_status": 200,
+      "method": "GET",
+      "observed_utc": "2026-10-15T19:58:44.974991+00:00",
+      "path": "host-read/workflows.json",
+      "raw_response_retained": false,
+      "response_body_bytes": 12074,
+      "sha256": "d29a6899b6e1e58b012a54ad84ae5fa059610051a00ffaf84848dc889f255d3c",
+      "stderr_bytes": 0
+    }
+  ]
+}

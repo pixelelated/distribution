@@ -1,5 +1,10 @@
 # Cloud sync, backup and restore — change summary
 
+## Qualification update (2026-10-15, accepted engineering continuations)
+
+The dated entries below retain their original status. Later [clean and retained checks](qa-logs/2026-10-15-final-engineering-result/README.md) accepted the affected `f8636de1`/ES `16dbac` image, with separate [native save-state](audits/2026_10_14-milestone-m7-next-candidate/native-state02-readback.md) and [packaged Steam installer](qa-logs/2026-10-15-steam-artifact-bridge-runtime/README.md) continuations. The current `077197e6` images share timestamp `20261015T161744Z`; independent [GENERIC](qa-logs/2026-10-15-zerotier-generic-refresh/README.md), [H700](qa-logs/2026-10-15-zerotier-h700-refresh/README.md), and [SM8550](qa-logs/2026-10-15-zerotier-sm8550-refresh/README.md) readers accepted their artifacts, followed for the GENERIC ZeroTier delta by [fresh and retained isolated VM checks](qa-logs/2026-10-15-zerotier-vm-qualified/README.md). These are focused continuations with their original failures preserved, not a full-suite rerun on `077197`. Earlier broad qualification keeps its original source scope. Current handheld artifacts are not deployed; native VM checks are not physical-device acceptance, and the browser's bounded 78.01 MiB VM result does not establish a cure for the physical Dropbox slowdown. No public RC or publication clearance follows.
+
+
 
 ## Audit follow-ups (2026-10-15, focused source proof; integrated image pending)
 

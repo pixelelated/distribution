@@ -1,0 +1,94 @@
+{
+  "bot_inventory": {
+    "expiration_UTC": "2027-10-01 05:27:47 UTC",
+    "expiration_basis": "GitHub authentication-token-expiration response metadata, same in current successful and forbidden responses; no credential value inspected.",
+    "id": 335883270,
+    "identity": "blitterbot",
+    "repository_permissions": {
+      "distribution": {
+        "admin": false,
+        "maintain": false,
+        "pull": true,
+        "push": true,
+        "triage": true
+      },
+      "emulationstation": {
+        "admin": false,
+        "maintain": false,
+        "pull": true,
+        "push": true,
+        "triage": true
+      },
+      "splash": {
+        "admin": false,
+        "maintain": false,
+        "pull": true,
+        "push": true,
+        "triage": true
+      },
+      "website": {
+        "admin": false,
+        "maintain": true,
+        "pull": true,
+        "push": true,
+        "triage": true
+      }
+    },
+    "scope": "Four named release repositories; effective account repository permissions under the current authenticated request, not a complete fine-grained token endpoint-scope grant inventory or all organization repositories."
+  },
+  "criterion_line": 32,
+  "expiry_notice_mechanism": {
+    "missing_evidence": "An existing enabled reminder/notification mechanism tied to this expiry, with named recipient/channel and retained schedule/configuration or original delivery evidence; secret content and mailbox dumps are unnecessary. If none exists, any new configured/sent mechanism is a separate explicitly scoped action.",
+    "status": "UNVERIFIED"
+  },
+  "issue": 344,
+  "issue_url": "https://github.com/pixelelated/distribution/issues/344",
+  "not_performed": [
+    "secret/auth-file/token-value read",
+    "secret endpoint or body dump",
+    "repository or organization mutation",
+    "workflow dispatch",
+    "service or VM execution",
+    "host/private scheduler census",
+    "canonical/shared record edit",
+    "contact or reminder send"
+  ],
+  "overall_security_completion": false,
+  "remaining_evidence": [
+    {
+      "existing_requirement": "#344 bot expiry-notice mechanism",
+      "id": "EXPIRY_NOTICE",
+      "minimum": "Sanitized enabled notification/schedule evidence tied to recorded expiry and intended recipient/channel, or an existing original receipt. No new message sent here."
+    },
+    {
+      "existing_requirement": "#344 / D-WORKFLOW-119",
+      "id": "REMOTE_RUNNER_FALLBACK_OR_ISOLATION",
+      "minimum": "An authorized administrator readback establishing applicable repository/organization runner registrations and access, plus either explicit disabled/unregistered fallback evidence or the existing trusted-trigger and no-persistent-publishing-credentials/no-sudo/no-Docker-socket/no-bot-mail-signing-store-readability isolation evidence. Do not substitute local absence, offline alone or403.",
+      "permission_limit": "Use an already authorized owner/admin observation; this report does not request granting broader scopes to the bot.",
+      "read_only_endpoints": [
+        "repos/pixelelated/distribution/actions/runners",
+        "orgs/pixelelated/actions/runners",
+        "repos/pixelelated/distribution/actions/permissions",
+        "repos/pixelelated/distribution/actions/permissions/workflow"
+      ]
+    }
+  ],
+  "runner_boundary": {
+    "actual_hosted_jobs": [
+      38783551906,
+      38783551822
+    ],
+    "actual_job_scope": "Two exact e51c029 next push jobs report runner_group_name GitHub Actions and ubuntu-24.04; their conclusions remain success and failure respectively. No job or trigger experiment launched.",
+    "candidate_automation": "fork-generic-x64.yml has workflow_dispatch and sole job if:false; GitHub workflow state is active. Disabled job is not proof that remote runners are disabled.",
+    "dynamic_workflow_limit": "API lists 23 workflows, including one dynamic Copilot workflow outside the22 repository YAML files; its isolation/runner behavior is not inferred from repository source.",
+    "protected_ref_observation": {
+      "branch": "next",
+      "meaning": "Observed branch metadata only. It does not establish the protected-ref branch of the existing self-hosted rule and is not a new branch-protection policy or blanket repository security finding.",
+      "protected": false
+    },
+    "remote_inventory_and_settings": "Repository Actions settings, default workflow permission settings, repo runner inventory and org runner inventory each returned403. No zero-runner, disabled-runner, access restriction or isolation result follows.",
+    "source_established": "22 current repository YAML files use literal hosted labels; the inherited PR validation and called freeze checker use ubuntu-24.04. No runs-on self-hosted declaration appears in that exact source."
+  },
+  "scope_note": "No new security policy, broad audit/replay, all-security-complete assertion or public publication clearance.",
+  "source_commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21"
+}

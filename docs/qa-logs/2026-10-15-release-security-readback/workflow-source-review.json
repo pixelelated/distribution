@@ -1,0 +1,755 @@
+{
+  "all_declared_runner_labels": [
+    "ubuntu-22.04",
+    "ubuntu-24.04",
+    "ubuntu-latest"
+  ],
+  "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+  "repository_yaml_count": 22,
+  "rows": [
+    {
+      "bytes": 6492,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "3b5aa2ad362b30f85b2076ee1ce97b20c9f0c77c",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/build-aarch64-emu-libretro.yml",
+      "permissions_and_scope_conditions": [
+        {
+          "line": 19,
+          "text": "permissions:"
+        },
+        {
+          "line": 20,
+          "text": "actions: write"
+        },
+        {
+          "line": 21,
+          "text": "contents: read"
+        }
+      ],
+      "runs_on": [
+        {
+          "line": 18,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "0211090075dea3a7fa5d7cbc94f03aad4cd0f3e1e0decd0728b4406eb9202876",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/build-aarch64-emu-libretro.yml",
+      "trigger_declarations": [
+        {
+          "line": 4,
+          "text": "workflow_call:"
+        }
+      ]
+    },
+    {
+      "bytes": 7994,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "a87e0b211b8cf03bcf97cb53a9ab9b0cbaf5d50d",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/build-aarch64-emu-standalone.yml",
+      "permissions_and_scope_conditions": [],
+      "runs_on": [
+        {
+          "line": 18,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "2125191757d873b34b9f593b6f22846f5287439299e7efb42056be57c51ba37d",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/build-aarch64-emu-standalone.yml",
+      "trigger_declarations": [
+        {
+          "line": 4,
+          "text": "workflow_call:"
+        }
+      ]
+    },
+    {
+      "bytes": 5025,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "0de779790ab4738ed1aa21cb6c8ec616d2b10cc0",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/build-aarch64-image.yml",
+      "permissions_and_scope_conditions": [],
+      "runs_on": [
+        {
+          "line": 26,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "21fcd6726dfb5729bfb578ca0ce3fe0d20654e71b105cf926e6aa5c613bd8491",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/build-aarch64-image.yml",
+      "trigger_declarations": [
+        {
+          "line": 4,
+          "text": "workflow_call:"
+        }
+      ]
+    },
+    {
+      "bytes": 4350,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "deecb709e0b08593856830fe9e52b54aad93877a",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/build-aarch64-mame-lr.yml",
+      "permissions_and_scope_conditions": [],
+      "runs_on": [
+        {
+          "line": 18,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "e9be8d8a5c8f7755596e339cf86e92530c21146f4b0fd96d45e2bf8f63a4bfd0",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/build-aarch64-mame-lr.yml",
+      "trigger_declarations": [
+        {
+          "line": 4,
+          "text": "workflow_call:"
+        }
+      ]
+    },
+    {
+      "bytes": 4703,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "dfe074dce53e0ac35b2b753d330e88b522bc8f7f",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/build-aarch64-qt6.yml",
+      "permissions_and_scope_conditions": [],
+      "runs_on": [
+        {
+          "line": 20,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "37987784c395187f6646cc52ca665d5dff89e6c22fb37f13f2870d9c98348409",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/build-aarch64-qt6.yml",
+      "trigger_declarations": [
+        {
+          "line": 4,
+          "text": "workflow_call:"
+        }
+      ]
+    },
+    {
+      "bytes": 2516,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "10b6098f6f17520a7049c2c7d83ca34648b6a4ce",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/build-aarch64-rust.yml",
+      "permissions_and_scope_conditions": [],
+      "runs_on": [
+        {
+          "line": 18,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "ba85261f93d977dba6b7854a173709c45d6d5d4dc0c6982a624a8cb65fc143bc",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/build-aarch64-rust.yml",
+      "trigger_declarations": [
+        {
+          "line": 4,
+          "text": "workflow_call:"
+        }
+      ]
+    },
+    {
+      "bytes": 5236,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "797c4a6ebb9fecde1fde157bebceaefe3737ec36",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/build-aarch64-toolchain.yml",
+      "permissions_and_scope_conditions": [
+        {
+          "line": 19,
+          "text": "permissions:"
+        },
+        {
+          "line": 20,
+          "text": "actions: write"
+        },
+        {
+          "line": 21,
+          "text": "contents: read"
+        }
+      ],
+      "runs_on": [
+        {
+          "line": 18,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "a1fd8cf7274fd5fe80770491892445c0d33ecf3caafd941cf5336ab2334eb1ff",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/build-aarch64-toolchain.yml",
+      "trigger_declarations": [
+        {
+          "line": 4,
+          "text": "workflow_call:"
+        }
+      ]
+    },
+    {
+      "bytes": 5912,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "647a62b68dd925efc0692635f061f0fd33c0c313",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/build-aarch64.yml",
+      "permissions_and_scope_conditions": [],
+      "runs_on": [
+        {
+          "line": 18,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "f35d1f2fe4a1c33b7a36a138efdc3f841b08704ab36880f28ce971142e9ad8c2",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/build-aarch64.yml",
+      "trigger_declarations": [
+        {
+          "line": 4,
+          "text": "workflow_call:"
+        }
+      ]
+    },
+    {
+      "bytes": 3955,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "0388394a0ceddc8bd078f70f9d2df33ece0daa50",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/build-arm.yml",
+      "permissions_and_scope_conditions": [],
+      "runs_on": [
+        {
+          "line": 19,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "e5b3c68d631a4931ed22c8d4b244889499efffc9f7d865d32ea999e748fc0d9a",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/build-arm.yml",
+      "trigger_declarations": [
+        {
+          "line": 4,
+          "text": "workflow_call:"
+        }
+      ]
+    },
+    {
+      "bytes": 4023,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "6c8821362d28dad5af291bf0b9e6b1ef95301456",
+      "job_reusable_workflows": [
+        {
+          "line": 29,
+          "text": "uses: ./.github/workflows/build-arm.yml"
+        },
+        {
+          "line": 37,
+          "text": "uses: ./.github/workflows/build-aarch64-toolchain.yml"
+        },
+        {
+          "line": 46,
+          "text": "uses: ./.github/workflows/build-aarch64-rust.yml"
+        },
+        {
+          "line": 55,
+          "text": "uses: ./.github/workflows/build-aarch64.yml"
+        },
+        {
+          "line": 64,
+          "text": "uses: ./.github/workflows/build-aarch64-mame-lr.yml"
+        },
+        {
+          "line": 73,
+          "text": "uses: ./.github/workflows/build-aarch64-qt6.yml"
+        },
+        {
+          "line": 86,
+          "text": "uses: ./.github/workflows/build-aarch64-emu-libretro.yml"
+        },
+        {
+          "line": 99,
+          "text": "uses: ./.github/workflows/build-aarch64-emu-standalone.yml"
+        },
+        {
+          "line": 112,
+          "text": "uses: ./.github/workflows/build-aarch64-image.yml"
+        }
+      ],
+      "path": ".github/workflows/build-device.yml",
+      "permissions_and_scope_conditions": [],
+      "runs_on": [
+        {
+          "line": 125,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "51527c0b4dd660b62aed2d36a45d93410a9e69a74be35822dd6808c05c6e4122",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/build-device.yml",
+      "trigger_declarations": [
+        {
+          "line": 4,
+          "text": "workflow_call:"
+        }
+      ]
+    },
+    {
+      "bytes": 741,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "1aaf015d1aeec117c1d52c3d5d30e4c02320fd43",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/build-docker-image.yml",
+      "permissions_and_scope_conditions": [],
+      "runs_on": [
+        {
+          "line": 12,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "d568ec79078e2d7a6fad3a76f9dcbf888855c6b271a95f636efae5534c7177ca",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/build-docker-image.yml",
+      "trigger_declarations": [
+        {
+          "line": 4,
+          "text": "workflow_call:"
+        }
+      ]
+    },
+    {
+      "bytes": 12516,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "b075727b8f0ffca648c1d454018bfd6e95cfbb3a",
+      "job_reusable_workflows": [
+        {
+          "line": 172,
+          "text": "uses: ./.github/workflows/build-docker-image.yml"
+        },
+        {
+          "line": 186,
+          "text": "uses: ./.github/workflows/build-device.yml"
+        }
+      ],
+      "path": ".github/workflows/build-nightly.yml",
+      "permissions_and_scope_conditions": [
+        {
+          "line": 85,
+          "text": "if: (github.event_name != 'schedule') || (github.repository == 'ROCKNIX/distribution' && github.ref_name == 'next')"
+        },
+        {
+          "line": 169,
+          "text": "if: github.event_name != 'schedule' || (github.repository == 'ROCKNIX/distribution' && github.ref_name == 'next')"
+        },
+        {
+          "line": 177,
+          "text": "if: (github.event_name != 'schedule') || (github.repository == 'ROCKNIX/distribution' && github.ref_name == 'next')"
+        },
+        {
+          "line": 196,
+          "text": "if: always() && !cancelled() && (contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')) && fromJSON(github.run_attempt) < 3 && github.ref_name == 'next' && (github.event_name != 'schedule' || github.repository == 'ROCKNIX/distribution')"
+        },
+        {
+          "line": 206,
+          "text": "if: ${{ always() && !cancelled() && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled') && github.repository_owner == 'ROCKNIX' && needs.set-envs.outputs.NIGHTLY == 'yes' && github.event_name != 'pull_request' }}"
+        },
+        {
+          "line": 285,
+          "text": "if: ${{ always() && !cancelled() && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled') && github.repository_owner == 'ROCKNIX' && needs.set-envs.outputs.OFFICIAL == 'yes' }}"
+        }
+      ],
+      "runs_on": [
+        {
+          "line": 88,
+          "text": "runs-on: ubuntu-24.04"
+        },
+        {
+          "line": 198,
+          "text": "runs-on: ubuntu-24.04"
+        },
+        {
+          "line": 209,
+          "text": "runs-on: ubuntu-24.04"
+        },
+        {
+          "line": 288,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "602ae34a702f15807ec75e69eb74497f9f9cbce181a9f7a9f656180d1dcfc001",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/build-nightly.yml",
+      "trigger_declarations": [
+        {
+          "line": 4,
+          "text": "schedule:"
+        },
+        {
+          "line": 7,
+          "text": "workflow_dispatch:"
+        },
+        {
+          "line": 79,
+          "text": "workflow_call:"
+        },
+        {
+          "line": 80,
+          "text": "pull_request:"
+        }
+      ]
+    },
+    {
+      "bytes": 1877,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "6f41a9e1e02c36a537747ef88e92eea90c44b1b6",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/check-freeze-period.yml",
+      "permissions_and_scope_conditions": [
+        {
+          "line": 6,
+          "text": "permissions:"
+        },
+        {
+          "line": 7,
+          "text": "pull-requests: read"
+        }
+      ],
+      "runs_on": [
+        {
+          "line": 11,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "5e3a3e51221e28907c2bb2bb5d4056730222433bc82174b26f8c29e1dce24072",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/check-freeze-period.yml",
+      "trigger_declarations": [
+        {
+          "line": 4,
+          "text": "workflow_call:"
+        }
+      ]
+    },
+    {
+      "bytes": 2366,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "e9649b85cb4cc83dcfc5e17055dc1306c035c776",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/fork-checks.yml",
+      "permissions_and_scope_conditions": [
+        {
+          "line": 21,
+          "text": "permissions:"
+        },
+        {
+          "line": 22,
+          "text": "contents: read"
+        },
+        {
+          "line": 23,
+          "text": "issues: read"
+        }
+      ],
+      "runs_on": [
+        {
+          "line": 27,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "2a7eae6283ee7d953bb7e7e41c9155f500f803ab7f2b45ad881f7c87dc111bf2",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/fork-checks.yml",
+      "trigger_declarations": [
+        {
+          "line": 10,
+          "text": "push:"
+        },
+        {
+          "line": 12,
+          "text": "schedule:"
+        },
+        {
+          "line": 14,
+          "text": "workflow_dispatch:"
+        }
+      ]
+    },
+    {
+      "bytes": 415,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "aa1ee831fb14ba44ad6de68ca8c9f7f4453425a7",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/fork-generic-x64.yml",
+      "permissions_and_scope_conditions": [
+        {
+          "line": 6,
+          "text": "permissions:"
+        },
+        {
+          "line": 7,
+          "text": "contents: read"
+        },
+        {
+          "line": 10,
+          "text": "if: ${{ false }}"
+        }
+      ],
+      "runs_on": [
+        {
+          "line": 11,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "5f9d999b74fd5e4a2330dee73048c01631d1d2e0e3a982d97fb135034a3a9301",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/fork-generic-x64.yml",
+      "trigger_declarations": [
+        {
+          "line": 5,
+          "text": "workflow_dispatch:"
+        }
+      ]
+    },
+    {
+      "bytes": 2094,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "53146f2bb98cba06d293ab2f38c8d7bab81b3000",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/fork-mirror-build-container.yml",
+      "permissions_and_scope_conditions": [
+        {
+          "line": 22,
+          "text": "permissions:"
+        },
+        {
+          "line": 23,
+          "text": "contents: read"
+        },
+        {
+          "line": 24,
+          "text": "packages: write"
+        }
+      ],
+      "runs_on": [
+        {
+          "line": 28,
+          "text": "runs-on: ubuntu-latest"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "7409e0c542b24ebed4ad3e95c76a21489165aa9af54f3fe9b867eb9935796b57",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/fork-mirror-build-container.yml",
+      "trigger_declarations": [
+        {
+          "line": 11,
+          "text": "workflow_dispatch:"
+        }
+      ]
+    },
+    {
+      "bytes": 1514,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "0b567a3edf0932976f10f542a44d83e8993352e1",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/fork-wordlist.yml",
+      "permissions_and_scope_conditions": [
+        {
+          "line": 15,
+          "text": "permissions:"
+        },
+        {
+          "line": 16,
+          "text": "contents: read"
+        }
+      ],
+      "runs_on": [
+        {
+          "line": 20,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "e3f29192b62105444290c8be3f68fd47dc0a444ebaeb8444a882c71f7278189c",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/fork-wordlist.yml",
+      "trigger_declarations": [
+        {
+          "line": 11,
+          "text": "push:"
+        },
+        {
+          "line": 13,
+          "text": "workflow_dispatch:"
+        }
+      ]
+    },
+    {
+      "bytes": 414,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "01f444983968d296951c682f5c9e410d2ef19f4b",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/retry-workflow.yml",
+      "permissions_and_scope_conditions": [],
+      "runs_on": [
+        {
+          "line": 10,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "612eab3f49f6796738e24582b3c14ff9e47943e5d672916e82e13f76f567008b",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/retry-workflow.yml",
+      "trigger_declarations": [
+        {
+          "line": 4,
+          "text": "workflow_dispatch:"
+        }
+      ]
+    },
+    {
+      "bytes": 398,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "4aff3d2ce7c4327f24a8f5ca058e167c3a79e2d4",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/trigger-fail-if-upstream-changed.yml",
+      "permissions_and_scope_conditions": [],
+      "runs_on": [
+        {
+          "line": 10,
+          "text": "runs-on: ubuntu-latest"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "faadd3e8e76ca326c077d4145c2ad014e0c0d4cdc8ae4218e93d7b9fa7edf893",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/trigger-fail-if-upstream-changed.yml",
+      "trigger_declarations": [
+        {
+          "line": 4,
+          "text": "pull_request:"
+        }
+      ]
+    },
+    {
+      "bytes": 4740,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "9bc3d6b8eeed2c9a88f40a0255cc2d93a47b68a1",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/update-kernel-configs-docs.yml",
+      "permissions_and_scope_conditions": [
+        {
+          "line": 15,
+          "text": "permissions:"
+        },
+        {
+          "line": 16,
+          "text": "actions: write"
+        },
+        {
+          "line": 17,
+          "text": "contents: read"
+        }
+      ],
+      "runs_on": [
+        {
+          "line": 53,
+          "text": "runs-on: ubuntu-22.04"
+        },
+        {
+          "line": 90,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "1b6fcbbdadc23c8631c8eae5a9ea78f5e748ca5553882be18bd209be5ded1eae",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/update-kernel-configs-docs.yml",
+      "trigger_declarations": [
+        {
+          "line": 4,
+          "text": "workflow_dispatch:"
+        },
+        {
+          "line": 5,
+          "text": "workflow_call:"
+        },
+        {
+          "line": 6,
+          "text": "push:"
+        }
+      ]
+    },
+    {
+      "bytes": 3836,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "06ab49f27623fe71bdbc4f003448df70943e957c",
+      "job_reusable_workflows": [],
+      "path": ".github/workflows/update-mirror-sources.yml",
+      "permissions_and_scope_conditions": [
+        {
+          "line": 9,
+          "text": "if: (github.event_name != 'schedule') || (github.repository == 'ROCKNIX/distribution' && github.ref_name == 'next')"
+        }
+      ],
+      "runs_on": [
+        {
+          "line": 11,
+          "text": "runs-on: ubuntu-24.04"
+        },
+        {
+          "line": 52,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "d963e2fd981e58116cde79cec9d6d17ff2bf215bd01efbbd905eac5c9e50949f",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/update-mirror-sources.yml",
+      "trigger_declarations": [
+        {
+          "line": 3,
+          "text": "schedule:"
+        },
+        {
+          "line": 5,
+          "text": "workflow_dispatch:"
+        },
+        {
+          "line": 6,
+          "text": "workflow_call:"
+        }
+      ]
+    },
+    {
+      "bytes": 4331,
+      "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+      "git_blob": "d76f1dbf11dfa7d4069437b9a65404e0b94871c6",
+      "job_reusable_workflows": [
+        {
+          "line": 120,
+          "text": "uses: ./.github/workflows/check-freeze-period.yml"
+        }
+      ],
+      "path": ".github/workflows/validate-pull-request.yml",
+      "permissions_and_scope_conditions": [],
+      "runs_on": [
+        {
+          "line": 10,
+          "text": "runs-on: ubuntu-24.04"
+        }
+      ],
+      "self_hosted_label_present": false,
+      "sha256": "cc426b00d737f4361c7ea700d651444d935d0fa7d342839f3d48ca1d189c88d8",
+      "source_url": "https://github.com/pixelelated/distribution/blob/e51c029e659edd6365d6996b4fe9edfc9e711f21/.github/workflows/validate-pull-request.yml",
+      "trigger_declarations": [
+        {
+          "line": 3,
+          "text": "pull_request:"
+        }
+      ]
+    }
+  ],
+  "scope": "Exact current repository YAML only. Does not enumerate remote runner registrations, runner groups, permissions, older refs, other repositories or dynamic GitHub workflows."
+}

@@ -1,0 +1,54 @@
+{
+  "canonical_references": [
+    {
+      "lines": "709-719",
+      "meaning": "Prior effective permissions/expiry and hosted job; expressly no reminder configured/sent and no complete fine-grained permission inventory.",
+      "path": "docs/work-logs/2026_10-work_logs/2026_10_06-work_log.md"
+    },
+    {
+      "decision": "D-WORKFLOW-119",
+      "line": 562,
+      "meaning": "Existing self-hosted trust/isolation or disabled fallback requirement; this review creates no new policy.",
+      "path": "docs/decision-register.md"
+    },
+    {
+      "line": 65,
+      "meaning": "2026-10-02 runner inventory403, hosted-workflow correction and unverified remote state.",
+      "path": "docs/friction-log.md"
+    },
+    {
+      "line": 117,
+      "meaning": "Existing #344 security evidence remains unverified.",
+      "path": "docs/releases/next-candidate-scope.md"
+    }
+  ],
+  "previous_api_metadata": {
+    "bytes": 6755,
+    "expiry_reminder": "not configured or sent by this proof; requires existing receipt or named authorization",
+    "identity": {
+      "id": 335883270,
+      "login": "blitterbot",
+      "name": "blitterbot",
+      "type": "User"
+    },
+    "observed_utc": "2026-10-06T20:31:52.500316+00:00",
+    "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-06-pixelelated-replacement-15/account-metadata-01/metadata.json",
+    "sha256": "7c0404d31df481f36f47398e82f8f6df3e531cedf5b56b7c54928c6b4ae8814f",
+    "token_inventory_complete": false,
+    "token_response_metadata": {
+      "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+    }
+  },
+  "public_mechanism_search": {
+    "commit": "e51c029e659edd6365d6996b4fe9edfc9e711f21",
+    "expiry_notice_mechanism_established": false,
+    "limits": "No private scheduler, cron, account email/inbox, secret configuration, token file or auth store read. No assertion that a private reminder cannot exist.",
+    "method": "Bounded tracked-source text search for bot/GitHub/token expiry/expiration and expiry-notice terms; matched the existing requirement and unrelated synthetic cloud token tests only.",
+    "paths": [
+      "tools",
+      ".github/workflows",
+      "docs/rasteratops",
+      "docs/pixelelated"
+    ]
+  }
+}

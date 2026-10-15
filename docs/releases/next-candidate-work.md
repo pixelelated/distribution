@@ -11,6 +11,27 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 20:00 UTC - Release documentation and dependency reconciliation (#344)
+
+The [release preparation checklist](0.0.1-release-preparation.md) separates
+D-WORKFLOW-113/125's deferred infrastructure from D-WORKFLOW-121/#528's required
+release-source custody. Local documentation, security readback and the existing
+audit can progress without buying infrastructure or completing a host restore
+drill. Exact external-transfer/contact approvals and all publication requirements
+remain pending; no criterion is waived.
+
+The [release-note draft](0.0.1-release-note-draft.md) has nine player bullets
+with a [changelog/run evidence map](0.0.1-release-note-evidence.md), exact terms
+links and explicit missing final assets. The [sanitized security readback](../qa-logs/2026-10-15-release-security-readback/README.md)
+verifies current effective permissions/expiry and hosted workflow/job observations;
+remote admin endpoints403 and the expiry-notice mechanism remain unverified.
+
+The [support matrix](../rasteratops/support-matrix.md) and
+[release readiness](../rasteratops/release-readiness.md) now lead with accepted
+077197/common-timestamp artifacts and their focused VM proof. Historical f863/9aa7
+and bc9d physical evidence stays attributed to its original source. The current
+engineering images are not a public RC, and no device update is running.
+
 ## 2026-10-15 18:08 UTC — Applicable notice supplement accepted (#528)
 
 The [verified notice supplement](../qa-logs/2026-10-15-notice-delivery/README.md)
@@ -699,7 +720,7 @@ Previously completed USB/startup/version/cloud-management fixes and prior audits
 are not reopened simply by this inventory. #349 is closed: installed restore proof
 and the published same-model guide are complete; see the current evidence above.
 
-## Build completion and upstream follow-up
+## Earlier October 15 build completion and upstream follow-up
 
 The f863 combined GENERIC_X64 composition, applicable audit, native-state
 qualification, H700 and SM8550 independent artifact acceptance, portable Steam

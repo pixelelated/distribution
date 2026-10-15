@@ -1,0 +1,206 @@
+{
+  "receipt": {
+    "endpoint": "repos/pixelelated/distribution/actions/workflows?per_page=100",
+    "method": "GET",
+    "observed_utc": "2026-10-15T19:58:44.974991+00:00",
+    "exit_code": 0,
+    "http_status": 200,
+    "elapsed_seconds": 0.415998,
+    "raw_response_retained": false,
+    "response_body_bytes": 12074,
+    "stderr_bytes": 0,
+    "allowed_response_headers": {
+      "date": "Thu, 15 Oct 2026 19:58:45 GMT",
+      "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+    }
+  },
+  "data": {
+    "total_count": 23,
+    "workflows": [
+      {
+        "id": 168180836,
+        "name": "Build emu-libretro",
+        "path": ".github/workflows/build-aarch64-emu-libretro.yml",
+        "state": "active",
+        "updated_at": "2025-06-12T16:12:25.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/build-aarch64-emu-libretro.yml"
+      },
+      {
+        "id": 168180837,
+        "name": "Build emu-standalone",
+        "path": ".github/workflows/build-aarch64-emu-standalone.yml",
+        "state": "active",
+        "updated_at": "2025-06-12T16:12:26.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/build-aarch64-emu-standalone.yml"
+      },
+      {
+        "id": 168180838,
+        "name": "Build image",
+        "path": ".github/workflows/build-aarch64-image.yml",
+        "state": "active",
+        "updated_at": "2025-06-12T16:12:26.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/build-aarch64-image.yml"
+      },
+      {
+        "id": 168180839,
+        "name": "Build emu-mame-lr",
+        "path": ".github/workflows/build-aarch64-mame-lr.yml",
+        "state": "active",
+        "updated_at": "2025-06-12T16:12:26.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/build-aarch64-mame-lr.yml"
+      },
+      {
+        "id": 168180841,
+        "name": "Build qt6",
+        "path": ".github/workflows/build-aarch64-qt6.yml",
+        "state": "active",
+        "updated_at": "2025-06-12T16:12:26.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/build-aarch64-qt6.yml"
+      },
+      {
+        "id": 303032502,
+        "name": "Build aarch64 rust",
+        "path": ".github/workflows/build-aarch64-rust.yml",
+        "state": "active",
+        "updated_at": "2026-06-27T02:36:36.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/build-aarch64-rust.yml"
+      },
+      {
+        "id": 168180843,
+        "name": "Build toolchain",
+        "path": ".github/workflows/build-aarch64-toolchain.yml",
+        "state": "active",
+        "updated_at": "2025-06-12T16:12:26.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/build-aarch64-toolchain.yml"
+      },
+      {
+        "id": 168180844,
+        "name": "Build aarch64",
+        "path": ".github/workflows/build-aarch64.yml",
+        "state": "active",
+        "updated_at": "2025-06-12T16:12:26.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/build-aarch64.yml"
+      },
+      {
+        "id": 168180845,
+        "name": "Build arm",
+        "path": ".github/workflows/build-arm.yml",
+        "state": "active",
+        "updated_at": "2025-06-12T16:12:26.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/build-arm.yml"
+      },
+      {
+        "id": 151265622,
+        "name": "Build device",
+        "path": ".github/workflows/build-device.yml",
+        "state": "active",
+        "updated_at": "2025-03-21T21:03:04.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/build-device.yml"
+      },
+      {
+        "id": 151265623,
+        "name": "Build Docker Image",
+        "path": ".github/workflows/build-docker-image.yml",
+        "state": "active",
+        "updated_at": "2025-03-21T21:03:04.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/build-docker-image.yml"
+      },
+      {
+        "id": 151265624,
+        "name": "Build",
+        "path": ".github/workflows/build-nightly.yml",
+        "state": "active",
+        "updated_at": "2026-06-27T02:36:36.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/build-nightly.yml"
+      },
+      {
+        "id": 337565513,
+        "name": "Check freeze period",
+        "path": ".github/workflows/check-freeze-period.yml",
+        "state": "active",
+        "updated_at": "2026-08-19T06:33:59.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/check-freeze-period.yml"
+      },
+      {
+        "id": 365560146,
+        "name": "fork record checks",
+        "path": ".github/workflows/fork-checks.yml",
+        "state": "active",
+        "updated_at": "2026-09-23T22:14:14.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/fork-checks.yml"
+      },
+      {
+        "id": 305634548,
+        "name": "fork candidate automation (disabled)",
+        "path": ".github/workflows/fork-generic-x64.yml",
+        "state": "active",
+        "updated_at": "2026-10-03T06:58:10.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/fork-generic-x64.yml"
+      },
+      {
+        "id": 371805418,
+        "name": "fork-mirror-build-container",
+        "path": ".github/workflows/fork-mirror-build-container.yml",
+        "state": "active",
+        "updated_at": "2026-10-01T04:28:21.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/fork-mirror-build-container.yml"
+      },
+      {
+        "id": 369269608,
+        "name": "fork wordlist check",
+        "path": ".github/workflows/fork-wordlist.yml",
+        "state": "active",
+        "updated_at": "2026-09-28T15:52:51.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/fork-wordlist.yml"
+      },
+      {
+        "id": 151265625,
+        "name": "Retry workflow",
+        "path": ".github/workflows/retry-workflow.yml",
+        "state": "active",
+        "updated_at": "2025-03-21T21:03:04.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/retry-workflow.yml"
+      },
+      {
+        "id": 299974961,
+        "name": "Fail on upstream packages changes",
+        "path": ".github/workflows/trigger-fail-if-upstream-changed.yml",
+        "state": "active",
+        "updated_at": "2026-08-19T06:33:59.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/trigger-fail-if-upstream-changed.yml"
+      },
+      {
+        "id": 168180847,
+        "name": "Update kernel configs and docs",
+        "path": ".github/workflows/update-kernel-configs-docs.yml",
+        "state": "active",
+        "updated_at": "2025-06-12T16:12:26.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/update-kernel-configs-docs.yml"
+      },
+      {
+        "id": 168180848,
+        "name": "Update mirror sources",
+        "path": ".github/workflows/update-mirror-sources.yml",
+        "state": "active",
+        "updated_at": "2026-06-27T02:36:36.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/update-mirror-sources.yml"
+      },
+      {
+        "id": 318610833,
+        "name": "Validate pull request",
+        "path": ".github/workflows/validate-pull-request.yml",
+        "state": "active",
+        "updated_at": "2026-07-23T03:34:09.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/blob/next/.github/workflows/validate-pull-request.yml"
+      },
+      {
+        "id": 299971912,
+        "name": "Copilot cloud agent",
+        "path": "dynamic/copilot-swe-agent/copilot",
+        "state": "active",
+        "updated_at": "2026-06-22T05:50:55.000Z",
+        "html_url": "https://github.com/pixelelated/distribution/actions/workflows/copilot-swe-agent/copilot"
+      }
+    ]
+  }
+}

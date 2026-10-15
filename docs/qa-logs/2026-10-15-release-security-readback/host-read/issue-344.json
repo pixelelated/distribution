@@ -1,0 +1,75 @@
+{
+  "receipt": {
+    "endpoint": "repos/pixelelated/distribution/issues/344",
+    "method": "GET",
+    "observed_utc": "2026-10-15T19:58:43.390369+00:00",
+    "exit_code": 0,
+    "http_status": 200,
+    "elapsed_seconds": 0.671365,
+    "raw_response_retained": false,
+    "response_body_bytes": 49481,
+    "stderr_bytes": 0,
+    "allowed_response_headers": {
+      "date": "Thu, 15 Oct 2026 19:58:43 GMT",
+      "github-authentication-token-expiration": "2027-10-01 05:27:47 UTC"
+    }
+  },
+  "data": {
+    "number": 344,
+    "title": "M7: pixelelated 0.0.1 release contract",
+    "state": "open",
+    "updated_at": "2026-10-15T05:52:19Z",
+    "html_url": "https://github.com/pixelelated/distribution/issues/344",
+    "selected_body_lines": [
+      {
+        "line": 10,
+        "text": ""
+      },
+      {
+        "line": 11,
+        "text": "All release criteria below, including #528 source/licence/retrieval/off-host custody, physical/asset qualification, security, public documentation and explicit publication authority, remain binding. This phase completion does not complete M7 or allocate an RC."
+      },
+      {
+        "line": 12,
+        "text": ""
+      },
+      {
+        "line": 13,
+        "text": "## Historical release-route checkpoint \u2014 #533 reconciliation, 2026-10-11"
+      },
+      {
+        "line": 19,
+        "text": "3. #555 Both refreshed handheld builds and independent artifact acceptance are COMPLETE, from audited bc9dfe8141 with shared identity `0.0.1-dev+20261011T222153Z.gbc9dfe8141d9`. H700 build ended0 at22:51:17UTC and acceptance04 at22:54:47UTC; both DDR variants/update and186 ARM files pass. SM8550 build05 ended0 at23:31:03UTC and acceptance05 at23:31:43UTC; raw/update equality, GPT, all five ABL package files,14 FEX outputs and188 ARM files pass. All original successful-run channels0, actual owners exited, containers removed and acceptance scratch removed. Box86 differences are bounded date/time/revision metadata only; added popt is exact from package staging through ARM and installed firmware. H700 bundle66273ff16383957687af44728a9e4e2c4bf1242c0217cf681dca8abee858d9b7; SM8550 bundlea480210cd8837f20fb67a80508c517308cc0326ed2c1544493e3f56d125f1f2f. Evidence: `docs/qa-logs/2026-10-11-device-refresh/`. #556 RG35XX SP transfer and one reboot are COMPLETE and accepted. Exact installed system/kernel/DTB/DDR4 bootloader/ES/both RetroArch hashes match; queue empty, original mounts, active frontend/zero restarts. All163 protected files, three recovery entries and every current configuration/credential/path are preserved. Automatic cloud sync remains off; device returned to owner use. No screenshot/input/game/audio/cloud operation or further physical-device authority is implied. Next: #493 remains the next host task: classify superseded roots/firmware and source-custody dependencies, prepare guarded retirement, then remeasure capacity. Current host availability is647,420,825,600bytes (about603GiB). No old deletion batch is replayed or widened. Current H700 supports owner testing; current SM8550 is held for its next named physical test. Large historical artifacts are not permanent fallbacks. Physical/publication holds stay explicit; no public RC is allocated."
+      },
+      {
+        "line": 20,
+        "text": "4. Finish #528 source/licence/retrieval/off-host custody, security/custody readback, #337/#359/#265 adoption/recovery/support/branding/source notes, channel separation and separately qualified asset/publication gates. No RC or publication claim."
+      },
+      {
+        "line": 21,
+        "text": ""
+      },
+      {
+        "line": 22,
+        "text": "## Accepted baseline \u2014 retain, do not replay"
+      },
+      {
+        "line": 31,
+        "text": "- [ ] #528 actual component/source inventory is reconciled for final bytes; all source/licence dispositions, independent retrieval/hash proof and off-host custody are recorded."
+      },
+      {
+        "line": 32,
+        "text": "- [ ] P1 security/custody evidence records bot repository-permission/expiry inventory and expiry-notice mechanism, and remote runner trusted-trigger/isolation or disabled-runner fallback. Local absence or403 is insufficient; secrets are never included in public evidence. Existing token identity migration is complete."
+      },
+      {
+        "line": 33,
+        "text": "- [ ] #337/#359/#265 publication evidence includes placeholder receipt/status, support matrix, manual adoption/recovery, unchanged SSH password, trust assumption, source/licence links, lineage/non-endorsement, cloud selected-path/setup and same-model restore instructions, compatibility and redirect dependency. Live broader guides/QR work stays #511; no broken QR is enabled."
+      },
+      {
+        "line": 34,
+        "text": "- [ ] Each proposed attached asset matches the selected input set or has explicit requalification, current hashes/size-limit/sweeps, per-SoC boot/recovery matrix and named physical smoke evidence before attachment (D-WORKFLOW-120). Untested assets stay held."
+      }
+    ],
+    "body_sha256": "e3e6baba984e98443a390f099260938f79ecaaff3e08799209eae688d038d0a5"
+  }
+}

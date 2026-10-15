@@ -1,6 +1,36 @@
 # pixelelated 0.0.1 release readiness
 
-## Current readiness — 2026-10-15 (#590/#596 → #555)
+## Current readiness - 2026-10-15 20:00 UTC (#344/#528/#603)
+
+The three current engineering builds share distribution077197, ES16dbac and
+image timestamp20261015T161744Z. Their canonical builds and independent artifact
+readers passed. The [current support matrix](support-matrix.md) records exact
+identities, selected-state checks and the separately qualified no-NIC
+clean/retained VM delta. Earlier full-baseline continuations and native proof
+remain accepted only for their recorded inputs. No current-source handheld
+result or new unfiltered full-suite aggregate is claimed.
+
+[Portable source delivery](../qa-logs/2026-10-15-source-delivery/README.md) and
+the [applicable-notice supplement](../qa-logs/2026-10-15-notice-delivery/README.md)
+both passed independent relative-path readback; those operations are complete.
+#528 retains the exact ABL/MAME questions and required off-host release-source
+retrieval/backup evidence. #603's frozen external audit awaits its existing exact
+approval; the later ZeroTier product delta has a separate completed local review.
+
+Local documentation, security reconciliation and approved audit work continue
+without waiting for the deferred OpenBao/host-topology/restore-drill projects
+#347/#348/#355 (D-WORKFLOW-113/125). The separate release-source publication
+obligations remain binding under D-WORKFLOW-121 and #528. See the
+[preparation and publication checklist](../releases/0.0.1-release-preparation.md)
+for the distinction and the remaining owner issues.
+
+No build, VM, device update or source copy is running at this checkpoint. Existing
+physical/native, security, final docs, RC identity and named publication gates
+remain. The chronological sections below preserve earlier status; their former
+next-step instructions do not supersede the live
+[M7 milestone](https://github.com/pixelelated/distribution/milestone/7).
+
+## Earlier readiness — 2026-10-15 (#590/#596 → #555)
 
 The [M7 milestone](https://github.com/pixelelated/distribution/milestone/7) owns
 execution order; [#344](https://github.com/pixelelated/distribution/issues/344)
