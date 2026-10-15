@@ -814,7 +814,7 @@ The initial PARTIAL above is preserved. Root allocated one host-only recipe lint
 
 **Source:** Issue #575, literal body line 30.
 **Written:** 2026-10-15T11:21:27.258664+00:00
-**Verdict:** PARTIAL (amended after Phase4.6; original primary PASS retained in the running log)
+**Verdict:** PASS (current #606 proof accepted2026-10-15T22:59:35Z; earlier Phase4.6 PARTIAL and original primary PASS remain historical)
 
 **Evidence:** RetroArch ordinary-save original baseline02 archive exit.log has runemu0 and actual .srm first byte55 on normal/debounced exit; current baseline-continuation scripts.log383–401 verifies numbered slot, AUTO SAVE, START NEW GAME and effective auto-load/save. Personally viewed original #196 before/after640 frames: numbered02:16 tile persists, AUTO SAVE advances02:08 to02:17; dated QA ledger/work log bind original loaded slot and quit, not a new run. Native03 original cold frames plus exported415B Wii save93c59... contain entered r1c2=4 and VMU131072B5f72... decoded CRC-verified score164; directly viewed cold score164 and Wii continued31-empty scene. Native02 final f863 installed inputs and inventories separate native states: Wii .s01 unchanged3732..., visible timer00:31→paused01:00→restored00:30; Flycast manual4666... unchanged hash/mtime with globalOn/nativeOff, native autoOn/globalOff creates376c... and fourth cold scene matches before any manual load. Supervisor original0/native children absent, raw engine wait explicitly unknown.
 
@@ -822,7 +822,7 @@ The initial PARTIAL above is preserved. Root allocated one host-only recipe lint
 
 **Notes:** No new RetroArch replay, no standalone frontend integration, no power-loss claim or owner configuration inference. Wii cold-frame warnings partially obscure top row; binary save content provides the entered-cell witness rather than pretending that pixel is clearly visible.
 
-**Phase4.6 amendment:** The external challenge and exact previous AC-064 wording establish that the later native proof closes Dolphin/Flycast, not the missing RetroArch exit-auto-state process/stat binding. Preserve the accepted subclaims above. Focused current VM proof is #606; no new runtime has run yet.
+**Phase4.6 amendment:** The external challenge and exact previous AC-064 wording establish that the later native proof closes Dolphin/Flycast, not the missing RetroArch exit-auto-state process/stat binding. Preserve the accepted subclaims above. At that amendment, focused current VM proof #606 had not run. The dated resolution below supplies new evidence without replacing that historical limitation.
 
 ## Prior-verdict cross-check
 
@@ -882,7 +882,7 @@ The initial PARTIAL above is preserved. Root allocated one host-only recipe lint
 | AC-50 | #577 | AC-071 PASS | PASS | Agreement with prior PASS |
 | AC-51 | #577 | AC-072 PARTIAL | PASS | Later source/installed/supplemental evidence resolves original gap; prior frozen verdict retained |
 | AC-52 | #575 | AC-063 PASS | PASS | Agreement with prior PASS |
-| AC-53 | #575 | AC-064 PARTIAL | PARTIAL | Native gaps resolved; RetroArch process/stat binding remains #606; prior frozen verdict retained |
+| AC-53 | #575 | AC-064 PARTIAL | PASS | Native gaps resolved earlier; current #606 RetroArch process/stat proof accepted at22:59UTC; prior frozen verdict retained |
 | AC-54 | #575 | AC-065 PASS | PASS | Agreement with prior PASS |
 | AC-55 | #575 | AC-066 PASS | PASS | Agreement with prior PASS |
 | AC-56 | #574 | AC-059 PARTIAL | PASS | Later source/installed/supplemental evidence resolves original gap; prior frozen verdict retained |
@@ -937,4 +937,12 @@ actual packaged inventory and retained-device overrides remain separately checke
 This does not exempt shared frontend code or authorize device actions. All source
 and receipt packets above were independently hash-verified into checks/lead-verification.
 
-Current literal score:66 PASS,1 PARTIAL (AC-53); no FAIL/SKIP/UNTESTABLE. No original runtime result is changed.
+Historical Phase4.6 score:66 PASS,1 PARTIAL (AC-53); no FAIL/SKIP/UNTESTABLE. No original runtime result is changed.
+
+## AC-53 resolution — 2026-10-15T23:01:01.316591+00:00 (#606)
+
+Evidence commit `cd894172871ee1655986c8c7045342b219601b14` contains `docs/qa-logs/2026-10-15-retroarch606-proof03/`. Current077197/ES16dbac and exact installed RetroArch/Gambatte ran through normal ES/runemu in one fresh no-NIC guest. Original clean gate passes. Engine3219/start8818 and frontend2126/start2029 remain bound through19 engine observations. Ordinary SRAM8192B begins0x55; manually saved state1 is3445B/SHA c73b58271443d386495193c49dc2a7c07bf431852d075fd0e013ad968fc2abda and retains exact bytes/hash/nsmtime. AUTO is absent before quit, then3451B/SHA b83a1d18415e923ed84a1a5562ceaa1dc88b09fc89336fde7315de265eef1530. Native slot/manual-save notifications and manager-before/after pixels are independently reviewed; AUTO18:48 and SLOT1 18:47 coexist.
+
+Actual raw runemu shell wait is0 before normalization. This is source-bound, not an intercepted ES waitpid. Fixed loopback command input on the no-NIC guest supplied two slot increments, one save and two quit datagrams0.603404128seconds apart under unchanged confirm-quit. It does not prove the default keyboard route from failed attempt02. The producer's final wrong-log predicate still exits1: frontend -state_slot is in ESlog/observed argv, while exec.log contains the actual engine wait/save output. Its subsequent marker-file stat was never reached and remains unobserved.
+
+The independently source-reviewed originals reader20261015T225813Z-227074bb passed command/monitor/runner/build/tool0, verifying all455 exact original members, file/process/log/frame linkage, owner disappearance and prior compact custody/retirement. Reader result SHA7dcaf90894af82c5ebda212ab1e7a6252c94aa64c98c4b2a83a592d855abd370; acceptance and actual source/review/terminal records are retained beside the originals. All three VM attempts are stopped/consumed with disposable media retired; earlier failures and producer03 failed-investigated stay unchanged. No restoration, power-loss, handheld or personal-data claim. Together with already accepted native evidence, this resolves the literal AC-53 gap. Current score67 PASS/67, zero PARTIAL.

@@ -4,15 +4,15 @@
 
 **Date:** 2026-10-15. **Scope:** Milestone / Independent. **Primary:** OpenAI Codex, exact served model ID not exposed; identity source is developer instruction. **Frozen record:** cdd92f10605517e789e09d13b6f4ba68573c2617. **Products:** VM/H700 f8636de1d105275dbf9420bbabbbc26f79abb10f; SM9aa7affee9d4ad5e69725cab20b6d7ad84d93dea; ES16dbac5211eea7e70db7394372033be2be7df829; website6aac689c6feaa8d4afefbd5a8b2121e5206f14b9.
 
-**Status:** Phases1–6 complete, including both verified Fable calls and mandatory tracker#612. Seven punch items are graded; Phase7 reconciliation and focused #606 proof remain active. No audit-completion marker exists.
+**Status:** Phases1–7 complete, including both verified Fable calls, accepted #606 proof and closed/completed tracker#612. Seven punch items have verified outcomes: two resolved and five explicitly deferred. Resolution lint passes; exact tracker receipts and the hash-bound completion marker retain the finished audit. No product deferral is called fixed.
 
 ## Executive Summary
 
 The independent review covers67 literal criteria across15 completed issues. Current
-score is66 PASS and1 PARTIAL: AC-53 retains accepted Dolphin/Flycast and RetroArch
-subclaims, but the historical RetroArch exit-auto-state process/stat binding is
-missing. #606 supplies one focused current VM proof. Initial67/67 wording is
-superseded; no old failure or prior audit score is rewritten.
+score is67 PASS: the accepted current #606 RetroArch process/stat proof closes
+AC-53 alongside the separately accepted Dolphin/Flycast evidence. The intermediate
+66/1 verdict, older missing transcript and all original failed producers remain
+recorded. This is a scoped criteria score, not a finding-free release claim.
 
 Both Fable5.1/xhigh calls completed successfully through the Facilitator with
 verified identity, provenance, output hashes and original result channels. Seven
@@ -81,7 +81,7 @@ Full literal text, evidence and attempted refutation are in02-forward-audit.md a
 | AC-50 | #577 | PASS | code + original execution/receipt readback + reviewed pixels |
 | AC-51 | #577 | PASS | code + original execution/receipt readback + reviewed pixels |
 | AC-52 | #575 | PASS | code + original execution/receipt readback |
-| AC-53 | #575 | PARTIAL | source + originals/pixels; inherited RetroArch transcript limitation |
+| AC-53 | #575 | PASS | current #606 process/file/wait/frame proof plus prior native originals; producer1 retained |
 | AC-54 | #575 | PASS | code + original execution/receipt readback + reviewed pixels |
 | AC-55 | #575 | PASS | code + original execution/receipt readback |
 | AC-56 | #574 | PASS | code + original execution/receipt readback |
@@ -97,7 +97,7 @@ Full literal text, evidence and attempted refutation are in02-forward-audit.md a
 | AC-66 | #349 | PASS | code + original execution/receipt readback + reviewed pixels |
 | AC-67 | #349 | PASS | code + original execution/receipt readback |
 
-**Pass rate:** 66/67 criteria fully met (98.5%); one PARTIAL (AC-53). These counts are computed from the current scorecard, not copied from the prior audit.
+**Pass rate:** 67/67 criteria fully met (100%) within their stated evidence scopes. These counts are computed from the current scorecard, not copied from the prior audit.
 
 ## Code Quality Assessment
 
@@ -109,11 +109,11 @@ Overall HIGH within scope;03-retrospective.md records all30 canonical rule faces
 
 ## Spec Fidelity
 
-All67 literal criteria were evaluated;66 pass and AC-53 remains PARTIAL. Verified alignment includes same-model restore, the enumerated preservation scope, explicit standalone capability limits, and synthetic/installed/native separation. No new standalone integration, physical boot/radio, real account award or universal format claim is introduced. The changed historical verdicts are later evidence/source resolutions; no original failure is rewritten.
+All67 literal criteria were evaluated and now pass within scope. Verified alignment includes same-model restore, the enumerated preservation scope, explicit standalone capability limits, and synthetic/installed/native separation. No new standalone integration, physical boot/radio, real account award or universal format claim is introduced. The changed historical verdicts are later evidence/source resolutions; no original failure is rewritten.
 
 ## Missing Artifacts
 
-Historical #600 pkgcheck receipt was not retained in the inspected packet; fresh current check remedies present verification without fabricating history. Historical #196 raw manual launch/stat output was not located by the bounded search; exact-source frames and accepted ledger remain. Both verified Fable outputs/provenance now exist. The remaining RetroArch process/stat evidence is #606; it is not counted PASS.
+Historical #600 pkgcheck receipt was not retained in the inspected packet; fresh current check remedies present verification without fabricating history. Historical #196 raw manual launch/stat output was not located by the bounded search; exact-source frames and accepted ledger remain. Both verified Fable outputs/provenance now exist. Current #606 proof now supplies the missing process/stat evidence; the historical transcript is still missing and was not reconstructed.
 
 ## Risk Assessment
 
@@ -122,13 +122,13 @@ Historical #600 pkgcheck receipt was not retained in the inspected packet; fresh
 | Native ARM/client safety inferred from portable Steam fixtures | Medium if scope broadened | Unsupported release claim | Explicit exclusions; real inspected archive is structural only, execution denied. No such expansion made. |
 | Old wrapper failures relabelled by later success | Medium if records collapsed | False evidence chain | Failed owners/statuses and unknown waits retained beside fresh readers; source identities exact. |
 | Historical RetroArch manual proof lacks original process/stat transcript | Low evidence limitation | Cannot independently re-derive every old byte/time assertion | Original manager frames and current launcher controls retained; no new runtime assertion, no observed regression. The external challenge identified the missing causal proof; #606 now owns it. |
-| Missing RetroArch exit-auto-state process binding | Low evidence gap | Overstated complete native-state proof | AC-53 PARTIAL; #606 focused current VM proof. |
+| Missing RetroArch exit-auto-state process binding | Low evidence gap | Overstated complete native-state proof | Resolved by current #606 VM observations and separately passing retained-originals reader; original VM bookkeeping1 remains. |
 
 ## Coverage Boundary
 
-Examined: all67 criteria, current product/tool code at named frozen sources, compact original VM/host/firmware/publication records, selected process/file manifests, raw negative controls, current official metadata snapshots, and representative actual pixels. AC08 alone ran anew: host pkgcheck0, no compile/network. Every other runtime result is an original readback with its own source and timestamp.
+Examined: all67 criteria, current product/tool code at named frozen sources, compact original VM/host/firmware/publication records, selected process/file manifests, raw negative controls, current official metadata snapshots, and representative actual pixels. During primary review AC08 alone ran anew: host pkgcheck0. Root subsequently ran the two provider reviews, H700 applicability inspection and focused #606 proof; their actual sources/timestamps/statuses are separate.
 
-Deliberately not examined: entire inherited distribution, bulk firmware caches, open #528 corresponding-source collectors, owner ROMs/accounts/cloud, physical radio/boot/power, universal game/format corpus and concurrent native ARM Steam/FEX/Proton gameplay. Selected storage preservation does not cover every arbitrary file or adjacent backup. No new benchmarks/VM/replays were performed. Historical #196 ledger assertions are not raw launch/stat receipts. Neither external text-review packet included image pixels; primary visual reads remain identified.
+Deliberately not examined: entire inherited distribution, bulk firmware caches, open #528 corresponding-source collectors, owner ROMs/accounts/cloud, physical radio/boot/power, universal game/format corpus and concurrent native ARM Steam/FEX/Proton gameplay. Selected storage preservation does not cover every arbitrary file or adjacent backup. Primary review performed no new benchmarks/VM/replays. Root later performed the scoped #606 VM proof, including its preserved unsuccessful attempts. Historical #196 ledger assertions are not raw launch/stat receipts. Neither external text-review packet included image pixels; primary visual reads remain identified.
 
 ## Tier B visual-QA consolidation
 
@@ -178,7 +178,7 @@ outside these frozen external packets. No public or device authorization follows
 | Tier B consolidation |Present; exact-source pixels distinguished from reports |
 | Verdict vocabulary |PASS/PARTIAL historical amendment; no invented runtime result |
 | Traceability/evidence/reproducibility |Primary paths/member names/source hashes retained; supplementary custody and packet manifest bind bytes |
-| Actionable/complete |Seven scoped punch items; Phase7 and #606 still active |
+| Actionable/complete |Seven scoped punch outcomes: two resolved, five named deferrals; closed/completed tracker readback and resolution lint verified |
 
 ### Evidence precision after refutation
 
@@ -190,3 +190,7 @@ source binding, controlled positive routing and separately scoped installed proo
 not a new live positive socket observation. AC-30/31/33 preserve the enumerated
 transaction scope, excluding registry replacement. AC-62 recovery manifests/logs
 prove rollback before the intentionally failed next download; retry exits remain1.
+
+### Current #606 acceptance (2026-10-15T23:01:01.316591+00:00)
+
+Evidence commit `cd894172871ee1655986c8c7045342b219601b14`, actual branch containment/path log and `docs/qa-logs/2026-10-15-retroarch606-proof03/originals-reader/acceptance.json` bind new current evidence. Original VM03 remains1 after its wrong-log assertion; reader original channels0 establish actual save/normal-exit/manager observations without replay. No direct final marker stat exists. Original keyboard attempt02 remains unconfirmed. The full dated resolution is in02; no previous failed/unknown outcome is rewritten. Five product/guidance follow-ups remain open under05. H700 default package/menu exclusions do not establish absence of retained custom GameCube mappings.
