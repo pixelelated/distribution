@@ -1,57 +1,58 @@
 # Saved Session State
 
-Updated 2026-10-15 22:40 UTC. Current engineering firmware and portable local
+Updated 2026-10-15 23:05 UTC. Current engineering firmware and portable local
 source/notice delivery are accepted in their recorded scopes. Release-note draft,
 security readback and dependency reconciliation are complete; no build, VM or
 copy is active. Infrastructure topology remains deferred under D-WORKFLOW-113/125;
 release-source retrieval/backup remains a separate publication obligation.
 
-## Live audit continuation — read this before older status below
+## Completed audit and immediate next action
 
-Both authorized Fable5.1/xhigh calls are verified complete, with original
-command/monitor/runner/launcher0, no retries and all recorded process identities
-absent. Blind ended21:36:18UTC; refutation ended21:51:19UTC. No provider job is
-active and primary next62c382 is no longer frozen by a provider call. Do not
-resubmit either packet. Original provenance and results are retained under
-`docs/audits/2026_10_15-milestone-603-completed-handoff/`.
+#603, #612 and #606 are CLOSED/COMPLETED with exact checked-body readbacks.
+Audit commit26ee5190e8a5f7a400675cbb445251d25ad660f7; save evidence commit
+cd894172871ee1655986c8c7045342b219601b14. Verify current Git/remote state for
+the later tracker/checkpoint commit. No product source changes after077197.
+Both Fable5.1/xhigh calls completed with verified identity and original0 channels;
+do not rerun. Final literal score67PASS/67 after current #606 evidence. Two punch
+items resolved, five explicit follow-ups607–611 remain open. Resolution lint and
+full ceremony-check0 accept the hash-bound marker timestamp23:02:02.536778UTC.
+Actual parent closure and M7/#344 body readbacks are retained in the audit
+checks/parent-closeout; completion resets cadence, not product/publication holds.
 
-Phase6 tracker is #612, actual child of #603; #606–611 are actual children of
-#612. Current score66PASS/1PARTIAL, AC-53 missing RetroArch exit-save process/stat
-binding. Seven punch items remain in Phase7 reconciliation; no completion marker.
-H700 applicability reader20261015T220831Z-ed601ef5 passed all original channels0
-and was consumed; actual listing/XML proves selected Steam/Dolphin package/menu
-absence. Compact93member evidence is retained under
-`docs/qa-logs/2026-10-15-h700-audit-applicability/`; extracted SYSTEM is retired.
-#606 run01 ended with original command/runner/launcher/VM1 and monitor0;
-its path predicate wrongly expected /tmp/cores overlay to resolve to the lowerdir.
-The clean gate/empty manager passed; no slot/save/quit input occurred. All owners
-exited; original185-member compact evidence and retirement receipt are retained
-at docs/qa-logs/2026-10-15-retroarch606-failure01/. Its admission is consumed and
-disk/OVMF retired. No VM is active. Corrected source packet02 ran as owner02/run222758Z-25504d4c:
-actual overlay/core/settings and normal engine launch passed, SRAM0x55 exists,
-but two F7/one F2 produced no state1 or OSD. Manual snapshot failed; no quit was
-sent. All owners exited;290-member compact originals are retained at
-docs/qa-logs/2026-10-15-retroarch606-failure02/. Admission is consumed and media
-retired. Source03 preparation is active in dolphin_ra_init, with source_custody_delta
-reviewing the fixed loopback RetroArch command route after sealing. Actual default
-keyboard failure remains unexplained; quit confirmation needs two distinct edges.
-No runtime allocation. AC-53 remains PARTIAL. Feature236d59e210 contains prior
-reconciliation; verify Git for the failure02 checkpoint commit.
-#607–610 remain actual product/proof follow-ups before affected deployment/public
-RC. #611 is backlog guidance. Root corrects the overbroad audit-record claims.
-Feature3c31e2aa records the private/public split and is published; the failure02 follow-up is recorded in the current working branch. No build, VM, provider call or device action is running.
+#606 current run03 (224512Z-038a66c6) performed ordinary SRAM/manual slot1/normal
+quit/new AUTO/manager proof on077197/ES16dbac, actual engine3219/start8818 and
+raw shell wait0. State1 bytes/hash/nsmtime unchanged; AUTO absent before quit
+and present afterward; reviewed manager shows both. Final fixture predicate
+wrongly looked for frontend -state_slot in exec.log, so original producer remains1
+and consumed failed-investigated. Marker absence stat was unreached and is not
+claimed. Separate independently reviewed originals reader225813Z-227074bb passed
+all original channels0 over455files/5,473,653B, accepting these retained observations.
+Default keyboard attempt02 remains unconfirmed; fixed no-NIC loopback command
+input exercised the actual installed engine. All three original attempts and
+reader source/review/results are held under docs/qa-logs/2026-10-15-retroarch606-*.
+All owned processes exited; three disposable disks/OVMF/emptyTMP retired after
+verified compact custody. No replay is needed; no build/VM/provider/device job active.
 
-A read-only RG35XX SP SSH inspection question is pending after automatic approval
-review rejected its existing non-retained-host-key alias. Do not bypass that
-rejection or duplicate the question. No transfer/reboot approval is implied.
-Source contacts remain separately pending and nonblocking for private testing.
+Next is the private RG35XX SP handoff under D-WORKFLOW-168. Exact current H700
+SYSTEM/menu inspection passed: no Steam/Dolphin payloads or default GameCube/Wii/
+Steam entries. #607/#608/#610 affect Steam deployments; #609 requires retained
+custom GameCube mappings to be inspected before handoff. These remain affected-
+deployment/public-RC gates. #611 is P3 recovery guidance. #528 public source/licence/
+retrieval/backup and #511/#605 website are separate; do not block private testing
+on publication work. Keep dev identity; do not create public tag/RC/assets.
+
+A read-only RG35XX SP SSH inspection question remains pending after automatic
+approval review rejected the existing non-retained-host-key alias. Do not bypass
+or duplicate it. No new staging/reboot authority follows from availability;
+previous deployment approvals were consumed. Source-contact questions remain
+separately pending and unsent; root-only stopped-media read is nonblocking.
 
 ## Resume and authority
 
 Coordinator `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
 `feature/m7-final-qualification-02`; primary `/workspace/repos/rocknix` stays on
-`next`. Harness checkout `conflict-resolution` stays untouched. Published evidence
-head before this record update is 62c382f46732bd0b69782d23c3e5417bd02c2258; read current Git/remote state
+`next`. Harness checkout `conflict-resolution` stays untouched. Committed evidence
+head before this record update is 26ee5190e8a5f7a400675cbb445251d25ad660f7; read current Git/remote state
 before assuming a later docs commit has landed. This record change retains
 accepted evidence and updates documentation only; inspect Git for publication state. Product source is
 077197e6cd3ea31f33b28aaf3882a694b3423b53, ES16dbac5211eea7e70db7394372033be2be7df829,
@@ -83,7 +84,7 @@ publishing it. #344/#528 and M7 have matching body updates and readbacks in
 /tmp/pix-m7-private-test-boundary-20261015/. No device staging/reboot has occurred.
 
 The owner specifically directed completion of #603. Its two authorized provider
-calls are now complete; current audit disposition and next proof are above.
+calls, current proof and audit resolution are complete; the next device boundary is above.
 No disconnected notifier is claimed and no provider call should be repeated.
 
 ## Completed current firmware and VM proof
@@ -230,13 +231,11 @@ checkpoint archived at saved-session-state-next-20261015T173000Z.md.
    and hosted-job observations; runner admin endpoints403 and expiry reminder stay
    unverified. Do not replay this completed preparation; remaining tasks are named
    in docs/releases/0.0.1-release-preparation.md. Deferred infrastructure is separate.
-2. Finish the active #603 external blind review, verify its actual identity,
-   provenance and output, then run only the authorized refutation scope. Verify
-   external leads and resolve applicable findings before private device handoff.
-3. Prepare owner-only RG35XX SP testing after audit/fix qualification, retaining
-   exact engineering identity and required named actions/preservation checks.
-   D-WORKFLOW-168 removes unfinished source/licence publication work and website
-   delivery from this private-test critical path. No device authority is inferred.
+2. #603/#612/#606 are complete; preserve the accepted marker, original failures
+   and exact packet identities. Do not repeat review/proof to repair paperwork.
+3. Prepare owner-only RG35XX SP testing: pending read-only host-key inspection,
+   retained custom mapping/preservation checks, then named staging/reboot actions.
+   D-WORKFLOW-168 separates public source/licence and website work.
 4. Complete #528 dispositions, independent retrieval and required source backup
    custody, plus #344/#563 public physical/native, security, documentation, RC
    identity and publication requirements before public release. The ABL/MAME
@@ -269,20 +268,16 @@ Preserve this scope distinction; do not alter the completed exact packets.
 
 ## Audit, CI and actual pending requests
 
-#603 reviewed67 criteria across15 completed issues at frozen
-`cdd92f10605517e789e09d13b6f4ba68573c2617`. Both external calls are verified and
-all25 numbered leads plus the AC-53 challenge are graded. The current score is
-66PASS/1PARTIAL; #606 owns the missing RetroArch proof. Phase6/7 tracker#612
-holds seven findings. No completion marker exists. #604 is separate work.
-Exact prompts remain immutable; authorization does not extend to source contacts.
-See the live continuation above, analysis and punch-list files, and actual Git
-state. Website/public source delivery remains separate from private handoff.
+#603 covers67 criteria across15 completed issues at frozencdd92, with later
+current #606 proof077197/ES16dbac explicitly separate. All criteria nowPASS;
+Phase7 tracker612 and parent603 are closed/completed. Full ceremony-check0
+accepts the exact marker. Five explicit follow-ups remain open. #604 is separate.
 
-At published `62c382f467`, both wordlists passed (38807765445 and 38807821938).
-Record CI38807822187 failed only outstanding audit cadence (16 completed closures,
-threshold12); all other record steps passed. These are the preceding commit's
-results, not checks of a later documentation change. Cheap pre-push checks remain
-required; do not call overall CI green or fabricate a completion marker.
+At previous published62c382, both wordlists passed and recordCI failed only
+audit cadence. The completed audit now passes local full ceremony validation;
+read current exact-head hosted jobs after publication before claiming CI green.
+No provider/job/tool is still running. Ordinary scoped commit/push/integration
+authority remains; root serializes any further runtime.
 
 The other pending request is the root-only stopped-media read:
 `bash /tmp/pix-m7-stopped-media-root-readback-terminal-20261015/commands.sh`.
@@ -296,7 +291,7 @@ is authorized or sent. Exact drafts and channel/evidence references:
 `docs/qa-logs/2026-10-15-source-contact-drafts/`. Original packet:
 `/tmp/pix-m7-abl-mame-contact-options-20261015`, seal
 `5de60eb4cc8c8f17c301d7029cce8fbef0b9c44a2bc664861364965338723e9d`.
-The source-contact and root-read requests remain pending; the named #603 audit is in Phase7 reconciliation after both verified calls. Do not duplicate either pending question.
+The source-contact and root-read requests remain pending; the named #603 audit is complete. Do not duplicate either pending question.
 
 Host uid/gid are 1000, PID namespace4026531836 and user namespace4026531837.
 Use actual host context for process/metadata checks; sandbox views may map owners
