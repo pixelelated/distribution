@@ -1,0 +1,48 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T030240Z-159c854a",
+  "disposition": "failed-investigated",
+  "expected_rc": 1,
+  "outputs": [
+    {
+      "issue": 593,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-audit-ui-20261015-01/vm",
+      "release_when": "Four original controls, source-bound GUI observations, EN/FR refusal frames and restored custody exported/reviewed; original owners gone and admission consumed before guarded media retirement."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-20261015-01/vm-result.json",
+      "sha256": "4dc3eb3a6643b61f0d4e28f207741ffb5468fd9682b6ea309d325f3a22b56bdf"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-20261015-01/root-failure-review.json",
+      "sha256": "6066f27dc470e75fc79c876f924c9e111de1c0d1c9c89796c8074d82d2b26fe6"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-evidence-20261015-01/export-result.json",
+      "sha256": "38f441af4e6584b4a30d1a69d38c0d165e67b86dd2676013b339336bd0f967f3"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-evidence-20261015-01/host-exits.json",
+      "sha256": "118f06475904f4c6f34f38d79a21e10072e4a66100ac87c008887ecbbf5688c6"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-evidence-20261015-01/guest-manifest.json",
+      "sha256": "f589fddae6f4c6fef94ee3dce169af0fc29532f08f104ed2991e0380a80d69f4"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-evidence-20261015-01/original-records.json",
+      "sha256": "b4028c509e8db0ddd0ccc58f14b07e3f61e399484231f219d1cd8f489028272d"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-evidence-20261015-01/guest/audit-ui/controls/review.json",
+      "sha256": "96c01b42141c67416c21a0cea7d57f5449b4cd006c30b336a720acb1c47e3d98"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-evidence-20261015-01/guest/audit-ui/wifi-baseline/result.json",
+      "sha256": "3dd507dad7aac635d1fb90424dfeff652215e4bc8e838f8f12227e3c88adb41c"
+    }
+  ],
+  "scope": "Four exact worker controls accepted separately; full frontend/UI run failed before picker. No GUI orphan reproduction, candidate GUI or Dolphin refusal frame claim."
+}

@@ -1,12 +1,50 @@
 # Saved Session State
 
-Updated 2026-10-15 02:56 UTC. Continue authorized M7 toward the next 0.0.1 RC.
+Updated 2026-10-15 03:09 UTC. Continue authorized M7 toward the next 0.0.1 RC.
 Coordinator `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
 `feature/m7-player-setup`; published feature before this checkpoint is f13f9d98cb7f2057d28292edc808234028b1ca15.
 Primary/remote next remains be71c43538e05e7d7621f243af8dbf4f4af51565.
 Harness conflict-resolution untouched. Actual host PID namespace4026531836;
 host/network/outside-workspace writes require escalated exec. No formal goal.
 Saving is not a pause. No runtime/compiler/external call currently active.
+
+## Live continuation at03:09 UTC — takes precedence over older state below
+
+Interim audit published b60400c7cc38b2d35059773ee0ffa3dbe7b34e50; auditor write
+ownership resumed. Never stage its currently active directory. Root follows
+current ordered work below; no RC designation.
+
+640 GUI01 failed before picker due inherited navigation: default GENERIC_X64
+adds NETWORK NAME row; fiveDown selected ENABLE WI-FI and finalA disabled it.
+Original serial calls current/has_ap_mode/disable and frame confirm. Four worker
+controls passed exact expected old1/candidate3zero; GUI observer deadline2/owned
+frontendcleanup-9 preserved. Guarded abort outer1, finallyflush/QEMUstop0, owners
+absent. Export130guest/238host rehashed; no finishmanifest, completenessfalse.
+Admissione2375d85 consumed failed-investigated. Durable compactpacket
+2026-10-15-audit-ui-first-attempt sealf6a77e59e56b0d22a0c6927f521de316752c7302c11e10ff7d6560d6a9600f8e.
+This also retains source-only state/native-image packets. No failed channels altered.
+
+ACTIVE one1280refusal-only VM: owner
+/workspace/tmp/pix-m7-audit-ui-1280-20261015-01, launcher2827268,
+admission422d5d9073534758a2efd131637a2dcb. Source
+/tmp/pix-m7-audit-ui-1280-plan-20261015 seal2a7c4fa2ab3dadf4a131cb83d63b8381b88f926d2c3ef0f44dc82c350cecf2d8.
+900swork+120cleanup, noNIC8GiB4CPU,VNC141, d4af image explicit ES16dbac/helper
+source overlays. Root owns serial/HMP under its serial.lock, monitors≤60s and
+must finish/export/consume originals; no off-session alert. README gives exact
+init/refusalEN/dismiss/refusalFR/dismiss/cleanup/finish and unchanged review path.
+Wait actual visual-ready.json. Four frames personally viewed before finish.
+No Wi-Fi controls in this independent run. Do not edit in-flight tools.
+
+frame_diff_review prepares a separate fresh640 navigation correction with
+conditional-row binding and reviewed selected-row frame before activation.
+Auditor independently verified640originals and1280source. dolphin_ra_init finished
+next-image sourcepacket /tmp/pix-m7-next-image-delta-20261015-02,
+seal605045012b30a42bec30688da6b4560a904ff717b08dd950e00b7a5aa3c4ec85:
+cleanDolphin/buildDolphin/buildES/image canonicalroute. Dolphin package treehash
+means script edits invalidate engine build; no stamp rewrite/bypass. Root review
+and actual integrated source binding due, no compiler/cache transfer authorized
+by this record. Native-state-only packete7326fe6 independently source-reviewed,
+root static0; still requires nextactualimage. User work continues after checkpoint.
 
 ## Current ordered work
 
