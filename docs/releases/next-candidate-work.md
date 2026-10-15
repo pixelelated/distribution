@@ -11,6 +11,42 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 10:25 UTC — restore guide delivered and prebuilt associations collected (#349, #528, #493)
+
+#349 closed completed after website PR4 merged as6aac689c and its public cloud
+guide returned HTTP200 with all five restore statements. Exact PR/main checks
+and deployment passed; accepted VM selection and paired frames were reused with
+source applicability. #563 criteria4/5 are now checked; source/physical criteria
+remain open. #511 reflects the published preview, and #576 is correctly in
+Backlog without a milestone under settled D-WORKFLOW-163.
+
+The bounded offline association run101845Z-84e4a2bc finished10:18:51 with all
+original channels0 and nine Go reader exits0; ordinary admission09ce2e41 consumed.
+All four rclone/Tailscale release archives are present, hash-correct and match
+the nine unpacked binaries. Package/staged bytes match in all nine cases; every
+unpacked/package pair differs. A private-copy strip derivation is the next
+narrow proof, not an assumed explanation. rclone reports revisionbe8d6044 and
+vcs.modified=true; Tailscale lacks an embedded VCS revision. Metadata is not
+source/licence completeness. Source/notice/retrieval work remains under#528.
+
+Stopped-media verify100631Z-25a99dcd refused195 unreadable process identities;
+no files removed and original1/0/1 consumed FAILED_INVESTIGATED. A reviewed fixed
+read-only administrator check was attempted, but sudo required terminal
+authentication: exit1,empty readback, no privileged reader execution. The installed
+swap helper supplies no dependency read. A fresh terminal-only command is ready and requested; no cleanup exception
+or deletion follows from this failure. Current
+preflight reports about2TB free. All runtime is now stopped/consumed.
+
+## 2026-10-15 09:57 UTC — six fixes closed after publication
+
+#599/#600/#602/#564/#579/#580 are closed completed with [literal criteria and
+actual tracker readbacks](../qa-logs/2026-10-15-final-issue-completion/README.md).
+Evidence commit6a8ff2a3fa passed all three exact hosted checks. Original failed
+producer and negative-control results remain unchanged; the #602 reporting-order
+deviation is preserved explicitly. The next work is source/notice provenance,
+retiring completed-test media, and the remaining public restore guide paragraph;
+#349's accepted VM proof does not need another run.
+
 ## 2026-10-15 09:42 UTC — both device artifacts and final inventory accepted in scope
 
 H700 and SM8550 now have independent artifact acceptance. The [SM8550 evidence](../qa-logs/2026-10-15-sm8550-abl-format/accepted/README.md)
@@ -321,7 +357,7 @@ pending final-image wording for those completed, explicitly named scopes.
 | Nova account/history isolation — #565 | Provenance investigation completed to available evidence; library-copy test separates ROM-only from gamelist history. Selected clean-state and payload guards have positive/negative controls. Original account entry remains unknown. | Actual final install/update payload and untouched clean boot pass selected-scope checks; no personal accounts or fabricated history found in that scope. Real retained-storage upgrade and installed default backup now pass with selected state preserved and seeded secrets excluded from the archive. Original historical account writer remains unknown. |
 | Recent default — #578 | One-literal compiled default fix and nine default/explicit-choice controls pass; imported gamelist history can populate Recent, a ROM alone cannot. | Final-source/image and selected clean/retained proof preserve explicit player choices. Historical Nova Recent entries are not evidence that this new default fix fabricated history. |
 | ScreenScraper developer provisioning — #566 | Runtime versus compiled behavior and separate player accounts are traced. The owner selected the existing shared JELOS developer identity (D-WORKFLOW-166); recipe/gate candidate19221 passes127 root-policy and4 environment-selection VM controls. Final ES3178 passes syntax checks in both credential modes and a full compiled-pair component build with EN/FR catalogs; compiled rejection guidance now addresses system access instead of hidden developer fields. | Actual small/large EN/FR frame proof is complete; ES3178 is published and selected by the recipe. Final payload, untouched clean boot, real retained upgrade and installed default backup pass. Replacement credentials are backlog #586, not a candidate dependency. Preserve unrelated private-credential protections. |
-| Steam installation recovery — #564/#579/#580/#582 | Runtime/FEX/Proton preservation and complete synthetic caller controls pass within scope. Partial-client retry defect reproduced; real55-member client archive CRC/layout inspection passes. | Client transaction03e130 addresses both independent review findings in source; corrected full caller and fresh profile-symlink VM cases pass. Existing-profile, detached-child, census-failure, real transport-timeout, interrupted-publish, committed-self-update and CRC-retry cases now pass. The CRC fixture logging failure and correction remain recorded. The remaining14 source-chroot recovery controls, bounded installed metadata fetch and isolated Python helper controls are accepted; #582 is closed within its explicit contract. #564/#579/#580 now have the completed packaged-script VM bridge092639Z-3b69cb85, consumeddeaa4df3, binding accepted SM module1694f7a9 to installed GENERIC dependencies; literal tracker closure follows publication. Native ARM payload inspection and runtime qualification remain distinct device-build/publication checks; original a057 fixture failure is retained. This was found during the20261001 intake, not reported from gameplay. |
+| Steam installation recovery — #564/#579/#580/#582 | Runtime/FEX/Proton preservation and complete synthetic caller controls pass within scope. Partial-client retry defect reproduced; real55-member client archive CRC/layout inspection passes. | Client transaction03e130 addresses both independent review findings in source; corrected full caller and fresh profile-symlink VM cases pass. Existing-profile, detached-child, census-failure, real transport-timeout, interrupted-publish, committed-self-update and CRC-retry cases now pass. The CRC fixture logging failure and correction remain recorded. The remaining14 source-chroot recovery controls, bounded installed metadata fetch and isolated Python helper controls are accepted; #582 is closed within its explicit contract. #564/#579/#580 now have the completed packaged-script VM bridge092639Z-3b69cb85, consumeddeaa4df3, binding accepted SM module1694f7a9 to installed GENERIC dependencies; the three issues are closed after publication and fresh body guards. Native ARM payload inspection and runtime qualification remain distinct device-build/publication checks; original a057 fixture failure is retained. This was found during the20261001 intake, not reported from gameplay. |
 
 Evidence: [installed setup](../qa-logs/2026-10-13-setup-qualification/installed/README.md),
 [library/preservation components](../qa-logs/2026-10-13-library-vm/README.md),
@@ -371,17 +407,19 @@ receipts supply scoped completion. No failed original result is rewritten.
 
 #569's retained cloud-configuration diagnosis is closed; its history feeds #565.
 Previously completed USB/startup/version/cloud-management fixes and prior audits
-are not reopened simply by this inventory. Remaining restore regression is #349.
+are not reopened simply by this inventory. #349 is closed: installed restore proof
+and the published same-model guide are complete; see the current evidence above.
 
 ## Build completion and upstream follow-up
 
 The f863 combined GENERIC_X64 composition, applicable audit, native-state
-qualification and H700 independent artifact acceptance are complete within
-their recorded scopes. Continue SM8550 under #555/#600 from the checksum correction through a fresh
-reviewed build and independent artifact acceptance, then the single packaged-script
-VM case for #564/#579/#580 and the final #528 inventory. The completed common work is not a new build or audit gate. #528/#344 and related
-source/licence/custody/identity/notes requirements still govern publication;
-they are distinct from creating or accepting an engineering image.
+qualification, H700 and SM8550 independent artifact acceptance, portable Steam
+VM bridge and final five-profile inventory are complete within their recorded
+scopes. #599/#600/#602/#564/#579/#580 are closed. The current #528 work resolves
+selected source/notice and binary-derivation gaps, then required retrieval and
+off-host custody. #528/#344 and related physical/security/identity/notes gates
+still govern release acceptance and publication. No common RC identity is
+inferred from the mixed f863/9aa7 engineering family.
 
 [Running upstream queue #585](https://github.com/pixelelated/distribution/issues/585)
 holds submissions until the initial current build and relevant qualification are

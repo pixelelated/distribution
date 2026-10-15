@@ -1,0 +1,54 @@
+{
+  "archive_bytes": 317334,
+  "archive_count": 4,
+  "archive_members": 150,
+  "archive_to_unpacked_equal": 9,
+  "cleanup_signals": [],
+  "collection_result_sha256": "d124dbd8d74bcfb8f660031b3632a1ec2f42792281472d77f82c01bff38917a5",
+  "collection_seconds": 2.1339810909703374,
+  "consumed_id": "09ce2e41eb24424da74af4c91f0d0fe4",
+  "consumed_sha256": "f75f2e3b7bb89e24c09eb6c16257e7592cc636ff0a0375c2193d5a9d53c44bde",
+  "custody": {
+    "bytes": true,
+    "membership": true,
+    "nsmtime_via_exact_PAX_decimal": true,
+    "numeric_owners": true,
+    "permission_modes": true
+  },
+  "limitations": [
+    "Staged image observation is not independent accepted SYSTEM extraction.",
+    "All nine unpacked-to-package relations remain unequal pending a separately bound strip derivation.",
+    "rclone1.75.2 embedded be8d6044eacb843b74d335db0c5fbe09222031fe reports vcs.modified=true; exact corresponding source/modifications and embedded notices not cleared.",
+    "Tailscale1.98.8 metadata has no vcs.revision; retained tag/source is not a reproducibility proof.",
+    "No target binaries executed, source rebuilt, legal/publication/RC clearance or independent retrieval/off-host custody claimed."
+  ],
+  "named_bytes_read": 2247898098,
+  "original_channels": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-15T10:18:51.022204+00:00"
+  },
+  "package_to_staged_image_equal": 9,
+  "payload_bytes": 1253785,
+  "reader_original_zero_count": 9,
+  "result": "REVIEWED_BOUNDED_COLLECTION_WITH_GAPS",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T101845Z-84e4a2bc",
+  "runtime_owner": "/workspace/tmp/pix-m7-prebuilt-association-20261015-01",
+  "source_seals": [
+    {
+      "path": "/tmp/pix-m7-prebuilt-association-20261015/SHA256SUMS",
+      "sha256": "e818bfa138ed893006649692ef79a897683e1659318b75fff9c2f5d73c7b9a8b"
+    },
+    {
+      "path": "/tmp/pix-m7-prebuilt-reader-locators-20261015/SHA256SUMS",
+      "sha256": "3fc9ef1860ed7c35340a4365d5cb58a7fe1c445718ae12cd5b4298e1cf388a96"
+    },
+    {
+      "path": "/tmp/pix-m7-current-notice-gaps-20261015/SHA256SUMS",
+      "sha256": "5dc79bf520e35caf5efc3525300e2f5a1ad799347011c8676e4ee9a9eb469897"
+    }
+  ],
+  "survivors": [],
+  "unpacked_to_package_equal": 0
+}

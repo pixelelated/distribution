@@ -1,0 +1,24 @@
+{
+  "archive_bytes": 85755,
+  "archive_sha256": "64e3487eb51e6970e4b460da6efc64f43117c05bfc811c06149e195915469c90",
+  "checks": [
+    "All 21 original source-proposal payload hashes and outer seal verified.",
+    "Actual issue bodies equal reviewed proposals; all 12 literal checkboxes and owner quotes unchanged.",
+    "Actual #576 title and milestone null verified from request and response.",
+    "All archive members match exact original bytes, modes, uid/gid, names and nanosecond mtimes.",
+    "All existing top-level custody files remain byte-identical."
+  ],
+  "files": 31,
+  "members": 33,
+  "original_file_bytes": 351448,
+  "status": "PASS_EXACT_CUSTODY",
+  "top_level_before_and_after_sha256": {
+    "README.md": "fcdcf0c7246f8b26f8dbfa21acaba3866967262775547d822bb5b46317a1e594",
+    "SHA256SUMS": "dde546e06ce2c0985846a02eda06fbf4c81773ee2abe6d7d3707e4f7ec0edabf",
+    "custody-verification.json": "9c74f288918b3a022f1e03af957572f28b661b31a5dfa2fe432e71138a8c8836",
+    "members.json": "761d33df9bce0221cd9f19ce0631e187087a4f5962f65c861b95d79e70a02016",
+    "originals.tar.gz": "c339b6e60b6a3e0eb93e9dc0dc4350b3d8e6217e09343dd197af3b8d619ca6bb",
+    "outcomes.json": "31a9841b78b55eadacc15ce6bf1b874545ab947b761f5e2c45eef35919e1f12d"
+  },
+  "utc": "2026-10-15T10:25:10.507576+00:00"
+}

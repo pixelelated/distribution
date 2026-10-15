@@ -1,12 +1,71 @@
 # Saved Session State
 
-Updated 2026-10-15 09:42 UTC. Continue authorized M7 toward next 0.0.1 RC.
-Coordinator m7-player-setup / feature/m7-final-qualification-02; published fd956544,
+Updated 2026-10-15 10:25 UTC. Continue authorized M7 toward next 0.0.1 RC.
+Coordinator m7-player-setup / feature/m7-final-qualification-02; published6a8ff2a3fa,
 all three exact hosted checks SUCCESS. VM/H700 source f863 and ES16dbac unchanged;
 SM05 source9aa7 differs only by the upstream ABL archive checksum correction.
 Root sole runtime allocator. All compilation, acceptance, VM and inventory jobs
 have completed and are ordinarily consumed. No active runtime, physical action,
 new deployment authority or public RC designation. Saving is not a pause.
+
+## Latest 2026-10-15 10:32 UTC — cadence audit #603 setup
+
+The required check reports15closures since valid#596, exceeding12. Previous
+audit remains complete; its marker is unchanged. #603 owns Independent/Milestone
+follow-up of exact15closures, frozen-source/evidence review with serial phases.
+Setup: docs/audits/2026_10_15-milestone-603-completed-handoff/.
+Literal snapshots: /tmp/pix-m7-cadence-followup-20261015.
+Publish current records, bind actualcommit, then assign fresh auditor; no forward
+verdict/external call/runtime yet. This is a CI hold, not a push prohibition.
+#528selectedstrip/notice source lanes continue separately. Userterminalcleanup
+question remains pending; elapsed time is not an answer. No privilegedread ran.
+
+## Latest 2026-10-15 10:25 UTC — restore completion and current prebuilt association
+
+#349 closed10:15:53 after websitePR4/main6aac689c public-guide verification.
+#563 criteria4/5 checked;3/6 remain source/physical holds. #511 actual site status
+updated; #576 deferred Backlog/no milestone, no acceptance waiver.
+Durable restoration: docs/qa-logs/2026-10-15-restoration-completion/.
+
+Offline prebuilt101845Z-84e4a2bc finished10:18:51,all0,nineGo0,2.134s;
+consumed09ce2e41,receiptf75f2e3b. Owner:
+/workspace/tmp/pix-m7-prebuilt-association-20261015-01.
+All4releasearchives present/exact; all9archive→unpacked equal and
+package→stage equal. All9unpacked→package differ: next source-only narrow
+private-copy stripping proof. rclonebe8d6044/vcs.modified=true;TailscaleVCSabsent.
+Root actual Go80c13418 and uutils timeoutf84e76ea,not GNU,are bound. No target
+execution/new SYSTEM extraction. Source/notice/publication gaps remain.
+Durable: docs/qa-logs/2026-10-15-prebuilt-association/.
+
+#493verify100631Z-25a99dcd failed1/0/1,refused195unreadable,no deletion,
+consumedfailed-investigated. Reviewedrootreadbacka777127d attemptedowner01,
+but sudo requiredterminal:exit1,emptyreadback,no readerexecuted. Fresh user-terminal wrapper owner02 is ready and requested via async input:
+`bash /tmp/pix-m7-stopped-media-root-readback-terminal-20261015/commands.sh`.
+No answer yet; original source/failed owner unchanged. Do not rerun
+owner01 or applycleanup. About2TBfree. No active runtime; root soleallocator.
+NEXT: continue#528selectedsource/notice/derivation, retainactualoriginals; reviewed
+userterminalreadback can run separately once available. No newphysical/cloud/
+firmwarepublication authority. Saving is not a pause.
+
+## Latest 2026-10-15 09:57 UTC — six issue closures published evidence
+
+Evidence commit6a8ff2a3fa94c56267c58241beca205ecfbc18f7 is published on feature02
+and next; exact hosted record38715649481 and wordlists38715649430/38715627771
+all SUCCESS. #599/#600/#602/#564/#579/#580 closed completed09:55:17–09:55:37
+with exact body guards, literal criterion mappings and original API readbacks.
+#602 reporting-order deviation is explicitly recorded, not backdated; technical
+consumption preceded dependent runtime. Compact reconciliation:
+docs/qa-logs/2026-10-15-final-issue-completion/.
+
+No runtime active. Three source-only tasks proceed: narrow rclone/Tailscale
+current per-architecture provenance collector; exact five-file stopped-media
+retirement adapter (record-only verify/apply, no fabricated build reservation);
+#563/#349 remaining literal criteria and minimal public same-model restore guide.
+#349 VM proof is already accepted; no replay selected. Current source gaps:
+LLVM22.1.8 is the sole reconstructed archive; all18 notice rows remain relevant
+in49 profile occurrences. Final GENERIC Tailscale shared-cache ARM association
+needs current binary-to-archive proof; no wrong installed-binary claim. Source
+workers do not launch collectors, VMs, deletions, physical or cloud actions.
 
 ## Latest 2026-10-15 09:42 UTC — SM acceptance, Steam bridge and final inventory passed
 

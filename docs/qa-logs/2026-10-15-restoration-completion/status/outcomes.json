@@ -1,0 +1,38 @@
+{
+  "576_actual_scheduling_comment": {
+    "body": "Reconciled scheduling to settled D-WORKFLOW-163 and the current M7 plan: this GTK4 diagnostic remains open in Backlog with no milestone. All existing acceptance criteria and original source-only/failed-wrapper evidence are unchanged. No GTK4 build/runtime or production migration was performed; it adds no gate to the current RC.",
+    "original_sha256": "ead02b5b0e5b168f60d64bf083ed0339379a6ed31d3b64432482232a74f5f13b",
+    "scope": "Actual coordinator wording is preserved; it is not substituted with the earlier proposed comment.",
+    "url": "https://github.com/pixelelated/distribution/issues/576#issuecomment-6189871237"
+  },
+  "issues": {
+    "511": {
+      "body_sha256": "41919720e83f693d8d4de5b5b2521875922989c790157a7b6684f7f4ddd02ea3",
+      "literal_checkboxes_unchanged": 7,
+      "milestone": null,
+      "owner_quotes_unchanged": true,
+      "state": "open",
+      "title": "Ops: Define and launch the pixelelated site with setup guides",
+      "updated_at": "2026-10-15T10:23:32Z",
+      "url": "https://github.com/pixelelated/distribution/issues/511"
+    },
+    "576": {
+      "body_sha256": "670df9d9f55f35ad86fa002d27cdec0e712f7155ffd20647c498ee5836fa2c75",
+      "literal_checkboxes_unchanged": 5,
+      "milestone": null,
+      "owner_quotes_unchanged": true,
+      "state": "open",
+      "title": "Backlog: Evaluate GTK4 sign-in rendering for browser pressure",
+      "updated_at": "2026-10-15T10:23:35Z",
+      "url": "https://github.com/pixelelated/distribution/issues/576"
+    }
+  },
+  "limits": [
+    "Both issues remain open.",
+    "No acceptance criterion was changed or waived.",
+    "Website QR/localization/offline and guide follow-ups remain separate.",
+    "GTK4 remains source-only feasibility with original pre-compilation failure; no build/runtime or production migration claimed.",
+    "No new product test, runtime, tracker action or shared-record change during custody."
+  ],
+  "source_proposal_seal": "23926e8bb5edd452380567b347fe97baa4324004052ff6b2927fb2f7a0eebfbb"
+}
