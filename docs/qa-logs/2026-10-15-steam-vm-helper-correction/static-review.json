@@ -1,0 +1,188 @@
+{
+  "utc": "2026-10-15T00:50:25.497835+00:00",
+  "status": "SOURCE_ONLY_UNRUN",
+  "syntax": [
+    {
+      "path": "prepare.py",
+      "sha256": "e3185b5ca318b6e22a15bc799a631c97a36b6e1f1c96625a087414c12dde2139",
+      "check": "AST_PARSE_ONLY_PYTHON310"
+    },
+    {
+      "path": "vm-lifecycle.py",
+      "sha256": "a197e5f6021b62416f53aa9da6f103dfe84e5f2da2af1c407dc1ca02752e48b2",
+      "check": "AST_PARSE_ONLY_PYTHON310"
+    }
+  ],
+  "unchanged_files": [
+    {
+      "path": "guest-stage.py",
+      "sha256": "2f8896c92621a7e7f6079abe5a4d8332e0846e088baa04c6503d1f6fa3a51dad"
+    },
+    {
+      "path": "metadata-stage.py",
+      "sha256": "96cff5fd6cfeb733b4095234e1e6f426df14ef137b2edc89c8fbd724ed8faba2"
+    },
+    {
+      "path": "export.py",
+      "sha256": "1ea0916e189ec98d5c14f954651d7bb2deff19cb2f0a8d45349985afb54ea36e"
+    },
+    {
+      "path": "metadata/steam-metadata-control",
+      "sha256": "68f298d4d23994ca9aebbab284dda2f8961b6c6d5569e2bee4f7574b78fe8355"
+    },
+    {
+      "path": "metadata/Install Steam.sh",
+      "sha256": "cefb22a50db915be1637e682dfba047789b276144bbe707220a2b4117c7a3264"
+    },
+    {
+      "path": "metadata/source-binding.json",
+      "sha256": "d9ae71a9e31577a5913db5aec80b0ee913b668a5b8810bcb8cb704a9137310d1"
+    },
+    {
+      "path": "baseline/Install Steam.sh",
+      "sha256": "fab7cdb4ad8adbcea147be54092bb7ce2005010447be4ab8192c94d8bbe9229d"
+    },
+    {
+      "path": "remaining-source/README.md",
+      "sha256": "fdcf7a75098aab68854419626adfe9593bd7ef2dda67001650f412de34c860ac"
+    },
+    {
+      "path": "remaining-source/SHA256SUMS",
+      "sha256": "79dc1d57d8741b644e99cd8348c4c362fbef3a1c815c48f6fa23b84a6e201c34"
+    },
+    {
+      "path": "remaining-source/boundary.py",
+      "sha256": "ae5fc68fa85b745e95179414ce643e1499122146b5b40afa9551198f3d351f64"
+    },
+    {
+      "path": "remaining-source/client-helper.py",
+      "sha256": "a14cbe3ad5a6e717238d5d994811b521e852a24ca625652ac81125d16f294fed"
+    },
+    {
+      "path": "remaining-source/continuation.json",
+      "sha256": "c018cecb884398976ede15359685de09c041991b4b271c2375e24455010316f0"
+    },
+    {
+      "path": "remaining-source/event_records.py",
+      "sha256": "d6c52b2948136d49b715ba752097a87e51e3d36f0b6c1157059f570b54427804"
+    },
+    {
+      "path": "remaining-source/evidence/attempt-1-result.json",
+      "sha256": "0b7f77b079d5f330f51bd63d6616002ab9e67f57f1b80abf232e17f49f7c00bc"
+    },
+    {
+      "path": "remaining-source/evidence/attempt-1-storage.json",
+      "sha256": "9218fa8e2c20a3334d1ebbf49e4d5bdc1a40436d4171a58f884f4d6eda8432eb"
+    },
+    {
+      "path": "remaining-source/evidence/attempt-2-result.json",
+      "sha256": "34d684df67ddfe885048556b609b23c89c9fbf86a3e6fbda8723eed1b3656574"
+    },
+    {
+      "path": "remaining-source/evidence/attempt-2-storage.json",
+      "sha256": "9f9cec9f3117cc7b864efa5d6fa146916b0c541e2937f9fbac8182eb3bc144d2"
+    },
+    {
+      "path": "remaining-source/evidence/installer-1.stderr",
+      "sha256": "feb13eaad516a11bbc8bd8c96bf61492fe85dbe5817b59307da6dbc712737987"
+    },
+    {
+      "path": "remaining-source/evidence/installer-2.stderr",
+      "sha256": "ea5355ca2d855ed14d937f9050726adcca34eaa524286a2964b25c3e79eb7e84"
+    },
+    {
+      "path": "remaining-source/evidence/namespace-result.json",
+      "sha256": "710f4595b108670b0400fa4103def0385462d2ab6245df9d073058c9b58e7c42"
+    },
+    {
+      "path": "remaining-source/evidence/qa-client-bad.json",
+      "sha256": "934f7d694db901d9edb7afe36b6913c572f3f400e9acb620aad1bd2c6143a8d4"
+    },
+    {
+      "path": "remaining-source/evidence/qa-client-good.json",
+      "sha256": "3bf457e4f0c564450b5affc491e7fe7c2bae512a6cd8dc1570660a6b81a34c97"
+    },
+    {
+      "path": "remaining-source/evidence/qa-events.ndjson",
+      "sha256": "11d6c96b04f7471a8109f267a8d4533bb229d8ca15a54830ff693d25bbc625a6"
+    },
+    {
+      "path": "remaining-source/evidence/result.json",
+      "sha256": "a76fc7dd38d38008acddc7e1d1c78db525895f5fa3259e7f3b0e562c587ecade"
+    },
+    {
+      "path": "remaining-source/exec-guard.py",
+      "sha256": "00210b59a8c7fe25559e7ff561f1c112197bf8ef9a876523b5c457f486da4d59"
+    },
+    {
+      "path": "remaining-source/fixture.py",
+      "sha256": "984c361ff9dfd9b06094c70b47da27dc1a3fe5db86d0f94fe1f08db8badd5c00"
+    },
+    {
+      "path": "remaining-source/intake.json",
+      "sha256": "72bb392fab8d1a58cd732a511570f66cdfb55e3cfe24b6072365ff3e09477242"
+    },
+    {
+      "path": "remaining-source/layout.json",
+      "sha256": "5afbc973d2bc8c79cafafb2c7e3a301b11b192af946f77c5b64dfb2cc8278355"
+    },
+    {
+      "path": "remaining-source/original-SHA256SUMS",
+      "sha256": "6a6c3b255525f57c624dba32d55720e10d0e130c2ffeb564c4e2ae6881796c7d"
+    },
+    {
+      "path": "remaining-source/original-source.json",
+      "sha256": "ca4be0729e7e368526395daed263f41c4dcac9fde399dc3a2aa8e10a543d8d7c"
+    },
+    {
+      "path": "remaining-source/packaged/Config.json",
+      "sha256": "fc10f006b7587e7ce1a5a57a412ecd6463627161c03a50b2471ad4367d6614c5"
+    },
+    {
+      "path": "remaining-source/packaged/steamwebhelper.json",
+      "sha256": "e342841254a27b5e8f0cab30e39aa5792811a75da54f64a0ca23c4ffd3baf76b"
+    },
+    {
+      "path": "remaining-source/payload.py",
+      "sha256": "966450dfcfd3399a6caa42ad7edc5ed3afcfcc471bd728b36db1025a398b11ff"
+    },
+    {
+      "path": "remaining-source/python-boundary.py",
+      "sha256": "dbd56b6c108f5dc6b15893f27c58e50c05f90513b02d05d2a3bab9e46666deb5"
+    },
+    {
+      "path": "remaining-source/route-cases.json",
+      "sha256": "36a846f4984627a484cabb252dfb9aa1e30fd0d4d4528fe7d407346896ae48e3"
+    },
+    {
+      "path": "remaining-source/source.json",
+      "sha256": "ec128574ae0f8a566879d0a472ae09ec1fd92d0c8e7fa9ca1b42164b3087af9f"
+    },
+    {
+      "path": "remaining-source/static-check.py",
+      "sha256": "5c8abe5da245859164adfcc4571327e8c796aa6d43de2f3f9a0f426064671209"
+    },
+    {
+      "path": "remaining-source/static-result.json",
+      "sha256": "cbdc8c966c4266b140b1f84e9e332e36b095d42181dd48b43f312eb8f4db3bca"
+    },
+    {
+      "path": "remaining-source/transfer-child.py",
+      "sha256": "cedeb1244888fb9f5a752f356efdcd5f4ae70dc5731a20c0dd0af9fad569c6da"
+    }
+  ],
+  "reviewed_existing_boot": {
+    "generated_equals_actual": true,
+    "no_nic": true,
+    "loopback_only": true,
+    "boot_id": "707a0a02-c3ff-418d-bb3b-f2fc6d3e38b7",
+    "qemu_pid": 1967217,
+    "qemu_start_ticks": 111667850,
+    "consumed_admission": "5a3e47bfcb9948598dd27ebaadf47780",
+    "original_vm_rc": 0
+  },
+  "original_steam01_vm_rc": 1,
+  "original_steam01_boots": [],
+  "candidate_modules_imported_or_executed": false,
+  "preparer_runtime_test_or_cleanup_executed": false
+}

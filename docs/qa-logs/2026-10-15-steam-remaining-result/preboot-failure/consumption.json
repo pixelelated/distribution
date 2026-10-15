@@ -1,0 +1,31 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/.build-runs/20261015T004521Z-34493080",
+  "expected_rc": 1,
+  "disposition": "failed-investigated",
+  "outputs": [
+    {
+      "issue": 582,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix582-metadata-remaining-vm-20261015-01/vm",
+      "release_when": "Original metadata and14 stage/family/watch channels exported and consumed, actual owners gone; retire disk/media/UEFI."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix582-metadata-preboot-failure-20261015-01/host-exits.json",
+      "sha256": "7df3749f57453927895949299826abb5b728712b1e9573c70906f618a9712690"
+    },
+    {
+      "path": "/workspace/tmp/pix582-metadata-preboot-failure-20261015-01/original-records.json",
+      "sha256": "150010433556fc49bcad6ae729949da0df8bcdbb39f591cf6584e90bc4e92bc3"
+    },
+    {
+      "path": "/workspace/tmp/pix582-metadata-preboot-failure-20261015-01/original-records.tar.gz",
+      "sha256": "ac47d7554112bcd95bfa6f92ed74aec4837df41e2c21fc236357ecea41bd58fa"
+    },
+    {
+      "path": "/workspace/tmp/pix582-metadata-preboot-failure-20261015-01/vm-result.json",
+      "sha256": "192764c8874f6f88b507c92101f8130dd90b2e76e594bf17dc4244d4e849cd3a"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "frozen": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+  "template": "956f9481872d3d64f3e33d495e5ab25dfd9aaefd",
+  "final_commit": "REQUIRED_AT_PREPARATION",
+  "products": {
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk": {
+      "template_sha256": "27ab9954ec5fb30aefb51555281c749aea416f2d3bb8fc0138d0964730e5a153",
+      "final_sha256": "REQUIRED --dolphin-recipe-sha256: independently reviewed final recipe bytes"
+    },
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/018-nogui-achievements-lifecycle.patch": "bc1d04f688f85ff3fc49a81fa40625d08c8f7839aa81e46baee6b50b443ee5f0",
+    "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh": "cefb22a50db915be1637e682dfba047789b276144bbe707220a2b4117c7a3264"
+  },
+  "product_roots": [
+    "packages",
+    "projects",
+    "config",
+    "scripts",
+    "distributions",
+    "Makefile"
+  ],
+  "allowed_template_deviation": [
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk"
+  ],
+  "freeze_status": "HOLD until root settles Dolphin immutable Sys installation source finding"
+}

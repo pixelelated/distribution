@@ -1,0 +1,36 @@
+{
+  "status": "PASS_STATIC_ONLY",
+  "utc": "2026-10-15T01:07:26.368036+00:00",
+  "python310_ast_files": [
+    "build-owner.py",
+    "dependency-readback.py",
+    "host-resources.py",
+    "inner-build.py",
+    "originals/build-owner.py",
+    "originals/dependency-readback.py",
+    "originals/host-resources.py",
+    "originals/inner-build.py",
+    "originals/prepare-owner.py",
+    "originals/prepare-plan.py",
+    "originals/transfer-cache.py",
+    "prepare-owner.py",
+    "prepare-plan.py",
+    "transfer-cache.py"
+  ],
+  "json_parse": "PASS",
+  "unchanged_actual_qualified_helpers": {
+    "inner-build.py": "2a33d9548e9adcb278bf75de230294eeb45e79263cecc355837b284d06ff4d98",
+    "host-resources.py": "39a1b153e861cf3256b52567eb3e251412b9ab069e70ff72f4b5ac65e71fbaf1"
+  },
+  "stage_literals": [
+    "clean-dolphin-sa",
+    "build-dolphin-sa",
+    "image"
+  ],
+  "existing_published_source_guard_retained": true,
+  "template_product_match_and_explicit_final_commit_required": "Explicit final commit and final reviewed Dolphin recipe SHA256; only that recipe may deviate from template; other hashes and3path allowlist fixed",
+  "destination_image_stamp_invalidation_retained": true,
+  "rename_noreplace_and_fresh_assessed_dependency_contract_retained": true,
+  "execution": "UNRUN: no generated entrypoint imported or invoked; no preparer, census, admission, transfer, worktree, compiler, container, service, VM or fixture",
+  "final_product_mapping_bound_transfer_to_build": true
+}

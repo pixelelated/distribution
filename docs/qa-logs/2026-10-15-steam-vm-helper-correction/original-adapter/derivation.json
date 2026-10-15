@@ -1,0 +1,58 @@
+{
+  "status": "SOURCE_ONLY_UNRUN",
+  "originals": [
+    {
+      "path": "/workspace/tmp/pix582-client-vm-20261014-11/vm-lifecycle.py",
+      "member": "1-vm-lifecycle.py",
+      "bytes": 6710,
+      "sha256": "b0c8086ca3c9f3ba9f9f51359747f7499e7a97fbe24db595a1af62d1fef07806"
+    },
+    {
+      "path": "/workspace/tmp/pix582-client-vm-20261014-11/run-guest.sh",
+      "member": "2-run-guest.sh",
+      "bytes": 1728,
+      "sha256": "ded0c37674f92c93b775d91a1fb682529357021bf5b8455769725ed9923bdb80"
+    },
+    {
+      "path": "/tmp/m7-screenscraper-vm-route-20261014-05/export.py",
+      "member": "3-export.py",
+      "bytes": 3952,
+      "sha256": "31abbe3c83eb3c8ffd348b7f65e7043118a08446d60e6c88bc20994cf0eed49e"
+    },
+    {
+      "path": "/tmp/m7-screenscraper-vm-route-20261014-05/prepare.py",
+      "member": "4-prepare.py",
+      "bytes": 5374,
+      "sha256": "aa8cfdc58e0a6ac590e92871c642b619b0337e9ba7e3ffed989b27e711e617cd"
+    }
+  ],
+  "remaining_source_seal": "79dc1d57d8741b644e99cd8348c4c362fbef3a1c815c48f6fa23b84a6e201c34",
+  "changes": {
+    "vm-lifecycle.py": [
+      "dynamic frozen checkout/final verified image/VNC",
+      "same no-NIC boot/media/serial/stop path",
+      "3600s family and1280MiB output",
+      "exact14 sequential stages with180s serial watch and stop-on-first-failure",
+      "shared serial/HMP lock, original serial outputs/exits retained",
+      "bounded output reseal/flush before failure stop"
+    ],
+    "guest-stage.py": [
+      "one unchanged source fixture invocation",
+      "original caller/trace/result and namespace census",
+      "selected actual guest state readback",
+      "fresh3GiB tmpfs; normal unmount and no reuse without restoration",
+      "lossless original member export and readback"
+    ],
+    "prepare.py": [
+      "bind completed image verifier and frozen installer dynamically",
+      "verify sealed remaining packet without imports",
+      "emit existing retention/admission shapes; never launch"
+    ],
+    "export.py": [
+      "existing debugfs and original host archive export",
+      "1100MiB family ceiling",
+      "verify each original fixture member",
+      "explicit failed-preservation mode with no qualification waiver"
+    ]
+  }
+}

@@ -1,0 +1,119 @@
+[
+  {
+    "case": "fresh-profile-dot",
+    "caller_exits": [
+      0
+    ],
+    "restored": true,
+    "fixture_status": "PASS"
+  },
+  {
+    "case": "fresh-profile-dot-absent",
+    "caller_exits": [
+      0
+    ],
+    "restored": true,
+    "fixture_status": "PASS"
+  },
+  {
+    "case": "valid-existing-alias",
+    "caller_exits": [
+      0
+    ],
+    "restored": true,
+    "fixture_status": "PASS"
+  },
+  {
+    "case": "existing-profile-dot",
+    "caller_exits": [
+      0
+    ],
+    "restored": true,
+    "fixture_status": "PASS"
+  },
+  {
+    "case": "self-updated-client",
+    "caller_exits": [
+      0
+    ],
+    "restored": true,
+    "fixture_status": "PASS"
+  },
+  {
+    "case": "partial-before-profile",
+    "caller_exits": [
+      1
+    ],
+    "restored": true,
+    "fixture_status": "PASS"
+  },
+  {
+    "case": "marker-missing-core",
+    "caller_exits": [
+      1
+    ],
+    "restored": true,
+    "fixture_status": "PASS"
+  },
+  {
+    "case": "metadata-conflict-after-profile",
+    "caller_exits": [
+      1
+    ],
+    "restored": true,
+    "fixture_status": "PASS"
+  },
+  {
+    "case": "unknown-stage-before-profile",
+    "caller_exits": [
+      1
+    ],
+    "restored": true,
+    "fixture_status": "PASS"
+  },
+  {
+    "case": "download-failure-retry",
+    "caller_exits": [
+      1,
+      0
+    ],
+    "restored": true,
+    "fixture_status": "PASS"
+  },
+  {
+    "case": "validation-failure-retry",
+    "caller_exits": [
+      1,
+      0
+    ],
+    "restored": true,
+    "fixture_status": "PASS"
+  },
+  {
+    "case": "publication-failure-retry",
+    "caller_exits": [
+      1,
+      0
+    ],
+    "restored": true,
+    "fixture_status": "PASS"
+  },
+  {
+    "case": "metadata-failure-retry",
+    "caller_exits": [
+      1,
+      0
+    ],
+    "restored": true,
+    "fixture_status": "PASS"
+  },
+  {
+    "case": "interrupt-prepared-retry",
+    "caller_exits": [
+      1,
+      0
+    ],
+    "restored": true,
+    "fixture_status": "PASS"
+  }
+]

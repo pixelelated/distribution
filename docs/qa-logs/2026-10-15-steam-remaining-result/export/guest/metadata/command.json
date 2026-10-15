@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "python3",
+    "-I",
+    "-S",
+    "-B",
+    "/tmp/pix-input/metadata/steam-metadata-control",
+    "--source",
+    "/tmp/pix-input/metadata/Install Steam.sh",
+    "--baseline-source",
+    "/tmp/pix-input/projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+    "--curl",
+    "/usr/bin/curl",
+    "--bash",
+    "/usr/bin/bash",
+    "--scope",
+    "installed-vm-curl",
+    "--out",
+    "/tmp/pix-output/metadata/control"
+  ],
+  "environment": {
+    "PATH": "/usr/bin:/bin:/usr/sbin:/sbin",
+    "LC_ALL": "C",
+    "LANG": "C"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "pid": 3286,
+  "start_ticks": 17479,
+  "namespaces": {
+    "mnt": "mnt:[4026531832]",
+    "pid": "pid:[4026531836]",
+    "net": "net:[4026531833]",
+    "ipc": "ipc:[4026531839]",
+    "uts": "uts:[4026531838]"
+  },
+  "selected_mounts": {
+    "/": "27 2 7:0 / / ro,relatime shared:1 - squashfs /dev/loop0 ro,errors=continue",
+    "/storage": "28 27 254:2 / /storage rw,noatime shared:3 - ext4 /dev/vda2 rw",
+    "/usr": "27 2 7:0 / / ro,relatime shared:1 - squashfs /dev/loop0 ro,errors=continue",
+    "/proc/sys/fs/binfmt_misc": "43 23 0:37 / /proc/sys/fs/binfmt_misc rw,relatime shared:22 - autofs systemd-1 rw,fd=32,pgrp=1,timeout=0,minproto=5,maxproto=5,direct",
+    "/tmp/pix-input": "288 46 8:0 / /tmp/pix-input ro,relatime shared:409 - ext4 /dev/disk/by-label/PIXINPUT ro",
+    "/tmp/pix-output": "296 46 8:16 / /tmp/pix-output rw,relatime shared:417 - ext4 /dev/disk/by-label/PIXOUTPUT rw"
+  },
+  "selected_storage": {
+    "/storage/.local/share/Steam": {
+      "absent": true
+    },
+    "/storage/.steam": {
+      "absent": true
+    },
+    "/storage/.local/share/fex-emu": {
+      "absent": true
+    },
+    "/storage/.config/fex-emu": {
+      "absent": true
+    },
+    "/storage/.local/share/applications/steam.desktop": {
+      "absent": true
+    },
+    "/tmp/.process-kill-data": {
+      "mode": 33188,
+      "device": 39,
+      "inode": 34,
+      "uid": 0,
+      "gid": 0,
+      "size": 17,
+      "sha256": "b7ceb3e12bd85e536c5fda8f6f56ce102286e584fc208b5e28b03e3208db9b0b"
+    }
+  }
+}

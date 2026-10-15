@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "evidence": "SOURCE / STATIC ONLY; fixture-only CRC event correction UNRUN",
+  "parent_commit": "03e130e4b3c244337f2e6d782b392a2c444c28e7",
+  "baseline_commit": "c6240ed3984a2b2c2e67f1df9fa0ddc3c37889a2",
+  "baseline_installer_sha256": "a7a67c6b1e0f90a63fdcef79bb6aa60a413dc1927dbf0d53f6068e3a720fe80f",
+  "installer_path": "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+  "installer_sha256": "fab7cdb4ad8adbcea147be54092bb7ce2005010447be4ab8192c94d8bbe9229d",
+  "helpers": {
+    "root": {
+      "marker": "PY_STEAM_ROOT",
+      "helper_sha256": "3b6ee65d5217b7490a74cdcde7b855a4e256f1f5cfed304c9a174378cfca8703",
+      "shell_start": "steam_root_layout",
+      "shell_end": "fetch_proton_latest_release",
+      "shell_function_sha256": "0dac5223f7c6cd9014e66af0b15d26867d9b39d20b277341d86d4b73bdd7879b",
+      "stdin_sha256": "0a8d0bee1678099e9b45de8dcd97b36267ff7ee289d0d9f8d0b17b8192d9b332"
+    },
+    "fex": {
+      "marker": "PY_STEAM_FEX",
+      "helper_sha256": "7c852917dabfea01e424a1af7b23d0355bcf18b313127d82b70e7aa83877e261",
+      "shell_start": "ensure_fex_rootfs",
+      "shell_end": "link_steam_library",
+      "shell_function_sha256": "c5f94da1f5a3c5e7d7c33474034ea5c012ce8f92589aee596d6189c59bf87f1e",
+      "stdin_sha256": "2381da57a79e9c2b07238f71e2cfd3b57bf106a0ba3b43ad0471700bef918b49"
+    },
+    "runtime": {
+      "marker": "PY_STEAM_RUNTIME",
+      "helper_sha256": "7e8e87052ccd62e04b9a52e57bf8c638450938ba10c2ba85c564e9ea1b552431",
+      "shell_start": "install_steam_runtime_arm64",
+      "shell_end": "install_steam_client_arm64",
+      "shell_function_sha256": "854579a5252e40a1a77bbe227955ecebbfc7c8d12b1bb5593c7d85763f23c06b",
+      "stdin_sha256": "1c6edbf421b7037124671d48361716167ec933934406c10aa4ca02c3082eefae"
+    },
+    "proton": {
+      "marker": "PY_PROTON_VARIANT",
+      "helper_sha256": "5513e6cd600b86720cd318ae70dbad9f83fbb55d3ef2f184b69a59a7a7a3aed3",
+      "shell_start": "install_proton_variant",
+      "shell_end": "install_proton_cachyos",
+      "shell_function_sha256": "28ac907691f0a9b140fa054a12966713c64492ff10b0effa19294646fb6f2873",
+      "stdin_sha256": "18d2bed395aa8c5242964ecf513d0d6a202ad139db5591c5c82b1a798460da2f"
+    },
+    "client": {
+      "marker": "PY_STEAM_CLIENT",
+      "shell_start": "steam_client_state",
+      "shell_end": "install_bundled_proton_files",
+      "helper_sha256": "1d9611d9e01813b3dc3026649756ceb86e25bf881f2e6811b267c8f213abb28f",
+      "stdin_sha256": "a14cbe3ad5a6e717238d5d994811b521e852a24ca625652ac81125d16f294fed",
+      "shell_function_sha256": "0757591cc9ec67bf67ec6cb39f09792c16ef87ebc257f1c5b3296e448ddc3ad9"
+    }
+  },
+  "cases": [
+    "fresh-profile-dot",
+    "fresh-profile-dot-absent",
+    "valid-existing-alias",
+    "existing-profile-dot",
+    "self-updated-client",
+    "partial-before-profile",
+    "marker-missing-core",
+    "metadata-conflict-after-profile",
+    "download-failure-retry",
+    "metadata-failure-retry",
+    "interrupt-prepared-retry",
+    "unknown-stage-before-profile",
+    "validation-failure-retry",
+    "publication-failure-retry"
+  ],
+  "runtime": "UNRUN",
+  "native_client_success": false,
+  "limits": {
+    "work_seconds": 90,
+    "transport_timeout_case_work_seconds": 240,
+    "cleanup_seconds": 10,
+    "retained_bytes": 67108864,
+    "minimum_free_bytes": 2483027968,
+    "archive_bytes_each": 1048576,
+    "log_bytes_each": 2097152,
+    "required_disposable_capacity_mib": 3072
+  },
+  "applet_revision": {
+    "namespace_tool_sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346",
+    "source_packet": "docs/qa-logs/2026-10-14-steam-client-alias-source"
+  },
+  "accepted_format": {
+    "path": "layout.json",
+    "sha256": "5afbc973d2bc8c79cafafb2c7e3a301b11b192af946f77c5b64dfb2cc8278355",
+    "archived_original": "docs/qa-logs/2026-10-14-steam-client-repair-source/format-contract.json",
+    "meaning": "Byte-identical historical format record; historical proposal status remains unchanged, new implementation status is this packet."
+  },
+  "preserved_packets": {
+    "docs/qa-logs/2026-10-14-steam-client-repair-source/SHA256SUMS": "a8396e71ebc073f3fee2391767b5058ff1ab71cf1afa791a05553a16e997ae0a",
+    "docs/qa-logs/2026-10-14-steam-client-alias-source/SHA256SUMS": "fed43a4f0f9cfc6a4e7bca283250f086d158bf92e31db019332d54e651a91d80",
+    "docs/qa-logs/2026-10-14-steam-client-transaction-source/SHA256SUMS": "afa88873e165886553884f72c5c1abcfd099d2663b1c29f257f099badf3e93f6",
+    "docs/qa-logs/2026-10-14-steam-client-corrections-source/SHA256SUMS": "f8e7f184f8d7d178a19d45f27f7e9c52f2ea50c7b19089c36d6eff1f560512a3"
+  },
+  "packaged": {
+    "packaged/steamwebhelper.json": "e342841254a27b5e8f0cab30e39aa5792811a75da54f64a0ca23c4ffd3baf76b",
+    "packaged/Config.json": "fc10f006b7587e7ce1a5a57a412ecd6463627161c03a50b2471ad4367d6614c5"
+  },
+  "prior_correction": {
+    "original_installer_sha256": "7a46ace9ea0a8f1c9509380e2826fcef318ae0f211f7fee6900ddb7c6735aa9b",
+    "review_commit": "8aec3a667482c021b86b6b9632d4f9ac8ee24dd0",
+    "evidence_archive_sha256": "fcd57ece3b419b958e0f133d4dffa7fb1d135ae59dd58a605a674fd505862633",
+    "original_result": "FAIL1; trace deadline; original caller exit null; no relabeling",
+    "limits_unchanged": true,
+    "journal_policy": "arm64-bootstrap-55-v2",
+    "new_control_status": "UNRUN",
+    "main_trace_wait": "blocking __WALL + raising SIGALRM; original deadline retained"
+  },
+  "correction": {
+    "product_changed": false,
+    "expected_original_caller_exits": [
+      1,
+      0
+    ],
+    "original_failed_caller_exits": [
+      1,
+      1
+    ],
+    "original_archive_sha256": "317d21f4c3a50ff24784340bf65a0c7b70fa8d188d49d87e0083eeb818044a60",
+    "boundary_events": "per-process, 4096 bytes maximum each; helper log unchanged; collector after trace/quiescence",
+    "scope": "CRC failure/retry only; accepted cases stay on unchanged original packet"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "boot",
+  "argv": [
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/vm-serial",
+    "--socket",
+    "/workspace/tmp/pix-m7-dolphin-ra-startup-20261015-01/vm/serial.sock",
+    "--timeout",
+    "30",
+    "sh",
+    "( python3 -I -S -B -c 'import json;from pathlib import Path;print('\"'\"'PIX_BOOT='\"'\"'+json.dumps({'\"'\"'boot_id'\"'\"':Path('\"'\"'/proc/sys/kernel/random/boot_id'\"'\"').read_text().strip(),'\"'\"'os_release'\"'\"':Path('\"'\"'/etc/os-release'\"'\"').read_text(),'\"'\"'interfaces'\"'\"':sorted(p.name for p in Path('\"'\"'/sys/class/net'\"'\"').iterdir())}))' ); pxrc=$?; printf \"PIX_NATIVE_BOOT_RC:%s\\n\" \"$pxrc\""
+  ],
+  "timeout_seconds": 45,
+  "timed_out": false,
+  "original_returncode": 0
+}

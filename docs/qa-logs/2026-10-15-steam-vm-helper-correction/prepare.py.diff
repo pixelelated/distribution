@@ -1,0 +1,33 @@
+--- predecessor/prepare.py
++++ candidate/prepare.py
+@@ -87,6 +87,12 @@
+ cases = next(ast.literal_eval(n.value) for n in module.body if isinstance(n, ast.Assign)
+              and len(n.targets) == 1 and isinstance(n.targets[0], ast.Name) and n.targets[0].id == 'CASES')
+ assert len(cases) == 14 and set(cases) == set(binding['cases'])
++helper = json.loads((HERE / 'vm-helper-binding.json').read_text())
++helper_path = Path(helper['path']); helper_profile = Path(helper['profile']['path'])
++assert helper_path.resolve(strict=True) == helper_path and helper_profile == helper_path.parent / 'profile.json'
++assert sha(helper_path) == helper['sha256'] == '5b058ed8a8b11135cd5997e3d925939baff30726033125acf1244863a756318d'
++assert sha(helper_profile) == helper['profile']['sha256'] == '26c420ecb0cc7aae29050554c55f522e62337cf6726619a59337c073f1c65406'
++helper['image_source_commit'] = commit
+ a.owner.mkdir()
+ for name in ('records', 'scan', 'vm', 'stages', 'lifecycle-owner', 'logs'):
+     (a.owner / name).mkdir()
+@@ -105,8 +111,6 @@
+                           (HERE / metadata['candidate_source'], metadata['candidate_source']),
+                           (a.owner / 'records/family.json', 'family.json')]:
+     files.append({'path': str(path), 'destination': destination, 'sha256': sha(path)})
+-helper_path = a.checkout / 'projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm'
+-helper = {'path': str(helper_path), 'commit': commit, 'sha256': sha(helper_path)}
+ save(a.owner / 'records/inputs.json', {'files': files, 'helper': helper})
+ save(a.owner / 'records/image-size.json', {'image': str(image), 'compressed_bytes': record['bytes'],
+       'raw_bytes_from_backup_lba': raw_bytes, 'sha256': record['sha256']})
+@@ -120,7 +124,7 @@
+ terms = {'raw_image': raw_bytes, 'guest_disk': 16 * 1024**3,
+          'input_media': 256 * 1024**2, 'output_media': 1280 * 1024**2, 'records_export': 1200 * 1024**2}
+ plan = {'volume': '/workspace', 'scan_roots': [str(a.owner / 'scan')], 'reference_stores': [],
+-        'protected': [str(HERE), str(a.checkout), str(image), str(a.remaining_packet)], 'candidates': [],
++        'protected': [str(HERE), str(a.checkout), str(image), str(a.remaining_packet), str(helper_path), str(helper_profile)], 'candidates': [],
+         'builds': [{'name': 'pix582-remaining14-metadata', 'terms_bytes': terms,
+                     'basis': 'One no-NIC8GiB/4CPU guest,16GiB virtual disk; exact metadata helper then14 unchanged stages. Unchanged3600s family plus90s fail-stop cleanup. Metadata110+10s inner/150s serial; each stage must fit remaining time plus90s reserve. One active3GiB tmpfs;1280MiB output, combined evidence<=1100MiB. Installed curl/Bash metadata scope and separate source-chroot14; no Steam install/native claim.',
+                     'evidence': [{'path': str(a.owner / name), 'sha256': sha(a.owner / name)} for name in

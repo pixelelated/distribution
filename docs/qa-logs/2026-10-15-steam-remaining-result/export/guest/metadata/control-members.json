@@ -1,0 +1,505 @@
+[
+  {
+    "path": "bin/curl",
+    "mode": 493,
+    "kind": "file",
+    "bytes": 503,
+    "sha256": "d5bfbc1c9b065e167a1052b0aa91dfbe3ecd3059c2b5f21a28b6b0ab17feb25a"
+  },
+  {
+    "path": "curl-version.stderr",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "curl-version.stdout",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 282,
+    "sha256": "254b2723aabdeaf60cd1864474b3f17664475dffc6988649b389e2506509e1ae"
+  },
+  {
+    "path": "extracted-function.sh",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 1947,
+    "sha256": "74b351e10b00af4384500f9b70e30d55773b0e8b5054095c644fe3467da9b5a1"
+  },
+  {
+    "path": "extracted-helpers.sh",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 124,
+    "sha256": "9d6a88c1e3615ec9a82c29f1ccf104d1b5d153370b3642c5e8754ba7add40e6f"
+  },
+  {
+    "path": "inputs.json",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 998,
+    "sha256": "7c258e88741f28c986de117103f2e171626997816838f7ab09ac8766d9a77677"
+  },
+  {
+    "path": "normal-cachyos/curl-argv.nul",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 105,
+    "sha256": "e25f8d91f65bb3bad4839baf45b7a5e89f36164aa5a59cfc2f0000a9d7612620"
+  },
+  {
+    "path": "normal-cachyos/curl-child.pid",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 5,
+    "sha256": "4807faad4b5aeac53bd6fe01c814088885e3417463f0226dca78afdb1de14785"
+  },
+  {
+    "path": "normal-cachyos/curl-end.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 18,
+    "sha256": "95a6feb805ad791155350bb1ab944335c0fe27997bcf5911c571e5e47556fdc7"
+  },
+  {
+    "path": "normal-cachyos/curl-exit.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "normal-cachyos/curl-recorder.pid",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 5,
+    "sha256": "4fc1d2cec078d570868b0a21e742d13f7bd63eb1fe8f48658e0ed6c2d4b20556"
+  },
+  {
+    "path": "normal-cachyos/curl-start.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 18,
+    "sha256": "205e2f83b3c62af74057580534bbdd5d0f9611f866e8b82ce48a751745bc425a"
+  },
+  {
+    "path": "normal-cachyos/function-seconds.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 21,
+    "sha256": "52dffc4def86c84bbde63e707f729d5410d76397238aed02411ef2ed05f6a697"
+  },
+  {
+    "path": "normal-cachyos/invoke.sh",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 2386,
+    "sha256": "3da9418d99be0540d1fea536d46ccfd3d873d936dc6f8fe9898399ca0a9a3f69"
+  },
+  {
+    "path": "normal-cachyos/parsed.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 147,
+    "sha256": "814f748c75fae2ffde41f84727662cc6e3d4f52df9c336b0d8eac07d1fef3037"
+  },
+  {
+    "path": "normal-cachyos/result.json",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 194,
+    "sha256": "65a8a58a8f51d16bb45f6eaa17b61fd593bba3ae7f562d0cb6f2f154534316c9"
+  },
+  {
+    "path": "normal-cachyos/retained-curl-config/.curlrc",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 182,
+    "sha256": "83a8e7b17654beb30329ea7ffefc2866800a78d93c7d38fc8581eb7945899d64"
+  },
+  {
+    "path": "normal-cachyos/shell-exit.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "normal-cachyos/shell.pid",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 5,
+    "sha256": "f0fd070ee25a02a67ffc29963396bed4020839a832db02405cbdb511b3878df3"
+  },
+  {
+    "path": "normal-cachyos/stderr.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "normal-cachyos/stdout.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 246,
+    "sha256": "5425e46a7b0b422f58c4eaf97ad5f662c4f5acc687b55df2c94fa2e50b306741"
+  },
+  {
+    "path": "normal-ge/curl-argv.nul",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 100,
+    "sha256": "56fce386605b73cddbf143c6e89a37bc92a8217438b4e3467ca5f0cd9ae99fc3"
+  },
+  {
+    "path": "normal-ge/curl-child.pid",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 5,
+    "sha256": "8ea1b12682d5b847dcb49dca068d07fbb26ef164171aa6448870af5386d5fa9f"
+  },
+  {
+    "path": "normal-ge/curl-end.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 18,
+    "sha256": "fa460af64dd07a427b477a6e206543c898ec09b12567ad48ce311b53bf47a479"
+  },
+  {
+    "path": "normal-ge/curl-exit.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "normal-ge/curl-recorder.pid",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 5,
+    "sha256": "26d2d36bb37bb0007a7da09107bff86d2f96837c27c3b684cce7c7c16e621bb2"
+  },
+  {
+    "path": "normal-ge/curl-start.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 18,
+    "sha256": "ec92d0308260813b6728dc032a7c657b26aef616b45821901c03508da2dd9c05"
+  },
+  {
+    "path": "normal-ge/function-seconds.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 21,
+    "sha256": "cefb81adb9f0691dd7535939b87702a84b8b726061772ec4e234d71fc43c6b0a"
+  },
+  {
+    "path": "normal-ge/invoke.sh",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 2342,
+    "sha256": "1e6017344f8c454defe6a41a06c0a5d762dad5e0ba2f5809c60bc20cbeb31617"
+  },
+  {
+    "path": "normal-ge/parsed.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 136,
+    "sha256": "f388e2c0285252fedc73277a2b66f0d34a16e4e4351b3700ba4354b8dc4cae81"
+  },
+  {
+    "path": "normal-ge/result.json",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 190,
+    "sha256": "64a29d8b6e9afb950cc5abc34f7bb528b942af121f838d684a15a92736793c04"
+  },
+  {
+    "path": "normal-ge/retained-curl-config/.curlrc",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 177,
+    "sha256": "af6e12f1c421f6d81e15ef8c5af099988e444bce58c51ed84038541f4f247a83"
+  },
+  {
+    "path": "normal-ge/shell-exit.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 2,
+    "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  {
+    "path": "normal-ge/shell.pid",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 5,
+    "sha256": "aad57c4d238b99e3eb997ac9ec8ef6bc48d44044321eec8c85d15478798fdcf3"
+  },
+  {
+    "path": "normal-ge/stderr.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "normal-ge/stdout.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 232,
+    "sha256": "c26045a774cebe95f65ee92c903df17aae28c415938557fb3e16f60dbbae3fb6"
+  },
+  {
+    "path": "old-families-after.json",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 1639,
+    "sha256": "5e8bb3046dffb0a76fb3705538b18b612d19b12d102336721c6427665cadd810"
+  },
+  {
+    "path": "old-families-before.json",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 1639,
+    "sha256": "5e8bb3046dffb0a76fb3705538b18b612d19b12d102336721c6427665cadd810"
+  },
+  {
+    "path": "oversize/curl-argv.nul",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 99,
+    "sha256": "3341bf616e72c370ca6b6f5f4e43cb3167c75f21404f5a13e4023bc649bda726"
+  },
+  {
+    "path": "oversize/curl-child.pid",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 5,
+    "sha256": "e5508eae8718e2e54548dd7424e16974b3b64795de89637770d57d73b382ca1d"
+  },
+  {
+    "path": "oversize/curl-end.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 18,
+    "sha256": "02e99791b3e1061bbdb9c7f17432054776846c68b1f5482b0fa8bee0a2f926f2"
+  },
+  {
+    "path": "oversize/curl-exit.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 3,
+    "sha256": "eecd262c3ecab667b61ebb70835f3b181a1d1530d3ebc0ef99a3a8dc3d5b193f"
+  },
+  {
+    "path": "oversize/curl-recorder.pid",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 5,
+    "sha256": "7c4eb4d26a40f2201a64d451ce883a70d79c2b9cb7629a7190345d94e3439460"
+  },
+  {
+    "path": "oversize/curl-start.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 18,
+    "sha256": "a7a352e724cf737234c324c27748b79c58391c0a997123a3429257e89ee0f831"
+  },
+  {
+    "path": "oversize/function-seconds.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 13,
+    "sha256": "aac267e6b4f86413d1ea2a6f959e456212806c070dfd37863032cc6a99ba0846"
+  },
+  {
+    "path": "oversize/invoke.sh",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 2374,
+    "sha256": "4959928029bdfdc8e7350be49162707ade0b08b3d289c342c7f69eb792c9b55b"
+  },
+  {
+    "path": "oversize/result.json",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 181,
+    "sha256": "14578b1ce8996556a667f7eae67cb7e6ba1673c60f0be20830ba8933248e55e8"
+  },
+  {
+    "path": "oversize/retained-curl-config/.curlrc",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 176,
+    "sha256": "6e3432b21793d96d999aa10a0dfe6ddbb868636a12cc3c7f5cd5b4bc1713c0d2"
+  },
+  {
+    "path": "oversize/shell-exit.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 2,
+    "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+  },
+  {
+    "path": "oversize/shell.pid",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 5,
+    "sha256": "2ab513b1608dd3d214980f32cdf095ca53e81eec6fc4ded522b7a1541fafc99a"
+  },
+  {
+    "path": "oversize/stderr.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 150,
+    "sha256": "b0bedd5b872b30e15c13a35c5e7546aa515478fb8fabcd85dfd8ff80fa314f87"
+  },
+  {
+    "path": "oversize/stdout.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 72,
+    "sha256": "0a389adc707770817c298eccab4e7f438958a231708c401681a4d0e54afbddda"
+  },
+  {
+    "path": "result.json",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 2415,
+    "sha256": "879417f569dd99afc9f67c2d691d795f353850e5ed00b2c488ee8ced99b7644c"
+  },
+  {
+    "path": "stall/curl-argv.nul",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 96,
+    "sha256": "9798f0f53a0d6869b9e7c76e56412a65bd81973995fe5a5f64591aa49e195959"
+  },
+  {
+    "path": "stall/curl-child.pid",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 5,
+    "sha256": "1633715e5907ba95a1e67918b4489b361fa5fb7b106b988731b5e06deec248ce"
+  },
+  {
+    "path": "stall/curl-end.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 18,
+    "sha256": "1873941347fcad07f329d64883d229c15a26a10a6c548d7657d223093755e14b"
+  },
+  {
+    "path": "stall/curl-exit.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 3,
+    "sha256": "9961d158a7e0e2f990765971a9e490af826c0743b7d603020f34cc8944319fcb"
+  },
+  {
+    "path": "stall/curl-recorder.pid",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 5,
+    "sha256": "a42774ce044e79637b8c535eb4b38b30dbd714ca169c032a5cf3af4564487967"
+  },
+  {
+    "path": "stall/curl-start.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 18,
+    "sha256": "a0368362b137bae0217ad39739e8b4a8ae69a2c58348fd504c2f85b9a35c6e72"
+  },
+  {
+    "path": "stall/function-seconds.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 18,
+    "sha256": "5bedce2dbf9d587a74a772d19c23369f71519179715e75398d37b7f127933c64"
+  },
+  {
+    "path": "stall/invoke.sh",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 2368,
+    "sha256": "ef74b61347c76015daad671df4f9d0b28a19636608edd911e8de40cfc8fa9336"
+  },
+  {
+    "path": "stall/result.json",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 181,
+    "sha256": "8c14259eca770d965a2a9a5d2f5b5052090559e92fb85a6761983fa60226b079"
+  },
+  {
+    "path": "stall/retained-curl-config/.curlrc",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 173,
+    "sha256": "1eb2d32859d13138838cf318912b32e328441d0c6ddaf3e01799d17fd64129fa"
+  },
+  {
+    "path": "stall/shell-exit.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 2,
+    "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+  },
+  {
+    "path": "stall/shell.pid",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 5,
+    "sha256": "26088be1cbc50409c6d46e5bcbe1ccdc450a6fc3f82ee8341c19589e6431605d"
+  },
+  {
+    "path": "stall/stderr.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 160,
+    "sha256": "6b15a6e571edd9b7c0c0613b9df5e7a0e91c71ad8d0cab47edbff29a38210c49"
+  },
+  {
+    "path": "stall/stdout.txt",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 72,
+    "sha256": "0a389adc707770817c298eccab4e7f438958a231708c401681a4d0e54afbddda"
+  },
+  {
+    "path": "synthetic-Steam/compatibilitytools.d/GE-Proton-old-aarch64/proton",
+    "mode": 493,
+    "kind": "file",
+    "bytes": 18,
+    "sha256": "0672df31fffe7501af86020f14a70a77a2f90791b6c8f9533f88327ea1fc3fd4"
+  },
+  {
+    "path": "synthetic-Steam/compatibilitytools.d/GE-Proton-old-aarch64/version",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 30,
+    "sha256": "b3449da86bc6d1df53564a432f4210f3a7326a4359acd4ad277c956ad84b865a"
+  },
+  {
+    "path": "synthetic-Steam/compatibilitytools.d/proton-cachyos-old-arm64/proton",
+    "mode": 493,
+    "kind": "file",
+    "bytes": 18,
+    "sha256": "0672df31fffe7501af86020f14a70a77a2f90791b6c8f9533f88327ea1fc3fd4"
+  },
+  {
+    "path": "synthetic-Steam/compatibilitytools.d/proton-cachyos-old-arm64/version",
+    "mode": 420,
+    "kind": "file",
+    "bytes": 30,
+    "sha256": "b3449da86bc6d1df53564a432f4210f3a7326a4359acd4ad277c956ad84b865a"
+  },
+  {
+    "path": "synthetic-Steam/selected-proton",
+    "mode": 511,
+    "kind": "symlink",
+    "target": "compatibilitytools.d/proton-cachyos-old-arm64"
+  }
+]

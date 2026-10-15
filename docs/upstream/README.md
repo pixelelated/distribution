@@ -19,11 +19,13 @@ Detailed source/evidence stays with its owner:
   Its October2/6 qualification belongs to those bases; recheck before submitting.
 - [RVZ/proxy/Dolphin component evidence](../qa-logs/2026-10-14-rvz-proxy-components/README.md)
   for #574/#583/#584; installed proxy hashing/service/startup proof now passes.
-  Actual Dolphin frontend routing remains separate under#584.
+  Actual Dolphin lifecycle/request routing now has the candidate proof below;
+  final installed-image/gameplay scope remains separate under#584.
 - [MD5 one-file contribution and public reproducer](../qa-logs/2026-10-14-md5-upstream-source/README.md),
   owned by #574 and destined for libretro/libretro-common; upstream-only run UNRUN.
 - [Steam repair upstream comparison](../qa-logs/2026-10-14-steam-client-repair-source/upstream.md),
-  owned by #582 with #564/#579/#580; bootstrap repair remains unimplemented.
+  owned by #582 with #564/#579/#580; bootstrap repair is implemented and
+  qualified in part. Remaining recovery and native integration are still separate.
 
 The queue also tracks focused Recent-default and Dolphin save-preservation fixes,
 and conditional browser/Wi-Fi/capability/dependency candidates. Fork-specific UI
@@ -36,5 +38,17 @@ explains what remains from testing the last device build.
 Dolphin NoGUI startup lacks AchievementManager initialization in the pinned
 source and current upstream. The [minimal lifecycle repair](../qa-logs/2026-10-15-dolphin-nogui-lifecycle/README.md)
 is prepared locally for dolphin-emu/dolphin and a focused ROCKNIX backport;
-compile/request/normal-exit proof remains due. Refresh the upstream bug-tracker
-duplicate search before submission. #585 owns the deferred contribution.
+the [one-object build and actual-process proof](../qa-logs/2026-10-15-dolphin-startup-result/README.md)
+now reproduce the installed baseline omission and verify candidate enabled,
+disabled and failed-boot lifecycle branches. Final installed-image smoke and
+normal gameplay remain due. Refresh the upstream bug-tracker duplicate search
+before submission. #585 owns the deferred contribution.
+
+### October15 — Dolphin system-resource layout (#592)
+
+Queue a focused ROCKNIX package change exposing existing immutable Data/Sys at
+Dolphin's compiled /usr/share/dolphin-emu/sys path. Upstream Dolphin already has
+the correct install destination; ROCKNIX's manual recipe omits it. Original failed
+badge reads and absent staged path are preserved. Source/pkgcheck pass; final
+installed resource/startup proof remains pending. Submit after the initial
+qualified build alongside the existing #585 queue, not as a new Dolphin API fork.

@@ -1,0 +1,31 @@
+{
+  "status": "SOURCE_ONLY_UNRUN",
+  "parent_archive": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-gstnet-rebuild-plan/source-originals.tar.gz",
+  "parent_archive_sha256": "630854910e60edaf2b05a57dd0756b2ce1515260cab308c886dba64539ded935",
+  "predecessor_owner": "/workspace/tmp/pix-m7-engineering-build-20261014-02",
+  "predecessor_originals": {
+    "/workspace/tmp/pix-m7-engineering-build-20261014-02/build-inputs.json": "1ca3d11c6cbce07e8aaa638aa336b6c3d48a21f3298d4f7dec233f15731b6f3b",
+    "/workspace/tmp/pix-m7-engineering-build-20261014-02/owner-result.json": "2063d789aaf3926f4b31ac57694a32b442789453c03bcf35eb06b81710a9967c",
+    "/workspace/tmp/pix-m7-engineering-build-20261014-02/resource-result.json": "9f1dd8d1b55bb5697f58c6b00ff4daa5ca73de4bb94fdbd924a202d170937e32",
+    "/workspace/tmp/pix-m7-engineering-build-20261014-02/completed-readback.json": "b5b3836dd1301d248f27b17b2c34f28436ed756300d1ca9ddee7e8b08461da7a",
+    "/workspace/tmp/pix-m7-engineering-build-20261014-02/consumption-evidence.json": "534904fd5754e5c3b5fbb7b49353c7d3934a96847c1d218084fcbf4c9aa189fa",
+    "/workspace/tmp/pix-m7-engineering-build-20261014-02/allocated-roots.jsonl": "48d011782ce908806199b728b42cb621a1152a8799c021dc0a7b4a85c746bc38"
+  },
+  "old_tree": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02",
+  "old_head": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+  "proposed_new_tree": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01",
+  "proposed_branch": "build/m7-p5-20261015-01",
+  "template_commit": "956f9481872d3d64f3e33d495e5ab25dfd9aaefd",
+  "final_commit": "REQUIRED: reviewed and committed, published guard retained",
+  "unchanged_helpers": {
+    "host-resources.py": "39a1b153e861cf3256b52567eb3e251412b9ab069e70ff72f4b5ac65e71fbaf1",
+    "inner-build.py": "2a33d9548e9adcb278bf75de230294eeb45e79263cecc355837b284d06ff4d98"
+  },
+  "readback_parent": {
+    "path": "/tmp/pix572-cache-dependencies.py",
+    "sha256": "1e130ee4042439b9d39d96ed61455221845f38bf6c3a85e6a44139fd42768a0b"
+  },
+  "scope": "Only source templates, original evidence copies, and static inspection. No new worktree, cache transfer, owner, admission, compiler, container, VM or service.",
+  "final_recipe_binding": "Required explicit --dolphin-recipe-sha256 at plan/owner/transfer; final recipe may differ from historical template. All other product hashes and exact three changed paths remain fixed.",
+  "known_source_hold": "Dolphin compiled Sys data path versus recipe install path: root owns source correction/review before freeze; no fix bytes or installed result invented here."
+}

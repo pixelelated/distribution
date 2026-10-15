@@ -1,0 +1,21 @@
+--- predecessor/vm-lifecycle.py
++++ candidate/vm-lifecycle.py
+@@ -53,6 +53,7 @@
+  assert all(sha(repo/name)==h for name,h in runtime['tool_hashes'].items())
+  with socket.socket() as s:s.bind(('127.0.0.1',5900+runtime['vnc']))
+  assert sha(src)==facts['sha256'];assert sha(Path(inputs['helper']['path']))==inputs['helper']['sha256']
++ assert sha(Path(inputs['helper']['profile']['path']))==inputs['helper']['profile']['sha256']
+  payload=v/'input-tree';payload.mkdir()
+  for a in inputs['files']:
+   p=Path(a['path']);assert sha(p)==a['sha256'];q=payload/a['destination'];q.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,q);assert sha(q)==a['sha256']
+@@ -126,6 +127,10 @@
+  result['rc']=0
+ except BaseException as exc:
+  result['error']=repr(exc)
++ if isinstance(exc,subprocess.CalledProcessError):
++  captured=lambda value:value.decode(errors='replace') if isinstance(value,bytes) else value
++  result['command_failure']={'argv':exc.cmd,'original_returncode':exc.returncode,
++                             'stdout':captured(exc.stdout),'stderr':captured(exc.stderr)}
+ finally:
+  signal.alarm(0)
+  if (v/'vm.pid').exists():

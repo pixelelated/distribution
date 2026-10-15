@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "case": "unknown-stage-before-profile",
+  "original_wrapper_exit": 0,
+  "restored": true,
+  "started_monotonic": 188.875401702,
+  "scope": "source chroot; no installed/native Steam claim",
+  "command_pid": 3396,
+  "export": {
+    "original_files": 64,
+    "original_bytes": 180792,
+    "archive_sha256": "926a4dad88be4e9d4d37a2b44bd7587d0ac19049d9a77b41b091e504cb603285",
+    "archive_bytes": 41314
+  },
+  "fixture_status": "PASS",
+  "original_caller_exits": [
+    1
+  ],
+  "expected_original_caller_exits": [
+    1
+  ],
+  "scratch_still_mounted": false,
+  "elapsed_seconds": 13.532174269999985,
+  "remaining_descendants": []
+}

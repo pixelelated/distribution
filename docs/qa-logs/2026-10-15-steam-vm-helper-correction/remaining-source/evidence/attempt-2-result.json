@@ -1,0 +1,123 @@
+{
+  "attempt": 2,
+  "installer_exit": 1,
+  "trace_driver_exit": 1,
+  "trace": {
+    "status": "RETURNED",
+    "client_executed": false,
+    "native_client_success": false,
+    "argv": [
+      "/usr/sbin/chroot",
+      "/run/pix582-scratch/crc-failure-retry-10/rootfs",
+      "/bin/bash",
+      "--noprofile",
+      "--norc",
+      "-x",
+      "/usr/config/modules/Install Steam.sh"
+    ],
+    "denied_execs": [],
+    "original_exits": [
+      {
+        "pid": 49,
+        "exit": 0
+      },
+      {
+        "pid": 48,
+        "exit": 0
+      },
+      {
+        "pid": 51,
+        "exit": 0
+      },
+      {
+        "pid": 50,
+        "exit": 0
+      },
+      {
+        "pid": 52,
+        "exit": 0
+      },
+      {
+        "pid": 53,
+        "exit": 0
+      },
+      {
+        "pid": 55,
+        "exit": 0
+      },
+      {
+        "pid": 54,
+        "exit": 0
+      },
+      {
+        "pid": 56,
+        "exit": 0
+      },
+      {
+        "pid": 59,
+        "exit": 0
+      },
+      {
+        "pid": 58,
+        "exit": 0
+      },
+      {
+        "pid": 57,
+        "exit": 0
+      },
+      {
+        "pid": 60,
+        "exit": 0
+      },
+      {
+        "pid": 61,
+        "exit": 0
+      },
+      {
+        "pid": 62,
+        "exit": 0
+      },
+      {
+        "pid": 64,
+        "exit": 0
+      },
+      {
+        "pid": 65,
+        "exit": 0
+      },
+      {
+        "pid": 63,
+        "exit": 0
+      },
+      {
+        "pid": 67,
+        "exit": 0
+      },
+      {
+        "pid": 68,
+        "exit": 1
+      },
+      {
+        "pid": 66,
+        "exit": 1
+      },
+      {
+        "pid": 69,
+        "exit": 0
+      },
+      {
+        "pid": 47,
+        "exit": 1
+      }
+    ],
+    "original_caller_exit": 1,
+    "meaning": "ptrace returns EACCES at synthetic client exec; normal caller sees its failure",
+    "wait_calls": 54249,
+    "syscall_stops": 54111,
+    "wait_seconds": 11.071805757999215,
+    "main_loop_poll_sleeps": 0,
+    "cleanup_exits": [],
+    "remaining_traced": [],
+    "elapsed_seconds": 11.421829731999999
+  }
+}

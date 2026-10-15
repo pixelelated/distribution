@@ -876,3 +876,11 @@ the unchanged cloud/settings panels. The [78-frame comparison and exact-source
 index](qa-logs/2026-10-15-frame-claims/README.md) records the reviewed visible
 regions against the historical baseline. New claims cover exposed background;
 foreground controls remain checked. This does not replace the canonical baseline.
+
+### Dolphin immutable resources follow-up — #592 (2026-10-15)
+
+The package exposes existing Sys resources at Dolphin's compiled immutable path.
+No ES row, navigation or copy changes. Exercise the same native launch/return
+flow; the final installed startup proof must verify the previously missing badge
+resources and lifecycle. Existing ES frame baselines remain source-bound; this
+pending package proof does not establish new visual/gameplay evidence.

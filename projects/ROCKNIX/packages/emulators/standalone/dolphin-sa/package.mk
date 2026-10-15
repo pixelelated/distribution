@@ -95,6 +95,11 @@ makeinstall_target() {
     cp -a ${PKG_BUILD}/Data/Sys/* ${INSTALL}/usr/config/dolphin-emu
     cp -aL ${PKG_DIR}/config/${DEVICE}/* ${INSTALL}/usr/config/dolphin-emu
     cp -a ${PKG_DIR}/triforce ${INSTALL}/usr/config/dolphin-emu/triforce_gecko_codes
+
+  # Dolphin resolves immutable Sys resources beneath its compiled DATA_DIR.
+  # Keep the existing defaults location and expose it without touching storage.
+  mkdir -p "${INSTALL}/usr/share/dolphin-emu"
+  ln -s ../../config/dolphin-emu "${INSTALL}/usr/share/dolphin-emu/sys"
 }
 
 post_install() {

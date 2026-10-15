@@ -1,0 +1,69 @@
+diff --git a/projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk b/projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk
+index beef5706a2..8cde13c8b3 100644
+--- a/projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk
++++ b/projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk
+@@ -48,8 +48,8 @@ if [ "${DEVICE}" = "GENERIC_X64" ]; then
+ fi
+ 
+ # Every device builds both frontends: nogui plays games, Qt provides the settings
+-# UI from the Tools menu. RetroAchievements lives in Core (AchievementManager) and
+-# is driven entirely by RetroAchievements.ini, so it is not tied to either one.
++# UI from the Tools menu. Both initialize Core's AchievementManager from
++# RetroAchievements.ini; patch 018 supplies the nogui startup/shutdown lifecycle.
+ PKG_CMAKE_OPTS_TARGET+=" -DENABLE_QT=ON \
+                          -DUSE_RETRO_ACHIEVEMENTS=ON \
+                          -DENABLE_HEADLESS=OFF \
+diff --git a/projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/018-nogui-achievements-lifecycle.patch b/projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/018-nogui-achievements-lifecycle.patch
+new file mode 100644
+index 0000000000..16d034580b
+--- /dev/null
++++ b/projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/018-nogui-achievements-lifecycle.patch
+@@ -0,0 +1,35 @@
++--- a/Source/Core/DolphinNoGUI/MainNoGUI.cpp
+++++ b/Source/Core/DolphinNoGUI/MainNoGUI.cpp
++@@ -16,6 +16,9 @@
++ #endif
++ 
++ #include "Common/ScopeGuard.h"
+++#ifdef USE_RETRO_ACHIEVEMENTS
+++#include "Core/AchievementManager.h"
+++#endif
++ #include "Core/Boot/Boot.h"
++ #include "Core/BootManager.h"
++ #include "Core/Core.h"
++@@ -310,6 +313,12 @@
++   sigaction(SIGTERM, &sa, nullptr);
++ #endif
++ 
+++#ifdef USE_RETRO_ACHIEVEMENTS
+++  AchievementManager::GetInstance().Init(wsi.render_window);
+++  Common::ScopeGuard achievement_manager_guard(
+++      [] { AchievementManager::GetInstance().Shutdown(); });
+++#endif
+++
++   DolphinAnalytics::Instance().ReportDolphinStart("nogui");
++ 
++   if (!BootManager::BootCore(Core::System::GetInstance(), std::move(boot), wsi))
++@@ -326,6 +335,9 @@
++   Core::Stop(Core::System::GetInstance());
++ 
++   Core::Shutdown(Core::System::GetInstance());
+++#ifdef USE_RETRO_ACHIEVEMENTS
+++  achievement_manager_guard.Exit();
+++#endif
++   s_platform.reset();
++ 
++   return 0;
+diff --git a/projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh b/projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh
+index b29f68dcc4..5e023b9613 100755
+--- a/projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh	
++++ b/projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh	
+@@ -210,7 +210,7 @@ fetch_proton_latest_release() {
+   log_info "Fetching latest ${display_name} release from GitHub..."
+ 
+   local release_json
+-  release_json=$(curl -fsSL "${api_url}") || die "Failed to fetch ${display_name} latest release info."
++  release_json=$(curl -q -fsSL --connect-timeout 10 --max-time 30 --max-filesize 1048576 "${api_url}") || die "Failed to fetch ${display_name} latest release info."
+ 
+   # Extract tag name
+   local version_tag

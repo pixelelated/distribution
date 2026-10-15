@@ -1,0 +1,201 @@
+{
+  "status": "SOURCE_ONLY_CONDITIONAL_PLAN_UNRUN",
+  "observed_utc": "2026-10-15T00:53:06.949180+00:00",
+  "frozen_commit": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+  "candidate_commit": "956f9481872d3d64f3e33d495e5ab25dfd9aaefd",
+  "es_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "product_delta": [
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk",
+      "frozen": {
+        "sha256": "2ec538f085f22a42c187918560605c1cdde353ac06421a3d38467950f14cb19e",
+        "blob": "beef5706a2c52bafb54b766a5927c9b8b306b772"
+      },
+      "candidate": {
+        "sha256": "27ab9954ec5fb30aefb51555281c749aea416f2d3bb8fc0138d0964730e5a153",
+        "blob": "8cde13c8b3027bac6f471bc3951ae55b6c7b04d4"
+      }
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/018-nogui-achievements-lifecycle.patch",
+      "frozen": null,
+      "candidate": {
+        "sha256": "bc1d04f688f85ff3fc49a81fa40625d08c8f7839aa81e46baee6b50b443ee5f0",
+        "blob": "16d034580b060de5e669e8edf7a4aba7d4805f27"
+      }
+    },
+    {
+      "path": "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+      "frozen": {
+        "sha256": "fab7cdb4ad8adbcea147be54092bb7ce2005010447be4ab8192c94d8bbe9229d",
+        "blob": "b29f68dcc481b40e34a198dccca5163da709826e"
+      },
+      "candidate": {
+        "sha256": "cefb22a50db915be1637e682dfba047789b276144bbe707220a2b4117c7a3264",
+        "blob": "5e023b961330a63b546163a34af0abce0b6d1782"
+      }
+    }
+  ],
+  "tool_delta": [
+    "tools/frame-diff",
+    "tools/last-good-scripts-test",
+    "tools/vm-walks/claims.txt"
+  ],
+  "native_gameplay_unchanged_source_bindings": [
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh",
+      "sha256": "8b87c5779737918644655950f25547341f89eda59fee137b752790382dffb88b",
+      "matches_existing_native_packet": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/dolphin-save-paths",
+      "sha256": "507ccc96245bfc7aaca5e154ef0567cacccd0cbc9d0f999761d2fdee1fc245e8",
+      "matches_existing_native_packet": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/GENERIC_X64/Dolphin.ini",
+      "sha256": "e352eafa7fd9a99c3075377a9236142808d0c0131e6711af07ce42792202e9e1",
+      "matches_existing_native_packet": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/scripts/start_flycast.sh",
+      "sha256": "1281b09669253e4399039f9ae986f492fbd4f54766db9bf036328c8bdb1ac8e4",
+      "matches_existing_native_packet": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/patches/000-conf-dir.patch",
+      "sha256": "21ebf62c8c15db301027e2efe6af86b6a5968c6a66b08b3e3059f54430e910da",
+      "matches_existing_native_packet": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/config/GENERIC_X64/emu.cfg",
+      "sha256": "33189ad2946d20bb82c28fefb6de938c487df211cd190fcdcda34c28debd4129",
+      "matches_existing_native_packet": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/rocknix/profile.d/001-functions",
+      "sha256": "2a67891c9a3090ddae78d4b729ce7b8f5c41d853e0975b4ce0203df7789e4ab5",
+      "matches_existing_native_packet": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh",
+      "sha256": "deb95aee74d3ddd80638a9ab2f940f5b3b080f4d3ec01f669ea8dbd44179ad20",
+      "matches_existing_native_packet": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/scripts/cheevos_flycast.sh",
+      "sha256": "b23a039d19e5466abdbf70ed250c416b5b79bd23fd873c9366a5f514097f66ca",
+      "matches_existing_native_packet": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/config/flycast.gptk",
+      "sha256": "f56f372fb6a7fd303e4534eb8050463849e6d2975709aafac4b7a9fba8e4fe30",
+      "matches_existing_native_packet": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/config/SDL_Keyboard.cfg",
+      "sha256": "87dd8e4407da48ec1487fb8ad107a986f982614b2ea240c84c53cdce56edd429",
+      "matches_existing_native_packet": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/control-gen/scripts/control-gen_init.sh",
+      "sha256": "83f58f882c70985c3159138036fa27662ce2c19536bb4cfacb77ee5fd47ff6a7",
+      "matches_existing_native_packet": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/system-utils/sources/scripts/input_sense",
+      "sha256": "94dbf59c9fbda1a6a3723caa2321aeabb3ad6fee4fd7132f82c62161cc4e094d",
+      "matches_existing_native_packet": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/apps/control-gen/sources/control-gen.cpp",
+      "sha256": "6b599a1f6dd8acfc07ab67ada1ea543e92fbda2677abdb7df0b82848a34710cd",
+      "matches_existing_native_packet": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/config/controllers/GamecubeControllerProfiles/GCPadNew.ini.south.stacked",
+      "sha256": "04fd777a3b8286411d797064d99410d8e6782aec35fe1e4bbe5f23d6894960cd",
+      "matches_existing_native_packet": true
+    }
+  ],
+  "qualified_runner_archive_members": [
+    {
+      "member": "engineering/transfer-cache.py",
+      "sha256": "f7b47a728a0cb0fd2dc10704e467b3c5d907c9c416e871e8c08a739738b7dbbe",
+      "bytes": 7075
+    },
+    {
+      "member": "engineering/prepare-plan.py",
+      "sha256": "edadbc3e56f1be3c7a837785bcf9fa06a71e3cbcbe5ff6f81dd4898189a5af32",
+      "bytes": 6710
+    },
+    {
+      "member": "engineering/prepare-owner.py",
+      "sha256": "458816ecb1cd6fcffbafa4cdbbf307aa151d1bc4673a66ba75a7b8727c1eda67",
+      "bytes": 4916
+    },
+    {
+      "member": "engineering/build-owner.py",
+      "sha256": "a715097ba5024d9664abef9d2d13d48934d0fea832a2ff957860c47474280bf2",
+      "bytes": 15962
+    },
+    {
+      "member": "engineering/inner-build.py",
+      "sha256": "2a33d9548e9adcb278bf75de230294eeb45e79263cecc355837b284d06ff4d98",
+      "bytes": 5495
+    },
+    {
+      "member": "engineering/host-resources.py",
+      "sha256": "39a1b153e861cf3256b52567eb3e251412b9ab069e70ff72f4b5ac65e71fbaf1",
+      "bytes": 11658
+    }
+  ],
+  "read_evidence": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-gstnet-rebuild-plan/source-originals.tar.gz",
+      "sha256": "630854910e60edaf2b05a57dd0756b2ce1515260cab308c886dba64539ded935",
+      "bytes": 47117
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-gstnet-corrected-image/build/build-inputs.json",
+      "sha256": "1ca3d11c6cbce07e8aaa638aa336b6c3d48a21f3298d4f7dec233f15731b6f3b",
+      "bytes": 2001
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-gstnet-corrected-image/build/owner-result.json",
+      "sha256": "2063d789aaf3926f4b31ac57694a32b442789453c03bcf35eb06b81710a9967c",
+      "bytes": 651
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-gstnet-corrected-image/build/consumption-evidence.json",
+      "sha256": "534904fd5754e5c3b5fbb7b49353c7d3934a96847c1d218084fcbf4c9aa189fa",
+      "bytes": 3660
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-gstnet-corrected-image/build/resource-result.json",
+      "sha256": "9f1dd8d1b55bb5697f58c6b00ff4daa5ca73de4bb94fdbd924a202d170937e32",
+      "bytes": 963
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-gstnet-image-verifier/source-originals.tar.gz",
+      "sha256": "e2e15053b4f2fd581c7f90e1bec4b31400660e0654daa8cab920a128c2d1a4e1",
+      "bytes": 6399
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-dolphin-startup-result/README.md",
+      "sha256": "a42f5923a75294a2cede873b258807559fd8f4a182e5e1f7e646d4533d6ef957",
+      "bytes": 2883
+    },
+    {
+      "path": "/tmp/m7-native-gameplay-lifecycle-20261014-02/prepare.py",
+      "sha256": "97a4af0f4b3e97917ea284b655055e5ff2aa9777f0b8039392a0a5802197fc20",
+      "bytes": 6770
+    },
+    {
+      "path": "/tmp/m7-native-gameplay-lifecycle-20261014-02/SHA256SUMS",
+      "sha256": "7b3dfec5f480b83f5faa923f9c55b0262b3d2c3a6bed6106b2594a9e1e8b7abc",
+      "bytes": 3611
+    }
+  ],
+  "no_runtime_or_allocation": true
+}

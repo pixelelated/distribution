@@ -1,0 +1,35 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/.build-runs/20261015T005126Z-af985198",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 582,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix582-metadata-remaining-vm-20261015-02/vm",
+      "release_when": "Original metadata and14 stage/family/watch channels exported and consumed, actual owners gone; retire disk/media/UEFI."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix582-metadata-remaining-result-20261015-02/export-result.json",
+      "sha256": "9d0f72638dcfac1ef459e48d1fbcaeb218a11ed4f3aa289b96fae21b0cd799f6"
+    },
+    {
+      "path": "/workspace/tmp/pix582-metadata-remaining-result-20261015-02/original-records.json",
+      "sha256": "b680b931d305bfca26c2ba5cdd5f37599296158ddfd939ead86e9d21fc89d912"
+    },
+    {
+      "path": "/workspace/tmp/pix582-metadata-remaining-result-20261015-02/original-records.tar.gz",
+      "sha256": "baa415e50df926419832d9397fc3c45af8c27427a55055c5542cedc6f454bbb9"
+    },
+    {
+      "path": "/workspace/tmp/pix582-metadata-remaining-result-20261015-02/host-exits.json",
+      "sha256": "272c44427970bac0693641361174374c252866c7e39405cf4864c01733b82e57"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/.build-runs/20261015T005958Z-f20ee1dc/runner-result.json",
+      "sha256": "adecdcb5e3f23a0c054117b65b739cdcf36b9723e9b2c5db29a0a3a8659f5988"
+    }
+  ]
+}

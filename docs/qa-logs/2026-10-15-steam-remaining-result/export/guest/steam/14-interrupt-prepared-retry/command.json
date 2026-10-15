@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=10s",
+    "120s",
+    "python3",
+    "-I",
+    "-S",
+    "-B",
+    "/tmp/pix-input/docs/qa-logs/2026-10-14-steam-remaining-source/fixture.py",
+    "--disposable-vm",
+    "--case",
+    "interrupt-prepared-retry",
+    "--installer",
+    "/tmp/pix-input/projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+    "--output",
+    "/run/pix582-stage-14/interrupt-prepared-retry"
+  ],
+  "environment": {
+    "PATH": "/usr/bin:/bin:/usr/sbin:/sbin",
+    "LC_ALL": "C",
+    "LANG": "C",
+    "TMPDIR": "/run/pix582-stage-14"
+  }
+}

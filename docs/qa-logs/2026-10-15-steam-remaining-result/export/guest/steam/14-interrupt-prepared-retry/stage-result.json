@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "case": "interrupt-prepared-retry",
+  "original_wrapper_exit": 0,
+  "restored": true,
+  "started_monotonic": 311.63597563,
+  "scope": "source chroot; no installed/native Steam claim",
+  "command_pid": 4448,
+  "export": {
+    "original_files": 91,
+    "original_bytes": 440267,
+    "archive_sha256": "b396d6852bfcec85fa42794d91922db9b81f37a549aa3f08c1f4fcc9c48b0c69",
+    "archive_bytes": 88587
+  },
+  "fixture_status": "PASS",
+  "original_caller_exits": [
+    1,
+    0
+  ],
+  "expected_original_caller_exits": [
+    1,
+    0
+  ],
+  "scratch_still_mounted": false,
+  "elapsed_seconds": 26.843133265000006,
+  "remaining_descendants": []
+}

@@ -1,0 +1,180 @@
+{
+  "utc": "2026-10-15T00:41:42.257389+00:00",
+  "status": "SOURCE_ONLY_UNRUN",
+  "syntax": [
+    {
+      "path": "export.py",
+      "syntax": "AST_PARSE_ONLY_PYTHON310",
+      "sha256": "1ea0916e189ec98d5c14f954651d7bb2deff19cb2f0a8d45349985afb54ea36e"
+    },
+    {
+      "path": "guest-stage.py",
+      "syntax": "AST_PARSE_ONLY_PYTHON310",
+      "sha256": "2f8896c92621a7e7f6079abe5a4d8332e0846e088baa04c6503d1f6fa3a51dad"
+    },
+    {
+      "path": "metadata-stage.py",
+      "syntax": "AST_PARSE_ONLY_PYTHON310",
+      "sha256": "96cff5fd6cfeb733b4095234e1e6f426df14ef137b2edc89c8fbd724ed8faba2"
+    },
+    {
+      "path": "prepare.py",
+      "syntax": "AST_PARSE_ONLY_PYTHON310",
+      "sha256": "2d9d4a5a4aba442b672078b87e24c3991784dab011feb5944bc491326cb8c72d"
+    },
+    {
+      "path": "vm-lifecycle.py",
+      "syntax": "AST_PARSE_ONLY_PYTHON310",
+      "sha256": "a9ce9250072451b5b580ab771cf526bf814edc861afee49d6d4e4e53fc64be0b"
+    }
+  ],
+  "helper_syntax": "AST_PARSE_ONLY_PYTHON310",
+  "helper_unchanged": true,
+  "original_guest_stage_unchanged": true,
+  "original_remaining_seal": "79dc1d57d8741b644e99cd8348c4c362fbef3a1c815c48f6fa23b84a6e201c34",
+  "original_remaining_files": [
+    {
+      "path": "/tmp/pix582-remaining-source01/README.md",
+      "sha256": "fdcf7a75098aab68854419626adfe9593bd7ef2dda67001650f412de34c860ac"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/boundary.py",
+      "sha256": "ae5fc68fa85b745e95179414ce643e1499122146b5b40afa9551198f3d351f64"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/client-helper.py",
+      "sha256": "a14cbe3ad5a6e717238d5d994811b521e852a24ca625652ac81125d16f294fed"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/continuation.json",
+      "sha256": "c018cecb884398976ede15359685de09c041991b4b271c2375e24455010316f0"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/event_records.py",
+      "sha256": "d6c52b2948136d49b715ba752097a87e51e3d36f0b6c1157059f570b54427804"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/evidence/attempt-1-result.json",
+      "sha256": "0b7f77b079d5f330f51bd63d6616002ab9e67f57f1b80abf232e17f49f7c00bc"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/evidence/attempt-1-storage.json",
+      "sha256": "9218fa8e2c20a3334d1ebbf49e4d5bdc1a40436d4171a58f884f4d6eda8432eb"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/evidence/attempt-2-result.json",
+      "sha256": "34d684df67ddfe885048556b609b23c89c9fbf86a3e6fbda8723eed1b3656574"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/evidence/attempt-2-storage.json",
+      "sha256": "9f9cec9f3117cc7b864efa5d6fa146916b0c541e2937f9fbac8182eb3bc144d2"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/evidence/installer-1.stderr",
+      "sha256": "feb13eaad516a11bbc8bd8c96bf61492fe85dbe5817b59307da6dbc712737987"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/evidence/installer-2.stderr",
+      "sha256": "ea5355ca2d855ed14d937f9050726adcca34eaa524286a2964b25c3e79eb7e84"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/evidence/namespace-result.json",
+      "sha256": "710f4595b108670b0400fa4103def0385462d2ab6245df9d073058c9b58e7c42"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/evidence/qa-client-bad.json",
+      "sha256": "934f7d694db901d9edb7afe36b6913c572f3f400e9acb620aad1bd2c6143a8d4"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/evidence/qa-client-good.json",
+      "sha256": "3bf457e4f0c564450b5affc491e7fe7c2bae512a6cd8dc1570660a6b81a34c97"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/evidence/qa-events.ndjson",
+      "sha256": "11d6c96b04f7471a8109f267a8d4533bb229d8ca15a54830ff693d25bbc625a6"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/evidence/result.json",
+      "sha256": "a76fc7dd38d38008acddc7e1d1c78db525895f5fa3259e7f3b0e562c587ecade"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/exec-guard.py",
+      "sha256": "00210b59a8c7fe25559e7ff561f1c112197bf8ef9a876523b5c457f486da4d59"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/fixture.py",
+      "sha256": "984c361ff9dfd9b06094c70b47da27dc1a3fe5db86d0f94fe1f08db8badd5c00"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/intake.json",
+      "sha256": "72bb392fab8d1a58cd732a511570f66cdfb55e3cfe24b6072365ff3e09477242"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/layout.json",
+      "sha256": "5afbc973d2bc8c79cafafb2c7e3a301b11b192af946f77c5b64dfb2cc8278355"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/original-SHA256SUMS",
+      "sha256": "6a6c3b255525f57c624dba32d55720e10d0e130c2ffeb564c4e2ae6881796c7d"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/original-source.json",
+      "sha256": "ca4be0729e7e368526395daed263f41c4dcac9fde399dc3a2aa8e10a543d8d7c"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/packaged/Config.json",
+      "sha256": "fc10f006b7587e7ce1a5a57a412ecd6463627161c03a50b2471ad4367d6614c5"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/packaged/steamwebhelper.json",
+      "sha256": "e342841254a27b5e8f0cab30e39aa5792811a75da54f64a0ca23c4ffd3baf76b"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/payload.py",
+      "sha256": "966450dfcfd3399a6caa42ad7edc5ed3afcfcc471bd728b36db1025a398b11ff"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/python-boundary.py",
+      "sha256": "dbd56b6c108f5dc6b15893f27c58e50c05f90513b02d05d2a3bab9e46666deb5"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/route-cases.json",
+      "sha256": "36a846f4984627a484cabb252dfb9aa1e30fd0d4d4528fe7d407346896ae48e3"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/source.json",
+      "sha256": "ec128574ae0f8a566879d0a472ae09ec1fd92d0c8e7fa9ca1b42164b3087af9f"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/static-check.py",
+      "sha256": "5c8abe5da245859164adfcc4571327e8c796aa6d43de2f3f9a0f426064671209"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/static-result.json",
+      "sha256": "cbdc8c966c4266b140b1f84e9e332e36b095d42181dd48b43f312eb8f4db3bca"
+    },
+    {
+      "path": "/tmp/pix582-remaining-source01/transfer-child.py",
+      "sha256": "cedeb1244888fb9f5a752f356efdcd5f4ae70dc5731a20c0dd0af9fad569c6da"
+    }
+  ],
+  "original_prepared_owner": {
+    "path": "/workspace/tmp/pix582-remaining-vm-20261014-02",
+    "file_hashes": {
+      "admission-plan.json": "92423663bbbc807e71d07f66f57a9d3b39ff080073657419297c66fd622b7111",
+      "records/family.json": "7fa209dab58261a915d8d26b39cbf22f0e011ea165cb6465f3e5c052a662513b",
+      "records/image-size.json": "dcf38018ce8b4bccbd3a04019150591780aa18ed17dbf4ac86efe0a4609fb34a",
+      "records/inputs.json": "8d24c2976cec2bba736b9f9c7d7c01e6cf6bfb3373b68488cc892041b7f0d39c",
+      "records/runtime.json": "ec659597e482f0878eac6f326e69cc24cefd1bad9149e599b59ec2055bf48995",
+      "retention-plan.json": "0ae400953e0b87efaf045e2e0a7bc142dcf7930225519779d56279aa7cf4f646",
+      "vm-lifecycle.py": "636715a1ee65b8af9a32079a1dae60bc699a9c811496549dcdbab4d1ffb5f0c6"
+    },
+    "mutated": false
+  },
+  "preparer_executed": false,
+  "fixtures_tests_listeners_or_VM_executed": false,
+  "prior_host01_status": "FAIL",
+  "candidate_modules_imported_or_executed": false,
+  "durable_remaining_source_copy_manifest_sha256": "79dc1d57d8741b644e99cd8348c4c362fbef3a1c815c48f6fa23b84a6e201c34",
+  "frozen_installer_source_copy_sha256": "fab7cdb4ad8adbcea147be54092bb7ce2005010447be4ab8192c94d8bbe9229d"
+}

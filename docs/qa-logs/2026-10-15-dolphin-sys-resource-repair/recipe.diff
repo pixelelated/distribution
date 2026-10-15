@@ -1,0 +1,16 @@
+diff --git a/projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk b/projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk
+index 8cde13c8b3..039b58a85c 100644
+--- a/projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk
++++ b/projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk
+@@ -95,6 +95,11 @@ makeinstall_target() {
+     cp -a ${PKG_BUILD}/Data/Sys/* ${INSTALL}/usr/config/dolphin-emu
+     cp -aL ${PKG_DIR}/config/${DEVICE}/* ${INSTALL}/usr/config/dolphin-emu
+     cp -a ${PKG_DIR}/triforce ${INSTALL}/usr/config/dolphin-emu/triforce_gecko_codes
++
++  # Dolphin resolves immutable Sys resources beneath its compiled DATA_DIR.
++  # Keep the existing defaults location and expose it without touching storage.
++  mkdir -p "${INSTALL}/usr/share/dolphin-emu"
++  ln -s ../../config/dolphin-emu "${INSTALL}/usr/share/dolphin-emu/sys"
+ }
+ 
+ post_install() {

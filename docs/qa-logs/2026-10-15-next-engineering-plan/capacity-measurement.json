@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "utc_start": "2026-10-14T23:06:15.719104+00:00",
+  "utc_finish": "2026-10-14T23:06:25.774014+00:00",
+  "parent_head": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+  "measurements": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/build.pixelelated-GENERIC_X64.x86_64",
+      "original_rc": 0,
+      "stderr": "",
+      "allocated_bytes": 125591408640
+    },
+    {
+      "path": "/workspace/cache/rocknix-sources",
+      "original_rc": 0,
+      "stderr": "",
+      "allocated_bytes": 68200853504
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/target",
+      "original_rc": 0,
+      "stderr": "",
+      "allocated_bytes": 4245299200
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/release",
+      "allocated_bytes": 0,
+      "exists": false
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-engineering-build-20261014-02",
+      "original_rc": 0,
+      "stderr": "",
+      "allocated_bytes": 3354624
+    }
+  ],
+  "original_allocation_log": "/workspace/tmp/pix-m7-engineering-build-20261014-02/allocated-roots.jsonl",
+  "original_allocation_log_sha256": "48d011782ce908806199b728b42cb621a1152a8799c021dc0a7b4a85c746bc38",
+  "existing_allocations_already_excluded_from_available": true,
+  "derivation": "Exact predecessor final_after_producer sample. No new scan; no assertion of unchanged allocations since that timestamp. Existing 24h age and original-log hash guards remain."
+}

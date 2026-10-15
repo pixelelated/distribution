@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-15T00:47:25.828725+00:00",
+  "pids_absent": [
+    1977011,
+    1977012,
+    1977066,
+    1977013,
+    1977013
+  ],
+  "no_vm_pidfile": true,
+  "no_serial_socket": true,
+  "original_result": {
+    "command_rc": 1,
+    "monitor_rc": 0,
+    "runner_rc": 1,
+    "utc": "2026-10-15T00:45:26.550983+00:00"
+  },
+  "failure_stage": "qemu-args returned2 before boot; frozen launcher lacks --no-network; captured stderr not retained by original wrapper"
+}

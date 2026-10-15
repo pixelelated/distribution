@@ -11,7 +11,7 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
-## October15 00:46 qualification update
+## October15 01:03 qualification update
 
 Scripts, SFTP and localS3 now pass, composing with the previous13 passing rows
 including WebDAV. The corrected frame comparator passes20 controls and all78
@@ -23,17 +23,22 @@ Dolphin's missing NoGUI achievements lifecycle is fixed in source and passes a
 one-object build plus four actual-process VM cases. The installed baseline
 reproduces the defect; the private candidate initializes/routes/shuts down as
 expected, including disabled and early-failure branches. Final installed-image
-smoke and native gameplay/save checks remain due. Steam metadata bounds are
-implemented; the first no-NIC metadata/14-case allocation stopped before boot on an older
-launcher lacking the no-network option. A narrow binding correction is being
-prepared; no Steam case ran and the original failure is retained.
+smoke and native gameplay/save checks remain due. Steam metadata bounds now pass their exact-function controls with installed
+curl/Bash in a no-network guest. All14 remaining source-chroot recovery cases
+pass, including expected refusal and failure-then-success retry exits. Originals
+and selected-state restoration are verified; the failed first pre-boot allocation
+is retained. Native/installed ARM64 Steam acceptance remains separate.
+The reverse audit also found the missing compiled Dolphin Sys-resource path
+(#592); the immutable package alias is implemented and linted, with installed
+resource/startup proof scheduled in the next engineering image.
 Independent audit#590 continues alongside root's serialized runtime. No new
 firmware or release-candidate designation is claimed.
 
 Evidence: [Wi-Fi branches](../qa-logs/2026-10-15-wifi-remaining-result/README.md),
 [baseline/protocol continuation](../qa-logs/2026-10-15-baseline-continuation/README.md),
 [frame comparator](../qa-logs/2026-10-15-frame-claims/README.md),
-[Dolphin startup](../qa-logs/2026-10-15-dolphin-startup-result/README.md).
+[Dolphin startup](../qa-logs/2026-10-15-dolphin-startup-result/README.md),
+[Steam metadata/recovery](../qa-logs/2026-10-15-steam-remaining-result/README.md).
 
 ## October14 23:39 remaining qualification
 

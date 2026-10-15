@@ -8,9 +8,13 @@ The compiled private candidate passes enabled, disabled and early boot-failure
 VM cases; the installed baseline reproduces the omission. Settings and launch
 navigation stay unchanged. Final installed-image and normal gameplay proof remain
 due. Steam release-metadata lookup now has connection, total-response and size
-limits (#580/#590), preserving the previous failure outcome; isolated guest
-stall/refusal regression is pending. Neither repair is in the frozen fac608ff
+limits (#580/#590), preserving the previous failure outcome; exact-function
+normal/oversize/stall controls pass with installed curl/Bash in the isolated guest. Neither repair is in the frozen fac608ff
 engineering image or on the owner's devices.
+
+Dolphin system resources also need their compiled immutable path (#592). The
+package now exposes its existing resources there; installed badge/resource checks
+are pending on the next image. Retained settings and game-save paths are unchanged.
 
 ## Browser, setup and offline achievements (2026-10-14, component-qualified source)
 

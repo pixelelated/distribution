@@ -1,0 +1,48 @@
+{
+  "status": "STATIC_ONLY_PASS",
+  "installer_sha256": "fab7cdb4ad8adbcea147be54092bb7ce2005010447be4ab8192c94d8bbe9229d",
+  "python_ast": [
+    "boundary.py",
+    "client-helper.py",
+    "event_records.py",
+    "exec-guard.py",
+    "fixture.py",
+    "payload.py",
+    "python-boundary.py",
+    "static-check.py",
+    "transfer-child.py"
+  ],
+  "unchanged_copies": [
+    "python-boundary.py",
+    "exec-guard.py",
+    "transfer-child.py",
+    "client-helper.py",
+    "layout.json",
+    "route-cases.json",
+    "packaged/Config.json",
+    "packaged/steamwebhelper.json"
+  ],
+  "boundary_transport_main_and_result_wrapper_unchanged": true,
+  "payload_crc_generator_unchanged": true,
+  "caller_ast_unchanged_except_three_event_reads_and_collector": true,
+  "limits_tls_exec_denial_assertions_unchanged": true,
+  "old_packet_hashes_unchanged": true,
+  "original_failure_caller_exits": [
+    1,
+    1
+  ],
+  "original_archive_child_exit": 1,
+  "original_shared_event_offset_before_second_archive": 10806,
+  "archive_child_fsize": 10676,
+  "original_max_event_bytes_per_pid": 633,
+  "proposed_per_process_event_cap": 4096,
+  "errno_in_original_receipt": null,
+  "mechanism": "source-consistent FSIZE collision; direct errno not retained",
+  "fixture_import_generation_or_runtime": false,
+  "prepared_case": "crc-failure-retry",
+  "expected_new_original_caller_exits": [
+    1,
+    0
+  ],
+  "runtime": "UNRUN"
+}

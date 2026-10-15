@@ -1,0 +1,171 @@
+{
+  "original_exit": 0,
+  "guest_files": 170,
+  "guest_bytes": 1074352,
+  "host_files": 120,
+  "qualification_pass": true,
+  "metadata": {
+    "status": "PASS",
+    "restored": true,
+    "original_helper_exit": 0,
+    "archive_complete": true,
+    "qualification_pass": true,
+    "helper_result": {
+      "status": "PASS",
+      "scope": "installed-vm-curl",
+      "source": "/tmp/pix-input/metadata/Install Steam.sh",
+      "source_sha256": "cefb22a50db915be1637e682dfba047789b276144bbe707220a2b4117c7a3264",
+      "function_sha256": "74b351e10b00af4384500f9b70e30d55773b0e8b5054095c644fe3467da9b5a1",
+      "helpers_sha256": "9d6a88c1e3615ec9a82c29f1ccf104d1b5d153370b3642c5e8754ba7add40e6f",
+      "curl": "/usr/bin/curl",
+      "curl_sha256": "99601bf7bd3fbcdc5939685b3d68d1796008b77f885ac949c6a171bace3c2aea",
+      "bash": "/usr/bin/bash",
+      "baseline": {
+        "source": "/tmp/pix-input/projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+        "source_sha256": "fab7cdb4ad8adbcea147be54092bb7ce2005010447be4ab8192c94d8bbe9229d",
+        "function_sha256": "beda435985422634bbb43595e978e2a8c4e9f354910d96986a8c6f8ef359a2d3",
+        "executed": false
+      },
+      "adaptation": "Exact function/helpers. Local URL argument. PATH recorder delegates curl argv unchanged.",
+      "cases": [
+        {
+          "name": "normal-cachyos",
+          "shell_exit": 0,
+          "curl_exit": 0,
+          "function_seconds": 0.015466122999999499,
+          "curl_seconds": 0.002335071563720703,
+          "group_absent": true,
+          "passed": true
+        },
+        {
+          "name": "normal-ge",
+          "shell_exit": 0,
+          "curl_exit": 0,
+          "function_seconds": 0.015450094999998498,
+          "curl_seconds": 0.0019519329071044922,
+          "group_absent": true,
+          "passed": true
+        },
+        {
+          "name": "oversize",
+          "shell_exit": 1,
+          "curl_exit": 63,
+          "function_seconds": 10.039911379,
+          "curl_seconds": 0.004249095916748047,
+          "group_absent": true,
+          "passed": true
+        },
+        {
+          "name": "stall",
+          "shell_exit": 1,
+          "curl_exit": 28,
+          "function_seconds": 40.03018697899999,
+          "curl_seconds": 30.005878925323486,
+          "group_absent": true,
+          "passed": true
+        }
+      ],
+      "cleanup": [],
+      "signals": [],
+      "curl_version_exit": 0,
+      "endpoint": "http://127.0.0.1:42793",
+      "handler_threads_stopped": true,
+      "server_thread_stopped": true,
+      "requests": [
+        {
+          "path": "/normal-cachyos",
+          "at_monotonic": 18.28499224
+        },
+        {
+          "path": "/normal-ge",
+          "at_monotonic": 18.300261464
+        },
+        {
+          "path": "/oversize",
+          "at_monotonic": 18.316801156
+        },
+        {
+          "path": "/stall",
+          "at_monotonic": 28.361400523
+        }
+      ],
+      "old_families_equal": true,
+      "failure": null,
+      "passed": true
+    }
+  },
+  "stages": [
+    {
+      "case": "fresh-profile-dot",
+      "status": "PASS",
+      "restored": true
+    },
+    {
+      "case": "fresh-profile-dot-absent",
+      "status": "PASS",
+      "restored": true
+    },
+    {
+      "case": "valid-existing-alias",
+      "status": "PASS",
+      "restored": true
+    },
+    {
+      "case": "existing-profile-dot",
+      "status": "PASS",
+      "restored": true
+    },
+    {
+      "case": "self-updated-client",
+      "status": "PASS",
+      "restored": true
+    },
+    {
+      "case": "partial-before-profile",
+      "status": "PASS",
+      "restored": true
+    },
+    {
+      "case": "marker-missing-core",
+      "status": "PASS",
+      "restored": true
+    },
+    {
+      "case": "metadata-conflict-after-profile",
+      "status": "PASS",
+      "restored": true
+    },
+    {
+      "case": "unknown-stage-before-profile",
+      "status": "PASS",
+      "restored": true
+    },
+    {
+      "case": "download-failure-retry",
+      "status": "PASS",
+      "restored": true
+    },
+    {
+      "case": "validation-failure-retry",
+      "status": "PASS",
+      "restored": true
+    },
+    {
+      "case": "publication-failure-retry",
+      "status": "PASS",
+      "restored": true
+    },
+    {
+      "case": "metadata-failure-retry",
+      "status": "PASS",
+      "restored": true
+    },
+    {
+      "case": "interrupt-prepared-retry",
+      "status": "PASS",
+      "restored": true
+    }
+  ],
+  "original_family_pass": true,
+  "runtime": "Installed dependency metadata function plus unchanged14 source-chroot cases; no installed/native Steam claim; coordinator owns consumption"
+}
