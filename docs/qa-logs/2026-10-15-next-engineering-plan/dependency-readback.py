@@ -6,8 +6,8 @@ root=str(r);matches=[];errors=[];scanned=0;inaccessible_other_uid=0
 for p in Path('/proc').iterdir():
  if not p.name.isdigit() or int(p.name)==os.getpid():continue
  try:
-  uid=p.stat().st_uid;args=(p/'cmdline').read_bytes();sources=[]
-  if root.encode() in args:sources.append('argv')
+  uid=p.stat().st_uid;cmdline=(p/'cmdline').read_bytes();sources=[]
+  if root.encode() in cmdline:sources.append('argv')
   if uid==os.getuid():
    scanned+=1
    for n in ['cwd','root']:

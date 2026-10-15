@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One admitted owner: narrow GStreamer clean/rebuild, then image; source-only derivative."""
+"""One admitted owner: narrow Dolphin clean/rebuild, then image; source-only derivative."""
 import hashlib
 import importlib.machinery
 import importlib.util

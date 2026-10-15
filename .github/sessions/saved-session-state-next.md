@@ -3,7 +3,7 @@
 Updated2026-10-15 01:09UTC. Continue authorized M7 toward next0.0.1 RC; saving is
 not a pause. Coordinator /workspace/repos/rocknix.worktrees/m7-player-setup,
 feature/m7-player-setup. Harness conflict-resolution untouched. Primary next and
-coordinator locald3dc827676e5 plus pending records; remote0457ac18. Frozen image
+coordinator/primary/remote6616cc36cb plus pending record/tool correction. Frozen image
 fac608ff/ES3178 unchanged. Actual host PID namespace4026531836; escalated exec
 needed for actual host/network/outside-workspace writes. No formal goal.
 
@@ -22,7 +22,8 @@ whole-caller synthetic source-chroot cases. No installed/native ARM/FEX claim.
 Five successes0, four refusals1, five recovery1→0. Nine prior cases not replayed.
 Owner01 failed beforeboot on an older helper; preserved/consumed failed separately.
 
-1. Finish checkpoint/required cheap gates, publish corrected source through normal
+1. 6616cc36 was published with all original push/monitor channels0. Commit the
+   reviewed unrun census-variable correction and current records, then publish through normal
    hooks and verify remote refs. Audit cadence warning is expressly CI-red but
    nonblocking for fix publication (tools/ceremony-check and ceremonies.md).
    Do not claim completed audit or green hosted CI. Two unpublished messages were
@@ -31,7 +32,7 @@ Owner01 failed beforeboot on an older helper; preserved/consumed failed separate
    at feature/m7-pre-citation-20261015. New9aaaaa/d3dc8276 trees equal originals.
 2. dolphin_ra_init returned sealed source-only minimal engineering runner derivative at
    /tmp/pix-m7-next-engineering-plan-20261015 and durable
-   docs/qa-logs/2026-10-15-next-engineering-plan/. Seal253760ee3947fc33c90c96dd1f29132a041b6c93a1d493c3f0f32dd502524d4a. Root owns final source binding, new clean build/* checkout,
+   docs/qa-logs/2026-10-15-next-engineering-plan/. Sealfdb0838e3353f67a60bb92c691d811c8901f06261ddfebce4c0fa7b7af92741b. Root owns final source binding, new clean build/* checkout,
    cache custody/preflight/admission/runtime. Expected checkoutm7-p5-build-20261015-01.
    Retain published-source guard; existing canonical3stages cleanDolphin/buildDolphin/image.
    Qualified helpers unchanged, only current product delta. Full audit closure is
