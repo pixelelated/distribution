@@ -1,10 +1,32 @@
 # Saved Session State
 
-Updated 2026-10-15 08:20 UTC. Continue authorized M7 toward next 0.0.1 RC.
-Coordinator m7-player-setup / feature/m7-final-qualification; publisheda57b001491.
+Updated 2026-10-15 08:36 UTC. Continue authorized M7 toward next 0.0.1 RC.
+Coordinator m7-player-setup / feature/m7-final-qualification-02; publisheda57b001491, local8f9a7ffe.
 Accepted H700/VM sourcef863 / ES16dbac unchanged. New SM05 source9aa7 corrects
 only the ABL checksum. Root sole runtime allocator; SM main build ACTIVE.
 Saving is not a pause. No new physical/cloud operation or release approval.
+
+## Latest 2026-10-15 08:36 UTC — SM dependency compilation and record integration
+
+Main SM081827Z-07dceee9 remains active at733/737; corrected ABL installation
+passed, private Nix GCC dependency compilation remains active. Same owner/PIDs
+and ordinary admission as08:20; keep supervising <=60s. No acceptance or VM yet.
+Current locale parser diagnostics match completed H700/GENERIC lines exactly
+after path normalization; source-only review preserves the distinction from
+French optional-field warnings. No new regression or build restart selected.
+
+Root verified75 archive members for closed589/591/577 and notice-followup;
+all54 references for finite581/582 reconciliation rehashed. Canonical Dolphin
+paragraph now distinguishes old recording-engine frames from later installed/
+retained/native proof. Closure proposals peer-reviewed; actualtracker close
+not yet performed. Steam artifact bridge source is being prepared, not run.
+
+Record commit48a81dea was published only to originalfeature then correctly
+refused by next's missing-issue-citation guard. Original public graph retained.
+Identical-tree corrected8f9a7ffe on newfeature/m7-final-qualification-02 replaces
+only unpublished localnext metadata; no public history rewrite. Current normal
+issue coverage passes404 commits. Next publish includes the narrow flow/record
+follow-up; do not merge the oldfeature's uncited commit back into next.
 
 ## Latest 2026-10-15 08:20 UTC — SM compiler active; three issue closures
 
