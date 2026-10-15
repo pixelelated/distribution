@@ -1,0 +1,46 @@
+{
+  "utc": "2026-10-15T04:17:24.345617+00:00",
+  "status": "ACTUAL_REPORTING_FAILURE_CONSUMPTION_VERIFIED; NOT_BUILD_QUALIFICATION",
+  "consumed_sha256": "d564b1dc2207893c31a45408be548538a7d583f52ab17870c24ef9b4afbcfb17",
+  "recovery_tool_commit": "26d2f6abce201692a8f0e4de851780129e483756",
+  "recovery_tool_sha256": "8923610caf6a8a1b32775bc1a7e3f67d5e5d5b7468955b35fd40d07da2e2047d",
+  "original_result": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-15T04:00:59.404562+00:00"
+  },
+  "original_launcher_returncode": null,
+  "qualification": false,
+  "completion_disposition": "failed-investigated/reporting-failure",
+  "outputs_held": true,
+  "deleted_bytes": 0,
+  "all49_failure_originals_unchanged": true,
+  "pre_recovery_archive_originals_rehashed_bytes_modes": 52,
+  "old_admission_source_preserved_in_prior_archive": "The additional source/build-admission original is historical code. Authorized coordinator tool update is separate; frozen producer originals remain unchanged.",
+  "collision_identity_unchanged": true,
+  "launcher_result_still_absent": true,
+  "receipt_absence_sets_match_original_identities": true,
+  "recorded_pids_independently_absent": [
+    3046367,
+    3046368,
+    3046369,
+    3046423,
+    3050233,
+    3050580,
+    3064558,
+    3079184
+  ],
+  "container_absence_scope": "Actual recovery receipt records successful container-ID census; auditor did not independently query Docker.",
+  "root_original_exec_observation": {
+    "chunk_id": "4b9b81",
+    "exit_code": 0,
+    "attribution": "root report; auditor independently verifies actual produced receipt, not a direct tool wait"
+  },
+  "artifact_reader": "root reports owner pix-m7-image-readback-20261015-02 submitted; no completion evidence reviewed",
+  "archive_sha256": "dd2906aae949e32193702f2fb8660b332179b22077eb72987daa8a5cf62397cc",
+  "archive_bytes": 5777,
+  "all_archive_member_bytes_modes_verified": true,
+  "audit_complete": false,
+  "cadence_marker": false
+}

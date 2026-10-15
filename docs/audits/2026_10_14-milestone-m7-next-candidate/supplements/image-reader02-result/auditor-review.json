@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "utc": "2026-10-15T04:22:52.636429+00:00",
+  "scope": "independent compact original/source/receipt readback; no firmware reread or fixture execution",
+  "status": "accepted artifact-integrity readback only",
+  "source": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+  "es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+  "original_reader_outcomes": {
+    "launcher": 0,
+    "command": 0,
+    "monitor": 0,
+    "runner": 0
+  },
+  "reader_consumed_sha256": "4a08d302b58d638408a7e26524a5cc99482c860252c9dd9e620f59425a1e3967",
+  "reader_result_sha256": "3d3b85724062a6db2f7bddc5dd62aeb1366f0f6182f267a7b0e6131322c0649c",
+  "reader_inputs_sha256": "7c3f497b08f494d15a233ae99be05e61af1656aec173120b00b41dd0266e2728",
+  "build_closeout": {
+    "completion_disposition": "failed-investigated/reporting-failure",
+    "qualification": false,
+    "original_launcher_returncode": null,
+    "original_result": {
+      "command_rc": 0,
+      "monitor_rc": 0,
+      "runner_rc": 0,
+      "utc": "2026-10-15T04:00:59.404562+00:00"
+    },
+    "launcher_reporting_failure": {
+      "conflicting_receipt_used_as_launcher_result": false,
+      "evidence_path": "/workspace/tmp/pix-m7-launcher-recovery-20261015-01/launcher-failure-evidence.json",
+      "evidence_sha256": "20ec69891a76207467412e15d7536e4d7bb20c1d189faeea1f4cf2bf69cd80cc",
+      "launcher_source_sha256": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e",
+      "reason": "exclusive-wrapper-receipt-collision"
+    },
+    "recovery_absence": {
+      "container_ids": [
+        "596cbd4fac7f2e945ec8f87d790e37b1fe09ca50e850aaf08f6c6eb7e049cbc1",
+        "6b5f8ad6f473fa78aaf1d898ae9af194c3cd7eedae1bf5a8bd47c4b97315d7f4",
+        "6e8ba889c88d66f8101cb045eef8c134d99c2ede87887dc53590974d3eb1ca85",
+        "8a3f7b1115e311ed8d9340eaeceedcd2f1a9346441fae8875839416dd44eebf0"
+      ],
+      "groups_and_sessions": [
+        3046367,
+        3046369,
+        3046423,
+        3050233,
+        3050580,
+        3064558,
+        3079184
+      ],
+      "pid_namespace": 4026531836,
+      "pids": [
+        3046367,
+        3046368,
+        3046369,
+        3046423,
+        3050233,
+        3050580,
+        3064558,
+        3079184
+      ],
+      "scope": "recorded PID/parent/group/session and successful container-ID census; no root-FD claim",
+      "utc": "2026-10-15T04:15:38.279425+00:00"
+    },
+    "recovery_tool_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/host-maintenance/build-admission",
+    "recovery_tool_sha256": "8923610caf6a8a1b32775bc1a7e3f67d5e5d5b7468955b35fd40d07da2e2047d",
+    "admission_id": "e8ed7da80b97410086485381fb175702",
+    "admission_consumed_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T035405Z-403ed573/admission-consumed.json",
+    "admission_consumed_sha256": "d564b1dc2207893c31a45408be548538a7d583f52ab17870c24ef9b4afbcfb17",
+    "limitations": [
+      "Artifact-integrity PASS does not qualify the build submission.",
+      "Launcher completion reporting failed; original final wait status is unavailable.",
+      "The conflicting root-written zero receipt is not an original launcher result."
+    ]
+  },
+  "product_rows": 109,
+  "independently_git_mapped_paths": [
+    "usr/bin/cloud_oauth",
+    "usr/bin/raofflineproxy-ctl",
+    "usr/bin/runemu.sh",
+    "usr/bin/wifictl",
+    "usr/bin/start_dolphin_gc.sh",
+    "usr/bin/start_dolphin_wii.sh",
+    "usr/bin/cheevos_dolphin.sh",
+    "usr/bin/dolphin-save-paths"
+  ],
+  "six_sys_resource_rows_and_aliases_equal": true,
+  "absent_recorded_pids": [
+    3297984,
+    3297985,
+    3297986,
+    3301960,
+    3301961,
+    3301962,
+    3302016
+  ],
+  "prior_attempt": {
+    "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T041615Z-0203ce36",
+    "command": 125,
+    "monitor": 0,
+    "runner": 125,
+    "launcher": 125,
+    "run_admission_and_command_pid_absent": true,
+    "no_artifacts_or_reservation_at_failure": "root original pre-admission-refusal record; historical absence not inferred from later artifacts"
+  },
+  "review_miss": "Sealed reader README lines47-48 incorrectly advised new coordinator admission tool for ordinary frozen-run allocation. Auditor source/AST review missed this execution advice. Only reporting recovery uses new coordinator tool; ordinary prepare/consume must use exact frozen runner tool. Original packet and refused attempt remain unchanged.",
+  "archive": {
+    "path": "supplements/image-reader02-result/compact-originals.tar.gz",
+    "bytes": 43179,
+    "sha256": "958c94b4f0d182883dcc9998cddf8996aa7396208bd7477846c03b24932e5904",
+    "members": 60
+  },
+  "audit_complete": false,
+  "remaining": "Final affected clean/retained and native-state qualification."
+}

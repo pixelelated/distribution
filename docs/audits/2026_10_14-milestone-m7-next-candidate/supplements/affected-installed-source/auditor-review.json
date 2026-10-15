@@ -1,0 +1,79 @@
+{
+  "utc": "2026-10-15T03:57:04.127499+00:00",
+  "status": "revision02 SOURCE_REVIEWED_READY; future actual-artifact binding and root allocation required",
+  "archives": [
+    {
+      "source": "/tmp/pix-m7-affected-installed-continuation-20261015",
+      "seal_sha256": "f665dcd087f778d64bac7c9ebf8254a6c7ffdf1c10ecc9a8711b72e04b92c4ef",
+      "archive": "supplements/affected-installed-source/revision01.tar.gz",
+      "archive_bytes": 145349,
+      "archive_sha256": "76e3baede3b7944c5f2a5325db84e1d0acc1a1789cd08f0f8e743a1c4daabc5f",
+      "all_original_bytes_modes_verified": true,
+      "files_including_manifest": 57,
+      "runtime": "UNRUN",
+      "outer_manifest_membership_note": "The original outer SHA256SUMS lists55 payloads and omits nested originals/back-reopen/SHA256SUMS. That omitted original is independently bound by the sealed original-locators.json and matches actual prior bb468398 seal. The lossless57-member archive includes all55 listed payloads, outer manifest, and this independently verified nested original manifest. Revision02 outer manifest includes all67 payloads."
+    },
+    {
+      "source": "/tmp/pix-m7-affected-installed-continuation-20261015-02",
+      "seal_sha256": "668755cb2259e2fa3d3573870ff9cbed1362a0e346b237b551936e01f5eef675",
+      "archive": "supplements/affected-installed-source/revision02.tar.gz",
+      "archive_bytes": 169014,
+      "archive_sha256": "b266fdbb556122f6342edf4eabae0412f945705d5522e29909acde5a0dd7f482",
+      "all_original_bytes_modes_verified": true,
+      "files_including_manifest": 68,
+      "runtime": "UNRUN"
+    }
+  ],
+  "review_miss": "Auditor initially reported revision01 READY after verifying raw source pins but failed to trace package post_install substitutions. Root caught the installed-equals-raw validator error before preparer or runtime execution. The earlier readiness judgment was incorrect and is superseded; no product failure or runtime result is inferred.",
+  "old_invalid_guard": "prepare_affected.py:27 required installed GC/Wii hash == raw source hash",
+  "verified_recipe": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk:44 and :105",
+  "recipe_sha256": "cc4e7458e99329518b30b7f78aa38e149d083427f3c8b7e22d7f5e1090d2479b",
+  "verifier_sha256": "3c0806f560643bb4ad4f21ebada9e975a83d068117b6e17e9580e8509471cf4b",
+  "replacement_ast_identical_to_verifier": true,
+  "revision02_diff_sha256": "aa49dc55dbac10ec4f3c82107fa1b5063ab319d21873897cc1059146543eae4b",
+  "runtime_files_byte_identical_between_revisions": true,
+  "initial_review_checks": {
+    "sealed_payloads": 55,
+    "actual_predecessor_source_identities": 21,
+    "actual_original_evidence_identities": 4,
+    "unchanged_files": 9,
+    "critical_probe_functions": 7,
+    "extracted_guest_helper_functions": 6,
+    "python_ast_files": 39
+  },
+  "revision02_payloads": 67,
+  "derived_expected_installed": [
+    {
+      "name": "cheevos_dolphin.sh",
+      "raw_source_sha256": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a",
+      "raw_source_bytes": 5106,
+      "derived_expected_installed_sha256": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a",
+      "derived_expected_installed_bytes": 5106,
+      "installation_transform": "identity",
+      "actual_installed_result": "UNRUN: future actual verifier required"
+    },
+    {
+      "name": "start_dolphin_gc.sh",
+      "raw_source_sha256": "b5e7afb8f3952f8082d4f39c70cffb9e5ccbd7a265cc6c28f1e96aefbb31c568",
+      "raw_source_bytes": 18512,
+      "derived_expected_installed_sha256": "dd2cb0589612e80f7b47c9f5f3fdb8aff1cc374746ca311ac63e5dd6148310c3",
+      "derived_expected_installed_bytes": 18515,
+      "installation_transform": "GENERIC_X64 three exact replacements",
+      "actual_installed_result": "UNRUN: future actual verifier required"
+    },
+    {
+      "name": "start_dolphin_wii.sh",
+      "raw_source_sha256": "8843d7358f948add1c53851cef2cfb2da2cd93141ad14784c46252bffbada3d7",
+      "raw_source_bytes": 16933,
+      "derived_expected_installed_sha256": "08fccbde313d09cc05a4d86edd042d37dec93c8c8c927614ed3a0afa6ab6db7c",
+      "derived_expected_installed_bytes": 16936,
+      "installation_transform": "GENERIC_X64 three exact replacements",
+      "actual_installed_result": "UNRUN: future actual verifier required"
+    }
+  ],
+  "scope": "Clean/retained original composition gates followed by four installed helper/caller-block chroot transitions and actual installed ES Back/reopen/normal-exit. Synthetic backend and synthetic preserved profiles/queue/saves only; no native Dolphin request, gameplay, broad matrix or image acceptance claim.",
+  "learning": "During source-to-installed derivative review, follow the exact package installation transforms and compare with the existing artifact verifier before approving hash guards. Raw source identity and installed-byte identity are separate checks. Reuse the qualified transform; do not weaken either check.",
+  "audit_complete": false,
+  "cadence_marker": false,
+  "auditor_runtime_cache_or_external_activity": false
+}

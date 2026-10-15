@@ -1,0 +1,112 @@
+{
+  "utc": "2026-10-15T04:05:45.546432+00:00",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T035405Z-403ed573",
+  "owner": "/workspace/tmp/pix-m7-engineering-build-20261015-02",
+  "admission_id": "e8ed7da80b97410086485381fb175702",
+  "source": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+  "archive_bytes": 166588,
+  "archive_sha256": "7ea8daf764694e24105e51d0ba924694f9c6996e267df8571c00911c72762351",
+  "archive_members": 53,
+  "all_original_bytes_modes_verified": true,
+  "launcher_result_exists": false,
+  "original_launcher_returncode": null,
+  "observed_launcher_reporting_failure": "exclusive tool-wrapper.rc creation raised FileExistsError after subprocess.run returned",
+  "source_inferred_exit_code": 2,
+  "source_inference_is_original_wait_status": false,
+  "colliding_file_authority": "Root acknowledges this0 was written from submitting exec_command chunk5b9618, not launcher completion; it cannot count as original launcher status.",
+  "runner_original": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-15T04:00:59.404562+00:00"
+  },
+  "pid_observations": [
+    {
+      "role": "launcher",
+      "pid": 3046367,
+      "start_ticks": "112812992",
+      "actual_proc_absent": true
+    },
+    {
+      "role": "owner",
+      "pid": 3046423,
+      "start_ticks": "112813007",
+      "actual_proc_absent": true
+    },
+    {
+      "role": "build.pid",
+      "pid": 3046368,
+      "actual_proc_absent": true
+    },
+    {
+      "role": "command.pid",
+      "pid": 3046423,
+      "actual_proc_absent": true
+    },
+    {
+      "role": "watcher.pid",
+      "pid": 3046369,
+      "actual_proc_absent": true
+    },
+    {
+      "role": "build.status.pid",
+      "pid": 3046369,
+      "actual_proc_absent": true
+    }
+  ],
+  "stage_observations": [
+    {
+      "stage": "clean-dolphin-sa",
+      "host_original_rc": 0,
+      "inner_original_rc": 0,
+      "inner_wrapper_rc": 0,
+      "handshake_nonce_and_cid_equal": true,
+      "signals": [],
+      "host_pid": 3050233,
+      "host_pid_actual_absent": true,
+      "container_id": "596cbd4fac7f2e945ec8f87d790e37b1fe09ca50e850aaf08f6c6eb7e049cbc1",
+      "current_container_absence": "root reports gone; auditor did not query service; fresh independent verifier check required"
+    },
+    {
+      "stage": "build-dolphin-sa",
+      "host_original_rc": 0,
+      "inner_original_rc": 0,
+      "inner_wrapper_rc": 0,
+      "handshake_nonce_and_cid_equal": true,
+      "signals": [],
+      "host_pid": 3050580,
+      "host_pid_actual_absent": true,
+      "container_id": "6b5f8ad6f473fa78aaf1d898ae9af194c3cd7eedae1bf5a8bd47c4b97315d7f4",
+      "current_container_absence": "root reports gone; auditor did not query service; fresh independent verifier check required"
+    },
+    {
+      "stage": "build-emulationstation",
+      "host_original_rc": 0,
+      "inner_original_rc": 0,
+      "inner_wrapper_rc": 0,
+      "handshake_nonce_and_cid_equal": true,
+      "signals": [],
+      "host_pid": 3064558,
+      "host_pid_actual_absent": true,
+      "container_id": "6e8ba889c88d66f8101cb045eef8c134d99c2ede87887dc53590974d3eb1ca85",
+      "current_container_absence": "root reports gone; auditor did not query service; fresh independent verifier check required"
+    },
+    {
+      "stage": "image",
+      "host_original_rc": 0,
+      "inner_original_rc": 0,
+      "inner_wrapper_rc": 0,
+      "handshake_nonce_and_cid_equal": true,
+      "signals": [],
+      "host_pid": 3079184,
+      "host_pid_actual_absent": true,
+      "container_id": "8a3f7b1115e311ed8d9340eaeceedcd2f1a9346441fae8875839416dd44eebf0",
+      "current_container_absence": "root reports gone; auditor did not query service; fresh independent verifier check required"
+    }
+  ],
+  "artifact_readback": "UNRUN",
+  "admission_consumption": "blocked by ordinary consume; no mutation performed",
+  "recommendation": "explicit nonqualifying reporting-failure consumption route, followed by separately scoped artifact verifier; preserve all originals and output custody",
+  "audit_complete": false,
+  "cadence_marker": false
+}

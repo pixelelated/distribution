@@ -197,3 +197,39 @@ Fresh git log/branch/ref readback confirms published ES16dbac and distribution34
 ## 2026-10-15T03:44:09.736770+00:00 — Interim02 directory released for one root publication
 
 All six punch outcomes source/runtime-bound; local resolution lint0. Update04 prepared22876bytes/29113a48fdced8a4e5906e1da62161dca27c0cb191589eef65f6e6c4e9e96f63, with frozen score and original failed controls footer preserved. Overall auditcomplete false pending final integrated-image/native-state qualification. Fresh full manifest/seal produced; historical interim01 unchanged. Auditor freezes all writes for root commit/push and resumes only after root confirmation. No runtime, external write or cadence marker.
+
+
+## 2026-10-15T03:57:04.127499+00:00 — Checkpoint02 publication and installed-validator review correction
+
+Root returned audit write ownership after publishing feature cdf6643cfc and next integration f8636de1, independently confirmed identical full tree3174c775. Original public feature history and both historical interim seals remain unchanged. Update04 live body is independently byte-exact at22,876bytes/29113a48; receipt retained. All six punch outcomes remain resolved, frozen80/16/16/3/0 unchanged; final integrated-image/native-state qualification still pending.
+
+Source-only affected packet f665dcd0 was initially reported ready, but root caught its raw-source-equals-installed launcher assertion before execution. Auditor independently traced the unchanged three-token package transform and acknowledged the review miss. Additive668755cb retains exact source/recipe checks and the existing verifier transform; all67 payloads verified, runtime files unchanged. Both unrun source packets preserved losslessly. Learning and exact derived hash expectations are in affected-installed-source-review.md. No auditor runtime, cache, external action, or completion marker.
+
+
+## 2026-10-15T04:05:45.546432+00:00 — Independent launcher-collision recovery analysis
+
+Root reports premature submission-status write into producer-owned tool-wrapper.rc; exact launcher/console confirms exclusive-create failure after runner returned. All original four stages/runner channels0 are independently read, but launcher wait status remains unknown and its completion receipt absent. Original collision file is not launcher success. Original consume and formal verifier correctly block. Proposed explicit nonqualifying reporting-failure consumption under existing registry lock, followed by separately scoped artifact verification; no tool, registry, producer or receipt changed. Original proof copied losslessly; see build-launcher-collision-review.md. No runtime/cache/service/external action or completion claim.
+
+
+## 2026-10-15T04:15:21.795500+00:00 — #597 explicit recovery source and isolated controls reviewed
+
+Final tool8923610c/teste626dd3d/docs1a4c127c independently reviewed, ordinary consume byte-identical. Original68-PASS test output/empty stderr and source-worker tool observation exit0 verified; no production recovery executed by auditor. Sealed verifier51abff1b/9838ffab exact18payloads and limited AST delta verified. Nonqualified reporting failure, null original launcher wait and separate recovery tool identity retained in both consumption/verifier contracts. Source/evidence archive verified losslessly. Root owns actual recovery/readback; no auditcompletion or cadence marker.
+
+
+## 2026-10-15T04:17:24.345617+00:00 — Actual reporting-failure consumption independently verified
+
+Consumed receiptd564b1dc binds original admissione8ed7da8, failure20ec6989 and committed recoverytool8923610c. Original launcher wait staysnull, qualificationfalse, original runner0 unchanged, outputs held/deleted0. Rehashed49 failure originals and52 archived producer/run members; missing launcher receipt/collision identity preserved. Root-only artifact reader submitted, completion unreviewed. No auditor registry/runtime/service/cache action or clean audit claim.
+
+
+## 2026-10-15T04:22:52.636429+00:00 — Artifact reader accepted within scope; first refusal retained
+
+Actual reader run041715Z-2a16d693 has original launcher/command/monitor/runner0 and consumed admission8a98fa71. Auditor rehashed result3d3b8572 and inputs7c3f497b, verified exact sourcef863/ES16dbac, all109 product records, eight source mappings (including both package-transformed launchers), six Sys resource hashes/modes/aliases and the reviewed verifier9838ffab. All four recorded reader PIDs are independently absent. Compact originals/source/receipts are retained losslessly under supplements/image-reader02-result/; no firmware was copied or decompressed again by the auditor. This accepts the completed original artifact-integrity evidence, not runtime qualification. Both actual inputs/result retain build submission qualificationfalse, launcher returncodenull and the reporting-failure limitations.
+
+The first reader run041615Z-0203ce36 remains original125 (monitor0), with `admission schema/tool changed` and no run admission or command PID. The sealed README incorrectly advised the new coordinator admission tool for ordinary frozen-run allocation; the auditor's earlier source/AST review missed that execution advice. The new coordinator tool is solely for the dedicated reporting recovery. Ordinary preparation and consumption must use the exact frozen runner tool. The fresh frozen-tool receipt and separate reader-launcher owner corrected allocation without changing the sealed verifier or original refusal. Historical empty-artifact/no-reservation statements are attributed to root's original refusal record. Root's harmless wrong registry basename read is preserved there too.
+
+All six punch outcomes remain resolved. Overall audit completion stays false pending final affected clean/retained and native-state proof; no cadence or release-candidate claim.
+
+
+## 2026-10-15T04:23:27.635474+00:00 — Interim03 recovery/artifact checkpoint released
+
+Actual reporting-failure recovery and completed artifact-reader originals are independently reviewed and retained. Reader first refusal125 and wrong sealed README advice remain explicit; final reader all original channels0, sourcef863/ES16dbac, result3d3b8572 and inputs7c3f497b. Original build launcher wait remains null and build submission nonqualified. Local resolution lint passed (tool chunk0a63b8, original exit0). All six punch outcomes resolved; frozen criterion score80/16/16/3/0 unchanged. Audit completion and cadence marker remain false pending final affected clean/retained and native-state evidence. Root has requested this one-commit checkpoint; all audit-directory writes are now frozen until ownership is explicitly returned.

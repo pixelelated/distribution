@@ -47,3 +47,20 @@ Candidate-only Wi-Fi Back/reopen packetbb468398 source-reviewed and originals re
 ### Interim02 freeze
 
 All six local punch outcomes are resolved after exact source/pin and original proof readback. Overall audit completion remains false pending final integrated-image/native-state qualification; no cadence marker or RC approval. Update04 is prepared for root and retains frozen score80/16/16/3/0 and original controls01 failure footer. Local resolution lint passes without a network issue lookup. Live tracker readback follows root publication. This directory is frozen for one root commit/push; writes resume only after root confirmation. Historical interim01 manifest/seal stay unchanged.
+
+
+### After checkpoint02 publication
+
+Root returned audit write ownership after publishing cdf6643cfc and the identical full-tree next integration f8636de1. Historical interim02 manifest/seal bind that committed snapshot; later additions do not rewrite them. Update04 live body is now independently verified; see phase6-update04-live-readback.json and phase7-post-checkpoint02-publication.json. All six punch outcomes remain resolved. Final integrated-image/native-state qualification and overall audit completion remain pending.
+
+The source-only installed continuation required one pre-execution correction: the initial validator incorrectly equated raw launcher sources with package-transformed installed bytes. Root caught it; auditor records the missed transform and verified additive668755cb. Both originals and exact scopes are retained in affected-installed-source-review.md. No fixture or preparer was executed by the auditor.
+
+
+### Final engineering artifact identity
+
+Completed original reader041715Z-2a16d693 is accepted for artifact integrity after independent compact original/source/receipt readback. Exactf863/ES16dbac,109 product records, eight source mappings and six Sys resources are bound. Build reporting failure and null original launcher wait remain explicit in the actual result and inputs. Initial reader125 refusal and the missed README tool-selection advice remain preserved; see build-launcher-collision-review.md. Final affected clean/retained and native-state runtime qualification remain pending.
+
+
+### Interim03 freeze
+
+Root requested a coherent recovery/artifact checkpoint after the compact reader retention completed. Fresh interim03 manifest/seal cover current bytes/modes while historical interim01/02 seals remain unchanged. All six findings remain resolved, but final affected clean/retained and native-state evidence has not yet been independently accepted in this audit. Audit completion remains false. Audit writes are released for one root commit/push and resume only after root confirmation.

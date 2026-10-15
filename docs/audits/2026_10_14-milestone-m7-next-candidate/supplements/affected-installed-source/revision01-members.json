@@ -1,0 +1,344 @@
+[
+  {
+    "path": "README.md",
+    "bytes": 11699,
+    "mode": 436,
+    "sha256": "206d213dc2f004992999fbcfcfcc849aa8c8ddd7526cb2c5eec2475502cc6102"
+  },
+  {
+    "path": "SHA256SUMS",
+    "bytes": 4992,
+    "mode": 436,
+    "sha256": "f665dcd087f778d64bac7c9ebf8254a6c7ffdf1c10ecc9a8711b72e04b92c4ef"
+  },
+  {
+    "path": "affected/fixtures/probe.py",
+    "bytes": 29501,
+    "mode": 436,
+    "sha256": "c082b75cf88f7f1b578825fd1fca0ff4ff17bba96947402f1015121c57efdd8e"
+  },
+  {
+    "path": "affected/guest-affected.py",
+    "bytes": 13547,
+    "mode": 436,
+    "sha256": "32741d829b48eb27b5552897ad41b90b154db4e6e4f8f83d7c87e69659c94ecb"
+  },
+  {
+    "path": "affected/guest-wifi-observer.py",
+    "bytes": 13136,
+    "mode": 436,
+    "sha256": "f895b41eabc7f22d764b0ba1856ef5c873eb71c2b8d2dafd3c50fe14aa9636e3"
+  },
+  {
+    "path": "affected/guest_helpers.py",
+    "bytes": 2199,
+    "mode": 436,
+    "sha256": "89a1c39a8b88e87ad4561014d0f32e5371787fe1a5aacf7b5147d6d42a99b9aa"
+  },
+  {
+    "path": "affected/source/launcher-gc.after.snippet",
+    "bytes": 237,
+    "mode": 436,
+    "sha256": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403"
+  },
+  {
+    "path": "affected/source/launcher-wii.after.snippet",
+    "bytes": 237,
+    "mode": 436,
+    "sha256": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403"
+  },
+  {
+    "path": "affected/source/wifictl",
+    "bytes": 464,
+    "mode": 436,
+    "sha256": "a4f81211023ccd7a2fdf7d02495cc8d6235940337bec5453b97ec2df8aa050ba"
+  },
+  {
+    "path": "affected/wifi-owner.py",
+    "bytes": 1549,
+    "mode": 436,
+    "sha256": "489337cd093a73403f34940007adcab8cbf197c3025fa94ffbddae9d0437120c"
+  },
+  {
+    "path": "capture-back.py",
+    "bytes": 3807,
+    "mode": 436,
+    "sha256": "03f0f4f63ece3743c896288fac86e55f93b8a4439d2ab7fe4432bbbd1d165cc6"
+  },
+  {
+    "path": "changes.diff",
+    "bytes": 60919,
+    "mode": 436,
+    "sha256": "28ef6bd383d02686ec5bcf6bb69969aca2f5622d050f9af7951f7eddc1d9ae23"
+  },
+  {
+    "path": "clean-tool-bindings.json",
+    "bytes": 434,
+    "mode": 436,
+    "sha256": "6d822df9e4b10b5bbfd8ab977f6947b3afb02c031093d7c7f04371745b08e109"
+  },
+  {
+    "path": "evidence/acceptance.json",
+    "bytes": 2810,
+    "mode": 436,
+    "sha256": "f644bf7e0f2f405df7f2a6be4a673e53f78527bc4abfd3fd7b3a97b90f0a83b7"
+  },
+  {
+    "path": "evidence/admission-consumed.json",
+    "bytes": 2016,
+    "mode": 436,
+    "sha256": "258da2f6593fed4360e28ad4b48bb44c81870d0b29319efa1fd32acadd546fe2"
+  },
+  {
+    "path": "evidence/audit-back-timing.json",
+    "bytes": 2024,
+    "mode": 436,
+    "sha256": "b1f03122550ff55da765d986510ef9dc1c69f0019809ac450209fe215d4e6dcb"
+  },
+  {
+    "path": "evidence/original-locators.json",
+    "bytes": 929,
+    "mode": 436,
+    "sha256": "4924c56efa775ed942a4c09093516dcb750a6e6b2d342f1c024d0f7a8c58738a"
+  },
+  {
+    "path": "evidence/root-review.json",
+    "bytes": 667,
+    "mode": 436,
+    "sha256": "60b47d050be4d6071ed758092d7024cad25e15381e008418d6f789a48cf7663e"
+  },
+  {
+    "path": "frame-plan.md",
+    "bytes": 5088,
+    "mode": 436,
+    "sha256": "c019a645316ebb938d4a8b776b803ba363ee44b8c335c84cf765234c45e5c629"
+  },
+  {
+    "path": "fresh/census.py",
+    "bytes": 2865,
+    "mode": 436,
+    "sha256": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2"
+  },
+  {
+    "path": "fresh/close.py",
+    "bytes": 6568,
+    "mode": 436,
+    "sha256": "6b6b01dad41c7577bdf741a666f8fd3e7765ca6b0a32b792e5c3b91fef2111b1"
+  },
+  {
+    "path": "fresh/guest.py",
+    "bytes": 7667,
+    "mode": 436,
+    "sha256": "ddb1b09066601ee9606c4a2bf888e06bba6c7200f02b55b9f0f1344424620544"
+  },
+  {
+    "path": "fresh/prepare.py",
+    "bytes": 5947,
+    "mode": 436,
+    "sha256": "be101e2c7de626297a3bf7d3960f0af52581e239d74aa43830eaa7a576c553d2"
+  },
+  {
+    "path": "fresh/vm-lifecycle.py",
+    "bytes": 17042,
+    "mode": 436,
+    "sha256": "833b0e8be27e70556a5b9fdb407aac01f9ec355ca628276a0dc04de285394bc9"
+  },
+  {
+    "path": "handoff.py",
+    "bytes": 5088,
+    "mode": 436,
+    "sha256": "9cb805550b3560b7252e1f25ef6f1cd78463bc570a9b76800d3c3c4abf355e88"
+  },
+  {
+    "path": "host-affected.py",
+    "bytes": 9507,
+    "mode": 436,
+    "sha256": "5bf27330da2630375c166f79ffc3bb78e9aedd8bc2971c3c8e980be4f39558e8"
+  },
+  {
+    "path": "original-locators.json",
+    "bytes": 4126,
+    "mode": 436,
+    "sha256": "7bae9632f414a90979ba9aad174fae88cd258ed685ea77ebd7d1482e363b2053"
+  },
+  {
+    "path": "originals/back-reopen/SHA256SUMS",
+    "bytes": 2924,
+    "mode": 436,
+    "sha256": "bb4683989e5cfb5dd3585c97856388f3d5773de4501c52dd951139462a0a394f"
+  },
+  {
+    "path": "originals/back-reopen/capture-back.py",
+    "bytes": 3807,
+    "mode": 436,
+    "sha256": "03f0f4f63ece3743c896288fac86e55f93b8a4439d2ab7fe4432bbbd1d165cc6"
+  },
+  {
+    "path": "originals/back-reopen/host-audit.py",
+    "bytes": 10066,
+    "mode": 436,
+    "sha256": "46f1996a48dc2b7f11679f60b10bfe5e3f7a8e9c7098b0276a72d9a61ee3e7e2"
+  },
+  {
+    "path": "originals/fresh/census.py",
+    "bytes": 2865,
+    "mode": 436,
+    "sha256": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2"
+  },
+  {
+    "path": "originals/fresh/close.py",
+    "bytes": 5690,
+    "mode": 436,
+    "sha256": "773c9085a822f59fb50b238f8117e6f297452e2c8ddd412db662278380e7abfd"
+  },
+  {
+    "path": "originals/fresh/guest.py",
+    "bytes": 7667,
+    "mode": 436,
+    "sha256": "ddb1b09066601ee9606c4a2bf888e06bba6c7200f02b55b9f0f1344424620544"
+  },
+  {
+    "path": "originals/fresh/prepare.py",
+    "bytes": 5798,
+    "mode": 436,
+    "sha256": "9b759164103c1a1f9720db4552c80fb2e1d97e9e6d6fd6085a1cbfe870342ce2"
+  },
+  {
+    "path": "originals/fresh/vm-lifecycle.py",
+    "bytes": 16607,
+    "mode": 436,
+    "sha256": "c5d7e7684ca6a0aed52edef84b13dd1367a3d2ab74dc95ef6ff465151b01b216"
+  },
+  {
+    "path": "originals/native-guest.py",
+    "bytes": 20459,
+    "mode": 436,
+    "sha256": "986f0a01a6f29dfcf40bb8394cd6a0491db52b510f931bfb1e036d7eaf03b35d"
+  },
+  {
+    "path": "originals/probe.py",
+    "bytes": 29776,
+    "mode": 436,
+    "sha256": "9b82d4ee556b3803dda405b62918d6e192ea9a9ca69f0c610e3a1e2faf402860"
+  },
+  {
+    "path": "originals/retained/census.py",
+    "bytes": 2865,
+    "mode": 436,
+    "sha256": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2"
+  },
+  {
+    "path": "originals/retained/close.py",
+    "bytes": 6012,
+    "mode": 436,
+    "sha256": "bdb63710a814eafa3fb839d3a3c8f31dadf434cc20e8130f2a7a8e035bc22fd8"
+  },
+  {
+    "path": "originals/retained/guest.py",
+    "bytes": 7874,
+    "mode": 436,
+    "sha256": "22c34e33ff209e3364f4d8535d3ff2615da4fefa191e4c72d4bacd3c5f1cd580"
+  },
+  {
+    "path": "originals/retained/prepare.py",
+    "bytes": 9246,
+    "mode": 436,
+    "sha256": "ffb489b06f605bfc8991b67f871ceeea7d9517c124fd4806d77cfc62ea4a1121"
+  },
+  {
+    "path": "originals/retained/state.py",
+    "bytes": 6514,
+    "mode": 436,
+    "sha256": "58a8ba1491c8d70ca09230e7ae10fa6d020d6007f3774d2de7b2513d90bc03f0"
+  },
+  {
+    "path": "originals/retained/vm-lifecycle.py",
+    "bytes": 20606,
+    "mode": 436,
+    "sha256": "1bb740bd925e7f4838928888ee31304c80268afb675a9cbc87b380a4a5d76e46"
+  },
+  {
+    "path": "originals/ui/guest-audit.py",
+    "bytes": 20525,
+    "mode": 436,
+    "sha256": "918b61571730e0d6a92c7d49e7546f03f25533ae2028fbf47020bd10f6d21cee"
+  },
+  {
+    "path": "originals/ui/guest-wifi-observer.py",
+    "bytes": 13136,
+    "mode": 436,
+    "sha256": "f895b41eabc7f22d764b0ba1856ef5c873eb71c2b8d2dafd3c50fe14aa9636e3"
+  },
+  {
+    "path": "originals/ui/host-audit.py",
+    "bytes": 8815,
+    "mode": 436,
+    "sha256": "c70de67ef40879d426a299081cd2bc9324e00a2f96ccb5ffa2cbe9e3a759c163"
+  },
+  {
+    "path": "originals/ui/source/wifictl",
+    "bytes": 464,
+    "mode": 436,
+    "sha256": "a4f81211023ccd7a2fdf7d02495cc8d6235940337bec5453b97ec2df8aa050ba"
+  },
+  {
+    "path": "originals/ui/wifi-owner.py",
+    "bytes": 1549,
+    "mode": 436,
+    "sha256": "489337cd093a73403f34940007adcab8cbf197c3025fa94ffbddae9d0437120c"
+  },
+  {
+    "path": "prepare_affected.py",
+    "bytes": 4013,
+    "mode": 436,
+    "sha256": "ce2164a266fc6c1bffccd34dcb5e551db534eb155915bf17a24eb26c300ec5cb"
+  },
+  {
+    "path": "retained/census.py",
+    "bytes": 2865,
+    "mode": 436,
+    "sha256": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2"
+  },
+  {
+    "path": "retained/close.py",
+    "bytes": 6890,
+    "mode": 436,
+    "sha256": "c17349fd7eaba0aa3a846439144331cdfe4504cf7aada5230adb438ecab1aba7"
+  },
+  {
+    "path": "retained/guest.py",
+    "bytes": 7874,
+    "mode": 436,
+    "sha256": "22c34e33ff209e3364f4d8535d3ff2615da4fefa191e4c72d4bacd3c5f1cd580"
+  },
+  {
+    "path": "retained/prepare.py",
+    "bytes": 9475,
+    "mode": 436,
+    "sha256": "bbefb1eacb6c1adf35adfb29a93c5fb155921abd9ca886bfc283e927831b84a2"
+  },
+  {
+    "path": "retained/state.py",
+    "bytes": 6514,
+    "mode": 436,
+    "sha256": "58a8ba1491c8d70ca09230e7ae10fa6d020d6007f3774d2de7b2513d90bc03f0"
+  },
+  {
+    "path": "retained/vm-lifecycle.py",
+    "bytes": 21041,
+    "mode": 436,
+    "sha256": "6af680d40a17761665a50ab3324477a2259b2fda0932283a5df828828c56d498"
+  },
+  {
+    "path": "source-bindings.json",
+    "bytes": 993,
+    "mode": 436,
+    "sha256": "2c3231a0c4e87115647f457e6294337beff6b311821c092b841d302ce34402ac"
+  },
+  {
+    "path": "static-review.json",
+    "bytes": 3528,
+    "mode": 436,
+    "sha256": "7e6bcf690c62fd160ee51ef3dabe4fb05d587587ab5ab1cd3cdd7bc10db94374"
+  }
+]

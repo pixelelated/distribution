@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-15T04:23:27.635474+00:00",
+  "manifest": "interim-checkpoint-03-manifest.json",
+  "manifest_bytes": 62304,
+  "manifest_sha256": "a140b4f9ad77ddd34b60d4833194f6d0d4e2e8f08ed7a2f0a147ac0355ac51d5",
+  "payload_files": 308,
+  "payload_bytes": 19769220,
+  "punch_outcomes_resolved": 6,
+  "punch_outcomes_open": 0,
+  "live_update04_body_sha256": "29113a48fdced8a4e5906e1da62161dca27c0cb191589eef65f6e6c4e9e96f63",
+  "reader_result_sha256": "3d3b85724062a6db2f7bddc5dd62aeb1366f0f6182f267a7b0e6131322c0649c",
+  "audit_complete": false,
+  "cadence_marker": false,
+  "pending": "Final affected clean/retained and native-state qualification",
+  "writes_frozen_for": "one coordinator commit/push; resume only after coordinator confirmation"
+}

@@ -1,0 +1,65 @@
+{
+  "utc": "2026-10-15T03:57:04.127499+00:00",
+  "root_live_publication_attestation": true,
+  "auditor_network_activity": false,
+  "commands": [
+    {
+      "cwd": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+      "argv": [
+        "git",
+        "show",
+        "-s",
+        "--format=%H %T %P",
+        "cdf6643cfc"
+      ],
+      "original_returncode": 0,
+      "stdout": "cdf6643cfcf7509f1ec24c90020792e1dbd445fd 3174c775604f197d6fbbc841b1932b44c943a3f0 342eec66e9fc510f6defc87de1131d300d2e804c\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+      "argv": [
+        "git",
+        "show",
+        "-s",
+        "--format=%H %T %P",
+        "f8636de1d105275dbf9420bbabbbc26f79abb10f"
+      ],
+      "original_returncode": 0,
+      "stdout": "f8636de1d105275dbf9420bbabbbc26f79abb10f 3174c775604f197d6fbbc841b1932b44c943a3f0 be71c43538e05e7d7621f243af8dbf4f4af51565\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD",
+        "refs/remotes/origin/next",
+        "refs/remotes/origin/feature/m7-player-setup"
+      ],
+      "original_returncode": 0,
+      "stdout": "1a520868ce21bf1b23f7d7c06a3fd6a414096d40\nf8636de1d105275dbf9420bbabbbc26f79abb10f\ncdf6643cfcf7509f1ec24c90020792e1dbd445fd\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+      "argv": [
+        "git",
+        "branch",
+        "--show-current"
+      ],
+      "original_returncode": 0,
+      "stdout": "feature/m7-final-qualification\n",
+      "stderr": ""
+    }
+  ],
+  "feature_checkpoint": "cdf6643cfcf7509f1ec24c90020792e1dbd445fd",
+  "next_integration": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+  "full_tree": "3174c775604f197d6fbbc841b1932b44c943a3f0",
+  "root_reported_integration_reason": "Next push guard rejected eight feature commits without issue citations; public feature history retained and identical full tree integrated by an issue-cited commit parented at be71c43538e05e7d7621f243af8dbf4f4af51565.",
+  "historical_manifests_unchanged": true,
+  "audit_write_ownership": "returned by root after checkpoint02 publication",
+  "audit_complete": false,
+  "cadence_marker": false
+}
