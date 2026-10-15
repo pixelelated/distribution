@@ -12,6 +12,12 @@
 #   tools/rc-preflight --allow-unchecked device-facts
 #   tools/rc-preflight --only proxy-schema   # quick, offline pin-note check
 #
+# D-WORKFLOW-168 (#344): owner-only engineering testing and public publication
+# have separate readiness lists. This tool retains the RC checks below; it
+# does not implement #528 source/notice publication delivery or authorize a
+# device action. Private handoff still requires its audit, applicable fixes,
+# artifact/VM qualification and preservation checks. No runtime bypass added.
+#
 # One verdict per item, printed and then summed:
 #
 #   packages       every package the fork introduces at its author's current

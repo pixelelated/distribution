@@ -18,8 +18,12 @@ physical deployments remain on bc9dfe8141; no new device result is inferred.
 
 The [flashing/recovery runbook](../device-flashing-runbook.md) and existing
 board-specific precautions remain applicable. A known recovery route is not a
-new recovery trial. Each current asset stays held until its applicable hardware
-and publication requirements are met. Prior deployment authority is consumed.
+new recovery trial. Public attachment remains held until applicable hardware and publication
+requirements are met. D-WORKFLOW-168 permits owner-only engineering testing after
+the audit, applicable fixes and artifact/VM qualification, with named device
+actions and preservation checks. Unfinished source/licence publication work and
+the website do not themselves block that private handoff. Prior deployment
+authority is consumed.
 
 [Release preparation](../releases/0.0.1-release-preparation.md) distinguishes
 release-source custody from deferred host infrastructure. Exact source/licence,

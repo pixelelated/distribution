@@ -127,6 +127,27 @@ evening on a person's device where a fix found before it costs a rebuild and
 a VM round. So the device sees a build only when nothing in flight is left to
 change it.
 
+## Private owner testing and public release
+
+D-WORKFLOW-168 (#344, 2026-10-15) separates owner-only engineering images from
+public-release completion. Complete the applicable independent audit (#603 for
+this cycle), fix its actionable findings and retain artifact/VM qualification
+before the authorized device handoff. Code/data-safety checks and preservation
+requirements remain binding. Keep the image's exact engineering identity and
+record actual physical observations; private use does not allocate a public RC.
+
+Website delivery and unfinished source/licence publication work do not block
+the owner's private testing/gameplay image. Track the exact unresolved components
+and source/notice/custody work in #528; finish those existing requirements before
+public publication. The owner may keep or discard an engineering version without
+ever releasing it. Do not turn a private test into a public tag, asset attachment
+or clearance claim. This refines the earlier blanket source-before-device queue;
+the audit-before-device order and named device-action permission remain.
+
+`tools/rc-preflight` retains its existing RC checks. It does not implement #528
+source-publication delivery and gains no bypass for code or data-safety findings.
+Use the live milestone's separate private-handoff and public-release lists.
+
 ## When the procedure changes
 
 This file, its register row and `tools/rc-preflight` change together, in one

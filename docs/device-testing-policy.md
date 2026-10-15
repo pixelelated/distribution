@@ -67,6 +67,13 @@ upgrade or delete a pending record while its old automatic consumers can
 reactivate. Host builds and synthetic qualification may proceed independently.
 The gate's completion does not replace named transfer/reboot authorization.
 
+D-WORKFLOW-168 separates private engineering handoff from public publication.
+The applicable audit, fixes, build/VM qualification and preservation checks
+precede owner-only testing. Website work stays separate. Unresolved #528
+source/licence publication work remains a public-release requirement; it does
+not itself block this private handoff. Keep exact engineering identity and actual device
+evidence. This distinction grants no staging, reboot, input, game or cloud action.
+
 ## How to ask
 
 One message, one question, before the action, naming: the device; what will happen on its

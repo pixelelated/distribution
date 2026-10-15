@@ -1,0 +1,23 @@
+{
+  "recorded_at": "2026-10-15T21:14:15.654552+00:00",
+  "authority": "Maintainer explicitly directs completion of the already-described #603 audit.",
+  "maintainer_quote": "The website doesn't have to be part of this. The 603 audit should definitely be done. If there's other work around applicable source license questions, I think we should also separate out what needs to be done now in the test image versus what can be completed later.",
+  "scope": "Existing two serial Fable 5.1/xhigh calls through the Facilitator via OpenRouter, using the frozen blind prompt and refutation base plus only the verified sanitized blind response up to 131072 bytes.",
+  "prompts": {
+    "claude-blind-brief.md": {
+      "bytes": 790371,
+      "sha256": "3da1c2290b787fc113a3bb5809ce11fd7acfe68b7bb717bc404d6203c9350345"
+    },
+    "claude-refutation-base.md": {
+      "bytes": 922168,
+      "sha256": "80450a6e6249f9b34e0a7cb6740dd268ea1b4bbbcc99b35077c0641e4d7ccdcc"
+    }
+  },
+  "exclusions": [
+    "No extra repository content",
+    "No provider configuration or credentials",
+    "No owner/device/cloud data",
+    "No images",
+    "No upstream contact authorization"
+  ]
+}

@@ -1,6 +1,6 @@
 # Saved Session State
 
-Updated 2026-10-15 21:08 UTC. Current engineering firmware and portable local
+Updated 2026-10-15 21:19 UTC. Current engineering firmware and portable local
 source/notice delivery are accepted in their recorded scopes. Release-note draft,
 security readback and dependency reconciliation are complete; no build, VM or
 copy is active. Infrastructure topology remains deferred under D-WORKFLOW-113/125;
@@ -11,7 +11,7 @@ release-source retrieval/backup remains a separate publication obligation.
 Coordinator `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
 `feature/m7-final-qualification-02`; primary `/workspace/repos/rocknix` stays on
 `next`. Harness checkout `conflict-resolution` stays untouched. Published evidence
-head before this record update is 3416cb404343735e4cecb4683560d847449f8a4a; read current Git/remote state
+head before this record update is 62c382f46732bd0b69782d23c3e5417bd02c2258; read current Git/remote state
 before assuming a later docs commit has landed. This record change retains
 accepted evidence and updates documentation only; inspect Git for publication state. Product source is
 077197e6cd3ea31f33b28aaf3882a694b3423b53, ES16dbac5211eea7e70db7394372033be2be7df829,
@@ -35,11 +35,23 @@ included-component publication requirement. #511 body and #528 comment6202275186
 are read back; the site plan now separates published-guide status from the
 October7 historical launch plan. Website delivery remains in its existing lane.
 
-The owner offers the H700 RG35XX SP for bench work. Its current engineering image
-has accepted artifact proof, but applicable source/audit work still precedes
-handoff. Existing #603 and source-contact approvals remain pending; do not repeat
-their questions or infer new transfer/reboot authority from device availability.
-No device action, new build, VM, website deployment or external review is running.
+D-WORKFLOW-168 records the owner's later clarification: #603 and applicable
+fixes/qualification precede private RG35XX SP testing, while source/licence
+publication work and the website do not gate that internal image. Public-release
+criteria remain. The owner may retain or discard an engineering version without
+publishing it. #344/#528 and M7 have matching body updates and readbacks in
+/tmp/pix-m7-private-test-boundary-20261015/. No device staging/reboot has occurred.
+
+Root is actively supervising #603 Phase4.6. The owner specifically directed
+completion of this audit; authorization.json records the unchanged two-call
+scope. Blind owner /tmp/pix-m7-audit603-blind-20261015-01, runtime checkout
+/workspace/repos/rocknix frozen at62c382f467, launcher1302767,
+run .build-runs/20261015T211418Z-4c668119. Watcher1302769 and Facilitator1302798
+were independently observed live. Poll status/launcher result within60seconds;
+verify identity/provenance/digest before assembling the bounded refutation.
+Do not replay the blind call or edit the runtime checkout while it is active.
+No disconnected notifier is available. No build, VM, device update or source
+copy is running; the external audit is the active job.
 
 ## Completed current firmware and VM proof
 
@@ -185,20 +197,22 @@ checkpoint archived at saved-session-state-next-20261015T173000Z.md.
    and hosted-job observations; runner admin endpoints403 and expiry reminder stay
    unverified. Do not replay this completed preparation; remaining tasks are named
    in docs/releases/0.0.1-release-preparation.md. Deferred infrastructure is separate.
-2. Resolve exact ABL/MAME questions after the existing upstream-contact approval,
-   and complete #603 after its existing exact transfer answer. Neither pending
-   question is duplicated. Successful local source/notice delivery is not replayed.
-3. Complete #528's release-source dispositions, independent retrieval and required
-   backup custody before publication. D-WORKFLOW-107's provider comparison is before
-   the first bucket purchase; it is not a prerequisite for local preparation.
-4. Continue #344/#563 physical/native, #344 security, #337/#359 documentation,
-   RC identity and publication requirements in the live M7 ordered body. Applicable
-   source/audit completion still precedes device handoff; no device action is granted.
+2. Finish the active #603 external blind review, verify its actual identity,
+   provenance and output, then run only the authorized refutation scope. Verify
+   external leads and resolve applicable findings before private device handoff.
+3. Prepare owner-only RG35XX SP testing after audit/fix qualification, retaining
+   exact engineering identity and required named actions/preservation checks.
+   D-WORKFLOW-168 removes unfinished source/licence publication work and website
+   delivery from this private-test critical path. No device authority is inferred.
+4. Complete #528 dispositions, independent retrieval and required source backup
+   custody, plus #344/#563 public physical/native, security, documentation, RC
+   identity and publication requirements before public release. The ABL/MAME
+   contacts remain separately pending. An internal image need never be published.
 
 Exact selected ABL LinuxLoader implementation is e9d37131c0c2273076468156fb0f87aa6834202b;
 public packaging is not implementation source. OpenABL is separate#601, not a
 substitute. One MAME shader adaptation remains a source/terms question distinct
-from current MAME BSD source. Both exact drafted contacts await existing approval.
+from current MAME BSD source. Both exact drafted contacts await existing approval; they are not private-test gates.
 Settled68shader/JLayer/Doom/Koko dispositions are not reopened. #585 upstream
 contributions follow qualified work and applicable contact approval, not a new gate.
 
@@ -227,17 +241,15 @@ frozen `cdd92f10605517e789e09d13b6f4ba68573c2617`. Phases 1–4.5 are complete;
 no external call or Phase 5 completion marker exists. #604 is later separate work.
 Durable audit resume: `docs/audits/2026_10_15-milestone-603-completed-handoff/`,
 especially `second-opinions/transfer-request.md`.
-The existing pending Fable/OpenRouter question covers blind packet 790,371 bytes,
-SHA `3da1c2290b787fc113a3bb5809ce11fd7acfe68b7bb717bc404d6203c9350345`,
-and refutation base 922,168 bytes,
-SHA `80450a6e6249f9b34e0a7cb6740dd268ea1b4bbbcc99b35077c0641e4d7ccdcc`,
-plus the verified sanitized blind response up to 131,072 bytes. Prior approvals
-cover different packets. Do not duplicate the question or infer approval from
-time passing. Resume `m7_handoff_audit_603` only after the actual answer, using
-only the Council Facilitator and a fresh serialized allocation.
+The owner has specifically directed completion of #603. The authorized
+Fable/OpenRouter scope remains blind790371B/3da1c2290b787fc113a3bb5809ce11fd7acfe68b7bb717bc404d6203c9350345
+and refutation base922168B/80450a6e6249f9b34e0a7cb6740dd268ea1b4bbbcc99b35077c0641e4d7ccdcc,
+plus only the verified sanitized blind response up to131072bytes. Root owns the
+active first call above; no old worker is an active orchestrator. No Phase5
+completion exists. The authorization does not extend to the source contacts.
 
-At published `3416cb4043`, both wordlists passed (38799581326 and 38799653482).
-Record CI38799654069 failed only outstanding audit cadence (16 completed closures,
+At published `62c382f467`, both wordlists passed (38807765445 and 38807821938).
+Record CI38807822187 failed only outstanding audit cadence (16 completed closures,
 threshold12); all other record steps passed. These are the preceding commit's
 results, not checks of a later documentation change. Cheap pre-push checks remain
 required; do not call overall CI green or fabricate a completion marker.
@@ -254,10 +266,12 @@ is authorized or sent. Exact drafts and channel/evidence references:
 `docs/qa-logs/2026-10-15-source-contact-drafts/`. Original packet:
 `/tmp/pix-m7-abl-mame-contact-options-20261015`, seal
 `5de60eb4cc8c8f17c301d7029cce8fbef0b9c44a2bc664861364965338723e9d`.
-Do not duplicate any of these three pending requests.
+The source-contact and root-read requests remain pending; the named #603 audit is now authorized and active. Do not duplicate either pending question.
 
 Host uid/gid are 1000, PID namespace4026531836 and user namespace4026531837.
 Use actual host context for process/metadata checks; sandbox views may map owners
 to65534. Preserve secrets and raw signed HTTP streams outside Git. Internal
 workers are not visible Herdr panes; historical Herdr lanes remain idle. No
 background build or notification service is implied by a saved checkpoint.
+
+Optional RG35XX SP read-only SSH inspection is separately pending approval after automatic review rejected the existing alias's nonpersisted host-key setup. Tailnet reports rg35xxsp/100.74.205.40 online, but strict SSH failed before connection. No device action occurred. Do not bypass that rejection or confuse this inspection question with staging/reboot authority.

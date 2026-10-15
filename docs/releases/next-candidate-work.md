@@ -11,6 +11,21 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 21:16 UTC - Private testing follows the audit (#344/#603)
+
+The owner explicitly separates the internal test/gameplay image from public
+release (D-WORKFLOW-168). Complete #603 and applicable fixes/qualification, then
+prepare the authorized RG35XX SP handoff using the accepted H700 engineering
+image and preservation checks. The external review has resumed with the two
+previously described frozen packets; its running log owns current status.
+
+Website #511/#605 and #528's unfinished source/licence publication work are
+separate from private testing. Their existing public-release obligations remain;
+an internal version can remain private or be discarded. Keep the actual `dev`
+identity, exact hashes and scope of VM/device evidence. No public RC designation,
+asset attachment or new device action is implied. Earlier source-before-device
+queues below are historical and superseded for owner-only engineering testing.
+
 ## 2026-10-15 20:00 UTC - Release documentation and dependency reconciliation (#344)
 
 The [release preparation checklist](0.0.1-release-preparation.md) separates

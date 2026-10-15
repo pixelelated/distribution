@@ -1,6 +1,22 @@
 # pixelelated 0.0.1 release readiness
 
-## Current readiness - 2026-10-15 20:00 UTC (#344/#528/#603)
+## Private bench route — October 15 owner direction (#344/#603)
+
+D-WORKFLOW-168 separates the owner's internal engineering image from public
+release. After #603 and applicable fixes/qualification, the accepted H700 image
+can proceed through authorized RG35XX SP handoff and physical/preservation checks
+for private testing/gameplay. Keep its actual `dev` identity and hashes. The
+owner may retain or discard it without a public release.
+
+#528's remaining source/licence dispositions and source-delivery/retrieval/backup
+work remain public-publication requirements. Website #511/#605 is separate. These
+tasks do not block owner-only testing merely because they are unfinished. The
+audit, code/data-safety fixes, artifact/VM proof and named device actions remain
+required. Current audit execution is recorded in
+[its running log](../audits/2026_10_15-milestone-603-completed-handoff/00-running-log.md).
+No device staging/reboot or public designation has occurred.
+
+## Earlier readiness - 2026-10-15 20:00 UTC (#344/#528/#603)
 
 The three current engineering builds share distribution077197, ES16dbac and
 image timestamp20261015T161744Z. Their canonical builds and independent artifact

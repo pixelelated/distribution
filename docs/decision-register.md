@@ -704,6 +704,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-WORKFLOW-167 | 2026-10-15 | **Publish release credits and licence disclosures on the website, using the qualified release inventory and notices.** The maintainer requests visible attribution and continued tracking of difficult missing pieces. Website #605 belongs to the separate #511 lane and adds no firmware bench-testing gate. Bind public component/profile/version, notice and source links to #528 evidence; label coverage and unresolved questions instead of claiming blanket clearance. Track later research precisely while retaining existing obligations for included release components. | maintainer, 2026-10-15; #605; #511; #528; `docs/pixelelated/site-plan.md` |
 
+| D-WORKFLOW-168 | 2026-10-15 | **Separate private owner testing from public-release completion.** The maintainer wants #603 completed before the next private image, while website work and unresolved source/licence publication questions must not gate an owner-only engineering image for testing/gameplay. Complete applicable audit fixes, artifact/VM qualification and authorized device-preservation checks before handoff. Keep the exact engineering identity; the owner may retain or discard a version without publishing it. #528 dispositions, notices, corresponding-source delivery/retrieval/backup and other public-release requirements remain due before public publication. This refines the blanket source-before-device queue, not code/data-safety checks or named device-action authority. | maintainer, 2026-10-15; #344; #528; #603; D-WORKFLOW-167; `.claude/rules/release-candidates.md` |
+
 ## Open decisions
 
 
