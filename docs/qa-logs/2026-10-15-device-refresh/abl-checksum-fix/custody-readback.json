@@ -1,0 +1,267 @@
+{
+  "archive_reader_original_result": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-15T07:33:00.493145+00:00"
+  },
+  "archive_reader_retained_result_sha256": "d08a01330ad3e4923b2d979d3c02b17e7766e8aa24cc30a844f0932f712aa19c",
+  "consumed_admission": "d8ae8d1653ab46b48d296f20f1cb17d4",
+  "consumed_receipt_sha256": "eabab201f0a2960e68e880dceb24526331ca19b836e5fac8fdad1f772965e661",
+  "copied_originals_rehashed_against_actual_paths": [
+    {
+      "matches_original_bytes": true,
+      "original": {
+        "bytes": 131,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 192203276,
+        "mode": 384,
+        "mtime_ns": 1792049019567224609,
+        "sha256": "0b9d4710313ec69e4b11ac35c6cafbb784c0f29a9419a54d0eb3cdbd7d7ff339",
+        "source": "/workspace/tmp/pix-m7-sm8550-refresh-20261015-01/launcher-result.json",
+        "uid": 1000
+      },
+      "retained_copy": "/tmp/pix-m7-abl-failure-20261015/00-launcher-result.json"
+    },
+    {
+      "matches_original_bytes": true,
+      "original": {
+        "bytes": 2,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 192203275,
+        "mode": 384,
+        "mtime_ns": 1792049019567149115,
+        "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+        "source": "/workspace/tmp/pix-m7-sm8550-refresh-20261015-01/tool-wrapper.rc",
+        "uid": 1000
+      },
+      "retained_copy": "/tmp/pix-m7-abl-failure-20261015/01-tool-wrapper.rc"
+    },
+    {
+      "matches_original_bytes": true,
+      "original": {
+        "bytes": 2,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 192203273,
+        "mode": 384,
+        "mtime_ns": 1792049016724543151,
+        "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+        "source": "/workspace/tmp/pix-m7-sm8550-refresh-20261015-01/inner.rc",
+        "uid": 1000
+      },
+      "retained_copy": "/tmp/pix-m7-abl-failure-20261015/02-inner.rc"
+    },
+    {
+      "matches_original_bytes": true,
+      "original": {
+        "bytes": 2,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 192203274,
+        "mode": 384,
+        "mtime_ns": 1792049016724582501,
+        "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+        "source": "/workspace/tmp/pix-m7-sm8550-refresh-20261015-01/outer.rc",
+        "uid": 1000
+      },
+      "retained_copy": "/tmp/pix-m7-abl-failure-20261015/03-outer.rc"
+    },
+    {
+      "matches_original_bytes": true,
+      "original": {
+        "bytes": 458068,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 192203261,
+        "mode": 384,
+        "mtime_ns": 1792049016723303263,
+        "sha256": "fbeff2e8da0da6d102836de552b9b9c5dceb7fee9699bc09d3bb1248f27ce5b6",
+        "source": "/workspace/tmp/pix-m7-sm8550-refresh-20261015-01/console.log",
+        "uid": 1000
+      },
+      "retained_copy": "/tmp/pix-m7-abl-failure-20261015/04-console.log"
+    },
+    {
+      "matches_original_bytes": true,
+      "original": {
+        "bytes": 4653,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 192196703,
+        "mode": 436,
+        "mtime_ns": 1792047469796441121,
+        "sha256": "e7974aae1554294626b9acfaeb79ad01918959d5e3f479c127865514508239e1",
+        "source": "/workspace/tmp/pix-m7-sm8550-refresh-20261015-01/build.py",
+        "uid": 1000
+      },
+      "retained_copy": "/tmp/pix-m7-abl-failure-20261015/05-build.py"
+    },
+    {
+      "matches_original_bytes": true,
+      "original": {
+        "bytes": 2952,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 192196724,
+        "mode": 436,
+        "mtime_ns": 1792047469798154232,
+        "sha256": "993058aee26e84dd50e45bb5d120c142f9a73f0f9f56accfb44042c08ba52fb5",
+        "source": "/workspace/tmp/pix-m7-sm8550-refresh-20261015-01/build-seal.json",
+        "uid": 1000
+      },
+      "retained_copy": "/tmp/pix-m7-abl-failure-20261015/06-build-seal.json"
+    },
+    {
+      "matches_original_bytes": true,
+      "original": {
+        "bytes": 1430897,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 192196702,
+        "mode": 436,
+        "mtime_ns": 1792047469795329095,
+        "sha256": "fa3c4a410875a93f93e41640df88bcbb9cdcd5ba797b990dc6013f827014e0dd",
+        "source": "/workspace/tmp/pix-m7-sm8550-refresh-20261015-01/inputs.json",
+        "uid": 1000
+      },
+      "retained_copy": "/tmp/pix-m7-abl-failure-20261015/07-inputs.json"
+    },
+    {
+      "matches_original_bytes": true,
+      "original": {
+        "bytes": 1907,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 192203270,
+        "mode": 384,
+        "mtime_ns": 1792048866223730969,
+        "sha256": "6095aca0f210910639d04102f5ea5d149d436e4b9b434fed2fc34f9408e7c150",
+        "source": "/workspace/tmp/pix-m7-sm8550-refresh-20261015-01/container-observed.json",
+        "uid": 1000
+      },
+      "retained_copy": "/tmp/pix-m7-abl-failure-20261015/08-container-observed.json"
+    },
+    {
+      "matches_original_bytes": true,
+      "original": {
+        "bytes": 600,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 192203249,
+        "mode": 384,
+        "mtime_ns": 1792048775543971496,
+        "sha256": "bc4aac88c0873a02bee523102162f36fa62792df05975d21afcf47efee26873d",
+        "source": "/workspace/tmp/pix-m7-sm8550-refresh-20261015-01/cache-ready.json",
+        "uid": 1000
+      },
+      "retained_copy": "/tmp/pix-m7-abl-failure-20261015/09-cache-ready.json"
+    },
+    {
+      "matches_original_bytes": true,
+      "original": {
+        "bytes": 1356,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 192203255,
+        "mode": 436,
+        "mtime_ns": 1792048814130576012,
+        "sha256": "bb2d86dac1b76c8bd357c42036088bdb77e359c2fd52d6d681815bd34b1fbdd7",
+        "source": "/workspace/tmp/pix-m7-sm8550-refresh-20261015-01/cache-consumption.json",
+        "uid": 1000
+      },
+      "retained_copy": "/tmp/pix-m7-abl-failure-20261015/10-cache-consumption.json"
+    },
+    {
+      "matches_original_bytes": true,
+      "original": {
+        "bytes": 104,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 149470574,
+        "mode": 384,
+        "mtime_ns": 1792049019556332309,
+        "sha256": "92b635f738c5ed275f95bfd6b0bcea43e9f84822469892af9881fc3bd7aeed27",
+        "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-04/.build-runs/20261015T072058Z-efba76e3/runner-result.json",
+        "uid": 1000
+      },
+      "retained_copy": "/tmp/pix-m7-abl-failure-20261015/11-runner-result.json"
+    },
+    {
+      "matches_original_bytes": true,
+      "original": {
+        "bytes": 2,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 149470567,
+        "mode": 384,
+        "mtime_ns": 1792049016729728813,
+        "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+        "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-04/.build-runs/20261015T072058Z-efba76e3/build.rc",
+        "uid": 1000
+      },
+      "retained_copy": "/tmp/pix-m7-abl-failure-20261015/12-build.rc"
+    },
+    {
+      "matches_original_bytes": true,
+      "original": {
+        "bytes": 672,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 149470575,
+        "mode": 384,
+        "mtime_ns": 1792049019529333779,
+        "sha256": "5782a5140ef665b75ca7f7797890976ce6c247576b4a5ecd6f429ad82ae62193",
+        "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-04/.build-runs/20261015T072058Z-efba76e3/build.status",
+        "uid": 1000
+      },
+      "retained_copy": "/tmp/pix-m7-abl-failure-20261015/13-build.status"
+    },
+    {
+      "matches_original_bytes": true,
+      "original": {
+        "bytes": 3789,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 149470568,
+        "mode": 384,
+        "mtime_ns": 1792048858398395675,
+        "sha256": "5a91dbdae52baeeb03daa45cdcf5a8c333461413bcbc4d7c4d73bb0479c53bd5",
+        "source": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-04/.build-runs/20261015T072058Z-efba76e3/admission.json",
+        "uid": 1000
+      },
+      "retained_copy": "/tmp/pix-m7-abl-failure-20261015/14-admission.json"
+    }
+  ],
+  "deleted_bytes": 0,
+  "failed_launcher_result": {
+    "pid": 295805,
+    "runner_returncode": 2,
+    "submission_is_not_completion": true,
+    "utc": "2026-10-15T07:23:39.567165+00:00"
+  },
+  "failed_original_result": {
+    "command_rc": 2,
+    "monitor_rc": 0,
+    "runner_rc": 2,
+    "utc": "2026-10-15T07:23:39.556141+00:00"
+  },
+  "limits": [
+    "No firmware archive or cache payload copied or inspected by this custody task.",
+    "No helper imported, collector run, build, VM, admission or test executed.",
+    "Reader success qualifies the existing bounded archive observation, not a successful SM8550 retry.",
+    "Original expiring download querystrings are retained only inside compressed originals."
+  ],
+  "outputs_held": true,
+  "source_review_seal": "8de7e5853c9136972e504836d4cc432af8c3c4a7f7853aac50e09061c7e14885",
+  "verification": {
+    "archive_members_exact": true,
+    "bytes_sha256": true,
+    "nanosecond_mtime_decimal_pax": true,
+    "numeric_uid_gid": true,
+    "originals_unchanged": true,
+    "permission_modes": true
+  }
+}

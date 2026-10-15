@@ -97,3 +97,19 @@ routes its contribution through a focused `ROCKNIX/distribution:next` ES
 patch/package change. Refresh current upstream and duplicates before any
 submission. These accepted local results do not claim current-base-ready patches,
 authorize posting, change #168's ownership, or broaden physical/account/RC scope.
+
+### October15 — reused ABL correction and separate incoming OpenABL review
+
+[#600](https://github.com/pixelelated/distribution/issues/600) applies the existing
+[ROCKNIX checksum correction](https://github.com/ROCKNIX/distribution/commit/15123b29517ad92be1f6cbcc3924a92705887d12)
+as local `9aa7affee9d4ad5e69725cab20b6d7ad84d93dea`. Version1.2, URL and packaging
+are unchanged. The [retained failure and archive evidence](../qa-logs/2026-10-15-device-refresh/abl-checksum-fix/README.md)
+record matching official/current archive bytes and preserve the original failed
+SM8550 result. Fresh SM build and acceptance remain required. This is reuse of
+an existing fix, so no duplicate outgoing contribution is queued.
+
+[#601](https://github.com/pixelelated/distribution/issues/601) separately tracks
+the later OpenABL replacement and corresponding-source review under #559's
+incoming integration policy. It does not widen this checksum repair or add a
+new M7 build gate. Existing #528 source/notice/publication holds remain open;
+no upstream submission is claimed or newly authorized.

@@ -1,0 +1,15 @@
+{
+  "kind": "Post-readback observation, not runtime producer receipt",
+  "original_tool_chunk": "2316de",
+  "original_exit_code": 0,
+  "scope": "Verified36 sealed file hashes and13 named original JSON hashes; read exact H700/VM schemas and compared H700 bundle/input/output maps. No candidate imported or executed.",
+  "additional_source_reads": [
+    "actual frozen watch-build, watch-build-submit, build-admission source",
+    "SM acceptance/output generator source only",
+    "qualified original worker-observer source only"
+  ],
+  "findings_root_acknowledged": true,
+  "runtime_executed": false,
+  "cache_traversal": false,
+  "network": false
+}
