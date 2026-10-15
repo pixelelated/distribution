@@ -1,12 +1,41 @@
 # Saved Session State
 
-Updated 2026-10-15 03:48 UTC. Continue authorized M7 toward the next 0.0.1 RC.
+Updated 2026-10-15 03:54 UTC. Continue authorized M7 toward the next 0.0.1 RC.
 Coordinator `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
 `feature/m7-player-setup`; published feature before this checkpoint is f13f9d98cb7f2057d28292edc808234028b1ca15.
 Primary/remote next remains be71c43538e05e7d7621f243af8dbf4f4af51565.
 Harness conflict-resolution untouched. Actual host PID namespace4026531836;
 host/network/outside-workspace writes require escalated exec. No formal goal.
 Saving is not a pause. No runtime/compiler/external call currently active.
+
+## Latest03:54 — integrated engineering build ACTIVE
+
+Coordinator branch is now feature/m7-final-qualification at published next
+f8636de1d105275dbf9420bbabbbc26f79abb10f. It has EXACT same tree3174c775604f197d6fbbc841b1932b44c943a3f0 as publicfeaturecdf6643cfc, preserved. The first next push refused8missingissue citations; a single issue-cited integration parentbe71 preserved public history and passed normalpush. Frozen build checkout /workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02 on build/m7-p5-20261015-02 isf863, ES16dbac. Do not edit frozen source.
+
+ONE build ACTIVE: /workspace/tmp/pix-m7-engineering-build-20261015-02,
+watch20261015T035405Z-403ed573, launcher3046367, admissione8ed7da80b97410086485381fb175702.
+Root sole runtime allocator/monitor<=60s. Four canonical stages cleanDolphin,
+buildDolphin,buildES,image;7200s originalfamily,4CPU24GiB packages/24CPU40GiBimage.
+Buildinputs11c9cb3dd179405cc6ce1eca543846063b63e625e0ba7d2c7bc2d6cba47057d6,
+timestamp20261015T035337Z. NoVM/external/physical action. Source60504501 packet.
+
+Atomic cachetransfer035306Z-b0f999e1 alloriginal0, sameinode/device preserved,
+oldcacheabsent/newpresent, oldtargetunchanged, launcherabsent; admissiond4507ac4
+consumedqualified. Freshdependency6protected/zombie exclusions explicitlyassessed,
+no matches/mounts/admissions; no rootFD/deletion clearance. Consumptionpreparer
+initiallyread wrongreceiptfield; originalKeyError and consume2 recorded; fixed
+plan-outputread, no repeated transfer or runtime. Buildsource/retention had been
+prepared, but compiler submitted only after exact transferconsumption.
+
+Auditagent owns auditdir again for append; no blanketstage. Checkpoint02 immutable
+atcdf/f863, all6resolved but auditcompletefalse. Rootreview caught affectedfixture
+raw/source vs packagedlauncherhash mismatch before allocation; originalf665kept.
+Revision02 source /tmp/pix-m7-affected-installed-continuation-20261015-02 seal
+668755cb2259e2fa3d3573870ff9cbed1362a0e346b237b551936e01f5eef675 applies exact
+existing verifier3token substitutions+fixedrecipehash. Peerreviewongoing, nofixture
+runtime. Nextafterbuild: originalchannels/ownerreview+consume; actualreadback6050;
+clean+retained6687; stateonlye732; auditclose; H700thenSM8550.
 
 ## Latest03:48 — all focused fixes verified; preparing final engineering image
 
