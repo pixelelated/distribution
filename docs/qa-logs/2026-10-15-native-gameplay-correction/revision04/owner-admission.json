@@ -1,0 +1,40 @@
+{
+  "id": "ebed7b8ebcc040f2ae09acdf7531f8ab",
+  "plan": "/workspace/tmp/pix-m7-native-gameplay-20261015-03/admission-plan.json",
+  "plan_sha256": "2a6c0849d3eab05a743efe59c0d585edc898dea4d66f7414c7ee14dcf111a982",
+  "registry_generation": 238,
+  "reserved_bytes": 0,
+  "schema": 1,
+  "state": {
+    "available_bytes": 2750077829120,
+    "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01",
+    "container_checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01",
+    "outputs": [
+      {
+        "issue": 575,
+        "kind": "qa-scratch",
+        "path": "/workspace/tmp/pix-m7-native-gameplay-20261015-03/vm",
+        "release_when": "Actual gameplay/save/state/frame and original host/guest/input outcomes exported; coordinator consumes exact admission before retiring owned VM/media."
+      }
+    ],
+    "profiles": [
+      {
+        "ARCH": "x86_64",
+        "DEVICE": "GENERIC_X64",
+        "PROJECT": "ROCKNIX"
+      }
+    ],
+    "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+    "required_bytes": 38252052480,
+    "retention_plan_sha256": "f90c0e0f6987c2a2fe643d40deec07028afab6ce696aa31a5a3409fc498d4432",
+    "retention_report_sha256": "2fb05b48e8fa23658ebaeabf3b961b23cb9f8f6bb71bcd6153137ebc294288fe",
+    "source": {
+      "head": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "volume": "/workspace",
+    "volume_device": 66304
+  },
+  "tool_sha256": "3e2ad9d6eed47f53d1547880286e4bed69848b956be490f17f354d9df70bb942",
+  "utc": "2026-10-15T01:44:06.386582+00:00"
+}

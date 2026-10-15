@@ -1,127 +1,190 @@
 # Saved Session State
 
-Updated 2026-10-15 01:33 UTC. Continue authorized M7 toward next 0.0.1 RC.
-Coordinator /workspace/repos/rocknix.worktrees/m7-player-setup, branch
-feature/m7-player-setup. Harness conflict-resolution untouched. Published source
-and frozen engineering checkout m7-p5-build-20261015-01: d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a;
-ES3178 unchanged. Actual host PID namespace4026531836; escalated exec is required
-for host/network/outside-workspace writes. No formal goal. Saving is not a pause.
+Updated 2026-10-15 02:37 UTC. Continue authorized M7 toward the next 0.0.1 RC.
+Coordinator `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
+`feature/m7-player-setup`. Harness conflict-resolution untouched. Published
+coordinator/primary/remote branches are be71c43538. Uncommitted source and evidence
+below must be reviewed/staged explicitly; never stage the active audit directory.
+Actual host PID namespace4026531836; host/network/outside-workspace operations
+use escalated exec. No formal goal. Saving this checkpoint is not a pause.
 
-## Completed build/readback; installed VM next
+## Current ordered work
 
-Engineering owner /workspace/tmp/pix-m7-engineering-build-20261015-01,
-watch 20261015T011511Z-8e690173 completed01:19:49. All clean/build/image stages
-original0, actual owners/containers absent, resources PASS. Admission9b11b86d
-consumed. Identity0.0.1-dev+20261015T011500Z.gd4af5a255f47. Frozen checkout remains
-on its build branch; do not change its source. Cache moved atomically from the
-previous build tree, same inode111174037/device66304; transfer admission5b6ac98a
-consumed. Durable source/custody records identify specific protected-FD exclusions;
-no root-FD census or deletion exception is implied.
+1. Native03 byte readback and scoped acceptance are complete; admission consumed.
+   Publish ready compact originals. The original exporter failure stays intact.
+   #594/#595 controls01 failed on the inherited guest census; use the already
+   qualified census correction in an additive packet before a fresh retry.
+2. Verify and integrate audit corrections #593 (Wi-Fi normal exit), #594
+   (Dolphin retained achievements disable/logout), #595 (Steam Python isolation).
+   Source work is committed locally as d9054efc46 for #594/#595; compiler/VM proof
+   and new error frames remain due.
+3. Finish remaining native manual/automatic-state observations separately from
+   the now observed ordinary game-save cold restoration. Do not rerun completed
+   ordinary-save games just to rediscover their behavior. Narrow next allocation.
+4. Complete #590 audit grading/punch list and affected source/image qualification,
+   then H700 followed by SM8550 under #555. Engineering image is not an RC.
+   #528/#344/#337/#359 publication/source custody remain separate.
 
-Artifact owner /workspace/tmp/pix-m7-image-readback-20261015-01,
-watch20261015T012056Z-8c15b02d completed01:21:11, original launcher/command/monitor/
-runner0 and actual owners absent. Admission0e9b0800 consumed. Install/update
-SYSTEM and KERNEL equality, GPT/identity/selected product mappings PASS. All six
-Dolphin Sys resource rows resolve through the intended relative immutable link,
-with exact pinned hashes. Runtime qualification is explicitly false.
+No VM/compiler/external call is currently active. Root is sole runtime allocator
+and operator; source-only agents below continue. Watchers do not send off-session
+chat alerts. Announce actual results promptly; never infer completion from a log
+silence. No physical device, real account, or cloud operation is authorized by
+this checkpoint; old named device actions are consumed.
 
-Installed Dolphin three-case VM completed PASS and admission7571f590 consumed.
-Original native exits0/0/1, CPU ticks204/203, six resources unchanged and twelve
-old badge-error checks zero. Durable packet2026-10-15-engineering-image-result.
-Reviewed sealed plan
-446781be3e630f58cbe15c80c1c8c90e7e004ab92c9d08599ecd9252db5461d5 in
-docs/qa-logs/2026-10-15-dolphin-installed-plan/. Synthetic token representation
-was corrected after the normal secret-pattern pre-commit guard; effective bytes
-unchanged and exact original scripts retained compressed. No bypass or runtime
-rerun. Native gameplay first attempt failed during fixture controller provisioning, before
-any game launch. Actual SDL producer name differs from raw uinput name expected
-by fixture; original1 and exceptional unmount-busy1 preserved. Exact QEMU/owners
-absent; admission99ef54e0 consumed failed-investigated. Source-only identity and
-failed-provision cleanup correction owned by dolphin_ra_init. Evidence in
-2026-10-15-native-gameplay-fixture-failure. No runtime allocation active now.
-frame_diff_review prepares minimal affected clean/retained continuation; root
-may run that independently while native fixture is corrected.
-No H700/SM8550/RC until applicable audit and qualification complete.
+## Current source corrections, not yet qualified
 
-External blind audit submitted via primary checkout's installed Facilitator,
-owner /workspace/tmp/pix-m7-fable-blind-20261015-01, launcher2327505. Prompt738861B,
-SHA9cd8004050112faf4b9c88754e5a08924523706f7582faf16bce11b5e0c0506e.
-Pinned Fable5.1/xhigh through OpenRouter, watched record-only. Existing explicit
-user approval to send Fable audit packets and continue M7 covers this sanitized
-source review; no new permission requirement is invented. Submission is not
-completion. Root supervises original outputs; no off-session chat notifier.
+- #593: isolated ES branch feature/m7-wifi-normal-exit-20261015 at
+  `/home/max/Development/emulationstation-next.worktrees/m7-wifi-normal-exit-20261015`,
+  local commit16dbac5211eea7e70db7394372033be2be7df829 based on3178b832.
+  Four files: process-owned joinable scan, cancellation, normal main/atexit cleanup.
+  Back/reopen and presentation unchanged; D-CLOUD-133 SIGTERM behavior preserved.
+  Abrupt termination remains a documented residual. UNRUN packet
+  `/tmp/pix-m7-wifi-normal-exit-20261015`, seal84e0fdd157206d39f90eb8d02e2f657110e5c7589b67c6f1f6c30272851ebf3f.
+  Source and four-control fixture reviewed independently; no compiler/pin/push.
+- #594: coordinator commit d9054efc46, cheevos_dolphin.sh and both native launchers.
+  Atomic0600 generated INI; disabled/logged-out clears token/user/host/hardcore;
+  publication failure refuses launch through existing localized250 error channel.
+  New EN/FR message requires exact flow/frame proof. Enabled routing unchanged.
+  Independent source review found no blocker; canonical flow/copy updated. Current ROCKNIX upstream retains
+  original early exit; queued focused contribution under#585, no submission.
+- #595: coordinator commit d9054efc46, Install Steam.sh one-line runtime helper change
+  to `/usr/bin/python3 -I -S -B -`. Targeted import-shadowing proof remains due.
+  Whole-client360s budget is a documented timing-risk lead, not a proven defect.
 
-Steam owner02completed00:57:28; installed-curl metadata+14source-chrootcasesPASS,
-alloriginalouter/export0, selectedstate restored, QEMU stopped. Admission9351cef4
-consumed. Durable2026-10-15-steam-remaining-result. No nativeARM/FEXSteamclaim;
-GENERIC_X64doesnotpackageinstaller. Nineearliercasesnotreplayed. Originalfailed
-owner01preboot/helpermismatchretained. Threeconfirmedprimaryauditfindings now
-fixedinsource: NoGUIlifecycle, Steambounds, immutableDolphinSysalias#592.
-Primaryforward/reversesource reviewsettled; fullauditcontinues.
+## Native03 runtime originals and exporter limitation
 
-## Parallel ownership
+Owner `/workspace/tmp/pix-m7-native-gameplay-20261015-03`, launcher2430652,
+watch20261015T014406Z-0a49998d in frozen newbuild, admission
+`ebed7b8ebcc040f2ae09acdf7531f8ab`. Completed02:13:20, original lifecycle/command/
+monitor/runner/launcher0, no forced cleanup, controller/engines/QEMU exited.
+No native exit-status fabrication: unchanged launchers mask actual engine wait.
+Revision04 source `/tmp/m7-native-gameplay-lifecycle-20261015-03`,
+sealc9d6faa5bb47950f5c73f947bf03fa925ba2fbdebc8a4d0c5ffb3824ae02379d.
+Durable correction fullseal b45a4c54c07f22940ad06e56629792974a0b13814cc046206871c2ea55b4b241.
 
-m7_audit_resume exclusively owns docs/audits/2026_10_14-milestone-m7-next-candidate/.
-All115 forwardcriteria and reverse/interactions review complete; external phase pending.
-Reverse review found#592 missing compiled immutable Dolphin Sys path; root
-filedissue and addedrelativeimmutablealias, pkgcheck0. Finalinstalledproofpending.
-OriginalDolphinlifecycle andSteammetadata findingsalsofixed. AC063nativecapability remainsPARTIAL pending existingnativeproof.
-Never stage/commit active audit directory. Fable blind call submitted as above; exact primary model slug unknown. No independent-review completion claim until verified returned provenance.
-Internalagents are not visibleHerdr lanes; Herdr sign-in blocked. Root serializes
-runtime/compiler jobs and actively supervises; watchers have no off-sessionalerts.
+Normal installed ES/API/runemu launches, noNIC, synthetic controller, no accounts:
+- Wii SuDokuL earned entered4 at row1column2, explicit game Save/Quit, two normal
+  Dolphin Back+Start requests, cold Continue restores same puzzle/value. First
+  power request only taps emulated Wii power; second performs normal teardown.
+  The entered4 is not the solved value (solution6), and no solved-game claim exists.
+- Dreamcast Tetris2 earned164, explicit Save, normal Flycast menu Exit, cold
+  launch retains Player1/164. AutoLoad/AutoSave off and native slotEmpty throughout.
+  Score window225.416s <360s. Homebrew VMU labels overprint because source counters
+  do not increment; selected first card must be established by bytes. VM rendering
+  artifacts retained; no hardware rendering diagnosis inferred.
+- Wii native slot1 save notification/file exists; captured load says Decompressing
+  State, so full manual-load completion remains unproved. No Flycast manual-state
+  or native-auto/global-auto comparison was run. Existing partial scope remains.
+- One snapshot was refused while Dolphin still ran. Its original error1 remains;
+  later quiescent snapshot is a distinct successful action.
 
-## Accepted compact evidence
+Export `/workspace/tmp/pix-m7-native-gameplay-evidence-20261015-03`, watched
+021345Z-9aac0821, original export1. debugfs0 exported10955files/310803035bytes;
+close.py4096file limit rejects before manifest checking. Four packaged GameSettings
+copies account for7480files. No original altered. Independent all-byte readback
+confirms guest manifest exactly matches10954payloadfiles, no missing/extra/unsafe
+paths/symlinks. ManifestSHA6e3e308f6dccb4d9aa58a69182d4f6893e2cfc50a551611aa4b340e0c8d1db94.
+Root and auditor independently rehashed all10,954 payloads and reviewed originals.
+Supplemental /tmp/pix-m7-native-gameplay-postreadback-20261015 seal
+b5058c830def636dad41690807e81a9fdf1e9240f8f89f227798473800854fd6.
+Both415B Wii saves SHA93c59b358920c1d4c4ccabdc54b4b745c89347adb55b6f8d762d4e9c7ea340ce
+record0-to4. A1 tetris2.sys FAT/CRC validated and rank10 Player1/164 matches coldframe.
+Root acceptance/coordinator-native03-review.json are in original owner;
+admission ebed7b8e consumed qualified for this precise ordinarysave scope.
+Durable docs/qa-logs/2026-10-15-native-gameplay-result READY,19files3.73MB,
+seal8dd9dd8cabce482253576b8593945a46a4126c60e197bb1e1baa2e30ebac69c3.
+No manual-load-completion or automatic-state claim. Source state-only continuation
+proposal is in that packet; do not repeat the ordinary gamesave sequence.
 
-- #589 scripts/SFTP/localS3 continuation alloriginal0, consumed79388669;13 earlier
-  PASSrowsinclWebDAV retained. docs/qa-logs/2026-10-15-baseline-continuation/.
-- #591 frame comparator negative+20controls+78retainedframesPASS,389claimed,
-  0unclaimed/missing. No baseline/mask replacement. 2026-10-15-frame-claims/.
-- #577 remainingWiFi03 PASS, consumed e95b1e07,all24framesreviewed in
-  2026-10-15-wifi-remaining-result/. ActualES/wifictl syntheticadapter; no radio
-  claim. Custodyselectedconfigs/livees_settings; .backup outsideinventory.
-  Canonicalmenu mapupdated; Back closespickerwhileboundedreadcontinues.
-- #584 Dolphin buildaea323d1 andstartup5a3e47bf bothconsumedqualified.
-  2026-10-15-dolphin-startup-result/ preservescompiled/privateactualprocessproof:
-  baseline absentlifecycle;candidateenabled/disabled/earlyfailurecorrect.
-  Candidate5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5.
-  No successfulrealRAlogin/awards/gameplayclaim. Same20linkwarningsasbaseline;
-  mixedC++modes supports existingcause, notABIsafety/harmlessness.
-- Phone48currentoriginals, library03selectedaccount/activityequality, #567native
-  APIandinstalledtopup receiptslocatedforauditor; no needlessruntime repeats.
-- #588,#565–567,#570–572,#578,#583closedwithacceptedexactscope. Physicalbrowser
-  cureunproved; Novaoriginalaccountwriterunknown. #574/#575/#577/#581/#584open.
+## Focused audit controls: first failure investigated
 
-## Frozen firmware and next native inputs
+Owner /workspace/tmp/pix-m7-audit-controls-20261015-01, watch023421Z-cf10bb7f,
+launcher2657435, admission62fce0e8. Completed02:35:07 originalrunner1,
+monitor0, normal VM/host cleanup, no remaining children. Source-only #594 fixture
+fails because this kernel omits /proc/self/task/PID/children; its old base had
+not incorporated the separately qualified census correction. Steam never ran.
+Export /workspace/tmp/pix-m7-audit-controls-evidence-20261015-01 complete0,
+allmanifestbytesverified; admission consumed failed-investigated. Originals intact.
+Dolphin agent prepares additive revision02 reusing the existing qualified census
+implementation, not weakening the ownership check. No runtime currently active.
+Root /tmp/pix-m7-audit-controls-vm-20261015 prepares the reviewed lifecycle;
+a freshowner derivative and newboundseal are required for retry. #595 sealed
+packet /tmp/pix-m7-steam-isolation-20261015 has368f6b95a3a4f725c0a97c0fc8c6e40509768f0d1e80f0c10542054e09147a76.
+No installed correction, actual native Steam or rendered refusal claim.
 
-Tree /workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02,
-branchbuild/m7-p5-20261014-02, fac608ff89940ce358ea9b8a95e9a08a6fe26568,
-ES3178b832b8d134198b2b4eede4f725d4ed283f8c.
-Identity0.0.1-dev+20261014T230300Z.gfac608ff8994.
-Readback /workspace/tmp/pix-m7-image-readback-20261014-02/artifacts.
-img.gz SHA d816d36abc66b292500b0719e672c98c33eb0cd4fc7fc0bf19f7e26e4108bb16;
-tar SHA e409bc18236cebfe12b24cdaede092c338d51cfe601ea6b89b486ff5578a2e42.
-Cache125592436736B was atomically moved into newtree after fresh dependency
-review and consumerclosure. Do not use oldbuildcache path; source/target remain.
-Conditionalplan2026-10-15-next-image-delta, seal600d4c4b; actualexecutionderivative
-ready. ProductdeltaDolphinrecipecomment+Sysalias/patch018 andSteammetadata curl line.
+## Independent audit — both calls completed
 
-Native source /tmp/m7-native-gameplay-lifecycle-20261014-02, preparedoldowner
-/workspace/tmp/pix-m7-native-gameplay-20261014-02 UNRUN; rebindfreshnewimageowner.
-8GiB4CPU/noNIC1800+120,VNC134; WiiSuDokuL SDsave/coldContinue, DCTetris2earnedscore
-VMUA1/coldload throughnormalES/runemu/input. NoRAenabled. CDI
-/workspace/tmp/pix-m7-mkdcdisc-20261014-01/artifacts/Tetris2-M7.cdi
-SHAe4ff051cccb1f37d1260edaf9a6b57257e51b8c920f92bb4319db73ca04197d7;
-DOL /tmp/m7-native-save-staged-01/SuDokuL-Wii.dol. Actualsourcecontinuitybindings
-alreadydynamic; no newfixture rewrite or fabricatedscore/childexit.
+Sole agent m7_audit_resume owns
+`docs/audits/2026_10_14-milestone-m7-next-candidate/`. Never stage while active.
+Primary exact served model slug unknown; OpenAI lab established. Not five-seat council.
+Both source-only sanitized calls used pinned Fable5.1/xhigh through required
+Facilitator/OpenRouter with persistent user authorization. Model/effort PASS,
+provider Anthropic observed, not pinned. Root and auditor independently verify
+original provenance and all command/monitor/runner/launcher0; owners gone.
+- Blind owner `/workspace/tmp/pix-m7-fable-blind-20261015-01`, primarywatch
+  012458Z-379b715e, completed01:45:04. PromptSHA9cd8004050112faf4b9c88754e5a08924523706f7582faf16bce11b5e0c0506e;
+  responseSHA98482d2f5f7f5762faa1ccea3d06fadc9391963d12f69f1e54256581cf67ad46.
+- Refutation owner `/workspace/tmp/pix-m7-fable-refutation-20261015-01`, primarywatch
+  020226Z-bf943087, completed02:14:14. Prompt1098609B,
+  SHAa90b9bd7172cff4392a7f0528b5458c5ffa25d368d8ca4051725f4c3ac9dc212;
+  outputdc8414e7bab833774ffb2da85cd4d03e521445f940b38487fbf227f233149f2a.
+Frozen original81PASS/15PARTIAL/16SKIP/2FAIL/1UNTESTABLE remains historical.
+Evidence-corrected score80/16/16/3/0; AC100 retained-disabled-sessionFAIL,
+AC101negativecontrolsPARTIAL, AC114externalpassesPASS. Sixfindings: original
+NoGUIlifecycle/Steambounds/Sysalias corrected with scoped proofs; G01/G02/G03
+tracked#593/#594/#595, unqualified. Audit Phase6 mandatory tracker #596 created/readback exact; three open corrections.
+Agent owns audit artifacts/backlinks; no clean-audit or Phase7 completion claim.
 
-## Retention HOLD and later work
+## Accepted final image and composition
 
-Protected SSHsession1600091/start111346566 prevents prior exact6media19.4GB
-retirement. No signal, exceptionexpansion orblindretry. ~2.78TBfree. Completed
-newmediaalsoawaitsguardedretirementaftercompactevidence. /tmp/pix-m7-retirement-
-followup-20261015 has omittedbackendlogs54916B toretainbeforewholescratchcleanup.
-No deletionclaim. No newframework.
-#528/#344/#337/#359 publication/sourcecustody remainseparate. #585upstreamafter
-initialqualifiedbuild. #558/#561watches; #587/#576/lazyimports/#568/#562/#586backlog.
-Prior detail archivedsaved-session-state-next-20261015T010548Z.md; milestone7 livebodyownsorder and
- docs/releases/next-candidate-work.md ownsdatedreadiness.
+Frozen `/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01`, branch
+`build/m7-p5-20261015-01`, source d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a,
+ES3178b832b8d134198b2b4eede4f725d4ed283f8c. Do not edit frozen source.
+Identity0.0.1-dev+20261015T011500Z.gd4af5a255f47.
+Buildowner pix-m7-engineering-build-20261015-01, watch011511Z-8e690173,
+all3stages0, consumed9b11b86d. Cache125592436736B atomically moved from previous
+buildtree, sameinode/device, consumed5b6ac98a; do not use old cachepath.
+Readback `/workspace/tmp/pix-m7-image-readback-20261015-01/artifacts`,
+watch012056Z-8c15b02d, consumed0e9b0800. Raw/update SYSTEM/KERNEL equality,
+GPT/identity109selectedrows and six immutableSysresources PASS.
+ImageSHA84b1552e4d0ed67d97b603230d1acb0b22a852217054854a9c3fe42731772ff2;
+tarSHAb1457d7db7d7c93551ec56e2b2b913b78399eaa6c9b831761a514d87ec3f8666;
+SYSTEM02bd89c50a34190bee14d33fad6587b737598454c0d9e182d240c4f0acade2a4.
+InstalledDolphin owner20261015-01/watch012641Z-6ea080ce consumed7571f590;
+enabled/disabled/failedboot native exits0/0/1, requests1/0/1, init/shutdown correct,
+six resourcesstable and12oldbadgeerrorsabsent. No successful realRAlogin/awardclaim.
+#592 closed individually with published be71c43538 evidence.
+
+Final retained owner pix-m7-retained-loader-update-20261015-01/watch013334Z-6f557651:
+real ordinary d6a-to-d4af update, eightselectedpaths unchanged, three strictloader
+checks0, protectedbase hash/stat unchanged; consumed5d262d1f. Earlieraccepted
+20-to-d6a upgrade remains composed evidence, not a new direct20-to-d4af run.
+Fresh owner pix-m7-final-clean-20261015-01/watch013738Z-26df298d:
+untouched294selectedchecks0errors0blocked then three strictloaderchecks0;
+consumed63d3378b. Allactualoriginalchannels0 and normalcleanup.
+READY uncommitted packets final-composition-plan(seal4c6aba98) and
+final-composition-result(seale8446037b49be46824237aa19cddba089ad8f1e3fa09da93863b2b04047d79ae).
+
+Prior#589scripts/SFTP/S3 +13unchangedrowsincludingWebDAV, #59120controls/78frames/
+389claimed0missing0unclaimed, #57724reviewedWiFiframes, Steammetadata+14recoverycases
+retain exact accepted scope. #588/#565-567/#570-572/#578/#583 closed. Nova historical
+account writer unknown; browser universalphysicalspeedcure unproved. No repeated
+broadmatrix solely because a new image exists; recheck changed boundaries.
+
+## Ownership, retention and history
+
+frame_diff_review owns #593 source/proof packet, no sharedrecord edits or runtime.
+dolphin_ra_init owns ready native-result evidence and additive #594 census correction,
+no product/sharedrecord edits. frame_diff_review prepares #593 compiler lifecycle
+then narrow actual frontend/#594 refusal frame source; no runtime allocation.
+Root owns product integration, sharedrecords, allocation and finalacceptance.
+Internal agents are not visibleHerdr lanes; Herdr sign-in remains blocked.
+
+~2.75TBfree. Prior sixmedia~19.4GB retirement HOLD on protectedSSH/rootFD visibility;
+no bypass, rootFDclaim, blind retry or deletion. Completed newVMmedia must be
+retired after compactevidence and guardeddependency check. Sourcecustody remains.
+#558/#561 are watches; #587/#576/lazyimports/#568/#562/#586 remainbacklog.
+Detailed previous checkpoint archived in saved-session-state-next-20261015T022000Z.md;
+prior saved-session-state-next-20261015T010548Z.md retains earlier narrative.
+Milestone7 livebody owns ordered priorities; docs/releases/next-candidate-work.md
+is the dated readiness reference. No publication/RC designation yet.

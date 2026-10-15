@@ -1,0 +1,77 @@
+{
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01",
+  "commit": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+  "es_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "vnc": 137,
+  "helper": "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+  "image": {
+    "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261015T011500Z.gd4af5a255f47-from-ROCKNIX.img.gz",
+    "bytes": 2122152413,
+    "sha256": "84b1552e4d0ed67d97b603230d1acb0b22a852217054854a9c3fe42731772ff2"
+  },
+  "system": {
+    "bytes": 2073149440,
+    "sha256": "02bd89c50a34190bee14d33fad6587b737598454c0d9e182d240c4f0acade2a4"
+  },
+  "verification_sha256": "57575bcb84179c00e5e71ff341494b30f3103627d7bca2047588dc4dd4b5654d",
+  "verification_inputs_sha256": "be406d291c670610471bb31c01379552f0b4e1bb6c5ff2d73c33f56d103a2bcc",
+  "tools": {
+    "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm": "5b058ed8a8b11135cd5997e3d925939baff30726033125acf1244863a756318d",
+    "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/profile.json": "26c420ecb0cc7aae29050554c55f522e62337cf6726619a59337c073f1c65406",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/vm-serial": "1fed507a546a9c23fdc360012ccc6ffadc2793fabaa137ff2dc73141bdc2c921",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/vm-stop": "2e4314cd63ff4f476c8ce1376e9f1ed262f2467789ec339b3855ddedc16213e8",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/vm-visual-qa": "81565f39ce5bdbdce05fc7ec7b27f40ca1d95051430382c5e13f1ef58434cd06",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/watch-build": "44a6d87505fd6a465c384d2f30bfeda5f4fe436978d227d8b0c4bae73da7e0bc",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/watch-job": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/watch-build-submit": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e"
+  },
+  "code": {
+    "vm-lifecycle.py": "1a909219675bfd7da4b3ed74f8d1f307165d54b628fbb899b62167da4760ca27",
+    "host-action.py": "4c49b2fc942bd4e2a8cd9651fd7a00dc7b80c644ccce2ee95fc6016b8e1ef936",
+    "close.py": "00fc86e8e5b7979d533f88b95145477d0e71e60431f108e1ef221b1ba3f58de6",
+    "census.py": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2"
+  },
+  "source": {
+    "consumed-paths.txt": "39807816ce02525153b0a52e208b9f5f8d31e4b2b634bba5f9c25d31ce03c6a1",
+    "fixture/README.md": "9cda703ad2f39d7899791639db46bae708d66421be1274ad8254d0692f9929c9",
+    "fixture/SHA256SUMS": "b76c627e2c22c8a25f3f84013badba09d7f651a4fb028938729e2e58d5294c60",
+    "fixture/boot-static-result.json": "5aa7c6de1e63f4ab21247249fa43662fe768b18ac9642e74e753556cf2f8fd23",
+    "fixture/configure-flycast.py": "bdd132eaeed782c232784052724e7b6594e76b86eccdefaca6a2d0d07dbe7671",
+    "fixture/configure-wii-sd.py": "21802300509941a1263903dd25215689ab7c3a3e593d932fac5307105c9568a9",
+    "fixture/inputs.json": "7df3b6cf03ea1219e064fc0c92db45a33a179e000d4196da1d8f87c32f774f3f",
+    "fixture/inspect-tetris-boot.py": "90ffb16ca0dbe2ab9990a872df884293f7555e5930c0a526b4a070e0dbda236c",
+    "fixture/licenses/SuDokuL-MIT.txt": "5c78b017feab375d6d32020279b2ff40bce8090ae37d232e3fbe6b57ef0f1287",
+    "fixture/licenses/SuDokuL-README.md": "8564ed39848b85645283a33d829ba33134fca529527a4b67ad915be3a16c954a",
+    "fixture/licenses/Tetris2-BSD-3-Clause.txt": "9469dfde81bf47499d29238569530eada409e2e0e23992d4a3a6f4090413bde8",
+    "fixture/materialize.py": "0f64db700498b14088cc82ec553ae4aeada3ba001088c3951a7de80295c8c184",
+    "fixture/native-launch.sh": "9e3e1095e4440f9ea9acdfc3636cfa4454029359f7332d52d947a538cc7f47a7",
+    "fixture/prepare-wii-guest.sh": "9c59dd409db70436f00ebd4171f93ae8a05c32bdfb0345ef5aaac53d6717075d",
+    "fixture/prepare-wii-sd.sh": "315d33b62017ede93b518ef9f7db743bc4fcec22980d9a9082b0d61652c45ac8",
+    "fixture/primary-references.json": "b9268f462d6e65729f8bee6a558b77b567f49862ddb499b52aaca82c29f4a4f6",
+    "fixture/provenance.json": "9ef82acc046627cb175bbdf45859f66718e19665271afc676bbf11f335e47b04",
+    "fixture/source-bindings.json": "9fa7faf6ab6d641a9b23a167fe0422f31306a6322779a0e703c131933310512d",
+    "fixture/static-result.json": "4d94d12fc3b94202354a3c5c7b896a44f9198a34dab3da10b295a2f3d8c3f91d",
+    "fixture/tetris2-assets.json": "cb84c4f07d44e696bb428facdd41a6fc4ab9df4daa07bd43fb6d622138ba3527",
+    "frozen-config-bindings.json": "9e57be0b1a18973e91b0e93fc718978fb66fd38ea3f7910460712a74319a423f",
+    "guest.py": "fdd12a58de78d6d08b6601721f94eeab0e9ba3406272e5d1e9b4b9a0d8b6f05b",
+    "pad.py": "240655b3d512986a45348852b5ff6b09e9a439019be99e34a81558cb69064780",
+    "supervisor.py": "0a3864462cb7f6bdc959fa41b843f06ca149105e64cf5afb41a7ad9167b4f690"
+  },
+  "fixture_inputs": {
+    "SuDokuL-Wii.dol": {
+      "path": "/tmp/m7-native-save-staged-01/SuDokuL-Wii.dol",
+      "bytes": 6204908,
+      "sha256": "e4fc81977b527538d7fa8d6427099c21c0f2502d18b81a58134f8f07416a8455"
+    },
+    "Tetris2-M7.cdi": {
+      "path": "/workspace/tmp/pix-m7-mkdcdisc-20261014-01/artifacts/Tetris2-M7.cdi",
+      "bytes": 740202281,
+      "sha256": "e4ff051cccb1f37d1260edaf9a6b57257e51b8c920f92bb4319db73ca04197d7"
+    }
+  },
+  "work_seconds": 1800,
+  "cleanup_seconds": 120,
+  "first_frame_seconds": 120,
+  "score_seconds": 360,
+  "evidence_bytes": 536870912
+}

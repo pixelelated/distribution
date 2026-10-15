@@ -1,0 +1,66 @@
+{
+  "source": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+  "image": {
+    "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261015T011500Z.gd4af5a255f47-from-ROCKNIX.img.gz",
+    "bytes": 2122152413,
+    "sha256": "84b1552e4d0ed67d97b603230d1acb0b22a852217054854a9c3fe42731772ff2"
+  },
+  "system": {
+    "bytes": 2073149440,
+    "sha256": "02bd89c50a34190bee14d33fad6587b737598454c0d9e182d240c4f0acade2a4"
+  },
+  "fixtures": {
+    "SuDokuL-Wii.dol": {
+      "path": "/tmp/m7-native-save-staged-01/SuDokuL-Wii.dol",
+      "bytes": 6204908,
+      "sha256": "e4fc81977b527538d7fa8d6427099c21c0f2502d18b81a58134f8f07416a8455"
+    },
+    "Tetris2-M7.cdi": {
+      "path": "/workspace/tmp/pix-m7-mkdcdisc-20261014-01/artifacts/Tetris2-M7.cdi",
+      "bytes": 740202281,
+      "sha256": "e4ff051cccb1f37d1260edaf9a6b57257e51b8c920f92bb4319db73ca04197d7"
+    }
+  },
+  "guest_large_files": [
+    {
+      "path": "gameplay/snapshots/final/sd.raw",
+      "bytes": 134217728,
+      "sha256": "1c673d6bfebca8e5fe3056d60854c674b069af866bc56794afd5048ab0b47cb7",
+      "original_path": "/workspace/tmp/pix-m7-native-gameplay-evidence-20261015-03/guest/gameplay/snapshots/final/sd.raw",
+      "retained_in_this_packet": false,
+      "verification": "All bytes independently compared to original guest manifest by supplemental reader and coordinator; original file remains untouched."
+    },
+    {
+      "path": "gameplay/snapshots/final/storage/roms/savestates/wii/ID-SuDokuL-Wii.s01",
+      "bytes": 6380469,
+      "sha256": "b94681ea311a1f9162136f1ae6883517f9f0c0e4bb99234ed3b39bf40ef377b5",
+      "original_path": "/workspace/tmp/pix-m7-native-gameplay-evidence-20261015-03/guest/gameplay/snapshots/final/storage/roms/savestates/wii/ID-SuDokuL-Wii.s01",
+      "retained_in_this_packet": false,
+      "verification": "All bytes independently compared to original guest manifest by supplemental reader and coordinator; original file remains untouched."
+    },
+    {
+      "path": "gameplay/snapshots/wii-native-final/storage/roms/savestates/wii/ID-SuDokuL-Wii.s01",
+      "bytes": 6380469,
+      "sha256": "b94681ea311a1f9162136f1ae6883517f9f0c0e4bb99234ed3b39bf40ef377b5",
+      "original_path": "/workspace/tmp/pix-m7-native-gameplay-evidence-20261015-03/guest/gameplay/snapshots/wii-native-final/storage/roms/savestates/wii/ID-SuDokuL-Wii.s01",
+      "retained_in_this_packet": false,
+      "verification": "All bytes independently compared to original guest manifest by supplemental reader and coordinator; original file remains untouched."
+    },
+    {
+      "path": "gameplay/snapshots/wii-saved-quiescent/sd.raw",
+      "bytes": 134217728,
+      "sha256": "1c673d6bfebca8e5fe3056d60854c674b069af866bc56794afd5048ab0b47cb7",
+      "original_path": "/workspace/tmp/pix-m7-native-gameplay-evidence-20261015-03/guest/gameplay/snapshots/wii-saved-quiescent/sd.raw",
+      "retained_in_this_packet": false,
+      "verification": "All bytes independently compared to original guest manifest by supplemental reader and coordinator; original file remains untouched."
+    }
+  ],
+  "original_guest_manifest": {
+    "path": "/workspace/tmp/pix-m7-native-gameplay-evidence-20261015-03/guest/guest-export-manifest.json",
+    "bytes": 2284698,
+    "sha256": "6e3e308f6dccb4d9aa58a69182d4f6893e2cfc50a551611aa4b340e0c8d1db94"
+  },
+  "all_original_payload_files": 10954,
+  "payload_bytes": 308518337,
+  "retention": "No original deletion, no sparse reconstruction, no claim this compact archive contains SD images or native state payload."
+}

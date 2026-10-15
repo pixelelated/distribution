@@ -1,0 +1,119 @@
+{
+  "actual_build_id": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+  "actual_qemu_cpus": 4,
+  "actual_qemu_memory_mib": 8192,
+  "actual_qemu_no_nic": true,
+  "admission_id": "63d3378b185648629bd69f12237b3983",
+  "all_loader_stderr_empty": true,
+  "archive": {
+    "all_member_bytes_and_hashes_verified": true,
+    "file": "original-records.tar.gz",
+    "files": 85,
+    "member_manifest": "original-records.json",
+    "regular_relative_members_only": true,
+    "sha256": "e0043c4f0b1bdc7bbe897aeaffc2c44c650db9cce92db625b2570c98fdb9b17e",
+    "uncompressed_bytes": 1784352,
+    "vm_media_and_host_tmp_members_absent": true
+  },
+  "clean_gate_precedes_installed_loader": true,
+  "cleanup_seconds": 90,
+  "consumed_utc": "2026-10-15T01:39:22.141117+00:00",
+  "consumption_receipt": "admission-consumed.json",
+  "coordinator_review": "coordinator-review.json",
+  "es_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "export": "/workspace/tmp/pix-m7-final-clean-evidence-20261015-01",
+  "first_boot": {
+    "blocked_count": 0,
+    "error_count": 0,
+    "limitations": [
+      "not a whole-image or arbitrary-secret scan",
+      "no generic compiled GamesDB key detection or service identity provenance",
+      "no custom ES system paths, environment overrides, external media or arbitrary archives",
+      "no interpretation of operation success, bytes transferred, actor or metadata origin",
+      "scrub epoch bounds do not establish origin; clock steps can cause refusal",
+      "retained-upgrade permits runtime state; it does not prove upgrade preservation"
+    ],
+    "mode": "first-boot",
+    "policy": "pixelelated-selected-state-v1",
+    "scope": [
+      "selected system, ES, RetroArch, standalone account files and recovery siblings",
+      "rclone configuration and active selection; cloud device identity and activity cache",
+      "zero-redaction startup scrub marker; only the exact current-boot no-adapter diagnostic may be inspected",
+      "gamelist.xml under selected ES/config/ROM roots; playcount and lastplayed only",
+      "known QA name prefixes, proxy state, token files and RetroArch history playlists",
+      "ES ELF known compiled ScreenScraper/RetroAchievements URL-pair patterns; only the exact NUL-delimited shared JELOS developer pair is allowed (#566)",
+      "img.gz: supported two-partition image and empty storage seed policy"
+    ],
+    "status": "pass"
+  },
+  "guest_boot_id": "9c8c2efe-9538-4ca7-86f7-1cf7e58247c7",
+  "guest_interfaces": [
+    "lo"
+  ],
+  "guest_private_runtime_removed": true,
+  "image": {
+    "bytes": 2122152413,
+    "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261015T011500Z.gd4af5a255f47-from-ROCKNIX.img.gz",
+    "sha256": "84b1552e4d0ed67d97b603230d1acb0b22a852217054854a9c3fe42731772ff2"
+  },
+  "inputs_sha256": "be406d291c670610471bb31c01379552f0b4e1bb6c5ff2d73c33f56d103a2bcc",
+  "installed_member_count": 13,
+  "installed_member_hash_mode_resolved_path_matches_expected_before_and_after": true,
+  "loader_commands": [
+    {
+      "argv": [
+        "ldd",
+        "/usr/bin/cloud-signin-window"
+      ],
+      "original_returncode": 0,
+      "timed_out": false,
+      "timeout_seconds": 15
+    },
+    {
+      "argv": [
+        "ldd",
+        "/usr/lib/gstreamer-1.0/gst-plugin-scanner"
+      ],
+      "original_returncode": 0,
+      "timed_out": false,
+      "timeout_seconds": 15
+    },
+    {
+      "argv": [
+        "/usr/bin/gst-inspect-1.0",
+        "opengl"
+      ],
+      "original_returncode": 0,
+      "timed_out": false,
+      "timeout_seconds": 30
+    }
+  ],
+  "new_runtime_executed_by_packaging": false,
+  "no_forced_host_cleanup_or_survivors_recorded": true,
+  "original_channels": {
+    "build": 0,
+    "command": 0,
+    "launcher": 0,
+    "monitor": 0,
+    "runner": 0,
+    "tool_wrapper": 0,
+    "vm": 0
+  },
+  "owner": "/workspace/tmp/pix-m7-final-clean-20261015-01",
+  "read_only_evidence_review_only": true,
+  "ready_clear": true,
+  "registry": {
+    "bytes": 580445,
+    "fresh": true,
+    "sha256": "3909dfcddf443ce49cfd94fd37c9402f1ba90222652f59f07c79bdf407a9cd34"
+  },
+  "rtld_now": "PASS",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T013738Z-26df298d",
+  "selected_bytes_and_modes_equal": true,
+  "source_commit": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+  "status": "VERIFIED_ORIGINALS_AFTER_COORDINATOR_CONSUMPTION",
+  "verification_sha256": "57575bcb84179c00e5e71ff341494b30f3103627d7bca2047588dc4dd4b5654d",
+  "vm_elapsed_seconds": 46.606199741363525,
+  "vnc": 138,
+  "work_seconds": 1800
+}

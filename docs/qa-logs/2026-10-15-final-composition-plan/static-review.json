@@ -1,0 +1,54 @@
+{
+  "status": "STATIC_SOURCE_REVIEW_ONLY",
+  "runtime": "UNRUN",
+  "fresh_python_ast_parsed": [
+    "fresh/census.py",
+    "fresh/close.py",
+    "fresh/guest.py",
+    "fresh/prepare.py",
+    "fresh/vm-lifecycle.py"
+  ],
+  "retained_full_manifest_unchanged": true,
+  "retained_source_seal": "bdeed5dd44a63e6e7ec7bb9e07109a77144318bc9143036879e9d9464bcfe6c9",
+  "unchanged_host_functions": [
+    "write",
+    "sha",
+    "proc",
+    "same",
+    "table",
+    "descendants",
+    "observe",
+    "owned_qemu",
+    "stop_children",
+    "call",
+    "serial",
+    "monitor",
+    "export_loader",
+    "expire"
+  ],
+  "unchanged_guest_functions": [
+    "digest",
+    "snapshot",
+    "members",
+    "persist_command",
+    "command"
+  ],
+  "census_byte_identical": true,
+  "original_loader_children_and_assertions_byte_identical": true,
+  "original_channel_export_archive_checks_unchanged": true,
+  "all_13_members_present_in_final_readback": true,
+  "101_selected_products_unchanged": true,
+  "wrong_or_old_image_refusal": "Fresh preparer binds exact d4af commit, final result/inputs hashes; retained dynamic preparer independently binds actual target source/ES/tar/members",
+  "fresh_absent_selected_paths": "absence is compared before/after as None; dangling links refuse; populated paths preserve original exact byte/mode checks",
+  "new_runtime_imports_executed": false,
+  "preparer_or_vm_or_admission_executed": false,
+  "retained_live_source_not_edited": true,
+  "hardware_claim": false,
+  "readiness_limits": "Current host PID/port/capacity/overlap and new owner checks remain allocation/runtime obligations; this source review does not attest quiescence.",
+  "plaintext_secret_pattern_scan": {
+    "patterns": ".githooks/secret-patterns",
+    "original_returncode": 1,
+    "matches": 0,
+    "hook_or_index_touched": false
+  }
+}

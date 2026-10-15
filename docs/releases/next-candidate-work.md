@@ -11,6 +11,21 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## October15 02:21 qualification update
+
+Both verified Fable passes have returned. The audit adds three concrete follow-ups:
+#593 normal-exit Wi-Fi worker cleanup, #594 clearing retained Dolphin achievement
+sessions after disable/logout, and #595 isolated Steam runtime Python invocation.
+Source corrections are prepared; focused VM/frame verification and affected
+image qualification precede the next device builds. No clean-audit claim yet.
+
+The final d4af image now passes installed Dolphin startup/resource checks plus
+untouched selected-state first boot and real retained d6a-to-d4af update/loader
+checks. Native03 stopped normally after cold-restoring a Wii entered puzzle value
+and Dreamcast earned score164 through ordinary game saves. Supplemental byte
+readback is in progress because the exporter hit its4096-file ceiling; its failure
+stays original. Native manual/automatic state checks remain separate and partial.
+
 ## October15 01:29 qualification update
 
 The new d4af5a255f / ES3178 engineering image is built and artifact-verified.

@@ -1,0 +1,13 @@
+# Revision04 — bounded live profile readback, source only, UNRUN
+
+This additive packet is `/tmp/m7-native-gameplay-lifecycle-20261015-03`. Revision03 at `/tmp/m7-native-gameplay-lifecycle-20261015-02` and the already prepared owner02 remain unchanged. Root must prepare a new owner from this packet; no preparation or runtime occurred here.
+
+`revision04-profiles.diff` changes only `guest.py`: the existing `status` response now includes `profiles`. The unchanged `host-action.py status --owner ACTUAL_OWNER` operation obtains and prints it through the existing sole-operator `serial.lock`, original serial result marker, and retained host invocation stdout. There is no second serial path, new input command, acceptance criterion, or timer.
+
+The fixed allowlist returns live GCPadNew.ini and WiimoteNew.ini; Flycast SDL_Keyboard.cfg, SDL_Xbox 360 Controller.cfg and its sdl_joystick_0 instance, plus the equivalent raw QA521 name variants; and actual control.ini. Each row records existence, resolved path, bytes, SHA-256 and observed text. A fresh positive raw/sysfs/owned-pad/controller identity accompanies control.ini. Missing profiles or mappings are explicit; a missing disk mapping does not prove Flycast's compiled defaults. The operator still reviews actual launcher/engine observations and existing mapping criteria before input.
+
+Flycast emu.cfg is read only within a 64-KiB local parse. Its raw text is never returned: only the explicit AutoLoad/AutoSave and rendering keys in the static review appear, with absent values as null. Account sections/values are excluded by positive key selection. Mapping/profile files are capped at 8 KiB, control.ini at 4 KiB, returned file bytes at 64 KiB, and the resulting profile JSON at 96 KiB. A readback receipt is retained in guest evidence. These are live byte observations and may race an engine write; they do not claim atomic snapshots.
+
+Root can call status after launch and before any controller action, and again after each observed setting/profile change. Existing host-action stdout exposes the values while the guest is running, allowing the original profile-review criterion to be fulfilled. Gameplay/save/frame criteria, controller constructor and actions, the 1800-second family, 120-second cleanup/first-frame bounds, and 360-second scoring window are unchanged.
+
+Only AST/source-flow checks were performed. `revision04-static-review.json` binds unchanged helpers and limits; `revision03-SHA256SUMS` preserves the parent seal. Earlier source/static/failed-original records remain historical. No fixture or preparer was imported/executed, and no VM, service, controller, compiler, admission, or prepared owner was changed.
