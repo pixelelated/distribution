@@ -11,20 +11,24 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
-## 2026-10-15 22:11 UTC - Audit findings and private H700 proof (#603/#612)
+## 2026-10-15 23:05 UTC - Audit complete; private H700 handoff next (#603/#344)
 
-Both external audit passes are verified complete. The current score is66PASS and
-1PARTIAL; #606 owns focused current RetroArch process/file proof. Seven punch
-items have named follow-ups; Phase7 remains open. [Audit analysis](../audits/2026_10_15-milestone-603-completed-handoff/04-analysis.md)
-records the exact source and limits; no completion or public RC claim is made.
+#603/#612/#606 are closed/completed. Both external passes are verified;67/67
+scoped criteria now pass after current RetroArch save/process/file proof. Two
+punch items resolved; five named follow-ups remain explicitly deferred.
+[Audit analysis](../audits/2026_10_15-milestone-603-completed-handoff/04-analysis.md)
+and its exact completion marker pass resolution lint and full ceremony-check.
+Original failed VM/reporting outcomes remain preserved beside the successful
+original-evidence reader; audit completion does not call deferred defects fixed.
 
-[H700 actual-package inspection](../qa-logs/2026-10-15-h700-audit-applicability/README.md)
-passed against077197: shipped Steam/Dolphin payloads and GameCube/Wii/Steam menu
-entries are absent. #607/#608/#610 are affected-platform work; #609 shared RVZ
-code still requires the stated custom-system boundary. Retained device overrides
-are not ruled out by SYSTEM inspection. Private handoff follows applicable audit
-resolution and proof; #528 publication work and #511/#605 website remain separate.
-The extracted SYSTEM scratch is retired; no device update has started.
+[H700 inspection](../qa-logs/2026-10-15-h700-audit-applicability/README.md) proves
+no shipped Steam/Dolphin payload or default GameCube/Wii/Steam menu. #607/#608/#610
+are affected-platform work; #609 requires checking retained custom GameCube
+mappings before private handoff. That read-only device inspection awaits its
+existing host-key approval; no new transfer/reboot has occurred. Keep exact
+077197 engineering identity. #528 publication and #511/#605 website remain
+separate under D-WORKFLOW-168. Earlier dated queues below are historical and
+superseded by this status and the live milestone body.
 
 ## 2026-10-15 21:16 UTC - Private testing follows the audit (#344/#603)
 
