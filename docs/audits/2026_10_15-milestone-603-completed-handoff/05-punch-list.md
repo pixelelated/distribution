@@ -116,7 +116,7 @@ alone does not prove installed absence. #606 is next on that private route.
 | PL-003 | Deferred | #609; owner M7 integrator; P2/M7.P5 before affected deployment/public RC. Requires frontend retry-state design, VM failure/file-version/explicit-retry controls and a newly pinned frontend. The current H700 shipped menu has no GameCube system. Private H700 handoff additionally requires checking retained custom system mappings; this finding remains a gate if a GameCube mapping exists. Affected GameCube-capable deployments and public RC stay blocked on the fix. |
 | PL-004 | Deferred | #610; owner M7 integrator; P2/M7.P5 before affected deployment/public RC. Requires a product script change and target-shell full-caller negative controls, grouped with the Steam preservation repair before affected firmware qualification. H700 has no Steam installer, so this is outside the private H700 path; shell injection or quoting correctness is not waived. |
 | PL-005 | Open | #606; named work exists, final disposition follows proof/review. |
-| PL-006 | Open | #603; named work exists, final disposition follows proof/review. |
+| PL-006 | Resolved | Record commit `236d59e2109a7157e676b97f74e72f8046021987`; branch containment and exact path log verified in checks/phase7-record-resolution/. Primary packet hashes, current criterion caveats and66/1 arithmetic are retained. Final resolution lint remains part of the whole-audit closeout, not a new runtime claim. |
 | PL-007 | Deferred | #611; owner M7 integrator; P3/backlog before related recovery UI change. Intentionally refused unknown retained state remains protected. Clearer recovery guidance is a separate documentation/UI task, with flow/frames required for any screen change; no unsafe automatic deletion is introduced for audit closure. |
 
 ## Machine-readable index
@@ -170,7 +170,7 @@ punch_index:
   owner_area: "Audit records"
   where: "docs/audits/2026_10_15-milestone-603-completed-handoff/04-analysis.md"
   acceptance: "Independent packet hashes, explicit criterion caveats, corrected arithmetic and pre-issue/resolution artifact lint; scoped record commit."
-  outcome: open
+  outcome: resolved
 - id: PL-007
   severity: Low
   category: Improvement

@@ -1,0 +1,41 @@
+{
+  "result": "RETIRED_EXACT_CONSUMED_MEDIA",
+  "utc": "2026-10-15T22:32:12.647250+00:00",
+  "original_rc": 1,
+  "admission": "e51980026e53460ab2efd632bff72631",
+  "targets": [
+    {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-proof-20261015-02/vm/disk.qcow2",
+      "device": 66304,
+      "inode": 207501605,
+      "mtime_ns": 1792103447278620289,
+      "bytes": 2309095424,
+      "allocated_bytes": 2309042176,
+      "absent_after": true
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-proof-20261015-02/vm/OVMF.fd",
+      "device": 66304,
+      "inode": 207501615,
+      "mtime_ns": 1792103298627102351,
+      "bytes": 540672,
+      "allocated_bytes": 540672,
+      "absent_after": true
+    }
+  ],
+  "empty_tmpdir_removed": "/workspace/tmp/pix-m7-retroarch-exit-proof-20261015-02/host-tmp",
+  "custody": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-retroarch606-failure02",
+  "evidence": {
+    "private-originals-held.json": "27cd3e3845600ad94ac44c4eb695d4753bf1863dd865af079b46968b811d61e0",
+    "vm-result.json": "a9cfcf1566010ab36e1b1fb72c7d3d30cb030d20e34fd8f6932fe8859796b68a",
+    "consumption-draft.json": "a34609f5cf942b6c9f6238ddd345fe50bd5fac1590022bc6c39c8df16083b9f2",
+    "root-original-review.json": "46ab384e51e01c9c5b7f571e7d456d5802c97a15f5c59e999bbd21e4887d2ab0",
+    "config.json": "ecab2d581daaa6cc83867e4437e1b6c9a33509ff9f695a06f9dbe95cabfc8604",
+    "original-records.tar.gz": "13fc8b4a8db6e0e2f989cfa3ae345cd47d51fb202f4d138e213ef3e708a5c1c1",
+    "original-records.json": "682a976302ab80dd9c1b3ee78a8eb10a043b221e62d81b63d44f02c11ddffed3",
+    "host-exits.json": "909e797b1e1b2179ffc726d85ced77f8f1d416be4a75aadb9e718f6479af42f7",
+    "export-result.json": "ef50070bb906ac0a362eac252fc9288e70e8c8298f5b263ab6ed7f826671de3d"
+  },
+  "source_image_touched": false,
+  "other_records_retained": true
+}

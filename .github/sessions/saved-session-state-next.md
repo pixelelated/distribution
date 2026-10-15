@@ -1,6 +1,6 @@
 # Saved Session State
 
-Updated 2026-10-15 22:07 UTC. Current engineering firmware and portable local
+Updated 2026-10-15 22:40 UTC. Current engineering firmware and portable local
 source/notice delivery are accepted in their recorded scopes. Release-note draft,
 security readback and dependency reconciliation are complete; no build, VM or
 copy is active. Infrastructure topology remains deferred under D-WORKFLOW-113/125;
@@ -27,14 +27,19 @@ its path predicate wrongly expected /tmp/cores overlay to resolve to the lowerdi
 The clean gate/empty manager passed; no slot/save/quit input occurred. All owners
 exited; original185-member compact evidence and retirement receipt are retained
 at docs/qa-logs/2026-10-15-retroarch606-failure01/. Its admission is consumed and
-disk/OVMF retired. No VM is active. Corrected source packet02 is being prepared
-at /tmp/pix-m7-retroarch-exit-proof-source-20261015-02; wait for its new seal and
-review the minimal delta before a fresh serialized owner02. Do not modify or
-replay owner01. Actual exit-save proof and AC-53 remain incomplete/PARTIAL.
+disk/OVMF retired. No VM is active. Corrected source packet02 ran as owner02/run222758Z-25504d4c:
+actual overlay/core/settings and normal engine launch passed, SRAM0x55 exists,
+but two F7/one F2 produced no state1 or OSD. Manual snapshot failed; no quit was
+sent. All owners exited;290-member compact originals are retained at
+docs/qa-logs/2026-10-15-retroarch606-failure02/. Admission is consumed and media
+retired. Source03 preparation is active in dolphin_ra_init, with source_custody_delta
+reviewing the fixed loopback RetroArch command route after sealing. Actual default
+keyboard failure remains unexplained; quit confirmation needs two distinct edges.
+No runtime allocation. AC-53 remains PARTIAL. Feature236d59e210 contains prior
+reconciliation; verify Git for the failure02 checkpoint commit.
 #607–610 remain actual product/proof follow-ups before affected deployment/public
 RC. #611 is backlog guidance. Root corrects the overbroad audit-record claims.
-Feature3c31e2aa records the private/public split and is published; current audit
-reconciliation is uncommitted. No build, VM, provider call or device action is running.
+Feature3c31e2aa records the private/public split and is published; the failure02 follow-up is recorded in the current working branch. No build, VM, provider call or device action is running.
 
 A read-only RG35XX SP SSH inspection question is pending after automatic approval
 review rejected its existing non-retained-host-key alias. Do not bypass that
