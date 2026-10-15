@@ -174,3 +174,13 @@ Root owns publication and tracker propagation. Prepared private text includes a
 #493/#597 recovery-boundary note. At this review checkpoint those postings and
 this retro's commit are **pending**, not claimed executed. No sealed audit,
 product, runtime, compiler, cache or device was changed by this retro.
+
+**Propagation completed:** Source9ad2f966fe was published on next before the
+tracker links. #344's body and #555's additive handoff were read back exactly;
+comments [#344](https://github.com/pixelelated/distribution/issues/344#issuecomment-6185470174),
+[#555](https://github.com/pixelelated/distribution/issues/555#issuecomment-6185470595),
+[#493](https://github.com/pixelelated/distribution/issues/493#issuecomment-6185470981)
+and [#597](https://github.com/pixelelated/distribution/issues/597#issuecomment-6185471339)
+match their prepared text. Check8's current-status propagation is now complete;
+its original pending observation above remains historical. Compact exact custody:
+[publication receipt](../qa-logs/2026-10-15-phase-retro/publication.json).
