@@ -1,0 +1,213 @@
+{
+  "rc": 0,
+  "before": {
+    "case": {
+      "closed": false,
+      "mode": "candidate",
+      "output": "/tmp/pix-output/audit-ui/wifi-candidate",
+      "owner": {
+        "pid": 2697,
+        "start_ticks": 5963,
+        "state": "R",
+        "argv": [
+          "python3",
+          "-I",
+          "-S",
+          "-B",
+          "/tmp/pix-input/gameplay/packet/audit-ui/wifi-owner.py",
+          "--output",
+          "/tmp/pix-output/audit-ui/wifi-candidate",
+          "--binary-sha256",
+          "067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d"
+        ]
+      },
+      "binary_sha256": "067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d",
+      "menu_route": {
+        "settings": {
+          "system.hostname": "GENERIC_X64",
+          "wifi.enabled": "1",
+          "wifi.adhoc.enabled": "0"
+        },
+        "clean_network_name": "GENERIC-X64",
+        "conditional_network_name_row": true,
+        "down_steps_to_wifi_network": 6
+      }
+    },
+    "blocked": {
+      "frontend": {
+        "pgid": 2700,
+        "pid": 2700,
+        "ppid": 2698,
+        "start_ticks": 5975,
+        "state": "S"
+      },
+      "group": [
+        {
+          "pgid": 3077,
+          "pid": 3077,
+          "ppid": 2700,
+          "start_ticks": 10057,
+          "state": "S"
+        },
+        {
+          "pgid": 3077,
+          "pid": 3078,
+          "ppid": 3077,
+          "start_ticks": 10058,
+          "state": "S"
+        }
+      ]
+    },
+    "calls": [
+      "2942 2939 current",
+      "2943 2940 has_ap_mode",
+      "3077 2700 list"
+    ]
+  },
+  "after": {
+    "case": {
+      "closed": false,
+      "mode": "candidate",
+      "output": "/tmp/pix-output/audit-ui/wifi-candidate",
+      "owner": {
+        "pid": 2697,
+        "start_ticks": 5963,
+        "state": "R",
+        "argv": [
+          "python3",
+          "-I",
+          "-S",
+          "-B",
+          "/tmp/pix-input/gameplay/packet/audit-ui/wifi-owner.py",
+          "--output",
+          "/tmp/pix-output/audit-ui/wifi-candidate",
+          "--binary-sha256",
+          "067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d"
+        ]
+      },
+      "binary_sha256": "067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d",
+      "menu_route": {
+        "settings": {
+          "system.hostname": "GENERIC_X64",
+          "wifi.enabled": "1",
+          "wifi.adhoc.enabled": "0"
+        },
+        "clean_network_name": "GENERIC-X64",
+        "conditional_network_name_row": true,
+        "down_steps_to_wifi_network": 6
+      }
+    },
+    "blocked": {
+      "frontend": {
+        "pgid": 2700,
+        "pid": 2700,
+        "ppid": 2698,
+        "start_ticks": 5975,
+        "state": "S"
+      },
+      "group": [
+        {
+          "pgid": 3077,
+          "pid": 3077,
+          "ppid": 2700,
+          "start_ticks": 10057,
+          "state": "S"
+        },
+        {
+          "pgid": 3077,
+          "pid": 3078,
+          "ppid": 3077,
+          "start_ticks": 10058,
+          "state": "S"
+        }
+      ]
+    },
+    "calls": [
+      "2942 2939 current",
+      "2943 2940 has_ap_mode",
+      "3077 2700 list"
+    ]
+  },
+  "same_blocked_group": true,
+  "enumeration_calls": 1,
+  "return_frame": {
+    "path": "/workspace/tmp/pix-m7-wifi-back-reopen-20261015-01/frames/audit-20261015T033709-49985444/capture-back/sample-00.png",
+    "sha256": "1792ba79e417aae546e91240095dbd8e24a206790f5006e10d00fd50858346e2",
+    "label": "wifi-candidate-network-return",
+    "captured_host_monotonic": 1127114.815346227,
+    "time": 1792035430.8163211,
+    "observation": "unreviewed",
+    "source_binding": {
+      "packet_seal": "bb4683989e5cfb5dd3585c97856388f3d5773de4501c52dd951139462a0a394f",
+      "binding_sha256": "9a22636ffee2e522b6926a3bd0e64ac1e2363ea1d71feff6bf8599e2c3084de6",
+      "candidate_es_sha256": "067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d",
+      "candidate_es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+      "candidate_product_commit": "47dda767c7afc47020a3f21ab19a4493bfd5ff8a",
+      "panel": [
+        640,
+        480
+      ],
+      "new_image_installed_acceptance": false,
+      "base_packet_seal": "08773c90fec208a277da993d6df63b38ab4150bd308c5cd98f199a884e68466c",
+      "navigation_revision": "GENERIC_X64 conditional NETWORK NAME; six downs and reviewed pre-activation frame",
+      "scope": "candidate Back/reopen only",
+      "imported_prerequisites": {
+        "verified": true,
+        "scope": "four original controls and full ES normal-exit lifecycle only",
+        "prior_outer_returncode": 1,
+        "consumed_id": "341087f6d3d44905b7447199e9713de1",
+        "originals_manifest_sha256": "d18dc9aacc32b15c42c87c209919fb4527a392443403485d4bb6f5064e5e2fee",
+        "candidate_es_sha256": "067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d",
+        "candidate_es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+        "back_reopen_not_yet_qualified": true
+      }
+    }
+  },
+  "timing": {
+    "status": "PASS",
+    "action": "back",
+    "clock": "host monotonic",
+    "samples": [
+      {
+        "capture_started_monotonic": 1127114.594606495,
+        "rgb_received_monotonic": 1127114.653657699,
+        "ppm_sha256": "bc0ffe3941446fa90c4a46413788382513dd4a8eab551d2509f1bb13e5a71e6d",
+        "index": 0,
+        "exact_reference_match": true,
+        "elapsed_upper_bound_seconds": 0.05906046601012349
+      }
+    ],
+    "limit_seconds": 1,
+    "original_returncode": 0,
+    "vnc_endpoint": [
+      "127.0.0.1",
+      6044
+    ],
+    "pre_key_frame": {
+      "capture_started_monotonic": 1127114.529344051,
+      "rgb_received_monotonic": 1127114.593577842,
+      "ppm_sha256": "fac26f286143deae8273081b98c482fcb0a3e8fd0e2d5c06d672d6259609d413"
+    },
+    "reference": {
+      "path": "/workspace/tmp/pix-m7-wifi-back-reopen-20261015-01/frames/audit-20261015T033633-1aa1bf76/capture-reference/reference.ppm",
+      "sha256": "bc0ffe3941446fa90c4a46413788382513dd4a8eab551d2509f1bb13e5a71e6d"
+    },
+    "key_send_started_monotonic": 1127114.594597233,
+    "key_send_finished_monotonic": 1127114.594604347,
+    "first_matching_sample": 0,
+    "upper_bound_seconds": 0.05906046601012349,
+    "hmp_reply": "s\u001b[K\u001b[Dse\u001b[K\u001b[D\u001b[Dsen\u001b[K\u001b[D\u001b[D\u001b[Dsend\u001b[K\u001b[D\u001b[D\u001b[D\u001b[Dsendk\u001b[K\u001b[D\u001b[D\u001b[D\u001b[D\u001b[Dsendke\u001b[K\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[Dsendkey\u001b[K\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[Dsendkey \u001b[K\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[Dsendkey z\u001b[K\r\n(qemu) ",
+    "frames": [
+      {
+        "name": "before-key",
+        "ppm_sha256": "fac26f286143deae8273081b98c482fcb0a3e8fd0e2d5c06d672d6259609d413",
+        "png_sha256": "855627477846f9f45dfb21718334106d598b12164f41c63e0b895e731721f25a"
+      },
+      {
+        "name": "sample-00",
+        "ppm_sha256": "bc0ffe3941446fa90c4a46413788382513dd4a8eab551d2509f1bb13e5a71e6d",
+        "png_sha256": "1792ba79e417aae546e91240095dbd8e24a206790f5006e10d00fd50858346e2"
+      }
+    ]
+  }
+}

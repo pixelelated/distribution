@@ -496,9 +496,12 @@ The #593 normal-exit correction makes the scan worker process-owned and joins it
 at normal frontend exit. [Actual frontend evidence](qa-logs/2026-10-15-audit-ui-results/README.md)
 reproduces two baseline scan survivors and verifies candidate ES16dbac stops and
 joins them without observer cleanup. Existing picker labels/layout remain the
-same. Candidate Back returned visibly, but the host capture upper bound failed
-its1s check before reopen; a precise Back/reopen continuation remains due. This
-is not a claim that SIGTERM/fatal exits follow normal cleanup (D-CLOUD-133).
+same. The [focused Back/reopen continuation](qa-logs/2026-10-15-wifi-normal-exit-result/README.md)
+and [reviewed frame index](qa-logs/2026-10-15-wifi-normal-exit-result/frame-index.json)
+verify actual key send to a complete matching return frame within59.1ms, with
+reopening attached to the same pending scan and no second enumeration. The
+prior host timing failure remains recorded. Normal frontend exit joins the scan;
+SIGTERM/fatal exits remain separate (D-CLOUD-133). Next-image acceptance is due.
 
 The [October13 baseline](qa-logs/2026-10-13-library-wifi-baseline/README.md)
 retains the former external overlay, growing initial geometry and identical

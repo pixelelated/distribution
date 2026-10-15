@@ -8,6 +8,36 @@ Harness conflict-resolution untouched. Actual host PID namespace4026531836;
 host/network/outside-workspace writes require escalated exec. No formal goal.
 Saving is not a pause. No runtime/compiler/external call currently active.
 
+## Latest03:41 — GUI proofs complete; source integration in progress
+
+No runtime/compiler active. Candidate-only watch033503Z-5d794795 alloriginal0,
+completeexport104guest315host, exact59.060466ms Back/reopen/samependinggroup proof,
+normalexit/cleanup0; admission681f265cconsumedqualified. DurableQA
+2026-10-15-wifi-normal-exit-result seal9d019ee43cda7fc0670dd8953c6580ea9caa417fe903df963068df18399fe7a5.
+Auditor independentlyreviewing originals, PL005 awaits pinpublication; latest
+trackerupdate04will preserve frozenhistoricalscore/failure. ES16dbac5211eea7e70db7394372033be2be7df829
+fastforwarded/pushed/exactremoteverified on test/qa-integration. Distribution
+ESrecipepin changedonly; pkgcheck/gates/commit/push next. Rootrecords+QAuncommitted,
+activeauditdiragentowned. Primarynextbe71clean; mergefeature onlyafter owned audit
+writes frozen/committed. Then source60504501 nextimage needsactualpublishednext
+commit/ESrecipeSHA, freshdependencyreadback before atomic125GBcachemove.
+Native-state-onlye7326fe6ready; Dolphinagentprepares focusedfinalimage clean/retained
+handoff, no runtime. Earlier activeVM notes arehistorical.
+
+## Latest03:35 — candidate-only Back/reopen VM active
+
+Published feature030518cd82d072716f0f4a0a145d9b03b6531f05 exactremoteverified.
+ONE noNIC640VM active: `/workspace/tmp/pix-m7-wifi-back-reopen-20261015-01`,
+watch033503Z-5d794795, launcher2945146, admission681f265ce71a4410ad0e8def8c1b1c7e,
+VNC144,600swork+120cleanup. Sealedsource `/tmp/pix-m7-wifi-back-reopen-plan-20261015`
+manifestbb4683989e5cfb5dd3585c97856388f3d5773de4501c52dd951139462a0a394f.
+Rootandpeerread fullcapture/host/preparer; same1s actualsend→completeRGB limit.
+Prioractualfourcontrols+baseline/candidate lifecycle originals imported, notrerun.
+Waitvisualready; init,wifi-startcandidate,wifi-select; personallyviewselectedframe
+and exactreview; then activate→back-reopen→exit continuously inside25s; cleanup;
+review3remainingframes;finish/export/review/consume. No in-flight edits.
+Rootsoleoperator/monitor<=60s. Auditor owns activeauditdir and updates5resolved/1open.
+
 ## Latest03:32 — no runtime active; both panel sizes completed
 
 1280owner02/watch032715Z-7f90663f all original0, complete export165guest/225host,

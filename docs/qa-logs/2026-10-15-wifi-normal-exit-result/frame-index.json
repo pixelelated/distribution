@@ -1,0 +1,134 @@
+[
+  {
+    "path": "frames/wifi-candidate-network-return.png",
+    "sha256": "1792ba79e417aae546e91240095dbd8e24a206790f5006e10d00fd50858346e2",
+    "original_path": "/workspace/tmp/pix-m7-wifi-back-reopen-20261015-01/frames/audit-20261015T033709-49985444/capture-back/sample-00.png",
+    "label": "wifi-candidate-network-return",
+    "review": "Actual Back returns to NETWORK SETTINGS with WI-FI NETWORK selected. Full pixels equal personally reviewed reference; actual key-send to complete RGB receipt upper bound0.059060466s, within1s.",
+    "source_binding": {
+      "packet_seal": "bb4683989e5cfb5dd3585c97856388f3d5773de4501c52dd951139462a0a394f",
+      "binding_sha256": "9a22636ffee2e522b6926a3bd0e64ac1e2363ea1d71feff6bf8599e2c3084de6",
+      "candidate_es_sha256": "067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d",
+      "candidate_es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+      "candidate_product_commit": "47dda767c7afc47020a3f21ab19a4493bfd5ff8a",
+      "panel": [
+        640,
+        480
+      ],
+      "new_image_installed_acceptance": false,
+      "base_packet_seal": "08773c90fec208a277da993d6df63b38ab4150bd308c5cd98f199a884e68466c",
+      "navigation_revision": "GENERIC_X64 conditional NETWORK NAME; six downs and reviewed pre-activation frame",
+      "scope": "candidate Back/reopen only",
+      "imported_prerequisites": {
+        "verified": true,
+        "scope": "four original controls and full ES normal-exit lifecycle only",
+        "prior_outer_returncode": 1,
+        "consumed_id": "341087f6d3d44905b7447199e9713de1",
+        "originals_manifest_sha256": "d18dc9aacc32b15c42c87c209919fb4527a392443403485d4bb6f5064e5e2fee",
+        "candidate_es_sha256": "067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d",
+        "candidate_es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+        "back_reopen_not_yet_qualified": true
+      }
+    },
+    "original_run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T033503Z-5d794795"
+  },
+  {
+    "path": "frames/wifi-candidate-reopened-searching.png",
+    "sha256": "855627477846f9f45dfb21718334106d598b12164f41c63e0b895e731721f25a",
+    "original_path": "/workspace/tmp/pix-m7-wifi-back-reopen-20261015-01/frames/audit-20261015T033709-49985444/wifi-candidate-reopened-searching.png",
+    "label": "wifi-candidate-reopened-searching",
+    "review": "Actual reopened WI-FI NETWORKS picker shows SEARCHING WI-FI NETWORKS and unchanged footer. Original receipts verify the identical two blocked scan identities and exactly one enumeration.",
+    "source_binding": {
+      "packet_seal": "bb4683989e5cfb5dd3585c97856388f3d5773de4501c52dd951139462a0a394f",
+      "binding_sha256": "9a22636ffee2e522b6926a3bd0e64ac1e2363ea1d71feff6bf8599e2c3084de6",
+      "candidate_es_sha256": "067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d",
+      "candidate_es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+      "candidate_product_commit": "47dda767c7afc47020a3f21ab19a4493bfd5ff8a",
+      "panel": [
+        640,
+        480
+      ],
+      "new_image_installed_acceptance": false,
+      "base_packet_seal": "08773c90fec208a277da993d6df63b38ab4150bd308c5cd98f199a884e68466c",
+      "navigation_revision": "GENERIC_X64 conditional NETWORK NAME; six downs and reviewed pre-activation frame",
+      "scope": "candidate Back/reopen only",
+      "imported_prerequisites": {
+        "verified": true,
+        "scope": "four original controls and full ES normal-exit lifecycle only",
+        "prior_outer_returncode": 1,
+        "consumed_id": "341087f6d3d44905b7447199e9713de1",
+        "originals_manifest_sha256": "d18dc9aacc32b15c42c87c209919fb4527a392443403485d4bb6f5064e5e2fee",
+        "candidate_es_sha256": "067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d",
+        "candidate_es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+        "back_reopen_not_yet_qualified": true
+      }
+    },
+    "original_run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T033503Z-5d794795"
+  },
+  {
+    "path": "frames/wifi-candidate-searching.png",
+    "sha256": "7b96c931b681cfc636af26502bbabd67937fda966a500d1381442a30abf0df9c",
+    "original_path": "/workspace/tmp/pix-m7-wifi-back-reopen-20261015-01/frames/audit-20261015T033705-67ca93bc/wifi-candidate-searching.png",
+    "label": "wifi-candidate-searching",
+    "review": "Actual WI-FI NETWORKS picker shows SEARCHING WI-FI NETWORKS with unchanged REFRESH, INPUT MANUALLY and BACK footer.",
+    "source_binding": {
+      "packet_seal": "bb4683989e5cfb5dd3585c97856388f3d5773de4501c52dd951139462a0a394f",
+      "binding_sha256": "9a22636ffee2e522b6926a3bd0e64ac1e2363ea1d71feff6bf8599e2c3084de6",
+      "candidate_es_sha256": "067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d",
+      "candidate_es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+      "candidate_product_commit": "47dda767c7afc47020a3f21ab19a4493bfd5ff8a",
+      "panel": [
+        640,
+        480
+      ],
+      "new_image_installed_acceptance": false,
+      "base_packet_seal": "08773c90fec208a277da993d6df63b38ab4150bd308c5cd98f199a884e68466c",
+      "navigation_revision": "GENERIC_X64 conditional NETWORK NAME; six downs and reviewed pre-activation frame",
+      "scope": "candidate Back/reopen only",
+      "imported_prerequisites": {
+        "verified": true,
+        "scope": "four original controls and full ES normal-exit lifecycle only",
+        "prior_outer_returncode": 1,
+        "consumed_id": "341087f6d3d44905b7447199e9713de1",
+        "originals_manifest_sha256": "d18dc9aacc32b15c42c87c209919fb4527a392443403485d4bb6f5064e5e2fee",
+        "candidate_es_sha256": "067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d",
+        "candidate_es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+        "back_reopen_not_yet_qualified": true
+      }
+    },
+    "original_run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T033503Z-5d794795"
+  },
+  {
+    "path": "frames/wifi-candidate-selected-network.png",
+    "sha256": "1792ba79e417aae546e91240095dbd8e24a206790f5006e10d00fd50858346e2",
+    "original_path": "/workspace/tmp/pix-m7-wifi-back-reopen-20261015-01/frames/audit-20261015T033633-1aa1bf76/capture-reference/reference.png",
+    "label": "wifi-candidate-selected-network",
+    "review": "WI-FI NETWORK selected; ENABLE WI-FI ON; activate this bound picker.",
+    "source_binding": {
+      "packet_seal": "bb4683989e5cfb5dd3585c97856388f3d5773de4501c52dd951139462a0a394f",
+      "binding_sha256": "9a22636ffee2e522b6926a3bd0e64ac1e2363ea1d71feff6bf8599e2c3084de6",
+      "candidate_es_sha256": "067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d",
+      "candidate_es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+      "candidate_product_commit": "47dda767c7afc47020a3f21ab19a4493bfd5ff8a",
+      "panel": [
+        640,
+        480
+      ],
+      "new_image_installed_acceptance": false,
+      "base_packet_seal": "08773c90fec208a277da993d6df63b38ab4150bd308c5cd98f199a884e68466c",
+      "navigation_revision": "GENERIC_X64 conditional NETWORK NAME; six downs and reviewed pre-activation frame",
+      "scope": "candidate Back/reopen only",
+      "imported_prerequisites": {
+        "verified": true,
+        "scope": "four original controls and full ES normal-exit lifecycle only",
+        "prior_outer_returncode": 1,
+        "consumed_id": "341087f6d3d44905b7447199e9713de1",
+        "originals_manifest_sha256": "d18dc9aacc32b15c42c87c209919fb4527a392443403485d4bb6f5064e5e2fee",
+        "candidate_es_sha256": "067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d",
+        "candidate_es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+        "back_reopen_not_yet_qualified": true
+      }
+    },
+    "original_run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T033503Z-5d794795"
+  }
+]

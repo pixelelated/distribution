@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "action": "back",
+  "clock": "host monotonic",
+  "samples": [
+    {
+      "capture_started_monotonic": 1127114.594606495,
+      "rgb_received_monotonic": 1127114.653657699,
+      "ppm_sha256": "bc0ffe3941446fa90c4a46413788382513dd4a8eab551d2509f1bb13e5a71e6d",
+      "index": 0,
+      "exact_reference_match": true,
+      "elapsed_upper_bound_seconds": 0.05906046601012349
+    }
+  ],
+  "limit_seconds": 1,
+  "original_returncode": 0,
+  "vnc_endpoint": [
+    "127.0.0.1",
+    6044
+  ],
+  "pre_key_frame": {
+    "capture_started_monotonic": 1127114.529344051,
+    "rgb_received_monotonic": 1127114.593577842,
+    "ppm_sha256": "fac26f286143deae8273081b98c482fcb0a3e8fd0e2d5c06d672d6259609d413"
+  },
+  "reference": {
+    "path": "/workspace/tmp/pix-m7-wifi-back-reopen-20261015-01/frames/audit-20261015T033633-1aa1bf76/capture-reference/reference.ppm",
+    "sha256": "bc0ffe3941446fa90c4a46413788382513dd4a8eab551d2509f1bb13e5a71e6d"
+  },
+  "key_send_started_monotonic": 1127114.594597233,
+  "key_send_finished_monotonic": 1127114.594604347,
+  "first_matching_sample": 0,
+  "upper_bound_seconds": 0.05906046601012349,
+  "hmp_reply": "s\u001b[K\u001b[Dse\u001b[K\u001b[D\u001b[Dsen\u001b[K\u001b[D\u001b[D\u001b[Dsend\u001b[K\u001b[D\u001b[D\u001b[D\u001b[Dsendk\u001b[K\u001b[D\u001b[D\u001b[D\u001b[D\u001b[Dsendke\u001b[K\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[Dsendkey\u001b[K\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[Dsendkey \u001b[K\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[Dsendkey z\u001b[K\r\n(qemu) ",
+  "frames": [
+    {
+      "name": "before-key",
+      "ppm_sha256": "fac26f286143deae8273081b98c482fcb0a3e8fd0e2d5c06d672d6259609d413",
+      "png_sha256": "855627477846f9f45dfb21718334106d598b12164f41c63e0b895e731721f25a"
+    },
+    {
+      "name": "sample-00",
+      "ppm_sha256": "bc0ffe3941446fa90c4a46413788382513dd4a8eab551d2509f1bb13e5a71e6d",
+      "png_sha256": "1792ba79e417aae546e91240095dbd8e24a206790f5006e10d00fd50858346e2"
+    }
+  ]
+}
