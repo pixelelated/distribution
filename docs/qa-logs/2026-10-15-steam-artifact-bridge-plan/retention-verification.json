@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-15T08:58:27.104343+00:00",
+  "status": "PASS",
+  "scope": "source/review archive byte and metadata custody only",
+  "source_seal_sha256": "f4d2b12736468a0b9811786515761b0505981aa0918411ffa7e757f1c0273355",
+  "peer_seal_sha256": "d40cf27f117848acbcecde720e783d9d0e936ded8143e5159ce27ce24242a9ef",
+  "archives": {
+    "source-packet.tar.gz": {
+      "sha256": "a3dcdec8f5ab4a4a039ecce21b92d3a42c6715211c97be5694a3ba88d2d890d5",
+      "bytes": 161897,
+      "regular_files": 63,
+      "directories": 5
+    },
+    "review-originals.tar.gz": {
+      "sha256": "2f8e2400f6b01ecc5dcc03f066fbf355832949c9bef73a12725dce19f711edfa",
+      "bytes": 8071,
+      "regular_files": 5,
+      "directories": 1
+    }
+  },
+  "members": 74,
+  "checks": [
+    "exact archived membership",
+    "file bytes/size/SHA256",
+    "permission modes",
+    "UID/GID and user/group names",
+    "exact decimal PAX nanosecond mtime",
+    "originals unchanged",
+    "both inner seals and membership"
+  ],
+  "runtime": "UNRUN; future SM hashes remain null",
+  "archive_extraction": false
+}

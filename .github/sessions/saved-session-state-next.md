@@ -1,10 +1,42 @@
 # Saved Session State
 
-Updated 2026-10-15 08:44 UTC. Continue authorized M7 toward next 0.0.1 RC.
-Coordinator m7-player-setup / feature/m7-final-qualification-02; published04d64cbfbc; exact3hostedchecksSUCCESS.
-Accepted H700/VM sourcef863 / ES16dbac unchanged. New SM05 source9aa7 corrects
-only the ABL checksum. Root sole runtime allocator; SM main build ACTIVE.
+Updated 2026-10-15 09:10 UTC. Continue authorized M7 toward next 0.0.1 RC.
+Coordinator m7-player-setup / feature/m7-final-qualification-02; published57a4fcbece,
+all three exact hosted checks SUCCESS. VM/H700 sourcef863 and ES16dbac unchanged.
+SM05 source9aa7 corrects only ABL checksum; main compiler/image finished, final
+verifier failed. Root sole runtime allocator. No compiler/VM/physical job active.
 Saving is not a pause. No new physical/cloud operation or release approval.
+
+## Latest 2026-10-15 09:10 UTC — #602 ABL reader correction after completed compilation
+
+SM081827Z-07dceee9 finished09:00:07 with command/monitor/runner1/0/1 and all
+launcher/inner/outer/wrapper1 after737/737 and image creation. Exact signed ABL
+8c27a709/258048B is ELF32 little-endian EM_ARM40; verify-additions.py incorrectly
+applied the generic ELF64/AArch64183 userland rule. No product defect demonstrated.
+All recorded owners735247/735248/735250/738232 exited, container3031b261 absent.
+Ordinary failed-investigated consumptionec3f813f retained originals and artifacts;
+consumedSHAf820b116. Root failure packet /tmp/pix-m7-sm8550-verifier-failure-20261015.
+Initial evidence-preparation assertion expected uppercase Docker absence wording;
+no original or registry changed by that failed preparation; lowercase readback
+then passed. Do not call the old consume-build or change the original owner.
+
+Watched read-only hash090643Z-2726aa32 completed all0/exec0; five assembled files
+bound by assembled-output-manifest.json SHAb456c92519db11b30b24b5ac14fb2ca9f2fd9e9cd39305223f3dd8429757da41.
+They remain UNACCEPTED. Dolphin owns SOURCE ONLY
+/tmp/pix-m7-sm8550-abl-format-20261015: minimal named-ABL check, controls and fresh
+read-only reader/independent acceptance continuation; no compiler/cache replay.
+Root reviews before allocating. m7_audit_resume retains compact failed originals
+only under docs/qa-logs/2026-10-15-sm8550-abl-format/failure/; wait for release.
+#602 owns the qualification defect; #555/#600/M7 exact status updated09:09.
+
+Steam bridge sourcef4d2b127 and peer d40cf27f are reviewed; durable source custody
+48d55777 under docs/qa-logs/2026-10-15-steam-artifact-bridge-plan/ was independently
+verified74members. Actual run is UNRUN. Its inputs must receive a small explicit
+binding to the eventual fresh reader/acceptance provenance, preserving producer1.
+Then execute the one portable existing-profile case, followed by finalinventory03
+6b2c7bf6 with seven actual SM references. No future receipt/hash may be fabricated.
+#589/#591/#577/#581/#582 closed; #511 publicguide followup remains separate.
+No RC designation, physical deployment or source/licence publication clearance.
 
 ## Latest 2026-10-15 08:44 UTC — five issue closures retained; SM still compiling
 

@@ -11,6 +11,49 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 09:10 UTC — SM image assembled; signed-bootloader reader repair
+
+The canonical SM8550 build completed all737 packages and image creation, then
+its final host verifier failed because it treated the signed ABL bootloader as
+an AArch64 userland executable. #602 owns the narrow correction: the exact
+upstream member is ELF32/EM_ARM and already matches the expected digest.
+Original run081827Z-07dceee9 and its1/0/1 result remain failed and ordinarily
+consumed; no successful combined producer receipt is inferred.
+
+Five assembled output identities are retained by watched hash run090643Z-2726aa32,
+all0, manifestb456c925. Fresh read-only source/installed verification and independent
+artifact acceptance come next; no recompilation or cache copy is indicated by
+this finding. [The reviewed Steam bridge source](../qa-logs/2026-10-15-steam-artifact-bridge-plan/README.md)
+remains unrun until actual acceptance and explicit updated input bindings, then
+#528 final inventory follows. H700 and prior scoped VM/audit evidence remain accepted.
+
+## 2026-10-15 08:51 UTC — five more scoped fixes closed
+
+#589, #591 and #577 are closed from their accepted observer, frame-comparison
+and Wi-Fi evidence; the corresponding public-guide follow-up is recorded in
+#511. [Their exact completion records](../qa-logs/2026-10-15-accepted-issue-reconciliation/README.md)
+retain the original failed runs and subsequent passing checks.
+
+#581 and #582 are also closed: Dolphin retained-path preservation and Steam
+client-bootstrap recovery meet their stated criteria. [The finite review and
+tracker readbacks](../qa-logs/2026-10-15-device-issue-reconciliation/README.md)
+keep native ARM, real Steam self-update, abrupt-power and physical limits explicit.
+The canonical Dolphin flow now separates earlier recording-engine frames from
+later installed, retained-update and native-state proof.
+
+SM8550 source9aa7's new independent cache copy passed and build
+081827Z-07dceee9 is active. Its corrected ABL installation passed; private Nix
+dependencies are still compiling. Independent artifact acceptance is pending.
+After that acceptance, #564/#579/#580 need one existing full-caller VM case using
+the exact staged module whose bytes were independently matched to SYSTEM. This
+is portable-script behavior with installed VM tools and synthetic boundaries,
+not native ARM Steam qualification. Final five-profile inventory under #528
+follows that case. Current ordered status stays in the milestone body.
+
+[The locale diagnostic comparison](../qa-logs/2026-10-15-locale-diagnostic-review/README.md)
+found the same 88 diagnostic lines in completed H700 and GENERIC builds. It
+introduces no new regression claim, runtime-validity claim or build gate.
+
 ## 2026-10-15 — H700 artifacts accepted; SM8550 checksum repair
 
 [#555's independent H700 acceptance](../qa-logs/2026-10-15-device-refresh/h70004/README.md)
@@ -238,14 +281,14 @@ pending final-image wording for those completed, explicitly named scopes.
 | --- | --- | --- |
 | Browser slowdown and memory pressure — #570/#572 | Actual compiled ES handoff change reclaims78.01MiB in a bounded VM comparison; repeated handoff and recovery pass. GStreamer controller/scanner component controls pass. Final composition exposed four additional plugins requiring a removed libgstnet; actual installed stderr confirms the packaging defect. The narrow recipe fix restores upstream ROCKNIX runtime-library retention; corrected installed assembly and selected loader proof are now accepted. | Final affected image/loader, UI and selected clean/retained checks are complete. H700 corroboration remains a separate physical observation; no universal WebKit or speed cure is claimed. |
 | Phone keyboard status — #571 | Compact stable status, translated component checks and actual installed bridge navigation/input pass; keyboard geometry remains fixed. | Final-source integration and affected assembled-image regression are complete. Physical phone/provider behavior retains its separately scoped evidence. |
-| Wi-Fi picker — #577 | Stable initial/refresh/empty/error/scroll UI, existing connection routes and separate backend failure controls pass. Subsequent compiled French hint frames are retained. | Corrected backend/UI branches, final installed image and retained settings are accepted. The audit normal-exit repair additionally passed Back/reopen and child cleanup; synthetic enumeration is not a physical radio measurement. |
+| Wi-Fi picker — #577 | Stable initial/refresh/empty/error/scroll UI, existing connection routes and separate backend failure controls pass. Subsequent compiled French hint frames are retained. | Closed under #577; corrected backend/UI branches, final installed image and retained settings are accepted. Public-guide follow-up is recorded in #511. The audit normal-exit repair additionally passed Back/reopen and child cleanup; synthetic enumeration is not a physical radio measurement. |
 | GameCube RVZ and offline achievements — #574/#583/#584 | Frontend reader/retry, MD5 sanitizer subset, proxy padding/scanner and Dolphin routing configuration have passing component evidence. Actual Dolphin decoding/encoding/whole-data roundtrips, native proxy ISO/RVZ/cache/account/award/reconnect integration,234 CHD-bearing hashes and actual main/systemd/real worker lifecycle now pass within scope. | Current native library is now source-bound by a successful pinned build. #588 startup race is causally reproduced, repaired and passes actual-service plus ten component cases. Packaged repairs reproduce the tested Python source exactly. Final installed ISO/NONE-RVZ/Zstd-RVZ/CHD hash integration and #588 default-boot startup service proof now pass. Installed Dolphin enabled/disabled/boot-error lifecycle, ordinary Wii gameplay/save, selected clean/retained configuration, and final manual-state flow are now accepted within their exact source scopes. The original synthetic header failure and additive correction remain recorded. Successful real-account authentication or awards and physical-device behavior are not claimed. |
-| Standalone save-state expectations and Dolphin data preservation — #575/#581 | Capability/help and EN/FR frames, retained-data refusal and save-path controls pass within scope; shorter French descriptions and corrected English640 long-card refusal/return verified. | Installed clean/retained paths, default/custom controller profiles, ordinary Wii/Dreamcast cold saves and final native manual/automatic state behavior are accepted. The final f863 native flow/frame index distinguishes ES global options from native Flycast options. Original Nova selected-core history remains unknown; ordinary game saves and save states remain different capabilities. |
+| Standalone save-state expectations and Dolphin data preservation — #575/#581 | Capability/help and EN/FR frames, retained-data refusal and save-path controls pass within scope; shorter French descriptions and corrected English640 long-card refusal/return verified. | Closed under #575/#581; installed clean/retained paths, default/custom controller profiles, ordinary Wii/Dreamcast cold saves and final native manual/automatic state behavior are accepted. The final f863 native flow/frame index distinguishes ES global options from native Flycast options. Original Nova selected-core history remains unknown; ordinary game saves and save states remain different capabilities. |
 | Notice before offline-achievement preparation — #567 | Conditional confirmation UI and four native ES indexing API branches pass; actual preparation was represented by a controlled ctl substitute. | Final installed ES→ctl/proxy/cache/images continuation now passes: one new game, readiness1→2, old data unchanged, SQLite/queue/stamp/locks and original normal exits verified. The earlier fixture path-expectation failure and its correction remain preserved separately. |
 | Nova account/history isolation — #565 | Provenance investigation completed to available evidence; library-copy test separates ROM-only from gamelist history. Selected clean-state and payload guards have positive/negative controls. Original account entry remains unknown. | Actual final install/update payload and untouched clean boot pass selected-scope checks; no personal accounts or fabricated history found in that scope. Real retained-storage upgrade and installed default backup now pass with selected state preserved and seeded secrets excluded from the archive. Original historical account writer remains unknown. |
 | Recent default — #578 | One-literal compiled default fix and nine default/explicit-choice controls pass; imported gamelist history can populate Recent, a ROM alone cannot. | Final-source/image and selected clean/retained proof preserve explicit player choices. Historical Nova Recent entries are not evidence that this new default fix fabricated history. |
 | ScreenScraper developer provisioning — #566 | Runtime versus compiled behavior and separate player accounts are traced. The owner selected the existing shared JELOS developer identity (D-WORKFLOW-166); recipe/gate candidate19221 passes127 root-policy and4 environment-selection VM controls. Final ES3178 passes syntax checks in both credential modes and a full compiled-pair component build with EN/FR catalogs; compiled rejection guidance now addresses system access instead of hidden developer fields. | Actual small/large EN/FR frame proof is complete; ES3178 is published and selected by the recipe. Final payload, untouched clean boot, real retained upgrade and installed default backup pass. Replacement credentials are backlog #586, not a candidate dependency. Preserve unrelated private-credential protections. |
-| Steam installation recovery — #564/#579/#580/#582 | Runtime/FEX/Proton preservation and complete synthetic caller controls pass within scope. Partial-client retry defect reproduced; real55-member client archive CRC/layout inspection passes. | Client transaction03e130 addresses both independent review findings in source; corrected full caller and fresh profile-symlink VM cases pass. Existing-profile, detached-child, census-failure, real transport-timeout, interrupted-publish, committed-self-update and CRC-retry cases now pass. The CRC fixture logging failure and correction remain recorded. The remaining14 source-chroot recovery controls, bounded installed metadata fetch and isolated Python helper controls are accepted. Native ARM payload inspection and runtime qualification remain distinct device-build/publication checks; original a057 fixture failure is retained. This was found during the20261001 intake, not reported from gameplay. |
+| Steam installation recovery — #564/#579/#580/#582 | Runtime/FEX/Proton preservation and complete synthetic caller controls pass within scope. Partial-client retry defect reproduced; real55-member client archive CRC/layout inspection passes. | Client transaction03e130 addresses both independent review findings in source; corrected full caller and fresh profile-symlink VM cases pass. Existing-profile, detached-child, census-failure, real transport-timeout, interrupted-publish, committed-self-update and CRC-retry cases now pass. The CRC fixture logging failure and correction remain recorded. The remaining14 source-chroot recovery controls, bounded installed metadata fetch and isolated Python helper controls are accepted; #582 is closed within its explicit contract. #564/#579/#580 still require one VM full-caller case bound to the actual accepted SM packaged bytes. Native ARM payload inspection and runtime qualification remain distinct device-build/publication checks; original a057 fixture failure is retained. This was found during the20261001 intake, not reported from gameplay. |
 
 Evidence: [installed setup](../qa-logs/2026-10-13-setup-qualification/installed/README.md),
 [library/preservation components](../qa-logs/2026-10-13-library-vm/README.md),
@@ -302,8 +345,8 @@ are not reopened simply by this inventory. Remaining restore regression is #349.
 The f863 combined GENERIC_X64 composition, applicable audit, native-state
 qualification and H700 independent artifact acceptance are complete within
 their recorded scopes. Continue SM8550 under #555/#600 from the checksum correction through a fresh
-reviewed build and independent artifact acceptance. The
-completed common work is not a new build or audit gate. #528/#344 and related
+reviewed build and independent artifact acceptance, then the single packaged-script
+VM case for #564/#579/#580 and the final #528 inventory. The completed common work is not a new build or audit gate. #528/#344 and related
 source/licence/custody/identity/notes requirements still govern publication;
 they are distinct from creating or accepting an engineering image.
 
