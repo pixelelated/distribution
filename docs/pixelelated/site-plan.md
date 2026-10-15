@@ -1,10 +1,48 @@
 # pixelelated site: first version
 
-Status: planning, 2026-10-07. Tracked in [#511](https://github.com/pixelelated/distribution/issues/511),
-parallel to M7. D-WORKFLOW-152/153 keeps hosting flexible and site delivery
-separate from firmware qualification. No site has been deployed by this work.
+Updated 2026-10-15. Website work remains in
+[#511](https://github.com/pixelelated/distribution/issues/511), parallel to M7.
+The site and cloud, ROM and BIOS guides are published. The retained October 15
+readback for website PR #4 verifies the settings-restore guide at
+`https://pixelelated.com/guides/cloud/`; see
+[the publication evidence](../qa-logs/2026-10-15-restoration-completion/README.md).
+This update uses that evidence, not a new live-site probe. Keep the existing
+website implementation and private source repository.
 
-## Repository and existing source
+## Credits and licences
+
+[#605](https://github.com/pixelelated/distribution/issues/605) is a real child
+of #511, without a milestone assignment. D-WORKFLOW-167 records the maintainer's
+request for a discoverable public disclosure. The website lane owns the page;
+[#528](https://github.com/pixelelated/distribution/issues/528) owns the qualified
+component inventory, notices and corresponding-source evidence.
+
+Use the release manifest to produce a readable component list with versions,
+device/profile coverage, upstream attribution, licences, retained notices and
+actual source-download links. Include the applicable font/art attribution and
+ROCKNIX/JELOS lineage. Retain release-specific history, distinguish shared
+records from unique components and keep large source archives in release storage.
+The page must state its coverage and link precise unresolved research; it must
+not imply every bundled component has the distribution's own licence or that
+the inventory establishes blanket clearance. Publish only sanitized public data.
+
+Delivery evidence is the selected website revision, existing build/prose/layout
+checks, reviewed desktop/phone renders, inventory consistency report and actual
+public link/content readback. No handheld or personal cloud is needed. The
+website task adds no bench-testing gate; #528's existing publication requirements
+remain unchanged. Difficult missing pieces receive a component/version-specific
+issue or entry with evidence and release impact, without reopening settled inputs.
+
+## Historical launch plan — October 7
+
+The original inventory and launch sequence below are retained as dated planning
+history. Their starter-only repository, unconfigured hosting, 404/certificate
+failure and unverified-publication statements are superseded by the current
+#511 record and publication evidence above. They are not instructions to repeat
+repository creation, choose another framework or redeploy the existing site.
+The firmware QR work remains separately tracked in #511.
+
+### Repository and existing source
 
 Use the dedicated ordinary repository, `pixelelated/website`. The site
 and wiki-style guides live together as versioned source. GitHub Pages is a
@@ -36,7 +74,7 @@ and `ROCKNIX/rocknix.org`. Reuse selected material with its attribution; that
 branch is238 commits behind cached upstream, not an appropriate whole-site
 baseline. The upstream docs PR188 is open and unmerged as checked today.
 
-## First-version scope
+### First-version scope
 
 | Page or capability | Purpose |
 | --- | --- |
@@ -53,7 +91,7 @@ terms, reviewed screenshots and preserved upstream credit. Content should
 remain useful without an account. Do not add an updater service, telemetry
 backend or community system without a concrete requirement.
 
-## Hosting choice
+### Hosting choice
 
 A portable static site fits the first-version requirements. GitHub Pages is
 the initial recommendation: it can publish a branch/folder or a generated
@@ -67,7 +105,7 @@ If built-in preview deployments or a server runtime becomes a requirement,
 compare hosts against that requirement before choosing. No hosting migration
 is necessary merely because a future service might exist.
 
-## Domain and launch sequence
+### Domain and launch sequence
 
 The maintainer confirmed **`pixelelated.com`** (D-WORKFLOW-154). The earlier
 `pixelated.com` spelling is resolved. At 21:30 UTC on 2026-10-07, after the
@@ -101,7 +139,7 @@ Can this be done on the VM? Handheld help/modal behavior and QR rendering can.
 Site builds, browser rendering and public HTTPS/DNS reads are host facts; no
 physical device or personal cloud is required.
 
-## Registrar entries
+### Registrar entries
 
 The exact GitHub Pages A/CNAME records, optional IPv6 entries and setup order
 are in [site-dns.md](site-dns.md). Read-only repository, Pages-access and public

@@ -702,6 +702,8 @@ This is the index of decisions; `docs/work-logs/` is the narrative,
 
 | D-RA-047 | 2026-10-14 | **Evaluate temporarily stopping the offline proxy during browser use as future work, conditional on preserving proxy functionality.** The owner requested a memory-pressure experiment, especially for low-RAM H700 devices, and explicitly permits rejecting it if lifecycle or background-work reliability suffers. Record measured memory benefit and restart/readiness cost; preserve queued awards, cache integrity, the enabled preference and D-UI-095 in-flight-send behavior. This does not select a production stop policy or add a gate to the current M7 candidate. | #587; #570; D-UI-095 |
 
+| D-WORKFLOW-167 | 2026-10-15 | **Publish release credits and licence disclosures on the website, using the qualified release inventory and notices.** The maintainer requests visible attribution and continued tracking of difficult missing pieces. Website #605 belongs to the separate #511 lane and adds no firmware bench-testing gate. Bind public component/profile/version, notice and source links to #528 evidence; label coverage and unresolved questions instead of claiming blanket clearance. Track later research precisely while retaining existing obligations for included release components. | maintainer, 2026-10-15; #605; #511; #528; `docs/pixelelated/site-plan.md` |
+
 ## Open decisions
 
 

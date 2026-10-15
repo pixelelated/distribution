@@ -1,6 +1,6 @@
 # Saved Session State
 
-Updated 2026-10-15 20:08 UTC. Current engineering firmware and portable local
+Updated 2026-10-15 21:08 UTC. Current engineering firmware and portable local
 source/notice delivery are accepted in their recorded scopes. Release-note draft,
 security readback and dependency reconciliation are complete; no build, VM or
 copy is active. Infrastructure topology remains deferred under D-WORKFLOW-113/125;
@@ -11,7 +11,7 @@ release-source retrieval/backup remains a separate publication obligation.
 Coordinator `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
 `feature/m7-final-qualification-02`; primary `/workspace/repos/rocknix` stays on
 `next`. Harness checkout `conflict-resolution` stays untouched. Published evidence
-head is e51c029e659edd6365d6996b4fe9edfc9e711f21; read current Git/remote state
+head before this record update is 3416cb404343735e4cecb4683560d847449f8a4a; read current Git/remote state
 before assuming a later docs commit has landed. This record change retains
 accepted evidence and updates documentation only; inspect Git for publication state. Product source is
 077197e6cd3ea31f33b28aaf3882a694b3423b53, ES16dbac5211eea7e70db7394372033be2be7df829,
@@ -24,6 +24,22 @@ workers are authorized. Root serializes runtime and preserves original outcomes.
 Inspect actual long-job completion at intervals at most60seconds and report it;
 watch-build records status but does not independently deliver chat notifications.
 Never modify in-flight tools or replay successful work for cleaner paperwork.
+
+## Latest website and bench request
+
+#605 is the new website credits/licence disclosure task, an actual child of
+#511 without a milestone assignment. D-WORKFLOW-167 binds the public page to
+#528's qualified release inventory/notices/source links, with explicit coverage
+and tracked research limitations. It adds no firmware bench gate and waives no
+included-component publication requirement. #511 body and #528 comment6202275186
+are read back; the site plan now separates published-guide status from the
+October7 historical launch plan. Website delivery remains in its existing lane.
+
+The owner offers the H700 RG35XX SP for bench work. Its current engineering image
+has accepted artifact proof, but applicable source/audit work still precedes
+handoff. Existing #603 and source-contact approvals remain pending; do not repeat
+their questions or infer new transfer/reboot authority from device availability.
+No device action, new build, VM, website deployment or external review is running.
 
 ## Completed current firmware and VM proof
 
@@ -220,10 +236,11 @@ cover different packets. Do not duplicate the question or infer approval from
 time passing. Resume `m7_handoff_audit_603` only after the actual answer, using
 only the Council Facilitator and a fresh serialized allocation.
 
-At published `e51c029e65`, both wordlists passed (38783553936 and 38783551906).
-Record CI38783551822 failed only outstanding audit cadence (16 completed closures,
-threshold12); all other record steps passed. Cheap pre-push checks remain required;
-do not call overall CI green or fabricate a completion marker.
+At published `3416cb4043`, both wordlists passed (38799581326 and 38799653482).
+Record CI38799654069 failed only outstanding audit cadence (16 completed closures,
+threshold12); all other record steps passed. These are the preceding commit's
+results, not checks of a later documentation change. Cheap pre-push checks remain
+required; do not call overall CI green or fabricate a completion marker.
 
 The other pending request is the root-only stopped-media read:
 `bash /tmp/pix-m7-stopped-media-root-readback-terminal-20261015/commands.sh`.
