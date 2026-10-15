@@ -1,0 +1,91 @@
+{
+  "status": "PASS_RETAINED_ORIGINALS_WITH_FAILED_PRODUCER",
+  "producer_original_result_unchanged": true,
+  "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+  "image_sha256": "c5de01b869c5bb28966ab5d654b95a8ed36581c38b380ed885a5946489009932",
+  "producer_run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/.build-runs/20261015T224512Z-038a66c6",
+  "producer_admission": "d88e47d06b1745ff88d51fcde05ff2ee",
+  "producer_original_channels": {
+    "launcher": 1,
+    "tool_wrapper": 1,
+    "build": 1,
+    "command": 1,
+    "monitor": 0,
+    "runner": 1,
+    "vm": 1
+  },
+  "producer_disposition": "failed-investigated; unchanged",
+  "original_members_verified": 455,
+  "original_member_bytes": 5473653,
+  "engine_identity": [
+    3219,
+    8818
+  ],
+  "frontend_identity": [
+    2126,
+    2029
+  ],
+  "runemu_identity": [
+    2591,
+    8782
+  ],
+  "engine_observations": 19,
+  "raw_engine_shell_wait": 0,
+  "quit_send_interval_seconds": 0.603404127999994,
+  "states": {
+    "ExitProbe.srm": {
+      "path": "/storage/roms/gb/ExitProbe.srm",
+      "exists": true,
+      "resolved": "/storage/roms/gb/ExitProbe.srm",
+      "bytes": 8192,
+      "sha256": "f09c50d5c4b8fb185ddf95e83a8b649eba113ce73e2e93c6196a6903d3fd23a6",
+      "mtime_ns": 1792104431493341815,
+      "ctime_ns": 1792104431493341815,
+      "dev": 65026,
+      "ino": 162,
+      "mode": 420
+    },
+    "ExitProbe.state1": {
+      "path": "/storage/roms/savestates/gb/ExitProbe.state1",
+      "exists": true,
+      "resolved": "/storage/roms/savestates/gb/ExitProbe.state1",
+      "bytes": 3445,
+      "sha256": "c73b58271443d386495193c49dc2a7c07bf431852d075fd0e013ad968fc2abda",
+      "mtime_ns": 1792104468793235759,
+      "ctime_ns": 1792104468793235759,
+      "dev": 65026,
+      "ino": 163,
+      "mode": 420
+    },
+    "ExitProbe.state.auto": {
+      "path": "/storage/roms/savestates/gb/ExitProbe.state.auto",
+      "exists": true,
+      "resolved": "/storage/roms/savestates/gb/ExitProbe.state.auto",
+      "bytes": 3451,
+      "sha256": "b83a1d18415e923ed84a1a5562ceaa1dc88b09fc89336fde7315de265eef1530",
+      "mtime_ns": 1792104493415230191,
+      "ctime_ns": 1792104493415230191,
+      "dev": 65026,
+      "ino": 165,
+      "mode": 420
+    }
+  },
+  "frame_hashes": {
+    "manager-before": "3c7ba420d5948006522fc44693391e7a328002134248311823a4928534c458e6",
+    "slot-one": "af2b040015de8157897bc3d32f9835caa8efc8d6984caa1d26f35df567372d71",
+    "manual-saved": "1a8886fc4f3db7f8eee65e05f81c5bbc378270a6db97a9a75c21a40c36c293d2",
+    "manager-after": "d739f7f246879e9708af4f93435cf542bb5be2c7b8b47d09c5c44a4790fb9100",
+    "es-return": "6bb546e2337050c9ba53b1ef8f20c4ce8243e2a7fcf08aaaffa8f5b718b1dd86"
+  },
+  "actual_ES_launch_line": "2026-10-15 18:47:01\t[2126]\tINFO\t\t/usr/bin/runemu.sh /storage/roms/gb/ExitProbe.gb -Pgb --core=gambatte --emulator=retroarch --controllers=\"\" -autosave 1 -state_slot -1",
+  "all_original_owners_gone_receipt_sha256": "fc737410402ad247156d77a04666e99bb1c6001a314ea929ed3998a50d5de99a",
+  "retirement_receipt_sha256": "307ac0ddd4b8002718bbc5769d09a85d6f8e732589cdd6af4b8244fedadc858f",
+  "marker_limit": "Direct guest marker absence check was not reached. Source runemu consumes marker before its0 return; raw engine wait0 excludes nonzero marker normalization. No direct marker stat or universal post-return absence claim.",
+  "limits": [
+    "Original VM/guest producer remains1 due wrong-log assertion. This reader qualifies retained observations only.",
+    "No independent ES waitpid interception, internal RetroArch poll counters, default-keyboard success, device/runtime replay or broad audit completion claim.",
+    "Root retains acceptance authority; this script does not mutate producer/export/tracker or consume an admission."
+  ],
+  "elapsed_seconds": 0.020614804001525044,
+  "read_bytes": 6354081
+}

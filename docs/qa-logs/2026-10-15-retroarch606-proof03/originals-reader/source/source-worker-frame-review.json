@@ -1,0 +1,36 @@
+{
+  "scope": "Read-only actual original PNG inspection, not fixture execution. Root review remains separate.",
+  "reviewed_utc": "2026-10-15T22:53:29.979666+00:00",
+  "frames": {
+    "manager-before": {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-proof-20261015-03/frames/manager-before.png",
+      "sha256": "3c7ba420d5948006522fc44693391e7a328002134248311823a4928534c458e6",
+      "bytes": 45098,
+      "review": "Only START NEW GAME and START NEW AUTO SAVE; no existing saved tiles."
+    },
+    "slot-one": {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-proof-20261015-03/frames/slot-one.png",
+      "sha256": "af2b040015de8157897bc3d32f9835caa8efc8d6984caa1d26f35df567372d71",
+      "bytes": 6241,
+      "review": "Native lower-left State slot 1 visible."
+    },
+    "manual-saved": {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-proof-20261015-03/frames/manual-saved.png",
+      "sha256": "1a8886fc4f3db7f8eee65e05f81c5bbc378270a6db97a9a75c21a40c36c293d2",
+      "bytes": 7288,
+      "review": "Native checkmark and Saved state to slot: 1 visible."
+    },
+    "es-return": {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-proof-20261015-03/frames/es-return.png",
+      "sha256": "6bb546e2337050c9ba53b1ef8f20c4ce8243e2a7fcf08aaaffa8f5b718b1dd86",
+      "bytes": 13128,
+      "review": "Game Boy ExitProbe list visible after exit."
+    },
+    "manager-after": {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-proof-20261015-03/frames/manager-after.png",
+      "sha256": "d739f7f246879e9708af4f93435cf542bb5be2c7b8b47d09c5c44a4790fb9100",
+      "bytes": 47552,
+      "review": "ExitProbe manager shows AUTO SAVE TODAY at18:48 and SLOT1 TODAY at18:47 with probe thumbnails."
+    }
+  }
+}

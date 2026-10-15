@@ -1,0 +1,132 @@
+{
+  "status": "NO_CONCRETE_SOURCE_BLOCKER",
+  "packet": "/tmp/pix-m7-retroarch606-originals-reader-20261015-01",
+  "source_seal": "83e90e6ec7de38a936f1815617f975085ac73688356c99aa1d49c68efc95ab7c",
+  "source_payloads": 7,
+  "source_bytes_excluding_seal": 30341,
+  "candidate_sha256": "470127ecf81cacab6ee39824dfa0bc6b0cf5fc9c1a176b00550dddacc9013c35",
+  "candidate_ast_parsed_only": true,
+  "candidate_executed_or_imported": false,
+  "candidate455_file_readback_executed": false,
+  "runtime_vm_archive_or_firmware_reads": false,
+  "exact_membership": true,
+  "bound_reference_metadata_verified": [
+    {
+      "key": "original-records.json",
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-evidence-20261015-03/original-records.json",
+      "bytes": 75588,
+      "sha256": "333d1343822924a9b57ce60062c20274164cece954bcb97720ef839b334cc39a"
+    },
+    {
+      "key": "export-result.json",
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-evidence-20261015-03/export-result.json",
+      "bytes": 402,
+      "sha256": "106626e5c63ccef7c3126a53d0355177fde6e4f0d43e50590d039cea2e09afa4"
+    },
+    {
+      "key": "host-exits.json",
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-evidence-20261015-03/host-exits.json",
+      "bytes": 703557,
+      "sha256": "fc737410402ad247156d77a04666e99bb1c6001a314ea929ed3998a50d5de99a"
+    },
+    {
+      "key": "root-original-review.json",
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-evidence-20261015-03/root-original-review.json",
+      "bytes": 4685,
+      "sha256": "67d05cd601a9cb172b1122f4fbff81555b7c20fe9f84895ac7c1a72fa766be57"
+    },
+    {
+      "key": "consumption-draft.json",
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-evidence-20261015-03/consumption-draft.json",
+      "bytes": 1941,
+      "sha256": "c0eee608d9b4ae4f38341638886502eabd5d8fcacd1698a8c55b2a35a0d5ade1"
+    },
+    {
+      "key": "consumed",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/.build-runs/20261015T224512Z-038a66c6/admission-consumed.json",
+      "bytes": 1974,
+      "sha256": "e677ec9bc4edcc70ed618bd65740e583046133521f5c1967f1e6abf73315b6f2"
+    },
+    {
+      "key": "retirement",
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-proof-20261015-03/retirement.json",
+      "bytes": 1879,
+      "sha256": "307ac0ddd4b8002718bbc5769d09a85d6f8e732589cdd6af4b8244fedadc858f"
+    },
+    {
+      "key": "source-guest",
+      "path": "/tmp/pix-m7-retroarch-exit-proof-source-20261015-03/fresh/guest.py",
+      "bytes": 26292,
+      "sha256": "a494cf939050271f5811d66ffa56ac279359fc7073e400c12dbdb963638cf1ef"
+    },
+    {
+      "key": "source-lifecycle",
+      "path": "/tmp/pix-m7-retroarch-exit-proof-source-20261015-03/fresh/vm-lifecycle.py",
+      "bytes": 25316,
+      "sha256": "682627e60dd35f9c7997383468d95832007edbf2fe16fee95ea8330b4f4c10c1"
+    },
+    {
+      "key": "source-runemu",
+      "path": "/tmp/pix-m7-retroarch-exit-proof-source-20261015-03/source/dist-projects__ROCKNIX__packages__rocknix__sources__scripts__runemu.sh",
+      "bytes": 23382,
+      "sha256": "deb95aee74d3ddd80638a9ab2f940f5b3b080f4d3ec01f669ea8dbd44179ad20"
+    },
+    {
+      "key": "source-seal",
+      "path": "/tmp/pix-m7-retroarch-exit-proof-source-20261015-03/SHA256SUMS",
+      "bytes": 10672,
+      "sha256": "a7e679583a560db680b4371da9d615aca38617dccd6d09854a8c8dc1454c0d24"
+    }
+  ],
+  "original_inventory_summary": {
+    "members": 455,
+    "bytes": 5473653
+  },
+  "original_vm_schema_fields_present": [
+    "rc",
+    "boots",
+    "cleanup_errors",
+    "forced_host_cleanup",
+    "remaining_host_children",
+    "surviving_host_processes",
+    "qemu_still_live",
+    "commands"
+  ],
+  "payloads": [
+    {
+      "path": "README.md",
+      "bytes": 5435,
+      "sha256": "4f78e9f2ed453b188cee20036d65e48e9593040dd1c0f7f6523fbd86ab3d7265"
+    },
+    {
+      "path": "bindings.json",
+      "bytes": 3019,
+      "sha256": "efdc18c909e94c9f0328968a400c998df89b8311dd9cc6601673405492c3253a"
+    },
+    {
+      "path": "commands.md",
+      "bytes": 1047,
+      "sha256": "ce25341e9c0bc06d44ebc2f7bd3ae401889180b38965c5438698b81b92de82e2"
+    },
+    {
+      "path": "member-manifest.json",
+      "bytes": 1104,
+      "sha256": "1807c129f8204ae5b270f5f42acbca46bde10d852736b6c718b3f3e14b9e3384"
+    },
+    {
+      "path": "source-worker-frame-review.json",
+      "bytes": 1721,
+      "sha256": "2c883bfbe0732ad6d60e788bd9fbd4eef896b1332ea03ea03630542208f4f91b"
+    },
+    {
+      "path": "static-review.json",
+      "bytes": 509,
+      "sha256": "0e617b60f10aaf8466427d47708f3706baef173234dcd57aa35deabcc18a6ee7"
+    },
+    {
+      "path": "verify-originals.py",
+      "bytes": 17506,
+      "sha256": "470127ecf81cacab6ee39824dfa0bc6b0cf5fc9c1a176b00550dddacc9013c35"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "status": "PASS_SOURCE_ONLY",
+  "candidate_sha256": "470127ecf81cacab6ee39824dfa0bc6b0cf5fc9c1a176b00550dddacc9013c35",
+  "candidate_import_or_execution": false,
+  "checks": [
+    "AST parsed/compiled without evaluation",
+    "allowed imports read-only stdlib plus own output/limits",
+    "no subprocess, socket, tarfile, guest APIs or firmware payload reads",
+    "fixed input inventory and exact source/failure/closeout bindings"
+  ],
+  "runtime": "UNRUN",
+  "utc": "2026-10-15T22:54:07.654683+00:00"
+}

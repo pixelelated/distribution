@@ -1,0 +1,112 @@
+[
+  {
+    "name": "es-initial",
+    "path": "frames/es-initial.png",
+    "sha256": "ca342468e6a0b840233906023a6d9ebe9d4126e34c03fa36a45f47d28647746a",
+    "bytes": 167454,
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "frontend": "16dbac5211eea7e70db7394372033be2be7df829",
+    "root_visual_review": "Viewed original during serialized observed navigation; unchanged presentation.",
+    "frame_scope": "Actual isolated640x480 VM; authored static probe, not gameplay/panel evidence."
+  },
+  {
+    "name": "gb-list",
+    "path": "frames/gb-list.png",
+    "sha256": "6ffb65e5e77b3ea583cef2958588540b896452f3c94a7889a82753c07ee292e3",
+    "bytes": 13345,
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "frontend": "16dbac5211eea7e70db7394372033be2be7df829",
+    "root_visual_review": "Viewed original during serialized observed navigation; unchanged presentation.",
+    "frame_scope": "Actual isolated640x480 VM; authored static probe, not gameplay/panel evidence."
+  },
+  {
+    "name": "game-options",
+    "path": "frames/game-options.png",
+    "sha256": "baf1cac25781f9145485675b76ef195740c7df7fe6acded29dbba0113abaf48e",
+    "bytes": 17020,
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "frontend": "16dbac5211eea7e70db7394372033be2be7df829",
+    "root_visual_review": "Viewed original during serialized observed navigation; unchanged presentation.",
+    "frame_scope": "Actual isolated640x480 VM; authored static probe, not gameplay/panel evidence."
+  },
+  {
+    "name": "manager-before",
+    "path": "frames/manager-before.png",
+    "sha256": "3c7ba420d5948006522fc44693391e7a328002134248311823a4928534c458e6",
+    "bytes": 45098,
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "frontend": "16dbac5211eea7e70db7394372033be2be7df829",
+    "root_visual_review": "Viewed original 640x480 frame: ExitProbe behind SAVE STATE MANAGER, only START NEW GAME and START NEW AUTO SAVE tiles; no saved-state entries.",
+    "frame_scope": "Actual isolated640x480 VM; authored static probe, not gameplay/panel evidence."
+  },
+  {
+    "name": "ra-running",
+    "path": "frames/ra-running.png",
+    "sha256": "c54650aa4628c1d68c06ad9ffc4a221ae30e70fcad7392647bb7791011c40220",
+    "bytes": 5393,
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "frontend": "16dbac5211eea7e70db7394372033be2be7df829",
+    "root_visual_review": "Viewed original 640x480 static probe: light Game Boy surface, centered Nintendo logo, black side bars; actual compositor full-panel and focus binding retained separately. No interactive gameplay-progress claim.",
+    "frame_scope": "Actual isolated640x480 VM; authored static probe, not gameplay/panel evidence."
+  },
+  {
+    "name": "slot-step-1",
+    "path": "frames/slot-step-1.png",
+    "sha256": "a18ec6c0ce94ee6c0c595b995974bc5e47149539a53705c3af5118bcfac7fb05",
+    "bytes": 6378,
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "frontend": "16dbac5211eea7e70db7394372033be2be7df829",
+    "root_visual_review": "Viewed original during serialized observed navigation; unchanged presentation.",
+    "frame_scope": "Actual isolated640x480 VM; authored static probe, not gameplay/panel evidence."
+  },
+  {
+    "name": "slot-one",
+    "path": "frames/slot-one.png",
+    "sha256": "af2b040015de8157897bc3d32f9835caa8efc8d6984caa1d26f35df567372d71",
+    "bytes": 6241,
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "frontend": "16dbac5211eea7e70db7394372033be2be7df829",
+    "root_visual_review": "Viewed original slot-step-1 and slot-one frames: lower-left State slot 0 after first command and State slot 1 after second command. Static probe remains visible. File snapshot and manager corroboration still required.",
+    "frame_scope": "Actual isolated640x480 VM; authored static probe, not gameplay/panel evidence."
+  },
+  {
+    "name": "manual-saved",
+    "path": "frames/manual-saved.png",
+    "sha256": "1a8886fc4f3db7f8eee65e05f81c5bbc378270a6db97a9a75c21a40c36c293d2",
+    "bytes": 7288,
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "frontend": "16dbac5211eea7e70db7394372033be2be7df829",
+    "root_visual_review": "Viewed original manual-saved.png: green check and Saved state to slot: 1. over the static probe. This is a manual state notification; exact state file bytes and timestamps are checked separately.",
+    "frame_scope": "Actual isolated640x480 VM; authored static probe, not gameplay/panel evidence."
+  },
+  {
+    "name": "es-return",
+    "path": "frames/es-return.png",
+    "sha256": "6bb546e2337050c9ba53b1ef8f20c4ce8243e2a7fcf08aaaffa8f5b718b1dd86",
+    "bytes": 13128,
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "frontend": "16dbac5211eea7e70db7394372033be2be7df829",
+    "root_visual_review": "Viewed original 640x480 es-return frame: Game Boy list with ExitProbe and ordinary footer restored after normal engine exit. Same frontend PID/start is verified separately.",
+    "frame_scope": "Actual isolated640x480 VM; authored static probe, not gameplay/panel evidence."
+  },
+  {
+    "name": "options-after",
+    "path": "frames/options-after.png",
+    "sha256": "baf1cac25781f9145485675b76ef195740c7df7fe6acded29dbba0113abaf48e",
+    "bytes": 17020,
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "frontend": "16dbac5211eea7e70db7394372033be2be7df829",
+    "root_visual_review": "Viewed original during serialized observed navigation; unchanged presentation.",
+    "frame_scope": "Actual isolated640x480 VM; authored static probe, not gameplay/panel evidence."
+  },
+  {
+    "name": "manager-after",
+    "path": "frames/manager-after.png",
+    "sha256": "d739f7f246879e9708af4f93435cf542bb5be2c7b8b47d09c5c44a4790fb9100",
+    "bytes": 47552,
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "frontend": "16dbac5211eea7e70db7394372033be2be7df829",
+    "root_visual_review": "Viewed original640x480 frame: ExitProbe behind SAVE STATE MANAGER. START NEW GAME, AUTO SAVE TODAY at18:48, and SLOT1 TODAY at18:47 are simultaneously visible. Both saved tiles show the probe thumbnail; timestamps agree with separate file snapshots.",
+    "frame_scope": "Actual isolated640x480 VM; authored static probe, not gameplay/panel evidence."
+  }
+]

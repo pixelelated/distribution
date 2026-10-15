@@ -1,0 +1,65 @@
+{
+  "owner": "/workspace/tmp/pix-m7-retroarch-exit-proof-20261015-03",
+  "export": "/workspace/tmp/pix-m7-retroarch-exit-evidence-20261015-03",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/.build-runs/20261015T224512Z-038a66c6",
+  "producer_admission": "d88e47d06b1745ff88d51fcde05ff2ee",
+  "expected_original_files": 455,
+  "expected_original_bytes": 5473653,
+  "refs": {
+    "original-records.json": {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-evidence-20261015-03/original-records.json",
+      "bytes": 75588,
+      "sha256": "333d1343822924a9b57ce60062c20274164cece954bcb97720ef839b334cc39a"
+    },
+    "export-result.json": {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-evidence-20261015-03/export-result.json",
+      "bytes": 402,
+      "sha256": "106626e5c63ccef7c3126a53d0355177fde6e4f0d43e50590d039cea2e09afa4"
+    },
+    "host-exits.json": {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-evidence-20261015-03/host-exits.json",
+      "bytes": 703557,
+      "sha256": "fc737410402ad247156d77a04666e99bb1c6001a314ea929ed3998a50d5de99a"
+    },
+    "root-original-review.json": {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-evidence-20261015-03/root-original-review.json",
+      "bytes": 4685,
+      "sha256": "67d05cd601a9cb172b1122f4fbff81555b7c20fe9f84895ac7c1a72fa766be57"
+    },
+    "consumption-draft.json": {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-evidence-20261015-03/consumption-draft.json",
+      "bytes": 1941,
+      "sha256": "c0eee608d9b4ae4f38341638886502eabd5d8fcacd1698a8c55b2a35a0d5ade1"
+    },
+    "consumed": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/.build-runs/20261015T224512Z-038a66c6/admission-consumed.json",
+      "bytes": 1974,
+      "sha256": "e677ec9bc4edcc70ed618bd65740e583046133521f5c1967f1e6abf73315b6f2"
+    },
+    "retirement": {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-proof-20261015-03/retirement.json",
+      "bytes": 1879,
+      "sha256": "307ac0ddd4b8002718bbc5769d09a85d6f8e732589cdd6af4b8244fedadc858f"
+    },
+    "source-guest": {
+      "path": "/tmp/pix-m7-retroarch-exit-proof-source-20261015-03/fresh/guest.py",
+      "bytes": 26292,
+      "sha256": "a494cf939050271f5811d66ffa56ac279359fc7073e400c12dbdb963638cf1ef"
+    },
+    "source-lifecycle": {
+      "path": "/tmp/pix-m7-retroarch-exit-proof-source-20261015-03/fresh/vm-lifecycle.py",
+      "bytes": 25316,
+      "sha256": "682627e60dd35f9c7997383468d95832007edbf2fe16fee95ea8330b4f4c10c1"
+    },
+    "source-runemu": {
+      "path": "/tmp/pix-m7-retroarch-exit-proof-source-20261015-03/source/dist-projects__ROCKNIX__packages__rocknix__sources__scripts__runemu.sh",
+      "bytes": 23382,
+      "sha256": "deb95aee74d3ddd80638a9ab2f940f5b3b080f4d3ec01f669ea8dbd44179ad20"
+    },
+    "source-seal": {
+      "path": "/tmp/pix-m7-retroarch-exit-proof-source-20261015-03/SHA256SUMS",
+      "bytes": 10672,
+      "sha256": "a7e679583a560db680b4371da9d615aca38617dccd6d09854a8c8dc1454c0d24"
+    }
+  }
+}

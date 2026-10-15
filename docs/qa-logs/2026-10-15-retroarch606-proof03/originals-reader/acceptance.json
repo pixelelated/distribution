@@ -1,0 +1,46 @@
+{
+  "status": "ACCEPTED_SCOPED_CURRENT_RETROARCH_SAVE_PROOF",
+  "verified_utc": "2026-10-15T22:59:35.202730+00:00",
+  "reader_run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T225813Z-227074bb",
+  "reader_original_channels": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-15T22:58:19.083957+00:00"
+  },
+  "tool_wrapper_exit": 0,
+  "reader_processes": [
+    {
+      "receipt": "command.pid",
+      "pid": 1777283,
+      "present": false
+    },
+    {
+      "receipt": "watcher.pid",
+      "pid": 1777251,
+      "present": false
+    },
+    {
+      "receipt": "build.pid",
+      "pid": 1776918,
+      "present": false
+    },
+    {
+      "receipt": "build.status.pid",
+      "pid": 1777251,
+      "present": false
+    }
+  ],
+  "result_sha256": "7dcaf90894af82c5ebda212ab1e7a6252c94aa64c98c4b2a83a592d855abd370",
+  "source_seal": "83e90e6ec7de38a936f1815617f975085ac73688356c99aa1d49c68efc95ab7c",
+  "peer_review_seal": "2581c3db436faa070fef2c7d1bc36eb3c20f78fc2255f2151278a578e4f87634",
+  "original_vm_result": 1,
+  "producer_disposition": "failed-investigated; unchanged",
+  "scope": "AC-53 current RetroArch process-bound ordinary save, numbered state, normal exit auto-state and manager visibility; preserves existing native evidence",
+  "limitations": [
+    "Original VM/guest producer remains1 due wrong-log assertion. This reader qualifies retained observations only.",
+    "No independent ES waitpid interception, internal RetroArch poll counters, default-keyboard success, device/runtime replay or broad audit completion claim.",
+    "Root retains acceptance authority; this script does not mutate producer/export/tracker or consume an admission.",
+    "Direct guest marker absence check was not reached. Source runemu consumes marker before its0 return; raw engine wait0 excludes nonzero marker normalization. No direct marker stat or universal post-return absence claim."
+  ]
+}
