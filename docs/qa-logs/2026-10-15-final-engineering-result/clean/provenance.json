@@ -1,0 +1,1070 @@
+{
+  "copies": [
+    {
+      "bytes": 604617,
+      "mode": "0664",
+      "path": "original-records.tar.gz",
+      "sha256": "ad8a05f650c17a2756cc869fb6207d72579306914b294fa92d4264e758acdccf",
+      "source": "/workspace/tmp/pix-m7-final-clean-affected-evidence-20261015-01/original-records.tar.gz"
+    },
+    {
+      "bytes": 41387,
+      "mode": "0664",
+      "path": "original-records.json",
+      "sha256": "6162632caca91d95c1509ff44ea3dd339a43aa61b60fc9342bbe347a1b85ae9f",
+      "source": "/workspace/tmp/pix-m7-final-clean-affected-evidence-20261015-01/original-records.json"
+    },
+    {
+      "bytes": 362,
+      "mode": "0664",
+      "path": "export-result.json",
+      "sha256": "9a904e5d10b4de4060677e9468889720f0a426013b8d44337332cbf88f0c8637",
+      "source": "/workspace/tmp/pix-m7-final-clean-affected-evidence-20261015-01/export-result.json"
+    },
+    {
+      "bytes": 57457,
+      "mode": "0664",
+      "path": "host-exits.json",
+      "sha256": "6dc0e4f767a8568fd9eb7fb6d09e503f87542fe058d7ae91a4f25e495f1ab609",
+      "source": "/workspace/tmp/pix-m7-final-clean-affected-evidence-20261015-01/host-exits.json"
+    },
+    {
+      "bytes": 78865,
+      "mode": "0664",
+      "path": "vm-result.json",
+      "sha256": "3603acbc49324d1f9134e86a65a09c90f70191865fdbc7c321c1c0c839601426",
+      "source": "/workspace/tmp/pix-m7-final-clean-affected-evidence-20261015-01/vm-result.json"
+    },
+    {
+      "bytes": 13058,
+      "mode": "0664",
+      "path": "config.json",
+      "sha256": "e76d13c909ce18adbac677562427dba717476defbcc6c1b254d5d67a6f77b588",
+      "source": "/workspace/tmp/pix-m7-final-clean-affected-evidence-20261015-01/config.json"
+    },
+    {
+      "bytes": 1756,
+      "mode": "0664",
+      "path": "consumption-draft.json",
+      "sha256": "bdb17ad0075560f1c93a8218e8dd2b22d7edd9f809425bd485c10158059e15bd",
+      "source": "/workspace/tmp/pix-m7-final-clean-affected-evidence-20261015-01/consumption-draft.json"
+    },
+    {
+      "bytes": 1962,
+      "mode": "0600",
+      "path": "admission-consumed.json",
+      "sha256": "fe01435e2be31be54813f6bb5ed81e258ebd45daa7bec4a8abdff19573205c84",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T041900Z-5e9e91e9/admission-consumed.json"
+    },
+    {
+      "archive_member": "owner/frames/audit-20261015T042010-5816b515/capture-reference/reference.png",
+      "bytes": 32844,
+      "independent_visual_review": "NETWORK SETTINGS; WI-FI NETWORK selected; ENABLE WI-FI on.",
+      "mode": "0664",
+      "path": "frames/selected-network.png",
+      "sha256": "1792ba79e417aae546e91240095dbd8e24a206790f5006e10d00fd50858346e2",
+      "source": "/workspace/tmp/pix-m7-final-clean-affected-20261015-01/frames/audit-20261015T042010-5816b515/capture-reference/reference.png"
+    },
+    {
+      "archive_member": "owner/frames/audit-20261015T042035-ca9eb5e2/wifi-candidate-searching.png",
+      "bytes": 10240,
+      "independent_visual_review": "WI-FI NETWORKS searching; Refresh, Input manually and Back visible.",
+      "mode": "0664",
+      "path": "frames/searching.png",
+      "sha256": "9cbc6111cb4f3a2a56fe3c9795cb4244c7ee2cca7a8ba8d9d16179d1bdafa47e",
+      "source": "/workspace/tmp/pix-m7-final-clean-affected-20261015-01/frames/audit-20261015T042035-ca9eb5e2/wifi-candidate-searching.png"
+    },
+    {
+      "archive_member": "owner/frames/audit-20261015T042038-e09b7f0d/capture-back/sample-00.png",
+      "bytes": 32844,
+      "independent_visual_review": "Exact selected NETWORK SETTINGS reference restored.",
+      "mode": "0664",
+      "path": "frames/network-return.png",
+      "sha256": "1792ba79e417aae546e91240095dbd8e24a206790f5006e10d00fd50858346e2",
+      "source": "/workspace/tmp/pix-m7-final-clean-affected-20261015-01/frames/audit-20261015T042038-e09b7f0d/capture-back/sample-00.png"
+    },
+    {
+      "archive_member": "owner/frames/audit-20261015T042038-e09b7f0d/wifi-candidate-reopened-searching.png",
+      "bytes": 10228,
+      "independent_visual_review": "Searching picker reopened with the same controls.",
+      "mode": "0664",
+      "path": "frames/reopened-searching.png",
+      "sha256": "855627477846f9f45dfb21718334106d598b12164f41c63e0b895e731721f25a",
+      "source": "/workspace/tmp/pix-m7-final-clean-affected-20261015-01/frames/audit-20261015T042038-e09b7f0d/wifi-candidate-reopened-searching.png"
+    }
+  ],
+  "original_archive_member_modes": [
+    {
+      "mode": "0664",
+      "path": "owner/admission-plan.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/admission.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/affected/binding.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/affected/fixtures/probe.py"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/affected/guest-affected.py"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/affected/guest-wifi-observer.py"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/affected/guest_helpers.py"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/affected/source/launcher-gc.after.snippet"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/affected/source/launcher-wii.after.snippet"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/affected/source/wifictl"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/affected/wifi-owner.py"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/affected-staged"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/audit-back-timing.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/audit-cleanup.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/audit-dolphin.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/audit-init.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/audit-reopen.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/audit-wifi-before.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/audit-wifi-exit.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/audit-wifi-selection.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/audit-wifi-start.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/capture-back.py"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/census.py"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/clean/first-boot.serial"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/clean/first-boot.sh"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/clean/report.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/close.py"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/config.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042008-39149e80/operator.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042008-39149e80/serial-1c18ca32.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042008-39149e80/serial-1c18ca32.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042008-39149e80/serial-1c18ca32.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042009-38d3d2a9/operator.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042009-38d3d2a9/serial-ed3096c5.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042009-38d3d2a9/serial-ed3096c5.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042009-38d3d2a9/serial-ed3096c5.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/capture-reference/reference.png"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/capture-reference/reference.ppm"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/capture-reference/result.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-a-000d3cc0.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-a-000d3cc0.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-a-000d3cc0.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-down-1407f9b4.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-down-1407f9b4.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-down-1407f9b4.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-down-99e9be0f.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-down-99e9be0f.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-down-99e9be0f.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-down-9a1ee643.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-down-9a1ee643.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-down-9a1ee643.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-down-9f76121d.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-down-9f76121d.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-down-9f76121d.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-down-e4ba28cb.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-down-e4ba28cb.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-down-e4ba28cb.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-down-ea38ecea.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-down-ea38ecea.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-down-ea38ecea.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-start-0d659085.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-start-0d659085.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-start-0d659085.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-up-0ff83d18.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-up-0ff83d18.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-up-0ff83d18.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-up-826dadd3.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-up-826dadd3.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-up-826dadd3.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-up-b9b00293.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-up-b9b00293.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-up-b9b00293.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-up-d1032bea.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-up-d1032bea.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-up-d1032bea.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-up-db982a05.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-up-db982a05.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-up-db982a05.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-up-dc9420ba.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-up-dc9420ba.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/key-up-dc9420ba.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/measure-reference.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/measure-reference.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/measure-reference.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/operator.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/serial-41a693c7.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/serial-41a693c7.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042010-5816b515/serial-41a693c7.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042035-383e5dce/operator.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042035-ca9eb5e2/key-a-e0e2c403.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042035-ca9eb5e2/key-a-e0e2c403.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042035-ca9eb5e2/key-a-e0e2c403.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042035-ca9eb5e2/operator.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042035-ca9eb5e2/serial-13c0e0bf.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042035-ca9eb5e2/serial-13c0e0bf.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042035-ca9eb5e2/serial-13c0e0bf.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042035-ca9eb5e2/serial-7f4bcfe6.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042035-ca9eb5e2/serial-7f4bcfe6.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042035-ca9eb5e2/serial-7f4bcfe6.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042035-ca9eb5e2/shot-wifi-candidate-searching.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042035-ca9eb5e2/shot-wifi-candidate-searching.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042035-ca9eb5e2/shot-wifi-candidate-searching.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042035-ca9eb5e2/wifi-candidate-searching.png"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/capture-back/before-key.png"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/capture-back/before-key.ppm"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/capture-back/result.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/capture-back/sample-00.png"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/capture-back/sample-00.ppm"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/key-a-9c5fc84e.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/key-a-9c5fc84e.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/key-a-9c5fc84e.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/measure-back.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/measure-back.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/measure-back.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/operator.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/serial-639527bc.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/serial-639527bc.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/serial-639527bc.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/serial-f9d86c59.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/serial-f9d86c59.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/serial-f9d86c59.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/shot-wifi-candidate-reopened-searching.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/shot-wifi-candidate-reopened-searching.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/shot-wifi-candidate-reopened-searching.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042038-e09b7f0d/wifi-candidate-reopened-searching.png"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042043-dad9b8a9/operator.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042043-dad9b8a9/serial-48859b1a.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042043-dad9b8a9/serial-48859b1a.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042043-dad9b8a9/serial-48859b1a.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042101-0436dbc9/operator.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042101-3a9b84dd/operator.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042101-ec7e2d0a/operator.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042102-57285e67/operator.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042102-57285e67/serial-9a55aacb.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042102-57285e67/serial-9a55aacb.stderr"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042102-57285e67/serial-9a55aacb.stdout"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/audit-20261015T042103-970c93aa/operator.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/wifi-candidate-network-return-capture.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/wifi-candidate-network-return-review.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/wifi-candidate-reopened-searching-capture.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/wifi-candidate-reopened-searching-review.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/wifi-candidate-searching-capture.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/wifi-candidate-searching-review.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/wifi-candidate-selected-network-capture.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/frames/wifi-candidate-selected-network-review.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/guest.py"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/handoff.py"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/host-affected.py"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/lifecycle-owner/console.log"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/lifecycle-owner/launcher-pid.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/lifecycle-owner/launcher-result.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/lifecycle-owner/launcher-start.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/lifecycle-owner/launcher-submission.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/lifecycle-owner/tool-wrapper.rc"
+    },
+    {
+      "mode": "0500",
+      "path": "owner/lifecycle-owner/watch-build-submit.py"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/001-source.exit.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/001-source.stderr"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/001-source.stdout"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/002-convert.exit.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/002-convert.stderr"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/002-convert.stdout"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/003-resize.exit.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/003-resize.stderr"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/003-resize.stdout"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/004-qemu-args.exit.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/004-qemu-args.stderr"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/004-qemu-args.stdout"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/005-qemu-start.exit.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/005-qemu-start.stderr"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/005-qemu-start.stdout"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/006-serial-ready.exit.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/006-serial-ready.stderr"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/006-serial-ready.stdout"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/007-untouched-clean.exit.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/007-untouched-clean.stderr"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/007-untouched-clean.stdout"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/008-boot.exit.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/008-boot.stderr"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/008-boot.stdout"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/009-installed-loader.exit.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/009-installed-loader.stderr"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/009-installed-loader.stdout"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/010-affected-stage.exit.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/010-affected-stage.stderr"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/010-affected-stage.stdout"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/011-affected-init.exit.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/011-affected-init.stderr"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/011-affected-init.stdout"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/012-affected-export.exit.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/012-affected-export.stderr"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/012-affected-export.stdout"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/013-final-sync.exit.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/013-final-sync.stderr"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/013-final-sync.stdout"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/014-vm-stop.exit.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/014-vm-stop.stderr"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/014-vm-stop.stdout"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/affected-export.serial"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/affected-guest-export.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/affected-guest-members.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/affected-guest-verified.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/affected-guest.tar.gz"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/boot.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/final-inputs.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/final-result.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/gst-registry.bin"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/guest-command-0.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/guest-command-1.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/guest-command-2.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/guest-exit.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/guest-loader.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/records/gui-review-original.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/host-process-identities.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/qemu-generated.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/qemu-start.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/resources.jsonl"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/records/watch-owner.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/retention-plan.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/retention-report.json"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/run.path"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/serial.lock"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/visual-ready.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/visual-result.json"
+    },
+    {
+      "mode": "0664",
+      "path": "owner/vm-lifecycle.py"
+    },
+    {
+      "mode": "0600",
+      "path": "owner/vm-result.json"
+    },
+    {
+      "mode": "0600",
+      "path": "run/admission-input.json"
+    },
+    {
+      "mode": "0600",
+      "path": "run/admission-plan.json"
+    },
+    {
+      "mode": "0600",
+      "path": "run/admission.json"
+    },
+    {
+      "mode": "0600",
+      "path": "run/build.log"
+    },
+    {
+      "mode": "0600",
+      "path": "run/build.pid"
+    },
+    {
+      "mode": "0600",
+      "path": "run/build.rc"
+    },
+    {
+      "mode": "0600",
+      "path": "run/build.start"
+    },
+    {
+      "mode": "0600",
+      "path": "run/build.status"
+    },
+    {
+      "mode": "0600",
+      "path": "run/build.status.pid"
+    },
+    {
+      "mode": "0600",
+      "path": "run/command.pid"
+    },
+    {
+      "mode": "0600",
+      "path": "run/retention-plan.json"
+    },
+    {
+      "mode": "0600",
+      "path": "run/retention-report.json"
+    },
+    {
+      "mode": "0600",
+      "path": "run/runner-result.json"
+    },
+    {
+      "mode": "0500",
+      "path": "run/watch-job"
+    },
+    {
+      "mode": "0600",
+      "path": "run/watcher.err"
+    },
+    {
+      "mode": "0600",
+      "path": "run/watcher.interval"
+    },
+    {
+      "mode": "0600",
+      "path": "run/watcher.pid"
+    }
+  ],
+  "original_export": "/workspace/tmp/pix-m7-final-clean-affected-evidence-20261015-01",
+  "original_owner": "/workspace/tmp/pix-m7-final-clean-affected-20261015-01",
+  "original_run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T041900Z-5e9e91e9",
+  "schema": 1
+}

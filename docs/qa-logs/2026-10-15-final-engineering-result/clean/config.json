@@ -1,0 +1,273 @@
+{
+  "status": "PREPARED_UNRUN",
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02",
+  "commit": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+  "es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+  "clean_helper": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-clean-state-565/run-first-boot.sh",
+  "helper": "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+  "vnc": 145,
+  "image": {
+    "bytes": 2122153709,
+    "sha256": "75caa85ab55309d7e01728c1034cd7c53173549d9fe418e0f1d538db090f47a1",
+    "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261015T035337Z.gf8636de1d105-from-ROCKNIX.img.gz"
+  },
+  "verification_sha256": "3d3b85724062a6db2f7bddc5dd62aeb1366f0f6182f267a7b0e6131322c0649c",
+  "inputs_sha256": "7c3f497b08f494d15a233ae99be05e61af1656aec173120b00b41dd0266e2728",
+  "members": {
+    "etc/os-release": {
+      "bytes": 710,
+      "sha256": "7e607787549ba7f8ab722b2769b556f7f10a1a88b042b7572d2fc2aff5dc20ed",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/etc/os-release",
+        "links": []
+      }
+    },
+    "usr/bin/emulationstation": {
+      "bytes": 11831632,
+      "sha256": "76f18d97a46e9228ca4b7cb63a5406a4f0bb026f96763f3558d1ac942b1857c8",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/emulationstation",
+        "links": []
+      }
+    },
+    "usr/bin/cloud-signin-window": {
+      "bytes": 35720,
+      "sha256": "6cbc445686d3d484ff20450342776e9eb92b47f6112a0352be1a50b334eef81b",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/cloud-signin-window",
+        "links": []
+      }
+    },
+    "usr/bin/gst-inspect-1.0": {
+      "bytes": 60928,
+      "sha256": "84cf7ece4ae3df1343e85b4339b74e4b8d2836d07d073b1750582d61a97b8e19",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/gst-inspect-1.0",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/gst-plugin-scanner": {
+      "bytes": 14352,
+      "sha256": "0258b6e81d0332e4a39e1f0f2a8654c189fa3db1fde4866adec02ab59b38f815",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/gst-plugin-scanner",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstopengl.so": {
+      "bytes": 290768,
+      "sha256": "06dc2524e928252248c2f02c08928f155bef2c75644f7fcadccbbd6081dfa1a6",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstopengl.so",
+        "links": []
+      }
+    },
+    "usr/lib/libgstcontroller-1.0.so.0": {
+      "bytes": 60048,
+      "sha256": "ac4646378c64be84832bae33a084ab3b98ad3cfb131574c08cb1eadae32e2a1c",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libgstcontroller-1.0.so.0.2902.0",
+        "links": [
+          {
+            "path": "/usr/lib/libgstcontroller-1.0.so.0",
+            "target": "libgstcontroller-1.0.so.0.2902.0"
+          }
+        ]
+      }
+    },
+    "usr/lib/libgstreamer-1.0.so.0": {
+      "bytes": 948896,
+      "sha256": "8820d44ba911da1862e4b15189c99f9076a1536ac5048bef122f4a3634536682",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libgstreamer-1.0.so.0.2902.0",
+        "links": [
+          {
+            "path": "/usr/lib/libgstreamer-1.0.so.0",
+            "target": "libgstreamer-1.0.so.0.2902.0"
+          }
+        ]
+      }
+    },
+    "usr/lib/libgstnet-1.0.so.0": {
+      "bytes": 73256,
+      "sha256": "95228d04ae400ac3c79e3f676dd8d95d471837fb6de16d1fbd74dbe5cb29fdd1",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libgstnet-1.0.so.0.2902.0",
+        "links": [
+          {
+            "path": "/usr/lib/libgstnet-1.0.so.0",
+            "target": "libgstnet-1.0.so.0.2902.0"
+          }
+        ]
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstadaptivedemux2.so": {
+      "bytes": 375520,
+      "sha256": "654cd8b719fb8acdf19a9494aaa058135ed02e8135db392d129e84080ae6a4bf",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstadaptivedemux2.so",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstrtpmanager.so": {
+      "bytes": 361376,
+      "sha256": "d7c73b4170cbfa99e90abc3099c788dbbe12ad71d2460fed3f17230d4e35ebc3",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstrtpmanager.so",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstrtsp.so": {
+      "bytes": 153632,
+      "sha256": "310167c968dc87762407149566d0b2e0162c093bc17eebe5a197d7b89105cb16",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstrtsp.so",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstudp.so": {
+      "bytes": 77632,
+      "sha256": "8a02b301b7c980a7af5cdb67948ccd021a176917d355ea305fb05bec3e2ba125",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstudp.so",
+        "links": []
+      }
+    }
+  },
+  "tools": {
+    "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm": "5b058ed8a8b11135cd5997e3d925939baff30726033125acf1244863a756318d",
+    "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/profile.json": "26c420ecb0cc7aae29050554c55f522e62337cf6726619a59337c073f1c65406",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-clean-state-565/run-first-boot.sh": "a49a0bb3f8b5ed937dafc7524c70e2ce9ce74e925478d421dc0f7e3a20e957da",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/tools/vm-serial": "1fed507a546a9c23fdc360012ccc6ffadc2793fabaa137ff2dc73141bdc2c921",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/tools/vm-stop": "2e4314cd63ff4f476c8ce1376e9f1ed262f2467789ec339b3855ddedc16213e8",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/tools/watch-build": "44a6d87505fd6a465c384d2f30bfeda5f4fe436978d227d8b0c4bae73da7e0bc",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/tools/watch-job": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/tools/watch-build-submit": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/tools/host-maintenance/build-admission": "3e2ad9d6eed47f53d1547880286e4bed69848b956be490f17f354d9df70bb942",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/tools/host-maintenance/retention-report": "1187725512f1a0586bc4d7812a886076c71bc6fdd460f6cd4a73e91198518798",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/pixelelated-state-check": "6d061af89caba886bd3417ee96dc01e37675655aa1ed92f423b9db02164dff03",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/pixelelated-state-check-test": "ce309dafb208834d2f862b4817c3e9ea0d1c15e315b3c3b091fcd210fe67ac15",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/vm-serial": "1fed507a546a9c23fdc360012ccc6ffadc2793fabaa137ff2dc73141bdc2c921",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/tools/vm-visual-qa": "81565f39ce5bdbdce05fc7ec7b27f40ca1d95051430382c5e13f1ef58434cd06"
+  },
+  "code": {
+    "vm-lifecycle.py": "833b0e8be27e70556a5b9fdb407aac01f9ec355ca628276a0dc04de285394bc9",
+    "guest.py": "ddb1b09066601ee9606c4a2bf888e06bba6c7200f02b55b9f0f1344424620544",
+    "close.py": "6b6b01dad41c7577bdf741a666f8fd3e7765ca6b0a32b792e5c3b91fef2111b1",
+    "census.py": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2",
+    "host-affected.py": "5bf27330da2630375c166f79ffc3bb78e9aedd8bc2971c3c8e980be4f39558e8",
+    "capture-back.py": "03f0f4f63ece3743c896288fac86e55f93b8a4439d2ab7fe4432bbbd1d165cc6",
+    "handoff.py": "9cb805550b3560b7252e1f25ef6f1cd78463bc570a9b76800d3c3c4abf355e88",
+    "affected/guest_helpers.py": "89a1c39a8b88e87ad4561014d0f32e5371787fe1a5aacf7b5147d6d42a99b9aa",
+    "affected/guest-affected.py": "32741d829b48eb27b5552897ad41b90b154db4e6e4f8f83d7c87e69659c94ecb",
+    "affected/guest-wifi-observer.py": "f895b41eabc7f22d764b0ba1856ef5c873eb71c2b8d2dafd3c50fe14aa9636e3",
+    "affected/wifi-owner.py": "489337cd093a73403f34940007adcab8cbf197c3025fa94ffbddae9d0437120c",
+    "affected/binding.json": "57815c130ed3a6cc8c2d57afc863d4d49c1a985f834891e057582fa6dbe88869",
+    "affected/source/wifictl": "a4f81211023ccd7a2fdf7d02495cc8d6235940337bec5453b97ec2df8aa050ba",
+    "affected/source/launcher-wii.after.snippet": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403",
+    "affected/source/launcher-gc.after.snippet": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403",
+    "affected/fixtures/probe.py": "c082b75cf88f7f1b578825fd1fca0ff4ff17bba96947402f1015121c57efdd8e"
+  },
+  "work_seconds": 1800,
+  "cleanup_seconds": 90,
+  "host_record_limit_bytes": 67108864,
+  "host_pid_namespace": 4026531836,
+  "affected": {
+    "guest_build_commit": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+    "es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+    "verification_sha256": "3d3b85724062a6db2f7bddc5dd62aeb1366f0f6182f267a7b0e6131322c0649c",
+    "inputs_sha256": "7c3f497b08f494d15a233ae99be05e61af1656aec173120b00b41dd0266e2728",
+    "gui_review_sha256": "60b47d050be4d6071ed758092d7024cad25e15381e008418d6f789a48cf7663e",
+    "mode": "fresh",
+    "packet_seal": "668755cb2259e2fa3d3573870ff9cbed1362a0e346b237b551936e01f5eef675",
+    "installed_inputs": {
+      "/usr/bin/emulationstation": "76f18d97a46e9228ca4b7cb63a5406a4f0bb026f96763f3558d1ac942b1857c8",
+      "/usr/bin/wifictl": "c89ed28a50e4be78468fcee25dcfd68e0b1c67af25657c3d0ba9318c7576a48c",
+      "/etc/profile": "66019fab58aab9b05c1288afb399efd9d20a93504b3955718cb5282965455757",
+      "/usr/bin/cheevos_dolphin.sh": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a",
+      "/usr/bin/start_dolphin_gc.sh": "dd2cb0589612e80f7b47c9f5f3fdb8aff1cc374746ca311ac63e5dd6148310c3",
+      "/usr/bin/start_dolphin_wii.sh": "08fccbde313d09cc05a4d86edd042d37dec93c8c8c927614ed3a0afa6ab6db7c"
+    },
+    "installed_facts": {
+      "/usr/bin/emulationstation": {
+        "bytes": 11831632,
+        "sha256": "76f18d97a46e9228ca4b7cb63a5406a4f0bb026f96763f3558d1ac942b1857c8",
+        "mode": "-rwxr-xr-x",
+        "link_chain": {
+          "resolved": "/usr/bin/emulationstation",
+          "links": []
+        }
+      },
+      "/usr/bin/wifictl": {
+        "bytes": 24892,
+        "sha256": "c89ed28a50e4be78468fcee25dcfd68e0b1c67af25657c3d0ba9318c7576a48c",
+        "mode": "-rwxr-xr-x",
+        "link_chain": {
+          "resolved": "/usr/bin/wifictl",
+          "links": []
+        }
+      },
+      "/etc/profile": {
+        "bytes": 556,
+        "sha256": "66019fab58aab9b05c1288afb399efd9d20a93504b3955718cb5282965455757",
+        "mode": "-rw-r--r--",
+        "link_chain": {
+          "resolved": "/etc/profile",
+          "links": []
+        }
+      },
+      "/usr/bin/cheevos_dolphin.sh": {
+        "bytes": 5106,
+        "sha256": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a",
+        "mode": "-rwxr-xr-x",
+        "link_chain": {
+          "resolved": "/usr/bin/cheevos_dolphin.sh",
+          "links": []
+        }
+      },
+      "/usr/bin/start_dolphin_gc.sh": {
+        "bytes": 18515,
+        "sha256": "dd2cb0589612e80f7b47c9f5f3fdb8aff1cc374746ca311ac63e5dd6148310c3",
+        "mode": "-rwxr-xr-x",
+        "link_chain": {
+          "resolved": "/usr/bin/start_dolphin_gc.sh",
+          "links": []
+        }
+      },
+      "/usr/bin/start_dolphin_wii.sh": {
+        "bytes": 16936,
+        "sha256": "08fccbde313d09cc05a4d86edd042d37dec93c8c8c927614ed3a0afa6ab6db7c",
+        "mode": "-rwxr-xr-x",
+        "link_chain": {
+          "resolved": "/usr/bin/start_dolphin_wii.sh",
+          "links": []
+        }
+      }
+    },
+    "qualified_probe_sha256": "9b82d4ee556b3803dda405b62918d6e192ea9a9ca69f0c610e3a1e2faf402860",
+    "packet_files": {
+      "fixtures/probe.py": "c082b75cf88f7f1b578825fd1fca0ff4ff17bba96947402f1015121c57efdd8e",
+      "guest-affected.py": "32741d829b48eb27b5552897ad41b90b154db4e6e4f8f83d7c87e69659c94ecb",
+      "guest-wifi-observer.py": "f895b41eabc7f22d764b0ba1856ef5c873eb71c2b8d2dafd3c50fe14aa9636e3",
+      "guest_helpers.py": "89a1c39a8b88e87ad4561014d0f32e5371787fe1a5aacf7b5147d6d42a99b9aa",
+      "source/launcher-gc.after.snippet": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403",
+      "source/launcher-wii.after.snippet": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403",
+      "source/wifictl": "a4f81211023ccd7a2fdf7d02495cc8d6235940337bec5453b97ec2df8aa050ba",
+      "wifi-owner.py": "489337cd093a73403f34940007adcab8cbf197c3025fa94ffbddae9d0437120c"
+    }
+  },
+  "affected_guest_limit_bytes": 6291456
+}

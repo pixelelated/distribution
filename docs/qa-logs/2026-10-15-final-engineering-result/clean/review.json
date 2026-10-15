@@ -1,0 +1,179 @@
+{
+  "blockers": [],
+  "build_closeout_preserved": {
+    "completion_disposition": "failed-investigated/reporting-failure",
+    "original_launcher_returncode": null,
+    "qualification": false
+  },
+  "clean": {
+    "blocked_count": 0,
+    "checks": 294,
+    "error_count": 0,
+    "limitations": [
+      "not a whole-image or arbitrary-secret scan",
+      "no generic compiled GamesDB key detection or service identity provenance",
+      "no custom ES system paths, environment overrides, external media or arbitrary archives",
+      "no interpretation of operation success, bytes transferred, actor or metadata origin",
+      "scrub epoch bounds do not establish origin; clock steps can cause refusal",
+      "retained-upgrade permits runtime state; it does not prove upgrade preservation"
+    ],
+    "mode": "first-boot",
+    "policy": "pixelelated-selected-state-v1",
+    "status": "pass"
+  },
+  "consumed": {
+    "accepted_evidence_sha256": "bdb17ad0075560f1c93a8218e8dd2b22d7edd9f809425bd485c10158059e15bd",
+    "deleted_bytes": 0,
+    "id": "4c52e6ff50d74712bfcca62979e7782f",
+    "original_filename": "consumption-draft.json",
+    "original_result": {
+      "command_rc": 0,
+      "monitor_rc": 0,
+      "runner_rc": 0,
+      "utc": "2026-10-15T04:21:06.514266+00:00"
+    },
+    "outputs_held": true,
+    "state": "consumed"
+  },
+  "dolphin": {
+    "cases": [
+      {
+        "claim": "inactive session published before engine gate",
+        "name": "00-after-disabled-regular-en-gc",
+        "original_exit": 0,
+        "status": "PASS"
+      },
+      {
+        "claim": "inactive session published before engine gate",
+        "name": "01-after-missing-token-regular-en-wii",
+        "original_exit": 0,
+        "status": "PASS"
+      },
+      {
+        "claim": "enabled routing bytes unchanged",
+        "name": "02-after-enabled-proxy-regular-en-gc",
+        "original_exit": 0,
+        "status": "PASS"
+      },
+      {
+        "claim": "enabled routing bytes unchanged",
+        "name": "03-after-enabled-hardcore-regular-en-wii",
+        "original_exit": 0,
+        "status": "PASS"
+      }
+    ],
+    "scope": "Full helper, exact launcher RA block, synthetic engine-reached marker; no real engine launch",
+    "status": "PASS"
+  },
+  "input_image_rehashed_by_this_review": false,
+  "kind": "independent post-completion original-evidence review; no runtime replay",
+  "large_disk_or_private_original_config_retained": false,
+  "loader": {
+    "members": 13,
+    "members_before_after_equal": true,
+    "original_checks": [
+      {
+        "argv": [
+          "ldd",
+          "/usr/bin/cloud-signin-window"
+        ],
+        "original_returncode": 0,
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "ldd",
+          "/usr/lib/gstreamer-1.0/gst-plugin-scanner"
+        ],
+        "original_returncode": 0,
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "/usr/bin/gst-inspect-1.0",
+          "opengl"
+        ],
+        "original_returncode": 0,
+        "stderr": ""
+      }
+    ],
+    "rtld_now": "PASS",
+    "scanner_scope": "Installed executable/default registry and ldd closure; no separate scanner child-exec trace claimed.",
+    "status": "PASS"
+  },
+  "nested_affected_archive": {
+    "all_members_match_original_nested_manifest": true,
+    "members": 83,
+    "sha256": "9b72e1ea5de9e48b67377f02bdd4385b457cc9e5ba387587a2a3a72076cc3f4a",
+    "uncompressed_bytes": 77725
+  },
+  "original_archive": {
+    "all_member_bytes_sizes_hashes_match_manifest_and_retained_originals": true,
+    "all_member_modes_match_retained_originals": true,
+    "members": 242,
+    "sha256": "ad8a05f650c17a2756cc869fb6207d72579306914b294fa92d4264e758acdccf",
+    "uncompressed_bytes": 5153611
+  },
+  "original_channels": {
+    "build": 0,
+    "command": 0,
+    "launcher": 0,
+    "monitor": 0,
+    "runner": 0,
+    "tool_wrapper": 0,
+    "vm": 0
+  },
+  "parent_records_changed": false,
+  "restoration": {
+    "final": {
+      "aborted": false,
+      "installed_inputs_restored": true,
+      "native_processes": [],
+      "normal_service_restarted": true,
+      "rc": 0,
+      "selected_settings_restored_before_restart": true
+    },
+    "selected": {
+      "backup_scope": "last-good .backup files not in this restoration claim",
+      "mounts": [],
+      "rc": 0,
+      "selected_bytes_modes_owners_equal": true,
+      "selected_paths": [
+        "/storage/.config/system/configs/system.cfg",
+        "/storage/.config/emulationstation/es_settings.cfg"
+      ]
+    }
+  },
+  "reviewed_utc": "2026-10-15T04:28:08.250830+00:00",
+  "reviewer": "frame_diff_review",
+  "schema": 1,
+  "verdict": "PASS within the explicitly stated scope",
+  "vm": {
+    "all_commands_original_zero_no_timeout": true,
+    "commands": 14,
+    "elapsed_seconds": 124.36841535568237,
+    "no_forced_cleanup_or_remaining_owned_processes": true,
+    "original_returncode": 0,
+    "recorded_host_custody_only_no_new_census": true
+  },
+  "wifi": {
+    "back_upper_bound_seconds": 0.05790932406671345,
+    "driver_exited_seconds_after_request": 0.12145171800000298,
+    "enumerations": 1,
+    "errors": [],
+    "forced_cleanup": [],
+    "full_reference_exact": true,
+    "installed_es_sha256": "76f18d97a46e9228ca4b7cb63a5406a4f0bb026f96763f3558d1ac942b1857c8",
+    "join_logs": {
+      "joined": 1,
+      "stopping": 1
+    },
+    "limit_seconds": 1,
+    "normal_signal": 2,
+    "original_returncode": 0,
+    "pre_key_differs": true,
+    "same_blocked_identities_after_reopen": true,
+    "scan_group_stopped_seconds_after_request": 0.030662570000004052,
+    "survivors": []
+  }
+}

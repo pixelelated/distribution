@@ -8,6 +8,51 @@ Harness conflict-resolution untouched. Actual host PID namespace4026531836;
 host/network/outside-workspace writes require escalated exec. No formal goal.
 Saving is not a pause. No runtime/compiler/external call currently active.
 
+## Latest 04:32 UTC — native01 failed before game launch; no runtime active
+
+Native state-only owner01 stopped normally after explicit fixture-key assertion
+failed when leaving global GameSettings Off. One allowed read-only diagnostic
+under sole serial.lock showed all5pergame selections intact, global.autosave
+omitted. Source default/serialization review pending; do not call a productbug.
+Original run042702Z-60de4194 launcher/command/runner1,monitor0; cleanup clean,
+zero games launched. Export /workspace/tmp/pix-m7-native-states-evidence-20261015-01
+host170members rehashed,guest63partial files,readback0,finalmanifest absent and
+lossless_export_verified=false. Consumed8f0ea481 failed-investigated; original
+failure stays. No VM/compiler/external call active.
+
+dolphin_ra_init owns immutable /tmp/pix-m7-native-states-20261015-02 preparation
+for source-proven omittedglobalOff semantics and pureparsercontrols (<10s/1MiB
+allocated); no service/VM. Auditor peerreviews it. No edits to oldpacket/owner.
+After source review/seal: freshowner02/native-only replay, then auditclosure.
+Clean/retained and actual artifact PASS remain valid; no replay of those.
+Device sourceplan /tmp/pix-m7-device-refresh-next-plan-20261015 sealc4695350
+retains changed kernel/FEX/ABL inputs; no devicebuildallocation yet.
+
+## Latest 04:27 UTC — clean and retained PASS; native states ACTIVE
+
+Root sole runtime operator. Native state-only packet e7326fe6 is running under
+/workspace/tmp/pix-m7-native-states-20261015-01, VNC147, launcher3351875,
+admission8f0ea481922b4f339b7dcc5fc6781466. Read lifecycle-owner/console.log and
+visual-ready.json. Frozen f8636de1/ES16dbac, verified artifact result3d3b8572.
+1800s work+120s cleanup clock started about04:27; never extend. Exact actions
+and mandatory frames are /tmp/pix-m7-native-states-20261015/README.md and
+frame-plan.md. No other VM/compiler. Do not start a new allocation until this
+owner is closed/consumed. Host-action is the only live serial/input owner.
+
+Clean owner final-clean-affected-20261015-01 run041900Z-5e9e91e9 consumed4c52e6ff:
+242archive members rehashed, first-boot294 selected checks clear,3loaders,4helpers,
+Back57.909324ms, actual ES normalexit no survivors, all7originalchannels0.
+Retained owner final-retained-affected-20261015-01 run042200Z-3e55a12e consumed
+6999b332:296members rehashed,normalupdate changedbootID,selected8paths/modes
+preserved,protectedbaseunchanged,3loaders,4helpers,Back57.258077ms,allchannels0.
+Their evidence owners have matching -evidence- names. frame_diff_review owns
+only docs/qa-logs/2026-10-15-final-engineering-result/clean/ and retained/ for
+independent compact preservation. Audit dir returned to m7_audit_resume after
+checkpoint03 commit2753ee4c3c published; audit_complete remainsfalse. #597 closed
+with allcriteria verified; original reportingfailure/nullstatus remain.
+dolphin_ra_init is source-only planning #555 device build refresh; changed
+FEX/ABL/kernel invalidate assumptions from olddevicepackets. No devicebuildyet.
+
 ## Latest 04:19 UTC — artifact verified; final clean VM preparation
 
 #597 reporting recovery completed through committed coordinator tool26d2f6abce,

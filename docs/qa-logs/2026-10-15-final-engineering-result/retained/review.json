@@ -1,0 +1,241 @@
+{
+  "blockers": [],
+  "build_closeout_preserved": {
+    "completion_disposition": "failed-investigated/reporting-failure",
+    "original_launcher_returncode": null,
+    "qualification": false
+  },
+  "consumed": {
+    "accepted_evidence_sha256": "f25db42a2feda3f8bf38c604a8058c0a0092c86d43b43ae9d9266c6e5e4489aa",
+    "deleted_bytes": 0,
+    "id": "6999b332791f43a79eb219a52562689e",
+    "original_filename": "consumption-draft.json",
+    "original_result": {
+      "command_rc": 0,
+      "monitor_rc": 0,
+      "runner_rc": 0,
+      "utc": "2026-10-15T04:25:51.878605+00:00"
+    },
+    "outputs_held": true,
+    "state": "consumed"
+  },
+  "dolphin": {
+    "cases": [
+      {
+        "claim": "inactive session published before engine gate",
+        "name": "00-after-disabled-regular-en-gc",
+        "original_exit": 0,
+        "status": "PASS"
+      },
+      {
+        "claim": "inactive session published before engine gate",
+        "name": "01-after-missing-token-regular-en-wii",
+        "original_exit": 0,
+        "status": "PASS"
+      },
+      {
+        "claim": "enabled routing bytes unchanged",
+        "name": "02-after-enabled-proxy-regular-en-gc",
+        "original_exit": 0,
+        "status": "PASS"
+      },
+      {
+        "claim": "enabled routing bytes unchanged",
+        "name": "03-after-enabled-hardcore-regular-en-wii",
+        "original_exit": 0,
+        "status": "PASS"
+      }
+    ],
+    "scope": "Full helper, exact launcher RA block, synthetic engine-reached marker; no real engine launch",
+    "status": "PASS"
+  },
+  "input_update_or_large_base_rehashed_by_this_review": false,
+  "kind": "independent post-completion original-evidence review; no runtime replay",
+  "large_disk_ovmf_or_private_original_config_retained": false,
+  "loader": {
+    "members": 13,
+    "members_before_after_equal": true,
+    "original_checks": [
+      {
+        "argv": [
+          "ldd",
+          "/usr/bin/cloud-signin-window"
+        ],
+        "original_returncode": 0,
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "ldd",
+          "/usr/lib/gstreamer-1.0/gst-plugin-scanner"
+        ],
+        "original_returncode": 0,
+        "stderr": ""
+      },
+      {
+        "argv": [
+          "/usr/bin/gst-inspect-1.0",
+          "opengl"
+        ],
+        "original_returncode": 0,
+        "stderr": ""
+      }
+    ],
+    "original_retained_receipts_equal": true,
+    "rtld_now": "PASS",
+    "scanner_scope": "Installed executable/default registry and ldd closure; no separate scanner child-exec trace claimed.",
+    "status": "PASS"
+  },
+  "nested_affected_archive": {
+    "all_members_match_original_nested_manifest": true,
+    "members": 83,
+    "sha256": "3a8fbae0ddd80d2cf3e18716d252bf06ef3d5d85e84d2dc7860f741e85dd3c67",
+    "uncompressed_bytes": 77970
+  },
+  "ordinary_update": {
+    "after": {
+      "boot_id": "2c58fe32-ec7b-42b5-a048-8fb545fbc043",
+      "changed_selected_paths": [],
+      "checks": {
+        "activity_stamp_bytes_equal": true,
+        "automatic_operations_disabled": true,
+        "history_fields_equal": true,
+        "original_retained_receipts_equal": true,
+        "private_snapshot_removed": true,
+        "ra_fields_equal": true,
+        "retained_policy_pass": true,
+        "screenscraper_fields_equal": true,
+        "selected_bytes_and_modes_equal": true,
+        "standalone_token_equal": true
+      },
+      "phase": "after",
+      "previous_boot_id": "5bf03932-5648-4a72-8d57-b1e8360cefd9",
+      "status": "PASS"
+    },
+    "base_before_after_equal": true,
+    "base_was_not_reread_by_reviewer": true,
+    "before": {
+      "boot_id": "5bf03932-5648-4a72-8d57-b1e8360cefd9",
+      "checks": {
+        "activity_stamp_bytes_equal": true,
+        "automatic_operations_disabled": true,
+        "history_fields_equal": true,
+        "original_retained_receipts_equal": true,
+        "ra_fields_equal": true,
+        "screenscraper_fields_equal": true,
+        "standalone_token_equal": true
+      },
+      "phase": "before",
+      "status": "PASS"
+    },
+    "original_base_before": {
+      "sha256": "cfa55b79c36dd6b7fa1186c2e32cacc8b5e253f749f64effb4ec61ff273e488d",
+      "shape": {
+        "bytes": 8631549952,
+        "device": 66304,
+        "inode": 191671688,
+        "mode": 33152,
+        "mtime_ns": 1792017610178716730
+      }
+    },
+    "private_snapshot_values_not_exported": true,
+    "selected_path_count": 8,
+    "selected_paths": [
+      "/storage/.config/system/configs/system.cfg",
+      "/storage/.config/emulationstation/es_settings.cfg",
+      "/storage/roms/gb/pixelelated-installed-state.gb",
+      "/storage/roms/gb/gamelist.xml",
+      "/storage/.config/ppsspp/PSP/SYSTEM/ppsspp_retroachievements.dat",
+      "/storage/.config/cloud_sync.conf",
+      "/storage/.cache/cloud_sync/last-backup",
+      "/storage/.cache/cloud_sync/last-restore"
+    ]
+  },
+  "original_archive": {
+    "all_member_bytes_sizes_hashes_match_manifest_and_retained_originals": true,
+    "all_member_modes_match_retained_originals": true,
+    "members": 296,
+    "sha256": "347f5c8213e7692883fc5ed9835652568dbb061088d2c3a051646fbf69ced88f",
+    "uncompressed_bytes": 5394320
+  },
+  "original_channels": {
+    "build": 0,
+    "command": 0,
+    "launcher": 0,
+    "monitor": 0,
+    "runner": 0,
+    "tool_wrapper": 0,
+    "vm": 0
+  },
+  "parent_records_changed": false,
+  "restoration": {
+    "final": {
+      "aborted": false,
+      "installed_inputs_restored": true,
+      "native_processes": [],
+      "normal_service_restarted": true,
+      "rc": 0,
+      "selected_settings_restored_before_restart": true
+    },
+    "selected": {
+      "backup_scope": "last-good .backup files not in this restoration claim",
+      "mounts": [],
+      "rc": 0,
+      "selected_bytes_modes_owners_equal": true,
+      "selected_paths": [
+        "/storage/.config/system/configs/system.cfg",
+        "/storage/.config/emulationstation/es_settings.cfg"
+      ]
+    }
+  },
+  "reviewed_utc": "2026-10-15T04:31:40.784572+00:00",
+  "reviewer": "frame_diff_review",
+  "schema": 1,
+  "source_binding": {
+    "affected_packet_members_verified": 8,
+    "code_members_verified": 17,
+    "commit": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+    "es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+    "packet_seal": "668755cb2259e2fa3d3573870ff9cbed1362a0e346b237b551936e01f5eef675",
+    "previous_commit": "d6a87f05c1935516115b2cca1af22151a0209224",
+    "previous_es_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+    "state_checker_sha256": "6d061af89caba886bd3417ee96dc01e37675655aa1ed92f423b9db02164dff03",
+    "update_sha256": "1e00415c532902f5591705c5c366ed32f0eeab796d3d453a1460547e76ae72fd"
+  },
+  "verdict": "PASS within the explicitly stated scope",
+  "vm": {
+    "all_commands_original_zero_no_timeout": true,
+    "commands": 25,
+    "elapsed_seconds": 228.66492009162903,
+    "no_forced_cleanup_or_remaining_owned_processes": true,
+    "original_returncode": 0,
+    "recorded_host_custody_only_no_new_census": true
+  },
+  "wifi": {
+    "back_upper_bound_seconds": 0.05725807696580887,
+    "driver_exited_seconds_after_request": 0.1531328760000008,
+    "enumerations": 1,
+    "errors": [],
+    "forced_cleanup": [],
+    "full_reference_exact": true,
+    "installed_es_sha256": "76f18d97a46e9228ca4b7cb63a5406a4f0bb026f96763f3558d1ac942b1857c8",
+    "join_logs": {
+      "joined": 1,
+      "stopping": 1
+    },
+    "limit_seconds": 1,
+    "normal_signal": 2,
+    "original_returncode": 0,
+    "pre_key_differs": true,
+    "reaped": [
+      {
+        "exit_code": -9,
+        "pid": 2553,
+        "wait_status": 9
+      }
+    ],
+    "same_blocked_identities_after_reopen": true,
+    "scan_group_stopped_seconds_after_request": 0.04214452600000129,
+    "survivors": []
+  }
+}

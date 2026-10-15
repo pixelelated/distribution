@@ -11,6 +11,17 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 04:33 UTC — artifact and installed qualification passed
+
+#597 is closed with reviewed recovery,68 controls and actual artifact readback.
+The original reporting failure and unknown launcher wait remain preserved.
+Final f863/ES16dbac clean and retained upgrade checks pass with independent
+reviewed frames and original zero outcomes. Native-state-only run01 stopped
+before gameplay because the fixture required an explicit global Off key that
+Game Settings omitted. The next action is the source-proven narrow fixture
+correction and four-launch state proof, then audit closure and H700→SM8550.
+No product state defect, RC designation or audit completion is inferred.
+
 ## 2026-10-15 04:09 UTC — image built; #597 reporting recovery precedes testing
 
 Frozenf8636de1/ES16dbac completed all four canonical build stages and the original

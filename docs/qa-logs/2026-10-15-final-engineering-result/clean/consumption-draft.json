@@ -1,0 +1,42 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T041900Z-5e9e91e9",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 344,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-final-clean-affected-20261015-01",
+      "release_when": "Review untouched clean/installed-loader originals and owner cleanup; consume admission then guarded retirement of only this owner."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-final-clean-affected-evidence-20261015-01/config.json",
+      "sha256": "e76d13c909ce18adbac677562427dba717476defbcc6c1b254d5d67a6f77b588"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-final-clean-affected-evidence-20261015-01/export-result.json",
+      "sha256": "9a904e5d10b4de4060677e9468889720f0a426013b8d44337332cbf88f0c8637"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-final-clean-affected-evidence-20261015-01/host-exits.json",
+      "sha256": "6dc0e4f767a8568fd9eb7fb6d09e503f87542fe058d7ae91a4f25e495f1ab609"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-final-clean-affected-evidence-20261015-01/original-records.json",
+      "sha256": "6162632caca91d95c1509ff44ea3dd339a43aa61b60fc9342bbe347a1b85ae9f"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-final-clean-affected-evidence-20261015-01/original-records.tar.gz",
+      "sha256": "ad8a05f650c17a2756cc869fb6207d72579306914b294fa92d4264e758acdccf"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-final-clean-affected-evidence-20261015-01/vm-result.json",
+      "sha256": "3603acbc49324d1f9134e86a65a09c90f70191865fdbc7c321c1c0c839601426"
+    }
+  ],
+  "requires_coordinator_review": true,
+  "channels_coherent": true,
+  "monitor_succeeded": true
+}

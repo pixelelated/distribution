@@ -501,7 +501,15 @@ and [reviewed frame index](qa-logs/2026-10-15-wifi-normal-exit-result/frame-inde
 verify actual key send to a complete matching return frame within59.1ms, with
 reopening attached to the same pending scan and no second enumeration. The
 prior host timing failure remains recorded. Normal frontend exit joins the scan;
-SIGTERM/fatal exits remain separate (D-CLOUD-133). Next-image acceptance is due.
+SIGTERM/fatal exits remain separate (D-CLOUD-133).
+
+The final f8636de1 image with installed ES16dbac now passes both the
+[clean-install flow and four reviewed frames](qa-logs/2026-10-15-final-engineering-result/clean/README.md)
+and [retained-upgrade flow and four reviewed frames](qa-logs/2026-10-15-final-engineering-result/retained/README.md).
+The installed executable is used directly. Back restored the exact full reference
+in57.909324ms and57.258077ms respectively; reopening reused the scan and normal
+exit left no survivor. Presentation is unchanged. These remain synthetic backend
+checks; they do not measure a physical radio.
 
 The [October13 baseline](qa-logs/2026-10-13-library-wifi-baseline/README.md)
 retains the former external overlay, growing initial geometry and identical
@@ -873,8 +881,13 @@ now qualify this branch with ES16dbac and the explicit helper/launcher overlay.
 The actual API-driven walk returns to its originating Wii system carousel after
 OK; selection-driven game-list return is not inferred from those frames. The
 positive helper log and target publication error distinguish this from an earlier
-save-path refusal. Exact original configuration identities are restored. The next
-integrated image still needs installed-byte and affected upgrade/install checks.
+save-path refusal. Exact original configuration identities are restored.
+The final f8636de1 integrated image has verified installed helper/launcher bytes;
+[clean](qa-logs/2026-10-15-final-engineering-result/clean/README.md) and
+[retained-upgrade](qa-logs/2026-10-15-final-engineering-result/retained/README.md)
+checks pass the four disabled/logged-out/enabled transitions. They use the full
+installed helper and exact launcher block with a synthetic engine marker; they
+complement the separate refusal frames without claiming a live native login.
 
 ## ScreenScraper developer provisioning (#566)
 

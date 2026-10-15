@@ -1,0 +1,49 @@
+{
+  "admitted": "2026-10-15T04:22:00.386540+00:00",
+  "available_bytes": 2704333312000,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02",
+  "consumed": "2026-10-15T04:26:29.910474+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02",
+  "deleted_bytes": 0,
+  "evidence_sha256": "f25db42a2feda3f8bf38c604a8058c0a0092c86d43b43ae9d9266c6e5e4489aa",
+  "id": "6999b332791f43a79eb219a52562689e",
+  "original_result": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-15T04:25:51.878605+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 572,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-final-retained-affected-20261015-01",
+      "release_when": "Review original loader/state/base-hash/owner receipts, actual owners absent and admission consumed, then retire this overlay/OVMF. The previous retained base has its separate owner; coordinator retires it only after this named consumer is done."
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "5886d392ba35f1bb1bc6f0ee594f076e49aee1e4e7863107b8b021e1c409bf25",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 19571671040,
+  "retention_plan_sha256": "d4fa94ba775785f836b291432ee8097ada663f7b4cb43f5a6977c25def9167f4",
+  "retention_report_sha256": "a80dbae45df7b57491d2fa57125b14d52f6d0f6106486a360016898c1b980735",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T042200Z-3e55a12e",
+  "runner_pid": 3328183,
+  "runner_start": "112980426",
+  "source": {
+    "head": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix-m7-final-retained-affected-20261015-01/lifecycle-owner",
+  "volume": "/workspace",
+  "volume_device": 66304
+}
