@@ -1,0 +1,55 @@
+{
+  "case": "installed-failed-boot",
+  "status": "PASS",
+  "argv": [
+    "/usr/bin/dolphin-emu-nogui",
+    "-p",
+    "headless",
+    "-v",
+    "Null",
+    "-a",
+    "HLE",
+    "-u",
+    "/run/pix-installed-native/installed-failed-boot/user",
+    "-e",
+    "/run/pix-installed-native/absent-file.iso"
+  ],
+  "binary_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+  "enabled": true,
+  "badboot": true,
+  "signals": [],
+  "original_exit": 1,
+  "pid": 2035,
+  "badge_load_failures": {
+    "Default player badge 'achievements_player.png' failed to load": 0,
+    "Default game badge 'achievements_game.png' failed to load": 0,
+    "Default unlocked achievement badge 'achievements_unlocked.png' failed to load": 0,
+    "Default locked achievement badge 'achievements_locked.png' failed to load": 0
+  },
+  "initialized": 1,
+  "shutdown": 1,
+  "boot_error": true,
+  "requests": [
+    {
+      "path": "/dorequest.php",
+      "method": "POST",
+      "host": "127.0.0.1:8080",
+      "form": {
+        "r": [
+          "login2"
+        ],
+        "u": [
+          "m7_synthetic_only"
+        ],
+        "t": [
+          "m7_synthetic_invalid"
+        ]
+      },
+      "peer": "127.0.0.1",
+      "monotonic": 26.53875105
+    }
+  ],
+  "endpoint_errors": [],
+  "remaining_dolphin": [],
+  "elapsed_seconds": 0.44776248400000185
+}

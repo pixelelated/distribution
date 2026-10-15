@@ -1,0 +1,706 @@
+{
+  "all_omitted_failed_bytes_equal_published_archive_members": true,
+  "all_selected_members_verified": true,
+  "archive_sha256": "d05f584d3aeada83a5e7042dbf02d0d21124fa75f70498bd2051998c0621100f",
+  "excluded_duplicate_failed_originals": [
+    {
+      "bytes": 154,
+      "private_member": "failed-originals/analysis.json",
+      "published_archive_member": "analysis.json",
+      "sha256": "96c737cb869a51f2b3bd083490d4f1fbbc673bae0f8ce893fa88b70e5aa73a41"
+    },
+    {
+      "bytes": 5618,
+      "private_member": "failed-originals/config.json",
+      "published_archive_member": "config.json",
+      "sha256": "2af853b94b51a5e5e47fd01573f5a2861fbc781175933ea2a0099da1b660fe4e"
+    },
+    {
+      "bytes": 1321,
+      "private_member": "failed-originals/consumption-evidence.json",
+      "published_archive_member": "consumption-evidence.json",
+      "sha256": "ea4f35957c93e230acd045c6ed9e61d521b4ff5a3f7557b9ae612bf18140de2e"
+    },
+    {
+      "bytes": 873,
+      "private_member": "failed-originals/coordinator-review.json",
+      "published_archive_member": "coordinator-review.json",
+      "sha256": "8223c1ef7d018bff6b7c9f37572f3ade462c4067b33072b888abe094ab55056d"
+    },
+    {
+      "bytes": 7296,
+      "private_member": "failed-originals/debugfs.stderr",
+      "published_archive_member": "debugfs.stderr",
+      "sha256": "6b9c7e605a2d52fd0962ac07dfd6b9184eaa35bd654254d7805888e1a680a4b4"
+    },
+    {
+      "bytes": 0,
+      "private_member": "failed-originals/debugfs.stdout",
+      "published_archive_member": "debugfs.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 360,
+      "private_member": "failed-originals/export-result.json",
+      "published_archive_member": "export-result.json",
+      "sha256": "ec51e50f17bf9736d9244416870b0fa55bb997be7354271ace51a04d04d140bd"
+    },
+    {
+      "bytes": 105,
+      "private_member": "failed-originals/guest/gameplay/control-gen-097c1128.json",
+      "published_archive_member": "guest/gameplay/control-gen-097c1128.json",
+      "sha256": "7d9d0bacfeac2531a1d49ad3027f662b331996b9e5bc31869573386543ca9392"
+    },
+    {
+      "bytes": 0,
+      "private_member": "failed-originals/guest/gameplay/control-gen-097c1128.stderr",
+      "published_archive_member": "guest/gameplay/control-gen-097c1128.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "private_member": "failed-originals/guest/gameplay/control-gen-097c1128.stdout",
+      "published_archive_member": "guest/gameplay/control-gen-097c1128.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 505,
+      "private_member": "failed-originals/guest/gameplay/control.ini",
+      "published_archive_member": "guest/gameplay/control.ini",
+      "sha256": "d9bdba7e37220fdd8f3f064d07d8b0b2db0e44bb1d28bb85009c4f0c2e428cfb"
+    },
+    {
+      "bytes": 175,
+      "private_member": "failed-originals/guest/gameplay/display-outputs-2cdcc859.json",
+      "published_archive_member": "guest/gameplay/display-outputs-2cdcc859.json",
+      "sha256": "01bd9024832dd3e3916d67085769b68b642b1130e305d52c2c118b3877f324ec"
+    },
+    {
+      "bytes": 0,
+      "private_member": "failed-originals/guest/gameplay/display-outputs-2cdcc859.stderr",
+      "published_archive_member": "guest/gameplay/display-outputs-2cdcc859.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 4725,
+      "private_member": "failed-originals/guest/gameplay/display-outputs-2cdcc859.stdout",
+      "published_archive_member": "guest/gameplay/display-outputs-2cdcc859.stdout",
+      "sha256": "e688cc763e9b86e074117bda060470d184e412f7a415948a953bbe22c0dad890"
+    },
+    {
+      "bytes": 572,
+      "private_member": "failed-originals/guest/gameplay/fixture-settings-44421cdd.json",
+      "published_archive_member": "guest/gameplay/fixture-settings-44421cdd.json",
+      "sha256": "259058f73786e07730389a12960aff90f81e9a33e4482b36d0974ab0cf9bfd23"
+    },
+    {
+      "bytes": 0,
+      "private_member": "failed-originals/guest/gameplay/fixture-settings-44421cdd.stderr",
+      "published_archive_member": "guest/gameplay/fixture-settings-44421cdd.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "private_member": "failed-originals/guest/gameplay/fixture-settings-44421cdd.stdout",
+      "published_archive_member": "guest/gameplay/fixture-settings-44421cdd.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 282,
+      "private_member": "failed-originals/guest/gameplay/flycast-fixture-8fec7da1.json",
+      "published_archive_member": "guest/gameplay/flycast-fixture-8fec7da1.json",
+      "sha256": "0813237711b30b2da31fe41efba39066c4f639c1f51c4d3c9a3fc99fc2fe95b7"
+    },
+    {
+      "bytes": 0,
+      "private_member": "failed-originals/guest/gameplay/flycast-fixture-8fec7da1.stderr",
+      "published_archive_member": "guest/gameplay/flycast-fixture-8fec7da1.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 89,
+      "private_member": "failed-originals/guest/gameplay/flycast-fixture-8fec7da1.stdout",
+      "published_archive_member": "guest/gameplay/flycast-fixture-8fec7da1.stdout",
+      "sha256": "0fae2830464fa53105d71a4f5ec577d04645e2ea4c1c7e2cd3abd49547920299"
+    },
+    {
+      "bytes": 10918,
+      "private_member": "failed-originals/guest/gameplay/installed-inputs.json",
+      "published_archive_member": "guest/gameplay/installed-inputs.json",
+      "sha256": "53cf0ac737dcab19e740498f62c09afa16571f04ae161a85c34e4c6add3ed3d4"
+    },
+    {
+      "bytes": 117859,
+      "private_member": "failed-originals/guest/gameplay/originals/es_input.cfg",
+      "published_archive_member": "guest/gameplay/originals/es_input.cfg",
+      "sha256": "8e6033b5cc8553c11887440eea140573452c64865972f8144962bc990b00b87b"
+    },
+    {
+      "bytes": 5140,
+      "private_member": "failed-originals/guest/gameplay/originals/system-before-settings.cfg",
+      "published_archive_member": "guest/gameplay/originals/system-before-settings.cfg",
+      "sha256": "acbcc13f4aaff890d381b34a046f5c2074bde6e40042ca29f363e846c63afce6"
+    },
+    {
+      "bytes": 5042,
+      "private_member": "failed-originals/guest/gameplay/originals/system.cfg",
+      "published_archive_member": "guest/gameplay/originals/system.cfg",
+      "sha256": "f00bec8bff55e025bad63d40101ebb21368aa8dc624f53e18a6267b83c9569fd"
+    },
+    {
+      "bytes": 800,
+      "private_member": "failed-originals/guest/gameplay/pad-ready.json",
+      "published_archive_member": "guest/gameplay/pad-ready.json",
+      "sha256": "0931dc43f71cecc7745b12a79a0180a273cbf7174a6f2711d62f5a5e32ab0163"
+    },
+    {
+      "bytes": 86,
+      "private_member": "failed-originals/guest/gameplay/pad.events.jsonl",
+      "published_archive_member": "guest/gameplay/pad.events.jsonl",
+      "sha256": "1e9bee2f7da51eef8610538efdc626c4217a0582f48b7b244fd765639612f3f0"
+    },
+    {
+      "bytes": 0,
+      "private_member": "failed-originals/guest/gameplay/pad.stderr",
+      "published_archive_member": "guest/gameplay/pad.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "private_member": "failed-originals/guest/gameplay/pad.stdout",
+      "published_archive_member": "guest/gameplay/pad.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 106,
+      "private_member": "failed-originals/guest/gameplay/process-observations.jsonl",
+      "published_archive_member": "guest/gameplay/process-observations.jsonl",
+      "sha256": "eee586a83ae60115c242438c0f2b762b5e9358cb9050121fa9bcf72f806d80c3"
+    },
+    {
+      "bytes": 120,
+      "private_member": "failed-originals/guest/gameplay/stop-es-a7064020.json",
+      "published_archive_member": "guest/gameplay/stop-es-a7064020.json",
+      "sha256": "2d5072cb6f45b7d73102835d657cabd6dac0a9e157199199b4045ee49db1eb51"
+    },
+    {
+      "bytes": 0,
+      "private_member": "failed-originals/guest/gameplay/stop-es-a7064020.stderr",
+      "published_archive_member": "guest/gameplay/stop-es-a7064020.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "private_member": "failed-originals/guest/gameplay/stop-es-a7064020.stdout",
+      "published_archive_member": "guest/gameplay/stop-es-a7064020.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 182,
+      "private_member": "failed-originals/guest/gameplay/supervisor.json",
+      "published_archive_member": "guest/gameplay/supervisor.json",
+      "sha256": "f1359a879c321f7023aa6b8e7b9d170f10a7eb09d20388b63b363a75b34ebfb2"
+    },
+    {
+      "bytes": 0,
+      "private_member": "failed-originals/guest/gameplay/supervisor.stderr",
+      "published_archive_member": "guest/gameplay/supervisor.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "private_member": "failed-originals/guest/gameplay/supervisor.stdout",
+      "published_archive_member": "guest/gameplay/supervisor.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 196,
+      "private_member": "failed-originals/guest/gameplay/wii-fixture-d23690c8.json",
+      "published_archive_member": "guest/gameplay/wii-fixture-d23690c8.json",
+      "sha256": "6809730911debd76d58e3ab27aa649e88e95aa253770e2e74c2930f9868fc4cf"
+    },
+    {
+      "bytes": 0,
+      "private_member": "failed-originals/guest/gameplay/wii-fixture-d23690c8.stderr",
+      "published_archive_member": "guest/gameplay/wii-fixture-d23690c8.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "private_member": "failed-originals/guest/gameplay/wii-fixture-d23690c8.stdout",
+      "published_archive_member": "guest/gameplay/wii-fixture-d23690c8.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 2975,
+      "private_member": "failed-originals/guest/gameplay/wii-preparation/Dolphin.ini.before",
+      "published_archive_member": "guest/gameplay/wii-preparation/Dolphin.ini.before",
+      "sha256": "e352eafa7fd9a99c3075377a9236142808d0c0131e6711af07ce42792202e9e1"
+    },
+    {
+      "bytes": 1336,
+      "private_member": "failed-originals/guest/gameplay/wii-preparation/GFX.ini.before",
+      "published_archive_member": "guest/gameplay/wii-preparation/GFX.ini.before",
+      "sha256": "0e885638efad1e50a4f0a90d2cf7c72c295fc2d815b5b1af41bc417dea21c71f"
+    },
+    {
+      "bytes": 0,
+      "private_member": "failed-originals/guest/gameplay/wii-preparation/configure-sd.stderr",
+      "published_archive_member": "guest/gameplay/wii-preparation/configure-sd.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 103,
+      "private_member": "failed-originals/guest/gameplay/wii-preparation/configure-sd.stdout",
+      "published_archive_member": "guest/gameplay/wii-preparation/configure-sd.stdout",
+      "sha256": "1f42e25895ec728e61abcb37b2d68d84dba0f2fac02cd8e6326d608be721e084"
+    },
+    {
+      "bytes": 204,
+      "private_member": "failed-originals/guest/gameplay/wii-preparation/prelaunch.sha256",
+      "published_archive_member": "guest/gameplay/wii-preparation/prelaunch.sha256",
+      "sha256": "7c7bae091e72d4f9fe42b22b64dd5dcc88a3caf668e136b8682d755e4bc81855"
+    },
+    {
+      "bytes": 7,
+      "private_member": "failed-originals/guest/gameplay/wii-preparation/renderer-readback.txt",
+      "published_archive_member": "guest/gameplay/wii-preparation/renderer-readback.txt",
+      "sha256": "f23e50c9b74c2e27558a4e01a05e4e1e71826fb0657de4fa3c2f9548066576ad"
+    },
+    {
+      "bytes": 5042,
+      "private_member": "failed-originals/guest/gameplay/wii-preparation/system.cfg.before",
+      "published_archive_member": "guest/gameplay/wii-preparation/system.cfg.before",
+      "sha256": "f00bec8bff55e025bad63d40101ebb21368aa8dc624f53e18a6267b83c9569fd"
+    },
+    {
+      "bytes": 6,
+      "private_member": "failed-originals/guest/gameplay/wii-preparation/write-protect-readback.txt",
+      "published_archive_member": "guest/gameplay/wii-preparation/write-protect-readback.txt",
+      "sha256": "2ed27c1421e6928dbe13dbfdb5c59e1045b30341fe7ebe05700006bc5ac572c0"
+    },
+    {
+      "bytes": 6179,
+      "private_member": "failed-originals/guest-manifest.json",
+      "published_archive_member": "guest-manifest.json",
+      "sha256": "33adaa56dd25f063b352aae3428aa8a2299848cd37df8761a01b23383e24c98d"
+    },
+    {
+      "bytes": 152,
+      "private_member": "failed-originals/host-exits.json",
+      "published_archive_member": "host-exits.json",
+      "sha256": "f5fba0aa81d0882ca32d78b6617305e49924058957a4065bc12b5cefbe698aa5"
+    },
+    {
+      "bytes": 17996,
+      "private_member": "failed-originals/original-records.json",
+      "published_archive_member": "original-records.json",
+      "sha256": "c10ca698d638600587a894c921fd10792ab68a59a3c0869df5b5ab8ff7acf726"
+    },
+    {
+      "bytes": 84355,
+      "private_member": "failed-originals/original-records.tar.gz",
+      "published_archive_member": "original-records.tar.gz",
+      "sha256": "c8a5133d85dca23c8f57405abb18abb3f99addf29eb4f10410fa992c4da74fef"
+    },
+    {
+      "bytes": 78,
+      "private_member": "failed-originals/readback-result.json",
+      "published_archive_member": "readback-result.json",
+      "sha256": "3830275577306411eb3a29230f4500035f8c6ca8ddfaf8c77808f98912dfaa86"
+    },
+    {
+      "bytes": 7901,
+      "private_member": "failed-originals/vm-result.json",
+      "published_archive_member": "vm-result.json",
+      "sha256": "d8ef0bcdf1639da4ae3b9407bea38f5d9253b9da4b474cf28c3518224c588919"
+    }
+  ],
+  "failed_originals_archive": "../2026-10-15-native-gameplay-fixture-failure/original-records.tar.gz",
+  "failed_originals_archive_sha256": "4033f8aa5e114ccc4b5d28eed7d8c82c3ca41dc16b20d1b73a837912b69d4145",
+  "failed_originals_member_manifest_sha256": "0fd7728cc9318547c71a265c6ae55f12d756649da2be07e283a83e1e7cad59eb",
+  "failed_packet_sha256sums_sha256": "0c88c30078f2c37326de4a5383190cfbc7b0078132131824c8398d97b369e6ca",
+  "member_count": 47,
+  "members": [
+    {
+      "bytes": 18954,
+      "member": "README.md",
+      "mode": "0664",
+      "mtime_ns": 1792028070058845900,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/README.md",
+      "sha256": "47927d58ae0a83e7ca9a5cf51349a64280ee70e04f083ad138f95fb4d4cb0d60"
+    },
+    {
+      "bytes": 3259,
+      "member": "REVISION03.md",
+      "mode": "0664",
+      "mtime_ns": 1792028070058765939,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/REVISION03.md",
+      "sha256": "630a0333f63c52d3c0e26ead0385c868e65b3bf565387c8fd9a4c9921ee9e77b"
+    },
+    {
+      "bytes": 10239,
+      "member": "SHA256SUMS",
+      "mode": "0664",
+      "mtime_ns": 1792028115018169385,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/SHA256SUMS",
+      "sha256": "fc6c0d5ce84eb7eedf813d0f8a204c1977fbe7357a57f920870c3a7fd4e9ba29"
+    },
+    {
+      "bytes": 2865,
+      "member": "census.py",
+      "mode": "0755",
+      "mtime_ns": 1792013810252917987,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/census.py",
+      "sha256": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2"
+    },
+    {
+      "bytes": 5953,
+      "member": "close.py",
+      "mode": "0755",
+      "mtime_ns": 1792015454927924303,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/close.py",
+      "sha256": "00fc86e8e5b7979d533f88b95145477d0e71e60431f108e1ef221b1ba3f58de6"
+    },
+    {
+      "bytes": 3110,
+      "member": "close.py.diff",
+      "mode": "0664",
+      "mtime_ns": 1792015815504160567,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/close.py.diff",
+      "sha256": "255d68121e47cde55c3f18ad431e9e20c3bc1b2c9100ae47ba1974e17466acf3"
+    },
+    {
+      "bytes": 743,
+      "member": "consumed-paths.txt",
+      "mode": "0664",
+      "mtime_ns": 1792015538496251899,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/consumed-paths.txt",
+      "sha256": "39807816ce02525153b0a52e208b9f5f8d31e4b2b634bba5f9c25d31ce03c6a1"
+    },
+    {
+      "bytes": 850,
+      "member": "derivation.json",
+      "mode": "0664",
+      "mtime_ns": 1792015815504547148,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/derivation.json",
+      "sha256": "d5218173d118d87f3e56558b04dfcf355da4735ab533bc3374883d0f03fa1cc3"
+    },
+    {
+      "bytes": 12844,
+      "member": "fixture/README.md",
+      "mode": "0644",
+      "mtime_ns": 1792011064752118124,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/README.md",
+      "sha256": "9cda703ad2f39d7899791639db46bae708d66421be1274ad8254d0692f9929c9"
+    },
+    {
+      "bytes": 1555,
+      "member": "fixture/SHA256SUMS",
+      "mode": "0664",
+      "mtime_ns": 1792011120116764671,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/SHA256SUMS",
+      "sha256": "b76c627e2c22c8a25f3f84013badba09d7f651a4fb028938729e2e58d5294c60"
+    },
+    {
+      "bytes": 661,
+      "member": "fixture/boot-static-result.json",
+      "mode": "0644",
+      "mtime_ns": 1792011096594612043,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/boot-static-result.json",
+      "sha256": "5aa7c6de1e63f4ab21247249fa43662fe768b18ac9642e74e753556cf2f8fd23"
+    },
+    {
+      "bytes": 1511,
+      "member": "fixture/configure-flycast.py",
+      "mode": "0755",
+      "mtime_ns": 1792010968626627089,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/configure-flycast.py",
+      "sha256": "bdd132eaeed782c232784052724e7b6594e76b86eccdefaca6a2d0d07dbe7671"
+    },
+    {
+      "bytes": 1518,
+      "member": "fixture/configure-wii-sd.py",
+      "mode": "0755",
+      "mtime_ns": 1792010921145064693,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/configure-wii-sd.py",
+      "sha256": "21802300509941a1263903dd25215689ab7c3a3e593d932fac5307105c9568a9"
+    },
+    {
+      "bytes": 12534,
+      "member": "fixture/inputs.json",
+      "mode": "0644",
+      "mtime_ns": 1792010921192388553,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/inputs.json",
+      "sha256": "7df3b6cf03ea1219e064fc0c92db45a33a179e000d4196da1d8f87c32f774f3f"
+    },
+    {
+      "bytes": 1949,
+      "member": "fixture/inspect-tetris-boot.py",
+      "mode": "0755",
+      "mtime_ns": 1792011096498610554,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/inspect-tetris-boot.py",
+      "sha256": "90ffb16ca0dbe2ab9990a872df884293f7555e5930c0a526b4a070e0dbda236c"
+    },
+    {
+      "bytes": 1064,
+      "member": "fixture/licenses/SuDokuL-MIT.txt",
+      "mode": "0664",
+      "mtime_ns": 1792010921144862620,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/licenses/SuDokuL-MIT.txt",
+      "sha256": "5c78b017feab375d6d32020279b2ff40bce8090ae37d232e3fbe6b57ef0f1287"
+    },
+    {
+      "bytes": 5429,
+      "member": "fixture/licenses/SuDokuL-README.md",
+      "mode": "0664",
+      "mtime_ns": 1792010921144946511,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/licenses/SuDokuL-README.md",
+      "sha256": "8564ed39848b85645283a33d829ba33134fca529527a4b67ad915be3a16c954a"
+    },
+    {
+      "bytes": 1479,
+      "member": "fixture/licenses/Tetris2-BSD-3-Clause.txt",
+      "mode": "0664",
+      "mtime_ns": 1792010921145005167,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/licenses/Tetris2-BSD-3-Clause.txt",
+      "sha256": "9469dfde81bf47499d29238569530eada409e2e0e23992d4a3a6f4090413bde8"
+    },
+    {
+      "bytes": 1350,
+      "member": "fixture/materialize.py",
+      "mode": "0755",
+      "mtime_ns": 1792010968691628098,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/materialize.py",
+      "sha256": "0f64db700498b14088cc82ec553ae4aeada3ba001088c3951a7de80295c8c184"
+    },
+    {
+      "bytes": 1011,
+      "member": "fixture/native-launch.sh",
+      "mode": "0755",
+      "mtime_ns": 1792010968658627586,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/native-launch.sh",
+      "sha256": "9e3e1095e4440f9ea9acdfc3636cfa4454029359f7332d52d947a538cc7f47a7"
+    },
+    {
+      "bytes": 1540,
+      "member": "fixture/prepare-wii-guest.sh",
+      "mode": "0755",
+      "mtime_ns": 1792010968594626593,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/prepare-wii-guest.sh",
+      "sha256": "9c59dd409db70436f00ebd4171f93ae8a05c32bdfb0345ef5aaac53d6717075d"
+    },
+    {
+      "bytes": 872,
+      "member": "fixture/prepare-wii-sd.sh",
+      "mode": "0755",
+      "mtime_ns": 1792010968560626066,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/prepare-wii-sd.sh",
+      "sha256": "315d33b62017ede93b518ef9f7db743bc4fcec22980d9a9082b0d61652c45ac8"
+    },
+    {
+      "bytes": 1906,
+      "member": "fixture/primary-references.json",
+      "mode": "0644",
+      "mtime_ns": 1792011120116026643,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/primary-references.json",
+      "sha256": "b9268f462d6e65729f8bee6a558b77b567f49862ddb499b52aaca82c29f4a4f6"
+    },
+    {
+      "bytes": 778,
+      "member": "fixture/provenance.json",
+      "mode": "0644",
+      "mtime_ns": 1792011120116114033,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/provenance.json",
+      "sha256": "9ef82acc046627cb175bbdf45859f66718e19665271afc676bbf11f335e47b04"
+    },
+    {
+      "bytes": 7393,
+      "member": "fixture/source-bindings.json",
+      "mode": "0644",
+      "mtime_ns": 1792011096563556599,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/source-bindings.json",
+      "sha256": "9fa7faf6ab6d641a9b23a167fe0422f31306a6322779a0e703c131933310512d"
+    },
+    {
+      "bytes": 1118,
+      "member": "fixture/static-result.json",
+      "mode": "0644",
+      "mtime_ns": 1792011096568619976,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/static-result.json",
+      "sha256": "4d94d12fc3b94202354a3c5c7b896a44f9198a34dab3da10b295a2f3d8c3f91d"
+    },
+    {
+      "bytes": 23650,
+      "member": "fixture/tetris2-assets.json",
+      "mode": "0644",
+      "mtime_ns": 1792010921145108148,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/fixture/tetris2-assets.json",
+      "sha256": "cb84c4f07d44e696bb428facdd41a6fc4ab9df4daa07bd43fb6d622138ba3527"
+    },
+    {
+      "bytes": 2744,
+      "member": "frozen-config-bindings.json",
+      "mode": "0664",
+      "mtime_ns": 1792015774698159881,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/frozen-config-bindings.json",
+      "sha256": "9e57be0b1a18973e91b0e93fc718978fb66fd38ea3f7910460712a74319a423f"
+    },
+    {
+      "bytes": 18018,
+      "member": "guest.py",
+      "mode": "0755",
+      "mtime_ns": 1792028070028806233,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/guest.py",
+      "sha256": "fdd12a58de78d6d08b6601721f94eeab0e9ba3406272e5d1e9b4b9a0d8b6f05b"
+    },
+    {
+      "bytes": 5899,
+      "member": "host-action.py",
+      "mode": "0755",
+      "mtime_ns": 1792015594241485350,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/host-action.py",
+      "sha256": "4c49b2fc942bd4e2a8cd9651fd7a00dc7b80c644ccce2ee95fc6016b8e1ef936"
+    },
+    {
+      "bytes": 4187,
+      "member": "pad.diff",
+      "mode": "0664",
+      "mtime_ns": 1792015815504262033,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/pad.diff",
+      "sha256": "81988b16b700eddc93869a1b309b5fb5b28063ba38eb422681eeb0235c7c7c39"
+    },
+    {
+      "bytes": 3481,
+      "member": "pad.py",
+      "mode": "0755",
+      "mtime_ns": 1792015538492483164,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/pad.py",
+      "sha256": "240655b3d512986a45348852b5ff6b09e9a439019be99e34a81558cb69064780"
+    },
+    {
+      "bytes": 6770,
+      "member": "prepare.py",
+      "mode": "0755",
+      "mtime_ns": 1792019081742808519,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/prepare.py",
+      "sha256": "97a4af0f4b3e97917ea284b655055e5ff2aa9777f0b8039392a0a5802197fc20"
+    },
+    {
+      "bytes": 10763,
+      "member": "prepare.py.diff",
+      "mode": "0664",
+      "mtime_ns": 1792015815503833192,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/prepare.py.diff",
+      "sha256": "179abae56e85b5d6cf316ab3bf9ac3a00b9920c7226c6c21441a519f02c96b8d"
+    },
+    {
+      "bytes": 15455,
+      "member": "prior-README.md",
+      "mode": "0664",
+      "mtime_ns": 1792028070028666975,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/prior-README.md",
+      "sha256": "c25d65f15b9cecc2a7da09edf4b611c97b56d964b31538a7b7a8b14fd26fc464"
+    },
+    {
+      "bytes": 3611,
+      "member": "prior-SHA256SUMS",
+      "mode": "0664",
+      "mtime_ns": 1792028070028630347,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/prior-SHA256SUMS",
+      "sha256": "7b3dfec5f480b83f5faa923f9c55b0262b3d2c3a6bed6106b2594a9e1e8b7abc"
+    },
+    {
+      "bytes": 7688,
+      "member": "revision02-prepare.diff",
+      "mode": "0664",
+      "mtime_ns": 1792019099794445354,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/revision02-prepare.diff",
+      "sha256": "f09eb68365da5134f2f01e36dd103209e4dc0f3deb2999927b7e88053c6e37fc"
+    },
+    {
+      "bytes": 7224,
+      "member": "revision02-source-continuity.json",
+      "mode": "0664",
+      "mtime_ns": 1792019067030208626,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/revision02-source-continuity.json",
+      "sha256": "1ca76ad098b7a04e16d435dd86ad0f14dc2ced78ff914abac3600aaa377877ec"
+    },
+    {
+      "bytes": 5581,
+      "member": "revision02-static-review.json",
+      "mode": "0664",
+      "mtime_ns": 1792019099794528230,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/revision02-static-review.json",
+      "sha256": "815d91e640c45e688cb2bdc2de26219a5481c4fe38ca93b0b53cb336c9502179"
+    },
+    {
+      "bytes": 9666,
+      "member": "revision03-fixture.diff",
+      "mode": "0664",
+      "mtime_ns": 1792028070036423482,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/revision03-fixture.diff",
+      "sha256": "b2a899732a8cd3aeec0a4b1090c9e054cdd870fb37a265347fd350902198eec5"
+    },
+    {
+      "bytes": 3604,
+      "member": "revision03-static-review.json",
+      "mode": "0664",
+      "mtime_ns": 1792028115015304997,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/revision03-static-review.json",
+      "sha256": "c6c30f7ef3370baf9e0e1da2f8dc9dc20b6a2cac5bbcaf16b229689755324233"
+    },
+    {
+      "bytes": 5293,
+      "member": "source-bindings.json",
+      "mode": "0664",
+      "mtime_ns": 1792015696323693095,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/source-bindings.json",
+      "sha256": "ef4dd1bf061c7266784dde3a4a66b04c7f607639be6686a528e7d9206c4dff2f"
+    },
+    {
+      "bytes": 1395,
+      "member": "static-review.json",
+      "mode": "0664",
+      "mtime_ns": 1792015815504490494,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/static-review.json",
+      "sha256": "20664be85706c3f04d84c8f1d1dddb56c682fef3abdf5333f489a5b416680439"
+    },
+    {
+      "bytes": 2615,
+      "member": "supervisor.py",
+      "mode": "0755",
+      "mtime_ns": 1792015594241452398,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/supervisor.py",
+      "sha256": "0a3864462cb7f6bdc959fa41b843f06ca149105e64cf5afb41a7ad9167b4f690"
+    },
+    {
+      "bytes": 2085,
+      "member": "virtualpad-original.py",
+      "mode": "0755",
+      "mtime_ns": 1791835690540000519,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/virtualpad-original.py",
+      "sha256": "b41074c884d7724272745b965b425e1e818ae395ac7b8bc596b85c73f66660ea"
+    },
+    {
+      "bytes": 13330,
+      "member": "vm-lifecycle.py",
+      "mode": "0755",
+      "mtime_ns": 1792028070028858558,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/vm-lifecycle.py",
+      "sha256": "1a909219675bfd7da4b3ed74f8d1f307165d54b628fbb899b62167da4760ca27"
+    },
+    {
+      "bytes": 8053,
+      "member": "vm-lifecycle.py.diff",
+      "mode": "0664",
+      "mtime_ns": 1792015815504050272,
+      "original_path": "/tmp/m7-native-gameplay-lifecycle-20261015-02/vm-lifecycle.py.diff",
+      "sha256": "478de10c8416dffd21abc586dac25ca051eb5b07c8934b1c4b0719ac5acfd413"
+    }
+  ],
+  "original_private_packet": "/tmp/m7-native-gameplay-lifecycle-20261015-02",
+  "original_private_sha256sums_sha256": "fc6c0d5ce84eb7eedf813d0f8a204c1977fbe7357a57f920870c3a7fd4e9ba29",
+  "reconstruction_note": "Extract source-packet.tar.gz to a new directory and the linked failure archive under its failed-originals/ to reconstruct every file of the immutable private packet. The original SHA256SUMS in the source archive then applies to the complete reconstruction; it is not a seal of the selected source archive alone.",
+  "schema": 1
+}

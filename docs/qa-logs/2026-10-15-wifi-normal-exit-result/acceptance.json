@@ -1,0 +1,56 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T033503Z-5d794795",
+  "disposition": "qualified",
+  "expected_rc": 0,
+  "outputs": [
+    {
+      "issue": 593,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-wifi-back-reopen-20261015-01/vm",
+      "release_when": "Four reviewed candidate Back/reopen frames, exact timing and blocked-group originals, normal restoration and custody exported; original owners gone and admission consumed before retirement."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-wifi-back-reopen-20261015-01/vm-result.json",
+      "sha256": "65ed55a3ca17c8817d2c261a4d1e665426bd383d2fd2ed8bc3f633c693a9cf8b"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-wifi-back-reopen-20261015-01/root-review.json",
+      "sha256": "60b47d050be4d6071ed758092d7024cad25e15381e008418d6f789a48cf7663e"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-wifi-back-reopen-20261015-01/visual-result.json",
+      "sha256": "0685f108af74129701eb3a8e87f11c28538384dd0e901d81829c33cdc345a269"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-wifi-back-reopen-20261015-01/audit-back-timing.json",
+      "sha256": "b1f03122550ff55da765d986510ef9dc1c69f0019809ac450209fe215d4e6dcb"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-wifi-back-reopen-20261015-01/audit-reopen.json",
+      "sha256": "b1e8f75c80b48ea0569b586347a8a8ea48d5338e2cd6c05523fa334e02485b67"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-wifi-back-reopen-evidence-20261015-01/export-result.json",
+      "sha256": "3266fc5fed72ef2dc374057df0b74d9c73ba90d6c6c8739d9f21e1187dd1c93e"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-wifi-back-reopen-evidence-20261015-01/host-exits.json",
+      "sha256": "55234ef3c5d23158deaa6c9e3c159276c7c29ab9ac6afa2f2ef3e18efd520d2b"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-wifi-back-reopen-evidence-20261015-01/guest-manifest.json",
+      "sha256": "6a3e85f6184eb716cf9cd5a5f5cbe37b12bbd09f7f82aaa5b7829273f1ef1f47"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-wifi-back-reopen-evidence-20261015-01/original-records.json",
+      "sha256": "d173a1c7df73ef49f4a5e7ef25f14c24dda49a3ff51c08c6a9ce52663e48066f"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-wifi-back-reopen-evidence-20261015-01/guest/audit-ui/restored.json",
+      "sha256": "3bb3f5f5d5a9b3675dca32e9d8db93fe608e0f3c818f9be703c0087c25fb667d"
+    }
+  ],
+  "scope": "Candidate-only actual Back/reopen; complete byte-identical network frame after actual keysend within0.059060466s, unchanged1s threshold; same pending scan with exactly1enumeration. Normal frontend exit joined scan, no forcedcleanup/errors/survivors. Four personally reviewed frames and selected settings restored. Explicit source overlay; final installed-image due."
+}

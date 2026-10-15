@@ -1,0 +1,233 @@
+{
+  "system": {
+    "bytes": 2073149440,
+    "sha256": "02bd89c50a34190bee14d33fad6587b737598454c0d9e182d240c4f0acade2a4"
+  },
+  "source": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+  "products": {
+    "usr/bin/emulationstation": {
+      "bytes": 11831632,
+      "sha256": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036",
+      "resolved": "/usr/bin/emulationstation",
+      "mode": 493,
+      "comparison": "existing final verifier row matched"
+    },
+    "usr/bin/runemu.sh": {
+      "bytes": 23382,
+      "sha256": "deb95aee74d3ddd80638a9ab2f940f5b3b080f4d3ec01f669ea8dbd44179ad20",
+      "resolved": "/usr/bin/runemu.sh",
+      "mode": 493,
+      "comparison": "existing final verifier row matched"
+    },
+    "usr/bin/dolphin-emu-nogui": {
+      "bytes": 8593792,
+      "sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+      "resolved": "/usr/bin/dolphin-emu-nogui",
+      "mode": 493,
+      "comparison": "existing final verifier row matched"
+    },
+    "usr/bin/start_dolphin_wii.sh": {
+      "bytes": 16750,
+      "sha256": "096c09b83b4c2ab555eb509fbe16628082dfb5dd76fa0b60ad5b0b9a18046488",
+      "resolved": "/usr/bin/start_dolphin_wii.sh",
+      "mode": 493,
+      "comparison": "existing final verifier row matched"
+    },
+    "usr/bin/dolphin-save-paths": {
+      "bytes": 16727,
+      "sha256": "507ccc96245bfc7aaca5e154ef0567cacccd0cbc9d0f999761d2fdee1fc245e8",
+      "resolved": "/usr/bin/dolphin-save-paths",
+      "mode": 493,
+      "comparison": "existing final verifier row matched"
+    },
+    "usr/bin/cheevos_dolphin.sh": {
+      "bytes": 3585,
+      "sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "resolved": "/usr/bin/cheevos_dolphin.sh",
+      "mode": 493,
+      "comparison": "existing final verifier row matched"
+    },
+    "usr/config/dolphin-emu/Dolphin.ini": {
+      "bytes": 2975,
+      "sha256": "e352eafa7fd9a99c3075377a9236142808d0c0131e6711af07ce42792202e9e1",
+      "resolved": "/usr/config/dolphin-emu/Dolphin.ini",
+      "mode": 420,
+      "comparison": "existing final verifier row matched"
+    },
+    "usr/config/dolphin-emu/GFX.ini": {
+      "bytes": 1336,
+      "sha256": "0e885638efad1e50a4f0a90d2cf7c72c295fc2d815b5b1af41bc417dea21c71f",
+      "resolved": "/usr/config/dolphin-emu/GFX.ini",
+      "mode": 420,
+      "comparison": "existing final verifier row matched"
+    },
+    "usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.south.stacked": {
+      "bytes": 970,
+      "sha256": "04fd777a3b8286411d797064d99410d8e6782aec35fe1e4bbe5f23d6894960cd",
+      "resolved": "/usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.south.stacked",
+      "mode": 420,
+      "comparison": "existing final verifier row matched"
+    },
+    "usr/config/dolphin-emu/WiiControllerProfiles/hremote.ini": {
+      "bytes": 498,
+      "sha256": "714f4045ac8b03b65e4760be0c112e1ee9c4f67d1e7762a1567a4172138085ce",
+      "resolved": "/usr/config/dolphin-emu/WiiControllerProfiles/hremote.ini",
+      "mode": 420,
+      "comparison": "existing final verifier row matched"
+    },
+    "usr/bin/flycast": {
+      "bytes": 31959608,
+      "sha256": "a54346440e53a42b477ce93752c532c8fb69a8bd16355c4d0f5e787141ba308f",
+      "resolved": "/usr/bin/flycast",
+      "mode": 493,
+      "comparison": "actual installed bytes; final image/SYSTEM/BUILD_ID bound, no unlisted source-to-final equality claim"
+    },
+    "usr/bin/start_flycast.sh": {
+      "bytes": 5256,
+      "sha256": "a3f44a12d735e86ad052b562b521a54fda59ebb6217d2df850e5872dbba0a03d",
+      "resolved": "/usr/bin/start_flycast.sh",
+      "mode": 493,
+      "comparison": "actual installed bytes; final image/SYSTEM/BUILD_ID bound, no unlisted source-to-final equality claim",
+      "frozen_source_comparison": {
+        "source": "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/scripts/start_flycast.sh",
+        "source_sha256": "1281b09669253e4399039f9ae986f492fbd4f54766db9bf036328c8bdb1ac8e4",
+        "expected_installed_sha256": "a3f44a12d735e86ad052b562b521a54fda59ebb6217d2df850e5872dbba0a03d",
+        "bytes": 5256,
+        "transform": "@GRENDERER@ -> 4 from GENERIC_X64 Vulkan yes; per-game fixture still selects opengl0"
+      }
+    },
+    "usr/bin/cheevos_flycast.sh": {
+      "bytes": 2378,
+      "sha256": "b23a039d19e5466abdbf70ed250c416b5b79bd23fd873c9366a5f514097f66ca",
+      "resolved": "/usr/bin/cheevos_flycast.sh",
+      "mode": 493,
+      "comparison": "actual installed bytes; final image/SYSTEM/BUILD_ID bound, no unlisted source-to-final equality claim",
+      "frozen_source_comparison": {
+        "source": "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/scripts/cheevos_flycast.sh",
+        "source_sha256": "b23a039d19e5466abdbf70ed250c416b5b79bd23fd873c9366a5f514097f66ca",
+        "expected_installed_sha256": "b23a039d19e5466abdbf70ed250c416b5b79bd23fd873c9366a5f514097f66ca",
+        "bytes": 2378,
+        "transform": "unchanged bytes"
+      }
+    },
+    "usr/config/flycast/emu.cfg": {
+      "bytes": 258,
+      "sha256": "33189ad2946d20bb82c28fefb6de938c487df211cd190fcdcda34c28debd4129",
+      "resolved": "/usr/config/flycast/emu.cfg",
+      "mode": 420,
+      "comparison": "actual installed bytes; final image/SYSTEM/BUILD_ID bound, no unlisted source-to-final equality claim",
+      "frozen_source_comparison": {
+        "source": "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/config/GENERIC_X64/emu.cfg",
+        "source_sha256": "33189ad2946d20bb82c28fefb6de938c487df211cd190fcdcda34c28debd4129",
+        "expected_installed_sha256": "33189ad2946d20bb82c28fefb6de938c487df211cd190fcdcda34c28debd4129",
+        "bytes": 258,
+        "transform": "unchanged bytes"
+      }
+    },
+    "usr/config/flycast/flycast.gptk": {
+      "bytes": 412,
+      "sha256": "f56f372fb6a7fd303e4534eb8050463849e6d2975709aafac4b7a9fba8e4fe30",
+      "resolved": "/usr/config/flycast/flycast.gptk",
+      "mode": 420,
+      "comparison": "actual installed bytes; final image/SYSTEM/BUILD_ID bound, no unlisted source-to-final equality claim",
+      "frozen_source_comparison": {
+        "source": "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/config/flycast.gptk",
+        "source_sha256": "f56f372fb6a7fd303e4534eb8050463849e6d2975709aafac4b7a9fba8e4fe30",
+        "expected_installed_sha256": "f56f372fb6a7fd303e4534eb8050463849e6d2975709aafac4b7a9fba8e4fe30",
+        "bytes": 412,
+        "transform": "unchanged bytes"
+      }
+    },
+    "usr/config/flycast/mappings/SDL_Keyboard.cfg": {
+      "bytes": 183,
+      "sha256": "87dd8e4407da48ec1487fb8ad107a986f982614b2ea240c84c53cdce56edd429",
+      "resolved": "/usr/config/flycast/mappings/SDL_Keyboard.cfg",
+      "mode": 420,
+      "comparison": "actual installed bytes; final image/SYSTEM/BUILD_ID bound, no unlisted source-to-final equality claim",
+      "frozen_source_comparison": {
+        "source": "projects/ROCKNIX/packages/emulators/standalone/flycast-sa/config/SDL_Keyboard.cfg",
+        "source_sha256": "87dd8e4407da48ec1487fb8ad107a986f982614b2ea240c84c53cdce56edd429",
+        "expected_installed_sha256": "87dd8e4407da48ec1487fb8ad107a986f982614b2ea240c84c53cdce56edd429",
+        "bytes": 183,
+        "transform": "unchanged bytes"
+      }
+    },
+    "usr/bin/control-gen": {
+      "bytes": 14400,
+      "sha256": "a87dc1129a85f00af2e8d3f266b397c3836bdb8f577ef8bd669a7d1b8959fcbd",
+      "resolved": "/usr/bin/control-gen",
+      "mode": 493,
+      "comparison": "actual installed bytes; final image/SYSTEM/BUILD_ID bound, no unlisted source-to-final equality claim"
+    },
+    "usr/bin/control-gen_init.sh": {
+      "bytes": 551,
+      "sha256": "83f58f882c70985c3159138036fa27662ce2c19536bb4cfacb77ee5fd47ff6a7",
+      "resolved": "/usr/bin/control-gen_init.sh",
+      "mode": 493,
+      "comparison": "actual installed bytes; final image/SYSTEM/BUILD_ID bound, no unlisted source-to-final equality claim",
+      "frozen_source_comparison": {
+        "source": "projects/ROCKNIX/packages/apps/control-gen/scripts/control-gen_init.sh",
+        "source_sha256": "83f58f882c70985c3159138036fa27662ce2c19536bb4cfacb77ee5fd47ff6a7",
+        "expected_installed_sha256": "83f58f882c70985c3159138036fa27662ce2c19536bb4cfacb77ee5fd47ff6a7",
+        "bytes": 551,
+        "transform": "unchanged bytes"
+      }
+    },
+    "usr/bin/gptokeyb": {
+      "bytes": 72112,
+      "sha256": "b4ee78a94c2fcdf058fdcd3b86ee817e96dea844ad18935ba6a0d7785bde9c61",
+      "resolved": "/usr/bin/gptokeyb",
+      "mode": 493,
+      "comparison": "actual installed bytes; final image/SYSTEM/BUILD_ID bound, no unlisted source-to-final equality claim"
+    },
+    "usr/config/SDL-GameControllerDB/gamecontrollerdb.txt": {
+      "bytes": 610976,
+      "sha256": "8030a74a0dba40dbf3d181698dcfd6616d3dcf02fc0a318e55d7b89224a82125",
+      "resolved": "/usr/config/SDL-GameControllerDB/gamecontrollerdb.txt",
+      "mode": 420,
+      "comparison": "actual installed bytes; final image/SYSTEM/BUILD_ID bound, no unlisted source-to-final equality claim"
+    },
+    "usr/lib/libSDL2-2.0.so.0": {
+      "bytes": 1961048,
+      "sha256": "2def9a1b101c936140b0d1b28005576279af00550af32ce87e4b83be19d72197",
+      "resolved": "/usr/lib/libSDL2-2.0.so.0.3200.10",
+      "mode": 420,
+      "comparison": "actual installed bytes; final image/SYSTEM/BUILD_ID bound, no unlisted source-to-final equality claim"
+    },
+    "usr/bin/input_sense": {
+      "bytes": 20698,
+      "sha256": "94dbf59c9fbda1a6a3723caa2321aeabb3ad6fee4fd7132f82c62161cc4e094d",
+      "resolved": "/usr/bin/input_sense",
+      "mode": 493,
+      "comparison": "actual installed bytes; final image/SYSTEM/BUILD_ID bound, no unlisted source-to-final equality claim",
+      "frozen_source_comparison": {
+        "source": "projects/ROCKNIX/packages/sysutils/system-utils/sources/scripts/input_sense",
+        "source_sha256": "94dbf59c9fbda1a6a3723caa2321aeabb3ad6fee4fd7132f82c62161cc4e094d",
+        "expected_installed_sha256": "94dbf59c9fbda1a6a3723caa2321aeabb3ad6fee4fd7132f82c62161cc4e094d",
+        "bytes": 20698,
+        "transform": "unchanged bytes"
+      }
+    },
+    "etc/profile": {
+      "bytes": 556,
+      "sha256": "66019fab58aab9b05c1288afb399efd9d20a93504b3955718cb5282965455757",
+      "resolved": "/etc/profile",
+      "mode": 420,
+      "comparison": "existing final verifier row matched"
+    },
+    "etc/profile.d/001-functions": {
+      "bytes": 30182,
+      "sha256": "2a67891c9a3090ddae78d4b729ce7b8f5c41d853e0975b4ce0203df7789e4ab5",
+      "resolved": "/etc/profile.d/001-functions",
+      "mode": 420,
+      "comparison": "existing final verifier row matched"
+    },
+    "usr/bin/python3": {
+      "bytes": 14304,
+      "sha256": "1324452a1b3437ef26e0d39794ede6fb7c1c2c0c5960a050feace157ffe50b33",
+      "resolved": "/usr/bin/python3.14",
+      "mode": 493,
+      "comparison": "existing final verifier row matched"
+    }
+  }
+}

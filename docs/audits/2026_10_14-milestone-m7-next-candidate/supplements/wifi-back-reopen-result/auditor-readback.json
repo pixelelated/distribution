@@ -1,0 +1,89 @@
+{
+  "utc": "2026-10-15T03:40:12.718438+00:00",
+  "status": "Runtime evidence independently accepted; PL005 source publication/pin pending",
+  "source_owner": "/workspace/tmp/pix-m7-wifi-back-reopen-20261015-01",
+  "source_export": "/workspace/tmp/pix-m7-wifi-back-reopen-evidence-20261015-01",
+  "full_host_archive_sha256": "001e69783a5d3e1d602f6ba531f903092f219be788c6e42de92099cf25cd84ae",
+  "full_host_members_verified": 315,
+  "full_guest_members_verified": 104,
+  "selected_host_members_retained": 123,
+  "channels": "all original command/monitor/runner/launcher/guest/cleanup/stop0",
+  "full_export_verified": true,
+  "candidate_es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+  "candidate_es_sha256": "067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d",
+  "measurement": {
+    "upper_bound_seconds": 0.05906046601012349,
+    "limit_seconds": 1,
+    "sample": 0,
+    "complete_ppm_bytes": 921615,
+    "full_reference_sha256": "bc0ffe3941446fa90c4a46413788382513dd4a8eab551d2509f1bb13e5a71e6d",
+    "reference_sample_bytes_identical": true,
+    "prekey_bytes_differ": true,
+    "includes_socket_send_and_complete_VNC_RGB": true
+  },
+  "reopen": "same exact frontend and blocked child identities; identical calls; one list enumeration",
+  "normal_exit": "driver0 observer0 stopping/joined1 no observer forced cleanup/errors/survivors; groupstop30.636ms",
+  "frames_personally_reviewed_original_detail": [
+    "wifi-candidate-selected-network",
+    "wifi-candidate-searching",
+    "wifi-candidate-network-return",
+    "wifi-candidate-reopened-searching"
+  ],
+  "restoration": "selected original input hashes equal; mounts empty; no owned host children",
+  "limits": [
+    "Original2.28499-second failedmeasurement remains failed; new source measures same1s limit without startup/drain delays",
+    "Baseline and four controls bound to original consumed prior run, not replayed",
+    "Candidate installed-path overlay; final integrated-image qualification separate",
+    "SIGTERM/fatal shutdown remains outside normal-exit guarantee"
+  ],
+  "files": {
+    "acceptance.json": {
+      "bytes": 2810,
+      "sha256": "f644bf7e0f2f405df7f2a6be4a673e53f78527bc4abfd3fd7b3a97b90f0a83b7"
+    },
+    "admission-consumed.json": {
+      "bytes": 2016,
+      "sha256": "258da2f6593fed4360e28ad4b48bb44c81870d0b29319efa1fd32acadd546fe2"
+    },
+    "export-result.json": {
+      "bytes": 359,
+      "sha256": "3266fc5fed72ef2dc374057df0b74d9c73ba90d6c6c8739d9f21e1187dd1c93e"
+    },
+    "guest-manifest.json": {
+      "bytes": 16524,
+      "sha256": "6a3e85f6184eb716cf9cd5a5f5cbe37b12bbd09f7f82aaa5b7829273f1ef1f47"
+    },
+    "guest-originals.tar.gz": {
+      "bytes": 38408,
+      "sha256": "5eee8020ebffcb159ec330da5b12792f20f49f1d794fdac95da79ad23db55cd0"
+    },
+    "host-exits.json": {
+      "bytes": 152,
+      "sha256": "55234ef3c5d23158deaa6c9e3c159276c7c29ab9ac6afa2f2ef3e18efd520d2b"
+    },
+    "original-records.json": {
+      "bytes": 54513,
+      "sha256": "d173a1c7df73ef49f4a5e7ef25f14c24dda49a3ff51c08c6a9ce52663e48066f"
+    },
+    "readback-result.json": {
+      "bytes": 77,
+      "sha256": "c9b6199ba26523e7e5409466133720013656d6c7da3d3d67ca6d5552c9dc4741"
+    },
+    "root-review.json": {
+      "bytes": 667,
+      "sha256": "60b47d050be4d6071ed758092d7024cad25e15381e008418d6f789a48cf7663e"
+    },
+    "selected-host-members.json": {
+      "bytes": 24847,
+      "sha256": "1f13ddb7fc518e72a3eed8bbd718f1f4e5a9d76bc399e64fe638af00fed35910"
+    },
+    "selected-host-originals.tar.gz": {
+      "bytes": 183514,
+      "sha256": "077488f54980c2bc50456f4cc4b43edad2d62e82d5888cc785d001d650e689d7"
+    },
+    "vm-result.json": {
+      "bytes": 8502,
+      "sha256": "65ed55a3ca17c8817d2c261a4d1e665426bd383d2fd2ed8bc3f633c693a9cf8b"
+    }
+  }
+}

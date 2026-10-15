@@ -1,0 +1,291 @@
+{
+  "status": "OWNERS_GONE",
+  "original_rc": 0,
+  "original_channels": {
+    "launcher": 0,
+    "tool_wrapper": 0,
+    "build": 0,
+    "command": 0,
+    "monitor": 0,
+    "runner": 0,
+    "vm": 0
+  },
+  "channels_coherent": true,
+  "pids_exited": [
+    2401418,
+    2401419,
+    2401472,
+    2401420,
+    2401420
+  ],
+  "qemu_identities": [
+    {
+      "pid": 2401875,
+      "ppid": 2401472,
+      "pgid": 2401873,
+      "sid": 2401873,
+      "start_ticks": 111994954,
+      "argv": [
+        "/usr/bin/qemu-system-x86_64",
+        "-name",
+        "ROCKNIX GENERIC_X64",
+        "-machine",
+        "q35",
+        "-accel",
+        "kvm",
+        "-cpu",
+        "Haswell-v4",
+        "-smp",
+        "4",
+        "-m",
+        "8192",
+        "-drive",
+        "if=pflash,unit=0,readonly=on,format=raw,file=/usr/share/OVMF/OVMF_CODE_4M.fd",
+        "-drive",
+        "if=pflash,unit=1,format=raw,file=/workspace/tmp/pix-m7-final-clean-20261015-01/vm/OVMF.fd",
+        "-drive",
+        "if=none,id=rocknix,format=qcow2,file=/workspace/tmp/pix-m7-final-clean-20261015-01/vm/disk.qcow2",
+        "-device",
+        "virtio-blk-pci,drive=rocknix,logical_block_size=512,physical_block_size=512",
+        "-vga",
+        "none",
+        "-device",
+        "virtio-gpu-gl-pci,xres=640,yres=480",
+        "-display",
+        "egl-headless,rendernode=/dev/dri/renderD128",
+        "-vnc",
+        "127.0.0.1:138",
+        "-nic",
+        "none",
+        "-device",
+        "qemu-xhci",
+        "-device",
+        "usb-kbd",
+        "-device",
+        "usb-tablet",
+        "-device",
+        "intel-hda",
+        "-device",
+        "hda-duplex",
+        "-monitor",
+        "unix:/workspace/tmp/pix-m7-final-clean-20261015-01/vm/monitor.sock,server,nowait",
+        "-serial",
+        "unix:/workspace/tmp/pix-m7-final-clean-20261015-01/vm/serial.sock,server,nowait",
+        "-pidfile",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/vm.pid",
+        "-daemonize",
+        "-object",
+        "rng-random,id=rng0,filename=/dev/urandom",
+        "-device",
+        "virtio-rng-pci,rng=rng0",
+        "-device",
+        "i6300esb",
+        "-action",
+        "watchdog=reset"
+      ]
+    }
+  ],
+  "command_identities": [
+    {
+      "pid": 2401509,
+      "ppid": 2401472,
+      "pgid": 2401509,
+      "sid": 2401509,
+      "start_ticks": 111994704,
+      "argv": [
+        "qemu-img",
+        "convert",
+        "-f",
+        "raw",
+        "-O",
+        "qcow2",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/disk.img",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/disk.qcow2"
+      ]
+    },
+    {
+      "pid": 2401842,
+      "ppid": 2401472,
+      "pgid": 2401842,
+      "sid": 2401842,
+      "start_ticks": 111994783,
+      "argv": [
+        "qemu-img",
+        "resize",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/disk.qcow2",
+        "16G"
+      ]
+    },
+    {
+      "pid": 2401864,
+      "ppid": 2401472,
+      "pgid": 2401864,
+      "sid": 2401864,
+      "start_ticks": 111994920,
+      "argv": [
+        "python3",
+        "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+        "qemu-args",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/disk.qcow2",
+        "--no-network",
+        "--headless",
+        "--daemonize",
+        "--gl",
+        "auto",
+        "--res",
+        "640x480",
+        "--vnc",
+        "138",
+        "--pidfile",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/vm.pid",
+        "--serial",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/serial.sock",
+        "--monitor",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/monitor.sock",
+        "--ovmf-vars",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/OVMF.fd"
+      ]
+    },
+    {
+      "pid": 2401868,
+      "ppid": 2401472,
+      "pgid": 2401868,
+      "sid": 2401868,
+      "start_ticks": 111994946,
+      "argv": [
+        "python3",
+        "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+        "run",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/disk.qcow2",
+        "--no-network",
+        "--headless",
+        "--daemonize",
+        "--gl",
+        "auto",
+        "--res",
+        "640x480",
+        "--vnc",
+        "138",
+        "--pidfile",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/vm.pid",
+        "--serial",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/serial.sock",
+        "--monitor",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/monitor.sock",
+        "--ovmf-vars",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/OVMF.fd"
+      ]
+    },
+    {
+      "pid": 2401891,
+      "ppid": 2401472,
+      "pgid": 2401891,
+      "sid": 2401891,
+      "start_ticks": 111994999,
+      "argv": [
+        "python3",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/vm-serial",
+        "--socket",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/serial.sock",
+        "wait",
+        "--up-to",
+        "240"
+      ]
+    },
+    {
+      "pid": 2404346,
+      "ppid": 2401472,
+      "pgid": 2404346,
+      "sid": 2404346,
+      "start_ticks": 111998006,
+      "argv": [
+        "bash",
+        "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-clean-state-565/run-first-boot.sh",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/clean",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/serial.sock"
+      ]
+    },
+    {
+      "pid": 2404350,
+      "ppid": 2404346,
+      "pgid": 2404346,
+      "sid": 2404346,
+      "start_ticks": 111998011,
+      "argv": [
+        "python3",
+        "tools/vm-serial",
+        "--socket",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/serial.sock",
+        "--timeout",
+        "180",
+        "script",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/clean/first-boot.sh"
+      ]
+    },
+    {
+      "pid": 2404806,
+      "ppid": 2401472,
+      "pgid": 2404806,
+      "sid": 2404806,
+      "start_ticks": 111998327,
+      "argv": [
+        "python3",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/vm-serial",
+        "--socket",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/serial.sock",
+        "--timeout",
+        "30",
+        "sh",
+        "( python3 -I -S -B -c 'import json;from pathlib import Path;print('\"'\"'PIX_CLEAN_BOOT='\"'\"'+json.dumps({'\"'\"'boot_id'\"'\"':Path('\"'\"'/proc/sys/kernel/random/boot_id'\"'\"').read_text().strip(),'\"'\"'os_release'\"'\"':Path('\"'\"'/etc/os-release'\"'\"').read_text(),'\"'\"'interfaces'\"'\"':sorted(p.name for p in Path('\"'\"'/sys/class/net'\"'\"').iterdir())}))' ); pxrc=$?; printf \"PIX_LOADER_BOOT_RC:%s\\n\" \"$pxrc\""
+      ]
+    },
+    {
+      "pid": 2404808,
+      "ppid": 2401472,
+      "pgid": 2404808,
+      "sid": 2404808,
+      "start_ticks": 111998381,
+      "argv": [
+        "python3",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/vm-serial",
+        "--socket",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/serial.sock",
+        "--timeout",
+        "130",
+        "sh",
+        "( python3 -I -S -B -c 'import base64,zlib;exec(compile(zlib.decompress(base64.b64decode('\"'\"'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'\"'\"')),\"<bound-fresh-loader>\",\"exec\"))' ); pxrc=$?; printf \"PIX_LOADER_PROBE_RC:%s\\n\" \"$pxrc\""
+      ]
+    },
+    {
+      "pid": 2405208,
+      "ppid": 2401472,
+      "pgid": 2405208,
+      "sid": 2405208,
+      "start_ticks": 111998891,
+      "argv": [
+        "python3",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/vm-serial",
+        "--socket",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/serial.sock",
+        "--timeout",
+        "15",
+        "sh",
+        "( sync ); pxrc=$?; printf \"PIX_LOADER_FINAL_SYNC_RC:%s\\n\" \"$pxrc\""
+      ]
+    },
+    {
+      "pid": 2405218,
+      "ppid": 2401472,
+      "pgid": 2405218,
+      "sid": 2405218,
+      "start_ticks": 111998943,
+      "argv": [
+        "python3",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/vm-stop",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/vm.pid",
+        "/workspace/tmp/pix-m7-final-clean-20261015-01/vm/disk.qcow2"
+      ]
+    }
+  ],
+  "host_pid_namespace": 4026531836
+}

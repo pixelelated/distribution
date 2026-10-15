@@ -1,0 +1,52 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T032039Z-b50c9cfd",
+  "disposition": "failed-investigated",
+  "expected_rc": 1,
+  "outputs": [
+    {
+      "issue": 593,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-audit-ui-20261015-02/vm",
+      "release_when": "Four original controls, source-bound GUI observations, EN/FR refusal frames and restored custody exported/reviewed; original owners gone and admission consumed before guarded media retirement."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-20261015-02/vm-result.json",
+      "sha256": "15b494c5f58ffed1ebd959a66311ca2ab3a21e276cd508be24e2711cc14367df"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-20261015-02/root-failure-review.json",
+      "sha256": "6f9eeb0f5b4dad7b19db96ecb587d220077c76031bdb9fc03fdd4e36eae8f93c"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-evidence-20261015-02/export-result.json",
+      "sha256": "b8e69f7e6489535fdce8eef634264b024663a67d5fb72824d37c874c9809c183"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-evidence-20261015-02/host-exits.json",
+      "sha256": "a89f8982cef1bc154b3f41517cb17bffb982d50ba2a1e26c155ad08555b901c7"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-evidence-20261015-02/guest-manifest.json",
+      "sha256": "00c932ac57cfc6307435817da3a4b016c8c300bd0059f35f7731d0c089b3806a"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-evidence-20261015-02/original-records.json",
+      "sha256": "9c8ee84f7e0a2f49c8d129b7c6a18c5d76ef4fcf80ce1e2750ff43162c5d3042"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-evidence-20261015-02/guest/audit-ui/wifi-baseline/result.json",
+      "sha256": "a0864885e864b839369ef2740b6371dc93bf6655f75fc3063665aff4821b21ce"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-evidence-20261015-02/guest/audit-ui/wifi-candidate/result.json",
+      "sha256": "e9c008edf68d7dd7369911587ec266774ad8c1bcbc7e239ea4092e7e9ec2702f"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-evidence-20261015-02/guest/audit-ui/restored.json",
+      "sha256": "3bb3f5f5d5a9b3675dca32e9d8db93fe608e0f3c818f9be703c0087c25fb667d"
+    }
+  ],
+  "scope": "Full ES baseline orphan reproduced; candidate normal exit joins scan; four worker controls accepted; EN/FR intended640 refusal and carousel return reviewed; original configuration identities restored. Back capture upper2.28499s failed1s host assertion; reopening not exercised. No subsecond UI claim."
+}

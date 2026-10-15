@@ -1,0 +1,48 @@
+{
+  "status": "SOURCE_ONLY_UNRUN",
+  "python_ast_files": [
+    "census.py",
+    "close.py",
+    "guest.py",
+    "prepare.py",
+    "state.py",
+    "vm-lifecycle.py"
+  ],
+  "unchanged_guest_loader_sha256": "22c34e33ff209e3364f4d8535d3ff2615da4fefa191e4c72d4bacd3c5f1cd580",
+  "unchanged_census_sha256": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2",
+  "unchanged_owner_function_ast": [
+    "write",
+    "sha",
+    "proc",
+    "same",
+    "table",
+    "descendants",
+    "observe",
+    "owned_qemu",
+    "stop_children",
+    "call",
+    "serial",
+    "base_shape",
+    "base_hash",
+    "export_loader",
+    "expire"
+  ],
+  "accepted_update_monitor_ast_equal": true,
+  "accepted_selected_state_reader_ast": [
+    "require",
+    "stable",
+    "data",
+    "pairs",
+    "settings",
+    "selected"
+  ],
+  "product_import_or_fixture_execution": false,
+  "runtime_allocated": false,
+  "bounds": {
+    "work_seconds": 4200,
+    "cleanup_seconds": 180,
+    "guest_memory_mib": 8192,
+    "guest_cpus": 4,
+    "network": "none"
+  }
+}

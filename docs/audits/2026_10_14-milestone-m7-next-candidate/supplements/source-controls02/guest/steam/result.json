@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "role": "baseline",
+      "original_function_rc": 1,
+      "timed_out": false,
+      "remaining_process_group": [],
+      "seconds": 0.03569813100000019,
+      "installed_python_sha256": "1324452a1b3437ef26e0d39794ede6fb7c1c2c0c5960a050feace157ffe50b33",
+      "function_sha256": "98702e73f52e70a179712198b1eaf9a6712895d2104993a38326e584ffd8030d",
+      "embedded_python_sha256": "7e8e87052ccd62e04b9a52e57bf8c638450938ba10c2ba85c564e9ea1b552431",
+      "transport_calls": [],
+      "poison_executed": true,
+      "synthetic_libraries_never_executed": true
+    },
+    {
+      "role": "candidate",
+      "original_function_rc": 0,
+      "timed_out": false,
+      "remaining_process_group": [],
+      "seconds": 0.06766438700000066,
+      "installed_python_sha256": "1324452a1b3437ef26e0d39794ede6fb7c1c2c0c5960a050feace157ffe50b33",
+      "function_sha256": "dece694a1bc98fcc75fac7249d33a1643fd7f1035c119eabc086af780926beea",
+      "embedded_python_sha256": "7e8e87052ccd62e04b9a52e57bf8c638450938ba10c2ba85c564e9ea1b552431",
+      "transport_calls": [
+        "curl",
+        "wget"
+      ],
+      "poison_executed": false,
+      "synthetic_libraries_never_executed": true
+    }
+  ],
+  "scope": "exact extracted runtime function and installed interpreter; synthetic transports/archive, no client or native ARM execution"
+}

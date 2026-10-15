@@ -1,0 +1,1028 @@
+{
+  "distribution": {
+    "baseline": "bc9dfe8141d9561dc1d8502313d00a84c4566ee8",
+    "candidate": "fac608ff89940ce358ea9b8a95e9a08a6fe26568"
+  },
+  "emulationstation": {
+    "baseline": "c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78",
+    "candidate": "3178b832b8d134198b2b4eede4f725d4ed283f8c"
+  },
+  "spec_snapshot_time": "2026-10-14T23:41:05.692736+00:00",
+  "issues": [
+    {
+      "number": 349,
+      "title": "M7.P5: Qualify same-model settings restore on the next candidate",
+      "state": "OPEN",
+      "raw_sha256": "7b70505cd0d8a55a4f7ff3af9d5a50d1bc66f33fead88e910a2d18f69bfed4bb",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-349.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 529,
+      "title": "M7.P5: Investigate Nova frontend startup retry",
+      "state": "CLOSED",
+      "raw_sha256": "cd14c5e31e04ec8165dcd25f3222165a969a37f64b7de5571307d6e933c05a4d",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-529.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 530,
+      "title": "M7.P5: Replace community build labels with semantic build identity",
+      "state": "CLOSED",
+      "raw_sha256": "208b343f3087082a80a539d4774ac01e11dd638cfbda26218f7daf667b353942",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-530.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 531,
+      "title": "M7.P5: Decouple USB gadget revision from calendar OS versions",
+      "state": "CLOSED",
+      "raw_sha256": "9d37c8864475b4ff8667b63a6d45cfa7979ead1b45cdc1ddba27d53f27b5a713",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-531.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 563,
+      "title": "M7.P5: Adopt ROCKNIX 20261001 as the candidate foundation",
+      "state": "OPEN",
+      "raw_sha256": "3391d39c4c331818932869a180dfa5cb42d65b4813a8744b6939c5eba7a9d83b",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-563.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 564,
+      "title": "M7.P5: Preserve Steam runtime when replacement fails",
+      "state": "OPEN",
+      "raw_sha256": "7e082de9b147f3db55b43c921dcc543d370a6b5993c20f6cac380508c35984c9",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-564.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 565,
+      "title": "M7.P5: Verify fresh-install isolation and Nova account/activity provenance",
+      "state": "CLOSED",
+      "raw_sha256": "b3fd8dfb25d8314b551d76f5214b513f604c1d367030c5697e897c5709c51bb4",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-565.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 566,
+      "title": "M7.P5: Provision ScreenScraper credentials for pixelelated releases",
+      "state": "CLOSED",
+      "raw_sha256": "6f9cf27f07d99c0160f9ebb2c2f6a2558327262483acf1d53bbe127530c5883f",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-566.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 567,
+      "title": "M7.P5: Explain offline achievements before updating game lists",
+      "state": "CLOSED",
+      "raw_sha256": "9346e0cea24805765e0ebb9a2d33591686333eb89cd6b11a0d272d13a743545f",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-567.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 570,
+      "title": "M7.P5: Investigate sluggish browser authentication",
+      "state": "OPEN",
+      "raw_sha256": "ea85847e92787733e6e3e21b0929b6b2b2bcf952970b3ca074cdfd2a43a80c16",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-570.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 571,
+      "title": "M7.P5: Keep phone keyboard status stable across browser navigation",
+      "state": "CLOSED",
+      "raw_sha256": "812fd0003ce66b221ec266c80c20153972c1a3474ad5ae0aa5d18d8365610769",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-571.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 572,
+      "title": "M7.P5: Keep the GStreamer runtime dependencies used by sign-in",
+      "state": "CLOSED",
+      "raw_sha256": "0d2ddd701c4d6045f369311ef5ef193145941d70f1307532952a38662a3b7698",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-572.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 573,
+      "title": "Require upstream issue and fix checks during troubleshooting",
+      "state": "CLOSED",
+      "raw_sha256": "6a86c50ff614ff492cb4ba4097ccf7e4712a207276102211bb6d6174953ee986",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-573.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 574,
+      "title": "M7.P5: Recognize GameCube RVZ achievements in the frontend",
+      "state": "OPEN",
+      "raw_sha256": "da430ed30ea8f500b5af0e254fc200686e7b7a1a89cf437f3240455a0f5e4f14",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-574.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 575,
+      "title": "M7.P5: Clarify standalone save-on-exit and save-state manager support",
+      "state": "OPEN",
+      "raw_sha256": "616b8e2c50204e9f74271892399aecf44d51d08c940cd0dc4d9b5637954f1f72",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-575.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 577,
+      "title": "M7.P5: Keep the Wi-Fi picker visible while networks refresh",
+      "state": "OPEN",
+      "raw_sha256": "9613319c4eb5b106f792d244a0c729b02f91054a86f5cb5e578c0bb23b96d7db",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-577.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 578,
+      "title": "M7.P5: Correct the default Recent collection selection",
+      "state": "CLOSED",
+      "raw_sha256": "377f333770290101b6bf282453ab62af92063e69094f102a1b4414089781b98d",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-578.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 579,
+      "title": "M7.P5: Preserve the FEX environment when Steam setup fails",
+      "state": "OPEN",
+      "raw_sha256": "aab11803a5203aee7d82d02ac4d9144cfd1c41a592c45f18162460291d64815f",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-579.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 580,
+      "title": "M7.P5: Preserve Proton variants when Steam updates fail",
+      "state": "OPEN",
+      "raw_sha256": "9758b1ca15f06ccddb356721034a8921715abb1ab725810a97545bbb431374a8",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-580.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 581,
+      "title": "M7.P5: Preserve retained Dolphin save data before relinking",
+      "state": "OPEN",
+      "raw_sha256": "a5d4f8a51cabbef10c9d90a9f5b86d4809b6b1fd85a8118bdaaf21d62279d15f",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-581.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 582,
+      "title": "M7.P5: Preserve Steam client bootstrap across failed extraction and retry",
+      "state": "OPEN",
+      "raw_sha256": "2c2e2ad32f26db3f6211188e60f9d0ad62ba4fc17101a640d94f07136c4905e0",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-582.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 583,
+      "title": "M7.P5: Verify RVZ offline proxy support and upstream fix routing",
+      "state": "OPEN",
+      "raw_sha256": "69194968c53263c27b8f93d23b268e7d54685e6b02c4aa893dd7c34abab23d66",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-583.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 584,
+      "title": "M7.P5: Route Dolphin through the enabled offline achievements service",
+      "state": "OPEN",
+      "raw_sha256": "81cb47175000ccd47bfee3f64608865650caba874642749625be04ffcb8be37f",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-584.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 588,
+      "title": "M7.P5: Investigate pending awards during startup reconnect",
+      "state": "CLOSED",
+      "raw_sha256": "74b436416e55b6e220028fd9ce83042cc706e0f7989a65eb987c7ee66e68ec1d",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-588.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 589,
+      "title": "M7.P5: Correct adopted-process and phone-status QA checks",
+      "state": "OPEN",
+      "raw_sha256": "0cf99464477cc5444d6028e69f302839a0d2ca8009f8c35be7184d95783e1e0a",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-589.json",
+      "comments_sequestered": true
+    },
+    {
+      "number": 590,
+      "title": "M7.P5: Audit the next candidate across setup and runtime changes",
+      "state": "OPEN",
+      "raw_sha256": "75ee046780539c19a57a97693b7a40056a537091bde841f18875fc1ecb31072f",
+      "raw_path": "/tmp/m7-audit-590-inputs/issue-590.json",
+      "comments_sequestered": true
+    }
+  ],
+  "criteria": [
+    {
+      "id": "AC-001",
+      "issue": 349,
+      "text": "Writer-shaped/current/legacy/flat/foreign archive controls pass: replacement18 scripts.log T24-production-backup-scan-restore through T24-foreign-renamed, 13 PASS/0 FAIL.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-002",
+      "issue": 349,
+      "text": "Canonical menu states and current dimmed settings presentation are retained in docs/es-menu-map.md and #527's composed standard frame proof.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-003",
+      "issue": 349,
+      "text": "On the next installed candidate, retain paired640\u00d7480 offered `<DEVICE>, <DATE>` and foreign-only disabled-row frames, with exact same-model/foreign fixture inventories, selected archive/journal and unchanged foreign-case settings hashes. Bind to the image/source manifest.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-004",
+      "issue": 349,
+      "text": "Publish the same-model/newest/disabled-state explanation with #344/#511 release/setup documentation; cite the retrieved page or docs change.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-005",
+      "issue": 529,
+      "text": "Source-cited diagnosis/disposition cites retained first-failure logs and an agent-run reproduction or an explicit evidence-backed alternative; the SMMU observation is not conflated with SDL readiness.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-006",
+      "issue": 529,
+      "text": "If a readiness defect and remedy are confirmed, retain the original failing control and corrected/default/late/unavailable readiness outcomes with original exit results, proving no unbounded wait or hidden restart loop. Otherwise retain the evidence-backed alternate or no-change disposition and explain why a correction is not warranted.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-007",
+      "issue": 529,
+      "text": "Affected startup/upgrade/first-frame timing and presentation evidence is bound to exact source; canonical flow and frames are updated if behavior/presentation changes.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-008",
+      "issue": 529,
+      "text": "Required Nova physical boot timing is explicitly scoped and recorded in device-facts with named action authority, or remains clearly identified as a hardware observation rather than invented VM proof.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-009",
+      "issue": 530,
+      "text": "Recorded policy and executable derivation produce distinct same-day identities and consistent semantic versions/timestamp/hash/GitHub naming; retained control output proves it.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-010",
+      "issue": 530,
+      "text": "Image assembly, banners and information script use the new identity; actual package staging proves fresh-install defaults are unchanged. Exact-source information frames and canonical flow reference record the display change.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-011",
+      "issue": 530,
+      "text": "Release preparation uses an explicit immutable bundle, validates identity and checksums, and returns the matching GitHub tag/title and exact assets without publishing or overwriting anything. Wrong/stale inputs fail in retained controls. Actual publication remains #265/#528.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-012",
+      "issue": 530,
+      "text": "Next assembled candidate verifies installed identity and filenames, clean and retained-storage behavior, and source-bound information frames. Runtime-overlay proof alone does not tick this criterion.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-013",
+      "issue": 531,
+      "text": "Choose a documented valid bcdDevice revision source independent of semantic release text, preserving vendor/product/serial identity; retained controls cover old calendar metadata and current semantic/prerelease metadata.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-014",
+      "issue": 531,
+      "text": "Source trace and executable guest proof show a valid four-digit BCD value at the configfs write without changing normal USB modes; record exact source and remaining physical observation explicitly.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-015",
+      "issue": 531,
+      "text": "The next assembled candidate includes the correction and its installed-byte proof before claiming the USB path qualified.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-016",
+      "issue": 563,
+      "text": "New decided row, active RC acceptance and M7 priority name the exact20261001commit; old freeze statements are superseded or explicitly historical, with sweep evidence.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-017",
+      "issue": 563,
+      "text": "Integration source has20261001 as ancestor and retains the existing fork features/newer pins; exact diff, conflict-resolution report and applicable pkgcheck/syntax results are recorded.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-018",
+      "issue": 563,
+      "text": "Changed build inputs and transitive/native effects are mapped; source custody and licence inventory cover accepted new artifacts, including ABL and FEX dependencies.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-019",
+      "issue": 563,
+      "text": "Retention/capacity enforcement is operational before any new full cache copy/build; original monitored result channels and disk/RAM/swap/PSI evidence are retained.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-020",
+      "issue": 563,
+      "text": "New-source clean/upgrade VM qualification and independent audit pass with original artifacts; prior-image receipts are not relabelled.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-021",
+      "issue": 563,
+      "text": "New H700/SM8550 artifacts pass exact component/native/boot-chain checks and required physical facts before release acceptance; publication remains subject to #528/#344 gates.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-022",
+      "issue": 564,
+      "text": "A source-bound failing control shows the new function loses the prior runtime on download failure while the accepted predecessor preserves it.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-023",
+      "issue": 564,
+      "text": "A staged replacement preserves the complete working runtime and library links on download, extraction, validation and activation failure; successful replacement retires superseded runtime only after the new one is usable. Original return codes and before/after manifests prove each case.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-024",
+      "issue": 564,
+      "text": "Interruption/retry recovery and available-space handling are bounded, and saves/games outside the runtime are unchanged in VM fixtures.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-025",
+      "issue": 564,
+      "text": "New-source installed VM proof and review are recorded before #563's changed image is accepted. User-facing flow/copy evidence is updated if presentation changes.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-026",
+      "issue": 565,
+      "text": "Record a source/artifact-bound, value-free inventory separating player username/password/token, developer API identity, and previously retained device settings.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-027",
+      "issue": 565,
+      "text": "Trace existing Nova sign-in to earlier evidence or explicitly retain unknown origin; never infer a clean image from a successful state-preserving upgrade.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-028",
+      "issue": 565,
+      "text": "Verify a clean image starts with no personal player account and retained-storage upgrades keep the selected user's account, using disposable VM evidence and unchanged-settings receipts.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-029",
+      "issue": 565,
+      "text": "Verify public release preflight refuses personal build/runtime credentials; synthetic positive/negative fixtures exercise the guard and final accepted payload is checked. Repair any confirmed leak before publication.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-030",
+      "issue": 565,
+      "text": "Bind displayed backup/restore dates to their actual local stamp fields and status; distinguish attempted, completed-empty and data-transferring operations using retained logs where available.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-031",
+      "issue": 565,
+      "text": "Trace the two Recent entries to metadata fields and available setup/copy/restore records; state any remaining unknown origin explicitly.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-032",
+      "issue": 565,
+      "text": "Inspect exact firmware/default payloads and clean-boot storage for cloud activity stamps, play-history metadata, connection state and QA residue; publish only value-free results.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-033",
+      "issue": 565,
+      "text": "Exercise the isolation gate with synthetic contaminated and clean payloads; fresh installation has no fabricated activity while upgrade preserves legitimate existing history.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-034",
+      "issue": 565,
+      "text": "Record source-bound metadata paths and operational-script scope, distinguishing imported library history from firmware-seeded or retained account state. Evidence: accepted source paths above and docs/qa-logs/2026-10-13-nova-library-copy.md.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-035",
+      "issue": 565,
+      "text": "Include a synthetic library-copy case in #565 VM qualification: ROM-only versus ROM-plus-gamelist.xml, expected Recent behavior, and unchanged account/activity-stamp state. Retain source-bound fixture results.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-036",
+      "issue": 566,
+      "text": "Record the owner-selected interim JELOS developer identity and separate replacement work into #586 (D-WORKFLOW-166). This records the project decision, not new provider authorization or completed provisioning.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-037",
+      "issue": 566,
+      "text": "Implement and document the selected interim developer provisioning route and applicable artifact checks; reconcile current runtime-only comments and historical guard descriptions under D-WORKFLOW-166. Preserve unrelated private-credential protections; prove actual checks execute.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-038",
+      "issue": 566,
+      "text": "Implement approved release provisioning without requiring ordinary players to enter developer credentials; keep their own account login distinct and preserve working runtime fallback as appropriate.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-039",
+      "issue": 566,
+      "text": "Review English/French accounts/options/error flows at small/large sizes, update canonical IA/menu/flow references and source-bound frames, and verify clean/upgrade plus credential backup exclusions.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-040",
+      "issue": 567,
+      "text": "Inventory exact entry-row/help/confirmation/progress text in the accepted ES pin and its flow/frame reference; establish whether the advance-explanation gap still exists.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-041",
+      "issue": 567,
+      "text": "If needed, revise existing copy to explain that newly added games will be prepared for offline achievements when that feature is enabled, matching actual indexing/connectivity gates without implying every library update redownloads everything.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-042",
+      "issue": 567,
+      "text": "Verify disabled/enabled, online/offline, and new/no-new game branches with source-bound VM receipts; preserve behavior and responsiveness.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-043",
+      "issue": 567,
+      "text": "Update English/French strings, canonical menu/IA/flow reference and reviewed 640x480/1280x800 frames in the same change. If current copy already meets the request, close with exact-source reviewed-frame evidence instead.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-044",
+      "issue": 570,
+      "text": "Source-bound comparison identifies relevant changes and earliest supported good/bad evidence, retaining uncertain attribution.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-045",
+      "issue": 570,
+      "text": "Sanitized load/log observations distinguish browser, input bridge and resource/network candidates without exposing authentication contents.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-046",
+      "issue": 570,
+      "text": "Reproduce any confirmed software defect with a synthetic VM fixture, repair it and retain reviewed flow/frame and timing evidence; otherwise record a watch item with a concrete next observation.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-047",
+      "issue": 571,
+      "text": "Trace status lifecycle and separate page loading from a genuine control-session failure; preserve useful feedback on real failure.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-048",
+      "issue": 571,
+      "text": "Fixed header glyph has accessible state text, readable long-name truncation and stable keyboard/control positions through transitions.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-049",
+      "issue": 571,
+      "text": "Synthetic navigation, failure/reconnect and ended-session controls verify behavior; reviewed narrow/wide EN/FR frames and canonical flow/IA references accompany source changes.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-050",
+      "issue": 571,
+      "text": "Verify input and touch/pointer behavior remain usable, with no extra scrolling or focus loss introduced by status updates.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-051",
+      "issue": 572,
+      "text": "Recipe keeps the required controller library and scanner; pkgcheck and real package install controls retain their exact outputs.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-052",
+      "issue": 572,
+      "text": "VM original-failure and supplied-payload success controls demonstrate plugin loading with a fresh registry (original rc1; exact target library/helper rc0). Actual corrected-package proof remains in the recipe criterion.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-053",
+      "issue": 572,
+      "text": "Bounded browser comparison records389.1MiB peak PSS, reviewed loaded frame, zero GStreamer warnings and original exit0; it does not resolve #570 or prove the unmodified recipe repaired.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-054",
+      "issue": 572,
+      "text": "Next assembled image verifies the installed dependency closure, including fresh and retained-state qualification.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-055",
+      "issue": 573,
+      "text": "Canonical engineering instructions require early checks of upstream issue reports, release notes and relevant fixes, recording date, affected versions and source links in the investigation issue.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-056",
+      "issue": 573,
+      "text": "Instructions distinguish a similar report from a reproduced match and verify whether a candidate fix is included in the pinned source; they preserve local reproduction and regression checks.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-057",
+      "issue": 573,
+      "text": "AGENTS.md and CLAUDE.md carry the same short rule and link to the canonical detail; tools/rules-check and tools/register-check pass.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-058",
+      "issue": 573,
+      "text": "The decision register and dated work log record the maintainer's instruction; tools/work-log-index --check passes.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-059",
+      "issue": 574,
+      "text": "Record source and installed-artifact evidence for standalone/core selection, RA compile support, launch configuration and relevant runtime gates without credentials.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-060",
+      "issue": 574,
+      "text": "Trace GameCube recognition through ES/offline indexing separately from Dolphin in-game support, including the reported format and a supported test fixture.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-061",
+      "issue": 574,
+      "text": "Reproduce any confirmed defect in a disposable VM; repair it with source-bound regression evidence, or document a verified upstream/format limitation with accurate player guidance.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-062",
+      "issue": 574,
+      "text": "Record the disposition and any necessary flow/screenshot documentation; distinguish absent sets, unmatched ROMs and unsupported runtime instead of silently presenting them as equivalent.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-063",
+      "issue": 575,
+      "text": "Bind the observed systems to selected emulator/core and effective automatic save/load settings; artifact/source receipt separates global preference, runtime implementation, and manager support.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-064",
+      "issue": 575,
+      "text": "Document and verify behavior for RetroArch, standalone Dolphin and standalone Flycast using disposable VM fixtures: ordinary in-game save, manual state, exit auto-state and manager visibility are separate observations.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-065",
+      "issue": 575,
+      "text": "If the current UI implies unsupported behavior, correct capability gating or help text with EN/FR flow references and exact-source screenshots; do not silently promise session preservation.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-066",
+      "issue": 575,
+      "text": "Any proposed standalone integration proves exit/load/slot/path handling, clean and retained-storage behavior, existing state preservation and relevant hardcore restrictions; otherwise record the supported limitation explicitly and scope enhancement separately.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-067",
+      "issue": 577,
+      "text": "Same-source VM frame sequences show unchanged dialog/list/footer bounds before, during and after initial/refresh scans, with search status within the list area; cover 640\u00d7480 and 1280\u00d7800, English and French.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-068",
+      "issue": 577,
+      "text": "The delayed initial scan has an in-list searching state; a delayed refresh preserves the last list and safe focus. Completed zero results and failed scans have distinct outcomes and an actionable retry, proved by fixture transcript and reviewed branch frames.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-069",
+      "issue": 577,
+      "text": "A long list scrolls within the stable viewport without clipping the buttons; repeat refresh preserves the selected network when present and deterministically selects a valid row when it disappears, proved by input walk and frames.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-070",
+      "issue": 577,
+      "text": "Repeated refresh, back/exit during a pending scan, late completion and retry do not duplicate jobs, access a destroyed screen or activate stale rows; bounded fixture transcript records the outcome and all worker exits.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-071",
+      "issue": 577,
+      "text": "Saved/connected/open/protected/unknown/manual-input/profile-choice/forget flows retain their behavior in the VM regression transcript, including no password prompt for confirmed open networks.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-072",
+      "issue": 577,
+      "text": "Canonical flow/reference and reviewed exact-source happy/branch frame index accompany the final source; syntax checks and affected VM checks pass before pin promotion. Public setup documentation receives the corresponding follow-up.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-073",
+      "issue": 578,
+      "text": "Bounded VM control distinguishes missing/default, spaced and canonical `favorites,recent` settings; HTTP status and list membership prove the parser/default mismatch, with original failed fixture preserved.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-074",
+      "issue": 578,
+      "text": "The corrected compiled frontend on a clean configuration exposes the intended default collections; synthetic ROM-only has no Recent entry, while importing matching history creates the expected entry without launching a game.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-075",
+      "issue": 578,
+      "text": "Explicit retained collection choices are preserved; no forced enablement of a collection the player disabled. Focused regression evidence covers the chosen default/parser repair.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-076",
+      "issue": 578,
+      "text": "Canonical collection flow/reference and reviewed same-source clean/retained frames accompany the fix; syntax check precedes pin promotion.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-077",
+      "issue": 579,
+      "text": "Exact-source synthetic failing control records original exits and before/after manifests for failed download/extraction or missing required overlay; distinguish source reasoning from executed reproduction.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-078",
+      "issue": 579,
+      "text": "Staged validated replacement preserves the prior complete environment and required files on download, extraction, validation, activation and interruption failure; manifests and retry receipts prove it.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-079",
+      "issue": 579,
+      "text": "Space/time bounds, owned cleanup and recovery are verified without touching Steam games/saves or unrelated FEX roots. Existing intended RootFS refresh remains supported.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-080",
+      "issue": 579,
+      "text": "Candidate-source installed VM proof and review are linked before #563 acceptance; native execution limits are explicit.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-081",
+      "issue": 580,
+      "text": "Exact-source synthetic controls retain original exits and manifests for failed download/extraction and incomplete existing destination.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-082",
+      "issue": 580,
+      "text": "Stage and validate the requested variant before activation or retirement; failures/interruption preserve the usable previous variant and successful replacement has a validated manifest/required payload.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-083",
+      "issue": 580,
+      "text": "Retry and space/time bounds use one owned staging area, respect distinct Proton families and preserve all game/save/client data; receipts prove cleanup scope.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-084",
+      "issue": 580,
+      "text": "Candidate-source installed VM proof and review are linked before #563 acceptance; native Proton/Steam usability is separately identified.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-085",
+      "issue": 581,
+      "text": "Reproduce and preserve the original source's retained-directory failure in an allocated disposable fixture; bind both exact launcher sources and file/type/hash inventories.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-086",
+      "issue": 581,
+      "text": "Repair preparation so retained real save/state data, existing canonical data, conflicting names and unrelated targets survive. Preserve valid current symlinks, including intentional GameCube/Wii state-link switching. Any ambiguous conversion fails without deleting data and gives an actionable outcome.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-087",
+      "issue": 581,
+      "text": "Exercise fresh, retained, existing/dangling/unexpected links, conflicts, unavailable/unwritable destination and interrupted preparation; assertions cover original bytes/types, no follow-through deletion and no emulator launch after a refused preparation.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-088",
+      "issue": 581,
+      "text": "Verify installed script/package identity, clean and retained upgrade paths, and any changed player-facing copy with canonical flow and exact-source frames before promotion. Keep ordinary saves, native states and frontend manager eligibility distinct.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-089",
+      "issue": 582,
+      "text": "Preserve old-source failed decoder/function exits, before/after manifests and the one deliberate retry showing incomplete state skipped as installed; separately prove valid existing-client preservation.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-090",
+      "issue": 582,
+      "text": "Missing/incomplete state cannot report installed. Exact-source controls preserve valid client/channel/aliases/custom files and refuse ambiguous existing layouts before writes.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-091",
+      "issue": 582,
+      "text": "Failure/interruption controls for acquisition, extraction, validation, activation and metadata preserve existing client/SDK and unrelated runtime/FEX/Proton/library/game/save entries. Fresh failure leaves no misleading installed state.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-092",
+      "issue": 582,
+      "text": "Establish real archive layout and owned paths; verify finite transport/decompression/space limits, owned staging cleanup and deterministic retry. Never replace or delete the whole Steam root.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-093",
+      "issue": 582,
+      "text": "Review repaired full-caller fresh, retained and allowed-alias VM receipts against exact source; record installed-image, native ARM64/self-update/quiescence and power-loss limits explicitly before closure.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-094",
+      "issue": 583,
+      "text": "Source report binds the exact proxy pin/local patches and current upstream comparison; identifies the RVZ discovery/hash/cache path and any actual missing adaptation.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-095",
+      "issue": 583,
+      "text": "A minimal repair, or evidence that none is needed, has synthetic VM regression proof for recognized RVZ and malformed/unsupported cases without changing existing offline behavior.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-096",
+      "issue": 583,
+      "text": "#574's combined frontend/proxy qualification explicitly references that evidence and retains any remaining Dolphin gameplay limitation.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-097",
+      "issue": 583,
+      "text": "Canonical engineering instructions require consideration of upstream contributions; decision and rule checks pass.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-098",
+      "issue": 583,
+      "text": "Each independently useful fix records its upstream target and minimal patch/test requirements, with #585 owning post-build submission follow-up or an explicit duplicate/already-fixed/fork-specific disposition. Submission itself is deferred under D-WORKFLOW-165 and is not a product qualification gate.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-099",
+      "issue": 584,
+      "text": "Exact source/current-upstream comparison and raw-setting/listener contract are recorded, including explicit contribution disposition.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-100",
+      "issue": 584,
+      "text": "A minimal launcher change routes only the enabled, non-hardcore, verified-listener case and preserves fallback customhost behavior.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-101",
+      "issue": 584,
+      "text": "Synthetic VM full-script controls cover toggle0/1, hardcore0/1/empty/unknown, customhost empty/nonempty, IPv4/mapped IPv6/IPv6-only/unreadable tables, missing token and disabled achievements; receipt verifies generated INI and unchanged input settings.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-102",
+      "issue": 584,
+      "text": "Installed dependency/service and Dolphin host interpretation are verified; distinguish configuration proof from full offline login/cache/award/reconnect behavior.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-103",
+      "issue": 584,
+      "text": "Canonical flow/limitations and combined #574/#583 qualification reflect the tested behavior before the next candidate.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-104",
+      "issue": 588,
+      "text": "A bounded no-NIC VM fixture controls connectivity across the startup probe and first worker probe; original probe/queue/peer traces show whether the suspected missed transition occurs.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-105",
+      "issue": 588,
+      "text": "If reproduced, exact-source correction delivers the queued signed award once when connectivity returns in that window, with original native/service result0 and SQLite integrity/queue receipts. Otherwise record why the hypothesis was disproved.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-106",
+      "issue": 588,
+      "text": "Already-online, persistent-offline, ordinary reconnect, authentication refusal and stop/restart preserve expected queue/account behavior; no timer bypass or real account/provider required.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-107",
+      "issue": 588,
+      "text": "Installed composed-source service proof covers the accepted repair before the next candidate is designated; upstream contribution disposition is recorded under #585 after initial build.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-108",
+      "issue": 589,
+      "text": "Preserve the original seven failures and exact source/process evidence in a compact published packet; identify exited adopted children separately from live work.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-109",
+      "issue": 589,
+      "text": "Correct observation-time reaping without consuming the active Popen wait or signaling live descendants; preserve original adopted wait statuses and normal cleanup evidence.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-110",
+      "issue": 589,
+      "text": "Read PL-016 waiting prose from the current status-message element with the historical-template fallback; retain the assertion that the text is nonempty and does not name an absent button.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-111",
+      "issue": 589,
+      "text": "Run the existing scripts row on the same frozen image under a fresh watched owner; retain its original PASS result and actual owner cleanup. Carry the other successful same-image standard rows without repeating them. Complete the separately pending SFTP and local S3 rows under #344.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-112",
+      "issue": 590,
+      "text": "Source/spec/provenance map and running log identify the exact frozen delta and every applicable criterion, with prior verdicts sequestered during independent forward review.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-113",
+      "issue": 590,
+      "text": "Independent forward and interaction reviews cite primary source/receipts, attempt refutation and distinguish unrun dependencies from confirmed failures.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-114",
+      "issue": 590,
+      "text": "Both verified cross-lab passes are preserved through the Facilitator; every finding is checked against actual source or executable evidence.",
+      "source": "issue body snapshot",
+      "verdict": null
+    },
+    {
+      "id": "AC-115",
+      "issue": 590,
+      "text": "Required audit artifacts/lints and punch list are complete; confirmed candidate-blocking defects are repaired and verified before RC designation. Original failed evidence remains unchanged.",
+      "source": "issue body snapshot",
+      "verdict": null
+    }
+  ]
+}

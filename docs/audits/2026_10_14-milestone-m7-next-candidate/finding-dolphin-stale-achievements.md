@@ -1,0 +1,13 @@
+# G-02 — Medium — Disabling or signing out leaves Dolphin's previous achievement session active
+
+External refutation R-01, independently confirmed from complete package sources. Frozen fac608 and later d4af have identical `cheevos_dolphin.sh` bytes. The script's disabled branch at21–28 and missing-token branch at30–34 exit1 before its sole INI writer at91–103. A package-wide search found no other RetroAchievements.ini writer/remover. Both complete GC/Wii launchers call it and continue without checking status. A retained INI with Enabled=True, token, hardcore and host therefore remains intact after disabling or signing out in ES.
+
+Pinned AchievementManager.cpp:64–99 reads RA_ENABLED, configures the host/hardcore mode and calls Login when a retained token exists. This is already active for Qt in frozen fac; the later NoGUI lifecycle repair exposes it on the default frontend. Source proves a stale enabled session/request attempt, not successful server authentication or a real account award. The defect does not depend on asserting that a provider never revokes tokens.
+
+Refutation: inspected both entire launchers, every package reference to the INI, RA config defaults/read path and the full helper. No later deletion, CLI override or failed-helper launch guard exists in frozen/d4af source. Earlier negative routing controls expected early1 with a fresh fixture; they did not establish transition from a retained enabled INI. The later installed disabled startup case directly authored a separate private INI and cannot substitute for this launch path.
+
+Correction: publish a disabled INI with cleared token/user/host and disabled hardcore/encore/unofficial modes on both negative branches. Publish atomically using a private same-directory temporary. If publication fails, prevent native launch; trying a write and then continuing would reuse the old state. Root tracks #594. Its proposed three-file correction was independently source-reviewed; no runtime/installed claim yet.
+
+Bounded acceptance: seeded enabled/token/hardcore/host INI → disabled ES setting and separately → enabled but missing token; original helper1, disabled output, no token/host, unchanged input settings. A failed publication must retain prior bytes, stop both launchers before the engine and retain its original failure/custom-error status. An unchanged enabled routing control and narrow EN/FR refusal frames complete the changed flow. No full native gameplay matrix need be repeated for this finding.
+
+Criterion correction: AC100 FAIL for the retained-state violation of only-enabled routing; AC101 PARTIAL because its accepted fresh controls remain valid but omit this retained transition. Frozen verdicts are not repaired by an unrun proposal.

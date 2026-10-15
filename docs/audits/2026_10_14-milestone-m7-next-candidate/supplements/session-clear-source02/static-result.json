@@ -1,0 +1,46 @@
+{
+  "status": "STATIC PASS; runtime UNRUN",
+  "python_ast_compile": "PASS, no fixture import or execution",
+  "all_revision01_nonmain_functions_ast_unchanged": true,
+  "all15_case_expectations_byte_identical": true,
+  "proc_helpers_ast_identical_to_existing_census_source": true,
+  "final_cleanup_receipt_block_ast_identical_to_existing_census_source": true,
+  "child_isolate_ast_identical_all3": true,
+  "numeric_kill_and_optional_children_interface_absent": true,
+  "original_revision01_seal_verified_unchanged": true,
+  "all_original_product_inputs_verified_unchanged": true,
+  "first_failure_helper_matches_before": true,
+  "bash_n": [
+    {
+      "path": "/tmp/pix-m7-dolphin-session-clear-20261015-02/source/cheevos_dolphin.after.sh",
+      "original_returncode": 0,
+      "stderr": ""
+    },
+    {
+      "path": "/tmp/pix-m7-dolphin-session-clear-20261015-02/source/cheevos_dolphin.before.sh",
+      "original_returncode": 0,
+      "stderr": ""
+    },
+    {
+      "path": "/tmp/pix-m7-dolphin-session-clear-20261015-02/source/start_dolphin_gc.after.sh",
+      "original_returncode": 0,
+      "stderr": ""
+    },
+    {
+      "path": "/tmp/pix-m7-dolphin-session-clear-20261015-02/source/start_dolphin_gc.before.sh",
+      "original_returncode": 0,
+      "stderr": ""
+    },
+    {
+      "path": "/tmp/pix-m7-dolphin-session-clear-20261015-02/source/start_dolphin_wii.after.sh",
+      "original_returncode": 0,
+      "stderr": ""
+    },
+    {
+      "path": "/tmp/pix-m7-dolphin-session-clear-20261015-02/source/start_dolphin_wii.before.sh",
+      "original_returncode": 0,
+      "stderr": ""
+    }
+  ],
+  "revision02_probe_sha256": "9b82d4ee556b3803dda405b62918d6e192ea9a9ca69f0c610e3a1e2faf402860"
+}

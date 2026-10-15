@@ -1,0 +1,49 @@
+{
+  "admitted": "2026-10-15T02:34:22.041259+00:00",
+  "available_bytes": 2745341427712,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01",
+  "consumed": "2026-10-15T02:36:07.096723+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01",
+  "deleted_bytes": 0,
+  "evidence_sha256": "ac46f3ca54899368d33ea8d9f585160e5d5957e8e1d3dfbf3c53c94466bdf9aa",
+  "id": "62fce0e8d5a74e6c88997e73bf4e5ae3",
+  "original_result": {
+    "command_rc": 1,
+    "monitor_rc": 0,
+    "runner_rc": 1,
+    "utc": "2026-10-15T02:35:07.228121+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 596,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-audit-controls-20261015-01/vm",
+      "release_when": "Original runtime, fixture archives, manifest and compact readback verified; consume exact admission then guarded retirement."
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "4a1fdff91aae2ce48b758204038ffd8692645169e3b688b35e042a621c665c25",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 34628173824,
+  "retention_plan_sha256": "652e8f7f107ae3d4ccd883dabd8b100166d5030b9584f58546c979cc28e251be",
+  "retention_report_sha256": "206ce57f7bfc7f000d9f91d6aaeb8fab29a405abfada5866b148f84a80eb7497",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T023421Z-cf10bb7f",
+  "runner_pid": 2657436,
+  "runner_start": "112334591",
+  "source": {
+    "head": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix-m7-audit-controls-20261015-01/lifecycle-owner",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

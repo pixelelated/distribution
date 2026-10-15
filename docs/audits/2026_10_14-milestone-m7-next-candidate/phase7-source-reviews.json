@@ -1,0 +1,49 @@
+{
+  "utc": "2026-10-15T03:01:28.458981+00:00",
+  "review": "source-only; no fixture import, runtime or preparer execution",
+  "ui_working_packet": "/tmp/pix-m7-audit-ui-plan-20261015",
+  "ui_reviewed_hashes": {
+    "worker-observer.py": "239a3977dd5800ee30b6ad56fb9655e200a24cb7a561e1e6d78e38cfca45bff0",
+    "guest-wifi-observer.py": "f895b41eabc7f22d764b0ba1856ef5c873eb71c2b8d2dafd3c50fe14aa9636e3",
+    "wifi-owner.py": "489337cd093a73403f34940007adcab8cbf197c3025fa94ffbddae9d0437120c",
+    "guest-audit.py": "2fc54fbb42f7aca880cac39d5df0d452c396202c10be44360e3c599854e06978",
+    "host-audit.py": "c0d8be6427e838b58c7b84b226132a8cbef8c9d4184ee9c9fb51c48248705c7a",
+    "prepare.py": "9ac1ff7e0718df6f2cf326d3b0cb3b08320105dfc622addbdf11a1978683393b"
+  },
+  "qualified_census_probe_sha256": "9b82d4ee556b3803dda405b62918d6e192ea9a9ca69f0c610e3a1e2faf402860",
+  "ui_status": "initial optional-proc-interface blocker corrected in additive observers; no remaining source blocker; unsealed at readback",
+  "native_state_packet": "/tmp/pix-m7-native-states-20261015",
+  "native_state_seal": "e7326fe60287d921566aeb679b2dc85751b5b1333d384c6e0065030745855484",
+  "native_state_checks": {
+    "sealed_files": 42,
+    "python_parsed": 16,
+    "unchanged_parent_members": 26,
+    "reviewed_product_rows_equal": 19,
+    "actual_pinned_sources_rehashed": 9,
+    "excerpts_byte_exact": 14
+  },
+  "native_state_status": "source reviewed; runtime UNRUN; actual final image required",
+  "ui_sealed_readback": {
+    "utc": "2026-10-15T03:03:31.788210+00:00",
+    "seal_sha256": "61bab02371cd65a6b8bd0b22fa0d8a82fdba93dea54476e29355406b901c6958",
+    "sealed_members": 20,
+    "all_member_hashes_verified": true,
+    "prepare_sha256": "9ac1ff7e0718df6f2cf326d3b0cb3b08320105dfc622addbdf11a1978683393b",
+    "other_reviewed_script_hashes_unchanged": true,
+    "runtime": "root reports owner pix-m7-audit-ui-20261015-01 submitted; no outcome verified by auditor"
+  },
+  "preparer_schema_correction": {
+    "previous_prepare_sha256": null,
+    "current_prepare_sha256": "9ac1ff7e0718df6f2cf326d3b0cb3b08320105dfc622addbdf11a1978683393b",
+    "actual_receipt": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T023950Z-e4dd5495/admission-consumed.json",
+    "actual_id": "fb99a646934245098e993ad4d78c90ab",
+    "actual_state": "consumed",
+    "actual_original_result": {
+      "command_rc": 0,
+      "monitor_rc": 0,
+      "runner_rc": 0
+    },
+    "review_miss": "Initial preparer compared original_result to scalar0. Root caught the schema error before allocation; auditor then read original receipt and verified corrected three-key assertion. Earlier preparer was not executed.",
+    "previous_hash_status": "Not retained here; a prior write mistakenly duplicated the current hash. The source-level scalar/object review miss and current exact hash remain verified."
+  }
+}

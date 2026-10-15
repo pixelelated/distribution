@@ -1,0 +1,96 @@
+{
+  "original_wrapper_rc": 1,
+  "timeout": false,
+  "candidate_invoked": false,
+  "first_case": "00-before-disabled-regular-en-gc",
+  "first_case_stdout_stderr_empty": true,
+  "engine_marker": "helper_status=1",
+  "old_enabled_session_retained": true,
+  "original_failure": "FileNotFoundError /proc/self/task/1952/children in per-case census and finally; result publication interrupted",
+  "product_limit": "Baseline disabled behavior is visible in raw witnesses. Candidate was not reached. No full case or fixture PASS, no product verdict beyond that bounded observation.",
+  "source_archive": "/workspace/tmp/pix-m7-audit-controls-evidence-20261015-01/guest/dolphin/originals.tar.gz",
+  "source_archive_sha256": "7f106e50465ead19ed9c3a843978bdbc4de50df977e3cb370451a32529e1f157",
+  "source_archive_members": 26,
+  "selected_originals": [
+    {
+      "source_path": "/workspace/tmp/pix-m7-audit-controls-evidence-20261015-01/guest/dolphin/archive-members.json",
+      "retained": "archive-members.json",
+      "bytes": 3969,
+      "sha256": "afe21d18baf96c2dc43f65225835e30890df6e4e288a5bbd3f822926cabcaadd"
+    },
+    {
+      "source_path": "/workspace/tmp/pix-m7-audit-controls-evidence-20261015-01/guest/dolphin/command.json",
+      "retained": "command.json",
+      "bytes": 287,
+      "sha256": "18a348bd6709642bacd88e4599118e6eb184b80bf6d77bf038fd44eaac749531"
+    },
+    {
+      "source_path": "/workspace/tmp/pix-m7-audit-controls-evidence-20261015-01/guest/dolphin/stderr",
+      "retained": "stderr",
+      "bytes": 1224,
+      "sha256": "b0ee99aa277067e9241d49fc441311e709657bb76872bcd29ff1215f0555adde"
+    },
+    {
+      "source_path": "/workspace/tmp/pix-m7-audit-controls-evidence-20261015-01/guest/dolphin/stdout",
+      "retained": "stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_archive": "/workspace/tmp/pix-m7-audit-controls-evidence-20261015-01/guest/dolphin/originals.tar.gz",
+      "source_member": "00-before-disabled-regular-en-gc/invocation.sh",
+      "retained": "00-before-disabled-regular-en-gc/invocation.sh",
+      "bytes": 137,
+      "sha256": "2c106ba1004aba9fd586ef2b1c891ce90a6bda7237441d63e0d019f2ffa4956c"
+    },
+    {
+      "source_archive": "/workspace/tmp/pix-m7-audit-controls-evidence-20261015-01/guest/dolphin/originals.tar.gz",
+      "source_member": "00-before-disabled-regular-en-gc/stdout",
+      "retained": "00-before-disabled-regular-en-gc/stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_archive": "/workspace/tmp/pix-m7-audit-controls-evidence-20261015-01/guest/dolphin/originals.tar.gz",
+      "source_member": "00-before-disabled-regular-en-gc/stderr",
+      "retained": "00-before-disabled-regular-en-gc/stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source_archive": "/workspace/tmp/pix-m7-audit-controls-evidence-20261015-01/guest/dolphin/originals.tar.gz",
+      "source_member": "root/tmp/engine.started",
+      "retained": "root/tmp/engine.started",
+      "bytes": 16,
+      "sha256": "ae3554c5e5f7168c6d8484ca63409ec98680aba9e690e477798d524df226a966"
+    },
+    {
+      "source_archive": "/workspace/tmp/pix-m7-audit-controls-evidence-20261015-01/guest/dolphin/originals.tar.gz",
+      "source_member": "root/storage/.config/dolphin-emu/RetroAchievements.ini",
+      "retained": "root/storage/.config/dolphin-emu/RetroAchievements.ini",
+      "bytes": 269,
+      "sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8"
+    },
+    {
+      "source_archive": "/workspace/tmp/pix-m7-audit-controls-evidence-20261015-01/guest/dolphin/originals.tar.gz",
+      "source_member": "root/var/log/cheevos.log",
+      "retained": "root/var/log/cheevos.log",
+      "bytes": 77,
+      "sha256": "2698e40d2f944e2d4b4677f97a1422f26e0712453a2485c740e17887c9b8be63"
+    },
+    {
+      "source_archive": "/workspace/tmp/pix-m7-audit-controls-evidence-20261015-01/guest/dolphin/originals.tar.gz",
+      "source_member": "root/fixture/settings",
+      "retained": "root/fixture/settings",
+      "bytes": 449,
+      "sha256": "b200dc9bb1be7c713cb1ac18cb07a552ccef5c755d7c5b887e01a0338e457e25"
+    },
+    {
+      "source_archive": "/workspace/tmp/pix-m7-audit-controls-evidence-20261015-01/guest/dolphin/originals.tar.gz",
+      "source_member": "root/usr/bin/cheevos_dolphin.sh",
+      "retained": "root/usr/bin/cheevos_dolphin.sh",
+      "bytes": 3585,
+      "sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec"
+    }
+  ]
+}

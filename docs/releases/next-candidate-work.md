@@ -11,6 +11,69 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 03:48 UTC — focused audit fixes complete; build next
+
+All six audit findings now have resolved scoped outcomes in
+[audit checkpoint02](../audits/2026_10_14-milestone-m7-next-candidate/INTERIM-CHECKPOINT-02.md).
+Actual Wi-Fi normal exit and Back/reopen pass; Back has a measured59.06ms upper
+bound. Dolphin's intended EN/FR refusal/return is reviewed at640 and1280. ES
+16dbac is published and selected by distribution342eec; Dolphin session clearing
+and Steam Python isolation are committed. Original failed fixtures and the frozen
+historical score remain unchanged. Audit completion is still false.
+
+Current order: publish/freeze the integrated source, reuse the guarded build
+cache, build and read back actual payloads, run narrow installed clean/retained
+checks, then the four-launch native-state continuation. Complete #596/#590 before
+H700 thenSM8550. The sealed next-image packet is60504501; affected installed
+continuation isf665dcd0; state-only continuation ise7326fe6. All remain unrun on
+the next image. Preserve prior accepted scopes and avoid broad matrix replay.
+
+## 2026-10-15 02:56 UTC — interim audit preserved; two findings remain
+
+The [interim audit](../audits/2026_10_14-milestone-m7-next-candidate/INTERIM-CHECKPOINT.md)
+retains both verified external reviews and all original evidence. Four findings
+are resolved within their stated scopes; #593 Wi-Fi normal exit and #594 Dolphin
+full refusal flow remain open. #595 source isolation is proven; its final image
+identity check remains due. No audit-completion marker or RC approval exists.
+
+The state-only continuation is prepared for the actual next integrated image.
+First finish the reviewed UI proof, then integrate/build, check affected clean
+and retained boundaries, and complete native-state observations. Source/control
+evidence published atf13f9d98 does not itself establish those runtime results.
+
+## 2026-10-15 02:46 UTC — focused audit fixes verified; UI is next
+
+#594/#595 source is d9054efc46, published on feature47dda767. Fifteen Dolphin
+source session/publication controls and Steam old-import-negative/new-success
+controls pass in no-NIC VM02, original channels0 and admission consumed. First
+fixture census failure remains original1; the already-qualified census correction
+was applied separately without changing product expectations. #593 actual ES and
+two target control binaries compile/link successfully, normal cleanup/consumption.
+[Compact originals](../qa-logs/2026-10-15-audit-followup-controls/README.md).
+
+Next: actual Wi-Fi scan lifecycle and EN/FR Dolphin refusal/return frames; then
+integrate/pin and build the changed engineering image. Bind affected source/image
+and clean/retained continuity, followed by the four-launch native-state-only
+continuation. Ordinary Wii/Dreamcast cold saves are independently accepted and
+published; do not repeat them. Resolve #596/#590 acceptance, then H700 and SM8550.
+Source controls do not claim installed correction, native ARM Steam, or rendered
+UI. The current image remains engineering-only and no physical action is active.
+
+## October15 02:21 qualification update
+
+Both verified Fable passes have returned. The audit adds three concrete follow-ups:
+#593 normal-exit Wi-Fi worker cleanup, #594 clearing retained Dolphin achievement
+sessions after disable/logout, and #595 isolated Steam runtime Python invocation.
+Source corrections are prepared; focused VM/frame verification and affected
+image qualification precede the next device builds. No clean-audit claim yet.
+
+The final d4af image now passes installed Dolphin startup/resource checks plus
+untouched selected-state first boot and real retained d6a-to-d4af update/loader
+checks. Native03 stopped normally after cold-restoring a Wii entered puzzle value
+and Dreamcast earned score164 through ordinary game saves. Supplemental byte
+readback is in progress because the exporter hit its4096-file ceiling; its failure
+stays original. Native manual/automatic state checks remain separate and partial.
+
 ## October15 01:29 qualification update
 
 The new d4af5a255f / ES3178 engineering image is built and artifact-verified.

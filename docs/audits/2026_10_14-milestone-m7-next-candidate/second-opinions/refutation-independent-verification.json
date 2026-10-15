@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "response_bytes": 17575,
+  "output_sha256": "dc8414e7bab833774ffb2da85cd4d03e521445f940b38487fbf227f233149f2a",
+  "prompt_sha256": "a90b9bd7172cff4392a7f0528b5458c5ffa25d368d8ca4051725f4c3ac9dc212",
+  "served_model": "anthropic/claude-fable-5.1",
+  "effort": "xhigh",
+  "provider": {
+    "result": "NOT_PINNED",
+    "declared": null,
+    "evidence": "response_provider_field",
+    "observed": "Anthropic",
+    "observed_providers": [
+      "Anthropic"
+    ]
+  },
+  "original_channels": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-15T02:14:14.805632+00:00"
+  },
+  "source_owner": "/workspace/tmp/pix-m7-fable-refutation-20261015-01",
+  "method": "Direct original receipt/hash/identity assertions; actual output byte length differs from provider character count as expected for UTF-8."
+}

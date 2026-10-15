@@ -1,0 +1,25 @@
+{
+  "artifacts": [
+    {
+      "path": "/work/emulationstation",
+      "bytes": 11831632,
+      "sha256": "067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d"
+    },
+    {
+      "path": "/work/drivers/baseline",
+      "bytes": 868376,
+      "sha256": "018cf4ff73f1d99bc5d8dfce2be31eb21a378d1c382ca018ad40fd79a75cd38b"
+    },
+    {
+      "path": "/work/drivers/candidate",
+      "bytes": 886056,
+      "sha256": "a726719e63cded40c2b6b465713472abbfdc243846ac4c2b78888ddacfb075d9"
+    }
+  ],
+  "plan_sha256": "acd65e6d63bcd77adfee6e1d5d9889765be4eb648c647c3a39e45cf6fde8ceac",
+  "proof_packet_seal": "84e0fdd157206d39f90eb8d02e2f657110e5c7589b67c6f1f6c30272851ebf3f",
+  "distribution_commit": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+  "baseline_es_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "candidate_es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+  "execution": "NOT EXECUTED; actual candidate link plus two target control drivers; not installed image proof"
+}

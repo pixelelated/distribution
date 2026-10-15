@@ -1,0 +1,69 @@
+{
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01",
+  "commit": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+  "es_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "vnc": 139,
+  "helper": "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+  "image": {
+    "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261015T011500Z.gd4af5a255f47-from-ROCKNIX.img.gz",
+    "bytes": 2122152413,
+    "sha256": "84b1552e4d0ed67d97b603230d1acb0b22a852217054854a9c3fe42731772ff2"
+  },
+  "system": {
+    "bytes": 2073149440,
+    "sha256": "02bd89c50a34190bee14d33fad6587b737598454c0d9e182d240c4f0acade2a4"
+  },
+  "verification_sha256": "57575bcb84179c00e5e71ff341494b30f3103627d7bca2047588dc4dd4b5654d",
+  "verification_inputs_sha256": "be406d291c670610471bb31c01379552f0b4e1bb6c5ff2d73c33f56d103a2bcc",
+  "tools": {
+    "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm": "5b058ed8a8b11135cd5997e3d925939baff30726033125acf1244863a756318d",
+    "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/profile.json": "26c420ecb0cc7aae29050554c55f522e62337cf6726619a59337c073f1c65406",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/vm-serial": "1fed507a546a9c23fdc360012ccc6ffadc2793fabaa137ff2dc73141bdc2c921",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/vm-stop": "2e4314cd63ff4f476c8ce1376e9f1ed262f2467789ec339b3855ddedc16213e8",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/vm-visual-qa": "81565f39ce5bdbdce05fc7ec7b27f40ca1d95051430382c5e13f1ef58434cd06",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/watch-build": "44a6d87505fd6a465c384d2f30bfeda5f4fe436978d227d8b0c4bae73da7e0bc",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/watch-job": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/watch-build-submit": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e"
+  },
+  "code": {
+    "vm-lifecycle.py": "8f2489b617c561043c2af3a2691ce3a54286f353111957f0690ced1dea7d2629",
+    "close.py": "0da2066c0004ae65b826bbb4a7456398ec02bf530c38102f56f9e232fc87dd89",
+    "census.py": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2"
+  },
+  "source": {
+    "dolphin/README.md": "df42d1c3254c73d17ba95856e9c2fdc6064d7e1ea383327d4287d8ef89ba7f23",
+    "dolphin/SHA256SUMS": "79a9d0903443c0cc0d13fb5e28c85cccfc19a0718e7308660b7a30204b785a1d",
+    "dolphin/bindings.json": "993249164192ab9715a687c126245bdbeb61949c838df036ac90b41b722ed8ee",
+    "dolphin/context.json": "50b0e94bdc1aa3f7b59bde1ce962071a1db197cdf0900c993120a9cc7e9d5da4",
+    "dolphin/fixtures/probe.py": "aa1506b67bbf8de28c004eb9076001e9efeed30b2104defd69809dacef90bb0c",
+    "dolphin/source/cheevos_dolphin.after.sh": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a",
+    "dolphin/source/cheevos_dolphin.before.sh": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+    "dolphin/source/fixture-derivative.diff": "a1c0a36b7f6b2330389255076ecce7d4933a3bde10275717a6a79cf19b106655",
+    "dolphin/source/launcher-gc.after.snippet": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403",
+    "dolphin/source/launcher-gc.before.snippet": "d97d7ae227f34eae8560d7908af1e6f8554cebf70a35cb3422e319a5f6c2ddd7",
+    "dolphin/source/launcher-wii.after.snippet": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403",
+    "dolphin/source/launcher-wii.before.snippet": "d97d7ae227f34eae8560d7908af1e6f8554cebf70a35cb3422e319a5f6c2ddd7",
+    "dolphin/source/probe.routing-original.py": "0bdf47a895245730ca77a2ae058d19df701e2464862051bc782684967a98d69f",
+    "dolphin/source/product.diff": "aa292eb0dc55a65c260ce34b1fcd04a22682fdd2733134c676b10a5e31aec5bc",
+    "dolphin/source/start_dolphin_gc.after.sh": "b5e7afb8f3952f8082d4f39c70cffb9e5ccbd7a265cc6c28f1e96aefbb31c568",
+    "dolphin/source/start_dolphin_gc.before.sh": "cc6da2e146adfc5423fb58462888e0cab0a4904deb90f5066392484b8447c9c2",
+    "dolphin/source/start_dolphin_wii.after.sh": "8843d7358f948add1c53851cef2cfb2da2cd93141ad14784c46252bffbada3d7",
+    "dolphin/source/start_dolphin_wii.before.sh": "8b87c5779737918644655950f25547341f89eda59fee137b752790382dffb88b",
+    "dolphin/static-result.json": "318d3ecfe59a76ac7c2230a92ab403904300ba0240eafc35bd652d3522cd4e47",
+    "guest.py": "8264276d514a72dd197e8d6256c16ba5c22b76913e72cc29be62b2495294c71a",
+    "steam/README.md": "761364a7680146f948a119728f7f1eca23f4d96be79e08aa772d5a0bc24a88e6",
+    "steam/SHA256SUMS": "368f6b95a3a4f725c0a97c0fc8c6e40509768f0d1e80f0c10542054e09147a76",
+    "steam/baseline-function.sh": "98702e73f52e70a179712198b1eaf9a6712895d2104993a38326e584ffd8030d",
+    "steam/bindings.json": "e0d2e883b60555a7336a5fa17eb63b98b2bff86bce2b38b7da3b666d5c4eac25",
+    "steam/candidate-function.sh": "dece694a1bc98fcc75fac7249d33a1643fd7f1035c119eabc086af780926beea",
+    "steam/probe.py": "873ae67bd54123319b8de555b888bfbcb6e1e5ec13bbaab505fdd94dbbfe9cad"
+  },
+  "fixture_inputs": {},
+  "work_seconds": 900,
+  "cleanup_seconds": 90,
+  "first_frame_seconds": 120,
+  "score_seconds": 360,
+  "evidence_bytes": 536870912,
+  "status": "PREPARED_UNRUN",
+  "scope": "#594 exact source session transitions and #595 exact source import isolation; private guest fixtures, no installed correction or UI/native claim"
+}

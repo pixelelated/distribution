@@ -1,0 +1,52 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T030841Z-73532e85",
+  "disposition": "failed-investigated",
+  "expected_rc": 1,
+  "outputs": [
+    {
+      "issue": 594,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-audit-ui-1280-20261015-01/vm",
+      "release_when": "Four exact1280 EN/FR refusal/return frames plus restored custody and original exits exported/reviewed; exact admission consumed before guarded media retirement."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-1280-20261015-01/vm-result.json",
+      "sha256": "8c700edc9a03e3747d1b07e277cdb5a4fe25569918e54ab1cd0bf25a475cbfdf"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-1280-20261015-01/root-failure-review.json",
+      "sha256": "aa3a9ece93d1cb4845bb11784e306bdae832569eaa1de8453302bd49c8775d6f"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-1280-20261015-01/diagnostic-01/serial.stdout",
+      "sha256": "87f50e4966f3e21f31c6b2b35d1375965f357e4b6f9fa34ea28d6eb78c284d33"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-1280-20261015-01/diagnostic-01/current.png",
+      "sha256": "8179876cc7908b455ac0f46e8bafb6272cb975c27e29fb5f6e2f38a37c9fd73b"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-1280-evidence-20261015-01/export-result.json",
+      "sha256": "f40e622731530809357d98e22e744baa7f0295a4e2f69cf28fb12cb144a13d28"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-1280-evidence-20261015-01/host-exits.json",
+      "sha256": "794ef98818d00d772804e391c8a695ee1004f1f3327f0e5de9497f23fae49f05"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-1280-evidence-20261015-01/guest-manifest.json",
+      "sha256": "debf4000bb001e98fc42a4b120f8dc7e1b67a7a92f839e3c11d9f95fe95d5848"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-1280-evidence-20261015-01/original-records.json",
+      "sha256": "7e08d24df7becab87a74f01dea632de2a1b629ccf3459ed32a283e7255d9a0bd"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-audit-ui-1280-evidence-20261015-01/guest/audit-ui/restored.json",
+      "sha256": "3bb3f5f5d5a9b3675dca32e9d8db93fe608e0f3c818f9be703c0087c25fb667d"
+    }
+  ],
+  "scope": "FAILED before intended achievements publication refusal; no EN/FR target flow qualified."
+}

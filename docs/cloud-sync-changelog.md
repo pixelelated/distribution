@@ -1,6 +1,27 @@
 # Cloud sync, backup and restore — change summary
 
 
+## Audit follow-ups (2026-10-15, focused source proof; integrated image pending)
+
+Turning achievements off or signing out now replaces Dolphin's generated session
+with inactive settings, so a prior account cannot remain active (#594). If the
+settings cannot be updated, the game stays closed and an English/French message
+explains how to retry. Saved account settings, pending awards, game saves, and
+save states are unchanged. Fifteen exact transition/publication controls pass;
+[English/French refusal and return frames at both panel sizes](qa-logs/2026-10-15-audit-ui-results/README.md)
+now pass with explicitly staged source. This source is not in the current
+engineering image or on the handhelds.
+
+Normal EmulationStation exit now cancels and joins a pending Wi-Fi scan (#593).
+Back remains responsive and reopening keeps the same pending scan. Exact compiled
+source passes actual frontend exit and [59.1ms Back/reopen proof](qa-logs/2026-10-15-wifi-normal-exit-result/README.md);
+labels and layout are unchanged. Integration into the next image remains due.
+
+Steam's runtime installer now uses the same isolated Python invocation as its
+other helpers (#595). The embedded installer behavior is unchanged; the focused
+import-isolation and successful-transaction controls now pass. Final changed-image
+identity remains due; native ARM/client behavior is a separate qualification.
+
 ## Follow-up repairs (2026-10-15, candidate runtime-qualified in part)
 
 Dolphin's default NoGUI player now initializes and shuts down achievements (#584).

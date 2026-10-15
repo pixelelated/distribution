@@ -1,0 +1,109 @@
+{
+  "status": "PASS",
+  "stage": "wifi-compile",
+  "started": 1792031991.6839705,
+  "ended": 1792032039.2675493,
+  "final_cgroup": {
+    "memory.current": "192372736",
+    "memory.peak": "2719948800",
+    "memory.max": "4294967296",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+    "memory.swap.max": "0",
+    "cpu.stat": "usage_usec 47323896\nuser_usec 44854276\nsystem_usec 2469619\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 476\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+    "cpu.max": "200000 100000",
+    "pids.current": "2",
+    "pids.max": "256"
+  },
+  "final_disk": {
+    "allocated_bytes": 59404288,
+    "apparent_bytes": 59200657
+  },
+  "sampler_exited": true,
+  "monitor_errors": [],
+  "max_child_rss_kib": 1783244,
+  "children": [
+    {
+      "label": "syntax",
+      "original_exit": 0,
+      "reaped": true,
+      "started": 1792031991.9477143,
+      "ended": 1792031996.364411
+    },
+    {
+      "label": "compile-GuiWifi",
+      "original_exit": 0,
+      "reaped": true,
+      "started": 1792031996.3647017,
+      "ended": 1792031999.1701043
+    },
+    {
+      "label": "compile-GuiMenu",
+      "original_exit": 0,
+      "reaped": true,
+      "started": 1792031999.1703029,
+      "ended": 1792032032.0230484
+    },
+    {
+      "label": "compile-main",
+      "original_exit": 0,
+      "reaped": true,
+      "started": 1792032032.0232933,
+      "ended": 1792032034.2271612
+    },
+    {
+      "label": "link",
+      "original_exit": 0,
+      "reaped": true,
+      "started": 1792032034.227507,
+      "ended": 1792032035.630707
+    },
+    {
+      "label": "strip",
+      "original_exit": 0,
+      "reaped": true,
+      "started": 1792032035.6311314,
+      "ended": 1792032035.8323963
+    },
+    {
+      "label": "readelf",
+      "original_exit": 0,
+      "reaped": true,
+      "started": 1792032035.8326871,
+      "ended": 1792032036.033925
+    },
+    {
+      "label": "fixtures",
+      "original_exit": 0,
+      "reaped": true,
+      "started": 1792032036.0341892,
+      "ended": 1792032038.037717
+    },
+    {
+      "label": "readelf-emulationstation",
+      "original_exit": 0,
+      "reaped": true,
+      "started": 1792032038.6538806,
+      "ended": 1792032038.8547525
+    },
+    {
+      "label": "readelf-drivers-baseline",
+      "original_exit": 0,
+      "reaped": true,
+      "started": 1792032038.861374,
+      "ended": 1792032039.0623105
+    },
+    {
+      "label": "readelf-drivers-candidate",
+      "original_exit": 0,
+      "reaped": true,
+      "started": 1792032039.0632405,
+      "ended": 1792032039.2645102
+    }
+  ],
+  "original": {
+    "archive": "originals.tar.gz",
+    "member": "stage/container-result.json",
+    "sha256": "173e74eb5774a9033e6b928fcce6892580fb0532d21377204631518e06bc5f44",
+    "note": "Original argv remains lossless; the public shared build definition is separately verified in public-definition-provenance.json."
+  }
+}

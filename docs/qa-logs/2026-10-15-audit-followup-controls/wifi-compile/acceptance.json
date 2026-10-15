@@ -1,0 +1,46 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T023950Z-e4dd5495",
+  "disposition": "qualified",
+  "expected_rc": 0,
+  "outputs": [
+    {
+      "issue": 593,
+      "kind": "build-cache",
+      "path": "/workspace/tmp/pix-m7-wifi-compile-20261015-01/work",
+      "release_when": "After source-bound candidate VM proof, retain binary/source/dependency hashes and original result channels."
+    },
+    {
+      "issue": 593,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-wifi-compile-20261015-01/stages",
+      "release_when": "After original watcher/container/cleanup receipts are sealed."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-wifi-compile-20261015-01/stages/wifi-compile/result.json",
+      "sha256": "ff785910dec8d3373cb5081069c7f1e8777c80d28a6608f9698025ae06734204"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-wifi-compile-20261015-01/stages/wifi-compile/container-result.json",
+      "sha256": "173e74eb5774a9033e6b928fcce6892580fb0532d21377204631518e06bc5f44"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-wifi-compile-20261015-01/stages/wifi-compile/cleanup-complete.json",
+      "sha256": "041dff8cee4c14767a03435eb9f84a05152b2dc00e322d74a702b6f6944a4bdf"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-wifi-compile-20261015-01/stages/wifi-compile/watchdog-result.json",
+      "sha256": "9a82748fd15c4bba6ea917244dae8d06c8567b94530f859749dea2afc6ab4bac"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-wifi-compile-20261015-01/stages/wifi-compile/target-artifact.json",
+      "sha256": "2fc24fe66f5a9b74b7282fb1de0190b765f7e89a90c24f8f1223bbe9318e2179"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-wifi-compile-20261015-01/stages/wifi-compile/consumed-dependencies.json",
+      "sha256": "4d82aa543f2908f6893f56ac3eec476559a3f08fda95c9f44e9ad9638cb7217e"
+    }
+  ],
+  "scope": "candidate ES syntax/actual object-link and two target driver compilation only; no executable runtime, installed image or GUI proof"
+}

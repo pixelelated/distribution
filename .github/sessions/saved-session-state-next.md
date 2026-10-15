@@ -1,127 +1,290 @@
 # Saved Session State
 
-Updated 2026-10-15 01:33 UTC. Continue authorized M7 toward next 0.0.1 RC.
-Coordinator /workspace/repos/rocknix.worktrees/m7-player-setup, branch
-feature/m7-player-setup. Harness conflict-resolution untouched. Published source
-and frozen engineering checkout m7-p5-build-20261015-01: d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a;
-ES3178 unchanged. Actual host PID namespace4026531836; escalated exec is required
-for host/network/outside-workspace writes. No formal goal. Saving is not a pause.
+Updated 2026-10-15 03:48 UTC. Continue authorized M7 toward the next 0.0.1 RC.
+Coordinator `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
+`feature/m7-player-setup`; published feature before this checkpoint is f13f9d98cb7f2057d28292edc808234028b1ca15.
+Primary/remote next remains be71c43538e05e7d7621f243af8dbf4f4af51565.
+Harness conflict-resolution untouched. Actual host PID namespace4026531836;
+host/network/outside-workspace writes require escalated exec. No formal goal.
+Saving is not a pause. No runtime/compiler/external call currently active.
 
-## Completed build/readback; installed VM next
+## Latest03:48 — all focused fixes verified; preparing final engineering image
 
-Engineering owner /workspace/tmp/pix-m7-engineering-build-20261015-01,
-watch 20261015T011511Z-8e690173 completed01:19:49. All clean/build/image stages
-original0, actual owners/containers absent, resources PASS. Admission9b11b86d
-consumed. Identity0.0.1-dev+20261015T011500Z.gd4af5a255f47. Frozen checkout remains
-on its build branch; do not change its source. Cache moved atomically from the
-previous build tree, same inode111174037/device66304; transfer admission5b6ac98a
-consumed. Durable source/custody records identify specific protected-FD exclusions;
-no root-FD census or deletion exception is implied.
+No runtime/compiler/external call active. Published feature342eec66e9 includes
+ES16dbac recipe pin and qualified source/UI evidence. Auditor released frozen
+checkpoint02:284 payloads18,962,039B, manifest63fa01de, seal7630b546; root verified
+all bytes/modes/membership. Six resolved outcomes; audit_complete/cadence false.
+#596 update04 live body verified29113a48; original readback remains outside the
+sealed audit directory. Root is committing audit and current records, then FF
+next/push/freeze. Latest milestone order is final image -> affected clean/retained
+-> state-only -> audit close -> H700/SM8550. No new physical authorization inferred.
+Next image source60504501 at /tmp/pix-m7-next-image-delta-20261015-02 requires the
+actual published next commit and ESrecipeSHA1d91f4a72032c67b89c0d986d26b728cf501f11bb9de891c168eb4f3f37d2719.
+Fresh actual-host dependency readback precedes atomic old-cache relocation.
+Affected installed packet /tmp/pix-m7-affected-installed-continuation-20261015
+sealf665dcd087f778d64bac7c9ebf8254a6c7ffdf1c10ecc9a8711b72e04b92c4ef is
+source-only ready; root must review before runtime. Native-state packet e7326fe6
+ready. All earlier active-job notes below are historical and consumed.
 
-Artifact owner /workspace/tmp/pix-m7-image-readback-20261015-01,
-watch20261015T012056Z-8c15b02d completed01:21:11, original launcher/command/monitor/
-runner0 and actual owners absent. Admission0e9b0800 consumed. Install/update
-SYSTEM and KERNEL equality, GPT/identity/selected product mappings PASS. All six
-Dolphin Sys resource rows resolve through the intended relative immutable link,
-with exact pinned hashes. Runtime qualification is explicitly false.
+## Latest03:41 — GUI proofs complete; source integration in progress
 
-Installed Dolphin three-case VM completed PASS and admission7571f590 consumed.
-Original native exits0/0/1, CPU ticks204/203, six resources unchanged and twelve
-old badge-error checks zero. Durable packet2026-10-15-engineering-image-result.
-Reviewed sealed plan
-446781be3e630f58cbe15c80c1c8c90e7e004ab92c9d08599ecd9252db5461d5 in
-docs/qa-logs/2026-10-15-dolphin-installed-plan/. Synthetic token representation
-was corrected after the normal secret-pattern pre-commit guard; effective bytes
-unchanged and exact original scripts retained compressed. No bypass or runtime
-rerun. Native gameplay first attempt failed during fixture controller provisioning, before
-any game launch. Actual SDL producer name differs from raw uinput name expected
-by fixture; original1 and exceptional unmount-busy1 preserved. Exact QEMU/owners
-absent; admission99ef54e0 consumed failed-investigated. Source-only identity and
-failed-provision cleanup correction owned by dolphin_ra_init. Evidence in
-2026-10-15-native-gameplay-fixture-failure. No runtime allocation active now.
-frame_diff_review prepares minimal affected clean/retained continuation; root
-may run that independently while native fixture is corrected.
-No H700/SM8550/RC until applicable audit and qualification complete.
+No runtime/compiler active. Candidate-only watch033503Z-5d794795 alloriginal0,
+completeexport104guest315host, exact59.060466ms Back/reopen/samependinggroup proof,
+normalexit/cleanup0; admission681f265cconsumedqualified. DurableQA
+2026-10-15-wifi-normal-exit-result seal9d019ee43cda7fc0670dd8953c6580ea9caa417fe903df963068df18399fe7a5.
+Auditor independentlyreviewing originals, PL005 awaits pinpublication; latest
+trackerupdate04will preserve frozenhistoricalscore/failure. ES16dbac5211eea7e70db7394372033be2be7df829
+fastforwarded/pushed/exactremoteverified on test/qa-integration. Distribution
+ESrecipepin changedonly; pkgcheck/gates/commit/push next. Rootrecords+QAuncommitted,
+activeauditdiragentowned. Primarynextbe71clean; mergefeature onlyafter owned audit
+writes frozen/committed. Then source60504501 nextimage needsactualpublishednext
+commit/ESrecipeSHA, freshdependencyreadback before atomic125GBcachemove.
+Native-state-onlye7326fe6ready; Dolphinagentprepares focusedfinalimage clean/retained
+handoff, no runtime. Earlier activeVM notes arehistorical.
 
-External blind audit submitted via primary checkout's installed Facilitator,
-owner /workspace/tmp/pix-m7-fable-blind-20261015-01, launcher2327505. Prompt738861B,
-SHA9cd8004050112faf4b9c88754e5a08924523706f7582faf16bce11b5e0c0506e.
-Pinned Fable5.1/xhigh through OpenRouter, watched record-only. Existing explicit
-user approval to send Fable audit packets and continue M7 covers this sanitized
-source review; no new permission requirement is invented. Submission is not
-completion. Root supervises original outputs; no off-session chat notifier.
+## Latest03:35 — candidate-only Back/reopen VM active
 
-Steam owner02completed00:57:28; installed-curl metadata+14source-chrootcasesPASS,
-alloriginalouter/export0, selectedstate restored, QEMU stopped. Admission9351cef4
-consumed. Durable2026-10-15-steam-remaining-result. No nativeARM/FEXSteamclaim;
-GENERIC_X64doesnotpackageinstaller. Nineearliercasesnotreplayed. Originalfailed
-owner01preboot/helpermismatchretained. Threeconfirmedprimaryauditfindings now
-fixedinsource: NoGUIlifecycle, Steambounds, immutableDolphinSysalias#592.
-Primaryforward/reversesource reviewsettled; fullauditcontinues.
+Published feature030518cd82d072716f0f4a0a145d9b03b6531f05 exactremoteverified.
+ONE noNIC640VM active: `/workspace/tmp/pix-m7-wifi-back-reopen-20261015-01`,
+watch033503Z-5d794795, launcher2945146, admission681f265ce71a4410ad0e8def8c1b1c7e,
+VNC144,600swork+120cleanup. Sealedsource `/tmp/pix-m7-wifi-back-reopen-plan-20261015`
+manifestbb4683989e5cfb5dd3585c97856388f3d5773de4501c52dd951139462a0a394f.
+Rootandpeerread fullcapture/host/preparer; same1s actualsend→completeRGB limit.
+Prioractualfourcontrols+baseline/candidate lifecycle originals imported, notrerun.
+Waitvisualready; init,wifi-startcandidate,wifi-select; personallyviewselectedframe
+and exactreview; then activate→back-reopen→exit continuously inside25s; cleanup;
+review3remainingframes;finish/export/review/consume. No in-flight edits.
+Rootsoleoperator/monitor<=60s. Auditor owns activeauditdir and updates5resolved/1open.
 
-## Parallel ownership
+## Latest03:32 — no runtime active; both panel sizes completed
 
-m7_audit_resume exclusively owns docs/audits/2026_10_14-milestone-m7-next-candidate/.
-All115 forwardcriteria and reverse/interactions review complete; external phase pending.
-Reverse review found#592 missing compiled immutable Dolphin Sys path; root
-filedissue and addedrelativeimmutablealias, pkgcheck0. Finalinstalledproofpending.
-OriginalDolphinlifecycle andSteammetadata findingsalsofixed. AC063nativecapability remainsPARTIAL pending existingnativeproof.
-Never stage/commit active audit directory. Fable blind call submitted as above; exact primary model slug unknown. No independent-review completion claim until verified returned provenance.
-Internalagents are not visibleHerdr lanes; Herdr sign-in blocked. Root serializes
-runtime/compiler jobs and actively supervises; watchers have no off-sessionalerts.
+1280owner02/watch032715Z-7f90663f all original0, complete export165guest/225host,
+exactconfigrestore, nohostchildren; admissiondf6a4995 consumedqualified. English
+and French title/body/OK and carousel return personallyreviewed at1280 and640.
+Root/auditor agree PL004 scoped source/fullflow can resolve; finalimage due.
+Durable root QA `/docs/qa-logs/2026-10-15-audit-ui-results`, seal9da142ee6ff2d11b304b3c80c29ea81eceea75a899ecd6371c8ce29654619295.
+Menu/flow/changelog references updated, uncommitted. Original640combinedrun1 and
+timingfailure remain. frame_diff_review prepares candidate-only warmconnection
+Back/reopen proof; same1s gate, no replay baseline/fourcontrols. Auditor reviewing.
+Dolphin agent prepares narrow affected clean/retained finalimage handoff; no runtime.
+Next allocate only reviewedsealed timingpacket, thenES16dbac publication/pin,
+nextengineeringimage60504501, affectedcontinuity, stateonlye7326fe6, auditclose,
+H700/SM8550. Activeauditdir staysagentowned; root must not blanketstage.
 
-## Accepted compact evidence
+## Latest03:27 — larger-panel proof active;640 narrow outcomes accepted
 
-- #589 scripts/SFTP/localS3 continuation alloriginal0, consumed79388669;13 earlier
-  PASSrowsinclWebDAV retained. docs/qa-logs/2026-10-15-baseline-continuation/.
-- #591 frame comparator negative+20controls+78retainedframesPASS,389claimed,
-  0unclaimed/missing. No baseline/mask replacement. 2026-10-15-frame-claims/.
-- #577 remainingWiFi03 PASS, consumed e95b1e07,all24framesreviewed in
-  2026-10-15-wifi-remaining-result/. ActualES/wifictl syntheticadapter; no radio
-  claim. Custodyselectedconfigs/livees_settings; .backup outsideinventory.
-  Canonicalmenu mapupdated; Back closespickerwhileboundedreadcontinues.
-- #584 Dolphin buildaea323d1 andstartup5a3e47bf bothconsumedqualified.
-  2026-10-15-dolphin-startup-result/ preservescompiled/privateactualprocessproof:
-  baseline absentlifecycle;candidateenabled/disabled/earlyfailurecorrect.
-  Candidate5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5.
-  No successfulrealRAlogin/awards/gameplayclaim. Same20linkwarningsasbaseline;
-  mixedC++modes supports existingcause, notABIsafety/harmlessness.
-- Phone48currentoriginals, library03selectedaccount/activityequality, #567native
-  APIandinstalledtopup receiptslocatedforauditor; no needlessruntime repeats.
-- #588,#565–567,#570–572,#578,#583closedwithacceptedexactscope. Physicalbrowser
-  cureunproved; Novaoriginalaccountwriterunknown. #574/#575/#577/#581/#584open.
+640owner02/watch032039Z-b50c9cfd stopped and consumed341087f6 failed-investigated.
+Actual baseline two-orphan reproduction and candidate normalexit join pass;
+EN/FR intended640 refusal/return and exactoriginalconfigrestore pass. Back
+returned but hostcapture2.28499s failed1s before reopen; no latency/reopen claim.
+Export `/workspace/tmp/pix-m7-audit-ui-evidence-20261015-02`289guest/382host
+rehashed. Sourceagent prepares fresh candidate-only warm-connection timing proof
+without relaxing1s; no controls/baseline replay. Auditor reviews originals.
 
-## Frozen firmware and next native inputs
+ONE1280 VM ACTIVE: `/workspace/tmp/pix-m7-audit-ui-1280-20261015-02`,
+watch032715Z-7f90663f, launcher2908252, admissiondf6a4995b1ae4265ac2b08131e2a752e,
+VNC143,900s+120cleanup,noNIC8GiB4CPU. Source542991d0 sealed/peerreviewed. Root
+alone owns serial/HMP; waitvisualready then init/refusalEN/dismiss/refusalFR/
+dismiss/cleanup, personally review4frames, host-auditfinish, export/review/consume.
+No off-session notification; monitor<=60s. Earlier active640 note historical.
 
-Tree /workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02,
-branchbuild/m7-p5-20261014-02, fac608ff89940ce358ea9b8a95e9a08a6fe26568,
-ES3178b832b8d134198b2b4eede4f725d4ed283f8c.
-Identity0.0.1-dev+20261014T230300Z.gfac608ff8994.
-Readback /workspace/tmp/pix-m7-image-readback-20261014-02/artifacts.
-img.gz SHA d816d36abc66b292500b0719e672c98c33eb0cd4fc7fc0bf19f7e26e4108bb16;
-tar SHA e409bc18236cebfe12b24cdaede092c338d51cfe601ea6b89b486ff5578a2e42.
-Cache125592436736B was atomically moved into newtree after fresh dependency
-review and consumerclosure. Do not use oldbuildcache path; source/target remain.
-Conditionalplan2026-10-15-next-image-delta, seal600d4c4b; actualexecutionderivative
-ready. ProductdeltaDolphinrecipecomment+Sysalias/patch018 andSteammetadata curl line.
+## Latest03:21 allocation — takes precedence over historical notes below
 
-Native source /tmp/m7-native-gameplay-lifecycle-20261014-02, preparedoldowner
-/workspace/tmp/pix-m7-native-gameplay-20261014-02 UNRUN; rebindfreshnewimageowner.
-8GiB4CPU/noNIC1800+120,VNC134; WiiSuDokuL SDsave/coldContinue, DCTetris2earnedscore
-VMUA1/coldload throughnormalES/runemu/input. NoRAenabled. CDI
-/workspace/tmp/pix-m7-mkdcdisc-20261014-01/artifacts/Tetris2-M7.cdi
-SHAe4ff051cccb1f37d1260edaf9a6b57257e51b8c920f92bb4319db73ca04197d7;
-DOL /tmp/m7-native-save-staged-01/SuDokuL-Wii.dol. Actualsourcecontinuitybindings
-alreadydynamic; no newfixture rewrite or fabricatedscore/childexit.
+Feature692ddf3591096fd6067e850fcc9ae520cf8ec6c4 is pushed/readback. Both prior UI
+attempts are consumed failed-investigated. One fresh640 VM is ACTIVE under root:
+owner `/workspace/tmp/pix-m7-audit-ui-20261015-02`, launcher2879537,
+watch032039Z-b50c9cfd, admission341087f6d3d44905b7447199e9713de1, VNC142.
+Sealed source `/tmp/pix-m7-audit-ui-retry-plan-20261015`, manifest
+08773c90fec208a277da993d6df63b38ab4150bd308c5cd98f199a884e68466c.
+Root/peer source reviewed ordinary-copy/no-replace custody, exact qualified
+helper log/mv stderr oracle, and selected-network frame gate. Retention all0.
+1200s+120cleanup; no-NIC8GiB4CPU. Root alone operates serial/HMP under owner lock
+and actively watches <=60s; no off-session alert. Do not edit in-flight tools.
+README actions: init/controls, each wifi-start/select/review/activate; baseline
+exit, candidate Back-reopen/exit; EN/FR refusal/dismiss; cleanup/all frame reviews/
+finish; export originals, independent review, consume. Selection review must be
+personally viewed before activation within75s; scan operations within30s.
 
-## Retention HOLD and later work
+Fresh1280 derivative READY UNRUN:
+`/tmp/pix-m7-audit-ui-1280-retry-plan-20261015`, manifest
+542991d0a136f338a18b282cc230baee8cb57eda649d9711d3e3aaf0f7e6fe57.
+Only allocate after640stop/export/consume. Issue593/594 continuation comments
+6183628095/6183628674 record VM-first scope. Auditor retains write ownership of
+active auditdir; do not blanket-stage it. Then integrate ES16dbac/pin, next-image
+packet60504501, native-state-onlye7326fe6, audit completion, device builds in order.
 
-Protected SSHsession1600091/start111346566 prevents prior exact6media19.4GB
-retirement. No signal, exceptionexpansion orblindretry. ~2.78TBfree. Completed
-newmediaalsoawaitsguardedretirementaftercompactevidence. /tmp/pix-m7-retirement-
-followup-20261015 has omittedbackendlogs54916B toretainbeforewholescratchcleanup.
-No deletionclaim. No newframework.
-#528/#344/#337/#359 publication/sourcecustody remainseparate. #585upstreamafter
-initialqualifiedbuild. #558/#561watches; #587/#576/lazyimports/#568/#562/#586backlog.
-Prior detail archivedsaved-session-state-next-20261015T010548Z.md; milestone7 livebodyownsorder and
- docs/releases/next-candidate-work.md ownsdatedreadiness.
+## Latest03:14 correction — no runtime active
+
+Both audit UI attempts are stopped and consumed as failed-investigated. The
+03:09 active1280 note below is historical. Owner1280-01 actual launch hit the
+existing dolphin-save-paths mount guard before cheevos; positivecheevoslog absent
+caused fixturefailure1. Diagnostic frame manuallyviewed confirms wrongbranch.
+Originalcleanup restored settings/installedhashes/ownedmounts; abortouter1,
+finallyflush/QEMUstop0, nohostchildren. Export112guest/192host rehashed; no final
+manifest, completenessfalse. Admission422d5d90 consumed. Durable
+2026-10-15-dolphin-ui-first-attempt; original owner/diagnostic-01 retains logs/frame.
+frame_diff_review prepares new640+1280source derivatives using ordinarycopy/
+rename custody instead of config-directory bind; require intendedhelperlog/text
+plus250. Auditor reviews. No in-flight source edits or productguardchanges.
+Root continues after sealed source; no new user approval needed. Do not stage
+active auditdir. Feature91cb3047 pushed/readback; latest compactfailure uncommitted.
+
+## Live continuation at03:09 UTC — takes precedence over older state below
+
+Interim audit published b60400c7cc38b2d35059773ee0ffa3dbe7b34e50; auditor write
+ownership resumed. Never stage its currently active directory. Root follows
+current ordered work below; no RC designation.
+
+640 GUI01 failed before picker due inherited navigation: default GENERIC_X64
+adds NETWORK NAME row; fiveDown selected ENABLE WI-FI and finalA disabled it.
+Original serial calls current/has_ap_mode/disable and frame confirm. Four worker
+controls passed exact expected old1/candidate3zero; GUI observer deadline2/owned
+frontendcleanup-9 preserved. Guarded abort outer1, finallyflush/QEMUstop0, owners
+absent. Export130guest/238host rehashed; no finishmanifest, completenessfalse.
+Admissione2375d85 consumed failed-investigated. Durable compactpacket
+2026-10-15-audit-ui-first-attempt sealf6a77e59e56b0d22a0c6927f521de316752c7302c11e10ff7d6560d6a9600f8e.
+This also retains source-only state/native-image packets. No failed channels altered.
+
+ACTIVE one1280refusal-only VM: owner
+/workspace/tmp/pix-m7-audit-ui-1280-20261015-01, launcher2827268,
+admission422d5d9073534758a2efd131637a2dcb. Source
+/tmp/pix-m7-audit-ui-1280-plan-20261015 seal2a7c4fa2ab3dadf4a131cb83d63b8381b88f926d2c3ef0f44dc82c350cecf2d8.
+900swork+120cleanup, noNIC8GiB4CPU,VNC141, d4af image explicit ES16dbac/helper
+source overlays. Root owns serial/HMP under its serial.lock, monitors≤60s and
+must finish/export/consume originals; no off-session alert. README gives exact
+init/refusalEN/dismiss/refusalFR/dismiss/cleanup/finish and unchanged review path.
+Wait actual visual-ready.json. Four frames personally viewed before finish.
+No Wi-Fi controls in this independent run. Do not edit in-flight tools.
+
+frame_diff_review prepares a separate fresh640 navigation correction with
+conditional-row binding and reviewed selected-row frame before activation.
+Auditor independently verified640originals and1280source. dolphin_ra_init finished
+next-image sourcepacket /tmp/pix-m7-next-image-delta-20261015-02,
+seal605045012b30a42bec30688da6b4560a904ff717b08dd950e00b7a5aa3c4ec85:
+cleanDolphin/buildDolphin/buildES/image canonicalroute. Dolphin package treehash
+means script edits invalidate engine build; no stamp rewrite/bypass. Root review
+and actual integrated source binding due, no compiler/cache transfer authorized
+by this record. Native-state-only packete7326fe6 independently source-reviewed,
+root static0; still requires nextactualimage. User work continues after checkpoint.
+
+## Current ordered work
+
+1. #593 actual frontend Wi-Fi lifecycle and #594 EN/FR complete refusal/return
+   proof. frame_diff_review owns `/tmp/pix-m7-audit-ui-plan-20261015`, NOT READY
+   yet. Source review caught reuse of optional proc task/children; the already
+   qualified numeric proc census/pidfd helpers must replace it before allocation.
+   One no-NIC VM will run four compiled Wi-Fi controls, actual old/candidate
+   frontend Back/reopen/SIGINT and full Wii/runemu/ES refusal frames, initially
+   640x480. Large-panel proof remains separate and pending.
+2. Integrate/pin reviewed source after required frames; build next engineering
+   image and bind affected installed bytes plus clean/retained continuity.
+3. Four-launch native-state-only continuation against that actual new image.
+   READY source `/tmp/pix-m7-native-states-20261015`, 43 files/283146 bytes,
+   SHA256SUMS e7326fe60287d921566aeb679b2dc85751b5b1333d384c6e0065030745855484.
+   Static only; root review/allocation still due. Requires actual PASS verifier
+   and reviewed final commit; no overlay or predicted image. Ordinary cold Wii
+   and Dreamcast game saves are complete; do not replay them.
+4. Resolve #596 remaining audit findings/#590, then H700 followed by SM8550
+   under #555. #528/#344/#337/#359 publication/source custody remain separate.
+   No RC designation or owner-device action is active.
+
+## Audit checkpoint and source ownership
+
+Auditor m7_audit_resume has FROZEN/released the entire
+`docs/audits/2026_10_14-milestone-m7-next-candidate/` for one root commit/push.
+Root independently verified203 payloads/8510453 bytes/modes and exact membership.
+Manifest7930cb92a100ea2b8c325bc028f0e74b56f2ba6c193535f6b5b57530431154e3;
+seal40f26686225ea2d3bad14584150fb24204bd4922f62779fd02f29246f4e059cf.
+Phases1–6 complete; four resolved/two open. Phase7/audit completion false;
+no completion cadence marker. Root must confirm before auditor resumes writes.
+Agent is independently reviewing the GUI source packet read-only meanwhile.
+
+Both Fable5.1/xhigh blind and refutation calls completed original0 via mandatory
+Facilitator/OpenRouter; verified model/effort, observed provider not pinned.
+Exact original prompts/responses/provenance and lossless storage maps are in the
+checkpoint. #596 update02 exact live body20444B SHA
+cffa654f0fb94ff8a1fe1cc85fe4b67bee6b9cfb05cb95fcdf8f7293263b70f0.
+Four resolved: NoGUI lifecycle, Steam metadata bounds, immutable Sys alias and
+Steam Python isolation. #593 Wi-Fi and #594 stale-session full flow remain open.
+Frozen115-row score80PASS/16PARTIAL/16SKIP/3FAIL/0UNTESTABLE is historical, not
+rewritten by later corrections. No clean-audit claim.
+
+## Accepted source, compiler and controls
+
+Product d9054efc463387df3f0211481c5ae8c793dfadc8 is published on feature.
+#594 helper atomically writes inactive credential-free INI on disable/logout;
+publication failure250 prevents native launch. Fifteen guest controls pass;
+EN/FR UI/full flow remains due. #595 Python uses /usr/bin/python3 -I -S -B;
+old import poison fails and candidate whole synthetic transaction succeeds with
+same body. #595 final installed-image criterion remains open; native ARM Steam
+is not claimed.
+
+#593 ES local16dbac5211eea7e70db7394372033be2be7df829 in
+`/home/max/Development/emulationstation-next.worktrees/m7-wifi-normal-exit-20261015`.
+Compiler owner `/workspace/tmp/pix-m7-wifi-compile-20261015-01`, watch023950Z-e4dd5495,
+all syntax/object/link/strip/driver/container/monitor original0, no survivors;
+admissionfb99a646 consumed. Candidate work/emulationstation SHA
+067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d.
+Compiled drivers/GUI remain UNRUN. Do not push/promote pin before proof.
+
+Controls01 failed on missing optional proc interface, Steam never ran; original1
+and normal cleanup preserved. Corrected controls02 watch024125Z-c0cd55ae completed
+all0 with15 Dolphin and2 Steam cases; admission15e893d5 consumed, exact144+29
+archive members verified. Durable published
+`docs/qa-logs/2026-10-15-audit-followup-controls/`, seal12efbe4ac325e76f42d242ea1c3855b9c41926ca4d8a0b44b14d2f3bd5b5d41e.
+Compiler argv's shared scraper definition was confirmed already public atbe71
+and explicitly authorized by #566/D-WORKFLOW-166 after approval-review rejection.
+Normal subsequent commit/push allowed; no remaining approval block. Original
+bytes remain lossless, no guard bypass or private credential publication.
+
+## Current installed baseline and accepted continuity
+
+Frozen `/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01`,
+branchbuild/m7-p5-20261015-01, distributiond4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a,
+ES3178b832b8d134198b2b4eede4f725d4ed283f8c. Never edit frozen source.
+Identity0.0.1-dev+20261015T011500Z.gd4af5a255f47. Build/readback/installedDolphin
+all0 and consumed. Artifact readback
+`/workspace/tmp/pix-m7-image-readback-20261015-01/artifacts`.
+Image84b1552e4d0ed67d97b603230d1acb0b22a852217054854a9c3fe42731772ff2;
+tarb1457d7db7d7c93551ec56e2b2b913b78399eaa6c9b831761a514d87ec3f8666;
+SYSTEM02bd89c50a34190bee14d33fad6587b737598454c0d9e182d240c4f0acade2a4.
+Cache125592436736B moved atomically from previous buildtree, same inode/device;
+original receipts retained. No root-FD completeness or cache deletion inference.
+
+Retained reald6a→d4af update preserves8selected paths/3strict loaders; clean
+untouched294checks0errors0blocked plus3strict loaders. Both consumed alloriginal0,
+normalcleanup. Durable `2026-10-15-final-composition-result` seale8446037b49be46824237aa19cddba089ad8f1e3fa09da93863b2b04047d79ae.
+Earlier20→d6a composition remains attributed, not claimed direct20→d4af.
+
+Native03 ordinary Wii saved entered4 cold-Continue and Dreamcast earned164 cold
+VMU persistence accepted. Full10954-row guestmanifest rehashed despite original
+exportwrapper1 at4096-file limit. No original result rewritten. Controller/engine/
+QEMU exited normally; no invented native exitstatus. Compact published
+`2026-10-15-native-gameplay-result`, seal8dd9dd8cabce482253576b8593945a46a4126c60e197bb1e1baa2e30ebac69c3.
+Wii manual restore only Decompressing frame; Flycast manual/auto/global comparisons
+unrun. State-only continuation above closes exactly these remaining observations.
+
+Prior #589 protocols, #591389claims/78frames/20controls, #57724WiFi frames and
+#588/#565–567/#570–572/#578/#583 accepted scopes remain. Browser physical cure is
+unproved; Nova original history writer unknown. Don’t repeat accepted broad suites
+solely due to a new image.
+
+## Coordination, retention and references
+
+Root alone integrates/allocates/operates runtime and actively monitors ≤60s.
+Watchers have no off-session delivery; do not end with an unmonitored job.
+Internal source agents are not visible Herdr lanes; Herdr sign-in blocked.
+frame_diff_review owns Wi-Fi/UI packet; dolphin_ra_init completed state packet;
+auditor owns audit directory after root release confirmation.
+#585 upstream queue exact update/readback in
+`/workspace/tmp/pix-m7-audit-followups-20261015-01/upstream-585-readback.json`:
+added session clearing/Sys alias and conditional lifecycle contributions; Steam
+row reflects verified corrections. Submissions remain deferred (D-WORKFLOW-165).
+Milestone7 live body02:45 owns order; `docs/releases/next-candidate-work.md` readiness.
+
+~2.74TBfree. Six old media~19.4GB retirement HOLD on protected SSH/rootFD visibility;
+no exception, blind retry or deletion. New completed media await compact evidence
+and guarded dependency retirement; candidate GUI binary is needed immediately.
+#558/#561 watches; #587/#576/lazyimports/#568/#562/#586 backlog.
+Previous full detail: saved-session-state-next-20261015T024600Z.md;
+older022000Z/010548Z checkpoints preserve previous original channels and owners.

@@ -18,18 +18,75 @@ unofficial=$(get_setting "global.retroachievements.unofficial")
 [ -z "${unofficial}" ] && unofficial=$(get_setting "global.retroachievements.testunofficial")  # the spelling before 2026-09; EmulationStation writes .unofficial
 hosturl=$(get_setting "global.retroachievements.customhost")
 
+# Publish the generated session as one file so disabling or signing out cannot
+# reuse an earlier active session. Saved ES account settings are read-only here.
+INI_FILE="/storage/.config/dolphin-emu/RetroAchievements.ini"
+temporary=""
+trap '[ -z "${temporary}" ] || rm -f -- "${temporary}"' EXIT
+
+settings_failed() {
+  echo "Dolphin achievements settings could not be written; refusing launch." >> "${LOG_FILE}"
+  local language="${LANGUAGE:-${LC_ALL:-${LC_MESSAGES:-${LANG:-en}}}}"
+  language="${language,,}"
+  local title="DOLPHIN DID NOT START"
+  local message="Achievements settings could not be updated. Check the game storage and folder permissions, then try again."
+  case "${language}" in
+    fr|fr_*|fr-*|fr.*|fr@*|fr:*)
+      title="DOLPHIN N’A PAS DÉMARRÉ"
+      message="Les paramètres des succès n’ont pas pu être mis à jour. Vérifiez le stockage des jeux et les permissions des dossiers, puis réessayez."
+      ;;
+  esac
+  printf 'DOLPHIN DID NOT START\n%s\n\n%s\n' "${title}" "${message}" > /tmp/launch_error.log
+  exit 250
+}
+
+publish_settings() {
+  temporary=$(umask 077; mktemp "${INI_FILE}.XXXXXX") || return 1
+  if ! cat > "${temporary}" <<EOF
+[Achievements]
+DiscordPresenceEnabled = False
+Enabled = ${enabled}
+EncoreEnabled = ${encore}
+HardcoreEnabled = ${hardcore}
+ProgressEnabled = False
+SpectatorEnabled = False
+UnofficialEnabled = ${unofficial}
+Username = ${username}
+ApiToken = ${token}
+HostUrl = ${hosturl}
+EOF
+  then
+    return 1
+  fi
+  # -T refuses a destination directory instead of moving a token file into it.
+  mv -fT -- "${temporary}" "${INI_FILE}" || return 1
+  temporary=""
+}
+
+publish_disabled() {
+  enabled="False"
+  encore="False"
+  hardcore="False"
+  unofficial="False"
+  username=""
+  token=""
+  hosturl=""
+  publish_settings || settings_failed
+}
+
 # Check if RetroAchievements are enabled in Emulation Station
 if [ "${enabled}" = 1 ]; then
   enabled="True"
 else
   echo "RetroAchievements are not enabled, please turn them on in Emulation Station." > ${LOG_FILE}
-  enabled="False"
+  publish_disabled
   exit 1
 fi
 
 # Check if api token is present in system.cfg
 if [ -z "${token}" ]; then
     echo "RetroAchievements token is empty, please log in with your RetroAchievements credentials in Emulation Station." > ${LOG_FILE}
+    publish_disabled
     exit 1
 fi
 
@@ -88,16 +145,4 @@ if [ "$(get_setting "global.retroachievements.offlineproxy")" = 1 ] && [ "${hard
   esac
 fi
 
-cat <<EOF >/storage/.config/dolphin-emu/RetroAchievements.ini
-[Achievements]
-DiscordPresenceEnabled = False
-Enabled = ${enabled}
-EncoreEnabled = ${encore}
-HardcoreEnabled = ${hardcore}
-ProgressEnabled = False
-SpectatorEnabled = False
-UnofficialEnabled = ${unofficial}
-Username = ${username}
-ApiToken = ${token}
-HostUrl = ${hosturl}
-EOF
+publish_settings || settings_failed

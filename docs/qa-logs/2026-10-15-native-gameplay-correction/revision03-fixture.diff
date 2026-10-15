@@ -1,0 +1,106 @@
+--- a/guest.py
++++ b/guest.py
+@@ -1,6 +1,6 @@
+ #!/usr/bin/env python3
+ """UNRUN normal installed ES/native handoff, operated only through owned serial."""
+-import argparse,configparser,hashlib,json,os,re,shlex,shutil,signal,subprocess,time,urllib.request,uuid,xml.etree.ElementTree as ET
++import argparse,configparser,hashlib,json,os,re,shlex,shutil,signal,stat,subprocess,time,urllib.request,uuid,xml.etree.ElementTree as ET
+ from pathlib import Path
+ HERE=Path(__file__).resolve().parent;R=Path('/tmp/pix-output/gameplay');INPUT=Path('/tmp/pix-input/gameplay')
+ ROMS={'wii':'/storage/roms/wii/SuDokuL-Wii.dol','tetris2':'/storage/roms/dreamcast/Tetris2-M7.cdi'}
+@@ -58,6 +58,60 @@
+  if copy_sd:
+   assert not natives(),'copy only quiescent SD';f=Path('/storage/qa-m7-homebrew/sd.raw');shutil.copy2(f,dest/'sd.raw');rows.append({'path':str(f),'bytes':f.stat().st_size,'sha256':sha(f),'copied':str((dest/'sd.raw').relative_to(R))})
+  save(dest/'inventory.json',{'rows':rows,'native_processes':natives(),'native_exit_status':'unknown: no engine shim or wait-status observer','time':time.time()});return str(dest)
++def controller_identity(text):
++ # control-gen emits SDL_JoystickName, not the kernel's raw uinput name.
++ raw_name='QA521 Synthetic Xbox 360 Controller';expected_ids={'bustype':'0003','vendor':'045e','product':'028e','version':'0114'}
++ assert text.count('get_controls()')==1
++ assert re.findall(r'^DEVICE="([^"]+)"$',text,re.M)==['030080a15e0400008e02000014010000']
++ assert re.findall(r'^param_device="([^"]+)"$',text,re.M)==['Xbox 360 Controller']
++ ready=json.loads((R/'pad-ready.json').read_text());assert ready['name']==raw_name
++ supervisor=json.loads((R/'supervisor.json').read_text());live_supervisor=identity(supervisor['pid'])
++ assert live_supervisor['start_ticks']==supervisor['start_ticks'] and live_supervisor['argv']==supervisor['argv']
++ pad_identity=identity(ready['pid']);assert pad_identity['argv']==['python3','-I','-S','-B',str(HERE/'pad.py')]
++ fields=(Path('/proc',str(ready['pid']))/'stat').read_text().rsplit(')',1)[1].split();assert int(fields[1])==supervisor['pid']
++ uinput_fds=[str(f) for f in Path('/proc',str(ready['pid']),'fd').iterdir() if os.readlink(f)=='/dev/uinput'];assert len(uinput_fds)==1
++ matches=[]
++ for event in sorted(Path('/sys/class/input').glob('event*')):
++  device=event/'device'
++  if (device/'name').read_text().strip()!=raw_name:continue
++  ids={k:(device/'id'/k).read_text().strip() for k in expected_ids};assert ids==expected_ids
++  resolved=str(device.resolve());assert resolved.startswith('/sys/devices/virtual/input/')
++  node=Path('/dev/input')/event.name;st=node.stat();assert stat.S_ISCHR(st.st_mode)
++  major_minor=f'{os.major(st.st_rdev)}:{os.minor(st.st_rdev)}';assert (event/'dev').read_text().strip()==major_minor
++  matches.append({'raw_name':raw_name,'ids':ids,'sysfs_event':str(event),'resolved_input':resolved,'resolved_event':str(event.resolve()),'event_node':str(node),'major_minor':major_minor})
++ assert len(matches)==1,'require one exact owned QA521 kernel event identity'
++ row={'normalized_sdl_name':'Xbox 360 Controller','normalized_sdl_guid':'030080a15e0400008e02000014010000','kernel':matches[0],'pad':pad_identity,'supervisor':live_supervisor,'uinput_fds':uinput_fds,'control_sha256':sha(R/'control.ini')}
++ save(R/'controller-identity.json',row);return row
++
++def cleanup():
++ # Failure-only finalizer: retain the original failed supervisor/pad exits.
++ row={'rc':1,'started':time.time(),'scope':'abort owned input supervisor and verify pad destruction before output unmount'}
++ try:
++  receipt=R/'supervisor.json'
++  if not receipt.exists():
++   assert not (R/'pad-ready.json').exists(),'pad exists without supervisor identity'
++   row['supervisor_was_not_started']=True
++  else:
++   expected=json.loads(receipt.read_text());deadline=time.monotonic()+12
++   def alive(owner):
++    try:current=identity(owner['pid'])
++    except (FileNotFoundError,ProcessLookupError):return False
++    if current['start_ticks']!=owner['start_ticks']:return False
++    assert current['argv']==owner['argv'] or current['state']=='Z','owned PID changed argv'
++    return True
++   if alive(expected) and not (R/'abort.json').exists():save(R/'abort.json',{'reason':'lifecycle finalizer after unsuccessful completion','time':time.time()})
++   while alive(expected):
++    assert time.monotonic()<deadline,'owned supervisor did not finish bounded abort/destroy';time.sleep(.05)
++   supervisor=json.loads((R/'supervisor-result.json').read_text());pad_result=json.loads((R/'pad-result.json').read_text())
++   assert supervisor['pad_original_returncode'] is not None and not alive(supervisor['pad'])
++   events=[json.loads(line) for line in (R/'pad.events.jsonl').read_text().splitlines()]
++   assert sum(event.get('state')=='destroyed' for event in events)==1
++   row.update(supervisor_original_rc=supervisor['rc'],pad_original_rc=supervisor['pad_original_returncode'],pad_result_original_rc=pad_result['rc'],pad_destroyed=True,supervisor_absent=True,pad_absent=True,native_processes=natives())
++  row['rc']=0
++ except BaseException as exc:row['error']=type(exc).__name__+': '+str(exc)
++ finally:row['ended']=time.time();save(R/'failure-cleanup.json',row)
++ assert row['rc']==0,row.get('error');return row
++
+ def provision(remaining):
+  assert not R.exists();R.mkdir();(R/'snapshots').mkdir();end=time.monotonic()+90
+  manifest=json.loads((INPUT/'input-files.json').read_text())
+@@ -100,7 +154,7 @@
+  while not (R/'pad-ready.json').exists():assert time.monotonic()<limit;time.sleep(.1)
+  # Use the normal installed producer; retain its actual GUID/name and generated file.
+  run('control-gen',['/usr/bin/control-gen_init.sh']);shutil.copy2('/storage/.config/gptokeyb/control.ini',R/'control.ini')
+- text=(R/'control.ini').read_text();assert 'get_controls()' in text and 'QA521 Synthetic Xbox 360 Controller' in text
++ text=(R/'control.ini').read_text();controller_identity(text)
+  config=Path('/storage/.config/emulationstation/es_input.cfg');keyboard=ET.fromstring(config.read_bytes()).find("inputConfig[@type='keyboard']");assert keyboard is not None
+  key_names={13:'ret',27:'esc',32:'spc',8:'backspace',1073741906:'up',1073741905:'down',1073741904:'left',1073741903:'right',1073742049:'shift',1073742053:'shift_r'}
+  mapping={}
+@@ -115,11 +169,12 @@
+   except (OSError,TimeoutError):assert time.monotonic()<limit;time.sleep(1)
+  value={'rc':0,'input_keys':mapping,'panel':active,'boot_id':Path('/proc/sys/kernel/random/boot_id').read_text().strip(),'control_sha256':sha(R/'control.ini'),'api_port':1234,'native_exit_status':'unknown unless existing original logs expose it'};save(R/'provision.json',value);return value
+ def main():
+- p=argparse.ArgumentParser();p.add_argument('operation',choices=['provision','status','launch','pad','snapshot','global-auto','native-auto','score-start','score-end','first-frame','finish','abort']);p.add_argument('--remaining',type=int);p.add_argument('--game',choices=ROMS);p.add_argument('--buttons');p.add_argument('--milliseconds',type=int,default=120);p.add_argument('--label');p.add_argument('--copy-sd',action='store_true');p.add_argument('--value',choices=['0','1']);a=p.parse_args()
++ p=argparse.ArgumentParser();p.add_argument('operation',choices=['provision','status','launch','pad','snapshot','global-auto','native-auto','score-start','score-end','first-frame','finish','abort','cleanup']);p.add_argument('--remaining',type=int);p.add_argument('--game',choices=ROMS);p.add_argument('--buttons');p.add_argument('--milliseconds',type=int,default=120);p.add_argument('--label');p.add_argument('--copy-sd',action='store_true');p.add_argument('--value',choices=['0','1']);a=p.parse_args()
+  if a.operation=='provision':assert 60<a.remaining<=1800;result=provision(a.remaining)
+  else:
+   assert R.is_dir()
+-  if a.operation=='status':result={'native_processes':natives(),'pad':json.loads((R/'pad-ready.json').read_text()),'supervisor_result':json.loads((R/'supervisor-result.json').read_text()) if (R/'supervisor-result.json').exists() else None,'running_game':api('/runningGame')}
++  if a.operation=='cleanup':result=cleanup()
++  elif a.operation=='status':result={'native_processes':natives(),'pad':json.loads((R/'pad-ready.json').read_text()),'supervisor_result':json.loads((R/'supervisor-result.json').read_text()) if (R/'supervisor-result.json').exists() else None,'running_game':api('/runningGame')}
+   elif a.operation=='pad':
+    if (R/'score-clock.json').exists() and not (R/'score-result.json').exists():assert time.monotonic()<=json.loads((R/'score-clock.json').read_text())['deadline_monotonic'],'earned-score input window ended; record score-end, do not continue scoring'
+    result=pad(a.buttons.split(','),a.milliseconds)
+--- a/vm-lifecycle.py
++++ b/vm-lifecycle.py
+@@ -156,7 +156,7 @@
+         if (V/'vm.pid').exists():
+             if quiet:
+                 try:
+-                    text=serial('finally-flush','sync; if grep -q " /tmp/pix-output " /proc/mounts; then umount /tmp/pix-output; else true; fi; pxrc=$?; sync; exit "$pxrc"',seconds=30)
++                    text=serial('finally-flush','if grep -q " /tmp/pix-output " /proc/mounts; then if test -d /tmp/pix-output/gameplay; then python3 -I -S -B /tmp/pix-input/gameplay/packet/guest.py cleanup; else true; fi && sync && umount /tmp/pix-output; else true; fi; pxrc=$?; sync; exit "$pxrc"',seconds=30)
+                     (R/'finally-flush.txt').write_text(text)
+                 except BaseException as error:result['cleanup_errors'].append('flush: '+str(error))
+             try:(R/'vm-stop.log').write_text(call('vm-stop',[TREE/'tools/vm-stop',V/'vm.pid',disk],35))

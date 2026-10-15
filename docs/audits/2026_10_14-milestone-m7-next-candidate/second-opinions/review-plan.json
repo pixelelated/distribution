@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "depth": "independent",
+  "scope": "Milestone M7 delta #590",
+  "primary": {
+    "harness": "Codex",
+    "model": "unknown",
+    "lab": "openai",
+    "identity_source": "Session system/developer establish OpenAI GPT/Codex; exact served slug not exposed/attested."
+  },
+  "reviewers": [
+    {
+      "member": "claude",
+      "model": "anthropic/claude-fable-5.1",
+      "lab": "anthropic",
+      "provider": "openrouter",
+      "effort": "xhigh",
+      "recipe_source": "scripts/council-invoke.ts:1404-1408 and .claude/agents/council-member-claude.agent.md",
+      "calls": [
+        {
+          "phase": "blind",
+          "prompt": "claude-blind-brief.md",
+          "output": "claude-blind.md",
+          "status": "verified complete",
+          "output_sha256": "98482d2f5f7f5762faa1ccea3d06fadc9391963d12f69f1e54256581cf67ad46",
+          "served_model": "anthropic/claude-fable-5.1",
+          "effort": "xhigh",
+          "provenance": "claude-blind.md.provenance.json",
+          "prompt_storage": {
+            "file": "claude-blind-brief.md.gz",
+            "encoding": "gzip",
+            "logical_sha256": "9cd8004050112faf4b9c88754e5a08924523706f7582faf16bce11b5e0c0506e",
+            "logical_bytes": 738861,
+            "storage_sha256": "102ad6627013407c5a6184aabe20febf2ae3f4ec2923046f955c8d2ff7cad603"
+          }
+        },
+        {
+          "phase": "refutation",
+          "prompt": "claude-refutation-brief.md",
+          "base": "claude-refutation-base.md",
+          "output": "claude-audit.md",
+          "status": "verified complete; all leads independently graded",
+          "prompt_sha256": "a90b9bd7172cff4392a7f0528b5458c5ffa25d368d8ca4051725f4c3ac9dc212",
+          "prompt_bytes": 1098609,
+          "owner": "/workspace/tmp/pix-m7-fable-refutation-20261015-01",
+          "launcher_pid": 2513033,
+          "provenance": "claude-audit.md.provenance.json",
+          "output_sha256": "dc8414e7bab833774ffb2da85cd4d03e521445f940b38487fbf227f233149f2a",
+          "served_model": "anthropic/claude-fable-5.1",
+          "effort": "xhigh",
+          "prompt_storage": {
+            "file": "claude-refutation-brief.md.gz",
+            "encoding": "gzip",
+            "logical_sha256": "a90b9bd7172cff4392a7f0528b5458c5ffa25d368d8ca4051725f4c3ac9dc212",
+            "logical_bytes": 1098609,
+            "storage_sha256": "ef6ad6fd9c13ef54c27348a3e1c5ae57abd5e41598567fc9f8b1e8df055f41a1"
+          },
+          "base_storage": {
+            "file": "claude-refutation-base.md.gz",
+            "encoding": "gzip",
+            "logical_sha256": "c3bc1eb9c953caf1bb4532100a039fa0c4a28a1b510b2f38249333608607ce84",
+            "logical_bytes": 977673,
+            "storage_sha256": "88af424001a925bfb5d28893fbf65d01dd35b874eae3415e5de7f7ff01b43358"
+          }
+        }
+      ]
+    }
+  ],
+  "perspectives": 2,
+  "external_reviewers": 1,
+  "calls_planned": 2,
+  "actual_calls": 2,
+  "dispatch_owner": "/root",
+  "permission": "Parent confirms explicit user audit/external-transfer approval persists; no renewed question required. Auditor performs no external transfer; parent dispatches via Facilitator only.",
+  "frozen": {
+    "distribution": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+    "es": "3178b832b8d134198b2b4eede4f725d4ed283f8c"
+  },
+  "supplemental_candidate": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a"
+}

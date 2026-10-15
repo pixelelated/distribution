@@ -1,0 +1,55 @@
+{
+  "admitted": "2026-10-15T02:39:51.016751+00:00",
+  "available_bytes": 2742995976192,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+  "consumed": "2026-10-15T02:41:14.130792+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+  "deleted_bytes": 0,
+  "evidence_sha256": "8702facc4ca3c32db5b9a7225c2b7ab743f92980c19f1745b30dc723570acc3e",
+  "id": "fb99a646934245098e993ad4d78c90ab",
+  "original_result": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-15T02:40:41.204480+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 593,
+      "kind": "build-cache",
+      "path": "/workspace/tmp/pix-m7-wifi-compile-20261015-01/work",
+      "release_when": "After source-bound candidate VM proof, retain binary/source/dependency hashes and original result channels."
+    },
+    {
+      "issue": 593,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-wifi-compile-20261015-01/stages",
+      "release_when": "After original watcher/container/cleanup receipts are sealed."
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "fbbac64415b5bde1d27d6a35a2b0c97fcfe39259d0627cf4ed5742bf83f52113",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 1073741824,
+  "retention_plan_sha256": "0f4c9c5b922b47858504bdf4ca1565d14595cd19507f0a5ed4027fc6c361a52c",
+  "retention_report_sha256": "f6252cd4ca2a006a454ba9b5781c7dba522d9f81dcd5ea420acefb90cb62135c",
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T023950Z-e4dd5495",
+  "runner_pid": 2686252,
+  "runner_start": "112367489",
+  "source": {
+    "head": "47dda767c7afc47020a3f21ab19a4493bfd5ff8a",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix-m7-wifi-compile-20261015-01/stages/wifi-compile/submit",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

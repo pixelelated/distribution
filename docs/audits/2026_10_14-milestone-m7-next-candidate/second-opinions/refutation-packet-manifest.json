@@ -1,0 +1,192 @@
+{
+  "created": "2026-10-15T01:59:34.095458+00:00",
+  "prompt": "claude-refutation-brief.md",
+  "bytes": 1098609,
+  "sha256": "a90b9bd7172cff4392a7f0528b5458c5ffa25d368d8ca4051725f4c3ac9dc212",
+  "sealed_base_sha256": "c3bc1eb9c953caf1bb4532100a039fa0c4a28a1b510b2f38249333608607ce84",
+  "complete_blind_response_sha256": "98482d2f5f7f5762faa1ccea3d06fadc9391963d12f69f1e54256581cf67ad46",
+  "inputs": [
+    {
+      "label": "DISTRO fac608ff8994:projects/ROCKNIX/packages/network/networkmanager/package.mk",
+      "full_source_sha256": "21bcc894beefc0bc2fb7b92740fa4feac16dfefa398c208bea8d43ca550176a5",
+      "selected_sha256": "80348c32c1a8e46a19249e7e4dc65d92f6e898695cf3d1f729f1ebe0c6a65737",
+      "sanitized_sha256": "80348c32c1a8e46a19249e7e4dc65d92f6e898695cf3d1f729f1ebe0c6a65737"
+    },
+    {
+      "label": "Pinned NetworkManager1.51.4 nm-device-iwd.c",
+      "full_source_sha256": "3a99386df121de764dc6fa9ee0c970b3a71fcd043dc281974067c8b162b2fb6d",
+      "selected_sha256": "3101bcda9a4fbc2c97cee29c528c20ba61d00694888b1e7755129ad47e01b259",
+      "sanitized_sha256": "3101bcda9a4fbc2c97cee29c528c20ba61d00694888b1e7755129ad47e01b259"
+    },
+    {
+      "label": "ES c8dc72cf9ec0:es-core/src/Settings.cpp",
+      "full_source_sha256": "a196457dab08b97c39cae755845a4750c875f5fffaaa8d5b29a11c86fa03b85a",
+      "selected_sha256": "eb1fcae2327534b207a4f60870a7a9821b7b10f094524c601ee4e6b602098abf",
+      "sanitized_sha256": "eb1fcae2327534b207a4f60870a7a9821b7b10f094524c601ee4e6b602098abf"
+    },
+    {
+      "label": "ES 3178b832b8d1:es-core/src/Settings.cpp",
+      "full_source_sha256": "cc261e2af8b8e9834869ff3e562d26716dd94704032be21bd5b3e70f935c433e",
+      "selected_sha256": "83314edbfb6d12c390b707267a32dff3b9927b53437329bf47232557cc3205c2",
+      "sanitized_sha256": "83314edbfb6d12c390b707267a32dff3b9927b53437329bf47232557cc3205c2"
+    },
+    {
+      "label": "ES 3178b832b8d1:es-app/src/guis/GuiSettings.cpp",
+      "full_source_sha256": "e04cec7f9776c859d2b41c991c7b63c9480d938d20844b0ca74840e28c50cd16",
+      "selected_sha256": "fabaff9d064d1ba2645a03127b6ecc26f6db845fd5925eb66b1070af9a2b11ec",
+      "sanitized_sha256": "fabaff9d064d1ba2645a03127b6ecc26f6db845fd5925eb66b1070af9a2b11ec"
+    },
+    {
+      "label": "ES 3178b832b8d1:es-app/src/guis/GuiMenu.cpp",
+      "full_source_sha256": "356c7b48bf71f1a54467609c6eba502079c6c7fd615b2dd2d24966873916432d",
+      "selected_sha256": "76a14bc70f638978fce5febdc2dc61d9bc4d6e44fa76c9884d49340f8f91ee1b",
+      "sanitized_sha256": "76a14bc70f638978fce5febdc2dc61d9bc4d6e44fa76c9884d49340f8f91ee1b"
+    },
+    {
+      "label": "ES 3178b832b8d1:es-app/src/guis/GuiWifi.cpp",
+      "full_source_sha256": "16c065bc06ba8fbf7cfc72b810022b2359acadc03e20c74bd3583a0518cace02",
+      "selected_sha256": "e4fd8e1b0efad5f44a8bda9ab4a56074e239d2388371c3d6dfa60c29e3faecef",
+      "sanitized_sha256": "e4fd8e1b0efad5f44a8bda9ab4a56074e239d2388371c3d6dfa60c29e3faecef"
+    },
+    {
+      "label": "ES 3178b832b8d1:es-app/src/guis/WifiScanProcess.h",
+      "full_source_sha256": "54729c1cefcbc41446e0fed3f4e8edab26181edb9c4b51adab7cf73a50fcf6d4",
+      "selected_sha256": "bb366d36d3e7b769c5e15b678e6f39268d531761e582d0c40b5205015ff377dd",
+      "sanitized_sha256": "bb366d36d3e7b769c5e15b678e6f39268d531761e582d0c40b5205015ff377dd"
+    },
+    {
+      "label": "ES 3178b832b8d1:es-app/src/main.cpp",
+      "full_source_sha256": "93fc68f82617286d7c891b19237203a5cd20cf4a3c1b22e22e043b30346968dd",
+      "selected_sha256": "a89d9bffe9615c01465f445a0fed2482cbd9c154a80e45bc5859880ead606133",
+      "sanitized_sha256": "a89d9bffe9615c01465f445a0fed2482cbd9c154a80e45bc5859880ead606133"
+    },
+    {
+      "label": "DISTRO fac608ff8994:projects/ROCKNIX/packages/ui/emulationstation/system.d/emustation.service",
+      "full_source_sha256": "750aaecb3671862c49e33b2480c08d77c9279ae74072df4626d069efb271188b",
+      "selected_sha256": "c5462930546b3b1f2ae01eefa5fd1a846f7c84a3813f053237dc015d3f899f46",
+      "sanitized_sha256": "c5462930546b3b1f2ae01eefa5fd1a846f7c84a3813f053237dc015d3f899f46"
+    },
+    {
+      "label": "DISTRO fac608ff8994:projects/ROCKNIX/packages/ui/emulationstation/system.d/essway.service",
+      "full_source_sha256": "7e9e338de7b857d4917d005067782151dbb33142ea84928103198530bf542b69",
+      "selected_sha256": "ffcf7ecc540d3744f42a17a240f2fb7aa654b2ac55fa594779072f4a00f05a52",
+      "sanitized_sha256": "ffcf7ecc540d3744f42a17a240f2fb7aa654b2ac55fa594779072f4a00f05a52"
+    },
+    {
+      "label": "DISTRO fac608ff8994:projects/ROCKNIX/packages/ui/emulationstation/sources/start_es.sh",
+      "full_source_sha256": "463acec36231a2230f311e0281fe80693c0046c531985bd75bd4c8d83b95161e",
+      "selected_sha256": "067c930a75447386e18c39708f06d3029fb657df3f3b57645fda9893f9c86e34",
+      "sanitized_sha256": "067c930a75447386e18c39708f06d3029fb657df3f3b57645fda9893f9c86e34"
+    },
+    {
+      "label": "ES 3178b832b8d1:locale/CMakeLists.txt",
+      "full_source_sha256": "93d74aa0ccec66492d6b24168420d4a42fca390fa0f88351aae48e5bc74661c3",
+      "selected_sha256": "f2af217a9bae0f7d699bc34a1dea7d140eb09943a52ed10fc31e0e85f5ef994c",
+      "sanitized_sha256": "f2af217a9bae0f7d699bc34a1dea7d140eb09943a52ed10fc31e0e85f5ef994c"
+    },
+    {
+      "label": "ES 3178b832b8d1:CMakeLists.txt",
+      "full_source_sha256": "7821fe0a78f359789ad5fc050da19bd48a438ac845c4c43e95509ce9f61520d2",
+      "selected_sha256": "36ae594ff73fead6f3b5750b42df3becd3b47e7bc66ce42b4795f6d6ac82d74c",
+      "sanitized_sha256": "36ae594ff73fead6f3b5750b42df3becd3b47e7bc66ce42b4795f6d6ac82d74c"
+    },
+    {
+      "label": "Pinned Dolphin6094cfcf docs/WiaAndRvz.md",
+      "full_source_sha256": "8f03805ed0540b7bc019afcb80792958fc4e60faa421d7beceaad24b03bcdb03",
+      "selected_sha256": "6f49e227c08fc6d9c09323dfda5ab73439047b5cd0cc1477d5bcba869a1c30f2",
+      "sanitized_sha256": "6f49e227c08fc6d9c09323dfda5ab73439047b5cd0cc1477d5bcba869a1c30f2"
+    },
+    {
+      "label": "Pinned Dolphin6094cfcf Source/Core/DiscIO/WIABlob.cpp",
+      "full_source_sha256": "bd54bfa87d24ac7fedd8c8aca6cdabe127e2f7670ec77366f3b4f7bbe0070268",
+      "selected_sha256": "3be29860cee6651801b4513da5a62e6fd208dd105b867b3fde9a175dbd5301c2",
+      "sanitized_sha256": "3be29860cee6651801b4513da5a62e6fd208dd105b867b3fde9a175dbd5301c2"
+    },
+    {
+      "label": "ES 3178b832b8d1:external/libcheevos/rvz_hash.cpp",
+      "full_source_sha256": "7a5600669dd9d57956df8787753e9067092bb19411a3cc195443f3a4716d80d1",
+      "selected_sha256": "9ed612ffbd76042f3ea8e9e49038468226459e878b97d0ae27b7eae9d3f67862",
+      "sanitized_sha256": "9ed612ffbd76042f3ea8e9e49038468226459e878b97d0ae27b7eae9d3f67862"
+    },
+    {
+      "label": "DISTRO fac608ff8994:projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/dolphin-save-paths",
+      "full_source_sha256": "507ccc96245bfc7aaca5e154ef0567cacccd0cbc9d0f999761d2fdee1fc245e8",
+      "selected_sha256": "a36fd9b413e409c72db99d059265bcf1153c7a6eda992505a6158319effde1f8",
+      "sanitized_sha256": "a36fd9b413e409c72db99d059265bcf1153c7a6eda992505a6158319effde1f8"
+    },
+    {
+      "label": "Frozen issue#581 body (scope evidence)",
+      "full_source_sha256": "de106f1d42e1cca6b98e83aedee77ec6e5823d7026abe454a456f72b48d1ec5f",
+      "selected_sha256": "834e28c225f76c6272cef8b27f0cd75d169418ce66c7d252249922d932be7492",
+      "sanitized_sha256": "834e28c225f76c6272cef8b27f0cd75d169418ce66c7d252249922d932be7492"
+    },
+    {
+      "label": "Frozen issue#578 body (scope evidence)",
+      "full_source_sha256": "0172a5bb6e60cd2e6918e5dcb1d47346b4fb139af1e52f3ebb79361fa52e7979",
+      "selected_sha256": "6010055d09c9f37c3ce8bf524c13c0431b752be95249abd82f6937e57b52260f",
+      "sanitized_sha256": "6010055d09c9f37c3ce8bf524c13c0431b752be95249abd82f6937e57b52260f"
+    },
+    {
+      "label": "Frozen issue#582 body (scope evidence)",
+      "full_source_sha256": "ee87b5929d4999275bbfe4f6ce2d3037b531b0783436b2c9acd840692998bd98",
+      "selected_sha256": "df6d2401cb9243b1119fe7960d5be712aaa337b94f022688f654c9a26d84e2b9",
+      "sanitized_sha256": "df6d2401cb9243b1119fe7960d5be712aaa337b94f022688f654c9a26d84e2b9"
+    },
+    {
+      "label": "second-opinions/blind-findings-readback.md",
+      "original_sha256": "bf698f72d3a89b3e3a2b9b23fe4e90736be8f253e6a1e021626f126d06580535",
+      "sanitized_sha256": "bf698f72d3a89b3e3a2b9b23fe4e90736be8f253e6a1e021626f126d06580535",
+      "bytes": 7081
+    },
+    {
+      "label": "finding-wifi-process-shutdown.md",
+      "original_sha256": "181040a1e9906ac1b92ce5495ea6106054e12e5d9b2d045929f86e82f4694a81",
+      "sanitized_sha256": "181040a1e9906ac1b92ce5495ea6106054e12e5d9b2d045929f86e82f4694a81",
+      "bytes": 3235
+    },
+    {
+      "label": "second-opinions/blind-counter-source.md",
+      "original_sha256": "8de3e92a19908e33bab262384c118949ad383afa3ac1fe0a7272749e6dd16477",
+      "sanitized_sha256": "8965ca97e99013502a7612930082dc17e3e9788aa355a5dbd201b5287d24ba3e",
+      "bytes": 70243
+    },
+    {
+      "label": "frame-claims-supplement-readback.md",
+      "original_sha256": "975f2275c9c849de2f5a35c9b49d456adc297d91ba4244f6bc8c3282d4c7288c",
+      "sanitized_sha256": "975f2275c9c849de2f5a35c9b49d456adc297d91ba4244f6bc8c3282d4c7288c",
+      "bytes": 5754
+    },
+    {
+      "label": "engineering-image-supplement-readback.md",
+      "original_sha256": "c7b0c85695c64f46e0150bbb1c3d17405b50e1706c8d8d788753ed7133481568",
+      "sanitized_sha256": "c7b0c85695c64f46e0150bbb1c3d17405b50e1706c8d8d788753ed7133481568",
+      "bytes": 3637
+    },
+    {
+      "label": "dolphin-installed-supplement-readback.md",
+      "original_sha256": "e8c1e672cbdb33c171b81e441f649f77b7e42179b3edbf15669285fd93546fcb",
+      "sanitized_sha256": "aeac4d649a9584b568458947136e582a2a2a98a2bc3b4ac054d1092ef236fd4f",
+      "bytes": 3888
+    },
+    {
+      "label": "composition-supplement-readback.md",
+      "original_sha256": "8aae76727983f34b9194c070094bbaaa7b96baa82bd9769de7eccb3b0cc8c034",
+      "sanitized_sha256": "0ff8e45f8c6fae35a49b3b2983f4669861ccda0e6a960f04cbb99d3a2092f478",
+      "bytes": 5208
+    },
+    {
+      "label": "G-01 shutdown constraint / D-CLOUD-133 exact row",
+      "original_sha256": "d3e5d1d6f7b878573fc635476f14d36fa962b30de2b977c4e6fcbb7cf7bd7b38"
+    }
+  ],
+  "checks": {
+    "sealed_base_embedded_byte_exact": true,
+    "complete_blind_embedded_byte_exact": true,
+    "private_identity_values_absent": true,
+    "personal_host_prefix_absent": true,
+    "nul_absent": true,
+    "runtime_or_external_calls_by_auditor": 0
+  },
+  "pending": "Parent dispatch + original refutation receipt, all lead grading; native gameplay/save remains independent pending evidence.",
+  "pre_dispatch_revision": "Added independently read D-CLOUD-133/SIGTERM ownership constraint; corrected grading-count prose. Sealed base/blind and original response unchanged."
+}

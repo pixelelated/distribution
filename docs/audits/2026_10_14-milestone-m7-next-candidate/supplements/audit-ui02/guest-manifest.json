@@ -1,0 +1,1447 @@
+[
+  {
+    "path": "audit-ui/bindings.json",
+    "bytes": 7435,
+    "sha256": "189a5f0841087086d2e187058c59a18e2d8a7f7b88a9cf656b1726d9a5aa7f84"
+  },
+  {
+    "path": "audit-ui/controls/baseline-explicit/backend-pids",
+    "bytes": 10,
+    "sha256": "595cf9ec1129950bacb62d0c8084b3bb230263f94b27d9b167a28653b5595712"
+  },
+  {
+    "path": "audit-ui/controls/baseline-explicit/backend-ready",
+    "bytes": 6,
+    "sha256": "ed1a545bb85e55816bbf9566b028b2a0bc456b88f49f6f266c0401048824194b"
+  },
+  {
+    "path": "audit-ui/controls/baseline-explicit/before-cleanup.json",
+    "bytes": 1697,
+    "sha256": "8ed6a123aee5adca21d691dd99435a564f48782923ec00b73ddc17b1a777505b"
+  },
+  {
+    "path": "audit-ui/controls/baseline-explicit/continue-exit",
+    "bytes": 12,
+    "sha256": "95339fe860bb02a83bfe86ec83bde620359b655d75cb3e473398c4719741a547"
+  },
+  {
+    "path": "audit-ui/controls/baseline-explicit/driver-ready",
+    "bytes": 6,
+    "sha256": "ed1a545bb85e55816bbf9566b028b2a0bc456b88f49f6f266c0401048824194b"
+  },
+  {
+    "path": "audit-ui/controls/baseline-explicit/driver.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "audit-ui/controls/baseline-explicit/driver.stdout",
+    "bytes": 23,
+    "sha256": "149206aec0670b425c2c52d3d709e1c19271cc6a8aa3ed67d9e63b42105c22f7"
+  },
+  {
+    "path": "audit-ui/controls/baseline-explicit/invocations",
+    "bytes": 15,
+    "sha256": "074618cccc28b7cb276100f0ab00ae2fab3a1e07c638e4061455bce781ea7681"
+  },
+  {
+    "path": "audit-ui/controls/baseline-explicit/result.json",
+    "bytes": 2320,
+    "sha256": "0eb91220e1a34127d62db56c418d2c79a48650e80a9a6fce048d139166c020c0"
+  },
+  {
+    "path": "audit-ui/controls/baseline-explicit/view-ownership.json",
+    "bytes": 56,
+    "sha256": "9ee34e07571a001b17dda4aad32998da0594420997edebd7b6882df9423144b8"
+  },
+  {
+    "path": "audit-ui/controls/baseline-explicit.command.json",
+    "bytes": 622,
+    "sha256": "47b5451a9d9abfa936059e2e3901c1d2e010dbd06d9ad3dcc4b4a2da2aa847fe"
+  },
+  {
+    "path": "audit-ui/controls/baseline-explicit.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "audit-ui/controls/baseline-explicit.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "audit-ui/controls/candidate-atexit/backend-pids",
+    "bytes": 10,
+    "sha256": "c90c0f73147f257fa1fdbf51bec7cb78cd8c581809f8fc99a4a8f5655146c030"
+  },
+  {
+    "path": "audit-ui/controls/candidate-atexit/backend-ready",
+    "bytes": 6,
+    "sha256": "ed1a545bb85e55816bbf9566b028b2a0bc456b88f49f6f266c0401048824194b"
+  },
+  {
+    "path": "audit-ui/controls/candidate-atexit/before-cleanup.json",
+    "bytes": 1297,
+    "sha256": "2568b9f0db82279f27663a531f6aec3ec73c500b70741db5ccd0e6ff61bed6cb"
+  },
+  {
+    "path": "audit-ui/controls/candidate-atexit/continue-exit",
+    "bytes": 12,
+    "sha256": "95339fe860bb02a83bfe86ec83bde620359b655d75cb3e473398c4719741a547"
+  },
+  {
+    "path": "audit-ui/controls/candidate-atexit/driver-ready",
+    "bytes": 6,
+    "sha256": "ed1a545bb85e55816bbf9566b028b2a0bc456b88f49f6f266c0401048824194b"
+  },
+  {
+    "path": "audit-ui/controls/candidate-atexit/driver.stderr",
+    "bytes": 97,
+    "sha256": "062cae2c80db42f9f9a1d1b3747f0b9cae8e91c761b36114901d4fe450984ce2"
+  },
+  {
+    "path": "audit-ui/controls/candidate-atexit/driver.stdout",
+    "bytes": 23,
+    "sha256": "149206aec0670b425c2c52d3d709e1c19271cc6a8aa3ed67d9e63b42105c22f7"
+  },
+  {
+    "path": "audit-ui/controls/candidate-atexit/invocations",
+    "bytes": 15,
+    "sha256": "def81b9e016f8ac5f52af372bcf87c8508523ff4e02f12352695f82f155ab430"
+  },
+  {
+    "path": "audit-ui/controls/candidate-atexit/result.json",
+    "bytes": 1345,
+    "sha256": "64b808edf2f4aa7aa2b600d4b2003845ffb1c6754b0aca883b209b27896450dd"
+  },
+  {
+    "path": "audit-ui/controls/candidate-atexit/view-ownership.json",
+    "bytes": 56,
+    "sha256": "9ee34e07571a001b17dda4aad32998da0594420997edebd7b6882df9423144b8"
+  },
+  {
+    "path": "audit-ui/controls/candidate-atexit.command.json",
+    "bytes": 619,
+    "sha256": "5bd8f600d6d4a7409c58aea5a3d315d37d874ca7fab30ae1acfd581e24b914d8"
+  },
+  {
+    "path": "audit-ui/controls/candidate-atexit.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "audit-ui/controls/candidate-atexit.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "audit-ui/controls/candidate-complete/before-cleanup.json",
+    "bytes": 698,
+    "sha256": "6a306e16692d109450da540fc557d81b14a073ebbee98b602e01f533538a1b7a"
+  },
+  {
+    "path": "audit-ui/controls/candidate-complete/continue-exit",
+    "bytes": 12,
+    "sha256": "95339fe860bb02a83bfe86ec83bde620359b655d75cb3e473398c4719741a547"
+  },
+  {
+    "path": "audit-ui/controls/candidate-complete/driver-ready",
+    "bytes": 6,
+    "sha256": "ed1a545bb85e55816bbf9566b028b2a0bc456b88f49f6f266c0401048824194b"
+  },
+  {
+    "path": "audit-ui/controls/candidate-complete/driver.stderr",
+    "bytes": 130,
+    "sha256": "79b32f40ffab1c9c27327a262c4e5cc0d3678b8548b4ef97ec9176addb26eb3e"
+  },
+  {
+    "path": "audit-ui/controls/candidate-complete/driver.stdout",
+    "bytes": 23,
+    "sha256": "149206aec0670b425c2c52d3d709e1c19271cc6a8aa3ed67d9e63b42105c22f7"
+  },
+  {
+    "path": "audit-ui/controls/candidate-complete/invocations",
+    "bytes": 102,
+    "sha256": "00e51714c7bd39ad2703bfeba27e138b5822d023f107479bc4f4fbd47638814d"
+  },
+  {
+    "path": "audit-ui/controls/candidate-complete/result.json",
+    "bytes": 746,
+    "sha256": "f1b2f55839f8e0c577d785d7e6bbbfd34714a4c02eccb8706d06560ef4eb0941"
+  },
+  {
+    "path": "audit-ui/controls/candidate-complete/shutdown.json",
+    "bytes": 59,
+    "sha256": "8f58390ba6b41f950d1282ef590ec30c9974b951cc902ce3ea864e174a70f03a"
+  },
+  {
+    "path": "audit-ui/controls/candidate-complete.command.json",
+    "bytes": 625,
+    "sha256": "334cbc7a22d117637031e7b68639bf0e68f1b489cfebe0b6d8ee985f21adbe64"
+  },
+  {
+    "path": "audit-ui/controls/candidate-complete.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "audit-ui/controls/candidate-complete.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "audit-ui/controls/candidate-explicit/backend-pids",
+    "bytes": 10,
+    "sha256": "cf28bcb620258b75e9893990f0225555d40271a2c9717549725530ba5febf9c4"
+  },
+  {
+    "path": "audit-ui/controls/candidate-explicit/backend-ready",
+    "bytes": 6,
+    "sha256": "ed1a545bb85e55816bbf9566b028b2a0bc456b88f49f6f266c0401048824194b"
+  },
+  {
+    "path": "audit-ui/controls/candidate-explicit/before-cleanup.json",
+    "bytes": 1301,
+    "sha256": "8c99cc28000af764c85d3c71a8dbefb000217fa113abef88e8dabb2efb02f350"
+  },
+  {
+    "path": "audit-ui/controls/candidate-explicit/continue-exit",
+    "bytes": 12,
+    "sha256": "95339fe860bb02a83bfe86ec83bde620359b655d75cb3e473398c4719741a547"
+  },
+  {
+    "path": "audit-ui/controls/candidate-explicit/driver-ready",
+    "bytes": 6,
+    "sha256": "ed1a545bb85e55816bbf9566b028b2a0bc456b88f49f6f266c0401048824194b"
+  },
+  {
+    "path": "audit-ui/controls/candidate-explicit/driver.stderr",
+    "bytes": 97,
+    "sha256": "062cae2c80db42f9f9a1d1b3747f0b9cae8e91c761b36114901d4fe450984ce2"
+  },
+  {
+    "path": "audit-ui/controls/candidate-explicit/driver.stdout",
+    "bytes": 23,
+    "sha256": "149206aec0670b425c2c52d3d709e1c19271cc6a8aa3ed67d9e63b42105c22f7"
+  },
+  {
+    "path": "audit-ui/controls/candidate-explicit/invocations",
+    "bytes": 15,
+    "sha256": "60811cfe80c643bd859f1efb5d53e750d9d045a31f8c965babddf9a9ec713489"
+  },
+  {
+    "path": "audit-ui/controls/candidate-explicit/result.json",
+    "bytes": 1349,
+    "sha256": "7fec8feef70c39e16e7fac367899e92d132387db105476e70444df2c62ab4df6"
+  },
+  {
+    "path": "audit-ui/controls/candidate-explicit/shutdown.json",
+    "bytes": 60,
+    "sha256": "d545c39cb8ed93e7fd59df42507f6d8d8cf449348856342d5f15537182d3762e"
+  },
+  {
+    "path": "audit-ui/controls/candidate-explicit/view-ownership.json",
+    "bytes": 56,
+    "sha256": "9ee34e07571a001b17dda4aad32998da0594420997edebd7b6882df9423144b8"
+  },
+  {
+    "path": "audit-ui/controls/candidate-explicit.command.json",
+    "bytes": 625,
+    "sha256": "1e880b97528511af1acc5a5a728e113fade70f60f965da1476596221b26bfbf5"
+  },
+  {
+    "path": "audit-ui/controls/candidate-explicit.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "audit-ui/controls/candidate-explicit.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "audit-ui/controls/original-commands.json",
+    "bytes": 2682,
+    "sha256": "fed76298db1b74de3b6569a1540e272146f48959783d44b1b4802ee087b24065"
+  },
+  {
+    "path": "audit-ui/controls/review.json",
+    "bytes": 2933,
+    "sha256": "96c01b42141c67416c21a0cea7d57f5449b4cd006c30b336a720acb1c47e3d98"
+  },
+  {
+    "path": "audit-ui/dolphin-config-current.json",
+    "bytes": 715,
+    "sha256": "6e045587404293ee396d34afb9c14ed36744eb32be49b1b47e4a698d0f61deea"
+  },
+  {
+    "path": "audit-ui/dolphin-config-en_US-completed-manifest.json",
+    "bytes": 682042,
+    "sha256": "3f5d9efde50e6ec673d3dc63cafe795723b99725e85f2fbbc0e43dfa6158b011"
+  },
+  {
+    "path": "audit-ui/dolphin-config-en_US-custody.json",
+    "bytes": 715,
+    "sha256": "c9a5af0622af23a7cfff084e29083db85b3fc1a06b7bec55835145676a846744"
+  },
+  {
+    "path": "audit-ui/dolphin-config-en_US-original-manifest.json",
+    "bytes": 678956,
+    "sha256": "f3f1063de2a7940edcc987eebbb234be70082a131699aa8ab80f81f177ec4300"
+  },
+  {
+    "path": "audit-ui/dolphin-config-fr_FR-completed-manifest.json",
+    "bytes": 682042,
+    "sha256": "64edf92afe9ebd771d5012df41d3b3ee74e0fc2f4aefe01183cdf84749aed4ad"
+  },
+  {
+    "path": "audit-ui/dolphin-config-fr_FR-custody.json",
+    "bytes": 715,
+    "sha256": "6e045587404293ee396d34afb9c14ed36744eb32be49b1b47e4a698d0f61deea"
+  },
+  {
+    "path": "audit-ui/dolphin-config-fr_FR-original-manifest.json",
+    "bytes": 678956,
+    "sha256": "f3f1063de2a7940edcc987eebbb234be70082a131699aa8ab80f81f177ec4300"
+  },
+  {
+    "path": "audit-ui/mounts.json",
+    "bytes": 3,
+    "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+  },
+  {
+    "path": "audit-ui/originals/es_settings.cfg",
+    "bytes": 41,
+    "sha256": "c93d8b293aa7eb72cbfd211173f1b76bbfc46a46e9422567f52f67cc8b6151e8"
+  },
+  {
+    "path": "audit-ui/originals/system.cfg",
+    "bytes": 5364,
+    "sha256": "2f1579a08abb4cab150b7323bf2e89cb55d24463efd1e584322ebafe91afffae"
+  },
+  {
+    "path": "audit-ui/refusal-en_US-before.json",
+    "bytes": 1106,
+    "sha256": "d01aa381dee435e2d4d6a9d0ba19cdab4957ecc681d3607dec5f160957f4864e"
+  },
+  {
+    "path": "audit-ui/refusal-en_US-cheevos-log",
+    "bytes": 146,
+    "sha256": "7a7954d00dbe99ce0d72a206c6ea29c53f21adaa27cdc435d6ea54192c54945d"
+  },
+  {
+    "path": "audit-ui/refusal-en_US-es-log",
+    "bytes": 26577,
+    "sha256": "64518586e23592a91894e0e4033ec493aedc235c621480df71e6d643d0c895d4"
+  },
+  {
+    "path": "audit-ui/refusal-en_US-exec-log",
+    "bytes": 1612,
+    "sha256": "69c76b7f5d5a9038b28131f27e2b0181b23059a55471d44851925a187c2fdd22"
+  },
+  {
+    "path": "audit-ui/refusal-en_US-launch.json",
+    "bytes": 133,
+    "sha256": "eb347ac27dcd61d5e6e493570a61de98074b759cbdde95690e794f2e28ceecaf"
+  },
+  {
+    "path": "audit-ui/refusal-en_US-log-manifest.json",
+    "bytes": 642,
+    "sha256": "88c630e82c8accff7a7a15ff85714b28429b8f283fcba7d86f768f981698c345"
+  },
+  {
+    "path": "audit-ui/refusal-en_US-result.json",
+    "bytes": 920,
+    "sha256": "9edc9ea2e1978d1919311df0f4c3385ad7d4fc47a5253ba07bc3f5e22d7f981d"
+  },
+  {
+    "path": "audit-ui/refusal-fr_FR-before.json",
+    "bytes": 1287,
+    "sha256": "df0a00141ea67b65361c864faa58cae503ec9bd77ee6709fec9e2dde0a34c0fc"
+  },
+  {
+    "path": "audit-ui/refusal-fr_FR-cheevos-log",
+    "bytes": 146,
+    "sha256": "7a7954d00dbe99ce0d72a206c6ea29c53f21adaa27cdc435d6ea54192c54945d"
+  },
+  {
+    "path": "audit-ui/refusal-fr_FR-es-log",
+    "bytes": 26511,
+    "sha256": "dc37cfb18e9a9417a9568cfefbd96a505342a4ca649b033c4a5f647ac6ccc1ec"
+  },
+  {
+    "path": "audit-ui/refusal-fr_FR-exec-log",
+    "bytes": 1614,
+    "sha256": "6580cbc4d2745628e1f8c1fc616042b451c9a2e1511461584ce8c5945bbb9bd3"
+  },
+  {
+    "path": "audit-ui/refusal-fr_FR-launch.json",
+    "bytes": 133,
+    "sha256": "c30365f4d2970d4b681bbae36588716cef8f6eaf396f02ddff961539e91863a2"
+  },
+  {
+    "path": "audit-ui/refusal-fr_FR-log-manifest.json",
+    "bytes": 642,
+    "sha256": "78518ab2ab4f6975f54637cdac55a60933bb9b3069af6799b7233ed182f4dea2"
+  },
+  {
+    "path": "audit-ui/refusal-fr_FR-result.json",
+    "bytes": 1000,
+    "sha256": "2fdae7a1c761393fa57fb40db2ac0f3fde55aa9bd32153e49b2358b3e508c1de"
+  },
+  {
+    "path": "audit-ui/restored.json",
+    "bytes": 72,
+    "sha256": "3bb3f5f5d5a9b3675dca32e9d8db93fe608e0f3c818f9be703c0087c25fb667d"
+  },
+  {
+    "path": "audit-ui/wifi-baseline/backend-pids",
+    "bytes": 10,
+    "sha256": "ddea045d6cd08927e251c6455cc066af45f69a0985735f21d45502bb187130cf"
+  },
+  {
+    "path": "audit-ui/wifi-baseline/backend-ready",
+    "bytes": 6,
+    "sha256": "ed1a545bb85e55816bbf9566b028b2a0bc456b88f49f6f266c0401048824194b"
+  },
+  {
+    "path": "audit-ui/wifi-baseline/before-cleanup.json",
+    "bytes": 2179,
+    "sha256": "7e33f6b4cdc954e74ddaf03232ffa7ec3e9ab4c42f9b21c75a3eca568f4b1e69"
+  },
+  {
+    "path": "audit-ui/wifi-baseline/blocked-ready.json",
+    "bytes": 372,
+    "sha256": "f548d03fd9027f641f96ce1149b6b7b67660fe928a1d6fc53d7bcfdcd967b97f"
+  },
+  {
+    "path": "audit-ui/wifi-baseline/continue-exit",
+    "bytes": 46,
+    "sha256": "ebc9f645f3852f2554ed0327e58f82df4e3597d91f233c3245ff14923e6c6885"
+  },
+  {
+    "path": "audit-ui/wifi-baseline/es-log.txt",
+    "bytes": 22128,
+    "sha256": "0a65505f1cd36443948973a3b4bfdd51067a9764d7ff9c075db731712d29edcb"
+  },
+  {
+    "path": "audit-ui/wifi-baseline/frontend-ready.json",
+    "bytes": 206,
+    "sha256": "cf6391c517280a2fda93e32fc31823f14069a9490d51dbd41ef697efb697d902"
+  },
+  {
+    "path": "audit-ui/wifi-baseline/frontend.stderr",
+    "bytes": 18120,
+    "sha256": "0f86f750b9b841c5d980aede7bac50e9bdb16d3ae291c89ca6e5cc0a1ce4b6cc"
+  },
+  {
+    "path": "audit-ui/wifi-baseline/frontend.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "audit-ui/wifi-baseline/invocations",
+    "bytes": 55,
+    "sha256": "84d7377fd9a3d5be7cb370e5a4244583cb3c57054b88786dc592f323302170fd"
+  },
+  {
+    "path": "audit-ui/wifi-baseline/owner-result.json",
+    "bytes": 436,
+    "sha256": "4f9200119cd50270c233a234f5d6a26ae93d9aa2be2d595531c148489b9654b2"
+  },
+  {
+    "path": "audit-ui/wifi-baseline/result.json",
+    "bytes": 2803,
+    "sha256": "a0864885e864b839369ef2740b6371dc93bf6655f75fc3063665aff4821b21ce"
+  },
+  {
+    "path": "audit-ui/wifi-baseline/startup-inputs.json",
+    "bytes": 372,
+    "sha256": "ec93ceb222a104dac5cec6aa22379eac0a7944bd429a2e54ad5f31bc5c25c0dc"
+  },
+  {
+    "path": "audit-ui/wifi-baseline.owner.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "audit-ui/wifi-baseline.owner.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "audit-ui/wifi-candidate/backend-pids",
+    "bytes": 10,
+    "sha256": "3464eb74de866e75879136653d632e244f31216fafece3cb46b47f000ea04ac2"
+  },
+  {
+    "path": "audit-ui/wifi-candidate/backend-ready",
+    "bytes": 6,
+    "sha256": "ed1a545bb85e55816bbf9566b028b2a0bc456b88f49f6f266c0401048824194b"
+  },
+  {
+    "path": "audit-ui/wifi-candidate/before-cleanup.json",
+    "bytes": 1832,
+    "sha256": "4b5f02a6999c2318e28d4bda201085d787f78b384596e9fa2b7561055c492c10"
+  },
+  {
+    "path": "audit-ui/wifi-candidate/blocked-ready.json",
+    "bytes": 375,
+    "sha256": "af41bc3a5af4849ae00ecaffc882872aba3204fa957de21bd490ae9e20308070"
+  },
+  {
+    "path": "audit-ui/wifi-candidate/continue-exit",
+    "bytes": 46,
+    "sha256": "ebc9f645f3852f2554ed0327e58f82df4e3597d91f233c3245ff14923e6c6885"
+  },
+  {
+    "path": "audit-ui/wifi-candidate/es-log.txt",
+    "bytes": 22324,
+    "sha256": "40292291a9e29f7287c8b2d181ee45d1fb4ce7be4869db84bdbf4d350ef9cfba"
+  },
+  {
+    "path": "audit-ui/wifi-candidate/frontend-ready.json",
+    "bytes": 207,
+    "sha256": "a852ad95ddabe6883b0d02f59a776e7f3e43e80b31359b7409661bdd3259e461"
+  },
+  {
+    "path": "audit-ui/wifi-candidate/frontend.stderr",
+    "bytes": 18120,
+    "sha256": "d562d18643b149d6814f6bbeff0a5a214ab564b5c59b6275317ef413d29f533d"
+  },
+  {
+    "path": "audit-ui/wifi-candidate/frontend.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "audit-ui/wifi-candidate/invocations",
+    "bytes": 55,
+    "sha256": "30bf563000f96a5c85b0298b13882a961cc95adbe676122d87866d4c04182fc4"
+  },
+  {
+    "path": "audit-ui/wifi-candidate/owner-result.json",
+    "bytes": 420,
+    "sha256": "9928f4629af99385ce9dad9b58c26c7d7b0c638c3009c706e1e6a32d42ca52db"
+  },
+  {
+    "path": "audit-ui/wifi-candidate/result.json",
+    "bytes": 1881,
+    "sha256": "e9c008edf68d7dd7369911587ec266774ad8c1bcbc7e239ea4092e7e9ec2702f"
+  },
+  {
+    "path": "audit-ui/wifi-candidate/startup-inputs.json",
+    "bytes": 372,
+    "sha256": "92392425fbc3e10d91e98ce25705ea6755d42ddccbfbe32b182b22d0be9370df"
+  },
+  {
+    "path": "audit-ui/wifi-candidate.owner.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "audit-ui/wifi-candidate.owner.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "audit-ui/wifi-current.json",
+    "bytes": 832,
+    "sha256": "9a8e39d47fb57cb5203537124d49ea61e58ce13d24e877cbf3741f55b84be125"
+  },
+  {
+    "path": "gameplay/abort.json",
+    "bytes": 99,
+    "sha256": "883374fc025aa8080322e0137591962f10722e73fb3c1649de7b5f264597aab6"
+  },
+  {
+    "path": "gameplay/audit-bind-260fb6a7.json",
+    "bytes": 179,
+    "sha256": "550cd812653a63300fc16e0057ca1dbfd83b22aa587c9b0b66ee273e8b3dc096"
+  },
+  {
+    "path": "gameplay/audit-bind-260fb6a7.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-bind-260fb6a7.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-bind-339add0b.json",
+    "bytes": 153,
+    "sha256": "eb48680f2945a05a426fa680a0092cda9e1e0ba814d3a9a8d6df2ac6b3c85052"
+  },
+  {
+    "path": "gameplay/audit-bind-339add0b.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-bind-339add0b.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-bind-5c71db6b.json",
+    "bytes": 193,
+    "sha256": "23ca83ae589a26faa05b724a446eff4cda1eca54f5bce2cf6ac25f36bcecec5b"
+  },
+  {
+    "path": "gameplay/audit-bind-5c71db6b.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-bind-5c71db6b.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-bind-61a5293b.json",
+    "bytes": 175,
+    "sha256": "9d0caa49422552b7ae4a39532fa29bd0d0ac44ce0f14f94ed7c43da777c93c24"
+  },
+  {
+    "path": "gameplay/audit-bind-61a5293b.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-bind-61a5293b.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-bind-65f17ea8.json",
+    "bytes": 175,
+    "sha256": "9d0caa49422552b7ae4a39532fa29bd0d0ac44ce0f14f94ed7c43da777c93c24"
+  },
+  {
+    "path": "gameplay/audit-bind-65f17ea8.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-bind-65f17ea8.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-bind-79321301.json",
+    "bytes": 153,
+    "sha256": "eb48680f2945a05a426fa680a0092cda9e1e0ba814d3a9a8d6df2ac6b3c85052"
+  },
+  {
+    "path": "gameplay/audit-bind-79321301.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-bind-79321301.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-bind-7a39a910.json",
+    "bytes": 193,
+    "sha256": "23ca83ae589a26faa05b724a446eff4cda1eca54f5bce2cf6ac25f36bcecec5b"
+  },
+  {
+    "path": "gameplay/audit-bind-7a39a910.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-bind-7a39a910.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-bind-d7594ef1.json",
+    "bytes": 193,
+    "sha256": "23ca83ae589a26faa05b724a446eff4cda1eca54f5bce2cf6ac25f36bcecec5b"
+  },
+  {
+    "path": "gameplay/audit-bind-d7594ef1.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-bind-d7594ef1.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-bind-f61d1575.json",
+    "bytes": 179,
+    "sha256": "550cd812653a63300fc16e0057ca1dbfd83b22aa587c9b0b66ee273e8b3dc096"
+  },
+  {
+    "path": "gameplay/audit-bind-f61d1575.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-bind-f61d1575.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-private-4d6b50d4.json",
+    "bytes": 137,
+    "sha256": "88b4f18f755aeb002d612bdc3946d7c82bcf9353bcd4404015e0c4f6a6e8dd79"
+  },
+  {
+    "path": "gameplay/audit-private-4d6b50d4.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-private-4d6b50d4.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-private-4e53a840.json",
+    "bytes": 128,
+    "sha256": "8017ab9ec789ad68794f3a9930765db79c3d2b98aefceb14d0a576154731195a"
+  },
+  {
+    "path": "gameplay/audit-private-4e53a840.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-private-4e53a840.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-private-5c33a0e0.json",
+    "bytes": 137,
+    "sha256": "88b4f18f755aeb002d612bdc3946d7c82bcf9353bcd4404015e0c4f6a6e8dd79"
+  },
+  {
+    "path": "gameplay/audit-private-5c33a0e0.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-private-5c33a0e0.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-private-5c429f7f.json",
+    "bytes": 137,
+    "sha256": "88b4f18f755aeb002d612bdc3946d7c82bcf9353bcd4404015e0c4f6a6e8dd79"
+  },
+  {
+    "path": "gameplay/audit-private-5c429f7f.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-private-5c429f7f.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-private-87f95691.json",
+    "bytes": 141,
+    "sha256": "0dea042522fe52c9aa5225cc97a7e70b18825d99356d3affe3976bc6728be87a"
+  },
+  {
+    "path": "gameplay/audit-private-87f95691.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-private-87f95691.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-private-8d240e31.json",
+    "bytes": 128,
+    "sha256": "8017ab9ec789ad68794f3a9930765db79c3d2b98aefceb14d0a576154731195a"
+  },
+  {
+    "path": "gameplay/audit-private-8d240e31.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-private-8d240e31.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-private-c8f1d0a1.json",
+    "bytes": 139,
+    "sha256": "e5be85b25e27426a8b0294e3b68e96e8cf2b8e43a052abd7ce643394cef18559"
+  },
+  {
+    "path": "gameplay/audit-private-c8f1d0a1.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-private-c8f1d0a1.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-private-d91a4740.json",
+    "bytes": 139,
+    "sha256": "e5be85b25e27426a8b0294e3b68e96e8cf2b8e43a052abd7ce643394cef18559"
+  },
+  {
+    "path": "gameplay/audit-private-d91a4740.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-private-d91a4740.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-private-e3d61e1a.json",
+    "bytes": 141,
+    "sha256": "0dea042522fe52c9aa5225cc97a7e70b18825d99356d3affe3976bc6728be87a"
+  },
+  {
+    "path": "gameplay/audit-private-e3d61e1a.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-private-e3d61e1a.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-save-path-check-32f25d6d.json",
+    "bytes": 173,
+    "sha256": "f34be499f65d336295a96b32cb6ccdc038b53b883ad08001b7ed5b5841f74256"
+  },
+  {
+    "path": "gameplay/audit-save-path-check-32f25d6d.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-save-path-check-32f25d6d.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-save-path-check-61f5a304.json",
+    "bytes": 173,
+    "sha256": "f34be499f65d336295a96b32cb6ccdc038b53b883ad08001b7ed5b5841f74256"
+  },
+  {
+    "path": "gameplay/audit-save-path-check-61f5a304.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-save-path-check-61f5a304.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-settings-20137450.json",
+    "bytes": 242,
+    "sha256": "cf4937b747206c058632fc357700009428b7dc2f1af6d6047f755f7371d03cc9"
+  },
+  {
+    "path": "gameplay/audit-settings-20137450.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-settings-20137450.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-settings-a964fd63.json",
+    "bytes": 304,
+    "sha256": "b3b7faea4a50ebbf2fe869e502399817595b7f7e1887e33941c956272e42c45d"
+  },
+  {
+    "path": "gameplay/audit-settings-a964fd63.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-settings-a964fd63.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-settings-cc6f70f4.json",
+    "bytes": 242,
+    "sha256": "be53d48f5c614ba3fc3e49e6edc91f1346e894261c02697522ace87bf0363381"
+  },
+  {
+    "path": "gameplay/audit-settings-cc6f70f4.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-settings-cc6f70f4.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-settings-d13079e0.json",
+    "bytes": 304,
+    "sha256": "b3b7faea4a50ebbf2fe869e502399817595b7f7e1887e33941c956272e42c45d"
+  },
+  {
+    "path": "gameplay/audit-settings-d13079e0.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-settings-d13079e0.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-start-es-111f3834.json",
+    "bytes": 121,
+    "sha256": "bc2594b43ad7263f1cfd67a7589d20887572c1ec27748509fd06135fd0778b53"
+  },
+  {
+    "path": "gameplay/audit-start-es-111f3834.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-start-es-111f3834.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-start-es-1df94c97.json",
+    "bytes": 121,
+    "sha256": "bc2594b43ad7263f1cfd67a7589d20887572c1ec27748509fd06135fd0778b53"
+  },
+  {
+    "path": "gameplay/audit-start-es-1df94c97.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-start-es-1df94c97.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-start-es-1ec89051.json",
+    "bytes": 121,
+    "sha256": "bc2594b43ad7263f1cfd67a7589d20887572c1ec27748509fd06135fd0778b53"
+  },
+  {
+    "path": "gameplay/audit-start-es-1ec89051.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-start-es-1ec89051.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-stop-es-0fe9763f.json",
+    "bytes": 120,
+    "sha256": "2d5072cb6f45b7d73102835d657cabd6dac0a9e157199199b4045ee49db1eb51"
+  },
+  {
+    "path": "gameplay/audit-stop-es-0fe9763f.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-stop-es-0fe9763f.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-stop-es-47bea083.json",
+    "bytes": 120,
+    "sha256": "2d5072cb6f45b7d73102835d657cabd6dac0a9e157199199b4045ee49db1eb51"
+  },
+  {
+    "path": "gameplay/audit-stop-es-47bea083.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-stop-es-47bea083.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-stop-es-9471b87f.json",
+    "bytes": 120,
+    "sha256": "2d5072cb6f45b7d73102835d657cabd6dac0a9e157199199b4045ee49db1eb51"
+  },
+  {
+    "path": "gameplay/audit-stop-es-9471b87f.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-stop-es-9471b87f.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-stop-es-c056b173.json",
+    "bytes": 120,
+    "sha256": "2d5072cb6f45b7d73102835d657cabd6dac0a9e157199199b4045ee49db1eb51"
+  },
+  {
+    "path": "gameplay/audit-stop-es-c056b173.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-stop-es-c056b173.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-stop-es-f2df59ca.json",
+    "bytes": 120,
+    "sha256": "2d5072cb6f45b7d73102835d657cabd6dac0a9e157199199b4045ee49db1eb51"
+  },
+  {
+    "path": "gameplay/audit-stop-es-f2df59ca.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-stop-es-f2df59ca.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-unbind-05fd8b58.json",
+    "bytes": 107,
+    "sha256": "fce395f614cdeba3a6f17fec5746b441b4ef055a67e3d4ceeaa3b5faeded528e"
+  },
+  {
+    "path": "gameplay/audit-unbind-05fd8b58.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-unbind-05fd8b58.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-unbind-08b8335e.json",
+    "bytes": 116,
+    "sha256": "c284fafb7dcecf47d236e975048ef8dfe428f13d0ab729b60d7025d487edd793"
+  },
+  {
+    "path": "gameplay/audit-unbind-08b8335e.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-unbind-08b8335e.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-unbind-1724930e.json",
+    "bytes": 116,
+    "sha256": "c284fafb7dcecf47d236e975048ef8dfe428f13d0ab729b60d7025d487edd793"
+  },
+  {
+    "path": "gameplay/audit-unbind-1724930e.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-unbind-1724930e.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-unbind-2ac059b3.json",
+    "bytes": 118,
+    "sha256": "eed0124af657916f404cda74dcdce5cd4b863f2ba26eb424acf3fd0a88b8baad"
+  },
+  {
+    "path": "gameplay/audit-unbind-2ac059b3.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-unbind-2ac059b3.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-unbind-40278168.json",
+    "bytes": 118,
+    "sha256": "eed0124af657916f404cda74dcdce5cd4b863f2ba26eb424acf3fd0a88b8baad"
+  },
+  {
+    "path": "gameplay/audit-unbind-40278168.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-unbind-40278168.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-unbind-99ece3b7.json",
+    "bytes": 120,
+    "sha256": "49afed52e0edd09bc76b5c180d2af97ea36a739db7a461a7ce3f127916d2b36e"
+  },
+  {
+    "path": "gameplay/audit-unbind-99ece3b7.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-unbind-99ece3b7.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-unbind-c7e49fca.json",
+    "bytes": 107,
+    "sha256": "fce395f614cdeba3a6f17fec5746b441b4ef055a67e3d4ceeaa3b5faeded528e"
+  },
+  {
+    "path": "gameplay/audit-unbind-c7e49fca.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-unbind-c7e49fca.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-unbind-d1e4cc65.json",
+    "bytes": 120,
+    "sha256": "49afed52e0edd09bc76b5c180d2af97ea36a739db7a461a7ce3f127916d2b36e"
+  },
+  {
+    "path": "gameplay/audit-unbind-d1e4cc65.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-unbind-d1e4cc65.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-unbind-e4f80ec6.json",
+    "bytes": 116,
+    "sha256": "c284fafb7dcecf47d236e975048ef8dfe428f13d0ab729b60d7025d487edd793"
+  },
+  {
+    "path": "gameplay/audit-unbind-e4f80ec6.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/audit-unbind-e4f80ec6.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/control-gen-14dde076.json",
+    "bytes": 105,
+    "sha256": "7d9d0bacfeac2531a1d49ad3027f662b331996b9e5bc31869573386543ca9392"
+  },
+  {
+    "path": "gameplay/control-gen-14dde076.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/control-gen-14dde076.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/control.ini",
+    "bytes": 505,
+    "sha256": "d9bdba7e37220fdd8f3f064d07d8b0b2db0e44bb1d28bb85009c4f0c2e428cfb"
+  },
+  {
+    "path": "gameplay/controller-identity.json",
+    "bytes": 1092,
+    "sha256": "45a39632dff9fb3241747d0c96631bf8a799f9133f620fb7681fc4ec34d2fcc2"
+  },
+  {
+    "path": "gameplay/display-outputs-c16dbd8f.json",
+    "bytes": 175,
+    "sha256": "01bd9024832dd3e3916d67085769b68b642b1130e305d52c2c118b3877f324ec"
+  },
+  {
+    "path": "gameplay/display-outputs-c16dbd8f.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/display-outputs-c16dbd8f.stdout",
+    "bytes": 4725,
+    "sha256": "e688cc763e9b86e074117bda060470d184e412f7a415948a953bbe22c0dad890"
+  },
+  {
+    "path": "gameplay/failure-cleanup.json",
+    "bytes": 358,
+    "sha256": "f28e6fd4a7a84b377125f87cb7ec30054d6084ce763342727028377a6c1c37f7"
+  },
+  {
+    "path": "gameplay/fixture-settings-d0d41412.json",
+    "bytes": 572,
+    "sha256": "259058f73786e07730389a12960aff90f81e9a33e4482b36d0974ab0cf9bfd23"
+  },
+  {
+    "path": "gameplay/fixture-settings-d0d41412.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/fixture-settings-d0d41412.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/flycast-fixture-fc2a56db.json",
+    "bytes": 282,
+    "sha256": "0813237711b30b2da31fe41efba39066c4f639c1f51c4d3c9a3fc99fc2fe95b7"
+  },
+  {
+    "path": "gameplay/flycast-fixture-fc2a56db.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/flycast-fixture-fc2a56db.stdout",
+    "bytes": 89,
+    "sha256": "0fae2830464fa53105d71a4f5ec577d04645e2ea4c1c7e2cd3abd49547920299"
+  },
+  {
+    "path": "gameplay/http-059a85a4be744d52a47427336b4868c1.json",
+    "bytes": 141,
+    "sha256": "93eed5eb53eed831416b05c0d6a8455f11fe469876f7e7c6ad8a6c461b408e4c"
+  },
+  {
+    "path": "gameplay/http-0fdf983da3374f06a4908a329df7c585.json",
+    "bytes": 141,
+    "sha256": "9ed1db24abe63a40a40f2d3c1763be1dd0a71ebab80f5b42461465b789529c6b"
+  },
+  {
+    "path": "gameplay/http-268e208e170c4c149e6f142fc17b8020.json",
+    "bytes": 140,
+    "sha256": "15dfc58c77dbd1abfe6dbf6026f6f51e41b167a111f7af34da787b821e0e5fe6"
+  },
+  {
+    "path": "gameplay/http-48786f4d5b0a4a3dbdc4d5291c4f634a.json",
+    "bytes": 133,
+    "sha256": "eb347ac27dcd61d5e6e493570a61de98074b759cbdde95690e794f2e28ceecaf"
+  },
+  {
+    "path": "gameplay/http-66f7e7f7886b43f8bef54c46bc45d5c1.json",
+    "bytes": 139,
+    "sha256": "ed24b8f9241c10fda43f9300bc150cccc489526fd79b637f20e74421b9c3ba3c"
+  },
+  {
+    "path": "gameplay/http-7a402737e5c14fcba56e7cdb92a1affd.json",
+    "bytes": 133,
+    "sha256": "c30365f4d2970d4b681bbae36588716cef8f6eaf396f02ddff961539e91863a2"
+  },
+  {
+    "path": "gameplay/http-a9e6eb7c9a174a05b0bc29ed1e980e93.json",
+    "bytes": 141,
+    "sha256": "00657dcde18054e75cac95ecfc212931b111abb3350bb0f516f12fef8daa2659"
+  },
+  {
+    "path": "gameplay/http-b924d6c932b3422a80c2c0e480115612.json",
+    "bytes": 5076,
+    "sha256": "b8e3a090273dff2d9059446bd2405acb8007088c6fca8a597a9188426af1218a"
+  },
+  {
+    "path": "gameplay/installed-inputs.json",
+    "bytes": 10918,
+    "sha256": "53cf0ac737dcab19e740498f62c09afa16571f04ae161a85c34e4c6add3ed3d4"
+  },
+  {
+    "path": "gameplay/originals/es_input.cfg",
+    "bytes": 117859,
+    "sha256": "8e6033b5cc8553c11887440eea140573452c64865972f8144962bc990b00b87b"
+  },
+  {
+    "path": "gameplay/originals/system-before-settings.cfg",
+    "bytes": 5140,
+    "sha256": "acbcc13f4aaff890d381b34a046f5c2074bde6e40042ca29f363e846c63afce6"
+  },
+  {
+    "path": "gameplay/originals/system.cfg",
+    "bytes": 5042,
+    "sha256": "f00bec8bff55e025bad63d40101ebb21368aa8dc624f53e18a6267b83c9569fd"
+  },
+  {
+    "path": "gameplay/pad-ready.json",
+    "bytes": 800,
+    "sha256": "4bbe6fefdbe348ab143e76d08a7393a2df7957716f1e13054350243afa7a7a8e"
+  },
+  {
+    "path": "gameplay/pad-result.json",
+    "bytes": 208,
+    "sha256": "f94fbedf3eff1174aaba313e5100ceb7049cad11b1b7894aa3af037852b14ebb"
+  },
+  {
+    "path": "gameplay/pad.events.jsonl",
+    "bytes": 137,
+    "sha256": "96279b149e58748c2c27fb151c33504abff1caf310ac59527a4630876750505d"
+  },
+  {
+    "path": "gameplay/pad.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/pad.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/process-observations.jsonl",
+    "bytes": 11923,
+    "sha256": "6375047686d4d57ca9b5eb594baf3694c8bb9d80d1b284d37f3186ff7b0ccfcc"
+  },
+  {
+    "path": "gameplay/provision.json",
+    "bytes": 5726,
+    "sha256": "7d52917b8637a576f8a2bbf2c402e845bb344ac7b3660f72a0da522e13a6c252"
+  },
+  {
+    "path": "gameplay/start-es-7bd30f3b.json",
+    "bytes": 121,
+    "sha256": "bc2594b43ad7263f1cfd67a7589d20887572c1ec27748509fd06135fd0778b53"
+  },
+  {
+    "path": "gameplay/start-es-7bd30f3b.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/start-es-7bd30f3b.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/stop-es-dc4c7744.json",
+    "bytes": 120,
+    "sha256": "2d5072cb6f45b7d73102835d657cabd6dac0a9e157199199b4045ee49db1eb51"
+  },
+  {
+    "path": "gameplay/stop-es-dc4c7744.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/stop-es-dc4c7744.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/supervisor-result.json",
+    "bytes": 453,
+    "sha256": "33058f8dac59f21f4982f06435ba52401a2bac07afe099636cf8a7e760f8f520"
+  },
+  {
+    "path": "gameplay/supervisor.json",
+    "bytes": 182,
+    "sha256": "7d2583325031f94897bfc2dec466aa83c90bad696f315921705957f88b9500e9"
+  },
+  {
+    "path": "gameplay/supervisor.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/supervisor.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/wii-fixture-97b4402c.json",
+    "bytes": 196,
+    "sha256": "6809730911debd76d58e3ab27aa649e88e95aa253770e2e74c2930f9868fc4cf"
+  },
+  {
+    "path": "gameplay/wii-fixture-97b4402c.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/wii-fixture-97b4402c.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/wii-preparation/Dolphin.ini.before",
+    "bytes": 2975,
+    "sha256": "e352eafa7fd9a99c3075377a9236142808d0c0131e6711af07ce42792202e9e1"
+  },
+  {
+    "path": "gameplay/wii-preparation/GFX.ini.before",
+    "bytes": 1336,
+    "sha256": "0e885638efad1e50a4f0a90d2cf7c72c295fc2d815b5b1af41bc417dea21c71f"
+  },
+  {
+    "path": "gameplay/wii-preparation/configure-sd.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "gameplay/wii-preparation/configure-sd.stdout",
+    "bytes": 103,
+    "sha256": "1f42e25895ec728e61abcb37b2d68d84dba0f2fac02cd8e6326d608be721e084"
+  },
+  {
+    "path": "gameplay/wii-preparation/prelaunch.sha256",
+    "bytes": 204,
+    "sha256": "972941f79024581c367be7e382ee27129ff993e82deb204a09b08697d7c1079e"
+  },
+  {
+    "path": "gameplay/wii-preparation/renderer-readback.txt",
+    "bytes": 7,
+    "sha256": "f23e50c9b74c2e27558a4e01a05e4e1e71826fb0657de4fa3c2f9548066576ad"
+  },
+  {
+    "path": "gameplay/wii-preparation/system.cfg.before",
+    "bytes": 5042,
+    "sha256": "f00bec8bff55e025bad63d40101ebb21368aa8dc624f53e18a6267b83c9569fd"
+  },
+  {
+    "path": "gameplay/wii-preparation/write-protect-readback.txt",
+    "bytes": 6,
+    "sha256": "2ed27c1421e6928dbe13dbfdb5c59e1045b30341fe7ebe05700006bc5ac572c0"
+  }
+]

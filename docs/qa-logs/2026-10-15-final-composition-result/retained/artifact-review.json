@@ -1,0 +1,119 @@
+{
+  "actual_qemu_cpus": 4,
+  "actual_qemu_memory_mib": 8192,
+  "actual_qemu_no_nic": true,
+  "admission_id": "5d262d1fefc9492c9f538c8d35dc1bb8",
+  "all_loader_stderr_empty": true,
+  "archive": {
+    "all_member_bytes_and_hashes_verified": true,
+    "file": "original-records.tar.gz",
+    "files": 139,
+    "member_manifest": "original-records.json",
+    "regular_relative_members_only": true,
+    "sha256": "257c1674eae6db2a11a94f292aca911da9bda12adf6d85c1b3eaa1d884b9567d",
+    "uncompressed_bytes": 2032423,
+    "vm_media_and_host_tmp_members_absent": true
+  },
+  "base_before_after_equal": true,
+  "cleanup_seconds": 180,
+  "consumed_utc": "2026-10-15T01:37:10.223897+00:00",
+  "consumption_receipt": "admission-consumed.json",
+  "coordinator_review": "coordinator-review.json",
+  "es_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "export": "/workspace/tmp/pix-m7-retained-loader-update-evidence-20261015-01",
+  "guest_boot_id": "22ee3022-4f8a-4931-8559-ed7ac374a121",
+  "guest_boot_id_before": "36197376-0c75-4899-9016-7422f97cc6ac",
+  "guest_boot_ids_differ": true,
+  "guest_interfaces": [
+    "lo"
+  ],
+  "guest_private_runtime_removed": true,
+  "installed_member_count": 13,
+  "installed_member_hash_mode_resolved_path_matches_expected_before_and_after": true,
+  "lineage_limit": "Protected base d6a-to-d4af; prior fac608 update used an overlay. This is not fac608-to-d4af.",
+  "loader_commands": [
+    {
+      "argv": [
+        "ldd",
+        "/usr/bin/cloud-signin-window"
+      ],
+      "original_returncode": 0,
+      "timed_out": false,
+      "timeout_seconds": 15
+    },
+    {
+      "argv": [
+        "ldd",
+        "/usr/lib/gstreamer-1.0/gst-plugin-scanner"
+      ],
+      "original_returncode": 0,
+      "timed_out": false,
+      "timeout_seconds": 15
+    },
+    {
+      "argv": [
+        "/usr/bin/gst-inspect-1.0",
+        "opengl"
+      ],
+      "original_returncode": 0,
+      "timed_out": false,
+      "timeout_seconds": 30
+    }
+  ],
+  "new_runtime_executed_by_packaging": false,
+  "no_forced_host_cleanup_or_survivors_recorded": true,
+  "original_channels": {
+    "build": 0,
+    "command": 0,
+    "launcher": 0,
+    "monitor": 0,
+    "runner": 0,
+    "tool_wrapper": 0,
+    "vm": 0
+  },
+  "original_retained_receipts_equal": true,
+  "owner": "/workspace/tmp/pix-m7-retained-loader-update-20261015-01",
+  "previous_source_commit": "d6a87f05c1935516115b2cca1af22151a0209224",
+  "protected_base": {
+    "sha256": "cfa55b79c36dd6b7fa1186c2e32cacc8b5e253f749f64effb4ec61ff273e488d",
+    "shape": {
+      "bytes": 8631549952,
+      "device": 66304,
+      "inode": 191671688,
+      "mode": 33152,
+      "mtime_ns": 1792017610178716730
+    }
+  },
+  "read_only_evidence_review_only": true,
+  "registry": {
+    "bytes": 580445,
+    "fresh": true,
+    "sha256": "3909dfcddf443ce49cfd94fd37c9402f1ba90222652f59f07c79bdf407a9cd34"
+  },
+  "retained_checks": {
+    "activity_stamp_bytes_equal": true,
+    "automatic_operations_disabled": true,
+    "history_fields_equal": true,
+    "original_retained_receipts_equal": true,
+    "private_snapshot_removed": true,
+    "ra_fields_equal": true,
+    "retained_policy_pass": true,
+    "screenscraper_fields_equal": true,
+    "selected_bytes_and_modes_equal": true,
+    "standalone_token_equal": true
+  },
+  "rtld_now": "PASS",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T013334Z-6f557651",
+  "selected_bytes_and_modes_equal": true,
+  "selected_changed_paths": [],
+  "source_commit": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+  "status": "VERIFIED_ORIGINALS_AFTER_COORDINATOR_CONSUMPTION",
+  "update": {
+    "bytes": 2123141120,
+    "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261015T011500Z.gd4af5a255f47-from-ROCKNIX.tar",
+    "sha256": "b1457d7db7d7c93551ec56e2b2b913b78399eaa6c9b831761a514d87ec3f8666"
+  },
+  "vm_elapsed_seconds": 163.09571719169617,
+  "vnc": 136,
+  "work_seconds": 4200
+}

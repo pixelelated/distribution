@@ -1,0 +1,358 @@
+{
+  "status": "PASS",
+  "stage": "wifi-compile",
+  "started": 1792031991.063575,
+  "original_attach_exit": 0,
+  "container_result_sha256": "173e74eb5774a9033e6b928fcce6892580fb0532d21377204631518e06bc5f44",
+  "cleanup": {
+    "status": "PASS",
+    "forced_stop": false,
+    "started": 1792032040.0869308,
+    "initial": {
+      "id": "a21f408e3574ef718e97fe3c4540fea79ba8214b73a16d1ccd3b714d9e5a3330",
+      "state": {
+        "Dead": false,
+        "Error": "",
+        "ExitCode": 0,
+        "FinishedAt": "2026-10-15T02:40:39.283575797Z",
+        "OOMKilled": false,
+        "Paused": false,
+        "Pid": 0,
+        "Restarting": false,
+        "Running": false,
+        "StartedAt": "2026-10-15T02:39:51.561076046Z",
+        "Status": "exited"
+      },
+      "labels": {
+        "org.opencontainers.image.version": "22.04",
+        "pix574.owner": "f438d3af7749b4cbd24defd2e189f918",
+        "pix574.stage": "wifi-compile"
+      },
+      "memory": 4294967296,
+      "nano_cpus": 2000000000
+    },
+    "container_terminal_state": {
+      "Dead": false,
+      "Error": "",
+      "ExitCode": 0,
+      "FinishedAt": "2026-10-15T02:40:39.283575797Z",
+      "OOMKilled": false,
+      "Paused": false,
+      "Pid": 0,
+      "Restarting": false,
+      "Running": false,
+      "StartedAt": "2026-10-15T02:39:51.561076046Z",
+      "Status": "exited"
+    },
+    "exact_cid": "a21f408e3574ef718e97fe3c4540fea79ba8214b73a16d1ccd3b714d9e5a3330",
+    "exact_id_absent": true,
+    "observed_host_processes": [
+      {
+        "pid": 2686589,
+        "start_ticks": 112367560,
+        "state": "S",
+        "pgrp": 2686589,
+        "session": 2686589,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2686739,
+        "start_ticks": 112367594,
+        "state": "S",
+        "pgrp": 2686739,
+        "session": 2686739,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2687798,
+        "start_ticks": 112367647,
+        "state": "S",
+        "pgrp": 2686739,
+        "session": 2686739,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2687799,
+        "start_ticks": 112367647,
+        "state": "S",
+        "pgrp": 2686739,
+        "session": 2686739,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2687800,
+        "start_ticks": 112367647,
+        "state": "S",
+        "pgrp": 2686739,
+        "session": 2686739,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2687801,
+        "start_ticks": 112367647,
+        "state": "R",
+        "pgrp": 2686739,
+        "session": 2686739,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2687814,
+        "start_ticks": 112367721,
+        "state": "S",
+        "pgrp": 2686739,
+        "session": 2686739,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2687815,
+        "start_ticks": 112367721,
+        "state": "S",
+        "pgrp": 2686739,
+        "session": 2686739,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2687816,
+        "start_ticks": 112367721,
+        "state": "S",
+        "pgrp": 2686739,
+        "session": 2686739,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2687817,
+        "start_ticks": 112367722,
+        "state": "R",
+        "pgrp": 2686739,
+        "session": 2686739,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2687845,
+        "start_ticks": 112367943,
+        "state": "S",
+        "pgrp": 2686739,
+        "session": 2686739,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2687846,
+        "start_ticks": 112367943,
+        "state": "S",
+        "pgrp": 2686739,
+        "session": 2686739,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2687847,
+        "start_ticks": 112367943,
+        "state": "S",
+        "pgrp": 2686739,
+        "session": 2686739,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2687848,
+        "start_ticks": 112367944,
+        "state": "R",
+        "pgrp": 2686739,
+        "session": 2686739,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2687870,
+        "start_ticks": 112368036,
+        "state": "S",
+        "pgrp": 2687870,
+        "session": 2687870,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2687871,
+        "start_ticks": 112368036,
+        "state": "S",
+        "pgrp": 2687870,
+        "session": 2687870,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2687872,
+        "start_ticks": 112368036,
+        "state": "R",
+        "pgrp": 2687870,
+        "session": 2687870,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2687873,
+        "start_ticks": 112368036,
+        "state": "S",
+        "pgrp": 2687870,
+        "session": 2687870,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2688222,
+        "start_ticks": 112368316,
+        "state": "S",
+        "pgrp": 2688222,
+        "session": 2688222,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2688223,
+        "start_ticks": 112368317,
+        "state": "S",
+        "pgrp": 2688222,
+        "session": 2688222,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2688224,
+        "start_ticks": 112368317,
+        "state": "S",
+        "pgrp": 2688222,
+        "session": 2688222,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2688225,
+        "start_ticks": 112368317,
+        "state": "R",
+        "pgrp": 2688222,
+        "session": 2688222,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2690861,
+        "start_ticks": 112371602,
+        "state": "S",
+        "pgrp": 2690861,
+        "session": 2690861,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2690862,
+        "start_ticks": 112371602,
+        "state": "S",
+        "pgrp": 2690861,
+        "session": 2690861,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2690863,
+        "start_ticks": 112371602,
+        "state": "R",
+        "pgrp": 2690861,
+        "session": 2690861,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2690864,
+        "start_ticks": 112371602,
+        "state": "S",
+        "pgrp": 2690861,
+        "session": 2690861,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2690884,
+        "start_ticks": 112371822,
+        "state": "S",
+        "pgrp": 2690884,
+        "session": 2690884,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2690885,
+        "start_ticks": 112371822,
+        "state": "S",
+        "pgrp": 2690884,
+        "session": 2690884,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2690886,
+        "start_ticks": 112371823,
+        "state": "S",
+        "pgrp": 2690884,
+        "session": 2690884,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2690887,
+        "start_ticks": 112371823,
+        "state": "R",
+        "pgrp": 2690884,
+        "session": 2690884,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2690922,
+        "start_ticks": 112372003,
+        "state": "S",
+        "pgrp": 2690922,
+        "session": 2690922,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2690926,
+        "start_ticks": 112372003,
+        "state": "S",
+        "pgrp": 2690922,
+        "session": 2690922,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2690927,
+        "start_ticks": 112372003,
+        "state": "S",
+        "pgrp": 2690922,
+        "session": 2690922,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2690948,
+        "start_ticks": 112372063,
+        "state": "R",
+        "pgrp": 2690922,
+        "session": 2690922,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2691260,
+        "start_ticks": 112372101,
+        "state": "S",
+        "pgrp": 2690922,
+        "session": 2690922,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2691262,
+        "start_ticks": 112372101,
+        "state": "S",
+        "pgrp": 2690922,
+        "session": 2690922,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      },
+      {
+        "pid": 2691273,
+        "start_ticks": 112372162,
+        "state": "R",
+        "pgrp": 2690922,
+        "session": 2690922,
+        "boot_id": "91785e3e-4725-4e2f-b9e2-dc859d0e050f"
+      }
+    ],
+    "survivors": [],
+    "remaining_cgroup_pids": [],
+    "ended": 1792032040.3162975
+  },
+  "original_container_exit": 0,
+  "watchdog_original_exit": 0,
+  "ended": 1792032040.4303303,
+  "final_disk": {
+    "allocated_bytes": 59547648,
+    "apparent_bytes": 59229537
+  }
+}

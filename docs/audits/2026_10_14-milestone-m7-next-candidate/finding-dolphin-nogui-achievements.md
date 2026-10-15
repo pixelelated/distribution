@@ -1,0 +1,11 @@
+# Frozen finding: default Dolphin frontend omits achievements lifecycle
+
+Severity: high. Confirmed at fac608ff89940ce358ea9b8a95e9a08a6fe26568; AC102, affecting #574/#584 and combined #583 qualification.
+
+The recipe enables RetroAchievements and selects dolphin-sa-gc/wii (NoGUI) as default. It incorrectly says core ownership makes support independent of frontend. Pinned built Dolphin6094cfcf MainNoGUI.cpp initializes UICommon/controllers and boots without AchievementManager::Init. The only frontend Init/Shutdown is in DolphinQt/MainWindow.cpp. AchievementManager.h initializes m_client to null; AchievementManager.cpp64 creates it and sets HostUrl only in Init; LoadGame156–167 returns before loading achievements when that client is null. Thus correct launcher INI/routing and proxy readiness cannot enable in-game achievements in the default frontend.
+
+Primary reads: frozen package.mk50–60; virtual/emulators/package.mk663–700; authoritative built Source/Core/DolphinNoGUI/MainNoGUI.cpp (entire347lines), Core/AchievementManager.cpp64–99,156–180, Core/AchievementManager.h259, DolphinQt/MainWindow.cpp270/349 and UICommon initialization/Boot path. Root is build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4 within frozen worktree. These were read directly, not inferred from a source-worker report.
+
+Minimal correction: under USE_RETRO_ACHIEVEMENTS include manager, initialize after UICommon/config initialization and before BootCore, use an RAII shutdown guard that executes before UICommon shuts down on normal and boot-error paths. Keep Qt and disabled behavior unchanged. Correct recipe explanation. Bounded control: actual installed baseline vs private relinked candidate in existing disposable VM with synthetic loopback peer; observe no baseline initialization/request, candidate enabled initialization plus configured endpoint, disabled no initialization/request, failed boot orderly shutdown. This controls lifecycle, not full game/save/offline award behavior. Parent owns implementation/runtime and has already supplied post-freeze locators; audit has not yet adjudicated their originals.
+
+No new runtime or external call requested by this finding. New-image installed/native gameplay remains separately required before RC designation.

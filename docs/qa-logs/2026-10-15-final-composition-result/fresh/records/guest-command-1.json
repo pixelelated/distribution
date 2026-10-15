@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "ldd",
+    "/usr/lib/gstreamer-1.0/gst-plugin-scanner"
+  ],
+  "original_returncode": 0,
+  "stderr": "",
+  "stdout": "\tlinux-vdso.so.1 (0x00007f0e4ddf3000)\n\tlibgstreamer-1.0.so.0 => /usr/lib/libgstreamer-1.0.so.0 (0x00007f0e4dcf4000)\n\tlibglib-2.0.so.0 => /usr/lib/libglib-2.0.so.0 (0x00007f0e4dafa000)\n\tlibc.so.6 => /usr/lib/libc.so.6 (0x00007f0e4d8fd000)\n\tlibgobject-2.0.so.0 => /usr/lib/libgobject-2.0.so.0 (0x00007f0e4d88c000)\n\tlibgmodule-2.0.so.0 => /usr/lib/libgmodule-2.0.so.0 (0x00007f0e4d885000)\n\tlibm.so.6 => /usr/lib/libm.so.6 (0x00007f0e4d7c9000)\n\t/lib64/ld-linux-x86-64.so.2 => /usr/lib64/ld-linux-x86-64.so.2 (0x00007f0e4ddf5000)\n",
+  "timed_out": false,
+  "timeout_seconds": 15
+}
