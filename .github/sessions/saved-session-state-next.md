@@ -1,10 +1,69 @@
 # Saved Session State
 
-Updated 2026-10-15 07:06 UTC. Continue authorized M7 toward next 0.0.1 RC.
-Coordinator m7-player-setup / feature/m7-final-qualification, published8794630e8f.
-Frozen productf863 / ES16dbac unchanged. Root sole runtime allocator; SM8550
-cache copy ACTIVE under actual watcher. H700 artifact acceptance COMPLETE.
+Updated 2026-10-15 07:37 UTC. Continue authorized M7 toward next 0.0.1 RC.
+Coordinator m7-player-setup / feature/m7-final-qualification, publishedf952f6e29f.
+Accepted H700/VM productf863 / ES16dbac unchanged. Local9aa7affee9 corrects only
+SM ABL source checksum. Root sole runtime allocator; NO build/VM runtime active.
+H700 artifact acceptance COMPLETE; SM retry source preparing.
 Saving is not a pause; no physical/cloud authority inferred.
+
+## Latest 2026-10-15 07:37 UTC — #600 ABL checksum correction; SM retry preparing
+
+SM main072058Z-efba76e3 stopped07:23:39UTC with original command/monitor/runner
+2/0/2, launcher/inner/outer/wrapper2. ARM completed; AArch64 installation refused
+rocknix-abl1.2 digest mismatch before image acceptance. Actual owners295805/
+295807/295808/299225 exited and exact container2f9305cd removed. Admissiond8ae8d16
+ordinarily consumed failed-investigated; outputs held/deleted0. Original15files
+and investigation /tmp/pix-m7-abl-failure-20261015; no successful producer claim.
+
+New #600 filed before implementation. Upstream15123b29517ad92be1f6cbcc3924a92705887d12
+already changes only PKG_SHA2564fcf983a ->64034fb0. Both download origins and official
+asset603983682 (1411543bytes, Oct1 metadata) match64034fb0. No evidence of a new
+Oct15 replacement; historical replacement vs original wrong hash is unprovable.
+Root bounded archive read073255Z-7090925f original0/0/0,12members,SM ELF8c27a709
+matches companion checksum; no extraction/execution. Exact one-line fix committed
+9aa7affee9d4ad5e69725cab20b6d7ad84d93dea; pkgcheck0, all other product paths match
+f863. Root will publish with current records before a new source freeze.
+
+Source-only dolphin_ra_init prepares /tmp/pix-m7-sm8550-abl-retry-20261015:
+fresh SM05 / owner02, independent copies from stopped SM04/privateNix with
+original copy0 + partialbuild2 provenance, exact published9aa7 source, unchanged
+logicalcontainer01, fresh timestamp, actual acceptedH700e8107b4b and hostchecker65ab.
+Review before create/prepare/cache/admission; no runtime allocated. Old04/owner01
+source/seals/failedreceipts remain unchanged. Explain exact one-path SM delta from
+accepted H700/VM instead of claiming all three original sources are identical.
+
+#528 finalinventory packet485b9937 is SOURCE ONLY and not ready to execute.
+Finite review4901207e found numericPGID cleanup authority and interrupted-child
+status retention gaps. m7_audit_resume owns additive lifecycle revision02 using
+qualified pidfd/start-tick/subreaper helpers, no execution. Later bind exact
+reviewed SM source delta/final acceptance; never weaken all-source-equal silently.
+frame_diff_review retains stopped ABL evidence and finite inventory reviews.
+Current upstream OpenABL replacement71d8932b is separate intake scope; existing
+LinuxLoadere9d37131 source lookup404/#528 custody hold remains. No duplicate
+upstream checksum PR, no physical action, no new RC or publication clearance.
+
+## Latest 2026-10-15 07:22 UTC — SM8550 compiler active
+
+Cache065844Z-a2efce5f completed07:19:38UTC, all original0, actual owners gone;
+admissionce9f85bb consumed07:20:14. ARM818051/AArch643415609/Nix19922 independent
+regular files, checksum equality PASS. Current owner source packet60a59605 stays
+unchanged. Fresh preflight READY51,232MiB availableRAM,7573MiB freeswap; retention
+noerrors/active/relevantmounts,2,350,703,017,984B free against300GiB allowance.
+
+Build run20261015T072058Z-efba76e3 ACTIVE, admissiond8ae8d1653ab46b48d296f20f1cb17d4;
+launcher295805, runner295807, watcher295808, owner
+/workspace/tmp/pix-m7-sm8550-refresh-20261015-01. Actual normal cleans completed,
+canonical ARM260/260 progressing through install. Monitor owner/console.log,
+original launcher-result.json and frozen .build-runs/run/build.status <=60s.
+No other runtime owner. NEXT original channels0/actual ownersgone -> commands.sh
+SM8550 consume-build, then fresh acceptance preflight/report/admission/submit,
+supervise and consume-acceptance. Do not rerun cache/prepare or prefill receipts.
+
+Publishedf952f6e29f exact record38696786437 and wordlist38696786415/38696723892
+all SUCCESS; retained /tmp/pix-m7-handoff-publication-20261015. #528 proposal finite
+peer review has no actionable finding, source-only; final binding/lifecycle packet
+is being prepared by dolphin_ra_init and still requires root review/allocation.
 
 ## Latest 2026-10-15 07:06 UTC — H700 accepted; SM8550 cache active
 

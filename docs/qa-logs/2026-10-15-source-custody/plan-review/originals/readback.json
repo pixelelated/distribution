@@ -1,0 +1,36 @@
+{
+  "status": "PASS_FINITE_SOURCE_AND_ARCHIVED_RECORD_READBACK_ONLY",
+  "proposal_seal_sha256": "f345980a2e20c305b770e686b5c6ff4aa915cfae78c8778981bc6a48713a951d",
+  "archived_original_regular_files": 125,
+  "original_references_exact": 21,
+  "historical_bases": 2,
+  "product_paths": 73,
+  "changed_version_declarations": [
+    "projects/ROCKNIX/packages/network/raofflineproxy/package.mk",
+    "projects/ROCKNIX/packages/network/rclone/package.mk",
+    "projects/ROCKNIX/packages/tools/rocknix-abl/package.mk",
+    "projects/ROCKNIX/packages/ui/emulationstation/package.mk"
+  ],
+  "current_recipe_records": 30,
+  "selected_package_directory_blobs": 135,
+  "collector_hashes": {
+    "source-inventory.py": {
+      "historical": "4c3bd273426f46632ce545c1fb1ec15280dfa6ca1d1721c5d0144fb715d50751",
+      "candidate": "84b9d6dfaf61b31d554536f88ee60f186da5589ea4602b9f475b8e0d82124efe"
+    },
+    "component-map.py": {
+      "historical": "224904a577af1d859af2310c352be6c64d5324fca3efb9a265bec0752f62cdce",
+      "candidate": "2ebab5ad2f042becb395297942ace63af2f781873d3ef878d754bd09ed5b4973"
+    }
+  },
+  "unchanged_helper_function_AST": true,
+  "candidate_collectors_equal_new_binding_draft": true,
+  "notice_rows": 18,
+  "historical_member_map_hash_exact": true,
+  "vm_original_schema_and_nonqualified_closeout_exact": true,
+  "collector_or_preparer_executed": false,
+  "cache_traversal": false,
+  "network": false,
+  "runtime": false,
+  "scope": "Source diff and supplied immutable evidence only. No current cache/manifest membership or publication clearance inferred."
+}

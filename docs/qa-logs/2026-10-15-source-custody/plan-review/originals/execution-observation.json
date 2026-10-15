@@ -1,0 +1,19 @@
+{
+  "kind": "Post-completion tool observations, not producer-owned receipts",
+  "attempts": [
+    {
+      "tool": "exec_command",
+      "chunk": "3f8856",
+      "exit_code": 1,
+      "cause": "Reviewer readback guessed final-inventory/collectors; actual unchanged candidate copies are final-inventory/templates. No collector executed."
+    },
+    {
+      "tool": "exec_command",
+      "chunk": "0371a9",
+      "exit_code": 0,
+      "scope": "Read-only JSON/archive/Git object/hash/AST evidence checks after correcting reviewer-only locator."
+    }
+  ],
+  "source_packet_mutated": false,
+  "collector_or_preparer_executed": false
+}

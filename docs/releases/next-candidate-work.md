@@ -11,6 +11,37 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 — H700 artifacts accepted; SM8550 checksum repair
+
+[#555's independent H700 acceptance](../qa-logs/2026-10-15-device-refresh/h70004/README.md)
+completed at 06:47:59 UTC from f863/ES16dbac, with original acceptance channels
+zero and ordinary consumption. Bundle
+`32f7a6523dfae61b5142cf803876bf4e09f9a21a3a6784a69ca74b9d9b587833`
+and acceptance SHA256
+`e8107b4bffac81fa72dd127a45ec1b6b7455518829f04c143690ec60687813db`
+bind DDR3/DDR4 raw/update SYSTEM/kernel and exact bootloader equality, 186 ARM
+handoff records, 14 affected mappings and 280 selected-state checks with no
+blocked entries or errors. #599's corrected checker is separately hash-bound
+on the host; frozen firmware remains unchanged. Earlier launch exit 2,
+combined-producer exit 1 and selected-state acceptance exit 1 remain failed originals.
+
+SM8550 cache checks passed; main run072058Z-efba76e3 then failed2 at the stale
+ABL 1.2 checksum. #600 applies the exact upstream correction in9aa7affee9
+before a fresh reviewed build; the original failure is consumed and retained. The [source handoff](../qa-logs/2026-10-15-device-refresh/sm8550-source/README.md)
+requires the consumed H700 acceptance; its [parent-documentation continuation](../qa-logs/2026-10-15-device-refresh/sm8550-parent-source/README.md)
+retains the original preparation exit 1 before owner creation. SM8550 compilation
+and independent acceptance, including changed FEX/Nix and ABL 1.2 inputs,
+remain pending. Read #555 and M7 for subsequent live status.
+
+Completed VM/audit/native evidence below remains accepted within its exact
+scope. H700 artifact acceptance supplies no new physical observation. Named
+physical smoke per asset, final inventory/source/licence and retrieval/off-host
+custody under #528, and #344/#265 security, documentation, RC identity and
+publication authority remain held. The [retained source-custody proposal](../qa-logs/2026-10-15-source-custody/plan/README.md)
+is still source-only; no collector acceptance is inferred. The current
+[support matrix](../rasteratops/support-matrix.md) separates artifact acceptance
+from historical board evidence.
+
 ## 2026-10-15 05:17 UTC — audit and native-state proof complete; device builds next
 
 #596 and #590 are closed completed: all six discovered findings are resolved,
@@ -268,11 +299,13 @@ are not reopened simply by this inventory. Remaining restore regression is #349.
 
 ## Build completion and upstream follow-up
 
-Finish the outstanding source/component work, compose #563's ROCKNIX20261001
-foundation, produce and qualify the combined GENERIC_X64 image/real retained
-upgrade, complete the applicable audit, then H700 and SM8550 under #555.
-#528/#344 and related source/licence/custody/identity/notes requirements still
-govern publication; they are distinct from creating an engineering image.
+The f863 combined GENERIC_X64 composition, applicable audit, native-state
+qualification and H700 independent artifact acceptance are complete within
+their recorded scopes. Continue SM8550 under #555/#600 from the checksum correction through a fresh
+reviewed build and independent artifact acceptance. The
+completed common work is not a new build or audit gate. #528/#344 and related
+source/licence/custody/identity/notes requirements still govern publication;
+they are distinct from creating or accepting an engineering image.
 
 [Running upstream queue #585](https://github.com/pixelelated/distribution/issues/585)
 holds submissions until the initial current build and relevant qualification are

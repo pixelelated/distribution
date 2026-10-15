@@ -28,15 +28,28 @@ change these product bytes. #590/#596 are closed/completed.
 ### Device refresh and accepted physical history
 
 [#555](https://github.com/pixelelated/distribution/issues/555) owns H700 then
-SM8550 from f863. H700 cache preparation was accepted and consumed; the
-[first build attempt](../qa-logs/2026-10-15-device-refresh/launch-failure01/README.md)
-returned 2 before its main container because the wrapper cleared its target
-variables. Eight normal package cleans had run. The [reviewed continuation](../qa-logs/2026-10-15-device-refresh/launch-retry-source/README.md)
-now explicitly selects the already-admitted gateway tuple. At 06:02 UTC,
-owner02/run20261015T060011Z-92b2fe8b passed its actual container gate and was
-building ARM, with AArch64 next. Firmware acceptance remains pending. Read #555
-for subsequent live status. SM8550 follows accepted H700 artifacts and fresh
-resource/input checks, including its changed ABL 1.2 and FEX/Nix inputs.
+SM8550 from f863. [Independent H700 artifact acceptance](../qa-logs/2026-10-15-device-refresh/h70004/README.md)
+completed at 06:47:59 UTC with original zero channels and ordinary consumption.
+It verifies both DDR variants against the update SYSTEM/kernel and their exact
+bootloaders, 186 ARM handoff records, 14 affected-product mappings and 280
+selected-state checks with no blocked entries or errors. Accepted bundle:
+`32f7a6523dfae61b5142cf803876bf4e09f9a21a3a6784a69ca74b9d9b587833`;
+acceptance SHA256:
+`e8107b4bffac81fa72dd127a45ec1b6b7455518829f04c143690ec60687813db`.
+The [corrected host checker](../qa-logs/2026-10-15-ppsspp-state-check/README.md)
+is separately bound; frozen firmware is unchanged. The earlier launch exit 2,
+combined-producer exit 1 and selected-state acceptance exit 1 remain failed originals.
+This acceptance qualifies artifacts, not a current physical boot or smoke test.
+
+SM8550 cache checks passed, then its f863 build stopped at the ABL 1.2 source
+checksum guard; no new SM8550 firmware acceptance is claimed. #600 applies
+the exact upstream checksum correction in9aa7affee9 before a fresh reviewed retry. Its [source handoff](../qa-logs/2026-10-15-device-refresh/sm8550-source/README.md)
+binds the accepted H700 result and the same separate host checker. The
+[exact parent-documentation continuation](../qa-logs/2026-10-15-device-refresh/sm8550-parent-source/README.md)
+preserves the first preparation exit 1 before owner creation and permits only the
+recorded generated documentation delta. Compilation and independent firmware
+acceptance still need their own original evidence, including changed ABL 1.2
+and FEX/Nix inputs. Read #555 for subsequent live status.
 
 The [October 11 RG35XX SP deployment](../qa-logs/2026-10-11-device-refresh/README.md)
 and [October 12 RG SP/Nova deployments](../qa-logs/2026-10-12-owner-updates/README.md)
@@ -53,6 +66,8 @@ these records authorize no new transfer, reboot, game, input or cloud action.
   [October 11 engineering dispositions](../qa-logs/2026-10-11-component-inputs/README.md)
   are not publication clearance. Retained older source bundles do not establish
   current rclone 1.75.2, ABL 1.2 or changed generated-input custody by themselves.
+  The [five-profile refresh proposal](../qa-logs/2026-10-15-source-custody/plan/README.md)
+  is retained source-only work; it has not produced current inventory or custody acceptance.
 - **#344 security and documentation:** retain actual repository permission/expiry
   and expiry-notice evidence plus remote-runner isolation/trigger evidence or the
   disabled-runner fallback. Complete placeholder status/receipt, support,
@@ -60,9 +75,10 @@ these records authorize no new transfer, reboot, game, input or cloud action.
   lineage/non-endorsement, source links, cloud selected-path/setup and same-model
   restore instructions, compatibility and redirect disposition. #511's broader
   site/guides remain separate; no dead QR destination is enabled.
-- **#555/#344 assets:** accept the new device builds and independent raw/update,
-  boot-chain and packaged-state evidence; bind final names/hashes/size limits and
-  required sweeps. Record each device's named physical smoke before attaching
+- **#555/#344 assets:** finish SM8550 compilation and independent raw/update,
+  boot-chain and packaged-state acceptance; H700 engineering artifact acceptance
+  is delivered within the scope above. Bind selected final names/hashes/size
+  limits and required sweeps. Record each device's named physical smoke before attaching
   its asset under D-WORKFLOW-120. Unqualified assets remain held.
 - **#265/#344 publication:** use the existing immutable RC/release identity and
   channel policy, actual independent retrieval, required reassembly qualification
