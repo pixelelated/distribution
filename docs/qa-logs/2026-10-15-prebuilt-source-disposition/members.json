@@ -1,0 +1,1005 @@
+{
+  "archive": "originals.tar.gz",
+  "archive_sha256": "d35007758c71c914ba88d6b12d994b1d5742a136a5537a76c80d1efbb7d598b1",
+  "directory_metadata_claimed": false,
+  "excluded_originals": [
+    {
+      "path": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-dirty-release-issues.json",
+      "reason": "Unrelated general issue search body; URL/status/hash retained in fetch-round4, review-limit observation retained.",
+      "sha256": "dd81a74c477b0b88ec44a23c8d69d36a26b80124acab4e33c1e3b8e9ef943cfd"
+    }
+  ],
+  "members": [
+    {
+      "bytes": 2090,
+      "gid": 1000,
+      "member": "README.md",
+      "mode": 436,
+      "mtime_ns": 1792062802250001951,
+      "sha256": "0799c4e517a63b0e032662afa0aa048c329b67612d7d55995ec3229f51d05f63",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/README.md",
+      "uid": 1000
+    },
+    {
+      "bytes": 8337,
+      "gid": 1000,
+      "member": "analyze-metadata.py",
+      "mode": 436,
+      "mtime_ns": 1792062645861653974,
+      "sha256": "684b829970fd5d92b7223643f83048b8d24be53a2e2ff976508fc864abc03309",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/analyze-metadata.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 7832,
+      "gid": 1000,
+      "member": "dependency-tag-comparison.json",
+      "mode": 436,
+      "mtime_ns": 1792062645888745984,
+      "sha256": "6f6d4ca4387bc682c7b656ef780fc4dd66b3357c7ac05f7ecf7986b62ed9493d",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/dependency-tag-comparison.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 7093,
+      "gid": 1000,
+      "member": "disposition.md",
+      "mode": 436,
+      "mtime_ns": 1792062842681754396,
+      "sha256": "1f4e4dd864acdb5f334782375952da71492cda9b907b44891e117271518d465e",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/disposition.md",
+      "uid": 1000
+    },
+    {
+      "bytes": 3297,
+      "gid": 1000,
+      "member": "fetch-round1.json",
+      "mode": 436,
+      "mtime_ns": 1792062094770500017,
+      "sha256": "c0b2d122592dd6287f16eca48f4df8c8a1c2114e51224d6a08003e47bb0a37a4",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/fetch-round1.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 3320,
+      "gid": 1000,
+      "member": "fetch-round2.json",
+      "mode": 436,
+      "mtime_ns": 1792062168357058594,
+      "sha256": "91a4cb0eca984ae5a3eccd4e362f9a55232f395bf876ef3186fd0ec7bcb7a8f7",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/fetch-round2.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 7989,
+      "gid": 1000,
+      "member": "fetch-round3.json",
+      "mode": 436,
+      "mtime_ns": 1792062255692721124,
+      "sha256": "631d61fb692bea88bf911e30963ca064e82529262ec66dd82f83ff712bc56507",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/fetch-round3.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1735,
+      "gid": 1000,
+      "member": "fetch-round4.json",
+      "mode": 436,
+      "mtime_ns": 1792062359870931611,
+      "sha256": "72bc00f986ea9f8718cacf2fbb9c8fafb2d3157e27d66d560aea73fd14e7d270",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/fetch-round4.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 653,
+      "gid": 1000,
+      "member": "fetch-round5.json",
+      "mode": 436,
+      "mtime_ns": 1792062530346498118,
+      "sha256": "edbb181f8743c0c79f96e58943609c7c632b869a575f844c85fa7ddebece5eae",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/fetch-round5.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 73544,
+      "gid": 1000,
+      "member": "module-inventory.json",
+      "mode": 436,
+      "mtime_ns": 1792062282787439090,
+      "sha256": "94696b1a4555a38676b6196261ce73ec8a4640ff44c67b6a4c45aea7d21140c6",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/module-inventory.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 3175,
+      "gid": 1000,
+      "member": "next-action.json",
+      "mode": 436,
+      "mtime_ns": 1792062842681821290,
+      "sha256": "c3c5e229e8329af0088ae861afdaffcf6d600f1172e7c7b3b415eda083395712",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/next-action.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 23448,
+      "gid": 1000,
+      "member": "originals/01-generic-x64-x86_64-rclone.stdout",
+      "mode": 384,
+      "mtime_ns": 1792059527261165838,
+      "sha256": "91f7010d94c024155a8b1a63a36e80abf83b028baf6e84ad7014953b2ae18cc6",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/originals/01-generic-x64-x86_64-rclone.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 6113,
+      "gid": 1000,
+      "member": "originals/02-generic-x64-x86_64-tailscale.stdout",
+      "mode": 384,
+      "mtime_ns": 1792059527363166951,
+      "sha256": "2148a0428fc3d04990fad1b0cbe87053bbebaf6c0347ee7cf339a89212dd50a8",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/originals/02-generic-x64-x86_64-tailscale.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 7584,
+      "gid": 1000,
+      "member": "originals/03-generic-x64-x86_64-tailscaled.stdout",
+      "mode": 384,
+      "mtime_ns": 1792059527459167999,
+      "sha256": "0bf34a52aa50cee7942f6f0ce1dc4eb0f291d19acd551d2ae7553b42fd29cedc",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/originals/03-generic-x64-x86_64-tailscaled.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 23443,
+      "gid": 1000,
+      "member": "originals/04-h700-aarch64-rclone.stdout",
+      "mode": 384,
+      "mtime_ns": 1792059527641169986,
+      "sha256": "d93555dbe4a3990e12b37b943ef8cd88d8a053f0777bd54b757e4932434dc23d",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/originals/04-h700-aarch64-rclone.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 6108,
+      "gid": 1000,
+      "member": "originals/05-h700-aarch64-tailscale.stdout",
+      "mode": 384,
+      "mtime_ns": 1792059527738171045,
+      "sha256": "5bfb7fe0b48a569be3100e190bc77538d74850fb5321c6ce573cd7277ce5a838",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/originals/05-h700-aarch64-tailscale.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 7579,
+      "gid": 1000,
+      "member": "originals/06-h700-aarch64-tailscaled.stdout",
+      "mode": 384,
+      "mtime_ns": 1792059527830172049,
+      "sha256": "3919471ec75b06b3e2a63e7940cb631a58836fa6865d298ea7dfb38c7a5125ee",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/originals/06-h700-aarch64-tailscaled.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 23447,
+      "gid": 1000,
+      "member": "originals/07-sm8550-aarch64-rclone.stdout",
+      "mode": 384,
+      "mtime_ns": 1792059528017174091,
+      "sha256": "bec149fd47c474c090658c2d1bcdee2d5c8faa05fa98e398bc0d62031c04d4e3",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/originals/07-sm8550-aarch64-rclone.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 6112,
+      "gid": 1000,
+      "member": "originals/08-sm8550-aarch64-tailscale.stdout",
+      "mode": 384,
+      "mtime_ns": 1792059528107175074,
+      "sha256": "f622fe33bac2491aef478f3fe0c876a445f9a3ed90580efb5b0d1a33719d4cc3",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/originals/08-sm8550-aarch64-tailscale.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 7583,
+      "gid": 1000,
+      "member": "originals/09-sm8550-aarch64-tailscaled.stdout",
+      "mode": 384,
+      "mtime_ns": 1792059528197176056,
+      "sha256": "b7e528c5a570ae76188d3e55da2d57eb8964360d8cce3de3558b214cbf555a0c",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/originals/09-sm8550-aarch64-tailscaled.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 25725,
+      "gid": 1000,
+      "member": "originals/tailscale-tag-go.mod",
+      "mode": 384,
+      "mtime_ns": 1792061758671784944,
+      "sha256": "49e603cbb1608d2358ade7c698dd73617d0d754825be5a57322e10a150c3db8b",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/originals/tailscale-tag-go.mod",
+      "uid": 1000
+    },
+    {
+      "bytes": 173354,
+      "gid": 1000,
+      "member": "originals/tailscale-tag-go.sum",
+      "mode": 384,
+      "mtime_ns": 1792061758672262602,
+      "sha256": "540d42e084737633f485c52f57dafef26dd6afa6f0a8b04729695bfd624f2b17",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/originals/tailscale-tag-go.sum",
+      "uid": 1000
+    },
+    {
+      "bytes": 778,
+      "gid": 1000,
+      "member": "readback-observations.json",
+      "mode": 436,
+      "mtime_ns": 1792062767969399375,
+      "sha256": "e520be446e8c59769108a940b29c4d9ceb80aaf899cef4e1555b453ff4891375",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/readback-observations.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1658,
+      "gid": 1000,
+      "member": "reference-index.json",
+      "mode": 436,
+      "mtime_ns": 1792062767969359797,
+      "sha256": "fba53a2a64f7b7be376baca788bec6321032cb5226a58b7a08482ed3944747d5",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/reference-index.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 2346,
+      "gid": 1000,
+      "member": "retain-custody.py",
+      "mode": 436,
+      "mtime_ns": 1792062842685496643,
+      "sha256": "1297c8596adacc42fc545ef30c162741141a06a5d591c2d92512b8bb26b3e384",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/retain-custody.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 6043,
+      "gid": 1000,
+      "member": "source-blob-verification.json",
+      "mode": 436,
+      "mtime_ns": 1792062645896224453,
+      "sha256": "6aed2c8d2e945eb0b101b6a2c91ba613132c6750bbeed1e2f07a3ddaa8a9e330",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/source-blob-verification.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 2829,
+      "gid": 1000,
+      "member": "source-findings.json",
+      "mode": 436,
+      "mtime_ns": 1792062842681695505,
+      "sha256": "908022dc341141f1d841291ff972c8802e5aeb75263ed90590e6c89cb4e9b322",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/source-findings.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 61320,
+      "gid": 1000,
+      "member": "tailscale-notice-map.json",
+      "mode": 436,
+      "mtime_ns": 1792062802250487255,
+      "sha256": "418d024592e2efeac1cc05b13eb35a5e559f06cc8a3fc2c47ece526579213f38",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/tailscale-notice-map.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 126442,
+      "gid": 1000,
+      "member": "upstream/go-build-vcs-source.go",
+      "mode": 436,
+      "mtime_ns": 1792062359721930118,
+      "sha256": "8ab6cf53b1674ef93d500b1ab07df3dc650fe003374ce14c31d992f899f4d339",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/go-build-vcs-source.go",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/go-build-vcs-source.go.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062359377926673,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/go-build-vcs-source.go.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 126442,
+      "gid": 1000,
+      "member": "upstream/go1263-build-vcs-source.go",
+      "mode": 436,
+      "mtime_ns": 1792062529909568429,
+      "sha256": "8ab6cf53b1674ef93d500b1ab07df3dc650fe003374ce14c31d992f899f4d339",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/go1263-build-vcs-source.go",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/go1263-build-vcs-source.go.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062529654566041,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/go1263-build-vcs-source.go.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 40850,
+      "gid": 1000,
+      "member": "upstream/go1269-vcs-source.go",
+      "mode": 436,
+      "mtime_ns": 1792062530342572482,
+      "sha256": "9094655f5a7dfedf7133dec5b1600688112ea2bae1b6fcf786112370e0144b35",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/go1269-vcs-source.go",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/go1269-vcs-source.go.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062529654566041,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/go1269-vcs-source.go.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 1095,
+      "gid": 1000,
+      "member": "upstream/rclone-LICENSE",
+      "mode": 436,
+      "mtime_ns": 1792062167408547824,
+      "sha256": "8cd2e9e750b90a04b7d82dbbca3930c696ae0309d7c10464f90a44f45754cd04",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-LICENSE",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/rclone-LICENSE.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062167167801268,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-LICENSE.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 12761,
+      "gid": 1000,
+      "member": "upstream/rclone-Makefile",
+      "mode": 436,
+      "mtime_ns": 1792062094092269604,
+      "sha256": "a8c1e2badd78692826e36c795ab3e59c180d7662e0f748c69b8263d3719e4758",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-Makefile",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/rclone-Makefile.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062093707265749,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-Makefile.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 7665,
+      "gid": 1000,
+      "member": "upstream/rclone-RELEASE.md",
+      "mode": 436,
+      "mtime_ns": 1792062254647877709,
+      "sha256": "e609280427eceeb2bb38a24fd9d19b0498a6673b401af4d76d095d9e41d69198",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-RELEASE.md",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/rclone-RELEASE.md.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062254376874995,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-RELEASE.md.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 19786,
+      "gid": 1000,
+      "member": "upstream/rclone-ci.yml",
+      "mode": 436,
+      "mtime_ns": 1792062094409272780,
+      "sha256": "7709a3ceeb0874d4568bd76e9fbc907a8892dc0dac5172186e4e5ccc265a4edd",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-ci.yml",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/rclone-ci.yml.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062094092269604,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-ci.yml.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 12079,
+      "gid": 1000,
+      "member": "upstream/rclone-cross-compile.go",
+      "mode": 436,
+      "mtime_ns": 1792062094086269544,
+      "sha256": "7195989bc72b597c2245f15fff5747a78f6c252bc89dbcc8683007e8810e55e3",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-cross-compile.go",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/rclone-cross-compile.go.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062093707265749,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-cross-compile.go.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 101,
+      "gid": 1000,
+      "member": "upstream/rclone-dirty-issues.json",
+      "mode": 436,
+      "mtime_ns": 1792062359414775995,
+      "sha256": "840185ac69ff01c964c2bfead7f7b8a5a7764c3814155124f82ebe285189a90f",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-dirty-issues.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/rclone-dirty-issues.json.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062358987922766,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-dirty-issues.json.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/rclone-dirty-release-issues.json.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062358987922766,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-dirty-release-issues.json.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 240,
+      "gid": 1000,
+      "member": "upstream/rclone-gitignore",
+      "mode": 436,
+      "mtime_ns": 1792062167939486213,
+      "sha256": "f62d244d03257dd9c526a5128ca8581a10c75f88930db432a2de32b84758d046",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-gitignore",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/rclone-gitignore.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062167410003942,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-gitignore.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 13798,
+      "gid": 1000,
+      "member": "upstream/rclone-go.mod",
+      "mode": 436,
+      "mtime_ns": 1792062254861879852,
+      "sha256": "1c9531778eb026c13390af728f882adbeb30581bd6a10905f95190aab0379906",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-go.mod",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/rclone-go.mod.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062254640877640,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-go.mod.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 74726,
+      "gid": 1000,
+      "member": "upstream/rclone-go.sum",
+      "mode": 436,
+      "mtime_ns": 1792062254946666145,
+      "sha256": "7ae53fe95455765a14c3e3b17354dd9ade1d26ba574261fc34f217e79053b89a",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-go.sum",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/rclone-go.sum.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062254650877739,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-go.sum.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 1288,
+      "gid": 1000,
+      "member": "upstream/rclone-licence.md",
+      "mode": 436,
+      "mtime_ns": 1792062254670747545,
+      "sha256": "ade61884b8f9bf353a56716a1d8531566df06835ead6cf7b8fcbe2e889337c76",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-licence.md",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/rclone-licence.md.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062254376874995,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-licence.md.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 90744,
+      "gid": 1000,
+      "member": "upstream/rclone-release.json",
+      "mode": 436,
+      "mtime_ns": 1792062094551274202,
+      "sha256": "da94248cc281327a2c742594db0b8aef682230943e9d959554994415531412e5",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-release.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/rclone-release.json.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062094089269574,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-release.json.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 2635,
+      "gid": 1000,
+      "member": "upstream/rclone-tag-object.json",
+      "mode": 436,
+      "mtime_ns": 1792062167166012565,
+      "sha256": "d07e1e6a2d0530434fbe813c1fbc9a12643a3160b476a21abe5466cb09d83de0",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-tag-object.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/rclone-tag-object.json.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062166786997702,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-tag-object.json.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 370,
+      "gid": 1000,
+      "member": "upstream/rclone-tag.json",
+      "mode": 436,
+      "mtime_ns": 1792062094090857345,
+      "sha256": "7afff4d129f00ab5c1df9bc572fc87e45475d8728fc8c253dab6363d9ba7fa22",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-tag.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/rclone-tag.json.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062093707265749,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-tag.json.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 943039,
+      "gid": 1000,
+      "member": "upstream/rclone-tree.json",
+      "mode": 436,
+      "mtime_ns": 1792062167908517576,
+      "sha256": "fc0863407c4f0feac1fafddb10a07253e60596e83c4158700d2c31d8f3f24bbb",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-tree.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/rclone-tree.json.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062166786997702,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-tree.json.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 243,
+      "gid": 1000,
+      "member": "upstream/rclone-version.go",
+      "mode": 436,
+      "mtime_ns": 1792062254638768483,
+      "sha256": "2c01fa3e6beef44f10806859528912680b79c24f53dae00c512f35a2af936a32",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-version.go",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/rclone-version.go.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062254376874995,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/rclone-version.go.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 9928,
+      "gid": 1000,
+      "member": "upstream/tailscale-autoflags.go",
+      "mode": 436,
+      "mtime_ns": 1792062255543886683,
+      "sha256": "c0355fadf1ebef1fd8c271dd3898b12710212dda157615204a994ce82612dac4",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-autoflags.go",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/tailscale-autoflags.go.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062255349884740,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-autoflags.go.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 1841,
+      "gid": 1000,
+      "member": "upstream/tailscale-build_dist.sh",
+      "mode": 436,
+      "mtime_ns": 1792062094393452164,
+      "sha256": "1f6722e8262156c25be8f3daf250eaed8e19bc8b85469efa5bffd6a1d76cfeb5",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-build_dist.sh",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/tailscale-build_dist.sh.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062094094269624,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-build_dist.sh.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 746,
+      "gid": 1000,
+      "member": "upstream/tailscale-cli-licenses.go",
+      "mode": 436,
+      "mtime_ns": 1792062255347779372,
+      "sha256": "273ce9ce95cbb24fc410b8da8717ede9e1e834f31f2cdbe6cf8f0dd2b49931f0",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-cli-licenses.go",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/tailscale-cli-licenses.go.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062255143882677,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-cli-licenses.go.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 11738,
+      "gid": 1000,
+      "member": "upstream/tailscale-dist.go",
+      "mode": 436,
+      "mtime_ns": 1792062255463885883,
+      "sha256": "5df20f5a912e5f3bc0a6acfea0b4fa89a4039e85f15bb1298bd8bdecb8288880",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-dist.go",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/tailscale-dist.go.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062255214883388,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-dist.go.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 1852,
+      "gid": 1000,
+      "member": "upstream/tailscale-license-README.md",
+      "mode": 436,
+      "mtime_ns": 1792062254946666145,
+      "sha256": "33f2d6e158876e2d606333bef6995bf8884d85002de98954ec8b9c02449e67cd",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-license-README.md",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/tailscale-license-README.md.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062254672877960,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-license-README.md.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 629,
+      "gid": 1000,
+      "member": "upstream/tailscale-license-template",
+      "mode": 436,
+      "mtime_ns": 1792062255213897934,
+      "sha256": "d449925239921c1f51ad832efc4a43d4fe85c4b9df1b1702b5e6f509b004249d",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-license-template",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/tailscale-license-template.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062254946880704,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-license-template.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 634,
+      "gid": 1000,
+      "member": "upstream/tailscale-licenses.go",
+      "mode": 436,
+      "mtime_ns": 1792062255240640143,
+      "sha256": "7c3b3ec700df78e56eb955df2c5c9140ed79e2b736e03d272d27d585f3d40339",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-licenses.go",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/tailscale-licenses.go.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062254947880714,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-licenses.go.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 17101,
+      "gid": 1000,
+      "member": "upstream/tailscale-mkversion.go",
+      "mode": 436,
+      "mtime_ns": 1792062255687888126,
+      "sha256": "6ad19884df606e002dab30ed97be0e8a0522cf5e1a3b8f7ebe182daa4cb1557d",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-mkversion.go",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/tailscale-mkversion.go.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062255466885912,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-mkversion.go.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 197,
+      "gid": 1000,
+      "member": "upstream/tailscale-module-info.json",
+      "mode": 436,
+      "mtime_ns": 1792062168353491669,
+      "sha256": "613c6e1be2fa7ff162d8fb9c02fb9d474550524350fe6fec159cf615ae0280f6",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-module-info.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/tailscale-module-info.json.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062167791236152,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-module-info.json.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 345,
+      "gid": 1000,
+      "member": "upstream/tailscale-module-sum.txt",
+      "mode": 436,
+      "mtime_ns": 1792062168238471634,
+      "sha256": "fa76ef6e9cfb773b3eb736e1e374f34245a0b8bbe6cff2713b12e419ff064ec9",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-module-sum.txt",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/tailscale-module-sum.txt.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062167910863285,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-module-sum.txt.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 15722,
+      "gid": 1000,
+      "member": "upstream/tailscale-notices.md",
+      "mode": 436,
+      "mtime_ns": 1792062255140882647,
+      "sha256": "4c3169a37669042b80a52b811c9bd95c56b4f9188351266142faafaf3eeef8e3",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-notices.md",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/tailscale-notices.md.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062254864879882,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-notices.md.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 2318,
+      "gid": 1000,
+      "member": "upstream/tailscale-release.json",
+      "mode": 436,
+      "mtime_ns": 1792062094766276356,
+      "sha256": "bfd05db6781b4f7324a92692ff4e4409d65f50cd4eb67edee11cede70397a36b",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-release.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/tailscale-release.json.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062094411272800,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-release.json.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 1528,
+      "gid": 1000,
+      "member": "upstream/tailscale-tag-object.json",
+      "mode": 436,
+      "mtime_ns": 1792062167101741293,
+      "sha256": "fec71c22d2059dbaa2469eeccb466eefe9a52a64b9f86b4f03a8fa1eb2cc2f7c",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-tag-object.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/tailscale-tag-object.json.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062166786997702,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-tag-object.json.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 382,
+      "gid": 1000,
+      "member": "upstream/tailscale-tag.json",
+      "mode": 436,
+      "mtime_ns": 1792062094695748014,
+      "sha256": "75fb4c5223fa339275d16cb8f88bb00eb450a4c5251ddfa69cf719bb3f041d6e",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-tag.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/tailscale-tag.json.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062094396722527,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-tag.json.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 911836,
+      "gid": 1000,
+      "member": "upstream/tailscale-tree.json",
+      "mode": 436,
+      "mtime_ns": 1792062167788816770,
+      "sha256": "ee603093294b4c7af90e226651242ea4d28ca2c8d2330dc0e72a6eaebf12f23a",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-tree.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/tailscale-tree.json.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062167104000877,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-tree.json.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 2858,
+      "gid": 1000,
+      "member": "upstream/tailscale-unix-targets.go",
+      "mode": 436,
+      "mtime_ns": 1792062359375926653,
+      "sha256": "5e87cfc420d0868c4de318361f8332f00954ec16054173273a1074fe156b6ac4",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-unix-targets.go",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/tailscale-unix-targets.go.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062358987922766,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-unix-targets.go.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 13313,
+      "gid": 1000,
+      "member": "upstream/tailscale-unixpkgs.go",
+      "mode": 436,
+      "mtime_ns": 1792062255472885972,
+      "sha256": "5045345434cf5b635111121d196418d95b955356940db58d4f13b53e2f597b2e",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-unixpkgs.go",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "upstream/tailscale-unixpkgs.go.stderr",
+      "mode": 436,
+      "mtime_ns": 1792062255242883669,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/tmp/pix-m7-prebuilt-source-disposition-20261015/upstream/tailscale-unixpkgs.go.stderr",
+      "uid": 1000
+    }
+  ],
+  "regular_files_only": true
+}

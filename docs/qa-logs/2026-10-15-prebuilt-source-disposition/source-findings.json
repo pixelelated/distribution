@@ -1,0 +1,67 @@
+{
+  "archives_downloaded": false,
+  "publication_clearance": false,
+  "rclone": {
+    "all_242_dependency_pairs_match_tag_go_sum": true,
+    "commit": "be8d6044eacb843b74d335db0c5fbe09222031fe",
+    "dirty_is_not_proof_of_compiled_source_changes": true,
+    "dirty_observed_in_original_upstream_release": true,
+    "exact_dirty_file_list_known": false,
+    "local_signature_verification": false,
+    "no_universal_rebuild_gate": true,
+    "selected_release_assets": [
+      {
+        "architecture": "amd64",
+        "bytes": 31615572,
+        "release_url": "https://github.com/rclone/rclone/releases/download/v1.75.2/rclone-v1.75.2-linux-amd64.zip",
+        "sha256": "349ac8fba6ff65d6247043f1750cdcb518ec5d500ef91463a10d37c0ccdf3702"
+      },
+      {
+        "architecture": "arm64",
+        "bytes": 28773641,
+        "release_url": "https://github.com/rclone/rclone/releases/download/v1.75.2/rclone-v1.75.2-linux-arm64.zip",
+        "sha256": "7e1e8d69654941b7b7df84ee74c5f7fb09cce7d5496947fb7bf16b55ff427d10"
+      }
+    ],
+    "source_release_assets": [
+      {
+        "bytes": 16877336,
+        "downloaded_in_this_task": false,
+        "name": "rclone-v1.75.2.tar.gz",
+        "sha256": "fa64537e7276196310dbb0bcea6330f03b40e5790197b88f14cce6a19f40eb67",
+        "url": "https://github.com/rclone/rclone/releases/download/v1.75.2/rclone-v1.75.2.tar.gz"
+      },
+      {
+        "bytes": 17892726,
+        "downloaded_in_this_task": false,
+        "name": "rclone-v1.75.2-vendor.tar.gz",
+        "sha256": "69b356c0b1800052c33ce0e0e11f18df8717a721aab346b553dc1ab44c8caae8",
+        "url": "https://github.com/rclone/rclone/releases/download/v1.75.2/rclone-v1.75.2-vendor.tar.gz"
+      }
+    ],
+    "tag": "v1.75.2",
+    "tag_object": "b0dd53938615bb610c64f610eb2b17be16752f77",
+    "upstream_tag_API_signature_verdict": true
+  },
+  "runtime_executed": false,
+  "source_rebuild_required_by_this_review": false,
+  "tailscale": {
+    "build_flags_consistent_with_public_gocross": true,
+    "commit": "05a91829316e055517a1e84f7b00016846ef4107",
+    "exact_release_invocation_not_observed": true,
+    "main_module_identity_supported": true,
+    "missing_vcs_revision_alone_is_not_source_identity_gap": true,
+    "module_sum": "tailscale.com v1.98.8 h1:moVdqYsmD6FtJFbYBcAU7trKypzMfdeeEyJfu8Lf6xw=",
+    "notice_name_matches_with_selected_version_token": 53,
+    "notice_name_matches_without_selected_version_token": 21,
+    "proxy_origin_matches_retained_source_commit": true,
+    "selected_dependency_union": 89,
+    "tag": "v1.98.8",
+    "tag_dependency_exceptions": 18,
+    "tag_object": "1241b225bc798707d02db3570992625d3a16594f",
+    "upstream_notice_name_matches": 74,
+    "upstream_notice_name_missing": 15,
+    "upstream_tag_API_signature_reason": "unknown_key",
+    "upstream_tag_API_signature_verdict": false
+  }
+}

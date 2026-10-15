@@ -11,6 +11,24 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 11:22 UTC — selected source identities and notice continuation (#528)
+
+[Primary upstream evidence](../qa-logs/2026-10-15-prebuilt-source-disposition/disposition.md)
+supports rclone's release base and242 embedded dependency tuples, and Tailscale's
+main-source identity. The two existing rclone source/vendor assets are the next
+bounded acquisition. Tailscale18 dependency-version exceptions and15 omitted
+notice names need reconciliation; rclone's exact dirty-file list remains unknown.
+No universal reproducibility requirement or source-complete claim was added.
+
+The notice collector retains38 completed records. Its latest failure identified
+an intermediate wildcard rejecting a regular README; the305.5MB partial output also
+exceeded the256MiB promise because the aggregate guard ran only after success.
+Preserve both facts. A fresh continuation will hash-reference completed records,
+process only five remaining records, and enforce aggregate size before writes.
+[The previous size failure](../qa-logs/2026-10-15-notice-supplement/failure02/README.md)
+and its exact partial custody remain independently verified. No new run is claimed
+successful. Source and audit work continue before physical/publication handoff.
+
 ## 2026-10-15 11:01 UTC — prebuilt derivation resolved; audit and notices continue (#528, #603)
 
 [The exact private-copy strip proof](../qa-logs/2026-10-15-prebuilt-strip/accepted/README.md)

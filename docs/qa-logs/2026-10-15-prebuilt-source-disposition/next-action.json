@@ -1,0 +1,55 @@
+{
+  "aggregate_download_bytes": 34770062,
+  "archives": [
+    {
+      "bytes": 16877336,
+      "downloaded_in_this_task": false,
+      "name": "rclone-v1.75.2.tar.gz",
+      "sha256": "fa64537e7276196310dbb0bcea6330f03b40e5790197b88f14cce6a19f40eb67",
+      "url": "https://github.com/rclone/rclone/releases/download/v1.75.2/rclone-v1.75.2.tar.gz"
+    },
+    {
+      "bytes": 17892726,
+      "downloaded_in_this_task": false,
+      "name": "rclone-v1.75.2-vendor.tar.gz",
+      "sha256": "69b356c0b1800052c33ce0e0e11f18df8717a721aab346b553dc1ab44c8caae8",
+      "url": "https://github.com/rclone/rclone/releases/download/v1.75.2/rclone-v1.75.2-vendor.tar.gz"
+    }
+  ],
+  "execution_limits": {
+    "network_bytes_cap": 41943040,
+    "network_download_count": 2,
+    "no_archive_extraction_to_shared_paths": true,
+    "no_go_or_source_execution": true,
+    "no_source_or_firmware_build": true,
+    "per_request_connect_seconds": 10,
+    "per_request_total_seconds": 60,
+    "read_only_archive_member_index": true
+  },
+  "existing_reader_locators": [
+    "/tmp/pix-m7-prebuilt-association-20261015/templates/collect.py",
+    "/workspace/tmp/pix-m7-final-inventory-20261015-01/source-inventory.py"
+  ],
+  "explicit_limits": [
+    "This is a source/data collection continuation, not launch-ready lifecycle source. Root retains allocation.",
+    "No demand for universal bit-for-bit rebuild or invented dirty-file patch.",
+    "If archive membership or selected dependency identities conflict, preserve originals and report the exact mismatch before broadening work.",
+    "No legal/publication clearance is made."
+  ],
+  "first_action": "Acquire or locate only the two exact upstream rclone1.75.2 source/vendor artifacts named below, hash bind them and read selected source/notice members without executing contents.",
+  "issue": 528,
+  "reader_reuse_limit": "Reuse only existing bounded member-reading/custody routines and qualified watched lifecycle; do not execute or replay the full earlier collectors.",
+  "source_members": [
+    "COPYING",
+    "go.mod",
+    "go.sum",
+    "RELEASE.md",
+    "Makefile",
+    "bin/cross-compile.go",
+    ".github/workflows/build.yml"
+  ],
+  "status": "CONCRETE_SOURCE_COLLECTION_PLAN_NOT_ALLOCATED",
+  "tailscale_notice_target": "Reconcile89 selected modules against74 named matches and15 omissions. Resolve18 version/checksum exceptions using exact selected embedded pins; fetch/retain only applicable notice texts at those versions, recording exceptions rather than substituting tag versions. Among74 named matches,21 lack the selected version/commit token in the linked license URL;53 include it. This is a locator check, not license text equivalence.",
+  "tailscale_reuse": "Use pinned upstream licenses/tailscale.md already retained here and existing retained05a91829 source; do not regenerate the whole report or rebuild clients.",
+  "vendor_member_plan": "Read vendor/modules.txt and map the242 selected dependency module/version pairs; retain their present license/notice/copyright/patent files and ancestors. Record missing/version-conflicting entries explicitly. Do not treat vendor membership alone as complete license coverage."
+}

@@ -1,0 +1,18 @@
+{
+  "archive_bytes": 5641871,
+  "archive_sha256": "00708240410aa247b5102a630d7b66f87ee9e7cf09d94ac871a6869d853ea315",
+  "checks": [
+    "Original source outer seal and54 payloads exact.",
+    "All9030 partial payloads exact, complete membership compared to original completed output directory.",
+    "Original child1, command/monitor/runner1/0/1, launcher1 and consumed failure retained.",
+    "Every archive member byte/hash/mode/uid/gid/name/nsmtime matches original."
+  ],
+  "files": 6338,
+  "members": 6349,
+  "new_collector_or_product_runtime": false,
+  "original_file_bytes": 30820066,
+  "partial_payload_members_verified": 9030,
+  "reused_payloads_linked_to_prior_custody": 2813,
+  "status": "PASS_EXACT_CUSTODY_OF_FAILED_ORIGINALS",
+  "utc": "2026-10-15T11:07:37.221696+00:00"
+}

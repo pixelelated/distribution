@@ -1,11 +1,64 @@
 # Saved Session State
 
-Updated 2026-10-15 11:06 UTC. Continue authorized M7 toward next 0.0.1 RC.
-Coordinator m7-player-setup / feature/m7-final-qualification-02; publishedcdd92f1.
-Both hosted wordlists SUCCESS; record CI fails only new #603 audit cadence.
+Updated 2026-10-15 11:22 UTC. Continue authorized M7 toward next 0.0.1 RC.
+Coordinator m7-player-setup / feature/m7-final-qualification-02; published49cbaadc4c.
+Both exact-head hosted wordlists SUCCESS; record CI fails only required #603 audit.
 VM/H700 f863 and ES16dbac unchanged; SM9aa7 differs only by ABL checksum.
-Root sole runtime allocator. All runtime stopped and ordinarily consumed.
+Root sole runtime allocator; no runtime active. Notice04 is source-only preparation.
 No new deployment authority or public RC designation. Saving is not a pause.
+
+## Latest 2026-10-15 11:22 UTC — notice03 failure consumed; fresh bounded continuation
+
+Notice03run111040Z-0d23a097 ended11:12:56 original1/0/1,launcher1; collector132.14s.
+Failed at zerotier-one ext/*/*.d: ordinary ext/README.md was treated as directory.
+Thirty-eight completed occurrence JSONs are retained;7,224 partial files total
+305,482,534B including46,298,646B notice text. IMPORTANT: original03 exceeded its
+promised256MiB owner bound because the aggregate guard ran only after success.
+No timeout/signals/cleanup errors; actual recorded owners and launcher gone.
+Ordinary failed-investigated consumption9c391a05 completed11:19:24; originals,
+partial manifest, investigation and consumed receipt remain at owner03/run.
+
+Dolphin prepares SOURCE ONLY revision04: skip intermediate regular-file nonmatches,
+continue rejecting links/special parents, hash-reference38 original completed JSONs
+instead of replay/copy, process only5 remaining occurrences, enforce before-write
+aggregate accounting inside unchanged256MiB with bounded receipt reserve. No runtime
+allocated until exact source/diff reviewed and fresh ordinary admission performed.
+Owner03 external records remain protected; never relabel failed producer success.
+
+Frame released prebuilt source disposition; root independently verified99 originals.
+Rclone main tag plus242 dependencies supported; two official source/vendor archives
+34,770,062B ready for bounded acquisition, NOT downloaded. Tailscale main-source
+identity supported;18 dependency-version exceptions and15 notice omissions remain.
+Source-only next collector preparation follows missing historical #196 raw locator.
+Audit603 independent65+/67 forward criteria on frozencdd92, no external transfer.
+Userterminal cleanupreadback remains pending, no privilegedread or deletion.
+
+Failure02 custody independently verified6,338 archived files/11 directory records
+and2,813 exact reused payloads. Root receipts /tmp/pix-m7-current-custody-root-review-20261015.
+Hosted49cba jobs38725154201/38725110688SUCCESS;38725154394FAIL only audit cadence,
+actualfinal logs /tmp/pix-m7-49cba-delivery-20261015. Continue source, then audit.
+
+## Latest 2026-10-15 11:12 UTC — notice03 actively collecting
+
+Published49cbaadc4c400e791748b850f1638e099b77065e feature02+next; threehosted
+jobs38725154394/38725154201/38725110688inprogress; cadenceonlyfailureexpected,
+notclaimedcomplete. Notice03sourcea3a137e4 reviewed; owner
+/workspace/tmp/pix-m7-current-notice-supplement-20261015-03, run111040Z-0d23a097,
+admission9c391a0521ba4a98bd2f0547773bca8b, launcher2270155 ACTIVE. Lastread12
+occurrencerows, nofailure/finalresults. Watchoriginalconsole/results<=60s; on
+actualsuccess originalall0/ownersgone use source03commands.sh consume. Failed
+originals use freshinvestigation,never successconsumer. Resource2CPU/2GiB,
+580soft/630+15outerseconds; original128MiBtext/256MiBownerboundsunchanged.
+No other runtime allocated. Source03records databasehash/sourcebindings apart
+fromnoticetext; explicitshadertextgaps;11historical+32new. Rootreview
+/tmp/pix-m7-notice03-root-review-20261015. Do notedit any inflighttool.
+
+Audit603frozencdd92 continues49+/67; originalcompilerlocatorprovided.
+Framepackagingsource-onlyprimaryupstreamdisposition: rclone exactsource+vendor
+releasearchivesavailable34,770,062B, notdownloaded;242dependenciesmatchtaggo.sum.
+Tailscalemainh1 mapsretainedcommit;18dependencyversionexceptions and15unlisted
+noticenames remainexplicit. No externalmodelcalls or newphysicalauthority.
+Cleanupterminalreadbackpending. Continue active resultdelivery.
 
 ## Latest 2026-10-15 11:06 UTC — notice02 size failure consumed; source03 preparing
 
