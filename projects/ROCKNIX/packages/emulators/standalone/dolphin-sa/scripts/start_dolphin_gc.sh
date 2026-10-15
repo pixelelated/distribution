@@ -425,6 +425,12 @@ done
 
 # Retroachievements
   /usr/bin/cheevos_dolphin.sh
+  CHEEVOS_STATUS=$?
+  # Disabled/logged-out is a valid launch only after the inactive INI is written.
+  case "${CHEEVOS_STATUS}" in
+    0|1) ;;
+    *) exit "${CHEEVOS_STATUS}" ;;
+  esac
 
 # Set video and audio backend
   CMD="${CMD} -v $GRENDERER"

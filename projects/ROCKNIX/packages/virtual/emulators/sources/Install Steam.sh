@@ -777,7 +777,7 @@ install_steam_runtime_arm64() {
   # Keep the existing runtime until the complete staged archive and both library
   # links validate. The journal also recovers a process killed between renames.
   # This transaction does not cover the separate FEX/client/Proton operations.
-  if python3 - "${STEAM}" "${RUNTIME_TAR_VERSION_URL}" "${RUNTIME_TAR_BASE}" <<'PY_STEAM_RUNTIME'
+  if /usr/bin/python3 -I -S -B - "${STEAM}" "${RUNTIME_TAR_VERSION_URL}" "${RUNTIME_TAR_BASE}" <<'PY_STEAM_RUNTIME'
 import ctypes
 import fcntl
 import hashlib

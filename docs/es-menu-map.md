@@ -806,8 +806,11 @@ are candidate references, not a claim that the accepted image has changed.
 The existing offline-achievements control and game-launch navigation are unchanged.
 The launcher routes a Dolphin launch to127.0.0.1:8080 only when the saved toggle
 is exactly1, raw hardcore is exactly0 and an IPv4-capable listener is present.
-Otherwise it keeps the configured custom host; disabled achievements and missing
-token retain their existing early exits. Global account settings are unchanged.
+Otherwise it keeps the configured custom host. The #594 correction atomically
+publishes an inactive, credential-free Dolphin session when achievements are
+disabled or the account has no token, then retains the existing early exit status.
+Global account settings are unchanged. A failed publication refuses the game
+launch so an older active session cannot be reused.
 [Configuration proof](qa-logs/2026-10-14-rvz-proxy-components/README.md) contains126
 before/after full-script cases. Installed proxy hashing, service lifecycle and
 startup reconnect now have their own completed evidence; those do not prove
@@ -823,6 +826,38 @@ flow is NoGUI startup/configuration and shutdown. Existing settings and game-lau
 frames remain the presentation baseline. Final installed-image smoke and normal
 gameplay/save proof remain open. Listener presence alone does not establish proxy
 identity/readiness, and synthetic login is not successful authentication or an award.
+
+### Dolphin session publication refusal (#594)
+
+The launch route remains game selection → existing launch preparation → Dolphin.
+Both GameCube and Wii launchers use the same status gate. An inactive session
+continues into the game with achievements disabled; an update failure returns
+through the existing native launch-error modal, then OK returns to the selected
+game. No new settings row or account action is introduced.
+
+```mermaid
+flowchart TD
+  GAME[Selected GameCube or Wii game] --> SESSION[Prepare achievements session]
+  SESSION -->|Enabled, current account| ACTIVE[Publish current session atomically]
+  SESSION -->|Disabled or signed out| INACTIVE[Publish inactive session, clear generated credentials]
+  ACTIVE -->|Written| LAUNCH[Launch Dolphin]
+  INACTIVE -->|Written| LAUNCH
+  ACTIVE -->|Cannot write| ERROR[DOLPHIN DID NOT START]
+  INACTIVE -->|Cannot write| ERROR
+  ERROR -->|OK| GAME
+```
+
+English title: `DOLPHIN DID NOT START`. Body: `Achievements settings could not be
+updated. Check the game storage and folder permissions, then try again.`
+French title: `DOLPHIN N’A PAS DÉMARRÉ`. Body: `Les paramètres des succès n’ont pas
+pu être mis à jour. Vérifiez le stockage des jeux et les permissions des dossiers,
+puis réessayez.` The existing error-250 owner line is consumed by ES and is not
+an additional visible title. Saved account settings, pending awards, game saves,
+and save states remain untouched. Existing INI bytes remain when publication
+fails; the launcher refuses to use them.
+
+Source and flow are prepared. Exact-source English/French refusal and return
+frames are still required before this new branch is complete or promoted.
 
 ## ScreenScraper developer provisioning (#566)
 
