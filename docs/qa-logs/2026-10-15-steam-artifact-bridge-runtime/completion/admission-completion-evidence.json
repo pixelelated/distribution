@@ -1,0 +1,72 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85",
+  "disposition": "qualified",
+  "expected_rc": 0,
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-steam-artifact-bridge-evidence-20261015-02/export-result.json",
+      "sha256": "abefad5b5950f76096d293e4a2c8dfb8334a0250b8c7fc7ae18e89e6e7ba03f9"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-steam-artifact-bridge-evidence-20261015-02/host-exits.json",
+      "sha256": "cbdfc48bc2878b93cf33211ed2b02300b53187c5dbd6d2c0cf73e388c5247432"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-steam-artifact-bridge-evidence-20261015-02/original-records.json",
+      "sha256": "0159979b4ae7d923ee7f90da625301c6d7ba67da37edeffe8d09e9849f21d981"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-steam-artifact-bridge-evidence-20261015-02/original-records.tar.gz",
+      "sha256": "5453b2ab2e1e42685de2fcdbca4e13bd7567f84a9c0e4b7f3982350aaec48fcf"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-steam-artifact-bridge-evidence-20261015-02/guest-export-manifest.json",
+      "sha256": "f81cb9d3df3a924e9ae80d3969b29228d1f25b3a84969461c9ea21d2490d9ed6"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-steam-artifact-bridge-evidence-20261015-02/guest/steam/01-existing-profile-dot/stage-result.json",
+      "sha256": "cacf6b41be5b8c01e4b12e67839b39ad42d8651e6d9779b298a209fdea58d75c"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-steam-artifact-bridge-evidence-20261015-02/guest/steam/01-existing-profile-dot/fixture-records.tar.gz",
+      "sha256": "ead6bcf4b4b5279973545df59f9e6d72cfebc2cb89357b0a01e1dab21c195b7f"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/vm-result.json",
+      "sha256": "7123a3a5ec4f115ebd0dd45cfb38661354b06d4348fbc85df994a808cb25d4f2"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/installed-module.json",
+      "sha256": "27a757bdfe35d01de85f91db643f5777082e80851e4bbd8aa21b92394eb2aa0d"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/sm-artifact.json",
+      "sha256": "04d2fad2b133839190a69a9c6d5a85b040c08b03a780849be31b228659d02c82"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/lifecycle-owner/launcher-result.json",
+      "sha256": "351da6f72a8ae97e3f808fcc95c1345cf9364ba571e787588d26ea6a1e9e0fc1"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/lifecycle-owner/tool-wrapper.rc",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/runner-result.json",
+      "sha256": "7f8300447c80fec46c8a018922bf2e5321acb0d10158c98c856d617c5ac5f4bc"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/build.rc",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  ],
+  "outputs": [
+    {
+      "issue": 564,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/vm",
+      "release_when": "Original packaged-script result exported/reviewed/consumed and actual owners absent; guarded retirement only."
+    }
+  ],
+  "scope": "One actual packaged-byte-equivalent portable Steam installer case in final GENERIC VM. Nine calls,18 protected roots, original caller/namespace/trace/fixture0, no rescue, native client exec deniedEACCES13, normal state restored and guest stopped. No native ARM/provider/gameplay claim."
+}

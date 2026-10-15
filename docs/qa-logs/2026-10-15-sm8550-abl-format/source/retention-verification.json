@@ -1,0 +1,34 @@
+{
+  "utc": "2026-10-15T09:23:40.949255+00:00",
+  "status": "PASS",
+  "scope": "Exact source/review byte and metadata custody only",
+  "source_seal_sha256": "a21e5fb59b64de08d2d000def1e622f657711a66b54238efba5aeae2a90b0fa7",
+  "peer_seal_sha256": "f2cef8b6f198e0bc15473dbc776697e399dddee51a7497410afd1ab87b6a313e",
+  "archives": {
+    "source-packet.tar.gz": {
+      "sha256": "d62e163dd7b6cfe330d5dd692a4d8bf75675a6f53c9d7c89b44a9287bd563d2d",
+      "bytes": 488646,
+      "regular_files": 99,
+      "directories": 4
+    },
+    "review-originals.tar.gz": {
+      "sha256": "e208715a4b27b4e348dca3773f10ba8a6ca4050539b0d0270fbcca27529e6473",
+      "bytes": 10348,
+      "regular_files": 6,
+      "directories": 1
+    }
+  },
+  "members": 110,
+  "checks": [
+    "exact membership",
+    "file bytes/size/SHA256",
+    "permission modes",
+    "UID/GID and user/group names",
+    "exact decimal PAX nanosecond mtime",
+    "originals unchanged",
+    "inner seals and membership"
+  ],
+  "archive_extraction": false,
+  "new_reader_or_acceptance_results_included": false,
+  "historical_failed_producer_metadata_in_source_packet": true
+}

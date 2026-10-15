@@ -1,0 +1,26 @@
+{
+  "archive_members": 155,
+  "archive_sha256": "dab0c1f86a16e53f47773ded3ad392b83f627f698795389d1dbba8d97402e32f",
+  "checks": [
+    "exact archive membership and all original file bytes",
+    "exact mode, UID/GID, user/group names and nanosecond PAX timestamps",
+    "unchanged originals at final archive readback",
+    "actual prepared-owner seal",
+    "87 completion-evidence artifact hashes and consumed evidence binding",
+    "original runner/launcher/inner/outer/wrapper channels",
+    "all ten original collector child results and waits",
+    "five profile result/source-inventory/component/worklist/input digest bindings",
+    "original cleanup receipt; no new process census"
+  ],
+  "limits": [
+    "No collector/test/runtime/admission rerun",
+    "No cache/source-tree scan or firmware/source archive copied",
+    "No off-host, retrieval, source-custody completeness, legal, RC or publication clearance",
+    "Original preparation receipts keep their preparation-time PREPARED_UNRUN labels; later actual results are separate",
+    "Prior producer failures and mixed engineering source identities remain unchanged"
+  ],
+  "original_regular_bytes": 23094426,
+  "regular_files": 145,
+  "status": "PASS",
+  "utc": "2026-10-15T09:43:56.569029+00:00"
+}

@@ -1,0 +1,108 @@
+{
+  "acceptance_sha256": "b576f190e56c01ed534bbec593dc669c5fc034317a69ccb68af14cb568787dd0",
+  "artifact_identities": {
+    "pixelelated-SM8550.aarch64-0.0.1-dev+20261015T075604Z.g9aa7affee9d4-from-ROCKNIX.identity.json": {
+      "bytes": 403,
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-05/target/pixelelated-SM8550.aarch64-0.0.1-dev+20261015T075604Z.g9aa7affee9d4-from-ROCKNIX.identity.json",
+      "sha256": "bcf08730ca9580471f683e906071bf8097df06d3b0d2b6ceb20197ba49ed5cad"
+    },
+    "pixelelated-SM8550.aarch64-0.0.1-dev+20261015T075604Z.g9aa7affee9d4-from-ROCKNIX.img.gz": {
+      "bytes": 1612106444,
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-05/target/pixelelated-SM8550.aarch64-0.0.1-dev+20261015T075604Z.g9aa7affee9d4-from-ROCKNIX.img.gz",
+      "sha256": "a33abff8dc15afcccee2ab89e6b44c10e2664fdf642a7e7b21b469ca62e373ee"
+    },
+    "pixelelated-SM8550.aarch64-0.0.1-dev+20261015T075604Z.g9aa7affee9d4-from-ROCKNIX.img.gz.sha256": {
+      "bytes": 154,
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-05/target/pixelelated-SM8550.aarch64-0.0.1-dev+20261015T075604Z.g9aa7affee9d4-from-ROCKNIX.img.gz.sha256",
+      "sha256": "05d853c828dfb04e38a5680bbe9a86ce3ff92b30a40e3f8358de44dd90edd584"
+    },
+    "pixelelated-SM8550.aarch64-0.0.1-dev+20261015T075604Z.g9aa7affee9d4-from-ROCKNIX.tar": {
+      "bytes": 1616803840,
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-05/target/pixelelated-SM8550.aarch64-0.0.1-dev+20261015T075604Z.g9aa7affee9d4-from-ROCKNIX.tar",
+      "sha256": "54947b25d9574626f9c29f279097c210a4b8ee678685efe13552c77606fe846c"
+    },
+    "pixelelated-SM8550.aarch64-0.0.1-dev+20261015T075604Z.g9aa7affee9d4-from-ROCKNIX.tar.sha256": {
+      "bytes": 151,
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-05/target/pixelelated-SM8550.aarch64-0.0.1-dev+20261015T075604Z.g9aa7affee9d4-from-ROCKNIX.tar.sha256",
+      "sha256": "fb27b3d3908a8b6a44a375a1ef085ac5881c18b4932c518304ddfe92bf7a19ae"
+    }
+  },
+  "bundle_manifest_sha256": "09addac6d353e2a30e06610d87fa46b72a4bdfa82c711fd77a658b9e7f1d3ca0",
+  "counts": {
+    "abl_files": 5,
+    "affected_products": 48,
+    "arm_handoffs": 188,
+    "fex_files": 14
+  },
+  "producer_result": {
+    "command_rc": 1,
+    "monitor_rc": 0,
+    "runner_rc": 1,
+    "utc": "2026-10-15T09:00:07.757076+00:00"
+  },
+  "producer_scope": "Canonical make completed before post-build verifier failure; original combined producer remains 1/0/1, launcher1. No successful combined producer receipt.",
+  "qualification_scope": "Independent artifact acceptance after consumed original ABL format reader failure; no successful combined producer claim",
+  "scope": "SM8550 firmware artifacts; no physical boot/smoke or RC/publication claim",
+  "selected_state": {
+    "blocked_count": 0,
+    "error_count": 0,
+    "input_kind": "update-tar",
+    "mode": "clean-image",
+    "status": "pass"
+  },
+  "source": "9aa7affee9d4ad5e69725cab20b6d7ad84d93dea",
+  "stages": [
+    {
+      "admission_id": "eb71b6e59cf84600acdc52894169118a",
+      "consumed_receipt_sha256": "ee7c63820873a8116820966cfe377d4ff726a82170ebbe3eba06ea389d70b7ae",
+      "consumption_sha256": "643baee173a8e4e66ebbd3c8324d7c22b54605c4208bed37738e1ae8054cbcb1",
+      "inner_returncode": 0,
+      "launcher_returncode": 0,
+      "original_result": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-15T09:22:30.788546+00:00"
+      },
+      "outer_returncode": 0,
+      "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-05/.build-runs/20261015T092225Z-e7702372",
+      "stage": "reader",
+      "wrapper_returncode": 0
+    },
+    {
+      "admission_id": "40d2d16b1a4a42e0864bf5bf881a242f",
+      "consumed_receipt_sha256": "16c8638c56a62ac60ddc1f463181e5b27a658430d3080e39ef90dad6ead2159b",
+      "consumption_sha256": "2d6c27c11422f5aaaadab2845f70abf0b67743da7e9c2a00db3cd14ae4508582",
+      "inner_returncode": 0,
+      "launcher_returncode": 0,
+      "original_result": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-15T09:23:58.758581+00:00"
+      },
+      "outer_returncode": 0,
+      "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-05/.build-runs/20261015T092333Z-2bc44656",
+      "stage": "acceptance",
+      "wrapper_returncode": 0
+    }
+  ],
+  "variants": [
+    {
+      "bootloader_files": {
+        "rocknix_abl/README": "a95dc2e5611ddc7aa5c6d0a93fd21498934eca7eee6d7aefca11c376217bf77c",
+        "rocknix_abl/abl_signed-SM8550.elf": "8c27a70961476b327071ada2fd9b9c55dd2dcdc913eff3d33f2576133d7e398c",
+        "rocknix_abl/backup_abl.sh": "bb0a723734451add4e0b7294dc9b246933e9dbadf965c06234534c923ea2b037",
+        "rocknix_abl/flash_abl.sh": "ceaf2cea5b0c5597944daceb7bee0c5c7eb10641c68f07c3ac87965617838548",
+        "rocknix_abl/restore_backup_abl.sh": "add45f3872e645ba215c8e5b5efcd1ef45e32b8ccf7a9275d9bf8e0de6edd247"
+      },
+      "first_sector": 32768,
+      "image": "pixelelated-SM8550.aarch64-0.0.1-dev+20261015T075604Z.g9aa7affee9d4-from-ROCKNIX.img.gz",
+      "kernel_sha256": "1a10f367c1a5388fb03d0f09134b434658abc6bc6bf19b05b5fa07ad81130e11",
+      "raw_bytes": 2198863872,
+      "raw_sha256": "9b5f4acbf423bb7ad1afbf2a1922d69a3887044fc40d867c66d6109ec2b670a3",
+      "system_sha256": "b7954c80fb20cf907b85ed247dc0c528789752c0b08888f3b80b97c49e9dea98",
+      "variant": "SM8550"
+    }
+  ]
+}

@@ -1,0 +1,3249 @@
+{
+  "guest_fixture": [
+    {
+      "bytes": 32555,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056456.216917,
+      "path": "after.json",
+      "pax_headers": {
+        "mtime": "1792056456.216917"
+      },
+      "sha256": "7b5aa8b60653a89206149215f08d0f41a0ca3f6c1b264df9559c05bf8faf726c",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 4103,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056456.0895848,
+      "path": "attempt-1-result.json",
+      "pax_headers": {
+        "mtime": "1792056456.0895848"
+      },
+      "sha256": "71e2e2056c23359cab5a693fdd0852525d02421781089f9a6bd510d6a8e5bc0d",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 32555,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056456.089498,
+      "path": "attempt-1-storage.json",
+      "pax_headers": {
+        "mtime": "1792056456.089498"
+      },
+      "sha256": "7b5aa8b60653a89206149215f08d0f41a0ca3f6c1b264df9559c05bf8faf726c",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 25542,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.2628126,
+      "path": "before.json",
+      "pax_headers": {
+        "mtime": "1792056440.2628126"
+      },
+      "sha256": "3df2e91e6594ea0420c4bf9c2766f117e4f075fca81d13f0fd76858ebfe2e98b",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 2,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056445.9766667,
+      "path": "binfmt/box32",
+      "pax_headers": {
+        "mtime": "1792056445.9766667"
+      },
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 2,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056445.9766667,
+      "path": "binfmt/box64",
+      "pax_headers": {
+        "mtime": "1792056445.9766667"
+      },
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 2,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056445.9766667,
+      "path": "binfmt/x86",
+      "pax_headers": {
+        "mtime": "1792056445.9766667"
+      },
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 10978,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056456.1880965,
+      "path": "caller-observation.json",
+      "pax_headers": {
+        "mtime": "1792056456.1880965"
+      },
+      "sha256": "b258d5a2373946ef56d412131a28af8982913e21420777df0b9c8eafc833ec16",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 2944,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056456.1873744,
+      "path": "events-collected.json",
+      "pax_headers": {
+        "mtime": "1792056456.1873744"
+      },
+      "sha256": "8671dcec943a8cca49f9a08bde59ba2c8619d9492b0d1b0eebdab2f8fdd366ca",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 7408,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056456.1872344,
+      "path": "events-collected.ndjson",
+      "pax_headers": {
+        "mtime": "1792056456.1872344"
+      },
+      "sha256": "bf56f66ec2061a433bf0cce9d456b9c2f41a41080a3770b5eceb8c65af4d7134",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 1229,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056443.7766087,
+      "path": "events-controls.json",
+      "pax_headers": {
+        "mtime": "1792056443.7766087"
+      },
+      "sha256": "06e3938b262c21a75fda732d9f5f6a5d6d76c7506e7733d3127cac5f63b528c3",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 480,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056443.7764962,
+      "path": "events-controls.ndjson",
+      "pax_headers": {
+        "mtime": "1792056443.7764962"
+      },
+      "sha256": "9c37bf37a82374b9acea8592d1b9d17b98fd87f717d1850141f22736cef13561",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 3495,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056456.0718882,
+      "path": "exec-1.json",
+      "pax_headers": {
+        "mtime": "1792056456.0718882"
+      },
+      "sha256": "292041c4f2159519dd7374245b5db87af5afbea8b6250c3aac138070ff4d089e",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 709,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056441.4892793,
+      "path": "exec-allowed.json",
+      "pax_headers": {
+        "mtime": "1792056441.4892793"
+      },
+      "sha256": "3567e0cee8a85d82e87db94525862736a7ea9d510b0d929756638f3dedd0479a",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 0,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056441.3733335,
+      "path": "exec-allowed.stderr",
+      "pax_headers": {
+        "mtime": "1792056441.3733335"
+      },
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 0,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056441.3733335,
+      "path": "exec-allowed.stdout",
+      "pax_headers": {
+        "mtime": "1792056441.3733335"
+      },
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 815,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056443.7408056,
+      "path": "exec-blocked.json",
+      "pax_headers": {
+        "mtime": "1792056443.7408056"
+      },
+      "sha256": "a309c3f2dd2b468459a348db75bad96daef19d5a9d482064ae36d6fad91d9fe0",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 565,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056443.7466667,
+      "path": "exec-blocked.stderr",
+      "pax_headers": {
+        "mtime": "1792056443.7466667"
+      },
+      "sha256": "aa76c5574d6e23e0a005ba235e6fcf801d8f7be36ef14687d4944b84f4b1e27b",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 0,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056441.7,
+      "path": "exec-blocked.stdout",
+      "pax_headers": {
+        "mtime": "1792056441.7"
+      },
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 843,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056441.319575,
+      "path": "exec-denial.json",
+      "pax_headers": {
+        "mtime": "1792056441.319575"
+      },
+      "sha256": "b73760f07432efe720bb5bc00da2aa111168bc3fceeb30854178af2c64de36f9",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 0,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056441.06,
+      "path": "exec-denial.stderr",
+      "pax_headers": {
+        "mtime": "1792056441.06"
+      },
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 0,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056441.06,
+      "path": "exec-denial.stdout",
+      "pax_headers": {
+        "mtime": "1792056441.06"
+      },
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 714,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056441.690613,
+      "path": "exec-many-syscalls.json",
+      "pax_headers": {
+        "mtime": "1792056441.690613"
+      },
+      "sha256": "d2ee23d652fa09415cb8f20483c6cc3b5f666c917cb2f766488526578e798827",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 0,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056441.5366666,
+      "path": "exec-many-syscalls.stderr",
+      "pax_headers": {
+        "mtime": "1792056441.5366666"
+      },
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 0,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056441.5366666,
+      "path": "exec-many-syscalls.stdout",
+      "pax_headers": {
+        "mtime": "1792056441.5366666"
+      },
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 17865,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056456.0666666,
+      "path": "installer-1.stderr",
+      "pax_headers": {
+        "mtime": "1792056456.0666666"
+      },
+      "sha256": "7e7fcd9577b6087d2570769c4ecc7e1727ac0f156ac2d68f2256ae5bf461f47a",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 1363,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056446.0666666,
+      "path": "installer-1.stdout",
+      "pax_headers": {
+        "mtime": "1792056446.0666666"
+      },
+      "sha256": "a3e8fb44760548b0a574802314ae3d93d0f8c012b14cbcc9d7049178b060e2f8",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 511,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056441.00181,
+      "path": "launcher-caller.json",
+      "pax_headers": {
+        "mtime": "1792056441.00181"
+      },
+      "sha256": "f6deefad40914cfe0107b97063d486c50c2189f68fd42a44ad596f52198c7f64",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 586,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.573505,
+      "path": "launcher-parent-exit-after-arm.json",
+      "pax_headers": {
+        "mtime": "1792056440.573505"
+      },
+      "sha256": "0c054edec8d61d7468bf18f72a2f41936856051ecc6e536a7a27a7e12c3e155a",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 588,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.8687985,
+      "path": "launcher-parent-exit-before-arm.json",
+      "pax_headers": {
+        "mtime": "1792056440.8687985"
+      },
+      "sha256": "77b90387d65afe7dccac04649235c49f6ba5a608c1c232be20efeefde293c7e5",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 18202,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056456.0898721,
+      "path": "namespace-result.json",
+      "pax_headers": {
+        "mtime": "1792056456.0898721"
+      },
+      "sha256": "cfd7a36b748212f2f00cdff2e150c0004be71e1f4ab92d6161ec741a10b7c06e",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 3681,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.2685044,
+      "path": "owner.json",
+      "pax_headers": {
+        "mtime": "1792056440.2685044"
+      },
+      "sha256": "5206322e5892dfc60ade21723649a76a2948a03c3dc577768f3e1e28e8dbf5fa",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 0,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.9434066,
+      "path": "owner.stderr",
+      "pax_headers": {
+        "mtime": "1792056440.9434066"
+      },
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 0,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.9434066,
+      "path": "owner.stdout",
+      "pax_headers": {
+        "mtime": "1792056440.9434066"
+      },
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 15,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056443.7820122,
+      "path": "qa/attempt.json",
+      "pax_headers": {
+        "mtime": "1792056443.7820122"
+      },
+      "sha256": "87d9cc588ac9512dcad3e1e758f51bb32244f72c940c1c653ce3b5d8e31d59cc",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 125,
+      "gid": 0,
+      "gname": "root",
+      "mode": 384,
+      "mtime": 1792056441.3139312,
+      "path": "qa/boundary-events/15-20062244505.ndjson",
+      "pax_headers": {
+        "mtime": "1792056441.3139312"
+      },
+      "sha256": "4e7b8cf8dd4d99435f0511515f37ae4319bc55afc5ef0f86a16c9bb00ec82df8",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 126,
+      "gid": 0,
+      "gname": "root",
+      "mode": 384,
+      "mtime": 1792056441.4842155,
+      "path": "qa/boundary-events/17-20232533005.ndjson",
+      "pax_headers": {
+        "mtime": "1792056441.4842155"
+      },
+      "sha256": "d6697ea1cca8f4b9312b7b9812255633acd2106f58df48f8cf5fd50bf71c1023",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 132,
+      "gid": 0,
+      "gname": "root",
+      "mode": 384,
+      "mtime": 1792056441.685462,
+      "path": "qa/boundary-events/19-20433758896.ndjson",
+      "pax_headers": {
+        "mtime": "1792056441.685462"
+      },
+      "sha256": "fbd4758773facdfab0cf297adace78d8375c947cf2d5b7903703ab03b050d821",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 97,
+      "gid": 0,
+      "gname": "root",
+      "mode": 384,
+      "mtime": 1792056441.8110278,
+      "path": "qa/boundary-events/21-20559348400.ndjson",
+      "pax_headers": {
+        "mtime": "1792056441.8110278"
+      },
+      "sha256": "2400a811bb066dab1c91f56487ce344ebf82f6c0e61cf30d922902b95f97bb8f",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 120,
+      "gid": 0,
+      "gname": "root",
+      "mode": 384,
+      "mtime": 1792056444.0733707,
+      "path": "qa/boundary-events/28-22821705998.ndjson",
+      "pax_headers": {
+        "mtime": "1792056444.0733707"
+      },
+      "sha256": "c35d45cab97eaaeb5df3f756ce5d1eba2540afd6e4f68edbbc03a3eb874b4979",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 142,
+      "gid": 0,
+      "gname": "root",
+      "mode": 384,
+      "mtime": 1792056444.4513667,
+      "path": "qa/boundary-events/32-23199669994.ndjson",
+      "pax_headers": {
+        "mtime": "1792056444.4513667"
+      },
+      "sha256": "878a768f8b50f24843f3f8d46ce3d2f84e533c166bb1a0e4f9a5641d17ad0816",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 207,
+      "gid": 0,
+      "gname": "root",
+      "mode": 384,
+      "mtime": 1792056444.674421,
+      "path": "qa/boundary-events/35-23422746864.ndjson",
+      "pax_headers": {
+        "mtime": "1792056444.674421"
+      },
+      "sha256": "64aaab43aec362df71ab4a071babbcf0701e7fdbb9ea06bd4222d30f7a17d59d",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 271,
+      "gid": 0,
+      "gname": "root",
+      "mode": 384,
+      "mtime": 1792056445.1154916,
+      "path": "qa/boundary-events/40-23863814700.ndjson",
+      "pax_headers": {
+        "mtime": "1792056445.1154916"
+      },
+      "sha256": "c1d186b63b1d4be603ee2ac76cc281945c0393c00127269b0258489939a3213a",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 478,
+      "gid": 0,
+      "gname": "root",
+      "mode": 384,
+      "mtime": 1792056445.262105,
+      "path": "qa/boundary-events/41-24010275752.ndjson",
+      "pax_headers": {
+        "mtime": "1792056445.262105"
+      },
+      "sha256": "4c0819443e0ccd433ee62dedd1cdcdaa66de7804817e2432f6d63ff26dc9e84d",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 277,
+      "gid": 0,
+      "gname": "root",
+      "mode": 384,
+      "mtime": 1792056445.4528894,
+      "path": "qa/boundary-events/44-24201218304.ndjson",
+      "pax_headers": {
+        "mtime": "1792056445.4528894"
+      },
+      "sha256": "10030c8e043c2e2583f63a79968be854f482bd4feaeb41aff9381a6c76e7485c",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 432,
+      "gid": 0,
+      "gname": "root",
+      "mode": 384,
+      "mtime": 1792056445.6273887,
+      "path": "qa/boundary-events/60-24375559363.ndjson",
+      "pax_headers": {
+        "mtime": "1792056445.6273887"
+      },
+      "sha256": "6ae77da2112ff0aec3a21d42117b6f88a3c84006a3f43448648a0f841167fb34",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 287,
+      "gid": 0,
+      "gname": "root",
+      "mode": 384,
+      "mtime": 1792056445.759132,
+      "path": "qa/boundary-events/61-24507436687.ndjson",
+      "pax_headers": {
+        "mtime": "1792056445.759132"
+      },
+      "sha256": "12b71cfa487454a76706c12eef0f4da015501a4dd7f2d22406f984ca9c231ce5",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 425,
+      "gid": 0,
+      "gname": "root",
+      "mode": 384,
+      "mtime": 1792056445.9328756,
+      "path": "qa/boundary-events/77-24681046584.ndjson",
+      "pax_headers": {
+        "mtime": "1792056445.9328756"
+      },
+      "sha256": "4f9c429fa01926d95ca9551dc297102263170c462ab4fa21726843752fdffd85",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 149,
+      "gid": 0,
+      "gname": "root",
+      "mode": 384,
+      "mtime": 1792056446.063297,
+      "path": "qa/boundary-events/79-24811621351.ndjson",
+      "pax_headers": {
+        "mtime": "1792056446.063297"
+      },
+      "sha256": "3575134f6c6bd4086793c0b0300b214955cff93e1f809c5307b266c34c85d9af",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 9405,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.04269,
+      "path": "qa/boundary.py",
+      "pax_headers": {
+        "mtime": "1792056440.04269"
+      },
+      "sha256": "60d9da7d6832d6f5b18ca02372ee45c69cb52c9e5f13e5ee65b066d8a33ba89f",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 120,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.0780668,
+      "path": "qa/case.json",
+      "pax_headers": {
+        "mtime": "1792056440.0780668"
+      },
+      "sha256": "c78fa00a4704219f725eb495edb96e1b52813df47bd45d8f7f1d8f84398b4f05",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 12019,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.0794697,
+      "path": "qa/client-good.json",
+      "pax_headers": {
+        "mtime": "1792056440.0794697"
+      },
+      "sha256": "3bf457e4f0c564450b5affc491e7fe7c2bae512a6cd8dc1570660a6b81a34c97",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 5508,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.042719,
+      "path": "qa/event_records.py",
+      "pax_headers": {
+        "mtime": "1792056440.042719"
+      },
+      "sha256": "d6c52b2948136d49b715ba752097a87e51e3d36f0b6c1157059f570b54427804",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 4140,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056445.97,
+      "path": "qa/events.ndjson",
+      "pax_headers": {
+        "mtime": "1792056445.97"
+      },
+      "sha256": "a1151c43ec307609f9a4d7adc1e3977d1d53dbd53b0bc260363a7f7267a68612",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 7757,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.07802,
+      "path": "qa/exec-guard.py",
+      "pax_headers": {
+        "mtime": "1792056440.07802"
+      },
+      "sha256": "00210b59a8c7fe25559e7ff561f1c112197bf8ef9a876523b5c457f486da4d59",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 53,
+      "gid": 0,
+      "gname": "root",
+      "mode": 493,
+      "mtime": 1792056440.0822005,
+      "path": "qa/guard-should-not-run",
+      "pax_headers": {
+        "mtime": "1792056440.0822005"
+      },
+      "sha256": "c5b6c0143490bb67b0820030b587c8997c549ad3ea7cdf4ead5514590a96fbcf",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 23971,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.0779438,
+      "path": "qa/layout.json",
+      "pax_headers": {
+        "mtime": "1792056440.0779438"
+      },
+      "sha256": "5afbc973d2bc8c79cafafb2c7e3a301b11b192af946f77c5b64dfb2cc8278355",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 2844,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.256599,
+      "path": "qa/native-tools.json",
+      "pax_headers": {
+        "mtime": "1792056440.256599"
+      },
+      "sha256": "b14e825083c3deebc11d19e446faca413592dc0623d43408729b3b32c87445ea",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 17707,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.0426407,
+      "path": "qa/payload.py",
+      "pax_headers": {
+        "mtime": "1792056440.0426407"
+      },
+      "sha256": "966450dfcfd3399a6caa42ad7edc5ed3afcfcc471bd728b36db1025a398b11ff",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 5673,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.0779984,
+      "path": "qa/python-boundary.py",
+      "pax_headers": {
+        "mtime": "1792056440.0779984"
+      },
+      "sha256": "dbd56b6c108f5dc6b15893f27c58e50c05f90513b02d05d2a3bab9e46666deb5",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 5521,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.0779755,
+      "path": "qa/source.json",
+      "pax_headers": {
+        "mtime": "1792056440.0779755"
+      },
+      "sha256": "8f57924a9cca88c83697117aa57e68c33cac0237f2d9dd0c31a23b1191cb8051",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 2466,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.0780425,
+      "path": "qa/transfer-child.py",
+      "pax_headers": {
+        "mtime": "1792056440.0780425"
+      },
+      "sha256": "cedeb1244888fb9f5a752f356efdcd5f4ae70dc5731a20c0dd0af9fad569c6da",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 19113,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056456.2172384,
+      "path": "result.json",
+      "pax_headers": {
+        "mtime": "1792056456.2172384"
+      },
+      "sha256": "d2cb5f5a6da1c4d7dce53d47b709f7626fc86aabce983347d59a5e21c0e692b1",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 2,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.7422523,
+      "path": "supervision/parent-exit-after-arm/detached-child-ready",
+      "pax_headers": {
+        "mtime": "1792056440.7422523"
+      },
+      "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 89,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.7518268,
+      "path": "supervision/parent-exit-after-arm/guard.json",
+      "pax_headers": {
+        "mtime": "1792056440.7518268"
+      },
+      "sha256": "8f6dc1309d5d59f940036dd2bc907d730dbcea98789273c591f5a85589bf0e84",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 51,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.7518568,
+      "path": "supervision/parent-exit-after-arm/ready",
+      "pax_headers": {
+        "mtime": "1792056440.7518568"
+      },
+      "sha256": "ca5370559bc67b4f2e41d028a470ddae15ace6bf366366cc33449160b1a6acb6",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 782,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.792456,
+      "path": "supervision/parent-exit-after-arm/result.json",
+      "pax_headers": {
+        "mtime": "1792056440.792456"
+      },
+      "sha256": "1f09f677f4fa14825d4f4b134c40b39cb6a78e6ca73dc490460e4d9ec7553b1b",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 0,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.2685044,
+      "path": "supervision/parent-exit-after-arm/stderr",
+      "pax_headers": {
+        "mtime": "1792056440.2685044"
+      },
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 0,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.2685044,
+      "path": "supervision/parent-exit-after-arm/stdout",
+      "pax_headers": {
+        "mtime": "1792056440.2685044"
+      },
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 31,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.9060338,
+      "path": "supervision/parent-exit-before-arm/ready",
+      "pax_headers": {
+        "mtime": "1792056440.9060338"
+      },
+      "sha256": "a13e74addb9c3d9ee663f7a09b60b061a4ade247d9c4a39e3e7e3419ab577b6a",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 88,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.9141319,
+      "path": "supervision/parent-exit-before-arm/refusal.json",
+      "pax_headers": {
+        "mtime": "1792056440.9141319"
+      },
+      "sha256": "838bc940484a252e04580094a33b951501f71c66e8b85095f823ae7af16d131a",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 784,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.9434066,
+      "path": "supervision/parent-exit-before-arm/result.json",
+      "pax_headers": {
+        "mtime": "1792056440.9434066"
+      },
+      "sha256": "2c90215a8118f869eb59b80fa5ed6dc85b052e019e1f5ab908bae0d3b36c8b56",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 0,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.792456,
+      "path": "supervision/parent-exit-before-arm/stderr",
+      "pax_headers": {
+        "mtime": "1792056440.792456"
+      },
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    },
+    {
+      "bytes": 0,
+      "gid": 0,
+      "gname": "root",
+      "mode": 420,
+      "mtime": 1792056440.792456,
+      "path": "supervision/parent-exit-before-arm/stdout",
+      "pax_headers": {
+        "mtime": "1792056440.792456"
+      },
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "type": "regular",
+      "uid": 0,
+      "uname": "root"
+    }
+  ],
+  "host": [
+    {
+      "bytes": 729,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8137908,
+      "original_metadata": {
+        "bytes": 729,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834821,
+        "mode": 436,
+        "mtime_ns": 1792056354813790718,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/admission-plan.json",
+      "path": "owner/admission-plan.json",
+      "pax_headers": {
+        "mtime": "1792056354.8137908"
+      },
+      "sha256": "3c933c4fefeec621d3bf090c122beac87ee6c413c5317ae01af63d386c050040",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 1616,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056399.0373068,
+      "original_metadata": {
+        "bytes": 1616,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834823,
+        "mode": 384,
+        "mtime_ns": 1792056399037306782,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/admission.json",
+      "path": "owner/admission.json",
+      "pax_headers": {
+        "mtime": "1792056399.0373068"
+      },
+      "sha256": "17d4bb43af7ab6a687bcf3607ff1e4c28de98abf5d3b05e5d1460171e137cb1b",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 1412,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056405.6517615,
+      "original_metadata": {
+        "bytes": 1412,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834829,
+        "mode": 384,
+        "mtime_ns": 1792056405651761567,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/generated-640x480.json",
+      "path": "owner/generated-640x480.json",
+      "pax_headers": {
+        "mtime": "1792056405.6517615"
+      },
+      "sha256": "71eabef40ebb1bc3128d508498165ca5aa08d387d4cd49ee6ca536ced67a39f8",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 619,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056459.113305,
+      "original_metadata": {
+        "bytes": 619,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834826,
+        "mode": 384,
+        "mtime_ns": 1792056459113305122,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/lifecycle-owner/console.log",
+      "path": "owner/lifecycle-owner/console.log",
+      "pax_headers": {
+        "mtime": "1792056459.113305"
+      },
+      "sha256": "f0a82fa7a5bda9376dd1ffc84559da4831dc9cbed0e519392683cd77fac284de",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 66,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056399.089947,
+      "original_metadata": {
+        "bytes": 66,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834827,
+        "mode": 384,
+        "mtime_ns": 1792056399089946878,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/lifecycle-owner/launcher-pid.json",
+      "path": "owner/lifecycle-owner/launcher-pid.json",
+      "pax_headers": {
+        "mtime": "1792056399.089947"
+      },
+      "sha256": "2e7e84700f56b68013e4a6225e03fd097f4aa38cd5c5398562eba62cb8f83538",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 132,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056459.4953318,
+      "original_metadata": {
+        "bytes": 132,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834848,
+        "mode": 384,
+        "mtime_ns": 1792056459495331702,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/lifecycle-owner/launcher-result.json",
+      "path": "owner/lifecycle-owner/launcher-result.json",
+      "pax_headers": {
+        "mtime": "1792056459.4953318"
+      },
+      "sha256": "351da6f72a8ae97e3f808fcc95c1345cf9364ba571e787588d26ea6a1e9e0fc1",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 167,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056399.1075838,
+      "original_metadata": {
+        "bytes": 167,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834828,
+        "mode": 384,
+        "mtime_ns": 1792056399107583659,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/lifecycle-owner/launcher-start.json",
+      "path": "owner/lifecycle-owner/launcher-start.json",
+      "pax_headers": {
+        "mtime": "1792056399.1075838"
+      },
+      "sha256": "f7c73ccaebb3ac0083d9f89950b9ae15a140ba5135c65963e180a3d90db98efa",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 338,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056399.0896027,
+      "original_metadata": {
+        "bytes": 338,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834824,
+        "mode": 384,
+        "mtime_ns": 1792056399089602688,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/lifecycle-owner/launcher-submission.json",
+      "path": "owner/lifecycle-owner/launcher-submission.json",
+      "pax_headers": {
+        "mtime": "1792056399.0896027"
+      },
+      "sha256": "7da04f53b420ce80f2d107f402c6c5e8230ebf982b392ece56546a26d9bb6996",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056459.4952586,
+      "original_metadata": {
+        "bytes": 2,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834834,
+        "mode": 384,
+        "mtime_ns": 1792056459495258687,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/lifecycle-owner/tool-wrapper.rc",
+      "path": "owner/lifecycle-owner/tool-wrapper.rc",
+      "pax_headers": {
+        "mtime": "1792056459.4952586"
+      },
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 4090,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 320,
+      "mtime": 1792056399.0896451,
+      "original_metadata": {
+        "bytes": 4090,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834825,
+        "mode": 320,
+        "mtime_ns": 1792056399089645121,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/lifecycle-owner/watch-build-submit.py",
+      "path": "owner/lifecycle-owner/watch-build-submit.py",
+      "pax_headers": {
+        "mtime": "1792056399.0896451"
+      },
+      "sha256": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 15,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056441.6605568,
+      "original_metadata": {
+        "bytes": 15,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834839,
+        "mode": 384,
+        "mtime_ns": 1792056441660556841,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/media-640x480.txt",
+      "path": "owner/media-640x480.txt",
+      "pax_headers": {
+        "mtime": "1792056441.6605568"
+      },
+      "sha256": "bf9bda881b0b5945702717565553b8e7695519390497b5ebe71314f10ee40709",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 28989,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056439.3053234,
+      "original_metadata": {
+        "bytes": 28989,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834838,
+        "mode": 384,
+        "mtime_ns": 1792056439305323460,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/monitor.log",
+      "path": "owner/monitor.log",
+      "pax_headers": {
+        "mtime": "1792056439.3053234"
+      },
+      "sha256": "6263cbc39a29d25a1e7e7508a0d139022ee1f6b7b9ca62da04c63584c4935441",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 1412,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056406.0167058,
+      "original_metadata": {
+        "bytes": 1412,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834835,
+        "mode": 384,
+        "mtime_ns": 1792056406016705805,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/qemu-640x480.json",
+      "path": "owner/qemu-640x480.json",
+      "pax_headers": {
+        "mtime": "1792056406.0167058"
+      },
+      "sha256": "71eabef40ebb1bc3128d508498165ca5aa08d387d4cd49ee6ca536ced67a39f8",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 322,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056441.6606462,
+      "original_metadata": {
+        "bytes": 322,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834840,
+        "mode": 384,
+        "mtime_ns": 1792056441660646142,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/ready-640x480.json",
+      "path": "owner/ready-640x480.json",
+      "pax_headers": {
+        "mtime": "1792056441.6606462"
+      },
+      "sha256": "0b296850bddf4fd717c2b59d77cdd7bfa6e0702b54066474316a49aec506dc49",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 2928,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8125603,
+      "original_metadata": {
+        "bytes": 2928,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834815,
+        "mode": 436,
+        "mtime_ns": 1792056354812560248,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/family.json",
+      "path": "owner/records/family.json",
+      "pax_headers": {
+        "mtime": "1792056354.8125603"
+      },
+      "sha256": "093e6b2c0e1f5f66bc31f972208b67411c8a57df4c6198848c1bebc730a6560f",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 332,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8133025,
+      "original_metadata": {
+        "bytes": 332,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834817,
+        "mode": 436,
+        "mtime_ns": 1792056354813302476,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/image-size.json",
+      "path": "owner/records/image-size.json",
+      "pax_headers": {
+        "mtime": "1792056354.8133025"
+      },
+      "sha256": "546ed3ece90e4243b8ceee76fd729810348b6bbb680ab3789a2fca5564012f0d",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 4791,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056400.617925,
+      "original_metadata": {
+        "bytes": 4791,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834874,
+        "mode": 384,
+        "mtime_ns": 1792056400617924826,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/input-files.json",
+      "path": "owner/records/input-files.json",
+      "pax_headers": {
+        "mtime": "1792056400.617925"
+      },
+      "sha256": "b374beaa07c4e563bda427c9affddcf6a261b56ef57eb9f1a0ca60945848bb9d",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 105,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056400.790644,
+      "original_metadata": {
+        "bytes": 105,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834878,
+        "mode": 384,
+        "mtime_ns": 1792056400790643840,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/input-image.json",
+      "path": "owner/records/input-image.json",
+      "pax_headers": {
+        "mtime": "1792056400.790644"
+      },
+      "sha256": "22b20b269e13aec99ad2432c07fd4324035ac4a4cabdbb1308a538b3420ddd37",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 10394,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8132684,
+      "original_metadata": {
+        "bytes": 10394,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834816,
+        "mode": 436,
+        "mtime_ns": 1792056354813268427,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/inputs.json",
+      "path": "owner/records/inputs.json",
+      "pax_headers": {
+        "mtime": "1792056354.8132684"
+      },
+      "sha256": "03f58bfcb096bfda9fe585f6b12cd2ef064ab63a5b78ce9193bf93ff4ceee7e0",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 1548,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8125083,
+      "original_metadata": {
+        "bytes": 1548,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834814,
+        "mode": 436,
+        "mtime_ns": 1792056354812508446,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/installed-module.json",
+      "path": "owner/records/installed-module.json",
+      "pax_headers": {
+        "mtime": "1792056354.8125083"
+      },
+      "sha256": "27a757bdfe35d01de85f91db643f5777082e80851e4bbd8aa21b92394eb2aa0d",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 124399,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 493,
+      "mtime": 1792054718.0,
+      "original_metadata": {
+        "bytes": 124399,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834813,
+        "mode": 493,
+        "mtime_ns": 1792054718000000000,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/installed-module.sh",
+      "path": "owner/records/installed-module.sh",
+      "pax_headers": {
+        "mtime": "1792054718.0"
+      },
+      "sha256": "1694f7a9b892988a67a3445c8f51031c5a5c8be02628b0be8031f233b512ad3b",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 1432751,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.811253,
+      "original_metadata": {
+        "bytes": 1432751,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834810,
+        "mode": 436,
+        "mtime_ns": 1792056354811253076,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/006ebdacffd602dfc7e0b444aee8379a0606cc16a056cecdf54b75e1271dea4b",
+      "path": "owner/records/provenance/006ebdacffd602dfc7e0b444aee8379a0606cc16a056cecdf54b75e1271dea4b",
+      "pax_headers": {
+        "mtime": "1792056354.811253"
+      },
+      "sha256": "006ebdacffd602dfc7e0b444aee8379a0606cc16a056cecdf54b75e1271dea4b",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 24870,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.807893,
+      "original_metadata": {
+        "bytes": 24870,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834786,
+        "mode": 436,
+        "mtime_ns": 1792056354807892935,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/07aa83b5270b4ac0759b5ce8f153cfbfae570906f2106ab35ceaee7980943635",
+      "path": "owner/records/provenance/07aa83b5270b4ac0759b5ce8f153cfbfae570906f2106ab35ceaee7980943635",
+      "pax_headers": {
+        "mtime": "1792056354.807893"
+      },
+      "sha256": "07aa83b5270b4ac0759b5ce8f153cfbfae570906f2106ab35ceaee7980943635",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 1448121,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8102517,
+      "original_metadata": {
+        "bytes": 1448121,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834804,
+        "mode": 436,
+        "mtime_ns": 1792056354810251794,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/09addac6d353e2a30e06610d87fa46b72a4bdfa82c711fd77a658b9e7f1d3ca0",
+      "path": "owner/records/provenance/09addac6d353e2a30e06610d87fa46b72a4bdfa82c711fd77a658b9e7f1d3ca0",
+      "pax_headers": {
+        "mtime": "1792056354.8102517"
+      },
+      "sha256": "09addac6d353e2a30e06610d87fa46b72a4bdfa82c711fd77a658b9e7f1d3ca0",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 4345,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.807852,
+      "original_metadata": {
+        "bytes": 4345,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834785,
+        "mode": 436,
+        "mtime_ns": 1792056354807851970,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/16c8638c56a62ac60ddc1f463181e5b27a658430d3080e39ef90dad6ead2159b",
+      "path": "owner/records/provenance/16c8638c56a62ac60ddc1f463181e5b27a658430d3080e39ef90dad6ead2159b",
+      "pax_headers": {
+        "mtime": "1792056354.807852"
+      },
+      "sha256": "16c8638c56a62ac60ddc1f463181e5b27a658430d3080e39ef90dad6ead2159b",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 104,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8086653,
+      "original_metadata": {
+        "bytes": 104,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834791,
+        "mode": 436,
+        "mtime_ns": 1792056354808665216,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/21bdde269a3772013fca59bcc33f2e1eba363678a0174660fd40741d80b5a01c",
+      "path": "owner/records/provenance/21bdde269a3772013fca59bcc33f2e1eba363678a0174660fd40741d80b5a01c",
+      "pax_headers": {
+        "mtime": "1792056354.8086653"
+      },
+      "sha256": "21bdde269a3772013fca59bcc33f2e1eba363678a0174660fd40741d80b5a01c",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 1163,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8112187,
+      "original_metadata": {
+        "bytes": 1163,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834809,
+        "mode": 436,
+        "mtime_ns": 1792056354811218803,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/26c420ecb0cc7aae29050554c55f522e62337cf6726619a59337c073f1c65406",
+      "path": "owner/records/provenance/26c420ecb0cc7aae29050554c55f522e62337cf6726619a59337c073f1c65406",
+      "pax_headers": {
+        "mtime": "1792056354.8112187"
+      },
+      "sha256": "26c420ecb0cc7aae29050554c55f522e62337cf6726619a59337c073f1c65406",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 24874,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8090436,
+      "original_metadata": {
+        "bytes": 24874,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834800,
+        "mode": 436,
+        "mtime_ns": 1792056354809043579,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/30a83282534388d66e294414c498e3ae0669636ca5cb802daa2c7bc66fe89849",
+      "path": "owner/records/provenance/30a83282534388d66e294414c498e3ae0669636ca5cb802daa2c7bc66fe89849",
+      "pax_headers": {
+        "mtime": "1792056354.8090436"
+      },
+      "sha256": "30a83282534388d66e294414c498e3ae0669636ca5cb802daa2c7bc66fe89849",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 42077,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8111086,
+      "original_metadata": {
+        "bytes": 42077,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834807,
+        "mode": 436,
+        "mtime_ns": 1792056354811108693,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/3d3b85724062a6db2f7bddc5dd62aeb1366f0f6182f267a7b0e6131322c0649c",
+      "path": "owner/records/provenance/3d3b85724062a6db2f7bddc5dd62aeb1366f0f6182f267a7b0e6131322c0649c",
+      "pax_headers": {
+        "mtime": "1792056354.8111086"
+      },
+      "sha256": "3d3b85724062a6db2f7bddc5dd62aeb1366f0f6182f267a7b0e6131322c0649c",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 33688,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8111665,
+      "original_metadata": {
+        "bytes": 33688,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834808,
+        "mode": 436,
+        "mtime_ns": 1792056354811166470,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/5b058ed8a8b11135cd5997e3d925939baff30726033125acf1244863a756318d",
+      "path": "owner/records/provenance/5b058ed8a8b11135cd5997e3d925939baff30726033125acf1244863a756318d",
+      "pax_headers": {
+        "mtime": "1792056354.8111665"
+      },
+      "sha256": "5b058ed8a8b11135cd5997e3d925939baff30726033125acf1244863a756318d",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 779,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8080425,
+      "original_metadata": {
+        "bytes": 779,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834789,
+        "mode": 436,
+        "mtime_ns": 1792056354808042585,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/643baee173a8e4e66ebbd3c8324d7c22b54605c4208bed37738e1ae8054cbcb1",
+      "path": "owner/records/provenance/643baee173a8e4e66ebbd3c8324d7c22b54605c4208bed37738e1ae8054cbcb1",
+      "pax_headers": {
+        "mtime": "1792056354.8080425"
+      },
+      "sha256": "643baee173a8e4e66ebbd3c8324d7c22b54605c4208bed37738e1ae8054cbcb1",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 46327,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8110006,
+      "original_metadata": {
+        "bytes": 46327,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834805,
+        "mode": 436,
+        "mtime_ns": 1792056354811000671,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/65ab515ec2c0ccdf474f08128cabf1dea774846a8add3725cd05d334b2e1eba6",
+      "path": "owner/records/provenance/65ab515ec2c0ccdf474f08128cabf1dea774846a8add3725cd05d334b2e1eba6",
+      "pax_headers": {
+        "mtime": "1792056354.8110006"
+      },
+      "sha256": "65ab515ec2c0ccdf474f08128cabf1dea774846a8add3725cd05d334b2e1eba6",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 4171,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8110633,
+      "original_metadata": {
+        "bytes": 4171,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834806,
+        "mode": 436,
+        "mtime_ns": 1792056354811063276,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/7c3f497b08f494d15a233ae99be05e61af1656aec173120b00b41dd0266e2728",
+      "path": "owner/records/provenance/7c3f497b08f494d15a233ae99be05e61af1656aec173120b00b41dd0266e2728",
+      "pax_headers": {
+        "mtime": "1792056354.8110633"
+      },
+      "sha256": "7c3f497b08f494d15a233ae99be05e61af1656aec173120b00b41dd0266e2728",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 18040,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.808699,
+      "original_metadata": {
+        "bytes": 18040,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834792,
+        "mode": 436,
+        "mtime_ns": 1792056354808698977,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/95cde622785b4c74fd56f1d2813c38bcd72e66c2afb22db78e356e2f3c301c80",
+      "path": "owner/records/provenance/95cde622785b4c74fd56f1d2813c38bcd72e66c2afb22db78e356e2f3c301c80",
+      "pax_headers": {
+        "mtime": "1792056354.808699"
+      },
+      "sha256": "95cde622785b4c74fd56f1d2813c38bcd72e66c2afb22db78e356e2f3c301c80",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.810126,
+      "original_metadata": {
+        "bytes": 2,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834788,
+        "mode": 436,
+        "mtime_ns": 1792056354810126098,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "path": "owner/records/provenance/9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "pax_headers": {
+        "mtime": "1792056354.810126"
+      },
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 104,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8102121,
+      "original_metadata": {
+        "bytes": 104,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834803,
+        "mode": 436,
+        "mtime_ns": 1792056354810212101,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/9c0920ac491c83bf7bed4fba8a6c483ae94963c82f869b18da2345645053ac45",
+      "path": "owner/records/provenance/9c0920ac491c83bf7bed4fba8a6c483ae94963c82f869b18da2345645053ac45",
+      "pax_headers": {
+        "mtime": "1792056354.8102121"
+      },
+      "sha256": "9c0920ac491c83bf7bed4fba8a6c483ae94963c82f869b18da2345645053ac45",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 5779,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.807801,
+      "original_metadata": {
+        "bytes": 5779,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834784,
+        "mode": 436,
+        "mtime_ns": 1792056354807800894,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/aa603454b6a2210f31b2138a1450f1f22edf391018de23ef20cd3aa2029d8ec9",
+      "path": "owner/records/provenance/aa603454b6a2210f31b2138a1450f1f22edf391018de23ef20cd3aa2029d8ec9",
+      "pax_headers": {
+        "mtime": "1792056354.807801"
+      },
+      "sha256": "aa603454b6a2210f31b2138a1450f1f22edf391018de23ef20cd3aa2029d8ec9",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 6209,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8087583,
+      "original_metadata": {
+        "bytes": 6209,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834793,
+        "mode": 436,
+        "mtime_ns": 1792056354808758144,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/adb0f82a65efec22c00b0d12c245c1facfc3b8eada346ccdc4de8ceaf7fb2166",
+      "path": "owner/records/provenance/adb0f82a65efec22c00b0d12c245c1facfc3b8eada346ccdc4de8ceaf7fb2166",
+      "pax_headers": {
+        "mtime": "1792056354.8087583"
+      },
+      "sha256": "adb0f82a65efec22c00b0d12c245c1facfc3b8eada346ccdc4de8ceaf7fb2166",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 2601,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8089495,
+      "original_metadata": {
+        "bytes": 2601,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834798,
+        "mode": 436,
+        "mtime_ns": 1792056354808949494,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/b011536dc117332916004c8538f777023d1e4051c0dfa0117d21d9e827310b95",
+      "path": "owner/records/provenance/b011536dc117332916004c8538f777023d1e4051c0dfa0117d21d9e827310b95",
+      "pax_headers": {
+        "mtime": "1792056354.8089495"
+      },
+      "sha256": "b011536dc117332916004c8538f777023d1e4051c0dfa0117d21d9e827310b95",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 660,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8089154,
+      "original_metadata": {
+        "bytes": 660,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834797,
+        "mode": 436,
+        "mtime_ns": 1792056354808915477,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/b4cc39c8e990a55b885bb12a7d3add617ea4814b371681237a6f9a0b2795c8bc",
+      "path": "owner/records/provenance/b4cc39c8e990a55b885bb12a7d3add617ea4814b371681237a6f9a0b2795c8bc",
+      "pax_headers": {
+        "mtime": "1792056354.8089154"
+      },
+      "sha256": "b4cc39c8e990a55b885bb12a7d3add617ea4814b371681237a6f9a0b2795c8bc",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 2850,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8077424,
+      "original_metadata": {
+        "bytes": 2850,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834783,
+        "mode": 436,
+        "mtime_ns": 1792056354807742340,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/b576f190e56c01ed534bbec593dc669c5fc034317a69ccb68af14cb568787dd0",
+      "path": "owner/records/provenance/b576f190e56c01ed534bbec593dc669c5fc034317a69ccb68af14cb568787dd0",
+      "pax_headers": {
+        "mtime": "1792056354.8077424"
+      },
+      "sha256": "b576f190e56c01ed534bbec593dc669c5fc034317a69ccb68af14cb568787dd0",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 132,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8086307,
+      "original_metadata": {
+        "bytes": 132,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834790,
+        "mode": 436,
+        "mtime_ns": 1792056354808630651,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/bb3b537851aa4c702ceec403d1e4f3966fbbef37f5ecce0955026da3ca0e6963",
+      "path": "owner/records/provenance/bb3b537851aa4c702ceec403d1e4f3966fbbef37f5ecce0955026da3ca0e6963",
+      "pax_headers": {
+        "mtime": "1792056354.8086307"
+      },
+      "sha256": "bb3b537851aa4c702ceec403d1e4f3966fbbef37f5ecce0955026da3ca0e6963",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 132,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8101768,
+      "original_metadata": {
+        "bytes": 132,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834802,
+        "mode": 436,
+        "mtime_ns": 1792056354810176951,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/c5dbfe9dbf0cfcdd8a604c0e6b947f21f2176c0f2f373396c360f741f2c63d8c",
+      "path": "owner/records/provenance/c5dbfe9dbf0cfcdd8a604c0e6b947f21f2176c0f2f373396c360f741f2c63d8c",
+      "pax_headers": {
+        "mtime": "1792056354.8101768"
+      },
+      "sha256": "c5dbfe9dbf0cfcdd8a604c0e6b947f21f2176c0f2f373396c360f741f2c63d8c",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 49802,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8079438,
+      "original_metadata": {
+        "bytes": 49802,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834787,
+        "mode": 436,
+        "mtime_ns": 1792056354807943880,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/cffc11b1a85f532105e489a79b51a3f22a839bd303d7d2174f2a2875f7c01fd5",
+      "path": "owner/records/provenance/cffc11b1a85f532105e489a79b51a3f22a839bd303d7d2174f2a2875f7c01fd5",
+      "pax_headers": {
+        "mtime": "1792056354.8079438"
+      },
+      "sha256": "cffc11b1a85f532105e489a79b51a3f22a839bd303d7d2174f2a2875f7c01fd5",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 5491,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8088758,
+      "original_metadata": {
+        "bytes": 5491,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834796,
+        "mode": 436,
+        "mtime_ns": 1792056354808875813,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/e92387f99ba4e05075333723fa778a7117ef18d9df5e59fbc17050c8c736cde9",
+      "path": "owner/records/provenance/e92387f99ba4e05075333723fa778a7117ef18d9df5e59fbc17050c8c736cde9",
+      "pax_headers": {
+        "mtime": "1792056354.8088758"
+      },
+      "sha256": "e92387f99ba4e05075333723fa778a7117ef18d9df5e59fbc17050c8c736cde9",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 4109,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8088388,
+      "original_metadata": {
+        "bytes": 4109,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834795,
+        "mode": 436,
+        "mtime_ns": 1792056354808838925,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/ee7c63820873a8116820966cfe377d4ff726a82170ebbe3eba06ea389d70b7ae",
+      "path": "owner/records/provenance/ee7c63820873a8116820966cfe377d4ff726a82170ebbe3eba06ea389d70b7ae",
+      "pax_headers": {
+        "mtime": "1792056354.8088388"
+      },
+      "sha256": "ee7c63820873a8116820966cfe377d4ff726a82170ebbe3eba06ea389d70b7ae",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 1137227,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8090947,
+      "original_metadata": {
+        "bytes": 1137227,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834801,
+        "mode": 436,
+        "mtime_ns": 1792056354809094574,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/ef9bde144b19185f5f278626401dd96aeef3d00fa6a6b50966c7974e8975ae3c",
+      "path": "owner/records/provenance/ef9bde144b19185f5f278626401dd96aeef3d00fa6a6b50966c7974e8975ae3c",
+      "pax_headers": {
+        "mtime": "1792056354.8090947"
+      },
+      "sha256": "ef9bde144b19185f5f278626401dd96aeef3d00fa6a6b50966c7974e8975ae3c",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 18332,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8089943,
+      "original_metadata": {
+        "bytes": 18332,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834799,
+        "mode": 436,
+        "mtime_ns": 1792056354808994349,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/f3a66c265502f8bb081a80eec487ebf8872afffe7c480e768abee7995ffe89f7",
+      "path": "owner/records/provenance/f3a66c265502f8bb081a80eec487ebf8872afffe7c480e768abee7995ffe89f7",
+      "pax_headers": {
+        "mtime": "1792056354.8089943"
+      },
+      "sha256": "f3a66c265502f8bb081a80eec487ebf8872afffe7c480e768abee7995ffe89f7",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 4111,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8088005,
+      "original_metadata": {
+        "bytes": 4111,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834794,
+        "mode": 436,
+        "mtime_ns": 1792056354808800358,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/provenance/f820b116c70bd2dbbc67b873bb11d881222fb8b1c15af15505aa6a710dc0049b",
+      "path": "owner/records/provenance/f820b116c70bd2dbbc67b873bb11d881222fb8b1c15af15505aa6a710dc0049b",
+      "pax_headers": {
+        "mtime": "1792056354.8088005"
+      },
+      "sha256": "f820b116c70bd2dbbc67b873bb11d881222fb8b1c15af15505aa6a710dc0049b",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 6923,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8121219,
+      "original_metadata": {
+        "bytes": 6923,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834811,
+        "mode": 436,
+        "mtime_ns": 1792056354812121913,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/reference-originals.json",
+      "path": "owner/records/reference-originals.json",
+      "pax_headers": {
+        "mtime": "1792056354.8121219"
+      },
+      "sha256": "a8b7fc650120f42b6969222ade9a8f1495e7a64571e728734f0e4056b414828e",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 715,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8136208,
+      "original_metadata": {
+        "bytes": 715,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834819,
+        "mode": 436,
+        "mtime_ns": 1792056354813620722,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/runtime.json",
+      "path": "owner/records/runtime.json",
+      "pax_headers": {
+        "mtime": "1792056354.8136208"
+      },
+      "sha256": "066d5ae7f5d2fc6eab51be314965d4709bb9991c4b62df09d7357e46351ce3b0",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 2372,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.812282,
+      "original_metadata": {
+        "bytes": 2372,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834812,
+        "mode": 436,
+        "mtime_ns": 1792056354812282003,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/records/sm-artifact.json",
+      "path": "owner/records/sm-artifact.json",
+      "pax_headers": {
+        "mtime": "1792056354.812282"
+      },
+      "sha256": "04d2fad2b133839190a69a9c6d5a85b040c08b03a780849be31b228659d02c82",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 2652,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8137455,
+      "original_metadata": {
+        "bytes": 2652,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834820,
+        "mode": 436,
+        "mtime_ns": 1792056354813745609,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/retention-plan.json",
+      "path": "owner/retention-plan.json",
+      "pax_headers": {
+        "mtime": "1792056354.8137455"
+      },
+      "sha256": "9745ea0e720c0d6d172934c0aaff3184db5f0d47cf0db8bef4d99e3b48a06865",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 8799,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056370.2244422,
+      "original_metadata": {
+        "bytes": 8799,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834822,
+        "mode": 436,
+        "mtime_ns": 1792056370224442263,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/retention-report.json",
+      "path": "owner/retention-report.json",
+      "pax_headers": {
+        "mtime": "1792056370.2244422"
+      },
+      "sha256": "027aa95fb0b11100685015d0fa1657d44f3283def0563edef65b6834ead452fe",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056438.8734803,
+      "original_metadata": {
+        "bytes": 0,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834836,
+        "mode": 384,
+        "mtime_ns": 1792056438873480413,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/serial.lock",
+      "path": "owner/serial.lock",
+      "pax_headers": {
+        "mtime": "1792056438.8734803"
+      },
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 261,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056458.6241279,
+      "original_metadata": {
+        "bytes": 261,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834846,
+        "mode": 384,
+        "mtime_ns": 1792056458624127954,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/stages/01-existing-profile-dot/host-result.json",
+      "path": "owner/stages/01-existing-profile-dot/host-result.json",
+      "pax_headers": {
+        "mtime": "1792056458.6241279"
+      },
+      "sha256": "18a39d7663af86a4b2972df29f2cb282811b4d33ade56b10da3d116694680c42",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 189,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056458.6240444,
+      "original_metadata": {
+        "bytes": 189,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834844,
+        "mode": 384,
+        "mtime_ns": 1792056458624044380,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/stages/01-existing-profile-dot/serial-result.json",
+      "path": "owner/stages/01-existing-profile-dot/serial-result.json",
+      "pax_headers": {
+        "mtime": "1792056458.6240444"
+      },
+      "sha256": "3101bb8fc43446e665fe1a205b7fc379bd246a037b5202f280c2860d8872fe11",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056458.623959,
+      "original_metadata": {
+        "bytes": 0,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834843,
+        "mode": 384,
+        "mtime_ns": 1792056458623959064,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/stages/01-existing-profile-dot/serial.stderr",
+      "path": "owner/stages/01-existing-profile-dot/serial.stderr",
+      "pax_headers": {
+        "mtime": "1792056458.623959"
+      },
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 135,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056458.623959,
+      "original_metadata": {
+        "bytes": 135,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834842,
+        "mode": 384,
+        "mtime_ns": 1792056458623959064,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/stages/01-existing-profile-dot/serial.stdout",
+      "path": "owner/stages/01-existing-profile-dot/serial.stdout",
+      "pax_headers": {
+        "mtime": "1792056458.623959"
+      },
+      "sha256": "84e27f5cea3bae40a770a2e164f56807927689cc1aead695a8b018026b8b0782",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 135,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056458.624074,
+      "original_metadata": {
+        "bytes": 135,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834845,
+        "mode": 384,
+        "mtime_ns": 1792056458624074069,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/stages/01-existing-profile-dot/serial.txt",
+      "path": "owner/stages/01-existing-profile-dot/serial.txt",
+      "pax_headers": {
+        "mtime": "1792056458.624074"
+      },
+      "sha256": "84e27f5cea3bae40a770a2e164f56807927689cc1aead695a8b018026b8b0782",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 106,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056439.3017805,
+      "original_metadata": {
+        "bytes": 106,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834837,
+        "mode": 384,
+        "mtime_ns": 1792056439301780472,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/topology-640x480.txt",
+      "path": "owner/topology-640x480.txt",
+      "pax_headers": {
+        "mtime": "1792056439.3017805"
+      },
+      "sha256": "d1d555cafc02d12301100fae8e6122747e237e425820fe0c61fa0fc16f2d0d9c",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 17,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056458.977288,
+      "original_metadata": {
+        "bytes": 17,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834847,
+        "mode": 384,
+        "mtime_ns": 1792056458977288125,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/unmount-640x480.txt",
+      "path": "owner/unmount-640x480.txt",
+      "pax_headers": {
+        "mtime": "1792056458.977288"
+      },
+      "sha256": "1e24ec7421d8cdbfc285a8a42cfb7db254151dc28eea49c63202154319be7a13",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 10079,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 436,
+      "mtime": 1792056354.8133495,
+      "original_metadata": {
+        "bytes": 10079,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834818,
+        "mode": 436,
+        "mtime_ns": 1792056354813349493,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/vm-lifecycle.py",
+      "path": "owner/vm-lifecycle.py",
+      "pax_headers": {
+        "mtime": "1792056354.8133495"
+      },
+      "sha256": "ec9479280429a1870cfbd5f4a9a2f73cd083b650f4c7bbd8fda95f07d97090e8",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 785,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056459.113305,
+      "original_metadata": {
+        "bytes": 785,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834833,
+        "mode": 384,
+        "mtime_ns": 1792056459113305122,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/vm-result.json",
+      "path": "owner/vm-result.json",
+      "pax_headers": {
+        "mtime": "1792056459.113305"
+      },
+      "sha256": "7123a3a5ec4f115ebd0dd45cfb38661354b06d4348fbc85df994a808cb25d4f2",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 38,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056459.1131976,
+      "original_metadata": {
+        "bytes": 38,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 206834832,
+        "mode": 384,
+        "mtime_ns": 1792056459113197470,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/vm-stop.log",
+      "path": "owner/vm-stop.log",
+      "pax_headers": {
+        "mtime": "1792056459.1131976"
+      },
+      "sha256": "d44e1291622ce2fc4f0f6748d2548d447684c7143eb0aa32dd729e06de54ef71",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 1616,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056399.2276173,
+      "original_metadata": {
+        "bytes": 1616,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 141054104,
+        "mode": 384,
+        "mtime_ns": 1792056399227617161,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/admission-input.json",
+      "path": "run/admission-input.json",
+      "pax_headers": {
+        "mtime": "1792056399.2276173"
+      },
+      "sha256": "17d4bb43af7ab6a687bcf3607ff1e4c28de98abf5d3b05e5d1460171e137cb1b",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 729,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056399.2276745,
+      "original_metadata": {
+        "bytes": 729,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 141054108,
+        "mode": 384,
+        "mtime_ns": 1792056399227674438,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/admission-plan.json",
+      "path": "run/admission-plan.json",
+      "pax_headers": {
+        "mtime": "1792056399.2276745"
+      },
+      "sha256": "446c8cb981f93900058ae586dd2d3053838fb353e4ba97c0d909248d898bcc81",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 1624,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056399.227556,
+      "original_metadata": {
+        "bytes": 1624,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 141054100,
+        "mode": 384,
+        "mtime_ns": 1792056399227555939,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/admission.json",
+      "path": "run/admission.json",
+      "pax_headers": {
+        "mtime": "1792056399.227556"
+      },
+      "sha256": "3ab288deda6e1f4f6b1259ba4723c1abf48e76657fc636cacd67079ea33dae61",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 496,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056459.113305,
+      "original_metadata": {
+        "bytes": 496,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 141054080,
+        "mode": 384,
+        "mtime_ns": 1792056459113305122,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/build.log",
+      "path": "run/build.log",
+      "pax_headers": {
+        "mtime": "1792056459.113305"
+      },
+      "sha256": "b73ba99243373758dbe3befcf8874db8849df3b143b9a732922be10825debf10",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056399.1403668,
+      "original_metadata": {
+        "bytes": 8,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 141054064,
+        "mode": 384,
+        "mtime_ns": 1792056399140366684,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/build.pid",
+      "path": "run/build.pid",
+      "pax_headers": {
+        "mtime": "1792056399.1403668"
+      },
+      "sha256": "fb35e866fbb8de854e79fa9dc802a53f2066416e8e12c498d210a1592cca45c3",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056459.1195507,
+      "original_metadata": {
+        "bytes": 2,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 141054096,
+        "mode": 384,
+        "mtime_ns": 1792056459119550597,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/build.rc",
+      "path": "run/build.rc",
+      "pax_headers": {
+        "mtime": "1792056459.1195507"
+      },
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 33,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056399.140431,
+      "original_metadata": {
+        "bytes": 33,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 141054072,
+        "mode": 384,
+        "mtime_ns": 1792056399140430965,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/build.start",
+      "path": "run/build.start",
+      "pax_headers": {
+        "mtime": "1792056399.140431"
+      },
+      "sha256": "db197b15dd9c6ab7d9856942795bafa025adf0bb85e473b7df18123d229a4c9b",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 713,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056459.4677165,
+      "original_metadata": {
+        "bytes": 713,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 141054128,
+        "mode": 384,
+        "mtime_ns": 1792056459467716430,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/build.status",
+      "path": "run/build.status",
+      "pax_headers": {
+        "mtime": "1792056459.4677165"
+      },
+      "sha256": "75874e360bfba2657604ed85211139a0ba084a7ff46f39cbcf086a8e6e65aaff",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056399.1538815,
+      "original_metadata": {
+        "bytes": 8,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 141054092,
+        "mode": 384,
+        "mtime_ns": 1792056399153881512,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/build.status.pid",
+      "path": "run/build.status.pid",
+      "pax_headers": {
+        "mtime": "1792056399.1538815"
+      },
+      "sha256": "e30840c2ae745f1108a6ce1ba18019b91ef602cdc80e3d6ff4b8dd07dad50fee",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056399.2427769,
+      "original_metadata": {
+        "bytes": 8,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 141054120,
+        "mode": 384,
+        "mtime_ns": 1792056399242776841,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/command.pid",
+      "path": "run/command.pid",
+      "pax_headers": {
+        "mtime": "1792056399.2427769"
+      },
+      "sha256": "afd5209fd80f266a40982acf17809d6fab466fec08249052e72d34cba7fb76da",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 2652,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056399.2277327,
+      "original_metadata": {
+        "bytes": 2652,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 141054112,
+        "mode": 384,
+        "mtime_ns": 1792056399227732760,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/retention-plan.json",
+      "path": "run/retention-plan.json",
+      "pax_headers": {
+        "mtime": "1792056399.2277327"
+      },
+      "sha256": "e04942959f1d3a6871dd003f0f23b7ecf18dfa6e72635d859adb58ba390d3ca7",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 8799,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056399.2278357,
+      "original_metadata": {
+        "bytes": 8799,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 141054116,
+        "mode": 384,
+        "mtime_ns": 1792056399227835692,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/retention-report.json",
+      "path": "run/retention-report.json",
+      "pax_headers": {
+        "mtime": "1792056399.2278357"
+      },
+      "sha256": "89b894dbfdbc3eb4e00afcd9a61430edcb6c9b27bf0e0d22fe65a0a6e2098502",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 104,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056459.4847174,
+      "original_metadata": {
+        "bytes": 104,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 141054124,
+        "mode": 384,
+        "mtime_ns": 1792056459484717300,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/runner-result.json",
+      "path": "run/runner-result.json",
+      "pax_headers": {
+        "mtime": "1792056459.4847174"
+      },
+      "sha256": "7f8300447c80fec46c8a018922bf2e5321acb0d10158c98c856d617c5ac5f4bc",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 12661,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 320,
+      "mtime": 1792056399.1405091,
+      "original_metadata": {
+        "bytes": 12661,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 141054076,
+        "mode": 320,
+        "mtime_ns": 1792056399140509052,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/watch-job",
+      "path": "run/watch-job",
+      "pax_headers": {
+        "mtime": "1792056399.1405091"
+      },
+      "sha256": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056399.1405091,
+      "original_metadata": {
+        "bytes": 0,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 141054084,
+        "mode": 384,
+        "mtime_ns": 1792056399140509052,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/watcher.err",
+      "path": "run/watcher.err",
+      "pax_headers": {
+        "mtime": "1792056399.1405091"
+      },
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056399.1403983,
+      "original_metadata": {
+        "bytes": 2,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 141054068,
+        "mode": 384,
+        "mtime_ns": 1792056399140398286,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/watcher.interval",
+      "path": "run/watcher.interval",
+      "pax_headers": {
+        "mtime": "1792056399.1403983"
+      },
+      "sha256": "f0b5c2c2211c8d67ed15e75e656c7862d086e9245420892a7de62cd9ec582a06",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "gname": "max",
+      "mode": 384,
+      "mtime": 1792056399.140918,
+      "original_metadata": {
+        "bytes": 8,
+        "device": 66304,
+        "gid": 1000,
+        "inode": 141054088,
+        "mode": 384,
+        "mtime_ns": 1792056399140918102,
+        "nlink": 1,
+        "uid": 1000
+      },
+      "original_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T092639Z-3b69cb85/watcher.pid",
+      "path": "run/watcher.pid",
+      "pax_headers": {
+        "mtime": "1792056399.140918"
+      },
+      "sha256": "e30840c2ae745f1108a6ce1ba18019b91ef602cdc80e3d6ff4b8dd07dad50fee",
+      "type": "regular",
+      "uid": 1000,
+      "uname": "max"
+    }
+  ],
+  "note": "Original archive bytes retained. Host bytes, modes, uid and gid also match stopped original paths. Archive PAX timestamps are preserved as emitted by the producer; exact original nanosecond timestamp equality is not claimed for producer archives. Guest original metadata is the archived metadata; no media mount or live guest read performed."
+}

@@ -1,0 +1,83 @@
+{
+  "source_seal_sha256": "5639bc396e39e08e20caaefc833bb38fab5848433b8796d5a0bd19451b49f85e",
+  "archive": {
+    "file": "peer-review.tar.gz",
+    "bytes": 7072,
+    "sha256": "fd2505705158da111c312795cdf98a6d145b3c697ddbc5949b2c26fe5a0b9f9c",
+    "members": 5,
+    "regular_files": 4,
+    "directories": 1
+  },
+  "verification": {
+    "all_bytes_and_metadata_exact": true,
+    "sources_unchanged": true,
+    "readback_without_extraction": true
+  },
+  "members": [
+    {
+      "member": "peer-review",
+      "source": "/tmp/pix-m7-steam-bridge-review-20261015-02",
+      "type": "directory",
+      "bytes": 0,
+      "mode": 509,
+      "uid": 1000,
+      "gid": 1000,
+      "uname": "max",
+      "gname": "max",
+      "mtime_ns": 1792056286708405743,
+      "sha256": null
+    },
+    {
+      "member": "peer-review/README.md",
+      "source": "/tmp/pix-m7-steam-bridge-review-20261015-02/README.md",
+      "type": "file",
+      "bytes": 323,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "uname": "max",
+      "gname": "max",
+      "mtime_ns": 1792056286708405743,
+      "sha256": "9fa842bb37bfbcae915ecc700ba9d962b99c86a10cf346d68d724e4e6688ab06"
+    },
+    {
+      "member": "peer-review/SHA256SUMS",
+      "source": "/tmp/pix-m7-steam-bridge-review-20261015-02/SHA256SUMS",
+      "type": "file",
+      "bytes": 241,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "uname": "max",
+      "gname": "max",
+      "mtime_ns": 1792056286708524668,
+      "sha256": "5639bc396e39e08e20caaefc833bb38fab5848433b8796d5a0bd19451b49f85e"
+    },
+    {
+      "member": "peer-review/findings.md",
+      "source": "/tmp/pix-m7-steam-bridge-review-20261015-02/findings.md",
+      "type": "file",
+      "bytes": 4136,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "uname": "max",
+      "gname": "max",
+      "mtime_ns": 1792056286708370087,
+      "sha256": "2f7952cd805c6d41ed63d89e10784786b385cd25c528eb397b941fc63e2d6924"
+    },
+    {
+      "member": "peer-review/source-readback.json",
+      "source": "/tmp/pix-m7-steam-bridge-review-20261015-02/source-readback.json",
+      "type": "file",
+      "bytes": 13190,
+      "mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "uname": "max",
+      "gname": "max",
+      "mtime_ns": 1792056241820784976,
+      "sha256": "c4e872743a69c9efc418326799b8c47739e826729b5f29d7da4e243638e9e06a"
+    }
+  ]
+}

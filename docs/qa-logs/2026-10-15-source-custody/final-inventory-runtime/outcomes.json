@@ -1,0 +1,219 @@
+{
+  "admission_id": "e73b73b3325f41c392a8eb6e7ddeb105",
+  "cleanup_errors": [],
+  "cleanup_sha256": "289c6520574b175c0f240908bc710d2d60e9d11208dba0f0909b7b421383e43b",
+  "common_rc_identity": null,
+  "completion_evidence_sha256": "e90410fce570ec141f987889d45641b061e0d20e82d550b6cc97bd4e6d809f58",
+  "consumed_sha256": "912c108686521c3b8580c8df12ee90a2ef88478c4c3cf39d7f544fe2420da30d",
+  "consumed_utc": "2026-10-15T09:39:31.186711+00:00",
+  "device_sources": {
+    "GENERIC_X64": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+    "H700": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+    "SM8550": "9aa7affee9d4ad5e69725cab20b6d7ad84d93dea"
+  },
+  "inner_returncode": 0,
+  "launcher_returncode": 0,
+  "original_result": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-15T09:34:11.231287+00:00"
+  },
+  "outer_returncode": 0,
+  "owner": "/workspace/tmp/pix-m7-final-inventory-20261015-01",
+  "preparation_packet_seal": "6b2c7bf6e9d953d054ab666df6f5ab25b8bc184660c267c12bcce218059a99a3",
+  "profiles": [
+    {
+      "children": {
+        "component_map": {
+          "interrupted": false,
+          "original_child_returncode": 0,
+          "result_sha256": "158f3b5df69833db0e986999a746099c6c499d1f185722f64f7f4b5078ffdf98",
+          "timeout": false,
+          "wait_observed": true
+        },
+        "source_inventory": {
+          "interrupted": false,
+          "original_child_returncode": 0,
+          "result_sha256": "86e5ab8e767ca4ee61bd8f19b2dc02d2132b73e2507097abe17964513b2c0172",
+          "timeout": false,
+          "wait_observed": true
+        }
+      },
+      "components_sha256": "96e02b466f6716de013a38e805206edeaf38aa6f242203991e4577fea135d7de",
+      "counts": {
+        "archive_reconstructed_packages": 0,
+        "image_install_stamps": 536,
+        "installed_without_unpacked_root": 15,
+        "local_meta_packages": 15,
+        "mapped_components": 594,
+        "unpacked_roots": 579
+      },
+      "missing_recipe_license": [
+        "harfbuzz-icu",
+        "retropie-shaders",
+        "slang-shaders"
+      ],
+      "profile": "generic-x64-x86_64",
+      "publication_bundle_complete": false,
+      "publication_worklist_sha256": "96e02b466f6716de013a38e805206edeaf38aa6f242203991e4577fea135d7de",
+      "source": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+      "source_inventory_sha256": "b207ff66a6ef2d6bdf5dddcbf37662a75817be8ae85c30955e883f382fdefbe7"
+    },
+    {
+      "children": {
+        "component_map": {
+          "interrupted": false,
+          "original_child_returncode": 0,
+          "result_sha256": "d92ed07b621728872f988764cdc4b0b4b58b27955799d3ce68cc87890faa4a35",
+          "timeout": false,
+          "wait_observed": true
+        },
+        "source_inventory": {
+          "interrupted": false,
+          "original_child_returncode": 0,
+          "result_sha256": "42b26b119c25a9058ed20d28a58628df5152e8a237f01d5540fe452a046875e4",
+          "timeout": false,
+          "wait_observed": true
+        }
+      },
+      "components_sha256": "6a89ed7878b5a7e5e867762d57fbbe7b811a1dd08c3afb8ed847d68dea813f0a",
+      "counts": {
+        "archive_reconstructed_packages": 0,
+        "image_install_stamps": 188,
+        "installed_without_unpacked_root": 4,
+        "local_meta_packages": 4,
+        "mapped_components": 238,
+        "unpacked_roots": 234
+      },
+      "missing_recipe_license": [],
+      "profile": "h700-arm",
+      "publication_bundle_complete": false,
+      "publication_worklist_sha256": "6a89ed7878b5a7e5e867762d57fbbe7b811a1dd08c3afb8ed847d68dea813f0a",
+      "source": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+      "source_inventory_sha256": "fc8ae5df7e32f8b7fe9ee8461363f4c3ad94b8f171d14c4a03cc0e7afa34e2a1"
+    },
+    {
+      "children": {
+        "component_map": {
+          "interrupted": false,
+          "original_child_returncode": 0,
+          "result_sha256": "4cd2b8b3f62b4278e6af2ae5a9ef050193b7ff4b4ed2ab9b3d5dfc7eeae1ab33",
+          "timeout": false,
+          "wait_observed": true
+        },
+        "source_inventory": {
+          "interrupted": false,
+          "original_child_returncode": 0,
+          "result_sha256": "bae2778ec1bda076fd62c79a07a384812a5b1270b0585fc02411c4b434e6e477",
+          "timeout": false,
+          "wait_observed": true
+        }
+      },
+      "components_sha256": "4bdd3e6c646661f1a6f16a3ee63652801745a391afb67a351bc780bf20e123eb",
+      "counts": {
+        "archive_reconstructed_packages": 0,
+        "image_install_stamps": 554,
+        "installed_without_unpacked_root": 16,
+        "local_meta_packages": 16,
+        "mapped_components": 616,
+        "unpacked_roots": 600
+      },
+      "missing_recipe_license": [
+        "common-shaders",
+        "glsl-shaders",
+        "harfbuzz-icu",
+        "retropie-shaders",
+        "slang-shaders"
+      ],
+      "profile": "h700-aarch64",
+      "publication_bundle_complete": false,
+      "publication_worklist_sha256": "4bdd3e6c646661f1a6f16a3ee63652801745a391afb67a351bc780bf20e123eb",
+      "source": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+      "source_inventory_sha256": "5916ca7ee5bed7e75171115a6ebf0ede46a506c2523a2b00fb0b4ade39064350"
+    },
+    {
+      "children": {
+        "component_map": {
+          "interrupted": false,
+          "original_child_returncode": 0,
+          "result_sha256": "c12bd23ef7c5b57d1155915f65c9ca0ff42556a161f78c06556228278334f971",
+          "timeout": false,
+          "wait_observed": true
+        },
+        "source_inventory": {
+          "interrupted": false,
+          "original_child_returncode": 0,
+          "result_sha256": "8fe7569aeaf7e4b63be66db47bc40b48ff392f58f9b3f3429b8164a80c4e3975",
+          "timeout": false,
+          "wait_observed": true
+        }
+      },
+      "components_sha256": "66a5bdd39da2c95aba072c6ed791c501e56dd83e86b13a5e301e3172670973fd",
+      "counts": {
+        "archive_reconstructed_packages": 0,
+        "image_install_stamps": 195,
+        "installed_without_unpacked_root": 4,
+        "local_meta_packages": 4,
+        "mapped_components": 241,
+        "unpacked_roots": 237
+      },
+      "missing_recipe_license": [],
+      "profile": "sm8550-arm",
+      "publication_bundle_complete": false,
+      "publication_worklist_sha256": "66a5bdd39da2c95aba072c6ed791c501e56dd83e86b13a5e301e3172670973fd",
+      "source": "9aa7affee9d4ad5e69725cab20b6d7ad84d93dea",
+      "source_inventory_sha256": "c797eaf897c07d27bd9d2fa15c3e89690c6d0d92cb3b5de06f1c306b677d9c7d"
+    },
+    {
+      "children": {
+        "component_map": {
+          "interrupted": false,
+          "original_child_returncode": 0,
+          "result_sha256": "6a923b261226c36f3adfac700280cc9b882b9c6c98771bfc53fdc4eaa7117704",
+          "timeout": false,
+          "wait_observed": true
+        },
+        "source_inventory": {
+          "interrupted": false,
+          "original_child_returncode": 0,
+          "result_sha256": "7284daa838430574cc8107474598816c947cbf50e5cfb975d53b317ccbdd9277",
+          "timeout": false,
+          "wait_observed": true
+        }
+      },
+      "components_sha256": "e383412076c2659721f08d107c7b392adfdca9a29bf7dbf502e217fa6b6ae89c",
+      "counts": {
+        "archive_reconstructed_packages": 1,
+        "image_install_stamps": 620,
+        "installed_without_unpacked_root": 18,
+        "local_meta_packages": 17,
+        "mapped_components": 677,
+        "unpacked_roots": 659
+      },
+      "missing_recipe_license": [
+        "harfbuzz-icu",
+        "retropie-shaders",
+        "rocknix-abl",
+        "slang-shaders"
+      ],
+      "profile": "sm8550-aarch64",
+      "publication_bundle_complete": false,
+      "publication_worklist_sha256": "e383412076c2659721f08d107c7b392adfdca9a29bf7dbf502e217fa6b6ae89c",
+      "source": "9aa7affee9d4ad5e69725cab20b6d7ad84d93dea",
+      "source_inventory_sha256": "22cdf69663ac8cb7ef26451fcfc5dffecc76e59fd24618ec6b027f52aba1b8eb"
+    }
+  ],
+  "publication_bundle_complete": false,
+  "publication_holds_sha256": "f7ecd58f2029198ae9209b990ebf4a12b48c92c25a2ba337ff6324a917621279",
+  "recorded_child_identities": 10,
+  "result": "PASS_INVENTORY_WITH_PUBLICATION_GAPS",
+  "result_sha256": "782708826b07dbb24eb86c6bf55b412d6f33780ef79a399ef458c59230bae990",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T093346Z-ed162eab",
+  "runtime_control_source": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+  "scope": "Five current post-build inventories only; no custody, legal, retrieval, off-host, RC or publication clearance.",
+  "signals_sent": [],
+  "source_family": "mixed-engineering",
+  "survivors_after_cleanup": [],
+  "tool_wrapper_returncode": 0
+}

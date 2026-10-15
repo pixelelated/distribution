@@ -11,6 +11,39 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 09:42 UTC — both device artifacts and final inventory accepted in scope
+
+H700 and SM8550 now have independent artifact acceptance. The [SM8550 evidence](../qa-logs/2026-10-15-sm8550-abl-format/accepted/README.md)
+binds reader092225Z-e7702372 and acceptance092333Z-2bc44656, original zero results
+and ordinary consumption, to source9aa7 and bundle09addac6. Its 188 ARM handoffs,
+48 affected mappings,14 FEX payloads, five ABL files, GPT/raw/update equality and
+selected-state checks pass. #602 corrected only the host verifier's treatment
+of the exact signed ELF32/ARM bootloader. The original combined producer1/0/1
+is preserved; compilation and cache copies were not repeated.
+
+[The packaged Steam script VM bridge](../qa-logs/2026-10-15-steam-artifact-bridge-runtime/README.md)
+passed its one existing-profile case with installed GENERIC dependencies and
+accepted SM staged/SYSTEM-equivalent module bytes. All18 protected roots,
+caller/namespace/trace and restoration checks pass. The deliberately denied
+native client retains its original126; native ARM Steam behavior is outside
+this proof. #564/#579/#580 and #599/#600/#602 now have literal closure proposals;
+publication and fresh tracker guards precede their actual closure.
+
+[The final five-profile inventory](../qa-logs/2026-10-15-source-custody/final-inventory-runtime/README.md)093346Z-ed162eab completed and was consumed,
+with ten original collector exits0 and no timeout or cleanup error. Component
+counts are594 GENERIC,238 H700arm,616 H700aarch64,241 SMarm and677 SMaarch64.
+It explicitly reports PASS_INVENTORY_WITH_PUBLICATION_GAPS. The sole reconstructed
+archive row is SM LLVM22.1.8. VM/H700f863 versus SM9aa7 remains an explicitly
+mixed engineering family with a single ABL checksum delta, not a designated RC.
+
+Next in the milestone order is current source/notice coverage and release
+handoff under #528, followed by the existing physical, security, documentation
+and publication gates. The18-row notice follow-up now has actual profile
+bindings to use; the inventory itself grants no source or licence clearance.
+Stopped VM media retirement follows durable compact evidence and ordinary
+exact dependency checks. No device operation or public release is authorized
+by these host results.
+
 ## 2026-10-15 09:10 UTC — SM image assembled; signed-bootloader reader repair
 
 The canonical SM8550 build completed all737 packages and image creation, then
@@ -288,7 +321,7 @@ pending final-image wording for those completed, explicitly named scopes.
 | Nova account/history isolation — #565 | Provenance investigation completed to available evidence; library-copy test separates ROM-only from gamelist history. Selected clean-state and payload guards have positive/negative controls. Original account entry remains unknown. | Actual final install/update payload and untouched clean boot pass selected-scope checks; no personal accounts or fabricated history found in that scope. Real retained-storage upgrade and installed default backup now pass with selected state preserved and seeded secrets excluded from the archive. Original historical account writer remains unknown. |
 | Recent default — #578 | One-literal compiled default fix and nine default/explicit-choice controls pass; imported gamelist history can populate Recent, a ROM alone cannot. | Final-source/image and selected clean/retained proof preserve explicit player choices. Historical Nova Recent entries are not evidence that this new default fix fabricated history. |
 | ScreenScraper developer provisioning — #566 | Runtime versus compiled behavior and separate player accounts are traced. The owner selected the existing shared JELOS developer identity (D-WORKFLOW-166); recipe/gate candidate19221 passes127 root-policy and4 environment-selection VM controls. Final ES3178 passes syntax checks in both credential modes and a full compiled-pair component build with EN/FR catalogs; compiled rejection guidance now addresses system access instead of hidden developer fields. | Actual small/large EN/FR frame proof is complete; ES3178 is published and selected by the recipe. Final payload, untouched clean boot, real retained upgrade and installed default backup pass. Replacement credentials are backlog #586, not a candidate dependency. Preserve unrelated private-credential protections. |
-| Steam installation recovery — #564/#579/#580/#582 | Runtime/FEX/Proton preservation and complete synthetic caller controls pass within scope. Partial-client retry defect reproduced; real55-member client archive CRC/layout inspection passes. | Client transaction03e130 addresses both independent review findings in source; corrected full caller and fresh profile-symlink VM cases pass. Existing-profile, detached-child, census-failure, real transport-timeout, interrupted-publish, committed-self-update and CRC-retry cases now pass. The CRC fixture logging failure and correction remain recorded. The remaining14 source-chroot recovery controls, bounded installed metadata fetch and isolated Python helper controls are accepted; #582 is closed within its explicit contract. #564/#579/#580 still require one VM full-caller case bound to the actual accepted SM packaged bytes. Native ARM payload inspection and runtime qualification remain distinct device-build/publication checks; original a057 fixture failure is retained. This was found during the20261001 intake, not reported from gameplay. |
+| Steam installation recovery — #564/#579/#580/#582 | Runtime/FEX/Proton preservation and complete synthetic caller controls pass within scope. Partial-client retry defect reproduced; real55-member client archive CRC/layout inspection passes. | Client transaction03e130 addresses both independent review findings in source; corrected full caller and fresh profile-symlink VM cases pass. Existing-profile, detached-child, census-failure, real transport-timeout, interrupted-publish, committed-self-update and CRC-retry cases now pass. The CRC fixture logging failure and correction remain recorded. The remaining14 source-chroot recovery controls, bounded installed metadata fetch and isolated Python helper controls are accepted; #582 is closed within its explicit contract. #564/#579/#580 now have the completed packaged-script VM bridge092639Z-3b69cb85, consumeddeaa4df3, binding accepted SM module1694f7a9 to installed GENERIC dependencies; literal tracker closure follows publication. Native ARM payload inspection and runtime qualification remain distinct device-build/publication checks; original a057 fixture failure is retained. This was found during the20261001 intake, not reported from gameplay. |
 
 Evidence: [installed setup](../qa-logs/2026-10-13-setup-qualification/installed/README.md),
 [library/preservation components](../qa-logs/2026-10-13-library-vm/README.md),

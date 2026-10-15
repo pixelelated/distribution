@@ -1,0 +1,22 @@
+warning: $HOME ('/home/max') is not owned by you, falling back to the one defined in the 'passwd' file ('/home/docker')
+warning: $HOME ('/home/max') is not owned by you, falling back to the one defined in the 'passwd' file ('/home/docker')
+unpacking 'https://github.com/NixOS/nixpkgs/archive/b6018f87da91d19d0ab4cf979885689b469cdd41.tar.gz' into the Git cache...
+PASS actual FEX package and current recipe-selected Nix input; 14 architecture-checked payloads
+PASS frozen inputs, host options, container and 24/4 concurrency
+PASS stopped clean f863 parent: consumed independent copy0 then consumed partial build2; no accepted SM image inherited
+PASS exact one-path #600 product delta; VM/H700 source stays f863; new SM tools/source bound independently
+PASS SM8550 exact installed helper/default/native/post-update/ES/catalog/identity/ARM output inclusion
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-sm8550-refresh-20261015-02/verify-additions.py", line 101, in <module>
+    if data[:4]==b'\x7fELF' and n!='usr/bin/steam':assert data[:6]==b'\x7fELF\x02\x01' and int.from_bytes(data[18:20],'little')==183,n
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: usr/share/bootloader/rocknix_abl/abl_signed-SM8550.elf
+Traceback (most recent call last):
+  File "/workspace/tmp/pix-m7-sm8550-refresh-20261015-02/verify-installed.py", line 81, in <module>
+    subprocess.run(['python3','-I',str(O/'verify-additions.py')],check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['python3', '-I', '/workspace/tmp/pix-m7-sm8550-refresh-20261015-02/verify-additions.py']' returned non-zero exit status 1.
+FAILED command rc 1

@@ -1,11 +1,53 @@
 # Saved Session State
 
-Updated 2026-10-15 09:10 UTC. Continue authorized M7 toward next 0.0.1 RC.
-Coordinator m7-player-setup / feature/m7-final-qualification-02; published57a4fcbece,
-all three exact hosted checks SUCCESS. VM/H700 sourcef863 and ES16dbac unchanged.
-SM05 source9aa7 corrects only ABL checksum; main compiler/image finished, final
-verifier failed. Root sole runtime allocator. No compiler/VM/physical job active.
-Saving is not a pause. No new physical/cloud operation or release approval.
+Updated 2026-10-15 09:42 UTC. Continue authorized M7 toward next 0.0.1 RC.
+Coordinator m7-player-setup / feature/m7-final-qualification-02; published fd956544,
+all three exact hosted checks SUCCESS. VM/H700 source f863 and ES16dbac unchanged;
+SM05 source9aa7 differs only by the upstream ABL archive checksum correction.
+Root sole runtime allocator. All compilation, acceptance, VM and inventory jobs
+have completed and are ordinarily consumed. No active runtime, physical action,
+new deployment authority or public RC designation. Saving is not a pause.
+
+## Latest 2026-10-15 09:42 UTC — SM acceptance, Steam bridge and final inventory passed
+
+The fresh SM reader092225Z-e7702372 and independent acceptance092333Z-2bc44656
+returned all original0 and are consumed eb71b6e5/40d2d16b. Acceptanceb576f190,
+bundle09addac6: GPT/raw/update SYSTEM/kernel,188 ARM handoffs,48 affected products,
+14 FEX outputs,5 ABL files and selected-state0 blocked/0 errors. Exact signed
+ABL is ELF32/EM_ARM40; the generic userland architecture gate remains unchanged.
+Original producer081827Z-07dceee9 remains1/0/1, launcher1; successful separate
+readers do not rewrite it. No compiler or cache replay occurred. Durable source,
+failed originals and actual acceptance: docs/qa-logs/2026-10-15-sm8550-abl-format/.
+Root independently checked all129 accepted archive members against originals.
+
+Steam092639Z-3b69cb85 passed and consumed deaa4df3. One no-NIC GENERIC VM uses
+module1694f7a9 whose staged bytes match the independently accepted SM SYSTEM.
+Caller/namespace/trace/fixture/main channels0;18 protected roots and restoration
+pass. Native child exec was denied EACCES13/original126; no native ARM Steam
+claim. Original export and consumed5ba5562c are retained under
+ docs/qa-logs/2026-10-15-steam-artifact-bridge-runtime/.
+Source/review revision02 retains its historical unrun/null state separately.
+Root verified25 sealed payloads,82 host archive members,11 guest files and19
+exact copied originals; no original changed. Agent closure proposals for
+#564/#579/#580 and #599/#600/#602 await root publication/live-body guards.
+
+Final inventory093346Z-ed162eab completed09:34:11, all10 collector exits0,
+no interruption/timeout/cleanup errors, consumed e73b73b3. Owner:
+/workspace/tmp/pix-m7-final-inventory-20261015-01. Exact7 SM references are now
+bound, SHA6eceb756, to actual accepted results. Counts for GENERIC/H700arm/
+H700aarch64/SMarm/SMaarch64:594/238/616/241/677 components. Result explicitly
+PASS_INVENTORY_WITH_PUBLICATION_GAPS, publication_bundle_complete=false;
+mixed engineering family has no common RC identity. LLVM22.1.8 is the single
+archive-reconstructed SM component. Do not repeat this inventory.
+
+NEXT: finish compact inventory custody; publish these actual evidence/records;
+apply six reviewed issue closures with fresh body guards; bind the existing
+18-row notice/source follow-up to actual profiles and resolve its scoped gaps.
+Retire only stopped immediate-test media after durable evidence and ordinary
+exact dependency checks (#493), including Steam VM media and the older failed
+H700 SYSTEM scratch. Never delete source/licence custody or accepted firmware.
+#528/#344/#265/#337/#359 physical/source/security/docs/publication holds remain.
+No new audit, broad test replay, source-completeness or physical-boot claim.
 
 ## Latest 2026-10-15 09:10 UTC — #602 ABL reader correction after completed compilation
 

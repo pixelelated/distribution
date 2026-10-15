@@ -1,0 +1,23 @@
+{
+  "archive_sha256": "80a18aaee7814279e7b52823c217b5e7dcda12fee0467e81a0b3cc3e992cbab7",
+  "checks": [
+    "exact archive membership and all original file bytes",
+    "mode/uid/gid/uname/gname and exact PAX nanosecond mtime",
+    "unchanged originals after archiving",
+    "both prepared source seals",
+    "both completion evidence closures",
+    "runner/launcher/inner/outer/wrapper and ordinary consumed receipt equality",
+    "accepted result, selected-state result and count readback",
+    "bundle manifest digest equals accepted bundle identity"
+  ],
+  "file_count": 122,
+  "limits": [
+    "No firmware/cache payload rehash or copy; accepted original readback manifests carry those identities",
+    "No runtime, target code, preparer, admission, collector or new qualification executed",
+    "No deletion or new retention clearance"
+  ],
+  "member_count": 129,
+  "original_file_bytes": 4519448,
+  "result": "PASS",
+  "utc": "2026-10-15T09:33:44.163690+00:00"
+}

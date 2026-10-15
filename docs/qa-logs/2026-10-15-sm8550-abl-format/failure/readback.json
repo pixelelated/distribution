@@ -1,0 +1,38 @@
+{
+  "reviewed_utc": "2026-10-15T09:10:42.896120+00:00",
+  "failed_run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-05/.build-runs/20261015T081827Z-07dceee9",
+  "original_result": {
+    "command_rc": 1,
+    "monitor_rc": 0,
+    "runner_rc": 1,
+    "utc": "2026-10-15T09:00:07.757076+00:00"
+  },
+  "ordinary_consumed_receipt_sha256": "f820b116c70bd2dbbc67b873bb11d881222fb8b1c15af15505aa6a710dc0049b",
+  "actual_admission_id": "ec3f813f3297497a82cb434bc7e02279",
+  "disposition": "failed-investigated",
+  "outputs_held": true,
+  "deleted_bytes": 0,
+  "root_recorded_pids_gone": [
+    735247,
+    735248,
+    735250,
+    738232
+  ],
+  "root_recorded_container_inspect_exit": 1,
+  "new_process_or_docker_probe_executed": false,
+  "initial_case_sensitive_assertion_miss": "Assertion required uppercase No such object; actual Docker wording lowercase. No completion file, registry or original receipt changed by that failed preparation.",
+  "failure_context": "Exact stopped console suffix corroborates the retained verify-additions.py:101 generic ELF64/AArch64 assertion on named signed ABL",
+  "assembled_manifest_sha256": "b456c92519db11b30b24b5ac14fb2ca9f2fd9e9cd39305223f3dd8429757da41",
+  "assembled_watch_run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T090643Z-2726aa32",
+  "assembled_watch_original_result": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-15T09:06:48.780295+00:00"
+  },
+  "assembled_manifest_qualification": false,
+  "payloads_rehashed_by_this_worker": false,
+  "stage_header_worker_packet_included": false,
+  "reason_header_packet_excluded": "Not yet released at task allocation; root owns separate header characterization retention",
+  "product_or_fixture_execution": false
+}

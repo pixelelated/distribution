@@ -10,23 +10,26 @@ build order. Completed #508/#510 cloud setup and #590/#596 audit work do not
 remain build blockers. Ordinary cloud linking and explicit folder selection
 preserve current choices; no automatic library relocation is restored.
 
-The new engineering source is distribution
-`f8636de1d105275dbf9420bbabbbc26f79abb10f`, ES
-`16dbac5211eea7e70db7394372033be2be7df829`. Its accepted VM proof and the
-latest accepted physical deployments are different evidence sets:
+The current VM/H700 engineering source is distribution
+`f8636de1d105275dbf9420bbabbbc26f79abb10f`; SM8550 is
+`9aa7affee9d4ad5e69725cab20b6d7ad84d93dea`, differing only in the upstream ABL
+archive checksum correction. Both use ES `16dbac5211eea7e70db7394372033be2be7df829`.
+This is a mixed engineering family without a common RC identity. Accepted VM
+proof, device artifact acceptance and latest physical deployments are distinct:
 
-| Target / arch | Board or QA surface | Accepted clean-install evidence | Accepted retained-update evidence | New f863 artifact/boot-chain status | Recovery and attachment disposition |
+| Target / arch | Board or QA surface | Accepted clean-install evidence | Accepted retained-update evidence | Current artifact/boot-chain status | Recovery and attachment disposition |
 | --- | --- | --- | --- | --- | --- |
 | GENERIC_X64 / x86_64 | Disposable VM | f863 untouched selected first-boot policy, installed loaders and affected helper/Wi-Fi flows; separate native-state proof | Genuine d6a87f05/ES3178 → f863/ES16dbac ordinary update; eight selected files preserved and protected base unchanged | Final raw/update readback and affected installed/native qualification accepted; no new unfiltered full-suite aggregate | Recreate a disposable guest from its bound image/fixtures; held for final source/manifest/publication gates |
 | H700 / aarch64 + arm | RG35XX SP, LPDDR4/DDR4; mandatory adoption board | No f863 clean-card observation; September observations below remain historical | #556 accepted October 11: 8b511 → bc9dfe, exact SYSTEM/kernel/DTB/DDR4 bootloader/ES/both RetroArch, 163 protected files and configuration/recovery preservation | f863 DDR4/update SYSTEM/kernel and exact bootloader accepted with both H700 variants, ARM handoff and selected-state proof; this board's current physical smoke remains pending | Existing microSD reflash runbook; no new recovery trial or action authority. New asset held |
 | H700 / aarch64 + arm | RG SP, LPDDR3/DDR3 | No f863 clean-card observation | #557 accepted October 12: 8b511 → bc9dfe, exact installed hashes and retained mounts; 163 protected files, five recovery entries and configuration preservation | Same accepted f863 H700 artifact set; DDR3/update SYSTEM/kernel and exact bootloader accepted; this board's current physical smoke remains pending | Existing microSD reflash runbook; no new recovery trial or action authority. New asset held |
-| SM8550 / aarch64 + arm | Retroid Pocket Nova | No f863 clean-card observation | #557 accepted October 12: 8b511 → bc9dfe, SYSTEM/kernel/ES/both RetroArch, five ABL files/both slots and retained mounts; selected configuration values/paths preserved | f863 cache accepted; main build failed at the stale ABL 1.2 checksum. #600 applies upstream correction9aa7affee9; fresh build and ABL/FEX/GPT/raw/update acceptance remain pending. New physical boot/smoke remains pending | Existing microSD recovery route; new boot-chain/recovery disposition follows exact inputs, with no new trial claimed. New asset held |
+| SM8550 / aarch64 + arm | Retroid Pocket Nova | No 9aa7 clean-card observation | #557 accepted October 12: 8b511 → bc9dfe, SYSTEM/kernel/ES/both RetroArch, five ABL files/both slots and retained mounts; selected configuration values/paths preserved | 9aa7 independent reader/acceptance passed with GPT/raw/update equality,188 ARM handoffs,48 affected mappings,14 FEX and5 ABL files, and selected state. Original checksum2 and combined producer1 are preserved; new physical boot/smoke remains pending | Existing microSD recovery route; new boot-chain/recovery disposition follows exact inputs, with no new trial claimed. New asset held |
 | RK3566 / aarch64 + arm | RG353M | Outside this release | Outside this release | Deferred by D-WORKFLOW-114 | Not built or attached for 0.0.1 |
 
 Evidence: [final clean](../qa-logs/2026-10-15-final-engineering-result/clean/README.md),
 [final retained](../qa-logs/2026-10-15-final-engineering-result/retained/README.md),
 [native-state flow and limits](../audits/2026_10_14-milestone-m7-next-candidate/native-state02-readback.md),
 [current H700 artifact acceptance](../qa-logs/2026-10-15-device-refresh/h70004/README.md),
+[current SM8550 artifact acceptance](../qa-logs/2026-10-15-sm8550-abl-format/accepted/README.md),
 [October 11 firmware/SP acceptance](../qa-logs/2026-10-11-device-refresh/README.md),
 [October 12 RG SP/Nova acceptance](../qa-logs/2026-10-12-owner-updates/README.md),
 and [device facts](../releases/device-facts.md).
@@ -40,13 +43,16 @@ is bound separately on the host; it does not change the frozen firmware. The
 first launch exit 2, combined-producer exit 1 and selected-state acceptance exit 1 remain failed
 originals; later acceptance does not rewrite their status.
 
-SM8550 follows this consumed H700 result with its own cache, build and artifact
-acceptance gates. Its first preparation exit 1 and exact generated-documentation
-continuation are [retained separately](../qa-logs/2026-10-15-device-refresh/sm8550-parent-source/README.md).
-The cache is accepted; main run072058Z-efba76e3 failed2 at ABL download verification.
-#600 owns the exact upstream checksum repair and fresh retry; #555 carries live status.
-No SM8550 artifact or physical result is inferred from H700, and no final public
-asset names are allocated here.
+SM8550 independent acceptance completed at09:23:58UTC with all original reader/
+acceptance channels zero and ordinary consumption. Acceptance SHA256
+`b576f190e56c01ed534bbec593dc669c5fc034317a69ccb68af14cb568787dd0`
+and bundle `09addac6d353e2a30e06610d87fa46b72a4bdfa82c711fd77a658b9e7f1d3ca0`
+bind the named checks above. #600 repaired the upstream archive checksum;
+#602 corrected the host verifier for exact ELF32/ARM signed ABL bytes while
+preserving generic userland architecture checks. The initial preparation1,
+checksum failure2 and later combined producer1/0/1 remain failed originals.
+The fresh readers accepted the assembled artifacts without another compilation.
+No new SM8550 physical result or final public asset name is inferred.
 
 The [completed audit](../audits/2026_10_14-milestone-m7-next-candidate/05-punch-list.md#phase-7-resolution-gate)
 resolves six findings within its declared scope. The original #597 build-launcher

@@ -1,0 +1,74 @@
+{
+  "allocated_bytes": 2343841792,
+  "consumed_receipt_sha256": "5ba5562c887aae29249335f4251b77d332838afcc876ef5963fbcee6d1a49052",
+  "existing_stop_evidence": {
+    "path": "/workspace/tmp/pix-m7-steam-artifact-bridge-evidence-20261015-02/host-exits.json",
+    "record": {
+      "pids_absent": [
+        1807965,
+        1807206,
+        1807207,
+        1807260,
+        1807208
+      ]
+    },
+    "sha256": "cbdfc48bc2878b93cf33211ed2b02300b53187c5dbd6d2c0cf73e388c5247432"
+  },
+  "files": [
+    {
+      "allocated_bytes": 540672,
+      "bytes": 540672,
+      "device": 66304,
+      "gid": 1000,
+      "inode": 206834831,
+      "mode": 384,
+      "mtime_ns": 1792056419766261438,
+      "nlink": 1,
+      "operation": "lstat only; no payload read/hash",
+      "path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/vm/OVMF.fd",
+      "uid": 1000
+    },
+    {
+      "allocated_bytes": 2308325376,
+      "bytes": 2308374528,
+      "device": 66304,
+      "gid": 1000,
+      "inode": 206834830,
+      "mode": 384,
+      "mtime_ns": 1792056458599706482,
+      "nlink": 1,
+      "operation": "lstat only; no payload read/hash",
+      "path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/vm/disk.qcow2",
+      "uid": 1000
+    },
+    {
+      "allocated_bytes": 17768448,
+      "bytes": 268435456,
+      "device": 66304,
+      "gid": 1000,
+      "inode": 206834876,
+      "mode": 384,
+      "mtime_ns": 1792056400649042347,
+      "nlink": 1,
+      "operation": "lstat only; no payload read/hash",
+      "path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/vm/input.ext4",
+      "uid": 1000
+    },
+    {
+      "allocated_bytes": 17207296,
+      "bytes": 134217728,
+      "device": 66304,
+      "gid": 1000,
+      "inode": 206834877,
+      "mode": 384,
+      "mtime_ns": 1792056458599706482,
+      "nlink": 1,
+      "operation": "lstat only; no payload read/hash",
+      "path": "/workspace/tmp/pix-m7-steam-artifact-bridge-20261015-02/vm/output.ext4",
+      "uid": 1000
+    }
+  ],
+  "logical_bytes": 2711568384,
+  "observed_utc": "2026-10-15T09:38:55.441122+00:00",
+  "status": "Candidates for root ordinary retention review only. No new process, root-FD, mount or namespace census; no retirement/deletion performed or authorized by this record."
+}
