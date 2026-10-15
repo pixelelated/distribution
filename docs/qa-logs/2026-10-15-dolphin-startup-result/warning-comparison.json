@@ -1,0 +1,25 @@
+{
+  "baseline_lines": [
+    59856,
+    60018
+  ],
+  "same_warning_multiset": true,
+  "warnings": {
+    "type 'struct basic_memory_buffer' violates the C++ One Definition Rule [-Wodr]": 3,
+    "type 'struct bigint' violates the C++ One Definition Rule [-Wodr]": 1,
+    "type of 'multiply' does not match original declaration [-Wlto-type-mismatch]": 2,
+    "type of 'assign' does not match original declaration [-Wlto-type-mismatch]": 3,
+    "type of 'assign_pow10' does not match original declaration [-Wlto-type-mismatch]": 1,
+    "type of 'square' does not match original declaration [-Wlto-type-mismatch]": 1,
+    "type of 'move' does not match original declaration [-Wlto-type-mismatch]": 1,
+    "type of 'divmod_assign' does not match original declaration [-Wlto-type-mismatch]": 1,
+    "type of 'align' does not match original declaration [-Wlto-type-mismatch]": 1,
+    "type of 'subtract_aligned' does not match original declaration [-Wlto-type-mismatch]": 1,
+    "type of 'remove_leading_zeros' does not match original declaration [-Wlto-type-mismatch]": 1,
+    "type of 'operator<<=' does not match original declaration [-Wlto-type-mismatch]": 1,
+    "type of 'get_bigit' does not match original declaration [-Wlto-type-mismatch]": 1,
+    "'mbedtls_sha512_finish_ret' accessing 64 bytes in a region of size 48 [-Wstringop-overflow=]": 1,
+    "'free' called on pointer 'game_3(D)' with nonzero offset 96 [-Wfree-nonheap-object]": 1
+  },
+  "scope": "Same20 warnings in original and candidate. Existing mixed C++ modes likely cause; no ABI safety or harmlessness claim."
+}

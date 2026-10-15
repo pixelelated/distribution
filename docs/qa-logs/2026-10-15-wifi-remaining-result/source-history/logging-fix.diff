@@ -1,0 +1,21 @@
+--- prior/smoke/wifi-followup.py
++++ corrected/smoke/wifi-followup.py
+@@ -25,7 +25,17 @@
+  data={'phase':phase,'profiles':profiles or [],'active_profile':active,'next_scan':0,'view':{'networks':[]}}
+  remote('write-plan','cat > '+Q+'/plan.json',data=(json.dumps({'scans':scans})+'\n').encode())
+  remote('write-state','cat > '+Q+'/state.json',data=(json.dumps(data)+'\n').encode())
+- remote('start-es','. /etc/profile >/dev/null 2>&1; set_setting system.language en_US; set_setting system.loglevel verbose; systemctl start essway.service',60);idle()
++ guest('es-log-level', """from pathlib import Path
++import xml.etree.ElementTree as ET
++p=Path('/storage/.config/emulationstation/es_settings.cfg')
++t=ET.parse(p);r=t.getroot();assert r.tag=='config'
++matches=r.findall("string[@name='LogLevel']");assert len(matches)<=1
++node=matches[0] if matches else ET.SubElement(r,'string',{'name':'LogLevel'})
++node.set('value','information');t.write(p,encoding='utf-8',xml_declaration=True)
++assert ET.parse(p).getroot().find("string[@name='LogLevel']").get('value')=='information'
++print('PASS actual ES LogLevel is information before startup')
++""")
++ remote('start-es','. /etc/profile >/dev/null 2>&1; set_setting system.language en_US; systemctl start essway.service',60);idle()
+  ident=facts();assert ident['es_sha256']==B['members']['usr/bin/emulationstation']['sha256'];return ident
+ def facts_if_running():
+  return remote('es-absent',"pidof emulationstation || true").strip() or None

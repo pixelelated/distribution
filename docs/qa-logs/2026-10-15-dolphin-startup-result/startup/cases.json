@@ -1,0 +1,765 @@
+{
+  "status": "PASS",
+  "rows": [
+    {
+      "case": "baseline-enabled",
+      "status": "PASS",
+      "argv": [
+        "/usr/bin/dolphin-emu-nogui",
+        "-p",
+        "headless",
+        "-v",
+        "Null",
+        "-a",
+        "HLE",
+        "-u",
+        "/run/pix-installed-native/baseline-enabled/user",
+        "-e",
+        "/run/pix-installed-native/loop.dol"
+      ],
+      "binary_sha256": "e6c6207d663f7ab53ca6f9fe3c836c98751545b45b869cf32477f7f130e0170b",
+      "enabled": true,
+      "badboot": false,
+      "signals": [
+        "normal SIGTERM"
+      ],
+      "original_exit": 0,
+      "pid": 1966,
+      "running_before": {
+        "pid": 1966,
+        "start_ticks": 1931,
+        "exe": "/usr/bin/dolphin-emu-nogui",
+        "exe_sha256": "e6c6207d663f7ab53ca6f9fe3c836c98751545b45b869cf32477f7f130e0170b",
+        "cpu_ticks": 181,
+        "tasks": [
+          {
+            "tid": 1966,
+            "comm": "dolphin-emu-nog"
+          },
+          {
+            "tid": 1967,
+            "comm": "libusb_event"
+          },
+          {
+            "tid": 1968,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 1969,
+            "comm": "SDL Hotplug Thr"
+          },
+          {
+            "tid": 1970,
+            "comm": "evdev cleanup"
+          },
+          {
+            "tid": 1971,
+            "comm": "evdev Hotplug T"
+          },
+          {
+            "tid": 1972,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 1973,
+            "comm": "Wiimote Scannin"
+          },
+          {
+            "tid": 1974,
+            "comm": "Wiimote Pool Th"
+          },
+          {
+            "tid": 1976,
+            "comm": "Analytics"
+          },
+          {
+            "tid": 1977,
+            "comm": "CPU thread"
+          },
+          {
+            "tid": 1978,
+            "comm": "Savestate Worke"
+          },
+          {
+            "tid": 1979,
+            "comm": "DVD thread"
+          },
+          {
+            "tid": 1980,
+            "comm": "Video thread"
+          },
+          {
+            "tid": 1981,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 1982,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 1983,
+            "comm": "Asset Loader 0"
+          },
+          {
+            "tid": 1984,
+            "comm": "Asset Loader 1"
+          },
+          {
+            "tid": 1985,
+            "comm": "resource-worker"
+          },
+          {
+            "tid": 1986,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 1987,
+            "comm": "Play Time Track"
+          }
+        ]
+      },
+      "running_after": {
+        "pid": 1966,
+        "start_ticks": 1931,
+        "exe": "/usr/bin/dolphin-emu-nogui",
+        "exe_sha256": "e6c6207d663f7ab53ca6f9fe3c836c98751545b45b869cf32477f7f130e0170b",
+        "cpu_ticks": 384,
+        "tasks": [
+          {
+            "tid": 1966,
+            "comm": "dolphin-emu-nog"
+          },
+          {
+            "tid": 1967,
+            "comm": "libusb_event"
+          },
+          {
+            "tid": 1968,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 1969,
+            "comm": "SDL Hotplug Thr"
+          },
+          {
+            "tid": 1970,
+            "comm": "evdev cleanup"
+          },
+          {
+            "tid": 1971,
+            "comm": "evdev Hotplug T"
+          },
+          {
+            "tid": 1972,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 1973,
+            "comm": "Wiimote Scannin"
+          },
+          {
+            "tid": 1974,
+            "comm": "Wiimote Pool Th"
+          },
+          {
+            "tid": 1976,
+            "comm": "Analytics"
+          },
+          {
+            "tid": 1977,
+            "comm": "CPU thread"
+          },
+          {
+            "tid": 1978,
+            "comm": "Savestate Worke"
+          },
+          {
+            "tid": 1979,
+            "comm": "DVD thread"
+          },
+          {
+            "tid": 1980,
+            "comm": "Video thread"
+          },
+          {
+            "tid": 1981,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 1982,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 1983,
+            "comm": "Asset Loader 0"
+          },
+          {
+            "tid": 1984,
+            "comm": "Asset Loader 1"
+          },
+          {
+            "tid": 1985,
+            "comm": "resource-worker"
+          },
+          {
+            "tid": 1986,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 1987,
+            "comm": "Play Time Track"
+          }
+        ]
+      },
+      "initialized": 0,
+      "shutdown": 0,
+      "boot_error": false,
+      "requests": [],
+      "observation": "KNOWN_DEFECT_REPRODUCED",
+      "endpoint_errors": [],
+      "remaining_dolphin": [],
+      "elapsed_seconds": 4.290780294000001
+    },
+    {
+      "case": "candidate-enabled",
+      "status": "PASS",
+      "argv": [
+        "/run/pix-installed-native/dolphin-emu-nogui",
+        "-p",
+        "headless",
+        "-v",
+        "Null",
+        "-a",
+        "HLE",
+        "-u",
+        "/run/pix-installed-native/candidate-enabled/user",
+        "-e",
+        "/run/pix-installed-native/loop.dol"
+      ],
+      "binary_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+      "enabled": true,
+      "badboot": false,
+      "signals": [
+        "normal SIGTERM"
+      ],
+      "original_exit": 0,
+      "pid": 2010,
+      "running_before": {
+        "pid": 2010,
+        "start_ticks": 2361,
+        "exe": "/run/pix-installed-native/dolphin-emu-nogui",
+        "exe_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+        "cpu_ticks": 30,
+        "tasks": [
+          {
+            "tid": 2010,
+            "comm": "dolphin-emu-nog"
+          },
+          {
+            "tid": 2011,
+            "comm": "libusb_event"
+          },
+          {
+            "tid": 2012,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 2013,
+            "comm": "SDL Hotplug Thr"
+          },
+          {
+            "tid": 2014,
+            "comm": "evdev cleanup"
+          },
+          {
+            "tid": 2015,
+            "comm": "evdev Hotplug T"
+          },
+          {
+            "tid": 2016,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 2017,
+            "comm": "Wiimote Scannin"
+          },
+          {
+            "tid": 2018,
+            "comm": "Wiimote Pool Th"
+          },
+          {
+            "tid": 2019,
+            "comm": "AchievementMana"
+          },
+          {
+            "tid": 2020,
+            "comm": "AchievementMana"
+          },
+          {
+            "tid": 2021,
+            "comm": "Analytics"
+          },
+          {
+            "tid": 2022,
+            "comm": "CPU thread"
+          },
+          {
+            "tid": 2023,
+            "comm": "Savestate Worke"
+          },
+          {
+            "tid": 2024,
+            "comm": "DVD thread"
+          },
+          {
+            "tid": 2025,
+            "comm": "Video thread"
+          },
+          {
+            "tid": 2026,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 2027,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 2028,
+            "comm": "Asset Loader 0"
+          },
+          {
+            "tid": 2029,
+            "comm": "Asset Loader 1"
+          },
+          {
+            "tid": 2030,
+            "comm": "resource-worker"
+          },
+          {
+            "tid": 2031,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 2032,
+            "comm": "Play Time Track"
+          }
+        ]
+      },
+      "running_after": {
+        "pid": 2010,
+        "start_ticks": 2361,
+        "exe": "/run/pix-installed-native/dolphin-emu-nogui",
+        "exe_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+        "cpu_ticks": 233,
+        "tasks": [
+          {
+            "tid": 2010,
+            "comm": "dolphin-emu-nog"
+          },
+          {
+            "tid": 2011,
+            "comm": "libusb_event"
+          },
+          {
+            "tid": 2012,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 2013,
+            "comm": "SDL Hotplug Thr"
+          },
+          {
+            "tid": 2014,
+            "comm": "evdev cleanup"
+          },
+          {
+            "tid": 2015,
+            "comm": "evdev Hotplug T"
+          },
+          {
+            "tid": 2016,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 2017,
+            "comm": "Wiimote Scannin"
+          },
+          {
+            "tid": 2018,
+            "comm": "Wiimote Pool Th"
+          },
+          {
+            "tid": 2019,
+            "comm": "AchievementMana"
+          },
+          {
+            "tid": 2020,
+            "comm": "AchievementMana"
+          },
+          {
+            "tid": 2021,
+            "comm": "Analytics"
+          },
+          {
+            "tid": 2022,
+            "comm": "CPU thread"
+          },
+          {
+            "tid": 2023,
+            "comm": "Savestate Worke"
+          },
+          {
+            "tid": 2024,
+            "comm": "DVD thread"
+          },
+          {
+            "tid": 2025,
+            "comm": "Video thread"
+          },
+          {
+            "tid": 2026,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 2027,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 2028,
+            "comm": "Asset Loader 0"
+          },
+          {
+            "tid": 2029,
+            "comm": "Asset Loader 1"
+          },
+          {
+            "tid": 2030,
+            "comm": "resource-worker"
+          },
+          {
+            "tid": 2031,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 2032,
+            "comm": "Play Time Track"
+          }
+        ]
+      },
+      "initialized": 1,
+      "shutdown": 1,
+      "boot_error": false,
+      "requests": [
+        {
+          "path": "/dorequest.php",
+          "method": "POST",
+          "host": "127.0.0.1:8080",
+          "form": {
+            "r": [
+              "login2"
+            ],
+            "u": [
+              "m7_synthetic_only"
+            ],
+            "t": [
+              "m7_synthetic_invalid"
+            ]
+          },
+          "peer": "127.0.0.1",
+          "monotonic": 23.78121787
+        }
+      ],
+      "endpoint_errors": [],
+      "remaining_dolphin": [],
+      "elapsed_seconds": 2.9821672720000016
+    },
+    {
+      "case": "candidate-disabled",
+      "status": "PASS",
+      "argv": [
+        "/run/pix-installed-native/dolphin-emu-nogui",
+        "-p",
+        "headless",
+        "-v",
+        "Null",
+        "-a",
+        "HLE",
+        "-u",
+        "/run/pix-installed-native/candidate-disabled/user",
+        "-e",
+        "/run/pix-installed-native/loop.dol"
+      ],
+      "binary_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+      "enabled": false,
+      "badboot": false,
+      "signals": [
+        "normal SIGTERM"
+      ],
+      "original_exit": 0,
+      "pid": 2044,
+      "running_before": {
+        "pid": 2044,
+        "start_ticks": 2660,
+        "exe": "/run/pix-installed-native/dolphin-emu-nogui",
+        "exe_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+        "cpu_ticks": 41,
+        "tasks": [
+          {
+            "tid": 2044,
+            "comm": "dolphin-emu-nog"
+          },
+          {
+            "tid": 2045,
+            "comm": "libusb_event"
+          },
+          {
+            "tid": 2046,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 2047,
+            "comm": "SDL Hotplug Thr"
+          },
+          {
+            "tid": 2052,
+            "comm": "evdev cleanup"
+          },
+          {
+            "tid": 2053,
+            "comm": "evdev Hotplug T"
+          },
+          {
+            "tid": 2054,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 2055,
+            "comm": "Wiimote Scannin"
+          },
+          {
+            "tid": 2056,
+            "comm": "Wiimote Pool Th"
+          },
+          {
+            "tid": 2057,
+            "comm": "Analytics"
+          },
+          {
+            "tid": 2058,
+            "comm": "CPU thread"
+          },
+          {
+            "tid": 2059,
+            "comm": "Savestate Worke"
+          },
+          {
+            "tid": 2060,
+            "comm": "DVD thread"
+          },
+          {
+            "tid": 2061,
+            "comm": "Video thread"
+          },
+          {
+            "tid": 2062,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 2063,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 2064,
+            "comm": "Asset Loader 0"
+          },
+          {
+            "tid": 2065,
+            "comm": "Asset Loader 1"
+          },
+          {
+            "tid": 2066,
+            "comm": "resource-worker"
+          },
+          {
+            "tid": 2067,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 2068,
+            "comm": "Play Time Track"
+          }
+        ]
+      },
+      "running_after": {
+        "pid": 2044,
+        "start_ticks": 2660,
+        "exe": "/run/pix-installed-native/dolphin-emu-nogui",
+        "exe_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+        "cpu_ticks": 245,
+        "tasks": [
+          {
+            "tid": 2044,
+            "comm": "dolphin-emu-nog"
+          },
+          {
+            "tid": 2045,
+            "comm": "libusb_event"
+          },
+          {
+            "tid": 2046,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 2047,
+            "comm": "SDL Hotplug Thr"
+          },
+          {
+            "tid": 2052,
+            "comm": "evdev cleanup"
+          },
+          {
+            "tid": 2053,
+            "comm": "evdev Hotplug T"
+          },
+          {
+            "tid": 2054,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 2055,
+            "comm": "Wiimote Scannin"
+          },
+          {
+            "tid": 2056,
+            "comm": "Wiimote Pool Th"
+          },
+          {
+            "tid": 2057,
+            "comm": "Analytics"
+          },
+          {
+            "tid": 2058,
+            "comm": "CPU thread"
+          },
+          {
+            "tid": 2059,
+            "comm": "Savestate Worke"
+          },
+          {
+            "tid": 2060,
+            "comm": "DVD thread"
+          },
+          {
+            "tid": 2061,
+            "comm": "Video thread"
+          },
+          {
+            "tid": 2062,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 2063,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 2064,
+            "comm": "Asset Loader 0"
+          },
+          {
+            "tid": 2065,
+            "comm": "Asset Loader 1"
+          },
+          {
+            "tid": 2066,
+            "comm": "resource-worker"
+          },
+          {
+            "tid": 2067,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 2068,
+            "comm": "Play Time Track"
+          }
+        ]
+      },
+      "initialized": 0,
+      "shutdown": 0,
+      "boot_error": false,
+      "requests": [],
+      "endpoint_errors": [],
+      "remaining_dolphin": [],
+      "elapsed_seconds": 3.012082243000002
+    },
+    {
+      "case": "candidate-failed-boot",
+      "status": "PASS",
+      "argv": [
+        "/run/pix-installed-native/dolphin-emu-nogui",
+        "-p",
+        "headless",
+        "-v",
+        "Null",
+        "-a",
+        "HLE",
+        "-u",
+        "/run/pix-installed-native/candidate-failed-boot/user",
+        "-e",
+        "/run/pix-installed-native/absent-file.iso"
+      ],
+      "binary_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+      "enabled": true,
+      "badboot": true,
+      "signals": [],
+      "original_exit": 1,
+      "pid": 2087,
+      "initialized": 1,
+      "shutdown": 1,
+      "boot_error": true,
+      "requests": [
+        {
+          "path": "/dorequest.php",
+          "method": "POST",
+          "host": "127.0.0.1:8080",
+          "form": {
+            "r": [
+              "login2"
+            ],
+            "u": [
+              "m7_synthetic_only"
+            ],
+            "t": [
+              "m7_synthetic_invalid"
+            ]
+          },
+          "peer": "127.0.0.1",
+          "monotonic": 29.802840407
+        }
+      ],
+      "endpoint_errors": [],
+      "remaining_dolphin": [],
+      "elapsed_seconds": 0.47874667299999984
+    }
+  ],
+  "runtime_claim": "Actual installed baseline and source-bound relink candidate; not candidate installed-image proof",
+  "candidate": {
+    "path": "/work/dolphin-emu-nogui",
+    "bytes": 8593792,
+    "sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+    "plan_sha256": "046c1304a09bdb9a9533c13cf1beb34672887e69948dea9a8527f9de11fc4927",
+    "candidate_source_sha256": "fcf6416ddeb39878e77ec8967e26e5805fedafec2b2c1c21d049d8054787ae8e",
+    "distribution_commit": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+    "dolphin_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+    "execution": "NOT EXECUTED; candidate relink, not installed image proof"
+  },
+  "installed_baseline": {
+    "bytes": 8569152,
+    "sha256": "e6c6207d663f7ab53ca6f9fe3c836c98751545b45b869cf32477f7f130e0170b",
+    "mode": "-rwxr-xr-x",
+    "link_chain": {
+      "resolved": "/usr/bin/dolphin-emu-nogui",
+      "links": []
+    }
+  },
+  "fixture_sha256": "df4c8e53a88d2beca9b14b6818826e4792cea2f2231298917c724247e31dd664"
+}

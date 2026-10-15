@@ -1,0 +1,11 @@
+--- previous/smoke/run.py
++++ current/smoke/run.py
+@@ -58,7 +58,7 @@
+  remote('wrapper','cat > '+Q+'/wifictl-observer',data=wrapper.encode())
+  bound=True
+  remote('bind','set -e; chmod 755 '+Q+'/wifictl-observer; mount --bind '+Q+'/wifictl-observer /usr/bin/wifictl; mount --make-private /usr/bin/wifictl')
+- mountinfo=guest('mountinfo',"from pathlib import Path;print(''.join(l+'\\n' for l in Path('/proc/self/mountinfo').read_text().splitlines() if l.split()[4]=='/usr/bin/wifictl'))");(R/'owned-mount.txt').write_text(mountinfo);assert len(mountinfo.splitlines())==1
++ mountinfo=guest('mountinfo',"from pathlib import Path;print(''.join(l+'\\n' for l in Path('/proc/self/mountinfo').read_text().splitlines() if l.split()[4]=='/usr/bin/wifictl'))");(R/'owned-mount.txt').write_text(mountinfo);assert len(mountinfo.strip().splitlines())==1
+  row={'name':'missing-wifi-cases','started':time.time(),'timed_out':False,'original_returncode':None};result['stages'].append(row);persist()
+  try:
+   command('missing-wifi-cases',['python3','-B',R/'wifi-followup.py'],450)

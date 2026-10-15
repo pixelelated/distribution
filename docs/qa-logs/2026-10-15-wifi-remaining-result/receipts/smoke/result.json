@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "started": 1792024267.0329027,
+  "stages": [
+    {
+      "name": "missing-wifi-cases",
+      "started": 1792024269.3997214,
+      "timed_out": false,
+      "original_returncode": 0,
+      "ended": 1792024383.9385393
+    }
+  ],
+  "before": {
+    "usr/bin/emulationstation": {
+      "sha256": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/wifictl": {
+      "sha256": "c89ed28a50e4be78468fcee25dcfd68e0b1c67af25657c3d0ba9318c7576a48c",
+      "mode": "-rwxr-xr-x"
+    },
+    "etc/profile": {
+      "sha256": "66019fab58aab9b05c1288afb399efd9d20a93504b3955718cb5282965455757",
+      "mode": "-rw-r--r--"
+    },
+    "etc/profile.d/001-functions": {
+      "sha256": "2a67891c9a3090ddae78d4b729ce7b8f5c41d853e0975b4ce0203df7789e4ab5",
+      "mode": "-rw-r--r--"
+    },
+    "usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo": {
+      "sha256": "f7b4fec7bacb7a7e2e53883c0c5f2bda1d14343d1c1392edf469904e95104a59",
+      "mode": "-rw-r--r--"
+    },
+    "usr/config/locale/en_GB/LC_MESSAGES/emulationstation2.mo": {
+      "sha256": "4461480d7b6a88d1eb9cfb0ac0423d325455694ab4c420cc8c4e36ff04cdc73a",
+      "mode": "-rw-r--r--"
+    }
+  },
+  "boot_id": "d0718237-9706-4fd0-93b4-103973f812dd",
+  "backend_export": {
+    "files": 112,
+    "bytes": 28401
+  },
+  "restored_products": {
+    "usr/bin/emulationstation": {
+      "sha256": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/wifictl": {
+      "sha256": "c89ed28a50e4be78468fcee25dcfd68e0b1c67af25657c3d0ba9318c7576a48c",
+      "mode": "-rwxr-xr-x"
+    },
+    "etc/profile": {
+      "sha256": "66019fab58aab9b05c1288afb399efd9d20a93504b3955718cb5282965455757",
+      "mode": "-rw-r--r--"
+    },
+    "etc/profile.d/001-functions": {
+      "sha256": "2a67891c9a3090ddae78d4b729ce7b8f5c41d853e0975b4ce0203df7789e4ab5",
+      "mode": "-rw-r--r--"
+    },
+    "usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo": {
+      "sha256": "f7b4fec7bacb7a7e2e53883c0c5f2bda1d14343d1c1392edf469904e95104a59",
+      "mode": "-rw-r--r--"
+    },
+    "usr/config/locale/en_GB/LC_MESSAGES/emulationstation2.mo": {
+      "sha256": "4461480d7b6a88d1eb9cfb0ac0423d325455694ab4c420cc8c4e36ff04cdc73a",
+      "mode": "-rw-r--r--"
+    }
+  },
+  "cleanup": "PASS",
+  "ended": 1792024385.9838552
+}

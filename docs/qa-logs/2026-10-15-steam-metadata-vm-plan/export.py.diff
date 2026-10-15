@@ -1,0 +1,87 @@
+--- original/export.py
++++ candidate/export.py
+@@ -44,7 +44,7 @@
+     assert child.returncode == 0 and target.is_file()
+ debug('/guest-export-manifest.json', a.output / 'guest-export-manifest.json')
+ rows = json.loads((a.output / 'guest-export-manifest.json').read_text())
+-assert rows and sum(row['bytes'] for row in rows) <= 1100 * 1024**2
++assert (rows or a.retain_failed) and sum(row['bytes'] for row in rows) <= 1100 * 1024**2
+ for row in rows:
+     name = Path(row['path'])
+     assert not name.is_absolute() and '..' not in name.parts and name.parts[0] == 'steam'
+@@ -53,6 +53,59 @@
+     target.parent.mkdir(parents=True, exist_ok=True)
+     debug('/' + str(name), target)
+     assert target.stat().st_size == row['bytes'] and sha(target) == row['sha256']
++metadata = {'status': 'MISSING', 'restored': False, 'original_helper_exit': None,
++            'archive_complete': False, 'qualification_pass': False}
++metadata_rows = []
++try:
++    debug('/metadata-export-manifest.json', a.output / 'metadata-export-manifest.json')
++    metadata_rows = json.loads((a.output / 'metadata-export-manifest.json').read_text())
++    assert metadata_rows and len(metadata_rows) <= 32
++    assert sum(row['bytes'] for row in metadata_rows) <= 16 * 1024**2
++    assert sum(row['bytes'] for row in rows + metadata_rows) <= 1100 * 1024**2
++    assert len({row['path'] for row in metadata_rows}) == len(metadata_rows)
++    for row in metadata_rows:
++        name = Path(row['path'])
++        assert not name.is_absolute() and '..' not in name.parts and len(name.parts) == 2 and name.parts[0] == 'metadata'
++        assert 0 <= row['bytes'] <= 16 * 1024**2
++        target = a.output / 'guest' / name; target.parent.mkdir(parents=True, exist_ok=True)
++        debug('/' + str(name), target)
++        assert target.stat().st_size == row['bytes'] and sha(target) == row['sha256']
++    folder = a.output / 'guest/metadata'
++    stage = json.loads((folder / 'stage-result.json').read_text())
++    metadata.update({key: stage[key] for key in ('status', 'restored', 'original_helper_exit')})
++    members = json.loads((folder / 'control-members.json').read_text())
++    helper = None
++    with tarfile.open(folder / 'control-records.tar.gz', 'r:gz') as archive:
++        actual = archive.getmembers()
++        assert len(actual) == len(members) and [m.name for m in actual] == [m['path'] for m in members]
++        for member, row in zip(actual, members):
++            assert not Path(member.name).is_absolute() and '..' not in Path(member.name).parts
++            assert member.mode == row['mode']
++            if row['kind'] == 'symlink':
++                assert member.issym() and member.linkname == row['target']
++                assert not Path(member.linkname).is_absolute() and '..' not in Path(member.linkname).parts
++            else:
++                assert row['kind'] == 'file' and member.isfile() and member.size <= 2 * 1024**2
++                data = archive.extractfile(member).read()
++                assert len(data) == row['bytes'] and hashlib.sha256(data).hexdigest() == row['sha256']
++                if member.name == 'result.json':
++                    helper = json.loads(data)
++    metadata['archive_complete'] = True
++    assert helper is not None, 'Original metadata helper result missing'
++    metadata['helper_result'] = helper
++    binding = json.loads((a.owner / 'records/family.json').read_text())['metadata']
++    metadata['qualification_pass'] = (
++        metadata['status'] == 'PASS' and metadata['restored'] is True and metadata['original_helper_exit'] == 0
++        and helper['status'] == 'PASS' and helper['passed'] is True
++        and helper['source_sha256'] == binding['candidate_source_sha256']
++        and helper['baseline']['source_sha256'] == binding['frozen_installer_sha256']
++        and helper['baseline']['executed'] is False and helper['scope'] == 'installed-vm-curl'
++        and helper['curl_sha256'] == binding['installed_dependencies']['/usr/bin/curl']['sha256']
++        and [row['path'] for row in helper['requests']] == ['/normal-cachyos', '/normal-ge', '/oversize', '/stall']
++        and not helper['cleanup'] and not helper['signals'] and helper['old_families_equal'])
++except (AssertionError, OSError, ValueError, KeyError, tarfile.TarError) as error:
++    metadata.update(qualification_pass=False, preservation_error=repr(error))
++    assert a.retain_failed, 'Original metadata evidence incomplete: ' + repr(error)
+ stages = []
+ for index, case in enumerate(runtime['cases'], 1):
+     folder = a.output / 'guest/steam' / f'{index:02d}-{case}'
+@@ -77,7 +130,7 @@
+     else:
+         assert a.retain_failed
+     stages.append({'case': case, 'status': observed['status'], 'restored': observed.get('restored', False)})
+-qualified = originals_pass and len(stages) == 14 and all(x['status'] == 'PASS' and x['restored'] for x in stages)
++qualified = originals_pass and metadata['qualification_pass'] and len(stages) == 14 and all(x['status'] == 'PASS' and x['restored'] for x in stages)
+ assert qualified or a.retain_failed, 'Original stages did not all qualify'
+ originals = []
+ for root, label in ((a.owner, 'owner'), (a.run, 'run')):
+@@ -95,5 +148,5 @@
+         assert len(data) == f.stat().st_size and hashlib.sha256(data).hexdigest() == sha(f)
+ (a.output / 'original-records.json').write_text(json.dumps([{'path': name, 'bytes': f.stat().st_size, 'sha256': sha(f)} for f, name in originals], indent=2) + '\n')
+ (a.output / 'host-exits.json').write_text(json.dumps({'pids_absent': pids}, indent=2) + '\n')
+-(a.output / 'export-result.json').write_text(json.dumps({'original_exit': 0, 'guest_files': len(rows), 'guest_bytes': sum(x['bytes'] for x in rows), 'host_files': len(originals), 'qualification_pass': qualified, 'stages': stages, 'original_family_pass': originals_pass, 'runtime': 'source-chroot preservation only; no installed/native Steam claim; coordinator owns consumption'}, indent=2) + '\n')
++(a.output / 'export-result.json').write_text(json.dumps({'original_exit': 0, 'guest_files': len(rows) + len(metadata_rows), 'guest_bytes': sum(x['bytes'] for x in rows + metadata_rows), 'host_files': len(originals), 'qualification_pass': qualified, 'metadata': metadata, 'stages': stages, 'original_family_pass': originals_pass, 'runtime': 'Installed dependency metadata function plus unchanged14 source-chroot cases; no installed/native Steam claim; coordinator owns consumption'}, indent=2) + '\n')
+ print(str(a.output))

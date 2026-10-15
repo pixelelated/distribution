@@ -1,0 +1,22 @@
+--- original/vm-lifecycle.py
++++ candidate/vm-lifecycle.py
+@@ -93,6 +93,19 @@
+   out=serial(command);(r/('media-'+size+'.txt')).write_text(out);assert 'PIX_MEDIA_RC:0' in out,out
+   ready={'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'pid':pid,'disk':str(disk),'profile':size,'source_sha256':facts['sha256'],'no_network':True,'deadline_epoch':time.time()+max(0,deadline-time.monotonic())};result['boots'].append(ready);(r/('ready-'+size+'.json')).write_text(json.dumps(ready,indent=2)+'\n');print('OFFLINE VM READY '+size,flush=True)
+   result['stages']=[]
++  assert runtime['family_seconds']==3600 and runtime['stage_seconds']==180 and runtime['metadata_seconds']==150
++  assert time.monotonic()+150+len(runtime['cases'])*180+90<deadline, 'Not enough remaining family budget for metadata,14 originals and reserve; stop before metadata'
++  folder=r/'stages/00-metadata';folder.mkdir()
++  started=time.monotonic()
++  print('PIX582 START ORIGINAL METADATA HELPER',flush=True)
++  out=serial('python3 -I -S -B /tmp/pix-input/metadata-stage.py; pxrc=$?; printf "PIX_METADATA_RC:%s\\n" "$pxrc"',seconds=150,evidence=folder)
++  (folder/'serial.txt').write_text(out)
++  observations=[json.loads(line.split('PIX_METADATA_STAGE_RESULT:',1)[1]) for line in out.splitlines() if line.startswith('PIX_METADATA_STAGE_RESULT:')]
++  result['metadata']={'elapsed_seconds':time.monotonic()-started,'guest_result':observations,'original_serial_rc':0}
++  (folder/'host-result.json').write_text(json.dumps(result['metadata'],indent=2)+'\n')
++  assert 'PIX_METADATA_RC:0' in out and len(observations)==1
++  assert observations[0]['status']=='PASS' and observations[0]['restored'] is True and observations[0]['original_helper_exit']==0
++  print('PIX582 CONSUMED ORIGINAL METADATA PASS; installed dependencies/state unchanged',flush=True)
+   for index,case in enumerate(runtime['cases'],1):
+    assert time.monotonic()+180+90<deadline, 'Not enough remaining family budget; stop before case'
+    folder=r/'stages'/f'{index:02d}-{case}';folder.mkdir()

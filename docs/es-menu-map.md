@@ -427,6 +427,13 @@ were the connection.
 flowchart TD
     NET[NETWORK SETTINGS] --> SSID[WI-FI NETWORK  <i>the network the device is on . NOT CONNECTED . COULDN'T CHECK</i>]
     SSID -->|A| PICK{{WI-FI NETWORKS: the networks in range, the joined one first<br/>Home Wi-Fi  CONNECTED . Cafe: Guest  SAVED . Library<br/>REFRESH . INPUT MANUALLY . BACK}}
+    PICK -->|initial scan or REFRESH| SEARCH[Same picker and footer; in-list SEARCHING WI-FI NETWORKS<br/>retain previous rows; block scan/row actions while pending]
+    SEARCH -->|success, rows available| PICK
+    SEARCH -->|success, zero rows| EMPTY[Same picker: NO WI-FI NETWORKS FOUND<br/>REFRESH . INPUT MANUALLY . BACK]
+    SEARCH -->|scan failed| FAILED[Same picker: COULDN'T SEARCH WI-FI NETWORKS. TRY AGAIN.<br/>SHOWING PREVIOUS RESULTS when available]
+    EMPTY -->|REFRESH| SEARCH
+    FAILED -->|REFRESH| SEARCH
+    SEARCH -->|back/exit| EXIT[Close picker safely; bounded read finishes without a GUI callback]
     PICK -->|several matching profiles, none preferred| PROFILES[SAVED NETWORKS: choose the named profile]
     PROFILES --> OPT
     PICK -->|A on SAVED| OPT[name IS SAVED.<br/>CONNECT WITH ITS SAVED KEY, OR FORGET IT?<br/>CONNECT . FORGET . CANCEL -- D-UI-118]
@@ -467,24 +474,31 @@ flowchart TD
   asked "which network's key?"; the two places a key is typed are the
   picker's WI-FI KEY page, per network, and the restore wizard's WI-FI
   PASSWORD page.
-**Planned correction — #577 / D-UI-127 (not implemented in the accepted pin):**
-Keep the picker/list/footer geometry stable across first search and refresh;
-show searching within the reserved list area and retain existing results while
-refreshing. Long results scroll inside that area. Delayed, empty, failed and
-successful scans need distinct reviewed frames, with safe exit and no stale
-callbacks. The diagram and behavior below still describe the accepted source;
-replace their loading branches with the implemented flow and same-source EN/FR
-frame index when #577 lands (D-WORKFLOW-155/156).
+**Implemented picker — #577 / D-UI-127, ES3178 in the fac608ff engineering image:**
+The list and footer keep their screen-relative geometry across first search and
+refresh. Searching appears inside a reserved status band; existing results remain
+visible while scan actions are blocked. Long results scroll inside the fixed
+viewport. An unchanged refresh preserves the list/scroll directly; changed rows
+restore the selected SSID, or the nearest surviving index if it disappeared.
+Completed empty and failed scans have distinct outcomes; failure retains the
+last usable rows and offers refresh. Back closes the picker safely. Its bounded
+read may finish after closure; reopening attaches to that pending read instead
+of launching a second one. No worker owns a GUI callback.
 
-[Accepted-source October13 baseline](qa-logs/2026-10-13-library-wifi-baseline/README.md)
-and its [exact-source frame index](qa-logs/2026-10-13-library-wifi-baseline/frame-index.json)
-show an empty initial list with external search overlay, a content-sized picker
-that grows at1280×800, and identical empty/error results. Populated refresh retains
-dimmed prior rows; it does not reproduce their disappearance. These are defect
-frames, not the planned fixed flow or EN/FR acceptance.
+[EN/FR640×480 and1280×800 UI/lifetime/route proof](qa-logs/2026-10-13-setup-qualification/installed/README.md),
+[compiled French hint follow-up](qa-logs/2026-10-13-library-vm/README.md), and
+[final installed backend/selection/connected/forget proof](qa-logs/2026-10-15-wifi-remaining-result/README.md)
+compose the acceptance. The final [24-frame reviewed index](qa-logs/2026-10-15-wifi-remaining-result/frame-review.json)
+binds actual installed ES/wifictl bytes and branch outcomes. Enumeration and
+profiles are synthetic; this is not a physical-radio measurement.
+
+The [October13 baseline](qa-logs/2026-10-13-library-wifi-baseline/README.md)
+retains the former external overlay, growing initial geometry and identical
+empty/error outcomes. Populated refresh retained dimmed prior rows; its alleged
+disappearance was not reproduced. Those historical defect frames stay unchanged.
 
 - **The picker (WI-FI NETWORKS)** lists the networks in range (`wifictl
-  list`, a rescan behind the spinner), the joined one first and marked
+  list`, with in-list search status), the joined one first and marked
   CONNECTED, the ones NetworkManager holds a profile for marked SAVED
   (`WifiText::pickerRows`, unit-tested); a saved network out of range is not
   a row (D-UI-064) -- this list is what can be joined from here. A on a
@@ -800,12 +814,15 @@ startup reconnect now have their own completed evidence; those do not prove
 that the default Dolphin process uses the generated HostUrl.
 
 The [NoGUI lifecycle repair](qa-logs/2026-10-15-dolphin-nogui-lifecycle/README.md)
-adds the missing AchievementManager initialization/shutdown. It is source-only,
-uncompiled and unqualified; actual Dolphin request/normal-launch evidence remains
-open under#584. No ES copy/layout change is introduced. Existing settings and
-game-launch frames remain the presentation baseline; the later runtime receipt
-must identify the exercised unchanged flow. Listener presence alone does not
-establish proxy identity/readiness, and a synthetic login is not an award proof.
+adds the missing AchievementManager initialization/shutdown. The
+[compiled candidate and actual-process proof](qa-logs/2026-10-15-dolphin-startup-result/README.md)
+reproduces the installed baseline defect and verifies enabled, disabled and early
+boot-failure lifecycle branches. One synthetic failed-login request reaches the
+configured loopback endpoint. No ES copy/layout changes; the exercised nonvisual
+flow is NoGUI startup/configuration and shutdown. Existing settings and game-launch
+frames remain the presentation baseline. Final installed-image smoke and normal
+gameplay/save proof remain open. Listener presence alone does not establish proxy
+identity/readiness, and synthetic login is not successful authentication or an award.
 
 ## ScreenScraper developer provisioning (#566)
 

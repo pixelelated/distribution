@@ -1,0 +1,30 @@
+{
+  "argv": [
+    "ssh",
+    "-i",
+    "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/vm/qa-key",
+    "-p",
+    "10631",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "IdentitiesOnly=yes",
+    "-o",
+    "ConnectTimeout=8",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "UserKnownHostsFile=/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/vm/known_hosts",
+    "-o",
+    "ControlMaster=no",
+    "-o",
+    "ControlPath=none",
+    "root@127.0.0.1",
+    "cat /storage/qa-wifi-577-followup/state.json"
+  ],
+  "started": 1792024360.2919421,
+  "original_returncode": 0,
+  "timed_out": false,
+  "pid": 1910154,
+  "ended": 1792024360.4066172
+}

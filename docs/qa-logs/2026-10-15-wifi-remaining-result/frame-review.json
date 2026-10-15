@@ -1,0 +1,395 @@
+{
+  "status": "READ_ONLY_VISUAL_REVIEW_COMPLETE",
+  "source": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+  "es_source": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "executing_es_sha256": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036",
+  "boot_id": "d0718237-9706-4fd0-93b4-103973f812dd",
+  "frames_reviewed": 24,
+  "actionable_visual_or_copy_defects": [],
+  "frames": [
+    {
+      "path": "frames/backend-failure-complete/01-complete.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/backend-failure-complete/01-complete.png",
+      "archive_member": "owner/smoke/wifi-followup/backend-failure-complete/01-complete.png",
+      "bytes": 18157,
+      "sha256": "df94f5223758c95372b60e47d5c93159e312d101c8fda60c7a9ef5ce8de3c314",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "failed scan retains rows",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Complete two-line failure/previous-results message fits; all three QA rows remain with QA network03 selected. Bottom buttons remain fixed.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/backend-failure-pending/01-pending.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/backend-failure-pending/01-pending.png",
+      "archive_member": "owner/smoke/wifi-followup/backend-failure-pending/01-pending.png",
+      "bytes": 15468,
+      "sha256": "e37d680f3ec9ca0780aa0ccbfd7a9b01a2c06810bb4b0b9c1d9b22c7f36d159a",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "failed scan pending",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "In-list searching status, all three prior rows and QA network03 selection remain; buttons fit.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/backend-initial/01-network-settings.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/backend-initial/01-network-settings.png",
+      "archive_member": "owner/smoke/wifi-followup/backend-initial/01-network-settings.png",
+      "bytes": 31268,
+      "sha256": "5696bb8c55234e3d285ed737dc0f859f8e0d21450d5a0a388ab81fa93cde1ec1",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "initial network settings",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "NETWORK SETTINGS fits with first IP row selected. Wi-Fi network reads NOT CONNECTED. Internet status is not radio evidence.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/backend-initial/02-searching.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/backend-initial/02-searching.png",
+      "archive_member": "owner/smoke/wifi-followup/backend-initial/02-searching.png",
+      "bytes": 10234,
+      "sha256": "7b96c931b681cfc636af26502bbabd67937fda966a500d1381442a30abf0df9c",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "initial scan pending",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "WI-FI NETWORKS title, in-list searching status and three fixed bottom actions fit; no results yet.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/backend-initial-complete/01-picker.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/backend-initial-complete/01-picker.png",
+      "archive_member": "owner/smoke/wifi-followup/backend-initial-complete/01-picker.png",
+      "bytes": 13151,
+      "sha256": "0903453a6ec174178d4867d105dd464066efb1a0f19f72cbe766deac45935747",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "initial three rows",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "QA network01,02,03 visible; QA network01 selected; search status cleared and bottom actions fixed.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/connected/01-network-settings.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/connected/01-network-settings.png",
+      "archive_member": "owner/smoke/wifi-followup/connected/01-network-settings.png",
+      "bytes": 31187,
+      "sha256": "809b62412ce3cd7ab90ef2457cf4fa4c7df99f47497d4add15eae3e70db55310",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "connected network settings",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Home Wi-Fi shown as the current network; first row selected; all visible labels and values fit.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/connected/02-searching.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/connected/02-searching.png",
+      "archive_member": "owner/smoke/wifi-followup/connected/02-searching.png",
+      "bytes": 10234,
+      "sha256": "7b96c931b681cfc636af26502bbabd67937fda966a500d1381442a30abf0df9c",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "connected scan pending",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "In-list searching status, empty list while pending and fixed bottom actions; no overlap.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/connected-action/01-connected-return.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/connected-action/01-connected-return.png",
+      "archive_member": "owner/smoke/wifi-followup/connected-action/01-connected-return.png",
+      "bytes": 31408,
+      "sha256": "d9f4dc79b86a1a152525bbd4396a7267d3f6c19a2aa74d3f9ade1a6fe8aaf3f2",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "connected-row action return",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Network Settings rebuilt with first row selected and Home Wi-Fi value; Home Wi-Fi:CONNECTED toast visible. Raw join receipt identifies Home profile.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/connected-complete/01-picker.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/connected-complete/01-picker.png",
+      "archive_member": "owner/smoke/wifi-followup/connected-complete/01-picker.png",
+      "bytes": 11909,
+      "sha256": "3de26aeef915305385fa4713f196d583e5734cd5faa653dae3c36209321e6efe",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "connected and saved rows",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Home Wi-Fi selected and marked CONNECTED; Cafe Wi-Fi marked SAVED; both values and actions fit.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/disappearance-retry-complete/01-complete.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/disappearance-retry-complete/01-complete.png",
+      "archive_member": "owner/smoke/wifi-followup/disappearance-retry-complete/01-complete.png",
+      "bytes": 11494,
+      "sha256": "3786ec6f6b900ffcd01f1fc7a43248860d3a540fbc0b5630c7d888fdc9b801b3",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "nearest surviving selection",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Only QA network01 and02 remain; QA network02 is selected after03 disappears. No keyboard repositioning precedes the recorded next action.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/disappearance-retry-pending/01-pending.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/disappearance-retry-pending/01-pending.png",
+      "archive_member": "owner/smoke/wifi-followup/disappearance-retry-pending/01-pending.png",
+      "bytes": 15468,
+      "sha256": "e37d680f3ec9ca0780aa0ccbfd7a9b01a2c06810bb4b0b9c1d9b22c7f36d159a",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "retry keeps selection pending",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Searching status with prior three rows still visible and QA network03 selected.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/fallback-action/01-fallback-key-editor.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/fallback-action/01-fallback-key-editor.png",
+      "archive_member": "owner/smoke/wifi-followup/fallback-action/01-fallback-key-editor.png",
+      "bytes": 21670,
+      "sha256": "bc6433ce7686a2dd8512dcb5bd8dc64109d28c9573ea8efc45b42a0f89007030",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "fallback opens key editor",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "WI-FI KEY editor with empty field and full on-screen keyboard fits. The frame does not name the SSID; raw security QA network02 child identifies the target.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/fallback-cancel/01-picker-return.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/fallback-cancel/01-picker-return.png",
+      "archive_member": "owner/smoke/wifi-followup/fallback-cancel/01-picker-return.png",
+      "bytes": 11494,
+      "sha256": "3786ec6f6b900ffcd01f1fc7a43248860d3a540fbc0b5630c7d888fdc9b801b3",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "cancel returns to fallback row",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Key editor closed; two QA rows visible and QA network02 remains selected.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/fallback-cancel/02-network-return.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/fallback-cancel/02-network-return.png",
+      "archive_member": "owner/smoke/wifi-followup/fallback-cancel/02-network-return.png",
+      "bytes": 32431,
+      "sha256": "3e34f858da3d0b709570d9f30b14158508127594ec861b3f2369813fd8c38994",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "back returns to network settings",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Network Settings returns with WI-FI NETWORK selected and NOT CONNECTED. Scrolled content remains within bounds.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/forget-accept/01-final-confirmation.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/forget-accept/01-final-confirmation.png",
+      "archive_member": "owner/smoke/wifi-followup/forget-accept/01-final-confirmation.png",
+      "bytes": 68208,
+      "sha256": "58c1d73cdbb55a925632386d0b8c6312899c14a6e9bd47135b0c63a0494b7ab1",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "second forget confirmation",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "FORGET Cafe profile A? and full consequence sentence fit; YES selected and NO visible.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/forget-accept/02-deletion-pending.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/forget-accept/02-deletion-pending.png",
+      "archive_member": "owner/smoke/wifi-followup/forget-accept/02-deletion-pending.png",
+      "bytes": 14896,
+      "sha256": "14ea8babb9974ae2ffddfb9eae83813a34ebe2582cec3b01287d29ccdcf37338",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "forgotten toast and refresh pending",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Cafe profile A:FORGOTTEN toast already confirms completion; searching status indicates subsequent refresh. Home remains CONNECTED and Cafe row retained while pending.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/forget-confirmation-back/01-profile-choice.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/forget-confirmation-back/01-profile-choice.png",
+      "archive_member": "owner/smoke/wifi-followup/forget-confirmation-back/01-profile-choice.png",
+      "bytes": 9176,
+      "sha256": "e54d04006aeade7e4409dd0c79e90e568e0c2c0b5d83e7e793af399b53dcd9f4",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "explicit sibling profile chooser",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "SAVED NETWORKS shows Cafe profile A selected and Cafe profile B below; both names fit.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/forget-confirmation-back/02-saved-choice.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/forget-confirmation-back/02-saved-choice.png",
+      "archive_member": "owner/smoke/wifi-followup/forget-confirmation-back/02-saved-choice.png",
+      "bytes": 69638,
+      "sha256": "940af2a8c98531e96a9e7a675a4c376e4fd6e3a27c7bb3a1efc94a6ac8da14d9",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "saved-network choice",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Cafe Wi-Fi saved prompt and full question fit with CONNECT/FORGET/CANCEL buttons; CONNECT initially selected.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/forget-confirmation-back/03-forget-confirmation.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/forget-confirmation-back/03-forget-confirmation.png",
+      "archive_member": "owner/smoke/wifi-followup/forget-confirmation-back/03-forget-confirmation.png",
+      "bytes": 68208,
+      "sha256": "58c1d73cdbb55a925632386d0b8c6312899c14a6e9bd47135b0c63a0494b7ab1",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "first forget confirmation",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "FORGET Cafe profile A? full consequence sentence and YES/NO fit; YES selected before Back cancels.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/forget-confirmation-back/04-cancelled.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/forget-confirmation-back/04-cancelled.png",
+      "archive_member": "owner/smoke/wifi-followup/forget-confirmation-back/04-cancelled.png",
+      "bytes": 11935,
+      "sha256": "fe44ee43b1096f95f433d0eebf7dee2c8c11f1b36530988465300ea3fce9f07a",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "cancel returns without deletion",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Picker returns with Cafe Wi-Fi selected/SAVED and Home CONNECTED. Recorded state snapshots retain both Cafe profiles and no deletions.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/forget-open/01-searching.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/forget-open/01-searching.png",
+      "archive_member": "owner/smoke/wifi-followup/forget-open/01-searching.png",
+      "bytes": 12389,
+      "sha256": "d4cc43a0949993111ec813654c12e31b7a67a45052b9fb3c6d86d7b4773f30c8",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "reopened picker already complete",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Despite filename, this frame shows completed Home CONNECTED/Cafe SAVED rows and the prior connected toast; it is not a searching-state witness.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/forgotten/01-sibling-preserved.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/forgotten/01-sibling-preserved.png",
+      "archive_member": "owner/smoke/wifi-followup/forgotten/01-sibling-preserved.png",
+      "bytes": 12609,
+      "sha256": "e5e4faef7919dcdc56a0d2806660d194214f8d3422da310300eaba2c091d71a0",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "post-forget saved SSID remains",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "Cafe profile A:FORGOTTEN toast, Home CONNECTED and Cafe Wi-Fi SAVED remain. Raw final state names preserved Cafe profile B; frame alone proves only saved SSID remains.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/normal-return/01-frontend-return.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/normal-return/01-frontend-return.png",
+      "archive_member": "owner/smoke/wifi-followup/normal-return/01-frontend-return.png",
+      "bytes": 25760,
+      "sha256": "ef7a6c019faf29701ee5f3527e662dff674d112e7f41ff8a7639a704ade3b3e9",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "normal return to main menu",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "MAIN MENU visible with NETWORK SETTINGS selected and BACK visible. This is a normal menu return, not a carousel frame.",
+      "visual_defect_found": false
+    },
+    {
+      "path": "frames/select-disappearing/01-selected-third.png",
+      "original_path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-03/smoke/wifi-followup/select-disappearing/01-selected-third.png",
+      "archive_member": "owner/smoke/wifi-followup/select-disappearing/01-selected-third.png",
+      "bytes": 13173,
+      "sha256": "0babb7a994b7faa4a6ff8aa03c6f67a56a0289954030c32fe72c6337ee4ea603",
+      "dimensions": [
+        640,
+        480
+      ],
+      "role": "select third network",
+      "personally_viewed": true,
+      "method": "view_image original PNG",
+      "review": "QA network03 selected among three QA rows before failure/retry; all labels/actions fit.",
+      "visual_defect_found": false
+    }
+  ]
+}

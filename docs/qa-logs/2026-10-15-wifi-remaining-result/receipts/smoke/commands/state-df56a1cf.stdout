@@ -1,0 +1,30 @@
+{
+  "phase": "connected-forget",
+  "profiles": [
+    {
+      "name": "Home profile",
+      "ssid": "Home Wi-Fi"
+    },
+    {
+      "name": "Cafe profile A",
+      "ssid": "Cafe Wi-Fi"
+    },
+    {
+      "name": "Cafe profile B",
+      "ssid": "Cafe Wi-Fi"
+    }
+  ],
+  "active_profile": "Home profile",
+  "next_scan": 2,
+  "view": {
+    "networks": [
+      "Home Wi-Fi",
+      "Cafe Wi-Fi"
+    ]
+  },
+  "priorities": {
+    "Home profile": "100",
+    "Cafe profile A": "0",
+    "Cafe profile B": "0"
+  }
+}

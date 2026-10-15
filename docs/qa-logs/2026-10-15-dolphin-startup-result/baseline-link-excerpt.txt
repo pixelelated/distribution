@@ -1,0 +1,163 @@
+[1136/1137] Linking CXX executable Binaries/dolphin-emu-nogui
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:785:7: warning: type 'struct basic_memory_buffer' violates the C++ One Definition Rule [-Wodr]
+  785 | class basic_memory_buffer : public detail::buffer<T> {
+      |       ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:785:7: note: a different type is defined in another translation unit
+  785 | class basic_memory_buffer : public detail::buffer<T> {
+      |       ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:790:35: note: the first difference of corresponding definitions is field 'alloc_'
+  790 |   FMT_NO_UNIQUE_ADDRESS Allocator alloc_;
+      |                                   ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:790:35: note: fields have different layout in another translation unit
+  790 |   FMT_NO_UNIQUE_ADDRESS Allocator alloc_;
+      |                                   ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2651:7: warning: type 'struct bigint' violates the C++ One Definition Rule [-Wodr]
+ 2651 | class bigint {
+      |       ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2651:7: note: a different type is defined in another translation unit
+ 2651 | class bigint {
+      |       ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2658:47: note: the first difference of corresponding definitions is field 'bigits_'
+ 2658 |   basic_memory_buffer<bigit, bigits_capacity> bigits_;
+      |                                               ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2658:47: note: a field of same name but different type is defined in another translation unit
+ 2658 |   basic_memory_buffer<bigit, bigits_capacity> bigits_;
+      |                                               ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:785:7: note: type 'struct basic_memory_buffer' itself violates the C++ One Definition Rule
+  785 | class basic_memory_buffer : public detail::buffer<T> {
+      |       ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:785:7: warning: type 'struct basic_memory_buffer' violates the C++ One Definition Rule [-Wodr]
+  785 | class basic_memory_buffer : public detail::buffer<T> {
+      |       ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:785:7: note: a different type is defined in another translation unit
+  785 | class basic_memory_buffer : public detail::buffer<T> {
+      |       ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:790:35: note: the first difference of corresponding definitions is field 'alloc_'
+  790 |   FMT_NO_UNIQUE_ADDRESS Allocator alloc_;
+      |                                   ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:790:35: note: fields have different layout in another translation unit
+  790 |   FMT_NO_UNIQUE_ADDRESS Allocator alloc_;
+      |                                   ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:785:7: warning: type 'struct basic_memory_buffer' violates the C++ One Definition Rule [-Wodr]
+  785 | class basic_memory_buffer : public detail::buffer<T> {
+      |       ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:785:7: note: a different type is defined in another translation unit
+  785 | class basic_memory_buffer : public detail::buffer<T> {
+      |       ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:790:35: note: the first difference of corresponding definitions is field 'alloc_'
+  790 |   FMT_NO_UNIQUE_ADDRESS Allocator alloc_;
+      |                                   ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:790:35: note: fields have different layout in another translation unit
+  790 |   FMT_NO_UNIQUE_ADDRESS Allocator alloc_;
+      |                                   ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2705:22: warning: type of 'multiply' does not match original declaration [-Wlto-type-mismatch]
+ 2705 |   FMT_CONSTEXPR void multiply(UInt value) {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2705:22: note: 'multiply' was previously declared here
+ 2705 |   FMT_CONSTEXPR void multiply(UInt value) {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2705:22: note: code may be misoptimized unless '-fno-strict-aliasing' is used
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2726:22: warning: type of 'assign' does not match original declaration [-Wlto-type-mismatch]
+ 2726 |   FMT_CONSTEXPR void assign(UInt n) {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2726:22: note: 'assign' was previously declared here
+ 2726 |   FMT_CONSTEXPR void assign(UInt n) {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2726:22: note: code may be misoptimized unless '-fno-strict-aliasing' is used
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2817:24: warning: type of 'assign_pow10' does not match original declaration [-Wlto-type-mismatch]
+ 2817 |   FMT_CONSTEXPR20 void assign_pow10(int exp) {
+      |                        ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2817:24: note: 'assign_pow10' was previously declared here
+ 2817 |   FMT_CONSTEXPR20 void assign_pow10(int exp) {
+      |                        ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2817:24: note: code may be misoptimized unless '-fno-strict-aliasing' is used
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2834:24: warning: type of 'square' does not match original declaration [-Wlto-type-mismatch]
+ 2834 |   FMT_CONSTEXPR20 void square() {
+      |                        ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2834:24: note: 'square' was previously declared here
+ 2834 |   FMT_CONSTEXPR20 void square() {
+      |                        ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2834:24: note: code may be misoptimized unless '-fno-strict-aliasing' is used
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:857:24: warning: type of 'move' does not match original declaration [-Wlto-type-mismatch]
+  857 |   FMT_CONSTEXPR20 void move(basic_memory_buffer& other) {
+      |                        ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:857:24: note: 'move' was previously declared here
+  857 |   FMT_CONSTEXPR20 void move(basic_memory_buffer& other) {
+      |                        ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:857:24: note: code may be misoptimized unless '-fno-strict-aliasing' is used
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2877:22: warning: type of 'divmod_assign' does not match original declaration [-Wlto-type-mismatch]
+ 2877 |   FMT_CONSTEXPR auto divmod_assign(const bigint& divisor) -> int {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2877:22: note: 'divmod_assign' was previously declared here
+ 2877 |   FMT_CONSTEXPR auto divmod_assign(const bigint& divisor) -> int {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2877:22: note: code may be misoptimized unless '-fno-strict-aliasing' is used
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2864:22: warning: type of 'align' does not match original declaration [-Wlto-type-mismatch]
+ 2864 |   FMT_CONSTEXPR void align(const bigint& other) {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2864:22: note: 'align' was previously declared here
+ 2864 |   FMT_CONSTEXPR void align(const bigint& other) {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2864:22: note: code may be misoptimized unless '-fno-strict-aliasing' is used
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2726:22: warning: type of 'assign' does not match original declaration [-Wlto-type-mismatch]
+ 2726 |   FMT_CONSTEXPR void assign(UInt n) {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2726:22: note: 'assign' was previously declared here
+ 2726 |   FMT_CONSTEXPR void assign(UInt n) {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2726:22: note: code may be misoptimized unless '-fno-strict-aliasing' is used
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2680:22: warning: type of 'subtract_aligned' does not match original declaration [-Wlto-type-mismatch]
+ 2680 |   FMT_CONSTEXPR void subtract_aligned(const bigint& other) {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2680:22: note: 'subtract_aligned' was previously declared here
+ 2680 |   FMT_CONSTEXPR void subtract_aligned(const bigint& other) {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2680:22: note: code may be misoptimized unless '-fno-strict-aliasing' is used
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2673:22: warning: type of 'remove_leading_zeros' does not match original declaration [-Wlto-type-mismatch]
+ 2673 |   FMT_CONSTEXPR void remove_leading_zeros() {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2673:22: note: 'remove_leading_zeros' was previously declared here
+ 2673 |   FMT_CONSTEXPR void remove_leading_zeros() {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2673:22: note: code may be misoptimized unless '-fno-strict-aliasing' is used
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2743:22: warning: type of 'assign' does not match original declaration [-Wlto-type-mismatch]
+ 2743 |   FMT_CONSTEXPR void assign(const bigint& other) {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2743:22: note: 'assign' was previously declared here
+ 2743 |   FMT_CONSTEXPR void assign(const bigint& other) {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2743:22: note: code may be misoptimized unless '-fno-strict-aliasing' is used
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2692:22: warning: type of 'multiply' does not match original declaration [-Wlto-type-mismatch]
+ 2692 |   FMT_CONSTEXPR void multiply(uint32_t value) {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2692:22: note: 'multiply' was previously declared here
+ 2692 |   FMT_CONSTEXPR void multiply(uint32_t value) {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2692:22: note: code may be misoptimized unless '-fno-strict-aliasing' is used
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2760:22: warning: type of 'operator<<=' does not match original declaration [-Wlto-type-mismatch]
+ 2760 |   FMT_CONSTEXPR auto operator<<=(int shift) -> bigint& {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2760:22: note: 'operator<<=' was previously declared here
+ 2760 |   FMT_CONSTEXPR auto operator<<=(int shift) -> bigint& {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2760:22: note: code may be misoptimized unless '-fno-strict-aliasing' is used
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2663:22: warning: type of 'get_bigit' does not match original declaration [-Wlto-type-mismatch]
+ 2663 |   FMT_CONSTEXPR auto get_bigit(int i) const -> bigit {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2663:22: note: 'get_bigit' was previously declared here
+ 2663 |   FMT_CONSTEXPR auto get_bigit(int i) const -> bigit {
+      |                      ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/fmt/fmt/include/fmt/format.h:2663:22: note: code may be misoptimized unless '-fno-strict-aliasing' is used
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/mbedtls/library/ssl_tls.c: In function 'ssl_calc_finished_tls_sha384':
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/mbedtls/library/ssl_tls.c:3399:5: warning: 'mbedtls_sha512_finish_ret' accessing 64 bytes in a region of size 48 [-Wstringop-overflow=]
+ 3399 |     mbedtls_sha512_finish_ret( &sha512, padbuf );
+      |     ^
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/mbedtls/library/ssl_tls.c:3399:5: note: referencing argument 2 of type 'unsigned char[64]'
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/mbedtls/library/sha512.c:375:5: note: in a call to function 'mbedtls_sha512_finish_ret'
+  375 | int mbedtls_sha512_finish_ret( mbedtls_sha512_context *ctx,
+      |     ^
+In function 'rc_runtime_destroy',
+    inlined from 'rc_client_free_game' at /workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/rcheevos/rcheevos/src/rc_client.c:1153:3:
+/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Externals/rcheevos/rcheevos/src/rcheevos/runtime.c:93:5: warning: 'free' called on pointer 'game_3(D)' with nonzero offset 96 [-Wfree-nonheap-object]
+   93 |     free(self);
+      |     ^

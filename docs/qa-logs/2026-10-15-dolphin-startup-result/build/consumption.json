@@ -1,0 +1,49 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T004107Z-f7c5c978",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 584,
+      "kind": "build-cache",
+      "path": "/workspace/tmp/pix-m7-dolphin-ra-relink-20261015-01/work",
+      "release_when": "After source-bound candidate VM proof, retain binary/source/dependency hashes and original result channels."
+    },
+    {
+      "issue": 584,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-dolphin-ra-relink-20261015-01/stages",
+      "release_when": "After original watcher/container/cleanup receipts are sealed."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-dolphin-ra-relink-result-20261015-01/consumed-dependencies.json",
+      "sha256": "655d5813546411dcad8c75cc79f63bf1409c8afb2440a3b3b826a4f188706497"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-dolphin-ra-relink-result-20261015-01/container-result.json",
+      "sha256": "80e3024d56d2bd5a734dc0b91350a2ed866f7f4de4a5a5d51205e9023531e904"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-dolphin-ra-relink-result-20261015-01/host-readback.json",
+      "sha256": "92e7f0776d307c69f6ac4eca58fce33e879792bdcb7e903964c91dfa97d0e55e"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-dolphin-ra-relink-result-20261015-01/original-records.json",
+      "sha256": "40aa9201f32303cff3e6335c7acfa9128f7515b21cca58c69657a72ae859d6af"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-dolphin-ra-relink-result-20261015-01/original-records.tar.gz",
+      "sha256": "587bf01fb630c3e866fcda7de77c074ea6f7ea7dbd742614ad3bcf268d67ddc2"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-dolphin-ra-relink-result-20261015-01/result.json",
+      "sha256": "bbc8df69b242bed04f50235fcf6ad94e26ae6fbc0aada62d544e88f81b3ac769"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-dolphin-ra-relink-result-20261015-01/target-artifact.json",
+      "sha256": "4228399ba3d066ea5d97b0e0e8acd40ba2932da5ece41d67b6da6a2b66fa310c"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "rc": 0,
+  "started": 1792024269.4302628,
+  "cases": [
+    {
+      "name": "real-backend-failure-retry-and-disappearance",
+      "identity": {
+        "boot": "d0718237-9706-4fd0-93b4-103973f812dd",
+        "pid": 2249,
+        "start": "2430",
+        "es_sha256": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036"
+      },
+      "scan_original_rcs": [
+        0,
+        8,
+        0
+      ],
+      "selected_fallback": "QA network 02",
+      "scope": "actual installed wifictl child; synthetic adapter/iwctl/nmcli, natural sleeps; actual installed ES selection witness"
+    },
+    {
+      "name": "connected-profile-and-forget-back-confirm",
+      "identity": {
+        "boot": "d0718237-9706-4fd0-93b4-103973f812dd",
+        "pid": 3316,
+        "start": "6994",
+        "es_sha256": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036"
+      },
+      "joined_profile": "Home profile",
+      "forgotten_profile": "Cafe profile A",
+      "sibling_preserved": "Cafe profile B",
+      "original_join_rc": 0,
+      "original_forget_rc": 0,
+      "all_synthetic": true
+    }
+  ],
+  "ended": 1792024383.928671
+}

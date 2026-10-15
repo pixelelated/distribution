@@ -1,0 +1,23 @@
+{
+  "status": "HISTORICAL_SEALS_NOT_CURRENT_RUNTIME_BINDINGS",
+  "original_derivation_sha256": "4c623e8a73948ed70693116e19d15388d1d7645b11ff292ac413410538bc9ad7",
+  "historical_values": {
+    "status": "SOURCE_ONLY_UNRUN",
+    "original_root": "/tmp/pix-m7-installed-ui-lifecycle-20261014-revision04",
+    "original_root_seal": "0047c65757f02630ccb0d8f8c360f5b981af2e8e2291c8a4a10ebc23d9fe1810",
+    "original_inner_seal": "025376c1f82be5571b969a6a06fb0f9fe527e951042fa194a4e6491539512cf5",
+    "original_lifecycle_seal": "2f3dc60054fd4a0217d564fe23c78c992f700785bb8adc05afc42e64d7d7565f",
+    "new_inner_seal": "9ac446e8b9f649c4dd07ebe04ecc6f53dc45f10bdd981024420a5295b9338485",
+    "new_inner_archive_sha256": "7dc6b68843eec61301c2bd4f9bc6f69727500ba78f5a0a78ca39f19ff8f19d13",
+    "new_lifecycle_seal": "4c2305de4a96ceb0f6a020a792eb3312ad5333b3a103ea6eb1403c28f77559a1",
+    "original_packet_unchanged": true,
+    "scope": "Only genuinely missing #577 cases; no existing component replay, product/shared changes or runtime."
+  },
+  "actual_corrected_inner_seal": "a4827615c243c89fd52c7198688d17f2b3ff13910d81be7bc5ccf4e5c587bf49",
+  "actual_corrected_archive": "0ce93e49f539a40e628ed8e305e74b3f94eb42f1595edcfc58b9cee92adb566e",
+  "actual_corrected_lifecycle_seal": "bf17b4999e95fb6b9fa802361036b2de3fcfd2f2c8aca48b23faed83dcf06320",
+  "runtime_config_inner": "a4827615c243c89fd52c7198688d17f2b3ff13910d81be7bc5ccf4e5c587bf49",
+  "runtime_config_archive": "0ce93e49f539a40e628ed8e305e74b3f94eb42f1595edcfc58b9cee92adb566e",
+  "active_owner_smoke_source_match": true,
+  "historical_source_not_rewritten": true
+}

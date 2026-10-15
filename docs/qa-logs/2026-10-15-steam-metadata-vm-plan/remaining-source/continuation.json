@@ -1,0 +1,37 @@
+{
+  "status": "SOURCE_ONLY_UNRUN",
+  "original_manifest_sha256": "6a6c3b255525f57c624dba32d55720e10d0e130c2ffeb564c4e2ae6881796c7d",
+  "original_fixture_commit": "8f0eaf27ed539beeac4c117711601d78c9125d4a",
+  "installer_sha256": "fab7cdb4ad8adbcea147be54092bb7ce2005010447be4ab8192c94d8bbe9229d",
+  "changed_original_member": "source.json",
+  "only_changed_binding_key": "cases",
+  "remaining_cases": [
+    "fresh-profile-dot",
+    "fresh-profile-dot-absent",
+    "valid-existing-alias",
+    "existing-profile-dot",
+    "self-updated-client",
+    "partial-before-profile",
+    "marker-missing-core",
+    "metadata-conflict-after-profile",
+    "download-failure-retry",
+    "metadata-failure-retry",
+    "interrupt-prepared-retry",
+    "unknown-stage-before-profile",
+    "validation-failure-retry",
+    "publication-failure-retry"
+  ],
+  "accepted_cases_excluded": [
+    "fresh-client-real-root",
+    "fresh-profile-parent-alias",
+    "existing-profile-parent-alias",
+    "detached-transfer-child",
+    "proc-census-error",
+    "transport-timeout",
+    "interrupt-published-retry",
+    "committed-self-update-retry",
+    "crc-failure-retry"
+  ],
+  "scope": "Unchanged complete source caller in private chroot; no installed installer or native Steam claim",
+  "historical_files": "Original README/static-result/static-check describe their CRC-only source, not this continuation. Do not run the historical static-check against modified binding."
+}

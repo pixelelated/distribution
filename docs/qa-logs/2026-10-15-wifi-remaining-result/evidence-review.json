@@ -1,0 +1,304 @@
+{
+  "status": "REVIEWED_ORIGINAL_EVIDENCE_SUPPORTS_SCOPED_ACCEPTANCE",
+  "admission_consumed_here": false,
+  "issue_mutated_here": false,
+  "additional_runtime_performed": false,
+  "export_archive_reverified": {
+    "members": 595,
+    "bytes": 1773271,
+    "sha256": "27ae40f1be71eada7d1bb6627225e409304782d5ce6bf353312ef3d23f9fb377"
+  },
+  "source": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+  "es_source": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "boot_id": "d0718237-9706-4fd0-93b4-103973f812dd",
+  "installed_products": {
+    "usr/bin/emulationstation": {
+      "sha256": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036",
+      "mode": "-rwxr-xr-x"
+    },
+    "usr/bin/wifictl": {
+      "sha256": "c89ed28a50e4be78468fcee25dcfd68e0b1c67af25657c3d0ba9318c7576a48c",
+      "mode": "-rwxr-xr-x"
+    },
+    "etc/profile": {
+      "sha256": "66019fab58aab9b05c1288afb399efd9d20a93504b3955718cb5282965455757",
+      "mode": "-rw-r--r--"
+    },
+    "etc/profile.d/001-functions": {
+      "sha256": "2a67891c9a3090ddae78d4b729ce7b8f5c41d853e0975b4ce0203df7789e4ab5",
+      "mode": "-rw-r--r--"
+    },
+    "usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo": {
+      "sha256": "f7b4fec7bacb7a7e2e53883c0c5f2bda1d14343d1c1392edf469904e95104a59",
+      "mode": "-rw-r--r--"
+    },
+    "usr/config/locale/en_GB/LC_MESSAGES/emulationstation2.mo": {
+      "sha256": "4461480d7b6a88d1eb9cfb0ac0423d325455694ab4c420cc8c4e36ff04cdc73a",
+      "mode": "-rw-r--r--"
+    }
+  },
+  "original_channels": {
+    "launcher": 0,
+    "tool_wrapper": 0,
+    "build": 0,
+    "command": 0,
+    "monitor": 0,
+    "runner": 0,
+    "vm": 0
+  },
+  "backend_invocations_completed": 27,
+  "backend_manifest_entries_reverified": 112,
+  "backend_disappearance": {
+    "scan_original_exits": [
+      0,
+      8,
+      0
+    ],
+    "failed_child": {
+      "id": "e4a15119d1724cd5a6223e275ca19b10",
+      "args": [
+        "scanlist"
+      ],
+      "started": 1792024291.8942873,
+      "original_returncode": 8,
+      "phase": "backend-disappearance",
+      "scan_index": 1,
+      "child_pid": 2653,
+      "ended": 1792024295.0575953
+    },
+    "failed_stdout_bytes": 0,
+    "lower_failed_partial": {
+      "phase": "backend-disappearance",
+      "operation": "nmcli",
+      "args": [
+        "-t",
+        "-f",
+        "SSID",
+        "dev",
+        "wifi",
+        "list",
+        "ifname",
+        "wlan577"
+      ],
+      "stdout": "DISCARD FAILED PARTIAL\n",
+      "original_returncode": 8,
+      "pid": 2713,
+      "monotonic_ns": 49015742058
+    },
+    "failure_log_witnesses": [
+      {
+        "archive_member": "owner/smoke/commands/es-log-58a25933.stdout",
+        "line": "2026-10-14 20:31:35\t[2249]\tINFO\twifi picker: scan failed; rows=3; retained=1"
+      },
+      {
+        "archive_member": "owner/smoke/commands/es-log-250171cf.stdout",
+        "line": "2026-10-14 20:31:35\t[2249]\tINFO\twifi picker: scan failed; rows=3; retained=1"
+      },
+      {
+        "archive_member": "owner/smoke/commands/es-log-ad33e441.stdout",
+        "line": "2026-10-14 20:31:35\t[2249]\tINFO\twifi picker: scan failed; rows=3; retained=1"
+      },
+      {
+        "archive_member": "owner/smoke/commands/es-log-b871e9ec.stdout",
+        "line": "2026-10-14 20:31:35\t[2249]\tINFO\twifi picker: scan failed; rows=3; retained=1"
+      },
+      {
+        "archive_member": "owner/smoke/commands/es-log-f889eff8.stdout",
+        "line": "2026-10-14 20:31:35\t[2249]\tINFO\twifi picker: scan failed; rows=3; retained=1"
+      },
+      {
+        "archive_member": "owner/smoke/commands/es-log-0db8ba49.stdout",
+        "line": "2026-10-14 20:31:35\t[2249]\tINFO\twifi picker: scan failed; rows=3; retained=1"
+      }
+    ],
+    "fallback_security": {
+      "id": "0f5a86ddeb1b46949450e3bd138db3b5",
+      "args": [
+        "security",
+        "QA network 02"
+      ],
+      "started": 1792024305.094091,
+      "original_returncode": 1,
+      "phase": "backend-disappearance",
+      "scan_index": null,
+      "child_pid": 3008,
+      "ended": 1792024305.1564443
+    },
+    "security_stdout": "unknown\n",
+    "security_exit_one_is_expected_unknown_route": true
+  },
+  "connected_forget": {
+    "scan_original_exits": [
+      0,
+      0,
+      0
+    ],
+    "join": {
+      "id": "b441703083e74c0396dc1c420b611927",
+      "args": [
+        "join",
+        "Home profile"
+      ],
+      "started": 1792024335.315849,
+      "original_returncode": 0,
+      "phase": "connected-forget",
+      "scan_index": null,
+      "child_pid": 3707,
+      "ended": 1792024335.743355
+    },
+    "join_stdout": "joined\n",
+    "cancellation_state_witnesses": [
+      {
+        "receipt": "owner/smoke/commands/state-df56a1cf.json",
+        "stdout": "owner/smoke/commands/state-df56a1cf.stdout",
+        "ended": 1792024360.2916324,
+        "profiles": [
+          {
+            "name": "Home profile",
+            "ssid": "Home Wi-Fi"
+          },
+          {
+            "name": "Cafe profile A",
+            "ssid": "Cafe Wi-Fi"
+          },
+          {
+            "name": "Cafe profile B",
+            "ssid": "Cafe Wi-Fi"
+          }
+        ],
+        "deletions": []
+      },
+      {
+        "receipt": "owner/smoke/commands/state-f65d6ec1.json",
+        "stdout": "owner/smoke/commands/state-f65d6ec1.stdout",
+        "ended": 1792024360.4066172,
+        "profiles": [
+          {
+            "name": "Home profile",
+            "ssid": "Home Wi-Fi"
+          },
+          {
+            "name": "Cafe profile A",
+            "ssid": "Cafe Wi-Fi"
+          },
+          {
+            "name": "Cafe profile B",
+            "ssid": "Cafe Wi-Fi"
+          }
+        ],
+        "deletions": []
+      }
+    ],
+    "forget": {
+      "id": "b752756bd9904ee1b7b012c19be4ad39",
+      "args": [
+        "forget",
+        "Cafe profile A"
+      ],
+      "started": 1792024371.7800393,
+      "original_returncode": 0,
+      "phase": "connected-forget",
+      "scan_index": null,
+      "child_pid": 4231,
+      "ended": 1792024371.891589
+    },
+    "forget_stdout": "forgotten\n",
+    "final_state": {
+      "phase": "connected-forget",
+      "profiles": [
+        {
+          "name": "Home profile",
+          "ssid": "Home Wi-Fi"
+        },
+        {
+          "name": "Cafe profile B",
+          "ssid": "Cafe Wi-Fi"
+        }
+      ],
+      "active_profile": "Home profile",
+      "next_scan": 3,
+      "view": {
+        "networks": [
+          "Home Wi-Fi",
+          "Cafe Wi-Fi"
+        ]
+      },
+      "priorities": {
+        "Home profile": "100",
+        "Cafe profile A": "0",
+        "Cafe profile B": "0"
+      },
+      "deletions": [
+        "Cafe profile A"
+      ]
+    }
+  },
+  "cleanup": {
+    "backend_quiescence": {
+      "starts": 27,
+      "ends": 27,
+      "missing_completion": [],
+      "live": []
+    },
+    "guest_postcheck": {
+      "status": "PASS",
+      "boot_id": "d0718237-9706-4fd0-93b4-103973f812dd",
+      "products": {
+        "usr/bin/emulationstation": {
+          "sha256": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036",
+          "mode": "-rwxr-xr-x"
+        },
+        "usr/bin/wifictl": {
+          "sha256": "c89ed28a50e4be78468fcee25dcfd68e0b1c67af25657c3d0ba9318c7576a48c",
+          "mode": "-rwxr-xr-x"
+        },
+        "etc/profile": {
+          "sha256": "66019fab58aab9b05c1288afb399efd9d20a93504b3955718cb5282965455757",
+          "mode": "-rw-r--r--"
+        },
+        "etc/profile.d/001-functions": {
+          "sha256": "2a67891c9a3090ddae78d4b729ce7b8f5c41d853e0975b4ce0203df7789e4ab5",
+          "mode": "-rw-r--r--"
+        },
+        "usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo": {
+          "sha256": "f7b4fec7bacb7a7e2e53883c0c5f2bda1d14343d1c1392edf469904e95104a59",
+          "mode": "-rw-r--r--"
+        },
+        "usr/config/locale/en_GB/LC_MESSAGES/emulationstation2.mo": {
+          "sha256": "4461480d7b6a88d1eb9cfb0ac0423d325455694ab4c420cc8c4e36ff04cdc73a",
+          "mode": "-rw-r--r--"
+        }
+      },
+      "owned_seam_mounts": [],
+      "browser_original_rc": 1,
+      "broker_original_rc": 0,
+      "broker_status": "idle",
+      "synthetic_listeners": [],
+      "configuration_restored": {
+        "status": "PASS",
+        "entries": 5,
+        "original_manifest_sha256": "56069c08e299ef9211a992e0d92f6efb63eaf6b8285ec49ec227b317649c7374"
+      }
+    },
+    "vm_remaining_host_children": [],
+    "vm_surviving_host_processes": [],
+    "qemu_still_live": false,
+    "forced_host_cleanup": [],
+    "original_host_exit_receipt": "export/host-exits.json"
+  },
+  "restoration_scope": [
+    "/storage/.config/system/configs recursively",
+    "/storage/.config/emulationstation/es_settings.cfg bytes/type/mode"
+  ],
+  "unproved_restore_path": "/storage/.config/emulationstation/es_settings.cfg.backup",
+  "backup_mutation_claimed": false,
+  "visual_review": "frame-review.json",
+  "visual_blockers": [],
+  "remaining_claim_limits": [
+    "Synthetic adapter/iwctl/nmcli transport; no physical radio or real profile/provider claim.",
+    "Final return frame is MAIN MENU, not carousel.",
+    "forget-open searching filename is already a completed picker frame.",
+    "Post-forget frame marks Cafe Wi-Fi saved; final raw state, not the image alone, names Cafe profile B.",
+    "Original exports and consumption draft remain unchanged; root alone consumes the admission."
+  ]
+}

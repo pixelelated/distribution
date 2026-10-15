@@ -1,31 +1,45 @@
 # Saved Session State
 
-Updated2026-10-15 00:40UTC. Continue authorized M7 work toward next0.0.1 RC;
+Updated2026-10-15 00:48UTC. Continue authorized M7 work toward next0.0.1 RC;
 checkpointing is not a pause. Coordinator /workspace/repos/rocknix.worktrees/m7-player-setup,
 feature/m7-player-setup. Harness conflict-resolution untouched. Primary next0457ac18;
-coordinator37d26a203e plus changes being committed. Frozen product fac608ff / ES3178
+coordinatord3e684dd4b plus current evidence changes. Frozen product fac608ff / ES3178
 unchanged. No formal goal. Runtime/compiler allocations serialized, source/audit
 parallel. Actual host PID namespace4026531836 requires escalated exec. Root actively
 supervises; detached watchers record results but no off-session notifier exists.
 
-## Current next action — Dolphin one-object relink
+## Current next action — corrected Steam launcher binding
 
-No runtime allocation is active. Wi-Fi03 completed and its admission is consumed.
-Prepare/admit/run the reviewed /tmp/m7-dolphin-ra-runtime-plan-20261015 packet,
-SHA256SUMS sealffc221eacd52c5add66b6f6ae533f0121277c5ba161ae97d6b19b9b637814e90.
-README is README.txt, not README.md. Durable source archive under
- docs/qa-logs/2026-10-15-dolphin-relink-plan/source-originals.tar.gz.
-Use fresh owner /workspace/tmp/pix-m7-dolphin-ra-relink-20261015-01; no preparation,
-admission or compiler run yet. Follow README exact preflight/retention/admission/
-watch-build-submit commands after stable coordinator commit and #584 allocation.
-One changed MainNoGUI object and relink using103 hashed frozen inputs, read-only
-original-prefix cache mount, private work.2CPU4GiB/no swap/256PIDs,900s work,
-1GiB sampled scratch. Inherited cleanup has per-operation bounds and300s final
-wait;600s is forecast, not an enclosing hard deadline. No whole cache copy.
-Then separate normal8GiB4CPU/no-NIC guest startup control: installed known defect,
-private fixed candidate enabled/disabled/early boot failure. Synthetic loopback
-failed login and tiny DOL CPU loop; not real authentication or gameplay. Final
-new installed-image smoke still due. Production patch018 integrated source-only.
+No runtime allocation is active. Dolphin one-object build and four actual-process
+startup cases completed successfully; originals in
+ docs/qa-logs/2026-10-15-dolphin-startup-result/ (uncommitted), compile admission
+ aea323d1 and startup5a3e47bf consumed. Candidate SHA5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5.
+Actual baseline reproduces absent lifecycle; candidate enabled/disabled/early
+boot-failure behave as expected. No real authentication/gameplay or new installed
+image claim. The same20 linker warnings exist in the original build; not evidence
+of a new regression, not a harmlessness claim. Production fix committed d3e684dd4b.
+
+Steam metadata+14 owner /workspace/tmp/pix582-metadata-remaining-vm-20261015-01
+run20261015T004521Z-34493080 FAILED before boot: frozen VM launcher lacks
+--no-network, qemu-args original2, aggregate1. No VM or case ran. Lossless compact
+originals /workspace/tmp/pix582-metadata-preboot-failure-20261015-01; admission
+ff041b06 consumed failed-investigated. Do not replay that owner or relabel it.
+
+frame_diff_review is preparing a minimal fresh derivative in
+/tmp/pix-steam-metadata-vm-20261015-02 and durable
+ docs/qa-logs/2026-10-15-steam-vm-helper-correction/: bind the same qualified
+m7-offline-vm-567 VM launcher used by successful Dolphin (SHA5b058ed8a8b11135cd5997e3d925939baff30726033125acf1244863a756318d)
+and retain captured CLI stderr/stdout on failure. All metadata/helper/14case
+bytes unchanged. Review source, prepare FRESH owner02, watched retention/admission
+then submit with same8GiB4CPU/no-NIC/VNC132/3600+90 bounds. Current prepared
+source-only packet remains docs/qa-logs/2026-10-15-steam-metadata-vm-plan/.
+No passing case replay. Earlier host metadata failures remain failures.
+
+Native gameplay/save allocation remains after Steam/Dolphin fixes and finalimage
+planning. Formal#590 audit is active under sole m7_audit_resume, beyondAC076.
+Do not stage its active directory. Published primary0457ac18, coordinator
+locald3e684dd4b; new evidence is being retained/committed. No push yet because
+outstanding audit-cadence gate would make hosted CI red.
 
 ## Completed, compact evidence and limits
 
@@ -44,8 +58,8 @@ new installed-image smoke still due. Production patch018 integrated source-only.
   /workspace/tmp/pix-m7-installed-wifi-remaining-export-20261015-03; admission
   e95b1e07a2064211a8ffe3ab6af611c2 consumed qualified. Actual installed ES/wifictl,
   synthetic adapter; failedscan8 retains3rows, disappearance fallback, connected
-  Home profile, FORGET back/confirm with sibling retained.24frames being reviewed
-  by dolphin_ra_init into docs/qa-logs/2026-10-15-wifi-remaining-result/.
+  Home profile, FORGET back/confirm with sibling retained.All24frames reviewed
+  under docs/qa-logs/2026-10-15-wifi-remaining-result/.
   Selected config restoration proven; es_settings.cfg.backup is outside custody.
   Original fixture01 newline and02 suppressed info-log failures stay failed;
   corrected fixture sets actual ES LogLevel while stopped. No passing matrix replay.

@@ -1,0 +1,321 @@
+#!/usr/bin/env python3
+"""UNRUN source candidate: bounded, local-only Proton metadata regression.
+
+Extracts only fetch_proton_latest_release and its two logging/error helpers.
+Never sources the installer, imports it, downloads an asset or activates Steam.
+Run under the coordinator's watched host/guest allocation (outer limit120s).
+"""
+import argparse
+import hashlib
+import http.server
+import json
+import os
+from pathlib import Path
+import re
+import shlex
+import signal
+import socket
+import stat
+import subprocess
+import sys
+import threading
+import time
+
+REQUEST = 'curl -q -fsSL --connect-timeout 10 --max-time 30 --max-filesize 1048576 "${api_url}"'
+OLD_REQUEST = 'curl -fsSL "${api_url}"'
+LIMIT = 1048576
+
+
+def require(condition, message):
+    if not condition:
+        raise RuntimeError(message)
+
+
+def digest(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def extract(path):
+    data = path.read_bytes()
+    require(len(data) <= 2*1024*1024, 'installer source exceeds bounded input size')
+    text = data.decode()
+    start = 'fetch_proton_latest_release() {\n'
+    require(text.count(start) == 1, 'metadata function is not unique')
+    first = text.index(start)
+    end = text.index('\n}\n', first) + 3
+    function = text[first:end]
+    helpers = []
+    for name in ('log_info', 'die'):
+        found = re.findall(r'^' + name + r'\(\) \{[^\n]+\}$', text, re.M)
+        require(len(found) == 1, 'logging helper shape changed: '+name)
+        helpers.append(found[0]+'\n')
+    return data, function, ''.join(helpers)
+
+
+def snapshot(root):
+    result = {}
+    for item in [root]+sorted(root.rglob('*')):
+        info = item.lstat()
+        value = {'mode': stat.S_IMODE(info.st_mode), 'type': stat.S_IFMT(info.st_mode),
+                 'inode': info.st_ino, 'mtime_ns': info.st_mtime_ns}
+        if item.is_symlink(): value['target'] = os.readlink(item)
+        elif item.is_file(): value['sha256'] = digest(item.read_bytes())
+        result[item.relative_to(root).as_posix()] = value
+    return result
+
+
+def group_alive(pid):
+    try:
+        os.killpg(pid, 0)
+        return True
+    except ProcessLookupError:
+        return False
+
+
+def stop_child(child):
+    forced = group_alive(child.pid)
+    if forced:
+        try: os.killpg(child.pid, signal.SIGTERM)
+        except ProcessLookupError: pass
+        try: child.wait(timeout=1)
+        except subprocess.TimeoutExpired: pass
+        if group_alive(child.pid):
+            try: os.killpg(child.pid, signal.SIGKILL)
+            except ProcessLookupError: pass
+    child.wait(timeout=2)
+    # An already-reaped shell may have left a child behind. Do not call that clean.
+    end = time.monotonic()+2
+    while group_alive(child.pid) and time.monotonic() < end:
+        time.sleep(0.02)
+    return {'forced': forced, 'group_absent': not group_alive(child.pid),
+            'shell_exit': child.returncode}
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--source', type=Path, required=True)
+    parser.add_argument('--baseline-source', type=Path)
+    parser.add_argument('--curl', type=Path, default=Path('/usr/bin/curl'))
+    parser.add_argument('--bash', type=Path, default=Path('/bin/bash'))
+    parser.add_argument('--scope', choices=('host-curl', 'installed-vm-curl'), required=True)
+    parser.add_argument('--out', type=Path, required=True)
+    args = parser.parse_args()
+    args.out.mkdir(parents=True, exist_ok=False)
+    out = args.out.resolve()
+    curl, bash = args.curl.resolve(strict=True), args.bash.resolve(strict=True)
+    data, function, helpers = extract(args.source.resolve(strict=True))
+    require(function.count(REQUEST) == 1, 'exact bounded request is absent; old unbounded source is never executed')
+    baseline = None
+    if args.baseline_source:
+        old_data, old_function, old_helpers = extract(args.baseline_source.resolve(strict=True))
+        require(old_function.count(OLD_REQUEST) == 1, 'baseline request shape changed')
+        require(old_function.replace(OLD_REQUEST, REQUEST) == function and old_helpers == helpers,
+                'function/helpers changed beyond the metadata request flags')
+        baseline = {'source': str(args.baseline_source), 'source_sha256': digest(old_data),
+                    'function_sha256': digest(old_function.encode()), 'executed': False}
+    (out/'extracted-function.sh').write_text(function)
+    (out/'extracted-helpers.sh').write_text(helpers)
+    record = {'status': 'RUNNING', 'scope': args.scope, 'source': str(args.source),
+              'source_sha256': digest(data), 'function_sha256': digest(function.encode()),
+              'helpers_sha256': digest(helpers.encode()), 'curl': str(curl),
+              'curl_sha256': digest(curl.read_bytes()), 'bash': str(bash), 'baseline': baseline,
+              'adaptation': 'Exact function/helpers. Local URL argument. PATH recorder delegates curl argv unchanged.',
+              'cases': [], 'cleanup': [], 'signals': []}
+    (out/'inputs.json').write_text(json.dumps(record, indent=2)+'\n')
+    steam = out/'synthetic-Steam'
+    for family in ('proton-cachyos-old-arm64', 'GE-Proton-old-aarch64'):
+        folder = steam/'compatibilitytools.d'/family
+        folder.mkdir(parents=True)
+        (folder/'version').write_text('retained synthetic old family\n')
+        (folder/'proton').write_text('#!/bin/sh\nexit 77\n')
+        (folder/'proton').chmod(0o755)
+    (steam/'selected-proton').symlink_to('compatibilitytools.d/proton-cachyos-old-arm64')
+    before = snapshot(steam)
+    (out/'old-families-before.json').write_text(json.dumps(before, indent=2)+'\n')
+    bindir = out/'bin'; bindir.mkdir()
+    # Record, never edit, the command's argv and original child status. This
+    # instrumentation is outside the byte-identical production function.
+    (bindir/'curl').write_text('#!'+str(bash)+'''\nset +e
+printf '%s\\0' "$@" > "$PIX_METADATA_CASE/curl-argv.nul"
+printf '%s\\n' "$EPOCHREALTIME" > "$PIX_METADATA_CASE/curl-start.txt"
+printf '%s\\n' "$$" > "$PIX_METADATA_CASE/curl-recorder.pid"
+"$PIX_METADATA_CURL" "$@" &
+request_pid=$!
+printf '%s\\n' "$request_pid" > "$PIX_METADATA_CASE/curl-child.pid"
+wait "$request_pid"
+request_rc=$?
+printf '%s\\n' "$EPOCHREALTIME" > "$PIX_METADATA_CASE/curl-end.txt"
+printf '%s\\n' "$request_rc" > "$PIX_METADATA_CASE/curl-exit.txt"
+exit "$request_rc"
+''')
+    (bindir/'curl').chmod(0o755)
+    stopping = threading.Event()
+    requests = []
+    handlers = []
+    server = None
+    server_thread = None
+    children = []
+    failure = None
+    old_alarm = signal.getsignal(signal.SIGALRM)
+    old_signals = {number: signal.getsignal(number) for number in (signal.SIGTERM, signal.SIGINT)}
+
+    def expired(_signum, _frame):
+        raise TimeoutError('metadata control total deadline reached')
+
+    def interrupted(signum, _frame):
+        record['signals'].append(signum)
+        if not stopping.is_set():
+            raise InterruptedError('metadata control received signal '+str(signum))
+
+    class Handler(http.server.BaseHTTPRequestHandler):
+        protocol_version = 'HTTP/1.1'
+        def log_message(self, *_args): pass
+        def do_GET(self):
+            handlers.append(threading.current_thread())
+            requests.append({'path': self.path, 'at_monotonic': time.monotonic()})
+            self.connection.settimeout(2)
+            try:
+                if self.path == '/stall':
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'application/json')
+                    self.send_header('Content-Length', '100')
+                    self.end_headers(); self.wfile.write(b'{'); self.wfile.flush()
+                    stopping.wait(60)  # curl must independently hit its30s deadline.
+                elif self.path == '/oversize':
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'application/json')
+                    self.send_header('Connection', 'close')
+                    self.end_headers()
+                    # No Content-Length: establish a streamed-body limit, not
+                    # merely rejection of a declared large response header.
+                    self.wfile.write(b'x'*(LIMIT+65536)); self.wfile.flush()
+                    self.close_connection = True
+                elif self.path in ('/normal-cachyos', '/normal-ge'):
+                    cachyos = self.path.endswith('cachyos')
+                    tag = 'cachyos-11.0-test' if cachyos else 'GE-Proton11-test'
+                    asset = 'proton-cachyos-11.0-test-arm64.tar.xz' if cachyos else 'GE-Proton11-test-aarch64.tar.gz'
+                    url = endpoint+'/assets/'+asset
+                    body = json.dumps({'tag_name': tag, 'assets': [
+                        {'browser_download_url': url+'.sha512sum'}, {'browser_download_url': url}]}, indent=2).encode()
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'application/json')
+                    self.send_header('Content-Length', str(len(body)))
+                    self.end_headers(); self.wfile.write(body); self.wfile.flush()
+                else:
+                    self.send_response(404); self.send_header('Content-Length', '0'); self.end_headers()
+            except (BrokenPipeError, ConnectionResetError, socket.timeout):
+                pass  # expected when real curl refuses an oversized response
+
+    try:
+        for number in old_signals: signal.signal(number, interrupted)
+        signal.signal(signal.SIGALRM, expired); signal.alarm(110)
+        version = subprocess.run([str(curl), '-q', '--version'], capture_output=True, timeout=5)
+        (out/'curl-version.stdout').write_bytes(version.stdout)
+        (out/'curl-version.stderr').write_bytes(version.stderr)
+        record['curl_version_exit'] = version.returncode
+        require(version.returncode == 0, 'real curl version request failed')
+        server = http.server.ThreadingHTTPServer(('127.0.0.1', 0), Handler)
+        server.daemon_threads = True
+        endpoint = 'http://127.0.0.1:'+str(server.server_port)
+        record['endpoint'] = endpoint
+        server_thread = threading.Thread(target=server.serve_forever, kwargs={'poll_interval': 0.05}, daemon=True)
+        server_thread.start()
+        specs = [('normal-cachyos','arm64','cachyos-','PROTON_CACHYOS','Proton-CachyOS',0,5),
+                 ('normal-ge','aarch64','','PROTON_GE','Proton-GE',0,5),
+                 ('oversize','arm64','cachyos-','PROTON_CACHYOS','Proton-CachyOS',63,15),
+                 ('stall','arm64','cachyos-','PROTON_CACHYOS','Proton-CachyOS',28,45)]
+        for name, pattern, strip, prefix, display, expected_curl, limit in specs:
+            case = out/name; case.mkdir()
+            config = case/'retained-curl-config'; config.mkdir()
+            poisoned_output = case/'curlrc-was-read'
+            (config/'.curlrc').write_text('max-time = 0\nconnect-timeout = 0\nmax-filesize = 0\nretry = 2\n'
+                                         +'url = "'+endpoint+'/curlrc-tripwire"\n'
+                                         +'output = '+json.dumps(str(poisoned_output))+'\n')
+            env = {'PATH': str(bindir)+':/usr/bin:/bin', 'LC_ALL': 'C',
+                   'CURL_HOME': str(config), 'NO_PROXY': '*', 'no_proxy': '*',
+                   'PIX_METADATA_CURL': str(curl), 'PIX_METADATA_CASE': str(case),
+                   'STEAM': str(steam), 'STEAM_GAMES_ROOT': str(out/'unused-games')}
+            url = endpoint+'/'+name
+            call = 'fetch_proton_latest_release '+ ' '.join(shlex.quote(x) for x in (url,pattern,strip,prefix,display))
+            output = 'printf \'%s\\n\' '+ ' '.join('"${'+prefix+'_'+suffix+'}"' for suffix in ('VERSION_FULL','TAR','DIR','URL'))
+            script = 'set -e\nset -o pipefail\n'+helpers+function+'\n'+call+'\n'+output+' > '+shlex.quote(str(case/'parsed.txt'))+'\n'
+            (case/'invoke.sh').write_text(script)
+            start = time.monotonic()
+            with (case/'stdout.txt').open('wb') as stdout, (case/'stderr.txt').open('wb') as stderr:
+                child = subprocess.Popen([str(bash),'--noprofile','--norc',str(case/'invoke.sh')],
+                                         env=env, cwd=case, stdout=stdout, stderr=stderr, start_new_session=True)
+                children.append(child)
+                (case/'shell.pid').write_text(str(child.pid)+'\n')
+                try: shell_exit = child.wait(timeout=limit)
+                except subprocess.TimeoutExpired:
+                    stopped = dict(case=name, **stop_child(child))
+                    record['cleanup'].append(stopped)
+                    (case/'shell-exit.txt').write_text(str(stopped['shell_exit'])+'\n')
+                    (case/'timeout.txt').write_text('function watchdog expired; no product timeout PASS\n')
+                    raise RuntimeError(name+' exceeded its function deadline')
+            elapsed = time.monotonic()-start
+            (case/'shell-exit.txt').write_text(str(shell_exit)+'\n')
+            (case/'function-seconds.txt').write_text(str(elapsed)+'\n')
+            curl_rc = int((case/'curl-exit.txt').read_text())
+            curl_elapsed = float((case/'curl-end.txt').read_text())-float((case/'curl-start.txt').read_text())
+            argv = (case/'curl-argv.nul').read_bytes().split(b'\0')[:-1]
+            expected_argv = [b'-q',b'-fsSL',b'--connect-timeout',b'10',b'--max-time',b'30',
+                             b'--max-filesize',b'1048576',url.encode()]
+            result = {'name': name, 'shell_exit': shell_exit, 'curl_exit': curl_rc,
+                      'function_seconds': elapsed, 'curl_seconds': curl_elapsed,
+                      'group_absent': not group_alive(child.pid), 'passed': False}
+            record['cases'].append(result)
+            require(argv == expected_argv, name+': curl recorder altered or lost request arguments')
+            require(curl_rc == expected_curl and shell_exit == (0 if expected_curl==0 else 1), name+': unexpected original status')
+            require(result['group_absent'], name+': child process group remains')
+            require(not poisoned_output.exists(), name+': retained curlrc output directive was used')
+            if expected_curl:
+                require(('Failed to fetch '+display+' latest release info.').encode() in (case/'stderr.txt').read_bytes(), name+': original failure message absent')
+                require(not (case/'parsed.txt').exists(), name+': refusal reached parsing epilogue')
+            else:
+                cachyos = name.endswith('cachyos')
+                filename = 'proton-cachyos-11.0-test-arm64.tar.xz' if cachyos else 'GE-Proton11-test-aarch64.tar.gz'
+                expected = ['11.0-test' if cachyos else 'GE-Proton11-test', filename,
+                            filename.rsplit('.',2)[0],endpoint+'/assets/'+filename]
+                require((case/'parsed.txt').read_text().splitlines()==expected, name+': parsed metadata differs')
+            if name == 'stall':
+                require(25 <= curl_elapsed <= 35 and elapsed <= 45, 'stall did not exercise its real deadline')
+                require(elapsed-curl_elapsed >= 9, 'production die presentation delay was not retained')
+            require(snapshot(steam)==before, name+': existing family bytes/types/selection changed')
+            require([r['path'] for r in requests] == ['/'+s[0] for s in specs[:len(record['cases'])]],
+                    name+': unexpected curlrc, retry or asset request')
+            result['passed'] = True
+            (case/'result.json').write_text(json.dumps(result,indent=2)+'\n')
+            print('PASS '+name, flush=True)
+    except BaseException as error:
+        failure = type(error).__name__+': '+str(error)
+    finally:
+        signal.alarm(10)  # independent finite cleanup ceiling; outer owner retains exit on interruption
+        stopping.set()
+        for child in children:
+            if child.poll() is None or group_alive(child.pid):
+                record['cleanup'].append(stop_child(child))
+        if server:
+            server.shutdown(); server.server_close()
+        if server_thread: server_thread.join(timeout=1)
+        for handler in handlers: handler.join(timeout=1)
+        record['handler_threads_stopped'] = all(not handler.is_alive() for handler in handlers)
+        record['server_thread_stopped'] = server_thread is None or not server_thread.is_alive()
+        record['requests'] = requests
+        after = snapshot(steam)
+        (out/'old-families-after.json').write_text(json.dumps(after,indent=2)+'\n')
+        record['old_families_equal'] = after==before
+        record['failure'] = failure
+        record['passed'] = (failure is None and len(record['cases'])==4 and all(c['passed'] for c in record['cases'])
+                            and record['old_families_equal'] and record['handler_threads_stopped']
+                            and record['server_thread_stopped'] and not record['cleanup'])
+        record['status'] = 'PASS' if record['passed'] else 'FAIL'
+        (out/'result.json').write_text(json.dumps(record,indent=2)+'\n')
+        signal.alarm(0); signal.signal(signal.SIGALRM,old_alarm)
+        for number, handler in old_signals.items(): signal.signal(number,handler)
+    print(record['status']+' metadata request scope; production installation was not invoked', flush=True)
+    return 0 if record['passed'] else 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())
