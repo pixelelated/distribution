@@ -96,4 +96,123 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
     child=d/'nested.sh';child.write_text('#!/bin/sh\nexec ./tools/watch-build --entry -- touch nested-compiler\n');child.chmod(0o755)
     a=subprocess.run([str(d/'tools/watch-build'),'--record-only','--interval','1','--',str(child)],cwd=d,env=e,capture_output=True,text=True,timeout=10)
     check(a.returncode!=0 and not (d/'nested-compiler').exists(),'recording-only parent cannot admit nested compilation')
+    # #597: all recovery inputs/processes/containers/registries below are isolated.
+    # No production registry, container daemon, compiler or VM is accessed.
+    def recovery_fixture(name):
+        d,m,p,r,e=fixture('reporting-'+name)
+        runpath=d/'.build-runs/completed';runpath.mkdir(parents=True)
+        owner=d/'owner';owner.mkdir()
+        row=dict(m.read(r)['state'],id='reporting-'+name,state='running',run=str(runpath),
+                 runner_pid=4102,runner_start='100',submission_owner=str(owner),
+                 pid_namespace=os.stat('/proc/self/ns/pid').st_ino)
+        m.write(runpath/'admission.json',row)
+        m.write(m.registry_for(d)/'jobs.json',{'schema':1,'generation':1,'jobs':{row['id']:copy.deepcopy(row)}})
+        m.write(runpath/'runner-result.json',dict(command_rc=0,monitor_rc=0,runner_rc=0,utc=m.utc()))
+        for name,value in [('build.rc',0),('build.pid',4102),('command.pid',4103),('watcher.pid',4104),('build.status.pid',4104)]:
+            (runpath/name).write_text(str(value)+'\n')
+        (runpath/'build.status').write_text('state:       finished\nwatcher_pid: 4104\njob_pid:     4102  alive=yes\noutcome:     rc=0\n')
+        shutil.copy2(root/'tools/watch-build-submit',owner/'watch-build-submit.py')
+        (owner/'tool-wrapper.rc').write_text('0\n');(owner/'inner.rc').write_text('0\n')
+        (owner/'console.log').write_text("watch-build-submit: [Errno 17] File exists: '"+str(owner/'tool-wrapper.rc')+"'\n")
+        m.write(owner/'launcher-start.json',dict(pid=4101,start_ticks='99',cwd=str(d)))
+        m.write(owner/'launcher-pid.json',dict(pid=4101))
+        m.write(owner/'launcher-submission.json',dict(cwd=str(d),runner=str(d/'tools/watch-build'),runner_sha256=m.digest(d/'tools/watch-build'),submission_is_not_completion=True))
+        helpers={}
+        for name in ['build-owner.py','host-resources.py','inner-build.py']:
+            (owner/name).write_text('# synthetic producer bytes; never executed\n');helpers[name]=m.digest(owner/name)
+        ns='pid:['+str(row['pid_namespace'])+']';image='sha256:'+'a'*64
+        inputs=dict(host_pid_namespace=ns,commit=row['source']['head'],checkout=str(d),container_checkout=str(d),builder_image='fixture@'+image,helper_sha256=helpers)
+        m.write(owner/'build-inputs.json',inputs)
+        m.write(owner/'owner-start.json',dict(pid=4103,start_ticks='101',pid_namespace=ns,source_commit=inputs['commit'],input_sha256=m.digest(owner/'build-inputs.json'),builder_image_id=image))
+        stages=[];groups={};cids=[]
+        for n,stage in enumerate(m.COLLISION_STAGES):
+            f=owner/'stages'/stage;f.mkdir(parents=True);cid=str(n+1)*64;cids.append(cid)
+            host=dict(stage=stage,original_host_make_rc=0,container_observed=True,observation_handshake=True);stages.append(host)
+            handshake=dict(stage=stage,nonce=str(n+1)*32,container_id=cid)
+            m.write(f/'host-result.json',host)
+            m.write(f/'inner-result.json',dict(stage=stage,original_command_rc=0,wrapper_rc=0,signals=[],host_observation_handshake=handshake))
+            m.write(f/'inner-ready.json',dict(stage=stage,nonce=handshake['nonce'],pid=7))
+            m.write(f/'host-observed.json',handshake)
+            m.write(f/'container-observed.json',dict(id=cid,image_id=image,image_reference=inputs['builder_image'],workdir=str(d),mounts=[dict(Source=str(d),Destination=str(d),RW=True),dict(Source=str(owner),Destination='/build-owner',RW=True)]))
+            m.write(f/'host-command.json',dict(stage=stage,pid=4200+n,process_group=4200+n));groups[str(4200+n)]=[]
+            (f/'container.cid').write_text(cid+'\n')
+        m.write(owner/'owner-result.json',dict(status='PASS',stages=stages,cleanup=[],signals=[],surviving_host_command_groups=groups))
+        m.write(owner/'resource-result.json',dict(status='PASS',all_threads_exited=True,errors=[]))
+        originals=[f for folder in [runpath,owner] for f in sorted(folder.rglob('*')) if f.is_file()]
+        failure=dict(schema=1,reason='exclusive-wrapper-receipt-collision',run=str(runpath),admission_id=row['id'],owner=str(owner),source=row['source'],pid_namespace=row['pid_namespace'],original_launcher_returncode=None,qualification=False,coordinator_provenance=dict(action='premature-wrapper-receipt-write',receipt_path=str(owner/'tool-wrapper.rc'),receipt_is_launcher_result=False,acknowledgment='Synthetic operator owns the premature write; no launcher wait was observed.'),collision_identity=m.path_identity(owner/'tool-wrapper.rc'),originals=[])
+        fp=d/'failure.json';ep=d/'acceptance.json'
+        proof=dict(run=str(runpath),disposition='failed-investigated',expected_rc=0,outputs=row['outputs'],evidence=[])
+        def refresh():
+            failure['originals']=[dict(path=str(f),sha256=m.digest(f)) for f in originals if f.exists()]
+            m.write(fp,failure);proof['evidence']=[dict(path=str(fp),sha256=m.digest(fp))];m.write(ep,proof)
+        refresh();m.recovery_processes=lambda:[];m.recovery_containers=lambda:set()
+        return types.SimpleNamespace(d=d,m=m,run=runpath,owner=owner,row=row,failure=failure,proof=proof,fp=fp,ep=ep,refresh=refresh,cids=cids)
+    def change_json(f,path,**changes):
+        f.m.write(path,dict(f.m.read(path),**changes));f.refresh()
+    def fail_recovery(label,mutate):
+        f=recovery_fixture(label);mutate(f)
+        before=(f.m.registry_for(f.d)/'jobs.json').read_bytes()
+        try:f.m.consume_reporting_failure(f.run,f.ep,f.fp);ok=False
+        except (OSError,ValueError,KeyError,TypeError,subprocess.SubprocessError):ok=True
+        check(ok and (f.m.registry_for(f.d)/'jobs.json').read_bytes()==before and not (f.run/'admission-consumed.json').exists(),'report recovery refuses '+label+' without registry/receipt mutation')
+    def failure_change(f,**changes):f.failure.update(changes);f.refresh()
+    def proof_change(f,**changes):f.proof.update(changes);f.refresh()
+    negatives={
+      'unrelated-reason':lambda f:failure_change(f,reason='missing-receipt'),
+      'wrong-run':lambda f:failure_change(f,run=str(f.d)),
+      'wrong-owner':lambda f:failure_change(f,owner=str(f.d)),
+      'wrong-source':lambda f:failure_change(f,source={}),
+      'foreign-namespace':lambda f:failure_change(f,pid_namespace=f.row['pid_namespace']+1),
+      'invented-launcher-zero':lambda f:failure_change(f,original_launcher_returncode=0),
+      'qualified-reporting-failure':lambda f:proof_change(f,disposition='qualified'),
+      'missing-coordinator-provenance':lambda f:failure_change(f,coordinator_provenance={}),
+      'tampered-original':lambda f:(f.owner/'inner.rc').write_text('37\n'),
+      'missing-terminal-result':lambda f:(f.run/'runner-result.json').unlink(),
+      'missing-launcher-source':lambda f:(f.owner/'watch-build-submit.py').unlink(),
+      'nonzero-runner':lambda f:change_json(f,f.run/'runner-result.json',runner_rc=37),
+      'nonzero-watcher':lambda f:change_json(f,f.run/'runner-result.json',monitor_rc=1),
+      'boolean-runner-status':lambda f:change_json(f,f.run/'runner-result.json',runner_rc=False),
+      'nonterminal-watcher':lambda f:((f.run/'build.status').write_text('state:       running\n'),f.refresh()),
+      'existing-launcher-result':lambda f:f.m.write(f.owner/'launcher-result.json',{'runner_returncode':0}),
+      'unrelated-launcher-error':lambda f:((f.owner/'console.log').write_text('watch-build-submit: permission denied\n'),f.refresh()),
+      'changed-launcher-source':lambda f:((f.owner/'watch-build-submit.py').write_text('# other launcher\n'),f.refresh()),
+      'changed-collision-identity':lambda f:((f.owner/'tool-wrapper.rc').write_text('0\n'),f.refresh()),
+      'nonzero-stage':lambda f:change_json(f,f.owner/'stages/image/inner-result.json',wrapper_rc=1),
+      'boolean-stage-status':lambda f:change_json(f,f.owner/'stages/image/inner-result.json',original_command_rc=False),
+      'wrong-stage-nonce':lambda f:change_json(f,f.owner/'stages/image/inner-ready.json',nonce='0'*32),
+      'wrong-stage-cid':lambda f:((f.owner/'stages/image/container.cid').write_text('f'*64+'\n'),f.refresh()),
+      'unresolved-cleanup':lambda f:change_json(f,f.owner/'owner-result.json',cleanup=['forced']),
+      'resource-error':lambda f:change_json(f,f.owner/'resource-result.json',errors=['unknown']),
+      'live-launcher':lambda f:setattr(f.m,'recovery_processes',lambda:[dict(pid=4101,ppid=1,pgid=4101,sid=4101,start_ticks=99)]),
+      'reused-recorded-pid':lambda f:setattr(f.m,'recovery_processes',lambda:[dict(pid=4101,ppid=1,pgid=9000,sid=9000,start_ticks=999)]),
+      'live-descendant':lambda f:setattr(f.m,'recovery_processes',lambda:[dict(pid=9000,ppid=4103,pgid=9000,sid=9000)]),
+      'live-stage-group':lambda f:setattr(f.m,'recovery_processes',lambda:[dict(pid=9000,ppid=1,pgid=4200,sid=9000)]),
+      'live-launcher-session':lambda f:setattr(f.m,'recovery_processes',lambda:[dict(pid=9000,ppid=1,pgid=9000,sid=4101)]),
+      'live-container':lambda f:setattr(f.m,'recovery_containers',lambda:{f.cids[0]}),
+      'unreadable-process-census':lambda f:setattr(f.m,'recovery_processes',lambda:(_ for _ in ()).throw(PermissionError('fixture proc unknown'))),
+      'failed-daemon-census':lambda f:setattr(f.m,'recovery_containers',lambda:(_ for _ in ()).throw(subprocess.CalledProcessError(1,['docker']))),
+    }
+    # This mutation deliberately omits an otherwise unchanged required original.
+    def missing_original(f):
+        f.failure['originals']=[x for x in f.failure['originals'] if x['path']!=str(f.run/'build.rc')]
+        f.m.write(f.fp,f.failure);f.proof['evidence']=[dict(path=str(f.fp),sha256=f.m.digest(f.fp))];f.m.write(f.ep,f.proof)
+    negatives['missing-original-evidence']=missing_original
+    def wrong_registry(f,field,value):
+        path=f.m.registry_for(f.d)/'jobs.json';data=f.m.read(path);data['jobs'][f.row['id']][field]=value;f.m.write(path,data)
+    negatives['wrong-registry-run']=lambda f:wrong_registry(f,'run',str(f.d))
+    negatives['wrong-registry-source']=lambda f:wrong_registry(f,'source',{})
+    for label,mutate in negatives.items():fail_recovery(label,mutate)
+    f=recovery_fixture('positive')
+    try:f.m.consume(f.run,f.ep);ok=False
+    except ValueError:ok=True
+    check(ok,'ordinary consume still refuses runner0 reporting failure')
+    original_files={p:p.read_bytes() for folder in [f.run,f.owner] for p in folder.rglob('*') if p.is_file()}
+    c=f.m.consume_reporting_failure(f.run,f.ep,f.fp)
+    check(c['state']=='consumed' and c['completion_disposition']=='failed-investigated/reporting-failure' and c['qualification'] is False and c['original_launcher_returncode'] is None and c['original_result']==f.m.read(f.run/'runner-result.json'),'recovery retains original runner0 and unknown launcher separately')
+    check(c['outputs_held'] is True and c['deleted_bytes']==0 and all(p.read_bytes()==raw for p,raw in original_files.items()),'recovery preserves every original and output hold')
+    check(f.m.consume_reporting_failure(f.run,f.ep,f.fp)==c,'same reporting failure recovery is idempotent')
+    old=f.ep.read_text();f.ep.write_text(old+' ')
+    try:f.m.consume_reporting_failure(f.run,f.ep,f.fp);ok=False
+    except ValueError:ok=True
+    check(ok,'different recovery acceptance is refused after consumption')
 print(json.dumps({'result':'PASS','checks':len(checks),'cases':checks}))

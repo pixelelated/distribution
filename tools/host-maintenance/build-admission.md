@@ -113,3 +113,104 @@ Run the synthetic controls with `test-build-admission` and `test-build-monitor` 
 this directory. They invoke actual launch wrappers and Makefile routes with small
 payloads, synthetic capacity/report inputs, and no compiler, VM or real container.
 The earlier historical routing fixture stays unchanged in its QA evidence folder.
+
+## Recover the reviewed launcher receipt collision (#597)
+
+`consume-reporting-failure` is a separate, deliberately narrow custody operation.
+Ordinary `consume` is unchanged. It supports the reviewed four-stage engineering
+producer (`clean-dolphin-sa`, `build-dolphin-sa`, `build-emulationstation`, `image`)
+and exact launcher SHA256
+`3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e` only.
+It is not an ignore-missing-results option. A different producer or launcher
+requires its own reviewed recovery; neither a successful submission nor an
+operator-created zero establishes the original launcher's wait status.
+
+For this collision, preserve the copied launcher, complete console, conflicting
+`tool-wrapper.rc` bytes and identity, and all original producer receipts. Do not
+write `launcher-result.json` or replace the conflicting file. The terminal console
+must contain the exact exclusive-create Errno17 diagnostic for that owner's
+wrapper receipt. The final launcher wait status stays unknown; a source-derived
+exit2 may be documented separately but is never stored as an original result.
+
+Create a separate immutable failure JSON with these fields:
+
+```json
+{
+  "schema": 1,
+  "reason": "exclusive-wrapper-receipt-collision",
+  "run": "/absolute/frozen-checkout/.build-runs/ID",
+  "admission_id": "the original admission id",
+  "owner": "/absolute/submission-owner",
+  "source": {"head": "original full commit", "tracked_diff_sha256": "original hash"},
+  "pid_namespace": 123456789,
+  "original_launcher_returncode": null,
+  "qualification": false,
+  "coordinator_provenance": {
+    "action": "premature-wrapper-receipt-write",
+    "receipt_path": "/absolute/submission-owner/tool-wrapper.rc",
+    "receipt_is_launcher_result": false,
+    "acknowledgment": "Explicit account of the operator's premature write."
+  },
+  "collision_identity": {"device": 0, "inode": 0, "size": 2, "mtime_ns": 0,
+    "allocated_bytes": 4096, "uid": 1000, "links": 1, "mode": 33152},
+  "originals": [{"path": "/absolute/original/file", "sha256": "actual SHA256"}]
+}
+```
+
+The identity object uses `path_identity`'s complete actual values, including
+device, inode, mode and nanosecond mtime. The numbers above are illustrative.
+Required original hashes cover:
+
+- Run: `admission.json`, `runner-result.json`, `build.rc`, `build.status`,
+  `build.pid`, `command.pid`, `watcher.pid`, `build.status.pid`.
+- Owner: `watch-build-submit.py`, `console.log`, `launcher-start.json`,
+  `launcher-pid.json`, `launcher-submission.json`, `tool-wrapper.rc`,
+  `owner-start.json`, `owner-result.json`, `resource-result.json`, `inner.rc`,
+  `build-inputs.json`. The three producer helper files are additionally checked
+  against the original `build-inputs.json` helper hashes.
+- Each of the four stage directories: `host-result.json`, `inner-result.json`,
+  `inner-ready.json`, `host-observed.json`, `container-observed.json`,
+  `host-command.json`, `container.cid`.
+
+Additional original submission and diagnosis evidence may be retained in the
+same list. Missing or changed originals, symlinked paths, a changed source,
+nonterminal watcher, nonzero/noninteger result, inconsistent nonce/container
+identity or unresolved resource/cleanup result refuse consumption. The new
+acceptance file uses the existing schema with `expected_rc: 0`, unchanged
+outputs, and `disposition: "failed-investigated"`; its evidence list must bind
+the failure JSON by absolute path and SHA256. This preserves runner0 separately
+from the reporting failure.
+
+```sh
+python3 -I tools/host-maintenance/build-admission consume-reporting-failure \
+  --run /absolute/frozen-checkout/.build-runs/ID \
+  --evidence /absolute/recovery-owner/acceptance.json \
+  --launcher-failure-evidence /absolute/recovery-owner/launcher-failure-evidence.json
+```
+
+Run from the original host PID namespace, after the whole producer has ended.
+Under the existing registry lock, recovery rehashes the originals and requires
+all named PIDs, direct children, process groups and sessions to be absent. It
+conservatively refuses even reused PIDs or zombies. A successful bounded Docker
+container-ID census must exclude all four exact original CIDs. Unreadable process
+state, daemon errors or diagnostic output do not mean absence. This checks the
+recorded process/container custody; it makes no whole-host root-FD visibility
+claim and does not stop any process/container or delete any output.
+
+The consumed record retains the unchanged original runner result and records
+`completion_disposition: "failed-investigated/reporting-failure"`,
+`qualification: false`, `original_launcher_returncode: null`, the failure
+evidence path/hash and known launcher source hash. `recovery_tool_path` and
+`recovery_tool_sha256` identify the actual reviewed recovery implementation;
+`recovery_absence` records the namespace and exact PID/group/CID sets checked.
+Outputs remain held with zero deleted bytes. Identical evidence through the same
+tool is idempotent; altered evidence or recovery semantics refuses. A later
+artifact verifier must explicitly accept this nonqualified reporting-failure
+record while preserving every independent product/artifact check. Recovery
+alone is not firmware qualification, an RC gate or a reason to relabel the
+original submission successful.
+
+The added `test-build-admission` controls use temporary fake originals/registry,
+mocked process and container observations, and the real recovery logic. They
+never consume a production reservation or contact Docker. Existing ordinary
+admission/lifecycle controls remain in the same suite.

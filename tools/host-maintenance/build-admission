@@ -13,6 +13,7 @@ import fcntl
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import stat
 import subprocess
@@ -281,13 +282,208 @@ def consume(run, evidence_path):
     return job
 
 
+# Only this reviewed launcher's exclusive wrapper write ordering is recoverable.
+COLLISION_LAUNCHER_SHA256 = '3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e'
+COLLISION_STAGES = ['clean-dolphin-sa', 'build-dolphin-sa', 'build-emulationstation', 'image']
+
+
+def recovery_processes():
+    """Error-aware PID/parent/group/session census; no privileged FD claim."""
+    rows = []
+    for directory in Path('/proc').iterdir():
+        if not directory.name.isascii() or not directory.name.isdigit():
+            continue
+        try:
+            raw = (directory / 'stat').read_text()
+        except (FileNotFoundError, ProcessLookupError):
+            try:
+                directory.stat()
+            except (FileNotFoundError, ProcessLookupError):
+                continue
+            raise ValueError('stat unavailable for present PID ' + directory.name)
+        prefix, separator, tail = raw.rpartition(')')
+        fields = tail.split()
+        require(separator and prefix.split(' (', 1)[0] == directory.name and len(fields) >= 20,
+                'malformed process identity')
+        rows.append(dict(pid=int(directory.name), ppid=int(fields[1]), pgid=int(fields[2]),
+                         sid=int(fields[3]), start_ticks=int(fields[19]), state=fields[0]))
+    return rows
+
+
+def recovery_containers():
+    """A successful daemon census, never an arbitrary failed inspect as absence."""
+    result = subprocess.run(['docker', 'container', 'ls', '--all', '--no-trunc', '--format', '{{.ID}}'],
+                            capture_output=True, text=True, timeout=15, check=True)
+    require(not result.stderr.strip(), 'container census diagnostic is ambiguous')
+    ids = result.stdout.splitlines()
+    require(all(re.fullmatch('[0-9a-f]{64}', item) for item in ids) and len(set(ids)) == len(ids),
+            'invalid container census')
+    return set(ids)
+
+
+def consume_reporting_failure(run, evidence_path, failure_path):
+    """Settle custody for the exact #597 producer/report collision; never qualify it."""
+    run, evidence_path, failure_path = map(lambda p: Path(p).resolve(strict=True),
+                                         [run, evidence_path, failure_path])
+    path_identity(run); path_identity(evidence_path); path_identity(failure_path)
+    row, proof, failure = read(run / 'admission.json'), read(evidence_path), read(failure_path)
+    root = Path(row['checkout']); owner = Path(row['submission_owner'])
+    path_identity(root); path_identity(owner)
+    require(run.parent == root / '.build-runs' and row['run'] == str(run), 'wrong original run path')
+    require(row['registry'] == str(registry_for(root)), 'wrong original registry')
+    require(os.stat('/proc/self/ns/pid').st_ino == row['pid_namespace'], 'recover from original host PID namespace')
+    require(source_state(root) == row['source'], 'original source changed')
+    require(proof['run'] == str(run) and proof['disposition'] == 'failed-investigated'
+            and type(proof['expected_rc']) is int and proof['expected_rc'] == 0,
+            'reporting failure requires investigated disposition with original runner0')
+    require(proof['outputs'] == row['outputs'], 'retained output dispositions changed')
+    evidence(proof['evidence'])
+    require(any(x['path'] == str(failure_path) and x['sha256'] == digest(failure_path)
+                for x in proof['evidence']), 'acceptance must bind launcher failure evidence')
+    require(failure['schema'] == 1 and failure['reason'] == 'exclusive-wrapper-receipt-collision'
+            and failure['run'] == str(run) and failure['admission_id'] == row['id']
+            and failure['owner'] == str(owner) and failure['source'] == row['source']
+            and failure['pid_namespace'] == row['pid_namespace'], 'wrong launcher failure binding')
+    require(failure['original_launcher_returncode'] is None and failure['qualification'] is False,
+            'unknown launcher wait status must not be invented or qualified')
+    provenance = failure['coordinator_provenance']
+    require(provenance['action'] == 'premature-wrapper-receipt-write'
+            and provenance['receipt_path'] == str(owner / 'tool-wrapper.rc')
+            and provenance['receipt_is_launcher_result'] is False
+            and isinstance(provenance['acknowledgment'], str) and provenance['acknowledgment'].strip(),
+            'explicit coordinator collision provenance required')
+    evidence(failure['originals'])
+    indexed = {item['path']: item['sha256'] for item in failure['originals']}
+    require(len(indexed) == len(failure['originals']), 'duplicate original evidence path')
+    def original(path):
+        require(str(path) in indexed and digest(path) == indexed[str(path)], 'missing/changed original: ' + str(path))
+        return path
+    def obj(path):
+        return read(original(path))
+    def number(path):
+        text = original(path).read_text()
+        require(re.fullmatch('[0-9]+\n?', text) is not None, 'invalid original number: ' + str(path))
+        return int(text)
+    original(run / 'admission.json')
+    rc = obj(run / 'runner-result.json')
+    require(all(type(rc[k]) is int and rc[k] == 0 for k in ['command_rc', 'monitor_rc', 'runner_rc'])
+            and number(run / 'build.rc') == number(owner / 'inner.rc') == 0, 'producer did not complete successfully')
+    status = original(run / 'build.status').read_text()
+    require(status.startswith('state:       finished\n') and '\noutcome:     rc=0\n' in status,
+            'watcher has no successful terminal status')
+    runner = number(run / 'build.pid'); command = number(run / 'command.pid')
+    watcher = number(run / 'watcher.pid')
+    require(runner == row['runner_pid'] and int(row['runner_start']) > 0
+            and watcher == number(run / 'build.status.pid'), 'recorded process bindings differ')
+    require(re.search(r'^watcher_pid: '+str(watcher)+r'$', status, re.M)
+            and re.search(r'^job_pid:     '+str(runner)+r'\s', status, re.M), 'terminal watcher identity differs')
+    require(not os.path.lexists(owner / 'launcher-result.json'), 'launcher result exists; use ordinary consume')
+    launcher_source = original(owner / 'watch-build-submit.py')
+    require(digest(launcher_source) == COLLISION_LAUNCHER_SHA256, 'unsupported launcher source for collision recovery')
+    collision = original(owner / 'tool-wrapper.rc')
+    require(path_identity(collision) == failure['collision_identity'], 'conflicting receipt identity changed')
+    # The collision bytes are retained but NEVER parsed as a launcher return code.
+    console = original(owner / 'console.log').read_text()
+    diagnostic = "watch-build-submit: [Errno 17] File exists: '" + str(collision) + "'"
+    require(console.splitlines()[-1:] == [diagnostic] and console.splitlines().count(diagnostic) == 1,
+            'missing exact terminal exclusive-wrapper collision diagnostic')
+    launch, launch_pid = obj(owner / 'launcher-start.json'), obj(owner / 'launcher-pid.json')
+    submission = obj(owner / 'launcher-submission.json')
+    require(launch['pid'] == launch_pid['pid'] and int(launch['start_ticks']) > 0
+            and launch['cwd'] == submission['cwd'] == str(root)
+            and submission['runner'] == str(root / 'tools/watch-build')
+            and submission['runner_sha256'] == digest(root / 'tools/watch-build')
+            and submission['submission_is_not_completion'] is True, 'launcher producer identity differs')
+    started, result = obj(owner / 'owner-start.json'), obj(owner / 'owner-result.json')
+    inputs, resources = obj(owner / 'build-inputs.json'), obj(owner / 'resource-result.json')
+    require(started['pid'] == command and int(started['start_ticks']) > 0
+            and started['pid_namespace'] == inputs['host_pid_namespace'] == 'pid:['+str(row['pid_namespace'])+']'
+            and started['source_commit'] == inputs['commit'] == row['source']['head']
+            and inputs['checkout'] == str(root) and inputs['container_checkout'] == row['container_checkout']
+            and started['input_sha256'] == digest(owner / 'build-inputs.json'), 'completed producer source/identity differs')
+    require(set(inputs['helper_sha256']) == {'build-owner.py', 'host-resources.py', 'inner-build.py'}, 'producer helper scope differs')
+    for name, expected in inputs['helper_sha256'].items():
+        path_identity(owner / name)
+        require(digest(owner / name) == expected, 'producer helper changed')
+    require(result['status'] == resources['status'] == 'PASS' and not result['cleanup'] and not result['signals']
+            and resources['all_threads_exited'] is True and not resources['errors'], 'producer cleanup/resources unresolved')
+    require([x['stage'] for x in result['stages']] == COLLISION_STAGES, 'unsupported/incomplete producer stage sequence')
+    pids = {runner, command, watcher, launch['pid']}; groups = {command, watcher, launch['pid']}; cids = set(); stage_groups = set()
+    for expected in result['stages']:
+        stage = expected['stage']; folder = owner / 'stages' / stage
+        host, inner = obj(folder / 'host-result.json'), obj(folder / 'inner-result.json')
+        ready, observed = obj(folder / 'inner-ready.json'), obj(folder / 'host-observed.json')
+        container, host_command = obj(folder / 'container-observed.json'), obj(folder / 'host-command.json')
+        codes = [host['original_host_make_rc'], inner['original_command_rc'], inner['wrapper_rc']]
+        require(host == expected and all(type(code) is int and code == 0 for code in codes)
+                and host['container_observed'] is True and host['observation_handshake'] is True and not inner['signals'],
+                'stage did not complete successfully: ' + stage)
+        require(inner['stage'] == ready['stage'] == observed['stage'] == host_command['stage'] == stage
+                and inner['host_observation_handshake'] == observed and ready['nonce'] == observed['nonce']
+                and re.fullmatch('[0-9a-f]{32}', ready['nonce']) is not None, 'stage handshake differs: ' + stage)
+        cid = container['id']
+        require(re.fullmatch('[0-9a-f]{64}', cid) is not None and cid == observed['container_id']
+                and original(folder / 'container.cid').read_text().strip() == cid and cid not in cids,
+                'container identity differs: ' + stage)
+        require(container['image_id'] == started['builder_image_id']
+                and container['image_reference'] == inputs['builder_image'] and container['workdir'] == row['container_checkout']
+                and any(x['Source'] == str(root) and x['Destination'] == row['container_checkout'] and x['RW'] is True for x in container['mounts'])
+                and any(x['Source'] == str(owner) and x['Destination'] == '/build-owner' and x['RW'] is True for x in container['mounts']),
+                'container source/mount provenance differs: ' + stage)
+        pid = host_command['pid']; require(type(pid) is int and pid > 0 and pid == host_command['process_group'], 'stage group identity differs')
+        pids.add(pid); groups.add(pid); stage_groups.add(str(pid)); cids.add(cid)
+    require(set(result['surviving_host_command_groups']) == stage_groups
+            and all(value == [] for value in result['surviving_host_command_groups'].values()), 'producer groups unresolved')
+    require(all(type(pid) is int and pid > 0 for pid in pids), 'invalid recorded PID')
+    with registry(row['registry']) as jobs:
+        job = jobs['jobs'][row['id']]
+        require(all(job.get(k) == v for k, v in row.items() if k != 'state'), 'registry admission identity differs')
+        # Recheck originals and current custody under the reservation lock. Unknown
+        # or reused PIDs conservatively refuse; no broad root-FD visibility assumed.
+        evidence(failure['originals']); evidence(proof['evidence'])
+        require(path_identity(collision) == failure['collision_identity'] and not os.path.lexists(owner / 'launcher-result.json'),
+                'launcher reporting state changed')
+        processes = recovery_processes()
+        require(not any(x['pid'] in pids or x['ppid'] in pids or x['pgid'] in groups or x['sid'] in groups for x in processes),
+                'recorded process, child, group or session remains')
+        require(not (cids & recovery_containers()), 'recorded container remains')
+        if job['state'] == 'consumed':
+            require(job['evidence_sha256'] == digest(evidence_path)
+                    and job.get('completion_disposition') == 'failed-investigated/reporting-failure'
+                    and job.get('qualification') is False and job.get('original_launcher_returncode') is None
+                    and job.get('original_result') == rc
+                    and job.get('recovery_tool_path') == str(Path(__file__).resolve())
+                    and job.get('recovery_tool_sha256') == digest(__file__)
+                    and job['launcher_reporting_failure']['evidence_sha256'] == digest(failure_path)
+                    and read(run / 'admission-consumed.json') == job, 'different recovery for consumed run')
+            return job
+        require(job['state'] == 'running', 'admission is not a running reservation')
+        job.update(state='consumed', consumed=utc(), evidence_sha256=digest(evidence_path), original_result=rc,
+                   recovery_tool_path=str(Path(__file__).resolve()), recovery_tool_sha256=digest(__file__),
+                   completion_disposition='failed-investigated/reporting-failure', qualification=False,
+                   original_launcher_returncode=None, deleted_bytes=0, outputs_held=True,
+                   launcher_reporting_failure={'reason':failure['reason'], 'evidence_path':str(failure_path),
+                       'evidence_sha256':digest(failure_path), 'launcher_source_sha256':COLLISION_LAUNCHER_SHA256,
+                       'conflicting_receipt_used_as_launcher_result':False},
+                   recovery_absence={'utc':utc(), 'pid_namespace':row['pid_namespace'], 'pids':sorted(pids),
+                       'groups_and_sessions':sorted(groups), 'container_ids':sorted(cids),
+                       'scope':'recorded PID/parent/group/session and successful container-ID census; no root-FD claim'})
+        jobs['generation'] += 1
+        write(run / 'admission-consumed.json', job, exclusive=True)
+    return job
+
+
 def main():
     os.umask(0o077)
     parser=argparse.ArgumentParser(description=__doc__);subs=parser.add_subparsers(dest='action',required=True)
     p=subs.add_parser('prepare');p.add_argument('--plan',type=Path,required=True);p.add_argument('--output',type=Path,required=True)
     p=subs.add_parser('consume');p.add_argument('--run',type=Path,required=True);p.add_argument('--evidence',type=Path,required=True)
+    p=subs.add_parser('consume-reporting-failure');p.add_argument('--run',type=Path,required=True);p.add_argument('--evidence',type=Path,required=True);p.add_argument('--launcher-failure-evidence',type=Path,required=True)
     args=parser.parse_args()
     if args.action=='prepare':r=prepare(args.plan,args.output);print('prepared admission '+r['id'])
+    elif args.action=='consume-reporting-failure':
+        r=consume_reporting_failure(args.run,args.evidence,args.launcher_failure_evidence)
+        print('consumed reporting failure; launcher wait unknown; outputs held; qualification false: '+r['id'])
     else:r=consume(args.run,args.evidence);print('consumed original results; retained outputs remain held: '+r['id'])
 
 

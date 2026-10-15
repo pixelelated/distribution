@@ -424,6 +424,16 @@ record jobs use `--record-only`; nested compilation cannot inherit that mode.
 Never pre-set or copy `RASTERATOPS_BUILD_RUN`/`RASTERATOPS_WATCH_EXEC`: these
 are internal nesting markers, not an opt-out. A stale marker is refused.
 
+**Result files belong to their producer (#597).** Once a job is submitted,
+read its receipts; do not create, replace or pre-fill `tool-wrapper.rc`,
+`launcher-result.json`, `runner-result.json`, `build.rc`, or any other file the
+live owner will publish. Submission exit0 describes submission only. Put any
+coordinator observation in a separately named review record; it is never the
+producer's original wait status. If result publication fails after the work,
+preserve that failure and use an explicit reviewed recovery path. A missing
+channel stays missing; do not manufacture a launcher receipt or rerun a
+successful producer solely to obtain cleaner paperwork.
+
 The CI lifecycle/routing controls exercise actual entrypoint prefixes and
 Makefile recipes, including a removed-hook failing control. A run started
 from an older frozen checkout keeps that checkout's tooling; attach a current
