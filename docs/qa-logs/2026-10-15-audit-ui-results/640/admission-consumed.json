@@ -1,0 +1,49 @@
+{
+  "admitted": "2026-10-15T03:20:39.544044+00:00",
+  "available_bytes": 2732475265024,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01",
+  "consumed": "2026-10-15T03:26:41.090360+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01",
+  "deleted_bytes": 0,
+  "evidence_sha256": "560ef9fc5227d6d1e8cb79d34e7f17a7f4727b888edb10ae7b3a3be03595d57e",
+  "id": "341087f6d3d44905b7447199e9713de1",
+  "original_result": {
+    "command_rc": 1,
+    "monitor_rc": 0,
+    "runner_rc": 1,
+    "utc": "2026-10-15T03:25:20.969670+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 593,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-audit-ui-20261015-02/vm",
+      "release_when": "Four original controls, source-bound GUI observations, EN/FR refusal frames and restored custody exported/reviewed; original owners gone and admission consumed before guarded media retirement."
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "3957bcca8269b84cc1c47e58dadda2b468b81df28953648c1489258d8b2d481d",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 38252052480,
+  "retention_plan_sha256": "ed0c243c57e33e02a1d22fda3cc07eeac0ba3c603c68c8ed2196e63168a2822f",
+  "retention_report_sha256": "8b783c7f73b461a9bb85693e7c1387a475deaec7ee872a7b4f45b803de2aa8b3",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T032039Z-b50c9cfd",
+  "runner_pid": 2879538,
+  "runner_start": "112612341",
+  "source": {
+    "head": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix-m7-audit-ui-20261015-02/lifecycle-owner",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

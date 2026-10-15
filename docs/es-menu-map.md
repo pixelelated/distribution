@@ -492,6 +492,14 @@ compose the acceptance. The final [24-frame reviewed index](qa-logs/2026-10-15-w
 binds actual installed ES/wifictl bytes and branch outcomes. Enumeration and
 profiles are synthetic; this is not a physical-radio measurement.
 
+The #593 normal-exit correction makes the scan worker process-owned and joins it
+at normal frontend exit. [Actual frontend evidence](qa-logs/2026-10-15-audit-ui-results/README.md)
+reproduces two baseline scan survivors and verifies candidate ES16dbac stops and
+joins them without observer cleanup. Existing picker labels/layout remain the
+same. Candidate Back returned visibly, but the host capture upper bound failed
+its1s check before reopen; a precise Back/reopen continuation remains due. This
+is not a claim that SIGTERM/fatal exits follow normal cleanup (D-CLOUD-133).
+
 The [October13 baseline](qa-logs/2026-10-13-library-wifi-baseline/README.md)
 retains the former external overlay, growing initial geometry and identical
 empty/error outcomes. Populated refresh retained dimmed prior rows; its alleged
@@ -856,8 +864,14 @@ an additional visible title. Saved account settings, pending awards, game saves,
 and save states remain untouched. Existing INI bytes remain when publication
 fails; the launcher refuses to use them.
 
-Source and flow are prepared. Exact-source English/French refusal and return
-frames are still required before this new branch is complete or promoted.
+[Exact-source EN/FR640×480 and1280×800 refusal/return evidence](qa-logs/2026-10-15-audit-ui-results/README.md)
+and its [reviewed frame index](qa-logs/2026-10-15-audit-ui-results/frame-index.json)
+now qualify this branch with ES16dbac and the explicit helper/launcher overlay.
+The actual API-driven walk returns to its originating Wii system carousel after
+OK; selection-driven game-list return is not inferred from those frames. The
+positive helper log and target publication error distinguish this from an earlier
+save-path refusal. Exact original configuration identities are restored. The next
+integrated image still needs installed-byte and affected upgrade/install checks.
 
 ## ScreenScraper developer provisioning (#566)
 

@@ -1,14 +1,16 @@
 # Cloud sync, backup and restore — change summary
 
 
-## Audit follow-ups (2026-10-15, source prepared; verification pending)
+## Audit follow-ups (2026-10-15, focused source proof; integrated image pending)
 
 Turning achievements off or signing out now replaces Dolphin's generated session
 with inactive settings, so a prior account cannot remain active (#594). If the
 settings cannot be updated, the game stays closed and an English/French message
 explains how to retry. Saved account settings, pending awards, game saves, and
-save states are unchanged. Fifteen exact transition/publication controls pass; rendered refusal frames remain
-due; this source is not in the current engineering image or on the handhelds.
+save states are unchanged. Fifteen exact transition/publication controls pass;
+[English/French refusal and return frames at both panel sizes](qa-logs/2026-10-15-audit-ui-results/README.md)
+now pass with explicitly staged source. This source is not in the current
+engineering image or on the handhelds.
 
 Steam's runtime installer now uses the same isolated Python invocation as its
 other helpers (#595). The embedded installer behavior is unchanged; the focused

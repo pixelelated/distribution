@@ -8,6 +8,63 @@ Harness conflict-resolution untouched. Actual host PID namespace4026531836;
 host/network/outside-workspace writes require escalated exec. No formal goal.
 Saving is not a pause. No runtime/compiler/external call currently active.
 
+## Latest03:32 — no runtime active; both panel sizes completed
+
+1280owner02/watch032715Z-7f90663f all original0, complete export165guest/225host,
+exactconfigrestore, nohostchildren; admissiondf6a4995 consumedqualified. English
+and French title/body/OK and carousel return personallyreviewed at1280 and640.
+Root/auditor agree PL004 scoped source/fullflow can resolve; finalimage due.
+Durable root QA `/docs/qa-logs/2026-10-15-audit-ui-results`, seal9da142ee6ff2d11b304b3c80c29ea81eceea75a899ecd6371c8ce29654619295.
+Menu/flow/changelog references updated, uncommitted. Original640combinedrun1 and
+timingfailure remain. frame_diff_review prepares candidate-only warmconnection
+Back/reopen proof; same1s gate, no replay baseline/fourcontrols. Auditor reviewing.
+Dolphin agent prepares narrow affected clean/retained finalimage handoff; no runtime.
+Next allocate only reviewedsealed timingpacket, thenES16dbac publication/pin,
+nextengineeringimage60504501, affectedcontinuity, stateonlye7326fe6, auditclose,
+H700/SM8550. Activeauditdir staysagentowned; root must not blanketstage.
+
+## Latest03:27 — larger-panel proof active;640 narrow outcomes accepted
+
+640owner02/watch032039Z-b50c9cfd stopped and consumed341087f6 failed-investigated.
+Actual baseline two-orphan reproduction and candidate normalexit join pass;
+EN/FR intended640 refusal/return and exactoriginalconfigrestore pass. Back
+returned but hostcapture2.28499s failed1s before reopen; no latency/reopen claim.
+Export `/workspace/tmp/pix-m7-audit-ui-evidence-20261015-02`289guest/382host
+rehashed. Sourceagent prepares fresh candidate-only warm-connection timing proof
+without relaxing1s; no controls/baseline replay. Auditor reviews originals.
+
+ONE1280 VM ACTIVE: `/workspace/tmp/pix-m7-audit-ui-1280-20261015-02`,
+watch032715Z-7f90663f, launcher2908252, admissiondf6a4995b1ae4265ac2b08131e2a752e,
+VNC143,900s+120cleanup,noNIC8GiB4CPU. Source542991d0 sealed/peerreviewed. Root
+alone owns serial/HMP; waitvisualready then init/refusalEN/dismiss/refusalFR/
+dismiss/cleanup, personally review4frames, host-auditfinish, export/review/consume.
+No off-session notification; monitor<=60s. Earlier active640 note historical.
+
+## Latest03:21 allocation — takes precedence over historical notes below
+
+Feature692ddf3591096fd6067e850fcc9ae520cf8ec6c4 is pushed/readback. Both prior UI
+attempts are consumed failed-investigated. One fresh640 VM is ACTIVE under root:
+owner `/workspace/tmp/pix-m7-audit-ui-20261015-02`, launcher2879537,
+watch032039Z-b50c9cfd, admission341087f6d3d44905b7447199e9713de1, VNC142.
+Sealed source `/tmp/pix-m7-audit-ui-retry-plan-20261015`, manifest
+08773c90fec208a277da993d6df63b38ab4150bd308c5cd98f199a884e68466c.
+Root/peer source reviewed ordinary-copy/no-replace custody, exact qualified
+helper log/mv stderr oracle, and selected-network frame gate. Retention all0.
+1200s+120cleanup; no-NIC8GiB4CPU. Root alone operates serial/HMP under owner lock
+and actively watches <=60s; no off-session alert. Do not edit in-flight tools.
+README actions: init/controls, each wifi-start/select/review/activate; baseline
+exit, candidate Back-reopen/exit; EN/FR refusal/dismiss; cleanup/all frame reviews/
+finish; export originals, independent review, consume. Selection review must be
+personally viewed before activation within75s; scan operations within30s.
+
+Fresh1280 derivative READY UNRUN:
+`/tmp/pix-m7-audit-ui-1280-retry-plan-20261015`, manifest
+542991d0a136f338a18b282cc230baee8cb57eda649d9711d3e3aaf0f7e6fe57.
+Only allocate after640stop/export/consume. Issue593/594 continuation comments
+6183628095/6183628674 record VM-first scope. Auditor retains write ownership of
+active auditdir; do not blanket-stage it. Then integrate ES16dbac/pin, next-image
+packet60504501, native-state-onlye7326fe6, audit completion, device builds in order.
+
 ## Latest03:14 correction — no runtime active
 
 Both audit UI attempts are stopped and consumed as failed-investigated. The
