@@ -769,3 +769,5 @@ coverage now passes368commits. No public push or guard bypass occurred.
 - 2026-10-15 04:32 UTC — #596: native-state fixture required an explicit stored global Off key. Closing Game Settings omitted the default key while retaining all per-game selections; strict assertion stopped before gameplay. Preserve failure, verify exact settings-writer/default semantics, and retain raw presence separately from effective value. Never infer lost settings solely from omitted default serialization.
 
 - 2026-10-15 05:50 UTC -- #555 device wrapper cleared PROJECT/DEVICE/ARCH before Docker, so a valid two-ABI admission rejected the unspecified nested gateway after normal package cleans -- guard: retain exact nested-profile enforcement; new wrapper explicitly selects its already-admitted host gateway tuple for both device templates -- issue: #555
+
+- 2026-10-15 06:12 UTC -- Device reader copied four Qt6/GENERIC gst-plugins-good expectations into H700, which ships core/base/bad, so it refused after successful image assembly -- guard: explicit profile dependency and installed-path expectations in fresh reader; no blanket optional missing files -- issue: #555

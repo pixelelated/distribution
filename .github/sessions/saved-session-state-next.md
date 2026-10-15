@@ -1,11 +1,47 @@
 # Saved Session State
 
-Updated 2026-10-15 06:02 UTC. Continue authorized M7 toward the next 0.0.1 RC.
-Coordinator `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
-`feature/m7-final-qualification`; published next/feature087ae97648. Frozen product
-f8636de1d105275dbf9420bbabbbc26f79abb10f / ES16dbac unchanged. Harness untouched.
-Root sole runtime allocator/operator. ONE H700 BUILD ACTIVE; no VM or device action.
-Saving is not a pause. Actively observe<=60s and announce original completion.
+Updated 2026-10-15 06:12 UTC. Continue authorized M7 toward next0.0.1 RC.
+Coordinator m7-player-setup / feature/m7-final-qualification; published next/feature
+129b38188a. Frozen productf863 / ES16dbac unchanged. Harness untouched.
+Root sole runtime operator. NO runtime active; H700 reader correction preparing.
+Saving is not a pause. No physical/cloud authority inferred.
+
+## Latest 2026-10-15 06:12 UTC — assembled H700 held on reader mismatch
+
+H700 owner02 `/workspace/tmp/pix-m7-h700-refresh-20261015-02` run
+20261015T060011Z-92b2fe8b finished06:06:35 with original command/runner/launcher1,
+monitor0. Canonical ARM/AArch64 make returned to wrapper, both raw variants/update
+assembled; source and initial installed inclusion passed. Additional reader
+verify-additions.py then failed: four gst-plugins-good paths wrongly expected
+for H700 core/base/bad dependency profile (Qt6 is direct good-plugin consumer).
+First missing libgstadaptivedemux2.so; also rtpmanager/rtsp/udp. Required core,
+base/GL/scanner/controller/net libraries present. No product defect established.
+Do not run successful consume-build or mutate old owner/source.
+
+Original run ordinary-consumed failed-investigated expected1, admission61759727,
+all recorded owners/container absent, outputsheld/deleted0. Root hashed all7 actual
+outputs in `/tmp/pix-m7-h700-reader-failure-20261015/output-manifest.json`, SHA
+cd41204c2267985bf843457aca3d1b65c6e652e46de7898e2cd9d2d33f9ef66e.
+Failure originals/consumption source there; compact durable custody
+`docs/qa-logs/2026-10-15-device-refresh/reader-failure02/` now retained.
+No known running compiler/VM or activeexecsession. Parentcache/copy0 preserved.
+
+frame_diff_review owns `/tmp/pix-m7-h700-reader-review-20261015` fresh source-only
+reader continuation. Explicit H700 profile check must enforce no good package/stamp,
+retain all actual browser libraries/deps; SM keeps4good paths. Root reviewed plan:
+fresh installed reader rehashes actual7outputmanifest, then independent bothDDR/
+update acceptance against exactfailedbuild custody. Only new reader channels0 may
+be qualified; originalcombinedbuild1 never rewritten. No compiler/firmware replay.
+Pending SM packet needs matching correctedreader and acceptednewH700manifest binding.
+Root reviews/releases runtime only after sealedpacket/ordinaryfreshadmission.
+
+#555/milestone exactcurrent failure/readernext at
+/tmp/pix-m7-h700-reader-failure-tracker-20261015/; all-original0producercriterion
+remains unchecked and must be reconciled explicitly before closure. Sourceworker
+dolphin_ra_init owns /tmp/pix-m7-source-custody-refresh-20261015 for #528 delta/
+collector plan; no activechangingcache scan. m7_audit_resume completed current
+release/support docs, integrated129b38188a, no writing. Sealedproductauditcomplete
+unchanged; physical/publication/sourcecustody gates remain.
 
 ## Latest 2026-10-15 06:02 UTC — H700 retry actively building
 
