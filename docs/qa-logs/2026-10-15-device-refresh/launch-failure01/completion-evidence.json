@@ -1,0 +1,117 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/.build-runs/20261015T054715Z-62e22248",
+  "disposition": "failed-investigated",
+  "expected_rc": 2,
+  "evidence": [
+    {
+      "path": "/tmp/pix-m7-h700-launch-failure-20261015/investigation.json",
+      "sha256": "fb0d09df15df9071b08468e2b1ff381e5e416d983ae2ec8acacb492f86c286b1"
+    },
+    {
+      "path": "/tmp/pix-m7-h700-launch-failure-20261015/originals.json",
+      "sha256": "ff18e5b10f67c3ec6a8170a4da5dc6ebcc9722b0b95abaa66134728128bb6c81"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-h700-refresh-20261015-01/launcher-result.json",
+      "sha256": "3730f392183312c2c1e8286b3f9136df7fba8550717e3bf3f53992cc9222d5b8"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-h700-refresh-20261015-01/tool-wrapper.rc",
+      "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-h700-refresh-20261015-01/inner.rc",
+      "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-h700-refresh-20261015-01/outer.rc",
+      "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-h700-refresh-20261015-01/console.log",
+      "sha256": "1a1c877e039d03fe38facf2348b8f3813cdd5d141be3255fbfb9d2a764fe3552"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-h700-refresh-20261015-01/build.py",
+      "sha256": "01fd253e36ac5853cb48c3219aae058e998786a453b056ae51b7ebf7129167d2"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-h700-refresh-20261015-01/admission-plan.json",
+      "sha256": "c8233e2df36251fa2f499deed5d7e22da85c77596bdffbda77c36c77f5fa0414"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-h700-refresh-20261015-01/build-seal.json",
+      "sha256": "ab48c44ca6cdf146618e490bec4ad30944020a3a09523094705da5e569935106"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-h700-refresh-20261015-01/cache-consumption.json",
+      "sha256": "cba988a665070cf844300d46f0697e55a422f82e421d5d03c03d52f358014e32"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-h700-refresh-20261015-01/cache-ready.json",
+      "sha256": "8f683d245732060a9ebd8733688482d07523fea34f419bcdd4277bc67bd24137"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/.build-runs/20261015T054715Z-62e22248/runner-result.json",
+      "sha256": "b7346fb5dce03b394c998217fb5697dc8cd785d6eec255064f1807ab42b39784"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/.build-runs/20261015T054715Z-62e22248/build.rc",
+      "sha256": "53c234e5e8472b6ac51c1ae1cab3fe06fad053beb8ebfd8977b010655bfdd3c3"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/.build-runs/20261015T054715Z-62e22248/build.status",
+      "sha256": "6ab156ca696985d9958988f3d3b1fe71f49a9a6f8e08711e74f4a6b7e95b96e6"
+    }
+  ],
+  "outputs": [
+    {
+      "issue": 555,
+      "kind": "build-cache",
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/build.pixelelated-H700.arm",
+      "release_when": "Queued device build and artifact/source custody accepted, then scoped retention review"
+    },
+    {
+      "issue": 555,
+      "kind": "build-cache",
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/build.pixelelated-H700.aarch64",
+      "release_when": "Queued device build and artifact/source custody accepted, then scoped retention review"
+    },
+    {
+      "issue": 555,
+      "kind": "firmware",
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/target",
+      "release_when": "Independent artifact acceptance and next immediate named consumer recorded"
+    },
+    {
+      "issue": 555,
+      "kind": "firmware",
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/release",
+      "release_when": "Independent artifact acceptance and next immediate named consumer recorded"
+    },
+    {
+      "issue": 555,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/.doc_cache",
+      "release_when": "Original build channels consumed and compact evidence retained; generated staging no longer needed"
+    },
+    {
+      "issue": 555,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/.es_cache",
+      "release_when": "Original build channels consumed and compact evidence retained; generated staging no longer needed"
+    },
+    {
+      "issue": 555,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/.build-runs",
+      "release_when": "Original build channels consumed and compact evidence retained; generated staging no longer needed"
+    },
+    {
+      "issue": 555,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-h700-refresh-20261015-01",
+      "release_when": "Original channels consumed and compact immutable evidence retained; preserve required corresponding source"
+    }
+  ]
+}

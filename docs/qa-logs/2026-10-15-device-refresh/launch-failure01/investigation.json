@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-15T05:49:40.019164+00:00",
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/.build-runs/20261015T054715Z-62e22248",
+  "original_channels": {
+    "command_rc": 2,
+    "monitor_rc": 0,
+    "runner_rc": 2,
+    "utc": "2026-10-15T05:47:20.186300+00:00"
+  },
+  "launcher_returncode": 2,
+  "actual_recorded_pids_exited": [
+    3718993,
+    3718995,
+    3718996,
+    3719053
+  ],
+  "named_container_absent": "pix-m7-h700-20261015t052134z",
+  "build_cid_absent": true,
+  "container_gate_absent": true,
+  "reason": "Host Docker gateway environment cleared PROJECT/DEVICE/ARCH; exact nested admission rejected absent tuple. Eight normal AArch64 affected-package cleans completed; main build container never started. No source/guard change, compiled firmware or failed-result relabel.",
+  "cache_continuity": "Original independent cache proof remains historical; same current roots now reflect recorded normal package cleanup. Fresh retry must bind this transition."
+}

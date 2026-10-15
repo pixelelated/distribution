@@ -1,0 +1,69 @@
+{
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01",
+  "retention_plan": "/workspace/tmp/pix-m7-h700-refresh-20261015-01/retention-plan.json",
+  "retention_report": "/workspace/tmp/pix-m7-h700-refresh-20261015-01/retention-report.json",
+  "stage": "m7-h700-build",
+  "profiles": [
+    {
+      "PROJECT": "ROCKNIX",
+      "DEVICE": "H700",
+      "ARCH": "arm"
+    },
+    {
+      "PROJECT": "ROCKNIX",
+      "DEVICE": "H700",
+      "ARCH": "aarch64"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/build.pixelelated-H700.arm",
+      "kind": "build-cache",
+      "issue": 555,
+      "release_when": "Queued device build and artifact/source custody accepted, then scoped retention review"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/build.pixelelated-H700.aarch64",
+      "kind": "build-cache",
+      "issue": 555,
+      "release_when": "Queued device build and artifact/source custody accepted, then scoped retention review"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/target",
+      "kind": "firmware",
+      "issue": 555,
+      "release_when": "Independent artifact acceptance and next immediate named consumer recorded"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/release",
+      "kind": "firmware",
+      "issue": 555,
+      "release_when": "Independent artifact acceptance and next immediate named consumer recorded"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/.doc_cache",
+      "kind": "qa-scratch",
+      "issue": 555,
+      "release_when": "Original build channels consumed and compact evidence retained; generated staging no longer needed"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/.es_cache",
+      "kind": "qa-scratch",
+      "issue": 555,
+      "release_when": "Original build channels consumed and compact evidence retained; generated staging no longer needed"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/.build-runs",
+      "kind": "qa-scratch",
+      "issue": 555,
+      "release_when": "Original build channels consumed and compact evidence retained; generated staging no longer needed"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-h700-refresh-20261015-01",
+      "kind": "qa-scratch",
+      "issue": 555,
+      "release_when": "Original channels consumed and compact immutable evidence retained; preserve required corresponding source"
+    }
+  ]
+}

@@ -1,11 +1,36 @@
 # Saved Session State
 
-Updated 2026-10-15 05:17 UTC. Continue authorized M7 toward the next 0.0.1 RC.
+Updated 2026-10-15 05:50 UTC. Continue authorized M7 toward the next 0.0.1 RC.
 Coordinator `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
-`feature/m7-final-qualification`; published HEAD0ca9443280 before this record.
-Primary/remote next f8636de1d105275dbf9420bbabbbc26f79abb10f; ES16dbac.
-Harness untouched. Root alone allocates runtime. No VM/compiler is running.
-Saving is not a pause. No current physical-device/cloud authorization inferred.
+`feature/m7-final-qualification`; published next/feature dbc60c9828. Product
+source remains f8636de1d105275dbf9420bbabbbc26f79abb10f / ES16dbac. Harness untouched.
+Root alone allocates runtime. No compiler/VM running; build retry preparation active.
+Saving is not a pause. No new physical-device/cloud authority inferred.
+
+## Latest 2026-10-15 05:50 UTC — cache accepted; retry after admission refusal
+
+H700 cache20261015T052516Z-5ab9f699 completed all0, both roots checksums/inodes
+PASS, admission1d779b9f consumed05:46. First build20261015T054715Z-62e22248
+failed2 before main Docker container, monitor0. Wrapper cleared target environment;
+exact nested profile guard refused absent PROJECT/DEVICE/ARCH. Eight normal
+AArch64 package cleans ran; original failure is preserved and admission9c961fb
+consumed failed-investigated (outputs held, deleted0), all actual owners exited.
+Durable originals docs/qa-logs/2026-10-15-device-refresh/launch-failure01/.
+
+frame_diff_review owns source-only retry preparation in
+/tmp/pix-m7-h700-launch-review-20261015. Minimum correction explicitly selects
+ROCKNIX/H700/aarch64 for host Docker gateway; both actual ABI profiles/guards
+stay unchanged. SM8550 pending template has same omission. Root reviews fresh
+owner/cache continuity packet before retry; do not rerun old build.py or edit old
+owner/frozen source. Cache proof is historical plus known normal cleanup, not
+new post-failure equality. Runtime failure evidence and consumption inputs at
+/tmp/pix-m7-h700-launch-failure-20261015. #555/milestone current status updated.
+
+m7_audit_resume owns only phase retrospective and /tmp/pix-m7-phase-retro-20261015;
+completed audit stays sealed. #344 proposed current-section repair pending root
+review. Then H700 actual build/independent DDR acceptance, SM8550 sequentially,
+publication/physical holds and guarded retention. Pair timestamp20261015T052134Z
+and exact environment remain at /tmp/pix-m7-device-pair-20261015/environment.json.
 
 ## Latest 2026-10-15 05:31 UTC — H700 cache active; all publication checks passed
 

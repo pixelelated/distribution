@@ -1,0 +1,105 @@
+watch-build: recording in /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/.build-runs/20261015T054715Z-62e22248
+PASS frozen inputs, host options, container and 24/4 concurrency
+rc-preflight: /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04 at f8636de1d1 (build/m7-pixelelated-h700-04)
+PASS      proxy schema note        review note matches c7ebd1b6e777f3751ff0ecdf8aba54045844e00d; runtime schema proof remains separate
+RAM    62347MB total, 8669MB used, 53677MB available
+Swap   8191MB total, 2988MB used, 5203MB free
+Disk   2.4T free of 3.6T  (not the usual limit)
+
+
+READY
+rm -f .env && [ ! -e .env ] || { echo "an older .env cannot be removed: no container started" >&2; exit 1; }; \
+trap 'rm -f .env' EXIT; trap 'exit 130' INT TERM HUP; \
+( umask 077 && set -C && ./scripts/get_env > .env ) || { echo "scripts/get_env failed: no container started" >&2; exit 1; }; \
+BUILD_DIR=/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01  docker run   --init --env-file .env -e RASTERATOPS_BUILD_RUN -e PROJECT -e DEVICE -e ARCH -e BUILDER_NAME=pixelelated-build -e BUILDER_VERSION=sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 --rm --user 1000:1000 -v "/home/max/.ROCKNIX/options:/home/max/.ROCKNIX/options"   -v /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04:/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 -w /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 -e TMPDIR=/tmp -v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/sources ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 make package-clean
+make[1]: Entering directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01'
+./scripts/clean alsa-ucm-conf
+[1;31mCLEAN[0m      alsa-ucm-conf
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/build/alsa-ucm-conf-1.2.13 ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/install_pkg/alsa-ucm-conf-1.2.13 ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/qa_checks/alsa-ucm-conf-* ...[0m
+make[1]: Leaving directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01'
+rm -f .env && [ ! -e .env ] || { echo "an older .env cannot be removed: no container started" >&2; exit 1; }; \
+trap 'rm -f .env' EXIT; trap 'exit 130' INT TERM HUP; \
+( umask 077 && set -C && ./scripts/get_env > .env ) || { echo "scripts/get_env failed: no container started" >&2; exit 1; }; \
+BUILD_DIR=/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01  docker run   --init --env-file .env -e RASTERATOPS_BUILD_RUN -e PROJECT -e DEVICE -e ARCH -e BUILDER_NAME=pixelelated-build -e BUILDER_VERSION=sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 --rm --user 1000:1000 -v "/home/max/.ROCKNIX/options:/home/max/.ROCKNIX/options"   -v /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04:/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 -w /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 -e TMPDIR=/tmp -v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/sources ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 make package-clean
+make[1]: Entering directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01'
+./scripts/clean raofflineproxy
+[1;31mCLEAN[0m      raofflineproxy
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/build/raofflineproxy-c7ebd1b6e777f3751ff0ecdf8aba54045844e00d ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/install_pkg/raofflineproxy-c7ebd1b6e777f3751ff0ecdf8aba54045844e00d ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/qa_checks/raofflineproxy-* ...[0m
+make[1]: Leaving directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01'
+rm -f .env && [ ! -e .env ] || { echo "an older .env cannot be removed: no container started" >&2; exit 1; }; \
+trap 'rm -f .env' EXIT; trap 'exit 130' INT TERM HUP; \
+( umask 077 && set -C && ./scripts/get_env > .env ) || { echo "scripts/get_env failed: no container started" >&2; exit 1; }; \
+BUILD_DIR=/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01  docker run   --init --env-file .env -e RASTERATOPS_BUILD_RUN -e PROJECT -e DEVICE -e ARCH -e BUILDER_NAME=pixelelated-build -e BUILDER_VERSION=sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 --rm --user 1000:1000 -v "/home/max/.ROCKNIX/options:/home/max/.ROCKNIX/options"   -v /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04:/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 -w /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 -e TMPDIR=/tmp -v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/sources ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 make package-clean
+make[1]: Entering directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01'
+./scripts/clean rclone
+[1;31mCLEAN[0m      rclone
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/build/rclone-1.75.2 ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/install_pkg/rclone-1.75.2 ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/qa_checks/rclone-* ...[0m
+make[1]: Leaving directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01'
+rm -f .env && [ ! -e .env ] || { echo "an older .env cannot be removed: no container started" >&2; exit 1; }; \
+trap 'rm -f .env' EXIT; trap 'exit 130' INT TERM HUP; \
+( umask 077 && set -C && ./scripts/get_env > .env ) || { echo "scripts/get_env failed: no container started" >&2; exit 1; }; \
+BUILD_DIR=/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01  docker run   --init --env-file .env -e RASTERATOPS_BUILD_RUN -e PROJECT -e DEVICE -e ARCH -e BUILDER_NAME=pixelelated-build -e BUILDER_VERSION=sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 --rm --user 1000:1000 -v "/home/max/.ROCKNIX/options:/home/max/.ROCKNIX/options"   -v /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04:/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 -w /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 -e TMPDIR=/tmp -v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/sources ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 make package-clean
+make[1]: Entering directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01'
+./scripts/clean rocknix
+[1;31mCLEAN[0m      rocknix
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/build/rocknix- ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/install_pkg/rocknix- ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/qa_checks/rocknix-* ...[0m
+make[1]: Leaving directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01'
+rm -f .env && [ ! -e .env ] || { echo "an older .env cannot be removed: no container started" >&2; exit 1; }; \
+trap 'rm -f .env' EXIT; trap 'exit 130' INT TERM HUP; \
+( umask 077 && set -C && ./scripts/get_env > .env ) || { echo "scripts/get_env failed: no container started" >&2; exit 1; }; \
+BUILD_DIR=/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01  docker run   --init --env-file .env -e RASTERATOPS_BUILD_RUN -e PROJECT -e DEVICE -e ARCH -e BUILDER_NAME=pixelelated-build -e BUILDER_VERSION=sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 --rm --user 1000:1000 -v "/home/max/.ROCKNIX/options:/home/max/.ROCKNIX/options"   -v /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04:/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 -w /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 -e TMPDIR=/tmp -v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/sources ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 make package-clean
+make[1]: Entering directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01'
+./scripts/clean emulationstation
+[1;31mCLEAN[0m      emulationstation
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/build/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78 ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/install_pkg/emulationstation-c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78 ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/qa_checks/emulationstation-* ...[0m
+make[1]: Leaving directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01'
+rm -f .env && [ ! -e .env ] || { echo "an older .env cannot be removed: no container started" >&2; exit 1; }; \
+trap 'rm -f .env' EXIT; trap 'exit 130' INT TERM HUP; \
+( umask 077 && set -C && ./scripts/get_env > .env ) || { echo "scripts/get_env failed: no container started" >&2; exit 1; }; \
+BUILD_DIR=/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01  docker run   --init --env-file .env -e RASTERATOPS_BUILD_RUN -e PROJECT -e DEVICE -e ARCH -e BUILDER_NAME=pixelelated-build -e BUILDER_VERSION=sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 --rm --user 1000:1000 -v "/home/max/.ROCKNIX/options:/home/max/.ROCKNIX/options"   -v /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04:/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 -w /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 -e TMPDIR=/tmp -v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/sources ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 make package-clean
+make[1]: Entering directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01'
+./scripts/clean gstreamer
+[1;31mCLEAN[0m      gstreamer
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/build/gstreamer-1.29.2 ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/install_pkg/gstreamer-1.29.2 ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/qa_checks/gstreamer-* ...[0m
+make[1]: Leaving directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01'
+rm -f .env && [ ! -e .env ] || { echo "an older .env cannot be removed: no container started" >&2; exit 1; }; \
+trap 'rm -f .env' EXIT; trap 'exit 130' INT TERM HUP; \
+( umask 077 && set -C && ./scripts/get_env > .env ) || { echo "scripts/get_env failed: no container started" >&2; exit 1; }; \
+BUILD_DIR=/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01  docker run   --init --env-file .env -e RASTERATOPS_BUILD_RUN -e PROJECT -e DEVICE -e ARCH -e BUILDER_NAME=pixelelated-build -e BUILDER_VERSION=sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 --rm --user 1000:1000 -v "/home/max/.ROCKNIX/options:/home/max/.ROCKNIX/options"   -v /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04:/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 -w /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 -e TMPDIR=/tmp -v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/sources ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 make package-clean
+make[1]: Entering directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01'
+./scripts/clean emulators
+[1;31mCLEAN[0m      emulators
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/build/emulators-0.0invalid ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/install_pkg/emulators-0.0invalid ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/qa_checks/emulators-* ...[0m
+make[1]: Leaving directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01'
+rm -f .env && [ ! -e .env ] || { echo "an older .env cannot be removed: no container started" >&2; exit 1; }; \
+trap 'rm -f .env' EXIT; trap 'exit 130' INT TERM HUP; \
+( umask 077 && set -C && ./scripts/get_env > .env ) || { echo "scripts/get_env failed: no container started" >&2; exit 1; }; \
+BUILD_DIR=/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01  docker run   --init --env-file .env -e RASTERATOPS_BUILD_RUN -e PROJECT -e DEVICE -e ARCH -e BUILDER_NAME=pixelelated-build -e BUILDER_VERSION=sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 --rm --user 1000:1000 -v "/home/max/.ROCKNIX/options:/home/max/.ROCKNIX/options"   -v /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04:/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 -w /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 -e TMPDIR=/tmp -v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/sources ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 make package-clean
+make[1]: Entering directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01'
+./scripts/clean linux
+[1;31mCLEAN[0m      linux
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/build/linux-7.2 ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/install_pkg/linux-7.2 ...[0m
+    [1;31m*[0m      [0;31mRemoving /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64/qa_checks/linux-* ...[0m
+make[1]: Leaving directory '/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01'
+rm -f .env && [ ! -e .env ] || { echo "an older .env cannot be removed: no container started" >&2; exit 1; }; \
+trap 'rm -f .env' EXIT; trap 'exit 130' INT TERM HUP; \
+( umask 077 && set -C && ./scripts/get_env > .env ) || { echo "scripts/get_env failed: no container started" >&2; exit 1; }; \
+BUILD_DIR=/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 ./tools/watch-build --docker -- docker run   --init --env-file .env -e RASTERATOPS_BUILD_RUN -e PROJECT -e DEVICE -e ARCH -e BUILDER_NAME=pixelelated-build -e BUILDER_VERSION=sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 --rm --user 1000:1000 -v "/home/max/.ROCKNIX/options:/home/max/.ROCKNIX/options"   -v /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04:/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 -w /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01 -e TMPDIR=/tmp -v /workspace/repos/rocknix/.git:/workspace/repos/rocknix/.git -v /workspace/cache/rocknix-sources:/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/sources -v /workspace/tmp/pix-m7-h700-refresh-20261015-01:/workspace/tmp/pix-m7-h700-refresh-20261015-01 --name pix-m7-h700-20261015t052134z --label pixelelated.m7.owner=m7-h700-20261015t052134z --cidfile /workspace/tmp/pix-m7-h700-refresh-20261015-01/build.cid ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39 bash /workspace/tmp/pix-m7-h700-refresh-20261015-01/inside-build.sh
+watch-build: nested profile is outside admission
+make: *** [Makefile:205: docker-H700] Error 2
+FAILED command rc 2
