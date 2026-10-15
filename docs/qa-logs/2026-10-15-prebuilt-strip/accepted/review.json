@@ -1,0 +1,58 @@
+{
+  "archive_bytes": 288116,
+  "archive_members": 216,
+  "archive_sha256": "4d6242102df862b39d2b302d5b68dab1ac48e7756aa5ba03344176db2a57999d",
+  "byte_equalities": 9,
+  "consumed_id": "ed6fa1a7e7ef440599eca47e6790f978",
+  "consumed_sha256": "6829fc43989f804dd8c5fa7e69cbc2b8c66c76f2fcb10f713a3613f157ade548",
+  "custody": {
+    "bytes": true,
+    "membership": true,
+    "nsmtime_via_exact_PAX_decimal": true,
+    "numeric_owners": true,
+    "permission_modes": true
+  },
+  "elapsed_seconds": 1.9315042230300605,
+  "groups": {
+    "owner02": 111,
+    "preparation-failure-watch": 12,
+    "root-review02": 6,
+    "root-review03": 2,
+    "source02": 29,
+    "source03": 38,
+    "watch": 18
+  },
+  "limits": [
+    "The original failed strip owner01 and its separate failure custody remain unchanged.",
+    "Source02 preparation1/0/1 remains failed; source03 corrected only namespace-scoped ownership metadata and provenance.",
+    "Known release\u2192unpacked\u2192private strip\u2192package/staged equality does not prove source reproducibility, historical compiler environment or independent SYSTEM extraction.",
+    "rclone modified source and complete embedded dependency notices remain unresolved; retained Tailscale tag source does not establish an absent binary VCS revision.",
+    "No target program execution, legal/publication or off-host retrieval clearance."
+  ],
+  "named_bytes_hashed": 5267604741,
+  "original_channels": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-15T10:56:02.148285+00:00"
+  },
+  "original_launcher_returncode": 0,
+  "original_loader_zero_count": 3,
+  "original_preparation_failure": {
+    "command_rc": 1,
+    "monitor_rc": 0,
+    "runner_rc": 1,
+    "utc": "2026-10-15T10:51:54.782744+00:00"
+  },
+  "original_strip_zero_count": 9,
+  "private_remaining": [],
+  "private_removed_bytes": 387715376,
+  "protected_original_deleted_bytes": 0,
+  "protected_original_rechecks": 9,
+  "result": "ACCEPTED_EXACT_STRIP_DERIVATION_WITH_GAPS",
+  "retained_text_count": 4,
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T105557Z-8aa7d0f7",
+  "runtime_owner": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-02",
+  "source02_seal": "6997535596e9c490b5ac0754d1c18d685af6ba939af9efcf4e531867ccdc399e",
+  "source03_seal": "3a241c26fd340de049e38f21fcd54d81d64a7d37fe42bf8308b69ad82528fb84"
+}

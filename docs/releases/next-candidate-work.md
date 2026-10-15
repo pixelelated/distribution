@@ -11,6 +11,30 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 11:01 UTC — prebuilt derivation resolved; audit and notices continue (#528, #603)
+
+[The exact private-copy strip proof](../qa-logs/2026-10-15-prebuilt-strip/accepted/README.md)
+passed for all nine current rclone/Tailscale binaries. All three loader checks
+and nine transformations returned zero; stripped copies equal package and staged
+bytes, protected originals remained unchanged, and387,715,376 temporary bytes
+were removed after verification. The earlier loader failure and namespace-bound
+preparation failure remain recorded separately. This explains the binary changes
+without claiming a source rebuild or complete embedded dependency notices.
+
+The selected notice collector stopped at its declared database path-count bound.
+[Its original failure and partial results](../qa-logs/2026-10-15-notice-supplement/failure/README.md)
+are retained. A reviewed continuation will carry eleven exact historical complete
+records and collect the remaining32 occurrences in separate bounded batches;
+no successful retry is claimed yet. Corresponding-source, notices, retrieval and
+off-host custody remain #528's open publication work.
+
+The [#603 independent audit](https://github.com/pixelelated/distribution/issues/603)
+is reviewing the fifteen completed fixes at publishedcdd92. The prior audit
+remains complete and unchanged. Both hosted wordlist checks pass; record CI is
+red only for this newly triggered audit cadence. Current work follows the
+milestone order: source closure and independent audit in parallel, then the
+remaining physical/native, security, documentation and publication requirements.
+
 ## 2026-10-15 10:25 UTC — restore guide delivered and prebuilt associations collected (#349, #528, #493)
 
 #349 closed completed after website PR4 merged as6aac689c and its public cloud

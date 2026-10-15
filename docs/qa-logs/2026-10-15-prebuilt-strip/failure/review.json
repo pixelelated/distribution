@@ -1,0 +1,40 @@
+{
+  "archive_bytes": 94461,
+  "archive_members": 91,
+  "archive_sha256": "578a725de4fa355183ff5cf10785fddd1f09c4880189db009c4e08bda7fd805c",
+  "consumed_id": "5f00775e8ca64b008151c0a1d99bc538",
+  "consumed_sha256": "c52323fb6b266ad1b990dc0968ae711f2dd88441e45dd6c47a67db9fa1134f38",
+  "custody": {
+    "bytes": true,
+    "membership": true,
+    "nsmtime_via_exact_PAX_decimal": true,
+    "numeric_owners": true,
+    "permission_modes": true
+  },
+  "first_strip_stderr_sha256": "a20965827757d4e5e1f338df676a13724e4ec22445e98e83d70e695e7b9dc58c",
+  "limits": [
+    "Exact metadata originals are retained; the failed private binary copy is deliberately excluded and untouched.",
+    "The original first strip failed during dynamic loading; no byte-transformation equality was reached.",
+    "Fresh loader/library closure continuation is source-only and separately bound; this record does not qualify it.",
+    "No source reproducibility, historical compiler-environment, SYSTEM, notice, publication, or whole-host FD clearance."
+  ],
+  "omitted_payload_read_or_hashed_during_custody": false,
+  "omitted_private_payload_bytes": 85659810,
+  "original_channels": {
+    "command_rc": 1,
+    "monitor_rc": 0,
+    "runner_rc": 1,
+    "utc": "2026-10-15T10:36:12.200460+00:00"
+  },
+  "original_first_strip_returncode": 127,
+  "original_launcher_returncode": 1,
+  "private_original_receipts_report_unchanged_hash": true,
+  "removed_bytes": 0,
+  "result": "ORIGINAL_FAILURE_PRESERVED",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d",
+  "runtime_owner": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01",
+  "signals": [],
+  "source_seal": "ccd767d8a145a0f259c01adade372e8a397907faa41310e82f43efc50771d0fe",
+  "survivors": [],
+  "transformations_qualified": 0
+}

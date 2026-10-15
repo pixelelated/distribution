@@ -1,0 +1,919 @@
+{
+  "archive": "originals.tar.gz",
+  "archive_sha256": "578a725de4fa355183ff5cf10785fddd1f09c4880189db009c4e08bda7fd805c",
+  "directory_metadata_claimed": false,
+  "members": [
+    {
+      "bytes": 5945,
+      "gid": 1000,
+      "member": "source/README.md",
+      "mode": 436,
+      "mtime_ns": 1792060293469530865,
+      "sha256": "a7430c5e7f63a91a9d55d3361dc0576256f16820b946fe16d791a148d97f9ccb",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/README.md",
+      "uid": 1000
+    },
+    {
+      "bytes": 2311,
+      "gid": 1000,
+      "member": "source/SHA256SUMS",
+      "mode": 436,
+      "mtime_ns": 1792060351200341682,
+      "sha256": "ccd767d8a145a0f259c01adade372e8a397907faa41310e82f43efc50771d0fe",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/SHA256SUMS",
+      "uid": 1000
+    },
+    {
+      "bytes": 46736,
+      "gid": 1000,
+      "member": "source/association-plan.json",
+      "mode": 436,
+      "mtime_ns": 1792059958647689515,
+      "sha256": "1850c6011b228fe3981637006b11f1e007391beaaaf019f1bef1238f74c37fae",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/association-plan.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 35594,
+      "gid": 1000,
+      "member": "source/changes.diff",
+      "mode": 436,
+      "mtime_ns": 1792060293510448681,
+      "sha256": "0c781614c1daeec50e17bf6da7da84610ba51745600f887a02fe684810c3ce42",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/changes.diff",
+      "uid": 1000
+    },
+    {
+      "bytes": 1429,
+      "gid": 1000,
+      "member": "source/commands.sh",
+      "mode": 436,
+      "mtime_ns": 1792060060599336836,
+      "sha256": "d3357b582956053aad6474734054758267c9f9d0105e80182a4b82fa677ec103",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/commands.sh",
+      "uid": 1000
+    },
+    {
+      "bytes": 601,
+      "gid": 1000,
+      "member": "source/frozen-tools.json",
+      "mode": 436,
+      "mtime_ns": 1792047949520688458,
+      "sha256": "36b1c2a4421d5691c0e8f04255c7d162e460c77c5b701c01552e6007c8863ef1",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/frozen-tools.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1443,
+      "gid": 1000,
+      "member": "source/host-tools.json",
+      "mode": 436,
+      "mtime_ns": 1792059958647737060,
+      "sha256": "1e7d2bf04a5ef4cfc44b2eaa7ecaceef3dcacf57e262efcfdb3fb49c1b90ee1b",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/host-tools.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 5552,
+      "gid": 1000,
+      "member": "source/make-source.py",
+      "mode": 436,
+      "mtime_ns": 1792059958613875092,
+      "sha256": "8f4435727651e291f83884529486154d22d7a4e6d0cb2b1a587be101b8d653ab",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/make-source.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 2433,
+      "gid": 1000,
+      "member": "source/originals/bindings.py",
+      "mode": 436,
+      "mtime_ns": 1792058562421904557,
+      "sha256": "d073ddc934059c46ffdce5a0e026ef9bf63fcbacd2552609cda6b7d82b9fe67f",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/originals/bindings.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 11237,
+      "gid": 1000,
+      "member": "source/originals/collect.py",
+      "mode": 436,
+      "mtime_ns": 1792058840889961417,
+      "sha256": "26dd12f5622a19d9cb21877850a7d0e88d1dfa9c4035d391966acffd2522e6e4",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/originals/collect.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 1893,
+      "gid": 1000,
+      "member": "source/originals/commands.sh",
+      "mode": 436,
+      "mtime_ns": 1792058686651863746,
+      "sha256": "1e2a7b722fde6e4d65eff835d74dc90ba81242da7ca88d593a8b3e37863912cf",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/originals/commands.sh",
+      "uid": 1000
+    },
+    {
+      "bytes": 4636,
+      "gid": 1000,
+      "member": "source/originals/consume.py",
+      "mode": 436,
+      "mtime_ns": 1792058686649863723,
+      "sha256": "555af88cc02cecea88d13fe8ab42343c6b60a68d6fa12d8a5fc9cfb095fa33b6",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/originals/consume.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 5156,
+      "gid": 1000,
+      "member": "source/originals/prepare-owner.py",
+      "mode": 436,
+      "mtime_ns": 1792058686647863701,
+      "sha256": "49146f81ced10744dc9a0d3e8b594c1991c1852c49d8d4f4439ded3e06e3260a",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/originals/prepare-owner.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 3283,
+      "gid": 1000,
+      "member": "source/originals/process-identity.py",
+      "mode": 436,
+      "mtime_ns": 1792049766334965763,
+      "sha256": "da2eaad7179005484ef35f1a7df1262fdda25bd77bae4d0f2b6e05e7835e11af",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/originals/process-identity.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 14011,
+      "gid": 1000,
+      "member": "source/originals/run.py",
+      "mode": 436,
+      "mtime_ns": 1792058562421995346,
+      "sha256": "26309b155ec32c138b4a8920e7f33252b464291230dee8687eb979166aa9a6d7",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/originals/run.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 319,
+      "gid": 1000,
+      "member": "source/originals/run.sh",
+      "mode": 436,
+      "mtime_ns": 1792058562422031123,
+      "sha256": "b9a441d391b594485c72ccf4357ef9e1d3620193f4c5f4c4d013132e210d43db",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/originals/run.sh",
+      "uid": 1000
+    },
+    {
+      "bytes": 6605,
+      "gid": 1000,
+      "member": "source/packet-manifest.json",
+      "mode": 436,
+      "mtime_ns": 1792060351199811746,
+      "sha256": "bcdf1cbe7caf12449ac43e26ba26c0c20c31a22dffb5496c5bf3a962799da876",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/packet-manifest.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 4546,
+      "gid": 1000,
+      "member": "source/prepare-owner.py",
+      "mode": 436,
+      "mtime_ns": 1792060189236887273,
+      "sha256": "4af6565dae8be5c0df6d405823b7f719bf7fb1c4dfbc0ab206b70629e70833a8",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/prepare-owner.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 2433,
+      "gid": 1000,
+      "member": "source/recipe-references.json",
+      "mode": 436,
+      "mtime_ns": 1792059958647763883,
+      "sha256": "967a89a8f92b3fdb9631ba569cf66cfc39955ce419c5fe656077aa37d4a4abd0",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/recipe-references.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 577,
+      "gid": 1000,
+      "member": "source/resources.json",
+      "mode": 436,
+      "mtime_ns": 1792060351198862545,
+      "sha256": "1caa7b679ef86a4f06fc918e5f62d8032b13a647032be15af6e918b3726e82f8",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/resources.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1757,
+      "gid": 1000,
+      "member": "source/source-provenance.json",
+      "mode": 436,
+      "mtime_ns": 1792060351198976037,
+      "sha256": "0ccc9564a879470ece6bcf29aea2a5e567424ec0bd1acf1a928ea19a1d1a284f",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/source-provenance.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 2008,
+      "gid": 1000,
+      "member": "source/static-review.json",
+      "mode": 436,
+      "mtime_ns": 1792060293510494569,
+      "sha256": "35dffb797e546d0532f92f444436cbd647f265d2756f04c4ceffd8c5ea5e2fb4",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/static-review.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 3118,
+      "gid": 1000,
+      "member": "source/templates/bindings.py",
+      "mode": 436,
+      "mtime_ns": 1792059958647901337,
+      "sha256": "4a69a3472e0726ee64e1b89b4758265e78152a050f58bbb7f85f468ecf77fcbc",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/templates/bindings.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 7584,
+      "gid": 1000,
+      "member": "source/templates/collect.py",
+      "mode": 436,
+      "mtime_ns": 1792060189236799441,
+      "sha256": "a4765e7d9768b2445e5ff7060399bcda4b1513e0b04b668b828b7f67cf158474",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/templates/collect.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 5708,
+      "gid": 1000,
+      "member": "source/templates/consume.py",
+      "mode": 436,
+      "mtime_ns": 1792060189236850890,
+      "sha256": "5e52e942daa0cd930766468b58bc82a1fc7f84d487356936f61eaa6c87aed022",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/templates/consume.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 3283,
+      "gid": 1000,
+      "member": "source/templates/process-identity.py",
+      "mode": 436,
+      "mtime_ns": 1792049766334965763,
+      "sha256": "da2eaad7179005484ef35f1a7df1262fdda25bd77bae4d0f2b6e05e7835e11af",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/templates/process-identity.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 14046,
+      "gid": 1000,
+      "member": "source/templates/run.py",
+      "mode": 436,
+      "mtime_ns": 1792059958647871091,
+      "sha256": "dae76ee51484501765ffffaf60fcfeaf29910647e257189dbbbbc3e2d17e11d9",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/templates/run.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 320,
+      "gid": 1000,
+      "member": "source/templates/run.sh",
+      "mode": 436,
+      "mtime_ns": 1792059958647818989,
+      "sha256": "e69c2d259a276be9920e6b6b51706de67d7fe2429adbfb37eab05c70ab67c7a8",
+      "source": "/tmp/pix-m7-prebuilt-strip-20261015/templates/run.sh",
+      "uid": 1000
+    },
+    {
+      "bytes": 1017,
+      "gid": 1000,
+      "member": "owner/admission-plan.json",
+      "mode": 436,
+      "mtime_ns": 1792060505398594520,
+      "sha256": "d207aedb19d783657ec77847a8601e0bdf38e071d191f984ca8fb6a256357e77",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/admission-plan.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1855,
+      "gid": 1000,
+      "member": "owner/admission.json",
+      "mode": 384,
+      "mtime_ns": 1792060566992670694,
+      "sha256": "4927fbbd146bd3f28cb863cdab31b43c9399707df8a7c66ae287e18f3391449d",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/admission.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 46736,
+      "gid": 1000,
+      "member": "owner/association-plan.json",
+      "mode": 436,
+      "mtime_ns": 1792060505398388834,
+      "sha256": "1850c6011b228fe3981637006b11f1e007391beaaaf019f1bef1238f74c37fae",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/association-plan.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 3118,
+      "gid": 1000,
+      "member": "owner/bindings.py",
+      "mode": 436,
+      "mtime_ns": 1792059958647901337,
+      "sha256": "4a69a3472e0726ee64e1b89b4758265e78152a050f58bbb7f85f468ecf77fcbc",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/bindings.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 537,
+      "gid": 1000,
+      "member": "owner/cleanup.json",
+      "mode": 384,
+      "mtime_ns": 1792060567458378507,
+      "sha256": "cee11878e9b03a51062fca71db5ad267c06c8ba82273fb81c6deeab4fa837973",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/cleanup.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 7584,
+      "gid": 1000,
+      "member": "owner/collect.py",
+      "mode": 436,
+      "mtime_ns": 1792060189236799441,
+      "sha256": "a4765e7d9768b2445e5ff7060399bcda4b1513e0b04b668b828b7f67cf158474",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/collect.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 5535,
+      "gid": 1000,
+      "member": "owner/collection/01-generic-x64-x86_64-rclone.original.json",
+      "mode": 384,
+      "mtime_ns": 1792060567387281048,
+      "sha256": "2b2113f43075337c3ad495f1d71059e8adb200a109b5048b7e38a6d2e124ccf1",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/collection/01-generic-x64-x86_64-rclone.original.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 263,
+      "gid": 1000,
+      "member": "owner/collection/01-generic-x64-x86_64-rclone.stderr",
+      "mode": 384,
+      "mtime_ns": 1792060567364464546,
+      "sha256": "a20965827757d4e5e1f338df676a13724e4ec22445e98e83d70e695e7b9dc58c",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/collection/01-generic-x64-x86_64-rclone.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/collection/01-generic-x64-x86_64-rclone.stdout",
+      "mode": 384,
+      "mtime_ns": 1792060567361464514,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/collection/01-generic-x64-x86_64-rclone.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 403,
+      "gid": 1000,
+      "member": "owner/collection/01-generic-x64-x86_64-rclone.wait.json",
+      "mode": 384,
+      "mtime_ns": 1792060567365960467,
+      "sha256": "e324843ac5c73e702a046aaed9d94f3e2e02d295d92955afd060fdf3127e8241",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/collection/01-generic-x64-x86_64-rclone.wait.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 6936,
+      "gid": 1000,
+      "member": "owner/collection-result.json",
+      "mode": 384,
+      "mtime_ns": 1792060567387425007,
+      "sha256": "c7b15f1b99881e240ac692c0577d2685e1cb55ac05bef535c86f1431c5fb3979",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/collection-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 462,
+      "gid": 1000,
+      "member": "owner/console.log",
+      "mode": 384,
+      "mtime_ns": 1792060567426932710,
+      "sha256": "b805581ce82ff59cf977d7cea013d7580ad607b78f1b7d74a406fe22b2449297",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/console.log",
+      "uid": 1000
+    },
+    {
+      "bytes": 5708,
+      "gid": 1000,
+      "member": "owner/consume.py",
+      "mode": 436,
+      "mtime_ns": 1792060189236850890,
+      "sha256": "5e52e942daa0cd930766468b58bc82a1fc7f84d487356936f61eaa6c87aed022",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/consume.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 4373,
+      "gid": 1000,
+      "member": "owner/failure-completion-evidence.json",
+      "mode": 436,
+      "mtime_ns": 1792060693237228826,
+      "sha256": "a3dcd8ab9bc547bd2b97859c6ce83c622e05983796e3765d53294f02cfc59fae",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/failure-completion-evidence.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 855,
+      "gid": 1000,
+      "member": "owner/failure-investigation.json",
+      "mode": 436,
+      "mtime_ns": 1792060693236843633,
+      "sha256": "0f9cce09dec321e651c3503f34fcee4247da39a840355560492f157e1fdb323d",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/failure-investigation.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 601,
+      "gid": 1000,
+      "member": "owner/frozen-tools.json",
+      "mode": 436,
+      "mtime_ns": 1792047949520688458,
+      "sha256": "36b1c2a4421d5691c0e8f04255c7d162e460c77c5b701c01552e6007c8863ef1",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/frozen-tools.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1443,
+      "gid": 1000,
+      "member": "owner/host-tools.json",
+      "mode": 436,
+      "mtime_ns": 1792060505398437705,
+      "sha256": "1e7d2bf04a5ef4cfc44b2eaa7ecaceef3dcacf57e262efcfdb3fb49c1b90ee1b",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/host-tools.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "owner/inner.rc",
+      "mode": 384,
+      "mtime_ns": 1792060567458449933,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/inner.rc",
+      "uid": 1000
+    },
+    {
+      "bytes": 66,
+      "gid": 1000,
+      "member": "owner/launcher-pid.json",
+      "mode": 384,
+      "mtime_ns": 1792060567049118410,
+      "sha256": "25be9532994a0895837130777e5041f3543c2484e67941de81736b7f40d3bbae",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/launcher-pid.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 132,
+      "gid": 1000,
+      "member": "owner/launcher-result.json",
+      "mode": 384,
+      "mtime_ns": 1792060572210254027,
+      "sha256": "a1953e4f6481e267f9e53d2895125fca3f57860ff69be5bf439c8e2cdf563b1a",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/launcher-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 167,
+      "gid": 1000,
+      "member": "owner/launcher-start.json",
+      "mode": 384,
+      "mtime_ns": 1792060567065649658,
+      "sha256": "8aecb21d35b63850547e7ef807891c8ab193c8d40937b6e6fb64dd38f59807a3",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/launcher-start.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 338,
+      "gid": 1000,
+      "member": "owner/launcher-submission.json",
+      "mode": 384,
+      "mtime_ns": 1792060567048505944,
+      "sha256": "8abacadee80f58978bab9cac742c52b5c13fd092d6e29c1115bb2f99fc422461",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/launcher-submission.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "owner/outer.rc",
+      "mode": 384,
+      "mtime_ns": 1792060567464591299,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/outer.rc",
+      "uid": 1000
+    },
+    {
+      "bytes": 447,
+      "gid": 1000,
+      "member": "owner/preparation.json",
+      "mode": 436,
+      "mtime_ns": 1792060505398481251,
+      "sha256": "70cb93fb4f326dc68f3146e5493468a46bd13bf08b4fa302830e423fcdc42162",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/preparation.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 3283,
+      "gid": 1000,
+      "member": "owner/process-identity.py",
+      "mode": 436,
+      "mtime_ns": 1792049766334965763,
+      "sha256": "da2eaad7179005484ef35f1a7df1262fdda25bd77bae4d0f2b6e05e7835e11af",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/process-identity.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 2433,
+      "gid": 1000,
+      "member": "owner/recipe-references.json",
+      "mode": 436,
+      "mtime_ns": 1792059958647763883,
+      "sha256": "967a89a8f92b3fdb9631ba569cf66cfc39955ce419c5fe656077aa37d4a4abd0",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/recipe-references.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 577,
+      "gid": 1000,
+      "member": "owner/resources.json",
+      "mode": 436,
+      "mtime_ns": 1792060351198862545,
+      "sha256": "1caa7b679ef86a4f06fc918e5f62d8032b13a647032be15af6e918b3726e82f8",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/resources.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 910,
+      "gid": 1000,
+      "member": "owner/result.json",
+      "mode": 384,
+      "mtime_ns": 1792060567458431552,
+      "sha256": "635b9a3f6df3475998fc658451294b544f2eb0620ca3e19ef05f3a68d821b154",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1516,
+      "gid": 1000,
+      "member": "owner/retention-plan.json",
+      "mode": 436,
+      "mtime_ns": 1792060505398556905,
+      "sha256": "b43c93f3b80f0e1309f6ecfb5504520d76454d32985e230a5b2d7ee931f3b189",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/retention-plan.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 8752,
+      "gid": 1000,
+      "member": "owner/retention-report.json",
+      "mode": 436,
+      "mtime_ns": 1792060510883888563,
+      "sha256": "d71b2fb47e7fa60098301145296bc53102dd2c31fc97495c66c221a20256bcca",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/retention-report.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 97,
+      "gid": 1000,
+      "member": "owner/run.path",
+      "mode": 384,
+      "mtime_ns": 1792060567223834967,
+      "sha256": "c445159434aea03335e2f2ada27612dc799c3907cbdc701e5b54f5d411beeb73",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/run.path",
+      "uid": 1000
+    },
+    {
+      "bytes": 14046,
+      "gid": 1000,
+      "member": "owner/run.py",
+      "mode": 436,
+      "mtime_ns": 1792059958647871091,
+      "sha256": "dae76ee51484501765ffffaf60fcfeaf29910647e257189dbbbbc3e2d17e11d9",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/run.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 320,
+      "gid": 1000,
+      "member": "owner/run.sh",
+      "mode": 436,
+      "mtime_ns": 1792059958647818989,
+      "sha256": "e69c2d259a276be9920e6b6b51706de67d7fe2429adbfb37eab05c70ab67c7a8",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/run.sh",
+      "uid": 1000
+    },
+    {
+      "bytes": 1930,
+      "gid": 1000,
+      "member": "owner/seal.json",
+      "mode": 436,
+      "mtime_ns": 1792060505398776552,
+      "sha256": "143c60204cd3f1f3bcbadbe7eefe10ef68153c50b0bb12f14ef1bf3732af9e2f",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/seal.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "owner/stage/association.exit",
+      "mode": 384,
+      "mtime_ns": 1792060567426823964,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/stage/association.exit",
+      "uid": 1000
+    },
+    {
+      "bytes": 405,
+      "gid": 1000,
+      "member": "owner/stage/association.process.json",
+      "mode": 384,
+      "mtime_ns": 1792060567234146485,
+      "sha256": "de0f352f7d922043135d819412f1fc60ea93449e3c032eeb55f9bbad3bf5fd24",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/stage/association.process.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 709,
+      "gid": 1000,
+      "member": "owner/stage/association.result.json",
+      "mode": 384,
+      "mtime_ns": 1792060567426884204,
+      "sha256": "e4a877934069f01012cf1dc1fc8f25b26226e436d7e7028cf1d4da1d778f36d7",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/stage/association.result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/stage/association.stderr",
+      "mode": 384,
+      "mtime_ns": 1792060567231463132,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/stage/association.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/stage/association.stdout",
+      "mode": 384,
+      "mtime_ns": 1792060567231463132,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/stage/association.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 228,
+      "gid": 1000,
+      "member": "owner/stage/result.json",
+      "mode": 384,
+      "mtime_ns": 1792060567426932710,
+      "sha256": "b2780486700e10cb1da3e5b48429cd64e0706d34e14321b6594147bed581017e",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/stage/result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "owner/tool-wrapper.rc",
+      "mode": 384,
+      "mtime_ns": 1792060572210086710,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/tool-wrapper.rc",
+      "uid": 1000
+    },
+    {
+      "bytes": 4090,
+      "gid": 1000,
+      "member": "owner/watch-build-submit.py",
+      "mode": 320,
+      "mtime_ns": 1792060567048569189,
+      "sha256": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e",
+      "source": "/workspace/tmp/pix-m7-prebuilt-strip-20261015-01/watch-build-submit.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 2149,
+      "gid": 1000,
+      "member": "watch/admission-consumed.json",
+      "mode": 384,
+      "mtime_ns": 1792060693279062241,
+      "sha256": "c52323fb6b266ad1b990dc0968ae711f2dd88441e45dd6c47a67db9fa1134f38",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d/admission-consumed.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1855,
+      "gid": 1000,
+      "member": "watch/admission-input.json",
+      "mode": 384,
+      "mtime_ns": 1792060567188693720,
+      "sha256": "4927fbbd146bd3f28cb863cdab31b43c9399707df8a7c66ae287e18f3391449d",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d/admission-input.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1017,
+      "gid": 1000,
+      "member": "watch/admission-plan.json",
+      "mode": 384,
+      "mtime_ns": 1792060567188754895,
+      "sha256": "d207aedb19d783657ec77847a8601e0bdf38e071d191f984ca8fb6a256357e77",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d/admission-plan.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1827,
+      "gid": 1000,
+      "member": "watch/admission.json",
+      "mode": 384,
+      "mtime_ns": 1792060567188634367,
+      "sha256": "b05ee6f0f0826d11c2b380f453fa69460e7a4e378e78b498b0c2d294f89096b7",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d/admission.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 339,
+      "gid": 1000,
+      "member": "watch/build.log",
+      "mode": 384,
+      "mtime_ns": 1792060567426932710,
+      "sha256": "74ea1789bf9bda1a524eb2b3c0fb3905c900e2c51d82b3cca3e42a304cedcec9",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d/build.log",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "watch/build.pid",
+      "mode": 384,
+      "mtime_ns": 1792060567100865503,
+      "sha256": "470826070ffb0db5381bd50f43a80c54ae59cd5b656ae8bb92e543aca486566f",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d/build.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "watch/build.rc",
+      "mode": 384,
+      "mtime_ns": 1792060567465336438,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d/build.rc",
+      "uid": 1000
+    },
+    {
+      "bytes": 33,
+      "gid": 1000,
+      "member": "watch/build.start",
+      "mode": 384,
+      "mtime_ns": 1792060567100970961,
+      "sha256": "38ccd64a98f91282837c4108a9dc81c98d0bf6965fcd8bb0a3df4f134c0ae269",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d/build.start",
+      "uid": 1000
+    },
+    {
+      "bytes": 721,
+      "gid": 1000,
+      "member": "watch/build.status",
+      "mode": 384,
+      "mtime_ns": 1792060572177515723,
+      "sha256": "04b19e6190facb988e70587c6dff38e4eb41ea3b12cef5ee6457b680b858a9ff",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d/build.status",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "watch/build.status.pid",
+      "mode": 384,
+      "mtime_ns": 1792060567114695614,
+      "sha256": "3741b77afccfd8c8b1bf38508bfe58ebb3c716b9a0c043a1816e475e57425a3d",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d/build.status.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "watch/command.pid",
+      "mode": 384,
+      "mtime_ns": 1792060567196225458,
+      "sha256": "c79697e4a02a665aa935155eb67b7ee730bc841cc1e4d50cbb9a15239edfeeda",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d/command.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 1516,
+      "gid": 1000,
+      "member": "watch/retention-plan.json",
+      "mode": 384,
+      "mtime_ns": 1792060567188806211,
+      "sha256": "b43c93f3b80f0e1309f6ecfb5504520d76454d32985e230a5b2d7ee931f3b189",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d/retention-plan.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 8752,
+      "gid": 1000,
+      "member": "watch/retention-report.json",
+      "mode": 384,
+      "mtime_ns": 1792060567188907660,
+      "sha256": "c84ae7fa69e48c63d7215205a85720b1c537e53d78c70f065468746bc51c4bf8",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d/retention-report.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 104,
+      "gid": 1000,
+      "member": "watch/runner-result.json",
+      "mode": 384,
+      "mtime_ns": 1792060572200603675,
+      "sha256": "663ccd70e89b7469042f98a115a47ed1259fb2612cc9a3052855bb11280b906d",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d/runner-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 12661,
+      "gid": 1000,
+      "member": "watch/watch-job",
+      "mode": 320,
+      "mtime_ns": 1792060567101091949,
+      "sha256": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d/watch-job",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "watch/watcher.err",
+      "mode": 384,
+      "mtime_ns": 1792060567101091949,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d/watcher.err",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "watch/watcher.interval",
+      "mode": 384,
+      "mtime_ns": 1792060567100921024,
+      "sha256": "f0b5c2c2211c8d67ed15e75e656c7862d086e9245420892a7de62cd9ec582a06",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d/watcher.interval",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "watch/watcher.pid",
+      "mode": 384,
+      "mtime_ns": 1792060567101759152,
+      "sha256": "3741b77afccfd8c8b1bf38508bfe58ebb3c716b9a0c043a1816e475e57425a3d",
+      "source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T103607Z-bfddf11d/watcher.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 2418,
+      "gid": 1000,
+      "member": "root-review/failure-comment.json",
+      "mode": 436,
+      "mtime_ns": 1792060787348959553,
+      "sha256": "2c91938b720b9befd40e5b9d87892d14b8ea8916733afab6802d1663b8352bc5",
+      "source": "/tmp/pix-m7-strip-root-review-20261015/failure-comment.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 2504,
+      "gid": 1000,
+      "member": "root-review/issue-comment.json",
+      "mode": 436,
+      "mtime_ns": 1792060505256118512,
+      "sha256": "6f11c77b6ab2d25b72acd21d2d3982c92e864d95579920cdfb028621b77d4db1",
+      "source": "/tmp/pix-m7-strip-root-review-20261015/issue-comment.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 782,
+      "gid": 1000,
+      "member": "root-review/review.json",
+      "mode": 436,
+      "mtime_ns": 1792060504237655070,
+      "sha256": "a7aba72b248a8ef5aa968d29723e671cf87163c59209db30bae9a033c6ac43b3",
+      "source": "/tmp/pix-m7-strip-root-review-20261015/review.json",
+      "uid": 1000
+    }
+  ],
+  "regular_files_only": true,
+  "schema": 1
+}
