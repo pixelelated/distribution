@@ -47,10 +47,22 @@ or duplicate it. No new staging/reboot authority follows from availability;
 previous deployment approvals were consumed. Source-contact questions remain
 separately pending and unsent; root-only stopped-media read is nonblocking.
 
+## Integration history correction
+
+The first next push was refused because checkpoint9b4d lacked an issue citation.
+Remote next remained62c382. Published feature/m7-final-qualification-02 remains
+unchanged atddb9edb736, preserving every original evidence commit reference.
+Only unpublished integration history was rebuilt with that one message corrected;
+all four source trees are byte-identical. Mapping and exact tree hashes are in
+audit checks/integration-citation/receipt.json: save proofcd894→776f6f2, audit
+26ee519→cfb179f, checkpointddb9→9f7457e. No force push, product change or guard
+bypass. Coordinator now uses feature/m7-audit-integration-603; next has the same
+corrected history. Check actual remote state for the subsequent record commit.
+
 ## Resume and authority
 
 Coordinator `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
-`feature/m7-final-qualification-02`; primary `/workspace/repos/rocknix` stays on
+`feature/m7-audit-integration-603`; primary `/workspace/repos/rocknix` stays on
 `next`. Harness checkout `conflict-resolution` stays untouched. Committed evidence
 head before this record update is 26ee5190e8a5f7a400675cbb445251d25ad660f7; read current Git/remote state
 before assuming a later docs commit has landed. This record change retains

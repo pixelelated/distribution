@@ -828,3 +828,5 @@ coverage now passes368commits. No public push or guard bypass occurred.
 - 2026-10-15 22:34 UTC — #606 VM keyboard proof sent two F7/one F2 with no OSD or state1; normal launcher/core and synthetic SRAM passed. Preserve the failed input attempt and inspect effective keyboard/remapping/confirmation semantics before retrying. A command transport success does not prove application input consumption. Issue: #606
 
 - 2026-10-15 22:52 UTC — #606 final fixture searched exec.log for an argument logged by ES. Actual normal exit/state preservation/manager pixels succeeded. Bind each assertion to the writer that emits it; preserve original failure and independently re-read complete original evidence instead of replaying successful behavior for paperwork. Unreached marker stat stays unobserved. Issue: #606
+
+- 2026-10-15 23:07 UTC — Feature-side ceremony check inspects next, so an older feature checkpoint missing its issue citation surfaced only at next pre-push. Preserve published evidence history and correct unpublished integration messages with exact tree equality; verify integrated next coverage before publication. No force push or guard bypass. Issue: #603
