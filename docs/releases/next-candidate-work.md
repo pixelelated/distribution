@@ -11,6 +11,45 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 17:01 UTC — Focused clean and retained VM checks pass (#528)
+
+GENERIC source077197 passes [focused clean/retained VM proof](../qa-logs/2026-10-15-zerotier-vm-qualified/README.md): untouched first-boot selected-state verification and
+actual installed ZeroTier start/local API/restart/stop. The ordinary update from
+the independent accepted d6a base preserves selected application state and
+ZeroTier identity/configuration exactly. Fresh165555Z-01fa0035 and retained
+165733Z-1a993904 have all original channels zero and are consumed; protected base
+and OVMF are unchanged. Both guests had no network adapter. Membership/routing
+and physical-device runtime remain outside this proof.
+
+The [initial fresh fixture failure](../qa-logs/2026-10-15-zerotier-vm-failure01/README.md) is preserved separately: networks.d is absent
+until membership is stored. The corrected test compares absence or a real empty
+directory without changing firmware. H700 build is next, then SM8550; source
+mapping/notices/delivery and existing audit/handoff work continue alongside.
+
+## 2026-10-15 16:41 UTC — GENERIC artifact passes; held source supplement copied (#528)
+
+Published077197 now has a successful [canonical GENERIC package/image build and
+independent artifact verification](../qa-logs/2026-10-15-zerotier-generic-refresh/README.md),
+both consumed with original zero exits.
+GPT, raw/update SYSTEM+KERNEL equality, selected installed bytes and the filtered
+ZeroTier source pass. Reader01's incorrect dependency-file expectation remains
+recorded as a tooling failure; corrected reader02 passed without rebuilding.
+The isolated113-unit diagnostic proof and normal build's no-.d mode are distinct.
+
+Both stopped H700 ABI caches moved atomically into clean H70005, preserving their
+inodes and old firmware/receipts without duplication. Build inputs are prepared
+with the same20261015T161744Z identity timestamp. Focused no-NIC clean/retained
+ZeroTier VM proof remains before H700 then SM8550 package/image refreshes.
+
+The metadata join now preserves2366 component rows and shared/ARM links. All39
+named held source/notice files (293582752B), plus five metadata files, have an
+[independent immutable local copy](../qa-logs/2026-10-15-source-assembly-custody/README.md). Original163942Z-6041fb99 passed, consumed
+7f9891f258114e748581402347d7eaae; manifest022b44b19fc23da08b2a158f3ba92689f494581118f1726ff6d39e60ea04bea0.
+This is local custody with explicit gaps. Current image/profile source maps,
+named complete FEX notice texts, ABL/MAME disposition, independent retrieval and
+off-host custody remain. Existing pending external-audit/source-contact requests
+are unchanged. No new device deployment or public RC designation.
+
 ## 2026-10-15 16:03 UTC — ZeroTier extraction and source archive verified (#528)
 
 The actual adopted package extraction and standard patch command pass. All 3,208

@@ -1,6 +1,18 @@
 # Saved Session State
 
-Updated 2026-10-15 16:03 UTC. No active runtime or unconsumed admission.
+Updated 2026-10-15 17:04 UTC. H700 build170220Z-c0ac7fa6 is actively supervised.
+Owner /workspace/tmp/pix-m7-zerotier-h700-build-20261015-01; frozen H70005 source
+077197, common timestamp20261015T161744Z. ZeroTier clean/build passed; ordinary
+image stage is running. Guarded swap reclaim/preflight passed before admission.
+Next: original completion/readback/consumption, then prepared H700 reader, then
+SM8550 cache transfers/build/readback. Do not modify active owner/frozen inputs.
+Both focused VM jobs passed and are consumed: fresh165555Z-01fa0035 /
+ba8e501430e642dba2a20a32882cc51b, retained165733Z-1a993904 /
+41b09d12d60f423d98f6188a6538daab. Original fresh01 fixture failure is preserved.
+SM06 exists clean at077197, caches/Nix untouched. Internal workers retain
+sanitized VM success originals and prepare source-only FEX full-notice/current
+profile mapping continuations. #528 and M7 updated/read back17:03. No new device
+deployment or external call. Three existing user requests remain pending.
 Previous full checkpoint: `.github/sessions/archived/saved-session-state-next-20261015T151902Z.md`.
 
 ## Start here
@@ -13,7 +25,7 @@ Use `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
 `feature/m7-final-qualification-02`. The historical harness checkout at
 `conflict-resolution` remains untouched. Primary `/workspace/repos/rocknix` stays
 on `next`. Read `AGENTS.md`, every-session rules and applicable scoped rules from
-`next`; coordinator instruction files currently match. The live M7 milestone
+`next`; coordinator has only the reviewed warm-cache custody clarification pending in device-builds. The live M7 milestone
 body owns priority order; `docs/releases/next-candidate-work.md` records readiness.
 Use `git log -1` and remote readback for the publication head rather than assuming
 this checkpoint's containing commit was already pushed.
@@ -142,18 +154,95 @@ It is a separately named patched client source, retaining all other upstream
 files/notices. Preserve it until independent delivery/retrieval acceptance.
 Compact original evidence: `docs/qa-logs/2026-10-15-zerotier-unpack-custody/`.
 
-Next: commit/push this source and evidence, then transfer stopped warm-cache
-ownership using the existing atomic route to frozen build worktrees. Clean only
-ZeroTier in GENERIC_X64 x86_64, H700 aarch64 and SM8550 aarch64, then ordinary
-image assembly and exact readback. Both ARM companion profiles omit ZeroTier;
-reuse their existing caches. No unrelated clean or FEX/Nix rebuild is justified.
-`m7_source_resume_review` is preparing the finite existing-adapter plan, not
-running a build. Existing engineering images remain bound to their old source.
+Source/evidence commit `077197e6cd3ea31f33b28aaf3882a694b3423b53` is pushed
+and remotely verified on feature and next. Both wordlists pass; record
+CI38766203570 fails only outstanding audit cadence. The new frozen GENERIC tree
+`/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03` is on
+`build/m7-p5-20261015-03` at that exact commit.
+
+The stopped GENERIC cache has now moved atomically into that new checkout.
+Transfer `161403Z-91c45da4` completed every original channel0 and was consumed as
+`ca5afc3cd3184396a56e9bcae9990cf0`. Device66304/inode111174037 is unchanged;
+no copy, symlink alias, deletion or old-image relabelling occurred. Old tracked
+source, firmware and receipts remain in02, but its cache path no longer exists.
+Owner `/workspace/tmp/pix-m7-zerotier-generic-transfer-20261015-01` holds the
+cache-ready and consumption records. Source packet:
+`/tmp/pix-m7-zerotier-generic-refresh-20261015/transfer/`, seal
+`24587f39a81d92a93d8606c3e3c4a02edf854a17b1d182837cf804aa97b438f8`.
+Fresh dependency census16:11:52 retained six explicitly identified protected
+service/zombie FD-scope exclusions. No whole-host root-FD or deletion clearance
+is claimed. All prepared old-cache consumers are closed or rebound.
+Compact record: `docs/qa-logs/2026-10-15-zerotier-generic-cache-transfer/`.
+
+GENERIC build161906Z-85b31cf2 passed all three canonical stages and original
+launcher/runner/resource channels, elapsed217.252 seconds. Consumed
+19ebce6dd8e44b299ad7abd74ff3600b. Exact original build packet:
+`/tmp/pix-m7-zerotier-generic-refresh-20261015`, seal
+6a12eb2a594f12c5b5251eec482828e131ddd31ee065970475c263c7998be410.
+Timestamp20261015T161744Z, source077197. Original build owner:
+`/workspace/tmp/pix-m7-zerotier-generic-build-20261015-01`.
+
+Reader01 run162636Z-fde98414 failed1/0/1 because it required .d files that only
+the isolated diagnostic compile requested using -MD -MP. Canonical make does
+not emit them. Original failure is consumedf57142e9fc6842f7b29a4f0b061b6fcc;
+no build was repeated. Correction preserves explicit dependency-proof limits.
+Reader02 run163127Z-5682551e passed every original channel and is consumed
+`ee024372b00f4314afa9fc96495b83de`. Owner
+`/workspace/tmp/pix-m7-zerotier-generic-readback-20261015-02` holds exact artifact
+hashes and selected package/install/SYSTEM mappings. Packet
+`/tmp/pix-m7-zerotier-generic-readback-plan-20261015-02`, seal
+7aeb1bcb0d8810af4e3603d70ae760efd9b6dd545c5d06acc20aac4c4501b6cf.
+GPT/raw/update equality, clean source identity and filtered ZeroTier/source/ELF
+checks pass; runtime remains unqualified. Canonical dependency count zero is
+explicit, not a completeness claim; the isolated113-unit proof stays separate.
+
+Before reader02 the installed guarded swap helper completed successfully while
+jobs were stopped; fresh preflight passed with8191MiB swap free. Its first
+preflight failure remains recorded. No helper installation or policy changed.
+
+The source metadata join162920Z-33308c8a passed (metadata-only,0.337 seconds).
+Owner `/workspace/tmp/pix-m7-final-source-assembly-index-20261015-01` joins2366
+component rows,16 shared-source edges and two ARM companion edges. The39-file
+missing-custody worklist totals293582752B. The subsequent source custody163942Z-6041fb99 passed all originals and clean
+closure, consumed7f9891f258114e748581402347d7eaae. Exact39payloads293582752B
+plus5metadata files now reside independently in
+`/workspace/artifacts/pixelelated-release-sources/m7-source-assembly-supplement-20261015-01`;
+manifest022b44b19fc23da08b2a158f3ba92689f494581118f1726ff6d39e60ea04bea0.
+Collector0.396s, read1231633932B. Original output still explicitly has gaps.
+Packet `/tmp/pix-m7-source-assembly-custody-plan-20261015`, seal
+bcf550ae1250d2f5b199f17fcc16b603467162ca80ec0c74c6ee5169c9c7206c.
+Owner `/workspace/tmp/pix-m7-source-assembly-custody-20261015-01`.
+Compact originals are being retained by dolphin_ra_init; no new payload work.
+
+Next: serially qualify the narrow clean-install/retained-storage ZeroTier VM
+lifecycle and H700 then SM8550 refreshes. `source_custody_delta` is preparing the
+no-NIC guest derivative using the independent d6a retained base; no provider join.
+Both H700 transfers from04 to05 passed and are consumed: ARM163646Z-18f35105
+and AArch64163801Z-0bad10ae, preserving device66304 and inodes148539050/148539056.
+The source packet is `/tmp/pix-m7-zerotier-h700-refresh-20261015/transfer02`, seal
+4e844fda1c085b1a43d2cb6d6c6bbd032219c7c5ba6f583930ae537d74b769a8.
+Never run the initial transfer/ packet bound to failed GENERIC reader01.
+Fresh census/error assessments and exact original results remain in the two
+`/workspace/tmp/pix-m7-zerotier-h700-transfer-{arm,aarch64}-20261015-01` owners.
+The same six protected-service/zombie FD exclusions remain explicit; no deletion
+or root-FD clearance is claimed. Old H70004 cache paths are gone; target intact.
+
+H70005 clean checkout build/m7-pixelelated-h700-05 is frozen077197. Build owner
+`/workspace/tmp/pix-m7-zerotier-h700-build-20261015-01` is PREPARED only (prepare
+and plan complete); no preflight/report/admission/launch yet. Coordinator
+`/tmp/pix-m7-h700-build-coordinator-20261015.py` uses common20261015T161744Z.
+Build packet `/tmp/pix-m7-zerotier-h700-refresh-20261015/build`, seal
+ffb8e3e328292a18eb4437e21f8c0bdc1962d04d69f51ef6227004e3b89d0246,
+is root/independently reviewed. Readback sibling seal
+f76aaedb49b74e332bc34abcd1c3f8df8ea73da6cd24575f79d64d1fa3b1e818 is source-ready,
+not executed. VM proof precedes the H700 build; SM8550 follows. Source worker
+m7_source_resume_review is preparing SM8550 derivative, no runtime. No unrelated
+clean or FEX/Nix rebuild. SM caches remain in05.
 
 ## Remaining source and release order
 
-1. Commit the verified ZeroTier unpack/patch and filtered source result, then
-   qualify affected package/image artifacts using the stopped warm caches.
+1. Qualify affected package/image artifacts from published077197 using the
+   stopped warm caches; GENERIC03 build/artifact are complete and consumed, with affected VM proof pending.
    FEX collection and ZeroTier dependency readback are complete. Existing
    engineering images cannot be relabelled or assumed changed.
 2. Resolve the remaining exact ABL implementation and one MAME shader adaptation,
@@ -218,7 +307,7 @@ cover different packets. Do not duplicate the question or infer approval from
 time passing. Resume `m7_handoff_audit_603` only after the actual answer, using
 only the Council Facilitator and a fresh serialized allocation.
 
-At published `2426f88`, both wordlists passed; record CI38748205134 failed only
+At published `077197e6`, both wordlists passed; record CI38766203570 failed only
 outstanding audit cadence (16 completed closures, threshold12). All other record
 steps passed. Cheap pre-push checks remain required; do not call overall CI green.
 

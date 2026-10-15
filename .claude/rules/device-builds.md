@@ -66,11 +66,17 @@ Keep a running build's tracked inputs frozen. Build roots are per-device and
 architecture (`build.pixelelated-H700.arm`, `build.pixelelated-H700.aarch64`, …).
 
 A warm cache is reusable after its accepted source/output provenance and the
-changed package/dependency scope are checked. Make independent copies, verify
-their contents and inode separation, and preserve the container path expected
-by generated files. Never hardlink a mutable cache to its accepted predecessor.
-Retire superseded payloads after their immediate verification dependency ends;
-keep compact receipts and required corresponding-source inputs (D-INFRA-022).
+changed package/dependency scope are checked. If the predecessor still needs its
+cache, make an independent copy and verify contents and inode separation. If all
+old cache consumers have finished or been explicitly rebound, the existing
+admitted atomic ownership-transfer route may move the stopped cache on the same
+filesystem. Verify current process/container dependencies, preserve original
+results and old firmware, and record unchanged device/inode at the new path.
+The old cache path then ceases to be runnable; do not create a shared alias or
+fallback copy after a failed move. Preserve the container path expected by
+generated files. Never hardlink mutable caches. Retire superseded payloads after
+their immediate verification dependency ends; keep compact receipts and required
+corresponding-source inputs (D-INFRA-022).
 
 ## The build command
 
