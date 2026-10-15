@@ -1,0 +1,53 @@
+{
+  "durable_copy": {
+    "bytes": 1862,
+    "device": 66304,
+    "gid": 1000,
+    "inode": 111324982,
+    "mode": 436,
+    "mtime_ns": 1792074921392940784,
+    "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-fex-libglvnd-reuse/libglvnd-probe-original.json",
+    "sha256": "2aba531c6df7bb576c5198b4792edd1827e8d3c0bd7a40deb81d891355245e05",
+    "uid": 1000
+  },
+  "exact_bytes_and_mode_uid_gid_mtime_ns_verified": true,
+  "host_metadata_view": {
+    "gid": 1000,
+    "pid_namespace": "pid:[4026531836]",
+    "uid": 1000,
+    "user_namespace": "user:[4026531837]"
+  },
+  "interpretation": "This preserves the original observation, not a rerun. Nested host_python_identity uid/gid65534 remain original sandbox-projected observations; they are not relabeled as actual host ownership.",
+  "new_runtime_or_test_executed": false,
+  "prior_archive_members_rechecked": 24,
+  "prior_outer_seal": "760aed11758590d4f33f64579e2cf703690a5c2fbf7f1bd8c48d8c00317bb25d",
+  "producer_watch_run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T143521Z-7d559a90",
+  "publication_clearance": false,
+  "root_acceptance_archive_member": "root/root-original-acceptance.json",
+  "root_acceptance_original": "/tmp/pix-m7-libglvnd-probe-review-20261015/root-original-acceptance.json",
+  "scope": "Additive exact preservation of the omitted producer-written libglvnd data-only probe. Original archive/member manifest/custody verification remain unchanged.",
+  "source": {
+    "bytes": 1862,
+    "device": 66304,
+    "gid": 1000,
+    "inode": 191679378,
+    "mode": 436,
+    "mtime_ns": 1792074921392940784,
+    "path": "/workspace/tmp/pix-m7-fex-libglvnd-nar-probe-20261015-01.json",
+    "sha256": "2aba531c6df7bb576c5198b4792edd1827e8d3c0bd7a40deb81d891355245e05",
+    "uid": 1000
+  },
+  "source_after_readback": {
+    "bytes": 1862,
+    "device": 66304,
+    "gid": 1000,
+    "inode": 191679378,
+    "mode": 436,
+    "mtime_ns": 1792074921392940784,
+    "path": "/workspace/tmp/pix-m7-fex-libglvnd-nar-probe-20261015-01.json",
+    "sha256": "2aba531c6df7bb576c5198b4792edd1827e8d3c0bd7a40deb81d891355245e05",
+    "uid": 1000
+  },
+  "unchanged_original_archive_sha256": "76a22d1144f11596698db0d00266cf97965328b9d002fb69c0cbf793921b3018",
+  "utc": "2026-10-15T15:03:01.851220+00:00"
+}

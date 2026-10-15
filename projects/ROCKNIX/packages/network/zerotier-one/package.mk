@@ -5,7 +5,7 @@
 
 PKG_NAME="zerotier-one"
 PKG_VERSION="1.16.0"
-# Core code only; ext/ and nonfree/ have separate terms (#528).
+# Core code only; ext/ has separate terms. Nonfree controller omitted (#528).
 PKG_LICENSE="MPL-2.0"
 PKG_SHA256="aa9de313d365bf0efb3871aaa56f2d323a08f46df47b627c4eff4f4203fa7fc5"
 PKG_SITE="https://www.zerotier.com"
@@ -15,9 +15,14 @@ PKG_LONGDESC="A Smart Ethernet Switch for Earth"
 PKG_TOOLCHAIN="manual"
 
 
-pre_unpack() {
-    mkdir -p ${PKG_BUILD}
-    tar --strip-components=1 -xf $SOURCES/${PKG_NAME}/${PKG_NAME}-${PKG_VERSION}.tar.gz -C ${PKG_BUILD} ZeroTierOne-${PKG_VERSION}
+unpack() {
+    # The client does not build the separately licensed controller (#528).
+    # Override extraction once so its headers cannot enter the build tree.
+    mkdir -p "${PKG_BUILD}"
+    tar --strip-components=1 --exclude="ZeroTierOne-${PKG_VERSION}/nonfree" \
+        -xf "${SOURCES}/${PKG_NAME}/${PKG_NAME}-${PKG_VERSION}.tar.gz" \
+        -C "${PKG_BUILD}" "ZeroTierOne-${PKG_VERSION}"
+    [ ! -e "${PKG_BUILD}/nonfree" ] && [ ! -L "${PKG_BUILD}/nonfree" ]
 }
 
 

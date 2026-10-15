@@ -1,178 +1,243 @@
 # Saved Session State
 
-Updated 2026-10-15 14:00 UTC. Continue authorized M7 toward the next pixelelated0.0.1 RC.
-Last published source7ef32024bd7b7801187fd3f870b8343f6f693b43 on next and
-feature/m7-final-qualification-02. New source/custody evidence is awaiting commit.
-No host collector/build/VM currently runs or has an unconsumed admission.
+Updated 2026-10-15 16:03 UTC. No active runtime or unconsumed admission.
+Previous full checkpoint: `.github/sessions/archived/saved-session-state-next-20261015T151902Z.md`.
 
 ## Start here
 
-pixelelated is a complete immutable Linux OS build system, not an application.
-Use /workspace/repos/rocknix.worktrees/m7-player-setup on
-feature/m7-final-qualification-02. The harness cwd conflict-resolution is a
-historical checkout and must remain untouched. Primary /workspace/repos/rocknix
-stays on next. Read AGENTS.md, every-session .claude/rules and scoped rules before
-edits; current coordinator rules match next. The live M7 milestone body owns order;
-docs/releases/next-candidate-work.md carries dated readiness and evidence links.
-Full prior handoff is archived at .github/sessions/archived/saved-session-state-next-20261015T135315Z.md.
+Continue authorized M7 work toward the next pixelelated 0.0.1 release candidate.
+This repository builds a complete immutable Linux distribution. The user asks us
+to keep the remaining lanes progressing, not merely report status.
 
-The user asks to keep all authorized M7 lanes moving toward another candidate.
-Ordinary scoped commits, pushes, tracker updates and internal parallel workers are
-authorized. Root alone allocates serialized runtime jobs; preserve original exit
-channels and consume each job through ordinary build-admission. Do not mutate
-running tools. Tools/watch-build records status; it does not notify chat. Actively
-supervise at <=60s and announce actual completion. Saving does not pause work.
-No new device/cloud mutation, external audit transfer, upstream contact or release
-publication authority is implied. Existing pending questions below remain pending.
+Use `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
+`feature/m7-final-qualification-02`. The historical harness checkout at
+`conflict-resolution` remains untouched. Primary `/workspace/repos/rocknix` stays
+on `next`. Read `AGENTS.md`, every-session rules and applicable scoped rules from
+`next`; coordinator instruction files currently match. The live M7 milestone
+body owns priority order; `docs/releases/next-candidate-work.md` records readiness.
+Use `git log -1` and remote readback for the publication head rather than assuming
+this checkpoint's containing commit was already pushed.
 
-## Current focus and next actions
+Ordinary scoped commits, pushes, issue/milestone maintenance and internal parallel
+workers are authorized. Root allocates serialized runtime jobs. Preserve original
+exit channels and consume every admitted job before another allocation. Never
+modify a running tool, prefill a launcher's receipts, or replay completed tests
+for cleaner paperwork. `watch-build` records status; active root supervision at
+intervals of at most 60 seconds is the current completion delivery mechanism.
+Saving this checkpoint does not pause authorized work.
 
-1. FEX remaining-five-source continuation04 is being prepared by source_custody_delta after
-   three consumed failures. Read the released exact packet/diff, run its guards,
-   verify host curl and originals, prepare fresh owner/preflight/retention/admission,
-   launch and actively supervise. Do not replay held Linux/glibc/GCC. No allocation yet.
-2. dolphin_ra_init prepares source-only named Koko editing-source custody, first
-   checking existing manifests. No archive download/runtime allocated to worker.
-3. frame_diff_review released stopped FEX continuation03 custody at
-   docs/qa-logs/2026-10-15-fex-source-continuation03/ (seal f4c5957f). Root verified
-   all 167 original bytes/modes/uid/gid/nsmtime. The worker is idle.
-4. Finish finite source/notice materialization and exact mapping, then independent
-   retrieval/off-host custody. Existing #344/#563 physical/native, #265 security,
-   #337/#359 docs/identity/publication gates remain; #585 upstream follow-up follows
-   initial current build proof and requires posting authority.
-5. #603 external audit may proceed only after the specific pending transfer answer.
-   Do not turn an audit packet or primary review into a completed external audit.
+## Current source work
 
-## Actual FEX source outcomes
+The final four FEX archives passed at `145813Z-213c4a9b` and were consumed as
+`457dc1e425334ee282ea44505ba64482`. All eight current header-source archives now
+match their exact pins, totaling 270,251,656 bytes. Five earlier acquisition runs
+remain failed, with their successful partial downloads preserved. Do not download
+the held archives again. See `docs/qa-logs/2026-10-15-fex-source-continuation06/`.
+The successful current collector is owner suffix06 under `/workspace/tmp/`.
 
-All13 generated sources, accepted ELF readback and selected header notices are
-already retained. Runtime ArchLinux guest rootfs differs from Nix build sysroot;
-no unspecified guest image or full compiler closure gate is added. Three historical
-archives are reused by exact reference. Separate phaseB Nixpkgs/libglvnd/22patch
-custody is source-only/paused. Recursive NAR and normalized fetchpatch hashes are
-not flat HTTP-body checksums.
+The exact Nixpkgs tree and 20 held patches passed custody at
+`150157Z-c3055ad7`, consumed `d199008ea21d4b3a90188dbdc34dd38b`.
+The 195,961,000-byte canonical NAR matches
+`b705cf16a16caeb639af6f1987b1e89a0729da050c06043a5834bdf10ff7c452`.
+Destination `/workspace/artifacts/pixelelated-release-sources/m7-fex-held-source-20261015-01`
+holds 197,942,059 bytes, manifest
+`02f6bcd1d4b3a7f589fda15ca29c5520aeae0ddc5312b77b6302d23b2684a604`.
+The accepted libglvnd data-only probe reproduces its selected recursive hash from
+the held archive; no new download is needed. Its actual receipt is included in
+`docs/qa-logs/2026-10-15-fex-libglvnd-reuse/`.
 
-First source packet /tmp/pix-m7-fex-source-acquisition-20261015 seal854ce160.
-48 guards passed; actual20261015T132811Z-4942e582 failed1/0/1 + launcher1.
-Linux6.16.7 completed152,673,392B SHA256
-5be3daa1f9427b1bdb34c4894d9c1adfac38cff674376fe0611a3065729a1a81.
-Held /workspace/tmp/pix-m7-fex-source-acquisition-20261015-01/archives/
-01-linux-6.16.7.tar.xz-0.body. Libdrm then curl35/HTTP0/emptybody, connection reset.
-Clean cleanup; consumed66b1fc67 at13:29:59. Compact fex-source-acquisition seal4b47ab29,
-146 originals independently root-verified. Preserve actual successful Linux receipt
-without relabelling overall failed run.
+Both normalized FEX patch outputs are now verified and retained by offline run
+`152840Z-b3a8aaf1`, consumed `a411e5039539450b8e744758bd9f99f6`.
+Large-file219B SHA `63a602cddfe36755593fd6c59479078f34b04a15de03b88959dc9fc69813da5d`
+and meson620B SHA `233cf3f489f9dd6ec20befa4d5b2ebefc892ae6c69166d5c1fca9c4a9a6da144`
+match the original canonical hashes. The former is the exact219-byte suffix of
+the bound290-byte intermediate after its exact71-byte Git-header prefix;
+meson is unchanged raw bytes. No new download or tool execution was needed.
+The five-file custody destination is
+`/workspace/artifacts/pixelelated-release-sources/m7-fex-normalized-patches-20261015-01`,
+manifest `648e044b5b9945828b8c82b7cdf5fe1125f8ad8d2d476b2ae9d309aeb6bd7ea5`.
+It also retains the original large-file author/context response and intermediate.
+See `docs/qa-logs/2026-10-15-fex-patch-byte-custody/`.
+The earlier normalizer run `151501Z-6dcae797` stays failed1/0/1, with its seven
+child exits0 and consumed `3b38d221fb5f4d3cb7e83845e290780f`. There is no general
+patchutils-version equivalence claim. All current FEX source collection inputs
+are held; complete delivery/profile assembly remains separate.
 
-Second packet /tmp/pix-m7-fex-source-acquisition-continuation-20261015 seal31fb9a8b.
-48 fresh guards134321Z-4ce71167, preparation134430Z-7728b91e and retention134526Z-
-3c794698 all0. Owner /workspace/tmp/pix-m7-fex-source-acquisition-20261015-02.
-Actual134634Z-fc71de07 finished13:46:39 original1/0/1, launcher/wrapper/inner/outer1.
-Held Linux reverified; first glibc request curl0/HTTP302/166B redirected to
-mirror.team-cymru.com outside explicit allowlist. Guard refused before mirror
-contact, zero new archives completed. Clean original process custody; ordinary
-failure consumption6aeb1bc3 complete. Failure evidence
-/tmp/pix-m7-fex-continuation-failure-review-20261015; root controls/preparation
-/tmp/pix-m7-fex-continuation-root-review-20261015. These are frozen for frame custody.
-Source03 must use a precisely supported direct GNU route, preserve both failures,
-subtract166B from unchanged cumulative384MiB limit and keep libdrm last. No automatic
-retry, guessed host/TLS downgrade, extraction, source execution or owner reuse.
+Koko editing-source acquisition and independent immutable custody are complete.
+All five objects total 47,056,031 bytes. The four archive listings identify XCF
+projects; the 87-byte monitor note specifies RGBA 8bpc export. No artwork was
+regenerated. The 13-file destination is
+`/workspace/artifacts/pixelelated-release-sources/m7-koko-editing-source-20261015-01`,
+manifest `2167cfd870b6cc185cc7c3bf3de449924ddaf72e0785e017b6afb703949548fd`.
+Acquisition `142837Z-8b38993b` and custody `144912Z-00b3e226` passed all originals
+and were consumed. Three selected profiles and their image/source/notice mappings
+are retained in `docs/qa-logs/2026-10-15-koko-editing-source/`.
 
-Third packet /tmp/pix-m7-fex-source-acquisition-continuation03-20261015 seal615aa8fe.
-Exact unchanged48guard results134321Z reused; no repeat controls. Preparation
-135409Z-0afe0f47 and retention135512Z-075fc2a5 passed. Actual135604Z-3268d507
-ended13:56:55 original1/0/1+launcher1. Bothglibc18,752,204B SHA19a890175e9263d748f627993de6f4b1af9cd21e03f080e4bfb3a1fac10205a2
-andGCC95,212,220B SHAe0dc77297625631ac8e50fa92fffefe899a4eb702592da5c32ef04e2293aca3a
-successfully acquired and rootreverified. Wayland thenreturned302173B to allowed
-GitLab, then302727B tofsn1.your-objectstorage.com outsideallowlist. Refusedbefore
-storagecontact; signedURLprivate. Noerror/survivor/timeout, consumed53728e36.
-Owner /workspace/tmp/pix-m7-fex-source-acquisition-20261015-03 remainsheld.
-Rootfailure /tmp/pix-m7-fex-continuation03-failure-review-20261015; source04 binds
-preciseobservedstoragehostname andthree successfulpriorarchives, countsall1066B
-redirectsplusbodies againstunchanged384MiBcap. No wholefamilyreplay.
+## ZeroTier candidate and next executable proof
 
-Koko source-onlyproposal /tmp/pix-m7-koko-editing-source-plan-20261015 sealc36a6296
-identifiesfiveexplicitmissingbindings47,056,031B; no global/nestedabsenceclaim.
-ExactGitblobAPIrequests,GitobjectversusflatSHAchecksandfourbounded7zlistings
-proposed. Dolphinpreparesconcretederivative; nofetch/listing/runtimeallocated.
-No sixthlooseXCF, extraction, image regeneration ornewpermissiongate.
+The selected client excludes controller objects but includes three nonfree
+headers. The one-file candidate guards those includes and pointer lifetimes with
+existing feature macros and incorporates upstream's narrow destructor fix.
+Candidate source: `/tmp/pix-m7-zerotier-header-resolution-20261015`, seal
+`770f89c532532e7c87f0237fb7003752ace19d83ad44f8739c2ce99e6581d235`.
+Patch SHA `5fe6dcc77910a0faf40fa2e9bcb09e918632d0ed2880fd7b30efdeb335c34ad5`.
+The exact patch is now integrated in the working feature checkout, together with
+a single filtered `unpack()` override. Pin, flags and install behavior stay fixed.
+Package lint and actual new-hook extraction/patch verification pass; affected
+package/image refresh remains due.
 
-## Shader and ABL findings
+First isolated attempt `150258Z-e90e5744` failed before the compiler because its
+extractor expected 21 excluded entries while the exact archive index contains 22.
+All 3,764 index entries and the 59,336,122-byte total matched. Preserve original
+command/monitor/runner 1/0/1, attach/container 1 and watchdog 0. Clean closure and
+ordinary failed-investigated consumption `ca06eb56b44440c7b30aa11cd192780e` are
+retained in `docs/qa-logs/2026-10-15-zerotier-compile-failure01/`.
+Corrected compile02 used source packet
+`/tmp/pix-m7-zerotier-compile-plan-20261015-02`, seal
+`f4d18a41e3c7960659964b04b0f7ec4f33ff9ab53c5c70793435305b7a4b907c`.
+Actual `151203Z-e2399d5a` compiled and linked successfully in33.652 seconds
+(recipe0), then source/dependency readback failed1 on a doubled libnatpmp path.
+Its combined outcome remains1/0/1, consumed
+`b4f1025d4ecb491088316269b99386f0`, with clean owned process/container closure.
+Evidence is `docs/qa-logs/2026-10-15-zerotier-compile-readback-failure/`.
+Retain owner02's existing source/objects/binary for the next read-only proof.
 
-#604 closed completed13:18:12 after published7ef correction,25 controls/full18,523
-mapping pass and all three literal criteria. Original failed analysis is retained.
-Closure/delivery compact shader-helper-closure seale0659acf. This later helper is
-outside #603's frozen67-criterion audit packet.
-Shader notice family review: shader-notice-disposition seale382129a; eightfamilies,
-1,664members and127fulltexts. Heuristic6,273entries are not6,273newlicense gates.
-Focused primary follow-up: shader-provenance-followup seal439a3256,12responses.
-Final inclusion: shader-distribution-disposition seal1ef7cc13. Apply settled
-D-WORKFLOW-084/097/131 noncommercial scope to68CC-BY-NC-SA members, preserving exact
-credits/versions/modification/ShareAlike conditions. D-INFRA-016 is observability
-only. Four Koko JPEGs included under suppliedGPL subproject scope with distinct
-existing exceptions retained; no four new approval gates. Named editing-source
-custody and one uncertain MAME adaptation remain. Current MAME BSD does not
-establish the intervening older Shadertoy adaptation grant; cited page returned403.
-No feature removal or universal regeneration requirement.
+Independent reader03 `154224Z-03885bf5` now passes every original channel,
+including source reader/readelf, attach/container/watchdog and launcher/runner.
+Consumed `2210f6a47b6a4ca1a6b380d8f3b9ad1c`; no active runtime remains.
+Exact packet `/tmp/pix-m7-zerotier-readback-plan-20261015-03`, seal
+`fbf8b07fb7727331abd00ba02951a1720993f42f4f196f90d13cbab4146ce611`.
+Owner `/workspace/tmp/pix-m7-zerotier-readback-20261015-03` retains113 object units,
+1,161 dependency paths and the unchanged2,180,776-byte target
+`dd84354af5a6ea19e694845d0edfa0f9743f6176c5ddca5389bee82b1bbb96a8`.
+Container work2.433s, peak41,136,128B. No nonfree inputs, target execution or
+recompilation. Compact result: `docs/qa-logs/2026-10-15-zerotier-reader-accepted/`.
 
-ABL locator compact abl-source-locator sealb2672de7,37originals rootverified.
-SelectedSM binary SHA8c27a70961476b327071ada2fd9b9c55dd2dcdc913eff3d33f2576133d7e398c
-binds release1.2 to LinuxLoader e9d37131c0c2273076468156fb0f87aa6834202b.
-Package tag0e755e15 has packaging only and private recursive source clone workflow.
-Exact public commit search13:28 returned HTTP200/total_count0/incompletefalse;
-not worldwide absence proof. OpenABL78b81b58 has differentbinary/source and is not
-corresponding source for selectedABL. Accessible exactsource/recursiveinputs/build
-instructions remain needed. ROCKNIX/abl issues and discussions are disabled.
-No outreach, replacement adoption or source clearance claimed.
+Reader01 `153108Z-9f9cdb27` failed before children because its reused inspector
+still expected4GiB while the container requested1GiB. Original cleanup and
+watchdog failed; root separately removed the exactly identified stopped
+container and verified process absence. Consumed `8a82b1f0f75d48ef8d5609d54210a7db`.
+Reader02 `153523Z-c31e9a39` then failed on an incomplete object map:89 C/C++ .d
+files omit24 assembly objects. Clean closure, consumed `730a3ac7843a44fbbc0c527d6faf12c2`.
+The final reader binds all original115 compile/assembly lines to113 final objects,
+with exact compiler cwd and no assembly include/incbin directives. Both failed
+readers remain in separate compact records and are not relabelled successful.
+#528 comment6195190315 records the host proof scope.
 
-## Accepted work that must not be replayed
+Actual package unpack/standard patch and filtered source custody now pass.
+Run `160042Z-e5dbbb7d` completed all three children and every original lifecycle
+channel with exit0; clean process/container closure, consumed
+`73fc106aa55d48c69633210a84cc6bbe`. Work took2.056 seconds, peak126,361,600B.
+Packet `/tmp/pix-m7-zerotier-unpack-custody-plan-20261015-01` seal
+`162d3aeddd59f6ad052ed1d954f4710f215b5d09d2e4f59bb31380a04cb7b837`.
+The exact adopted recipe extracts once and the standard patch command produces
+all3,208 files/five symlinks matching the compiled candidate. The source archive
+was fully re-read. No compiler or target execution occurred in this source check.
+Deliverable remains held at
+`/workspace/tmp/pix-m7-zerotier-source-custody-20261015-01/work/deliverable/`:
+archive14,194,934B SHA
+`10273d138a6c3c4d74468550965e06886f0b094167a7a0e23be157453e8a762a`,
+manifest `ab56a4822e6c283797de055f2b6205077ab1cb8fb58cc28888840c4697949729`.
+It is a separately named patched client source, retaining all other upstream
+files/notices. Preserve it until independent delivery/retrieval acceptance.
+Compact original evidence: `docs/qa-logs/2026-10-15-zerotier-unpack-custody/`.
 
-Firmware VM/H700f8636de1d105275dbf9420bbabbbc26f79abb10f; ES16dbac5211eea7e70db7394372033be2be7df829.
-SM9aa7affee9d4ad5e69725cab20b6d7ad84d93dea differs only by ABL archive checksum.
-Runtime control /workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02 stays frozen.
-H700 m7-pixelelated-h700-04; SM m7-pixelelated-sm8550-05. Their independent engineering
-acceptance is complete; original SM producer1/0/1 retained separately from accepted
-reader. Five-profile inventory complete, publicationfalse/commonRCnull. No newdeploy.
-Devices still runbc9d tested October11 baseline, not f863/9aa.
+Next: commit/push this source and evidence, then transfer stopped warm-cache
+ownership using the existing atomic route to frozen build worktrees. Clean only
+ZeroTier in GENERIC_X64 x86_64, H700 aarch64 and SM8550 aarch64, then ordinary
+image assembly and exact readback. Both ARM companion profiles omit ZeroTier;
+reuse their existing caches. No unrelated clean or FEX/Nix rebuild is justified.
+`m7_source_resume_review` is preparing the finite existing-adapter plan, not
+running a build. Existing engineering images remain bound to their old source.
 
-#588startup/#570boundedbrowser/#565clean/retainedstate controls closed. Browser normal
-handoff saves about78MiB in VM; no universalDropboxcure. Proxy lazybytecode390KiB not
-adopted. Historical Nova metadata writer remains unknown; protections are delivered.
-#349guide closed. #558shutdown/#561LED are watches; #587proxypause/#576GTK4/#568progress/
-#562integrity/#586credentials/#560fastshutdown remain backlog, not added RC gates.
+## Remaining source and release order
 
-Additive custody123,085,928B retained under /workspace/artifacts/pixelelated-release-sources/
-m7-additive-source-20261015-01, manifestd94a901a;2366rows606archives43Gitroots.
-Tailscale custody169,377,272B m7-tailscale-source-20261015-01 manifestfb6fe7b7;
-89ZIPs/89indices/130notices/sixmaps, all314files verified. Hold originals; no redundant
-source downloads or payload cleanup before source/release disposition.
-Doom1.9/ENDOOM free-distribution notice retained, vendor-doc question scoped to charged
-bundle/diskvending. FreeJ2ME exactvendor notices retained with inheritedMPEG question;
-ZeroTier selectednonfreecontroller exclusion evidence distinct from header wording.
+1. Commit the verified ZeroTier unpack/patch and filtered source result, then
+   qualify affected package/image artifacts using the stopped warm caches.
+   FEX collection and ZeroTier dependency readback are complete. Existing
+   engineering images cannot be relabelled or assumed changed.
+2. Resolve the remaining exact ABL implementation and one MAME shader adaptation,
+   then assemble complete applicable sources/notices and exact profile maps.
+3. Verify independent retrieval and off-host custody under #528. Existing
+   additive and Tailscale source custody remain accepted; no whole compiler
+   closure or unspecified runtime guest image is added as a new gate.
+4. Complete #603's external audit after its actual pending transfer answer.
+5. Continue the existing #344/#563 physical/native, #265 security, #337/#359
+   documentation/identity/publication requirements. #585 now includes the focused ZeroTier correction; upstream work follows
+   initial current build proof and needs applicable outward-contact authority.
 
-## Audit, delivery and pending inputs
+ABL's selected binary SHA starts `8c27a709`; its LinuxLoader implementation is
+`e9d37131c0c2273076468156fb0f87aa6834202b`. ROCKNIX/abl contains packaging and a
+private source-clone workflow; its issues/discussions are disabled. Bounded exact
+public search found no result, not worldwide absence. OpenABL is a different
+binary/source candidate, not corresponding source for the selected payload.
 
-#603 primary67criteriaPASS over15completed issues at frozen
-cdd92f10605517e789e09d13b6f4ba68573c2617. Phases1–4.5complete; noexternalcall/Phase5marker.
-Existing pending Fable5.1/OpenRouter question covers blind790371B SHA
-3da1c2290b787fc113a3bb5809ce11fd7acfe68b7bb717bc404d6203c9350345,
-refutationbase922168B SHA
-80450a6e6249f9b34e0a7cb6740dd268ea1b4bbbcc99b35077c0641e4d7ccdcc,
-plus verified sanitized blindresponse<=131072B. Prior permissions were different
-packets. Only council Facilitator invocation; no ad-hoc provider. Resume same
-m7_handoff_audit_603 orchestrator after actual answer and fresh serialized allocation.
+JLayer's explicit later LGPL grant/source history and Doom's free-distribution
+notice have finite retained dispositions; charged disk vending remains separate.
+ZeroTier's nonfree wording expressly covers paid and unpaid distribution. Newly
+prepared public evidence excludes full nonfree header copies. Earlier published
+historical diagnostic copies remain untouched and need a separate delivery
+review; no history rewrite or license-clearance claim is authorized.
+The uncertain MAME adaptation is distinct from current MAME's BSD source.
 
-7ef hosted nextrecord38741103629 failed only auditcadence15closed/threshold12;
-nextwordlist38741103758 andfeaturewordlist38740360622 succeeded. All other record
-checks passed. #604 closure may make the next count16; never call overall CI green.
-Normal cheap pre-push gate still applies; no bypass. CI originals in closurepacket.
+## Accepted engineering evidence — do not replay
 
-Existing pending root terminal request:
-bash /tmp/pix-m7-stopped-media-root-readback-terminal-20261015/commands.sh
-Read-only five stopped files, no deletion. About2TBfree, nonblocking. Do notduplicate
-question. Source-owner contact question also remains unapproved; no outreach.
+Frozen runtime control:
+`/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02`, commit
+`f8636de1d105275dbf9420bbabbbc26f79abb10f`.
+VM/H700 use that source; SM uses `9aa7affee9d4ad5e69725cab20b6d7ad84d93dea`,
+with only the ABL archive-checksum difference. ES is
+`16dbac5211eea7e70db7394372033be2be7df829`.
+These are accepted engineering artifacts, not a common public RC identity.
+Devices still run the October11 `bc9d` baseline; no new deployment occurred.
 
-#528/M7 fresh bodies updated/readback13:49UTC; five publicationcriteria unchanged.
-Compact source-progress-followup seal03cc539f retains before/after and rootcustodyproof.
-Current internal workers named above are not visible Herdr panes. The historical
-Herdr experiment lanes are idle; no off-session notifier is claimed.
-Host uid/gid1000,pidns4026531836,userns4026531837. Sandbox may showuid65534; use host
-context for actual process/metadata and writes outside permittedcwd. Do notprinttokens.
+H700 independent acceptance, SM independent reader/acceptance, portable Steam VM
+proof and all five profile inventories are complete and consumed. The original
+SM combined producer's 1/0/1 remains separate from its accepted later reader.
+#588 startup, #570 bounded browser and #565 clean/retained controls are closed.
+Normal browser handoff saved about 78 MiB in the VM; this is not a universal
+Dropbox cure. Lazy proxy bytecode saved only 390 KiB and was not adopted.
+The original writer of Nova historical metadata remains unknown; clean/retained
+state protections are delivered. #349 setup guide is closed.
+#558 shutdown/#561 LED remain watches. #587 proxy pause/#576 GTK4/#568 progress/
+#562 integrity/#586 developer credentials/#560 fast shutdown are backlog.
+
+## Audit, CI and actual pending requests
+
+#603 primary review passed all 67 literal criteria across 15 completed issues at
+frozen `cdd92f10605517e789e09d13b6f4ba68573c2617`. Phases 1–4.5 are complete;
+no external call or Phase 5 completion marker exists. #604 is later separate work.
+Durable audit resume: `docs/audits/2026_10_15-milestone-603-completed-handoff/`,
+especially `second-opinions/transfer-request.md`.
+The existing pending Fable/OpenRouter question covers blind packet 790,371 bytes,
+SHA `3da1c2290b787fc113a3bb5809ce11fd7acfe68b7bb717bc404d6203c9350345`,
+and refutation base 922,168 bytes,
+SHA `80450a6e6249f9b34e0a7cb6740dd268ea1b4bbbcc99b35077c0641e4d7ccdcc`,
+plus the verified sanitized blind response up to 131,072 bytes. Prior approvals
+cover different packets. Do not duplicate the question or infer approval from
+time passing. Resume `m7_handoff_audit_603` only after the actual answer, using
+only the Council Facilitator and a fresh serialized allocation.
+
+At published `2426f88`, both wordlists passed; record CI38748205134 failed only
+outstanding audit cadence (16 completed closures, threshold12). All other record
+steps passed. Cheap pre-push checks remain required; do not call overall CI green.
+
+The other pending request is the root-only stopped-media read:
+`bash /tmp/pix-m7-stopped-media-root-readback-terminal-20261015/commands.sh`.
+It reads five stopped files and deletes nothing. About 2 TB is free; this is
+nonblocking. The earlier checkpoint's assertion of a third pending contact
+request was unsupported at that time. After that checkpoint root actually issued a new async
+question covering both prepared GitHub source requests: legacy ABL to @spycat88
+on the ROCKNIX transition commit, and the MAME-derived shader declaration to
+@hunterk on the Slang introduction commit. The answer remains pending; no contact
+is authorized or sent. Exact drafts and channel/evidence references:
+`docs/qa-logs/2026-10-15-source-contact-drafts/`. Original packet:
+`/tmp/pix-m7-abl-mame-contact-options-20261015`, seal
+`5de60eb4cc8c8f17c301d7029cce8fbef0b9c44a2bc664861364965338723e9d`.
+Do not duplicate any of these three pending requests.
+
+Host uid/gid are 1000, PID namespace4026531836 and user namespace4026531837.
+Use actual host context for process/metadata checks; sandbox views may map owners
+to65534. Preserve secrets and raw signed HTTP streams outside Git. Internal
+workers are not visible Herdr panes; historical Herdr lanes remain idle. No
+background build or notification service is implied by a saved checkpoint.

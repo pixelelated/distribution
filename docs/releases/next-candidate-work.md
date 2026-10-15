@@ -11,6 +11,52 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 16:03 UTC — ZeroTier extraction and source archive verified (#528)
+
+The actual adopted package extraction and standard patch command pass. All 3,208
+source files and five symlinks match the successfully compiled candidate; the
+separately named patched source archive passed a complete member readback.
+[Original run and custody evidence](../qa-logs/2026-10-15-zerotier-unpack-custody/README.md)
+retain all original exit codes and clean process/container closure.
+
+Next is the affected package/image refresh for GENERIC_X64, H700 and SM8550,
+using transferred warm caches. Only ZeroTier needs an explicit clean; both ARM
+companion profiles omit it. Existing images remain unchanged until refreshed
+and independently read back. This source check did not run the target program.
+
+The [two source request drafts](../qa-logs/2026-10-15-source-contact-drafts/README.md)
+are prepared, with a newly issued approval request pending. No upstream message
+was sent. The existing external audit transfer and stopped-media read requests
+also remain pending; independent authorized build/source work continues.
+
+## 2026-10-15 15:44 UTC — FEX inputs held; ZeroTier compile/readback accepted (#528)
+
+All eight FEX header-source archives, exact Nixpkgs snapshot, twenty held patches
+and [both canonical normalized patches](../qa-logs/2026-10-15-fex-patch-byte-custody/README.md)
+are verified and retained. Earlier download/normalization failures remain separate.
+[Koko editing sources and mappings](../qa-logs/2026-10-15-koko-editing-source/README.md)
+are also retained. Complete source/notice assembly and delivery remain due.
+
+The ZeroTier candidate compiled without the nonfree subtree. Its [independent
+reader](../qa-logs/2026-10-15-zerotier-reader-accepted/README.md) now passes113
+object units,1,161 dependency paths, ELF/CLI inspection and all original lifecycle
+channels. Two reader failures exposed inconsistent resource expectations and
+missing assembly-object coverage; both remain recorded. No good compile was repeated.
+
+The exact client-header patch and a single filtered extraction are integrated in
+the working feature checkout; package lint passes. Next are actual unpack/patch
+validation, a separately identified filtered source deliverable, then changed
+package/image qualification for GENERIC_X64/H700/SM8550 native profiles. Their
+ARM companions omit ZeroTier. Existing engineering images remain unchanged.
+The future focused contribution is now recorded in #585.
+
+One MAME adaptation, exact ABL implementation source, complete source/notices,
+independent retrieval/off-host custody, the pending #603 external audit and the
+existing physical/native/security/documentation/publication requirements remain.
+The [audit transfer request](../audits/2026_10_15-milestone-603-completed-handoff/second-opinions/transfer-request.md)
+has a durable resume location. Published2426 wordlists passed; record CI fails only
+audit cadence. No new device deployment or public RC designation.
+
 ## 2026-10-15 13:53 UTC — finite source gaps and original download failures (#528, #604)
 
 [Shader inclusion](../qa-logs/2026-10-15-shader-distribution-disposition/README.md)

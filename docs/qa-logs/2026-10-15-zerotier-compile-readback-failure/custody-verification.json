@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-15T15:18:02.079580+00:00",
+  "status": "PASS_EXACT_ARCHIVE_AND_ORIGINALS",
+  "members": 176,
+  "files": 163,
+  "archive_bytes": 362039,
+  "archive_sha256": "bc84e625da3bc7dfbae59923b7b0f3d4c09d290914cfbebf1d587d34046cbe5c",
+  "original_file_bytes": 2596701,
+  "source_seal_sha256": "f4d18a41e3c7960659964b04b0f7ec4f33ff9ab53c5c70793435305b7a4b907c",
+  "source_payload_files": 36,
+  "original_runner_result": [
+    1,
+    0,
+    1
+  ],
+  "admission_consumed_id": "b4f1025d4ecb491088316269b99386f0",
+  "recipe_original_exit": 0,
+  "recipe_elapsed_seconds": 33.652323484420776,
+  "source_readback_original_exit": 1,
+  "excluded": [
+    "owner/work including extracted source, object files, and compiled binary",
+    "source archive and frozen toolchain/cache payloads"
+  ],
+  "publication_clearance": false,
+  "scope": "Custody verification only; no compiler, reader, runtime, admission, or cleanup executed."
+}

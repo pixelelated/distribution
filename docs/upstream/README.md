@@ -113,3 +113,27 @@ the later OpenABL replacement and corresponding-source review under #559's
 incoming integration policy. It does not widen this checksum repair or add a
 new M7 build gate. Existing #528 source/notice/publication holds remain open;
 no upstream submission is claimed or newly authorized.
+
+### October15 — ZeroTier client header isolation (#528)
+
+Queue the [one-file ZeroTier candidate](../qa-logs/2026-10-15-zerotier-header-candidate/README.md)
+for ZeroTier/ZeroTierOne, with a focused ROCKNIX package backport if applicable.
+The selected `one` client excludes controller objects but still includes three
+nonfree controller headers. Existing controller macros can guard those includes
+and pointer lifetimes. Upstream's narrow destructor correction is incorporated;
+the retained latest-stable/current-file comparison still shows the broader gap.
+
+The candidate compiled and linked in the isolated GENERIC_X64 recipe with the
+nonfree directory absent. Independent readback now passes all113 object units,
+1,161 dependency paths and target ELF inspection. Original failed readers remain
+separate. The exact patch and a single filtered unpack override are integrated in
+the feature checkout. Package lint and actual unpack/standard patch verification
+pass; the separately identified filtered source archive matches all3,208 files
+and five links and passed full member readback. Affected package/image
+qualification remains due before this proposed contribution is ready. Accepted engineering
+images are not relabelled. Refresh current upstream/duplicates before a future
+submission; no external contact or PR is authorized by this queue entry.
+
+The earlier #600 paragraph's fresh-build wording is historical: the SM8550
+build and independent artifact acceptance have since completed. The reused
+upstream checksum correction still needs no duplicate outgoing PR.

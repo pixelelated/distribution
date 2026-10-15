@@ -1,0 +1,81 @@
+--- a/service/OneService.cpp
++++ b/service/OneService.cpp
+@@ -9,6 +9,9 @@
+ #include <algorithm>
+ #include <exception>
+ #include <map>
++#include <memory>
++#include <set>
++#include <sstream>
+ #include <stdint.h>
+ #include <stdio.h>
+ #include <stdlib.h>
+@@ -123,9 +126,15 @@
+ 
+ using json = nlohmann::json;
+ 
++#ifdef ZT_NONFREE_CONTROLLER
+ #include "../nonfree/controller/EmbeddedNetworkController.hpp"
++#endif
++#ifdef ZT_CONTROLLER_USE_LIBPQ
+ #include "../nonfree/controller/PostgreSQL.hpp"
++#endif
++#if defined(ZT_NONFREE_CONTROLLER) || defined(ZT_CONTROLLER_USE_LIBPQ)
+ #include "../nonfree/controller/Redis.hpp"
++#endif
+ #include "../osdep/EthernetTap.hpp"
+ #ifdef __WINDOWS__
+ #include "../osdep/WindowsEthernetTap.hpp"
+@@ -824,7 +833,9 @@
+ 	const std::string _networksPath;
+ 	const std::string _moonsPath;
+ 
++#ifdef ZT_NONFREE_CONTROLLER
+ 	EmbeddedNetworkController* _controller;
++#endif
+ 	Phy<OneServiceImpl*> _phy;
+ 	Node* _node;
+ 	bool _updateAutoApply;
+@@ -926,7 +937,9 @@
+ 	volatile bool _run;
+ 	Mutex _run_m;
+ 
++#if defined(ZT_NONFREE_CONTROLLER) || defined(ZT_CONTROLLER_USE_LIBPQ)
+ 	RedisConfig* _rc;
++#endif
+ 	std::string _ssoRedirectURL;
+ 
+ #ifdef ZT_OPENTELEMETRY_ENABLED
+@@ -943,7 +956,9 @@
+ 		, _controllerDbPath(_homePath + ZT_PATH_SEPARATOR_S "controller.d")
+ 		, _networksPath(_homePath + ZT_PATH_SEPARATOR_S "networks.d")
+ 		, _moonsPath(_homePath + ZT_PATH_SEPARATOR_S "moons.d")
++#ifdef ZT_NONFREE_CONTROLLER
+ 		, _controller((EmbeddedNetworkController*)0)
++#endif
+ 		, _phy(this, false, true)
+ 		, _node((Node*)0)
+ 		, _updateAutoApply(false)
+@@ -976,7 +991,9 @@
+ 		, _vaultPath("cubbyhole/zerotier")
+ #endif
+ 		, _run(true)
++#if defined(ZT_NONFREE_CONTROLLER) || defined(ZT_CONTROLLER_USE_LIBPQ)
+ 		, _rc(NULL)
++#endif
+ 		, _ssoRedirectURL()
+ #ifdef ZT_OPENTELEMETRY_ENABLED
+ 		, _traceProvider(nullptr)
+@@ -1033,8 +1050,12 @@
+ #ifdef ZT_USE_MINIUPNPC
+ 		delete _portMapper;
+ #endif
++#ifdef ZT_NONFREE_CONTROLLER
+ 		delete _controller;
++#endif
++#if defined(ZT_NONFREE_CONTROLLER) || defined(ZT_CONTROLLER_USE_LIBPQ)
+ 		delete _rc;
++#endif
+ 	}
+ 
+ 	void setUpMultithreading()
