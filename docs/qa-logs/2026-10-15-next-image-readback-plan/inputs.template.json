@@ -1,0 +1,19 @@
+{
+  "scope": "completed image identity and selected installed mappings; no runtime qualification",
+  "build_owner": "/workspace/tmp/pix-m7-engineering-build-20261015-01",
+  "build_run": null,
+  "source": null,
+  "verifier_sha256": "8b7a371eb6c59b601674ae694d0b098f7e4a4731f02484efafa564be6ecc0484",
+  "work_seconds": 1500,
+  "cleanup_seconds": 15,
+  "host_cpu_affinity": [
+    0
+  ],
+  "per_process_virtual_memory_bytes": 8589934592,
+  "scratch_ceiling_bytes": 25769803776,
+  "evidence_basis": "Existing verifier max raw16GiB+SYSTEM4GiB+kernel128MiB+bounded small receipts. No compilation, VM, service, mount or provider.",
+  "status": "TEMPLATE_ONLY_UNRUN",
+  "run_script_sha256": "1c75d87333ad6aa20405f0474d3448bfc8144ecc5c96a790934e84ff52408be0",
+  "dolphin_sys_manifest_sha256": "b67f6590214e8b551baf2fafa726818c6b5eade1a6f339b08f1bc978f090d16f",
+  "binding_requirement": "Coordinator records actual completed build-inputs.json SHA, source, build timestamp and run.path after original build success/consumption; verifier independently rechecks originals and derives actual image names/hashes at execution. No predicted image/output identity is accepted."
+}

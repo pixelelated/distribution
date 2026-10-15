@@ -1,0 +1,89 @@
+{
+  "status": "STATIC_SOURCE_REVIEW_ONLY",
+  "runtime_status": "UNRUN_NEW_IMAGE_PENDING",
+  "python_ast_parsed": [
+    "census.py",
+    "close.py",
+    "guest-manifest.py",
+    "guest-owner.py",
+    "guest-proof.py",
+    "prepare-vm.py",
+    "vm-lifecycle.py"
+  ],
+  "unchanged_guest_definitions": [
+    "require",
+    "sha",
+    "write",
+    "identity",
+    "census",
+    "Endpoint",
+    "Handler"
+  ],
+  "byte_identical_files": [
+    "census.py",
+    "guest-manifest.py",
+    "run-guest.sh"
+  ],
+  "vm_lifecycle_change": "one final frozen source HEAD assertion; process/network/media/control body otherwise byte-identical",
+  "close_custody_export_body": "byte-identical outside case acceptance block",
+  "installed_case_count": 3,
+  "pinned_resources": 6,
+  "pinned_resource_bytes": 38905,
+  "previous_original_badge_failures": {
+    "candidate-disabled": {
+      "Default player badge 'achievements_player.png' failed to load": 1,
+      "Default game badge 'achievements_game.png' failed to load": 1,
+      "Default unlocked achievement badge 'achievements_unlocked.png' failed to load": 1,
+      "Default locked achievement badge 'achievements_locked.png' failed to load": 1
+    },
+    "candidate-enabled": {
+      "Default player badge 'achievements_player.png' failed to load": 1,
+      "Default game badge 'achievements_game.png' failed to load": 1,
+      "Default unlocked achievement badge 'achievements_unlocked.png' failed to load": 1,
+      "Default locked achievement badge 'achievements_locked.png' failed to load": 1
+    },
+    "candidate-failed-boot": {
+      "Default player badge 'achievements_player.png' failed to load": 1,
+      "Default game badge 'achievements_game.png' failed to load": 1,
+      "Default unlocked achievement badge 'achievements_unlocked.png' failed to load": 1,
+      "Default locked achievement badge 'achievements_locked.png' failed to load": 1
+    }
+  },
+  "qualified_original_argv_equal": true,
+  "qualified_original_no_nic": true,
+  "helper_sha256": "5b058ed8a8b11135cd5997e3d925939baff30726033125acf1244863a756318d",
+  "profile_sha256": "26c420ecb0cc7aae29050554c55f522e62337cf6726619a59337c073f1c65406",
+  "candidate_entrypoints_executed": false,
+  "runtime_imports_executed": false,
+  "listener_or_vm_or_test_or_compiler_executed": false,
+  "old_cache_reads_finished": true,
+  "pending": [
+    "final build and source commit",
+    "final readback with six selected products",
+    "actual new installed executable SHA",
+    "admission and serialized allocation",
+    "runtime and original-channel review"
+  ],
+  "shell_syntax": "bash -n run-guest.sh: exit 0; parsing only",
+  "secret_policy_revision": {
+    "reason": "Parent normal pre-commit refused credential-shaped synthetic literal; no commit occurred",
+    "previous_seal_sha256": "70c6b0a35842fcdd718dfdec6999ce684f9d0206f74be7098249340b08e9f229",
+    "only_executable_source_change": "TOKEN value is constructed by joining three literal pieces with underscore",
+    "same_effective_fixture_bytes": true,
+    "effective_fixture_bytes": 20,
+    "effective_fixture_sha256": "49ae47317c1196eb9638ed9a6cd47682df945a67342233d1383bac6a269051ae",
+    "proof": "AST literal/Call/Attribute/tuple structure inspection; join performed on inspected literals only; whole module AST identical after restoring prior value node",
+    "original_runtime_scripts": 7,
+    "original_archive_member_identity_verified": true,
+    "diff_decompressed_identity_verified": true,
+    "no_hook_or_preparer_or_vm_execution": true,
+    "existing_bounds_and_endpoint_assertions_unchanged": true,
+    "plaintext_pattern_scan": {
+      "patterns_path": ".githooks/secret-patterns",
+      "patterns_sha256": "57fd72093984263035b0b547965ef2a524badbebbf2b8f5aa96c3a7d51e1b61a",
+      "method": "read-only rg -n -I over packet plaintext, excluding gzip and PNG bytes",
+      "original_returncode": 1,
+      "meaning": "no matches; no pre-commit hook or index action executed"
+    }
+  }
+}

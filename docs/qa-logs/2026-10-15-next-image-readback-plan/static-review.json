@@ -1,0 +1,34 @@
+{
+  "status": "PASS_STATIC_ONLY",
+  "utc": "2026-10-15T01:17:10.280614+00:00",
+  "python310_ast": "PASS (source parsed, not imported)",
+  "bash_n": "PASS (syntax only; no script execution)",
+  "unchanged_helper_ast": [
+    "digest",
+    "record",
+    "git",
+    "process_gone",
+    "copy_bounded",
+    "gpt",
+    "link_chain"
+  ],
+  "json_parse": "PASS",
+  "manifest_hash_matches_verifier_constant": true,
+  "six_exact_selected_rows_and_target_modes": true,
+  "argparse_namespace_assignments": [
+    131
+  ],
+  "old_cache_path_not_opened_by_derivative": true,
+  "original_qualified_receipts_inspected": {
+    "artifact_result": "PASS",
+    "command_monitor_runner": [
+      0,
+      0,
+      0
+    ],
+    "admission_state": "consumed",
+    "original_verifier_hash_matches_inputs": true
+  },
+  "new_artifact_reader_or_framework": false,
+  "execution": "UNRUN: no verifier/preparer/census/admission/image-reader/build/container/VM/fixture or product import"
+}

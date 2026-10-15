@@ -1,0 +1,164 @@
+{
+  "status": "CLEAR_WITH_STATED_SCOPE",
+  "root": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/build.pixelelated-GENERIC_X64.x86_64",
+  "root_identity": {
+    "device": 66304,
+    "inode": 111174037
+  },
+  "host_pid_namespace": 4026531836,
+  "utc_epoch": 1792026790.8680327,
+  "process_matches": [],
+  "process_errors": [
+    {
+      "pid": 2325,
+      "error": "PermissionError"
+    },
+    {
+      "pid": 2342,
+      "error": "PermissionError"
+    },
+    {
+      "pid": 564119,
+      "error": "PermissionError"
+    },
+    {
+      "pid": 1943851,
+      "error": "PermissionError"
+    },
+    {
+      "pid": 2590490,
+      "error": "PermissionError"
+    },
+    {
+      "pid": 2739866,
+      "error": "PermissionError"
+    }
+  ],
+  "docker_all_mounts": [],
+  "active_admissions": [],
+  "remaining_consumers": [],
+  "prepared_consumers_resolved": true,
+  "consumer_assessment": [
+    {
+      "owner": "root",
+      "status": "closed or rebound",
+      "basis": "Completed Dolphin relink/startup and Steam source/runtime/export are consumed. Prior source readbacks copied; next native fixture will receive fresh new-image/checkout binding; old prepared native owner remains unrun. Old target artifacts and tracked checkout remain in place."
+    },
+    {
+      "owner": "m7_audit_resume",
+      "status": "closed",
+      "basis": "Agent reports primary source review settled, no open source lead; copied10namedfrozenDolphinfiles with manifest to independent/tmp audit store."
+    },
+    {
+      "owner": "frame_diff_review",
+      "status": "closed",
+      "basis": "Agent copied six resources/source evidence and exact pin verification; new preparation binds supplied finalcheckout/readback, no oldcache read remains."
+    },
+    {
+      "owner": "dolphin_ra_init",
+      "status": "closed",
+      "basis": "Agent copied six source resources, blob/mode/hash manifest and priorverifier; nextreadback binds onlynewcompletedbuild."
+    }
+  ],
+  "excluded_from_fd_scope": [
+    {
+      "pid": 2325,
+      "original_error": "PermissionError",
+      "exists": true,
+      "comm": "systemd",
+      "state": "S",
+      "ppid": 1,
+      "start_ticks": "795",
+      "uid": 1000,
+      "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/init.scope",
+      "argv_command": "/usr/lib/systemd/systemd",
+      "cwd_error": "PermissionError",
+      "root_error": "PermissionError",
+      "exe_error": "PermissionError",
+      "assessment": "Protected user-session manager/PAM service, explicit exclusion from this scoped same-UID FD census. No compile/VM role; readable descendants were covered."
+    },
+    {
+      "pid": 2342,
+      "original_error": "PermissionError",
+      "exists": true,
+      "comm": "(sd-pam)",
+      "state": "S",
+      "ppid": 2325,
+      "start_ticks": "796",
+      "uid": 1000,
+      "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/init.scope",
+      "argv_command": "(sd-pam)",
+      "cwd_error": "PermissionError",
+      "root_error": "PermissionError",
+      "exe_error": "PermissionError",
+      "assessment": "Protected user-session manager/PAM service, explicit exclusion from this scoped same-UID FD census. No compile/VM role; readable descendants were covered."
+    },
+    {
+      "pid": 564119,
+      "original_error": "PermissionError",
+      "exists": true,
+      "comm": "ssh-agent",
+      "state": "S",
+      "ppid": 564115,
+      "start_ticks": "795045",
+      "uid": 1000,
+      "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/gcr-ssh-agent.service",
+      "argv_command": "/usr/bin/ssh-agent",
+      "cwd_error": "PermissionError",
+      "root_error": "PermissionError",
+      "exe_error": "PermissionError",
+      "assessment": "Protected credential agent, explicit exclusion from FD scope. No cache producer role; no process modification or root-FD claim."
+    },
+    {
+      "pid": 1943851,
+      "original_error": "PermissionError",
+      "exists": true,
+      "comm": "sshd-session",
+      "state": "S",
+      "ppid": 1943707,
+      "start_ticks": "111645353",
+      "uid": 1000,
+      "cgroup": "0::/user.slice/user-1000.slice/session-1111.scope",
+      "argv_command": "sshd-session: max@notty",
+      "cwd_error": "PermissionError",
+      "root_error": "PermissionError",
+      "exe_error": "PermissionError",
+      "assessment": "Freshly identified protected SSH transport service, explicit exclusion from FD scope for atomic owned-cache relocation only. Its readable session descendants were covered; no corresponding deletion exemption."
+    },
+    {
+      "pid": 2590490,
+      "original_error": "PermissionError",
+      "exists": true,
+      "comm": "exo-open",
+      "state": "Z",
+      "ppid": 119991,
+      "start_ticks": "86921233",
+      "uid": 1000,
+      "cgroup": "0::/user.slice/user-1000.slice/session-3.scope",
+      "argv_command": "",
+      "cwd_error": "FileNotFoundError",
+      "root_error": "FileNotFoundError",
+      "exe_error": "FileNotFoundError",
+      "assessment": "Exited zombie has no live address space or open file descriptors; it is not a live cache consumer."
+    },
+    {
+      "pid": 2739866,
+      "original_error": "PermissionError",
+      "exists": true,
+      "comm": "exo-open",
+      "state": "Z",
+      "ppid": 119991,
+      "start_ticks": "87108365",
+      "uid": 1000,
+      "cgroup": "0::/user.slice/user-1000.slice/session-3.scope",
+      "argv_command": "",
+      "cwd_error": "FileNotFoundError",
+      "root_error": "FileNotFoundError",
+      "exe_error": "FileNotFoundError",
+      "assessment": "Exited zombie has no live address space or open file descriptors; it is not a live cache consumer."
+    }
+  ],
+  "original_readback": "/workspace/tmp/pix-m7-next-cache-transfer-20261015-01/dependency-readback.json",
+  "original_readback_sha256": "ebbb2c84930147e6d8e300a3e03e35fb5fc93e7be3464fc86de5a42f2914e9dd",
+  "scope": "All readable host argv; same-UID cwd/root/fd/maps; all Docker container mounts. No whole-host root-only FD census. Atomic relocation of completed owned build cache, not deletion. Six fresh identity/state/cgroup exclusions above; original errors retained, not a whole-host root-only FD census or a deletion authorization."
+}

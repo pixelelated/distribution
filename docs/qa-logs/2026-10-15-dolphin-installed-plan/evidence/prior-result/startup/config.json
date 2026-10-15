@@ -1,0 +1,48 @@
+{
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+  "coordinator_commit": "d3e684dd4b0a3e312a004c5f29396378e09294d2",
+  "commit": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+  "es_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "vnc": 135,
+  "helper": "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+  "image": {
+    "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261014T230300Z.gfac608ff8994-from-ROCKNIX.img.gz",
+    "bytes": 2122142712,
+    "sha256": "d816d36abc66b292500b0719e672c98c33eb0cd4fc7fc0bf19f7e26e4108bb16"
+  },
+  "system": {
+    "bytes": 2073137152,
+    "sha256": "ddeca0768aa0ee74f5b1cf6557d8a3cb165a89cff542d646d1f16c136726f9fc"
+  },
+  "verification_sha256": "748ee36035166f2f5c437c168b02f9de77f9c761b4196fa0ff1618834376ab28",
+  "verification_inputs_sha256": "f8f1734baa5504774bd71c743257861b1b1850ca560a8b511ba14cdaa074ac46",
+  "case_seal": "67b132ded50bcc36206f0875220eacbf5e057b6537036faf3d67b996e29837b8",
+  "tools": {
+    "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm": "5b058ed8a8b11135cd5997e3d925939baff30726033125acf1244863a756318d",
+    "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/profile.json": "26c420ecb0cc7aae29050554c55f522e62337cf6726619a59337c073f1c65406",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/vm-serial": "1fed507a546a9c23fdc360012ccc6ffadc2793fabaa137ff2dc73141bdc2c921",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/vm-stop": "2e4314cd63ff4f476c8ce1376e9f1ed262f2467789ec339b3855ddedc16213e8",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/watch-build": "44a6d87505fd6a465c384d2f30bfeda5f4fe436978d227d8b0c4bae73da7e0bc",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/watch-job": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/watch-build-submit": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e"
+  },
+  "code": {
+    "vm-lifecycle.py": "61bc21178adcc25d506b30ed9f2a4f25f11718df50726c482711620bf3f2ca02",
+    "close.py": "aebfb7e30dc46255ddcb4c86752d7d87b9796537d033b8e2a77683b34e124a89",
+    "census.py": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2"
+  },
+  "source": {
+    "case/SHA256SUMS": "67b132ded50bcc36206f0875220eacbf5e057b6537036faf3d67b996e29837b8",
+    "case/guest-proof.py": "4242bedc130db5cb3f72cee433bfbdb9083dc31fc137202aa431778d9556d99e",
+    "case/inputs.json": "7ab5c820f5ff85c44c5294b593a50f586a2b6273f5bb77a2d9ca63750f6bcf4e",
+    "case/run-guest.sh": "8572da07f7b93bd64e388dd3c0ef88d1cc4c7d1ed4a7b0608775278018bbab06",
+    "owner/binding.json": "adc3314d83505e6af03ca3f0da61ba2f738adb13252a7786861cbd548e1f2ad5",
+    "owner/census.py": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2",
+    "owner/guest-manifest.py": "7c6001ce47901e62da2c311779beb3fa1856dfaa7f7f5a5f739956b336738c10",
+    "owner/guest-owner.py": "618b5b709af8b8c2c131956faf77e9cc042a123adb76393fc90beb38fded9441"
+  },
+  "work_seconds": 1200,
+  "cleanup_seconds": 120,
+  "guest_case_seconds": 180,
+  "guest_owner_seconds": 210
+}

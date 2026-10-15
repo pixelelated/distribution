@@ -1,0 +1,203 @@
+{
+  "schema": "pix572-atomic-cache-transfer-v1",
+  "status": "PASS",
+  "method": "same-filesystem-rename",
+  "copy_performed": false,
+  "old": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/build.pixelelated-GENERIC_X64.x86_64",
+  "new": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/build.pixelelated-GENERIC_X64.x86_64",
+  "source_head": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+  "destination_head": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+  "product_sha256": {
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk": "cc4e7458e99329518b30b7f78aa38e149d083427f3c8b7e22d7f5e1090d2479b",
+    "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/patches/018-nogui-achievements-lifecycle.patch": "bc1d04f688f85ff3fc49a81fa40625d08c8f7839aa81e46baee6b50b443ee5f0",
+    "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh": "cefb22a50db915be1637e682dfba047789b276144bbe707220a2b4117c7a3264"
+  },
+  "renamed": true,
+  "utc_start_epoch": 1792026850.1126676,
+  "watched_run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011409Z-40cfe728",
+  "before_identity": {
+    "device": 66304,
+    "inode": 111174037
+  },
+  "dependency_readback": {
+    "path": "/workspace/tmp/pix-m7-next-cache-transfer-20261015-01/dependency-assessed.json",
+    "sha256": "5b3452584684e7f036f441855edeaf0132c0bbb8c0fac01184a256053ea1391c",
+    "readback": {
+      "status": "CLEAR_WITH_STATED_SCOPE",
+      "root": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/build.pixelelated-GENERIC_X64.x86_64",
+      "root_identity": {
+        "device": 66304,
+        "inode": 111174037
+      },
+      "host_pid_namespace": 4026531836,
+      "utc_epoch": 1792026790.8680327,
+      "process_matches": [],
+      "process_errors": [
+        {
+          "pid": 2325,
+          "error": "PermissionError"
+        },
+        {
+          "pid": 2342,
+          "error": "PermissionError"
+        },
+        {
+          "pid": 564119,
+          "error": "PermissionError"
+        },
+        {
+          "pid": 1943851,
+          "error": "PermissionError"
+        },
+        {
+          "pid": 2590490,
+          "error": "PermissionError"
+        },
+        {
+          "pid": 2739866,
+          "error": "PermissionError"
+        }
+      ],
+      "docker_all_mounts": [],
+      "active_admissions": [],
+      "remaining_consumers": [],
+      "prepared_consumers_resolved": true,
+      "consumer_assessment": [
+        {
+          "owner": "root",
+          "status": "closed or rebound",
+          "basis": "Completed Dolphin relink/startup and Steam source/runtime/export are consumed. Prior source readbacks copied; next native fixture will receive fresh new-image/checkout binding; old prepared native owner remains unrun. Old target artifacts and tracked checkout remain in place."
+        },
+        {
+          "owner": "m7_audit_resume",
+          "status": "closed",
+          "basis": "Agent reports primary source review settled, no open source lead; copied10namedfrozenDolphinfiles with manifest to independent/tmp audit store."
+        },
+        {
+          "owner": "frame_diff_review",
+          "status": "closed",
+          "basis": "Agent copied six resources/source evidence and exact pin verification; new preparation binds supplied finalcheckout/readback, no oldcache read remains."
+        },
+        {
+          "owner": "dolphin_ra_init",
+          "status": "closed",
+          "basis": "Agent copied six source resources, blob/mode/hash manifest and priorverifier; nextreadback binds onlynewcompletedbuild."
+        }
+      ],
+      "excluded_from_fd_scope": [
+        {
+          "pid": 2325,
+          "original_error": "PermissionError",
+          "exists": true,
+          "comm": "systemd",
+          "state": "S",
+          "ppid": 1,
+          "start_ticks": "795",
+          "uid": 1000,
+          "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/init.scope",
+          "argv_command": "/usr/lib/systemd/systemd",
+          "cwd_error": "PermissionError",
+          "root_error": "PermissionError",
+          "exe_error": "PermissionError",
+          "assessment": "Protected user-session manager/PAM service, explicit exclusion from this scoped same-UID FD census. No compile/VM role; readable descendants were covered."
+        },
+        {
+          "pid": 2342,
+          "original_error": "PermissionError",
+          "exists": true,
+          "comm": "(sd-pam)",
+          "state": "S",
+          "ppid": 2325,
+          "start_ticks": "796",
+          "uid": 1000,
+          "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/init.scope",
+          "argv_command": "(sd-pam)",
+          "cwd_error": "PermissionError",
+          "root_error": "PermissionError",
+          "exe_error": "PermissionError",
+          "assessment": "Protected user-session manager/PAM service, explicit exclusion from this scoped same-UID FD census. No compile/VM role; readable descendants were covered."
+        },
+        {
+          "pid": 564119,
+          "original_error": "PermissionError",
+          "exists": true,
+          "comm": "ssh-agent",
+          "state": "S",
+          "ppid": 564115,
+          "start_ticks": "795045",
+          "uid": 1000,
+          "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/gcr-ssh-agent.service",
+          "argv_command": "/usr/bin/ssh-agent",
+          "cwd_error": "PermissionError",
+          "root_error": "PermissionError",
+          "exe_error": "PermissionError",
+          "assessment": "Protected credential agent, explicit exclusion from FD scope. No cache producer role; no process modification or root-FD claim."
+        },
+        {
+          "pid": 1943851,
+          "original_error": "PermissionError",
+          "exists": true,
+          "comm": "sshd-session",
+          "state": "S",
+          "ppid": 1943707,
+          "start_ticks": "111645353",
+          "uid": 1000,
+          "cgroup": "0::/user.slice/user-1000.slice/session-1111.scope",
+          "argv_command": "sshd-session: max@notty",
+          "cwd_error": "PermissionError",
+          "root_error": "PermissionError",
+          "exe_error": "PermissionError",
+          "assessment": "Freshly identified protected SSH transport service, explicit exclusion from FD scope for atomic owned-cache relocation only. Its readable session descendants were covered; no corresponding deletion exemption."
+        },
+        {
+          "pid": 2590490,
+          "original_error": "PermissionError",
+          "exists": true,
+          "comm": "exo-open",
+          "state": "Z",
+          "ppid": 119991,
+          "start_ticks": "86921233",
+          "uid": 1000,
+          "cgroup": "0::/user.slice/user-1000.slice/session-3.scope",
+          "argv_command": "",
+          "cwd_error": "FileNotFoundError",
+          "root_error": "FileNotFoundError",
+          "exe_error": "FileNotFoundError",
+          "assessment": "Exited zombie has no live address space or open file descriptors; it is not a live cache consumer."
+        },
+        {
+          "pid": 2739866,
+          "original_error": "PermissionError",
+          "exists": true,
+          "comm": "exo-open",
+          "state": "Z",
+          "ppid": 119991,
+          "start_ticks": "87108365",
+          "uid": 1000,
+          "cgroup": "0::/user.slice/user-1000.slice/session-3.scope",
+          "argv_command": "",
+          "cwd_error": "FileNotFoundError",
+          "root_error": "FileNotFoundError",
+          "exe_error": "FileNotFoundError",
+          "assessment": "Exited zombie has no live address space or open file descriptors; it is not a live cache consumer."
+        }
+      ],
+      "original_readback": "/workspace/tmp/pix-m7-next-cache-transfer-20261015-01/dependency-readback.json",
+      "original_readback_sha256": "ebbb2c84930147e6d8e300a3e03e35fb5fc93e7be3464fc86de5a42f2914e9dd",
+      "scope": "All readable host argv; same-UID cwd/root/fd/maps; all Docker container mounts. No whole-host root-only FD census. Atomic relocation of completed owned build cache, not deletion. Six fresh identity/state/cgroup exclusions above; original errors retained, not a whole-host root-only FD census or a deletion authorization."
+    }
+  },
+  "original_build_consumption": {
+    "path": "/workspace/tmp/pix-m7-engineering-build-20261014-02/consumption-evidence.json",
+    "sha256": "534904fd5754e5c3b5fbb7b49353c7d3934a96847c1d218084fcbf4c9aa189fa"
+  },
+  "old_target_identity": {
+    "device": 66304,
+    "inode": 141047831
+  },
+  "after_identity": {
+    "device": 66304,
+    "inode": 111174037
+  },
+  "utc_finish_epoch": 1792026851.1951723
+}

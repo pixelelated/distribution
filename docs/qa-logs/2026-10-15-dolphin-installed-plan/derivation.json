@@ -1,0 +1,29 @@
+[
+  {
+    "path": "prepare-vm.py",
+    "basis_sha256": "63b0eedfd3dfb7eb373a1fd4d4d82002d0fd90cd98da0b30a813ca5cc5f1879a",
+    "derived_sha256": "1938aa6e088c8c9c1cdc5090962fcff8b5f774fb279b750019051f43e87bee89"
+  },
+  {
+    "path": "guest-proof.py",
+    "basis_sha256": "4242bedc130db5cb3f72cee433bfbdb9083dc31fc137202aa431778d9556d99e",
+    "derived_sha256": "ac21c37e9dc6280ec8a7034b1a8d044f196937cd21c095a4dea3cb72378994f4",
+    "diff": "guest-proof.py.diff.gz",
+    "decompressed_diff_sha256": "7f2d1b93457616ecefc61732498384b2249b24af71d54706647fd5e6807bff57"
+  },
+  {
+    "path": "guest-owner.py",
+    "basis_sha256": "618b5b709af8b8c2c131956faf77e9cc042a123adb76393fc90beb38fded9441",
+    "derived_sha256": "0a44b7d4af87a3be0de0919966d67f78ef6e30ff4afb19b78436230b01bc06f4"
+  },
+  {
+    "path": "vm-lifecycle.py",
+    "basis_sha256": "61bc21178adcc25d506b30ed9f2a4f25f11718df50726c482711620bf3f2ca02",
+    "derived_sha256": "ed9394afa94738f51c89121575bc5b3e010002096829d494f88dca39c2635a70"
+  },
+  {
+    "path": "close.py",
+    "basis_sha256": "aebfb7e30dc46255ddcb4c86752d7d87b9796537d033b8e2a77683b34e124a89",
+    "derived_sha256": "a8d06a60edfd8d12fba145727e2c8ef1a64f438548f99d6c3e06d77333b0b18d"
+  }
+]

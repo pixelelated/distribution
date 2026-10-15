@@ -1,0 +1,28 @@
+--- qualified/guest-owner.py
++++ installed/guest-owner.py
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python3
+-"""UNRUN derivative of qualified #584 owner: four bounded Dolphin startup observations, then compact export."""
++"""UNRUN derivative of qualified #584 owner: three installed Dolphin startup observations, then compact export."""
+ import ctypes,hashlib,json,os,shutil,signal,subprocess,sys,time
+ from pathlib import Path
+ HERE=Path(__file__).resolve().parent
+@@ -45,7 +45,7 @@
+             except subprocess.TimeoutExpired:report['timed_out']=True;raise
+         require(report['original_child_exit']==0,'original case failed; no retry')
+         observed=json.loads((R/'result.json').read_text())
+-        require(observed['status']=='PASS' and len(observed['rows'])==4,'startup proof did not pass')
++        require(observed['status']=='PASS' and len(observed['rows'])==3,'startup proof did not pass')
+         report['status']='PASS'
+     except BaseException as exc:
+         report['error']=type(exc).__name__+': '+str(exc)
+@@ -74,8 +74,7 @@
+         if report['signals'] or report['cleanup_errors'] or report['reaped'] or report.get('remaining_children')!=[]:report['status']='FAIL'
+         signal.alarm(20)
+         try:
+-            # Retain original small channels and the four consumed inputs; never
+-            # export the writer's unused32MiB GC/helper artifacts as new proof.
++            # Retain original small channels, installed-resource readbacks and the self-authored DOL.
+             copied=[];total=0
+             for path in sorted(R.rglob('*')):
+                 if not path.is_file():continue

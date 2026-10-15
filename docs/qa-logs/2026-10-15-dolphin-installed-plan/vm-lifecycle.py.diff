@@ -1,0 +1,10 @@
+--- qualified/vm-lifecycle.py
++++ installed/vm-lifecycle.py
+@@ -87,6 +87,7 @@
+     assert sha(R/'records/final-image-result.json')==C['verification_sha256']
+     assert sha(R/'records/final-image-inputs.json')==C['verification_inputs_sha256']
+     assert call('source-head',['git','-C',TREE,'rev-parse','HEAD'],10).strip()==C['coordinator_commit']
++    assert call('frozen-source-head',['git','-C',C['frozen_checkout'],'rev-parse','HEAD'],10).strip()==C['commit']
+     image=Path(C['image']['path']);assert image.stat().st_size==C['image']['bytes'] and sha(image)==C['image']['sha256']
+     # Stage only the sealed case, its existing public inputs, final receipt and small owner.
+     payload=V/'input-tree';base=payload/'installed-native';base.mkdir(parents=True)

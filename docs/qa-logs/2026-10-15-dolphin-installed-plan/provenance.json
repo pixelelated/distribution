@@ -1,0 +1,31 @@
+{
+  "source_only": true,
+  "prepared_owner": false,
+  "prior_qualified_packet": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-dolphin-startup-result",
+  "prior_result_manifest_sha256": "5831b6b2065560834c98cad8b49a3a2eee0999854db2f226d5bcf7892ecc4116",
+  "prior_original_records_archive_sha256": "1f5e433471fc7f4f6bdec1fff36b3424325ad2974bf5b87a18e9af7d0c58c938",
+  "prior_guest_records_archive_sha256": "95a88d098d38b0c8f3caf4869a34ee32c1811bfabcaae6c10b9d5b056756cf0b",
+  "original_runtime_sources_byte_verified": true,
+  "dolphin_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+  "resource_evidence": "Six git show <pin>:Data/Sys/<suffix> blobs byte-compared with former unpacked source before cache consumer release; copied here",
+  "old_cache_consumer": "CLOSED; no live child/open input/future old-cache read; next owner binds explicit new frozen checkout",
+  "source_recipe_sha256": "cc4e7458e99329518b30b7f78aa38e149d083427f3c8b7e22d7f5e1090d2479b",
+  "archive_is_runtime_result": false,
+  "original_runtime_source_archive": "originals/original-runtime-sources.tar.gz",
+  "original_runtime_source_member_manifest": "originals/runtime-source-members.json",
+  "previous_uncommitted_packet_archive": "history/source-packet-before-secret-policy.tar.gz",
+  "secret_policy_revision": {
+    "reason": "Parent normal pre-commit refused credential-shaped synthetic literal; no commit occurred",
+    "previous_seal_sha256": "70c6b0a35842fcdd718dfdec6999ce684f9d0206f74be7098249340b08e9f229",
+    "only_executable_source_change": "TOKEN value is constructed by joining three literal pieces with underscore",
+    "same_effective_fixture_bytes": true,
+    "effective_fixture_bytes": 20,
+    "effective_fixture_sha256": "49ae47317c1196eb9638ed9a6cd47682df945a67342233d1383bac6a269051ae",
+    "proof": "AST literal/Call/Attribute/tuple structure inspection; join performed on inspected literals only; whole module AST identical after restoring prior value node",
+    "original_runtime_scripts": 7,
+    "original_archive_member_identity_verified": true,
+    "diff_decompressed_identity_verified": true,
+    "no_hook_or_preparer_or_vm_execution": true,
+    "existing_bounds_and_endpoint_assertions_unchanged": true
+  }
+}

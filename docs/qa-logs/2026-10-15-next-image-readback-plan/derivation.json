@@ -1,0 +1,30 @@
+{
+  "status": "SOURCE_ONLY_UNRUN",
+  "utc": "2026-10-15T01:16:31.982261+00:00",
+  "actual_qualified_predecessor": "/workspace/tmp/pix-m7-image-readback-20261014-02",
+  "original_files": {
+    "admission-consumed.json": "5b17366cacd53381e98e70db94441809ea6a08734dde0a8bb75ca1a287ef5234",
+    "admission-plan.json": "5b8e11d3ec5a52916bc44d04a693ed36f673a8ef58e5a9e36078d2c0b830a7be",
+    "artifact-inputs.json": "f8f1734baa5504774bd71c743257861b1b1850ca560a8b511ba14cdaa074ac46",
+    "artifact-result.json": "748ee36035166f2f5c437c168b02f9de77f9c761b4196fa0ff1618834376ab28",
+    "completed-readback.json": "f764850ddac953218bc28764826f02b5ea63d07334e13c291883ae2d1e220b73",
+    "consumption-evidence.json": "ecde7e678fcac752081a3b66caf45dd4ba2cdb459a601237628a4c817e38dcdd",
+    "inputs.json": "e5cf33334061a9b27c19386976a12c756007cc9e06a0809af31abe8e314c2a58",
+    "launcher-result.json": "e8cf462a0a587608e2141c34052c4094462862fbc50d668c2be64d8ca8ac6256",
+    "retention-plan.json": "e3fbcc5a19510a16e90d72842007fc70a05def6265333b297b8f9f8af21d4620",
+    "run.path": "ed1f9be599d8771b7a09b72c1d280c411f64612c06f577f6ba609cab5bf7036b",
+    "run.sh": "0d16615cf2ebab717da2a90fafff3f4c61415c42b454e88ac6bdaa09f094437e",
+    "runner-result.json": "04f69bb8c06fcc9616033b71d0d19981a731fb1fd7a974c29e61811fb8158982",
+    "selected-product-continuity.json": "7970f19e679a547a6573661a60145bd30e7a9c4a3c7a17151c190f62594c340d",
+    "tool-wrapper.rc": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "verify-image.py": "1f9f47d6ea9ffc009e77032162a965f27e411620d5a4695d09af93411b3967c3"
+  },
+  "proposed_build_owner": "/workspace/tmp/pix-m7-engineering-build-20261015-01",
+  "proposed_output_owner": "/workspace/tmp/pix-m7-image-readback-20261015-01",
+  "future_source_commit": null,
+  "future_build_timestamp": null,
+  "future_image_hash": null,
+  "binding": "Actual completed build-inputs, owner/runner/container/admission-consumed originals and image identity are mandatory. No source/timestamp/artifact result predicted.",
+  "readers": "Original digest/GPT/link-chain helpers unchanged; existing exact-hash pixelelated-state-check Local/Squash only. No new filesystem/image reader.",
+  "source_custody": "Six exact pin Data/Sys hashes and blob/mode identities captured before cache move; all future build-source reads target the new completed cache."
+}

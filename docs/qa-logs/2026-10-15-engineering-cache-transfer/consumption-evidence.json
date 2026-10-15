@@ -1,0 +1,41 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011409Z-40cfe728",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 584,
+      "kind": "build-cache",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/build.pixelelated-GENERIC_X64.x86_64",
+      "release_when": "Immediately queued assembled-image qualification and required corresponding-source custody accepted"
+    },
+    {
+      "issue": 493,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-next-cache-transfer-20261015-01",
+      "release_when": "Original results consumed and compact evidence retained; preserve required corresponding-source inputs"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-next-cache-transfer-20261015-01/transfer-result.json",
+      "sha256": "76c887f31490d569907395124b9f724d66f7c54b1df3bbc52701726355d463f0"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-next-cache-transfer-20261015-01/cache-ready.json",
+      "sha256": "76c887f31490d569907395124b9f724d66f7c54b1df3bbc52701726355d463f0"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-next-cache-transfer-20261015-01/completed-readback.json",
+      "sha256": "d13c736aa6499461b1d2029cb4c1f5178976ac87f9c2dbaa6083bee7bd12a066"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-next-cache-transfer-20261015-01/launcher-result.json",
+      "sha256": "914c043fd6eae50dc7eee846a06157a3b3cbc4c4737e4619ede4400bfb32eb2b"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011409Z-40cfe728/runner-result.json",
+      "sha256": "f6516ed0b06ff83a2d28029ce06d1c2b9c3b9daf881a55e5afb22239e2884e79"
+    }
+  ]
+}

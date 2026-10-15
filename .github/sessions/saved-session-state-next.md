@@ -1,58 +1,62 @@
 # Saved Session State
 
-Updated2026-10-15 01:09UTC. Continue authorized M7 toward next0.0.1 RC; saving is
-not a pause. Coordinator /workspace/repos/rocknix.worktrees/m7-player-setup,
-feature/m7-player-setup. Harness conflict-resolution untouched. Primary next and
-coordinator/primary/remote6616cc36cb plus pending record/tool correction. Frozen image
-fac608ff/ES3178 unchanged. Actual host PID namespace4026531836; escalated exec
-needed for actual host/network/outside-workspace writes. No formal goal.
+Updated 2026-10-15 01:27 UTC. Continue authorized M7 toward next 0.0.1 RC.
+Coordinator /workspace/repos/rocknix.worktrees/m7-player-setup, branch
+feature/m7-player-setup. Harness conflict-resolution untouched. Published source
+and frozen engineering checkout m7-p5-build-20261015-01: d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a;
+ES3178 unchanged. Actual host PID namespace4026531836; escalated exec is required
+for host/network/outside-workspace writes. No formal goal. Saving is not a pause.
 
-## Current work and immediate next action
+## Completed build/readback; installed VM next
 
-No runtime/compiler allocation is active. frame_diff_review prepares source-only
-finalinstalledDolphin3case/resource-readback packet; do notstageitsmovingdirectory. Steam owner02 completed00:57:28,
-all metadata+14 recovery cases PASS, original outer/export channels0, QEMU stopped,
-output unmounted, observed owners absent. Admission9351cef4 consumed qualified.
-Durable originals docs/qa-logs/2026-10-15-steam-remaining-result/; private export
-/workspace/tmp/pix582-metadata-remaining-result-20261015-02. Owner
-/workspace/tmp/pix582-metadata-remaining-vm-20261015-02, run
-20261015T005126Z-af985198 in m7-p5-build-20261014-02. Exportwatch005958Z-f20ee1dc.
-Candidate metadata function with installed curl/Bash is distinct from14 unchanged
-whole-caller synthetic source-chroot cases. No installed/native ARM/FEX claim.
-Five successes0, four refusals1, five recovery1→0. Nine prior cases not replayed.
-Owner01 failed beforeboot on an older helper; preserved/consumed failed separately.
+Engineering owner /workspace/tmp/pix-m7-engineering-build-20261015-01,
+watch 20261015T011511Z-8e690173 completed01:19:49. All clean/build/image stages
+original0, actual owners/containers absent, resources PASS. Admission9b11b86d
+consumed. Identity0.0.1-dev+20261015T011500Z.gd4af5a255f47. Frozen checkout remains
+on its build branch; do not change its source. Cache moved atomically from the
+previous build tree, same inode111174037/device66304; transfer admission5b6ac98a
+consumed. Durable source/custody records identify specific protected-FD exclusions;
+no root-FD census or deletion exception is implied.
 
-1. 6616cc36 was published with all original push/monitor channels0. Commit the
-   reviewed unrun census-variable correction and current records, then publish through normal
-   hooks and verify remote refs. Audit cadence warning is expressly CI-red but
-   nonblocking for fix publication (tools/ceremony-check and ceremonies.md).
-   Do not claim completed audit or green hosted CI. Two unpublished messages were
-   corrected to add#N while preserving tree objects; mapping in
-   docs/qa-logs/2026-10-15-issue-citation-repair/. Originald3e684/956f graph retained
-   at feature/m7-pre-citation-20261015. New9aaaaa/d3dc8276 trees equal originals.
-2. dolphin_ra_init returned sealed source-only minimal engineering runner derivative at
-   /tmp/pix-m7-next-engineering-plan-20261015 and durable
-   docs/qa-logs/2026-10-15-next-engineering-plan/. Sealfdb0838e3353f67a60bb92c691d811c8901f06261ddfebce4c0fa7b7af92741b. Root owns final source binding, new clean build/* checkout,
-   cache custody/preflight/admission/runtime. Expected checkoutm7-p5-build-20261015-01.
-   Retain published-source guard; existing canonical3stages cleanDolphin/buildDolphin/image.
-   Qualified helpers unchanged, only current product delta. Full audit closure is
-   not a prerequisite for the engineering image its installed/native checks need.
-3. Use new image for installed Dolphin enabled/disabled/failedboot smoke, native
-   Wii/Dreamcast gameplay/save proof, affected clean/retained composition checks.
-   Do not replay unchanged accepted broad matrices solely for changed os-release.
-4. Finish#590 Milestone audit then H700 followedbySM8550 under#555. No RC/device
-   release while required criteria remain. Historicaldevice approvals consumed.
+Artifact owner /workspace/tmp/pix-m7-image-readback-20261015-01,
+watch20261015T012056Z-8c15b02d completed01:21:11, original launcher/command/monitor/
+runner0 and actual owners absent. Admission0e9b0800 consumed. Install/update
+SYSTEM and KERNEL equality, GPT/identity/selected product mappings PASS. All six
+Dolphin Sys resource rows resolve through the intended relative immutable link,
+with exact pinned hashes. Runtime qualification is explicitly false.
+
+Next sole runtime: installed Dolphin three-case VM using corrected sealed plan
+446781be3e630f58cbe15c80c1c8c90e7e004ab92c9d08599ecd9252db5461d5 in
+docs/qa-logs/2026-10-15-dolphin-installed-plan/. Synthetic token representation
+was corrected after the normal secret-pattern pre-commit guard; effective bytes
+unchanged and exact original scripts retained compressed. No bypass or runtime
+rerun. Then native gameplay/saves and affected clean/retained composition.
+No H700/SM8550/RC until applicable audit and qualification complete.
+
+External blind audit submitted via primary checkout's installed Facilitator,
+owner /workspace/tmp/pix-m7-fable-blind-20261015-01, launcher2327505. Prompt738861B,
+SHA9cd8004050112faf4b9c88754e5a08924523706f7582faf16bce11b5e0c0506e.
+Pinned Fable5.1/xhigh through OpenRouter, watched record-only. Existing explicit
+user approval to send Fable audit packets and continue M7 covers this sanitized
+source review; no new permission requirement is invented. Submission is not
+completion. Root supervises original outputs; no off-session chat notifier.
+
+Steam owner02completed00:57:28; installed-curl metadata+14source-chrootcasesPASS,
+alloriginalouter/export0, selectedstate restored, QEMU stopped. Admission9351cef4
+consumed. Durable2026-10-15-steam-remaining-result. No nativeARM/FEXSteamclaim;
+GENERIC_X64doesnotpackageinstaller. Nineearliercasesnotreplayed. Originalfailed
+owner01preboot/helpermismatchretained. Threeconfirmedprimaryauditfindings now
+fixedinsource: NoGUIlifecycle, Steambounds, immutableDolphinSysalias#592.
+Primaryforward/reversesource reviewsettled; fullauditcontinues.
 
 ## Parallel ownership
 
 m7_audit_resume exclusively owns docs/audits/2026_10_14-milestone-m7-next-candidate/.
-All115 forwardcriteria +cross-check done; reverse/interactions review ongoing.
+All115 forwardcriteria and reverse/interactions review complete; external phase pending.
 Reverse review found#592 missing compiled immutable Dolphin Sys path; root
 filedissue and addedrelativeimmutablealias, pkgcheck0. Finalinstalledproofpending.
 OriginalDolphinlifecycle andSteammetadata findingsalsofixed. AC063nativecapability remainsPARTIAL pending existingnativeproof.
-Never stage/commit activeauditdir. No Fabletransfer yet; actual primaryslug unknown,
-no external independent-model claim. Newexact sanitizedpacketsneedtheir concrete
-transfer authorization; historical packet approvals do not covernewpackets.
+Never stage/commit active audit directory. Fable blind call submitted as above; exact primary model slug unknown. No independent-review completion claim until verified returned provenance.
 Internalagents are not visibleHerdr lanes; Herdr sign-in blocked. Root serializes
 runtime/compiler jobs and actively supervises; watchers have no off-sessionalerts.
 
@@ -86,8 +90,8 @@ Identity0.0.1-dev+20261014T230300Z.gfac608ff8994.
 Readback /workspace/tmp/pix-m7-image-readback-20261014-02/artifacts.
 img.gz SHA d816d36abc66b292500b0719e672c98c33eb0cd4fc7fc0bf19f7e26e4108bb16;
 tar SHA e409bc18236cebfe12b24cdaede092c338d51cfe601ea6b89b486ff5578a2e42.
-Cache125592436736B; nextmoveonlyafterfreshdependencyreceipt<=900sandconsumers
-closed/rebound. Existingqualifiedatomicmove, noalias/newcachecopy. No move yet.
+Cache125592436736B was atomically moved into newtree after fresh dependency
+review and consumerclosure. Do not use oldbuildcache path; source/target remain.
 Conditionalplan2026-10-15-next-image-delta, seal600d4c4b; actualexecutionderivative
 ready. ProductdeltaDolphinrecipecomment+Sysalias/patch018 andSteammetadata curl line.
 

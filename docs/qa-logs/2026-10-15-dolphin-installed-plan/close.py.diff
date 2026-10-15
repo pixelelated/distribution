@@ -1,0 +1,42 @@
+--- qualified/close.py
++++ installed/close.py
+@@ -67,14 +67,32 @@
+         assert own['case_seal']==config['case_seal'] and own['verification_sha256']==config['verification_sha256']
+         for row in own['copied_case_files']:assert sha(root/row['path'])==row['sha256']
+         case=root/'case';proof=json.loads((case/'result.json').read_text())
+-        assert proof['status']=='PASS' and len(proof['rows'])==4
+-        assert [row['case'] for row in proof['rows']]==['baseline-enabled','candidate-enabled','candidate-disabled','candidate-failed-boot']
++        assert proof['status']=='PASS' and len(proof['rows'])==3
++        assert [row['case'] for row in proof['rows']]==['installed-enabled','installed-disabled','installed-failed-boot']
+         assert all(row['status']=='PASS' and row['remaining_dolphin']==[] and not row.get('endpoint_errors') for row in proof['rows'])
+-        assert [row['original_exit'] for row in proof['rows']]==[0,0,0,1]
+-        assert proof['rows'][0]['observation']=='KNOWN_DEFECT_REPRODUCED'
+-        assert len(proof['rows'][1]['requests'])==1 and proof['rows'][1]['initialized']==proof['rows'][1]['shutdown']==1
+-        assert not proof['rows'][2]['requests'] and not proof['rows'][2]['initialized']
+-        assert proof['rows'][3]['boot_error'] and proof['rows'][3]['initialized']==proof['rows'][3]['shutdown']==1
++        assert [row['original_exit'] for row in proof['rows']]==[0,0,1]
++        assert len(proof['rows'][0]['requests'])==1 and proof['rows'][0]['initialized']==proof['rows'][0]['shutdown']==1
++        assert not proof['rows'][1]['requests'] and not proof['rows'][1]['initialized'] and not proof['rows'][1]['shutdown']
++        assert proof['rows'][2]['boot_error'] and proof['rows'][2]['initialized']==proof['rows'][2]['shutdown']==1 and len(proof['rows'][2]['requests'])<=1
++        assert all(proof['installed_before'][key]==proof['installed_after'][key] for key in ['executable','resources']) and proof['source_commit']==config['commit']
++        installed=proof['installed_before'];assert len(installed['resources'])==6
++        assert installed['executable']['path']=='/usr/bin/dolphin-emu-nogui'
++        expected=json.loads((owner/'records/final-image-result.json').read_text())['products']['usr/bin/dolphin-emu-nogui']
++        assert installed['executable']['sha256']==expected['sha256'] and installed['executable']['bytes']==expected['bytes']
++        resources=json.loads((owner/'source/case/resources.json').read_text())['resources']
++        for found,expected_resource in zip(installed['resources'],resources,strict=True):
++            assert found['path']=='/'+expected_resource['installed'] and found['resolved']==expected_resource['resolved']
++            assert found['bytes']==expected_resource['bytes'] and found['sha256']==expected_resource['sha256']
++            assert found['link_target']=='../../config/dolphin-emu'
++        for row in proof['rows']:
++            stderr=(case/row['case']/'stderr').read_text(errors='replace')
++            assert row['badge_load_failures']=={message:stderr.count(message) for message in row['badge_load_failures']}
++            assert row['argv'][0]=='/usr/bin/dolphin-emu-nogui' and row['binary_sha256']==expected['sha256']
++            assert len(row['badge_load_failures'])==4 and not any(row['badge_load_failures'].values())
++            if not row['badboot']:
++                assert row['running_before']['exe']==row['running_after']['exe']=='/usr/bin/dolphin-emu-nogui'
++                assert row['running_before']['exe_sha256']==row['running_after']['exe_sha256']==expected['sha256']
++
+ except BaseException as exc:validation_error=type(exc).__name__+': '+str(exc)
+ write(out/'analysis.json',{'original_exit':rc,'original_success_channels_verified':rc==0 and validation_error is None,'validation_error':validation_error,'runtime_acceptance':'coordinator review pending'})
+ write(out/'export-result.json',{'original_exit':rc,'guest_files':len(guest_rows),'host_files':len(rows),'readback_rc':readback_rc,

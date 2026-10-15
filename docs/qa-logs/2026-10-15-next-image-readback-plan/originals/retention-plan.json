@@ -1,0 +1,37 @@
+{
+  "volume": "/workspace",
+  "scan_roots": [
+    "/workspace/tmp/pix-m7-image-readback-20261014-02/empty-scan"
+  ],
+  "reference_stores": [],
+  "protected": [
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/target",
+    "/workspace/tmp/pix-m7-engineering-build-20261014-02/owner-result.json",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/.build-runs/20261014T230315Z-4ac89565/admission-consumed.json"
+  ],
+  "candidates": [],
+  "builds": [
+    {
+      "name": "m7-completed-image-readback",
+      "terms_bytes": {
+        "bounded_raw_payload_and_records": 25769803776,
+        "operating_margin": 8589934592
+      },
+      "basis": "Serialized host artifact readback after original compilation owners exited and admission consumed. No claimed reclamation; outputs remain held for immediately queued guest qualification.",
+      "evidence": [
+        {
+          "path": "/workspace/tmp/pix-m7-image-readback-20261014-02/inputs.json",
+          "sha256": "e5cf33334061a9b27c19386976a12c756007cc9e06a0809af31abe8e314c2a58"
+        },
+        {
+          "path": "/workspace/tmp/pix-m7-image-readback-20261014-02/verify-image.py",
+          "sha256": "1f9f47d6ea9ffc009e77032162a965f27e411620d5a4695d09af93411b3967c3"
+        },
+        {
+          "path": "/workspace/tmp/pix-m7-image-readback-20261014-02/run.sh",
+          "sha256": "0d16615cf2ebab717da2a90fafff3f4c61415c42b454e88ac6bdaa09f094437e"
+        }
+      ]
+    }
+  ]
+}

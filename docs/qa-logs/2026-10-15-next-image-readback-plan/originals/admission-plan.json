@@ -1,0 +1,21 @@
+{
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02",
+  "retention_plan": "/workspace/tmp/pix-m7-image-readback-20261014-02/retention-plan.json",
+  "retention_report": "/workspace/tmp/pix-m7-image-readback-20261014-02/retention-report.json",
+  "stage": "m7-completed-image-readback",
+  "profiles": [
+    {
+      "PROJECT": "ROCKNIX",
+      "DEVICE": "GENERIC_X64",
+      "ARCH": "x86_64"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "/workspace/tmp/pix-m7-image-readback-20261014-02/artifacts",
+      "issue": 572,
+      "kind": "qa-scratch",
+      "release_when": "Immediate clean/default-boot/retained qualification no longer needs raw SYSTEM/KERNEL/image; compact original identity records retained."
+    }
+  ]
+}
