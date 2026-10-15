@@ -1,6 +1,82 @@
 # pixelelated 0.0.1 release readiness
 
-## Current readiness — 2026-10-11 (#533)
+## Current readiness — 2026-10-15 (#590/#596 → #555)
+
+The [M7 milestone](https://github.com/pixelelated/distribution/milestone/7) owns
+execution order; [#344](https://github.com/pixelelated/distribution/issues/344)
+owns the release contract. The completed [audit and six resolved findings](../audits/2026_10_14-milestone-m7-next-candidate/05-punch-list.md#phase-7-resolution-gate)
+and [phase retrospective](../retros/2026-10-15-m7-audit-to-device-builds.md)
+are prerequisites already delivered, not work to restart. #508/#510's ordinary
+cloud linking and explicit folder-selection contract is delivered; automatic
+cloud move/follow remains retired under D-CLOUD-175. The older dated sections
+below preserve history and do not define today's queue.
+
+The accepted engineering VM evidence binds distribution
+`f8636de1d105275dbf9420bbabbbc26f79abb10f`, ES
+`16dbac5211eea7e70db7394372033be2be7df829`, based on the frozen ROCKNIX
+20261001 release selected by D-WORKFLOW-161. Audit/native records were published
+in `dd38444c303cbfcd3c125c2e789b3ff4781baf41`; later record updates do not
+change these product bytes. #590/#596 are closed/completed.
+
+| Evidence | Accepted scope and boundary |
+| --- | --- |
+| Final GENERIC_X64 composition | [Untouched clean install](../qa-logs/2026-10-15-final-engineering-result/clean/README.md) and [ordinary retained update](../qa-logs/2026-10-15-final-engineering-result/retained/README.md) verify selected state, installed loaders and affected Dolphin-helper/Wi-Fi flows. The retained update is d6a87f05/ES3178 → f863/ES16dbac, preserving eight selected files and the protected base; it is not a new physical ROCKNIX adoption observation. |
+| Native save-state behavior | [Four-launch native proof](../audits/2026_10_14-milestone-m7-next-candidate/native-state02-readback.md) verifies completed Wii manual save/load rollback and Flycast manual-state preservation plus native automatic save/cold-load before input. Ordinary game-save proof retains its earlier d4af source. No current handheld, real-account award or native ARM Steam result is inferred. |
+| Baseline and audit | The original fac608 baseline retains 13 passing suites and two failed suites; [scripts/protocol](../qa-logs/2026-10-15-baseline-continuation/README.md) and [frame](../qa-logs/2026-10-15-frame-claims/README.md) continuations supply their named later results. No new unfiltered all-green f863 aggregate is claimed. The frozen audit score of 80 PASS / 16 PARTIAL / 16 SKIP / 3 FAIL / 0 UNTESTABLE is unchanged; all six findings have separately verified resolutions. |
+| Build reporting | [#597 recovery](../audits/2026_10_14-milestone-m7-next-candidate/build-launcher-collision-review.md) retains the original launcher reporting failure, unknown final wait and nonqualification. The separate 109-row artifact reader and successful VM runs do not rewrite that failed submission. |
+
+### Device refresh and accepted physical history
+
+[#555](https://github.com/pixelelated/distribution/issues/555) owns H700 then
+SM8550 from f863. H700 cache preparation was accepted and consumed; the
+[first build attempt](../qa-logs/2026-10-15-device-refresh/launch-failure01/README.md)
+returned 2 before its main container because the wrapper cleared its target
+variables. Eight normal package cleans had run. The [reviewed continuation](../qa-logs/2026-10-15-device-refresh/launch-retry-source/README.md)
+now explicitly selects the already-admitted gateway tuple. At 06:02 UTC,
+owner02/run20261015T060011Z-92b2fe8b passed its actual container gate and was
+building ARM, with AArch64 next. Firmware acceptance remains pending. Read #555
+for subsequent live status. SM8550 follows accepted H700 artifacts and fresh
+resource/input checks, including its changed ABL 1.2 and FEX/Nix inputs.
+
+The [October 11 RG35XX SP deployment](../qa-logs/2026-10-11-device-refresh/README.md)
+and [October 12 RG SP/Nova deployments](../qa-logs/2026-10-12-owner-updates/README.md)
+remain accepted on `bc9dfe8141`, with their exact installed/preservation evidence.
+They are not f863 smoke tests. See the [support matrix](support-matrix.md) and
+[device facts](../releases/device-facts.md). Devices were returned to owner use;
+these records authorize no new transfer, reboot, game, input or cloud action.
+
+### Publication remains held
+
+- **#528:** refresh the final per-image/ARM-profile inventory and exact
+  component-to-source map; finish source/licence, bundled/vendor and special-input
+  dispositions, independent retrieval/hash proof and off-host custody. The
+  [October 11 engineering dispositions](../qa-logs/2026-10-11-component-inputs/README.md)
+  are not publication clearance. Retained older source bundles do not establish
+  current rclone 1.75.2, ABL 1.2 or changed generated-input custody by themselves.
+- **#344 security and documentation:** retain actual repository permission/expiry
+  and expiry-notice evidence plus remote-runner isolation/trigger evidence or the
+  disabled-runner fallback. Complete placeholder status/receipt, support,
+  manual adoption/recovery, unchanged SSH password, trust assumption,
+  lineage/non-endorsement, source links, cloud selected-path/setup and same-model
+  restore instructions, compatibility and redirect disposition. #511's broader
+  site/guides remain separate; no dead QR destination is enabled.
+- **#555/#344 assets:** accept the new device builds and independent raw/update,
+  boot-chain and packaged-state evidence; bind final names/hashes/size limits and
+  required sweeps. Record each device's named physical smoke before attaching
+  its asset under D-WORKFLOW-120. Unqualified assets remain held.
+- **#265/#344 publication:** use the existing immutable RC/release identity and
+  channel policy, actual independent retrieval, required reassembly qualification
+  and named per-release authority. Engineering `dev` bytes cannot be renamed
+  into a public RC/release. No tag, final asset name or source URL is allocated
+  by this document.
+
+#493 retains its existing dependency-bound output retirement and source-custody
+conditions; reservation consumption does not authorize deletion. This is
+engineering qualification and release preparation, not M7 completion or RC
+approval. None of the completed audits or accepted historical observations is
+replayed merely to update this record.
+
+## Historical readiness checkpoint — 2026-10-11 (#533)
 
 Read [M7](https://github.com/pixelelated/distribution/milestone/7) for order and
 [the reconciled scope](../releases/next-candidate-scope.md) for every open issue,

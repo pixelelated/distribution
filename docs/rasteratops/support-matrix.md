@@ -1,6 +1,65 @@
 # Support matrix for pixelelated 0.0.1 (#344)
 
-## Current accepted evidence and held assets — 2026-10-07
+## Current accepted evidence and held assets — 2026-10-15
+
+Approved targets remain GENERIC_X64 for QA, the RG35XX SP and RG SP on H700,
+and Retroid Pocket Nova on SM8550 (D-WORKFLOW-114/124). RG35XX SP remains the
+mandatory adoption device; RK3566 is deferred. [M7](https://github.com/pixelelated/distribution/milestone/7)
+and [#555](https://github.com/pixelelated/distribution/issues/555) own the current
+build order. Completed #508/#510 cloud setup and #590/#596 audit work do not
+remain build blockers. Ordinary cloud linking and explicit folder selection
+preserve current choices; no automatic library relocation is restored.
+
+The new engineering source is distribution
+`f8636de1d105275dbf9420bbabbbc26f79abb10f`, ES
+`16dbac5211eea7e70db7394372033be2be7df829`. Its accepted VM proof and the
+latest accepted physical deployments are different evidence sets:
+
+| Target / arch | Board or QA surface | Accepted clean-install evidence | Accepted retained-update evidence | New f863 artifact/boot-chain status | Recovery and attachment disposition |
+| --- | --- | --- | --- | --- | --- |
+| GENERIC_X64 / x86_64 | Disposable VM | f863 untouched selected first-boot policy, installed loaders and affected helper/Wi-Fi flows; separate native-state proof | Genuine d6a87f05/ES3178 → f863/ES16dbac ordinary update; eight selected files preserved and protected base unchanged | Final raw/update readback and affected installed/native qualification accepted; no new unfiltered full-suite aggregate | Recreate a disposable guest from its bound image/fixtures; held for final source/manifest/publication gates |
+| H700 / aarch64 + arm | RG35XX SP, LPDDR4/DDR4; mandatory adoption board | No f863 clean-card observation; September observations below remain historical | #556 accepted October 11: 8b511 → bc9dfe, exact SYSTEM/kernel/DTB/DDR4 bootloader/ES/both RetroArch, 163 protected files and configuration/recovery preservation | f863 cache preparation accepted; corrected owner02 build active at06:02UTC after the preserved first-launch refusal; new DDR4/update acceptance and physical smoke pending | Existing microSD reflash runbook; no new recovery trial or action authority. New asset held |
+| H700 / aarch64 + arm | RG SP, LPDDR3/DDR3 | No f863 clean-card observation | #557 accepted October 12: 8b511 → bc9dfe, exact installed hashes and retained mounts; 163 protected files, five recovery entries and configuration preservation | Same f863 H700 refresh; new DDR3/update acceptance and this board's physical smoke pending | Existing microSD reflash runbook; no new recovery trial or action authority. New asset held |
+| SM8550 / aarch64 + arm | Retroid Pocket Nova | No f863 clean-card observation | #557 accepted October 12: 8b511 → bc9dfe, SYSTEM/kernel/ES/both RetroArch, five ABL files/both slots and retained mounts; selected configuration values/paths preserved | f863 build follows accepted H700; changed ABL 1.2 and FEX/Nix require new artifact/GPT/raw/update checks. New physical boot/smoke remains pending | Existing microSD recovery route; new boot-chain/recovery disposition follows exact inputs, with no new trial claimed. New asset held |
+| RK3566 / aarch64 + arm | RG353M | Outside this release | Outside this release | Deferred by D-WORKFLOW-114 | Not built or attached for 0.0.1 |
+
+Evidence: [final clean](../qa-logs/2026-10-15-final-engineering-result/clean/README.md),
+[final retained](../qa-logs/2026-10-15-final-engineering-result/retained/README.md),
+[native-state flow and limits](../audits/2026_10_14-milestone-m7-next-candidate/native-state02-readback.md),
+[October 11 firmware/SP acceptance](../qa-logs/2026-10-11-device-refresh/README.md),
+[October 12 RG SP/Nova acceptance](../qa-logs/2026-10-12-owner-updates/README.md),
+and [device facts](../releases/device-facts.md).
+
+The H700 cache was consumed successfully. The
+[05:47 build refusal](../qa-logs/2026-10-15-device-refresh/launch-failure01/README.md)
+retains original command/runner/launcher 2 and monitor 0; eight normal package
+cleans completed before its main-container refusal. The
+[reviewed retry](../qa-logs/2026-10-15-device-refresh/launch-retry-source/README.md)
+sets the explicit target environment without changing either admitted ABI profile.
+At06:02UTC owner02/run20261015T060011Z-92b2fe8b passed its actual container gate
+and was building ARM. Completion and firmware acceptance remain pending;
+#555 carries subsequent live status. SM8550 remains ordered
+after H700 acceptance. No final device filenames or new bundle digests are
+invented here.
+
+The [completed audit](../audits/2026_10_14-milestone-m7-next-candidate/05-punch-list.md#phase-7-resolution-gate)
+resolves six findings within its declared scope. The original #597 build-launcher
+reporting failure remains nonqualified with unknown final wait despite separate
+artifact/VM acceptance. VM helper/backend controls are explicitly synthetic where
+stated; they do not prove current hardware, real-account awards or native ARM
+Steam behavior. Prior physical acceptance did not include new game, audio,
+screenshot, input or cloud operations. One board's acceptance does not qualify
+another board or source revision.
+
+Each attached asset still needs its own recorded smoke evidence, exact selected
+inputs and source/licence/custody/publication completion under #528/#344/#265 and
+D-WORKFLOW-120. [Release readiness](release-readiness.md) lists the remaining
+security, documentation, retrieval, channel and named-authority gates. No `dev`
+artifact is relabeled as an RC/release. Dated sections below preserve historical
+source and observations; their old blockers and “deltas: none” are not current
+claims. Further physical actions require their own named authorization.
+
+## Historical accepted evidence and held assets — 2026-10-07
 
 D-CLOUD-177/178 and #510 hold new device builds and product integration until
 the agreed validator flow is reconciled and qualified. Public ROCKNIX and clean installs define cloud adoption;
