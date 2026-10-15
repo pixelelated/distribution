@@ -174,6 +174,8 @@ offers INCREMENT PER SAVE and DO NOT INCREMENT; INCREMENT SLOT went with
 Batocera's `001-no-next-slot` patch, under which the launched slot is the
 current slot, never the next free one.
 
+Current unchanged RetroArch flow is also bound by [#606 proof](qa-logs/2026-10-15-retroarch606-proof03/README.md): [empty manager](qa-logs/2026-10-15-retroarch606-proof03/frames/manager-before.png), [manual-save notification](qa-logs/2026-10-15-retroarch606-proof03/frames/manual-saved.png) and [numbered plus exit-auto manager](qa-logs/2026-10-15-retroarch606-proof03/frames/manager-after.png). Exact077197/ES16dbac frame index, process/stat/wait records and original fixture/readback limits accompany this nonvisual qualification; no UI behavior changed.
+
 ### Save-state capability guidance (#575)
 
 The current source retains the global SAVE STATES controls, values, and
