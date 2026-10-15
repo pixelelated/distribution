@@ -1,0 +1,190 @@
+{
+  "status": "PREPARED_UNRUN",
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03",
+  "commit": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+  "es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+  "clean_helper": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-clean-state-565/run-first-boot.sh",
+  "helper": "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+  "vnc": 118,
+  "image": {
+    "bytes": 2122152460,
+    "sha256": "c5de01b869c5bb28966ab5d654b95a8ed36581c38b380ed885a5946489009932",
+    "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261015T161744Z.g077197e6cd3e-from-ROCKNIX.img.gz"
+  },
+  "verification_sha256": "9b5651ed408f37175984288309619637d8f5505dd1da2775bdeea88d7029c182",
+  "inputs_sha256": "1683901d927565c902a7d9a743b194bbb35321ac0bbe4a9bc5514e2b3f9a1862",
+  "members": {
+    "etc/os-release": {
+      "bytes": 710,
+      "sha256": "313dbce8d98286fbb7b210f310a45420281dfad2a34c2ed85b50fe27c729157d",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/etc/os-release",
+        "links": []
+      }
+    },
+    "usr/bin/emulationstation": {
+      "bytes": 11831632,
+      "sha256": "76f18d97a46e9228ca4b7cb63a5406a4f0bb026f96763f3558d1ac942b1857c8",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/emulationstation",
+        "links": []
+      }
+    },
+    "usr/bin/cloud-signin-window": {
+      "bytes": 35720,
+      "sha256": "6cbc445686d3d484ff20450342776e9eb92b47f6112a0352be1a50b334eef81b",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/cloud-signin-window",
+        "links": []
+      }
+    },
+    "usr/bin/gst-inspect-1.0": {
+      "bytes": 60928,
+      "sha256": "84cf7ece4ae3df1343e85b4339b74e4b8d2836d07d073b1750582d61a97b8e19",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/gst-inspect-1.0",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/gst-plugin-scanner": {
+      "bytes": 14352,
+      "sha256": "0258b6e81d0332e4a39e1f0f2a8654c189fa3db1fde4866adec02ab59b38f815",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/gst-plugin-scanner",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstopengl.so": {
+      "bytes": 290768,
+      "sha256": "06dc2524e928252248c2f02c08928f155bef2c75644f7fcadccbbd6081dfa1a6",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstopengl.so",
+        "links": []
+      }
+    },
+    "usr/lib/libgstcontroller-1.0.so.0": {
+      "bytes": 60048,
+      "sha256": "ac4646378c64be84832bae33a084ab3b98ad3cfb131574c08cb1eadae32e2a1c",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libgstcontroller-1.0.so.0.2902.0",
+        "links": [
+          {
+            "path": "/usr/lib/libgstcontroller-1.0.so.0",
+            "target": "libgstcontroller-1.0.so.0.2902.0"
+          }
+        ]
+      }
+    },
+    "usr/lib/libgstreamer-1.0.so.0": {
+      "bytes": 948896,
+      "sha256": "8820d44ba911da1862e4b15189c99f9076a1536ac5048bef122f4a3634536682",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libgstreamer-1.0.so.0.2902.0",
+        "links": [
+          {
+            "path": "/usr/lib/libgstreamer-1.0.so.0",
+            "target": "libgstreamer-1.0.so.0.2902.0"
+          }
+        ]
+      }
+    },
+    "usr/lib/libgstnet-1.0.so.0": {
+      "bytes": 73256,
+      "sha256": "95228d04ae400ac3c79e3f676dd8d95d471837fb6de16d1fbd74dbe5cb29fdd1",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libgstnet-1.0.so.0.2902.0",
+        "links": [
+          {
+            "path": "/usr/lib/libgstnet-1.0.so.0",
+            "target": "libgstnet-1.0.so.0.2902.0"
+          }
+        ]
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstadaptivedemux2.so": {
+      "bytes": 375520,
+      "sha256": "654cd8b719fb8acdf19a9494aaa058135ed02e8135db392d129e84080ae6a4bf",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstadaptivedemux2.so",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstrtpmanager.so": {
+      "bytes": 361376,
+      "sha256": "d7c73b4170cbfa99e90abc3099c788dbbe12ad71d2460fed3f17230d4e35ebc3",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstrtpmanager.so",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstrtsp.so": {
+      "bytes": 153632,
+      "sha256": "310167c968dc87762407149566d0b2e0162c093bc17eebe5a197d7b89105cb16",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstrtsp.so",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstudp.so": {
+      "bytes": 77632,
+      "sha256": "8a02b301b7c980a7af5cdb67948ccd021a176917d355ea305fb05bec3e2ba125",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstudp.so",
+        "links": []
+      }
+    }
+  },
+  "tools": {
+    "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm": "5b058ed8a8b11135cd5997e3d925939baff30726033125acf1244863a756318d",
+    "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/profile.json": "26c420ecb0cc7aae29050554c55f522e62337cf6726619a59337c073f1c65406",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-clean-state-565/run-first-boot.sh": "a49a0bb3f8b5ed937dafc7524c70e2ce9ce74e925478d421dc0f7e3a20e957da",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/tools/vm-serial": "1fed507a546a9c23fdc360012ccc6ffadc2793fabaa137ff2dc73141bdc2c921",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/tools/vm-visual-qa": "81565f39ce5bdbdce05fc7ec7b27f40ca1d95051430382c5e13f1ef58434cd06",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/tools/vm-stop": "2e4314cd63ff4f476c8ce1376e9f1ed262f2467789ec339b3855ddedc16213e8",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/tools/watch-build": "44a6d87505fd6a465c384d2f30bfeda5f4fe436978d227d8b0c4bae73da7e0bc",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/tools/watch-job": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/tools/watch-build-submit": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/tools/host-maintenance/build-admission": "8923610caf6a8a1b32775bc1a7e3f67d5e5d5b7468955b35fd40d07da2e2047d",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/tools/host-maintenance/retention-report": "1187725512f1a0586bc4d7812a886076c71bc6fdd460f6cd4a73e91198518798",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/pixelelated-state-check": "65ab515ec2c0ccdf474f08128cabf1dea774846a8add3725cd05d334b2e1eba6",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/pixelelated-state-check-test": "6e0b2eb945b913ad0c176dd532586463493e6984240e128ff771ce6264fd3eec",
+    "/workspace/repos/rocknix.worktrees/m7-player-setup/tools/vm-serial": "1fed507a546a9c23fdc360012ccc6ffadc2793fabaa137ff2dc73141bdc2c921",
+    "/workspace/tmp/pix-m7-zerotier-generic-readback-20261015-02/artifacts/result.json": "9b5651ed408f37175984288309619637d8f5505dd1da2775bdeea88d7029c182",
+    "/workspace/tmp/pix-m7-zerotier-generic-readback-20261015-02/artifacts/inputs.json": "1683901d927565c902a7d9a743b194bbb35321ac0bbe4a9bc5514e2b3f9a1862",
+    "/workspace/tmp/pix-m7-zerotier-generic-readback-20261015-02/consumption-evidence.json": "7357987d28a3aa906a3588cf64712f6ab835748edc7e6142f7c0f7c98007d758",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/.build-runs/20261015T163127Z-5682551e/admission-consumed.json": "ce98bdaf0168fa4f57ebf9b56571e414694c2cb38a658ee29be91e4dfb1b0fdb"
+  },
+  "code": {
+    "vm-lifecycle.py": "682627e60dd35f9c7997383468d95832007edbf2fe16fee95ea8330b4f4c10c1",
+    "guest.py": "a494cf939050271f5811d66ffa56ac279359fc7073e400c12dbdb963638cf1ef",
+    "close.py": "f47394d8f96a81228f52c6d71d58778b671e7c371db99b1a3cc502912f1d1aea",
+    "census.py": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2",
+    "action.py": "c9b98a5fc911460651c7ec51b4c94e22e876d19576144d96f3beb94e39582ef9",
+    "ExitProbe.gb": "2c72cd8d7be907c7bb0720ee0358d585e4045e678978200645357aac3bf8d42c"
+  },
+  "work_seconds": 1800,
+  "cleanup_seconds": 90,
+  "host_record_limit_bytes": 67108864,
+  "host_pid_namespace": 4026531836,
+  "fixture": {
+    "path": "ExitProbe.gb",
+    "bytes": 32768,
+    "sha256": "2c72cd8d7be907c7bb0720ee0358d585e4045e678978200645357aac3bf8d42c",
+    "source": "tools/emulator-exit-test generated cartridge pattern",
+    "effect": "MBC1+RAM+battery, enable SRAM, store 0x55 at A000, spin; no interactive gameplay claim",
+    "rom_path": "/storage/roms/gb/ExitProbe.gb"
+  }
+}

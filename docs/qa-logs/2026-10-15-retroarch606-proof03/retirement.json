@@ -1,0 +1,41 @@
+{
+  "result": "RETIRED_EXACT_CONSUMED_MEDIA",
+  "utc": "2026-10-15T22:50:56.318558+00:00",
+  "original_rc": 1,
+  "admission": "d88e47d06b1745ff88d51fcde05ff2ee",
+  "targets": [
+    {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-proof-20261015-03/vm/disk.qcow2",
+      "device": 66304,
+      "inode": 207501898,
+      "mtime_ns": 1792104554581927424,
+      "bytes": 2309357568,
+      "allocated_bytes": 2309308416,
+      "absent_after": true
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-retroarch-exit-proof-20261015-03/vm/OVMF.fd",
+      "device": 66304,
+      "inode": 207501908,
+      "mtime_ns": 1792104332324657902,
+      "bytes": 540672,
+      "allocated_bytes": 540672,
+      "absent_after": true
+    }
+  ],
+  "empty_tmpdir_removed": "/workspace/tmp/pix-m7-retroarch-exit-proof-20261015-03/host-tmp",
+  "custody": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-15-retroarch606-proof03",
+  "evidence": {
+    "private-originals-held.json": "27cd3e3845600ad94ac44c4eb695d4753bf1863dd865af079b46968b811d61e0",
+    "vm-result.json": "39c89030b2d770c0c46e4405dbd8174ecc1767e4fca0f86133185c1472103c12",
+    "consumption-draft.json": "c0eee608d9b4ae4f38341638886502eabd5d8fcacd1698a8c55b2a35a0d5ade1",
+    "root-original-review.json": "67d05cd601a9cb172b1122f4fbff81555b7c20fe9f84895ac7c1a72fa766be57",
+    "config.json": "e24478aa1b17f21e449018c18b4051572425c31fe0d5b3233d127dc588dbb3f6",
+    "original-records.tar.gz": "72fe049346d9c0bdbfcc25df1cf987b86f4ff52ce00e65a837df9165fa9bfd17",
+    "original-records.json": "333d1343822924a9b57ce60062c20274164cece954bcb97720ef839b334cc39a",
+    "host-exits.json": "fc737410402ad247156d77a04666e99bb1c6001a314ea929ed3998a50d5de99a",
+    "export-result.json": "106626e5c63ccef7c3126a53d0355177fde6e4f0d43e50590d039cea2e09afa4"
+  },
+  "source_image_touched": false,
+  "other_records_retained": true
+}
