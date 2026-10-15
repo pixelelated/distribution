@@ -1,0 +1,29 @@
+{
+  "archive_members": 214,
+  "archive_sha256": "719cc2809abeff8509b2fd1142c073457fed4d59e170f344b5cfb22156aa83f1",
+  "cache_or_firmware_read": false,
+  "checks": [
+    "exact original membership including seal",
+    "every regular-file byte hash",
+    "permissions compared with stat.S_IMODE, type checked separately",
+    "numeric UID/GID and owner/group names",
+    "mtime, size and archive type",
+    "archived original SHA256SUMS independently checked against archived member bytes",
+    "archived original manifest bytes/modes independently checked"
+  ],
+  "collector_executed": false,
+  "first_retention_exit_code": 1,
+  "first_retention_failure_record": "retention-observations.json",
+  "inventory_qualification": false,
+  "network": false,
+  "original_packet": "/tmp/pix-m7-source-custody-refresh-20261015",
+  "original_packet_unchanged": true,
+  "original_seal_sha256": "f345980a2e20c305b770e686b5c6ff4aa915cfae78c8778981bc6a48713a951d",
+  "original_static_exit_code": 0,
+  "proposal_review": "source-worker reviewed; independent peer review incomplete; root review pending",
+  "publication_clearance": false,
+  "regular_files": 125,
+  "static_exit_provenance": "Archived execution-observation.json records original tool chunk f0ee61; stdout/stderr retained unchanged. Static suite not rerun during retention.",
+  "status": "PASS_SOURCE_PROPOSAL_CUSTODY_ONLY",
+  "utc": "2026-10-15T06:28:47.786514+00:00"
+}

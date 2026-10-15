@@ -1,0 +1,149 @@
+{
+  "record_type": "Post-completion independent byte/source readback; no replay",
+  "utc": "2026-10-15T06:42:47.753979+00:00",
+  "issue": 599,
+  "runs": [
+    {
+      "run_id": "20261015T063603Z-569772e6",
+      "owner": "/tmp/pix-m7-state-controls-20261015-01",
+      "watch": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T063603Z-569772e6",
+      "original_result": {
+        "command_rc": 2,
+        "monitor_rc": 0,
+        "runner_rc": 2,
+        "utc": "2026-10-15T06:36:08.129223+00:00"
+      },
+      "original_build_rc": 2,
+      "watcher_stderr_empty": true,
+      "owner_stdout_equals_watch_log": true,
+      "scratch_empty_at_custody_readback": true,
+      "pid_readback": {
+        "build.pid": {
+          "pid": 81865,
+          "numeric_proc_path_exists_at_custody_readback": false
+        },
+        "command.pid": {
+          "pid": 81894,
+          "numeric_proc_path_exists_at_custody_readback": false
+        },
+        "watcher.pid": {
+          "pid": 81866,
+          "numeric_proc_path_exists_at_custody_readback": false
+        },
+        "build.status.pid": {
+          "pid": 81866,
+          "numeric_proc_path_exists_at_custody_readback": false
+        }
+      }
+    },
+    {
+      "run_id": "20261015T063732Z-ab3404de",
+      "owner": "/tmp/pix-m7-state-controls-20261015-02",
+      "watch": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T063732Z-ab3404de",
+      "original_result": {
+        "command_rc": 2,
+        "monitor_rc": 0,
+        "runner_rc": 2,
+        "utc": "2026-10-15T06:37:37.807795+00:00"
+      },
+      "original_build_rc": 2,
+      "watcher_stderr_empty": true,
+      "owner_stdout_equals_watch_log": true,
+      "scratch_empty_at_custody_readback": true,
+      "pid_readback": {
+        "build.pid": {
+          "pid": 88120,
+          "numeric_proc_path_exists_at_custody_readback": false
+        },
+        "command.pid": {
+          "pid": 88149,
+          "numeric_proc_path_exists_at_custody_readback": false
+        },
+        "watcher.pid": {
+          "pid": 88121,
+          "numeric_proc_path_exists_at_custody_readback": false
+        },
+        "build.status.pid": {
+          "pid": 88121,
+          "numeric_proc_path_exists_at_custody_readback": false
+        }
+      }
+    },
+    {
+      "run_id": "20261015T063831Z-c75018f3",
+      "owner": "/tmp/pix-m7-state-controls-20261015-03",
+      "watch": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T063831Z-c75018f3",
+      "original_result": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-15T06:38:46.866576+00:00"
+      },
+      "original_build_rc": 0,
+      "watcher_stderr_empty": true,
+      "owner_stdout_equals_watch_log": true,
+      "scratch_empty_at_custody_readback": true,
+      "pid_readback": {
+        "build.pid": {
+          "pid": 91946,
+          "numeric_proc_path_exists_at_custody_readback": false
+        },
+        "command.pid": {
+          "pid": 91975,
+          "numeric_proc_path_exists_at_custody_readback": false
+        },
+        "watcher.pid": {
+          "pid": 91947,
+          "numeric_proc_path_exists_at_custody_readback": false
+        },
+        "build.status.pid": {
+          "pid": 91947,
+          "numeric_proc_path_exists_at_custody_readback": false
+        }
+      }
+    }
+  ],
+  "passing_suite": {
+    "controls": 212,
+    "all_control_rows_pass": true,
+    "ppsspp_controls": 40,
+    "public_shipped_profiles": [
+      "AMD64",
+      "H700",
+      "RK3326",
+      "RK3399",
+      "RK3566",
+      "RK3576",
+      "RK3588",
+      "S922X",
+      "SM4450",
+      "SM6115",
+      "SM8250",
+      "SM8550",
+      "SM8650",
+      "SM8750"
+    ]
+  },
+  "tool_sha256": "65ab515ec2c0ccdf474f08128cabf1dea774846a8add3725cd05d334b2e1eba6",
+  "test_sha256": "6e0b2eb945b913ad0c176dd532586463493e6984240e128ff771ce6264fd3eec",
+  "mcopy_binding": {
+    "private_symlink": "/tmp/pix-m7-state-controls-20261015-03/bin/mcopy",
+    "target": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/build.pixelelated-H700.aarch64/toolchain/bin/mcopy",
+    "resolved_binary": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/build.pixelelated-H700.aarch64/toolchain/bin/mtools",
+    "sha256": "2949bcce7f951f571d32f5d5d915d86d5a582a633f31b4ebef5b8d97a68ad0f6",
+    "bytes": 231832,
+    "binary_not_archived": true
+  },
+  "scope": "Read-only source/log/hash/metadata custody. No test, gate, target program, build, compiler, VM or admission executed by the retaining worker.",
+  "outer_exec_result": {
+    "kind": "Root post-completion observation, not a producer-owned receipt",
+    "session_id": 62150,
+    "original_tool_completion_chunk": "2199e3",
+    "reported_original_exit_code": 0,
+    "owner_absence_and_empty_scratch_observation_chunk": "5a190d",
+    "no_separate_producer_written_outer_receipt": true,
+    "original_runner_results_retained_unchanged": true
+  },
+  "actual_h700_and_sm8550_artifact_acceptance": "pending; host fixtures do not establish firmware acceptance",
+  "external_independent_review": "not run; root owns final local review"
+}

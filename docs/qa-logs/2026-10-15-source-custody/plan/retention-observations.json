@@ -1,0 +1,27 @@
+{
+  "diagnostic_read_attempt": {
+    "original_exit_code": 1,
+    "original_tool_chunk": "d3a2d6",
+    "reason": "Called gettarinfo on a read-mode TarFile; refused bad operation for mode r; no writes."
+  },
+  "first_retention_command": {
+    "diagnosis": "Initial verifier compared TarInfo.gettarinfo source mode including POSIX type bits (directory 040775/file 0100664) with serialized tar permission mode (0775/0664). Archive type and permissions are separate fields.",
+    "original_exit_code": 1,
+    "original_output": "Traceback (most recent call last):\n  File \"<stdin>\", line 37, in <module>\nAssertionError\n",
+    "original_tool_chunk": "5666fa",
+    "resolution": "Read existing archive independently; compare stat.S_IMODE to archive mode and assert directory/regular type separately. No archive member changed."
+  },
+  "scope": "Source-proposal retention check only; original source packet and valid archive unchanged.",
+  "successful_diagnostic_observations": [
+    {
+      "original_exit_code": 0,
+      "original_tool_chunk": "1c0e1e",
+      "result": "214 archive members; 125 regular source/archive files; no byte, permission, UID/GID or mtime difference."
+    },
+    {
+      "original_exit_code": 0,
+      "original_tool_chunk": "9790af",
+      "result": "In-memory gettarinfo confirms full source modes 040775 and 0100664; UID/GID 1000/1000, owner/group max/max."
+    }
+  ]
+}

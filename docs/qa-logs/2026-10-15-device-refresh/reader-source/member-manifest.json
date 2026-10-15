@@ -1,0 +1,1887 @@
+{
+  "record_type": "Post-archive static custody verification, not a runtime result",
+  "utc": "2026-10-15T06:23:38.268884+00:00",
+  "source_directory": "/tmp/pix-m7-h700-reader-review-20261015",
+  "source_seal_sha256": "a21f13162120c1d856652fd5ff8a509f84f8a75a039c9ce7a9d17d4040933870",
+  "source_sealed_payload_files": 172,
+  "archive": {
+    "path": "source-packet.tar.gz",
+    "sha256": "46014d85093754d9ccc1a32ca030de2478872ca2472bd975502a38137bc251f9",
+    "bytes": 960342,
+    "regular_files": 173,
+    "directories": 16,
+    "members": 189,
+    "uncompressed_regular_file_bytes": 3315294
+  },
+  "verification": {
+    "exact_ordered_membership": true,
+    "no_duplicate_members": true,
+    "all_regular_file_bytes_and_hashes": true,
+    "all_permission_modes_compared_with_stat_S_IMODE": true,
+    "all_uid_gid_equal": true,
+    "all_mtime_ns_equal_via_PAX_decimal": true,
+    "source_hashes_and_metadata_unchanged_after_archive": true,
+    "no_links_or_special_files": true,
+    "original_top_seal_and_sm_subtree_retained": true
+  },
+  "members": [
+    {
+      "path": "MEMBER-MANIFEST.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792045046940069956,
+      "bytes": 32004,
+      "sha256": "0e209cd39f64f46b7d36517f34aa3b535a07d7a27915dbff03dc64da36f5dd4a"
+    },
+    {
+      "path": "README.md",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792045046910572628,
+      "bytes": 6323,
+      "sha256": "de4a8d7bb6c4e1461f655285a077ffcae8473606fd417102df94194d39b8c3ef"
+    },
+    {
+      "path": "REVIEW-STATUS.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792045046929690706,
+      "bytes": 1589,
+      "sha256": "fc31453837b2544a91dbf108ff3c755313622ed464aa37290c0a786426eeea97"
+    },
+    {
+      "path": "SHA256SUMS",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792045046943743106,
+      "bytes": 17128,
+      "sha256": "a21f13162120c1d856652fd5ff8a509f84f8a75a039c9ce7a9d17d4040933870"
+    },
+    {
+      "path": "acceptance-run.py.diff",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044929375737652,
+      "bytes": 1620,
+      "sha256": "99c43ee9575dd4d56dfa61c3ab7b8f59a26ca008a35c5bddd321614998c3afaf"
+    },
+    {
+      "path": "acceptance-verify-firmware.py.diff",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848328237979,
+      "bytes": 1370,
+      "sha256": "c590e36f06088a60861562455c9434f3dde3c38ddef970800534d58b30ce4dba"
+    },
+    {
+      "path": "bindings.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848327797458,
+      "bytes": 11792,
+      "sha256": "0d44bdcecf960bbda03f3292d3fc282988b3cc0c10a519e46cbeb82f9ee11520"
+    },
+    {
+      "path": "commands.sh",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044929354279608,
+      "bytes": 1498,
+      "sha256": "3f19863e35f7b31e53c7a4d0ae524b5ca4555b487827d065deaf85f014190dbd"
+    },
+    {
+      "path": "diagnosis.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044658258920988,
+      "bytes": 1174,
+      "sha256": "c993517e1b618ec387f49c03bbc676a5fbf7154e903de7c643529907e5c4891a"
+    },
+    {
+      "path": "issue555-criterion-proposal.md",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792045046912572650,
+      "bytes": 1205,
+      "sha256": "c164e92e3c24abf3ef0ea6d9b4fd5667482c37e5ebd213e2df9d7c8c4a51c478"
+    },
+    {
+      "path": "originals",
+      "kind": "directory",
+      "permission_mode": 509,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848327217785
+    },
+    {
+      "path": "originals/000-verify-additions.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535462677571,
+      "bytes": 8385,
+      "sha256": "88171e79530d4391516958a995c319650a7ee06ce74e4a89432ed5eaa7e91cf3"
+    },
+    {
+      "path": "originals/001-verify-installed.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535462185312,
+      "bytes": 6702,
+      "sha256": "120e605475f3a6d5266020728ab431e87597f1a41b1c988ac3948b65e76d5ab7"
+    },
+    {
+      "path": "originals/002-verify-source.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535462099052,
+      "bytes": 1160,
+      "sha256": "a6937c234f6293c728a811f6292cf9b1836773b56cc1c35f524aa20394c7d1ac"
+    },
+    {
+      "path": "originals/003-build.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535461852836,
+      "bytes": 4207,
+      "sha256": "887e622fe6a6cdc6bac51cf912dc90689ce1d0c120f4b9f6faa683770f7bcf99"
+    },
+    {
+      "path": "originals/004-consume-stage.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535462531698,
+      "bytes": 2935,
+      "sha256": "6c82cebd4e06353f16d93171f70383ce49b94d97c757179d575f6527270e1a88"
+    },
+    {
+      "path": "originals/005-consume-build.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535462450657,
+      "bytes": 1736,
+      "sha256": "3211459362895414e3d6a36af510ebe8a097cc368f221775b17d6aba3ac2f1dd"
+    },
+    {
+      "path": "originals/006-run.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535463198182,
+      "bytes": 629,
+      "sha256": "41891ed8cfe57b683657afd14c8635dd8def34e67561cffbb9ff119b368427ef"
+    },
+    {
+      "path": "originals/007-verify-firmware.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535463282899,
+      "bytes": 10486,
+      "sha256": "2ec429e12057afe306e8789946d767dd033855ca0da4157d194121238ce119ff"
+    },
+    {
+      "path": "originals/008-package.mk",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792041700458889058,
+      "bytes": 58892,
+      "sha256": "cfef0ff40b7b3146b2bd35be4a68e4087a1e680da1d22aff07ae2724754bb899"
+    },
+    {
+      "path": "originals/009-package.mk",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792041700385202799,
+      "bytes": 5312,
+      "sha256": "cc4e7458e99329518b30b7f78aa38e149d083427f3c8b7e22d7f5e1090d2479b"
+    },
+    {
+      "path": "originals/010-package.mk",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791345554470588743,
+      "bytes": 5794,
+      "sha256": "dba2815b6f59ae530634b49bae916258ad5d2c18c01bdf431f1ba0f60e43721e"
+    },
+    {
+      "path": "originals/011-package.mk",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791345554324267105,
+      "bytes": 6421,
+      "sha256": "2de4b96cb16e942ce7699b5529b9949c2c52cf5a8c6661cbaee55f226b94bd4e"
+    },
+    {
+      "path": "originals/012-package.mk",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792041700442799464,
+      "bytes": 2442,
+      "sha256": "55e7905444569c9adf9e0739dfebb078b7de417a0cc3f1ae438f0493ea84714c"
+    },
+    {
+      "path": "originals/013-package.mk",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791345554486648927,
+      "bytes": 1138,
+      "sha256": "d6f6637da5864bbe10cc8221b23dbcf2d5c854715b42089267babb20e13696c3"
+    },
+    {
+      "path": "originals/014-package.mk",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791345554486648927,
+      "bytes": 5509,
+      "sha256": "b6094043211049cefd68dd61e690c4b0f0522900d9527dbe1ab3e3faae0c25d5"
+    },
+    {
+      "path": "originals/015-package.mk",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791345554486648927,
+      "bytes": 2672,
+      "sha256": "ba628af7950622fbe174c6f075ada10a709fcea1fd96a6803a1a4eeeec4ef616"
+    },
+    {
+      "path": "originals/016-installed-inclusion.json",
+      "kind": "file",
+      "permission_mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044393231829171,
+      "bytes": 17964,
+      "sha256": "2a194f654d49af00ff4f0ac02d4b2b0bdd3a169ad8120f707afd5e6d8baade19"
+    },
+    {
+      "path": "originals/017-output-manifest.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044633633946867,
+      "bytes": 3081,
+      "sha256": "cd41204c2267985bf843457aca3d1b65c6e652e46de7898e2cd9d2d33f9ef66e"
+    },
+    {
+      "path": "originals/018-completion-evidence.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044633637268679,
+      "bytes": 5292,
+      "sha256": "af82290d3acb2e3ed9af6dd2b4bd835b8b24be5cf3b0cf31d7d3896c5bf6e835"
+    },
+    {
+      "path": "originals/019-investigation.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044633633992095,
+      "bytes": 1184,
+      "sha256": "e58b875241003ab0dcd5ab8cda044d329b93ec3a4a38ae7500920a12623caf27"
+    },
+    {
+      "path": "originals/020-originals.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044633636350427,
+      "bytes": 2856,
+      "sha256": "272e738ed95a69b6ef8b86c868a39b385fe20f1f397e9920635e69d92fb5346d"
+    },
+    {
+      "path": "originals/021-admission.json",
+      "kind": "file",
+      "permission_mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044011586438110,
+      "bytes": 3506,
+      "sha256": "9348ca7e33c3a52fc08ee2dccc2b251b8cd1873e9c499f8f86546faf46ff0ef8"
+    },
+    {
+      "path": "originals/022-admission-consumed.json",
+      "kind": "file",
+      "permission_mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044633689605700,
+      "bytes": 3828,
+      "sha256": "788123b004398fa1aa99cd8ba1853ec630aadfc63b366a42bb765aac2a5f2d59"
+    },
+    {
+      "path": "originals/023-runner-result.json",
+      "kind": "file",
+      "permission_mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044395286689908,
+      "bytes": 104,
+      "sha256": "eaa4c792e8defb39943351b0da3cc499e66b42aefc78ce5ba72875f33ffd3652"
+    },
+    {
+      "path": "originals/024-build.rc",
+      "kind": "file",
+      "permission_mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044393364884716,
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "originals/025-build.status",
+      "kind": "file",
+      "permission_mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044395265478776,
+      "bytes": 751,
+      "sha256": "ad36968cc2319ed7fcf9b57d9952beca6bf62ab5a1bd071d3302e8479c6504ff"
+    },
+    {
+      "path": "originals/026-inputs.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043980657992697,
+      "bytes": 1415256,
+      "sha256": "ce58e1f292443125c60ad48fcfea8bc81909e59a5c2a6e42cbd88665a8570ed4"
+    },
+    {
+      "path": "originals/027-build-seal.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043980659992719,
+      "bytes": 2792,
+      "sha256": "d4138a0a0aca6401abce3492c3e62f889b26bace4e0ad948efabd6fc5744a5e2"
+    },
+    {
+      "path": "originals/028-launcher-result.json",
+      "kind": "file",
+      "permission_mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044395297788102,
+      "bytes": 132,
+      "sha256": "b3dcf155a5ec1d138b18921f9be094cdef6074249c2d8e73cdcc0523990aba5e"
+    },
+    {
+      "path": "originals/029-tool-wrapper.rc",
+      "kind": "file",
+      "permission_mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044395297708652,
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "originals/030-inner.rc",
+      "kind": "file",
+      "permission_mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044393356779979,
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "originals/031-outer.rc",
+      "kind": "file",
+      "permission_mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044393356863338,
+      "bytes": 2,
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+    },
+    {
+      "path": "originals/032-build.cid",
+      "kind": "file",
+      "permission_mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044012205164445,
+      "bytes": 64,
+      "sha256": "33c1d3fc0233acb8d86684642d5b5e89ebda0878980628048e48be2d0fd8aa1f"
+    },
+    {
+      "path": "originals/033-arm-output-manifest.json",
+      "kind": "file",
+      "permission_mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044393231609980,
+      "bytes": 1126208,
+      "sha256": "6c755e5bed466b2695d399a689f2229662ad781b0dc1e105229c3f78e8646caa"
+    },
+    {
+      "path": "originals/034-container-gate.json",
+      "kind": "file",
+      "permission_mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044013119646687,
+      "bytes": 297,
+      "sha256": "b79196e20a71d80f4a8a3143c227b915b5006dba94909e53be08f7de7f5327cd"
+    },
+    {
+      "path": "originals/035-retention-plan.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043980659648852,
+      "bytes": 1845,
+      "sha256": "4ec7f9fe0068a5f9fb19754040b63fc6f782d20b135366ef6c265da7d02a925d"
+    },
+    {
+      "path": "originals/036-admission-plan.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043980659702351,
+      "bytes": 2949,
+      "sha256": "042673737c3ef8901580c50b46c828a7aaae47b94171d87de4133da7bc763615"
+    },
+    {
+      "path": "originals/037-proxy-source-proof.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535462808299,
+      "bytes": 24582,
+      "sha256": "818ea48bbba2ae02e6f18c2a45b34f30acc027cf3c003bd60f7570d278232925"
+    },
+    {
+      "path": "originals/038-dolphin-sys-source-manifest.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535463089897,
+      "bytes": 4949,
+      "sha256": "b67f6590214e8b551baf2fafa726818c6b5eade1a6f339b08f1bc978f090d16f"
+    },
+    {
+      "path": "originals/console-tail.txt",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044658250334933,
+      "bytes": 4737,
+      "sha256": "52744306ad9b9ec1d1208574b873484f303edf9825faba960f4493bc142880ee"
+    },
+    {
+      "path": "originals/gstreamer-intent-history.txt",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044658256253837,
+      "bytes": 3399,
+      "sha256": "d531ea5b79d7315711c595146f561ca5c66a918e44dd68c465d5d81229255c7d"
+    },
+    {
+      "path": "prepare-reader.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044929352279586,
+      "bytes": 4587,
+      "sha256": "2ebe6aaffba4b5239f9fbc5920c64890567978330fb44aaefe15b790ad4cc363"
+    },
+    {
+      "path": "prepare-source.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848291387986,
+      "bytes": 3992,
+      "sha256": "60145eb1ba89aceb5e1549ba46e9f72280d2a2edf8749addcd2f5fcb1c4b23ab"
+    },
+    {
+      "path": "sm8550",
+      "kind": "directory",
+      "permission_mode": 509,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848331658255
+    },
+    {
+      "path": "sm8550/CURRENT-SOURCE-REVIEW.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792045046929249761,
+      "bytes": 931,
+      "sha256": "03c2d05edf7e4fe1942d7c4aebc056b936dee2c16f9b4cacd930b805caf75f49"
+    },
+    {
+      "path": "sm8550/MEMBER-MANIFEST.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040944878659329,
+      "bytes": 17967,
+      "sha256": "04d56f3873679e7cdcadf19c97590eddb7d37f2db122f7e6953374484d46e23b"
+    },
+    {
+      "path": "sm8550/README-gateway-derivative.md",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535469389901,
+      "bytes": 1107,
+      "sha256": "83cc6766acbddc71c4f94c228c1474f275f8aa320e41eb433079e0af60cd9bdc"
+    },
+    {
+      "path": "sm8550/README-original-packet.md",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535469372045,
+      "bytes": 13527,
+      "sha256": "29e015144c30f5974ff749f23d1b1c374c455269825d40753965fdb75785adbe"
+    },
+    {
+      "path": "sm8550/README.md",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792045046929141885,
+      "bytes": 1081,
+      "sha256": "b4bb7597a17253a6433eced6a26c66c5a423236fce12c202eb8bc306e4c040ab"
+    },
+    {
+      "path": "sm8550/REVIEW-STATUS.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040944875812325,
+      "bytes": 3640,
+      "sha256": "1b499930642c0c70e5576348ee6731df6ab0c249e3276873aa546dfecfd9a945"
+    },
+    {
+      "path": "sm8550/SHA256SUMS",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792045046932320920,
+      "bytes": 9816,
+      "sha256": "919e8f9ac5b512f5f05ea3372d74e9e1606a4849369cc4454cc3aaa66af914f5"
+    },
+    {
+      "path": "sm8550/commands.sh",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848331789994,
+      "bytes": 2868,
+      "sha256": "275613dfaff2420e753b1b3f1e68154d6f5e1896977280ef28d7234330988909"
+    },
+    {
+      "path": "sm8550/consume-stage.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039890729415984,
+      "bytes": 2935,
+      "sha256": "6c82cebd4e06353f16d93171f70383ce49b94d97c757179d575f6527270e1a88"
+    },
+    {
+      "path": "sm8550/derive-templates.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535469294525,
+      "bytes": 6713,
+      "sha256": "f31dfa011c6ad63f867dc5a5d9b6cac985e47ac7fe7556c3355a0f4b6ad6735f"
+    },
+    {
+      "path": "sm8550/dolphin-sys-source-manifest.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792026770113795852,
+      "bytes": 4949,
+      "sha256": "b67f6590214e8b551baf2fafa726818c6b5eade1a6f339b08f1bc978f090d16f"
+    },
+    {
+      "path": "sm8550/h700-template.diff",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040864330805851,
+      "bytes": 11579,
+      "sha256": "acc1d027e3464f5356c13ee09df3af0bacff7c067fa685cd5848d18b21916ce5"
+    },
+    {
+      "path": "sm8550/initial-static-review.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039938425476874,
+      "bytes": 2603,
+      "sha256": "1e3011a4a4e9936f72c61111a1ad01bfa44a1fd7116b7ccfe6b09bca7b12c61f"
+    },
+    {
+      "path": "sm8550/original-locators.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039576200126960,
+      "bytes": 6062,
+      "sha256": "1b7ffd4b6653f1a545dd49f74731741eb8e51637ce6ef70bac96449b8b8d0950"
+    },
+    {
+      "path": "sm8550/original-packet-SHA256SUMS",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535469215668,
+      "bytes": 9240,
+      "sha256": "c1a0b3a749168c3b70e57904fcc0710f4a8a150971b5268bfcb2f63b5feeb22e"
+    },
+    {
+      "path": "sm8550/originals",
+      "kind": "directory",
+      "permission_mode": 509,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535466686659
+    },
+    {
+      "path": "sm8550/originals/H700",
+      "kind": "directory",
+      "permission_mode": 509,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535467359293
+    },
+    {
+      "path": "sm8550/originals/H700/acceptance",
+      "kind": "directory",
+      "permission_mode": 509,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535467433611
+    },
+    {
+      "path": "sm8550/originals/H700/acceptance/run.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791835690575441016,
+      "bytes": 628,
+      "sha256": "2eec512c308677ff532feb2fae2218b475a77507386254904bc5a04625559af9"
+    },
+    {
+      "path": "sm8550/originals/H700/acceptance/verify-firmware.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791835690575778076,
+      "bytes": 9911,
+      "sha256": "ff6cf7446ee3f26ad849669516774ac68c39b6ec7c8d48b21b394cb32eccd3fc"
+    },
+    {
+      "path": "sm8550/originals/H700/build.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791757455297615881,
+      "bytes": 4306,
+      "sha256": "7ccac5ee735dfbc7d7ad21af5e7727d9a0d96aa6b44c784a62ff12aa31e52fc8"
+    },
+    {
+      "path": "sm8550/originals/H700/consume-build.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791835690576012799,
+      "bytes": 1735,
+      "sha256": "cd6dc748a5c1f580c9a0eb82b909a556f0c7f4aaa302d38261b35f2d2c5a817a"
+    },
+    {
+      "path": "sm8550/originals/H700/consume-cache.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791758010211446735,
+      "bytes": 1430,
+      "sha256": "f861d33dc776f485d87fc81746bbc397fceef30e104dfbab8e685f415f2ff7e9"
+    },
+    {
+      "path": "sm8550/originals/H700/container-ready.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791757455294057498,
+      "bytes": 975,
+      "sha256": "c66a9c0cdb97e61cdaa7aba26130708afbbd9b08902a0249b733397a399cfc56"
+    },
+    {
+      "path": "sm8550/originals/H700/copy-cache.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791757313791199556,
+      "bytes": 2234,
+      "sha256": "79437b5326532143b446663081523eeab799ac7ded5cc749d482479ed522ba81"
+    },
+    {
+      "path": "sm8550/originals/H700/copy-cache.sh",
+      "kind": "file",
+      "permission_mode": 448,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791757313791689249,
+      "bytes": 627,
+      "sha256": "6b17ff27a5a7ecd073f87208e6fc248257b9572261f8ceec0a8ee85344c4099e"
+    },
+    {
+      "path": "sm8550/originals/H700/historical-inputs.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039576194616790,
+      "bytes": 2412,
+      "sha256": "a41e6a89ff7bd6c2c6bb4be820dcb9db4fdfeea29b0c96b0370c944e85030dc3"
+    },
+    {
+      "path": "sm8550/originals/H700/inside-build.sh",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791757455294101529,
+      "bytes": 136,
+      "sha256": "ff43b19e1b743beb341612fd0b17f856aafadd68ec8f36a9d01b0e18ce28d021"
+    },
+    {
+      "path": "sm8550/originals/H700/observe-container.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791757455296388793,
+      "bytes": 1986,
+      "sha256": "34decfc84c5d78161319434f9b6e891415a50bdacd98ecd3f09be964a583c0fb"
+    },
+    {
+      "path": "sm8550/originals/H700/progress.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791757313790914081,
+      "bytes": 480,
+      "sha256": "9b5f2b7ef8c3f7340da24e3a9f7ec423ab09f085411f1a3c9987c19ecffb69eb"
+    },
+    {
+      "path": "sm8550/originals/H700/verify-installed.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791757565189774359,
+      "bytes": 6809,
+      "sha256": "71aa861e15b2f5b55fbc4e23a7820be90ea9ae1a8e7b6e6a4687e7db4d010ca3"
+    },
+    {
+      "path": "sm8550/originals/H700/verify-source.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791757313790165239,
+      "bytes": 1159,
+      "sha256": "d546b3db3fbdb6f77536ba65e13607be365243ee55358c3b7175f9082a7c0cd5"
+    },
+    {
+      "path": "sm8550/originals/SM8550",
+      "kind": "directory",
+      "permission_mode": 509,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535467492964
+    },
+    {
+      "path": "sm8550/originals/SM8550/acceptance",
+      "kind": "directory",
+      "permission_mode": 509,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535467578928
+    },
+    {
+      "path": "sm8550/originals/SM8550/acceptance/run.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791835690582593351,
+      "bytes": 630,
+      "sha256": "54057f712b032e69abce209bbf3bd416da9f8754323a1e61d0506844186fd6e8"
+    },
+    {
+      "path": "sm8550/originals/SM8550/acceptance/verify-firmware.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791835690582612609,
+      "bytes": 11151,
+      "sha256": "15b91a45aa6f67c8193139ff28842b8785d59317716e6d9dcd3a2a9e9600dc89"
+    },
+    {
+      "path": "sm8550/originals/SM8550/build.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791760149362395311,
+      "bytes": 4645,
+      "sha256": "e5a97742a9e02813024b3f431e6fc2acb2d5f37a61a0fb627d33d74f7056f069"
+    },
+    {
+      "path": "sm8550/originals/SM8550/consume-build.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791760149363326967,
+      "bytes": 1713,
+      "sha256": "6b35288d85d8e8746a621d54d38c49562a6797157146050eff669780260c30f4"
+    },
+    {
+      "path": "sm8550/originals/SM8550/consume-cache.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791759414566695112,
+      "bytes": 1427,
+      "sha256": "4600025c906cd53b37af08be31215114535aa5f0f2ec92618e847d5f552d0b81"
+    },
+    {
+      "path": "sm8550/originals/SM8550/container-ready.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791760149362840825,
+      "bytes": 977,
+      "sha256": "bed7fbf97bd368b78701c8bbc55cc8b19448e108a5268ca43e177e4343e1e5ca"
+    },
+    {
+      "path": "sm8550/originals/SM8550/copy-cache.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791759414566672077,
+      "bytes": 2369,
+      "sha256": "d06f62cee1b70ef9916f9c9a12dc9e85ac2db9df58d262ecc4320f596b0b21c7"
+    },
+    {
+      "path": "sm8550/originals/SM8550/copy-cache.sh",
+      "kind": "file",
+      "permission_mode": 493,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791759414566640312,
+      "bytes": 631,
+      "sha256": "b4e80564e524debee0fc91de2cd4030cc867444dbdb8b697073c8292daeb908c"
+    },
+    {
+      "path": "sm8550/originals/SM8550/historical-inputs.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039576199739012,
+      "bytes": 11196,
+      "sha256": "9ec0e05add4faa455b80b84988c7b73496c533cb72ba42547b86b9344c3cc512"
+    },
+    {
+      "path": "sm8550/originals/SM8550/inside-build.sh",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791760149362966532,
+      "bytes": 782,
+      "sha256": "c092cc3a46e6a1e6e21dd812360656689eaace7a82bb3ff48a870f4f9843c63f"
+    },
+    {
+      "path": "sm8550/originals/SM8550/observe-container.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791760149362695387,
+      "bytes": 2220,
+      "sha256": "7cf2fec364cd147fd69993d4ede81d09ca455507d85612643af3fd26cff08583"
+    },
+    {
+      "path": "sm8550/originals/SM8550/progress.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791759414566515427,
+      "bytes": 480,
+      "sha256": "9b5f2b7ef8c3f7340da24e3a9f7ec423ab09f085411f1a3c9987c19ecffb69eb"
+    },
+    {
+      "path": "sm8550/originals/SM8550/verify-fex-cache.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791760149363201825,
+      "bytes": 616,
+      "sha256": "1efa07cfd53609fb407e55b66f346f5b38db9e4857e811965969be65e5302f97"
+    },
+    {
+      "path": "sm8550/originals/SM8550/verify-fex.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791760149363087888,
+      "bytes": 2429,
+      "sha256": "9670cac8bdd0183df1bcc65ab348810f807a9c35a06b51e319457ae7e17eb18f"
+    },
+    {
+      "path": "sm8550/originals/SM8550/verify-installed.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791760149362575664,
+      "bytes": 7072,
+      "sha256": "c407c2597d89c8f019cf3dd3e7a62d6fc8707cf66b8aa60ea3f6bb64ed52b822"
+    },
+    {
+      "path": "sm8550/originals/SM8550/verify-source.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1791760149362442518,
+      "bytes": 1161,
+      "sha256": "205d559969f94dfb006ffb9479badc31945f8d29a1343849e60bbfdbed940106"
+    },
+    {
+      "path": "sm8550/path-readback.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040366070821481,
+      "bytes": 1037,
+      "sha256": "5504e30b9ef1c7203eb75296b5f2e9e159432030f2b9d97cfeaa7d5d5bc5f528"
+    },
+    {
+      "path": "sm8550/prepare-owner.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535469324166,
+      "bytes": 11734,
+      "sha256": "f81111a1899fa8d2879a94ce56cd8ce29478553dbf6e6e29410838e5e154bae8"
+    },
+    {
+      "path": "sm8550/previous-gateway-packet-SHA256SUMS",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043961346111175,
+      "bytes": 9518,
+      "sha256": "e5b3018e7d25974089461f0252c44d3e9d64d83f0393261f7461039548faa9f2"
+    },
+    {
+      "path": "sm8550/previous-gateway-source-review.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043961343436490,
+      "bytes": 1627,
+      "sha256": "192c73f55d592b91da009ab7e0d3553c612eaae2b053e21c975d05b4d15a8a5c"
+    },
+    {
+      "path": "sm8550/prior-plan",
+      "kind": "directory",
+      "permission_mode": 509,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535465814582
+    },
+    {
+      "path": "sm8550/prior-plan/PLAN.md",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792038558708444956,
+      "bytes": 11200,
+      "sha256": "1fba0005926a525ea33a49caac862d8140ee73ade09f23925651aca8405868e0"
+    },
+    {
+      "path": "sm8550/prior-plan/SHA256SUMS",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792038558710370032,
+      "bytes": 414,
+      "sha256": "c46953509d9974d84fb9b16cd164feb043dc294414c7e0bb4634919ea1402775"
+    },
+    {
+      "path": "sm8550/prior-plan/evidence-locators.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792038444708771851,
+      "bytes": 5477,
+      "sha256": "970701fb2638b7d048db6f0655bbf5bac400d810f532419806b545974331e8d6"
+    },
+    {
+      "path": "sm8550/prior-plan/manifest.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792038558710283341,
+      "bytes": 886,
+      "sha256": "2e76a25f65e8fa9f7612aa1f52ca0d013f72d13ddaf24f0b564aedc12e636e72"
+    },
+    {
+      "path": "sm8550/prior-plan/product-scope.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792038444706004093,
+      "bytes": 11853,
+      "sha256": "6657fff7d14aec81cd5299eac37db443471d59bab0fbb832c75ff7b554800ec5"
+    },
+    {
+      "path": "sm8550/prior-plan/readback-erratum.md",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792038529999879077,
+      "bytes": 1253,
+      "sha256": "b6e10e11bc0ed6220dbf40057aebffffb354748929534ee42e8000d34ca1ab5b"
+    },
+    {
+      "path": "sm8550/proxy-source-proof.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652711860739,
+      "bytes": 24582,
+      "sha256": "818ea48bbba2ae02e6f18c2a45b34f30acc027cf3c003bd60f7570d278232925"
+    },
+    {
+      "path": "sm8550/review-history",
+      "kind": "directory",
+      "permission_mode": 509,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535465457253
+    },
+    {
+      "path": "sm8550/review-history/derivation-check.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040864330958300,
+      "bytes": 3420,
+      "sha256": "9d4539215e10d856175bca75cde15256309e69762a0aa145ef9572b2d51e8d42"
+    },
+    {
+      "path": "sm8550/review-history/derivation-check.stderr",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040841383012668,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "sm8550/review-history/derivation-check.stdout",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040841383012668,
+      "bytes": 53,
+      "sha256": "8a766be203a7af505229eb8882bf97ac0ac863f35c5cdb4abb9a8f502a2b4a5a"
+    },
+    {
+      "path": "sm8550/review-history/source-review-corrections.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040906533152075,
+      "bytes": 1507,
+      "sha256": "6ba52f1d2a6b841f908bbf875f9c5c8bab7a225d13f83c3920471f83c98f33fb"
+    },
+    {
+      "path": "sm8550/review-history/verify-fex-before-review.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040841350213825,
+      "bytes": 4275,
+      "sha256": "0bb90bc25faf643ea0011f452860f00ef1916140dca271963144e02ba23a7a33"
+    },
+    {
+      "path": "sm8550/review-history/verify-fex-review.diff",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040841350319808,
+      "bytes": 1793,
+      "sha256": "caf4f7e9cc0ab66a48599a7347d9e4e2e93bffa46f6477e6f7152c7f30823d93"
+    },
+    {
+      "path": "sm8550/sm8550-template.diff",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040864330863996,
+      "bytes": 14656,
+      "sha256": "eadb7093fd2f1895f84f9281a4762727814ee140b53bd24c1a2ea51dc9794363"
+    },
+    {
+      "path": "sm8550/source-references.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040292090348526,
+      "bytes": 2297,
+      "sha256": "79a02ab1389f0ba1545c48a23c0c0c482f591caf70ea347a9d2a24f7ba6e1af6"
+    },
+    {
+      "path": "sm8550/static-execution-corrected.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040906533098742,
+      "bytes": 674,
+      "sha256": "2053295309ff261790b74ce7e7b5048b6fe57801037d1801e9f61a170010fced"
+    },
+    {
+      "path": "sm8550/static-execution-final.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040906533030121,
+      "bytes": 666,
+      "sha256": "75dda9447d9932a172c6a7d3fc5a03b8de9f417e864fe07b447eca34e73950c2"
+    },
+    {
+      "path": "sm8550/static-execution-observation.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040237745164085,
+      "bytes": 464,
+      "sha256": "d86a43e6fa69dcefe0a359fad24636bec464db572ea8533db988da07c08d3894"
+    },
+    {
+      "path": "sm8550/static-review-corrected.stderr",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040878299959078,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "sm8550/static-review-corrected.stdout",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040878353959652,
+      "bytes": 3318,
+      "sha256": "6f988628b9cfb51e4f6a4aad8babf1fa8bbb1b3f9297af509ad1e3bf1dec18b3"
+    },
+    {
+      "path": "sm8550/static-review-final.stderr",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040434916231496,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "sm8550/static-review-final.stdout",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040434969232063,
+      "bytes": 3268,
+      "sha256": "e49cfde52b02616cb4201d91cd94c88cf8a9255388c80821b643a7742d593e16"
+    },
+    {
+      "path": "sm8550/static-review.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040237745094570,
+      "bytes": 3268,
+      "sha256": "e49cfde52b02616cb4201d91cd94c88cf8a9255388c80821b643a7742d593e16"
+    },
+    {
+      "path": "sm8550/static-review.stderr",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040203952763284,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "sm8550/static-review.stdout",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040204004763840,
+      "bytes": 3268,
+      "sha256": "e49cfde52b02616cb4201d91cd94c88cf8a9255388c80821b643a7742d593e16"
+    },
+    {
+      "path": "sm8550/templates",
+      "kind": "directory",
+      "permission_mode": 509,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535468280095
+    },
+    {
+      "path": "sm8550/templates/H700",
+      "kind": "directory",
+      "permission_mode": 509,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535468892339
+    },
+    {
+      "path": "sm8550/templates/H700/acceptance",
+      "kind": "directory",
+      "permission_mode": 509,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535468960638
+    },
+    {
+      "path": "sm8550/templates/H700/acceptance/run.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652717243304,
+      "bytes": 590,
+      "sha256": "4b00e035e9acde26f73cbbd177fd95da02f5de1032c220af73e18c234b8acd7e"
+    },
+    {
+      "path": "sm8550/templates/H700/acceptance/verify-firmware.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040804610175129,
+      "bytes": 10447,
+      "sha256": "91e0c2d15190808ce3e5ca6e7be66c61be02b2677dc099be376338cc6383affc"
+    },
+    {
+      "path": "sm8550/templates/H700/build.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652715396454,
+      "bytes": 4336,
+      "sha256": "01fd253e36ac5853cb48c3219aae058e998786a453b056ae51b7ebf7129167d2"
+    },
+    {
+      "path": "sm8550/templates/H700/consume-build.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652713129408,
+      "bytes": 1697,
+      "sha256": "48580b96921b4652238a165fce747be426a4f5f7b7410fac2ef6cfb70ade7730"
+    },
+    {
+      "path": "sm8550/templates/H700/consume-cache.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652712351270,
+      "bytes": 1430,
+      "sha256": "f861d33dc776f485d87fc81746bbc397fceef30e104dfbab8e685f415f2ff7e9"
+    },
+    {
+      "path": "sm8550/templates/H700/container-ready.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652713669173,
+      "bytes": 937,
+      "sha256": "c0118c9950b7241aafe06f5c302794bb7895b929ef313c97717380a91337a44f"
+    },
+    {
+      "path": "sm8550/templates/H700/copy-cache.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652712717172,
+      "bytes": 2380,
+      "sha256": "0e60154749d5f1f5dfe37c7edb2efd96d10e5a4be579800193ed1ee0ab8e8fb6"
+    },
+    {
+      "path": "sm8550/templates/H700/copy-cache.sh",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652712666149,
+      "bytes": 538,
+      "sha256": "a17181739de514ebcebb309ca44324aeeac0fa899f34cc2e0e201c0465d2b316"
+    },
+    {
+      "path": "sm8550/templates/H700/inside-build.sh",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652715336253,
+      "bytes": 98,
+      "sha256": "e7e02cbcd6fd099876b25c6a46a474f01994effd73f5b789a508d84d0d03437d"
+    },
+    {
+      "path": "sm8550/templates/H700/observe-container.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652713403740,
+      "bytes": 1978,
+      "sha256": "c66ba46d10d110c87427ea4ec682fd0399f68067175ed7db4f71ae262b27b494"
+    },
+    {
+      "path": "sm8550/templates/H700/progress.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652712135987,
+      "bytes": 480,
+      "sha256": "9b5f2b7ef8c3f7340da24e3a9f7ec423ab09f085411f1a3c9987c19ecffb69eb"
+    },
+    {
+      "path": "sm8550/templates/H700/verify-installed.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652713824847,
+      "bytes": 6702,
+      "sha256": "120e605475f3a6d5266020728ab431e87597f1a41b1c988ac3948b65e76d5ab7"
+    },
+    {
+      "path": "sm8550/templates/H700/verify-source.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652715162082,
+      "bytes": 1121,
+      "sha256": "37e5987c0583c2f775603bec1802b3dcadd916d1f9016c7311a73555bfa2da27"
+    },
+    {
+      "path": "sm8550/templates/SM8550",
+      "kind": "directory",
+      "permission_mode": 509,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535469030027
+    },
+    {
+      "path": "sm8550/templates/SM8550/acceptance",
+      "kind": "directory",
+      "permission_mode": 509,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535469108667
+    },
+    {
+      "path": "sm8550/templates/SM8550/acceptance/run.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652723143852,
+      "bytes": 590,
+      "sha256": "4b00e035e9acde26f73cbbd177fd95da02f5de1032c220af73e18c234b8acd7e"
+    },
+    {
+      "path": "sm8550/templates/SM8550/acceptance/verify-firmware.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040864263809753,
+      "bytes": 12073,
+      "sha256": "a42a1990c36090818bdddebf464aa2fabc4c1c86412522aa9bfcdc5e6b01588f"
+    },
+    {
+      "path": "sm8550/templates/SM8550/build.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792043535469264876,
+      "bytes": 4653,
+      "sha256": "e7974aae1554294626b9acfaeb79ad01918959d5e3f479c127865514508239e1"
+    },
+    {
+      "path": "sm8550/templates/SM8550/consume-build.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652719670271,
+      "bytes": 1713,
+      "sha256": "6b35288d85d8e8746a621d54d38c49562a6797157146050eff669780260c30f4"
+    },
+    {
+      "path": "sm8550/templates/SM8550/consume-cache.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652718574303,
+      "bytes": 1427,
+      "sha256": "4600025c906cd53b37af08be31215114535aa5f0f2ec92618e847d5f552d0b81"
+    },
+    {
+      "path": "sm8550/templates/SM8550/container-ready.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652720159919,
+      "bytes": 937,
+      "sha256": "c0118c9950b7241aafe06f5c302794bb7895b929ef313c97717380a91337a44f"
+    },
+    {
+      "path": "sm8550/templates/SM8550/copy-cache.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652718868297,
+      "bytes": 2482,
+      "sha256": "74ee9876ee64778ed6a8c7a54b4d383f0df7dc39c3f47d141bc83cac72ec50cc"
+    },
+    {
+      "path": "sm8550/templates/SM8550/copy-cache.sh",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652718821839,
+      "bytes": 538,
+      "sha256": "a17181739de514ebcebb309ca44324aeeac0fa899f34cc2e0e201c0465d2b316"
+    },
+    {
+      "path": "sm8550/templates/SM8550/inside-build.sh",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040804668175746,
+      "bytes": 338,
+      "sha256": "f61f350f4485d515272621ff58338e97e38ecb7600dcfe6294b903a46009ed36"
+    },
+    {
+      "path": "sm8550/templates/SM8550/observe-container.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652719909194,
+      "bytes": 2090,
+      "sha256": "ff024246060258aef7b79a7964bdbe8c53ede1b9f156653eb7facaf670759645"
+    },
+    {
+      "path": "sm8550/templates/SM8550/progress.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652718415790,
+      "bytes": 480,
+      "sha256": "9b5f2b7ef8c3f7340da24e3a9f7ec423ab09f085411f1a3c9987c19ecffb69eb"
+    },
+    {
+      "path": "sm8550/templates/SM8550/verify-installed.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652720309022,
+      "bytes": 6938,
+      "sha256": "0155a5e5cd84a64a1cf4e9e03e7aca051c19ca4b577c12a4ac7f55def8b0099d"
+    },
+    {
+      "path": "sm8550/templates/SM8550/verify-source.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792039652721025718,
+      "bytes": 1121,
+      "sha256": "37e5987c0583c2f775603bec1802b3dcadd916d1f9016c7311a73555bfa2da27"
+    },
+    {
+      "path": "sm8550/verify-additions.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044658256333709,
+      "bytes": 9532,
+      "sha256": "18fe6de14b1535b4e4c72d4fa2b58e7dcca7c1edcdc867335ff664535d095a3d"
+    },
+    {
+      "path": "sm8550/verify-fex.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040804694176022,
+      "bytes": 4944,
+      "sha256": "e6f440cb9ff3dbf4e44b487dd9c62bd87657ef99bcf8220393779bfd65825f1f"
+    },
+    {
+      "path": "sm8550/verify-static.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792040804721176309,
+      "bytes": 4987,
+      "sha256": "868e03aebf0ec8abac3b395fc27f5176e04489e07fb557f098bfeced1bee979d"
+    },
+    {
+      "path": "sm8550-commands.sh.diff",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848332006505,
+      "bytes": 1266,
+      "sha256": "834ad01267a0251a067cb8ea09af922edfc372d9180200b7c89c8d03d021280a"
+    },
+    {
+      "path": "sm8550-verify-additions.py.diff",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848331915536,
+      "bytes": 2922,
+      "sha256": "cd9e3c440cb7dc7faba253fac67ea5930f8631d4edd50f7cf663d3a089893f41"
+    },
+    {
+      "path": "source-originals.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848327716906,
+      "bytes": 10520,
+      "sha256": "4d6b9cb706d0bbf4048d301ff93a878bc435f2b9dcb57f3c3a534cc0f4135e70"
+    },
+    {
+      "path": "static-execution-observation.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792045046929312346,
+      "bytes": 521,
+      "sha256": "7facc47dccf8d96142b3a20057cb11a6438bdb226e87dfe5212c4cf6251f1d13"
+    },
+    {
+      "path": "static-review.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044929414390673,
+      "bytes": 3721,
+      "sha256": "927dcbec47acccce5e58c6ec9787a2f86779925a45ecbe8cf2fa05bed22e4325"
+    },
+    {
+      "path": "templates",
+      "kind": "directory",
+      "permission_mode": 509,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848340388525
+    },
+    {
+      "path": "templates/acceptance",
+      "kind": "directory",
+      "permission_mode": 509,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848339388514
+    },
+    {
+      "path": "templates/acceptance/run.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848340388525,
+      "bytes": 1339,
+      "sha256": "48f9216182368dbfd861de494f97b8778ad216d1af31ee81d66b66e8878aa4a6"
+    },
+    {
+      "path": "templates/acceptance/verify-firmware.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848328081442,
+      "bytes": 10814,
+      "sha256": "2a533391fdbe64df5958d269e6e2c0b9bcb6a8530b1cef4050086df41e6d22a0"
+    },
+    {
+      "path": "templates/consume-reader-stage.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848341388536,
+      "bytes": 4051,
+      "sha256": "f444037d7610556daf393c9ab0fff741b8b6a9b10846bca24bc34f0859cf401e"
+    },
+    {
+      "path": "templates/dolphin-sys-source-manifest.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848328037494,
+      "bytes": 4949,
+      "sha256": "b67f6590214e8b551baf2fafa726818c6b5eade1a6f339b08f1bc978f090d16f"
+    },
+    {
+      "path": "templates/proxy-source-proof.json",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848328001392,
+      "bytes": 24582,
+      "sha256": "818ea48bbba2ae02e6f18c2a45b34f30acc027cf3c003bd60f7570d278232925"
+    },
+    {
+      "path": "templates/reader.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848338388503,
+      "bytes": 2591,
+      "sha256": "678748db7f8ab1f4ec45adda5675a4df05572c5f4c681ce206c5b5b59041d043"
+    },
+    {
+      "path": "templates/verify-additions.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044658256333709,
+      "bytes": 9532,
+      "sha256": "18fe6de14b1535b4e4c72d4fa2b58e7dcca7c1edcdc867335ff664535d095a3d"
+    },
+    {
+      "path": "templates/verify-installed.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848327846076,
+      "bytes": 6702,
+      "sha256": "120e605475f3a6d5266020728ab431e87597f1a41b1c988ac3948b65e76d5ab7"
+    },
+    {
+      "path": "templates/verify-prerequisites.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044929348378916,
+      "bytes": 3151,
+      "sha256": "544dea9971e79b579447e9af9b2b56e6a1268071ee50d91e3df9a4df8aa0e7de"
+    },
+    {
+      "path": "templates/verify-source.py",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848327881247,
+      "bytes": 1159,
+      "sha256": "0a09cb8942c90dcb20bf657911232bb46b4aa09fbd5ac57f0e9ebb0e836489be"
+    },
+    {
+      "path": "verify-additions.py.diff",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044658256463774,
+      "bytes": 2902,
+      "sha256": "f25db69d6f0e1d41f3fc6463810447c101af82f66e43245c95b27a2bc3ea27f7"
+    },
+    {
+      "path": "verify-source.py.diff",
+      "kind": "file",
+      "permission_mode": 436,
+      "uid": 1000,
+      "gid": 1000,
+      "mtime_ns": 1792044848327955898,
+      "bytes": 656,
+      "sha256": "1fa8178271d1fd993fd82cedb0d64d3e8333c0f39336a7385af9266e8d065fcc"
+    }
+  ]
+}

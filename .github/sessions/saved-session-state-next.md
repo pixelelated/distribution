@@ -1,10 +1,62 @@
 # Saved Session State
 
-Updated 2026-10-15 06:12 UTC. Continue authorized M7 toward next0.0.1 RC.
-Coordinator m7-player-setup / feature/m7-final-qualification; published next/feature
-129b38188a. Frozen productf863 / ES16dbac unchanged. Harness untouched.
-Root sole runtime operator. NO runtime active; H700 reader correction preparing.
-Saving is not a pause. No physical/cloud authority inferred.
+Updated 2026-10-15 06:34 UTC. Continue authorized M7 toward next0.0.1 RC.
+Coordinator m7-player-setup / feature/m7-final-qualification, publishedd85d9ad572.
+Frozen productf863 / ES16dbac unchanged. Root sole runtime allocator; NO runtime
+active. #599 host PPSSPP state-check repair preparing; then fresh H700 acceptance
+and SM8550 sequentially. Saving is not a pause; no physical/cloud authority inferred.
+
+## Latest 2026-10-15 06:42 UTC — #599 host suite passed; fresh acceptance preparing
+
+Corrected host checker65ab515ec2c0ccdf474f08128cabf1dea774846a8add3725cd05d334b2e1eba6,
+test6e0b2eb945b913ad0c176dd532586463493e6984240e128ff771ce6264fd3eec unchanged.
+Bounded run063831Z-c75018f3 passed212 controls,40PPSSPP and14 shipped profiles;
+command/monitor/runner0, outer exec0 observed (no separate producer outerreceipt),
+all four recorded PIDs gone, scratch empty. Exact originals
+/tmp/pix-m7-state-controls-20261015-03. Prior01/02 prerequisite failures2 preserved:
+mcopy absent from PATH before any fixtures; private exact link to existing H700
+host mtools fixed setup. Sourcepacketab24bb4b; no firmware/checker runtime on device.
+
+m7_audit_resume owns only /tmp/pix-m7-h700-state-resume-20261015 for thin fresh
+H700 acceptance: stopped priorreader0, originalacceptance1, existing candidatebundle,
+explicit copied/hash-bound correctedchecker and suite0. Root must review sealed
+packet, then ordinary new capacity/report/admission and watched acceptance. Same
+checker/new H700 acceptance must bind SM8550 derivative. No active runtime currently.
+frame_diff_review retains source/test originals under docs/qa-logs/2026-10-15-ppsspp-state-check/;
+no code writes remain. Root owns next commit/checkpoint/trackers. #599 first3 criteria
+now verified; final H700/SM bindings and publication pending. Tracker readbacks
+/tmp/pix-m7-599-progress-20261015 exact. Rule/register/index/ceremony/diff checks passed.
+
+## Latest 2026-10-15 06:34 UTC — #599 PPSSPP verifier correction before H700 acceptance
+
+Fresh H700 installed/source reader062243Z-05af824d passed all original channels0;
+admissionba91e876 consumed. BothDDR acceptance062354Z-101c418b passed raw/update
+SYSTEM, kernel, bootloaders and14 affected mappings, then returned1: selected-state
+exit2/input-invalid at PPSSPP ppsspp.ini, blocked_count0. Original failure consumed
+21f58942, all recorded PIDs gone, no active compiler/VM. Fresh reader owner
+/workspace/tmp/pix-m7-h700-reader-20261015-01. Do NOT call its consume-acceptance.
+Private failure originals /tmp/pix-m7-h700-state-failure-20261015; compact successful
+reader plus failed acceptance custody docs/qa-logs/2026-10-15-device-refresh/state-failure03/.
+One1.285GB SYSTEM scratch remains held; both sparse raw disks already removed.
+
+PPSSPP supports spaced Enable Logging key; our generic scalar parser rejects it.
+Pinned/upstream review also found exact AchievementsUserName/Token missing from
+host classifier. New bug #599 owns scoped parser/account controls. frame_diff_review
+owns only coordinator tools/pixelelated-state-check and -test plus its /tmp/pix-m7-state-check-ppsspp-20261015
+notes. Root reviewed finite diff; requested all14 public default fixtures (two initially).
+NO tests allocated yet; obtain released hashes, run bounded native host suite via
+record-only watcher, actual H700 TAR read, local Issue review, publish host-tool fix.
+Then fresh acceptance owner must bind corrected tool separately from frozenproductf863;
+old owners/seals/results untouched. SM8550 packet also needs that binding before
+preparation. Latest source-only reader packet /tmp/pix-m7-h700-reader-review-20261015
+is retained under reader-source/; originalseal a21f1316, durablefbaabc4a independently
+verified189members. Its acceptance still uses frozen broken host checker; don't rerun.
+
+#555/milestone readbacks /tmp/pix-m7-h700-state-tracker-20261015 updated failure and
+sequence; #599 filed and owns follow-up. No new productaudit/RC/deviceclaim.
+#528 UNRUN source-custody proposal retained docs/qa-logs/2026-10-15-source-custody/plan/,
+sealbbd3e807; root partially reviewed collector diffs but needs full custody check/
+future final input bindings. Source worker released it; no collector runtime.
 
 ## Latest 2026-10-15 06:12 UTC — assembled H700 held on reader mismatch
 

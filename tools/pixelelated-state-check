@@ -40,7 +40,7 @@ OPTIONAL = {
     "flycast/emu.cfg": "emulator", "aethersx2/inis/PCSX2.ini": "emulator",
     "ARMSX2/inis/PCSX2.ini": "emulator", "ARMSX2/inis/secrets.ini": "emulator",
     "dolphin-emu/RetroAchievements.ini": "emulator",
-    "ppsspp/PSP/SYSTEM/ppsspp.ini": "emulator",
+    "ppsspp/PSP/SYSTEM/ppsspp.ini": "ppsspp",
     "ppsspp/PSP/SYSTEM/ppsspp_retroachievements.dat": "opaque-account",
     "SkyEmu/ra_token.txt": "opaque-account",
     "gopher64/retroachievements.json": "opaque-account",
@@ -125,7 +125,7 @@ def xml(data, tag):
     return root
 
 
-def pairs(data, melonds=False, comment_only=False):
+def pairs(data, melonds=False, comment_only=False, ppsspp=False):
     """Strict non-executing key/value + INI subset used by selected configs."""
     result, seen, section = [], {}, ""
     source = text(data)
@@ -141,7 +141,12 @@ def pairs(data, melonds=False, comment_only=False):
             require(re.fullmatch(r"\[[^\[\]\r\n]+\]", line))
             section = line[1:-1].lower()
             continue
-        match = re.fullmatch(r"([^=\s]+)\s*=\s*(.*)", line)
+        # PPSSPP IniFile::ParseLineKey preserves internal spaces/tabs, including
+        # its declared "Enable Logging" key (#599). Keep other config grammars
+        # strict; escaped/comment-bearing keys remain outside this small subset.
+        pattern = (r"([^=\s#\\]+(?:[ \t]+[^=\s#\\]+)*)[ \t]*=[ \t]*(.*)"
+                   if ppsspp else r"([^=\s]+)\s*=\s*(.*)")
+        match = re.fullmatch(pattern, line)
         require(match is not None)
         key, value = match.groups()
         key = key.lower()
@@ -157,7 +162,10 @@ def pairs(data, melonds=False, comment_only=False):
         if melonds and not section and line in {
                 "RA_Username=null", "RA_Password=null", "RA_Token=null"}:
             value = ""
-        if value.startswith(('"', "'")):
+        # PPSSPP StripQuotes removes double quotes only: '' is a populated
+        # literal there, so it must not become an empty account in this reader.
+        quotes = ('"',) if ppsspp else ('"', "'")
+        if value.startswith(quotes):
             quote = value[0]
             require(len(value) >= 2 and value.endswith(quote))
             value = value[1:-1]
@@ -528,7 +536,8 @@ class Check:
                 require(not any(s in val for s in ("`", "$(", "${", ";")))
                 items.append(("", key.removeprefix("default_"), val))
         else:
-            items = pairs(data, melonds=kind == "melonds", comment_only=kind == "retroarch-default")
+            items = pairs(data, melonds=kind == "melonds", comment_only=kind == "retroarch-default",
+                          ppsspp=kind == "ppsspp")
         counts = {"player-account": 0, "developer-service-identity": 0}
         if kind == "cloud":
             counts["configured-remote"] = 0
@@ -541,7 +550,12 @@ class Check:
             personal = (key in ES_PLAYER or key.startswith("global.retroachievements.") and
                         key.rsplit(".", 1)[-1] in PLAYER or
                         key.startswith(("cheevos_", "ra_")) and key.split("_", 1)[1] in PLAYER or
-                        section in ("achievements", "retroachievements", "cheevos") and key in PLAYER)
+                        section in ("achievements", "retroachievements", "cheevos") and key in PLAYER or
+                        # PPSSPP's actual case-insensitive keys. The token is
+                        # usually opaque .dat state, but manual INI loading is
+                        # supported too (Core/Config.cpp, #599).
+                        kind == "ppsspp" and section == "achievements" and
+                        key in {"achievementsusername", "achievementstoken"})
             counts["player-account"] += int(personal)
             counts["developer-service-identity"] += int(key in ES_SERVICE or key in SERVICE)
             if kind == "cloud":

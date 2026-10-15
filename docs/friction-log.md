@@ -771,3 +771,7 @@ coverage now passes368commits. No public push or guard bypass occurred.
 - 2026-10-15 05:50 UTC -- #555 device wrapper cleared PROJECT/DEVICE/ARCH before Docker, so a valid two-ABI admission rejected the unspecified nested gateway after normal package cleans -- guard: retain exact nested-profile enforcement; new wrapper explicitly selects its already-admitted host gateway tuple for both device templates -- issue: #555
 
 - 2026-10-15 06:12 UTC -- Device reader copied four Qt6/GENERIC gst-plugins-good expectations into H700, which ships core/base/bad, so it refused after successful image assembly -- guard: explicit profile dependency and installed-path expectations in fresh reader; no blanket optional missing files -- issue: #555
+
+- 2026-10-15 06:34 UTC -- Final H700 clean-state read rejected PPSSPP spaced INI keys and source review found uncovered achievement account fields -- guard: #599 scoped PPSSPP parser with public profile defaults and negative account/duplicate/privacy controls -- issue: #599
+
+- 2026-10-15 06:42 UTC -- Host payload suite refused before fixtures because mcopy was absent from PATH although the build had its host mtools utility -- guard: retain explicit private mcopy dependency/hash in allocated fixture environment, without changing host packages -- issue: #599

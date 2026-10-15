@@ -7,7 +7,7 @@
 creates tiny synthetic SYSTEM/update/install payloads and release bundles using
 installed filesystem tools (no distro build). Coordinator allocates these runs.
 --prepare-guest-script FILE only writes a first-boot read-only serial script.
-All fixture data is synthetic; no caller-supplied storage is seeded or cleaned.
+Fixtures are synthetic or public shipped defaults; no caller-supplied storage is seeded or cleaned.
 """
 import argparse
 import base64
@@ -390,6 +390,68 @@ def root_controls(work):
     case("standalone-token", lambda r: put(r,
          "storage/.config/ppsspp/PSP/SYSTEM/ppsspp_retroachievements.dat", CANARY),
          1, "player-account-file")
+    # PPSSPP's shipped syntax and exact active account keys (#599). Every
+    # profile file is a public repository default, never device state.
+    psp = "ppsspp/PSP/SYSTEM/ppsspp.ini"
+    default_root = HERE.parent / "projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/sources"
+    default_files = sorted(default_root.glob("*/ppsspp.ini"))
+    require({p.parent.name for p in default_files} >= {"H700", "SM8550"})
+    for path in default_files:
+        case("ppsspp-shipped-" + path.parent.name,
+             lambda r, data=path.read_bytes(): put(r, "usr/config/" + psp, data), mode="clean-image")
+    psp_empty = ('\ufeff[General]\r\nEnable Logging = False\r\n'
+                 '[Achievements]\r\nAchievementsUserName = \r\nAchievementsToken = ""\r\n')
+    case("ppsspp-empty-accounts", lambda r: put(r, "storage/.config/" + psp, psp_empty))
+    case("ppsspp-spaced-key-private", lambda r: put(r, "storage/.config/" + psp,
+         "[General]\nEnable Logging = False\nUnknown key = " + CANARY + "\n"))
+    for key in ("AchievementsUserName", "AchievementsToken"):
+        for prefix in ("usr/config/", "storage/.config/"):
+            case("ppsspp-" + key.lower() + ("-default" if prefix == "usr/config/" else "-runtime"),
+                 lambda r, key=key, prefix=prefix: put(r, prefix + psp,
+                     "[Achievements]\n" + key + " = " + CANARY + "\n"), 1, "player-account")
+    case("ppsspp-case-tabs-crlf", lambda r: put(r, "storage/.config/" + psp,
+         "\t[aChIeVeMeNtS]\t\r\n\taChIeVeMeNtSuSeRnAmE\t =\t" + CANARY + "\t\r\n"),
+         1, "player-account")
+    case("ppsspp-internal-key-tab", lambda r: put(r, "storage/.config/" + psp,
+         "[General]\nEnable\tLogging = False\n"))
+    # Internal key/section spaces are significant upstream, not normalized away.
+    case("ppsspp-distinct-spaced-account-key", lambda r: put(r, "storage/.config/" + psp,
+         "[Achievements]\nAchievements UserName = " + CANARY + "\n"))
+    case("ppsspp-wrong-section", lambda r: put(r, "storage/.config/" + psp,
+         "[General]\nAchievementsToken = " + CANARY + "\n"))
+    case("ppsspp-section-spaces-significant", lambda r: put(r, "storage/.config/" + psp,
+         "[ Achievements ]\nAchievementsToken = " + CANARY + "\n"))
+    case("ppsspp-duplicate-empty", lambda r: put(r, "storage/.config/" + psp,
+         "[Achievements]\nAchievementsToken = \nachievementstoken\t=\t\n"))
+    case("ppsspp-duplicate-populated", lambda r: put(r, "storage/.config/" + psp,
+         "[Achievements]\nAchievementsToken = " + CANARY + "\nAchievementsToken = " + CANARY + "\n"),
+         1, "player-account")
+    for first, second, label in (("", CANARY, "empty-first"), (CANARY, "", "populated-first")):
+        case("ppsspp-conflicting-duplicate-" + label,
+             lambda r, first=first, second=second: put(r, "storage/.config/" + psp,
+                 "[Achievements]\nAchievementsToken = " + first +
+                 "\naChIeVeMeNtStOkEn\t=\t" + second + "\n"), 2)
+    case("ppsspp-repeated-section-conflict", lambda r: put(r, "storage/.config/" + psp,
+         "[Achievements]\nAchievementsUserName = \n[ACHIEVEMENTS]\nAchievementsUserName = " + CANARY), 2)
+    case("ppsspp-single-quotes-are-literal", lambda r: put(r, "storage/.config/" + psp,
+         "[Achievements]\nAchievementsToken = ''\n"), 1, "player-account")
+    case("ppsspp-unterminated-double-quote", lambda r: put(r, "storage/.config/" + psp,
+         '[Achievements]\nAchievementsToken = "' + CANARY + "\n"), 2)
+    case("ppsspp-empty-key", lambda r: put(r, "storage/.config/" + psp,
+         "[General]\n \t= " + CANARY + "\n"), 2)
+    for directive in ("include", "reference"):
+        case("ppsspp-" + directive, lambda r, directive=directive: put(r, "storage/.config/" + psp,
+             '# ' + directive + ' "/outside/' + CANARY + '"\n' + psp_empty.lstrip("\ufeff")), 2)
+    case("ppsspp-comment-key-unsupported", lambda r: put(r, "storage/.config/" + psp,
+         "[Achievements]\nAchievementsToken#unsupported = " + CANARY + "\n"), 2)
+    case("ppsspp-recovery-sibling", lambda r: put(r, "storage/.config/" + psp + ".new.123",
+         "[Achievements]\nAchievementsToken = " + CANARY + "\n"), 1, "player-account")
+    case("ppsspp-retained-account", lambda r: put(r, "storage/.config/" + psp,
+         "[Achievements]\nAchievementsToken = " + CANARY + "\n"), mode="retained-upgrade")
+    case("ppsspp-retained-default-account", lambda r: put(r, "usr/config/" + psp,
+         "[Achievements]\nAchievementsToken = " + CANARY + "\n"), 1, "player-account", "retained-upgrade")
+    case("ppsspp-spaces-not-global", lambda r: put(r, "storage/.config/flycast/emu.cfg",
+         "[General]\nEnable Logging = False\n"), 2)
     case("standalone-ini", lambda r: put(r, "storage/.config/flycast/emu.cfg",
          "[achievements]\nToken = " + CANARY + "\n"), 1, "player-account")
     case("dolphin-apitoken-only", lambda r: put(r, "storage/.config/dolphin-emu/RetroAchievements.ini",
