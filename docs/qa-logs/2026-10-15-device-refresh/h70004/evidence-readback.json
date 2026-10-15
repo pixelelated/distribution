@@ -1,0 +1,47 @@
+{
+  "record_type": "Read-only independent original evidence readback; no tests or readers replayed",
+  "utc": "2026-10-15T06:51:00.268226+00:00",
+  "owner": "/workspace/tmp/pix-m7-h700-state-acceptance-20261015-01",
+  "run": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04/.build-runs/20261015T064734Z-8868082e",
+  "admission_id": "4ebc249f9b7d4e9a8c61cff36cc23fea",
+  "consumed_receipt_sha256": "6d5cf543877a6d6a4c861ce9fa1d1c5ca2a4e5c399d777811783ccb5378b7f6d",
+  "original_runner_result": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-15T06:47:59.613747+00:00"
+  },
+  "original_launcher_result": {
+    "utc": "2026-10-15T06:47:59.622686+00:00",
+    "pid": 135798,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  },
+  "inner_outer_tool_wrapper_build_selected_state_rc": 0,
+  "acceptance_sha256": "e8107b4bffac81fa72dd127a45ec1b6b7455518829f04c143690ec60687813db",
+  "bundle_manifest_sha256": "32f7a6523dfae61b5142cf803876bf4e09f9a21a3a6784a69ca74b9d9b587833",
+  "source_commit": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+  "host_checker_sha256": "65ab515ec2c0ccdf474f08128cabf1dea774846a8add3725cd05d334b2e1eba6",
+  "arm_handoff_records": 186,
+  "affected_product_records": 14,
+  "variants": [
+    "DDR3",
+    "DDR4"
+  ],
+  "selected_state": {
+    "status": "pass",
+    "mode": "clean-image",
+    "input_kind": "update-tar",
+    "blocked_count": 0,
+    "error_count": 0
+  },
+  "selected_state_checks": 280,
+  "acceptance_reports_scratch_removed": true,
+  "prior_combined_producer_original_rc": 1,
+  "prior_selected_state_acceptance_original_rc": 1,
+  "completion_evidence_all16_named_hashes_verified": true,
+  "owner_seal_all_hashes_verified": true,
+  "executed_owner_scripts_match_sealed_templates": true,
+  "all_original_channels_unchanged": true,
+  "scope": "Accepted independent H700 firmware artifact reader and selected-state scope only. No new firmware rehash/read, target execution, physical boot, SM8550 acceptance, RC or publication claim by this custody task."
+}

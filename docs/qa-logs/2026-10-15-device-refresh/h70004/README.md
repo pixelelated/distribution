@@ -1,0 +1,18 @@
+# H700 accepted artifact continuation — #555 / #599
+
+Root completed and consumed the independent H700 acceptance at 2026-10-15 06:47:59 UTC. Run `20261015T064734Z-8868082e`, owner `/workspace/tmp/pix-m7-h700-state-acceptance-20261015-01`, admission `4ebc249f9b7d4e9a8c61cff36cc23fea`. Original command/monitor/runner, launcher-return, inner, outer, tool-wrapper and selected-state channels are all 0. The actual consumed receipt is retained unchanged; outputs remain held and deleted bytes are 0.
+
+Acceptance SHA256: `e8107b4bffac81fa72dd127a45ec1b6b7455518829f04c143690ec60687813db`.
+Candidate bundle-manifest SHA256: `32f7a6523dfae61b5142cf803876bf4e09f9a21a3a6784a69ca74b9d9b587833`.
+Frozen distribution: `f8636de1d105275dbf9420bbabbbc26f79abb10f`.
+Separately bound host checker: `65ab515ec2c0ccdf474f08128cabf1dea774846a8add3725cd05d334b2e1eba6`.
+
+The originals record matching DDR3/DDR4 raw-image and update SYSTEM/kernel payloads, each variant's bootloader, 186 ARM handoff records, and 14 affected-product mappings checked against independently extracted SYSTEM bytes/modes/link chains. The update-TAR selected-state report is pass: 280 checks, blocked0, errors0, exit0 and blank stderr. Acceptance records scratch removed, source unchanged and independent candidate-bundle inodes. This retaining worker read the actual original JSON/log/receipt bytes and checked their binding hashes; it did not reopen firmware, replay a reader or execute a test.
+
+The earlier combined producer returned1, and the earlier selected-state acceptance returned1 after its reader returned2. Both remain failed-investigated. Their immutable originals and the already successful reader stage are preserved by the thin source packet. This new acceptance0 qualifies its own independent artifact scope; it does not turn the earlier runs into successful producers. The #599 host-control packet is separately retained at `../../2026-10-15-ppsspp-state-check/`; its earlier prerequisite failures remain preserved there.
+
+`originals.tar.gz` contains 116 regular files (4,622,764 uncompressed bytes): the exact 63 source files named by root seal `8231f538565241e7f92d35fef96cd6d2705cc34ed6f37dca02e4ac05ae9e26b2`, that original seal, 34 accepted-owner files and 18 original watcher files. The source root is `/tmp/pix-m7-h700-state-resume-20261015`. Selection used only its sealed file list plus the seal; the separately prepared `sm8550/` subtree is excluded. No directory entries or directory metadata are archived, and no directory-stability claim is made while that subtree is being added.
+
+`member-manifest.json` records each retained original path, file bytes/hash, permission mode, UID/GID and nanosecond mtime. Verification compares `stat.S_IMODE`, exact decimal PAX times, archive membership and every member hash; all selected file bytes/metadata and the original root seal were rechecked unchanged afterward. `evidence-readback.json` records the finite result/consumption checks, including all 16 completion-evidence hashes and exact executed-template/checker identity. Original preparation/source UNRUN records remain historical and are not rewritten by the later successful execution.
+
+No firmware payload, raw disk, cache, build tree or private player configuration is duplicated. The source packet includes compact manifests, not their firmware payloads. Root owns final review, staging and tracker updates. No VM/compiler/test/admission/registry or original receipt was executed or changed in this custody task. Physical H700 boot/smoke, SM8550 acceptance, release-candidate designation and publication are outside this result. Outer SHA256SUMS binds the archive, member manifest, readback and this README.

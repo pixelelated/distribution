@@ -1,10 +1,61 @@
 # Saved Session State
 
-Updated 2026-10-15 06:34 UTC. Continue authorized M7 toward next0.0.1 RC.
-Coordinator m7-player-setup / feature/m7-final-qualification, publishedd85d9ad572.
-Frozen productf863 / ES16dbac unchanged. Root sole runtime allocator; NO runtime
-active. #599 host PPSSPP state-check repair preparing; then fresh H700 acceptance
-and SM8550 sequentially. Saving is not a pause; no physical/cloud authority inferred.
+Updated 2026-10-15 07:06 UTC. Continue authorized M7 toward next 0.0.1 RC.
+Coordinator m7-player-setup / feature/m7-final-qualification, published8794630e8f.
+Frozen productf863 / ES16dbac unchanged. Root sole runtime allocator; SM8550
+cache copy ACTIVE under actual watcher. H700 artifact acceptance COMPLETE.
+Saving is not a pause; no physical/cloud authority inferred.
+
+## Latest 2026-10-15 07:06 UTC — H700 accepted; SM8550 cache active
+
+H700 independent acceptance064734Z-8868082e completed06:47:59UTC, all original
+channels0 and admission4ebc249f consumed. BothDDR raw/update/kernel/bootloader,
+186ARM handoff records,14 affected products and selected-state280 checks pass,
+blocked0/error0. Fresh scratch removed; prior gateway2/producer1/state-reader1
+remain failures. AcceptanceSHAe8107b4bffac81fa72dd127a45ec1b6b7455518829f04c143690ec60687813db;
+bundle32f7a6523dfae61b5142cf803876bf4e09f9a21a3a6784a69ca74b9d9b587833.
+Owner /workspace/tmp/pix-m7-h700-state-acceptance-20261015-01. Durable h70004
+custody828241d7 independently verified116 originals. Optional old failed-reader
+SYSTEM scratch1.285GB remains an exact retirement item, not new accepted scratch.
+
+#599 scoped host checker65ab515e / suite6e0b2eb9 published8794630e8f;212 controls
+pass. Exact hosted record38694615876, next wordlist38694615883 and feature
+wordlist38694529353 all SUCCESS. Corrected checker copied/hash-bound into actual
+SM8550 owner and its acceptance inputs; actual SM acceptance remains unrun.
+Completed product audit9becf3fa and frozen firmware remain unchanged.
+
+SM8550 frozen checkout /workspace/repos/rocknix.worktrees/m7-pixelelated-sm8550-04
+sourcef863; owner /workspace/tmp/pix-m7-sm8550-refresh-20261015-01. Cache run
+20261015T065844Z-a2efce5f, admissionce9f85bb15674123ab7ecc49566e86cb,
+launcher191928 / runner191929 / watcher191930. Active copy, checksum and independent
+inode checks; monitor actual owner/cache-launch/console.log, launcher-result.json
+and frozen .build-runs/run/build.status. Never precreate tool-wrapper.rc.
+Fresh preflight READY50,932MiB availableRAM/7,573MiB freeswap; retention noerrors/
+overlap,2.53TB available with600GiB allowance. Copies ARM19.3GB+AArch64158.3GB+
+privateNix2.68GB; shared68.3GB source cache not copied. One runtime owner only.
+
+Original preparation065146Z-acd7c8cc returned1/0/1 before owner creation: oldbc9
+parent has one generated SM8550 documentation row. Root traced its old writer;
+no parent file was changed. Narrow derivative requires exact HEAD/status/path/
+content/full diff and unchanged all other product/tools before later stages.
+Current executable packet /tmp/pix-m7-sm8550-parent-doc-20261015, seal60a59605;
+retry preparation065648Z-c760b606 passed0. Source-only custody sm8550-source/
+seal eafccff4 and sm8550-parent-source/2e6b7f84 verified against originals.
+
+NEXT: supervise cache <=60s and announce completion. After original channels0,
+actual owners exited and checksum/inode PASS, run current packet commands.sh
+SM8550 consume-cache. Then build: split fresh preflight/record-only retention
+report for inspection before ordinary admission/submit; supervise, consume-build;
+then independent acceptance and consume-acceptance. Keep shared timestamp
+20261015T052134Z; do not recreate/prepare owner. No #597 recovery for this run.
+
+Root owns records/integration. dolphin_ra_init prepares SOURCE-ONLY #528 final
+five-profile inventory packet at /tmp/pix-m7-final-inventory-review-20261015;
+collector runtime waits for completed SM acceptance and fresh host guard.
+Other source workers released custody, no runtime resources held. #344/#528/
+#265/#337/#359 publication/source/physical holds remain; no RC number or deployment.
+Approved fixed swap helper reclaimed before H700 acceptance, actual0; no host
+policy change. Root continues active supervision; no off-session alert claimed.
 
 ## Latest 2026-10-15 06:42 UTC — #599 host suite passed; fresh acceptance preparing
 
