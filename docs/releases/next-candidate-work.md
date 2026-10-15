@@ -11,6 +11,19 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 02:56 UTC — interim audit preserved; two findings remain
+
+The [interim audit](../audits/2026_10_14-milestone-m7-next-candidate/INTERIM-CHECKPOINT.md)
+retains both verified external reviews and all original evidence. Four findings
+are resolved within their stated scopes; #593 Wi-Fi normal exit and #594 Dolphin
+full refusal flow remain open. #595 source isolation is proven; its final image
+identity check remains due. No audit-completion marker or RC approval exists.
+
+The state-only continuation is prepared for the actual next integrated image.
+First finish the reviewed UI proof, then integrate/build, check affected clean
+and retained boundaries, and complete native-state observations. Source/control
+evidence published atf13f9d98 does not itself establish those runtime results.
+
 ## 2026-10-15 02:46 UTC — focused audit fixes verified; UI is next
 
 #594/#595 source is d9054efc46, published on feature47dda767. Fifteen Dolphin

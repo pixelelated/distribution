@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "source_owner": "/workspace/tmp/pix-m7-fable-blind-20261015-01",
+  "response_bytes": 17194,
+  "output_sha256": "98482d2f5f7f5762faa1ccea3d06fadc9391963d12f69f1e54256581cf67ad46",
+  "prompt_sha256": "9cd8004050112faf4b9c88754e5a08924523706f7582faf16bce11b5e0c0506e",
+  "served_model": "anthropic/claude-fable-5.1",
+  "effort": "xhigh",
+  "provider": {
+    "result": "NOT_PINNED",
+    "declared": null,
+    "evidence": "response_provider_field",
+    "observed": "Anthropic",
+    "observed_providers": [
+      "Anthropic"
+    ]
+  },
+  "original_channels": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-15T01:45:04.676816+00:00"
+  },
+  "auditor_method": "Direct original receipt/byte/hash/identity assertions; standalone provenance/digest lint scripts absent in this estate; current tools/lint-audit-artifacts contract read and matched for this call only. Refutation call still required."
+}

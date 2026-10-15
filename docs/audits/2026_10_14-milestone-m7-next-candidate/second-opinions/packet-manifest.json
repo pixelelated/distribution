@@ -1,0 +1,280 @@
+{
+  "created": "2026-10-15T01:19:53.072146+00:00",
+  "sanitization_checks": {
+    "private_identity_values_absent": true,
+    "host_personal_prefix_absent": true,
+    "primary_finding_ids_absent_from_blind": true,
+    "blind_has_115_criteria": true,
+    "blind_full_source_inputs": 35,
+    "external_calls_made": 0
+  },
+  "redactions": [
+    "compiled shared ScreenScraper developer identity values",
+    "personal absolute host-path prefixes",
+    "NUL represented visibly"
+  ],
+  "inputs": [
+    {
+      "label": "Distribution product delta (complete, unified context8)",
+      "kind": "diff",
+      "original_sha256": "674e07f47bece14ec41d653b04a0b05393cced5acbbbc38f02f2db91f554cfc8",
+      "sanitized_sha256": "3f51236f3f15fda9b6fc300f90a7e3833b321be4a9941c88ae9d53a3edf3f9c1",
+      "bytes": 240523
+    },
+    {
+      "label": "ES delta (complete, unified context8)",
+      "kind": "diff",
+      "original_sha256": "ffc20dade0f3a472c95207f27e4834320a665683c9b71b47892db14c1574abbd",
+      "sanitized_sha256": "ffc20dade0f3a472c95207f27e4834320a665683c9b71b47892db14c1574abbd",
+      "bytes": 93930
+    },
+    {
+      "label": "DISTRO fac608ff8994:projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+      "kind": "source",
+      "original_sha256": "7d5aac63831b5edd045daafd5093bb8cb62224ce3bc4e3caa533d3c2b3c5f958",
+      "sanitized_sha256": "7d5aac63831b5edd045daafd5093bb8cb62224ce3bc4e3caa533d3c2b3c5f958",
+      "bytes": 140849
+    },
+    {
+      "label": "DISTRO fac608ff8994:projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/dolphin-save-paths",
+      "kind": "source",
+      "original_sha256": "74fe115fad899ef3b85ee780bd31910e8b20a1c1d6770873257411d7e4c2ecf8",
+      "sanitized_sha256": "74fe115fad899ef3b85ee780bd31910e8b20a1c1d6770873257411d7e4c2ecf8",
+      "bytes": 18802
+    },
+    {
+      "label": "DISTRO fac608ff8994:projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh",
+      "kind": "source",
+      "original_sha256": "e342cf916923623123a0bf6108055f789d4c240ef947973f38e2a3f2cf84efb7",
+      "sanitized_sha256": "e342cf916923623123a0bf6108055f789d4c240ef947973f38e2a3f2cf84efb7",
+      "bytes": 4202
+    },
+    {
+      "label": "DISTRO fac608ff8994:projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/package.mk",
+      "kind": "source",
+      "original_sha256": "13d8b1f1a2af3e997c6246eb9bff350aea85090cc066530ac83ee4eade46742f",
+      "sanitized_sha256": "13d8b1f1a2af3e997c6246eb9bff350aea85090cc066530ac83ee4eade46742f",
+      "bytes": 5734
+    },
+    {
+      "label": "DISTRO fac608ff8994:projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl",
+      "kind": "source",
+      "original_sha256": "222a5522b0435fedd6ad5b10242b2cffdf3f9afeabb1ae4335eb6f98761ca70d",
+      "sanitized_sha256": "222a5522b0435fedd6ad5b10242b2cffdf3f9afeabb1ae4335eb6f98761ca70d",
+      "bytes": 28233
+    },
+    {
+      "label": "DISTRO fac608ff8994:projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl",
+      "kind": "source",
+      "original_sha256": "3a5e78ef8191a754d749b07a55940ec20f3099a61b10c83c3c0a0e6aee0f9e78",
+      "sanitized_sha256": "3a5e78ef8191a754d749b07a55940ec20f3099a61b10c83c3c0a0e6aee0f9e78",
+      "bytes": 14943
+    },
+    {
+      "label": "ES 3178b832b8d1:es-app/src/guis/GuiWifi.cpp",
+      "kind": "source",
+      "original_sha256": "1e5ebd0bf26a0a6907fc7cd012d472e775356edc43af77c703fd2c46ee1fa844",
+      "sanitized_sha256": "1e5ebd0bf26a0a6907fc7cd012d472e775356edc43af77c703fd2c46ee1fa844",
+      "bytes": 25549
+    },
+    {
+      "label": "ES 3178b832b8d1:es-app/src/guis/GuiWifi.h",
+      "kind": "source",
+      "original_sha256": "4a64b389bf4a0e707cba654dddb156670651a75b615233f43674f74b03e766c5",
+      "sanitized_sha256": "4a64b389bf4a0e707cba654dddb156670651a75b615233f43674f74b03e766c5",
+      "bytes": 3867
+    },
+    {
+      "label": "ES 3178b832b8d1:es-app/src/guis/WifiScanProcess.h",
+      "kind": "source",
+      "original_sha256": "ec88fdcd430e14b562aff8250cefff0b0b6bfe82ddded04273d30b820bb45ec4",
+      "sanitized_sha256": "ec88fdcd430e14b562aff8250cefff0b0b6bfe82ddded04273d30b820bb45ec4",
+      "bytes": 6350
+    },
+    {
+      "label": "ES 3178b832b8d1:es-app/src/GameCubeRvzHashRetry.h",
+      "kind": "source",
+      "original_sha256": "00052cc30f705e2be34985d119df56257247ff1644bcc71d8f91b76e63b9f826",
+      "sanitized_sha256": "00052cc30f705e2be34985d119df56257247ff1644bcc71d8f91b76e63b9f826",
+      "bytes": 2003
+    },
+    {
+      "label": "ES 3178b832b8d1:external/libcheevos/rvz_hash.cpp",
+      "kind": "source",
+      "original_sha256": "ed43f6f9009ca32ca26958291f2abd082c4892a186ede2abfa3d342300ccc661",
+      "sanitized_sha256": "ed43f6f9009ca32ca26958291f2abd082c4892a186ede2abfa3d342300ccc661",
+      "bytes": 16855
+    },
+    {
+      "label": "ES 3178b832b8d1:external/libcheevos/rvz_hash.h",
+      "kind": "source",
+      "original_sha256": "54e0087b95134b43084161bcfb19616ba1a33738f3b0301ac796afa1be385272",
+      "sanitized_sha256": "54e0087b95134b43084161bcfb19616ba1a33738f3b0301ac796afa1be385272",
+      "bytes": 337
+    },
+    {
+      "label": "ES 3178b832b8d1:es-app/src/ApiSystem.cpp",
+      "kind": "source",
+      "original_sha256": "273615c9de7b2e0d0733b9e2f7798b7f4c9bfe85f91ede5de33ce49e46c04478",
+      "sanitized_sha256": "273615c9de7b2e0d0733b9e2f7798b7f4c9bfe85f91ede5de33ce49e46c04478",
+      "bytes": 5144
+    },
+    {
+      "label": "ES 3178b832b8d1:es-app/src/scrapers/ScreenScraper.cpp",
+      "kind": "source",
+      "original_sha256": "410bd2c2c471dbf93f6934832e0f4a269f365cfa29bb91478dcd5f067e984252",
+      "sanitized_sha256": "410bd2c2c471dbf93f6934832e0f4a269f365cfa29bb91478dcd5f067e984252",
+      "bytes": 9187
+    },
+    {
+      "label": "ES 3178b832b8d1:es-core/src/Settings.cpp",
+      "kind": "source",
+      "original_sha256": "82ac62670af7b1d5d5a52d032f5d9a3989d0946ddbfe80273e990d138f00ba7a",
+      "sanitized_sha256": "82ac62670af7b1d5d5a52d032f5d9a3989d0946ddbfe80273e990d138f00ba7a",
+      "bytes": 819
+    },
+    {
+      "label": "Built frozen Dolphin6094cfcf:Source/Core/DolphinNoGUI/MainNoGUI.cpp",
+      "kind": "source",
+      "original_sha256": "3d0af327c580ab8994bbf185902e8985179728f7d978c00b61a7c690229aaf8f",
+      "sanitized_sha256": "3d0af327c580ab8994bbf185902e8985179728f7d978c00b61a7c690229aaf8f",
+      "bytes": 10333
+    },
+    {
+      "label": "Built frozen Dolphin6094cfcf:Source/Core/Core/AchievementManager.cpp",
+      "kind": "source",
+      "original_sha256": "673e4d182a4d74b252c0bf4d7be738451be0fad42f3214b3a14a1ba047d5293b",
+      "sanitized_sha256": "673e4d182a4d74b252c0bf4d7be738451be0fad42f3214b3a14a1ba047d5293b",
+      "bytes": 12355
+    },
+    {
+      "label": "Built frozen Dolphin6094cfcf:Source/Core/Core/AchievementManager.h",
+      "kind": "source",
+      "original_sha256": "cb67718979a7ae275422102df54185c3d1b8114a71f88866f867e221e6dc5441",
+      "sanitized_sha256": "cb67718979a7ae275422102df54185c3d1b8114a71f88866f867e221e6dc5441",
+      "bytes": 3518
+    },
+    {
+      "label": "Built frozen Dolphin6094cfcf:Source/Core/UICommon/UICommon.cpp",
+      "kind": "source",
+      "original_sha256": "e96a2707e50ab54428709012e7aa2c50c2dfcc36a9f3f97c308a37cd2918d7a1",
+      "sanitized_sha256": "e96a2707e50ab54428709012e7aa2c50c2dfcc36a9f3f97c308a37cd2918d7a1",
+      "bytes": 6036
+    },
+    {
+      "label": "Built frozen Dolphin6094cfcf:Source/Core/DolphinQt/MainWindow.cpp",
+      "kind": "source",
+      "original_sha256": "d33a6f0e146791bc47b6829498aed490e34c2a353aaf5186a624feb00841a662",
+      "sanitized_sha256": "d33a6f0e146791bc47b6829498aed490e34c2a353aaf5186a624feb00841a662",
+      "bytes": 2436
+    },
+    {
+      "label": "Built frozen Dolphin6094cfcf:Source/Core/Common/FileUtil.cpp",
+      "kind": "source",
+      "original_sha256": "1840a1ba790926767b5ac10f70519b6ada2e48b5174abd7c75c9c26de1b685fb",
+      "sanitized_sha256": "1840a1ba790926767b5ac10f70519b6ada2e48b5174abd7c75c9c26de1b685fb",
+      "bytes": 1770
+    },
+    {
+      "label": "Built frozen Dolphin6094cfcf:CMakeLists.txt",
+      "kind": "source",
+      "original_sha256": "624450ce9f01520cd3d9d45df241c6619ca356a760b7e868263f85e50cdec5d9",
+      "sanitized_sha256": "624450ce9f01520cd3d9d45df241c6619ca356a760b7e868263f85e50cdec5d9",
+      "bytes": 1641
+    },
+    {
+      "label": "Built frozen Dolphin6094cfcf:Source/Core/Core/ConfigLoaders/GameConfigLoader.cpp",
+      "kind": "source",
+      "original_sha256": "5fd5abb82816340d5419b242d59ede6043a976d3c4f80b00e17e146ad5fc7362",
+      "sanitized_sha256": "5fd5abb82816340d5419b242d59ede6043a976d3c4f80b00e17e146ad5fc7362",
+      "bytes": 1229
+    },
+    {
+      "label": "Built frozen Dolphin6094cfcf:Source/Core/Core/ConfigManager.cpp",
+      "kind": "source",
+      "original_sha256": "8e009e7bc8bb4c26598be2bafa9258dad44be96596c52959709db52b6bc18d1b",
+      "sanitized_sha256": "8e009e7bc8bb4c26598be2bafa9258dad44be96596c52959709db52b6bc18d1b",
+      "bytes": 1646
+    },
+    {
+      "label": "Original installed Dolphin baseline stderr native-owner/case/baseline-enabled/stderr",
+      "kind": "original receipt",
+      "original_sha256": "dce3dc55c63149de439f0ce9259e98217f99611ac05ed404705fd13ff60ec3e0",
+      "sanitized_sha256": "bca654a1bee6dd8aab03ee922d2f6ef8b1d3bd4d8a8cdc8cbde34b45407cee88",
+      "bytes": 1370
+    },
+    {
+      "label": "Original installed Dolphin baseline process/operation fields",
+      "kind": "original receipt",
+      "original_sha256": "af65f0006dcfc8e77d8008f3fdbb71d1e517fd6727b78936d924a979eaf8024a",
+      "sanitized_sha256": "af65f0006dcfc8e77d8008f3fdbb71d1e517fd6727b78936d924a979eaf8024a",
+      "bytes": 572
+    },
+    {
+      "label": "Original relink compile preprocessor/source flags",
+      "kind": "original receipt",
+      "original_sha256": "0fe229e595e17e121d2323e7cae7a0be423a1d3178edd843831198395bb013e1",
+      "sanitized_sha256": "d93a13bf269acf21dcecceaf81deac7215a0dbad07966a91c54a65c2e62a4098",
+      "bytes": 4776
+    },
+    {
+      "label": "Auditor read-only staged-tree observation, Phase3 before cache move",
+      "kind": "read-only observation",
+      "original_sha256": "6d1051a0bbcda3d9ad9f8f22d2667b2b850ec9f006ec7bb857c1727723fdb64e",
+      "sanitized_sha256": "6d1051a0bbcda3d9ad9f8f22d2667b2b850ec9f006ec7bb857c1727723fdb64e",
+      "bytes": 331
+    },
+    {
+      "label": "Original14 complete Steam caller records, selected readback fields",
+      "kind": "original receipt projection",
+      "original_sha256": "ccc9d0fdde0f51cd9c3325f5bef86ff44b6a5fdfa86a635d96e3d994aea54ddf",
+      "sanitized_sha256": "ccc9d0fdde0f51cd9c3325f5bef86ff44b6a5fdfa86a635d96e3d994aea54ddf",
+      "bytes": 18078
+    },
+    {
+      "label": "Installed proxy-native original installed-result.json",
+      "kind": "original receipt",
+      "original_sha256": "30f1c0ca2b11178ddc96a75da4b93c6164e4a14360526f47526c97e9b5537e6e",
+      "sanitized_sha256": "30f1c0ca2b11178ddc96a75da4b93c6164e4a14360526f47526c97e9b5537e6e",
+      "bytes": 19919
+    },
+    {
+      "label": "Local audit command readback baseline-unchanged-inputs.json",
+      "kind": "read-only command result",
+      "original_sha256": "7912ea36f9862b4ecd08e0dd325c62bd33d8bbade7e7361a0a0bf140db79bfbd",
+      "sanitized_sha256": "7912ea36f9862b4ecd08e0dd325c62bd33d8bbade7e7361a0a0bf140db79bfbd",
+      "bytes": 766
+    },
+    {
+      "label": "Local audit command readback static-checks-resumed.json",
+      "kind": "read-only command result",
+      "original_sha256": "d195c1c13b13fbe7c66f618d724da240d9db40186c2ef87833c7ffa76ab70c63",
+      "sanitized_sha256": "e722ffdfe27bf60407ebd26fec2ec9b256293ccb5a2f874e3e7d9177ae1e34df",
+      "bytes": 697
+    },
+    {
+      "label": "Evidence locator and scope map",
+      "kind": "coverage map",
+      "original_sha256": "daef870fc6e2af8415192a877f1236aa828af27d4702b626d01fd500d3a4de76",
+      "sanitized_sha256": "daef870fc6e2af8415192a877f1236aa828af27d4702b626d01fd500d3a4de76",
+      "bytes": 4059
+    }
+  ],
+  "outputs": [
+    {
+      "file": "claude-blind-brief.md",
+      "bytes": 738861,
+      "sha256": "9cd8004050112faf4b9c88754e5a08924523706f7582faf16bce11b5e0c0506e"
+    },
+    {
+      "file": "claude-refutation-base.md",
+      "bytes": 977673,
+      "sha256": "c3bc1eb9c953caf1bb4532100a039fa0c4a28a1b510b2f38249333608607ce84"
+    },
+    {
+      "file": "review-plan.json",
+      "bytes": 1550,
+      "sha256": "5803e8b2c2b68e0b96822ccfc59f13c1b76a0068df099e0bd880349c04cea375"
+    }
+  ]
+}

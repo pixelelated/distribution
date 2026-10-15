@@ -1,0 +1,224 @@
+{
+  "case": "installed-disabled",
+  "status": "PASS",
+  "argv": [
+    "/usr/bin/dolphin-emu-nogui",
+    "-p",
+    "headless",
+    "-v",
+    "Null",
+    "-a",
+    "HLE",
+    "-u",
+    "/run/pix-installed-native/installed-disabled/user",
+    "-e",
+    "/run/pix-installed-native/loop.dol"
+  ],
+  "binary_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+  "enabled": false,
+  "badboot": false,
+  "signals": [
+    "normal SIGTERM"
+  ],
+  "original_exit": 0,
+  "pid": 2003,
+  "running_before": {
+    "pid": 2003,
+    "start_ticks": 2317,
+    "exe": "/usr/bin/dolphin-emu-nogui",
+    "exe_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+    "cpu_ticks": 72,
+    "tasks": [
+      {
+        "tid": 2003,
+        "comm": "dolphin-emu-nog"
+      },
+      {
+        "tid": 2004,
+        "comm": "libusb_event"
+      },
+      {
+        "tid": 2005,
+        "comm": "libusb thread"
+      },
+      {
+        "tid": 2006,
+        "comm": "SDL Hotplug Thr"
+      },
+      {
+        "tid": 2007,
+        "comm": "evdev cleanup"
+      },
+      {
+        "tid": 2008,
+        "comm": "evdev Hotplug T"
+      },
+      {
+        "tid": 2009,
+        "comm": "libusb thread"
+      },
+      {
+        "tid": 2010,
+        "comm": "Wiimote Scannin"
+      },
+      {
+        "tid": 2011,
+        "comm": "Wiimote Pool Th"
+      },
+      {
+        "tid": 2012,
+        "comm": "Analytics"
+      },
+      {
+        "tid": 2013,
+        "comm": "CPU thread"
+      },
+      {
+        "tid": 2014,
+        "comm": "Savestate Worke"
+      },
+      {
+        "tid": 2015,
+        "comm": "DVD thread"
+      },
+      {
+        "tid": 2016,
+        "comm": "Video thread"
+      },
+      {
+        "tid": 2017,
+        "comm": "AsyncShaderComp"
+      },
+      {
+        "tid": 2018,
+        "comm": "AsyncShaderComp"
+      },
+      {
+        "tid": 2019,
+        "comm": "Asset Loader 0"
+      },
+      {
+        "tid": 2020,
+        "comm": "Asset Loader 1"
+      },
+      {
+        "tid": 2021,
+        "comm": "resource-worker"
+      },
+      {
+        "tid": 2022,
+        "comm": "AsyncShaderComp"
+      },
+      {
+        "tid": 2023,
+        "comm": "Play Time Track"
+      }
+    ]
+  },
+  "running_after": {
+    "pid": 2003,
+    "start_ticks": 2317,
+    "exe": "/usr/bin/dolphin-emu-nogui",
+    "exe_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+    "cpu_ticks": 275,
+    "tasks": [
+      {
+        "tid": 2003,
+        "comm": "dolphin-emu-nog"
+      },
+      {
+        "tid": 2004,
+        "comm": "libusb_event"
+      },
+      {
+        "tid": 2005,
+        "comm": "libusb thread"
+      },
+      {
+        "tid": 2006,
+        "comm": "SDL Hotplug Thr"
+      },
+      {
+        "tid": 2007,
+        "comm": "evdev cleanup"
+      },
+      {
+        "tid": 2008,
+        "comm": "evdev Hotplug T"
+      },
+      {
+        "tid": 2009,
+        "comm": "libusb thread"
+      },
+      {
+        "tid": 2010,
+        "comm": "Wiimote Scannin"
+      },
+      {
+        "tid": 2011,
+        "comm": "Wiimote Pool Th"
+      },
+      {
+        "tid": 2012,
+        "comm": "Analytics"
+      },
+      {
+        "tid": 2013,
+        "comm": "CPU thread"
+      },
+      {
+        "tid": 2014,
+        "comm": "Savestate Worke"
+      },
+      {
+        "tid": 2015,
+        "comm": "DVD thread"
+      },
+      {
+        "tid": 2016,
+        "comm": "Video thread"
+      },
+      {
+        "tid": 2017,
+        "comm": "AsyncShaderComp"
+      },
+      {
+        "tid": 2018,
+        "comm": "AsyncShaderComp"
+      },
+      {
+        "tid": 2019,
+        "comm": "Asset Loader 0"
+      },
+      {
+        "tid": 2020,
+        "comm": "Asset Loader 1"
+      },
+      {
+        "tid": 2021,
+        "comm": "resource-worker"
+      },
+      {
+        "tid": 2022,
+        "comm": "AsyncShaderComp"
+      },
+      {
+        "tid": 2023,
+        "comm": "Play Time Track"
+      }
+    ]
+  },
+  "badge_load_failures": {
+    "Default player badge 'achievements_player.png' failed to load": 0,
+    "Default game badge 'achievements_game.png' failed to load": 0,
+    "Default unlocked achievement badge 'achievements_unlocked.png' failed to load": 0,
+    "Default locked achievement badge 'achievements_locked.png' failed to load": 0
+  },
+  "initialized": 0,
+  "shutdown": 0,
+  "boot_error": false,
+  "requests": [],
+  "endpoint_errors": [],
+  "remaining_dolphin": [],
+  "elapsed_seconds": 3.209873989000002
+}

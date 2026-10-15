@@ -1,0 +1,947 @@
+{
+  "status": "PASS",
+  "runtime": "actual guest bash/cat/mktemp/mv/rm and statically staged ELF dependencies",
+  "scope": "Full helper, exact launcher RA block, synthetic engine-reached marker; no real engine launch",
+  "bindings_sha256": "993249164192ab9715a687c126245bdbeb61949c838df036ac90b41b722ed8ee",
+  "cases": [
+    {
+      "name": "00-before-disabled-regular-en-gc",
+      "input": {
+        "variant": "before",
+        "state": "disabled",
+        "platform": "gc",
+        "language": "en",
+        "destination": "regular",
+        "name": "00-before-disabled-regular-en-gc"
+      },
+      "helper_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "launcher_snippet_sha256": "d97d7ae227f34eae8560d7908af1e6f8554cebf70a35cb3422e319a5f6c2ddd7",
+      "invocation_wrapper_sha256": "2c106ba1004aba9fd586ef2b1c891ce90a6bda7237441d63e0d019f2ffa4956c",
+      "original_exit": 0,
+      "status": "PASS",
+      "destination_before": {
+        "parent_mode": 511,
+        "parent_uid": 0,
+        "uid": 0,
+        "kind": "regular",
+        "link": null,
+        "seed_sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8"
+      },
+      "containment": {
+        "net_namespace": "net:[4026532390]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "engine_marker_present": true,
+      "temporary_credentials_remaining": [],
+      "claim": "old stale enabled session reproduced",
+      "protected_files_unchanged": 20,
+      "protected_selected": {
+        "fixture/settings": {
+          "sha256": "b200dc9bb1be7c713cb1ac18cb07a552ccef5c755d7c5b887e01a0338e457e25",
+          "mode": 292
+        },
+        "fixture/symlink-target.ini": {
+          "sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8",
+          "mode": 292
+        },
+        "storage/.config/raofflineproxy/proxy.sqlite3": {
+          "sha256": "2062ea409bdf5772868ac80d9cb38c031c2090cb1e2fd1dd14d118939a09029f",
+          "mode": 420
+        },
+        "storage/roms/saves/wii/ordinary-save.bin": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        },
+        "storage/roms/savestates/wii/manual.s01": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        }
+      }
+    },
+    {
+      "name": "01-before-missing-token-regular-en-wii",
+      "input": {
+        "variant": "before",
+        "state": "missing-token",
+        "platform": "wii",
+        "language": "en",
+        "destination": "regular",
+        "name": "01-before-missing-token-regular-en-wii"
+      },
+      "helper_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "launcher_snippet_sha256": "d97d7ae227f34eae8560d7908af1e6f8554cebf70a35cb3422e319a5f6c2ddd7",
+      "invocation_wrapper_sha256": "2c106ba1004aba9fd586ef2b1c891ce90a6bda7237441d63e0d019f2ffa4956c",
+      "original_exit": 0,
+      "status": "PASS",
+      "destination_before": {
+        "parent_mode": 511,
+        "parent_uid": 0,
+        "uid": 0,
+        "kind": "regular",
+        "link": null,
+        "seed_sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8"
+      },
+      "containment": {
+        "net_namespace": "net:[4026532391]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "engine_marker_present": true,
+      "temporary_credentials_remaining": [],
+      "claim": "old stale enabled session reproduced",
+      "protected_files_unchanged": 20,
+      "protected_selected": {
+        "fixture/settings": {
+          "sha256": "1cc91dd8c44e9e1a81eed2266df81483db6f6308dbd23a04dfb27e557e11f739",
+          "mode": 292
+        },
+        "fixture/symlink-target.ini": {
+          "sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8",
+          "mode": 292
+        },
+        "storage/.config/raofflineproxy/proxy.sqlite3": {
+          "sha256": "2062ea409bdf5772868ac80d9cb38c031c2090cb1e2fd1dd14d118939a09029f",
+          "mode": 420
+        },
+        "storage/roms/saves/wii/ordinary-save.bin": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        },
+        "storage/roms/savestates/wii/manual.s01": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        }
+      }
+    },
+    {
+      "name": "02-before-enabled-proxy-regular-en-gc",
+      "input": {
+        "variant": "before",
+        "state": "enabled-proxy",
+        "platform": "gc",
+        "language": "en",
+        "destination": "regular",
+        "name": "02-before-enabled-proxy-regular-en-gc"
+      },
+      "helper_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "launcher_snippet_sha256": "d97d7ae227f34eae8560d7908af1e6f8554cebf70a35cb3422e319a5f6c2ddd7",
+      "invocation_wrapper_sha256": "2c106ba1004aba9fd586ef2b1c891ce90a6bda7237441d63e0d019f2ffa4956c",
+      "original_exit": 0,
+      "status": "PASS",
+      "destination_before": {
+        "parent_mode": 511,
+        "parent_uid": 0,
+        "uid": 0,
+        "kind": "regular",
+        "link": null,
+        "seed_sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8"
+      },
+      "containment": {
+        "net_namespace": "net:[4026532390]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "engine_marker_present": true,
+      "temporary_credentials_remaining": [],
+      "claim": "enabled routing bytes unchanged",
+      "protected_files_unchanged": 20,
+      "protected_selected": {
+        "fixture/settings": {
+          "sha256": "99f3d61a4e1cc8cf9c688dd3dd9af282f94bf17cd3dc045bc7c177838cb8e264",
+          "mode": 292
+        },
+        "fixture/symlink-target.ini": {
+          "sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8",
+          "mode": 292
+        },
+        "storage/.config/raofflineproxy/proxy.sqlite3": {
+          "sha256": "2062ea409bdf5772868ac80d9cb38c031c2090cb1e2fd1dd14d118939a09029f",
+          "mode": 420
+        },
+        "storage/roms/saves/wii/ordinary-save.bin": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        },
+        "storage/roms/savestates/wii/manual.s01": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        }
+      }
+    },
+    {
+      "name": "03-before-enabled-hardcore-regular-en-wii",
+      "input": {
+        "variant": "before",
+        "state": "enabled-hardcore",
+        "platform": "wii",
+        "language": "en",
+        "destination": "regular",
+        "name": "03-before-enabled-hardcore-regular-en-wii"
+      },
+      "helper_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "launcher_snippet_sha256": "d97d7ae227f34eae8560d7908af1e6f8554cebf70a35cb3422e319a5f6c2ddd7",
+      "invocation_wrapper_sha256": "2c106ba1004aba9fd586ef2b1c891ce90a6bda7237441d63e0d019f2ffa4956c",
+      "original_exit": 0,
+      "status": "PASS",
+      "destination_before": {
+        "parent_mode": 511,
+        "parent_uid": 0,
+        "uid": 0,
+        "kind": "regular",
+        "link": null,
+        "seed_sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8"
+      },
+      "containment": {
+        "net_namespace": "net:[4026532391]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "engine_marker_present": true,
+      "temporary_credentials_remaining": [],
+      "claim": "enabled routing bytes unchanged",
+      "protected_files_unchanged": 20,
+      "protected_selected": {
+        "fixture/settings": {
+          "sha256": "95dbb8e7d7b77087f050325ca6713a019fec99560a08a950c7f3003031ec0944",
+          "mode": 292
+        },
+        "fixture/symlink-target.ini": {
+          "sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8",
+          "mode": 292
+        },
+        "storage/.config/raofflineproxy/proxy.sqlite3": {
+          "sha256": "2062ea409bdf5772868ac80d9cb38c031c2090cb1e2fd1dd14d118939a09029f",
+          "mode": 420
+        },
+        "storage/roms/saves/wii/ordinary-save.bin": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        },
+        "storage/roms/savestates/wii/manual.s01": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        }
+      }
+    },
+    {
+      "name": "04-before-enabled-no-listener-regular-en-gc",
+      "input": {
+        "variant": "before",
+        "state": "enabled-no-listener",
+        "platform": "gc",
+        "language": "en",
+        "destination": "regular",
+        "name": "04-before-enabled-no-listener-regular-en-gc"
+      },
+      "helper_sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "launcher_snippet_sha256": "d97d7ae227f34eae8560d7908af1e6f8554cebf70a35cb3422e319a5f6c2ddd7",
+      "invocation_wrapper_sha256": "2c106ba1004aba9fd586ef2b1c891ce90a6bda7237441d63e0d019f2ffa4956c",
+      "original_exit": 0,
+      "status": "PASS",
+      "destination_before": {
+        "parent_mode": 511,
+        "parent_uid": 0,
+        "uid": 0,
+        "kind": "regular",
+        "link": null,
+        "seed_sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8"
+      },
+      "containment": {
+        "net_namespace": "net:[4026532390]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "engine_marker_present": true,
+      "temporary_credentials_remaining": [],
+      "claim": "enabled routing bytes unchanged",
+      "protected_files_unchanged": 20,
+      "protected_selected": {
+        "fixture/settings": {
+          "sha256": "99f3d61a4e1cc8cf9c688dd3dd9af282f94bf17cd3dc045bc7c177838cb8e264",
+          "mode": 292
+        },
+        "fixture/symlink-target.ini": {
+          "sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8",
+          "mode": 292
+        },
+        "storage/.config/raofflineproxy/proxy.sqlite3": {
+          "sha256": "2062ea409bdf5772868ac80d9cb38c031c2090cb1e2fd1dd14d118939a09029f",
+          "mode": 420
+        },
+        "storage/roms/saves/wii/ordinary-save.bin": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        },
+        "storage/roms/savestates/wii/manual.s01": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        }
+      }
+    },
+    {
+      "name": "05-after-disabled-regular-en-gc",
+      "input": {
+        "variant": "after",
+        "state": "disabled",
+        "platform": "gc",
+        "language": "en",
+        "destination": "regular",
+        "name": "05-after-disabled-regular-en-gc"
+      },
+      "helper_sha256": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a",
+      "launcher_snippet_sha256": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403",
+      "invocation_wrapper_sha256": "227db96f62e967ca79aedfb75fbf6b352729107ea34f510e0903dc958222ccb8",
+      "original_exit": 0,
+      "status": "PASS",
+      "destination_before": {
+        "parent_mode": 511,
+        "parent_uid": 0,
+        "uid": 0,
+        "kind": "regular",
+        "link": null,
+        "seed_sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8"
+      },
+      "containment": {
+        "net_namespace": "net:[4026532392]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "engine_marker_present": true,
+      "temporary_credentials_remaining": [],
+      "claim": "inactive session published before engine gate",
+      "protected_files_unchanged": 20,
+      "protected_selected": {
+        "fixture/settings": {
+          "sha256": "b200dc9bb1be7c713cb1ac18cb07a552ccef5c755d7c5b887e01a0338e457e25",
+          "mode": 292
+        },
+        "fixture/symlink-target.ini": {
+          "sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8",
+          "mode": 292
+        },
+        "storage/.config/raofflineproxy/proxy.sqlite3": {
+          "sha256": "2062ea409bdf5772868ac80d9cb38c031c2090cb1e2fd1dd14d118939a09029f",
+          "mode": 420
+        },
+        "storage/roms/saves/wii/ordinary-save.bin": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        },
+        "storage/roms/savestates/wii/manual.s01": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        }
+      }
+    },
+    {
+      "name": "06-after-missing-token-regular-en-wii",
+      "input": {
+        "variant": "after",
+        "state": "missing-token",
+        "platform": "wii",
+        "language": "en",
+        "destination": "regular",
+        "name": "06-after-missing-token-regular-en-wii"
+      },
+      "helper_sha256": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a",
+      "launcher_snippet_sha256": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403",
+      "invocation_wrapper_sha256": "227db96f62e967ca79aedfb75fbf6b352729107ea34f510e0903dc958222ccb8",
+      "original_exit": 0,
+      "status": "PASS",
+      "destination_before": {
+        "parent_mode": 511,
+        "parent_uid": 0,
+        "uid": 0,
+        "kind": "regular",
+        "link": null,
+        "seed_sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8"
+      },
+      "containment": {
+        "net_namespace": "net:[4026532391]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "engine_marker_present": true,
+      "temporary_credentials_remaining": [],
+      "claim": "inactive session published before engine gate",
+      "protected_files_unchanged": 20,
+      "protected_selected": {
+        "fixture/settings": {
+          "sha256": "1cc91dd8c44e9e1a81eed2266df81483db6f6308dbd23a04dfb27e557e11f739",
+          "mode": 292
+        },
+        "fixture/symlink-target.ini": {
+          "sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8",
+          "mode": 292
+        },
+        "storage/.config/raofflineproxy/proxy.sqlite3": {
+          "sha256": "2062ea409bdf5772868ac80d9cb38c031c2090cb1e2fd1dd14d118939a09029f",
+          "mode": 420
+        },
+        "storage/roms/saves/wii/ordinary-save.bin": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        },
+        "storage/roms/savestates/wii/manual.s01": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        }
+      }
+    },
+    {
+      "name": "07-after-enabled-proxy-regular-en-gc",
+      "input": {
+        "variant": "after",
+        "state": "enabled-proxy",
+        "platform": "gc",
+        "language": "en",
+        "destination": "regular",
+        "name": "07-after-enabled-proxy-regular-en-gc"
+      },
+      "helper_sha256": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a",
+      "launcher_snippet_sha256": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403",
+      "invocation_wrapper_sha256": "227db96f62e967ca79aedfb75fbf6b352729107ea34f510e0903dc958222ccb8",
+      "original_exit": 0,
+      "status": "PASS",
+      "destination_before": {
+        "parent_mode": 511,
+        "parent_uid": 0,
+        "uid": 0,
+        "kind": "regular",
+        "link": null,
+        "seed_sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8"
+      },
+      "containment": {
+        "net_namespace": "net:[4026532390]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "engine_marker_present": true,
+      "temporary_credentials_remaining": [],
+      "claim": "enabled routing bytes unchanged",
+      "protected_files_unchanged": 20,
+      "protected_selected": {
+        "fixture/settings": {
+          "sha256": "99f3d61a4e1cc8cf9c688dd3dd9af282f94bf17cd3dc045bc7c177838cb8e264",
+          "mode": 292
+        },
+        "fixture/symlink-target.ini": {
+          "sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8",
+          "mode": 292
+        },
+        "storage/.config/raofflineproxy/proxy.sqlite3": {
+          "sha256": "2062ea409bdf5772868ac80d9cb38c031c2090cb1e2fd1dd14d118939a09029f",
+          "mode": 420
+        },
+        "storage/roms/saves/wii/ordinary-save.bin": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        },
+        "storage/roms/savestates/wii/manual.s01": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        }
+      }
+    },
+    {
+      "name": "08-after-enabled-hardcore-regular-en-wii",
+      "input": {
+        "variant": "after",
+        "state": "enabled-hardcore",
+        "platform": "wii",
+        "language": "en",
+        "destination": "regular",
+        "name": "08-after-enabled-hardcore-regular-en-wii"
+      },
+      "helper_sha256": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a",
+      "launcher_snippet_sha256": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403",
+      "invocation_wrapper_sha256": "227db96f62e967ca79aedfb75fbf6b352729107ea34f510e0903dc958222ccb8",
+      "original_exit": 0,
+      "status": "PASS",
+      "destination_before": {
+        "parent_mode": 511,
+        "parent_uid": 0,
+        "uid": 0,
+        "kind": "regular",
+        "link": null,
+        "seed_sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8"
+      },
+      "containment": {
+        "net_namespace": "net:[4026532391]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "engine_marker_present": true,
+      "temporary_credentials_remaining": [],
+      "claim": "enabled routing bytes unchanged",
+      "protected_files_unchanged": 20,
+      "protected_selected": {
+        "fixture/settings": {
+          "sha256": "95dbb8e7d7b77087f050325ca6713a019fec99560a08a950c7f3003031ec0944",
+          "mode": 292
+        },
+        "fixture/symlink-target.ini": {
+          "sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8",
+          "mode": 292
+        },
+        "storage/.config/raofflineproxy/proxy.sqlite3": {
+          "sha256": "2062ea409bdf5772868ac80d9cb38c031c2090cb1e2fd1dd14d118939a09029f",
+          "mode": 420
+        },
+        "storage/roms/saves/wii/ordinary-save.bin": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        },
+        "storage/roms/savestates/wii/manual.s01": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        }
+      }
+    },
+    {
+      "name": "09-after-enabled-no-listener-regular-en-gc",
+      "input": {
+        "variant": "after",
+        "state": "enabled-no-listener",
+        "platform": "gc",
+        "language": "en",
+        "destination": "regular",
+        "name": "09-after-enabled-no-listener-regular-en-gc"
+      },
+      "helper_sha256": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a",
+      "launcher_snippet_sha256": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403",
+      "invocation_wrapper_sha256": "227db96f62e967ca79aedfb75fbf6b352729107ea34f510e0903dc958222ccb8",
+      "original_exit": 0,
+      "status": "PASS",
+      "destination_before": {
+        "parent_mode": 511,
+        "parent_uid": 0,
+        "uid": 0,
+        "kind": "regular",
+        "link": null,
+        "seed_sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8"
+      },
+      "containment": {
+        "net_namespace": "net:[4026532390]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "engine_marker_present": true,
+      "temporary_credentials_remaining": [],
+      "claim": "enabled routing bytes unchanged",
+      "protected_files_unchanged": 20,
+      "protected_selected": {
+        "fixture/settings": {
+          "sha256": "99f3d61a4e1cc8cf9c688dd3dd9af282f94bf17cd3dc045bc7c177838cb8e264",
+          "mode": 292
+        },
+        "fixture/symlink-target.ini": {
+          "sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8",
+          "mode": 292
+        },
+        "storage/.config/raofflineproxy/proxy.sqlite3": {
+          "sha256": "2062ea409bdf5772868ac80d9cb38c031c2090cb1e2fd1dd14d118939a09029f",
+          "mode": 420
+        },
+        "storage/roms/saves/wii/ordinary-save.bin": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        },
+        "storage/roms/savestates/wii/manual.s01": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        }
+      }
+    },
+    {
+      "name": "10-after-disabled-create-denied-en-gc",
+      "input": {
+        "variant": "after",
+        "state": "disabled",
+        "platform": "gc",
+        "language": "en",
+        "destination": "create-denied",
+        "name": "10-after-disabled-create-denied-en-gc"
+      },
+      "helper_sha256": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a",
+      "launcher_snippet_sha256": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403",
+      "invocation_wrapper_sha256": "227db96f62e967ca79aedfb75fbf6b352729107ea34f510e0903dc958222ccb8",
+      "original_exit": 250,
+      "status": "PASS",
+      "destination_before": {
+        "parent_mode": 365,
+        "parent_uid": 0,
+        "uid": 0,
+        "kind": "regular",
+        "link": null,
+        "seed_sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8"
+      },
+      "containment": {
+        "net_namespace": "net:[4026532391]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "engine_marker_present": false,
+      "temporary_credentials_remaining": [],
+      "claim": "prior bytes preserved; engine gate refused; exact localized250 protocol; temporary removed",
+      "protected_files_unchanged": 20,
+      "protected_selected": {
+        "fixture/settings": {
+          "sha256": "b200dc9bb1be7c713cb1ac18cb07a552ccef5c755d7c5b887e01a0338e457e25",
+          "mode": 292
+        },
+        "fixture/symlink-target.ini": {
+          "sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8",
+          "mode": 292
+        },
+        "storage/.config/raofflineproxy/proxy.sqlite3": {
+          "sha256": "2062ea409bdf5772868ac80d9cb38c031c2090cb1e2fd1dd14d118939a09029f",
+          "mode": 420
+        },
+        "storage/roms/saves/wii/ordinary-save.bin": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        },
+        "storage/roms/savestates/wii/manual.s01": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        }
+      }
+    },
+    {
+      "name": "11-after-disabled-publish-denied-en-gc",
+      "input": {
+        "variant": "after",
+        "state": "disabled",
+        "platform": "gc",
+        "language": "en",
+        "destination": "publish-denied",
+        "name": "11-after-disabled-publish-denied-en-gc"
+      },
+      "helper_sha256": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a",
+      "launcher_snippet_sha256": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403",
+      "invocation_wrapper_sha256": "227db96f62e967ca79aedfb75fbf6b352729107ea34f510e0903dc958222ccb8",
+      "original_exit": 250,
+      "status": "PASS",
+      "destination_before": {
+        "parent_mode": 1023,
+        "parent_uid": 0,
+        "uid": 0,
+        "kind": "regular",
+        "link": null,
+        "seed_sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8"
+      },
+      "containment": {
+        "net_namespace": "net:[4026532392]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "engine_marker_present": false,
+      "temporary_credentials_remaining": [],
+      "claim": "prior bytes preserved; engine gate refused; exact localized250 protocol; temporary removed",
+      "protected_files_unchanged": 20,
+      "protected_selected": {
+        "fixture/settings": {
+          "sha256": "b200dc9bb1be7c713cb1ac18cb07a552ccef5c755d7c5b887e01a0338e457e25",
+          "mode": 292
+        },
+        "fixture/symlink-target.ini": {
+          "sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8",
+          "mode": 292
+        },
+        "storage/.config/raofflineproxy/proxy.sqlite3": {
+          "sha256": "2062ea409bdf5772868ac80d9cb38c031c2090cb1e2fd1dd14d118939a09029f",
+          "mode": 420
+        },
+        "storage/roms/saves/wii/ordinary-save.bin": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        },
+        "storage/roms/savestates/wii/manual.s01": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        }
+      }
+    },
+    {
+      "name": "12-after-disabled-publish-denied-fr-wii",
+      "input": {
+        "variant": "after",
+        "state": "disabled",
+        "platform": "wii",
+        "language": "fr",
+        "destination": "publish-denied",
+        "name": "12-after-disabled-publish-denied-fr-wii"
+      },
+      "helper_sha256": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a",
+      "launcher_snippet_sha256": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403",
+      "invocation_wrapper_sha256": "227db96f62e967ca79aedfb75fbf6b352729107ea34f510e0903dc958222ccb8",
+      "original_exit": 250,
+      "status": "PASS",
+      "destination_before": {
+        "parent_mode": 1023,
+        "parent_uid": 0,
+        "uid": 0,
+        "kind": "regular",
+        "link": null,
+        "seed_sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8"
+      },
+      "containment": {
+        "net_namespace": "net:[4026532390]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "engine_marker_present": false,
+      "temporary_credentials_remaining": [],
+      "claim": "prior bytes preserved; engine gate refused; exact localized250 protocol; temporary removed",
+      "protected_files_unchanged": 20,
+      "protected_selected": {
+        "fixture/settings": {
+          "sha256": "b200dc9bb1be7c713cb1ac18cb07a552ccef5c755d7c5b887e01a0338e457e25",
+          "mode": 292
+        },
+        "fixture/symlink-target.ini": {
+          "sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8",
+          "mode": 292
+        },
+        "storage/.config/raofflineproxy/proxy.sqlite3": {
+          "sha256": "2062ea409bdf5772868ac80d9cb38c031c2090cb1e2fd1dd14d118939a09029f",
+          "mode": 420
+        },
+        "storage/roms/saves/wii/ordinary-save.bin": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        },
+        "storage/roms/savestates/wii/manual.s01": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        }
+      }
+    },
+    {
+      "name": "13-after-disabled-directory-en-wii",
+      "input": {
+        "variant": "after",
+        "state": "disabled",
+        "platform": "wii",
+        "language": "en",
+        "destination": "directory",
+        "name": "13-after-disabled-directory-en-wii"
+      },
+      "helper_sha256": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a",
+      "launcher_snippet_sha256": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403",
+      "invocation_wrapper_sha256": "227db96f62e967ca79aedfb75fbf6b352729107ea34f510e0903dc958222ccb8",
+      "original_exit": 250,
+      "status": "PASS",
+      "destination_before": {
+        "parent_mode": 511,
+        "parent_uid": 0,
+        "uid": 0,
+        "kind": "directory",
+        "link": null,
+        "seed_sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8"
+      },
+      "containment": {
+        "net_namespace": "net:[4026532391]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "engine_marker_present": false,
+      "temporary_credentials_remaining": [],
+      "claim": "prior bytes preserved; engine gate refused; exact localized250 protocol; temporary removed",
+      "protected_files_unchanged": 21,
+      "protected_selected": {
+        "fixture/settings": {
+          "sha256": "b200dc9bb1be7c713cb1ac18cb07a552ccef5c755d7c5b887e01a0338e457e25",
+          "mode": 292
+        },
+        "fixture/symlink-target.ini": {
+          "sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8",
+          "mode": 292
+        },
+        "storage/.config/raofflineproxy/proxy.sqlite3": {
+          "sha256": "2062ea409bdf5772868ac80d9cb38c031c2090cb1e2fd1dd14d118939a09029f",
+          "mode": 420
+        },
+        "storage/roms/saves/wii/ordinary-save.bin": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        },
+        "storage/roms/savestates/wii/manual.s01": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        }
+      }
+    },
+    {
+      "name": "14-after-disabled-symlink-en-gc",
+      "input": {
+        "variant": "after",
+        "state": "disabled",
+        "platform": "gc",
+        "language": "en",
+        "destination": "symlink",
+        "name": "14-after-disabled-symlink-en-gc"
+      },
+      "helper_sha256": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a",
+      "launcher_snippet_sha256": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403",
+      "invocation_wrapper_sha256": "227db96f62e967ca79aedfb75fbf6b352729107ea34f510e0903dc958222ccb8",
+      "original_exit": 0,
+      "status": "PASS",
+      "destination_before": {
+        "parent_mode": 511,
+        "parent_uid": 0,
+        "uid": 0,
+        "kind": "symlink",
+        "link": "/fixture/symlink-target.ini",
+        "seed_sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8"
+      },
+      "containment": {
+        "net_namespace": "net:[4026532450]",
+        "uid": 65534,
+        "gid": 65534,
+        "parent_death_signal": 9
+      },
+      "unexpected_descendants": [],
+      "engine_marker_present": true,
+      "temporary_credentials_remaining": [],
+      "claim": "inactive session published before engine gate",
+      "protected_files_unchanged": 20,
+      "protected_selected": {
+        "fixture/settings": {
+          "sha256": "b200dc9bb1be7c713cb1ac18cb07a552ccef5c755d7c5b887e01a0338e457e25",
+          "mode": 292
+        },
+        "fixture/symlink-target.ini": {
+          "sha256": "9b094f0e74f218a7714fa3c548945fc8f9128251321cb12d278c74db68d94ff8",
+          "mode": 292
+        },
+        "storage/.config/raofflineproxy/proxy.sqlite3": {
+          "sha256": "2062ea409bdf5772868ac80d9cb38c031c2090cb1e2fd1dd14d118939a09029f",
+          "mode": 420
+        },
+        "storage/roms/saves/wii/ordinary-save.bin": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        },
+        "storage/roms/savestates/wii/manual.s01": {
+          "sha256": "bbcd8e89f4079bf0e277bcc7b1787cb29e5c136a244fbbc1837dbb5798b5d351",
+          "mode": 292
+        }
+      }
+    }
+  ],
+  "python": "3.14.7 (main, Oct  4 2026, 04:40:27) [GCC 15.2.0]",
+  "parent_net_namespace": "net:[4026531833]",
+  "fixture_sha256": "9b82d4ee556b3803dda405b62918d6e192ea9a9ca69f0c610e3a1e2faf402860",
+  "revision_bindings_sha256": "c875b9d3a33541644f1da2aa178a25456e69fdcb9e7a3bb54e8f7992e6cae1a5",
+  "original_fixture_sha256": "aa1506b67bbf8de28c004eb9076001e9efeed30b2104defd69809dacef90bb0c",
+  "signals": [],
+  "runtime_files": [
+    {
+      "requested_path": "/usr/bin/bash",
+      "resolved_identity_path": "/usr/bin/bash",
+      "guest_invocation_path": "/bin/bash",
+      "sha256": "3aa5dd1a0ddd72c8019c40f8a4c929796eb5a99d182570334ede50374724527a",
+      "bytes": 1218080
+    },
+    {
+      "requested_path": "/lib64/ld-linux-x86-64.so.2",
+      "resolved_identity_path": "/usr/lib/ld-linux-x86-64.so.2",
+      "guest_invocation_path": "/lib64/ld-linux-x86-64.so.2",
+      "sha256": "43ba6fe60411686238d8a53eb4338fcf4d6893e6e961614f3806e84e86d2804c",
+      "bytes": 221472
+    },
+    {
+      "requested_path": "/usr/lib/libreadline.so.8",
+      "resolved_identity_path": "/usr/lib/libreadline.so.8.3",
+      "guest_invocation_path": "/usr/lib/libreadline.so.8",
+      "sha256": "b61a9b4a3c3bd754182cee1416352e5d42f3834400a508fe533486ccd9b60142",
+      "bytes": 366976
+    },
+    {
+      "requested_path": "/usr/lib/libc.so.6",
+      "resolved_identity_path": "/usr/lib/libc.so.6",
+      "guest_invocation_path": "/usr/lib/libc.so.6",
+      "sha256": "aa6a91c5ac22c7832d6ef094bb684b2dbc016f9b08a98f262a3ac97a12684cfc",
+      "bytes": 2052352
+    },
+    {
+      "requested_path": "/usr/lib/ld-linux-x86-64.so.2",
+      "resolved_identity_path": "/usr/lib/ld-linux-x86-64.so.2",
+      "guest_invocation_path": "/usr/lib/ld-linux-x86-64.so.2",
+      "sha256": "43ba6fe60411686238d8a53eb4338fcf4d6893e6e961614f3806e84e86d2804c",
+      "bytes": 221472
+    },
+    {
+      "requested_path": "/usr/bin/cat",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "guest_invocation_path": "/bin/cat",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346",
+      "bytes": 574456
+    },
+    {
+      "requested_path": "/usr/lib/libm.so.6",
+      "resolved_identity_path": "/usr/lib/libm.so.6",
+      "guest_invocation_path": "/usr/lib/libm.so.6",
+      "sha256": "baddd30a004cc2ca98385c1f047fe5ca3a00db085ab01a104642c4fa998c7ace",
+      "bytes": 763936
+    },
+    {
+      "requested_path": "/usr/bin/mktemp",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "guest_invocation_path": "/bin/mktemp",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346",
+      "bytes": 574456
+    },
+    {
+      "requested_path": "/usr/bin/mv",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "guest_invocation_path": "/bin/mv",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346",
+      "bytes": 574456
+    },
+    {
+      "requested_path": "/usr/bin/rm",
+      "resolved_identity_path": "/usr/bin/busybox",
+      "guest_invocation_path": "/bin/rm",
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346",
+      "bytes": 574456
+    }
+  ],
+  "runtime_bytes": 7142112,
+  "remaining_children": [],
+  "cleanup_descendants": [],
+  "observation_errors": [],
+  "elapsed_seconds": 0.568475976000002,
+  "retained_bytes": 7203360
+}

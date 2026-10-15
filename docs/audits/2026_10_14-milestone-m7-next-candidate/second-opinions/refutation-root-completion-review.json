@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-15T02:15:05.016150+00:00",
+  "original_channels": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-15T02:14:14.805632+00:00"
+  },
+  "launcher": {
+    "utc": "2026-10-15T02:14:14.817158+00:00",
+    "pid": 2513033,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  },
+  "owners_absent": [
+    2513033,
+    2513034,
+    2513064,
+    2513036
+  ],
+  "output_sha256": "dc8414e7bab833774ffb2da85cd4d03e521445f940b38487fbf227f233149f2a",
+  "model_verification": {
+    "result": "PASS",
+    "match_kind": "semantic",
+    "declared": "anthropic/claude-fable-5.1 (OpenRouter, effort=xhigh)",
+    "observed": "anthropic/claude-fable-5.1",
+    "model_identity_source": "provider_response"
+  },
+  "effort_verification": {
+    "result": "PASS",
+    "declared": "xhigh",
+    "evidence": "reasoning_tokens",
+    "observed_reasoning_tokens": 44138
+  },
+  "provider_verification": {
+    "result": "NOT_PINNED",
+    "declared": null,
+    "evidence": "response_provider_field",
+    "observed": "Anthropic",
+    "observed_providers": [
+      "Anthropic"
+    ]
+  },
+  "scope": "provenance and completion, findings independently graded by auditor"
+}

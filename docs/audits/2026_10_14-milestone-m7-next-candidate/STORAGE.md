@@ -1,0 +1,7 @@
+# Original evidence storage
+
+Some original prompts, source excerpts, diffs and logs contain significant trailing whitespace. They are retained losslessly as gzip byte streams, with the sealed native supplement retained as a tar+gzip packet. Nothing was trimmed or rewritten. `lossless-storage-manifest.json` maps each original logical path to the durable compressed path, original byte length/hash and compressed length/hash. Every decompressed stream was compared to its original bytes before the audit-owned uncompressed duplicate was removed. Every native packet file/mode/link was verified; its original seal remains inside the archive.
+
+Historical references and the sealed external packet manifests name the original logical paths. For example, `second-opinions/claude-blind-brief.md` means the byte stream obtained from `second-opinions/claude-blind-brief.md.gz`. `gzip -dc` reads a gzip stream; `tar -xOf` can read a named regular archive member without extracting the packet onto the filesystem. Consult the manifest for exact paths and expected hashes.
+
+The two external reviewer responses and their invocation provenance JSON remain uncompressed and byte-identical, as required by the existing artifact lint. The current review plan adds storage locators; its historical pre-dispatch copy and original packet manifests remain untouched. The lint has no prompt-storage validation, so the explicit lossless manifest verification supplies that separate check. No lint/tool change or hook exemption was introduced.

@@ -1,0 +1,25 @@
+{
+  "input_count": 967,
+  "bytes_hashed": 462458060,
+  "source_comparison": {
+    "cached_files_matching_base": 828,
+    "header_consumers": [
+      "es-app/src/guis/GuiMenu.cpp",
+      "es-app/src/guis/GuiWifi.cpp",
+      "es-app/src/main.cpp"
+    ],
+    "unexpected_differences": []
+  },
+  "original_link_objects": 112,
+  "candidate_objects": [
+    "/work/GuiWifi.o",
+    "/work/GuiMenu.o",
+    "/work/main.o"
+  ],
+  "original_lifecycle": "/tmp/m7-dolphin-ra-runtime-plan-20261015",
+  "unchanged_files": {
+    "docker_owner.py": "276baaa41d855161873b6d3a979463d2ff0a3bb8fd28ddbd8ed4502959354d31",
+    "watchdog.py": "b21d2e255f0094b5f48eef6e009972633298629b7f0c4c7b44ec7eef0148c18b"
+  },
+  "syntax_tool_sha256": "728fbd6ce08590b2579f40eb8153dcdebfca4ee688ec9e57651b64c2d4c6c594"
+}

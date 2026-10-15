@@ -1,0 +1,12 @@
+# #593 compiler derivative source review
+
+Source readiness only; no compiler, preparer, Docker or fixture execution by auditor. Candidate ES16dbac5211eea7e70db7394372033be2be7df829 remains distinct from installed ES3178. Sealed compiler packet8443c7aedadfb01251b2325854dae9ffd3ee965ce90dd9e7c3934399e7cc6db2 and all967 explicit inputs were independently rehashed. Full inner/common/run-stage sources and preparer diffs were read. No blocking source issue found.
+
+The original successful lifecycle is bound by docs/qa-logs/2026-10-15-dolphin-startup-result/build/original-records.tar.gz member stage/container-owner.json to sealffc221eacd52c5add66b6f6ae533f0121277c5ba161ae97d6b19b9b637814e90. The existing complete original packet rehashes to that seal; docker_owner.py276baaa4 and watchdog.pyb21d2e25 are byte-identical in the new packet. Original stage attach/container/watchdog, launcher, command/monitor/runner outcomes all0 were read from the archive. This verifies qualified helper ancestry, not just a reused packet name.
+
+Three compile commands preserve exact original flags; only their output targets and added dependency-file destinations change. The actual112-object link has exactly five substitutions: three rebuilt objects, output executable and dependency destination. Ordered libraries and repeats remain unchanged. Four exact candidate source overlays cover GuiWifi.cpp/.h, WifiScanProcess.h and main.cpp; header consumers include GuiMenu.cpp, which is also rebuilt. Canonical es-syntax-check bytes match. Cache/source mounts remain read-only; generated artifacts/dependencies/TMPDIR/ccache storage are private, ccache disabled. All967 inputs rehash and source checks run before/after; actual compiler dependency records supplement the explicit input list rather than falsely claiming the implicit sysroot was fully enumerated beforehand.
+
+Sequential syntax/three object builds/link/strip/readelf and two target-driver builds share900 seconds,4GiB/no swap/2CPUs/256PIDs and sampled1GiB scratch. Owner preserves exact CID/process/namespace/cgroup handshake, independent watchdog, original exits and forced-cleanup rejection. Root alone owns allocation and result acceptance. Driver and actual GUI/main-hook proof are future guest steps, and no final installed-image claim follows from this private candidate executable.
+
+
+Later completion: original compiler11 children and outer channels pass; actual artifacts independently rehashed. See wifi-compiler-result-readback.md. This updates compilation only; PL-005 runtime/GUI acceptance remains open.

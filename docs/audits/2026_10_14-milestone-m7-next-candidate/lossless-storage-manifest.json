@@ -1,0 +1,504 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-15T02:51:03.591632+00:00",
+  "purpose": "Lossless durable storage of sealed prompts and original raw source/diff/log bytes. No whitespace edits, provenance changes, hook exceptions or lint modifications.",
+  "original_logical_paths": "Historical references and sealed manifests continue to identify the original logical byte streams. Resolve a logical path through this map, then decompress; for tar archives use the recorded member path without extracting executable content.",
+  "temporary_custody": "/tmp/m7-audit-590-original-storage-custody",
+  "entries": [
+    {
+      "logical_path": "supplements/native-gameplay/sealed-postreadback",
+      "storage_path": "supplements/native-gameplay/sealed-postreadback.tar.gz",
+      "encoding": "tar+gzip",
+      "storage_bytes": 43422,
+      "storage_sha256": "7a582fa0263534d1a4c9dfaf09bf412c8384948d47ceee1176686832724c37d7",
+      "members": [
+        {
+          "path": "README.md",
+          "kind": "file",
+          "bytes": 4801,
+          "sha256": "cb8cff8bc94fb4aec129e033502b59413104c37b43468c606cd009b2814bf158",
+          "mode": 436
+        },
+        {
+          "path": "SHA256SUMS",
+          "kind": "file",
+          "bytes": 4027,
+          "sha256": "b5058c830def636dad41690807e81a9fdf1e9240f8f89f227798473800854fd6",
+          "mode": 436
+        },
+        {
+          "path": "final-mcopy-command.json",
+          "kind": "file",
+          "bytes": 1018,
+          "sha256": "afae83fbfa1f42bd869683f0ef4d4757b636987678121d3fde70c22ffc801ab0",
+          "mode": 436
+        },
+        {
+          "path": "final-mcopy.stderr",
+          "kind": "file",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mode": 436
+        },
+        {
+          "path": "final-mcopy.stdout",
+          "kind": "file",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mode": 436
+        },
+        {
+          "path": "final-mdir-command.json",
+          "kind": "file",
+          "bytes": 925,
+          "sha256": "6b3959f8a3a4706ab81d989c5591f17366a55942920a0234d6e3ddedc9cb53ea",
+          "mode": 436
+        },
+        {
+          "path": "final-mdir.stderr",
+          "kind": "file",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mode": 436
+        },
+        {
+          "path": "final-mdir.stdout",
+          "kind": "file",
+          "bytes": 358,
+          "sha256": "592ceae9852d85e35b8cd79f536dbd8b331bdfdad7661eef6d6f0f7020c9b70f",
+          "mode": 436
+        },
+        {
+          "path": "final-save.bin",
+          "kind": "file",
+          "bytes": 415,
+          "sha256": "93c59b358920c1d4c4ccabdc54b4b745c89347adb55b6f8d762d4e9c7ea340ce",
+          "mode": 436
+        },
+        {
+          "path": "inspect-saves-command.json",
+          "kind": "file",
+          "bytes": 347,
+          "sha256": "a4b42e5e7f96ea6aa58b7020156b5f478cbe6561095a14747775508586b2f2c2",
+          "mode": 436
+        },
+        {
+          "path": "inspect-saves.py",
+          "kind": "file",
+          "bytes": 6902,
+          "sha256": "9ab4f21add15dd17ea46992e090bc67e9ef265b897d4950948d86582634e002d",
+          "mode": 436
+        },
+        {
+          "path": "inspect-saves.stderr",
+          "kind": "file",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mode": 436
+        },
+        {
+          "path": "inspect-saves.stdout",
+          "kind": "file",
+          "bytes": 99,
+          "sha256": "84582c0808ce60b269af3fe06041a596466f514c80564ef64d207506051956c6",
+          "mode": 436
+        },
+        {
+          "path": "inspection-result.json",
+          "kind": "file",
+          "bytes": 243,
+          "sha256": "c3a81c0f7f027cf45a2f9a90c302e44a2c529b76c516be1d6a5d575533de80a7",
+          "mode": 436
+        },
+        {
+          "path": "manifest-verification.json",
+          "kind": "file",
+          "bytes": 1623,
+          "sha256": "ff2c586aafa99a7ef0f7678a8b7b49ad03c48b7ea0c12846d72c6a1c1868db12",
+          "mode": 436
+        },
+        {
+          "path": "original-coordinator-frame-reviews.json",
+          "kind": "file",
+          "bytes": 3166,
+          "sha256": "2489b8daeb472414031ccd8ad1ddca862f3870bfed8662fbe416bbfcc006c51e",
+          "mode": 436
+        },
+        {
+          "path": "references/00-shared.cpp",
+          "kind": "file",
+          "bytes": 22344,
+          "sha256": "60ddb4af751ff4f59a0a86475e24220ab7f0f98b075a345bb473f8131680ca1b",
+          "mode": 436
+        },
+        {
+          "path": "references/01-shared.h",
+          "kind": "file",
+          "bytes": 7336,
+          "sha256": "44ee7e03ef6981c2b2ae701ae793a5252df64c1f1afacd64ea5ea9c197ec4324",
+          "mode": 436
+        },
+        {
+          "path": "references/02-main.cpp",
+          "kind": "file",
+          "bytes": 75174,
+          "sha256": "6fc1e2393ccc0ffa329b68d449a6bde4933cb15fb96c99e5a34b0a3733d4b646",
+          "mode": 436
+        },
+        {
+          "path": "references/03-src-game.cpp",
+          "kind": "file",
+          "bytes": 6555,
+          "sha256": "3294a0eec45175c7d5bc47a2b7565fa00c3f359d5e214915f6baa08d4b200740",
+          "mode": 436
+        },
+        {
+          "path": "references/04-src-highscore.hpp",
+          "kind": "file",
+          "bytes": 1288,
+          "sha256": "035d9f768a8d553a87433ee13df1de1dc810dfffc90e58248c80f760759eadc8",
+          "mode": 436
+        },
+        {
+          "path": "references/05-common-src-vmu.cpp",
+          "kind": "file",
+          "bytes": 4738,
+          "sha256": "7cf96dd0771ab2d61d8f3431df663711639715a7ce197e5588ceca48c9948e86",
+          "mode": 436
+        },
+        {
+          "path": "references/06-prepare-wii-sd.sh",
+          "kind": "file",
+          "bytes": 872,
+          "sha256": "315d33b62017ede93b518ef9f7db743bc4fcec22980d9a9082b0d61652c45ac8",
+          "mode": 493
+        },
+        {
+          "path": "references/07-002-fresh-wii-sd.stdout",
+          "kind": "file",
+          "bytes": 420,
+          "sha256": "5a5da8b87bf714f7c758e5cebcd469e4bfd62b6251fe26b3b5403667fc70eaaf",
+          "mode": 384
+        },
+        {
+          "path": "references/08-002-fresh-wii-sd.exit.json",
+          "kind": "file",
+          "bytes": 309,
+          "sha256": "92a24a1b7d46ec683b09b38e83e122408152960ed717721917d2ed422f08542b",
+          "mode": 384
+        },
+        {
+          "path": "references/09-prelaunch.sha256",
+          "kind": "file",
+          "bytes": 204,
+          "sha256": "8c96a30190946c4fb16a854aa7aa46b9cabce906ec0f69d249c66ecb7daf450c",
+          "mode": 420
+        },
+        {
+          "path": "result.json",
+          "kind": "file",
+          "bytes": 255,
+          "sha256": "162f6fe01827fa82afce0cf0ad8956899a3100fc3cf6896637b9e0efb412cbd7",
+          "mode": 436
+        },
+        {
+          "path": "retained-source-index.json",
+          "kind": "file",
+          "bytes": 2445,
+          "sha256": "014e78f4542e2709cfbd0bd91a37463d25d66ceee3d994059430e36e180a9416",
+          "mode": 436
+        },
+        {
+          "path": "source-bindings.json",
+          "kind": "file",
+          "bytes": 1950,
+          "sha256": "d2787479ed3d8edefd667a6ec8e0e26de20f12ef47e4fb925dbf90eee0ff502e",
+          "mode": 436
+        },
+        {
+          "path": "state-inventory.json",
+          "kind": "file",
+          "bytes": 808,
+          "sha256": "321d9833cde7aa28b60cd2e7c3b241311363bbdef1db54919f4d98b387489c44",
+          "mode": 436
+        },
+        {
+          "path": "tetris2-decoded.bin",
+          "kind": "file",
+          "bytes": 564,
+          "sha256": "6989b5c6e6417b6697c53efdb54e6c3095eef0569e62926e73edb16b4fab980b",
+          "mode": 436
+        },
+        {
+          "path": "tetris2.sys",
+          "kind": "file",
+          "bytes": 1064,
+          "sha256": "89aacffcb849e5bc48728aedb5dca834daa1f4d521cfdaa6b45ac6a36d04fd93",
+          "mode": 436
+        },
+        {
+          "path": "tool-binding.json",
+          "kind": "file",
+          "bytes": 540,
+          "sha256": "ab1998166f5c27b8a9248df1895ec430afb8905dbe501563e487eef5fce95ac5",
+          "mode": 436
+        },
+        {
+          "path": "verify-and-extract-command.json",
+          "kind": "file",
+          "bytes": 578,
+          "sha256": "9bdc1c9cab45e148bceb4344ca65fe7044670eb9ba9720c1c0d25fa34e7deca3",
+          "mode": 436
+        },
+        {
+          "path": "verify-and-extract.py",
+          "kind": "file",
+          "bytes": 5424,
+          "sha256": "f10fa1da82d8243ef80ac7b9abdccc9e441847950ae76ee4bc8a812c5c85e57f",
+          "mode": 436
+        },
+        {
+          "path": "vmu-interpretation.json",
+          "kind": "file",
+          "bytes": 3335,
+          "sha256": "d5717088084f0b9474fdd5d3cdfa6c61ffdc0e69eed88e96f98abcce54d89038",
+          "mode": 436
+        },
+        {
+          "path": "wii-extraction.json",
+          "kind": "file",
+          "bytes": 1284,
+          "sha256": "ebdb46ec674cc94b095c1926bd260f8674d1b4e3aadc241a0c93b7e9ac3d5cf3",
+          "mode": 436
+        },
+        {
+          "path": "wii-save-interpretation.json",
+          "kind": "file",
+          "bytes": 3449,
+          "sha256": "93faaabc607662d3e474aaf53b7ac70ce42256c23713184f5e17c8dccf121a3a",
+          "mode": 436
+        },
+        {
+          "path": "wii-saved-quiescent-mcopy-command.json",
+          "kind": "file",
+          "bytes": 1075,
+          "sha256": "f0e2d4f4d0d10b69871fa02a9f8b2cc32daa94e9541923bbf5a2e5ea77a13bbf",
+          "mode": 436
+        },
+        {
+          "path": "wii-saved-quiescent-mcopy.stderr",
+          "kind": "file",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mode": 436
+        },
+        {
+          "path": "wii-saved-quiescent-mcopy.stdout",
+          "kind": "file",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mode": 436
+        },
+        {
+          "path": "wii-saved-quiescent-mdir-command.json",
+          "kind": "file",
+          "bytes": 968,
+          "sha256": "dd3598acecfec6c5d9acd7a6c1251d4ba47418e68017097b86e8640dd1c30310",
+          "mode": 436
+        },
+        {
+          "path": "wii-saved-quiescent-mdir.stderr",
+          "kind": "file",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "mode": 436
+        },
+        {
+          "path": "wii-saved-quiescent-mdir.stdout",
+          "kind": "file",
+          "bytes": 358,
+          "sha256": "592ceae9852d85e35b8cd79f536dbd8b331bdfdad7661eef6d6f0f7020c9b70f",
+          "mode": 436
+        },
+        {
+          "path": "wii-saved-quiescent-save.bin",
+          "kind": "file",
+          "bytes": 415,
+          "sha256": "93c59b358920c1d4c4ccabdc54b4b745c89347adb55b6f8d762d4e9c7ea340ce",
+          "mode": 436
+        }
+      ],
+      "verified": "all file bytes, modes and link targets match; original packet seal retained inside"
+    },
+    {
+      "logical_path": "second-opinions/claude-blind-brief.md",
+      "logical_bytes": 738861,
+      "logical_sha256": "9cd8004050112faf4b9c88754e5a08924523706f7582faf16bce11b5e0c0506e",
+      "storage_path": "second-opinions/claude-blind-brief.md.gz",
+      "encoding": "gzip",
+      "storage_bytes": 213771,
+      "storage_sha256": "102ad6627013407c5a6184aabe20febf2ae3f4ec2923046f955c8d2ff7cad603",
+      "verified": "decompression exactly equals original byte stream"
+    },
+    {
+      "logical_path": "second-opinions/claude-refutation-base.md",
+      "logical_bytes": 977673,
+      "logical_sha256": "c3bc1eb9c953caf1bb4532100a039fa0c4a28a1b510b2f38249333608607ce84",
+      "storage_path": "second-opinions/claude-refutation-base.md.gz",
+      "encoding": "gzip",
+      "storage_bytes": 287825,
+      "storage_sha256": "88af424001a925bfb5d28893fbf65d01dd35b874eae3415e5de7f7ff01b43358",
+      "verified": "decompression exactly equals original byte stream"
+    },
+    {
+      "logical_path": "second-opinions/claude-refutation-brief.md",
+      "logical_bytes": 1098609,
+      "logical_sha256": "a90b9bd7172cff4392a7f0528b5458c5ffa25d368d8ca4051725f4c3ac9dc212",
+      "storage_path": "second-opinions/claude-refutation-brief.md.gz",
+      "encoding": "gzip",
+      "storage_bytes": 332867,
+      "storage_sha256": "ef6ad6fd9c13ef54c27348a3e1c5ae57abd5e41598567fc9f8b1e8df055f41a1",
+      "verified": "decompression exactly equals original byte stream"
+    },
+    {
+      "logical_path": "second-opinions/blind-counter-source.md",
+      "logical_bytes": 70280,
+      "logical_sha256": "8de3e92a19908e33bab262384c118949ad383afa3ac1fe0a7272749e6dd16477",
+      "storage_path": "second-opinions/blind-counter-source.md.gz",
+      "encoding": "gzip",
+      "storage_bytes": 24597,
+      "storage_sha256": "5302bef77b76faa1fcf8d75d4583e0e898e3827c3d18be4ffd566a8610df72d7",
+      "verified": "decompression exactly equals original byte stream"
+    },
+    {
+      "logical_path": "second-opinions/post-dispatch-source-readback.md",
+      "logical_bytes": 4165,
+      "logical_sha256": "139e2f299b73cf9fb3e3c73634bbb2347c5365ccfdf0f44cab78999c4e23496b",
+      "storage_path": "second-opinions/post-dispatch-source-readback.md.gz",
+      "encoding": "gzip",
+      "storage_bytes": 2117,
+      "storage_sha256": "b4592fc99bdc183c07270380f4a6e4c42add427ed47db52f2ed21a704531f6e5",
+      "verified": "decompression exactly equals original byte stream"
+    },
+    {
+      "logical_path": "supplements/native-gameplay/wii-exec.log",
+      "logical_bytes": 2236,
+      "logical_sha256": "5df1a5feda25b10ebf226643eeb6810564220aa31a3d52c3edf0e118a03cc687",
+      "storage_path": "supplements/native-gameplay/wii-exec.log.gz",
+      "encoding": "gzip",
+      "storage_bytes": 841,
+      "storage_sha256": "ff395bb74734ac43767add5d75279d3c3263f5568591f36fb2a8b2ff4c2dd7d4",
+      "verified": "decompression exactly equals original byte stream"
+    },
+    {
+      "logical_path": "supplements/native-gameplay/cold-flycast-exec.log",
+      "logical_bytes": 3791,
+      "logical_sha256": "1d622b16aeb114f8991a48a56e1b135bb1df23bee0d81325cf6bded68be00bc8",
+      "storage_path": "supplements/native-gameplay/cold-flycast-exec.log.gz",
+      "encoding": "gzip",
+      "storage_bytes": 1408,
+      "storage_sha256": "8431880f6355fcc51af6b1038a2526dbe388d32a6993212c04598769a405d853",
+      "verified": "decompression exactly equals original byte stream"
+    },
+    {
+      "logical_path": "supplements/session-clear-source02/revision02-fixture.diff",
+      "logical_bytes": 12047,
+      "logical_sha256": "11cb1490bd564e652419a12255c564237943a30b861bb60fe46a15f14d7325ca",
+      "storage_path": "supplements/session-clear-source02/revision02-fixture.diff.gz",
+      "encoding": "gzip",
+      "storage_bytes": 3723,
+      "storage_sha256": "7b3c55e1d19a8b79b5cdaae7a8b545efdc521cea538512ef7ac31a2f793aaebe",
+      "verified": "decompression exactly equals original byte stream"
+    },
+    {
+      "logical_path": "supplements/wifi-compiler-source-review/common.py.diff",
+      "logical_bytes": 290,
+      "logical_sha256": "b3392d35ffb4382762ddcd5d3b85cb57263d083c8bfbd49cdbd91e0cd77c199f",
+      "storage_path": "supplements/wifi-compiler-source-review/common.py.diff.gz",
+      "encoding": "gzip",
+      "storage_bytes": 220,
+      "storage_sha256": "2d4d6e1c49d9adc84c8c900bbc93685c7447a3a77e2677c5a97c841f7fe33f12",
+      "verified": "decompression exactly equals original byte stream"
+    },
+    {
+      "logical_path": "supplements/wifi-compiler-source-review/inner.py.diff",
+      "logical_bytes": 4525,
+      "logical_sha256": "c3ca666db197dbfa53e8e0d5c93bc88cec56e6d5e97e755aa80906bf6fda1545",
+      "storage_path": "supplements/wifi-compiler-source-review/inner.py.diff.gz",
+      "encoding": "gzip",
+      "storage_bytes": 1667,
+      "storage_sha256": "e96d44eef3aecfe0c924f0bd6d78c0cfdde7317d5ae56d26bccfd6bd88ab1c61",
+      "verified": "decompression exactly equals original byte stream"
+    },
+    {
+      "logical_path": "supplements/wifi-compiler-source-review/plan.py.diff",
+      "logical_bytes": 4452,
+      "logical_sha256": "14ddcccb3c42dfe972edcd5bdd2f037de7804ce82bab0cf48b5507bc3835df9d",
+      "storage_path": "supplements/wifi-compiler-source-review/plan.py.diff.gz",
+      "encoding": "gzip",
+      "storage_bytes": 1499,
+      "storage_sha256": "68831bcb89a76829737eab529283c374461377a275867985c2bc6ba3bd5c5ba1",
+      "verified": "decompression exactly equals original byte stream"
+    },
+    {
+      "logical_path": "supplements/wifi-compiler-source-review/run-stage.py.diff",
+      "logical_bytes": 3942,
+      "logical_sha256": "dc303855d09002684d33b408abab4a77bf7962c0d150cc8d52e91805c0a24271",
+      "storage_path": "supplements/wifi-compiler-source-review/run-stage.py.diff.gz",
+      "encoding": "gzip",
+      "storage_bytes": 1542,
+      "storage_sha256": "833d0c265198b2b6e4f5192282d1939fee17f004901f624a8e5331b27e92efd3",
+      "verified": "decompression exactly equals original byte stream"
+    },
+    {
+      "logical_path": "supplements/source-controls-review/dolphin-probe.py",
+      "logical_bytes": 24340,
+      "logical_sha256": "aa1506b67bbf8de28c004eb9076001e9efeed30b2104defd69809dacef90bb0c",
+      "storage_path": "supplements/source-controls-review/dolphin-probe.py.gz",
+      "encoding": "gzip",
+      "storage_bytes": 8006,
+      "storage_sha256": "1a56bb732e9329b59256c9c8d60bd877241f555e8ca9a93837a670115bc32be5",
+      "verified": "decompression exactly equals original byte stream; original blank EOF preserved"
+    },
+    {
+      "logical_path": "supplements/wifi-compiler-result/compile-GuiWifi.json",
+      "logical_bytes": 2814,
+      "logical_sha256": "30ffac37eff13a98f78c685367abe7e98720545f320e495286d941a085ac66ca",
+      "storage_path": "supplements/wifi-compiler-result/compile-GuiWifi.json.gz",
+      "encoding": "gzip",
+      "storage_bytes": 725,
+      "storage_sha256": "8126b3abfed8c306fdf46a9becdc65e3923945d5817c942e61c7688f314c90d1",
+      "verified": "exact original compiler invocation bytes preserved; readable derived exit/artifact receipts retained"
+    },
+    {
+      "logical_path": "supplements/wifi-compiler-result/compile-GuiMenu.json",
+      "logical_bytes": 2814,
+      "logical_sha256": "6bdc7342a6fc5d2899ed90b4ef1d6bcefee05a6e712dee03e87e93a29129510c",
+      "storage_path": "supplements/wifi-compiler-result/compile-GuiMenu.json.gz",
+      "encoding": "gzip",
+      "storage_bytes": 726,
+      "storage_sha256": "948d7e0c2c272d2df8c0c34772b831d356a942cf39fe3900a46db278610e5c51",
+      "verified": "exact original compiler invocation bytes preserved; readable derived exit/artifact receipts retained"
+    },
+    {
+      "logical_path": "supplements/wifi-compiler-result/compile-main.json",
+      "logical_bytes": 2794,
+      "logical_sha256": "a91c5e8ecb6ca5aaa0dd25637a27d5ef3e9809b8c3533e40779d0c0dcfff79c5",
+      "storage_path": "supplements/wifi-compiler-result/compile-main.json.gz",
+      "encoding": "gzip",
+      "storage_bytes": 715,
+      "storage_sha256": "7105afd98ad50441d52a7e3bf5e64dd1716ce999b8bd031ee37636eca5808020",
+      "verified": "exact original compiler invocation bytes preserved; readable derived exit/artifact receipts retained"
+    },
+    {
+      "logical_path": "supplements/wifi-compiler-result/container-result.json",
+      "logical_bytes": 30154,
+      "logical_sha256": "173e74eb5774a9033e6b928fcce6892580fb0532d21377204631518e06bc5f44",
+      "storage_path": "supplements/wifi-compiler-result/container-result.json.gz",
+      "encoding": "gzip",
+      "storage_bytes": 3082,
+      "storage_sha256": "719a9434f756cb7f29079a27187b5c309696e6db3466560271c4deaecf9315a0",
+      "verified": "exact original compiler invocation bytes preserved; readable derived exit/artifact receipts retained"
+    }
+  ]
+}

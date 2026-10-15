@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "depth": "independent",
+  "scope": "Milestone M7 delta #590",
+  "primary": {
+    "harness": "Codex",
+    "model": "unknown",
+    "lab": "openai",
+    "identity_source": "Session system/developer establish OpenAI GPT/Codex; exact served slug not exposed/attested."
+  },
+  "reviewers": [
+    {
+      "member": "claude",
+      "model": "anthropic/claude-fable-5.1",
+      "lab": "anthropic",
+      "provider": "openrouter",
+      "effort": "xhigh",
+      "recipe_source": "scripts/council-invoke.ts:1404-1408 and .claude/agents/council-member-claude.agent.md",
+      "calls": [
+        {
+          "phase": "blind",
+          "prompt": "claude-blind-brief.md",
+          "output": "claude-blind.md",
+          "status": "prepared; parent review/dispatch pending"
+        },
+        {
+          "phase": "refutation",
+          "prompt": "claude-refutation-brief.md",
+          "base": "claude-refutation-base.md",
+          "output": "claude-audit.md",
+          "status": "await verified blind result; final prompt not yet assembled"
+        }
+      ]
+    }
+  ],
+  "perspectives": 2,
+  "external_reviewers": 1,
+  "calls_planned": 2,
+  "actual_calls": 0,
+  "dispatch_owner": "/root",
+  "permission": "No external transfer by auditor; parent must review concrete sanitized payload and dispatch via Facilitator only.",
+  "frozen": {
+    "distribution": "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+    "es": "3178b832b8d134198b2b4eede4f725d4ed283f8c"
+  },
+  "supplemental_candidate": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a"
+}

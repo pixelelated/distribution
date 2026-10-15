@@ -1,0 +1,662 @@
+{
+  "status": "PASS",
+  "rows": [
+    {
+      "case": "installed-enabled",
+      "status": "PASS",
+      "argv": [
+        "/usr/bin/dolphin-emu-nogui",
+        "-p",
+        "headless",
+        "-v",
+        "Null",
+        "-a",
+        "HLE",
+        "-u",
+        "/run/pix-installed-native/installed-enabled/user",
+        "-e",
+        "/run/pix-installed-native/loop.dol"
+      ],
+      "binary_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+      "enabled": true,
+      "badboot": false,
+      "signals": [
+        "normal SIGTERM"
+      ],
+      "original_exit": 0,
+      "pid": 1957,
+      "running_before": {
+        "pid": 1957,
+        "start_ticks": 1963,
+        "exe": "/usr/bin/dolphin-emu-nogui",
+        "exe_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+        "cpu_ticks": 88,
+        "tasks": [
+          {
+            "tid": 1957,
+            "comm": "dolphin-emu-nog"
+          },
+          {
+            "tid": 1958,
+            "comm": "libusb_event"
+          },
+          {
+            "tid": 1959,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 1960,
+            "comm": "SDL Hotplug Thr"
+          },
+          {
+            "tid": 1961,
+            "comm": "evdev cleanup"
+          },
+          {
+            "tid": 1962,
+            "comm": "evdev Hotplug T"
+          },
+          {
+            "tid": 1963,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 1964,
+            "comm": "Wiimote Scannin"
+          },
+          {
+            "tid": 1965,
+            "comm": "Wiimote Pool Th"
+          },
+          {
+            "tid": 1967,
+            "comm": "AchievementMana"
+          },
+          {
+            "tid": 1968,
+            "comm": "AchievementMana"
+          },
+          {
+            "tid": 1969,
+            "comm": "Analytics"
+          },
+          {
+            "tid": 1970,
+            "comm": "CPU thread"
+          },
+          {
+            "tid": 1971,
+            "comm": "Savestate Worke"
+          },
+          {
+            "tid": 1972,
+            "comm": "DVD thread"
+          },
+          {
+            "tid": 1973,
+            "comm": "Video thread"
+          },
+          {
+            "tid": 1981,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 1982,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 1983,
+            "comm": "Asset Loader 0"
+          },
+          {
+            "tid": 1984,
+            "comm": "Asset Loader 1"
+          },
+          {
+            "tid": 1985,
+            "comm": "resource-worker"
+          },
+          {
+            "tid": 1986,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 1987,
+            "comm": "Play Time Track"
+          }
+        ]
+      },
+      "running_after": {
+        "pid": 1957,
+        "start_ticks": 1963,
+        "exe": "/usr/bin/dolphin-emu-nogui",
+        "exe_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+        "cpu_ticks": 292,
+        "tasks": [
+          {
+            "tid": 1957,
+            "comm": "dolphin-emu-nog"
+          },
+          {
+            "tid": 1958,
+            "comm": "libusb_event"
+          },
+          {
+            "tid": 1959,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 1960,
+            "comm": "SDL Hotplug Thr"
+          },
+          {
+            "tid": 1961,
+            "comm": "evdev cleanup"
+          },
+          {
+            "tid": 1962,
+            "comm": "evdev Hotplug T"
+          },
+          {
+            "tid": 1963,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 1964,
+            "comm": "Wiimote Scannin"
+          },
+          {
+            "tid": 1965,
+            "comm": "Wiimote Pool Th"
+          },
+          {
+            "tid": 1967,
+            "comm": "AchievementMana"
+          },
+          {
+            "tid": 1968,
+            "comm": "AchievementMana"
+          },
+          {
+            "tid": 1969,
+            "comm": "Analytics"
+          },
+          {
+            "tid": 1970,
+            "comm": "CPU thread"
+          },
+          {
+            "tid": 1971,
+            "comm": "Savestate Worke"
+          },
+          {
+            "tid": 1972,
+            "comm": "DVD thread"
+          },
+          {
+            "tid": 1973,
+            "comm": "Video thread"
+          },
+          {
+            "tid": 1981,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 1982,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 1983,
+            "comm": "Asset Loader 0"
+          },
+          {
+            "tid": 1984,
+            "comm": "Asset Loader 1"
+          },
+          {
+            "tid": 1985,
+            "comm": "resource-worker"
+          },
+          {
+            "tid": 1986,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 1987,
+            "comm": "Play Time Track"
+          }
+        ]
+      },
+      "badge_load_failures": {
+        "Default player badge 'achievements_player.png' failed to load": 0,
+        "Default game badge 'achievements_game.png' failed to load": 0,
+        "Default unlocked achievement badge 'achievements_unlocked.png' failed to load": 0,
+        "Default locked achievement badge 'achievements_locked.png' failed to load": 0
+      },
+      "initialized": 1,
+      "shutdown": 1,
+      "boot_error": false,
+      "requests": [
+        {
+          "path": "/dorequest.php",
+          "method": "POST",
+          "host": "127.0.0.1:8080",
+          "form": {
+            "r": [
+              "login2"
+            ],
+            "u": [
+              "m7_synthetic_only"
+            ],
+            "t": [
+              "m7_synthetic_invalid"
+            ]
+          },
+          "peer": "127.0.0.1",
+          "monotonic": 20.152020636
+        }
+      ],
+      "endpoint_errors": [],
+      "remaining_dolphin": [],
+      "elapsed_seconds": 3.5588802400000006
+    },
+    {
+      "case": "installed-disabled",
+      "status": "PASS",
+      "argv": [
+        "/usr/bin/dolphin-emu-nogui",
+        "-p",
+        "headless",
+        "-v",
+        "Null",
+        "-a",
+        "HLE",
+        "-u",
+        "/run/pix-installed-native/installed-disabled/user",
+        "-e",
+        "/run/pix-installed-native/loop.dol"
+      ],
+      "binary_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+      "enabled": false,
+      "badboot": false,
+      "signals": [
+        "normal SIGTERM"
+      ],
+      "original_exit": 0,
+      "pid": 2003,
+      "running_before": {
+        "pid": 2003,
+        "start_ticks": 2317,
+        "exe": "/usr/bin/dolphin-emu-nogui",
+        "exe_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+        "cpu_ticks": 72,
+        "tasks": [
+          {
+            "tid": 2003,
+            "comm": "dolphin-emu-nog"
+          },
+          {
+            "tid": 2004,
+            "comm": "libusb_event"
+          },
+          {
+            "tid": 2005,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 2006,
+            "comm": "SDL Hotplug Thr"
+          },
+          {
+            "tid": 2007,
+            "comm": "evdev cleanup"
+          },
+          {
+            "tid": 2008,
+            "comm": "evdev Hotplug T"
+          },
+          {
+            "tid": 2009,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 2010,
+            "comm": "Wiimote Scannin"
+          },
+          {
+            "tid": 2011,
+            "comm": "Wiimote Pool Th"
+          },
+          {
+            "tid": 2012,
+            "comm": "Analytics"
+          },
+          {
+            "tid": 2013,
+            "comm": "CPU thread"
+          },
+          {
+            "tid": 2014,
+            "comm": "Savestate Worke"
+          },
+          {
+            "tid": 2015,
+            "comm": "DVD thread"
+          },
+          {
+            "tid": 2016,
+            "comm": "Video thread"
+          },
+          {
+            "tid": 2017,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 2018,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 2019,
+            "comm": "Asset Loader 0"
+          },
+          {
+            "tid": 2020,
+            "comm": "Asset Loader 1"
+          },
+          {
+            "tid": 2021,
+            "comm": "resource-worker"
+          },
+          {
+            "tid": 2022,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 2023,
+            "comm": "Play Time Track"
+          }
+        ]
+      },
+      "running_after": {
+        "pid": 2003,
+        "start_ticks": 2317,
+        "exe": "/usr/bin/dolphin-emu-nogui",
+        "exe_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+        "cpu_ticks": 275,
+        "tasks": [
+          {
+            "tid": 2003,
+            "comm": "dolphin-emu-nog"
+          },
+          {
+            "tid": 2004,
+            "comm": "libusb_event"
+          },
+          {
+            "tid": 2005,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 2006,
+            "comm": "SDL Hotplug Thr"
+          },
+          {
+            "tid": 2007,
+            "comm": "evdev cleanup"
+          },
+          {
+            "tid": 2008,
+            "comm": "evdev Hotplug T"
+          },
+          {
+            "tid": 2009,
+            "comm": "libusb thread"
+          },
+          {
+            "tid": 2010,
+            "comm": "Wiimote Scannin"
+          },
+          {
+            "tid": 2011,
+            "comm": "Wiimote Pool Th"
+          },
+          {
+            "tid": 2012,
+            "comm": "Analytics"
+          },
+          {
+            "tid": 2013,
+            "comm": "CPU thread"
+          },
+          {
+            "tid": 2014,
+            "comm": "Savestate Worke"
+          },
+          {
+            "tid": 2015,
+            "comm": "DVD thread"
+          },
+          {
+            "tid": 2016,
+            "comm": "Video thread"
+          },
+          {
+            "tid": 2017,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 2018,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 2019,
+            "comm": "Asset Loader 0"
+          },
+          {
+            "tid": 2020,
+            "comm": "Asset Loader 1"
+          },
+          {
+            "tid": 2021,
+            "comm": "resource-worker"
+          },
+          {
+            "tid": 2022,
+            "comm": "AsyncShaderComp"
+          },
+          {
+            "tid": 2023,
+            "comm": "Play Time Track"
+          }
+        ]
+      },
+      "badge_load_failures": {
+        "Default player badge 'achievements_player.png' failed to load": 0,
+        "Default game badge 'achievements_game.png' failed to load": 0,
+        "Default unlocked achievement badge 'achievements_unlocked.png' failed to load": 0,
+        "Default locked achievement badge 'achievements_locked.png' failed to load": 0
+      },
+      "initialized": 0,
+      "shutdown": 0,
+      "boot_error": false,
+      "requests": [],
+      "endpoint_errors": [],
+      "remaining_dolphin": [],
+      "elapsed_seconds": 3.209873989000002
+    },
+    {
+      "case": "installed-failed-boot",
+      "status": "PASS",
+      "argv": [
+        "/usr/bin/dolphin-emu-nogui",
+        "-p",
+        "headless",
+        "-v",
+        "Null",
+        "-a",
+        "HLE",
+        "-u",
+        "/run/pix-installed-native/installed-failed-boot/user",
+        "-e",
+        "/run/pix-installed-native/absent-file.iso"
+      ],
+      "binary_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+      "enabled": true,
+      "badboot": true,
+      "signals": [],
+      "original_exit": 1,
+      "pid": 2035,
+      "badge_load_failures": {
+        "Default player badge 'achievements_player.png' failed to load": 0,
+        "Default game badge 'achievements_game.png' failed to load": 0,
+        "Default unlocked achievement badge 'achievements_unlocked.png' failed to load": 0,
+        "Default locked achievement badge 'achievements_locked.png' failed to load": 0
+      },
+      "initialized": 1,
+      "shutdown": 1,
+      "boot_error": true,
+      "requests": [
+        {
+          "path": "/dorequest.php",
+          "method": "POST",
+          "host": "127.0.0.1:8080",
+          "form": {
+            "r": [
+              "login2"
+            ],
+            "u": [
+              "m7_synthetic_only"
+            ],
+            "t": [
+              "m7_synthetic_invalid"
+            ]
+          },
+          "peer": "127.0.0.1",
+          "monotonic": 26.53875105
+        }
+      ],
+      "endpoint_errors": [],
+      "remaining_dolphin": [],
+      "elapsed_seconds": 0.44776248400000185
+    }
+  ],
+  "runtime_claim": "Actual final-image installed executable and immutable Sys resources; three startup cases only",
+  "installed_before": {
+    "executable": {
+      "path": "/usr/bin/dolphin-emu-nogui",
+      "bytes": 8593792,
+      "sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5"
+    },
+    "resources": [
+      {
+        "path": "/usr/share/dolphin-emu/sys/Resources/achievements_player.png",
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_player.png",
+        "bytes": 1164,
+        "sha256": "a925afd5922ff7287c6c9d743a58f8d43d30a9eb39e739f6d4cddecce82be0cc",
+        "source_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+        "link_target": "../../config/dolphin-emu"
+      },
+      {
+        "path": "/usr/share/dolphin-emu/sys/Resources/achievements_game.png",
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_game.png",
+        "bytes": 1234,
+        "sha256": "f0b39af2812f2650950361b8d3d7e0bb3bc0eb2e0cd8516b55f9b49b1fdef3a3",
+        "source_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+        "link_target": "../../config/dolphin-emu"
+      },
+      {
+        "path": "/usr/share/dolphin-emu/sys/Resources/achievements_unlocked.png",
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_unlocked.png",
+        "bytes": 583,
+        "sha256": "a5263c36bfae0f02de85410c7ef5cf3a2a2eb6e2271391d847ae30f6143cf4df",
+        "source_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+        "link_target": "../../config/dolphin-emu"
+      },
+      {
+        "path": "/usr/share/dolphin-emu/sys/Resources/achievements_locked.png",
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_locked.png",
+        "bytes": 560,
+        "sha256": "ea2aca58c279fd2b6a8bbf2e576564b855b8bf328561e5f39a71cf76e829d3dd",
+        "source_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+        "link_target": "../../config/dolphin-emu"
+      },
+      {
+        "path": "/usr/share/dolphin-emu/sys/ApprovedInis.json",
+        "resolved": "/usr/config/dolphin-emu/ApprovedInis.json",
+        "bytes": 31627,
+        "sha256": "4556d3e02d7d0804313f3238454e35101ec72dbc0c3f95ff393d4f8292e07f46",
+        "source_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+        "link_target": "../../config/dolphin-emu"
+      },
+      {
+        "path": "/usr/share/dolphin-emu/sys/GameSettings/GMSE01.ini",
+        "resolved": "/usr/config/dolphin-emu/GameSettings/GMSE01.ini",
+        "bytes": 3737,
+        "sha256": "0f3fa22da52b6b51d3ab524e248ea14cf044184cc1638d5681343cc85069b087",
+        "source_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+        "link_target": "../../config/dolphin-emu"
+      }
+    ],
+    "mountinfo": "22 27 0:7 / /dev rw,relatime shared:4 - devtmpfs devtmpfs rw,size=3819548k,nr_inodes=954887,mode=755\n23 27 0:20 / /proc rw,relatime shared:7 - proc proc rw\n24 27 0:21 / /sys rw,relatime shared:8 - sysfs sysfs rw\n25 27 0:22 / /run rw,nosuid,nodev shared:14 - tmpfs tmpfs rw,size=1591608k,nr_inodes=819200,mode=755\n26 27 254:1 / /flash ro,noatime shared:2 - vfat /dev/vda1 ro,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro\n27 2 7:0 / / ro,relatime shared:1 - squashfs /dev/loop0 ro,errors=continue\n28 27 254:2 / /storage rw,noatime shared:3 - ext4 /dev/vda2 rw\n29 22 0:23 / /dev/shm rw,nosuid,nodev shared:5 - tmpfs tmpfs rw\n30 22 0:24 / /dev/pts rw,nosuid,noexec,relatime shared:6 - devpts devpts rw,gid=5,mode=620,ptmxmode=000\n31 24 0:25 / /sys/fs/cgroup ro,nosuid,nodev,noexec shared:9 - tmpfs tmpfs ro,size=4096k,nr_inodes=1024,mode=755\n32 31 0:26 / /sys/fs/cgroup/unified rw,nosuid,nodev,noexec,relatime shared:10 - cgroup2 cgroup2 rw,nsdelegate\n33 31 0:27 / /sys/fs/cgroup/systemd rw,nosuid,nodev,noexec,relatime shared:11 - cgroup cgroup rw,xattr,name=systemd\n34 24 0:28 / /sys/fs/pstore rw,nosuid,nodev,noexec,relatime shared:12 - pstore none rw\n35 24 0:29 / /sys/fs/bpf rw,nosuid,nodev,noexec,relatime shared:13 - bpf bpf rw,mode=700\n36 31 0:30 / /sys/fs/cgroup/perf_event rw,nosuid,nodev,noexec,relatime shared:15 - cgroup cgroup rw,perf_event\n37 31 0:31 / /sys/fs/cgroup/cpu,cpuacct rw,nosuid,nodev,noexec,relatime shared:16 - cgroup cgroup rw,cpu,cpuacct\n38 31 0:32 / /sys/fs/cgroup/net_cls,net_prio rw,nosuid,nodev,noexec,relatime shared:17 - cgroup cgroup rw,net_cls,net_prio\n39 31 0:33 / /sys/fs/cgroup/pids rw,nosuid,nodev,noexec,relatime shared:18 - cgroup cgroup rw,pids\n40 31 0:34 / /sys/fs/cgroup/devices rw,nosuid,nodev,noexec,relatime shared:19 - cgroup cgroup rw,devices\n41 31 0:35 / /sys/fs/cgroup/blkio rw,nosuid,nodev,noexec,relatime shared:20 - cgroup cgroup rw,blkio\n42 31 0:36 / /sys/fs/cgroup/freezer rw,nosuid,nodev,noexec,relatime shared:21 - cgroup cgroup rw,freezer\n43 23 0:37 / /proc/sys/fs/binfmt_misc rw,relatime shared:22 - autofs systemd-1 rw,fd=32,pgrp=1,timeout=0,minproto=5,maxproto=5,direct\n44 22 0:17 / /dev/mqueue rw,nosuid,nodev,noexec,relatime shared:23 - mqueue mqueue rw\n45 43 0:38 / /proc/sys/fs/binfmt_misc rw,nosuid,nodev,noexec,relatime shared:24 - binfmt_misc binfmt_misc rw\n46 24 0:8 / /sys/kernel/debug rw,nosuid,nodev,noexec,relatime shared:25 - debugfs debugfs rw\n47 24 0:12 / /sys/kernel/tracing rw,nosuid,nodev,noexec,relatime shared:26 - tracefs tracefs rw\n48 27 0:39 / /tmp rw,nosuid,nodev shared:27 - tmpfs tmpfs rw,size=3979020k,nr_inodes=1048576\n49 27 0:40 / /var rw,relatime shared:28 - tmpfs tmpfs rw\n50 24 0:41 / /sys/fs/fuse/connections rw,nosuid,nodev,noexec,relatime shared:29 - fusectl fusectl rw\n51 24 0:19 / /sys/kernel/config rw,nosuid,nodev,noexec,relatime shared:30 - configfs configfs rw\n128 49 254:2 /.cache/log /var/log rw,noatime shared:3 - ext4 /dev/vda2 rw\n65 48 0:51 / /tmp/overlays rw,relatime shared:279 - overlay none rw,lowerdir=/usr/share/retroarch-overlays,upperdir=/storage/overlays,workdir=/storage/.tmp/overlays-workdir,uuid=on\n76 48 0:55 / /tmp/cores rw,relatime shared:296 - overlay none rw,lowerdir=/usr/lib/libretro,upperdir=/storage/cores,workdir=/storage/.tmp/cores-workdir,uuid=on\n129 48 0:57 / /tmp/joypads rw,relatime shared:303 - overlay none rw,lowerdir=/usr/share/libretro/autoconfig,upperdir=/storage/joypads,workdir=/storage/.tmp/joypads-workdir,uuid=on\n323 48 0:56 / /tmp/assets rw,relatime shared:310 - overlay none rw,lowerdir=/usr/share/retroarch-assets,upperdir=/storage/assets,workdir=/storage/.tmp/assets-workdir,uuid=on\n367 48 0:52 / /tmp/database rw,relatime shared:317 - overlay none rw,lowerdir=/usr/share/libretro-database,upperdir=/storage/database,workdir=/storage/.tmp/database-workdir,uuid=on\n378 48 0:66 / /tmp/shaders rw,relatime shared:324 - overlay none rw,lowerdir=/usr/share/common-shaders:/usr/share/glsl-shaders:/usr/share/slang-shaders,upperdir=/storage/shaders,workdir=/storage/.tmp/shaders-workdir,uuid=on\n387 28 254:2 /games-internal/roms /storage/roms rw,noatime shared:3 - ext4 /dev/vda2 rw\n67 49 8:0 / /var/media/PIXINPUT ro,nosuid,nodev,noexec,noatime shared:237 - ext4 /dev/sda ro\n280 49 8:16 / /var/media/PIXOUTPUT rw,nosuid,nodev,noexec,noatime shared:401 - ext4 /dev/sdb rw\n288 48 8:0 / /tmp/pix-input ro,relatime shared:409 - ext4 /dev/disk/by-label/PIXINPUT ro\n296 48 8:16 / /tmp/pix-output rw,relatime shared:417 - ext4 /dev/disk/by-label/PIXOUTPUT rw\n304 25 0:72 / /run/pix-installed-native rw,nosuid,nodev,relatime shared:425 - tmpfs tmpfs rw,size=262144k,mode=700\n"
+  },
+  "source_commit": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+  "fixture_sha256": "df4c8e53a88d2beca9b14b6818826e4792cea2f2231298917c724247e31dd664",
+  "installed_after": {
+    "executable": {
+      "path": "/usr/bin/dolphin-emu-nogui",
+      "bytes": 8593792,
+      "sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5"
+    },
+    "resources": [
+      {
+        "path": "/usr/share/dolphin-emu/sys/Resources/achievements_player.png",
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_player.png",
+        "bytes": 1164,
+        "sha256": "a925afd5922ff7287c6c9d743a58f8d43d30a9eb39e739f6d4cddecce82be0cc",
+        "source_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+        "link_target": "../../config/dolphin-emu"
+      },
+      {
+        "path": "/usr/share/dolphin-emu/sys/Resources/achievements_game.png",
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_game.png",
+        "bytes": 1234,
+        "sha256": "f0b39af2812f2650950361b8d3d7e0bb3bc0eb2e0cd8516b55f9b49b1fdef3a3",
+        "source_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+        "link_target": "../../config/dolphin-emu"
+      },
+      {
+        "path": "/usr/share/dolphin-emu/sys/Resources/achievements_unlocked.png",
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_unlocked.png",
+        "bytes": 583,
+        "sha256": "a5263c36bfae0f02de85410c7ef5cf3a2a2eb6e2271391d847ae30f6143cf4df",
+        "source_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+        "link_target": "../../config/dolphin-emu"
+      },
+      {
+        "path": "/usr/share/dolphin-emu/sys/Resources/achievements_locked.png",
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_locked.png",
+        "bytes": 560,
+        "sha256": "ea2aca58c279fd2b6a8bbf2e576564b855b8bf328561e5f39a71cf76e829d3dd",
+        "source_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+        "link_target": "../../config/dolphin-emu"
+      },
+      {
+        "path": "/usr/share/dolphin-emu/sys/ApprovedInis.json",
+        "resolved": "/usr/config/dolphin-emu/ApprovedInis.json",
+        "bytes": 31627,
+        "sha256": "4556d3e02d7d0804313f3238454e35101ec72dbc0c3f95ff393d4f8292e07f46",
+        "source_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+        "link_target": "../../config/dolphin-emu"
+      },
+      {
+        "path": "/usr/share/dolphin-emu/sys/GameSettings/GMSE01.ini",
+        "resolved": "/usr/config/dolphin-emu/GameSettings/GMSE01.ini",
+        "bytes": 3737,
+        "sha256": "0f3fa22da52b6b51d3ab524e248ea14cf044184cc1638d5681343cc85069b087",
+        "source_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+        "link_target": "../../config/dolphin-emu"
+      }
+    ],
+    "mountinfo": "22 27 0:7 / /dev rw,relatime shared:4 - devtmpfs devtmpfs rw,size=3819548k,nr_inodes=954887,mode=755\n23 27 0:20 / /proc rw,relatime shared:7 - proc proc rw\n24 27 0:21 / /sys rw,relatime shared:8 - sysfs sysfs rw\n25 27 0:22 / /run rw,nosuid,nodev shared:14 - tmpfs tmpfs rw,size=1591608k,nr_inodes=819200,mode=755\n26 27 254:1 / /flash ro,noatime shared:2 - vfat /dev/vda1 ro,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro\n27 2 7:0 / / ro,relatime shared:1 - squashfs /dev/loop0 ro,errors=continue\n28 27 254:2 / /storage rw,noatime shared:3 - ext4 /dev/vda2 rw\n29 22 0:23 / /dev/shm rw,nosuid,nodev shared:5 - tmpfs tmpfs rw\n30 22 0:24 / /dev/pts rw,nosuid,noexec,relatime shared:6 - devpts devpts rw,gid=5,mode=620,ptmxmode=000\n31 24 0:25 / /sys/fs/cgroup ro,nosuid,nodev,noexec shared:9 - tmpfs tmpfs ro,size=4096k,nr_inodes=1024,mode=755\n32 31 0:26 / /sys/fs/cgroup/unified rw,nosuid,nodev,noexec,relatime shared:10 - cgroup2 cgroup2 rw,nsdelegate\n33 31 0:27 / /sys/fs/cgroup/systemd rw,nosuid,nodev,noexec,relatime shared:11 - cgroup cgroup rw,xattr,name=systemd\n34 24 0:28 / /sys/fs/pstore rw,nosuid,nodev,noexec,relatime shared:12 - pstore none rw\n35 24 0:29 / /sys/fs/bpf rw,nosuid,nodev,noexec,relatime shared:13 - bpf bpf rw,mode=700\n36 31 0:30 / /sys/fs/cgroup/perf_event rw,nosuid,nodev,noexec,relatime shared:15 - cgroup cgroup rw,perf_event\n37 31 0:31 / /sys/fs/cgroup/cpu,cpuacct rw,nosuid,nodev,noexec,relatime shared:16 - cgroup cgroup rw,cpu,cpuacct\n38 31 0:32 / /sys/fs/cgroup/net_cls,net_prio rw,nosuid,nodev,noexec,relatime shared:17 - cgroup cgroup rw,net_cls,net_prio\n39 31 0:33 / /sys/fs/cgroup/pids rw,nosuid,nodev,noexec,relatime shared:18 - cgroup cgroup rw,pids\n40 31 0:34 / /sys/fs/cgroup/devices rw,nosuid,nodev,noexec,relatime shared:19 - cgroup cgroup rw,devices\n41 31 0:35 / /sys/fs/cgroup/blkio rw,nosuid,nodev,noexec,relatime shared:20 - cgroup cgroup rw,blkio\n42 31 0:36 / /sys/fs/cgroup/freezer rw,nosuid,nodev,noexec,relatime shared:21 - cgroup cgroup rw,freezer\n43 23 0:37 / /proc/sys/fs/binfmt_misc rw,relatime shared:22 - autofs systemd-1 rw,fd=32,pgrp=1,timeout=0,minproto=5,maxproto=5,direct\n44 22 0:17 / /dev/mqueue rw,nosuid,nodev,noexec,relatime shared:23 - mqueue mqueue rw\n45 43 0:38 / /proc/sys/fs/binfmt_misc rw,nosuid,nodev,noexec,relatime shared:24 - binfmt_misc binfmt_misc rw\n46 24 0:8 / /sys/kernel/debug rw,nosuid,nodev,noexec,relatime shared:25 - debugfs debugfs rw\n47 24 0:12 / /sys/kernel/tracing rw,nosuid,nodev,noexec,relatime shared:26 - tracefs tracefs rw\n48 27 0:39 / /tmp rw,nosuid,nodev shared:27 - tmpfs tmpfs rw,size=3979020k,nr_inodes=1048576\n49 27 0:40 / /var rw,relatime shared:28 - tmpfs tmpfs rw\n50 24 0:41 / /sys/fs/fuse/connections rw,nosuid,nodev,noexec,relatime shared:29 - fusectl fusectl rw\n51 24 0:19 / /sys/kernel/config rw,nosuid,nodev,noexec,relatime shared:30 - configfs configfs rw\n128 49 254:2 /.cache/log /var/log rw,noatime shared:3 - ext4 /dev/vda2 rw\n65 48 0:51 / /tmp/overlays rw,relatime shared:279 - overlay none rw,lowerdir=/usr/share/retroarch-overlays,upperdir=/storage/overlays,workdir=/storage/.tmp/overlays-workdir,uuid=on\n76 48 0:55 / /tmp/cores rw,relatime shared:296 - overlay none rw,lowerdir=/usr/lib/libretro,upperdir=/storage/cores,workdir=/storage/.tmp/cores-workdir,uuid=on\n129 48 0:57 / /tmp/joypads rw,relatime shared:303 - overlay none rw,lowerdir=/usr/share/libretro/autoconfig,upperdir=/storage/joypads,workdir=/storage/.tmp/joypads-workdir,uuid=on\n323 48 0:56 / /tmp/assets rw,relatime shared:310 - overlay none rw,lowerdir=/usr/share/retroarch-assets,upperdir=/storage/assets,workdir=/storage/.tmp/assets-workdir,uuid=on\n367 48 0:52 / /tmp/database rw,relatime shared:317 - overlay none rw,lowerdir=/usr/share/libretro-database,upperdir=/storage/database,workdir=/storage/.tmp/database-workdir,uuid=on\n378 48 0:66 / /tmp/shaders rw,relatime shared:324 - overlay none rw,lowerdir=/usr/share/common-shaders:/usr/share/glsl-shaders:/usr/share/slang-shaders,upperdir=/storage/shaders,workdir=/storage/.tmp/shaders-workdir,uuid=on\n387 28 254:2 /games-internal/roms /storage/roms rw,noatime shared:3 - ext4 /dev/vda2 rw\n67 49 8:0 / /var/media/PIXINPUT ro,nosuid,nodev,noexec,noatime shared:237 - ext4 /dev/sda ro\n280 49 8:16 / /var/media/PIXOUTPUT rw,nosuid,nodev,noexec,noatime shared:401 - ext4 /dev/sdb rw\n288 48 8:0 / /tmp/pix-input ro,relatime shared:409 - ext4 /dev/disk/by-label/PIXINPUT ro\n296 48 8:16 / /tmp/pix-output rw,relatime shared:417 - ext4 /dev/disk/by-label/PIXOUTPUT rw\n304 25 0:72 / /run/pix-installed-native rw,nosuid,nodev,relatime shared:425 - tmpfs tmpfs rw,size=262144k,mode=700\n"
+  }
+}

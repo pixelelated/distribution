@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "stages": [
+    {
+      "stage": "clean-dolphin-sa",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    },
+    {
+      "stage": "build-dolphin-sa",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    },
+    {
+      "stage": "image",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    }
+  ],
+  "cleanup": [],
+  "signals": [],
+  "surviving_host_command_groups": {
+    "2136275": [],
+    "2136628": [],
+    "2151047": []
+  },
+  "elapsed_seconds": 272.63268504291773
+}

@@ -1,0 +1,40 @@
+{
+  "rc": 0,
+  "commands": [
+    {
+      "name": "dolphin",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix-input/controls/dolphin/fixtures/probe.py",
+        "--output",
+        "/run/pix594-session-01"
+      ],
+      "timeout_seconds": 75,
+      "original_returncode": 0,
+      "timed_out": false,
+      "pid": 1956
+    },
+    {
+      "name": "steam",
+      "argv": [
+        "/usr/bin/python3",
+        "-I",
+        "-S",
+        "-B",
+        "/tmp/pix-input/controls/steam/probe.py",
+        "--out",
+        "/run/pix595-isolation-01"
+      ],
+      "timeout_seconds": 75,
+      "original_returncode": 0,
+      "timed_out": false,
+      "pid": 2154
+    }
+  ],
+  "started": 1792032122.7505581,
+  "no_network": true,
+  "ended": 1792032124.5231245
+}

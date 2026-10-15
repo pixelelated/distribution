@@ -1,0 +1,19 @@
+# Supplemental installed Dolphin startup/resource readback
+
+Exact later image: d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a / ES3178b832b8d134198b2b4eede4f725d4ed283f8c; compressed-image SHA25684b1552e4d0ed67d97b603230d1acb0b22a852217054854a9c3fe42731772ff2. Original evidence owner `/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01`; original host archive SHA256945d592a5a7c407dfa7101a816259a08e65845fef927cb9957a3a6cea8c594ac. Guest case result SHA256f6e4c22148002feaac7324e018d8c9d42144bed6c7fa2bdf1cf92ee0e9289dd8. Selected originals are copied byte-for-byte to `supplements/dolphin-installed/` with hashes and original locators.
+
+Read complete derivative guest-proof diff and the lifecycle/request/cleanup implementation, then compared actual executed archive member `owner/source/case/guest-proof.py` byte-for-byte with that reviewed source: equal, SHA256ac21c37e9dc6280ec8a7034b1a8d044f196937cd21c095a4dea3cb72378994f4. The executed inputs have `staged: {}` and bind the original final-image result57575bcb and actual installed NoGUI5cb5dac. No substitute executable or resource input is staged. Original VM boot record binds compressed-image84b1552e and no networking; original mountinfo has root squashfs read-only and no /usr or resource-path overlay. The isolated tmpfs holds only fixture/config/output data.
+
+| Original case | Original exit | Init/shutdown | Synthetic loopback login requests | CPU tick delta | Ordinary signal |
+| --- | --- | --- | --- | --- | --- |
+| installed-enabled | 0 | 1/1 | 1 | 204 | SIGTERM |
+| installed-disabled | 0 | 0/0 | 0 | 203 | SIGTERM |
+| installed-failed-boot | 1 | 1/1 | 1 | not a running-game case | none |
+
+Both live cases' /proc identity preserves start_ticks, actual `/usr/bin/dolphin-emu-nogui` and executable SHA2565cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5; CPU threads exist and ticks advance. Failed boot's original stderr says `Could not boot the specified file`. Each request is the synthetic invalid login2 POST to127.0.0.1:8080/dorequest.php with a failed-login response; no real account/success/award is inferred.
+
+Independently recounted initialization/shutdown and all four historical badge-error strings from each original stderr/stdout. All twelve badge-failure counts are0. Original stderr hashes: enabled c5a436a4772806e86375b57c3ffd12b015c9146ac7dd74c399d0efd449af50d6; disabled d14af3e3ff79225971837c987dde9eb699a31edab271b94e769f9fcbbb54c005; failed-boot007f70eb6f6e5246103ed986362f2e264aed3ed749a9f76b07e9925846296a91. Embedded NUL bytes in original stderr are preserved in the copied records. Six alias/resolved resource hash/size/path rows are equal before and after; installed executable is also unchanged.
+
+Original guest owner child exit0, timed_outfalse, signals[],cleanup_errors[],remaining_children[], elapsed7.8216s. Per-case endpoint errors and remaining Dolphin arrays empty. Original VM command rows all16 exit0/not timedout, no cleanup errors or remaining host children; both known QEMU-related children reaped0. Runner command/monitor/runner0/0/0 at01:27:31.478892Z and launcher0. Export original exit0/readback0,56guestfiles/106hostfiles, lossless host/guest manifest checks true, no validation error. Coordinator's acceptance is separate; the above grades use original source, case logs/process/resource records and channels.
+
+Disposition: F-002 lifecycle correction and F-003 immutable Sys alias are now supported on the actual later installed engineering image within these startup/resource cases. The prior frozen failures and private-candidate badge errors remain preserved. This is no gameplay, renderer, save, real login, award, ARM or retained-storage migration claim. Frozen115-criterion scorecard remains unchanged; later remediation status is separate. Include this supplemental readback only in the refutation stage, leaving the sealed blind prompt unchanged.

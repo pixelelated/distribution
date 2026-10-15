@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/tmp/pix-input/controls/dolphin/fixtures/probe.py", line 323, in main
+    require(not Path(f'/proc/self/task/{parent}/children').read_text().split(),'live descendant after case')
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 771, in open
+FileNotFoundError: [Errno 2] No such file or directory: '/proc/self/task/1952/children'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/pix-input/controls/dolphin/fixtures/probe.py", line 391, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/tmp/pix-input/controls/dolphin/fixtures/probe.py", line 370, in main
+    owned=Path(f'/proc/self/task/{parent}/children').read_text().split()
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 771, in open
+FileNotFoundError: [Errno 2] No such file or directory: '/proc/self/task/1952/children'

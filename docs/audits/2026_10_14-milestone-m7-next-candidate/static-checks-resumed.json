@@ -1,0 +1,29 @@
+{
+  "recorded": "2026-10-15T00:36:29.660839+00:00",
+  "cwd": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+  "checks": [
+    {
+      "argv": [
+        "tools/rules-check"
+      ],
+      "exit_code": 0,
+      "summary": "30 rule files, every one front-mattered and indexed"
+    },
+    {
+      "argv": [
+        "tools/register-check"
+      ],
+      "exit_code": 0,
+      "summary": "639 IDs, each once; every citation in live documents names a row"
+    },
+    {
+      "argv": [
+        "tools/work-log-index",
+        "--check"
+      ],
+      "exit_code": 0,
+      "summary": "work-log index: current"
+    }
+  ],
+  "scope": "Actual independent read-only invocations; product/fixture/runtime not changed"
+}

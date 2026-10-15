@@ -1,0 +1,259 @@
+{
+  "case": "installed-enabled",
+  "status": "PASS",
+  "argv": [
+    "/usr/bin/dolphin-emu-nogui",
+    "-p",
+    "headless",
+    "-v",
+    "Null",
+    "-a",
+    "HLE",
+    "-u",
+    "/run/pix-installed-native/installed-enabled/user",
+    "-e",
+    "/run/pix-installed-native/loop.dol"
+  ],
+  "binary_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+  "enabled": true,
+  "badboot": false,
+  "signals": [
+    "normal SIGTERM"
+  ],
+  "original_exit": 0,
+  "pid": 1957,
+  "running_before": {
+    "pid": 1957,
+    "start_ticks": 1963,
+    "exe": "/usr/bin/dolphin-emu-nogui",
+    "exe_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+    "cpu_ticks": 88,
+    "tasks": [
+      {
+        "tid": 1957,
+        "comm": "dolphin-emu-nog"
+      },
+      {
+        "tid": 1958,
+        "comm": "libusb_event"
+      },
+      {
+        "tid": 1959,
+        "comm": "libusb thread"
+      },
+      {
+        "tid": 1960,
+        "comm": "SDL Hotplug Thr"
+      },
+      {
+        "tid": 1961,
+        "comm": "evdev cleanup"
+      },
+      {
+        "tid": 1962,
+        "comm": "evdev Hotplug T"
+      },
+      {
+        "tid": 1963,
+        "comm": "libusb thread"
+      },
+      {
+        "tid": 1964,
+        "comm": "Wiimote Scannin"
+      },
+      {
+        "tid": 1965,
+        "comm": "Wiimote Pool Th"
+      },
+      {
+        "tid": 1967,
+        "comm": "AchievementMana"
+      },
+      {
+        "tid": 1968,
+        "comm": "AchievementMana"
+      },
+      {
+        "tid": 1969,
+        "comm": "Analytics"
+      },
+      {
+        "tid": 1970,
+        "comm": "CPU thread"
+      },
+      {
+        "tid": 1971,
+        "comm": "Savestate Worke"
+      },
+      {
+        "tid": 1972,
+        "comm": "DVD thread"
+      },
+      {
+        "tid": 1973,
+        "comm": "Video thread"
+      },
+      {
+        "tid": 1981,
+        "comm": "AsyncShaderComp"
+      },
+      {
+        "tid": 1982,
+        "comm": "AsyncShaderComp"
+      },
+      {
+        "tid": 1983,
+        "comm": "Asset Loader 0"
+      },
+      {
+        "tid": 1984,
+        "comm": "Asset Loader 1"
+      },
+      {
+        "tid": 1985,
+        "comm": "resource-worker"
+      },
+      {
+        "tid": 1986,
+        "comm": "AsyncShaderComp"
+      },
+      {
+        "tid": 1987,
+        "comm": "Play Time Track"
+      }
+    ]
+  },
+  "running_after": {
+    "pid": 1957,
+    "start_ticks": 1963,
+    "exe": "/usr/bin/dolphin-emu-nogui",
+    "exe_sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+    "cpu_ticks": 292,
+    "tasks": [
+      {
+        "tid": 1957,
+        "comm": "dolphin-emu-nog"
+      },
+      {
+        "tid": 1958,
+        "comm": "libusb_event"
+      },
+      {
+        "tid": 1959,
+        "comm": "libusb thread"
+      },
+      {
+        "tid": 1960,
+        "comm": "SDL Hotplug Thr"
+      },
+      {
+        "tid": 1961,
+        "comm": "evdev cleanup"
+      },
+      {
+        "tid": 1962,
+        "comm": "evdev Hotplug T"
+      },
+      {
+        "tid": 1963,
+        "comm": "libusb thread"
+      },
+      {
+        "tid": 1964,
+        "comm": "Wiimote Scannin"
+      },
+      {
+        "tid": 1965,
+        "comm": "Wiimote Pool Th"
+      },
+      {
+        "tid": 1967,
+        "comm": "AchievementMana"
+      },
+      {
+        "tid": 1968,
+        "comm": "AchievementMana"
+      },
+      {
+        "tid": 1969,
+        "comm": "Analytics"
+      },
+      {
+        "tid": 1970,
+        "comm": "CPU thread"
+      },
+      {
+        "tid": 1971,
+        "comm": "Savestate Worke"
+      },
+      {
+        "tid": 1972,
+        "comm": "DVD thread"
+      },
+      {
+        "tid": 1973,
+        "comm": "Video thread"
+      },
+      {
+        "tid": 1981,
+        "comm": "AsyncShaderComp"
+      },
+      {
+        "tid": 1982,
+        "comm": "AsyncShaderComp"
+      },
+      {
+        "tid": 1983,
+        "comm": "Asset Loader 0"
+      },
+      {
+        "tid": 1984,
+        "comm": "Asset Loader 1"
+      },
+      {
+        "tid": 1985,
+        "comm": "resource-worker"
+      },
+      {
+        "tid": 1986,
+        "comm": "AsyncShaderComp"
+      },
+      {
+        "tid": 1987,
+        "comm": "Play Time Track"
+      }
+    ]
+  },
+  "badge_load_failures": {
+    "Default player badge 'achievements_player.png' failed to load": 0,
+    "Default game badge 'achievements_game.png' failed to load": 0,
+    "Default unlocked achievement badge 'achievements_unlocked.png' failed to load": 0,
+    "Default locked achievement badge 'achievements_locked.png' failed to load": 0
+  },
+  "initialized": 1,
+  "shutdown": 1,
+  "boot_error": false,
+  "requests": [
+    {
+      "path": "/dorequest.php",
+      "method": "POST",
+      "host": "127.0.0.1:8080",
+      "form": {
+        "r": [
+          "login2"
+        ],
+        "u": [
+          "m7_synthetic_only"
+        ],
+        "t": [
+          "m7_synthetic_invalid"
+        ]
+      },
+      "peer": "127.0.0.1",
+      "monotonic": 20.152020636
+    }
+  ],
+  "endpoint_errors": [],
+  "remaining_dolphin": [],
+  "elapsed_seconds": 3.5588802400000006
+}

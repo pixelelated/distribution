@@ -1,0 +1,79 @@
+{
+  "status": "SOURCE_IDENTITIES_ONLY_NO_RUNTIME",
+  "utc": "2026-10-15T01:11:38.529056+00:00",
+  "dolphin_pin": "6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+  "source_tree": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4",
+  "source_tree_provenance": "Every retained frozen unpacked byte verified equal to git show at exact Dolphin pin; pinned git blob/mode retained. No future reader depends on the old cache path.",
+  "expected_alias": {
+    "path": "usr/share/dolphin-emu/sys",
+    "target": "../../config/dolphin-emu"
+  },
+  "products": [
+    {
+      "source_relative": "Data/Sys/Resources/achievements_player.png",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Data/Sys/Resources/achievements_player.png",
+      "bytes": 1164,
+      "sha256": "a925afd5922ff7287c6c9d743a58f8d43d30a9eb39e739f6d4cddecce82be0cc",
+      "installed_path": "usr/share/dolphin-emu/sys/Resources/achievements_player.png",
+      "installed_target": "usr/config/dolphin-emu/Resources/achievements_player.png",
+      "pinned_git_blob": "2cb01b8739261048a8d79dd70be037971a3004c9",
+      "pinned_git_mode": "100644",
+      "expected_installed_mode": "-rw-r--r--"
+    },
+    {
+      "source_relative": "Data/Sys/Resources/achievements_game.png",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Data/Sys/Resources/achievements_game.png",
+      "bytes": 1234,
+      "sha256": "f0b39af2812f2650950361b8d3d7e0bb3bc0eb2e0cd8516b55f9b49b1fdef3a3",
+      "installed_path": "usr/share/dolphin-emu/sys/Resources/achievements_game.png",
+      "installed_target": "usr/config/dolphin-emu/Resources/achievements_game.png",
+      "pinned_git_blob": "dc8fb7767de00e0fcdf92d42aaad937da99c604d",
+      "pinned_git_mode": "100644",
+      "expected_installed_mode": "-rw-r--r--"
+    },
+    {
+      "source_relative": "Data/Sys/Resources/achievements_unlocked.png",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Data/Sys/Resources/achievements_unlocked.png",
+      "bytes": 583,
+      "sha256": "a5263c36bfae0f02de85410c7ef5cf3a2a2eb6e2271391d847ae30f6143cf4df",
+      "installed_path": "usr/share/dolphin-emu/sys/Resources/achievements_unlocked.png",
+      "installed_target": "usr/config/dolphin-emu/Resources/achievements_unlocked.png",
+      "pinned_git_blob": "3932580b888a79f4ca37979abafe9e5cfe5565c9",
+      "pinned_git_mode": "100644",
+      "expected_installed_mode": "-rw-r--r--"
+    },
+    {
+      "source_relative": "Data/Sys/Resources/achievements_locked.png",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Data/Sys/Resources/achievements_locked.png",
+      "bytes": 560,
+      "sha256": "ea2aca58c279fd2b6a8bbf2e576564b855b8bf328561e5f39a71cf76e829d3dd",
+      "installed_path": "usr/share/dolphin-emu/sys/Resources/achievements_locked.png",
+      "installed_target": "usr/config/dolphin-emu/Resources/achievements_locked.png",
+      "pinned_git_blob": "c6b9c7d1ac4f908349b1485b10017af0570f8a6c",
+      "pinned_git_mode": "100644",
+      "expected_installed_mode": "-rw-r--r--"
+    },
+    {
+      "source_relative": "Data/Sys/ApprovedInis.json",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Data/Sys/ApprovedInis.json",
+      "bytes": 31627,
+      "sha256": "4556d3e02d7d0804313f3238454e35101ec72dbc0c3f95ff393d4f8292e07f46",
+      "installed_path": "usr/share/dolphin-emu/sys/ApprovedInis.json",
+      "installed_target": "usr/config/dolphin-emu/ApprovedInis.json",
+      "pinned_git_blob": "45749af8ca41ea09a27020bee7e02fbdf30b4cce",
+      "pinned_git_mode": "100644",
+      "expected_installed_mode": "-rw-r--r--"
+    },
+    {
+      "source_relative": "Data/Sys/GameSettings/GMSE01.ini",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Data/Sys/GameSettings/GMSE01.ini",
+      "bytes": 3737,
+      "sha256": "0f3fa22da52b6b51d3ab524e248ea14cf044184cc1638d5681343cc85069b087",
+      "installed_path": "usr/share/dolphin-emu/sys/GameSettings/GMSE01.ini",
+      "installed_target": "usr/config/dolphin-emu/GameSettings/GMSE01.ini",
+      "pinned_git_blob": "17db68bfbc66e3bddeb829cef3ac7d80ca7743c8",
+      "pinned_git_mode": "100644",
+      "expected_installed_mode": "-rw-r--r--"
+    }
+  ]
+}

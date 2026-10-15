@@ -1,0 +1,44 @@
+{
+  "status": "SOURCE_ONLY_STATIC_REVIEW",
+  "runtime": "UNRUN: plan.py/run-stage.py/inner.py/fixtures/compiler/Docker/VM",
+  "checks": [
+    "AST source-analysis.py",
+    "AST plan.py",
+    "AST inner.py",
+    "AST run-stage.py",
+    "AST common.py",
+    "AST watchdog.py",
+    "AST docker_owner.py",
+    "AST originals/plan.py",
+    "AST originals/inner.py",
+    "AST originals/run-stage.py",
+    "AST originals/common.py",
+    "bash -n es-syntax-check",
+    "byte-identical docker_owner.py",
+    "byte-identical watchdog.py",
+    "967 frozen/overlay input rehashes",
+    "first proof packet seal and every member unchanged",
+    "candidate/header consumer closure == GuiWifi.cpp, GuiMenu.cpp, main.cpp"
+  ],
+  "baseline_es_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "candidate_es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+  "proof_packet_seal": "84e0fdd157206d39f90eb8d02e2f657110e5c7589b67c6f1f6c30272851ebf3f",
+  "limitations": [
+    "static metadata does not prove compiler success",
+    "driver controls not executed",
+    "GUI/normal SIGINT and final installed-image evidence pending",
+    "cleanup forecast is not a universal global deadline",
+    "SIGTERM/fatal termination remain outside source fix"
+  ],
+  "first_authoring_error": {
+    "operation": "read-only source/input analysis",
+    "error": "Host Path.resolve followed generated old-prefix symlink into absent /workspace/repos/rocknix.worktrees/m7-pixelelated",
+    "resolution": "Source analyzer explicitly translates generated-prefix symlinks to actual frozen host path while retaining each original symlink target. No cache path or link changed.",
+    "compiler_or_preparer_executed": false
+  },
+  "peer_first_packet_review": {
+    "reviewer": "/root/m7_audit_resume",
+    "scope": "source-only worker proof/observer/backend",
+    "conclusion": "No correction needed; original baseline failure and candidate forced-cleanup rejection preserved; actual GUI/main hook evidence separate."
+  }
+}

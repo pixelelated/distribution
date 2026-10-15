@@ -1,0 +1,145 @@
+[
+  {
+    "path": "baseline/command-result.json",
+    "bytes": 523,
+    "sha256": "652d9d3e4ce3228a816eb3c80c10e4cc97ee043a5edaa7066c34a8280ef4e28f"
+  },
+  {
+    "path": "baseline/cwd/ctypes.py",
+    "bytes": 99,
+    "sha256": "6d846c70becb81bcffb4f383e224a51f3db76f8cc7191de2905b2ed168d6cd6d"
+  },
+  {
+    "path": "baseline/cwd/poison-ran",
+    "bytes": 19,
+    "sha256": "18e468fe1c60300c59359a0bc2adbc79fa52b81892a7a1f4fe3f001c6ba89f61"
+  },
+  {
+    "path": "baseline/driver.sh",
+    "bytes": 17243,
+    "sha256": "ff5a5812ac4caea43340bf7e2463f23e0f3ad79040171ae30b0ae59ee3b5f9d4"
+  },
+  {
+    "path": "baseline/pythonpath/__pycache__/sitecustomize.cpython-314.pyc",
+    "bytes": 343,
+    "sha256": "6746cfa42892a00f66b94c87d04214add4300ba687a9a23aaf62fa303c4dfe33"
+  },
+  {
+    "path": "baseline/pythonpath/ctypes.py",
+    "bytes": 99,
+    "sha256": "6d846c70becb81bcffb4f383e224a51f3db76f8cc7191de2905b2ed168d6cd6d"
+  },
+  {
+    "path": "baseline/pythonpath/sitecustomize.py",
+    "bytes": 99,
+    "sha256": "6d846c70becb81bcffb4f383e224a51f3db76f8cc7191de2905b2ed168d6cd6d"
+  },
+  {
+    "path": "baseline/runtime.tar.xz",
+    "bytes": 340,
+    "sha256": "1138eac91b23585546ae0b7efc20a3ab8a4ed65f7d2289209773c86f43af9704"
+  },
+  {
+    "path": "baseline/stderr",
+    "bytes": 757,
+    "sha256": "7bf0eaf30a6983a0947ba32b5535b6e86a2b98e4b059539a4ed495ecfc05e1c9"
+  },
+  {
+    "path": "baseline/stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "baseline/tools/curl",
+    "bytes": 64,
+    "sha256": "3e6bba7d18b5c4b2992ffbc6c224ea80e24b79fd66222dcc6fcc9d51eb6cfce9"
+  },
+  {
+    "path": "baseline/tools/wget",
+    "bytes": 162,
+    "sha256": "79e9573053e66be44b00b9000a3c12ad7c7403113b62300c8a831a1a1b408975"
+  },
+  {
+    "path": "candidate/command-result.json",
+    "bytes": 551,
+    "sha256": "0e313ec37ccd0595ad4b512e8b7847774cfcc3102e18aeb4aa8b56533a34f4a0"
+  },
+  {
+    "path": "candidate/cwd/ctypes.py",
+    "bytes": 99,
+    "sha256": "6d846c70becb81bcffb4f383e224a51f3db76f8cc7191de2905b2ed168d6cd6d"
+  },
+  {
+    "path": "candidate/driver.sh",
+    "bytes": 17261,
+    "sha256": "5ed0a8f3b703fee6085e1ceb5595ac0cbd476676ebe6b0878b7ea3fb61a63c07"
+  },
+  {
+    "path": "candidate/pythonpath/ctypes.py",
+    "bytes": 99,
+    "sha256": "6d846c70becb81bcffb4f383e224a51f3db76f8cc7191de2905b2ed168d6cd6d"
+  },
+  {
+    "path": "candidate/pythonpath/sitecustomize.py",
+    "bytes": 99,
+    "sha256": "6d846c70becb81bcffb4f383e224a51f3db76f8cc7191de2905b2ed168d6cd6d"
+  },
+  {
+    "path": "candidate/runtime.tar.xz",
+    "bytes": 340,
+    "sha256": "1138eac91b23585546ae0b7efc20a3ab8a4ed65f7d2289209773c86f43af9704"
+  },
+  {
+    "path": "candidate/stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "candidate/stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "candidate/steam/.steam-runtime-update.lock",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "candidate/steam/lib/aarch64-linux-gnu/libibus-1.0.so.5",
+    "link": "/run/pix595-isolation-01/candidate/steam/steam-runtime-steamrt-arm64/steamrt3c_platform_fixture/files/lib/aarch64-linux-gnu/libibus-1.0.so.5.fixture"
+  },
+  {
+    "path": "candidate/steam/lib/aarch64-linux-gnu/libva.so.2",
+    "link": "/run/pix595-isolation-01/candidate/steam/steam-runtime-steamrt-arm64/steamrt3c_platform_fixture/files/lib/aarch64-linux-gnu/libva.so.2.fixture"
+  },
+  {
+    "path": "candidate/steam/steam-runtime-steamrt-arm64/steamrt3c_platform_fixture/files/lib/aarch64-linux-gnu/libibus-1.0.so.5.fixture",
+    "bytes": 49,
+    "sha256": "5c4f4c2d1782377beda3a5199131e2cab9c2b414b550960d9d07c5c2bcac1115"
+  },
+  {
+    "path": "candidate/steam/steam-runtime-steamrt-arm64/steamrt3c_platform_fixture/files/lib/aarch64-linux-gnu/libva.so.2.fixture",
+    "bytes": 49,
+    "sha256": "5c4f4c2d1782377beda3a5199131e2cab9c2b414b550960d9d07c5c2bcac1115"
+  },
+  {
+    "path": "candidate/tools/curl",
+    "bytes": 64,
+    "sha256": "3e6bba7d18b5c4b2992ffbc6c224ea80e24b79fd66222dcc6fcc9d51eb6cfce9"
+  },
+  {
+    "path": "candidate/tools/wget",
+    "bytes": 162,
+    "sha256": "79e9573053e66be44b00b9000a3c12ad7c7403113b62300c8a831a1a1b408975"
+  },
+  {
+    "path": "candidate/transport.calls",
+    "bytes": 10,
+    "sha256": "f06e6a43b48489e7998f650fe0af27716d3cbc845734a0d3601d50b15c671f19"
+  },
+  {
+    "path": "result.json",
+    "bytes": 1368,
+    "sha256": "790393f7b7c551185b062f1dbdbcb68c05fe7b74753dcbd189312a4c21fb6678"
+  }
+]

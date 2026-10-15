@@ -1,0 +1,280 @@
+{
+  "status": "PASS",
+  "original_child_exit": 0,
+  "timed_out": false,
+  "signals": [],
+  "cleanup_errors": [],
+  "reaped": [],
+  "owner_identity": {
+    "pid": 1953,
+    "ppid": 1952,
+    "start_ticks": 1885
+  },
+  "case_seal": "3f8012945889b04883ad8b2701d211c9f8a5292b519d57071f0efcfa16452c32",
+  "verification_sha256": "57575bcb84179c00e5e71ff341494b30f3103627d7bca2047588dc4dd4b5654d",
+  "limits": {
+    "work_seconds": 180,
+    "cleanup_seconds": 10,
+    "export_seconds": 20,
+    "total_seconds": 210
+  },
+  "argv": [
+    "/bin/bash",
+    "/tmp/pix-input/installed-native/packet/run-guest.sh",
+    "57575bcb84179c00e5e71ff341494b30f3103627d7bca2047588dc4dd4b5654d"
+  ],
+  "child_identity": {
+    "pid": 1954,
+    "ppid": 1953,
+    "start_ticks": 1908
+  },
+  "remaining_children": [],
+  "copied_case_files": [
+    {
+      "path": "case/installed-disabled/config-before.json",
+      "bytes": 288,
+      "sha256": "635588d7dd545cd0c5107350574ede6b45da0f8f0745858a93e9a524cacaf734"
+    },
+    {
+      "path": "case/installed-disabled/result.json",
+      "bytes": 4449,
+      "sha256": "32f89b756331fa744dea1468599c3d58791bbf87b376c19ca93465027c7ef0ac"
+    },
+    {
+      "path": "case/installed-disabled/stderr",
+      "bytes": 1226,
+      "sha256": "d14af3e3ff79225971837c987dde9eb699a31edab271b94e769f9fcbbb54c005"
+    },
+    {
+      "path": "case/installed-disabled/stdout",
+      "bytes": 96,
+      "sha256": "621948d9b8951bc4a3ea3980cb8e5fbfe973c4c61187f9d65822b1804425d925"
+    },
+    {
+      "path": "case/installed-disabled/user/Config/DSUClient.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-disabled/user/Config/Dolphin.ini",
+      "bytes": 417,
+      "sha256": "444767684ac90cbea3796336d15f489e003664772667f3b05e63848779f0f21f"
+    },
+    {
+      "path": "case/installed-disabled/user/Config/FreeLook.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-disabled/user/Config/GCKeyNew.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-disabled/user/Config/GCPadNew.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-disabled/user/Config/GFX.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-disabled/user/Config/Logger.ini",
+      "bytes": 954,
+      "sha256": "fdfc6c6619e2e728260994253a98ddc1f14ecc51d6b7dca898df96d470b9007c"
+    },
+    {
+      "path": "case/installed-disabled/user/Config/RetroAchievements.ini",
+      "bytes": 141,
+      "sha256": "6c4fc2d0ff4591345ef5770e9d5f834b03c3fccdbf8a2bbd0943cda0f34c76ca"
+    },
+    {
+      "path": "case/installed-disabled/user/Config/TimePlayed.ini",
+      "bytes": 42,
+      "sha256": "0fe205985e472b005a9f88e7f1ea031636937d03dd6c21ff5de59576f32cc27d"
+    },
+    {
+      "path": "case/installed-disabled/user/Config/WiimoteNew.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-disabled/user/Wii/fst.bin",
+      "bytes": 384,
+      "sha256": "736c78c6c24775ab7b4a537a389d9bba4a19f1da62e7d7873d95953e2817e6f6"
+    },
+    {
+      "path": "case/installed-disabled/user/Wii/shared2/sys/SYSCONF",
+      "bytes": 16384,
+      "sha256": "a4b49819e434fed10c76e793e79d65a597797f3f55c14e36f5eb672c8c480f88"
+    },
+    {
+      "path": "case/installed-enabled/config-before.json",
+      "bytes": 288,
+      "sha256": "f09de967db039441bca24b643bc53f250dda0d6eff1ee32499bb76011ebaaa69"
+    },
+    {
+      "path": "case/installed-enabled/result.json",
+      "bytes": 5081,
+      "sha256": "a1457525d51443b25b197270e607c0ca6705a27b13a2ab3b71eb757ac51c067c"
+    },
+    {
+      "path": "case/installed-enabled/stderr",
+      "bytes": 1917,
+      "sha256": "c5a436a4772806e86375b57c3ffd12b015c9146ac7dd74c399d0efd449af50d6"
+    },
+    {
+      "path": "case/installed-enabled/stdout",
+      "bytes": 96,
+      "sha256": "621948d9b8951bc4a3ea3980cb8e5fbfe973c4c61187f9d65822b1804425d925"
+    },
+    {
+      "path": "case/installed-enabled/user/Config/DSUClient.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-enabled/user/Config/Dolphin.ini",
+      "bytes": 417,
+      "sha256": "f0a2b6db6df572ae5f1815a188fc6fa507bbd27fef1fbd33035acf65e49cdd86"
+    },
+    {
+      "path": "case/installed-enabled/user/Config/FreeLook.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-enabled/user/Config/GCKeyNew.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-enabled/user/Config/GCPadNew.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-enabled/user/Config/GFX.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-enabled/user/Config/Logger.ini",
+      "bytes": 954,
+      "sha256": "fdfc6c6619e2e728260994253a98ddc1f14ecc51d6b7dca898df96d470b9007c"
+    },
+    {
+      "path": "case/installed-enabled/user/Config/RetroAchievements.ini",
+      "bytes": 120,
+      "sha256": "09b1eb7d6d455021da638bed5fef417c81bc30ca959bf3068dc690b060b9291a"
+    },
+    {
+      "path": "case/installed-enabled/user/Config/TimePlayed.ini",
+      "bytes": 42,
+      "sha256": "0fe205985e472b005a9f88e7f1ea031636937d03dd6c21ff5de59576f32cc27d"
+    },
+    {
+      "path": "case/installed-enabled/user/Config/WiimoteNew.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-enabled/user/Wii/fst.bin",
+      "bytes": 384,
+      "sha256": "736c78c6c24775ab7b4a537a389d9bba4a19f1da62e7d7873d95953e2817e6f6"
+    },
+    {
+      "path": "case/installed-enabled/user/Wii/shared2/sys/SYSCONF",
+      "bytes": 16384,
+      "sha256": "a4b49819e434fed10c76e793e79d65a597797f3f55c14e36f5eb672c8c480f88"
+    },
+    {
+      "path": "case/installed-failed-boot/config-before.json",
+      "bytes": 288,
+      "sha256": "f09de967db039441bca24b643bc53f250dda0d6eff1ee32499bb76011ebaaa69"
+    },
+    {
+      "path": "case/installed-failed-boot/result.json",
+      "bytes": 1344,
+      "sha256": "aab4cf9130e12a28760498c343090a52fa2a890c923a4e4871f83b8a9df7385c"
+    },
+    {
+      "path": "case/installed-failed-boot/stderr",
+      "bytes": 803,
+      "sha256": "007f70eb6f6e5246103ed986362f2e264aed3ed749a9f76b07e9925846296a91"
+    },
+    {
+      "path": "case/installed-failed-boot/stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-failed-boot/user/Config/DSUClient.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-failed-boot/user/Config/Dolphin.ini",
+      "bytes": 399,
+      "sha256": "88fd3338be34382eb68022ee36c93d95862cb8caeb956fcc06bd8f3635c9bbab"
+    },
+    {
+      "path": "case/installed-failed-boot/user/Config/FreeLook.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-failed-boot/user/Config/GCKeyNew.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-failed-boot/user/Config/GCPadNew.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-failed-boot/user/Config/GFX.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-failed-boot/user/Config/Logger.ini",
+      "bytes": 954,
+      "sha256": "fdfc6c6619e2e728260994253a98ddc1f14ecc51d6b7dca898df96d470b9007c"
+    },
+    {
+      "path": "case/installed-failed-boot/user/Config/RetroAchievements.ini",
+      "bytes": 120,
+      "sha256": "09b1eb7d6d455021da638bed5fef417c81bc30ca959bf3068dc690b060b9291a"
+    },
+    {
+      "path": "case/installed-failed-boot/user/Config/WiimoteNew.ini",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "case/installed-failed-boot/user/Wii/fst.bin",
+      "bytes": 384,
+      "sha256": "736c78c6c24775ab7b4a537a389d9bba4a19f1da62e7d7873d95953e2817e6f6"
+    },
+    {
+      "path": "case/installed-failed-boot/user/Wii/shared2/sys/SYSCONF",
+      "bytes": 16384,
+      "sha256": "a4b49819e434fed10c76e793e79d65a597797f3f55c14e36f5eb672c8c480f88"
+    },
+    {
+      "path": "case/loop.dol",
+      "bytes": 260,
+      "sha256": "df4c8e53a88d2beca9b14b6818826e4792cea2f2231298917c724247e31dd664"
+    },
+    {
+      "path": "case/result.json",
+      "bytes": 27960,
+      "sha256": "f6e4c22148002feaac7324e018d8c9d42144bed6c7fa2bdf1cf92ee0e9289dd8"
+    }
+  ],
+  "elapsed_seconds": 7.821648174
+}

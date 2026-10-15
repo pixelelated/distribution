@@ -1,0 +1,61 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T014406Z-0a49998d",
+  "disposition": "qualified",
+  "expected_rc": 0,
+  "outputs": [
+    {
+      "issue": 575,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-native-gameplay-20261015-03/vm",
+      "release_when": "Actual gameplay/save/state/frame and original host/guest/input outcomes exported; coordinator consumes exact admission before retiring owned VM/media."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-native-gameplay-20261015-03/coordinator-native03-review.json",
+      "sha256": "d6da73c034a51c3a3c5f07f094a0a4838ddeadd5145e9f8a736835dc67483ced"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-gameplay-20261015-03/vm-result.json",
+      "sha256": "f65685a048fc2465ab79315774b3f6b4cacc0b88956b049a3e8a8295d1b0c5ff"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-gameplay-evidence-20261015-03/export-result.json",
+      "sha256": "fcb559bc2a604e67eb5dd191d2f643ca248abc61dc65d6e78e9f2d133c8111f1"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-gameplay-evidence-20261015-03/host-exits.json",
+      "sha256": "ac8789037f2b2269a57372b84a8006f1c1cc60b8c20c1942feae1e0263cde709"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-gameplay-evidence-20261015-03/guest/guest-export-manifest.json",
+      "sha256": "6e3e308f6dccb4d9aa58a69182d4f6893e2cfc50a551611aa4b340e0c8d1db94"
+    },
+    {
+      "path": "/tmp/pix-m7-native-gameplay-postreadback-20261015/SHA256SUMS",
+      "sha256": "b5058c830def636dad41690807e81a9fdf1e9240f8f89f227798473800854fd6"
+    },
+    {
+      "path": "/tmp/pix-m7-native-gameplay-postreadback-20261015/manifest-verification.json",
+      "sha256": "ff2c586aafa99a7ef0f7678a8b7b49ad03c48b7ea0c12846d72c6a1c1868db12"
+    },
+    {
+      "path": "/tmp/pix-m7-native-gameplay-postreadback-20261015/inspection-result.json",
+      "sha256": "c3a81c0f7f027cf45a2f9a90c302e44a2c529b76c516be1d6a5d575533de80a7"
+    },
+    {
+      "path": "/tmp/pix-m7-native-gameplay-postreadback-20261015/wii-save-interpretation.json",
+      "sha256": "93faaabc607662d3e474aaf53b7ac70ce42256c23713184f5e17c8dccf121a3a"
+    },
+    {
+      "path": "/tmp/pix-m7-native-gameplay-postreadback-20261015/vmu-interpretation.json",
+      "sha256": "d5717088084f0b9474fdd5d3cdfa6c61ffdc0e69eed88e96f98abcce54d89038"
+    },
+    {
+      "path": "/tmp/pix-m7-native-gameplay-postreadback-20261015/original-coordinator-frame-reviews.json",
+      "sha256": "2489b8daeb472414031ccd8ad1ddca862f3870bfed8662fbe416bbfcc006c51e"
+    }
+  ],
+  "scope": "ordinary Wii entered-cell and Dreamcast high-score persistence through normal ES-owned launches and cold relaunch; native-state scope remains partial",
+  "original_export_failure_retained": true
+}
