@@ -11,6 +11,21 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 18:08 UTC — Applicable notice supplement accepted (#528)
+
+The [verified notice supplement](../qa-logs/2026-10-15-notice-delivery/README.md)
+adds 126 held files (2.06 MB) and reuses 26 base notices
+through 271 associations. Copy 180717Z-99f88381 and independent relative-path
+readback pass; all original result channels are zero and the admission is
+consumed. No full-base replay, new acquisition or change to settled dispositions.
+Manifest `aa373739d72621aa5033025644840be8f9456289ed9171194e200f616c7f9e2c`.
+
+Local source/notice delivery work is complete in the recorded scope. Exact ABL
+implementation and one MAME adaptation remain pending the prepared contact
+approvals; the frozen external audit and off-host destination/retrieval also
+remain. Firmware and VM evidence stays accepted; no new device deployment or
+public RC designation follows from this local custody result.
+
 ## 2026-10-15 17:59 UTC — Portable local source delivery accepted (#528)
 
 All 1,869 selected source/notice objects (12.52 GB) are copied into a local

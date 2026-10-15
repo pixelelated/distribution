@@ -1,18 +1,19 @@
 # Saved Session State
 
-Updated 2026-10-15 17:59 UTC. Continue authorized M7 work; no build, VM or
-source-runtime job remains active. Local source delivery and independent readback
-passed. The source worker prepares the small notice supplement, without runtime.
-Saving this checkpoint does not pause work.
+Updated 2026-10-15 18:08 UTC. Both local source delivery and the small
+applicable-notice supplement passed independent readback and original-result
+consumption. No build, VM or copy remains active. Final compact notice receipts are independently verified and retained.
+The remaining source,
+audit and off-host decisions are the existing pending items below.
 
 ## Resume and authority
 
 Coordinator `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
 `feature/m7-final-qualification-02`; primary `/workspace/repos/rocknix` stays on
 `next`. Harness checkout `conflict-resolution` stays untouched. Published evidence
-head is bb7be05e77a01daa86127dfc51719f6b7d0c22f0; read current Git/remote state
-before assuming a later docs commit has landed. Current uncommitted work retains
-accepted native/source evidence and updates records only. Product source is
+head is c6c93cff54ffb11fe755514c7a8fe11cfe91a4ae; read current Git/remote state
+before assuming a later docs commit has landed. This record change retains
+accepted evidence and updates documentation only; inspect Git for publication state. Product source is
 077197e6cd3ea31f33b28aaf3882a694b3423b53, ES16dbac5211eea7e70db7394372033be2be7df829,
 common image timestamp20261015T161744Z.
 
@@ -128,12 +129,29 @@ and retained at docs/qa-logs/2026-10-15-source-delivery/ (151 members / 140 file
 seal 24771b44bea3cb6b6bc15f2295f364328bde5a72aa7ee86c58844c3f9e966869).
 The 12.52 GB source objects remain outside Git; small manifests/receipts are exact.
 
-m7_source_resume_review prepares the applicable-notice supplement from already
-held FreeJ2ME/current43 records, deduplicating against this bundle and preserving
-existing dispositions. Source/context records are not automatically new notice
-obligations; no acquisition or archive-body pass. Off-host destination remains
-the owner's comparison under D-WORKFLOW-107. Local copies/verification do not
-satisfy actual off-host custody or independent off-host retrieval.
+The applicable-notice supplement also passed: run 180717Z-99f88381, consumed
+8ec026cd07d84f5faffc87d52e983d3e. Owner
+/workspace/tmp/pix-m7-notice-delivery-20261015-01; custody
+/workspace/artifacts/pixelelated-release-sources/m7-notice-delivery-20261015-01.
+Exactly 126 new held files / 2,059,815 bytes plus four metadata/verifier files;
+manifest aa373739d72621aa5033025644840be8f9456289ed9171194e200f616c7f9e2c.
+Collector: 0.054751 seconds, all original channels 0; no errors, signals or owned survivors.
+Independent readback: 0.007131 seconds / 2,823,361 bytes checks 271 notice associations, 26 reused
+base notice hashes and 126 new bodies, using only the explicitly supplied base and
+supplement directories. No full-base replay, original-path fallback, acquisition,
+archive decode, new licence decision or broader completeness standard.
+Existing settled FreeJ2ME/JLayer, current43/four-library, shader and Doom inputs
+are retained; old whole-source ZeroTier occurrence records remain excluded.
+Source packet /tmp/pix-m7-notice-delivery-plan-20261015 sealed
+5f15e01d01eb18665e5fcd818a3281f4745f26d3a802c7513ae38d2e0b69969f;
+review /tmp/pix-m7-notice-delivery-review-20261015 sealed
+b43a900675d305774fd9885e02dc92aef5601d4d39e9726f2c01ce3d269b7c58.
+Root coordinator /tmp/pix-m7-notice-delivery-coordinator-20261015 retains each
+original stage exit. Compact originals at docs/qa-logs/2026-10-15-notice-delivery/
+verify 148 members / 137 files, seal
+e4d742af8469567c2f594ef8a4f69c5007e58f1bf70790ce32c0122fc95951d9.
+All source workers are idle and no runtime is allocated. Do not rerun accepted producers. Off-host destination remains the owner's comparison
+under D-WORKFLOW-107; local verification is not off-host retrieval/backup.
 
 All earlier accepted inputs remain held: exact39 source supplement293,582,752B
 (manifest022b44b19fc23da08b2a158f3ba92689f494581118f1726ff6d39e60ea04bea0),
@@ -145,9 +163,9 @@ checkpoint archived at saved-session-state-next-20261015T173000Z.md.
 
 ## Remaining order and boundaries
 
-1. Finish the small applicable-notice supplement and retain local delivery
-   evidence. The source copy and bundle-relative readback already pass.
-   Preserve ABL/MAME pending questions; do not replay completed work.
+1. Resolve the exact ABL/MAME questions after the existing upstream-contact
+   approval. Completed source/notice receipts are retained and verified. Source/notice local
+   delivery and relative readback already pass; do not replay completed work.
 2. Complete required off-host custody once destination/authority exist; a second
    directory on this drive is not off-host backup.
 3. Complete #603 external audit after its existing exact pending answer.
@@ -195,7 +213,8 @@ cover different packets. Do not duplicate the question or infer approval from
 time passing. Resume `m7_handoff_audit_603` only after the actual answer, using
 only the Council Facilitator and a fresh serialized allocation.
 
-At published `bb7be05e77`, both wordlists passed (38778302461 and38778301831); record CI38778301772 failed only
+At published `c6c93cff54`, both wordlists passed (38781996006 and 38781993338).
+Record CI38781993480 failed only
 outstanding audit cadence (16 completed closures, threshold12). All other record
 steps passed. Cheap pre-push checks remain required; do not call overall CI green.
 
