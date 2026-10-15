@@ -1,0 +1,18 @@
+# Native issue reconciliation and publication custody — 2026-10-15
+
+Issues #574, #575 and #584 were updated with the exact reviewed bodies and closed as completed at05:22:29,05:22:33 and05:22:38 UTC. #583 was already closed and remained unchanged. The canonical flow correction and final audit/native records were published at `dd38444c303cbfcd3c125c2e789b3ff4781baf41`. This packet retains the original review and the coordinator's later publication records; it performs no issue operation or runtime proof.
+
+| Archive | Exact source | Retained content |
+| --- | --- | --- |
+| `review-packet.tar.gz` | `/tmp/pix-m7-native-tracker-close-20261015` | All96 sealed payload files plus original `SHA256SUMS`;96-file seal `6d14843fa7f91162b03884185661ab2cdc1a27f727dd1d61618835817aec32aa`. Includes captured prior issues/comments, proposed bodies/comments, source/evidence readbacks,48 small originals and13 reviewed frames. |
+| `publication-originals.tar.gz` | `/tmp/pix-m7-native-tracker-published-20261015` | All46 original regular files: coordinator receipt plus before/edit/after-edit/close/closed-readback stdout, stderr and original exit for each of the three issues. All15 recorded exits0. |
+
+Each archive's adjacent member manifest retains original absolute locators, regular-file size/SHA256, file/directory modes, uid/gid and mtime. Every archive member was read back against that manifest, with exact membership, hashes and modes. Source snapshots remained unchanged. The original nanosecond timestamp is in the manifest; PAX archive mtime was checked against the original Python float representation. No script was executed from either packet.
+
+The three closed-readback bodies exactly equal the sealed proposals and the coordinator receipt's body/readback hashes. The final JSON states are `closed` / `completed`. Publication receipts do not include a separate command-argv record; retained operation labels and original stdout/stderr/exits are not represented as a reconstructed invocation receipt. #583 has no new publication operation: its unchanged state is the coordinator's explicit receipt, with its earlier CLOSED snapshot in the review packet.
+
+`published-dolphin-flow.md` is the exact #584 section excerpt from the named commit. Root used shorter canonical prose than the proposed paragraph; `proposed-to-published-flow.diff` preserves that distinction. The published text removes the stale pending-startup claim, keeps ordinary-save evidence bound to d4af and final native states to f863, and preserves synthetic-login/physical-device limits. It is not called byte-identical to the proposal. `review.json` binds the full canonical map's hash and the completed publication readback.
+
+The original review's pending-application and source-era history fields remain untouched inside its archive. Later publication establishes issue closure, not retroactive success for failed originals. Real account/award, owner Nova core selection, native-child wait and hardware boundaries remain as recorded; closing these scoped issues adds none of those claims. Full native archives, VM disks/media, caches and private owner data are not duplicated here. This is approximately1.4MB of compact uncompressed packet/publication data, not a new native evidence export.
+
+`publication-receipt.json` and `review-packet-original-SHA256SUMS` are exact convenient copies of archived originals. The outer `SHA256SUMS` seals every other regular file in this directory. Root owns staging, publication and any subsequent tracker action; this retention task changed only this assigned directory and released it after verification.

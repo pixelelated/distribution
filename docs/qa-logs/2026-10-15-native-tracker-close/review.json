@@ -1,0 +1,101 @@
+{
+  "utc": "2026-10-15T05:25:20.196489+00:00",
+  "scope": "Data-only compact custody and original publication readback; no new runtime or GitHub call",
+  "canonical_documentation_commit": "dd38444c303cbfcd3c125c2e789b3ff4781baf41",
+  "canonical_map_sha256": "306cebabaa518cc94aa29a0a751fddf5bdcc17be94718802a8411f0fee4d43a6",
+  "canonical_flow_status_corrected": true,
+  "proposed_map_paragraph_byte_identical_to_published": false,
+  "published_map_scope_review": "Root wording retains prior d4af ordinary-save identity, completed installed startup, final f863 native-state evidence, and no real-account/hardware claim; pending proof sentence removed.",
+  "issues": [
+    {
+      "number": 574,
+      "body_sha256": "d49abd727f4795dd220519d2c138f7b83fde8a4a805205f5b64f08d586b3c551",
+      "state": "closed",
+      "state_reason": "completed",
+      "closed_at": "2026-10-15T05:22:29Z",
+      "five_recorded_command_exits": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "exact_proposed_body": true
+    },
+    {
+      "number": 575,
+      "body_sha256": "9747486efabaec04c09ce1e76219714322e9fdfe5ffa9704ab8e6ad5458dac8e",
+      "state": "closed",
+      "state_reason": "completed",
+      "closed_at": "2026-10-15T05:22:33Z",
+      "five_recorded_command_exits": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "exact_proposed_body": true
+    },
+    {
+      "number": 584,
+      "body_sha256": "2ed56c2e09c4b4685d9ce33dc9e54e5a86b229887dab5dd7d581166fa79814f2",
+      "state": "closed",
+      "state_reason": "completed",
+      "closed_at": "2026-10-15T05:22:38Z",
+      "five_recorded_command_exits": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "exact_proposed_body": true
+    }
+  ],
+  "issue_583": "No new write/readback in publication directory; original review captured CLOSED, root publication receipt explicitly records unchanged. Retention did not contact GitHub.",
+  "source_review_payload_files": 96,
+  "source_review_including_seal_regular_files": 97,
+  "source_review_original_seal_sha256": "6d14843fa7f91162b03884185661ab2cdc1a27f727dd1d61618835817aec32aa",
+  "archives": [
+    {
+      "source_root": "/tmp/pix-m7-native-tracker-close-20261015",
+      "archive": "review-packet.tar.gz",
+      "archive_sha256": "7772fda7abafb64756e950ef64e8c79ee530a88ade63a762a211a29df792e89b",
+      "regular_files": 97,
+      "directories": 10,
+      "regular_file_bytes": 1067684,
+      "checks": {
+        "exact_membership": true,
+        "all_file_bytes_sha256": true,
+        "file_and_directory_modes": true,
+        "uid_gid_mtime_float": true,
+        "source_snapshots_unchanged": true
+      },
+      "mtime_note": "Original nanoseconds retained in this manifest; tar PAX stores original Python float mtime and was compared exactly."
+    },
+    {
+      "source_root": "/tmp/pix-m7-native-tracker-published-20261015",
+      "archive": "publication-originals.tar.gz",
+      "archive_sha256": "07580420d60d87de45fd402115a2f6a4585294ee2e0840c3e18ca4c9b11447c3",
+      "regular_files": 46,
+      "directories": 0,
+      "regular_file_bytes": 354926,
+      "checks": {
+        "exact_membership": true,
+        "all_file_bytes_sha256": true,
+        "file_and_directory_modes": true,
+        "uid_gid_mtime_float": true,
+        "source_snapshots_unchanged": true
+      },
+      "mtime_note": "Original nanoseconds retained in this manifest; tar PAX stores original Python float mtime and was compared exactly."
+    }
+  ],
+  "limits": [
+    "Only completed compact packet and publication originals retained. No native full archive, VM disk, media, cache or owner library duplicated.",
+    "Publication directory records stdout/stderr and original exits for five named operations per issue; no separate argv/invocation receipt exists there, so none is reconstructed.",
+    "Original review recommendations and REVIEW_ONLY_NOT_APPLIED/UNRUN/history fields remain byte-identical inside review archive; later publication receipt carries closure.",
+    "Source receipt claims are not new producer result receipts or new runtime acceptance.",
+    "No admission, registry, compiler, VM, service, test, GitHub mutation, shared document, stage or commit action by this retention task."
+  ]
+}

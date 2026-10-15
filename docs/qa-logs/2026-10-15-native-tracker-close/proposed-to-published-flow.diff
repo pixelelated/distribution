@@ -1,0 +1,33 @@
+--- sealed-review/proposed-menu-map-paragraph.md
++++ dd38444c303cbfcd3c125c2e789b3ff4781baf41:docs/es-menu-map.md#584
+@@ -1,18 +1,15 @@
+ The [NoGUI lifecycle repair](qa-logs/2026-10-15-dolphin-nogui-lifecycle/README.md)
+ adds the missing AchievementManager initialization/shutdown. The
+ [compiled candidate and actual-process proof](qa-logs/2026-10-15-dolphin-startup-result/README.md)
+-reproduced the installed baseline defect. The later
+-[actual installed startup proof](qa-logs/2026-10-15-engineering-image-result/dolphin-installed/README.md)
+-passed enabled, disabled and early boot-failure branches with the shipped executable
+-and all six pinned Sys resources. One synthetic failed-login request reaches the
+-configured loopback endpoint in each enabled case; the disabled case sends none.
+-The final f863 image and native-state guest retain that exact executable
+-`5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5`.
+-No ES copy/layout changed in the lifecycle repair; the exercised nonvisual flow
+-is NoGUI startup/configuration and shutdown, with existing launch frames as its
+-presentation reference. [Ordinary native saves](qa-logs/2026-10-15-native-gameplay-result/README.md)
+-and [final manual/automatic-state observations](audits/2026_10_14-milestone-m7-next-candidate/native-state02-readback.md)
+-are separately accepted with achievements off. Final clean/retained helper
+-controls prove session publication and preservation with an explicit engine marker.
+-Listener presence alone does not establish proxy identity/readiness, and the
+-synthetic login is not successful real-account authentication or an award.
++reproduces the installed baseline defect and verifies enabled, disabled and early
++boot-failure lifecycle branches. One synthetic failed-login request reaches the
++configured loopback endpoint. No ES copy/layout changes; the exercised nonvisual
++flow is NoGUI startup/configuration and shutdown. Existing settings and game-launch
++frames remain the presentation baseline. The subsequent actual installed enabled,
++disabled and boot-error startup controls passed; ordinary Wii gameplay/cold-save
++proof retains its earlier d4af source identity. The final f863
++[native-state flow](audits/2026_10_14-milestone-m7-next-candidate/native-state02-readback.md)
++and [reviewed frame index](audits/2026_10_14-milestone-m7-next-candidate/supplements/native-state02-result/frame-index.json)
++verify manual restoration and normal frontend return. Listener presence alone
++does not establish proxy identity/readiness, and synthetic login is not successful
++authentication or an award. Physical-device behavior remains separately scoped.

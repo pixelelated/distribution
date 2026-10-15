@@ -7,6 +7,58 @@ Primary/remote next f8636de1d105275dbf9420bbabbbc26f79abb10f; ES16dbac.
 Harness untouched. Root alone allocates runtime. No VM/compiler is running.
 Saving is not a pause. No current physical-device/cloud authorization inferred.
 
+## Latest 2026-10-15 05:31 UTC — H700 cache active; all publication checks passed
+
+Root actively supervises one runtime owner: /workspace/tmp/pix-m7-h700-refresh-20261015-01/cache-launch,
+launcher3617956, watch20261015T052516Z-5ab9f699, admission1d779b9f47d347cc87920857562cbe48.
+Frozen checkout /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04 sourcef863.
+ARM cache copy/checksum/inode separation PASS:1,168,183 independent regular files.
+AArch64 copy is active; no compiler/VM. Fresh retention report has no errors/live
+owner overlap,536,870,912,000-byte requirement fits2,685,006,020,608available.
+All original channels must finish and actual owner exit before consume-cache.
+Cache command's preflight/report was split for root inspection before ordinary
+admission/submit, with unchanged frozen commands. No helper/source edit.
+
+Then commands.sh H700 build (fresh preflight/report/admission), supervise actual
+container/watcher, consume-build, acceptance/consume-acceptance. SM8550 follows
+H700 acceptance using pair timestamp20261015T052134Z and environment at
+/tmp/pix-m7-device-pair-20261015/environment.json plus actual H700 acceptanceSHA.
+Never precreate tool-wrapper.rc; original lifecycle receipts are producer-owned.
+No off-session notification or physical-device authority is implied.
+
+Published dd38444c30 exact next hosted record38686293267 and wordlist38686293260
+both PASS. Additive receipt /tmp/pix-m7-device-publication-20261015/hosted-completed.json
+preserves earlier pending publication observation already bound into prepared
+inputs. Final audit marker/packet remain immutable and complete. #574/#575/#584
+closed exact bodies; compact custody docs/qa-logs/2026-10-15-native-tracker-close/
+released and root checksum verified. #583 unchanged. Milestone and #555 now say
+H700 cache ACTIVE and audit published; no unrun build checkbox checked.
+
+Dolphin source agent owns only /tmp/pix-m7-upstream-queue-reconcile-20261015 to
+prepare narrow #585 queue refresh, no runtime/shared writes. Others complete.
+
+## Latest 2026-10-15 05:24 UTC — H700 preparation active; final records published
+
+Primary/remote next and feature now dd38444c303cbfcd3c125c2e789b3ff4781baf41,
+product scope byte-identical to qualified f863. Both exact refs read back. Hosted
+record38686293267 success; wordlist38686293260/38686258848 still running.
+Audit sealed/released, all446files root rehashed; marker and resolution lint
+pass, full local ceremony nothing overdue. #596/#590 and #574/#575/#584 closed
+completed; #583 unchanged. frame_diff_review owns only docs/qa-logs/2026-10-15-native-tracker-close/
+compact custody until release. No product-source worker active.
+
+H700 frozen checkout /workspace/repos/rocknix.worktrees/m7-pixelelated-h700-04
+sourcef863; owner /workspace/tmp/pix-m7-h700-refresh-20261015-01 currently being
+prepared by record-only watch20261015T052256Z-2618e5cb (exec22823). Preparation
+measuresdu and binds reviewed evidence, no copy/compiler yet. Pair environment
+/tmp/pix-m7-device-pair-20261015/environment.json has actual timestamp20261015T052134Z
+and exact audit/VM/publication hashes. Keep frozen source and originals unchanged.
+After preparation0, inspect capacity/source/retention and perform commands.sh
+H700 cache; supervise originals<=60s; consume-cache then build thenacceptance.
+Never precreate tool-wrapper.rc. Only after accepted/consumed H700, SM8550 same
+timestamp with actual H700acceptanceSHA. ActualCIcompletion appended separately
+under /tmp/pix-m7-device-publication-20261015; do not mutate boundinitialevidence.
+
 ## Latest 2026-10-15 05:17 UTC — independent audit complete; H700 then SM8550 next
 
 All six findings are resolved; all audit phases complete within declared scope.
