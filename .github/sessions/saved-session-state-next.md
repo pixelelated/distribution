@@ -1,11 +1,71 @@
 # Saved Session State
 
-Updated 2026-10-15 12:35 UTC. Continue authorized M7 toward the next 0.0.1 RC.
-Coordinator: feature/m7-final-qualification-02, last published64cc45ece836af8611407cf4e87345273b52202d.
+Updated 2026-10-15 13:07 UTC. Continue authorized M7 toward the next 0.0.1 RC.
+Coordinator: feature/m7-final-qualification-02, last published ef95ae598cb8be0743321bc6dd36abd1512762b1.
 VM/H700 source f8636de1; ES16dbac52; SM9aa7affe differs only by the ABL archive checksum.
 Root is sole runtime allocator. No host collector/build/VM is active or unconsumed.
-The #603 primary audit is complete; the exact external transfer approval is still pending.
-No new device/cloud/publication authority. Cleanup terminal-readback question remains pending.
+The #603 primary audit is complete; exact external transfer approval remains pending.
+No new device/cloud/publication authority. Cleanup terminal-readback question is pending.
+
+## Start here — current source handoff
+
+Use /workspace/repos/rocknix.worktrees/m7-player-setup (feature/m7-final-qualification-02).
+The harness cwd conflict-resolution is historical and untouched. Read AGENTS.md and
+current next rules; this is a complete immutable Linux OS build system. M7's live body
+owns priority. This checkpoint and docs/releases/next-candidate-work.md carry evidence.
+Do not replay accepted VM, H700 or SM qualification merely for a new checkpoint.
+
+Completed since ef95: FEX disposition/passive readback retained at
+ docs/qa-logs/2026-10-15-fex-source-disposition/ (seal bbe18152).
+All13 generated sources retained; all13 accepted guest ELF hashes match. Actual needed
+names: libstdc++.so.6 all13, libX11.so.6 both GL, libGL.so.1 both EGL. No RPATH/RUNPATH.
+Runtime-provider resolution and scoped headers/source terms remain separate.
+Doom exactWAD1.9/ENDOOM permission evidence retained at
+ docs/qa-logs/2026-10-15-doom-input-disposition/ (seal79b67cd9).
+Root verified all34 originals; vendor.doc absence is scoped to disk-vending/charged
+bundle questions. Engine GPL is not substituted for game-data terms.
+
+Shader #604 correction source02 b1b57cf3 passed25 pure controls. Actual125930Z-f1d74762
+finished12:59:40 all original0+launcher0,7.412s; consumed cd3d5b0a. Analysis accounted
+for20,018reported/18,523physical rows,8,062sources,2,738notices,6,951texts and6,273
+heuristic review entries. Read94,832,561B; owner~32MB within64MiB. No archive/cache/
+network/target use. Accepted packet docs/qa-logs/2026-10-15-shader-attribution-accepted/
+seal341b2a3e. Original1/0/1 duplicate-self-notice failure remains separately retained
+in shader-attribution-failure sealadab9490 and consumedcb33413d. #604 closure follows
+publication and tracker criteria; no keyword auto-closure or prior failure relabel.
+
+Tailscale custody sourcecd3b4f7a passed8 copy/budget guards. Actual130342Z-3e1075ab
+finished13:03:47 all original0+launcher0; consumed226cf34d. Custody169,377,272B at
+/workspace/artifacts/pixelelated-release-sources/m7-tailscale-source-20261015-01,
+manifestfb6fe7b7c8dc81480adcb263d4860c9fc13183d4c0a363def6ebf9391939493e.
+All314 files verified:89ZIPs/89indices/130notices/sixmaps. Independent copies bound
+prior h1 results, no repeat download/decoding. Completed additive custody unchanged.
+Compact docs/qa-logs/2026-10-15-tailscale-source-custody/ seald30f12c2 is retained;
+root independently verified185originals at13:08:20. Frame is idle, scope released.
+
+FEX dependency disposition retained at docs/qa-logs/2026-10-15-fex-dependency-disposition/
+seal8116aa24. ArchLinux runtime rootfs and Nix development sysroot are distinct;
+GL overlay defaults off. No unspecified guest-rootfs acquisition or wholecompiler
+closure gate.13header notices retained. Eight precise flat archive acquisitions,
+three historical reuses, separate Nixpkgs/libglvnd/22patch custody remain.
+
+Internal workers (not Herdr lanes): dolphin_ra_init reviews exact shader notice
+families/asset terms from accepted output; source_custody_delta prepares SOURCE ONLY
+FEX eight-archive acquisition; frame_diff_review completed Tailscale compact custody and is idle. No worker has runtime/download/device allocation. Root alone reviews and
+allocates ordinary watched jobs. All completed host jobs are consumed; no VM/build.
+
+#528 and M7 updated13:05 with actual source results and unchanged downstream order;
+exact originals retained in docs/qa-logs/2026-10-15-source-tracker-followup/ seal2d095683.
+Both ef95 wordlists passed; record38736302099 failed only auditcadence. #60367primary
+criteria PASS; blind790371B/3da1c229 and refutationbase922168B/80450a6e plus bounded
+sanitized response still await named approval. No external call orcompletionmarker.
+#604 is a later helper correction, not part of that frozen67-criterionpacket.
+
+Next: finish shader terms and exact FEX sources, complete held-source integration,
+then existing bundle/retrieval/offhost, physical/native, security, docs/RCidentity/
+publication gates. Preserve all immutable source bodies and original failed outcomes.
+Saving does not pause authorized work. Historical visible Herdr experimentlanes
+were idle12:51; internal workers named above are the active sourceowners.
 
 ## Latest 2026-10-15 12:35 UTC — selected sources acquired and additive custody accepted
 

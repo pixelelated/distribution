@@ -11,6 +11,29 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 13:07 UTC — shader correction and Tailscale custody accepted (#528, #604)
+
+[Shader analysis](../qa-logs/2026-10-15-shader-attribution-accepted/README.md)
+passed25 focused controls and all18,523 installed mappings. Exact source/notice
+references now support family-level review; heuristic misses are not automatic
+permission failures. Original duplicate-record failure remains separately retained.
+[Tailscale custody](../qa-logs/2026-10-15-tailscale-source-custody/README.md) now holds
+all89 selected dependency ZIPs and130 notices with exact component/binary maps.
+Both watched jobs passed every original channel and ordinary consumption.
+
+[FEX source/readback](../qa-logs/2026-10-15-fex-source-disposition/README.md) and
+[dependency disposition](../qa-logs/2026-10-15-fex-dependency-disposition/README.md)
+retain13 generated sources and13 header notices. Eight exact header-source archive
+acquisitions are prepared next; separately selected guest-rootfs providers and the
+compiler build closure are not treated as shipped native ARM dependencies.
+[Doom evidence](../qa-logs/2026-10-15-doom-input-disposition/README.md) retains the
+data's free-distribution notice and1.9 association, with the referenced vendor
+terms question scoped to disk vending or charged bundles.
+
+Firmware and accepted engineering qualification remain unchanged. Remaining source
+terms/custody and the approved-scope external audit still precede release handoff.
+Both ef95 wordlists passed; record CI fails only the outstanding audit cadence.
+
 ## 2026-10-15 12:35 UTC — dependency sources and current source maps retained (#528)
 
 [Tailscale acquisition](../qa-logs/2026-10-15-tailscale-source-acquisition/README.md)

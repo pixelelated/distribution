@@ -1,0 +1,7 @@
+# Doom game-data provenance — #528
+
+This compact packet retains the source/evidence-only Doom disposition and its original public text responses. The exact selected WAD contains affirmative free-distribution permission; its Git-blob identity matches the preserved Doom 1.9 shareware distribution. Engine/launcher GPL scope remains separate. The referenced vendor document was absent in both the packaged archive and the associated historical mirror; disk-vending or charged-bundle terms remain an explicit document question. No legal/publication clearance is asserted.
+
+Read `README.md` and `disposition.json` inside `originals.tar.gz`. The original held 1,689,157-byte Doom archive and 4,196,020-byte WAD are not duplicated here. Only the selected 4,000-byte ENDOOM notice lump, decoded text, passive member/index observations, exact recipe/scripts and bounded textual references are retained. Accepted final H700/SM inventory rows are referenced as original prior results, with their selected rows retained. No new runtime, compilation, VM, target execution or artifact acquisition occurred.
+
+`original-packet-SHA256SUMS` is the private packet's exact original seal; `originals-manifest.json` records each archived file's original SHA256, byte size, permission mode, uid/gid and exact nanosecond mtime. PAX decimal metadata avoids float truncation. Archive verification compared every member and source file; no directory or atime stability is claimed. Root owns final review, shared records and integration.
