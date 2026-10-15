@@ -1,0 +1,1093 @@
+{
+  "status": "PASS",
+  "scope": "completed-source/artifact/GPT/raw-update equality/selected installed mappings",
+  "runtime_qualified": false,
+  "payload": {
+    "SYSTEM": {
+      "bytes": 2073149440,
+      "sha256": "02bd89c50a34190bee14d33fad6587b737598454c0d9e182d240c4f0acade2a4"
+    },
+    "KERNEL": {
+      "bytes": 47531008,
+      "sha256": "0d7e3f11b4012645c5e39d81b61bf4acc800750cc57ffaee3e23206166f56089"
+    },
+    "syslinux.cfg": {
+      "bytes": 166,
+      "sha256": "0d7363c758454c63b449f04122495eff4b25482c4d6ab229e4e6808595ac37b0"
+    }
+  },
+  "products": {
+    "etc/os-release": {
+      "bytes": 710,
+      "sha256": "8af1a889c1439d913b4e2a8db1c37220744f039e1b2f53f1864921b2df2d1c11",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/etc/os-release",
+        "links": []
+      }
+    },
+    "etc/profile": {
+      "bytes": 556,
+      "sha256": "66019fab58aab9b05c1288afb399efd9d20a93504b3955718cb5282965455757",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/etc/profile",
+        "links": []
+      }
+    },
+    "etc/profile.d/001-functions": {
+      "bytes": 30182,
+      "sha256": "2a67891c9a3090ddae78d4b729ce7b8f5c41d853e0975b4ce0203df7789e4ab5",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/etc/profile.d/001-functions",
+        "links": []
+      }
+    },
+    "usr/bin/backuptool": {
+      "bytes": 102360,
+      "sha256": "cd5c7b1b7c75efc295ef3004cf0c26f4b0b176d02ff162a770a83d6f69e2e277",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/backuptool",
+        "links": []
+      }
+    },
+    "usr/bin/busybox": {
+      "bytes": 574456,
+      "sha256": "79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346",
+      "mode": "-rwsr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/busybox",
+        "links": []
+      }
+    },
+    "usr/bin/cheevos_dolphin.sh": {
+      "bytes": 3585,
+      "sha256": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/cheevos_dolphin.sh",
+        "links": []
+      }
+    },
+    "usr/bin/cloud-signin-window": {
+      "bytes": 35720,
+      "sha256": "6cbc445686d3d484ff20450342776e9eb92b47f6112a0352be1a50b334eef81b",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/cloud-signin-window",
+        "links": []
+      }
+    },
+    "usr/bin/cloud_oauth": {
+      "bytes": 126485,
+      "sha256": "95c626f8df07faef522683a857e48e31f85a58c6f738bcde24707574dc24d293",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/cloud_oauth",
+        "links": []
+      }
+    },
+    "usr/bin/dolphin-emu": {
+      "bytes": 12540152,
+      "sha256": "22d546c0448b2b4e50aa47cd3e38c51186c50d04744b27d9f565a0dca7187b5b",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/dolphin-emu",
+        "links": []
+      }
+    },
+    "usr/bin/dolphin-emu-nogui": {
+      "bytes": 8593792,
+      "sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/dolphin-emu-nogui",
+        "links": []
+      }
+    },
+    "usr/bin/dolphin-save-paths": {
+      "bytes": 16727,
+      "sha256": "507ccc96245bfc7aaca5e154ef0567cacccd0cbc9d0f999761d2fdee1fc245e8",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/dolphin-save-paths",
+        "links": []
+      }
+    },
+    "usr/bin/emulationstation": {
+      "bytes": 11831632,
+      "sha256": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/emulationstation",
+        "links": []
+      }
+    },
+    "usr/bin/gst-inspect-1.0": {
+      "bytes": 60928,
+      "sha256": "84cf7ece4ae3df1343e85b4339b74e4b8d2836d07d073b1750582d61a97b8e19",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/gst-inspect-1.0",
+        "links": []
+      }
+    },
+    "usr/bin/python3": {
+      "bytes": 14304,
+      "sha256": "1324452a1b3437ef26e0d39794ede6fb7c1c2c0c5960a050feace157ffe50b33",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/python3.14",
+        "links": [
+          {
+            "path": "/usr/bin/python3",
+            "target": "python3.14"
+          }
+        ]
+      }
+    },
+    "usr/bin/raofflineproxy-cache-images": {
+      "bytes": 21479,
+      "sha256": "f474c13424a819e091a7f97ae12af14da5e017bcf6d6b70275cd00b7cc97fb51",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/raofflineproxy-cache-images",
+        "links": []
+      }
+    },
+    "usr/bin/raofflineproxy-cache-indexed": {
+      "bytes": 9992,
+      "sha256": "4c6d5a8d509661e2951acba968c248187590684f4fcac3388bd7ed69e1c30042",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/raofflineproxy-cache-indexed",
+        "links": []
+      }
+    },
+    "usr/bin/raofflineproxy-ctl": {
+      "bytes": 120981,
+      "sha256": "47391a3bbcaa0f2262cdee12f09bd48d17f7fedf0237a1a661a21b085b2f71f7",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/raofflineproxy-ctl",
+        "links": []
+      }
+    },
+    "usr/bin/raofflineproxy-refresh": {
+      "bytes": 10174,
+      "sha256": "14085cbefbff8b3d0a09fb3f8d55e2fe6016b6b57daafd01771f98f1f6dd44f8",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/raofflineproxy-refresh",
+        "links": []
+      }
+    },
+    "usr/bin/rclone": {
+      "bytes": 85657808,
+      "sha256": "ed887da83d3e2c07ff8acc60cb5b56dbe7bb4d73cc445b6ff71988f164c0558a",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/rclone",
+        "links": []
+      }
+    },
+    "usr/bin/runemu.sh": {
+      "bytes": 23382,
+      "sha256": "deb95aee74d3ddd80638a9ab2f940f5b3b080f4d3ec01f669ea8dbd44179ad20",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/runemu.sh",
+        "links": []
+      }
+    },
+    "usr/bin/start_dolphin_gc.sh": {
+      "bytes": 18329,
+      "sha256": "3511e77c7f06a7b128367882ffa15403724aabebe7eabd34e5e139d7f8f54b3e",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/start_dolphin_gc.sh",
+        "links": []
+      }
+    },
+    "usr/bin/start_dolphin_wii.sh": {
+      "bytes": 16750,
+      "sha256": "096c09b83b4c2ab555eb509fbe16628082dfb5dd76fa0b60ad5b0b9a18046488",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/start_dolphin_wii.sh",
+        "links": []
+      }
+    },
+    "usr/bin/systemctl": {
+      "bytes": 264256,
+      "sha256": "ee1371927bd80da7e7cd78f8af50953e27fcbcefc8b7e7f27e5ae827021ec82b",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/systemctl",
+        "links": []
+      }
+    },
+    "usr/bin/wifictl": {
+      "bytes": 24892,
+      "sha256": "c89ed28a50e4be78468fcee25dcfd68e0b1c67af25657c3d0ba9318c7576a48c",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/bin/wifictl",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/Dolphin.ini": {
+      "bytes": 2975,
+      "sha256": "e352eafa7fd9a99c3075377a9236142808d0c0131e6711af07ce42792202e9e1",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/Dolphin.ini",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/GFX.ini": {
+      "bytes": 1336,
+      "sha256": "0e885638efad1e50a4f0a90d2cf7c72c295fc2d815b5b1af41bc417dea21c71f",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/GFX.ini",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.east.inline": {
+      "bytes": 972,
+      "sha256": "09f34c419692f9aa41c6e9b381d85922cccc8163d184574ed26f4de073460652",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.east.inline",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.east.stacked": {
+      "bytes": 970,
+      "sha256": "8c8e5333d7d24f406e555634f142a4d4406e94a24fad7cd0f5c3709f8668680a",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.east.stacked",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.south.inline": {
+      "bytes": 972,
+      "sha256": "1500c49234d47f856a034da10fe39119ba6846034f705cfc5aca8a8f8c81d52a",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.south.inline",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.south.stacked": {
+      "bytes": 970,
+      "sha256": "04fd777a3b8286411d797064d99410d8e6782aec35fe1e4bbe5f23d6894960cd",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/GamecubeControllerProfiles/GCPadNew.ini.south.stacked",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/Hotkeys.ini": {
+      "bytes": 567,
+      "sha256": "21e5f4a334b73f9cd59fb05cbde9f0d671e2ca79b9e3beb03f637b88f36a32e5",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/Hotkeys.ini",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/WiiControllerProfiles/classic.ini": {
+      "bytes": 844,
+      "sha256": "d41770db82d9e9877854057893414c2b6511f6fe0b510fbffe4dd7bbd596672f",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/WiiControllerProfiles/classic.ini",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/WiiControllerProfiles/hremote.ini": {
+      "bytes": 498,
+      "sha256": "714f4045ac8b03b65e4760be0c112e1ee9c4f67d1e7762a1567a4172138085ce",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/WiiControllerProfiles/hremote.ini",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/WiiControllerProfiles/nunchuck.ini": {
+      "bytes": 748,
+      "sha256": "6578588e362f807d08efd7953c4d7c22b3025a1b68a80990a80e686aa8e44a9e",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/WiiControllerProfiles/nunchuck.ini",
+        "links": []
+      }
+    },
+    "usr/config/dolphin-emu/WiiControllerProfiles/vremote.ini": {
+      "bytes": 497,
+      "sha256": "6ee4fa6c31ee5e1fd2f644bb71ab452962b86bae6330eb038fcf3eeef92e1a54",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/WiiControllerProfiles/vremote.ini",
+        "links": []
+      }
+    },
+    "usr/config/emulationstation/es_features.cfg": {
+      "bytes": 76848,
+      "sha256": "588958bdafdf6060048688e49d8a7083c2ea084d19047e543c6984c2dc63f947",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/emulationstation/es_features.cfg",
+        "links": []
+      }
+    },
+    "usr/config/emulationstation/es_settings.cfg": {
+      "bytes": 41,
+      "sha256": "c93d8b293aa7eb72cbfd211173f1b76bbfc46a46e9422567f52f67cc8b6151e8",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/emulationstation/es_settings.cfg",
+        "links": []
+      }
+    },
+    "usr/config/emulationstation/es_systems.cfg": {
+      "bytes": 83206,
+      "sha256": "95b1a9b6b166a47dac3b5edcf2a30fac67671d10a00318457dcc3d112d564132",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/emulationstation/es_systems.cfg",
+        "links": []
+      }
+    },
+    "usr/config/locale/en_GB/LC_MESSAGES/emulationstation2.mo": {
+      "bytes": 66454,
+      "sha256": "4461480d7b6a88d1eb9cfb0ac0423d325455694ab4c420cc8c4e36ff04cdc73a",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/locale/en_GB/LC_MESSAGES/emulationstation2.mo",
+        "links": []
+      }
+    },
+    "usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo": {
+      "bytes": 173612,
+      "sha256": "f7b4fec7bacb7a7e2e53883c0c5f2bda1d14343d1c1392edf469904e95104a59",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/locale/fr/LC_MESSAGES/emulationstation2.mo",
+        "links": []
+      }
+    },
+    "usr/lib/autostart/daemons/006-raofflineproxy": {
+      "bytes": 554,
+      "sha256": "588acbb13e7fdb70fd6c78b7a14c458ad4bc3ab2ff46db97effa26b94d756ff8",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/autostart/daemons/006-raofflineproxy",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/gst-plugin-scanner": {
+      "bytes": 14352,
+      "sha256": "0258b6e81d0332e4a39e1f0f2a8654c189fa3db1fde4866adec02ab59b38f815",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/gst-plugin-scanner",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstadaptivedemux2.so": {
+      "bytes": 375520,
+      "sha256": "654cd8b719fb8acdf19a9494aaa058135ed02e8135db392d129e84080ae6a4bf",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstadaptivedemux2.so",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstopengl.so": {
+      "bytes": 290768,
+      "sha256": "06dc2524e928252248c2f02c08928f155bef2c75644f7fcadccbbd6081dfa1a6",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstopengl.so",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstrtpmanager.so": {
+      "bytes": 361376,
+      "sha256": "d7c73b4170cbfa99e90abc3099c788dbbe12ad71d2460fed3f17230d4e35ebc3",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstrtpmanager.so",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstrtsp.so": {
+      "bytes": 153632,
+      "sha256": "310167c968dc87762407149566d0b2e0162c093bc17eebe5a197d7b89105cb16",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstrtsp.so",
+        "links": []
+      }
+    },
+    "usr/lib/gstreamer-1.0/libgstudp.so": {
+      "bytes": 77632,
+      "sha256": "8a02b301b7c980a7af5cdb67948ccd021a176917d355ea305fb05bec3e2ba125",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/gstreamer-1.0/libgstudp.so",
+        "links": []
+      }
+    },
+    "usr/lib/libcrypto.so.3": {
+      "bytes": 6181168,
+      "sha256": "66d713b67c3d811ab73894b294ff40d7985a3273d26f493bdc9f59b79f2e2f77",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libcrypto.so.3",
+        "links": []
+      }
+    },
+    "usr/lib/libgstcontroller-1.0.so.0": {
+      "bytes": 60048,
+      "sha256": "ac4646378c64be84832bae33a084ab3b98ad3cfb131574c08cb1eadae32e2a1c",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libgstcontroller-1.0.so.0.2902.0",
+        "links": [
+          {
+            "path": "/usr/lib/libgstcontroller-1.0.so.0",
+            "target": "libgstcontroller-1.0.so.0.2902.0"
+          }
+        ]
+      }
+    },
+    "usr/lib/libgstnet-1.0.so.0": {
+      "bytes": 73256,
+      "sha256": "95228d04ae400ac3c79e3f676dd8d95d471837fb6de16d1fbd74dbe5cb29fdd1",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libgstnet-1.0.so.0.2902.0",
+        "links": [
+          {
+            "path": "/usr/lib/libgstnet-1.0.so.0",
+            "target": "libgstnet-1.0.so.0.2902.0"
+          }
+        ]
+      }
+    },
+    "usr/lib/libgstreamer-1.0.so.0": {
+      "bytes": 948896,
+      "sha256": "8820d44ba911da1862e4b15189c99f9076a1536ac5048bef122f4a3634536682",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libgstreamer-1.0.so.0.2902.0",
+        "links": [
+          {
+            "path": "/usr/lib/libgstreamer-1.0.so.0",
+            "target": "libgstreamer-1.0.so.0.2902.0"
+          }
+        ]
+      }
+    },
+    "usr/lib/libraproxy_rchash.so": {
+      "bytes": 390096,
+      "sha256": "6c484a2947a5f2a7c187e60dd93de73593d5fa98d57309bfb4b5f07bf390220d",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/libraproxy_rchash.so",
+        "links": []
+      }
+    },
+    "usr/lib/libsystemd.so.0": {
+      "bytes": 1111072,
+      "sha256": "aa203033156610cdcbee982d7c90173804549bda5939bb03dbe6862f361861ae",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/libsystemd.so.0.38.0",
+        "links": [
+          {
+            "path": "/usr/lib/libsystemd.so.0",
+            "target": "libsystemd.so.0.38.0"
+          }
+        ]
+      }
+    },
+    "usr/lib/libzstd.so.1": {
+      "bytes": 659232,
+      "sha256": "8526c748a90b34d9872159fdd311071ed1c391c879b41295848282fcace4e2f4",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/libzstd.so.1.5.7",
+        "links": [
+          {
+            "path": "/usr/lib/libzstd.so.1",
+            "target": "libzstd.so.1.5.7"
+          }
+        ]
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/__init__.pyc": {
+      "bytes": 279,
+      "sha256": "566e3e650d785f969bc634728dc327f8a67f76784fa26374279d260dbcb816b2",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/__init__.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/auth.pyc": {
+      "bytes": 5971,
+      "sha256": "04c4cce4335d1b5e25ed4632126ac582433af42b9aa4c9753c77db901c0043da",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/auth.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/award_signing.pyc": {
+      "bytes": 2582,
+      "sha256": "870c5e772c6c38c65a2fe8821af0a95b6ac513d56b0a0a7492153d75b4e2245c",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/award_signing.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/batocera_conf.pyc": {
+      "bytes": 9498,
+      "sha256": "e13ea0f8a94c2590ec284d6708efcca55a230814cd1393ab01634f9867c87bd2",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/batocera_conf.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/boot.pyc": {
+      "bytes": 4086,
+      "sha256": "7aac3bc7ab3954b84b44281f270b60ee38a0fae51b27a19fcf0530dcd05f4226",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/boot.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/cache_budget.pyc": {
+      "bytes": 8044,
+      "sha256": "bf07a9babe2a7a3b0e0c15e2f2f962db9a30c3370c4e4323fa6e9d75c13d07d5",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/cache_budget.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/cache_keys.pyc": {
+      "bytes": 6173,
+      "sha256": "15e554208db8ac2185ad55ce4ca27791d8d50c2645bd3cc8719600de9cc06630",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/cache_keys.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/cache_queue.pyc": {
+      "bytes": 16252,
+      "sha256": "1092159fd9f64565f133ea27e31438a49fe47472dec277cb656df3a773d090f9",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/cache_queue.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/config.pyc": {
+      "bytes": 28252,
+      "sha256": "7d4d78e451332042ec28c068939d42c9af23b69210d7353c462c0a9940f695ea",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/config.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/darkos_service.pyc": {
+      "bytes": 13223,
+      "sha256": "88cd85a0aca686cd0942991b434d1b58012875c3ea0f4e940f9761826c6c8b5c",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/darkos_service.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/dolphin_cfg.pyc": {
+      "bytes": 9376,
+      "sha256": "89419439276367d380c43c001c5d9a24ade8b145e650e04de1f5f8808b534455",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/dolphin_cfg.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/es_export.pyc": {
+      "bytes": 5035,
+      "sha256": "5b4f2a3a37decf1a1847e57e1eb8ad9a9f48c0925ab4875a792cf4aa9aa842e8",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/es_export.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/flusher.pyc": {
+      "bytes": 23155,
+      "sha256": "bd83b2a034abfd0022d1ddc29e2b8c11f0632641b624f3d48899c2d54ba7cb47",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/flusher.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/game_meta.pyc": {
+      "bytes": 4032,
+      "sha256": "a6eb6366545e20ed5d20e2befd77dd0d52df23cbdd1171324a787baff8292160",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/game_meta.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/image_cache.pyc": {
+      "bytes": 25659,
+      "sha256": "afce22a2afc67b2a8214cde959f7b587b05c975a6e90b52e6841677f65b4275e",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/image_cache.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/knulli_service.pyc": {
+      "bytes": 4476,
+      "sha256": "4de7c687b70347a7fa46f3de26e831c63b1b41c4ebc1aaf9c29c4d7ade5285aa",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/knulli_service.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/last_played.pyc": {
+      "bytes": 4455,
+      "sha256": "8fafd64d87c5771b13fdaa1cf40c54d7329377eb1f7665beb31baa2cbcfb7a63",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/last_played.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/log_uploader.pyc": {
+      "bytes": 20856,
+      "sha256": "57b887f92c7e496640827b0810b97c41bd5ea6ec3ad1f3da6c854b63a4ed1465",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/log_uploader.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/lowerdeck.pyc": {
+      "bytes": 6523,
+      "sha256": "5f45d7f58a38c3810afb7b6548195490ec95640e2c553505bdb446ffafd584e8",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/lowerdeck.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/main.pyc": {
+      "bytes": 41810,
+      "sha256": "8f736b2540c8ffa682b3a3d3e1a393fd482f196b646ac0a5e67c7fc91663734b",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/main.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/menu_input.pyc": {
+      "bytes": 5198,
+      "sha256": "8d3e59d5f7dccfa77046bb7eaf1f0af1b56b62439394e980622230550e7f1cb6",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/menu_input.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/menu_sdl.pyc": {
+      "bytes": 174624,
+      "sha256": "e3d1561d38027fbbebebd1898655bc31fce3faed31dacd651e0058a2441917a1",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/menu_sdl.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/native_codecs.pyc": {
+      "bytes": 8926,
+      "sha256": "ca3a4d8264d9cd6c286160a8cb7351f8a73451409d2a8d88be5e797b9d5d857a",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/native_codecs.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/network.pyc": {
+      "bytes": 33602,
+      "sha256": "c7285011a638cfed76ec0195ea3f06fb2a9b55f5336486b02801b7736b630ab8",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/network.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/pending_awards.pyc": {
+      "bytes": 8957,
+      "sha256": "ae451225b48ad40bb76fb06d9689153c69427f937226d972a1bf23b68cb492c6",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/pending_awards.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/platform.pyc": {
+      "bytes": 24948,
+      "sha256": "81a7945a8b078a248692b38431b6c966638a91f0ddffeda2b677408a7758f948",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/platform.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/ppsspp_cfg.pyc": {
+      "bytes": 9668,
+      "sha256": "6e5f460d53129c6483c825ae64a4b238a71527bf8c8e284bab36c04066816804",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/ppsspp_cfg.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/proxy_service.pyc": {
+      "bytes": 81816,
+      "sha256": "b6951e3015337407b43ea42d715646c4ae552ea0c547a7f7b52eba564ac2b28e",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/proxy_service.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/rate_limit.pyc": {
+      "bytes": 3655,
+      "sha256": "55054583b217079586d3c90b118597e3aa9d46908b7c0e640b6adbcdef0282aa",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/rate_limit.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/retroarch_cfg.pyc": {
+      "bytes": 31410,
+      "sha256": "d2404488ba6fe79a08d583813871640c7dcf344cea11d2fcdfe357218adc3219",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/retroarch_cfg.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/rom_browser.pyc": {
+      "bytes": 71953,
+      "sha256": "8f64842d6313237d6da0efa59d644d0efbffc5bf9910c3a01350061f5c70be6d",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/rom_browser.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/rom_cache.pyc": {
+      "bytes": 25900,
+      "sha256": "d927394f2d4bc627f6f092d031d7399351b7ad4260d519f296c28f51ca45ba24",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/rom_cache.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/rom_hashing.pyc": {
+      "bytes": 14300,
+      "sha256": "c5164554539843de5928d411f5432a589407ddf98657952236f4830753a2cf68",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/rom_hashing.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/rvz_datasource.pyc": {
+      "bytes": 41939,
+      "sha256": "c2f8053db96b46ff51316032e0c2aeb0a16aecde655805f387fe60e615397978",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/rvz_datasource.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/service.pyc": {
+      "bytes": 20457,
+      "sha256": "02b4e38ca427b9f630bf56d8e23382d9297dcb4f37eb02214b217b304d6ad07a",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/service.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/smart_cache.pyc": {
+      "bytes": 39461,
+      "sha256": "bd5792bb3f370e0325b1d0432d1cac50266a9e1e294a11b7ee251580c74a2181",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/smart_cache.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/state.pyc": {
+      "bytes": 8732,
+      "sha256": "eab1660a54673d276f4fb7e3d0eabbd127ecc868c458a8dbd2ade42f6f47c0de",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/state.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/storage.pyc": {
+      "bytes": 78516,
+      "sha256": "99e14148a1ac9f80d8dd005c6433982eb02f4bc4508dd28747ff3538c2b31d29",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/storage.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/storage_corruption.pyc": {
+      "bytes": 4074,
+      "sha256": "ed14fcf0fe2c155fbce9cc3bb9ff69d925e0d3628d5fd03963f196c9c7c81661",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/storage_corruption.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/ui.pyc": {
+      "bytes": 22535,
+      "sha256": "66dc726cb7203f556ed8959fdfcd0295babc96ebdd31bf2a9d9cd5b9aa0d0418",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/ui.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/update.pyc": {
+      "bytes": 40444,
+      "sha256": "0088b2164067c9e6d6be019376e41432b61d9411af069a6c6b11a56dddb9d02d",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/update.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/usage_report.pyc": {
+      "bytes": 11759,
+      "sha256": "7c72676553759ad4c90f6ef47cc5b045978dc55a21a77b35b19971aa1745ec37",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/usage_report.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/usage_stats.pyc": {
+      "bytes": 22490,
+      "sha256": "7e5993266737d003ac4d0c00becc374d10d5a9b7ce2333cb23b0bae7dc6edec9",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/usage_stats.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/utils.pyc": {
+      "bytes": 8151,
+      "sha256": "577a6432626ec8f1078a3fb3a8c155b92a677be48452b1117559bd74fe52fbc4",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/utils.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/python3.14/site-packages/raofflineproxy/watch_folders.pyc": {
+      "bytes": 11788,
+      "sha256": "88dea0d23e26dfabc75af73d614b7d7bb94d4444de7ef99c9112416234fd47c6",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/python3.14/site-packages/raofflineproxy/watch_folders.pyc",
+        "links": []
+      }
+    },
+    "usr/lib/systemd/system/raofflineproxy.service": {
+      "bytes": 2363,
+      "sha256": "c42689768684263e69d3a904223faf2bab270a5956fde3af5af640f1f26b4233",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/lib/systemd/system/raofflineproxy.service",
+        "links": []
+      }
+    },
+    "usr/lib/systemd/systemd": {
+      "bytes": 96216,
+      "sha256": "dad240622fc8ac2587b8cd05699264c19173c791894daf147533b2363df84471",
+      "mode": "-rwxr-xr-x",
+      "link_chain": {
+        "resolved": "/usr/lib/systemd/systemd",
+        "links": []
+      }
+    },
+    "usr/share/dolphin-emu/sys/ApprovedInis.json": {
+      "bytes": 31627,
+      "sha256": "4556d3e02d7d0804313f3238454e35101ec72dbc0c3f95ff393d4f8292e07f46",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/ApprovedInis.json",
+        "links": [
+          {
+            "path": "/usr/share/dolphin-emu/sys",
+            "target": "../../config/dolphin-emu"
+          }
+        ]
+      }
+    },
+    "usr/share/dolphin-emu/sys/GameSettings/GMSE01.ini": {
+      "bytes": 3737,
+      "sha256": "0f3fa22da52b6b51d3ab524e248ea14cf044184cc1638d5681343cc85069b087",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/GameSettings/GMSE01.ini",
+        "links": [
+          {
+            "path": "/usr/share/dolphin-emu/sys",
+            "target": "../../config/dolphin-emu"
+          }
+        ]
+      }
+    },
+    "usr/share/dolphin-emu/sys/Resources/achievements_game.png": {
+      "bytes": 1234,
+      "sha256": "f0b39af2812f2650950361b8d3d7e0bb3bc0eb2e0cd8516b55f9b49b1fdef3a3",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_game.png",
+        "links": [
+          {
+            "path": "/usr/share/dolphin-emu/sys",
+            "target": "../../config/dolphin-emu"
+          }
+        ]
+      }
+    },
+    "usr/share/dolphin-emu/sys/Resources/achievements_locked.png": {
+      "bytes": 560,
+      "sha256": "ea2aca58c279fd2b6a8bbf2e576564b855b8bf328561e5f39a71cf76e829d3dd",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_locked.png",
+        "links": [
+          {
+            "path": "/usr/share/dolphin-emu/sys",
+            "target": "../../config/dolphin-emu"
+          }
+        ]
+      }
+    },
+    "usr/share/dolphin-emu/sys/Resources/achievements_player.png": {
+      "bytes": 1164,
+      "sha256": "a925afd5922ff7287c6c9d743a58f8d43d30a9eb39e739f6d4cddecce82be0cc",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_player.png",
+        "links": [
+          {
+            "path": "/usr/share/dolphin-emu/sys",
+            "target": "../../config/dolphin-emu"
+          }
+        ]
+      }
+    },
+    "usr/share/dolphin-emu/sys/Resources/achievements_unlocked.png": {
+      "bytes": 583,
+      "sha256": "a5263c36bfae0f02de85410c7ef5cf3a2a2eb6e2271391d847ae30f6143cf4df",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_unlocked.png",
+        "links": [
+          {
+            "path": "/usr/share/dolphin-emu/sys",
+            "target": "../../config/dolphin-emu"
+          }
+        ]
+      }
+    },
+    "usr/share/licenses/emulationstation/LICENSE.rvz-padding": {
+      "bytes": 1511,
+      "sha256": "4135898ee98985c6084e6d8304930b010dec1b395083074ae455ae20ca207d9a",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/share/licenses/emulationstation/LICENSE.rvz-padding",
+        "links": []
+      }
+    },
+    "usr/share/licenses/emulationstation/RVZ-NOTICES.md": {
+      "bytes": 1824,
+      "sha256": "77a1a9faff4a5376ca60a3898b7c6ccd92489498e131e354a2aecd0b8cb4b71b",
+      "mode": "-rw-r--r--",
+      "link_chain": {
+        "resolved": "/usr/share/licenses/emulationstation/RVZ-NOTICES.md",
+        "links": []
+      }
+    }
+  },
+  "partition_sectors": [
+    [
+      8192,
+      8396799
+    ],
+    [
+      8396800,
+      8462335
+    ]
+  ],
+  "source": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+  "es_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+  "mcopy_sha256": "2050c806846eedb33308d2f6626985e36bbffe3a82d1292741e55d7e002f265d",
+  "state_reader_sha256": "6d061af89caba886bd3417ee96dc01e37675655aa1ed92f423b9db02164dff03",
+  "source_mappings": {
+    "usr/bin/cloud_oauth": "projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth",
+    "usr/bin/raofflineproxy-ctl": "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl",
+    "usr/bin/runemu.sh": "projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh",
+    "usr/bin/wifictl": "projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl",
+    "usr/bin/start_dolphin_gc.sh": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_gc.sh",
+    "usr/bin/start_dolphin_wii.sh": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh",
+    "usr/bin/cheevos_dolphin.sh": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh",
+    "usr/bin/dolphin-save-paths": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/dolphin-save-paths",
+    "usr/share/dolphin-emu/sys/Resources/achievements_player.png": "build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Data/Sys/Resources/achievements_player.png",
+    "usr/share/dolphin-emu/sys/Resources/achievements_game.png": "build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Data/Sys/Resources/achievements_game.png",
+    "usr/share/dolphin-emu/sys/Resources/achievements_unlocked.png": "build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Data/Sys/Resources/achievements_unlocked.png",
+    "usr/share/dolphin-emu/sys/Resources/achievements_locked.png": "build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Data/Sys/Resources/achievements_locked.png",
+    "usr/share/dolphin-emu/sys/ApprovedInis.json": "build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Data/Sys/ApprovedInis.json",
+    "usr/share/dolphin-emu/sys/GameSettings/GMSE01.ini": "build.pixelelated-GENERIC_X64.x86_64/build/dolphin-sa-6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4/Data/Sys/GameSettings/GMSE01.ini"
+  },
+  "dolphin_sys_manifest_sha256": "b67f6590214e8b551baf2fafa726818c6b5eade1a6f339b08f1bc978f090d16f"
+}

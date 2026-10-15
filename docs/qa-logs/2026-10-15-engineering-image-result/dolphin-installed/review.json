@@ -1,0 +1,96 @@
+{
+  "artifact_inputs_sha256": "be406d291c670610471bb31c01379552f0b4e1bb6c5ff2d73c33f56d103a2bcc",
+  "artifact_result_sha256": "57575bcb84179c00e5e71ff341494b30f3103627d7bca2047588dc4dd4b5654d",
+  "build_branch": "build/m7-p5-20261015-01",
+  "cases": [
+    {
+      "badge_failure_counts": {
+        "Default game badge 'achievements_game.png' failed to load": 0,
+        "Default locked achievement badge 'achievements_locked.png' failed to load": 0,
+        "Default player badge 'achievements_player.png' failed to load": 0,
+        "Default unlocked achievement badge 'achievements_unlocked.png' failed to load": 0
+      },
+      "case": "installed-enabled",
+      "cpu_tick_delta": 204,
+      "initialized": 1,
+      "loopback_request_count": 1,
+      "original_native_exit": 0,
+      "remaining_dolphin": [],
+      "shutdown": 1,
+      "signals": [
+        "normal SIGTERM"
+      ]
+    },
+    {
+      "badge_failure_counts": {
+        "Default game badge 'achievements_game.png' failed to load": 0,
+        "Default locked achievement badge 'achievements_locked.png' failed to load": 0,
+        "Default player badge 'achievements_player.png' failed to load": 0,
+        "Default unlocked achievement badge 'achievements_unlocked.png' failed to load": 0
+      },
+      "case": "installed-disabled",
+      "cpu_tick_delta": 203,
+      "initialized": 0,
+      "loopback_request_count": 0,
+      "original_native_exit": 0,
+      "remaining_dolphin": [],
+      "shutdown": 0,
+      "signals": [
+        "normal SIGTERM"
+      ]
+    },
+    {
+      "badge_failure_counts": {
+        "Default game badge 'achievements_game.png' failed to load": 0,
+        "Default locked achievement badge 'achievements_locked.png' failed to load": 0,
+        "Default player badge 'achievements_player.png' failed to load": 0,
+        "Default unlocked achievement badge 'achievements_unlocked.png' failed to load": 0
+      },
+      "case": "installed-failed-boot",
+      "cpu_tick_delta": null,
+      "initialized": 1,
+      "loopback_request_count": 1,
+      "original_native_exit": 1,
+      "remaining_dolphin": [],
+      "shutdown": 1,
+      "signals": []
+    }
+  ],
+  "cleanup_evidence_basis": "Original guest owner/case and VM results, host-exits.json actual-host receipt, and coordinator-review.json. No new process census was run.",
+  "coordinator_commit": "c16285334add6e9ea0dbdb73a7a01aa809922ac8",
+  "existing_export_host_archive_member_count": 106,
+  "guest_manifest_counts": [
+    56,
+    55
+  ],
+  "historical_fields_preserved": [
+    "analysis.json runtime_acceptance=coordinator review pending",
+    "export-result.json accepted=false and next=coordinator review/consume; later original coordinator-review and admission-consumed establish subsequent disposition"
+  ],
+  "image": {
+    "bytes": 2122152413,
+    "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261015T011500Z.gd4af5a255f47-from-ROCKNIX.img.gz",
+    "sha256": "84b1552e4d0ed67d97b603230d1acb0b22a852217054854a9c3fe42731772ff2"
+  },
+  "missing_original_channels": [],
+  "not_claimed": [
+    "gameplay",
+    "successful real authentication",
+    "award",
+    "renderer qualification",
+    "save behavior",
+    "retained-storage upgrade",
+    "handheld qualification"
+  ],
+  "raw_stderr_badge_absence_checks": 12,
+  "record_type": "derived_review_of_originals_no_runtime_rerun",
+  "schema": 1,
+  "scope": "installed Dolphin startup/lifecycle and immutable resource availability only",
+  "selected_resource_count_before_and_after": 6,
+  "source": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+  "system": {
+    "bytes": 2073149440,
+    "sha256": "02bd89c50a34190bee14d33fad6587b737598454c0d9e182d240c4f0acade2a4"
+  },
+  "utc": "2026-10-15T01:30:58.644018+00:00"
+}

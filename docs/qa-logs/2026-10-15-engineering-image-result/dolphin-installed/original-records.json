@@ -1,0 +1,1913 @@
+{
+  "all_archive_member_hash_size_mode_checks_passed": true,
+  "archive_sha256": "8d90eb4b614e0c6996da27e3a9e196fbd1fd90fda480069a7c41b69cb4c8caeb",
+  "excluded_owned_vm_files": [
+    {
+      "bytes": 540672,
+      "reason": "owned VM media/UEFI outside compact originals; not read or copied",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/vm/OVMF.fd"
+    },
+    {
+      "bytes": 2308374528,
+      "reason": "owned VM media/UEFI outside compact originals; not read or copied",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/vm/disk.qcow2"
+    },
+    {
+      "bytes": 268435456,
+      "reason": "owned VM media/UEFI outside compact originals; not read or copied",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/vm/input.ext4"
+    },
+    {
+      "bytes": 268435456,
+      "reason": "owned VM media/UEFI outside compact originals; not read or copied",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/vm/output.ext4"
+    }
+  ],
+  "existing_export_host_archive_and_both_guest_manifests_verified": true,
+  "member_count": 188,
+  "members": [
+    {
+      "bytes": 209,
+      "gid": 1000,
+      "member": "export-run/build.log",
+      "mode": "0600",
+      "mtime_ns": 1792027677874326984,
+      "sha256": "0042447b10eb980eaec0f10915e3581bbc948c23680935c6f55cc2c0f20d8bc5",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012757Z-fdcda614/build.log",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "export-run/build.pid",
+      "mode": "0600",
+      "mtime_ns": 1792027677745594558,
+      "sha256": "6d6f0ca3614b0a5a12e54bf38f88a563dd91b01d2c6edb97d723085a722f0f95",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012757Z-fdcda614/build.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "export-run/build.rc",
+      "mode": "0600",
+      "mtime_ns": 1792027677879941894,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012757Z-fdcda614/build.rc",
+      "uid": 1000
+    },
+    {
+      "bytes": 33,
+      "gid": 1000,
+      "member": "export-run/build.start",
+      "mode": "0600",
+      "mtime_ns": 1792027677745641041,
+      "sha256": "66f05699bb8af1068d9afe1fdffd6c783ddd0364c08448b58a43a3bc03afb4ef",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012757Z-fdcda614/build.start",
+      "uid": 1000
+    },
+    {
+      "bytes": 711,
+      "gid": 1000,
+      "member": "export-run/build.status",
+      "mode": "0600",
+      "mtime_ns": 1792027682795132516,
+      "sha256": "ca98631138baf62ab3469ba1852bb483983b2fec841f804c2f1d4baa6b8fdf0b",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012757Z-fdcda614/build.status",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "export-run/build.status.pid",
+      "mode": "0600",
+      "mtime_ns": 1792027677758903826,
+      "sha256": "e11fa0d3d4a2743415e4fef073699a20241560cd823d2e5d0a23a57de72b8909",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012757Z-fdcda614/build.status.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "export-run/command.pid",
+      "mode": "0600",
+      "mtime_ns": 1792027677798618012,
+      "sha256": "80997be50be5532d26265e5e6dad60db0e901a26b4ba1519d1d321a093ccbff0",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012757Z-fdcda614/command.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 104,
+      "gid": 1000,
+      "member": "export-run/runner-result.json",
+      "mode": "0600",
+      "mtime_ns": 1792027682814896198,
+      "sha256": "fede3f8aac02d156e25d11f597f406a142ecf6d0f359210e36f3261061516ac9",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012757Z-fdcda614/runner-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 12661,
+      "gid": 1000,
+      "member": "export-run/watch-job",
+      "mode": "0500",
+      "mtime_ns": 1792027677745697336,
+      "sha256": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012757Z-fdcda614/watch-job",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export-run/watcher.err",
+      "mode": "0600",
+      "mtime_ns": 1792027677745697336,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012757Z-fdcda614/watcher.err",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "export-run/watcher.interval",
+      "mode": "0600",
+      "mtime_ns": 1792027677745616591,
+      "sha256": "f0b5c2c2211c8d67ed15e75e656c7862d086e9245420892a7de62cd9ec582a06",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012757Z-fdcda614/watcher.interval",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "export-run/watcher.pid",
+      "mode": "0600",
+      "mtime_ns": 1792027677746061548,
+      "sha256": "e11fa0d3d4a2743415e4fef073699a20241560cd823d2e5d0a23a57de72b8909",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012757Z-fdcda614/watcher.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 153,
+      "gid": 1000,
+      "member": "export/analysis.json",
+      "mode": "0664",
+      "mtime_ns": 1792027677874289732,
+      "sha256": "b9b0074e34a7fac9b1916428da0ef444675c28b40347451aae832335839a055a",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/analysis.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 3521,
+      "gid": 1000,
+      "member": "export/config.json",
+      "mode": "0664",
+      "mtime_ns": 1792027557522134771,
+      "sha256": "ac999751abe1ca4ab47580886fd31c66f615bbbcd8867eb2e1479fe005a5fa00",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/config.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1729,
+      "gid": 1000,
+      "member": "export/consumption-evidence.json",
+      "mode": "0664",
+      "mtime_ns": 1792027708947889668,
+      "sha256": "e33ca318b81751cf443bc036ab816f107af01745d4baf93b4db232accd710285",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/consumption-evidence.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 588,
+      "gid": 1000,
+      "member": "export/coordinator-review.json",
+      "mode": "0664",
+      "mtime_ns": 1792027708947736632,
+      "sha256": "c77f6b26792a5cf67abc302e35978246aa03c093dd1bf7f32ac12086efb355f8",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/coordinator-review.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 14070,
+      "gid": 1000,
+      "member": "export/debugfs.stderr",
+      "mode": "0664",
+      "mtime_ns": 1792027677845635423,
+      "sha256": "4b1a9643d0d2fac0bda413cb70a2ad75275fbae74a94ca36a76c4c29b3a90da9",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/debugfs.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/debugfs.stdout",
+      "mode": "0664",
+      "mtime_ns": 1792027677844082434,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/debugfs.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 358,
+      "gid": 1000,
+      "member": "export/export-result.json",
+      "mode": "0664",
+      "mtime_ns": 1792027677874326984,
+      "sha256": "d4d87edca58f54dc378b098cf787eccd317d9b2d74e50d2995806210e3b1bc80",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/export-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 9855,
+      "gid": 1000,
+      "member": "export/guest-manifest.json",
+      "mode": "0664",
+      "mtime_ns": 1792027677848463966,
+      "sha256": "73c29a9704b78cbd45be5a1af203fa6fd17296a35de2890c2c7cc9a5820cf128",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest-manifest.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 9704,
+      "gid": 1000,
+      "member": "export/guest/guest-export-manifest.json",
+      "mode": "0644",
+      "mtime_ns": 1792027647000000000,
+      "sha256": "9b78906aaefc449057ffb5c032bca02601fefe49d5c45650e5fa480cb5686f9b",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/guest-export-manifest.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "export/guest/guest-owner.rc",
+      "mode": "0644",
+      "mtime_ns": 1792027647000000000,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/guest-owner.rc",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/guest-owner.stderr",
+      "mode": "0644",
+      "mtime_ns": 1792027639000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/guest-owner.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 45,
+      "gid": 1000,
+      "member": "export/guest/guest-owner.stdout",
+      "mode": "0644",
+      "mtime_ns": 1792027647000000000,
+      "sha256": "16e79e5c07d776e49c2f5485ae39195c90c11d7e129149157ba411c8c1af3146",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/guest-owner.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case.stderr",
+      "mode": "0644",
+      "mtime_ns": 1792027639000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case.stdout",
+      "mode": "0644",
+      "mtime_ns": 1792027639000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 288,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-disabled/config-before.json",
+      "mode": "0644",
+      "mtime_ns": 1792027643000000000,
+      "sha256": "635588d7dd545cd0c5107350574ede6b45da0f8f0745858a93e9a524cacaf734",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-disabled/config-before.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 4449,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-disabled/result.json",
+      "mode": "0644",
+      "mtime_ns": 1792027646000000000,
+      "sha256": "32f89b756331fa744dea1468599c3d58791bbf87b376c19ca93465027c7ef0ac",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-disabled/result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1226,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-disabled/stderr",
+      "mode": "0644",
+      "mtime_ns": 1792027646000000000,
+      "sha256": "d14af3e3ff79225971837c987dde9eb699a31edab271b94e769f9fcbbb54c005",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-disabled/stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 96,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-disabled/stdout",
+      "mode": "0644",
+      "mtime_ns": 1792027646000000000,
+      "sha256": "621948d9b8951bc4a3ea3980cb8e5fbfe973c4c61187f9d65822b1804425d925",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-disabled/stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-disabled/user/Config/DSUClient.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027646000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-disabled/user/Config/DSUClient.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 417,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-disabled/user/Config/Dolphin.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027646000000000,
+      "sha256": "444767684ac90cbea3796336d15f489e003664772667f3b05e63848779f0f21f",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-disabled/user/Config/Dolphin.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-disabled/user/Config/FreeLook.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027646000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-disabled/user/Config/FreeLook.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-disabled/user/Config/GCKeyNew.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027646000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-disabled/user/Config/GCKeyNew.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-disabled/user/Config/GCPadNew.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027646000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-disabled/user/Config/GCPadNew.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-disabled/user/Config/GFX.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027646000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-disabled/user/Config/GFX.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 954,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-disabled/user/Config/Logger.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027646000000000,
+      "sha256": "fdfc6c6619e2e728260994253a98ddc1f14ecc51d6b7dca898df96d470b9007c",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-disabled/user/Config/Logger.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 141,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-disabled/user/Config/RetroAchievements.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027646000000000,
+      "sha256": "6c4fc2d0ff4591345ef5770e9d5f834b03c3fccdbf8a2bbd0943cda0f34c76ca",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-disabled/user/Config/RetroAchievements.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 42,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-disabled/user/Config/TimePlayed.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027644000000000,
+      "sha256": "0fe205985e472b005a9f88e7f1ea031636937d03dd6c21ff5de59576f32cc27d",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-disabled/user/Config/TimePlayed.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-disabled/user/Config/WiimoteNew.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027646000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-disabled/user/Config/WiimoteNew.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 384,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-disabled/user/Wii/fst.bin",
+      "mode": "0644",
+      "mtime_ns": 1792027646000000000,
+      "sha256": "736c78c6c24775ab7b4a537a389d9bba4a19f1da62e7d7873d95953e2817e6f6",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-disabled/user/Wii/fst.bin",
+      "uid": 1000
+    },
+    {
+      "bytes": 16384,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-disabled/user/Wii/shared2/sys/SYSCONF",
+      "mode": "0644",
+      "mtime_ns": 1792027646000000000,
+      "sha256": "a4b49819e434fed10c76e793e79d65a597797f3f55c14e36f5eb672c8c480f88",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-disabled/user/Wii/shared2/sys/SYSCONF",
+      "uid": 1000
+    },
+    {
+      "bytes": 288,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-enabled/config-before.json",
+      "mode": "0644",
+      "mtime_ns": 1792027639000000000,
+      "sha256": "f09de967db039441bca24b643bc53f250dda0d6eff1ee32499bb76011ebaaa69",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-enabled/config-before.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 5081,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-enabled/result.json",
+      "mode": "0644",
+      "mtime_ns": 1792027643000000000,
+      "sha256": "a1457525d51443b25b197270e607c0ca6705a27b13a2ab3b71eb757ac51c067c",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-enabled/result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1917,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-enabled/stderr",
+      "mode": "0644",
+      "mtime_ns": 1792027643000000000,
+      "sha256": "c5a436a4772806e86375b57c3ffd12b015c9146ac7dd74c399d0efd449af50d6",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-enabled/stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 96,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-enabled/stdout",
+      "mode": "0644",
+      "mtime_ns": 1792027643000000000,
+      "sha256": "621948d9b8951bc4a3ea3980cb8e5fbfe973c4c61187f9d65822b1804425d925",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-enabled/stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-enabled/user/Config/DSUClient.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027643000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-enabled/user/Config/DSUClient.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 417,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-enabled/user/Config/Dolphin.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027643000000000,
+      "sha256": "f0a2b6db6df572ae5f1815a188fc6fa507bbd27fef1fbd33035acf65e49cdd86",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-enabled/user/Config/Dolphin.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-enabled/user/Config/FreeLook.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027643000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-enabled/user/Config/FreeLook.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-enabled/user/Config/GCKeyNew.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027643000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-enabled/user/Config/GCKeyNew.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-enabled/user/Config/GCPadNew.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027643000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-enabled/user/Config/GCPadNew.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-enabled/user/Config/GFX.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027643000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-enabled/user/Config/GFX.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 954,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-enabled/user/Config/Logger.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027643000000000,
+      "sha256": "fdfc6c6619e2e728260994253a98ddc1f14ecc51d6b7dca898df96d470b9007c",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-enabled/user/Config/Logger.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 120,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-enabled/user/Config/RetroAchievements.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027643000000000,
+      "sha256": "09b1eb7d6d455021da638bed5fef417c81bc30ca959bf3068dc690b060b9291a",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-enabled/user/Config/RetroAchievements.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 42,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-enabled/user/Config/TimePlayed.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027640000000000,
+      "sha256": "0fe205985e472b005a9f88e7f1ea031636937d03dd6c21ff5de59576f32cc27d",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-enabled/user/Config/TimePlayed.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-enabled/user/Config/WiimoteNew.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027643000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-enabled/user/Config/WiimoteNew.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 384,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-enabled/user/Wii/fst.bin",
+      "mode": "0644",
+      "mtime_ns": 1792027643000000000,
+      "sha256": "736c78c6c24775ab7b4a537a389d9bba4a19f1da62e7d7873d95953e2817e6f6",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-enabled/user/Wii/fst.bin",
+      "uid": 1000
+    },
+    {
+      "bytes": 16384,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-enabled/user/Wii/shared2/sys/SYSCONF",
+      "mode": "0644",
+      "mtime_ns": 1792027643000000000,
+      "sha256": "a4b49819e434fed10c76e793e79d65a597797f3f55c14e36f5eb672c8c480f88",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-enabled/user/Wii/shared2/sys/SYSCONF",
+      "uid": 1000
+    },
+    {
+      "bytes": 288,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-failed-boot/config-before.json",
+      "mode": "0644",
+      "mtime_ns": 1792027646000000000,
+      "sha256": "f09de967db039441bca24b643bc53f250dda0d6eff1ee32499bb76011ebaaa69",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-failed-boot/config-before.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1344,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-failed-boot/result.json",
+      "mode": "0644",
+      "mtime_ns": 1792027647000000000,
+      "sha256": "aab4cf9130e12a28760498c343090a52fa2a890c923a4e4871f83b8a9df7385c",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-failed-boot/result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 803,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-failed-boot/stderr",
+      "mode": "0644",
+      "mtime_ns": 1792027646000000000,
+      "sha256": "007f70eb6f6e5246103ed986362f2e264aed3ed749a9f76b07e9925846296a91",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-failed-boot/stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-failed-boot/stdout",
+      "mode": "0644",
+      "mtime_ns": 1792027646000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-failed-boot/stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-failed-boot/user/Config/DSUClient.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027647000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-failed-boot/user/Config/DSUClient.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 399,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-failed-boot/user/Config/Dolphin.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027647000000000,
+      "sha256": "88fd3338be34382eb68022ee36c93d95862cb8caeb956fcc06bd8f3635c9bbab",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-failed-boot/user/Config/Dolphin.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-failed-boot/user/Config/FreeLook.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027647000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-failed-boot/user/Config/FreeLook.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-failed-boot/user/Config/GCKeyNew.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027647000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-failed-boot/user/Config/GCKeyNew.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-failed-boot/user/Config/GCPadNew.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027647000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-failed-boot/user/Config/GCPadNew.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-failed-boot/user/Config/GFX.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027647000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-failed-boot/user/Config/GFX.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 954,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-failed-boot/user/Config/Logger.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027647000000000,
+      "sha256": "fdfc6c6619e2e728260994253a98ddc1f14ecc51d6b7dca898df96d470b9007c",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-failed-boot/user/Config/Logger.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 120,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-failed-boot/user/Config/RetroAchievements.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027647000000000,
+      "sha256": "09b1eb7d6d455021da638bed5fef417c81bc30ca959bf3068dc690b060b9291a",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-failed-boot/user/Config/RetroAchievements.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-failed-boot/user/Config/WiimoteNew.ini",
+      "mode": "0644",
+      "mtime_ns": 1792027647000000000,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-failed-boot/user/Config/WiimoteNew.ini",
+      "uid": 1000
+    },
+    {
+      "bytes": 384,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-failed-boot/user/Wii/fst.bin",
+      "mode": "0644",
+      "mtime_ns": 1792027647000000000,
+      "sha256": "736c78c6c24775ab7b4a537a389d9bba4a19f1da62e7d7873d95953e2817e6f6",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-failed-boot/user/Wii/fst.bin",
+      "uid": 1000
+    },
+    {
+      "bytes": 16384,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/installed-failed-boot/user/Wii/shared2/sys/SYSCONF",
+      "mode": "0644",
+      "mtime_ns": 1792027647000000000,
+      "sha256": "a4b49819e434fed10c76e793e79d65a597797f3f55c14e36f5eb672c8c480f88",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/installed-failed-boot/user/Wii/shared2/sys/SYSCONF",
+      "uid": 1000
+    },
+    {
+      "bytes": 260,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/loop.dol",
+      "mode": "0644",
+      "mtime_ns": 1792027639000000000,
+      "sha256": "df4c8e53a88d2beca9b14b6818826e4792cea2f2231298917c724247e31dd664",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/loop.dol",
+      "uid": 1000
+    },
+    {
+      "bytes": 27960,
+      "gid": 1000,
+      "member": "export/guest/native-owner/case/result.json",
+      "mode": "0644",
+      "mtime_ns": 1792027647000000000,
+      "sha256": "f6e4c22148002feaac7324e018d8c9d42144bed6c7fa2bdf1cf92ee0e9289dd8",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 9545,
+      "gid": 1000,
+      "member": "export/guest/native-owner/owner-result.json",
+      "mode": "0644",
+      "mtime_ns": 1792027647000000000,
+      "sha256": "8bb0192c5d6ed9408a71abc19fcff0c25b3837cdae3d70c0ae3f5a3c803b3e46",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/owner-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 152,
+      "gid": 1000,
+      "member": "export/host-exits.json",
+      "mode": "0664",
+      "mtime_ns": 1792027677832358816,
+      "sha256": "e1b7f275311b9d367bf79d03877525d442800b3def05b2ed4c62e355ef335dc9",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/host-exits.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 16269,
+      "gid": 1000,
+      "member": "export/original-records.json",
+      "mode": "0664",
+      "mtime_ns": 1792027677868082676,
+      "sha256": "7e0f4c7b4ab358c460cce7ea756307afd86ed9316906b23e2f3bd7bd2d3dc9cd",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/original-records.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 56269,
+      "gid": 1000,
+      "member": "export/original-records.tar.gz",
+      "mode": "0664",
+      "mtime_ns": 1792027677866082656,
+      "sha256": "945d592a5a7c407dfa7101a816259a08e65845fef927cb9957a3a6cea8c594ac",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/original-records.tar.gz",
+      "uid": 1000
+    },
+    {
+      "bytes": 77,
+      "gid": 1000,
+      "member": "export/readback-result.json",
+      "mode": "0664",
+      "mtime_ns": 1792027677848504998,
+      "sha256": "c9b6199ba26523e7e5409466133720013656d6c7da3d3d67ca6d5552c9dc4741",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/readback-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 9304,
+      "gid": 1000,
+      "member": "export/vm-result.json",
+      "mode": "0600",
+      "mtime_ns": 1792027649301406894,
+      "sha256": "02e40058941b8d66581a7e3d7d6ba5834b669fedf8030c809847b575f27322b9",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/vm-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1952,
+      "gid": 1000,
+      "member": "lifecycle-run/admission-consumed.json",
+      "mode": "0600",
+      "mtime_ns": 1792027708992885122,
+      "sha256": "a9ca108b222c1da3c6d9e1442df30bef1be80a35c32758d79f0a251306c35e6a",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/admission-consumed.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1630,
+      "gid": 1000,
+      "member": "lifecycle-run/admission-input.json",
+      "mode": "0600",
+      "mtime_ns": 1792027601254640399,
+      "sha256": "311a83238cd78f94c55b9d3bb88a79d7f21a7f214e3c4b12339ee094e154da57",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/admission-input.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 747,
+      "gid": 1000,
+      "member": "lifecycle-run/admission-plan.json",
+      "mode": "0600",
+      "mtime_ns": 1792027601254694989,
+      "sha256": "74cda6103384e8225337965edc1610ccb35eef5826a3c7c8ffa03e816bb5f3d8",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/admission-plan.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1630,
+      "gid": 1000,
+      "member": "lifecycle-run/admission.json",
+      "mode": "0600",
+      "mtime_ns": 1792027601254581137,
+      "sha256": "a193f33c1306cd8eac4d73aa1887e7ec47f76eff43fc7ac7c05bc7ac94539838",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/admission.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "lifecycle-run/build.log",
+      "mode": "0600",
+      "mtime_ns": 1792027601164017803,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/build.log",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "lifecycle-run/build.pid",
+      "mode": "0600",
+      "mtime_ns": 1792027601163865364,
+      "sha256": "3049af0f231e87d77dd43e5ade6873ecc1062654662e9d41f9737e2198d0a248",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/build.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "lifecycle-run/build.rc",
+      "mode": "0600",
+      "mtime_ns": 1792027649306686037,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/build.rc",
+      "uid": 1000
+    },
+    {
+      "bytes": 33,
+      "gid": 1000,
+      "member": "lifecycle-run/build.start",
+      "mode": "0600",
+      "mtime_ns": 1792027601163938733,
+      "sha256": "f41948e9fde01f5b21800c990291b8a48205b2ed4e38c9ba85309a6ca5f71876",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/build.start",
+      "uid": 1000
+    },
+    {
+      "bytes": 585,
+      "gid": 1000,
+      "member": "lifecycle-run/build.status",
+      "mode": "0600",
+      "mtime_ns": 1792027651431815278,
+      "sha256": "c0cc56209c38fbdd5421c15a849491beec898085ce0135a8b217b489814aca3f",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/build.status",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "lifecycle-run/build.status.pid",
+      "mode": "0600",
+      "mtime_ns": 1792027601177124903,
+      "sha256": "36bf66b3259d8717660ec5006ab750a48a7ee8bfffc8d7eb534c0c1aedfa6762",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/build.status.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "lifecycle-run/command.pid",
+      "mode": "0600",
+      "mtime_ns": 1792027601265307849,
+      "sha256": "7d863a20344f6583d86696b3d1c52ad911be07cf1464fca1b6ee44269dfb5207",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/command.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 1654,
+      "gid": 1000,
+      "member": "lifecycle-run/retention-plan.json",
+      "mode": "0600",
+      "mtime_ns": 1792027601254748026,
+      "sha256": "ee27f1192736c981a9630e6b0c324a96557c65058539f476a3d220e704bdf303",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/retention-plan.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 8384,
+      "gid": 1000,
+      "member": "lifecycle-run/retention-report.json",
+      "mode": "0600",
+      "mtime_ns": 1792027601254845837,
+      "sha256": "bcf36721079ccc2563c89c53076658301431ac7068a392083129f60f7ca55c6b",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/retention-report.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 104,
+      "gid": 1000,
+      "member": "lifecycle-run/runner-result.json",
+      "mode": "0600",
+      "mtime_ns": 1792027651479129764,
+      "sha256": "07db22d8ae9f8669c32ba681bbccd393370f4264d1cf66d033b3b5890438de6d",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/runner-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 12661,
+      "gid": 1000,
+      "member": "lifecycle-run/watch-job",
+      "mode": "0500",
+      "mtime_ns": 1792027601164017803,
+      "sha256": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/watch-job",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "lifecycle-run/watcher.err",
+      "mode": "0600",
+      "mtime_ns": 1792027601164017803,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/watcher.err",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "lifecycle-run/watcher.interval",
+      "mode": "0600",
+      "mtime_ns": 1792027601163898390,
+      "sha256": "f0b5c2c2211c8d67ed15e75e656c7862d086e9245420892a7de62cd9ec582a06",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/watcher.interval",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "lifecycle-run/watcher.pid",
+      "mode": "0600",
+      "mtime_ns": 1792027601164658359,
+      "sha256": "36bf66b3259d8717660ec5006ab750a48a7ee8bfffc8d7eb534c0c1aedfa6762",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/watcher.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 747,
+      "gid": 1000,
+      "member": "owner/admission-plan.json",
+      "mode": "0664",
+      "mtime_ns": 1792027557522344625,
+      "sha256": "e4ff826b62305c4b42d86a0636b1fbf47ebbf6285496e983921f77eb58bb9e6d",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/admission-plan.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1630,
+      "gid": 1000,
+      "member": "owner/admission.json",
+      "mode": "0600",
+      "mtime_ns": 1792027601066694190,
+      "sha256": "311a83238cd78f94c55b9d3bb88a79d7f21a7f214e3c4b12339ee094e154da57",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/admission.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 2865,
+      "gid": 1000,
+      "member": "owner/census.py",
+      "mode": "0664",
+      "mtime_ns": 1792023972943802781,
+      "sha256": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/census.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 8674,
+      "gid": 1000,
+      "member": "owner/close.py",
+      "mode": "0664",
+      "mtime_ns": 1792026849302506943,
+      "sha256": "a8d06a60edfd8d12fba145727e2c8ef1a64f438548f99d6c3e06d77333b0b18d",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/close.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 3521,
+      "gid": 1000,
+      "member": "owner/config.json",
+      "mode": "0664",
+      "mtime_ns": 1792027557522134771,
+      "sha256": "ac999751abe1ca4ab47580886fd31c66f615bbbcd8867eb2e1479fe005a5fa00",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/config.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 30,
+      "gid": 1000,
+      "member": "owner/finally-flush.txt",
+      "mode": "0600",
+      "mtime_ns": 1792027649125165519,
+      "sha256": "9da0fc5936b11d06994694850ae901b4873cd847148f2c1e28019aa0a4b1122c",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/finally-flush.txt",
+      "uid": 1000
+    },
+    {
+      "bytes": 1392,
+      "gid": 1000,
+      "member": "owner/generated-640x480.json",
+      "mode": "0600",
+      "mtime_ns": 1792027606178055301,
+      "sha256": "b071a7e079b1545792082790eaaea0f9096304ed25569dcd8d3cab654e275498",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/generated-640x480.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 115,
+      "gid": 1000,
+      "member": "owner/lifecycle-owner/console.log",
+      "mode": "0600",
+      "mtime_ns": 1792027601164017803,
+      "sha256": "0f3d7a11df43ad920c904f54512a761c412ddfccacb29be8e88d1fd6c6a9eb43",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/lifecycle-owner/console.log",
+      "uid": 1000
+    },
+    {
+      "bytes": 66,
+      "gid": 1000,
+      "member": "owner/lifecycle-owner/launcher-pid.json",
+      "mode": "0600",
+      "mtime_ns": 1792027601113062348,
+      "sha256": "7079fc0ace7a4d2e64e8a38ae52b09060786da8ffe331b6f2836470d000737f4",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/lifecycle-owner/launcher-pid.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 132,
+      "gid": 1000,
+      "member": "owner/lifecycle-owner/launcher-result.json",
+      "mode": "0600",
+      "mtime_ns": 1792027651492186827,
+      "sha256": "3c06061121c248d50acdf9a14b1da62595bb6dc4a996bfd70bea6587bad60eae",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/lifecycle-owner/launcher-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 159,
+      "gid": 1000,
+      "member": "owner/lifecycle-owner/launcher-start.json",
+      "mode": "0600",
+      "mtime_ns": 1792027601130159132,
+      "sha256": "eb21eda501b7830b5f7021689ab8f41e48e9946ac9d9dbb4c1cbaa53b2e9fdf0",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/lifecycle-owner/launcher-start.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 322,
+      "gid": 1000,
+      "member": "owner/lifecycle-owner/launcher-submission.json",
+      "mode": "0600",
+      "mtime_ns": 1792027601112646373,
+      "sha256": "e716ff9bea6e280f7bdfe0abfac0407d9b70c3945a3b1c9361dbe271345c9be9",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/lifecycle-owner/launcher-submission.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "owner/lifecycle-owner/tool-wrapper.rc",
+      "mode": "0600",
+      "mtime_ns": 1792027651492096081,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/lifecycle-owner/tool-wrapper.rc",
+      "uid": 1000
+    },
+    {
+      "bytes": 4090,
+      "gid": 1000,
+      "member": "owner/lifecycle-owner/watch-build-submit.py",
+      "mode": "0500",
+      "mtime_ns": 1792027601112687103,
+      "sha256": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/lifecycle-owner/watch-build-submit.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 58607,
+      "gid": 1000,
+      "member": "owner/monitor.log",
+      "mode": "0600",
+      "mtime_ns": 1792027637037333225,
+      "sha256": "8bfc74f79842493cc10798e4cecc1280908de6169ce02388de2c1f05d7fbdfc4",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/monitor.log",
+      "uid": 1000
+    },
+    {
+      "bytes": 74,
+      "gid": 1000,
+      "member": "owner/qa-serial.txt",
+      "mode": "0600",
+      "mtime_ns": 1792027648336043069,
+      "sha256": "52f73635465a2429a0afa196b8164f884f9d3eab8b7db71ca536f7859191c4bf",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/qa-serial.txt",
+      "uid": 1000
+    },
+    {
+      "bytes": 1569,
+      "gid": 1000,
+      "member": "owner/qemu.json",
+      "mode": "0600",
+      "mtime_ns": 1792027606392863771,
+      "sha256": "1a9273a1ab848de9179ec8fe2fabc7e7091c7bf06ab96558e02ea3d5e1eff110",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/qemu.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 227,
+      "gid": 1000,
+      "member": "owner/records/001-source-head.exit.json",
+      "mode": "0600",
+      "mtime_ns": 1792027601291144106,
+      "sha256": "e67792a6182e9738c2657fdea6e90c5841e9e7b59307016cf9d32df116770c7b",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/001-source-head.exit.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/001-source-head.stderr",
+      "mode": "0600",
+      "mtime_ns": 1792027601289189951,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/001-source-head.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 41,
+      "gid": 1000,
+      "member": "owner/records/001-source-head.stdout",
+      "mode": "0600",
+      "mtime_ns": 1792027601289308092,
+      "sha256": "a8e15a103dca7252a14b4d212212ed96fb331cfe4b4dca93b27fc5056432f5fd",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/001-source-head.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 242,
+      "gid": 1000,
+      "member": "owner/records/002-frozen-source-head.exit.json",
+      "mode": "0600",
+      "mtime_ns": 1792027601292489318,
+      "sha256": "8b8aed575deb95337c18301fc92ea34367abf0ede0f021dd499ec2bb6a8a26a0",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/002-frozen-source-head.exit.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/002-frozen-source-head.stderr",
+      "mode": "0600",
+      "mtime_ns": 1792027601291144106,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/002-frozen-source-head.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 41,
+      "gid": 1000,
+      "member": "owner/records/002-frozen-source-head.stdout",
+      "mode": "0600",
+      "mtime_ns": 1792027601291862283,
+      "sha256": "ea73eecf74dfaae6deca4a3ad7b16fd081de123b2cd3bfa7bedc38058d7a566a",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/002-frozen-source-head.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 357,
+      "gid": 1000,
+      "member": "owner/records/003-media-input.exit.json",
+      "mode": "0600",
+      "mtime_ns": 1792027601864383376,
+      "sha256": "90ffd5ae9d257fb3bd99338b88a7a4b22932e698c8652a2597486aa7206fc70b",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/003-media-input.exit.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/003-media-input.stderr",
+      "mode": "0600",
+      "mtime_ns": 1792027601831799371,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/003-media-input.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/003-media-input.stdout",
+      "mode": "0600",
+      "mtime_ns": 1792027601831799371,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/003-media-input.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 277,
+      "gid": 1000,
+      "member": "owner/records/004-media-output.exit.json",
+      "mode": "0600",
+      "mtime_ns": 1792027601896666067,
+      "sha256": "69e004cf1e3f1ae38c499902ba367dd42eb13d0416037b5219442649f79f169c",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/004-media-output.exit.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/004-media-output.stderr",
+      "mode": "0600",
+      "mtime_ns": 1792027601864441206,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/004-media-output.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/004-media-output.stdout",
+      "mode": "0600",
+      "mtime_ns": 1792027601864441206,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/004-media-output.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 335,
+      "gid": 1000,
+      "member": "owner/records/005-convert.exit.json",
+      "mode": "0600",
+      "mtime_ns": 1792027605695730326,
+      "sha256": "df8e3e2afaff70d4192fb5a0401cca874f37a49b2d6bdae056f88d942a06cbe9",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/005-convert.exit.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/005-convert.stderr",
+      "mode": "0600",
+      "mtime_ns": 1792027605230260284,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/005-convert.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/005-convert.stdout",
+      "mode": "0600",
+      "mtime_ns": 1792027605230260284,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/005-convert.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 228,
+      "gid": 1000,
+      "member": "owner/records/006-resize.exit.json",
+      "mode": "0600",
+      "mtime_ns": 1792027606061324080,
+      "sha256": "1a3f6c275373118874562de43c8733a550d1dab7a66e875eb502b41b0d5d045e",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/006-resize.exit.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/006-resize.stderr",
+      "mode": "0600",
+      "mtime_ns": 1792027605695730326,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/006-resize.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 15,
+      "gid": 1000,
+      "member": "owner/records/006-resize.stdout",
+      "mode": "0600",
+      "mtime_ns": 1792027606025355997,
+      "sha256": "beb1acdda83a132f9422d47185569d16211557867b240bf8d65e291d9760d9ae",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/006-resize.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 812,
+      "gid": 1000,
+      "member": "owner/records/007-qemu-args.exit.json",
+      "mode": "0600",
+      "mtime_ns": 1792027606177696676,
+      "sha256": "f729e9103194a794f8fb227e72c6da2656d8703caa4b3e2a9789f0ba1a662aaf",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/007-qemu-args.exit.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/007-qemu-args.stderr",
+      "mode": "0600",
+      "mtime_ns": 1792027606112356877,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/007-qemu-args.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 1111,
+      "gid": 1000,
+      "member": "owner/records/007-qemu-args.stdout",
+      "mode": "0600",
+      "mtime_ns": 1792027606152357282,
+      "sha256": "546e7614390a58f561727ab653d0cfe2ef90bc413d31e4a5151497b9507eee98",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/007-qemu-args.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 807,
+      "gid": 1000,
+      "member": "owner/records/008-qemu-start.exit.json",
+      "mode": "0600",
+      "mtime_ns": 1792027606392710205,
+      "sha256": "0f9c5bacbc8fbe476480b54e54762a6c5ab43bc5ff8d7c0df48d9ddd885152f7",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/008-qemu-start.exit.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 284,
+      "gid": 1000,
+      "member": "owner/records/008-qemu-start.stderr",
+      "mode": "0600",
+      "mtime_ns": 1792027606324359021,
+      "sha256": "70381619b1c19b90359d47516387693c347136462c7dafd5914a5ea97f4aedc1",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/008-qemu-start.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/008-qemu-start.stdout",
+      "mode": "0600",
+      "mtime_ns": 1792027606178055301,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/008-qemu-start.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 322,
+      "gid": 1000,
+      "member": "owner/records/009-wait-serial.exit.json",
+      "mode": "0600",
+      "mtime_ns": 1792027636513621432,
+      "sha256": "082f659e43d31f1339bc3f120da106c8a6fa3180abde2ad4f24ffc89b615a331",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/009-wait-serial.exit.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/009-wait-serial.stderr",
+      "mode": "0600",
+      "mtime_ns": 1792027606392863771,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/009-wait-serial.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 17,
+      "gid": 1000,
+      "member": "owner/records/009-wait-serial.stdout",
+      "mode": "0600",
+      "mtime_ns": 1792027636467663917,
+      "sha256": "472330d987ad84e5176900b9087b06e28e96fd09f3c165d10b5583216dd04d97",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/009-wait-serial.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 745,
+      "gid": 1000,
+      "member": "owner/records/010-boot.exit.json",
+      "mode": "0600",
+      "mtime_ns": 1792027637028749238,
+      "sha256": "85bee3989edfd399411e5272e21157dcee236319624a4280353e2bbf01ee92dc",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/010-boot.exit.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/010-boot.stderr",
+      "mode": "0600",
+      "mtime_ns": 1792027636513621432,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/010-boot.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 896,
+      "gid": 1000,
+      "member": "owner/records/010-boot.stdout",
+      "mode": "0600",
+      "mtime_ns": 1792027636992669228,
+      "sha256": "b157e2e69b9e5dc98c38b4173db87bfa66ec6856ac981ca13202e58532422074",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/010-boot.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 639,
+      "gid": 1000,
+      "member": "owner/records/011-media.exit.json",
+      "mode": "0600",
+      "mtime_ns": 1792027639453132720,
+      "sha256": "87b6300a63da891d564ac5c3da18534e3e74201e2ec175c67a9a18ac7f1efedb",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/011-media.exit.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/011-media.stderr",
+      "mode": "0600",
+      "mtime_ns": 1792027637037333225,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/011-media.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 22,
+      "gid": 1000,
+      "member": "owner/records/011-media.stdout",
+      "mode": "0600",
+      "mtime_ns": 1792027639416693746,
+      "sha256": "ffbe5da5c1dff7b7985d1cf1f189000fd64221111807b42c5633c55faf399ad3",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/011-media.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 503,
+      "gid": 1000,
+      "member": "owner/records/012-scratch.exit.json",
+      "mode": "0600",
+      "mtime_ns": 1792027639818420510,
+      "sha256": "add7df3fb791e8c77b7ffa37df1a418395dac40dc1fa6ae09ea2af687c0f01ca",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/012-scratch.exit.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/012-scratch.stderr",
+      "mode": "0600",
+      "mtime_ns": 1792027639453132720,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/012-scratch.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 24,
+      "gid": 1000,
+      "member": "owner/records/012-scratch.stdout",
+      "mode": "0600",
+      "mtime_ns": 1792027639792697549,
+      "sha256": "8d9778b660d10463d2e307ce920ef884d0faae76d13da61b46d81e08c83423b0",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/012-scratch.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 916,
+      "gid": 1000,
+      "member": "owner/records/013-native-case.exit.json",
+      "mode": "0600",
+      "mtime_ns": 1792027648335953759,
+      "sha256": "c86fa54760021da4ae8c563fd3a1b6819f56f9a9a088990f6e27998dda5caf3b",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/013-native-case.exit.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/013-native-case.stderr",
+      "mode": "0600",
+      "mtime_ns": 1792027639818420510,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/013-native-case.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 76,
+      "gid": 1000,
+      "member": "owner/records/013-native-case.stdout",
+      "mode": "0600",
+      "mtime_ns": 1792027648284783446,
+      "sha256": "380015942bb2180060e4ba9fe2ae3dd718ce63652f3a6b2689be0719b2daddf2",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/013-native-case.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 486,
+      "gid": 1000,
+      "member": "owner/records/014-unmount.exit.json",
+      "mode": "0600",
+      "mtime_ns": 1792027648751602270,
+      "sha256": "4218acd44a9524542ec7e593b259a35b7ef24c66e7024c2f3825be5fedb56aff",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/014-unmount.exit.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/014-unmount.stderr",
+      "mode": "0600",
+      "mtime_ns": 1792027648336043069,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/014-unmount.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 24,
+      "gid": 1000,
+      "member": "owner/records/014-unmount.stdout",
+      "mode": "0600",
+      "mtime_ns": 1792027648706787714,
+      "sha256": "a44e8ac4cb728166ac7011935e12e5e1cd01b94cbf865a59d037f7966e7ac345",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/014-unmount.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 525,
+      "gid": 1000,
+      "member": "owner/records/015-finally-flush.exit.json",
+      "mode": "0600",
+      "mtime_ns": 1792027649125131708,
+      "sha256": "bb2dcfb0dc79761e3054253e15878e19868a14666b691b97b97554a5217bfac3",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/015-finally-flush.exit.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/015-finally-flush.stderr",
+      "mode": "0600",
+      "mtime_ns": 1792027648759788250,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/015-finally-flush.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 30,
+      "gid": 1000,
+      "member": "owner/records/015-finally-flush.stdout",
+      "mode": "0600",
+      "mtime_ns": 1792027649110791801,
+      "sha256": "9da0fc5936b11d06994694850ae901b4873cd847148f2c1e28019aa0a4b1122c",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/015-finally-flush.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 329,
+      "gid": 1000,
+      "member": "owner/records/016-vm-stop.exit.json",
+      "mode": "0600",
+      "mtime_ns": 1792027649289483612,
+      "sha256": "32ea67ffd00e26f44624852eb7d646f192d1a23dfe1b2a81e8c11ccc67054f4c",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/016-vm-stop.exit.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/records/016-vm-stop.stderr",
+      "mode": "0600",
+      "mtime_ns": 1792027649125165519,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/016-vm-stop.stderr",
+      "uid": 1000
+    },
+    {
+      "bytes": 38,
+      "gid": 1000,
+      "member": "owner/records/016-vm-stop.stdout",
+      "mode": "0600",
+      "mtime_ns": 1792027649251793227,
+      "sha256": "071eda1d24d068ac3c9a85bb494e41b671aa3eb006d8a4e61ba757c50735d17c",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/016-vm-stop.stdout",
+      "uid": 1000
+    },
+    {
+      "bytes": 881,
+      "gid": 1000,
+      "member": "owner/records/boot.json",
+      "mode": "0600",
+      "mtime_ns": 1792027637028813374,
+      "sha256": "595b8b32017c56b7ed4c3d815c6cc05b175c2da5bd10773ceb50b0e0ff623fcf",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/boot.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1718,
+      "gid": 1000,
+      "member": "owner/records/final-image-inputs.json",
+      "mode": "0600",
+      "mtime_ns": 1792027258263447200,
+      "sha256": "be406d291c670610471bb31c01379552f0b4e1bb6c5ff2d73c33f56d103a2bcc",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/final-image-inputs.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 39624,
+      "gid": 1000,
+      "member": "owner/records/final-image-result.json",
+      "mode": "0600",
+      "mtime_ns": 1792027269001965199,
+      "sha256": "57575bcb84179c00e5e71ff341494b30f3103627d7bca2047588dc4dd4b5654d",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/final-image-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 121,
+      "gid": 1000,
+      "member": "owner/records/image-inflation.json",
+      "mode": "0600",
+      "mtime_ns": 1792027605230260284,
+      "sha256": "42ca9dbb51b0032c77e8245b281089215884122299a3e6e943776bb010ae995d",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/image-inflation.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1784,
+      "gid": 1000,
+      "member": "owner/records/input-files.json",
+      "mode": "0600",
+      "mtime_ns": 1792027601831779960,
+      "sha256": "cc1af1702e88ef77a49c5aa5c319fcc03cc32eb93b20c786e16df4f20fa13603",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/input-files.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 105,
+      "gid": 1000,
+      "member": "owner/records/input-media.json",
+      "mode": "0600",
+      "mtime_ns": 1792027601979949839,
+      "sha256": "23ff84ae9057160b70b016648bc6dfd7a28e26651991d1191ef09a2a2e0fe086",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/input-media.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 19832,
+      "gid": 1000,
+      "member": "owner/records/installed-source-basis.json",
+      "mode": "0664",
+      "mtime_ns": 1792027557522241271,
+      "sha256": "2b62342e43d41eabf8c8bbcbdb155fab0c2f71fa6279488b332906fa43f4a810",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/installed-source-basis.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1152,
+      "gid": 1000,
+      "member": "owner/records/watch-owner.json",
+      "mode": "0600",
+      "mtime_ns": 1792027601289189951,
+      "sha256": "ad2784f6d4d7150fc77b72eaec43913716694666d309b7021a46760e63a6c468",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/records/watch-owner.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1654,
+      "gid": 1000,
+      "member": "owner/retention-plan.json",
+      "mode": "0664",
+      "mtime_ns": 1792027557522310917,
+      "sha256": "e0d82acdab2364ecfa2bc51c9e9d99e9dbc798bbd85dd2cbe3c72999052787cc",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/retention-plan.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 8384,
+      "gid": 1000,
+      "member": "owner/retention-report.json",
+      "mode": "0664",
+      "mtime_ns": 1792027567011848801,
+      "sha256": "efe1760b321338229d7c15e6a8ebbd5dc8a5dca6510736ca09130849250c993c",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/retention-report.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "owner/serial.lock",
+      "mode": "0600",
+      "mtime_ns": 1792027601287308072,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/serial.lock",
+      "uid": 1000
+    },
+    {
+      "bytes": 319,
+      "gid": 1000,
+      "member": "owner/source/case/SHA256SUMS",
+      "mode": "0664",
+      "mtime_ns": 1792027557521273595,
+      "sha256": "3f8012945889b04883ad8b2701d211c9f8a5292b519d57071f0efcfa16452c32",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/source/case/SHA256SUMS",
+      "uid": 1000
+    },
+    {
+      "bytes": 12593,
+      "gid": 1000,
+      "member": "owner/source/case/guest-proof.py",
+      "mode": "0664",
+      "mtime_ns": 1792027198419474744,
+      "sha256": "ac21c37e9dc6280ec8a7034b1a8d044f196937cd21c095a4dea3cb72378994f4",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/source/case/guest-proof.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 495,
+      "gid": 1000,
+      "member": "owner/source/case/inputs.json",
+      "mode": "0664",
+      "mtime_ns": 1792027557521143893,
+      "sha256": "37075cc2be68f4b32c0f08ff67fcd0bde8d66df32d131f8ef24f6dfcc601502c",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/source/case/inputs.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 4284,
+      "gid": 1000,
+      "member": "owner/source/case/resources.json",
+      "mode": "0664",
+      "mtime_ns": 1792026687163430749,
+      "sha256": "cf9b1110a16b3368596db7066c4fef06b56141270b6cd8ceba059e9c09369d7c",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/source/case/resources.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 80,
+      "gid": 1000,
+      "member": "owner/source/case/run-guest.sh",
+      "mode": "0664",
+      "mtime_ns": 1792023905526567386,
+      "sha256": "8572da07f7b93bd64e388dd3c0ef88d1cc4c7d1ed4a7b0608775278018bbab06",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/source/case/run-guest.sh",
+      "uid": 1000
+    },
+    {
+      "bytes": 470,
+      "gid": 1000,
+      "member": "owner/source/owner/binding.json",
+      "mode": "0664",
+      "mtime_ns": 1792027557521587785,
+      "sha256": "66cd369d7ee3d27daba4c1f6c6083fb33d67940de370f429b99dac2f648c4bee",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/source/owner/binding.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 2865,
+      "gid": 1000,
+      "member": "owner/source/owner/census.py",
+      "mode": "0664",
+      "mtime_ns": 1792023972943802781,
+      "sha256": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/source/owner/census.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 806,
+      "gid": 1000,
+      "member": "owner/source/owner/guest-manifest.py",
+      "mode": "0664",
+      "mtime_ns": 1792023972943872328,
+      "sha256": "7c6001ce47901e62da2c311779beb3fa1856dfaa7f7f5a5f739956b336738c10",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/source/owner/guest-manifest.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 6628,
+      "gid": 1000,
+      "member": "owner/source/owner/guest-owner.py",
+      "mode": "0664",
+      "mtime_ns": 1792026784951901603,
+      "sha256": "0a44b7d4af87a3be0de0919966d67f78ef6e30ff4afb19b78436230b01bc06f4",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/source/owner/guest-owner.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 17,
+      "gid": 1000,
+      "member": "owner/unmount-640x480.txt",
+      "mode": "0600",
+      "mtime_ns": 1792027648751671851,
+      "sha256": "1e24ec7421d8cdbfc285a8a42cfb7db254151dc28eea49c63202154319be7a13",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/unmount-640x480.txt",
+      "uid": 1000
+    },
+    {
+      "bytes": 13305,
+      "gid": 1000,
+      "member": "owner/vm-lifecycle.py",
+      "mode": "0664",
+      "mtime_ns": 1792026784951941991,
+      "sha256": "ed9394afa94738f51c89121575bc5b3e010002096829d494f88dca39c2635a70",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/vm-lifecycle.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 9304,
+      "gid": 1000,
+      "member": "owner/vm-result.json",
+      "mode": "0600",
+      "mtime_ns": 1792027649301406894,
+      "sha256": "02e40058941b8d66581a7e3d7d6ba5834b669fedf8030c809847b575f27322b9",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/vm-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 38,
+      "gid": 1000,
+      "member": "owner/vm-stop.log",
+      "mode": "0600",
+      "mtime_ns": 1792027649289513676,
+      "sha256": "071eda1d24d068ac3c9a85bb494e41b671aa3eb006d8a4e61ba757c50735d17c",
+      "source_path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/vm-stop.log",
+      "uid": 1000
+    }
+  ],
+  "record_type": "compact_original_member_manifest",
+  "retained_utc": "2026-10-15T01:30:58.644018+00:00",
+  "schema": 1
+}

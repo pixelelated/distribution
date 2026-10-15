@@ -1,0 +1,39 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 592,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-dolphin-installed-20261015-01/vm",
+      "release_when": "Retain exact installed resources, case, original guest/host/cleanup exits and final source bindings; consume admission before retiring owned media."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/coordinator-review.json",
+      "sha256": "c77f6b26792a5cf67abc302e35978246aa03c093dd1bf7f32ac12086efb355f8"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/analysis.json",
+      "sha256": "b9b0074e34a7fac9b1916428da0ef444675c28b40347451aae832335839a055a"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/export-result.json",
+      "sha256": "d4d87edca58f54dc378b098cf787eccd317d9b2d74e50d2995806210e3b1bc80"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-dolphin-installed-evidence-20261015-01/guest/native-owner/case/result.json",
+      "sha256": "f6e4c22148002feaac7324e018d8c9d42144bed6c7fa2bdf1cf92ee0e9289dd8"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012641Z-6ea080ce/runner-result.json",
+      "sha256": "07db22d8ae9f8669c32ba681bbccd393370f4264d1cf66d033b3b5890438de6d"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261015T012757Z-fdcda614/runner-result.json",
+      "sha256": "fede3f8aac02d156e25d11f597f406a142ecf6d0f359210e36f3261061516ac9"
+    }
+  ]
+}

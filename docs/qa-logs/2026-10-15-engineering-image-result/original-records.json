@@ -1,0 +1,1130 @@
+{
+  "archive": "original-records.tar.gz",
+  "archive_sha256": "07206e7dea88dd286754080841463d1267da184d3d1470ee4355ad86628afcd8",
+  "archive_verified_against_every_member_bytes_hash_size_mode": true,
+  "excluded_payloads": [
+    {
+      "bytes": 47531008,
+      "member_if_retained": "readback/owner/artifacts/KERNEL",
+      "reason": "large firmware/extracted payload; deliberately not read or copied during compact retention",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/artifacts/KERNEL"
+    },
+    {
+      "bytes": 2073149440,
+      "member_if_retained": "readback/owner/artifacts/SYSTEM",
+      "reason": "large firmware/extracted payload; deliberately not read or copied during compact retention",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/artifacts/SYSTEM"
+    },
+    {
+      "bytes": 4333764608,
+      "member_if_retained": "readback/owner/artifacts/candidate.img",
+      "reason": "large firmware/extracted payload; deliberately not read or copied during compact retention",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/artifacts/candidate.img"
+    }
+  ],
+  "member_count": 109,
+  "members": [
+    {
+      "bytes": 2466,
+      "gid": 1000,
+      "member": "build/owner/admission-plan.json",
+      "mode": "0664",
+      "mtime_ns": 1792026884514414161,
+      "sha256": "c4b3012f1305802be9412d563d52eb7816e3028c79ae63f69787a27986702927",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/admission-plan.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 3353,
+      "gid": 1000,
+      "member": "build/owner/admission.json",
+      "mode": "0600",
+      "mtime_ns": 1792026911887829538,
+      "sha256": "84a9fe4c83c655974f81cd889bb41105a57548e7f1d52d758cd2e2e062034788",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/admission.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1729,
+      "gid": 1000,
+      "member": "build/owner/allocated-roots.jsonl",
+      "mode": "0600",
+      "mtime_ns": 1792027185029087294,
+      "sha256": "84ad9803a01b0cf64e482a28bab73fc688300d1db69f2170e3d2e27c0ec70f6e",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/allocated-roots.jsonl",
+      "uid": 1000
+    },
+    {
+      "bytes": 2467,
+      "gid": 1000,
+      "member": "build/owner/build-inputs.json",
+      "mode": "0400",
+      "mtime_ns": 1792026884242625771,
+      "sha256": "f30889ac13463598fc7e016c6cbdae52adf02b1a9ae6b7f3c0bc392bb1cbb498",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/build-inputs.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 15999,
+      "gid": 1000,
+      "member": "build/owner/build-owner.py",
+      "mode": "0400",
+      "mtime_ns": 1792026884242352561,
+      "sha256": "1166a472695792741f281982452b8e01ea0afea4770e28c21181d01cca5da25f",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/build-owner.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 1276,
+      "gid": 1000,
+      "member": "build/owner/completed-readback.json",
+      "mode": "0664",
+      "mtime_ns": 1792027213471637083,
+      "sha256": "50808ea8e7e4876f0ce1b354c2dd49db728f0434e696c4cf3cfe6789790a9495",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/completed-readback.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 3169330,
+      "gid": 1000,
+      "member": "build/owner/console.log",
+      "mode": "0600",
+      "mtime_ns": 1792027177418786959,
+      "sha256": "cb04d063f34ffe8935ef6f02928a7725f95ce1280e7cdc501ee42063ea5f7cb6",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/console.log",
+      "uid": 1000
+    },
+    {
+      "bytes": 3305,
+      "gid": 1000,
+      "member": "build/owner/consumption-evidence.json",
+      "mode": "0664",
+      "mtime_ns": 1792027213472137335,
+      "sha256": "af3a2a17ffc64ad62519745cbce66d1a6175e96a20abf3026b54c3c1b97617b3",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/consumption-evidence.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 155,
+      "gid": 1000,
+      "member": "build/owner/host-preflight.txt",
+      "mode": "0600",
+      "mtime_ns": 1792026912395559579,
+      "sha256": "35dffa32aa8ba9bfb512bc068442b6a694d2a14bc40c4d2b840b59af4c0fe301",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/host-preflight.txt",
+      "uid": 1000
+    },
+    {
+      "bytes": 33010,
+      "gid": 1000,
+      "member": "build/owner/host-resources.jsonl",
+      "mode": "0600",
+      "mtime_ns": 1792027177426007830,
+      "sha256": "47683ea228e8892dcff7c80ead2f1da0723faff6426ae7cd77e96d76abb586bf",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/host-resources.jsonl",
+      "uid": 1000
+    },
+    {
+      "bytes": 11658,
+      "gid": 1000,
+      "member": "build/owner/host-resources.py",
+      "mode": "0400",
+      "mtime_ns": 1792026884242430969,
+      "sha256": "39a1b153e861cf3256b52567eb3e251412b9ab069e70ff72f4b5ac65e71fbaf1",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/host-resources.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 5495,
+      "gid": 1000,
+      "member": "build/owner/inner-build.py",
+      "mode": "0400",
+      "mtime_ns": 1792026884242477051,
+      "sha256": "2a33d9548e9adcb278bf75de230294eeb45e79263cecc355837b284d06ff4d98",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/inner-build.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "build/owner/inner.rc",
+      "mode": "0600",
+      "mtime_ns": 1792027185031416475,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/inner.rc",
+      "uid": 1000
+    },
+    {
+      "bytes": 66,
+      "gid": 1000,
+      "member": "build/owner/launcher-pid.json",
+      "mode": "0600",
+      "mtime_ns": 1792026911941840173,
+      "sha256": "fddd791a3a05a1a39c8106f5c7b8b871b89e272ba78405e9c6d4fbdd1fc8a8d9",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/launcher-pid.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 132,
+      "gid": 1000,
+      "member": "build/owner/launcher-result.json",
+      "mode": "0600",
+      "mtime_ns": 1792027189078522815,
+      "sha256": "102fc99ed18e79d2ba9c0d48d8f310a8234f50b7eb0d5f3808840f5c6bc383ac",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/launcher-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 167,
+      "gid": 1000,
+      "member": "build/owner/launcher-start.json",
+      "mode": "0600",
+      "mtime_ns": 1792026911959167508,
+      "sha256": "60802fd0bb2eb14705aee916af144ce7d551bd3eea19e2e85f2b44406239c1c7",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/launcher-start.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 338,
+      "gid": 1000,
+      "member": "build/owner/launcher-submission.json",
+      "mode": "0600",
+      "mtime_ns": 1792026911941387382,
+      "sha256": "4cf6380c80e915497f9263e5d5676e193d6d1022cc811632d1336bc889b0cd86",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/launcher-submission.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 659,
+      "gid": 1000,
+      "member": "build/owner/owner-result.json",
+      "mode": "0600",
+      "mtime_ns": 1792027185031387487,
+      "sha256": "247967bd38bd53fa10601844889d7fc3261237d090ded2963a086c6d380121ff",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/owner-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 371,
+      "gid": 1000,
+      "member": "build/owner/owner-start.json",
+      "mode": "0600",
+      "mtime_ns": 1792026912395733639,
+      "sha256": "78292f4a288c5a51ede9de7ac5538eac69200aa7d463a66cb577e749d51deeae",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/owner-start.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1011,
+      "gid": 1000,
+      "member": "build/owner/planning-inputs.json",
+      "mode": "0664",
+      "mtime_ns": 1792026884516298703,
+      "sha256": "f0650b9510dd86361b0560efba86f1f9b77f37a45402ec3f3376f3de1ed53a47",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/planning-inputs.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 965,
+      "gid": 1000,
+      "member": "build/owner/resource-result.json",
+      "mode": "0600",
+      "mtime_ns": 1792027185031295732,
+      "sha256": "4e1f900c370290f28ab2ba0b679fbd56fc81ba111bb94d33637707e8a9f2ddff",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/resource-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1726,
+      "gid": 1000,
+      "member": "build/owner/retention-plan.json",
+      "mode": "0664",
+      "mtime_ns": 1792026884514311575,
+      "sha256": "1f3db71d98e667f5d12f9efafc8f0fb822c6a13c87a61a49c613a945f1f9b4b8",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/retention-plan.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 7380,
+      "gid": 1000,
+      "member": "build/owner/retention-report.json",
+      "mode": "0664",
+      "mtime_ns": 1792026884929950787,
+      "sha256": "35e7b13b655a75fd17830c97a0f95a0f7bcd28e10ec2db01da3b59104ac14a5c",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/retention-report.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 97,
+      "gid": 1000,
+      "member": "build/owner/run.path",
+      "mode": "0600",
+      "mtime_ns": 1792026912395607304,
+      "sha256": "12ce2157546e8a61b17a1c2774cf2ba030f38ded6005e1961338ddab7aaa9a2c",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/run.path",
+      "uid": 1000
+    },
+    {
+      "bytes": 13929,
+      "gid": 1000,
+      "member": "build/owner/stages/build-dolphin-sa/cgroup.jsonl",
+      "mode": "0644",
+      "mtime_ns": 1792027047340648236,
+      "sha256": "a71f9e55f48db370cb808c8d1a8ba55ed6d05326726adc305957f3ad2eb92a09",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/build-dolphin-sa/cgroup.jsonl",
+      "uid": 1000
+    },
+    {
+      "bytes": 1141,
+      "gid": 1000,
+      "member": "build/owner/stages/build-dolphin-sa/container-observed.json",
+      "mode": "0600",
+      "mtime_ns": 1792026961013745988,
+      "sha256": "2ca8c7a5e895224e6bb1bf0e5f0b72e598f9e0a1be01a26ed869dbab1adc1783",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/build-dolphin-sa/container-observed.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 64,
+      "gid": 1000,
+      "member": "build/owner/stages/build-dolphin-sa/container.cid",
+      "mode": "0600",
+      "mtime_ns": 1792026960912744932,
+      "sha256": "e21e86a2d8b49564e238048f50dee71b15ba03c8813c02cf1df1aa7f16bbd1f6",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/build-dolphin-sa/container.cid",
+      "uid": 1000
+    },
+    {
+      "bytes": 208,
+      "gid": 1000,
+      "member": "build/owner/stages/build-dolphin-sa/host-command.json",
+      "mode": "0600",
+      "mtime_ns": 1792026960758065588,
+      "sha256": "3bb48e679844ba4d1b356db8563c1df78a3723b152458874ec9034663b2f986b",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/build-dolphin-sa/host-command.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 159,
+      "gid": 1000,
+      "member": "build/owner/stages/build-dolphin-sa/host-observed.json",
+      "mode": "0600",
+      "mtime_ns": 1792026961214383336,
+      "sha256": "f1adb5fa0e7751a7bf70e05638593cc7dd28bcce77caf1208958f5fdf9eaae8e",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/build-dolphin-sa/host-observed.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 127,
+      "gid": 1000,
+      "member": "build/owner/stages/build-dolphin-sa/host-result.json",
+      "mode": "0600",
+      "mtime_ns": 1792027047502736062,
+      "sha256": "0a1dc96788b94cf00e69ffce9a8bf67a94bf5b372a8a54649be65efad24bbed9",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/build-dolphin-sa/host-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 85,
+      "gid": 1000,
+      "member": "build/owner/stages/build-dolphin-sa/inner-ready.json",
+      "mode": "0644",
+      "mtime_ns": 1792026961021680678,
+      "sha256": "d899c47f01f1e6b6d8910f94653340cbcaf0228bf00b262bf7870db7ca5107fe",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/build-dolphin-sa/inner-ready.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1981,
+      "gid": 1000,
+      "member": "build/owner/stages/build-dolphin-sa/inner-result.json",
+      "mode": "0644",
+      "mtime_ns": 1792027047342119581,
+      "sha256": "7e1ddd578e10d5cebaed0eb071d288fc800f43d5989ad2c9d9de72f084cc0075",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/build-dolphin-sa/inner-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1343,
+      "gid": 1000,
+      "member": "build/owner/stages/clean-dolphin-sa/cgroup.jsonl",
+      "mode": "0644",
+      "mtime_ns": 1792026960140736863,
+      "sha256": "3a7f014df5c0d7ed76c6b69c706d790eb44ee8b810f1954ee5af515b232bad2d",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/clean-dolphin-sa/cgroup.jsonl",
+      "uid": 1000
+    },
+    {
+      "bytes": 1141,
+      "gid": 1000,
+      "member": "build/owner/stages/clean-dolphin-sa/container-observed.json",
+      "mode": "0600",
+      "mtime_ns": 1792026959064316224,
+      "sha256": "79d644b364655a3681b4edf64d1e7e91293c76d70ec7b7d82b9778781c8089f3",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/clean-dolphin-sa/container-observed.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 64,
+      "gid": 1000,
+      "member": "build/owner/stages/clean-dolphin-sa/container.cid",
+      "mode": "0600",
+      "mtime_ns": 1792026958911724019,
+      "sha256": "df122fd2f8db24bfddb221ad02c59c6f7595906e4a676837ebabbee7a88f774f",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/clean-dolphin-sa/container.cid",
+      "uid": 1000
+    },
+    {
+      "bytes": 214,
+      "gid": 1000,
+      "member": "build/owner/stages/clean-dolphin-sa/host-command.json",
+      "mode": "0600",
+      "mtime_ns": 1792026958832498842,
+      "sha256": "bab7a2aea762b74ddad3f77446c8a776abe72743f60a686d43827f85432e7dce",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/clean-dolphin-sa/host-command.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 159,
+      "gid": 1000,
+      "member": "build/owner/stages/clean-dolphin-sa/host-observed.json",
+      "mode": "0600",
+      "mtime_ns": 1792026959064467028,
+      "sha256": "5f268b0ffffa8c0bd7b8a3ae460761db96120489a4c645b121bdbfb7eaa4dfce",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/clean-dolphin-sa/host-observed.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 127,
+      "gid": 1000,
+      "member": "build/owner/stages/clean-dolphin-sa/host-result.json",
+      "mode": "0600",
+      "mtime_ns": 1792026960465914088,
+      "sha256": "f503f1c3fe517b8f462fc0f73cd6d2da801143b142ccee777f4427915ca91b5b",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/clean-dolphin-sa/host-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 85,
+      "gid": 1000,
+      "member": "build/owner/stages/clean-dolphin-sa/inner-ready.json",
+      "mode": "0644",
+      "mtime_ns": 1792026959038163013,
+      "sha256": "0b51f3b33a71ded8aa581eabe79e5119d608bd5dca1cc4c895ce227978beacf3",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/clean-dolphin-sa/inner-ready.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 2071,
+      "gid": 1000,
+      "member": "build/owner/stages/clean-dolphin-sa/inner-result.json",
+      "mode": "0644",
+      "mtime_ns": 1792026960142093166,
+      "sha256": "8817ed94a0736ca575284296a0a1cf516b543009fbc141269b4829fe66191b2b",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/clean-dolphin-sa/inner-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 19606,
+      "gid": 1000,
+      "member": "build/owner/stages/image/cgroup.jsonl",
+      "mode": "0644",
+      "mtime_ns": 1792027177418007746,
+      "sha256": "3b6d87be0cd38de50b205f57f4723c33b35197b3ad1efd23a883ecc5ec5a68f0",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/image/cgroup.jsonl",
+      "uid": 1000
+    },
+    {
+      "bytes": 1141,
+      "gid": 1000,
+      "member": "build/owner/stages/image/container-observed.json",
+      "mode": "0600",
+      "mtime_ns": 1792027048043668776,
+      "sha256": "cf757757f109c0310780334c61b5934f97e0ac0a3a9e2246cd16714d78ee0a63",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/image/container-observed.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 64,
+      "gid": 1000,
+      "member": "build/owner/stages/image/container.cid",
+      "mode": "0600",
+      "mtime_ns": 1792027047941654517,
+      "sha256": "f98b73939c2e298cd45680ff9776d13172cb4d03a2c567211acb0e2dd8e8114f",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/image/container.cid",
+      "uid": 1000
+    },
+    {
+      "bytes": 347,
+      "gid": 1000,
+      "member": "build/owner/stages/image/host-command.json",
+      "mode": "0600",
+      "mtime_ns": 1792027047790390031,
+      "sha256": "b39fbcf3e7c965b296db00e97cd0ca5e1cdb929877fb76c69f260d6b5f6ad42e",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/image/host-command.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 148,
+      "gid": 1000,
+      "member": "build/owner/stages/image/host-observed.json",
+      "mode": "0600",
+      "mtime_ns": 1792027048244130577,
+      "sha256": "f06aa9b966cbf4efb0b3b78f0e6c453fda67653f53ef1a5428eb887ed275b53b",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/image/host-observed.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 116,
+      "gid": 1000,
+      "member": "build/owner/stages/image/host-result.json",
+      "mode": "0600",
+      "mtime_ns": 1792027177562162408,
+      "sha256": "ab3506e0f34ea38d7ba0af9c4172a59a8f00595027fff171ad361feedd8d841c",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/image/host-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 74,
+      "gid": 1000,
+      "member": "build/owner/stages/image/inner-ready.json",
+      "mode": "0644",
+      "mtime_ns": 1792027048055499800,
+      "sha256": "353edf54bb704d76c14be7ba01d74b20bdcbd5af93086259667a3ab294c91de8",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/image/inner-ready.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1953,
+      "gid": 1000,
+      "member": "build/owner/stages/image/inner-result.json",
+      "mode": "0644",
+      "mtime_ns": 1792027177418786959,
+      "sha256": "e8d95b86874c5e0cee49e1d6c69a63b39706258b1bccaa423a896a4dfeb735c6",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/stages/image/inner-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "build/owner/tool-wrapper.rc",
+      "mode": "0600",
+      "mtime_ns": 1792027189078412379,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/tool-wrapper.rc",
+      "uid": 1000
+    },
+    {
+      "bytes": 4090,
+      "gid": 1000,
+      "member": "build/owner/watch-build-submit.py",
+      "mode": "0500",
+      "mtime_ns": 1792026911941430743,
+      "sha256": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e",
+      "source_path": "/workspace/tmp/pix-m7-engineering-build-20261015-01/watch-build-submit.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 3595,
+      "gid": 1000,
+      "member": "build/run/admission-consumed.json",
+      "mode": "0600",
+      "mtime_ns": 1792027213521194616,
+      "sha256": "706460298e3d4c37d88e6c4c2dcbf3365dddf8dbdaa0e72bb01ce6d0120d9ad7",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173/admission-consumed.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 3353,
+      "gid": 1000,
+      "member": "build/run/admission-input.json",
+      "mode": "0600",
+      "mtime_ns": 1792026912080378188,
+      "sha256": "84a9fe4c83c655974f81cd889bb41105a57548e7f1d52d758cd2e2e062034788",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173/admission-input.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 2466,
+      "gid": 1000,
+      "member": "build/run/admission-plan.json",
+      "mode": "0600",
+      "mtime_ns": 1792026912080444765,
+      "sha256": "be735fa5e8312fe5125c1868678f81cd6a3384ea512aa4b9839d998d6df65164",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173/admission-plan.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 3273,
+      "gid": 1000,
+      "member": "build/run/admission.json",
+      "mode": "0600",
+      "mtime_ns": 1792026912080314013,
+      "sha256": "e8060e5f999b2c8e11f14e405a753f91dedf78e1aa7e9ebb550597182befe794",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173/admission.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 3169207,
+      "gid": 1000,
+      "member": "build/run/build.log",
+      "mode": "0600",
+      "mtime_ns": 1792027177418786959,
+      "sha256": "fd842796ff3aa807c6b2f613330305b5ba7982f70ae2be306e65555f6671c6fa",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173/build.log",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "build/run/build.pid",
+      "mode": "0600",
+      "mtime_ns": 1792026911992285577,
+      "sha256": "93ec847d04fc787b21bda3be79da4b88c6139eb0bda7157b5b7924b4c5ea9605",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173/build.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "build/run/build.rc",
+      "mode": "0600",
+      "mtime_ns": 1792027185038227894,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173/build.rc",
+      "uid": 1000
+    },
+    {
+      "bytes": 33,
+      "gid": 1000,
+      "member": "build/run/build.start",
+      "mode": "0600",
+      "mtime_ns": 1792026911992347073,
+      "sha256": "f8e21bd97b9ab04c6144368bf94a06ff9d1c1533eee0b9078f8dff4b05ed7907",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173/build.start",
+      "uid": 1000
+    },
+    {
+      "bytes": 746,
+      "gid": 1000,
+      "member": "build/run/build.status",
+      "mode": "0600",
+      "mtime_ns": 1792027189048129304,
+      "sha256": "7d72e41b7ee5b84991c3ce1d38d7256f530af9a1cd7ffa1c758d2f6bd90533d8",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173/build.status",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "build/run/build.status.pid",
+      "mode": "0600",
+      "mtime_ns": 1792026912005653645,
+      "sha256": "8508ee1561f6722aa258179c4c840f7b70f6ffd2586a30e2227cab0f06bdd11a",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173/build.status.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "build/run/command.pid",
+      "mode": "0600",
+      "mtime_ns": 1792026912087600818,
+      "sha256": "0f4d4353be90631b587fb96a159bdece0de3e254a6a08db79bd429a435660499",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173/command.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 1726,
+      "gid": 1000,
+      "member": "build/run/retention-plan.json",
+      "mode": "0600",
+      "mtime_ns": 1792026912080496365,
+      "sha256": "4161aae72e2455df61743f73ed4eb0b049cf07a617b289b5e7fec88061c969d0",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173/retention-plan.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 7380,
+      "gid": 1000,
+      "member": "build/run/retention-report.json",
+      "mode": "0600",
+      "mtime_ns": 1792026912080587997,
+      "sha256": "7e3bbb7ac65551625fd49e5900f2961333485a85737e7e7a1a92fd92cec215ea",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173/retention-report.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 104,
+      "gid": 1000,
+      "member": "build/run/runner-result.json",
+      "mode": "0600",
+      "mtime_ns": 1792027189069465183,
+      "sha256": "3a3e57584ebc6f3a09214b05b9ec62c9fd83f259ce700e0e3b0d077e0ae7e7c4",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173/runner-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 12661,
+      "gid": 1000,
+      "member": "build/run/watch-job",
+      "mode": "0500",
+      "mtime_ns": 1792026911992419745,
+      "sha256": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173/watch-job",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "build/run/watcher.err",
+      "mode": "0600",
+      "mtime_ns": 1792026911992419745,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173/watcher.err",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "build/run/watcher.interval",
+      "mode": "0600",
+      "mtime_ns": 1792026911992316676,
+      "sha256": "f0b5c2c2211c8d67ed15e75e656c7862d086e9245420892a7de62cd9ec582a06",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173/watcher.interval",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "build/run/watcher.pid",
+      "mode": "0600",
+      "mtime_ns": 1792026911993020055,
+      "sha256": "8508ee1561f6722aa258179c4c840f7b70f6ffd2586a30e2227cab0f06bdd11a",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173/watcher.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 788,
+      "gid": 1000,
+      "git_blob_bytes_equal": true,
+      "git_commit": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+      "member": "frozen-source/docs/qa-logs/2026-10-14-m7-installed-state-plan/installed-product-paths.txt",
+      "mode": "0664",
+      "mtime_ns": 1792026765661648619,
+      "sha256": "3dbcbde456ed4343377b2b53896bfb10199b817b534a64a560cb8406ad2b68ca",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/docs/qa-logs/2026-10-14-m7-installed-state-plan/installed-product-paths.txt",
+      "uid": 1000
+    },
+    {
+      "bytes": 45329,
+      "gid": 1000,
+      "git_blob_bytes_equal": true,
+      "git_commit": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+      "member": "frozen-source/tools/pixelelated-state-check",
+      "mode": "0775",
+      "mtime_ns": 1792026766203709925,
+      "sha256": "6d061af89caba886bd3417ee96dc01e37675655aa1ed92f423b9db02164dff03",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/pixelelated-state-check",
+      "uid": 1000
+    },
+    {
+      "bytes": 10146,
+      "gid": 1000,
+      "git_blob_bytes_equal": true,
+      "git_commit": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+      "member": "frozen-source/tools/watch-build",
+      "mode": "0775",
+      "mtime_ns": 1792026766207228189,
+      "sha256": "44a6d87505fd6a465c384d2f30bfeda5f4fe436978d227d8b0c4bae73da7e0bc",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/tools/watch-build",
+      "uid": 1000
+    },
+    {
+      "bytes": 741,
+      "gid": 1000,
+      "member": "readback/owner/admission-plan.json",
+      "mode": "0664",
+      "mtime_ns": 1792027230909146382,
+      "sha256": "57b91ecb30b9ec45277dbf3c35cab0653ef2a0a85541dc664349fe5e78507cd0",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/admission-plan.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1636,
+      "gid": 1000,
+      "member": "readback/owner/admission.json",
+      "mode": "0600",
+      "mtime_ns": 1792027256467673580,
+      "sha256": "a72cc09a56e2a657e64b42e0a30e7f0253a19ac28c90594e15b07e0f896ccc1b",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/admission.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1718,
+      "gid": 1000,
+      "member": "readback/owner/artifacts/inputs.json",
+      "mode": "0600",
+      "mtime_ns": 1792027258263447200,
+      "sha256": "be406d291c670610471bb31c01379552f0b4e1bb6c5ff2d73c33f56d103a2bcc",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/artifacts/inputs.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 39624,
+      "gid": 1000,
+      "member": "readback/owner/artifacts/result.json",
+      "mode": "0600",
+      "mtime_ns": 1792027269001965199,
+      "sha256": "57575bcb84179c00e5e71ff341494b30f3103627d7bca2047588dc4dd4b5654d",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/artifacts/result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 166,
+      "gid": 1000,
+      "member": "readback/owner/artifacts/syslinux.cfg",
+      "mode": "0600",
+      "mtime_ns": 1792027266227574151,
+      "sha256": "0d7363c758454c63b449f04122495eff4b25482c4d6ab229e4e6808595ac37b0",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/artifacts/syslinux.cfg",
+      "uid": 1000
+    },
+    {
+      "bytes": 689,
+      "gid": 1000,
+      "member": "readback/owner/completed-readback.json",
+      "mode": "0664",
+      "mtime_ns": 1792027470307392150,
+      "sha256": "c40ad1fcacb87fd9da1001438a257b1c243372c879669900f2d3fd567fded434",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/completed-readback.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 233,
+      "gid": 1000,
+      "member": "readback/owner/console.log",
+      "mode": "0600",
+      "mtime_ns": 1792027269006947096,
+      "sha256": "4e24d2300db723c2025a34b0d24585c795324ab7c05951d1baf5d731cb284454",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/console.log",
+      "uid": 1000
+    },
+    {
+      "bytes": 1465,
+      "gid": 1000,
+      "member": "readback/owner/consumption-evidence.json",
+      "mode": "0664",
+      "mtime_ns": 1792027470307609454,
+      "sha256": "39a16c91e7b9117ab46d1fc0568e60d9cb7f16b3347a6e1f29b74fdb95c4ef24",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/consumption-evidence.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 4949,
+      "gid": 1000,
+      "member": "readback/owner/dolphin-sys-source-manifest.json",
+      "mode": "0664",
+      "mtime_ns": 1792026770113795852,
+      "sha256": "b67f6590214e8b551baf2fafa726818c6b5eade1a6f339b08f1bc978f090d16f",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/dolphin-sys-source-manifest.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1422,
+      "gid": 1000,
+      "member": "readback/owner/inputs.json",
+      "mode": "0664",
+      "mtime_ns": 1792027230908997021,
+      "sha256": "53949ca240801efe737eb807023dc2ca189f4d194e20568baa11f51968c76717",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/inputs.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 66,
+      "gid": 1000,
+      "member": "readback/owner/launcher-pid.json",
+      "mode": "0600",
+      "mtime_ns": 1792027256522050139,
+      "sha256": "04bbae675e50185a3eaaeb9ba37a32e7bf375638cfa15885256c4f6ae3c0da14",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/launcher-pid.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 132,
+      "gid": 1000,
+      "member": "readback/owner/launcher-result.json",
+      "mode": "0600",
+      "mtime_ns": 1792027271749463519,
+      "sha256": "3ee3b392317a4bcfc153b2185d2e6dc22a5d5a88d1f7f0afea5d861f8d6239b0",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/launcher-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 167,
+      "gid": 1000,
+      "member": "readback/owner/launcher-start.json",
+      "mode": "0600",
+      "mtime_ns": 1792027256539735841,
+      "sha256": "ac0152cc3c91d50372ca43d8f7688aa6b87943ca0e4446183c9596766c300a79",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/launcher-start.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 338,
+      "gid": 1000,
+      "member": "readback/owner/launcher-submission.json",
+      "mode": "0600",
+      "mtime_ns": 1792027256521530928,
+      "sha256": "2d20fa7c82d0365ee25043540b09a5ddc6fd79e6cc8896666e360ab229e172d8",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/launcher-submission.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1678,
+      "gid": 1000,
+      "member": "readback/owner/retention-plan.json",
+      "mode": "0664",
+      "mtime_ns": 1792027230909178142,
+      "sha256": "e60b9a9eaa4fef8010052c372ac5c71be7743850f09da30b6970551e6602616c",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/retention-plan.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 6487,
+      "gid": 1000,
+      "member": "readback/owner/retention-report.json",
+      "mode": "0664",
+      "mtime_ns": 1792027231349934425,
+      "sha256": "ccf74686e9fbaadea7cc3b745400c2bab9017cffd21f297ca28e3f6889ef9ac4",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/retention-report.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 378,
+      "gid": 1000,
+      "member": "readback/owner/run.sh",
+      "mode": "0700",
+      "mtime_ns": 1792026847854533912,
+      "sha256": "1c75d87333ad6aa20405f0474d3448bfc8144ecc5c96a790934e84ff52408be0",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/run.sh",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "readback/owner/tool-wrapper.rc",
+      "mode": "0600",
+      "mtime_ns": 1792027271749276310,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/tool-wrapper.rc",
+      "uid": 1000
+    },
+    {
+      "bytes": 18347,
+      "gid": 1000,
+      "member": "readback/owner/verify-image.py",
+      "mode": "0664",
+      "mtime_ns": 1792026847854495468,
+      "sha256": "8b7a371eb6c59b601674ae694d0b098f7e4a4731f02484efafa564be6ecc0484",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/verify-image.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 4090,
+      "gid": 1000,
+      "member": "readback/owner/watch-build-submit.py",
+      "mode": "0500",
+      "mtime_ns": 1792027256521573448,
+      "sha256": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e",
+      "source_path": "/workspace/tmp/pix-m7-image-readback-20261015-01/watch-build-submit.py",
+      "uid": 1000
+    },
+    {
+      "bytes": 1950,
+      "gid": 1000,
+      "member": "readback/run/admission-consumed.json",
+      "mode": "0600",
+      "mtime_ns": 1792027470347328761,
+      "sha256": "77971196a7f14c4db8ce8fd13f32f75acb3b7b03e443e271880f5e0e9b298184",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d/admission-consumed.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1636,
+      "gid": 1000,
+      "member": "readback/run/admission-input.json",
+      "mode": "0600",
+      "mtime_ns": 1792027256662179395,
+      "sha256": "a72cc09a56e2a657e64b42e0a30e7f0253a19ac28c90594e15b07e0f896ccc1b",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d/admission-input.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 741,
+      "gid": 1000,
+      "member": "readback/run/admission-plan.json",
+      "mode": "0600",
+      "mtime_ns": 1792027256662233457,
+      "sha256": "090a36d01d5174bc553391510ddb96f08021dcdc8a0898a2c53adca32acd50f5",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d/admission-plan.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 1628,
+      "gid": 1000,
+      "member": "readback/run/admission.json",
+      "mode": "0600",
+      "mtime_ns": 1792027256662121256,
+      "sha256": "8373d4a0fb67cd9f092d5ad5425821f0bea759dfbdf764a16ca6fe5143c43f73",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d/admission.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 110,
+      "gid": 1000,
+      "member": "readback/run/build.log",
+      "mode": "0600",
+      "mtime_ns": 1792027269006947096,
+      "sha256": "49734b40c7c7b435a321584b9b3a99a73625b6c41160d3a13264ad18aff1bce6",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d/build.log",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "readback/run/build.pid",
+      "mode": "0600",
+      "mtime_ns": 1792027256573678744,
+      "sha256": "6c6b3eb0d9eb11ad2eeb3111c60dc4650296ad654d7fe225476acc7791a7fb70",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d/build.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "readback/run/build.rc",
+      "mode": "0600",
+      "mtime_ns": 1792027269015951716,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d/build.rc",
+      "uid": 1000
+    },
+    {
+      "bytes": 33,
+      "gid": 1000,
+      "member": "readback/run/build.start",
+      "mode": "0600",
+      "mtime_ns": 1792027256573748696,
+      "sha256": "6839d60888514aa7d611b17eb7407b251fac505b03e7a78314480f20b59f3a2b",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d/build.start",
+      "uid": 1000
+    },
+    {
+      "bytes": 714,
+      "gid": 1000,
+      "member": "readback/run/build.status",
+      "mode": "0600",
+      "mtime_ns": 1792027271717974517,
+      "sha256": "7b9cd1b1855586bd4f856198cffa40bc0b7b55180b6d88cb6a511a71fe4f79e5",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d/build.status",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "readback/run/build.status.pid",
+      "mode": "0600",
+      "mtime_ns": 1792027256585593453,
+      "sha256": "769eadad49b61e5d9c6cb7107b63d994409ade435cca015f96dd097bab138340",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d/build.status.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "readback/run/command.pid",
+      "mode": "0600",
+      "mtime_ns": 1792027256669425541,
+      "sha256": "ea05cf342b17977b3bd1b20bf708890d985b60208e87c96617b780d8d4f255d7",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d/command.pid",
+      "uid": 1000
+    },
+    {
+      "bytes": 1678,
+      "gid": 1000,
+      "member": "readback/run/retention-plan.json",
+      "mode": "0600",
+      "mtime_ns": 1792027256662289415,
+      "sha256": "e856a298b1ba40d037b17ffed3b615fda553efd77f80c2aaf4555a8cf12f0372",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d/retention-plan.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 6487,
+      "gid": 1000,
+      "member": "readback/run/retention-report.json",
+      "mode": "0600",
+      "mtime_ns": 1792027256662374836,
+      "sha256": "913599f527a8019e75b54c400a8d6a7ac373d859a7fd6488340e0f18661e7a6e",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d/retention-report.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 104,
+      "gid": 1000,
+      "member": "readback/run/runner-result.json",
+      "mode": "0600",
+      "mtime_ns": 1792027271739435813,
+      "sha256": "c8722c2c233de8cb766ca87d272f22fdd3f384dcff04ea5689d5f1493e76269f",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d/runner-result.json",
+      "uid": 1000
+    },
+    {
+      "bytes": 12661,
+      "gid": 1000,
+      "member": "readback/run/watch-job",
+      "mode": "0500",
+      "mtime_ns": 1792027256573827294,
+      "sha256": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d/watch-job",
+      "uid": 1000
+    },
+    {
+      "bytes": 0,
+      "gid": 1000,
+      "member": "readback/run/watcher.err",
+      "mode": "0600",
+      "mtime_ns": 1792027256573827294,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d/watcher.err",
+      "uid": 1000
+    },
+    {
+      "bytes": 2,
+      "gid": 1000,
+      "member": "readback/run/watcher.interval",
+      "mode": "0600",
+      "mtime_ns": 1792027256573712964,
+      "sha256": "f0b5c2c2211c8d67ed15e75e656c7862d086e9245420892a7de62cd9ec582a06",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d/watcher.interval",
+      "uid": 1000
+    },
+    {
+      "bytes": 8,
+      "gid": 1000,
+      "member": "readback/run/watcher.pid",
+      "mode": "0600",
+      "mtime_ns": 1792027256574105947,
+      "sha256": "769eadad49b61e5d9c6cb7107b63d994409ade435cca015f96dd097bab138340",
+      "source_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d/watcher.pid",
+      "uid": 1000
+    }
+  ],
+  "original_source_bytes_and_mtimes_rechecked_before_archive": true,
+  "record_type": "compact_original_member_manifest",
+  "retained_utc": "2026-10-15T01:28:40.630562+00:00",
+  "schema": 1,
+  "source": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+  "total_original_bytes": 6686545
+}

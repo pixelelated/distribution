@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-15T01:31:18.511915+00:00",
+  "status": "FAILED_INVESTIGATED",
+  "original_run_exit": 1,
+  "original_export_runner": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-15T01:30:29.870055+00:00"
+  },
+  "failure": "Fixture expected raw uinput name in control-gen SDL output; actual generated name Xbox 360 Controller and GUID030080a15e0400008e02000014010000. No game launched.",
+  "cleanup_failure": "Original umount1 busy: fixture pad/supervisor still holding output. Exact QEMU stopped; all host owners absent. Guest manifest missing, recovered files are best-effort originals, not qualified lossless guest export.",
+  "pids_absent": [
+    2351869,
+    2351870,
+    2352263,
+    2351871,
+    2352763
+  ],
+  "next": "source-only positive controller identity/failed-provision cleanup correction before any new admission"
+}

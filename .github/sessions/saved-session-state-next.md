@@ -1,6 +1,6 @@
 # Saved Session State
 
-Updated 2026-10-15 01:27 UTC. Continue authorized M7 toward next 0.0.1 RC.
+Updated 2026-10-15 01:33 UTC. Continue authorized M7 toward next 0.0.1 RC.
 Coordinator /workspace/repos/rocknix.worktrees/m7-player-setup, branch
 feature/m7-player-setup. Harness conflict-resolution untouched. Published source
 and frozen engineering checkout m7-p5-build-20261015-01: d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a;
@@ -25,12 +25,22 @@ SYSTEM and KERNEL equality, GPT/identity/selected product mappings PASS. All six
 Dolphin Sys resource rows resolve through the intended relative immutable link,
 with exact pinned hashes. Runtime qualification is explicitly false.
 
-Next sole runtime: installed Dolphin three-case VM using corrected sealed plan
+Installed Dolphin three-case VM completed PASS and admission7571f590 consumed.
+Original native exits0/0/1, CPU ticks204/203, six resources unchanged and twelve
+old badge-error checks zero. Durable packet2026-10-15-engineering-image-result.
+Reviewed sealed plan
 446781be3e630f58cbe15c80c1c8c90e7e004ab92c9d08599ecd9252db5461d5 in
 docs/qa-logs/2026-10-15-dolphin-installed-plan/. Synthetic token representation
 was corrected after the normal secret-pattern pre-commit guard; effective bytes
 unchanged and exact original scripts retained compressed. No bypass or runtime
-rerun. Then native gameplay/saves and affected clean/retained composition.
+rerun. Native gameplay first attempt failed during fixture controller provisioning, before
+any game launch. Actual SDL producer name differs from raw uinput name expected
+by fixture; original1 and exceptional unmount-busy1 preserved. Exact QEMU/owners
+absent; admission99ef54e0 consumed failed-investigated. Source-only identity and
+failed-provision cleanup correction owned by dolphin_ra_init. Evidence in
+2026-10-15-native-gameplay-fixture-failure. No runtime allocation active now.
+frame_diff_review prepares minimal affected clean/retained continuation; root
+may run that independently while native fixture is corrected.
 No H700/SM8550/RC until applicable audit and qualification complete.
 
 External blind audit submitted via primary checkout's installed Facilitator,

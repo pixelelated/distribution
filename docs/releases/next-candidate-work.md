@@ -11,6 +11,22 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## October15 01:29 qualification update
+
+The new d4af5a255f / ES3178 engineering image is built and artifact-verified.
+All three build stages and the readback have original exit0 and consumed
+allocations. Installed startup now also passes all three cases: achievements
+enabled, disabled, and failed boot. Six immutable Sys resources retain exact
+pinned bytes; the four previous badge errors are absent in every case. Live CPU
+and orderly lifecycle are observed; successful authentication and gameplay are
+not inferred. Native gameplay/save checks are the active next VM allocation.
+
+The independent audit has completed its primary forward/reverse source work.
+The sanitized blind Fable review is running through the mandatory Facilitator;
+refutation and final audit closure remain due. Affected clean/retained image
+composition follows native proof. The image remains engineering-only, with
+H700 then SM8550 after applicable qualification and audit closure.
+
 ## October15 01:03 qualification update
 
 Scripts, SFTP and localS3 now pass, composing with the previous13 passing rows

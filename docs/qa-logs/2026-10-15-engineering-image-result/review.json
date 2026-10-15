@@ -1,0 +1,243 @@
+{
+  "archive_verification": "Every member bytes, SHA256, size and mode checked after archive creation; original source bytes and mtime checked before archive; top-level original aliases equal archived members.",
+  "artifact_identities": {
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261015T011500Z.gd4af5a255f47-from-ROCKNIX.identity.json": {
+      "bytes": 411,
+      "sha256": "33e13edd91b42a2952efe47708b323eede49632fb63a66068ca12c5b6d8b76ba"
+    },
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261015T011500Z.gd4af5a255f47-from-ROCKNIX.img.gz": {
+      "bytes": 2122152413,
+      "sha256": "84b1552e4d0ed67d97b603230d1acb0b22a852217054854a9c3fe42731772ff2"
+    },
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261015T011500Z.gd4af5a255f47-from-ROCKNIX.tar": {
+      "bytes": 2123141120,
+      "sha256": "b1457d7db7d7c93551ec56e2b2b913b78399eaa6c9b831761a514d87ec3f8666"
+    }
+  },
+  "build_completed_utc": "2026-10-15T01:19:49.069330+00:00",
+  "build_consumed_utc": "2026-10-15T01:20:13.521051+00:00",
+  "build_input_sha256": "f30889ac13463598fc7e016c6cbdae52adf02b1a9ae6b7f3c0bc392bb1cbb498",
+  "build_run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T011511Z-8e690173",
+  "build_stages": [
+    {
+      "container_id": "46789d7a16511ed8db10f6de06d0a7bfda509688c58b1d0b261285d431b8b6dc",
+      "elapsed_seconds": 1.0016655400395393,
+      "memory_events": {
+        "high": 0,
+        "low": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_group_kill": 0,
+        "oom_kill": 0,
+        "sock_throttled": 0
+      },
+      "memory_peak_bytes": 45240320,
+      "original_command_rc": 0,
+      "original_host_make_rc": 0,
+      "stage": "clean-dolphin-sa",
+      "wrapper_rc": 0
+    },
+    {
+      "container_id": "e562d19c185d703c4c37bceb6ece97d45dad29148fb9596e762993c3f78f6090",
+      "elapsed_seconds": 86.11945535219274,
+      "memory_events": {
+        "high": 0,
+        "low": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_group_kill": 0,
+        "oom_kill": 0,
+        "sock_throttled": 0
+      },
+      "memory_peak_bytes": 8140591104,
+      "original_command_rc": 0,
+      "original_host_make_rc": 0,
+      "stage": "build-dolphin-sa",
+      "wrapper_rc": 0
+    },
+    {
+      "container_id": "2a1dea3345d31bfb192547b2789da9585a8c1387d732c8cda1019a774118735d",
+      "elapsed_seconds": 129.1617048929911,
+      "memory_events": {
+        "high": 0,
+        "low": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_group_kill": 0,
+        "oom_kill": 0,
+        "sock_throttled": 0
+      },
+      "memory_peak_bytes": 31683936256,
+      "original_command_rc": 0,
+      "original_host_make_rc": 0,
+      "stage": "image",
+      "wrapper_rc": 0
+    }
+  ],
+  "cleanup_evidence_basis": "Byte-preserved coordinator completed-readback receipts and original build owner/stage records; no new cleanup observation by retention task.",
+  "copied_original_aliases": {
+    "artifact-inputs.json": "readback/owner/artifacts/inputs.json",
+    "artifact-result.json": "readback/owner/artifacts/result.json",
+    "build-inputs.json": "build/owner/build-inputs.json",
+    "dolphin-sys-source-manifest.json": "readback/owner/dolphin-sys-source-manifest.json"
+  },
+  "dolphin_executable": {
+    "bytes": 8593792,
+    "link_chain": {
+      "links": [],
+      "resolved": "/usr/bin/dolphin-emu-nogui"
+    },
+    "mode": "-rwxr-xr-x",
+    "sha256": "5cb5dacafbcd2227627ef687a65318e61890ef343e5c6553f07c0fb11231fea5"
+  },
+  "historical_labels_preserved": [
+    "readback owner inputs.json status PREPARED_UNRUN is the pre-execution input state; completed originals establish execution",
+    "build planning-inputs.json admission_prepared=false is historical planning state",
+    "Dolphin Sys source manifest records old cache locators as historical provenance, not active dependencies; no old-cache reads performed",
+    "terminal build.status alive=yes is its original terminal-sampling field; later coordinator readback receipts record cleanup"
+  ],
+  "image_identity": {
+    "arch": "x86_64",
+    "build_commit": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+    "build_timestamp": "20261015T011500Z",
+    "build_version": "0.0.1-dev+20261015T011500Z.gd4af5a255f47",
+    "device": "GENERIC_X64",
+    "dirty": "no",
+    "image_name": "pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261015T011500Z.gd4af5a255f47-from-ROCKNIX",
+    "name": "pixelelated",
+    "release_version": "0.0.1-dev",
+    "schema": 1
+  },
+  "missing_original_channels": [],
+  "new_host_process_or_container_census_performed": false,
+  "original_channels_checked": [
+    "both launcher results",
+    "both tool-wrapper.rc",
+    "both runner command/monitor/runner exits",
+    "both build.rc and terminal statuses",
+    "both empty watcher.err files",
+    "build owner result",
+    "all three build stage host and inner exits",
+    "build inner.rc",
+    "build resource result",
+    "artifact result",
+    "both coordinator completed-readback receipts",
+    "both consumed admission receipts and evidence hashes"
+  ],
+  "payload_identities": {
+    "KERNEL": {
+      "bytes": 47531008,
+      "sha256": "0d7e3f11b4012645c5e39d81b61bf4acc800750cc57ffaee3e23206166f56089"
+    },
+    "SYSTEM": {
+      "bytes": 2073149440,
+      "sha256": "02bd89c50a34190bee14d33fad6587b737598454c0d9e182d240c4f0acade2a4"
+    },
+    "syslinux.cfg": {
+      "bytes": 166,
+      "sha256": "0d7363c758454c63b449f04122495eff4b25482c4d6ab229e4e6808595ac37b0"
+    }
+  },
+  "readback_completed_utc": "2026-10-15T01:21:11.739282+00:00",
+  "readback_consumed_utc": "2026-10-15T01:24:30.347195+00:00",
+  "readback_resource_scope": "Bounded run.sh settings retained; no separate resource sampler/result was part of the readback contract. Build resource sampler and result are retained.",
+  "readback_run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-01/.build-runs/20261015T012056Z-8c15b02d",
+  "record_type": "derived_review_of_retained_originals_not_new_runtime",
+  "reviewed_utc": "2026-10-15T01:28:40.630562+00:00",
+  "runtime_qualified": false,
+  "schema": 1,
+  "selected_product_count": 109,
+  "six_dolphin_sys_rows": [
+    {
+      "bytes": 1164,
+      "link_chain": {
+        "links": [
+          {
+            "path": "/usr/share/dolphin-emu/sys",
+            "target": "../../config/dolphin-emu"
+          }
+        ],
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_player.png"
+      },
+      "mode": "-rw-r--r--",
+      "path": "usr/share/dolphin-emu/sys/Resources/achievements_player.png",
+      "sha256": "a925afd5922ff7287c6c9d743a58f8d43d30a9eb39e739f6d4cddecce82be0cc"
+    },
+    {
+      "bytes": 1234,
+      "link_chain": {
+        "links": [
+          {
+            "path": "/usr/share/dolphin-emu/sys",
+            "target": "../../config/dolphin-emu"
+          }
+        ],
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_game.png"
+      },
+      "mode": "-rw-r--r--",
+      "path": "usr/share/dolphin-emu/sys/Resources/achievements_game.png",
+      "sha256": "f0b39af2812f2650950361b8d3d7e0bb3bc0eb2e0cd8516b55f9b49b1fdef3a3"
+    },
+    {
+      "bytes": 583,
+      "link_chain": {
+        "links": [
+          {
+            "path": "/usr/share/dolphin-emu/sys",
+            "target": "../../config/dolphin-emu"
+          }
+        ],
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_unlocked.png"
+      },
+      "mode": "-rw-r--r--",
+      "path": "usr/share/dolphin-emu/sys/Resources/achievements_unlocked.png",
+      "sha256": "a5263c36bfae0f02de85410c7ef5cf3a2a2eb6e2271391d847ae30f6143cf4df"
+    },
+    {
+      "bytes": 560,
+      "link_chain": {
+        "links": [
+          {
+            "path": "/usr/share/dolphin-emu/sys",
+            "target": "../../config/dolphin-emu"
+          }
+        ],
+        "resolved": "/usr/config/dolphin-emu/Resources/achievements_locked.png"
+      },
+      "mode": "-rw-r--r--",
+      "path": "usr/share/dolphin-emu/sys/Resources/achievements_locked.png",
+      "sha256": "ea2aca58c279fd2b6a8bbf2e576564b855b8bf328561e5f39a71cf76e829d3dd"
+    },
+    {
+      "bytes": 31627,
+      "link_chain": {
+        "links": [
+          {
+            "path": "/usr/share/dolphin-emu/sys",
+            "target": "../../config/dolphin-emu"
+          }
+        ],
+        "resolved": "/usr/config/dolphin-emu/ApprovedInis.json"
+      },
+      "mode": "-rw-r--r--",
+      "path": "usr/share/dolphin-emu/sys/ApprovedInis.json",
+      "sha256": "4556d3e02d7d0804313f3238454e35101ec72dbc0c3f95ff393d4f8292e07f46"
+    },
+    {
+      "bytes": 3737,
+      "link_chain": {
+        "links": [
+          {
+            "path": "/usr/share/dolphin-emu/sys",
+            "target": "../../config/dolphin-emu"
+          }
+        ],
+        "resolved": "/usr/config/dolphin-emu/GameSettings/GMSE01.ini"
+      },
+      "mode": "-rw-r--r--",
+      "path": "usr/share/dolphin-emu/sys/GameSettings/GMSE01.ini",
+      "sha256": "0f3fa22da52b6b51d3ab524e248ea14cf044184cc1638d5681343cc85069b087"
+    }
+  ],
+  "source": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a"
+}
