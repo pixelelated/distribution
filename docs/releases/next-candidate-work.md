@@ -11,6 +11,36 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 17:30 UTC — Current source mapping accepted (#528)
+
+[Exact077197 build-source snapshot and current-profile mapping](../qa-logs/2026-10-15-current-source-mapping/README.md) passed. The map
+binds accepted GENERIC, H700 and SM8550 images plus both ARM companions, preserving
+2366 historical membership rows with explicit provenance and verifying selected
+recipe/local-source continuity. Three native ZeroTier selections use its filtered
+source archive. No complete new inventory or publication claim is made.
+
+[Full FEX notice collection](../qa-logs/2026-10-15-fex-full-notices/README.md) retained76 texts; two filename-discovery gaps have
+existing full header notices and one small generated-protocol notice follow-up
+remains. Local delivery assembly is being prepared from held manifests. The
+existing audit/contact approvals, off-host custody and physical/publication gates
+remain separate. [SM8550 originals](../qa-logs/2026-10-15-zerotier-sm8550-refresh/README.md)
+are independently verified, alongside the H700 evidence below.
+
+## 2026-10-15 17:24 UTC — Native firmware refreshes accepted (#528)
+
+GENERIC, H700 DDR3/DDR4 and SM8550 now have successful canonical builds and
+independent artifact verification from077197 with timestamp20261015T161744Z.
+[H700 originals](../qa-logs/2026-10-15-zerotier-h700-refresh/README.md) retain its
+325.505s producer and independent reader. SM producer171321Z-6ff35da3 and
+reader172008Z-84c14305 passed, including exact ABL files and14 cached FEX payloads;
+compact retention is underway. All original lifecycle channels0 and consumed.
+These are artifact checks; physical device and RC qualification remain separate.
+
+Next: full FEX notices from held inputs, exact077197 source snapshot, current
+image/profile mapping with inherited inventory provenance, and source delivery.
+Focused clean/retained VM proof below remains accepted. No successful build,
+source acquisition or full inventory needs to be replayed for this assembly.
+
 ## 2026-10-15 17:01 UTC — Focused clean and retained VM checks pass (#528)
 
 GENERIC source077197 passes [focused clean/retained VM proof](../qa-logs/2026-10-15-zerotier-vm-qualified/README.md): untouched first-boot selected-state verification and

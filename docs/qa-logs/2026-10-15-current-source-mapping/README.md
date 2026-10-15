@@ -1,0 +1,25 @@
+# Current distribution snapshot and profile mapping: compact originals
+
+This packet preserves the completed exact-source snapshot custody and the subsequent metadata-only current profile mapping. The actual snapshotted source and current image source are **`077197e6cd3ea31f33b28aaf3882a694b3423b53`**. The snapshot supervisor ran under the frozen GENERIC02 host-control source **`f8636de1d105275dbf9420bbabbbc26f79abb10f`**; that tool/control identity is not the snapshot's product source.
+
+The snapshot run `20261015T172546Z-5eae7d01` completed with original command/monitor/runner, launcher, inner and outer exits zero and was ordinarily consumed as `6daffe18bfbf4b71996a2567564c4526`. Its consumed receipt SHA is `34f53015c024617f73926512dd700896a7f5729a1342d9d71ed7699c5fb5becd`. The collector reports **1.8098610159941018 seconds**, one exact distribution snapshot, 6,741 tracked blob entries and no other new sources, network, rebuild or target execution. Original cleanup reports all recorded identities absent, no signals, no errors and no survivors. Host PID namespace `4026531836` is preserved in the consumed record.
+
+Initial preflight **1**, installed swap reclaim **0**, and subsequent preflight **0** are retained as distinct original observations. The exact reclaim stdout reports `/swap.img` active, priority -1, **8,388,348 KiB free**; no synthetic producer receipt replaces that original output. Preparation run `20261015T172353Z-8e88138a` and retention report run `20261015T172517Z-5462ad84` also preserve their original 0 / 0 / 0 results.
+
+The held source archive is:
+
+- Path: `/workspace/artifacts/pixelelated-release-sources/m7-distribution-snapshot-20261015-01/distribution/077197e6cd3ea31f33b28aaf3882a694b3423b53.tar.gz`
+- Original recorded size: **25,399,839 bytes**.
+- Original recorded SHA-256: **`faf860905ee4e979ef1dc84b55ef0940143c0e031a63cf1d6a4e1a8c13377fb1`**.
+
+That archive body was **not opened, rehashed or copied** for this compact retention. The exact metadata (1,579,626 bytes, SHA `1e323a193f633dbd87c9179327c1118386c7637bef76d35a165f6e1626245e7c`) and manifest (SHA `aa3a3b25be0afe4022d3a561f02865d5182cfbde72be7b4615de501f6912980a`) are included. They retain the original source-root/member/commit associations and the exact original archive verification claim. Four tiny named Git-view metadata files are retained by explicit path; the alternates target and scratch tree were not traversed.
+
+The subsequent map ran under the coordinator's ordinary watched metadata command `20261015T172629Z-6c2483f3`, with original command/monitor/runner and root wrapper exits zero. This map has no new allocation/consumption claim added here. Its original result is `PASS_METADATA_ONLY`, elapsed **0.08150483295321465 seconds**, zero archives/source payloads opened, zero children and no network. The exact 4,380,490-byte `current-profile-source-map.json` is SHA **`7d95e91f64bcbec38096de94f236f107c0760762645f93481369cc3f17bcb741`**. `delivery-assembly-plan.json` is retained unchanged at SHA `16c61e35325512957ce11bae1d5ec4f353b84349a8ddfb56a90615a0d47d6d10`.
+
+All **2,366 component rows** and all five profile rows have `membership_newly_measured: false`. Three current accepted image bindings (GENERIC_X64, H700 and SM8550) and two ARM companion relationships are mapped to the exact current snapshot; historical package membership and original inventory provenance remain intact. The map makes no new package-inventory claim. Three ZeroTier selections now point to the held filtered client source and its four companions, retaining the old historical whole archive in historical records rather than selecting it for current delivery. The 39 held supplemental members remain references, not recopied payloads. The compact verification checked all 42 named metadata reference hashes and the original current image consumption identities without opening firmware or source payloads.
+
+Source preparation seals are `7b1922f8528e56309deaba5903303eaeb951f7ba0d49e7ca3187dfeb2e43fd8e` (snapshot) and `8dfc31cb12938748afd78ff92e83af0323eb03a08eb82d5c0f79c3af5baec805` (profile map). Their preparation-time labels and plans remain original; actual outputs and completion records are separately retained.
+
+`originals.tar.gz` contains only selected compact originals. `members.json` maps each member to its original absolute path, byte size, SHA-256, mode, UID/GID and exact nanosecond mtime. The unchanged established custody writer verifies archived bytes/metadata against originals, with a separate independent readback before release. Original large-archive and source-payload identities are carried as metadata only.
+
+No cache scan, source replay, collector execution, source/archive-body copy, new process census, runtime test, deletion or admission occurred during this compact custody. No all-source completeness, delivery bundle completion, independent retrieval, off-host transfer, license clearance, RC or publication claim is made. Remaining delivery and notice assembly work stays explicit in the original plan.
