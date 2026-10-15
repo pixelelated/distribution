@@ -52,3 +52,48 @@ the correct install destination; ROCKNIX's manual recipe omits it. Original fail
 badge reads and absent staged path are preserved. Source/pkgcheck pass; final
 installed resource/startup proof remains pending. Submit after the initial
 qualified build alongside the existing #585 queue, not as a new Dolphin API fork.
+
+### October15 — completed recognition, native-state and audit follow-ups
+
+This dated reconciliation supersedes the earlier pending-proof wording above
+for #574/#575/#584 and records #593/#594/#595. It updates the existing
+[#585 queue](https://github.com/pixelelated/distribution/issues/585), without
+adding duplicate candidates or changing milestone order. Accepted composition
+is distribution `f8636de1d105275dbf9420bbabbbc26f79abb10f` / ES
+`16dbac5211eea7e70db7394372033be2be7df829`. The [final artifact and clean/retained
+records](../qa-logs/2026-10-15-final-engineering-result/README.md) preserve the
+producer's separate #597 reporting failure and unknown launcher wait.
+
+- #574 now has independent Dolphin format/native/installed hash proof and final
+  composition. Keep three distinct owners: libretro-common's one-file MD5 patch;
+  the ES RVZ adapter/build/notices and narrow failed-hash retry; and
+  **RetroAchievements/rcheevos** `src/rhash/hash_disc.c` short-read, unsigned-size
+  and caller-close corrections. The last is a destination clarification within
+  the existing combined disc-reader item, not a duplicate candidate. The retained
+  [October13 source comparison](../qa-logs/2026-10-13-rvz-source/README.md) supplies
+  its dated upstream basis. The prepared MD5 upstream-only run remains UNRUN.
+- #584's [installed NoGUI lifecycle](../qa-logs/2026-10-15-engineering-image-result/dolphin-installed/README.md)
+  and final executable continuity close the old installed-startup gap. Keep
+  Dolphin's conditional MainNoGUI init/shutdown patch separate from ROCKNIX's
+  conditional offline routing, inactive-session correction and Sys packaging.
+  Synthetic failed authentication establishes neither login nor awards.
+- #575's [completed native-state readback](../audits/2026_10_14-milestone-m7-next-candidate/native-state02-readback.md)
+  complements accepted ordinary saves and EN/FR capability frames. Contribute
+  accurate guidance only where upstream has the same capability mismatch; native
+  manual/automatic states do not add ES global auto-state or manager integration.
+- #593's worker controls and actual Back/reopen/normal-exit flows, and #594's
+  full-helper transitions plus localized refusal, now have accepted
+  [clean](../qa-logs/2026-10-15-final-engineering-result/clean/README.md) and
+  [retained](../qa-logs/2026-10-15-final-engineering-result/retained/README.md)
+  installed evidence. Wi-Fi worker adoption stays conditional; the Dolphin
+  inactive-session patch is a separable helper/two-caller correction.
+- #595 stays a one-line isolated Python invocation patch under the existing
+  Steam item, separate from transactions and metadata deadlines. Recorded
+  negative/positive controls qualify that invocation. GENERIC_X64 omits the
+  ARM installer; SM8550 payload readback remains #555's device criterion.
+
+ES component ownership remains ROCKNIX/emulationstation-next; D-WORKFLOW-012
+routes its contribution through a focused `ROCKNIX/distribution:next` ES
+patch/package change. Refresh current upstream and duplicates before any
+submission. These accepted local results do not claim current-base-ready patches,
+authorize posting, change #168's ownership, or broaden physical/account/RC scope.

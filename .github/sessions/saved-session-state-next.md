@@ -34,8 +34,9 @@ closed exact bodies; compact custody docs/qa-logs/2026-10-15-native-tracker-clos
 released and root checksum verified. #583 unchanged. Milestone and #555 now say
 H700 cache ACTIVE and audit published; no unrun build checkbox checked.
 
-Dolphin source agent owns only /tmp/pix-m7-upstream-queue-reconcile-20261015 to
-prepare narrow #585 queue refresh, no runtime/shared writes. Others complete.
+Source workers complete. #585 exact additive queue/doc refresh applied;39originals
+are sealed under docs/upstream/2026-10-15-queue-reconciliation/. rcheevos disc-reader
+ownership clarified within existing574row; no duplicate candidate/upstream posting.
 
 ## Latest 2026-10-15 05:24 UTC — H700 preparation active; final records published
 
