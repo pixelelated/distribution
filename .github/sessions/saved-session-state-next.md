@@ -1,15 +1,16 @@
 # Saved Session State
 
-Updated 2026-10-15 17:30 UTC. Continue authorized M7 work; no build, VM or
-source-runtime job remains active. Two source workers are finishing
-bounded packets, not running builds. Saving this checkpoint does not pause work.
+Updated 2026-10-15 17:59 UTC. Continue authorized M7 work; no build, VM or
+source-runtime job remains active. Local source delivery and independent readback
+passed. The source worker prepares the small notice supplement, without runtime.
+Saving this checkpoint does not pause work.
 
 ## Resume and authority
 
 Coordinator `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
 `feature/m7-final-qualification-02`; primary `/workspace/repos/rocknix` stays on
 `next`. Harness checkout `conflict-resolution` stays untouched. Published evidence
-head is b5250a18d870a42e182f7f28919d89d700086079; read current Git/remote state
+head is bb7be05e77a01daa86127dfc51719f6b7d0c22f0; read current Git/remote state
 before assuming a later docs commit has landed. Current uncommitted work retains
 accepted native/source evidence and updates records only. Product source is
 077197e6cd3ea31f33b28aaf3882a694b3423b53, ES16dbac5211eea7e70db7394372033be2be7df829,
@@ -76,13 +77,16 @@ Launcher /workspace/tmp/pix-m7-fex-full-notices-launcher-20261015-01 is record-o
 its console.log names the run, and it has no run.path. No children/network/source
 execution. The three discovery gaps are explicit: libdrm/libglvnd root notice
 filenames (complete selected header grants already retained), and generated
-libxcb src/xproto.h absent. source_custody_delta prepares the one small held
-xcb-proto1.17.0 notice read (COPYING/src/xproto.xml only), preserving version-only
-association limits. No download or generator/whole-Nix-closure proof is needed.
+libxcb src/xproto.h absent. The supplementary xcb-proto1.17.0 notice read173444Z-e82050c5 passed all original
+channels 0 in0.0159s, retaining COPYING/src/xproto.xml (207,542B) with no discovery
+gaps. Root read notices, verified hashes and launcher PID/start absence. Its
+version-only Nix association is explicit; no generator/full-source equality claim.
+Owner /workspace/tmp/pix-m7-fex-xcb-protocol-notices-20261015-01; compact originals underdocs/qa-logs/2026-10-15-fex-protocol-notices/ are root
+verified46members/39files, seal1621340198647451ab5b47bc348be9cd9c466a49525ab4e01a6b04746e9731e8.
 Compact originals: docs/qa-logs/2026-10-15-fex-full-notices/, root verified122members/115files; seal2f2c7895cc2e9b42eadc808abc4f56cd9e565377aba5918ab09b6d0817515abf.
 
 Exact077197 tracked build-source snapshot172546Z-5eae7d01 passed in1.810s,
-all original channels0/clean child closure, consumed6daffe18bfbf4b71996a2567564c4526.
+all original channels 0/clean child closure, consumed6daffe18bfbf4b71996a2567564c4526.
 Owner /workspace/tmp/pix-m7-distribution-snapshot-20261015-01. Exact6741Git entries,
 64,485,661blob bytes; archive25,399,839B
 faf860905ee4e979ef1dc84b55ef0940143c0e031a63cf1d6a4e1a8c13377fb1.
@@ -104,12 +108,32 @@ Snapshot/map originals retained under
  docs/qa-logs/2026-10-15-current-source-mapping/; root independently verified
 175members/162files, seal749cbf8d23c6d4111e4b9cadda56804c25c2f7ce31cf52964fccf9fee0fe9312.
 
-m7_source_resume_review prepares next local delivery assembly from actual held
-manifests and current map, under /tmp/pix-m7-delivery-assembly-plan-20261015.
-Use existing bounded exact-file copier, no cache copy or inventory/acquisition
-replay. Read its actual manifest totals/bounds before runtime allocation.
-Off-host destination remains the owner's comparison under D-WORKFLOW-107;
-preparation is not external-transfer or publication authority.
+Local delivery 175402Z-f2709ea1 completed with all original channels 0 and was
+consumed 35a1fa2634d8422a86eeacd0adcae572. Owner
+/workspace/tmp/pix-m7-delivery-assembly-20261015-01; custody
+/workspace/artifacts/pixelelated-release-sources/m7-delivery-source-20261015-01.
+Exactly 1,869 selected objects/12,516,737,444B plus six metadata/verifier files;
+manifest dfbc11140c9f51d1a92572909e5404a7451df1d43a47a223827da1277e1bfb90.
+Collector: 31.983 seconds, 62,624,385,456 bytes read, no network/source execution/archive decode.
+Independent bundle-relative verification: 3.161 seconds / 12,520,072,617 bytes, 2,366 component rows,
+zero original payload paths opened; no fallback to original stores. No signals,
+cleanup errors or surviving owned identities. Current host admission ledger is
+empty of active work. Superseded selections and whole old ZeroTier are excluded.
+Source packet /tmp/pix-m7-delivery-assembly-plan-20261015 sealed feb252c42156bf9bd82492b48df95d3e53d7f8b6d37012a00ed732f74c13f573;
+independent source review /tmp/pix-m7-delivery-assembly-review-20261015 sealed
+6ae106924a4044a5e8194a1c75be46281c594ff880b954b009acb38ce9ec4fe3.
+Root coordinator /tmp/pix-m7-delivery-coordinator-20261015 retains each original
+stage exit. No rerun is needed. Compact originals are independently verified
+and retained at docs/qa-logs/2026-10-15-source-delivery/ (151 members / 140 files,
+seal 24771b44bea3cb6b6bc15f2295f364328bde5a72aa7ee86c58844c3f9e966869).
+The 12.52 GB source objects remain outside Git; small manifests/receipts are exact.
+
+m7_source_resume_review prepares the applicable-notice supplement from already
+held FreeJ2ME/current43 records, deduplicating against this bundle and preserving
+existing dispositions. Source/context records are not automatically new notice
+obligations; no acquisition or archive-body pass. Off-host destination remains
+the owner's comparison under D-WORKFLOW-107. Local copies/verification do not
+satisfy actual off-host custody or independent off-host retrieval.
 
 All earlier accepted inputs remain held: exact39 source supplement293,582,752B
 (manifest022b44b19fc23da08b2a158f3ba92689f494581118f1726ff6d39e60ea04bea0),
@@ -121,8 +145,9 @@ checkpoint archived at saved-session-state-next-20261015T173000Z.md.
 
 ## Remaining order and boundaries
 
-1. Finish the narrow protocol notice read/disposition, then exact local delivery
-   assembly and independent retrieval. Preserve ABL/MAME pending questions.
+1. Finish the small applicable-notice supplement and retain local delivery
+   evidence. The source copy and bundle-relative readback already pass.
+   Preserve ABL/MAME pending questions; do not replay completed work.
 2. Complete required off-host custody once destination/authority exist; a second
    directory on this drive is not off-host backup.
 3. Complete #603 external audit after its existing exact pending answer.
@@ -143,6 +168,17 @@ saving was not adopted. Nova metadata's original writer is unknown; fresh/retain
 state controls are delivered. #558 shutdown/#561LED are watches. #587 proxy pause,
 #576GTK4,#568progress,#562integrity,#586credentials,#560fast shutdown remain backlog.
 
+## Product delta after the frozen audit
+
+The exact product diff from frozen audit cdd92 to 077197 is two ZeroTier files
+(package.mk and 001-client-without-nonfree-headers.patch), 90 insertions / 4 deletions.
+It is outside #603's immutable transfer packet. The routine focused source
+review is complete with NO_CONCRETE_DEFECT_FOUND_IN_REVIEWED_DELTA. Compact
+originals docs/qa-logs/2026-10-15-post-audit-product-delta/ independently pass
+42 members / 38 files; seal d0325d4f660f390b13f0e920cb92980d1132d2af2b1a5b48d5dae19d8faab230.
+This is not an external/model-independent review or broad audit completion.
+Preserve this scope distinction; do not alter the pending exact packets.
+
 ## Audit, CI and actual pending requests
 
 #603 primary review passed all 67 literal criteria across 15 completed issues at
@@ -159,7 +195,7 @@ cover different packets. Do not duplicate the question or infer approval from
 time passing. Resume `m7_handoff_audit_603` only after the actual answer, using
 only the Council Facilitator and a fresh serialized allocation.
 
-At published `b5250a18`, both wordlists passed (38774757730 and38774693360); record CI38774757694 failed only
+At published `bb7be05e77`, both wordlists passed (38778302461 and38778301831); record CI38778301772 failed only
 outstanding audit cadence (16 completed closures, threshold12). All other record
 steps passed. Cheap pre-push checks remain required; do not call overall CI green.
 

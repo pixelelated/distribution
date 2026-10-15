@@ -11,6 +11,24 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 17:59 UTC — Portable local source delivery accepted (#528)
+
+All 1,869 selected source/notice objects (12.52 GB) are copied into a local
+bundle; [exact delivery receipts](../qa-logs/2026-10-15-source-delivery/README.md)
+are retained and independently verified. Run 175402Z-f2709ea1 passed all original
+channels and is consumed.
+Independent verification read only bundle-relative files, checked all 2,366
+component mappings and opened no original payload paths. Manifest SHA256
+`dfbc11140c9f51d1a92572909e5404a7451df1d43a47a223827da1277e1bfb90`.
+The small applicable-notice supplement from accepted held records is next;
+off-host custody/retrieval and the narrow ABL/MAME source questions remain.
+
+[Protocol notice follow-up](../qa-logs/2026-10-15-fex-protocol-notices/README.md)
+and the [later ZeroTier delta review](../qa-logs/2026-10-15-post-audit-product-delta/README.md)
+are retained and independently verified. The latter is a routine local review,
+separate from #603's frozen external packets; those exact approvals remain pending.
+Current firmware and focused VM proof remain accepted. No new deployment or RC claim.
+
 ## 2026-10-15 17:30 UTC — Current source mapping accepted (#528)
 
 [Exact077197 build-source snapshot and current-profile mapping](../qa-logs/2026-10-15-current-source-mapping/README.md) passed. The map
