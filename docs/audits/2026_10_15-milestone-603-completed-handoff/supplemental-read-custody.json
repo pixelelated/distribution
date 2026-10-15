@@ -1,0 +1,846 @@
+{
+  "created": "2026-10-15T11:19:29.761311+00:00",
+  "scope": "safe selected decoded final affected exports and exact native03 cold frames; no execution",
+  "files": [
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-current.json",
+      "bytes": 815,
+      "sha256": "697f9945e1b5649f724334cc1619ebdefd0414619ee99879b464acc594ba52f3"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate.owner.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate.owner.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/settings-restored-stopped.json",
+      "bytes": 283,
+      "sha256": "977d1015a5c81c621f08b61902bb56b9e6ee58852f173c56b3e5699b03c67e31"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/restored.json",
+      "bytes": 186,
+      "sha256": "53402afbbada834d2d7662a3516849a686f5770030311c73035ab078c3c9e6b6"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/mounts.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/installed-dolphin-190dfe3f.stdout",
+      "bytes": 66,
+      "sha256": "558a6fdc47ab24f992b285dfc6abbe0eef568b9f3bd058f63b2d4a2670de8604"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/installed-dolphin-190dfe3f.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/installed-dolphin-190dfe3f.json",
+      "bytes": 208,
+      "sha256": "03ed2cf2e60b399704c8993962336838d9c80d99397ef3ec8e9eacbf100fc379"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/init.json",
+      "bytes": 1209,
+      "sha256": "042d86c5a6104ced61b009998f8d5b8167153b21949b07fbd5fa3489c3faea8f"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/http-6f780cd55dc94d82a3281c2ea5659d04.json",
+      "bytes": 141,
+      "sha256": "377f6c2234ae2b52826e7744294ebdd3d61be4cd22b9c928c2a2a9186219f56b"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/http-45c69eb1082a4944ac781151a2cdf2b6.json",
+      "bytes": 139,
+      "sha256": "33423a953f242ca2c320a1ba275bdd725ecfd392c691d24cc81ceb1b7a01ab56"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin.json",
+      "bytes": 242,
+      "sha256": "e9a475c69e542d2531d968b41d10cccb502fed48d8bf7a0b7a56b2cc4e8792fa"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-unbind-325656b3.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-unbind-325656b3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-unbind-325656b3.json",
+      "bytes": 107,
+      "sha256": "fce395f614cdeba3a6f17fec5746b441b4ef055a67e3d4ceeaa3b5faeded528e"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-stop-es-87bd099b.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-stop-es-87bd099b.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-stop-es-87bd099b.json",
+      "bytes": 120,
+      "sha256": "2d5072cb6f45b7d73102835d657cabd6dac0a9e157199199b4045ee49db1eb51"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-stop-es-2e31bf8b.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-stop-es-2e31bf8b.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-stop-es-2e31bf8b.json",
+      "bytes": 120,
+      "sha256": "2d5072cb6f45b7d73102835d657cabd6dac0a9e157199199b4045ee49db1eb51"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-stop-es-1b9244ce.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-stop-es-1b9244ce.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-stop-es-1b9244ce.json",
+      "bytes": 120,
+      "sha256": "2d5072cb6f45b7d73102835d657cabd6dac0a9e157199199b4045ee49db1eb51"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-start-es-4041c0d4.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-start-es-4041c0d4.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-start-es-4041c0d4.json",
+      "bytes": 121,
+      "sha256": "bc2594b43ad7263f1cfd67a7589d20887572c1ec27748509fd06135fd0778b53"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-settings-531e8da8.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-settings-531e8da8.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-settings-531e8da8.json",
+      "bytes": 252,
+      "sha256": "c3e5174464fd7b2bbff65db60364ecd0934b4ffb988eee1d636bdf0fb5655182"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-private-4d37a13c.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-private-4d37a13c.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-private-4d37a13c.json",
+      "bytes": 128,
+      "sha256": "8017ab9ec789ad68794f3a9930765db79c3d2b98aefceb14d0a576154731195a"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-bind-108d33ef.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-bind-108d33ef.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/audit-bind-108d33ef.json",
+      "bytes": 153,
+      "sha256": "eb48680f2945a05a426fa680a0092cda9e1e0ba814d3a9a8d6df2ac6b3c85052"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate/startup-inputs.json",
+      "bytes": 372,
+      "sha256": "05cbb2002b162a4c6906ac9216376a43b1c07416a81295f10dd710eb47c20cdb"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate/result.json",
+      "bytes": 1790,
+      "sha256": "155ad890373795aea8669eeab153bedf7e1e3585e5cf08baf56edd96e8a1e741"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate/owner-result.json",
+      "bytes": 402,
+      "sha256": "50b01e4a7e78e1591b86ac009d616a111e4754a7c1ad331d9f62b3f70fd36397"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate/invocations",
+      "bytes": 55,
+      "sha256": "5370cd772ae0bcc31170c0942b1652b0bed51fb7c988286b92af04bcb46f378f"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate/frontend.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate/frontend.stderr",
+      "bytes": 18126,
+      "sha256": "1929b9d3a30ceac696dfd31cb515493a61c2643bed9d7f11a44362b470fba020"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate/frontend-ready.json",
+      "bytes": 206,
+      "sha256": "c61077037f3d937d8b023cb99bbe12630b84422434a2d4fb42e6e1a25962f616"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate/es-log.txt",
+      "bytes": 21471,
+      "sha256": "35096d54e8f58cdce29cfc15b3ded8f0264ee44379c79183699aab2f4ed4753b"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate/continue-exit",
+      "bytes": 46,
+      "sha256": "ebc9f645f3852f2554ed0327e58f82df4e3597d91f233c3245ff14923e6c6885"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate/blocked-ready.json",
+      "bytes": 372,
+      "sha256": "33e6a5f5e1f80c2f04324c6fdfcaa0c8b75b8b680dc83904d78dd964e426ab19"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate/before-cleanup.json",
+      "bytes": 1742,
+      "sha256": "69b460a558c7d0c2f23405f54467dd00156dd2f520f48027e4f1d901209a5da3"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate/backend-ready",
+      "bytes": 6,
+      "sha256": "ed1a545bb85e55816bbf9566b028b2a0bc456b88f49f6f266c0401048824194b"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/wifi-candidate/backend-pids",
+      "bytes": 10,
+      "sha256": "e4b2767002d31dd8cc100a1500cc1044facb97456925e932b390b15a073c16cb"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/result.json",
+      "bytes": 14827,
+      "sha256": "a935b7bdc712a69a87300216d0cc915e5af3730c72e689219a3b4c592adbfad1"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/03-after-enabled-hardcore-regular-en-wii/stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/03-after-enabled-hardcore-regular-en-wii/stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/03-after-enabled-hardcore-regular-en-wii/settings",
+      "bytes": 449,
+      "sha256": "95dbb8e7d7b77087f050325ca6713a019fec99560a08a950c7f3003031ec0944"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/03-after-enabled-hardcore-regular-en-wii/result.json",
+      "bytes": 2388,
+      "sha256": "ffa207eb5fc993a0be5f728ec0613c54c705d37a6f48133d3e7c10e94f75960d"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/03-after-enabled-hardcore-regular-en-wii/log",
+      "bytes": 20,
+      "sha256": "5f9c981f960f50bf6ff5d0ee4d7915f2555a9e28e1504ee778340f3b07cd7304"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/03-after-enabled-hardcore-regular-en-wii/invocation.sh",
+      "bytes": 323,
+      "sha256": "227db96f62e967ca79aedfb75fbf6b352729107ea34f510e0903dc958222ccb8"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/03-after-enabled-hardcore-regular-en-wii/generated.ini",
+      "bytes": 289,
+      "sha256": "c712eb756e748d73c4336ac811e1b1d2aeaa38c4b1c38435cf2639e9da763b28"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/03-after-enabled-hardcore-regular-en-wii/engine.started",
+      "bytes": 16,
+      "sha256": "5afd8025697960540063f76646038677a13f6722c4f27211379d522312efd920"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/02-after-enabled-proxy-regular-en-gc/stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/02-after-enabled-proxy-regular-en-gc/stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/02-after-enabled-proxy-regular-en-gc/settings",
+      "bytes": 449,
+      "sha256": "99f3d61a4e1cc8cf9c688dd3dd9af282f94bf17cd3dc045bc7c177838cb8e264"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/02-after-enabled-proxy-regular-en-gc/result.json",
+      "bytes": 2376,
+      "sha256": "40ec3b5cb27deb79dfb7acae7d272b097743a7e40e8e91fdd40566503463ada2"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/02-after-enabled-proxy-regular-en-gc/log",
+      "bytes": 20,
+      "sha256": "5f9c981f960f50bf6ff5d0ee4d7915f2555a9e28e1504ee778340f3b07cd7304"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/02-after-enabled-proxy-regular-en-gc/invocation.sh",
+      "bytes": 323,
+      "sha256": "227db96f62e967ca79aedfb75fbf6b352729107ea34f510e0903dc958222ccb8"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/02-after-enabled-proxy-regular-en-gc/generated.ini",
+      "bytes": 274,
+      "sha256": "0623141342fbc01cffd547892d113a22fe934c78d1229c823d4b35bfea0bc006"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/02-after-enabled-proxy-regular-en-gc/engine.started",
+      "bytes": 16,
+      "sha256": "5afd8025697960540063f76646038677a13f6722c4f27211379d522312efd920"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/01-after-missing-token-regular-en-wii/stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/01-after-missing-token-regular-en-wii/stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/01-after-missing-token-regular-en-wii/settings",
+      "bytes": 426,
+      "sha256": "1cc91dd8c44e9e1a81eed2266df81483db6f6308dbd23a04dfb27e557e11f739"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/01-after-missing-token-regular-en-wii/result.json",
+      "bytes": 2393,
+      "sha256": "0021418751fb63acf14e65e5385a1f8e7c3134db9c1a959d31a2636775d1f856"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/01-after-missing-token-regular-en-wii/log",
+      "bytes": 110,
+      "sha256": "6bbf3e550a036945e41650b0eb340259444507babbe7dd54a76bdca3e96cbffa"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/01-after-missing-token-regular-en-wii/invocation.sh",
+      "bytes": 323,
+      "sha256": "227db96f62e967ca79aedfb75fbf6b352729107ea34f510e0903dc958222ccb8"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/01-after-missing-token-regular-en-wii/generated.ini",
+      "bytes": 218,
+      "sha256": "871ebc6dc8dc92f7e4b06dd4c649585b9f474a2cdaa73458a80e599b8a3cc149"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/01-after-missing-token-regular-en-wii/engine.started",
+      "bytes": 16,
+      "sha256": "ae3554c5e5f7168c6d8484ca63409ec98680aba9e690e477798d524df226a966"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/00-after-disabled-regular-en-gc/stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/00-after-disabled-regular-en-gc/stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/00-after-disabled-regular-en-gc/settings",
+      "bytes": 449,
+      "sha256": "b200dc9bb1be7c713cb1ac18cb07a552ccef5c755d7c5b887e01a0338e457e25"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/00-after-disabled-regular-en-gc/result.json",
+      "bytes": 2375,
+      "sha256": "6c57d3452dac8df44051bd69a6bd68b08576478bb698b4c9d73d00a0e5291a1d"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/00-after-disabled-regular-en-gc/log",
+      "bytes": 77,
+      "sha256": "2698e40d2f944e2d4b4677f97a1422f26e0712453a2485c740e17887c9b8be63"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/00-after-disabled-regular-en-gc/invocation.sh",
+      "bytes": 323,
+      "sha256": "227db96f62e967ca79aedfb75fbf6b352729107ea34f510e0903dc958222ccb8"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/00-after-disabled-regular-en-gc/generated.ini",
+      "bytes": 218,
+      "sha256": "871ebc6dc8dc92f7e4b06dd4c649585b9f474a2cdaa73458a80e599b8a3cc149"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-clean/dolphin/00-after-disabled-regular-en-gc/engine.started",
+      "bytes": 16,
+      "sha256": "ae3554c5e5f7168c6d8484ca63409ec98680aba9e690e477798d524df226a966"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-current.json",
+      "bytes": 815,
+      "sha256": "0855aa0e39ba32284459f46bfd6668e0cd8a29c672ae977ac9b7eee7c4adeddd"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate.owner.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate.owner.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/settings-restored-stopped.json",
+      "bytes": 283,
+      "sha256": "977d1015a5c81c621f08b61902bb56b9e6ee58852f173c56b3e5699b03c67e31"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/restored.json",
+      "bytes": 186,
+      "sha256": "53402afbbada834d2d7662a3516849a686f5770030311c73035ab078c3c9e6b6"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/mounts.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/installed-dolphin-cc551d01.stdout",
+      "bytes": 66,
+      "sha256": "558a6fdc47ab24f992b285dfc6abbe0eef568b9f3bd058f63b2d4a2670de8604"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/installed-dolphin-cc551d01.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/installed-dolphin-cc551d01.json",
+      "bytes": 208,
+      "sha256": "03ed2cf2e60b399704c8993962336838d9c80d99397ef3ec8e9eacbf100fc379"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/init.json",
+      "bytes": 1209,
+      "sha256": "b044e8fd54166b9adad31bf2f1c82f9164408f8794ca9a953512e5603abb5375"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/http-d96dc0d1d6a34be8a078b4d7e7b0dcb6.json",
+      "bytes": 139,
+      "sha256": "c84ec9ad41c99b452e23e482124723e55002252489ea4063ddc39c2199c49c53"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/http-af946659307b44f9a4e94b50a5a764ed.json",
+      "bytes": 141,
+      "sha256": "9d39acf1fc9ae307bce2abd8be4cd4f88e55cf02054f0b568d610f204978767e"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin.json",
+      "bytes": 242,
+      "sha256": "2304fb107904894427e71e798c7a49efe246b306892b9513e2742344dcc5cc37"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-unbind-8b755280.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-unbind-8b755280.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-unbind-8b755280.json",
+      "bytes": 107,
+      "sha256": "fce395f614cdeba3a6f17fec5746b441b4ef055a67e3d4ceeaa3b5faeded528e"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-stop-es-d3b5b60e.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-stop-es-d3b5b60e.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-stop-es-d3b5b60e.json",
+      "bytes": 120,
+      "sha256": "2d5072cb6f45b7d73102835d657cabd6dac0a9e157199199b4045ee49db1eb51"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-stop-es-b6bf1854.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-stop-es-b6bf1854.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-stop-es-b6bf1854.json",
+      "bytes": 120,
+      "sha256": "2d5072cb6f45b7d73102835d657cabd6dac0a9e157199199b4045ee49db1eb51"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-stop-es-04906e47.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-stop-es-04906e47.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-stop-es-04906e47.json",
+      "bytes": 120,
+      "sha256": "2d5072cb6f45b7d73102835d657cabd6dac0a9e157199199b4045ee49db1eb51"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-start-es-80caad19.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-start-es-80caad19.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-start-es-80caad19.json",
+      "bytes": 121,
+      "sha256": "bc2594b43ad7263f1cfd67a7589d20887572c1ec27748509fd06135fd0778b53"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-settings-6d2883ae.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-settings-6d2883ae.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-settings-6d2883ae.json",
+      "bytes": 252,
+      "sha256": "c3e5174464fd7b2bbff65db60364ecd0934b4ffb988eee1d636bdf0fb5655182"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-private-acecc199.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-private-acecc199.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-private-acecc199.json",
+      "bytes": 128,
+      "sha256": "8017ab9ec789ad68794f3a9930765db79c3d2b98aefceb14d0a576154731195a"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-bind-8480d55c.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-bind-8480d55c.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/audit-bind-8480d55c.json",
+      "bytes": 153,
+      "sha256": "eb48680f2945a05a426fa680a0092cda9e1e0ba814d3a9a8d6df2ac6b3c85052"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate/startup-inputs.json",
+      "bytes": 372,
+      "sha256": "05cbb2002b162a4c6906ac9216376a43b1c07416a81295f10dd710eb47c20cdb"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate/result.json",
+      "bytes": 1870,
+      "sha256": "48694a7ba66357d2a8de31cecd525ac4978d67eeccad6d2b3fa685cd07af6a4c"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate/owner-result.json",
+      "bytes": 402,
+      "sha256": "e515ce33485d1888afd3340e0f3e32e82589e6fc24670f63013ecb87a7523da0"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate/invocations",
+      "bytes": 55,
+      "sha256": "956f2c8c1988a166f8b61afa5c9ac7b38c132bdb10a61ce299648c6e5dcc8cd3"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate/frontend.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate/frontend.stderr",
+      "bytes": 18127,
+      "sha256": "268d93300ea219145378bc2e60f5a26dce95c5cc3180acb672dbda25bc55df8b"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate/frontend-ready.json",
+      "bytes": 206,
+      "sha256": "8c58cc54953ceb384771788fd37841e742a36e9396ef7ef4832c618325875956"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate/es-log.txt",
+      "bytes": 21555,
+      "sha256": "8fca0ba13b4498b83bdd57608b6ff1b06064c2d3ce5bb78e757c8a6d1612a05d"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate/continue-exit",
+      "bytes": 46,
+      "sha256": "ebc9f645f3852f2554ed0327e58f82df4e3597d91f233c3245ff14923e6c6885"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate/blocked-ready.json",
+      "bytes": 372,
+      "sha256": "f64b3e7982deb4e5fbd1b2f561375e7a42b70ca2040bde2ea658123a52331a60"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate/before-cleanup.json",
+      "bytes": 1822,
+      "sha256": "93991a52877980be1e0d3eae2f3c31413be1447ccdf3c4020d38c603ce1a5207"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate/backend-ready",
+      "bytes": 6,
+      "sha256": "ed1a545bb85e55816bbf9566b028b2a0bc456b88f49f6f266c0401048824194b"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/wifi-candidate/backend-pids",
+      "bytes": 10,
+      "sha256": "f19954454546f8377055a5e26d583024f56d348ce001326bd97166027873bf4c"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/result.json",
+      "bytes": 14827,
+      "sha256": "ef4183a7ff2178533075a891422d1581573734934a9f8c77c239617f4492aab0"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/03-after-enabled-hardcore-regular-en-wii/stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/03-after-enabled-hardcore-regular-en-wii/stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/03-after-enabled-hardcore-regular-en-wii/settings",
+      "bytes": 449,
+      "sha256": "95dbb8e7d7b77087f050325ca6713a019fec99560a08a950c7f3003031ec0944"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/03-after-enabled-hardcore-regular-en-wii/result.json",
+      "bytes": 2388,
+      "sha256": "609334fd5fef4a9297c3a2f4d9465869266c35b05983992594b6dd3b1c82c3d6"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/03-after-enabled-hardcore-regular-en-wii/log",
+      "bytes": 20,
+      "sha256": "5f9c981f960f50bf6ff5d0ee4d7915f2555a9e28e1504ee778340f3b07cd7304"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/03-after-enabled-hardcore-regular-en-wii/invocation.sh",
+      "bytes": 323,
+      "sha256": "227db96f62e967ca79aedfb75fbf6b352729107ea34f510e0903dc958222ccb8"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/03-after-enabled-hardcore-regular-en-wii/generated.ini",
+      "bytes": 289,
+      "sha256": "c712eb756e748d73c4336ac811e1b1d2aeaa38c4b1c38435cf2639e9da763b28"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/03-after-enabled-hardcore-regular-en-wii/engine.started",
+      "bytes": 16,
+      "sha256": "5afd8025697960540063f76646038677a13f6722c4f27211379d522312efd920"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/02-after-enabled-proxy-regular-en-gc/stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/02-after-enabled-proxy-regular-en-gc/stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/02-after-enabled-proxy-regular-en-gc/settings",
+      "bytes": 449,
+      "sha256": "99f3d61a4e1cc8cf9c688dd3dd9af282f94bf17cd3dc045bc7c177838cb8e264"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/02-after-enabled-proxy-regular-en-gc/result.json",
+      "bytes": 2376,
+      "sha256": "79fe76c7560d3d5acfc944aa2636d54063af8487414bfbca0c52eb6482c988eb"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/02-after-enabled-proxy-regular-en-gc/log",
+      "bytes": 20,
+      "sha256": "5f9c981f960f50bf6ff5d0ee4d7915f2555a9e28e1504ee778340f3b07cd7304"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/02-after-enabled-proxy-regular-en-gc/invocation.sh",
+      "bytes": 323,
+      "sha256": "227db96f62e967ca79aedfb75fbf6b352729107ea34f510e0903dc958222ccb8"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/02-after-enabled-proxy-regular-en-gc/generated.ini",
+      "bytes": 274,
+      "sha256": "0623141342fbc01cffd547892d113a22fe934c78d1229c823d4b35bfea0bc006"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/02-after-enabled-proxy-regular-en-gc/engine.started",
+      "bytes": 16,
+      "sha256": "5afd8025697960540063f76646038677a13f6722c4f27211379d522312efd920"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/01-after-missing-token-regular-en-wii/stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/01-after-missing-token-regular-en-wii/stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/01-after-missing-token-regular-en-wii/settings",
+      "bytes": 426,
+      "sha256": "1cc91dd8c44e9e1a81eed2266df81483db6f6308dbd23a04dfb27e557e11f739"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/01-after-missing-token-regular-en-wii/result.json",
+      "bytes": 2393,
+      "sha256": "f3b6b1d36b1239c6adf694dca880e96ffb9dbd6812a6026e35527b3bacc5ca6a"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/01-after-missing-token-regular-en-wii/log",
+      "bytes": 110,
+      "sha256": "6bbf3e550a036945e41650b0eb340259444507babbe7dd54a76bdca3e96cbffa"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/01-after-missing-token-regular-en-wii/invocation.sh",
+      "bytes": 323,
+      "sha256": "227db96f62e967ca79aedfb75fbf6b352729107ea34f510e0903dc958222ccb8"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/01-after-missing-token-regular-en-wii/generated.ini",
+      "bytes": 218,
+      "sha256": "871ebc6dc8dc92f7e4b06dd4c649585b9f474a2cdaa73458a80e599b8a3cc149"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/01-after-missing-token-regular-en-wii/engine.started",
+      "bytes": 16,
+      "sha256": "ae3554c5e5f7168c6d8484ca63409ec98680aba9e690e477798d524df226a966"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/00-after-disabled-regular-en-gc/stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/00-after-disabled-regular-en-gc/stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/00-after-disabled-regular-en-gc/settings",
+      "bytes": 449,
+      "sha256": "b200dc9bb1be7c713cb1ac18cb07a552ccef5c755d7c5b887e01a0338e457e25"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/00-after-disabled-regular-en-gc/result.json",
+      "bytes": 2375,
+      "sha256": "67f8228cd00a21e05bf87a576282745eff5e5292fae6d6f1459fd314215c37a9"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/00-after-disabled-regular-en-gc/log",
+      "bytes": 77,
+      "sha256": "2698e40d2f944e2d4b4677f97a1422f26e0712453a2485c740e17887c9b8be63"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/00-after-disabled-regular-en-gc/invocation.sh",
+      "bytes": 323,
+      "sha256": "227db96f62e967ca79aedfb75fbf6b352729107ea34f510e0903dc958222ccb8"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/00-after-disabled-regular-en-gc/generated.ini",
+      "bytes": 218,
+      "sha256": "871ebc6dc8dc92f7e4b06dd4c649585b9f474a2cdaa73458a80e599b8a3cc149"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/extracted/final-retained/dolphin/00-after-disabled-regular-en-gc/engine.started",
+      "bytes": 16,
+      "sha256": "ae3554c5e5f7168c6d8484ca63409ec98680aba9e690e477798d524df226a966"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/native-ordinary/wii-cold-restored.png",
+      "bytes": 39126,
+      "sha256": "81d6a70f6557fec9a5dc4d9436850f02ba5a70d44250dfe75d86e630b6b7d534"
+    },
+    {
+      "path": "/tmp/pix-m7-audit603-20261015/native-ordinary/dc-cold-restored.png",
+      "bytes": 23531,
+      "sha256": "d2e3c6983d3413cb80658c6739ac60330c3680330f15e08cbf8b6752f8f06de6"
+    }
+  ]
+}

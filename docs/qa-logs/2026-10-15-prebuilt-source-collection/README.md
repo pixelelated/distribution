@@ -1,0 +1,11 @@
+# Rclone source and selected notices — accepted collection
+
+Root executed source02; the source worker prepared/reviewed source and retained evidence. Original run `20261015T113915Z-85697540` completed2026-10-15 11:39:25UTC and was ordinarily consumed as admission `26f1eaddbefc406ebed615ed774eee30`. Command/monitor/runner, launcher, wrapper, inner/outer and both original curl waits are0. No cleanup signals, errors or recorded survivors occur. Runtime was9.708094921s.
+
+Both exact official rclone1.75.2 source/vendor archives total34,770,062 bytes. All242 selected dependency versions match vendor/modules.txt and all242 have retained notice candidates. There are318 retained texts totaling1,526,626 bytes. Actual original collection result retains the gap: the upstream dirty file list is unknown, and selected notice candidates do not establish license or publication completeness. No source rebuild, target execution or new independent SYSTEM comparison occurred.
+
+`originals.tar.gz` retains exact sealed source01 and02 (including original seals), root review/tool binding, original owner outputs and selected public notice texts, plus the complete ordinary watch/consumption receipts. Source01 was never allocated; source02 adds before-write output accounting within the unchanged128MiB cap. Its14 pure-memory guard controls remain distinct from root's actual collector execution. Prior build, strip and preparation failures keep their original statuses.
+
+The two source archives are deliberately excluded from this compact Git archive. `held-source-archives.json` records their exact original paths, sizes, hashes and file identities; custody rehashed both in place. They remain held for root's required corresponding-source custody transfer. This document does not claim backup, off-host preservation, publication or legal clearance. No firmware, caches, binaries, private configurations or credentials are copied.
+
+`members.json` verifies each archived member's exact bytes, permission bits, numeric owner/group and nanosecond mtime using decimal PAX metadata, along with the actual capture namespace. Directory metadata is not asserted stable. Original files were read only. Root owns publication, records, allocation and final disposition.

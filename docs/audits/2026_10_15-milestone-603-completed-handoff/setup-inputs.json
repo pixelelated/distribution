@@ -4,8 +4,8 @@
   "depth": "Independent",
   "skill_sha256": "85b3fe1f715f069f2d7272c1e6c0496d9a3bc922ee9b1f5423ee81a45f2ba0dc",
   "previous_completion": "2026-10-15T05:16:21.214878+00:00",
-  "frozen_record_commit": null,
-  "freeze_status": "ordinary publication pending; no forward audit started",
+  "frozen_record_commit": "cdd92f10605517e789e09d13b6f4ba68573c2617",
+  "freeze_status": "published cdd92 remains frozen; subsequent evidence-only coordinator commits excluded",
   "setup_originals": {
     "/tmp/pix-m7-cadence-followup-20261015/349.json": "f6e84ff6b5ce5307a8ac03726257e12d48fafadbb332180ffcb9ad31849169ee",
     "/tmp/pix-m7-cadence-followup-20261015/564.json": "c53cc954283b830cca53ba671dfa07c0e31aaf220313333393cf8b9e13ef8644",
@@ -26,6 +26,20 @@
     "/tmp/pix-m7-cadence-followup-20261015/issue-body.md": "898c9278bd72bfce199996f9c3e2933935e04df621a6fc465d63da0872cddb88",
     "/tmp/pix-m7-cadence-followup-20261015/issue-url.txt": "b004bb951f555462a010defc630f5dc72b940749d525c2035e4ea988908e5f0b"
   },
-  "runtime_authorized": false,
-  "external_transfer_started": false
+  "runtime_authorized": true,
+  "external_transfer_started": false,
+  "primary": {
+    "harness": "Codex",
+    "model": "GPT-6 family; exact model ID not exposed in session metadata",
+    "lab": "OpenAI",
+    "identity_source": "developer identity instruction"
+  },
+  "auditor": "/root/m7_handoff_audit_603",
+  "product_sources": {
+    "vm_h700": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+    "sm8550": "9aa7affee9d4ad5e69725cab20b6d7ad84d93dea",
+    "emulationstation": "16dbac5211eea7e70db7394372033be2be7df829",
+    "website": "6aac689c6feaa8d4afefbd5a8b2121e5206f14b9"
+  },
+  "runtime_authorization_scope": "single host pkgcheck rocknix-abl allocated by root; completed original exit0, no runtime active"
 }

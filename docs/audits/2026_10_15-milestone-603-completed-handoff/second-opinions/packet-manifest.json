@@ -1,0 +1,1243 @@
+{
+  "schema_version": 1,
+  "prepared_utc": "2026-10-15T11:38:38.956614+00:00",
+  "frozen_commit": "cdd92f10605517e789e09d13b6f4ba68573c2617",
+  "status": "prepared locally; no external transfer; awaiting exact scope authorization",
+  "destination": {
+    "transport": "OpenRouter via existing Council Facilitator",
+    "model": "anthropic/claude-fable-5.1",
+    "effort": "xhigh"
+  },
+  "files": {
+    "evidence-packet.md": {
+      "bytes": 789395,
+      "sha256": "4ddef49aecc63816d722bd07c938677195fe9ecd5f3ea25ac1589c5457ed439f",
+      "lines": 17630
+    },
+    "claude-blind-brief.md": {
+      "bytes": 790371,
+      "sha256": "3da1c2290b787fc113a3bb5809ce11fd7acfe68b7bb717bc404d6203c9350345",
+      "lines": 17638
+    },
+    "claude-refutation-base.md": {
+      "bytes": 922168,
+      "sha256": "80450a6e6249f9b34e0a7cb6740dd268ea1b4bbbcc99b35077c0641e4d7ccdcc",
+      "lines": 18850
+    },
+    "review-plan.json": {
+      "bytes": 761,
+      "sha256": "9b247aa78ac33e4e03cd1bed67ef5c290f4d441f3d5951f6c8d220336298bc61",
+      "lines": 32
+    }
+  },
+  "inputs": [
+    {
+      "label": "tools/pixelelated-state-check",
+      "kind": "frozen source",
+      "original_bytes": 46327,
+      "original_sha256": "65ab515ec2c0ccdf474f08128cabf1dea774846a8add3725cd05d334b2e1eba6",
+      "ranges": [
+        [
+          1,
+          180
+        ],
+        [
+          510,
+          575
+        ]
+      ],
+      "included_text_bytes": 13706,
+      "included_text_sha256": "6b1aa60db0af4676da4be1f3ea229caec8227b00a424fc8a6973c10ecb81d3f3",
+      "commit": "cdd92f10605517e789e09d13b6f4ba68573c2617",
+      "git_blob": "91eda494fea053609722f3b31fef33853e561511"
+    },
+    {
+      "label": "tools/pixelelated-state-check-test",
+      "kind": "frozen source",
+      "original_bytes": 45450,
+      "original_sha256": "6e0b2eb945b913ad0c176dd532586463493e6984240e128ff771ce6264fd3eec",
+      "ranges": [
+        [
+          390,
+          458
+        ]
+      ],
+      "included_text_bytes": 5558,
+      "included_text_sha256": "ed1d57455abbe1b4ca26cb5cc913c4515b424ee1020a45d579f7f1dd4c29daf2",
+      "commit": "cdd92f10605517e789e09d13b6f4ba68573c2617",
+      "git_blob": "45e64de2e38057ed634be9e8695487767f6b4905"
+    },
+    {
+      "label": "tools/frame-diff",
+      "kind": "frozen source",
+      "original_bytes": 17000,
+      "original_sha256": "49cdaf5275dceef5ae3bfa06f71c4adb7f35a3b285abf9b1200f0323fec57330",
+      "ranges": [
+        [
+          1,
+          433
+        ]
+      ],
+      "included_text_bytes": 19057,
+      "included_text_sha256": "00b99ca76fda61b2b80d81ad7f3042d512a1517d25cbd04a8eb7d66033909dd9",
+      "commit": "cdd92f10605517e789e09d13b6f4ba68573c2617",
+      "git_blob": "0f8baa0b2c5eebf28ce96ea70cf3153f92481563"
+    },
+    {
+      "label": "projects/ROCKNIX/packages/tools/rocknix-abl/package.mk",
+      "kind": "frozen source",
+      "original_bytes": 912,
+      "original_sha256": "6b07c262b11e8cc3fd45e8097b7fdb06a1f612cb31008daafdc3ecf68f892b3c",
+      "ranges": [
+        [
+          1,
+          18
+        ]
+      ],
+      "included_text_bytes": 975,
+      "included_text_sha256": "12a40a8e7dad25c3fdbcdc023748f9784a1a827f41cf56d0aaced4b4396dfb4f",
+      "commit": "cdd92f10605517e789e09d13b6f4ba68573c2617",
+      "git_blob": "24d9b38a2dcb62d78ce632ea26c7bd80eafe54c9"
+    },
+    {
+      "label": "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+      "kind": "frozen source",
+      "original_bytes": 124399,
+      "original_sha256": "1694f7a9b892988a67a3445c8f51031c5a5c8be02628b0be8031f233b512ad3b",
+      "ranges": [
+        [
+          1,
+          2755
+        ]
+      ],
+      "included_text_bytes": 139822,
+      "included_text_sha256": "3c561ab5f638162ce4a999dc98f9633c7ffc57dc1818905280735fb2f7794d52",
+      "commit": "cdd92f10605517e789e09d13b6f4ba68573c2617",
+      "git_blob": "70f52d44460f0734773c65b156f53bbcf9a41b36"
+    },
+    {
+      "label": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/dolphin-save-paths",
+      "kind": "frozen source",
+      "original_bytes": 16727,
+      "original_sha256": "507ccc96245bfc7aaca5e154ef0567cacccd0cbc9d0f999761d2fdee1fc245e8",
+      "ranges": [
+        [
+          1,
+          346
+        ]
+      ],
+      "included_text_bytes": 18349,
+      "included_text_sha256": "e83795e366ddd3ec96caa8df4aa437a4bc9c0c03826b28011c200f3d13f8a13a",
+      "commit": "cdd92f10605517e789e09d13b6f4ba68573c2617",
+      "git_blob": "c5ac981c15bfd78c0f9b42beb572923b75c042d5"
+    },
+    {
+      "label": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh",
+      "kind": "frozen source",
+      "original_bytes": 5106,
+      "original_sha256": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a",
+      "ranges": [
+        [
+          1,
+          148
+        ]
+      ],
+      "included_text_bytes": 5738,
+      "included_text_sha256": "9906a105a58a3fee2b8b750251e1425f8d749fbf72e13ef5cdfbc00542dc8308",
+      "commit": "cdd92f10605517e789e09d13b6f4ba68573c2617",
+      "git_blob": "38180f3ccf0769efe62ee9bfc286e31270b26cc7"
+    },
+    {
+      "label": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_gc.sh",
+      "kind": "frozen source",
+      "original_bytes": 18512,
+      "original_sha256": "b5e7afb8f3952f8082d4f39c70cffb9e5ccbd7a265cc6c28f1e96aefbb31c568",
+      "ranges": [
+        [
+          1,
+          105
+        ]
+      ],
+      "included_text_bytes": 4953,
+      "included_text_sha256": "f8de602d419bcaa091f484b79e99d31dcdbc6a3b5848d43178eba712522a21c5",
+      "commit": "cdd92f10605517e789e09d13b6f4ba68573c2617",
+      "git_blob": "35c48b852e05019e5219ff3fa62e2efc65a7a9fa"
+    },
+    {
+      "label": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh",
+      "kind": "frozen source",
+      "original_bytes": 16933,
+      "original_sha256": "8843d7358f948add1c53851cef2cfb2da2cd93141ad14784c46252bffbada3d7",
+      "ranges": [
+        [
+          1,
+          105
+        ]
+      ],
+      "included_text_bytes": 4633,
+      "included_text_sha256": "76ebdedf44c38b5383e0e6704a420fa4e8e74e4f9e7edf5f1da7cb80f7606e7c",
+      "commit": "cdd92f10605517e789e09d13b6f4ba68573c2617",
+      "git_blob": "a636aa76d8163422f970ffd145671e20e691a153"
+    },
+    {
+      "label": "ES@16dbac5211ee/es-app/src/guis/GuiWifi.cpp",
+      "kind": "frozen source",
+      "original_bytes": 23576,
+      "original_sha256": "405b9a93ba7f5c84c6d7591533c3946a4f26af8011c29b3013d338ffd64cffac",
+      "ranges": [
+        [
+          1,
+          607
+        ]
+      ],
+      "included_text_bytes": 26503,
+      "included_text_sha256": "b322880ce72fadba0bea6ad6778aaf579c855c307a4889ce522a81d8d15b236d",
+      "commit": "16dbac5211eea7e70db7394372033be2be7df829"
+    },
+    {
+      "label": "ES@16dbac5211ee/es-app/src/guis/GuiWifi.h",
+      "kind": "frozen source",
+      "original_bytes": 3649,
+      "original_sha256": "da5cd40eea619f0c19fc04b9037a0a0bad89d0369bbed4fe7d8eaef1e904703d",
+      "ranges": [
+        [
+          1,
+          93
+        ]
+      ],
+      "included_text_bytes": 4012,
+      "included_text_sha256": "11d6e295bf82db425f698359e24d197ded37e4cf3b54d4aedd551619a05ce2b4",
+      "commit": "16dbac5211eea7e70db7394372033be2be7df829"
+    },
+    {
+      "label": "ES@16dbac5211ee/es-app/src/guis/WifiScanProcess.h",
+      "kind": "frozen source",
+      "original_bytes": 5468,
+      "original_sha256": "17955addc4548d75ae17a844a0a89f74f3421782a6aed1f26af5bfc3886623b2",
+      "ranges": [
+        [
+          1,
+          202
+        ]
+      ],
+      "included_text_bytes": 6370,
+      "included_text_sha256": "c6dda00a59c0364b9ccbea4b6988225d130a6af10a03e02f5d6b761997a51497",
+      "commit": "16dbac5211eea7e70db7394372033be2be7df829"
+    },
+    {
+      "label": "ES@16dbac5211ee/es-app/src/main.cpp",
+      "kind": "frozen source",
+      "original_bytes": 50917,
+      "original_sha256": "0d636bab18d15fab6a19ca67ca532e77a2ccd53c84195fb387df93c5a7065a4b",
+      "ranges": [
+        [
+          330,
+          356
+        ],
+        [
+          1313,
+          1335
+        ]
+      ],
+      "included_text_bytes": 1858,
+      "included_text_sha256": "fa3fe4999feef81357dc7c42ab590ddc62fefeccf5d8928b762f526df3809dd3",
+      "commit": "16dbac5211eea7e70db7394372033be2be7df829"
+    },
+    {
+      "label": "ES@16dbac5211ee/es-app/src/SaveStateRepository.cpp",
+      "kind": "frozen source",
+      "original_bytes": 8889,
+      "original_sha256": "34bda9a72d037af762546a5b8122dbf7f02c82d074f78e4b74e3b77fcb8afc26",
+      "ranges": [
+        [
+          200,
+          255
+        ]
+      ],
+      "included_text_bytes": 1582,
+      "included_text_sha256": "d7544a975da811fcd2d6d06c96cb7f99e0e9a9c737860889a37d23c981b71665",
+      "commit": "16dbac5211eea7e70db7394372033be2be7df829"
+    },
+    {
+      "label": "ES@16dbac5211ee/es-app/src/guis/GuiMenu.cpp",
+      "kind": "frozen source",
+      "original_bytes": 511067,
+      "original_sha256": "356c7b48bf71f1a54467609c6eba502079c6c7fd615b2dd2d24966873916432d",
+      "ranges": [
+        [
+          4880,
+          4920
+        ],
+        [
+          5785,
+          5850
+        ],
+        [
+          10845,
+          10885
+        ]
+      ],
+      "included_text_bytes": 8730,
+      "included_text_sha256": "21ee9a797a6421d8450a09cba55b5e84969d47062d862bdbcd39b8fa71c9a3f4",
+      "commit": "16dbac5211eea7e70db7394372033be2be7df829"
+    },
+    {
+      "label": "ES@16dbac5211ee/external/libcheevos/rvz_hash.cpp",
+      "kind": "frozen source",
+      "original_bytes": 14522,
+      "original_sha256": "7a5600669dd9d57956df8787753e9067092bb19411a3cc195443f3a4716d80d1",
+      "ranges": [
+        [
+          1,
+          389
+        ]
+      ],
+      "included_text_bytes": 16359,
+      "included_text_sha256": "a6e3a2c573dde020b2f6eb560ccf67c0faa465c6b237f8517c32357a638ef616",
+      "commit": "16dbac5211eea7e70db7394372033be2be7df829"
+    },
+    {
+      "label": "ES@16dbac5211ee/external/libcheevos/cheevos.cpp",
+      "kind": "frozen source",
+      "original_bytes": 5325,
+      "original_sha256": "8e5a0c4f442003be06f9a4ef95c4b3499c4271b2c19f1ab7bb0c2e6d97e2be0a",
+      "ranges": [
+        [
+          130,
+          193
+        ]
+      ],
+      "included_text_bytes": 2214,
+      "included_text_sha256": "959f9e185acbbcb98ab6d4eb4fe0b24aa170543a98764dda6ae408b521705387",
+      "commit": "16dbac5211eea7e70db7394372033be2be7df829"
+    },
+    {
+      "label": "ES@16dbac5211ee/es-app/src/ThreadedHasher.cpp",
+      "kind": "frozen source",
+      "original_bytes": 13500,
+      "original_sha256": "b8e5000cc5c3485f10344946ee5cd2dd2249022584c5c6e570c37c2cc597eec2",
+      "ranges": [
+        [
+          1,
+          415
+        ]
+      ],
+      "included_text_bytes": 15467,
+      "included_text_sha256": "e0e148088ea85da009968ea94c81646f60772d2beda9698986f52df573e6cc99",
+      "commit": "16dbac5211eea7e70db7394372033be2be7df829"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-sm8550-abl-format/source/source-packet.tar.gz :: source-packet/templates/verify-additions.py",
+      "kind": "source or original command result",
+      "original_bytes": 11143,
+      "original_sha256": "cc831ed067f153f09630cc9ee1a422450f351fd80e49d527ebcf50693e52b50b",
+      "ranges": [
+        [
+          1,
+          125
+        ]
+      ],
+      "included_text_bytes": 11660,
+      "included_text_sha256": "b4e078a390e5c30b1d245b15b04e4d99b4c11f0057500c3afbfe08fbf96e05d7",
+      "archive_sha256": "d62e163dd7b6cfe330d5dd692a4d8bf75675a6f53c9d7c89b44a9287bd563d2d",
+      "member_sha256": "cc831ed067f153f09630cc9ee1a422450f351fd80e49d527ebcf50693e52b50b"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-sm8550-abl-format/source/source-packet.tar.gz :: source-packet/verify-additions.py.diff",
+      "kind": "source or original command result",
+      "original_bytes": 1346,
+      "original_sha256": "fec17152f3cfec564e5d8fab7ba5e57f611806c7106e672852fe9d6082a171de",
+      "ranges": [
+        [
+          1,
+          16
+        ]
+      ],
+      "included_text_bytes": 1401,
+      "included_text_sha256": "e17e7315d6948e54c94de43180c05986bd9ed5b9111719a17532ba646cf5185d",
+      "archive_sha256": "d62e163dd7b6cfe330d5dd692a4d8bf75675a6f53c9d7c89b44a9287bd563d2d",
+      "member_sha256": "fec17152f3cfec564e5d8fab7ba5e57f611806c7106e672852fe9d6082a171de"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-sm8550-abl-format/source/source-packet.tar.gz :: source-packet/format-controls-result.json",
+      "kind": "source or original command result",
+      "original_bytes": 2391,
+      "original_sha256": "ea2944c7d871ff06ad16f014b95f2254b11879d5d85eb4be46940a0c94cb61e8",
+      "ranges": [
+        [
+          1,
+          87
+        ]
+      ],
+      "included_text_bytes": 2730,
+      "included_text_sha256": "f6edeb9a8824b02e885814bfc90d2da234d9e6a979493fe1d98c7ec96907fec4",
+      "archive_sha256": "d62e163dd7b6cfe330d5dd692a4d8bf75675a6f53c9d7c89b44a9287bd563d2d",
+      "member_sha256": "ea2944c7d871ff06ad16f014b95f2254b11879d5d85eb4be46940a0c94cb61e8"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-sm8550-abl-format/source/source-packet.tar.gz :: source-packet/payload-header-readback.json",
+      "kind": "source or original command result",
+      "original_bytes": 2560,
+      "original_sha256": "b729630e653ca5232109c358c59c6b0bf8664c65f062f80db350f410b83fa2ae",
+      "ranges": [
+        [
+          1,
+          67
+        ]
+      ],
+      "included_text_bytes": 2819,
+      "included_text_sha256": "5ea0ea4cb51afaeb96ddf632aaad10a024e4c4b3a58ad58945d53713f53bf709",
+      "archive_sha256": "d62e163dd7b6cfe330d5dd692a4d8bf75675a6f53c9d7c89b44a9287bd563d2d",
+      "member_sha256": "b729630e653ca5232109c358c59c6b0bf8664c65f062f80db350f410b83fa2ae"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-sm8550-abl-format/accepted/originals.tar.gz :: failed-producer/runner-result.json",
+      "kind": "source or original command result",
+      "original_bytes": 104,
+      "original_sha256": "c32e369ed4b68750a9ee8c4ce698f70026905f979c491f21de96f6328d03a771",
+      "ranges": [
+        [
+          1,
+          6
+        ]
+      ],
+      "included_text_bytes": 122,
+      "included_text_sha256": "99bfa3bf47725155a633dafc2273ee5b98b25dd016d493b23356c028c3636080",
+      "archive_sha256": "80a18aaee7814279e7b52823c217b5e7dcda12fee0467e81a0b3cc3e992cbab7",
+      "member_sha256": "c32e369ed4b68750a9ee8c4ce698f70026905f979c491f21de96f6328d03a771"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-sm8550-abl-format/accepted/originals.tar.gz :: runs/reader/runner-result.json",
+      "kind": "source or original command result",
+      "original_bytes": 104,
+      "original_sha256": "9c0920ac491c83bf7bed4fba8a6c483ae94963c82f869b18da2345645053ac45",
+      "ranges": [
+        [
+          1,
+          6
+        ]
+      ],
+      "included_text_bytes": 122,
+      "included_text_sha256": "a9432a3a5fb9a84df1ceb6a926df6c2b065e5c0def5cc342ca4021e18e940ae5",
+      "archive_sha256": "80a18aaee7814279e7b52823c217b5e7dcda12fee0467e81a0b3cc3e992cbab7",
+      "member_sha256": "9c0920ac491c83bf7bed4fba8a6c483ae94963c82f869b18da2345645053ac45"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-sm8550-abl-format/accepted/originals.tar.gz :: runs/acceptance/runner-result.json",
+      "kind": "source or original command result",
+      "original_bytes": 104,
+      "original_sha256": "21bdde269a3772013fca59bcc33f2e1eba363678a0174660fd40741d80b5a01c",
+      "ranges": [
+        [
+          1,
+          6
+        ]
+      ],
+      "included_text_bytes": 122,
+      "included_text_sha256": "830c1e7488ed9007389a81059ee50e9688409ae7f6f073f3ee7ba9a604508e5c",
+      "archive_sha256": "80a18aaee7814279e7b52823c217b5e7dcda12fee0467e81a0b3cc3e992cbab7",
+      "member_sha256": "21bdde269a3772013fca59bcc33f2e1eba363678a0174660fd40741d80b5a01c"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-sm8550-abl-format/accepted/originals.tar.gz :: owner/acceptance/artifacts/acceptance.json",
+      "kind": "source or original command result",
+      "original_bytes": 2850,
+      "original_sha256": "b576f190e56c01ed534bbec593dc669c5fc034317a69ccb68af14cb568787dd0",
+      "ranges": [
+        [
+          1,
+          53
+        ]
+      ],
+      "included_text_bytes": 3016,
+      "included_text_sha256": "c208f8f56f59d5d8a2b22e73464830ef10bf98216f3dd79042da29f277f41fe3",
+      "archive_sha256": "80a18aaee7814279e7b52823c217b5e7dcda12fee0467e81a0b3cc3e992cbab7",
+      "member_sha256": "b576f190e56c01ed534bbec593dc669c5fc034317a69ccb68af14cb568787dd0"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-device-refresh/abl-checksum-fix/originals.tar.gz :: source-review/upstream-fix.patch",
+      "kind": "source or original command result",
+      "original_bytes": 964,
+      "original_sha256": "eb6c23ba026dbc703ea1d171fcb3f06db633e1e4592c3c0707f1de2d29b9b44b",
+      "ranges": [
+        [
+          1,
+          21
+        ]
+      ],
+      "included_text_bytes": 1039,
+      "included_text_sha256": "fba0689a2b80cdc6d1a1748c5d15884c1915540f6bcc5ef221e2494c514d17bb",
+      "archive_sha256": "c5b6f6adb36298914f436000f86e07cde7f361d0e61d27a0fd6f46c13926f378",
+      "member_sha256": "eb6c23ba026dbc703ea1d171fcb3f06db633e1e4592c3c0707f1de2d29b9b44b"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-device-refresh/abl-checksum-fix/originals.tar.gz :: archive-reader/result.json",
+      "kind": "source or original command result",
+      "original_bytes": 3109,
+      "original_sha256": "d08a01330ad3e4923b2d979d3c02b17e7766e8aa24cc30a844f0932f712aa19c",
+      "ranges": [
+        [
+          1,
+          98
+        ]
+      ],
+      "included_text_bytes": 3492,
+      "included_text_sha256": "ea0f296c7579590ab7b9e2448672a8fc727d347f706d25153b4ed09141e7d7dc",
+      "archive_sha256": "c5b6f6adb36298914f436000f86e07cde7f361d0e61d27a0fd6f46c13926f378",
+      "member_sha256": "d08a01330ad3e4923b2d979d3c02b17e7766e8aa24cc30a844f0932f712aa19c"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-device-refresh/abl-checksum-fix/originals.tar.gz :: failed-watch/runner-result.json",
+      "kind": "source or original command result",
+      "original_bytes": 104,
+      "original_sha256": "92b635f738c5ed275f95bfd6b0bcea43e9f84822469892af9881fc3bd7aeed27",
+      "ranges": [
+        [
+          1,
+          6
+        ]
+      ],
+      "included_text_bytes": 122,
+      "included_text_sha256": "c302e2e0ca08d6e0b79df70b780b0a962b5cb6a792cce2f21a3a7386b10aacee",
+      "archive_sha256": "c5b6f6adb36298914f436000f86e07cde7f361d0e61d27a0fd6f46c13926f378",
+      "member_sha256": "92b635f738c5ed275f95bfd6b0bcea43e9f84822469892af9881fc3bd7aeed27"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-ppsspp-state-check/originals.tar.gz :: runs/03/owner/command.stdout",
+      "kind": "source or original command result",
+      "original_bytes": 22716,
+      "original_sha256": "269b280376fa289e31d290515f75760cb675abf11ff983eb6a5a726c56d20ca8",
+      "ranges": [
+        [
+          1,
+          1046
+        ]
+      ],
+      "included_text_bytes": 27885,
+      "included_text_sha256": "cab4ab835cb49124a337574f28fefc58067d927a4bdedc72c48cbc42ccebc515",
+      "archive_sha256": "3088fdb8d7e03a65a4998f996fe127171c01a5ec6dcd67cfc522ea83f00408de",
+      "member_sha256": "269b280376fa289e31d290515f75760cb675abf11ff983eb6a5a726c56d20ca8"
+    },
+    {
+      "label": "checks/pkgcheck-current/invocation.json",
+      "kind": "fresh allocated host lint result",
+      "original_bytes": 887,
+      "original_sha256": "7fe0b8b91c0db56f7381243bf97c8691cc68db310d88b0cb32777a7cebb27d86",
+      "ranges": [
+        [
+          1,
+          18
+        ]
+      ],
+      "included_text_bytes": 917,
+      "included_text_sha256": "f1ffd8ea1a8f56587ffd5830dbc0b0a56ddb8498eadcc4ebea8dcfa379bbf7db"
+    },
+    {
+      "label": "checks/pkgcheck-current/stdout",
+      "kind": "fresh allocated host lint result",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "ranges": [],
+      "included_text_bytes": 1,
+      "included_text_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "label": "checks/pkgcheck-current/stderr",
+      "kind": "fresh allocated host lint result",
+      "original_bytes": 58,
+      "original_sha256": "e5f982060767c62a5dbdd5bab329ae36f244df210552dd768e0e197e5a7d8f3d",
+      "ranges": [
+        [
+          1,
+          1
+        ]
+      ],
+      "included_text_bytes": 61,
+      "included_text_sha256": "9d857c9a5b003d9e9e675024537c20e5f3aae359a66279c28033326910d0ca44"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-frame-claims/original-packet.tar.gz :: packet/controls01/result.json",
+      "kind": "original record",
+      "original_bytes": 3068,
+      "original_sha256": "24cff6fe52d193cec65ac4f1a73c468a2fdd0466a8fca300cc01a67ac80cd172",
+      "ranges": [
+        [
+          1,
+          145
+        ]
+      ],
+      "included_text_bytes": 3685,
+      "included_text_sha256": "28284ca3ffdb5303a95de106b0f493786fe950733b16f4e8cac32f70aa0fd791",
+      "archive_sha256": "6c463ab9cce5defc51a2dd5a76d75a3b42328cf4505ca8b9c5339f47ca032588",
+      "member_sha256": "24cff6fe52d193cec65ac4f1a73c468a2fdd0466a8fca300cc01a67ac80cd172"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-frame-claims/original-packet.tar.gz :: packet/execution01/result.json",
+      "kind": "original record",
+      "original_bytes": 1965,
+      "original_sha256": "3e952d480fd3bda7016259d85fd79e9b6a98204cfe449a52eed6e9d24af19bc3",
+      "ranges": [
+        [
+          1,
+          62
+        ]
+      ],
+      "included_text_bytes": 2200,
+      "included_text_sha256": "4970838569e3ce0a5242e20edc267765aabc1bbd61284e3a70ca4cb3755d6a50",
+      "archive_sha256": "6c463ab9cce5defc51a2dd5a76d75a3b42328cf4505ca8b9c5339f47ca032588",
+      "member_sha256": "3e952d480fd3bda7016259d85fd79e9b6a98204cfe449a52eed6e9d24af19bc3"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-qualification-followups/baseline-correction.tar.gz :: baseline-correction/run.py",
+      "kind": "source",
+      "original_bytes": 17463,
+      "original_sha256": "5ed44531cbb111b9fca34262e0e50538d3ef1f6379a4bf532d296a1a5638572e",
+      "ranges": [
+        [
+          1,
+          244
+        ]
+      ],
+      "included_text_bytes": 18575,
+      "included_text_sha256": "9022c6a73ae2771d1c282b189404acba35fdcb31951ad618106978ed922380b5",
+      "archive_sha256": "26e87c7f37f483d6bbd9777dc1f4bfe8bd0309c401085f24944729bc187bec4b",
+      "member_sha256": "5ed44531cbb111b9fca34262e0e50538d3ef1f6379a4bf532d296a1a5638572e"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-qualification-followups/baseline-correction.tar.gz :: baseline-correction/evidence/qa20-final-result.json",
+      "kind": "original record",
+      "original_bytes": 381,
+      "original_sha256": "e4bd39a5fbfc0d4096dad059c74d160986f5d100e69041acc991cae76f722edc",
+      "ranges": [
+        [
+          1,
+          12
+        ]
+      ],
+      "included_text_bytes": 420,
+      "included_text_sha256": "6413490cf136d64688a6770c1a69d416747e834cc77497d9ddf628b54e71c33b",
+      "archive_sha256": "26e87c7f37f483d6bbd9777dc1f4bfe8bd0309c401085f24944729bc187bec4b",
+      "member_sha256": "e4bd39a5fbfc0d4096dad059c74d160986f5d100e69041acc991cae76f722edc"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz :: runtime/tmp/cases/result.json",
+      "kind": "original record",
+      "original_bytes": 8471,
+      "original_sha256": "167fc330cca2f1cb929f405d443b44cf491dea1c8d8ea3531feec7e8f093c659",
+      "ranges": [
+        [
+          1,
+          282
+        ]
+      ],
+      "included_text_bytes": 9773,
+      "included_text_sha256": "35528da1c81a6573ba2682456a71ee9fcd314f0d51e7b5882dcc076da946effc",
+      "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2",
+      "member_sha256": "167fc330cca2f1cb929f405d443b44cf491dea1c8d8ea3531feec7e8f093c659"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz :: proton/tmp/cases/result.json",
+      "kind": "original record",
+      "original_bytes": 14058,
+      "original_sha256": "b303057ad83d84fdbd3ec1891f104a9447d90840901644084dea0e51b8ddb85b",
+      "ranges": [
+        [
+          1,
+          469
+        ]
+      ],
+      "included_text_bytes": 16295,
+      "included_text_sha256": "5aedc72fae3f797527c76e76e92827c14ab0894baaeb1194330f609a75e66222",
+      "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2",
+      "member_sha256": "b303057ad83d84fdbd3ec1891f104a9447d90840901644084dea0e51b8ddb85b"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-13-library-vm/results/steam-results/compact-receipts.tar.gz :: root/tmp/cases/result.json",
+      "kind": "original record",
+      "original_bytes": 4865,
+      "original_sha256": "1d7b6e806071808c948463910d14ffb3f7f19bfb4f8fa40fada15d9b2ba3dc3e",
+      "ranges": [
+        [
+          1,
+          287
+        ]
+      ],
+      "included_text_bytes": 6193,
+      "included_text_sha256": "7dc9c47abec03ca0517ad1298f3c297ac36a8b156289de2900ce88dcf71aee0c",
+      "archive_sha256": "74617b668eb42e792672be170eb305780db597d5c04d4133739ba4b08f1feaf2",
+      "member_sha256": "1d7b6e806071808c948463910d14ffb3f7f19bfb4f8fa40fada15d9b2ba3dc3e"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-13-library-vm/results/dolphin-results/candidate-receipts.tar.gz :: result.json",
+      "kind": "original record",
+      "original_bytes": 20828,
+      "original_sha256": "9d4a90d4fc1d8dd577be2c4be9a76168a6f6c2b9d6d3038fa93dbf1057f13303",
+      "ranges": [
+        [
+          1,
+          929
+        ]
+      ],
+      "included_text_bytes": 25365,
+      "included_text_sha256": "5a9d4152a01ed1cab6fc09ad4155bfe784ceb1f9abacaae1e51b0da1a7b9f68f",
+      "archive_sha256": "73c7b90b5c0063a8d0bbbdbcb841660310dcec5a243488604f8aa15e878716fc",
+      "member_sha256": "9d4a90d4fc1d8dd577be2c4be9a76168a6f6c2b9d6d3038fa93dbf1057f13303"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-14-steam-client-repair-source/evidence/steam-inspection.json",
+      "kind": "original record",
+      "original_bytes": 49653,
+      "original_sha256": "f2fd32e894124470f68f68193ba2b6225f8e3b45fc3ca1a14051055d316bd0a6",
+      "ranges": [
+        [
+          1,
+          1701
+        ]
+      ],
+      "included_text_bytes": 58752,
+      "included_text_sha256": "57e43fea1eb691f1dcad91b89254982cae5362f8edcdc32368fd98e506a83ad1"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-14-steam-client-repair-source/evidence/steam-inspection.transport.json",
+      "kind": "original record",
+      "original_bytes": 328,
+      "original_sha256": "a61b981bc861a4330aada1bb2154b057b7ff8f569dc5344bf14b6f8b74d1f3ad",
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "included_text_bytes": 343,
+      "included_text_sha256": "acab23ab723db2bc46eb0cbdd18b4b3cb44e331600fdb944d8e05d894b33a23c"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-final-engineering-result/clean/host-exits.json",
+      "kind": "original record",
+      "original_bytes": 57457,
+      "original_sha256": "6dc0e4f767a8568fd9eb7fb6d09e503f87542fe058d7ae91a4f25e495f1ab609",
+      "ranges": [
+        [
+          1,
+          342
+        ]
+      ],
+      "included_text_bytes": 12041,
+      "included_text_sha256": "b9f83455405b20580b98cb40a93a37e1c36c9d62f94d34f066f5d0b7955683eb"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-final-engineering-result/clean/original-records.tar.gz :: owner/records/final-result.json",
+      "kind": "original record",
+      "original_bytes": 42077,
+      "original_sha256": "3d3b85724062a6db2f7bddc5dd62aeb1366f0f6182f267a7b0e6131322c0649c",
+      "ranges": [
+        [
+          1,
+          1151
+        ]
+      ],
+      "included_text_bytes": 47839,
+      "included_text_sha256": "f029a529729b1eaf20a83500e73876fa26c403af12deb9fbce828ef542b49367",
+      "archive_sha256": "ad8a05f650c17a2756cc869fb6207d72579306914b294fa92d4264e758acdccf",
+      "member_sha256": "3d3b85724062a6db2f7bddc5dd62aeb1366f0f6182f267a7b0e6131322c0649c"
+    },
+    {
+      "label": "decoded final-clean affected export :: wifi-candidate/result.json",
+      "kind": "original installed Wi-Fi result; decoding custody in supplemental-read-custody.json",
+      "original_bytes": 1790,
+      "original_sha256": "155ad890373795aea8669eeab153bedf7e1e3585e5cf08baf56edd96e8a1e741",
+      "ranges": [
+        [
+          1,
+          85
+        ]
+      ],
+      "included_text_bytes": 2121,
+      "included_text_sha256": "3a1de66f1ceb4e792ce8c719d81123aeeca4a494d52fd088978f6e5bf4288e2e"
+    },
+    {
+      "label": "decoded final-clean affected export :: dolphin/result.json",
+      "kind": "original installed Dolphin fixture result; decoding custody in supplemental-read-custody.json",
+      "original_bytes": 14827,
+      "original_sha256": "a935b7bdc712a69a87300216d0cc915e5af3730c72e689219a3b4c592adbfad1",
+      "ranges": [
+        [
+          1,
+          375
+        ]
+      ],
+      "included_text_bytes": 16594,
+      "included_text_sha256": "558ce459c810a46febf1f59cd2815498096a909f5eab21d8eb98393b9717f0ae"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-final-engineering-result/retained/host-exits.json",
+      "kind": "original record",
+      "original_bytes": 110611,
+      "original_sha256": "192399ffc94212ff64a8bfb546217a7765805d46982c7dfa39f8b6ca0e65e3b8",
+      "ranges": [
+        [
+          1,
+          472
+        ]
+      ],
+      "included_text_bytes": 17626,
+      "included_text_sha256": "4a1f1453167e1540783148bafeac075666bf35ddc7c6f0f694544b956d932097"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-final-engineering-result/retained/original-records.tar.gz :: owner/vm-result.json",
+      "kind": "original record",
+      "original_bytes": 133429,
+      "original_sha256": "cdcdb3e7660d4c74ab6251ed194249f332425d31ecdbafa6df7a03207d29a3e3",
+      "ranges": [
+        [
+          1,
+          907
+        ]
+      ],
+      "included_text_bytes": 42595,
+      "included_text_sha256": "7941b15abfb5e8dcac5c8d19c8d06cc80f366baa601f45635825ddc0db1d66a3",
+      "archive_sha256": "347f5c8213e7692883fc5ed9835652568dbb061088d2c3a051646fbf69ced88f",
+      "member_sha256": "cdcdb3e7660d4c74ab6251ed194249f332425d31ecdbafa6df7a03207d29a3e3"
+    },
+    {
+      "label": "decoded final-retained affected export :: wifi-candidate/result.json",
+      "kind": "original installed Wi-Fi result; decoding custody in supplemental-read-custody.json",
+      "original_bytes": 1870,
+      "original_sha256": "48694a7ba66357d2a8de31cecd525ac4978d67eeccad6d2b3fa685cd07af6a4c",
+      "ranges": [
+        [
+          1,
+          91
+        ]
+      ],
+      "included_text_bytes": 2225,
+      "included_text_sha256": "451e7e30efeb98a71372d089e578d95a7e3dfcfdfa1320c6e5b5a304c2f88f19"
+    },
+    {
+      "label": "decoded final-retained affected export :: dolphin/result.json",
+      "kind": "original installed Dolphin fixture result; decoding custody in supplemental-read-custody.json",
+      "original_bytes": 14827,
+      "original_sha256": "ef4183a7ff2178533075a891422d1581573734934a9f8c77c239617f4492aab0",
+      "ranges": [
+        [
+          1,
+          375
+        ]
+      ],
+      "included_text_bytes": 16594,
+      "included_text_sha256": "0101e12d802a534fcc6bedb97af71842ab88bce12134144cfe7d7c11532d9f69"
+    },
+    {
+      "label": "docs/audits/2026_10_14-milestone-m7-next-candidate/supplements/wifi-compiler-result/syntax.json",
+      "kind": "raw original compiler result; no prior verdict",
+      "original_bytes": 1198,
+      "original_sha256": "c5d908fa49766654e6ddba05b1200fd29116a4807bda3bf2c3ae56793ba32cd9",
+      "ranges": [
+        [
+          1,
+          27
+        ]
+      ],
+      "included_text_bytes": 1297,
+      "included_text_sha256": "8fb7bf06acf55e15c748f9e784f399a2975b04d82f532c4e1d1aa3f16b668ec7"
+    },
+    {
+      "label": "docs/audits/2026_10_14-milestone-m7-next-candidate/supplements/wifi-compiler-result/link.json",
+      "kind": "raw original compiler result; no prior verdict",
+      "original_bytes": 14151,
+      "original_sha256": "4b8f983b6fa3599bc212d2abbb958be28ca49d7eb5fd36e5e6775d624ac1cf16",
+      "ranges": [
+        [
+          1,
+          185
+        ]
+      ],
+      "included_text_bytes": 14968,
+      "included_text_sha256": "b3265cd0b4a02b25ace359fc053e89b3f2f7663988561a2313e6cf1532bf028b"
+    },
+    {
+      "label": "docs/audits/2026_10_14-milestone-m7-next-candidate/supplements/wifi-compiler-result/target-artifact.json",
+      "kind": "raw original compiler result; no prior verdict",
+      "original_bytes": 999,
+      "original_sha256": "2fc24fe66f5a9b74b7282fb1de0190b765f7e89a90c24f8f1223bbe9318e2179",
+      "ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "included_text_bytes": 1090,
+      "included_text_sha256": "791fa35251cf25e2954a3cc49a177f4964d6affaace6b8d8dd35a69a8a943613"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-native-gameplay-result/supplemental-readback.tar.gz :: state-inventory.json",
+      "kind": "original record",
+      "original_bytes": 808,
+      "original_sha256": "321d9833cde7aa28b60cd2e7c3b241311363bbdef1db54919f4d98b387489c44",
+      "ranges": [
+        [
+          1,
+          17
+        ]
+      ],
+      "included_text_bytes": 867,
+      "included_text_sha256": "7f3fac14634e7a3ee1869b023a156bbdee2c33264d8f11e810e64809af5d0924",
+      "archive_sha256": "0c478f7fc260db4e209da77bda04285c7f566e8d336249975b6c17a25580647d",
+      "member_sha256": "321d9833cde7aa28b60cd2e7c3b241311363bbdef1db54919f4d98b387489c44"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-native-gameplay-result/supplemental-readback.tar.gz :: result.json",
+      "kind": "original record",
+      "original_bytes": 255,
+      "original_sha256": "162f6fe01827fa82afce0cf0ad8956899a3100fc3cf6896637b9e0efb412cbd7",
+      "ranges": [
+        [
+          1,
+          8
+        ]
+      ],
+      "included_text_bytes": 279,
+      "included_text_sha256": "85173c7b1b8911767ffcecb365d66126fce5ef12f8d067105a166bc451fed9b3",
+      "archive_sha256": "0c478f7fc260db4e209da77bda04285c7f566e8d336249975b6c17a25580647d",
+      "member_sha256": "162f6fe01827fa82afce0cf0ad8956899a3100fc3cf6896637b9e0efb412cbd7"
+    },
+    {
+      "label": "docs/audits/2026_10_14-milestone-m7-next-candidate/supplements/native-state02-result/selected-guest-originals.tar.gz :: gameplay/supervisor-result.json",
+      "kind": "raw original installed native state result; no prior verdict",
+      "original_bytes": 409,
+      "original_sha256": "112f7fe638d48ee5e1e55790f4eed6fdb15251e92fe74164e2f6be7c8c7f780e",
+      "ranges": [
+        [
+          1,
+          20
+        ]
+      ],
+      "included_text_bytes": 480,
+      "included_text_sha256": "aa06d9159f82d6df433328a1e443efb210b489aff27dc785bfd7487ea9c01ba0",
+      "archive_sha256": "24fdee407d3f6171ecc962fd7a8eeb596fd904ae38d933de100d114cb73de45e",
+      "member_sha256": "112f7fe638d48ee5e1e55790f4eed6fdb15251e92fe74164e2f6be7c8c7f780e"
+    },
+    {
+      "label": "docs/audits/2026_10_14-milestone-m7-next-candidate/supplements/native-state02-result/selected-guest-originals.tar.gz :: gameplay/snapshots/wii-saved-a/inventory.json",
+      "kind": "raw original installed native state result; no prior verdict",
+      "original_bytes": 2761,
+      "original_sha256": "463588af81932e5884a785528de3d961ec4e8c61c7f06c7ccdcf58d6f7cee527",
+      "ranges": [
+        [
+          1,
+          78
+        ]
+      ],
+      "included_text_bytes": 3064,
+      "included_text_sha256": "e414a2c2450213990ee77b1349f3f30d37766095d5691c42f4d289248afa6c6a",
+      "archive_sha256": "24fdee407d3f6171ecc962fd7a8eeb596fd904ae38d933de100d114cb73de45e",
+      "member_sha256": "463588af81932e5884a785528de3d961ec4e8c61c7f06c7ccdcf58d6f7cee527"
+    },
+    {
+      "label": "docs/audits/2026_10_14-milestone-m7-next-candidate/supplements/native-state02-result/selected-guest-originals.tar.gz :: gameplay/snapshots/wii-loaded-a/inventory.json",
+      "kind": "raw original installed native state result; no prior verdict",
+      "original_bytes": 2767,
+      "original_sha256": "b7181e66c47a1926016132bf78589b4d5397efb99efaf4ef8138ada103373cc2",
+      "ranges": [
+        [
+          1,
+          78
+        ]
+      ],
+      "included_text_bytes": 3070,
+      "included_text_sha256": "9e9a2bc2ca8c6ee83a911177736964f6f729931b3ce1e4c30147f5bdca05d9cf",
+      "archive_sha256": "24fdee407d3f6171ecc962fd7a8eeb596fd904ae38d933de100d114cb73de45e",
+      "member_sha256": "b7181e66c47a1926016132bf78589b4d5397efb99efaf4ef8138ada103373cc2"
+    },
+    {
+      "label": "docs/audits/2026_10_14-milestone-m7-next-candidate/supplements/native-state02-result/selected-guest-originals.tar.gz :: gameplay/snapshots/dc-manual-saved-a/inventory.json",
+      "kind": "raw original installed native state result; no prior verdict",
+      "original_bytes": 3074,
+      "original_sha256": "787f338418f7e06a063128bf003734ec3efee4e86712ec70a746474118014f5a",
+      "ranges": [
+        [
+          1,
+          81
+        ]
+      ],
+      "included_text_bytes": 3389,
+      "included_text_sha256": "6f748a56361eea061dd32de84d8e093d5d92ee9d548816c876b0655513d64f77",
+      "archive_sha256": "24fdee407d3f6171ecc962fd7a8eeb596fd904ae38d933de100d114cb73de45e",
+      "member_sha256": "787f338418f7e06a063128bf003734ec3efee4e86712ec70a746474118014f5a"
+    },
+    {
+      "label": "docs/audits/2026_10_14-milestone-m7-next-candidate/supplements/native-state02-result/selected-guest-originals.tar.gz :: gameplay/snapshots/dc-global-on-native-off-stopped/inventory.json",
+      "kind": "raw original installed native state result; no prior verdict",
+      "original_bytes": 2985,
+      "original_sha256": "68ea5a0d9f7ff36ddc4d20efe359d76347cf235de7d88050623460f2f6c0e5a0",
+      "ranges": [
+        [
+          1,
+          71
+        ]
+      ],
+      "included_text_bytes": 3260,
+      "included_text_sha256": "9c238720956d0293eae11bfd81de4e3655cf7c17842596a5c716e9902a72c9cb",
+      "archive_sha256": "24fdee407d3f6171ecc962fd7a8eeb596fd904ae38d933de100d114cb73de45e",
+      "member_sha256": "68ea5a0d9f7ff36ddc4d20efe359d76347cf235de7d88050623460f2f6c0e5a0"
+    },
+    {
+      "label": "docs/audits/2026_10_14-milestone-m7-next-candidate/supplements/native-state02-result/selected-guest-originals.tar.gz :: gameplay/snapshots/dc-auto-saved-stopped/inventory.json",
+      "kind": "raw original installed native state result; no prior verdict",
+      "original_bytes": 2924,
+      "original_sha256": "96b4694ac12a207b53e782c0bdfbf645d6458344351684875bf103a43b787df0",
+      "ranges": [
+        [
+          1,
+          71
+        ]
+      ],
+      "included_text_bytes": 3199,
+      "included_text_sha256": "df29646cd023df8c8c1096e4fd5d936358a382faf82a0b29e9b167bad8e82030",
+      "archive_sha256": "24fdee407d3f6171ecc962fd7a8eeb596fd904ae38d933de100d114cb73de45e",
+      "member_sha256": "96b4694ac12a207b53e782c0bdfbf645d6458344351684875bf103a43b787df0"
+    },
+    {
+      "label": "docs/audits/2026_10_14-milestone-m7-next-candidate/supplements/native-state02-result/selected-guest-originals.tar.gz :: gameplay/snapshots/dc-auto-cold-restored-c/inventory.json",
+      "kind": "raw original installed native state result; no prior verdict",
+      "original_bytes": 3114,
+      "original_sha256": "c18f3c809f68b20ca7c95c96f8edb4af15f4224fe9dc86ea27983d78b966ec7b",
+      "ranges": [
+        [
+          1,
+          81
+        ]
+      ],
+      "included_text_bytes": 3429,
+      "included_text_sha256": "97a7efdf0c14d47f952f520ef93ebac39ade6237b093de9e5f5a49ab918c4b01",
+      "archive_sha256": "24fdee407d3f6171ecc962fd7a8eeb596fd904ae38d933de100d114cb73de45e",
+      "member_sha256": "c18f3c809f68b20ca7c95c96f8edb4af15f4224fe9dc86ea27983d78b966ec7b"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-14-independent-format-runtime/attempt02/guest/pix574-format-format02/result.json",
+      "kind": "original record",
+      "original_bytes": 368,
+      "original_sha256": "c70b55089feda2504eb966960b9a3a593aeff6c2363a27c56a66ac38d9ed8d1d",
+      "ranges": [
+        [
+          1,
+          13
+        ]
+      ],
+      "included_text_bytes": 411,
+      "included_text_sha256": "c2f857acaca0633e388adc100cd5b2ff31b4944e70df20f623f1745a0a7bf7fb"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-14-independent-format-runtime/attempt02/guest/pix574-format-format02/oracle/result.json",
+      "kind": "original record",
+      "original_bytes": 1501,
+      "original_sha256": "7e86fe6ec13dafe12de51b7d622ad5b28fdf1d10d2cdfa74bc3cef2faa6cc19f",
+      "ranges": [
+        [
+          1,
+          44
+        ]
+      ],
+      "included_text_bytes": 1668,
+      "included_text_sha256": "48b417e2d488e313c54686ea622fd77dc2655c829ce6fed892cce9a76bb2cc92"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-restoration-completion/originals.tar.gz :: reconciliation/source-readback.json",
+      "kind": "original record",
+      "original_bytes": 1378,
+      "original_sha256": "0daacf3ab3e54c641b1bd19701ec3dca1ceac6f686749c58da983ba478250cd1",
+      "ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "included_text_bytes": 1478,
+      "included_text_sha256": "e0e6e3c572b41fe9037b924cc35b5be0e123f60203e20d7629b3cff08ba2fbd0",
+      "archive_sha256": "c339b6e60b6a3e0eb93e9dc0dc4350b3d8e6217e09343dd197af3b8d619ca6bb",
+      "member_sha256": "0daacf3ab3e54c641b1bd19701ec3dca1ceac6f686749c58da983ba478250cd1"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-restoration-completion/originals.tar.gz :: reconciliation/website/publication-originals/merge-response.json",
+      "kind": "original record",
+      "original_bytes": 123,
+      "original_sha256": "1b14928c79286576cedb67c3a45e1e5ff1636ab045e4ea8c78d05e251df21bbc",
+      "ranges": [
+        [
+          1,
+          5
+        ]
+      ],
+      "included_text_bytes": 138,
+      "included_text_sha256": "f4fb41a41339aef482b497ba921c76984d135ab6fee06a0441e07a941dc8a470",
+      "archive_sha256": "c339b6e60b6a3e0eb93e9dc0dc4350b3d8e6217e09343dd197af3b8d619ca6bb",
+      "member_sha256": "1b14928c79286576cedb67c3a45e1e5ff1636ab045e4ea8c78d05e251df21bbc"
+    },
+    {
+      "label": "docs/qa-logs/2026-10-15-restoration-completion/originals.tar.gz :: reconciliation/website/publication-originals/public-cloud-guide-text.txt",
+      "kind": "original public HTML text readback",
+      "original_bytes": 6089,
+      "original_sha256": "51d28725f60facab495592a2d6433bdcccf9b6b925a54b17066ba4a7379ce1be",
+      "ranges": [
+        [
+          1,
+          1
+        ]
+      ],
+      "included_text_bytes": 6092,
+      "included_text_sha256": "cd46f5282322ca8aed81fcaa50ab73a7cc6b7ea66ad4afc13e4d3416ff33beb5",
+      "archive_sha256": "c339b6e60b6a3e0eb93e9dc0dc4350b3d8e6217e09343dd197af3b8d619ca6bb",
+      "member_sha256": "51d28725f60facab495592a2d6433bdcccf9b6b925a54b17066ba4a7379ce1be"
+    }
+  ],
+  "sanitization": {
+    "content_transformations": [
+      {
+        "kind": "host_path",
+        "from": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+        "to": "<DISTRO_CHECKOUT>",
+        "count": 1
+      },
+      {
+        "kind": "host_path",
+        "from": "/workspace/tmp",
+        "to": "<HOST_TMP>",
+        "count": 1
+      },
+      {
+        "kind": "host_path",
+        "from": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+        "to": "<DISTRO_CHECKOUT>",
+        "count": 1
+      },
+      {
+        "kind": "host_path",
+        "from": "/workspace/tmp",
+        "to": "<HOST_TMP>",
+        "count": 1
+      },
+      {
+        "kind": "host_path",
+        "from": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+        "to": "<DISTRO_CHECKOUT>",
+        "count": 1
+      },
+      {
+        "kind": "host_path",
+        "from": "/workspace/tmp",
+        "to": "<HOST_TMP>",
+        "count": 31
+      },
+      {
+        "kind": "omitted_encoded_command_payload",
+        "characters": 5296,
+        "sha256": "350c392bd727d4d40a4e8b77555c3ec180d37de6607c5ccf8178218ce3bb28aa"
+      },
+      {
+        "kind": "omitted_encoded_command_payload",
+        "characters": 41808,
+        "sha256": "ba7fcd0afecc74f93e5ef872e702e8633129d4ef8d020b63eb883651450f836c"
+      },
+      {
+        "kind": "host_path",
+        "from": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+        "to": "<DISTRO_CHECKOUT>",
+        "count": 1
+      },
+      {
+        "kind": "host_path",
+        "from": "/workspace/tmp",
+        "to": "<HOST_TMP>",
+        "count": 1
+      },
+      {
+        "kind": "host_path",
+        "from": "/workspace/tmp",
+        "to": "<HOST_TMP>",
+        "count": 36
+      },
+      {
+        "kind": "omitted_encoded_command_payload",
+        "characters": 23628,
+        "sha256": "ec90596282f3cb180268c3b92cdbb073e79c1275304493823ec45ab2fdd797f2"
+      },
+      {
+        "kind": "omitted_encoded_command_payload",
+        "characters": 23628,
+        "sha256": "ad388a21baf78cf62d5236fe164a1996eaa4bea1877f6cbef2f680a9a714cc7e"
+      },
+      {
+        "kind": "omitted_encoded_command_payload",
+        "characters": 6512,
+        "sha256": "48e47577fd24906d64880abe8ced2747d167d5434dd1a971ad6ec12c7e5b583f"
+      },
+      {
+        "kind": "omitted_encoded_command_payload",
+        "characters": 41812,
+        "sha256": "724efbe23ea86809bb28e3dac6277e562bf97e47a238837b1bc9168932ea40bd"
+      },
+      {
+        "kind": "host_path",
+        "from": "/workspace/tmp",
+        "to": "<HOST_TMP>",
+        "count": 42
+      },
+      {
+        "kind": "omitted_encoded_command_payload",
+        "characters": 23628,
+        "sha256": "ec90596282f3cb180268c3b92cdbb073e79c1275304493823ec45ab2fdd797f2"
+      },
+      {
+        "kind": "omitted_encoded_command_payload",
+        "characters": 23628,
+        "sha256": "ad388a21baf78cf62d5236fe164a1996eaa4bea1877f6cbef2f680a9a714cc7e"
+      },
+      {
+        "kind": "omitted_encoded_command_payload",
+        "characters": 6512,
+        "sha256": "48e47577fd24906d64880abe8ced2747d167d5434dd1a971ad6ec12c7e5b583f"
+      },
+      {
+        "kind": "omitted_encoded_command_payload",
+        "characters": 41812,
+        "sha256": "724efbe23ea86809bb28e3dac6277e562bf97e47a238837b1bc9168932ea40bd"
+      },
+      {
+        "kind": "host_path",
+        "from": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+        "to": "<DISTRO_CHECKOUT>",
+        "count": 3
+      }
+    ],
+    "credential_pattern_scan": {
+      "private_key": 0,
+      "github_credential": 0,
+      "provider_credential": 0,
+      "bearer_value": 0
+    },
+    "excluded": [
+      "provider environment/configuration and credentials",
+      "owner credentials/account values",
+      "owner ROM/game/save payload bytes",
+      "image pixels",
+      "opaque encoded command payloads (replaced with digest/size markers)",
+      "full issue bodies/comments and unrelated private messages",
+      "bulk source/firmware archives",
+      "previous per-AC verdicts from blind pass"
+    ],
+    "retained": [
+      "public project source and paths",
+      "commit/blob/file hashes",
+      "timestamps and pseudonymous synthetic fixture data",
+      "source key names such as Token/UserName, not owner secrets",
+      "original historical PASS/FAIL/exit labels as evidence data"
+    ]
+  },
+  "refutation_assembly": {
+    "base": "claude-refutation-base.md",
+    "append_only": "After verified blind completion, append the exact sanitized blind response and its original SHA-256/byte count; no new repository data, user messages or provider reasoning/provenance secrets. Then write claude-brief.md and record its actual digest before dispatch.",
+    "blind_response_max_bytes": 131072,
+    "final_digest": "not yet available; blind response does not exist",
+    "base_rewrite_requires_new_manifest": true
+  }
+}

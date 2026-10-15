@@ -11,6 +11,33 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 11:50 UTC — selected notices and rclone source acquired (#528, #603)
+
+[The accepted notice supplement](../qa-logs/2026-10-15-notice-supplement/accepted/README.md)
+now covers all43 occurrences. The five-record continuation passed all original
+result channels and ordinary consumption, within its corrected before-write
+storage bound. The earlier failed collectors remain unchanged, including the
+third attempt's305.5MB overrun. No collection was replayed merely for a summary.
+
+[Four-library disposition](../qa-logs/2026-10-15-notice-supplement/disposition/README.md)
+is accepted for current notice/source rebinding:14 profile records,57 positive
+library mappings and8 exact notice texts. Include full component source,
+recipe/patch inputs and full notices for enet, libspeexdsp, libxmp-lite and
+opusfile. Consumer-link uncertainty is informational for this inclusive treatment;
+source-bundle materialization and actual notice delivery remain required.
+
+[The rclone source collection](../qa-logs/2026-10-15-prebuilt-source-collection/README.md)
+passed original0/0/0 plus launcher/curl results and ordinary consumption. Both
+exact official source/vendor archives are held (34,770,062B);242/242 selected
+versions match and have retained notice candidates. The exact upstream dirty-file
+list is unknown. Tailscale's selected dependency and notice reconciliation continues.
+
+The independent #603 primary audit completed all67 literal criteria without a
+new confirmed product defect. Its fixed external packets await separately requested
+transfer approval. Record CI at a1e8 fails only that cadence; both wordlists pass.
+Remaining work is component dispositions and source delivery, then physical/native,
+security, documentation and RC/publication gates in the milestone's existing order.
+
 ## 2026-10-15 11:22 UTC — selected source identities and notice continuation (#528)
 
 [Primary upstream evidence](../qa-logs/2026-10-15-prebuilt-source-disposition/disposition.md)

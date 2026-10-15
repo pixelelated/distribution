@@ -1,0 +1,54 @@
+{
+  "utc": "2026-10-15T11:39:10.753639+00:00",
+  "scope": "static prepared-packet validation; no product test or provider call",
+  "checks": [
+    {
+      "file": "evidence-packet.md",
+      "bytes_match": true,
+      "sha256_match": true
+    },
+    {
+      "file": "claude-blind-brief.md",
+      "bytes_match": true,
+      "sha256_match": true
+    },
+    {
+      "file": "claude-refutation-base.md",
+      "bytes_match": true,
+      "sha256_match": true
+    },
+    {
+      "file": "review-plan.json",
+      "bytes_match": true,
+      "sha256_match": true
+    },
+    {
+      "name": "all_67_literal_criteria",
+      "passed": true
+    },
+    {
+      "name": "blind_has_no_primary_verdict_or_prior_crosscheck",
+      "passed": true
+    },
+    {
+      "name": "opaque_encoded_payloads_absent",
+      "passed": true
+    },
+    {
+      "name": "host_home_absent",
+      "passed": true
+    },
+    {
+      "name": "no_provider_key_values",
+      "passed": true
+    }
+  ],
+  "input_blocks": 68,
+  "opaque_payloads_replaced": 10,
+  "ip_literals_retained": [
+    "127.0.0.1 loopback",
+    "10.0.2.2 QEMU built-in gateway"
+  ],
+  "public_author_email": "upstream commit attribution retained",
+  "transfer_started": false
+}

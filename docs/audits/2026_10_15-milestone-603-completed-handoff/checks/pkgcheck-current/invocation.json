@@ -1,0 +1,18 @@
+{
+  "command": [
+    "tools/pkgcheck",
+    "rocknix-abl"
+  ],
+  "cwd": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+  "started": "2026-10-15T10:47:08.477596+00:00",
+  "finished": "2026-10-15T10:47:08.591408+00:00",
+  "original_exit": 0,
+  "elapsed_seconds": 0.11381835397332907,
+  "source_commit": "cdd92f10605517e789e09d13b6f4ba68573c2617",
+  "source_binding": "root supplied exact published refs and immutable audit scope",
+  "recipe_sha256": "6b07c262b11e8cc3fd45e8097b7fdb06a1f612cb31008daafdc3ecf68f892b3c",
+  "tool_sha256": "dea8addbc2a0a3c3d70da227d2be27f705e7d813ee129d0e43a5781215c04e18",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "e5f982060767c62a5dbdd5bab329ae36f244df210552dd768e0e197e5a7d8f3d",
+  "scope": "Fresh independent host recipe lint. Does not recover or assert historical pkgcheck status."
+}

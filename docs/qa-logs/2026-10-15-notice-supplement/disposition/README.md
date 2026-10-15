@@ -1,0 +1,9 @@
+# #528 four-library notice disposition proposal
+
+This is the exact source/evidence proposal from /tmp/pix-m7-notice-disposition-20261015. Root may review and integrate it; no tracker, rule or canonical record was changed. The archive preserves14 original occurrence JSONs,8 exact notice blobs (8,080bytes), source/profile/output mapping, accepted notice04 bindings, proposed four-row treatment and ready additive worklist wording. Original byte/mode/uid/gid/nanosecond-time metadata is in members.json; source original locators and metadata remain inside the packet's two index files.
+
+The proposed narrow closure is current notice/source-member rebinding for enet, libspeexdsp, libxmp-lite and opusfile. Their14 profile records show57 positive selected shared-library file/link package→staged-image matches and12 opusfile ARM→lib32 handoffs. Sixteen missing .la metadata files do not establish exclusion. Conservative complete component source plus full notices/attribution is selected for the existing source/notice bundle work; consumer linkage uncertainty does not create a blanket historical compiler-flag gate.
+
+No complete source archive is copied or independently retrieved by this packet. Whole-release publication, source-bundle materialization, actual notice delivery and off-host custody remain existing #528 work. Other component scope/terms, including shader/ZeroTier, ABL and Doom, remain unchanged. Original failed collectors and their limits are preserved in the adjacent failure packets. Accepted04 collection and its exact original0/consumption are retained separately in sibling accepted/.
+
+No cache scan, collector, preparer, test, target, service, network transfer or product edit was performed for this evidence disposition. Archive creation and byte/metadata custody verification are the only executable work here. No public RC or legal clearance is claimed.
