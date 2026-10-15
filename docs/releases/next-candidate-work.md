@@ -11,6 +11,24 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 02:46 UTC — focused audit fixes verified; UI is next
+
+#594/#595 source is d9054efc46, published on feature47dda767. Fifteen Dolphin
+source session/publication controls and Steam old-import-negative/new-success
+controls pass in no-NIC VM02, original channels0 and admission consumed. First
+fixture census failure remains original1; the already-qualified census correction
+was applied separately without changing product expectations. #593 actual ES and
+two target control binaries compile/link successfully, normal cleanup/consumption.
+[Compact originals](../qa-logs/2026-10-15-audit-followup-controls/README.md).
+
+Next: actual Wi-Fi scan lifecycle and EN/FR Dolphin refusal/return frames; then
+integrate/pin and build the changed engineering image. Bind affected source/image
+and clean/retained continuity, followed by the four-launch native-state-only
+continuation. Ordinary Wii/Dreamcast cold saves are independently accepted and
+published; do not repeat them. Resolve #596/#590 acceptance, then H700 and SM8550.
+Source controls do not claim installed correction, native ARM Steam, or rendered
+UI. The current image remains engineering-only and no physical action is active.
+
 ## October15 02:21 qualification update
 
 Both verified Fable passes have returned. The audit adds three concrete follow-ups:

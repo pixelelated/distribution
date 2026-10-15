@@ -1,35 +1,41 @@
 # Saved Session State
 
-Updated 2026-10-15 02:37 UTC. Continue authorized M7 toward the next 0.0.1 RC.
+Updated 2026-10-15 02:46 UTC. Continue authorized M7 toward the next 0.0.1 RC.
 Coordinator `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
 `feature/m7-player-setup`. Harness conflict-resolution untouched. Published
-coordinator/primary/remote branches are be71c43538. Uncommitted source and evidence
+feature is47dda767c7; primary/remote next remainsbe71c43538. Uncommitted source and evidence
 below must be reviewed/staged explicitly; never stage the active audit directory.
 Actual host PID namespace4026531836; host/network/outside-workspace operations
 use escalated exec. No formal goal. Saving this checkpoint is not a pause.
 
 ## Current ordered work
 
-1. Native03 byte readback and scoped acceptance are complete; admission consumed.
-   Publish ready compact originals. The original exporter failure stays intact.
-   #594/#595 controls01 failed on the inherited guest census; use the already
-   qualified census correction in an additive packet before a fresh retry.
-2. Verify and integrate audit corrections #593 (Wi-Fi normal exit), #594
-   (Dolphin retained achievements disable/logout), #595 (Steam Python isolation).
-   Source work is committed locally as d9054efc46 for #594/#595; compiler/VM proof
-   and new error frames remain due.
-3. Finish remaining native manual/automatic-state observations separately from
-   the now observed ordinary game-save cold restoration. Do not rerun completed
-   ordinary-save games just to rediscover their behavior. Narrow next allocation.
-4. Complete #590 audit grading/punch list and affected source/image qualification,
-   then H700 followed by SM8550 under #555. Engineering image is not an RC.
-   #528/#344/#337/#359 publication/source custody remain separate.
+1. #593 actual frontend proof and #594 English/French refusal/return frames are
+   next. Compiler and both focused source-control families are complete below.
+   Agent frame_diff_review prepares the narrow no-NIC GUI source packet, initially
+   640x480; larger-panel evidence remains explicit, not inferred from this size.
+2. Integrate exact reviewed ES and product sources after required flow/frame
+   acceptance; build the next engineering image with source/installed identity
+   and affected clean/retained continuity. No broad accepted matrix replay.
+3. Execute the prepared four-launch native-state-only continuation against that
+   actual completed image. Ordinary Wii/Dreamcast cold game-save proof is accepted;
+   Wii completed manual load and Flycast manual/native-auto/global comparisons
+   remain separate. No ordinary-save replay.
+4. Close #596 audit punch outcomes and #590 after exact acceptance, then H700
+   followed by SM8550 under #555. #528/#344/#337/#359 source custody/publication
+   remain separate; no RC designation or physical operation is active.
 
-No VM/compiler/external call is currently active. Root is sole runtime allocator
-and operator; source-only agents below continue. Watchers do not send off-session
-chat alerts. Announce actual results promptly; never infer completion from a log
-silence. No physical device, real account, or cloud operation is authorized by
-this checkpoint; old named device actions are consumed.
+No VM/compiler/external call currently active. Root alone allocates/operates
+runtime; source agents continue. Watchers do not notify off-session; actively
+supervise and announce actual completion. No physical-device or real-cloud
+operation is authorized by this checkpoint; prior named actions are consumed.
+
+Published feature head47dda767c7 includes d9054efc46 product corrections and
+compact accepted composition/native evidence. Primary next remainsbe71c43538.
+Repository native-correction storage now losslessly compresses one raw .diff:
+COMPLETEseal01f427962052f8a02e040d5c611aa96d4948cf8e5c4a08c0fc6387c715117034;
+oldb45seal retained in original-COMPLETE-SHA256SUMS. Exact private/archive bytes
+unchanged. Do not confuse repository storage transformation with source changes.
 
 ## Current source corrections, not yet qualified
 
@@ -40,11 +46,13 @@ this checkpoint; old named device actions are consumed.
   Back/reopen and presentation unchanged; D-CLOUD-133 SIGTERM behavior preserved.
   Abrupt termination remains a documented residual. UNRUN packet
   `/tmp/pix-m7-wifi-normal-exit-20261015`, seal84e0fdd157206d39f90eb8d02e2f657110e5c7589b67c6f1f6c30272851ebf3f.
-  Source and four-control fixture reviewed independently; no compiler/pin/push.
+  Source and four-control fixture reviewed independently; actual compiler now
+  passes below. Runtime/GUI and pin promotion remain due.
 - #594: coordinator commit d9054efc46, cheevos_dolphin.sh and both native launchers.
   Atomic0600 generated INI; disabled/logged-out clears token/user/host/hardcore;
   publication failure refuses launch through existing localized250 error channel.
-  New EN/FR message requires exact flow/frame proof. Enabled routing unchanged.
+  Fifteen exact full-helper/launcher-block controls now pass. New EN/FR message
+  still requires actual flow/frame proof. Enabled routing unchanged.
   Independent source review found no blocker; canonical flow/copy updated. Current ROCKNIX upstream retains
   original early exit; queued focused contribution under#585, no submission.
 - #595: coordinator commit d9054efc46, Install Steam.sh one-line runtime helper change
@@ -111,6 +119,42 @@ Root /tmp/pix-m7-audit-controls-vm-20261015 prepares the reviewed lifecycle;
 a freshowner derivative and newboundseal are required for retry. #595 sealed
 packet /tmp/pix-m7-steam-isolation-20261015 has368f6b95a3a4f725c0a97c0fc8c6e40509768f0d1e80f0c10542054e09147a76.
 No installed correction, actual native Steam or rendered refusal claim.
+
+## New accepted compiler and focused controls
+
+#593 compiler owner /workspace/tmp/pix-m7-wifi-compile-20261015-01,
+watch023950Z-e4dd5495 (coordinator), launcher2686251, admissionfb99a646 consumed.
+All syntax/three actual object/link/strip/readelf/two driver compilation and
+original container/watchdog/command/monitor/launcher0. ExactCID absent, no live
+observedprocess, noOOM/forcedcleanup. Source packet /tmp/pix-m7-wifi-compile-20261015
+seal8443c7ae. Candidate ES/work/emulationstation11,831,632B,
+SHA067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d;
+driversbaseline018cf4ff73f1d99bc5d8dfce2be31eb21a378d1c382ca018ad40fd79a75cd38b;
+candidatea726719e63cded40c2b6b465713472abbfdc243846ac4c2b78888ddacfb075d9.
+Compiled executables have not run. Guarded swap helper restored8GiBfree before
+this compiler; original tool action completed0/READY, no broad root command.
+
+Controls02 owner /workspace/tmp/pix-m7-audit-controls-20261015-02,
+watch024125Z-c0cd55ae (frozenbuild), launcher2695026, completed02:42:10,
+admission15e893d5 consumed qualified. Originalruntime/export/monitor/launcher0,
+normalunmount/QEMUstop, no hostchildren. Guestd4af, supplied source d905.
+Dolphin15/15PASS0.568s: seeded disabled/logout clearing, unchanged enabled
+routing, create/publish/directory refusal250 EN/FR, symlinktarget protection,
+no forbidden mutations/remainingchildren. This is fullhelper/exactlauncherblock
+proof with engine marker, not full engine or actual UI refusal.
+Steam oldfunction1 poisonedimportreached, newisolatedfunction0 successfulwhole
+syntheticruntime transaction, sameembeddedbody; no timeout/survivinggroup.
+InstalledPython1324452a...; synthetictransport/archive only, no nativeARM/client.
+Root verified all144Dolphin+29Steam archive members and originals. Export
+/workspace/tmp/pix-m7-audit-controls-evidence-20261015-02. Additive corrected
+#594sealff888753 uses alreadyqualifiedcensus; controls01failure remains intact.
+
+READY compact packet docs/qa-logs/2026-10-15-audit-followup-controls,
+seal12efbe4ac325e76f42d242ea1c3855b9c41926ca4d8a0b44b14d2f3bd5b5d41e,
+contains bothcontrols originals/consumption and compiler source/results. Do not
+stage active auditdir. #595firsttwo checklistcriteria updated/readback exactly;
+finalimage/sourceidentity thirdcriterion remains open. #596update01 and milestone
+02:45 currentorder readbacks in /workspace/tmp/pix-m7-audit-followups-20261015-01.
 
 ## Independent audit — both calls completed
 
