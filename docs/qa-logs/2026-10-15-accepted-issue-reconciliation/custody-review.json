@@ -1,0 +1,40 @@
+{
+  "reviewed_utc": "2026-10-15T08:26:04.518536+00:00",
+  "status": "SOURCE_PACKET_RETENTION_VERIFIED",
+  "archives": [
+    {
+      "archive": "reconciliation-source.tar.gz",
+      "archive_sha256": "3cf2a9b9e9b88c6cba3b5f3ef48cf591b3fde51282742d2f033b3d5a7ac7a4e6",
+      "archive_bytes": 48704,
+      "member_count": 21,
+      "file_count": 20,
+      "directory_count": 1,
+      "source": "/tmp/pix-m7-accepted-issue-reconciliation-20261015"
+    },
+    {
+      "archive": "tracker-completion.tar.gz",
+      "archive_sha256": "0ca80047b1791180bc210764349299f9665dfcb6bc88b222d2bdb510ea28750b",
+      "archive_bytes": 110575,
+      "member_count": 19,
+      "file_count": 17,
+      "directory_count": 2,
+      "source": "/tmp/pix-m7-accepted-issue-completed-readbacks-20261015"
+    }
+  ],
+  "total_archive_members": 40,
+  "checks": [
+    "exact original seals and payload membership",
+    "all archived member bytes and source hashes",
+    "member types/modes/uid/gid/owner/group names/PAX nanosecond mtimes",
+    "source bytes and metadata unchanged",
+    "closed/completed 589/591/577 exact body equality",
+    "577 exact close-comment equality",
+    "511 exact follow-up body equality and open state"
+  ],
+  "archive_readback_without_extraction": true,
+  "runtime_or_test_execution": false,
+  "candidate_helper_execution": false,
+  "tracker_mutation_by_this_agent": false,
+  "full_release_source_custody_claim": false,
+  "historical_pending_records_preserved": true
+}

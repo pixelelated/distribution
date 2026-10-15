@@ -1,10 +1,39 @@
 # Saved Session State
 
-Updated 2026-10-15 07:59 UTC. Continue authorized M7 toward next 0.0.1 RC.
-Coordinator m7-player-setup / feature/m7-final-qualification; publishedca888d43ce.
+Updated 2026-10-15 08:20 UTC. Continue authorized M7 toward next 0.0.1 RC.
+Coordinator m7-player-setup / feature/m7-final-qualification; publisheda57b001491.
 Accepted H700/VM sourcef863 / ES16dbac unchanged. New SM05 source9aa7 corrects
-only the ABL checksum. Root sole runtime allocator; SM cache copy ACTIVE.
+only the ABL checksum. Root sole runtime allocator; SM main build ACTIVE.
 Saving is not a pause. No new physical/cloud operation or release approval.
+
+## Latest 2026-10-15 08:20 UTC — SM compiler active; three issue closures
+
+SMcache075719Z-db9c4768 completed08:17:32 alloriginal0, actualownersgone, consumed
+e08f392b08:18:06. 818039ARM/3333667AArch64/19922Nix independent files/checksumsPASS.
+Fresh mainresource51,178MiBavailableRAM/7573MiBfreeswap/2,189,855,617,024Bdisk,
+300GiBreserve; retentionnoerrors/active/relevantmounts. Mainrun
+20261015T081827Z-07dceee9 ACTIVE admissionec3f813f3297497a82cb434bc7e02279,
+launcher735247/runner735248/watcher735250, owner
+/workspace/tmp/pix-m7-sm8550-refresh-20261015-02, source9aa7. CanonicalARM260/260
+completed and installation progressing. Monitor owner/console.log and original
+launcher-result.json plus frozen05 .build-runs/status <=60s. Noother runtime.
+NEXT successful originalchannels/actualownersgone -> current packet commands.sh
+SM8550 consume-build; fresh acceptance resource/report/admission/submit, consume
+actual successful independent raw/update/GPT/ABL/FEX/selectedstate results.
+Do not repeat cache/create/prepare, alter frozen source or precreate receipts.
+
+#589/#591/#577 closedcompleted from original source/result evidence; root rehashed
+38refs, exact bodies/comments/readbacks /tmp/pix-m7-accepted-issue-actions-20261015.
+#511 preciseWi-Fi setupguidefollowup recorded/verified; actualguide notdelivered.
+Auditor retains compact reconciliation at docs/qa-logs/2026-10-15-accepted-issue-reconciliation/
+whenreleased. Source/reviewcustodya57 published; exact3hostedchecksSUCCESS.
+Dolphin sourceworker reconciles #564/#579/#580/#581/#582/#563 and prepares one
+minimal artifact-derived portableSteamcaller VMcase after actualSMacceptance;
+noVM/runtimeallocated. Packaging equality alone does not prove execution, no
+nativeARMclaim. This existing proofseam precedes #528finalinventory in M7order.
+#528source03 staysreadywith7SMrefsnull. Frameworker retains bounded18-row notice
+followup under source-custody/notice-followup/, not collectorimplementation.
+
 
 ## Latest 2026-10-15 07:59 UTC — SM05 cache active; inventory source ready
 
