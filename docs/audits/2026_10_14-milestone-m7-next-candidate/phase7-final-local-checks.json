@@ -1,0 +1,31 @@
+{
+  "utc": "2026-10-15T05:12:04.356231+00:00",
+  "checks": [
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "docs/audits/2026_10_14-milestone-m7-next-candidate"
+      ],
+      "original_returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "tools/lint-audit-artifacts",
+        "docs/audits/2026_10_14-milestone-m7-next-candidate",
+        "--phase",
+        "resolution"
+      ],
+      "original_returncode": 0,
+      "stdout": "== docs/audits/2026_10_14-milestone-m7-next-candidate\n  ok    01-research-notes.md\n  ok    02-forward-audit.md\n  ok    03-retrospective.md\n  ok    04-analysis.md\n  ok    05-punch-list.md\n  ok    00-running-log.md (mandatory at milestone tier)\n  ok    04 \u00a7 Executive summary\n  ok    04 \u00a7 Acceptance-criteria scorecard\n  ok    04 \u00a7 Risk assessment\n  ok    04 \u00a7 Coverage boundary\n  ok    04 \u00a7 Quality self-check\n  ok    review plan: independent, 2 model perspectives, 2 verified external calls\n  ok    6 punch item(s): PL-001, PL-002, PL-003, PL-004, PL-005, PL-006\n  ok    PL-001 outcome recorded with evidence\n  ok    PL-002 outcome recorded with evidence\n  ok    PL-003 outcome recorded with evidence\n  ok    PL-004 outcome recorded with evidence\n  ok    PL-005 outcome recorded with evidence\n  ok    PL-006 outcome recorded with evidence\n  ok    PL-001 index and table agree (resolved)\n  ok    PL-002 index and table agree (resolved)\n  ok    PL-003 index and table agree (resolved)\n  ok    PL-004 index and table agree (resolved)\n  ok    PL-005 index and table agree (resolved)\n  ok    PL-006 index and table agree (resolved)\n\nPASS\n",
+      "stderr": ""
+    }
+  ],
+  "no_network_issue_lookup": true,
+  "audit_complete_within_scope": true,
+  "publication_pending_root": true
+}

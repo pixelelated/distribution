@@ -174,12 +174,13 @@ offers INCREMENT PER SAVE and DO NOT INCREMENT; INCREMENT SLOT went with
 Batocera's `001-no-next-slot` patch, under which the launched slot is the
 current slot, never the next free one.
 
-### Candidate save-state capability guidance (#575)
+### Save-state capability guidance (#575)
 
-The next-source candidate retains the global SAVE STATES controls, values, and
+The current source retains the global SAVE STATES controls, values, and
 ordering. AUTO SAVE/LOAD explains that it applies only to supported emulators;
 SHOW SAVE STATE MANAGER explains that the manager is for RetroArch. This is
-candidate documentation: the production ES pin is still `c8dc72cf9e`.
+installed guidance at ES `16dbac5211eea7e70db7394372033be2be7df829`, verified on
+the final engineering image from distribution `f8636de1d105275dbf9420bbabbbc26f79abb10f`.
 
 ```mermaid
 flowchart TD
@@ -213,6 +214,17 @@ keeps engine save/load observations separate from menu proof. Synthetic GameCube
 system declarations supply the VM menu fixture; no Dolphin engine ran in these
 UI cases. Existing manager, numbered-slot, and ordinary game-save semantics
 above remain unchanged.
+
+The final installed ES16dbac/f863 [native-state readback](audits/2026_10_14-milestone-m7-next-candidate/native-state02-readback.md)
+and [exact-source frame index](audits/2026_10_14-milestone-m7-next-candidate/supplements/native-state02-result/frame-index.json)
+verify the Wii and Dreamcast per-game selection/support dialogs, global Off/On
+screens, native save/load completion, and return to ES. With global On and
+Flycast native automatic saving Off, normal exit preserves the manual state's
+hash and timestamp. With global Off and native automatic saving/loading On,
+normal exit saves the changed scene and the next cold launch restores it before
+input. Dolphin's manual restore returns the paused later scene to the earlier
+unpaused timer. These are VM software observations; they do not claim physical
+handheld performance or replace separate ordinary game-save evidence.
 
 ## Cloud (our subtree)
 
@@ -842,9 +854,14 @@ reproduces the installed baseline defect and verifies enabled, disabled and earl
 boot-failure lifecycle branches. One synthetic failed-login request reaches the
 configured loopback endpoint. No ES copy/layout changes; the exercised nonvisual
 flow is NoGUI startup/configuration and shutdown. Existing settings and game-launch
-frames remain the presentation baseline. Final installed-image smoke and normal
-gameplay/save proof remain open. Listener presence alone does not establish proxy
-identity/readiness, and synthetic login is not successful authentication or an award.
+frames remain the presentation baseline. The subsequent actual installed enabled,
+disabled and boot-error startup controls passed; ordinary Wii gameplay/cold-save
+proof retains its earlier d4af source identity. The final f863
+[native-state flow](audits/2026_10_14-milestone-m7-next-candidate/native-state02-readback.md)
+and [reviewed frame index](audits/2026_10_14-milestone-m7-next-candidate/supplements/native-state02-result/frame-index.json)
+verify manual restoration and normal frontend return. Listener presence alone
+does not establish proxy identity/readiness, and synthetic login is not successful
+authentication or an award. Physical-device behavior remains separately scoped.
 
 ### Dolphin session publication refusal (#594)
 

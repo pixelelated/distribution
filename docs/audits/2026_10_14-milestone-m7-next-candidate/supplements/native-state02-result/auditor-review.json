@@ -1,0 +1,173 @@
+{
+  "utc": "2026-10-15T05:08:47.940782+00:00",
+  "status": "PASS_SCOPED_NATIVE_STATE_PROOF",
+  "source": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+  "es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+  "all_host_original_bytes_modes_membership_verified": 1363,
+  "all_guest_export_rows_rehashed": 611,
+  "original_guest_payload_rows": 610,
+  "export_additional_row": "guest-export-manifest.json",
+  "host_archive_sha256": "eb2ac82045169bc7edaaab30bb264283ceac32c474f7df01ee19f1eb970683d6",
+  "selected_guest_archive_sha256": "24fdee407d3f6171ecc962fd7a8eeb596fd904ae38d933de100d114cb73de45e",
+  "selected_guest_archive_bytes": 6697768,
+  "selected_guest_members": 191,
+  "viewed_frames": 35,
+  "source_files_reverified": [
+    {
+      "path": "owner/source/guest.py",
+      "sha256": "599f8839033b0010b4e7401583f689056ccbe10c443f621daa7238b2f7bec456"
+    },
+    {
+      "path": "owner/host-action.py",
+      "sha256": "98d395dc57de7628a509ce07334b88e613c88da487e5e9de5825f75ecfc1ceed"
+    },
+    {
+      "path": "owner/vm-lifecycle.py",
+      "sha256": "1a909219675bfd7da4b3ed74f8d1f307165d54b628fbb899b62167da4760ca27"
+    },
+    {
+      "path": "owner/source/supervisor.py",
+      "sha256": "0a3864462cb7f6bdc959fa41b843f06ca149105e64cf5afb41a7ad9167b4f690"
+    },
+    {
+      "path": "owner/source/pad.py",
+      "sha256": "240655b3d512986a45348852b5ff6b09e9a439019be99e34a81558cb69064780"
+    },
+    {
+      "path": "owner/census.py",
+      "sha256": "600f1a59149864396730d8bcae6a86b6fa6f8347f99c729c18e14cd7307f62b2"
+    },
+    {
+      "path": "owner/close.py",
+      "sha256": "00fc86e8e5b7979d533f88b95145477d0e71e60431f108e1ef221b1ba3f58de6"
+    }
+  ],
+  "first_frames": [
+    {
+      "label": "wii-first-interactive",
+      "launch_ordinal": 1,
+      "launch_time": 1792039574.1640725,
+      "capture_time": 1792039579.213276,
+      "host_complete_frame_upper_bound_seconds": 5.0492036999203265,
+      "guest_capture_ack_elapsed_seconds": 5.053287557999965,
+      "first_subsequent_pad_time": 1792039590.8791718,
+      "first_subsequent_pad_buttons": [
+        "start"
+      ],
+      "first_subsequent_pad_id": "b13ad6ca54624a42ba971645d9ea2059",
+      "scope": "Original host serial-lock action ordering, capture receipts and guest pad-event time corroborate no input between launch and this frame; not a hardware latency benchmark."
+    },
+    {
+      "label": "dc-manual-interactive-actual",
+      "launch_ordinal": 2,
+      "launch_time": 1792039854.8243642,
+      "capture_time": 1792039872.5067868,
+      "host_complete_frame_upper_bound_seconds": 17.682422084966674,
+      "guest_capture_ack_elapsed_seconds": 17.69086995300006,
+      "first_subsequent_pad_time": 1792039883.9563107,
+      "first_subsequent_pad_buttons": [
+        "a"
+      ],
+      "first_subsequent_pad_id": "561b2f4380394636a49bd2000b13b807",
+      "scope": "Original host serial-lock action ordering, capture receipts and guest pad-event time corroborate no input between launch and this frame; not a hardware latency benchmark."
+    },
+    {
+      "label": "dc-auto-save-first-interactive",
+      "launch_ordinal": 3,
+      "launch_time": 1792040190.6308742,
+      "capture_time": 1792040198.9391532,
+      "host_complete_frame_upper_bound_seconds": 8.308278390904889,
+      "guest_capture_ack_elapsed_seconds": 8.291329115000053,
+      "first_subsequent_pad_time": 1792040212.1177745,
+      "first_subsequent_pad_buttons": [
+        "back"
+      ],
+      "first_subsequent_pad_id": "f8acb134346242bf8694dcf7cab162b5",
+      "scope": "Original host serial-lock action ordering, capture receipts and guest pad-event time corroborate no input between launch and this frame; not a hardware latency benchmark."
+    },
+    {
+      "label": "dc-auto-cold-first-interactive",
+      "launch_ordinal": 4,
+      "launch_time": 1792040373.5013003,
+      "capture_time": 1792040382.8751996,
+      "host_complete_frame_upper_bound_seconds": 9.373898548074067,
+      "guest_capture_ack_elapsed_seconds": 9.377722626999912,
+      "first_subsequent_pad_time": 1792040401.6344576,
+      "first_subsequent_pad_buttons": [
+        "down"
+      ],
+      "first_subsequent_pad_id": "cd6af4dbdc864d2bb2bc53c2427f272d",
+      "scope": "Original host serial-lock action ordering, capture receipts and guest pad-event time corroborate no input between launch and this frame; not a hardware latency benchmark."
+    }
+  ],
+  "manual": {
+    "path": "/storage/roms/bios/dc/Tetris2-M7.state",
+    "resolved": "/storage/roms/bios/dc/Tetris2-M7.state",
+    "bytes": 797614,
+    "sha256": "4666f41a5e41dee99ad569ae010fe30c88706b4e6382cb3b27a9ecc06f4abaf8",
+    "mtime_ns": 1792039962386666799,
+    "stable_during_read": true
+  },
+  "manual_stopped": {
+    "path": "/storage/roms/bios/dc/Tetris2-M7.state",
+    "resolved": "/storage/roms/bios/dc/Tetris2-M7.state",
+    "bytes": 797614,
+    "sha256": "4666f41a5e41dee99ad569ae010fe30c88706b4e6382cb3b27a9ecc06f4abaf8",
+    "mtime_ns": 1792039962386666799,
+    "stable_during_read": true
+  },
+  "automatic_saved": {
+    "path": "/storage/roms/bios/dc/Tetris2-M7.state",
+    "resolved": "/storage/roms/bios/dc/Tetris2-M7.state",
+    "bytes": 797470,
+    "sha256": "376ca85a75e9c9cd569e965e9eb5e7c052c967fad91fd06b960573bdb53c1028",
+    "mtime_ns": 1792040348696666806,
+    "stable_during_read": true
+  },
+  "automatic_cold_before_input": {
+    "path": "/storage/roms/bios/dc/Tetris2-M7.state",
+    "resolved": "/storage/roms/bios/dc/Tetris2-M7.state",
+    "bytes": 797470,
+    "sha256": "376ca85a75e9c9cd569e965e9eb5e7c052c967fad91fd06b960573bdb53c1028",
+    "mtime_ns": 1792040348696666806,
+    "stable_during_read": true
+  },
+  "fourth_exit_saved": {
+    "path": "/storage/roms/bios/dc/Tetris2-M7.state",
+    "resolved": "/storage/roms/bios/dc/Tetris2-M7.state",
+    "bytes": 797632,
+    "sha256": "5c97d256a08848e2c7bc6da09ad4396944de8485b9a56885857363984c4c1adf",
+    "mtime_ns": 1792040435473333481,
+    "stable_during_read": true
+  },
+  "wii_state": {
+    "path": "/storage/roms/savestates/wii/ID-SuDokuL-Wii.s01",
+    "resolved": "/storage/roms/savestates/wii/ID-SuDokuL-Wii.s01",
+    "bytes": 6401425,
+    "sha256": "3732bf04a3fbfe07373b255735155a1eb6279fbbe1c3d625ed13276abad2b261",
+    "mtime_ns": 1792039642010000092,
+    "stable_during_read": true
+  },
+  "actual_consumed_sha256": "9e83747151c2ed450f780041c7beabbc45c79e50de7cf26bcfbedf27ab5c8702",
+  "actual_consumed_id": "d739030019bc445bae908b3ca6dd6b48",
+  "recorded_host_pids_independently_absent": [
+    3414241,
+    3414242,
+    3414295,
+    3414243,
+    3415040
+  ],
+  "all_pad_presses_released": 53,
+  "native_exit_status": "unknown; original runemu logs report Checking errors:0, but no direct native wait observer. Supervisor/pad/runner0 are not substituted.",
+  "proof_boundaries": [
+    "VM software proof with actual installed engines and generated controller profile; no physical GPU/radio/power claim.",
+    "Ordinary cold game saves remain separately accepted native03 evidence on earlier d4af, not replayed on f863.",
+    "Flycast manual Save/Load activation immediately resumes into High Score table; saved thumbnail and later cold launch show actual saved selectionA. Cause of immediate table navigation unestablished; no defect inferred.",
+    "Exact pre-input state identity is compared before fourth normal exit, which legitimately auto-saves again.",
+    "Original native01 prelaunch fixture failure remains failed, including guest forced cleanup and partial export.",
+    "Two incorrectly named original frames remain explicit exclusions.",
+    "Full guest original configuration/account files are excluded from compact retention.",
+    "Initial local readback assumptions about run locator, manifest self-row and prepared-source layout refused before acceptance; actual original schemas/locations were read and corrected. No runtime or evidence bytes changed."
+  ],
+  "audit_completion": "This settles the remaining native-state proof dependency; final audit artifact/tracker reconciliation is separate."
+}

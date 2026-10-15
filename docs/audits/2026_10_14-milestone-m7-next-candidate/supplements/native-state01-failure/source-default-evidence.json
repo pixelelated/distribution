@@ -1,0 +1,43 @@
+[
+  {
+    "path": "es-app/src/guis/GuiMenu.cpp",
+    "commit": "16dbac5211eea7e70db7394372033be2be7df829",
+    "full_blob_sha256": "356c7b48bf71f1a54467609c6eba502079c6c7fd615b2dd2d24966873916432d",
+    "excerpts": [
+      {
+        "first": 5796,
+        "last": 5807,
+        "text": "5796: \ts->addGroup(_(\"SAVE STATES\"));\n5797: \n5798: \t// AUTO SAVE/LOAD\n5799: \tauto autosave_enabled = std::make_shared<SwitchComponent>(mWindow);\n5800: \tautosave_enabled->setState(SystemConf::getInstance()->get(\"global.autosave\") == \"1\");\n5801: #if defined(ROCKNIX)\n5802: \ts->addWithDescription(_(\"AUTO SAVE/LOAD\"), _(\"Supported emulators only. Save on exit and load on launch.\"), autosave_enabled);\n5803: #else\n5804: \ts->addWithDescription(_(\"AUTO SAVE/LOAD\"), _(\"Load latest save state on game launch and save state when exiting game.\"), autosave_enabled);\n5805: #endif\n5806: \ts->addSaveFunc([autosave_enabled] { SystemConf::getInstance()->set(\"global.autosave\", autosave_enabled->getState() ? \"1\" : \"\"); });\n5807: "
+      }
+    ]
+  },
+  {
+    "path": "es-core/src/SystemConf.cpp",
+    "commit": "16dbac5211eea7e70db7394372033be2be7df829",
+    "full_blob_sha256": "2da1969fb921f421a5cb064214e2b0d32b14dac75d08315290f4fa547cbc4b2d",
+    "excerpts": [
+      {
+        "first": 38,
+        "last": 55,
+        "text": "38: static std::map<std::string, std::string> defaults =\n39: {\n40: \t{ \"kodi.enabled\", \"1\" },\n41: \t{ \"kodi.atstartup\", \"0\" },\n42: \t{ \"audio.bgmusic\", \"1\" },\n43: \t{ \"wifi.enabled\", \"0\" },\n44: \t{ \"system.hostname\", \"BATOCERA\" }, // batocera\n45: \t{ \"global.retroachievements\", \"0\" },\n46: \t{ \"global.retroachievements.hardcore\", \"0\" },\n47: \t{ \"global.retroachievements.leaderboards\", \"0\" },\n48: \t{ \"global.retroachievements.verbose\", \"0\" },\n49: \t{ \"global.retroachievements.screenshot\", \"0\" },\n50: \t{ \"global.retroachievements.username\", \"\" },\n51: \t{ \"global.retroachievements.password\", \"\" },\n52: \t{ \"global.netplay_public_announce\", \"1\" },\n53: \t{ \"global.ai_service_enabled\", \"0\" },\n54: };\n55: "
+      },
+      {
+        "first": 344,
+        "last": 436,
+        "text": "344: // This save's keys, applied to the file as it is on disk now (read under\n345: // the lock): a key already there is rewritten in place, or removed when it\n346: // went back to its default or to nothing; a new one goes at the end. Every\n347: // other line is left exactly as the file had it -- the shell's writes\n348: // included.\n349: std::string SystemConf::applyChanges(const std::string& current)\n350: {\n351: \t/* Read all lines in a vector */\n352: \tstd::vector<std::string> fileLines;\n353: \tstd::string line;\n354: \n355: \tstd::istringstream filein(current);\n356: \twhile (std::getline(filein, line))\n357: \t\tfileLines.push_back(line);\n358: \n359: \tstatic std::string removeID = \"$^\ufffd(p$^mpv$\ufffdrpver$^vper$vper$^vper$vper$vper$^vperv^pervncvizn\";\n360: \n361: \tint lastTime = SDL_GetTicks();\n362: \n363: \t/* Save new value if exists */\n364: \tfor (auto& it : changedConf)\n365: \t{\n366: \t\tstd::string key = it + \"=\";\n367: \t\tchar key0 = key[0];\n368: \n369: \t\tbool lineFound = false;\n370: \n371: \t\tfor (auto& currentLine : fileLines)\n372: \t\t{\n373: \t\t\tif (currentLine.size() < 3)\n374: \t\t\t\tcontinue;\n375: \n376: \t\t\tchar fc = currentLine[0];\n377: \t\t\tif (fc != key0 && currentLine[1] != key0)\n378: \t\t\t\tcontinue;\n379: \n380: \t\t\tint idx = currentLine.find(key);\n381: \t\t\tif (idx == std::string::npos)\n382: \t\t\t\tcontinue;\n383: \n384: \t\t\tif (idx == 0 || (idx == 1 && (fc == ';' || fc == '#')))\n385: \t\t\t{\n386: \t\t\t\tstd::string val = confMap[it];\n387: \t\t\t\tif ((!val.empty() && val != \"auto\" && val != \"default\") || dontRemoveValue.find(it) != dontRemoveValue.cend())\n388: \t\t\t\t{\n389: \t\t\t\t\tauto defaultValue = defaults.find(key);\n390: \t\t\t\t\tif (defaultValue != defaults.cend() && defaultValue->second == val)\n391: \t\t\t\t\t\tcurrentLine = removeID;\n392: \t\t\t\t\telse\n393: \t\t\t\t\t\tcurrentLine = key + val;\n394: \t\t\t\t}\n395: \t\t\t\telse \n396: \t\t\t\t\tcurrentLine = removeID;\n397: \n398: \t\t\t\tlineFound = true;\n399: \t\t\t}\n400: \t\t}\n401: \n402: \t\tif (!lineFound)\n403: \t\t{\n404: \t\t\tstd::string val = confMap[it];\n405: \t\t\tif (!val.empty() && val != \"auto\")\n406: \t\t\t\tfileLines.push_back(key + val);\n407: \t\t}\n408: \t}\n409: \n410: \tlastTime = SDL_GetTicks() - lastTime;\n411: \n412: \tLOG(LogDebug) << \"saveSystemConf :  \" << lastTime;\n413: \n414: \tstd::string out;\n415: \tfor (int i = 0; i < fileLines.size(); i++) \n416: \t{\n417: \t\tif (fileLines[i] != removeID)\n418: \t\t\tout += fileLines[i] + \"\\n\";\n419: \t}\n420: \treturn out;\n421: }\n422: \n423: std::string SystemConf::get(const std::string &name) \n424: {\n425: \tif (mSystemConfFile.empty())\n426: \t\treturn Settings::getInstance()->getString(mapSettingsName(name));\n427: \t\n428: \tauto it = confMap.find(name);\n429: \tif (it != confMap.cend())\n430: \t\treturn it->second;\n431: \n432: \tauto dit = defaults.find(name);\n433: \tif (dit != defaults.cend())\n434: \t\treturn dit->second;\n435: \n436:     return \"\";"
+      }
+    ]
+  },
+  {
+    "path": "es-core/src/utils/AtomicFileUtil.cpp",
+    "commit": "16dbac5211eea7e70db7394372033be2be7df829",
+    "full_blob_sha256": "69e35d111933553ba76cb84085fb2ee5aa5faf74606310f638df079f46020637",
+    "excerpts": [
+      {
+        "first": 453,
+        "last": 470,
+        "text": "453: \t\tstd::map<std::string, std::string> parseKeyValues(const std::string& text)\n454: \t\t{\n455: \t\t\tstd::map<std::string, std::string> values;\n456: \t\t\tstd::istringstream in(text);\n457: \t\t\tstd::string line;\n458: \t\t\twhile (std::getline(in, line))\n459: \t\t\t{\n460: \t\t\t\tconst size_t idx = line.find('=');\n461: \t\t\t\tif (idx == std::string::npos || line.find('#') == 0 || line.find(';') == 0)\n462: \t\t\t\t\tcontinue;\n463: \t\t\t\tconst std::string key = line.substr(0, idx);\n464: \t\t\t\tconst std::string value = line.substr(idx + 1);\n465: \t\t\t\tif (!key.empty() && !value.empty())\n466: \t\t\t\t\tvalues[key] = value;\n467: \t\t\t}\n468: \t\t\treturn values;\n469: \t\t}\n470: "
+      }
+    ]
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-15T05:16:36.900190+00:00",
+  "issue": 596,
+  "state_observed": "OPEN",
+  "body_sha256": "02a1134826e3c140c82c9d5b025f80bd94be3cf603402f8ba7d1a1c67c7b5798",
+  "body_bytes": 26635,
+  "exact_readback": true,
+  "resolved": 6,
+  "originals": "supplements/phase6-tracker/final-update05",
+  "original_rows": [
+    {
+      "path": "receipt.json",
+      "bytes": 495,
+      "sha256": "acff24184f06e990fae87ae5b42856e435fa0ca17847188a43ed40a7cfaff30d"
+    },
+    {
+      "path": "before.stdout",
+      "bytes": 23382,
+      "sha256": "1e8671420ddfe0f90d1ca6188426d99a3722c7e23600cc4a5e0464811d213770"
+    },
+    {
+      "path": "write.stdout",
+      "bytes": 55,
+      "sha256": "927d07dab87897613ba0116087ad7ce620fc0e0cf1c4c1602319c33a6c7d7911"
+    },
+    {
+      "path": "write.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "write.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "after.stdout",
+      "bytes": 27150,
+      "sha256": "0de859e2764ad2d53be2dafef80188bf5e789c5b2e42694d6660e90825cddfe0"
+    }
+  ],
+  "scope": "Final body publication verified. Closure/completion and cadence marker are a separate following receipt; no closure inferred from body write."
+}

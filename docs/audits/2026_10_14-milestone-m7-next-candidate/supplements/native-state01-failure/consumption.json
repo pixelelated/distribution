@@ -1,0 +1,40 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T042702Z-60de4194",
+  "expected_rc": 1,
+  "disposition": "failed-investigated",
+  "outputs": [
+    {
+      "issue": 575,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-native-states-20261015-01/vm",
+      "release_when": "Actual four-launch native-state/frame and original host/guest/input outcomes exported; coordinator consumes exact admission before retiring owned VM/media."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-native-states-evidence-20261015-01/export-result.json",
+      "sha256": "35e4a4e33a5916e9530db56d6149ed7ad005e4024a5c169283111d56d6a9791b"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-states-evidence-20261015-01/host-exits.json",
+      "sha256": "ba255d0cf49256631440ca1f49d20dc73edb9f7e27107db58dd8192b4093c321"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-states-evidence-20261015-01/readback-result.json",
+      "sha256": "3830275577306411eb3a29230f4500035f8c6ca8ddfaf8c77808f98912dfaa86"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-states-evidence-20261015-01/original-records.json",
+      "sha256": "9286257eb2b61975560ca9c6215dacb61a734b0f08c545450ddbec512d6ba3eb"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-states-evidence-20261015-01/original-records.tar.gz",
+      "sha256": "e0c3cb701f12a472b120ddf61ce46a5362acc10048d2d138d36b2d756b16e0e5"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-states-evidence-20261015-01/vm-result.json",
+      "sha256": "6473b2e10eb13a45d41220e86ad12cc22559b5f7f2e04b420084b68352cf433e"
+    }
+  ],
+  "scope": "Original native test failed before any game launch; normal abort after diagnostic found omitted global Off default. Partial guest snapshot has no final success manifest. No state qualification."
+}

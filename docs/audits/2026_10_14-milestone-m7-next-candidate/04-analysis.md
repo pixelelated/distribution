@@ -5,15 +5,15 @@
 **Spec:** scope-manifest.json,26 issue snapshots,115 verbatim criteria.
 **Frozen commits:** distribution fac608ff89940ce358ea9b8a95e9a08a6fe26568; ES3178b832b8d134198b2b4eede4f725d4ed283f8c.
 **Baseline:** distribution bc9dfe8141d9561dc1d8502313d00a84c4566ee8; ES c8dc72cf9ec00ab00d6c4a9fcdcea1746c6f1f78.
-**Status:** Phases1–6 complete, including both verified cross-lab calls, all lead grading and exact tracker [#596](https://github.com/pixelelated/distribution/issues/596) readback. All six punch outcomes are resolved within their recorded source/runtime scopes. Final audit completion remains withheld for final integrated-image and native-state qualification; no cadence marker. This is not RC approval.
+**Status:** Phases1–6 complete, including both verified cross-lab calls, all lead grading and exact tracker [#596](https://github.com/pixelelated/distribution/issues/596) readback. All six punch outcomes are resolved within their recorded source/runtime scopes. Final selected clean/retained composition and the named native-state proof on f863/ES16dbac are independently accepted. All seven audit phases are complete. Final tracker closure is independently verified; root owns repository publication. No RC or blanket hardware approval is implied.
 
 ## Executive Summary
 
-The independent audit examined the M7 delta, retaining explicit baseline exclusions and distinguishing actual installed artifacts from helper, source-chroot and private-candidate controls. It derived every criterion before opening prior per-criterion verdicts. Source, original command/child results, selected before/after identities, databases and UI frames support substantial preservation and recovery behavior. The largest remaining evidence scope is final composed installed/native gameplay and save behavior, not a reason to replay already accepted synthetic matrices.
+The independent audit examined the M7 delta, retaining explicit baseline exclusions and distinguishing actual installed artifacts from helper, source-chroot and private-candidate controls. It derived every criterion before opening prior per-criterion verdicts. Source, original command/child results, selected before/after identities, databases and UI frames support substantial preservation and recovery behavior. Later evidence now verifies the named native manual and automatic save-state cases. Accepted synthetic matrices and ordinary cold game-save proof were preserved at their original source/scope without replay.
 
-Six audit findings survive: one High (F-002 NoGUI achievement lifecycle), three Medium (F-001 metadata bounds, F-003 missing Sys resources, G-02 stale retained achievement settings), and two Low (G-01 normal ES scan shutdown, G-03 runtime Python isolation). The first three have later landed corrections and independently checked bounded runtime evidence. PL-006 also resolves at committed source d9054efc after exact installed-interpreter controls; this is not a next/shipped-image or native ARM claim. PL-004 now resolves after original helper controls and full EN/FR refusal flow at640/1280. PL-005 resolves after exact published ES16dbac/distribution pin342eec and original normal-exit/Back/reopen proof. Final integrated-image and native-state qualification remain pending.
+Six audit findings survive: one High (F-002 NoGUI achievement lifecycle), three Medium (F-001 metadata bounds, F-003 missing Sys resources, G-02 stale retained achievement settings), and two Low (G-01 normal ES scan shutdown, G-03 runtime Python isolation). The first three have later landed corrections and independently checked bounded runtime evidence. PL-006 resolves at committed source d9054efc after exact installed-interpreter controls; its unchanged source is now also bound into final f863 artifacts, without a native ARM claim. PL-004 resolves after original helper controls and full EN/FR refusal flow at640/1280. PL-005 resolves after exact published ES16dbac/distribution pin342eec and original normal-exit/Back/reopen proof. Final f863 clean/retained continuations verify both installed corrections within their selected scope. Native-state qualification is now independently accepted within the exact four-launch scope in native-state02-readback.md.
 
-Both pinned Anthropic Fable5.1/xhigh calls completed through the Facilitator with matching prompts/output digests, provider-response model identity and original successful channels. Every blind/refutation lead was checked against source/originals. The external reviewer received no pixels and only attested summaries for later image receipts; primary visual/original readback remains separately identified. Native03 ordinary Wii/Dreamcast cold game-save evidence is independently consumed; completed manual state restore and automatic-state comparisons remain partial. See native-gameplay-supplement-readback.md for preserved exporter failure and additive full byte verification. Primary exact model identity remains unverified; OpenAI lab and Codex harness are known.
+Both pinned Anthropic Fable5.1/xhigh calls completed through the Facilitator with matching prompts/output digests, provider-response model identity and original successful channels. Every blind/refutation lead was checked against source/originals. The external reviewer received no pixels and only attested summaries for later image receipts; primary visual/original readback remains separately identified. Native03 ordinary Wii/Dreamcast cold game-save evidence is independently consumed. Later f863 originals now verify completed Wii/Flycast manual restore, global-On/native-Off preservation and native-On/global-Off save/cold restore; the historical criterion score remains frozen. See native-gameplay-supplement-readback.md for preserved exporter failure and additive full byte verification. Primary exact model identity remains unverified; OpenAI lab and Codex harness are known.
 
 ## Acceptance-Criteria Scorecard
 
@@ -155,7 +155,7 @@ The Steam installer embeds multiple large Python transactions inside shell contr
 
 ## Cornerstone Conformance
 
-**Overall: MEDIUM** until defects and the existing final evidence gates are resolved.03 contains30 rule rows and74 distinct registered blindspots, including the register's duplicate29. Confirmed violations concern bounded foreground waiting, frontend lifecycle, immutable dependency availability and trusting configuration/comments as runtime evidence. Device permission, frozen source, prior-audit independence and failed-evidence preservation were maintained. Audit-owned files are the only repository mutations by this auditor.
+**Overall: verified within the declared audit scope.** All six discovered violations have committed, original-evidence-backed outcomes, including the final selected composition and named native-state proof. Pre-existing tracked scope limits remain explicit.03 contains30 rule rows and74 distinct registered blindspots, including the register's duplicate29. Confirmed violations concern bounded foreground waiting, frontend lifecycle, immutable dependency availability and trusting configuration/comments as runtime evidence. Device permission, frozen source, prior-audit independence and failed-evidence preservation were maintained. Audit-owned files are the only repository mutations by this auditor.
 
 ## Spec Fidelity
 
@@ -169,9 +169,9 @@ The default NoGUI frontend cannot satisfy achievement support solely from its ge
 
 ## Missing Artifacts
 
-The later d4af image now has independently read clean-first-boot, retained ordinary-update, loader and installed Dolphin startup/resource originals. These are scoped supplemental results, not a broad recertification or a relabeling of frozen fac608. Native03 gameplay completion is parent-reported; export/original independent acceptance remains pending. Existing real ARM Steam/FEX/Proton payload/native and licence/public-doc/device scope remains on its original tracker.
+Final f863 artifact integrity, selected untouched first-boot policy, genuine d6a-to-f863 retained update, loader results and installed PL-004/PL-005 continuations have independently checked originals. Native03 ordinary Wii/Dreamcast cold game-save evidence is independently accepted at its earlier source composition. Completed manual/automatic state behavior is now verified in the original four-launch retry02 on f863. Retry01 remains failed before any game launch; its guest forced cleanup and partial export are not rewritten. Existing real ARM Steam/FEX/Proton payload/native and licence/public-doc/device scope remains on its original tracker.
 
-Newly discovered open proof belongs to G-01/G-02/G-03 in05. Their proposals are source-reviewed; no syntax/runtime/installed result is invented. Both cross-lab responses are now present and verified. Mandatory punch tracker and final resolution lint remain pending after pre-issue artifact preparation.
+All six discovered punch outcomes are resolved with commits and bounded original proof in05. Both cross-lab calls and mandatory tracker readback are complete; prior resolution lints passed at the recorded checkpoints. Final artifact reconciliation now includes accepted native-state originals; local resolution lint and exact final tracker readback are recorded in the closing handoff. The build launcher reporting failure remains nonqualified with unknown/null launcher wait; the later successful artifact reader and runtime originals do not rewrite it.
 
 ## Risk Assessment
 
@@ -180,17 +180,17 @@ Newly discovered open proof belongs to G-01/G-02/G-03 in05. Their proposals are 
 | F-002 NoGUI lifecycle | High | Frozen failure; later landed actual-installed startup correction verified, separate from login/gameplay. |
 | F-001 metadata request | Medium | Frozen unbounded call; later exact function/installed-curl bound verified. |
 | F-003 immutable Sys path | Medium | Frozen package mismatch; later alias/six-resource/three-case installed proof verified. |
-| G-02 retained achievement state | Medium | Source-confirmed stale enabled/token/hardcore/host; #594 correction/proof pending. |
-| G-01 normal scan shutdown | Low | #593 source-only cancellation/join proposal; scoped runtime/main-hook proof pending. |
-| G-03 Python import context | Low | Self-contained runtime helper isolation correction/control pending. |
+| G-02 retained achievement state | Medium | Resolved: atomic clear/refusal source,15 controls,640/1280 actual EN/FR flow and final installed clean/retained helper cases; synthetic engine-marker limit retained. |
+| G-01 normal scan shutdown | Low | Resolved: exact ES16dbac compiler/driver/GUI proof and final installed clean/retained Back/reopen/normal SIGINT join; signal/fatal scope remains excluded. |
+| G-03 Python import context | Low | Resolved: d905 isolated invocation, actual installed-interpreter old-negative/new-positive synthetic full transaction and exact final f863 artifact binding; no native ARM claim. |
 
 ## Coverage Boundary
 
 This audits the frozen M7 delta and named later correction receipts. Baseline exclusions remain16 explicit SKIP criteria. No physical radio, hosted-account authorization, real achievement award, native ARM Steam launch, sudden-power durability or blanket hardware recertification is inferred. Original older native source_pins_verified:false receipts are not relabeled. Steam14 uses unchanged frozen full source in controlled chroots with native client execution denied. Metadata proof covers installed curl/Bash and a controlled endpoint. Dolphin startup proof uses synthetic invalid account and loopback responses, not successful provider login or awards.
 
-Final d4af composition is independently supported within the selected clean policy, eight retained files and13 loader members. The update path is d6a→d4af, not falsely labeled bc9→d4af. Installed six-resource/zero-badge-error proof does not exercise every resource consumer. Signal/fatal ES termination remains outside the scoped normal-exit Wi-Fi correction under D-CLOUD-133. Slow-storage client total-budget exhaustion and representative large broken-RVZ indexing cost are unmeasured coverage risks, not invented failures.
+Earlier d4af and final f863 composition are independently supported within the selected clean policy, eight retained files and13 loader members. The actual retained paths are d6a→d4af and d6a→f863, not falsely labeled bc9 updates. Installed six-resource/zero-badge-error proof does not exercise every resource consumer. Signal/fatal ES termination remains outside the scoped normal-exit Wi-Fi correction under D-CLOUD-133. Slow-storage client total-budget exhaustion and representative large broken-RVZ indexing cost are unmeasured coverage risks, not invented failures.
 
-**Visual consolidation (Tier B):** original EN/FR640/1280 scraper/status/save-refusal branches, Wi-Fi setup and selected installed branch frames,24 of48 current phone originals and two original1280×800 baseline/candidate comparison pairs were directly viewed. The failed earlier34 phone frames and original65-unclaimed frame comparison remain failures. Later #591 original20 controls and78-frame comparison were independently read and qualified narrowly. External reviewers received no image pixels. New correction frames, if required by changed copy/flow, remain root-owned and pending; no entire-frame-matrix replay is demanded.
+**Visual consolidation (Tier B):** original EN/FR640/1280 scraper/status/save-refusal branches, Wi-Fi setup and selected installed branch frames,24 of48 current phone originals and two original1280×800 baseline/candidate comparison pairs were directly viewed. The failed earlier34 phone frames and original65-unclaimed frame comparison remain failures. Later #591 original20 controls and78-frame comparison were independently read and qualified narrowly. External reviewers received no image pixels. Later correction EN/FR refusal/return frames at640/1280 and final installed Wi-Fi selection/Back/reopen frames were individually viewed and bound in their readbacks. Thirty-five final native-state original frames were individually viewed, including two excluded mislabeled/loading frames; no entire-frame-matrix replay was required.
 
 ## Finding Verification (Phase4.5)
 
@@ -252,12 +252,12 @@ Final refutation prompt and manifest remain sealed; the original response is now
 | Risk assessment | Present |
 | Coverage boundary / verification depth | Present in02/03/here, actual originals versus replay explicit |
 | Critical/High finding verification | Present; one High survived source and original runtime refutation |
-| Second opinion | Both calls verified and every lead graded; final artifacts/resolution pending |
+| Second opinion | Both calls verified and every lead graded; original prompt/response/provenance retained |
 | Instruction file recommendations | Present, no unsupported new doctrine recommendation |
 | Tier B visual consolidation | Present with samples and original failures |
 | Defined verdict vocabulary | Used; no dependent failure invented |
 | Traceability / evidence / reproducibility / actionability | Finding paths, input hashes, original locators and bounded repair recommendations present |
-| Completeness / final lint | Phases1–5 complete with pre-issue lint; Phase6–7 and resolution lint remain pending, no closure claim |
+| Completeness / final lint | Phases1–7 complete; all six outcomes verified, final selected composition and native-state proof accepted. Final local lint and root-owned tracker/publication receipts are recorded in the closing handoff; no RC claim |
 
 
 ## Supplemental retained-frame readback after blind packet sealing
@@ -315,4 +315,19 @@ Net effect: three new audit findings from the external passes (G-01 Low, G-02 Me
 
 ## Punch-list handoff
 
-See05-punch-list.md: six findings, all six resolved within their stated source/runtime scopes. Source-controls02-readback.md, wifi-compiler-result-readback.md, audit-ui02-readback.md and audit-ui1280-02-readback.md record later proof. Phase6 tracker creation/readback is verified; update04 is prepared. Local punch-outcome resolution gate is satisfied, but overall audit completion remains withheld for final integrated-image/native-state qualification. Root owns tracker writes and integration/runtime.
+See05-punch-list.md: six findings, all six resolved within their stated source/runtime scopes. Source-controls02-readback.md, wifi-compiler-result-readback.md, audit-ui02-readback.md and audit-ui1280-02-readback.md record later proof. Phase6 tracker creation and live update04 readbacks are verified. Local punch-outcome resolution gate is satisfied and final selected clean/retained composition is accepted; the named native-state proof is now accepted and all seven audit phases are complete. Final tracker/artifact publication remains root-owned. Root owns tracker writes and integration/runtime.
+
+
+## Final f863 fresh-install supplement
+
+See final-clean-affected-readback.md for independently read original final-image selected policy/loader evidence and installed PL-004/PL-005 top-up. Frozen score80/16/16/3/0 is unchanged. Retained and native-state evidence were subsequently accepted in the following supplements. Build reporting failure and null launcher wait remain explicit despite accepted artifact and fresh-runtime integrity.
+
+
+## Final f863 retained composition supplement
+
+See final-retained-affected-readback.md and the fresh companion for original selected clean/retained evidence onf863/ES16dbac. Both installed PL-004/PL-005 continuations are accepted within their documented scopes. The later native-state supplement below settles the named remaining proof. Frozen scores and original failed observations are unchanged.
+
+
+## Final f863 native-state supplement and audit outcome
+
+See native-state02-readback.md: all1,363 host originals and611 exported guest rows independently verified,35 original frames personally viewed, actual consumed d739 and all outer channels0. Completed Wii rollback, Flycast manual restore/preservation and distinct native-auto/global-Off cold restoration before input are supported; native wait status stays unknown. The immediate manual activation/table observation is retained without assigning a cause. Frozen115-criterion score80/16/16/3/0 and every original failure remain unchanged. All six audit findings have resolved outcomes; no new product finding arose. The independent audit cycle is complete within its declared scope. This is not RC approval or a claim that every pre-existing device/provider/native ARM/publication criterion passed.

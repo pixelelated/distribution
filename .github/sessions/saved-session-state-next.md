@@ -1,12 +1,104 @@
 # Saved Session State
 
-Updated 2026-10-15 03:54 UTC. Continue authorized M7 toward the next 0.0.1 RC.
+Updated 2026-10-15 05:17 UTC. Continue authorized M7 toward the next 0.0.1 RC.
 Coordinator `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
-`feature/m7-player-setup`; published feature before this checkpoint is f13f9d98cb7f2057d28292edc808234028b1ca15.
-Primary/remote next remains be71c43538e05e7d7621f243af8dbf4f4af51565.
-Harness conflict-resolution untouched. Actual host PID namespace4026531836;
-host/network/outside-workspace writes require escalated exec. No formal goal.
-Saving is not a pause. No runtime/compiler/external call currently active.
+`feature/m7-final-qualification`; published HEAD0ca9443280 before this record.
+Primary/remote next f8636de1d105275dbf9420bbabbbc26f79abb10f; ES16dbac.
+Harness untouched. Root alone allocates runtime. No VM/compiler is running.
+Saving is not a pause. No current physical-device/cloud authorization inferred.
+
+## Latest 2026-10-15 05:17 UTC — independent audit complete; H700 then SM8550 next
+
+All six findings are resolved; all audit phases complete within declared scope.
+#596 and #590 closed completed with exact body/state readback at05:16:21UTC:
+/tmp/pix-m7-final-audit-close-20261015/tracker-completion.json. Auditor released final sealed docs/audits/2026_10_14-milestone-m7-next-candidate/.
+Root verified all446 payloads/34,460,208B, exact membership/modes/hash and
+resolution lint; full ceremony-check recognizes completion and nothing is overdue.
+Root commits/pushes
+record-only feature and fast-forwards next, preserving original frozen score and
+failed originals. Product scope stays byte-identical to final qualified f863.
+
+Artifact, selected clean/retained and native02 are PASS/consumed. VM gate rollup:
+/tmp/pix-m7-final-vm-rollup-20261015/evidence.json. Native02 original export has
+1363 host and611 guest rows; final native readback/frame index are in auditdir.
+No native wait or hardware/account proof is inferred. See original detail below.
+
+Reviewed device packet /tmp/pix-m7-device-refresh-20261015-04 (seal c1a0b3a7)
+is READY/UNRUN, durable source custody under docs/qa-logs/2026-10-15-device-refresh/source/
+(seal e14c87ac), released for root staging. Fresh proposed build checkouts are
+m7-pixelelated-h700-04 then m7-pixelelated-sm8550-04, fixed sourcef863. Owners
+/workspace/tmp/pix-m7-{h700,sm8550}-refresh-20261015-01 do not yet exist.
+Use packet README/commands.sh: actual final audit+VM+publication evidence inputs,
+one fresh UTC pair timestamp; create/prepare/cache/consume-cache/build/consume-build/
+acceptance/consume-acceptance. H700 two DDR variants accepted/consumed before SM8550.
+Independent cache copies, original result channels, ordinary frozen admission
+tool only; never precreate tool-wrapper.rc. Kernels normally invalidated; SM
+FEX current input and five ABL1.2 payloads require new actual checks. No final
+build artifact or device-test claim before actual outcomes. Active supervision
+<=60s; no off-session notifier. #555 owns ordered build criteria.
+
+Root will update M7 priorities and candidate working list before launch. Source
+workers complete; frame_diff_review prepares #574/#575/#584 closure bodies, #583
+stays closed. Fresh host readback at05:10 had2.5TiB disk/53GiB RAM available and
+no compiler/VM; selected host-options hash matches both predecessors. Recheck
+live mounts/resources and normal preflight before cache. Hosted f863 record
+failed audit cadence; inherited scheduled Build startup failure is separately
+tracked under #171 (comment6184901352), not a firmware defect.
+
+## Latest 05:06 UTC — native state proof passed and consumed; final audit next
+
+Native02 owner /workspace/tmp/pix-m7-native-states-20261015-02 completed its four
+launches on actual installed f863. Run044138Z-77958d6d, admissiond739030019bc445bae908b3ca6dd6b48
+consumed qualified. All original launcher/command/runner/monitor/VM/supervisor/pad
+channels0, no forced cleanup, errors or surviving owners. First interactive
+complete-frame bounds5.049/17.682/8.308/9.374s (host capture); guest acknowledgment
+intervals5.053/17.691/8.291/9.378s remain separately preserved. Loading-frame and navigation-miss exclusions
+remain explicit. Native child wait status stays unknown unless original installed
+logs expose it; helper0 is not substituted. No physical device/account/cloud action.
+
+Export /workspace/tmp/pix-m7-native-states-evidence-20261015-02:1363host and611guest
+originals independently rehashed,45 personally reviewedframes. ArchiveSHA
+ eb2ac82045169bc7edaaab30bb264283ceac32c474f7df01ee19f1eb970683d6.
+root-review.json and consumption.json bind exact observations. Original failed01
+remains preserved and consumed as failure, including guest forced_cleanup1.
+
+Wii manual state3732bf04 completedSave/Load OSD, paused01:00 rolledback00:30 and
+advanced. Flycast manual4666f41a restored, responsive; globalOn/nativeOff kept
+hash+mtime unchanged on normal exit. Nativeyes/globalOff automatically saved
+new2Players scene376ca85a; coldlaunch4 restored it before any input, originalLoad
+log and exact hash+mtime matched; subsequent down responded. Fourth exit's expected
+autosave5c97 is separate. Global/native flags resetOff, normal finalcleanup.
+
+m7_audit_resume independently reconciling originals and finalaudit; all six
+findings resolved, completion/cadence still false until reviewed final record.
+Root updates canonical575 mapping and records. Device source-only draft
+/tmp/pix-m7-device-refresh-20261015-04 owned by dolphin_ra_init, reviewed by
+frame_diff_review. No build allocation yet. One caught state-check input mismatch
+is being corrected before seal. After actual finalaudit/publication evidence,
+H700 thenSM8550 use freshguarded owners, sourcef863, changedkernel/FEX/ABL gates.
+
+Fresh hosted readback: nextf863 exact. Record run38678423572 failed solely the
+expected audit-cadence gate; no push refusal. Scheduled inheritedBuild38679346597
+startup_failure, jobs[]; separate from actual local producer/qualification.
+Do not mark either green without actual result. Nextrecord-only publication will
+carry truthful completedaudit after review; no runtime replay solely for prose.
+
+## Latest 04:42 UTC — corrected native state-only VM active
+
+Root sole runtime/input operator. Reviewed packet02 seal71e9b1f0 (78 payloads)
+corrects source-proven omitted global Off semantics; 32 isolated controls PASS,
+other lifecycle/input unchanged. Original failed01 stays consumed/preserved,
+including guest forced cleanup1; no product failure inferred.
+New owner /workspace/tmp/pix-m7-native-states-20261015-02, run044138Z-77958d6d,
+admissiond739030019bc445bae908b3ca6dd6b48,launcher3414241,VNC148. Frozenf863/ES16dbac.
+Use owner host-action.py only after visual-ready; four-launch state-only proof,
+1800s work+120s cleanup, first observed interactive frame<=120s perlaunch.
+Exact command/frame plan /tmp/pix-m7-native-states-20261015-02/README.md.
+New export /workspace/tmp/pix-m7-native-states-evidence-20261015-02 (absent).
+Actualartifact and clean/retained passed, #593/#594/#595/#597 closed. Published
+coordinator feature/m7-final-qualification HEAD0ca9443280; audit dir remains
+m7_audit_resume owned, worklog root dirty. After native proof: final audit then
+#555 H700->SM8550. Device source packet preparation may run, no parallel runtime.
 
 ## Latest 04:32 UTC — native01 failed before game launch; no runtime active
 

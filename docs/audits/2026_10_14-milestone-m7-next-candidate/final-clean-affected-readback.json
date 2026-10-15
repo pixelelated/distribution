@@ -1,0 +1,158 @@
+{
+  "schema": 1,
+  "utc": "2026-10-15T04:30:33.169412+00:00",
+  "status": "accepted within selected fresh-install and affected installed scopes",
+  "source": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+  "es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+  "durable_directory": "docs/qa-logs/2026-10-15-final-engineering-result/clean",
+  "durable_seal_sha256": "9234c8c78494c2d036f493102528adf33b87da07e1b53f5f51843586b66530f0",
+  "durable_payload_files": 15,
+  "archive_sha256": "ad8a05f650c17a2756cc869fb6207d72579306914b294fa92d4264e758acdccf",
+  "outer_members_independently_verified": 242,
+  "nested_members_independently_verified": 83,
+  "executed_source_files_equal_reviewed_packet": 15,
+  "reviewed_source_packet_seal": "668755cb2259e2fa3d3573870ff9cbed1362a0e346b237b551936e01f5eef675",
+  "consumed_id": "4c52e6ff50d74712bfcca62979e7782f",
+  "consumed_sha256": "fe01435e2be31be54813f6bb5ed81e258ebd45daa7bec4a8abdff19573205c84",
+  "original_channels": {
+    "launcher": 0,
+    "tool_wrapper": 0,
+    "build": 0,
+    "command": 0,
+    "monitor": 0,
+    "runner": 0,
+    "vm": 0
+  },
+  "clean_policy": {
+    "checks": 294,
+    "errors": 0,
+    "blocked": 0,
+    "status": "pass",
+    "sequence": "untouched clean007 before loader009 and affected010/011",
+    "scope": [
+      "selected system, ES, RetroArch, standalone account files and recovery siblings",
+      "rclone configuration and active selection; cloud device identity and activity cache",
+      "zero-redaction startup scrub marker; only the exact current-boot no-adapter diagnostic may be inspected",
+      "gamelist.xml under selected ES/config/ROM roots; playcount and lastplayed only",
+      "known QA name prefixes, proxy state, token files and RetroArch history playlists",
+      "ES ELF known compiled ScreenScraper/RetroAchievements URL-pair patterns; only the exact NUL-delimited shared JELOS developer pair is allowed (#566)",
+      "img.gz: supported two-partition image and empty storage seed policy"
+    ]
+  },
+  "loader": {
+    "checks": 3,
+    "original_exits": [
+      0,
+      0,
+      0
+    ],
+    "empty_stderr": true,
+    "rtld_now": "PASS",
+    "equal_members": 13,
+    "separate_scanner_exec_trace": false
+  },
+  "dolphin": {
+    "cases": [
+      {
+        "name": "00-after-disabled-regular-en-gc",
+        "exit": 0,
+        "claim": "inactive session published before engine gate"
+      },
+      {
+        "name": "01-after-missing-token-regular-en-wii",
+        "exit": 0,
+        "claim": "inactive session published before engine gate"
+      },
+      {
+        "name": "02-after-enabled-proxy-regular-en-gc",
+        "exit": 0,
+        "claim": "enabled routing bytes unchanged"
+      },
+      {
+        "name": "03-after-enabled-hardcore-regular-en-wii",
+        "exit": 0,
+        "claim": "enabled routing bytes unchanged"
+      }
+    ],
+    "scope": "Full helper, exact launcher RA block, synthetic engine-reached marker; no real engine launch",
+    "protected_files_equal_each": 23,
+    "real_engine_or_provider_claim": false
+  },
+  "wifi": {
+    "installed_es_sha256": "76f18d97a46e9228ca4b7cb63a5406a4f0bb026f96763f3558d1ac942b1857c8",
+    "back_upper_seconds": 0.05790932406671345,
+    "first_matching_sample": 0,
+    "same_blocked_group": {
+      "frontend": {
+        "pgid": 2194,
+        "pid": 2194,
+        "ppid": 2192,
+        "start_ticks": 4848,
+        "state": "S"
+      },
+      "group": [
+        {
+          "pgid": 2510,
+          "pid": 2510,
+          "ppid": 2194,
+          "start_ticks": 7470,
+          "state": "S"
+        },
+        {
+          "pgid": 2510,
+          "pid": 2511,
+          "ppid": 2510,
+          "start_ticks": 7471,
+          "state": "S"
+        }
+      ]
+    },
+    "enumeration_calls": 1,
+    "normal_signal": 2,
+    "driver_exit": 0,
+    "observer_exit": 0,
+    "stop_logs": 1,
+    "join_logs": 1,
+    "forced_cleanup": [],
+    "survivors": [],
+    "observation_errors": [],
+    "backend": "explicit synthetic blocked wifictl; actual installed ES without executable overlay",
+    "excluded": "physical radio; SIGTERM/fatal containment"
+  },
+  "frames": [
+    {
+      "path": "docs/qa-logs/2026-10-15-final-engineering-result/clean/frames/selected-network.png",
+      "sha256": "1792ba79e417aae546e91240095dbd8e24a206790f5006e10d00fd50858346e2",
+      "review": "Auditor personally viewed exact original at original detail."
+    },
+    {
+      "path": "docs/qa-logs/2026-10-15-final-engineering-result/clean/frames/searching.png",
+      "sha256": "9cbc6111cb4f3a2a56fe3c9795cb4244c7ee2cca7a8ba8d9d16179d1bdafa47e",
+      "review": "Auditor personally viewed exact original at original detail."
+    },
+    {
+      "path": "docs/qa-logs/2026-10-15-final-engineering-result/clean/frames/network-return.png",
+      "sha256": "1792ba79e417aae546e91240095dbd8e24a206790f5006e10d00fd50858346e2",
+      "review": "Auditor personally viewed exact original at original detail."
+    },
+    {
+      "path": "docs/qa-logs/2026-10-15-final-engineering-result/clean/frames/reopened-searching.png",
+      "sha256": "855627477846f9f45dfb21718334106d598b12164f41c63e0b895e731721f25a",
+      "review": "Auditor personally viewed exact original at original detail."
+    }
+  ],
+  "restoration": {
+    "rc": 0,
+    "selected_bytes_modes_owners_equal": true,
+    "selected_paths": [
+      "/storage/.config/system/configs/system.cfg",
+      "/storage/.config/emulationstation/es_settings.cfg"
+    ],
+    "backup_scope": "last-good .backup files not in this restoration claim",
+    "mounts": []
+  },
+  "vm_qemu_still_live": false,
+  "build_submission_reporting_failure_unchanged": true,
+  "audit_complete": false,
+  "remaining": "Retained update and native-state qualification."
+}

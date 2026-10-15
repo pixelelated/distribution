@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-15T05:18:05.903727+00:00",
+  "manifest": "final-audit-manifest.json",
+  "manifest_bytes": 90689,
+  "manifest_sha256": "640bb6665ccc49d53fc9ddf8a9d6b7b0233965ecb76358a3a1bec07107abe51f",
+  "payload_files": 446,
+  "payload_bytes": 34460208,
+  "punch_outcomes_resolved": 6,
+  "punch_outcomes_open": 0,
+  "audit_complete": true,
+  "completion_marker_sha256": "4b0f89acfe6586a68bf6faeb4940744770b538bc7be22e78e34fda926d73210a",
+  "tracker_completion_verified_utc": "2026-10-15T05:16:21.214878+00:00",
+  "closed_completed": [
+    596,
+    590
+  ],
+  "final_body_sha256": "02a1134826e3c140c82c9d5b025f80bd94be3cf603402f8ba7d1a1c67c7b5798",
+  "final_product_source": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+  "final_es_source": "16dbac5211eea7e70db7394372033be2be7df829",
+  "frozen_score": [
+    80,
+    16,
+    16,
+    3,
+    0
+  ],
+  "rc_approval": false,
+  "writes_frozen_for": "Root final commit/push. Auditor makes no further changes unless ownership is explicitly returned."
+}

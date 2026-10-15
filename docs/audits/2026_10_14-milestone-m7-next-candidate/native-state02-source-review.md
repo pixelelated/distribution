@@ -1,0 +1,11 @@
+# Native-state retry02 source review
+
+The final source packet is ready within its stated scope. Original failed owner01 remains failed before any game launch. This review does not accept retry02 runtime or complete the audit.
+
+The sealed 78 payloads (508,719 bytes) were independently rehashed with exact membership. All original file bytes and modes, including the original seal, are retained losslessly in `supplements/native-state02-source/original-packet.tar.gz`; its member map and review record bind every file. Original seal: `71e9b1f073f405dd3fcc89ee2643ab5dbcff4631b93135d9c310fad8afd900d3`.
+
+Exact ES16dbac source explains the first fixture failure: GuiMenu.cpp:5800 tests `get("global.autosave") == "1"`; line5806 writes empty for Off. SystemConf has no global default, missing reads empty, and applyChanges removes an empty stored value. Revision02 accepts omitted/empty/0 as effective Off and exact1 as On while separately preserving raw presence, value and selected line bytes. It never invents a stored0. Five explicit per-game selections remain unique. Duplicate, malformed or unsupported global serialization refuses narrowly rather than asserting arbitrary parser equivalence.
+
+Independent AST comparison preserves all14 other guest functions and adds only the reviewed parser/call plus the preparer's exact ES16dbac pin assertion. Launch order, controller ownership, finite lifecycle, native state identities, original logs and completed-restore visual requirements are unchanged. Pure parser controls record32PASS in0.009149653s; they extract only the pure functions. Their execution observation candidly transcribes the author's original exit0/combined output; separate stderr was not retained and the auditor did not rerun them.
+
+Review caught stale README wording and the export01 locator before final allocation. The superseded prerelease documentation seal is retained inside the packet and was never issued for allocation; executable599f8839 and correction diffcc57592a stayed unchanged. The final export path is the fresh evidence-20261015-02 owner. Root reports the corrected owner is now executing; original results, frames, native messages, state identities and cleanup must be independently reconciled before any new state criterion is accepted.

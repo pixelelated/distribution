@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-15T04:45:17.652978+00:00",
+  "status": "SOURCE_REVIEWED_READY; root owns subsequent runtime; no runtime acceptance inferred",
+  "source": "/tmp/pix-m7-native-states-20261015-02",
+  "seal_sha256": "71e9b1f073f405dd3fcc89ee2643ab5dbcff4631b93135d9c310fad8afd900d3",
+  "payloads": 78,
+  "payload_bytes": 508719,
+  "archive_sha256": "19ac10de43e6b98a3ffbab20ae7c71a0c9b534be505f01bef23f29f58c941a5a",
+  "archive_bytes": 167941,
+  "archive_members": 79,
+  "all_original_bytes_modes_membership_verified": true,
+  "guest_sha256": "599f8839033b0010b4e7401583f689056ccbe10c443f621daa7238b2f7bec456",
+  "code_diff_sha256": "cc57592a10c56cd2167a716201999d7477fd7f6a5e1e278e8e33c5269754bcea",
+  "full_diff_sha256": "331b9bb1c2bc7e8a2f218ad86aebd5548942e630b974ae06e9918600421a7fd8",
+  "independent_review": {
+    "source_semantics": "Exact ES16dbac global toggle tests equality to 1; Off serializes empty and SystemConf removes an empty stored key. Missing value reads empty. The parser retains raw presence/value/line bytes separately from effective Boolean.",
+    "unchanged_functions": 14,
+    "runtime_lifecycle_unchanged": true,
+    "five_per_game_keys_remain_explicit_unique": true,
+    "narrow_parser_refusals": "Duplicate, unsupported or noncanonical global serialization refuses rather than claiming equivalence for arbitrary configs.",
+    "independent_static_tool_chunks": [
+      "f935c6",
+      "7f59b7"
+    ],
+    "reviewed_controls": {
+      "count": 32,
+      "status": "PASS_ISOLATED_PARSER_CONTROLS",
+      "elapsed_seconds": 0.00914965313859284,
+      "scope": "AST-extracted pure parser only; no import or execution of guest module.",
+      "execution_provenance": "Author transcription of original exec_command chunk12080d exit0 with combined output retained; separate stderr not retained. Auditor did not rerun controls."
+    },
+    "review_corrections": "Before final issued seal, README explicit-global wording and stale export01 locator corrected; first prerelease documentation seal preserved and never issued for allocation. Executable/code diff unchanged."
+  },
+  "audit_complete": false,
+  "frozen_score_unchanged": {
+    "PASS": 80,
+    "PARTIAL": 16,
+    "SKIP": 16,
+    "FAIL": 3,
+    "UNTESTABLE": 0
+  }
+}

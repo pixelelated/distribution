@@ -1461,3 +1461,8 @@ Frozen effective counts after these resolutions:80PASS,16PARTIAL,16SKIP,2FAIL,1U
 ## 2026-10-15T02:37:31.059435+00:00 — Later native03 supplement, no frozen score rewrite
 
 See native-gameplay-supplement-readback.md. Independently rehashed all10,954 original payload rows, checked source/process transitions and viewed five original frames. Ordinary Wii entered-cell and Dreamcast earned-score cold persistence is established for the later d4af image. AC063/064 remain PARTIAL because completed manual-state restoration and automatic-state comparisons are not established. Original failed export remains preserved; additive readback does not rewrite its exit.
+
+
+## 2026-10-15T05:10:16.249575+00:00 — Final f863 native-state supplement; frozen score unchanged
+
+See native-state02-readback.md for actual selected Dolphin/Flycast and effective global/native settings, completed Wii manual restore, Flycast manual restore/native-off exit preservation, native-auto save and cold restore before input. All original terminal channels0 and consumed d739 bind the exact installed composition. Existing capability/manager and ordinary cold-game-save evidence retain their original scopes. These supplemental cases settle the named remaining native dependency without rewriting historical AC063/064 or the frozen80/16/16/3/0 score. No untested original Nova selection, new RetroArch matrix, provider award, ARM or physical-device behavior is inferred.

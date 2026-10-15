@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "utc": "2026-10-15T04:35:07.795050+00:00",
+  "original_host_members_independently_hashed": 170,
+  "host_archive_sha256": "e0c3cb701f12a472b120ddf61ce46a5362acc10048d2d138d36b2d756b16e0e5",
+  "guest_partial_files": 63,
+  "guest_final_manifest_present": false,
+  "lossless_export_verified": false,
+  "original_channels": {
+    "launcher": 1,
+    "command": 1,
+    "monitor": 0,
+    "runner": 1
+  },
+  "admission_id": "8f0ea481922b4f339b7dcc5fc6781466",
+  "consumed_sha256": "c62265bcb82f8ec2cd57b3769e0b70e8233b3a9db1583b014d3a6c4131840dda",
+  "disposition": "failed-investigated",
+  "failure": "Original status observation guest.py:63 requires one explicit global.autosave after the Game Settings Off save; diagnostic shows global key omitted. No game launch records.",
+  "source_disposition": "ES16dbac reads only literal1 as On, has no global.autosave compiled default and falls back empty; Off save writes empty and applyChanges removes that line. Fixture explicit-presence assertion is too strict. No product correction inferred.",
+  "cleanup": {
+    "outer_cleanup_errors": [],
+    "outer_remaining_children": [],
+    "guest_supervisor_rc": 1,
+    "guest_pad_rc": 1,
+    "guest_forced_cleanup": true,
+    "pad_destroyed": true,
+    "guest_supervisor_and_pad_absent": true,
+    "native_processes": [],
+    "native_exit_status": "unknown; existing ES/systemd owns native children"
+  },
+  "scope": "No native gameplay, manual restore or auto-state acceptance. Any revision must retain this original failure and obtain its own proof.",
+  "audit_complete": false
+}

@@ -1,0 +1,21 @@
+{
+  "rc": 1,
+  "pad_original_returncode": 1,
+  "forced_cleanup": true,
+  "native_exit_status": "unknown; existing ES/systemd owns native children",
+  "pad": {
+    "pid": 2192,
+    "start_ticks": 3255,
+    "state": "R",
+    "argv": [
+      "python3",
+      "-I",
+      "-S",
+      "-B",
+      "/tmp/pix-input/gameplay/packet/pad.py"
+    ]
+  },
+  "error": "AssertionError: operator abort",
+  "native_processes_at_end": [],
+  "ended": 1792038636.3548708
+}

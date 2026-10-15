@@ -13,7 +13,7 @@ docs/audits/YYYY_MM_DD-{scope}-{item-name}/
 ```
 
 `{scope}` is `milestone`, `epic` or `issue`. Each audit ends in a punch-list
-issue on `maxengel/rocknix` — Issues are disabled on `ROCKNIX/distribution`.
+issue on `pixelelated/distribution` — Issues are disabled on `ROCKNIX/distribution`.
 
 The skill grounds work against this project's own doctrine rather than a single
 rubric file: the instruction files whose `applyTo` matches the changed paths,

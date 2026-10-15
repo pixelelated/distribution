@@ -1,0 +1,255 @@
+{
+  "rc": 1,
+  "started": 1792038422.1236982,
+  "commands": [
+    {
+      "name": "source-head",
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02",
+        "rev-parse",
+        "HEAD"
+      ],
+      "timeout_seconds": 10,
+      "timed_out": false,
+      "original_returncode": 0
+    },
+    {
+      "name": "fresh-wii-sd",
+      "argv": [
+        "bash",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/source/fixture/prepare-wii-sd.sh",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/input-tree/gameplay/sd.raw"
+      ],
+      "timeout_seconds": 30,
+      "timed_out": false,
+      "original_returncode": 0
+    },
+    {
+      "name": "media-input",
+      "argv": [
+        "mkfs.ext4",
+        "-q",
+        "-F",
+        "-m",
+        "0",
+        "-L",
+        "PIXINPUT",
+        "-d",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/input-tree",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/input.ext4"
+      ],
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "original_returncode": 0
+    },
+    {
+      "name": "media-output",
+      "argv": [
+        "mkfs.ext4",
+        "-q",
+        "-F",
+        "-m",
+        "0",
+        "-L",
+        "PIXOUTPUT",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/output.ext4"
+      ],
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "original_returncode": 0
+    },
+    {
+      "name": "convert",
+      "argv": [
+        "qemu-img",
+        "convert",
+        "-f",
+        "raw",
+        "-O",
+        "qcow2",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/disk.img",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/disk.qcow2"
+      ],
+      "timeout_seconds": 120,
+      "timed_out": false,
+      "original_returncode": 0
+    },
+    {
+      "name": "resize",
+      "argv": [
+        "qemu-img",
+        "resize",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/disk.qcow2",
+        "16G"
+      ],
+      "timeout_seconds": 30,
+      "timed_out": false,
+      "original_returncode": 0
+    },
+    {
+      "name": "qemu-args",
+      "argv": [
+        "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+        "qemu-args",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/disk.qcow2",
+        "--no-network",
+        "--headless",
+        "--daemonize",
+        "--gl",
+        "auto",
+        "--res",
+        "640x480",
+        "--vnc",
+        "147",
+        "--pidfile",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/vm.pid",
+        "--serial",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/serial.sock",
+        "--monitor",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/monitor.sock",
+        "--ovmf-vars",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/OVMF.fd"
+      ],
+      "timeout_seconds": 20,
+      "timed_out": false,
+      "original_returncode": 0
+    },
+    {
+      "name": "qemu-start",
+      "argv": [
+        "/workspace/repos/rocknix.worktrees/m7-offline-vm-567/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+        "run",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/disk.qcow2",
+        "--no-network",
+        "--headless",
+        "--daemonize",
+        "--gl",
+        "auto",
+        "--res",
+        "640x480",
+        "--vnc",
+        "147",
+        "--pidfile",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/vm.pid",
+        "--serial",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/serial.sock",
+        "--monitor",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/monitor.sock",
+        "--ovmf-vars",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/OVMF.fd"
+      ],
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "original_returncode": 0
+    },
+    {
+      "name": "wait-serial",
+      "argv": [
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/tools/vm-serial",
+        "--socket",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/serial.sock",
+        "wait",
+        "--up-to",
+        "240"
+      ],
+      "timeout_seconds": 260,
+      "timed_out": false,
+      "original_returncode": 0
+    },
+    {
+      "name": "boot",
+      "argv": [
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/tools/vm-serial",
+        "--socket",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/serial.sock",
+        "--timeout",
+        "30",
+        "sh",
+        "( python3 -I -S -B -c 'import json;from pathlib import Path;print('\"'\"'PIX_BOOT='\"'\"'+json.dumps({'\"'\"'boot_id'\"'\"':Path('\"'\"'/proc/sys/kernel/random/boot_id'\"'\"').read_text().strip(),'\"'\"'os_release'\"'\"':Path('\"'\"'/etc/os-release'\"'\"').read_text(),'\"'\"'interfaces'\"'\"':sorted(p.name for p in Path('\"'\"'/sys/class/net'\"'\"').iterdir())}))' ); pxrc=$?; printf \"PIX_GAMEPLAY_BOOT_RC:%s\\n\" \"$pxrc\""
+      ],
+      "timeout_seconds": 45,
+      "timed_out": false,
+      "original_returncode": 0
+    },
+    {
+      "name": "media",
+      "argv": [
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/tools/vm-serial",
+        "--socket",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/serial.sock",
+        "--timeout",
+        "30",
+        "sh",
+        "( for i in 1 2 3 4 5; do test -e /dev/disk/by-label/PIXOUTPUT && break; sleep 1; done; mkdir /tmp/pix-input /tmp/pix-output && mount -t ext4 -o ro,noload /dev/disk/by-label/PIXINPUT /tmp/pix-input && mount -t ext4 /dev/disk/by-label/PIXOUTPUT /tmp/pix-output ); pxrc=$?; printf \"PIX_GAMEPLAY_MEDIA_RC:%s\\n\" \"$pxrc\""
+      ],
+      "timeout_seconds": 45,
+      "timed_out": false,
+      "original_returncode": 0
+    },
+    {
+      "name": "provision",
+      "argv": [
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/tools/vm-serial",
+        "--socket",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/serial.sock",
+        "--timeout",
+        "120",
+        "sh",
+        "( python3 -I -S -B /tmp/pix-input/gameplay/packet/guest.py provision --remaining 1739 ); pxrc=$?; printf \"PIX_GAMEPLAY_PROVISION_RC:%s\\n\" \"$pxrc\""
+      ],
+      "timeout_seconds": 135,
+      "timed_out": false,
+      "original_returncode": 0
+    },
+    {
+      "name": "finally-flush",
+      "argv": [
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/tools/vm-serial",
+        "--socket",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/serial.sock",
+        "--timeout",
+        "30",
+        "sh",
+        "( if grep -q \" /tmp/pix-output \" /proc/mounts; then if test -d /tmp/pix-output/gameplay; then python3 -I -S -B /tmp/pix-input/gameplay/packet/guest.py cleanup; else true; fi && sync && umount /tmp/pix-output; else true; fi; pxrc=$?; sync; exit \"$pxrc\" ); pxrc=$?; printf \"PIX_GAMEPLAY_FINALLY_FLUSH_RC:%s\\n\" \"$pxrc\""
+      ],
+      "timeout_seconds": 45,
+      "timed_out": false,
+      "original_returncode": 0
+    },
+    {
+      "name": "vm-stop",
+      "argv": [
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/tools/vm-stop",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/vm.pid",
+        "/workspace/tmp/pix-m7-native-states-20261015-01/vm/disk.qcow2"
+      ],
+      "timeout_seconds": 35,
+      "timed_out": false,
+      "original_returncode": 0
+    }
+  ],
+  "boots": [
+    {
+      "pid": 3352344,
+      "start_ticks": 113011361,
+      "source_sha256": "75caa85ab55309d7e01728c1034cd7c53173549d9fe418e0f1d538db090f47a1",
+      "no_network": true
+    }
+  ],
+  "cleanup_errors": [],
+  "error": "AssertionError: operator aborted",
+  "reaped_host_children": [
+    {
+      "pid": 3352342,
+      "wait_status": 0
+    },
+    {
+      "pid": 3352344,
+      "wait_status": 0
+    }
+  ],
+  "remaining_host_children": [],
+  "ended": 1792038638.6935246
+}

@@ -1,0 +1,57 @@
+{
+  "utc": "2026-10-15T05:11:53.522829+00:00",
+  "audit_complete": true,
+  "phases_complete": [
+    1,
+    2,
+    3,
+    4,
+    "4.5",
+    "4.6",
+    5,
+    6,
+    7
+  ],
+  "resolved_findings": 6,
+  "remaining_discovered_findings": 0,
+  "frozen_score": {
+    "PASS": 80,
+    "PARTIAL": 16,
+    "SKIP": 16,
+    "FAIL": 3,
+    "UNTESTABLE": 0
+  },
+  "source_commit": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+  "es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+  "product_source_diff": {
+    "argv": [
+      "git",
+      "diff",
+      "--exit-code",
+      "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+      "HEAD",
+      "--",
+      "projects",
+      "packages",
+      "scripts"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "native_review": "supplements/native-state02-result/auditor-review.json",
+  "final_tracker_update": {
+    "issue": 596,
+    "body": "phase6-issue-body-update05.md",
+    "bytes": 26635,
+    "sha256": "02a1134826e3c140c82c9d5b025f80bd94be3cf603402f8ba7d1a1c67c7b5798",
+    "publication": "Exact body and CLOSED/completed final readback independently verified",
+    "readback": "phase6-update05-live-readback.json",
+    "closed_readback": "checks/delivery/596-closed-readback.json",
+    "completion_receipt": "checks/delivery/tracker-completion.json"
+  },
+  "rc_approval": false,
+  "cadence_marker_written_by_auditor": false,
+  "scope": "Independent milestone audit findings and named supplemental proof complete; original frozen score/exclusions and pre-existing provider/device/native ARM/publication work unchanged.",
+  "tracker_completion_verified_utc": "2026-10-15T05:16:21.214878+00:00"
+}

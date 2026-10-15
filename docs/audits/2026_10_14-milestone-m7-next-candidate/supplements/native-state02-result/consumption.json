@@ -1,0 +1,59 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T044138Z-77958d6d",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 575,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-native-states-20261015-02/vm",
+      "release_when": "Actual four-launch native-state/frame and original host/guest/input outcomes exported; coordinator consumes exact admission before retiring owned VM/media."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-native-states-evidence-20261015-02/root-review.json",
+      "sha256": "f4578ea2797bddcc173eeda7f22e682769f5a8e2a9349b110db97babf6ec9fe9"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-states-evidence-20261015-02/config.json",
+      "sha256": "60970725ed4ba38cbb45d81c52b9f1efc65e2836c01299e732db7e756a0676da"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-states-evidence-20261015-02/export-result.json",
+      "sha256": "b900eeef6c4e6d1e5de9837fe1ef9f2984238f24213e6e8323be9eda8dbdefa6"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-states-evidence-20261015-02/analysis.json",
+      "sha256": "b9b0074e34a7fac9b1916428da0ef444675c28b40347451aae832335839a055a"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-states-evidence-20261015-02/host-exits.json",
+      "sha256": "b20cc334bc3f6899ae83df99c8d9102e8a80fe1760794f74ff50b8bfa167d9ca"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-states-evidence-20261015-02/original-records.json",
+      "sha256": "a389f058c1477d5b53f7d6edb4751d37633289aa53bf663e2621df1837b5917f"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-states-evidence-20261015-02/original-records.tar.gz",
+      "sha256": "eb2ac82045169bc7edaaab30bb264283ceac32c474f7df01ee19f1eb970683d6"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-states-evidence-20261015-02/guest-manifest.json",
+      "sha256": "bfa0744e21ec830987c02b91a8aa7599eacfd449075194b309414979c0f16085"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-states-evidence-20261015-02/vm-result.json",
+      "sha256": "7b7861b0e3524f0a608f200e8cd9c5b65a08f5142389411054167c2ad2e35244"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-states-evidence-20261015-02/guest/gameplay/supervisor-result.json",
+      "sha256": "112f7fe638d48ee5e1e55790f4eed6fdb15251e92fe74164e2f6be7c8c7f780e"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-native-states-evidence-20261015-02/guest/gameplay/pad-result.json",
+      "sha256": "6d90a034f52efdf494fcaadd94df758f105fbeba418c5d5b7bb9371d89062497"
+    }
+  ]
+}

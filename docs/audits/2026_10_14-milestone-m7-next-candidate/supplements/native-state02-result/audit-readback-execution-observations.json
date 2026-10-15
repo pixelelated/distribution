@@ -1,0 +1,27 @@
+{
+  "utc": "2026-10-15T05:12:52.582075+00:00",
+  "observations": [
+    {
+      "source_file": "/tmp/m7-native02-readback.py",
+      "retained_file": "m7-native02-readback.py.gz",
+      "logical_sha256": "60481417f2573d6aec593a650e33b4dcff7dfe7db738acc5144cc19ce508aef8",
+      "logical_bytes": 3608,
+      "compressed_sha256": "8ff1c300cb12a8e2638c42879f45062074706a634d1f1d514a70f50e3054dd66",
+      "execution_observation": "Auditor transcription of observed exec_command final response; not a producer launcher receipt",
+      "observed_tool_chunk": "a4585c",
+      "original_exit_code": 0,
+      "scope": "Independent original-evidence reads and owned audit retention; no VM/compiler/registry/service activity"
+    },
+    {
+      "source_file": "/tmp/m7-native02-finalize-proof.py",
+      "retained_file": "m7-native02-finalize-proof.py.gz",
+      "logical_sha256": "704f0133b3bbe3b69df309a33b4d874ab50ff907da4d8b923572d826c380271d",
+      "logical_bytes": 15403,
+      "compressed_sha256": "d4fac9300613009254b369b9eecd782f95f89fe2937dd7a3b6267ca32bbc84ac",
+      "execution_observation": "Auditor transcription of observed exec_command final response; not a producer launcher receipt",
+      "observed_tool_chunk": "2f584e",
+      "original_exit_code": 0,
+      "scope": "Independent original-evidence reads and owned audit retention; no VM/compiler/registry/service activity"
+    }
+  ]
+}

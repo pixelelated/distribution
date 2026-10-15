@@ -1,0 +1,187 @@
+{
+  "utc": "2026-10-15T04:46:42.814702+00:00",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "d9054efc463387df3f0211481c5ae8c793dfadc8:projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh"
+      ],
+      "original_returncode": 0,
+      "stdout": "38180f3ccf0769efe62ee9bfc286e31270b26cc7\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "f8636de1d105275dbf9420bbabbbc26f79abb10f:projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh"
+      ],
+      "original_returncode": 0,
+      "stdout": "38180f3ccf0769efe62ee9bfc286e31270b26cc7\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "d9054efc463387df3f0211481c5ae8c793dfadc8:projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_gc.sh"
+      ],
+      "original_returncode": 0,
+      "stdout": "35c48b852e05019e5219ff3fa62e2efc65a7a9fa\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "f8636de1d105275dbf9420bbabbbc26f79abb10f:projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_gc.sh"
+      ],
+      "original_returncode": 0,
+      "stdout": "35c48b852e05019e5219ff3fa62e2efc65a7a9fa\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "d9054efc463387df3f0211481c5ae8c793dfadc8:projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh"
+      ],
+      "original_returncode": 0,
+      "stdout": "a636aa76d8163422f970ffd145671e20e691a153\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "f8636de1d105275dbf9420bbabbbc26f79abb10f:projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh"
+      ],
+      "original_returncode": 0,
+      "stdout": "a636aa76d8163422f970ffd145671e20e691a153\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "d9054efc463387df3f0211481c5ae8c793dfadc8:projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh"
+      ],
+      "original_returncode": 0,
+      "stdout": "70f52d44460f0734773c65b156f53bbcf9a41b36\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "f8636de1d105275dbf9420bbabbbc26f79abb10f:projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh"
+      ],
+      "original_returncode": 0,
+      "stdout": "70f52d44460f0734773c65b156f53bbcf9a41b36\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "f8636de1d105275dbf9420bbabbbc26f79abb10f^{tree}"
+      ],
+      "original_returncode": 0,
+      "stdout": "3174c775604f197d6fbbc841b1932b44c943a3f0\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "cdf6643cfcf7509f1ec24c90020792e1dbd445fd^{tree}"
+      ],
+      "original_returncode": 0,
+      "stdout": "3174c775604f197d6fbbc841b1932b44c943a3f0\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "branch",
+        "--contains",
+        "d9054efc463387df3f0211481c5ae8c793dfadc8"
+      ],
+      "original_returncode": 0,
+      "stdout": "  feature/m7-player-setup\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "branch",
+        "--contains",
+        "9aaaaa0f642b97ebf722c2e1aeedb7e4d00bcbdc"
+      ],
+      "original_returncode": 0,
+      "stdout": "+ build/m7-p5-20261015-01\n+ build/m7-p5-20261015-02\n* feature/m7-final-qualification\n  feature/m7-player-setup\n+ next\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "branch",
+        "--contains",
+        "6616cc36cb85d86878870feafdcb64edbc192df8"
+      ],
+      "original_returncode": 0,
+      "stdout": "+ build/m7-p5-20261015-01\n+ build/m7-p5-20261015-02\n* feature/m7-final-qualification\n  feature/m7-player-setup\n+ next\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "log",
+        "-1",
+        "--format=%H %s",
+        "--",
+        "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh",
+        "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_gc.sh",
+        "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh",
+        "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh"
+      ],
+      "original_returncode": 0,
+      "stdout": "f8636de1d105275dbf9420bbabbbc26f79abb10f m7: integrate qualified audit corrections for #593 #594 #595\n",
+      "stderr": ""
+    }
+  ],
+  "same_source_blobs": [
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh",
+      "source_blob": "38180f3ccf0769efe62ee9bfc286e31270b26cc7",
+      "image_blob": "38180f3ccf0769efe62ee9bfc286e31270b26cc7",
+      "equal": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_gc.sh",
+      "source_blob": "35c48b852e05019e5219ff3fa62e2efc65a7a9fa",
+      "image_blob": "35c48b852e05019e5219ff3fa62e2efc65a7a9fa",
+      "equal": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/start_dolphin_wii.sh",
+      "source_blob": "a636aa76d8163422f970ffd145671e20e691a153",
+      "image_blob": "a636aa76d8163422f970ffd145671e20e691a153",
+      "equal": true
+    },
+    {
+      "path": "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh",
+      "source_blob": "70f52d44460f0734773c65b156f53bbcf9a41b36",
+      "image_blob": "70f52d44460f0734773c65b156f53bbcf9a41b36",
+      "equal": true
+    }
+  ],
+  "full_tree_equal": "3174c775604f197d6fbbc841b1932b44c943a3f0",
+  "fixed_source_commit": "d9054efc463387df3f0211481c5ae8c793dfadc8",
+  "final_engineering_commit": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+  "historical_public_feature": "cdf6643cfcf7509f1ec24c90020792e1dbd445fd",
+  "scope": "Local git readback plus separately preserved root remote readback; no auditor network request. d905 is not an ancestor of f863: exact full-tree and source-blob equality bind the issue-cited integration.",
+  "earlier_read_only_query": "A suffix query used the nonexistent generic start_dolphin.sh name and failed its four-file count before recording a result; corrected to the actual start_dolphin_gc.sh path from git inventory.",
+  "audit_complete": false
+}
