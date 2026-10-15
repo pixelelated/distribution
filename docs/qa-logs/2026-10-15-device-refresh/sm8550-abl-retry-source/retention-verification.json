@@ -1,0 +1,32 @@
+{
+  "utc": "2026-10-15T07:58:47.254286+00:00",
+  "result": "PASS_RETENTION_ONLY",
+  "source_seal_sha256": "a9eebe1cdad405e46c45719624284ed15c8482673a9fa01e70a20f678bc93bf7",
+  "peer_review_seal_sha256": "defc80d19ee92f9a9a0e1c3127ca3540e44af41e5f1584eeb7620207a630235b",
+  "archives": {
+    "source-packet.tar.gz": {
+      "files": 75,
+      "directories": 9,
+      "sha256": "bcb22f80eebed1e6a45accd44f232856ab9daf5e3d547f746e7c0b58133f6ca3",
+      "bytes": 451781
+    },
+    "publication-originals.tar.gz": {
+      "files": 2,
+      "directories": 0,
+      "sha256": "39279b8b30926d3b8940c6e1a815fcb6fd22450f261bac4aeb888eea1ddbc1db",
+      "bytes": 968
+    }
+  },
+  "verified": [
+    "exact membership and tar member types",
+    "every regular member original SHA256 and bytes",
+    "permission modes via stat.S_IMODE",
+    "uid/gid and uname/gname",
+    "exact nanosecond mtime via decimal PAX values",
+    "original file bytes/metadata unchanged after archive readback",
+    "original source seal exact membership and hashes",
+    "historical publication receipt and completed e32 hosted rows"
+  ],
+  "extraction_performed": false,
+  "source_or_runtime_execution": false
+}

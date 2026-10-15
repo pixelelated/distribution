@@ -1,0 +1,11 @@
+# Revision03 finite source disposition
+
+The revision02 child inherited blocked TERM/INT because Popen's `restore_signals` does not restore a pthread signal mask. Parent registration protection remains necessary. The correction adds one verified-single-thread precondition, one inherited-mask refusal and one child-only mask restoration callback. The parent still restores the captured mask in `finally`. This is source correction only; no signal/control runtime has run.
+
+The rest of the lifecycle remains revision02: actual direct Popen wait is retained exactly once; generic adopted-child waits cannot steal it; signals use verified identity/pidfd custody; strict census failures remain unknown/nonqualified; completed originals are immutable; forced cleanup prevents qualification; original outer124 and inner status are separate. Every existing runner function and the identity helper are unchanged.
+
+The #600 source split is explicit at every source-bearing boundary. VM/H700 stayf863; SM uses exact9aa7/SM05. `consumed` now requires its caller's expected device commit. Source-map construction uses each exact tree/commit. The complete product Git diff, exact ABL mode/blobs, one full checksum-line replacement and map comparison together permit no other product delta. The runner and consumer require each profile and both original reports to retain that device's source. The family/control source fields no longer suggest that all firmware has one commit.
+
+The inventory's own ordinary admission remains on frozen GENERIC_X64 f863, with unchanged tools/resources. This mixed engineering family has no common RC identity. Actual SM acceptance references remain null until root supplies verified originals; no source review converts an unrun build or acceptance into proof.
+
+The new source checker only parses source, checks preserved bytes/Git blob identities, and invokes shell syntax checking. It does not import candidate modules, run lifecycle probes, inspect current registry/process/cache state or execute a preparer/collector. Prior static receipts remain historical. Original revisions485b9937 and6a57502a are unchanged. The executable delta is limited to `templates/run.py`, `templates/bindings.py`, `templates/consume.py`, `prepare-owner.py` and the packet path in `commands.sh`.

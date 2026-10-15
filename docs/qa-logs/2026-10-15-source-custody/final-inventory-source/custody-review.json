@@ -1,0 +1,62 @@
+{
+  "archive_extraction": false,
+  "archives": [
+    {
+      "archive": "lifecycle02-source.tar.gz",
+      "archive_bytes": 94462,
+      "archive_sha256": "b8ba9ac81eb9918acd16ad96eb953375ce7a18ad5ce1825ee63095e6a03fb1ef",
+      "directory_count": 4,
+      "file_count": 54,
+      "manifest": "lifecycle02-member-manifest.json",
+      "member_count": 58,
+      "name": "lifecycle02",
+      "original_seal_sha256": "6a57502a9a97d0d9fa6049cc730aa841565a0cbd903f0af58dd2c27d2bd3970c",
+      "source": "/tmp/pix-m7-final-inventory-review-20261015-02",
+      "verified": [
+        "exact member membership/order/types",
+        "payload bytes/SHA256",
+        "mode",
+        "uid/gid",
+        "owner/group names",
+        "PAX nanosecond mtime",
+        "original source unchanged before/after"
+      ]
+    },
+    {
+      "archive": "revision03-source.tar.gz",
+      "archive_bytes": 113288,
+      "archive_sha256": "8a5f779e7fa022fc11ae42fe1ea24923a6d1c145126e413859877cbe019e6f4b",
+      "directory_count": 6,
+      "file_count": 68,
+      "manifest": "revision03-member-manifest.json",
+      "member_count": 74,
+      "name": "revision03",
+      "original_seal_sha256": "6b2c7bf6e9d953d054ab666df6f5ab25b8bc184660c267c12bcce218059a99a3",
+      "source": "/tmp/pix-m7-final-inventory-review-20261015-03",
+      "verified": [
+        "exact member membership/order/types",
+        "payload bytes/SHA256",
+        "mode",
+        "uid/gid",
+        "owner/group names",
+        "PAX nanosecond mtime",
+        "original source unchanged before/after"
+      ]
+    }
+  ],
+  "candidate_imported_or_executed": false,
+  "findings_copy_sha256": "c008b8044b7f5ce349e383ca0713f70c9204b2f26863e787cfb700b0efef1e18",
+  "revision03_review_copy_sha256": "9a675bb583d00a6c35c9cda2b8a4d11aadc5c1ce2922ff43109e1435e1b7c875",
+  "root_review_provenance": {
+    "kind": "Explicit task-message source-review acceptance, transcribed; not a runtime receipt",
+    "message": "Root read exact5a80d844 diff; source accepted for final binding once SM completes.",
+    "remaining_execution_dependencies": [
+      "Actual successful SM8550 acceptance and ordinary consumed receipts",
+      "Root fresh ordinary resource allocation and admission"
+    ],
+    "reviewed_executable_diff_sha256": "5a80d844facbba9bda2853efed64922810ee7298a61284099f8b518713319999"
+  },
+  "runtime_qualification": false,
+  "source_packets_unchanged": true,
+  "status": "SOURCE_PACKET_RETENTION_VERIFIED"
+}
