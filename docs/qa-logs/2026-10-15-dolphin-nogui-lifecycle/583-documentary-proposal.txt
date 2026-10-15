@@ -1,0 +1,46 @@
+#583 documentary closeout proposal — root integration required
+
+Read-only original-artifact inspection is retained in583-artifact-review.json.
+All five inspected original result payloads have statusPASS. No runtime was
+repeated. The issue's two unchecked criteria can be finished documentarily:
+(1) link the accepted synthetic/native proof and (2) post the combined#574 note
+below, preserving the separate#584 limitation. Do not claim criterion2 already
+references a note that has not been published. Root owns tracker mutations.
+
+Proposed combined note for #574 (then link from #583)
+
+#583's RVZ/proxy scope is qualified. The original component result under
+`docs/qa-logs/2026-10-14-rvz-proxy-components/results/proxy-corrected.json` records
+126 original unaligned mismatches and zero candidate mismatches,72 aligned
+controls,6 malformed controls, and44 scanner cases preserving automatic policy,
+exclusions and pending bytes. The original native-runtime payload under
+`2026-10-14-proxy-native-runtime/attempt01/guest/run01/payload/result.json`
+records ISO/NONE-RVZ/Zstd parity, actual scanner/native handoff, account/cache
+isolation, signed queue/dedup, error preservation and exactly-once reconnect;
+its older-native provenance limit remains unchanged. The later actual installed
+`2026-10-14-installed-native-result/installed-result.json` binds final image
+bytecode/native mappings and expected ISO/NONE-RVZ/Zstd hash
+118545082f24fc195a446d1ee7bbf816 plus tiny Saturn CHD
+4cd9c8e41cd8d137be15bbe6a93ae1d8. Actual service lifecycle and installed startup
+reconnect are separately retained under2026-10-14-proxy-service-runtime/attempt05
+and2026-10-14-proxy-installed-startup-result. Original failed attempts remain
+failed; no owner account, award or provider acceptance is inferred.
+
+The remaining Dolphin-specific qualification stays in#584. Source inspection
+found that the default NoGUI frontend never initializes AchievementManager,
+although its launcher writes HostUrl and RA is compiled in. A minimal source
+patch and bounded installed-binary HTTP-request proof are prepared, compile
+and VM executionUNRUN. The ordinary Wii/Dreamcast native-gameplay packet has RA
+disabled and cannot establish Dolphin HostUrl, login or offline award behavior.
+#574 remains open for that independent Dolphin path;#583 need not retain the
+same completed RVZ/proxy checklist. Upstream contributions remain queued in#585
+underD-WORKFLOW-165 and are not a product qualification gate.
+
+After that note exists, proposed #583 checkbox replacements:
+
+- [x] Minimal RVZ padding/scanner repairs have synthetic VM regression proof for recognized RVZ and malformed/unsupported cases while preserving existing offline behavior; original component/native/installed payloads are linked in the combined #574 closeout note.
+- [x] #574's combined frontend/proxy qualification explicitly links those artifacts and retains the unqualified Dolphin NoGUI lifecycle/host interpretation path under #584; synthetic protocol evidence is not reported as a real Dolphin award.
+
+Then close#583 as delivered within its explicit source/reader/proxy scope.
+Do not close#584 or#574, and do not silently broaden these criteria into Wii AES,
+real-provider acceptance or native emulator award claims they do not contain.

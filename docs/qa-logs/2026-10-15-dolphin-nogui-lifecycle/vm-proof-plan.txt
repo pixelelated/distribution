@@ -1,0 +1,86 @@
+#584 minimal bounded VM proof — DESIGN ONLY, UNRUN
+
+Can this be done on the VM? Yes. The required observation is an HTTP request
+emitted by the actual installed dolphin-emu-nogui binary after reading its
+RetroAchievements.ini. No physical panel, radio, owner ROM, provider or real
+account fact is required. Root should post this question/answer in #584 before
+runtime allocation. This document neither allocates nor starts a job.
+
+Use one disposable normal8GiB/4CPU GENERIC_X64 guest without a NIC from birth,
+standard watched/admitted lifecycle, at most300s work plus90s cleanup. At most
+one emulator and one finite loopback listener at a time. Keep source/input/media
+identity, original subprocess wait statuses, owner/launcher/monitor results and
+actual host exit/retirement receipts. Each case has a15s observation deadline
+and10s normal-exit allowance; forced cleanup preserves a failed result, never
+counts as normal shutdown. The listener accepts at most8 requests, caps headers
+and bodies at8KiB, and dies by the owner deadline. Synthetic scratch cap16MiB.
+Do not reuse an in-flight guest/owner or modify native-gameplay source.
+
+Bind the tested installed /usr/bin/dolphin-emu-nogui SHA and /proc/PID/exe SHA to
+the final extracted SYSTEM manifest. A path, version string or compile flag is
+not executable identity. First preserve an unchanged installed baseline control
+from fac608ff; use a separate freshly built image for candidate acceptance.
+A temporary candidate file-bind can be preliminary diagnosis only; it is not
+final installed-image evidence and requires the existing mountinfo/hash rules.
+
+Use owned synthetic account/token values and a private Dolphin user directory.
+The positive configuration is Enabled=True, HardcoreEnabled=False, synthetic
+Username/ApiToken and HostUrl=127.0.0.1:8080. Retain the installed full-script
+cheevos_dolphin.sh output generated from corresponding synthetic global settings
+(toggle1, raw hardcore0) with the listener present; reuse the accepted126-case
+script matrix instead of repeating it. A scratch listener is an explicit
+synthetic endpoint, not evidence of actual proxy identity/readiness. Existing
+installed proxy service/native/dependency proof is separately cited from
+2026-10-14-installed-native-result and proxy-installed-startup-result.
+
+Run the real binary directly (observe its own wait status rather than runemu's
+wrapper-normalized status), e.g. the existing headless platform with Null video
+and a tiny owned valid DOL. The public reproducible synthetic DOL may have a
+0x100-byte header, one4-byte text section at file0x100/load0x80003100, entry
+0x80003100 and instruction0x48000000 (branch to self). These are design inputs
+for a new source-reviewed runner, not a generated/executed fixture here. The
+binary must actually reach a live boot/core state; otherwise an absent request
+is not the baseline defect. This DOL proves client startup, not recognized
+GameCube achievements or gameplay. The normal Wayland/ES launch proof remains
+the independent native-gameplay flow; one final normal launch with a public
+homebrew under the same synthetic endpoint can bind the production launcher
+when root selects the final installed proof scope.
+
+Rows, original result expectations
+
+1. Baseline installed fac608ff, enabled+token+bare HostUrl: live boot but no
+   login2 request in the observation interval and no manager Initialized log.
+   Preserve this as the expected failing product control, not a passed fixed row.
+2. Candidate same settings: listener receives POST /dorequest.php with Host
+   127.0.0.1:8080, form action r=login2 and the exact synthetic u/t values. This
+   proves the bare host selects HTTP and the actual NoGUI client initialized.
+   Record executable hash/PID/start tick, endpoint ownership, request timestamp,
+   initialized log and normal process exit/shutdown log. Stop by the exact owned
+   PID with one SIGTERM and observe ordinary scope cleanup, not a timeout kill.
+3. Candidate Enabled=False with token present: live boot, zero requests, clean
+   exit; never reinterpret no contact alone as positive initialization evidence.
+4. Candidate enabled but token absent: live boot, manager Initialized log, zero
+   login requests, clean shutdown. This verifies no accidental anonymous login.
+5. Candidate enabled+synthetic token and a deliberately invalid readable DOL:
+   retain BootCore failure/return1 and manager shutdown evidence. Do not require
+   a request to win the startup-versus-exit race. If rejection happens before
+   initialization, select a source-proven BootCore-failure input; do not claim
+   this row from an argument-parser rejection.
+
+For row2, respond immediately with a fixed synthetic failed-login JSON body
+(HTTP200, Success:false, Error:'Synthetic endpoint only'). That avoids badge
+fetches and makes the exact limit explicit: observed login request/HostUrl,
+not successful account authentication. Dolphin may clear its private synthetic
+token through its existing failure callback. Assert global input settings and
+all unrelated save paths byte-identical; record private Dolphin changes rather
+than falsely asserting its entire directory unchanged. A successful synthetic
+login response can be added only if its extra image/game requests are bounded.
+
+The listener is not RAOfflineProxy, so this proof does not establish full offline
+Dolphin login/cache/award/reconnect behavior. Use the already accepted actual
+proxy component/service evidence for those covered layers, and keep genuine
+Dolphin award inputs/recognized commercial game sets explicitly unverified.
+Do not tick an award criterion from a synthetic login, ordinary homebrew play,
+prepared configuration, or another emulator's award. A request-plus-clean-exit
+proof is sufficient for #584's host interpretation lifecycle gap, not for every
+possible in-game achievement behavior under #574.

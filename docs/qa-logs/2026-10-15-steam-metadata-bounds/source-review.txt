@@ -1,0 +1,93 @@
+Steam release-metadata bound — source-only control handoff, 2026-10-15
+
+STATUS: UNRUN. No imports, syntax/test probes, listener, curl, VM or fixture was
+executed while preparing this helper. Only static source was inspected. Root
+owns the #580 / AC083 finding, source integration and serialized allocation.
+
+The executable candidate is steam-metadata-control. It is reusable as a tools/
+helper after review. Its four cases are intentionally small:
+  1. Synthetic CachyOS metadata: prefix removed; checksum excluded; tar/dir/URL exact.
+  2. Synthetic GE metadata: tag preserved; aarch64 asset selected; tar/dir/URL exact.
+  3. A local response with no Content-Length streams1MiB+64KiB. Real curl must
+     refuse with original exit63; the production shell must fail1 with its
+     existing message. This checks received bytes, not just an oversized header.
+  4. One local response advertises100bytes, sends one byte and stalls. Real curl
+     must finish with original exit28 in25–35seconds; the full shell function
+     must fail1 within45seconds. Production die() keeps its ten-second sleep.
+
+Actual production fetch_proton_latest_release, log_info and die definitions
+are extracted unchanged from --source, never by sourcing the installer.
+Optional --baseline-source proves that only the one curl invocation changed
+from the frozen unbounded request; the baseline is never executed. No regex
+URL rewrite or changed product deadline is used: the existing URL parameter
+receives an ephemeral127.0.0.1 endpoint. A small PATH recorder delegates every
+curl argument unchanged to --curl and records PID, start/end, original exit
+and NUL-separated argv. Shell statuses/timing and all stderr/stdout are retained
+separately. Request timing uses Bash EPOCHREALTIME; the encompassing function
+watchdog/timing use Python's monotonic clock. A clock discontinuity fails the
+timing assertion; it cannot remove the independent function deadline.
+
+All four cases point CURL_HOME at their own retained .curlrc containing zero
+deadlines/size, retry2 and output/extra-URL directives. Assertions require exact
+production argv with -q first, no poison output and exactly one expected local
+request per case. This demonstrates that retained config cannot remove or
+amplify the defined request boundary. The actual user's HOME/config is untouched.
+The child environment has no proxy variables and explicitly bypasses proxies.
+
+No sibling installer function, /etc/profile, actual Steam tree, FEX, runtime,
+client download or activation is invoked. Two private old-family fixtures and
+a selected-family symlink are compared by bytes/types/modes/mtime/inode before,
+after each case and at final cleanup. This is a narrow no-write control; it
+does not requalify full-installer ordering, transactions, profile effects or
+ARM64 activation, and does not replace the accepted Steam matrix.
+
+Bounds and cleanup:
+  - Local HTTP only; port selected by bind127.0.0.1:0. No external requests.
+  - Real curl production flags: connect10s, total30s, max response1MiB.
+  - Function ceilings:5s per success,15s oversize,45s stall; expected total~50s.
+  - Overall alarm110s, independent cleanup alarm10s; use root's outer120s owner.
+  - Each Bash/recorder/curl tree has its own recorded process group and pidfiles.
+    A watchdog terminates only that owned group, retains original status and
+    fails the result. No forced cleanup is accepted as success.
+  - Handler waits are finite; socket writes time out after2s. Final event wakes
+    the stalled handler, server socket closes and all server/handler threads
+    must be stopped. Original records and fixture files stay in the new output.
+  - A missing recorder receipt or unexpected curl/parser status fails; it is
+    never converted into a timeout success. No old unbounded request is run.
+
+Root's proposed host command, NOT EXECUTED (new output path required):
+
+python3 /tmp/pix-steam-metadata-control-20261015/steam-metadata-control --source '/workspace/repos/rocknix.worktrees/m7-player-setup/projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh' --baseline-source '/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh' --curl /usr/bin/curl --scope host-curl --out /tmp/pix-steam-metadata-control-20261015/host01
+
+Run through the existing watched admission/lifecycle owner with120s total,
+short root polls and original outer/child results. Expected first useful status
+is two immediate PASS lines, oversize around10s, and stall around40s thereafter.
+No detached listener/service is created. The full failure result must remain
+failed if any guard forces cleanup or skips a case.
+
+HOST / INSTALLED SCOPE
+Host run proves the exact source function with host Bash/grep/sed/curl and the
+recorded real curl version/hash. It is not proof of installed curl or Steam.
+The source tree currently pins curl8.21.0; no executable version was queried
+during preparation. Official metadata sizes already retained by root are18,636
+bytes CachyOS and16,407bytes GE, well below the1MiB cap. Their evidence is
+/tmp/pix-steam-metadata-sizing-20261015/result.json; this helper does not fetch
+them again or infer an all-time maximum from those two observations.
+
+Later installed-curl VM proof can run the SAME helper inside a disposable
+GENERIC_X64 guest using /usr/bin/python3, --curl /usr/bin/curl and --scope
+installed-vm-curl. Stage the reviewed installer as source data only in the
+owned scratch directory, with its hash, since GENERIC_X64 does not ship Steam.
+Run as: python3 HELPER --source STAGED_INSTALLER --curl /usr/bin/curl --scope
+installed-vm-curl --out NEW_GUEST_OUTPUT. The local server stays inside the
+guest. Add optional frozen source-data binding if available. Record actual
+guest build/boot identity and installed curl/Bash/grep identities externally.
+This proves installed dependency behavior without needing FEX, ARM64 or a NIC.
+On a later ARM image the installed source is /usr/config/modules/Install Steam.sh
+(emulators/package.mk install_script); still extract it, never execute it.
+
+Static inputs inspected: current coordinator function/call sites and helpers;
+frozen-source finding; retained metadata sizing receipts; curl recipe; package
+install_script/device gate. Current packaging, engineering and VM rules were
+read. All worker output is confined to this private/tmp directory. Root owns
+the durable work-log/tracker entry and any later integration.

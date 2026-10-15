@@ -1,0 +1,19 @@
+{
+  "name": "old-control",
+  "argv": [
+    "/usr/bin/python3",
+    "/tmp/pix-m7-frame-diff-review-20261015/claim-controls.py",
+    "--source",
+    "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/frame-diff",
+    "--out",
+    "/tmp/pix-m7-frame-diff-review-20261015/old-control01",
+    "--only",
+    "adjacent",
+    "--expect-old-failure"
+  ],
+  "original_returncode": 0,
+  "timed_out": false,
+  "elapsed_seconds": 0.06361342500895262,
+  "pid": 1862501,
+  "timeout_seconds": 40
+}

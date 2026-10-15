@@ -1,0 +1,42 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/.build-runs/20261015T000858Z-720211a2",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 589,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-final-baseline-20261014-03",
+      "release_when": "Original scripts continuation and one pending SFTP/S3 row, failures/restoration/cleanup exported and reviewed; actual owner/guests/backends gone, admission consumed, then explicitly retire private disks/key/backend data/tmp."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-final-baseline-export-20261014-03/config.json",
+      "sha256": "d70c710f57aa2006dfe64e85caa370591921865e4c23b0ae4770e50b9e499e73"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-final-baseline-export-20261014-03/export-result.json",
+      "sha256": "987b70089bfb00c025bd676e13e325ffa55f0edde2d900e58731f85cbfe8d5f8"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-final-baseline-export-20261014-03/host-exits.json",
+      "sha256": "a5f653eb84f0d21111167ec514762775369bd8847779b1c23e053dcee2567489"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-final-baseline-export-20261014-03/original-records.json",
+      "sha256": "ea29896791f1a4943341e0570c1221e3bd2cdce4a11a211f02c326cfd0e296cd"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-final-baseline-export-20261014-03/original-records.tar.gz",
+      "sha256": "166980424e38fdaf18ac86ab644f78ae60445750264889b95984b424ec8024bb"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-final-baseline-export-20261014-03/result.json",
+      "sha256": "2ba4ac3276af0ed6db02b0cc13a4b8b620d10679ea3718790a0e2f380d98676a"
+    }
+  ],
+  "requires_coordinator_review": true,
+  "channels_coherent": true,
+  "monitor_succeeded": true
+}

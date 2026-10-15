@@ -1,0 +1,137 @@
+#584 — NoGUI AchievementManager lifecycle, source-only handoff (2026-10-15)
+
+Finding
+
+The image's default Dolphin player is dolphin-emu-nogui. The frozen distribution
+fac608ff89940ce358ea9b8a95e9a08a6fe26568 pins Dolphin
+6094cfcf7b8fba733b3116fdf3414d51c1c0e4a4. Its CMakeCache has ENABLE_NOGUI,
+ENABLE_QT and USE_RETRO_ACHIEVEMENTS ON; the actual MainNoGUI compilation command
+contains -DUSE_RETRO_ACHIEVEMENTS. This compile feature is not initialization.
+
+Source/Core/DolphinNoGUI/MainNoGUI.cpp:280-288 initializes UICommon/controllers
+and installs their shutdown guard. It never initializes AchievementManager.
+UICommon/UICommon.cpp:126-159 initializes and destroys configuration, logging,
+video settings and related components, but not achievements. Desktop Qt calls
+AchievementManager::Init in MainWindow.cpp:270 and Shutdown in its destructor
+at349. Android has its own initialization calls (AchievementAdapter.cpp:18 and
+MainAndroid.cpp:524); this is a NoGUI omission, not a universal non-Qt defect.
+
+Core/AchievementManager.cpp:64-99 creates rc_client only when RA is enabled,
+sets the configured HostUrl at73-75, sets events/hardcore policy, starts its
+queues, and starts token login at94-95. Without that call, the normal game-load
+path (Core/Boot/Boot.cpp:527) reaches LoadGame, which returns with an
+'uninitialized client' error at AchievementManager.cpp:162-166. The new #584
+launcher routing can write the correct HostUrl while the player never reads it.
+This is independent of the repaired ES RVZ reader and proxy RVZ hashing.
+
+Proposed production content
+
+018-nogui-achievements-lifecycle.patch adds only three guarded sections to
+MainNoGUI.cpp: include AchievementManager.h, call Init(wsi.render_window)
+after signal-handler installation and before BootCore, and pair it with a dedicated scope guard. Normal exit calls that guard before
+s_platform.reset, preserving the native window for RAIntegration teardown; the
+existing UICommon teardown order stays unchanged.
+It does not move Qt/Android ownership or initialize a second client there.
+recipe-comment.patch removes the false assumption that compiling Core alone
+makes achievements frontend-independent. Patch018 avoids current ROCKNIX's
+already used017 (Qt window pixel ratio).
+
+Startup/teardown trace
+
+* Argument/platform rejection before UICommon creates no client.
+* The save-state-without-game rejection occurs before achievement Init and
+  before its dedicated guard; only the existing UICommon guard runs.
+* Successful normal startup creates the client after config has loaded and
+  before BootCore can call LoadGame. The existing core path supplies game load,
+  frame work and close; no Qt event loop is required for the manager's HTTP queue.
+* BootCore false return runs the achievement guard, then UICommon cleanup,
+  even though main returns1.
+* Normal signal/platform exit first executes Core::Stop and Core::Shutdown;
+  achievement_manager_guard.Exit() shuts achievements down before the platform
+  window is destroyed. The later guard destructor is a no-op; UICommon cleanup
+  retains its existing final position.
+* Manager Shutdown (796-810) calls CloseGame, joins m_queue, removes its config
+  callback, destroys rc_client and preserves credentials (it does not Logout).
+  CloseGame synchronously cancels both pending queues and clears game/system
+  state. The existing image worker is cancelled here and joined by its
+  WorkQueueThread destructor at process-static teardown; this patch deliberately
+  uses the existing public lifecycle rather than changing shared manager code.
+  As in upstream Qt, fatal signals/forced process termination bypass C++ guards.
+
+Already written / upgrade
+
+Existing RetroAchievements.ini files and global settings remain readable.
+There is no schema/path migration. After the fix, a configured enabled/token
+session actually attempts normal login. Upstream's failed-login callback may
+clear its local Dolphin API token; that behavior is unchanged and is distinct
+from global account settings. No real account values were read for this packet.
+The runtime fixture must use disposable synthetic credentials and retain the
+original global settings hash. #581's save paths and preserved user data are
+untouched by this proposal.
+
+Exact checks completed, and limits
+
+pin-replay.json reads MainNoGUI.cpp from the exact local git pin and reapplies
+only current patch015's relevant hunk. The result is byte-identical to the
+frozen built source. source-manifest.json binds the source, recipe, cache and
+all16 existing package patches. patch-checks.json records zero-fuzz dry runs
+against this exact source and current upstream master (upstream differs by the
+nine Wayland lines, so hunks2/3 have a -9 offset). No compiler, emulator, guest,
+fixture or service was executed; no product/shared tracker files were edited.
+
+The header's RA-disabled stub does not expose Init/Shutdown; all added include
+and call sites are guarded. core already PUBLIC-links rcheevos and PUBLIC-defines
+USE_RETRO_ACHIEVEMENTS (Core/CMakeLists.txt:840-846); NoGUI already links core and
+uicommon, so no new CMake/dependency changes are needed. wsi.render_window is the
+existing void* window handle; Linux's manager ignores hwnd and headless returns
+nullptr. Windows RAIntegration uses the handle; no Windows runtime claim is made.
+
+Compilation still required: rebuild the changed MainNoGUI translation unit and
+relink the NoGUI target against exact cached target libraries, then package it
+in a newly frozen image. Full package/image/runtime acceptance is not supplied
+by patch applicability. RA-disabled compile coverage should confirm the guard
+if an appropriate isolated configuration is available; it is not the shipping
+configuration. The recorded compile command embeds the old m7-pixelelated
+container path and LTO flags: do not run it against frozen output paths. Use
+an isolated admitted build with correct path mapping, finite compile/link
+parallelism and retained original exit/artifact identities. Do not advance or
+modify the frozen fac608ff tree. Run pkgcheck when integrating recipe-comment.
+
+Upstream disposition, checked2026-10-15
+
+Dolphin master8d2ad1a662472955497e5bb79d7b9ec6999e1f0d (2026-10-12) and current
+stable2609a/409881c34357d0f105fd473167d15ab0bd9c1628 retain the omission in
+MainNoGUI and UICommon. A bump alone therefore does not repair this path.
+Latest stable was verified on https://dolphin-emu.org/download/; GitHub's
+releases/latest endpoint returns404, which is retained rather than mistaken
+for 'no release'. Raw source/API responses and fetch time are under upstream/.
+
+Dolphin PR14850 defaults ENABLE_NOGUI to OFF; it does not remove this frontend
+or initialize achievements: https://github.com/dolphin-emu/dolphin/pull/14850 .
+The closed shutdown-deadlock PR13659 is already an ancestor of our pin; it
+addresses callback-thread shutdown, not the absent frontend lifecycle:
+https://github.com/dolphin-emu/dolphin/pull/13659 . Scoped GitHub open/closed
+searches for RetroAchievements/NoGUI and AchievementManager/NoGUI found only
+hardcore PR11904, not an equivalent lifecycle fix. Dolphin's actual bug tracker
+is bugs.dolphin-emu.org; its search URL was inaccessible through the web tool,
+so duplicate research there is incomplete. Do not claim an exhaustive clean
+upstream search. Recheck that tracker before a contribution is sent.
+
+Current ROCKNIX nextc17558d2abadebec634100264523aaddc98b3b96 still uses the same
+6094cfcf pin and NoGUI default, with the same inaccurate recipe comment and no
+lifecycle patch. Its existing017 touches Qt pixel ratio only. The source fix
+belongs to dolphin-emu/dolphin; a separate focused backport plus recipe comment
+belongs to ROCKNIX/distribution. Retain Dolphin GPL-2.0-or-later attribution.
+Do not include the fork's unrelated Wayland/save/cloud patches in the upstream
+Dolphin diff. #585 should track both destinations, public synthetic reproduction,
+exact compile/VM evidence and the bug-tracker duplicate recheck. No upstream
+message, PR, push or publication has been made. D-WORKFLOW-165 still governs
+submission, independently of fixing the local product.
+
+Canonical integration owed
+
+Keep #584 open until the installed-image proof described in vm-proof-plan.txt
+passes. Update #574/#583 combined limits, the relevant emulator/achievement
+flow reference and tested changelog claim when the fix lands. The existing
+native-gameplay packet intentionally has RA off and cannot tick HostUrl/login
+interpretation; its Wii/Dreamcast save proof must stay separate and unmodified.

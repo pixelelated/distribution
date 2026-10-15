@@ -787,19 +787,25 @@ and [browser branches](qa-logs/2026-10-13-library-setup-source/browser-window-fa
 are candidate references, not a claim that the accepted image has changed.
 
 
-### Offline achievements → Dolphin routing (#584, source candidate)
+### Offline achievements → Dolphin routing (#584)
 
 The existing offline-achievements control and game-launch navigation are unchanged.
-Candidatec225 routes a Dolphin launch to127.0.0.1:8080 only when the saved toggle
+The launcher routes a Dolphin launch to127.0.0.1:8080 only when the saved toggle
 is exactly1, raw hardcore is exactly0 and an IPv4-capable listener is present.
 Otherwise it keeps the configured custom host; disabled achievements and missing
-token retain their existing early exits. No saved setting or account is rewritten.
-[Configuration-only proof](qa-logs/2026-10-14-rvz-proxy-components/README.md)
-contains126 before/after full-script cases and unchanged synthetic settings.
-This round has no ES source/copy/layout change or new screenshots. Existing
-offline-settings/game-launch frame references remain the presentation baseline;
-native Dolphin/service/login/cache/award/reconnect and combined-source UI proof
-remain open. Listener presence alone is not proxy identity or readiness.
+token retain their existing early exits. Global account settings are unchanged.
+[Configuration proof](qa-logs/2026-10-14-rvz-proxy-components/README.md) contains126
+before/after full-script cases. Installed proxy hashing, service lifecycle and
+startup reconnect now have their own completed evidence; those do not prove
+that the default Dolphin process uses the generated HostUrl.
+
+The [NoGUI lifecycle repair](qa-logs/2026-10-15-dolphin-nogui-lifecycle/README.md)
+adds the missing AchievementManager initialization/shutdown. It is source-only,
+uncompiled and unqualified; actual Dolphin request/normal-launch evidence remains
+open under#584. No ES copy/layout change is introduced. Existing settings and
+game-launch frames remain the presentation baseline; the later runtime receipt
+must identify the exercised unchanged flow. Listener presence alone does not
+establish proxy identity/readiness, and a synthetic login is not an award proof.
 
 ## ScreenScraper developer provisioning (#566)
 
@@ -843,3 +849,13 @@ retains original failures separately. Final installed-image qualification is dis
 Qualification records: [interim provisioning](qa-logs/2026-10-14-screenscraper-provisioning/README.md)
 and [rejection-copy component](qa-logs/2026-10-14-screenscraper-rejection-runtime/README.md).
 Combined installed-image, backup and clean/retained checks remain required.
+
+
+### Last Played backdrop in the final M7 walks (#578, #591)
+
+The corrected absent collection preference enables the intentionally empty Last
+Played collection. Its existing theme artwork shifts the carousel backdrop behind
+the unchanged cloud/settings panels. The [78-frame comparison and exact-source
+index](qa-logs/2026-10-15-frame-claims/README.md) records the reviewed visible
+regions against the historical baseline. New claims cover exposed background;
+foreground controls remain checked. This does not replace the canonical baseline.

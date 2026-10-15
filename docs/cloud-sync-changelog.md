@@ -1,6 +1,16 @@
 # Cloud sync, backup and restore — change summary
 
 
+## Follow-up source repairs (2026-10-15, not yet compiled)
+
+Dolphin's default NoGUI player now has paired achievements initialization and
+shutdown in source (#584). This repairs a missing lifecycle; actual built-player
+request and normal-launch proof remain due. The settings and launch navigation
+are unchanged. Steam release-metadata lookup now has explicit connection, total
+response and size limits (#580/#590), preserving the previous failure outcome;
+stall/refusal regression is pending. Neither change is in the frozen fac608ff
+engineering image or on the owner's devices.
+
 ## Browser, setup and offline achievements (2026-10-14, component-qualified source)
 
 The combined source is prepared for the next engineering image. The dated

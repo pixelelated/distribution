@@ -1,0 +1,145 @@
+{
+  "source": "/tmp/pix-m7-frame-diff-review-20261015/frame-diff.candidate",
+  "results": [
+    {
+      "name": "adjacent",
+      "subprocess_exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "uncovered-connecting-pixel",
+      "subprocess_exit": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "bounding-rectangle-gap",
+      "subprocess_exit": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "overlap-counted-once",
+      "subprocess_exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "half-open-edge",
+      "subprocess_exit": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "stale-build-cannot-claim",
+      "subprocess_exit": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "mixed-live-and-stale",
+      "subprocess_exit": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "wrong-screen-cannot-claim",
+      "subprocess_exit": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "wildcard-build-unchanged",
+      "subprocess_exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "new-needs-single-whole-claim",
+      "subprocess_exit": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "new-whole-claim-unchanged",
+      "subprocess_exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "missing-cannot-claim",
+      "subprocess_exit": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "size-mismatch-cannot-claim-or-mask",
+      "subprocess_exit": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "mask-removes-only-owned-gap",
+      "subprocess_exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "mask-half-open-edge",
+      "subprocess_exit": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "masked-only-identical-message",
+      "subprocess_exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "foreground-label-still-checked",
+      "subprocess_exit": 1,
+      "expected_exit": 1,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "no-baseline-stays-exit2",
+      "subprocess_exit": 2,
+      "expected_exit": 2,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "unchanged",
+      "subprocess_exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "errors": []
+    },
+    {
+      "name": "explicit-pixel-threshold",
+      "subprocess_exit": 0,
+      "expected_exit": 0,
+      "passed": true,
+      "errors": []
+    }
+  ]
+}

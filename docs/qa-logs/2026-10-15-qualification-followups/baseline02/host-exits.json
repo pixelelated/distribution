@@ -1,0 +1,640 @@
+{
+  "status": "OWNERS_GONE",
+  "original_rc": 1,
+  "original_channels": {
+    "launcher": 1,
+    "tool_wrapper": 1,
+    "build": 1,
+    "command": 1,
+    "monitor": 0,
+    "runner": 1,
+    "owner": 1
+  },
+  "channels_coherent": true,
+  "pids_exited": [
+    1332800,
+    1332801,
+    1332854,
+    1332802,
+    1332802
+  ],
+  "qemu_identities": [
+    {
+      "pid": 1333770,
+      "ppid": 1332854,
+      "start_ticks": 111168202,
+      "argv": [
+        "/usr/bin/qemu-system-x86_64",
+        "-name",
+        "ROCKNIX GENERIC_X64",
+        "-machine",
+        "q35",
+        "-accel",
+        "kvm",
+        "-cpu",
+        "Haswell-v4",
+        "-smp",
+        "4",
+        "-m",
+        "8192",
+        "-drive",
+        "if=pflash,unit=0,readonly=on,format=raw,file=/usr/share/OVMF/OVMF_CODE_4M.fd",
+        "-drive",
+        "if=pflash,unit=1,format=raw,file=/workspace/tmp/pix-m7-final-baseline-20261014-02/pair/vm-a.ovmf-vars.fd",
+        "-drive",
+        "if=none,id=rocknix,format=qcow2,file=/workspace/tmp/pix-m7-final-baseline-20261014-02/pair/vm-a.qcow2",
+        "-device",
+        "virtio-blk-pci,drive=rocknix,logical_block_size=512,physical_block_size=512",
+        "-vga",
+        "none",
+        "-device",
+        "virtio-gpu-gl-pci",
+        "-display",
+        "egl-headless,rendernode=/dev/dri/renderD128",
+        "-vnc",
+        "127.0.0.1:9",
+        "-netdev",
+        "user,id=net0,hostfwd=tcp:127.0.0.1:10022-:22",
+        "-device",
+        "virtio-net-pci,netdev=net0,mac=52:54:00:52:4E:58",
+        "-device",
+        "qemu-xhci",
+        "-device",
+        "usb-kbd",
+        "-device",
+        "usb-tablet",
+        "-device",
+        "intel-hda",
+        "-device",
+        "hda-duplex",
+        "-monitor",
+        "unix:/workspace/tmp/pix-m7-final-baseline-20261014-02/runtime/rocknix-qemu-monitor.sock,server,nowait",
+        "-fw_cfg",
+        "name=opt/org.rocknix.cloud_ssh_port,string=10022",
+        "-serial",
+        "unix:/workspace/tmp/pix-m7-final-baseline-20261014-02/runtime/rocknix-qemu-serial.sock,server,nowait",
+        "-pidfile",
+        "/workspace/tmp/pix-m7-final-baseline-20261014-02/runtime/rocknix-qemu.pid",
+        "-daemonize",
+        "-object",
+        "rng-random,id=rng0,filename=/dev/urandom",
+        "-device",
+        "virtio-rng-pci,rng=rng0",
+        "-device",
+        "i6300esb",
+        "-action",
+        "watchdog=reset"
+      ]
+    },
+    {
+      "pid": 1333797,
+      "ppid": 1332854,
+      "start_ticks": 111168216,
+      "argv": [
+        "/usr/bin/qemu-system-x86_64",
+        "-name",
+        "ROCKNIX GENERIC_X64",
+        "-machine",
+        "q35",
+        "-accel",
+        "kvm",
+        "-cpu",
+        "Haswell-v4",
+        "-smp",
+        "4",
+        "-m",
+        "8192",
+        "-drive",
+        "if=pflash,unit=0,readonly=on,format=raw,file=/usr/share/OVMF/OVMF_CODE_4M.fd",
+        "-drive",
+        "if=pflash,unit=1,format=raw,file=/workspace/tmp/pix-m7-final-baseline-20261014-02/pair/vm-b.ovmf-vars.fd",
+        "-drive",
+        "if=none,id=rocknix,format=qcow2,file=/workspace/tmp/pix-m7-final-baseline-20261014-02/pair/vm-b.qcow2",
+        "-device",
+        "virtio-blk-pci,drive=rocknix,logical_block_size=512,physical_block_size=512",
+        "-vga",
+        "none",
+        "-device",
+        "virtio-gpu-gl-pci",
+        "-display",
+        "egl-headless,rendernode=/dev/dri/renderD128",
+        "-vnc",
+        "127.0.0.1:10",
+        "-netdev",
+        "user,id=net0,hostfwd=tcp:127.0.0.1:10023-:22",
+        "-device",
+        "virtio-net-pci,netdev=net0,mac=52:54:00:52:4E:59",
+        "-device",
+        "qemu-xhci",
+        "-device",
+        "usb-kbd",
+        "-device",
+        "usb-tablet",
+        "-device",
+        "intel-hda",
+        "-device",
+        "hda-duplex",
+        "-monitor",
+        "unix:/workspace/tmp/pix-m7-final-baseline-20261014-02/runtime/rocknix-qemu-monitor-b.sock,server,nowait",
+        "-fw_cfg",
+        "name=opt/org.rocknix.cloud_ssh_port,string=10023",
+        "-serial",
+        "unix:/workspace/tmp/pix-m7-final-baseline-20261014-02/runtime/rocknix-qemu-serial-b.sock,server,nowait",
+        "-pidfile",
+        "/workspace/tmp/pix-m7-final-baseline-20261014-02/runtime/rocknix-qemu-b.pid",
+        "-daemonize",
+        "-object",
+        "rng-random,id=rng0,filename=/dev/urandom",
+        "-device",
+        "virtio-rng-pci,rng=rng0",
+        "-device",
+        "i6300esb",
+        "-action",
+        "watchdog=reset"
+      ]
+    }
+  ],
+  "command_identities": [
+    {
+      "pid": 1332856,
+      "ppid": 1332854,
+      "start_ticks": 111167127,
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02",
+        "status",
+        "--porcelain=v1",
+        "--untracked-files=no"
+      ]
+    },
+    {
+      "pid": 1332878,
+      "ppid": 1332854,
+      "start_ticks": 111167153,
+      "argv": [
+        "git",
+        "-C",
+        "/home/max/Development/emulationstation-next.worktrees/qa-integration",
+        "rev-parse",
+        "HEAD"
+      ]
+    },
+    {
+      "pid": 1332879,
+      "ppid": 1332854,
+      "start_ticks": 111167179,
+      "argv": [
+        "git",
+        "-C",
+        "/home/max/Development/emulationstation-next.worktrees/qa-integration",
+        "status",
+        "--porcelain=v1",
+        "--untracked-files=no"
+      ]
+    },
+    {
+      "pid": 1332883,
+      "ppid": 1332854,
+      "start_ticks": 111167207,
+      "argv": []
+    },
+    {
+      "pid": 1332886,
+      "ppid": 1332854,
+      "start_ticks": 111167259,
+      "argv": [
+        "docker",
+        "ps",
+        "-a",
+        "--format",
+        "{{.Names}}"
+      ]
+    },
+    {
+      "pid": 1332899,
+      "ppid": 1332854,
+      "start_ticks": 111167285,
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "sha256:14cea493d9a34af32f524e538b8346cf79f3321eff8e708c1e2960462bd8936e"
+      ]
+    },
+    {
+      "pid": 1333092,
+      "ppid": 1332854,
+      "start_ticks": 111167312,
+      "argv": [
+        "docker",
+        "volume",
+        "ls",
+        "--format",
+        "{{.Name}}"
+      ]
+    },
+    {
+      "pid": 1333250,
+      "ppid": 1332854,
+      "start_ticks": 111167339,
+      "argv": [
+        "rclone",
+        "version"
+      ]
+    },
+    {
+      "pid": 1333290,
+      "ppid": 1332854,
+      "start_ticks": 111167419,
+      "argv": [
+        "/bin/bash",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/vm-pair",
+        "up",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261014T230300Z.gfac608ff8994-from-ROCKNIX.img.gz"
+      ]
+    },
+    {
+      "pid": 1333770,
+      "ppid": 1332854,
+      "start_ticks": 111168202,
+      "argv": [
+        "/usr/bin/qemu-system-x86_64",
+        "-name",
+        "ROCKNIX GENERIC_X64",
+        "-machine",
+        "q35",
+        "-accel",
+        "kvm",
+        "-cpu",
+        "Haswell-v4",
+        "-smp",
+        "4",
+        "-m",
+        "8192",
+        "-drive",
+        "if=pflash,unit=0,readonly=on,format=raw,file=/usr/share/OVMF/OVMF_CODE_4M.fd",
+        "-drive",
+        "if=pflash,unit=1,format=raw,file=/workspace/tmp/pix-m7-final-baseline-20261014-02/pair/vm-a.ovmf-vars.fd",
+        "-drive",
+        "if=none,id=rocknix,format=qcow2,file=/workspace/tmp/pix-m7-final-baseline-20261014-02/pair/vm-a.qcow2",
+        "-device",
+        "virtio-blk-pci,drive=rocknix,logical_block_size=512,physical_block_size=512",
+        "-vga",
+        "none",
+        "-device",
+        "virtio-gpu-gl-pci",
+        "-display",
+        "egl-headless,rendernode=/dev/dri/renderD128",
+        "-vnc",
+        "127.0.0.1:9",
+        "-netdev",
+        "user,id=net0,hostfwd=tcp:127.0.0.1:10022-:22",
+        "-device",
+        "virtio-net-pci,netdev=net0,mac=52:54:00:52:4E:58",
+        "-device",
+        "qemu-xhci",
+        "-device",
+        "usb-kbd",
+        "-device",
+        "usb-tablet",
+        "-device",
+        "intel-hda",
+        "-device",
+        "hda-duplex",
+        "-monitor",
+        "unix:/workspace/tmp/pix-m7-final-baseline-20261014-02/runtime/rocknix-qemu-monitor.sock,server,nowait",
+        "-fw_cfg",
+        "name=opt/org.rocknix.cloud_ssh_port,string=10022",
+        "-serial",
+        "unix:/workspace/tmp/pix-m7-final-baseline-20261014-02/runtime/rocknix-qemu-serial.sock,server,nowait",
+        "-pidfile",
+        "/workspace/tmp/pix-m7-final-baseline-20261014-02/runtime/rocknix-qemu.pid",
+        "-daemonize",
+        "-object",
+        "rng-random,id=rng0,filename=/dev/urandom",
+        "-device",
+        "virtio-rng-pci,rng=rng0",
+        "-device",
+        "i6300esb",
+        "-action",
+        "watchdog=reset"
+      ]
+    },
+    {
+      "pid": 1333797,
+      "ppid": 1332854,
+      "start_ticks": 111168216,
+      "argv": [
+        "/usr/bin/qemu-system-x86_64",
+        "-name",
+        "ROCKNIX GENERIC_X64",
+        "-machine",
+        "q35",
+        "-accel",
+        "kvm",
+        "-cpu",
+        "Haswell-v4",
+        "-smp",
+        "4",
+        "-m",
+        "8192",
+        "-drive",
+        "if=pflash,unit=0,readonly=on,format=raw,file=/usr/share/OVMF/OVMF_CODE_4M.fd",
+        "-drive",
+        "if=pflash,unit=1,format=raw,file=/workspace/tmp/pix-m7-final-baseline-20261014-02/pair/vm-b.ovmf-vars.fd",
+        "-drive",
+        "if=none,id=rocknix,format=qcow2,file=/workspace/tmp/pix-m7-final-baseline-20261014-02/pair/vm-b.qcow2",
+        "-device",
+        "virtio-blk-pci,drive=rocknix,logical_block_size=512,physical_block_size=512",
+        "-vga",
+        "none",
+        "-device",
+        "virtio-gpu-gl-pci",
+        "-display",
+        "egl-headless,rendernode=/dev/dri/renderD128",
+        "-vnc",
+        "127.0.0.1:10",
+        "-netdev",
+        "user,id=net0,hostfwd=tcp:127.0.0.1:10023-:22",
+        "-device",
+        "virtio-net-pci,netdev=net0,mac=52:54:00:52:4E:59",
+        "-device",
+        "qemu-xhci",
+        "-device",
+        "usb-kbd",
+        "-device",
+        "usb-tablet",
+        "-device",
+        "intel-hda",
+        "-device",
+        "hda-duplex",
+        "-monitor",
+        "unix:/workspace/tmp/pix-m7-final-baseline-20261014-02/runtime/rocknix-qemu-monitor-b.sock,server,nowait",
+        "-fw_cfg",
+        "name=opt/org.rocknix.cloud_ssh_port,string=10023",
+        "-serial",
+        "unix:/workspace/tmp/pix-m7-final-baseline-20261014-02/runtime/rocknix-qemu-serial-b.sock,server,nowait",
+        "-pidfile",
+        "/workspace/tmp/pix-m7-final-baseline-20261014-02/runtime/rocknix-qemu-b.pid",
+        "-daemonize",
+        "-object",
+        "rng-random,id=rng0,filename=/dev/urandom",
+        "-device",
+        "virtio-rng-pci,rng=rng0",
+        "-device",
+        "i6300esb",
+        "-action",
+        "watchdog=reset"
+      ]
+    },
+    {
+      "pid": 1336533,
+      "ppid": 1332854,
+      "start_ticks": 111171401,
+      "argv": [
+        "ssh",
+        "-i",
+        "/workspace/tmp/pix-m7-final-baseline-20261014-02/pair/qa-key",
+        "-p",
+        "10022",
+        "-o",
+        "StrictHostKeyChecking=no",
+        "-o",
+        "UserKnownHostsFile=/dev/null",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "LogLevel=ERROR",
+        "root@127.0.0.1",
+        "cat /etc/os-release; cat /proc/sys/kernel/random/boot_id"
+      ]
+    },
+    {
+      "pid": 1336539,
+      "ppid": 1332854,
+      "start_ticks": 111171428,
+      "argv": [
+        "ssh",
+        "-i",
+        "/workspace/tmp/pix-m7-final-baseline-20261014-02/pair/qa-key",
+        "-p",
+        "10023",
+        "-o",
+        "StrictHostKeyChecking=no",
+        "-o",
+        "UserKnownHostsFile=/dev/null",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "LogLevel=ERROR",
+        "root@127.0.0.1",
+        "cat /etc/os-release; cat /proc/sys/kernel/random/boot_id"
+      ]
+    },
+    {
+      "pid": 1336544,
+      "ppid": 1332854,
+      "start_ticks": 111171455,
+      "argv": [
+        "/bin/bash",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/cloud-test-backend",
+        "up"
+      ]
+    },
+    {
+      "pid": 1336549,
+      "ppid": 1332854,
+      "start_ticks": 111171456,
+      "argv": [
+        "rclone",
+        "serve",
+        "webdav",
+        "/workspace/tmp/pix-m7-final-baseline-20261014-02/cloud/webdav/data",
+        "--addr",
+        "127.0.0.1:9010",
+        "--dir-cache-time",
+        "1s",
+        "--user",
+        "qauser",
+        "--pass",
+        "qa-password"
+      ]
+    },
+    {
+      "pid": 1336569,
+      "ppid": 1332854,
+      "start_ticks": 111171587,
+      "argv": [
+        "/bin/bash",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/vm-qa",
+        "--skip-up",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/target/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261014T230300Z.gfac608ff8994-from-ROCKNIX.img.gz"
+      ]
+    },
+    {
+      "pid": 1357179,
+      "ppid": 1332854,
+      "start_ticks": 111179477,
+      "argv": [
+        "sleep",
+        "30"
+      ]
+    },
+    {
+      "pid": 1365353,
+      "ppid": 1332854,
+      "start_ticks": 111181878,
+      "argv": [
+        "sleep",
+        "60"
+      ]
+    },
+    {
+      "pid": 1367344,
+      "ppid": 1332854,
+      "start_ticks": 111183294,
+      "argv": [
+        "/bin/bash",
+        "/repo/raofflineproxy-cache-images",
+        "--seconds",
+        "300"
+      ]
+    },
+    {
+      "pid": 1368649,
+      "ppid": 1332854,
+      "start_ticks": 111184495,
+      "argv": [
+        "/bin/bash",
+        "/repo/raofflineproxy-refresh",
+        "--seconds",
+        "900",
+        "--all"
+      ]
+    },
+    {
+      "pid": 1384403,
+      "ppid": 1332854,
+      "start_ticks": 111191455,
+      "argv": [
+        "/bin/bash",
+        "/repo/raofflineproxy-cache-images",
+        "--seconds",
+        "290"
+      ]
+    },
+    {
+      "pid": 1384963,
+      "ppid": 1332854,
+      "start_ticks": 111191878,
+      "argv": [
+        "/bin/bash",
+        "/repo/raofflineproxy-cache-images",
+        "--seconds",
+        "290"
+      ]
+    },
+    {
+      "pid": 1461561,
+      "ppid": 1332854,
+      "start_ticks": 111215216,
+      "argv": [
+        "/bin/sh",
+        "/shim/rm",
+        "-f",
+        "/storage/.config/raofflineproxy/index-pending.ack.1461466"
+      ]
+    },
+    {
+      "pid": 1500880,
+      "ppid": 1332854,
+      "start_ticks": 111228126,
+      "argv": [
+        "ssh: /tmp/crt-1000-5a58a08fa4186e8f8570666ee1f40e0dea0ec44d [mux]"
+      ]
+    },
+    {
+      "pid": 1510748,
+      "ppid": 1332854,
+      "start_ticks": 111239651,
+      "argv": [
+        "ssh: /tmp/ttp-cm-1510743 [mux]"
+      ]
+    },
+    {
+      "pid": 1511886,
+      "ppid": 1332854,
+      "start_ticks": 111241275,
+      "argv": [
+        "ssh: /tmp/ttp-cm-1510743 [mux]"
+      ]
+    },
+    {
+      "pid": 1602942,
+      "ppid": 1332854,
+      "start_ticks": 111350440,
+      "argv": [
+        "ss",
+        "-ltnp",
+        "sport",
+        "=",
+        ":9010"
+      ]
+    },
+    {
+      "pid": 1602944,
+      "ppid": 1332854,
+      "start_ticks": 111350468,
+      "argv": [
+        "/bin/bash",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/cloud-test-backend",
+        "down"
+      ]
+    },
+    {
+      "pid": 1602987,
+      "ppid": 1332854,
+      "start_ticks": 111350494,
+      "argv": [
+        "/bin/bash",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/vm-pair",
+        "down"
+      ]
+    },
+    {
+      "pid": 1602997,
+      "ppid": 1332854,
+      "start_ticks": 111350548,
+      "argv": [
+        "docker",
+        "ps",
+        "-a",
+        "--format",
+        "{{.Names}}"
+      ]
+    }
+  ],
+  "backend_owners": {
+    "webdav": {
+      "pid": 1336549,
+      "ppid": 1332854,
+      "start_ticks": 111171456,
+      "argv": [
+        "rclone",
+        "serve",
+        "webdav",
+        "/workspace/tmp/pix-m7-final-baseline-20261014-02/cloud/webdav/data",
+        "--addr",
+        "127.0.0.1:9010",
+        "--dir-cache-time",
+        "1s",
+        "--user",
+        "qauser",
+        "--pass",
+        "qa-password"
+      ]
+    }
+  },
+  "host_pid_namespace": 4026531836
+}

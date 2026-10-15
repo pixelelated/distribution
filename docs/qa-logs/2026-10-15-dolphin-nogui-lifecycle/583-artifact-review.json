@@ -1,0 +1,399 @@
+{
+  "review_type": "read-only retained original artifact inspection, not a new runtime",
+  "sources": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-rvz-proxy-components/results/proxy-corrected.json",
+      "sha256": "34beaa1c7ff83e3e4693499c74e56f7769cffe11338da81ad51e8d6c9c5ac1fe",
+      "status": "PASS",
+      "rvz": [
+        {
+          "variant": "source",
+          "aligned_controls": 72,
+          "unaligned_comparisons": 126,
+          "mismatches": 126,
+          "packed_rvz_matches_oracle": false,
+          "invalid_controls": 6,
+          "source_sha256": "5fe8d058b6a1c06c04696308eab0206ea3c3e60075a2b88137065583fbb0cea1"
+        },
+        {
+          "variant": "candidates",
+          "aligned_controls": 72,
+          "unaligned_comparisons": 126,
+          "mismatches": 0,
+          "packed_rvz_matches_oracle": true,
+          "invalid_controls": 6,
+          "source_sha256": "b0d28c147c24c0e6909e8e754915ab4323d766b7fbd711b16c2ce949bd8f3407"
+        }
+      ],
+      "listing_count": 44,
+      "listing_cases": [
+        "cached",
+        "cursor",
+        "failed",
+        "missing-empty",
+        "mixed",
+        "other-account",
+        "partial-cache",
+        "recovery",
+        "stale-recovery",
+        "unindexed",
+        "unrelated"
+      ],
+      "listing_all_exits_zero": true
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-native-runtime/attempt01/guest/run01/payload/result.json",
+      "sha256": "8143545dd8923a225faf8727a0abb5e92c9ffd72e3eebb9bdd9bd057c57a5c07",
+      "status": "PASS",
+      "steps": [
+        {
+          "name": "guard-negative-controls",
+          "status": "PASS"
+        },
+        {
+          "name": "native-ISO-independent-RVZ",
+          "status": "PASS",
+          "expected": "118545082f24fc195a446d1ee7bbf816"
+        },
+        {
+          "name": "scanner-native-handoff",
+          "stdout": "found=1 new=1 cached=0 indexed=0 hashing=1 truncated=0 cursor_saved=1\n",
+          "job_sha256": "6a28aaaf7441c358f4dd6eb46ebf8584c4136d76789a73a0c7c77725a913c2d1"
+        },
+        {
+          "name": "HTTP200-impostor-rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "offline-account-cache-isolation",
+          "status": "PASS"
+        },
+        {
+          "name": "offline-signing-and-dedup",
+          "status": "PASS",
+          "submitted": 3,
+          "retained": 2
+        },
+        {
+          "name": "SQLite-reopen-preserved-queue",
+          "status": "PASS"
+        },
+        {
+          "name": "tamper-refused-before-HTTP",
+          "status": "PASS",
+          "last_error": "chain broken at 0: stored payloadHash does not match recomputed hash"
+        },
+        {
+          "name": "upstream-auth-rejection-preserved",
+          "status": "PASS"
+        },
+        {
+          "name": "patch-failure-retained",
+          "status": "PASS",
+          "outcome": {
+            "flushed": 0,
+            "total": 2,
+            "skipped_deleted": 0,
+            "skipped_stale": 0,
+            "pending_remaining": 2,
+            "last_error": "Could not refresh achievement data from server"
+          },
+          "rows": [
+            {
+              "id": 1,
+              "achievementId": 101,
+              "queryString": "/dorequest.php",
+              "requestBody": "r=awardachievement&a=101&g=10&u=fixture-a&t=%3Csynthetic-token-a%3E&h=0",
+              "userAgent": "RetroArch/1.21.0 (Linux)",
+              "queuedAt": 1791991609312,
+              "retryCount": 0,
+              "lastError": null,
+              "status": "pending",
+              "payloadHash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+              "prevHash": "genesis",
+              "signature": "/4LNo6BT3ppBy8jbvPllyhq07T6o5RgkiakqcNtr8ws=",
+              "signedAt": 1791991609313
+            },
+            {
+              "id": 2,
+              "achievementId": 102,
+              "queryString": "/dorequest.php",
+              "requestBody": "r=awardachievement&a=102&g=10&u=fixture-a&t=%3Csynthetic-token-a%3E&h=0",
+              "userAgent": "RetroArch/1.21.0 (Linux)",
+              "queuedAt": 1791991609325,
+              "retryCount": 0,
+              "lastError": null,
+              "status": "pending",
+              "payloadHash": "32955b20e62d305a2cd4cf2690e76911e876e28bd1af069e47a13c1d2e222a5e",
+              "prevHash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+              "signature": "S24j8IQROlca3d29XIaVFoFM7hILzhgbe3eQKfKSHn0=",
+              "signedAt": 1791991609326
+            }
+          ]
+        },
+        {
+          "name": "award401-retained",
+          "status": "PASS",
+          "outcome": {
+            "flushed": 0,
+            "total": 2,
+            "skipped_deleted": 0,
+            "skipped_stale": 0,
+            "pending_remaining": 2,
+            "last_error": null
+          },
+          "rows": [
+            {
+              "id": 1,
+              "achievementId": 101,
+              "queryString": "/dorequest.php",
+              "requestBody": "r=awardachievement&a=101&g=10&u=fixture-a&t=%3Csynthetic-token-a%3E&h=0",
+              "userAgent": "RetroArch/1.21.0 (Linux)",
+              "queuedAt": 1791991609312,
+              "retryCount": 0,
+              "lastError": "Token rejected by server (HTTP 401)",
+              "status": "pending",
+              "payloadHash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+              "prevHash": "genesis",
+              "signature": "/4LNo6BT3ppBy8jbvPllyhq07T6o5RgkiakqcNtr8ws=",
+              "signedAt": 1791991609313
+            },
+            {
+              "id": 2,
+              "achievementId": 102,
+              "queryString": "/dorequest.php",
+              "requestBody": "r=awardachievement&a=102&g=10&u=fixture-a&t=%3Csynthetic-token-a%3E&h=0",
+              "userAgent": "RetroArch/1.21.0 (Linux)",
+              "queuedAt": 1791991609325,
+              "retryCount": 0,
+              "lastError": "Token rejected by server (HTTP 401)",
+              "status": "pending",
+              "payloadHash": "32955b20e62d305a2cd4cf2690e76911e876e28bd1af069e47a13c1d2e222a5e",
+              "prevHash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+              "signature": "S24j8IQROlca3d29XIaVFoFM7hILzhgbe3eQKfKSHn0=",
+              "signedAt": 1791991609326
+            }
+          ]
+        },
+        {
+          "name": "award500-retained",
+          "status": "PASS",
+          "outcome": {
+            "flushed": 0,
+            "total": 2,
+            "skipped_deleted": 0,
+            "skipped_stale": 0,
+            "pending_remaining": 2,
+            "last_error": null
+          },
+          "rows": [
+            {
+              "id": 1,
+              "achievementId": 101,
+              "queryString": "/dorequest.php",
+              "requestBody": "r=awardachievement&a=101&g=10&u=fixture-a&t=%3Csynthetic-token-a%3E&h=0",
+              "userAgent": "RetroArch/1.21.0 (Linux)",
+              "queuedAt": 1791991609312,
+              "retryCount": 1,
+              "lastError": "HTTP 500",
+              "status": "pending",
+              "payloadHash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+              "prevHash": "genesis",
+              "signature": "/4LNo6BT3ppBy8jbvPllyhq07T6o5RgkiakqcNtr8ws=",
+              "signedAt": 1791991609313
+            },
+            {
+              "id": 2,
+              "achievementId": 102,
+              "queryString": "/dorequest.php",
+              "requestBody": "r=awardachievement&a=102&g=10&u=fixture-a&t=%3Csynthetic-token-a%3E&h=0",
+              "userAgent": "RetroArch/1.21.0 (Linux)",
+              "queuedAt": 1791991609325,
+              "retryCount": 1,
+              "lastError": "HTTP 500",
+              "status": "pending",
+              "payloadHash": "32955b20e62d305a2cd4cf2690e76911e876e28bd1af069e47a13c1d2e222a5e",
+              "prevHash": "88fc29c38b75fe9420e565e13df68dfb44e6f14bfc2f033f30e022cc4fd088bc",
+              "signature": "S24j8IQROlca3d29XIaVFoFM7hILzhgbe3eQKfKSHn0=",
+              "signedAt": 1791991609326
+            }
+          ]
+        },
+        {
+          "name": "reconnect-dedup-next-game",
+          "status": "PASS",
+          "outcome": {
+            "flushed": 2,
+            "total": 2,
+            "skipped_deleted": 0,
+            "skipped_stale": 0,
+            "pending_remaining": 0,
+            "last_error": null
+          }
+        }
+      ],
+      "native_hashes": {
+        "iso": {
+          "candidates": [
+            "118545082f24fc195a446d1ee7bbf816"
+          ],
+          "error": null,
+          "sha256": "83c6dacc46797bc7d4bdcb4aa2dd253c290316c07c4cda8f6ca1afb889c44121"
+        },
+        "rvz_none": {
+          "candidates": [
+            "118545082f24fc195a446d1ee7bbf816"
+          ],
+          "error": null,
+          "sha256": "4526c1597cf8f2c00a236796fcf5433ce56a81d7d4a157f4ae75f58a307bc48f"
+        },
+        "rvz_zstd": {
+          "candidates": [
+            "118545082f24fc195a446d1ee7bbf816"
+          ],
+          "error": null,
+          "sha256": "bb3c40134d089fdcf97502f2cff30db9f3b7073ddd61c39adb993a2d24b4d2b9"
+        }
+      },
+      "synthetic_applied": [
+        [
+          "fixture-a",
+          101
+        ],
+        [
+          "fixture-a",
+          102
+        ]
+      ],
+      "cleanup_errors": [],
+      "remaining_threads": [],
+      "remaining_listeners": [],
+      "native_current_source_qualified": false
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-installed-native-result/installed-result.json",
+      "sha256": "bb4fc3a0a74f447ac2ef2558aa6516960865ce3ab3d0173c748741dba1c6d8c1",
+      "status": "PASS",
+      "hashes": [
+        {
+          "name": "synthetic.iso",
+          "sha256": "83c6dacc46797bc7d4bdcb4aa2dd253c290316c07c4cda8f6ca1afb889c44121",
+          "candidates": [
+            "118545082f24fc195a446d1ee7bbf816"
+          ],
+          "error": null
+        },
+        {
+          "name": "dolphin-none.rvz",
+          "sha256": "4526c1597cf8f2c00a236796fcf5433ce56a81d7d4a157f4ae75f58a307bc48f",
+          "candidates": [
+            "118545082f24fc195a446d1ee7bbf816"
+          ],
+          "error": null
+        },
+        {
+          "name": "dolphin-zstd.rvz",
+          "sha256": "bb3c40134d089fdcf97502f2cff30db9f3b7073ddd61c39adb993a2d24b4d2b9",
+          "candidates": [
+            "118545082f24fc195a446d1ee7bbf816"
+          ],
+          "error": null
+        },
+        {
+          "name": "saturn.chd",
+          "sha256": "00c0dde6752938cf74d815fd5ca37df00a2da4b483284c003f0408f30fefe88b",
+          "candidates": [
+            "4cd9c8e41cd8d137be15bbe6a93ae1d8"
+          ],
+          "error": null
+        }
+      ],
+      "system": {
+        "bytes": 2073112576,
+        "sha256": "cca91bec2513aa32cfb713a81042acee720f12619bb66431019c7a76dc3eb6a0"
+      },
+      "source": "d6a87f05c1935516115b2cca1af22151a0209224",
+      "es_commit": "3178b832b8d134198b2b4eede4f725d4ed283f8c"
+    },
+    {
+      "archive": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-service-runtime/attempt05/guest/service/fixture-records.tar.gz",
+      "archive_sha256": "fcc04b3801f7d787581a5c1e443f8d95f32b1b1d3437646a687017139279ca47",
+      "member": "./run05/payload/result.json",
+      "member_sha256": "18bc7faa39721a1abc946bc6bb4c31463249a6775fd3b4ca8330f923beb60982",
+      "keys": [
+        "status",
+        "commands",
+        "steps",
+        "cleanup_errors",
+        "source_pins_verified",
+        "platform_contract",
+        "cgroup_layout",
+        "owner_cgroup_limits",
+        "admission",
+        "unit",
+        "unit_reference",
+        "incarnations",
+        "first_stopped_properties",
+        "expected_idle_crash",
+        "offline_background_baseline",
+        "last_stopped_properties",
+        "peer",
+        "requests",
+        "final_unit",
+        "peer_observations",
+        "elapsed_seconds",
+        "retained_bytes"
+      ],
+      "status": "PASS",
+      "steps": [
+        "graceful stop preserved exact signed row; workers joined before SQLite close",
+        "manual and one automatic restart preserved exact signed row and new owned listener",
+        "natural 15s reconnect and two 60s queue polls; real bulk lock; empty folder and no-consent usage rounds"
+      ],
+      "cleanup_errors": [],
+      "scope": null
+    },
+    {
+      "archive": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-14-proxy-installed-startup-result/original-results.tar.gz",
+      "archive_sha256": "45226cb4ea444563a263bc7a267ac484a56c79395b226bc4ec82ee4d77977299",
+      "member": "guest/installed588/original-owner/payload/result.json",
+      "member_sha256": "1f3461f9238cfb21ff692c0cddd7684f4161e4d6a5e8a2dbe3b1aabe48a574b3",
+      "keys": [
+        "status",
+        "commands",
+        "steps",
+        "cleanup_errors",
+        "source_pins_verified",
+        "cgroup_layout",
+        "installed_binding_sha256",
+        "installed_identity",
+        "controller_before",
+        "owner_cgroup_limits",
+        "admission",
+        "unit",
+        "unit_reference",
+        "controller_enabled",
+        "incarnations",
+        "last_resource_observations",
+        "first_stopped_properties",
+        "startup_window",
+        "last_stopped_properties",
+        "peer",
+        "requests",
+        "installed_identity_unchanged",
+        "final_unit",
+        "peer_observations",
+        "controller_restored",
+        "elapsed_seconds",
+        "retained_bytes"
+      ],
+      "status": "PASS",
+      "steps": [
+        "graceful stop preserved exact signed row; workers joined before SQLite close",
+        "controlled actual main false to first monitor true; observed natural next 15s probe"
+      ],
+      "cleanup_errors": [],
+      "scope": null
+    }
+  ]
+}

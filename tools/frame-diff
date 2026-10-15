@@ -19,12 +19,13 @@
 #
 # compare walks every PNG under <run-dir> (relative path = the screen's
 # name, e.g. back-up-page/02-back-up-page.png), decodes the run's frame and
-# the baseline's, and clusters the pixels that differ into boxes. A frame
-# the baseline lacks is NEW; one the run lacks is MISSING. Each box is then
-# held against the claims file: a claim names the baseline it was written
-# against, a screen glob, a rectangle and the issue that means the change,
-# and a box is claimed when a claim's rectangle contains it. Exit 0 when
-# every box is claimed and nothing is missing; 1 otherwise; 2 when the
+# the baseline's, and attributes differences to the claims file. A frame
+# the baseline lacks is NEW; one the run lacks is MISSING. A claim names the
+# baseline it was written against, a screen glob, a rectangle and its issue,
+# and each changed pixel is claimed when a live claim contains it. Claimed
+# pixels are attributed before clustering the remainder, so adjacent claims
+# can jointly explain a region without accepting their bounding-box gaps
+# (#591). Exit 0 when nothing is unclaimed or missing; 1 otherwise; 2 when the
 # baseline directory has no BASELINE.txt -- a check that cannot run has not
 # passed, and says so rather than staying quiet.
 #
@@ -164,10 +165,17 @@ def contains(outer, inner):
     return outer[0] <= inner[0] and outer[1] <= inner[1] and outer[2] >= inner[2] and outer[3] >= inner[3]
 
 
-def diff_boxes(a, b, masks):
-    """Boxes (x0, y0, x1, y1, pixels) where frame b differs from frame a; half-open."""
+def diff_boxes(a, b, masks, claims=(), claim_hits=None):
+    """Half-open differing boxes; optionally attribute live claims before clustering.
+
+    claim_hits receives each claim's actual changed-pixel extent/count. Its
+    extent is reporting only: it never grants coverage to a gap. With no
+    claims this retains the boxes command's original behavior.
+    """
     wa, ha, ra = a
     wb, hb, rb = b
+    if claims and claim_hits is None:
+        raise ValueError('claim_hits is required when attributing claims')
     if (wa, ha) != (wb, hb):
         return [(0, 0, max(wa, wb), max(ha, hb), -1)]
     cells = {}
@@ -180,6 +188,21 @@ def diff_boxes(a, b, masks):
             if la[i:i + 3] == lb[i:i + 3]:
                 continue
             if masks and any(inside(m['rect'], x, y) for m in masks):
+                continue
+            who = next((c for c in claims if inside(c['rect'], x, y)), None)
+            if who is not None:
+                # First matching live claim owns overlapping pixels, exactly
+                # once. Neither another claim's rectangle nor a cluster's
+                # bounding box can make an uncovered pixel disappear.
+                hit = claim_hits.get(who['line'])
+                if hit is None:
+                    claim_hits[who['line']] = [x, y, x + 1, y + 1, 1, who]
+                else:
+                    hit[0] = min(hit[0], x)
+                    hit[1] = min(hit[1], y)
+                    hit[2] = max(hit[2], x + 1)
+                    hit[3] = max(hit[3], y + 1)
+                    hit[4] += 1
                 continue
             key = (x // CELL, y // CELL)
             cell = cells.get(key)
@@ -287,7 +310,15 @@ def cmd_compare(argv):
                 lines.append('| `%s` | NEW screen | %dx%d | **UNCLAIMED** |' % (s, w, h))
                 unclaimed += 1
             continue
-        boxes = diff_boxes(read_png(bframes[s]), read_png(rframes[s]), smasks)
+        claim_hits = {}
+        boxes = diff_boxes(read_png(bframes[s]), read_png(rframes[s]), smasks,
+                           sclaims, claim_hits)
+        for x0, y0, x1, y1, n, who in sorted(claim_hits.values(), key=lambda hit: (hit[1], hit[0], hit[5]['line'])):
+            if n < minpx:
+                continue
+            where = 'x %d..%d, y %d..%d' % (x0, x1 - 1, y0, y1 - 1)
+            lines.append('| `%s` | %s | %d px | claimed by %s |' % (s, where, n, who['tail'] or 'a claim'))
+            claimed += 1
         for (x0, y0, x1, y1, n) in boxes:
             if n == -1:
                 lines.append('| `%s` | the frame size differs | %dx%d | **UNCLAIMED** |' % (s, x1, y1))
@@ -295,20 +326,11 @@ def cmd_compare(argv):
                 continue
             if n < minpx:
                 continue
-            box = (x0, y0, x1, y1)
-            who = [c for c in sclaims if contains(c['rect'], box)]
             where = 'x %d..%d, y %d..%d' % (x0, x1 - 1, y0, y1 - 1)
-            if who:
-                lines.append('| `%s` | %s | %d px | claimed by %s |' % (s, where, n, who[0]['tail'] or 'a claim'))
-                claimed += 1
-            else:
-                # The box above is printed inclusive (x0..x1-1); a claim is
-                # half-open, so it is offered here in the form a claims line
-                # takes. Copying the printed range made claims a pixel short
-                # that read as written and never contained their box (t05,
-                # runs 96 and 99, 2026-10-01).
-                lines.append('| `%s` | %s | %d px | **UNCLAIMED** (claim as `%d %d %d %d`) |' % (s, where, n, x0, y0, x1, y1))
-                unclaimed += 1
+            # Only unclaimed pixels reached clustering. A reported rectangle
+            # remains half-open in its suggested claim, as before.
+            lines.append('| `%s` | %s | %d px | **UNCLAIMED** (claim as `%d %d %d %d`) |' % (s, where, n, x0, y0, x1, y1))
+            unclaimed += 1
     dt = time.time() - t0
     head = ['# frame-diff', '',
             'baseline `%s` (build %s) against `%s`: %d screens in %.0f s.' % (base, bid, run, len(screens), dt),

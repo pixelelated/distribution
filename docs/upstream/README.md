@@ -18,7 +18,8 @@ Detailed source/evidence stays with its owner:
   standalone drafts, remaining API proposals and already-upstream dispositions.
   Its October2/6 qualification belongs to those bases; recheck before submitting.
 - [RVZ/proxy/Dolphin component evidence](../qa-logs/2026-10-14-rvz-proxy-components/README.md)
-  for #574/#583/#584; independent native qualification remains open.
+  for #574/#583/#584; installed proxy hashing/service/startup proof now passes.
+  Actual Dolphin frontend routing remains separate under#584.
 - [MD5 one-file contribution and public reproducer](../qa-logs/2026-10-14-md5-upstream-source/README.md),
   owned by #574 and destined for libretro/libretro-common; upstream-only run UNRUN.
 - [Steam repair upstream comparison](../qa-logs/2026-10-14-steam-client-repair-source/upstream.md),
@@ -31,3 +32,9 @@ Historical broad-series and QA-toolkit proposals remain linked without becoming
 new RC requirements. The [M7 milestone](https://github.com/pixelelated/distribution/milestone/7)
 owns release order; [the dated working list](../releases/next-candidate-work.md)
 explains what remains from testing the last device build.
+
+Dolphin NoGUI startup lacks AchievementManager initialization in the pinned
+source and current upstream. The [minimal lifecycle repair](../qa-logs/2026-10-15-dolphin-nogui-lifecycle/README.md)
+is prepared locally for dolphin-emu/dolphin and a focused ROCKNIX backport;
+compile/request/normal-exit proof remains due. Refresh the upstream bug-tracker
+duplicate search before submission. #585 owns the deferred contribution.

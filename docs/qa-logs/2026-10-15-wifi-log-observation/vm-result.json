@@ -1,0 +1,413 @@
+{
+  "rc": 1,
+  "started": 1792023805.3522234,
+  "commands": [
+    {
+      "name": "source",
+      "argv": [
+        "git",
+        "-C",
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02",
+        "rev-parse",
+        "HEAD"
+      ],
+      "timeout_seconds": 10,
+      "timed_out": false,
+      "original_returncode": 0,
+      "pid": 1866497
+    },
+    {
+      "name": "convert",
+      "argv": [
+        "qemu-img",
+        "convert",
+        "-f",
+        "raw",
+        "-O",
+        "qcow2",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/disk.img",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/disk.qcow2"
+      ],
+      "timeout_seconds": 90,
+      "timed_out": false,
+      "original_returncode": 0,
+      "pid": 1866823
+    },
+    {
+      "name": "resize",
+      "argv": [
+        "qemu-img",
+        "resize",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/disk.qcow2",
+        "16G"
+      ],
+      "timeout_seconds": 30,
+      "timed_out": false,
+      "original_returncode": 0,
+      "pid": 1866834
+    },
+    {
+      "name": "qemu-args",
+      "argv": [
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+        "qemu-args",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/disk.qcow2",
+        "--net",
+        "user",
+        "--headless",
+        "--daemonize",
+        "--gl",
+        "auto",
+        "--res",
+        "640x480",
+        "--ssh-port",
+        "10631",
+        "--vnc",
+        "131",
+        "--pidfile",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/vm.pid",
+        "--serial",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/serial.sock",
+        "--monitor",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/monitor.sock",
+        "--ovmf-vars",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/OVMF.fd"
+      ],
+      "timeout_seconds": 20,
+      "timed_out": false,
+      "original_returncode": 0,
+      "pid": 1866880
+    },
+    {
+      "name": "qemu-start",
+      "argv": [
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+        "run",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/disk.qcow2",
+        "--net",
+        "user",
+        "--headless",
+        "--daemonize",
+        "--gl",
+        "auto",
+        "--res",
+        "640x480",
+        "--ssh-port",
+        "10631",
+        "--vnc",
+        "131",
+        "--pidfile",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/vm.pid",
+        "--serial",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/serial.sock",
+        "--monitor",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/monitor.sock",
+        "--ovmf-vars",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/OVMF.fd"
+      ],
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "original_returncode": 0,
+      "pid": 1866885
+    },
+    {
+      "name": "serial-ready",
+      "argv": [
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/vm-serial",
+        "--socket",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/serial.sock",
+        "wait",
+        "--up-to",
+        "240"
+      ],
+      "timeout_seconds": 260,
+      "timed_out": false,
+      "original_returncode": 0,
+      "pid": 1866908
+    },
+    {
+      "name": "untouched-clean",
+      "argv": [
+        "bash",
+        "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-clean-state-565/run-first-boot.sh",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/clean",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/serial.sock"
+      ],
+      "timeout_seconds": 210,
+      "timed_out": false,
+      "original_returncode": 0,
+      "pid": 1869237
+    },
+    {
+      "name": "boot",
+      "argv": [
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/vm-serial",
+        "--socket",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/serial.sock",
+        "--timeout",
+        "30",
+        "sh",
+        "( python3 -I -S -B -c 'import json;from pathlib import Path;print('\"'\"'PIX_UI_BOOT='\"'\"'+json.dumps({'\"'\"'boot_id'\"'\"':Path('\"'\"'/proc/sys/kernel/random/boot_id'\"'\"').read_text().strip(),'\"'\"'cmdline'\"'\"':Path('\"'\"'/proc/cmdline'\"'\"').read_text().strip(),'\"'\"'os_release'\"'\"':Path('\"'\"'/etc/os-release'\"'\"').read_text()}))' ); pxrc=$?; printf \"PIX_UI_BOOT_RC:%s\\n\" \"$pxrc\""
+      ],
+      "timeout_seconds": 45,
+      "timed_out": false,
+      "original_returncode": 0,
+      "pid": 1869598
+    },
+    {
+      "name": "keygen",
+      "argv": [
+        "ssh-keygen",
+        "-q",
+        "-t",
+        "ed25519",
+        "-N",
+        "",
+        "-f",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/qa-key",
+        "-C",
+        "pix-installed-ui-synthetic"
+      ],
+      "timeout_seconds": 20,
+      "timed_out": false,
+      "original_returncode": 0,
+      "pid": 1869600
+    },
+    {
+      "name": "ssh-provision",
+      "argv": [
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/vm-serial",
+        "--socket",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/serial.sock",
+        "--timeout",
+        "30",
+        "sh",
+        "( set -e; test ! -s /storage/.ssh/authorized_keys; mkdir -p /storage/.ssh /storage/.cache/services; chmod 700 /storage/.ssh; printf '%s\\n' 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICn2H4jGXY8FUXoOuerR5vgfBl5wBsXSPk2ZGwFHvgfo pix-installed-ui-synthetic' > /storage/.ssh/authorized_keys; chmod 600 /storage/.ssh/authorized_keys; touch /storage/.cache/services/sshd.conf; systemctl start sshd.service; systemctl is-active --quiet sshd.service ); pxrc=$?; printf \"PIX_UI_SSH_PROVISION_RC:%s\\n\" \"$pxrc\""
+      ],
+      "timeout_seconds": 45,
+      "timed_out": false,
+      "original_returncode": 0,
+      "pid": 1869601
+    },
+    {
+      "name": "ssh-host-key",
+      "argv": [
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/vm-serial",
+        "--socket",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/serial.sock",
+        "--timeout",
+        "30",
+        "sh",
+        "( set -e; printf 'PIX_UI_HOSTKEY='; cat /storage/.cache/ssh/ssh_host_ed25519_key.pub ); pxrc=$?; printf \"PIX_UI_SSH_HOST_KEY_RC:%s\\n\" \"$pxrc\""
+      ],
+      "timeout_seconds": 45,
+      "timed_out": false,
+      "original_returncode": 0,
+      "pid": 1869607
+    },
+    {
+      "name": "ssh-boot",
+      "argv": [
+        "ssh",
+        "-i",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/qa-key",
+        "-p",
+        "10631",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "IdentitiesOnly=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "UserKnownHostsFile=/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/known_hosts",
+        "-o",
+        "ControlMaster=no",
+        "-o",
+        "ControlPath=none",
+        "root@127.0.0.1",
+        "cat /proc/sys/kernel/random/boot_id"
+      ],
+      "timeout_seconds": 20,
+      "timed_out": false,
+      "original_returncode": 0,
+      "pid": 1869625
+    },
+    {
+      "name": "prepare-smoke",
+      "argv": [
+        "python3",
+        "-I",
+        "-B",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/source/smoke/prepare.py",
+        "--image-verification",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/records/image-verification.original.json",
+        "--expected-source",
+        "fac608ff89940ce358ea9b8a95e9a08a6fe26568",
+        "--expected-es",
+        "3178b832b8d134198b2b4eede4f725d4ed283f8c",
+        "--ssh-command",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/ssh-command.json",
+        "--monitor",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/monitor.sock",
+        "--playwright-python",
+        "/tmp/pixelelated-import-qa-venv/bin/python",
+        "--chromium",
+        "/home/max/.cache/ms-playwright/chromium-1223/chrome-linux64/chrome",
+        "--out",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/smoke"
+      ],
+      "timeout_seconds": 60,
+      "timed_out": false,
+      "original_returncode": 0,
+      "pid": 1869626
+    },
+    {
+      "name": "original-smoke",
+      "argv": [
+        "python3",
+        "-B",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/smoke/run.py"
+      ],
+      "timeout_seconds": 900,
+      "timed_out": false,
+      "original_returncode": 1,
+      "pid": 1869627,
+      "error": "AssertionError: original-smoke",
+      "forced_host_cleanup": []
+    },
+    {
+      "name": "final-sync",
+      "argv": [
+        "ssh",
+        "-i",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/qa-key",
+        "-p",
+        "10631",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "IdentitiesOnly=yes",
+        "-o",
+        "ConnectTimeout=8",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "UserKnownHostsFile=/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/known_hosts",
+        "-o",
+        "ControlMaster=no",
+        "-o",
+        "ControlPath=none",
+        "root@127.0.0.1",
+        "sync"
+      ],
+      "timeout_seconds": 12,
+      "timed_out": false,
+      "original_returncode": 0,
+      "pid": 1875934
+    },
+    {
+      "name": "vm-stop",
+      "argv": [
+        "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/vm-stop",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/vm.pid",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/disk.qcow2"
+      ],
+      "timeout_seconds": 35,
+      "timed_out": false,
+      "original_returncode": 0,
+      "pid": 1875945
+    }
+  ],
+  "boots": [
+    {
+      "pid": 1866892,
+      "ppid": 1866496,
+      "pgid": 1866890,
+      "sid": 1866890,
+      "start_ticks": 111549488,
+      "argv": [
+        "/usr/bin/qemu-system-x86_64",
+        "-name",
+        "ROCKNIX GENERIC_X64",
+        "-machine",
+        "q35",
+        "-accel",
+        "kvm",
+        "-cpu",
+        "Haswell-v4",
+        "-smp",
+        "4",
+        "-m",
+        "8192",
+        "-drive",
+        "if=pflash,unit=0,readonly=on,format=raw,file=/usr/share/OVMF/OVMF_CODE_4M.fd",
+        "-drive",
+        "if=pflash,unit=1,format=raw,file=/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/OVMF.fd",
+        "-drive",
+        "if=none,id=rocknix,format=qcow2,file=/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/disk.qcow2",
+        "-device",
+        "virtio-blk-pci,drive=rocknix,logical_block_size=512,physical_block_size=512",
+        "-vga",
+        "none",
+        "-device",
+        "virtio-gpu-gl-pci,xres=640,yres=480",
+        "-display",
+        "egl-headless,rendernode=/dev/dri/renderD128",
+        "-vnc",
+        "127.0.0.1:131",
+        "-netdev",
+        "user,id=net0,hostfwd=tcp:127.0.0.1:10631-:22",
+        "-device",
+        "virtio-net-pci,netdev=net0,mac=52:54:00:52:4E:58",
+        "-device",
+        "qemu-xhci",
+        "-device",
+        "usb-kbd",
+        "-device",
+        "usb-tablet",
+        "-device",
+        "intel-hda",
+        "-device",
+        "hda-duplex",
+        "-monitor",
+        "unix:/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/monitor.sock,server,nowait",
+        "-fw_cfg",
+        "name=opt/org.rocknix.cloud_ssh_port,string=10631",
+        "-serial",
+        "unix:/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/serial.sock,server,nowait",
+        "-pidfile",
+        "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02/vm/vm.pid",
+        "-daemonize",
+        "-object",
+        "rng-random,id=rng0,filename=/dev/urandom",
+        "-device",
+        "virtio-rng-pci,rng=rng0",
+        "-device",
+        "i6300esb",
+        "-action",
+        "watchdog=reset"
+      ]
+    }
+  ],
+  "cleanup_errors": [],
+  "child_subreaper": true,
+  "reaped_host_children": [
+    {
+      "pid": 1866890,
+      "wait_status": 0
+    },
+    {
+      "pid": 1866892,
+      "wait_status": 0
+    }
+  ],
+  "error": "AssertionError: original-smoke",
+  "forced_host_cleanup": [],
+  "remaining_host_children": [],
+  "surviving_host_processes": [],
+  "qemu_still_live": false,
+  "ended": 1792023928.5772827
+}

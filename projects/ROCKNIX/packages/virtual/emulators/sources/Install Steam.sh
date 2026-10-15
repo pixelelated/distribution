@@ -210,7 +210,7 @@ fetch_proton_latest_release() {
   log_info "Fetching latest ${display_name} release from GitHub..."
 
   local release_json
-  release_json=$(curl -fsSL "${api_url}") || die "Failed to fetch ${display_name} latest release info."
+  release_json=$(curl -q -fsSL --connect-timeout 10 --max-time 30 --max-filesize 1048576 "${api_url}") || die "Failed to fetch ${display_name} latest release info."
 
   # Extract tag name
   local version_tag

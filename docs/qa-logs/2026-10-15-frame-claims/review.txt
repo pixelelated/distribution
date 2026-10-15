@@ -1,0 +1,130 @@
+M7 retained-frame diagnosis and #591 source-only handoff, 2026-10-15
+
+STATUS
+The original fac608ff frame-diff remains FAIL: 65 unclaimed regions, 32 claimed,
+78 frames, none missing. Its report, frames, frozen source, masks and accepted
+d72084ccad baseline were not changed. No VM, firmware, fixture, test suite or
+frame-diff comparison was executed by this worker. Only retained-image/static
+source inspection and private source preparation occurred. Candidate checker
+and all controls below are UNRUN. Root owns issue delivery and runtime.
+
+CAUSE AND INTENT
+The image's #578 change corrects the compiled CollectionSystemsAuto default
+from "favorites, recent" to "favorites,recent". Baseline ES d3ba4edcacfdbad0a87f31ecbfa680901289ca85
+has the former at es-core/src/Settings.cpp:321; final ES3178b832b8d134198b2b4eede4f725d4ed283f8c
+has the latter. Integrated change d242000a5957ad8de5288a02fb15b21d7ef04715
+is the published counterpart of source handoff44b0522ae39a664209af35f8503b933bee09a1db.
+CollectionSystemManager.cpp:380 splits and exactly matches names; :40 declares
+Recent displayIfEmpty=true; :1289 admits enabled empty collections. SystemData.cpp:1392
+shows them in full UI mode; SystemView.cpp:211 populates visible systems.
+
+Thus Last Played is now a real visible empty collection on this fresh fixture.
+All three retained manager-*-systems.json arrays contain recent, visible=true,
+totalGames=0. This is intentional, not a new empty-collection bug: the source
+flow proposal explicitly requires default ROM-only empty Last Played, the nine
+case control lists default-rom-only recent_status=200, and the installed setup
+qualification records that exact empty state separately from imported history.
+Saved explicit favorites, empty and even the historical spaced choice remain
+unchanged. The standard walks do not set CollectionSystemsAuto, so this intended
+default change affects their background too; it is deterministic composition,
+not random fixture data or a timing-dependent selected system.
+
+The blue car is the installed theme's auto-lastplayed.png, inspected directly.
+The theme pin is the SAME9a50ef366e750aabfab29e6915a2867607212971 in baseline and
+candidate. Last Played inserts immediately before wrapped FinalBurn Neo, moving
+Favorites/Tools left behind the panels. At NES only a small wrapped sliver on
+the left is new; the large right-side Game Boy composition change is already
+#455. SystemView.cpp and CollectionSystemManager.cpp are byte-identical from
+baseline ES to final. Window.cpp differs only by hasAsyncNotifications(), not
+rendering. Its existing gradient overlay explains the dimmed versions of the
+same artwork on modal screens.
+
+RETAINED-FRAME EVIDENCE
+Baseline: /workspace/artifacts/rocknix-images/walk-baseline
+Run: /workspace/tmp/pix-m7-final-baseline-20261014-02/artifacts/webdav/rocknix-images/qa-fac608ff89-webdav-a-20261014-2320/walks
+Frozen distribution: /workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02
+Actual theme asset under its build.pixelelated-GENERIC_X64.x86_64/build/
+es-theme-art-book-next-9a50ef366e750aabfab29e6915a2867607212971/_inc/systems/artwork-default/auto-lastplayed.png.
+
+Viewed actual before/after pairs: back-up-page/01-cloud-hub;
+manager-fbn/01-0-carousel; manager-nes/01-0-carousel;
+continue-to-systems/05-systems-page; restore-page/02-restore-page;
+confirm-cloud-folder/03-folder-editor; match-dialog/03-match-confirm;
+match-dialog/04-match-done. Also viewed current back-up-page/02-back-up-page,
+run-transfer/05-systems-page and confirm-cloud-folder/05-after-dismiss and the
+theme artwork. This is not a claim to have visually reviewed all78 pairs.
+
+pixel-inventory.json contains all78 exact frame SHA256 pairs and a row-by-row
+inventory of differing pixels not covered by the ORIGINAL masks/claims. Across
+65 affected frames those total12,786,825 pixels. Every one lies on the changed
+carousel support. For all64 non-NES frames, the old/new RGB differences also
+fit the corresponding old/new FBNeo backdrop delta under a common per-pixel
+gradient-overlay alpha (two8-bit delta rounding units): zero nonfits. That
+color check is a diagnostic model, not a suite verdict. NES's7,868 pixels are
+the directly reviewed Last Played sliver, half-open(0,0,40,382). No unexplained
+foreground pixels or new UI defect found. Existing masks/claims retain their
+previous evidence limits; this does not requalify the behavior under them.
+
+WHY THE OTHER REGIONS LOOK LARGE
+tools/frame-diff first clusters all unmasked differences in adjacent16px cells,
+then asks whether ONE claim rectangle contains the resulting bounding box.
+The new background joins older, separately justified foreground differences.
+Examples: PICO-8 and shifted buttons on the systems page are existing#308;
+SETTINGS' unavailable-backup copy is#349; the independent-folder selector and
+return are#527, hub composition/CLEAR are#544. Their joined rectangles extend
+to x1043 or1142. Those extensions are not additional newly unexplained pixels.
+Expanding one claim to the joined bounding box would hide foreground mistakes.
+
+MINIMAL CORRECTION PREPARED, UNRUN
+frame-diff.candidate / frame-diff-591.patch: optional live-claim attribution in
+the existing pixel loop, after masks and before clustering. First matching
+claim owns overlapping pixels exactly once; actual per-claim changed extents
+and counts remain reported. Only still-uncovered pixels enter clustering.
+No bounding-box union grants coverage to a gap. Default min-pixels remains1;
+an explicitly larger threshold applies to the remaining unexplained clusters.
+Stale-baseline filtering, wrong-screen filtering, whole-claim requirement for
+NEW frames, MISSING refusal, size-mismatch refusal and original masks stay
+unchanged. The boxes subcommand uses its original no-claims path.
+
+proposed-578-background-claims.txt / proposed-578-background-regions.json:
+348 source-linked rectangles for exactly65 existing screen paths, no wildcard
+screen acceptance, baseline replacement or masks. Modal claims follow exposed
+top/left/bottom strips with at most8px of plain rounded-border slack. No modal
+label/control interior is added. The FBN logo band is special:64 changed-only
+background run rectangles inside its overlap, plus three outside strips.
+Every currently unchanged logo pixel stays checked. NES claims only its narrow
+left sliver. Per-frame hashes are in pixel-inventory.json. claims.composed.txt
+is the byte-preserved old claims plus these explicitly marked proposals.
+
+claim-controls.py is UNRUN,20 meaningful source-only synthetic controls:
+adjacent claims, an uncovered connector, a bounding-rectangle gap, overlap
+counting, half-open edges, stale-only and mixed stale/live baseline claims,
+wrong screen, wildcard build, NEW union refusal/whole claim acceptance,
+MISSING, size mismatch despite broad claims/masks, masks and their half-open
+boundary, a foreground label outside background strips, absent BASELINE,
+unchanged frames and explicit pixel threshold. It retains each child exit,
+stdout, stderr and exact command. Old-source adjacent control deliberately
+expects the existing failure and preserves that child exit1.
+
+COMMANDS FOR ROOT'S SUBSEQUENT HOST ALLOCATION (NOT EXECUTED)
+Use a new output directory each time. No VM replay is needed to classify the
+already captured frames. Preserve the old failed report as failed.
+
+python3 /tmp/pix-m7-frame-diff-review-20261015/claim-controls.py --source /workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/frame-diff --out /tmp/pix-m7-frame-diff-review-20261015/old-control01 --only adjacent --expect-old-failure
+
+python3 /tmp/pix-m7-frame-diff-review-20261015/claim-controls.py --source /tmp/pix-m7-frame-diff-review-20261015/frame-diff.candidate --out /tmp/pix-m7-frame-diff-review-20261015/controls01
+
+python3 /tmp/pix-m7-frame-diff-review-20261015/frame-diff.candidate compare /workspace/artifacts/rocknix-images/walk-baseline /workspace/tmp/pix-m7-final-baseline-20261014-02/artifacts/webdav/rocknix-images/qa-fac608ff89-webdav-a-20261014-2320/walks --masks /workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/tools/vm-walks/masks.txt --claims /tmp/pix-m7-frame-diff-review-20261015/claims.composed.txt --report /tmp/pix-m7-frame-diff-review-20261015/continuation01.md
+
+Publish the correction only after root's review and meaningful controls pass.
+The new standalone report must identify its new checker/claim hashes and refer
+to the original captured run; it is not a replacement VM run or a relabeled
+original aggregate. Backend rows that never ran remain separately owed.
+
+RULES / SCOPE
+Read current m7-player-setup instructions (its .claude/CLAUDE/AGENTS match next),
+saved checkpoint, relevant ES native/player/style/code-trap rules, VM frame
+evidence and baseline/claims policy, engineering/design-intent and learning
+rules, plus direct source/history and archaeology output. No external model
+review or council was invoked. All worker writes are confined to this private
+/tmp/pix-m7-frame-diff-review-20261015 directory. Root owns work-log/issue edits.

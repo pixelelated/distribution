@@ -1,0 +1,42 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261014-02/.build-runs/20261015T002325Z-20dff444",
+  "expected_rc": 1,
+  "disposition": "failed-investigated",
+  "outputs": [
+    {
+      "issue": 577,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-installed-wifi-remaining-20261015-02",
+      "release_when": "Original clean/smoke/restoration/owner results exported and reviewed; actual VM and descendants gone, admission consumed, then explicitly retire disk and temporary key."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-installed-wifi-remaining-export-20261015-02/config.json",
+      "sha256": "3c0f6fa3ac4a28e8e45ddf06970a7afe3de65c98d1b15dc478094f840fb33f98"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-wifi-remaining-export-20261015-02/export-result.json",
+      "sha256": "5fa3e6338bb81eebc94cf3f77d6c77db704b7876802dca966bc2348a53268bfa"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-wifi-remaining-export-20261015-02/host-exits.json",
+      "sha256": "f3fcba440ebdb169caa542fcfa01f036e5d44684fd7a025da6357a82fcbab9a0"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-wifi-remaining-export-20261015-02/original-records.json",
+      "sha256": "4b33d08aed2f07e522549fed63a4a3b9672c0d31119a94a1a0a6cfcfbf09de1d"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-wifi-remaining-export-20261015-02/original-records.tar.gz",
+      "sha256": "b3e5e7c1c9aa73acc625ee8145c255edf44de11398bdc4ea6d07b4f5a7e8e302"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-installed-wifi-remaining-export-20261015-02/vm-result.json",
+      "sha256": "d21335aca0503ca8f0f1a755c39fae1d27745ebd3d3483b2b0b3af5cce722b92"
+    }
+  ],
+  "requires_coordinator_review": true,
+  "channels_coherent": true,
+  "monitor_succeeded": true
+}

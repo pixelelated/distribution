@@ -48,8 +48,8 @@ if [ "${DEVICE}" = "GENERIC_X64" ]; then
 fi
 
 # Every device builds both frontends: nogui plays games, Qt provides the settings
-# UI from the Tools menu. RetroAchievements lives in Core (AchievementManager) and
-# is driven entirely by RetroAchievements.ini, so it is not tied to either one.
+# UI from the Tools menu. Both initialize Core's AchievementManager from
+# RetroAchievements.ini; patch 018 supplies the nogui startup/shutdown lifecycle.
 PKG_CMAKE_OPTS_TARGET+=" -DENABLE_QT=ON \
                          -DUSE_RETRO_ACHIEVEMENTS=ON \
                          -DENABLE_HEADLESS=OFF \
