@@ -1,0 +1,82 @@
+{
+  "admission_id": "53728e36d3e04f648b1f6de1f89d67bb",
+  "consumption": "2026-10-15T13:58:35.007986+00:00",
+  "deleted_bytes": 0,
+  "disposition": "failed-investigated",
+  "http_originals": [
+    {
+      "hop": 0,
+      "http_status": 200,
+      "original_curl_returncode": 0,
+      "receipt": "/workspace/tmp/pix-m7-fex-source-acquisition-20261015-03/collection/03-glibc-2.40.tar.xz-0.http.json"
+    },
+    {
+      "hop": 0,
+      "http_status": 200,
+      "original_curl_returncode": 0,
+      "receipt": "/workspace/tmp/pix-m7-fex-source-acquisition-20261015-03/collection/04-gcc-14.3.0.tar.xz-0.http.json"
+    },
+    {
+      "hop": 0,
+      "http_status": 302,
+      "original_curl_returncode": 0,
+      "receipt": "/workspace/tmp/pix-m7-fex-source-acquisition-20261015-03/collection/05-wayland-1.24.0.tar.xz-0.http.json"
+    },
+    {
+      "hop": 1,
+      "http_status": 302,
+      "original_curl_returncode": 0,
+      "receipt": "/workspace/tmp/pix-m7-fex-source-acquisition-20261015-03/collection/05-wayland-1.24.0.tar.xz-1.http.json"
+    }
+  ],
+  "original_result": {
+    "command_rc": 1,
+    "monitor_rc": 0,
+    "runner_rc": 1,
+    "utc": "2026-10-15T13:56:55.059200+00:00"
+  },
+  "outputs_held": true,
+  "reused_guards_not_a_new_run": true,
+  "runs": {
+    "acquisition": {
+      "original_result": {
+        "command_rc": 1,
+        "monitor_rc": 0,
+        "runner_rc": 1,
+        "utc": "2026-10-15T13:56:55.059200+00:00"
+      },
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T135604Z-3268d507",
+      "reused_without_execution": false
+    },
+    "preparation": {
+      "original_result": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-15T13:54:14.621154+00:00"
+      },
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T135409Z-0afe0f47",
+      "reused_without_execution": false
+    },
+    "retention": {
+      "original_result": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-15T13:55:17.662228+00:00"
+      },
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T135512Z-075fc2a5",
+      "reused_without_execution": false
+    },
+    "reused-guards": {
+      "original_result": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-15T13:43:26.465218+00:00"
+      },
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T134321Z-4ce71167",
+      "reused_without_execution": true
+    }
+  }
+}

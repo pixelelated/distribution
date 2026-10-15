@@ -1,0 +1,51 @@
+{
+  "admission_id": "66b1fc67ac104e5aa04ad8080c93f432",
+  "consumption": "2026-10-15T13:29:59.394556+00:00",
+  "deleted_bytes": 0,
+  "disposition": "failed-investigated",
+  "original_result": {
+    "command_rc": 1,
+    "monitor_rc": 0,
+    "runner_rc": 1,
+    "utc": "2026-10-15T13:28:51.739911+00:00"
+  },
+  "outputs_held": true,
+  "runs": {
+    "acquisition": {
+      "original_result": {
+        "command_rc": 1,
+        "monitor_rc": 0,
+        "runner_rc": 1,
+        "utc": "2026-10-15T13:28:51.739911+00:00"
+      },
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T132811Z-4942e582"
+    },
+    "guards": {
+      "original_result": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-15T13:26:32.210958+00:00"
+      },
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T132627Z-4c27200a"
+    },
+    "preparation": {
+      "original_result": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-15T13:27:24.680611+00:00"
+      },
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T132719Z-5f35da3f"
+    },
+    "retention": {
+      "original_result": {
+        "command_rc": 0,
+        "monitor_rc": 0,
+        "runner_rc": 0,
+        "utc": "2026-10-15T13:27:50.549876+00:00"
+      },
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T132745Z-8bb785f5"
+    }
+  }
+}

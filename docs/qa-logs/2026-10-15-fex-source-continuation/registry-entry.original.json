@@ -1,0 +1,49 @@
+{
+      "admitted": "2026-10-15T13:46:34.784039+00:00",
+      "available_bytes": 2160754696192,
+      "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02",
+      "consumed": "2026-10-15T13:48:11.220540+00:00",
+      "container_checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02",
+      "deleted_bytes": 0,
+      "evidence_sha256": "688f19723f8de5906854b7749c41e60efc0318546a23e2c5b49032277a318e11",
+      "id": "6aeb1bc3a9ee4cbd8ba7d9d93d5eb734",
+      "original_result": {
+        "command_rc": 1,
+        "monitor_rc": 0,
+        "runner_rc": 1,
+        "utc": "2026-10-15T13:46:39.809353+00:00"
+      },
+      "outputs": [
+        {
+          "issue": 528,
+          "kind": "qa-scratch",
+          "path": "/workspace/tmp/pix-m7-fex-source-acquisition-20261015-02",
+          "release_when": "Only after original successful/failure consumption and required source custody disposition. Preserve partial and verified sources; raw curl streams stay private. No automatic deletion or publication clearance."
+        }
+      ],
+      "outputs_held": true,
+      "pid_namespace": 4026531836,
+      "profiles": [
+        {
+          "ARCH": "x86_64",
+          "DEVICE": "GENERIC_X64",
+          "PROJECT": "ROCKNIX"
+        }
+      ],
+      "receipt_sha256": "14636814a61e94d0b4a58195a2e11874a7362331dca1f09b4d6765a94a0e1e76",
+      "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+      "required_bytes": 2147483648,
+      "retention_plan_sha256": "0a7eccb1aae7f96d012043a25d471225b9861d71e6c77f9ea812e6b3c0fe6c5b",
+      "retention_report_sha256": "46bb96c33bc40528961756a4f545885b0537272668b528b4772510cfafc5cf62",
+      "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-02/.build-runs/20261015T134634Z-fc71de07",
+      "runner_pid": 2944487,
+      "runner_start": "116367865",
+      "source": {
+        "head": "f8636de1d105275dbf9420bbabbbc26f79abb10f",
+        "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "state": "consumed",
+      "submission_owner": "/workspace/tmp/pix-m7-fex-source-acquisition-20261015-02",
+      "volume": "/workspace",
+      "volume_device": 66304
+    }

@@ -11,6 +11,28 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 13:53 UTC — finite source gaps and original download failures (#528, #604)
+
+[Shader inclusion](../qa-logs/2026-10-15-shader-distribution-disposition/README.md)
+now applies the existing noncommercial scope to68exact members, with complete
+credits/license conditions. Four Koko images retain suppliedGPL scope. Named
+editing-source custody and one uncertain MAME adaptation remain. [Helper604](../qa-logs/2026-10-15-shader-helper-closure/README.md)
+is closed with its original failure and corrected acceptance preserved.
+
+[FEX acquisition](../qa-logs/2026-10-15-fex-source-acquisition/README.md) verified
+Linux, then stopped on a libdrm connection reset. A second reviewed run refused an
+unlisted GNU redirect before contact. Both original1/0/1 outcomes are consumed;
+no complete acquisition is claimed. A supported direct-route continuation is
+being prepared, followed by separately scoped tree/normalized-patch custody.
+[ABL lookup](../qa-logs/2026-10-15-abl-source-locator/README.md) still lacks the exact
+selected implementation; the different OpenABL candidate is not substituted.
+
+Existing firmware qualification and completed additive/Tailscale custody remain
+accepted. Source/notice materialization, retrieval/off-host custody, the pending
+external audit and existing physical/native/publication requirements remain.
+Both7ef wordlists passed; record CI failed only audit cadence. The live M7 body
+and five open#528 criteria were read back unchanged in scope.
+
 ## 2026-10-15 13:07 UTC — shader correction and Tailscale custody accepted (#528, #604)
 
 [Shader analysis](../qa-logs/2026-10-15-shader-attribution-accepted/README.md)
