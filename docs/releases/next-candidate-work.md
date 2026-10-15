@@ -11,6 +11,23 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 03:48 UTC — focused audit fixes complete; build next
+
+All six audit findings now have resolved scoped outcomes in
+[audit checkpoint02](../audits/2026_10_14-milestone-m7-next-candidate/INTERIM-CHECKPOINT-02.md).
+Actual Wi-Fi normal exit and Back/reopen pass; Back has a measured59.06ms upper
+bound. Dolphin's intended EN/FR refusal/return is reviewed at640 and1280. ES
+16dbac is published and selected by distribution342eec; Dolphin session clearing
+and Steam Python isolation are committed. Original failed fixtures and the frozen
+historical score remain unchanged. Audit completion is still false.
+
+Current order: publish/freeze the integrated source, reuse the guarded build
+cache, build and read back actual payloads, run narrow installed clean/retained
+checks, then the four-launch native-state continuation. Complete #596/#590 before
+H700 thenSM8550. The sealed next-image packet is60504501; affected installed
+continuation isf665dcd0; state-only continuation ise7326fe6. All remain unrun on
+the next image. Preserve prior accepted scopes and avoid broad matrix replay.
+
 ## 2026-10-15 02:56 UTC — interim audit preserved; two findings remain
 
 The [interim audit](../audits/2026_10_14-milestone-m7-next-candidate/INTERIM-CHECKPOINT.md)

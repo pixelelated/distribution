@@ -1,12 +1,30 @@
 # Saved Session State
 
-Updated 2026-10-15 03:09 UTC. Continue authorized M7 toward the next 0.0.1 RC.
+Updated 2026-10-15 03:48 UTC. Continue authorized M7 toward the next 0.0.1 RC.
 Coordinator `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
 `feature/m7-player-setup`; published feature before this checkpoint is f13f9d98cb7f2057d28292edc808234028b1ca15.
 Primary/remote next remains be71c43538e05e7d7621f243af8dbf4f4af51565.
 Harness conflict-resolution untouched. Actual host PID namespace4026531836;
 host/network/outside-workspace writes require escalated exec. No formal goal.
 Saving is not a pause. No runtime/compiler/external call currently active.
+
+## Latest03:48 — all focused fixes verified; preparing final engineering image
+
+No runtime/compiler/external call active. Published feature342eec66e9 includes
+ES16dbac recipe pin and qualified source/UI evidence. Auditor released frozen
+checkpoint02:284 payloads18,962,039B, manifest63fa01de, seal7630b546; root verified
+all bytes/modes/membership. Six resolved outcomes; audit_complete/cadence false.
+#596 update04 live body verified29113a48; original readback remains outside the
+sealed audit directory. Root is committing audit and current records, then FF
+next/push/freeze. Latest milestone order is final image -> affected clean/retained
+-> state-only -> audit close -> H700/SM8550. No new physical authorization inferred.
+Next image source60504501 at /tmp/pix-m7-next-image-delta-20261015-02 requires the
+actual published next commit and ESrecipeSHA1d91f4a72032c67b89c0d986d26b728cf501f11bb9de891c168eb4f3f37d2719.
+Fresh actual-host dependency readback precedes atomic old-cache relocation.
+Affected installed packet /tmp/pix-m7-affected-installed-continuation-20261015
+sealf665dcd087f778d64bac7c9ebf8254a6c7ffdf1c10ecc9a8711b72e04b92c4ef is
+source-only ready; root must review before runtime. Native-state packet e7326fe6
+ready. All earlier active-job notes below are historical and consumed.
 
 ## Latest03:41 — GUI proofs complete; source integration in progress
 

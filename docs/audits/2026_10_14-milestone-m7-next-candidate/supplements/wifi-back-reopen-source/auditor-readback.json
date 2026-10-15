@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-15T03:36:40.067810+00:00",
+  "status": "SOURCE_REVIEWED_RUNTIME_UNRUN",
+  "seal_sha256": "bb4683989e5cfb5dd3585c97856388f3d5773de4501c52dd951139462a0a394f",
+  "listed_payloads": 31,
+  "archive_files_including_manifest": 32,
+  "archive_sha256": "ec12b38815d2d6d64b9c57171370e3fbf87b2c91f0e6a4871eb55f34d52719ed",
+  "archive_bytes_verified": true,
+  "archive_mode_scope": "Producer archive normalizes0644; original directory modes preserved separately, not claimed identical. Execution uses reviewed directory via Python.",
+  "independent_checks": [
+    "18 prerequisite copies match actual original bytes; consumed1/0/1 object schema read",
+    "11 guest functions AST-identical; original observer/backend/candidate unaffected",
+    "No baseline/control/refusal dispatch",
+    "Clock begins before HMP send, includes full VNC acquisition, exact full raw reference, pre-key mismatch, <=1s only, late failure retained",
+    "Independent12s helper with whole600+120 owner, bounded32 samples; same blocked group and one enumeration after reopen",
+    "Original2.28499s failedmeasurement remains failed"
+  ],
+  "source_hashes": {
+    "capture-back.py": "03f0f4f63ece3743c896288fac86e55f93b8a4439d2ab7fe4432bbbd1d165cc6",
+    "host-audit.py": "46f1996a48dc2b7f11679f60b10bfe5e3f7a8e9c7098b0276a72d9a61ee3e7e2",
+    "guest-audit.py": "d50706d861e0abd93dc14c652a6dcf7402c51783cfa2675d4c5a9fd1835e0b02",
+    "prepare.py": "bb49dc18685e15b46a8b9afba51d8d54f1e587a1043ab3940478ac6db5856b80"
+  },
+  "remaining": "Actual Back/reopen timing, frames, shared pending scan and restoration"
+}

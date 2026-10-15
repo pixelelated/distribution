@@ -1,0 +1,170 @@
+{
+  "utc": "2026-10-15T03:43:08.873859+00:00",
+  "status": "All six punch outcomes independently re-derived; final audit completion withheld",
+  "commands": [
+    {
+      "cwd": "/home/max/Development/emulationstation-next.worktrees/m7-wifi-normal-exit-20261015",
+      "argv": [
+        "git",
+        "log",
+        "-1",
+        "--format=%H",
+        "--",
+        "es-app/src/guis/GuiWifi.cpp"
+      ],
+      "original_returncode": 0,
+      "stdout": "16dbac5211eea7e70db7394372033be2be7df829\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "/home/max/Development/emulationstation-next.worktrees/m7-wifi-normal-exit-20261015",
+      "argv": [
+        "git",
+        "rev-parse",
+        "refs/remotes/origin/test/qa-integration"
+      ],
+      "original_returncode": 0,
+      "stdout": "16dbac5211eea7e70db7394372033be2be7df829\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "/home/max/Development/emulationstation-next.worktrees/m7-wifi-normal-exit-20261015",
+      "argv": [
+        "git",
+        "show-ref",
+        "refs/heads/test/qa-integration"
+      ],
+      "original_returncode": 0,
+      "stdout": "16dbac5211eea7e70db7394372033be2be7df829 refs/heads/test/qa-integration\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "/home/max/Development/emulationstation-next.worktrees/m7-wifi-normal-exit-20261015",
+      "argv": [
+        "git",
+        "branch",
+        "-a",
+        "--contains",
+        "16dbac5211eea7e70db7394372033be2be7df829"
+      ],
+      "original_returncode": 0,
+      "stdout": "* feature/m7-wifi-normal-exit-20261015\n+ test/qa-integration\n  remotes/origin/test/qa-integration\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+      "argv": [
+        "git",
+        "log",
+        "-1",
+        "--format=%H",
+        "--",
+        "projects/ROCKNIX/packages/ui/emulationstation/package.mk"
+      ],
+      "original_returncode": 0,
+      "stdout": "342eec66e9fc510f6defc87de1131d300d2e804c\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+      "argv": [
+        "git",
+        "rev-parse",
+        "refs/remotes/origin/feature/m7-player-setup"
+      ],
+      "original_returncode": 0,
+      "stdout": "342eec66e9fc510f6defc87de1131d300d2e804c\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+      "argv": [
+        "git",
+        "show",
+        "342eec66e9fc510f6defc87de1131d300d2e804c:projects/ROCKNIX/packages/ui/emulationstation/package.mk"
+      ],
+      "original_returncode": 0,
+      "stdout": "# SPDX-License-Identifier: GPL-2.0\n# Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)\n\nPKG_NAME=\"emulationstation\"\nPKG_VERSION=\"16dbac5211eea7e70db7394372033be2be7df829\"\nPKG_GIT_CLONE_BRANCH=\"test/qa-integration\"\nPKG_LICENSE=\"MIT AND BSD-3-Clause\"\nPKG_SITE=\"https://github.com/pixelelated/emulationstation\"\nPKG_URL=\"${PKG_SITE}.git\"\n# noto-sans-cjk came from upstream 2026-09, and poppler with the PDF support\n# upstream's EmulationStation gained (e0e8b7ac33); the fork builds its own ES\n# from its own branch, so the clone form stays.\nPKG_DEPENDS_TARGET=\"boost toolchain SDL2 freetype curl freeimage bash rapidjson SDL2_mixer fping p7zip alsa vlc drm_tool poppler pugixml noto-sans-cjk zstd ${OPENGLES}\"\nPKG_NEED_UNPACK=\"busybox\"\nPKG_LONGDESC=\"Emulationstation emulator frontend\"\nPKG_BUILD_FLAGS=\"-gold\"\nGET_HANDLER_SUPPORT=\"git\"\n\nPKG_CMAKE_OPTS_TARGET+=\" -DROCKNIX=1 \\\n                         -DDISABLE_KODI=1 \\\n                         -DENABLE_FILEMANAGER=0 \\\n                         -DCEC=0 \\\n                         -DENABLE_PULSE=1 \\\n                         -DUSE_SYSTEM_PUGIXML=1 \\\n                         -DGLES3=1\"\n\n# #566 / D-WORKFLOW-166: provision the shared JELOS developer identity below.\n# Keep runtime support for alternate builds; a compiled pair hides developer\n# entry rows while the player's own ScreenScraper account stays separate.\nPKG_CMAKE_OPTS_TARGET+=\" -DSCREENSCRAPER_RUNTIME_DEV_LOGIN=1\"\n\n# Upstream replaced the S922X test with a build option (2026-09).\n[ \"${BATTERYPLUS_SUPPORT}\" = \"yes\" ] && PKG_CMAKE_OPTS_TARGET+=\" -DBATTERYPLUS=1\"\n\npre_configure_target() {\n  # This public shared developer account is the explicit interim choice. An\n  # intentional build override remains supported, but does not gain the shared\n  # identity exception in the image's selected-state gate (#565/#566).\n  local screenscraper_shared_dev=\"jelos\"\n  export SCREENSCRAPER_DEV_LOGIN=\"${SCREENSCRAPER_DEV_LOGIN:-devid=${screenscraper_shared_dev}&devpassword=${screenscraper_shared_dev}}\"\n\n  for key in SCREENSCRAPER_DEV_LOGIN \\\n             GAMESDB_APIKEY \\\n             CHEEVOS_DEV_LOGIN; do\n    if [ -z \"${!key}\" ]; then\n      echo \"WARNING: ${key} not declared, will not build support.\"\n    else\n      # The name, never the value: a developer password or an API key does\n      # not belong in a build log that gets pasted into an issue.\n      echo \"USING: ${key} (set)\"\n    fi\n  done\n\n  export DEVICE=$(echo ${DEVICE^^} | sed \"s#-#_##g\")\n}\n\nmakeinstall_target() {\n  # The bounded RVZ reader carries a BSD padding adaptation. Older ES pins\n  # have no such reader; preserve their existing installation path.\n  if [ -f \"${PKG_BUILD}/external/libcheevos/LICENSE.rvz-padding\" ]; then\n    mkdir -p ${INSTALL}/usr/share/licenses/emulationstation\n    cp -a ${PKG_BUILD}/external/libcheevos/LICENSE.rvz-padding \\\n          ${PKG_BUILD}/external/libcheevos/RVZ-NOTICES.md \\\n          ${INSTALL}/usr/share/licenses/emulationstation/\n  fi\n\n  mkdir -p ${INSTALL}/usr/config/locale\n    cp -a ${PKG_BUILD}/locale/lang/* ${INSTALL}/usr/config/locale\n\n    # Pre-generate default (en_US.UTF-8) locale for lower-end devices to speed up first boot\n    # This saves a minute or two on RK3326 in a cost of about 1 MB of SYSTEM size\n    # Copy-paste of a locale generating part of es_settings script\n    I18NPATH=$(get_install_dir glibc)/usr/share/i18n/locales/ \\\n      localedef --force --verbose --inputfile=en_US --charmap=UTF-8 \\\n      ${INSTALL}/usr/config/locale/en_US.UTF-8 || true\n\n  mkdir -p ${INSTALL}/usr/config/emulationstation\n    cp -a ${PKG_DIR}/config/common/*.cfg ${INSTALL}/usr/config/emulationstation\n    rm -f ${INSTALL}/usr/config/emulationstation/resources/logo.png\n\n  mkdir -p ${INSTALL}/usr/config/emulationstation/resources\n    cp -a ${PKG_BUILD}/resources/* ${INSTALL}/usr/config/emulationstation/resources\n    rm -f ${INSTALL}/usr/config/emulationstation/resources/DroidSansFallbackFull.ttf\n    ln -sf /usr/share/fonts/truetype/noto-cjk/NotoSansCJKsc-Regular.otf \\\n      ${INSTALL}/usr/config/emulationstation/resources/DroidSansFallbackFull.ttf\n\n  mkdir -p ${INSTALL}/usr/bin\n    cp -a ${PKG_BUILD}/es_settings ${INSTALL}/usr/bin\n    cp -a ${PKG_BUILD}/start_es.sh ${INSTALL}/usr/bin\n    cp -a ${PKG_BUILD}/serial_number_check ${INSTALL}/usr/bin\n\n  mkdir -p ${INSTALL}/usr/bin\n    #ln -sf /storage/.config/emulationstation/resources ${INSTALL}/usr/bin/resources\n    cp -a ${PKG_BUILD}/emulationstation ${INSTALL}/usr/bin\n\n  mkdir -p ${INSTALL}/etc\n    ln -sf /storage/.cache/system_timezone ${INSTALL}/etc/timezone\n\n  mkdir -p ${INSTALL}/etc/emulationstation\n    ln -sf /storage/.config/emulationstation/themes ${INSTALL}/etc/emulationstation/themes\n    ln -sf ${INSTALL}/usr/config/emulationstation/es_systems.cfg ${INSTALL}/etc/emulationstation/es_systems.cfg\n\n\n  # If we're not an emulation device, ES may still be installed so we need a default config.\n  if [[ \"${EMULATION_DEVICE}\" == \"no\" || \"${BASE_ONLY}\" == \"true\" ]]; then\n    cat <<EOF >${INSTALL}/usr/config/emulationstation/es_systems.cfg\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<systemList>\n        <system>\n                <name>tools</name>\n                <fullname>Tools</fullname>\n                <manufacturer>ROCKNIX</manufacturer>\n                <release>2024</release>\n                <hardware>system</hardware>\n                <path>/storage/.config/modules</path>\n                <extension>.sh</extension>\n                <command>%ROM%</command>\n                <platform>tools</platform>\n                <theme>tools</theme>\n        </system>\n</systemList>\nEOF\n  fi\n\n  #Delete all vulkan options from es_features when vulkan is not present\n  if [ ! \"${VULKAN_SUPPORT}\" = \"yes\" ]; then\n    xmlstarlet ed --inplace -d '//choice[contains(@name, \"vulkan\")]' ${INSTALL}/usr/config/emulationstation/es_features.cfg\n  fi\n}\n\n\npost_install() {\n  mkdir -p ${INSTALL}/usr/share\n    ln -sf /storage/.config/locale ${INSTALL}/usr/share/locale\n\n  mkdir -p ${INSTALL}/usr/lib\n    ln -sf /usr/share/locale ${INSTALL}/usr/lib/locale\n\n  mkdir -p ${INSTALL}/usr/config/emulationstation\n    ln -sf /usr/share/locale  ${INSTALL}/usr/config/emulationstation/locale\n}\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+      "argv": [
+        "git",
+        "branch",
+        "--contains",
+        "9aaaaa0f642b97ebf722c2e1aeedb7e4d00bcbdc"
+      ],
+      "original_returncode": 0,
+      "stdout": "+ build/m7-p5-20261015-01\n* feature/m7-player-setup\n+ next\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+      "argv": [
+        "git",
+        "branch",
+        "--contains",
+        "6616cc36cb85d86878870feafdcb64edbc192df8"
+      ],
+      "original_returncode": 0,
+      "stdout": "+ build/m7-p5-20261015-01\n* feature/m7-player-setup\n+ next\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+      "argv": [
+        "git",
+        "branch",
+        "--contains",
+        "d9054efc463387df3f0211481c5ae8c793dfadc8"
+      ],
+      "original_returncode": 0,
+      "stdout": "* feature/m7-player-setup\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+      "argv": [
+        "git",
+        "branch",
+        "--contains",
+        "342eec66e9fc510f6defc87de1131d300d2e804c"
+      ],
+      "original_returncode": 0,
+      "stdout": "* feature/m7-player-setup\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+      "argv": [
+        "git",
+        "log",
+        "-1",
+        "--format=%H",
+        "--",
+        "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh"
+      ],
+      "original_returncode": 0,
+      "stdout": "d9054efc463387df3f0211481c5ae8c793dfadc8\n",
+      "stderr": ""
+    },
+    {
+      "cwd": "/workspace/repos/rocknix.worktrees/m7-player-setup",
+      "argv": [
+        "git",
+        "log",
+        "-1",
+        "--format=%H",
+        "--",
+        "projects/ROCKNIX/packages/virtual/emulators/sources/Install Steam.sh"
+      ],
+      "original_returncode": 0,
+      "stdout": "d9054efc463387df3f0211481c5ae8c793dfadc8\n",
+      "stderr": ""
+    }
+  ],
+  "scope": "Root attests successful live publication/readback; local heads and remote-tracking refs independently match. Auditor performed no network read/write. d905 and342e currently on feature branch; no next/final-image claim.",
+  "root_recipe_pkgcheck": "Root reports0 after edit; auditor does not claim separate run.",
+  "pending": "Final integrated-image and native-state qualification; tracker update04 publication/readback; audit completion and cadence withheld."
+}

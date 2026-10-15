@@ -1,0 +1,36 @@
+{
+  "utc": "2026-10-15T03:16:03.303434+00:00",
+  "method": "read-only archive/member hashing, original channel/log readback and personally viewed frame; no fixture/runtime execution",
+  "durable_directory": "docs/qa-logs/2026-10-15-dolphin-ui-first-attempt",
+  "source_commit": "692ddf3591096fd6067e850fcc9ae520cf8ec6c4",
+  "seal_sha256": "d3a9a400d55a5d57027f7bc0369537fb9c466145eb87a18760c3afcf7eb40cb4",
+  "original_host_members_verified": 192,
+  "original_guest_members_verified": 112,
+  "files": {
+    "original-records.tar.gz": "41fcf30b5c838d7b6f61d27abad2892c05aa088df44c6a660104d9c5f030d445",
+    "exported-guest-originals.tar.gz": "3110497ceade669c81b91cf9fbae1afccaa454552a6fc10a20df2bdc8fb8e1f7",
+    "original-records.json": "7e08d24df7becab87a74f01dea632de2a1b629ccf3459ed32a283e7255d9a0bd",
+    "guest-manifest.json": "debf4000bb001e98fc42a4b120f8dc7e1b67a7a92f839e3c11d9f95fe95d5848",
+    "wrong-refusal-1280.png": "8179876cc7908b455ac0f46e8bafb6272cb975c27e29fb5f6e2f38a37c9fd73b",
+    "export-result.json": "f40e622731530809357d98e22e744baa7f0295a4e2f69cf28fb12cb144a13d28",
+    "admission-consumed.json": "77e4fa4c16de2dafce45c36ebc21bbec41142b23ee4ab6d8d4adc51a579e3d06"
+  },
+  "outcome": "FAILED before intended achievements helper. No EN/FR target refusal proof. PL-004 remains open.",
+  "original_channels": {
+    "launcher": 1,
+    "command": 1,
+    "monitor": 0,
+    "runner": 1,
+    "refusal_action": 1,
+    "cleanup": 0,
+    "finally_flush": 0,
+    "qemu_stop": 0
+  },
+  "guest_finish_manifest_present": false,
+  "export_guest_manifest_verified": false,
+  "export_lossless_export_verified": false,
+  "restored_selected_hashes": true,
+  "owned_mounts": [],
+  "remaining_host_children": [],
+  "review_miss": "Auditor source-reviewed the full Wii caller but did not trace the fixture config bind through its earlier dolphin-save-paths mount guard. Exit250 was an ambiguous oracle. Existing helper controls did not prove the full intended flow."
+}

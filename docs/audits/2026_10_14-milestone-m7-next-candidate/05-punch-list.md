@@ -2,7 +2,7 @@
 
 Scope: independent Milestone audit #590; frozen distribution fac608ff89940ce358ea9b8a95e9a08a6fe26568 and ES3178b832b8d134198b2b4eede4f725d4ed283f8c. Two verified Fable5.1/xhigh passes plus the primary OpenAI perspective, all leads independently graded. This is not a council or RC approval.
 
-Six audit-discovered findings: 0 Critical, 1 High, 3 Medium, 2 Low. Four have committed, narrowly verified corrections; two remain open. PL-006 is committed on the feature branch; it is not yet a next/shipped-image claim. Frozen/current-audit score: 80 PASS, 16 PARTIAL, 16 SKIP, 3 FAIL, 0 UNTESTABLE of115. Original pre-external score remains in pre-external-scorecard.json. Later source fixes do not rewrite frozen behavior.
+Six audit-discovered findings: 0 Critical, 1 High, 3 Medium, 2 Low. All six have committed, narrowly verified corrections. Final audit completion remains withheld for final integrated-image and native-state qualification. PL-006 is committed on the feature branch; it is not yet a next/shipped-image claim. Frozen/current-audit score: 80 PASS, 16 PARTIAL, 16 SKIP, 3 FAIL, 0 UNTESTABLE of115. Original pre-external score remains in pre-external-scorecard.json. Later source fixes do not rewrite frozen behavior.
 
 Execute open items within root-owned serialized integration/runtime. No broad accepted matrix must be repeated merely to improve audit prose. Each acceptance states the bounded proof needed; preserve original failed observations and explicitly distinguish source proposal, private candidate and installed artifact.
 
@@ -53,7 +53,7 @@ Audit scope/intake: #590. Mandatory Phase6 punch tracker: [#596](https://github.
 - **What:** Atomically publish an explicitly inactive credential-free INI for both negative states, and refuse native launch if publication fails.
 - **Where:** projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh:21
 - **Why:** Early1 leaves prior Enabled=True/token/hardcore/host intact; launchers continue. Already affects Qt and becomes active on default NoGUI after the lifecycle repair. AC100 FAIL, AC101 PARTIAL.
-- **Evidence:** Complete source/package search confirms sole writer and unchecked caller exits; pinned manager reads retained settings. No authentication success is assumed. Correction d9054efc passes all15 actual guest source controls; complete launcher and rendered EN/FR refusal proof remains due (source-controls02-readback.md).
+- **Evidence:** Complete source/package search confirms sole writer and unchecked caller exits; pinned manager reads retained settings. No authentication success is assumed. Correction d9054efc passes all15 actual guest source controls and full Wii/runemu/ES intended EN/FR refusal at640 and1280 with exact original restoration (source-controls02-readback.md, audit-ui02-readback.md, audit-ui1280-02-readback.md).
 - **Acceptance:** Two seeded-enabled-state transitions produce disabled/blank outputs with expected original1 and unchanged source settings. Failed publication preserves prior bytes and prevents both engines from launching with original error status; unchanged enabled routing and narrow EN/FR refusal flow/frame proof retained.
 
 ## PL-005: Cancel and join the Wi-Fi scan worker at normal ES exit
@@ -65,7 +65,7 @@ Audit scope/intake: #590. Mandatory Phase6 punch tracker: [#596](https://github.
 - **What:** Retain application lifetime ownership and cooperative cancellation, then join before frontend/log teardown while preserving picker Back/reopen behavior.
 - **Where:** es-app/src/guis/GuiWifi.cpp:470; es-app/src/guis/WifiScanProcess.h; es-app/src/main.cpp
 - **Why:** Detached worker owns the deadline and group cleanup; normal whole-ES exit can remove it with a blocked child outstanding. Historical picker-close proof did not cover process exit.
-- **Evidence:** Frozen source confirms no join/hook; inherited emustation.service uses KillMode=process. ES16dbac52 and focused observer/driver sources reviewed; original three-unit syntax, actual ES link and both driver builds pass (wifi-compiler-result-readback.md). Runtime controls remain unrun.
+- **Evidence:** Frozen source confirms no join/hook; inherited emustation.service uses KillMode=process. ES16dbac52 and focused observer/driver sources reviewed; original three-unit syntax, actual ES link and both driver builds pass (wifi-compiler-result-readback.md). Four GUI-free driver controls now have original observer1/0/0/0 and driver0 with candidate cleanup clear (audit-ui01-readback.md); the first actual GUI suite failed fixture navigation. Retry02 now directly verifies baseline normal-exit orphans and candidate clean join; Original1-second host-tool timing failed; narrow continuation now verifies59.060466ms complete-frame upper bound and same blocked scan on reopen, with normal exit/custody0 (audit-ui02-readback.md, wifi-back-reopen-readback.md).
 - **Acceptance:** Land exact ES source with required syntax check. Preserve an original known-bad normal-exit negative, candidate cancellation/atexit/completed-refresh results and actual frontend Back/reopen/SIGINT exit proof with exact child identities, no candidate forced cleanup and unchanged presentation. Document signal/fatal residual under D-CLOUD-133.
 
 ## PL-006: Isolate the Steam runtime Python invocation
@@ -132,7 +132,7 @@ punch_index:
   owner_area: "Dolphin helper and both native launchers"
   where: "projects/ROCKNIX/packages/emulators/standalone/dolphin-sa/scripts/cheevos_dolphin.sh:21"
   acceptance: "Two seeded-enabled-state transitions produce disabled/blank outputs with expected original1 and unchanged source settings. Failed publication preserves prior bytes and prevents both engines from launching with original error status; unchanged enabled routing and narrow EN/FR refusal flow/frame proof retained."
-  outcome: "open"
+  outcome: "resolved"
 
 - id: PL-005
   severity: "Low"
@@ -141,7 +141,7 @@ punch_index:
   owner_area: "ES Wi-Fi worker lifecycle"
   where: "es-app/src/guis/GuiWifi.cpp:470; es-app/src/guis/WifiScanProcess.h; es-app/src/main.cpp"
   acceptance: "Land exact ES source with required syntax check. Preserve an original known-bad normal-exit negative, candidate cancellation/atexit/completed-refresh results and actual frontend Back/reopen/SIGINT exit proof with exact child identities, no candidate forced cleanup and unchanged presentation. Document signal/fatal residual under D-CLOUD-133."
-  outcome: "open"
+  outcome: "resolved"
 
 - id: PL-006
   severity: "Low"
@@ -156,13 +156,13 @@ punch_index:
 
 ## Phase 7 resolution gate
 
-This table records verified outcomes available at creation; two open items prevent resolution completion. Phase6 tracker #596 is verified; final formal gate follows fresh outcome readback. A source-only proposal is not Resolved.
+This table records verified outcomes available at creation; all six punch outcomes are resolved within their stated scopes. Phase6 tracker #596 is verified; local resolution lint follows fresh outcome readback; final audit completion and cadence remain withheld for final integrated-image/native-state qualification. A source-only proposal is not Resolved.
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
 | PL-001 | Resolved | Resolved in `9aaaaa0f642b97ebf722c2e1aeedb7e4d00bcbdc`, present in d4af and next by direct branch/read checks. `dolphin-installed-supplement-readback.md` verifies original installed evidence. G-02 is a separate retained-settings defect, not a reason to erase this lifecycle correction. |
 | PL-002 | Resolved | Resolved in `9aaaaa0f642b97ebf722c2e1aeedb7e4d00bcbdc`; exact metadata control/readback in `steam-supplement-readback.json` and durable Steam remaining result. Undeclared-length size enforcement is not claimed; total time remains bounded. No installed ARM Steam claim. |
 | PL-003 | Resolved | Resolved in `6616cc36cb85d86878870feafdcb64edbc192df8` under #592, present in d4af/next; engineering-image and dolphin-installed supplemental readbacks directly verify originals. No claim every Sys consumer was separately exercised. |
-| PL-004 | Open | Open — #594 correction d9054efc passes15 helper/exact caller-block controls with original0 and no cleanup residue. Complete native launcher and rendered EN/FR refusal proof remains pending. |
-| PL-005 | Open | Open — #593 private candidate `16dbac5211eea7e70db7394372033be2be7df829` passes three-unit syntax, exact ES link and both driver compilation. Driver/actual frontend acceptance remains pending; no universal signal-custody claim. |
+| PL-004 | Resolved | Resolved in `d9054efc463387df3f0211481c5ae8c793dfadc8` on feature/m7-player-setup under #594. All15 helper/exact caller-block controls plus actual full Wii/runemu/ES intended EN/FR refusal at640/1280 and exact original config restoration verified (audit-ui1280-02-readback.md). Explicit candidate overlays; final integrated-image acceptance remains separate. |
+| PL-005 | Resolved | Resolved in published ES `16dbac5211eea7e70db7394372033be2be7df829`, pinned by distribution `342eec66e9fc510f6defc87de1131d300d2e804c`. Original syntax/link/driver controls, actual baseline/candidate normal exit and candidate Back/reopen verify;59.060466ms complete-frame upper bound, same blocked group/one enumeration, no candidate forced cleanup or survivors (wifi-back-reopen-readback.md, phase7-publication-readback.json). Original failed suites remain; SIGTERM/fatal and final integrated-image qualification separate. |
 | PL-006 | Resolved | Resolved in `d9054efc463387df3f0211481c5ae8c793dfadc8` on feature/m7-player-setup. Exact installed-interpreter old-negative/candidate-positive full synthetic runtime controls pass; source-controls02-readback.md. No next/shipped-image or native ARM claim. |

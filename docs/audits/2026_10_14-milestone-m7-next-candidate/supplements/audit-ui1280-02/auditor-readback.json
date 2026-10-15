@@ -1,0 +1,80 @@
+{
+  "utc": "2026-10-15T03:35:12.551343+00:00",
+  "source_export": "/workspace/tmp/pix-m7-audit-ui-1280-evidence-20261015-02",
+  "source_owner": "/workspace/tmp/pix-m7-audit-ui-1280-20261015-02",
+  "full_host_archive_sha256": "2179f83a7aac104312ed803f2ca912c37e5190022fa6b6ae88d4417005158f6e",
+  "full_host_members_verified": 225,
+  "full_guest_members_verified": 165,
+  "selected_host_members_retained": 53,
+  "source_seal": "542991d0a136f338a18b282cc230baee8cb57eda649d9711d3e3aaf0f7e6fe57",
+  "original_channels": "launcher/command/monitor/runner/guest/cleanup/stop all0; native refusal original250 expected",
+  "export_manifests_verified": true,
+  "same_original_2736_row_config_restored_both_locales": true,
+  "frames_personally_reviewed": [
+    "93388c6c3fe999cf1fad65947cdb089caca4946ac2a60a2cff84ee869fc39dab",
+    "d86ce70fa7094a7acbd78e2ef951031368efee62f33e60af15916eb07053666a",
+    "be43142057e1a8680b053be37c871a50686588f9bf97356625c0ddf1b6ef525e",
+    "fc543138f96f1a256855c34d74c3b7db3b7380c56d7930fd3f27044d0f5ac9e1"
+  ],
+  "visual_read_correction": "Initial batched/default-detail French read incorrectly reported missing DOLPHIN. Reopening the identical SHA alone at original detail confirms full title; English also individually reopened. Withdrawn visual lead, no product defect or new runtime.",
+  "consumption_schema_note": "First derived acceptance used wrong accepted enum and was rejected2. Original unchanged; corrected qualified consumption verified.",
+  "resolution": "PL-004 Resolved at d9054efc463387df3f0211481c5ae8c793dfadc8 within source/helper/full ENFR flow scope. Final integrated-image criterion separate.",
+  "files": {
+    "acceptance-rejected-schema.json": {
+      "bytes": 2213,
+      "sha256": "5fcd8e63aef042b6ba0583e70a1f2eead8960edb4714009fa0b17b8453c4dc86"
+    },
+    "acceptance.json": {
+      "bytes": 2214,
+      "sha256": "48dba0769599188e776cf931c82199bb6e6b452df331ff39bc7f1440d30d4197"
+    },
+    "admission-consumed.json": {
+      "bytes": 1981,
+      "sha256": "d286f4d5d06acda95f44ba44b1b4eb03d059ee6678c66855c0e77039eb5a57cf"
+    },
+    "consumption-schema-note.json": {
+      "bytes": 284,
+      "sha256": "457fa0e7412c894478f40a77e401562e3ddbd4807fe9c2d2ae90d0ba7271dafe"
+    },
+    "export-result.json": {
+      "bytes": 359,
+      "sha256": "710341691ef36df826d91d4b3e347f0f80193322f813e2cb1aef4ba719a05821"
+    },
+    "guest-manifest.json": {
+      "bytes": 26383,
+      "sha256": "4604c61cc842985d478c58a02c6049e9bd376a12a9f3496598f902cc051b3497"
+    },
+    "guest-originals.tar.gz": {
+      "bytes": 587511,
+      "sha256": "b6afe21f5a82b32da343b20dd545c8af3926ba7544c1213a8259aa43a3084aa2"
+    },
+    "host-exits.json": {
+      "bytes": 152,
+      "sha256": "73f83f43a4348658cd2b702e49237eb778eec4d846cd6a2d652e558ee3c28f6b"
+    },
+    "original-records.json": {
+      "bytes": 37708,
+      "sha256": "8aaa6430b55c17898d40a024a8b08bb4ad7c42a084a048bf13fdf0554f8014a6"
+    },
+    "readback-result.json": {
+      "bytes": 77,
+      "sha256": "c9b6199ba26523e7e5409466133720013656d6c7da3d3d67ca6d5552c9dc4741"
+    },
+    "root-review.json": {
+      "bytes": 449,
+      "sha256": "c7267fb43431eeaa6d2003e7da823f0ba64cdf8e03f4bfe2637819ae26e3754a"
+    },
+    "selected-host-members.json": {
+      "bytes": 10575,
+      "sha256": "3424abf8e87b1fd4490471b52899929322cf92c29166c756a8500c5c7585f8b7"
+    },
+    "selected-host-originals.tar.gz": {
+      "bytes": 1383217,
+      "sha256": "a37804ee9c59d60cba28a027e15267bad7ec62a88cc19ec0ff1471425a70ccca"
+    },
+    "vm-result.json": {
+      "bytes": 8425,
+      "sha256": "106ab510bc488b0ab5f6914b2bee8b6aca4544c0451a175878c436d35ed70bec"
+    }
+  }
+}

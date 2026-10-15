@@ -1,0 +1,54 @@
+{
+  "utc": "2026-10-15T03:20:40.861136+00:00",
+  "method": "source-only review; no preparer/fixture/runtime/compiler executed",
+  "outcome": "No remaining source blocker at sealed readback; runtime UNRUN",
+  "packets": [
+    {
+      "panel": "640",
+      "source": "/tmp/pix-m7-audit-ui-retry-plan-20261015",
+      "seal_sha256": "08773c90fec208a277da993d6df63b38ab4150bd308c5cd98f199a884e68466c",
+      "archive": "supplements/audit-ui-retry-source/640-source.tar.gz",
+      "archive_sha256": "7e8982b69a90aa929e5b6eda3c95f313fda8d39a87c67f04ee5d89e70586f4ae",
+      "all_archive_bytes_and_modes_verified": true,
+      "sealed_members_verified": 21,
+      "reviewed_sources": {
+        "guest-audit.py": "918b61571730e0d6a92c7d49e7546f03f25533ae2028fbf47020bd10f6d21cee",
+        "prepare.py": "5180d722d02e0e51b879d2eb8770aa064d29ddbd5285ced782f098279ea6da08",
+        "host-audit.py": "c70de67ef40879d426a299081cd2bc9324e00a2f96ccb5ffa2cbe9e3a759c163"
+      }
+    },
+    {
+      "panel": "1280",
+      "source": "/tmp/pix-m7-audit-ui-1280-retry-plan-20261015",
+      "seal_sha256": "542991d0a136f338a18b282cc230baee8cb57eda649d9711d3e3aaf0f7e6fe57",
+      "archive": "supplements/audit-ui-retry-source/1280-source.tar.gz",
+      "archive_sha256": "152cba3aa30d0e8b7c312f3b5a07e6b553fa35fcbf42298774f240487cc21fa1",
+      "all_archive_bytes_and_modes_verified": true,
+      "sealed_members_verified": 13,
+      "reviewed_sources": {
+        "guest-audit.py": "60aa75a4809fe48d90331db172055a573bafed416ed6a3347f0c7a8361f07218",
+        "prepare.py": "310c7a8dbbf557f90b7eb03cc9085731cdf90e30e7e9fddb386f6ddb1104999e"
+      }
+    }
+  ],
+  "original_oracle_archive": "supplements/source-controls02/guest/dolphin/originals.tar.gz",
+  "original_oracle_archive_sha256": "c5bee027a729f30f6a8af3b71bdc8485112acc27a7bd325d0658f5d08bbaf709",
+  "original_oracle_members": {
+    "13-after-disabled-directory-en-wii/log": "7a7954d00dbe99ce0d72a206c6ea29c53f21adaa27cdc435d6ea54192c54945d",
+    "13-after-disabled-directory-en-wii/stderr": "7a88d29cd937f8848902b7edd0b268ba29acd4da4987dee33796e14b770be8b5"
+  },
+  "review_scope": [
+    "Seven custody functions AST-identical across panels",
+    "Exact guard hash and no-replace same-parent primitive verified against product source",
+    "Original hash/mode/link/uid/gid/dev/inode restoration required; no deletion",
+    "Partial ambiguous phases fail, preserve originals, and never claim restoration",
+    "Positive fresh two-line helper log and exact qualified directory-error line plus new250",
+    "640 route sixDown plus exact personally reviewed preactivation selected-row frame",
+    "Actual expected EN/FR refusal and return frames still required"
+  ],
+  "audit_findings": {
+    "resolved": 4,
+    "open": 2,
+    "phase7_complete": false
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "status": "SOURCE_PREPARED_RUNTIME_UNRUN",
+  "checks": [
+    "AST guest-audit.py",
+    "AST guest-wifi-observer.py",
+    "AST host-audit.py",
+    "AST originals/host-action.py",
+    "AST originals/observe-proof.py",
+    "AST originals/qualified-census-probe.py",
+    "AST originals/vm-lifecycle.py",
+    "AST prepare.py",
+    "AST wifi-owner.py",
+    "AST worker-observer.py",
+    "bash -n source/wifictl",
+    "bash -n source/cheevos_dolphin.after.sh",
+    "same shared custody AST identity",
+    "same shared custody AST census",
+    "same shared custody AST children",
+    "same shared custody AST tree",
+    "same shared custody AST same",
+    "same shared custody AST signal_child",
+    "same shared custody AST write",
+    "same shared custody AST reap",
+    "original worker AST unchanged same",
+    "original worker AST unchanged write",
+    "original worker AST unchanged reap",
+    "Additive observers contain no optional task/children reads or numeric kill/killpg",
+    "Exact original four control binaries/backend/modes/assertions preserved; observer-only custody derivative",
+    "Final census unknown defaults to None; independent error-aware receipt publication",
+    "Unchanged exporter file4096 ceiling reserves one slot for manifest",
+    "candidate helper and Wii gate previously verified against exact committed product47dda767",
+    "AST final guest-audit.py",
+    "AST final guest-wifi-observer.py",
+    "AST final host-audit.py",
+    "AST final originals/host-action.py",
+    "AST final originals/observe-proof.py",
+    "AST final originals/qualified-census-probe.py",
+    "AST final originals/vm-lifecycle.py",
+    "AST final prepare.py",
+    "AST final wifi-owner.py",
+    "AST final worker-observer.py",
+    "Original worker try-body AST byte-equivalent after removing sole new pidfd-support assertion",
+    "Original full seal validated /tmp/pix-m7-wifi-normal-exit-20261015",
+    "Original full seal validated /tmp/m7-native-gameplay-lifecycle-20261015-03",
+    "Actual compiler consumed-receipt nested original_result schema and three zero exits",
+    "Three retained compiler artifact hashes/sizes match actual files; no execution"
+  ],
+  "source_review_limits": [
+    "No preparation, compiler, driver, service, VM or launch executed",
+    "Exact QEMU/serial/owner/manifest runner retained; additive scripts unqualified until root execution",
+    "640x480 only;1280x800 and final installed-image acceptance pending",
+    "Back timing includes host overhead; original failure remains failure",
+    "Frame pixels and actual process behavior cannot be established by AST"
+  ],
+  "original_packet_seals": {
+    "worker": "84e0fdd157206d39f90eb8d02e2f657110e5c7589b67c6f1f6c30272851ebf3f",
+    "compiler": "8443c7aedadfb01251b2325854dae9ffd3ee965ce90dd9e7c3934399e7cc6db2",
+    "native": "c9d6faa5bb47950f5c73f947bf03fa925ba2fbdebc8a4d0c5ffb3824ae02379d"
+  },
+  "custody_revision": {
+    "source": "originals/qualified-census-probe.py",
+    "source_sha256": "9b82d4ee556b3803dda405b62918d6e192ea9a9ca69f0c610e3a1e2faf402860",
+    "basis": "Successful #594 revision02 numeric proc-stat census, pidfd signal and error-aware finalizer",
+    "original_observer_sha256": "0e0cb549e57ac97861d321263d71c0ace720e963fe7154433ec7a240a6c9786a",
+    "runtime": "UNRUN; no fixture import or payload execution"
+  },
+  "peer_source_review": {
+    "agent": "/root/m7_audit_resume",
+    "status": "No remaining source blocker identified; runtime unqualified",
+    "reviewed_file_hashes": {
+      "worker-observer.py": "239a3977dd5800ee30b6ad56fb9655e200a24cb7a561e1e6d78e38cfca45bff0",
+      "guest-wifi-observer.py": "f895b41eabc7f22d764b0ba1856ef5c873eb71c2b8d2dafd3c50fe14aa9636e3",
+      "wifi-owner.py": "489337cd093a73403f34940007adcab8cbf197c3025fa94ffbddae9d0437120c",
+      "guest-audit.py": "2fc54fbb42f7aca880cac39d5df0d452c396202c10be44360e3c599854e06978",
+      "host-audit.py": "c0d8be6427e838b58c7b84b226132a8cbef8c9d4184ee9c9fb51c48248705c7a"
+    },
+    "last_preparer_correction": "Root identified and checked original_result dictionary schema; only named command_rc/monitor_rc/runner_rc fields required zero."
+  }
+}

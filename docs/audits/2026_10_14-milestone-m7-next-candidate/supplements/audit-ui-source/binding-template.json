@@ -1,0 +1,24 @@
+{
+  "status": "SOURCE_PREPARED_BOUND_COMPILER_RESULT_RUNTIME_UNRUN",
+  "guest_build_commit": "d4af5a255f4778a6ecf63ca5b37e05a0f1c83e3a",
+  "installed_inputs": {
+    "/usr/bin/emulationstation": "8ce916365c4cf98919c6357b8311d0820a36e2da676949fe67038a6edd745036",
+    "/usr/bin/wifictl": "c89ed28a50e4be78468fcee25dcfd68e0b1c67af25657c3d0ba9318c7576a48c",
+    "/usr/bin/cheevos_dolphin.sh": "e77cbee0b7cbe0765d4723f9ccc58459ef142f6987038512f75a06ee2ab22bec",
+    "/usr/bin/start_dolphin_wii.sh": "096c09b83b4c2ab555eb509fbe16628082dfb5dd76fa0b60ad5b0b9a18046488",
+    "/usr/bin/runemu.sh": "deb95aee74d3ddd80638a9ab2f940f5b3b080f4d3ec01f669ea8dbd44179ad20"
+  },
+  "candidate_es_sha256": "067defd8c760ae9085b1faba1ada643812be494be39e5690a472ab241258ab5d",
+  "candidate_es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+  "candidate_product_commit": "47dda767c7afc47020a3f21ab19a4493bfd5ff8a",
+  "candidate_helper_sha256": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a",
+  "source_sha256": {
+    "source/wifictl": "a4f81211023ccd7a2fdf7d02495cc8d6235940337bec5453b97ec2df8aa050ba",
+    "source/launcher-wii.after.snippet": "f365d6319de66f53bf7d9638b80a620d5fc5f0cfc5470a9abccca76f81400403",
+    "source/launcher-wii.before.snippet": "d97d7ae227f34eae8560d7908af1e6f8554cebf70a35cb3422e319a5f6c2ddd7",
+    "source/cheevos_dolphin.after.sh": "01473794711dafd9607e1b6894ec482e34820807b81e1c45c352d5da9768c28a"
+  },
+  "readback_result_sha256": "57575bcb84179c00e5e71ff341494b30f3103627d7bca2047588dc4dd4b5654d",
+  "compiler_packet_seal": "8443c7aedadfb01251b2325854dae9ffd3ee965ce90dd9e7c3934399e7cc6db2",
+  "source_mode": "explicit-overlay-on-d4af; not new-image installed acceptance"
+}
