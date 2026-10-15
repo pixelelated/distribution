@@ -11,6 +11,18 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-15 04:09 UTC — image built; #597 reporting recovery precedes testing
+
+Frozenf8636de1/ES16dbac completed all four canonical build stages and the original
+command/monitor/runner with0 in408.624s. Exact source and producer cleanup are
+verified. Root prematurely created the launcher's tool-wrapper.rc as a submission
+receipt; exclusive final publication failed and launcher-result.json is absent.
+The final launcher wait status remains unknown. #597 owns an explicit reviewed
+admission recovery and narrow artifact-verifier derivative; no original receipt
+is rewritten. This reporting failure does not establish a firmware defect or
+justify replaying successful compilation. Recovery must preserve the failure
+before actual artifact readback, clean/retained checks, and native-state proof.
+
 ## 2026-10-15 03:48 UTC — focused audit fixes complete; build next
 
 All six audit findings now have resolved scoped outcomes in

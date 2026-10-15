@@ -8,6 +8,53 @@ Harness conflict-resolution untouched. Actual host PID namespace4026531836;
 host/network/outside-workspace writes require escalated exec. No formal goal.
 Saving is not a pause. No runtime/compiler/external call currently active.
 
+## Latest 04:19 UTC — artifact verified; final clean VM preparation
+
+#597 reporting recovery completed through committed coordinator tool26d2f6abce,
+68 isolated checks and independent review. Original build consumed d564b1dc with
+qualification=false, launcher wait null, outputs held, deleted_bytes=0.
+Artifact reader owner /workspace/tmp/pix-m7-image-readback-20261015-02: final
+run041715Z-2a16d693 consumed8a98fa71 with all original outcomes0; 109 installed
+product rows, GPT and raw/update SYSTEM+KERNEL passed. Actual resultSHA
+3d3b85724062a6db2f7bddc5dd62aeb1366f0f6182f267a7b0e6131322c0649c; inputsSHA
+7c3f497b08f494d15a233ae99be05e61af1656aec173120b00b41dd0266e2728. Build reporting
+limitations retained in both. Initial reader041615Z-0203ce36 refused125 before
+admission/payload because coordinator prepare differed from frozen runner tool.
+Originals preserved; fresh frozen-tool admission and reader-launcher subowner
+were used. Recovery alone uses the new coordinator tool; ordinary admission uses
+the exact frozen runner tool. No original receipt rewritten.
+
+Clean affected owner /workspace/tmp/pix-m7-final-clean-affected-20261015-01 is
+prepared for VNC145, packet668755cb, frozen sourcef863/ES16dbac. Preflight refused
+with swap1470MiB free before any VM; installed guarded swap reclaim now running
+under root exec session99666, followed by normal retention/admission/launch.
+Root alone operates runtime/input. Next retained affected, native e7326fe6,
+audit closure, H700 then SM8550. Audit dir remains exclusively m7_audit_resume.
+
+## Latest04:06 — build finished; launcher reporting recovery #597 active
+
+NO compiler/VM/external call active. Frozenf863 build02 fourstages and original
+command/monitor/runner0, owner/resourcesPASS,408.624s; allprocessesgone. But root
+prematurelywrote tool-wrapper.rc with submission0, causing actuallauncher
+exclusivecreateErrno17. launcher-result.json absent; finalwaitstatus UNKNOWN
+(sourceinfers2 only). Root0file is NOToriginal launcherreceipt. Consoleb3f510a5,
+launchersource3777c68f; alloriginals preserved. Do NOT create missingreceipts,
+editregistry, re-run producer, consume usingordinarypath, or startnewruntime.
+#597 https://github.com/pixelelated/distribution/issues/597 owns explicitrecovery.
+
+frame_diff_review owns coordinator tools/host-maintenance/build-admission,
+test-build-admission,build-admission.md for explicit reason-gated recovery;
+ordinaryconsume staysunchanged. m7_audit_resume owns auditdir, independentlyreviews.
+dolphin_ra_init owns new/tmp/pix-m7-image-readback-recovery-20261015-01 derivative
+replacingonly knownlauncher-success gates after exactfailureevidence/consumed
+reportingfailure record; everyproductcheck stays. Root owns rule/worklog/friction,
+actualhostfailureevidence and recoveryexecution. No actual recovery performed.
+Coordinator branchfeature/m7-final-qualification published1a520868; dirtyroot
+records+sourceQAarchives andauditagent work. Frozenbuild f863untouched.
+Afterreviewedrecovery: actualartifactreadback, clean/retained668755cb, native
+e7326fe6, finalaudit, H700/SM8550. Statepacketpreflight matches19source/seven
+packagedexpectations; replacement20mtools actualhash/links verifiedandheld.
+
 ## Latest03:54 — integrated engineering build ACTIVE
 
 Coordinator branch is now feature/m7-final-qualification at published next
