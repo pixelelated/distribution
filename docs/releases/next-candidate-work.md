@@ -11,6 +11,26 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-16 06:13 UTC — Bounded H700 exit reproduction and memory guard (#615)
+
+[Physical investigation](../qa-logs/2026-10-16-h700-browser-exit-615/README.md):
+early Escape closes the loading window with kernel down/up and natural focus;
+its controller then fails on a duplicate timestamp argument, retained as1.
+A separate longer attempt hits the unchanged pressure guard at35.66s before
+Escape; minimum180.0MiB available, later PSI some26.09/full20.81 avg10. Third
+normal-close control at25s returns0 in2.211632s, observer0, no guard. No loaded
+Dropbox frame was captured, so original loaded-page Escape remains inconclusive.
+No product fix or one-time-glitch claim. The instrumentation's overhead remains
+unattributed; next use a lean observer and per-process/page-readiness evidence.
+
+All163 protected files/25,549,175bytes and configuration/credentials/modes are
+unchanged; same boot/frontend. All six test services exited,33 exact owned
+scratch files removed after export; independent final readback has no failed
+unit/browser/WebKit/OAuth/rclone/test keyboard. No game, auth, cloud mutation,
+reboot or update. First incidental read-only achievements navigation is private.
+#615 stays open for the remaining attribution. #613 and #607–610 retain their
+independent order; #528 and website remain separate.
+
 ## 2026-10-16 05:01 UTC — Browser exit VM proof complete (#614)
 
 [Source-bound focused proof](../qa-logs/2026-10-16-browser-exit-614/README.md)

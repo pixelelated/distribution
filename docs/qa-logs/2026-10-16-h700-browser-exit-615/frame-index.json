@@ -1,0 +1,66 @@
+{
+  "product": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+  "es": "16dbac5211eea7e70db7394372033be2be7df829",
+  "frames": [
+    {
+      "file": "early-loading.png",
+      "sha256": "67a0b8dbd65f55d6582c37edef517f799aa45f5cee4388d593cf74a2da7bc3a0",
+      "reviewed": true,
+      "note": "Opening spinner before successful early Escape.",
+      "size": [
+        640,
+        480
+      ]
+    },
+    {
+      "file": "early-return.png",
+      "sha256": "ff6fc802e4206b6db5cc8141ae2e0042bba54fa35bb87a043e60a124b66a07dc",
+      "reviewed": true,
+      "note": "Same frontend sign-in return; credential-free unfinished setup.",
+      "size": [
+        640,
+        480
+      ]
+    },
+    {
+      "file": "normal-before.png",
+      "sha256": "88c6283972e9a0d75738746b2299a0921c797507f75d5fb87dff395b0b562bfc",
+      "reviewed": true,
+      "note": "Blank provider content with browser controls at25s; not proof of loaded Dropbox.",
+      "size": [
+        640,
+        480
+      ]
+    },
+    {
+      "file": "normal-immediate-return.png",
+      "sha256": "441da7236f6ffdd8fb4cdfa2d9ce7b8d8df8cf2f7a8e82c530714d92266ce613",
+      "reviewed": true,
+      "note": "Black compositor frame captured after an explicit3-second post-close wait; final rendered carousel proves eventual recovery, whose latency is unmeasured.",
+      "size": [
+        640,
+        480
+      ]
+    },
+    {
+      "file": "cancelled.png",
+      "sha256": "e35b7fd18da47ddf0193e883fb928818c8da3cfc6a19bdf959fd76feb5a6d15f",
+      "reviewed": true,
+      "note": "Cloud Connections after cancellation; only the original connection remains.",
+      "size": [
+        640,
+        480
+      ]
+    },
+    {
+      "file": "carousel.png",
+      "sha256": "3fc1416dbef9dc274c81e07789fbc126a5a3b78140d4210ce76d76148e35320e",
+      "reviewed": true,
+      "note": "Rendered carousel after final navigation; same frontend PID/boot.",
+      "size": [
+        640,
+        480
+      ]
+    }
+  ]
+}

@@ -2,6 +2,54 @@
 
 ## Start here
 
+pixelelated is an immutable handheld Linux distribution. Read next AGENTS.md,
+every-session/scoped rules, live M7 and this checkpoint. Coordinator is
+/workspace/repos/rocknix.worktrees/m7-player-setup on feature/m7-audit-integration-603;
+primary /workspace/repos/rocknix stays next. Harness conflict-resolution is untouched.
+Product077197e6cd3ea31f33b28aaf3882a694b3423b53 / ES16dbac5211eea7e70db7394372033be2be7df829
+remain unchanged. Check actual Git state for publication; this handoff is retained
+with the diagnostic evidence, not a claim about an unverified remote push.
+
+Saved 2026-10-16T06:13:54.850417+00:00. #615 performed three owner-authorized H700 browser trials.
+Read docs/qa-logs/2026-10-16-h700-browser-exit-615/README.md, summary.json,
+frame-index.json, preservation.json, cleanup-readback.json and verify.py.
+Early Escape worked while the page was opening; its controller then failed1 on
+logging, preserved. Longer attempt was stopped by unchanged low-memory guard at
+35.66s BEFORE planned Escape; observer1/trial1 retained. Normal close at25s
+returned0 in2.211632s, observer0, no guard. Provider content was still blank, so
+no actual loaded-page exit proof. #615 stays OPEN; original cause unknown.
+No product fix selected. #614's focused VM proof stays accepted.
+
+All163 protected files/25,549,175bytes, settings/credentials/paths/modes remain
+unchanged. Same device boot067a27f1-143d-4fe8-83cd-937560a5c87b and frontend2696/start5810.
+Three device /tmp diagnostic directories retired after exact export/hash checks;
+all original services exited. Final readback: only ES among observed roles,
+no failed units, no test keyboards,556.8MiB available. No device/VM/build/audit or
+provider job remains active. Do not repeat an update/reboot or claim a watcher.
+Private originals and helper/host receipts: /tmp/pix-m7-h700-exit-repro-20261016-01.
+Personal screenshots and complete protected-file inventories stay private there.
+Public compact originals contain34 selected files and six reviewed frame copies.
+
+## Next work
+
+1. #615 loaded-page/memory attribution: first account for observer/controller
+   overhead and obtain per-process PSS plus actual page-readiness evidence with
+   a lean observer. Use accepted VM controls where applicable. Keep memory and
+   90s emergency limits; no repetitive page launches or blind guard relaxation.
+   Existing fixtures are historical, allocation-specific and already retired.
+2. #613 fallback systems-config link, upstream/source review then VM normal and
+   fallback precedence proof. #607–610 before affected Nova deployment. RG SP
+   and Nova retainbc9d; no new transfer started. #611 guidance is backlog.
+3. #528 public source/notices/retrieval/backup/security and website remain separate.
+   Pending source-contact/root-read requests below stay pending, not re-asked.
+
+## Earlier accepted history (execution queue superseded above)
+
+Previous checkpoint archived at .github/sessions/archived/saved-session-state-next-20261016T061354Z.md.
+
+
+## Start here
+
 pixelelated is an immutable Linux distribution built by cross-compilation.
 Read current next AGENTS.md/every-session rules, this checkpoint, and live M7.
 Coordinator /workspace/repos/rocknix.worktrees/m7-player-setup is on

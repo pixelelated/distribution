@@ -978,3 +978,12 @@ bind the unchanged presentation; keyboard/uinput/installed-close/loopback phone
 handler return to the same frontend. Synthetic local page, not provider login or
 physical controller/phone qualification. Initial failed observer is retained;
 only the armed-observer repeat is accepted. No navigation or copy change landed.
+
+### 2026-10-16 — Bounded native browser return observation (#615)
+
+[Unchanged077197 / ES16dbac flow and six reviewed frames](qa-logs/2026-10-16-h700-browser-exit-615/README.md)
+retain the normal Add connection → Dropbox → on-screen keyboard → return/cancel
+flow. Early Escape and normal close return; loaded-page Escape remains unproved
+because the longer attempt hits a pressure guard. Black frame after an explicit3-second post-close wait
+is explicit; rendered final carousel proves eventual recovery, not latency.
+No screen content, navigation, product source or baseline was changed.

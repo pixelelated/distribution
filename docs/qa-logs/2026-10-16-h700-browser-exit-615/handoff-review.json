@@ -1,0 +1,20 @@
+{
+  "reviewer": "handoff_615_review",
+  "scope": "context-free read-only checkpoint/evidence review; no device/network/runtime",
+  "result": "three documentation corrections applied",
+  "verified": [
+    "34 original hashes",
+    "all evidence SHA256SUMS",
+    "six reviewed frames",
+    "original 0/1 outcomes",
+    "cleanup and preservation receipt consistency"
+  ],
+  "limits": [
+    "private before/after inventories not independently opened by reviewer"
+  ],
+  "corrections": [
+    "both branch pointers now name current coordinator and615 priority",
+    "post-close black frame explicitly after at least3s, recovery latency unmeasured",
+    "round02/03 observer lifetime and action timing changes explicit; emergency thresholds unchanged"
+  ]
+}

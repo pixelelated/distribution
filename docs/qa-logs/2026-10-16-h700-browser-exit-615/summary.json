@@ -1,0 +1,160 @@
+{
+  "scope": "bounded physical H700 browser-exit investigation",
+  "overall": "INCONCLUSIVE_LOADED_PAGE_ESCAPE",
+  "no_product_changes": true,
+  "trials": [
+    {
+      "owner": "pix-qa615",
+      "trial": {
+        "case": "attempt1",
+        "actions": [
+          {
+            "mode": "instant",
+            "at": 17976.02972456,
+            "pressed": true,
+            "live_after": false,
+            "elapsed": 2.856842876997689
+          }
+        ],
+        "browser": {
+          "pid": 111495,
+          "start": 1795724,
+          "role": "cloud-signin-window",
+          "state": "R"
+        },
+        "observed": 17957.472427285,
+        "focus_before": [
+          {
+            "id": 8,
+            "pid": 111495,
+            "app_id": "cloud-signin-window",
+            "focused": true
+          }
+        ],
+        "error": "TypeError(\"dict() got multiple values for keyword argument 'at'\")",
+        "elapsed": 26.571921812002984
+      },
+      "observer": {
+        "error": null,
+        "guards": [],
+        "rc": 0,
+        "elapsed": 66.69109373600077
+      },
+      "samples": 66,
+      "min_available_kib": 420944,
+      "max_some_psi_avg10": 19.15
+    },
+    {
+      "owner": "pix-qa61502",
+      "trial": {
+        "case": "loaded-escape",
+        "actions": [],
+        "browser": {
+          "pid": 114830,
+          "start": 1816058,
+          "role": "cloud-signin-window",
+          "state": "R"
+        },
+        "observed": 18160.815897188,
+        "error": "AssertionError('browser_closed_before_input')",
+        "elapsed": 47.10020477600119
+      },
+      "observer": {
+        "error": null,
+        "guards": [
+          {
+            "reason": "low_memory",
+            "pid": 114830
+          }
+        ],
+        "rc": 1,
+        "elapsed": 86.02440014899912
+      },
+      "samples": 84,
+      "min_available_kib": 184340,
+      "max_some_psi_avg10": 26.09
+    },
+    {
+      "owner": "pix-qa61503",
+      "trial": {
+        "case": "normal-close",
+        "actions": [
+          {
+            "mode": "normal-close",
+            "at": 18358.319692658,
+            "rc": 0,
+            "elapsed": 2.211632358001225,
+            "live_after": false
+          }
+        ],
+        "browser": {
+          "pid": 118114,
+          "start": 1833232,
+          "role": "cloud-signin-window",
+          "state": "D"
+        },
+        "observed": 18332.690264196,
+        "focus_before": [
+          {
+            "id": 12,
+            "pid": 118114,
+            "app_id": "cloud-signin-window",
+            "focused": true
+          }
+        ],
+        "live_final": false,
+        "focus_final": [
+          {
+            "id": 13,
+            "pid": 2696,
+            "app_id": "emulationstation",
+            "focused": true
+          }
+        ],
+        "processes_final": [
+          {
+            "pid": 2533,
+            "start": 5399,
+            "role": "sway",
+            "state": "S"
+          },
+          {
+            "pid": 2696,
+            "start": 5810,
+            "role": "emulationstation",
+            "state": "S"
+          },
+          {
+            "pid": 117709,
+            "start": 1829808,
+            "role": "cloud_oauth",
+            "state": "S"
+          },
+          {
+            "pid": 117780,
+            "start": 1830091,
+            "role": "rclone",
+            "state": "S"
+          },
+          {
+            "pid": 119000,
+            "start": 1836310,
+            "role": "cloud_oauth",
+            "state": "R"
+          }
+        ],
+        "guards": false,
+        "elapsed": 36.56761610200192
+      },
+      "observer": {
+        "error": null,
+        "guards": [],
+        "rc": 0,
+        "elapsed": 57.70237590200122
+      },
+      "samples": 57,
+      "min_available_kib": 347784,
+      "max_some_psi_avg10": 8.29
+    }
+  ]
+}
