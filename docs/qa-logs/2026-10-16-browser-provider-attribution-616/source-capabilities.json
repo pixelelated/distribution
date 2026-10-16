@@ -1,0 +1,34 @@
+{
+  "checked_utc": "2026-10-16T17:56:29Z",
+  "webkit_version": "2.54.1",
+  "source_root": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1",
+  "scope": "Source and historical GENERIC configuration inspection; no new compile or installed API experiment",
+  "files": {
+    "javascript_setting": {
+      "path": "Source/WebKit/UIProcess/API/glib/WebKitSettings.cpp",
+      "sha256": "13d32a7c05ee1a1ecc31500875d8917a00b975b75eab37a6336ce3c47ff2322b"
+    },
+    "content_filter_store": {
+      "path": "Source/WebKit/UIProcess/API/glib/WebKitUserContentFilterStore.cpp",
+      "sha256": "73f15ecc8b5c4740fcb8604c5d307d217c6997f89cdb6e56fa37ba8d5034d4bf"
+    },
+    "content_filter_attachment": {
+      "path": "Source/WebKit/UIProcess/API/glib/WebKitUserContentManager.cpp",
+      "sha256": "33655c9b2e55962eb2946ecd28bd9bae073ecd950dc993cc528c90b2654348bf"
+    },
+    "historical_generic_configuration": {
+      "path": ".x86_64-rocknix-linux-gnu/cmakeconfig.h",
+      "sha256": "c8ed5b2cb9312e4956664ba3f9355a4e4ac26a8adb128489c97f489f14e60567"
+    }
+  },
+  "configuration": {
+    "ENABLE_CONTENT_EXTENSIONS": true,
+    "ENABLE_REMOTE_INSPECTOR": true,
+    "ENABLE_RESOURCE_USAGE": true
+  },
+  "product_browser": {
+    "path": "projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c",
+    "sha256": "39af3e041d9871c4fb636cff71934ddf3ea13c690002e77af5ea6d82d8fff4f8",
+    "configured_javascript_switch_or_content_filter": false
+  }
+}

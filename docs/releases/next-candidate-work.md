@@ -12,6 +12,16 @@ before its clean-install/upgrade checks can run; those checks hold RC designatio
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
 
+## 2026-10-16 17:56 UTC — Current browser attribution order (#616)
+
+D-WORKFLOW-169 puts #616's staged real-provider/page/script comparison before
+implementing a proxy stop policy. [Retained-sample reanalysis](../qa-logs/2026-10-16-browser-provider-attribution-616/README.md)
+finds365–416MiB in the page process without a proxy; no script/root cause is yet
+identified. New provider/JS profiling is UNRUN. #587's busy-stop timeout remains
+a prerequisite to any service suspension; #615 physical loaded-page behavior is
+still inconclusive. #613, affected Nova #607–610 and separate public-release
+work retain their order. Earlier dated next-step paragraphs below are historical.
+
 ## 2026-10-16 17:18 UTC — VM browser headroom and busy-stop counterexample (#587, #615)
 
 [Exact-source packet](../qa-logs/2026-10-16-browser-headroom-587/README.md)

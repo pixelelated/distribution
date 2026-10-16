@@ -1,9 +1,9 @@
 # Saved Session State
 
-> **Saved:** 2026-10-16T17:18:28Z
+> **Saved:** 2026-10-16T17:56:29Z
 > **Branch:** `feature/m7-audit-integration-603`
 > **Repository:** `pixelelated/distribution`; integration branch `next`
-> **Request:** Continue VM browser headroom tests, preserving browser functionality and safe service recovery.
+> **Request:** Attribute browser/page memory and responsiveness across providers and user agents before selecting a service-stop or script-filter policy.
 
 ## Start here
 
@@ -16,7 +16,7 @@ not a designated public RC. The OS name and cloud default are lowercase
 1. Read current `next:AGENTS.md`, its every-session `.claude/rules/` files, and
    scoped rules before touching their paths. Read the `session-resume` skill.
 2. Read this checkpoint, the [live M7 ordered plan](https://github.com/pixelelated/distribution/milestone/7),
-   `docs/releases/next-candidate-work.md` and active issues #587/#615. Historical
+   `docs/releases/next-candidate-work.md` and active issues #616/#587/#615. Historical
    queues in archived checkpoints are not the current plan.
 3. Read `docs/qa-logs/2026-10-16-browser-headroom-587/README.md`, `analysis.json`,
    `originals/busy-stop.json`, `originals/recovery.json` and run `verify.py`.
@@ -37,14 +37,25 @@ outside Git. Device read output must exclude `key|pass|token|user|psk` lines.
 
 ## Current focus
 
-Preserve the browser on1GiB devices by investigating safe temporary service
-shutdown. The new #587 VM evidence finds26.27MiB more available memory in a small
-synthetic workload and successful normal restarts, but also a **busy-stop timeout
-and SIGKILL at15seconds**. A production pause/stop policy is not selected. The
-next work is a safe quiescence/cancellation and restoration contract, followed by
-fresh VM interruption tests, then a separately scoped H700 loaded-page trial.
+#616 owns the current page/provider and script-versus-reclaim investigation.
+D-WORKFLOW-169 refines the order: prepare matched real Dropbox/Google Drive/
+OneDrive and light-page VM controls, first with RAM headroom then changing only
+RAM to1GiB, before implementing service suspension. Compare UA separately and
+profile only after a low-overhead baseline. The new runtime matrix is UNRUN.
 
-## Completed this session and publication
+Read `docs/qa-logs/2026-10-16-browser-provider-attribution-616/README.md` and run
+its read-only `analyse-retained.py --repo .`. Retained October13 samples show
+365–416MiB in the page process without a proxy, but do not identify a heavy script
+or root cause. JS/filtering APIs exist; no product blocklist/UA change is selected.
+The earlier26.27MiB synthetic proxy gain is headroom, not a cause or provider cure.
+#587's busy-stop timeout remains a safety prerequisite before any service stop;
+#615's physical loaded-page exit remains inconclusive. No runtime is active.
+
+The source/evidence review and new tracker are complete; the next allocation needs
+fresh admission/owner/guards, account-free actual-provider fixture preparation and
+observer-overhead controls. See #616 for the detailed plan and error-page exclusions.
+
+## Previous completed headroom experiment and publication
 
 - D-RA-048 promotes #587 into current M7.P5 beside #615. The owner's verbatim
   request and each VM-first plan are in #587; M7 current/next order is updated.
@@ -107,18 +118,16 @@ Sway#5423 USB/input report is not a match for the virtual keyboard evidence.
 
 The milestone body is the ordered plan. The following is its current handoff:
 
-1. **#587 / #615:** inspect `proxy_service.py:run_proxy_service`'s synchronous
-   initial flush before the stop_event loop, service.py's signal/event propagation,
-   flusher.py/network.py blocking I/O and the actual15s unit timeout. Design an
-   atomic quiescence or bounded cancellation contract with no busy-check/stop race;
-   preserve queue/cache/account routing and restore only a previously active
-   service that this session stopped. Prove busy worker/slow response, failed
-   launch, browser exit/crash, stale owner, disabled service, restart failure and
-   duplicate acknowledgement behavior on a fresh VM allocation. Do not adopt
-   SIGSTOP (it retains memory), unconditional stop, or only a larger timeout.
-   Source preparation/candidate review comes before a new runtime. Then prepare
-   a bounded real-page H700 test; #615 loaded-page Escape remains inconclusive.
-   The completed fixtures are historical absolute paths, not replay commands.
+1. **#616, with #587 / #615 retained:** prepare a source-bound actual-provider
+   benchmark from #616's staged VM-first plan. Existing October13 fixtures contain
+   retired absolute owners/ports; adapt them to a fresh allocation, never replay
+   old owners. Measure light-page/Dropbox/Drive/OneDrive readiness, per-process
+   memory/CPU/reclaim and input latency, with policy/error outcomes separate.
+   Hold engine, UA, viewport, normal ES handoff and service state fixed; change RAM
+   separately, then UA and profiling. No account submission or cloud transfer.
+   Before any production stop policy, #587 still requires atomic quiescence or
+   bounded cancellation/restoration with slow-response/queue/lifecycle proofs.
+   H700 physical corroboration follows portable attribution; #615 remains open.
 2. **#613:** next independent package task. Inspect upstream and exact package
    source, correct the unused `/etc` systems-config fallback link into build
    staging, then prove normal selected-storage precedence and fallback on the VM.
@@ -148,9 +157,11 @@ Retired guest owner: `/workspace/tmp/pix-m7-headroom-vm-20261016-02`.
 Compact export: `/workspace/tmp/pix-m7-headroom-evidence-20261016-01`.
 Frozen run: `/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/.build-runs/20261016T165313Z-96219fda`.
 Matrix run: coordinator `.build-runs/20261016T170036Z-509ef5cb`.
-Publication CI, if launched after this checkpoint, has its own owner/receipts
-inside the private preparation directory; inspect actual results. No off-session
-notifier is claimed. The first refused allocation01 has no VM.
+Headroom publication947e0b3de0 and recovery recordaa3f36b4e2 are on both ordinary
+refs with all three hosted checks passed and original watcher exits0. The original
+CI poll failure1 is retained. This #616 documentation/reanalysis update follows
+that record; inspect current Git/hosted results rather than inferring publication.
+No off-session notifier is claimed. The first refused allocation01 has no VM.
 
 Useful read-only checks from the coordinator:
 
@@ -160,7 +171,7 @@ git log -3 --oneline
 git ls-remote origin refs/heads/next refs/heads/feature/m7-audit-integration-603
 python3 -I docs/qa-logs/2026-10-16-browser-headroom-587/verify.py
 gh api repos/pixelelated/distribution/milestones/7 --jq .description
-gh issue view 587 --repo pixelelated/distribution
+gh issue view 616 --repo pixelelated/distribution
 ```
 
 Use `tools/archaeology` before declaring another issue new. A new runtime gets
