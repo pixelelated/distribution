@@ -1,0 +1,134 @@
+[
+  {
+    "path": "frames/main-menu-frame.png",
+    "sha256": "865547ca830984a143ccf8204f01215dc40970ca3b1316a5b7900c6465227eb5",
+    "dimensions": [
+      640,
+      480
+    ],
+    "reviewed": true,
+    "observation": "Main menu renders on the physical 640x480 compositor.",
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "es_source": "16dbac5211eea7e70db7394372033be2be7df829"
+  },
+  {
+    "path": "frames/game-settings-frame.png",
+    "sha256": "e8d7415c15585f908771aeaa8864e992af8058a19557072dec137ad55d7fe6be",
+    "dimensions": [
+      640,
+      480
+    ],
+    "reviewed": true,
+    "observation": "Game settings renders; no setting changed.",
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "es_source": "16dbac5211eea7e70db7394372033be2be7df829"
+  },
+  {
+    "path": "frames/provider-list-frame.png",
+    "sha256": "8b47ee626b0ff37865a6d28b9ae2bcf84f4479bdc70818694e0a551bcd1715c7",
+    "dimensions": [
+      640,
+      480
+    ],
+    "reviewed": true,
+    "observation": "Recommended providers appear.",
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "es_source": "16dbac5211eea7e70db7394372033be2be7df829"
+  },
+  {
+    "path": "frames/add-dropbox-form-frame.png",
+    "sha256": "31c9eb459e67571a453bea9ceec19d470bbc255b0370963f90507a06a2c3aa37",
+    "dimensions": [
+      640,
+      480
+    ],
+    "reviewed": true,
+    "observation": "Separate connection form proposes dropbox2 while preserving the existing connection.",
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "es_source": "16dbac5211eea7e70db7394372033be2be7df829"
+  },
+  {
+    "path": "frames/signin-choice.png",
+    "sha256": "63f7a63ea26a0631aa2ff3d90ab3b4084e66fc9cac83926a23f4c1884419b4a4",
+    "dimensions": [
+      640,
+      480
+    ],
+    "reviewed": true,
+    "observation": "On-screen/phone keyboard choice before browser launch.",
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "es_source": "16dbac5211eea7e70db7394372033be2be7df829"
+  },
+  {
+    "path": "frames/browser-open-frame.png",
+    "sha256": "e8caba5cf67a9560fc6184542f17ceff4f1b87a8d5a8bac6b69d41271f8aa099",
+    "dimensions": [
+      640,
+      480
+    ],
+    "reviewed": true,
+    "observation": "Loading surface; not evidence of completed loading.",
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "es_source": "16dbac5211eea7e70db7394372033be2be7df829"
+  },
+  {
+    "path": "frames/browser-loaded.png",
+    "sha256": "f3d45b60564349b4f536f0d119de1d2b85436f23cde63f8a02d9f12ff099a8e1",
+    "dimensions": [
+      640,
+      480
+    ],
+    "reviewed": true,
+    "observation": "Public Dropbox page and on-screen keyboard; no credentials entered.",
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "es_source": "16dbac5211eea7e70db7394372033be2be7df829"
+  },
+  {
+    "path": "frames/browser-close02-frame.png",
+    "sha256": "d8cfe892190860cc19b2858d82fd95b3cd409bfeb9e4c0b7b42ae5931c639758",
+    "dimensions": [
+      640,
+      480
+    ],
+    "reviewed": true,
+    "observation": "Public cookie overlay remains after synthetic Escape; delivery/consumption unproved.",
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "es_source": "16dbac5211eea7e70db7394372033be2be7df829"
+  },
+  {
+    "path": "frames/browser-return02-frame.png",
+    "sha256": "ff6fc802e4206b6db5cc8141ae2e0042bba54fa35bb87a043e60a124b66a07dc",
+    "dimensions": [
+      640,
+      480
+    ],
+    "reviewed": true,
+    "observation": "ES returns to incomplete sign-in after watchdog termination.",
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "es_source": "16dbac5211eea7e70db7394372033be2be7df829"
+  },
+  {
+    "path": "frames/cancel-signin-back-frame.png",
+    "sha256": "e35b7fd18da47ddf0193e883fb928818c8da3cfc6a19bdf959fd76feb5a6d15f",
+    "dimensions": [
+      640,
+      480
+    ],
+    "reviewed": true,
+    "observation": "Back cancels the test attempt; existing connection remains.",
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "es_source": "16dbac5211eea7e70db7394372033be2be7df829"
+  },
+  {
+    "path": "frames/return-to-carousel-frame.png",
+    "sha256": "e48a58daefd6866f8d695364517bafc9d04671f9448a91a0adbbd23ae74291c4",
+    "dimensions": [
+      640,
+      480
+    ],
+    "reviewed": true,
+    "observation": "Same frontend returns to normal system carousel.",
+    "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "es_source": "16dbac5211eea7e70db7394372033be2be7df829"
+  }
+]

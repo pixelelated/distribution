@@ -11,6 +11,21 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-16 02:24 UTC — Initial smoke accepted in scope; browser exit proof incomplete (#344, #614)
+
+[Physical smoke evidence](../qa-logs/2026-10-16-rg35xxsp-initial-smoke/README.md)
+records stable native services, reviewed 640x480 menus, real unauthenticated
+Dropbox loading through normal ES handoff and complete selected-state preservation.
+The 90s guard ended the browser case while normal close was in progress; original
+rc1/time limit remains incomplete. Same frontend/boot recovered, OAuth idle and
+all test processes/input removed. No OOM; no full login, phone or gameplay proof.
+
+#614 is the next focused VM check for input/normal-close attribution, alongside
+#613 package fallback cleanup. #607–610 still precede affected Nova deployment.
+RG SP uses the H700 family but has no new transfer/result. No extra device needs
+to be powered on for this portable follow-up; existing public/private separation
+and #528 requirements remain. Earlier dated records remain historical.
+
 ## 2026-10-16 01:05 UTC — Private RG35XX SP update accepted (#344)
 
 [Exact deployment and preservation evidence](../qa-logs/2026-10-16-rg35xxsp-private-update/README.md)

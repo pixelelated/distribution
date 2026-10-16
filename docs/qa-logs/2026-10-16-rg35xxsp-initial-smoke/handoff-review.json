@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-16T02:28:07.796818+00:00",
+  "reviewer": "/root/smoke_handoff_review",
+  "mode": "context-free read-only resume proof",
+  "result": "PASS_AFTER_CORRECTION",
+  "findings": [
+    "Current source/deployment and original rc1 versus overlapping close rc0 are correctly scoped.",
+    "Private preservation manifests independently compared equal except measurement duration.",
+    "Reviewed loading/cookie-overlay/return frames support their named observations.",
+    "Pre-record commit reference corrected from historical b245b192 to fb932eb1fe44072f37e3127e895181869c39084c; reviewer reread confirms resolution."
+  ],
+  "limits": [
+    "Reviewer refreshed no device state and ran no tests.",
+    "No normal-exit, authentication, phone, physical-button, audio or gameplay pass inferred."
+  ]
+}

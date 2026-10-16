@@ -10,39 +10,54 @@ Harness conflict-resolution stays untouched. Inspect Git/remote heads to establi
 record publication; no product source changed after077197. Device secrets and
 personal evidence remain private; never print configs or commit their contents.
 
-Saved 2026-10-16T01:05:26.675230+00:00. Private RG35XX SP update is COMPLETE. The owner's
-October 16 transfer and one reboot are consumed; do not replay. No runtime job
-remains. [Deployment](../../docs/qa-logs/2026-10-16-rg35xxsp-private-update/README.md)
-records stage 005220Z-1e0080ba, reboot 005615Z-800bd9a5, all original0/owners exited,
-new boot 067a27f1-143d-4fe8-83cd-937560a5c87b, exact installed 077197 bytes and163-file
-preservation. Cloud auto-sync stays off. RG SP and Nova retain bc9d; no new authority.
-Strict host identity is resolved through the preexisting trusted LAN key matching
-Tailnet, using HostKeyAlias 192.168.1.81 and StrictHostKeyChecking=yes; do not use
-the alias's old permissive defaults. The old host-key request is superseded.
+Saved 2026-10-16T02:24:28.996036+00:00. The RG35XX SP initial smoke is COMPLETE in scope;
+its browser subcase is INCOMPLETE_TIME_LIMIT, original rc1. Owner's latest request
+permits initial tests while absent. Do not repeat the already accepted transfer
+or reboot. No runtime job remains. Exact source 077197 / ES16dbac on the physical
+RG35XX SP retains boot 067a27f1-143d-4fe8-83cd-937560a5c87b; same ES PID2696/start5810.
+
+Read [initial smoke evidence](../../docs/qa-logs/2026-10-16-rg35xxsp-initial-smoke/README.md)
+and its summary/frame index. Basic services/UI pass; real public Dropbox page
+loads via normal ES handoff. No credentials entered. Memory reached 216.9MiB
+available / PSI avg10 4.59; no OOM or low-memory guard. The independent 90s guard
+sent TERM while installed normal close ran, so no normal-exit pass is claimed.
+Synthetic Escape did not visibly close and delivery/focus was uninstrumented.
+Back cancelled setup, normal carousel returned. All 163 protected files and every
+selected credential/configuration/path/mode are unchanged; autosync stays off.
+No browser/OAuth/rclone/test keyboard remains. Private originals/config/save
+manifests stay /tmp/pix-m7-rg35xxsp-initial-smoke-20261016-01; never publish them.
 
 ## Next steps
 
-1. Owner may test this private dev image. No screenshots, input, games or cloud
-   changes are part of the consumed transfer/reboot authorization.
-2. #613: inspect current upstream for the unused /etc/emulationstation/es_systems.cfg
-   build-host-prefix symlink, make the small package correction and prove fallback
-   and normal precedence on VM before another candidate/public RC. Active storage
-   mapping is valid;126 systems have no affected GameCube/Wii/Steam entries.
-3. #607–610 affected-platform/public-RC findings remain; #611 is guidance backlog.
-   Finish those before affected deployment. #528 public source/licence/retrieval/
-   backup and security/docs/identity requirements stay separate from private use.
-   ABL/MAME contacts remain pending separately; website #511/#605 is its own lane.
+1. #614: read live issue/body, retained originals and exact installed source;
+   isolate Escape delivery/focused WebView and normal close on a VM with normal
+   close well before a separate emergency deadline. Inspect upstream reports
+   before any proposed product fix. Do not replay the successful update or
+   call the time limit an OOM. Existing VM/build qualification stays accepted.
+2. #613: small unused /etc systems-config symlink correction, upstream check and
+   fallback/normal precedence VM proof before the next candidate/public RC.
+3. #607–610: Steam registry/recovery/literal metadata and failed-RVZ retry fixes
+   before affected Nova deployment, then scoped rebuild/artifact/VM qualification.
+   RG SP/Nova remain on bc9d; no additional transfer was run. Latest owner proposes
+   powering them on after confidence in initial tests, not an immediate action.
+4. Keep #528 public-source/licence/retrieval/backup/security/docs requirements and
+   pending ABL/MAME contacts separate from private testing. Website #511/#605 is
+   independent; #611 is recovery-guidance backlog.
 
-Private original evidence is /tmp/pix-m7-h700-rg35xxsp-deploy-20261016-01;
-full config/save manifests must remain there. Compact sanitized originals are
-committed with this record. A failed extra reader hit a broken fallback symlink;
-its stderr remains, corrected reader succeeded. No source/build replay needed.
+Ordinary scoped commits/pushes and tracker maintenance remain authorized. This
+record is documentation/evidence only; verify Git/remote heads for publication.
+Use coordinator feature/m7-audit-integration-603, preserve primary next/harness.
+Strict SSH uses Hostname 100.74.205.40, HostKeyAlias 192.168.1.81,
+StrictHostKeyChecking=yes, UserKnownHostsFile /home/max/.ssh/known_hosts,
+HostKeyAlgorithms=ssh-ed25519. The existing trusted key matches; never use the
+alias's former permissive defaults. Tests use tools/device-act and exact state
+checks. Read the named plan before any new physical run; portable #614 work is next.
 
 ## Accepted background and historical evidence
 
-The prior checkpoint is archived at `.github/sessions/archived/saved-session-state-next-20261016T010526Z.md`. Its completed
-audit/source/VM sections below remain valid; any earlier device-preparation
-queue is historical and superseded by the successful handoff above.
+Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261016T022428Z.md`. The earlier
+transfer/audit/source/VM records below retain their original scope. Their old
+execution queues are superseded by the steps above, not instructions to replay.
 
 ## Integration history correction
 
@@ -61,7 +76,7 @@ corrected history. Check actual remote state for the subsequent record commit.
 Coordinator `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
 `feature/m7-audit-integration-603`; primary `/workspace/repos/rocknix` stays on
 `next`. Harness checkout `conflict-resolution` stays untouched. Committed evidence
-head before this record update is b245b192b0b1d324b81deef1d54ce6519734aa76; read current Git/remote state
+head before this smoke record is fb932eb1fe44072f37e3127e895181869c39084c; read current Git/remote state
 before assuming a later docs commit has landed. This record change retains
 accepted evidence and updates documentation only; inspect Git for publication state. Product source is
 077197e6cd3ea31f33b28aaf3882a694b3423b53, ES16dbac5211eea7e70db7394372033be2be7df829,

@@ -1,0 +1,66 @@
+{
+  "utc": "2026-10-16T02:20:29.194065+00:00",
+  "issue": 344,
+  "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+  "es_source": "16dbac5211eea7e70db7394372033be2be7df829",
+  "boot_id": "067a27f1-143d-4fe8-83cd-937560a5c87b",
+  "basic_health_and_ui": "PASS",
+  "browser_result": "INCOMPLETE_TIME_LIMIT",
+  "authenticated_provider_flow": "NOT_RUN",
+  "physical_buttons_audio_gameplay": "NOT_RUN",
+  "preservation": {
+    "result": "PASS",
+    "all_selected_metadata_equal": true,
+    "protected_payload_count": 163,
+    "protected_payload_bytes": 25549175,
+    "recovery_entries": 3,
+    "configuration_credentials_paths_unchanged": true,
+    "automatic_sync_off": true
+  },
+  "health": {
+    "same_boot_and_service_identities": true,
+    "failed_units": 0,
+    "kernel_error_entries": false,
+    "oom_matches": false,
+    "available_before_kib": [
+      597536,
+      596872,
+      596872
+    ],
+    "available_after_kib": [
+      563628,
+      575468,
+      582944
+    ]
+  },
+  "browser": {
+    "samples": 66,
+    "min_available_kib": 222108,
+    "peak_memory_psi_avg10": 4.59,
+    "webprocess_peak_pss_kib": 372755,
+    "frontend_pss_first_browser_sample_kib": 64447,
+    "frontend_pss_last_prebrowser_sample_kib": 105994,
+    "guard_reason": "browser_time_limit",
+    "guard_original_rc": 1,
+    "normal_close_original_rc": 0,
+    "normal_close_overlapped_deadline": true,
+    "memory_stop_threshold_reached": false,
+    "credentials_entered": false,
+    "recovered_same_frontend": true
+  },
+  "closure": {
+    "boot_id": "067a27f1-143d-4fe8-83cd-937560a5c87b",
+    "transient_processes": [],
+    "guard_pid_absent": true,
+    "tested_browser_pid_absent": true,
+    "test_oauth_pid_absent": true,
+    "oauth_status": "idle",
+    "temporary_input_devices": 0
+  },
+  "limitations": [
+    "Transient memory reclaim observed; no full login or universal speed claim.",
+    "Synthetic Escape did not visibly close; input delivery/focus was not instrumented.",
+    "Normal close overlapped guard; cannot assign window termination to normal close.",
+    "Guard selected process census omitted Python3.14; global memory/PSI and full before/after census are available."
+  ]
+}
