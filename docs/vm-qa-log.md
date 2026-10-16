@@ -322,3 +322,24 @@ Fresh no-NIC VM20 allocations,8GiB/4CPU640×480. English640 long-card refusal/re
 ## 2026-10-15T23:01:01.316591+00:00 — #606 current RetroArch save qualification
 
 [Exact proof and reviewed frames](qa-logs/2026-10-15-retroarch606-proof03/README.md), commitcd894172871ee1655986c8c7045342b219601b14. Current077197/ES16dbac no-NIC guest: ordinary SRAM, manual numbered state, unchanged numbered bytes/nsmtime, new exit AUTO and manager visibility separately verified. Raw engine shell wait0, same engine/frontend identities, no survivors; disk/OVMF retired after compact custody. Original producer03 retains1 for wrong-log bookkeeping; independently reviewed originals-only reader20261015T225813Z-227074bb passes0/0/0. Default keyboard attempt02 unresolved, final marker stat unobserved. This resolves #603 AC-53 without broader restoration/physical claim.
+
+## 2026-10-16 05:01 UTC — Browser exit VM proof complete (#614)
+
+[Source-bound focused proof](qa-logs/2026-10-16-browser-exit-614/README.md)
+passes four guarded cases on077197/ES16dbac: keyboard Escape, short-lived uinput,
+installed normal close (0.27249s), and installed phone POST handler over guest
+loopback. Same ES/boot, natural focus, observed key consumption, no guard firing,
+no leftover browser/OAuth/input; nine reviewed640×480 frames. Clean-install
+selected-state gate passes. All original host channels0, admission consumed,
+owned VM stopped and2.48GB disposable disk/firmware retired.
+
+First observer failed on absent PSI; original service1/cleanup assertion1 and
+initial cases remain preserved/excluded from guarded qualification. Corrected
+observer requires live heartbeat/service checks and all four cases were repeated.
+The earlier H700 failed Escape is not reproduced and its cause remains unknown;
+its original90s incomplete result is unchanged. No new memory cure, full Dropbox,
+physical phone/pad or gameplay claim. Product bytes/presentation are unchanged.
+
+Portable #614 no longer blocks continued private H700 testing. Next #613 fallback
+link and #607–610 affected-platform work precede next-candidate/Nova qualification.
+#528 public release and website remain separate. No runtime job remains active.

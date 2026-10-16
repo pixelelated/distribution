@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "qemu-escape",
+      "status": "PASS",
+      "browser": {
+        "pid": 7905,
+        "start": 63689,
+        "exe": "cloud-signin-window",
+        "argv": "/usr/bin/cloud-signin-window http://127.0.0.1:53682/page 0.1 --exit-hint SELECT + START ",
+        "state": "S"
+      },
+      "frontend": [
+        [
+          2387,
+          9057
+        ]
+      ],
+      "action": "QEMU escape"
+    },
+    {
+      "case": "instant-uinput",
+      "status": "PASS",
+      "browser": {
+        "pid": 8817,
+        "start": 66107,
+        "exe": "cloud-signin-window",
+        "argv": "/usr/bin/cloud-signin-window http://127.0.0.1:53682/page 0.1 --exit-hint SELECT + START ",
+        "state": "S"
+      },
+      "frontend": [
+        [
+          2387,
+          9057
+        ]
+      ],
+      "action": "{\"bad_name_rejected\": true, \"escape_enqueued\": true, \"immediate_destroy\": true, \"at\": 668.635054234, \"ended\": 669.200060157}\nPIX_LOADER_125_INSTANT_UINPUT_ACTION_RC:0\n"
+    },
+    {
+      "case": "normal-close",
+      "status": "PASS",
+      "browser": {
+        "pid": 9772,
+        "start": 68494,
+        "exe": "cloud-signin-window",
+        "argv": "/usr/bin/cloud-signin-window http://127.0.0.1:53682/page 0.1 --exit-hint SELECT + START ",
+        "state": "S"
+      },
+      "frontend": [
+        [
+          2387,
+          9057
+        ]
+      ],
+      "action": "{\"before\": {\"pid\": 9772, \"start\": 68494}, \"started\": 692.551674088, \"elapsed\": 0.2724939639999775, \"original_rc\": 0, \"stdout\": \"\", \"stderr\": \"\", \"browser_pid_gone\": true, \"guard\": false}\nPIX_LOADER_139_NORMAL_CLOSE_ACTION_RC:0\n"
+    },
+    {
+      "case": "phone-handler",
+      "status": "PASS",
+      "browser": {
+        "pid": 10686,
+        "start": 70834,
+        "exe": "cloud-signin-window",
+        "argv": "/usr/bin/cloud-signin-window http://127.0.0.1:53682/page 0.1 --exit-hint SELECT + START ",
+        "state": "S"
+      },
+      "frontend": [
+        [
+          2387,
+          9057
+        ]
+      ],
+      "action": "{\"transport\": \"guest loopback to installed phone POST handler\", \"results\": [{\"action\": \"type\", \"status\": 204, \"at\": 715.665874064, \"elapsed\": 0.040493157000014435}, {\"action\": \"escape\", \"status\": 204, \"at\": 716.706481912, \"elapsed\": 0.014218408000033378}]}\nPIX_LOADER_153_PHONE_HANDLER_ACTION_RC:0\n"
+    }
+  ]
+}

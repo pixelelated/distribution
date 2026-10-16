@@ -1,0 +1,46 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/.build-runs/20261016T044241Z-ada9487e",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 614,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-browser-exit-vm-20261016-01",
+      "release_when": "Review untouched clean/ZeroTier originals and owner cleanup; consume admission then guarded retirement of only this owner."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-browser-exit-evidence-20261016-01/config.json",
+      "sha256": "226ff4a1cd18c0a04b40081b17adec83d2bc7794acec4d6ed79ad48c73f5a3bf"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-browser-exit-evidence-20261016-01/export-result.json",
+      "sha256": "e6f6e6f904af9f6330e2d6f867e5bed555dcb9a758589e4f28b0ffa5c742bc22"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-browser-exit-evidence-20261016-01/host-exits.json",
+      "sha256": "9a609cd1dcdb08b753d6c5c85d03ebcb67fb5042845dcd358738f718ad2594ad"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-browser-exit-evidence-20261016-01/original-records.json",
+      "sha256": "165eaaa3a7ce65e359e838dbdd375ed96302628bcd125f8d112b253cad6c0428"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-browser-exit-evidence-20261016-01/original-records.tar.gz",
+      "sha256": "4f55c3b1ae88a4429004b2e7ab0abb614c991aea897f90a5a972cd138fe9d59b"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-browser-exit-evidence-20261016-01/private-originals-held.json",
+      "sha256": "27cd3e3845600ad94ac44c4eb695d4753bf1863dd865af079b46968b811d61e0"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-browser-exit-evidence-20261016-01/vm-result.json",
+      "sha256": "3f4e32221369c4ccecaae2ab94e117bf01c1cf94e99cada22e3856ec51a4f687"
+    }
+  ],
+  "requires_coordinator_review": true,
+  "channels_coherent": true,
+  "monitor_succeeded": true
+}

@@ -1,0 +1,61 @@
+{
+  "rc": 0,
+  "observer": {
+    "rc": 0,
+    "error": null,
+    "guards": [],
+    "elapsed": 164.91770450400008,
+    "stopped": true
+  },
+  "commands": [
+    {
+      "argv": [
+        "systemctl",
+        "show",
+        "--no-pager",
+        "qa614-observer02",
+        "-p",
+        "Result",
+        "-p",
+        "ExecMainCode",
+        "-p",
+        "ExecMainStatus",
+        "-p",
+        "ActiveState"
+      ],
+      "rc": 0,
+      "stdout": "Result=success\nExecMainCode=0\nExecMainStatus=0\nActiveState=inactive\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "umount",
+        "/usr/bin/rclone"
+      ],
+      "rc": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "systemctl",
+        "unset-environment",
+        "CLOUD_SIGNIN_DEBUG"
+      ],
+      "rc": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/rclone",
+        "listremotes"
+      ],
+      "rc": 0,
+      "stdout": "",
+      "stderr": "2026/10/16 00:55:26 NOTICE: Config file \"/storage/.config/rclone/rclone.conf\" not found - using defaults\n"
+    }
+  ],
+  "rclone_restored": true,
+  "kernel_failures": []
+}

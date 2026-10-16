@@ -2,62 +2,76 @@
 
 ## Start here
 
-pixelelated is an immutable handheld Linux distribution built by cross-compilation.
-Read current next AGENTS.md/every-session rules, then this checkpoint and the live
-M7 milestone body. Coordinator is /workspace/repos/rocknix.worktrees/m7-player-setup
-on feature/m7-audit-integration-603; primary /workspace/repos/rocknix stays next.
-Harness conflict-resolution stays untouched. Inspect Git/remote heads to establish
-record publication; no product source changed after077197. Device secrets and
-personal evidence remain private; never print configs or commit their contents.
+pixelelated is an immutable Linux distribution built by cross-compilation.
+Read current next AGENTS.md/every-session rules, this checkpoint, and live M7.
+Coordinator /workspace/repos/rocknix.worktrees/m7-player-setup is on
+feature/m7-audit-integration-603; primary /workspace/repos/rocknix stays next.
+Harness conflict-resolution is untouched. Verify current Git/remote heads for
+publication. Product077197e6cd3ea31f33b28aaf3882a694b3423b53 and
+ES16dbac5211eea7e70db7394372033be2be7df829 have not changed.
 
-Saved 2026-10-16T02:24:28.996036+00:00. The RG35XX SP initial smoke is COMPLETE in scope;
-its browser subcase is INCOMPLETE_TIME_LIMIT, original rc1. Owner's latest request
-permits initial tests while absent. Do not repeat the already accepted transfer
-or reboot. No runtime job remains. Exact source 077197 / ES16dbac on the physical
-RG35XX SP retains boot 067a27f1-143d-4fe8-83cd-937560a5c87b; same ES PID2696/start5810.
+Saved 2026-10-16T05:01:03.795146+00:00. **#614 focused VM check is COMPLETE in scope.**
+Read docs/qa-logs/2026-10-16-browser-exit-614/README.md, repeat-result.json,
+frame-index.json and verify.py. Four guarded installed-browser exit cases PASS:
+QEMU Escape, immediate-destroy uinput Escape, normal close0.27249s and installed
+phone POST handler over guest loopback. Same ES2387/start9057/boot, natural focus,
+actual input consumption, clean return/cancel, no leftover OAuth/browser/input.
+Original host launcher/wrapper/build/command/monitor/runner/VM channels all0,
+admission31a92b1ba23646ea888ab65fbd23baba consumed, owned disk/OVMF retired.
+No build, VM, provider audit, browser or deployment job is active.
 
-Read [initial smoke evidence](../../docs/qa-logs/2026-10-16-rg35xxsp-initial-smoke/README.md)
-and its summary/frame index. Basic services/UI pass; real public Dropbox page
-loads via normal ES handoff. No credentials entered. Memory reached 216.9MiB
-available / PSI avg10 4.59; no OOM or low-memory guard. The independent 90s guard
-sent TERM while installed normal close ran, so no normal-exit pass is claimed.
-Synthetic Escape did not visibly close and delivery/focus was uninstrumented.
-Back cancelled setup, normal carousel returned. All 163 protected files and every
-selected credential/configuration/path/mode are unchanged; autosync stays off.
-No browser/OAuth/rclone/test keyboard remains. Private originals/config/save
-manifests stay /tmp/pix-m7-rg35xxsp-initial-smoke-20261016-01; never publish them.
+First observer failed because PSI is absent; original service1 and cleanup
+assertion1 remain preserved. Its misleading private rc0 is explicitly rejected.
+Initial cases do not count as guarded proof; observer02 checks live heartbeat,
+active service and exceptions and the four cases were fully repeated. Nine
+reviewed640×480 frames and761 immutable original records are compactly retained.
+The previous physical H70090s outcome remains INCOMPLETE_TIME_LIMIT, and its
+failed synthetic Escape is not reproduced or causally explained by the VM.
+This is no memory-savings/real-provider/physical phone/controller/gameplay claim.
 
 ## Next steps
 
-1. #614: read live issue/body, retained originals and exact installed source;
-   isolate Escape delivery/focused WebView and normal close on a VM with normal
-   close well before a separate emergency deadline. Inspect upstream reports
-   before any proposed product fix. Do not replay the successful update or
-   call the time limit an OOM. Existing VM/build qualification stays accepted.
-2. #613: small unused /etc systems-config symlink correction, upstream check and
-   fallback/normal precedence VM proof before the next candidate/public RC.
-3. #607–610: Steam registry/recovery/literal metadata and failed-RVZ retry fixes
-   before affected Nova deployment, then scoped rebuild/artifact/VM qualification.
-   RG SP/Nova remain on bc9d; no additional transfer was run. Latest owner proposes
-   powering them on after confidence in initial tests, not an immediate action.
-4. Keep #528 public-source/licence/retrieval/backup/security/docs requirements and
-   pending ABL/MAME contacts separate from private testing. Website #511/#605 is
-   independent; #611 is recovery-guidance backlog.
+1. #613: inspect current upstream and exact package source for the unused /etc
+   systems-config link; make the small correction with fallback/normal-precedence
+   VM proof before the next candidate/public RC. Preserve accepted active mappings.
+2. #607 Steam registry, #608 recovery identity, #609 failed-RVZ retry and #610
+   literal metadata assignments precede affected Nova deployment; use scoped
+   branches/source review, applicable fixes and installed/native qualification.
+   #611 recovery guidance is backlog. No additional transfer is in progress.
+3. Private H700 owner testing can continue on the already updated RG35XX SP.
+   No accepted update or reboot should be repeated. RG SP/Nova still retainbc9d;
+   named per-action authority and affected-platform readiness apply before any
+   new deployment. Portable #614 is complete; do not replay accepted VM matrices.
+4. #528 exact source/notices/retrieval/backup/security/publication obligations
+   remain separate from private testing. ABL/MAME contacts are pending and unsent.
+   Website #511/#605 is independent; #558/#561 remain watches.
 
-Ordinary scoped commits/pushes and tracker maintenance remain authorized. This
-record is documentation/evidence only; verify Git/remote heads for publication.
-Use coordinator feature/m7-audit-integration-603, preserve primary next/harness.
-Strict SSH uses Hostname 100.74.205.40, HostKeyAlias 192.168.1.81,
-StrictHostKeyChecking=yes, UserKnownHostsFile /home/max/.ssh/known_hosts,
-HostKeyAlgorithms=ssh-ed25519. The existing trusted key matches; never use the
-alias's former permissive defaults. Tests use tools/device-act and exact state
-checks. Read the named plan before any new physical run; portable #614 work is next.
+## Device and source custody
+
+RG35XX SP accepted update077197 / timestamp20261015T161744Z, boot
+067a27f1-143d-4fe8-83cd-937560a5c87b and ES2696/start5810 at last physical readback.
+All163 protected files/25,549,175bytes and selected credentials/config/modes stayed
+unchanged; autosync off. No device was accessed during #614. Physical originals
+stay private at /tmp/pix-m7-rg35xxsp-initial-smoke-20261016-01; never publish them.
+Strict SSH Hostname100.74.205.40, HostKeyAlias192.168.1.81, existing known_hosts
+/home/max/.ssh/known_hosts, StrictHostKeyChecking=yes, HostKeyAlgorithms=ssh-ed25519.
+Device commands use tools/device-act and existing named scope, not permissive
+aliases. Latest owner is absent and asked for VM confidence first.
+
+VM lifecycle owner /workspace/tmp/pix-m7-browser-exit-vm-20261016-01 is stopped;
+run m7-p5-build-20261015-03/.build-runs/20261016T044241Z-ada9487e is consumed.
+Its vm/ is empty. Compact accepted evidence is retained under the QA path above;
+fixtures contain absolute allocation paths and are historical, not ready-to-run
+new allocations. Read-only verifier: python3 -I docs/qa-logs/2026-10-16-browser-exit-614/verify.py.
+Current source remains frozen077197; ordinary scoped records/commits/pushes and
+tracker maintenance remain authorized. Root serializes runtime and reports actual
+completion; watch-build alone does not deliver off-session chat notifications.
 
 ## Accepted background and historical evidence
 
-Previous checkpoint archived at `.github/sessions/archived/saved-session-state-next-20261016T022428Z.md`. The earlier
-transfer/audit/source/VM records below retain their original scope. Their old
-execution queues are superseded by the steps above, not instructions to replay.
+Previous checkpoint archived at .github/sessions/archived/saved-session-state-next-20261016T050103Z.md.
+The older audit/build/device history below retains its original scope; older
+execution queues are superseded by the next steps above.
 
 ## Integration history correction
 

@@ -11,6 +11,27 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-16 05:01 UTC — Browser exit VM proof complete (#614)
+
+[Source-bound focused proof](../qa-logs/2026-10-16-browser-exit-614/README.md)
+passes four guarded cases on077197/ES16dbac: keyboard Escape, short-lived uinput,
+installed normal close (0.27249s), and installed phone POST handler over guest
+loopback. Same ES/boot, natural focus, observed key consumption, no guard firing,
+no leftover browser/OAuth/input; nine reviewed640×480 frames. Clean-install
+selected-state gate passes. All original host channels0, admission consumed,
+owned VM stopped and2.48GB disposable disk/firmware retired.
+
+First observer failed on absent PSI; original service1/cleanup assertion1 and
+initial cases remain preserved/excluded from guarded qualification. Corrected
+observer requires live heartbeat/service checks and all four cases were repeated.
+The earlier H700 failed Escape is not reproduced and its cause remains unknown;
+its original90s incomplete result is unchanged. No new memory cure, full Dropbox,
+physical phone/pad or gameplay claim. Product bytes/presentation are unchanged.
+
+Portable #614 no longer blocks continued private H700 testing. Next #613 fallback
+link and #607–610 affected-platform work precede next-candidate/Nova qualification.
+#528 public release and website remain separate. No runtime job remains active.
+
 ## 2026-10-16 02:24 UTC — Initial smoke accepted in scope; browser exit proof incomplete (#344, #614)
 
 [Physical smoke evidence](../qa-logs/2026-10-16-rg35xxsp-initial-smoke/README.md)

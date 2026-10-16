@@ -968,3 +968,13 @@ No ES row, navigation or copy changes. Exercise the same native launch/return
 flow; the final installed startup proof must verify the previously missing badge
 resources and lifecycle. Existing ES frame baselines remain source-bound; this
 pending package proof does not establish new visual/gameplay evidence.
+
+### 2026-10-16 — Unchanged browser return flow qualified (#614)
+
+[Exact077197 / ES16dbac VM frames and input evidence](qa-logs/2026-10-16-browser-exit-614/README.md)
+exercise Game Settings → Manage Cloud Storage → Cloud Connections → Add connection
+→ Dropbox → Sign in → on-screen keyboard → return/cancel. Nine reviewed frames
+bind the unchanged presentation; keyboard/uinput/installed-close/loopback phone
+handler return to the same frontend. Synthetic local page, not provider login or
+physical controller/phone qualification. Initial failed observer is retained;
+only the armed-observer repeat is accepted. No navigation or copy change landed.
