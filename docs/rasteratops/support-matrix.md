@@ -7,12 +7,14 @@ GENERIC_X64, H700 and SM8550 engineering images now share distribution source
 `16dbac5211eea7e70db7394372033be2be7df829` and timestamp
 `20261015T161744Z`. They are held `dev` artifacts, not a designated public RC.
 The earlier mixed f863/9aa7 family below is historical. Existing October 11/12
-physical deployments remain on bc9dfe8141; no new device result is inferred.
+RG SP/Nova deployments remain on bc9dfe8141. RG35XX SP now has the October16
+[accepted private update](../qa-logs/2026-10-16-rg35xxsp-private-update/README.md)
+on077197: exact installed boot/payload bytes and163-file preservation, without new game/audio/panel evidence.
 
 | Target / board | Current accepted artifact and VM scope | Physical evidence still separate |
 | --- | --- | --- |
 | GENERIC_X64 / disposable VM | [Canonical build and independent reader](../qa-logs/2026-10-15-zerotier-generic-refresh/README.md), followed by [fresh and retained no-NIC VM checks](../qa-logs/2026-10-15-zerotier-vm-qualified/README.md) of selected state and installed ZeroTier lifecycle. The retained update is d6a to 077197. Earlier full-baseline continuations and native save-state proofs keep their original source bindings. | VM evidence does not establish a board's radio, panel, boot chain or native ARM behavior; no new unfiltered full-suite aggregate is claimed. |
-| H700 / RG35XX SP (DDR4), RG SP (DDR3) | [Both variants and shared update](../qa-logs/2026-10-15-zerotier-h700-refresh/README.md) pass exact SYSTEM/KERNEL/bootloader checks, 186 ARM handoffs, 19 affected mappings and selected-state checks. Bundle `a808df3dbffc6281b0bf698fbbbd97a526f16211d1195bcf13ebd5fccb7e3e5f`. | The [latest physical observations](../releases/device-facts.md) remain the October 11 RG35XX SP and October 12 RG SP deployments on bc9d; current-source physical smoke is outstanding for each board. |
+| H700 / RG35XX SP (DDR4), RG SP (DDR3) | [Both variants and shared update](../qa-logs/2026-10-15-zerotier-h700-refresh/README.md) pass exact SYSTEM/KERNEL/bootloader checks, 186 ARM handoffs, 19 affected mappings and selected-state checks. Bundle `a808df3dbffc6281b0bf698fbbbd97a526f16211d1195bcf13ebd5fccb7e3e5f`. | The RG35XX SP October16 update verifies077197 DDR4 boot chain, installed payloads, Tailscale and preservation. RG SP retains October12bc9d. Broader physical game/audio/panel evidence remains separate; see [device facts](../releases/device-facts.md). |
 | SM8550 / Retroid Pocket Nova | [Canonical build and independent reader](../qa-logs/2026-10-15-zerotier-sm8550-refresh/README.md) pass GPT/raw/update equality, five exact ABL files, 188 ARM handoffs, 53 affected mappings, 14 FEX payloads and selected-state checks. Bundle `ee397da7e520534ce1a393909fc4a5b8d54ffecf3d6611b1ae5548b2f920dca4`. | The latest physical deployment remains October 12 bc9d. Current-source boot/internal ABL chain and applicable board-specific smoke remain outstanding; artifact checks are not native FEX/Steam execution or a shutdown fix. |
 | RK3566 / RG353M | Deferred under D-WORKFLOW-114. | Not built or attached for 0.0.1. |
 

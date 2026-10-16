@@ -1,0 +1,44 @@
+{
+  "boot_id": "d351eba2-431e-4806-b75d-c9d94af476f5",
+  "settings": {
+    "automatic_sync": {
+      "cloudsaves.startup": [
+        "0"
+      ],
+      "cloudsaves.gameexit": [
+        "0"
+      ]
+    },
+    "startup_game_configured": false
+  },
+  "busy_cloud_processes": [],
+  "frontend_idle": [
+    true
+  ],
+  "units": {
+    "emustation.service": {
+      "Restart": "always",
+      "MainPID": "0",
+      "KillMode": "process",
+      "ActiveState": "inactive",
+      "SubState": "dead",
+      "FragmentPath": "/usr/lib/systemd/system/emustation.service",
+      "DropInPaths": "",
+      "UnitFileState": "disabled"
+    },
+    "essway.service": {
+      "Restart": "always",
+      "MainPID": "2591",
+      "KillMode": "control-group",
+      "ActiveState": "active",
+      "SubState": "running",
+      "FragmentPath": "/usr/lib/systemd/system/essway.service",
+      "DropInPaths": "",
+      "UnitFileState": "disabled"
+    }
+  },
+  "elapsed_seconds": 5.858,
+  "protected_files": 163,
+  "protected_bytes": 25549175,
+  "pending_marker_count": 0
+}

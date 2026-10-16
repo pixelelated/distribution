@@ -11,6 +11,20 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+## 2026-10-16 01:05 UTC — Private RG35XX SP update accepted (#344)
+
+[Exact deployment and preservation evidence](../qa-logs/2026-10-16-rg35xxsp-private-update/README.md)
+accepts the authorized transfer, one reboot and installed077197 bytes. All163
+protected files and configuration semantics are preserved; automatic cloud sync
+remains off. Strict existing-host-key verification and retained system mappings
+passed. Owner testing can begin; no game/input/frame/cloud proof is claimed.
+RG SP/Nova remain onbc9d. No build/VM/provider/deployment job remains active.
+
+Next address the small unused fallback systems-link defect#613 with upstream
+inspection and VM proof, alongside affected-platform findings#607–610. Existing
+#528 public-source and other release requirements remain; website is separate.
+Current authorization is consumed. Dated earlier statuses below are historical.
+
 ## 2026-10-15 23:05 UTC - Audit complete; private H700 handoff next (#603/#344)
 
 #603/#612/#606 are closed/completed. Both external passes are verified;67/67

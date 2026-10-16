@@ -14,7 +14,7 @@ tasks do not block owner-only testing merely because they are unfinished. The
 audit, code/data-safety fixes, artifact/VM proof and named device actions remain
 required. Current audit execution is recorded in
 [its running log](../audits/2026_10_15-milestone-603-completed-handoff/00-running-log.md).
-No device staging/reboot or public designation has occurred.
+October16 private RG35XX SP transfer and one reboot are [accepted](../qa-logs/2026-10-16-rg35xxsp-private-update/README.md), with exact installed077197 bytes and163-file preservation. Authority is consumed. #613 records an unused fallback-link defect for correction before public RC; no public designation has occurred.
 
 ## Earlier readiness - 2026-10-15 20:00 UTC (#344/#528/#603)
 

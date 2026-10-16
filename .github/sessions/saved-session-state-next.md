@@ -1,51 +1,48 @@
 # Saved Session State
 
-Updated 2026-10-15 23:05 UTC. Current engineering firmware and portable local
-source/notice delivery are accepted in their recorded scopes. Release-note draft,
-security readback and dependency reconciliation are complete; no build, VM or
-copy is active. Infrastructure topology remains deferred under D-WORKFLOW-113/125;
-release-source retrieval/backup remains a separate publication obligation.
+## Start here
 
-## Completed audit and immediate next action
+pixelelated is an immutable handheld Linux distribution built by cross-compilation.
+Read current next AGENTS.md/every-session rules, then this checkpoint and the live
+M7 milestone body. Coordinator is /workspace/repos/rocknix.worktrees/m7-player-setup
+on feature/m7-audit-integration-603; primary /workspace/repos/rocknix stays next.
+Harness conflict-resolution stays untouched. Inspect Git/remote heads to establish
+record publication; no product source changed after077197. Device secrets and
+personal evidence remain private; never print configs or commit their contents.
 
-#603, #612 and #606 are CLOSED/COMPLETED with exact checked-body readbacks.
-Audit commit26ee5190e8a5f7a400675cbb445251d25ad660f7; save evidence commit
-cd894172871ee1655986c8c7045342b219601b14. Verify current Git/remote state for
-the later tracker/checkpoint commit. No product source changes after077197.
-Both Fable5.1/xhigh calls completed with verified identity and original0 channels;
-do not rerun. Final literal score67PASS/67 after current #606 evidence. Two punch
-items resolved, five explicit follow-ups607–611 remain open. Resolution lint and
-full ceremony-check0 accept the hash-bound marker timestamp23:02:02.536778UTC.
-Actual parent closure and M7/#344 body readbacks are retained in the audit
-checks/parent-closeout; completion resets cadence, not product/publication holds.
+Saved 2026-10-16T01:05:26.675230+00:00. Private RG35XX SP update is COMPLETE. The owner's
+October 16 transfer and one reboot are consumed; do not replay. No runtime job
+remains. [Deployment](../../docs/qa-logs/2026-10-16-rg35xxsp-private-update/README.md)
+records stage 005220Z-1e0080ba, reboot 005615Z-800bd9a5, all original0/owners exited,
+new boot 067a27f1-143d-4fe8-83cd-937560a5c87b, exact installed 077197 bytes and163-file
+preservation. Cloud auto-sync stays off. RG SP and Nova retain bc9d; no new authority.
+Strict host identity is resolved through the preexisting trusted LAN key matching
+Tailnet, using HostKeyAlias 192.168.1.81 and StrictHostKeyChecking=yes; do not use
+the alias's old permissive defaults. The old host-key request is superseded.
 
-#606 current run03 (224512Z-038a66c6) performed ordinary SRAM/manual slot1/normal
-quit/new AUTO/manager proof on077197/ES16dbac, actual engine3219/start8818 and
-raw shell wait0. State1 bytes/hash/nsmtime unchanged; AUTO absent before quit
-and present afterward; reviewed manager shows both. Final fixture predicate
-wrongly looked for frontend -state_slot in exec.log, so original producer remains1
-and consumed failed-investigated. Marker absence stat was unreached and is not
-claimed. Separate independently reviewed originals reader225813Z-227074bb passed
-all original channels0 over455files/5,473,653B, accepting these retained observations.
-Default keyboard attempt02 remains unconfirmed; fixed no-NIC loopback command
-input exercised the actual installed engine. All three original attempts and
-reader source/review/results are held under docs/qa-logs/2026-10-15-retroarch606-*.
-All owned processes exited; three disposable disks/OVMF/emptyTMP retired after
-verified compact custody. No replay is needed; no build/VM/provider/device job active.
+## Next steps
 
-Next is the private RG35XX SP handoff under D-WORKFLOW-168. Exact current H700
-SYSTEM/menu inspection passed: no Steam/Dolphin payloads or default GameCube/Wii/
-Steam entries. #607/#608/#610 affect Steam deployments; #609 requires retained
-custom GameCube mappings to be inspected before handoff. These remain affected-
-deployment/public-RC gates. #611 is P3 recovery guidance. #528 public source/licence/
-retrieval/backup and #511/#605 website are separate; do not block private testing
-on publication work. Keep dev identity; do not create public tag/RC/assets.
+1. Owner may test this private dev image. No screenshots, input, games or cloud
+   changes are part of the consumed transfer/reboot authorization.
+2. #613: inspect current upstream for the unused /etc/emulationstation/es_systems.cfg
+   build-host-prefix symlink, make the small package correction and prove fallback
+   and normal precedence on VM before another candidate/public RC. Active storage
+   mapping is valid;126 systems have no affected GameCube/Wii/Steam entries.
+3. #607–610 affected-platform/public-RC findings remain; #611 is guidance backlog.
+   Finish those before affected deployment. #528 public source/licence/retrieval/
+   backup and security/docs/identity requirements stay separate from private use.
+   ABL/MAME contacts remain pending separately; website #511/#605 is its own lane.
 
-A read-only RG35XX SP SSH inspection question remains pending after automatic
-approval review rejected the existing non-retained-host-key alias. Do not bypass
-or duplicate it. No new staging/reboot authority follows from availability;
-previous deployment approvals were consumed. Source-contact questions remain
-separately pending and unsent; root-only stopped-media read is nonblocking.
+Private original evidence is /tmp/pix-m7-h700-rg35xxsp-deploy-20261016-01;
+full config/save manifests must remain there. Compact sanitized originals are
+committed with this record. A failed extra reader hit a broken fallback symlink;
+its stderr remains, corrected reader succeeded. No source/build replay needed.
+
+## Accepted background and historical evidence
+
+The prior checkpoint is archived at `.github/sessions/archived/saved-session-state-next-20261016T010526Z.md`. Its completed
+audit/source/VM sections below remain valid; any earlier device-preparation
+queue is historical and superseded by the successful handoff above.
 
 ## Integration history correction
 
@@ -64,7 +61,7 @@ corrected history. Check actual remote state for the subsequent record commit.
 Coordinator `/workspace/repos/rocknix.worktrees/m7-player-setup`, branch
 `feature/m7-audit-integration-603`; primary `/workspace/repos/rocknix` stays on
 `next`. Harness checkout `conflict-resolution` stays untouched. Committed evidence
-head before this record update is 26ee5190e8a5f7a400675cbb445251d25ad660f7; read current Git/remote state
+head before this record update is b245b192b0b1d324b81deef1d54ce6519734aa76; read current Git/remote state
 before assuming a later docs commit has landed. This record change retains
 accepted evidence and updates documentation only; inspect Git for publication state. Product source is
 077197e6cd3ea31f33b28aaf3882a694b3423b53, ES16dbac5211eea7e70db7394372033be2be7df829,
@@ -93,17 +90,20 @@ fixes/qualification precede private RG35XX SP testing, while source/licence
 publication work and the website do not gate that internal image. Public-release
 criteria remain. The owner may retain or discard an engineering version without
 publishing it. #344/#528 and M7 have matching body updates and readbacks in
-/tmp/pix-m7-private-test-boundary-20261015/. No device staging/reboot has occurred.
+/tmp/pix-m7-private-test-boundary-20261015/. That October 15 boundary preceded
+the successful October 16 private deployment recorded above.
 
 The owner specifically directed completion of #603. Its two authorized provider
-calls, current proof and audit resolution are complete; the next device boundary is above.
+calls, current proof and audit resolution are complete; the completed device
+handoff and consumed authorization are recorded above.
 No disconnected notifier is claimed and no provider call should be repeated.
 
 ## Completed current firmware and VM proof
 
 All three canonical builds and independent firmware readers passed, original
 command/monitor/runner/launcher0, ordinary admissions consumed. Same077197 source
-and timestamp; no new device deployment or public RC designation.
+and timestamp. Subsequent private RG35XX SP deployment is recorded above;
+no public RC designation follows.
 
 - GENERIC03 build161906Z-85b31cf2, reader163127Z-5682551e; reader consumed
   ee024372b00f4314afa9fc96495b83de. Readback owner
@@ -245,9 +245,8 @@ checkpoint archived at saved-session-state-next-20261015T173000Z.md.
    in docs/releases/0.0.1-release-preparation.md. Deferred infrastructure is separate.
 2. #603/#612/#606 are complete; preserve the accepted marker, original failures
    and exact packet identities. Do not repeat review/proof to repair paperwork.
-3. Prepare owner-only RG35XX SP testing: pending read-only host-key inspection,
-   retained custom mapping/preservation checks, then named staging/reboot actions.
-   D-WORKFLOW-168 separates public source/licence and website work.
+3. Owner-only RG35XX SP testing is handed off successfully on October 16; see
+   current status above. The exact transfer/reboot authority is consumed.
 4. Complete #528 dispositions, independent retrieval and required source backup
    custody, plus #344/#563 public physical/native, security, documentation, RC
    identity and publication requirements before public release. The ABL/MAME
@@ -260,7 +259,7 @@ from current MAME BSD source. Both exact drafted contacts await existing approva
 Settled68shader/JLayer/Doom/Koko dispositions are not reopened. #585 upstream
 contributions follow qualified work and applicable contact approval, not a new gate.
 
-Devices still run the October11bc9d baseline. #588 startup/#570 bounded browser/
+RG SP and Nova still run the October11bc9d baseline; RG35XX SP now runs077197. #588 startup/#570 bounded browser/
 #565 clean-retained controls and #349 guide are closed. Normal ES browser handoff
 saved about78MiB in VM, not a universal Dropbox cure;390KiB proxy-lazy-bytecode
 saving was not adopted. Nova metadata's original writer is unknown; fresh/retained
@@ -311,4 +310,6 @@ to65534. Preserve secrets and raw signed HTTP streams outside Git. Internal
 workers are not visible Herdr panes; historical Herdr lanes remain idle. No
 background build or notification service is implied by a saved checkpoint.
 
-Optional RG35XX SP read-only SSH inspection is separately pending approval after automatic review rejected the existing alias's nonpersisted host-key setup. Tailnet reports rg35xxsp/100.74.205.40 online, but strict SSH failed before connection. No device action occurred. Do not bypass that rejection or confuse this inspection question with staging/reboot authority.
+RG35XX SP host identity and deployment are resolved as recorded above. Use the
+strict existing known-host binding for later authorized reads. The October 16
+transfer and single reboot are consumed; never reuse those actions.
