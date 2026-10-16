@@ -1,0 +1,50 @@
+{
+  "head": "947e0b3de01ddbe4540a21349bd025b6711ebd43",
+  "checks": [
+    {
+      "id": 117102536149,
+      "name": "record",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/pixelelated/distribution/actions/runs/38939281812/job/117102536149"
+    },
+    {
+      "id": 117102536067,
+      "name": "wordlist",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/pixelelated/distribution/actions/runs/38939281761/job/117102536067"
+    },
+    {
+      "id": 117102535828,
+      "name": "wordlist",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/pixelelated/distribution/actions/runs/38939281763/job/117102535828"
+    }
+  ],
+  "remote_readback": "947e0b3de01ddbe4540a21349bd025b6711ebd43\trefs/heads/feature/m7-audit-integration-603\n947e0b3de01ddbe4540a21349bd025b6711ebd43\trefs/heads/next\n",
+  "initial_submission": {
+    "rc": 2,
+    "error": "watch-build-submit required an existing owner directory; no payload launched",
+    "scope": "CI watcher only"
+  },
+  "first_watcher_original": {
+    "utc": "2026-10-16T17:27:54.197485+00:00",
+    "pid": 2209122,
+    "runner_returncode": 1,
+    "submission_is_not_completion": true
+  },
+  "first_wrapper_rc": 1,
+  "first_failure": "Uncaught subprocess.TimeoutExpired from a30s GitHub check-runs poll; no CI conclusion inferred",
+  "recovery_original": {
+    "utc": "2026-10-16T17:29:34.814070+00:00",
+    "pid": 2233232,
+    "runner_returncode": 0,
+    "submission_is_not_completion": true
+  },
+  "recovery_wrapper_rc": 0,
+  "recovery_run": "/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261016T172929Z-bc290ac0",
+  "original_watchers_exited": true,
+  "scope": "Evidence commit only; no firmware or product changes"
+}

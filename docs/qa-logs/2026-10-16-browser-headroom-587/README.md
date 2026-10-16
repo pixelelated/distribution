@@ -138,3 +138,13 @@ next affected Nova deployment. #528 and website work remain separate.
   and zero shutdown matches, not an exhaustive absence claim.
   Shutdown cancellation is a possible #585 upstream contribution after a verified
   fix/current-upstream comparison, not an already submitted or accepted patch.
+
+## Publication monitor follow-up
+
+Evidence commit947e0b3de0 is on both ordinary refs and all three hosted checks
+passed. `publication.json` preserves the initial missing-owner submission2,
+first polling watcher1 after a30s GitHub API timeout, and recovery watcher0.
+The copied historical recovery helper records timed-out polls and retries within
+its overall900s deadline. It changes no shared build monitor. Hosted results and
+poller results remain separate; no failed original is rewritten. The independent
+handoff review and corrected stale records are retained in `handoff-review.json`.
