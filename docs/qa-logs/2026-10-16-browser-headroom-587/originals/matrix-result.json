@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "number": 1,
+      "state": "active",
+      "status": "PASS",
+      "readiness_observed_seconds": 2.867004906060174,
+      "browser": {
+        "pid": 4197,
+        "start": 43318,
+        "exe": "cloud-signin-window",
+        "comm": "cloud-signin-wi"
+      },
+      "close": "{\"before\": {\"pid\": 4197, \"start\": 43318}, \"started\": 449.672075498, \"elapsed\": 0.2985672889999478, \"original_rc\": 0, \"stdout\": \"\", \"stderr\": \"\", \"browser_pid_gone\": true, \"guard\": false}\nPIX_LOADER_118_NORMAL_CLOSE_RC:0\n",
+      "preservation": "{\"action\": \"verify\", \"signed_pending\": 2, \"integrity\": \"ok\", \"cached_login_patch_session\": \"PASS\", \"account_separation\": \"PASS\", \"pending_sha256\": \"a2410d3152b501fd3c6e6045d72e46e54b01f9a140ca1efdcecd4f4d1fe384e5\"}\nPIX_LOADER_124_PROXY_VERIFY_RC:0\n"
+    },
+    {
+      "number": 2,
+      "state": "stopped",
+      "status": "PASS",
+      "stop": "{\"action\": \"stop\", \"elapsed\": 0.5345302840000272, \"unit\": \"MainPID=0\\nResult=success\\nExecMainCode=1\\nExecMainStatus=0\\nActiveState=inactive\\nSubState=dead\\n\"}\nPIX_LOADER_126_PROXY_STOP_RC:0\n",
+      "readiness_observed_seconds": 4.2204448690172285,
+      "browser": {
+        "pid": 5270,
+        "start": 47826,
+        "exe": "cloud-signin-window",
+        "comm": "cloud-signin-wi"
+      },
+      "close": "{\"before\": {\"pid\": 5270, \"start\": 47826}, \"started\": 496.273075882, \"elapsed\": 0.32469706199998427, \"original_rc\": 0, \"stdout\": \"\", \"stderr\": \"\", \"browser_pid_gone\": true, \"guard\": false}\nPIX_LOADER_141_NORMAL_CLOSE_RC:0\n",
+      "restart": "{\"action\": \"start\", \"elapsed\": 1.034864669000001, \"unit\": \"MainPID=6203\\nResult=success\\nExecMainCode=0\\nExecMainStatus=0\\nActiveState=active\\nSubState=running\\n\"}\nPIX_LOADER_147_PROXY_START_RC:0\n",
+      "preservation": "{\"action\": \"verify\", \"signed_pending\": 2, \"integrity\": \"ok\", \"cached_login_patch_session\": \"PASS\", \"account_separation\": \"PASS\", \"pending_sha256\": \"a2410d3152b501fd3c6e6045d72e46e54b01f9a140ca1efdcecd4f4d1fe384e5\"}\nPIX_LOADER_149_PROXY_VERIFY_RC:0\n"
+    },
+    {
+      "number": 3,
+      "state": "stopped",
+      "status": "PASS",
+      "stop": "{\"action\": \"stop\", \"elapsed\": 0.2144726619999915, \"unit\": \"MainPID=0\\nResult=success\\nExecMainCode=1\\nExecMainStatus=0\\nActiveState=inactive\\nSubState=dead\\n\"}\nPIX_LOADER_151_PROXY_STOP_RC:0\n",
+      "readiness_observed_seconds": 4.504093949915841,
+      "browser": {
+        "pid": 6370,
+        "start": 52627,
+        "exe": "cloud-signin-window",
+        "comm": "cloud-signin-wi"
+      },
+      "close": "{\"before\": {\"pid\": 6370, \"start\": 52627}, \"started\": 544.716898709, \"elapsed\": 0.3163539769999488, \"original_rc\": 0, \"stdout\": \"\", \"stderr\": \"\", \"browser_pid_gone\": true, \"guard\": false}\nPIX_LOADER_166_NORMAL_CLOSE_RC:0\n",
+      "restart": "{\"action\": \"start\", \"elapsed\": 1.0366966579999826, \"unit\": \"MainPID=7322\\nResult=success\\nExecMainCode=0\\nExecMainStatus=0\\nActiveState=active\\nSubState=running\\n\"}\nPIX_LOADER_172_PROXY_START_RC:0\n",
+      "preservation": "{\"action\": \"verify\", \"signed_pending\": 2, \"integrity\": \"ok\", \"cached_login_patch_session\": \"PASS\", \"account_separation\": \"PASS\", \"pending_sha256\": \"a2410d3152b501fd3c6e6045d72e46e54b01f9a140ca1efdcecd4f4d1fe384e5\"}\nPIX_LOADER_174_PROXY_VERIFY_RC:0\n"
+    },
+    {
+      "number": 4,
+      "state": "active",
+      "status": "PASS",
+      "readiness_observed_seconds": 4.507484785048291,
+      "browser": {
+        "pid": 7482,
+        "start": 57458,
+        "exe": "cloud-signin-window",
+        "comm": "cloud-signin-wi"
+      },
+      "close": "{\"before\": {\"pid\": 7482, \"start\": 57458}, \"started\": 593.078330881, \"elapsed\": 0.3104656129999057, \"original_rc\": 0, \"stdout\": \"\", \"stderr\": \"\", \"browser_pid_gone\": true, \"guard\": false}\nPIX_LOADER_191_NORMAL_CLOSE_RC:0\n",
+      "preservation": "{\"action\": \"verify\", \"signed_pending\": 2, \"integrity\": \"ok\", \"cached_login_patch_session\": \"PASS\", \"account_separation\": \"PASS\", \"pending_sha256\": \"a2410d3152b501fd3c6e6045d72e46e54b01f9a140ca1efdcecd4f4d1fe384e5\"}\nPIX_LOADER_197_PROXY_VERIFY_RC:0\n"
+    }
+  ],
+  "source": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+  "order": [
+    "active",
+    "stopped",
+    "stopped",
+    "active"
+  ]
+}

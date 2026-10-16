@@ -343,3 +343,5 @@ physical phone/pad or gameplay claim. Product bytes/presentation are unchanged.
 Portable #614 no longer blocks continued private H700 testing. Next #613 fallback
 link and #607–610 affected-platform work precede next-candidate/Nova qualification.
 #528 public release and website remain separate. No runtime job remains active.
+
+| 2026-10-16 | #587/#615 constrained browser headroom and busy proxy stop | Unchanged077197/ES16dbac; fresh1024MiB/no-NIC/software640×480 | Four normal browser cases pass;26.27MiB condition-median gain; signed queue/cache/settings preserved. Slow award response causes15s unit timeout/SIGKILL despite command0; synthetic recovery flushes queue with SQLite ok. Observer0/no guard/OOM, exact exits,2.41GB disks retired. | H700/provider viability, busy-stop safety, real-server acknowledgement/idempotency; no production policy adopted | docs/qa-logs/2026-10-16-browser-headroom-587/; offline verifier/analysis, original negative result and executed fixtures | Not measured; no game | Not measured | Not measured |

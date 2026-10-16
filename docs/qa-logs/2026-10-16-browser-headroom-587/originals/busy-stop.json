@@ -1,0 +1,45 @@
+{
+  "stop_rc": 0,
+  "elapsed": 15.062073274,
+  "stdout": "",
+  "stderr": "",
+  "unit": "MainPID=0\nResult=timeout\nExecMainCode=2\nExecMainStatus=9\nActiveState=failed\n",
+  "pending": [
+    {
+      "id": 1,
+      "achievementId": 101,
+      "queryString": "/dorequest.php",
+      "requestBody": "r=awardachievement&u=fixture&t=fixture-only&g=10&a=101&h=0",
+      "userAgent": "Python-urllib/3.14",
+      "queuedAt": 1792169779078,
+      "retryCount": 0,
+      "lastError": null,
+      "status": "pending",
+      "payloadHash": "43c1fb2dbff0996c5627bce5deda56babfb74da22f8cf29b24c6cdea6fa0af2f",
+      "prevHash": "genesis",
+      "signature": "G9PkJ47mUQTReaQufBaUrSPAkXSfyy8zA/drgpwAiW0=",
+      "signedAt": 1792169779078
+    },
+    {
+      "id": 2,
+      "achievementId": 201,
+      "queryString": "/dorequest.php",
+      "requestBody": "r=awardachievement&u=alternate&t=fixture-only&g=20&a=201&h=0",
+      "userAgent": "Python-urllib/3.14",
+      "queuedAt": 1792169779110,
+      "retryCount": 0,
+      "lastError": null,
+      "status": "pending",
+      "payloadHash": "e7d78ed3f3ededf0eb89e1f6d18679a87210e9322184e7af7f0abca52a2b2a24",
+      "prevHash": "43c1fb2dbff0996c5627bce5deda56babfb74da22f8cf29b24c6cdea6fa0af2f",
+      "signature": "OURA32dBCjX76Xg1RuL9ZaQc8+Ygt/iB0pyCC6oRLy4=",
+      "signedAt": 1792169779110
+    }
+  ],
+  "chain": [
+    true,
+    null,
+    null
+  ],
+  "integrity": "ok"
+}

@@ -1,0 +1,148 @@
+{
+  "status": "PASS",
+  "ready_seconds": 1.04064960900007,
+  "queue_empty_seconds": 3.840955243000053,
+  "pending": [],
+  "integrity": "ok",
+  "unit": "MainPID=10410\nResult=success\nExecMainStatus=0\nActiveState=active\n",
+  "peer_events": [
+    {
+      "at": 987.081313917,
+      "method": "HEAD"
+    },
+    {
+      "at": 987.086190786,
+      "method": "GET",
+      "action": "patch",
+      "mode": "slow",
+      "user": "fixture",
+      "achievement": ""
+    },
+    {
+      "at": 987.086282587,
+      "action": "patch",
+      "response": "sent",
+      "mode": "slow"
+    },
+    {
+      "at": 987.389994824,
+      "method": "GET",
+      "action": "patch",
+      "mode": "slow",
+      "user": "fixture",
+      "achievement": ""
+    },
+    {
+      "at": 987.390123517,
+      "action": "patch",
+      "response": "sent",
+      "mode": "slow"
+    },
+    {
+      "at": 987.411103889,
+      "method": "POST",
+      "action": "awardachievement",
+      "mode": "slow",
+      "user": "fixture",
+      "achievement": "101"
+    },
+    {
+      "at": 1005.615012914,
+      "action": "awardachievement",
+      "response": "client-closed",
+      "mode": "slow"
+    },
+    {
+      "at": 1022.420641662,
+      "method": "HEAD"
+    },
+    {
+      "at": 1022.425084654,
+      "method": "GET",
+      "action": "patch",
+      "mode": "fast",
+      "user": "fixture",
+      "achievement": ""
+    },
+    {
+      "at": 1022.425157674,
+      "action": "patch",
+      "response": "sent",
+      "mode": "fast"
+    },
+    {
+      "at": 1022.729426395,
+      "method": "GET",
+      "action": "patch",
+      "mode": "fast",
+      "user": "fixture",
+      "achievement": ""
+    },
+    {
+      "at": 1022.729751857,
+      "action": "patch",
+      "response": "sent",
+      "mode": "fast"
+    },
+    {
+      "at": 1022.751558176,
+      "method": "POST",
+      "action": "awardachievement",
+      "mode": "fast",
+      "user": "fixture",
+      "achievement": "101"
+    },
+    {
+      "at": 1022.751829134,
+      "action": "awardachievement",
+      "response": "sent",
+      "mode": "fast"
+    },
+    {
+      "at": 1022.769193843,
+      "method": "POST",
+      "action": "awardachievement",
+      "mode": "fast",
+      "user": "alternate",
+      "achievement": "201"
+    },
+    {
+      "at": 1022.769407395,
+      "action": "awardachievement",
+      "response": "sent",
+      "mode": "fast"
+    },
+    {
+      "at": 1025.791057677,
+      "method": "GET",
+      "action": "unlocks",
+      "mode": "fast",
+      "user": "fixture",
+      "achievement": ""
+    },
+    {
+      "at": 1025.791310531,
+      "action": "unlocks",
+      "response": "sent",
+      "mode": "fast"
+    },
+    {
+      "at": 1026.090297972,
+      "method": "GET",
+      "action": "unlocks",
+      "mode": "fast",
+      "user": "fixture",
+      "achievement": ""
+    },
+    {
+      "at": 1026.09060681,
+      "action": "unlocks",
+      "response": "sent",
+      "mode": "fast"
+    },
+    {
+      "at": 1026.128627338,
+      "method": "HEAD"
+    }
+  ]
+}

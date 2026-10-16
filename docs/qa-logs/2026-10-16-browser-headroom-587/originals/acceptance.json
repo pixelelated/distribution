@@ -1,0 +1,63 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/.build-runs/20261016T165313Z-96219fda",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 587,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-m7-headroom-vm-20261016-02",
+      "release_when": "Review headroom/lifecycle originals and owner cleanup; consume admission then retire only this disposable guest disk."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-m7-headroom-evidence-20261016-01/config.json",
+      "sha256": "7baf9a0c9fb4f9dba134eb4900cc960a550b52e00e67d99bcec03e3fe6725d9e"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-headroom-evidence-20261016-01/export-result.json",
+      "sha256": "c0d73531814dca6fd173b502450995844e3da84abd8cb03ddbe714d3104b5a49"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-headroom-evidence-20261016-01/host-exits.json",
+      "sha256": "c26caf72fcdf9918b1326d80b9cfab11af074ede98d1234554e9a9a5b07578ed"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-headroom-evidence-20261016-01/original-records.json",
+      "sha256": "b825a39a3e4794340b1ce41cbe631e19231f171c6c9c1a29f2088078dede9ac5"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-headroom-evidence-20261016-01/original-records.tar.gz",
+      "sha256": "12561fd17704daf08fc31e362ec0bac3071d40e79a70fdf5bfce742319939f7b"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-headroom-evidence-20261016-01/private-originals-held.json",
+      "sha256": "27cd3e3845600ad94ac44c4eb695d4753bf1863dd865af079b46968b811d61e0"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-headroom-evidence-20261016-01/vm-result.json",
+      "sha256": "7078383fe4eed45fb39252f0da61e5d5436b9da536f8ebfc58fe0c6aac615f6d"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-headroom-evidence-20261016-01/matrix-result.json",
+      "sha256": "feff5a41a08a17bc5a54b5ff1aff7a3fbb057b2443a912fd843dfe8019e707b6"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-headroom-evidence-20261016-01/busy-stop.json",
+      "sha256": "15e008f44d274eaba0ba7b6614845998175f329406701a1428db0d9c41d0a7e6"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-headroom-evidence-20261016-01/recovery.json",
+      "sha256": "9ef4a8c867ad1ef5171af54bb27ec5037c76eaef73619782fd0c8a72eaa15e5d"
+    },
+    {
+      "path": "/workspace/tmp/pix-m7-headroom-evidence-20261016-01/cleanup-result.json",
+      "sha256": "098eae51b69a29bfb14617fc424a128b444b3e2867ba2c6db20cdb7e56377ec8"
+    }
+  ],
+  "requires_coordinator_review": false,
+  "channels_coherent": true,
+  "monitor_succeeded": true,
+  "scope": "Diagnostic allocation completed; unsafe busy-stop observed and preserved; no production policy qualification"
+}

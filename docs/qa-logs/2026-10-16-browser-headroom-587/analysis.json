@@ -1,0 +1,266 @@
+{
+  "units": "KiB for memory; seconds for timing",
+  "cases": [
+    {
+      "case": 1,
+      "proxy": "active",
+      "samples": 6,
+      "excluded_post_close_samples": 0,
+      "available_kib": {
+        "min": 230208,
+        "median": 238938.0,
+        "max": 241328
+      },
+      "pss_kib": {
+        "proxy": {
+          "min": 24471,
+          "median": 24480.0,
+          "max": 24496
+        },
+        "observer": {
+          "min": 7933,
+          "median": 7937.0,
+          "max": 7950
+        },
+        "ES": {
+          "min": 36120,
+          "median": 36189.0,
+          "max": 38231
+        },
+        "browser_family": {
+          "min": 244073,
+          "median": 255580.5,
+          "max": 269863
+        }
+      },
+      "sampling_wall_seconds": {
+        "min": 0.008887689999994564,
+        "median": 0.010184950999985176,
+        "max": 0.010285332000023573
+      },
+      "psi_available": false,
+      "counter_deltas": {
+        "pgsteal_kswapd": 22149,
+        "pgsteal_direct": 0,
+        "pgsteal_khugepaged": 0,
+        "pgsteal_proactive": 0,
+        "pgsteal_anon": 0,
+        "pgsteal_file": 22149,
+        "pgscan_kswapd": 23477,
+        "pgscan_direct": 0,
+        "pgscan_khugepaged": 0,
+        "pgscan_proactive": 0,
+        "pgscan_anon": 0,
+        "pgscan_file": 23477,
+        "pswpin": 0,
+        "pswpout": 0,
+        "allocstall_dma": 0,
+        "allocstall_dma32": 0,
+        "allocstall_normal": 0,
+        "allocstall_movable": 0,
+        "pgmajfault": 67,
+        "pgscan_direct_throttle": 0
+      },
+      "readiness_observed_seconds": 2.867004906060174
+    },
+    {
+      "case": 2,
+      "proxy": "stopped",
+      "samples": 6,
+      "excluded_post_close_samples": 1,
+      "available_kib": {
+        "min": 263536,
+        "median": 265292.0,
+        "max": 269836
+      },
+      "pss_kib": {
+        "proxy": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "observer": {
+          "min": 8062,
+          "median": 8062.0,
+          "max": 8075
+        },
+        "ES": {
+          "min": 46859,
+          "median": 46859.0,
+          "max": 46974
+        },
+        "browser_family": {
+          "min": 278062,
+          "median": 279199.5,
+          "max": 287010
+        }
+      },
+      "sampling_wall_seconds": {
+        "min": 0.008549960000038936,
+        "median": 0.018824832000007063,
+        "max": 0.018840549999993073
+      },
+      "psi_available": false,
+      "counter_deltas": {
+        "pgsteal_kswapd": 0,
+        "pgsteal_direct": 6997,
+        "pgsteal_khugepaged": 0,
+        "pgsteal_proactive": 0,
+        "pgsteal_anon": 0,
+        "pgsteal_file": 6997,
+        "pgscan_kswapd": 0,
+        "pgscan_direct": 7678,
+        "pgscan_khugepaged": 0,
+        "pgscan_proactive": 0,
+        "pgscan_anon": 0,
+        "pgscan_file": 7678,
+        "pswpin": 0,
+        "pswpout": 0,
+        "allocstall_dma": 0,
+        "allocstall_dma32": 0,
+        "allocstall_normal": 126,
+        "allocstall_movable": 0,
+        "pgmajfault": 22,
+        "pgscan_direct_throttle": 0
+      },
+      "readiness_observed_seconds": 4.2204448690172285
+    },
+    {
+      "case": 3,
+      "proxy": "stopped",
+      "samples": 6,
+      "excluded_post_close_samples": 0,
+      "available_kib": {
+        "min": 256988,
+        "median": 264206.0,
+        "max": 267264
+      },
+      "pss_kib": {
+        "proxy": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "observer": {
+          "min": 8060,
+          "median": 8060.0,
+          "max": 8061
+        },
+        "ES": {
+          "min": 45238,
+          "median": 45558.0,
+          "max": 45558
+        },
+        "browser_family": {
+          "min": 269475,
+          "median": 270841.0,
+          "max": 271555
+        }
+      },
+      "sampling_wall_seconds": {
+        "min": 0.010573598000064521,
+        "median": 0.01898484950004331,
+        "max": 0.019255487000009452
+      },
+      "psi_available": false,
+      "counter_deltas": {
+        "pgsteal_kswapd": 0,
+        "pgsteal_direct": 1239,
+        "pgsteal_khugepaged": 0,
+        "pgsteal_proactive": 0,
+        "pgsteal_anon": 0,
+        "pgsteal_file": 1239,
+        "pgscan_kswapd": 0,
+        "pgscan_direct": 1261,
+        "pgscan_khugepaged": 0,
+        "pgscan_proactive": 0,
+        "pgscan_anon": 0,
+        "pgscan_file": 1261,
+        "pswpin": 0,
+        "pswpout": 0,
+        "allocstall_dma": 0,
+        "allocstall_dma32": 0,
+        "allocstall_normal": 22,
+        "allocstall_movable": 0,
+        "pgmajfault": 20,
+        "pgscan_direct_throttle": 0
+      },
+      "readiness_observed_seconds": 4.504093949915841
+    },
+    {
+      "case": 4,
+      "proxy": "active",
+      "samples": 6,
+      "excluded_post_close_samples": 1,
+      "available_kib": {
+        "min": 232376,
+        "median": 236750.0,
+        "max": 242184
+      },
+      "pss_kib": {
+        "proxy": {
+          "min": 22822,
+          "median": 22822.0,
+          "max": 22822
+        },
+        "observer": {
+          "min": 7919,
+          "median": 7919.0,
+          "max": 7919
+        },
+        "ES": {
+          "min": 42273,
+          "median": 42289.0,
+          "max": 42289
+        },
+        "browser_family": {
+          "min": 250813,
+          "median": 251052.0,
+          "max": 252163
+        }
+      },
+      "sampling_wall_seconds": {
+        "min": 0.010395077999987734,
+        "median": 0.010803902000020571,
+        "max": 0.0193776879999632
+      },
+      "psi_available": false,
+      "counter_deltas": {
+        "pgsteal_kswapd": 0,
+        "pgsteal_direct": 2966,
+        "pgsteal_khugepaged": 0,
+        "pgsteal_proactive": 0,
+        "pgsteal_anon": 0,
+        "pgsteal_file": 2966,
+        "pgscan_kswapd": 0,
+        "pgscan_direct": 3124,
+        "pgscan_khugepaged": 0,
+        "pgscan_proactive": 0,
+        "pgscan_anon": 0,
+        "pgscan_file": 3124,
+        "pswpin": 0,
+        "pswpout": 0,
+        "allocstall_dma": 0,
+        "allocstall_dma32": 0,
+        "allocstall_normal": 57,
+        "allocstall_movable": 0,
+        "pgmajfault": 24,
+        "pgscan_direct_throttle": 0
+      },
+      "readiness_observed_seconds": 4.507484785048291
+    }
+  ],
+  "difference_of_condition_mean_medians_kib": 26905.0,
+  "mem_total_kib": 810528,
+  "cma_total_kib": 262144,
+  "swap_total_kib": 0,
+  "limits": [
+    "Two runs per condition, reordered active/stopped/stopped/active; not randomized or a population estimate.",
+    "Samples tagged steady after page paint evidence; exclude samples after exact browser PID/start disappears.",
+    "Guest PSI unavailable; guard used MemAvailable and deadline only.",
+    "Observer PSS and smaps sampling wall time measured; complete polling CPU cost and short-lived serial controller overhead not isolated.",
+    "Fixed128MiB typed-array local page; no real provider, login, H700 hardware or large-cache claim.",
+    "Proxy PSS is exact systemd MainPID, not all Python processes.",
+    "Initial online slow-response stop is separate from memory matrix."
+  ]
+}

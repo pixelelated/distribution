@@ -11,6 +11,27 @@ proof and remain open for the final composition. An engineering image must exist
 before its clean-install/upgrade checks can run; those checks hold RC designation,
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
+
+## 2026-10-16 17:18 UTC — VM browser headroom and busy-stop counterexample (#587, #615)
+
+[Exact-source packet](../qa-logs/2026-10-16-browser-headroom-587/README.md)
+compares four1GiB installed-browser cases on unchanged077197/ES16dbac.
+Temporary proxy stop increases available-memory condition medians by26.27MiB;
+two normal restarts1.035/1.037s preserve signed queue/cache/account/settings state.
+Observer PSS7.7–7.9MiB measured, PSI unavailable; no guard/OOM. Eight reviewed
+frames show loaded synthetic pages and normal ES return. No Dropbox/H700 claim.
+
+Separate slow-response control exposes15.062s timeout/SIGKILL while initial online
+award flush precedes the stop-event loop. Original systemctl0 remains distinct
+from unit timeout/status9. Two signed rows/chain/SQLite survive; synthetic recovery
+ready1.041s and queue empty3.841s. A safe atomic quiescence/cancellation/restoration
+contract is next; unconditional stop is not adopted. D-RA-048/M7/#587/#615 current
+order and conditional #585 upstream queue updated/read back. First admission125
+and loopback port collision preserved as fixture failures. All lifecycle channels0,
+exact processes exited, admission consumed and2.41GB disposable disks retired.
+No product change, physical/cloud mutation or external assessment. Offline verifier
+checks originals, calculated results, negative finding, preservation and retirement.
+
 ## 2026-10-16 06:13 UTC — Bounded H700 exit reproduction and memory guard (#615)
 
 [Physical investigation](../qa-logs/2026-10-16-h700-browser-exit-615/README.md):
@@ -811,7 +832,7 @@ receipts supply scoped completion. No failed original result is rewritten.
   replacement ScreenScraper credentials (#586):** backlog. #568 asks whether the
   last game is active or post-game work is continuing; no owner copy choice is
   pending. A finishing label must follow actual game-processing completion.
-- **Temporary proxy shutdown during browsing (#587):** future measured lifecycle experiment, conditional on preserving queued awards, cache work and next-game readiness (D-RA-047). No production behavior change or extra RC gate.
+- **Temporary proxy shutdown during browsing (#587):** promoted to current M7.P5 by D-RA-048. The October16 VM measures headroom and normal recovery but reproduces a busy-stop timeout. Safe coordination and interruption proof are now the next investigation; no production policy is adopted.
 - **GTK4 and lazy proxy imports (#576/#570):** diagnostic alternatives under
   D-WORKFLOW-163, not mandatory migrations for this RC. Target lazy-import savings
   were only390KiB; no GTK4 memory benefit has been measured.

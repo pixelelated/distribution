@@ -1,0 +1,12 @@
+{
+  "preparation": "refused protected identity /tmp; no admission produced",
+  "launcher_result": {
+    "utc": "2026-10-16T16:52:28.601747+00:00",
+    "pid": 2054721,
+    "runner_returncode": 125,
+    "submission_is_not_completion": true
+  },
+  "vm_files": [],
+  "reason": "copied preparer protected HERE.parent=/tmp; corrected to exact prepare.py input",
+  "note": "initial shell continued into submission despite preparation refusal; subsequent orchestration uses checked dependent calls"
+}

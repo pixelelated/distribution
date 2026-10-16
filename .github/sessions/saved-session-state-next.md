@@ -1,9 +1,9 @@
 # Saved Session State
 
-> **Saved:** 2026-10-16T16:22:04Z
+> **Saved:** 2026-10-16T17:18:28Z
 > **Branch:** `feature/m7-audit-integration-603`
 > **Repository:** `pixelelated/distribution`; integration branch `next`
-> **Request:** “Let's stash our work.” Investigation is stopped for this handoff.
+> **Request:** Continue VM browser headroom tests, preserving browser functionality and safe service recovery.
 
 ## Start here
 
@@ -16,11 +16,12 @@ not a designated public RC. The OS name and cloud default are lowercase
 1. Read current `next:AGENTS.md`, its every-session `.claude/rules/` files, and
    scoped rules before touching their paths. Read the `session-resume` skill.
 2. Read this checkpoint, the [live M7 ordered plan](https://github.com/pixelelated/distribution/milestone/7),
-   `docs/releases/next-candidate-work.md` and the active issue #615. Historical
+   `docs/releases/next-candidate-work.md` and active issues #587/#615. Historical
    queues in archived checkpoints are not the current plan.
-3. Read `docs/qa-logs/2026-10-16-h700-browser-exit-615/README.md`, `summary.json`,
-   `frame-index.json`, preservation/cleanup receipts and `verify.py` for the
-   unresolved physical browser question. Portable #614 is already complete.
+3. Read `docs/qa-logs/2026-10-16-browser-headroom-587/README.md`, `analysis.json`,
+   `originals/busy-stop.json`, `originals/recovery.json` and run `verify.py`.
+   Then read the earlier #615 physical packet for the still-inconclusive loaded-page
+   question. Portable #614 is complete; do not repeat its accepted controls.
 4. Use `/workspace/repos/rocknix.worktrees/m7-player-setup` on
    `feature/m7-audit-integration-603` for coordinator edits. The primary checkout
    `/workspace/repos/rocknix` stays on `next`. The harness checkout
@@ -36,35 +37,37 @@ outside Git. Device read output must exclude `key|pass|token|user|psk` lines.
 
 ## Current focus
 
-We are determining why a Dropbox browser attempt on the H700 RG35XX SP became
-unresponsive and did not visibly respond to synthetic Escape. Portable installed
-exit/input controls pass; three physical follow-ups establish early exit, normal
-close, and a pressure-guard event, but **loaded-page Escape remains inconclusive**.
-No product fix is selected. Do not call it a one-time glitch or a reproduced
-WebKit/input bug. The next experiment must attribute instrumentation overhead and
-process memory and establish actual page readiness before drawing that conclusion.
+Preserve the browser on1GiB devices by investigating safe temporary service
+shutdown. The new #587 VM evidence finds26.27MiB more available memory in a small
+synthetic workload and successful normal restarts, but also a **busy-stop timeout
+and SIGKILL at15seconds**. A production pause/stop policy is not selected. The
+next work is a safe quiescence/cancellation and restoration contract, followed by
+fresh VM interruption tests, then a separately scoped H700 loaded-page trial.
 
 ## Completed this session and publication
 
-- Investigation/evidence commit **060dbde84144af11f99a70453e9d537c7f724490** is
-  published on `origin/next` and `origin/feature/m7-audit-integration-603`.
-  Both remote heads and clean local checkouts were read back at this stash.
-  The stash commit follows it; inspect Git for that commit's publication status.
-- All three hosted checks for 060dbde passed: wordlist jobs 116841197323 and
-  116841196476, record job 116841196709. CI result receipt:
-  `/tmp/pix-m7-h700-exit-repro-20261016-01/ci-result.json`.
-  [Publication readback](https://github.com/pixelelated/distribution/issues/615#issuecomment-6209489875).
-- #615's 34 compact originals and six reviewed 640×480 frames are retained with
-  SHA256SUMS, an offline verifier, preservation and cleanup receipts. The original
-  failed outcomes remain failures. Context-free evidence review corrected the
-  timing description and stale branch pointers before publication.
-- #614 is closed: four guarded installed-browser VM controls pass on the same
-  source (QEMU Escape, immediate-destroy uinput, installed normal close in
-  0.27249s, installed phone HTTP handler over guest loopback). First observer's
-  absent-PSI failure is retained and excluded; the corrected repeat passed.
-  Evidence: `docs/qa-logs/2026-10-16-browser-exit-614/`. This 8GiB no-NIC x86 proof
-  does not establish H700 memory capacity, provider authentication or physical
-  phone/controller behavior. Its VM was stopped and 2.48GB disposable disks retired.
+- D-RA-048 promotes #587 into current M7.P5 beside #615. The owner's verbatim
+  request and each VM-first plan are in #587; M7 current/next order is updated.
+- Four installed-browser runs pass in active/stopped/stopped/active order on
+  unchanged077197/ES16dbac. Available-memory medians233.34/259.07/258.01/231.20MiB;
+  difference of condition mean medians26.27MiB. Actual synthetic proxy PSS22–24MiB.
+  Observer7.7–7.9MiB measured; PSI unavailable. No guard/OOM; four reviewed loaded
+  and four reviewed return frames. Normal queue/cache/account/config preservation
+  passes, with service restarts1.035/1.037s.
+- Separate slow-response initial-flush control reproduces Result=timeout/status9
+  at15.062s even though systemctl stop returns0. Both signed awards and SQLite
+  survive this case. Immediate-success synthetic peer recovery is ready1.041s,
+  queue empty by3.841s. No real server acknowledgement/idempotency proof.
+- Original failed admission125 and first no-NIC loopback8080 collision remain
+  fixture failures, not product-memory failures. All successful allocation result
+  channels0, guest/observer/matrix exited; admission consumed.2,412,744,704bytes
+  of owned disk/OVMF retired. No physical device or cloud operation.
+- Exact evidence, original archive, offline analysis/verifier, executed fixtures
+  and reviewed frames: `docs/qa-logs/2026-10-16-browser-headroom-587/`.
+- Previous publicationffd13eabcd128f8a0410ea6e9f9ab58afa7331cb is verified on both
+  ordinary refs with CI passed. This session's evidence/record commit follows it;
+  inspect Git and `/tmp/pix-m7-browser-headroom-20261016-01` publication receipts.
+  No product source, ES pin or firmware changed.
 
 ## Physical #615 results and limits
 
@@ -104,13 +107,18 @@ Sway#5423 USB/input report is not a match for the virtual keyboard evidence.
 
 The milestone body is the ordered plan. The following is its current handoff:
 
-1. **#615:** design the lean follow-up first. Account for observer/controller
-   overhead, collect per-process PSS and explicit loading/loaded-page evidence.
-   Record the VM-first split in the issue; use #614's accepted controls where
-   applicable. Retain independent pressure/deadline guards. Previous three-trial
-   allocation is complete and its fixtures are historical, not commands to replay.
-   Bind any further device experiment to a fresh owner and named authorized scope;
-   do not silently extend the completed allocation or relax its safety thresholds.
+1. **#587 / #615:** inspect `proxy_service.py:run_proxy_service`'s synchronous
+   initial flush before the stop_event loop, service.py's signal/event propagation,
+   flusher.py/network.py blocking I/O and the actual15s unit timeout. Design an
+   atomic quiescence or bounded cancellation contract with no busy-check/stop race;
+   preserve queue/cache/account routing and restore only a previously active
+   service that this session stopped. Prove busy worker/slow response, failed
+   launch, browser exit/crash, stale owner, disabled service, restart failure and
+   duplicate acknowledgement behavior on a fresh VM allocation. Do not adopt
+   SIGSTOP (it retains memory), unconditional stop, or only a larger timeout.
+   Source preparation/candidate review comes before a new runtime. Then prepare
+   a bounded real-page H700 test; #615 loaded-page Escape remains inconclusive.
+   The completed fixtures are historical absolute paths, not replay commands.
 2. **#613:** next independent package task. Inspect upstream and exact package
    source, correct the unused `/etc` systems-config fallback link into build
    staging, then prove normal selected-storage precedence and fallback on the VM.
@@ -131,16 +139,18 @@ review. Exact receipts: `docs/qa-logs/2026-10-15-post-audit-product-delta/`.
 
 ## Runtime state and resumption commands
 
-No build, VM, device diagnostic, provider audit or deployment is active from this
-work. All workers are idle. Prior CI watcher is finished, with launcher/wrapper/
-command/monitor/runner/build results0. Host PIDs3673029/3673059/3673031/3673030
-were rechecked absent during stash. Owner:
-`/tmp/pix-m7-h700-exit-ci-20261016-02`; run:
-`/workspace/repos/rocknix.worktrees/m7-player-setup/.build-runs/20261016T061824Z-2bd1dc52`.
-An initial submission to missing owner01 failed2 before launch; owner02 corrected
-it. No off-session notifier is claimed. Stash publication checks, if launched,
-have their separate owner `/tmp/pix-m7-session-stash-20261016-01/ci-owner` and
-receipts in its parent; inspect their actual results before calling them complete.
+No build, VM, device diagnostic, provider audit or deployment remains active
+from this experiment. Original launcher/wrapper/command/monitor/runner/build/VM
+channels are0 and exact host/QEMU identities exited. Admission
+5c8eeab34ebb4b30ae07af99fc0c7aa6 was consumed and its two owned VM files retired.
+Private preparation: `/tmp/pix-m7-browser-headroom-20261016-01`.
+Retired guest owner: `/workspace/tmp/pix-m7-headroom-vm-20261016-02`.
+Compact export: `/workspace/tmp/pix-m7-headroom-evidence-20261016-01`.
+Frozen run: `/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/.build-runs/20261016T165313Z-96219fda`.
+Matrix run: coordinator `.build-runs/20261016T170036Z-509ef5cb`.
+Publication CI, if launched after this checkpoint, has its own owner/receipts
+inside the private preparation directory; inspect actual results. No off-session
+notifier is claimed. The first refused allocation01 has no VM.
 
 Useful read-only checks from the coordinator:
 
@@ -148,9 +158,9 @@ Useful read-only checks from the coordinator:
 git status --short --branch
 git log -3 --oneline
 git ls-remote origin refs/heads/next refs/heads/feature/m7-audit-integration-603
-python3 -I docs/qa-logs/2026-10-16-h700-browser-exit-615/verify.py
+python3 -I docs/qa-logs/2026-10-16-browser-headroom-587/verify.py
 gh api repos/pixelelated/distribution/milestones/7 --jq .description
-gh issue view 615 --repo pixelelated/distribution
+gh issue view 587 --repo pixelelated/distribution
 ```
 
 Use `tools/archaeology` before declaring another issue new. A new runtime gets
@@ -211,29 +221,33 @@ Source trees were unchanged by that history correction; no force push occurred.
   storage; September30 empty restore/0B backup explain activity stamps, and
   pre-install play metadata explains Recent membership. #565 clean/retained
   controls are delivered; no personal reset is needed or authorized by this stash.
-- #558 shutdown and #561 LED are watches. #587 proxy pause, #576 GTK4,
+- #558 shutdown and #561 LED are watches. #587 is current M7 work; #576 GTK4,
   #568 finalization wording, #562 integrity, #586 credentials and #560 fast
   shutdown remain backlog. Prior proxy target saving was only390KiB and not
   adopted; approximately78MiB ES handoff saving was VM evidence, not a provider cure.
 
 ## Key files and related context
 
-This stash archives the previous full checkpoint, refreshes this canonical file
-and its two branch pointers, and appends the dated work log/index. No product file,
-firmware, personal device state or prior QA original changes.
+| File | Change |
+| --- | --- |
+| `docs/qa-logs/2026-10-16-browser-headroom-587/` | New original evidence, analysis, verifier, fixtures and reviewed frames |
+| `docs/decision-register.md` | D-RA-048 promotion/safety constraints |
+| `docs/releases/next-candidate-work.md`, `docs/vm-qa-log.md` | Current result and scope |
+| `docs/work-logs/2026_10-work_logs/2026_10_16-work_log.md`, `docs/friction-log.md` | Findings, fixture failures and durable next step |
+| This checkpoint and branch pointer | Archived prior bytes; refreshed current queue |
 
-- Previous checkpoint, intact: [saved-session-state-next-20261016T162204Z.md](archived/saved-session-state-next-20261016T162204Z.md).
-- Current flows: `docs/es-menu-map.md`, `docs/conflict-wizard-ia.md` and exact-source
-  frame indices. ES behavior/copy changes require references and reviewed frames.
+- Previous checkpoint intact: [saved-session-state-next-20261016T171828Z.md](archived/saved-session-state-next-20261016T171828Z.md).
+- Current flows: `docs/es-menu-map.md`, `docs/conflict-wizard-ia.md`. No product
+  presentation changed; this packet records the exercised existing flow/frames.
 - Release preparation: `docs/releases/0.0.1-release-preparation.md` and
   `docs/releases/0.0.1-release-note-draft.md`.
-- Work log: `docs/work-logs/2026_10-work_logs/2026_10_16-work_log.md`.
-- Stash readbacks/review/CI receipts: `/tmp/pix-m7-session-stash-20261016-01`.
+- #585 tracks a conditional upstream proxy cancellation/quiescence contribution;
+  no patch or message sent. Fable/council remains optional, not an active audit
+  or authorized prepared external transfer.
 
 Ordinary scoped records, commits, pushes and tracker updates remain authorized.
 Commit on the coordinator, fast-forward clean `next`, push both ordinary refs;
-never force push or merge the stale harness. A context-free handoff review is
-required by D-WORKFLOW-133 and passed on the prepared handoff: the reviewer
-reconstructed the current queue, verified archives and ran the offline evidence
-check without device/network access. This handoff does not authorize new external model
-transfers, source-contact messages or publication of a release.
+never force push or merge the stale harness. The required context-free handoff
+review is performed on this prepared checkpoint before publication; its receipt
+lives in the private preparation directory. No new physical, external transfer,
+source-contact message or public release is authorized by this record.
