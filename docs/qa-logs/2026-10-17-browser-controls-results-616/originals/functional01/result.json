@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "scope": "direct diagnostic launch; not ES handoff or performance proof",
+  "pass": false,
+  "error": "browser exited before functional observation",
+  "cases": [
+    {
+      "id": "default-off-clean",
+      "ua_mode": "default",
+      "observer": "off",
+      "control": "clean",
+      "pid": 3695,
+      "start": 412.589113447
+    }
+  ],
+  "restored_essway": true,
+  "helper_sha256": "530b0d2c7daf739eb061a415da4224a7affcec1b1837a452d182e97a03c16454",
+  "html_sha256": "f33796db2c501d8c76226d90e8b1eeff5b8476db1a62cc89de983b6c517a45d1",
+  "boot_id": "bc8b8a9b-f2f8-4ce1-8627-45b47a76c2a5",
+  "served_fixture_sha256": "f1c509d8b346198774f902a9d6983c3ede3c7326cd4415784456f99ce7ff1044",
+  "sway": {
+    "identity": {
+      "pid": 1462,
+      "state": "S",
+      "ppid": 1444,
+      "pgrp": 1444,
+      "session": 1444,
+      "start": 549
+    },
+    "version": {
+      "human_readable": "1.11",
+      "variant": "sway",
+      "major": 1,
+      "minor": 11,
+      "patch": 0,
+      "loaded_config_file_name": "/storage/.config/sway/config"
+    },
+    "environment": {
+      "XDG_RUNTIME_DIR": "/var/run/0-runtime-dir",
+      "WAYLAND_DISPLAY": "wayland-1",
+      "SWAYSOCK": "/var/run/0-runtime-dir/sway-ipc.0.sock",
+      "GDK_BACKEND": "wayland"
+    }
+  },
+  "initial_essway": "active",
+  "loopback_port": 18761,
+  "final_browser_cleanup": [],
+  "final_browser_returncode": -25,
+  "guard_returncode": 0,
+  "guard": {
+    "pass": true,
+    "triggers": [],
+    "minimum_available_kib": 403500,
+    "error": null,
+    "seconds": 1.105045056999984
+  },
+  "seconds": 1.1765985499999942
+}

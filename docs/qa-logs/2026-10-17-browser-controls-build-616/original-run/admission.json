@@ -1,0 +1,44 @@
+{
+  "admitted": "2026-10-17T03:59:52.320968+00:00",
+  "available_bytes": 2097877843968,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03",
+  "id": "261514b9d3fa44cdaef8b34cbe9f07fd",
+  "outputs": [
+    {
+      "issue": 616,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-browser-controls-compile-20261017-01",
+      "release_when": "Retain small helpers only through queued diagnostic VM/device tests; preserve compact source/build receipts, consume original admission and retire superseded helpers."
+    }
+  ],
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    },
+    {
+      "ARCH": "aarch64",
+      "DEVICE": "H700",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "7b757ba06035f761a6556ac2ff3dab0dd5606e0ade547b7a33683cf471604bb7",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 201326592,
+  "retention_plan_sha256": "d6407a0805d08f76be4bf8df833e9fe9a035eb73fec6852857d41b3fc737a28d",
+  "retention_report_sha256": "3dc8455de91166d1aa54cb49657294b31edf90576ea462a7eed61b437f5f8fa5",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/.build-runs/20261017T035952Z-4429942f",
+  "runner_pid": 602845,
+  "runner_start": "130127619",
+  "source": {
+    "head": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "running",
+  "submission_owner": "/workspace/tmp/pix-browser-controls-compile-20261017-01/submit",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

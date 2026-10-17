@@ -1,0 +1,47 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/.build-runs/20261017T035952Z-4429942f",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 616,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-browser-controls-compile-20261017-01",
+      "release_when": "Retain small helpers only through queued diagnostic VM/device tests; preserve compact source/build receipts, consume original admission and retire superseded helpers."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-browser-controls-compile-20261017-01/result.json",
+      "sha256": "52735c7d32c28307ac49e379a4fd90ca14235834fcb599dabc2e0b6e85f1479f"
+    },
+    {
+      "path": "/workspace/tmp/pix-browser-controls-compile-20261017-01/out/config-checks.json",
+      "sha256": "c9b3e7f3719e9f03624b28b261524c033c12f70c098ca7a91ae5303a4ec376c3"
+    },
+    {
+      "path": "/workspace/tmp/pix-browser-controls-compile-20261017-01/out/cloud-signin-window-GENERIC_X64.elf.txt",
+      "sha256": "498a1cef29a8e7fac64c2d97de0e89147d9fea80b0ba2fbad3f983df786c52b7"
+    },
+    {
+      "path": "/workspace/tmp/pix-browser-controls-compile-20261017-01/out/cloud-signin-window-H700.elf.txt",
+      "sha256": "b1fb203627fdca703cf68f7211eb3917b3fa583c7e41b89edb42fa275a653c05"
+    },
+    {
+      "path": "/workspace/tmp/pix-browser-controls-compile-20261017-01/inputs.json",
+      "sha256": "4ec701aac3c7d041c6e2f95dcde07b8a7f0acf3bd8d35d7c37df293b6a2958e8"
+    },
+    {
+      "path": "/workspace/tmp/pix-browser-controls-compile-20261017-01/submit/launcher-result.json",
+      "sha256": "bd15a31e6e64cbd2d6d79e0a43e6bf22db1616b3155d32480eade248dfd858cd"
+    },
+    {
+      "path": "/workspace/tmp/pix-browser-controls-compile-20261017-01/compiler.log",
+      "sha256": "851b6357481fa5714b0854b296e9132ff3ae2bf874c2bc7230c91b12f3ddc0d9"
+    },
+    {
+      "path": "/workspace/tmp/pix-browser-controls-compile-20261017-01/completion.json",
+      "sha256": "028288bc995cda57af2af5cb15aab030886f37105dc1bb8b5b12833346e1d327"
+    }
+  ]
+}

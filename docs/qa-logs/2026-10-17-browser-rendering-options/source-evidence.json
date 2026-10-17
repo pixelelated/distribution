@@ -1,0 +1,214 @@
+{
+  "checked_utc": "2026-10-17T03:56:15.116377+00:00",
+  "source_head": "f511766e17fbdb2f3fd5ec61ee8b469a18758273",
+  "runtime_this_packet": "UNRUN",
+  "files": {
+    "product_recipe": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/packages/web/webkitgtk/package.mk",
+      "sha256": "2de4b96cb16e942ce7699b5529b9949c2c52cf5a8c6661cbaee55f226b94bd4e",
+      "bytes": 6421,
+      "selected_lines": [
+        {
+          "line": 5,
+          "text": "PKG_VERSION=\"2.54.1\""
+        },
+        {
+          "line": 81,
+          "text": "                         -DUSE_GTK4=OFF \\"
+        },
+        {
+          "line": 110,
+          "text": "                         -DENABLE_SAMPLING_PROFILER=OFF \\"
+        }
+      ]
+    },
+    "product_window": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c",
+      "sha256": "39af3e041d9871c4fb636cff71934ddf3ea13c690002e77af5ea6d82d8fff4f8",
+      "bytes": 47987,
+      "selected_lines": [
+        {
+          "line": 949,
+          "text": "    g_setenv(\"WEBKIT_DISABLE_DMABUF_RENDERER\", \"1\", FALSE);"
+        }
+      ]
+    },
+    "h700_options": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/projects/ROCKNIX/devices/H700/options",
+      "sha256": "b483174ec81f7711208c10da1c4f7e3f184bad4689a553091b98d06b83cf5f9e",
+      "bytes": 2159,
+      "selected_lines": [
+        {
+          "line": 42,
+          "text": "    MALI_FAMILY=\"g31\""
+        },
+        {
+          "line": 43,
+          "text": "    GRAPHIC_DRIVERS=\"panfrost\""
+        },
+        {
+          "line": 46,
+          "text": "    PREFER_GLES=\"yes\""
+        },
+        {
+          "line": 52,
+          "text": "    DISPLAYSERVER=\"wl\""
+        }
+      ]
+    },
+    "webkit_options": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1/Source/cmake/OptionsGTK.cmake",
+      "sha256": "1e146be6f45a6719f3d614711670e4862067d92c4aa1c6dd31d82d806dc25a39",
+      "bytes": 21430,
+      "selected_lines": [
+        {
+          "line": 58,
+          "text": "WEBKIT_OPTION_DEFINE(USE_GTK4 \"Whether to enable usage of GTK4 instead of GTK3.\" PUBLIC ON)"
+        },
+        {
+          "line": 63,
+          "text": "WEBKIT_OPTION_DEFINE(USE_SKIA_OPENTYPE_SVG \"Whether to use the Skia built-in support for OpenType SVG fonts.\" PUBLIC ON)"
+        },
+        {
+          "line": 162,
+          "text": "WEBKIT_OPTION_DEFAULT_PORT_VALUE(USE_SKIA PRIVATE ON)"
+        },
+        {
+          "line": 174,
+          "text": "if (USE_GTK4)"
+        },
+        {
+          "line": 193,
+          "text": "if (USE_GTK4)"
+        },
+        {
+          "line": 253,
+          "text": "if (NOT USE_GTK4)"
+        },
+        {
+          "line": 313,
+          "text": "SET_AND_EXPOSE_TO_BUILD(USE_CAIRO OFF)"
+        }
+      ]
+    },
+    "generic_cache": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1/.x86_64-rocknix-linux-gnu/CMakeCache.txt",
+      "sha256": "9c7230fb83732d891a98f945d3540f3d1c02e128ef236c14c77ff91a1cd2a0c9",
+      "bytes": 727060,
+      "selected_lines": [
+        {
+          "line": 662,
+          "text": "ENABLE_SAMPLING_PROFILER:BOOL=OFF"
+        },
+        {
+          "line": 1243,
+          "text": "USE_GTK4:BOOL=OFF"
+        },
+        {
+          "line": 1278,
+          "text": "USE_SKIA:BOOL=ON"
+        },
+        {
+          "line": 1281,
+          "text": "USE_SKIA_ENCODERS:BOOL=ON"
+        },
+        {
+          "line": 1284,
+          "text": "USE_SKIA_OPENTYPE_SVG:BOOL=ON"
+        },
+        {
+          "line": 2468,
+          "text": "//ADVANCED property for variable: ENABLE_SAMPLING_PROFILER"
+        },
+        {
+          "line": 2469,
+          "text": "ENABLE_SAMPLING_PROFILER-ADVANCED:INTERNAL=1"
+        },
+        {
+          "line": 4410,
+          "text": "//ADVANCED property for variable: USE_SKIA"
+        },
+        {
+          "line": 4411,
+          "text": "USE_SKIA-ADVANCED:INTERNAL=1"
+        },
+        {
+          "line": 4412,
+          "text": "//ADVANCED property for variable: USE_SKIA_ENCODERS"
+        },
+        {
+          "line": 4413,
+          "text": "USE_SKIA_ENCODERS-ADVANCED:INTERNAL=1"
+        }
+      ]
+    },
+    "h700_cache": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-03/build.pixelelated-H700.aarch64/build/webkitgtk-2.54.1/.aarch64-rocknix-linux-gnu/CMakeCache.txt",
+      "sha256": "01743c5d8c174a5fd1a0208a01b80ecffbb1ee387730640874fb94e4c858b6cf",
+      "bytes": 737068,
+      "selected_lines": [
+        {
+          "line": 662,
+          "text": "ENABLE_SAMPLING_PROFILER:BOOL=OFF"
+        },
+        {
+          "line": 1243,
+          "text": "USE_GTK4:BOOL=OFF"
+        },
+        {
+          "line": 1278,
+          "text": "USE_SKIA:BOOL=ON"
+        },
+        {
+          "line": 1281,
+          "text": "USE_SKIA_ENCODERS:BOOL=ON"
+        },
+        {
+          "line": 1284,
+          "text": "USE_SKIA_OPENTYPE_SVG:BOOL=ON"
+        },
+        {
+          "line": 2448,
+          "text": "//ADVANCED property for variable: ENABLE_SAMPLING_PROFILER"
+        },
+        {
+          "line": 2449,
+          "text": "ENABLE_SAMPLING_PROFILER-ADVANCED:INTERNAL=1"
+        },
+        {
+          "line": 4390,
+          "text": "//ADVANCED property for variable: USE_SKIA"
+        },
+        {
+          "line": 4391,
+          "text": "USE_SKIA-ADVANCED:INTERNAL=1"
+        },
+        {
+          "line": 4392,
+          "text": "//ADVANCED property for variable: USE_SKIA_ENCODERS"
+        },
+        {
+          "line": 4393,
+          "text": "USE_SKIA_ENCODERS-ADVANCED:INTERNAL=1"
+        }
+      ]
+    },
+    "prior_h700": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-browser-stack/README.md",
+      "sha256": "444bbae81f0cae34d5ce11ff35f29915178c70c816ab8fbd8c7ccf5b74ab8f07",
+      "bytes": 9366,
+      "selected_lines": []
+    },
+    "prior_gtk4": {
+      "path": "/workspace/repos/rocknix.worktrees/m7-player-setup/docs/qa-logs/2026-10-13-gtk4-feasibility/README.md",
+      "sha256": "2cd789d5207b8b96d7510dc091aad41c9e4218c74eec6460126da4d91cfc01b0",
+      "bytes": 10866,
+      "selected_lines": [
+        {
+          "line": 38,
+          "text": "`USE_GTK4=ON`, `webkitgtk-6.0`, and `ENABLE_2022_GLIB_API=ON`. It still uses"
+        }
+      ]
+    }
+  }
+}

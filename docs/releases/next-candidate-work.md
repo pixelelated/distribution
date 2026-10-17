@@ -12,6 +12,22 @@ before its clean-install/upgrade checks can run; those checks hold RC designatio
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
 
+## October17 GTK4 priority refinement
+
+The owner identifies GTK4 as the likely smaller migration from GTK3. Build the
+isolated #576 dependency/API experiment first among engine alternatives; #617
+Blink stays prepared as a fallback. Keep #616 provider controls moving. This is
+an integration-cost hypothesis, not measured H700 performance or approval to
+replace the production engine. Preserve accepted GTK3 caches and image.
+
+## 2026-10-17 — Parallel browser rendering alternatives
+
+D-WORKFLOW-170 schedules bounded #576 GTK4/native-input and #617 Blink/Wayland
+spikes beside #616 provider attribution. [Source/evidence and ownership](../qa-logs/2026-10-17-browser-rendering-options/README.md)
+distinguish Skia page painting from GTK/GPU integration. Runtime-UA helpers compile for GENERIC/H700;12 actual parser checks and6 direct-launch
+VM controls pass without an OS-image rebuild. [Original results and limits](../qa-logs/2026-10-17-browser-controls-results-616/README.md). No new renderer benchmark or
+production engine change is claimed. #587/#615 and the remaining M7 order hold.
+
 ## 2026-10-16 17:56 UTC — Current browser attribution order (#616)
 
 D-WORKFLOW-169 puts #616's staged real-provider/page/script comparison before

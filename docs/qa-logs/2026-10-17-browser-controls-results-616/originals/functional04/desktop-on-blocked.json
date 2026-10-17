@@ -1,0 +1,91 @@
+{
+  "id": "desktop-on-blocked",
+  "ua_mode": "desktop",
+  "observer": "on",
+  "control": "blocked",
+  "pid": 6061,
+  "start": 759.561456328,
+  "frame": {
+    "path": "/storage/qa616-controls/functional04/frames/desktop-on-blocked.png",
+    "capture_returncode": 0,
+    "sha256": "bb3bb40b43a058cf705e8a8ddef13dba312c4ff4e4e8c0c9a825254616d7a54a",
+    "visual_review": "pending external review"
+  },
+  "proof": {
+    "http": {
+      "ua_sha256": "11e69e65499cdffbf2afb52b3b2494429bedd0872a5e5ed8b7e0ee80a6bb70e8",
+      "mobile": false,
+      "desktop_x11": true,
+      "webkit_tokens": true
+    },
+    "dom": {
+      "width": 640,
+      "height": 457,
+      "scale": 1,
+      "ua_sha256": "11e69e65499cdffbf2afb52b3b2494429bedd0872a5e5ed8b7e0ee80a6bb70e8"
+    }
+  },
+  "samples": [
+    {
+      "elapsed_ms": 2003.041,
+      "eval_roundtrip_ms": 2.907,
+      "ready": 2,
+      "foreground": 1,
+      "width": 640,
+      "height": 457,
+      "scale": 1.0,
+      "visible_text_inputs": 1,
+      "hittable_text_inputs": 0,
+      "checked_inputs": 1,
+      "heartbeat_ticks": 7,
+      "last_gap_ms": 252.0,
+      "max_gap_ms": 252.0
+    },
+    {
+      "elapsed_ms": 4001.908,
+      "eval_roundtrip_ms": 1.556,
+      "ready": 2,
+      "foreground": 1,
+      "width": 640,
+      "height": 457,
+      "scale": 1.0,
+      "visible_text_inputs": 1,
+      "hittable_text_inputs": 0,
+      "checked_inputs": 1,
+      "heartbeat_ticks": 15,
+      "last_gap_ms": 252.0,
+      "max_gap_ms": 252.0
+    }
+  ],
+  "cleanup_signals": [
+    {
+      "pid": 6061,
+      "start": 75956,
+      "signal": 15
+    },
+    {
+      "pid": 6070,
+      "start": 75958,
+      "signal": 15
+    },
+    {
+      "pid": 6072,
+      "start": 75958,
+      "signal": 15
+    }
+  ],
+  "browser_returncode": -15,
+  "seconds": 5.146675416999983,
+  "checks": {
+    "http_and_dom_ua_match": true,
+    "webkit_identity": true,
+    "controlled_sigterm_exit": true,
+    "frame_captured_not_yet_reviewed": true,
+    "samples_as_selected": true,
+    "desktop_applied": true,
+    "ready_complete": true,
+    "geometry_matches_dom": true,
+    "expected_input_hint": true
+  },
+  "pass": true
+}

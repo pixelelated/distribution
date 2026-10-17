@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "status": "static/source preparation only",
+  "pass": true,
+  "cases": {
+    "exact_source_prepared": true,
+    "tampered_source_refused_without_output": true,
+    "existing_output_refused_unchanged": true,
+    "base_unchanged": true,
+    "python_asts": true,
+    "observer_javascript_syntax": true,
+    "fixture_javascript_syntax": true,
+    "off_guard_precedes_observer_setup_source_only": true
+  },
+  "seconds": 0.03349408786743879,
+  "base_sha256": "39af3e041d9871c4fb636cff71934ddf3ea13c690002e77af5ea6d82d8fff4f8",
+  "diagnostic_source_sha256": "c892ba759c81c9083512017c56aca240929e8afaa2db40f97be26fb87eb60202",
+  "python_ast_count": 3,
+  "javascript_syntax_exit_codes": [
+    0,
+    0
+  ],
+  "scratch_bytes": 109419,
+  "compile_runtime_config_observer_browser_provider_checks": "UNRUN"
+}

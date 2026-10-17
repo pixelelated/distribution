@@ -1,0 +1,34 @@
+{
+  "utc": "2026-10-17T03:59:22.016831+00:00",
+  "candidate_sha256": "c892ba759c81c9083512017c56aca240929e8afaa2db40f97be26fb87eb60202",
+  "candidate_source": "/tmp/pix-browser-controls-prepared-20261017-01/cloud-signin-window.c",
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03",
+  "trees": [
+    {
+      "host": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64",
+      "canonical": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64",
+      "triple": "x86_64-rocknix-linux-gnu",
+      "device": "GENERIC_X64",
+      "compiler_sha256": "bb9cdcbaaf3f3b08bbfcad9d0b9c46cc5d7da800c74ff4efa1b170dd14b70c9b",
+      "reference_bytes": 46344,
+      "reference_sha256": "155ec0de1b77d54a4a4adf709b20107d4ea4a29203725781bb709dda793b15e0"
+    },
+    {
+      "host": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-03/build.pixelelated-H700.aarch64",
+      "canonical": "/workspace/repos/rocknix.worktrees/m7-pixelelated-h700-01/build.pixelelated-H700.aarch64",
+      "triple": "aarch64-rocknix-linux-gnu",
+      "device": "H700",
+      "compiler_sha256": "bf65b4f4dbf099330fe1ee451a6176809b270c5d3e5316771d2d03f756396ccd",
+      "reference_bytes": 80968,
+      "reference_sha256": "74b24b8b902c58f9e15772ace45140d7c713310c3672904b2e552fa952cc4db9"
+    }
+  ],
+  "limits": {
+    "cpus": 1,
+    "memory_mib": 1024,
+    "pids": 128,
+    "seconds": 180,
+    "scratch_budget_bytes": 201326592
+  },
+  "image": "ghcr.io/rocknix/rocknix-build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39"
+}

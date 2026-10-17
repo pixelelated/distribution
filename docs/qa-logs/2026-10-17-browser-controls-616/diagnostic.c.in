@@ -1,0 +1,193 @@
+/* SPDX-License-Identifier: GPL-2.0
+ * Diagnostic-only #616 controls. Inserted into the exact product source.
+ * No product patch, listener, cookie, URL or field-value collection.
+ */
+#include <math.h>
+#include <sys/utsname.h>
+
+#define QA616_WORLD "pixelelated-diagnostic-616"
+#define QA616_MAX_UA 512
+static const char qa616_observer_script[] = @OBSERVER_JS@;
+static const char *qa616_ua_mode = "default";
+static const char *qa616_custom_ua;
+static gboolean qa616_observe;
+static gboolean qa616_pending;
+static gboolean qa616_stopping;
+static guint qa616_timer;
+static guint qa616_samples;
+static gint64 qa616_started;
+static GCancellable *qa616_cancel;
+
+static gboolean qa616_refuse(const char *reason)
+{
+    /* Reasons are fixed source strings, never supplied environment values. */
+    g_printerr("QA616_CONFIG_ERROR %s\n", reason);
+    return FALSE;
+}
+
+static gboolean qa616_config(void)
+{
+    const char *mode = g_getenv("QA616_UA");
+    const char *observe = g_getenv("QA616_OBSERVER");
+    char **names = g_listenv();
+    for (guint i = 0; names[i]; i++) {
+        if (g_str_has_prefix(names[i], "QA616_") &&
+            strcmp(names[i], "QA616_UA") &&
+            strcmp(names[i], "QA616_CUSTOM_UA") &&
+            strcmp(names[i], "QA616_OBSERVER")) {
+            g_strfreev(names);
+            return qa616_refuse("unknown diagnostic variable");
+        }
+    }
+    g_strfreev(names);
+    if (mode) qa616_ua_mode = mode;
+    if (strcmp(qa616_ua_mode, "default") && strcmp(qa616_ua_mode, "desktop") &&
+        strcmp(qa616_ua_mode, "custom"))
+        return qa616_refuse("UA mode must be default, desktop, or custom");
+    if (observe && strcmp(observe, "off") && strcmp(observe, "on"))
+        return qa616_refuse("observer must be off or on");
+    qa616_observe = observe && !strcmp(observe, "on");
+    qa616_custom_ua = g_getenv("QA616_CUSTOM_UA");
+    if (!strcmp(qa616_ua_mode, "custom")) {
+        if (!qa616_custom_ua)
+            return qa616_refuse("custom UA is missing");
+        size_t length = strnlen(qa616_custom_ua, QA616_MAX_UA + 1);
+        if (!length || length > QA616_MAX_UA)
+            return qa616_refuse("custom UA size is invalid");
+        for (size_t i = 0; i < length; i++)
+            if ((unsigned char)qa616_custom_ua[i] < 32 ||
+                (unsigned char)qa616_custom_ua[i] > 126)
+                return qa616_refuse("custom UA must be printable ASCII");
+        /* This packet is for WebKit 2.54.1. Its compatibility version is
+         * intentionally 605.1.15/60.5, not the engine's release number.
+         * A Chrome/Firefox identity would misdescribe this engine. */
+        if (!g_str_has_prefix(qa616_custom_ua, "Mozilla/5.0 (") ||
+            !strstr(qa616_custom_ua, ") AppleWebKit/605.1.15 (KHTML, like Gecko) Version/60.5 ") ||
+            !g_str_has_suffix(qa616_custom_ua, "Safari/605.1.15") ||
+            strstr(qa616_custom_ua, "Chrome/") || strstr(qa616_custom_ua, "Chromium/") ||
+            strstr(qa616_custom_ua, "Firefox/") || strstr(qa616_custom_ua, "Edg/"))
+            return qa616_refuse("custom UA must preserve this WebKit identity");
+    } else if (qa616_custom_ua) {
+        return qa616_refuse("custom UA requires custom mode");
+    }
+    return TRUE;
+}
+
+static double qa616_number(JSCValue *object, const char *property, double maximum)
+{
+    JSCValue *value = jsc_value_object_get_property(object, property);
+    double number = -1;
+    if (value && jsc_value_is_number(value)) {
+        double candidate = jsc_value_to_double(value);
+        if (isfinite(candidate) && candidate >= 0 && candidate <= maximum)
+            number = candidate;
+    }
+    if (value) g_object_unref(value);
+    return number;
+}
+
+static void qa616_result(GObject *view, GAsyncResult *result, gpointer data)
+{
+    gint64 requested = *(gint64 *)data;
+    g_free(data);
+    GError *error = NULL;
+    JSCValue *value = webkit_web_view_evaluate_javascript_finish(
+        WEBKIT_WEB_VIEW(view), result, &error);
+    qa616_pending = FALSE;
+    if (!qa616_stopping) {
+        double elapsed = (g_get_monotonic_time() - qa616_started) / 1000.0;
+        double latency = (g_get_monotonic_time() - requested) / 1000.0;
+        if (value && jsc_value_is_object(value)) {
+            /* Fixed numeric schema: never serialize a page-provided string. */
+            g_printerr("QA616_SAMPLE {\"elapsed_ms\":%.3f,\"eval_roundtrip_ms\":%.3f,"
+                "\"ready\":%.0f,\"foreground\":%.0f,\"width\":%.0f,\"height\":%.0f,"
+                "\"scale\":%.3f,\"visible_text_inputs\":%.0f,\"hittable_text_inputs\":%.0f,"
+                "\"checked_inputs\":%.0f,\"heartbeat_ticks\":%.0f,\"last_gap_ms\":%.3f,"
+                "\"max_gap_ms\":%.3f}\n", elapsed, latency,
+                qa616_number(value, "ready", 2), qa616_number(value, "foreground", 1),
+                qa616_number(value, "width", 32768), qa616_number(value, "height", 32768),
+                qa616_number(value, "scale", 32), qa616_number(value, "visible", 128),
+                qa616_number(value, "hittable", 128), qa616_number(value, "checked", 129),
+                qa616_number(value, "ticks", 10000000),
+                qa616_number(value, "last_gap_ms", 3600000),
+                qa616_number(value, "max_gap_ms", 3600000));
+        } else {
+            g_printerr("QA616_EVAL_ERROR elapsed_ms=%.3f eval_roundtrip_ms=%.3f\n", elapsed, latency);
+        }
+    }
+    if (value) g_object_unref(value);
+    if (error) g_error_free(error);
+}
+
+static gboolean qa616_poll(gpointer view)
+{
+    if (qa616_stopping || qa616_samples >= 180 ||
+        g_get_monotonic_time() - qa616_started >= 360000000) {
+        qa616_timer = 0;
+        return G_SOURCE_REMOVE;
+    }
+    if (qa616_pending) return G_SOURCE_CONTINUE;
+    qa616_pending = TRUE;
+    qa616_samples++;
+    gint64 *requested = g_new(gint64, 1);
+    *requested = g_get_monotonic_time();
+    webkit_web_view_evaluate_javascript(WEBKIT_WEB_VIEW(view),
+        "typeof globalThis.__qa616Sample === 'function' ? globalThis.__qa616Sample() : null",
+        -1, QA616_WORLD, NULL, qa616_cancel, qa616_result, requested);
+    return G_SOURCE_CONTINUE;
+}
+
+static void qa616_stop(GtkWidget *view, gpointer unused)
+{
+    (void)view;
+    (void)unused;
+    qa616_stopping = TRUE;
+    if (qa616_timer) {
+        g_source_remove(qa616_timer);
+        qa616_timer = 0;
+    }
+    if (qa616_cancel) g_cancellable_cancel(qa616_cancel);
+    g_clear_object(&qa616_cancel);
+}
+
+static gboolean qa616_setup(WebKitWebView *view)
+{
+    WebKitSettings *settings = webkit_web_view_get_settings(view);
+    if (!strcmp(qa616_ua_mode, "desktop")) {
+        const char *original = webkit_settings_get_user_agent(settings);
+        const char *tail = original ? strstr(original, ") AppleWebKit/") : NULL;
+        struct utsname platform;
+        if (!tail || uname(&platform) || strcmp(platform.sysname, "Linux"))
+            return qa616_refuse("cannot derive this engine's desktop UA");
+        /* Preserve the installed engine's exact compatibility tokens; use the
+         * actual target architecture. Removing Mobile is the UA variable. */
+        char **parts = g_strsplit(tail + 1, "Mobile ", -1);
+        char *suffix = g_strjoinv("", parts);
+        char *desktop = g_strdup_printf("Mozilla/5.0 (X11; Linux %s)%s", platform.machine, suffix);
+        webkit_settings_set_user_agent(settings, desktop);
+        g_free(desktop);
+        g_free(suffix);
+        g_strfreev(parts);
+    } else if (!strcmp(qa616_ua_mode, "custom")) {
+        webkit_settings_set_user_agent(settings, qa616_custom_ua);
+    }
+    /* No set_user_agent call in default mode: preserve per-site UA quirks. */
+    const char *effective = webkit_settings_get_user_agent(settings);
+    char *digest = effective ? g_compute_checksum_for_string(G_CHECKSUM_SHA256, effective, -1) : NULL;
+    g_printerr("QA616_CONFIG ua=%s observer=%s effective_ua_sha256=%s engine=%u.%u.%u\n",
+        qa616_ua_mode, qa616_observe ? "on" : "off", digest ? digest : "unavailable",
+        webkit_get_major_version(), webkit_get_minor_version(), webkit_get_micro_version());
+    g_free(digest);
+    if (!qa616_observe) return TRUE;
+    qa616_started = g_get_monotonic_time();
+    qa616_cancel = g_cancellable_new();
+    WebKitUserScript *script = webkit_user_script_new_for_world(qa616_observer_script,
+        WEBKIT_USER_CONTENT_INJECT_TOP_FRAME, WEBKIT_USER_SCRIPT_INJECT_AT_DOCUMENT_START,
+        QA616_WORLD, NULL, NULL);
+    webkit_user_content_manager_add_script(webkit_web_view_get_user_content_manager(view), script);
+    webkit_user_script_unref(script);
+    g_signal_connect(view, "destroy", G_CALLBACK(qa616_stop), NULL);
+    qa616_timer = g_timeout_add_full(G_PRIORITY_DEFAULT, 2000, qa616_poll,
+        g_object_ref(view), g_object_unref);
+    return TRUE;
+}

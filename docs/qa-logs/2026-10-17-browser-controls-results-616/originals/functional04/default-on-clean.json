@@ -1,0 +1,90 @@
+{
+  "id": "default-on-clean",
+  "ua_mode": "default",
+  "observer": "on",
+  "control": "clean",
+  "pid": 5858,
+  "start": 744.09883029,
+  "frame": {
+    "path": "/storage/qa616-controls/functional04/frames/default-on-clean.png",
+    "capture_returncode": 0,
+    "sha256": "a35def1c60e07b8c604aeedd253c97b8b8921a8035f036284081d38bcbb64c70",
+    "visual_review": "pending external review"
+  },
+  "proof": {
+    "http": {
+      "ua_sha256": "162a82295c9ee99a02126208f513b10a7b46535eaac2ccf363724798d2f8a562",
+      "mobile": true,
+      "desktop_x11": false,
+      "webkit_tokens": true
+    },
+    "dom": {
+      "width": 640,
+      "height": 457,
+      "scale": 1,
+      "ua_sha256": "162a82295c9ee99a02126208f513b10a7b46535eaac2ccf363724798d2f8a562"
+    }
+  },
+  "samples": [
+    {
+      "elapsed_ms": 2008.994,
+      "eval_roundtrip_ms": 8.736,
+      "ready": 2,
+      "foreground": 1,
+      "width": 640,
+      "height": 457,
+      "scale": 1.0,
+      "visible_text_inputs": 1,
+      "hittable_text_inputs": 1,
+      "checked_inputs": 1,
+      "heartbeat_ticks": 7,
+      "last_gap_ms": 253.0,
+      "max_gap_ms": 253.0
+    },
+    {
+      "elapsed_ms": 4002.115,
+      "eval_roundtrip_ms": 1.657,
+      "ready": 2,
+      "foreground": 1,
+      "width": 640,
+      "height": 457,
+      "scale": 1.0,
+      "visible_text_inputs": 1,
+      "hittable_text_inputs": 1,
+      "checked_inputs": 1,
+      "heartbeat_ticks": 15,
+      "last_gap_ms": 252.0,
+      "max_gap_ms": 253.0
+    }
+  ],
+  "cleanup_signals": [
+    {
+      "pid": 5858,
+      "start": 74409,
+      "signal": 15
+    },
+    {
+      "pid": 5867,
+      "start": 74414,
+      "signal": 15
+    },
+    {
+      "pid": 5869,
+      "start": 74414,
+      "signal": 15
+    }
+  ],
+  "browser_returncode": -15,
+  "seconds": 5.140677804000006,
+  "checks": {
+    "http_and_dom_ua_match": true,
+    "webkit_identity": true,
+    "controlled_sigterm_exit": true,
+    "frame_captured_not_yet_reviewed": true,
+    "samples_as_selected": true,
+    "ready_complete": true,
+    "geometry_matches_dom": true,
+    "expected_input_hint": true
+  },
+  "pass": true
+}

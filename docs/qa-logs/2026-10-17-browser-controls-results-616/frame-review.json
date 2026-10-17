@@ -1,0 +1,58 @@
+{
+  "reviewer": "coordinator visual inspection",
+  "frames": [
+    {
+      "path": "functional02/frames/default-off-clean.png",
+      "sha256": "69c19b540e93c128b23f0689d7bf24ee73ac428cad68cace317659d49ef0fa3b",
+      "review": "PASS for synthetic visual control only",
+      "observed": "Expected synthetic input visible"
+    },
+    {
+      "path": "functional03/frames/default-off-clean.png",
+      "sha256": "02cd70fc018369e99414f56df4640c4fdfe45e3400abce50e9190c443984ca3f",
+      "review": "PASS for synthetic visual control only",
+      "observed": "Expected synthetic input visible"
+    },
+    {
+      "path": "functional04/frames/default-off-clean.png",
+      "sha256": "a35def1c60e07b8c604aeedd253c97b8b8921a8035f036284081d38bcbb64c70",
+      "review": "PASS for synthetic visual control only",
+      "observed": "Expected synthetic input visible"
+    },
+    {
+      "path": "functional04/frames/default-on-clean.png",
+      "sha256": "a35def1c60e07b8c604aeedd253c97b8b8921a8035f036284081d38bcbb64c70",
+      "review": "PASS for synthetic visual control only",
+      "observed": "Expected synthetic input visible"
+    },
+    {
+      "path": "functional04/frames/desktop-off-clean.png",
+      "sha256": "21ef73797f61c36ae6c05c4538314cd412637bdf794ec569067b60927fdb5c05",
+      "review": "PASS for synthetic visual control only",
+      "observed": "Expected synthetic input visible"
+    },
+    {
+      "path": "functional04/frames/desktop-on-blocked.png",
+      "sha256": "bb3bb40b43a058cf705e8a8ddef13dba312c4ff4e4e8c0c9a825254616d7a54a",
+      "review": "PASS for synthetic visual control only",
+      "observed": "Expected full viewport obstruction"
+    },
+    {
+      "path": "functional04/frames/desktop-on-clean.png",
+      "sha256": "21ef73797f61c36ae6c05c4538314cd412637bdf794ec569067b60927fdb5c05",
+      "review": "PASS for synthetic visual control only",
+      "observed": "Expected synthetic input visible"
+    },
+    {
+      "path": "functional04/frames/desktop-on-hidden.png",
+      "sha256": "dc65bf30273694cac1050842de048a692cf6b16060edc8fee8c8c0cfcedbfa8e",
+      "review": "PASS for synthetic visual control only",
+      "observed": "Expected hidden input"
+    }
+  ],
+  "limits": [
+    "No trusted typing, authentication, performance or real-provider proof.",
+    "Original fixture caption says no network requests; companion adds fixed-schema loopback report. This historical caption is inaccurate for the adapted fixture and does not describe product UI.",
+    "Attempt2 had no accepted DOM proof; attempt3 visibly HTTP400; attempt4 accepted clean/hidden reports HTTP204 and expected blocked overlay."
+  ]
+}

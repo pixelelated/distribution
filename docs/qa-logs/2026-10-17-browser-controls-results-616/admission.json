@@ -1,0 +1,39 @@
+{
+  "admitted": "2026-10-17T04:02:28.770677+00:00",
+  "available_bytes": 2097877266432,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03",
+  "id": "9e38f30969c5454097c03354fd79a23e",
+  "outputs": [
+    {
+      "issue": 616,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-browser-controls-vm-20261017-01",
+      "release_when": "Export reviewed helper functional results/frames, consume original lifecycle results, then retire only this owned VM disk/OVMF."
+    }
+  ],
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "c9d321d70d32abd5e6adf0536ed16d5994abbb6513cbda4e1cd846416e357389",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 34493956096,
+  "retention_plan_sha256": "20638f8be5feb2ee15fcfb2864e44ee91830411f392151411be84954438d3e51",
+  "retention_report_sha256": "1ed061c5d2d969043c326d8d3ccfaa5fd22cf2394aaec52e6c9a53095d72317a",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/.build-runs/20261017T040228Z-0fddbf18",
+  "runner_pid": 615118,
+  "runner_start": "130143264",
+  "source": {
+    "head": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "running",
+  "submission_owner": "/workspace/tmp/pix-browser-controls-vm-20261017-01/lifecycle-owner",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

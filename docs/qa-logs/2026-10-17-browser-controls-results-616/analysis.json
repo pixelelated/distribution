@@ -1,0 +1,69 @@
+{
+  "scope": "direct diagnostic helper functional controls only; software no-NIC VM",
+  "latest_pass": true,
+  "attempts": [
+    {
+      "number": 1,
+      "pass": false,
+      "error": "browser exited before functional observation",
+      "seconds": 1.1765985499999942,
+      "cases": 1,
+      "restored_essway": true,
+      "guard": {
+        "pass": true,
+        "triggers": [],
+        "minimum_available_kib": 403500,
+        "error": null,
+        "seconds": 1.105045056999984
+      }
+    },
+    {
+      "number": 2,
+      "pass": false,
+      "error": "functional assertion failed: default-off-clean",
+      "seconds": 10.857208625999988,
+      "cases": 1,
+      "restored_essway": true,
+      "guard": {
+        "pass": true,
+        "triggers": [],
+        "minimum_available_kib": 413792,
+        "error": null,
+        "seconds": 10.771880012999986
+      }
+    },
+    {
+      "number": 3,
+      "pass": false,
+      "error": "functional assertion failed: default-off-clean",
+      "seconds": 10.92228313499993,
+      "cases": 1,
+      "restored_essway": true,
+      "guard": {
+        "pass": true,
+        "triggers": [],
+        "minimum_available_kib": 404764,
+        "error": null,
+        "seconds": 10.86312227999997
+      }
+    },
+    {
+      "number": 4,
+      "pass": true,
+      "error": null,
+      "seconds": 31.385638703999916,
+      "cases": 6,
+      "restored_essway": true,
+      "guard": {
+        "pass": true,
+        "triggers": [],
+        "minimum_available_kib": 408348,
+        "error": null,
+        "seconds": 31.310816233999958
+      }
+    }
+  ],
+  "gtk4_runtime": false,
+  "blink_runtime": false,
+  "provider_or_performance_qualified": false
+}

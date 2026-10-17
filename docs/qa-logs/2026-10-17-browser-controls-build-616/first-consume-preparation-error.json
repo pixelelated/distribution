@@ -1,0 +1,7 @@
+{
+  "status": "FAIL",
+  "preparation_exit": 1,
+  "consumer_exit": 2,
+  "reason": "Coordinator used prelaunch receipt rather than run admission to read outputs; acceptance was absent. Original successful producer results unchanged.",
+  "correction": "Read outputs from the run admission; create acceptance only after actual outcome and exit checks."
+}

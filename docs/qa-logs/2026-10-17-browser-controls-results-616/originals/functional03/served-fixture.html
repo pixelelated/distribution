@@ -1,0 +1,78 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: GPL-2.0 -->
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'self'; form-action 'none'; base-uri 'none'">
+<title>Local input and render control</title>
+<style>
+  body { background:#102129; color:white; font:20px sans-serif; margin:20px }
+  label,input { display:block; margin:12px 0 }
+  input { font:24px sans-serif; width:260px; height:42px }
+  #mask { display:none; position:absolute; left:10px; top:10px; width:400px; height:260px; background:#333; z-index:10 }
+  #paint { width:48px; height:48px; background:#10a5ff }
+  .blocked #mask { display:block }
+  .hidden input { display:none }
+  .offscreen input { position:absolute; left:-400px }
+.blocked #mask { position:fixed; inset:0; width:auto; height:auto }
+</style>
+<h1>Local input and render control</h1>
+<p id="mode"></p>
+<label for="fixture">Synthetic text only</label>
+<input id="fixture" type="text" maxlength="32" autocomplete="off" spellcheck="false">
+<div id="mask">Intentional obstruction</div>
+<div id="paint" aria-label="Paint counter"></div>
+<output id="latency">No input</output>
+<p>This fixture has no submit action and sends no network requests.</p>
+<script>
+  'use strict';
+  const mode = new URLSearchParams(location.search).get('case') || 'clean';
+  if (!['clean', 'blocked', 'disabled', 'hidden', 'offscreen', 'stall'].includes(mode))
+      throw new Error('unknown fixed control');
+  document.body.className = mode;
+  document.getElementById('mode').textContent = 'Control: ' + mode;
+  const field = document.getElementById('fixture');
+  field.disabled = mode === 'disabled';
+  let count = 0;
+  field.addEventListener('input', () => {
+      const started = performance.now();
+      const sequence = ++count;
+      requestAnimationFrame(() => {
+          document.getElementById('paint').style.background = sequence % 2 ? '#ff29bd' : '#10a5ff';
+          requestAnimationFrame(() => {
+              const interval = performance.now() - started;
+              const output = document.getElementById('latency');
+              output.dataset.sequence = String(sequence);
+              output.dataset.intervalMs = interval.toFixed(3);
+              output.textContent = 'Input ' + sequence + ': second animation frame after ' + interval.toFixed(1) + ' ms';
+          });
+      });
+  });
+  field.addEventListener('keydown', event => { if (event.key === 'Enter') event.preventDefault(); });
+  if (mode === 'stall') setInterval(() => {
+      const end = performance.now() + 400;
+      while (performance.now() < end) { /* Explicit bounded main-thread stall. */ }
+  }, 2000);
+
+const qa616Case = new URLSearchParams(location.search).get('case_id');
+const qa616Status = document.createElement('p');
+qa616Status.style.fontSize = '16px';
+document.body.appendChild(qa616Status);
+const qa616SetStatus = value => { qa616Status.textContent = 'DOM proof: ' + value; };
+qa616SetStatus('waiting');
+document.addEventListener('securitypolicyviolation', () => qa616SetStatus('CSP blocked'));
+const qa616Report = () => {
+  qa616SetStatus('requested');
+  try {
+    fetch('/__qa616_dom', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({case_id:qa616Case, ua:navigator.userAgent,
+                            width:innerWidth, height:innerHeight, scale:devicePixelRatio})
+    }).then(response => qa616SetStatus('HTTP ' + response.status))
+      .catch(() => qa616SetStatus('fetch rejected'));
+  } catch (_) { qa616SetStatus('synchronous exception'); }
+};
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',qa616Report,{once:true});
+else qa616Report();
+</script>
+</html>

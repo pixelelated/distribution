@@ -1,9 +1,9 @@
 # Saved Session State
 
-> **Saved:** 2026-10-16T17:56:29Z
+> **Saved:** 2026-10-17T04:18:16Z
 > **Branch:** `feature/m7-audit-integration-603`
 > **Repository:** `pixelelated/distribution`; integration branch `next`
-> **Request:** Attribute browser/page memory and responsiveness across providers and user agents before selecting a service-stop or script-filter policy.
+> **Request:** Investigate browser memory/responsiveness; prioritize GTK4 among engine-migration experiments, retain Blink fallback and provider attribution.
 
 ## Start here
 
@@ -16,7 +16,7 @@ not a designated public RC. The OS name and cloud default are lowercase
 1. Read current `next:AGENTS.md`, its every-session `.claude/rules/` files, and
    scoped rules before touching their paths. Read the `session-resume` skill.
 2. Read this checkpoint, the [live M7 ordered plan](https://github.com/pixelelated/distribution/milestone/7),
-   `docs/releases/next-candidate-work.md` and active issues #616/#587/#615. Historical
+   `docs/releases/next-candidate-work.md` and active issues #616/#576/#617/#587/#615. Historical
    queues in archived checkpoints are not the current plan.
 3. Read `docs/qa-logs/2026-10-16-browser-headroom-587/README.md`, `analysis.json`,
    `originals/busy-stop.json`, `originals/recovery.json` and run `verify.py`.
@@ -35,25 +35,56 @@ credential values. Private inventories, signed streams and personal captures sta
 outside Git. Device read output must exclude `key|pass|token|user|psk` lines.
 `docs/device-testing-policy.md` and `tools/device-act` govern named device actions.
 
-## Current focus
+## Current focus and completed October17 work
 
-#616 owns the current page/provider and script-versus-reclaim investigation.
-D-WORKFLOW-169 refines the order: prepare matched real Dropbox/Google Drive/
-OneDrive and light-page VM controls, first with RAM headroom then changing only
-RAM to1GiB, before implementing service suspension. Compare UA separately and
-profile only after a low-overhead baseline. The new runtime matrix is UNRUN.
+D-WORKFLOW-170 schedules independent GTK4/Blink source work alongside #616.
+The latest owner steering identifies GTK4 as the likely smaller migration. #576
+and the live M7 body now put **GTK4 first among engine-migration builds**, with
+#617 Blink as a prepared fallback. Production adoption is unselected. #616's
+actual-provider comparison remains current; #587 safe service-stop and #615
+physical loaded-page recovery remain unresolved. No new runtime is active.
 
-Read `docs/qa-logs/2026-10-16-browser-provider-attribution-616/README.md` and run
-its read-only `analyse-retained.py --repo .`. Retained October13 samples show
-365–416MiB in the page process without a proxy, but do not identify a heavy script
-or root cause. JS/filtering APIs exist; no product blocklist/UA change is selected.
-The earlier26.27MiB synthetic proxy gain is headroom, not a cause or provider cure.
-#587's busy-stop timeout remains a safety prerequisite before any service stop;
-#615's physical loaded-page exit remains inconclusive. No runtime is active.
+Current WebKit is2.54.1 with GTK3/API4.1, already using Skia for page painting.
+GTK4's exact-source opportunity is previous-texture/damage-region handling in
+WebKit's GTK presentation path. Neither toolkit nor engine alternative has a
+measured H700 improvement. Upstream Pi4 compositor benchmarks are not a GTK3/4
+comparison. Read docs/qa-logs/2026-10-17-browser-rendering-options/README.md.
 
-The source/evidence review and new tracker are complete; the next allocation needs
-fresh admission/owner/guards, account-free actual-provider fixture preparation and
-observer-overhead controls. See #616 for the detailed plan and error-page exclusions.
+Completed source packets (only these commits were cherry-picked from divergent
+worker branches; unrelated history stays separate):
+
+- 0d05ce9e60: docs/qa-logs/2026-10-17-gtk4-spike/ contains six dependency/engine
+  overlay recipes, preserved product patches, native-input probe and verifier.
+  All static checks pass. Graphene/GTK4/WebKit6 compilation and runtime UNRUN.
+- 4dd24cd038: docs/qa-logs/2026-10-17-blink-feasibility/ contains a pinned CEF
+  Views probe and synthetic fixture. CEF sample cefclient forces X11; use the
+  prepared cefsimple direction. SDK ABI and non-root sandbox remain unverified.
+  No SDK download, compile or runtime. Blink is a fallback, not a selected port.
+- docs/qa-logs/2026-10-17-browser-controls-616/ is the exact-source diagnostic
+  helper overlay. Runtime UA and observer controls need no OS-image rebuild.
+  Both tiny GENERIC/H700 binaries compile;12 actual target-library parser cases
+  pass. See browser-controls-build-616/ for original results. H700 unexecuted.
+- docs/qa-logs/2026-10-17-browser-controls-results-616/ retains four VM attempts.
+  Attempt1 inherited a1MiB file limit and browser exited SIGXFSZ(-25); the exact
+  backing file is unknown. Attempts2/3 rendered the page but DOM report failed
+  validation; attempt3 proves matching Origin then schema refusal. Attempt4
+  waits for an animation frame/positive geometry and passes all6 cases in31.386s.
+  Fixed content viewport640x457/DPR1; actual mobile/default versus desktop UA
+  hashes differ, HTTP/DOM match, observer toggles and clean/blocked/hidden controls
+  pass. No pressure guard; min408348KiB available; frontend restored.8 reviewed
+  frames include the2 earlier failures. Earlier rejected geometry was not recorded:
+  do not claim that zero-size geometry was historically proved.
+
+This is direct diagnostic launch, not normal broker/ES handoff or provider,
+trusted typing, performance or GPU qualification. The fixture's inherited caption
+says no network; the adapted companion sends bounded loopback measurements. This
+caption mismatch is documented in frame-review.json and is not product UI.
+The full JavaScript sampling profiler is disabled in the current engine recipe.
+
+Herdr w4:p7/p8 failed login refresh before work. Internal active-session agents
+completed the three disjoint source packets instead; do not describe those Herdr
+workers as running. No authentication settings changed. All workers are done.
+The coordinator owns tracker/shared records and runtime admission.
 
 ## Previous completed headroom experiment and publication
 
@@ -118,16 +149,22 @@ Sway#5423 USB/input report is not a match for the virtual keyboard evidence.
 
 The milestone body is the ordered plan. The following is its current handoff:
 
-1. **#616, with #587 / #615 retained:** prepare a source-bound actual-provider
-   benchmark from #616's staged VM-first plan. Existing October13 fixtures contain
-   retired absolute owners/ports; adapt them to a fresh allocation, never replay
-   old owners. Measure light-page/Dropbox/Drive/OneDrive readiness, per-process
-   memory/CPU/reclaim and input latency, with policy/error outcomes separate.
-   Hold engine, UA, viewport, normal ES handoff and service state fixed; change RAM
-   separately, then UA and profiling. No account submission or cloud transfer.
-   Before any production stop policy, #587 still requires atomic quiescence or
-   bounded cancellation/restoration with slow-response/queue/lifecycle proofs.
-   H700 physical corroboration follows portable attribution; #615 remains open.
+1. **#616 with #576 GTK4 first and #617 fallback:** no active producer remains.
+   For GTK4, read the new packet and run its static verify.py; prepare a fresh
+   dedicated build/* checkout and isolated writable sysroot rooted in current
+   product bytes. Preserve accepted GTK3 caches. Inspect actual resolved paths,
+   stamps and container mounts before admission; do not clone an entire build
+   tree. First allocation: Graphene1CPU/2GiB/2GiB/10min provisional ceiling;
+   then GTK4/sandbox dependencies; WebKit6 is a separate heavy compile. These are
+   proposals, not allocations. Read README for exact command and caveats.
+   In parallel continue #616's source-bound account-free light/Dropbox/Drive/
+   OneDrive matrix using the now functional UA/observer helper. A new runtime
+   needs fresh admission/owner, actual provider-error exclusions, normal broker
+   handoff, observer-off control and input readiness proof. Existing no-NIC
+   fixture is not a provider runner. Hold engine/viewport/service state fixed;
+   vary RAM then UA separately. Sampling profiling may require an engine build.
+   #587 atomic quiescence/bounded cancellation and queue/restart proofs are still
+   required before production service suspension. H700 follows portable tests.
 2. **#613:** next independent package task. Inspect upstream and exact package
    source, correct the unused `/etc` systems-config fallback link into build
    staging, then prove normal selected-storage precedence and fallback on the VM.
@@ -148,37 +185,43 @@ review. Exact receipts: `docs/qa-logs/2026-10-15-post-audit-product-delta/`.
 
 ## Runtime state and resumption commands
 
-No build, VM, device diagnostic, provider audit or deployment remains active
-from this experiment. Original launcher/wrapper/command/monitor/runner/build/VM
-channels are0 and exact host/QEMU identities exited. Admission
-5c8eeab34ebb4b30ae07af99fc0c7aa6 was consumed and its two owned VM files retired.
-Private preparation: `/tmp/pix-m7-browser-headroom-20261016-01`.
-Retired guest owner: `/workspace/tmp/pix-m7-headroom-vm-20261016-02`.
-Compact export: `/workspace/tmp/pix-m7-headroom-evidence-20261016-01`.
-Frozen run: `/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/.build-runs/20261016T165313Z-96219fda`.
-Matrix run: coordinator `.build-runs/20261016T170036Z-509ef5cb`.
-Headroom publication947e0b3de0 and recovery recordaa3f36b4e2 are on both ordinary
-refs with all three hosted checks passed and original watcher exits0. The original
-CI poll failure1 is retained. This #616 documentation/reanalysis update follows
-that record; inspect current Git/hosted results rather than inferring publication.
-No off-session notifier is claimed. The first refused allocation01 has no VM.
+No build, VM, browser, device diagnostic, external audit or deployment remains
+active from this session. VM launcher/wrapper/build/command/monitor/runner/lifecycle
+original channels are0; exact host/QEMU identities exited. Admission
+9e38f30969c5454097c03354fd79a23e consumed;2,312,990,720 allocated bytes of its owned
+VM disk/OVMF retired. Root evidence owner is
+/workspace/tmp/pix-browser-controls-vm-20261017-01/export/.
+Frozen run: m7-p5-build-20261015-03/.build-runs/20261017T040228Z-0fddbf18.
+Compile admission261514b9d3fa44cdaef8b34cbe9f07fd also consumed, all owners exited;
+run20261017T035952Z-4429942f. Tiny helpers remain only for queued immediate tests:
+/workspace/tmp/pix-browser-controls-compile-20261017-01/out/.
+GENERIC SHA530b0d2c7daf739eb061a415da4224a7affcec1b1837a452d182e97a03c16454;
+H700 SHA9dad87a65f5415311d663448834aac1ae281212c931f12c3cc2afb8fbbd0f245.
+Do not rerun consumed producers or replay old owners/ports.
+
+The prior published base is f511766e17fb. This session integrates two source
+packets and then saves evidence/records; inspect actual refs and CI before
+claiming this checkpoint's publication. No product source, ES pin or firmware
+changed. Private tracker receipts: /tmp/pix-m7-browser-parallel-20261017/.
+No off-session notification mechanism is claimed.
 
 Useful read-only checks from the coordinator:
 
 ```sh
 git status --short --branch
-git log -3 --oneline
+git log -4 --oneline
 git ls-remote origin refs/heads/next refs/heads/feature/m7-audit-integration-603
-python3 -I docs/qa-logs/2026-10-16-browser-headroom-587/verify.py
+python3 -I docs/qa-logs/2026-10-17-gtk4-spike/verify.py --repo .
+(cd docs/qa-logs/2026-10-17-browser-controls-results-616 && sha256sum -c SHA256SUMS)
 gh api repos/pixelelated/distribution/milestones/7 --jq .description
+gh issue view 576 --repo pixelelated/distribution
 gh issue view 616 --repo pixelelated/distribution
 ```
 
-Use `tools/archaeology` before declaring another issue new. A new runtime gets
-fresh admission/owner and `tools/watch-build-submit`/`tools/watch-build`; actively
-check results at intervals of at most60s and announce actual completion. Never
-edit a tool in flight. Host process checks require actual host context; sandbox
-PID views can conceal host processes. No broad process kill or blanket cleanup.
+Use tools/archaeology before declaring another issue new. New runtime uses fresh
+admission/owner and tools/watch-build-submit/tools/watch-build; actively observe
+at most60s intervals and announce actual completion. Never edit in-flight tools.
+Host process checks require actual host context. No broad cleanup or process kill.
 
 ## Builds, devices and custody
 
@@ -232,22 +275,23 @@ Source trees were unchanged by that history correction; no force push occurred.
   storage; September30 empty restore/0B backup explain activity stamps, and
   pre-install play metadata explains Recent membership. #565 clean/retained
   controls are delivered; no personal reset is needed or authorized by this stash.
-- #558 shutdown and #561 LED are watches. #587 is current M7 work; #576 GTK4,
-  #568 finalization wording, #562 integrity, #586 credentials and #560 fast
-  shutdown remain backlog. Prior proxy target saving was only390KiB and not
+- #558 shutdown and #561 LED are watches. #587 and #576 GTK4 are current
+  M7 work alongside #616/#617. #568 finalization wording, #562 integrity,
+  #586 credentials and #560 fast shutdown remain backlog. Prior proxy target saving was only390KiB and not
   adopted; approximately78MiB ES handoff saving was VM evidence, not a provider cure.
 
 ## Key files and related context
 
 | File | Change |
 | --- | --- |
-| `docs/qa-logs/2026-10-16-browser-headroom-587/` | New original evidence, analysis, verifier, fixtures and reviewed frames |
-| `docs/decision-register.md` | D-RA-048 promotion/safety constraints |
-| `docs/releases/next-candidate-work.md`, `docs/vm-qa-log.md` | Current result and scope |
-| `docs/work-logs/2026_10-work_logs/2026_10_16-work_log.md`, `docs/friction-log.md` | Findings, fixture failures and durable next step |
-| This checkpoint and branch pointer | Archived prior bytes; refreshed current queue |
+| `docs/qa-logs/2026-10-17-gtk4-spike/`, `2026-10-17-blink-feasibility/` | Source-only migration candidates; no engine compile/runtime |
+| `docs/qa-logs/2026-10-17-browser-controls-616/`, `browser-controls-build-616/`, `browser-controls-vm-616/`, `browser-controls-results-616/` | Diagnostic source, actual compilation/parser proof, executed VM fixture and original outcomes |
+| `docs/qa-logs/2026-10-17-browser-rendering-options/` | Primary-source graphics findings and parallel ownership |
+| `docs/decision-register.md` | D-WORKFLOW-170 bounded parallel alternatives |
+| `docs/releases/next-candidate-work.md`, `docs/vm-qa-log.md` | GTK4-first migration experiment, provider controls and limits |
+| `docs/work-logs/2026_10-work_logs/2026_10_17-work_log.md`, `docs/friction-log.md` | Findings and preserved fixture failures |
+| This checkpoint and branch pointer | Archived October16 state; refreshed current queue |
 
-- Previous checkpoint intact: [saved-session-state-next-20261016T171828Z.md](archived/saved-session-state-next-20261016T171828Z.md).
 - Current flows: `docs/es-menu-map.md`, `docs/conflict-wizard-ia.md`. No product
   presentation changed; this packet records the exercised existing flow/frames.
 - Release preparation: `docs/releases/0.0.1-release-preparation.md` and
@@ -262,3 +306,5 @@ never force push or merge the stale harness. The required context-free handoff
 review is performed on this prepared checkpoint before publication; its receipt
 lives in the private preparation directory. No new physical, external transfer,
 source-contact message or public release is authorized by this record.
+
+Previous full checkpoint: [saved-session-state-next-20261017T041816Z.md](archived/saved-session-state-next-20261017T041816Z.md).

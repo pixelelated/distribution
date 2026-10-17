@@ -345,3 +345,16 @@ link and #607–610 affected-platform work precede next-candidate/Nova qualifica
 #528 public release and website remain separate. No runtime job remains active.
 
 | 2026-10-16 | #587/#615 constrained browser headroom and busy proxy stop | Unchanged077197/ES16dbac; fresh1024MiB/no-NIC/software640×480 | Four normal browser cases pass;26.27MiB condition-median gain; signed queue/cache/settings preserved. Slow award response causes15s unit timeout/SIGKILL despite command0; synthetic recovery flushes queue with SQLite ok. Observer0/no guard/OOM, exact exits,2.41GB disks retired. | H700/provider viability, busy-stop safety, real-server acknowledgement/idempotency; no production policy adopted | docs/qa-logs/2026-10-16-browser-headroom-587/; offline verifier/analysis, original negative result and executed fixtures | Not measured; no game | Not measured | Not measured |
+
+## 2026-10-17 04:16 UTC — Diagnostic browser controls (#616)
+
+Fresh no-NIC1GiB/4CPU640x480 software guest on unchanged077197/ES16dbac;
+untouched clean-state gate passes. Final direct-launch fixture passes6cases in
+31.386s: actual mobile/default versus desktop HTTP/DOM UA, fixed640x457/DPR1,
+observer toggle and clean/blocked/hidden input hints. Eight native frames reviewed,
+including two earlier failure frames. No memory guard, min408348KiB available,
+frontend restored. Does not prove typing, normal broker handoff, provider usability,
+GPU or performance. Earlier SIGXFSZ/file-limit and DOM-schema fixture failures
+preserved. All original lifecycle channels0, owners exited, admission consumed,
+2,312,990,720bytes of disposable disk/firmware retired.
+[Exact results](qa-logs/2026-10-17-browser-controls-results-616/README.md).

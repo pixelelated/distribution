@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "scope": "direct diagnostic launch; not ES handoff or performance proof",
+  "pass": false,
+  "error": "functional assertion failed: default-off-clean",
+  "cases": [
+    {
+      "id": "default-off-clean",
+      "ua_mode": "default",
+      "observer": "off",
+      "control": "clean",
+      "pid": 4392,
+      "start": 522.99308178,
+      "frame": {
+        "path": "/storage/qa616-controls/functional02/frames/default-off-clean.png",
+        "capture_returncode": 0,
+        "sha256": "69c19b540e93c128b23f0689d7bf24ee73ac428cad68cace317659d49ef0fa3b",
+        "visual_review": "pending external review"
+      },
+      "proof": {
+        "http": {
+          "ua_sha256": "162a82295c9ee99a02126208f513b10a7b46535eaac2ccf363724798d2f8a562",
+          "mobile": true,
+          "desktop_x11": false,
+          "webkit_tokens": true
+        }
+      },
+      "samples": [],
+      "cleanup_signals": [
+        {
+          "pid": 4392,
+          "start": 52299,
+          "signal": 15
+        },
+        {
+          "pid": 4401,
+          "start": 52314,
+          "signal": 15
+        },
+        {
+          "pid": 4408,
+          "start": 52319,
+          "signal": 15
+        }
+      ],
+      "browser_returncode": -15,
+      "seconds": 10.193421257999944,
+      "checks": {
+        "http_and_dom_ua_match": false,
+        "webkit_identity": true,
+        "controlled_sigterm_exit": true,
+        "frame_captured_not_yet_reviewed": true,
+        "samples_as_selected": true
+      },
+      "pass": false
+    }
+  ],
+  "restored_essway": true,
+  "helper_sha256": "530b0d2c7daf739eb061a415da4224a7affcec1b1837a452d182e97a03c16454",
+  "html_sha256": "f33796db2c501d8c76226d90e8b1eeff5b8476db1a62cc89de983b6c517a45d1",
+  "boot_id": "bc8b8a9b-f2f8-4ce1-8627-45b47a76c2a5",
+  "served_fixture_sha256": "f1c509d8b346198774f902a9d6983c3ede3c7326cd4415784456f99ce7ff1044",
+  "sway": {
+    "identity": {
+      "pid": 1462,
+      "state": "S",
+      "ppid": 1444,
+      "pgrp": 1444,
+      "session": 1444,
+      "start": 549
+    },
+    "version": {
+      "human_readable": "1.11",
+      "variant": "sway",
+      "major": 1,
+      "minor": 11,
+      "patch": 0,
+      "loaded_config_file_name": "/storage/.config/sway/config"
+    },
+    "environment": {
+      "XDG_RUNTIME_DIR": "/var/run/0-runtime-dir",
+      "WAYLAND_DISPLAY": "wayland-1",
+      "SWAYSOCK": "/var/run/0-runtime-dir/sway-ipc.0.sock",
+      "GDK_BACKEND": "wayland"
+    }
+  },
+  "initial_essway": "active",
+  "loopback_port": 18761,
+  "guard_returncode": 0,
+  "guard": {
+    "pass": true,
+    "triggers": [],
+    "minimum_available_kib": 413792,
+    "error": null,
+    "seconds": 10.771880012999986
+  },
+  "seconds": 10.857208625999988
+}

@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "seconds": 0.13687049690634012,
+  "pass": true,
+  "cases": [
+    {
+      "case": "defaults-off",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stdout": "QA616_CONFIG_VALID ua=default observer=off\n",
+      "stderr": ""
+    },
+    {
+      "case": "desktop-off",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stdout": "QA616_CONFIG_VALID ua=desktop observer=off\n",
+      "stderr": ""
+    },
+    {
+      "case": "observer-on",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stdout": "QA616_CONFIG_VALID ua=default observer=on\n",
+      "stderr": ""
+    },
+    {
+      "case": "bounded-custom",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "pass": true,
+      "stdout": "QA616_CONFIG_VALID ua=custom observer=off\n",
+      "stderr": ""
+    },
+    {
+      "case": "invalid-mode",
+      "expected_exit": 78,
+      "actual_exit": 78,
+      "pass": true,
+      "stdout": "",
+      "stderr": "QA616_CONFIG_ERROR UA mode must be default, desktop, or custom\n"
+    },
+    {
+      "case": "invalid-observer",
+      "expected_exit": 78,
+      "actual_exit": 78,
+      "pass": true,
+      "stdout": "",
+      "stderr": "QA616_CONFIG_ERROR observer must be off or on\n"
+    },
+    {
+      "case": "unknown-variable",
+      "expected_exit": 78,
+      "actual_exit": 78,
+      "pass": true,
+      "stdout": "",
+      "stderr": "QA616_CONFIG_ERROR unknown diagnostic variable\n"
+    },
+    {
+      "case": "orphan-custom",
+      "expected_exit": 78,
+      "actual_exit": 78,
+      "pass": true,
+      "stdout": "",
+      "stderr": "QA616_CONFIG_ERROR custom UA requires custom mode\n"
+    },
+    {
+      "case": "missing-custom",
+      "expected_exit": 78,
+      "actual_exit": 78,
+      "pass": true,
+      "stdout": "",
+      "stderr": "QA616_CONFIG_ERROR custom UA is missing\n"
+    },
+    {
+      "case": "oversize-custom",
+      "expected_exit": 78,
+      "actual_exit": 78,
+      "pass": true,
+      "stdout": "",
+      "stderr": "QA616_CONFIG_ERROR custom UA size is invalid\n"
+    },
+    {
+      "case": "newline-custom",
+      "expected_exit": 78,
+      "actual_exit": 78,
+      "pass": true,
+      "stdout": "",
+      "stderr": "QA616_CONFIG_ERROR custom UA must be printable ASCII\n"
+    },
+    {
+      "case": "misstated-engine",
+      "expected_exit": 78,
+      "actual_exit": 78,
+      "pass": true,
+      "stdout": "",
+      "stderr": "QA616_CONFIG_ERROR custom UA must preserve this WebKit identity\n"
+    }
+  ]
+}

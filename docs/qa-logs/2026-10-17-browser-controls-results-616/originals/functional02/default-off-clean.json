@@ -1,0 +1,50 @@
+{
+  "id": "default-off-clean",
+  "ua_mode": "default",
+  "observer": "off",
+  "control": "clean",
+  "pid": 4392,
+  "start": 522.99308178,
+  "frame": {
+    "path": "/storage/qa616-controls/functional02/frames/default-off-clean.png",
+    "capture_returncode": 0,
+    "sha256": "69c19b540e93c128b23f0689d7bf24ee73ac428cad68cace317659d49ef0fa3b",
+    "visual_review": "pending external review"
+  },
+  "proof": {
+    "http": {
+      "ua_sha256": "162a82295c9ee99a02126208f513b10a7b46535eaac2ccf363724798d2f8a562",
+      "mobile": true,
+      "desktop_x11": false,
+      "webkit_tokens": true
+    }
+  },
+  "samples": [],
+  "cleanup_signals": [
+    {
+      "pid": 4392,
+      "start": 52299,
+      "signal": 15
+    },
+    {
+      "pid": 4401,
+      "start": 52314,
+      "signal": 15
+    },
+    {
+      "pid": 4408,
+      "start": 52319,
+      "signal": 15
+    }
+  ],
+  "browser_returncode": -15,
+  "seconds": 10.193421257999944,
+  "checks": {
+    "http_and_dom_ua_match": false,
+    "webkit_identity": true,
+    "controlled_sigterm_exit": true,
+    "frame_captured_not_yet_reviewed": true,
+    "samples_as_selected": true
+  },
+  "pass": false
+}

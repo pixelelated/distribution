@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "c_parser_cases": 12,
+  "original_processes_exited": true,
+  "container_absent": true,
+  "pid_namespace": 4026531836,
+  "runtime_scope": "compiled parser only; no GTK initialization, WebView, provider, VM or device launch",
+  "results": {
+    "build.rc": "0\n",
+    "runner-result.json": "{\n  \"command_rc\": 0,\n  \"monitor_rc\": 0,\n  \"runner_rc\": 0,\n  \"utc\": \"2026-10-17T03:59:57.346368+00:00\"\n}\n",
+    "build.status": "state:       finished\nwritten:     2026-10-17 03:59:57 UTC   <- terminal result; heartbeat stops here\nwatcher_pid: 602847\njob_pid:     602845  alive=yes\nstarted:     2026-10-17 03:59:52 UTC\nprogress:    none matched\nlog:         /workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/.build-runs/20261017T035952Z-4429942f/build.log  (last written 3s ago)\nactivity:    /workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/.build-runs/20261017T035952Z-4429942f/build.log  (last written 3s ago)\nactivity_root: /workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03\noutcome:     rc=0\ntail:\n  {\"started\": \"2026-10-17T03:59:52.345927+00:00\", \"timeout\": false, \"docker_cli_pid\": 602902, \"original_docker_rc\": 0, \"seconds\": 1.\n",
+    "build.pid": "602845\n",
+    "command.pid": "602901\n",
+    "watcher.pid": "602847\n",
+    "build.status.pid": "602847\n"
+  }
+}
