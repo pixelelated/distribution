@@ -1,0 +1,293 @@
+{
+  "observed_utc": "2026-10-17",
+  "index_url": "https://cef-builds.spotifycdn.com/index.json",
+  "index_bytes": 10514265,
+  "index_sha256": "d4b07f84b079cfc4dcfba91441d6c163c0ace0599e97eba20296172cb8b606eb",
+  "selection": "highest numeric Chromium version labelled stable, not first metadata entry",
+  "selected_releases": {
+    "linux64": {
+      "cef_version": "154.0.34+g14c5a08+chromium-154.0.8037.98",
+      "channel": "stable",
+      "chromium_version": "154.0.8037.98",
+      "files": [
+        {
+          "last_modified": "2026-10-05T04:07:59.686000Z",
+          "name": "cef_binary_154.0.34+g14c5a08+chromium-154.0.8037.98_linux64.tar.bz2",
+          "sha1": "d0a822afcf769371e961344b64f5a461066b6a0f",
+          "size": 689351019,
+          "type": "standard"
+        },
+        {
+          "last_modified": "2026-10-05T04:07:23.010000Z",
+          "name": "cef_binary_154.0.34+g14c5a08+chromium-154.0.8037.98_linux64_minimal.tar.bz2",
+          "sha1": "15c91ad767097217b2e82ba8b933fe30b134be69",
+          "size": 326489962,
+          "type": "minimal"
+        },
+        {
+          "last_modified": "2026-10-05T04:07:08.128000Z",
+          "name": "cef_binary_154.0.34+g14c5a08+chromium-154.0.8037.98_linux64_client.tar.bz2",
+          "sha1": "80c20f874c76d5bdf6fa34f6939237b651594ed9",
+          "size": 326468529,
+          "type": "client"
+        },
+        {
+          "last_modified": "2026-10-05T04:06:52.397000Z",
+          "name": "cef_binary_154.0.34+g14c5a08+chromium-154.0.8037.98_linux64_tools.tar.bz2",
+          "sha1": "b7fef920e7d3aaec2346c40418419a5aa154c4b5",
+          "size": 427694128,
+          "type": "tools"
+        }
+      ],
+      "sandbox_compat": "265fca9293e6b6ef"
+    },
+    "linuxarm64": {
+      "cef_version": "154.0.34+g14c5a08+chromium-154.0.8037.98",
+      "channel": "stable",
+      "chromium_version": "154.0.8037.98",
+      "files": [
+        {
+          "last_modified": "2026-10-05T06:49:13.995000Z",
+          "name": "cef_binary_154.0.34+g14c5a08+chromium-154.0.8037.98_linuxarm64_client.tar.bz2",
+          "sha1": "e234a3649eadf101fba204d932f151732bd325a9",
+          "size": 423975164,
+          "type": "client"
+        },
+        {
+          "last_modified": "2026-10-05T06:48:48.849000Z",
+          "name": "cef_binary_154.0.34+g14c5a08+chromium-154.0.8037.98_linuxarm64.tar.bz2",
+          "sha1": "f123943243c1f2fc48a5dd7c746999fe91704817",
+          "size": 891100151,
+          "type": "standard"
+        },
+        {
+          "last_modified": "2026-10-05T06:47:47.121000Z",
+          "name": "cef_binary_154.0.34+g14c5a08+chromium-154.0.8037.98_linuxarm64_tools.tar.bz2",
+          "sha1": "0e0f42a936e84f179df6d1b773c74ded840d9c7a",
+          "size": 567309130,
+          "type": "tools"
+        },
+        {
+          "last_modified": "2026-10-05T06:47:12.532000Z",
+          "name": "cef_binary_154.0.34+g14c5a08+chromium-154.0.8037.98_linuxarm64_minimal.tar.bz2",
+          "sha1": "fa85793519eef199e6b6fa8cc8d6f0eb45c6dac2",
+          "size": 423940526,
+          "type": "minimal"
+        }
+      ],
+      "sandbox_compat": "265fca9293e6b6ef"
+    }
+  },
+  "source_inputs": {
+    "cef_commit": "14c5a089e8452874cb1a556dc3fde26ed2d87723",
+    "inputs": [
+      {
+        "path": "README.md",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/README.md",
+        "bytes": 7012,
+        "sha256": "9fcc29a4b855a8495b58c14eb5613a34c888d7684f2460ffb3446a9fa39c8e3b"
+      },
+      {
+        "path": "LICENSE.txt",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/LICENSE.txt",
+        "bytes": 1662,
+        "sha256": "058c3827ffb827ff3edda471ae7e1bb1d1aa5931985f0126043ccd33409e792f"
+      },
+      {
+        "path": "CHROMIUM_BUILD_COMPATIBILITY.txt",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/CHROMIUM_BUILD_COMPATIBILITY.txt",
+        "bytes": 472,
+        "sha256": "8d300b357d773c967845d14c569d5bf3541b11094213ec58d25dabdb5ee62c0f"
+      },
+      {
+        "path": "tests/cefsimple/simple_app.cc",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/tests/cefsimple/simple_app.cc",
+        "bytes": 6317,
+        "sha256": "d87c199e5222fc4c09074d40d080f6c48e46cd054d442bb81c76bb94fa8a0221"
+      },
+      {
+        "path": "tests/cefsimple/simple_handler.cc",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/tests/cefsimple/simple_handler.cc",
+        "bytes": 5004,
+        "sha256": "c37a49e1f8388f6cdd192144f2df46923060225aeff33ba9b90cb560afa2b075"
+      },
+      {
+        "path": "tests/cefsimple/simple_handler.h",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/tests/cefsimple/simple_handler.h",
+        "bytes": 2415,
+        "sha256": "1d4109147aee4c7c2c693141eb3fd462a83f51f556b5312584153f1a231273e3"
+      },
+      {
+        "path": "tests/cefsimple/simple_app.h",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/tests/cefsimple/simple_app.h",
+        "bytes": 868,
+        "sha256": "5d9980795090d136cfab47e2c99b367dab125c31eedfcbfbaa6b0ab62c36b928"
+      },
+      {
+        "path": "tests/shared/common/client_switches.cc",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/tests/shared/common/client_switches.cc",
+        "bytes": 3575,
+        "sha256": "1af2382cc95fb2727f05df1af41e026386d4c0dab6f150bbcbf3cb57c0ecde75"
+      },
+      {
+        "path": "tests/cefclient/browser/main_context_impl.cc",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/tests/cefclient/browser/main_context_impl.cc",
+        "bytes": 9634,
+        "sha256": "dfaac0beb23f18d1326c7898b9390a8a0895e3ef9048d67e517711cbdee12a32"
+      },
+      {
+        "path": "tests/cefclient/cefclient_linux.cc",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "path": "include/internal/cef_types.h",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/include/internal/cef_types.h",
+        "bytes": 119797,
+        "sha256": "7114bb5368b33364fca0dca8370ef71972147ed15df5af8514722af81fd01576"
+      },
+      {
+        "path": "include/cef_request_context.h",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/include/cef_request_context.h",
+        "bytes": 15702,
+        "sha256": "ddba140a147525f188ba2f0ed668908ae82a5dce9ffc4f5d468707d9f534e4e3"
+      },
+      {
+        "path": "tests/shared/browser/client_app_browser.cc",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/tests/shared/browser/client_app_browser.cc",
+        "bytes": 5447,
+        "sha256": "ce724f34cb6535c06254f907cc9f617149847745dbb1ca501e18b089b4d4362b"
+      },
+      {
+        "path": "tests/cefclient/cefclient_gtk.cc",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/tests/cefclient/cefclient_gtk.cc",
+        "bytes": 5699,
+        "sha256": "20daadd9b437e715b12c02b70c20a4c817791311abdb50e54ae54a1823e8bd73"
+      },
+      {
+        "path": "tools/distrib/linux/README.redistrib.txt",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/tools/distrib/linux/README.redistrib.txt",
+        "bytes": 1940,
+        "sha256": "2a9f810f09491e98a2ed717884356aa2e1208452468f84204b0f63e6b8c84d91"
+      },
+      {
+        "path": "tools/distrib/linux/README.txt",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "path": "cmake/cef_variables.cmake.in",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/cmake/cef_variables.cmake.in",
+        "bytes": 24913,
+        "sha256": "b6c5c9590cb885a644839fd70476215427d7fd60e5896a3078a0550a4d15dee5"
+      },
+      {
+        "path": "include/cef_request_handler.h",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/include/cef_request_handler.h",
+        "bytes": 13484,
+        "sha256": "df5fab205222ccff563b7b7709cd7f8194fb6af1a851e63b0196ae1a918e445a"
+      },
+      {
+        "path": "include/cef_life_span_handler.h",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/include/cef_life_span_handler.h",
+        "bytes": 16102,
+        "sha256": "65f6a996104a2feb8d569b9e7f391f3e7914d8c8aebf998168a82a45c31727e4"
+      },
+      {
+        "path": "include/views/cef_window_delegate.h",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/include/views/cef_window_delegate.h",
+        "bytes": 11651,
+        "sha256": "6d6c11d441248edd3c47671849a85b7e502b770393eaab0c1aa88b06afba16ff"
+      },
+      {
+        "path": "chromium/docs/linux/sandboxing.md",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "path": "chromium/content/browser/zygote_host/zygote_host_impl_linux.cc",
+        "url": "https://chromium.googlesource.com/chromium/src/+/refs/tags/154.0.8037.98/content/browser/zygote_host/zygote_host_impl_linux.cc?format=TEXT",
+        "bytes": 12431,
+        "sha256": "3b412aa9b795d27de7b0f416c723d3a107ec6fb530d6749e13bcdbeb1e9229a9"
+      },
+      {
+        "path": "chromium/docs/ozone_overview.md",
+        "url": "https://chromium.googlesource.com/chromium/src/+/refs/tags/154.0.8037.98/docs/ozone_overview.md?format=TEXT",
+        "bytes": 15781,
+        "sha256": "dc0d87478e75813e8ab3271e4cc4429478d8739da6728a2512fc4e580561d2c3"
+      },
+      {
+        "path": "chromium/LICENSE",
+        "url": "https://chromium.googlesource.com/chromium/src/+/refs/tags/154.0.8037.98/LICENSE?format=TEXT",
+        "bytes": 1536,
+        "sha256": "368cca1106be99d39ecd32a38d8305585d802a475effb66380b91ffc9bcf709b"
+      },
+      {
+        "path": "tests/cefsimple/cefsimple_linux.cc",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/tests/cefsimple/cefsimple_linux.cc",
+        "bytes": 2877,
+        "sha256": "b823095c4d4d3a884d650b6e66e043e92e35d74cc5818cfdda2870e444ebb032"
+      },
+      {
+        "path": "tests/cefsimple/CMakeLists.txt.in",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/tests/cefsimple/CMakeLists.txt.in",
+        "bytes": 7708,
+        "sha256": "a523326009231bd6d90e1cce7142a03767c931f66f86a80f34535ef977db90d5"
+      },
+      {
+        "path": "tests/cefsimple/simple_handler_linux.cc",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/tests/cefsimple/simple_handler_linux.cc",
+        "bytes": 1744,
+        "sha256": "ef47f0b7ff916fdeee7e7933acdc2361aa25add99e0ac0dd4be39da0bd73afb7"
+      },
+      {
+        "path": "tests/cefsimple/simple_linux.cc",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "path": "libcef/common/cef_switches.cc",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/libcef/common/cef_switches.cc",
+        "bytes": 4386,
+        "sha256": "8000da23a517382947e8f935b65c1fc741917879ef07a1e34f2482c5b06ef5b5"
+      },
+      {
+        "path": "tools/distrib/README.header.txt",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/tools/distrib/README.header.txt",
+        "bytes": 393,
+        "sha256": "403e1b760b67ad18b85a2f5fa82724f3dce1cf4e29d18cf19c729a47b1c358d4"
+      },
+      {
+        "path": "tools/distrib/README.footer.txt",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/tools/distrib/README.footer.txt",
+        "bytes": 387,
+        "sha256": "0b227fb2cc6bc1e832c422eba3748af8318b5634a27311b635a17fcedb8e7ad3"
+      },
+      {
+        "path": "tools/distrib/linux/README.client.txt",
+        "error": "HTTP Error 404: Not Found"
+      },
+      {
+        "path": "include/internal/cef_types_linux.h",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/include/internal/cef_types_linux.h",
+        "bytes": 6828,
+        "sha256": "ff259abd9da434157d48211bda6142a639aeee1b497feceaedb58e60ee386cf7"
+      },
+      {
+        "path": "include/cef_keyboard_handler.h",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/include/cef_keyboard_handler.h",
+        "bytes": 3509,
+        "sha256": "1900dc564b07808f460647fcd44a33e8d5a69414f234fc1ef1d1fa107ea94ac2"
+      },
+      {
+        "path": "cmake/cef_macros.cmake.in",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/cmake/cef_macros.cmake.in",
+        "bytes": 17666,
+        "sha256": "fa0c16f07d0b41723b38f73b234277e8f1c1252a190831a9a0265b3a4b1c40e4"
+      },
+      {
+        "path": "CMakeLists.txt.in",
+        "url": "https://raw.githubusercontent.com/chromiumembedded/cef/14c5a089e8452874cb1a556dc3fde26ed2d87723/CMakeLists.txt.in",
+        "bytes": 11224,
+        "sha256": "e88decb62fa65828805f663a8f2c2efadd98b7316519d4dd2b511fbfffdefc64"
+      }
+    ]
+  },
+  "runtime_status": "UNRUN; binary archives not downloaded"
+}

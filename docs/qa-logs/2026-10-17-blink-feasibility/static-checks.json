@@ -1,0 +1,17 @@
+{
+  "scope": "static/source text only; no C++ compiler, fixture listener, browser, VM or device",
+  "python_ast_files": 3,
+  "raw_patch_sha256": "5264a0d7fb6f6c87e7f26feb46cd3a6a5581349a5927c9282a49ecbde2318d59",
+  "source_files": 4,
+  "patch_dry_run_exit": 0,
+  "patch_apply_exit": 0,
+  "output_hashes": "all exact",
+  "javascript_parse": {
+    "exit_code": 0,
+    "stderr": ""
+  },
+  "preparer_cli": "UNRUN",
+  "runtime": "UNRUN",
+  "scratch": "/tmp/pix617-source-check-_kdkvba0",
+  "original_prepare_failure": "Incorrect exact source-comment anchor; AssertionError before patch generation, corrected against pinned source"
+}
