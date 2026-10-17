@@ -1,0 +1,22 @@
+{
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+  "retention_plan": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/retention-plan.json",
+  "retention_report": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/retention-report.json",
+  "stage": "gtk4-input-compile-only",
+  "profiles": [
+    {
+      "PROJECT": "ROCKNIX",
+      "DEVICE": "GENERIC_X64",
+      "ARCH": "x86_64"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "/workspace/tmp/pix-gtk4-input-compile-20261017-01",
+      "issue": 576,
+      "kind": "qa-scratch",
+      "release_when": "Preserve exact compiler/inner/Docker/resource/original owner receipts and compile-only binary; consume original admission before retiring superseded scratch. No runtime or production qualification."
+    }
+  ]
+}

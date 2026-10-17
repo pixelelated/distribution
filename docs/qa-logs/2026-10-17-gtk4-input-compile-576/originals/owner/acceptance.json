@@ -1,0 +1,47 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/.build-runs/20261017T055050Z-ebd5bf9d",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 576,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-gtk4-input-compile-20261017-01",
+      "release_when": "Preserve exact compiler/inner/Docker/resource/original owner receipts and compile-only binary; consume original admission before retiring superseded scratch. No runtime or production qualification."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/result.json",
+      "sha256": "2487c11684375c8d326398caf5ec4ade374b77da11faf2ba599b1b8dba53fc91"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/resource-result.json",
+      "sha256": "7a4b949da06cd8dda99b98b1aff0393e4b94f7083dcc914810c5c4b8a3c27f32"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/submit/launcher-result.json",
+      "sha256": "f6fabdda4d224604a038634320d1992b2c4ed6f7cb8c8a07c83b2b6851ce29b2"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/stages/compile/inner-result.json",
+      "sha256": "1500ec7c11858557c0e5619319e9c53d99fc7f034de63c813860d8f5baad4a71"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/stages/compile/host-result.json",
+      "sha256": "1d2a94f716372bb066b8dfe6b28324d82da73a8d7392161181369a3af0e537c2"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/compile-result.json",
+      "sha256": "d222799a29de72b63a5099bece8fda24843a5a3bc7a4332535b595bc3f6ce818"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/terminal-host-census.json",
+      "sha256": "2345f534cf1ac372ef7e2a60c74eb4e00bdd9b0eafcd71ea06bc896ad9e22ca2"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/.build-runs/20261017T055050Z-ebd5bf9d/runner-result.json",
+      "sha256": "92e99687f4648434151958ff61e6d2109f97263c2ca5ed9245df842815e9ad87"
+    }
+  ]
+}

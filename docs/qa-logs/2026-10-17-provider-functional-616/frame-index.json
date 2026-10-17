@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "frames": [
+    {
+      "path": "frames/initial-frame.png",
+      "sha256": "8a3eff54cf7edc81012bc861688eea9469689df0c7f79d890aff4d585ea03b1a",
+      "bytes": 150668,
+      "review": "Visually reviewed by coordinator and packaging agent; no visible PIN, OAuth URL, credential or account value.",
+      "observation": "Clean ES home before the functional flow."
+    },
+    {
+      "path": "frames/light-actual.png",
+      "sha256": "fea05de7b0809ceda007ec100030e5d8e06b31a4686a8e53afca2051eaa3674a",
+      "bytes": 19315,
+      "review": "Visually reviewed by coordinator and packaging agent; no visible PIN, OAuth URL, credential or account value.",
+      "observation": "Local calibration form painted with an empty input. No native input event was proven."
+    },
+    {
+      "path": "frames/drive-open.png",
+      "sha256": "8c8d6a871a53a92f6b2b20c577dad4c53b89bde970374227ee37d8bd4e55c3f1",
+      "bytes": 19906,
+      "review": "Visually reviewed by coordinator and packaging agent; no visible PIN, OAuth URL, credential or account value.",
+      "observation": "Google sign-in form painted with an empty email/phone input."
+    },
+    {
+      "path": "frames/drive-settled.png",
+      "sha256": "791d8af6c0d194fc0c8533ab9d0143264459a440a29f8e34d86da36b10699a86",
+      "bytes": 19756,
+      "review": "Visually reviewed by coordinator and packaging agent; no visible PIN, OAuth URL, credential or account value.",
+      "observation": "Second distinct Google sign-in frame also shows the form; not continuous-rendering proof."
+    },
+    {
+      "path": "frames/dropbox-loaded.png",
+      "sha256": "8b42a8d2529da926378e0d02c8df020366b688dd011baee5154fa1feb063f3ae",
+      "bytes": 19599,
+      "review": "Visually reviewed by coordinator and packaging agent; no visible PIN, OAuth URL, credential or account value.",
+      "observation": "Dropbox sign-in form painted with an empty email input."
+    },
+    {
+      "path": "frames/dropbox-later.png",
+      "sha256": "8b42a8d2529da926378e0d02c8df020366b688dd011baee5154fa1feb063f3ae",
+      "bytes": 19599,
+      "review": "Visually reviewed by coordinator and packaging agent; no visible PIN, OAuth URL, credential or account value.",
+      "observation": "Later Dropbox form frame; no typed credential or trusted input proof."
+    }
+  ],
+  "excluded": "All other frames, including drive-return and every PIN/QR screen; no image editing performed"
+}

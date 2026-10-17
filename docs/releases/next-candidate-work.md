@@ -12,24 +12,35 @@ before its clean-install/upgrade checks can run; those checks hold RC designatio
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
 
-## October17 compiled GTK4 dependencies and active WebKit6
+## October17 provider forms observed; GTK4 engine and input fixture compiled
 
-#576: isolated diagnostic9693549557 builds Graphene1.10.8, GTK4.24.1 and the three
-sandbox dependencies with actual ELF/stamp/original-result checks. Accepted GTK3
-cache remains untouched; only6.5GB of independent toolchain seed was copied.
-First helper Python compatibility failure is preserved; fresh verification passes.
-WebKit2.54.1 GTK4/API6 compilation is active under
-`/workspace/tmp/pix-webkit6-build-20261017-01` (four cores/20GiB/no swap/deadline),
-with actual GTK4/Wayland/Skia/GBM/sandbox configuration observed. See
-[build evidence](../qa-logs/2026-10-17-gtk4-build-576/README.md).
-No engine completion, native input, sandbox runtime or H700 performance claim.
+#616: the requested second provider, Google Drive, and Dropbox both load real
+sign-in forms through normal ES/rclone handoff on fresh2GiB GENERIC. HTTP200,
+reviewed empty-field frames, normal cancel and same frontend return are recorded.
+No credentials/consent or successful account link. The light input fixture safely
+refused before POST; corrected v2 is source-only. Event probes were enabled and
+engine compilation overlapped, so there is no fair speed/memory ranking or1GiB
+claim. All owners exited, admission consumed and owned VM disk retired.
+[Functional evidence and limits](../qa-logs/2026-10-17-provider-functional-616/README.md),
+[compiled instrumentation](../qa-logs/2026-10-17-provider-instrumentation-616/README.md).
+Next use fresh local native-input calibration, then matched uncontended cases.
 
-#616 normal ES/broker handoff source now preserves the browser argv[0] contract;
-[prepared launcher and matrix](../qa-logs/2026-10-17-provider-handoff-616/README.md)
-retain error-page exclusions and distinguish fixed-UA page observations from
-unproven provider wire/DOM-UA binding and trusted typing. Minimal instrumentation
-is being prepared separately. No provider runtime yet. Blink remains the source-only
-fallback; #587/#615 and independent #613/Nova/public-release order remain unchanged.
+#576: isolated9693549557 now compiles all six dependencies including WebKit2.54.1
+GTK4/API6 (2155.32s), plus the small native-input fixture (1.846s). Original result
+channels0 and admissions consumed; GTK3 caches and product pins unchanged.
+[Engine evidence](../qa-logs/2026-10-17-gtk4-engine-576/README.md),
+[fixture compile](../qa-logs/2026-10-17-gtk4-input-compile-576/README.md).
+Read-only inventory matches11 package/sysroot loaded-byte identities and resolves
+396edges over95ELFs including the fixture. Strict checker remains FAIL for six
+search paths inherited from accepted-image libraries; no new-overlay finding or
+loader failure is established. [Original inventory and findings](../qa-logs/2026-10-17-gtk4-closure-576/README.md).
+Disposition these paths and prove synthetic input, sandbox identity, runtime
+closure, close/recovery and presentation in a fresh VM before performance/H700.
+Compilation is not a memory improvement. Blink remains the uncompiled fallback.
+
+#613 has a source-only one-line fallback-link patch and upstream/apply/pkgcheck
+readback; no product integration/runtime proof yet. #587/#615, affected Nova
+#607–610 and separate public-release work retain their order. No job is active.
 
 ## October17 GTK4 priority refinement
 

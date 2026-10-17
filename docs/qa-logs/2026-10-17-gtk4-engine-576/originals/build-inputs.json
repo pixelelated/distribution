@@ -1,0 +1,32 @@
+{
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01",
+  "baseline": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64",
+  "commit": "969354955741d6c0ca8ce816e1c59ad338b1605b",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+  "host_pid_namespace": "pid:[4026531836]",
+  "builder_image": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "build_root": "build.pixelelated-GENERIC_X64.x86_64",
+  "build_timestamp": "20261017T050000Z",
+  "owner_label": "pix-webkit6-build-20261017-01",
+  "cold_cpu_ids": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "cold_memory_bytes": 21474836480,
+  "container_pids_limit": 256,
+  "family_timeout_seconds": 21600,
+  "minimum_host_available_bytes": 8589934592,
+  "minimum_volume_available_bytes": 107374182400,
+  "disk_scan_timeout_seconds": 60,
+  "disk_sample_interval_seconds": 15,
+  "helper_sha256": {
+    "build-owner.py": "bfee18b65e3a3b0974b01c2eac77eb32e5cc7b9b1d01711a69f5a6e8fd3863d9",
+    "inner-build.py": "2a33d9548e9adcb278bf75de230294eeb45e79263cecc355837b284d06ff4d98",
+    "host-resources.py": "39a1b153e861cf3256b52567eb3e251412b9ab069e70ff72f4b5ac65e71fbaf1",
+    "inside-stage.sh": "ec07e52edf48425694e83bf4fa2bec741a1bdb9a1f6e9ae8474e67e8668f7ab3",
+    "verify-source.py": "88b08d5d57e9c4e1317c91891377bfc9190b806a20f8e0ae66f807c654ee4f8f"
+  },
+  "source_cache": "/workspace/cache/rocknix-sources/webkitgtk"
+}

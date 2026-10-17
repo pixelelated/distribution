@@ -1,0 +1,40 @@
+{
+  "status": "FAIL",
+  "read_only": true,
+  "target_code_executed": false,
+  "source_commit": "969354955741d6c0ca8ce816e1c59ad338b1605b",
+  "versions": {
+    "webkitgtk": "2.54.1",
+    "gtk4": "4.24.1",
+    "graphene": "1.10.8",
+    "libseccomp": "2.6.1",
+    "bubblewrap": "0.11.2",
+    "xdg-dbus-proxy": "0.1.7"
+  },
+  "errors": [
+    "ValueError: CMake configuration mismatch: PORT"
+  ],
+  "stamps": {},
+  "critical_artifacts": [],
+  "closure": [],
+  "edges": [],
+  "baseline_fallbacks": [],
+  "limitations": [
+    "ELF NEEDED/interpreter closure only; not symbol-version ABI, dlopen, GTK/GIO/GStreamer modules, schemas, fonts, or certificates.",
+    "No ld.so.cache/hwcaps, LD_LIBRARY_PATH, or platform-dependent $LIB expansion is modeled.",
+    "A closure PASS is not a loader, input, rendering, performance, or sandbox-isolation PASS."
+  ],
+  "configuration": {
+    "PORT": null,
+    "CMAKE_BUILD_TYPE": null,
+    "USE_GTK4": null,
+    "ENABLE_BUBBLEWRAP_SANDBOX": null,
+    "ENABLE_WAYLAND_TARGET": null,
+    "USE_SKIA": null,
+    "USE_GBM": null,
+    "BWRAP_EXECUTABLE": null,
+    "DBUS_PROXY_EXECUTABLE": null,
+    "LIBEXEC_INSTALL_DIR": null
+  },
+  "elapsed_seconds": 0.008108674082905054
+}

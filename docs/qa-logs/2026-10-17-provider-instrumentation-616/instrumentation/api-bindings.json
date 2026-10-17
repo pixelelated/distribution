@@ -1,0 +1,121 @@
+{
+  "schema": 1,
+  "engine": "WebKitGTK 2.54.1",
+  "api": "webkit2gtk-4.1 / GTK3 (not webkitgtk-6.0)",
+  "entries": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/webkitgtk-4.1/webkit/WebKitUserContentManager.h",
+      "sha256": "e0df9b306a96f950c4135166aacfbcf70331d260e8e819f4374fc75ecfe1e99d",
+      "declaration_lines": {
+        "webkit_user_content_manager_register_script_message_handler_in_world": [
+          124,
+          142,
+          158
+        ],
+        "webkit_user_content_manager_unregister_script_message_handler_in_world": [
+          146,
+          163
+        ]
+      }
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/webkitgtk-4.1/webkit/WebKitJavascriptResult.h",
+      "sha256": "a2118e870e76a3a147ba325ee6d6ae2a1f7369d5a91a6aa9b807036a3b156c98",
+      "declaration_lines": {
+        "webkit_javascript_result_get_js_value": [
+          53,
+          57
+        ]
+      }
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/webkitgtk-4.1/webkit/WebKitUserContent.h",
+      "sha256": "883bc0c9ac03c2656c1262c3f91b6d7207d0a82800206748b9e7ad6eee9b8aca",
+      "declaration_lines": {
+        "webkit_user_script_new_for_world": [
+          132
+        ]
+      }
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/webkitgtk-4.1/webkit/WebKitURIRequest.h",
+      "sha256": "6d75b73ffe77cf813fcd47f9bbcc0ba51c4834901dd969542b3b199b6b1efc4e",
+      "declaration_lines": {
+        "webkit_uri_request_get_http_headers": [
+          66
+        ],
+        "libsoup/soup.h": [
+          28
+        ]
+      }
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/webkitgtk-4.1/webkit/WebKitURIResponse.h",
+      "sha256": "d896e5b79b4561b20bc3a6519f750f2422dc002120a7aa21894b0e75c4eda010",
+      "declaration_lines": {
+        "webkit_uri_response_get_status_code": [
+          56
+        ]
+      }
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/webkitgtk-4.1/webkit/WebKitWebResource.h",
+      "sha256": "acfcde5b405ea45ead71867d9a961a4342b1f8d730325703c10a924ede28affa",
+      "declaration_lines": {
+        "webkit_web_resource_get_response": [
+          57
+        ]
+      }
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include/webkitgtk-4.1/webkit/WebKitWebView.h",
+      "sha256": "705637aa9e7e8a2592215796a0bab279a1dccc1616d0f08eaf97023e8efeef54",
+      "declaration_lines": {
+        "webkit_web_view_get_main_resource": [
+          580
+        ]
+      }
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1/Source/WebKit/UIProcess/API/glib/WebKitWebResource.cpp",
+      "sha256": "bead757fbd04079b17b632e85ba0f93ea66eb50bdcd112a059936da501dcd9d4",
+      "evidence_lines": [
+        133,
+        146,
+        252,
+        299,
+        302
+      ],
+      "fact": "sent-request signal includes redirected response; request object is a ResourceRequest snapshot"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1/Source/WebKit/UIProcess/API/glib/WebKitUserContentManager.cpp",
+      "sha256": "33655c9b2e55962eb2946ecd28bd9bae073ecd950dc993cc528c90b2654348bf",
+      "evidence_lines": [
+        101,
+        106,
+        114,
+        119
+      ],
+      "fact": "GTK3 legacy signal passes boxed WebKitJavascriptResult; GTK4/2022 branch passes JSCValue"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1/Source/WebKit/UIProcess/API/glib/WebKitWebView.cpp",
+      "sha256": "42b0e1926799034bec89e2872454775eaf2405b1f35a1415a6f7977a6b05e3c4",
+      "evidence_lines": [
+        3096,
+        3098
+      ],
+      "fact": "mainResource assigned before resource-load-started emission"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1/Source/WebKit/Shared/API/glib/WebKitURIRequest.cpp",
+      "sha256": "20f2ec542d0fdd105ada41f233e27e6036465efde9d87325a7af769ad86da2de",
+      "evidence_lines": [
+        177
+      ],
+      "fact": "headers populated from ResourceRequest snapshot; no proof all network-added headers survived"
+    }
+  ],
+  "limitation": "Declarations and signal implementation checked. Candidate compile and all new runtime remain UNRUN. Local original/redirect echo calibration is required to determine whether UA signal is populated; it does not prove provider wire headers."
+}

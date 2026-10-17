@@ -1,0 +1,44 @@
+{
+  "volume": "/workspace",
+  "scan_roots": [
+    "/workspace/tmp/pix-webkit6-build-20261017-01/scan"
+  ],
+  "reference_stores": [],
+  "protected": [
+    "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01",
+    "/workspace/tmp/pix-gtk4-deps-20261017-01/acceptance.json",
+    "/workspace/cache/rocknix-sources/webkitgtk/webkitgtk-2.54.1.tar.xz",
+    "/workspace/cache/rocknix-sources/webkitgtk/webkitgtk-2.54.1.tar.xz.url",
+    "/workspace/cache/rocknix-sources/webkitgtk/webkitgtk-2.54.1.tar.xz.sha256",
+    "/workspace/tmp/pix-webkit6-build-20261017-01/build-inputs.json",
+    "/workspace/tmp/pix-webkit6-build-20261017-01/measurements.json",
+    "/workspace/tmp/pix-webkit6-build-20261017-01/build-owner.py",
+    "/workspace/tmp/pix-webkit6-build-20261017-01/inner-build.py",
+    "/workspace/tmp/pix-webkit6-build-20261017-01/host-resources.py",
+    "/workspace/tmp/pix-webkit6-build-20261017-01/inside-stage.sh",
+    "/workspace/tmp/pix-webkit6-build-20261017-01/verify-source.py"
+  ],
+  "candidates": [],
+  "builds": [
+    {
+      "name": "webkit6-engine",
+      "terms_bytes": {
+        "retained_seed_conservative_reserve": 6897287168,
+        "source_copy": 49737604,
+        "webkit_source_build_growth": 107374182400,
+        "records_and_operating_allowance": 2147483648
+      },
+      "basis": "Measured retained isolated GTK4 seed; source archive49.7MB verified. Fresh WebKit2.54.1 GTK4/API6 source/build/CMake cache, no historical tree copy. Conservative100GiB engine-growth estimate+2GiB operating reserve;4CPU/20GiB/no swap/6h. No image or VM launch.",
+      "evidence": [
+        {
+          "path": "/workspace/tmp/pix-webkit6-build-20261017-01/measurements.json",
+          "sha256": "d578f5be6bee5085d7d1b745d37cd3bf217808b91d842e1f4012cc8008ca8595"
+        },
+        {
+          "path": "/workspace/tmp/pix-webkit6-build-20261017-01/build-inputs.json",
+          "sha256": "1ac0355b080cd88db400ac9fb00875f17525791522a618f15b8e14847d879cf8"
+        }
+      ]
+    }
+  ]
+}

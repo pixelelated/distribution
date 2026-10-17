@@ -1,0 +1,284 @@
+{
+  "utc": "2026-10-17T05:50:26.422115+00:00",
+  "schema": 1,
+  "deletion_performed": false,
+  "result": "REPORT_COMPLETE",
+  "protected": [
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01",
+      "identity": {
+        "device": 66304,
+        "inode": 159699630,
+        "size": 4096,
+        "mtime_ns": 1792215504180258209,
+        "allocated_bytes": 4096,
+        "uid": 1000,
+        "links": 20,
+        "mode": 16893
+      }
+    },
+    {
+      "path": "/workspace/repos/rocknix/.git",
+      "identity": {
+        "device": 66304,
+        "inode": 135790595,
+        "size": 4096,
+        "mtime_ns": 1792213726816290849,
+        "allocated_bytes": 4096,
+        "uid": 1000,
+        "links": 9,
+        "mode": 16893
+      }
+    },
+    {
+      "path": "/tmp/pix-gtk4-postbuild-20261017",
+      "identity": {
+        "device": 45,
+        "inode": 7313193,
+        "size": 160,
+        "mtime_ns": 1792214263030912547,
+        "allocated_bytes": 0,
+        "uid": 1000,
+        "links": 3,
+        "mode": 16832
+      }
+    },
+    {
+      "path": "/tmp/pix-gtk4-compile-only-qualification-20261017.json",
+      "identity": {
+        "device": 45,
+        "inode": 7323739,
+        "size": 3618,
+        "mtime_ns": 1792215926079208346,
+        "allocated_bytes": 4096,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33204
+      }
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/inputs.json",
+      "identity": {
+        "device": 66304,
+        "inode": 208666699,
+        "size": 5532,
+        "mtime_ns": 1792216219592380127,
+        "allocated_bytes": 8192,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      }
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/qualification.json",
+      "identity": {
+        "device": 66304,
+        "inode": 208666698,
+        "size": 3618,
+        "mtime_ns": 1792216219591260269,
+        "allocated_bytes": 4096,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      }
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/compile.py",
+      "identity": {
+        "device": 66304,
+        "inode": 208666694,
+        "size": 15960,
+        "mtime_ns": 1792216219591144198,
+        "allocated_bytes": 16384,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      }
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/qualification.py",
+      "identity": {
+        "device": 66304,
+        "inode": 208666695,
+        "size": 1925,
+        "mtime_ns": 1792216219591184186,
+        "allocated_bytes": 4096,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      }
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/host-resources.py",
+      "identity": {
+        "device": 66304,
+        "inode": 208666696,
+        "size": 11658,
+        "mtime_ns": 1792216219591209869,
+        "allocated_bytes": 12288,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      }
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/inputs/inner-build.py",
+      "identity": {
+        "device": 66304,
+        "inode": 208666697,
+        "size": 5495,
+        "mtime_ns": 1792216219591231979,
+        "allocated_bytes": 8192,
+        "uid": 1000,
+        "links": 1,
+        "mode": 33152
+      }
+    }
+  ],
+  "inventory": {
+    "directories": 1,
+    "errors": [],
+    "disks": [],
+    "source_fixtures": [],
+    "references": [],
+    "active": [],
+    "container_mounts": [
+      {
+        "container": "36900e5df0f0",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-artifact-workspace-963_postgres-logs-data/_data"
+      },
+      {
+        "container": "ab585a2cd441",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-artifact-workspace-963_postgres-data/_data"
+      },
+      {
+        "container": "54a1d102beb4",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-pipeline-self-heal-821_postgres-data/_data"
+      },
+      {
+        "container": "d944c4839a63",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-pipeline-self-heal-821_postgres-logs-data/_data"
+      },
+      {
+        "container": "415e13aa5396",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-pipeline-recovery-821_postgres-logs-data/_data"
+      },
+      {
+        "container": "23d0b7373921",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-pipeline-recovery-821_postgres-data/_data"
+      },
+      {
+        "container": "08e48291f553",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-pipeline-failure-821_postgres-logs-data/_data"
+      },
+      {
+        "container": "b636a1aad6a6",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-pipeline-failure-821_postgres-data/_data"
+      },
+      {
+        "container": "fd066788e58f",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-session-readiness-829_postgres-data/_data"
+      },
+      {
+        "container": "730a16321662",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-session-readiness-829_postgres-logs-data/_data"
+      },
+      {
+        "container": "1a02c04eac1c",
+        "running": false,
+        "source": "/home/max/Development/groundhog.worktrees/m17-p0-decision-register/initial_artifacts"
+      },
+      {
+        "container": "36e2e5fa8eca",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-m17-p0-decision-register_postgres-logs-data/_data"
+      },
+      {
+        "container": "2582d203b8cc",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-m17-p0-decision-register_postgres-data/_data"
+      },
+      {
+        "container": "6662d419148a",
+        "running": false,
+        "source": "/home/max/Development/groundhog"
+      },
+      {
+        "container": "6662d419148a",
+        "running": false,
+        "source": "/home/max/.azure"
+      },
+      {
+        "container": "6662d419148a",
+        "running": false,
+        "source": "/home/max/.ssh"
+      },
+      {
+        "container": "6662d419148a",
+        "running": false,
+        "source": "/home/max/.config/gh"
+      },
+      {
+        "container": "0102bc149083",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-notetaker-03_postgres-data/_data"
+      },
+      {
+        "container": "7e505a312f26",
+        "running": true,
+        "source": "/var/lib/docker/volumes/gh-wt-notetaker-03_postgres-logs-data/_data"
+      },
+      {
+        "container": "8c3e136cb143",
+        "running": true,
+        "source": "/var/lib/docker/volumes/groundhog_devcontainer_postgres-data/_data"
+      },
+      {
+        "container": "a3571466955b",
+        "running": true,
+        "source": "/var/lib/docker/volumes/groundhog_devcontainer_postgres-logs-data/_data"
+      },
+      {
+        "container": "bcf29004e7ae",
+        "running": false,
+        "source": "/var/lib/docker/volumes/agents-i-d-like-to-tackle-all-of-the-d9ae1d72_groundhog_db/_data"
+      },
+      {
+        "container": "2e4c1d8f193f",
+        "running": false,
+        "source": "/var/lib/docker/volumes/agents-i-d-like-to-tackle-all-of-the-d9ae1d72_groundhog_logs_db/_data"
+      }
+    ],
+    "scope": "All directories under explicit roots; directory symlinks not followed. QCOW magic in img/raw and named virtual disks; JSON references in explicit stores. Actual process argv and all container mounts. No whole-host root FD census claimed."
+  },
+  "candidates": [],
+  "builds": [
+    {
+      "name": "gtk4-input-compile-only",
+      "terms_bytes": {
+        "outputs": 536870912,
+        "owner_records": 67108864
+      },
+      "required_bytes": 603979776,
+      "available_bytes": 2081164414976,
+      "fits_now": true,
+      "eligible_reclaim_bytes": 0,
+      "headroom_after_proposed_bytes": 2080560435200,
+      "basis": "One source-file compile against read-only completed isolated toolchain. No source/cache copy or package build. Output ceiling512MiB;64MiB conservative records. Tmpfs128MiB is within2GiB memory, not workspace output. CPU4, zero container swap/network,90s producer+30s cleanup budget; any total overrun fails. Only this fresh owner is scanned."
+    }
+  ],
+  "preservation_additional_bytes": 0,
+  "limitations": "Evidence is already independently retained. Available bytes exclude filesystem reserve. A report is not deletion authority; refresh identities, dependencies and active use before execution.",
+  "plan_sha256": "cb027aebdc5ab4c146dffa806f8aff11945bcd695fc546b2bcfd6ded2cc04fe3",
+  "tool_sha256": "1187725512f1a0586bc4d7812a886076c71bc6fdd460f6cd4a73e91198518798"
+}

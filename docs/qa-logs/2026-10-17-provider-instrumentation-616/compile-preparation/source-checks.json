@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "scope": "source AST and bash syntax only; preparer not executed; no owner/compiler/container/runtime started",
+  "checks": [
+    "preparer and owner AST",
+    "14 config cases with original12 ASTs unchanged",
+    "debug present empty case expects78",
+    "debug present nonempty case expects78",
+    "generated compile shell bash -n exit0"
+  ],
+  "owner_already_exists": false,
+  "sha256": {
+    "prepare.py": "cf814946aeb3c6b4aee7f588558236b387275d461e7c8e225ff4e82f3eed1ecc",
+    "compile-owner.py.in": "69b23f4ea552d5666d7bc0b28cdaaa0e549ef18af5090e481616e3ef6d50cba0"
+  }
+}

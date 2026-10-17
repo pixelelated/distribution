@@ -1,0 +1,63 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/.build-runs/20261017T050229Z-20b8d63a",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 576,
+      "kind": "build-cache",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "build-cache",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/sources",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/target",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/release",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-webkit6-build-20261017-01",
+      "release_when": "Preserve compact source/results and consume original admission after Graphene success or diagnosed failure."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-webkit6-build-20261017-01/owner-result.json",
+      "sha256": "03ca5edf3593b1145e746bd225653662102c3f9e6f5542ee7efb6c2c8a4cb3a4"
+    },
+    {
+      "path": "/workspace/tmp/pix-webkit6-build-20261017-01/resource-result.json",
+      "sha256": "645f4b4d87d45aa9f6c2ad4aab4b86da34df3908bc6a774093391301982d2fae"
+    },
+    {
+      "path": "/workspace/tmp/pix-webkit6-build-20261017-01/launcher-result.json",
+      "sha256": "79ed2a0e2d025731f0a1af743e61fd52029a3f2262fbba355a422dd2b436be43"
+    },
+    {
+      "path": "/workspace/tmp/pix-webkit6-build-20261017-01/stages/webkitgtk/host-result.json",
+      "sha256": "a7455a76dd729f1fa9f243e3af14eebbb7aec6cde0ba2c9b0681ee28dc5b256e"
+    },
+    {
+      "path": "/workspace/tmp/pix-webkit6-build-20261017-01/stages/webkitgtk/inner-result.json",
+      "sha256": "1d16c6512a7108e0c9c1ba0074e77ff18f4714f56b8a2a8d67485225f443a55a"
+    },
+    {
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/.build-runs/20261017T050229Z-20b8d63a/runner-result.json",
+      "sha256": "c760f7b15526619a0ed191967ce010a90d8d9a479d4fb830e71dbd28fab65f47"
+    }
+  ]
+}

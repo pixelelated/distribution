@@ -1,0 +1,49 @@
+{
+  "status": "FAIL",
+  "read_only": true,
+  "target_code_executed": false,
+  "source_commit": "969354955741d6c0ca8ce816e1c59ad338b1605b",
+  "versions": {
+    "webkitgtk": "2.54.1",
+    "gtk4": "4.24.1",
+    "graphene": "1.10.8",
+    "libseccomp": "2.6.1",
+    "bubblewrap": "0.11.2",
+    "xdg-dbus-proxy": "0.1.7"
+  },
+  "errors": [
+    "ValueError: package/sysroot attribution mismatch: /usr/lib/libwebkitgtk-6.0.so"
+  ],
+  "stamps": {
+    "webkitgtk": {
+      "sha256": "5345aa2e681c1b0cd487d439ac0a48e40098be386b610bc169bacd5d09e3c212",
+      "text": "STAMP_PKG_NAME=\"webkitgtk\"\nSTAMP_PKG_DEEPHASH=\"9c61a1a4c15adeab80e64dd02e284baf6973cb1510d03ac1d5a15744e45eb936\"\nSTAMP_BUILD_WITH_DEBUG=\"no\"\n"
+    }
+  },
+  "critical_artifacts": [],
+  "closure": [],
+  "edges": [],
+  "baseline_fallbacks": [],
+  "limitations": [
+    "ELF NEEDED/interpreter closure only; not symbol-version ABI, dlopen, GTK/GIO/GStreamer modules, schemas, fonts, or certificates.",
+    "No ld.so.cache/hwcaps, LD_LIBRARY_PATH, or platform-dependent $LIB expansion is modeled.",
+    "A closure PASS is not a loader, input, rendering, performance, or sandbox-isolation PASS."
+  ],
+  "cmake_cache": {
+    "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64/build/webkitgtk-2.54.1/.x86_64-rocknix-linux-gnu/CMakeCache.txt",
+    "sha256": "41ebc7326fe5c25037d6572a1a23ccb72ac45c9981ded064911d9ba5d46aaa60"
+  },
+  "configuration": {
+    "PORT": "GTK",
+    "CMAKE_BUILD_TYPE": "Release",
+    "USE_GTK4": "ON",
+    "ENABLE_BUBBLEWRAP_SANDBOX": "ON",
+    "ENABLE_WAYLAND_TARGET": "ON",
+    "USE_SKIA": "ON",
+    "USE_GBM": "ON",
+    "BWRAP_EXECUTABLE": "/usr/bin/bwrap",
+    "DBUS_PROXY_EXECUTABLE": "/usr/bin/xdg-dbus-proxy",
+    "LIBEXEC_INSTALL_DIR": "/usr/libexec/webkitgtk-6.0"
+  },
+  "elapsed_seconds": 0.07622193288989365
+}

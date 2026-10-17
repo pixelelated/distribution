@@ -1,0 +1,49 @@
+{
+  "id": "6124504fc29f90bc795e68dd802ec5b44f3ba03dbab8445ee857e2de9523e7f1",
+  "image_id": "sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "image_reference": "ghcr.io/rocknix/rocknix-build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "user": "1000:1000",
+  "mounts": [
+    {
+      "Source": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/inputs",
+      "Destination": "/inputs",
+      "RW": false
+    },
+    {
+      "Source": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/stages",
+      "Destination": "/build-owner/stages",
+      "RW": true
+    },
+    {
+      "Source": "/tmp/pix-gtk4-postbuild-20261017",
+      "Destination": "/tmp/pix-gtk4-postbuild-20261017",
+      "RW": false
+    },
+    {
+      "Source": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01",
+      "Destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+      "RW": false
+    },
+    {
+      "Source": "/workspace/repos/rocknix/.git",
+      "Destination": "/workspace/repos/rocknix/.git",
+      "RW": false
+    },
+    {
+      "Source": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out",
+      "Destination": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out",
+      "RW": true
+    },
+    {
+      "Source": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc-15.2.0",
+      "Destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc",
+      "RW": false
+    }
+  ],
+  "cpuset": "4",
+  "nano_cpus": 1000000000,
+  "memory": 2147483648,
+  "memory_swap": 2147483648,
+  "network": "none",
+  "read_only_root": true
+}

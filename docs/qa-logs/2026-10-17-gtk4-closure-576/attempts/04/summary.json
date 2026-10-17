@@ -1,0 +1,103 @@
+{
+  "status": "STRICT_FAIL_WITH_COMPLETE_RUNTIME_DEPENDENCY_INVENTORY",
+  "original_checker_rc": 1,
+  "critical_artifact_pairs": 11,
+  "critical_loaded_bytes_all_match": true,
+  "package_stamps": [
+    "webkitgtk",
+    "gtk4",
+    "graphene",
+    "libseccomp",
+    "bubblewrap",
+    "xdg-dbus-proxy"
+  ],
+  "elf_nodes": 94,
+  "dependency_edges": 378,
+  "unresolved_edges": [],
+  "layer_counts": {
+    "package:webkitgtk": 6,
+    "package:gtk4": 1,
+    "package:graphene": 1,
+    "package:libseccomp": 1,
+    "package:bubblewrap": 1,
+    "package:xdg-dbus-proxy": 1,
+    "accepted-runtime-image": 83
+  },
+  "inherited_search_path_findings": [
+    {
+      "reason": "SYSROOT_RPATH_FORBIDDEN",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libfreetype.so.6.20.6",
+      "runtime_path": "/lib64/libfreetype.so.6",
+      "search_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib",
+      "layer": "accepted-runtime-image",
+      "sha256": "cf4a44548b3f1aa927236c2042b86e1340f1db08cad795ecf4662f1127e20ba7",
+      "rpath": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib",
+      "runpath": null,
+      "inherited_bytes": true
+    },
+    {
+      "reason": "UNSUPPORTED_RUNTIME_SEARCH_PATH",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libwoff2dec.so.1.0.2",
+      "runtime_path": "/lib64/libwoff2dec.so.1.0.2",
+      "search_path": "lib",
+      "layer": "accepted-runtime-image",
+      "sha256": "cf9e993d7e9ec526cf4aa547eda4e7ca767fa4c1dd9eaf3942b3714cac8c71fe",
+      "rpath": "lib",
+      "runpath": null,
+      "inherited_bytes": true
+    },
+    {
+      "reason": "SYSROOT_RPATH_FORBIDDEN",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libgcrypt.so.20.7.2",
+      "runtime_path": "/lib64/libgcrypt.so.20",
+      "search_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib",
+      "layer": "accepted-runtime-image",
+      "sha256": "78bb44d643ca541ba238c203b2283b3f96363305c5b0651b23e63edb43c9f655",
+      "rpath": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib",
+      "runpath": null,
+      "inherited_bytes": true
+    },
+    {
+      "reason": "SYSROOT_RPATH_FORBIDDEN",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libthai.so.0.3.1",
+      "runtime_path": "/lib64/libthai.so.0",
+      "search_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib",
+      "layer": "accepted-runtime-image",
+      "sha256": "2577221c2343d033158e3ebdc58a2c147be4fb91e34bf49cb2f7cbf5649b9dd1",
+      "rpath": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib",
+      "runpath": null,
+      "inherited_bytes": true
+    },
+    {
+      "reason": "SYSROOT_RPATH_FORBIDDEN",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libX11.so.6.4.0",
+      "runtime_path": "/lib64/libX11.so.6",
+      "search_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib",
+      "layer": "accepted-runtime-image",
+      "sha256": "bed7cfa56847739236aa0ab84a412dde4507e0117d07b0a9f7fd9b4c46a83adc",
+      "rpath": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib",
+      "runpath": null,
+      "inherited_bytes": true
+    },
+    {
+      "reason": "UNSUPPORTED_RUNTIME_SEARCH_PATH",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libwoff2common.so.1.0.2",
+      "runtime_path": "/lib64/libwoff2common.so.1.0.2",
+      "search_path": "lib",
+      "layer": "accepted-runtime-image",
+      "sha256": "d1166aa4975e805c9e2abf9ad1e0daf5deea571b798bfc0dba998c5b755d28e5",
+      "rpath": "lib",
+      "runpath": null,
+      "inherited_bytes": true
+    }
+  ],
+  "no_new_overlay_search_path_findings": true,
+  "result_sha256": "29aef894e16ed0ff7f2ad771ea22f60f341dc03cce9514150340365d992d81c6",
+  "verifier_sha256": "5ffb5347e944fadfdb7124e32d9011f79c785e4ce323c20e50ec9d454cb47991",
+  "limitations": [
+    "ELF NEEDED/interpreter closure only; not symbol-version ABI, dlopen, GTK/GIO/GStreamer modules, schemas, fonts, or certificates.",
+    "No ld.so.cache/hwcaps, LD_LIBRARY_PATH, or platform-dependent $LIB expansion is modeled.",
+    "A closure PASS is not a loader, input, rendering, performance, or sandbox-isolation PASS."
+  ],
+  "interpretation": "Search-path findings are strict source/artifact hygiene failures, not observed loader failure or a new GTK4/WebKit6 regression. No target code, compiler, VM or browser was executed. Coordinator decides whether this complete inventory with acknowledged inherited paths qualifies a compile-only allocation."
+}

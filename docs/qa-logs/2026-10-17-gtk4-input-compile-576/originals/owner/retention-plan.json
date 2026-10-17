@@ -1,0 +1,36 @@
+{
+  "volume": "/workspace",
+  "scan_roots": [
+    "/workspace/tmp/pix-gtk4-input-compile-20261017-01/scan"
+  ],
+  "reference_stores": [],
+  "protected": [
+    "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01",
+    "/workspace/repos/rocknix/.git",
+    "/tmp/pix-gtk4-postbuild-20261017",
+    "/tmp/pix-gtk4-compile-only-qualification-20261017.json",
+    "/workspace/tmp/pix-gtk4-input-compile-20261017-01/inputs.json",
+    "/workspace/tmp/pix-gtk4-input-compile-20261017-01/qualification.json",
+    "/workspace/tmp/pix-gtk4-input-compile-20261017-01/compile.py",
+    "/workspace/tmp/pix-gtk4-input-compile-20261017-01/qualification.py",
+    "/workspace/tmp/pix-gtk4-input-compile-20261017-01/host-resources.py",
+    "/workspace/tmp/pix-gtk4-input-compile-20261017-01/inputs/inner-build.py"
+  ],
+  "candidates": [],
+  "builds": [
+    {
+      "name": "gtk4-input-compile-only",
+      "terms_bytes": {
+        "outputs": 536870912,
+        "owner_records": 67108864
+      },
+      "basis": "One source-file compile against read-only completed isolated toolchain. No source/cache copy or package build. Output ceiling512MiB;64MiB conservative records. Tmpfs128MiB is within2GiB memory, not workspace output. CPU4, zero container swap/network,90s producer+30s cleanup budget; any total overrun fails. Only this fresh owner is scanned.",
+      "evidence": [
+        {
+          "path": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/inputs.json",
+          "sha256": "c36cd22b72d990c659a1c95f7ef345d06c5cac4d543f9575f4683ba2d47d933a"
+        }
+      ]
+    }
+  ]
+}

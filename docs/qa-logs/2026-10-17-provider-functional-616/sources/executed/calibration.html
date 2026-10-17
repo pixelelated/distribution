@@ -1,0 +1,23 @@
+<!doctype html>
+<!-- SPDX-License-Identifier: GPL-2.0 -->
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<title>Local proof calibration</title>
+<style>body{margin:20px;background:#102129;color:white;font:20px sans-serif}input,button{display:block;font:22px sans-serif;margin:14px 0}input{width:260px;height:42px}button{max-width:560px}#status{font-size:16px}</style>
+<h1>Local proof calibration</h1>
+<label for="sample">Synthetic text only</label>
+<input id="sample" type="text" maxlength="8" autocomplete="off" spellcheck="false">
+<button id="negative" type="button">Dispatch an untrusted input event</button>
+<p id="status">No account, submission or network request.</p>
+<script>
+const sample = document.getElementById('sample');
+document.getElementById('negative').addEventListener('click', () => {
+    sample.focus();
+    sample.dispatchEvent(new InputEvent('input', {bubbles:true, inputType:'insertText'}));
+    document.getElementById('status').textContent = 'Untrusted event dispatched; no value was set.';
+});
+sample.addEventListener('keydown', event => { if (event.key === 'Enter') event.preventDefault(); });
+</script>
+</html>

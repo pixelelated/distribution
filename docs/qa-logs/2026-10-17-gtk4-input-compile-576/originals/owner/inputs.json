@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "utc": "2026-10-17T05:50:19.591290+00:00",
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01",
+  "canonical_checkout": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+  "commit": "969354955741d6c0ca8ce816e1c59ad338b1605b",
+  "host_pid_namespace": "pid:[4026531836]",
+  "owner_label": "pix-gtk4-input-compile-20261017-01",
+  "image": "ghcr.io/rocknix/rocknix-build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "source_packet": "/tmp/pix-gtk4-postbuild-20261017",
+  "mounts": [
+    {
+      "Source": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/inputs",
+      "Destination": "/inputs",
+      "RW": false
+    },
+    {
+      "Source": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out",
+      "Destination": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out",
+      "RW": true
+    },
+    {
+      "Source": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/stages",
+      "Destination": "/build-owner/stages",
+      "RW": true
+    },
+    {
+      "Source": "/tmp/pix-gtk4-postbuild-20261017",
+      "Destination": "/tmp/pix-gtk4-postbuild-20261017",
+      "RW": false
+    },
+    {
+      "Source": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01",
+      "Destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+      "RW": false
+    },
+    {
+      "Source": "/workspace/repos/rocknix/.git",
+      "Destination": "/workspace/repos/rocknix/.git",
+      "RW": false
+    },
+    {
+      "Source": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc-15.2.0",
+      "Destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc",
+      "RW": false
+    }
+  ],
+  "qualification_sha256": "791ae65f83df4bc48005f6c9062d10998cc8beeac759cfa6dd8e08f567e4ce4d",
+  "external_sha256": {
+    "/tmp/pix-gtk4-postbuild-20261017/compile-input.py": "23638b6efe12ec62fc61f0ad2c2dcc1bf5c01dcc6a0207e26e0c36570ace703b",
+    "/tmp/pix-gtk4-postbuild-20261017/input-source/input-spike.c": "015652f22b14b258352ca510e93c7a6179721690f3faa2b00a6ccac237f8ea6e",
+    "/tmp/pix-gtk4-postbuild-20261017/input-source/native_keyboard.py": "ea3f544fd68591274430d3d0b08924db10f57041bbbfcfd42a7f09612cab7be4",
+    "/tmp/pix-gtk4-postbuild-20261017/input-source/preparation.json": "3054fee3ce78e05a15582645cba2b9d3b4f985edfcca96a8b0cc2c2d08eccddf",
+    "/tmp/pix-gtk4-postbuild-20261017/input-source/run-input-spike.py": "62011889050a3ca121d67659d2b3e5a77caa0a7b3c43ee2f05d89fd11cf0796e",
+    "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc-15.2.0": "2afee500ca1f46ee18ef5c1997a6235e0fe1f8a58f580381c451ab221f659755",
+    "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc": "bb9cdcbaaf3f3b08bbfcad9d0b9c46cc5d7da800c74ff4efa1b170dd14b70c9b",
+    "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/pkg-config": "83baa65c2f7caa000f378c83f6ede97f490b056b5aa11ee14a1d9906a882f45f",
+    "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/.git": "8ed79c87e49cf2205f4c3dcfda71c60b1a6a3d442f2f96f9ad133394e66b4f22",
+    "/tmp/pix-gtk4-closure-20261017-04/result.json": "29aef894e16ed0ff7f2ad771ea22f60f341dc03cce9514150340365d992d81c6",
+    "/tmp/pix-gtk4-closure-20261017-04/receipt.json": "df24ab1b344de8c1fa3a5a0e281d4bc2cadfc72aceacee68ca6bbccc8fd8a162"
+  },
+  "compiler_override": {
+    "source": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc-15.2.0",
+    "destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/bin/x86_64-rocknix-linux-gnu-gcc",
+    "sha256": "2afee500ca1f46ee18ef5c1997a6235e0fe1f8a58f580381c451ab221f659755",
+    "reason": "direct GCC ELF, bypass installed ccache wrapper without editing source"
+  },
+  "limits": {
+    "cpu_ids": [
+      4
+    ],
+    "cpus": 1,
+    "memory_mib": 2048,
+    "swap_bytes": 0,
+    "pids": 128,
+    "producer_seconds": 90,
+    "cleanup_seconds": 30,
+    "total_seconds": 120,
+    "tmpfs_bytes": 134217728,
+    "output_limit_bytes": 536870912,
+    "scratch_budget_bytes": 603979776,
+    "compiler_log_bytes": 2097152
+  },
+  "host_observer": {
+    "minimum_host_available_bytes": 8589934592,
+    "minimum_volume_available_bytes": 107374182400,
+    "disk_scan_timeout_seconds": 5,
+    "disk_sample_interval_seconds": 5
+  },
+  "helper_sha256": {
+    "compile.py": "55e5dadea2393d56ca08bad4f10bbbf3e9d5f74876cf623f220776638cf12f59",
+    "qualification.py": "609609f3e9e09781cd4a2609ae71e6212f1a640db255e730e18c45d0adfb62b3",
+    "host-resources.py": "39a1b153e861cf3256b52567eb3e251412b9ab069e70ff72f4b5ac65e71fbaf1",
+    "inputs/inner-build.py": "2a33d9548e9adcb278bf75de230294eeb45e79263cecc355837b284d06ff4d98"
+  },
+  "source_preparation": {
+    "path": "/tmp/pix-gtk4-postbuild-owner-prep-20261017",
+    "preparer_sha256": "48fe80551f1c2cd7358a4bf07310cfd59fb5129017d5b6e896d251350dd6cc12",
+    "runner_sha256": "55e5dadea2393d56ca08bad4f10bbbf3e9d5f74876cf623f220776638cf12f59"
+  },
+  "runtime_authorized": false,
+  "runtime_scope": "single GTK4 input fixture compile; no target execution, display, browser, provider or VM"
+}

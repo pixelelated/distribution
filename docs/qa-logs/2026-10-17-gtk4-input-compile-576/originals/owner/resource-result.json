@@ -1,0 +1,19 @@
+{
+  "errors": [],
+  "all_threads_exited": true,
+  "status": "PASS",
+  "host_sample_count": 1,
+  "allocation_sample_count": 2,
+  "maximum_observed_allocated_bytes_by_root": {
+    "/workspace/tmp/pix-gtk4-input-compile-20261017-01": 241664
+  },
+  "incomplete_disk_sample_count": 0,
+  "disk_peak_limit": "sampled maxima with scan durations; not continuous or atomic peaks; maxima during incomplete samples are unknown",
+  "minimum_host_mem_available_bytes": 59857719296,
+  "maximum_total_minus_available_bytes": 5518331904,
+  "minimum_swap_free_bytes": 3247316992,
+  "swap_page_deltas": {
+    "pswpin": 0,
+    "pswpout": 0
+  }
+}

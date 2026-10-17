@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "scope": "pure host AST/preparation/parser; target compile and all browser runtime UNRUN",
+  "passed": [
+    "AST source-controls.py",
+    "AST analyse.py",
+    "AST calibration-server.py",
+    "AST prepare.py",
+    "original and redirect calibration requires both matching hashes",
+    "DOM and request match is explicitly not provider wire proof",
+    "untrusted negative control does not count as trusted input",
+    "missing request hash withholds only UA ranking",
+    "redirect echo mismatch cannot qualify UA signal",
+    "missing request events retain positive geometry",
+    "ineligible trusted event is not positive readiness proof",
+    "bound reached withholds complete UA claim",
+    "extra URL field refused",
+    "raw UA field refused",
+    "nonfinite geometry refused",
+    "invalid digest refused",
+    "numeric boolean refused",
+    "duplicate input event refused",
+    "unrelated native log content is not copied",
+    "tampered source refused",
+    "pure exact-source preparation reproduces candidate",
+    "existing prepared output refused",
+    "field values cookies URLs and page writes absent from proof JS",
+    "no raw GError message is emitted by C proof"
+  ],
+  "count": 24,
+  "seconds": 0.0052819689735770226,
+  "services_listeners_network_compilers_started": false
+}

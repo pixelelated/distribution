@@ -1,6 +1,6 @@
 # GTK4 dependency compilation — #576
 
-Work in progress. The isolated GENERIC build branch is `build/m7-gtk4-20261017-01`,
+Dependency compilation complete. The isolated GENERIC build branch is `build/m7-gtk4-20261017-01`,
 commit969354955741d6c0ca8ce816e1c59ad338b1605b, based on published4c3eda48c7.
 Only the previously reviewed six-recipe overlay is staged there. This packet
 records actual package compilation, distinct from the original source-only packet.
@@ -31,13 +31,12 @@ ELF/stamps and original result channels pass. GTK4 took147.18s with717,467,648B
 cgroup peak; whole dependency owner163.83s, no OOM or host swap-out. The independent
 build root is6,897,287,168B after these packages. Admission9c736bd7 consumed.
 
-WebKit6 compilation is now active in a separate owner,
-/workspace/tmp/pix-webkit6-build-20261017-01. Its fresh CMake cache selects GTK4,
-Wayland, Skia, GBM and sandboxing; memory samplerON and sampling profilerOFF are
-different features. No old GTK3 CMake tree is reused. A present WEBKIT_SAMPLE_MEMORY
-environment variable enables sampling even with value0; it is not selected here.
-Native input, runtime sandbox properties, browser memory and H700 performance
-remain unrun. Source review confirms all31 fixture calls have public declarations,
-but that is not compile/runtime proof. API6 process/injected-bundle closure and
-actual UID/capability/namespace/seccomp observations remain required; root-run
-success alone does not prove sandbox isolation. No production source or pin was promoted. No device/cloud operation.
+WebKit6 subsequently compiled successfully under
+/workspace/tmp/pix-webkit6-build-20261017-01; original channels0 and admission
+consumed. Its fresh CMake cache selects GTK4, Wayland, Skia, GBM and sandboxing.
+See [engine results](../2026-10-17-gtk4-engine-576/README.md) and the
+[compiled input fixture](../2026-10-17-gtk4-input-compile-576/README.md).
+The [strict closure readback](../2026-10-17-gtk4-closure-576/README.md) retains six
+inherited search-path findings; compilation is not runtime/sandbox/performance
+proof. Leave WEBKIT_SAMPLE_MEMORY unset, even value0 enables sampling. No product
+source/pin promotion, device/cloud operation or active runtime remains.

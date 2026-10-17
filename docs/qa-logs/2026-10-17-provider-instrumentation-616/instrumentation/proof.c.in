@@ -1,0 +1,217 @@
+/* SPDX-License-Identifier: GPL-2.0
+ * Always-on, bounded event-driven proof layer for the diagnostic candidate.
+ * QA616_OBSERVER still controls only the pre-existing periodic observer.
+ */
+#define QA616_PROOF_WORLD "pixelelated-proof-616"
+#define QA616_PROOF_NETWORK_LIMIT 64
+#define QA616_PROOF_MESSAGE_LIMIT 64
+static const char qa616_proof_script[] = @PROOF_JS@;
+static guint qa616_proof_resource_count;
+static guint qa616_proof_network_count;
+static guint qa616_proof_message_count;
+static gint64 qa616_proof_started;
+static gboolean qa616_proof_closed;
+static gboolean qa616_proof_network_limit_reported;
+static gboolean qa616_proof_message_limit_reported;
+
+typedef struct {
+    guint id;
+    guint sent;
+    guint provider;
+} Qa616Resource;
+
+static double qa616_proof_elapsed(void)
+{
+    return (g_get_monotonic_time() - qa616_proof_started) / 1000.0;
+}
+
+/* Zero is unknown. No host/path/query is emitted. */
+static guint qa616_proof_provider(const gchar *uri)
+{
+    GUri *parsed = uri ? g_uri_parse(uri, G_URI_FLAGS_NONE, NULL) : NULL;
+    if (!parsed) return 0;
+    const char *host = g_uri_get_host(parsed);
+    guint provider = 0;
+    if (host) {
+        gchar *lower = g_ascii_strdown(host, -1);
+        if (!strcmp(lower, "127.0.0.1") || !strcmp(lower, "localhost")) provider = 1;
+        else if (!strcmp(lower, "dropbox.com") || g_str_has_suffix(lower, ".dropbox.com")) provider = 2;
+        else if (!strcmp(lower, "accounts.google.com")) provider = 3;
+        else if (!strcmp(lower, "login.microsoftonline.com") || !strcmp(lower, "login.live.com") ||
+                 !strcmp(lower, "onedrive.live.com")) provider = 4;
+        g_free(lower);
+    }
+    g_uri_unref(parsed);
+    return provider;
+}
+
+static gchar *qa616_proof_ua_digest(const char *ua)
+{
+    if (!ua) return NULL;
+    size_t length = strnlen(ua, QA616_MAX_UA + 1);
+    if (!length || length > QA616_MAX_UA) return NULL;
+    for (size_t i = 0; i < length; i++)
+        if ((unsigned char)ua[i] < 32 || (unsigned char)ua[i] > 126) return NULL;
+    return g_compute_checksum_for_string(G_CHECKSUM_SHA256, ua, length);
+}
+
+static gboolean qa616_proof_network_room(void)
+{
+    if (qa616_proof_closed) return FALSE;
+    if (qa616_proof_network_count >= QA616_PROOF_NETWORK_LIMIT) {
+        if (!qa616_proof_network_limit_reported) {
+            g_printerr("QA616_PROOF_LIMIT {\"channel\":1}\n");
+            qa616_proof_network_limit_reported = TRUE;
+        }
+        return FALSE;
+    }
+    qa616_proof_network_count++;
+    return TRUE;
+}
+
+static void qa616_proof_sent(WebKitWebResource *resource, WebKitURIRequest *request,
+                            WebKitURIResponse *redirect, gpointer data)
+{
+    (void)resource;
+    Qa616Resource *tracked = data;
+    if (!qa616_proof_network_room()) return;
+    tracked->sent++;
+    tracked->provider = qa616_proof_provider(webkit_uri_request_get_uri(request));
+    SoupMessageHeaders *headers = webkit_uri_request_get_http_headers(request);
+    const char *ua = headers ? soup_message_headers_get_one(headers, "User-Agent") : NULL;
+    gchar *digest = qa616_proof_ua_digest(ua);
+    guint status = redirect ? webkit_uri_response_get_status_code(redirect) : 0;
+    g_printerr("QA616_REQUEST {\"elapsed_ms\":%.3f,\"resource\":%u,\"request\":%u,"
+        "\"provider\":%u,\"redirect_status\":%u,\"ua_present\":%u,\"ua_sha256\":\"%s\"}\n",
+        qa616_proof_elapsed(), tracked->id, tracked->sent, tracked->provider,
+        status <= 599 ? status : 0, digest != NULL, digest ? digest : "unknown");
+    g_free(digest);
+}
+
+static void qa616_proof_finished(WebKitWebResource *resource, gpointer data)
+{
+    Qa616Resource *tracked = data;
+    if (!qa616_proof_network_room()) return;
+    WebKitURIResponse *response = webkit_web_resource_get_response(resource);
+    guint status = response ? webkit_uri_response_get_status_code(response) : 0;
+    g_printerr("QA616_RESPONSE {\"elapsed_ms\":%.3f,\"resource\":%u,\"requests\":%u,"
+        "\"provider\":%u,\"status\":%u,\"response_present\":%u}\n", qa616_proof_elapsed(),
+        tracked->id, tracked->sent, tracked->provider, status <= 599 ? status : 0, response != NULL);
+}
+
+static void qa616_proof_failed(WebKitWebResource *resource, GError *error, gpointer data)
+{
+    (void)resource;
+    Qa616Resource *tracked = data;
+    if (!qa616_proof_network_room()) return;
+    guint domain = 0;
+    if (error) {
+        if (error->domain == WEBKIT_NETWORK_ERROR) domain = 1;
+        else if (error->domain == WEBKIT_POLICY_ERROR) domain = 2;
+        else if (error->domain == G_IO_ERROR) domain = 3;
+    }
+    g_printerr("QA616_RESOURCE_ERROR {\"elapsed_ms\":%.3f,\"resource\":%u,"
+        "\"provider\":%u,\"domain_class\":%u,\"code\":%d}\n", qa616_proof_elapsed(),
+        tracked->id, tracked->provider, domain, error ? error->code : 0);
+}
+
+static void qa616_proof_resource(WebKitWebView *view, WebKitWebResource *resource,
+                                WebKitURIRequest *request, gpointer unused)
+{
+    (void)request;
+    (void)unused;
+    /* Pinned source assigns mainResource before emitting resource-load-started. */
+    if (qa616_proof_closed || resource != webkit_web_view_get_main_resource(view)) return;
+    if (qa616_proof_resource_count >= 16) {
+        if (!qa616_proof_network_limit_reported) {
+            g_printerr("QA616_PROOF_LIMIT {\"channel\":1}\n");
+            qa616_proof_network_limit_reported = TRUE;
+        }
+        return;
+    }
+    Qa616Resource *tracked = g_new0(Qa616Resource, 1);
+    tracked->id = ++qa616_proof_resource_count;
+    g_object_set_data_full(G_OBJECT(resource), "qa616-proof-resource", tracked, g_free);
+    g_signal_connect(resource, "sent-request", G_CALLBACK(qa616_proof_sent), tracked);
+    g_signal_connect(resource, "finished", G_CALLBACK(qa616_proof_finished), tracked);
+    g_signal_connect(resource, "failed", G_CALLBACK(qa616_proof_failed), tracked);
+}
+
+static void qa616_proof_message(WebKitUserContentManager *manager,
+                               WebKitJavascriptResult *result, gpointer unused)
+{
+    (void)manager;
+    (void)unused;
+    if (qa616_proof_closed) return;
+    if (qa616_proof_message_count >= QA616_PROOF_MESSAGE_LIMIT) {
+        if (!qa616_proof_message_limit_reported) {
+            g_printerr("QA616_PROOF_LIMIT {\"channel\":2}\n");
+            qa616_proof_message_limit_reported = TRUE;
+        }
+        return;
+    }
+    qa616_proof_message_count++;
+    /* webkit2gtk-4.1 is the legacy GLib API: this signal's argument is boxed
+     * WebKitJavascriptResult, not the GTK4/2022 API's JSCValue pointer. */
+    JSCValue *value = webkit_javascript_result_get_js_value(result);
+    if (!value || !jsc_value_is_object(value)) return;
+    double kind = qa616_number(value, "kind", 3);
+    double document = qa616_number(value, "doc", 1e16);
+    if (document < 0) return;
+    if (kind == 1) {
+        JSCValue *ua_value = jsc_value_object_get_property(value, "ua");
+        gchar *ua = ua_value && jsc_value_is_string(ua_value) ? jsc_value_to_string(ua_value) : NULL;
+        gchar *digest = qa616_proof_ua_digest(ua);
+        g_printerr("QA616_DOM_BINDING {\"elapsed_ms\":%.3f,\"document\":%.0f,"
+            "\"resource_at_callback\":%u,\"provider\":%.0f,\"width\":%.0f,\"height\":%.0f,"
+            "\"scale\":%.3f,\"ua_present\":%u,\"ua_sha256\":\"%s\"}\n",
+            qa616_proof_elapsed(), document, qa616_proof_resource_count,
+            qa616_number(value, "provider", 4), qa616_number(value, "width", 32768),
+            qa616_number(value, "height", 32768), qa616_number(value, "scale", 32),
+            digest != NULL, digest ? digest : "unknown");
+        g_free(digest);
+        g_free(ua);
+        if (ua_value) g_object_unref(ua_value);
+    } else if (kind == 2) {
+        g_printerr("QA616_INPUT {\"elapsed_ms\":%.3f,\"document\":%.0f,"
+            "\"resource_at_callback\":%u,\"sequence\":%.0f,\"trusted\":%.0f,"
+            "\"eligible\":%.0f,\"focused\":%.0f,\"render_delta_ms\":%.3f}\n",
+            qa616_proof_elapsed(), document, qa616_proof_resource_count,
+            qa616_number(value, "sequence", 8), qa616_number(value, "trusted", 1),
+            qa616_number(value, "eligible", 1), qa616_number(value, "focused", 1),
+            qa616_number(value, "render_delta_ms", 360000));
+    } else if (kind == 3) {
+        g_printerr("QA616_BINDING_UNAVAILABLE {\"elapsed_ms\":%.3f,\"document\":%.0f,"
+            "\"reason\":%.0f}\n", qa616_proof_elapsed(), document, qa616_number(value, "reason", 1));
+    }
+}
+
+static void qa616_proof_destroy(GtkWidget *view, gpointer unused)
+{
+    (void)unused;
+    qa616_proof_closed = TRUE;
+    WebKitUserContentManager *manager = webkit_web_view_get_user_content_manager(WEBKIT_WEB_VIEW(view));
+    g_signal_handlers_disconnect_by_func(manager, G_CALLBACK(qa616_proof_message), NULL);
+    webkit_user_content_manager_unregister_script_message_handler_in_world(manager, "qa616Proof", QA616_PROOF_WORLD);
+}
+
+static gboolean qa616_proof_setup(WebKitWebView *view)
+{
+    qa616_proof_started = g_get_monotonic_time();
+    WebKitUserContentManager *manager = webkit_web_view_get_user_content_manager(view);
+    g_signal_connect(manager, "script-message-received::qa616Proof", G_CALLBACK(qa616_proof_message), NULL);
+    if (!webkit_user_content_manager_register_script_message_handler_in_world(manager, "qa616Proof", QA616_PROOF_WORLD)) {
+        g_signal_handlers_disconnect_by_func(manager, G_CALLBACK(qa616_proof_message), NULL);
+        return qa616_refuse("proof script handler registration failed");
+    }
+    WebKitUserScript *script = webkit_user_script_new_for_world(qa616_proof_script,
+        WEBKIT_USER_CONTENT_INJECT_TOP_FRAME, WEBKIT_USER_SCRIPT_INJECT_AT_DOCUMENT_START,
+        QA616_PROOF_WORLD, NULL, NULL);
+    webkit_user_content_manager_add_script(manager, script);
+    webkit_user_script_unref(script);
+    g_signal_connect(view, "resource-load-started", G_CALLBACK(qa616_proof_resource), NULL);
+    g_signal_connect(view, "destroy", G_CALLBACK(qa616_proof_destroy), NULL);
+    g_printerr("QA616_PROOF_CONFIG event_probe=on periodic_observer=%s request_header=unvalidated\n",
+               qa616_observe ? "on" : "off");
+    return TRUE;
+}

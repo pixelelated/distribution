@@ -1,9 +1,9 @@
 # Saved Session State
 
-> **Saved:** 2026-10-17T05:05:56Z
+> **Saved:** 2026-10-17T05:53:18Z
 > **Branch:** `feature/m7-audit-integration-603`
 > **Repository:** `pixelelated/distribution`; integration branch `next`
-> **Request:** Investigate browser memory/responsiveness; prioritize GTK4 among engine-migration experiments, retain Blink fallback and provider attribution.
+> **Request:** Continue M7 browser investigation and try another rclone provider login; Google Drive and Dropbox forms now observed, GTK4 engine/fixture compiled.
 
 ## Start here
 
@@ -35,78 +35,92 @@ credential values. Private inventories, signed streams and personal captures sta
 outside Git. Device read output must exclude `key|pass|token|user|psk` lines.
 `docs/device-testing-policy.md` and `tools/device-act` govern named device actions.
 
-## Current focus and October17 compiled work
+## Current focus and October17 completed experiments
 
 D-WORKFLOW-170: #576 GTK4 is first among engine-migration experiments; #617 Blink
-is fallback. #616 provider attribution remains parallel. No production migration,
-UA, script filter or service-suspension policy is selected. Current WebKit2.54.1
-GTK3/API4.1 already paints with Skia; GTK4 offers different presentation/damage
-handling, not an established H700 memory/speed gain. #587/#615 remain unresolved.
+is fallback. #616 provider attribution remains parallel. No production engine,
+UA, script filter or service-suspension policy is selected. WebKit2.54.1 GTK3/API4.1
+already paints with Skia; GTK4 is not yet a measured H700 memory/speed improvement.
+#587/#615 remain unresolved. **No build, VM, browser or audit job is active.**
 
-**One build is active:** WebKit2.54.1 GTK4/API6 in dedicated diagnostic checkout
+**The requested second provider was exercised.** A fresh2GiB GENERIC VM used the
+normal installed ES/rclone flow to open Google Drive and then Dropbox. Both
+returned HTTP200 and painted sign-in forms, two reviewed frames each, with empty
+fields. No credentials or consent were submitted. Local fixture also loaded.
+Event probes were on, periodic observer off, default UA,640x457 content/DPR1.
+This is functional launch/cancel/recovery proof, not a completed account link,
+trusted-input proof or fair performance/memory ranking. The engine compilation
+overlapped and durations differed. Whole-guest MemAvailable is not browser PSS.
+Public exact-source evidence:
+`docs/qa-logs/2026-10-17-provider-functional-616/` and
+`docs/qa-logs/2026-10-17-provider-instrumentation-616/`.
+
+All three browser cases closed normally with no guard interventions or survivors;
+same ES PID1645/start1146, idle200, original browser and missing-rclone-directory
+state restored. Original VM/watcher/runner/launcher0; admission41d3a0c1 consumed.
+Owned disk/OVMF2,322,104,320allocated bytes retired after evidence export. Private
+raw logs/full argv/request/PIN/QR frames stay in the owner, outside Git:
+`/workspace/tmp/pix-provider616-vm-20261017-01`.
+Do not publish that whole directory. The expired calibration service stop returned5;
+its original natural240s expiry remains separate, not a rewritten zero.
+
+The local native-input fixture refused before POST because the product excludes
+loopback URLs from its page marker. **Input remains UNPROVEN.** Source-only v2
+uses exact listener/helper/guard ownership and a fresh server-owner receipt;
+it is in the functional packet under sources/v2-unrun and has not executed.
+Normal phone-instruction navigation initially kept list focus: UP then RIGHT,
+review filled CONTINUE, then X. Initial false starts had no callback or browser;
+they are not handoff defects. Both saved Google frames contain the form.
+
+The diagnostic request/DOM/input helper compiled for GENERIC and H700 and passed
+14 actual pre-GTK controls. Compile owner2.580s, all original channels0,
+admissionf94742 consumed. Tiny helpers remain for immediate tests at
+`/workspace/tmp/pix-provider616-compile-20261017-01/out/`.
+GENERIC SHA8c3a9ba06dc78efffee68bb510b5f273f2fafc8d2ecbc8ee17227a3e4c1e3f0a;
+H700 SHA8da94f0cf89b4788c8e3186eb272e9a9d7d67163a5b3d120d99a4c85aff353be.
+Product source, ES pin and firmware remain unchanged.
+
+**GTK4/API6 engine and native-input fixture compile.** Frozen diagnostic checkout:
 `/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01`, branch
 `build/m7-gtk4-20261017-01`, commit969354955741d6c0ca8ce816e1c59ad338b1605b.
-It starts from published4c3eda48c724e9dc819483ae9d50f8d44edb07cf and stages only
-six reviewed overlay recipes/two preserved product patches. Never merge this
-build branch into next as production adoption. The source is frozen in flight.
+It starts from4c3eda48 and stages only six reviewed overlay recipes/two preserved
+patches. Never merge it as production adoption. Accepted GTK3 roots are unchanged.
+Only independent toolchain/stamps/config were seeded, not a whole old build tree.
+Graphene1.10.8, GTK4.24.1, libseccomp2.6.1, bubblewrap0.11.2 and xdg-dbus-proxy0.1.7
+all compiled; original Python compatibility failure remains retained.
 
-Owner `/workspace/tmp/pix-webkit6-build-20261017-01`; live watcher
-`m7-gtk4-build-20261017-01/.build-runs/20261017T050229Z-20b8d63a`.
-LauncherPID906493; inspect exact owner/start identities before any action.
-Admissionae36c146af9744c2a8eeef7a96b793a8 is active, four CPU cores0–3,
-20GiB/no swap,6h hard owner deadline. Source archive hash matches the pin;
-actual CMake selects GTK4/Wayland/Skia/GBM/sandbox. It is compiling at this
-checkpoint; no engine success or runtime claim. Do not launch a second producer
-in this checkout or edit its source/helpers. Watcher records do not notify chat;
-continue active supervision and report completion from original result files.
+WebKit2.54.1 completed in2155.316882s, all original channels0, no OOM;
+14,397,218,816B cgroup peak is compiler use, not target browser memory. Host
+swap-out92131pages is recorded. Owner/container exited, admissionae36c146 consumed.
+Engine owner `/workspace/tmp/pix-webkit6-build-20261017-01`, run
+`.build-runs/20261017T050229Z-20b8d63a` in the diagnostic checkout.
+Actual configuration selects GTK4/Wayland/Skia/GBM/sandbox. Leave
+WEBKIT_SAMPLE_MEMORY unset: even value0 enables it; samplerON differs from profilerOFF.
+Evidence: `docs/qa-logs/2026-10-17-gtk4-engine-576/` and earlier gtk4-build-576.
 
-Completed dependency stages, original channels0 and admissions consumed:
+All11 critical package/sysroot loaded-byte identities match. Runtime-layer
+readback resolves378edges over94ELFs; adding the compiled fixture resolves396
+over95. **Strict checker remains FAIL:** four absolute build paths and two relative
+`lib` search paths are inherited from accepted-image dependencies; none belongs
+to the new overlay. No loader failure or memory cause is established. Preserve
+all earlier checker failures and versioned repairs in gtk4-closure-576. Root's
+explicit qualification allowed compile only, runtime_authorized:false.
 
-- Graphene1.10.8 built/installed, exact archive and staged ELF checked.
-  Initial owner01 failed before compile: container Python lacks hashlib.file_digest.
-  Owner02 streamed SHA256 and verified the existing independent copy; no recopy.
-  121,054 toolchain regular files/1,647 links/651 stamps/config checked for bytes,
-  modes and inode separation. Three actual baseline mounts were read-only.
-  Owner31.55s including25.17s verification. Admission234eb2e consumed; failed
-  owner365fb883 consumed as failed-investigated. Its2GiB peak includes file cache,
-  not compiler RSS or browser memory. Owners in /workspace/tmp/pix-gtk4-graphene-*.
-- GTK4.24.1/libseccomp2.6.1/bubblewrap0.11.2/xdg-dbus-proxy0.1.7 all built and
-  have actual ELF/stamp readback. GTK4 147.18s/717,467,648B cgroup peak;
-  complete dependency owner163.83s/no OOM/no host swap-out. Admission9c736bd7
-  consumed. Owner /workspace/tmp/pix-gtk4-deps-20261017-01.
-- Independent seed+new dependency build root6,897,287,168 allocated bytes.
-  Accepted GTK3 roots remain unchanged. Only toolchain/stamps/config copied,
-  not a whole historical build tree. Retain this new root for immediate WebKit6
-  compilation/input tests; sparse seed alone does not prove full-image payloads.
-- Compact original results, failures, executable helpers and configuration readback:
-  docs/qa-logs/2026-10-17-gtk4-build-576/. Evidence is being recorded on coordinator;
-  inspect Git before claiming publication of the newest record commit.
+The tiny GTK4 input fixture then compiled in1.846s, all original channels0;
+peak118,661,120B, no OOM or host swap-out. Owner/container exited and admission
+9af04cef consumed. Binary27056B, SHA
+27908eb5badf203de53332c4e35ee96d8c7fbbb6afefd5d72d11c9d8068359f8 at
+`/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike`.
+Run `.build-runs/20261017T055050Z-ebd5bf9d`, packet gtk4-input-compile-576.
+Retain the new build root only for immediate overlay/runtime tests. Runtime
+input/popup/close, actual sandbox UID/caps/namespaces/seccomp, dlopen/module/schema
+closure, ABI compatibility and H700 performance are still unproved. Root launch
+does not itself prove sandbox isolation.
 
-Source reviewer checked all31 native-input fixture calls against exact API headers;
-compile/runtime still due. Stage API6 libraries/processes/injected bundle plus
-sandbox executables. Root-run launch is not sandbox-isolation proof: capture actual
-UID/capabilities/namespaces/seccomp in fresh VM. Keep sandbox enabled. Linux memory
-samplerON differs from sampling profilerOFF; a present WEBKIT_SAMPLE_MEMORY even
-with value0 enables sampling, so leave it unset unless deliberately measuring it.
-
-#616: docs/qa-logs/2026-10-17-provider-handoff-616/ is a prepared wrapper/matrix.
-The normal broker detects argv[0] exactly /usr/bin/cloud-signin-window; wrapper
-exec preserves it while applying per-case runtime UA/observer controls. Twenty-one
-pure source/synthetic controls pass; no real handoff/provider runtime. Internal
-runtime_browser_controls agent is preparing minimal trusted-input/request/DOM-UA
-instrumentation under /tmp/pix-provider616-instrumentation-20261017. Inspect its
-actual status/output before reporting completion. It has no compiler/VM resources.
-The earlier fixed-UA page observations can remain useful even if wire-UA cannot
-be bound; withhold UA ranking, not every page observation. Error/CAPTCHA/policy
-screens never count as working login performance. No credentials/consent submission.
-
-Previous accepted #616 work remains complete: GENERIC/H700 helper compilation,
-12 parser cases; six direct-launch no-NIC VM controls with HTTP/DOM local hashes,
-fixed640x457/DPR1, observer/visibility modes and8 reviewed frames. Earlier file-limit
-and DOM-validation failures remain failures. No actual-provider/trusted-input or
-normal-handoff claim. Both helpers remain for immediate tests; exact paths below.
-Prior GTK4/Blink source packets are0d05ce9e60/4dd24cd038; Blink remains uncompiled.
-Herdr w4:p7/p8 login refresh failed before work; do not call those workers active.
+Earlier #616 direct-launch six no-NIC controls and12 parser cases stay accepted;
+do not replay for paperwork. Blink source packet remains uncompiled. Herdr w4:p7/p8
+login refresh failed before work; do not call those workers active. Internal agents
+prepared/reviewed disjoint packets; they hold no runtime allocation.
 
 ## Previous completed headroom experiment and publication
 
@@ -171,25 +185,29 @@ Sway#5423 USB/input report is not a match for the virtual keyboard evidence.
 
 The milestone body is the ordered plan. The following is its current handoff:
 
-1. **#576 active WebKit6 compile; #616 source preparation in parallel.** Read the
-   live owner/run above, consume original terminal command/monitor/runner/launcher
-   results and exact process exits before another allocation. On first failure,
-   preserve it and diagnose source/configuration; do not silently restart. On
-   success, read actual API6 ELF/process/injected-bundle closure and compile the
-   small native-input fixture against its new sysroot under a fresh bounded
-   admission. Then allocate a fresh VM for synthetic input/popup/close/sandbox
-   identity/cleanup and presentation proof. No physical step precedes portable
-   success. No whole-image build is needed for the initial diagnostic fixture.
-   #616’s source wrapper and upcoming instrumentation need exact-source compile
-   and normal broker/ES light-page qualification, then account-free endpoint
-   discovery and staged page/RAM/UA cases. Do not run performance comparisons
-   under competing engine compilation. No repeat of completed direct-launch
-   controls merely for cleaner paperwork. #587 busy-stop safety remains required
-   before temporary service suspension; H700 follows portable evidence.
-2. **#613:** next independent package task. Inspect upstream and exact package
-   source, correct the unused `/etc` systems-config fallback link into build
-   staging, then prove normal selected-storage precedence and fallback on the VM.
-   Active installed mappings are accepted. Keep source/flow/evidence requirements.
+1. **#616 controlled input/provider comparison and #576 portable runtime proof.**
+   First fix the local fixture precondition using the prepared v2 (fresh server
+   owner receipt, actual trusted-input and untrusted-event negative controls).
+   Then use matched uncontended cases for light/Google Drive/Dropbox, fixed UA,
+   geometry, observer and lifetime; compare actual process PSS/reclaim/page
+   readiness before separate UA or script experiments. Initial2GiB functional
+   pass is not1GiB/H700 performance. No account or consent needed. For GTK4,
+   disposition the six inherited search paths and assemble exact new-package
+   payloads over accepted runtime in a fresh guest, including schemas/modules,
+   certificates/fonts/processes/injected bundle. Use compiled input fixture for
+   synthetic typing/popup/close/cleanup, actual sandbox identity and reviewed
+   presentation before provider/performance or physical work. Each new runtime
+   needs fresh admission, owner, guard and active result supervision. Do not
+   rerun completed engine/compiler owners. #587 busy-stop safety remains required
+   before any service suspension policy; Blink is fallback.
+2. **#613 next independent package task, source-only patch ready.**
+   `/tmp/pix-m7-613-source-20261017` has a one-line fallback symlink target fix,
+   patch SHAc22a60e12d87fdb0ca2fa05696267c1df351d2c473400bd37e3d64df87ec2b97;
+   pkgcheck/bash-n/apply checks pass. Current checked upstream still has the bug;
+   conditional contribution belongs #585 after proof. No product edit applied.
+   Fresh VM must isolate hardcoded /storage/.config/emulationstation paths;
+   ES --home alone is insufficient. Prove storage precedence and fallback with
+   fresh ES processes and flow/evidence references before promotion.
 3. **#607–610:** Steam registry, recovery identity, failed-RVZ retry, literal shell
    metadata assignments. Fix/qualify affected bytes before affected Nova deployment.
    #611 guidance is backlog. RG SP and Nova still retain the October11 `bc9d`
@@ -206,12 +224,13 @@ review. Exact receipts: `docs/qa-logs/2026-10-15-post-audit-product-delta/`.
 
 ## Runtime state and resumption commands
 
-The WebKit6 engine owner above is active. Other prior compilation/VM/device/audit
-owners are complete. Runtime ownership is distinct from source agents. Read
-`/workspace/tmp/pix-webkit6-build-20261017-01/console.log`, `run.path`, stage
-`cgroup.jsonl`, `owner-result.json`, `resource-result.json`, `launcher-result.json`
-and original `.build-runs` results; absent result means pending, not success.
-Keep monitoring at most60s intervals; no off-session notifier exists.
+All current build/VM/browser owners are complete; admissions consumed and exact
+host/container exits checked. Source workers are packaging/reviewing evidence only.
+The requested additional-provider functional test is complete in its stated scope.
+No physical action or pending user approval is needed for the next portable tests.
+Do not reuse old run owners, consumed admissions, retired disks or expired listeners.
+Original compile/VM receipts are in the owners/packets above. New runtime requires
+fresh measured admission and watched submission; no off-session notifier exists.
 
 Prior #616 VM allocation9e38f30969c5454097c03354fd79a23e consumed;2,312,990,720
 allocated bytes of its owned VM disk/OVMF retired. Export owner
@@ -223,10 +242,12 @@ GENERIC SHA530b0d2c7daf739eb061a415da4224a7affcec1b1837a452d182e97a03c16454;
 H700 SHA9dad87a65f5415311d663448834aac1ae281212c931f12c3cc2afb8fbbd0f245.
 Do not rerun consumed producers or replay old owners/ports.
 
-The latest verified published ordinary refs are4c3eda48c724e9dc819483ae9d50f8d44edb07cf,
-with all three hosted checks passed in /tmp/pix-m7-browser-parallel-20261017/publication/.
-Current dependency/provider records follow that commit; verify actual refs/CI
-before claiming their publication. No production source, ES pin or firmware changed.
+The prior verified published ordinary refs are4594975b5c0e4bcc4a7f24a38ab76f097ffa009f,
+with three hosted checks passed at /tmp/pix-gtk4-publication-20261017-01.
+This checkpoint and new experiment packets follow it. Publication receipts for
+this record batch will be in /tmp/pix-provider-gtk4-publication-20261017-01;
+inspect actual refs and CI before claiming the newest record published.
+No production source, ES pin or firmware changed.
 
 Useful read-only checks from the coordinator:
 
@@ -309,12 +330,12 @@ Source trees were unchanged by that history correction; no force push occurred.
 | --- | --- |
 | `docs/qa-logs/2026-10-17-gtk4-spike/`, `2026-10-17-blink-feasibility/` | Original source-only packets; subsequent GTK4 builds are in gtk4-build-576, Blink remains uncompiled |
 | `docs/qa-logs/2026-10-17-browser-controls-616/`, `browser-controls-build-616/`, `browser-controls-vm-616/`, `browser-controls-results-616/` | Diagnostic source, actual compilation/parser proof, executed VM fixture and original outcomes |
-| `docs/qa-logs/2026-10-17-gtk4-build-576/`, `2026-10-17-provider-handoff-616/` | Completed dependency originals, active engine configuration, prepared provider wrapper |
+| `docs/qa-logs/2026-10-17-gtk4-build-576/`, `2026-10-17-provider-handoff-616/` | Completed dependency originals and prepared provider wrapper; engine/provider results are in the newer companion packets |
 | `docs/qa-logs/2026-10-17-browser-rendering-options/` | Primary-source graphics findings and parallel ownership |
 | `docs/decision-register.md` | D-WORKFLOW-170 bounded parallel alternatives |
 | `docs/releases/next-candidate-work.md`, `docs/vm-qa-log.md` | GTK4-first migration experiment, provider controls and limits |
 | `docs/work-logs/2026_10-work_logs/2026_10_17-work_log.md`, `docs/friction-log.md` | Findings and preserved fixture failures |
-| This checkpoint and branch pointer | Archived preceding October17 state; live engine owner and current queue |
+| This checkpoint and branch pointer | Archived preceding October17 state; terminal owners and executable next queue |
 
 - Current flows: `docs/es-menu-map.md`, `docs/conflict-wizard-ia.md`. No product
   presentation changed; this packet records the exercised existing flow/frames.
@@ -331,4 +352,4 @@ review is performed on this prepared checkpoint before publication; its receipt
 lives in the private preparation directory. No new physical, external transfer,
 source-contact message or public release is authorized by this record.
 
-Previous full checkpoint: [saved-session-state-next-20261017T050556Z.md](archived/saved-session-state-next-20261017T050556Z.md).
+Previous full checkpoint: [saved-session-state-next-20261017T055318Z.md](archived/saved-session-state-next-20261017T055318Z.md).

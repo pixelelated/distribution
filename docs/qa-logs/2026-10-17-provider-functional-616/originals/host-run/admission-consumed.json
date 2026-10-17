@@ -1,0 +1,49 @@
+{
+  "admitted": "2026-10-17T05:22:40.399739+00:00",
+  "available_bytes": 2085043929088,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03",
+  "consumed": "2026-10-17T05:41:40.153162+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03",
+  "deleted_bytes": 0,
+  "evidence_sha256": "66182fac63eb2ca95221f203ba229fdb0fed8c8382cd1e680d4d50ec04a43ab4",
+  "id": "41d3a0c1d9fb4d11963a2857027d35c3",
+  "original_result": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-17T05:40:31.999546+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 616,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-provider616-vm-20261017-01",
+      "release_when": "Preserve compact original functional results and reviewed frames; consume original admission, then retire this immediate-use VM disk/OVMF after all owned processes exit."
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "a7425140c810564cc143d9c8f9b8b00e9b826cff70c3c1ad8e4df30a8c31141b",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 34493956096,
+  "retention_plan_sha256": "f7e06ab51f33b488c262742770d3f7fba6116bc32ae6fcb00ec6c6a21a1d8be6",
+  "retention_report_sha256": "a69b45fe7ef9553956e8da934372d6e92a9f737373c1ca7034a6fd13c58148f3",
+  "run": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/.build-runs/20261017T052240Z-9ab8d28a",
+  "runner_pid": 1042966,
+  "runner_start": "130624419",
+  "source": {
+    "head": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix-provider616-vm-20261017-01/lifecycle-owner",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

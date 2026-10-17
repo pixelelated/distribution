@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "source_commit": "969354955741d6c0ca8ce816e1c59ad338b1605b",
+  "allowed_compile_only": true,
+  "runtime_authorized": false,
+  "critical_pairs_match": true,
+  "missing_dependencies": [],
+  "rpath_findings": [
+    {
+      "reason": "SYSROOT_RPATH_FORBIDDEN",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libfreetype.so.6.20.6",
+      "runtime_path": "/lib64/libfreetype.so.6",
+      "search_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib",
+      "layer": "accepted-runtime-image"
+    },
+    {
+      "reason": "UNSUPPORTED_RUNTIME_SEARCH_PATH",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libwoff2dec.so.1.0.2",
+      "runtime_path": "/lib64/libwoff2dec.so.1.0.2",
+      "search_path": "lib",
+      "layer": "accepted-runtime-image"
+    },
+    {
+      "reason": "SYSROOT_RPATH_FORBIDDEN",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libgcrypt.so.20.7.2",
+      "runtime_path": "/lib64/libgcrypt.so.20",
+      "search_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib",
+      "layer": "accepted-runtime-image"
+    },
+    {
+      "reason": "SYSROOT_RPATH_FORBIDDEN",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libthai.so.0.3.1",
+      "runtime_path": "/lib64/libthai.so.0",
+      "search_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib",
+      "layer": "accepted-runtime-image"
+    },
+    {
+      "reason": "SYSROOT_RPATH_FORBIDDEN",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libX11.so.6.4.0",
+      "runtime_path": "/lib64/libX11.so.6",
+      "search_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib",
+      "layer": "accepted-runtime-image"
+    },
+    {
+      "reason": "UNSUPPORTED_RUNTIME_SEARCH_PATH",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libwoff2common.so.1.0.2",
+      "runtime_path": "/lib64/libwoff2common.so.1.0.2",
+      "search_path": "lib",
+      "layer": "accepted-runtime-image"
+    }
+  ],
+  "runtime_inventory": {
+    "path": "/tmp/pix-gtk4-closure-20261017-04/result.json",
+    "sha256": "29aef894e16ed0ff7f2ad771ea22f60f341dc03cce9514150340365d992d81c6"
+  },
+  "closure_evidence": [
+    {
+      "path": "/tmp/pix-gtk4-closure-20261017-04/result.json",
+      "sha256": "29aef894e16ed0ff7f2ad771ea22f60f341dc03cce9514150340365d992d81c6"
+    },
+    {
+      "path": "/tmp/pix-gtk4-closure-20261017-04/receipt.json",
+      "sha256": "df24ab1b344de8c1fa3a5a0e281d4bc2cadfc72aceacee68ca6bbccc8fd8a162"
+    }
+  ],
+  "rationale": "All 11 new package/sysroot runtime identities match and every inventoried dependency resolves. The strict checker remains FAIL for six search paths inherited from the accepted image. Compilation executes no target library; this receipt permits only the native-input fixture compile, and grants no runtime or production qualification."
+}

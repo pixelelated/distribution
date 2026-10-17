@@ -1,0 +1,58 @@
+{
+  "stage": "compile",
+  "original_command_rc": 0,
+  "wrapper_rc": 0,
+  "uid": 1000,
+  "gid": 1000,
+  "visible_cpus": 1,
+  "nproc": 1,
+  "effective_tmpdir": "/tmp",
+  "actual_mktemp": true,
+  "before": {
+    "monotonic": 1307934.710600013,
+    "memory_current": 11534336,
+    "memory_peak": 11567104,
+    "memory_max": "2147483648",
+    "memory_swap_max": "0",
+    "memory_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "io_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=7826\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=7802\n",
+    "io_stat": "259:1 rbytes=3559424 wbytes=0 rios=146 wios=0 dbytes=0 dios=0\n252:0 rbytes=3559424 wbytes=0 rios=146 wios=0 dbytes=0 dios=0\n"
+  },
+  "host_observation_handshake": {
+    "stage": "compile",
+    "nonce": "57b456f18c1dc01b09da75bc84e091de",
+    "container_id": "6124504fc29f90bc795e68dd802ec5b44f3ba03dbab8445ee857e2de9523e7f1"
+  },
+  "child_pid": 8,
+  "started_monotonic": 1307934.813023716,
+  "after": {
+    "monotonic": 1307935.814302794,
+    "memory_current": 23306240,
+    "memory_peak": 118661120,
+    "memory_max": "2147483648",
+    "memory_swap_max": "0",
+    "memory_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "io_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=37204\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=37142\n",
+    "io_stat": "259:0 rbytes=5496832 wbytes=36864 rios=163 wios=2 dbytes=0 dios=0\n259:1 rbytes=9879552 wbytes=0 rios=242 wios=0 dbytes=0 dios=0\n252:0 rbytes=9879552 wbytes=0 rios=242 wios=0 dbytes=0 dios=0\n"
+  },
+  "elapsed_seconds": 1.0017139830160886,
+  "signals": []
+}

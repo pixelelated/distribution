@@ -1,0 +1,254 @@
+{
+  "status": "STRICT_FAIL_WITH_COMPLETE_RUNTIME_DEPENDENCY_INVENTORY",
+  "source_commit": "969354955741d6c0ca8ce816e1c59ad338b1605b",
+  "attempts_preserved": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05"
+  ],
+  "latest_attempt": "05",
+  "original_checker_returncode": 1,
+  "critical_artifact_pairs": 11,
+  "all_critical_loaded_bytes_match": true,
+  "nodes": 95,
+  "edges": 396,
+  "unresolved_edges": [],
+  "layer_counts": {
+    "package:webkitgtk": 6,
+    "package:gtk4": 1,
+    "package:graphene": 1,
+    "package:libseccomp": 1,
+    "package:bubblewrap": 1,
+    "package:xdg-dbus-proxy": 1,
+    "extra-elf": 1,
+    "accepted-runtime-image": 83
+  },
+  "fixture": {
+    "path": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+    "runtime_path": "/tmp/input-spike",
+    "resolved_virtual": "/tmp/input-spike",
+    "layer": "extra-elf",
+    "inherited_bytes": false,
+    "links": [],
+    "elf": {
+      "sha256": "27908eb5badf203de53332c4e35ee96d8c7fbbb6afefd5d72d11c9d8068359f8",
+      "bytes": 27056,
+      "machine": "Advanced Micro Devices X86-64",
+      "class": "ELF64",
+      "type": "EXEC",
+      "build_id": null,
+      "interpreter": "/lib64/ld-linux-x86-64.so.2",
+      "soname": null,
+      "needed": [
+        "libwebkitgtk-6.0.so.4",
+        "libgtk-4.so.1",
+        "libpangocairo-1.0.so.0",
+        "libpango-1.0.so.0",
+        "libharfbuzz.so.0",
+        "libgdk_pixbuf-2.0.so.0",
+        "libcairo-gobject.so.2",
+        "libcairo.so.2",
+        "libgraphene-1.0.so.0",
+        "libsoup-3.0.so.0",
+        "libgmodule-2.0.so.0",
+        "libgio-2.0.so.0",
+        "libjavascriptcoregtk-6.0.so.1",
+        "libgobject-2.0.so.0",
+        "libglib-2.0.so.0",
+        "libatomic.so.1",
+        "libc.so.6"
+      ],
+      "rpath": null,
+      "runpath": null
+    }
+  },
+  "fixture_edges": [
+    {
+      "from": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+      "kind": "needed",
+      "name": "libwebkitgtk-6.0.so.4",
+      "resolved_layer": "package:webkitgtk",
+      "resolved_path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64/install_pkg/webkitgtk-2.54.1/usr/lib/libwebkitgtk-6.0.so.4.19.4"
+    },
+    {
+      "from": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+      "kind": "needed",
+      "name": "libgtk-4.so.1",
+      "resolved_layer": "package:gtk4",
+      "resolved_path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64/install_pkg/gtk4-4.24.1/usr/lib/libgtk-4.so.1.2400.1"
+    },
+    {
+      "from": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+      "kind": "needed",
+      "name": "libpangocairo-1.0.so.0",
+      "resolved_layer": "accepted-runtime-image",
+      "resolved_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libpangocairo-1.0.so.0.5800.2"
+    },
+    {
+      "from": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+      "kind": "needed",
+      "name": "libpango-1.0.so.0",
+      "resolved_layer": "accepted-runtime-image",
+      "resolved_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libpango-1.0.so.0.5800.2"
+    },
+    {
+      "from": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+      "kind": "needed",
+      "name": "libharfbuzz.so.0",
+      "resolved_layer": "accepted-runtime-image",
+      "resolved_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libharfbuzz.so.0.61430.0"
+    },
+    {
+      "from": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+      "kind": "needed",
+      "name": "libgdk_pixbuf-2.0.so.0",
+      "resolved_layer": "accepted-runtime-image",
+      "resolved_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libgdk_pixbuf-2.0.so.0.4200.10"
+    },
+    {
+      "from": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+      "kind": "needed",
+      "name": "libcairo-gobject.so.2",
+      "resolved_layer": "accepted-runtime-image",
+      "resolved_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libcairo-gobject.so.2.11804.4"
+    },
+    {
+      "from": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+      "kind": "needed",
+      "name": "libcairo.so.2",
+      "resolved_layer": "accepted-runtime-image",
+      "resolved_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libcairo.so.2.11804.4"
+    },
+    {
+      "from": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+      "kind": "needed",
+      "name": "libgraphene-1.0.so.0",
+      "resolved_layer": "package:graphene",
+      "resolved_path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64/install_pkg/graphene-1.10.8/usr/lib/libgraphene-1.0.so.0.1000.8"
+    },
+    {
+      "from": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+      "kind": "needed",
+      "name": "libsoup-3.0.so.0",
+      "resolved_layer": "accepted-runtime-image",
+      "resolved_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libsoup-3.0.so.0.8.0"
+    },
+    {
+      "from": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+      "kind": "needed",
+      "name": "libgmodule-2.0.so.0",
+      "resolved_layer": "accepted-runtime-image",
+      "resolved_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libgmodule-2.0.so.0.8903.0"
+    },
+    {
+      "from": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+      "kind": "needed",
+      "name": "libgio-2.0.so.0",
+      "resolved_layer": "accepted-runtime-image",
+      "resolved_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libgio-2.0.so.0.8903.0"
+    },
+    {
+      "from": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+      "kind": "needed",
+      "name": "libjavascriptcoregtk-6.0.so.1",
+      "resolved_layer": "package:webkitgtk",
+      "resolved_path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64/install_pkg/webkitgtk-2.54.1/usr/lib/libjavascriptcoregtk-6.0.so.1.8.8"
+    },
+    {
+      "from": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+      "kind": "needed",
+      "name": "libgobject-2.0.so.0",
+      "resolved_layer": "accepted-runtime-image",
+      "resolved_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libgobject-2.0.so.0.8903.0"
+    },
+    {
+      "from": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+      "kind": "needed",
+      "name": "libglib-2.0.so.0",
+      "resolved_layer": "accepted-runtime-image",
+      "resolved_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libglib-2.0.so.0.8903.0"
+    },
+    {
+      "from": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+      "kind": "needed",
+      "name": "libatomic.so.1",
+      "resolved_layer": "accepted-runtime-image",
+      "resolved_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libatomic.so.1.2.0"
+    },
+    {
+      "from": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+      "kind": "needed",
+      "name": "libc.so.6",
+      "resolved_layer": "accepted-runtime-image",
+      "resolved_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libc.so.6"
+    },
+    {
+      "from": "/workspace/tmp/pix-gtk4-input-compile-20261017-01/out/input/input-spike",
+      "kind": "interpreter",
+      "name": "/lib64/ld-linux-x86-64.so.2",
+      "resolved_layer": "accepted-runtime-image",
+      "resolved_path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/ld-linux-x86-64.so.2"
+    }
+  ],
+  "findings_unchanged_since_attempt04": true,
+  "inherited_search_path_findings": [
+    {
+      "reason": "SYSROOT_RPATH_FORBIDDEN",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libfreetype.so.6.20.6",
+      "runtime_path": "/lib64/libfreetype.so.6",
+      "search_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib",
+      "layer": "accepted-runtime-image",
+      "sha256": "cf4a44548b3f1aa927236c2042b86e1340f1db08cad795ecf4662f1127e20ba7"
+    },
+    {
+      "reason": "UNSUPPORTED_RUNTIME_SEARCH_PATH",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libwoff2dec.so.1.0.2",
+      "runtime_path": "/lib64/libwoff2dec.so.1.0.2",
+      "search_path": "lib",
+      "layer": "accepted-runtime-image",
+      "sha256": "cf9e993d7e9ec526cf4aa547eda4e7ca767fa4c1dd9eaf3942b3714cac8c71fe"
+    },
+    {
+      "reason": "SYSROOT_RPATH_FORBIDDEN",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libgcrypt.so.20.7.2",
+      "runtime_path": "/lib64/libgcrypt.so.20",
+      "search_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib",
+      "layer": "accepted-runtime-image",
+      "sha256": "78bb44d643ca541ba238c203b2283b3f96363305c5b0651b23e63edb43c9f655"
+    },
+    {
+      "reason": "SYSROOT_RPATH_FORBIDDEN",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libthai.so.0.3.1",
+      "runtime_path": "/lib64/libthai.so.0",
+      "search_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib",
+      "layer": "accepted-runtime-image",
+      "sha256": "2577221c2343d033158e3ebdc58a2c147be4fb91e34bf49cb2f7cbf5649b9dd1"
+    },
+    {
+      "reason": "SYSROOT_RPATH_FORBIDDEN",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libX11.so.6.4.0",
+      "runtime_path": "/lib64/libX11.so.6",
+      "search_path": "/workspace/repos/rocknix.worktrees/m7-pixelelated/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib",
+      "layer": "accepted-runtime-image",
+      "sha256": "bed7cfa56847739236aa0ab84a412dde4507e0117d07b0a9f7fd9b4c46a83adc"
+    },
+    {
+      "reason": "UNSUPPORTED_RUNTIME_SEARCH_PATH",
+      "path": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libwoff2common.so.1.0.2",
+      "runtime_path": "/lib64/libwoff2common.so.1.0.2",
+      "search_path": "lib",
+      "layer": "accepted-runtime-image",
+      "sha256": "d1166aa4975e805c9e2abf9ad1e0daf5deea571b798bfc0dba998c5b755d28e5"
+    }
+  ],
+  "new_overlay_search_path_findings": [],
+  "limitations": [
+    "ELF NEEDED/interpreter closure only; not symbol-version ABI, dlopen, GTK/GIO/GStreamer modules, schemas, fonts, or certificates.",
+    "No ld.so.cache/hwcaps, LD_LIBRARY_PATH, or platform-dependent $LIB expansion is modeled.",
+    "A closure PASS is not a loader, input, rendering, performance, or sandbox-isolation PASS."
+  ],
+  "runtime_fixture_status": "UNRUN",
+  "interpretation": "Strict failure is retained. All static ELF dependencies resolve; six unsupported/forbidden paths are inherited accepted-image evidence, not demonstrated loader failures or a GTK4/WebKit6 regression. Compilation was separately allowed only by the included coordinator qualification; no runtime, browser, VM or target execution is proved."
+}

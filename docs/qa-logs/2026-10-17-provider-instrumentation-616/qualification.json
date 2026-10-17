@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "issue": 616,
+  "kind": "source and compile/pre-GTK qualification evidence",
+  "runtime_scope": "No browser/normal-broker/provider/VM/device result in this packet",
+  "source_candidate_sha256": "63b8cf5725652874f361aa5fe04abe2b5f326b1cb9ae113590d5c422f9e16b6d",
+  "admission_id": "f94742d08d05481790d8fb18484d217e",
+  "admission_consumed": "2026-10-17T05:17:43.683033+00:00",
+  "owner_seconds": 2.580003682989627,
+  "parser_cases_passed": 14,
+  "parser_seconds": 0.18209769506938756,
+  "cgroup_peak_bytes": 212680704,
+  "cgroup_peak_mib": 202.828125,
+  "cgroup_memory_max": "1073741824",
+  "cgroup_swap_max": "0",
+  "cgroup_memory_event_delta": {
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "original_results": {
+    "compile_shell": 0,
+    "inner_wrapper": 0,
+    "docker_cli": 0,
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-17T05:17:17.113214+00:00",
+    "launcher_runner": 0,
+    "launcher_wrapper": 0,
+    "build_rc": 0
+  },
+  "cleanup_receipts": {
+    "container_absent": true,
+    "surviving_host_command_group": [],
+    "host_sampler_all_threads_exited": true,
+    "admission_consumer_accepted_original_lifecycle": true,
+    "no_new_container_or_process_inspection_by_packager": true
+  },
+  "host_observer_limit": "One host memory sample and two allocation samples. Host swap counter delta0 is not proof of zero activity throughout this short run.",
+  "host_sample_count": 1,
+  "allocation_sample_count": 2,
+  "artifacts": [
+    {
+      "name": "cloud-signin-window-H700",
+      "bytes": 84824,
+      "sha256": "8da94f0cf89b4788c8e3186eb272e9a9d7d67163a5b3d120d99a4c85aff353be",
+      "binary_in_packet": false
+    },
+    {
+      "name": "cloud-signin-window-GENERIC_X64",
+      "bytes": 66576,
+      "sha256": "8c3a9ba06dc78efffee68bb510b5f273f2fafc8d2ecbc8ee17227a3e4c1e3f0a",
+      "binary_in_packet": false
+    }
+  ],
+  "still_unrun": [
+    "new proof callbacks in a browser",
+    "original/redirect HTTP UA calibration",
+    "isolated-world DOM and trusted-input probes",
+    "normal ES/broker handoff with this helper",
+    "account-free live-provider comparisons",
+    "hardware memory/performance or power measurements",
+    "GTK4/Blink comparison"
+  ],
+  "acceptance_original_hashes_rechecked": 13
+}

@@ -1,0 +1,20 @@
+{
+  "status": "SOURCE_ONLY_AST_PASS_RUNTIME_UNRUN",
+  "reason": "page_worth_recording deliberately suppresses loopback URLs; v1 wrongly required the page marker",
+  "product_changed": false,
+  "old_case_input_status": "UNPROVEN",
+  "files": {
+    "/tmp/pix-provider616-vm-prep-20261017/native-light-input.py": "73adb7a78717b59794564e0b4f2cf159aab2c33f9a775d62da85b2b002e4e4ef",
+    "/tmp/pix-provider616-vm-prep-20261017/native-light-input-v2.py": "cc8dad8f532da13a6c9ed74d25768c77ef16a33600f7a8743e536f251f94383d",
+    "/tmp/pix-provider616-vm-prep-20261017/capture-echo-owner-v2.py": "19376fcd229fcbf4e54f53e11b0f7a4b4d669e15029a859ce854bc2f1ad52fae",
+    "/tmp/pix-provider616-instrumentation-20261017/calibration-server.py": "640bf444f7a44ed55644519c5749d48df6ed63585c36c65018fc9a91e52bd4af",
+    "/tmp/pix-provider616-instrumentation-20261017/calibration.html": "5291483aee24ee0f620bde5e807a09a55735139ef9234ccde609c036573a6c31",
+    "/tmp/pix-provider616-instrumentation-20261017/prepared/cloud-signin-window.c": "63b8cf5725652874f361aa5fe04abe2b5f326b1cb9ae113590d5c422f9e16b6d"
+  },
+  "verified_source_facts": [
+    "candidate page_worth_recording1073 omits loopback host",
+    "server immutable ready contains PID but no start ticks",
+    "fresh owner capture adds PID/start/case/ready digest without changing server"
+  ],
+  "runtime_actions": []
+}

@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "status": "source prepared; compile/runtime UNRUN",
+  "product_source_sha256": "39af3e041d9871c4fb636cff71934ddf3ea13c690002e77af5ea6d82d8fff4f8",
+  "prior_diagnostic_sha256": "c892ba759c81c9083512017c56aca240929e8afaa2db40f97be26fb87eb60202",
+  "candidate_sha256": "63b8cf5725652874f361aa5fe04abe2b5f326b1cb9ae113590d5c422f9e16b6d",
+  "input_hashes": {
+    "prepare.py": "ff27217ae711dc6b0b1313a0129c0cc089a159e7f93ee1dd1746730472e52050",
+    "proof.c.in": "8e165e05c4f1d8a6e0329aaf75823af2a445dd836d280d17619be93ffc69aad9",
+    "proof.js": "d58e6061a64517d111809f60352acef0522fe648460f9f48f9a755c9e754c481"
+  },
+  "changed_scope": [
+    "main-document request/response/error callbacks",
+    "always-on isolated-world one-shot DOM UA proof",
+    "up to eight numeric trusted/untrusted input probes per document",
+    "refuse product debug mode before GTK initialization"
+  ],
+  "unchanged": [
+    "UA modes",
+    "periodic observer flag and code",
+    "viewport/zoom",
+    "native input/OSK",
+    "ephemeral context",
+    "broker argv protocol",
+    "navigation restrictions",
+    "product sources/pins"
+  ]
+}

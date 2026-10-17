@@ -1,0 +1,18 @@
+{
+  "status": "SOURCE_CHECKS_PASS_RUNTIME_UNRUN",
+  "python_ast": [
+    "prepare.py",
+    "compile-owner.py.in",
+    "qualification.py"
+  ],
+  "immutable_inputs_match": true,
+  "prepared_manifest_matches": true,
+  "qualification_read_only_check": {
+    "allowed_compile_only": true,
+    "runtime_authorized": false,
+    "rpath_findings_preserved": 6
+  },
+  "materializer_executed": false,
+  "docker_or_compiler_launched": false,
+  "runtime_executed": false
+}

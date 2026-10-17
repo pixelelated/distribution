@@ -1,0 +1,2 @@
+Version 4 adds an explicit accepted-image runtime closure mode. It resolves dependencies ONLY through six new package payloads then accepted image/system, never the sysroots. Package/sysroot critical-pair identity checks remain mandatory. Unsupported/build-host RPATH is a hard error and reported with exact provenance; the checker continues to inventory remaining dependency closure using valid paths only.
+No actual overlay, deployment, target code, compiler, or producer is executed. A closure is an image-overlay model, not ABI/dlopen/sandbox/functional proof.

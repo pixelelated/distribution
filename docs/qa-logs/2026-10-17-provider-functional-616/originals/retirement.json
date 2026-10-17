@@ -1,0 +1,28 @@
+{
+  "utc": "2026-10-17T05:42:26.867601+00:00",
+  "reason": "Immediate provider page testing complete; original results and private/sanitized evidence retained; exact owned QEMU and lifecycle exited.",
+  "removed": [
+    {
+      "path": "/workspace/tmp/pix-provider616-vm-20261017-01/vm/disk.qcow2",
+      "device": 66304,
+      "inode": 208404661,
+      "size": 2321612800,
+      "allocated_bytes": 2321563648,
+      "mtime_ns": 1792215629658626116
+    },
+    {
+      "path": "/workspace/tmp/pix-provider616-vm-20261017-01/vm/OVMF.fd",
+      "device": 66304,
+      "inode": 208404671,
+      "size": 540672,
+      "allocated_bytes": 540672,
+      "mtime_ns": 1792214588403274990
+    }
+  ],
+  "allocated_bytes_removed": 2322104320,
+  "not_removed": [
+    "accepted firmware",
+    "build trees",
+    "compact original evidence"
+  ]
+}

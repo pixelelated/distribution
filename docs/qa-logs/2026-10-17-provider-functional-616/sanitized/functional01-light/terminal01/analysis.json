@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "proof_record_count": 4,
+  "bounded_record_limit_reached": false,
+  "local_original_redirect_header_calibration": "not_supplied",
+  "dom_request_hash_observation": "matched",
+  "provider_wire_ua_guaranteed": false,
+  "single_navigation_observed": true,
+  "ua_ranking_evidence": "request_signal_and_dom_matched; calibration_and_run_review_required",
+  "page_observations_retained": {
+    "positive_geometry_documents": 1,
+    "trusted_eligible_focused_input_events": 0,
+    "untrusted_input_events": 0,
+    "input_two_raf_delta_ms": [],
+    "http_statuses": [
+      200
+    ],
+    "resource_errors": []
+  },
+  "independent_checks_required": [
+    "visible sign-in screen, not provider error/block/challenge",
+    "reviewed native input and frame proof; two rAF is not actual paint latency",
+    "normal broker handoff, config equality, pressure/deadline and cleanup receipt",
+    "fixed-UA page/memory observations remain separately usable when UA ranking is unknown"
+  ]
+}

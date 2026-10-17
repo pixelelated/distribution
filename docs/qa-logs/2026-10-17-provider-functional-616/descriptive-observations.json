@@ -1,0 +1,139 @@
+{
+  "schema": 1,
+  "comparison_qualified": false,
+  "scope": "Different observation durations, shared host during concurrent engine build, functional test only; no provider performance/memory ranking or browser-memory attribution",
+  "guard_samples_source_sha256": "aa55bd2f661ceb9c2b921943cf5b59bcf808c0649ced8b59f81d1ebd1cbeeae9",
+  "one_tracked_case_live_at_a_time": true,
+  "sampling_period_seconds": 1,
+  "cases": [
+    {
+      "case": "functional01-light",
+      "ua_mode": "default",
+      "event_probe": "on",
+      "periodic_observer": "off",
+      "whole_guest_memory_only": true,
+      "guest_mem_total_kib": 1840260,
+      "live_sample_count": 34,
+      "first_tracked_owned_live_at": 704.243072826,
+      "last_tracked_owned_live_at": 737.946798306,
+      "observed_owned_live_span_seconds": 33.70372548,
+      "first_tracked_empty_after_at": 738.976558922,
+      "minimum_guest_mem_available_kib_while_owned_live": 1333780,
+      "adjacent_no_tracked_owner_live_sample": {
+        "at": 703.22586231,
+        "mem_available_kib": 1334876,
+        "gap_to_first_owned_sample_seconds": 1.0172105159999774
+      },
+      "baseline_limit": "No tracked owner live in that sample is not guaranteed browser-free; guard discovery and one-second sampling can lag. No browser RSS/PSS or causal memory difference is inferred.",
+      "response_statuses": [
+        200
+      ],
+      "resource_error_records": 0,
+      "dom_binding_records": 1,
+      "input_records": 0,
+      "response_callback_elapsed_ms": [
+        160.886
+      ],
+      "dom_callback_elapsed_ms": [
+        165.363
+      ],
+      "callback_time_limit": "Diagnostic setup-relative timestamps; not actual paint latency, user responsiveness or an uncontended comparison.",
+      "dom_request_hash_observation": "matched",
+      "geometry": [
+        {
+          "width": 640,
+          "height": 457,
+          "scale": 1.0
+        }
+      ],
+      "proof_source_sha256": "eaa698218d086fc17c24422044e862e37eb5db325a805e1743daf88c635f269f",
+      "sanitized_guard_source_sha256": "3bdb0ad09180d9690ef501d44708282c903a25f85fe0eda788b8cb4e63adc060"
+    },
+    {
+      "case": "functional01-drive",
+      "ua_mode": "default",
+      "event_probe": "on",
+      "periodic_observer": "off",
+      "whole_guest_memory_only": true,
+      "guest_mem_total_kib": 1840260,
+      "live_sample_count": 16,
+      "first_tracked_owned_live_at": 838.839875819,
+      "last_tracked_owned_live_at": 854.19601879,
+      "observed_owned_live_span_seconds": 15.356142971000054,
+      "first_tracked_empty_after_at": 855.220889269,
+      "minimum_guest_mem_available_kib_while_owned_live": 1312640,
+      "adjacent_no_tracked_owner_live_sample": {
+        "at": 837.821175247,
+        "mem_available_kib": 1364984,
+        "gap_to_first_owned_sample_seconds": 1.0187005719999433
+      },
+      "baseline_limit": "No tracked owner live in that sample is not guaranteed browser-free; guard discovery and one-second sampling can lag. No browser RSS/PSS or causal memory difference is inferred.",
+      "response_statuses": [
+        200
+      ],
+      "resource_error_records": 0,
+      "dom_binding_records": 1,
+      "input_records": 0,
+      "response_callback_elapsed_ms": [
+        542.768
+      ],
+      "dom_callback_elapsed_ms": [
+        866.478
+      ],
+      "callback_time_limit": "Diagnostic setup-relative timestamps; not actual paint latency, user responsiveness or an uncontended comparison.",
+      "dom_request_hash_observation": "matched",
+      "geometry": [
+        {
+          "width": 640,
+          "height": 457,
+          "scale": 1.0
+        }
+      ],
+      "proof_source_sha256": "b6f2916dd17fe24e1078dd1c7aa116115ac0b238311c7240a65787cc54acb291",
+      "sanitized_guard_source_sha256": "b1f4b42d16df768dcd118cdc4a6f6aebd2527b3e67c51c3b94c4c6b279393a0b"
+    },
+    {
+      "case": "functional01-dropbox",
+      "ua_mode": "default",
+      "event_probe": "on",
+      "periodic_observer": "off",
+      "whole_guest_memory_only": true,
+      "guest_mem_total_kib": 1840260,
+      "live_sample_count": 33,
+      "first_tracked_owned_live_at": 922.476715001,
+      "last_tracked_owned_live_at": 955.286453518,
+      "observed_owned_live_span_seconds": 32.80973851700003,
+      "first_tracked_empty_after_at": 956.307264841,
+      "minimum_guest_mem_available_kib_while_owned_live": 1205272,
+      "adjacent_no_tracked_owner_live_sample": {
+        "at": 921.451349801,
+        "mem_available_kib": 1360048,
+        "gap_to_first_owned_sample_seconds": 1.0253652000000102
+      },
+      "baseline_limit": "No tracked owner live in that sample is not guaranteed browser-free; guard discovery and one-second sampling can lag. No browser RSS/PSS or causal memory difference is inferred.",
+      "response_statuses": [
+        200
+      ],
+      "resource_error_records": 0,
+      "dom_binding_records": 1,
+      "input_records": 0,
+      "response_callback_elapsed_ms": [
+        409.844
+      ],
+      "dom_callback_elapsed_ms": [
+        1130.818
+      ],
+      "callback_time_limit": "Diagnostic setup-relative timestamps; not actual paint latency, user responsiveness or an uncontended comparison.",
+      "dom_request_hash_observation": "matched",
+      "geometry": [
+        {
+          "width": 640,
+          "height": 457,
+          "scale": 1.0
+        }
+      ],
+      "proof_source_sha256": "c57799dfcccbf6cc372e141d96a728950b658528baae19279ece5b30ba971442",
+      "sanitized_guard_source_sha256": "d83133111f03aced106758a64f04342ed2e1c7a85a9f6c1f7d483381d5a625d0"
+    }
+  ]
+}

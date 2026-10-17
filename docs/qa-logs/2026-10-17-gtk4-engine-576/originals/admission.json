@@ -1,0 +1,64 @@
+{
+  "id": "ae36c146af9744c2a8eeef7a96b793a8",
+  "plan": "/workspace/tmp/pix-webkit6-build-20261017-01/admission-plan.json",
+  "plan_sha256": "a000873a8676a0bf1d07e99916227e458e822d20b66cafccf4504fb5a5061e8f",
+  "registry_generation": 418,
+  "reserved_bytes": 0,
+  "schema": 1,
+  "state": {
+    "available_bytes": 2088178769920,
+    "checkout": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01",
+    "container_checkout": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+    "outputs": [
+      {
+        "issue": 576,
+        "kind": "build-cache",
+        "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64",
+        "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+      },
+      {
+        "issue": 576,
+        "kind": "build-cache",
+        "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/sources",
+        "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+      },
+      {
+        "issue": 576,
+        "kind": "qa-scratch",
+        "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/target",
+        "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+      },
+      {
+        "issue": 576,
+        "kind": "qa-scratch",
+        "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/release",
+        "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+      },
+      {
+        "issue": 576,
+        "kind": "qa-scratch",
+        "path": "/workspace/tmp/pix-webkit6-build-20261017-01",
+        "release_when": "Preserve compact source/results and consume original admission after Graphene success or diagnosed failure."
+      }
+    ],
+    "profiles": [
+      {
+        "ARCH": "x86_64",
+        "DEVICE": "GENERIC_X64",
+        "PROJECT": "ROCKNIX"
+      }
+    ],
+    "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+    "required_bytes": 116468690820,
+    "retention_plan_sha256": "9e9f2cc4d539561595c2d0de8f2675838b5d9edff0596918444a1461df7c8bb4",
+    "retention_report_sha256": "a03644ee4806d88164a72a52e240da076f82123ce7aeb55e50a9b39645025358",
+    "source": {
+      "head": "969354955741d6c0ca8ce816e1c59ad338b1605b",
+      "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "volume": "/workspace",
+    "volume_device": 66304
+  },
+  "tool_sha256": "8923610caf6a8a1b32775bc1a7e3f67d5e5d5b7468955b35fd40d07da2e2047d",
+  "utc": "2026-10-17T05:02:22.389717+00:00"
+}

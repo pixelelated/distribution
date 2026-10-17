@@ -1,0 +1,58 @@
+{
+  "stage": "webkitgtk",
+  "original_command_rc": 0,
+  "wrapper_rc": 0,
+  "uid": 1000,
+  "gid": 1000,
+  "visible_cpus": 4,
+  "nproc": 4,
+  "effective_tmpdir": "/tmp",
+  "actual_mktemp": true,
+  "before": {
+    "monotonic": 1305034.283087343,
+    "memory_current": 7831552,
+    "memory_peak": 7872512,
+    "memory_max": "21474836480",
+    "memory_swap_max": "0",
+    "memory_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "io_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "io_stat": ""
+  },
+  "host_observation_handshake": {
+    "stage": "webkitgtk",
+    "nonce": "b48040f4ca3112882a83456a7d3c85b9",
+    "container_id": "ff6360bd05d350c3cd5d231af050a2e4c71139c21b598342196b80460c527c07"
+  },
+  "child_pid": 9,
+  "started_monotonic": 1305034.484479821,
+  "after": {
+    "monotonic": 1307187.834504041,
+    "memory_current": 5654908928,
+    "memory_peak": 14397218816,
+    "memory_max": "21474836480",
+    "memory_swap_max": "0",
+    "memory_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "memory_pressure": "some avg10=0.12 avg60=0.02 avg300=0.00 total=132794\nfull avg10=0.12 avg60=0.02 avg300=0.00 total=131646\n",
+    "io_pressure": "some avg10=0.78 avg60=0.20 avg300=0.04 total=1499605\nfull avg10=0.78 avg60=0.20 avg300=0.04 total=1456362\n",
+    "io_stat": "259:0 rbytes=719810560 wbytes=11219492864 rios=50145 wios=156814 dbytes=0 dios=0\n259:1 rbytes=16543744 wbytes=405504 rios=718 wios=41 dbytes=0 dios=0\n252:0 rbytes=16543744 wbytes=405504 rios=718 wios=41 dbytes=0 dios=0\n"
+  },
+  "elapsed_seconds": 2153.3502599268686,
+  "signals": []
+}

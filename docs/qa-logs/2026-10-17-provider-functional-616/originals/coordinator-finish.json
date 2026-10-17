@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "scope": "bounded functional page observations and normal handoff/recovery only",
+  "provider_pages_observed": [
+    "drive",
+    "dropbox"
+  ],
+  "helper_launched_cases": 3,
+  "input_calibration": "UNPROVEN: fixture requires intentionally absent loopback page marker; command refused before POST",
+  "performance_ranking": "NOT_QUALIFIED: engine build concurrent; no native input proof",
+  "recovery": "same ES PID/start; idle200; original browser and missing config restored; no browser children; no guard interventions",
+  "export": {
+    "sha256": "ab94446d5672a9e194751b4b9519626c15b64d2993fa417b8bfce5083f508238",
+    "bytes": 1183551,
+    "files": 44
+  }
+}
