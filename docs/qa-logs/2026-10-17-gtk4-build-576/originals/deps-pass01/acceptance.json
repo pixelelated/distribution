@@ -1,0 +1,91 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/.build-runs/20261017T045710Z-cb38bfef",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 576,
+      "kind": "build-cache",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "build-cache",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/sources",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/target",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/release",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-gtk4-deps-20261017-01",
+      "release_when": "Preserve compact source/results and consume original admission after Graphene success or diagnosed failure."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-gtk4-deps-20261017-01/artifact-readback.json",
+      "sha256": "53ce7b505c363afcb90db0319bf869347079a43185ed1609a043dffc19b02845"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-deps-20261017-01/owner-result.json",
+      "sha256": "47a29ff3674b90380825c57b8f6f972af7ca00613058f5af0cc48acdef2d80a5"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-deps-20261017-01/resource-result.json",
+      "sha256": "61bdb17d4a49298ada5804dacd502a1cb764559de616b29f121a34a527b2643e"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-deps-20261017-01/launcher-result.json",
+      "sha256": "0765788115c8155f4a2893a3596097730be14a5d8bf8208e32cb922f4e7e18c2"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-deps-20261017-01/console.log",
+      "sha256": "505f19f8bb044028464fbe31c6c4a1b9e1a2c76ba09d2ec9cfb2c0eeb89362a0"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-deps-20261017-01/gtk4.elf.txt",
+      "sha256": "5d294f87db9b3c1eb1234029c18614b68e9133e86fbf9ea4f8dc747424c8015a"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-deps-20261017-01/libseccomp.elf.txt",
+      "sha256": "4d48239cc499ff72c1fe5a16b050a62026d03b52b267c8b2a7e68e8d9ba7e07d"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-deps-20261017-01/bubblewrap.elf.txt",
+      "sha256": "600b913eba8afa614e709541ae48f9a04ab0e28aeda20b43f39b6ac71fddde35"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-deps-20261017-01/xdg-dbus-proxy.elf.txt",
+      "sha256": "b7e5e9651030f98182e515bdc37ee92fa26f807517eb6c314483ef8b936a999d"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-deps-20261017-01/stages/gtk4/inner-result.json",
+      "sha256": "e3196d2d7f652a39d9f02d6c25d2add7b25a1e9cd29d433d5455a6a36704ba07"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-deps-20261017-01/stages/libseccomp/inner-result.json",
+      "sha256": "4b6436a23580edba1b0243337b525b2424ae812e1eab12fb7c6e1d807614cffa"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-deps-20261017-01/stages/bubblewrap/inner-result.json",
+      "sha256": "6d6cbf5e3b6a3ea6c571b91085ebab34fe771422e4537a355526ccfcc10a7ee6"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-deps-20261017-01/stages/xdg-dbus-proxy/inner-result.json",
+      "sha256": "64f9f2934063e0a98c82a15064836d491cdad226c4799f41b5cb61364f632e1e"
+    }
+  ]
+}

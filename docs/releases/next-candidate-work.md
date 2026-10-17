@@ -12,6 +12,25 @@ before its clean-install/upgrade checks can run; those checks hold RC designatio
 not the build needed to perform them. The initial reconciliation launched no tests; the dated evidence below includes subsequent component runs.
 
 
+## October17 compiled GTK4 dependencies and active WebKit6
+
+#576: isolated diagnostic9693549557 builds Graphene1.10.8, GTK4.24.1 and the three
+sandbox dependencies with actual ELF/stamp/original-result checks. Accepted GTK3
+cache remains untouched; only6.5GB of independent toolchain seed was copied.
+First helper Python compatibility failure is preserved; fresh verification passes.
+WebKit2.54.1 GTK4/API6 compilation is active under
+`/workspace/tmp/pix-webkit6-build-20261017-01` (four cores/20GiB/no swap/deadline),
+with actual GTK4/Wayland/Skia/GBM/sandbox configuration observed. See
+[build evidence](../qa-logs/2026-10-17-gtk4-build-576/README.md).
+No engine completion, native input, sandbox runtime or H700 performance claim.
+
+#616 normal ES/broker handoff source now preserves the browser argv[0] contract;
+[prepared launcher and matrix](../qa-logs/2026-10-17-provider-handoff-616/README.md)
+retain error-page exclusions and distinguish fixed-UA page observations from
+unproven provider wire/DOM-UA binding and trusted typing. Minimal instrumentation
+is being prepared separately. No provider runtime yet. Blink remains the source-only
+fallback; #587/#615 and independent #613/Nova/public-release order remain unchanged.
+
 ## October17 GTK4 priority refinement
 
 The owner identifies GTK4 as the likely smaller migration from GTK3. Build the

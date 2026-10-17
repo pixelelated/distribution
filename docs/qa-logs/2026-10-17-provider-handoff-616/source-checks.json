@@ -1,0 +1,29 @@
+{
+  "status": "static AST and pure synthetic function controls only; no runtime",
+  "checks": {
+    "argv0_contract": true,
+    "light_only_substitution": true,
+    "native_options_retained": true,
+    "real_provider_arguments_unchanged": true,
+    "cross_provider_refused": true,
+    "non_https_refused": true,
+    "wrong_keyboard_refused": true,
+    "adjudicator_synthetic_complete_case": true,
+    "exclude_embedded_browser_refused": true,
+    "exclude_captcha": true,
+    "exclude_cookie_overlay_unresolved": true,
+    "exclude_network_error": true,
+    "exclude_certificate_error": true,
+    "exclude_provider_error": true,
+    "exclude_consent_or_account_stage": true,
+    "exclude_unknown": true,
+    "exclude_guard_truncated": true,
+    "untrusted_only_excluded": true,
+    "local_echo_not_provider_proof": true,
+    "unknown_auth_state_excluded": true,
+    "mismatched_ua_excluded": true
+  },
+  "pass": true,
+  "seconds": 0.005180401960387826,
+  "network_listener_compiler_browser_vm_service_device": "UNRUN"
+}

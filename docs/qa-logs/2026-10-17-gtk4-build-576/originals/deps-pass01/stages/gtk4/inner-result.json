@@ -1,0 +1,58 @@
+{
+  "stage": "gtk4",
+  "original_command_rc": 0,
+  "wrapper_rc": 0,
+  "uid": 1000,
+  "gid": 1000,
+  "visible_cpus": 2,
+  "nproc": 2,
+  "effective_tmpdir": "/tmp",
+  "actual_mktemp": true,
+  "before": {
+    "monotonic": 1304716.035297724,
+    "memory_current": 8523776,
+    "memory_peak": 8556544,
+    "memory_max": "8589934592",
+    "memory_swap_max": "0",
+    "memory_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "io_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=271\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=271\n",
+    "io_stat": "259:1 rbytes=94208 wbytes=0 rios=5 wios=0 dbytes=0 dios=0\n252:0 rbytes=94208 wbytes=0 rios=5 wios=0 dbytes=0 dios=0\n"
+  },
+  "host_observation_handshake": {
+    "stage": "gtk4",
+    "nonce": "ca7d8f708a76438ea9233c55658a43fd",
+    "container_id": "e7963d7cc33d2798ca585164926cde39dd6f45ef897d7c720a84cb4de971d7d0"
+  },
+  "child_pid": 9,
+  "started_monotonic": 1304716.23669948,
+  "after": {
+    "monotonic": 1304863.418544293,
+    "memory_current": 458235904,
+    "memory_peak": 717467648,
+    "memory_max": "8589934592",
+    "memory_swap_max": "0",
+    "memory_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=9\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=9\n",
+    "io_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=154101\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=150627\n",
+    "io_stat": "259:0 rbytes=20480000 wbytes=3672776704 rios=1061 wios=40548 dbytes=0 dios=0\n259:1 rbytes=876544 wbytes=1581056 rios=55 wios=336 dbytes=0 dios=0\n252:0 rbytes=876544 wbytes=1581056 rios=55 wios=336 dbytes=0 dios=0\n"
+  },
+  "elapsed_seconds": 147.18203771184199,
+  "signals": []
+}

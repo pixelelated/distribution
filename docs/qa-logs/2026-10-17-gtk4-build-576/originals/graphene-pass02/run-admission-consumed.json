@@ -1,0 +1,73 @@
+{
+  "admitted": "2026-10-17T04:55:18.164250+00:00",
+  "available_bytes": 2088597614592,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01",
+  "consumed": "2026-10-17T04:56:21.325260+00:00",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+  "deleted_bytes": 0,
+  "evidence_sha256": "07c2a882de849fd77d082dbf97acda5ac27b85b7764f3df11b385edef7a22e49",
+  "id": "234eb2eb07674e5a94f0f0162825446f",
+  "original_result": {
+    "command_rc": 0,
+    "monitor_rc": 0,
+    "runner_rc": 0,
+    "utc": "2026-10-17T04:55:53.277647+00:00"
+  },
+  "outputs": [
+    {
+      "issue": 576,
+      "kind": "build-cache",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "build-cache",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/sources",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/target",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/release",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-gtk4-graphene-20261017-02",
+      "release_when": "Preserve compact source/results and consume original admission after Graphene success or diagnosed failure."
+    }
+  ],
+  "outputs_held": true,
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "195602f5f608536ba2f75d0cab4b5e12dcc5ff632edf46217326cdf08ed80f77",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 3226329088,
+  "retention_plan_sha256": "8cb23a405ffa0cb2e0a997bc4b2e626bdea0ffc3d04f01ae7645264685d482d8",
+  "retention_report_sha256": "cd01157853da80d951b76eb2b430f4fdd9f1b876e12b6f93b988c95899e3b961",
+  "run": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/.build-runs/20261017T045518Z-d1508d79",
+  "runner_pid": 855758,
+  "runner_start": "130460203",
+  "source": {
+    "head": "969354955741d6c0ca8ce816e1c59ad338b1605b",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "consumed",
+  "submission_owner": "/workspace/tmp/pix-gtk4-graphene-20261017-02",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

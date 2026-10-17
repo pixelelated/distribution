@@ -1,0 +1,28 @@
+{
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01",
+  "baseline": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64",
+  "commit": "969354955741d6c0ca8ce816e1c59ad338b1605b",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+  "host_pid_namespace": "pid:[4026531836]",
+  "builder_image": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "build_root": "build.pixelelated-GENERIC_X64.x86_64",
+  "build_timestamp": "20261017T050000Z",
+  "owner_label": "pix-gtk4-graphene-20261017-01",
+  "cold_cpu_ids": [
+    0
+  ],
+  "cold_memory_bytes": 2147483648,
+  "container_pids_limit": 256,
+  "family_timeout_seconds": 600,
+  "minimum_host_available_bytes": 8589934592,
+  "minimum_volume_available_bytes": 107374182400,
+  "disk_scan_timeout_seconds": 60,
+  "disk_sample_interval_seconds": 15,
+  "helper_sha256": {
+    "build-owner.py": "32b359d88475bb494003b759a4cbee5eb6294adef413f38e3c4c196681ca49b8",
+    "host-resources.py": "39a1b153e861cf3256b52567eb3e251412b9ab069e70ff72f4b5ac65e71fbaf1",
+    "inner-build.py": "2a33d9548e9adcb278bf75de230294eeb45e79263cecc355837b284d06ff4d98",
+    "copy-cache.py": "c57962d7b4da66695cad9f7a613465f317c8114546b94bd96b4c51ad5aa390a0",
+    "inside-stage.sh": "922e62ebf107b92510bae48b3a6b0c95d8a2689715dc0ee0450027cd1073a27d"
+  }
+}

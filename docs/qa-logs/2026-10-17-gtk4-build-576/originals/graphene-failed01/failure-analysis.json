@@ -1,0 +1,12 @@
+{
+  "status": "FAIL",
+  "category": "fixture-before-compile",
+  "cause": "copy-cache.py calls hashlib.file_digest unavailable in pinned container Python; traceback retained. Toolchain copied but file verification and stamps/config copy did not finish. No scripts/build invocation occurred.",
+  "next": "Fresh owner with streaming SHA256 and verify-before-reuse of the partial toolchain; no accepted tree mutation.",
+  "raw_result_files": [
+    "owner-result.json",
+    "resource-result.json",
+    "stages/graphene/inner-result.json",
+    "launcher-result.json"
+  ]
+}

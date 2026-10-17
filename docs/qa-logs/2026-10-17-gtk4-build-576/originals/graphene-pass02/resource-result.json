@@ -1,0 +1,23 @@
+{
+  "errors": [],
+  "all_threads_exited": true,
+  "status": "PASS",
+  "host_sample_count": 7,
+  "allocation_sample_count": 4,
+  "maximum_observed_allocated_bytes_by_root": {
+    "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64": 6515957760,
+    "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/sources": 352256,
+    "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/target": 0,
+    "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/release": 0,
+    "/workspace/tmp/pix-gtk4-graphene-20261017-02": 204800
+  },
+  "incomplete_disk_sample_count": 0,
+  "disk_peak_limit": "sampled maxima with scan durations; not continuous or atomic peaks; maxima during incomplete samples are unknown",
+  "minimum_host_mem_available_bytes": 59011784704,
+  "maximum_total_minus_available_bytes": 6364266496,
+  "minimum_swap_free_bytes": 3613163520,
+  "swap_page_deltas": {
+    "pswpin": 2,
+    "pswpout": 0
+  }
+}

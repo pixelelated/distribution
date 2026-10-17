@@ -1,0 +1,24 @@
+{
+  "id": "e90427b74c92a8c01ee2818f69bdc763ce7c2b85c53ce0c28c68df506d9f3c68",
+  "image_id": "sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "image_reference": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "user": "1000:1000",
+  "workdir": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+  "mounts": [
+    {
+      "Source": "/workspace/tmp/pix-gtk4-deps-20261017-01",
+      "Destination": "/build-owner",
+      "RW": true
+    },
+    {
+      "Source": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01",
+      "Destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+      "RW": true
+    },
+    {
+      "Source": "/workspace/repos/rocknix/.git",
+      "Destination": "/workspace/repos/rocknix/.git",
+      "RW": true
+    }
+  ]
+}

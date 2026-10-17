@@ -1,0 +1,63 @@
+{
+  "admitted": "2026-10-17T04:57:11.044963+00:00",
+  "available_bytes": 2088580481024,
+  "checkout": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01",
+  "container_checkout": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+  "id": "9c736bd750924c4199059eba2755943c",
+  "outputs": [
+    {
+      "issue": 576,
+      "kind": "build-cache",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "build-cache",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/sources",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/target",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/release",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-gtk4-deps-20261017-01",
+      "release_when": "Preserve compact source/results and consume original admission after Graphene success or diagnosed failure."
+    }
+  ],
+  "pid_namespace": 4026531836,
+  "profiles": [
+    {
+      "ARCH": "x86_64",
+      "DEVICE": "GENERIC_X64",
+      "PROJECT": "ROCKNIX"
+    }
+  ],
+  "receipt_sha256": "6fe93e6c73ab32c9705cfb04ac67ba84310e3e241915158aa0c2aa4f94912a5a",
+  "registry": "/workspace/repos/rocknix/.git/pixelelated-build-admission",
+  "required_bytes": 20474601472,
+  "retention_plan_sha256": "c485cbd16170504b8d970620c189cb1f7dccaf0b7714820fd0c24fc17a7d6e13",
+  "retention_report_sha256": "14f0fd439f52da416ac2c88293464b5fdb8913aa926121bb6fa683601f68cdca",
+  "run": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/.build-runs/20261017T045710Z-cb38bfef",
+  "runner_pid": 865204,
+  "runner_start": "130471491",
+  "source": {
+    "head": "969354955741d6c0ca8ce816e1c59ad338b1605b",
+    "tracked_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state": "running",
+  "submission_owner": "/workspace/tmp/pix-gtk4-deps-20261017-01",
+  "volume": "/workspace",
+  "volume_device": 66304
+}

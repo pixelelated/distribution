@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "status": "SOURCE PREPARED; all normal-handoff and provider cells UNRUN",
+  "product_commit": "077197e6cd3ea31f33b28aaf3882a694b3423b53",
+  "es_commit": "16dbac5211eea7e70db7394372033be2be7df829",
+  "published_coordinator_commit": "4c3eda48c724e9dc819483ae9d50f8d44edb07cf",
+  "fixed": {
+    "engine": "WebKitGTK 2.54.1, GTK3 webkit2gtk-4.1",
+    "cpu": 4,
+    "panel": [640, 480],
+    "expected_content": [640, 457, 1],
+    "renderer": "software GENERIC_X64, exact recipe/profile/environment retained",
+    "dmabuf_disable": "existing product default 1; verify actual process environment",
+    "proxy": "one explicitly recorded constant state, never stopped by this fixture",
+    "keyboard_route": "normal WITH MY PHONE route, no physical phone; native broker uinput",
+    "context": "fresh ephemeral browser per cell",
+    "credentials": "none; no submission, consent, token or persistent remote",
+    "configuration": "owned empty config directory bound to canonical rclone directory in disposable guest only"
+  },
+  "bounds": {
+    "browser_seconds": 75,
+    "cell_seconds": 110,
+    "minimum_available_mib": 160,
+    "guard_poll_ms": 250,
+    "max_browser_log_bytes": 524288,
+    "file_size_limit_mib": 128,
+    "maximum_raw_case_samples_bytes": 8388608,
+    "cleanup_seconds": 20
+  },
+  "stages": [
+    {"id": "S0", "purpose": "normal ES/broker handoff and trusted-input instrumentation qualification", "ram_mib": 2048, "pages": ["light"], "ua": "default", "periodic_observer_order": ["off", "on", "on", "off"], "provider_login_ranking": false, "requires": ["fresh clean-state gate", "exact helper/parser proof", "prepared temporary wrapper", "new trusted-event/HTTP-UA proof extension before claiming input/provider coverage"]},
+    {"id": "S1", "purpose": "account-free endpoint outcome discovery", "ram_mib": 2048, "pages": ["dropbox", "drive", "onedrive"], "ua": "default", "periodic_observer": "off", "runs_per_provider": 1, "provider_login_ranking": false, "requires": ["S0 PASS", "reviewed real authorization page and error exclusions"]},
+    {"id": "S2", "purpose": "matched page attribution with RAM headroom", "ram_mib": 2048, "page_orders": [["light", "dropbox", "drive", "onedrive"], ["onedrive", "drive", "dropbox", "light"]], "ua": "default", "periodic_observer_order": ["off", "on"], "requires": ["S1 outcomes classified", "excluded error/CAPTCHA/blocked pages cannot rank as successful logins"]},
+    {"id": "S3", "purpose": "change only assigned RAM", "ram_mib": 1024, "repeat_stage": "S2", "requires": ["same profile excluding RAM", "same binding/input probe in both observer states", "all guard-truncated cells retained"]},
+    {"id": "S4", "purpose": "UA-only comparison for an eligible responsive form", "ram_mib": 2048, "pages": ["evidence-selected provider"], "ua_order": ["default", "desktop", "desktop", "default"], "requires": ["same RAM/renderer/proxy/keyboard/probe", "no override used to bypass embedded-browser policy"]}
+  ],
+  "outcomes_excluded_from_login_ranking": ["embedded_browser_refused", "captcha", "cookie_overlay_unresolved", "network_error", "certificate_error", "provider_error", "consent_or_account_stage", "unknown", "guard_truncated"],
+  "not_selected": ["GTK4 change", "Blink change", "script filter", "JS disabled", "proxy suspension", "zoom adjustment", "provider account login"]
+}

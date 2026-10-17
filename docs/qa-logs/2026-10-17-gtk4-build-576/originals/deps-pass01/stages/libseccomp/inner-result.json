@@ -1,0 +1,58 @@
+{
+  "stage": "libseccomp",
+  "original_command_rc": 0,
+  "wrapper_rc": 0,
+  "uid": 1000,
+  "gid": 1000,
+  "visible_cpus": 2,
+  "nproc": 2,
+  "effective_tmpdir": "/tmp",
+  "actual_mktemp": true,
+  "before": {
+    "monotonic": 1304864.31090747,
+    "memory_current": 8220672,
+    "memory_peak": 8249344,
+    "memory_max": "8589934592",
+    "memory_swap_max": "0",
+    "memory_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "io_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "io_stat": ""
+  },
+  "host_observation_handshake": {
+    "stage": "libseccomp",
+    "nonce": "8ec276c8c0ee3a3aa7e8c21029c9688c",
+    "container_id": "f2666e5a8adda56dfe13a69220b3c44a90ff628d76afb32e347a704a0cd75fee"
+  },
+  "child_pid": 8,
+  "started_monotonic": 1304864.512209038,
+  "after": {
+    "monotonic": 1304869.517910168,
+    "memory_current": 38039552,
+    "memory_peak": 81530880,
+    "memory_max": "8589934592",
+    "memory_swap_max": "0",
+    "memory_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "io_pressure": "some avg10=0.32 avg60=0.06 avg300=0.01 total=44320\nfull avg10=0.14 avg60=0.03 avg300=0.00 total=44144\n",
+    "io_stat": "259:0 rbytes=13410304 wbytes=11137024 rios=818 wios=350 dbytes=0 dios=0\n259:1 rbytes=2723840 wbytes=36864 rios=126 wios=9 dbytes=0 dios=0\n252:0 rbytes=2723840 wbytes=36864 rios=126 wios=9 dbytes=0 dios=0\n"
+  },
+  "elapsed_seconds": 5.005894298898056,
+  "signals": []
+}

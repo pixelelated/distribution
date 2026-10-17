@@ -1,0 +1,58 @@
+{
+  "stage": "graphene",
+  "original_command_rc": 1,
+  "wrapper_rc": 1,
+  "uid": 1000,
+  "gid": 1000,
+  "visible_cpus": 1,
+  "nproc": 1,
+  "effective_tmpdir": "/tmp",
+  "actual_mktemp": true,
+  "before": {
+    "monotonic": 1304514.354929881,
+    "memory_current": 17870848,
+    "memory_peak": 17911808,
+    "memory_max": "2147483648",
+    "memory_swap_max": "0",
+    "memory_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "io_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=13098\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=13076\n",
+    "io_stat": "259:1 rbytes=9928704 wbytes=0 rios=194 wios=0 dbytes=0 dios=0\n252:0 rbytes=9928704 wbytes=0 rios=194 wios=0 dbytes=0 dios=0\n"
+  },
+  "host_observation_handshake": {
+    "stage": "graphene",
+    "nonce": "7dcc9763b40dce3234d896c0a6a82358",
+    "container_id": "8010036f6c772c10c23a6fb9c5f42b9cea90d68736a419954dda2c6a7f77939d"
+  },
+  "child_pid": 9,
+  "started_monotonic": 1304514.558768394,
+  "after": {
+    "monotonic": 1304539.588864911,
+    "memory_current": 2085482496,
+    "memory_peak": 2147483648,
+    "memory_max": "2147483648",
+    "memory_swap_max": "0",
+    "memory_events": {
+      "low": 0,
+      "high": 0,
+      "max": 23915,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "memory_pressure": "some avg10=1.47 avg60=0.43 avg300=0.10 total=386078\nfull avg10=1.47 avg60=0.43 avg300=0.10 total=386078\n",
+    "io_pressure": "some avg10=72.05 avg60=26.25 avg300=6.30 total=19460006\nfull avg10=72.05 avg60=26.25 avg300=6.30 total=19458391\n",
+    "io_stat": "259:0 rbytes=6440665088 wbytes=5858082816 rios=157334 wios=144757 dbytes=0 dios=0\n259:1 rbytes=16048128 wbytes=0 rios=294 wios=0 dbytes=0 dios=0\n252:0 rbytes=16048128 wbytes=0 rios=294 wios=0 dbytes=0 dios=0\n"
+  },
+  "elapsed_seconds": 25.030412493040785,
+  "signals": []
+}

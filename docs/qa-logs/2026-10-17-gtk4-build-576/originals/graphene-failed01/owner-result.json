@@ -1,0 +1,18 @@
+{
+  "status": "FAIL",
+  "stages": [
+    {
+      "stage": "graphene",
+      "original_host_make_rc": 2,
+      "container_observed": true,
+      "observation_handshake": true
+    }
+  ],
+  "cleanup": [],
+  "signals": [],
+  "error": "AssertionError: original stage failed or container observation missing",
+  "surviving_host_command_groups": {
+    "848414": []
+  },
+  "elapsed_seconds": 26.137627371121198
+}

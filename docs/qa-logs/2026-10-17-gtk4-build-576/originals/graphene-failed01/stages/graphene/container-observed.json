@@ -1,0 +1,39 @@
+{
+  "id": "8010036f6c772c10c23a6fb9c5f42b9cea90d68736a419954dda2c6a7f77939d",
+  "image_id": "sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "image_reference": "ghcr.io/pixelelated/build@sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39",
+  "user": "1000:1000",
+  "workdir": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+  "mounts": [
+    {
+      "Source": "/workspace/tmp/pix-gtk4-graphene-20261017-01",
+      "Destination": "/build-owner",
+      "RW": true
+    },
+    {
+      "Source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/.build.conf",
+      "Destination": "/baseline/.build.conf",
+      "RW": false
+    },
+    {
+      "Source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/.stamps",
+      "Destination": "/baseline/.stamps",
+      "RW": false
+    },
+    {
+      "Source": "/workspace/repos/rocknix.worktrees/m7-p5-build-20261015-03/build.pixelelated-GENERIC_X64.x86_64/toolchain",
+      "Destination": "/baseline/toolchain",
+      "RW": false
+    },
+    {
+      "Source": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01",
+      "Destination": "/workspace/repos/rocknix.worktrees/m7-pixelelated",
+      "RW": true
+    },
+    {
+      "Source": "/workspace/repos/rocknix/.git",
+      "Destination": "/workspace/repos/rocknix/.git",
+      "RW": true
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "stages": [
+    {
+      "stage": "gtk4",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    },
+    {
+      "stage": "libseccomp",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    },
+    {
+      "stage": "bubblewrap",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    },
+    {
+      "stage": "xdg-dbus-proxy",
+      "original_host_make_rc": 0,
+      "container_observed": true,
+      "observation_handshake": true
+    }
+  ],
+  "cleanup": [],
+  "signals": [],
+  "surviving_host_command_groups": {
+    "865342": [],
+    "886975": [],
+    "892976": [],
+    "894325": []
+  },
+  "elapsed_seconds": 163.82559095299803
+}

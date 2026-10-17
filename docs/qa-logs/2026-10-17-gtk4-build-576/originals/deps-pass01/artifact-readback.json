@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "packages": [
+    {
+      "package": "gtk4",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libgtk-4.so.1.2400.1",
+      "bytes": 10746800,
+      "sha256": "7f603659b4153935796301c2f78a104e80e6e2c5c01e358ab908a0e2d025942b",
+      "stamp": "STAMP_PKG_NAME=\"gtk4\"\nSTAMP_PKG_DEEPHASH=\"8b74ebbe4a6ca49c35f0cd1af5d6190c0b9ce901c7cc706dfa7e8cba51a52028\"\nSTAMP_BUILD_WITH_DEBUG=\"no\"\n",
+      "seconds": 147.18203771184199,
+      "cgroup_peak_bytes": 717467648,
+      "oom": 0
+    },
+    {
+      "package": "libseccomp",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/lib/libseccomp.so.2.6.1",
+      "bytes": 190528,
+      "sha256": "23bfb931c6fbc783de5475444cc986cc2ea1ee5804d7e032bc7f9c9ec17c464e",
+      "stamp": "STAMP_PKG_NAME=\"libseccomp\"\nSTAMP_PKG_DEEPHASH=\"742eeb8b47549364cf3b125438461606038339c4cece37a548007e56e9c2c23e\"\nSTAMP_BUILD_WITH_DEBUG=\"no\"\n",
+      "seconds": 5.005894298898056,
+      "cgroup_peak_bytes": 81530880,
+      "oom": 0
+    },
+    {
+      "package": "bubblewrap",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/bin/bwrap",
+      "bytes": 89320,
+      "sha256": "1abcce7fa3fd5bfc865aeed92ca967b5d5a17ca36d481da4778e0146df2bf2a4",
+      "stamp": "STAMP_PKG_NAME=\"bubblewrap\"\nSTAMP_PKG_DEEPHASH=\"b99a37dac067a81d18d4dd2b5f45467cd1c7db138a3b9078737fda860b7cf13e\"\nSTAMP_BUILD_WITH_DEBUG=\"no\"\n",
+      "seconds": 4.004129217006266,
+      "cgroup_peak_bytes": 62820352,
+      "oom": 0
+    },
+    {
+      "package": "xdg-dbus-proxy",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/bin/xdg-dbus-proxy",
+      "bytes": 56432,
+      "sha256": "20ceed9ae03c3c6e8cfbbe9e701051da0eee17a4008452d251fc431ca8a9bf40",
+      "stamp": "STAMP_PKG_NAME=\"xdg-dbus-proxy\"\nSTAMP_PKG_DEEPHASH=\"809bda47bdc8afe86d7dd848689e2681da9e069bab8c602a2d2cfa17fe97289e\"\nSTAMP_BUILD_WITH_DEBUG=\"no\"\n",
+      "seconds": 3.003070164937526,
+      "cgroup_peak_bytes": 97939456,
+      "oom": 0
+    }
+  ],
+  "scope": "GENERIC dependency compilation/staged ELF only; no runtime or browser-memory claim"
+}

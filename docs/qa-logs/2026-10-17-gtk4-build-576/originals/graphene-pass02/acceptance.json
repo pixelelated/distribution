@@ -1,0 +1,71 @@
+{
+  "run": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/.build-runs/20261017T045518Z-d1508d79",
+  "expected_rc": 0,
+  "disposition": "qualified",
+  "outputs": [
+    {
+      "issue": 576,
+      "kind": "build-cache",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/build.pixelelated-GENERIC_X64.x86_64",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "build-cache",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/sources",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/target",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "qa-scratch",
+      "path": "/workspace/repos/rocknix.worktrees/m7-gtk4-build-20261017-01/release",
+      "release_when": "Retain independent GTK4 toolchain/source only for immediately queued GTK4 and WebKit6 dependency stages; retain compact build/resource evidence and retire failed or superseded scratch."
+    },
+    {
+      "issue": 576,
+      "kind": "qa-scratch",
+      "path": "/workspace/tmp/pix-gtk4-graphene-20261017-02",
+      "release_when": "Preserve compact source/results and consume original admission after Graphene success or diagnosed failure."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/tmp/pix-gtk4-graphene-20261017-02/artifact-readback.json",
+      "sha256": "3728b38a9cda5f46f873151692b14f838996a7a73b5f47d487f0bb91b28fe77c"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-graphene-20261017-02/graphene.elf.txt",
+      "sha256": "e952ba74183dac1821d0d84d93ff7d11eff8874a0433144cb59743dc08cf0c41"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-graphene-20261017-02/owner-result.json",
+      "sha256": "23784e9fe6df58fc0b1c0281b8d4b92d44a4b824ea86011d511e1301bd91e1ad"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-graphene-20261017-02/resource-result.json",
+      "sha256": "308136494db9b78813ec8abdc2fe4d83b559ee31a015ec27bb856b543cf89a28"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-graphene-20261017-02/cache-copy.json",
+      "sha256": "587bdc3bd2d4fcf34062fd633487c79b73b410505720878c567f28126c87bf7c"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-graphene-20261017-02/stages/graphene/inner-result.json",
+      "sha256": "df95604ab58010618c5755c199cec068d224d1966007508db0f6f029be1a225f"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-graphene-20261017-02/launcher-result.json",
+      "sha256": "13864d0772f9df956cacb14d9c04ff94ef13eafd393c1acde2ab2568210fba3c"
+    },
+    {
+      "path": "/workspace/tmp/pix-gtk4-graphene-20261017-02/console.log",
+      "sha256": "3a0a2ae50e1928604576e63f2d064885b882ce07daa6573ee99be838fab8e99a"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "stage": "xdg-dbus-proxy",
+  "original_command_rc": 0,
+  "wrapper_rc": 0,
+  "uid": 1000,
+  "gid": 1000,
+  "visible_cpus": 2,
+  "nproc": 2,
+  "effective_tmpdir": "/tmp",
+  "actual_mktemp": true,
+  "before": {
+    "monotonic": 1304875.202267645,
+    "memory_current": 8339456,
+    "memory_peak": 8339456,
+    "memory_max": "8589934592",
+    "memory_swap_max": "0",
+    "memory_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "io_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "io_stat": ""
+  },
+  "host_observation_handshake": {
+    "stage": "xdg-dbus-proxy",
+    "nonce": "8f3ac0b68956c2ab2aef18224c0916f4",
+    "container_id": "2c16695d33edc8bf46b4de8102b13a7af5cd38990c078da700264e12efc35b63"
+  },
+  "child_pid": 9,
+  "started_monotonic": 1304875.403630699,
+  "after": {
+    "monotonic": 1304878.406408429,
+    "memory_current": 9363456,
+    "memory_peak": 97939456,
+    "memory_max": "8589934592",
+    "memory_swap_max": "0",
+    "memory_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "memory_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0\n",
+    "io_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=4338\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=4338\n",
+    "io_stat": "259:1 rbytes=0 wbytes=4096 rios=0 wios=1 dbytes=0 dios=0\n252:0 rbytes=0 wbytes=4096 rios=0 wios=1 dbytes=0 dios=0\n259:0 rbytes=4096 wbytes=4259840 rios=1 wios=53 dbytes=0 dios=0\n"
+  },
+  "elapsed_seconds": 3.003070164937526,
+  "signals": []
+}
