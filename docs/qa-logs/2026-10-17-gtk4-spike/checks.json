@@ -1,0 +1,109 @@
+{
+  "ast:prepare-input-spike.py": "PASS",
+  "ast:run-input-spike.py": "PASS",
+  "generated_native_keyboard_ast": "PASS",
+  "source_preparation": {
+    "source_ref": "f511766e17fbdb2f3fd5ec61ee8b469a18758273",
+    "producer_sha256": "95c626f8df07faef522683a857e48e31f85a58c6f738bcde24707574dc24d293",
+    "files": {
+      "native_keyboard.py": "ea3f544fd68591274430d3d0b08924db10f57041bbbfcfd42a7f09612cab7be4",
+      "input-spike.c": "015652f22b14b258352ca510e93c7a6179721690f3faa2b00a6ccac237f8ea6e",
+      "run-input-spike.py": "62011889050a3ca121d67659d2b3e5a77caa0a7b3c43ee2f05d89fd11cf0796e"
+    },
+    "compiler_invoked": false,
+    "runtime_invoked": false
+  },
+  "prepared_bytes": 20708,
+  "bash:overlay/projects/ROCKNIX/packages/graphics/graphene/package.mk": {
+    "exit": 0,
+    "stderr": ""
+  },
+  "bash:overlay/projects/ROCKNIX/packages/graphics/gtk4/package.mk": {
+    "exit": 0,
+    "stderr": ""
+  },
+  "bash:overlay/projects/ROCKNIX/packages/security/bubblewrap/package.mk": {
+    "exit": 0,
+    "stderr": ""
+  },
+  "bash:overlay/projects/ROCKNIX/packages/security/libseccomp/package.mk": {
+    "exit": 0,
+    "stderr": ""
+  },
+  "bash:overlay/projects/ROCKNIX/packages/security/xdg-dbus-proxy/package.mk": {
+    "exit": 0,
+    "stderr": ""
+  },
+  "bash:overlay/projects/ROCKNIX/packages/web/webkitgtk/package.mk": {
+    "exit": 0,
+    "stderr": ""
+  },
+  "pkgcheck": {
+    "exit": 0,
+    "script_sha256": "dea8addbc2a0a3c3d70da227d2be27f705e7d813ee129d0e43a5781215c04e18",
+    "recipe_count": 6,
+    "stdout": "",
+    "stderr": "projects/ROCKNIX/packages/graphics/graphene/package.mk...\nprojects/ROCKNIX/packages/graphics/gtk4/package.mk...\nprojects/ROCKNIX/packages/web/webkitgtk/package.mk...\nprojects/ROCKNIX/packages/security/libseccomp/package.mk...\nprojects/ROCKNIX/packages/security/bubblewrap/package.mk...\nprojects/ROCKNIX/packages/security/xdg-dbus-proxy/package.mk...\n"
+  },
+  "production_webkit_patch_bytes": "PASS",
+  "compiler": "UNRUN",
+  "runtime": "UNRUN",
+  "native_delivery": "UNRUN",
+  "pkgcheck_is_not_build_proof": true,
+  "reproducible_verifier": {
+    "ast:prepare-input-spike.py": true,
+    "ast:verify.py": true,
+    "ast:run-input-spike.py": true,
+    "preparer": {
+      "source_ref": "f511766e17fbdb2f3fd5ec61ee8b469a18758273",
+      "producer_sha256": "95c626f8df07faef522683a857e48e31f85a58c6f738bcde24707574dc24d293",
+      "files": {
+        "native_keyboard.py": "ea3f544fd68591274430d3d0b08924db10f57041bbbfcfd42a7f09612cab7be4",
+        "input-spike.c": "015652f22b14b258352ca510e93c7a6179721690f3faa2b00a6ccac237f8ea6e",
+        "run-input-spike.py": "62011889050a3ca121d67659d2b3e5a77caa0a7b3c43ee2f05d89fd11cf0796e"
+      },
+      "compiler_invoked": false,
+      "runtime_invoked": false
+    },
+    "generated_ast": true,
+    "prepared_bytes": 20708,
+    "recipe_count": 6,
+    "pkgcheck_stdout": "",
+    "pkgcheck_stderr": "projects/ROCKNIX/packages/graphics/graphene/package.mk...\nprojects/ROCKNIX/packages/graphics/gtk4/package.mk...\nprojects/ROCKNIX/packages/web/webkitgtk/package.mk...\nprojects/ROCKNIX/packages/security/libseccomp/package.mk...\nprojects/ROCKNIX/packages/security/bubblewrap/package.mk...\nprojects/ROCKNIX/packages/security/xdg-dbus-proxy/package.mk...\n",
+    "pkgcheck_exit": 0,
+    "compiler": "UNRUN",
+    "runtime": "UNRUN"
+  },
+  "final_materialized_verifier": {
+    "ast:prepare-input-spike.py": true,
+    "ast:prepare-overlay.py": true,
+    "ast:verify.py": true,
+    "ast:run-input-spike.py": true,
+    "preparer": {
+      "source_ref": "f511766e17fbdb2f3fd5ec61ee8b469a18758273",
+      "producer_sha256": "95c626f8df07faef522683a857e48e31f85a58c6f738bcde24707574dc24d293",
+      "files": {
+        "native_keyboard.py": "ea3f544fd68591274430d3d0b08924db10f57041bbbfcfd42a7f09612cab7be4",
+        "input-spike.c": "015652f22b14b258352ca510e93c7a6179721690f3faa2b00a6ccac237f8ea6e",
+        "run-input-spike.py": "62011889050a3ca121d67659d2b3e5a77caa0a7b3c43ee2f05d89fd11cf0796e"
+      },
+      "compiler_invoked": false,
+      "runtime_invoked": false
+    },
+    "generated_ast": true,
+    "prepared_bytes": 20708,
+    "overlay_materializer": {
+      "files": 8,
+      "bytes": 13923,
+      "patches": 2,
+      "build_invoked": false
+    },
+    "recipe_count": 6,
+    "pkgcheck_stdout": "",
+    "pkgcheck_stderr": "projects/ROCKNIX/packages/graphics/graphene/package.mk...\nprojects/ROCKNIX/packages/graphics/gtk4/package.mk...\nprojects/ROCKNIX/packages/web/webkitgtk/package.mk...\nprojects/ROCKNIX/packages/security/libseccomp/package.mk...\nprojects/ROCKNIX/packages/security/bubblewrap/package.mk...\nprojects/ROCKNIX/packages/security/xdg-dbus-proxy/package.mk...\n",
+    "pkgcheck_exit": 0,
+    "compiler": "UNRUN",
+    "runtime": "UNRUN"
+  },
+  "initial_staged_whitespace": "Inherited raw patch0002 context line flagged; final archive preserves exact bytes and materializer restores them."
+}

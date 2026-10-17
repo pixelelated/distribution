@@ -1,0 +1,60 @@
+{
+  "checked_utc": "2026-10-17T04:00:22.522390+00:00",
+  "backing_store": {
+    "version": "2.54.1",
+    "sha256": "04cf5db6c78c42ece790d14940780227cd6a270ceef40e43c04edec72739ca84",
+    "bytes": 34364,
+    "url": "https://github.com/WebKit/WebKit/blob/webkitgtk-2.54.1/Source/WebKit/UIProcess/gtk/AcceleratedBackingStore.cpp",
+    "spans": {
+      "disable_dmabuf_gate": [
+        81,
+        100
+      ],
+      "dmabuf_update_texture_region": [
+        329,
+        372
+      ],
+      "gbm_update_texture_region": [
+        545,
+        595
+      ],
+      "shm_update_texture_region": [
+        660,
+        693
+      ]
+    }
+  },
+  "release_indexes": [
+    "https://download.gnome.org/sources/gtk/4.24/",
+    "https://download.gnome.org/sources/gtk/4.24/gtk-4.24.1.sha256sum",
+    "https://download.gnome.org/sources/graphene/1.10/",
+    "https://download.gnome.org/sources/graphene/1.10/graphene-1.10.8.sha256sum"
+  ],
+  "gtk_source_commit": "2ea935e3ec680fb122f245b28e18c3495df8c344",
+  "gtk_source_files": [
+    "gdk/gdkevents.h",
+    "meson.options"
+  ],
+  "archive_bytes_downloaded": false,
+  "performance_measured": false,
+  "gtk_source_readback": [
+    {
+      "url": "https://raw.githubusercontent.com/GNOME/gtk/2ea935e3ec680fb122f245b28e18c3495df8c344/gdk/gdkevents.h",
+      "bytes": 21837,
+      "sha256": "2c62dcc6ad18c76588549b7fc2ba1ec0f7cb6da98574db91905be86557eee3ee",
+      "gdk_key_event_new_present": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/GNOME/gtk/2ea935e3ec680fb122f245b28e18c3495df8c344/gdk/gdkeventsprivate.h",
+      "bytes": 25658,
+      "sha256": "ded3802b185e53f959fa1611b2f68a12da90445be7b22cb0fe9078e110696409",
+      "gdk_key_event_new_present": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/GNOME/gtk/2ea935e3ec680fb122f245b28e18c3495df8c344/meson.options",
+      "bytes": 4173,
+      "sha256": "dcd92a0b727c20e91744f741515084d9b5d6f4b324c02b7795836fa20addd7cf",
+      "gdk_key_event_new_present": false
+    }
+  ]
+}

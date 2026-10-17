@@ -1,0 +1,21 @@
+{
+  "source_ref": "f511766e17fbdb2f3fd5ec61ee8b469a18758273",
+  "worker_parent": "169181c2524b4afffdd9e595071fda221485af4f",
+  "source_sha256": {
+    "packages/web/webkitgtk/package.mk": "2de4b96cb16e942ce7699b5529b9949c2c52cf5a8c6661cbaee55f226b94bd4e",
+    "projects/ROCKNIX/packages/network/cloud-signin-window/sources/cloud-signin-window.c": "39af3e041d9871c4fb636cff71934ddf3ea13c690002e77af5ea6d82d8fff4f8",
+    "projects/ROCKNIX/packages/network/rclone/sources/cloud_oauth": "95c626f8df07faef522683a857e48e31f85a58c6f738bcde24707574dc24d293",
+    "packages/web/webkitgtk/patches/webkitgtk-0001-DocumentLoader-include-EventLoop.patch": "09fbc3a52f3e523d04c1683377b14fdc35083a9ef4a81b9f4ba7359028e0a7fd",
+    "packages/web/webkitgtk/patches/webkitgtk-0002-WebKit-includes-WebCore-platform-graphics-for-GStreamer-GL.patch": "ad2472978425b735c3d76e38f4b359de6f0ab2d7bde5fb5f1716f8f866141a6b"
+  },
+  "versions": {
+    "webkitgtk": "2.54.1",
+    "gtk4": "4.24.1",
+    "graphene": "1.10.8",
+    "libseccomp": "2.6.1",
+    "bubblewrap": "0.11.2",
+    "xdg-dbus-proxy": "0.1.7"
+  },
+  "compile": "UNRUN",
+  "runtime": "UNRUN"
+}
