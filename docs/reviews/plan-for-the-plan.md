@@ -486,6 +486,7 @@ None blocks P1; each is answered by a register row when settled.
    Extended for the listed slices, with Astra and Argon as the other labs.
    Review depth has cost in OpenRouter credit (D-WORKFLOW-049); the
    maintainer may prefer Local for more of the upstream-carried slices.
+   Settled 2026-10-22: the defaults stand (D-WORKFLOW-184).
 4. **Where the EmulationStation fork's survey runs.** The ES tree is a
    separate repository; the inventory tool reads both, and ES slices run in
    an ES worktree with the distribution checkout's rules (D-WORKFLOW-010).
