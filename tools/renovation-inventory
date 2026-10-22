@@ -1185,8 +1185,9 @@ def load_slices(dist, path="docs/reviews/slices.json"):
     """slices.json: {"sensitive": {kind: [globs]}, "slices": [{k, id, area, title, lens, select, ...}]}.
 
     A row belongs to a slice when its area is in select.areas (default: the slice's area), it
-    matches one of select.globs (default: all; `es:` for the ES tree; `!` excludes), and its
-    reach is in select.reach when that is given."""
+    matches one of select.globs (default: all; `es:` for the ES tree; `!` excludes), its reach
+    is in select.reach and its tier in select.tier when those are given. select may be a list,
+    read as a union; a `rest` selector takes only rows no other selector claims."""
     with open(os.path.join(dist, path)) as f:
         doc = json.load(f)
     out = []
@@ -1197,21 +1198,22 @@ def load_slices(dist, path="docs/reviews/slices.json"):
             globs = sel.get("globs")
             compiled.append((set(sel.get("areas", [sl["area"]])),
                              load_areas([{"area": sl["id"], "globs": globs}])[0] if globs else None,
-                             set(sel["reach"]) if sel.get("reach") else None, bool(sel.get("rest"))))
+                             set(sel["reach"]) if sel.get("reach") else None, bool(sel.get("rest")),
+                             set(sel["tier"]) if sel.get("tier") else None))
         out.append((sl, compiled))
     return doc, out
 
 
 def slice_of(row, slices):
     """The slices a row belongs to. A `rest` selector takes, within its areas, only rows no other selector claims."""
-    def match(areas, comp, reach):
-        if row["area"] not in areas or (reach and row["reach"] not in reach):
+    def match(areas, comp, reach, tier):
+        if row["area"] not in areas or (reach and row["reach"] not in reach) or (tier and row["tier"] not in tier):
             return False
         return not comp or bool(assign([comp], row["tree"], row["path"]))
-    hits = [sl["id"] for sl, sels in slices if any(not rest and match(a, c, r) for a, c, r, rest in sels)]
+    hits = [sl["id"] for sl, sels in slices if any(not rest and match(a, c, r, t) for a, c, r, rest, t in sels)]
     if hits:
         return hits
-    return [sl["id"] for sl, sels in slices if any(rest and match(a, c, r) for a, c, r, rest in sels)]
+    return [sl["id"] for sl, sels in slices if any(rest and match(a, c, r, t) for a, c, r, rest, t in sels)]
 
 
 def order(args):
@@ -1244,6 +1246,7 @@ def order(args):
             c["read:" + r["tier"]] += ln
         if r["tier"] == "vendor-carried":
             c["vendor"] += 1
+            c["vendor_lines"] += ln
         c["reach:" + r["reach"]] += 1
         paths[hits[0]].append(r["path"])
     fmt = lambda n: "{:,}".format(n)
@@ -1259,9 +1262,9 @@ def order(args):
     for sl, _ in slices:
         c, kind = size[sl["id"]], sl.get("kind", "read")
         bound = c["read"] if kind == "read" else c["read:fork-own"] if kind == "currency" else 0
-        print("%3d %-34s %-22s %6d paths %9s lines %8s read %8s fork-own  %-8s%s" % (
-            sl["k"], sl["id"], sl["area"], c["paths"], fmt(c["lines"]), fmt(c["read"]), fmt(c["read:fork-own"]), kind,
-            "  OVER 12,000" if bound > 12000 else ""))
+        print("%3d %-34s %-22s %6d paths %9s lines %8s read %8s fork-own %8s patch  %-8s%s" % (
+            sl["k"], sl["id"], sl["area"], c["paths"], fmt(c["lines"]), fmt(c["read"]), fmt(c["read:fork-own"]),
+            fmt(c["vendor_lines"]), kind, "  OVER 12,000" if bound > 12000 else ""))
         if bound > 12000 and sl["k"] <= 3:
             over.append(sl["id"])
         if not c["paths"]:
@@ -1276,16 +1279,18 @@ def order(args):
              "slice: `unassigned: %d`, `ambiguous: %d` over %s rows. *Read* is code lines a slice reads line by line "
              "(code languages, not vendor-carried, not unreached); a *currency* slice reads its fork-own files line by line "
              "and checks the rest for reachability and currency (plan § 2), so its size is its fork-own lines; a table "
-             "slice reads rows, not lines." % (
+             "slice reads rows, one per path, not lines. *Patch and config lines* are the vendor-carried files the slice "
+             "holds (fork-written ones are read with their code, the rest by provenance), counted apart from *Read*." % (
                  inv["header"]["distribution"]["head"][:10], inv["header"]["es"]["head"][:10],
                  len(unassigned), len(ambiguous), fmt(len(rows))), "",
-             "| k | Slice | Area | Kind | Lens | Paths | Lines | Read (fork-own) | Gate | Depth |",
-             "| ---: | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |"]
+             "| k | Slice | Area | Kind | Lens | Paths | Lines | Read (fork-own) | Patch and config lines | Gate | Depth |",
+             "| ---: | --- | --- | --- | --- | ---: | ---: | --- | ---: | --- | --- |"]
     for sl, _ in slices:
-        c = size[sl["id"]]
-        lines.append("| %d | %s | %s | %s | %s | %s | %s | %s (%s) | %s | %s |" % (
-            sl["k"], sl["title"], sl["area"], sl.get("kind", "read"), sl["lens"], fmt(c["paths"]), fmt(c["lines"]),
-            fmt(c["read"]), fmt(c["read:fork-own"]), sl.get("gate") or "none", sl["depth"]))
+        c, kind = size[sl["id"]], sl.get("kind", "read")
+        lines.append("| %d | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (
+            sl["k"], sl["title"], sl["area"], kind, sl["lens"], fmt(c["paths"]), fmt(c["lines"]),
+            "-- (%s rows)" % fmt(c["paths"]) if kind == "table" else "%s (%s)" % (fmt(c["read"]), fmt(c["read:fork-own"])),
+            fmt(c["vendor_lines"]), sl.get("gate") or "none", sl["depth"]))
     def describe(sl):
         sels = sl.get("select", {})
         parts = []
@@ -1301,8 +1306,10 @@ def order(args):
         lines += ["", "### T%d. %s: %s" % (sl["k"], sl["area"], sl["title"]), "",
                   "- **id**: `%s`; **kind**: %s; **lens**: %s" % (sl["id"], sl.get("kind", "read"), sl["lens"]),
                   "- **why here**: %s" % sl["why"],
-                  "- **paths** (%s paths, %s lines, %s read, of which %s fork-own; reach %s): %s" % (
-                      fmt(c["paths"]), fmt(c["lines"]), fmt(c["read"]), fmt(c["read:fork-own"]),
+                  "- **paths** (%s paths, %s lines, %s read, of which %s fork-own; %s patch and config lines; reach %s): %s" % (
+                      fmt(c["paths"]), fmt(c["lines"]),
+                      "--" if sl.get("kind") == "table" else fmt(c["read"]),
+                      "--" if sl.get("kind") == "table" else fmt(c["read:fork-own"]), fmt(c["vendor_lines"]),
                       ", ".join("%s %d" % (x.split(":", 1)[1], n) for x, n in sorted(c.items()) if x.startswith("reach:")),
                       describe(sl)),
                   "- **release gate**: %s" % (sl.get("gate") or "none"),
