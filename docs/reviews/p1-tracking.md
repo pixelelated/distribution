@@ -51,8 +51,8 @@ No two commands for one quantity disagreed; no stop.
 - Pass 2 (Clustering): **complete** -- 12 areas with read sizes; 7 areas exceed one session and are split into 31 candidate clusters (see § Pass 2)
 - Pass 3 (Assessment): **complete** -- 11 areas scored on 6 lenses from `assessment.md`; records not scored (see § Pass 3)
 - Pass 4 (Cross-reference): **complete** -- 10 code areas N-to-N (90 ordered pairs, 60 with an edge), rule and patch edges, every one of the 12 areas has an edge (see § Pass 4)
-- Pass 5 (Classification): **complete** -- 43 slices in `slices.json`, every one of 134,591 rows in exactly one (`--order`: unassigned 0, ambiguous 0); `order.md` rendered (see § Pass 5)
-- Pass 6 (Reconciliation, then the preliminary review): reconciliation **complete** (41 fork-written vendor files moved to their code's slices, the seams named); the preliminary review next (see § Pass 6)
+- Pass 5 (Classification): **complete** -- 43 slices in the first version; 47 after pass 6's review (`--order` at `f814d1a75c`: every one of 134,631 rows in exactly one) (see § Pass 5)
+- Pass 6 (Reconciliation, then the preliminary review): **complete** -- reconciliation, then the three-seat review (all verified, all "ready with named changes"), its findings source-checked and the order revised to 47 slices (see § Pass 6)
 - Pass 7 (Action): pending -- gated on the maintainer's yes on #641
 
 ## Read first (brief § 3), what was read this session
@@ -334,6 +334,54 @@ The relationships pass 4 found, and how the order resolves each:
 
 The result after reconciliation (`--order`, re-run): `rows: 134591
 (inventory: 134591)`, `unassigned: 0`, `ambiguous: 0`.
+
+### The preliminary review (pass 6, second half)
+
+Run `research/preliminary-reviews/2026-10-22-m6-p1-order/`, the three-seat
+advisory format. The runner's dependencies were installed in the fresh clone
+(`npm install --prefix tools/council`, `tsx` 4.23.15, node v24.21.0). Checks
+before the first call: `tools/council/run test` (39, 109 and 19 tests, 0
+failures), `verify-pins` OK, `efforts` OK, the contract generated and
+validated. The inputs (`brief.md`, `source-manifest.json`) were committed in
+`eaae8542b8` before any call.
+
+| Seat | Served model | Effort | Duration | Verdict |
+| --- | --- | --- | --- | --- |
+| claude | `anthropic/claude-fable-5.1` (PASS) | xhigh (57,179 reasoning tokens) | 20:09:46Z to 20:24:34Z | ready with named changes |
+| gemini | `google/gemini-3.8-flash` (PASS) | high (36,431) | 20:24:55Z to 20:29:50Z | ready with named changes |
+| gpt | `openai/gpt-6-astra` (PASS, provider OpenAI pinned) | max (21,857) | 20:30:02Z to 20:41:50Z | ready with named changes |
+
+Each seat's provenance was checked before the next call: the served model,
+the effort, the output hash against the file, and the source hashes against
+the manifest (`verification.md`). The four sources were not edited until all
+three seats had read them; the tool changes made between calls render
+nothing. One slip, recorded honestly: the commit that saved the three seats
+(`0b0cb2366a`) says "All three: ready with named changes" and was written
+before gpt's file was read. Reading it afterwards confirmed the claim.
+
+**Source checks of the findings** (`synthesis.md` § Material findings):
+`ViewController.cpp:483` calls `launchGame` (to T2), and
+`virtual/emulators`' `mk_es_systems` writes `es_systems.cfg` (to T3); both
+confirmed. ES's `patches/x86_64` never applies (`PATCH_ARCH="x86"`): the
+inventory was right. GENERIC_X64 boots `syslinux`. Gemini's claim that the
+toolchain was mislabelled unreached was refuted per unit: each named package
+is built from its ROCKNIX override, and the generic copy is shadowed. It led
+to the `shadowed_by` column (`368097bc6a`, 620 rows) so a table cannot remove
+a live package.
+
+**Tool changes from the review:** `select.tier`, patch lines and table rows
+in `--order`, table drift in rows (`8fac885d08`); `shadowed_by`
+(`368097bc6a`); drift at 20 % or more, `drift_checked_at`, prose slices
+(`a7cbde1737`).
+
+**The order revised** (`f814d1a75c`), then every ledger regenerated at that
+commit with fresh plans: `paths: 133517 (git ls-files: 133517)`, `es-paths:
+1114 (git ls-files: 1114)`, `patches: 1709 (find: 1709)`, `unassigned: 0`,
+`ambiguous: 0`; `--order`: `rows: 134631 (inventory: 134631)`,
+`unassigned: 0`, `ambiguous: 0`, 47 slices; 13 Extended. The answers by name
+are `order.md` § The preliminary review of this order. Three questions go to
+the maintainer at pass 7: the shipped-device set, whether `backuptool` and
+the system services also gate `0.1`, and the cost of the depths.
 
 ## Item analysis table
 
