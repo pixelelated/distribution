@@ -55,6 +55,25 @@ command to a worktree with `git -C <absolute path>` and every file by its
 absolute path: a `cd` at the head of a call did not hold on 2026-10-22 and a
 commit meant for this branch landed on P1's.
 
+## Herdr lane map (2026-10-22, the planning session's record)
+
+Workspace `wN` "pixelelated · Codebase renovation" (session `default`),
+after the maintainer's Herdr layout: first tabs coordinate, each later tab is
+one lane, one session per worktree (D-WORKFLOW-183).
+
+| Tab | Label | Pane | Worktree | Agent name | Model | Role |
+| --- | --- | --- | --- | --- | --- | --- |
+| `wN:t1` | P0 planning (#346) | `wN:p1` | none (`/workspace/repos/pixelelated`) | (unnamed, Claude Fable 5.1) | Fable 5.1 | the session that planned P0 and started the lanes; closes once the coordinator has resumed |
+| `wN:t2` | Coordinator (M6, #346) | `wN:p2` | this worktree | `m6-coordinator` | Fable 5.1 | plans, writes briefs, accepts at gates, integrates; keeper of the primary checkout |
+| `wN:t3` | P1 Survey (#641) | `wN:p3` | `distribution.worktrees/m6-p1-survey-641` | `m6-p1-survey` | Opus 5.5 | executes `docs/reviews/briefs/p1-survey.md` |
+
+Session ids are read fresh from `herdr agent list` (`agent_session.value`)
+and recorded on #346 and #641 at each start; never from this table. Other
+workspaces on this host (`w4` the M7 lane, `wG` the website, `w7` another
+project) are never read, prompted, moved or closed from here. Questions only
+the maintainer can answer go up through the coordinator, one at a time, and
+the answer is recorded verbatim, marked RELAYED, where the question lives.
+
 ## Merge notes
 
 This branch and the M7 lane both append to `docs/decision-register.md`, both
