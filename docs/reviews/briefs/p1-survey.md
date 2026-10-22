@@ -19,7 +19,11 @@ review's place before the pass-7 post).
   order-and-method criteria are carried into #641 and must be met here.
 - **Branch and worktree:** `feature/m6-p1-survey-641` at
   `/workspace/repos/pixelelated/distribution.worktrees/m6-p1-survey-641`,
-  cut from `next` in the primary checkout
+  already created by the planner, **stacked on `feature/m6-renovation-plan-346`**
+  (the P0 branch) rather than on `next`, because the maintainer chose not to
+  wait for the release candidate (D-WORKFLOW-182): P0 is not on `next` yet,
+  and the merge order after the candidate is P0, then this branch. Its
+  rules are `next`'s (P0 touched none). The primary checkout is
   `/workspace/repos/pixelelated/distribution` (D-INFRA-025). **`worktrees.md`,
   `device-builds.md`, `CLAUDE.md` and `AGENTS.md` still name the legacy
   layout (`/workspace/repos/rocknix`, `rocknix.worktrees/`); D-INFRA-025 and
@@ -69,14 +73,18 @@ review's place before the pass-7 post).
 First commands:
 
 ```bash
-cd /workspace/repos/pixelelated/distribution
-git fetch origin && git fetch upstream --no-tags
-git switch next && git merge --ff-only origin/next
-test -f docs/reviews/plan-for-the-plan.md || { echo "P0 not merged to next: stop"; exit 1; }
-git worktree add /workspace/repos/pixelelated/distribution.worktrees/m6-p1-survey-641 -b feature/m6-p1-survey-641 next
 cd /workspace/repos/pixelelated/distribution.worktrees/m6-p1-survey-641
+git fetch origin && git fetch upstream --no-tags
+git branch --show-current                                   # feature/m6-p1-survey-641
+test -f docs/reviews/plan-for-the-plan.md || { echo "the plan is not in this tree: stop"; exit 1; }
+git merge-base --is-ancestor origin/feature/m6-renovation-plan-346 HEAD || echo "not stacked on P0: stop"
 git diff --quiet next -- .claude CLAUDE.md AGENTS.md || echo STALE   # must print nothing
+cat .github/sessions/saved-session-state-feature-m6-p1-survey-641.md   # the lane's seeded stash
 ```
+
+If `next` moves while the phase runs, merge `next` into this branch (never
+another lane's feature branch) and re-read the rules; the counts of § 2 are
+re-derived at the new `HEAD` and the tracking file records both.
 
 ## 2. Scope
 
@@ -303,8 +311,8 @@ in" column names `docs/reviews/README.md`, which documents the three);
 | Lint face | `tools/lint-audit-artifacts` | for a folder named `*-epic-m6-*`: every item in `05-punch-list.md`'s YAML index carries `question: Q1..Q7` or `question: none` with a reason, and `04-analysis.md` has a `## Renovation face` section with one subsection per question; a fixture folder under `tools/test-fixtures/` proves the lint fails without them and passes with them |
 | Slice issues | GitHub, sub-issues of #339, `--milestone "M6: Codebase renovation"`, no label | filed only after the pass-7 gate (§ 8); title `M6.P2 E339/T<k>: <area>: <slice>` (all slices are phase P2, ordered by `order.md`; `T` from the closed sub-id set; re-parented and retitled `E<epic>/T<k>` when the area epic is filed at first dispatch); body: paths, tier, line count, lens, interacting subsystems, depth, release gate, `reviewed-at:` and `fixed-at:` empty, and the acceptance checklist (the audit folder `docs/audits/<date>-epic-m6-<slice>/` with the five files the lint requires, `01-research-notes.md` to `05-punch-list.md`, plus the `00-running-log.md` plan § 6b opens at stage A; `tools/lint-audit-artifacts` PASS including the renovation face, the punch-list issue with every item at a Phase 7 outcome, `reviewed-at` and `fixed-at` set); attached with `gh api -X POST repos/pixelelated/distribution/issues/339/sub_issues -F sub_issue_id=<REST id>` |
 | Area epics | GitHub, label `epic` | **not filed in P1**: an area's epic is filed when its first slice is dispatched, so each owes its futro at its own kickoff (`ceremonies.md`) |
-| Register row | `docs/decision-register.md` | the chosen order, citing #641 and #346. The ID: one above the highest `D-WORKFLOW` on `next`, on every pushed branch (`git grep -ho 'D-WORKFLOW-[0-9]*' $(git branch -r --format='%(refname)') -- docs/decision-register.md`), and in the M7 lane's unpushed worktree (`grep -o 'D-WORKFLOW-[0-9]*' /workspace/repos/rocknix.worktrees/m7-player-setup/docs/decision-register.md \| sort -t- -k3 -n \| tail -1`); on 2026-10-22 that is **D-WORKFLOW-182** |
-| Lane stash | `.github/sessions/saved-session-state-feature-m6-p1-survey-641.md` | a pointer in the shape of `saved-session-state-feature-m6-renovation-plan-346.md`: start here, current focus, next commands, merge notes |
+| Register row | `docs/decision-register.md` | the chosen order, citing #641 and #346. The ID: one above the highest `D-WORKFLOW` on `next`, on every pushed branch (`git grep -ho 'D-WORKFLOW-[0-9]*' $(git branch -r --format='%(refname)') -- docs/decision-register.md`), and in the M7 lane's unpushed worktree (`grep -o 'D-WORKFLOW-[0-9]*' /workspace/repos/rocknix.worktrees/m7-player-setup/docs/decision-register.md \| sort -t- -k3 -n \| tail -1`); on 2026-10-22 that is **D-WORKFLOW-183** (182 is the stacked-start decision on the P0 branch) |
+| Lane stash | `.github/sessions/saved-session-state-feature-m6-p1-survey-641.md` | seeded by the planner; the executor updates it at every checkpoint: start here, current focus, the pass reached, next commands, merge notes |
 | Milestone body | M6 on GitHub | current/next moved to the first slice; read back after the write |
 | #339 body | GitHub | a line linking `docs/reviews/order.md` |
 | Work log | `docs/work-logs/<yyyy_mm>-work_logs/<yyyy_mm_dd>-work_log.md` (the session's own month), then `tools/work-log-index --write` | an entry per session headed `#641` and the thing decided |
