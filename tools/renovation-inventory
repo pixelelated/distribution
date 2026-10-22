@@ -846,6 +846,192 @@ def write_markdown(path, header, rows, counts, pkg_unit):
         f.write("\n".join(out) + "\n")
 
 
+SECURITY_TOKENS = [  # brief § 4: the security lens's token grep
+    ("password", re.compile(r"password", re.I)), ("token", re.compile(r"token", re.I)),
+    ("secret", re.compile(r"secret", re.I)), ("key=", re.compile(r"key=")),
+    ("rclone.conf", re.compile(r"rclone\.conf")), ("curl", re.compile(r"\bcurl\b")),
+    ("wget", re.compile(r"\bwget\b")), ("tar x", re.compile(r"\btar\s+-?[a-zA-Z]*x")),
+    ("unzip", re.compile(r"\bunzip\b")), ("chmod", re.compile(r"\bchmod\b")),
+    ("sudo", re.compile(r"\bsudo\b")), ("systemctl", re.compile(r"\bsystemctl\b")),
+    ("nc -l", re.compile(r"\bnc\s+-[a-zA-Z]*l")), ("http.server", re.compile(r"http\.server")),
+    ("/dev/", re.compile(r"/dev/")),
+]
+STOP_IDS = {"package", "Makefile", "CMakeLists", "config", "options", "install", "sources", "common", "default",
+            "README", "utils", "index", "update", "settings", "system", "service", "scripts", "patches", "start",
+            "script", "linux", "files", "modules", "launch", "functions", "global", "device", "devices", "build",
+            "image", "tools", "network", "storage", "release", "version", "source", "systemd", "target", "plugins",
+            "drivers", "firmware", "manual", "platform", "helper", "license", "LICENSE", "CHANGELOG", "debian",
+            "Config", "include", "support", "android", "windows", "assets", "bootloader", "filesystem", "testing"}
+
+
+def gh_json(args):
+    r = subprocess.run(["gh", *args, "--repo", "pixelelated/distribution"], capture_output=True, text=True)
+    if r.returncode != 0:
+        raise CannotRun("gh %s: %s" % (" ".join(args[:3]), r.stderr.strip()[:200]))
+    return json.loads(r.stdout)
+
+
+def commits_by_path(repo, since):
+    """{path: set(commit)} from one git log pass."""
+    out = git(repo, "log", "--no-renames", "--since=" + since, "--format=%x01%H", "--name-only", "HEAD")
+    touched, cur = defaultdict(set), None
+    for line in out.split("\n"):
+        if line.startswith("\x01"):
+            cur = line[1:]
+        elif line and cur:
+            touched[line].add(cur)
+    return touched
+
+
+def numstat_by_path(repo, base):
+    """{path: (insertions, deletions)} from one git diff pass; binaries count 0."""
+    res = {}
+    for rec in zsplit(git(repo, "diff", "--numstat", "-z", "--no-renames", base, "HEAD")):
+        a, d, path = rec.split("\t", 2)
+        res[path] = (int(a) if a != "-" else 0, int(d) if d != "-" else 0)
+    return res
+
+
+def assess(args):
+    """docs/reviews/assessment.md: the six ordering lenses' evidence per area (plan § 6a, brief § 4)."""
+    dist, es = os.path.realpath(args.distribution), os.path.realpath(args.es)
+    with open(os.path.join(dist, args.out)) as f:
+        inv = json.load(f)
+    cols = inv["columns"]
+    rows = [dict(zip(cols, r)) for r in inv["rows"]]
+    mb, emb = inv["header"]["distribution"]["merge_base"], inv["header"]["es"]["merge_base"]
+    pkgdirs = package_dirs([r["path"] for r in rows if r["tree"] == "distribution"])
+    pkg_unit = {r["path"]: owning_dir(r["path"], pkgdirs) for r in rows if r["tree"] == "distribution"}
+    with open(os.path.join(dist, "docs/blindspot-register.md")) as f:
+        reg = f.read()
+    blind = [(m.group(1), m.group(0)) for m in re.finditer(r"(?m)^\| (\d+) \|.*$", reg)]
+    for m in re.finditer(r"(?ms)^## (\d+)\. .*?(?=^## \d+\. |\Z)", reg):
+        blind.append((m.group(1), m.group(0)))
+    with open(os.path.join(dist, "docs/friction-log.md")) as f:
+        friction = [l for l in f if l.startswith("- 20")]
+    bugs = gh_json(["issue", "list", "--label", "bug", "--state", "closed", "--limit", "500", "--json", "number,title,body"])
+    opens = gh_json(["issue", "list", "--state", "open", "--limit", "300", "--json", "number,title,body"])
+    if len(bugs) >= 500 or len(opens) >= 300:
+        raise CannotRun("an issue list reached its --limit; raise it")
+    named = {n: next((i for i in opens if i["number"] == n), None) for n in (336, 576, 509, 585)}
+    scratch = tempfile.mkdtemp(prefix="renovation-assess-")
+    out = []
+    touched = {"distribution": commits_by_path(dist, "2026-06-01"), "es": commits_by_path(es, "2026-06-01")}
+    numstat = {"distribution": numstat_by_path(dist, mb), "es": numstat_by_path(es, emb)}
+    try:
+        for area in sorted({r["area"] for r in rows}):
+            if area == "records":  # brief § 2: inventoried, never read for content, so not scored
+                continue
+            ar = [r for r in rows if r["area"] == area]
+            code = [r for r in ar if r["language"] in CODE and r["tier"] != "vendor-carried" and r["reach"] != "unreached"]
+            ids = set()
+            for r in code:
+                leaf = read_unit([r["tree"], r["path"]], pkg_unit).rsplit("/", 1)[-1]
+                stem = r["path"].rsplit("/", 1)[-1].split(".")[0]
+                for x in (leaf, stem):
+                    if len(x) >= 6 and x not in STOP_IDS and re.match(r"[A-Za-z][\w.-]*\Z", x):
+                        ids.add(x)
+            idre = re.compile(r"(?<![\w-])(?:%s)(?![\w-])" % "|".join(re.escape(i) for i in sorted(ids, key=len, reverse=True))) if ids else None
+            hit = lambda t: bool(idre and idre.search(t))
+            sec = Counter()
+            secfiles = set()
+            for r in code:
+                root = es if r["tree"] == "es" else dist
+                try:
+                    with open(os.path.join(root, r["path"]), errors="replace") as f:
+                        text = f.read()
+                except OSError:
+                    continue
+                for name, rx in SECURITY_TOKENS:
+                    if rx.search(text):
+                        sec[name] += 1
+                        secfiles.add(r["path"])
+            dpaths = [r["path"] for r in ar if r["tree"] == "distribution"]
+            commits, stat = set(), Counter()
+            for r in ar:
+                commits |= {(r["tree"], c) for c in touched[r["tree"]].get(r["path"], ())}
+                ins, dels = numstat[r["tree"]].get(r["path"], (0, 0))
+                stat["insertion"] += ins
+                stat["deletion"] += dels
+            churn = len(commits)
+            top = sorted(Counter(read_unit([r["tree"], r["path"]], pkg_unit) for r in code).items(),
+                         key=lambda kv: -sum(x["lines"] or 0 for x in code if read_unit([x["tree"], x["path"]], pkg_unit) == kv[0]))[:10]
+            callers = 0
+            names = [u.rsplit("/", 1)[-1] for u, _ in top if len(u.rsplit("/", 1)[-1]) >= 5]
+            if names:
+                g = subprocess.run(["git", "-C", dist, "grep", "-l", "-F", *sum((["-e", n] for n in names), []),
+                                    "--", "packages", "projects", "scripts", "tools", "config"], capture_output=True, text=True)
+                if g.returncode not in (0, 1):
+                    raise CannotRun("git grep for callers failed")
+                inarea = set(dpaths)
+                callers = sum(1 for l in g.stdout.splitlines() if l not in inarea)
+            readlines = sum(r["lines"] or 0 for r in code)
+            out.append({
+                "area": area, "paths": len(ar), "code_files": len(code), "read_lines": readlines,
+                "security_files": len(secfiles), "security_tokens": dict(sec),
+                "blindspots": sorted({n for n, t in blind if hit(t)}, key=int),
+                "friction": sum(1 for l in friction if hit(l)),
+                "bugs_closed": [i["number"] for i in bugs if hit((i["title"] or "") + "\n" + (i["body"] or ""))],
+                "churn_since_2026_06_01": churn,
+                "since_merge_base": "+%d -%d" % (stat["insertion"], stat["deletion"]),
+                "open_issues": [i["number"] for i in opens if hit((i["title"] or "") + "\n" + (i["body"] or ""))],
+                "named_planned": [n for n, i in named.items() if i and hit((i["title"] or "") + "\n" + (i["body"] or ""))],
+                "callers_of_top_units": callers, "top_units": [u for u, _ in top[:5]],
+                "unreached_paths": sum(1 for r in ar if r["reach"] == "unreached"),
+                "unreached_lines": sum(r["lines"] or 0 for r in ar if r["reach"] == "unreached"),
+                "unshipped_paths": sum(1 for r in ar if r["reach"] == "unshipped"),
+                "unshipped_lines": sum(r["lines"] or 0 for r in ar if r["reach"] == "unshipped"),
+                "identifiers": len(ids),
+            })
+    finally:
+        shutil.rmtree(scratch, ignore_errors=True)
+    fmt = lambda n: "{:,}".format(n)
+    w = []
+    w.append("# Renovation assessment: the six lenses' evidence per area")
+    w.append("")
+    w.append("Generated by `tools/renovation-inventory --assess` from `inventory.json` (distribution `%s`, ES `%s`) "
+             "and the tracker at %s; never hand-edited. Pass 3 of the survey scores each area from these numbers "
+             "(`p1-tracking.md`); a slice read confirms or overturns a score." % (
+                 inv["header"]["distribution"]["head"][:10], inv["header"]["es"]["head"][:10],
+                 time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())))
+    w.append("")
+    w.append("How each column is produced. Over the area's **code files** (code languages, not vendor-carried, not "
+             "unreached): *security* is the number of files matching any of the brief's tokens (%s); the area's "
+             "**identifiers** are its units' and code files' names (six characters or more, generic names excluded), "
+             "and *blindspots*, *friction*, *closed bugs* and *open issues* count the register entries, friction lines "
+             "and issues (`gh issue list --repo pixelelated/distribution`, closed `bug` limit 500 returned %d, open "
+             "limit 300 returned %d) naming one of them as a whole word -- a search, so a lead; *churn* is the commits since 2026-06-01 (`git log --since=2026-06-01 "
+             "--name-only HEAD`, one pass per tree) touching one of the area's paths; *since base* sums `git diff "
+             "--numstat <merge base> HEAD` over them; *callers* counts files outside the area under packages, projects, scripts, "
+             "tools and config naming one of its ten largest units." % (
+                 ", ".join("`%s`" % n for n, _ in SECURITY_TOKENS), len(bugs), len(opens)))
+    w.append("")
+    w.append("| Area | Read lines | Security files | Blindspots | Friction | Closed bugs | Churn | Since base | Open issues | #336/#576/#509/#585 | Callers | Unreached | Unshipped |")
+    w.append("| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | ---: | --- | ---: | --- | --- |")
+    for a in out:
+        w.append("| %s | %s | %d of %d | %d | %d | %d | %d | %s | %d | %s | %d | %s paths, %s lines | %s paths, %s lines |" % (
+            a["area"], fmt(a["read_lines"]), a["security_files"], a["code_files"], len(a["blindspots"]), a["friction"],
+            len(a["bugs_closed"]), a["churn_since_2026_06_01"], a["since_merge_base"], len(a["open_issues"]),
+            ", ".join("#%d" % n for n in a["named_planned"]) or "--", a["callers_of_top_units"],
+            fmt(a["unreached_paths"]), fmt(a["unreached_lines"]), fmt(a["unshipped_paths"]), fmt(a["unshipped_lines"])))
+    w.append("| records | not assessed: inventoried and never read for content (brief § 2) | | | | | | | | | | | |")
+    for a in out:
+        w.append("")
+        w.append("## %s" % a["area"])
+        w.append("")
+        w.append("- Identifiers searched: %d; largest units: %s" % (a["identifiers"], ", ".join("`%s`" % u for u in a["top_units"]) or "--"))
+        w.append("- Security tokens (files): %s" % (", ".join("`%s` %d" % kv for kv in sorted(a["security_tokens"].items(), key=lambda kv: -kv[1])) or "none"))
+        w.append("- Blindspot entries: %s" % (", ".join(a["blindspots"]) or "none"))
+        w.append("- Closed bugs: %s" % (", ".join("#%d" % n for n in a["bugs_closed"]) or "none"))
+        w.append("- Open issues: %s" % (", ".join("#%d" % n for n in a["open_issues"]) or "none"))
+    path = os.path.join(dist, "docs/reviews/assessment.md")
+    with open(path, "w") as f:
+        f.write("\n".join(w) + "\n")
+    print("wrote docs/reviews/assessment.md (%d areas; closed bugs %d, open issues %d, friction lines %d, blindspot entries %d)" % (
+        len(out), len(bugs), len(opens), len(friction), len(blind)))
+    return 0
+
+
 def self_test():
     """The counters can fail: a path in no area, a path in two, a catch-all refused."""
     areas = [{"area": "a", "globs": ["x/**", "!x/skip/**"]}, {"area": "b", "globs": ["x/both/*", "es:**"]}]
@@ -894,9 +1080,16 @@ def main():
     ap.add_argument("--inject-path", action="append", help="a synthetic distribution path (the unassigned fixture)")
     ap.add_argument("--no-write", action="store_true")
     ap.add_argument("--self-test", action="store_true")
+    ap.add_argument("--assess", action="store_true", help="write docs/reviews/assessment.md from inventory.json")
     args = ap.parse_args()
     if args.self_test:
         return self_test()
+    if args.assess:
+        try:
+            return assess(args)
+        except (CannotRun, OSError, ValueError) as e:
+            print("renovation-inventory: cannot run: %s" % e, file=sys.stderr)
+            return EX_CANNOT
     try:
         header, rows, counts, unassigned, ambiguous = build(args)
     except (CannotRun, OSError, ValueError) as e:

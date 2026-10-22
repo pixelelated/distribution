@@ -9,6 +9,9 @@ milestone is M6; the epic is #339; the plan for the plan is #346.
 | `plan-for-the-plan.md` | how the program is planned: the survey, the slicing, the ordering lenses, the per-slice procedure, the brief an executor receives, the drift rules, the ledgers | P0 (#346) |
 | `order.md` | the slices in order, each with its lens, paths, line count, the release it gates, its depth and the evidence that closes it (#346's first criterion) | P1 |
 | `inventory.json`, `inventory.md` | every path's root, provenance tier, language, lines, patches, last fork and upstream commits, reachability; the per-area totals | `tools/renovation-inventory` (P1), re-run at every slice close |
+| `assessment.md` | per area, the evidence for the six ordering lenses: security-token files, blindspot, friction, bug and open-issue mentions, churn since 2026-06-01, change since the merge base, callers, unreached and unshipped sizes | `tools/renovation-inventory --assess` (P1), from `inventory.json` and the tracker |
+| `areas.json` | the area map: every tracked path in exactly one area (the one hand-written input to the inventory) | P1, edited when an area is split or an epic filed |
+| `p1-tracking.md` | the survey's multi-pass tracking file: hashes, counts with their commands, each pass's evidence | P1 |
 | `status.md` | one row per slice: area, lines, depth, state, reviewed-at, drift since | `tools/renovation-status` (P1) |
 | `briefs/<slice>.md` | the brief an executing session runs a slice from, ten sections, committed before dispatch | the planner |
 
@@ -80,6 +83,17 @@ every plan; the other projects and the other `distributions/` (nothing sets
 package counts as reached even when its recipe installs it only for some
 devices, so `unreached` is a conservative claim and the slice read refines
 the rest.
+
+`--assess` writes `assessment.md` from the committed `inventory.json` and the
+tracker (`gh issue list --repo pixelelated/distribution`, bounded, failing if
+a list reaches its limit): per area, over its reached code files, the files
+matching the brief's security tokens; the blindspot entries, friction lines,
+closed bugs and open issues naming one of the area's identifiers (its units'
+and code files' names, six characters or more) as a whole word; commits since
+2026-06-01 and the change since the merge base on both trees; callers of its
+ten largest units outside it; its unreached and unshipped sizes. Every count
+is a search, so a lead: the slice read confirms or overturns it. Records are
+not scored.
 
 `--self-test` proves the area counters and the glob rules can fail;
 `--inject-path PATH` adds a synthetic path to a real run (it must fail with
