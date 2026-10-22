@@ -861,7 +861,11 @@ STOP_IDS = {"package", "Makefile", "CMakeLists", "config", "options", "install",
             "script", "linux", "files", "modules", "launch", "functions", "global", "device", "devices", "build",
             "image", "tools", "network", "storage", "release", "version", "source", "systemd", "target", "plugins",
             "drivers", "firmware", "manual", "platform", "helper", "license", "LICENSE", "CHANGELOG", "debian",
-            "Config", "include", "support", "android", "windows", "assets", "bootloader", "filesystem", "testing"}
+            "Config", "include", "support", "android", "windows", "assets", "bootloader", "filesystem", "testing",
+            # names too common to be an edge (pass 4's first matrix): ES and recipe file names, the project's name
+            "CMakeLists.txt", "export", "format", "memory", "assert", "extract", "unpack", "generate", "banner",
+            "services", "resources", "volume", "dialog", "toolchain", "achievements", "pixelelated", "wordmark",
+            "headphones", "emulators", "EmulationStation", "RetroAchievements"}
 
 
 def gh_json(args):
@@ -1032,6 +1036,148 @@ def assess(args):
     return 0
 
 
+SHARED_STATE = [  # pass 4: state several areas may read or write (from the product's /storage paths and setting calls)
+    ("system.cfg / get_setting / set_setting", re.compile(r"system\.cfg|\b[gs]et_setting\b|SystemConf::")),
+    ("es_settings.cfg", re.compile(r"es_settings\.cfg|Settings::getInstance")),
+    ("cloud_sync.conf and its rules", re.compile(r"cloud_sync\.conf|cloud_sync-rules\.txt")),
+    ("cloud sync stamps and lock", re.compile(r"\.cache/cloud_sync|cloud_sync\.lock|last-sync-")),
+    ("rclone.conf", re.compile(r"rclone\.conf")),
+    ("retroarch.cfg and core options", re.compile(r"retroarch\.cfg|retroarch-core-options")),
+    ("raofflineproxy state", re.compile(r"\.config/raofflineproxy|raofflineproxy")),
+    ("backuptool.conf and settings archives", re.compile(r"backuptool\.conf|backuptool\b")),
+    ("/storage/.cache/services", re.compile(r"\.cache/services")),
+    ("the game-end and game-start hooks", re.compile(r"game-end|game-start|fireEvent")),
+    ("/storage/.cache/log and evidence", re.compile(r"\.cache/log|rocknix-evidence")),
+]
+
+
+def area_texts(rows, dist, es, pkg_unit):
+    """{area: [(path, text)]} over reached, non-vendor code files; {area: identifiers}."""
+    texts, ids = defaultdict(list), defaultdict(set)
+    for r in rows:
+        if r["area"] == "records" or r["language"] not in CODE or r["tier"] == "vendor-carried" or r["reach"] == "unreached":
+            continue
+        root = es if r["tree"] == "es" else dist
+        try:
+            with open(os.path.join(root, r["path"]), errors="replace") as f:
+                texts[r["area"]].append((r["path"], f.read()))
+        except OSError:
+            continue
+        leaf = read_unit([r["tree"], r["path"]], pkg_unit).rsplit("/", 1)[-1]
+        stem = r["path"].rsplit("/", 1)[-1].split(".")[0]
+        for x in (leaf, stem):
+            if len(x) >= 6 and x not in STOP_IDS and re.match(r"[A-Za-z][\w.-]*\Z", x):
+                ids[r["area"]].add(x)
+    return texts, ids
+
+
+def cross(args):
+    """docs/reviews/cross-reference.md: every area against every other (pass 4)."""
+    dist, es = os.path.realpath(args.distribution), os.path.realpath(args.es)
+    with open(os.path.join(dist, args.out)) as f:
+        inv = json.load(f)
+    rows = [dict(zip(inv["columns"], r)) for r in inv["rows"]]
+    pkgdirs = package_dirs([r["path"] for r in rows if r["tree"] == "distribution"])
+    pkg_unit = {r["path"]: owning_dir(r["path"], pkgdirs) for r in rows if r["tree"] == "distribution"}
+    texts, ids = area_texts(rows, dist, es, pkg_unit)
+    areas = sorted(texts)
+    owner = defaultdict(set)
+    for a in areas:
+        for i in ids[a]:
+            owner[i].add(a)
+    own = {a: {i for i in ids[a] if owner[i] == {a}} for a in areas}  # an identifier two areas share proves no edge
+    rx = {a: re.compile(r"(?<![\w-])(%s)(?![\w-])" % "|".join(re.escape(i) for i in sorted(own[a], key=len, reverse=True)))
+          for a in areas if own[a]}
+    matrix, evidence = {}, {}
+    for a in areas:
+        for b in areas:
+            if a == b or b not in rx:
+                continue
+            files, names = 0, Counter()
+            for path, text in texts[a]:
+                found = set(rx[b].findall(text))
+                if found:
+                    files += 1
+                    names.update(found)
+            matrix[(a, b)] = files
+            evidence[(a, b)] = [n for n, _ in names.most_common(3)]
+    # doctrine -> area: each rule's paths: globs resolved against the inventory (no paths: = every area)
+    area_of = {(r["tree"], r["path"]): r["area"] for r in rows}
+    rule_edges = Counter()
+    rules_dir = os.path.join(dist, ".claude/rules")
+    for fn in sorted(os.listdir(rules_dir)):
+        if not fn.endswith(".md"):
+            continue
+        with open(os.path.join(rules_dir, fn)) as f:
+            head = f.read().split("\n---", 1)[0]
+        globs = re.findall(r'(?m)^\s*-\s*"([^"]+)"', head) if "paths:" in head else []
+        hit_areas = set()
+        if not globs or "**" in globs:
+            hit_areas = set(areas)
+        else:
+            res = [glob_re(g) for g in globs]
+            hit_areas = {area_of[k] for k in area_of if k[0] == "distribution" and any(x.match(k[1]) for x in res)} & set(areas)
+        for a in hit_areas:
+            rule_edges[a] += 1
+    # patches -> area of the package they patch
+    patch_edges = Counter()
+    pkg_area = {r["path"][:-len("/package.mk")]: r["area"] for r in rows if r["tree"] == "distribution" and r["path"].endswith("/package.mk")}
+    for r in rows:
+        if r["tree"] == "distribution" and r["area"] == "patches-and-configs":
+            own = owning_dir(r["path"], pkgdirs)
+            m = re.match(r"projects/ROCKNIX/patches/([^/]+)/", r["path"])
+            if own:
+                patch_edges[pkg_area.get(own, "(unknown)")] += 1
+            elif m:  # projects/ROCKNIX/patches/<package>/: the area of that package's local or global recipe
+                cand = [d for d in pkg_area if d.rsplit("/", 1)[-1] == m.group(1)]
+                local = [d for d in cand if d.startswith("projects/ROCKNIX/")]
+                patch_edges[pkg_area[(local or cand)[0]] if cand else "(unknown)"] += 1
+            else:  # a device's or another project's own patch directory, or its kernel config
+                patch_edges["devices"] += 1
+    state = {}
+    for label, srx in SHARED_STATE:
+        state[label] = {a: sum(1 for _, t in texts[a] if srx.search(t)) for a in areas}
+    fmt = lambda n: "{:,}".format(n)
+    short = {a: a.split("-")[0] for a in areas}
+    w = ["# Renovation cross-reference: every area against every other", "",
+         "Generated by `tools/renovation-inventory --cross` from `inventory.json` (distribution `%s`, ES `%s`); never "
+         "hand-edited. Pass 4 of the survey draws slice boundaries from these edges (`p1-tracking.md`)." % (
+             inv["header"]["distribution"]["head"][:10], inv["header"]["es"]["head"][:10]), "",
+         "**Call edges.** A cell is the number of the row area's code files (reached, not vendor-carried) that name, "
+         "as a whole word, an identifier only the column area owns: its units' and code files' names, six characters "
+         "or more, generic names excluded, and an identifier two areas share dropped. A search, so a lead.", "",
+         "| from \\ to | " + " | ".join(short[b] for b in areas) + " |",
+         "| --- | " + " | ".join("---:" for _ in areas) + " |"]
+    for a in areas:
+        w.append("| %s | " % a + " | ".join("--" if a == b else fmt(matrix.get((a, b), 0)) for b in areas) + " |")
+    w += ["", "Column keys: " + ", ".join("`%s` %s" % (short[b], b) for b in areas) + ".", "",
+          "**The strongest edges**, each with the identifiers named most:", "",
+          "| From | To | Files | Named most |", "| --- | --- | ---: | --- |"]
+    for (a, b), n in sorted(matrix.items(), key=lambda kv: -kv[1]):
+        if n >= 3:
+            w.append("| %s | %s | %d | %s |" % (a, b, n, ", ".join("`%s`" % x for x in evidence[(a, b)])))
+    w += ["", "**Shared state.** Code files per area touching each piece of state several areas may read or write.", "",
+          "| State | " + " | ".join(short[a] for a in areas) + " |", "| --- | " + " | ".join("---:" for _ in areas) + " |"]
+    for label, _ in SHARED_STATE:
+        w.append("| %s | " % label + " | ".join(fmt(state[label][a]) or "0" for a in areas) + " |")
+    w += ["", "**Doctrine to area.** Rule files under `.claude/rules/` whose `paths:` globs match the area's paths "
+          "(a rule with no `paths:`, or `**`, governs every area):", "",
+          "| Area | Rules |", "| --- | ---: |"]
+    for a in areas:
+        w.append("| %s | %d |" % (a, rule_edges[a]))
+    w += ["", "**Patches to area.** Each `*.patch` and kernel config counted against the area of the package directory "
+          "it sits in:", "", "| Area of the patched package | Patches and configs |", "| --- | ---: |"]
+    for a, n in sorted(patch_edges.items(), key=lambda kv: -kv[1]):
+        w.append("| %s | %s |" % (a, fmt(n)))
+    w += ["", "**Areas with no edge either way:** %s" % (
+        ", ".join(a for a in areas if not any(matrix.get((a, b), 0) or matrix.get((b, a), 0) for b in areas if b != a)) or "none")]
+    with open(os.path.join(dist, "docs/reviews/cross-reference.md"), "w") as f:
+        f.write("\n".join(w) + "\n")
+    print("wrote docs/reviews/cross-reference.md (%d areas, %d directed pairs with an edge)" % (
+        len(areas), sum(1 for v in matrix.values() if v)))
+    return 0
+
+
 def self_test():
     """The counters can fail: a path in no area, a path in two, a catch-all refused."""
     areas = [{"area": "a", "globs": ["x/**", "!x/skip/**"]}, {"area": "b", "globs": ["x/both/*", "es:**"]}]
@@ -1081,9 +1227,16 @@ def main():
     ap.add_argument("--no-write", action="store_true")
     ap.add_argument("--self-test", action="store_true")
     ap.add_argument("--assess", action="store_true", help="write docs/reviews/assessment.md from inventory.json")
+    ap.add_argument("--cross", action="store_true", help="write docs/reviews/cross-reference.md from inventory.json")
     args = ap.parse_args()
     if args.self_test:
         return self_test()
+    if args.cross:
+        try:
+            return cross(args)
+        except (CannotRun, OSError, ValueError) as e:
+            print("renovation-inventory: cannot run: %s" % e, file=sys.stderr)
+            return EX_CANNOT
     if args.assess:
         try:
             return assess(args)
