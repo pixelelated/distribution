@@ -733,7 +733,10 @@ def write_markdown(path, header, rows, counts, pkg_unit):
     w("## Per area")
     w("")
     w("Lines are file lines including blanks (git's numstat against the empty tree); a binary has none. "
-      "`unreached` and `unshipped` count paths; their lines are in the sets below.")
+      "`unreached` and `unshipped` count paths; their lines are in the sets below. *Overlap* counts fork-own paths "
+      "that upstream also changed since the merge base (each still belongs to one area). *Patches* counts `*.patch` "
+      "files wherever they sit; the `patches:` check above compares those under `packages/` and `projects/` with "
+      "`find packages projects -name '*.patch'`, so the records' and doctrine's patches are outside it.")
     w("")
     w("| Area | Paths | Lines | fork-own | upstream-carried | vendor-carried | Patches | Binaries | shipped | unshipped | unreached | n/a | Overlap |")
     w("| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |")
@@ -1279,7 +1282,7 @@ def order(args):
     over, empty = [], []
     for sl, _ in slices:
         c, kind = size[sl["id"]], sl.get("kind", "read")
-        bound = c["read"] if kind == "read" else c["read:fork-own"] if kind == "currency" else 0
+        bound = {"read": c["read"], "currency": c["read:fork-own"], "prose": c["lines"]}.get(kind, 0)
         print("%3d %-34s %-22s %6d paths %9s lines %8s read %8s fork-own %8s patch  %-8s%s" % (
             sl["k"], sl["id"], sl["area"], c["paths"], fmt(c["lines"]), fmt(c["read"]), fmt(c["read:fork-own"]),
             fmt(c["vendor_lines"]), kind, "  OVER 12,000" if bound > 12000 else ""))
@@ -1297,7 +1300,8 @@ def order(args):
              "slice: `unassigned: %d`, `ambiguous: %d` over %s rows. *Read* is code lines a slice reads line by line "
              "(code languages, not vendor-carried, not unreached); a *currency* slice reads its fork-own files line by line "
              "and checks the rest for reachability and currency (plan § 2), so its size is its fork-own lines; a table "
-             "slice reads rows, one per path, not lines. *Patch and config lines* are the vendor-carried files the slice "
+             "slice reads rows, one per path, not lines; a *prose* slice (the doctrine) reads its text, so its size is its "
+             "lines. *Patch and config lines* are the vendor-carried files the slice "
              "holds (fork-written ones are read with their code, the rest by provenance), counted apart from *Read*." % (
                  inv["header"]["distribution"]["head"][:10], inv["header"]["es"]["head"][:10],
                  len(unassigned), len(ambiguous), fmt(len(rows))), "",
@@ -1307,7 +1311,8 @@ def order(args):
         c, kind = size[sl["id"]], sl.get("kind", "read")
         lines.append("| %d | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (
             sl["k"], sl["title"], sl["area"], kind, sl["lens"], fmt(c["paths"]), fmt(c["lines"]),
-            "-- (%s rows)" % fmt(c["paths"]) if kind == "table" else "%s (%s)" % (fmt(c["read"]), fmt(c["read:fork-own"])),
+            "-- (%s rows)" % fmt(c["paths"]) if kind == "table" else "%s of prose" % fmt(c["lines"]) if kind == "prose"
+            else "%s (%s)" % (fmt(c["read"]), fmt(c["read:fork-own"])),
             fmt(c["vendor_lines"]), sl.get("gate") or "none", sl["depth"]))
     def describe(sl):
         sels = sl.get("select", {})

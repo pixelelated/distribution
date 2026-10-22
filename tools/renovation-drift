@@ -9,8 +9,14 @@
   tools/renovation-drift --self-test
 
 For every slice in docs/reviews/slices.json with a `fixed_at` (written at the
-slice's stage H: a distribution commit, and for a slice with EmulationStation
-paths an `es` commit), it diffs `<fixed_at>..<target>` over the slice's paths
+slice's stage H as {"distribution": <commit>, "es": <commit>}, the `es` key
+for a slice with EmulationStation paths; a bare string is a distribution
+commit), it diffs from the baseline to `<target>` over the slice's paths. The
+baseline is `drift_checked_at` when a drift review has accepted the changes
+since (it then advances, so reviewed drift is not reported again), else
+`fixed_at`; a dependency replaced under a slice (an interacting subsystem,
+not its own paths) is the planner's call, recorded on the slice issue, not
+this tool's
 (the slice's rows of docs/reviews/inventory.json, the same membership
 `tools/renovation-inventory --order` uses) and reports the files touched, the
 lines changed, that as a share of the slice's lines, and whether a file on
@@ -19,7 +25,7 @@ The EmulationStation target is the pin `<target>` carries in
 projects/ROCKNIX/packages/ui/emulationstation/package.mk.
 
 Plan § 8: a slice whose drift is under 20 % of its lines and touches no
-sensitive file is re-reviewed at issue tier (`small`); one over 20 %, or
+sensitive file is re-reviewed at issue tier (`small`); one at 20 % or more, or
 touching a sensitive file, re-opens (`re-open`), and a sensitive file
 re-opens at Extended depth whatever the slice's own (order.md). A table
 slice's share is counted in rows (paths changed of its paths), since its
@@ -86,7 +92,7 @@ def verdict(changed, slice_lines, sensitive_hits, table_paths=None):
     if not changed:
         return "none"
     share = len(changed) / max(table_paths, 1) if table_paths else sum(changed.values()) / max(slice_lines, 1)
-    return "re-open" if sensitive_hits or share > SMALL_SHARE else "small"
+    return "re-open" if sensitive_hits or share >= SMALL_SHARE else "small"  # under 20 % small; 20 % or more re-opens
 
 
 def run(args):
@@ -117,7 +123,7 @@ def run(args):
     es_pin = None
     report, worst = [], 0
     for sl, _ in slices:
-        fixed = pretend.get(sl["id"]) or sl.get("fixed_at")
+        fixed = pretend.get(sl["id"]) or sl.get("drift_checked_at") or sl.get("fixed_at")
         if not fixed:
             continue
         if isinstance(fixed, str):
@@ -173,7 +179,7 @@ def run(args):
 
 def self_test():
     cases = [({}, 1000, [], None, "none"), ({"a": 10}, 1000, [], None, "small"), ({"a": 201}, 1000, [], None, "re-open"),
-             ({"a": 1}, 1000, ["launch-path"], None, "re-open"), ({"a": 200}, 1000, [], None, "small"),
+             ({"a": 1}, 1000, ["launch-path"], None, "re-open"), ({"a": 199}, 1000, [], None, "small"), ({"a": 200}, 1000, [], None, "re-open"),
              ({"a": 5000, "b": 1}, 0, [], 100, "small"), ({str(i): 1 for i in range(21)}, 0, [], 100, "re-open")]
     bad = 0
     for changed, total, hit, rows, want in cases:
