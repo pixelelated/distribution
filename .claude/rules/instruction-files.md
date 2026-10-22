@@ -192,6 +192,7 @@ both lists and to this table, or it is invisible.**
 | `release-catalog` | what each kept cut carried, what was proven on it and where it is, generated from the artifacts' RECORD.txt into `docs/releases/catalog.md` (D-WORKFLOW-044) | `issue-tracking.md` |
 | `rc-preflight` | may this tree be cut as a release candidate: packages current, the bases level with ROCKNIX, no bug without a disposition, the record clean -- or each finding accepted by a register row (#271, D-WORKFLOW-047) | `release-candidates.md` |
 | `pr-stack-check` | build the upstream series by content from `docs/pr-series/map.txt` in a throwaway worktree, and prove the last head equals `next` on every upstream-bound path (#322) | `fork-workflow.md` |
+| `renovation-inventory` | every tracked path of the distribution and the EmulationStation fork with its area, provenance tier, lines, last commits and reachability by the images the Makefile builds; fails when a count disagrees or a path is in no area or two (M6.P1, #641) | `docs/reviews/README.md` |
 | `es-launch-memory` | capture stable-PID launch/exit memory and successful exit-sync stamps on an owned QA guest | `generic-x64-vm-testing.md` |
 | `build-identity-test` | execute actual image identity blocks and offline release plans with RC/release, engineering and tamper controls (#532) | `device-builds.md` |
 | `usb-gadget-test` | run actual USB preparation functions with old/new version metadata in a disposable configfs fixture; preserve descriptor identities and mode links (#531) | `generic-x64-vm-testing.md` |

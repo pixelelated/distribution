@@ -1,0 +1,801 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+"""renovation-inventory -- every tracked path of the distribution and of the
+EmulationStation fork, with its area, provenance tier, language, lines, last
+commits and reachability by the images the Makefile builds (M6.P1, #641).
+
+  tools/renovation-inventory [--distribution DIR] [--es DIR]
+      [--areas docs/reviews/areas.json] [--plans DIR]
+      [--out docs/reviews/inventory.json] [--markdown docs/reviews/inventory.md]
+      [--inject-path PATH ...] [--no-write]
+  tools/renovation-inventory --self-test
+
+Prints, and exits 1 unless each pair agrees and both counters are 0:
+  paths: N (git ls-files: N)
+  es-paths: N (git ls-files: N)
+  patches: N (find: N)
+  unassigned: N
+  ambiguous: N
+
+Exit 2 when it cannot run (a git command, a plan, a missing input).
+
+Rules (docs/reviews/README.md, the futro of 2026-10-22):
+
+- The inventory reads committed trees: the distribution at its HEAD, the ES
+  checkout at its HEAD (a detached worktree at the pin). Each total is checked
+  against `git ls-files` there, so staged-but-uncommitted paths fail the run.
+- Areas: a glob is relative to the distribution unless prefixed `es:`; a glob
+  prefixed `!` excludes within its own area; `**` crosses `/`, `*` and `?`
+  stay inside a segment, `{a,b}` alternates literal text. A path must match
+  exactly one area: none counts as `unassigned`, two or more as `ambiguous`.
+  A bare `**` on the distribution is refused, since it would make
+  `unassigned` 0 whatever the tree held.
+- Tiers: fork-own is `git diff --name-only <merge-base> HEAD` (the merge base
+  with upstream/next, or on ES with rocknix/master); a fork-own path that
+  upstream also changed since the base carries `overlap`. Every other path is
+  upstream-carried. Every `*.patch` and kernel `linux*.conf` under packages/
+  or projects/ is vendor-carried, `tier_note: fork-written` when fork-own.
+- Reachability: `tools/viewplan` per device and arch the Makefile builds,
+  `image` for the 64-bit plans and `arm` (projects/ROCKNIX/packages/virtual/arm)
+  for 32-bit where the device's ENABLE_32BIT is true, with PROJECT, DEVICE
+  and ARCH always set, run by default in the build image the Makefile pins
+  by digest (it must be local; `--runner host` is the explicit alternative,
+  recorded in the header): the host lacks xmlstarlet, which
+  distributions/ROCKNIX/config/functions needs for SUBDEVICES, and a host plan
+  silently drops every subdevice bootloader. The checkout is mounted
+  read-only and BUILD_DIR sits in the container's /tmp; on the host BUILD_DIR
+  is a directory this tool owns. Either way the run fails if the checkout's
+  ignored set changes. Each package in a plan is
+  then sourced with config/functions' `source_package`, and its PKG_DIR,
+  PKG_VERSION and PKG_PATCH_DIRS give the patch directories scripts/unpack
+  would apply, by unpack's own rules. A path inside a package directory is
+  reached when that directory is a plan package's PKG_DIR (a patch only when
+  its directory is selected); a generic package.mk sourced by a reached
+  override is reached with it; a device's own files are reached by that
+  device's plans; projects/ROCKNIX's bootloader, filesystem, options and
+  config.xml by every plan; ES by the plans that build emulationstation.
+  `reach` is `shipped` (a shipped device's plan), `unshipped` (only other
+  devices' plans), `unreached` (a package or project path no plan reaches),
+  or `n/a` (a path no image plan can hold: the engine, tools, doctrine,
+  records). Reachability errs toward reached: a file in a reached package is
+  reached even if its recipe installs it only for some devices.
+"""
+
+import argparse
+import concurrent.futures
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+import time
+from collections import Counter, defaultdict
+
+EMPTY_TREE = "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+SHIPPED = ("RK3566", "H700", "RK3326", "SM8550", "GENERIC_X64")  # device-builds.md § Our devices
+EX_FAIL, EX_CANNOT = 1, 2
+COLUMNS = ["tree", "path", "area", "tier", "tier_note", "overlap", "language",
+           "lines", "patches", "last_fork_commit", "last_upstream_commit",
+           "reach", "reachable_by", "buildable_by"]
+
+SOURCE_HELPER = r'''
+. config/options "" >/dev/null 2>&1 || { echo "META-FAIL config/options"; exit 0; }
+printf 'META\t%s\t%s\n' "${ENABLE_32BIT}" "${ROOT}"
+while read -r name; do
+  [ -n "${name}" ] || continue
+  exited=0
+  exit() { exited=1; }
+  if source_package "${name}" >/dev/null 2>&1 && [ ${exited} -eq 0 ]; then
+    if [ "${TARGET_ARCH}" = "x86_64" ]; then
+      PATCH_ARCH="x86"
+    elif [ "${PKG_IS_KERNEL_PKG}" = "yes" ]; then
+      PATCH_ARCH="${TARGET_KERNEL_PATCH_ARCH:-${TARGET_ARCH}}"
+    else
+      PATCH_ARCH="${TARGET_PATCH_ARCH:-${TARGET_ARCH}}"
+    fi
+    printf 'PKG\t%s\t%s\t%s\t%s\t%s\t%s\n' "${name}" "${PKG_NAME}" "${PKG_DIR}" \
+      "${PKG_VERSION}" "${PATCH_ARCH}" "${PKG_PATCH_DIRS}"
+  else
+    printf 'SKIP\t%s\n' "${name}"
+  fi
+  unset -f exit
+done
+'''
+
+
+class CannotRun(Exception):
+    pass
+
+
+def git(repo, *args, text=True):
+    r = subprocess.run(["git", "-C", repo, "-c", "core.quotePath=false", *args],
+                       capture_output=True, text=text)
+    if r.returncode != 0:
+        raise CannotRun("git %s: %s" % (" ".join(args[:3]), (r.stderr or "").strip()[:300]))
+    return r.stdout
+
+
+def zsplit(out):
+    return [p for p in out.split("\0") if p]
+
+
+# ---- globs and areas -------------------------------------------------------
+
+def glob_re(g):
+    out, i = "", 0
+    while i < len(g):
+        if g.startswith("**/", i):
+            out += "(?:.*/)?"
+            i += 3
+        elif g.startswith("**", i):
+            out += ".*"
+            i += 2
+        elif g[i] == "*":
+            out += "[^/]*"
+            i += 1
+        elif g[i] == "?":
+            out += "[^/]"
+            i += 1
+        elif g[i] == "{":
+            j = g.index("}", i)
+            out += "(?:" + "|".join(re.escape(x) for x in g[i + 1:j].split(",")) + ")"
+            i = j + 1
+        else:
+            out += re.escape(g[i])
+            i += 1
+    return re.compile(out + r"\Z")
+
+
+def load_areas(areas):
+    """[(name, {tree: [include re]}, {tree: [exclude re]})]; refuses a catch-all."""
+    compiled = []
+    for a in areas:
+        inc, exc = defaultdict(list), defaultdict(list)
+        for g in a["globs"]:
+            neg = g.startswith("!")
+            g = g[1:] if neg else g
+            tree = "es" if g.startswith("es:") else "distribution"
+            g = g[3:] if tree == "es" else g
+            if not neg and tree == "distribution" and g == "**":
+                raise CannotRun("area %s: a bare ** on the distribution would hide every unassigned path" % a["area"])
+            (exc if neg else inc)[tree].append(glob_re(g))
+        compiled.append((a["area"], inc, exc))
+    return compiled
+
+
+def assign(compiled, tree, path):
+    hits = [name for name, inc, exc in compiled
+            if any(r.match(path) for r in inc.get(tree, ()))
+            and not any(r.match(path) for r in exc.get(tree, ()))]
+    return hits
+
+
+# ---- per-tree facts ----------------------------------------------------------
+
+def tracked(repo):
+    head = zsplit(git(repo, "ls-tree", "-r", "-z", "--name-only", "HEAD"))
+    index = zsplit(git(repo, "ls-files", "-z"))
+    return head, len(index)
+
+
+def line_counts(repo):
+    lines = {}
+    out = zsplit(git(repo, "diff-tree", "-r", "--numstat", "-z", "--no-renames", EMPTY_TREE, "HEAD"))
+    for rec in out:
+        added, _deleted, path = rec.split("\t", 2)
+        lines[path] = None if added == "-" else int(added)
+    return lines
+
+
+def last_commits(repo, rev):
+    """{path: "<hash10> <yyyy-mm-dd>"} for the newest commit in rev touching it."""
+    out = git(repo, "log", "--no-renames", "--format=%x01%H %cs", "--name-only", rev)
+    seen, current = {}, None
+    for line in out.split("\n"):
+        if line.startswith("\x01"):
+            h, d = line[1:].split(" ", 1)
+            current = "%s %s" % (h[:10], d)
+        elif line and current:
+            if line.startswith('"') and line.endswith('"'):
+                line = line[1:-1].encode("latin-1", "backslashreplace").decode("unicode_escape").encode("latin-1").decode("utf-8", "replace")
+            seen.setdefault(line, current)
+    return seen
+
+
+SHEBANGS = (("python", "python"), ("bash", "shell"), ("/sh", "shell"), ("busybox", "shell"),
+            ("env sh", "shell"), ("node", "javascript"), ("perl", "perl"), ("tsx", "typescript"))
+EXT = {
+    ".sh": "shell", ".bash": "shell", ".py": "python", ".mk": "make", ".patch": "patch",
+    ".diff": "patch", ".c": "c", ".h": "c-header", ".cpp": "c++", ".cc": "c++", ".hpp": "c++-header",
+    ".dts": "devicetree", ".dtsi": "devicetree", ".md": "markdown", ".json": "json", ".yml": "yaml",
+    ".yaml": "yaml", ".xml": "xml", ".conf": "config", ".cfg": "config", ".ini": "config",
+    ".service": "systemd", ".timer": "systemd", ".target": "systemd", ".mount": "systemd",
+    ".socket": "systemd", ".path": "systemd", ".rules": "udev", ".ts": "typescript", ".mjs": "javascript",
+    ".js": "javascript", ".html": "html", ".css": "css", ".txt": "text", ".po": "translation",
+    ".pot": "translation", ".png": "image", ".jpg": "image", ".jpeg": "image", ".svg": "image",
+    ".gif": "image", ".ttf": "font", ".otf": "font", ".log": "log", ".csv": "data", ".tsv": "data",
+    ".cmake": "cmake", ".glsl": "shader", ".lua": "lua", ".toml": "config", ".rs": "rust", ".go": "go",
+    ".java": "java", ".kt": "kotlin", ".asm": "assembly", ".s": "assembly", ".S": "assembly",
+}
+NAMES = {"package.mk": "recipe", "Makefile": "make", "Dockerfile": "docker", "CMakeLists.txt": "cmake",
+         "options": "shell", "Kconfig": "kconfig"}
+
+
+def language(root, path):
+    base = path.rsplit("/", 1)[-1]
+    if base in NAMES:
+        return NAMES[base]
+    if re.match(r"linux.*\.conf\Z", base) and (path.startswith("packages/") or path.startswith("projects/")):
+        return "kernel-config"
+    stem, dot, ext = base.rpartition(".")
+    if dot and stem and ext:
+        lang = EXT.get("." + ext) or EXT.get("." + ext.lower())
+        if lang:
+            return lang
+    full = os.path.join(root, path)
+    try:
+        if os.path.islink(full):
+            return "symlink"
+        with open(full, "rb") as f:
+            head = f.read(96)
+    except OSError:
+        return "unknown"
+    if head.startswith(b"#!"):
+        first = head.split(b"\n", 1)[0].decode("utf-8", "replace")
+        for key, lang in SHEBANGS:
+            if key in first:
+                return lang
+        return "script"
+    return "other" if dot else "none"
+
+
+def is_vendor(path):
+    if not (path.startswith("packages/") or path.startswith("projects/")):
+        return False
+    base = path.rsplit("/", 1)[-1]
+    return base.endswith(".patch") or bool(re.match(r"linux.*\.conf\Z", base))
+
+
+# ---- reachability ------------------------------------------------------------
+
+def makefile_configs(dist):
+    """[(device, arch)] in Makefile order, from its PROJECT=ROCKNIX DEVICE= ARCH= build_distro lines."""
+    with open(os.path.join(dist, "Makefile")) as f:
+        text = f.read()
+    seen = []
+    for dev, arch in re.findall(r"PROJECT=ROCKNIX DEVICE=(\S+) ARCH=(\S+) \./scripts/build_distro", text):
+        if (dev, arch) not in seen:
+            seen.append((dev, arch))
+    return seen
+
+
+def plan_env(dist, device, arch, build_dir):
+    env = {k: v for k, v in os.environ.items()
+           if k not in ("PROJECT", "DEVICE", "ARCH", "DEVICE_ROOT", "BUILD_DIR", "DISTRO")
+           and not k.startswith("_CACHE_PACKAGE") and not k.startswith("_DEBUG_")}
+    env.update(PROJECT="ROCKNIX", DEVICE=device, ARCH=arch, BUILD_DIR=build_dir)
+    for var in ("PROJECT", "DEVICE", "ARCH"):  # config/options defaults DEVICE to SM8550 when unset
+        if not env.get(var):
+            raise CannotRun("%s unset for a plan run" % var)
+    return env
+
+
+def pinned_image(dist):
+    """The build container the Makefile pins, by digest; it must already be local (never pulled here)."""
+    with open(os.path.join(dist, "Makefile")) as f:
+        m = re.search(r"DOCKER_IMAGE_DIGEST\s*:=\s*(sha256:[0-9a-f]{64})", f.read())
+    if not m:
+        raise CannotRun("no DOCKER_IMAGE_DIGEST in the Makefile")
+    r = subprocess.run(["docker", "image", "inspect", "--format", "{{.Id}}", m.group(1)], capture_output=True, text=True)
+    if r.returncode != 0 or r.stdout.strip() != m.group(1):
+        raise CannotRun("the pinned build image %s is not local (make docker-image-pull), or use --runner host" % m.group(1))
+    return m.group(1)
+
+
+class Runner:
+    """Runs a command in the build's own environment: the pinned container (default) or this host.
+
+    The container gets the checkout and the main repository's .git read-only at their own paths,
+    no network, the caller's uid, and BUILD_DIR in its own /tmp, so nothing it does can land in
+    the checkout. The host runner sets BUILD_DIR to a directory this tool owns."""
+
+    def __init__(self, mode, dist, scratch):
+        self.mode, self.dist, self.scratch = mode, dist, scratch
+        if mode == "container":
+            self.image = pinned_image(dist)
+            common = git(dist, "rev-parse", "--path-format=absolute", "--git-common-dir").strip()
+            self.mounts = ["-v", "%s:%s:ro" % (dist, dist), "-v", "%s:%s:ro" % (common, common)]
+        else:
+            self.image = None
+
+    def run(self, device, arch, argv, stdin=""):
+        if self.mode == "container":
+            env = plan_env(self.dist, device, arch, "/tmp/renovation-plan")
+            cmd = ["docker", "run", "--rm", "-i", "--network", "none", "--user", "%d:%d" % (os.getuid(), os.getgid()),
+                   *self.mounts, "-w", self.dist, "-e", "HOME=/tmp"]
+            for k in ("PROJECT", "DEVICE", "ARCH", "BUILD_DIR"):
+                cmd += ["-e", "%s=%s" % (k, env[k])]
+            return subprocess.run(cmd + [self.image] + argv, input=stdin, capture_output=True, text=True)
+        build_dir = tempfile.mkdtemp(prefix="plan-%s-%s-" % (device, arch), dir=self.scratch)
+        env = plan_env(self.dist, device, arch, build_dir)
+        return subprocess.run(argv, cwd=self.dist, env=env, input=stdin, capture_output=True, text=True)
+
+
+def one_plan(dist, device, arch, runner, plans_dir):
+    meta = runner.run(device, arch, ["bash", "-c", SOURCE_HELPER], "")
+    m = [l.split("\t") for l in meta.stdout.splitlines() if l.startswith("META")]
+    if not m or m[0][0] != "META":
+        raise CannotRun("config/options for %s-%s: %s" % (device, arch, meta.stdout[:200]))
+    enable32, root = m[0][1], m[0][2]
+    if os.path.realpath(root) != dist:  # PKG_DIR is reported under ROOT; a different ROOT reaches nothing
+        raise CannotRun("config/options ROOT %s is not the distribution %s" % (root, dist))
+    if arch == "arm" and enable32 != "true":
+        return {"config": "%s-%s" % (device, arch), "skipped": "ENABLE_32BIT=%s" % enable32}
+    root_pkg = "arm" if arch == "arm" else "image"
+    plan_file = os.path.join(plans_dir, "plan-%s-%s.txt" % (device, arch)) if plans_dir else None
+    if plan_file and os.path.exists(plan_file):
+        with open(plan_file) as f:
+            plan_text = f.read()
+    else:
+        r = runner.run(device, arch, ["tools/viewplan", root_pkg])
+        if r.returncode != 0:
+            raise CannotRun("viewplan %s for %s-%s exited %d: %s" % (root_pkg, device, arch, r.returncode, r.stderr[-300:]))
+        plan_text = r.stdout
+        if plan_file:
+            with open(plan_file, "w") as f:
+                f.write(plan_text)
+    names, actions = set(), Counter()
+    for line in plan_text.splitlines():
+        parts = line.split()
+        if len(parts) >= 2 and parts[0] in ("build", "install", "unpack"):
+            names.add(parts[1].split(":", 1)[0])  # "build openssl:host", "install rclone"
+            actions[parts[0]] += 1
+    if root_pkg not in names:  # "install image" in a 64-bit plan; "build arm" in a 32-bit one
+        raise CannotRun("plan for %s-%s has no install of %s (actions %s)" % (device, arch, root_pkg, dict(actions)))
+    r = runner.run(device, arch, ["bash", "-c", SOURCE_HELPER], "\n".join(sorted(names)) + "\n")
+    pkgs, skipped = {}, []
+    for line in r.stdout.splitlines():
+        f = line.split("\t")
+        if f[0] == "PKG":
+            if not f[3].startswith(dist + "/"):
+                raise CannotRun("%s-%s: PKG_DIR %s is outside the distribution" % (device, arch, f[3]))
+            pkgs[f[1]] = {"pkg_name": f[2], "dir": f[3], "version": f[4], "patch_arch": f[5], "patch_dirs": f[6].split()}
+        elif f[0] == "SKIP":
+            skipped.append(f[1])
+    if not pkgs:
+        raise CannotRun("no package of %s-%s could be sourced" % (device, arch))
+    return {"config": "%s-%s" % (device, arch), "device": device, "arch": arch,
+            "root": root_pkg, "packages": pkgs, "unsourced": sorted(skipped),
+            "plan_lines": len(plan_text.splitlines())}
+
+
+def selected_patch_dirs(info, device, root):
+    """The directories scripts/unpack globs *.patch in, as tree-relative paths."""
+    d, name = info["dir"], info["pkg_name"]
+    v, pa = info["version"], info["patch_arch"]
+    prj = os.path.join(root, "projects", "ROCKNIX")
+    dirs = [d + "/patches", d + "/patches/" + pa, d + "/patches/" + v, d + "/patches/%s/%s" % (v, pa),
+            prj + "/patches/" + name, prj + "/patches/%s/%s" % (name, pa), prj + "/patches/%s/%s" % (name, v),
+            prj + "/devices/%s/patches/%s" % (device, name)]
+    for p in info["patch_dirs"]:
+        if p.startswith("/"):
+            dirs.append(p)
+        else:
+            dirs += [d + "/patches/" + p, prj + "/patches/%s/%s" % (name, p),
+                     prj + "/devices/%s/patches/%s/%s" % (device, name, p)]
+    out = set()
+    for x in dirs:
+        x = os.path.normpath(x)
+        if x.startswith(root + "/"):
+            out.add(x[len(root) + 1:])
+    return out
+
+
+def package_dirs(paths):
+    return {p[:-len("/package.mk")] for p in paths if p.endswith("/package.mk")}
+
+
+def owning_dir(path, pkgdirs):
+    parts = path.split("/")
+    for i in range(len(parts) - 1, 0, -1):
+        cand = "/".join(parts[:i])
+        if cand in pkgdirs:
+            return cand
+    return None
+
+
+SOURCED = re.compile(r"\$\{?ROOT\}?/((?:packages|projects)/[^\s\"']*?)/package\.mk")
+
+
+def compute_reach(dist, paths, plans, devices):
+    """{path: set(configs)} for distribution paths; None for n/a paths."""
+    pkgdirs = package_dirs(paths)
+    sourced = {}
+    for d in pkgdirs:
+        try:
+            with open(os.path.join(dist, d, "package.mk"), errors="replace") as f:
+                sourced[d] = {m for m in SOURCED.findall(f.read()) if m in pkgdirs and m != d}
+        except OSError:
+            sourced[d] = set()
+    reached_dir = defaultdict(set)    # package dir -> configs (non-patch files)
+    reached_pdir = defaultdict(set)   # patch directory -> configs
+    project_wide, by_device, es_configs = set(), defaultdict(set), set()
+    for p in plans:
+        if p.get("skipped"):
+            continue
+        cfg = p["config"]
+        project_wide.add(cfg)
+        by_device[p["device"]].add(cfg)
+        for name, info in p["packages"].items():
+            d = info["dir"]
+            rel = d[len(dist) + 1:] if d.startswith(dist + "/") else d
+            reached_dir[rel].add(cfg)
+            for s in sourced.get(rel, ()):
+                reached_dir[s + "/package.mk"].add(cfg)  # only the sourced recipe itself
+            for pd in selected_patch_dirs(info, p["device"], dist):
+                reached_pdir[pd].add(cfg)
+            if name == "emulationstation":
+                es_configs.add(cfg)
+    reach = {}
+    for path in paths:
+        if not (path.startswith("packages/") or path.startswith("projects/")):
+            reach[path] = None
+            continue
+        if path.startswith("projects/") and not path.startswith("projects/ROCKNIX/"):
+            reach[path] = set()  # other projects: no Makefile target sets their PROJECT
+            continue
+        if path.endswith(".patch"):
+            reach[path] = set(reached_pdir.get(path.rsplit("/", 1)[0], ()))
+            continue
+        own = owning_dir(path, pkgdirs)
+        if own:
+            got = set(reached_dir.get(own, ())) | set(reached_dir.get(path, ()))
+            reach[path] = got
+            continue
+        m = re.match(r"projects/ROCKNIX/devices/([^/]+)/", path)
+        if m:
+            reach[path] = set(by_device.get(m.group(1), ())) if m.group(1) in devices else set()
+            continue
+        if re.match(r"projects/ROCKNIX/(bootloader/|filesystem/|options\Z|config\.xml\Z)", path):
+            reach[path] = set(project_wide)
+            continue
+        reach[path] = None  # README, templates and other non-package paths under packages/
+    return reach, es_configs
+
+
+def split_reach(configs):
+    shipped = sorted(c for c in configs if c.rsplit("-", 1)[0] in SHIPPED)
+    other = sorted(c for c in configs if c.rsplit("-", 1)[0] not in SHIPPED)
+    if shipped:
+        return "shipped", shipped, other
+    if other:
+        return "unshipped", [], other
+    return "unreached", [], []
+
+
+def ignored_set(repo):
+    return git(repo, "status", "--porcelain", "--ignored", "-z")
+
+
+# ---- assembly ---------------------------------------------------------------
+
+def build(args):
+    dist = os.path.realpath(args.distribution)
+    es = os.path.realpath(args.es)
+    with open(os.path.join(dist, args.areas) if not os.path.isabs(args.areas) else args.areas) as f:
+        compiled = load_areas(json.load(f))
+    t0 = time.time()
+
+    upstream = "upstream/next"
+    mb = git(dist, "merge-base", "HEAD", upstream).strip()
+    head = git(dist, "rev-parse", "HEAD").strip()
+    dpaths, d_index = tracked(dist)
+    dlines = line_counts(dist)
+    fork = set(zsplit(git(dist, "diff", "--name-only", "-z", "--no-renames", mb, "HEAD")))
+    up_only = set(zsplit(git(dist, "diff", "--name-only", "-z", "--no-renames", mb, upstream)))
+    d_last_fork = last_commits(dist, "%s..HEAD" % mb)
+    d_last_up = last_commits(dist, upstream)
+
+    es_head = git(es, "rev-parse", "HEAD").strip()
+    es_up = "rocknix/master"
+    emb = git(es, "merge-base", es_up, "HEAD").strip()
+    epaths, e_index = tracked(es)
+    elines = line_counts(es)
+    efork = set(zsplit(git(es, "diff", "--name-only", "-z", "--no-renames", emb, "HEAD")))
+    eup_only = set(zsplit(git(es, "diff", "--name-only", "-z", "--no-renames", emb, es_up)))
+    e_last_fork = last_commits(es, "%s..HEAD" % emb)
+    e_last_up = last_commits(es, es_up)
+    t_git = time.time() - t0
+
+    # reachability
+    configs = makefile_configs(dist)
+    devices = sorted({d for d, _ in configs})
+    before = ignored_set(dist)
+    scratch = tempfile.mkdtemp(prefix="renovation-inventory-")
+    plans = []
+    t1 = time.time()
+    try:
+        runner = Runner(args.runner, dist, scratch)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex:
+            futs = [ex.submit(one_plan, dist, d, a, runner, args.plans) for d, a in configs]
+            for fu in futs:
+                plans.append(fu.result())
+    finally:
+        shutil.rmtree(scratch, ignore_errors=True)
+    t_plans = time.time() - t1
+    if ignored_set(dist) != before:
+        raise CannotRun("the checkout's ignored set changed across the plan runs: something wrote into it")
+    reach, es_configs = compute_reach(dist, dpaths, plans, devices)
+
+    rows, unassigned, ambiguous = [], [], []
+    injected = list(args.inject_path or [])
+    for tree, paths, lines, forkset, uponly, lf, lu, root in (
+            ("distribution", dpaths + injected, dlines, fork, up_only, d_last_fork, d_last_up, dist),
+            ("es", epaths, elines, efork, eup_only, e_last_fork, e_last_up, es)):
+        for path in paths:
+            hits = assign(compiled, tree, path)
+            if not hits:
+                unassigned.append((tree, path))
+            elif len(hits) > 1:
+                ambiguous.append((tree, path, hits))
+            area = hits[0] if len(hits) == 1 else None
+            vendor = tree == "distribution" and is_vendor(path)
+            fork_own = path in forkset
+            tier = "vendor-carried" if vendor else ("fork-own" if fork_own else "upstream-carried")
+            note = "fork-written" if vendor and fork_own else None
+            if tree == "es":
+                rs = "shipped" if any(c.rsplit("-", 1)[0] in SHIPPED for c in es_configs) else ("unshipped" if es_configs else "unreached")
+                rb = sorted(c for c in es_configs if c.rsplit("-", 1)[0] in SHIPPED)
+                bb = sorted(c for c in es_configs if c.rsplit("-", 1)[0] not in SHIPPED)
+            else:
+                cfgs = reach.get(path)
+                if cfgs is None:
+                    rs, rb, bb = "n/a", [], []
+                else:
+                    rs, rb, bb = split_reach(cfgs)
+            rows.append([tree, path, area, tier, note, bool(fork_own and path in uponly),
+                         language(root, path), lines.get(path), None, lf.get(path), lu.get(path),
+                         rs, rb, bb])
+
+    # patches per package.mk: count of *.patch under its own directory
+    patch_paths = [r[1] for r in rows if r[0] == "distribution" and r[1].endswith(".patch")
+                   and (r[1].startswith("packages/") or r[1].startswith("projects/"))]
+    pkgdirs = package_dirs(dpaths)
+    per_dir = Counter()
+    for p in patch_paths:
+        own = owning_dir(p, pkgdirs)
+        if own:
+            per_dir[own] += 1
+    for r in rows:
+        if r[0] == "distribution" and r[1].endswith("/package.mk"):
+            r[8] = per_dir.get(r[1][:-len("/package.mk")], 0)
+
+    found = 0
+    for base in ("packages", "projects"):
+        for dp, _dn, fn in os.walk(os.path.join(dist, base)):
+            found += sum(1 for n in fn if n.endswith(".patch"))
+
+    header = {
+        "generated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "generator": "tools/renovation-inventory",
+        "distribution": {"head": head, "upstream": upstream, "upstream_head": git(dist, "rev-parse", upstream).strip(),
+                         "merge_base": mb},
+        "es": {"head": es_head, "upstream": es_up, "upstream_head": git(es, "rev-parse", es_up).strip(),
+               "merge_base": emb, "batocera_master": git(es, "rev-parse", "batocera/master").strip()},
+        "configs": [{k: v for k, v in p.items() if k != "packages"} | ({"packages": len(p["packages"])} if "packages" in p else {})
+                    for p in plans],
+        "shipped_devices": list(SHIPPED),
+        "plan_runner": {"mode": args.runner, "image": runner.image},
+        "seconds": {"git": round(t_git, 1), "plans": round(t_plans, 1)},
+    }
+    counts = {"paths": (len(dpaths) + len(injected), d_index), "es-paths": (len(epaths), e_index),
+              "patches": (len(patch_paths), found), "unassigned": len(unassigned), "ambiguous": len(ambiguous)}
+    return header, rows, counts, unassigned, ambiguous
+
+
+def write_json(path, header, rows):
+    with open(path, "w") as f:
+        f.write('{"header": %s,\n "columns": %s,\n "rows": [\n' % (json.dumps(header, sort_keys=True), json.dumps(COLUMNS)))
+        rows = sorted(rows, key=lambda r: (r[0], r[1]))
+        f.write(",\n".join(json.dumps(r, separators=(",", ":")) for r in rows))
+        f.write("\n]}\n")
+
+
+def unit_of(row):
+    tree, path = row[0], row[1]
+    if tree == "es":
+        return "es:" + "/".join(path.split("/")[:2])
+    parts = path.split("/")
+    if parts[0] == "projects" and len(parts) > 2 and parts[1] != "ROCKNIX":
+        return "/".join(parts[:2])
+    if path.endswith(".patch"):
+        return path.rsplit("/", 1)[0]
+    return None
+
+
+def write_markdown(path, header, rows, counts, pkg_unit):
+    fmt = lambda n: "{:,}".format(n)
+    areas = defaultdict(lambda: Counter())
+    for r in rows:
+        a = r[2] or "(unassigned)"
+        c = areas[a]
+        c["paths"] += 1
+        ln = r[7] or 0
+        c["lines"] += ln
+        c["lines:" + r[3]] += ln
+        if r[7] is None:
+            c["binaries"] += 1
+        if r[1].endswith(".patch") and r[0] == "distribution":
+            c["patches"] += 1
+        c["reach:" + r[11]] += 1
+        c["reachlines:" + r[11]] += ln
+        if r[5]:
+            c["overlap"] += 1
+    out = []
+    w = out.append
+    w("# Renovation inventory: the summary")
+    w("")
+    w("Generated by `tools/renovation-inventory` at %s; never hand-edited (a hand edit is a bug in the "
+      "generator). The full table is `docs/reviews/inventory.json`, one row per tracked path." % header["generated"])
+    w("")
+    d, e = header["distribution"], header["es"]
+    w("| Tree | HEAD | Upstream | Merge base |")
+    w("| --- | --- | --- | --- |")
+    w("| distribution | `%s` | `%s` at `%s` | `%s` |" % (d["head"][:10], d["upstream"], d["upstream_head"][:10], d["merge_base"][:10]))
+    w("| EmulationStation | `%s` | `%s` at `%s` (batocera/master `%s`) | `%s` |" % (
+        e["head"][:10], e["upstream"], e["upstream_head"][:10], e["batocera_master"][:10], e["merge_base"][:10]))
+    w("")
+    w("The tool's own checks, as printed:")
+    w("")
+    w("```")
+    for k in ("paths", "es-paths"):
+        w("%s: %d (git ls-files: %d)" % (k, *counts[k]))
+    w("patches: %d (find: %d)" % counts["patches"])
+    w("unassigned: %d" % counts["unassigned"])
+    w("ambiguous: %d" % counts["ambiguous"])
+    w("```")
+    w("")
+    w("## Per area")
+    w("")
+    w("Lines are file lines including blanks (git's numstat against the empty tree); a binary has none. "
+      "`unreached` and `unshipped` count paths; their lines are in the sets below.")
+    w("")
+    w("| Area | Paths | Lines | fork-own | upstream-carried | vendor-carried | Patches | Binaries | shipped | unshipped | unreached | n/a | Overlap |")
+    w("| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |")
+    tot = Counter()
+    for a in sorted(areas):
+        c = areas[a]
+        tot.update(c)
+        w("| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (
+            a, fmt(c["paths"]), fmt(c["lines"]), fmt(c["lines:fork-own"]), fmt(c["lines:upstream-carried"]),
+            fmt(c["lines:vendor-carried"]), fmt(c["patches"]), fmt(c["binaries"]), fmt(c["reach:shipped"]),
+            fmt(c["reach:unshipped"]), fmt(c["reach:unreached"]), fmt(c["reach:n/a"]), fmt(c["overlap"])))
+    w("| **total** | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (
+        fmt(tot["paths"]), fmt(tot["lines"]), fmt(tot["lines:fork-own"]), fmt(tot["lines:upstream-carried"]),
+        fmt(tot["lines:vendor-carried"]), fmt(tot["patches"]), fmt(tot["binaries"]), fmt(tot["reach:shipped"]),
+        fmt(tot["reach:unshipped"]), fmt(tot["reach:unreached"]), fmt(tot["reach:n/a"]), fmt(tot["overlap"])))
+    w("")
+    w("## Languages per area (lines)")
+    w("")
+    lang = defaultdict(Counter)
+    for r in rows:
+        lang[r[2] or "(unassigned)"][r[6]] += r[7] or 0
+    w("| Area | Largest five |")
+    w("| --- | --- |")
+    for a in sorted(lang):
+        w("| %s | %s |" % (a, ", ".join("%s %s" % (k, fmt(v)) for k, v in lang[a].most_common(5))))
+    w("")
+    w("## The plans")
+    w("")
+    w("| Config | Root | Plan lines | Packages sourced | Unsourced | Note |")
+    w("| --- | --- | ---: | ---: | ---: | --- |")
+    for c in header["configs"]:
+        if c.get("skipped"):
+            w("| %s | -- | -- | -- | -- | skipped: %s |" % (c["config"], c["skipped"]))
+        else:
+            w("| %s | `%s` | %d | %d | %d | %s |" % (c["config"], c["root"], c["plan_lines"], c["packages"],
+                                                  len(c["unsourced"]), "shipped" if c["device"] in SHIPPED else ""))
+    for label, key in (("unreached", "unreached"), ("unshipped", "unshipped")):
+        units = defaultdict(lambda: [0, 0, None])
+        for r in rows:
+            if r[11] != key:
+                continue
+            u = unit_of(r) or pkg_unit.get(r[1]) or r[1].rsplit("/", 1)[0]
+            units[u][0] += 1
+            units[u][1] += r[7] or 0
+            units[u][2] = r[2]
+        w("")
+        w("## The %s set (%s paths, %s lines, %s units)" % (
+            label, fmt(sum(v[0] for v in units.values())), fmt(sum(v[1] for v in units.values())), fmt(len(units))))
+        w("")
+        if key == "unreached":
+            w("A package or project path no plan reaches. A patch is listed by its directory, which `scripts/unpack` "
+              "never selects for any plan; a package by its directory; another project by its name.")
+        else:
+            w("Reached only by devices the fork does not ship (`device-builds.md` § Our devices: %s)." % ", ".join(SHIPPED))
+        w("")
+        w("| Unit | Area | Paths | Lines |")
+        w("| --- | --- | ---: | ---: |")
+        for u, (n, ln, a) in sorted(units.items(), key=lambda kv: (-kv[1][1], kv[0])):
+            w("| `%s` | %s | %s | %s |" % (u, a, fmt(n), fmt(ln)))
+    with open(path, "w") as f:
+        f.write("\n".join(out) + "\n")
+
+
+def self_test():
+    """The counters can fail: a path in no area, a path in two, a catch-all refused."""
+    areas = [{"area": "a", "globs": ["x/**", "!x/skip/**"]}, {"area": "b", "globs": ["x/both/*", "es:**"]}]
+    c = load_areas(areas)
+    cases = [("distribution", "y/none", 0), ("distribution", "x/skip/f", 0), ("distribution", "x/both/f", 2),
+             ("distribution", "x/one/f", 1), ("es", "anything/at/all", 1)]
+    bad = 0
+    for tree, p, want in cases:
+        got = len(assign(c, tree, p))
+        ok = got == want
+        bad += not ok
+        print("%s %s:%s -> %d area(s), want %d" % ("PASS" if ok else "FAIL", tree, p, got, want))
+    try:
+        load_areas([{"area": "all", "globs": ["**"]}])
+        print("FAIL a bare ** was accepted")
+        bad += 1
+    except CannotRun:
+        print("PASS a bare ** is refused")
+    g = glob_re("{packages,projects}/**/linux*.conf")
+    for p, want in (("projects/ROCKNIX/devices/H700/linux/linux.aarch64.conf", True),
+                    ("packages/linux.conf", True), ("packages/a/linuxish.txt", False)):
+        ok = bool(g.match(p)) == want
+        bad += not ok
+        print("%s glob %s" % ("PASS" if ok else "FAIL", p))
+    print("self-test: %s" % ("PASS" if not bad else "FAIL (%d)" % bad))
+    return 0 if not bad else EX_FAIL
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    ap.add_argument("--distribution", default=".")
+    ap.add_argument("--es", default="/home/max/Development/emulationstation-next.worktrees/m6-p1-survey")
+    ap.add_argument("--areas", default="docs/reviews/areas.json")
+    ap.add_argument("--plans", help="read plan-<DEVICE>-<ARCH>.txt from here when present, write them when not")
+    ap.add_argument("--out", default="docs/reviews/inventory.json")
+    ap.add_argument("--markdown", default="docs/reviews/inventory.md")
+    ap.add_argument("--runner", choices=("container", "host"), default="container",
+                    help="where plans are computed: the Makefile's pinned build image (default), or this host, "
+                         "whose missing tools (xmlstarlet) silently shrink a plan")
+    ap.add_argument("--inject-path", action="append", help="a synthetic distribution path (the unassigned fixture)")
+    ap.add_argument("--no-write", action="store_true")
+    ap.add_argument("--self-test", action="store_true")
+    args = ap.parse_args()
+    if args.self_test:
+        return self_test()
+    try:
+        header, rows, counts, unassigned, ambiguous = build(args)
+    except (CannotRun, OSError, ValueError) as e:
+        print("renovation-inventory: cannot run: %s" % e, file=sys.stderr)
+        return EX_CANNOT
+    for k in ("paths", "es-paths"):
+        print("%s: %d (git ls-files: %d)" % (k, *counts[k]))
+    print("patches: %d (find: %d)" % counts["patches"])
+    print("unassigned: %d" % counts["unassigned"])
+    print("ambiguous: %d" % counts["ambiguous"])
+    for tree, p in unassigned[:20]:
+        print("  unassigned %s:%s" % (tree, p))
+    for tree, p, hits in ambiguous[:20]:
+        print("  ambiguous %s:%s -> %s" % (tree, p, ", ".join(hits)))
+    print("seconds: git %.1f, plans %.1f" % (header["seconds"]["git"], header["seconds"]["plans"]))
+    failed = (counts["paths"][0] != counts["paths"][1] or counts["es-paths"][0] != counts["es-paths"][1]
+              or counts["patches"][0] != counts["patches"][1] or counts["unassigned"] or counts["ambiguous"])
+    if not args.no_write and not args.inject_path:
+        dist = os.path.abspath(args.distribution)
+        pkgdirs = package_dirs([r[1] for r in rows if r[0] == "distribution"])
+        pkg_unit = {r[1]: owning_dir(r[1], pkgdirs) for r in rows if r[0] == "distribution"}
+        write_json(os.path.join(dist, args.out), header, rows)
+        write_markdown(os.path.join(dist, args.markdown), header, rows, counts, pkg_unit)
+        print("wrote %s (%d bytes), %s" % (args.out, os.path.getsize(os.path.join(dist, args.out)), args.markdown))
+    return EX_FAIL if failed else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,0 +1,122 @@
+[
+  {
+    "area": "build-engine",
+    "epic": null,
+    "globs": [
+      "scripts/**", "config/**", "distributions/**",
+      "Makefile", "Dockerfile", ".gitignore", ".merge-head",
+      ".github/workflows/**", ".github/ISSUE_TEMPLATE/**", ".github/pull_request_template.md",
+      "tools/{RPi,docker,ffmpeg,mkpkg,moby,podman-bin,update-functions}/**",
+      "tools/{adjust_kernel_config,change_addon_version,check_kernel_config,checkunpack,dashboard,distro-tool,download-cleaner,download-tool,find_build_warnings.sh,find_build_warnings_ignore.conf,fixlecode.py,icon-generate,imgburn.sh,mtstats.py,packages-checker,pkgcheck,pkginfo,refresh-patches,repo-tool,update-pkg,update-scan,upload_to_filebin,viewconfig,viewplan}",
+      "!scripts/{council-*,lint-council-*,build-council-prompt.ts,write-step-seal.ts,verify-*.ts,check-stale-blob-drift.ts,setup-council-mistral-tokenizer.mjs,forge-write-status.mjs,owner-queue-lint.mjs}",
+      "!scripts/lib/council-*", "!scripts/lib/verifier-pins.ts", "!scripts/__tests__/**",
+      "!.github/workflows/fork-*"
+    ]
+  },
+  {
+    "area": "os-scripts-and-launch",
+    "epic": null,
+    "globs": [
+      "projects/ROCKNIX/packages/{rocknix,sysutils,hardware}/**",
+      "!projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool",
+      "!**/*.patch", "!**/linux*.conf"
+    ]
+  },
+  {
+    "area": "cloud-sync-and-saves",
+    "epic": null,
+    "globs": [
+      "projects/ROCKNIX/packages/network/{rclone,cloud-signin-window}/**",
+      "projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool",
+      "tools/cloud-*",
+      "!**/*.patch", "!**/linux*.conf"
+    ]
+  },
+  {
+    "area": "offline-achievements",
+    "epic": null,
+    "globs": [
+      "projects/ROCKNIX/packages/network/{raofflineproxy,raofflineproxy-libchdr,raofflineproxy-rcheevos}/**",
+      "!**/*.patch", "!**/linux*.conf"
+    ]
+  },
+  {
+    "area": "emulators-and-cores",
+    "epic": null,
+    "globs": [
+      "projects/ROCKNIX/packages/emulators/**", "packages/emulation/**",
+      "!**/*.patch", "!**/linux*.conf"
+    ]
+  },
+  {
+    "area": "devices",
+    "epic": null,
+    "globs": [
+      "projects/ROCKNIX/devices/**",
+      "projects/ROCKNIX/{bootloader,filesystem}/**", "projects/ROCKNIX/{options,config.xml}",
+      "projects/ROCKNIX/packages/{linux,linux-drivers,linux-firmware,kernel-drivers}/**",
+      "packages/{linux,linux-firmware,linux-driver-addons}/**",
+      "projects/{ARM,Allwinner,Amlogic,Generic,NXP,Qualcomm,RPi,Rockchip,Samsung}/**",
+      "!**/*.patch", "!**/linux*.conf"
+    ]
+  },
+  {
+    "area": "generic-packages",
+    "epic": null,
+    "globs": [
+      "packages/**", "projects/ROCKNIX/packages/**",
+      "!packages/{emulation,linux,linux-firmware,linux-driver-addons}/**",
+      "!projects/ROCKNIX/packages/{rocknix,sysutils,hardware,emulators,ui,linux,linux-drivers,linux-firmware,kernel-drivers}/**",
+      "!projects/ROCKNIX/packages/network/{rclone,cloud-signin-window,raofflineproxy,raofflineproxy-libchdr,raofflineproxy-rcheevos}/**",
+      "!**/*.patch", "!**/linux*.conf"
+    ]
+  },
+  {
+    "area": "patches-and-configs",
+    "epic": null,
+    "globs": [
+      "{packages,projects}/**/*.patch", "{packages,projects}/**/linux*.conf"
+    ]
+  },
+  {
+    "area": "interface",
+    "epic": null,
+    "globs": [
+      "projects/ROCKNIX/packages/ui/**",
+      "es:**",
+      "!**/*.patch", "!**/linux*.conf"
+    ]
+  },
+  {
+    "area": "tooling-and-guards",
+    "epic": null,
+    "globs": [
+      "tools/**", ".githooks/**", ".github/workflows/fork-*", ".github/scripts/**",
+      "scripts/{council-*,lint-council-*,build-council-prompt.ts,write-step-seal.ts,verify-*.ts,check-stale-blob-drift.ts,setup-council-mistral-tokenizer.mjs,forge-write-status.mjs,owner-queue-lint.mjs}",
+      "scripts/lib/council-*", "scripts/lib/verifier-pins.ts", "scripts/__tests__/**",
+      "seed/**", "verifier-pins.json", "council-seat-efforts.json",
+      "!tools/{RPi,docker,ffmpeg,mkpkg,moby,podman-bin,update-functions}/**",
+      "!tools/{adjust_kernel_config,change_addon_version,check_kernel_config,checkunpack,dashboard,distro-tool,download-cleaner,download-tool,find_build_warnings.sh,find_build_warnings_ignore.conf,fixlecode.py,icon-generate,imgburn.sh,mtstats.py,packages-checker,pkgcheck,pkginfo,refresh-patches,repo-tool,update-pkg,update-scan,upload_to_filebin,viewconfig,viewplan}",
+      "!tools/cloud-*"
+    ]
+  },
+  {
+    "area": "doctrine",
+    "epic": null,
+    "globs": [
+      ".claude/**", "CLAUDE.md", "AGENTS.md",
+      "README.md", "NAMING.md", "TRADEMARK.md", "LICENSE.md",
+      "licenses/**", "documentation/**", "plans/**",
+      "docs/*",
+      "docs/{pixelelated,upstream,releases,rasteratops,reviews,ra-offline,pr-series}/**"
+    ]
+  },
+  {
+    "area": "records",
+    "epic": null,
+    "globs": [
+      "docs/{qa-logs,qa-frames,audits,work-logs,retros,retrospective,futros}/**",
+      "research/**", ".github/sessions/**"
+    ]
+  }
+]
