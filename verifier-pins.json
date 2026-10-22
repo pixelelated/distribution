@@ -4,10 +4,10 @@
   "note": "Seeded by the scaffold corpus (class: adapted) with the sha256 of each corpus-shipped council verifier at the corpus version that delivered it. Repo-owned from the first seed: a repo that carries local verifiers (run-ledger lints, seal writers) pins them here too, and once it does \u2014 deleting the seeder's $adapt-me key \u2014 the cascade preserves this file and the repo re-pins moved corpus verifiers itself, with a reason. An unadapted copy refreshes with every cascade, so its pins track the corpus without hand work. The corpus manifest checksum is the fleet-wide pin of the same bytes; this file is the run-time working-tree gate (scripts/verify-pins.ts, run at council Setup).",
   "pins": {
     "scripts/council-invoke.ts": {
-      "sha": "15275395949e8e29a244b1cf487bbd292c8360bb0e5aaaadbcbe0fa52ec4dc94",
-      "repinned_at": "2026-10-04T02:00:09.903237Z",
+      "sha": "6d4406cf545ece37d995769b4df3e384d027fafa5ed676d9d38c326c98e80c3a",
+      "repinned_at": "2026-10-22T04:51:34.021723+00:00",
       "repinned_by": "blitterbot",
-      "repin_reason": "D-WORKFLOW-144, #409: update only the project organization URLs/remote scope to pixelelated. Model roster, efforts, verification and evidence contracts are unchanged."
+      "repin_reason": "pixelelated#636: local Facilitator 1.14.1-pixelelated.1 stops explicit content_filter without resending, preserves identity/provider hard stops and original usage, and keeps staged capture/readings fail-closed. Models, efforts and routes unchanged; original imported bundle and failed audit evidence retained."
     },
     "scripts/lib/council-verification.ts": {
       "sha": "4e8ad4fbdf56b9844b4f5de2af289f429f0b942249693a1130867a5fc440b79c",
@@ -164,6 +164,24 @@
       "repin_reason": "D-WORKFLOW-144, #409: update the project name in the inactive-recipe warning to pixelelated; recipe remains historical and forbidden, no seat or verification change.",
       "repinned_at": "2026-10-04T02:07:47.570930Z",
       "repinned_by": "blitterbot"
+    },
+    "scripts/lib/council-staged-controller.ts": {
+      "sha": "61b43923d60f0ee69ef11d3c95872a364cf175481ae9bf3a3c119d29fc9e0082",
+      "repinned_at": "2026-10-22T04:50:02.659379+00:00",
+      "repinned_by": "blitterbot",
+      "repin_reason": "pixelelated#636: local Facilitator 1.14.1-pixelelated.1 stops explicit content_filter without resending, preserves identity/provider hard stops and original usage, and keeps staged capture/readings fail-closed. Models, efforts and routes unchanged; original imported bundle and failed audit evidence retained."
+    },
+    "scripts/lib/council-staged-attempt-store.mjs": {
+      "sha": "b7d13648e82fc80a07f6594ee5cf5c442de36cef1e92dcee3a82b20fa1d77eac",
+      "repinned_at": "2026-10-22T04:50:02.659379+00:00",
+      "repinned_by": "blitterbot",
+      "repin_reason": "pixelelated#636: local Facilitator 1.14.1-pixelelated.1 stops explicit content_filter without resending, preserves identity/provider hard stops and original usage, and keeps staged capture/readings fail-closed. Models, efforts and routes unchanged; original imported bundle and failed audit evidence retained."
+    },
+    "scripts/lib/council-staged-readings.ts": {
+      "sha": "58c5e92a5e5980c48ee37b6516b6576fde5093d64bad5fb30c2a1be9ce0b806a",
+      "repinned_at": "2026-10-22T04:50:02.659379+00:00",
+      "repinned_by": "blitterbot",
+      "repin_reason": "pixelelated#636: local Facilitator 1.14.1-pixelelated.1 stops explicit content_filter without resending, preserves identity/provider hard stops and original usage, and keeps staged capture/readings fail-closed. Models, efforts and routes unchanged; original imported bundle and failed audit evidence retained."
     }
   }
 }

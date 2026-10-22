@@ -100,3 +100,14 @@ For an adopted roster change, bring the model/provider/effort recipe, member
 instructions, capacity and identity checks, tests and pins together. Record the
 decision before the next run and start a fresh genesis; do not change an anchored
 run's roster. Keep the fork's skill aligned with that selected roster.
+
+## Local retry correction — October22 (#636)
+
+The fork's Facilitator is now1.14.1-pixelelated.1. Explicit content_filter stops
+with exit8 instead of being retried as empty content; partial filtered output is
+not published. Identity/provider precedence, efforts and routes are unchanged.
+Staged capture/reconciliation/readings carry the same terminal classification.
+The imported bundle/SHA records above remain historical and unchanged; current
+verifier pins include accountable local reasons. Evidence:
+`docs/qa-logs/2026-10-22-review-filter-636/`. No newer export was available for a
+current source-estate comparison; recheck before upstreaming this candidate.

@@ -1085,3 +1085,100 @@ test("a known provider mismatch is terminal across transport statuses and cannot
     }), { shouldRetry: false, reason: "provider_mismatch", bumpMaxTokens: false });
   }
 });
+
+// pixelelated#636: provider filtering must never become an empty-output retry.
+for (const transport of ["buffered", "sse"] as const) {
+  for (const scenario of ["empty", "partial", "unknown-model", "wrong-model", "broken-stream"] as const) {
+    if (scenario === "broken-stream" && transport !== "sse") continue;
+    test(`content filter: ${transport} ${scenario} stops without resend`, async (t) => {
+      await mkdir(join(process.cwd(), ".work"), { recursive: true });
+      const directory = await mkdtemp(join(process.cwd(), ".work", "filter-636-"));
+      t.after(() => rm(directory, { recursive: true, force: true }));
+      const prior = process.env.OPENROUTER_API_KEY;
+      process.env.OPENROUTER_API_KEY = ["synthetic", "fixture", "636"].join("-");
+      t.after(() => {
+        if (prior === undefined) delete process.env.OPENROUTER_API_KEY;
+        else process.env.OPENROUTER_API_KEY = prior;
+      });
+      let calls = 0;
+      const member = transport === "sse" ? "mistral" : "claude";
+      const expectedModel = transport === "sse" ? "mistralai/mistral-large-2512" : "anthropic/claude-fable-5.1";
+      const model = scenario === "unknown-model" ? null : scenario === "wrong-model"
+        ? "different-model" : expectedModel;
+      const content = scenario === "partial" ? "Partial text must not be published" : "";
+      const usage = { prompt_tokens: 3, completion_tokens: 4, total_tokens: 7,
+        completion_tokens_details: { reasoning_tokens: 2 } };
+      t.mock.method(globalThis, "fetch", async (url: unknown, request: RequestInit) => {
+        assert.equal(String(url), "https://openrouter.ai/api/v1/chat/completions");
+        const body = JSON.parse(String(request.body));
+        assert.equal(body.model, expectedModel);
+        if (member === "claude") assert.equal(body.reasoning.effort, "xhigh");
+        calls++;
+        const response = { model, usage, choices: [{ finish_reason: "content_filter",
+          ...(transport === "sse" ? { delta: { content } } : { message: { content } }) }] };
+        if (transport === "buffered") return Response.json(response);
+        const bytes = new TextEncoder().encode(`data: ${JSON.stringify(response)}\n\n`);
+        if (scenario === "broken-stream") {
+          let emitted = false;
+          return new Response(new ReadableStream({ pull(controller) {
+            if (!emitted) { emitted = true; controller.enqueue(bytes); }
+            else controller.error(new Error("synthetic interruption after filter"));
+          }}), { headers: { "content-type": "text/event-stream" } });
+        }
+        // A later terminal frame cannot erase the explicit filtering witness.
+        const trailing = { model, choices: [{ delta: { content: "" }, finish_reason: "stop" }] };
+        return new Response(new TextDecoder().decode(bytes) +
+          `data: ${JSON.stringify(trailing)}\n\ndata: [DONE]\n\n`,
+          { headers: { "content-type": "text/event-stream" } });
+      });
+      const output = join(directory, "result.txt");
+      const exit = await runCouncilInvocation([
+        "--member", member, "--provider", "openrouter", "--transport", transport,
+        "--prompt", "Synthetic response classification only", "--output", output,
+        "--max-retries", "3", "--retry-base-ms", "1",
+      ]);
+      assert.equal(exit, scenario === "wrong-model" ? 3 : 8);
+      assert.equal(calls, 1, "explicit filtering must not resend even with retries enabled");
+      const receipt = JSON.parse(await readFile(output + ".provenance.json", "utf8"));
+      assert.equal(receipt.attempts.length, 1);
+      assert.equal(receipt.final.retries_used, 0);
+      assert.equal(receipt.attempts[0].finish_reason, "content_filter");
+      assert.equal(receipt.final.outcome, scenario === "wrong-model"
+        ? "model_mismatch_no_retry" : "content_filtered_no_retry");
+      assert.equal(receipt.final.verification.observed, model);
+      assert.equal(receipt.final.verification.result, scenario === "wrong-model" ? "FAIL"
+        : scenario === "unknown-model" ? "UNVERIFIABLE" : "PASS");
+      assert.equal(receipt.attempts[0].tokens.total, 7);
+      if (scenario !== "wrong-model") {
+        assert.equal(receipt.final.tokens.total, 7);
+        assert.match(receipt.attempts[0].error_message, /content_filter/);
+      }
+      if (scenario === "broken-stream")
+        assert.match(receipt.attempts[0].error_message, /synthetic interruption after filter/);
+      await assert.rejects(readFile(output), { code: "ENOENT" });
+    });
+  }
+}
+
+test("content filter: identity hard stops and unfiltered retry classes stay distinct", () => {
+  const base = { fetchError: null, httpStatus: 200, observedModel: "expected",
+    declaredMatches: true, contentLength: 0, wasTruncated: false };
+  assert.deepEqual(classifyAttempt({ ...base, finishReason: "content_filter",
+    servedProvider: "other", servedProviders: ["required"] }),
+    { shouldRetry: false, reason: "provider_mismatch", bumpMaxTokens: false });
+  assert.deepEqual(classifyAttempt({ ...base, finishReason: "content_filter",
+    declaredMatches: false, fetchError: new Error("later interruption") }),
+    { shouldRetry: false, reason: "model_mismatch", bumpMaxTokens: false });
+  assert.deepEqual(classifyAttempt({ ...base, finishReason: "stop" }),
+    { shouldRetry: true, reason: "empty_content", bumpMaxTokens: true });
+  assert.deepEqual(classifyAttempt({ ...base, contentLength: 4, wasTruncated: true,
+    finishReason: "length" }),
+    { shouldRetry: true, reason: "truncated_content", bumpMaxTokens: true });
+  assert.deepEqual(classifyAttempt({ ...base, fetchError: new Error("lost body"),
+    fetchErrorPhase: "response_body" }),
+    { shouldRetry: true, reason: "response_body_error", bumpMaxTokens: false });
+  assert.deepEqual(classifyAttempt({ ...base, httpStatus: 429 }),
+    { shouldRetry: true, reason: "rate_limited", bumpMaxTokens: false });
+  assert.deepEqual(classifyAttempt({ ...base, httpStatus: 402 }),
+    { shouldRetry: false, reason: "permanent_provider_error", bumpMaxTokens: false });
+});

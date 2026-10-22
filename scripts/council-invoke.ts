@@ -93,7 +93,10 @@
  *                                  no provider is recorded UNVERIFIABLE, and the
  *                                  run gates refuse it (scaffold#917).
  *
- * Retry classes are codified in the FAILURE_RETRY_POLICY constant below.
+ *   8  content_filtered_no_retry — explicit provider content filtering; provenance
+ *                                  retained, no output published or automatic retry.
+ *
+ * Retry classes are codified in classifyAttempt below.
  * Per silent-failure-discipline.instructions.md Rule 8, every failure mode
  * has a distinct machine-readable class so reviewers / orchestrators / audit
  * trails can tell them apart.
@@ -307,6 +310,7 @@ type AttemptOutcome =
   | "truncated_content"
   | "model_mismatch"
   | "provider_mismatch"
+  | "content_filtered"
   | "permanent_provider_error";
 
 type FinalOutcome =
@@ -315,6 +319,7 @@ type FinalOutcome =
   | "retries_exhausted_empty_content"
   | "model_mismatch_no_retry"
   | "provider_mismatch_no_retry"
+  | "content_filtered_no_retry"
   | "permanent_provider_error";
 
 interface MemberRecipe {
@@ -841,7 +846,9 @@ const BEDROCK_MISTRAL_LARGE3_MODEL = "mistral.mistral-large-3-675b-instruct";
 // final.provider_verification, and fails a pinned seat served outside its pin
 // (provider_mismatch_no_retry, exit 7; scaffold#917). It ships with 1.12.0's roster in one release.
 // 1.14.0 preserves all provider observations and refuses unbound staged reconciliation (#943).
-export const FACILITATOR_VERSION = "council-facilitator@1.14.0";
+// pixelelated#636: stop explicit content-filter responses without resending;
+// model/effort/provider pins and the historical imported bundle remain unchanged.
+export const FACILITATOR_VERSION = "council-facilitator@1.14.1-pixelelated.1";
 
 function openRouterMistralModel(): string {
   const configured = process.env.OPENROUTER_MISTRAL_MODEL?.trim();
@@ -1598,6 +1605,8 @@ export function classifyAttempt(args: {
   declaredMatches: boolean;
   contentLength: number;
   wasTruncated: boolean;
+  /** Normalized provider finish reason, also retained after an interrupted stream. */
+  finishReason?: string | null;
   /**
    * scaffold#917. The provider the response named, and the names the seat's pin admits
    * (null/omitted for an unpinned seat). Omitting both keeps the pre-#917 classification,
@@ -1618,6 +1627,7 @@ export function classifyAttempt(args: {
     declaredMatches,
     contentLength,
     wasTruncated,
+    finishReason,
     servedProvider,
     servedProviderObservations,
     servedProviders,
@@ -1630,6 +1640,17 @@ export function classifyAttempt(args: {
       shouldRetry: false,
       // Preserve model-mismatch precedence when both independent witnesses contradict the seat.
       reason: hasUsableModelIdentity(observedModel) && !declaredMatches ? "model_mismatch" : "provider_mismatch",
+      bumpMaxTokens: false,
+    };
+
+  // An explicit filter is a terminal provider decision, even if transport later
+  // fails or partial text was received. Identity contradictions retain precedence.
+  // No automatic resend, token-budget increase or acceptance of partial output.
+  if (finishReason === "content_filter")
+    return {
+      shouldRetry: false,
+      reason: hasUsableModelIdentity(observedModel) && !declaredMatches
+        ? "model_mismatch" : "content_filtered",
       bumpMaxTokens: false,
     };
 
@@ -2391,7 +2412,8 @@ function appendOpenAiSseEvent(rawEvent: string, state: OpenAiSseState): void {
     }
 
     const finishReason = asString(field(choice, "finish_reason"));
-    if (finishReason !== null) state.finishReason = finishReason;
+    if (finishReason !== null && state.finishReason !== "content_filter")
+      state.finishReason = finishReason;
   }
 }
 
@@ -2908,6 +2930,7 @@ Exit codes:
   5  permanent_provider_error
   6  model_identity_unverifiable (content captured; HALT, never auto-retried)
   7  provider_mismatch_no_retry  (a pinned seat served outside its pin; NEVER auto-retried)
+  8  content_filtered_no_retry  (explicit provider filtering; NEVER auto-retried)
 `);
 }
 
@@ -2924,6 +2947,7 @@ const EXIT = {
   permanent_provider_error: 5,
   model_identity_unverifiable: 6,
   provider_mismatch_no_retry: 7,
+  content_filtered_no_retry: 8,
 } as const;
 
 function sha256(s: string): string {
@@ -3301,6 +3325,7 @@ export async function runCouncilInvocation(
       declaredMatches,
       contentLength: content.length,
       wasTruncated: truncated,
+      finishReason,
       servedProvider,
       servedProviderObservations,
       servedProviders: recipe.servedProviders ?? null,
@@ -3355,6 +3380,11 @@ export async function runCouncilInvocation(
     else if (fetchResult.responseBodyParseError) {
       record.error_message = fetchResult.responseBodyParseError;
     }
+    if (decision.reason === "content_filtered") {
+      record.error_message = [record.error_message,
+        "Provider reported content_filter; automatic retries stopped. Review the provider response before further dispatch. No credit/capacity diagnosis is inferred.",
+      ].filter(Boolean).join("; ");
+    }
     if (decision.reason === "model_mismatch" && fetchResult.json) {
       // Capture the mismatch detail for the audit trail
       record.error_message = `Observed model "${observedModel ?? "(absent)"}" does not match declared "${recipe.declaredModel}". NEVER auto-retried.`;
@@ -3378,7 +3408,7 @@ export async function runCouncilInvocation(
       (recipe.declaredEffort && recipe.declaredEffort !== "none"
         ? `effort=${recipe.declaredEffort} reasoning=${tokens?.reasoning ?? "n/a"} `
         : "") +
-      `content=${content.length}b ` +
+      `content=${content.length}b finish=${finishReason ?? "(none)"} ` +
       `outcome=${record.outcome}` +
       (record.outcome_reason ? `(${record.outcome_reason})` : "") +
       ` duration=${durationMs}ms`;
@@ -3410,6 +3440,13 @@ export async function runCouncilInvocation(
           : declaredMatches
             ? "PASS"
             : "FAIL";
+      } else if (decision.reason === "content_filtered") {
+        finalOutcome = "content_filtered_no_retry";
+        finalObservedModel = observedModel;
+        finalVerification = declaredMatches ? "PASS" : "UNVERIFIABLE";
+        finalUsage = usage;
+        finalTokens = tokens ?? null;
+        finalUsageUnavailable = unavailableReason;
       } else if (decision.reason === "permanent_provider_error") {
         finalOutcome = "permanent_provider_error";
         finalObservedModel = observedModel;
@@ -3681,6 +3718,8 @@ export async function runCouncilInvocation(
       return EXIT.retries_exhausted_empty_content;
     case "permanent_provider_error":
       return EXIT.permanent_provider_error;
+    case "content_filtered_no_retry":
+      return EXIT.content_filtered_no_retry;
     default:
       return EXIT.retries_exhausted_transient;
   }
