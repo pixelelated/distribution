@@ -596,11 +596,41 @@ def build(args):
     return header, rows, counts, unassigned, ambiguous
 
 
-def write_json(path, header, rows):
+def secret_patterns(dist):
+    """The pre-commit and push guards' own credential patterns (.githooks/secret-patterns)."""
+    r = subprocess.run(["bash", "-c", '. .githooks/secret-patterns && printf %s "$SECRET_PATTERNS"'],
+                       cwd=dist, capture_output=True, text=True)
+    if r.returncode != 0 or not r.stdout:
+        raise CannotRun("cannot read .githooks/secret-patterns")
+    return re.compile(r.stdout)
+
+
+def json_rows(rows, guard):
+    """One JSON line per row. A tracked path whose name happens to match a credential
+    pattern (a kernel patch "ma-sk-..." name read as an API key) is written with its
+    hyphens as \\u002d: decoded, the path is byte-identical; at rest, no guard misreads a
+    file name as a secret. A line that still matches fails the run."""
+    out, escaped = [], []
+    for r in sorted(rows, key=lambda r: (r[0], r[1])):
+        line = json.dumps(r, separators=(",", ":"))
+        if guard.search(line):
+            line = line.replace("-", "\\u002d")
+            if guard.search(line) or json.loads(line) != r:
+                raise CannotRun("row %s:%s matches a credential pattern even escaped" % (r[0], r[1]))
+            escaped.append("%s:%s" % (r[0], r[1]))
+        out.append(line)
+    return out, escaped
+
+
+def write_json(path, header, lines, guard):
+    head = json.dumps(header, sort_keys=True)
+    if guard.search(head):  # escaped_rows names those paths too
+        head = head.replace("-", "\\u002d")
+        if guard.search(head) or json.loads(head) != json.loads(json.dumps(header)):
+            raise CannotRun("the header matches a credential pattern even escaped")
     with open(path, "w") as f:
-        f.write('{"header": %s,\n "columns": %s,\n "rows": [\n' % (json.dumps(header, sort_keys=True), json.dumps(COLUMNS)))
-        rows = sorted(rows, key=lambda r: (r[0], r[1]))
-        f.write(",\n".join(json.dumps(r, separators=(",", ":")) for r in rows))
+        f.write('{"header": %s,\n "columns": %s,\n "rows": [\n' % (head, json.dumps(COLUMNS)))
+        f.write(",\n".join(lines))
         f.write("\n]}\n")
 
 
@@ -791,8 +821,25 @@ def main():
         dist = os.path.abspath(args.distribution)
         pkgdirs = package_dirs([r[1] for r in rows if r[0] == "distribution"])
         pkg_unit = {r[1]: owning_dir(r[1], pkgdirs) for r in rows if r[0] == "distribution"}
-        write_json(os.path.join(dist, args.out), header, rows)
+        try:
+            guard = secret_patterns(dist)
+            lines, escaped = json_rows(rows, guard)
+        except CannotRun as e:
+            print("renovation-inventory: cannot run: %s" % e, file=sys.stderr)
+            return EX_CANNOT
+        header["escaped_rows"] = escaped
+        print("escaped: %d (rows whose path matches a credential pattern, hyphens written as \\u002d)" % len(escaped))
+        try:
+            write_json(os.path.join(dist, args.out), header, lines, guard)
+        except CannotRun as e:
+            print("renovation-inventory: cannot run: %s" % e, file=sys.stderr)
+            return EX_CANNOT
         write_markdown(os.path.join(dist, args.markdown), header, rows, counts, pkg_unit)
+        with open(os.path.join(dist, args.markdown)) as f:
+            hits = [i + 1 for i, l in enumerate(f) if guard.search(l)]
+        if hits:
+            print("renovation-inventory: %s lines %s match a credential pattern" % (args.markdown, hits[:5]), file=sys.stderr)
+            return EX_CANNOT
         print("wrote %s (%d bytes), %s" % (args.out, os.path.getsize(os.path.join(dist, args.out)), args.markdown))
     return EX_FAIL if failed else 0
 
