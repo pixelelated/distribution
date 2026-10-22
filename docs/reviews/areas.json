@@ -108,7 +108,8 @@
       "README.md", "NAMING.md", "TRADEMARK.md", "LICENSE.md",
       "licenses/**", "documentation/**", "plans/**",
       "docs/*",
-      "docs/{pixelelated,upstream,releases,rasteratops,reviews,ra-offline,pr-series}/**"
+      "docs/{pixelelated,upstream,releases,rasteratops,reviews,ra-offline,pr-series}/**",
+      "!docs/reviews/inventory.json"
     ]
   },
   {
@@ -116,7 +117,8 @@
     "epic": null,
     "globs": [
       "docs/{qa-logs,qa-frames,audits,work-logs,retros,retrospective,futros}/**",
-      "research/**", ".github/sessions/**"
+      "research/**", ".github/sessions/**",
+      "docs/reviews/inventory.json"
     ]
   }
 ]
