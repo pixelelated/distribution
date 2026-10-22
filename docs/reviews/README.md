@@ -143,3 +143,16 @@ then one row per slice, its lines from the inventory, its depth from
 `fixed-at-es:`) and the audit folders: `unreviewed`, `reading`,
 `remediating`, `closed`, or `drifted` (closed, and `renovation-drift` says
 re-open). One bounded `gh issue list`; it fails at its limit.
+
+### The renovation face of `tools/lint-audit-artifacts`
+
+For an audit folder whose name carries `-epic-m6-` (a renovation slice), the
+lint also requires a `## Renovation face` section in `04-analysis.md` with a
+`### Q1` to `### Q7` subsection each (plan § 4's seven questions), a
+`punch_index` YAML block, and on every item `question: Q1..Q7`, or
+`question: none` with its reason on the line or in `question_reason:`.
+`tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-pass`
+passes (`PASS`, rc 0) and `...-fail`, the same folder without the face,
+fails on exactly those two checks (rc 1). On 2026-10-22 a face missing Q4
+and a `question: none` without a reason each failed alone, and the 21
+existing audit folders kept their verdicts.

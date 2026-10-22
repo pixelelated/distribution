@@ -364,6 +364,38 @@ def main():
             else:
                 ok(f"{pl} index and table agree ({index_word})")
 
+    # The renovation face (M6, plan § 4 and § 6b; #641): a slice audit answers
+    # the seven renovation questions, and every punch item says which one it
+    # answers. Q1 modernize, Q2 standards, Q3 bugs, Q4 package currency, Q5
+    # efficiency, Q6 dead ends, Q7 clarity; `none` needs its reason.
+    if "-epic-m6-" in d.name:
+        face = re.search(r"^## Renovation face\s*$(.*?)(?=^## |\Z)", analysis, re.M | re.S)
+        if not face:
+            bad("04-analysis.md has no '## Renovation face' section (an M6 slice answers Q1 to Q7)")
+        else:
+            missing = [q for q in ("Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7")
+                       if not re.search(r"^### " + q + r"\b", face.group(1), re.M)]
+            if missing:
+                bad("04 § Renovation face has no subsection for " + ", ".join(missing))
+            else:
+                ok("04 § Renovation face answers Q1 to Q7")
+        if not idx:
+            bad("05-punch-list.md has no punch_index YAML block (an M6 slice's items carry their question there)")
+        else:
+            for m in re.finditer(r"id:\s*(PL-\d+)\b(.*?)(?=\n-\s*(?:\{)?\s*id:|\Z)", idx.group(1), re.S):
+                pl, body = m.group(1), m.group(2)
+                qm = re.search(r"question:\s*['\"]?(Q[1-7]|none)\b([^\n]*)", body)
+                if not qm:
+                    bad(f"{pl} carries no 'question: Q1..Q7' (or 'none' with a reason) in the punch_index")
+                elif qm.group(1) == "none" and not (
+                        re.search(r"[A-Za-z]{3}", qm.group(2)) or re.search(r"question_reason:\s*\S", body)):
+                    bad(f"{pl} says 'question: none' without a reason")
+                else:
+                    ok(f"{pl} answers {qm.group(1)}")
+            for pl in items:
+                if pl not in indexed:
+                    bad(f"{pl} is not in the punch_index, so its question is unrecorded")
+
     if args.phase == "pre-issue":
         for pl, word in table_words.items():
             if word == "open" and pl not in indexed:

@@ -185,7 +185,7 @@ both lists and to this table, or it is invisible.**
 | `vocabulary-check` | back up / backup, and the rest of the player vocabulary | `es-player-text.md` |
 | `forbidden-terms-check` | does a tree, or a set of lines, carry a word from the list kept outside every tree (D-WORKFLOW-061); the fork CI runs it | `fork-workflow.md` |
 | `register-check` | every decision ID once, every citation naming a real row | `decision-register.md` |
-| `lint-audit-artifacts` | the audit artifacts are well formed | `issue-tracking.md` |
+| `lint-audit-artifacts` | the audit artifacts are well formed, and an M6 renovation slice answers the seven questions (its renovation face, #641) | `issue-tracking.md`, `docs/reviews/README.md` |
 | `rules-check` | every rule file front-mattered per the standard, every file in this index, the counts in `CLAUDE.md` and `AGENTS.md` true, `AGENTS.md` within Codex's budget and naming every rule (D-WORKFLOW-045) | `instruction-files.md` |
 | `box-check` | is every open acceptance checkbox on the fork agent-verifiable -- names its artifact, and a physical fact when it asks for a device (D-QA-044; the checkbox checker, D-QA-045) | `issue-tracking.md` |
 | `prose-check` | does a rocknix.org draft read as the site's own writers write -- the tells the samples named, fail and warn; `--self-test` passes the maintainer's page and fails a machine-sounding draft (#323, D-WORKFLOW-068) | the `developer-relations` skill |
