@@ -10,6 +10,8 @@ milestone is M6; the epic is #339; the plan for the plan is #346.
 | `order.md` | the slices in order, each with its lens, paths, line count, the release it gates, its depth and the evidence that closes it (#346's first criterion) | P1 |
 | `inventory.json`, `inventory.md` | every path's root, provenance tier, language, lines, patches, last fork and upstream commits, reachability; the per-area totals | `tools/renovation-inventory` (P1), re-run at every slice close |
 | `assessment.md` | per area, the evidence for the six ordering lenses: security-token files, blindspot, friction, bug and open-issue mentions, churn since 2026-06-01, change since the merge base, callers, unreached and unshipped sizes | `tools/renovation-inventory --assess` (P1), from `inventory.json` and the tracker |
+| `cross-reference.md` | every area against every other: call edges, shared state, rule-to-area and patch-to-area edges | `tools/renovation-inventory --cross` (P1) |
+| `slices.json` | the order's hand-written input: each slice's number, area, kind, lens, selector, gate, depth, interacting subsystems and closing evidence; the security, state and launch-path globs the drift tool reads | P1, then the planner when the order changes |
 | `areas.json` | the area map: every tracked path in exactly one area (the one hand-written input to the inventory) | P1, edited when an area is split or an epic filed |
 | `p1-tracking.md` | the survey's multi-pass tracking file: hashes, counts with their commands, each pass's evidence | P1 |
 | `status.md` | one row per slice: area, lines, depth, state, reviewed-at, drift since | `tools/renovation-status` (P1) |
@@ -94,6 +96,23 @@ and code files' names, six characters or more) as a whole word; commits since
 ten largest units outside it; its unreached and unshipped sizes. Every count
 is a search, so a lead: the slice read confirms or overturns it. Records are
 not scored.
+
+`--cross` writes `cross-reference.md`: for every ordered pair of the ten code
+areas, the area's code files naming an identifier only the other area owns;
+the shared state (`system.cfg`, `es_settings.cfg`, the cloud configuration,
+stamps and lock, `rclone.conf`, `retroarch.cfg`, the proxy's state, ...)
+each area touches; each rule's `paths:` globs resolved to areas; each patch
+against the area of the package it patches.
+
+`--order` reads `slices.json`, puts every inventory row in its slice (a row
+belongs to a slice when its area is one of the slice's, it matches the
+slice's globs, and its reach is one the slice names; a `rest` slice takes
+only rows no other slice in its area claims), prints each slice's paths,
+lines, read lines and fork-own read lines, and renders the block of
+`order.md` between its markers. It exits 1 when a row is in no slice or in
+two, when a slice is empty, or when one of the first three reads more than
+12,000 lines (a currency slice counts its fork-own lines, a table none).
+`--no-write` prints only.
 
 `--self-test` proves the area counters and the glob rules can fail;
 `--inject-path PATH` adds a synthetic path to a real run (it must fail with
