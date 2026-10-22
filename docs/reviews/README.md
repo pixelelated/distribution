@@ -74,7 +74,8 @@ reached when that directory is a plan package's `PKG_DIR` (a patch only when
 its directory is selected); a generic `package.mk` sourced by a reached
 override is reached with it; a device's own files by that device's plans;
 `projects/ROCKNIX`'s bootloader, filesystem, options and `config.xml` by
-every plan; the other projects by none; the ES tree by the plans that build
+every plan; the other projects and the other `distributions/` (nothing sets
+`DISTRO` but its `ROCKNIX` default) by none; the ES tree by the plans that build
 `emulationstation`. Reachability errs toward reached: a file in a reached
 package counts as reached even when its recipe installs it only for some
 devices, so `unreached` is a conservative claim and the slice read refines

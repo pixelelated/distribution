@@ -54,7 +54,8 @@ Rules (docs/reviews/README.md, the futro of 2026-10-22):
   its directory is selected); a generic package.mk sourced by a reached
   override is reached with it; a device's own files are reached by that
   device's plans; projects/ROCKNIX's bootloader, filesystem, options and
-  config.xml by every plan; ES by the plans that build emulationstation.
+  config.xml by every plan; ES by the plans that build emulationstation; the
+  other projects/ and distributions/ (DISTRO is always ROCKNIX) by none.
   `reach` is `shipped` (a shipped device's plan), `unshipped` (only other
   devices' plans), `unreached` (a package or project path no plan reaches),
   or `n/a` (a path no image plan can hold: the engine, tools, doctrine,
@@ -445,6 +446,9 @@ def compute_reach(dist, paths, plans, devices):
                 es_configs.add(cfg)
     reach = {}
     for path in paths:
+        if path.startswith("distributions/") and not path.startswith("distributions/ROCKNIX/"):
+            reach[path] = set()  # config/options: DISTRO defaults to ROCKNIX and nothing sets another
+            continue
         if not (path.startswith("packages/") or path.startswith("projects/")):
             reach[path] = None
             continue
