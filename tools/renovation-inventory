@@ -699,14 +699,14 @@ def write_markdown(path, header, rows, counts, pkg_unit):
             w("| %s | `%s` | %d | %d | %d | %s |" % (c["config"], c["root"], c["plan_lines"], c["packages"],
                                                   len(c["unsourced"]), "shipped" if c["device"] in SHIPPED else ""))
     for label, key in (("unreached", "unreached"), ("unshipped", "unshipped")):
-        units = defaultdict(lambda: [0, 0, None])
+        units = defaultdict(lambda: [0, 0, set()])
         for r in rows:
             if r[11] != key:
                 continue
             u = unit_of(r) or pkg_unit.get(r[1]) or r[1].rsplit("/", 1)[0]
             units[u][0] += 1
             units[u][1] += r[7] or 0
-            units[u][2] = r[2]
+            units[u][2].add(r[2])
         w("")
         w("## The %s set (%s paths, %s lines, %s units)" % (
             label, fmt(sum(v[0] for v in units.values())), fmt(sum(v[1] for v in units.values())), fmt(len(units))))
@@ -720,7 +720,7 @@ def write_markdown(path, header, rows, counts, pkg_unit):
         w("| Unit | Area | Paths | Lines |")
         w("| --- | --- | ---: | ---: |")
         for u, (n, ln, a) in sorted(units.items(), key=lambda kv: (-kv[1][1], kv[0])):
-            w("| `%s` | %s | %s | %s |" % (u, a, fmt(n), fmt(ln)))
+            w("| `%s` | %s | %s | %s |" % (u, ", ".join(sorted(x or "(unassigned)" for x in a)), fmt(n), fmt(ln)))
     with open(path, "w") as f:
         f.write("\n".join(out) + "\n")
 
