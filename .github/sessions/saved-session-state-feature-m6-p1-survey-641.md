@@ -45,7 +45,7 @@ first, then `--order`):
 1. the register row **D-WORKFLOW-184** (re-derive the ID with the brief § 6
    greps first; check the other lanes);
 2. the 47 slice issues: generate the titles and bodies with
-   `tools/renovation-inventory --slice-issues <dir>` (writes `T<k>.title` and
+   `tools/renovation-inventory --slice-issues <dir> --order-row D-WORKFLOW-184` (writes `T<k>.title` and
    `T<k>.md`, touches no tracker), then for each: `gh issue create
    --repo pixelelated/distribution --milestone "M6: Codebase renovation"
    --title "$(cat T<k>.title)" --body-file T<k>.md`, the REST id with `gh api

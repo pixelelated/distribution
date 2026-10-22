@@ -1360,7 +1360,7 @@ def order(args):
     return EX_FAIL if unassigned or ambiguous or over or empty else 0
 
 
-ISSUE_BODY = """Slice T{k} of the renovation order: `docs/reviews/order.md` § T{k}, id `{id}` in `docs/reviews/slices.json`. Phase M6.P2, under epic #339 until this area's epic is filed at its first dispatch (then re-parented and retitled `E<epic>/T{k}`, `milestone-phase-naming.md`). Proposed by the survey (#641); the order is D-WORKFLOW-184. Run under the per-slice procedure of `docs/reviews/plan-for-the-plan.md` § 6b, from the brief the planner writes before dispatch (§ 7).
+ISSUE_BODY = """Slice T{k} of the renovation order: `docs/reviews/order.md` § T{k}, id `{id}` in `docs/reviews/slices.json`. Phase M6.P2, under epic #339 until this area's epic is filed at its first dispatch (then re-parented and retitled `E<epic>/T{k}`, `milestone-phase-naming.md`). Proposed by the survey (#641); the order is {order_row}. Run under the per-slice procedure of `docs/reviews/plan-for-the-plan.md` § 6b, from the brief the planner writes before dispatch (§ 7).
 
 ## Scope
 
@@ -1442,7 +1442,7 @@ def slice_issues(args, out):
             fork=fmt(c["fork"]), head=head,
             tiers=", ".join("%s %s" % (k.split(":", 1)[1], fmt(n)) for k, n in sorted(c.items()) if k.startswith("tier:")),
             gate=sl.get("gate") or "none", depth=sl["depth"], reason=sl["depth_reason"], inter=sl["interacting"],
-            vm=vm, opinion=opinion)
+            vm=vm, opinion=opinion, order_row=args.order_row)
         with open(os.path.join(out, "T%d.title" % sl["k"]), "w") as f:
             f.write(title)
         with open(os.path.join(out, "T%d.md" % sl["k"]), "w") as f:
@@ -1504,6 +1504,8 @@ def main():
                     "tree, render order.md's generated block (--no-write: print only)")
     ap.add_argument("--slice-issues", metavar="DIR", help="write each slice issue's title and body (T<k>.title, "
                     "T<k>.md) into DIR from slices.json and inventory.json; touches no tracker")
+    ap.add_argument("--order-row", default="the order's register row",
+                    help="--slice-issues: the register row that records the order (pass it once the row exists)")
     ap.add_argument("--cross", action="store_true", help="write docs/reviews/cross-reference.md from inventory.json")
     args = ap.parse_args()
     if args.self_test:
