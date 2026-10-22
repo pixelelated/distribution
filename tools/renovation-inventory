@@ -650,6 +650,28 @@ def unit_of(row):
     return None
 
 
+CODE = {"shell", "python", "recipe", "c", "c++", "c-header", "c++-header", "javascript", "typescript", "make",
+        "cmake", "systemd", "udev", "script", "perl", "lua", "rust", "go", "assembly", "shader", "docker",
+        "kconfig", "html", "css"}
+
+
+def read_unit(row, pkg_unit):
+    """The unit a slice is cut from: a package directory, a device, a tool, an ES source directory."""
+    tree, path = row[0], row[1]
+    parts = path.split("/")
+    if tree == "es":
+        return "es:" + "/".join(parts[:3]) if len(parts) > 3 else "es:" + path
+    if parts[0] in ("packages", "projects"):
+        if parts[0] == "projects" and len(parts) > 1 and parts[1] != "ROCKNIX":
+            return "/".join(parts[:2])
+        if len(parts) > 3 and parts[2] == "devices" and not pkg_unit.get(path):
+            return "/".join(parts[:4])
+        return pkg_unit.get(path) or "/".join(parts[:-1])
+    if parts[0] in ("tools", "scripts", ".github", ".claude", "docs", "config", "distributions", "research"):
+        return "/".join(parts[:2]) if len(parts) > 2 else path
+    return path
+
+
 def write_markdown(path, header, rows, counts, pkg_unit):
     fmt = lambda n: "{:,}".format(n)
     areas = defaultdict(lambda: Counter())
@@ -711,6 +733,67 @@ def write_markdown(path, header, rows, counts, pkg_unit):
         fmt(tot["paths"]), fmt(tot["lines"]), fmt(tot["lines:fork-own"]), fmt(tot["lines:upstream-carried"]),
         fmt(tot["lines:vendor-carried"]), fmt(tot["patches"]), fmt(tot["binaries"]), fmt(tot["reach:shipped"]),
         fmt(tot["reach:unshipped"]), fmt(tot["reach:unreached"]), fmt(tot["reach:n/a"]), fmt(tot["overlap"])))
+    w("")
+    w("## Read size per area")
+    w("")
+    w("What a slice reads line by line is code (`%s`); configuration, data, translations and Markdown are "
+      "read where a slice's questions need them. *Reached* is `shipped` or `n/a`; vendor-carried lines are the "
+      "provenance table's, never read." % "`, `".join(sorted(CODE)))
+    w("")
+    w("| Area | Code, fork-own | Code, upstream-carried, reached | Code, unshipped | Code, unreached | Other text | Vendor-carried |")
+    w("| --- | ---: | ---: | ---: | ---: | ---: | ---: |")
+    rs = defaultdict(Counter)
+    for r in rows:
+        c, ln = rs[r[2] or "(unassigned)"], r[7] or 0
+        if r[3] == "vendor-carried":
+            c["vendor"] += ln
+        elif r[6] not in CODE:
+            c["other"] += ln
+        elif r[11] == "unreached":
+            c["unreached"] += ln
+        elif r[11] == "unshipped":
+            c["unshipped"] += ln
+        elif r[3] == "fork-own":
+            c["fork"] += ln
+        else:
+            c["up"] += ln
+    for a in sorted(rs):
+        c = rs[a]
+        w("| %s | %s | %s | %s | %s | %s | %s |" % (a, fmt(c["fork"]), fmt(c["up"]), fmt(c["unshipped"]),
+                                                   fmt(c["unreached"]), fmt(c["other"]), fmt(c["vendor"])))
+    w("")
+    w("## Largest units per area (code lines)")
+    w("")
+    w("A unit is a package directory, a device directory, a tool or script, another project, or an "
+      "EmulationStation source directory (`es:` and its first three path parts). Fifteen per area by code lines; "
+      "the records area is not read and is left out.")
+    units = defaultdict(lambda: defaultdict(Counter))
+    for r in rows:
+        if r[2] == "records":
+            continue
+        u = units[r[2] or "(unassigned)"][read_unit(r, pkg_unit)]
+        u["paths"] += 1
+        u["lines"] += r[7] or 0
+        if r[6] in CODE and r[3] != "vendor-carried":
+            u["code"] += r[7] or 0
+            if r[3] == "fork-own":
+                u["fork"] += r[7] or 0
+        u["reach:" + r[11]] += 1
+    for a in sorted(units):
+        items = sorted(units[a].items(), key=lambda kv: (-kv[1]["code"], -kv[1]["lines"], kv[0]))
+        w("")
+        w("### %s (%s units)" % (a, fmt(len(items))))
+        w("")
+        w("| Unit | Paths | Lines | Code | of which fork-own | Reach |")
+        w("| --- | ---: | ---: | ---: | ---: | --- |")
+        for k, c in items[:15]:
+            reach = ", ".join("%s %d" % (x.split(":", 1)[1], n) for x, n in sorted(c.items()) if x.startswith("reach:"))
+            w("| `%s` | %s | %s | %s | %s | %s |" % (k, fmt(c["paths"]), fmt(c["lines"]), fmt(c["code"]), fmt(c["fork"]), reach))
+        rest = items[15:]
+        if rest:
+            w("| (%d more) | %s | %s | %s | %s | |" % (len(rest), fmt(sum(c["paths"] for _, c in rest)),
+                                                     fmt(sum(c["lines"] for _, c in rest)),
+                                                     fmt(sum(c["code"] for _, c in rest)), fmt(sum(c["fork"] for _, c in rest))))
     w("")
     w("## Languages per area (lines)")
     w("")
