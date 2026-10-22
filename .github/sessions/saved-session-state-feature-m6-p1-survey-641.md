@@ -27,9 +27,21 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the futro, the tracking
-file's header, this pointer updated, and the day's work-log entry headed
-`#641` (brief § 6, "First commit").
+**Checkpoint 2026-10-22 19:20 UTC (the executor, Opus 5.5, session
+`dbac446e-3b41-4b28-966d-0a6efe07ea2b`).** The P0 tip `fac868f2fb` merged
+into this stack (`bff1ccec2a`); the stacking check passes. The order's
+register ID is now **D-WORKFLOW-184** (183 is the lane structure). Counts
+re-derived equal (tracking file). Done: the futro
+(`docs/futros/2026-10-22-m6-p1-survey.md`, also on #641), the tracking
+file's header (`docs/reviews/p1-tracking.md`), the work-log entry and a
+friction line. The ES detached worktree exists at
+`/home/max/Development/emulationstation-next.worktrees/m6-p1-survey` (remove
+with `git -C /home/max/Development/emulationstation-next worktree remove` at
+the end). **Next: pass 1**, `docs/reviews/areas.json` and
+`tools/renovation-inventory`, under the futro's rules: `BUILD_DIR` in a temp
+directory, `ambiguous:` beside `unassigned:`, the `n/a` reachability value,
+sourced generic recipes reached, the `patches/<DEVICE>/` refinement, compact
+rows with the size measured.
 
 ## Next commands
 
@@ -38,7 +50,7 @@ cd /workspace/repos/pixelelated/distribution.worktrees/m6-p1-survey-641
 git fetch origin && git fetch upstream --no-tags
 git merge-base --is-ancestor origin/feature/m6-renovation-plan-346 HEAD && echo stacked-on-P0
 git diff --quiet next -- .claude CLAUDE.md AGENTS.md || echo STALE
-sed -n '1,80p' docs/reviews/briefs/p1-survey.md
+sed -n '/## Progress/,/## Read first/p' docs/reviews/p1-tracking.md
 ```
 
 ## Merge notes
@@ -48,6 +60,8 @@ Merge order after the M7 candidate: `feature/m6-renovation-plan-346` to
 (never another lane's feature branch). This branch, the P0 branch and the M7
 lane all append to `docs/decision-register.md`, today's work log and
 `docs/work-logs/INDEX.md`: keep every append, regenerate the index. The
-register ID for the order is D-WORKFLOW-183 (182 is the stacked-start
-decision; the M7 lane holds 171 to 180 unmerged). Nothing here builds,
+register ID for the order is D-WORKFLOW-184 (182 is the stacked-start
+decision, 183 the lane structure; the M7 lane holds 171 to 180 unmerged).
+The P0 branch is merged into this one when it moves, as the stack's base
+(done once, `bff1ccec2a`). Nothing here builds,
 touches a device, a cloud or the M7 build worktrees.
