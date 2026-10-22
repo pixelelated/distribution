@@ -422,6 +422,16 @@ Feature work (M7 and after) lands on `next` while slices run. The rules:
   (`session-resume`, D-WORKFLOW-140). Where two lanes append to the same
   ledger (the register, a day's work log, the index), the merge keeps both
   appends and regenerates the index; neither lane edits the other's rows.
+- **One coordinator lane, one session per worktree** (D-WORKFLOW-183,
+  2026-10-22). `feature/m6-renovation-plan-346` is the program's coordinator
+  lane, as `m7-player-setup` is M7's: it plans, writes briefs, accepts at
+  gates and integrates. Each executing phase or slice is one worktree with
+  one session; a second session never shares a checkout (one index per
+  worktree, the 2026-09-14 mixed-image failure), and fan-out inside a lane is
+  read-only research subagents whose leads the lane re-derives. There is no
+  long-lived M6 integration branch: `next` is the roll-up, because
+  remediation must be built and VM-tested there; a slice stacks on the P1
+  chain only while `next` is gated, and merges in order afterwards.
 - **The canonical stash is one file with two writers**, which the M7 lane
   and this lane will both reach for. Until the maintainer settles it, this
   lane keeps its state in its branch pointer

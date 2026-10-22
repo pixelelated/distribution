@@ -29,8 +29,13 @@ P0, the plan for the plan: the document is on the branch (`0bfd387f7b` and
 the correction after the first proof); the milestone and issue edits are made;
 #641 is M6.P1 with the brief `docs/reviews/briefs/p1-survey.md` (version 2,
 after the first stranger's proof found sixteen gaps, all answered in the text).
-What remains of P0: the second proof's result recorded on #346, the P0
-checkboxes ticked with their evidence, then the merge to `next`.
+What remains of P0: the merge to `next`, which waits for the M7 lane's
+post-candidate merge to clear the push guard's W42 gate (D-INFRA-026,
+D-WORKFLOW-182); never `--no-verify`. P1 started 2026-10-22 in its own
+worktree `distribution.worktrees/m6-p1-survey-641` on
+`feature/m6-p1-survey-641`, stacked on this branch; its state lives in its
+own pointer. This lane's next act is acceptance at P1's pass-7 gate (the
+proposed order posted on #641) and at hand-back (brief § 10).
 
 ## Next commands
 
@@ -40,12 +45,34 @@ git fetch origin && git merge --no-edit next          # only when next moved; ne
 tools/register-check && tools/work-log-index --check && tools/ceremony-check
 ```
 
-Then: read #346's last comment for the proof's state; if the second proof
-passed, tick P0's checkboxes on #346 with the evidence and merge this branch
-to `next` (`git switch next && git merge --no-ff feature/m6-renovation-plan-346`
-in the primary checkout, the push guard's checks first); if not, correct the
-brief and run the proof again (a fresh session, the repository and the brief,
-read-only, its first ten commands and its questions).
+Then: read #641's latest comments for P1's state. At its pass-7 gate, read
+the proposed order against plan § 5 and § 6a and record the yes or the
+changes on #641. After the M7 candidate's merge lands on `next`, merge this
+branch to `next` first (`git switch next && git merge --no-ff
+feature/m6-renovation-plan-346` in the primary checkout, the push guard's
+checks green), then P1's branch when it hands back. Address every git
+command to a worktree with `git -C <absolute path>` and every file by its
+absolute path: a `cd` at the head of a call did not hold on 2026-10-22 and a
+commit meant for this branch landed on P1's.
+
+## Herdr lane map (2026-10-22, the planning session's record)
+
+Workspace `wN` "pixelelated · Codebase renovation" (session `default`),
+after the maintainer's Herdr layout: first tabs coordinate, each later tab is
+one lane, one session per worktree (D-WORKFLOW-183).
+
+| Tab | Label | Pane | Worktree | Agent name | Model | Role |
+| --- | --- | --- | --- | --- | --- | --- |
+| `wN:t1` | P0 planning (#346) | `wN:p1` | none (`/workspace/repos/pixelelated`) | (unnamed, Claude Fable 5.1) | Fable 5.1 | the session that planned P0 and started the lanes; closes once the coordinator has resumed |
+| `wN:t2` | Coordinator (M6, #346) | `wN:p2` | this worktree | `m6-coordinator` | Fable 5.1 | plans, writes briefs, accepts at gates, integrates; keeper of the primary checkout |
+| `wN:t3` | P1 Survey (#641) | `wN:p3` | `distribution.worktrees/m6-p1-survey-641` | `m6-p1-survey` | Opus 5.5 | executes `docs/reviews/briefs/p1-survey.md` |
+
+Session ids are read fresh from `herdr agent list` (`agent_session.value`)
+and recorded on #346 and #641 at each start; never from this table. Other
+workspaces on this host (`w4` the M7 lane, `wG` the website, `w7` another
+project) are never read, prompted, moved or closed from here. Questions only
+the maintainer can answer go up through the coordinator, one at a time, and
+the answer is recorded verbatim, marked RELAYED, where the question lives.
 
 ## Merge notes
 
