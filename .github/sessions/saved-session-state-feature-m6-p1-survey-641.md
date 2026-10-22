@@ -27,27 +27,38 @@
 
 ## Current focus
 
-**Checkpoint 2026-10-22, passes 1 to 5 complete and pass 6's reconciliation
-done (the executor, Opus 5.5, session `dbac446e-3b41-4b28-966d-0a6efe07ea2b`).**
-The generated ledgers: `docs/reviews/inventory.{json,md}` (at `17dee5ba42`),
-`assessment.md` (`--assess`), `cross-reference.md` (`--cross`), and the
-proposed order: `slices.json` (43 slices) rendered into `order.md` by
-`--order` (every one of 134,591 rows in exactly one slice). The tracking file
-records each pass with its commands. **Next: the preliminary review of the
-order** (brief § 1): `npm install --prefix tools/council`, record the `tsx`
-version, write the contract to
-`research/preliminary-reviews/2026-10-22-m6-p1-order/review-contract.json`,
-build the source manifest (`order.md`, `inventory.md`, `areas.json`,
-`plan-for-the-plan.md` with sha256 and witness commit), invoke claude, gemini
-and gpt one at a time through `tools/council/run invoke --provider openrouter`,
-verifying each served model before the next. Then answer objections in
-`order.md`, and post the pass-7 gate on #641 and **wait for the maintainer's
-yes** (via the coordinator) before filing any slice issue or the register row
-D-WORKFLOW-184. Meanwhile build `tools/renovation-status`,
-`tools/renovation-drift` and the lint's renovation face. The ES detached
-worktree is at `/home/max/Development/emulationstation-next.worktrees/m6-p1-survey`
-(remove with `git -C /home/max/Development/emulationstation-next worktree
-remove` at the end).
+**Checkpoint 2026-10-22, at the pass-7 gate (the executor, Opus 5.5, session
+`dbac446e-3b41-4b28-966d-0a6efe07ea2b`). Waiting for the maintainer's yes on
+#641, relayed by the coordinator (`m6-coordinator`).** Passes 1 to 6 are
+complete: the ledgers at `f814d1a75c` (`inventory`, `assessment`,
+`cross-reference`), the revised order (47 slices, `slices.json` rendered into
+`order.md`), the preliminary review (`research/preliminary-reviews/2026-10-22-m6-p1-order/`,
+three seats verified, all "ready with named changes", answered by name in
+`order.md`), `status.md` (`order: reviewed`, 47 unreviewed). The three tools
+and the lint face are built and proven. The five checkers passed before the
+post. Three questions are put to the maintainer in the post: the shipped
+devices, `backuptool` and the system services under the `0.1` gate, and the
+cost of 13 Extended slices.
+
+**On the yes** (a yes that moves a slice renumbers `T<k>` in `slices.json`
+first, then `--order`):
+1. the register row **D-WORKFLOW-184** (re-derive the ID with the brief § 6
+   greps first; check the other lanes);
+2. the 47 slice issues: generate the bodies with
+   `python3 -I <scratch>/slice_issues.py <dir>` (its text is quoted in the
+   tracking file if the scratch copy is gone), then for each: `gh issue create
+   --repo pixelelated/distribution --milestone "M6: Codebase renovation"
+   --title "$(cat T<k>.title)" --body-file T<k>.md`, the REST id with `gh api
+   repos/pixelelated/distribution/issues/<n> --jq .id`, and `gh api -X POST
+   repos/pixelelated/distribution/issues/339/sub_issues -F sub_issue_id=<id>`;
+   `tools/box-check --issue <n>` on each, pasted on #641;
+3. `docs/reviews/status.md` regenerated (`tools/renovation-status --write`),
+   #339's body linking `docs/reviews/order.md`, the M6 body's NEXT set to T1
+   and read back;
+4. the mini-retro on #641, the ES worktree removed
+   (`git -C /home/max/Development/emulationstation-next worktree remove
+   /home/max/Development/emulationstation-next.worktrees/m6-p1-survey`), the
+   five checkers re-run and pasted, the branch pushed.
 
 ## Next commands
 

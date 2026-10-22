@@ -53,7 +53,7 @@ No two commands for one quantity disagreed; no stop.
 - Pass 4 (Cross-reference): **complete** -- 10 code areas N-to-N (90 ordered pairs, 60 with an edge), rule and patch edges, every one of the 12 areas has an edge (see § Pass 4)
 - Pass 5 (Classification): **complete** -- 43 slices in the first version; 47 after pass 6's review (`--order` at `f814d1a75c`: every one of 134,631 rows in exactly one) (see § Pass 5)
 - Pass 6 (Reconciliation, then the preliminary review): **complete** -- reconciliation, then the three-seat review (all verified, all "ready with named changes"), its findings source-checked and the order revised to 47 slices (see § Pass 6)
-- Pass 7 (Action): pending -- gated on the maintainer's yes on #641
+- Pass 7 (Action): **at the gate** -- the order and slice list posted on #641; waiting for the maintainer's yes (relayed by the coordinator) before any slice issue or the register row
 
 ## Read first (brief § 3), what was read this session
 
