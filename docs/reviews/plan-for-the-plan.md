@@ -79,7 +79,8 @@ these with exact, machine-generated numbers.
 | `scripts/` | 76 | the build engine (`build`, `install`, `image`, `mkimage`, `build_distro`), 25,924 lines | line by line; it is small and everything depends on it |
 | `config/` | 181 | the layered options and arch files | with `scripts/` |
 | `distributions/` | 31 | the distro identity | with `scripts/` |
-| `tools/` | 3,157 (99 fork tools at the top level; 1,785 `.ts` and 973 `.js` are the council toolchain exported from another estate, D-WORKFLOW-088) | the fork's QA and process tooling, 132,535 lines counting the council export | fork tools line by line; the council export by provenance and version only |
+| `tools/` | 236 tracked (99 fork tools at the top level; the `node_modules` the council runner needs is gitignored and installed per checkout) | the fork's QA and process tooling, 53,802 lines | fork tools line by line |
+| the council toolchain | 45 of `scripts/`' 76 tracked files, `seed/`, `verifier-pins.json`, `council-seat-efforts.json` | scaffold's export, committed byte for byte at its own paths (D-WORKFLOW-088) | by provenance and version only; it is refreshed by copying the next export over, never edited here |
 | `.githooks/`, `.github/workflows/` | 6 + 6 | the guards and the fork CI | with `tools/` |
 | EmulationStation (`pixelelated/emulationstation` at the pin in `projects/ROCKNIX/packages/ui/emulationstation/package.mk`, `16dbac52`) | 482 files in `es-app/src` and `es-core/src`, 184,891 lines; the fork's own +42,180 | the interface the player uses | Tier 3: the fork's pages line by line first; the launch path before #336 Step 1 (D-WORKFLOW-102) |
 | `docs/`, `research/`, `.github/sessions/` | 125,258 + 695 + ~350 | the fork's records, QA evidence and frames | **not code**; reviewed only for records that mislead (§ 5, the "records" slice) |
@@ -348,8 +349,10 @@ mandatory:
    and effort the maintainer selected, the review depth and reviewer
    recipes.
 2. **Scope**: the paths, the tree hash they are read at, the line count per
-   path (the executor re-counts and stops if the count differs), the
-   provenance tier, the interacting subsystems and their paths (read-only
+   path (the executor re-counts; a count that differs is recorded as a delta
+   beside the brief's, and the stop is a hash that is not the one named, a
+   count that cannot be produced, or two commands for one quantity that
+   disagree), the provenance tier, the interacting subsystems and their paths (read-only
    context).
 3. **Read first**: the rule files in scope by name, read from `next`; the
    blindspot entries that touch these paths by number; the prior audits of
@@ -369,8 +372,8 @@ mandatory:
    (D-QA-044): the lint's PASS line, the counts, the issue's checkboxes, the
    `reviewed-at` hash present.
 8. **Stop conditions**: completion; an explicit maintainer pause; a blocker
-   named with what is needed; a count or hash mismatch at stage A. A
-   checkpoint is not a stop (D-WORKFLOW-149). Nothing else ends the session
+   named with what is needed; a hash mismatch at stage A (a differing count
+   is a delta, not a stop). A checkpoint is not a stop (D-WORKFLOW-149). Nothing else ends the session
    early, and an idle session reports itself idle.
 9. **Ceremonies owed**: the work-log entry per session, headed by the issue;
    `tools/work-log-index --write`; a friction line the moment something

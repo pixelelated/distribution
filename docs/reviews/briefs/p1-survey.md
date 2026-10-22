@@ -5,8 +5,11 @@ unit of handoff the plan defines (`docs/reviews/plan-for-the-plan.md` § 7);
 read that document whole before the first command. Every section below is
 mandatory; a section that does not apply says so and why. Where this brief
 and the checklist on #641 differ, #641 wins and the brief is corrected in the
-same session. Version 2, after the stranger's proof of 2026-10-22 (its
-sixteen questions are answered in the text below).
+same session. Version 3: version 2 answered the first stranger's sixteen
+questions; a second stranger reached the first inventory commit without a
+question and raised thirteen more, answered below (the runner's install, the
+32-bit plan root, `--repo` on every `gh` call, the unnamed roots, the
+review's place before the pass-7 post).
 
 ## 1. Identity
 
@@ -38,7 +41,22 @@ sixteen questions are answered in the text below).
   --prompt-file <brief> --output <file> --source-manifest <manifest>`
   (D-WORKFLOW-049; the key is sourced from `~/.config/council/env`, never
   printed); the served model of each call is verified from its provenance
-  file before the next call. It is advisory: no vote, no approval, not an
+  file before the next call. **The runner's dependencies are not in the
+  fresh clone**: `tools/council/run` execs `tools/council/node_modules/.bin/tsx`,
+  and `node_modules/` is gitignored, installed so far only in the legacy
+  checkout. Install once, before the review, with `npm install --prefix
+  tools/council` (a gitignored write; network to the npm registry; no
+  lockfile is committed, so record the installed `tsx` version in the
+  tracking file); an install that fails is the recorded reason for `order:
+  unreviewed`. The `--source-manifest` names, with their blob hashes in the
+  form `review-formats.md` step 1 prescribes, `docs/reviews/order.md`,
+  `docs/reviews/inventory.md`, `docs/reviews/areas.json` and
+  `docs/reviews/plan-for-the-plan.md`. **The review runs at the end of pass 6,
+  before the pass-7 post** (§ 8), so the maintainer reads an order whose
+  objections are already answered; the dispatch of this phase on #641 is the
+  authorization for provider use that `review-formats.md` step 1 records, for
+  exactly one preliminary review of the order. An objection the maintainer's
+  yes then overrules is noted in `order.md`; nothing is re-reviewed. It is advisory: no vote, no approval, not an
   audit, not a council. The executor's lab is not excluded here, because the
   format fixes the seats (plan § 6c); D-WORKFLOW-137's exclusion applies to
   the slices' audits. **Fail closed, never substitute:** a seat that is
@@ -80,7 +98,7 @@ fresh clone:
 
 ```bash
 git rev-parse HEAD
-git ls-files | wc -l                                   # 133,465
+git ls-files | wc -l                                   # 133,465 (this branch adds its own files)
 find packages projects -name package.mk | wc -l        # 1,607 (1,040 under packages/, 567 under projects/)
 find packages projects -name '*.patch' | wc -l         # 1,709
 git rev-parse --short upstream/next                    # 03d71e3217 at the clone's fetch of 2026-10-22; moves with every fetch
@@ -133,17 +151,25 @@ The build system computes which packages a device image builds:
 `config/multithread` pipes `scripts/pkgjson` into `scripts/genbuildplan.py`,
 and `tools/viewplan [package]` is the read-only form of the same pipe
 (default `image`). It sources every `package.mk` and compiles nothing. Run
-it once per device and architecture the `Makefile` builds (its device targets
-are the list: most ARM devices build `arm` and `aarch64`; `GENERIC_X64` and
-`AMD64` build `x86_64`; `SM8650`/`SM8750` `aarch64` only), with all three
-variables set explicitly every time, because `config/options` **defaults
-`DEVICE=SM8550` when it is unset** and a forgotten variable silently gives
-another device's plan; the inventory tool asserts all three before sourcing
-anything:
+it once per device and architecture the `Makefile` builds: all fifteen of
+its device targets (`world` builds twelve of them; run all fifteen), with
+all three variables set explicitly every time, because `config/options`
+**defaults `DEVICE=SM8550` when it is unset** and a forgotten variable
+silently gives another device's plan; the inventory tool asserts all three
+before sourcing anything. **The 64-bit and 32-bit plans have different
+roots:** `scripts/build_distro` runs `make image` for `aarch64`/`x86_64`, but
+for `arm` it runs `scripts/build_compat arm`, whose plan is rooted at the
+virtual package `arm` (`projects/ROCKNIX/packages/virtual/arm`), and only
+where the device's effective `ENABLE_32BIT` is true (`distributions/ROCKNIX/options`
+defaults it on; `GENERIC_X64`, `AMD64`, `SM8650` and `SM8750` turn it off).
+So:
 
 ```bash
 PROJECT=ROCKNIX DEVICE=H700 ARCH=aarch64 tools/viewplan image > <scratch>/plan-H700-aarch64.txt
+PROJECT=ROCKNIX DEVICE=H700 ARCH=arm     tools/viewplan arm   > <scratch>/plan-H700-arm.txt   # skipped where ENABLE_32BIT is off
 ```
+
+Twenty-six plans in all (fifteen 64-bit, eleven 32-bit).
 
 "Devices we ship" is `device-builds.md` § Our devices: `RK3566`, `H700`,
 `RK3326`, `SM8550`, `GENERIC_X64`. A package in a shipped device's plan is
@@ -175,10 +201,13 @@ From `next`, in this order, before any analysis:
   recipe and a patch directory are), `instruction-files.md` § The fork's own
   tools (a new tool is added to its table too), `adversarial-council.md` and
   `council-substrate-integrity.md` (the preliminary review's only route).
-  Known stale facts in the rules, so they do not cost an hour:
-  `device-builds.md` § Iterating on EmulationStation names an old `origin`
-  for the ES checkout (the brief's is current); `device-builds.md` § Our
-  devices is the shipped list and is current.
+  Known stale facts in the rules and tools, so they do not cost an hour
+  (all on #640): `device-builds.md` § Iterating on EmulationStation names an
+  old `origin` for the ES checkout (the brief's is current);
+  `instruction-files.md`, `AGENTS.md` and `tools/fork-worktree`'s hint still
+  print `/workspace/repos/rocknix`; the ES checkout also carries an
+  `upstream` remote that is a stale duplicate of `rocknix` (use `rocknix`).
+  `device-builds.md` § Our devices is the shipped list and is current.
 - `docs/blindspot-register.md` whole, once; entries 13 (assumed done), 51
   (an open checkbox is a claim) and 64 (read the cause before lengthening a
   wait) are the ones a survey repeats.
@@ -212,9 +241,9 @@ reading; the slice read is where a score is confirmed or overturned:
 | Lens | Evidence the score cites |
 | --- | --- |
 | Security | a token grep over the area, the token list recorded in the tracking file (at least: `password`, `token`, `secret`, `key=`, `rclone.conf`, `curl`, `wget`, `tar x`, `unzip`, `chmod`, `sudo`, `systemctl`, `nc -l`, `http.server`, `/dev/`), with the matching paths listed by name and their count |
-| Brittleness | `docs/blindspot-register.md` and `docs/friction-log.md` entries per path; closed `bug` issues per path; `git log --since=2026-06-01 --format=%h -- <paths> \| wc -l` |
+| Brittleness | `docs/blindspot-register.md` and `docs/friction-log.md` entries per path; closed `bug` issues per path (`gh issue list --repo pixelelated/distribution --label bug --state closed --limit 500 --json number,title,body`, grepped for the area's path prefixes); `git log --since=2026-06-01 --format=%h -- <paths> \| wc -l` |
 | Nearest new functionality | `git diff --stat $MB next -- <paths>` totals (the merge base, § 2) |
-| Nearest planned change | #336, #576, #509, #585 and any open issue whose body names the paths (`gh issue list --limit 300 --json number,body` grepped, bounded) |
+| Nearest planned change | #336, #576, #509, #585 and any open issue whose body names the paths (`gh issue list --repo pixelelated/distribution --state open --limit 300 --json number,body` grepped). **Every `gh` call carries `--repo pixelelated/distribution`**: the fresh clone has no default repository set (`issue-tracking.md`) |
 | Cost against value | lines to read from the inventory; callers as `grep -rlF '<unit or script name>' packages projects scripts tools \| wc -l`; position in the build (the engine first) |
 | Reachability | the inventory's `reachable_by` and `buildable_by` columns; the `unreached` and `unshipped` sets are their own early slices |
 
@@ -225,11 +254,14 @@ slices early (plan § 6a).
 
 ## 5. The evidence floor
 
-The code-auditor skill's rules apply to every number in this phase: tracker
-state is never sole evidence; a mechanical check that exists is run and its
-output recorded; a claim about device behaviour is a lead, not evidence (no
-device behaviour is claimed in P1); subagent output is a lead, re-derived by
-the orchestrator before it enters a file. Every count in the tracking file is
+The code-auditor skill's evidence floor applies to every number in this
+phase, all five rules: tracker state is never sole evidence; a mechanical
+check that exists is run and its output recorded; a claim about device
+behaviour is a lead, not evidence (no device behaviour is claimed in P1); an
+assertion that cannot fail is not evidence (what input would make
+`unassigned: 0` fail? a path matching no glob; prove the tool reports one
+with a fixture before trusting its zero); subagent output is a lead,
+re-derived by the orchestrator before it enters a file. Every count in the tracking file is
 the output of a command written beside it.
 
 Never, in this phase: build an image or a package; touch a device, a cloud
@@ -253,14 +285,15 @@ All under the worktree, committed on the branch with messages that cite
 #641; each of the three tools is fork-only and joins, in the commit that
 adds it, the three places a fork tool must appear: `.claude/rules/fork-workflow.md`
 § Personal paths, `PERSONAL_PATTERNS` in `.githooks/pre-push`, and the table
-in `.claude/rules/instruction-files.md` § The fork's own tools;
+in `.claude/rules/instruction-files.md` § The fork's own tools (its "Detail
+in" column names `docs/reviews/README.md`, which documents the three);
 `.githooks/hooks-test` and `tools/rules-check --quiet` pass after each.
 
 | Output | Path | Shape |
 | --- | --- | --- |
 | Tracking file | `docs/reviews/p1-tracking.md` | the multi-pass template: the header of § 2's hashes and the model/effort run; progress per pass with counts; the item table; relationships discovered; opened before pass 1, updated after every pass |
 | Futro | `docs/futros/<yyyy-mm-dd>-m6-p1-survey.md`, and the same text as a comment on #641 | the futro skill's template; written before the first inventory commit |
-| Area map (the one hand-written input) | `docs/reviews/areas.json` | `[{"area": "...", "epic": null, "globs": ["..."]}]`, first cut from plan § 5 with two changes: "doctrine and records" is split into **doctrine** (`.claude/`, `CLAUDE.md`, `AGENTS.md`, the registers, the indexes, `docs/*.md` at the top level) and **records** (`docs/qa-logs/`, `docs/qa-frames/`, `docs/audits/`, `docs/work-logs/`, `docs/retros/`, `docs/futros/`, `research/`, `.github/sessions/`), so records do not dominate every total; every tracked path matches exactly one area's globs |
+| Area map (the one hand-written input) | `docs/reviews/areas.json` | `[{"area": "...", "epic": null, "globs": ["..."]}]`, first cut from plan § 5 with two changes: "doctrine and records" is split into **doctrine** (`.claude/`, `CLAUDE.md`, `AGENTS.md`, the registers, the indexes, `docs/*.md` at the top level) and **records** (`docs/qa-logs/`, `docs/qa-frames/`, `docs/audits/`, `docs/work-logs/`, `docs/retros/`, `docs/futros/`, `research/`, `.github/sessions/`), so records do not dominate every total; and the roots plan § 5 does not name are placed: the council toolchain (`scripts/council-*`, `scripts/lib/council-*`, `scripts/lint-council-*`, `scripts/build-council-prompt.ts`, `scripts/write-step-seal.ts`, `scripts/verify-*.ts`, `scripts/check-stale-blob-drift.ts`, `scripts/setup-council-mistral-tokenizer.mjs`, `scripts/forge-write-status.mjs`, `scripts/owner-queue-lint.mjs`, `scripts/__tests__/`, `seed/`, `verifier-pins.json`, `council-seat-efforts.json`; 45 of the 76 tracked `scripts/` files), `.github/workflows/fork-*` and `.github/scripts/` under **tooling and guards**; the rest of `scripts/`, `config/`, `distributions/`, `Makefile`, `Dockerfile`, `.gitignore`, `.merge-head`, upstream's `.github/workflows/*`, `.github/ISSUE_TEMPLATE/` and the PR template under **build engine**; `README.md`, `NAMING.md`, `TRADEMARK.md`, `LICENSE.md`, `licenses/`, `documentation/`, `plans/` under **doctrine**. Every tracked path matches exactly one area's globs, and the tool proves the check can fail with a fixture path that matches none |
 | Inventory tool | `tools/renovation-inventory` | `tools/renovation-inventory [--distribution DIR] [--es DIR] [--areas docs/reviews/areas.json] [--plans DIR] [--out docs/reviews/inventory.json] [--markdown docs/reviews/inventory.md]`; asserts `PROJECT`, `DEVICE`, `ARCH` before any `viewplan` run it makes; prints `paths: N (git ls-files: N)`, `es-paths: N (git ls-files: N)`, `patches: N (find: N)`, `unassigned: N`; exits 1 when any pair differs or `unassigned` is not 0 |
 | Inventory | `docs/reviews/inventory.json` | a header (both hashes, the merge bases, the pin, `rocknix/master`, `batocera/master`, the generation time) and one record per tracked path: `tree`, `path`, `area`, `tier`, `overlap`, `language`, `lines` (null for a binary: git's numstat `-`), `patches` (for a directory of patches), `last_fork_commit`, `last_upstream_commit` (null for a path upstream never had; "upstream" is `upstream/next` for the distribution and `rocknix/master` for ES), `reachable_by`, `buildable_by`. Last-commit columns come from one pass over `git log --format=%H%x09%ct --name-only` per tree and per side, never one `git log` per path |
 | Inventory summary | `docs/reviews/inventory.md` | per-area totals (paths, lines by tier, patches, binaries, unreached, unshipped), the unreached and unshipped sets with line counts, the overlap count |
@@ -268,13 +301,13 @@ in `.claude/rules/instruction-files.md` § The fork's own tools;
 | Status tool and table | `tools/renovation-status`, `docs/reviews/status.md` | a row `order: reviewed\|unreviewed`, then one row per slice: `k`, area, lines, depth, state (`unreviewed`, `reading`, `remediating`, `closed`, `drifted`), `reviewed-at`, `fixed-at`, drift since; reads `order.md` and the slice issues (`gh ... --json`, bounded with `--limit`) |
 | Drift tool | `tools/renovation-drift [--write docs/reviews/drift.md]` | for every slice with a `fixed-at`: `git diff --stat <fixed-at>..next -- <paths>`, the percentage of the slice's lines, and whether a file on `order.md`'s security/state/launch-path list is touched; prints the table and exits 1 when any slice crosses plan § 8's thresholds |
 | Lint face | `tools/lint-audit-artifacts` | for a folder named `*-epic-m6-*`: every item in `05-punch-list.md`'s YAML index carries `question: Q1..Q7` or `question: none` with a reason, and `04-analysis.md` has a `## Renovation face` section with one subsection per question; a fixture folder under `tools/test-fixtures/` proves the lint fails without them and passes with them |
-| Slice issues | GitHub, sub-issues of #339 | filed only after the pass-7 gate (§ 8); title `M6.P2 E339/T<k>: <area>: <slice>` (all slices are phase P2, ordered by `order.md`; `T` from the closed sub-id set; re-parented and retitled `E<epic>/T<k>` when the area epic is filed at first dispatch); body: paths, tier, line count, lens, interacting subsystems, depth, release gate, `reviewed-at:` and `fixed-at:` empty, and the acceptance checklist (the audit folder `docs/audits/<date>-epic-m6-<slice>/` with its six files, `tools/lint-audit-artifacts` PASS including the renovation face, the punch-list issue with every item at a Phase 7 outcome, `reviewed-at` and `fixed-at` set); attached with `gh api -X POST repos/pixelelated/distribution/issues/339/sub_issues -F sub_issue_id=<REST id>` |
+| Slice issues | GitHub, sub-issues of #339, `--milestone "M6: Codebase renovation"`, no label | filed only after the pass-7 gate (§ 8); title `M6.P2 E339/T<k>: <area>: <slice>` (all slices are phase P2, ordered by `order.md`; `T` from the closed sub-id set; re-parented and retitled `E<epic>/T<k>` when the area epic is filed at first dispatch); body: paths, tier, line count, lens, interacting subsystems, depth, release gate, `reviewed-at:` and `fixed-at:` empty, and the acceptance checklist (the audit folder `docs/audits/<date>-epic-m6-<slice>/` with the five files the lint requires, `01-research-notes.md` to `05-punch-list.md`, plus the `00-running-log.md` plan § 6b opens at stage A; `tools/lint-audit-artifacts` PASS including the renovation face, the punch-list issue with every item at a Phase 7 outcome, `reviewed-at` and `fixed-at` set); attached with `gh api -X POST repos/pixelelated/distribution/issues/339/sub_issues -F sub_issue_id=<REST id>` |
 | Area epics | GitHub, label `epic` | **not filed in P1**: an area's epic is filed when its first slice is dispatched, so each owes its futro at its own kickoff (`ceremonies.md`) |
 | Register row | `docs/decision-register.md` | the chosen order, citing #641 and #346. The ID: one above the highest `D-WORKFLOW` on `next`, on every pushed branch (`git grep -ho 'D-WORKFLOW-[0-9]*' $(git branch -r --format='%(refname)') -- docs/decision-register.md`), and in the M7 lane's unpushed worktree (`grep -o 'D-WORKFLOW-[0-9]*' /workspace/repos/rocknix.worktrees/m7-player-setup/docs/decision-register.md \| sort -t- -k3 -n \| tail -1`); on 2026-10-22 that is **D-WORKFLOW-182** |
 | Lane stash | `.github/sessions/saved-session-state-feature-m6-p1-survey-641.md` | a pointer in the shape of `saved-session-state-feature-m6-renovation-plan-346.md`: start here, current focus, next commands, merge notes |
 | Milestone body | M6 on GitHub | current/next moved to the first slice; read back after the write |
 | #339 body | GitHub | a line linking `docs/reviews/order.md` |
-| Work log | `docs/work-logs/2026_10-work_logs/<yyyy_mm_dd>-work_log.md`, then `tools/work-log-index --write` | an entry per session headed `#641` and the thing decided |
+| Work log | `docs/work-logs/<yyyy_mm>-work_logs/<yyyy_mm_dd>-work_log.md` (the session's own month), then `tools/work-log-index --write` | an entry per session headed `#641` and the thing decided |
 
 ## 7. Acceptance
 
@@ -297,10 +330,14 @@ item names the artifact that ticks it.
 ## 8. Stop conditions
 
 Stop only on: every item of § 7 ticked and the branch pushed; the **pass-7
-gate** (passes 1 to 6 are authorized by the dispatch; before filing the
-slice issues and the order's register row, post the proposed order and the
-slice list on #641 and wait for the maintainer's yes, continuing any
-independent work meanwhile); an explicit maintainer pause on #641; a
+gate** (passes 1 to 6, the preliminary review included, are authorized by
+the dispatch; before filing the slice issues and the order's register row,
+post on #641 the proposed order with each slice's fields, the slice list
+with its titles, the inventory's four counts with their commands, the
+unreached and unshipped sets and the review's status, and wait for the
+maintainer's yes, building the status and drift tools and the lint face
+meanwhile; a yes that moves a slice renumbers `T<k>` before anything is
+filed); an explicit maintainer pause on #641; a
 blocker, named on #641 with what is needed (a count that cannot be produced
 or two commands that disagree, a rule that forbids a step); or an execution
 limit, stated as such with the tracking file current. A checkpoint is not a
