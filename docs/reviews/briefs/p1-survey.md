@@ -327,7 +327,7 @@ item names the artifact that ticks it.
 - [ ] `docs/reviews/inventory.md` lists every area with its totals and the unreached and unshipped sets with line counts.
 - [ ] `docs/reviews/p1-tracking.md` carries the header hashes and the model/effort run, shows all seven passes complete with counts, and the cross-reference pass records at least one edge per area.
 - [ ] `docs/reviews/order.md` has every slice with the fields of § 6; the first three slices are each under about 12,000 read lines or one package group; Tier 1's launch, control and state slice and the interface's launch-path slice are among the first three; the review status line is present.
-- [ ] The proposed order and slice list were posted on #641 and the maintainer's yes is recorded there before any slice issue was filed.
+- [ ] The proposed order and slice list were posted on #641, and the maintainer's yes is recorded there and in the order's register row before any slice issue was filed (the row's date and the first slice issue's creation time, read back).
 - [ ] Every slice has its issue as a sub-issue of #339, titled `M6.P2 E339/T<k>: <area>: <slice>`, paths named, `reviewed-at` and `fixed-at` empty; `tools/box-check` passes on all of them, output pasted on #641.
 - [ ] The preliminary review ran per `review-formats.md` (the contract under `research/preliminary-reviews/<run-id>/`, three seats verified) or `order.md` records why not and `status.md` shows `order: unreviewed`; each material objection is answered by name.
 - [ ] `tools/renovation-drift` and `tools/renovation-status` exist, are listed in the three places, and `docs/reviews/status.md` has the `order:` row and one `unreviewed` row per slice.
