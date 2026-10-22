@@ -66,15 +66,16 @@ D-WORKFLOW-056 used for the fix round of 2026-09-28.
 
 ## 2. The shape of what is being renovated
 
-Measured on `next` at `8ebaf8daad` (2026-10-22) and from #339's count of
-2026-09-30. "Lines" are file lines including blanks; the survey (P1) replaces
+Measured on `next` at `8ebaf8daad` (2026-10-22; 133,465 tracked paths; `upstream/next`
+at `03d71e3217` in the fresh clone, merge base `c445081a59`) and from #339's
+count of 2026-09-30. "Lines" are file lines including blanks; the survey (P1) replaces
 these with exact, machine-generated numbers.
 
 | Root | Files | What it is | How it is read |
 | --- | ---: | --- | --- |
 | `packages/` | 2,546 (1,040 `package.mk`) | generic recipes, grouped by function; 86,857 lines of recipe, script and config; 277 kernel patches, 88 addon patches | recipes by group; patches by provenance |
 | `projects/` | 3,728 | SoC families and devices: `options`, overrides, `patches/`, `filesystem/` overlays; 439,514 lines of which most are kernel `.conf` and device trees; 885 patches under `projects/ROCKNIX` alone | the fork's own packages line by line; device files by device; configs by diff against their kernel's defaults |
-| `projects/ROCKNIX/packages/` | 981 paths differ from `upstream/next` | the fork's product: `emulators` (276 paths), `sysutils` (95), `network` (79, the cloud sync), `hardware` (51), `rocknix` (44, the OS scripts), `graphics`, `devel`, `apps`, `ui` (the EmulationStation pin) | Tier 1: line by line, the full lens |
+| `projects/ROCKNIX/packages/` | 255 paths fork-own (from the merge base `c445081a59` with `upstream/next` to `next`) | the fork's product: `emulators` (86 paths), `network` (62, the cloud sync), `rocknix` (30, the OS scripts), `sysutils` (18), `hardware` (11), `graphics` (9), `ui` (8, the EmulationStation pin), `apps` (8); plus `devices/GENERIC_X64` (9), `tools/` (129), `scripts/` (54), `packages/` (21) | Tier 1: line by line, the full lens |
 | `scripts/` | 76 | the build engine (`build`, `install`, `image`, `mkimage`, `build_distro`), 25,924 lines | line by line; it is small and everything depends on it |
 | `config/` | 181 | the layered options and arch files | with `scripts/` |
 | `distributions/` | 31 | the distro identity | with `scripts/` |
@@ -87,8 +88,12 @@ these with exact, machine-generated numbers.
 Three provenance tiers run through every root, and the tier decides the lens
 (§ 4):
 
-- **Fork-own**: written here since the fork (`upstream/next..next` on the
-  distribution, `rocknix/master..` on EmulationStation). About 121,000 lines
+- **Fork-own**: written here since the fork (from the merge base with
+  `upstream/next` to `next` on the distribution, 126,855 paths of which 125,225
+  are records under `docs/`; from the merge base with `rocknix/master` to the
+  pin on EmulationStation). A path upstream changed since the merge base and
+  the fork never touched is upstream-carried, not fork-own: the two-way diff
+  `upstream/next..next` would mislabel 912 of them. About 121,000 lines
   across both (#339). Everything applies: bugs, standards, structure,
   efficiency, dead ends.
 - **Upstream-carried**: ROCKNIX's and its upstreams' (JELOS, LibreELEC,
@@ -160,8 +165,12 @@ punch list.** Its size is bounded two ways:
   emulator wrappers; `backuptool` and the settings archives; the proxy and
   its consumers.
 
-Each slice has one issue under its area's epic, titled `M6.P<n> E<epic>/<id>:
-<the slice>`, carrying: the paths (so `tools/box-check` can read them), the
+Each slice has one issue, attached as a sub-issue of #339 until its area's
+epic is filed at that area's first dispatch (then re-parented, the epic's body
+and the title updated with a comment, as `milestone-phase-naming.md` says).
+All slices are one declared phase, P2, ordered by `order.md`; the title is
+`M6.P2 E339/T<k>: <area>: <slice>` (`T`, verification, from the closed sub-id
+set; `k` sequential), becoming `E<epic>/T<k>` under the area epic. It carries: the paths (so `tools/box-check` can read them), the
 provenance tier, the line count, the lens questions that apply, the
 interacting subsystems, the review depth (§ 6, stage C), the release it gates
 if any (D-WORKFLOW-102), and the `reviewed-at` field left empty until stage H
@@ -211,8 +220,10 @@ because this is the first analysis of the scope:
 
 1. **Inventory** (pass 1): `tools/renovation-inventory` walks the tree and
    the ES checkout and writes `docs/reviews/inventory.json`: for every path,
-   its root, provenance tier (from `git diff --name-only upstream/next next`
-   and the ES equivalent), language, line count, patch count, last fork
+   its root, provenance tier (fork-own is `git diff --name-only $(git merge-base
+   upstream/next next) next`; on EmulationStation the merge base with
+   `rocknix/master` to the pin; upstream-only changes since the merge base
+   are upstream-carried), language, line count, patch count, last fork
    commit, last upstream commit, and reachability (which built images include
    it, from the device `options` and `PKG_DEPENDS_*`). The verification is
    the count: the tool's total equals `git ls-files | wc -l` on both trees,
@@ -230,8 +241,11 @@ because this is the first analysis of the scope:
 5. **Classification and reconciliation** (passes 5 and 6): the order, with
    the lens that put each slice where it is, written to
    `docs/reviews/order.md` in the shape #346's first criterion names.
-6. **Action** (pass 7): the epics and slice issues filed under #339, each
-   with its brief's scope block; the preliminary three-model review of the
+6. **Action** (pass 7): the proposed order and slice list posted on the P1
+   issue and the maintainer's yes recorded there (the pattern's pass 7 is
+   interactive by its own rule); then the slice issues filed as sub-issues of
+   #339, each with its brief's scope block (area epics are filed lazily at
+   each area's first dispatch, so each owes its futro at its own kickoff); the preliminary three-model review of the
    order (`.claude/skills/council/references/review-formats.md`, advisory)
    or the recorded reason it was not run; the register row for the order;
    the M6 body updated.
@@ -239,7 +253,9 @@ because this is the first analysis of the scope:
 P1's tools, built in P1 because a procedure becomes a tool
 (`learning-capture.md` § 3): `tools/renovation-inventory` (above),
 `tools/renovation-drift` (§ 8), `tools/renovation-status` (one table: slice,
-area, lines, depth, state, reviewed-at, drift since). P1 opens with a futro
+area, lines, depth, state, reviewed-at, drift since), and the renovation face
+added to `tools/lint-audit-artifacts` (§ 6b) with a fixture that proves it
+fails a folder without the seven questions answered. P1 opens with a futro
 (the skill) because it is the first execution epic of the program.
 
 ### P2 onward, the slices
@@ -266,7 +282,7 @@ not from the directory listing.
 | --- | --- | --- |
 | Security | code that handles credentials, network input, archives it unpacks, anything that runs as root on a device | the sign-in broker, `rclone.conf` handling, the updater, backup/restore, the proxy's listener |
 | Brittleness | the parts that have failed most | entries in `docs/blindspot-register.md` and `docs/friction-log.md` per path; bug issues closed per path; `git log --since=2026-06-01` churn |
-| Nearest new functionality | what the fork has changed most since the fork | `git diff --stat upstream/next next` per area; the M7 change log |
+| Nearest new functionality | what the fork has changed most since the fork | `git diff --stat $(git merge-base upstream/next next) next` per area; the M7 change log |
 | Nearest planned change | what is about to be replaced or extended | #336 (the libretro runner under ES), #576 (GTK4), #509 (the remaining old names), #585 (upstream contributions) |
 | Cost against value | small, central, read once | the build engine; the OS scripts; a device we ship |
 | Reachability | what no image reaches at all | the inventory's reachability column: unreached code is a dead-end slice reviewed as a table, cheap and early, because removal shrinks every later slice |
@@ -312,7 +328,12 @@ The executor is an Anthropic model, so the reviewer is not: GPT-6 Astra
 Gemini 4 Argon, verified operational on #638/#639, is the third for extended
 depth. Fable cannot be a reviewer of Opus's work under this rule: same lab.
 The five-seat council is not a slice's reviewer; it is the escalation a
-release may be assigned (`adversarial-council.md`).
+release may be assigned (`adversarial-council.md`). The preliminary review of
+the order in P1 is a different thing again: its three seats (Claude, Gemini,
+GPT) are fixed by the format's own contract
+(`.claude/skills/council/references/review-formats.md`) and it is advisory,
+so the lab exclusion above does not apply to it, and a seat that fails
+verification is recorded, never substituted.
 
 ## 7. The brief: what the executor receives
 

@@ -25,10 +25,12 @@
 
 ## Current focus
 
-P0, the plan for the plan: the document is written; the milestone and issue
-edits are made the same session; what remains of P0 is the P1 issue, the P1
-brief (`docs/reviews/briefs/p1-survey.md`) and the stranger's proof of it
-(plan § 10).
+P0, the plan for the plan: the document is on the branch (`0bfd387f7b` and
+the correction after the first proof); the milestone and issue edits are made;
+#641 is M6.P1 with the brief `docs/reviews/briefs/p1-survey.md` (version 2,
+after the first stranger's proof found sixteen gaps, all answered in the text).
+What remains of P0: the second proof's result recorded on #346, the P0
+checkboxes ticked with their evidence, then the merge to `next`.
 
 ## Next commands
 
@@ -38,11 +40,12 @@ git fetch origin && git merge --no-edit next          # only when next moved; ne
 tools/register-check && tools/work-log-index --check && tools/ceremony-check
 ```
 
-Then write `docs/reviews/briefs/p1-survey.md` to the ten sections of plan
-§ 7, file `M6.P1 E339: The survey` under #339 with plan § 6's six steps as
-its checklist, and run the proof: a session with no context, the repository
-and the brief, its first ten commands compared with the brief's intent,
-recorded on #346.
+Then: read #346's last comment for the proof's state; if the second proof
+passed, tick P0's checkboxes on #346 with the evidence and merge this branch
+to `next` (`git switch next && git merge --no-ff feature/m6-renovation-plan-346`
+in the primary checkout, the push guard's checks first); if not, correct the
+brief and run the proof again (a fresh session, the repository and the brief,
+read-only, its first ten commands and its questions).
 
 ## Merge notes
 
