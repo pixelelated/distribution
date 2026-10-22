@@ -80,7 +80,7 @@ SHIPPED = ("RK3566", "H700", "RK3326", "SM8550", "GENERIC_X64")  # device-builds
 EX_FAIL, EX_CANNOT = 1, 2
 COLUMNS = ["tree", "path", "area", "tier", "tier_note", "overlap", "language",
            "lines", "patches", "last_fork_commit", "last_upstream_commit",
-           "reach", "reachable_by", "buildable_by"]
+           "reach", "reachable_by", "buildable_by", "shadowed_by"]
 
 SOURCE_HELPER = r'''
 . config/options "" >/dev/null 2>&1 || { echo "META-FAIL config/options"; exit 0; }
@@ -425,6 +425,7 @@ def compute_reach(dist, paths, plans, devices):
                 sourced[d] = {m for m in SOURCED.findall(f.read()) if m in pkgdirs and m != d}
         except OSError:
             sourced[d] = set()
+    built = defaultdict(set)          # package name -> the PKG_DIRs plans resolved it to
     reached_dir = defaultdict(set)    # package dir -> configs (non-patch files)
     reached_pdir = defaultdict(set)   # patch directory -> configs
     project_wide, by_device, es_configs = set(), defaultdict(set), set()
@@ -438,6 +439,7 @@ def compute_reach(dist, paths, plans, devices):
             d = info["dir"]
             rel = d[len(dist) + 1:] if d.startswith(dist + "/") else d
             reached_dir[rel].add(cfg)
+            built[name].add(rel)
             for s in sourced.get(rel, ()):
                 reached_dir[s + "/package.mk"].add(cfg)  # only the sourced recipe itself
             for pd in selected_patch_dirs(info, p["device"], dist):
@@ -471,7 +473,12 @@ def compute_reach(dist, paths, plans, devices):
             reach[path] = set(project_wide)
             continue
         reach[path] = None  # README, templates and other non-package paths under packages/
-    return reach, es_configs
+    # A package directory whose name a plan builds from another directory is shadowed: the package
+    # is live, this copy of it is not (get_pkg_directory resolves the override). Removing a shadowed
+    # copy is a duplicate's removal (engineering-practices.md § Before deleting a duplicate).
+    shadow = {d: sorted(built[d.rsplit("/", 1)[-1]])[0] for d in pkgdirs
+              if built.get(d.rsplit("/", 1)[-1]) and d not in built[d.rsplit("/", 1)[-1]]}
+    return reach, es_configs, shadow
 
 
 def split_reach(configs):
@@ -536,7 +543,8 @@ def build(args):
     t_plans = time.time() - t1
     if ignored_set(dist) != before:
         raise CannotRun("the checkout's ignored set changed across the plan runs: something wrote into it")
-    reach, es_configs = compute_reach(dist, dpaths, plans, devices)
+    reach, es_configs, shadow = compute_reach(dist, dpaths, plans, devices)
+    dirs_for_shadow = package_dirs(dpaths)
 
     rows, unassigned, ambiguous = [], [], []
     injected = list(args.inject_path or [])
@@ -564,9 +572,13 @@ def build(args):
                     rs, rb, bb = "n/a", [], []
                 else:
                     rs, rb, bb = split_reach(cfgs)
+            sh = None
+            if tree == "distribution" and rs == "unreached":
+                own = owning_dir(path, dirs_for_shadow)
+                sh = shadow.get(own) if own else None
             rows.append([tree, path, area, tier, note, bool(fork_own and path in uponly),
                          language(root, path), lines.get(path), None, lf.get(path), lu.get(path),
-                         rs, rb, bb])
+                         rs, rb, bb, sh])
 
     # patches per package.mk: count of *.patch under its own directory
     patch_paths = [r[1] for r in rows if r[0] == "distribution" and r[1].endswith(".patch")
@@ -820,7 +832,7 @@ def write_markdown(path, header, rows, counts, pkg_unit):
             w("| %s | `%s` | %d | %d | %d | %s |" % (c["config"], c["root"], c["plan_lines"], c["packages"],
                                                   len(c["unsourced"]), "shipped" if c["device"] in SHIPPED else ""))
     for label, key in (("unreached", "unreached"), ("unshipped", "unshipped")):
-        units = defaultdict(lambda: [0, 0, set()])
+        units = defaultdict(lambda: [0, 0, set(), set()])
         for r in rows:
             if r[11] != key:
                 continue
@@ -828,20 +840,26 @@ def write_markdown(path, header, rows, counts, pkg_unit):
             units[u][0] += 1
             units[u][1] += r[7] or 0
             units[u][2].add(r[2])
+            if len(r) > 14 and r[14]:
+                units[u][3].add(r[14])
         w("")
         w("## The %s set (%s paths, %s lines, %s units)" % (
             label, fmt(sum(v[0] for v in units.values())), fmt(sum(v[1] for v in units.values())), fmt(len(units))))
         w("")
         if key == "unreached":
             w("A package or project path no plan reaches. A patch is listed by its directory, which `scripts/unpack` "
-              "never selects for any plan; a package by its directory; another project by its name.")
+              "never selects for any plan; a package by its directory; another project by its name. **A unit with a "
+              "*Shadowed by* entry is a copy of a package that is built**: every plan resolves that name to the override "
+              "named, so this copy's files are unused, and the package itself must not be removed (a duplicate's "
+              "removal, `engineering-practices.md` § Before deleting a duplicate).")
         else:
             w("Reached only by devices the fork does not ship (`device-builds.md` § Our devices: %s)." % ", ".join(SHIPPED))
         w("")
-        w("| Unit | Area | Paths | Lines |")
-        w("| --- | --- | ---: | ---: |")
-        for u, (n, ln, a) in sorted(units.items(), key=lambda kv: (-kv[1][1], kv[0])):
-            w("| `%s` | %s | %s | %s |" % (u, ", ".join(sorted(x or "(unassigned)" for x in a)), fmt(n), fmt(ln)))
+        w("| Unit | Area | Paths | Lines | Shadowed by (the package is built from) |")
+        w("| --- | --- | ---: | ---: | --- |")
+        for u, (n, ln, a, sh) in sorted(units.items(), key=lambda kv: (-kv[1][1], kv[0])):
+            w("| `%s` | %s | %s | %s | %s |" % (u, ", ".join(sorted(x or "(unassigned)" for x in a)), fmt(n), fmt(ln),
+                                             ", ".join("`%s`" % x for x in sorted(sh)) or "--"))
     with open(path, "w") as f:
         f.write("\n".join(out) + "\n")
 
