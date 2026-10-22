@@ -27,7 +27,7 @@ Rules (docs/reviews/README.md, the futro of 2026-10-22):
   against `git ls-files` there, so staged-but-uncommitted paths fail the run.
 - Areas: a glob is relative to the distribution unless prefixed `es:`; a glob
   prefixed `!` excludes within its own area; `**` crosses `/`, `*` and `?`
-  stay inside a segment, `{a,b}` alternates literal text. A path must match
+  stay inside a segment, `{a,b}` alternates globs (no nesting). A path must match
   exactly one area: none counts as `unassigned`, two or more as `ambiguous`.
   A bare `**` on the distribution is refused, since it would make
   `unassigned` 0 whatever the tree held.
@@ -125,6 +125,10 @@ def zsplit(out):
 # ---- globs and areas -------------------------------------------------------
 
 def glob_re(g):
+    return re.compile(glob_body(g) + r"\Z")
+
+
+def glob_body(g):
     out, i = "", 0
     while i < len(g):
         if g.startswith("**/", i):
@@ -139,14 +143,14 @@ def glob_re(g):
         elif g[i] == "?":
             out += "[^/]"
             i += 1
-        elif g[i] == "{":
+        elif g[i] == "{":  # each alternative is itself a glob (no nested braces)
             j = g.index("}", i)
-            out += "(?:" + "|".join(re.escape(x) for x in g[i + 1:j].split(",")) + ")"
+            out += "(?:" + "|".join(glob_body(x) for x in g[i + 1:j].split(",")) + ")"
             i = j + 1
         else:
             out += re.escape(g[i])
             i += 1
-    return re.compile(out + r"\Z")
+    return out
 
 
 def load_areas(areas):
@@ -773,6 +777,12 @@ def self_test():
         bad += 1
     except CannotRun:
         print("PASS a bare ** is refused")
+    g = glob_re("scripts/{council-*,verify-*.ts,owner-queue-lint.mjs}")
+    for p, want in (("scripts/council-invoke.ts", True), ("scripts/verify-pins.ts", True),
+                    ("scripts/owner-queue-lint.mjs", True), ("scripts/build", False)):
+        ok = bool(g.match(p)) == want
+        bad += not ok
+        print("%s brace glob %s" % ("PASS" if ok else "FAIL", p))
     g = glob_re("{packages,projects}/**/linux*.conf")
     for p, want in (("projects/ROCKNIX/devices/H700/linux/linux.aarch64.conf", True),
                     ("packages/linux.conf", True), ("packages/a/linuxish.txt", False)):

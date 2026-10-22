@@ -27,7 +27,7 @@ path of both trees, sorted) and `inventory.md` (the per-area totals and the
 unreached and unshipped sets). The hand-written input is `areas.json`: a list
 of `{"area", "epic", "globs"}`, where a glob is relative to the distribution
 unless prefixed `es:`, a `!` glob excludes within its own area, `**` crosses
-`/`, and `{a,b}` alternates literal text.
+`/`, and `{a,b}` alternates globs (no nesting).
 
 It prints five lines and exits 1 unless each pair agrees and both counters are
 0, or 2 when it cannot run:
