@@ -33,7 +33,7 @@
  * USAGE
  *
  *   npx tsx scripts/council-invoke.ts \
- *     --member <claude|gemini|gpt|kimi|muse|grok|deepseek|mistral> \
+ *     --member <claude|gemini|gemini-argon|gpt|kimi|muse|grok|deepseek|mistral> \
  *     --prompt-file <path>           OR  --prompt "inline string" \
  *     --output <path-to-write-content> \
  *     [--provenance <path>]          (default: <output>.provenance.json) \
@@ -273,9 +273,10 @@ export async function embedSourcesIntoPrompt(
 // OpenRouter seat. Mistral keeps its recipes for historical runs and a future
 // re-qualification, but sits in no profile (scaffold#915).
 type DirectMemberId = "claude" | "gemini" | "gpt" | "kimi" | "mistral";
-type OpenRouterOnlyMemberId = "muse" | "grok" | "deepseek";
+type OpenRouterOnlyMemberId = "muse" | "grok" | "deepseek" | "gemini-argon";
 type MemberId = DirectMemberId | OpenRouterOnlyMemberId;
 const OPENROUTER_ONLY_MEMBERS: ReadonlySet<string> = new Set<OpenRouterOnlyMemberId>([
+  "gemini-argon",
   "muse",
   "grok",
   "deepseek",
@@ -398,6 +399,9 @@ interface AttemptRecord {
   /** Every nonblank provider observation, in response order, including repeats (#943). */
   served_provider_observations?: string[];
   finish_reason?: string | null;
+  generation_id?: string;
+  native_finish_reason?: string;
+  refusal_preview?: string;
   content_length: number;
   content_sha256?: string;
   stream_events?: number;
@@ -848,7 +852,7 @@ const BEDROCK_MISTRAL_LARGE3_MODEL = "mistral.mistral-large-3-675b-instruct";
 // 1.14.0 preserves all provider observations and refuses unbound staged reconciliation (#943).
 // pixelelated#636: stop explicit content-filter responses without resending;
 // model/effort/provider pins and the historical imported bundle remain unchanged.
-export const FACILITATOR_VERSION = "council-facilitator@1.14.1-pixelelated.1";
+export const FACILITATOR_VERSION = "council-facilitator@1.14.1-pixelelated.2";
 
 function openRouterMistralModel(): string {
   const configured = process.env.OPENROUTER_MISTRAL_MODEL?.trim();
@@ -1522,11 +1526,27 @@ export const SHADOW_OPENROUTER_SEATS = {
   },
 } satisfies Record<"grok" | "deepseek", OpenRouterSeat>;
 
+// Owner-selected code-auditor alternative (#638), not a council roster change.
+// Argon ordinary synchronous output is 65536 in Google's October 2026 docs;
+// OpenRouter advertises 943718 for long decode. Keep the synchronous allowance
+// and ample input headroom, not an unqualified long-decode request. High is the
+// advertised ceiling. The catalog verifies this Vertex route reports "Google".
+export const AUDIT_OPENROUTER_SEATS = {
+  "gemini-argon": {
+    slug: "google/gemini-4-argon",
+    effort: "high",
+    maxOutputTokens: 65536,
+    provider: { only: ["google-vertex/global"], order: ["google-vertex/global"], allow_fallbacks: false },
+    servedProviders: ["Google"],
+  },
+} satisfies Record<"gemini-argon", OpenRouterSeat>;
+
 function isOpenRouterOnlyMember(id: string): id is OpenRouterOnlyMemberId {
   return OPENROUTER_ONLY_MEMBERS.has(id);
 }
 
 export const OPENROUTER_RECIPES: Record<MemberId, MemberRecipe> = {
+  "gemini-argon": openRouterRecipe("gemini-argon", AUDIT_OPENROUTER_SEATS["gemini-argon"]),
   muse: {
     ...openRouterRecipe("muse", OPENROUTER_SEATS.muse),
     supportsSse: true,
@@ -1795,6 +1815,7 @@ const DIAGNOSTIC_RESPONSE_HEADERS = [
   "content-type",
   "retry-after",
   "x-request-id",
+  "x-generation-id",
   "x-ms-request-id",
   "x-ms-error-code",
   "x-ratelimit-limit-requests",
@@ -1806,6 +1827,9 @@ const DIAGNOSTIC_RESPONSE_HEADERS = [
 ];
 
 interface OpenAiSseState {
+  generationId?: string;
+  nativeFinishReason?: string;
+  refusalText?: string;
   contentParts: string[];
   observedModel: string | null;
   servedProvider: string | null;
@@ -2381,6 +2405,9 @@ function appendOpenAiSseEvent(rawEvent: string, state: OpenAiSseState): void {
     state.errorMessage = asString(field(providerError, "message")) ?? JSON.stringify(providerError);
   }
 
+  const generationId = asString(field(parsed, "id"));
+  if (generationId) state.generationId = generationId;
+
   const observedModel = asString(field(parsed, "model"));
   if (observedModel) state.observedModel = observedModel;
 
@@ -2411,6 +2438,12 @@ function appendOpenAiSseEvent(rawEvent: string, state: OpenAiSseState): void {
       state.chunks += 1;
     }
 
+    const nativeReason = asString(field(choice, "native_finish_reason"));
+    if (nativeReason && state.finishReason !== "content_filter") state.nativeFinishReason = nativeReason;
+    const refusal = asString(fieldPath(choice, "delta", "refusal")) ??
+      asString(fieldPath(choice, "message", "refusal"));
+    if (refusal) state.refusalText = ((state.refusalText ?? "") + refusal).slice(0, RESPONSE_BODY_PREVIEW_CHARS);
+
     const finishReason = asString(field(choice, "finish_reason"));
     if (finishReason !== null && state.finishReason !== "content_filter")
       state.finishReason = finishReason;
@@ -2435,12 +2468,14 @@ function consumeOpenAiSseBuffer(
 
 function buildSyntheticOpenAiResponse(state: OpenAiSseState): Record<string, unknown> {
   return {
+    ...(state.generationId ? { id: state.generationId } : {}),
     model: state.observedModel,
     ...(state.servedProvider !== null ? { provider: state.servedProvider } : {}),
     choices: [
       {
-        message: { content: state.contentParts.join("") },
+        message: { content: state.contentParts.join(""), ...(state.refusalText ? { refusal: state.refusalText } : {}) },
         finish_reason: state.finishReason,
+        ...(state.nativeFinishReason ? { native_finish_reason: state.nativeFinishReason } : {}),
       },
     ],
     ...(state.usage ? { usage: state.usage } : {}),
@@ -2896,7 +2931,7 @@ Usage:
     --output <path> [options]
 
 Required:
-  --member <claude|gemini|gpt|kimi|muse|grok|deepseek|mistral>
+  --member <claude|gemini|gemini-argon|gpt|kimi|muse|grok|deepseek|mistral>
   --output <path>                       Where assistant text content is written
   --prompt-file <path>  OR  --prompt "inline"
 
@@ -3366,6 +3401,18 @@ export async function runCouncilInvocation(
     if (unavailableReason) record.usage_unavailable = unavailableReason;
     if (fetchResult.retryAfterMs !== null) record.retry_after_ms = fetchResult.retryAfterMs;
     if (fetchResult.responseHeaders) record.response_headers = fetchResult.responseHeaders;
+    // #636/#638: refusal text is diagnostics only, never extractContent/output.
+    // Keep bounded text rather than a full successful HTTP envelope or reasoning.
+    const generationId = asString(field(fetchResult.json, "id")) ??
+      fetchResult.responseHeaders?.["x-generation-id"];
+    if (generationId) record.generation_id = generationId.slice(0, 256);
+    const nativeFinishReason = asString(fieldPath(fetchResult.json, "choices", 0, "native_finish_reason"));
+    if (nativeFinishReason) record.native_finish_reason = nativeFinishReason.slice(0, 256);
+    const refusal = asString(fieldPath(fetchResult.json, "choices", 0, "message", "refusal"));
+    if (refusal) {
+      record.refusal_preview = previewResponseBody(refusal);
+    }
+
     if (fetchResult.responseBodySha256)
       record.response_body_sha256 = fetchResult.responseBodySha256;
     if (fetchResult.responseBodyPreview)
