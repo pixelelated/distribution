@@ -51,8 +51,8 @@ No two commands for one quantity disagreed; no stop.
 - Pass 2 (Clustering): **complete** -- 12 areas with read sizes; 7 areas exceed one session and are split into 31 candidate clusters (see § Pass 2)
 - Pass 3 (Assessment): **complete** -- 11 areas scored on 6 lenses from `assessment.md`; records not scored (see § Pass 3)
 - Pass 4 (Cross-reference): **complete** -- 10 code areas N-to-N (90 ordered pairs, 60 with an edge), rule and patch edges, every one of the 12 areas has an edge (see § Pass 4)
-- Pass 5 (Classification): pending
-- Pass 6 (Reconciliation, then the preliminary review): pending
+- Pass 5 (Classification): **complete** -- 43 slices in `slices.json`, every one of 134,591 rows in exactly one (`--order`: unassigned 0, ambiguous 0); `order.md` rendered (see § Pass 5)
+- Pass 6 (Reconciliation, then the preliminary review): reconciliation **complete** (41 fork-written vendor files moved to their code's slices, the seams named); the preliminary review next (see § Pass 6)
 - Pass 7 (Action): pending -- gated on the maintainer's yes on #641
 
 ## Read first (brief § 3), what was read this session
@@ -277,6 +277,63 @@ one slice, or makes a named interacting subsystem of both slices:
 - **Device control**: os-scripts (`hardware/quirks`, the input and power
   scripts), devices (options, device trees), generic packages (the input
   stack).
+
+## Pass 5: classification
+
+`docs/reviews/slices.json` (hand-written) and `tools/renovation-inventory --order`
+(`d8304fe068`, selector unions in the next commit), at the inventory of `17dee5ba42`:
+
+```
+$ tools/renovation-inventory --order
+slices: 43
+rows: 134591 (inventory: 134591)
+unassigned: 0
+ambiguous: 0
+...
+wrote the generated block of docs/reviews/order.md
+```
+
+The order's argument is `order.md` § How the order was argued; the lens that
+placed each slice is in its block. Two drafts came before this one, and the
+tool caught both:
+
+- **First draft (41 slices):** two slices held no path (a `rest` for tooling
+  and one for devices). Three exceeded a session: `es-app-rest` with 15,421
+  fork-own lines, `es-core` with 25,856, `tooling-state-tests` with 21,045.
+  A catch-all `**` in `devices-unshipped` was refused by the same guard
+  `areas.json` has.
+- **Second draft (43 slices):** the oversized ones split (es-app into views
+  and scrapers, and the system layer; es-core into components, window and
+  input, and utilities and resources; `last-good-scripts-test` alone). The
+  empty ones dropped, and the order re-argued by lens: the gates, then the
+  dead-end tables, then the data and credential areas, then what #336
+  replaces.
+
+**#346's criteria, checked against the rendered file:** every slice has a
+number, area, lens, paths with line counts, release gate or none, depth with
+reason, interacting subsystems and closing evidence (`grep -c '^### T[0-9]'
+docs/reviews/order.md` → 43). The first three read 11,560 lines, 9,598 lines
+and a table. Tier 1's launch, control and state slice is T1 and the
+interface's launch-path slice is T2. The one slice over 12,000 read lines is
+T32, a single 14,238-line file kept whole by plan § 5's "or one unit".
+
+## Pass 6: reconciliation
+
+The relationships pass 4 found, and how the order resolves each:
+
+| Relationship | Kind | Resolution |
+| --- | --- | --- |
+| 41 fork-written vendor files (19,366 lines) sat in the Local-depth patch tables, away from the code they change | overlap | the proxy's 18 patches move to T7, RetroArch's 21 patches (8 fork-written) to T10, the H700 and GENERIC_X64 kernel configurations to T17 and T20, by selector unions in `slices.json`; `patches-shipped` (T39) became its area's `rest`, and its `why` names the small fork-written remainder it reads line by line. Check: 616 - 575 = 41 = 18 + 21 + 1 + 1 |
+| the launch path spans T1 (`runemu.sh`), T2 (`FileData::launchGame`), T10 (RetroArch) and T16 (standalone start scripts) | dependency | T1 and T2 first (the gates), T10 before #336's work; each names the others as interacting |
+| the cloud state model spans T5, T6, T8 and `backuptool` | overlap | T5 and T6 adjacent at Extended depth, T8 directly after (the scripts' contract is read before the pages that call it); `backuptool` stays in the cloud area (plan § 5) though it ships in the `rocknix` package |
+| the proxy (T7), its ES pages (T9) and RetroArch's `rcheevos` path (T10) | dependency | T7 then T9 then T10 |
+| generic recipes shadowed by ROCKNIX overrides (`busybox`, `systemd`) | supersession | the shadowed generic copies are in T3's dead-end table, not in the image-package slices; T3 runs before T21 and T35 so what it removes they never read |
+| quirks split between platforms (T11) and handhelds (T15) | overlap | by directory, disjoint; T11 first |
+| the doctrine governs every area (25 to 29 rules each) | dependency | T14, early, so rule fixes reach the later slices |
+| the council toolchain is scaffold's export | conflict with line reading | T42 is a provenance table only (plan § 2; D-WORKFLOW-088) |
+
+The result after reconciliation (`--order`, re-run): `rows: 134591
+(inventory: 134591)`, `unassigned: 0`, `ambiguous: 0`.
 
 ## Item analysis table
 

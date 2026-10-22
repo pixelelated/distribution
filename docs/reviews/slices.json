@@ -1,0 +1,939 @@
+{
+  "sensitive": {
+    "security": [
+      "projects/ROCKNIX/packages/network/rclone/sources/cloud_{oauth,setup,remote,connections.py,log_scrub}",
+      "projects/ROCKNIX/packages/network/cloud-signin-window/**",
+      "projects/ROCKNIX/packages/network/raofflineproxy/**",
+      "projects/ROCKNIX/packages/rocknix/sources/scripts/{setrootpass,wifictl,usbgadget,rocknix-evidence}",
+      "scripts/get_env",
+      ".githooks/**",
+      "es:es-app/src/guis/GuiWifi.*",
+      "es:es-app/src/RetroAchievements.*",
+      "es:es-core/src/HttpReq.*"
+    ],
+    "state": [
+      "projects/ROCKNIX/packages/network/rclone/sources/**",
+      "projects/ROCKNIX/packages/rocknix/sources/scripts/{backuptool,chksysconfig,factoryreset,installtointernal,automount}",
+      "projects/ROCKNIX/packages/rocknix/sources/post-update",
+      "projects/ROCKNIX/packages/rocknix/sources/scripts/setsettings.sh",
+      "es:es-core/src/{Settings,SystemConf}.*",
+      "es:es-core/src/utils/AtomicFileUtil.*",
+      "es:es-app/src/{CloudTransferJob,ThreadedCloudSync,SaveStateBookkeeper,SaveStateRepository}.*"
+    ],
+    "launch-path": [
+      "projects/ROCKNIX/packages/rocknix/sources/scripts/{runemu.sh,setsettings.sh,run}",
+      "projects/ROCKNIX/packages/emulators/libretro/retroarch/**",
+      "es:es-app/src/{FileData,SystemData,LaunchCommand,ProxyCards}.*",
+      "es:es-app/src/main.cpp"
+    ]
+  },
+  "slices": [
+    {
+      "k": 1,
+      "id": "os-launch-control-state",
+      "area": "os-scripts-and-launch",
+      "kind": "read",
+      "title": "the OS scripts: launch, control and state (Tier 1)",
+      "lens": "gate (D-WORKFLOW-102), planned change (#336), security",
+      "why": "D-WORKFLOW-102 makes Tier 1's launch, control and state slice the gate for 0.1; `runemu.sh` configures and starts RetroArch, which #336 replaces (`grep -ci retroarch runemu.sh` is 22); the package runs as root at boot and launch, and scores high on security and brittleness (assessment.md)",
+      "select": {
+        "globs": [
+          "projects/ROCKNIX/packages/rocknix/**"
+        ]
+      },
+      "gate": "0.1 (D-WORKFLOW-102)",
+      "depth": "Extended",
+      "depth_reason": "launch path and state preservation (plan § 6c)",
+      "interacting": "the interface's launch path (`es-launch-path`: `FileData::launchGame`, `LaunchCommand.h` read `runemu.sh`'s arguments); RetroArch and the standalone start scripts (emulators); `backuptool` and the cloud hooks (cloud slices); `system.cfg` through `get_setting`/`set_setting`",
+      "closing": "audit folder `docs/audits/<date>-epic-m6-os-launch-control-state/` with the five phase files, `tools/lint-audit-artifacts` PASS with the renovation face, the punch-list issue resolved through Phase 7, `reviewed-at` and `fixed-at` set"
+    },
+    {
+      "k": 2,
+      "id": "es-launch-path",
+      "area": "interface",
+      "kind": "read",
+      "title": "EmulationStation's launch path",
+      "lens": "gate (D-WORKFLOW-102), planned change (#336 Step 1)",
+      "why": "D-WORKFLOW-102: the interface's launch-path slice is read before #336 Step 1 replaces it; `FileData::launchGame` asks over running syncs (D-UI-095), so the proxy cards and save-state bookkeeping ride the same path",
+      "select": {
+        "globs": [
+          "es:es-app/src/{FileData,SystemData,LaunchCommand,ProxyCards}.*",
+          "es:es-app/src/main.cpp",
+          "es:es-app/src/SaveState*"
+        ]
+      },
+      "gate": "before #336 Step 1 (D-WORKFLOW-102)",
+      "depth": "Extended",
+      "depth_reason": "launch path (plan § 6c)",
+      "interacting": "`runemu.sh` and `setsettings.sh` (`os-launch-control-state`); the cloud sync cards (`ThreadedCloudSync`, the ES cloud slice); the proxy (offline achievements); `es_settings.cfg` and `system.cfg`",
+      "closing": "audit folder `docs/audits/<date>-epic-m6-es-launch-path/`, lint PASS with the renovation face, punch list through Phase 7, `reviewed-at` and `fixed-at` set"
+    },
+    {
+      "k": 3,
+      "id": "packages-dead-ends",
+      "area": "generic-packages",
+      "kind": "table",
+      "title": "the generic packages no image builds",
+      "lens": "reachability",
+      "why": "the largest dead set: 94,879 lines no plan reaches (Kodi, the addons, the generic `busybox` and `systemd` the ROCKNIX overrides shadow); a table, cheap, and every removal shrinks later slices (plan § 6a)",
+      "select": {
+        "reach": [
+          "unreached",
+          "unshipped"
+        ]
+      },
+      "gate": null,
+      "depth": "Local",
+      "depth_reason": "a reachability table: the counts are the check (plan § 6c)",
+      "interacting": "the ROCKNIX overrides that shadow generic recipes (`projects/ROCKNIX/packages/sysutils/{busybox,systemd}`); `scripts/create_addon` (addons)",
+      "closing": "one row per unit with its reachability command and output, each removal with `Already written:` and `engineering-practices.md` § Before deleting a duplicate; audit folder, lint PASS, `reviewed-at` set"
+    },
+    {
+      "k": 4,
+      "id": "patches-dead",
+      "area": "patches-and-configs",
+      "kind": "table",
+      "title": "patches and kernel configurations no plan applies",
+      "lens": "reachability",
+      "why": "778 paths, 317,908 lines: the 277 generic kernel patches the ROCKNIX `linux` override never applies, `vitaquake2-lr`'s `patches/x86_64`, the other projects' patches",
+      "select": {
+        "reach": [
+          "unreached"
+        ]
+      },
+      "gate": null,
+      "depth": "Local",
+      "depth_reason": "a provenance table",
+      "interacting": "the packages they would patch",
+      "closing": "one row per patch with origin, upstream status and reason, the count equal to the slice's paths; audit folder, lint PASS"
+    },
+    {
+      "k": 5,
+      "id": "cloud-sync-core",
+      "area": "cloud-sync-and-saves",
+      "kind": "read",
+      "title": "cloud sync: the sync, backup, restore and capture core",
+      "lens": "security, brittleness, new functionality",
+      "why": "the state model players' saves depend on: the highest brittleness of the product areas (19 blindspot entries, 47 closed bugs, 451 commits since June) and +28,279 lines since the base",
+      "select": {
+        "globs": [
+          "projects/ROCKNIX/packages/network/rclone/**",
+          "!projects/ROCKNIX/packages/network/rclone/sources/cloud_{oauth,setup,remote,connections.py,content_backup,content_restore,content_transfer,scan,folder_validate,device_id,log_scrub}"
+        ]
+      },
+      "gate": null,
+      "depth": "Extended",
+      "depth_reason": "the cloud sync and state preservation (plan § 6c)",
+      "interacting": "the ES cloud cards and transfer page (the ES cloud slice); `backuptool` and the setup scripts (`cloud-setup-content`); the game-end hook and autostart (`os-launch-control-state`); `rclone-cloud-sync.md`'s invariants",
+      "closing": "audit folder, lint PASS with the renovation face, every behaviour claim proven on the VM (`tools/cloud-round-trip`, `tools/vm-qa`), punch list through Phase 7, `reviewed-at` and `fixed-at` set"
+    },
+    {
+      "k": 6,
+      "id": "cloud-setup-content",
+      "area": "cloud-sync-and-saves",
+      "kind": "read",
+      "title": "cloud sync: setup, sign-in, connections, content and settings backups",
+      "lens": "security",
+      "why": "handles credentials (`rclone.conf`, OAuth tokens, the sign-in window) and the only content action that deletes (`--match`, D-CLOUD-023)",
+      "select": {
+        "globs": [
+          "projects/ROCKNIX/packages/network/rclone/sources/cloud_{oauth,setup,remote,connections.py,content_backup,content_restore,content_transfer,scan,folder_validate,device_id,log_scrub}",
+          "projects/ROCKNIX/packages/network/cloud-signin-window/**",
+          "projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool"
+        ]
+      },
+      "gate": null,
+      "depth": "Extended",
+      "depth_reason": "security and state preservation (plan § 6c)",
+      "interacting": "the sync core (`cloud-sync-core`); the ES setup wizard and transfer page; webkitgtk (#576)",
+      "closing": "audit folder, lint PASS, VM proofs, punch list through Phase 7, `reviewed-at` and `fixed-at` set"
+    },
+    {
+      "k": 7,
+      "id": "offline-achievements",
+      "area": "offline-achievements",
+      "kind": "read",
+      "title": "the offline achievements proxy",
+      "lens": "security, new functionality",
+      "why": "a network listener holding the player's account token, all fork-own (+3,666), and the cheapest product area to finish; its 18 fork-written patches to the upstream proxy are read here, not in the patch tables (pass 6)",
+      "select": [
+        {},
+        {
+          "areas": [
+            "patches-and-configs"
+          ],
+          "globs": [
+            "projects/ROCKNIX/packages/network/raofflineproxy*/**"
+          ]
+        }
+      ],
+      "gate": null,
+      "depth": "Extended",
+      "depth_reason": "a network listener and an account credential (plan § 6c)",
+      "interacting": "`ProxyCards` and the RetroAchievements pages (ES); RetroArch's `rcheevos` path; #585's upstream queue",
+      "closing": "audit folder, lint PASS, `tools/ra-offline-test` and the proxy's suites on the VM, punch list through Phase 7, `reviewed-at` and `fixed-at` set"
+    },
+    {
+      "k": 8,
+      "id": "es-cloud-pages",
+      "area": "interface",
+      "kind": "read",
+      "title": "EmulationStation's cloud pages, cards and text, with their unit tests",
+      "lens": "brittleness, new functionality",
+      "why": "36 interface files name the cloud scripts (cross-reference.md); the cards, the transfer page and the text rules are the fork's",
+      "select": {
+        "globs": [
+          "es:es-app/src/{CloudText,ThreadedCloudSync,CloudTransferJob}.*",
+          "es:es-app/src/guis/GuiCloud*",
+          "es:es-app/tests/**"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice of the fork's own pages",
+      "interacting": "the cloud scripts (`cloud-sync-core`, `cloud-setup-content`); `es-player-text.md` and `es-ui-style-guide.md`",
+      "closing": "audit folder, lint PASS, `es-unit-tests` and `tools/es-syntax-check`, frames for any visible change, punch list through Phase 7"
+    },
+    {
+      "k": 9,
+      "id": "es-achievements-pages",
+      "area": "interface",
+      "kind": "read",
+      "title": "EmulationStation's RetroAchievements and offline pages",
+      "lens": "security, new functionality",
+      "why": "the account pages and the offline scan, which drive the proxy (16 interface files name it)",
+      "select": {
+        "globs": [
+          "es:es-app/src/{RetroAchievements,OfflineAchievements,ThreadedHasher,OfflineScanJob}.*",
+          "es:es-app/src/guis/Gui{RetroAchievements,OfflineScan,GameAchievements}*"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice; the credential handling is the proxy's slice",
+      "interacting": "the proxy (`offline-achievements`); `ProxyCards` (`es-launch-path`)",
+      "closing": "audit folder, lint PASS, `tools/ra-ui-test`, punch list through Phase 7"
+    },
+    {
+      "k": 10,
+      "id": "emulators-libretro",
+      "area": "emulators-and-cores",
+      "kind": "currency",
+      "title": "RetroArch and the libretro cores",
+      "lens": "planned change (#336)",
+      "why": "RetroArch is what #336's runner replaces; read before that work begins; RetroArch's patches, eight of them fork-written, are read here with the launch path (pass 6)",
+      "select": [
+        {
+          "globs": [
+            "projects/ROCKNIX/packages/emulators/**",
+            "!projects/ROCKNIX/packages/emulators/standalone/**"
+          ],
+          "reach": [
+            "shipped",
+            "n/a"
+          ]
+        },
+        {
+          "areas": [
+            "patches-and-configs"
+          ],
+          "globs": [
+            "projects/ROCKNIX/packages/emulators/libretro/retroarch/**"
+          ]
+        }
+      ],
+      "gate": null,
+      "depth": "Extended",
+      "depth_reason": "the launch path (RetroArch's start)",
+      "interacting": "`runemu.sh` (`os-launch-control-state`); the proxy's rcheevos path (`offline-achievements`); the ES launch path (`es-launch-path`)",
+      "closing": "audit folder, lint PASS, `tools/retroarch-wrapper-test`, punch list through Phase 7"
+    },
+    {
+      "k": 11,
+      "id": "os-system-services",
+      "area": "os-scripts-and-launch",
+      "kind": "read",
+      "title": "the OS's system services and platform quirks",
+      "lens": "security, brittleness",
+      "why": "busybox's configuration, the systemd units and the per-platform quirks run as root on every device",
+      "select": {
+        "globs": [
+          "projects/ROCKNIX/packages/sysutils/**",
+          "projects/ROCKNIX/packages/hardware/**",
+          "!projects/ROCKNIX/packages/hardware/quirks/devices/**"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice",
+      "interacting": "`os-launch-control-state`'s scripts; the devices' options",
+      "closing": "audit folder, lint PASS, VM proofs for boot behaviour, punch list through Phase 7"
+    },
+    {
+      "k": 12,
+      "id": "build-engine",
+      "area": "build-engine",
+      "kind": "read",
+      "title": "the build engine",
+      "lens": "cost against value",
+      "why": "everything else is built by it: 884 callers of its largest units for 12,328 read lines; small and central (plan § 5)",
+      "select": {
+        "globs": [
+          "scripts/**",
+          "config/**",
+          "distributions/ROCKNIX/**",
+          "Makefile",
+          "Dockerfile",
+          ".gitignore",
+          ".merge-head",
+          ".github/**"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice; `get_env`'s secret forwarding is named for the reviewer",
+      "interacting": "every package recipe; `tools/watch-build` and the admission guard (tooling); the pinned build image",
+      "closing": "audit folder, lint PASS, `tools/pkgcheck` and a package build in the lane's own build worktree only when the brief names one, punch list through Phase 7"
+    },
+    {
+      "k": 13,
+      "id": "es-guimenu",
+      "area": "interface",
+      "kind": "read",
+      "title": "EmulationStation's main menu (GuiMenu)",
+      "lens": "new functionality, brittleness",
+      "why": "one file, 11,883 lines, the largest fork-own unit, where every fork page is reached from",
+      "select": {
+        "globs": [
+          "es:es-app/src/guis/GuiMenu.*"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice",
+      "interacting": "every page it opens; `docs/es-menu-map.md` (D-UI-039)",
+      "closing": "audit folder, lint PASS, `tools/es-menu-map-check`, punch list through Phase 7"
+    },
+    {
+      "k": 14,
+      "id": "doctrine",
+      "area": "doctrine",
+      "kind": "read",
+      "title": "the doctrine: rules, skills, CLAUDE.md, AGENTS.md, the registers",
+      "lens": "cost against value",
+      "why": "every session obeys it; a rule that lies is the most expensive cruft (plan § 5); #640's hardcoded host paths live here",
+      "select": {},
+      "gate": null,
+      "depth": "Local",
+      "depth_reason": "a doctrine read (plan § 6c)",
+      "interacting": "every area (25 to 29 rules govern each, cross-reference.md)",
+      "closing": "audit folder, lint PASS, `tools/rules-check`, punch list through Phase 7"
+    },
+    {
+      "k": 15,
+      "id": "os-device-quirks",
+      "area": "os-scripts-and-launch",
+      "kind": "read",
+      "title": "the per-handheld quirks",
+      "lens": "brittleness",
+      "why": "333 files over 88 handheld models: read the shipped devices' line by line and the rest as a table",
+      "select": {
+        "globs": [
+          "projects/ROCKNIX/packages/hardware/quirks/devices/**"
+        ]
+      },
+      "gate": null,
+      "depth": "Local",
+      "depth_reason": "per-device configuration; the hotkey standards are the check",
+      "interacting": "the device trees and options (devices)",
+      "closing": "audit folder, lint PASS, punch list through Phase 7"
+    },
+    {
+      "k": 16,
+      "id": "emulators-standalone",
+      "area": "emulators-and-cores",
+      "kind": "currency",
+      "title": "the standalone emulators",
+      "lens": "planned change (#336)",
+      "why": "the start scripts and configuration of every standalone emulator the image ships",
+      "select": {
+        "globs": [
+          "projects/ROCKNIX/packages/emulators/standalone/**"
+        ],
+        "reach": [
+          "shipped",
+          "n/a"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice",
+      "interacting": "`runemu.sh` (`os-launch-control-state`); the quirks; the save layout (cloud)",
+      "closing": "audit folder, lint PASS, `tools/emulator-exit-test`, punch list through Phase 7"
+    },
+    {
+      "k": 17,
+      "id": "device-h700",
+      "area": "devices",
+      "kind": "currency",
+      "title": "the H700 device (RG35XX SP, RG SP)",
+      "lens": "cost against value",
+      "why": "the maintainer's test handhelds; options, device packages (u-boot DDR3/DDR4, the suspend stub), device trees and kernel configuration; its fork-written kernel configuration (8,129 lines) is read here as a diff against its base (plan § 2)",
+      "select": [
+        {
+          "globs": [
+            "projects/ROCKNIX/devices/H700/**"
+          ]
+        },
+        {
+          "areas": [
+            "patches-and-configs"
+          ],
+          "globs": [
+            "projects/ROCKNIX/devices/H700/linux/*.conf"
+          ]
+        }
+      ],
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary device slice",
+      "interacting": "the H700 quirks (`os-device-quirks`); the kernel patches (patches slices); `docs/device-flashing-runbook.md`",
+      "closing": "audit folder, lint PASS, punch list through Phase 7"
+    },
+    {
+      "k": 18,
+      "id": "device-sm8550",
+      "area": "devices",
+      "kind": "currency",
+      "title": "the SM8550 device (Retroid Pocket Nova)",
+      "lens": "cost against value",
+      "why": "a shipped test device",
+      "select": {
+        "globs": [
+          "projects/ROCKNIX/devices/SM8550/**"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary device slice",
+      "interacting": "its quirks and kernel patches",
+      "closing": "audit folder, lint PASS, punch list through Phase 7"
+    },
+    {
+      "k": 19,
+      "id": "device-rockchip-shipped",
+      "area": "devices",
+      "kind": "currency",
+      "title": "the RK3566 and RK3326 devices",
+      "lens": "cost against value",
+      "why": "the shipped Rockchip handhelds (RG353M, RG351M)",
+      "select": {
+        "globs": [
+          "projects/ROCKNIX/devices/{RK3566,RK3326}/**"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary device slice",
+      "interacting": "their quirks and kernel patches",
+      "closing": "audit folder, lint PASS, punch list through Phase 7"
+    },
+    {
+      "k": 20,
+      "id": "device-generic-x64-and-kernel",
+      "area": "devices",
+      "kind": "read",
+      "title": "the GENERIC_X64 VM device, the kernel and drivers recipes, and the project's boot files",
+      "lens": "cost against value",
+      "why": "GENERIC_X64 is the fork's own (989 fork-own lines) and the VM every proof runs on; the kernel recipes and project bootloader serve every device; its fork-written kernel configuration (7,754 lines) is read here as a diff against its base (plan § 2)",
+      "select": [
+        {
+          "globs": [
+            "projects/ROCKNIX/devices/GENERIC_X64/**",
+            "projects/ROCKNIX/packages/**",
+            "projects/ROCKNIX/{bootloader,filesystem}/**",
+            "projects/ROCKNIX/{options,config.xml}",
+            "packages/**"
+          ],
+          "reach": [
+            "shipped",
+            "n/a"
+          ]
+        },
+        {
+          "areas": [
+            "patches-and-configs"
+          ],
+          "globs": [
+            "projects/ROCKNIX/devices/GENERIC_X64/linux/*.conf"
+          ]
+        }
+      ],
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice",
+      "interacting": "the VM harness (tooling); every device",
+      "closing": "audit folder, lint PASS, punch list through Phase 7"
+    },
+    {
+      "k": 21,
+      "id": "image-packages",
+      "area": "generic-packages",
+      "kind": "currency",
+      "title": "the image's own packages (projects/ROCKNIX)",
+      "lens": "package currency",
+      "why": "the ROCKNIX recipes the image installs: apps, tools, virtual packages (the emulator list), graphics, audio, network",
+      "select": {
+        "globs": [
+          "projects/ROCKNIX/**"
+        ],
+        "reach": [
+          "shipped",
+          "n/a"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice",
+      "interacting": "every area whose package they depend on; #576 (webkitgtk)",
+      "closing": "audit folder, lint PASS, `tools/fork-package-freshness`, punch list through Phase 7"
+    },
+    {
+      "k": 22,
+      "id": "es-pages",
+      "area": "interface",
+      "kind": "currency",
+      "title": "EmulationStation's other pages",
+      "lens": "new functionality",
+      "why": "the remaining pages under `guis/`: the fork-touched ones read line by line, the upstream ones checked against `rocknix/master`",
+      "select": {
+        "globs": [
+          "es:es-app/src/guis/**",
+          "!es:es-app/src/guis/GuiMenu.*",
+          "!es:es-app/src/guis/GuiCloud*",
+          "!es:es-app/src/guis/Gui{RetroAchievements,OfflineScan,GameAchievements}*"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice",
+      "interacting": "GuiMenu (`es-guimenu`); the es-core components",
+      "closing": "audit folder, lint PASS, punch list through Phase 7"
+    },
+    {
+      "k": 23,
+      "id": "es-app-views-scrapers",
+      "area": "interface",
+      "kind": "currency",
+      "title": "EmulationStation's game list views, scrapers and services",
+      "lens": "cost against value",
+      "why": "`views/` (8,155 lines, ViewController and the game list containers the fork changed) and the scrapers, whose ScreenScraper credentials the fork wires (#64, D-WORKFLOW-166)",
+      "select": {
+        "globs": [
+          "es:es-app/src/{views,scrapers,services}/**"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice",
+      "interacting": "the scrapers' developer credentials (`device-builds.md` § Build credentials); the launch path (game list to launch)",
+      "closing": "audit folder, lint PASS, punch list through Phase 7"
+    },
+    {
+      "k": 24,
+      "id": "es-app-system",
+      "area": "interface",
+      "kind": "currency",
+      "title": "EmulationStation's system layer: ApiSystem, game lists, collections, metadata",
+      "lens": "cost against value",
+      "why": "the rest of `es-app`: `ApiSystem.cpp` (3,519 fork-own lines) is the bridge to the OS scripts; game lists, collections and metadata hold the player's library",
+      "select": {
+        "globs": [
+          "es:es-app/**"
+        ],
+        "rest": true
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice",
+      "interacting": "the OS scripts `ApiSystem` calls (`os-launch-control-state`, os-system-services); `gamelist.xml` (game content, D-CLOUD-049)",
+      "closing": "audit folder, lint PASS, punch list through Phase 7"
+    },
+    {
+      "k": 25,
+      "id": "es-core-components",
+      "area": "interface",
+      "kind": "currency",
+      "title": "EmulationStation's core components",
+      "lens": "cost against value",
+      "why": "`es-core/src/components` (21,984 lines, 9,541 fork-own): the rows, grids, menus and cards every page is built from",
+      "select": {
+        "globs": [
+          "es:es-core/src/components/**"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice",
+      "interacting": "every page; `es-code-traps.md`",
+      "closing": "audit folder, lint PASS, punch list through Phase 7"
+    },
+    {
+      "k": 26,
+      "id": "es-core-window-input",
+      "area": "interface",
+      "kind": "currency",
+      "title": "EmulationStation's window, input, settings and the rest of es-core",
+      "lens": "cost against value",
+      "why": "`Window.cpp` (one floating surface at a time, D-UI-093), `InputManager`, `Settings`, `SystemConf`, `HttpReq` (the pooled-connection trap), `GunManager` and es-core's own pages",
+      "select": {
+        "globs": [
+          "es:es-core/**"
+        ],
+        "rest": true
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice",
+      "interacting": "every page; `es-code-traps.md` (the pooled connection, `exists` caching, fonts)",
+      "closing": "audit folder, lint PASS, punch list through Phase 7"
+    },
+    {
+      "k": 27,
+      "id": "es-core-utils-resources",
+      "area": "interface",
+      "kind": "currency",
+      "title": "EmulationStation's utilities, resources and renderers",
+      "lens": "cost against value",
+      "why": "`utils` (40,926 lines; `StringUtil`, `Platform`, `AtomicFileUtil`, the fork's last-good writes), `resources` (fonts, textures) and `renderers`",
+      "select": {
+        "globs": [
+          "es:es-core/src/{utils,resources,renderers}/**"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice",
+      "interacting": "every page; `es-code-traps.md`",
+      "closing": "audit folder, lint PASS, punch list through Phase 7"
+    },
+    {
+      "k": 28,
+      "id": "es-recipe",
+      "area": "interface",
+      "kind": "read",
+      "title": "the EmulationStation recipe and themes in the distribution",
+      "lens": "package currency",
+      "why": "the pin, the build steps and the themes the image installs",
+      "select": {
+        "globs": [
+          "projects/ROCKNIX/packages/ui/**"
+        ]
+      },
+      "gate": null,
+      "depth": "Local",
+      "depth_reason": "a small recipe slice",
+      "interacting": "the ES tree (every `es-*` slice)",
+      "closing": "audit folder, lint PASS, `tools/pkgcheck`"
+    },
+    {
+      "k": 29,
+      "id": "tooling-guards",
+      "area": "tooling-and-guards",
+      "kind": "read",
+      "title": "the guards: hooks, the fork CI and the checkers",
+      "lens": "security, brittleness",
+      "why": "the secret and wordlist guards and the ceremony state machine; 28 blindspot entries name tooling",
+      "select": {
+        "globs": [
+          ".githooks/**",
+          ".github/**",
+          "tools/{forbidden-terms-check,ceremony-check,register-check,rules-check,box-check,rc-preflight,lint-audit-artifacts,archaeology,work-log-index,vocabulary-check,es-menu-map-check,fork-package-freshness,pr-stack-check,prose-check,release-catalog,renovation-inventory,fork-worktree}"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice; the secret guard is named for the reviewer",
+      "interacting": "every lane's commits and pushes",
+      "closing": "audit folder, lint PASS, `.githooks/hooks-test`, punch list through Phase 7"
+    },
+    {
+      "k": 30,
+      "id": "cloud-harness",
+      "area": "cloud-sync-and-saves",
+      "kind": "read",
+      "title": "the cloud test harness",
+      "lens": "brittleness",
+      "why": "`tools/cloud-round-trip` (7,808 lines) and the backends that prove the cloud slices; a harness that agrees with itself is blindspot 31",
+      "select": {
+        "globs": [
+          "tools/**"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice",
+      "interacting": "the cloud slices (`cloud-sync-core`, `cloud-setup-content`)",
+      "closing": "audit folder, lint PASS, each guard's positive recorded, punch list through Phase 7"
+    },
+    {
+      "k": 31,
+      "id": "tooling-vm-harness",
+      "area": "tooling-and-guards",
+      "kind": "read",
+      "title": "the VM harness",
+      "lens": "cost against value",
+      "why": "every behaviour proof runs through it (`vm-first.md`)",
+      "select": {
+        "globs": [
+          "tools/{vm-*,vm-walks/**,frame-diff,time-to-play,emulator-exit-test,es-launch-memory,signin-memory,png-blackout,qa-accounts,ra-*,raofflineproxy-*,device-act,es-syntax-check,es-untranslated,font-stems}"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice",
+      "interacting": "the GENERIC_X64 device (`device-generic-x64-and-kernel`)",
+      "closing": "audit folder, lint PASS, punch list through Phase 7"
+    },
+    {
+      "k": 32,
+      "id": "tooling-last-good-test",
+      "area": "tooling-and-guards",
+      "kind": "read",
+      "title": "the last-good scripts test",
+      "lens": "brittleness",
+      "why": "one file of 14,238 lines that proves the scripts under the image's busybox (blindspot 34): a single unit above the 12,000-line guide, kept whole because a test file split across two sessions loses its fixtures' context (plan § 5: about 8,000 to 12,000 lines, or one unit)",
+      "select": {
+        "globs": [
+          "tools/last-good-scripts-test"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice",
+      "interacting": "the OS scripts and cloud slices they prove",
+      "closing": "audit folder, lint PASS, punch list through Phase 7"
+    },
+    {
+      "k": 33,
+      "id": "tooling-state-tests",
+      "area": "tooling-and-guards",
+      "kind": "read",
+      "title": "the last-good, settings and state tests",
+      "lens": "brittleness",
+      "why": "the `pixelelated-*`/`rasteratops-*` test family, the settings, wait-lock and upgrade tests, and their fixtures",
+      "select": {
+        "globs": [
+          "tools/{settings-modes-test,melonds-upgrade-test,wait-lock-test,pixelelated-*,rasteratops-*,build-identity-test,rocknix-info-test,usb-gadget-test,nova-led-test,retroarch-wrapper-test}",
+          "tools/test-fixtures/**"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice",
+      "interacting": "the OS scripts and cloud slices they prove",
+      "closing": "audit folder, lint PASS, punch list through Phase 7"
+    },
+    {
+      "k": 34,
+      "id": "tooling-build-supervision",
+      "area": "tooling-and-guards",
+      "kind": "read",
+      "title": "build supervision and host maintenance",
+      "lens": "brittleness",
+      "why": "`watch-*`, the admission guard and the swap helper keep long jobs honest",
+      "select": {
+        "globs": [
+          "tools/{watch-*,host-maintenance/**,build-preflight,fork-newdrive,fork-publish-release}"
+        ]
+      },
+      "gate": null,
+      "depth": "Independent",
+      "depth_reason": "an ordinary code slice",
+      "interacting": "the build engine (`build-engine`)",
+      "closing": "audit folder, lint PASS, punch list through Phase 7"
+    },
+    {
+      "k": 35,
+      "id": "generic-packages-reached",
+      "area": "generic-packages",
+      "kind": "currency",
+      "title": "the generic packages the image builds",
+      "lens": "package currency",
+      "why": "upstream-carried recipes reached by a shipped plan: pins against their projects' releases",
+      "select": {
+        "globs": [
+          "packages/**"
+        ],
+        "reach": [
+          "shipped",
+          "n/a"
+        ]
+      },
+      "gate": null,
+      "depth": "Local",
+      "depth_reason": "upstream-carried: currency first",
+      "interacting": "the image's own packages (`image-packages`)",
+      "closing": "audit folder, lint PASS, punch list through Phase 7"
+    },
+    {
+      "k": 36,
+      "id": "build-engine-upstream-tools",
+      "area": "build-engine",
+      "kind": "table",
+      "title": "upstream's helper tools and the other distributions",
+      "lens": "reachability",
+      "why": "upstream tools (`distro-tool`, `mkpkg`, ...) the fork may never run, and `distributions/LibreELEC` and `LEIoT`, which nothing selects",
+      "select": {
+        "globs": [
+          "tools/**",
+          "distributions/**",
+          "!distributions/ROCKNIX/**"
+        ]
+      },
+      "gate": null,
+      "depth": "Local",
+      "depth_reason": "a reachability table",
+      "interacting": "the build engine (`build-engine`)",
+      "closing": "one row per tool and distribution with its callers searched, removals with `Already written:`; audit folder, lint PASS"
+    },
+    {
+      "k": 37,
+      "id": "emulators-dead-ends",
+      "area": "emulators-and-cores",
+      "kind": "table",
+      "title": "emulator recipes and files no shipped image builds, and the rest of the area",
+      "lens": "reachability",
+      "why": "the generic `packages/emulation` recipes and the cores only unshipped devices build",
+      "select": {
+        "rest": true
+      },
+      "gate": null,
+      "depth": "Local",
+      "depth_reason": "a reachability table",
+      "interacting": "the emulator slices (`emulators-standalone`, `emulators-libretro`)",
+      "closing": "one row per unit; audit folder, lint PASS"
+    },
+    {
+      "k": 38,
+      "id": "devices-unshipped",
+      "area": "devices",
+      "kind": "table",
+      "title": "the devices the fork does not ship and the other projects",
+      "lens": "reachability",
+      "why": "the unshipped devices' files and the nine LibreELEC-era projects no Makefile target builds",
+      "select": {
+        "globs": [
+          "projects/**",
+          "packages/**",
+          "!projects/ROCKNIX/devices/{H700,SM8550,RK3566,RK3326,GENERIC_X64}/**"
+        ],
+        "reach": [
+          "unreached",
+          "unshipped"
+        ]
+      },
+      "gate": null,
+      "depth": "Local",
+      "depth_reason": "a reachability table",
+      "interacting": "the shipped device slices",
+      "closing": "one row per device or project; audit folder, lint PASS"
+    },
+    {
+      "k": 39,
+      "id": "patches-shipped",
+      "area": "patches-and-configs",
+      "kind": "table",
+      "title": "patches and kernel configurations the shipped images apply",
+      "lens": "package currency",
+      "why": "one provenance row per patch and kernel configuration a shipped image applies (#339 criterion 2): origin, merged upstream or not, the reason we carry it, the version made against, whether it still applies; the remaining fork-written patches (mesa, SDL2, shaderc, webkitgtk, woff2, zerotier-one, fex-emu, the theme, one H700 kernel patch) are read line by line in the table",
+      "select": {
+        "rest": true
+      },
+      "gate": null,
+      "depth": "Local",
+      "depth_reason": "a provenance table",
+      "interacting": "the packages they patch (cross-reference.md: devices 1,007, generic 505, emulators 174)",
+      "closing": "one row per patch; audit folder, lint PASS"
+    },
+    {
+      "k": 40,
+      "id": "patches-unshipped",
+      "area": "patches-and-configs",
+      "kind": "table",
+      "title": "patches only unshipped devices apply",
+      "lens": "reachability",
+      "why": "348 paths kept for devices the fork does not ship",
+      "select": {
+        "reach": [
+          "unshipped",
+          "n/a"
+        ]
+      },
+      "gate": null,
+      "depth": "Local",
+      "depth_reason": "a provenance table",
+      "interacting": "the unshipped devices (`devices-unshipped`)",
+      "closing": "one row per patch; audit folder, lint PASS"
+    },
+    {
+      "k": 41,
+      "id": "es-vendored-and-data",
+      "area": "interface",
+      "kind": "table",
+      "title": "EmulationStation's vendored libraries, translations and build files",
+      "lens": "reachability, package currency",
+      "why": "`external/` (libretro-common, rcheevos, doctest, nanosvg, id3v2lib) by provenance and version; the translations and resources by coverage",
+      "select": {
+        "globs": [
+          "es:**",
+          "!es:es-app/**",
+          "!es:es-core/**"
+        ]
+      },
+      "gate": null,
+      "depth": "Local",
+      "depth_reason": "a provenance table",
+      "interacting": "the proxy's own rcheevos (`offline-achievements`)",
+      "closing": "one row per vendored library with its version and upstream; audit folder, lint PASS"
+    },
+    {
+      "k": 42,
+      "id": "tooling-council",
+      "area": "tooling-and-guards",
+      "kind": "table",
+      "title": "the council toolchain and runner",
+      "lens": "package currency",
+      "why": "scaffold's export, committed byte for byte (D-WORKFLOW-088): by provenance and version only, refreshed by copying the next export (plan § 2)",
+      "select": {
+        "globs": [
+          "scripts/**",
+          "seed/**",
+          "verifier-pins.json",
+          "council-seat-efforts.json",
+          "tools/council/**"
+        ]
+      },
+      "gate": null,
+      "depth": "Local",
+      "depth_reason": "a provenance table",
+      "interacting": "the preliminary reviews and audits that call it",
+      "closing": "the export's version and digest recorded; audit folder, lint PASS"
+    },
+    {
+      "k": 43,
+      "id": "records",
+      "area": "records",
+      "kind": "table",
+      "title": "the records",
+      "lens": "cost against value",
+      "why": "reviewed only where a record misleads a reader today (plan § 5); last, because the slices before it write records",
+      "select": {},
+      "gate": null,
+      "depth": "Local",
+      "depth_reason": "a table",
+      "interacting": "--",
+      "closing": "one row per misleading record found, with its correction; audit folder, lint PASS"
+    }
+  ]
+}
