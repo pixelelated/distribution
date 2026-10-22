@@ -27,18 +27,27 @@
 
 ## Current focus
 
-**Checkpoint 2026-10-22, pass 1 complete (the executor, Opus 5.5, session
-`dbac446e-3b41-4b28-966d-0a6efe07ea2b`).** Futro `1546cf44b2` (also on #641).
-`tools/renovation-inventory` committed (`9966dbcd12`, `ea186f4f5f`) and run:
-`docs/reviews/inventory.json`/`.md` at `61d1d016eb`, every count equal,
-`unassigned: 0`, `ambiguous: 0`. Plans run in the pinned build image (the
-host lacks `xmlstarlet`). Tracking file § Pass 1 has the commands, the
-fixtures, the spot checks and the leads. The ES detached worktree exists at
-`/home/max/Development/emulationstation-next.worktrees/m6-p1-survey` (remove
-with `git -C /home/max/Development/emulationstation-next worktree remove` at
-the end). **Next: pass 2** (clustering: per-area read sizes, split any area
-larger than a session), then pass 3 (six lenses per area, commands beside
-scores).
+**Checkpoint 2026-10-22, passes 1 to 5 complete and pass 6's reconciliation
+done (the executor, Opus 5.5, session `dbac446e-3b41-4b28-966d-0a6efe07ea2b`).**
+The generated ledgers: `docs/reviews/inventory.{json,md}` (at `17dee5ba42`),
+`assessment.md` (`--assess`), `cross-reference.md` (`--cross`), and the
+proposed order: `slices.json` (43 slices) rendered into `order.md` by
+`--order` (every one of 134,591 rows in exactly one slice). The tracking file
+records each pass with its commands. **Next: the preliminary review of the
+order** (brief § 1): `npm install --prefix tools/council`, record the `tsx`
+version, write the contract to
+`research/preliminary-reviews/2026-10-22-m6-p1-order/review-contract.json`,
+build the source manifest (`order.md`, `inventory.md`, `areas.json`,
+`plan-for-the-plan.md` with sha256 and witness commit), invoke claude, gemini
+and gpt one at a time through `tools/council/run invoke --provider openrouter`,
+verifying each served model before the next. Then answer objections in
+`order.md`, and post the pass-7 gate on #641 and **wait for the maintainer's
+yes** (via the coordinator) before filing any slice issue or the register row
+D-WORKFLOW-184. Meanwhile build `tools/renovation-status`,
+`tools/renovation-drift` and the lint's renovation face. The ES detached
+worktree is at `/home/max/Development/emulationstation-next.worktrees/m6-p1-survey`
+(remove with `git -C /home/max/Development/emulationstation-next worktree
+remove` at the end).
 
 ## Next commands
 
