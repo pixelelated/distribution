@@ -1,0 +1,199 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+"""renovation-drift -- what changed under each closed renovation slice since its fixes merged
+(plan § 8; M6.P1, #641).
+
+  tools/renovation-drift [--write docs/reviews/drift.md] [--target next]
+                         [--pretend SLICE=HASH[,es=HASH] ...]
+  tools/renovation-drift --self-test
+
+For every slice in docs/reviews/slices.json with a `fixed_at` (written at the
+slice's stage H: a distribution commit, and for a slice with EmulationStation
+paths an `es` commit), it diffs `<fixed_at>..<target>` over the slice's paths
+(the slice's rows of docs/reviews/inventory.json, the same membership
+`tools/renovation-inventory --order` uses) and reports the files touched, the
+lines changed, that as a share of the slice's lines, and whether a file on
+slices.json's `sensitive` lists (security, state, launch-path) was touched.
+The EmulationStation target is the pin `<target>` carries in
+projects/ROCKNIX/packages/ui/emulationstation/package.mk.
+
+Plan § 8: a slice whose drift is under 20 % of its lines and touches no
+sensitive file is re-reviewed at issue tier (`small`); one over 20 %, or
+touching a sensitive file, re-opens at its depth (`re-open`).
+
+Exit 0 when no slice needs re-opening, 1 when one does, 2 when it cannot run
+(an unreadable ledger, a missing commit, a git command failing).
+`--pretend` sets a fixed_at for this run only, so the report can be seen to
+fire before any slice has closed.
+"""
+
+import argparse
+import importlib.machinery
+import importlib.util
+import json
+import os
+import re
+import subprocess
+import sys
+
+EX_FAIL, EX_CANNOT = 1, 2
+SMALL_SHARE = 0.20  # plan § 8
+ES_DEFAULT = "/home/max/Development/emulationstation-next"
+PIN_FILE = "projects/ROCKNIX/packages/ui/emulationstation/package.mk"
+
+
+def load_inventory_module(dist):
+    path = os.path.join(dist, "tools/renovation-inventory")
+    loader = importlib.machinery.SourceFileLoader("renovation_inventory", path)
+    spec = importlib.util.spec_from_loader("renovation_inventory", loader)
+    mod = importlib.util.module_from_spec(spec)
+    loader.exec_module(mod)
+    return mod
+
+
+def git(repo, *args):
+    r = subprocess.run(["git", "-C", repo, *args], capture_output=True, text=True)
+    if r.returncode != 0:
+        raise RuntimeError("git %s: %s" % (" ".join(args[:3]), r.stderr.strip()[:300]))
+    return r.stdout
+
+
+_NUMSTAT = {}
+
+
+def numstat(repo, base, target, paths):
+    """{path: lines changed} over paths between two commits; deletions count. One whole-tree diff per
+    (repo, base, target), filtered by the path set: git diff takes no --pathspec-from-file."""
+    key = (repo, base, target)
+    if key not in _NUMSTAT:
+        out = git(repo, "-c", "core.quotePath=false", "diff", "--numstat", "--no-renames", "-z", base, target)
+        res = {}
+        for rec in out.split("\0"):
+            if rec:
+                a, d, p = rec.split("\t", 2)
+                res[p] = (0 if a == "-" else int(a)) + (0 if d == "-" else int(d))
+        _NUMSTAT[key] = res
+    want = set(paths)
+    return {p: n for p, n in _NUMSTAT[key].items() if p in want}
+
+
+def verdict(changed, slice_lines, sensitive_hits):
+    """small | re-open | none, by plan § 8."""
+    if not changed:
+        return "none"
+    share = sum(changed.values()) / max(slice_lines, 1)
+    return "re-open" if sensitive_hits or share > SMALL_SHARE else "small"
+
+
+def run(args):
+    dist = os.path.realpath(args.distribution)
+    inv_mod = load_inventory_module(dist)
+    with open(os.path.join(dist, "docs/reviews/inventory.json")) as f:
+        inv = json.load(f)
+    rows = [dict(zip(inv["columns"], r)) for r in inv["rows"]]
+    doc, slices = inv_mod.load_slices(dist)
+    pretend = {}
+    for p in args.pretend or []:
+        sid, _, rest = p.partition("=")
+        parts = rest.split(",")
+        fx = {"distribution": parts[0]}
+        for x in parts[1:]:
+            k, _, v = x.partition("=")
+            fx[k] = v
+        pretend[sid] = fx
+    members = {sl["id"]: {"distribution": [], "es": [], "lines": 0} for sl, _ in slices}
+    for r in rows:
+        hits = inv_mod.slice_of(r, slices)
+        if len(hits) == 1:
+            m = members[hits[0]]
+            m[r["tree"]].append(r["path"])
+            m["lines"] += r["lines"] or 0
+    sens = inv_mod.load_areas([{"area": k, "globs": g} for k, g in doc.get("sensitive", {}).items()])
+    target = git(dist, "rev-parse", args.target).strip()
+    es_pin = None
+    report, worst = [], 0
+    for sl, _ in slices:
+        fixed = pretend.get(sl["id"]) or sl.get("fixed_at")
+        if not fixed:
+            continue
+        if isinstance(fixed, str):
+            fixed = {"distribution": fixed}
+        m = members[sl["id"]]
+        changed, hit = {}, []
+        if m["distribution"]:
+            base = fixed.get("distribution")
+            if not base:
+                raise RuntimeError("slice %s has distribution paths and no distribution fixed_at" % sl["id"])
+            git(dist, "cat-file", "-e", base + "^{commit}")
+            for p, n in numstat(dist, base, target, m["distribution"]).items():
+                changed[p] = n
+                hit += [k for k, inc, _ in sens if any(x.match(p) for x in inc.get("distribution", []))]
+        if m["es"]:
+            base = fixed.get("es")
+            if not base:
+                raise RuntimeError("slice %s has EmulationStation paths and no es fixed_at" % sl["id"])
+            if es_pin is None:
+                text = git(dist, "show", "%s:%s" % (args.target, PIN_FILE))
+                es_pin = re.search(r'^PKG_VERSION="([0-9a-f]{40})"', text, re.M).group(1)
+            git(args.es, "cat-file", "-e", base + "^{commit}")
+            for p, n in numstat(args.es, base, es_pin, m["es"]).items():
+                changed["es:" + p] = n
+                hit += [k for k, inc, _ in sens if any(x.match(p) for x in inc.get("es", []))]
+        v = verdict(changed, m["lines"], hit)
+        worst = max(worst, {"none": 0, "small": 0, "re-open": 1}[v])
+        report.append((sl, fixed, len(changed), sum(changed.values()), m["lines"], sorted(set(hit)), v,
+                       "pretend" if sl["id"] in pretend else "slices.json"))
+    lines = ["# Renovation drift", "",
+             "Generated by `tools/renovation-drift` against `%s` (`%s`); never hand-edited. Plan § 8: under 20 %% of a "
+             "slice's lines and no sensitive file is `small` (an issue-tier pass over the diff); over 20 %%, or any "
+             "security, state or launch-path file, is `re-open` (the slice at its depth, over the diff)." % (
+                 args.target, target[:10]), "",
+             "| k | Slice | fixed-at | Files | Lines changed | Share of slice | Sensitive touched | Verdict | Source |",
+             "| ---: | --- | --- | ---: | ---: | ---: | --- | --- | --- |"]
+    for sl, fixed, files, changed, total, hit, v, src in report:
+        lines.append("| %d | %s | %s | %d | %d | %.1f %% | %s | %s | %s |" % (
+            sl["k"], sl["id"], ", ".join("%s `%s`" % (k, h[:10]) for k, h in fixed.items()), files, changed,
+            100.0 * changed / max(total, 1), ", ".join(hit) or "--", v, src))
+    if not report:
+        lines.append("| -- | no slice has a `fixed_at` yet | | | | | | | |")
+    text = "\n".join(lines) + "\n"
+    print(text, end="")
+    if args.write:
+        with open(os.path.join(dist, args.write), "w") as f:
+            f.write(text)
+    return worst
+
+
+def self_test():
+    cases = [({}, 1000, [], "none"), ({"a": 10}, 1000, [], "small"), ({"a": 201}, 1000, [], "re-open"),
+             ({"a": 1}, 1000, ["launch-path"], "re-open"), ({"a": 200}, 1000, [], "small")]
+    bad = 0
+    for changed, total, hit, want in cases:
+        got = verdict(changed, total, hit)
+        bad += got != want
+        print("%s %s of %d, sensitive %s -> %s (want %s)" % ("PASS" if got == want else "FAIL", changed, total, hit, got, want))
+    print("self-test: %s" % ("PASS" if not bad else "FAIL (%d)" % bad))
+    return 0 if not bad else EX_FAIL
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    ap.add_argument("--distribution", default=".")
+    ap.add_argument("--es", default=ES_DEFAULT)
+    ap.add_argument("--target", default="next")
+    ap.add_argument("--write", help="also write the table here (docs/reviews/drift.md)")
+    ap.add_argument("--pretend", action="append", help="SLICE=HASH[,es=HASH]: a fixed_at for this run only")
+    ap.add_argument("--self-test", action="store_true")
+    args = ap.parse_args()
+    if args.self_test:
+        return self_test()
+    try:
+        return run(args)
+    except (RuntimeError, OSError, ValueError, KeyError, AttributeError) as e:
+        print("renovation-drift: cannot run: %s" % e, file=sys.stderr)
+        return EX_CANNOT
+
+
+if __name__ == "__main__":
+    sys.exit(main())

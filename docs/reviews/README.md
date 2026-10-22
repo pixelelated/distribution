@@ -14,7 +14,8 @@ milestone is M6; the epic is #339; the plan for the plan is #346.
 | `slices.json` | the order's hand-written input: each slice's number, area, kind, lens, selector, gate, depth, interacting subsystems and closing evidence; the security, state and launch-path globs the drift tool reads | P1, then the planner when the order changes |
 | `areas.json` | the area map: every tracked path in exactly one area (the one hand-written input to the inventory) | P1, edited when an area is split or an epic filed |
 | `p1-tracking.md` | the survey's multi-pass tracking file: hashes, counts with their commands, each pass's evidence | P1 |
-| `status.md` | one row per slice: area, lines, depth, state, reviewed-at, drift since | `tools/renovation-status` (P1) |
+| `status.md` | the `order:` row, then one row per slice: area, lines, depth, state, issue, reviewed-at, fixed-at, drift since | `tools/renovation-status --write docs/reviews/status.md` (P1), at every slice close |
+| `drift.md` | per closed slice, what changed under its paths since `fixed-at` | `tools/renovation-drift --write docs/reviews/drift.md`, at every slice close and before every release candidate |
 | `briefs/<slice>.md` | the brief an executing session runs a slice from, ten sections, committed before dispatch | the planner |
 
 The audits themselves live under `docs/audits/<date>-epic-m6-<slice>/`, the
@@ -117,3 +118,28 @@ two, when a slice is empty, or when one of the first three reads more than
 `--self-test` proves the area counters and the glob rules can fail;
 `--inject-path PATH` adds a synthetic path to a real run (it must fail with
 `unassigned: 1`); `--plans DIR` keeps the plan files.
+
+### `tools/renovation-drift`
+
+For every slice in `slices.json` with a `fixed_at` (a distribution commit,
+plus `es` for EmulationStation paths), `git diff --numstat <fixed_at>..next`
+filtered to the slice's paths (the same membership `--order` uses; the ES
+target is the pin `next` carries). It reports files, lines changed, the share
+of the slice's lines, and any `sensitive` file touched, with plan § 8's
+verdict: `small` (under 20 % and nothing sensitive: an issue-tier pass over
+the diff) or `re-open`. Exit 1 when any slice must re-open, 2 when it cannot
+run. `--pretend SLICE=HASH[,es=HASH]` sets a `fixed_at` for one run: on
+2026-10-22 a pretend close of T1 at the merge base reported `re-open`
+(29 files, 3,273 lines, 24.6 %, all three sensitive lists) and exit 1, and
+the same at `HEAD` reported `none` and exit 0. `--self-test` checks the
+thresholds.
+
+### `tools/renovation-status`
+
+Writes `status.md`: the `order:` row from `order.md`'s review status line,
+then one row per slice, its lines from the inventory, its depth from
+`slices.json`, and its state from the slice issue on milestone M6 (title
+`M6.P2 E<epic>/T<k>: ...`; body lines `reviewed-at:`, `fixed-at:`,
+`fixed-at-es:`) and the audit folders: `unreviewed`, `reading`,
+`remediating`, `closed`, or `drifted` (closed, and `renovation-drift` says
+re-open). One bounded `gh issue list`; it fails at its limit.
