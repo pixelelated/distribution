@@ -115,6 +115,12 @@ two, when a slice is empty, or when one of the first three reads more than
 12,000 lines (a currency slice counts its fork-own lines, a table none).
 `--no-write` prints only.
 
+`--slice-issues DIR` writes each slice issue's title (`M6.P2 E339/T<k>: <area>:
+<title>`) and body (scope, `reviewed-at:` and `fixed-at:` empty, the VM
+question, five agent-verifiable criteria) into DIR, from `slices.json` and
+`inventory.json`; it touches no tracker. Pass 7 files them after the
+maintainer's yes.
+
 `--self-test` proves the area counters and the glob rules can fail;
 `--inject-path PATH` adds a synthetic path to a real run (it must fail with
 `unassigned: 1`); `--plans DIR` keeps the plan files.

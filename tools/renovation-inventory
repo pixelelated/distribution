@@ -1360,6 +1360,97 @@ def order(args):
     return EX_FAIL if unassigned or ambiguous or over or empty else 0
 
 
+ISSUE_BODY = """Slice T{k} of the renovation order: `docs/reviews/order.md` § T{k}, id `{id}` in `docs/reviews/slices.json`. Phase M6.P2, under epic #339 until this area's epic is filed at its first dispatch (then re-parented and retitled `E<epic>/T{k}`, `milestone-phase-naming.md`). Proposed by the survey (#641); the order is D-WORKFLOW-184. Run under the per-slice procedure of `docs/reviews/plan-for-the-plan.md` § 6b, from the brief the planner writes before dispatch (§ 7).
+
+## Scope
+
+- **Area:** {area}; **kind:** {kind}; **lens:** {lens}
+- **Why here:** {why}
+- **Paths:** {desc}. {paths} paths, {lines} lines; {read} lines read, {fork} of them fork-own (inventory at `{head}`). The exact list is `tools/renovation-inventory --order`'s membership of `{id}`.
+- **Provenance tiers:** {tiers}
+- **Release gate:** {gate}
+- **Review depth:** {depth} -- {reason}
+- **Interacting subsystems (read-only context):** {inter}
+
+reviewed-at:
+fixed-at:
+
+{vm}
+
+## Acceptance criteria
+
+- [ ] `docs/audits/<date>-epic-m6-{id}/` holds `00-running-log.md` and `01-research-notes.md` to `05-punch-list.md`.
+- [ ] `tools/lint-audit-artifacts docs/audits/<date>-epic-m6-{id}/` prints `PASS`, the renovation face included: Q1 to Q7 answered in `04-analysis.md`, and every punch item's `question:` in the index.
+- [ ] {opinion}
+- [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue, or withdrawn with its reason.
+- [ ] `reviewed-at:` and `fixed-at:` above carry the commits the read and the fixes were made at (with `fixed-at-es:` for EmulationStation paths), and `tools/renovation-status` lists this slice as `closed`.
+"""
+
+
+def slice_issues(args, out):
+    """Write T<k>.title and T<k>.md for every slice: the slice issues' titles and bodies (pass 7; no tracker)."""
+    dist = os.path.realpath(args.distribution)
+    os.makedirs(out, exist_ok=True)
+    with open(os.path.join(dist, args.out)) as f:
+        inv = json.load(f)
+    rows = [dict(zip(inv["columns"], r)) for r in inv["rows"]]
+    doc, slices = load_slices(dist)
+    size = defaultdict(Counter)
+    for r in rows:
+        h = slice_of(r, slices)
+        if len(h) == 1:
+            c = size[h[0]]
+            ln = r["lines"] or 0
+            c["paths"] += 1
+            c["lines"] += ln
+            c["tier:" + r["tier"]] += 1
+            if r["language"] in CODE and r["tier"] != "vendor-carried" and r["reach"] != "unreached":
+                c["read"] += ln
+                if r["tier"] == "fork-own":
+                    c["fork"] += ln
+    fmt = lambda n: "{:,}".format(n)
+    head = inv["header"]["distribution"]["head"][:10]
+    for sl, _ in slices:
+        c = size[sl["id"]]
+        sels = sl.get("select", {})
+        desc = []
+        for sel in (sels if isinstance(sels, list) else [sels]):
+            desc.append("areas %s; globs %s%s%s" % (
+                ", ".join("`%s`" % a for a in sel.get("areas", [sl["area"]])),
+                ", ".join("`%s`" % g for g in sel.get("globs", ["(all)"])),
+                ("; reach %s" % ", ".join("`%s`" % x for x in sel["reach"])) if sel.get("reach") else "",
+                "; the rest of these areas" if sel.get("rest") else ""))
+        kind = sl.get("kind", "read")
+        vm = ("Can this be done on the VM? Yes -- every behaviour claim this slice makes is proven on the GENERIC_X64 "
+              "guest (`vm-first.md`, `generic-x64-vm-testing.md` § headless); reading and tables need no guest."
+              if kind != "table" else
+              "Can this be done on the VM? No test is proposed: a table slice is host analysis of the tree; a removal "
+              "it proposes is proven on the GENERIC_X64 guest before it is a punch item.")
+        if sl["depth"] == "Local":
+            opinion = ("The review depth is recorded as Local in `second-opinions/review-plan.json` (no reviewer: the "
+                       "lint and the counts are the check, plan § 6c).")
+        elif sl["depth"] == "Independent":
+            opinion = ("`second-opinions/review-plan.json` records Independent depth and one reviewer from another lab, "
+                       "and that reviewer's provenance names its served model (plan § 6c, D-WORKFLOW-137).")
+        else:
+            opinion = ("`second-opinions/review-plan.json` records Extended depth and two reviewers from two other labs, "
+                       "and each reviewer's provenance names its served model (plan § 6c, D-WORKFLOW-137).")
+        title = "M6.P2 E339/T%d: %s: %s" % (sl["k"], sl["area"], sl["title"])
+        body = ISSUE_BODY.format(
+            k=sl["k"], id=sl["id"], area=sl["area"], kind=kind, lens=sl["lens"], why=sl["why"],
+            desc=" **plus** ".join(desc), paths=fmt(c["paths"]), lines=fmt(c["lines"]), read=fmt(c["read"]),
+            fork=fmt(c["fork"]), head=head,
+            tiers=", ".join("%s %s" % (k.split(":", 1)[1], fmt(n)) for k, n in sorted(c.items()) if k.startswith("tier:")),
+            gate=sl.get("gate") or "none", depth=sl["depth"], reason=sl["depth_reason"], inter=sl["interacting"],
+            vm=vm, opinion=opinion)
+        with open(os.path.join(out, "T%d.title" % sl["k"]), "w") as f:
+            f.write(title)
+        with open(os.path.join(out, "T%d.md" % sl["k"]), "w") as f:
+            f.write(body)
+    print("wrote %d slice issue bodies to %s" % (len(slices), out))
+    return 0
+
+
 def self_test():
     """The counters can fail: a path in no area, a path in two, a catch-all refused."""
     areas = [{"area": "a", "globs": ["x/**", "!x/skip/**"]}, {"area": "b", "globs": ["x/both/*", "es:**"]}]
@@ -1411,10 +1502,18 @@ def main():
     ap.add_argument("--assess", action="store_true", help="write docs/reviews/assessment.md from inventory.json")
     ap.add_argument("--order", action="store_true", help="size the slices in slices.json, check they partition the "
                     "tree, render order.md's generated block (--no-write: print only)")
+    ap.add_argument("--slice-issues", metavar="DIR", help="write each slice issue's title and body (T<k>.title, "
+                    "T<k>.md) into DIR from slices.json and inventory.json; touches no tracker")
     ap.add_argument("--cross", action="store_true", help="write docs/reviews/cross-reference.md from inventory.json")
     args = ap.parse_args()
     if args.self_test:
         return self_test()
+    if args.slice_issues:
+        try:
+            return slice_issues(args, args.slice_issues)
+        except (CannotRun, OSError, ValueError, KeyError) as e:
+            print("renovation-inventory: cannot run: %s" % e, file=sys.stderr)
+            return EX_CANNOT
     if args.order:
         try:
             return order(args)
