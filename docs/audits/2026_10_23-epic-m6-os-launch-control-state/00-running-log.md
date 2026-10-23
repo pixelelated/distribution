@@ -91,3 +91,10 @@
 - Group 2 read whole (`chksysconfig` and its units, `001-setup`, `003-upgrade`, `007-rootpw`, `setrootpass`, `post-update`, `factoryreset`, `installtointernal`, `automount`, `system.cfg`): F-28 to F-46. Guest facts read on the way: busybox `find` supports `-regex`/`-delete` and returns 0 after a failing `-exec cp` (F-40); the overlay units' option order (F-36); `cryptpw` present and the shadow root line in the expected shape (F-29 latent).
 - Proofs 07:53:47 (`group2.sh`, explicit restore, all `same`): F-29 (empty root hash, rc 0), F-44 (DPMS `1` deleted), F-28 (`upgrade.log` overwritten), F-19 (no overlay under the default bezel; upgraded to Medium). **F-32 corrected**: busybox `sed` completes the half line rather than joining it, which is the G2-E-core-03 shape.
 - Next: group 3 (62 paths), then the coverage table, Q4/Q5/Q6, Phase 3/4.
+
+### [Phase 2] 08:04 — Group 3, the security list, the Q6 table, the shellcheck verdicts
+
+- Read: `wifictl`, `rocknix-evidence` (+unit, timer), `usbgadget` (+rule, 081), `rocknix-corekeep`, `rocknix-memory-manager` (+unit), `rocknix-es-thebezelproject`, the stubs (`rocknix-update`, `rocknix-report-stats`, its masked timer), the nine unreached scripts. F-47 to F-57.
+- Guest facts: `redact_credentials` misses `nmcli ... password <v>`, `cryptpw ... <v>` and `...psk <v>`; the snapshot's `top` prints names only, so no live path (F-47 narrowed); `gzip -l` works on the image's gzip; the report-stats timer is masked; `espeak` present (`say` reached); `/usr/sbin/quantum` absent and `050-audio` errors every boot (F-56); `paneladj`'s `>`/`<` clamp every value and write a stray file (F-57); `updates.batocera.org` lists answer 200 (the bezel installer alive).
+- `04-analysis.md` drafted with § Renovation face Q6: 47 rows, 9 unreached (all since the import), 1 hand-run, 37 reached.
+- The 16 shellcheck errors all have a verdict: 7 defects (F-09, F-10's four sites, F-16, F-56, F-57), 4 in unreached scripts, 4 benign.

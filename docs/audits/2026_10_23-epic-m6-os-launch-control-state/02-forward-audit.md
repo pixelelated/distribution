@@ -50,22 +50,22 @@ So every guest proof below of a script other than `runemu.sh` stands for the tre
 
 | Site | Code | shellcheck's words | Verdict after reading the site |
 | --- | --- | --- | --- |
-| `autostart/099-networkservices:30` | SC2068 | Double quote array expansions to avoid re-splitting elements. | (pending) |
-| `sources/scripts/controller-layout:11` | SC2242 | Can only exit with status 0-255. Other data should be written to stdout/stderr. | (pending) |
-| `sources/scripts/migrate_roms:15` | SC2189 | You can't have | between this redirection and the command it should apply to. | (pending) |
-| `sources/scripts/migrate_roms:34` | SC2189 | You can't have | between this redirection and the command it should apply to. | (pending) |
-| `sources/scripts/paneladj:37` | SC2071 | > is for string comparisons. Use -gt instead. | (pending) |
-| `sources/scripts/paneladj:40` | SC2071 | < is for string comparisons. Use -lt instead. | (pending) |
-| `sources/scripts/error.sh:13` | SC1035 | You are missing a required space here. | (pending) |
-| `sources/scripts/setsettings.sh:334` | SC2265 | Use && for logical AND. Single & will background and return true. | (pending) |
-| `sources/scripts/setsettings.sh:748` | SC2068 | Double quote array expansions to avoid re-splitting elements. | (pending) |
-| `sources/scripts/setsettings.sh:801` | SC2068 | Double quote array expansions to avoid re-splitting elements. | (pending) |
-| `sources/scripts/setsettings.sh:844` | SC2068 | Double quote array expansions to avoid re-splitting elements. | (pending) |
-| `sources/scripts/setsettings.sh:958` | SC2068 | Double quote array expansions to avoid re-splitting elements. | (pending) |
-| `sources/scripts/setsettings.sh:983` | SC2068 | Double quote array expansions to avoid re-splitting elements. | (pending) |
-| `sources/scripts/setsettings.sh:1012` | SC2328 | This redirection takes output away from the command substitution. | (pending) |
-| `autostart/050-audio:49` | SC2157 | Argument to -n is always true due to literal strings. | (pending) |
-| `sources/scripts/setemu.sh:21` | SC2145 | Argument mixes string and array. Use * or separate argument. | (pending) |
+| `autostart/099-networkservices:30` | SC2068 | Double quote array expansions to avoid re-splitting elements. | benign (no spaces in daemon names) |
+| `sources/scripts/controller-layout:11` | SC2242 | Can only exit with status 0-255. Other data should be written to stdout/stderr. | benign (`exit -1` = 255, unread) |
+| `sources/scripts/migrate_roms:15` | SC2189 | You can't have | between this redirection and the command it should apply to. | defect in an unreached script (F-55) |
+| `sources/scripts/migrate_roms:34` | SC2189 | You can't have | between this redirection and the command it should apply to. | defect in an unreached script (F-55) |
+| `sources/scripts/paneladj:37` | SC2071 | > is for string comparisons. Use -gt instead. | **defect** F-57, proven |
+| `sources/scripts/paneladj:40` | SC2071 | < is for string comparisons. Use -lt instead. | **defect** F-57 |
+| `sources/scripts/error.sh:13` | SC1035 | You are missing a required space here. | defect in an unreached script (F-55) |
+| `sources/scripts/setsettings.sh:334` | SC2265 | Use && for logical AND. Single & will background and return true. | **defect** F-09, proven |
+| `sources/scripts/setsettings.sh:748` | SC2068 | Double quote array expansions to avoid re-splitting elements. | benign (array indices) |
+| `sources/scripts/setsettings.sh:801` | SC2068 | Double quote array expansions to avoid re-splitting elements. | part of F-10 (substring match) |
+| `sources/scripts/setsettings.sh:844` | SC2068 | Double quote array expansions to avoid re-splitting elements. | part of F-10, proven |
+| `sources/scripts/setsettings.sh:958` | SC2068 | Double quote array expansions to avoid re-splitting elements. | part of F-10, proven |
+| `sources/scripts/setsettings.sh:983` | SC2068 | Double quote array expansions to avoid re-splitting elements. | part of F-10 |
+| `sources/scripts/setsettings.sh:1012` | SC2328 | This redirection takes output away from the command substitution. | **defect** F-16, proven |
+| `autostart/050-audio:49` | SC2157 | Argument to -n is always true due to literal strings. | **defect** F-56, proven |
+| `sources/scripts/setemu.sh:21` | SC2145 | Argument mixes string and array. Use * or separate argument. | unreached script (F-55) |
 
 ## Findings, written as each unit is read
 
@@ -237,3 +237,44 @@ The fork's most-revised script after `001-functions` (14 fork commits; #191, #20
 #### `sources/scripts/rocknix-evidence` (265, fork-own, on the security list; read whole), `rocknix-evidence.service` (12), `.timer` (10)
 
 Sound on reading and against the brief's blindspot 43: every file of a collection passes `filter_tree` (`:113-144`), a file that can be neither filtered nor removed stops the archive (`:221-224`, #307 PL-046), the snapshot goes through the filter before it is written (`:151`), collections are serialised by a lock on the folder (`:172`, D-INFRA-014), the staging folder and the archive name are this run's own (`:182`, `:231-239`, #307 PL-077). The header's safety claim is now enforced at the boundary, not asserted of the writers -- what blindspot 43 asked. Guest: the ring holds five pages (`state.0.txt` to `state.4.txt`); the decoy test above rotated it and it was restored from a copy taken first. The timer (boot + 60 s, every 5 min) and service read as designed (D-SYS-005). Q5: one `top`, one `journalctl -k -n 40`, `df`, `free` every five minutes, under 256 KiB a page; to measure its run time once on the guest.
+
+#### `sources/scripts/usbgadget` (615, fork-own, on the security list; read whole), `udev.d/80-usbgadget.rules` (4), `autostart/081-usbgadget` (5)
+
+`tools/usb-gadget-test` ran the descriptor preparation in a configfs fixture: 18 cases, 72/72 on the host (dash) and on the guest (the image's bash as `sh`), the installed copy identical to the tree's (#531). The guest kernel has no USB gadget support (`generic-x64-vm-testing.md` § USB descriptor revision controls), so the bind, MTP and network paths are traces. Callers (`grep -rn -E 'usbgadget( |")' packages projects`; the interface at the pin): `--start` from `081-usbgadget`, `trigger` from the udev rule, no argument, `--options` and `address` from `GuiMenu.cpp:10230-10250`.
+
+- **F-49 (Q6/Q3, Low): `restart` cannot restart, and nothing calls it.** `restart` (`:530-533`) runs `usb_stop`, whose work is in a subshell (`:451-464`), so the parent's `CURRENT_MODE` keeps the old mode; `usb_start` then finds `CURRENT_MODE == USB_MODE` (`:379-382`) and returns, leaving the gadget disabled. `stop`, `start`, `prepare`, `cleanup` and `restart` are the "deprecated usage" (`:574`); of them only `prepare` runs, inside `--start`. Remove the deprecated verbs or say they are kept for hand use, and fix `restart` if kept. `Already written:` none (state file `usbgadget.conf` keeps `USB_MODE`, read the same way by `--start`).
+- **F-50 (Q2, Low): a `#!/bin/sh` script in bash.** `[[ ]]` at `:47`, `:87`, `:375`, `:420`; `==` inside `[ ]` at `:379`, `:395`; it runs because the image's `sh` is bash. Its state files are `.`-sourced as root (`:35-37` `usbgadget.conf`, `:556-558` `network.conf`), which the script writes itself under `/storage/.cache/usbgadget`; the player's own trust domain. `[ -n "$verbose" ]` (`:187`, `:264`) is always true once `verbose=${verbose:-0}` (`:114`), so "Done." is printed on every prepare and cleanup.
+- Lead for T22 (posted with the punch list, not this slice's): `projects/ROCKNIX/packages/sysutils/system-utils/sources/scripts/output_monitor:83` stops a `usbgadget` systemd unit that no package in this slice ships.
+- Sound: the external-VBUS refusal before switching to host (`:331-334`, `external_vbus_present` `:343-361`); the bind is read back before the state is written (`:420-425`).
+
+#### The stubs and the small units
+
+- `sources/scripts/rocknix-update` (15, fork-own): the manual-updates stub; `check` exits 1 and nothing contacts a server, as #694 and D-WORKFLOW-093 say. Sound. Its name is kept for installed callers (Q6 row).
+- `sources/scripts/rocknix-report-stats` (7, fork-own): `exit 0`, no collection, no network (D-WORKFLOW-110). `system.d/rocknix-report-stats.timer` and `system.d/timers.target.wants/rocknix-report-stats.timer` are symlinks in git (mode `120000`) to `/dev/null` and to the first: on the guest the timer reads `masked` / `LoadState=masked`, the service `disabled`. Sound. **F-51 (Q7, Low):** the service's `Description=Report anonymous ROCKNIX install statistics` describes what it no longer does.
+- `system.d/rocknix-memory-manager.service` (17), `bluetooth-agent.service` (13), `rocknix.target` (9), `hdmi-hotplug.path` (8, H700 only), `hdmi-hotplug.service` (6): read whole with their scripts below; `rocknix-evidence.service`/`.timer` under `rocknix-evidence`.
+
+#### `sources/scripts/rocknix-corekeep` (250, fork-own; read whole)
+
+Off unless armed (`/storage/.config/keep-core-dumps`); bounded per dump (`head -c` before `gzip`, a gigabyte for the interface by its path since #308 F-PB-20), refused under a free-space floor that adds the cap (audit #258 G-03), serialised by a lock on the folder (#308 F-PB-21, #307 G-B-14), ring of three by time (#308 F-PB-15), cut or whole read from the raw count (#247). Guest (07:59): the image's `gzip` is `/usr/bin/gzip` (not busybox) and `gzip -l` prints the raw size the script reads (`300000` for a 300,000-byte input), so the cut detection holds on the image as on the harness's host (`last-good-scripts-test` x3 ran it with the host's gzip, `:7795`). Sound. Q7: the header's explanation is long but each paragraph is a decision with its reason.
+
+#### `sources/scripts/rocknix-memory-manager` (638, fork-own; read whole) and its unit (17)
+
+A oneshot at `basic.target` (`--setup`, `--reload`, `--stop`), not a loop as brief § 4 Q5 put it: it sizes zram and a swap file from `/etc/swap.conf` and `/storage/.config/swap.conf` (both `.`-sourced, `:23-30`), tunes the VM sysctls, THP and KSM by RAM and SoC tier (`:52-73`), and exits. Callers: the unit only; the interface at the pin names it nowhere (`git -C $ES grep -n rocknix-memory-manager $PIN`: none), so the setting flags (`--zram-size` to `--thp`, `:498-515`) are typed at a shell.
+
+- **F-52 (Q2, Low): the setting flags write and `eval` their value unquoted.** `update_config` (`:86-101`) puts the value into `swap.conf` through `sed "s|^${key}=.*|${key}=\"${val}\"|"` (a `|` in it breaks the program, a `"` breaks the file) and then `eval "${key}=\"${val}\""`; the file is `.`-sourced at every boot. The caller is a person at a root shell, so it is the owner's own trust domain; the shape still wants `printf %q` or a validated value per key (most are numbers or a short word list).
+- **F-53 (Q3, Low, keep an eye on): a swap-file resize writes over a file the kernel may still be swapping to.** `setup_swapfile` (`:474-482`): when the size changed, `[ -f ] && swapoff && rm` skips the removal if `swapoff` fails, and the script goes on to `fallocate`/`dd` and `mkswap` on the same path. At boot nothing is swapped on yet, so this needs an interactive `--swap-size` change on a loaded device; `--reload`'s guard (`:225-234`) refuses when swap use exceeds free RAM, which narrows it further. The fix shape is to stop when `swapoff` fails.
+- Q5: KSM is on by default (`KSM_ENABLE=auto`, `:16`, `:251-256`) on every tier, with the slowest scan on low-RAM weak-CPU devices (the H700's tier: 500 ms, 100 pages). Its boot cost and KSM's background cost are to read from `systemd-analyze blame` and `/sys/kernel/mm/ksm/` on the guest (8 GiB, the mid tier, so not the H700's numbers).
+
+#### `sources/scripts/rocknix-es-thebezelproject` (641, fork-own; read for its network and file operations, then whole by outline)
+
+Driven by the interface's bezel installer (`ApiSystem.cpp` at the pin), it fetches lists from `https://updates.batocera.org/` (a third party's server, Batocera's; `:31-34`) and bezels from GitHub raw, matches them to the device's ROM names and writes PNGs under the decorations folder. Both lists answered `200 text/plain` to a HEAD request from the host (08:00), so the feature is alive; it depends at run time on a server neither this fork nor ROCKNIX runs (Q4/Q6: recorded, not a defect).
+
+- **F-54 (Q2, Low): names from a remote list reach a file path, guarded by accident.** The written name is `$rom_no_ext.$index_ext` (`:438`, `:454`): the ROM part is local, the extension is `${index_bezel_name##*.}` from the server's list (`:401`), so an entry ending in `./../x` would make the path `<rom>./../x`, which fails only because no directory `<rom>.` exists. `remove` (`:570-600`) runs `rm -rf "$DECORATION_DIR/$BEZELPROJECT_GAMES_DIR/$system_name"` after a `-d` test that an empty name passes (the games folder itself); the interface always passes a system. Fix shape: refuse a remote name with `/`, and a system name that is empty or not a plain word. shellcheck: 0 errors, 16 warnings (the `[[ $(curl ...) ]]` tests, unquoted `let`).
+
+#### The shellcheck error sites in reached scripts, read and run (08:03 UTC, the guest's bash)
+
+- **F-56 (Q3, Low, proven): `autostart/050-audio` runs a program that is not there, every boot.** `:49` `if [ -n "/usr/sbin/quantum" ]` tests a literal string (SC2157), so `:50` always runs `/usr/sbin/quantum`; the guest has no such file, and this boot's journal carries `050-audio: line 50: /usr/sbin/quantum: No such file or directory`. Fix: `[ -x /usr/sbin/quantum ]`. Upstream-carried.
+- **F-57 (Q3, Medium on the devices that use it, proven): `paneladj` clamps every stored panel value to its maximum and writes a stray file.** `:37` `[ "${MYVAL}" > "${MAX}" ]` and `:40` `[ "${MYVAL}" < "${MIN}" ]` (SC2071) are redirections, not comparisons: `[ "${MYVAL}" ]` is run with its output sent to a file named after `${MAX}`. On the guest, with `MYVAL=30 MAX=100`, the clamp branch was taken and an empty file `100` appeared in the working directory. So every `display.<x>` setting read through `getValue` comes back as 100 (`MAX=100`, `:20`), and the first `<` reads its input from a file named `1`. Reached through the RK3566 quirks (`hardware/quirks/devices/Anbernic RG353P/040-display` and nine others, per the Q6 search), so the effect is on devices this fork does not ship (D-WORKFLOW-185); the fix (`-gt`/`-lt` on integers) is upstream's to take too (#585's queue).
+- `autostart/099-networkservices:30` (SC2068, `${DAEMONS[@]}` unquoted): daemon names carry no spaces; benign. The file is fork-own for one line (`unset STATE SVC CONF DAEMONS` before each fragment, `:16-18`), which is sound.
+- `sources/scripts/controller-layout:11` (SC2242, `exit -1`): exits 255; the interface (`GuiMoonlight.cpp`) does not read the status. Benign; `exit 1` reads as meant.
+- `setemu.sh`, `error.sh`, `migrate_roms` errors: in unreached scripts (Q6, F-55), recorded there.
