@@ -375,3 +375,13 @@ Nothing on this list runs before the coordinator relays M7's `resource return` o
 - #779 (PL-013): the declaration evidence is posted. The pin's `grep -c 'static std::atomic<FileData\*> mRunningGame;'` prints 0, and the tip's prints 1.
   - **I first wrote on #779 that the commit names both runs, which is false**: `05c8e4b5e` names only the fixed-source checks. The comment was corrected at 21:16 and criterion 2 unticked.
   - The commit was not reworded, because that would rewrite the four later commits whose hashes are already cited. From here on, a commit names its failing-first check before it is made.
+- **PL-022, the test first.** A new `proxycards-tests` case: a `beforePost` hook in the window's fake starts a sync between the worker's check and the posted function.
+  - 21:12:29, against the unfixed `ProxyCards.cpp`: failed at `:496` ("a top-up card was made beside the sync's").
+  - The fix: the posted function asks `screenFree()` again, and makes no card when the screen is taken.
+  - 21:12:41 syntax-only compile `PASS`. 21:12:50-21:15:22, the whole suite: **12 of 12, 71 assertions**.
+  - Committed as ES `dce0b9b6b`. #788's two criteria are ticked.
+- **PL-035, the `ViewController` half.** The three end callbacks of `launch` are now one `ended` lambda, handed each transition's playback, plus one `returned`. There is no change in behaviour.
+  - 21:13:21 syntax-only compile `PASS`. Committed as ES `2f881879c`. PL-035 stays Open for the `ProxyCards` comments.
+- PL-032's row is in `04-analysis.md` § Q7, waiting on the coordinator's Backlog issue.
+- The S4 outcomes are in 05 and on #790. PL-013, PL-018 and PL-022's lines are ticked, since their acceptance is mechanical. `lint-audit-artifacts --phase pre-issue --issue 790`: `PASS`. `box-check --issue 790`: 0 fail.
+- **S4 ends at ES `2f881879c`.**
