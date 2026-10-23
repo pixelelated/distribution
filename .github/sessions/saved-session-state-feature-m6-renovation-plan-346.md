@@ -101,11 +101,11 @@ division of work, the definition of work items and roadmap changes are this
 lane's; a work lane executes. So the 46 slice issues are this lane's to file,
 from P1's renderer (`tools/renovation-inventory --slice-issues DIR`, run
 read-only against P1's tree into this lane's scratchpad). #644 and #645 are
-the build-path read and its PR-process findings. Next: file the 46 (one first,
-`tools/box-check --issue N` on it, then the rest, each a sub-issue of #339);
-the hand-back acceptance against the P1 brief § 10 as amended (inventory and
-order, no slice issues); then the first slice's brief (plan § 7), which adds
-T1's specific criteria to its issue.
+the build-path read and its PR-process findings. The 46 are filed: #648 (T1) to #693
+(T46), sub-issues of #339 on milestone M6, `tools/box-check` 0 fail over all
+open issues (work log 05:40 UTC). Next: the hand-back acceptance against the
+P1 brief § 10 as amended (inventory and order, no slice issues); then T1's
+brief (plan § 7), which writes T1's specific criteria into #648 with it.
 
 ## The seed brief (2026-10-22, the planning session's handoff, verbatim)
 
