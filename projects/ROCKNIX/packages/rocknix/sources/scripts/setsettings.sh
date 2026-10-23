@@ -666,7 +666,7 @@ EOF
                     ;;
                 esac
             ;;
-            client)
+            client|spectator)
                 local NETPLAY_HOST_IP=$(get_setting global.netplay.host)
                 ### The host is typed free text, and what this function prints is
                 ### spliced into runemu.sh's command line and eval'ed as root
@@ -681,8 +681,17 @@ EOF
                 if [ ! -z "${NETPLAY_HOST_IP}" ]
                 then
                     add_setting "none" "netplay_ip_address" "${NETPLAY_HOST_IP}"
-                    case ${CORE} in
-                        gambatte)
+                    case "${NETPLAY_MODE}/${CORE}" in
+                        ### A spectator is a client that starts watching
+                        ### (D-WORKFLOW-192): RetroArch's own key and the
+                        ### connect; the link-cable set-ups below are a player's.
+                        spectator/*)
+                            add_setting "none" "netplay_start_as_spectator" "true"
+                            add_setting "none" "netplay_mode" "true"
+                            add_setting "none" "netplay_client_swap_input" "true"
+                            echo -n " --connect ${NETPLAY_HOST_IP}"
+                        ;;
+                        */gambatte)
                             log "Configuring gameboy link client."
                             if [ ! -d "${RETROARCH_PATH}/config/Gambatte" ]
                             then
@@ -716,7 +725,7 @@ EOF
                                 COUNT=$(( ${COUNT} + 1 ))
                             done
                         ;;
-                        tgbdual)
+                        */tgbdual)
                             log "Configuring tgbdual for network play"
                             if [ ! -d "${RETROARCH_PATH}/config/TGB Dual" ]
                             then

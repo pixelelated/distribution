@@ -32,18 +32,28 @@ for ARG in "${@:2}"; do case "${ARG}" in -P?*) PLATFORM="${ARG#-P}"; break ;; es
 ### option: a netplay nick that is itself an option word (--nick --core=x,
 ### one argument) was read as the core while the interface kept the core it
 ### built the command with (#730, T2's lead).
+### The netplay markers and the relay session are read the same way, for the
+### netplay block and RetroArch's command below (D-WORKFLOW-192).
 CORE=""
 EMULATOR=""
 SKIP_VALUE=""
+NETPLAY_HOST=""
+NETPLAY_CLIENT=""
+NETPLAY_SPECTATOR=""
+NETPLAY_MITM_SESSION=""
 for ARG in "${@:2}"; do
   if [ -n "${SKIP_VALUE}" ]; then
+    [ "${SKIP_VALUE}" = "--netplaymode" ] && [ "${ARG}" = "spectator" ] && NETPLAY_SPECTATOR=1
     SKIP_VALUE=""
     continue
   fi
   case "${ARG}" in
     --core=*) CORE="${ARG#--core=}" ;;
     --emulator=*) EMULATOR="${ARG#--emulator=}" ;;
-    --nick|--port|--connect|--netplaymode) SKIP_VALUE="${ARG}" ;;
+    --mitm-session=*) NETPLAY_MITM_SESSION="${ARG#--mitm-session=}" ;;
+    --host) NETPLAY_HOST=1 ;;
+    --connect) NETPLAY_CLIENT=1; SKIP_VALUE="${ARG}" ;;
+    --nick|--port|--netplaymode) SKIP_VALUE="${ARG}" ;;
   esac
 done
 ROMNAME="$1"
@@ -320,23 +330,23 @@ case ${EMULATOR} in
     RUNTHIS='${RUN_SHELL} /usr/bin/start_mednafen.sh "${ROMNAME}" "${CORE}" "${PLATFORM}"'
   ;;
   retroarch)
-    # netplay.mode is this launch's: cleared, then set from its arguments.
+    # netplay.mode is this launch's: cleared, then set from its arguments,
+    # read whole as the core is (above), so a nick holding --host is no
+    # marker. The spectator first: a spectator connects, so its line carries
+    # --connect too, and read client-first it joined as a player
+    # (D-WORKFLOW-192, #776).
     del_setting netplay.mode
 
-    case ${ARGUMENTS} in
-      *"--host"*)
-        ${VERBOSE} && log $0 "Setup netplay host."
-        set_setting netplay.mode "host"
-      ;;
-      *"--connect"*)
-        ${VERBOSE} && log $0 "Setup netplay client."
-        set_setting netplay.mode "client"
-      ;;
-      *"--netplaymode spectator"*)
-        ${VERBOSE} && log $0 "Setup netplay spectator."
-        set_setting "netplay.mode" "spectator"
-      ;;
-    esac
+    if [ -n "${NETPLAY_SPECTATOR}" ]; then
+      ${VERBOSE} && log $0 "Setup netplay spectator."
+      set_setting "netplay.mode" "spectator"
+    elif [ -n "${NETPLAY_HOST}" ]; then
+      ${VERBOSE} && log $0 "Setup netplay host."
+      set_setting netplay.mode "host"
+    elif [ -n "${NETPLAY_CLIENT}" ]; then
+      ${VERBOSE} && log $0 "Setup netplay client."
+      set_setting netplay.mode "client"
+    fi
 
     ### Set set_kill to kill the appropriate retroarch
     set_kill set "retroarch retroarch32"
@@ -377,7 +387,20 @@ case ${EMULATOR} in
     esac
 
 
-    RUNTHIS='${EMUPERF} /usr/bin/${RABIN} -L /tmp/cores/${CORE}_libretro.so --config ${RETROARCH_TEMP_CONFIG} --appendconfig ${RETROARCH_APPEND_CONFIG} "${ROMNAME}"'
+    ### The relay session the interface was given (--mitm-session=<id>,
+    ### D-WORKFLOW-192) goes to RetroArch's command as it came, when it is a
+    ### word: it is spliced into RUNTHIS, which is eval'ed as root, so only
+    ### characters within #702's filter pass, and anything else is dropped
+    ### and said.
+    MITM_ARG=""
+    if [ -n "${NETPLAY_MITM_SESSION}" ]; then
+      if [[ "${NETPLAY_MITM_SESSION}" =~ ^[A-Za-z0-9._:-]+$ ]]; then
+        MITM_ARG="--mitm-session=${NETPLAY_MITM_SESSION}"
+      else
+        log $0 "Dropped --mitm-session (${#NETPLAY_MITM_SESSION} characters): a session is letters, digits, '.', ':', '_' and '-'."
+      fi
+    fi
+    RUNTHIS='${EMUPERF} /usr/bin/${RABIN} -L /tmp/cores/${CORE}_libretro.so --config ${RETROARCH_TEMP_CONFIG} --appendconfig ${RETROARCH_APPEND_CONFIG} ${MITM_ARG} "${ROMNAME}"'
 
     parse_savestate_arguments "$@"
 
