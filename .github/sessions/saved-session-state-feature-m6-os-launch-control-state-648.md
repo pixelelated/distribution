@@ -49,6 +49,19 @@ VNC :19, disk `$A/t1.qcow2`. Stop it by its pidfile only
 (`tools/vm-stop` or `kill "$(cat $A/qemu.pid)"`); never by pattern.
 shellcheck v0.11.0 at `.qa-scratch/shellcheck-v0.11.0/shellcheck-v0.11.0/shellcheck`.
 
+**Stage B, Phase 2 in progress (checkpoint `26a676d12c`, 07:46 UTC).** Done:
+Phase 1 (`01-research-notes.md` § 1.1-1.6); in `02-forward-audit.md` the image
+vs tree sweep (78 same; `runemu.sh`, `system.cfg`, `motd` differ), the
+mechanical checks (all 0 except `time-to-play`'s expected no-cloud 1;
+`vocabulary-check` reads none of this slice), shellcheck's 16 errors as
+leads, **group 1 read whole** (F-01 to F-27) and its guest proofs (nine
+findings proven). Next: group 2 (state: `chksysconfig`, `post-update`,
+`factoryreset`, `installtointernal`, `automount`, `system.cfg`, the
+autostart fragments 001/003/007, `setrootpass`, three units), then group 3,
+then the 83-row coverage table, the Q5/Q6/Q4 work, Phase 3 and 4.
+**A proof script restores explicitly, never from an EXIT trap** (`wait_lock`
+replaces it: F-22), and checks a file bind in `/proc/self/mountinfo`.
+
 ## Next commands
 
 ```bash
