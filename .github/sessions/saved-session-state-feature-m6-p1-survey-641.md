@@ -50,7 +50,10 @@ first, then `--order`):
    check the other lanes), citing D-WORKFLOW-185 and D-WORKFLOW-186;
 2. the 46 slice issues: generate the titles and bodies with
    `tools/renovation-inventory --slice-issues <dir> --order-row D-WORKFLOW-<that ID>` (writes `T<k>.title` and
-   `T<k>.md`, touches no tracker), then for each: `gh issue create
+   `T<k>.md`, touches no tracker); before filing, append to the bodies of
+   T4 to T12 and T32 the #644 findings each carries (the coordinator's
+   comment on #641; `docs/reviews/build-path-read.md` on the P0 branch;
+   #645 rides T4 and T8 and is not a slice), then for each: `gh issue create
    --repo pixelelated/distribution --milestone "M6: Codebase renovation"
    --title "$(cat T<k>.title)" --body-file T<k>.md`, the REST id with `gh api
    repos/pixelelated/distribution/issues/<n> --jq .id`, and `gh api -X POST
