@@ -27,7 +27,7 @@ then
   # The terminal's status, which is the closest thing to the command's that
   # these two branches can offer.
   exit $?
-elif echo "${UI_SERVICE}" | grep "sway"; then
+elif echo "${UI_SERVICE}" | grep -q "sway"; then
   if [ -f "${*}" ]
   then
     foot -F "${*}"

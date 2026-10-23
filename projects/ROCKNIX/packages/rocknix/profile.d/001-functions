@@ -661,7 +661,7 @@ function sway_fullscreen {
   local QUERY_LIMIT=5
   local QUERY_COUNT=0
 
-  if echo "${UI_SERVICE}" | grep "sway"; then
+  if echo "${UI_SERVICE}" | grep -q "sway"; then
     while [ $QUERY_COUNT -lt $QUERY_LIMIT ]; do
       # loop, attempting to fullscreen window for app_id
       ((QUERY_COUNT++))
