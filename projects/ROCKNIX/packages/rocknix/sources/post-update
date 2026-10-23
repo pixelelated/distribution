@@ -29,8 +29,14 @@ fi
 ### Remove and link es configs so they are managed with OS updates.
 ### es_savestates.cfg joins them (#196): an upgraded device gets the link here,
 ### a fresh one in userconfig-setup, and the interface reads this path first.
+### A file that is already the image's link is left alone: moving it put the
+### link over the owner's last_ copy from the update before (#716).
 for es_cfg in es_features.cfg es_systems.cfg es_savestates.cfg
 do
+  if [ "$(readlink /storage/.config/emulationstation/${es_cfg} 2>/dev/null)" = "/usr/config/emulationstation/${es_cfg}" ]
+  then
+    continue
+  fi
   mv /storage/.config/emulationstation/${es_cfg} /storage/.config/emulationstation/last_${es_cfg} >/dev/null 2>&1
   ln -s /usr/config/emulationstation/${es_cfg} /storage/.config/emulationstation/${es_cfg}  >/dev/null 2>&1
 done
