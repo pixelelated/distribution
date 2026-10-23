@@ -179,10 +179,14 @@ PROJECT=ROCKNIX DEVICE=H700 ARCH=arm     tools/viewplan arm   > <scratch>/plan-H
 
 Twenty-six plans in all (fifteen 64-bit, eleven 32-bit).
 
-"Devices we ship" is `device-builds.md` § Our devices: `RK3566`, `H700`,
-`RK3326`, `SM8550`, `GENERIC_X64`. A package in a shipped device's plan is
-`reachable_by: [<device>-<arch>, ...]`; one only in other devices' plans is
-`buildable_by: [...]` and `unshipped`; one in no plan is `unreached`. A
+"Devices we ship" was `device-builds.md` § Our devices: `RK3566`, `H700`,
+`RK3326`, `SM8550`, `GENERIC_X64`. The maintainer's answer at pass 7
+(D-WORKFLOW-185, 2026-10-23) made it `H700` and `SM8550`, with `GENERIC_X64`
+the test image, so the inventory gained a `test` value. A package in a
+shipped device's plan is `shipped`; one in the test image's plan and no
+shipped device's is `test`; both are `reachable_by: [<device>-<arch>, ...]`.
+One only in other devices' plans is `buildable_by: [...]` and `unshipped`;
+one in no plan is `unreached`. A
 script, unit or overlay file is reached when its package is. Run every
 device's plans; if the runs exceed ten minutes in all, record the time and
 the devices done and continue with those. Do not build.

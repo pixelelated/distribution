@@ -59,8 +59,9 @@ What its columns mean:
 - **last_fork_commit**, **last_upstream_commit**: `<hash10> <date>` of the
   newest commit touching the path on each side, from one `git log
   --name-only` pass per side.
-- **reach**: `shipped` (in a plan of a device we ship, `device-builds.md` §
-  Our devices), `unshipped` (only in other devices' plans), `unreached` (a
+- **reach**: `shipped` (in a plan of a device we ship: H700 and SM8550,
+  D-WORKFLOW-185), `test` (in the test image's plan, GENERIC_X64, and no
+  shipped device's), `unshipped` (only in other devices' plans), `unreached` (a
   package or project path no plan reaches), `n/a` (a path no image plan can
   hold: the build engine, tools, doctrine, records). `reachable_by` and
   `buildable_by` name the plans.

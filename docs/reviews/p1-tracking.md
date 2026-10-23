@@ -53,7 +53,7 @@ No two commands for one quantity disagreed; no stop.
 - Pass 4 (Cross-reference): **complete** -- 10 code areas N-to-N (90 ordered pairs, 60 with an edge), rule and patch edges, every one of the 12 areas has an edge (see § Pass 4)
 - Pass 5 (Classification): **complete** -- 43 slices in the first version; 47 after pass 6's review (`--order` at `f814d1a75c`: every one of 134,631 rows in exactly one) (see § Pass 5)
 - Pass 6 (Reconciliation, then the preliminary review): **complete** -- reconciliation, then the three-seat review (all verified, all "ready with named changes"), its findings source-checked and the order revised to 47 slices (see § Pass 6)
-- Pass 7 (Action): **at the gate** -- the order and slice list posted on #641; waiting for the maintainer's yes (relayed by the coordinator) before any slice issue or the register row
+- Pass 7 (Action): **at the gate** -- the order and slice list posted on #641; the first question answered (D-WORKFLOW-185) with the build-process weight (D-WORKFLOW-186), so the order is re-sequenced to a third version of 46 slices (see § Pass 7); questions 2 and 3 and the yes still to come, relayed by the coordinator, before any slice issue or the register row
 
 ## Read first (brief § 3), what was read this session
 
@@ -382,6 +382,63 @@ commit with fresh plans: `paths: 133517 (git ls-files: 133517)`, `es-paths:
 are `order.md` § The preliminary review of this order. Three questions go to
 the maintainer at pass 7: the shipped-device set, whether `backuptool` and
 the system services also gate `0.1`, and the cost of the depths.
+
+## Pass 7: action (at the gate)
+
+**The first answer, 2026-10-23,** relayed by the coordinator
+(`m6-renovation-plan-346-d9`) and recorded as D-WORKFLOW-185 (H700 and
+SM8550 ship; GENERIC_X64 is the test image; every other target is a row;
+RK3566 and RK3326 are the recorded first widening) and D-WORKFLOW-186 (the
+build process and its tooling before any device target; P1 re-sequences and
+argues it in `order.md`). The P0 tip `5923dd29a4` was merged first
+(`be3ddf13c5`); it also holds D-WORKFLOW-184 (the review-depth defaults
+stand), so the order's own row is the next free ID above 186, re-derived at
+the yes.
+
+**The tool.** `SHIPPED` became H700 and SM8550, and a `test` reach value
+was added for GENERIC_X64: a path its plan reaches and no shipped device's.
+Without it the VM's own files, `syslinux` and the installer would have read
+`unshipped` and sat in the dead-end tables. `split_reach` serves both trees
+now (the ES branch had its own copy). Its self-test case was seen to fail on
+a copy whose `test` branch returns `unshipped` (2 FAIL lines), then to pass.
+
+**The ledgers,** regenerated at `be3ddf13c5` with fresh container plans,
+identical to pass 6's (`diff -rq` of the 26 plan files: no output):
+
+```
+$ tools/renovation-inventory --plans <scratch>/plans-p7; echo rc=$?
+paths: 133519 (git ls-files: 133519)
+es-paths: 1114 (git ls-files: 1114)
+patches: 1709 (find: 1709)
+unassigned: 0
+ambiguous: 0
+escaped: 2 (rows whose path matches a credential pattern, hyphens written as \u002d)
+rc=0
+$ tools/renovation-inventory --order
+slices: 46
+rows: 134633 (inventory: 134633)
+unassigned: 0
+ambiguous: 0
+```
+
+Reach moved for 191 rows against pass 6: 160 `shipped` to `unshipped`
+(59 devices, 17 generic packages, 84 patches and configurations, all reached
+only by RK3566 or RK3326) and 31 `shipped` to `test`. `assessment.md`,
+`cross-reference.md` and `status.md` (`order: reviewed`, 46 unreviewed) were
+regenerated from the new inventory.
+
+**The third version** (`order.md` § How the order was argued, with the
+renumbering table): T1 to T4 unchanged; the build cluster T5 to T15 (the
+build engine, its upstream tools, package currency in two slices, build
+supervision, the guards, the test image, the VM and cloud harnesses, the
+state tests, the last-good test); the security and state cluster T16 to T22;
+then the dead ends, the shipped devices, the interface and the tables. T22
+of the second version (`device-rockchip-shipped`) is dissolved: 53 device
+paths to T25, 72 kernel patches and configurations from T41 to T43 and 12
+others from T42 to T43. Still 13 Extended (T1 to T3, T5, T10, T16 to T22,
+T30); the first three still one session each. `--slice-issues` drafts 46
+bodies, 230 checkboxes, in the template checked against `box-check`'s
+patterns at pass 6; only its text fields changed.
 
 ## Item analysis table
 

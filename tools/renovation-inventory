@@ -56,8 +56,9 @@ Rules (docs/reviews/README.md, the futro of 2026-10-22):
   device's plans; projects/ROCKNIX's bootloader, filesystem, options and
   config.xml by every plan; ES by the plans that build emulationstation; the
   other projects/ and distributions/ (DISTRO is always ROCKNIX) by none.
-  `reach` is `shipped` (a shipped device's plan), `unshipped` (only other
-  devices' plans), `unreached` (a package or project path no plan reaches),
+  `reach` is `shipped` (a shipped device's plan), `test` (the test image's
+  plan and no shipped device's), `unshipped` (only other devices' plans),
+  `unreached` (a package or project path no plan reaches),
   or `n/a` (a path no image plan can hold: the engine, tools, doctrine,
   records). Reachability errs toward reached: a file in a reached package is
   reached even if its recipe installs it only for some devices.
@@ -76,7 +77,8 @@ import time
 from collections import Counter, defaultdict
 
 EMPTY_TREE = "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
-SHIPPED = ("RK3566", "H700", "RK3326", "SM8550", "GENERIC_X64")  # device-builds.md § Our devices
+SHIPPED = ("H700", "SM8550")  # D-WORKFLOW-185: the devices the fork ships
+TEST = ("GENERIC_X64",)  # D-WORKFLOW-185: the test image, built and proven on, never shipped
 EX_FAIL, EX_CANNOT = 1, 2
 COLUMNS = ["tree", "path", "area", "tier", "tier_note", "overlap", "language",
            "lines", "patches", "last_fork_commit", "last_upstream_commit",
@@ -482,10 +484,14 @@ def compute_reach(dist, paths, plans, devices):
 
 
 def split_reach(configs):
+    """reach, reachable_by (the shipped and test configs), buildable_by (the rest)."""
     shipped = sorted(c for c in configs if c.rsplit("-", 1)[0] in SHIPPED)
-    other = sorted(c for c in configs if c.rsplit("-", 1)[0] not in SHIPPED)
+    test = sorted(c for c in configs if c.rsplit("-", 1)[0] in TEST)
+    other = sorted(c for c in configs if c.rsplit("-", 1)[0] not in SHIPPED + TEST)
     if shipped:
-        return "shipped", shipped, other
+        return "shipped", sorted(shipped + test), other
+    if test:
+        return "test", test, other
     if other:
         return "unshipped", [], other
     return "unreached", [], []
@@ -563,9 +569,7 @@ def build(args):
             tier = "vendor-carried" if vendor else ("fork-own" if fork_own else "upstream-carried")
             note = "fork-written" if vendor and fork_own else None
             if tree == "es":
-                rs = "shipped" if any(c.rsplit("-", 1)[0] in SHIPPED for c in es_configs) else ("unshipped" if es_configs else "unreached")
-                rb = sorted(c for c in es_configs if c.rsplit("-", 1)[0] in SHIPPED)
-                bb = sorted(c for c in es_configs if c.rsplit("-", 1)[0] not in SHIPPED)
+                rs, rb, bb = split_reach(es_configs)
             else:
                 cfgs = reach.get(path)
                 if cfgs is None:
@@ -608,6 +612,7 @@ def build(args):
         "configs": [{k: v for k, v in p.items() if k != "packages"} | ({"packages": len(p["packages"])} if "packages" in p else {})
                     for p in plans],
         "shipped_devices": list(SHIPPED),
+        "test_devices": list(TEST),
         "plan_runner": {"mode": args.runner, "image": runner.image},
         "seconds": {"git": round(t_git, 1), "plans": round(t_plans, 1)},
     }
@@ -733,30 +738,30 @@ def write_markdown(path, header, rows, counts, pkg_unit):
     w("## Per area")
     w("")
     w("Lines are file lines including blanks (git's numstat against the empty tree); a binary has none. "
-      "`unreached` and `unshipped` count paths; their lines are in the sets below. *Overlap* counts fork-own paths "
+      "`shipped`, `test`, `unshipped`, `unreached` and `n/a` count paths; their lines are in the sets below. *Overlap* counts fork-own paths "
       "that upstream also changed since the merge base (each still belongs to one area). *Patches* counts `*.patch` "
       "files wherever they sit; the `patches:` check above compares those under `packages/` and `projects/` with "
       "`find packages projects -name '*.patch'`, so the records' and doctrine's patches are outside it.")
     w("")
-    w("| Area | Paths | Lines | fork-own | upstream-carried | vendor-carried | Patches | Binaries | shipped | unshipped | unreached | n/a | Overlap |")
-    w("| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |")
+    w("| Area | Paths | Lines | fork-own | upstream-carried | vendor-carried | Patches | Binaries | shipped | test | unshipped | unreached | n/a | Overlap |")
+    w("| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |")
     tot = Counter()
     for a in sorted(areas):
         c = areas[a]
         tot.update(c)
-        w("| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (
+        w("| %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (
             a, fmt(c["paths"]), fmt(c["lines"]), fmt(c["lines:fork-own"]), fmt(c["lines:upstream-carried"]),
             fmt(c["lines:vendor-carried"]), fmt(c["patches"]), fmt(c["binaries"]), fmt(c["reach:shipped"]),
-            fmt(c["reach:unshipped"]), fmt(c["reach:unreached"]), fmt(c["reach:n/a"]), fmt(c["overlap"])))
-    w("| **total** | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (
+            fmt(c["reach:test"]), fmt(c["reach:unshipped"]), fmt(c["reach:unreached"]), fmt(c["reach:n/a"]), fmt(c["overlap"])))
+    w("| **total** | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (
         fmt(tot["paths"]), fmt(tot["lines"]), fmt(tot["lines:fork-own"]), fmt(tot["lines:upstream-carried"]),
         fmt(tot["lines:vendor-carried"]), fmt(tot["patches"]), fmt(tot["binaries"]), fmt(tot["reach:shipped"]),
-        fmt(tot["reach:unshipped"]), fmt(tot["reach:unreached"]), fmt(tot["reach:n/a"]), fmt(tot["overlap"])))
+        fmt(tot["reach:test"]), fmt(tot["reach:unshipped"]), fmt(tot["reach:unreached"]), fmt(tot["reach:n/a"]), fmt(tot["overlap"])))
     w("")
     w("## Read size per area")
     w("")
     w("What a slice reads line by line is code (`%s`); configuration, data, translations and Markdown are "
-      "read where a slice's questions need them. *Reached* is `shipped` or `n/a`; vendor-carried lines are the "
+      "read where a slice's questions need them. *Reached* is `shipped`, `test` or `n/a`; vendor-carried lines are the "
       "provenance table's, never read." % "`, `".join(sorted(CODE)))
     w("")
     w("| Area | Code, fork-own | Code, upstream-carried, reached | Code, unshipped | Code, unreached | Other text | Vendor-carried |")
@@ -833,7 +838,7 @@ def write_markdown(path, header, rows, counts, pkg_unit):
             w("| %s | -- | -- | -- | -- | skipped: %s |" % (c["config"], c["skipped"]))
         else:
             w("| %s | `%s` | %d | %d | %d | %s |" % (c["config"], c["root"], c["plan_lines"], c["packages"],
-                                                  len(c["unsourced"]), "shipped" if c["device"] in SHIPPED else ""))
+                                                  len(c["unsourced"]), "shipped" if c["device"] in SHIPPED else "test image" if c["device"] in TEST else ""))
     for label, key in (("unreached", "unreached"), ("unshipped", "unshipped")):
         units = defaultdict(lambda: [0, 0, set(), set()])
         for r in rows:
@@ -856,7 +861,8 @@ def write_markdown(path, header, rows, counts, pkg_unit):
               "named, so this copy's files are unused, and the package itself must not be removed (a duplicate's "
               "removal, `engineering-practices.md` § Before deleting a duplicate).")
         else:
-            w("Reached only by devices the fork does not ship (`device-builds.md` § Our devices: %s)." % ", ".join(SHIPPED))
+            w("Reached only by devices the fork neither ships nor tests on (D-WORKFLOW-185: it ships %s; %s is the "
+              "test image)." % (" and ".join(SHIPPED), ", ".join(TEST)))
         w("")
         w("| Unit | Area | Paths | Lines | Shadowed by (the package is built from) |")
         w("| --- | --- | ---: | ---: | --- |")
@@ -1481,6 +1487,11 @@ def self_test():
         ok = bool(g.match(p)) == want
         bad += not ok
         print("%s glob %s" % ("PASS" if ok else "FAIL", p))
+    for cfgs, want in ((["H700-aarch64", "GENERIC_X64-x86_64", "RK3566-aarch64"], "shipped"),  # D-WORKFLOW-185
+                       (["GENERIC_X64-x86_64", "RK3326-aarch64"], "test"), (["RK3566-aarch64"], "unshipped"), ([], "unreached")):
+        ok = split_reach(cfgs)[0] == want
+        bad += not ok
+        print("%s reach %s -> %s" % ("PASS" if ok else "FAIL", ",".join(cfgs) or "(no plan)", want))
     print("self-test: %s" % ("PASS" if not bad else "FAIL (%d)" % bad))
     return 0 if not bad else EX_FAIL
 
