@@ -87,6 +87,14 @@ update_config() {
     local key="$1"
     local val="$2"
     local file="/storage/.config/swap.conf"
+
+    # A value is a number or a single word (a size, Auto, Resume, zstd,
+    # madvise, -10): it is written into swap.conf, which every boot sources,
+    # and eval'ed below, so a quote, a | or a ; in it was a command (F-52).
+    if ! [[ "${val}" =~ ^-?[A-Za-z0-9._]+$ ]]; then
+        echo "rocknix-memory-manager: ${key} takes a number or a single word, so nothing was changed" >&2
+        exit 1
+    fi
     
     if [ ! -d "$(dirname "$file")" ]; then mkdir -p "$(dirname "$file")"; fi
     if [ ! -f "$file" ]; then touch "$file"; fi
