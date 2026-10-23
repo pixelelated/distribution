@@ -41,6 +41,10 @@ do
   ln -s /usr/config/emulationstation/${es_cfg} /storage/.config/emulationstation/${es_cfg}  >/dev/null 2>&1
 done
 
+# /storage/.config/system is the image's own apart from configs/ (the
+# player's settings, excluded once it exists), so it is mirrored, a file the
+# image dropped going too. Something put beside configs/ by hand is removed
+# here at every update (G-02, kept as the import had it in 9f1fab30f6).
 rsync -a --delete ${EXCLUDE} /usr/config/system/ /storage/.config/system/
 rsync -a --ignore-existing /usr/config/game /storage/.config/
 
