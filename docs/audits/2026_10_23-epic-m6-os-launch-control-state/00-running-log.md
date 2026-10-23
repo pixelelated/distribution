@@ -68,3 +68,11 @@
 
 ### [Phase 1] 07:19 — Research begun
 - 07:21: open issues of brief § 3 read for leads (bodies under `.qa-scratch/t1/`); 28 of 139 closed `bug` issues name the package's scripts (pattern: `\b(<53 names>)\b`, the names list in the research notes' generator, excluding bare `run` and `brightness`); 162 fork commits on the package since `c445081a59`; the nine prior punch-list counts equal the brief's. Phase 1 summary written in `01-research-notes.md` § 1.6. Red flags: #316 (upstream's `wifictl` refactor), #120 (scripts tests cover three areas only), three closed credential bugs on the security list.
+
+### [Phase 2] 07:34 — Mechanical checks and the image-versus-tree sweep
+
+- `02-forward-audit.md` opened: image vs tree (78 same; `runemu.sh`, `system.cfg`, `motd` differ; `099-freqfunctions` absent on x86_64; all as the brief predicts); the host checks: pkgcheck 0, last-good-scripts-test 0 `PASSED` (1,379 PASS, 0 FAIL, image busybox), settings-modes 0, wait-lock 0, usb-gadget 0 on the host (dash) and 0 on the guest (bash as sh), rocknix-info 0, melonds 0, vocabulary-check 0 but **reads none of this slice's paths** (default `--scripts` is the rclone sources plus backuptool; scoped, it judged only backuptool's strings).
+- shellcheck v0.11.0 over 63 shell files: 16 errors, 319 warnings, 542 notes; the 16 errors tabled as leads, each to be read at its site.
+- Next: group 1 (the launch path), file by file, writing each unit's row and findings before the next.
+- 07:44 `runemu.sh` read whole; F-01 to F-08 written. F-01 (a governor value executed as a command; ES offers `default` and, on the H700, `conservative`/`userspace` with no function) is the first proposed bug; F-02 (`onlinethreads` missing on x86_64) and F-03 (exit restores racing the next launch) next. Guest proofs owed for F-01, F-02, F-03.
+- 07:58 `setsettings.sh` read whole (the RetroArch half). F-09 to F-19: four proposed bugs of Medium weight (F-09 `add_setting`'s `&`, F-10 `match()` substring, F-14 the netplay host into `eval`, F-16/F-17 the MAME 2003-Plus and Gambatte option files truncated), one race to prove (F-11 the staged sed file), Lows. Both truncations date from the import `9f1fab30f6`. Guest proofs batched next, after group 1's remaining files.
