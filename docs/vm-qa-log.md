@@ -359,3 +359,23 @@ GPU or performance. Earlier SIGXFSZ/file-limit and DOM-schema fixture failures
 preserved. All original lifecycle channels0, owners exited, admission consumed,
 2,312,990,720bytes of disposable disk/firmware retired.
 [Exact results](qa-logs/2026-10-17-browser-controls-results-616/README.md).
+
+## 2026-10-23 19:04 UTC — M6 T2 EmulationStation launch-path audit, guest cycle (#649)
+
+The lane's own GENERIC_X64 guest on candidate `069fc2704421` (ES pin `16dbac5211`). It was copied with `sha256sum -c` OK into `/workspace/artifacts/m6-t2-20261023/`, run as a 16 GiB qcow2, headless virgl, SSH 10033, VNC :20, `system.loglevel=verbose`, no cloud remote, up 18:42-19:04 (pid 3314372, stopped by `tools/vm-stop`, rc 0).
+
+- `time-to-play --vm --only launch,exit,g2g --repeat 3`: first frame 0.65 s, next game 1.01 s (median). With 500 gb save states: 0.57 s and 1.01 s, no measurable exit cost (61 ms resolution).
+- `es-launch-memory --cycles 5`: no growth.
+- Reproduced on the pin's binary:
+  - `$`-named ROM state-file expansion (SS-1, `exec.log`);
+  - the `ports`/`windows` folder filter (SD-2);
+  - one bad overlay skipping later ones (SD-3);
+  - a stored sort id 28 aborting the interface on opening the list, with sort 27 as the control (SD-4).
+- Corrected by the guest:
+  - DELETE GAME never deletes a playlist's discs (FD-14, which was not the outside-folder delete the reading feared);
+  - the gated question appears 0.11-0.24 s after the press with the default `instant` transition (VC-1).
+- What it could not prove: a netplay join, a pad's name, a thread race, a real sync under the gate (it used the synthetic top-up `running` line, a named substitute).
+- What it left behind:
+  - a lead for the tooling slice: `time-to-play` deletes `/storage/roms/gb` at the end of every run and leaves its probe's states, so a fixture under `gb/` vanishes between proofs (G-9's first attempt tested nothing for that reason);
+  - the BusyBox `ls -f` gap.
+- The frames, the fixture scripts and both reports are kept under the instance directory. The disk is retained until the punch list's walks are written (#649).
