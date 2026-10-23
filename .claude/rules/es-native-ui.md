@@ -418,6 +418,10 @@ tools/es-syntax-check es-app/src/guis/GuiCloudTransfer.cpp   # from the ROCKNIX 
 replays that command on the edited file with `-fsyntax-only` in a few
 seconds, PASS or the compiler's errors. It reads headers from the build
 tree, so an edit that changes a header is checked with `--with <dir>` or
-by the build; it exits 2 when it cannot run, and that is not a pass. An ES
+by the build; it exits 2 when it cannot run, and that is not a pass.
+`--root <build root>` picks the root, and a root copied from another path
+works as it stands: the path it was built at is rewritten to `--root` and
+the real compiler beside the toolchain's wrapper runs, or the tool says
+`NO-COMPILER <path>` and exits 2 (#699). An ES
 commit that touches a `.cpp` is not ready to merge until this has passed.
 

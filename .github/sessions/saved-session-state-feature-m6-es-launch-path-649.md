@@ -37,12 +37,19 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#649`. **The host is handed to the M7 lane** until
-the coordinator posts `resource return` on #649: no guest, no compiler, no
-`npm install` before that comment; the reading, the counts and the four
-host checks that run no compiler proceed.
+**Stage A opened 2026-10-23 17:26 UTC** by the T2 lane (session
+`9adce27f-9c22-4065-af78-e6c9a2a1f6ff`, pane `wN:p5`). `reviewed-at:`
+distribution `f4e0f0a196`, ES pin `16dbac5211`. The audit folder is
+`docs/audits/2026_10_23-epic-m6-es-launch-path/`; its `00-running-log.md`
+holds the queue of what waits for the host. The counts match the brief
+with one delta: `rocknix/master` is now `f6c542872`, its four new commits
+touching none of the twenty files. The four host checks equal the
+baseline. #699's fix to `tools/es-syntax-check` is on the branch, and its
+constructed `NO-COMPILER` failure has been seen. Its two compile proofs
+are queued. **The host is still handed to M7**: no guest, no compiler and
+no `npm install` before the coordinator relays `resource return` on #649.
+Next: Phase 1 (the issues, the history, the decisions), then Phase 2 over
+the twenty files, from the tree.
 
 ## Next commands
 

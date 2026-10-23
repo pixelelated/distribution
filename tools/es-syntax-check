@@ -49,6 +49,18 @@
 # are printed), 2 when the check cannot run -- no build root, no ninja
 # directory, no command for that object. A check that cannot run has not
 # passed (engineering-practices.md, "Guards must fail closed").
+#
+# A moved root (#699). A build root copied from another path keeps the
+# path it was built at: ninja's command names it in every -I and in the
+# compiler, and the toolchain's compiler wrapper is two lines, ccache and
+# the real compiler, both at the old root. Run as recorded, that is a
+# shell's "No such file" and a bare FAIL. So the recorded root (the
+# compiler's path above toolchain/bin) is rewritten to --root wherever the
+# command names it, and the real compiler beside the wrapper
+# (<wrapper>-<version>, which is what the wrapper calls) runs in its place;
+# with no real compiler and a wrapper that names a missing path, the check
+# says NO-COMPILER <path> and exits 2. The build root is read, never
+# written.
 set -uo pipefail
 ROOT_DEFAULT=/workspace/repos/rocknix.worktrees/generic-x64/build.ROCKNIX-GENERIC_X64.x86_64
 BROOT="${ES_BUILD_ROOT:-$ROOT_DEFAULT}"
@@ -131,6 +143,29 @@ for f in "${FILES[@]}"; do
   fi
   [ -n "$cmd" ] || { echo "  NO-CMD  $f: ninja has no command for $obj and no sibling to borrow from" >&2; fail=1; continue; }
   new=$(printf '%s' "$cmd" | sed -E "s#-c [^ ]+\.(cpp|cc|cxx)( |\$)#-c ${abs} #; s# -o [^ ]+\.o# #; s# -MF [^ ]+# #; s# -MD # #; s# -MT [^ ]+# #")
+  # The moved root (the header above): the recorded root is the compiler's
+  # path above toolchain/bin; rewrite it to the live one everywhere.
+  cc=${new%% *}
+  case "$cc" in
+    */toolchain/bin/*)
+      rec=${cc%/toolchain/bin/*}; live=$(readlink -f "$BROOT")
+      if [ "$rec" != "$live" ] && [ "$rec" != "$BROOT" ]; then
+        new=${new//"$rec"/"$live"}; cc=${new%% *}
+        [ -n "${MOVED_SAID:-}" ] || { echo "  (moved) recorded root $rec, rewritten to $live"; MOVED_SAID=1; }
+      fi ;;
+  esac
+  # The real compiler beside the wrapper, which is what the wrapper calls.
+  real=""
+  for c in "$cc"-[0-9]*; do [ -x "$c" ] && [ -f "$c" ] && real="$c"; done
+  if [ -n "$real" ]; then
+    new="$real ${new#* }"; cc="$real"
+  elif [ -f "$cc" ] && [ "$(head -c 2 "$cc")" = '#!' ]; then
+    for p in $(grep -o '/[^ "]*' "$cc"); do
+      [ -e "$p" ] || { echo "  NO-COMPILER $p: named by $cc, and no real compiler beside it" >&2; exit 2; }
+    done
+  fi
+  [ -x "$cc" ] || { echo "  NO-COMPILER $cc" >&2; exit 2; }
+  [ -n "${CC_SAID:-}" ] || { echo "  compiler $cc"; CC_SAID=1; }
   # The worktree this .cpp lives in: its es-app/src and es-core/src ahead of
   # the build's -I, so every quoted include is the worktree's (the header
   # above). --tree's farm already does this and comes first.
@@ -147,7 +182,7 @@ for f in "${FILES[@]}"; do
   if out=$(cd "$BD" && eval "$new" 2>&1); then
     echo "  OK      $f"
   else
-    echo "  FAIL    $f"; printf '%s\n' "$out" | grep -E 'error|note:' | head -12 | sed 's/^/          /'; fail=1
+    echo "  FAIL    $f"; printf '%s\n' "$out" | grep -E 'error|note:|No such file|not found' | head -12 | sed 's/^/          /'; fail=1
   fi
 done
 [ "$fail" = 0 ] && echo "PASS" || { echo "FAIL"; exit 1; }
