@@ -359,3 +359,18 @@ GPU or performance. Earlier SIGXFSZ/file-limit and DOM-schema fixture failures
 preserved. All original lifecycle channels0, owners exited, admission consumed,
 2,312,990,720bytes of disposable disk/firmware retired.
 [Exact results](qa-logs/2026-10-17-browser-controls-results-616/README.md).
+
+## 2026-10-23 07:12-16:37 UTC — M6 T1 audit guest, stopped for the host handoff (#648)
+
+The T1 lane's own GENERIC_X64 guest (`/workspace/artifacts/m6-t1-20261023/`,
+`t1.qcow2`, BUILD_ID `069fc270442134fe771258418adf4e666e0473fb`, 8 GiB/4 CPU,
+SSH 10032) carried the audit's guest proofs: group 1 and group 2
+(`.qa-scratch/t1/proofs/`, 18 findings proven, each file restored and compared
+`same`), the image facts, Q5's measurements (0.64 s interface to first frame,
+1.01 s game to game) and the shellcheck sites. No cloud, no backend, no pair.
+Stopped at 16:37:49 UTC with `tools/vm-stop <pidfile> <disk>` (rc 0, `owned QEMU
+exited (pid 2334316)`) at the M7 coordinator's host request (#648
+issuecomment-6369834541; #697, #698): the disk keeps its state for stage F, and
+no M6 runtime starts until M7 writes `resource return`. Results:
+`docs/audits/2026_10_23-epic-m6-os-launch-control-state/02-forward-audit.md`
+§ Guest proofs.

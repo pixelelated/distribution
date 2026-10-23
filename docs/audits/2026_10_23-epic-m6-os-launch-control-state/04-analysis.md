@@ -13,7 +13,7 @@ T1 read the 83 paths of `projects/ROCKNIX/packages/rocknix/` (less `backuptool`)
 
 The fork's own state layer -- the settings writers and lock, `chksysconfig`, `rocknix-evidence`, `rocknix-corekeep` -- is sound under its tests and every refutation. The defects concentrate in the launch path's inherited middle and in upstream-carried scripts: `setsettings.sh` truncates the Gambatte and MAME 2003-Plus option files at every launch (F-16, F-17), reads `neogeo` as `neogeocd` (F-10), can lose its staged clears to a race (F-11) and ignores an explicit value (F-09); a typed netplay host reaches `runemu.sh`'s `eval` as root (F-14, #275's class through a second door); per-game settings are lost for any ROM whose name carries `[` (F-21); `runemu.sh` executes a governor name the H700 offers without a function (F-01). Guards that report success over a failure recur (F-29 `setrootpass`, F-40 `installtointernal`, F-67 `updateabl`). `post-update` resets a player's DPMS choice at every update (F-44) and is one of the last unguarded writers of `system.cfg` (F-32). On x86_64, `008-perfmode` stops at its third line at every boot (F-58). Ten scripts are unreached (Q6).
 
-Two time-to-play numbers were measured (0.64 s and 1.01 s, against #336's stale 1.05 s and 2.03 s), `setsettings.sh` costs 127 ms a launch at the engineering image's verbose loglevel (99 ms at none), and all 43 upstream commits on the package are dispositioned. Phase 4.6 is incomplete. The Astra seat's items are graded in § Second opinion; it adds seven findings and changes the severity of eight, which gives a provisional **75: 0 Critical, 2 High, 22 Medium, 51 Low**. The Gemini 4 Argon seat is pending because its route is not in this tree, and that is the brief's named blocker.
+Two time-to-play numbers were measured (0.64 s and 1.01 s, against #336's stale 1.05 s and 2.03 s), `setsettings.sh` costs 127 ms a launch at the engineering image's verbose loglevel (99 ms at none), and all 43 upstream commits on the package are dispositioned. Phase 4.6 is complete: both reviewer seats (GPT-6 Astra and Gemini 4 Argon) ran and every item is graded in § Second opinion. Together they add 13 findings and move the severity of nine, which gives the final **81: 0 Critical, 2 High (F-14, F-67), 22 Medium, 57 Low**; the punch list carries 84 items (three findings split).
 
 ## Acceptance-criteria scorecard
 
@@ -21,7 +21,7 @@ Two time-to-play numbers were measured (0.64 s and 1.01 s, against #336's stale 
 | --- | --- | --- | --- |
 | AC-01 | the folder holds `00` to `05` | PARTIAL ⚠ | `05` at stage D |
 | AC-02 | the lint PASS, renovation face included | FAIL ✗ | expected before stage D; re-run then |
-| AC-03 | review plan: Extended, two labs, served models | UNTESTABLE ? | the Argon blocker |
+| AC-03 | review plan: Extended, two labs, served models | PASS ✓ | `openai/gpt-6-astra` by OpenAI and `google/gemini-4-argon` by Google, both from `provider_response` (§ Second opinion) |
 | AC-04 | every punch item at a Phase 7 outcome | UNTESTABLE ? | stage F |
 | AC-05 | `reviewed-at`/`fixed-at` on #648 | PARTIAL ⚠ | `efadfea08a` recorded; body at stage H |
 | AC-06 | § Scope records hash, counts, BUILD_ID, M7 delta | PASS ✓ | |
@@ -356,12 +356,12 @@ Totals: 47 scripts; **9 unreached** by any caller, **1 unreached in effect** (`r
 
 ## Second opinion (Phase 4.6)
 
-Depth **extended** (`second-opinions/review-plan.json`): the primary (Anthropic, Opus 5.5) and two reviewers from other labs. **One seat ran; one is pending.**
+Depth **extended** (`second-opinions/review-plan.json`): the primary (Anthropic, Opus 5.5) and two reviewers from other labs. **Both seats ran, and both are graded below.** Each seat ran its probe first (`second-opinions/<member>-probe.md`), then the refutation pass alone (epic tier).
 
 | Seat | Call | Provenance | Served | Outcome |
 | --- | --- | --- | --- | --- |
 | GPT-6 Astra, `max` | `tools/council/run invoke --member gpt --provider openrouter`, brief `second-opinions/gpt-brief.md` (151,087 bytes), under `tools/watch-build --record-only` (`.build-runs/20261023T082647Z-e7167ae6/`) | `second-opinions/gpt-audit.md.provenance.json`, output sha256 `df20875d97a70456...` | `model_field openai/gpt-6-astra`, `served_provider OpenAI`, identity from `provider_response` | success, 664,487 ms, prompt 43,304 / completion 30,329 (reasoning 25,332) tokens |
-| Gemini 4 Argon, `high` | not run | -- | -- | **pending: the route is not in this tree** (`grep -c gemini-argon scripts/council-invoke.ts tools/lint-audit-artifacts`: `0`, `0`). The brief § 1 forbids the roster's `gemini` seat in its place. This is the named Phase 4.6 blocker on #648, and Phase 5 does not start before it clears. |
+| Gemini 4 Argon, `high` | `tools/council/run invoke --member gemini-argon --provider openrouter`, brief `second-opinions/gemini-argon-brief.md` (163,754 bytes: the Astra packet unchanged, a third-reader preamble, and this section's Astra grades appended, as the coordinator directed on #648, issuecomment-6369533517), under `tools/watch-build --record-only` (`.build-runs/20261023T162530Z-c144c2c1/`); the route merged at `7dd89b86dc`, `verify-pins` OK, routing tests 127/127 | `second-opinions/gemini-argon-audit.md.provenance.json`, output sha256 `1f63422ddf79530f...` | `model_field google/gemini-4-argon`, `served_provider Google` (provider pin `google-vertex/global` PASS), identity from `provider_response`, effort `high` PASS | success, 527,419 ms, prompt 51,465 / completion 44,461 (reasoning 34,097) tokens, 0 retries |
 
 ### Astra's items, graded against the artifacts
 
@@ -416,7 +416,7 @@ Each grade below comes from re-reading the cited lines at `8ebaf8daad` (08:30-08
 
 **Seat items not graded as findings.** These are § 3, what the seat could not judge. Each one restates a limit `02`/`04` already name: hardware outcomes; the background-restore race; installer and ABL failure paths; the upgrade rehearsal (asked on #648, issuecomment-6360655911; since answered (b), not run, § Coverage Boundary); the login policy; Bluetooth's trust boundary; emulator semantics; Q5 run against the image's copy of `runemu.sh`; and the lint's `13 CONTRACT FAILURE(S)`, which are expected before Phase 5 writes the punch list. One is answered by the artifacts: the 43 Q4 rows and the 47 Q6 rows are in this file (§ Q4, § Q6). The packet carried their counts, not the tables.
 
-**Net effect.** The tally moves from 68 findings to **75: 0 Critical, 2 High (F-14, F-67), 22 Medium, 51 Low**:
+**The Astra seat's net effect.** The tally moved from 68 findings to **75: 0 Critical, 2 High (F-14, F-67), 22 Medium, 51 Low**:
 - 7 new findings (G-01 Medium; G-02 to G-07 Low).
 - F-14 and F-67 move up to High.
 - F-19 moves down to Low.
@@ -425,7 +425,49 @@ Each grade below comes from re-reading the cited lines at `8ebaf8daad` (08:30-08
 - F-09's fix shape is replaced.
 - F-54's and F-57's derivations are corrected.
 
-Two of the seat's claims were refuted by the code: F-40's High, and F-57's minimum branch. These counts are the Astra seat's alone. They are provisional until the Argon seat has run and been graded, and Phase 5 takes the final tally from both seats.
+Two of the seat's claims were refuted by the code: F-40's High, and F-57's minimum branch. These were the Astra seat's counts alone; the Argon seat's grades below give the final tally.
+
+### Argon's items, graded against the artifacts
+
+Graded 16:34-16:50 UTC by re-reading the cited lines (the slice unchanged since `8ebaf8daad`: `git diff --quiet 8ebaf8daad HEAD -- projects/ROCKNIX/packages/rocknix/`), the interface at its pin `16dbac52`, and the proofs' own output (`.qa-scratch/t1/proofs/group2.out`). One read was made on the guest (its `sleep.conf.d`, through the credential filter) before it was stopped for the host handoff at 16:37:49.
+
+**New findings (A-01 to A-11).**
+
+| Item | Grade | Severity | Evidence from this audit's own read |
+| --- | --- | --- | --- |
+| A-01 `001-functions:547-550,581-585` | **confirmed, re-graded Medium → Low** | Low | `set_setting` turns the value `default` into `del_setting`, and `set_settings` does the same (`:581-585`), so a root password (`setrootpass:45`) or a Wi-Fi network name or key (`wifictl:460`) that is literally `default` is removed instead of stored. Low: the interface's own `SystemConf` drops a `default` value on save for every key (F-01's read of `SystemConf.cpp:387`), so the convention is the house's, and the collision needs that exact word. The fix is a sentinel no value can be, with `wifictl:383`'s deliberate clears moved to it. |
+| A-02 `001-functions:129-166` | **confirmed** | Low | Every branch prints with an unquoted `echo ${OUTPUT}` / `${LOCAL}` / `${SYSTEM}`, so a value with a run of spaces is collapsed, one with `*` or `?` is globbed against the working directory, and `-n`/`-e` are taken as flags; the key's `.` is a regex wildcard in every `awk` pattern. Values pass back to writers (`wifictl:382`'s `key=$(get_setting wifi.key)` and the put-back at `:388`), so a key with two spaces would be put back changed. The fix is `printf '%s\n'`, with F-21 and G-03 in the same function. |
+| A-03 `setsettings.sh:334-335,567` | **disagree** | -- | `NETPLAY_PORT` is `game_setting "global.netplay.port"` (`:562`), the same key `add_setting` reads as `OS_SETTING` (`:330`), so both sides hold the same value; and the shipped `system.cfg` sets `global.netplay.port=55435` (`:74`), so neither is empty on a default device. `02`'s "(the same setting either way: no effect)" stands. |
+| A-04 `setsettings.sh:1427-1478` | **disagree** | -- | `set_gambatte` runs in the first parallel batch (`:1439`) and the batch's `wait` (`:1441`) ends before `set_netplay` starts in the second (`:1463`), so the two `Gambatte.opt` writers never overlap. The stdout half: `set_netplay` and `set_shader` each print one short `echo -n` to the one open file, so their order varies and their bytes do not interleave; RetroArch takes `--connect` and `--set-shader` in either order. |
+| A-05 `runemu.sh:327,349,355,500` | **agree, folded into F-14** | (High, F-14) | The design is the defect: `setsettings.sh`'s whole stdout becomes part of a string `eval`ed as root, so any line any helper prints there is a command. F-14's fix already removes the `eval` (an argument array built from known flags); its acceptance gains "no text but the flags reaches the command". |
+| A-06 `setsettings.sh:395,397` | **agree, narrowed** | Low | The image's `grep` is GNU (busybox has no `grep` applet here), so `-b4` is byte offsets plus four lines of context on each side. The `js0` branch reaches another stanza's `N:` line only when the matched device has fewer than three `B:` lines; the `joypad` branch joins the `Name` of every matching device, so a second pad breaks the `/tmp/joypads/<name>.cfg` lookup and the hotkeys are not set. A Q3 defect, beside F-13's Q2 item. |
+| A-07 `suspendmode:8-10,51`, `autostart/009-sleepmode` | **agree, narrowed** | Low | The interface path works: `SystemConf::set` changes only its in-memory map (`SystemConf.cpp:439-460` at the pin), so `system.cfg` still holds the old mode when `GuiMenu.cpp:2491` runs `suspendmode`. First boot works too: the seed carries no `system.suspendmode`, so `009-sleepmode` asks for `mem`, the comparison differs and `sleep.conf` is written (the guest's file and key, 16:36). The broken path is a settings restore: `backuptool`'s list carries `system.cfg` and not `sleep.conf.d`, so a restored mode that differs from the device's `sleep.conf` is never applied -- at the next boot `009-sleepmode` asks for the stored mode, which matches, and nothing is written. The menu then shows one mode and the device suspends in another. |
+| A-08 `post-update:144-147` | **agree, a correction of F-35's sentence** | (Low, F-35) | A failed `cd` changes neither `PWD` nor `OLDPWD`, so `02`'s "`cd -` restores it" is wrong: `cd -` errors or moves to whatever `OLDPWD` the environment carried. No later line in `post-update` uses a relative path (`:148-251` read again), so the effect is one error line. F-35's fix is unchanged. |
+| A-09 `runemu.sh:432-437,537` | **agree, folded into F-04** | (Low, F-04) | With no stored profile, `quit` writes `cooling.profile=` (an empty value through `write_setting_line`, `001-functions:429-441`) where the key was absent. Readers see empty either way, so it answers F-04's open question rather than adding a defect; F-04's fix restores with `del_setting` when nothing was stored. |
+| A-10 `vertical-check:9-18` | **could not verify** (carried as an item to verify) | Low | The ROM path is cut from the first `ps` line matching `runemu.sh` at its first unescaped space. Whether that line is the interface's `sh -c` wrapper (escaped or quoted by the interface's command builder) or the script's own argv (spaces unescaped) is the interface's launch shape and the process order, which a guest launch shows; the guest is down until `resource return`. |
+| A-11 `rocknix-systems:1-3`, `rocknix-bluetooth-agent:1-5`, `02` § Mechanical checks | **confirmed** | Low | Two items the read noted and the punch list would have lost: the Python 2 remnants (answered in § Q1 with no item), and `02`'s "See F-candidate below" on `vocabulary-check`'s scope (it reads none of this slice's scripts), which no finding followed. Split in Phase 5 into A-11a (Q1) and A-11b (Q2). F-61 is accounted for (`02:482`). |
+
+**The seat's re-grades, and its checks of the earlier grades.**
+
+| Item | Grade | Result | Evidence |
+| --- | --- | --- | --- |
+| F-03 → Low | **agree, re-graded** | **Low** | No overtaking was measured: `02` promised a timing of the background jobs against the exit-to-next-launch time and did not run it, and the gap a person needs to pick the next game is seconds against jobs that are sysfs writes and one `systemctl restart`. The missing coordination is real; the acceptance measures it first. |
+| F-19 → Medium | **agree, re-graded back** | **Medium** | The Astra grade misread the proof. With no bezel file, `write_bezel_config` returns 1 having written nothing (`setsettings.sh:1312-1331`), and `set_overlay` still exits (`:821-822`); the proof's `input_overlay lines: 0` under the shipped `thebezelproject` default (`group2.out:25`) is "neither applied". So on a default device a player's overlay choice is dropped and nothing replaces it. Whether a present bezel should win over an overlay stays the stream brief's question. |
+| F-13 → Medium | **disagree** (keep Low) | Low | The sourced files are the image's and the player's own (`/tmp/joypads` over `/storage/joypads`), the player's own trust domain, as `02` says; the lookup half the seat adds is A-06, its own Low item. |
+| F-27 | **agree** (keep Low, to verify) | Low | Already an item to verify: RetroArch's log for an empty shader is read before a fix. |
+| F-43, `:239` | **agree** | Medium half | `(( ${SIZE} <= 8388608 ))` with no `/proc/partitions` row errors and the device is treated as large enough, which is part of choosing the wrong card: `:239` moves into F-43's Medium half; F-43b keeps only `:251`'s quoting oddity. |
+| G-07's scope | **disagree** (keep the scope) | Low | The recipe enables `hdmi-hotplug.path` on the H700 only (`package.mk:115-119`), and the handler's gadget stop runs only when a DisplayPort connector reports connected (`handle-hdmi-hotplug:19-21`), which its own comment scopes to USB-C DisplayPort on RK3588/SM8250. On the one device that enables the handler, the branch needs a DP connector the comment says is not this SoC's case. |
+| F-40 kept Medium; F-57's minimum branch; F-54's example; F-57's `1`-file sentence; F-14 and F-67 to High; G-01 to G-06; F-09's two shapes; F-10's split | **the seat agrees** | unchanged | Its § 2B confirms each against the same lines this section cites. |
+
+**What the seat could not judge** (its § 3), against this audit's record: the Q4 and Q6 tables (in this file, not in the packet, as for Astra); the M7 delta and § Scope (`01-research-notes.md`); the outline-read files (named in § Coverage Boundary); six checks `02` promised and did not record -- F-27's and F-18's RetroArch reads (now items to verify), F-04's empty profile (answered above), F-08's and `vertical-check`'s timings (in their items' acceptance), F-38's list of `.local/state` writers (in its item's fix) and F-31's environment (in its item); the upgrade rehearsal (not run, by the coordinator's answer (b), § Coverage Boundary); and the hardware-only paths, already named there.
+
+**Net effect, both seats.** The tally moves from the Astra seat's 75 to **81 findings: 0 Critical, 2 High (F-14, F-67), 22 Medium, 57 Low**:
+- 6 new findings from the Argon seat, all Low (A-01, A-02, A-06, A-07, A-10, A-11).
+- F-03 moves down to Low; F-19 moves back up to Medium.
+- A-03 and A-04 are refuted by the code; A-05, A-08 and A-09 fold into F-14, F-35 and F-04; F-13 stays Low; G-07 keeps its scope.
+- Phase 5 splits F-10, F-43 and A-11, so the punch list carries 84 items.
+
+Both seats agreed with every High and with the refutations and corrections of the first reader's text. Neither raised a Critical.
 
 ## Quality Self-Check
 
@@ -434,8 +476,8 @@ Two of the seat's claims were refuted by the code: F-40's High, and F-57's minim
 | Acceptance Criteria Scorecard present, IDs match 02 | present (AC-01 to AC-15) |
 | Cornerstone conformance tables present | present (`03` § 3.2, summarised above) |
 | Coverage Boundary present (02 + 04) | present |
-| Finding Verification recorded for all Crit/High | present (none Critical or High; the Mediums recorded) |
-| Second opinion recorded (Phase 4.6) | partial: the Astra seat ran and is graded (§ Second opinion); the Argon seat is **pending** on its route, which is the brief's named blocker, so Phase 5 does not start |
+| Finding Verification recorded for all Crit/High | present: no Critical; the two Highs are F-14, proven on the guest (the marker), and F-67, a device-only trace whose skip check was cleared by the ELF's size (§ Finding Verification) |
+| Second opinion recorded (Phase 4.6) | present: both seats ran, verified and graded (§ Second opinion) |
 | Instruction File Recommendations (epic) | present |
 | Tier B visual-QA consolidation present | absent (no screen changed; no visual-QA process for scripts) |
 | Verdicts use the defined vocabulary only | yes |

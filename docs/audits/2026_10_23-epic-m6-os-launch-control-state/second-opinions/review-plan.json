@@ -17,35 +17,40 @@
       "provider": "openrouter, provider order [openai], allow_fallbacks false (scripts/council-invoke.ts gpt recipe)",
       "calls": [
         {
-          "phase": "probe",
-          "output": "gpt-probe.md"
-        },
-        {
           "phase": "refutation",
           "output": "gpt-audit.md"
         }
       ],
-      "status": "complete: probe and refutation ran; served openai/gpt-6-astra by OpenAI (provider_response); refutation output sha256 df20875d97a7045621a7cb3b448a41a634df0ea6a5a61840bb2bc8b877d6eaff; graded in 04-analysis.md section Second opinion (2026-10-23)"
+      "status": "complete: probe and refutation ran; served openai/gpt-6-astra by OpenAI (provider_response); refutation output sha256 df20875d97a7045621a7cb3b448a41a634df0ea6a5a61840bb2bc8b877d6eaff; graded in 04-analysis.md section Second opinion (2026-10-23)",
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gpt-probe.md"
+        }
+      ]
     },
     {
       "member": "gemini-argon",
       "model": "google/gemini-4-argon",
       "lab": "google",
       "effort": "high",
-      "status": "in progress: the route arrived at 7dd89b86dc (grep -c gemini-argon scripts/council-invoke.ts tools/lint-audit-artifacts = 7, 4); verify-pins OK, routing tests 127/127 (2026-10-23 16:23 UTC)",
+      "status": "complete: probe and refutation ran; served google/gemini-4-argon by Google (provider_response); refutation output sha256 1f63422ddf79530f93ec0e8afcb1d4470ebcc564819e21b570ecb8e53ab7cef0; graded in 04-analysis.md section Second opinion (2026-10-23)",
       "calls": [
-        {
-          "phase": "probe",
-          "output": "gemini-argon-probe.md"
-        },
         {
           "phase": "refutation",
           "output": "gemini-argon-audit.md",
           "brief": "gemini-argon-brief.md: the Astra packet (gpt-brief.md) unchanged, a third-reader preamble, and 04-analysis.md section Second opinion (the Astra grades) appended, as the coordinator directed on #648 (issuecomment-6369533517)"
         }
       ],
-      "provider": "openrouter, provider only/order [google-vertex/global], allow_fallbacks false, served provider Google (scripts/council-invoke.ts AUDIT_OPENROUTER_SEATS gemini-argon, route merged at 7dd89b86dc from the coordinator tip 6874394d49)"
+      "provider": "openrouter, provider only/order [google-vertex/global], allow_fallbacks false, served provider Google (scripts/council-invoke.ts AUDIT_OPENROUTER_SEATS gemini-argon, route merged at 7dd89b86dc from the coordinator tip 6874394d49)",
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gemini-argon-probe.md"
+        }
+      ]
     }
   ],
-  "written_before_first_call": "2026-10-23"
+  "written_before_first_call": "2026-10-23",
+  "probes_note": "Each seat was probed once before its refutation pass (brief section 1); the probes are listed under probes, not calls, because an epic-tier audit has exactly one review pass per reviewer (phases.md section 4.6)."
 }
