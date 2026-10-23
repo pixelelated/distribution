@@ -32,9 +32,22 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#648`.
+**Stage A done (2026-10-23, executor `m6-t1-os-launch`, session
+`33bed370`, pane `wN:p4`).** Audit folder
+`docs/audits/2026_10_23-epic-m6-os-launch-control-state/`: `00-running-log.md`
+(the resume point: read its last entry first), `01-research-notes.md` § Scope.
+Counts equal the brief's (83, 13,327, 29/54); `upstream/next` is `8b70f693b8`;
+the guest's BUILD_ID is `069fc270442134fe771258418adf4e666e0473fb`; the
+image's `/bin/sh` is **bash**, not dash (reported on #648). Next: stage B,
+Phase 1 (the open issues, the prior punch lists as provenance, git history),
+then Phase 2's coverage table, group 1 first.
+
+**The lane's guest** (up while the slice needs it): QEMU pid in
+`/workspace/artifacts/m6-t1-20261023/qemu.pid`, serial
+`$A/serial.sock`, monitor `$A/monitor.sock`, SSH `-p 10032 -i $A/qa-key`,
+VNC :19, disk `$A/t1.qcow2`. Stop it by its pidfile only
+(`tools/vm-stop` or `kill "$(cat $A/qemu.pid)"`); never by pattern.
+shellcheck v0.11.0 at `.qa-scratch/shellcheck-v0.11.0/shellcheck-v0.11.0/shellcheck`.
 
 ## Next commands
 
