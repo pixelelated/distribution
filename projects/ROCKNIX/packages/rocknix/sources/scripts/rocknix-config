@@ -31,12 +31,14 @@ bato_config_set_value () {
 	key=$1
 	value=$2
 	[ -z "$value" ] && value=0
-	cat "$configFile" | grep "$key"
-        valPresent=$?
-	if [ "$valPresent" != "0" ];then
+	# The key is matched whole, at a line's start, and the value written as it
+	# is: grep "$key" matched any key holding it, and the value was sed's text,
+	# so a / ended the program and an & put the match back in (#755).
+	if ! grep -q "^#\?${key}=" "$configFile"; then
 		echo "$key=$value" >> "$configFile"
 	else
-		sed -i "s/#\?$key=.*/$key=$value/g" "$configFile"
+		K="$key" V="$value" awk 'BEGIN { k = ENVIRON["K"]; v = ENVIRON["V"] } { t = $0; sub(/^#/, "", t); if (index(t, k "=") == 1) print k "=" v; else print }' "$configFile" > "$configFile.tmp" \
+			&& mv -f "$configFile.tmp" "$configFile"
 	fi
 }
 
@@ -83,6 +85,9 @@ if [ "$command" == "setRootPassword" ]; then
     then
 	PASSWD=$(tr -cd _A-Z-a-z-0-9 < /dev/urandom | fold -w8 | head -n1)
     fi
+    # rocknix-encode is on no image: without it the encoded password was
+    # empty, and rootshadowpassword= was written empty (#754).
+    command -v rocknix-encode >/dev/null 2>&1 || { echo "rocknix-encode is not on this image, so nothing was changed" >&2; exit 1; }
     PASSWDENC=$(rocknix-encode encode "${PASSWD}")
 
     preBootConfig
@@ -155,7 +160,13 @@ fi
 if [ "$command" == "lsoutputs" ]
 then
     echo "auto"
-    rocknix-resolution listOutputs
+    # rocknix-resolution is on no image: auto alone, with no error line in the
+    # interface's list, and the verb's own 0 where it fell through to exit 10
+    # (#754).
+    if command -v rocknix-resolution >/dev/null 2>&1; then
+        rocknix-resolution listOutputs
+    fi
+    exit 0
 fi
 
 if [ "$command" == "lsaudio" ];then
@@ -268,8 +279,10 @@ if [ "$command" == "update" ];then
 	exit $?
 fi
 
+# There is no storage choice on this image (Batocera's boot.conf): say so
+# with a status, where list and current printed nothing with a 0 (#754).
 if [[ "$command" == "storage" ]]; then
-    exit 0;
+    exit 12
 fi
 
 if [[ "$command" == "forgetBT" ]]; then
