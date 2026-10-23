@@ -346,3 +346,18 @@
     - `bQ` stopped at `saved_state`, which the lifter misses (a comment after its `{`).
 
     Both cases were corrected in this head and the run repeated; the repeat is the evidence.
+  - **fixed** (from the tree, 23:20:09-23:28:58, rc 0): `PASSED`. `tools/pkgcheck rocknix`: rc 0.
+  - **The first passing run (22:59:58-23:08:53, rc 1, 6 failed)** showed my two case faults above, and four older `wifictl` join cases failing. Those cases' `001-functions` stand-ins (section u's profile and the p7 Wi-Fi block's) had no `set_settings_values`. They gain it in #758's own commit, as the contract now has it.
+  - `tools/vocabulary-check`, run against the local ES checkout (not the pin): 135 strings judged where the old tool judged 122. None of the 13 new ones is wrong, and its 15 failures are the same 15 before and after, all in that checkout's interface strings.
+- **Commits:** head `4019b8d093`; then:
+  - `2c6d15f89e` (#722), `69c9a01ed6` (#723), `875b2f101a` (#750), `8665eaf291` (#751), `d34ca8a56f` (#752);
+  - `0e6db61073` (#761), `082f79c56f` (#753), `b41a9dc3c2` (#748), `0152f17fe0` (#749), `4836351958` (#746);
+  - `852954094b` (#758), `f92f35d5fc` (#754, #755);
+  - `57da0b3b21` (F-50), `05312fd5d2` (F-51), `41ba51701f` (F-52), `ff35688a26` (F-66), `557b6368f4` (F-69), `9b131d110b` (A-11a), `7fc0d2a58e` (A-11b).
+- **Shapes that differ from an issue's fix line:**
+  - **#722:** the range stays the script's 1 to 100. The brief's "reads the panel's range from the kernel" needs `drm_tool`'s range output, which no panel on the VM shows; the fix line is the numeric comparison.
+  - **#752:** `usbgadget` gains `pause`, because `stop` writes `USB_MODE=disabled` and would turn off the player's choice for good.
+  - **#754:** `setRootPassword` refuses rather than being removed, since upstream carries the script.
+  - **#746:** only the five network verbs exit 2.
+- **For the coordinator:** #761's criterion says "leaves `sleep.conf` without `SuspendState=` (the freeze shape)", but the freeze shape the script writes is `SuspendState=freeze standby mem`. The harness checks that shape.
+- **#701:** 32 of 84 checkboxes ticked (PL-074, PL-077, PL-084 resolved; PL-057 withdrawn). PL-065 is deferred to #585.

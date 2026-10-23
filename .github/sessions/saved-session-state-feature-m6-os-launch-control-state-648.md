@@ -126,7 +126,19 @@ F-46 is withdrawn (ES reads `updates.*`, and `system.cfg` cannot carry a comment
 - `5944a8c1bc`: #714, with `root.password` stored through `set_setting_value` (#758).
 - `5707827267`: F-36. `9434ea7fda`: F-41. `3c9b9dc891`: F-31.
 
-Every S6 row stays open for its guest reading. **Next: S7** (the control scripts; `wifictl:460` to `set_setting_value`, #722 and #723), then the two tails, then stage F's end.
+Every S6 row stays open for its guest reading. 
+
+**S7 done (23:35 UTC).** Head `4019b8d093` (harness sections bG to bY), then nineteen commits, from `2c6d15f89e` (#722) to `7fc0d2a58e` (A-11b).
+- #758's `wifictl:460` and `:388` use the new `set_settings_values` (`852954094b`).
+- F-47 is withdrawn: the briefs change the filter only if a value is printed today.
+- F-55 is deferred to #585, and `rocknix-retroachievements-info` to #563.
+- #701 has 32 of 84 ticked.
+
+**Next: the two tails**, both in `runemu.sh` S1's lines, test first:
+- T2's nick that is an option word (#730);
+- D-WORKFLOW-192: the spectator marker read before the client marker, a spectator case in `set_netplay`, and `--mitm-session=<id>` passed through (Refs #648, #702, #708, #776).
+
+**Then stage F's end**, at resource return.
 
 **Run the harness from the tree**, never a copy: a copy finds its sibling tools beside itself (friction, 21:31).
 
