@@ -86,6 +86,8 @@ grades), grade them, and go to Phase 5 (punch list with `punch_index` and
 `question:` rows, F-10/F-43 split, the audit issue, bug issues, `box-check`),
 then the stage-D pause. The guest stays up.
 
+**Paused at stage D (16:50 UTC, `date -u`; the running log's last entry).** Phase 4.6 is complete: Astra and Argon both ran, verified, and are graded in `04` § Second opinion. Final: **81 findings (0 Critical, 2 High F-14/F-67, 22 Medium, 57 Low)**; `05-punch-list.md` has 84 items (F-10, F-43 and A-11 split). Audit issue **#701** (sub-issue of #648); bug issues **#702 to #761**, one per defect, all `box-check` 0 fail. **The guest is down** (stopped 16:37:49 for M7's host handoff, `t1.qcow2` kept): start no runtime until the coordinator posts `resource return` on #648. Next: wait for the coordinator's stream briefs (stage E); each stream works its items test-first on this branch unless its brief says otherwise; Phase 7 outcomes go in `05`'s gate and on #701.
+
 ## Next commands
 
 ```bash

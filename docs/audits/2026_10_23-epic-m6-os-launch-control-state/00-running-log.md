@@ -148,9 +148,9 @@
 ## [Phase 4.6] 16:37 — The guest stopped for the host handoff
 
 - The Argon pass returned at 16:34:19 (rc 0). At the M7 coordinator's host request (#648 issuecomment-6369834541, read 16:37) the guest was stopped at **16:37:49 UTC**: `tools/vm-stop /workspace/artifacts/m6-t1-20261023/qemu.pid /workspace/artifacts/m6-t1-20261023/t1.qcow2`, rc 0, `down: owned QEMU exited (pid 2334316)`; no `qemu-system-*` left on the host. `t1.qcow2` is kept for stage F. Logged in `docs/vm-qa-log.md` and as `M6 guest down` in `/tmp/m7-m6-host-coordination-20261023.txt`. No runtime starts until M7 writes `resource return` there.
-- The request said "before grading"; grading had begun at 16:34 with reads of the tree, the interface pin and the proof output, and one read over SSH of the guest's `sleep.conf.d` (credential filter applied) at about 16:36, before the comment was seen. Nothing was written on the guest.
+- The request said "before grading"; grading had begun at 16:34 with reads of the tree, the interface pin and the proof output, and one read over SSH of the guest's `sleep.conf.d` (credential filter applied) between 16:34:48 and 16:37:49 (no clock was read at the read itself), before the comment was seen. Nothing was written on the guest.
 
-## [Phase 4.6 → 5] 16:52 — The Argon seat graded; the punch list written (84 items)
+## [Phase 4.6 → 5] 16:42 — The Argon seat graded; the punch list written (84 items)
 
 - The refutation pass ended rc 0 at 16:34:19 (`.build-runs/20261023T162530Z-c144c2c1/`, `build.rc` 0): `model_field google/gemini-4-argon`, `served_provider Google` (pin `google-vertex/global` PASS), identity `provider_response`, effort `high` PASS, 0 retries, 527,419 ms, output sha256 `1f63422ddf79530f...`, `gemini-argon-audit.md` + `.provenance.json`.
 - Every item was graded against the cited lines, the interface at `16dbac52` and the proofs' output, into `04-analysis.md` § Second opinion, "Argon's items":
@@ -161,3 +161,11 @@
 - **Final tally: 81 findings, 0 Critical, 2 High, 22 Medium, 57 Low.** Executive Summary, AC-03 and the Quality Self-Check updated.
 - `review-plan.json`: the probes moved under `probes` (the lint takes an epic reviewer's `calls` as the refutation alone).
 - **Phase 5:** `05-punch-list.md` generated from the graded findings: 84 items (F-10, F-43 and A-11 split), 60 defects (a `bug` issue each), 21 renovation items and 3 items to verify. Every item carries `question:` in the `punch_index`, no item is `deferred:#336`, and the Phase 7 gate has every row `Open`. `tools/lint-audit-artifacts --phase pre-issue`: `PASS pre-issue artifacts`. All 84 criteria pass `tools/box-check`'s patterns, run offline before anything was filed.
+
+## [Phase 6 → stage D] 16:50 — The audit issue #701 and 60 bug issues filed; paused at stage D
+
+- **Audit issue #701**: `Audit: M6 T1 the OS scripts: launch, control and state -- 81 findings (0 critical, 2 high)`, labels `audit`, `punch-list`, milestone M6, a sub-issue of #648; one checkbox per item (84). `tools/box-check --issue 701`: `box-check: 1 issue(s), 84 open checkbox(es), 0 fail`. Its first run failed one checkbox: PL-003's title said "on the H700", which the checker reads as a device check. The title (and #704's) was reworded to name the kernel's governors, since the device is the defect's scope, not the check.
+- **60 bug issues, #702 to #761**, one per defect (D-QA-051), label `bug`, no milestone, titles `Bug: ...`. Each carries the code trace (how it was found, the defect at its source from `02`, the fix, the sibling-site table, what reading cannot prove, the `Already written:` line), the `Can this be done on the VM?` line and two VM-checkable criteria. `tools/box-check --issue N` on each: `0 fail` on all 60. Before posting, all bodies passed `tools/forbidden-terms-check --stdin` (0 hits) and a credential-value scan (none).
+- `05-punch-list.md` now names each item's tracker; `tools/lint-audit-artifacts --phase pre-issue`: PASS.
+- Clerical: the previous entry was first headed "16:52", an estimate written without reading the clock. It is corrected to 16:42, the time of its commit `55d9bc967b` (`git log -1 --format=%cI`: `16:42:38Z`); the grading window in `04` is corrected the same way (16:34-16:42).
+- **Paused at stage D.** The punch list and #701 are posted on #648, and the lane waits for the coordinator's stream briefs. The guest is down (16:37:49), and nothing runs until M7 writes `resource return`.
