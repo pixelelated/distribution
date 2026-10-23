@@ -14892,6 +14892,181 @@ check $? "cryptpw failing: non-zero, the hash, root.password, Samba and Syncthin
 grep -q '^rc=0$' "${S6}/bF-real/out" && grep -q '^hash: new6$' "${S6}/bF-real/out" && grep -q '^lines: 2$' "${S6}/bF-real/out" && grep -q '^stored: root.password=default$' "${S6}/bF-real/out"
 check $? "the image's cryptpw: a new \$6\$ hash, the other line kept, and a password that is the word default stored" "$(tr '\n' '|' < "${S6}/bF-real/out" | cut -c1-240)"
 
+# M6 T1 stream S7 (#722, #723, #746, #748-#755, #758, #761): the control
+# scripts and the autostart fragments, with the renovation rows F-50 to F-69
+# and A-11. Every program that would touch a panel, a radio, a gadget or a
+# service is a stub that records its call; sysfs and /proc are fixtures. All
+# from BASE_REF under --old, in S3's sandbox under the image's bash and busybox.
+S7="${TMP}/s7"; mkdir -p "${S7}/stub"
+for f in sources/scripts/paneladj autostart/008-perfmode autostart/050-audio autostart/055-hdmi-check sources/scripts/handle-hdmi-hotplug \
+         sources/scripts/suspendmode autostart/009-sleepmode sources/scripts/volume sources/scripts/rocknix-memory-manager \
+         sources/scripts/rocknix-es-thebezelproject sources/scripts/wifictl sources/scripts/rocknix-config sources/scripts/usbgadget \
+         system.d/rocknix-report-stats.service sources/scripts/rocknix-scraper config/system/configs/tz sources/scripts/rocknix-systems \
+         sources/scripts/rocknix-bluetooth-agent profile.d/100-amd64-freqfunctions; do
+    src_of "projects/ROCKNIX/packages/rocknix/${f}" "${S7}/$(basename "${f}")"
+done
+src_of tools/vocabulary-check "${S7}/vocabulary-check"
+s7_stub() { printf '#!/bin/sh\n%s\n' "$2" > "${S7}/stub/$1"; chmod +x "${S7}/stub/$1"; }
+s7_run() { s3_run "$1" "export PATH=${S7}/stub:\${PATH}; $2"; }
+s7_prof() { sed -e "s#^\. /etc/profile\$#. ${S3}/001-functions#" -e "s#^\. /etc/profile\.d/001-functions\$#. ${S3}/001-functions#"; }
+S7_CFG='mkdir -p /storage/.config/system/configs; printf "system.hostname=x\n%b" "${CFGX:-}" > /storage/.config/system/configs/system.cfg'
+
+echo "  bG. paneladj reads a stored panel value as a number, and writes no file (#722)"
+s3_lift "${S7}/paneladj" > "${S7}/pa.sh"
+s3_run "${S7}/bG" "MIN=1; MAX=100; . ${S7}/pa.sh; get_setting() { echo 30; }; echo \"v=\$(getValue brightness)\"; echo \"files: [\$(ls -A | tr '\n' ';')]\""
+grep -q '^v=30$' "${S7}/bG/out" && grep -q '^files: \[err;out;\]$' "${S7}/bG/out"
+check $? "a stored 30 reads 30, and no file 100 appears" "$(tr '\n' '|' < "${S7}/bG/out")"
+
+echo "  bH. 008-perfmode runs to its last line on x86_64, and on aarch64 as before (#723)"
+for a in x86_64 aarch64; do
+    mkdir -p "${S7}/bH-${a}/pd"; cp "${S3}/001-functions" "${S7}/bH-${a}/pd/001-functions"
+    if [ "${a}" = x86_64 ]; then cp "${S7}/100-amd64-freqfunctions" "${S7}/bH-${a}/pd/"; else cp "${S3}/099-freqfunctions" "${S7}/bH-${a}/pd/"; fi
+    { sed "s#/etc/profile\.d/#${S7}/bH-${a}/pd/#g" "${S7}/008-perfmode"; echo 'echo END-OF-FRAGMENT'; } > "${S7}/bH-${a}/frag"
+    s3_run "${S7}/bH-${a}" "CFGX='system.threads=2\nsystem.cpugovernor=ondemand\n'; ${S7_CFG}
+        mkdir -p cpu; for i in 0 1 2 3; do mkdir -p cpu/cpu\${i}; echo 1 > cpu/cpu\${i}/online; done
+        CPU_SYSFS=\${D}/cpu ${NP_BASH} --posix ${S7}/bH-${a}/frag; echo \"cpu3: \$(cat cpu/cpu3/online)\""
+done
+grep -q '^END-OF-FRAGMENT$' "${S7}/bH-x86_64/out" && ! grep -q 'freqfunctions' "${S7}/bH-x86_64/err"
+check $? "x86_64 (100-amd64-freqfunctions only): no error, the last line reached" "$(tr '\n' '|' < "${S7}/bH-x86_64/out") $(head -c 160 "${S7}/bH-x86_64/err" | tr '\n' '|')"
+grep -q '^END-OF-FRAGMENT$' "${S7}/bH-aarch64/out" && grep -q '^cpu3: 0$' "${S7}/bH-aarch64/out"
+check $? "aarch64 (099-freqfunctions): the threads are set as before and the last line reached" "$(tr '\n' '|' < "${S7}/bH-aarch64/out")"
+
+echo "  bI. 050-audio runs quantum only where it is installed (#750)"
+s3_block "${S7}/050-audio" '^### Run quantum audio hack' '^fi$' > "${S7}/bI.block"
+s3_run "${S7}/bI" ". ${S7}/bI.block; echo rc=\$?"
+! grep -q -i 'quantum' "${S7}/bI/err"
+check $? "no quantum: nothing run, nothing said" "$(head -c 160 "${S7}/bI/err" | tr '\n' '|')"
+
+echo "  bJ. 055-hdmi-check writes a 1080p mode to drmMode, and reads a missing modes file as no mode (#751)"
+s7_stub drm_tool 'printf "mode 33: 1920x1080 60Hz\nmode 34: 1280x720 60Hz\n"'
+for c in 1080 none; do
+    sed -e "s#/sys/class/graphics/fb0/modes#\${D}/modes#g" -e "s#/var/run/#\${D}/run/#g" -e "s#/usr/bin/drm_tool#drm_tool#g" "${S7}/055-hdmi-check" > "${S7}/hdmi.${c}"
+    s7_run "${S7}/bJ-${c}" "mkdir -p run; [ ${c} = 1080 ] && echo 'U:1920x1080p-60' > modes; ${NP_BASH} ${S7}/hdmi.${c} >/dev/null; echo \"mode: \$(cat run/drmMode 2>/dev/null)\""
+done
+grep -q '^mode: 33$' "${S7}/bJ-1080/out"
+check $? "U:1920x1080p-60: drmMode holds the 1080p mode" "$(tr '\n' '|' < "${S7}/bJ-1080/out")"
+grep -q '^mode: 0$' "${S7}/bJ-none/out" && ! grep -q 'integer expression\|unary operator' "${S7}/bJ-none/err"
+check $? "no modes file: no test error, the no-mode branch" "$(tr '\n' '|' < "${S7}/bJ-none/out") $(head -c 120 "${S7}/bJ-none/err" | tr '\n' '|')"
+
+echo "  bK. the hotplug handler stops the gadget through usbgadget when DisplayPort is up (#752)"
+s7_stub pgrep 'exit 0'; s7_stub wlr-randr ':'; s7_stub killall 'echo "killall $*" >> /tmp/calls'
+s7_stub systemctl 'echo "systemctl $*" >> /tmp/calls; case "$*" in is-active*) exit 3 ;; esac; exit 0'
+s7_stub usbgadget '[ $# -eq 0 ] && { echo network; exit 0; }; echo "usbgadget $*" >> /tmp/calls'
+sed -e 's#^\. /etc/profile$#:#' -e "s#/run/hdmi-status.last#\${D}/hdmi-status.last#g" -e "s#/sys/class/drm/#\${D}/drm/#g" "${S7}/handle-hdmi-hotplug" > "${S7}/hotplug.t"
+s7_run "${S7}/bK" "mkdir -p drm/card0-DP-1; echo connected > drm/card0-DP-1/status; echo connected > hdmi-status.last; ${NP_BASH} ${S7}/hotplug.t; cat /tmp/calls"
+grep -q '^usbgadget pause$' "${S7}/bK/out"
+check $? "DisplayPort connected and the gadget up: usbgadget pause is called" "$(tr '\n' '|' < "${S7}/bK/out")"
+
+echo "  bL. a restored suspend mode is applied at boot (#761)"
+s7_prof < "${S7}/suspendmode" > "${S7}/suspendmode.t"
+sed -e "s#^\. /etc/profile\.d/001-functions\$#. ${S3}/001-functions#" -e "s#/usr/bin/suspendmode#${NP_BASH} ${S7}/suspendmode.t#" "${S7}/009-sleepmode" > "${S7}/sleepmode.t"
+s7_run "${S7}/bL" "CFGX='system.suspendmode=freeze\n'; ${S7_CFG}; mkdir -p /storage/.config/sleep.conf.d
+    printf '[Sleep]\nAllowSuspend=yes\nSuspendState=mem standby freeze\n' > /storage/.config/sleep.conf.d/sleep.conf
+    ${NP_BASH} ${S7}/sleepmode.t; tr '\n' '|' < /storage/.config/sleep.conf.d/sleep.conf"
+grep -q 'SuspendState=freeze standby mem|$' "${S7}/bL/out"
+check $? "system.suspendmode=freeze over a mem sleep.conf: sleep.conf now carries freeze" "sleep.conf after: $(cat "${S7}/bL/out")"
+
+echo "  bM. volume restore with no stored volume sets 50 without an error (#753)"
+s7_stub pactl 'echo "pactl $*" >> /tmp/calls'
+# 001-functions puts /usr/bin first on PATH, so the stub folder goes back in front after it.
+sed "s#^\. /etc/profile\.d/001-functions\$#. ${S3}/001-functions; PATH=${S7}/stub:\$PATH#" "${S7}/volume" > "${S7}/volume.t"
+s7_run "${S7}/bM" "${S7_CFG}; ${NP_BASH} ${S7}/volume.t restore; cat /tmp/calls; grep '^audio.volume=' /storage/.config/system/configs/system.cfg"
+! grep -q -i 'syntax\|operand' "${S7}/bM/err" && grep -q 'set-sink-volume @DEFAULT_SINK@ 50%' "${S7}/bM/out" && grep -q '^audio.volume=50$' "${S7}/bM/out"
+check $? "no error, 50% set and stored" "$(tr '\n' '|' < "${S7}/bM/out") $(head -c 120 "${S7}/bM/err" | tr '\n' '|')"
+
+echo "  bN. a swap resize stops when the file in use will not come off (#748)"
+s3_lift "${S7}/rocknix-memory-manager" | sed "s#/proc/swaps#\${D}/swaps#g" > "${S7}/mm.sh"
+for c in active idle; do
+    s3_run "${S7}/bN-${c}" ". ${S7}/mm.sh; swapoff() { return 1; }; fallocate() { printf NEW > \"\$3\"; }; mkswap() { :; }; swapon() { :; }; logger() { :; }
+        printf OOO > swapfile; head -c 1048576 /dev/zero >> swapfile; [ ${c} = active ] && echo \"\${D}/swapfile file 1024 0 -2\" > swaps || : > swaps
+        SWAP_SIZE_VAL=64 SWAPFILE=\${D}/swapfile; setup_swapfile; echo \"rc=\$? head=\$(head -c 3 swapfile)\""
+done
+grep -q '^rc=[1-9][0-9]* head=OOO$' "${S7}/bN-active/out"
+check $? "in use and swapoff failing: the file untouched, a non-zero status" "$(tr '\n' '|' < "${S7}/bN-active/out")"
+grep -q '^rc=0 head=NEW$' "${S7}/bN-idle/out"
+check $? "control: a file not in use is replaced at the new size" "$(tr '\n' '|' < "${S7}/bN-idle/out")"
+
+echo "  bU. the memory manager refuses a setting value that is not a plain word (F-52)"
+s3_run "${S7}/bU" ". ${S7}/mm.sh; ( update_config SWAP_FILE_SIZE '1\"; touch /tmp/x; \"' ); echo \"rc=\$? conf=[\$(cat /storage/.config/swap.conf 2>/dev/null)] x=\$([ -e /tmp/x ] && echo made || echo none)\"
+    ( update_config SWAP_FILE_SIZE Auto ); echo \"then: \$(cat /storage/.config/swap.conf)\""
+grep -q '^rc=[1-9][0-9]* conf=\[\] x=none$' "${S7}/bU/out" && grep -q '^then: SWAP_FILE_SIZE="Auto"$' "${S7}/bU/out"
+check $? "a value with a quote and a ; is refused, nothing written or run; Auto still is" "$(tr '\n' '|' < "${S7}/bU/out")"
+
+echo "  bO. the bezel project writes only <rom>.<ext>, and remove takes only a system's name (#749)"
+s7_stub curl 'o=""; while [ $# -gt 0 ]; do [ "$1" = -o ] && o="$2"; shift; done; [ -n "$o" ] && echo bezel > "$o"; exit 0'
+s7_stub jq 'cat'
+s7_run "${S7}/bO" "mkdir -p /var/log /storage/roms/snes /storage/.config/system/thebezelproject /storage/roms/bezels/thebezelproject/games/snes/Game. /storage/roms/bezels/thebezelproject/games/gb
+    : > /storage/roms/snes/Game.sfc; printf 'snes https://example.invalid/r SNES file.png\n' > /storage/.config/system/tbp_systems.txt
+    printf '0\tGame./x\n' > /storage/.config/system/thebezelproject/tbp_snes.txt
+    timeout 60 ${NP_BASH} ${S7}/rocknix-es-thebezelproject install snes > /dev/null 2>&1
+    echo \"stray: \$([ -e /storage/roms/bezels/thebezelproject/games/snes/Game./x ] && echo written || echo none)\"
+    timeout 30 ${NP_BASH} ${S7}/rocknix-es-thebezelproject remove '' > /dev/null 2>&1; echo \"empty: rc=\$? \$([ -d /storage/roms/bezels/thebezelproject/games/gb ] && echo kept || echo gone)\"
+    timeout 30 ${NP_BASH} ${S7}/rocknix-es-thebezelproject remove .. > /dev/null 2>&1; echo \"dotdot: rc=\$? \$([ -d /storage/roms/bezels/thebezelproject/games/gb ] && echo kept || echo gone)\""
+grep -q '^stray: none$' "${S7}/bO/out"
+check $? "an index name with a / writes nothing" "$(tr '\n' '|' < "${S7}/bO/out")"
+grep -q '^empty: rc=[1-9][0-9]* kept$' "${S7}/bO/out" && grep -q '^dotdot: rc=[1-9][0-9]* kept$' "${S7}/bO/out"
+check $? "remove '' and remove .. exit non-zero and remove nothing" "$(tr '\n' '|' < "${S7}/bO/out")"
+
+echo "  bP. wifictl's network verbs say there is no Wi-Fi device (#746)"
+sed -e "s#^\. /etc/profile\$#. ${S3}/001-functions#" -e "s#/sys/class/net#\${D}/net#g" "${S7}/wifictl" > "${S7}/wifictl.t"
+s7_stub nmcli 'exit 0'
+s7_run "${S7}/bP" "mkdir -p net; ${S7_CFG}; for v in connect 'join Home' 'forget Home' current saved; do ${NP_BASH} ${S7}/wifictl.t \${v} >/dev/null 2>&1; echo \"\${v%% *}=\$?\"; done | tr '\n' ' '"
+grep -q '^connect=2 join=2 forget=2 current=2 saved=2 $' "${S7}/bP/out"
+check $? "no wlan device: connect, join, forget, current and saved each exit 2" "$(cat "${S7}/bP/out")"
+
+echo "  bQ. a network named default is stored when joined, and forget still clears it (#758)"
+s3_lift "${S7}/wifictl" > "${S7}/wf.sh"
+s7_stub nmcli 'case "$*" in *wireless-security.psk*) printf "%s%s\n" k3y fixture ;; *802-11-wireless.ssid*) echo default ;; *"connection delete"*) exit 0 ;; esac; exit 0'
+s7_run "${S7}/bQ" "${S7_CFG}; . ${S3}/001-functions; . ${S7}/wf.sh; NMCLI=${S7}/stub/nmcli; WIFI_DEV=wlan0
+    saved_wifi() { printf 'default\tsaved\n'; }; saved_state() { [ \"\$2\" = default ] && echo saved; }; wifi_dev_connection() { echo default; }; pin_wifi() { :; }; logger() { :; }
+    join_wifi default >/dev/null; echo \"joined: \$(get_setting wifi.ssid) \$([ -n \"\$(get_setting wifi.key)\" ] && echo key || echo nokey)\"
+    forget_wifi default >/dev/null; echo \"forgot: [\$(grep -c '^wifi\.\(ssid\|key\)=' /storage/.config/system/configs/system.cfg)]\""
+grep -q '^joined: default key$' "${S7}/bQ/out" && grep -q '^forgot: \[0\]$' "${S7}/bQ/out"
+check $? "join stores wifi.ssid=default with its key; forget removes both" "$(tr '\n' '|' < "${S7}/bQ/out")"
+
+echo "  bR. rocknix-config's verbs say what they cannot do, and its edit keeps a value whole (#754, #755)"
+printf 'HW_DEVICE=GENERIC_X64\n' > "${S7}/os-release"
+sed -e "s#^\. /etc/profile\$#. ${S3}/001-functions#" -e "s#^\. /etc/os-release\$#. ${S7}/os-release#" "${S7}/rocknix-config" > "${S7}/rocknix-config.t"
+s7_run "${S7}/bR" "mkdir -p /var/log; ${S7_CFG}; ${NP_BASH} ${S7}/rocknix-config.t lsoutputs; echo \"lsoutputs rc=\$?\"; ${NP_BASH} ${S7}/rocknix-config.t storage list; echo \"storage rc=\$?\""
+grep -q '^auto$' "${S7}/bR/out" && grep -q '^lsoutputs rc=0$' "${S7}/bR/out" && ! grep -q 'command not found' "${S7}/bR/err" && grep -q -E '^storage rc=[1-9]' "${S7}/bR/out"
+check $? "lsoutputs prints auto with no missing command; storage list says it cannot" "$(tr '\n' '|' < "${S7}/bR/out") $(head -c 120 "${S7}/bR/err" | tr '\n' '|')"
+s3_lift "${S7}/rocknix-config" > "${S7}/rc.sh"
+s3_run "${S7}/bR2" ". ${S7}/rc.sh; configFile=\${D}/config.txt; printf 'a=old\nkeep=1\n' > \${D}/config.txt; bato_config_set_value a 'x/y&z' >/dev/null 2>&1; bato_config_set_value ab 1 >/dev/null 2>&1; tr '\n' '|' < \${D}/config.txt"
+[ "$(cat "${S7}/bR2/out")" = 'a=x/y&z|keep=1|ab=1|' ]
+check $? "a=x/y&z written whole, then ab=1 beside it" "config.txt: $(cat "${S7}/bR2/out")"
+
+echo "  bS. usbgadget is a bash script, and says Done. only when verbose (F-50)"
+head -1 "${S7}/usbgadget" | grep -q '^#!/bin/bash' && ! grep -q '\[ -n "\$verbose" \]' "${S7}/usbgadget"
+check $? "#!/bin/bash, and no [ -n \"\$verbose\" ] test" "$(head -1 "${S7}/usbgadget"); $(grep -c '\[ -n "\$verbose" \]' "${S7}/usbgadget") [ -n ] test(s)"
+python3 "${ROOT}/tools/usb-gadget-test" --source "${S7}/usbgadget" --shell "${NP_BASH}" --output "${S7}/ugt.json" > "${S7}/ugt.out" 2>&1
+check $? "tools/usb-gadget-test passes on this usbgadget under the image's bash" "$(tail -3 "${S7}/ugt.out" | tr '\n' '|')"
+
+echo "  bT. rocknix-report-stats.service says what it is now (F-51)"
+! grep -q '^Description=Report anonymous' "${S7}/rocknix-report-stats.service"
+check $? "its description no longer claims a report" "$(grep '^Description=' "${S7}/rocknix-report-stats.service")"
+
+echo "  bV. rocknix-scraper says why it stays (F-66)"
+grep -q 'F-66' "${S7}/rocknix-scraper"
+check $? "the comment is there" "no F-66 comment in rocknix-scraper"
+
+echo "  bW. every tz entry is a zone the image has (F-69)"
+if [ -d "${QA_SYSTEM_ROOT:-/nonexistent}/usr/share/zoneinfo" ]; then
+    TZMISS=$(while read -r z; do [ -n "${z}" ] && [ ! -e "${QA_SYSTEM_ROOT}/usr/share/zoneinfo/${z}" ] && echo "${z}"; done < "${S7}/tz" | tr '\n' ' ')
+    [ -z "${TZMISS}" ]
+    check $? "all $(grep -c . "${S7}/tz") entries are under the image's zoneinfo" "missing: ${TZMISS}"
+else
+    skip "F-69: no image (QA_SYSTEM_ROOT) to read zoneinfo from"
+fi
+
+echo "  bX. rocknix-systems and rocknix-bluetooth-agent name python3 and carry no Python 2 imports (A-11a)"
+A11=""; for f in rocknix-systems rocknix-bluetooth-agent; do head -1 "${S7}/${f}" | grep -q 'python3$' || A11="${A11} ${f}:shebang"; grep -q '^from __future__' "${S7}/${f}" && A11="${A11} ${f}:__future__"; python3 -c 'import ast,sys; ast.parse(open(sys.argv[1]).read())' "${S7}/${f}" 2>/dev/null || A11="${A11} ${f}:parse"; done
+[ -z "${A11}" ]
+check $? "both say python3 and parse" "found:${A11}"
+
+echo "  bY. vocabulary-check reads this slice's player-facing scripts (A-11b)"
+grep -q 'rocknix/sources/scripts' "${S7}/vocabulary-check" && grep -q '"factoryreset"' "${S7}/vocabulary-check"
+check $? "factoryreset and the slice's scripts are in its default set" "vocabulary-check reads only the cloud scripts and backuptool"
+
 if [ "${NOT_APPLICABLE}" -ne 0 ]; then echo "${NOT_APPLICABLE} HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS"; fi
 if [ "${FAIL}" -eq 0 ] && [ "${SKIPPED}" -eq 0 ]; then echo "PASSED"; exit 0
 elif [ "${FAIL}" -eq 0 ]; then echo "PASSED, ${SKIPPED} SKIPPED -- a check that did not run has not passed"; exit 3

@@ -329,3 +329,20 @@
   - F-24's ten boots;
   - F-36's, F-41's and F-43b's readings.
   - F-31's `systemctl cat` needs an image built from the branch.
+
+## [Stage E, S7] 23:00 — Stream S7, the control scripts and fragments
+
+- **Items, in the briefs' order:**
+  - **Bugs:** #722 (`paneladj`), #723 (`008-perfmode`), #750 (`050-audio`), #751 (`055-hdmi-check`), #752 (`handle-hdmi-hotplug`, with a `pause` verb in `usbgadget`), #761 (`suspendmode`), #753 (`volume`), #748 (`rocknix-memory-manager`), #749 (the bezel project), #746 (`wifictl`'s gate), #758 (`wifictl:460` and `:388`, with `set_settings_values` in `001-functions`), and #754 with #755 (`rocknix-config`).
+  - **Renovation:** F-50, F-51, F-52, F-66, F-69, A-11a, A-11b.
+  - **Not changed:**
+    - F-47: the briefs change the filter only if a value is printed today, and the audit's guest check found none.
+    - F-55: eight of the scripts are upstream's and stay, with a line on #585. `rocknix-retroachievements-info` goes with #563, since upstream removed it in `03204074ef`.
+  - **Deferred:** F-49 #747 to #563, and F-68 #725 to D-SYS-014.
+- **The test first:** `tools/last-good-scripts-test` sections bG to bY. Panels, radios, the gadget and every service are stubs; sysfs and `/proc` are fixtures. The bezel project runs whole in the sandbox, against local lists.
+  - **unfixed** (`BASE_REF=eb1442f5a7 --old`, from the tree, 23:10:40-23:19:33, rc 1): 22 checks failed, all in bG to bY.
+  - **A first unfixed run** (22:50:30-22:59:29, rc 1, the same 22) had two faults in my own cases. The first passing run showed them:
+    - `bM`'s stub `pactl` was never reached, because `001-functions` puts `/usr/bin` first on `PATH`;
+    - `bQ` stopped at `saved_state`, which the lifter misses (a comment after its `{`).
+
+    Both cases were corrected in this head and the run repeated; the repeat is the evidence.
