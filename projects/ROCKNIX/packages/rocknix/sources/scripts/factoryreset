@@ -199,7 +199,11 @@ case "${VERB}" in
     systemctl stop pipewire-pulse pipewire-pulse.socket pipewire pipewire.socket wireplumber
 
     RC=0
-    for AUDIO_STATE in /storage/.local/state /storage/.config/pulse /storage/asound*
+    # The audio stack's own state only: /storage/.local/state is every
+    # program's XDG state folder (GLib's, Qt's and mpv's readers of
+    # XDG_STATE_HOME are on the image too), and removing it whole took theirs
+    # (#743).
+    for AUDIO_STATE in /storage/.local/state/wireplumber /storage/.local/state/pipewire /storage/.config/pulse /storage/asound*
     do
         [ -e "${AUDIO_STATE}" ] || continue
         if ! remove_checked "${AUDIO_STATE}"
