@@ -67,3 +67,56 @@ Search, per script name `<n>` (08:00 UTC, `.qa-scratch/t1/q6.tsv`): in the distr
 
 Totals: 47 scripts; **9 unreached** by any caller, **1 unreached in effect** (`rocknix-scraper`, through a page nothing opens) (`amionline`, `bezels.sh`, `error.sh`, `find.sh`, `getoverlays`, `migrate_roms`, `rocknix-retroachievements-info`, `setemu.sh`, `show_changelog`), all present since the import `9f1fab30f6` (`git log --diff-filter=A`); 1 reached only by hand (`installtointernal`); 36 reached. Two further dead ends inside reached scripts: `automount`'s `start_overlay` (F-41) and `usbgadget`'s deprecated verbs (F-49). `engineering-practices.md` § Before deleting a duplicate applies before any removal: none of the nine is a duplicate of a survivor, and each row names what it wrote and exposed.
 
+
+### Q4 Package currency: every upstream commit on the package since the merge base
+
+The package has no upstream tarball (`PKG_VERSION=""`), so currency is ROCKNIX's own copies of these files. `git log --format='%h|%ad|%p|%s' --name-only c445081a59..8b70f693b8 -- projects/ROCKNIX/packages/rocknix/` (`upstream/next` = `8b70f693b8`, fetched 07:05 UTC): **43 commits, 11 of them merges** (dispositioned `merge`: their content is the commits listed beside them). "To merge" means `next` should take it when it next levels with `upstream/next` (`release-candidates.md` step 0, the M7 lane's); "with care" names a conflict or a launch-path change. ROCKNIX's `wifictl` refactor (PR #3394, #316) is inside the merge base, not in this range: the fork's `wifictl` is the merged design D-UI-118 decided.
+
+| Commit | Date | Subject | Files | Disposition |
+| --- | --- | --- | --- | --- |
+| `a94a2e0bde` | 2026-10-23 | emulationstation: batteryplus calibration reset | `sources/scripts/factoryreset` | **to merge** (adds a verb; `factoryreset` is fork-changed (#119/#307), so a conflict to resolve by hand) |
+| `b011b5144f` | 2026-10-22 | emulationstation: hide cursor setting | `sources/post-update`, `sources/scripts/runemu.sh` | **to merge with care**: both files fork-changed, and `runemu.sh` carries the M7 delta |
+| `09ce29c548` | 2026-10-19 | Merge pull request #3534 from sunshineinabox/PR_ASX2 | - | merge (its content is the commits it brings) |
+| `c4d353449e` | 2026-10-18 | aethersx2: drop package due to licensing concern | `sources/scripts/factoryreset`, `sources/scripts/rocknix-systems` | **to merge** (licensing; also makes `post-update:153-156`'s aethersx2 BIOS copy moot) |
+| `38cc9c7e7d` | 2026-10-17 | rk3566: fix some inputplumber issues | `sources/post-update`, `sources/scripts/factoryreset` | **to merge** (RK3566; shared files) |
+| `68bff3f07a` | 2026-10-15 | Merge pull request #3510 from sydarn/yabadabadoo | - | merge (its content is the commits it brings) |
+| `8704addb6b` | 2026-10-15 | yabadabadoo: add new Saturn emulator for low end platforms | `sources/scripts/runemu.sh` | **to merge** (a new emulator branch in `runemu.sh`'s dispatch) |
+| `2707ea7e27` | 2026-10-15 | Merge pull request #3503 from beebono/sm4450-install | - | merge (its content is the commits it brings) |
+| `71d8932b33` | 2026-10-14 | openabl: introduce package | `sources/scripts/updateabl` | **to merge**, read against F-67 (does it change the ABL write?) |
+| `2d3f874ecd` | 2026-10-14 | installtointernal: allow RG55G1 in SM4450 | `sources/scripts/installtointernal` | **to merge** (SM4450) |
+| `a1ea79474b` | 2026-10-10 | rk3566: port to inputplumber | `sources/post-update`, `sources/scripts/factoryreset` | **to merge** (RK3566; shared files) |
+| `cb4b9e8e11` | 2026-10-11 | rocknix: set default wifi country | `config/system/configs/system.cfg` | **to merge** (`wifi.country` default; the fork's Wi-Fi work reads it, `wifictl:61`) |
+| `2898e4947a` | 2026-10-11 | Merge pull request #3434 from Jacob-Matthew-Cook/zram-memory-management | - | merge (its content is the commits it brings) |
+| `115a89be2b` | 2026-10-10 | Merge pull request #3468 from qzydustin/setting-keys | - | merge (its content is the commits it brings) |
+| `abfdcfb57f` | 2026-10-10 | SM8550/SM8750: add RP6 and Odin 3 display refresh rate calibration | `sources/scripts/rocknix-panel-calibration` | **to merge** (SM8550 panel calibration, a shipped device; a new script) |
+| `ce8f17d48b` | 2026-10-10 | Merge pull request #3454 from qzydustin/usbgadget-stop-shell | - | merge (its content is the commits it brings) |
+| `f7d9c1f540` | 2026-10-10 | Merge pull request #3446 from qzydustin/usbgadget-boot-settle | - | merge (its content is the commits it brings) |
+| `03204074ef` | 2026-10-08 | Merge pull request #3475 from sunshineinabox/PR_ToolCompat | `sources/scripts/handle-hdmi-hotplug`, `sources/scripts/rocknix-config`, `sources/scripts/rocknix-retroachievements-info`, `sources/scripts/updateabl` | **to merge** (tool compatibility across four scripts the slice read; compare with F-64's `rocknix-config` gaps) |
+| `2d34256719` | 2026-10-08 | Merge pull request #3464 from sunshineinabox/PR_QuitHotkey | - | merge (its content is the commits it brings) |
+| `72a96e2d8b` | 2026-10-07 | script: address feedback | `sources/scripts/rocknix-fake-suspend` | **to merge** |
+| `cdbf28938a` | 2026-10-07 | rocknix: pass the auto frame delay and VRR options to RetroArch | `sources/scripts/setsettings.sh` | **to merge** (RetroArch half; adds keys, no conflict with F-09/F-10's lines expected but to check) |
+| `0ebba6b301` | 2026-10-07 | rocknix: pass the AI service pause option to RetroArch | `sources/scripts/setsettings.sh` | **to merge** (RetroArch half) |
+| `4e3972d037` | 2026-10-07 | rocknix: fix two keys in the default system.cfg | `config/system/configs/system.cfg` | **to merge: resolves F-45** (`ngpc.intergerscale` to `integerscale`) **and a key this audit missed** (`global.retroachievements.soundenable=0` to `global.retroachievements.sound=none`; `setsettings.sh:498` reads `.sound`) |
+| `6aa745572b` | 2026-10-06 | usbgadget: fix usb_stop running in a subshell | `sources/scripts/usbgadget` | **to merge: resolves F-49's cause** (`usb_stop`'s `( )` to `{ }`) |
+| `ee8cda0090` | 2026-10-05 | usbgadget: fix the gadget network not coming up at boot | `sources/scripts/usbgadget` | **to merge** |
+| `e1b7d1f82f` | 2026-10-03 | rocknix-memory-manager: support the ES ZRAM menu | `sources/scripts/rocknix-memory-manager`, `system.d/rocknix-memory-recompress.service`, `system.d/rocknix-memory-recompress.timer`, `system.d/timers.target.wants/rocknix-memory-recompress.timer` | **to merge** (adds `rocknix-memory-recompress` service and timer; the interface's ZRAM menu calls the manager after it, so F-52's `eval` gains a caller: re-read F-52 then) |
+| `48b98a02d7` | 2026-09-27 | sm6115: initial Retroid Pocket Duo Lite support | `sources/scripts/vertical-check` | **to merge** (SM6115) |
+| `82000b31d3` | 2026-10-06 | installtointernal: handle qcom-spec partition tables | `sources/scripts/installtointernal` | **to merge**, read against F-39/F-40 |
+| `54d72565ce` | 2026-10-05 | rocknix-fake-suspend: stop a pending suspend before resuming | `sources/scripts/rocknix-fake-suspend` | **to merge** |
+| `18aded5898` | 2026-10-05 | Merge pull request #3449 from sunshineinabox/PR_FixMelonDSPostUpdate | `sources/post-update` | **not applicable as written**: the fork fixed the same melonDS post-update reset its own way (#526, `post-update:204-251`, `tools/melonds-upgrade-test` 15 PASS); compare before taking either |
+| `32ebcdbf1b` | 2026-10-05 | rocknix: keep Steam alive when one of its processes is OOM-killed | `sources/scripts/runemu.sh` | **to merge with care** (`runemu.sh`, the launch path; Steam only) |
+| `c1ee20e954` | 2026-10-05 | rocknix: set up zram swap before oomd starts | `system.d/rocknix-memory-manager.service` | **to merge** (unit ordering) |
+| `54acd9556f` | 2026-10-05 | systemd: ship the distro sysctls in the image, drop dead keys | `sources/post-update` | **to merge**, compared with D-SYS-007's one-line `vm.laptop_mode` removal (`post-update:89-104`) so the two do not fight |
+| `9234c39496` | 2026-10-05 | Merge pull request #3432 from sunshineinabox/PR_FastSettings | - | merge (its content is the commits it brings) |
+| `25903bb59c` | 2026-10-04 | rocknix: look up settings without fork and use flock | `profile.d/001-functions` | **split**: the `get_setting` half **to merge** (a literal match through a quoted `=~`, so it **resolves F-21**, and no fork per lookup, Q5); the lock half (`flock` on `/tmp/.system.cfg.lock`) **not applicable**: the fork's lock is pid-only and shared with the interface's `PidLock`, which reads the pid (D-INFRA-012, `001-functions:188-232`) |
+| `dc14669f69` | 2026-10-03 | systemd: set THP policy with tmpfiles and MemoryTHP | `sources/scripts/rocknix-memory-manager` | **to merge** (THP by tmpfiles; `rocknix-memory-manager` then stops writing it) |
+| `bb9e42e2a0` | 2026-10-03 | rocknix: run games in games.slice with oomd and freeze on suspend | `sources/scripts/rocknix-fake-suspend`, `sources/scripts/rocknix-games-freeze`, `sources/scripts/runemu.sh`, `system.d/rocknix-report-stats.service` | **to merge with care**: games in `games.slice` with oomd and a freeze on suspend changes the launch path (`runemu.sh`) -- measure time to play before and after (`time-to-play.md`) |
+| `a98a3066f5` | 2026-10-03 | systemd: persist timesyncd clock and reboot on PID1 crash | `sources/scripts/rocknix-memory-manager` | **to merge** |
+| `4840b3e2a2` | 2026-10-03 | Merge pull request #3303 from Jacob-Matthew-Cook/dwc2-usb-fixes | - | merge (its content is the commits it brings) |
+| `8628890fec` | 2026-09-11 | dwc2: fix resume crash, suspend hang, and vbus leak on role switch | `sources/scripts/usbgadget` | **to merge** (dwc2 role-switch fixes; F-50's file) |
+| `e181700da7` | 2026-10-02 | Merge pull request #3393 from porschemad911/input-sense-touchscreen | - | merge (its content is the commits it brings) |
+| `0c43a50420` | 2026-10-01 | Merge pull request #3377 from sunshineinabox/PR_RotScaling | `profile.d/001-functions`, `sources/scripts/runemu.sh` | **to merge with care**: rotation scaling in `001-functions` and `runemu.sh`, where the fork's rotation records live (#280, #288) |
+| `f4fc3dc419` | 2026-10-01 | system-utils: input_sense: add touchscreen toggle | `sources/scripts/rocknix-touchscreen` | **to merge** (a new `rocknix-touchscreen` script) |
+
+Totals: 11 merges; 32 commits: 26 to merge (`abfdcfb57f` among them, a new script for the shipped SM8550), 4 to merge with care (`b011b5144f`, `32ebcdbf1b`, `bb9e42e2a0`, `0c43a50420`), 1 split (`25903bb59c`), 1 not applicable as written (`18aded5898`); 26 + 4 + 1 + 1 = 32, counted from the table's rows. **Three of this audit's findings are already fixed upstream** (F-21 by `25903bb59c`'s lookup, F-45 by `4e3972d037`, F-49's cause by `6aa745572b`); their stream is a merge, not a fork patch (D-WORKFLOW-164's queue, #585, the other way round).
+
