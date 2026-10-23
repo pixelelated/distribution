@@ -26,14 +26,36 @@ then
   exit 1
 fi
 
-LPC=$(awk -F: '/^root/{print $3}' /storage/.cache/shadow)
-CURRENT=$(awk -F: '/^root/{print $2}' /storage/.cache/shadow)
+SHADOW=/storage/.cache/shadow
 
-# Turn it into a usable hash
+# Turn it into a usable hash, and refuse unless it is one: a cryptpw that
+# failed left NEW empty, the root hash was written empty, and the steps below
+# went on to Samba, Syncthing and root.password as if the password had been
+# set (#714).
 NEW=$(cryptpw -m sha512 "${ROOTPASS}" 2>/dev/null)
+case "${NEW}" in
+  '$6$'*) ;;
+  *)
+    logger -t setrootpass "refused: the password's hash could not be made; nothing was changed"
+    echo "setrootpass: the password's hash could not be made; the existing password is unchanged" >&2
+    exit 1
+    ;;
+esac
 
-# Set the root password.
-sed -i "s#root:${CURRENT}:${LPC}::::::#root:${NEW}:${LPC}::::::#g" /storage/.cache/shadow 2>/dev/null
+# Set the root password: the root line's hash field, whatever the rest of the
+# line holds, written beside the file, moved over it and read back. The sed
+# this replaces matched one exact shape of the line and left any other as it
+# was, with a 0 (#714).
+if ! cp -p "${SHADOW}" "${SHADOW}.tmp" ||
+   ! H="${NEW}" awk -F: -v OFS=: '$1 == "root" { $2 = ENVIRON["H"]; n++ } { print } END { exit n != 1 }' "${SHADOW}" > "${SHADOW}.tmp" ||
+   ! mv -f "${SHADOW}.tmp" "${SHADOW}" ||
+   [ "$(awk -F: '$1 == "root" { print $2 }' "${SHADOW}")" != "${NEW}" ]
+then
+  rm -f "${SHADOW}.tmp"
+  logger -t setrootpass "refused: the root line in ${SHADOW} could not be rewritten; nothing else was changed"
+  echo "setrootpass: the password could not be set; Samba, Syncthing and the stored password are unchanged" >&2
+  exit 1
+fi
 
 # Create a root user and set the password.
 # printf, not echo -ne: a backslash in the password must reach smbpasswd as typed (fork #198).
@@ -42,8 +64,9 @@ printf '%s\n%s\n' "${ROOTPASS}" "${ROOTPASS}" | smbpasswd -sa root 2>/dev/null
 # Set the root user and password for SyncThing
 syncthing generate --gui-user "root" --gui-password "${ROOTPASS}" >/dev/null 2>&1
 
-# Save the password so we can display it in ES
-set_setting root.password "${ROOTPASS}"
+# Save the password so we can display it in ES. set_setting_value, because a
+# password may be the word default, which set_setting reads as "remove" (#758).
+set_setting_value root.password "${ROOTPASS}"
 
 # Restart syncthing if it was enabled.
 SYNCSTATUS=$(get_setting syncthing.enabled)

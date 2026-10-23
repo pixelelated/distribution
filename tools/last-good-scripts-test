@@ -3132,8 +3132,11 @@ sv "" ""; [ "$(cfg)" = 'savestate_auto_index = "true"|' ];                      
 XR="${X}/rootpass"; XS="${XR}/storage/.cache"; mkdir -p "${XS}" "${XR}/shim" "${XR}/repo" "${XR}/run"
 src_of "projects/ROCKNIX/packages/rocknix/sources/scripts/setrootpass" "${XR}/repo/setrootpass"
 printf 'root:OLDHASH:19000::::::\n' > "${XS}/shadow"
-printf 'export PATH=/shim:/usr/bin:/bin\nget_setting() { echo 0; }\nset_setting() { printf "%%s=%%s\\n" "$1" "$2" >> /run/settings; }\n' > "${XR}/profile"
-printf '#!/bin/bash\n# a hash never holds a backslash; the fake encodes the password in hex\nprintf "CRYPT<%%s>" "$(printf "%%s" "$3" | od -An -tx1 | tr -d " \\n")"\n' > "${XR}/shim/cryptpw"
+printf 'export PATH=/shim:/usr/bin:/bin\nget_setting() { echo 0; }\nset_setting() { printf "%%s=%%s\\n" "$1" "$2" >> /run/settings; }\nset_setting_value() { set_setting "$@"; }\n' > "${XR}/profile"
+# The fake prints a sha512 crypt's $6$ prefix, as the real one does: setrootpass
+# refuses any other output since #714, and stores the value with
+# set_setting_value since #758.
+printf '#!/bin/bash\n# a hash never holds a backslash; the fake encodes the password in hex\nprintf "\\$6\\$CRYPT<%%s>" "$(printf "%%s" "$3" | od -An -tx1 | tr -d " \\n")"\n' > "${XR}/shim/cryptpw"
 printf '#!/bin/bash\ncat > /run/smb\n' > "${XR}/shim/smbpasswd"
 printf '#!/bin/bash\nprintf "%%s\\n" "$@" > /run/syncthing\n' > "${XR}/shim/syncthing"
 printf '#!/bin/bash\nexit 0\n' > "${XR}/shim/logger"
@@ -3149,7 +3152,7 @@ rp() { # rp <password>: setrootpass in the sandbox; rc in RC
 PW='a b$c\n2'
 rp "${PW}"
 PWHEX="$(printf '%s' "${PW}" | od -An -tx1 | tr -d ' \n')"
-[ "${RC}" -eq 0 ] && grep -qF "root:CRYPT<${PWHEX}>:19000::::::" "${XS}/shadow"; check $? "a password with a space, a \$ and a backslash reaches cryptpw whole and lands in shadow (#198)" "rc ${RC}; shadow: $(cat "${XS}/shadow"); out: $(head -c 200 "${XR}/out")"
+[ "${RC}" -eq 0 ] && grep -qF "root:\$6\$CRYPT<${PWHEX}>:19000::::::" "${XS}/shadow"; check $? "a password with a space, a \$ and a backslash reaches cryptpw whole and lands in shadow (#198)" "rc ${RC}; shadow: $(cat "${XS}/shadow"); out: $(head -c 200 "${XR}/out")"
 [ "$(cat "${XR}/run/smb")" = "$(printf '%s\n%s' "${PW}" "${PW}")" ]; check $? "and smbpasswd receives it twice, byte for byte (printf, not echo -ne)" "smb got: $(tr '\n' '|' < "${XR}/run/smb")"
 grep -qFx -- "${PW}" "${XR}/run/syncthing" && grep -qF -- "root.password=${PW}" "${XR}/run/settings"; check $? "syncthing and the setting get the same bytes" "syncthing: $(tr '\n' ' ' < "${XR}/run/syncthing"); settings: $(cat "${XR}/run/settings")"
 # x3. rocknix-corekeep: a dump cut at the cap is noted CUT from the raw byte count, not
