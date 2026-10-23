@@ -45,7 +45,10 @@ git fetch origin && git merge --no-edit next          # only when next moved; ne
 tools/register-check && tools/work-log-index --check && tools/ceremony-check
 ```
 
-Then: read #641's latest comments for P1's state. At its pass-7 gate, read
+Then: **at every gate, re-read § The seed brief below and D-WORKFLOW-181 against
+what is about to be accepted, and say on #641 what was checked** (maintainer,
+2026-10-23, giving the yes on the order: *"It's incredibly important that we
+remain aligned."*). Read #641's latest comments for P1's state. At its pass-7 gate, read
 the proposed order against plan § 5 and § 6a and record the yes or the
 changes on #641. After the M7 candidate's merge lands on `next`, merge this
 branch to `next` first (`git switch next && git merge --no-ff
@@ -82,3 +85,28 @@ regenerate `docs/work-logs/INDEX.md`. At merge: keep both appends in order,
 keep both day-file entries, regenerate the index with
 `tools/work-log-index --write`. Nothing here builds, touches a device, a
 cloud or the M7 build worktrees.
+
+## State at 2026-10-23 (the coordinator's own update)
+
+P0 is done on this branch; its merge waits on the M7 lane's post-candidate
+merge (never `--no-verify`). P1's pass-7 gate: question 1 settled
+(D-WORKFLOW-185/186), question 2 withdrawn (D-WORKFLOW-187: the renovation
+gates no release), question 3 settled by D-WORKFLOW-184; the maintainer's yes
+on the order's fourth version (`eb4763e3cc`, ledgers `00ca350666`) was given
+on 2026-10-23 and relayed. P1 writes the order's register row; the filing of
+the 46 slice issues is held on one question with the maintainer, who authors
+the slice issues and their criteria (D-WORKFLOW-181's letter has Fable; the
+lane split of 2026-10-22 put the survey on Opus 5.5). #644 and #645 are the
+build-path read and its PR-process findings. Next: the hand-back acceptance
+against the P1 brief § 10, then the first slice's brief (plan § 7).
+
+## The seed brief (2026-10-22, the planning session's handoff, verbatim)
+
+The first message this lane received, pasted by the maintainer from the P0
+planning session; kept here because the maintainer asked that the lane consult
+it at each step (*"You should have a copy of the original seed I provided for
+this exercise"*). The intent it serves is D-WORKFLOW-181's, in the maintainer's
+words there.
+
+> Started by the P0 planning session (Claude Fable 5.1, Herdr pane wN:p1, tab "P0 planning (#346)") on the maintainer's direction of 2026-10-22. You are the M6 coordinator lane (D-WORKFLOW-183): the renovation program's planner, brief-writer, gate-acceptor and integrator, running on Fable; the work lanes run on Opus 5.5. Your worktree is /workspace/repos/pixelelated/distribution.worktrees/m6-renovation-plan-346 on feature/m6-renovation-plan-346; the primary checkout /workspace/repos/pixelelated/distribution stays on next with no resident session, and you are its keeper. Read first, in this order: .github/sessions/saved-session-state-feature-m6-renovation-plan-346.md (your lane's pointer), docs/reviews/plan-for-the-plan.md, the live M6 milestone body, issues #346, #641 and #640 on pixelelated/distribution, then next:AGENTS.md and the every-session rules. The maintainer's direction, verbatim: "the coordinator will be Fable and the work will be Opus 5.5" and "we begin our work and ensure that everything is in the new work tree with the seeded session file to resume, and that there's a corresponding branch. We can then begin work there." Gates: nothing merges to next until the M7 lane's post-candidate merge clears the push guard, and never with --no-verify; the P1 lane (Herdr tab "P1 Survey (#641)", agent m6-p1-survey, worktree m6-p1-survey-641) pauses at its pass-7 gate on #641 for the maintainer's yes, which reaches it through you, one question at a time; you accept P1 at hand-back against brief section 10; one session per worktree, so never write in the P1 worktree. Report on #346 and #641. First action: read your pointer and the plan, confirm on #346 in one comment that you have resumed (your session id from herdr agent list, this pane, the time), then wait for P1's pass-7 post or the maintainer; do not start new work streams on your own.  Also: append this lane start to docs/work-logs/2026_10-work_logs/2026_10_22-work_log.md in your worktree (the planning session writes there no longer, one session per worktree), run tools/work-log-index --write, commit with Refs #346 and push; and note on #346 that Claude Code reports the 25 instruction files at 324.2k characters, over its 150k limit, so the rules load truncated in every lane, a finding for the doctrine slice.
+
