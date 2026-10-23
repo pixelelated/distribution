@@ -461,7 +461,19 @@ setup_swapfile() {
     [ -f "$TARGET_SWAP" ] && cur=$(du -m "$TARGET_SWAP" | cut -f1)
     
     if [ "$cur" -ne "$SWAP_SIZE_VAL" ]; then
-        [ -f "$TARGET_SWAP" ] && swapoff "$TARGET_SWAP" 2>/dev/null && rm "$TARGET_SWAP"
+        # A file the kernel is swapping to comes off first, or the resize
+        # stops: when swapoff failed the old line skipped the rm and wrote the
+        # new size over a file still in use (#748). A file not in use is
+        # removed, so the new one is made at its size (fallocate does not
+        # shrink a file).
+        if [ -f "$TARGET_SWAP" ]; then
+            if awk -v f="$TARGET_SWAP" '$1 == f { found = 1 } END { exit !found }' /proc/swaps 2>/dev/null && \
+               ! swapoff "$TARGET_SWAP" 2>/dev/null; then
+                echo "The swap file ${TARGET_SWAP} is in use and could not be taken off, so its size was left as it is."
+                return 1
+            fi
+            rm -f "$TARGET_SWAP"
+        fi
         fallocate -l ${SWAP_SIZE_VAL}M "$TARGET_SWAP" 2>/dev/null || \
             dd if=/dev/zero of="$TARGET_SWAP" bs=1M count=$SWAP_SIZE_VAL status=none
         chmod 0600 "$TARGET_SWAP"
