@@ -134,7 +134,12 @@ then its stream briefs; an interface slice closes only after the first image
 with its pin bump proves the fixes (plan § 6b H; D-WORKFLOW-191 open with the
 maintainer); T3's brief (#650); T1's drift re-open when the M7 candidate
 lands. Both lanes report on their issues; nothing wakes this lane on a
-post, so read #648 and #649 at every turn.
+post, so read #648 and #649 at every turn. **And nothing wakes a lane on a
+comment:** a lane's turn ends when it posts a question, so every answer the
+coordinator gives on an issue is also sent as `herdr agent prompt <lane>`,
+the same minute (T1 sat idle 78 minutes on 2026-10-23 after an answer that
+was only a comment). Before calling a lane idle, read its worktree's branch
+and status, not the origin.
 
 ## The seed brief (2026-10-22, the planning session's handoff, verbatim)
 
