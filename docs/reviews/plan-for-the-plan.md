@@ -173,9 +173,10 @@ All slices are one declared phase, P2, ordered by `order.md`; the title is
 `M6.P2 E339/T<k>: <area>: <slice>` (`T`, verification, from the closed sub-id
 set; `k` sequential), becoming `E<epic>/T<k>` under the area epic. It carries: the paths (so `tools/box-check` can read them), the
 provenance tier, the line count, the lens questions that apply, the
-interacting subsystems, the review depth (§ 6, stage C), the release it gates
-if any (D-WORKFLOW-102), and the `reviewed-at` field left empty until stage H
-fills it.
+interacting subsystems, the review depth (§ 6, stage C), the reading
+prerequisite if any (the launch-path slices before #336 Step 1; no slice
+gates a release, D-WORKFLOW-187), and the `reviewed-at` field left empty
+until stage H fills it.
 
 **Areas become epics.** The survey (P1) proposes them; the first cut, from
 the shape in § 2, is:
@@ -183,7 +184,7 @@ the shape in § 2, is:
 | Epic (area) | Tier | What it holds | Why it is one epic |
 | --- | --- | --- | --- |
 | Build engine | upstream-carried, small fork delta | `scripts/`, `config/`, `distributions/`, the `Makefile`, `tools/mkpkg`, the Docker path | everything else is built by it; 26,000 lines read once; where the maintainer puts the renovation's value, ahead of any device, with the harness and the package currency beside it (D-WORKFLOW-186; #644 reads ROCKNIX's documented build path against ours) |
-| OS scripts and launch path | fork-own on upstream | `projects/ROCKNIX/packages/rocknix/` (the OS scripts, `runemu.sh`), `sysutils/` (busybox, systemd units, the quirks), `hardware/` | the launch path is the gate D-WORKFLOW-102 names |
+| OS scripts and launch path | fork-own on upstream | `projects/ROCKNIX/packages/rocknix/` (the OS scripts, `runemu.sh`), `sysutils/` (busybox, systemd units, the quirks), `hardware/` | the launch path is read before #336 Step 1 replaces it (D-WORKFLOW-102 as D-WORKFLOW-187 refines it: a reading order, not a release gate) |
 | Cloud sync and saves | fork-own | `projects/ROCKNIX/packages/network/rclone/`, the cloud tools under `tools/`, `backuptool` | one state model, one filter allowlist, the invariants in `rclone-cloud-sync.md` |
 | Offline achievements | fork-own | the proxy package, its consumers in RetroArch and the emulators, the ES pages | one protocol, one queue |
 | Emulators and cores | upstream-carried with fork patches | `projects/ROCKNIX/packages/emulators/` (276 differing paths), the RetroArch patches, the wrappers | the largest group; split by family (libretro cores, standalone, RetroArch itself) |
@@ -270,8 +271,9 @@ the renovation actually happens.
 
 ### Standing, drift re-review
 
-Runs at every slice close and before every release (§ 8). It is a phase with
-no end, listed in the milestone body as such.
+Runs at every slice close (§ 8), on the renovation's own cadence and never as
+a release step (D-WORKFLOW-187). It is a phase with no end, listed in the
+milestone body as such.
 
 ### 6a. Ordering lenses
 
@@ -288,9 +290,11 @@ not from the directory listing.
 | Cost against value | small, central, read once | the build engine; the OS scripts; a device we ship |
 | Reachability | what no image reaches at all | the inventory's reachability column: unreached code is a dead-end slice reviewed as a table, cheap and early, because removal shrinks every later slice |
 
-D-WORKFLOW-102's two gates stand regardless of the scores: Tier 1's launch,
-control and state slice before `0.1`, and the interface's launch-path slice
-before #336 Step 1.
+The renovation gates no release (D-WORKFLOW-187, refining D-WORKFLOW-102):
+a finding that is a defect is a bug issue and holds or clears a release the
+way every bug does (D-QA-051). One reading order stands regardless of the
+scores: the OS launch, control and state slice and the interface's launch-path
+slice are read before #336 Step 1 replaces what they read.
 
 ### 6b. The per-slice procedure
 
@@ -401,8 +405,8 @@ Feature work (M7 and after) lands on `next` while slices run. The rules:
   P1) lists, for every closed slice, `git diff --stat <fixed-at>..next --
   <paths>`: files touched, lines changed, and whether any touched file is on
   the security, state-preservation or launch-path list. It runs at every
-  slice close and before any release candidate (`release-candidates.md` step
-  1: nothing behind before the cut).
+  slice close, on the renovation's own cadence and not as a release step
+  (D-WORKFLOW-187).
 - **A small drift is re-reviewed at issue tier.** Under 20 % of the slice's
   lines and no listed file: a local, issue-tier pass over the diff only, by
   the executor, with its own short audit folder (`issue-<slice>-drift-<date>`)
@@ -446,7 +450,7 @@ Feature work (M7 and after) lands on `next` while slices run. The rules:
 | The order and the method | `docs/reviews/order.md`, this file | P0, P1 |
 | The inventory | `docs/reviews/inventory.json`, `inventory.md` | `tools/renovation-inventory`, re-run at every stage H |
 | The status table | `docs/reviews/status.md` | `tools/renovation-status`, from the inventory and the slice issues |
-| Drift | `tools/renovation-drift` output, pasted on the slice issue | every stage H and every release |
+| Drift | `tools/renovation-drift` output, pasted on the slice issue | every stage H |
 | The briefs | `docs/reviews/briefs/<slice>.md` | the planner, before dispatch |
 | The audits | `docs/audits/<date>-epic-m6-<slice>/` | the executor, per slice |
 | Decisions | `docs/decision-register.md` | the session that makes one, same session |
