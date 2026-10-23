@@ -571,15 +571,6 @@ function set_setting() {
   fi
 }
 
-# Several keys in one write and one rename, under one hold of the lock: a
-# pair that must agree -- wifi.ssid and wifi.key -- is never left half
-# written by a failure between two set_setting calls, where the network's
-# name moved and its key did not (#307, the audit of the fix round, gpt
-# G2-B-11). Arguments are key value pairs; "default" removes a key's line
-# as set_setting does, except system.hostname's, which is emptied
-# (D-NET-009). Returns 0 only when the new file is in place; nothing is
-# written when the arguments are not whole pairs of keys that start with a
-# letter or digit.
 # set_setting's "default" means "remove the key" (the convention SystemConf
 # shares, which raofflineproxy-ctl and wifictl's clears rely on). A player's
 # free text -- a Wi-Fi network's name, a password -- can be that word, so its
@@ -602,6 +593,15 @@ function set_setting_value() {
   return ${rc}
 }
 
+# Several keys in one write and one rename, under one hold of the lock: a
+# pair that must agree -- wifi.ssid and wifi.key -- is never left half
+# written by a failure between two set_setting calls, where the network's
+# name moved and its key did not (#307, the audit of the fix round, gpt
+# G2-B-11). Arguments are key value pairs; "default" removes a key's line
+# as set_setting does, except system.hostname's, which is emptied
+# (D-NET-009). Returns 0 only when the new file is in place; nothing is
+# written when the arguments are not whole pairs of keys that start with a
+# letter or digit.
 function set_settings() {
   local n=0 rc k v
   local -a pairs=()
