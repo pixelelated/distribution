@@ -405,6 +405,9 @@ function install() {
 				matching_rom=0
 				while IFS=$'  \t' read index_bezel_md5 index_bezel_name; do
 						[ -z "$index_bezel_name" ] && continue
+						# A name from the server's list is a file name, never a path: its
+						# extension is joined to the ROM's name for the bezel's file (#749).
+						case "$index_bezel_name" in */*) record "Warning : skipped $index_bezel_name, a name with a / in it"; continue ;; esac
 						index_ext="${index_bezel_name##*.}"
 						index_no_ext="${index_bezel_name%.*}"
 						index_no_brkts="${index_no_ext%% [*}"
@@ -569,6 +572,16 @@ function install_all() {
 #
 function remove() {
 		local system_name="$1"
+
+		# A system's name, or all: an empty name was the games folder itself, and
+		# . or .. a folder beside it (#749).
+		case "$system_name" in
+				all) ;;
+				''|.|..|*[!A-Za-z0-9_-]*)
+						record "Error : $system_name is not a system name" "1"
+						return 1
+						;;
+		esac
 
 		#  do you want to remove all bezels from TheBezelProject ?
 		record "* Remove"
