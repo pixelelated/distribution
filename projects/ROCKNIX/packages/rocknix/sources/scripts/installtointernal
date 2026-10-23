@@ -77,8 +77,14 @@ if [[ -n "${HELD}" ]]; then
   exit 1
 fi
 
-# 1) Find current Android userdata partition
-mapfile -t ud_line < <(parted -m -s "$DEVICE" unit B print | grep ':userdata:')
+# 1) Find current Android userdata partition. parted's listing is read first
+# and its status checked: through a process substitution a parted that failed
+# was lost, and what it had printed went on to the count test (#744).
+if ! PARTED_PRINT=$(parted -m -s "$DEVICE" unit B print); then
+  echo "ERROR: Could not read the partition table of ${DEVICE}, so nothing was changed."
+  exit 1
+fi
+mapfile -t ud_line < <(grep ':userdata:' <<< "$PARTED_PRINT" || true)
 if [[ ${#ud_line[@]} -ne 1 ]]; then
   echo "ERROR: Could not find an Android userdata partition."
   exit 1
