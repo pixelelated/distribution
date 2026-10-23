@@ -350,8 +350,12 @@ start to finish without this conversation. Its sections, in order, each
 mandatory:
 
 1. **Identity**: the slice issue, the epic, the milestone phase, the branch
-   and worktree (`feature/m6-<slice>` under (the lanes append the issue number: `feature/m6-<slice>-<issue>` and `distribution.worktrees/m6-<slice>-<issue>`, as T1 #648 and T2 #649 do; an interface slice adds an EmulationStation worktree `emulationstation-next.worktrees/m6-<slice>-<issue>` on `feature/m6-<slice>-<issue>` from the pin)
-   `/workspace/repos/pixelelated/distribution.worktrees/<slice>`), the model
+   and worktree (`feature/m6-<slice>-<issue>` under
+   `/workspace/repos/pixelelated/distribution.worktrees/m6-<slice>-<issue>`,
+   the issue number appended, as T1 #648 and T2 #649 do; an interface
+   slice adds an EmulationStation worktree
+   `emulationstation-next.worktrees/m6-<slice>-<issue>` on
+   `feature/m6-<slice>-<issue>` from the pin), the model
    and effort the maintainer selected, the review depth and reviewer
    recipes.
 2. **Scope**: the paths, the tree hash they are read at, the line count per
