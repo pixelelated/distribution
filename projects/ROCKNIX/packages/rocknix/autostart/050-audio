@@ -45,7 +45,8 @@ fi
 ### Now set the pipewire mixer volume
 /usr/bin/volume ${VOLUME}
 
-### Run quantum audio hack if exists
-if [ -n "/usr/sbin/quantum" ]; then
+### Run quantum audio hack if exists: -x, where -n tested the literal path,
+### and ran a program most images do not have at every boot (#750).
+if [ -x "/usr/sbin/quantum" ]; then
   /usr/sbin/quantum
 fi
