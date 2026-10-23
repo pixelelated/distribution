@@ -169,3 +169,7 @@
 - `05-punch-list.md` now names each item's tracker; `tools/lint-audit-artifacts --phase pre-issue`: PASS.
 - Clerical: the previous entry was first headed "16:52", an estimate written without reading the clock. It is corrected to 16:42, the time of its commit `55d9bc967b` (`git log -1 --format=%cI`: `16:42:38Z`); the grading window in `04` is corrected the same way (16:34-16:42).
 - **Paused at stage D.** The punch list and #701 are posted on #648, and the lane waits for the coordinator's stream briefs. The guest is down (16:37:49), and nothing runs until M7 writes `resource return`.
+
+## [Stage E] 17:04 — The stream briefs' commit does not carry the document; stopped before S1
+
+- The coordinator's dispatch named `docs/reviews/briefs/t1-streams.md` on `4cb05330c5`. Merged as `9634665a04` (no markers; the friction log, the work log and the index conflicted, and both sides were kept in time order). The commit carries only the work log and its index, and no ref holds the document: it is an untracked file in the coordinator's worktree, which was not read. Raised on #648 (issuecomment-6370350718). S1 starts when the document is committed and merged.
