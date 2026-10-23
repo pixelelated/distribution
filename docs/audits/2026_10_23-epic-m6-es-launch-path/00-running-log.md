@@ -279,3 +279,50 @@ Nothing on this list runs before the coordinator relays M7's `resource return` o
 - #778's two criteria are ticked, with the evidence comment on it.
 - The Phase 7 outcomes are in `05-punch-list.md` and in #790's lines. `tools/lint-audit-artifacts --phase pre-issue --issue 790`: `PASS`. `box-check --issue 790`: 0 fail.
 - **S2 ends at ES `f2758b145`.**
+
+### [Stage E, S3] 20:43- — The systems table
+
+- **A scope question on #649, blocking only PL-015.** `b69fb143c` adds an index-depth feature that reaches `Settings.*` (es-core), `Gamelist.cpp` and **41 lines of `GuiMenu.cpp` rows**. Its `SystemData` hunks fail `git apply --check` at `SystemData.cpp:100`, against the fork-own `mFolderScannedAt` (`b09ca9409`), and at `SystemData.h:119`. That puts brief rule 1 ("not resolved by hand here") against S3's "by hand". I put three options and recommended (a): PL-015 the fork's way, with `b69fb143c` deferred to #791.
+- `d17cf003e` was picked with `-x`, as ES `2e4877066`. It applies cleanly; the syntax-only compile of `FileData.cpp` passes (20:44:33), and `es-unit-tests` gives 202 passed. The lane's reference was added to the pick's message, and the `cherry picked from` line kept.
+- **PL-003, the test first.** The new `es-app/src/SystemFolders.h` (`skipsSubfolder`) and `SystemFoldersTests.cpp`.
+  - 20:46:13, the header holding the pin's rule (the letters in the sub-folder's path): `2 | 1 passed | 1 failed`, with 5 assertions failing (`:18-24`).
+  - 20:46:25, fixed: `2 | 2 passed`.
+  - The call site in `populateFolder`. 20:46:35 syntax-only compile `PASS`; `es-unit-tests` **`204 passed`, `4866 assertions`**. Walk W-8 is written.
+  - Committed as ES `010048c3d`.
+- **PL-020.** `populateFolder` now checks the sub-folder's key before allocating it, and attaches any folder it makes.
+  - The item's fix, deleting `newFolder` when its key was mapped, was **not taken**. The folder's scan writes `fileMap[filePath] = newGame` for every game in it, unconditionally, so deleting it would leave entries pointing at freed games, which `parseGamelist` reads next.
+  - Reading shows no way for the key to be present from either fresh map (the constructor's, `SystemData.cpp:110`; the rescan's, `:434`), so the fix is defensive.
+  - **The acceptance cannot be run.** Its `tests/app-unit` AddressSanitizer case needs `SystemData` under test, and no target compiles it. Put to the coordinator at S3's end as the harness question (`bugs-are-agent-first.md` rule 3).
+  - 20:47:42 syntax-only compile **`PASS es-app/src/SystemData.cpp`**.
+- **A further leak found and not fixed here.** In `populateFolder` a file matching an extension that `isArcadeAsset()` rejects is allocated, then neither attached nor freed. That is one leak per arcade BIOS or device file, per scan.
+  - Deleting it is unsafe on the rescan's path. `~FileData` calls `mSystem->removeFromIndex`, which during a rescan reaches a live `FileFilterIndex` and would decrement entries the asset never added. During construction it is a no-op, because the index is still null.
+  - The fix wants the asset test before allocation, and `isArcadeAsset` is in `FileData.cpp` outside S3's range. Reported at S3's end.
+  - PL-020 committed as ES `01274da50`.
+- **PL-004, the test first.** The new `es-app/src/SystemOverlays.h` and `SystemOverlaysTests.cpp`.
+  - `order` lists the image's overlays then the player's, each by name. `readEach` reads each file, passing over a refusal.
+  - pugixml stays out of `es-unit-tests`: its submodule is not checked out in the ES worktree, and requiring it would change the acceptance recipe. So the per-system XML merge stays in `SystemData`, inside the function `readEach` calls.
+  - 20:48:56, the pin's behaviour (the player's first, directory order, stop at the first failure): `3 | 0 passed | 3 failed`.
+  - 20:49:12, fixed: `3 | 3 passed`.
+  - 20:49:34, the syntax-only compile **caught** a `?:` between a `std::vector` and the `std::list` that `getDirContent` returns. Fixed with a conversion. 20:49:46 **`PASS es-app/src/SystemData.cpp`**; `es-unit-tests` **`207 passed`**.
+  - The distribution ships no `es_systems_*.cfg` (`git ls-files`; the one match is a QA payload under `docs/`), so the order change is invisible on a shipped image. Walk W-9 is written.
+  - Committed as ES `5b058f31d`.
+- **PL-005, the test first.** The new `es-app/src/SortId.h` (`bounded`) and `SortIdTests.cpp`.
+  - 20:50:37, the pin's check (`id > count`): `2 | 1 passed | 1 failed`. Exactly `bounded(28, 28)` fails.
+  - 20:50:52, fixed: `2 | 2 passed`; the whole suite **`209 passed`, `4880 assertions`**.
+  - The bound is applied where `SystemData`'s constructor reads `<system>.sort` and where `FileData` indexes `getSortTypes()`. Syntax-only compile of both: `PASS`.
+  - `GuiGamelistOptions.cpp:148`'s sibling check stays the game-list options slice's lead (posted at Phase 5). Walk W-10 is written.
+  - Committed as ES `338c358be`.
+- **PL-027, per the coordinator's answer (20:44): one-line comment** above `renumberSlots` citing D-UI-069 and the upstream callers, ES `e88ce097d`. 20:51:31 syntax-only compile `PASS`; `es-unit-tests` 209 passed. #790's checkbox is ticked from it, and the 05 outcome cites the commit.
+- **PL-015, the fork's way (the coordinator's answer (a), #649 20:45).** `b69fb143c` stays whole in the PL-033 list, `deferred:#791`.
+  - The scan now lists every folder it enters (`mScannedFolders`, collected through `mCollectFolders`).
+  - The rescan's check is `SystemFolders::newestTime` over that list. The stamp is taken after each scan, from the new list.
+  - The fresh tree runs `removeMultiDiskContent(fileMap, fresh)` with `mFilterIndex` set aside, as the existing `delete fresh` does. `removeMultiDiskContent` takes the root.
+  - 20:52:55, the newest-time case against the root-only stand-in: 2 assertions failed (`:45`, `:46`). 20:53:06, fixed: `3 | 3 passed`.
+  - 20:53:39, the syntax-only compile **`PASS`** for `SystemData.cpp`, `FileData.cpp`, `ViewController.cpp` and `main.cpp`; `es-unit-tests` **`210 passed`, `4884 assertions`**.
+  - Time to play: the extra stats run after a game exits, only for systems without a gamelist, one per scanned folder. W-11 asserts the g2g cell.
+  - Committed as ES `a585d7d1f`.
+- The Phase 7 outcomes are in `05-punch-list.md` and in #790's lines.
+  - PL-003, PL-004, PL-005, PL-015 and PL-020 are `Resolved` with their commits.
+  - PL-033 stays Open: `d17cf003e` is picked, `b69fb143c` is deferred to #791, and the rest are S4's.
+  - `lint-audit-artifacts --phase pre-issue --issue 790`: `PASS`. `box-check --issue 790`: 0 fail.
+- **S3 ends at ES `a585d7d1f`.**
