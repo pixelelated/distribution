@@ -14505,6 +14505,125 @@ check $? "the player's resolution reaches config/Kronos/Kronos.opt, the rest kep
 [ ! -e "${U}/ra/Kronos" ]
 check $? "nothing is written under RETROARCH_PATH/Kronos" "a Kronos/ folder was made under RETROARCH_PATH: $(find "${U}/ra/Kronos" -type f 2>/dev/null | head -2 | tr '\n' ' ')"
 
+# M6 T1 stream S3 (#704, #726-#730, #734-#737, #757): runemu.sh and the launch
+# helpers. Functions are lifted (heredoc bodies skipped) and top-level blocks
+# are lifted between the lines that bound them, from BASE_REF under --old, and
+# run under the image's bash and busybox applets. A block a fix adds is
+# absent from the old script, and its case fails there for that reason.
+S3="${TMP}/s3"; mkdir -p "${S3}"
+for f in sources/scripts/runemu.sh profile.d/099-freqfunctions profile.d/100-gamecontroller-functions sources/scripts/run profile.d/001-functions; do
+    src_of "projects/ROCKNIX/packages/rocknix/${f}" "${S3}/$(basename "${f}")"
+done
+s3_lift() { # <file>: every function, heredoc bodies skipped
+    awk 'hd != "" { if (p) print; t = $0; sub(/^\t+/, "", t); if (t == hd) hd = ""; next }
+         /^(function )?[A-Za-z_][A-Za-z0-9_]* *(\(\))? *\{$/ && $0 !~ /^(if|for|while|case) / { p = 1 }
+         p { print }
+         p && match($0, /<<-? *["\047]?[A-Za-z_]+/) { hd = substr($0, RSTART, RLENGTH); sub(/^<<-? *["\047]?/, "", hd) }
+         p && hd == "" && /^}$/ { p = 0 }' "$1"
+}
+s3_block() { # <file> <first-line regex> <last-line regex>: the lines between, inclusive
+    # The regexes through the environment: awk's -v would strip their backslashes.
+    A="$2" B="$3" awk 'BEGIN { a = ENVIRON["A"]; b = ENVIRON["B"] } !p && $0 ~ a { p = 1 } p { print } p && $0 ~ b { exit }' "$1"
+}
+s3_lift "${S3}/runemu.sh" > "${S3}/re-fns.sh"
+"${NP_BASH}" -n "${S3}/re-fns.sh"
+check $? "runemu.sh's functions were lifted ($(grep -c -E '^function ' "${S3}/re-fns.sh") functions)" "could not lift runemu.sh's functions"
+s3_run() { # <dir> <snippet>: the image's bash and applets, a private /storage and /tmp
+    local d="$1"; mkdir -p "${d}"
+    bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr --ro-bind /etc /etc --ro-bind /workspace /workspace \
+        --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 --symlink usr/sbin /sbin \
+        --dev /dev --proc /proc --tmpfs /storage --tmpfs /tmp --bind "${TMP}" "${TMP}" \
+        env PATH="${TMP}/bbin:/usr/bin" D="${d}" S3="${S3}" SNIP="$2" "${NP_BASH}" -c '
+        cd "${D}"; mkdir -p /storage/.cache /storage/.config/PortMaster
+        eval "${SNIP}"' > "${d}/out" 2> "${d}/err"
+}
+
+echo "  av. a governor setting is looked up, not run (#704)"
+V="${S3}/av"; s3_block "${S3}/runemu.sh" '^CPU_GOVERNOR=\$\(get_setting "cpugovernor"' 'CPU_GOVERNOR}"?$' > "${S3}/av.block"
+for g in conservative powersave; do
+    s3_run "${V}/${g}" ". ${S3}/re-fns.sh; log() { echo \"log: \$*\"; }; VERBOSE=false
+        for f in performance ondemand schedutil powersave; do eval \"\$f() { echo GOVERNOR \$f; }\"; done
+        get_setting() { echo ${g}; }; PLATFORM=nes; ROMNAME=/storage/roms/nes/t1.nes
+        . ${S3}/av.block"
+done
+! grep -q 'command not found' "${V}/conservative/err" && grep -q 'No governor function for (conservative)' "${V}/conservative/out"
+check $? "conservative: said in the log, nothing run" "conservative: $(cat "${V}/conservative/err" "${V}/conservative/out" | tr '\n' '|' | cut -c1-160)"
+grep -q '^GOVERNOR powersave$' "${V}/powersave/out"
+check $? "control: powersave calls its function" "powersave: $(tr '\n' '|' < "${V}/powersave/out")"
+
+echo "  aw. no onlinethreads call where it is not defined (#726)"
+W="${S3}/aw"; s3_block "${S3}/runemu.sh" '^NUMTHREADS=\$\(get_setting "threads"' '^fi$' > "${S3}/aw.block"
+s3_run "${W}" ". ${S3}/re-fns.sh; log() { :; }; VERBOSE=false; get_setting() { echo 2; }; PLATFORM=nes; ROMNAME=/r/t1.nes; . ${S3}/aw.block"
+! grep -q 'command not found' "${W}/err"
+check $? "a game's threads on x86_64: no missing command" "$(tr '\n' '|' < "${W}/err" | cut -c1-160)"
+
+echo "  ax. the thread count is the CPU directories (#736)"
+X="${S3}/ax"; mkdir -p "${X}/cpu"; : > "${X}/cpu/online"
+for i in 0 1 2 3 4 5 6 7; do mkdir -p "${X}/cpu/cpu${i}"; [ "${i}" -gt 0 ] && : > "${X}/cpu/cpu${i}/online"; done
+mkdir -p "${X}/cpu/cpufreq"
+s3_run "${X}" "CPU_SYSFS=${X}/cpu; . ${S3}/099-freqfunctions; get_threads | tr '\n' ' '"
+[ "$(cat "${X}/out")" = "1 2 3 4 5 6 7 8 all default " ]
+check $? "eight CPUs, cpu0 without an online file: 1 to 8, all, default" "get_threads: [$(cat "${X}/out")]"
+
+echo "  ay. the next launch waits for the previous game's restores (#727)"
+Y="${S3}/ay"; s3_block "${S3}/runemu.sh" '^RESTORE_PIDFILE=' '^fi$' > "${S3}/ay.block"
+s3_run "${Y}" "sleep 2 & echo \$! > /tmp/.runemu-restore.pid
+    s=\$(date +%s%N); . ${S3}/ay.block; e=\$(date +%s%N)
+    echo \"waited \$(( (e - s) / 1000000 )) ms; pidfile \$([ -e /tmp/.runemu-restore.pid ] && echo left || echo removed)\""
+grep -q 'RESTORE_PIDFILE=' "${S3}/ay.block" && awk '/^waited/ { exit !($2 >= 1500 && $2 <= 5500) }' "${Y}/out" && grep -q 'pidfile removed' "${Y}/out"
+check $? "a restore still running holds the launch until it ends ($(cat "${Y}/out"))" "no wait for the previous restore: $(cat "${Y}/out") $(head -c 120 "${S3}/ay.block")"
+s3_block "${S3}/runemu.sh" '^GPUPERF=\$\(get_setting "system.gpuperf"\)' '(^echo \$! > "\$\{RESTORE_PIDFILE\}"$|^fi$)' > "${S3}/ay2.block"
+grep -q 'RESTORE_PIDFILE' "${S3}/ay2.block"
+check $? "the exit restores record their job for the next launch" "the exit restores record nothing"
+
+echo "  az. a fan profile left by an interrupted game is put back at the next launch (#728)"
+Z="${S3}/az"; s3_block "${S3}/runemu.sh" '^FAN_RESTORE_MARKER=' '^fi$' > "${S3}/az.block"
+s3_run "${Z}" "printf quiet > /storage/.cache/runemu-fan-restore
+    set_setting() { echo \"set \$1=\$2\"; }; del_setting() { echo \"del \$1\"; }
+    . ${S3}/az.block; echo \"marker \$([ -e /storage/.cache/runemu-fan-restore ] && echo left || echo removed)\""
+grep -q '^set cooling.profile=quiet$' "${Z}/out" && grep -q 'marker removed' "${Z}/out"
+check $? "the saved device profile is written back and the marker removed" "the left-behind profile: $(tr '\n' '|' < "${Z}/out")"
+
+echo "  ba. the NVRAM beside a ROM with a space is removed, nothing else (#729)"
+B="${S3}/ba"; s3_block "${S3}/runemu.sh" 'nvmem\*' 'nvmem\*' > "${S3}/ba.block"
+s3_run "${B}" "mkdir -p g; : > 'g/My Game.zip'; : > 'g/My Game.zip.nvmem'; : > 'g/My'; ROMNAME=\"\${D}/g/My Game.zip\"; . ${S3}/ba.block; ls g | tr '\n' ';'"
+[ "$(cat "${B}/out")" = "My;My Game.zip;" ]
+check $? "My Game.zip.nvmem removed; My and the ROM kept" "after the NVRAM line: [$(cat "${B}/out")] $(head -c 120 "${B}/err")"
+
+echo "  bb. --core= and --emulator= are read as whole arguments (#730)"
+C3="${S3}/bb"; s3_block "${S3}/runemu.sh" '^(CORE="\$\{ARGUMENTS##\*--core=\}"|CORE=""$)' '^(EMULATOR="\$\{EMULATOR%% \*\}"|done)' > "${S3}/bb.block"
+s3_run "${C3}" "set -- /storage/roms/nes/t1.nes -Pnes --core=nestopia --emulator=retroarch '--state_file=/storage/roms/savestates/nes/x--core=evil --emulator=bad.state'
+    ARGUMENTS=\"\$*\"; . ${S3}/bb.block; echo \"core=\${CORE} emulator=\${EMULATOR}\""
+grep -q '^core=nestopia emulator=retroarch$' "${C3}/out"
+check $? "a state file's path holding --core= does not win" "parsed: $(cat "${C3}/out")"
+
+echo "  bc. PortMaster's mapper.txt holds a ROM name verbatim (#757)"
+M3="${S3}/bc"; grep -E 'ACTIVE_GAME|set_mapper_line ACTIVE_GAME' "${S3}/runemu.sh" | head -1 > "${S3}/bc.line"
+s3_run "${M3}" ". ${S3}/re-fns.sh; printf 'ACTIVE_GAME=\"\"\nACTIVE_PLATFORM=\"\"\n' > /storage/.config/PortMaster/mapper.txt
+    ROMNAME='/storage/roms/ports/A\\B \"C\" \$x.sh'; . ${S3}/bc.line
+    ( . /storage/.config/PortMaster/mapper.txt; [ \"\${ACTIVE_GAME}\" = \"\${ROMNAME}\" ] && echo VERBATIM || echo \"got [\${ACTIVE_GAME}]\" )"
+grep -q '^VERBATIM$' "${M3}/out"
+check $? "a name with \\, \" and \$ reads back the same from mapper.txt" "mapper.txt: $(cat "${M3}/out" "${M3}/err" | tr '\n' '|' | cut -c1-160)"
+
+echo "  bd. a pad mapped without a select button builds its db without errors (#737)"
+E3="${S3}/bd"; s3_lift "${S3}/100-gamecontroller-functions" > "${S3}/gc-fns.sh"
+s3_run "${E3}" ". ${S3}/gc-fns.sh
+    build_connected_devices_es_input() { :; }; map_input_control() { map_x_result=\"\$1,\"; }; get_map_prefix() { map_prefix=P; }; get_map_suffix() { map_suffix=S; }
+    xmlstarlet() { case \"\$*\" in *//inputConfig*) printf '\nhotkeyenable;button;5;1\na;button;0;1' ;; *) printf '\nFixture Pad;03000000fixture' ;; esac; }
+    create_controller_db layout /tmp/es.cfg \${D}/db.txt"
+! grep -q -E '\[|unary|argument expected|too many' "${E3}/err"
+check $? "no [ errors with a hotkey and no select button" "stderr: $(tr '\n' '|' < "${E3}/err" | cut -c1-160)"
+grep -q '^Photkeyenable,a,S$' "${E3}/db.txt" 2>/dev/null
+check $? "control: the pad's mapping is written" "db: $(tr '\n' '|' < "${E3}/db.txt" 2>/dev/null)"
+
+echo "  be. the sway tests print nothing into their callers (#734, #735)"
+F3="${S3}/be"; s3_run "${F3}" "UI_SERVICE='sway.service essway.service'; echo \"\${UI_SERVICE}\" | $(grep -o -E 'grep (-q )?"sway"' "${S3}/run" | head -1) && echo MATCHED"
+[ "$(cat "${F3}/out")" = "MATCHED" ]
+check $? "run's sway test prints only its own verdict" "run's sway test printed: $(tr '\n' '|' < "${F3}/out")"
+G3="${S3}/bf"; s3_run "${G3}" "UI_SERVICE='sway.service essway.service'; echo \"\${UI_SERVICE}\" | $(sed -n '/^function sway_fullscreen\|^sway_fullscreen/,/^}/p' "${S3}/001-functions" | grep -o -E 'grep (-q )?"sway"' | head -1) && echo MATCHED"
+[ "$(cat "${G3}/out")" = "MATCHED" ]
+check $? "sway_fullscreen's test prints only its own verdict" "sway_fullscreen's test printed: $(tr '\n' '|' < "${G3}/out")"
+
 if [ "${NOT_APPLICABLE}" -ne 0 ]; then echo "${NOT_APPLICABLE} HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS"; fi
 if [ "${FAIL}" -eq 0 ] && [ "${SKIPPED}" -eq 0 ]; then echo "PASSED"; exit 0
 elif [ "${FAIL}" -eq 0 ]; then echo "PASSED, ${SKIPPED} SKIPPED -- a check that did not run has not passed"; exit 3

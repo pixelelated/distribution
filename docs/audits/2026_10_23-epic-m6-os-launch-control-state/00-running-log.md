@@ -242,3 +242,30 @@
 - **The failing run** (`BASE_REF=f3261a5b78 tools/last-good-scripts-test --old`, 18:41:20-18:49:51, rc 1): 15 checks failed, all in ak to au, and none before ak.
 - **The passing run** (`tools/last-good-scripts-test`, 18:49:51-18:58:32, rc 0): `PASSED`.
 - **The guest:** 18:42 (stage F, cycle 1 above), all eleven items hold.
+
+## [Stage E/F, S3] 19:28 — Stream S3, `runemu.sh` and the launch helpers: eleven bugs and two renovation items in seven commits
+
+- **Items:**
+  - **bugs:** #704 F-01, #726 F-02, #736 F-25, #727 F-03, #728 F-04, #729 F-06, #730 F-07, #757 G-05, #737 F-26, #734 F-20, #735 F-23;
+  - **renovation:** F-05 (Q6) and F-08 (Q7).
+
+  A-10 was withdrawn at cycle 1.
+- **Lines kept untouched:** the M7 candidate's (`runemu.sh` 1-10, 331-340) and S1's (320-360, 495-505).
+- **The test first:** `tools/last-good-scripts-test` sections av to bf. Functions are lifted (heredoc bodies skipped) and top-level blocks lifted between their bounding lines. `s3_block` passes its regexes through `ENVIRON`, since `awk -v` strips backslashes. The cases run under the image's bash and busybox in a private sandbox.
+- **The failing run** (the unfixed tree at `3352bba83e`, 19:08:03-19:16:44, rc 1): 12 checks failed, all in av to bf. The two controls passed, and nothing before av failed.
+- **The passing run** (19:17:13-19:25:55, rc 0): `PASSED`.
+- **Two things decided by reading:**
+  - **#737:** the issue's "fix the doubled `>`" would drop every `</inputConfig>` closing tag. The fix removes that dead half instead and keeps the output unchanged (said on #737, issuecomment-6372835323).
+  - **#730:** `--core=` and `--emulator=` are read as whole arguments with the last one winning, as the launcher reads them (the T1 brief's corrected seam sentence).
+- **The guest** (cycle 2, 19:26:18-19:27:18; the tree's `runemu.sh` with `run`, `001-functions`, `100-gamecontroller-functions` and S2's `setsettings.sh` bound over the image's copies, and a stub RetroArch; `.qa-scratch/t1/proofs/s3-guest.sh` and its `.out`):
+  - #704: no `command not found`, and the fallback line in `exec.log`.
+  - #726: no `onlinethreads` error.
+  - #727: a launch over a 3-second restore waits for it (4.4 s, including the 1-second settle).
+  - #729: the NVRAM is removed, and `My` and the ROM are kept.
+  - #730: the core is `nestopia`.
+  - #757: `mapper.txt` reads back the name verbatim.
+  - #737, on the real `xmlstarlet`: the unfixed functions print `[: too many arguments` twice (`line 139`) and the fixed ones print nothing, with the same db line. The image has no `/usr/bin/list-guid`, so `build_connected_devices_es_input` was replaced in the shell by a copy of the fixture.
+  - #734/#735: nothing printed into the callers.
+  - #728 has no fan on the guest; harness case az is its proof.
+  - The guest was stopped by `tools/vm-stop`, rc 0.
+- **Deferred to stage F's end** (the briefs list them again at the branch tip): `tools/emulator-exit-test --vm` and `tools/time-to-play --vm` beside the stage-B numbers, once all seven streams are in the scripts they measure.
