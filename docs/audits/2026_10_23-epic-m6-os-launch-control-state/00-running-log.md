@@ -269,3 +269,14 @@
   - #728 has no fan on the guest; harness case az is its proof.
   - The guest was stopped by `tools/vm-stop`, rc 0.
 - **Deferred to stage F's end** (the briefs list them again at the branch tip): `tools/emulator-exit-test --vm` and `tools/time-to-play --vm` beside the stage-B numbers, once all seven streams are in the scripts they measure.
+
+## [Stage E, S4] 19:55 — Stream S4, the settings library: three bugs and one comment, written small
+
+- **Items:**
+  - **fixed:** #756 G-03 (the `=` boundary), #759 A-02 (`printf '%s\n'`, literal dots in keys), #758 A-01 (`set_setting_value`), and F-22 (a comment at `wait_lock`'s trap).
+  - **deferred and moved:** F-21 #712 is deferred to #563 (said on #712). F-24's fix needs `automount`, which is S6's, so it moves there (the briefs' rule for a file outside the stream).
+- **#758's shape differs from the issue's** (said on #758, issuecomment-6373181296): `default` as "remove" is a contract `raofflineproxy-ctl:539`, `wifictl:383` and the harness's section c rely on. So S4 adds `set_setting_value` and keeps `set_setting` as it is; `setrootpass:45` (S6) and `wifictl:460` (S7) move to the new function in their own streams.
+- **The test first:** `tools/last-good-scripts-test` sections bg to bi, in S3's sandbox under the image's bash and busybox.
+  - **unfixed** (`BASE_REF=b11644ce58 --old`, 19:36:02-19:44:46, rc 1): 3 checks failed, all in bg to bi.
+  - **fixed** (19:44:46-19:53:28, rc 0): `PASSED`.
+- **Queued for the guest** (S4 and S5 together): the `get_setting` readings #756 and #759 name, and #758's criterion 1, once S7 has moved `wifictl`.

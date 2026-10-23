@@ -14624,6 +14624,22 @@ G3="${S3}/bf"; s3_run "${G3}" "UI_SERVICE='sway.service essway.service'; echo \"
 [ "$(cat "${G3}/out")" = "MATCHED" ]
 check $? "sway_fullscreen's test prints only its own verdict" "sway_fullscreen's test printed: $(tr '\n' '|' < "${G3}/out")"
 
+# M6 T1 stream S4 (#756, #759, #758): the settings library, under the image's
+# bash and busybox in S3's sandbox, 001-functions from BASE_REF under --old.
+s4_cfg() { printf 'mkdir -p /storage/.config/system/configs; printf "%%s\\n" %s > /storage/.config/system/configs/system.cfg; . %s/001-functions 2>/dev/null' "$1" "${S3}"; }
+echo "  bg. a per-game key does not match a longer key it prefixes (#756)"
+H4="${S3}/bg"; s3_run "${H4}" "$(s4_cfg "'nes[\"G.nes\"].integerscale=1' 'nes[\"G.nes\"].integerscaleoverscale=0'"); get_setting integerscale nes G.nes"
+[ "$(cat "${H4}/out")" = "1" ]
+check $? "integerscale reads 1 beside integerscaleoverscale=0" "integerscale read: [$(cat "${H4}/out")]"
+echo "  bh. get_setting prints a value as it is, and a key's dots are literal (#759)"
+I4="${S3}/bh"; s3_run "${I4}" "$(s4_cfg "'t1.key=a  b * -n' 'nesXratio=4'"); : > zz1; : > zz2; printf '[%s]' \"\$(get_setting t1.key)\"; printf '[%s]' \"\$(get_setting ratio nes)\""
+[ "$(cat "${I4}/out")" = "[a  b * -n][]" ]
+check $? "a run of spaces, a * and -n come back as stored; nes.ratio does not match nesXratio" "get_setting printed: $(cat "${I4}/out")"
+echo "  bi. a value that is the word default can be stored (#758)"
+J4="${S3}/bi"; s3_run "${J4}" "$(s4_cfg "'x.keep=1'"); set_setting_value wifi.ssid default; printf '[%s]' \"\$(get_setting wifi.ssid)\"; set_setting x.keep default; printf '[%s]' \"\$(get_setting x.keep)\""
+[ "$(cat "${J4}/out")" = "[default][]" ]
+check $? "set_setting_value stores default; set_setting still reads default as remove" "printed: $(cat "${J4}/out") $(head -c 120 "${J4}/err")"
+
 if [ "${NOT_APPLICABLE}" -ne 0 ]; then echo "${NOT_APPLICABLE} HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS"; fi
 if [ "${FAIL}" -eq 0 ] && [ "${SKIPPED}" -eq 0 ]; then echo "PASSED"; exit 0
 elif [ "${FAIL}" -eq 0 ]; then echo "PASSED, ${SKIPPED} SKIPPED -- a check that did not run has not passed"; exit 3
