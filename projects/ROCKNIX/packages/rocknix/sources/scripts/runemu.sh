@@ -24,10 +24,18 @@ ARGUMENTS="$@"
 ### (#308, stream E2's reading of the launch command).
 PLATFORM=""
 for ARG in "${@:2}"; do case "${ARG}" in -P?*) PLATFORM="${ARG#-P}"; break ;; esac; done
-CORE="${ARGUMENTS##*--core=}"  # read from --core= onwards
-CORE="${CORE%% *}"  # until a space is found
-EMULATOR="${ARGUMENTS##*--emulator=}"  # read from --emulator= onwards
-EMULATOR="${EMULATOR%% *}"  # until a space is found
+### --core= and --emulator= are whole arguments too, the last of each
+### winning as the launcher reads them (LaunchCommand.h); cutting them from
+### the joined line let a state file's path or a nick holding the letters
+### win instead (#730, #308's sibling).
+CORE=""
+EMULATOR=""
+for ARG in "${@:2}"; do
+  case "${ARG}" in
+    --core=*) CORE="${ARG#--core=}" ;;
+    --emulator=*) EMULATOR="${ARG#--emulator=}" ;;
+  esac
+done
 ROMNAME="$1"
 BASEROMNAME=${ROMNAME##*/}
 GAMEFOLDER="${ROMNAME//${BASEROMNAME}}"
@@ -95,6 +103,19 @@ if [ ! -f "${GAME_GUIDE_PATH_CHECK}" ]; then
   GAME_GUIDE_PATH_CHECK="No Game Guide Found"
 fi
   /usr/bin/game-guides-tool "${1}"
+
+### PortMaster's mapper.txt is shell; a name is written into it with \, ",
+### $ and ` escaped, by awk rather than as sed's c\ text (#757).
+function set_mapper_line() {
+        local MAPPER="/storage/.config/PortMaster/mapper.txt" V
+        V=$(printf '%s' "${2}" | sed -e 's/[\\"$`]/\\&/g')
+        if [ -f "${MAPPER}" ]
+        then
+                K="${1}" V="${V}" awk 'BEGIN { k = ENVIRON["K"]; v = ENVIRON["V"] }
+                        index($0, k "=") == 1 { print k "=\"" v "\""; next } { print }' "${MAPPER}" > "${MAPPER}.tmp" \
+                        && mv -f "${MAPPER}.tmp" "${MAPPER}"
+        fi
+}
 
 ### Function Library
 ### Every line this script logs -- to exec.log or to its own stdout, which
@@ -359,7 +380,7 @@ case ${EMULATOR} in
     # Configure platform specific requirements
     case ${PLATFORM} in
       "atomiswave")
-        rm ${ROMNAME}.nvmem*
+        rm -f -- "${ROMNAME}".nvmem*
       ;;
       "scummvm")
         GAMEDIR=$(cat "${ROMNAME}" | awk 'BEGIN {FS="\""}; {print $2}')
@@ -436,14 +457,14 @@ case ${EMULATOR} in
         RUNTHIS='${EMUPERF} ${RUN_SHELL} "${ROMNAME}"'
       fi
         chmod +x "${ROMNAME}"
-        sed -i "/^ACTIVE_GAME=/c\ACTIVE_GAME=\"${ROMNAME}\"" /storage/.config/PortMaster/mapper.txt
-        sed -i "/^ACTIVE_PLATFORM=/c\ACTIVE_PLATFORM=\"${PLATFORM}\"" /storage/.config/PortMaster/mapper.txt
+        set_mapper_line ACTIVE_GAME "${ROMNAME}"
+        set_mapper_line ACTIVE_PLATFORM "${PLATFORM}"
       ;;
       "windows")
         RUNTHIS='${EMUPERF} ${RUN_SHELL} "${ROMNAME}"'
         # Hook into Portmaster control mapping
-        sed -i "/^ACTIVE_GAME=/c\ACTIVE_GAME=\"${ROMNAME}\"" /storage/.config/PortMaster/mapper.txt
-        sed -i "/^ACTIVE_PLATFORM=/c\ACTIVE_PLATFORM=\"${PLATFORM}\"" /storage/.config/PortMaster/mapper.txt
+        set_mapper_line ACTIVE_GAME "${ROMNAME}"
+        set_mapper_line ACTIVE_PLATFORM "${PLATFORM}"
       ;;
       "shell")
         RUNTHIS='${RUN_SHELL} "${ROMNAME}"'
