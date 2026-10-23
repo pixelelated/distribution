@@ -122,3 +122,15 @@ Nothing on this list runs before the coordinator relays M7's `resource return` o
 
 - No `resource return` yet. Carried to Phase 5: FD-14's `bug` issue carries an `Already written:` line for what such a delete has already removed on devices, and its guest proof uses a fixture `.m3u` under `/storage` (the coordinator's words on #649).
 - Waiter re-armed on #649's comment count above 4 and on a new `resource return` line in the coordination file.
+
+### [Resume] 18:34 — `resource return` (the M7 line 18:34:04Z; the coordinator's relay on #649 18:34:33Z)
+
+- The host at 18:34:51: 41 GiB available, swap 0 of 7 GiB used, `pgrep -f 'qemu-system-x86_6[4]' | wc -l` = 0.
+- Queue item 1: `npm install --prefix tools/council` rc 0, **tsx v4.23.15** (node v24.21.0). npm warned that esbuild's postinstall is not in its allowScripts list. `tools/council/run verify-pins`: `OK - verifier pins match current files and every re-pin is accountable.` rc 0. `tools/council/run test`: rc 0, with suites of 39/39, **127/127** (routing) and 19/19.
+- Queue item 2, #699's proofs (18:36:51-18:36:55). These are compiler runs, syntax-only; the command text is never recorded.
+  - Criterion 1: `tools/es-syntax-check --root <m7-signin-build-20261022-07 root> $W/es-app/src/FileData.cpp $W/es-app/src/views/ViewController.cpp` printed the moved line, `compiler .../toolchain/bin/x86_64-rocknix-linux-gnu-g++-15.2.0`, `OK` for each, then `PASS`. rc 0.
+  - Criterion 3: a copy of `LaunchCommand.h`'s includer `FileData.cpp`, with the `;` at `:719` removed, under the scratchpad, run with `--tree $W`: `error: expected ';' before 'options'` at `:719:83`, then `FAIL`. rc 1.
+  - With criterion 2 (17:26) and criterion 4 (the rule sentence), all four of #699's criteria are now observed.
+- Queue item 3: `es-unit-tests` (`build-tests`, toolchain cmake, host g++). It reported `185 passed | 0 failed`, `4795 assertions`, rc 0, equal to the baseline. The coordinator's build was already current, so nothing was recompiled; the run is the pin's.
+- Queue item 4: `tests/app-unit`, built **out of the tree** into the scratchpad, because `build-app-unit/` is not gitignored in the ES worktree (`git check-ignore` found no rule) and building in place would leave untracked files. Built with `-fsanitize=address,undefined`, 18:37:26-18:40:01, rc 0. `app-unit-tests` 18/18 (119 assertions), `proxycards-tests` 11/11 (67), `jobs-tests` 6/6 (28), `bookkeeper-tests` 5/5 (20); each rc 0. This is the first recorded run of the three named targets, plus `app-unit-tests`.
+- Queue item 5: the python harnesses. None has `--help`: each takes the source path as `argv[1]` and defaults to the tree's file, so `--help` was read as a path and failed (FileNotFoundError). That is a usage note, not a failure of the code under test. Run with no argument and `TMPDIR` set to the scratchpad: `launch-capture-gate: PASS`, `launch-deferred-state: PASS`, `hasher-offline-index: PASS`, each rc 0 (18:40:19-18:40:33). `git -C $W status --short` stays empty.

@@ -19,10 +19,10 @@ Findings are written as each unit is read (`READ → WRITE → REPEAT`). Line nu
 | menu map (`menumap`) | `tools/es-menu-map-check --es-src $W --ref $PIN` | 0 | `55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing` | 17:26, at the pin |
 | French (`french`) | `tools/es-untranslated --es-src $W` | 0 | `703 fork string(s) in the source, 703 with French, 0 without` | 17:26, at the pin |
 | vocabulary | `tools/vocabulary-check --es $W` | 0 | `163 string(s) with back up / backup, save state or Wi-Fi judged, 0 wrong` | 17:26, at the pin |
-| unit tests `es-unit-tests` | brief § 5 recipe | — | queued (host held for M7) | — |
-| `tests/app-unit`: `proxycards-tests`, `bookkeeper-tests`, `jobs-tests` | brief § 5 | — | queued | — |
-| `tests/launch-capture-gate.py`, `tests/launch-deferred-state.py`, `tests/hasher-offline-index.py` | brief § 5 | — | queued (they compile) | — |
-| syntax-only compile per edited `.cpp` | #699 recipe or the fixed tool | — | no `.cpp` edited yet | — |
+| unit tests `es-unit-tests` | brief § 5 recipe (`build-tests`, toolchain cmake, host g++) | 0 | `185 passed \| 0 failed`, `4795 assertions` | 18:37, at the pin |
+| `tests/app-unit` (ASan+UBSan; built out of tree, the scratchpad) | `cmake -S tests/app-unit -B <scratch>/build-app-unit`, build, run each | 0 each | `proxycards-tests` 11/11 (67 assertions); `bookkeeper-tests` 5/5 (20); `jobs-tests` 6/6 (28); `app-unit-tests` 18/18 (119) | 18:37-18:40, at the pin |
+| `tests/launch-capture-gate.py`, `tests/launch-deferred-state.py`, `tests/hasher-offline-index.py` | `TMPDIR=<scratch> python3 -I tests/<name>.py` (no `--help`: the first argument is the source path) | 0 each | `launch-capture-gate: PASS`, `launch-deferred-state: PASS`, `hasher-offline-index: PASS` | 18:40, at the pin |
+| syntax-only compile per edited `.cpp` | the fixed `tools/es-syntax-check --root <root>` (#699) | 0 | `FileData.cpp` and `ViewController.cpp` OK at the pin, compiler `x86_64-rocknix-linux-gnu-g++-15.2.0`; no `.cpp` edited yet | 18:36 |
 | `tools/time-to-play --vm --only launch,exit,g2g` | brief § 5 | — | queued (guest) | — |
 | `tools/es-launch-memory` | brief § 5 | — | queued (guest) | — |
 
