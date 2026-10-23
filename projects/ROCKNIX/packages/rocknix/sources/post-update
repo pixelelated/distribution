@@ -43,6 +43,15 @@ done
 
 rsync -a --delete ${EXCLUDE} /usr/config/system/ /storage/.config/system/
 rsync -a --ignore-existing /usr/config/game /storage/.config/
+
+# system.cfg holds the device's passwords. The image seeds it 0600 and the
+# settings writers never widen a file's mode (#421), so an upgraded device's
+# copy and its last good record, both seeded 645, are narrowed here; a
+# second run changes nothing (#724).
+for f in /storage/.config/system/configs/system.cfg /storage/.config/system/configs/system.cfg.backup
+do
+  [ -f "${f}" ] && [ ! -L "${f}" ] && chmod 0600 "${f}"
+done
 rsync -a /usr/config/modules /storage/.config/
 
 if [ -f "/storage/.config/emulationstation/resources/logo.png" ]

@@ -25,7 +25,10 @@ makeinstall_target() {
   mkdir -p ${INSTALL}/usr/config/
   rsync -av ${PKG_DIR}/config/* ${INSTALL}/usr/config/
   ln -sf /storage/.config/system ${INSTALL}/system
-  find ${INSTALL}/usr/config/system/ -type f -exec chmod o+x {} \;
+  # system.cfg carries the device's passwords and Wi-Fi key: private, and
+  # the settings writers keep the mode they find (#421). Every file here was
+  # o+x, which nothing used (#724).
+  chmod 0600 ${INSTALL}/usr/config/system/configs/system.cfg
 
   mkdir -p ${INSTALL}/usr/bin/
 
