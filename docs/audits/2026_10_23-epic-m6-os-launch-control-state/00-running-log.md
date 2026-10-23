@@ -369,3 +369,5 @@
   - **D-WORKFLOW-192 (#648, 21:29):** the netplay markers are read from whole arguments, with the spectator before the client. `set_netplay` gains a spectator case (`netplay_start_as_spectator`). `--mitm-session=<id>` reaches RetroArch's command when it is a word. Refs #702, #708, #776.
 - **The test first:** `tools/last-good-scripts-test` sections bZ, ca, cb, cc (cb through the S1 netplay runner).
   - **unfixed** (`BASE_REF=377f9545d4 --old`, from the tree, 23:34:33-23:43:25, rc 1): 6 checks failed, all in bZ to cc.
+  - **fixed** (from the tree, 23:43:59-23:52:47, rc 0): `PASSED`.
+- **Commits:** head `d8d2b5e9c0`, `9011f1e4a0` (#730), `0f7558cff7` (D-WORKFLOW-192).
