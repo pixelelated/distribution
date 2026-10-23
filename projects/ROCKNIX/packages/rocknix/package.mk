@@ -12,7 +12,10 @@ PKG_URL=""
 # simply shipped without it and "backuptool backup" could not run. Declaring
 # it here turns an invisible runtime dependency into one the build enforces.
 # The private-settings writer uses BusyBox stat/chmod before publication (#421).
-PKG_DEPENDS_TARGET="toolchain autostart zip busybox"
+# The rest are what this package's scripts call and cannot work without, for
+# the same reason as zip (F-62). espeak, for say alone, is left to the image's
+# sound set, which a base-only image leaves out on purpose.
+PKG_DEPENDS_TARGET="toolchain autostart zip busybox rsync jq curl xmlstarlet parted"
 PKG_LONGDESC="ROCKNIX Meta Package"
 PKG_TOOLCHAIN="make"
 
