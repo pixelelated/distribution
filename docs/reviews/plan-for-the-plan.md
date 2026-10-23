@@ -214,7 +214,7 @@ filed; the lane's worktree and branch in place (#640 for the checkout move).
 
 ### P1, the survey (next; its own issue under #339)
 
-The inventory, the order and the slice issues, produced by the multi-pass
+The inventory and the order, produced by the multi-pass
 iterative analysis the maintainer uses for collections (seven passes, N-to-N
 cross-reference, a tracking file; the copy lives outside the tree, see the
 memory `maintainer-meta-process-multi-pass`), at its comprehensive rigour
@@ -245,7 +245,9 @@ because this is the first analysis of the scope:
    `docs/reviews/order.md` in the shape #346's first criterion names.
 6. **Action** (pass 7): the proposed order and slice list posted on the P1
    issue and the maintainer's yes recorded there (the pattern's pass 7 is
-   interactive by its own rule); then the slice issues filed as sub-issues of
+   interactive by its own rule); then the slice issues filed by the
+   coordinator lane (D-WORKFLOW-189: the definition of work items is the
+   coordinator's; P1's renderer produces the bodies) as sub-issues of
    #339, each with its brief's scope block (area epics are filed lazily at
    each area's first dispatch, so each owes its futro at its own kickoff); the preliminary three-model review of the
    order (`.claude/skills/council/references/review-formats.md`, advisory)
