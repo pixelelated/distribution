@@ -1,12 +1,13 @@
 [Unit]
-Description=ROCKNIX user autostart script
+Description=Mount the games card, or the internal games folder, on /storage/roms
 Before=autostart.service
 After=systemd-tmpfiles-setup.service
 
 [Service]
 Type=oneshot
 Environment=HOME=/storage
-EnvironmentFile=/etc/profile
+# No EnvironmentFile: /etc/profile is a script with no assignment systemd can
+# read, and automount sources it itself (F-31).
 ExecStart=/usr/bin/automount
 RemainAfterExit=yes
 
