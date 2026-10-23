@@ -589,6 +589,15 @@ Final count: **370 rows** (295 + 13 + 62), command counts 154/32/60, and **5 unr
 
 ### Q7 Clarity and structure
 - `FileData.cpp` holds five responsibilities in 2,680 lines, and `launchGame` alone is 400 lines (§ 3.1).
+  - **The row for PL-032 (S4, brief rule 4: a row and a Backlog deferral, no restructuring without a binary to prove it on).** At the ES tip of S4, `FileData.cpp` is 2,840 lines. `launchGame` is 280 lines, after S4 moved the gates out into `launchGatesClear` (144 lines, PL-014), and the waiting launch's helpers sit beside them: `launchNow`, `launchWhenGone`, `captureGate`, `rememberSaveState`, `findSaveStateAgain`, `exitSyncIsThisExits`, `launchRef`/`findLaunchRef`.
+  - **The proposed split, one unit per responsibility, each with its own tests:**
+    - `LaunchGates.{h,cpp}`: `launchGatesClear` with its four questions, `captureGate`, `launchNow` and `launchWhenGone`, and the claim and generation statics. `tests/launch-*.py` already compile three of these by extraction, and a unit would let `tests/app-unit` build them whole.
+    - `GameSession.{h,cpp}`: `launchGame`'s run and return, meaning the command, the process, the play time, the capture's start and the exit sync's post (`exitSyncIsThisExits`).
+    - `LaunchCommand` stays as it is, now with `LaunchTemplate`. The command builder `getlaunchCommand` moves beside it.
+    - `GameFiles` gains `getContentFiles` and `deleteGameFiles` (PL-002 put the rule there).
+    - What is left in `FileData.cpp` is the tree node: metadata, paths, sorting and collections.
+  - **The provenance header blocks the item also names** (`FileData.cpp`, `SystemData.cpp`, `main.cpp`) go with the split: the ranges they would name move in it. `main.cpp` is S5's file.
+  - **Deferred** to the Backlog issue the coordinator files at acceptance (brief rule 4). No split is made here.
 - Nothing in the three big files says which lines are batocera's and which the fork's (the hunk maps above). A header line naming the provenance would save a reader the `git diff`.
 - **FD-4:** `getlaunchCommand` writes `system.cfg`.
   - **The row for PL-031 (S1, deferred to #678).** The builder seeds `global.netplay.nickname` with the application's name plus `Player` and saves `system.cfg` when the key is empty (`FileData.cpp:653-657`, pin numbering). Three readers rely on that seeding without saying so: the NICKNAME row of `GuiNetPlaySettings.cpp:26`, the NETPLAY NICKNAME row of `GuiGameOptions.cpp:203` (both `addInputTextConfigRow` over the stored key), and `SystemData.cpp:1854`'s export. On a fresh device, any launch fills the key, so those rows show the default. Removing only the write would leave them empty.

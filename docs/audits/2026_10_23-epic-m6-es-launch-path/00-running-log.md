@@ -353,3 +353,25 @@ Nothing on this list runs before the coordinator relays M7's `resource return` o
   - `ViewController::launch` returns when `mCurrentView` is null.
   - 21:02:58 syntax-only compile **`PASS`** for `FileData.cpp`, `ViewController.cpp`, `SystemScreenSaver.cpp`, `GuiGameOptions.cpp`, `main.cpp` and `ProxyCards.cpp`. `es-unit-tests` **210 passed**. Walk W-13 is written.
   - Committed as ES `3fee0df8a`.
+- **PL-013.** `FileData::mRunningGame` is now `std::atomic<FileData*>` (with `<atomic>` included in `FileData.h`), read by `GetRunningGame()` through `load()`.
+  - The acceptance is the declaration plus the checks. 21:04:00 syntax-only compile **`PASS`** for `FileData.cpp`, `ProxyCards.cpp`, `SystemData.cpp` and `services/HttpApi.cpp`.
+  - `proxycards-tests` (`tests/app-unit`, built out of tree): `11 | 11 passed`, 67 assertions. `es-unit-tests` 210 passed.
+  - Committed as ES `05c8e4b5e`.
+- **PL-018, the test first.** The new `tests/launch-play-through.py` compiles the shipped gate code, `launchGatesClear`, or `launchGame`'s head up to the command at the pin's shape, with doubles for the jobs, the dialog and the window.
+  - With the send running, it answers PLAY NOW for launch A, lets a launch B arrive before A's relaunch runs, and checks that B is asked and A's relaunch is not.
+  - 21:07:16: against the pin's `FileData.cpp` and against this tree before the fix, both checks `FAIL`.
+  - The fix: `LaunchGameOptions::playThroughSend` is set in the copy PLAY NOW relaunches with, and taken by the gates on the way in. `sPlayThroughSend` is removed.
+  - 21:07:35: the harness **4 of 4, PASS**; `launch-deferred-state` and `launch-capture-gate` `PASS`. The syntax-only compile of `FileData.cpp` and `ViewController.cpp` `PASS`; `es-unit-tests` 210.
+  - Committed as ES `12d32c372`.
+- **PL-009, the test first.** In `tests/launch-capture-gate.py`, the slow-capture check now asks that the claim be held with the generation unmoved. A new case has the relaunch refused (no game starts) and asks that the exit still sync.
+  - At the pin there is no decision function, so the harness carries the pin's post rule as the pin wrote it; in the tree it uses the shipped `exitSyncIsThisExits`.
+  - 21:09:57, against the pin's `FileData.cpp`: exactly those two checks `FAIL`. Fixed: **17 of 17, PASS**.
+  - The fix: `captureGate`'s relaunch no longer moves `sExitGeneration`, and its claim stays. `launchGame` clears the claim at a game's start. The capture's worker waits up to `ExitSyncClaimMs` (5 s) for a game to start, then the post asks `exitSyncIsThisExits`.
+  - 21:10:32 syntax-only compile `PASS`; the other two harnesses `PASS`; `es-unit-tests` 210. Walk W-14 is written.
+  - Committed as ES `23e8dccfa`.
+- **PL-019.** `tend` is taken as `process.run()` returns, and the later definition is removed. 21:11:11 syntax-only compile `PASS`. Walk W-15 is written.
+  - Committed as ES `ae34e6c0c`.
+- #784 (PL-018): the harness evidence is posted and both criteria are ticked. Its commit names both runs.
+- #779 (PL-013): the declaration evidence is posted. The pin's `grep -c 'static std::atomic<FileData\*> mRunningGame;'` prints 0, and the tip's prints 1.
+  - **I first wrote on #779 that the commit names both runs, which is false**: `05c8e4b5e` names only the fixed-source checks. The comment was corrected at 21:16 and criterion 2 unticked.
+  - The commit was not reworded, because that would rewrite the four later commits whose hashes are already cited. From here on, a commit names its failing-first check before it is made.
