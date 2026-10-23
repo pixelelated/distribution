@@ -38,18 +38,15 @@ for ARG in "${@:2}"; do
 done
 ROMNAME="$1"
 BASEROMNAME=${ROMNAME##*/}
-GAMEFOLDER="${ROMNAME//${BASEROMNAME}}"
 
 ### Define the variables used throughout the script
 BLUETOOTH_STATE=$(get_setting controllers.bluetooth.enabled)
-ES_CONFIG="/storage/.emulationstation/es_settings.cfg"
 VERBOSE=false
 LOG_DIRECTORY="/var/log"
 LOG_FILE="exec.log"
 RUN_SHELL="/usr/bin/bash"
 RETROARCH_TEMP_CONFIG="/storage/.config/retroarch/retroarch.cfg"
 RETROARCH_APPEND_CONFIG="/tmp/.retroarch.cfg"
-NETWORK_PLAY="No"
 SET_SETTINGS_TMP="/tmp/shader"
 OUTPUT_LOG="${LOG_DIRECTORY}/${LOG_FILE}"
 SCRIPT_NAME=$(basename "$0")
@@ -310,22 +307,16 @@ case ${EMULATOR} in
     RUNTHIS='${RUN_SHELL} /usr/bin/start_mednafen.sh "${ROMNAME}" "${CORE}" "${PLATFORM}"'
   ;;
   retroarch)
-    # Make sure NETWORK_PLAY isn't defined before we start our tests/configuration.
+    # netplay.mode is this launch's: cleared, then set from its arguments.
     del_setting netplay.mode
 
     case ${ARGUMENTS} in
       *"--host"*)
         ${VERBOSE} && log $0 "Setup netplay host."
-        NETWORK_PLAY="${ARGUMENTS##*--host}"  # read from --host onwards
-        NETWORK_PLAY="${NETWORK_PLAY%%--nick*}"  # until --nick is found
-        NETWORK_PLAY="--host ${NETWORK_PLAY} --nick"
         set_setting netplay.mode "host"
       ;;
       *"--connect"*)
         ${VERBOSE} && log $0 "Setup netplay client."
-        NETWORK_PLAY="${ARGUMENTS##*--connect}"  # read from --connect onwards
-        NETWORK_PLAY="${NETWORK_PLAY%%--nick*}"  # until --nick is found
-        NETWORK_PLAY="--connect ${NETWORK_PLAY} --nick"
         set_setting netplay.mode "client"
       ;;
       *"--netplaymode spectator"*)
