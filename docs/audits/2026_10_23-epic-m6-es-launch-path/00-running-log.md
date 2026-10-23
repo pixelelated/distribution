@@ -182,3 +182,12 @@ Nothing on this list runs before the coordinator relays M7's `resource return` o
 - The audit issue **#790**, `Audit: M6 T2 EmulationStation's launch path -- 35 findings (0 critical, 1 high)`, labels `audit` and `punch-list`, milestone M6, a sub-issue of #649 (`gh api .../issues/649/sub_issues` lists it). 35 checkboxes; `tools/box-check --issue 790` rc 0, 0 fail.
 - `05-punch-list.md`: every defect carries `tracked:` in the index and **Tracked work** in its item (23 each). The tracker line names #790. `tools/lint-audit-artifacts <folder> --phase pre-issue --issue 790`: `PASS pre-issue artifacts (does not certify resolution)`.
 - **The stage-D pause:** posted on #649. The lane waits for the coordinator's stream briefs.
+
+### [Stage E, S1] 20:14-20:19 — The stream briefs merged; S1 begun on the ES branch
+
+- The coordinator tip `6f7381315f` was merged into the distribution branch (`31f0ec2a70`). The work log, friction log and index were united by whole entries, with 0 conflict markers; `register-check` passed.
+- ES head commit `dd638965f` (`emulationstation: stream S1, the command and the state file`, empty, listing PL-001, PL-007, PL-021, PL-034 and PL-031).
+- **PL-001 / PL-007, the test first.** New `es-app/src/LaunchTemplate.h` and `es-app/tests/unit/LaunchTemplateTests.cpp`, plus the file added to the unit tests' `CMakeLists.txt`.
+  - 20:18:05, the header holding the **pin's** behaviour (the double-quoted state file, sequential replaces, a substring option test): `./build-tests/es-unit-tests -tc='state file*,template*'` gave `6 | 3 passed | 3 failed`. The failures were the state-file argument (`:95`), the re-expansion (`:120`) and the substring option (`:135`).
+  - 20:18:22, the fix's behaviour: `6 | 6 passed | 0 failed`. The whole suite: **`191 passed | 0 failed`, `4809 assertions`**.
+- 20:18:41 the syntax-only compile with the fixed `tools/es-syntax-check --root <m7-signin-build-20261022-07 root> --tree $W`, compiler `x86_64-rocknix-linux-gnu-g++-15.2.0`: **`PASS es-app/src/SaveState.cpp`** (rc 0). The ASCII-comment check on the three files is empty.
