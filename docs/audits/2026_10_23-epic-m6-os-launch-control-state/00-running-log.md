@@ -311,3 +311,21 @@
 - **The test first:** `tools/last-good-scripts-test` sections bu to bF. Nothing touches a device: the ABL slots are files, the internal card is fixture `/proc` and `/sys` listings, and parted, mount, smbpasswd, syncthing and systemctl are stubs that record their calls. Everything runs under the image's bash and busybox.
   - **unfixed** (`BASE_REF=52acfb315a --old`, from the tree, 22:10:30-22:19:19, rc 1): 14 checks failed, all in bu to bF.
   - **A first unfixed run** (22:00:33-22:09:21) had a fault in my own `bF` case: it ran the untransformed `setrootpass`, which sources the host's `/etc/profile`, where `set_setting` does not exist. The case was corrected and the run repeated; the repeat is the evidence.
+  - **fixed** (from the tree, 22:29:47-22:38:38, rc 0): `PASSED`. `tools/pkgcheck rocknix`: rc 0.
+  - **The first passing run (22:19:45-22:28:33, rc 1) caught three of my faults, now fixed:**
+    - my new `disk_of` and `internal_disk` carried a comment after `{`, so the harness's lifter missed them;
+    - I had refactored `external_node_present` onto them, which broke #308 F-PB-13's case, which lifts that function alone; it is now left as it was;
+    - #714's new `$6$` contract refused the #198 case's fake `cryptpw` (`CRYPT<hex>`). That fixture now prints the `$6$` prefix the real one does, and its profile gives `set_setting_value`, in #714's own commit, so the head's harness is the one the failing run used.
+- **Commits:** head `e2771ee374`; then:
+  - `5f0e3d8a60` (#703), `55ff8ffde7` (#717), `e631f7793f` (#718), `98b30dca58` (#744);
+  - `2710c17f43` (#719, F-24), `f9108ae7d3` (#720, F-43b);
+  - `f09c3df562` (#742), `faffa32bd7` (#743), `5944a8c1bc` (#714, #758);
+  - `5707827267` (F-36), `9434ea7fda` (F-41), `3c9b9dc891` (F-31).
+- **Shapes that differ from an issue's fix line:**
+  - **#720:** the card under `/storage` is never a candidate (the fork's rule since #308). The issue's "the removable card's own path" is not done: whether sysfs marks an SD card removable, and what a UFS disk shows when the device boots from SD, are device facts the VM cannot give, and a wrong rule unmounts every handheld's games card. Said on #720.
+  - **#743:** the image's XDG-state readers come from the build root's library strings: GLib, Qt6Core, mpv and pipewire. The guest's listing is queued.
+- **Queued for the guest** (after resource return):
+  - every S6 bug's criterion 1, run against loop files and fixtures;
+  - F-24's ten boots;
+  - F-36's, F-41's and F-43b's readings.
+  - F-31's `systemctl cat` needs an image built from the branch.

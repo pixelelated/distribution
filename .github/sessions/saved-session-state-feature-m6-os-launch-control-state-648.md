@@ -118,7 +118,15 @@ F-46 is withdrawn (ES reads `updates.*`, and `system.cfg` cannot carry a comment
 
 **Queued tails:** T2's nick-as-option-word lead (#730), and D-WORKFLOW-192's netplay seam (`runemu.sh` reads the spectator marker before the client marker, a spectator case in `set_netplay`, `--mitm-session` passed through; Refs #648, #702, #708, #776). Both after S7 or at stage F's end, test first.
 
-**Next: S6.** Starts with F-67 #703 (High).
+**S6 done (22:45 UTC).** Head `e2771ee374` (harness sections bu to bF), then:
+- `5f0e3d8a60`: #703.
+- `55ff8ffde7`: #717. `e631f7793f`: #718. `98b30dca58`: #744.
+- `2710c17f43`: #719 and F-24. `f9108ae7d3`: #720 and F-43b. On #720 the internal card is excluded, but removability is not used: device facts.
+- `f09c3df562`: #742. `faffa32bd7`: #743.
+- `5944a8c1bc`: #714, with `root.password` stored through `set_setting_value` (#758).
+- `5707827267`: F-36. `9434ea7fda`: F-41. `3c9b9dc891`: F-31.
+
+Every S6 row stays open for its guest reading. **Next: S7** (the control scripts; `wifictl:460` to `set_setting_value`, #722 and #723), then the two tails, then stage F's end.
 
 **Run the harness from the tree**, never a copy: a copy finds its sibling tools beside itself (friction, 21:31).
 
