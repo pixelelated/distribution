@@ -326,3 +326,30 @@ Nothing on this list runs before the coordinator relays M7's `resource return` o
   - PL-033 stays Open: `d17cf003e` is picked, `b69fb143c` is deferred to #791, and the rest are S4's.
   - `lint-audit-artifacts --phase pre-issue --issue 790`: `PASS`. `box-check --issue 790`: 0 fail.
 - **S3 ends at ES `a585d7d1f`.**
+
+### [Stage E, S4] 20:57- — The launch chain
+
+- **PL-033's `ViewController` picks are deferred whole to #791, under rule 1** as the coordinator ruled at 20:45 ("Rule 1 wins").
+  - `git show <c> | git apply --check` fails for all three. `308221458` fails at `es-core/src/Settings.cpp:351`, where the fork changed 153 lines since the batocera merge base (`git diff --stat 1750dded8 16dbac521`). `5f106acce` and `0806a0c5c` depend on it, and fail in `ViewController.cpp`, `LaunchAnimation.h`, the game-list views and `GridTileComponent.cpp`.
+  - The three reach 14+ files, most outside the twenty. PL-014 is fixed the fork's way.
+- **PL-014.** The gate block moved out of `FileData::launchGame` into `FileData::launchGatesClear`, unchanged, with its comments.
+  - `ViewController::launch` calls it after `checkLaunchOptions` and the image-viewer branch, and before the netplay mode, the transition and the splash. It then sets `LaunchGameOptions::gatesCleared`.
+  - `launchGame` asks only when that flag is false (the screensaver's direct call, `SystemScreenSaver.cpp:546`).
+  - The three refusal branches after `doLaunchGame` now call `mCurrentView->onShow()`.
+  - Every `ViewController::launch` caller is on the interface thread: `POST /launch` posts (`HttpServerThread.cpp:621`), and the rest are pages.
+  - A gate's relaunch (`launchNow`) comes back through `ViewController::launch`, so it is asked again, as before, and PLAY NOW's `sPlayThroughSend` is consumed once.
+  - 20:57:29 syntax-only compile **`PASS`** for `FileData.cpp`, `ViewController.cpp` and `SystemScreenSaver.cpp`. `launch-deferred-state.py` and `launch-capture-gate.py`: `PASS`. Walk W-12 is written.
+  - The window between the gates and the game's start is now the transition's length (at most 1.5 s, 0.75 s at the default). A job starting inside it is not asked about. The commit says so.
+  - Committed as ES `d7c27172f`.
+- **PL-008, the test first.** `tests/launch-deferred-state.py` gained a case: the game freed and made again during the wait, as a reload does, then gone.
+  - The harness follows the source's shape, `launchNow` by pointer (the pin) or by `LaunchGameRef` (the fix), so one harness runs against both.
+  - 21:01:59, against the pin's `FileData.cpp` (`git show 16dbac521:...` into the scratchpad, with its `FileData.h`): the 3 old checks `ok`, and both new checks `FAIL`.
+  - The fix, the same harness: **5 of 5 `ok`, PASS**.
+  - `tests/launch-capture-gate.py` follows the new `launchNow` double and passes on both shapes (21:02:23).
+- **The fix.**
+  - `LaunchGameRef` and `FileData::launchRef` / `findLaunchRef` (by the source system's name and `FindByPath`, collections skipped).
+  - `launchNow`, `launchWhenGone`, `captureGate` and the gates' four answers carry the reference.
+  - `checkLaunchOptions` records the save state by its file before its dialogs, and its YES finds the game and the state again. `findSaveStateAgain` is factored out of `launchNow`.
+  - `ViewController::launch` returns when `mCurrentView` is null.
+  - 21:02:58 syntax-only compile **`PASS`** for `FileData.cpp`, `ViewController.cpp`, `SystemScreenSaver.cpp`, `GuiGameOptions.cpp`, `main.cpp` and `ProxyCards.cpp`. `es-unit-tests` **210 passed**. Walk W-13 is written.
+  - Committed as ES `3fee0df8a`.
