@@ -88,3 +88,22 @@ Nothing on this list runs before the coordinator relays M7's `resource return` o
   - VC-1: the gates ask after the launch transition and the splash.
   - FD-1, corrected by a caller search: `netplayClientPassword` is never assigned, and a `SPECTATOR` join becomes a plain client on the image.
 - Seam leads for other slices: FD-7 (the controllers blob, T36), FD-9/FD-19 (`Scripting` quoting, T33/T21), FD-1's `mitm_session` (T31).
+
+### [Phase 2] 17:3x-17:43 — Groups 2 to 5 read; the Q6 list and the Q4 dispositions
+
+- Groups 2 (SD-1 to SD-7), 3 (SS-1 to SS-4, SR-1 to SR-3, SC-1, SB-1 to SB-3), 4 (FD-18 confirmed, PC-1, PC-2) and 5 (MN-1 to MN-7) are in `02-forward-audit.md`. FD-8 was graded down to Low after the rescan's two posts were traced (`FileData.cpp:1223`, `GuiCloudTransfer.cpp:335`).
+- Q6 list: `q6-reachability.py` (in the audit folder) on the pin gives **370 entry points**: 295 header declarations (one-line, multi-line and inline), 13 file-static functions and 62 preprocessor conditionals (`#if`/`#ifdef`/`#ifndef`/`#else`/`#elif`, indented ones included).
+  - The brief's three commands count 154 declarations, 32 statics and 60 conditionals. The brief recorded 36 conditionals, a **delta**: its pattern also matches `#ifdef`/`#ifndef`.
+  - The 32 "statics" include static data (19 are data, `^static ` with no parenthesis), which are not entry points.
+  - The hand reading added `recordCopy` (its call spans two lines, `GuiSaveState.cpp:524`) as reached.
+  - Five functions are unreached: `renumberSlots`, `isVirtualFolderDisplayEnabled`, `hasGamelist`, `setIndex` and `isDefaultConfig`. Each was confirmed with `git grep -n -w <name> $PIN -- es-app/src es-core/src es-app/tests`.
+  - The table is generated into `q6-table.md`, 370 rows.
+- Preprocessor facts: `-DROCKNIX=1 -DDISABLE_KODI=1` (`package.mk:19-25`); CMake defines `BATOCERA` only under `if(BATOCERA)` and `_RPI_` only under BCMHOST/RPI. No CMake file defines `DEBUG` or `FREEIMAGE_LIB`.
+- Q4, batocera's seven commits (`1750dded8..batocera/master -- <20>`), each tested against the pin with `git show <c> -- <20> | git apply --check [--reverse]`, which writes nothing:
+  - `13e21d420`, `d17cf003e` and `308221458` apply forward.
+  - `b69fb143c` conflicts with the fork's constructor hunk.
+  - `5f106acce` and `0806a0c5c` stack on `308221458`.
+  - `195a517ef` is the merge carrying `13e21d420`.
+  - None is already in the pin.
+- `CheckBiosesAtLaunch` defaults to `false` (`es-core/src/Settings.cpp:207`).
+- Host: no `resource return` line yet.
