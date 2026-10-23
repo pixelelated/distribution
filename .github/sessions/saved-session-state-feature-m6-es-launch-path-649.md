@@ -37,19 +37,17 @@
 
 ## Current focus
 
-**Stage A opened 2026-10-23 17:26 UTC** by the T2 lane (session
-`9adce27f-9c22-4065-af78-e6c9a2a1f6ff`, pane `wN:p5`). `reviewed-at:`
-distribution `f4e0f0a196`, ES pin `16dbac5211`. The audit folder is
-`docs/audits/2026_10_23-epic-m6-es-launch-path/`; its `00-running-log.md`
-holds the queue of what waits for the host. The counts match the brief
-with one delta: `rocknix/master` is now `f6c542872`, its four new commits
-touching none of the twenty files. The four host checks equal the
-baseline. #699's fix to `tools/es-syntax-check` is on the branch, and its
-constructed `NO-COMPILER` failure has been seen. Its two compile proofs
-are queued. **The host is still handed to M7**: no guest, no compiler and
-no `npm install` before the coordinator relays `resource return` on #649.
-Next: Phase 1 (the issues, the history, the decisions), then Phase 2 over
-the twenty files, from the tree.
+**Phases 1 to 4 written from the tree; waiting on the host** (2026-10-23 18:0x UTC, T2 session
+`9adce27f-9c22-4065-af78-e6c9a2a1f6ff`). `reviewed-at:` distribution `f4e0f0a196`,
+ES pin `16dbac5211`. `docs/audits/2026_10_23-epic-m6-es-launch-path/` holds
+`00` to `04`, `q6-table.md` and `q6-reachability.py`. Its `second-opinions/` holds the plan
+(pending), the probe prompts and both briefs. Leads before 4.6: four Medium (FD-14,
+SS-1, SD-2, VC-1), the rest Low or Renovation. #699's fix is on the branch; its
+compile proofs are queued. **Next, on the coordinator's `resource return` relay on #649:**
+run `00-running-log.md`'s queue in order (`npm install`, #699's proofs, the unit
+tests, `tests/app-unit`, the python harnesses, the guest, the tool trials, Q5).
+Then Phase 4.6 (probe, then refutation, per seat), then Phase 5 and the audit and bug issues,
+then the stage-D pause.
 
 ## Next commands
 

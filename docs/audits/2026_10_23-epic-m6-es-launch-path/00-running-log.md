@@ -107,3 +107,13 @@ Nothing on this list runs before the coordinator relays M7's `resource return` o
   - None is already in the pin.
 - `CheckBiosesAtLaunch` defaults to `false` (`es-core/src/Settings.cpp:207`).
 - Host: no `resource return` line yet.
+
+### [Phase 3-4] 17:47-18:0x — Retrospective, analysis, verification; stage C prepared
+
+- `03-retrospective.md`: 3.1 to 3.7, with the five seams of brief § 2 as interaction entries. The 3.6.5 sibling table comes from `git grep -n -E <shape> $PIN -- es-app/src es-core/src`, one row per shape. Siblings were found for SS-1, FD-2, FD-15, MN-4 and MN-5, in this slice and in neighbouring slices.
+- **Doctrine drift found:** `time-to-play.md` says D-CLOUD-076 ships and D-CLOUD-109 replaces it. The code ships D-CLOUD-130 (`FileData.cpp:993-1008`). This is a lead for the doctrine slice.
+- `04-analysis.md`: the lint's five sections, § Finding Verification, and § Renovation face Q1 to Q7 (Q6 with the 370-row table; Q4 with the seven dispositions; Q5 the named absence of a measurement until the host returns). § Second opinion is pending.
+- Phase 4.5: the graded findings' lines re-read from `git show $PIN:<path>`, and `isAbsolute` read (`FileSystemUtil.cpp`). FD-1, FD-8 and VC-2 are corrected as recorded.
+- Prior punch lists (provenance), grepped for this audit's shapes: `grep -c -E '\.m3u|state_file|rfind\("ports"\)|UKNOWN|formatCommandLineArgument|renumberSlots|getContentFiles|deleteGameFiles|loadAdditionnalConfig'` over the eight is **0** each, and the same over every audit's `05-punch-list.md` is 0. The findings are new to the record.
+- Stage C prepared, with no runtime: `second-opinions/review-plan.json` (status pending), the probe prompts, and `gpt-brief.md` and `gemini-argon-brief.md` (178 KB each: preamble, the audit's 02/03/04 without the Q6 table, and sixteen source excerpts at the pin; `grep -c -i -E 'DEV_LOGIN|devpassword|password='` = 0). Phase 4.6's calls wait for `npm install`, and the install waits for the host's return.
+- **The lane waits** on the host's `resource return` for the queue at the top, then runs Phase 4.6, then Phase 5.
