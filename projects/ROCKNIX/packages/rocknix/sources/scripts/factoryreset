@@ -224,8 +224,10 @@ case "${VERB}" in
     # from an OCV voltage lookup and clears the bit itself. Power off
     # rather than reboot: PWRON_VOL only refreshes on a real power-on,
     # and a warm reboot would leave the lookup a stale sample.
+    FOUND=0
     for DEV in /sys/bus/i2c/devices/*-0020; do
       [ "$(cat ${DEV}/name 2>/dev/null)" = "rk817" ] || continue
+      FOUND=1
       BUS="${DEV##*/}"; BUS="${BUS%%-*}"
       STS=$(i2cget -f -y ${BUS} 0x20 0x57)
       [ -n "${STS}" ] || continue
@@ -235,6 +237,13 @@ case "${VERB}" in
       done
       systemctl poweroff
     done
+    # No rk817 at all: said, where the loop's 0 returned as if the gauge had
+    # been reset (#742).
+    if [ "${FOUND}" -eq 0 ]
+    then
+        fail "THIS DEVICE HAS NO BATTERY FUEL GAUGE TO RESET, SO NOTHING WAS CHANGED." "no rk817 under /sys/bus/i2c/devices"
+        exit 1
+    fi
   ;;
   "ALL")
     swapoff -a 2>/dev/null
