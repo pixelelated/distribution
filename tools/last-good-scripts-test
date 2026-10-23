@@ -14232,6 +14232,94 @@ TMPDIR="${TMP}" python3 "${HARNESS_ROOT}/tools/melonds-upgrade-test" --post-upda
   --busybox "${BB_HOST}" --output "${TMP}/melonds-upgrade.json"
 check $? "#526: preserved configuration and atomic hotkey additions" "#526: melonDS update regression (details above)"
 
+# #702 (F-14, A-05) and #708 (F-15), M6 T1 stream S1: what setsettings.sh's
+# netplay block prints is spliced into runemu.sh's RUNTHIS and eval'ed as
+# root, so a typed netplay host -- or any other line setsettings.sh prints --
+# must never reach that eval as a command. The functions are lifted from the
+# scripts (from BASE_REF under --old) and run under the image's bash when
+# QA_SYSTEM_ROOT names it; get_setting is a fixture lookup, the RetroArch at
+# the end of the eval a stub that records its argv.
+NP_BASH=bash
+[ -n "${QA_SYSTEM_ROOT:-}" ] && [ -x "${QA_SYSTEM_ROOT}/usr/bin/bash" ] && NP_BASH="${QA_SYSTEM_ROOT}/usr/bin/bash"
+NP="${TMP}/netplay"; mkdir -p "${NP}"
+[ -x "${TMP}/bbin/sed" ] || skip "#702/#708: no image busybox (QA_SYSTEM_ROOT) -- the netplay block runs under the host's sed"
+src_of projects/ROCKNIX/packages/rocknix/sources/scripts/setsettings.sh "${NP}/setsettings.sh"
+src_of projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh "${NP}/runemu.sh"
+for f in add_setting clear_setting game_setting set_netplay; do
+    awk -v f="${f}" '$0 ~ "^function "f"\\(\\) \\{"{p=1} p{print} p && /^}/{exit}' "${NP}/setsettings.sh"
+done > "${NP}/lifted.sh"
+# runemu.sh's splice: from the comment above the EXTRAOPTS read to the fi
+# that closes the RUNTHIS rewrite.
+awk '/### If setsettings wrote data in the background/{p=1} p{print} p && /RUNTHIS=\$\(echo \$\{RUNTHIS\}/{q=1; next} q && /^    fi$/{exit}' "${NP}/runemu.sh" > "${NP}/splice.sh"
+grep -q 'RUNTHIS=' "${NP}/splice.sh" && grep -q '^function set_netplay() {' "${NP}/lifted.sh"
+check $? "the netplay block and runemu.sh's splice were lifted" "could not lift set_netplay or runemu.sh's EXTRAOPTS splice"
+cat > "${NP}/stub-retroarch" <<'EOF'
+#!/bin/bash
+printf '[%s]' "$@" > "${NP_ARGV}"
+EOF
+chmod +x "${NP}/stub-retroarch"
+# np_run <dir> <stray stdout line, or empty>: run set_netplay as runemu.sh
+# runs setsettings.sh (its stdout to a file), then runemu.sh's splice and its
+# eval, in the image's bash.
+np_run() {
+    local d="$1" stray="$2"
+    rm -rf "${d}/ra" "${d}/marker" "${d}/argv" "${d}/append.cfg" "${d}/append.cfg.sed" "${d}/shader"
+    mkdir -p "${d}/ra/config/TGB Dual"
+    [ -f "${d}/tgb.opt" ] && cp "${d}/tgb.opt" "${d}/ra/config/TGB Dual/TGB Dual.opt"
+    # The image's sed, awk and friends first (the bbin shims): the TGB Dual
+    # block's backslash-newline sed program is one busybox runs and GNU sed
+    # refuses, so a host sed here tests a script the device never runs.
+    PATH="${TMP}/bbin:${PATH}" D="${d}" NP_ARGV="${d}/argv" STRAY="${stray}" LIFTED="${NP}/lifted.sh" SPLICE="${NP}/splice.sh" \
+    STUB="${NP}/stub-retroarch" "${NP_BASH}" -c '
+        log() { echo "log: $*" >> "${D}/log"; }
+        get_setting() { # <key> [platform rom]: the fixture system.cfg, system key first
+            local v; v=$(awk -F= -v k="$2.$1" "\$1==k{sub(/^[^=]*=/,\"\"); print; exit}" "${D}/system.cfg")
+            [ -n "$v" ] || v=$(awk -F= -v k="$1" "\$1==k{sub(/^[^=]*=/,\"\"); print; exit}" "${D}/system.cfg")
+            printf "%s" "$v"; }
+        TMP_CONFIG="${D}/append.cfg"; RETROARCH_PATH="${D}/ra"; PLATFORM=gb; ROM=t1.gb
+        CORE=$(cat "${D}/core")
+        . "${LIFTED}"
+        SET_SETTINGS_TMP="${D}/shader"
+        ( set_netplay; [ -n "${STRAY}" ] && printf "%s" "${STRAY}" ) > "${SET_SETTINGS_TMP}" 2>>"${D}/log"
+        VERBOSE=false
+        RUNTHIS="${STUB} -L /tmp/core.so --config /tmp/retroarch.cfg /storage/roms/gb/t1.gb"
+        cd "${D}"
+        . "${SPLICE}"
+        eval ${RUNTHIS} >>"${D}/log" 2>&1
+    '
+}
+
+echo "  ai. a typed netplay host never runs as a command at launch (#702, A-05)"
+NA="${NP}/ai"; mkdir -p "${NA}"
+# The marker is a fixed path the eval would create; built at run time.
+MK="${NA}/marker"
+printf 'global.netplay=1\nnetplay=1\nnetplay.mode=client\nglobal.netplay.port=55435\nglobal.netplay.host=127.0.0.1;touch %s;\n' "${MK}" > "${NA}/system.cfg"
+echo "fbneo" > "${NA}/core"
+np_run "${NA}" ""
+[ ! -e "${MK}" ]
+check $? "a host carrying ';touch <marker>;' runs nothing" "a host carrying ';touch <marker>;' ran as a command at the eval (marker created)"
+grep -q -- '\[--config\]\[/tmp/retroarch.cfg\]\[/storage/roms/gb/t1.gb\]$' "${NA}/argv" 2>/dev/null
+check $? "the launch still carries its config and ROM: $(cat "${NA}/argv" 2>/dev/null)" "the launch lost its config or ROM: argv $(cat "${NA}/argv" 2>/dev/null || echo none)"
+grep -q -i 'refus' "${NA}/log" 2>/dev/null && ! grep -q -F 'touch' "${NA}/log"
+check $? "the refusal is logged, and the value is not" "no refusal in the log, or the log carries the value: $(grep -i -m1 -E 'refus|touch' "${NA}/log" 2>/dev/null)"
+! grep -q -F 'touch' "${NA}/append.cfg" 2>/dev/null
+check $? "the refused host reaches no RetroArch setting" "the refused host was written into the appendconfig"
+printf 'global.netplay=1\nnetplay=1\nnetplay.mode=client\nglobal.netplay.port=55435\nglobal.netplay.host=127.0.0.1\n' > "${NA}/system.cfg"
+np_run "${NA}" ""
+grep -q -- '\[--connect\]\[127.0.0.1\]\[--config\]' "${NA}/argv" 2>/dev/null
+check $? "control: host 127.0.0.1 reaches RetroArch as --connect 127.0.0.1" "control: host 127.0.0.1 did not reach --connect: $(cat "${NA}/argv" 2>/dev/null || echo none)"
+printf 'global.netplay=1\nnetplay=1\nnetplay.mode=client\nglobal.netplay.port=55435\nglobal.netplay.host=fe80::1\n' > "${NA}/system.cfg"
+np_run "${NA}" ""
+grep -q -- '\[--connect\]\[fe80::1\]' "${NA}/argv" 2>/dev/null
+check $? "control: an IPv6 host passes" "control: the IPv6 host fe80::1 was refused: $(cat "${NA}/argv" 2>/dev/null || echo none)"
+MK2="${NA}/marker2"
+printf 'global.netplay=1\nnetplay=1\nnetplay.mode=client\nglobal.netplay.port=55435\nglobal.netplay.host=127.0.0.1\n' > "${NA}/system.cfg"
+np_run "${NA}" " ;touch ${MK2};"
+[ ! -e "${MK2}" ]
+check $? "a stray line setsettings.sh prints runs nothing (A-05)" "a stray ';touch <marker>;' printed by setsettings.sh ran at the eval (A-05)"
+grep -q -- '\[--config\]\[/tmp/retroarch.cfg\]\[/storage/roms/gb/t1.gb\]$' "${NA}/argv" 2>/dev/null
+check $? "the launch with the stray line still carries its config and ROM" "the launch with the stray line lost its config or ROM: $(cat "${NA}/argv" 2>/dev/null || echo none)"
+
 if [ "${NOT_APPLICABLE}" -ne 0 ]; then echo "${NOT_APPLICABLE} HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS"; fi
 if [ "${FAIL}" -eq 0 ] && [ "${SKIPPED}" -eq 0 ]; then echo "PASSED"; exit 0
 elif [ "${FAIL}" -eq 0 ]; then echo "PASSED, ${SKIPPED} SKIPPED -- a check that did not run has not passed"; exit 3

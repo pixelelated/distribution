@@ -349,6 +349,14 @@ case ${EMULATOR} in
       EXTRAOPTS=$(cat ${SET_SETTINGS_TMP})
       rm -f ${SET_SETTINGS_TMP}
       ${VERBOSE} && log $0 "Extra Options: ${EXTRAOPTS}"
+      ### EXTRAOPTS is spliced into RUNTHIS, which is eval'ed as root below,
+      ### so it may hold only what an option and its value need; anything
+      ### carrying a shell character is dropped whole, not run (#702, A-05).
+      EXTRAOPTS_RE='[^[:alnum:][:space:]._/:,+@=-]'
+      if [[ "${EXTRAOPTS}" =~ ${EXTRAOPTS_RE} ]]; then
+        log $0 "Dropped setsettings.sh's extra options: they held a character no option needs."
+        EXTRAOPTS=""
+      fi
     fi
 
     if [[ ${EXTRAOPTS} != 0 ]]; then

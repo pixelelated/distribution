@@ -618,6 +618,15 @@ EOF
             ;;
             client)
                 local NETPLAY_HOST_IP=$(get_setting global.netplay.host)
+                ### The host is typed free text, and what this function prints is
+                ### spliced into runemu.sh's command line and eval'ed as root
+                ### (#702): a hostname or an address, or no --connect at all.
+                local NETPLAY_HOST_RE='^[A-Za-z0-9.:][A-Za-z0-9.:-]*$'
+                if [ -n "${NETPLAY_HOST_IP}" ] && ! [[ "${NETPLAY_HOST_IP}" =~ ${NETPLAY_HOST_RE} ]]
+                then
+                    log "Refused the netplay host (${#NETPLAY_HOST_IP} characters): a host is letters, digits, '.', ':' and '-'."
+                    NETPLAY_HOST_IP=""
+                fi
                 add_setting "global.netplay.port" "${NETPLAY_PORT}"
                 if [ ! -z "${NETPLAY_HOST_IP}" ]
                 then
