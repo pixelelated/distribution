@@ -310,10 +310,10 @@ sections (§ 7).
 | B. Read | code-auditor Phases 1 to 4 over the paths, with Phase 2's criteria being the slice issue's checklist and Phase 3 carrying the seven questions of § 4 as its renovation face beside the skill's own faces | `02-forward-audit.md`, `03-retrospective.md`, `04-analysis.md` |
 | C. Second opinion | Phase 4.5 self-refutation, then Phase 4.6 at the slice's depth (§ 6c) through the Facilitator; the served model verified | `04-analysis.md` § Second opinion, `second-opinions/` |
 | D. Punch list | Phase 5 and 6: `05-punch-list.md` with the YAML index, every item with its question (Q1 to Q7), severity, category, where, acceptance; the punch-list issue with one checkbox per item | the audit issue, `audit`, `punch-list` labels |
-| E. Remediation | one brief per stream of related items (the D-WORKFLOW-056 shape: the verdict's lines, the fix as a specification, the test first, the `Already written:` line, the files owned, the commit shape); the executor works each stream on a branch and delivers the branch, never a build | `streams/briefs/*.md`; `feature/m6-<slice>-<stream>` branches |
+| E. Remediation | the executing lane pauses after stage D; the **coordinator** writes one brief per stream of related items (the D-WORKFLOW-056 shape: the verdict's lines, the fix as a specification, the test first, the `Already written:` line, the files owned, the commit shape; a brief is planning, D-WORKFLOW-189) and names the branch each stream lands on (the slice's own branch by default, one commit series per stream); the executor works each stream and delivers the branch, never a build | `streams/briefs/*.md`; the slice branch, or `feature/m6-<slice>-<stream>` where the coordinator says so |
 | F. Verification | every behaviour claim proven on the VM (`vm-first.md`), every mechanical check run (`tools/pkgcheck`, `tools/vm-qa` suites that cover the paths, `tools/es-syntax-check` for ES); Phase 7 outcomes re-derived from commands | the outcomes in the audit issue; `audit-completion.json` |
 | G. Learning | the mini-retro skill over the slice; findings that recur become a rule edit, a tool, a blindspot entry with its guard, or a work-log entry (`learning-capture.md`); Instruction-Recommendations mode runs because the scope is epic tier | `docs/retros/<date>-m6-<slice>.md`; rule and register edits |
-| H. Close | the slice issue's `reviewed-at` set to the tree hash the read was made at and the hash the fixes merged at; the inventory rows updated; `tools/renovation-status` regenerated; the M6 body's current/next moved | the issue closed `completed` with the commits named |
+| H. Close | the executor posts the hand-back on the slice issue with `reviewed-at:` (the lane's commit the read was made at, its slice bytes equal to `next`'s named hash) and `fixed-at:` (the lane's tip when the fixes are complete) written in the issue's body; the **coordinator** accepts, closes the issue `completed` with the commits named, writes `reviewed_at` and `fixed_at` into `slices.json`, and after the branch merges to `next` regenerates the inventory, `tools/renovation-status` and `tools/renovation-drift` (a drift diff means something only once `fixed-at` is an ancestor of `next`) and moves the M6 body's current/next (D-WORKFLOW-189) | the issue closed `completed` with the commits named |
 
 `tools/lint-audit-artifacts` runs before stage D and again before stage H;
 the renovation face is added to its checks in P1 so a slice without the seven
@@ -367,8 +367,11 @@ mandatory:
    might otherwise re-open.
 4. **The questions**: § 4's table restated for this slice, with the questions
    that do not apply struck and the reason (a provenance table has no Q5).
-5. **The evidence floor**: the code-auditor's four rules verbatim; what runs
-   on the VM and how (`generic-x64-vm-testing.md` § headless); what never
+5. **The evidence floor**: the code-auditor's rules as its SKILL.md § Evidence
+   floor lists them; what runs on the VM and how (`generic-x64-vm-testing.md`
+   § headless), with every tool the brief names run with `--help` and every
+   host path it names listed before the brief is committed (the first
+   slice brief had six such claims wrong, futro 2026-10-23); what never
    runs (no device, no cloud, no build in a build worktree, no edit to a tool
    that is in flight, no `pkill -f`).
 6. **Outputs**: the audit folder name, the six phase files, the YAML index,
@@ -452,7 +455,7 @@ Feature work (M7 and after) lands on `next` while slices run. The rules:
 | The order and the method | `docs/reviews/order.md`, this file | P0, P1 |
 | The inventory | `docs/reviews/inventory.json`, `inventory.md` | `tools/renovation-inventory`, re-run at every stage H |
 | The status table | `docs/reviews/status.md` | `tools/renovation-status`, from the inventory and the slice issues |
-| Drift | `tools/renovation-drift` output, pasted on the slice issue | every stage H |
+| Drift | `tools/renovation-drift --write docs/reviews/drift.md`, its table also pasted on the slice issue | the coordinator, after every slice's branch merges to `next` |
 | The briefs | `docs/reviews/briefs/<slice>.md` | the planner, before dispatch |
 | The audits | `docs/audits/<date>-epic-m6-<slice>/` | the executor, per slice |
 | Decisions | `docs/decision-register.md` | the session that makes one, same session |
