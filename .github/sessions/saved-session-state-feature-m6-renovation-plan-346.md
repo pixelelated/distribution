@@ -34,8 +34,9 @@ post-candidate merge to clear the push guard's W42 gate (D-INFRA-026,
 D-WORKFLOW-182); never `--no-verify`. P1 started 2026-10-22 in its own
 worktree `distribution.worktrees/m6-p1-survey-641` on
 `feature/m6-p1-survey-641`, stacked on this branch; its state lives in its
-own pointer. This lane's next act is acceptance at P1's pass-7 gate (the
-proposed order posted on #641) and at hand-back (brief § 10).
+own pointer. The pass-7 gate is passed (the yes of 2026-10-23); this lane's next acts are
+the filing of the slice issues (D-WORKFLOW-189) and acceptance at hand-back
+(brief § 10); see § State at 2026-10-23.
 
 ## Next commands
 
@@ -93,12 +94,18 @@ merge (never `--no-verify`). P1's pass-7 gate: question 1 settled
 (D-WORKFLOW-185/186), question 2 withdrawn (D-WORKFLOW-187: the renovation
 gates no release), question 3 settled by D-WORKFLOW-184; the maintainer's yes
 on the order's fourth version (`eb4763e3cc`, ledgers `00ca350666`) was given
-on 2026-10-23 and relayed. P1 writes the order's register row; the filing of
-the 46 slice issues is held on one question with the maintainer, who authors
-the slice issues and their criteria (D-WORKFLOW-181's letter has Fable; the
-lane split of 2026-10-22 put the survey on Opus 5.5). #644 and #645 are the
-build-path read and its PR-process findings. Next: the hand-back acceptance
-against the P1 brief § 10, then the first slice's brief (plan § 7).
+on 2026-10-23 and relayed; P1 wrote the order's register row on its branch
+(the next ID above 187). The question who authors the slice issues was
+answered 2026-10-23 with a general rule, D-WORKFLOW-189: planning, the
+division of work, the definition of work items and roadmap changes are this
+lane's; a work lane executes. So the 46 slice issues are this lane's to file,
+from P1's renderer (`tools/renovation-inventory --slice-issues DIR`, run
+read-only against P1's tree into this lane's scratchpad). #644 and #645 are
+the build-path read and its PR-process findings. Next: file the 46 (one first,
+`tools/box-check --issue N` on it, then the rest, each a sub-issue of #339);
+the hand-back acceptance against the P1 brief § 10 as amended (inventory and
+order, no slice issues); then the first slice's brief (plan § 7), which adds
+T1's specific criteria to its issue.
 
 ## The seed brief (2026-10-22, the planning session's handoff, verbatim)
 

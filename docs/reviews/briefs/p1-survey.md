@@ -9,7 +9,11 @@ same session. Version 3: version 2 answered the first stranger's sixteen
 questions; a second stranger reached the first inventory commit without a
 question and raised thirteen more, answered below (the runner's install, the
 32-bit plan root, `--repo` on every `gh` call, the unnamed roots, the
-review's place before the pass-7 post).
+review's place before the pass-7 post). Version 3.2 (2026-10-23): the
+slice issues leave P1's outputs for the coordinator lane (D-WORKFLOW-189:
+planning, the division of work and the definition of work items are the
+coordinator's; a work lane executes); P1 hands back the inventory and the
+order, and its renderer is what the coordinator files from.
 
 ## 1. Identity
 
@@ -313,7 +317,7 @@ in" column names `docs/reviews/README.md`, which documents the three);
 | Status tool and table | `tools/renovation-status`, `docs/reviews/status.md` | a row `order: reviewed\|unreviewed`, then one row per slice: `k`, area, lines, depth, state (`unreviewed`, `reading`, `remediating`, `closed`, `drifted`), `reviewed-at`, `fixed-at`, drift since; reads `order.md` and the slice issues (`gh ... --json`, bounded with `--limit`) |
 | Drift tool | `tools/renovation-drift [--write docs/reviews/drift.md]` | for every slice with a `fixed-at`: `git diff --stat <fixed-at>..next -- <paths>`, the percentage of the slice's lines, and whether a file on `order.md`'s security/state/launch-path list is touched; prints the table and exits 1 when any slice crosses plan § 8's thresholds |
 | Lint face | `tools/lint-audit-artifacts` | for a folder named `*-epic-m6-*`: every item in `05-punch-list.md`'s YAML index carries `question: Q1..Q7` or `question: none` with a reason, and `04-analysis.md` has a `## Renovation face` section with one subsection per question; a fixture folder under `tools/test-fixtures/` proves the lint fails without them and passes with them |
-| Slice issues | GitHub, sub-issues of #339, `--milestone "M6: Codebase renovation"`, no label | filed only after the pass-7 gate (§ 8); title `M6.P2 E339/T<k>: <area>: <slice>` (all slices are phase P2, ordered by `order.md`; `T` from the closed sub-id set; re-parented and retitled `E<epic>/T<k>` when the area epic is filed at first dispatch); body: paths, tier, line count, lens, interacting subsystems, depth, release gate, `reviewed-at:` and `fixed-at:` empty, and the acceptance checklist (the audit folder `docs/audits/<date>-epic-m6-<slice>/` with the five files the lint requires, `01-research-notes.md` to `05-punch-list.md`, plus the `00-running-log.md` plan § 6b opens at stage A; `tools/lint-audit-artifacts` PASS including the renovation face, the punch-list issue with every item at a Phase 7 outcome, `reviewed-at` and `fixed-at` set); attached with `gh api -X POST repos/pixelelated/distribution/issues/339/sub_issues -F sub_issue_id=<REST id>` |
+| Slice issues | GitHub, sub-issues of #339, `--milestone "M6: Codebase renovation"`, no label | **the coordinator's, not P1's, since 2026-10-23 (D-WORKFLOW-189)**: P1's part is `tools/renovation-inventory --slice-issues DIR`, which renders every slice's title and body from `slices.json`; the coordinator runs it, reads each body, adds the slice's specific criteria with its brief before dispatch, and files. What is filed: only after the pass-7 gate (§ 8); title `M6.P2 E339/T<k>: <area>: <slice>` (all slices are phase P2, ordered by `order.md`; `T` from the closed sub-id set; re-parented and retitled `E<epic>/T<k>` when the area epic is filed at first dispatch); body: paths, tier, line count, lens, interacting subsystems, depth, release gate, `reviewed-at:` and `fixed-at:` empty, and the acceptance checklist (the audit folder `docs/audits/<date>-epic-m6-<slice>/` with the five files the lint requires, `01-research-notes.md` to `05-punch-list.md`, plus the `00-running-log.md` plan § 6b opens at stage A; `tools/lint-audit-artifacts` PASS including the renovation face, the punch-list issue with every item at a Phase 7 outcome, `reviewed-at` and `fixed-at` set); attached with `gh api -X POST repos/pixelelated/distribution/issues/339/sub_issues -F sub_issue_id=<REST id>` |
 | Area epics | GitHub, label `epic` | **not filed in P1**: an area's epic is filed when its first slice is dispatched, so each owes its futro at its own kickoff (`ceremonies.md`) |
 | Register row | `docs/decision-register.md` | the chosen order, citing #641 and #346. The ID: one above the highest `D-WORKFLOW` on `next`, on every pushed branch (`git grep -ho 'D-WORKFLOW-[0-9]*' $(git branch -r --format='%(refname)') -- docs/decision-register.md`), and in the M7 lane's unpushed worktree (`grep -o 'D-WORKFLOW-[0-9]*' /workspace/repos/rocknix.worktrees/m7-player-setup/docs/decision-register.md \| sort -t- -k3 -n \| tail -1`); on 2026-10-22 that is **D-WORKFLOW-184** (182 is the stacked start, 183 the lane structure, both on the P0 branch) |
 | Lane stash | `.github/sessions/saved-session-state-feature-m6-p1-survey-641.md` | seeded by the planner; the executor updates it at every checkpoint: start here, current focus, the pass reached, next commands, merge notes |
@@ -332,7 +336,7 @@ item names the artifact that ticks it.
 - [ ] `docs/reviews/p1-tracking.md` carries the header hashes and the model/effort run, shows all seven passes complete with counts, and the cross-reference pass records at least one edge per area.
 - [ ] `docs/reviews/order.md` has every slice with the fields of § 6; the first three slices are each under about 12,000 read lines or one package group; Tier 1's launch, control and state slice and the interface's launch-path slice are among the first three; the review status line is present.
 - [ ] The proposed order and slice list were posted on #641, and the maintainer's yes is recorded there and in the order's register row before any slice issue was filed (the row's date and the first slice issue's creation time, read back).
-- [ ] Every slice has its issue as a sub-issue of #339, titled `M6.P2 E339/T<k>: <area>: <slice>`, paths named, `reviewed-at` and `fixed-at` empty; `tools/box-check` passes on all of them, output pasted on #641.
+- [ ] `tools/renovation-inventory --slice-issues <dir>` renders one title and one body per slice from `slices.json` (its `wrote N slice issue bodies` line, N equal to the slice count, pasted on #641); the filing of the slice issues is the coordinator's (D-WORKFLOW-189) and not a P1 criterion.
 - [ ] The preliminary review ran per `review-formats.md` (the contract under `research/preliminary-reviews/<run-id>/`, three seats verified) or `order.md` records why not and `status.md` shows `order: unreviewed`; each material objection is answered by name.
 - [ ] `tools/renovation-drift` and `tools/renovation-status` exist, are listed in the three places, and `docs/reviews/status.md` has the `order:` row and one `unreviewed` row per slice.
 - [ ] `tools/lint-audit-artifacts` carries the renovation face check and its fixture proves it fails a folder without the seven questions and passes one with them.
@@ -343,13 +347,13 @@ item names the artifact that ticks it.
 
 Stop only on: every item of § 7 ticked and the branch pushed; the **pass-7
 gate** (passes 1 to 6, the preliminary review included, are authorized by
-the dispatch; before filing the slice issues and the order's register row,
-post on #641 the proposed order with each slice's fields, the slice list
+the dispatch; before the order's register row, and before the coordinator
+files the slice issues (D-WORKFLOW-189), post on #641 the proposed order with each slice's fields, the slice list
 with its titles, the inventory's four counts with their commands, the
 unreached and unshipped sets and the review's status, and wait for the
 maintainer's yes, building the status and drift tools and the lint face
-meanwhile; a yes that moves a slice renumbers `T<k>` before anything is
-filed); an explicit maintainer pause on #641; a
+meanwhile; a yes that moves a slice renumbers `T<k>` in `slices.json` before
+the coordinator files anything); an explicit maintainer pause on #641; a
 blocker, named on #641 with what is needed (a count that cannot be produced
 or two commands that disagree, a rule that forbids a step); or an execution
 limit, stated as such with the tracking file current. A checkpoint is not a
@@ -381,6 +385,7 @@ survey: the M6 body (current/next moved); `docs/reviews/status.md` (the
 `order:` row and one row per slice, all `unreviewed`); `docs/reviews/order.md`
 (the first three slices and their reading order); the four counts and the five
 checker exit codes pasted on #641; the tracking file's header and seven
-passes; the retro's four answers. A brief that needed the planner's help
+passes; the retro's four answers. The slice issues are not part of the
+hand-back: the coordinator files them from P1's renderer (D-WORKFLOW-189). A brief that needed the planner's help
 mid-phase is a defect in this brief: log the friction, and the planner fixes
 the template in plan § 7 before the next brief is written.
