@@ -96,6 +96,23 @@ while IFS=: read -r file line cite; do
 done < <(grep -rn -o -E 'D-[A-Z]+-[0-9]*[a-z?]+[0-9a-z?]*\b' "${LIVE[@]}" 2>/dev/null | grep -v -F "${REG}:" | sort -u)
 [ "${missing}" -eq 0 ] || FAIL=1
 
+# 4. a decided row in the open table. A row appended at the end of the file
+# lands under "## Open decisions", and nine renovation rows sat there for a
+# day while this check passed (#646, 2026-10-23). An open row asks: its bold
+# text begins "Open:" or carries a question mark. A statement there is a
+# decided row in the wrong table; name it.
+open_at=$(grep -n -m1 '^## Open decisions' "${REG}" | cut -d: -f1)
+if [ -n "${open_at}" ]; then
+    while IFS= read -r row; do
+        id=$(printf '%s' "${row}" | grep -o -E '^\| D-[A-Z]+-[0-9]+ ' | tr -d '| ')
+        bold=$(printf '%s' "${row}" | sed -nE 's/^[^*]*\*\*(.*)$/\1/p' | sed -E 's/\*\*.*$//')
+        case "${bold}" in
+            'Open:'*|*'?'*) ;;
+            *) echo "MISPLACED ${id}: a statement under '## Open decisions' is a decided row in the wrong table (#646)"; FAIL=1 ;;
+        esac
+    done < <(tail -n +"${open_at}" "${REG}" | grep -E '^\| D-[A-Z]+-[0-9]+ ')
+fi
+
 n_rows=$(printf '%s\n' "${ids}" | grep -c .)
 if [ "${FAIL}" -eq 0 ]; then
     echo "register-check: ${n_rows} IDs, each once; every citation in the live documents names a row"
