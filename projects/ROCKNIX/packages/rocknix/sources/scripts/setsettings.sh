@@ -500,7 +500,7 @@ function set_fps() {
 }
 
 function set_config_save() {
-    add_setting "config_save_on_exit" "false"
+    add_setting "none" "config_save_on_exit" "false"
 }
 
 function set_cheevos() {
