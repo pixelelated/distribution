@@ -37,17 +37,15 @@
 
 ## Current focus
 
-**Phases 1 to 4 written from the tree; waiting on the host** (2026-10-23 18:0x UTC, T2 session
-`9adce27f-9c22-4065-af78-e6c9a2a1f6ff`). `reviewed-at:` distribution `f4e0f0a196`,
-ES pin `16dbac5211`. `docs/audits/2026_10_23-epic-m6-es-launch-path/` holds
-`00` to `04`, `q6-table.md` and `q6-reachability.py`. Its `second-opinions/` holds the plan
-(pending), the probe prompts and both briefs. Leads before 4.6: four Medium (FD-14,
-SS-1, SD-2, VC-1), the rest Low or Renovation. #699's fix is on the branch; its
-compile proofs are queued. **Next, on the coordinator's `resource return` relay on #649:**
-run `00-running-log.md`'s queue in order (`npm install`, #699's proofs, the unit
-tests, `tests/app-unit`, the python harnesses, the guest, the tool trials, Q5).
-Then Phase 4.6 (probe, then refutation, per seat), then Phase 5 and the audit and bug issues,
-then the stage-D pause.
+**Stage D reached; paused for the coordinator's stream briefs** (2026-10-23 20:2x UTC, T2 session `9adce27f-9c22-4065-af78-e6c9a2a1f6ff`).
+
+- `reviewed-at:` distribution `f4e0f0a196`, ES pin `16dbac5211`.
+- The audit folder `docs/audits/2026_10_23-epic-m6-es-launch-path/` holds `00` to `05`, the Q6 table, `second-opinions/` (both seats verified and graded), and the ten guest proofs G-1 to G-10.
+- Punch list: 35 items (High 1, Medium 6, Low 28). The audit issue is #790, a sub-issue of #649. Bug issues are #767 to #789, one per defect.
+- The guest is down. Its disk and fixtures are kept in `/workspace/artifacts/m6-t2-20261023/` for stage F.
+- The ES branch is still at the pin: no source changed.
+
+**Next:** on the coordinator's stream briefs (stage E), work each stream on the ES branch. The test goes first, the syntax compile is recorded before each `.cpp` commit, and the French goes in beside each string. Then stage F (re-prove on the guest, Phase 7), G (the retro) and H (the hand-back).
 
 ## Next commands
 
