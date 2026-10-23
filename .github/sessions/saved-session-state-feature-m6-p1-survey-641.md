@@ -27,51 +27,35 @@
 
 ## Current focus
 
-**Checkpoint 2026-10-23, at the pass-7 gate, fourth version (the executor,
-Opus 5.5, session `dbac446e-3b41-4b28-966d-0a6efe07ea2b`).** The second
-version (47 slices) was posted on #641. The first question was answered as
-D-WORKFLOW-185 (H700 and SM8550 ship, GENERIC_X64 is the test image) and
-D-WORKFLOW-186 (the build process before any device): the third version,
-46 slices, build cluster T5 to T15. Question 2 was withdrawn as outside the
-program: D-WORKFLOW-187 (the renovation gates no release; T1 and T2 are read
-before #336 Step 1 as a reading order). The P0 tip `080ad7c52d` was merged
-(`87f447f930`); the fourth version (`slices.json`'s `gate` is now
-`read_before`, the Gate column gone, no slice moved) is committed, the
-ledgers regenerated (`p1-tracking.md` § Pass 7) and posted on #641.
-Question 3 is settled by D-WORKFLOW-184. **The yes is given** (#641
-comment 6356453637) and the order's row is **D-WORKFLOW-188** (step 1 below
-is done). **Waiting for:** the coordinator's word on who authors the slice
-issues and their criteria (D-WORKFLOW-181 against the lane split); nothing is
-filed until it comes. #644's findings ride T4 to T12 and T32 at filing (step
-2 below), and `--order-row D-WORKFLOW-188`. The P0 tip `f00ab3e163`
-(#646: decided rows moved into the Decided table; `5acc101b15` with it) is
-merged (`b56943963c`); 188 follows 187 in the Decided table, and a decided
-row appended at the file's end now fails `register-check` (MISPLACED).
+**Checkpoint 2026-10-23 05:45 UTC, the hand-back (the executor, Opus 5.5,
+session `dbac446e-3b41-4b28-966d-0a6efe07ea2b`).** All seven passes are
+complete. The order's fourth version has the maintainer's yes (#641 comment
+6356453637) and its row, D-WORKFLOW-188, which sits between 187 and 189
+after the P0 tip `f5bea1696a` was merged (`1e5d151b2b`).
 
-**On the yes** (a yes that moves a slice renumbers `T<k>` in `slices.json`
-first, then `--order`):
-1. (done, D-WORKFLOW-188) the register row, the next free ID above the P0 tip's highest
-   (**D-WORKFLOW-188** today; re-derive with the brief § 6 greps first and
-   check the other lanes), citing D-WORKFLOW-185, D-WORKFLOW-186 and
-   D-WORKFLOW-187;
-2. the 46 slice issues: generate the titles and bodies with
-   `tools/renovation-inventory --slice-issues <dir> --order-row D-WORKFLOW-<that ID>` (writes `T<k>.title` and
-   `T<k>.md`, touches no tracker); before filing, append to the bodies of
-   T4 to T12 and T32 the #644 findings each carries (the coordinator's
-   comment on #641; `docs/reviews/build-path-read.md` on the P0 branch;
-   #645 rides T4 and T8 and is not a slice), then for each: `gh issue create
-   --repo pixelelated/distribution --milestone "M6: Codebase renovation"
-   --title "$(cat T<k>.title)" --body-file T<k>.md`, the REST id with `gh api
-   repos/pixelelated/distribution/issues/<n> --jq .id`, and `gh api -X POST
-   repos/pixelelated/distribution/issues/339/sub_issues -F sub_issue_id=<id>`;
-   `tools/box-check --issue <n>` on each, pasted on #641;
-3. `docs/reviews/status.md` regenerated (`tools/renovation-status --write`),
-   #339's body linking `docs/reviews/order.md`, the M6 body's NEXT set to T1
-   and read back;
-4. the mini-retro on #641, the ES worktree removed
-   (`git -C /home/max/Development/emulationstation-next worktree remove
-   /home/max/Development/emulationstation-next.worktrees/m6-p1-survey`), the
-   five checkers re-run and pasted, the branch pushed.
+**D-WORKFLOW-189:** planning, the division of work, the definition of work
+items and roadmap changes are the coordinator lane's; a work lane executes.
+So the 46 slice issues, their criteria, the M6 body's NEXT and #339's links
+are the coordinator's. **Never file, edit or write criteria for a slice
+issue from this lane.** P1's part is the renderer,
+`tools/renovation-inventory --slice-issues DIR`, which printed `wrote 46
+slice issue bodies` at the merge (brief version 3.2, criterion 7).
+
+Hand-back posted on #641:
+- the inventory and its four counts;
+- the order;
+- the three tools and the lint face (fixtures rc 0 and rc 1);
+- `status.md`, regenerated with 24 of 46 linked while the coordinator was
+  filing;
+- the five checkers, all exit 0;
+- the tracking file's § Pass 7 hand-back paragraph;
+- the retro, `docs/retros/2026-10-23-m6-p1-survey.md`.
+
+The ES worktree of the survey is removed. `ceremony-check --gate` refuses a
+push of `next` on the M7 lane's W42 summary only.
+
+**Waiting for:** the coordinator's acceptance under brief § 10. Questions
+about scope or order go to the coordinator; this lane decides none of them.
 
 ## Next commands
 
@@ -90,9 +74,8 @@ Merge order after the M7 candidate: `feature/m6-renovation-plan-346` to
 (never another lane's feature branch). This branch, the P0 branch and the M7
 lane all append to `docs/decision-register.md`, today's work log and
 `docs/work-logs/INDEX.md`: keep every append, regenerate the index. The
-register ID for the order is the next free above 187 (182 is the stacked-start
-decision, 183 the lane structure, 184 to 187 the coordinator's relays; the M7
-lane holds 171 to 180 unmerged).
+order's row is D-WORKFLOW-188, between 187 and 189 in the Decided table (189
+is the coordinator's lane rule); the M7 lane holds 171 to 180 unmerged.
 The P0 branch is merged into this one when it moves, as the stack's base
-(done four times: `bff1ccec2a`, `be3ddf13c5`, `87f447f930`, `b56943963c`). Nothing here builds,
+(done five times: `bff1ccec2a`, `be3ddf13c5`, `87f447f930`, `b56943963c`, `1e5d151b2b`). Nothing here builds,
 touches a device, a cloud or the M7 build worktrees.

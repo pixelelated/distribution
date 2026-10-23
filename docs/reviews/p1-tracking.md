@@ -53,7 +53,7 @@ No two commands for one quantity disagreed; no stop.
 - Pass 4 (Cross-reference): **complete** -- 10 code areas N-to-N (90 ordered pairs, 60 with an edge), rule and patch edges, every one of the 12 areas has an edge (see § Pass 4)
 - Pass 5 (Classification): **complete** -- 43 slices in the first version; 47 after pass 6's review (`--order` at `f814d1a75c`: every one of 134,631 rows in exactly one) (see § Pass 5)
 - Pass 6 (Reconciliation, then the preliminary review): **complete** -- reconciliation, then the three-seat review (all verified, all "ready with named changes"), its findings source-checked and the order revised to 47 slices (see § Pass 6)
-- Pass 7 (Action): **at the gate** -- the order and slice list posted on #641; the first question answered (D-WORKFLOW-185) with the build-process weight (D-WORKFLOW-186), so the order was re-sequenced to a third version of 46 slices; question 2 was withdrawn as outside the program (D-WORKFLOW-187: the renovation gates no release), so the fourth version drops the release gates for a reading order and moves no slice; question 3 is settled by D-WORKFLOW-184 (see § Pass 7); the yes on the fourth version is still to come, relayed by the coordinator, before any slice issue or the register row
+- Pass 7 (Action): **complete** -- the order's fourth version has the maintainer's yes (#641 comment 6356453637) and its row, D-WORKFLOW-188 (`71ea5da8fc`); the slice issues left P1's scope under D-WORKFLOW-189 and the coordinator files them from `tools/renovation-inventory --slice-issues`, which printed `wrote 46 slice issue bodies` at `1e5d151b2b` against 46 slices; `status.md` regenerated (24 of 46 linked at the hand-back, all `unreviewed`); the retro is `docs/retros/2026-10-23-m6-p1-survey.md`
 
 ## Read first (brief § 3), what was read this session
 
@@ -495,3 +495,25 @@ Filled from pass 2 (one row per area).
 ## Relationships discovered
 
 Filled from pass 4.
+
+**The hand-back, 2026-10-23 (brief version 3.2).** The P0 tip
+`f5bea1696a` (D-WORKFLOW-189) was merged as `1e5d151b2b`; D-WORKFLOW-188
+sits between 187 and 189 in the Decided table. The slice issues are the
+coordinator's (D-WORKFLOW-189); P1's part is the renderer:
+
+```
+$ tools/renovation-inventory --slice-issues <scratch>/slice-issues-final; echo rc=$?
+wrote 46 slice issue bodies to <scratch>/slice-issues-final
+rc=0
+$ git ls-files | wc -l; git -C $ES.worktrees/m6-p1-survey ls-files | wc -l
+133520
+1114
+```
+
+No path was added or removed since the inventory's `eb4763e3cc` (18 files
+modified), so its four counts stand. The five checkers on `1e5d151b2b` plus
+this hand-back: `register-check` 0, `work-log-index --check` 0, `rules-check
+--quiet` 0, `forbidden-terms-check` 0, `hooks-test` 0. The lint face:
+`fixture-epic-m6-renovation-pass` rc 0, `-fail` rc 1. `ceremony-check
+--gate` exits 1 on the M7 lane's W42 weekly summary only (uncommitted in its
+`m7-player-setup` worktree). The retro: `docs/retros/2026-10-23-m6-p1-survey.md`.
