@@ -577,6 +577,28 @@ function set_setting() {
 # (D-NET-009). Returns 0 only when the new file is in place; nothing is
 # written when the arguments are not whole pairs of keys that start with a
 # letter or digit.
+# set_setting's "default" means "remove the key" (the convention SystemConf
+# shares, which raofflineproxy-ctl and wifictl's clears rely on). A player's
+# free text -- a Wi-Fi network's name, a password -- can be that word, so its
+# writers store it with set_setting_value, which takes every value as it is
+# (#758).
+function set_setting_value() {
+  [[ "${1}" =~ ^[[:alnum:]] ]] || return 1
+  if [ ! -d "/storage/.config/system/configs" ]
+  then
+    mkdir -p /storage/.config/system/configs
+  fi
+  if [ ! -e "/storage/.config/system/configs/system.cfg" ]
+  then
+    cp -f /usr/config/system/configs/system.cfg /storage/.config/system/configs/system.cfg
+  fi
+  local rc
+  wait_lock || return 1
+  write_setting_line "${1}" "${2}"; rc=$?
+  rm -f "${J_CONF_LOCK}"
+  return ${rc}
+}
+
 function set_settings() {
   local n=0 rc k v
   local -a pairs=()
