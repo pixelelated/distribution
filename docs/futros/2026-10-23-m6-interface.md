@@ -18,7 +18,7 @@ written) and no addendum exists. T1's futro
 proof of T1's brief (its § 10) are the nearest prior learning and are taken
 as input for question 3.
 **Inputs considered:** #700's and #649's bodies; the brief, version 1
-(`55ea579bcf`); `docs/reviews/order.md` § T2 and § The security,
+(`289a95eb05`; `55ea579bcf` named it and did not carry it, a `commit -a`); `docs/reviews/order.md` § T2 and § The security,
 state-preservation and launch-path files; `slices.json`'s T2 record; the
 inventory's twenty `es` rows; `docs/reviews/plan-for-the-plan.md` § 3, § 4,
 § 6b, § 6c, § 7, § 8, § 11; the eight prior punch lists that name these
@@ -247,8 +247,10 @@ refuses a changed PID or a lost launch, and the brief says omit the limits
 for diagnosis. 30 (a resumed session built on its own summary): the lane
 pointer at every checkpoint. 51 (an open checkbox is a claim): `box-check`
 on every issue the lane files. 46 (a name read as a behaviour): the seam
-map was re-derived; `launchToken` "reads the way runemu.sh does" rests on
-`LaunchCommandTests.cpp`, not on its comment. 13 (assumed done): the four
+map was re-derived; `launchToken` reads whole shell words, last wins, and `runemu.sh`'s
+`${ARGUMENTS##*-P}` differs, rests on the header's own words and on
+`LaunchCommandTests.cpp`; version 1 of the brief said the two agree, and
+the stranger's proof caught it. 13 (assumed done): the four
 host checks' baseline lines are quoted in the brief so a changed number is
 seen. 35 (a remedy built on an audit's claim about a default nobody read):
 the seam map is a lead; every line it cites is re-read by the lane. No new
