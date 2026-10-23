@@ -269,8 +269,12 @@ definition.
 
 **Interacting subsystems, read-only context** (never read line by line here,
 never changed here; a defect found in one is a lead posted on #648 for its
-own slice): the interface's launch path (T2: `FileData::launchGame`,
-`ViewController`, `LaunchCommand.h` build `runemu.sh`'s argument line;
+own slice): the interface's launch path (T2: `FileData::getlaunchCommand`
+builds `runemu.sh`'s argument line from the systems table's template,
+`FileData::launchGame` runs it, `ViewController` launches, and
+`LaunchCommand.h` only reads the finished line's `-P`, `--core=` and
+`--emulator=` tokens the way `runemu.sh` does; version 2 said
+`LaunchCommand.h` builds the line, corrected 2026-10-23 from T2's seam map;
 `ApiSystem` calls this package's scripts by name, T21); `es_systems.cfg`
 and its generator `projects/ROCKNIX/packages/virtual/emulators`
 (`mk_es_systems`, T3); the autostart runner and the systemd units, power and
