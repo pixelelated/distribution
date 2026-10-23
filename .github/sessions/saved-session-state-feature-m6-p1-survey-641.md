@@ -43,8 +43,10 @@ comment 6356453637) and the order's row is **D-WORKFLOW-188** (step 1 below
 is done). **Waiting for:** the coordinator's word on who authors the slice
 issues and their criteria (D-WORKFLOW-181 against the lane split); nothing is
 filed until it comes. #644's findings ride T4 to T12 and T32 at filing (step
-2 below), and `--order-row D-WORKFLOW-188`. The coordinator's `5acc101b15`
-(work log, index, this pointer with the seed verbatim) is taken at hand-back.
+2 below), and `--order-row D-WORKFLOW-188`. The P0 tip `f00ab3e163`
+(#646: decided rows moved into the Decided table; `5acc101b15` with it) is
+merged (`b56943963c`); 188 follows 187 in the Decided table, and a decided
+row appended at the file's end now fails `register-check` (MISPLACED).
 
 **On the yes** (a yes that moves a slice renumbers `T<k>` in `slices.json`
 first, then `--order`):
@@ -92,5 +94,5 @@ register ID for the order is the next free above 187 (182 is the stacked-start
 decision, 183 the lane structure, 184 to 187 the coordinator's relays; the M7
 lane holds 171 to 180 unmerged).
 The P0 branch is merged into this one when it moves, as the stack's base
-(done three times: `bff1ccec2a`, `be3ddf13c5`, `87f447f930`). Nothing here builds,
+(done four times: `bff1ccec2a`, `be3ddf13c5`, `87f447f930`, `b56943963c`). Nothing here builds,
 touches a device, a cloud or the M7 build worktrees.
