@@ -6,7 +6,9 @@ Before=shutdown.target
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/chksysconfig backup
-TimeoutStartSec=0
+# A copy of a few KB: a backup that blocks (a card whose I/O hangs) must not
+# hold the shutdown for ever, and RebootWatchdogSec is off on purpose (#739).
+TimeoutStartSec=30s
 
 [Install]
 WantedBy=shutdown.target
