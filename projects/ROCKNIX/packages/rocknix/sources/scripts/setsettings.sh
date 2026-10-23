@@ -627,7 +627,7 @@ EOF
                     log "Refused the netplay host (${#NETPLAY_HOST_IP} characters): a host is letters, digits, '.', ':' and '-'."
                     NETPLAY_HOST_IP=""
                 fi
-                add_setting "global.netplay.port" "${NETPLAY_PORT}"
+                add_setting "global.netplay.port" "netplay_ip_port" "${NETPLAY_PORT}"
                 if [ ! -z "${NETPLAY_HOST_IP}" ]
                 then
                     add_setting "none" "netplay_ip_address" "${NETPLAY_HOST_IP}"
@@ -650,6 +650,7 @@ EOF
 
                             sed -i '/gambatte_gb_link_network_server_ip_/d'  ${GAMBATTE_CONF}
 
+                            local ADDR=""
                             local IPARRAY=(${NETPLAY_HOST_IP//./ })
                             for ELEM in ${IPARRAY[*]}
                             do
@@ -681,7 +682,7 @@ EOF
                                     /tgbdual_single_screen_mp/d; \
                                     /tgbdual_switch_screens/d; \
                                     /tgbdual_audio_output/d' "${TGBDUAL_CONF}"
-                            cat <<EOF >"${TGBDUAL_CONF}"
+                            cat <<EOF >>"${TGBDUAL_CONF}"
 tgbdual_gblink_enable = "enabled"
 tgbdual_single_screen_mp = "player ${PLAYER} only"
 tgbdual_switch_screens = "normal"

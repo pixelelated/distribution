@@ -14320,6 +14320,18 @@ check $? "a stray line setsettings.sh prints runs nothing (A-05)" "a stray ';tou
 grep -q -- '\[--config\]\[/tmp/retroarch.cfg\]\[/storage/roms/gb/t1.gb\]$' "${NA}/argv" 2>/dev/null
 check $? "the launch with the stray line still carries its config and ROM" "the launch with the stray line lost its config or ROM: $(cat "${NA}/argv" 2>/dev/null || echo none)"
 
+echo "  aj. a netplay client gets its port and keeps the TGB Dual options (#708)"
+NJ="${NP}/aj"; mkdir -p "${NJ}"; echo tgbdual > "${NJ}/core"
+printf 'global.netplay=1\nnetplay=1\nnetplay.mode=client\nglobal.netplay.port=55435\nglobal.netplay.host=192.0.2.1\n' > "${NJ}/system.cfg"
+printf 'tgbdual_gblink_enable = "disabled"\ntgbdual_custom_option = "kept"\n' > "${NJ}/tgb.opt"
+np_run "${NJ}" ""
+grep -q '^netplay_ip_port = "55435"$' "${NJ}/append.cfg" 2>/dev/null && ! grep -q '^55435 = ' "${NJ}/append.cfg" 2>/dev/null
+check $? "the client's appendconfig sets netplay_ip_port and no numeric key" "client port: $(grep -E '^(netplay_ip_port|55435) ' "${NJ}/append.cfg" 2>/dev/null | tr '\n' ';')"
+grep -q '^tgbdual_custom_option = "kept"$' "${NJ}/ra/config/TGB Dual/TGB Dual.opt" 2>/dev/null && grep -q '^tgbdual_gblink_enable = "enabled"$' "${NJ}/ra/config/TGB Dual/TGB Dual.opt"
+check $? "a TGB Dual client keeps the core's other options and sets the link" "the TGB Dual client lost the core's options: $(tr '\n' ';' < "${NJ}/ra/config/TGB Dual/TGB Dual.opt" 2>/dev/null)"
+[ "$(grep -c '^tgbdual_gblink_enable = ' "${NJ}/ra/config/TGB Dual/TGB Dual.opt" 2>/dev/null)" = 1 ]
+check $? "the link key is written once" "the link key is not written exactly once"
+
 if [ "${NOT_APPLICABLE}" -ne 0 ]; then echo "${NOT_APPLICABLE} HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS"; fi
 if [ "${FAIL}" -eq 0 ] && [ "${SKIPPED}" -eq 0 ]; then echo "PASSED"; exit 0
 elif [ "${FAIL}" -eq 0 ]; then echo "PASSED, ${SKIPPED} SKIPPED -- a check that did not run has not passed"; exit 3
