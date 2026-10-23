@@ -598,6 +598,10 @@ Final count: **370 rows** (295 + 13 + 62), command counts 154/32/60, and **5 unr
     - What is left in `FileData.cpp` is the tree node: metadata, paths, sorting and collections.
   - **The provenance header blocks the item also names** (`FileData.cpp`, `SystemData.cpp`, `main.cpp`) go with the split: the ranges they would name move in it. `main.cpp` is S5's file.
   - **Deferred** to the Backlog issue the coordinator files at acceptance (brief rule 4). No split is made here.
+  - **The row for PL-006's other half (S5; the coordinator's ruling, #649 21:25 UTC).** ES `ede4ae1d6` refreshes the stored boot command from the player's settings (option (a)).
+    - Option (b), moving the boot launch after the systems load so the command is built by `getlaunchCommand`, is not made here. It would also bring the p2k conversion and the rotation record the item lists.
+    - It changes the boot order and time to play in an upstream flow (`main.cpp:797-801` runs the boot game before the window, on purpose), which is the maintainer's call through the coordinator (D-UI-079).
+    - **Deferred** to the Backlog issue the coordinator files at acceptance, beside PL-032's.
 - Nothing in the three big files says which lines are batocera's and which the fork's (the hunk maps above). A header line naming the provenance would save a reader the `git diff`.
 - **FD-4:** `getlaunchCommand` writes `system.cfg`.
   - **The row for PL-031 (S1, deferred to #678).** The builder seeds `global.netplay.nickname` with the application's name plus `Player` and saves `system.cfg` when the key is empty (`FileData.cpp:653-657`, pin numbering). Three readers rely on that seeding without saying so: the NICKNAME row of `GuiNetPlaySettings.cpp:26`, the NETPLAY NICKNAME row of `GuiGameOptions.cpp:203` (both `addInputTextConfigRow` over the stored key), and `SystemData.cpp:1854`'s export. On a fresh device, any launch fills the key, so those rows show the default. Removing only the write would leave them empty.

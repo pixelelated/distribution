@@ -397,3 +397,36 @@ Nothing on this list runs before the coordinator relays M7's `resource return` o
 - **The fix**, ES `c2e75868a`: `FileData::isArcadeAssetPath(system, path)`, which `isArcadeAsset()` calls, asked in `populateFolder` before the object is made.
   - 21:22:12 the harness **PASS, 0 left**. Syntax-only compile of `SystemData.cpp` and `FileData.cpp` `PASS`; `es-unit-tests` 210.
   - #792's two criteria and #790's PL-036 line are ticked.
+
+### [Stage E, S5] 21:23- — The process and the words
+
+- **A design question on #649, blocking only PL-006.** The boot game runs before the window and before any system loads (`main.cpp:797-801`), so there is no table to rebuild its command from. Recommended: (a) refresh `--core=`/`--emulator=` from the player's `system.cfg` overrides and drop a stale `-state_file`; (b) moving the launch after the load deferred to the Backlog.
+- **PL-011, the test first.** The new `tests/main-parse-args.py` compiles the shipped `parseArgs` with doubles and runs each case in a child process, with `argv` null-terminated as the kernel hands it over.
+  - 21:25:29, against the pin's `main.cpp`: the four flags given last are each killed by signal 11 (status 111), and the line is not refused.
+  - The `--max-vram` skip check passes at the pin too (an unknown token is ignored), so it is no failing-first evidence.
+- **The fix.** Each of the four flags checks for its value, and `--max-vram` skips its value.
+  - `main` now returns 1 for a refused line and 0 for the help text (`gArgsHelpShown`). The existing refusals also move from 0 to 1, which the commit says.
+  - 21:25:51 the harness **11 of 11**. Syntax-only compile of `main.cpp` `PASS`.
+  - Committed as ES `e14ba66b2`.
+- `start_es.sh` passes only `--log-path /var/log --no-splash` and does not read the interface's exit status, so the 0-to-1 change is invisible on a device.
+- **PL-010 waits on T1 (#648).** At T1's tip `4ded5446cb` the launcher reads none of the three: `set_netplay` has no spectator case, and the client's host, port and password come from settings, not from ES's arguments. No setting or argument carries a per-session relay id. The seam announcement is posted on #648, and PL-010 stays Open.
+- **The coordinator's two answers (#649 21:25, 21:29).** PL-006 is option (a), with (b) and the p2k and rotation steps as a deferred row. PL-010 is unblocked by D-WORKFLOW-192.
+- **PL-024, the half that changes no word.** `launchErrorText` drops trailing line breaks, bounds the text at 300 bytes with `...`, and never cuts inside a UTF-8 character. The file is read with `exists(path, false)`.
+  - 21:28:24, the case against the text as written: 4 of 5 assertions failed. 21:28:37 fixed: 5 of 5. ES `6461c4dc3`.
+  - **The spelling waits.** The misspelt key carries real translations in 35 other catalogues (`ar`, `ca`, `de`, ...), outside S5's files. Changing only the source and the French would drop the other 34 to English. Put to the coordinator at S5's end.
+- **PL-025.**
+  - `es-untranslated --es-src <ES>` before (21:29:31): 703 fork strings, 0 without French.
+  - The change: the serial box through `_()`, without the space after each line break, and indented under its `if`. The two systems errors through `_()`, their words upstream's; `loadSystemConfigFile` now hands them back in a `std::string`. Three French entries in the file's style.
+  - After (21:30:07): **706, 0 without**. `msgfmt` is not installed on the host, so `es-untranslated`'s parse and the image build are the catalogue's checks. Syntax-only compile `PASS`. ES `4d4ae7060`.
+- **PL-026.** An earlier build's marker runs `cloud_content_restore --all` (MEDIA_MODE stays `roms`: ROMs and BIOS) and then `cloud_restore`. So its prompt now uses its sibling's words, "RESTORE YOUR SAVES, ROMS, AND BIOS FROM THE CLOUD NOW?", whose French already exists.
+  - `es-untranslated`: 705, 0 without. `vocabulary-check --es <ES>`: 163 judged, 0 wrong. ES `502a2b12e`.
+- **PL-030.** Four comments corrected: the offline card's words, the launch's question over the startup sync, the journey's transfer page, and no renumbering.
+  - `archaeology --reversal` (21:31:51) finds no line in the ES tree; its 11 lines are the audit's own records. ES `d4917f9a2`. #790's line is ticked.
+- **The menu map** gained "Boot dialogs and the launch error box", the four dialogs' flow with their evidence owed to the image. `es-menu-map-check --ref feature/m6-es-launch-path-649`: 55 screens, 0 missing.
+- **PL-010, the test first.** `LaunchTemplate::netplayArguments`. Four cases against the pin's ROCKNIX strings (21:34:13): 3 failed (the spectator mode, the session, the default port). Fixed (21:34:31): 4 of 4.
+  - Both ROCKNIX branches use it. `credential-quoting.py`: 9 quoted, 0 bare. ES `62bc22ae7`.
+  - The contract's "writes the password setting": GUI NETPLAY never asks for a password, so `netplayClientPassword` is always empty. The setting the launcher reads is the player's own, so ES has nothing to write. Said in the commit and to the coordinator.
+- **PL-006, the test first.** `refreshBootCommand`. Five cases against the replay stand-in (21:35:12): 3 failed, 6 assertions. Fixed (21:35:30): 5 of 5.
+  - `launchStartupGame` refreshes the command and logs each change. `es-unit-tests` 220 passed; syntax-only compile `PASS`. ES `ede4ae1d6`. Option (b)'s row is in 04 § Q7.
+- The walks W-16 to W-21 are in 02.
+- **S5 ends at ES `ede4ae1d6`.**

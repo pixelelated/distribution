@@ -23,6 +23,28 @@ binds the reviewed1280×960 original/fixed carousel frames, which are identical
 without masks. This is not a new firmware or device visual-baseline promotion.
 The existing cloud and conflict-wizard flows are unchanged.
 
+### Boot dialogs and the launch error box (#649, T2 S5)
+
+These are one-shot dialogs, not rows. They are listed here so that their words have a flow reference. ES branch `feature/m6-es-launch-path-649`:
+
+```mermaid
+flowchart TD
+    BOOT[systems loaded] -->|table unreadable or empty| SYSERR[systems-configuration error<br/><i>through _() since PL-025; words upstream's</i>] --> QUIT[QUIT]
+    BOOT --> SERIAL{serial check marker = 1}
+    SERIAL -->|yes| FREE[pixelelated IS FREE SOFTWARE box<br/><i>through _() with French since PL-025</i>] --> AGREE[AGREE]
+    SERIAL --> JOURNEY{journey marker}
+    JOURNEY -->|this build's record| TIERS[RESTORE YOUR ... FROM THE CLOUD NOW?<br/><i>the ticked tiers</i>]
+    JOURNEY -->|an earlier build's marker| LEGACY[RESTORE YOUR SAVES, ROMS, AND BIOS FROM THE CLOUD NOW?<br/><i>was DOWNLOAD YOUR GAMES ..., PL-026</i>]
+    TIERS -->|YES| PAGE[RESTORING FROM THE CLOUD transfer page]
+    LEGACY -->|YES| PAGE
+    LAUNCH[a launch exits 200 to 300] --> ERR[AN ERROR OCCURRED box<br/><i>launcher text bounded since PL-024</i>]
+```
+
+**Evidence:**
+- The frames for these steps at 640x480, in English and in French, are owed to the first image carrying the branch (`fix-walk-pending-image`, `docs/audits/2026_10_23-epic-m6-es-launch-path/02-forward-audit.md` § Fix walks).
+- No accepted baseline frame changes before then.
+- The launch error box's fallback, spelt `UKNOWN ERROR`, is unchanged pending the coordinator's call on its 36 catalogues.
+
 ## Visual evidence and flow coverage
 
 This map is the navigation/IA reference; flow diagrams describe transitions,
