@@ -57,6 +57,38 @@ DOLPHIN_LAUNCH=false
 ### and remove the other's marker.
 EXIT_HOTKEY_MARKER="/tmp/.process-kill-requested"
 
+### The previous game's exit restores run in the background, so the
+### interface comes back at once (time to play); this launch waits for
+### them, five seconds at most, before it sets its own (#727).
+RESTORE_PIDFILE="/tmp/.runemu-restore.pid"
+if [ -s "${RESTORE_PIDFILE}" ]
+then
+  RESTORE_PID=$(cat "${RESTORE_PIDFILE}")
+  for _ in $(seq 1 50)
+  do
+    kill -0 "${RESTORE_PID}" 2>/dev/null || break
+    sleep 0.1
+  done
+  rm -f "${RESTORE_PIDFILE}"
+fi
+
+### A game's fan profile is written into cooling.profile for its length;
+### the device's own value waits in this marker, so a launch that never
+### reached its restore (the interface killed, a power cut) is put right by
+### the next launch, before it reads the device's value (#728).
+FAN_RESTORE_MARKER="/storage/.cache/runemu-fan-restore"
+if [ -f "${FAN_RESTORE_MARKER}" ]
+then
+  SAVED_FAN=$(cat "${FAN_RESTORE_MARKER}")
+  if [ -n "${SAVED_FAN}" ]
+  then
+    set_setting cooling.profile "${SAVED_FAN}"
+  else
+    del_setting cooling.profile
+  fi
+  rm -f "${FAN_RESTORE_MARKER}"
+fi
+
 ### Export Game Guide Path
 GAME_GUIDE_PATH_CHECK="${1%.*}.txt"
 if [ ! -f "${GAME_GUIDE_PATH_CHECK}" ]; then
@@ -462,6 +494,7 @@ then
   if [ ! -z "${GAMEFAN}" ]
   then
     ${VERBOSE} && log $0 "Set fan profile to (${GAMEFAN})"
+    printf '%s' "${COOLINGPROFILE}" > "${FAN_RESTORE_MARKER}"
     set_setting cooling.profile ${GAMEFAN}
     systemctl restart fancontrol
   fi
@@ -559,35 +592,52 @@ then
   fi
 fi
 
-### Restore cooling profile.
+### Restore cooling profile. With no device value saved, the key is
+### removed again rather than written empty (#728, A-09).
 if [ "${DEVICE_HAS_FAN}" = "true" ]
 then
   ${VERBOSE} && log $0 "Restore system cooling profile (${COOLINGPROFILE})"
-  set_setting cooling.profile ${COOLINGPROFILE}
-  systemctl restart fancontrol &
+  if [ -n "${COOLINGPROFILE}" ]
+  then
+    set_setting cooling.profile ${COOLINGPROFILE}
+  else
+    del_setting cooling.profile
+  fi
+  rm -f "${FAN_RESTORE_MARKER}"
 fi
 
-### Restore system GPU performance mode
+### The restores below run in the background as one job, recorded, so the
+### next launch can wait for them (#727).
 GPUPERF=$(get_setting "system.gpuperf")
-if [ ! -z ${GPUPERF} ]
-then
-  ${VERBOSE} && log $0 "Restore system GPU performance mode (${GPUPERF})"
-  gpu_performance_level ${GPUPERF} &
-else
-  ${VERBOSE} && log $0 "Restore system GPU performance mode (auto)"
-  gpu_performance_level auto &
-fi
-rm -f /tmp/.gpu_performance_level 2>/dev/null
-
-### Reset the number of cores to use.
 NUMTHREADS=$(get_setting "system.threads")
-${VERBOSE} && log $0 "Restore active threads (${NUMTHREADS})"
-if [ -n "${NUMTHREADS}" ]
-then
-        online_threads ${NUMTHREADS} 0 &
-else
-        online_threads all 1 &
-fi
+rm -f /tmp/.gpu_performance_level 2>/dev/null
+(
+  if [ "${DEVICE_HAS_FAN}" = "true" ]
+  then
+    systemctl restart fancontrol
+  fi
+
+  ### Restore system GPU performance mode
+  if [ ! -z ${GPUPERF} ]
+  then
+    ${VERBOSE} && log $0 "Restore system GPU performance mode (${GPUPERF})"
+    gpu_performance_level ${GPUPERF}
+  else
+    ${VERBOSE} && log $0 "Restore system GPU performance mode (auto)"
+    gpu_performance_level auto
+  fi
+
+  ### Reset the number of cores to use.
+  ${VERBOSE} && log $0 "Restore active threads (${NUMTHREADS})"
+  if [ -n "${NUMTHREADS}" ]
+  then
+    online_threads ${NUMTHREADS} 0
+  else
+    online_threads all 1
+  fi
+  rm -f "${RESTORE_PIDFILE}"
+) &
+echo $! > "${RESTORE_PIDFILE}"
 
 ### Disable GPU profiling
 gpu_profiling "off"
