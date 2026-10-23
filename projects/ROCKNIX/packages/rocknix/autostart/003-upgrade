@@ -5,14 +5,25 @@
 # Minimal OS variable loading for performance
 . /etc/profile.d/001-functions
 
+# The hint goes only once post-update has finished: one that failed runs
+# again at the next boot, so every block in it is safe to run twice (#713).
+# The update's log is kept: an ordinary boot leaves it alone, and the next
+# run moves it to upgrade.log.0 (#738).
 if [ "$(cat /storage/.boot.hint 2>/dev/null)" = "UPDATE" ]
 then
   if [ -e "/usr/share/post-update" ]
   then
     tocon "Performing post-update configuration..."
-    /usr/share/post-update >/var/log/upgrade.log 2>&1
+    [ -e /var/log/upgrade.log ] && mv -f /var/log/upgrade.log /var/log/upgrade.log.0
+    if /usr/share/post-update >/var/log/upgrade.log 2>&1
+    then
+      rm -f /storage/.boot.hint
+    else
+      rc=$?
+      echo "post-update failed (exit ${rc}); the update hint is kept, so it runs again at the next boot" >>/var/log/upgrade.log
+      logger -t post-update "post-update failed (exit ${rc}); it runs again at the next boot (/var/log/upgrade.log)" 2>/dev/null
+    fi
+  else
+    rm -f /storage/.boot.hint
   fi
-  rm /storage/.boot.hint
-else
-  echo "No update hint found." >/var/log/upgrade.log 2>&1
 fi
