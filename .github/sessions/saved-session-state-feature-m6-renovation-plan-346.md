@@ -34,9 +34,8 @@ post-candidate merge to clear the push guard's W42 gate (D-INFRA-026,
 D-WORKFLOW-182); never `--no-verify`. P1 started 2026-10-22 in its own
 worktree `distribution.worktrees/m6-p1-survey-641` on
 `feature/m6-p1-survey-641`, stacked on this branch; its state lives in its
-own pointer. The pass-7 gate is passed (the yes of 2026-10-23); this lane's next acts are
-the filing of the slice issues (D-WORKFLOW-189) and acceptance at hand-back
-(brief § 10); see § State at 2026-10-23.
+own pointer. The pass-7 gate and the hand-back are passed (2026-10-23; #641 closed); this
+lane's next act is T1's brief; see § State at 2026-10-23.
 
 ## Next commands
 
@@ -101,11 +100,14 @@ division of work, the definition of work items and roadmap changes are this
 lane's; a work lane executes. So the 46 slice issues are this lane's to file,
 from P1's renderer (`tools/renovation-inventory --slice-issues DIR`, run
 read-only against P1's tree into this lane's scratchpad). #644 and #645 are
-the build-path read and its PR-process findings. Next: file the 46 (one first,
-`tools/box-check --issue N` on it, then the rest, each a sub-issue of #339);
-the hand-back acceptance against the P1 brief § 10 as amended (inventory and
-order, no slice issues); then the first slice's brief (plan § 7), which adds
-T1's specific criteria to its issue.
+the build-path read and its PR-process findings. The 46 are filed: #648 (T1) to #693
+(T46), sub-issues of #339 on milestone M6, `tools/box-check` 0 fail over all
+open issues (work log 05:40 UTC). P1 was accepted at hand-back and #641
+closed completed on 2026-10-23 (P1's branch at `2174265e9c`; it merges to
+`next` after this branch, after the M7 candidate). Next: T1's brief (plan
+§ 7), which writes T1's specific criteria into #648 with it, then T1's
+dispatch to an Opus 5.5 lane in its own worktree with the OS-scripts area
+epic filed at that dispatch.
 
 ## The seed brief (2026-10-22, the planning session's handoff, verbatim)
 
