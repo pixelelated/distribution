@@ -218,6 +218,21 @@ function mount_games() {
       exit 0
 }
 
+# The disk a partition is on, as sysfs says; a whole disk is itself.
+function disk_of() {
+  if [ -e "/sys/class/block/${1}/partition" ]
+  then
+    basename "$(readlink -f "/sys/class/block/${1}/..")"
+  else
+    echo "${1}"
+  fi
+}
+
+# The disk under /storage: the internal card, as external_node_present has it.
+function internal_disk() {
+  disk_of "$(awk '$2 == "/storage" { print $1 }' /proc/mounts | sed -e 's#.*/##')"
+}
+
 function external_node_present() {
   ### True if a block device that could be the external games card is
   ### physically present -- its kernel node exists -- even if its filesystem
@@ -266,6 +281,7 @@ function find_games() {
     FIND_TRIES=0
     FIND_MAX=10
     FIND_GRACE=2
+    INTERNAL_DISK=$(internal_disk)
     while true
     do
     for DEV in $(for dev in mmcblk[0-9] sd[a-z] nvme[0-9]n[0-9]; do blkid | grep ${dev} | awk 'BEGIN {FS=":"}; /ext4/ || /btrfs/ || /fat/ || /ntfs/ {print $1}' | sort -r; done)
@@ -273,7 +289,15 @@ function find_games() {
       ROOTDEV=$(echo ${DEV} | sed -e "s#^/.*/##g" -e "s#p[0-9].*\$##g")
       log $0 "Inspecting ${DEV}."
       SIZE=$(awk '/'${ROOTDEV}'$/ {print $3}' /proc/partitions)
-      if (( ${SIZE} <= 8388608 ))
+      # A size that cannot be read is not "large enough": with no row in
+      # /proc/partitions the test below was an arithmetic error, false, and
+      # the partition was taken (#720).
+      if ! [[ "${SIZE}" =~ ^[0-9]+$ ]]
+      then
+        log $0 "Device ${ROOTDEV} has no size to read, ignoring."
+        continue
+      fi
+      if (( SIZE <= 8388608 ))
       then
         log $0 "Device ${ROOTDEV} is too small, ignoring."
         # We don't want to mount partitions smaller than ~8GB.
@@ -285,8 +309,19 @@ function find_games() {
         # Assume this is an android boot device and ignore it.
         continue
       fi
-      ISMOUNTED="$(grep "${DEV}" /proc/mounts) >/dev/null 2>&1"
-      if [ ! "$?" = 0 ] && \
+      # The card under /storage is the internal one and never the games card,
+      # as external_node_present already has it: a large unmounted partition
+      # beside /storage on that card was taken for the games card (#720).
+      if [ -n "${INTERNAL_DISK}" ] && [ "$(disk_of "${DEV##*/}")" = "${INTERNAL_DISK}" ]
+      then
+        log $0 "${DEV} is on the internal card, ignoring."
+        continue
+      fi
+      # Mounted means a /proc/mounts line whose device is this one, the whole
+      # field: grep matched /dev/sda1 inside /dev/sda10, and its status came
+      # through an assignment with the redirection quoted into the value
+      # (#720, F-43b).
+      if ! awk -v d="${DEV}" '$1 == d { f = 1 } END { exit !f }' /proc/mounts && \
          [ -e "${DEV}" ] && \
          [ ! -e "/storage/.please_resize_me" ]
       then
