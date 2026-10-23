@@ -62,7 +62,7 @@ Two time-to-play numbers were measured (0.64 s and 1.01 s, against #336's stale 
 The scope, the hash, the counts, the image, the M7 delta, the RetroArch-half rule, the tool arguments of § 5 (all ten ran as written).
 
 ### Diverged
-Three brief claims were wrong and are recorded as deltas (`/bin/sh` is bash; `rocknix-memory-manager` is a oneshot; `vocabulary-check` reads none of this slice); `tools/vm-upgrade-rehearsal` cannot run under § 5's own bounds as written (asked on #648, not run). Impact: none on the verdicts; the Coverage Boundary names the rehearsal's absence.
+Three brief claims were wrong and are recorded as deltas (`/bin/sh` is bash; `rocknix-memory-manager` is a oneshot; `vocabulary-check` reads none of this slice); `tools/vm-upgrade-rehearsal` cannot run under § 5's own bounds as written (asked on #648; answered (b), skip, issuecomment-6369533517). Impact: none on the verdicts; the Coverage Boundary names the rehearsal's absence.
 
 ## Missing Artifacts
 
@@ -149,7 +149,7 @@ Every finding, with its question, severity and evidence class (titles from `02-f
 
 **Examined:** all 83 paths; 62 read whole and 21 in outline (named in `02-forward-audit.md` § Coverage Boundary and per row in the coverage table); 18 findings and a dozen image facts runtime-probed on the guest; ten mechanical checks run; shellcheck v0.11.0 over 63 shell files with all 16 errors dispositioned; the M7 delta read as context; the interface's call sites read at the pin.
 **Deliberately not examined:** `backuptool` (T17), the interface's code beyond call sites (T2, T21), the sysutils runner and units (T22), the quirks (T29), the cloud scripts (T16, T17).
-**Dimensions not exercised:** anything on a handheld (no device in M6): H700 governors (from the kernel config), backlight, LED, lid and power suspend, HDMI hotplug, USB gadget binding, Bluetooth, the Qualcomm ABL and internal storage; KSM on a 1 GiB device; `tools/vm-upgrade-rehearsal` (asked on #648); the outline-read files' remaining lines; the second reviewer seat (Argon, pending).
+**Dimensions not exercised:** anything on a handheld (no device in M6): H700 governors (from the kernel config), backlight, LED, lid and power suspend, HDMI hotplug, USB gadget binding, Bluetooth, the Qualcomm ABL and internal storage; KSM on a 1 GiB device; `tools/vm-upgrade-rehearsal` **not run, by the coordinator's answer (b) on #648 (issuecomment-6369533517, 2026-10-23 16:30 UTC)**: it is not in #648's checklist, it reaches the shared QA backend and `vm-pair`'s default guest and folder, which a slice lane stays off, and brief § 5's "give it its own instance paths too" was a brief error for a tool that takes none. The rehearsal belongs to the integration on the merged tree and to M7's qualification runs; an in-place proof a stage-D stream needs is the `.update` path on the lane's own guest, as that stream's brief will say; the outline-read files' remaining lines.
 
 ## Finding Verification (Phase 4.5)
 
@@ -414,7 +414,7 @@ Each grade below comes from re-reading the cited lines at `8ebaf8daad` (08:30-08
 | F-57 | **agree, narrowed**; **the seat's "a file named `1` selects the minimum" is refuted** | Medium | `getValue` reaches `:37` only with a non-empty `MYVAL` (`:35`), and `[ "${MYVAL}" ]` is then true, so the `elif` at `:40` never runs and no file `1` is read. `02`'s sentence "the first `<` reads its input from a file named `1`" is wrong on the same ground. The clamp always gives `MAX`. The seat is right that an existing file `100` in the working directory is truncated, not only created. |
 | F-63 | **agree, re-graded** | Medium, bounded to the modes | Mode `645` on a file holding `root.password`, the RetroAchievements password and `wifi.key`. An effective read by another account was not tested. |
 
-**Seat items not graded as findings.** These are § 3, what the seat could not judge. Each one restates a limit `02`/`04` already name: hardware outcomes; the background-restore race; installer and ABL failure paths; the upgrade rehearsal (open on #648, issuecomment-6360655911); the login policy; Bluetooth's trust boundary; emulator semantics; Q5 run against the image's copy of `runemu.sh`; and the lint's `13 CONTRACT FAILURE(S)`, which are expected before Phase 5 writes the punch list. One is answered by the artifacts: the 43 Q4 rows and the 47 Q6 rows are in this file (§ Q4, § Q6). The packet carried their counts, not the tables.
+**Seat items not graded as findings.** These are § 3, what the seat could not judge. Each one restates a limit `02`/`04` already name: hardware outcomes; the background-restore race; installer and ABL failure paths; the upgrade rehearsal (asked on #648, issuecomment-6360655911; since answered (b), not run, § Coverage Boundary); the login policy; Bluetooth's trust boundary; emulator semantics; Q5 run against the image's copy of `runemu.sh`; and the lint's `13 CONTRACT FAILURE(S)`, which are expected before Phase 5 writes the punch list. One is answered by the artifacts: the 43 Q4 rows and the 47 Q6 rows are in this file (§ Q4, § Q6). The packet carried their counts, not the tables.
 
 **Net effect.** The tally moves from 68 findings to **75: 0 Critical, 2 High (F-14, F-67), 22 Medium, 51 Low**:
 - 7 new findings (G-01 Medium; G-02 to G-07 Low).

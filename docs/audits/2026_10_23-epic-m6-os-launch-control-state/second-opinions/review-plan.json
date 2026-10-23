@@ -29,16 +29,22 @@
     },
     {
       "member": "gemini-argon",
-      "model": "Gemini 4 Argon (route arriving with 1c7d283ad5 on the legacy checkout's feature/m7-audit-integration-603)",
+      "model": "google/gemini-4-argon",
       "lab": "google",
       "effort": "high",
-      "status": "pending: the route is not in this tree (grep -c gemini-argon scripts/council-invoke.ts tools/lint-audit-artifacts = 0, 0 at 5070c88b1b); brief \u00a7 1 forbids the roster's gemini seat in its place",
+      "status": "in progress: the route arrived at 7dd89b86dc (grep -c gemini-argon scripts/council-invoke.ts tools/lint-audit-artifacts = 7, 4); verify-pins OK, routing tests 127/127 (2026-10-23 16:23 UTC)",
       "calls": [
         {
+          "phase": "probe",
+          "output": "gemini-argon-probe.md"
+        },
+        {
           "phase": "refutation",
-          "output": "gemini-argon-audit.md"
+          "output": "gemini-argon-audit.md",
+          "brief": "gemini-argon-brief.md: the Astra packet (gpt-brief.md) unchanged, a third-reader preamble, and 04-analysis.md section Second opinion (the Astra grades) appended, as the coordinator directed on #648 (issuecomment-6369533517)"
         }
-      ]
+      ],
+      "provider": "openrouter, provider only/order [google-vertex/global], allow_fallbacks false, served provider Google (scripts/council-invoke.ts AUDIT_OPENROUTER_SEATS gemini-argon, route merged at 7dd89b86dc from the coordinator tip 6874394d49)"
     }
   ],
   "written_before_first_call": "2026-10-23"
