@@ -8,14 +8,24 @@
 GOVERNORS="/storage/.config/profile.d/010-governors"
 [[ -f ${GOVERNORS} ]] && source ${GOVERNORS}
 
+# The CPUs are the cpu<N> directories: counting every "online" file counted
+# the global cpu/online too, and whether cpu0 has one is the kernel's (#736).
+cpu_count() {
+  local n=0 c
+  for c in "${CPU_SYSFS:-/sys/devices/system/cpu}"/cpu[0-9]*; do
+    [ -d "${c}" ] && n=$((n + 1))
+  done
+  echo ${n}
+}
+
 get_threads() {
-  for THREAD in $(seq 1 1 $(find /sys/devices/system/cpu -name online | wc -l)) all default; do
+  for THREAD in $(seq 1 1 $(cpu_count)) all default; do
     echo ${THREAD}
   done
 }
 
 set_online_threads() {
-  AVAILABLE_THREADS=$(($(find /sys/devices/system/cpu -name online | wc -l) - 1))
+  AVAILABLE_THREADS=$(($(cpu_count) - 1))
   MODE=${2}
   if [ -z "${MODE}" ]; then
     MODE=0
@@ -37,16 +47,16 @@ set_online_threads() {
   esac
 
   for thread in $(seq 0 1 ${THREADS}); do
-    echo 1  | tee /sys/devices/system/cpu/cpu${thread}/online >/dev/null 2>&1
+    echo 1  | tee "${CPU_SYSFS:-/sys/devices/system/cpu}/cpu${thread}/online" >/dev/null 2>&1
   done
 
   for thread in $(seq ${THREADS} 1 ${AVAILABLE_THREADS}); do
-    echo ${MODE} | tee /sys/devices/system/cpu/cpu${thread}/online >/dev/null 2>&1
+    echo ${MODE} | tee "${CPU_SYSFS:-/sys/devices/system/cpu}/cpu${thread}/online" >/dev/null 2>&1
   done
 }
 
 set_cpu_gov() {
-  for POLICY in $(ls /sys/devices/system/cpu/cpufreq 2>/dev/null | grep policy[0-9]); do
+  for POLICY in $(ls /sys/devices/system/cpu/cpufreq 2>/dev/null | grep 'policy[0-9]'); do
     if [ -e "/sys/devices/system/cpu/cpufreq/${POLICY}/scaling_governor" ]; then
       echo $1 >/sys/devices/system/cpu/cpufreq/${POLICY}/scaling_governor 2>/dev/null
     fi

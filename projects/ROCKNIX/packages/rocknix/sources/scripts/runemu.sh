@@ -122,13 +122,34 @@ EOF
         fi
 }
 
+### A governor setting is a name to look up, never a command to run (#704):
+### the four the freqfunctions define; empty or default leaves the governor
+### as it is; any other name the kernel offers (conservative, userspace) is
+### said in the log rather than run.
+function apply_governor() {
+        case "${1}" in
+                performance|ondemand|schedutil|powersave) "${1}" ;;
+                ""|default) ;;
+                *) log $0 "No governor function for (${1}); the governor is left as it is." ;;
+        esac
+}
+
+### onlinethreads is defined only where 099-freqfunctions is installed (not
+### x86_64): elsewhere there are no threads to set (#726).
+function online_threads() {
+        if type -t onlinethreads >/dev/null 2>&1
+        then
+                onlinethreads "$@"
+        fi
+}
+
 function quit() {
         ${VERBOSE} && log $0 "Cleaning up and exiting"
         bluetooth enable
         set_kill set "emulationstation"
         clear_screen
         DEVICE_CPU_GOVERNOR=$(get_setting system.cpugovernor)
-        ${DEVICE_CPU_GOVERNOR}
+        apply_governor "${DEVICE_CPU_GOVERNOR}"
         exit $1
 }
 
@@ -466,13 +487,13 @@ if [ -n "${NUMTHREADS}" ] &&
    [ ! ${NUMTHREADS} = "default" ]
 then
   ${VERBOSE} && log $0 "Configure active cores (${NUMTHREADS})"
-  onlinethreads ${NUMTHREADS} 0
+  online_threads ${NUMTHREADS} 0
 fi
 
 ### Set the governor mode for emulation
 CPU_GOVERNOR=$(get_setting "cpugovernor" "${PLATFORM}" "${ROMNAME##*/}")
 ${VERBOSE} && log $0 "Set emulation performance mode to (${CPU_GOVERNOR})"
-${CPU_GOVERNOR}
+apply_governor "${CPU_GOVERNOR}"
 
 ### Check whether MangoHud is supported and enabled
 if [ "${DEVICE_MANGOHUD_SUPPORT}" == "true" ]; then
@@ -563,9 +584,9 @@ NUMTHREADS=$(get_setting "system.threads")
 ${VERBOSE} && log $0 "Restore active threads (${NUMTHREADS})"
 if [ -n "${NUMTHREADS}" ]
 then
-        onlinethreads ${NUMTHREADS} 0 &
+        online_threads ${NUMTHREADS} 0 &
 else
-        onlinethreads all 1 &
+        online_threads all 1 &
 fi
 
 ### Disable GPU profiling
