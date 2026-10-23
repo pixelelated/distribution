@@ -86,6 +86,14 @@ keep both day-file entries, regenerate the index with
 `tools/work-log-index --write`. Nothing here builds, touches a device, a
 cloud or the M7 build worktrees.
 
+- **This branch carries three of M7's commits as cherry-picks** (`-x`, 2026-10-23
+  16:30 UTC): `033eb7ed23`, `0ceb2994c5`, `6874394d49` from `fac2129787`,
+  `1c7d283ad5`, `a7a3bdda4e` on `feature/m7-audit-integration-603` (the
+  Argon reviewer route and its pins, #636/#638). When the M7 candidate merges
+  to `next` first, the merge of this branch sees them as duplicate patches;
+  expect a clean or trivially identical resolution in `scripts/council-invoke.ts`,
+  `tools/lint-audit-artifacts`, `verifier-pins.json`, `council-seat-efforts.json`
+  and the two `docs/qa-logs/2026-10-22-*-638/` folders, and check for markers.
 ## State at 2026-10-23 (the coordinator's own update)
 
 P0 is done on this branch; its merge waits on the M7 lane's post-candidate
@@ -116,12 +124,16 @@ an Opus 5.5 session at high effort in Herdr pane `wN:p4`, agent
 scratchpad and quoted in the 07:50 work-log entry). This lane's rules from
 the futro: no merge of `next` into a slice branch between stage A and stage
 D; every drift report read at every slice close and the re-open named;
-`tools/box-check` on every issue a lane files, at the pause. Next: the
-stage-D pause on #648 (write the stream briefs); the Phase 4.6 blocker if
-the Argon route has not reached the lane (bring M7's `1c7d283ad5` and
-`a7a3bdda4e` onto its branch, or wait for the candidate); T1's drift
-re-open when the M7 candidate lands; T2's brief when the maintainer says
-whether T2 runs beside T1.
+`tools/box-check` on every issue a lane files, at the pause. Next: T2's brief (`docs/reviews/briefs/es-launch-path.md`), proven like T1's,
+then the interface area epic, the ES worktree for the lane at the pin, the
+lane cut from P1's tip with this tip merged, and dispatch: the maintainer's
+call of 2026-10-23 is that T2 runs beside T1 (D-WORKFLOW-190, work log 16:30
+UTC). T1 is past its Phase 4.6 blocker: the Argon route is on this branch as
+three cherry-picks (`033eb7ed23`, `0ceb2994c5`, `6874394d49`; M7's
+`fac2129787`, `1c7d283ad5`, `a7a3bdda4e`), the lane merges `6874394d49` and
+runs the Argon seat; then its stage-D pause (write the stream briefs; F-21,
+F-45, F-49 are a merge of upstream commits, F-14 and F-03 wait for the M7
+bytes, F-68 is D-SYS-014); T1's drift re-open when the M7 candidate lands.
 
 ## The seed brief (2026-10-22, the planning session's handoff, verbatim)
 
