@@ -166,3 +166,118 @@ From this worktree, whose rules differ from `next`'s only in `fork-workflow.md` 
 - Read by the sections the brief names: `generic-x64-vm-testing.md` (§ Headless, § What the guest's busybox lacks, § Fixtures for the launch path, § After every VM cycle, § Crash and hang recipes, § Spin a guest down, § The interface runs under `essway.service`, § A settings change made from the shell is invisible, § Private settings modes); `rclone-cloud-sync.md` (§ Config conventions, § Critical gotchas, § Style, § What the audit's fixes changed, § What the audit of the fix round changed).
 - `docs/blindspot-register.md`: entries 7, 13, 30, 32, 33, 34, 43, 51, 57, 64, 72, 73 in full; the titles of all 73.
 - Not yet read, opened in the phase that needs them: `packages/README.md` (with `package.mk`), the decisions by ID (from the register as each is cited), the open issues of brief § 3, the prior punch lists (Phase 1.5, provenance only).
+
+## Phase 1 — Research
+
+### 1.1 The spec
+
+The brief (version 2) and #648's body (its checklist identical to brief § 7) are the spec. The stage-D pause, the RetroArch-half rule and the reviewer route are stated in #648's body above the checklist. Ambiguity noted at stage A: the brief's `/bin/sh` claim (corrected; Q2 reads `#!/bin/sh` scripts under bash in POSIX mode). The coverage table's unit is one row per path (83), which the criterion counts with `grep -c`.
+
+### 1.2 The issues (open, named by brief § 3), read for planned changes and leads, not as a work queue
+
+Bodies saved under `.qa-scratch/t1/issue-<n>.md` (gitignored), grepped for this package's script names (`\b(runemu|setsettings|001-functions|get_setting|set_setting|chksysconfig|post-update|factoryreset|installtointernal|automount|usbgadget|wifictl|rocknix-evidence|corekeep|setrootpass|rocknix-update|system\.cfg|exec\.log|...)\b`). Leads, each to be re-derived from the tree before it bears on a verdict:
+
+| Issue | State, label | What it says about this slice |
+| --- | --- | --- |
+| #336 | open | Step 1 keeps RetroArch for GL cores and netplay; the runner is per core. Baseline: first frame 1.05 s, next game 2.03 s on the VM. Draws the RetroArch half (§ Scope). |
+| #10 | open, enhancement | RetroArch writes save states where `setsettings.sh` points `savestate_directory` (`${SNAPSHOTS}/${PLATFORM}`); a per-core layout would change it. Q7/Q3 context for `setsettings.sh`. |
+| #79 | open, keep an eye on | `exec.log` is rewritten at every launch (D-LAUNCH-004); crash list. Q5/Q3 context for `runemu.sh`'s logging. |
+| #104 | open, epic | `rocknix-evidence snapshot` from a timer at boot+60 s and every 5 min, ring of five; `chksysconfig` keeps the last good `system.cfg`; `set_setting` writes through a temp and a rename; the only shutdown writer of `system.cfg` is `save-sysconfig.service` -> `chksysconfig backup`. Claims to re-derive in Phase 2. |
+| #120 | open, epic | `last-good-scripts-test` covers `chksysconfig`, `set_setting`, `backuptool`'s restore paths, "nothing else"; the exit cell drives `runemu.sh`. A test-gap lead for the rest of the package. |
+| #159, #191, #201 | open | `wifictl connect|join|saved|forget`; `wifictl:87` drops only a stale profile of the same SSID; `pin_wifi` priorities `:144-160`; settings written by `wifictl join`, "never printed". Line numbers to re-derive. |
+| #196 | open | `runemu.sh`/`setsettings.sh` honour `-state_file` (`.auto` -> `savestate_auto_load = true`, else `-e <N>`). The RetroArch half. |
+| #256, #322 | open | The upstream PR series' map; `rocknix-evidence` and `rocknix-corekeep` are fork-own and named there. Context for Q4/upstream contribution. |
+| #266 | open | Bucket B device checkboxes; `wifictl` is one. No slice work. |
+| #292, #293 | open, enhancement | Cards for automatic jobs; `rocknix-evidence` named in passing. No slice work. |
+| #309 | open, audit | PL-003: `WifiText::parseSavedLine` reads `wifictl saved --ssid`'s three columns and unescapes `\t` and `\\`. A seam lead (wifictl's output format x the interface). |
+| #316 | open | **ROCKNIX merged spycat88's PR #3394 on 2026-09-28: `wifictl: refactor and add support for connecting to saved networks` (+185/-122) on the same lines the fork changed (+255).** The choice put to the maintainer there (keep the fork's whole, or adopt upstream's). **Q4 must disposition the upstream commit with that row's outcome**, read from the register before the disposition is written. |
+| #561 | open, keep an eye on | RG SP LED preference across upgrades; `post-update` named. Context for `post-update` and `led_flash`; device-only. |
+| #694 | open, backlog | `rocknix-update` "intentionally exits nonzero for `check`, performs no network request, and directs manual update users to the pixelelated release page. Preserve that isolation". Q6 for `rocknix-update`: a stub by design, not a dead end. |
+| #585 | open, standing | The upstream contribution queue: a fix upstream would take is recorded there (D-WORKFLOW-164/165: submissions deferred). |
+| #644, #645 | open | The build-path read; no findings ride this slice (brief § 3). No mentions. |
+| #18 | open, epic | `backuptool` (out of scope, T17). |
+| #323, #326 | open | Release notes; the series' shared files. No slice work. |
+
+### Closed `bug` issues that name these scripts (brittleness evidence; leads for sibling sites, Phase 3.6.5)
+
+`gh issue list --repo pixelelated/distribution --label bug --state closed --limit 500 --json number,title,body` returned **139** closed bugs; **28** name a script, unit or fragment of this package under a word-boundary pattern of 53 names (every `sources/scripts/` name and the fragments and units, less the bare English words `run` and `brightness`, which match prose; the exact pattern is in `00-running-log.md`'s 07:21 entry). Each is a lead for Phase 2's refutation step (does the fix still hold at `8ebaf8daad`, and did it cover every sibling site):
+
+| Bug | Names | Title |
+| --- | --- | --- |
+| #80 | `setsettings` | Three RetroAchievements switches never reach RetroArch: ES and setsettings.sh spell the keys differently |
+| #98 | `001-functions`, `get_setting`, `runemu`, `set_setting` | 001-functions: wait_lock spins forever on a stale settings lock |
+| #102 | `chksysconfig`, `rocknix-evidence` | RG SP froze during the startup sync on its first d574edf975 boot; settings lost on the forced power-off; Wi-Fi absent on the next boot |
+| #106 | `rocknix-info`, `rocknix-sysconfig` | network: NetworkManager/hostnamed rewrite a hostname carrying a space or underscore (GENERIC_X64 → GENERICX64) |
+| #114 | `factoryreset` | The journey continuation and the settings restore still run in a fullscreen console |
+| #116 | `get_setting` | cloud_setup --info prints the root password in clear text |
+| #117 | `runemu` | The exit hotkey pressed twice loses battery saves: RetroArch's exit(1) path does not flush SRAM |
+| #119 | `factoryreset` | /usr/bin/run exits 0 on failure and hides the error; remaining console callers get no outcome |
+| #146 | `post-update` | cloud scripts: the RCLONE_NET_OPTS fallback still carries the two-retry bound #107 removed |
+| #176 | `rocknix-evidence`, `runemu`, `setsettings` | exec.log carries the RetroAchievements password in the clear, and rocknix-evidence copies it into support files |
+| #178 | `rocknix-evidence` | EmulationStation log: the file lags its lines by up to 8 batches, and WARNING lines have no second channel |
+| #183 | `set_setting` | VIEW THIS GAME'S ACHIEVEMENTS never appears on the VM: the startup hasher does not run and a gamelist cheevosId is not enough (hasCheevos gate) |
+| #198 | `setrootpass`, `wifictl` | Device password: the interface runs setrootpass with the password unquoted, so a password with a space or a shell character is cut or misread |
+| #209 | `setsettings` | Save state hotkey: the save never lands in the launched slot, and DO NOT INCREMENT is ignored by setsettings.sh |
+| #211 | `runemu` | RetroArch segfaults 8 ms after the badge image of a second offline award (Bubble Bobble, fbneo, RG SP) |
+| #246 | `rocknix-corekeep` | EmulationStation SIGSEGV 2.4 s after a Dr. Mario exit, offline with awards queued (RG35XX SP, f2f23da875, the soak) |
+| #247 | `rocknix-corekeep` | rocknix-corekeep: a dump cut at the cap is noted as whole, and the cap drops the stacks of a big interface core |
+| #249 | `runemu`, `setsettings` | Launched from the manager's AUTO SAVE tile, RetroArch's slot stays 0, so the load-state hotkey does not reload the auto save |
+| #275 | `runemu`, `setsettings` | netplay: NICKNAME and PORT reach the launch command unquoted (upstream code, outside the fork's lanes -- the maintainer's call) |
+| #280 | `runemu` | Save state tiles turned by another game's rotation: the launch log accumulates every launch (runemu.sh truncates only under verbose) and the record reads its last SET_ROTATION line (Dr. Mario, F-Zero, Aladdin; RG35XX SP) |
+| #288 | `rocknix-evidence` | Rotation records written under the accumulating launch log stay wrong until each game is replayed: Dr. Mario and F-Zero auto saves and Dr. Mario's achievement screenshots still turned 90 degrees clockwise on a8175c6193 |
+| #320 | `001-functions`, `set_setting` | M7.P1: SystemConf — the recovery record can be published from an older good state outside the settings lock (audit #319, gpt G3-E-02) |
+| #416 | `rocknix-memory-manager` | M7.P3: Remove stale player-facing names from Tools and status text |
+| #420 | `chksysconfig`, `set_setting` | M7.P3: Make the installed settings-race probe observable and repeatable |
+| #421 | `chksysconfig`, `set_setting` | M7.P3: Preserve private settings permissions in shell writers |
+| #526 | `post-update` | M7.P5: Preserve melonDS settings during post-update |
+| #531 | `usbgadget` | M7.P5: Decouple USB gadget revision from calendar OS versions |
+| #548 | `rocknix-info` | M7.P5: Handle unavailable hardware readings in system information |
+
+### 1.3 Git history
+
+`git log --oneline --no-merges c445081a59..8ebaf8daad -- projects/ROCKNIX/packages/rocknix | wc -l` = **162** fork commits on the package. Per path (`--no-merges c445081a59..8ebaf8daad`, then `--since=2026-06-01`), the 29 paths with fork commits are exactly the inventory's 29 fork-own paths:
+
+| Fork commits since the merge base | Since 2026-06-01 (all of `next`'s history) | Path |
+| ---: | ---: | --- |
+| 22 | 24 | `profile.d/001-functions` |
+| 14 | 17 | `sources/scripts/wifictl` |
+| 13 | 13 | `sources/scripts/chksysconfig` |
+| 8 | 10 | `sources/scripts/setsettings.sh` |
+| 8 | 8 | `sources/scripts/rocknix-corekeep` |
+| 7 | 9 | `sources/scripts/runemu.sh` |
+| 6 | 10 | `package.mk` |
+| 6 | 6 | `sources/scripts/rocknix-evidence` |
+| 4 | 15 | `sources/post-update` |
+| 3 | 6 | `config/system/configs/system.cfg` |
+| 3 | 3 | `sources/scripts/rocknix-update`, `sources/scripts/automount` |
+| 2 | 2-9 | `rocknix-info` (9), `rocknix-memory-manager` (4), `installtointernal` (4), `factoryreset` (3), `setrootpass`, `run`, `rocknix-es-thebezelproject` (2) |
+| 1 | 1-3 | `usbgadget` (3), `rocknix-systems` (2), `autostart/001-setup` (2), `rocknix-sysconfig.service`, `rocknix-report-stats.timer`, `rocknix-evidence.timer`, `rocknix-evidence.service`, `rocknix-report-stats`, `autostart/099-networkservices`, `autostart/007-rootpw` |
+
+The upstream-carried 54 paths have no fork commit since the merge base; Q4 reads what upstream changed on them since (`c445081a59..8b70f693b8`).
+
+### 1.5 Prior audits: the provenance map (verdicts sequestered until Phase 2.5)
+
+`grep -c -i -E 'runemu|setsettings|post-update|chksysconfig|factoryreset|automount|installtointernal|001-functions|usbgadget|wifictl|rocknix-evidence|rocknix-info|corekeep' <audit>/05-punch-list.md` over every `docs/audits/*/05-punch-list.md`; the counts equal the brief's. Who audited what, at what tier, and the depth signal; no PASS/FAIL transcribed:
+
+| Audit folder | Tier | Lines naming these scripts | Trust signal for allocating effort |
+| --- | --- | ---: | --- |
+| `2026_09_25-milestone-rc-round-since-258` | milestone | 28 | the densest; the fix round's streams (D-WORKFLOW-056) touched these scripts most: re-verify the fixes it lists hold at `8ebaf8daad` |
+| `2026_09_24-milestone-rc-round-since-186` | milestone | 17 | the round with the one-call GPT seat; a third of its list from that seat |
+| `2026_09_28-milestone-audit-of-the-fix-round` | milestone | 8 | an audit of fixes: the sibling-site question applies |
+| `2026_09_14-epic-offline-retroachievements` | epic | 4 | the proxy's consumers (`runemu.sh`'s RetroArch half) |
+| `2026_09_28-milestone-audit-of-the-fixes-307` | milestone | 3 | |
+| `2026_10_14-milestone-m7-next-candidate` | milestone | 2 | the newest; closest to `8ebaf8daad` |
+| `2026_09_06-issue-device-flashing-runbook` | issue | 2 | issue tier: thin by design |
+| `2026_09_29-milestone-audit-of-the-313-fixes` | milestone | 1 | |
+| `2026_09_12-milestone-cloud-saves-since-60` | milestone | 1 | |
+| `2026_09_10-graceful-degradation/` | (no punch list) | README, `scripts-and-writers.md`, `kill-fixtures-design.md`, `emulationstation-flows.md` | read every writer of these scripts for D-CLOUD-077/078; its **method** (kill at every step, assert one record) is the model for Q3 on the state group |
+
+No phase retro covers this slice (the renovation's first slice); there is no Tier B visual-QA process for scripts, so § Tier B coverage is not applicable (the scripts print text only through `/tmp/launch_error.log`, `say`, and the console flows; any player-visible string is read against `es-player-text.md` in Phase 2).
+
+### 1.6 Research Summary
+
+- **What was planned:** a Tier-1 renovation read of 83 paths (13,327 lines) under the seven questions, Extended depth, with VM proofs and the stage-D pause (brief, #648).
+- **What issues exist:** 23 open issues name the package (leads above; #316's upstream `wifictl` refactor is Q4's largest item; #694 says `rocknix-update` is a stub by design); 28 closed bugs name its scripts.
+- **What code changed:** 162 fork commits since the merge base, concentrated on `001-functions` (22), `wifictl` (14), `chksysconfig` (13), `setsettings.sh`, `rocknix-corekeep` (8 each), `runemu.sh` (7); 54 upstream-carried paths untouched by the fork; 43 upstream commits on the package since the merge base.
+- **What constraints apply:** the rules named in § Scope; the decisions of brief § 3; the RetroArch-half rule; nothing on a device or a person's cloud; the stage-D pause.
+- **Red flags from research:** (1) the brief's `/bin/sh` claim was wrong (stage A); (2) ROCKNIX's `wifictl` refactor conflicts with the fork's (#316); (3) #120 says the script tests cover `chksysconfig`, `set_setting` and `backuptool` "and nothing else", so most of the package has no executable check beyond the named tools; (4) the security list (`setrootpass`, `wifictl`, `usbgadget`, `rocknix-evidence`) has three entries with closed credential bugs (#198, #176, #116), so the sibling-site question (blindspot 57) is live there.
