@@ -1058,11 +1058,12 @@ function set_tatemode() {
         case ${TATEMODE} in
             1|true)
                 cp "/usr/config/retroarch/TATE-MAME 2003-Plus.rmp" "${MAME2003REMAPDIR}/MAME 2003-Plus.rmp"
-                if [ "$(grep mame2003-plus_tate_mode "${MAME2003DIR}/MAME 2003-Plus.opt" > /dev/null 2>&1)" ]
+                ### An edit of the one line, never a rewrite of the file (#709).
+                if grep -q mame2003-plus_tate_mode "${MAME2003DIR}/MAME 2003-Plus.opt" 2>/dev/null
                 then
                     sed -i 's#mame2003-plus_tate_mode.*$#mame2003-plus_tate_mode = "enabled"#' "${MAME2003DIR}/MAME 2003-Plus.opt" 2>/dev/null
                 else
-                    echo 'mame2003-plus_tate_mode = "enabled"' > "${MAME2003DIR}/MAME 2003-Plus.opt"
+                    echo 'mame2003-plus_tate_mode = "enabled"' >> "${MAME2003DIR}/MAME 2003-Plus.opt"
                 fi
             ;;
             *)
@@ -1293,12 +1294,15 @@ function set_gambatte() {
     if [ "${CORE}" = "gambatte" ]
     then
         GAMBATTECONF="${RETROARCH_PATH}/config/Gambatte/Gambatte.opt"
-        if [ ! -f "GAMBATTECONF" ]
+        ### The file is made once and edited after (#710): it was tested by
+        ### the literal name "GAMBATTECONF", so every launch cut it to one
+        ### line. The palette keys the lines below append are removed first.
+        if [ ! -f "${GAMBATTECONF}" ]
         then
-            echo 'gambatte_gbc_color_correction = "disabled"' > ${GAMBATTECONF}
+            mkdir -p "$(dirname "${GAMBATTECONF}")"
+            echo 'gambatte_gbc_color_correction = "disabled"' > "${GAMBATTECONF}"
         else
-            sed -i "/gambatte_gb_colorization =/d" ${GAMBATTECONF}
-            sed -i "/gambatte_gb_internal_palette =/d" ${GAMBATTECONF}
+            sed -i "/^gambatte_gb_colorization =/d; /^gambatte_gb_internal_palette =/d; /^gambatte_gb_palette_twb64_[123] =/d; /^gambatte_gb_palette_pixelshift_1 =/d" "${GAMBATTECONF}"
         fi
         local COLORIZATION=$(game_setting renderer.colorization)
         local TWB1_COLORIZATION=$(game_setting renderer.twb1_colorization)
