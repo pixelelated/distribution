@@ -32,12 +32,16 @@ log() {
 
 getValue() {
   MYVAL=$(get_setting display.${1})
-  if [ -n "${MYVAL}" ]
+  # Compared as numbers: [ a > b ] is a redirection, so every stored value
+  # read as the maximum, and a file named after the maximum was written in
+  # the working directory (#722). A stored value that is not a number is read
+  # from the panel, as an absent one is.
+  if [[ "${MYVAL}" =~ ^[0-9]+$ ]]
   then
-    if [ "${MYVAL}" > "${MAX}" ]
+    if [ "${MYVAL}" -gt "${MAX}" ]
     then
       MYVAL=${MAX}
-    elif [ "${MYVAL}" < "${MIN}" ]
+    elif [ "${MYVAL}" -lt "${MIN}" ]
     then
       MYVAL=${MIN}
     fi
