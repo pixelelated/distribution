@@ -6,50 +6,38 @@
 
 REQUESTED_MODE="${*}"
 SUSPEND_MODE=$(get_setting system.suspendmode)
+SLEEP_CONF=/storage/.config/sleep.conf.d/sleep.conf
 
-if [ ! "${REQUESTED_MODE}" = "${SUSPEND_MODE}" ]; then
-  cat <<EOF >/storage/.config/sleep.conf.d/sleep.conf
-[Sleep]
-EOF
-  case ${REQUESTED_MODE} in
-    off)
-      cat <<EOF >>/storage/.config/sleep.conf.d/sleep.conf
-AllowSuspend=no
-EOF
-      ;;
-    freeze)
-      cat <<EOF >>/storage/.config/sleep.conf.d/sleep.conf
-AllowSuspend=yes
-SuspendState=freeze standby mem
-EOF
-      ;;
-    standby)
-      cat <<EOF >>/storage/.config/sleep.conf.d/sleep.conf
-AllowSuspend=yes
-SuspendState=standby mem freeze
-EOF
-      ;;
-    mem)
-      cat <<EOF >>/storage/.config/sleep.conf.d/sleep.conf
-AllowSuspend=yes
-SuspendState=mem standby freeze
-EOF
-      ;;
-    default)
-      del_setting system.suspendmode
-      if [ -e "/usr/lib/autostart/quirks/devices/${QUIRK_DEVICE}/030-suspend_mode" ]; then
-        "/usr/lib/autostart/quirks/devices/${QUIRK_DEVICE}/030-suspend_mode"
-      elif [ -e "/usr/lib/autostart/quirks/platforms/${HW_DEVICE}/030-suspend_mode" ]; then
-        "/usr/lib/autostart/quirks/platforms/${HW_DEVICE}/030-suspend_mode"
-      fi
-      ;;
-    *)
-      cat <<EOF >>/storage/.config/sleep.conf.d/sleep.conf
-AllowSuspend=yes
-SuspendState=${REQUESTED_MODE}
-EOF
-      ;;
+# What sleep.conf holds for a mode; "default" is the device's quirk's to write.
+sleep_conf_for() {
+  echo "[Sleep]"
+  case ${1} in
+    off)     echo "AllowSuspend=no" ;;
+    freeze)  printf 'AllowSuspend=yes\nSuspendState=freeze standby mem\n' ;;
+    standby) printf 'AllowSuspend=yes\nSuspendState=standby mem freeze\n' ;;
+    mem)     printf 'AllowSuspend=yes\nSuspendState=mem standby freeze\n' ;;
+    *)       printf 'AllowSuspend=yes\nSuspendState=%s\n' "${1}" ;;
   esac
+}
+
+# The mode is compared with sleep.conf as well as with the setting: a
+# settings restore brings system.suspendmode back without sleep.conf, so at
+# the next boot the restored mode matched the setting it had been restored
+# into, nothing was written, and the device went on suspending the old way
+# while the menu showed the new (#761).
+if [ ! "${REQUESTED_MODE}" = "${SUSPEND_MODE}" ] || \
+   { [ "${REQUESTED_MODE}" != "default" ] && [ "$(cat "${SLEEP_CONF}" 2>/dev/null)" != "$(sleep_conf_for "${REQUESTED_MODE}")" ]; }; then
+  if [ "${REQUESTED_MODE}" = "default" ]; then
+    echo "[Sleep]" >"${SLEEP_CONF}"
+    del_setting system.suspendmode
+    if [ -e "/usr/lib/autostart/quirks/devices/${QUIRK_DEVICE}/030-suspend_mode" ]; then
+      "/usr/lib/autostart/quirks/devices/${QUIRK_DEVICE}/030-suspend_mode"
+    elif [ -e "/usr/lib/autostart/quirks/platforms/${HW_DEVICE}/030-suspend_mode" ]; then
+      "/usr/lib/autostart/quirks/platforms/${HW_DEVICE}/030-suspend_mode"
+    fi
+  else
+    sleep_conf_for "${REQUESTED_MODE}" >"${SLEEP_CONF}"
+  fi
   set_setting system.suspendmode ${1}
   systemctl restart systemd-logind
 fi
