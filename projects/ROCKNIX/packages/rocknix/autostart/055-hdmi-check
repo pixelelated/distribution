@@ -7,7 +7,7 @@
 # The purpose of this script is to permanently set the resolution
 # output for hdmi when connected.
 
-xres="$(cat /sys/class/graphics/fb0/modes | grep -o -P '(?<=:).*(?=p-)' | cut -dx -f1)"
+xres="$(cat /sys/class/graphics/fb0/modes 2>/dev/null | grep -o -P '(?<=:).*(?=p-)' | cut -dx -f1)"
 
 # drm_tool source available at https://github.com/christianhaitian/drm_tool.git
 
@@ -19,11 +19,19 @@ mode2="$(/usr/bin/drm_tool list |  awk '/1920x1080.*60/ {print substr($2,1,lengt
 # drm resolution patch.  This patch can be found at 
 # https://github.com/christianhaitian/rk3566_core_builds/raw/master/patches/sdl2-patch-0003-drm-resolution.patch
 
-if [ $xres -eq "1280" ]; then
-  echo $mode | tee /var/run/drmMode
-elif [ $xres -eq "1920" ]; then
-  echo $mode2 | tee /var/run/drmConn
-else
-  echo 0 | tee /var/run/drmMode
-  echo 1 | tee /var/run/drmConn
-fi
+# The 1080p mode goes to drmMode, as the 720p one does: it went to drmConn,
+# so a 1920-wide display never had its mode set. xres is matched as text, so
+# a device with no fb0 modes file (KMS only) takes the last branch, where an
+# integer test with nothing on its left was an error (#751).
+case "${xres}" in
+  1280)
+    echo $mode | tee /var/run/drmMode
+    ;;
+  1920)
+    echo $mode2 | tee /var/run/drmMode
+    ;;
+  *)
+    echo 0 | tee /var/run/drmMode
+    echo 1 | tee /var/run/drmConn
+    ;;
+esac
