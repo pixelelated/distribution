@@ -260,6 +260,9 @@ function wait_lock() {
       # among them) exited 0 however it ended. Release only a lock this shell still
       # holds -- callers rm it themselves, the trap outlives them, and another
       # process may own the file by the time this one exits.
+      # This replaces any INT, TERM or EXIT trap the caller had set, for the
+      # rest of the caller's life: a script that needs its own restores them
+      # explicitly, never from its own EXIT trap (F-22).
       trap 'rc=$?; [ "$(cat "${J_CONF_LOCK}" 2>/dev/null)" = "$$" ] && rm -f "${J_CONF_LOCK}"; exit "${rc}"' INT TERM EXIT
       return 0
     fi
