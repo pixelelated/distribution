@@ -12,16 +12,23 @@ DSI_OUTPUT=$(wlr-randr | awk '/^DSI-[0-9]/ {print $1}')
 
 HDMI_STATE=$(cat /run/hdmi-status.last 2>/dev/null)
 
+# The USB gadget stops while USB-C carries DisplayPort, as its lanes conflict
+# with USB data on some SoCs (e.g. RK3588/SM8250); standard HDMI ports are
+# unaffected. The gadget is started by usbgadget --start (081-usbgadget), not
+# by a unit, so systemctl is-active usbgadget was never true and the stop
+# never ran (#752). usbgadget is asked its mode and paused, which keeps the
+# player's chosen mode for the next boot.
+pause_gadget_for_dp() {
+  if cat /sys/class/drm/card*-DP*/status /sys/class/drm/card*-DisplayPort*/status 2>/dev/null | grep -q "^connected"; then
+    if [ "$(usbgadget 2>/dev/null)" != "disabled" ]; then
+      usbgadget pause
+    fi
+  fi
+}
+
 case "${HDMI_STATE}" in
   connected)
-
-    # Stop USB gadget only if using USB-C (DisplayPort) video, as it conflicts with USB data lanes on some SoCs (e.g. RK3588/SM8250)
-    # Standard HDMI ports are unaffected.
-    if cat /sys/class/drm/card*-DP*/status /sys/class/drm/card*-DisplayPort*/status 2>/dev/null | grep -q "^connected"; then
-        if systemctl is-active --quiet usbgadget; then
-             systemctl stop usbgadget
-        fi
-    fi
+    pause_gadget_for_dp
     if [ -n "${HDMI_OUTPUT}" ]; then
       wlr-randr --output "${HDMI_OUTPUT}" --preferred --on
     fi
@@ -31,14 +38,7 @@ case "${HDMI_STATE}" in
     killall emulationstation
     ;;
   disconnected)
-
-    # Stop USB gadget only if using USB-C (DisplayPort) video, as it conflicts with USB data lanes on some SoCs (e.g. RK3588/SM8250)
-    # Standard HDMI ports are unaffected.
-    if cat /sys/class/drm/card*-DP*/status /sys/class/drm/card*-DisplayPort*/status 2>/dev/null | grep -q "^connected"; then
-        if systemctl is-active --quiet usbgadget; then
-             systemctl stop usbgadget
-        fi
-    fi
+    pause_gadget_for_dp
     if [ -n "${DSI_OUTPUT}" ]; then
       wlr-randr --output "${DSI_OUTPUT}" --preferred --on
     fi

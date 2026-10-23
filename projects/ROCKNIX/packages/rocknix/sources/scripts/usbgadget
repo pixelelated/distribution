@@ -524,6 +524,14 @@ case "$1" in
 	stop)
 		usb_stop
 		;;
+	pause)
+		# Down until the next --start, the stored mode kept: usb_stop records
+		# disabled, which would turn the player's choice off for good. The HDMI
+		# hotplug handler's stop while DisplayPort takes the USB-C lanes (#752).
+		saved_conf=$(cat ${GADGETCONF} 2>/dev/null)
+		usb_stop
+		[ -n "${saved_conf}" ] && printf '%s\n' "${saved_conf}" > ${GADGETCONF}
+		;;
 	trigger)
 		usb_trigger
 		;;
