@@ -169,7 +169,10 @@ case "${VERB}" in
     # layered over the image's read-only copies. Collected first and required
     # to be non-empty -- `rm -rf` with an empty list removes nothing and says
     # nothing, which is exactly how this reported a reset it had not done.
-    UPPERDIRS="$(cat /usr/lib/systemd/system/tmp-*.mount 2>/dev/null | grep -Eo 'upperdir=.*,' | sed -e 's~upperdir=~~g; s~,~~g')"
+    # The value ends at its comma: the greedy upperdir=.*, read to the line's
+    # last one, so an option after workdir made a path that does not exist,
+    # which remove_checked reports as removed (F-36).
+    UPPERDIRS="$(cat /usr/lib/systemd/system/tmp-*.mount 2>/dev/null | grep -Eo 'upperdir=[^,[:space:]]*' | sed -e 's~^upperdir=~~')"
     if [ -z "${UPPERDIRS}" ]
     then
         fail "THERE ARE NO CUSTOM FILES ON THIS DEVICE TO RESET, SO NOTHING WAS CHANGED." "no upperdir= found in /usr/lib/systemd/system/tmp-*.mount"
