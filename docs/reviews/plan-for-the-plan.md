@@ -182,12 +182,12 @@ the shape in § 2, is:
 
 | Epic (area) | Tier | What it holds | Why it is one epic |
 | --- | --- | --- | --- |
-| Build engine | upstream-carried, small fork delta | `scripts/`, `config/`, `distributions/`, the `Makefile`, `tools/mkpkg`, the Docker path | everything else is built by it; 26,000 lines read once |
+| Build engine | upstream-carried, small fork delta | `scripts/`, `config/`, `distributions/`, the `Makefile`, `tools/mkpkg`, the Docker path | everything else is built by it; 26,000 lines read once; where the maintainer puts the renovation's value, ahead of any device, with the harness and the package currency beside it (D-WORKFLOW-186; #644 reads ROCKNIX's documented build path against ours) |
 | OS scripts and launch path | fork-own on upstream | `projects/ROCKNIX/packages/rocknix/` (the OS scripts, `runemu.sh`), `sysutils/` (busybox, systemd units, the quirks), `hardware/` | the launch path is the gate D-WORKFLOW-102 names |
 | Cloud sync and saves | fork-own | `projects/ROCKNIX/packages/network/rclone/`, the cloud tools under `tools/`, `backuptool` | one state model, one filter allowlist, the invariants in `rclone-cloud-sync.md` |
 | Offline achievements | fork-own | the proxy package, its consumers in RetroArch and the emulators, the ES pages | one protocol, one queue |
 | Emulators and cores | upstream-carried with fork patches | `projects/ROCKNIX/packages/emulators/` (276 differing paths), the RetroArch patches, the wrappers | the largest group; split by family (libretro cores, standalone, RetroArch itself) |
-| Devices | upstream-carried | `projects/ROCKNIX/devices/*` for the devices we build (H700, SM8550, GENERIC_X64 first; RK3566, RK3326, SM8250, S922X, SM6115 after), their kernels and quirks | one slice per device we ship; one row per device we do not |
+| Devices | upstream-carried | `projects/ROCKNIX/devices/*` for the devices we ship (H700 and SM8550; GENERIC_X64 as the test image, D-WORKFLOW-185), their kernels and quirks; every other target is a row | one slice per device we ship; one row per device we do not; RK3566 and RK3326 are the recorded first widening, each a device build with its own issue when the maintainer opens it |
 | Generic packages | upstream-carried | `packages/*` by group | reachability first: a group no image we build reaches is a table, not a reading |
 | Patches and configs | vendor-carried | every `.patch` under `packages/` and `projects/`, every kernel `.conf` | the provenance table (#339 criterion 2): one row per patch, count equal to `find -name '*.patch' | wc -l` |
 | Interface | fork-own on batocera and ROCKNIX | the EmulationStation fork: the fork's pages first, then the launch path, then `es-core` | the launch-path slice is read before #336 Step 1 (D-WORKFLOW-102) |
@@ -486,6 +486,7 @@ None blocks P1; each is answered by a register row when settled.
    Extended for the listed slices, with Astra and Argon as the other labs.
    Review depth has cost in OpenRouter credit (D-WORKFLOW-049); the
    maintainer may prefer Local for more of the upstream-carried slices.
+   Settled 2026-10-22: the defaults stand (D-WORKFLOW-184).
 4. **Where the EmulationStation fork's survey runs.** The ES tree is a
    separate repository; the inventory tool reads both, and ES slices run in
    an ES worktree with the distribution checkout's rules (D-WORKFLOW-010).
