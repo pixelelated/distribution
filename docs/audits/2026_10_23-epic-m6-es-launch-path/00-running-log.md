@@ -385,3 +385,15 @@ Nothing on this list runs before the coordinator relays M7's `resource return` o
 - PL-032's row is in `04-analysis.md` § Q7, waiting on the coordinator's Backlog issue.
 - The S4 outcomes are in 05 and on #790. PL-013, PL-018 and PL-022's lines are ticked, since their acceptance is mechanical. `lint-audit-artifacts --phase pre-issue --issue 790`: `PASS`. `box-check --issue 790`: 0 fail.
 - **S4 ends at ES `2f881879c`.**
+
+### [Stage E, S3's tail] 21:18-21:23 — #786's reworded criterion, and PL-036
+
+- **The coordinator's two calls (#649 21:18).**
+  - #786's criterion 1 was reworded by the coordinator to the reading. It is ticked from the reading (`SystemData.cpp:676-677` before `:679`; the fresh maps at `:111` and `:450`) and the compile. Criterion 2 stays unticked, because the PL-020 commit records "Tests: none run".
+  - The arcade-asset leak becomes PL-036 and is fixed as S3's tail.
+- **PL-036** was added to `05` as the item, its Phase 7 row and its index entry, in the defensive register, with the pin line numbers checked (`SystemData.cpp:575-583`, `FileData.cpp:480-489`). It was committed as `54d245ac84`, and the bug issue **#792** filed by reference (`box-check` 0 fail). #790 gained its checkbox, and its title now counts 36 findings.
+- **The test first.** The new `tests/system-scan-assets.py` compiles the shipped `populateFolder` with doubles that count live `FileData`. It scans a fixture folder holding `mslug.zip` and the BIOS file `neogeo.zip`, frees the tree, and checks the count.
+  - 21:20:34, against the pin's `SystemData.cpp` and against the tree before the fix: `FAIL ... (1 left)`.
+- **The fix**, ES `c2e75868a`: `FileData::isArcadeAssetPath(system, path)`, which `isArcadeAsset()` calls, asked in `populateFolder` before the object is made.
+  - 21:22:12 the harness **PASS, 0 left**. Syntax-only compile of `SystemData.cpp` and `FileData.cpp` `PASS`; `es-unit-tests` 210.
+  - #792's two criteria and #790's PL-036 line are ticked.
