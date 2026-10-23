@@ -1,0 +1,862 @@
+# Second opinion on a code audit -- M6.P2 T1, the OS scripts: launch, control and state, epic tier
+
+You are the second reader of a finished code audit. You cannot run
+commands or open the repository; everything you may cite is in the packet
+below, and every claim you make names the packet's `file:line` or the
+command output it rests on. The first reader's verdicts are in the packet;
+do not take them as given.
+
+The scope: 83 paths of `projects/ROCKNIX/packages/rocknix/` in a handheld
+Linux distribution (the OS's launch, control and state scripts: shell, two
+Python scripts, systemd units, a recipe), read at one commit, with behaviour
+claims proven on a QEMU guest of the distribution's x86_64 test image. The
+image's `/bin/sh` is bash in POSIX mode; busybox provides the small
+utilities. The first reader is Claude Opus 5.5 (Anthropic); you are the
+reviewer from another lab. The audit is a renovation: besides defects, its
+findings answer seven questions (Q1 modernize, Q2 standards, Q3 bugs, Q4
+package currency, Q5 efficiency, Q6 dead ends, Q7 clarity).
+
+Answer in three parts, in this order:
+
+1. **Your own findings first.** Read the packet's evidence -- the criteria,
+   the code and command excerpts, the reads -- and list every defect, gap,
+   or unsafe seam you find that is not already one of the first reader's
+   findings. One line each: an id (G-01, G-02, ...), a severity (Critical /
+   High / Medium / Low), the packet's `file:line`, what fails and when.
+2. **Refute the first reader.** For every finding at Medium or above (the
+   Risk Assessment table in 04 lists all 68; the 19 Mediums are F-01, F-03,
+   F-09, F-10, F-11, F-14, F-16, F-17, F-19, F-21, F-29, F-32, F-39, F-40,
+   F-44, F-57, F-58, F-67, F-68), and any Low you think mis-graded: agree,
+   disagree, re-grade, or narrow -- and in each case say what would make the
+   finding false and whether the packet shows it. Say also whether any
+   finding graded Medium should be High (the first reader graded nothing
+   above Medium).
+3. **What you could not judge.** The claims the packet does not let you
+   verify, so the orchestrator knows where its evidence was thin.
+
+Everyday words, no hedging: a finding either survives your reading or it
+does not, and you say which.
+
+---
+# Forward Audit — M6.P2 T1, the OS scripts: launch, control and state
+
+**Auditor:** Code Auditor skill (v1.13.0), primary Claude Opus 5.5 (Anthropic) at high effort
+**Date:** 2026-10-23
+**Subject:** #648; the 83 paths of `projects/ROCKNIX/packages/rocknix/` less `backuptool`, read at `reviewed-at` `efadfea08a` (slice bytes = `8ebaf8daad`)
+**Spec:** `docs/reviews/briefs/os-launch-control-state.md` v2 § 4 (the questions), § 7 (= #648's checklist)
+
+---
+
+## Running Notes
+
+Layout of this file: § Image versus tree (which copy a guest proof exercises), § Mechanical checks (brief § 5, each with command, exit status and summary line), § Coverage table (one row per path, Q1 to Q7), § Findings (F-nn, written as each unit is read), § Guest proofs, then the criterion entries for #648's checklist and the summary.
+
+## Image versus tree
+
+`sha256sum` of every tree path against the installed copy on the guest (`BUILD_ID 069fc270442134fe771258418adf4e666e0473fb`), install paths from `package.mk` and `scripts/install` as brief § 2 gives them (`sources/scripts/*` -> `/usr/bin/`, `sources/post-update` -> `/usr/share/post-update`, `sources/motd` -> `/etc/motd`, `profile.d/*` -> `/etc/profile.d/`, `autostart/*` -> `/usr/lib/autostart/common/`, `system.d/*` -> `/usr/lib/systemd/system/`, `udev.d/*` -> `/usr/lib/udev/rules.d/`, `config/*` -> `/usr/config/`), ~07:31 UTC (between the clock reads 07:30:41 and 07:32:10). Result: **78 same, 3 differ, 1 absent, 1 recipe** (the table, `.qa-scratch/t1/image-vs-tree.tsv`):
+
+| Path | Installed at | Image vs tree | Why |
+| --- | --- | --- | --- |
+| `sources/scripts/runemu.sh` | `/usr/bin/runemu.sh` | **differs** | the M7 candidate's lifecycle prologue (`next..069fc2704421`, § Scope); a proof through the interface exercises the image's copy |
+| `config/system/configs/system.cfg` | `/usr/config/system/configs/system.cfg` | **differs** | the recipe's build-time edits (device name, `DEVELOPMENT_DEFAULTS`) |
+| `sources/motd` | `/etc/motd` | **differs** | the recipe's banner edit |
+| `profile.d/099-freqfunctions` | `/etc/profile.d/099-freqfunctions` | **absent** | installed on non-x86_64 only (`package.mk` 119-126); `100-amd64-freqfunctions` is installed instead and is the same |
+| `package.mk` | - | recipe | not installed |
+| the other 78 | as above | **same** | a proof of the installed copy is a proof of the tree's |
+
+So every guest proof below of a script other than `runemu.sh` stands for the tree; a `runemu.sh` proof through the interface or `tools/emulator-exit-test` is of the image's copy and says so; a proof of the tree's `runemu.sh` places it under `/storage` and runs it directly.
+
+## Mechanical checks (brief § 5)
+
+`QA_SYSTEM_ROOT=/workspace/repos/rocknix.worktrees/m7-signin-build-20261022-07/build.pixelelated-GENERIC_X64.x86_64/image/system` (built from `069fc2704421`; busybox v1.36.1 built 2026-10-05). Outputs under `.qa-scratch/t1/checks/` (gitignored); each line is the tool's own last line.
+
+| Check | Command | Exit | Summary line | What it covered / did not |
+| --- | --- | ---: | --- | --- |
+| pkgcheck | `tools/pkgcheck rocknix` | 0 | `projects/ROCKNIX/packages/rocknix/package.mk...` (no FAIL lines) | late binding and the recipe conventions |
+| last-good-scripts-test | `QA_SYSTEM_ROOT=... tools/last-good-scripts-test` (07:21:39-07:30:04) | 0 | `PASSED` (1,379 PASS, 0 FAIL; `1 HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS`, the retired layout migration, D-CLOUD-175) | `sed/mv/cp/tr/head/wc/cut/awk` from the image's busybox (the run's own line names the copy); `chksysconfig`, `set_setting`, `write_stamp`, FORBIDDEN strings, and much outside this slice |
+| settings-modes-test | `tools/settings-modes-test --profile projects/ROCKNIX/packages/rocknix/profile.d/001-functions --chksysconfig projects/ROCKNIX/packages/rocknix/sources/scripts/chksysconfig --busybox $QA_SYSTEM_ROOT/usr/bin/busybox --output .qa-scratch/t1/checks/settings-modes.json` | 0 | `PASS refuse-rename` (29 PASS, 0 FAIL) | the four shell settings writers, backup and restore, private modes |
+| wait-lock-test | `tools/wait-lock-test` | 0 | `PASSED` (21 PASS, 0 FAIL) | `wait_lock()` lifted from the tree's `001-functions`: stale lock removed, live holder honoured, one log line |
+| usb-gadget-test (host) | `tools/usb-gadget-test --source projects/ROCKNIX/packages/rocknix/sources/scripts/usbgadget --output .qa-scratch/t1/checks/usb-gadget-host.json` | 0 | `PASS USB descriptor fixture: 18 cases, 72/72 checks` | under the **host's** `/bin/sh` (`/usr/bin/dash`), not the image's |
+| usb-gadget-test (guest) | the same tool and the tree's `usbgadget` copied to `/storage/.qa-t1/` on the guest, `python3 -I ./usb-gadget-test --source /storage/.qa-t1/usbgadget --output ...` | 0 | `PASS USB descriptor fixture: 18 cases, 72/72 checks` | under the **image's** `/bin/sh` (`/usr/bin/bash` in POSIX mode); `cmp` of the copy against `/usr/bin/usbgadget`: identical, so tree = image |
+| rocknix-info-test | `tools/rocknix-info-test --output .qa-scratch/t1/checks/rocknix-info` | 0 | `PASS 12 full-script positive/negative controls` | the full script with fixture sysfs |
+| melonds-upgrade-test | `tools/melonds-upgrade-test --post-update projects/ROCKNIX/packages/rocknix/sources/post-update --busybox $QA_SYSTEM_ROOT/usr/bin/busybox --output .qa-scratch/t1/checks/melonds.json` | 0 | `PASS temp-failure` (15 PASS, 0 FAIL) | `post-update`'s melonDS half only |
+| vocabulary-check (default) | `tools/vocabulary-check` | 0 | `vocabulary-check: 163 string(s) with back up / backup, save state or Wi-Fi judged, 0 wrong` | **reads none of this slice's paths**: `--scripts` defaults to `projects/ROCKNIX/packages/network/rclone/sources` plus `backuptool`; `--es` to `~/Development/emulationstation-next.worktrees/qa-integration` (at `16dbac521`, the pin). See F-candidate below |
+| vocabulary-check (scoped) | `tools/vocabulary-check --scripts projects/ROCKNIX/packages/rocknix/sources/scripts` | 0 | `... 128 string(s) ... judged, 0 wrong` | `--show` lists only `backuptool`'s strings from this package; T1's vocabulary-bearing lines are log lines (`logger`, `say` into logs, `>>${LOG}`), outside its `echo "..."`/`log_message`/`_("...")` extraction |
+| emulator-exit-test | `tools/emulator-exit-test --port 10032 --identity $A/qa-key --vm` (stage A trial, 07:13:57-07:14:25) | 0 | `PASSED` (A, B, C, D) | the **image's** `runemu.sh`; repeated with the Q5 measurements |
+| time-to-play | `tools/time-to-play ... --no-configure-remote --vm --quick` (stage A trial) | 1 | `Not a pass: the exit sync had no cloud to reach` | expected without a remote; the full Q5 run is recorded under § Renovation face Q5 |
+| shellcheck | `.qa-scratch/shellcheck-v0.11.0/shellcheck-v0.11.0/shellcheck -f gcc <file>` over the 63 shell files (each file's own shebang; `-s bash` for the five sourced fragments without one; units, rules, configs, `motd`, `package.mk` and the two python scripts skipped), ~07:33 UTC | - | `63 files: errors 16, warnings 319, notes 542` | a lead list, not verdicts: every error is read at its site before it becomes a finding (below); per-file counts in the coverage table's Q2 cell |
+
+### shellcheck errors (16), each to be read at its site
+
+| Site | Code | shellcheck's words | Verdict after reading the site |
+| --- | --- | --- | --- |
+| `autostart/099-networkservices:30` | SC2068 | Double quote array expansions to avoid re-splitting elements. | benign (no spaces in daemon names) |
+| `sources/scripts/controller-layout:11` | SC2242 | Can only exit with status 0-255. Other data should be written to stdout/stderr. | benign (`exit -1` = 255, unread) |
+| `sources/scripts/migrate_roms:15` | SC2189 | You can't have | between this redirection and the command it should apply to. | defect in an unreached script (F-55) |
+| `sources/scripts/migrate_roms:34` | SC2189 | You can't have | between this redirection and the command it should apply to. | defect in an unreached script (F-55) |
+| `sources/scripts/paneladj:37` | SC2071 | > is for string comparisons. Use -gt instead. | **defect** F-57, proven |
+| `sources/scripts/paneladj:40` | SC2071 | < is for string comparisons. Use -lt instead. | **defect** F-57 |
+| `sources/scripts/error.sh:13` | SC1035 | You are missing a required space here. | defect in an unreached script (F-55) |
+| `sources/scripts/setsettings.sh:334` | SC2265 | Use && for logical AND. Single & will background and return true. | **defect** F-09, proven |
+| `sources/scripts/setsettings.sh:748` | SC2068 | Double quote array expansions to avoid re-splitting elements. | benign (array indices) |
+| `sources/scripts/setsettings.sh:801` | SC2068 | Double quote array expansions to avoid re-splitting elements. | part of F-10 (substring match) |
+| `sources/scripts/setsettings.sh:844` | SC2068 | Double quote array expansions to avoid re-splitting elements. | part of F-10, proven |
+| `sources/scripts/setsettings.sh:958` | SC2068 | Double quote array expansions to avoid re-splitting elements. | part of F-10, proven |
+| `sources/scripts/setsettings.sh:983` | SC2068 | Double quote array expansions to avoid re-splitting elements. | part of F-10 |
+| `sources/scripts/setsettings.sh:1012` | SC2328 | This redirection takes output away from the command substitution. | **defect** F-16, proven |
+| `autostart/050-audio:49` | SC2157 | Argument to -n is always true due to literal strings. | **defect** F-56, proven |
+| `sources/scripts/setemu.sh:21` | SC2145 | Argument mixes string and array. Use * or separate argument. | unreached script (F-55) |
+
+## Findings, written as each unit is read
+
+Provisional ids (`F-nn`); a finding becomes a punch item only after Phase 4.5 (and 4.6 for Medium and above). "Image copy" means the guest's installed file; § Image versus tree says which proofs stand for the tree.
+
+### `sources/scripts/runemu.sh` (626 lines, fork-own, group 1; read whole at `efadfea08a`)
+
+- **F-01 (Q3, Medium, proposed bug): a governor setting is run as a command, and names ES offers have no function.** `runemu.sh:465-467` reads `cpugovernor` for the game and executes it (`${CPU_GOVERNOR}`); `quit()` does the same with `system.cpugovernor` (`:130-131`). Only four names are functions: `performance`, `ondemand`, `schedutil`, `powersave` (`profile.d/099-freqfunctions:82-100`, `100-amd64-freqfunctions:120-142`). EmulationStation's list at the pin is `default` plus the kernel's `scaling_available_governors` (`es-app/src/ApiSystem.cpp:1062-1065`, the pin `16dbac52`; `GuiMenu.cpp:2302-2322` system-wide, `:3405-3430` per game). So, on the **H700**, whose kernel builds `CONFIG_CPU_FREQ_GOV_CONSERVATIVE=y` and `CONFIG_CPU_FREQ_GOV_USERSPACE=y` (`projects/ROCKNIX/devices/H700/linux/linux.aarch64.conf`), CONSERVATIVE and USERSPACE are offered and do nothing; in every such case the game keeps the `performance` governor set at `:12` (and `:505` after it). The player chose a slower governor and got the fastest one, silently (least-surprise; battery). SM8550's kernel builds neither. **Narrowed after reading `SystemConf`:** `default` does not reach `system.cfg` from the interface, because `SystemConf` drops an empty, `auto` or `default` value on save instead of writing it (`es-core/src/SystemConf.cpp:387` at the pin) and `set_setting` itself turns `default` into a removal (`001-functions:547-550`); so the misfire is the kernel-offered governors without a function, `conservative` and `userspace`, on the H700 only. x86_64's own `get_available_cpu_governors` (`100-amd64-freqfunctions:180-186`: `default low balanced high boost`) is never called by ES. On the guest `type -t` after `. /etc/profile`: `performance|ondemand|schedutil|powersave` = function, `conservative` = MISSING. Executing a setting's value is also the wrong shape on its own (Q2): a `case` that maps the four names to their functions and treats `default` and anything else explicitly is the fix shape. **To prove on the guest** (§ Guest proofs): a per-game `cpugovernor=conservative` written as the interface would write it, a launch, and the `command not found` line (the guest has no cpufreq, so the proof is the dispatch, not the governor). Interacting: the interface's option lists (T21/T2, read-only).
+- **F-02 (Q3, Low, proposed bug): `onlinethreads` does not exist on x86_64, and the exit path calls it every time.** `runemu.sh:556-561` runs `onlinethreads ${NUMTHREADS} 0 &` or `onlinethreads all 1 &` on every exit, `:457-461` when a game sets threads; the function is defined only in `099-freqfunctions:78-80`, installed on non-x86_64 only (`package.mk:119-126`). Guest: `type -t onlinethreads` = MISSING. Every exit on GENERIC_X64 and AMD64 runs a missing command in the background. Shipped handhelds unaffected.
+- **F-03 (Q3, Medium, to verify): exit-time restores run in the background and race the next launch.** `:538` (`systemctl restart fancontrol &`), `:546`/`:549` (`gpu_performance_level ... &`), `:558`/`:560` (`onlinethreads ... &`): `quit` returns to the interface while they run, so a game launched quickly after (game to game, the second time-to-play number) can have its own `onlinethreads N 0`/`gpu_performance_level` overtaken by the previous game's restore. To measure: the time from exit to each background job's end against the measured exit-to-next-launch time; a trace on the guest. The backgrounding is worth keeping for time to play (Q5); the fix shape is to make the next launch wait for, or cancel, the previous restore.
+- **F-04 (Q3, Low): the per-game fan profile is written into the global setting for the length of the game.** `:432-437` `set_setting cooling.profile ${GAMEFAN}` then `:537` writes the saved value back; a launch that never reaches `quit` (the interface killed, a power cut) leaves the game's profile as the device's. Fan devices only (`DEVICE_HAS_FAN`; not the H700, to check for the SM8550). `COOLINGPROFILE` empty -> `set_setting cooling.profile` with no value, behaviour to read in `001-functions`.
+- **F-05 (Q6, Low, Renovation): dead variables.** `GAMEFOLDER` (`:33`, also an unquoted pattern substitution), `ES_CONFIG` (`:37`) and `NETWORK_PLAY` (`:44`, assigned `:245-254` and never read since the file arrived in `9f1fab30f6` "projects: add modifications for ROCKNIX") are never used. Reachability: `grep -n` in the file. `NETWORK_PLAY`'s parsing is inside the RetroArch half.
+- **F-06 (Q3, Low, upstream code): `rm ${ROMNAME}.nvmem*` unquoted** (`:309`, atomiswave): a ROM path with a space splits into words and `rm` is handed `.../atomiswave/<first word>` and `<rest>.nvmem*`; the intended removal does not happen and a file named like the first word would be removed. Design intent of deleting the NVRAM beside the ROM at every launch is unrecorded (`git log -S nvmem` reaches only `9f1fab30f6`). Inside the RetroArch half: Q3, so fixed regardless.
+- **F-07 (Q3, Low, sibling of #308): `CORE` and `EMULATOR` are still cut from the joined line.** `:27-30` take the text after the **last** `--core=` / `--emulator=` in `"$@"` joined; #308 moved `PLATFORM` to a per-argument loop (`:25-26`) for exactly this reason. A later argument carrying `--core=` (a state file's path is the ROM's name, `parse_savestate_arguments`; a netplay nick) would win. Contrived names only; recorded for 3.6.5's sibling table.
+- **F-08 (Q7, Low, Renovation):** every `log $0 "..."` passes the script's path as the first word of the message, so each line reads `runemu.sh: /usr/bin/runemu.sh <text>` (`:84` prefixes `${SCRIPT_NAME}` already); `log` and `loginit` test `[ ${LOG} == true ]` unquoted; `:61-65` the game-guide block is mis-indented and runs `game-guides-tool` synchronously at every launch (Q5: to time; the tool is not in this package, `grep -rlF game-guides-tool projects packages --include=package.mk` found no recipe naming it -- to locate).
+- **Read and found sound (refutation recorded):** `parse_savestate_arguments` (`:195-231`) takes each value from the argument after its flag (the #308 fix), so a ROM name with ` -state_slot ` cannot win; `RUNTHIS` holds `"${ROMNAME}"` literally and `eval` expands it once, so a ROM name's `$`/backtick is not re-evaluated (`:302`, `:500`); the exit mapping (`:586-626`) consumes the marker whatever the status and maps 137/143 and a marked non-zero to 0 (D-LAUNCH-001/002); the Dolphin refusal channel checks the file is regular and not a link before reading it (`:595-596`).
+
+### `sources/scripts/setsettings.sh` (1,479 lines, fork-own, group 1; the RetroArch half whole, so Q1/Q5/Q7 items carry `deferred:#336` unless a stream brief says otherwise, Q2/Q3 are fixed)
+
+Read in chunks, all 1,479 lines by the end of this section.
+
+- **F-09 (Q3, Medium, proposed bug; the shellcheck SC2265 site): `add_setting`'s condition is two commands, not one.** `setsettings.sh:334-335` is `if [ -z "${RETROARCH_VALUE}" ]& [ ! "${1}" = "none" ]`: the first test is backgrounded and the `if` tests only the second, so whenever the first argument is an OS key the value becomes the OS setting, even when the caller passed one. Of the 104 calls (`grep -c -E '^\s*add_setting ' setsettings.sh`), three pass both (`grep` for a non-`none` key and a non-empty third argument): `:557` netplay's `add_setting "retroachievements.hardcore" "cheevos_hardcore_mode_enable" "false"` (meant to force hardcore off for netplay; it copies the player's hardcore value instead), `:567` the netplay port (the same setting either way: no effect), and `:989` `add_setting "analogue" "input_player1_analog_dpad_mode" "1"` (writes the player's `analogue` value, empty when unset, where the code says `1`). **Design intent matters before a fix** (`engineering-practices.md` § Verify design intent): with `&&`, `:989` would stop honouring the player's `analogue` setting, so the fix is "the OS setting when set, else the caller's value", which keeps `:989`'s observed behaviour and repairs `:557`. Also a fork per call: the backgrounded `[` runs a subshell for each of up to 104 calls (Q5). History: `git log -S` on the line to be read before the stream brief. To prove on the guest: a netplay launch with `retroachievements.hardcore=1` and the appendconfig's `cheevos_hardcore_mode_enable` line.
+- **F-10 (Q3, Medium, proposed bug): `match()` is a substring regex, so `neogeo` is read as `neogeocd`.** `:344-356` tests `[[ "${myarray[*]}" =~ ${seek} ]]` over the joined list. `NO_REWIND` (`:133-145`) and `NO_RUNAHEAD` (`:147-155`) list `neogeocd`, not `neogeo`, so a `neogeo` game matches both: `set_rewind` (`:840-852`) forces `rewind_enable = "false"` and `set_runahead` (`:955-978`) forces run-ahead off, whatever the player chose. The same shape makes `IS_32BIT` (`:170-172`, `pcsx_rearmed`) match the 64-bit `pcsx_rearmed` core at `:801`, so its video filter path is the 32-bit directory (only when a video filter is set). `:801`, `:844`, `:958`, `:983` also pass the list unquoted (the four SC2068 errors), which the joined test hides. The fix shape is a whole-word membership test. To prove on the guest: `setsettings.sh neogeo <rom> fbneo` with `rewind=1` and the `rewind_enable` line.
+- **F-11 (Q3, Medium, to prove): the parallel functions share one staged sed file through a check-then-create.** The main section (`:1427-1478`) runs 24 setting functions with `&`; each `add_setting` calls `clear_setting` (`:310-318`), which writes the file's header with `>` if `[ ! -f "${TMP_CONFIG}.sed" ]` and appends with `>>` otherwise. Two functions that both see no file both truncate it, and a truncating write landing after another's append overwrites from offset 0. `flush_settings` (`:320-325`) then executes the file as a program with errors discarded (`>/dev/null 2>&1 ||:`), so a lost or torn entry fails silently: a key's stale value stays in `retroarch.cfg`, or the whole staged `sed -i` fails to parse and no key is cleared. Writes to `${TMP_CONFIG}` itself are single `>>` appends (O_APPEND), so the appendconfig's lines are safe; the danger is the clear list. **To prove on the guest**: run `clear_setting` from 24 concurrent subshells many times with the guest's bash and count the keys in the resulting file.
+- **F-12 (Q2, Low): `set_config_save` passes its arguments in the wrong positions.** `:473` `add_setting "config_save_on_exit" "false"` makes `config_save_on_exit` the OS key and `false` the RetroArch key, so each launch appends `false = "<value>"` to the appendconfig and never sets `config_save_on_exit`. The shipped `retroarch.cfg` already carries `config_save_on_exit = "false"` on every device we build (H700 `:72`, GENERIC_X64 `:74`, SM8550 `:84`), so nothing changes behaviour today; a player's own `true` is not overridden as the function's name says.
+- **F-13 (Q2, Low, security-adjacent): a joypad autoconfig is sourced as shell, as root.** `configure_hotkeys` (`:405-409`) copies `/tmp/joypads/<controller>.cfg`, turns ` = ` into `=` and `source`s it. A value carrying `$(...)` in that file runs at every launch. The files come from the image and from the player's own autoconfig directory (to confirm where `/tmp/joypads` is filled), so the trust boundary is the player's own; still the wrong shape for reading `key = "value"` pairs (Q1: read them with a parser, as `get_setting` does). `:395`/`:397` `grep -b4` is byte offsets plus four lines of context, not "four lines before" (Q7), and concatenates every `Name` within reach when several pads are present.
+- Sound on reading: `STATEFILE` read from its own argument (`:51-59`, #196); `log()` builds its timestamp in-process and redacts every line (`:270-277`, #176); the offline-proxy routing fails closed to the direct path on an empty hardcore read and on a port that does not answer (`:532-545`, audit #186 PL-31).
+- **F-14 (Q3/Q2, Medium, proposed bug; #275's class through a second door): the netplay host a player types reaches `runemu.sh`'s `eval` unquoted.** `setsettings.sh:620` reads `global.netplay.host`, which the interface stores from free text (`GuiNetPlaySettings.cpp:33` HOST, `GuiGameOptions.cpp:215` NETPLAY HOST, both `addInputTextConfigRow`, at the pin); `:683` and `:688` print ` --connect ${NETPLAY_HOST_IP}` to stdout; `runemu.sh:327` captures stdout into `/tmp/shader`, `:349` reads it into `EXTRAOPTS`, `:355` splices it into `RUNTHIS` with `sed "s|--config|${EXTRAOPTS} --config|"`, and `:500` runs `eval ${RUNTHIS}` as root. A host with a space splits; `;` or `$(...)` runs as a command at launch; `|` breaks the `sed` and `&` is replaced by the match. #275 (closed 2026-09-25) quoted the same values on the interface's command line (ES `3d17b2fd6c`) and its trace says nothing downstream reads them from the command line, which is true: this path reads the setting instead. `--set-shader /tmp/shaders/${SHADER}` (`:787`) is the same shape for a shader name (chosen from a list of files, so a space is the realistic failure). Sibling table owed (3.6.5): every `echo -n` that reaches `EXTRAOPTS`. To prove on the guest: `global.netplay.host` set to a value with a marker command, a client launch through `runemu.sh`, the marker's presence.
+- **F-15 (Q3, Low): two netplay `add_setting` calls are malformed.** `:621` (client) `add_setting "global.netplay.port" "${NETPLAY_PORT}"` makes the port's value the RetroArch key, so a client never gets `netplay_ip_port` and a line like `55435 = "55435"` is appended (F-12's shape); `:675` (tgbdual client) rewrites `TGB Dual.opt` with `>` where the host branch (`:595`) appends, so a client loses the core's other options, and the `sed -i` before it (`:671-674`) is moot. `ADDR` (`:647`) is a global built by concatenation without initialisation (safe only because each function runs in its own subshell).
+- **F-16 (Q3, Medium, proposed bug; the SC2328 site): tate mode wipes the MAME 2003-Plus core options.** `:1012` tests `[ "$(grep mame2003-plus_tate_mode "...opt" > /dev/null 2>&1)" ]`; the substitution captures nothing (the output is redirected), so the test is always false and `:1016` runs `echo 'mame2003-plus_tate_mode = "enabled"' > ".../MAME 2003-Plus.opt"`, truncating the file to that one line at every `mame2003_plus` launch with tate on. Every other option the player set for the core is lost. Fix shape: `if grep -q ... ; then sed ...; else echo ... >>`. To prove on the guest: an `.opt` with two lines, `setsettings.sh` with `CORE=mame2003_plus` and `tatemode=1`, the file after.
+- **F-17 (Q3, Medium, proposed bug): every Game Boy launch truncates `Gambatte.opt`.** `:1247` `if [ ! -f "GAMBATTECONF" ]` names the literal file `GAMBATTECONF`, which never exists, so `:1249` always runs `echo 'gambatte_gbc_color_correction = "disabled"' > ${GAMBATTECONF}`: each `gambatte` launch resets the core's options file to one line, and the `else` branch that deletes only the two colorization keys (`:1251-1252`) is dead. Any Gambatte option changed in RetroArch's quick menu (or written by the netplay link block, `:577-582`, which runs later in the same launch) survives only until the next launch. No `mkdir -p` either, so with no `config/Gambatte` directory the write fails. The exit cell's cartridge runs on `gambatte`, so the guest can show it directly. Both F-16 and F-17 arrived with the file in `9f1fab30f6` (the commands above print the commit that introduced each line).
+- **F-18 (Q3, Low, to verify): Kronos's options file is written under a path RetroArch may not read.** `:1065` `KRONOSDIR="${RETROARCH_PATH}/Kronos/config/Kronos"`, where every other core here uses `${RETROARCH_PATH}/config/<core>/` (`:1037`, `:1096`, `:1112`, `:1143`). To read `retroarch.cfg`'s `rgui_config_directory` and the core's own option path before calling it a defect.
+- **F-19 (Q2/Q3, Medium -- upgraded from Low under `system.cfg` below, the overlay half proven): option values are spliced into `sed` programs unquoted, and a default device never applies an overlay choice.** `:1048-1056`, `:1077-1087`, `:1123` write `'/key = /c\key = "'${VALUE}'"'`, so a value with a space splits the program (`sed` error, the line unchanged) and an unset setting writes `key = ""` over the file's default at every launch; `:1270-1278` echo palette names the same way. Values come from the interface's lists, so the realistic failure is the empty value. `set_atari` (`:1220-1222`) runs `sed -i` on `atari800.cfg` without checking it exists. `write_bezel_config` (`:1306-1331`) builds JSON with a heredoc (`:1405-1411`), so a path with `"` yields invalid JSON and no bezel; `set_overlay` exits after it even when it failed (`:821-822`), so a missing bezel also skips the overlay settings -- and since the shipped default is `global.bezel=thebezelproject`, every launch on a default device takes that branch, so a player's OVERLAY choice is never applied (upgraded to Medium under `system.cfg` below; to prove on the guest).
+- **Q5 for `setsettings.sh`** (to measure): 3 serial functions, 2 then 24 background functions, a backgrounded `[` per `add_setting` (F-09), a `get_setting` per value, and one staged `sed -i` at the end. The timed run in the guest is owed (brief § 4 Q5).
+- **Q7 for `setsettings.sh`** (`deferred:#336` unless a stream brief says otherwise): one file carries RetroArch's paths, hotkeys, controllers, achievements, netplay, video, audio, save states and per-core option files for nine cores; the per-core blocks (`set_n64opts` to `set_melondsdsopts`, `set_atari`, `set_gambatte`) are separate responsibilities; the staged-sed mechanism (`clear_setting`/`flush_settings`) writes and executes a shell program to delete keys, where `sed -i -e ... -e ...` built as an array would do.
+
+### `sources/scripts/run` (61 lines, fork-own, group 1; read whole)
+
+- **F-20 (Q2, Low): the sway test prints into the caller's output.** `run:30` `elif echo "${UI_SERVICE}" | grep "sway"` has no `-q`, so every call through the sway branch -- the branch the image takes, `UI_SERVICE=sway.service essway.service` on the guest -- first prints `sway.service essway.service` to stdout. `executeScriptLegacy` callers read a script's last line as its message (`GuiMenu.cpp:278-296` at the pin); here the stray line comes first, so it is noise rather than a wrong message. The sway branch's `foot -F ${*}` (`:36`) execs its arguments without a shell, so a composed `a && b` would reach `a` as arguments; since #119 moved the maintenance rows to `executeScriptLegacy`, the one interface caller left (`GuiMenu.cpp:520`, `/usr/bin/run "/usr/bin/factoryreset rk817-fuelgauge"`) passes a plain command, and the tools launch (`LaunchCommandTests.cpp:52`) a single path, which the `-f` branch quotes. Reachability search: `git -C $ES grep -n -E '/usr/bin/run[ \\"]' $PIN` (3 hits: a comment, `:520`, the unit test).
+- Sound on reading: every branch exits with what it ran (#119); the console branch retries a single path with spaces only when the command failed and the whole argument string is a file (#114).
+
+### `profile.d/001-functions` (707 lines, fork-own, group 1; read whole)
+
+The settings writers (`settings_base` `:360-383`, `prepare_settings_temp` `:385-405`, `write_setting_line` `:429-441`, `del_setting` `:447-478`, `sort_settings` `:480-506`, `set_setting` `:534-561`, `set_settings` `:572-612`) and the lock (`wait_lock` `:233-340`) are the most-audited code in the slice (22 fork commits, #98, #105, #307, #308, #420, #421; D-CLOUD-078, D-SYS-011/012, D-INFRA-012). Mechanical evidence at `8ebaf8daad`: `tools/wait-lock-test` 21 PASS, `tools/settings-modes-test` 29 PASS, `tools/last-good-scripts-test` (its `set_setting`/`write_stamp`/recovery cases) PASSED under the image's busybox. Refutation attempted: a value with `/`, `&`, `\` or a space (crosses through the environment, `:432`, `:600`: safe), a key that is a regex (matched with `index()`, `:433`, `:466`: safe), a key whose line is the file's last (the KILL10/11 case, `END { print }`: safe), a torn file (`settings_base` drops the half line), a failing producer (`pipefail` in a subshell gates every rename). Nothing found in the writers.
+
+- **F-21 (Q3, Medium, proposed bug; to prove): a game's own settings are not found when its file name holds a regex character other than `'`, `(`, `)` or `&`.** `get_setting`'s per-game branch (`:129-134`) builds an awk regular expression from the ROM's base name, escaping only `'` (as `\x27`) and `(`, `)`, `&`, then matches `/^<platform>\["<name>"\]\.<key>/`. A `[` -- GoodTools tags `[!]`, `[b1]`, `[h]`, common in ROM sets -- opens a bracket expression, and `+`, `?`, `*`, `{`, `|`, `^`, `$` are operators; the game's line then never matches its own name, and every per-game setting (`cpugovernor`, `ratio`, `shaderset`, `rewind`, `cores`, ... read by `runemu.sh:403-471` and every `game_setting` in `setsettings.sh`) falls back to the system's, silently. `print $NF` with `FS="="` (`:130`) also returns only the text after the **last** `=` of a per-game value, where the system and global branches take everything after the first (`index`, `:137`, `:149`, `:158`, `:166`). The fix shape is the writers' own: a literal `index()` match. To prove on the guest: write `nes["Test [!].nes"].cpugovernor=powersave` as `SystemConf` writes it, then `get_setting cpugovernor nes "Test [!].nes"`.
+- **F-22 (Q7, Low, latent): `wait_lock` replaces its caller's traps.** `:255` installs `trap '...' INT TERM EXIT` in the calling shell on every take, overwriting a trap the script had set; it re-installs on each take and stays for the script's life. Search: every script in the package, the cloud scripts and `sysutils/` that has both a `trap` and a settings writer (`grep -l -E '^\s*trap '` intersected with `set_setting|set_settings|del_setting|sort_settings|wait_lock`): one, `rocknix-bluetooth`, whose `trap cleanup_devlist` (`:172`) is in `do_devlist`, a verb that writes no setting, while the writing verbs (`do_enable`/`do_disable`, `:251-273`) set no trap. No live instance. `$$` in a subshell is the parent's pid (`:240`), so two subshells of one script share an identity; no caller in the slice takes the lock from a subshell that outlives a sibling's release (to recheck in T16/T17 for the cloud scripts).
+- **F-23 (Q2, Low): `sway_fullscreen` prints the sway test's match** (`:664`, `echo "${UI_SERVICE}" | grep "sway"` without `-q`): F-20's sibling; every caller's stdout gains a `sway.service essway.service` line.
+- **F-24 (Q5, Low): the shared `log()` appends to `/var/log/messages` with no bound** (`:20-26`), and `/var/log` is persistent since D-SYS-001 (`handheld-evidence.md`). Callers that use it rather than their own `log`: `automount` only (`grep` for scripts calling `log` without defining it). The guest's file was 5,310 bytes after one boot. Slow growth, every boot, no rotation; `logger` already sends the same line to the journal.
+- Sound on reading: `redact_credentials` (`:69-123`, #176, #307 PL-005/PL-040, #308 F-PB-18) has its fast path and its sed agree on the key shapes by construction (`:88-92` mirror `:106`), and the last-good suite's r/s cases plant values the old code let through; `set_kill` writes the kill data `input_sense` reads (exercised by the exit cell's PASS).
+
+### The launch path's `profile.d` fragments (group 1; read whole)
+
+- `profile.d/099-freqfunctions` (119, upstream-carried, aarch64 and arm only): the four governor functions F-01 relies on; `onlinethreads` (F-02's missing function on x86_64). **F-25 (Q3, Low, keep an eye on): `set_online_threads` counts CPUs by `find /sys/devices/system/cpu -name online | wc -l`** (`:12`, `:18`), which counts the global `cpu/online` file and every per-CPU `online` file; whether `cpu0` has one is the kernel's, so the range it walks (`:39-45`) can stop one core short of the last or name one past it. Only a device can say which (the guest does not install this file); the fix shape is counting `cpu[0-9]*` directories. `set_cpu_gov` (`:48-54`) passes `policy[0-9]` unquoted to `grep`, so a file of that name in the working directory would become the pattern (Q2). The file sources the player-writable `/storage/.config/profile.d/010-governors` in every shell (`:8-9`), by design: the quirks write `GPU_FREQ`/`DMC_FREQ` there (T29).
+- `profile.d/100-amd64-freqfunctions` (186, upstream-carried, x86_64 only; the copy on the guest is the tree's): `performance`/`ondemand`/`schedutil`/`powersave` map to the `low|balanced|high|boost` profiles (`:120-142`); the case's `default|balanced` CPU branch and the `boost` branch's mis-indented `done` (`:86-88`) parse correctly. `get_available_cpu_governors` (`:180-186`) is never called by the interface (F-01's evidence), so on AMD64 the interface offers the kernel's own governors, which these four functions do cover. No `onlinethreads` (F-02).
+- `profile.d/101-gpu-functions` (23, upstream-carried): `gpu_profiling` acts on S922X and RK3326 only (neither shipped, D-WORKFLOW-185); elsewhere a no-op, called twice per launch by `runemu.sh` (`:474`, `:564`). Sound.
+- `profile.d/100-gamecontroller-functions` (157, upstream-carried): reached through `sources/scripts/controller-layout` and `projects/ROCKNIX/packages/apps/portmaster/sources/mapper.txt` (`grep -rln -E 'create_controller_db|build_connected_devices_es_input'`: 2 callers). **F-26 (Q3, Low):** `create_controller_db` tests `[ ${INPUT_NAME} == "hotkeyenable" -a ${HOTKEYENABLE_BUTTON} == ${SELECT_BUTTON} ]` unquoted (`:132`), so a pad mapped without a hotkey or select button makes `[` print an error for every input line and the comparison read false; `build_connected_devices_es_input` greps the interface's input config for each GUID unquoted (`:90`) and removes `${ES_CONFIG}` with `rm -rf` (`:83`); the filter `'</\?inputConfig>>\|<?xml'` (`:100`) carries a doubled `>` that matches no line of the config, so only the `<?xml` half does anything (Q7).
+- **F-22, upgraded at the proofs: the hazard has an instance.** The group 1 proof script (below) set `trap restore EXIT` and then called `set_setting`; `wait_lock`'s trap replaced it and the restore never ran. No product script in the slice has the shape (the search above), so it stays Low, but the next script that does will lose its cleanup silently, as this one did.
+- **F-27 (Q3, Low, to read against RetroArch's log): every launch on the default config asks for an empty shader.** The shipped `system.cfg` has no `shaderset` key (`grep -n shaderset projects/ROCKNIX/packages/rocknix/config/system/configs/system.cfg`: none), `get_setting shaderset nes T1Test.nes` reads empty on the guest, and `set_shader` (`setsettings.sh:778-790`) treats empty as `*)`: `video_shader_enable = "true"`, `video_shader = ""`, and ` --set-shader /tmp/shaders/` on RetroArch's command line, which the stub recorded on both F-14 runs. What RetroArch does with a directory as a shader is to read from `exec.log` after a real launch (Q5 runs one).
+
+## Guest proofs
+
+Can this be done on the VM? **Yes** for every proof below: each exercises shell, settings and file effects the guest runs with the image's own bash, busybox and scripts. Each line names the copy it proved (§ Image versus tree).
+
+### Group 1, 07:44:42-07:44:50 UTC (`.qa-scratch/t1/proofs/group1.sh`, output `group1.out`)
+
+`/usr/bin/setsettings.sh` on the guest hashes as the tree's (`02e110af2f2697db`), so the `setsettings.sh` proofs stand for the tree. `runemu.sh` ran as **the tree's copy** (`deb95aee74d3ddd8`, copied to `/storage/.qa-t1/`), with `/usr/bin/retroarch` file-bound to a stub that records its argv and exits 0; so the `runemu.sh` proofs are of the tree's script, not of its callers (the interface was not involved). Fixture keys were written with `set_setting` as `SystemConf` writes them (`nes["<file name>"].<key>`, `FileData.cpp:176-183`).
+
+| Finding | What ran | Observed | Control | Copy |
+| --- | --- | --- | --- | --- |
+| F-01 | `nes["T1Test.nes"].cpugovernor=conservative`, a launch | stderr `runemu.sh: line 467: conservative: command not found` | `powersave`: no governor line | tree `runemu.sh` |
+| F-02 | the same two launches | stderr `runemu.sh: line 560: onlinethreads: command not found`, both | - | tree `runemu.sh` |
+| F-21 | `nes["T1 Test [!].nes"].cpugovernor=powersave` and `nes["T1Test.nes"].cpugovernor=powersave`, then `get_setting` | `[]` for the bracketed name | `[powersave]` for the plain name | image = tree `001-functions` |
+| F-14 | `global.netplay=1`, `global.netplay.host='127.0.0.1;touch /tmp/t1-f14-marker;'`, a launch with `--connect` | `MARKER CREATED`; the stub's argv ends at `[--connect] [127.0.0.1]` (no config, no ROM); `runemu.sh` rc 1 | host `127.0.0.1`: no marker, full argv, rc 0 | tree `runemu.sh` + image = tree `setsettings.sh` |
+| F-10 | `neogeo.rewind=1`, `neogeo.runahead=2`, `setsettings.sh neogeo .../t1.zip fbneo` | `rewind_enable = "false"`, `run_ahead_enabled = "false"` | `snes` with the same: `"true"`, `"true"`, frames `2` | image = tree |
+| F-09 | `global.netplay=1`, `netplay.mode=host`, `global.retroachievements.hardcore=1`, `setsettings.sh nes ... nestopia` | `cheevos_hardcore_mode_enable = "1"` (the code passes `"false"`) | - | image = tree |
+| F-17 | `Gambatte.opt` with 3 lines, `setsettings.sh gb .../t1.gb gambatte` | 1 line: `gambatte_gbc_color_correction = "disabled"` | - | image = tree |
+| F-16 | `MAME 2003-Plus.opt` with 3 lines, `mame.tatemode=1`, `setsettings.sh mame .../t1.zip mame2003_plus` | 1 line: `mame2003-plus_tate_mode = "enabled"` | - | image = tree |
+| F-11 | `clear_setting` lifted from `/usr/bin/setsettings.sh`, 24 concurrent subshells x 4 calls, 200 iterations, the guest's bash | keys lost in **9 of 200** iterations; the header count stayed 1 | the 96 calls serially: 96 of 96 | image = tree |
+
+**The fixture's own failure (F-22).** The script's `trap restore EXIT` was replaced by `wait_lock`'s at its first `set_setting`, so its restore did not run; the guest was put back by hand (stub unbound, mountinfo 0; `system.cfg` and `/storage/.config/retroarch` copied back and compared equal; fixtures removed) about two minutes later, with no launch in between. Every result above was read before that, from the script's own output.
+
+### Group 2, the state scripts
+
+#### `sources/scripts/chksysconfig` (342, fork-own; read whole) and its units
+
+- Sound on reading and by the mechanical checks (`last-good-scripts-test` PASSED under the image's busybox, `settings-modes-test` 29 PASS): `valid()` spells its byte classes as ranges (`:60`, blindspot 34); `put()` writes a temporary and renames (`:67-75`); `backup` refuses an invalid file or one whose last line was cut (`:87-97`); `verify` keeps a usable `.tmp` when it is the only good copy (`:265-276`); `finish_restore` waits for the roms mount, read from the mount table, before acting on a cut restore (`:117-244`, #307 PL-045/PL-016). The header's claim that the record is written "at boot once verify has run" holds: `autostart/001-setup:28-38` runs `verify`, `sort_settings`, then `backup` (D-CLOUD-079). Refutation attempted: an empty or truncated file reaching the record (refused at `:88-95`), the record's own write torn (`put`), the defaults reseeded over a whole `.tmp` (`:289-293`): none found.
+- `system.d/rocknix-sysconfig.service` (23, fork-own): `verify` at sysinit, `Before=network-base.service`, `DefaultDependencies=no` (D-CLOUD-082). Sound.
+- `system.d/save-sysconfig.service` (12, upstream-carried): `chksysconfig backup` before `shutdown.target` with **`TimeoutStartSec=0`**, so a backup that blocks (a card whose I/O hangs) holds the shutdown for ever; `RebootWatchdogSec=off` is deliberate (`handheld-evidence.md`), so nothing else ends it. **F-30 (Q3, Low, keep an eye on):** a bound (tens of seconds) costs nothing on a healthy card, where `cat` and `mv` of 5 KB take milliseconds. Device-only to show the hang; the bound itself is VM-checkable.
+- `system.d/rocknix-automount.service` (14, upstream-carried): **F-31 (Q7/Q2, Low):** `Description=ROCKNIX user autostart script` names another unit's job, and `EnvironmentFile=/etc/profile` hands systemd a shell script as an environment file; on the guest the unit's journal carries no warning and `Result=success`, so systemd takes no assignment from it and the line does nothing (`automount` sources what it needs itself; to confirm when it is read).
+
+#### `autostart/001-setup` (44, fork-own), `003-upgrade` (18, upstream-carried), `007-rootpw` (26, fork-own)
+
+- All three are `#!/bin/sh` and source `001-functions`, which is bash (`function`, `[[ ]]`, `local -a`, `<(...)`, `shopt`). They work because the image's `/bin/sh` is bash (stage A); under dash, as the brief assumed, every one would fail at the first `[[`. Q2: the interpreter line should say what the code needs.
+- **F-28 (Q3/Q5, Low): the update's own log is gone at the next boot.** `003-upgrade:8-17` writes `post-update`'s output to `/var/log/upgrade.log` with `>` on the update boot, and on every other boot writes `No update hint found.` over it with `>` (the guest's file holds exactly that line). `/var/log` is persistent (D-SYS-001), so the one record of what `post-update` did survives only until the device is next restarted -- the first thing anyone does after an update that went wrong. The fix shape is to leave the file alone on an ordinary boot (or keep the last update's log under its own name). `rm /storage/.boot.hint` after `post-update` (`:15`) makes an interrupted `post-update` run again at the next boot, so `post-update` must be idempotent (read in its own section).
+- `007-rootpw` applies `root.password` at every boot and skips an empty one (`:19-26`, the #198-era fix's sibling). Sound.
+
+#### `sources/scripts/setrootpass` (65, fork-own, on the security list; read whole)
+
+- **F-29 (Q3/Q2, Medium, proposed bug; guards must fail closed): a hash that failed to compute, or a shadow line of another shape, is reported as a password change.** `:32` `NEW=$(cryptpw -m sha512 "${ROOTPASS}" 2>/dev/null)` is never checked, so a `cryptpw` that fails leaves `NEW` empty and `:35` writes `root::<lpc>::::::`, an **empty** root hash; and `:35`'s `sed` matches only `root:<hash>:<lpc>::::::` exactly, so a line of any other shape is left unchanged with `sed` exiting 0. Either way the script goes on to set Samba's and Syncthing's password (`:39-42`) and `root.password` in `system.cfg` (`:45`, the value the interface shows as the device password), and exits with the last `if`'s status. On the guest `cryptpw` exists (`/usr/bin/cryptpw`, a busybox applet) and the root line has the expected shape (9 fields, 4 to 9 empty; the hash not printed), so both are latent on a healthy image; the fix is to refuse unless `NEW` starts with `$6$` and the line changed, before anything else is touched. To prove on the guest: a failing `cryptpw` bound over the applet, `setrootpass`, the root line's hash field read as empty (and `/storage/.cache/shadow` put back from a copy).
+- Sound: the empty-password refusal (`:24-29`, #198); `printf` to `smbpasswd` (#198).
+
+#### `sources/post-update` (251, fork-own, on the state list; read whole)
+
+Run once per update by `autostart/003-upgrade` when `/storage/.boot.hint` says `UPDATE`; the hint is removed after it, so an interrupted run repeats at the next boot and every block must be idempotent. Mechanical: `tools/melonds-upgrade-test` 15 PASS (its melonDS half, #526).
+
+- **F-32 (Q3/Q2, Medium, proposed bug; 3.6.5's sibling of the #105/#307 writers): the two last writers of `system.cfg` that bypass the settings lock and the torn-file guard.** `:159-160` `sed -i '$ a\system.batteryplus.enabled=1' .../system.cfg` and `:202` `sed -i "/system.suspend.dpms/d" .../system.cfg` write the live file without `wait_lock`, without `settings_base` (a cut last line is not dropped. **Corrected by the guest proof:** busybox `sed` does not join the half line to the new key; it ends the half line with a newline and puts the key on the next line, so `wifi.country=G`, a value cut short, becomes a whole-looking line -- a cut the writers detect turned into one nothing can, which the next `chksysconfig backup` then records as the last good copy: #307's G2-E-core-03 class exactly), and without the status the writers return; `:202`'s pattern is unanchored with unescaped dots, so it removes any line containing `system` + any char + `suspend` + any char + `dpms`. The search for every direct write to `system.cfg` in the slice (`grep -n -E "(sed -i|>>?|cp |mv |tee )...(system\.cfg|J_CONF|CFG|SYSTEM_CONFIG)"` over the package less `backuptool` and units) finds only these two outside the writers themselves (`001-functions:429-612`, `chksysconfig`'s `put`/`mv`, and the `cp -f` seed of a missing file, `001-functions:542`, `:595`). The fix is `del_setting system.suspend.dpms` and a key-exists test before `set_setting system.batteryplus.enabled 1`. `Already written:` the two keys' values on upgraded devices are the intended ones; a line `:202` removed by its loose pattern is gone and cannot be told from the owner's own deletion (nothing to migrate; argued from the pattern: no shipped key matches it but `system.suspend.dpms`).
+- **F-33 (Q3, Low): the interface configs' `last_` copies are not idempotent.** `:32-36` moves each of `es_features.cfg`, `es_systems.cfg`, `es_savestates.cfg` to `last_<name>` and links the image's copy in its place, every update. The first update after an owner customised one keeps the custom copy as `last_<name>`; the second moves the symlink over it, and the copy is gone. `Already written:` on a device updated twice since the link arrived, the owner's copy is already lost; fixing forward (skip the move when the file is already the link) protects only the next one. On the guest all three are links and no `last_` exists (a fresh image).
+- **F-34 (Q3, Low): dev-image blocks overwrite the owner's files.** `:54-58` `cp /usr/config/ssh/authorized_keys /storage/.ssh` replaces `/storage/.ssh/authorized_keys` (and, with no `/storage/.ssh` directory, creates a *file* named `.ssh`); `:62-66` copies the build's `iwd/*` (the `.psk` the recipe writes from `LOCAL_WIFI_KEY`) into `/storage/.cache/iwd/`. Present only on an image built with `DEVELOPMENT_DEFAULTS`/the local key files (the engineering image is one), never on a release; recorded so a release build is checked for both files' absence.
+- **F-35 (Q3, Low): `cd` without a check.** `:144-147` `cd /storage/.config/ppsspp/assets` then `cp ... .` and `ln -s ...`: with no such directory (a device without PPSSPP's assets seeded), the copy and the link land in the script's working directory. `cd -` restores it.
+- Read and found harmless today: `:38` `rsync -a --delete` into `/storage/.config/system/` (the guest's holds only `configs/`, excluded when present: nothing else to delete; a file a script or the owner puts beside `configs/` would be deleted at every update -- keep an eye on); `:50` `cp -f retroarch-core-options.cfg` overwrites a file RetroArch does not read with `global_core_options = "false"` on every shipped config (H700 `:149`, GENERIC_X64 `:157`, SM8550 `:167`); `:81-87` removes the console-era tools links only when they are still ours; `:98-104` D-SYS-007's one-line removal, idempotent; `:208-251` the melonDS merge (#526), temp-and-rename, owner's links left alone.
+- Q5: runs once per update, off the launch path; `ldconfig -X` and the `rsync`s are its cost, unmeasured (the upgrade rehearsal times the whole boot).
+
+#### `sources/scripts/factoryreset` (268, fork-own, on the state list; read whole)
+
+Every verb returns a status and ends a failure on one sentence in the player's words (#119, #307 PL-044); `restore_default` checks the source before removing, and that the destination is gone before copying (`:57-78`). Guest facts (07:51): the image's `find` is busybox's and supports `-regex` and `-delete` (a fixture under `/tmp` with one kept tree: the rest deleted, the kept tree whole, rc 0), so `ALL` (`:239-262`) deletes `/storage` but `.update*`, `roms*` and `games-*` as written.
+
+- **F-36 (Q7, Low): `overlays` finds its folders with a greedy match that works by the option order.** `:172` `grep -Eo 'upperdir=.*,'` then strips `upperdir=` and every comma: on the guest the six `tmp-*.mount` units list `lowerdir=...,upperdir=/storage/<x>,workdir=...` with `workdir` last, so the greedy `.*,` stops at the comma before `workdir` and the parse yields the six right folders (`/storage/assets`, `cores`, `database`, `joypads`, `overlays`, `shaders`). An `Options=` line with any option after `workdir` would make it a path that does not exist, which `remove_checked` (`:45-48`) reports as removed. The fix shape is `upperdir=[^,]*`.
+- **F-37 (Q3, Low, upstream-carried verb on unshipped hardware):** `rk817-fuelgauge` (`:220-238`) exits 0 having done nothing when no `rk817` is found (the loop's status), unlike every other verb; its one caller is `GuiMenu.cpp:520` through `/usr/bin/run`, which `runSystemCommand` discards. RK3566/RK3326 only.
+- **F-38 (Q3, Low): `audio` removes `/storage/.local/state` whole** (`:202`), which is every XDG-state program's folder, not only PipeWire's and WirePlumber's (`.local/state/wireplumber`). To list what else writes there on the image before narrowing.
+- Q6: every verb is reached from the interface's reset rows (`GuiMenu.cpp` maintenance page, `executeScriptLegacy`, #119).
+
+#### `sources/scripts/installtointernal` (255, fork-own, on the state list; read whole)
+
+Repartitions the internal UFS (eMMC on SM6115) of the Qualcomm devices, the shipped SM8550 (Retroid Pocket Nova) among them, and copies `/flash` and optionally `/storage` to it; interactive (`read -rp`), `set -euo pipefail`. Reachability: no caller in the interface at the pin (`git -C $ES grep -n installtointernal $PIN`: none) or the tree (`grep -rln installtointernal packages projects scripts tools`: only itself), so it runs only when someone types it at a shell. The guest cannot run it (`HW_DEVICE=GENERIC_X64` is refused at `:10-17`, the target `/dev/sda` is hard-coded at `:20`, and the guest has no such disk), so its partition path is a code trace; the copy's status is provable on the guest and was.
+
+- **F-39 (Q3, Medium, keep an eye on unless made testable): nothing refuses a target that holds the running system.** When partitions follow `userdata` (`:89-108`, "Linux has been detected on internal storage already"), the script deletes them with `parted -s ... rm "$p" >/dev/null 2>&1 || true`, then creates, formats (`mkfs.vfat -F 32`, `mkfs.ext4 -F`) and mounts new ones, without asking whether `/flash` or `/storage` is on `${DEVICE}`. On a device booted from the internal install (the second run of the script, the case it detects) the deletions fail silently (`|| true`) where the partition is busy, and what happens next depends on `parted`'s and `umount`'s refusals under `set -e`. A guard that reads `/proc/mounts` for `${DEVICE}` partitions before anything is touched is the fix shape; making `DEVICE` overridable would let the guest run the whole path against a loop device (the harness question, `bugs-are-agent-first.md` rule 3).
+- **F-40 (Q3, Medium, proposed bug; proven on the guest): a failed copy of `/storage` ends on "successful".** `:208-215` copies each top-level entry with `find ... -exec cp -a {} "$TMP_STORAGE"/ \;`, and `find` does not carry `-exec`'s status: on the guest busybox `find` exited **0** after `cp: can't create directory '/tmp/t1e/ro/a': Permission denied` (07:52, a fixture run as `nobody` into a 0555 folder), so a card that fills or an entry that will not copy is reported as `pixelelated installation to internal UFS was successful` (`:255`) and the player removes the SD card that held the only copy. The space check (`:200-205`, `get_storage_size_kb`) also subtracts `.cache/cores` (`:48`), which the copy does not exclude, so it can pass a copy that will not fit. Fix shape: copy with one `cp -a` (or `tar`) whose status is checked, and exclude exactly what the size check excludes. `Already written:` none (a one-time install; nothing it wrote is read again).
+- Q2: `set -euo pipefail` is the right shape, and it is the only script in the package with it; `mapfile < <(parted ... | grep ...)` (`:63`) sits outside `pipefail`'s reach (a process substitution's status is not checked), and the row count it tests catches the empty case.
+
+#### `sources/scripts/automount` (309, fork-own, on the state list; read whole)
+
+Run by `rocknix-automount.service` in `rocknix.target`, before `autostart.service`. The fork's change is the bounded wait for an expected external card (`:216-294`, D-CLOUD-056/057, #84; `external_node_present` `:184-214`, #308 F-PB-13), which is sound on reading: a one-card device does not wait, an absent card costs the two-second grace, a present-but-unprobed one up to `FIND_MAX=10` seconds. Blindspot 32 bears on reading its log lines (boot wall clock jumps), not on its code.
+
+- **F-41 (Q6, Low, Renovation): `start_overlay` is dead.** Defined at `:72-90`, called nowhere (`grep -n start_overlay` in the file: the definition only; `grep -rn -E 'start_overlay|storage-roms\.mount' packages projects`: nothing else), since the import (`9f1fab30f6`); it reads an `OVERLAY_PATH` nothing sets and enables a `storage-roms.mount` no package ships. `Already written:` it never ran, so nothing; it exposes nothing (no unit orders on it).
+- **F-42 (Q3, Low): a mount that fails is neither checked nor said.** `start_ms` binds or overlays the games folder over `/storage/roms` (`:57`, `:68`) and `mount_games` mounts the card (`:167`, `:174`) without reading a status; a failure leaves `/storage/roms` as the internal card's own directory and the only line is the attempt's. That is the state #83/#84 were about (saves written to the wrong card); `cloud_saves_root`'s check (D-CLOUD-054/055) guards the cloud side, so the effect is local. A failed mount should be logged at least, with what `/storage/roms` is.
+- **F-43 (Q7, Low):** `:251` writes `ISMOUNTED="$(grep "${DEV}" /proc/mounts) >/dev/null 2>&1"`, the redirection inside the quotes, so the test at `:252` works only because an assignment's status is its command substitution's; `grep "${DEV}"` matches `/dev/sda1` inside `/dev/sda10`; `:239` `(( ${SIZE} <= 8388608 ))` is an arithmetic syntax error when `/proc/partitions` has no row for the name (the error is printed and the device is then treated as large enough); `:234` builds the candidate list from `blkid | grep` once per name pattern. `mount_games` mounts the first large, unmounted partition it finds, so an unmounted >8 GiB partition on the **internal** card would be taken for the games card (the internal `/storage` partition itself is excluded by being mounted).
+
+#### `config/system/configs/system.cfg` (221, fork-own; read whole through the credential filter, the four credential-named keys' values elided)
+
+The image's defaults, edited by the recipe at build time (device name, `DEVELOPMENT_DEFAULTS`), copied to `/storage` on first boot and reseeded by `chksysconfig verify` only when no good copy exists.
+
+- **F-44 (Q3, Medium, proposed bug; least surprise): every update turns the player's DPMS choice back off.** The defaults ship `system.suspend.dpms=0`; the interface offers the switch (`GuiMenu.cpp:2572-2577` at the pin, writing `1`/`0`); `rocknix-fake-suspend:397` reads it; and `post-update:202` deletes the key at **every** update, whatever its value (`sed -i "/system.suspend.dpms/d"`, F-32's unguarded writer), so a player who turned it on is back to the default after each update. `post-update`'s own comment (`:199-201`) says the setting "can be used on an opt-in basis". The deletion was meant once, for the old default; `Already written:` on an upgraded device the key's current value is whatever the player set since the last update, and the fix (delete only when it equals the old shipped value, once, behind a marker; or not at all now that the default is `0`) must not touch a `1`. To prove on the guest: `set_setting system.suspend.dpms 1`, then the line from `post-update` (or the whole script in a fixture), and the key's absence.
+- **F-45 (Q3/Q6, Low): `ngpc.intergerscale=1` is misspelled** (`:134`); nothing reads `intergerscale` (`grep -rn intergerscale packages projects`, and the interface at the pin: none), so the Neo Geo Pocket Color's intended integer scaling default has never applied. The key on devices is harmless and can stay.
+- **F-46 (Q6, Low): `updates.enabled=1`, `updates.branch=auto`, `updates.force=0`** configure an online updater the image does not have (`rocknix-update` is a stub by design, #694). To keep for #694 or remove with a note; a reader of the file should not infer an updater from them.
+- Noted, by design: `root.password` ships a default value (the image's documented default), `ssh.enabled=0`; the engineering image's `DEVELOPMENT_DEFAULTS` turns SSH on with that default, so an engineering image on a shared network is reachable with a known password (an engineering-only fact; release images keep SSH off). `global.bezel=thebezelproject` is the default, which with F-19 means `set_overlay` never applies a player's overlay choice: **F-19 is upgraded to Medium** on that account (a default device never reaches the overlay settings).
+
+### Group 2, 07:53:47 UTC (`.qa-scratch/t1/proofs/group2.sh`, output `group2.out`; restore explicit at the end, all four compared `same`)
+
+Every script below is image = tree (§ Image versus tree); `sed` on the guest is busybox's. `setrootpass` was given a failing `cryptpw` as an exported bash function (`/usr/bin/cryptpw` is a symlink to busybox, so a file bind would have landed on busybox itself); `setrootpass` is a bash script and resolves the function before `PATH`.
+
+| Finding | What ran | Observed | Control | Copy |
+| --- | --- | --- | --- | --- |
+| F-29 | `cryptpw() { return 1; }; export -f cryptpw; setrootpass <fixture password>` | root hash field **empty** after (it was not before); `setrootpass` rc **0**; `root.password` written to `system.cfg`; Samba reported `Added user root.` | the real `cryptpw`: rc 0, hash begins `$6$` | image = tree |
+| F-32 | `post-update:159-160`'s two lines on a copy of `system.cfg` without the key and ending in the half line `wifi.country=G` | the last two lines read `wifi.country=G\n` and `system.batteryplus.enabled=1\n` (od): the half line completed, not joined | - | the tree's lines, run by the image's busybox `sed` |
+| F-44 | `post-update:202`'s line on a copy with `system.suspend.dpms=1` | the key gone (0 lines) | - | the tree's line, image `sed` |
+| F-28 | a fixture line in `/var/log/upgrade.log`, then `sh /usr/lib/autostart/common/003-upgrade` with no `.boot.hint` (checked; the script refuses to run with one) | `upgrade.log` reads `No update hint found.`; rc 0 | - | image = tree |
+| F-19 | `global.overlayset=T1overlay.cfg` with the shipped `global.bezel=thebezelproject`, `setsettings.sh nes ...` | 0 `input_overlay` lines in the appendconfig | `nes.bezel=none`: `input_overlay_enable = "true"`, `input_overlay = "/storage/overlays/T1overlay.cfg"` | image = tree |
+
+### Group 3, control and services: the security list first
+
+#### `sources/scripts/wifictl` (557, fork-own, on the security list; read whole)
+
+The fork's most-revised script after `001-functions` (14 fork commits; #191, #201, #307, #308, D-UI-063/064/071/118, D-WORKFLOW-040). `forget` clears and puts back the settings pair in one write each with every status read (`:359-396`); `join` brings the profile up on this adapter by name and reads the key `--escape no`, writing it only when read and keyed (`:420-473`); `saved --ssid` escapes tab and backslash in both columns (`:324-338`, #309's PL-003 seam); `security` fails closed on an unknown or mixed scan (`:112-133`). Mechanical: `last-good-scripts-test` section u (the `wifictl join` harness checks, a shim `nmcli`) inside the 1,379 PASS. Q4 is the largest question here: ROCKNIX's PR #3394 refactored this script upstream on the same lines (#316), dispositioned under § Renovation face Q4.
+
+- **F-47 (Q2, Low, defence in depth; narrowed on the guest): the credential filter misses three argv shapes the slice's scripts produce.** `wifictl:177` runs `nmcli ... device wifi connect "${SSID}" password "${PSK}"`, `:191-196`/`:207-211` pass `802-11-wireless-security.psk "${PSK}"`, and `setrootpass:32` runs `cryptpw -m sha512 "${ROOTPASS}"`: a value after a bare word or as a positional. On the guest (07:55) `redact_credentials` passes all three through unchanged, while `wifi.key=<v>` and `--password <v>` come out `<redacted>` (`001-functions:107-122`: the flag rule needs a leading dash, the others an `=` or `:`). **No present path carries such a line into evidence**: the snapshot's process list (`rocknix-evidence:71`) is `top -b -n 1`, which on the image prints the command *name* only (a decoy process whose argv imitated the connect, the fixture value inside it, showed as `bash` in `top` and did not appear in the snapshot); nothing logs `nmcli`'s argv. Recorded so the filter's shape list covers what the scripts actually run, and because the header (`rocknix-evidence:33-34`) says "a process list can carry one on an emulator's command line", which the image's `top` does not show (Q7: a header claim to correct, blindspot 43's shape).
+- **F-48 (Q3, Low): the verbs outside the typed list report success with no adapter.** `:55-57` exit 0 when there is no `wlan*` device or no `nmcli`, for every verb but `list`, `scanlist`, `security` and `connect-open` (`:49-52`, exit 2); so `connect`, `join`, `forget`, `current` and `saved` print nothing and exit 0 on a device whose radio is missing or whose driver failed. `join`'s and `forget`'s own contracts (`:29-38`) say exit 2 when NetworkManager could not be asked.
+
+#### `sources/scripts/rocknix-evidence` (265, fork-own, on the security list; read whole), `rocknix-evidence.service` (12), `.timer` (10)
+
+Sound on reading and against the brief's blindspot 43: every file of a collection passes `filter_tree` (`:113-144`), a file that can be neither filtered nor removed stops the archive (`:221-224`, #307 PL-046), the snapshot goes through the filter before it is written (`:151`), collections are serialised by a lock on the folder (`:172`, D-INFRA-014), the staging folder and the archive name are this run's own (`:182`, `:231-239`, #307 PL-077). The header's safety claim is now enforced at the boundary, not asserted of the writers -- what blindspot 43 asked. Guest: the ring holds five pages (`state.0.txt` to `state.4.txt`); the decoy test above rotated it and it was restored from a copy taken first. The timer (boot + 60 s, every 5 min) and service read as designed (D-SYS-005). Q5: one `top`, one `journalctl -k -n 40`, `df`, `free` every five minutes, under 256 KiB a page; to measure its run time once on the guest.
+
+#### `sources/scripts/usbgadget` (615, fork-own, on the security list; read whole), `udev.d/80-usbgadget.rules` (4), `autostart/081-usbgadget` (5)
+
+`tools/usb-gadget-test` ran the descriptor preparation in a configfs fixture: 18 cases, 72/72 on the host (dash) and on the guest (the image's bash as `sh`), the installed copy identical to the tree's (#531). The guest kernel has no USB gadget support (`generic-x64-vm-testing.md` § USB descriptor revision controls), so the bind, MTP and network paths are traces. Callers (`grep -rn -E 'usbgadget( |")' packages projects`; the interface at the pin): `--start` from `081-usbgadget`, `trigger` from the udev rule, no argument, `--options` and `address` from `GuiMenu.cpp:10230-10250`.
+
+- **F-49 (Q6/Q3, Low): `restart` cannot restart, and nothing calls it.** `restart` (`:530-533`) runs `usb_stop`, whose work is in a subshell (`:451-464`), so the parent's `CURRENT_MODE` keeps the old mode; `usb_start` then finds `CURRENT_MODE == USB_MODE` (`:379-382`) and returns, leaving the gadget disabled. `stop`, `start`, `prepare`, `cleanup` and `restart` are the "deprecated usage" (`:574`); of them only `prepare` runs, inside `--start`. Remove the deprecated verbs or say they are kept for hand use, and fix `restart` if kept. `Already written:` none (state file `usbgadget.conf` keeps `USB_MODE`, read the same way by `--start`).
+- **F-50 (Q2, Low): a `#!/bin/sh` script in bash.** `[[ ]]` at `:47`, `:87`, `:375`, `:420`; `==` inside `[ ]` at `:379`, `:395`; it runs because the image's `sh` is bash. Its state files are `.`-sourced as root (`:35-37` `usbgadget.conf`, `:556-558` `network.conf`), which the script writes itself under `/storage/.cache/usbgadget`; the player's own trust domain. `[ -n "$verbose" ]` (`:187`, `:264`) is always true once `verbose=${verbose:-0}` (`:114`), so "Done." is printed on every prepare and cleanup.
+- Lead for T22 (posted with the punch list, not this slice's): `projects/ROCKNIX/packages/sysutils/system-utils/sources/scripts/output_monitor:83` stops a `usbgadget` systemd unit that no package in this slice ships.
+- Sound: the external-VBUS refusal before switching to host (`:331-334`, `external_vbus_present` `:343-361`); the bind is read back before the state is written (`:420-425`).
+
+#### The stubs and the small units
+
+- `sources/scripts/rocknix-update` (15, fork-own): the manual-updates stub; `check` exits 1 and nothing contacts a server, as #694 and D-WORKFLOW-093 say. Sound. Its name is kept for installed callers (Q6 row).
+- `sources/scripts/rocknix-report-stats` (7, fork-own): `exit 0`, no collection, no network (D-WORKFLOW-110). `system.d/rocknix-report-stats.timer` and `system.d/timers.target.wants/rocknix-report-stats.timer` are symlinks in git (mode `120000`) to `/dev/null` and to the first: on the guest the timer reads `masked` / `LoadState=masked`, the service `disabled`. Sound. **F-51 (Q7, Low):** the service's `Description=Report anonymous ROCKNIX install statistics` describes what it no longer does.
+- `system.d/rocknix-memory-manager.service` (17), `bluetooth-agent.service` (13), `rocknix.target` (9), `hdmi-hotplug.path` (8, H700 only), `hdmi-hotplug.service` (6): read whole with their scripts below; `rocknix-evidence.service`/`.timer` under `rocknix-evidence`.
+
+#### `sources/scripts/rocknix-corekeep` (250, fork-own; read whole)
+
+Off unless armed (`/storage/.config/keep-core-dumps`); bounded per dump (`head -c` before `gzip`, a gigabyte for the interface by its path since #308 F-PB-20), refused under a free-space floor that adds the cap (audit #258 G-03), serialised by a lock on the folder (#308 F-PB-21, #307 G-B-14), ring of three by time (#308 F-PB-15), cut or whole read from the raw count (#247). Guest (07:59): the image's `gzip` is `/usr/bin/gzip` (not busybox) and `gzip -l` prints the raw size the script reads (`300000` for a 300,000-byte input), so the cut detection holds on the image as on the harness's host (`last-good-scripts-test` x3 ran it with the host's gzip, `:7795`). Sound. Q7: the header's explanation is long but each paragraph is a decision with its reason.
+
+#### `sources/scripts/rocknix-memory-manager` (638, fork-own; read whole) and its unit (17)
+
+A oneshot at `basic.target` (`--setup`, `--reload`, `--stop`), not a loop as brief § 4 Q5 put it: it sizes zram and a swap file from `/etc/swap.conf` and `/storage/.config/swap.conf` (both `.`-sourced, `:23-30`), tunes the VM sysctls, THP and KSM by RAM and SoC tier (`:52-73`), and exits. Callers: the unit only; the interface at the pin names it nowhere (`git -C $ES grep -n rocknix-memory-manager $PIN`: none), so the setting flags (`--zram-size` to `--thp`, `:498-515`) are typed at a shell.
+
+- **F-52 (Q2, Low): the setting flags write and `eval` their value unquoted.** `update_config` (`:86-101`) puts the value into `swap.conf` through `sed "s|^${key}=.*|${key}=\"${val}\"|"` (a `|` in it breaks the program, a `"` breaks the file) and then `eval "${key}=\"${val}\""`; the file is `.`-sourced at every boot. The caller is a person at a root shell, so it is the owner's own trust domain; the shape still wants `printf %q` or a validated value per key (most are numbers or a short word list).
+- **F-53 (Q3, Low, keep an eye on): a swap-file resize writes over a file the kernel may still be swapping to.** `setup_swapfile` (`:474-482`): when the size changed, `[ -f ] && swapoff && rm` skips the removal if `swapoff` fails, and the script goes on to `fallocate`/`dd` and `mkswap` on the same path. At boot nothing is swapped on yet, so this needs an interactive `--swap-size` change on a loaded device; `--reload`'s guard (`:225-234`) refuses when swap use exceeds free RAM, which narrows it further. The fix shape is to stop when `swapoff` fails.
+- Q5: KSM is on by default (`KSM_ENABLE=auto`, `:16`, `:251-256`) on every tier, with the slowest scan on low-RAM weak-CPU devices (the H700's tier: 500 ms, 100 pages). Its boot cost and KSM's background cost are to read from `systemd-analyze blame` and `/sys/kernel/mm/ksm/` on the guest (8 GiB, the mid tier, so not the H700's numbers).
+
+#### `sources/scripts/rocknix-es-thebezelproject` (641, fork-own; read for its network and file operations, then whole by outline)
+
+Driven by the interface's bezel installer (`ApiSystem.cpp` at the pin), it fetches lists from `https://updates.batocera.org/` (a third party's server, Batocera's; `:31-34`) and bezels from GitHub raw, matches them to the device's ROM names and writes PNGs under the decorations folder. Both lists answered `200 text/plain` to a HEAD request from the host (08:00), so the feature is alive; it depends at run time on a server neither this fork nor ROCKNIX runs (Q4/Q6: recorded, not a defect).
+
+- **F-54 (Q2, Low): names from a remote list reach a file path, guarded by accident.** The written name is `$rom_no_ext.$index_ext` (`:438`, `:454`): the ROM part is local, the extension is `${index_bezel_name##*.}` from the server's list (`:401`), so an entry ending in `./../x` would make the path `<rom>./../x`, which fails only because no directory `<rom>.` exists. `remove` (`:570-600`) runs `rm -rf "$DECORATION_DIR/$BEZELPROJECT_GAMES_DIR/$system_name"` after a `-d` test that an empty name passes (the games folder itself); the interface always passes a system. Fix shape: refuse a remote name with `/`, and a system name that is empty or not a plain word. shellcheck: 0 errors, 16 warnings (the `[[ $(curl ...) ]]` tests, unquoted `let`).
+
+#### The shellcheck error sites in reached scripts, read and run (08:03 UTC, the guest's bash)
+
+- **F-56 (Q3, Low, proven): `autostart/050-audio` runs a program that is not there, every boot.** `:49` `if [ -n "/usr/sbin/quantum" ]` tests a literal string (SC2157), so `:50` always runs `/usr/sbin/quantum`; the guest has no such file, and this boot's journal carries `050-audio: line 50: /usr/sbin/quantum: No such file or directory`. Fix: `[ -x /usr/sbin/quantum ]`. Upstream-carried.
+- **F-57 (Q3, Medium on the devices that use it, proven): `paneladj` clamps every stored panel value to its maximum and writes a stray file.** `:37` `[ "${MYVAL}" > "${MAX}" ]` and `:40` `[ "${MYVAL}" < "${MIN}" ]` (SC2071) are redirections, not comparisons: `[ "${MYVAL}" ]` is run with its output sent to a file named after `${MAX}`. On the guest, with `MYVAL=30 MAX=100`, the clamp branch was taken and an empty file `100` appeared in the working directory. So every `display.<x>` setting read through `getValue` comes back as 100 (`MAX=100`, `:20`), and the first `<` reads its input from a file named `1`. Reached through the RK3566 quirks (`hardware/quirks/devices/Anbernic RG353P/040-display` and nine others, per the Q6 search), so the effect is on devices this fork does not ship (D-WORKFLOW-185); the fix (`-gt`/`-lt` on integers) is upstream's to take too (#585's queue).
+- `autostart/099-networkservices:30` (SC2068, `${DAEMONS[@]}` unquoted): daemon names carry no spaces; benign. The file is fork-own for one line (`unset STATE SVC CONF DAEMONS` before each fragment, `:16-18`), which is sound.
+- `sources/scripts/controller-layout:11` (SC2242, `exit -1`): exits 255; the interface (`GuiMoonlight.cpp`) does not read the status. Benign; `exit 1` reads as meant.
+- `setemu.sh`, `error.sh`, `migrate_roms` errors: in unreached scripts (Q6, F-55), recorded there.
+
+#### The autostart fragments and the small upstream-carried scripts (read whole)
+
+- **F-58 (Q3, Medium on x86_64, proven): `autostart/008-perfmode` stops at its third line on every x86_64 boot.** `:8` sources `/etc/profile.d/099-freqfunctions`, which the recipe installs on non-x86_64 only (`package.mk:119-126`); the runner executes each fragment directly (`sysutils/autostart/sources/autostart:50-53`, read as context), so the fragment runs under its `#!/bin/sh`, which is bash in POSIX mode, where a `.` of a missing file is fatal. On the guest `sh -x /usr/lib/autostart/common/008-perfmode` ends at `+ . /etc/profile.d/099-freqfunctions` with `No such file or directory`, and this boot's journal carries the same line (`bash[927]: .../008-perfmode: line 8: ...`). So on GENERIC_X64 and AMD64 the threads are never restored at boot (`:13-19`), the default governor is never written (`:21-31`) and `system.gpuperf` is never applied (`:33-37`). F-02's sibling: the x86_64 profile has neither the file nor `onlinethreads`. Fix shape: source the arch's own fragment by what is installed, and give `100-amd64-freqfunctions` an `onlinethreads` (a no-op if the platform cannot offline cores). Shipped handhelds unaffected; the test image is.
+- **F-59 (Q3, Low, upstream-carried): `055-hdmi-check` writes the 1080p mode to the wrong file.** `:18` `echo $mode2 | tee /var/run/drmConn` where the 720p branch writes the mode to `drmMode` (`:16`) and the else branch writes `0` to `drmMode` and `1` to `drmConn`; so a 1920-wide panel or display never gets its mode into `drmMode`. `$xres` is unquoted in `-eq` (`:15`, `:17`), an error when `/sys/class/graphics/fb0/modes` is absent (a KMS-only device). Reached on every device at boot; the SDL patch that reads the files is RK3566's (its comment), so the effect is there.
+- `autostart/006-display` (29): restores the brightness through `brightness set` with a floor; sound. `009-sleepmode` (17) + `sources/scripts/suspendmode` (55): writes `sleep.conf` and restarts `systemd-logind` when the setting differs from the request -- once, on the first boot (then the setting is stored); `suspendmode` stores `${1}` where it compared `${*}` (`:3` vs `:51`), the same for a one-word mode. Sound enough. `010-uimode` (26): copies the weston ini and edits it with `sed` (no player value spliced unescaped but `STARTUP`, the setting's own); sound. `080-network` (16): `nohup wifictl enable|disable &`; sound.
+- `sources/scripts/volume` (43): **F-60 (Q2, Low):** an unset `audio.volume` with `restore` reaches `(( ${VOLUME} < ${MIN_VOLUME} ))` with an empty operand, an arithmetic syntax error the `if` reads as false, and lands on `VOLUME=50` only through the third branch; the result is right, by accident, with an error line per call. `#!/bin/sh` with `(( ))` (F-50's shape).
+- `sources/scripts/handle-hdmi-hotplug` (48) + `hdmi-hotplug.path`/`.service` (H700 only): restarts the interface on a hotplug; it stops a `usbgadget` *unit* (`:15-17`, `:28-30`) that does not exist (the same lead as `output_monitor`, T22). `led_flash` (42), `getshaders` (20), `getfilters` (11), `timeinfo` (22), `say` (22, through `powerstate`'s audible alert; `espeak` on the image): read, sound for what they do.
+- `sources/scripts/rocknix-fake-suspend` (486, upstream-carried; reached through `input_sense`, T22): a `#!/bin/sh` script in bash throughout (shellcheck SC3010/3014/3024/3030/3054 at 30 sites), its own `suspend()` (`:306`) shadowing the bash builtin of that name (Q7: a reader, and shellcheck, read `suspend` at `:459`/`:475` as the builtin that stops the shell); reads `system.suspend.dpms` (`:397`, F-44's reader). Lid and power events cannot be produced on the guest; read for structure only.
+- `sources/scripts/rocknix-systems` (250, fork-own, python): the BIOS checker the interface runs (`ApiSystem.cpp:880`); on the guest it ran over every system in 32 ms, rc 0, under the image's Python 3.14. **Q1:** `#!/usr/bin/env python` and `from __future__ import print_function` (`:1-3`), Python 2 remnants.
+- `sources/motd` (6): the banner; the image's copy differs by the recipe's edit (§ Image versus tree).
+
+#### `package.mk` (127, fork-own; read whole, credential-named values masked)
+
+`tools/pkgcheck rocknix` exit 0; late binding kept (`${INSTALL}`, `${PKG_DIR}`, `${TARGET_ARCH}` only inside `makeinstall_target`/`post_install`); the build-time edits (device name, `DEVELOPMENT_DEFAULTS`, AMD64 automount, H700 hotplug, the arch's frequency fragment) are the ones § Image versus tree saw. The M7 delta adds `Python3 coreutils` to `PKG_DEPENDS_TARGET` (§ Scope).
+
+- **F-62 (Q2, Low; `packaging-and-patches.md` § A shipped script's tools are dependencies too): the scripts' programs are present but undeclared.** `PKG_DEPENDS_TARGET="toolchain autostart zip busybox"` (`:15`) declares two of the 36 programs the slice's scripts call; on the guest all 36 are present (`rsync jq curl xmlstarlet nmcli iwctl iw parted mkfs.vfat mkfs.ext4 blkid fsck smbpasswd syncthing cryptpw espeak wlr-randr drm_tool i2cget umtprd udhcpd flock timeout python3 gzip unzip tar evtest swaymsg pactl amixer text_viewer game-guides-tool ledcontrol fbset rfkill`, 08:06), so nothing is broken today; a package dropped upstream would break a script at run time with no build failure, which is how `backuptool` lost `zip` (`a3d0ad0430`). Declare the ones this package's scripts cannot work without (`rsync`, `jq`, `curl`, `xmlstarlet`, `parted`, `espeak` at least), or record why another package guarantees them.
+- **F-63 (Q2, Low, security-adjacent): `system.cfg` is world-readable and world-executable.** `:29` `find ${INSTALL}/usr/config/system/ -type f -exec chmod o+x {} \;` gives every file there `o+x`; on the guest the seed, the live file and the record are all mode `645` (`stat`, 08:06), and the live file holds `root.password`, the RetroAchievements password and `wifi.key`. The private-modes writers (#421) preserve a file's mode and never widen it, so the default is what every device keeps. The device runs nearly everything as root, so the exposure is to the few services that do not and to anything that serves `/storage` (Samba, `simple-http-server`, both off by default); the `o+x` has no reason a reader can find (`git log -S'chmod o+x'` reaches the import). The fix shape is `0600` for the seed and a one-time narrowing on upgrade, with #421's tests extended.
+- `LOCAL_SSH_KEYS_FILE`/`LOCAL_WIFI_SSID`/`LOCAL_WIFI_KEY` (`:34-49`) put the builder's SSH keys and a Wi-Fi passphrase into the image's `/usr/config` (then `post-update` copies them to `/storage`, F-34): engineering images only, and the reason a release build is checked for both files' absence (`device-builds.md` § Build credentials).
+
+#### `sources/scripts/rocknix-config` (296) and `rocknix-settings` (267), upstream-carried (Batocera's `batocera-config`/`batocera-settings`)
+
+- **F-64 (Q3/Q6, Low): `rocknix-config` is carried with Batocera's dependencies, and the interface's calls reach verbs that do nothing or fail.** The interface calls `overscan enable|disable`, `storage list|current|<choice>`, `forgetBT` and `lsoutputs` (`ApiSystem.cpp:183`, `:830`, `:941`, `:984`, `:1026`, `:1041` at the pin). On the guest (08:07): `storage list` and `storage current` print nothing (rc 0); `lsoutputs` prints `auto` then `/usr/bin/rocknix-config: line 158: rocknix-resolution: command not found` (rc 10), so the video output list offers `auto` and nothing else; the root-password verb (`:80-110`) encodes through `rocknix-encode`, **absent from the image** (`command -v`: nothing), so it would write an empty `rootshadowpassword=` into `rocknix-boot.conf` (no caller found for that verb); `overscan` edits `/storage/.config/system/configs/config.txt` (`:10`), a Raspberry Pi file; the audio branch removes `/userdata/system/.asoundrc` (`:202`), a Batocera path. Each verb wants a disposition (keep and fix the dependency, or remove with the interface row that calls it -- a player-visible change the coordinator puts to the maintainer, D-UI-079).
+- **F-65 (Q3, Low, latent; F-32's third sibling): `rocknix-settings` can write `system.cfg` outside the lock.** `ROCKNIX_CONFIGFILE` is `system.cfg` (`:34`), and `set_config`/`uncomment_config`/`comment_config` (`:61-74`) edit it with `sed -i`, bypassing `wait_lock` and `settings_base` as F-32's two lines do. Its two callers, `rocknix-config` (`:54`, `:76`, `:177`) and `rocknix-scraper` (`:4-5`), use only `-command load` (a read), so the write path is unreached today; my F-32 search matched literal file names and missed it through the variable, which is recorded here as the search's own gap.
+- **F-66 (Q6, Low): `rocknix-scraper` (79, upstream-carried) is reached only through a page nothing opens, and runs a scraper the image does not have.** Its caller `ApiSystem::scrape` (`ApiSystem.cpp:308`) is called only by `GuiAutoScrape.cpp:93`, which no other file at the pin opens; it runs `sselph-scraper` (`:50`), which `command -v` does not find on the guest and no package ships (`grep -rln sselph projects packages`: only this script). The interface scrapes with its own scraper. The Q6 table's row is corrected from "reached" to "unreached in effect".
+- **F-67 (Q3, Medium, keep an eye on: device-only): `updateabl` writes the bootloader on both slots without checking the writes.** Run from the Qualcomm devices' `bootloader/update.sh` (SM8550's `:25`, the shipped Retroid Pocket Nova), it skips when both slots already hash as the update (`:62-65`), else writes `abl_a` then `abl_b` with `dd ... conv=fsync,notrunc` (`:69-70`), reads neither back, checks no status, and prints `ABL update completed successfully...` (`:72`). A failed or short write to `abl_a` is followed by the same write to `abl_b`, so both slots can be bad. **The skip check was suspected and cleared by the artifact:** it hashes `COUNT` whole sectors against the ELF, which matches only for a sector-aligned ELF, and the built `abl_signed-SM8550.elf` is 258,048 bytes, 63 x 4,096 (read-only `stat` of the M7 SM8550 build roots, 08:09), so it holds today and would stop holding for an unaligned ELF. Fix shape: write one slot, read it back and compare, then the other; refuse on any failure. The guest has no ABL; a fixture could run the logic against two loop files with `SYSTEM_ROOT` and `blkid` stand-ins (the harness question).
+- `sources/scripts/rocknix-keyboard` (97, upstream-carried; the interface's keyboard layout row): `set` stores the layout with `set_setting` and tries `setxkbmap`, an X11 tool the Wayland image does not run; the stored setting is what takes effect (at the next start). Sound for what it does.
+
+#### The rest of group 3 (read depth stated per file)
+
+- **F-68 (Q2, Medium, security-adjacent; a lead for T16/T17): the Bluetooth pairing keys are copied onto the games folder at every Bluetooth stop.** `rocknix-bluetooth` `do_save` (`:73-82`) tars `/storage/.cache/bluetooth` -- the paired devices' link keys -- to `BACKUP_FILE=/storage/roms/backups/bluetooth.tar` (`:8-10`), and `do_restore` (`:85-98`) extracts it; `bluez`'s `bluetooth.service` runs `restore` before every start and `save` after every stop (`network/bluez/system.d/bluetooth.service:10`, `:12`). `backuptool` deliberately keeps `.cache/bluetooth` out of the settings archive (`backuptool:277`), and this copy puts the same keys under `/storage/roms`, which the Samba share exposes and whose folders the content tier carries; whether `cloud_content_backup` would list `backups` as a system folder is T16/T17's to confirm (no exclusion of it found by `grep` in either content script). The placement may be deliberate (a `factoryreset ALL` keeps `/storage/roms`, so pairings survive it), which is a design question with a credential on the other side: put to the coordinator with the punch list.
+- `sources/scripts/rocknix-bluetooth` (371, upstream-carried; read in outline: the verbs, save/restore, devlist): `#!/bin/sh` with `local` (F-50's shape); the `> file` lines (`:154`, `:159`, SC2188) truncate on purpose. `sources/scripts/rocknix-bluetooth-agent` (571, upstream-carried, python; read in outline: imports, the D-Bus handlers, the files it writes under `/run`): compiles under Python 3 (`py_compile` on the host; the image runs it under 3.14); **Q1:** `#!/usr/bin/python`, `from __future__ import absolute_import, print_function`, `optparse` (`:1-5`). `system.d/bluetooth-agent.service`: `Restart=on-failure`; sound. Bluetooth cannot be exercised on the guest (no adapter): structure only.
+- `sources/scripts/brightness` (224, upstream-carried; read in outline): writes the backlight and stores the percentage with `set_setting` (`:71-77`); reached from `006-display` and `sleep.sh`. No backlight on the guest; structure only.
+- `sources/scripts/vertical-check` (182, upstream-carried; read to `:40` and by outline): run by sway for every RetroArch window (`sway/autostart/111-sway-init:161`), it recovers the ROM from `ps aux` and cuts the path at the first unescaped space (`:12-17`), which works only when the first match is the `sh -c` line carrying the interface's escaping; dual-screen devices act on it. Q5: a `ps aux` and a `grep` of `arcaderoms.xml` per RetroArch window, every launch; to time in the guest with the launch measurements.
+- `sources/scripts/rocknix-info` (259, fork-own): `tools/rocknix-info-test` 12 full-script controls PASS (#548); read in outline; the Q2 shellcheck note (SC2120: `info_quirks` takes arguments nobody passes) is cosmetic. The interface's INFORMATION page calls it (`ApiSystem.cpp`).
+- `sources/scripts/controller-layout` (60, upstream-carried; read whole): through `GuiMoonlight.cpp`; `ABUT`/`BBUT`/`XBUT` assigned for the sourced `map_input_control` (shellcheck's "unused" is the sourcing; sound).
+- `config/system/configs/tz` (593, upstream-carried): read by one `rocknix-config` verb (`:285`) only; the interface lists zones from `zone1970.tab` (`timeinfo`). Against the image's zoneinfo one entry is gone: `US/Pacific-New` (dropped by tzdata in 2020b) (08:09, every line checked with `[ -e /usr/share/zoneinfo/<z> ]` on the guest: 593 entries, 1 absent). **F-69 (Q1/Q6, Low):** drop the entry, or the file with the verb.
+
+## Coverage table: one row per path (83)
+
+Generated from `.qa-scratch/t1/groups.tsv` and the findings above (08:17 UTC); the Q4 cell is the count of non-merge upstream commits on the path in `c445081a59..8b70f693b8` (the Q4 table in `04-analysis.md` dispositions each), the Q6 cell the reachability verdict (the Q6 table there has the search and its output). "Read" is the depth actually reached on that path; "outline" means the verbs, the file and network operations and the shellcheck warnings were read, not every line, which is named again in the Coverage Boundary. A Q cell of `-` means nothing found on that question; `n/a` says why it does not apply.
+
+| Path | Group | Tier | Read | Q1 | Q2 | Q3 | Q4 | Q5 | Q6 | Q7 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `projects/ROCKNIX/packages/rocknix/autostart/001-setup` | state | fork-own | whole | - | `#!/bin/sh` sourcing bash | none | no upstream change since the merge base | inside 1.18 s autostart | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/autostart/003-upgrade` | state | upstream-carried | whole | - | sound | F-28 (proven) | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/autostart/006-display` | control | upstream-carried | whole | - | sound | none | no upstream change since the merge base | inside autostart | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/autostart/007-rootpw` | state | fork-own | whole | - | sound | none | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/autostart/008-perfmode` | control | upstream-carried | whole | - | `#!/bin/sh` sourcing bash | F-58 (proven) | no upstream change since the merge base | inside autostart | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/autostart/009-sleepmode` | control | upstream-carried | whole | - | sound | none | no upstream change since the merge base | first boot restarts logind | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/autostart/010-uimode` | control | upstream-carried | whole | - | sound | none | no upstream change since the merge base | inside autostart | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/autostart/050-audio` | control | upstream-carried | whole | - | SC2157 | F-56 (proven) | no upstream change since the merge base | inside autostart | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/autostart/055-hdmi-check` | control | upstream-carried | whole | - | unquoted `-eq` | F-59 | no upstream change since the merge base | two `drm_tool list` a boot | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/autostart/080-network` | control | upstream-carried | whole | - | `==` in `[` | none | no upstream change since the merge base | inside autostart | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/autostart/081-usbgadget` | control | upstream-carried | whole | - | sound | none | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/autostart/099-networkservices` | control | fork-own | whole | - | SC2068 benign | none | no upstream change since the merge base | inside autostart | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/config/system/configs/system.cfg` | state | fork-own | whole (filtered) | - | F-63 mode 645 | F-44, F-45, F-46 (F-19 default) | 2 upstream commit(s), dispositioned | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/config/system/configs/tz` | control | upstream-carried | checked line by line on the guest | `US/Pacific-New` stale | n/a: data | F-69 | no upstream change since the merge base | n/a | reached | n/a: a list |
+| `projects/ROCKNIX/packages/rocknix/package.mk` | control | fork-own | whole | - | F-62, F-63; pkgcheck 0 | none | no upstream change since the merge base | n/a | the recipe | sound |
+| `projects/ROCKNIX/packages/rocknix/profile.d/001-functions` | launch | fork-own | whole | upstream's quoted `=~` lookup (Q4 `25903bb59c`) | F-23 | F-21, F-22 | 2 upstream commit(s), dispositioned | F-24; a fork per `get_setting` (upstream drops it) | reached | writers well documented |
+| `projects/ROCKNIX/packages/rocknix/profile.d/099-freqfunctions` | launch | upstream-carried | whole (aarch64 only) | - | `policy[0-9]` unquoted | F-25 | no upstream change since the merge base | n/a | installed on non-x86_64 only | sound |
+| `projects/ROCKNIX/packages/rocknix/profile.d/100-amd64-freqfunctions` | launch | upstream-carried | whole | - | sound | F-02 (no `onlinethreads`), F-58 | no upstream change since the merge base | n/a | installed on x86_64 only | sound |
+| `projects/ROCKNIX/packages/rocknix/profile.d/100-gamecontroller-functions` | launch | upstream-carried | whole | - | unquoted tests | F-26 | no upstream change since the merge base | n/a | reached | F-26's doubled `>` |
+| `projects/ROCKNIX/packages/rocknix/profile.d/101-gpu-functions` | launch | upstream-carried | whole | - | sound | none | no upstream change since the merge base | two no-op calls a launch | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/motd` | control | upstream-carried | whole | - | n/a: text | none | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/post-update` | state | fork-own | whole | - | F-32 unguarded writers | F-32, F-33, F-34, F-35, F-44 | 5 upstream commit(s), dispositioned | once per update | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/amionline` | control | upstream-carried | whole | - | see Q6 row | see Q6 row (F-55) | no upstream change since the merge base | n/a: unreached | unreached (F-55/F-66) | F-55 |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/automount` | state | fork-own | whole | - | F-43 | F-42, F-43 | no upstream change since the merge base | 417 ms at boot | reached | F-41 dead function |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/bezels.sh` | control | upstream-carried | header + reachability | - | see Q6 row | see Q6 row (F-55) | no upstream change since the merge base | n/a: unreached | unreached (F-55/F-66) | F-55 |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/brightness` | control | upstream-carried | outline | - | sound | none (no backlight on guest) | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/chksysconfig` | state | fork-own | whole | - | sound (busybox-shimmed tests) | none found | no upstream change since the merge base | 16 ms at sysinit | reached | long, decision-per-paragraph comments |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/controller-layout` | control | upstream-carried | whole | - | SC2242 benign | none | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/error.sh` | control | upstream-carried | whole | - | see Q6 row | see Q6 row (F-55) | no upstream change since the merge base | n/a: unreached | unreached (F-55/F-66) | F-55 |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/factoryreset` | state | fork-own | whole | - | sound | F-36, F-37, F-38 | 4 upstream commit(s), dispositioned | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/find.sh` | control | upstream-carried | whole | - | see Q6 row | see Q6 row (F-55) | no upstream change since the merge base | n/a: unreached | unreached (F-55/F-66) | F-55 |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/getfilters` | control | upstream-carried | whole | - | bash's `read -d` in a `#!/bin/sh` script (F-50's shape) | none | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/getoverlays` | control | upstream-carried | whole | - | see Q6 row | see Q6 row (F-55) | no upstream change since the merge base | n/a: unreached | unreached (F-55/F-66) | F-55 |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/getshaders` | control | upstream-carried | whole | - | sound | none | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/handle-hdmi-hotplug` | control | upstream-carried | whole | - | sound | stops a unit that does not exist (T22 lead) | 1 upstream commit(s), dispositioned | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/installtointernal` | state | fork-own | whole | - | `set -euo pipefail` (the only one) | F-39, F-40 (proven) | 2 upstream commit(s), dispositioned | n/a | by hand only | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/led_flash` | control | upstream-carried | whole | - | sound | none | no upstream change since the merge base | 3 s of flashes | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/migrate_roms` | control | upstream-carried | whole | - | see Q6 row | see Q6 row (F-55) | no upstream change since the merge base | n/a: unreached | unreached (F-55/F-66) | F-55 |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/paneladj` | control | upstream-carried | whole | - | SC2071 | F-57 (proven) | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-bluetooth` | control | upstream-carried | outline | - | bash in `#!/bin/sh` | F-68 | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-bluetooth-agent` | control | upstream-carried | outline | Python 2 remnants, `optparse` | sound | none found | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-config` | control | upstream-carried | outline + verbs run | - | Batocera paths | F-64 | 1 upstream commit(s), dispositioned | n/a | reached | Batocera's tool, half dead |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-corekeep` | control | fork-own | whole | - | sound | none (gzip -l checked on image) | no upstream change since the merge base | off unless armed | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-es-thebezelproject` | control | fork-own | outline + network/file paths | - | F-54 | F-54 | no upstream change since the merge base | network-bound, on request | reached | long; Batocera's |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-evidence` | control | fork-own | whole | - | sound; F-47's header claim | none | no upstream change since the merge base | 230 ms / 5 min | reached | header claim (F-47) |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-fake-suspend` | control | upstream-carried | outline + main | - | bash in `#!/bin/sh` (30 sites) | none found (lid/power not on guest) | 3 upstream commit(s), dispositioned | n/a | reached | `suspend()` shadows a builtin |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-info` | control | fork-own | outline + test | - | SC2120 cosmetic | none (rocknix-info-test 12 PASS) | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-keyboard` | control | upstream-carried | whole (verbs) | - | `setxkbmap` on Wayland | none | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-memory-manager` | control | fork-own | whole | - | F-52 | F-53 | 3 upstream commit(s), dispositioned | 15 ms at boot; KSM not on guest | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-report-stats` | control | fork-own | whole | - | sound | none | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-retroachievements-info` | control | upstream-carried | header + reachability | - | see Q6 row | see Q6 row (F-55) | 1 upstream commit(s), dispositioned | n/a: unreached | unreached (F-55/F-66) | F-55 |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-scraper` | control | upstream-carried | outline | - | sound | dead chain (F-66) | no upstream change since the merge base | n/a | unreached (F-55/F-66) | F-66 |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-settings` | control | upstream-carried | outline | - | unguarded writer | F-65 (latent) | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-systems` | control | fork-own | outline + run on guest | Python 2 remnants | sound | none | 1 upstream commit(s), dispositioned | 32 ms | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-update` | control | fork-own | whole | - | sound | none (#694) | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/run` | launch | fork-own | whole | - | F-20 | none found (#119/#114 sound) | no upstream change since the merge base | n/a: a wrapper | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh` | launch | fork-own | whole | backticks/`echo` idioms; RetroArch half `deferred:#336` | F-08 unquoted tests; shellcheck 0e/6w | F-01, F-02, F-03, F-04, F-06, F-07 | 5 upstream commit(s), dispositioned | measured (Q5 table); F-03 | reached | F-05 dead vars, F-08 |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/say` | control | upstream-carried | whole | - | SC2062 | none | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/setemu.sh` | control | upstream-carried | whole | - | see Q6 row | see Q6 row (F-55) | no upstream change since the merge base | n/a: unreached | unreached (F-55/F-66) | F-55 |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/setrootpass` | state | fork-own | whole | - | guards fail open | F-29 (proven), F-47 | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/setsettings.sh` | launch | fork-own | whole | staged sed program (Q7 `deferred:#336`) | F-12, F-13, F-19; 7 shellcheck errors | F-09, F-10, F-11, F-14, F-15, F-16, F-17, F-18, F-19 | 2 upstream commit(s), dispositioned | 127 ms verbose / 99 ms none | reached | one file, nine cores' options (`deferred:#336`) |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/show_changelog` | control | upstream-carried | whole | - | see Q6 row | see Q6 row (F-55) | no upstream change since the merge base | n/a: unreached | unreached (F-55/F-66) | F-55 |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/suspendmode` | control | upstream-carried | whole | - | sound | none | no upstream change since the merge base | first boot | reached | `${*}` vs `${1}` |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/timeinfo` | control | upstream-carried | whole | - | sound | none | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/updateabl` | control | upstream-carried | whole | - | sound | F-67 | 2 upstream commit(s), dispositioned | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/usbgadget` | control | fork-own | whole | - | F-50 bash in `#!/bin/sh` | F-49 | 3 upstream commit(s), dispositioned | n/a | reached | deprecated verbs (F-49) |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/vertical-check` | control | upstream-carried | to `:40` + outline | - | parses `ps aux` | lead only | 1 upstream commit(s), dispositioned | a `ps` per RetroArch window | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/volume` | control | upstream-carried | whole | - | bash in `#!/bin/sh` | F-60 | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/sources/scripts/wifictl` | control | fork-own | whole | - | F-47 argv | F-48 | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/system.d/bluetooth-agent.service` | control | upstream-carried | whole | - | sound | none | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/system.d/hdmi-hotplug.path` | control | upstream-carried | whole (H700 only) | - | sound | none | no upstream change since the merge base | n/a | H700 only (enabled by the recipe) | sound |
+| `projects/ROCKNIX/packages/rocknix/system.d/hdmi-hotplug.service` | control | upstream-carried | whole | - | sound | none | no upstream change since the merge base | 1 s pre-sleep | H700 only (enabled by the recipe) | sound |
+| `projects/ROCKNIX/packages/rocknix/system.d/rocknix-automount.service` | state | upstream-carried | whole | - | F-31 | F-31 | no upstream change since the merge base | 417 ms | reached | F-31 wrong description |
+| `projects/ROCKNIX/packages/rocknix/system.d/rocknix-evidence.service` | control | fork-own | whole | - | sound | none | no upstream change since the merge base | 271 ms | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/system.d/rocknix-evidence.timer` | control | fork-own | whole | - | sound | none | no upstream change since the merge base | every 5 min | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/system.d/rocknix-memory-manager.service` | control | upstream-carried | whole | - | sound | none | 1 upstream commit(s), dispositioned | 15 ms | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/system.d/rocknix-report-stats.service` | control | upstream-carried | whole | - | sound | none | 1 upstream commit(s), dispositioned | disabled | masked/disabled stub (D-WORKFLOW-110) | F-51 description |
+| `projects/ROCKNIX/packages/rocknix/system.d/rocknix-report-stats.timer` | control | fork-own | whole (symlink) | - | sound | none (masked) | no upstream change since the merge base | masked | masked/disabled stub (D-WORKFLOW-110) | sound |
+| `projects/ROCKNIX/packages/rocknix/system.d/rocknix-sysconfig.service` | state | fork-own | whole | - | sound | none | no upstream change since the merge base | 16 ms | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/system.d/rocknix.target` | control | upstream-carried | whole | - | sound | none | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/system.d/save-sysconfig.service` | state | upstream-carried | whole | - | `TimeoutStartSec=0` | F-30 | no upstream change since the merge base | n/a | reached | sound |
+| `projects/ROCKNIX/packages/rocknix/system.d/timers.target.wants/rocknix-report-stats.timer` | control | upstream-carried | whole (symlink) | - | sound | none | no upstream change since the merge base | masked | masked/disabled stub (D-WORKFLOW-110) | sound |
+| `projects/ROCKNIX/packages/rocknix/udev.d/80-usbgadget.rules` | control | upstream-carried | whole | - | sound | none | no upstream change since the merge base | n/a | reached | sound |
+
+## Criterion entries: #648's checklist (= brief § 7), evaluated at the end of Phase 2 (08:19 UTC)
+
+Most criteria are about this audit's own outputs, so a verdict here records the state reached and what is still owed; the stage named closes it. Verdict vocabulary per the skill; refutation lines are recorded only for a PASS.
+
+### AC-01: the audit folder holds `00-running-log.md` and `01-research-notes.md` to `05-punch-list.md`
+**Verdict:** PARTIAL ⚠ -- `00` to `04` exist (`ls docs/audits/2026_10_23-epic-m6-os-launch-control-state/`); `03` follows in Phase 3, `05` at stage D after Phase 4.6.
+
+### AC-02: `tools/lint-audit-artifacts <folder>` prints PASS (pre-issue before stage D; resolution at close), the renovation face included
+**Verdict:** FAIL ✗ (expected at this point) -- the pre-issue run at 08:18 printed `13 CONTRACT FAILURE(S)`: `03` and `05` absent, five `04` sections, the second opinion, Q1/Q2/Q3/Q7 subsections. Re-run before stage D.
+
+### AC-03: `second-opinions/review-plan.json` records Extended depth and two reviewers from two labs, each provenance naming its served model
+**Verdict:** UNTESTABLE ? -- Phase 4.6 has not run; the Argon route is absent (`grep -c gemini-argon scripts/council-invoke.ts tools/lint-audit-artifacts`: `0`, `0` at `5070c88b1b`), so at most the Astra seat can complete this session (the blocker, brief § 1).
+
+### AC-04: the punch-list issue has every item at a Phase 7 outcome
+**Verdict:** UNTESTABLE ? -- no punch list yet (stage D, after 4.6).
+
+### AC-05: `reviewed-at:` and `fixed-at:` on #648
+**Verdict:** PARTIAL ⚠ -- `reviewed-at` is `efadfea08a` (`git diff --quiet 8ebaf8daad efadfea08a -- projects/ROCKNIX/packages/rocknix/`: exit 0), recorded in `00` and `01`; written into #648's body at stage H with `fixed-at`.
+
+### AC-06: `01-research-notes.md` § Scope records `8ebaf8daad`, the three counts, the BUILD_ID and the M7 delta hunk by hunk
+**Verdict:** PASS ✓ -- § Scope carries all four (`01-research-notes.md` § Scope: the hash, the count table with 83/13,327/29/54 and no delta, `BUILD_ID 069fc270442134fe771258418adf4e666e0473fb`, three hunks). **Refutation attempted:** re-ran the three counting commands at 07:10 (they print the brief's numbers); compared the hunk list with `git -C /workspace/repos/rocknix diff --stat next 069fc2704421 -- projects/ROCKNIX/packages/rocknix/` (2 files, +64 -2: `package.mk` 3, `runemu.sh` 63), which the three hunks account for.
+
+### AC-07: a coverage table with exactly one row per path, `grep -c` printing 83, each Q1-Q7 cell answered or `n/a` with a reason
+**Verdict:** PASS ✓ -- `grep -c '^| \`projects/ROCKNIX/packages/rocknix/' 02-forward-audit.md` printed `83` (08:17); the generator reported no path missing. **Refutation attempted:** the generator would have skipped a path not in its dictionary and printed it under MISSING; the list was empty. Cells of `-` mean nothing found; read depth is stated per row and repeated in the Coverage Boundary.
+
+### AC-08: the ten mechanical checks recorded with command, exit status and summary line
+**Verdict:** PASS ✓ -- § Mechanical checks: `pkgcheck` 0, `last-good-scripts-test` 0 under `QA_SYSTEM_ROOT`, `settings-modes-test` 0, `wait-lock-test` 0, `emulator-exit-test --vm` 0, `time-to-play --vm` 1 with its reason (no cloud, under `--no-configure-remote`, both runs), `usb-gadget-test` 0 (host and guest), `rocknix-info-test` 0, `melonds-upgrade-test` 0, `vocabulary-check` 0 with the note that its default reads none of this slice. **Refutation attempted:** each summary line was read from the tool's own output file, and the FAIL counts were grepped (0 in every case).
+
+### AC-09: Q5 carries the two time-to-play numbers beside #336's baseline and a timed `setsettings.sh` run with a launch's arguments
+**Verdict:** PASS ✓ -- `04-analysis.md` § Q5: 0.64 s and 1.01 s (n=3) beside 1.05 s and 2.03 s; `setsettings.sh` 127 ms (verbose) and 99 ms (none), with the arguments from `exec.log`. **Refutation attempted:** the numbers come from `ttp-q5/time-to-play.md`'s table, and the arguments from the guest's own `Execute setsettings` line, not typed; the run's verdict ("Not a pass") is recorded with its reason.
+
+### AC-10: Q6 carries one reachability row per script in `sources/scripts/`, with the search and its output; unreached rows carry `Already written:` and what the unit exposed
+**Verdict:** PASS ✓ -- 47 rows (`grep -c '^| \`' 04-analysis.md` counted 47 at 08:02); the ten unreached-in-effect rows each carry `Already written:` and the name or file they expose. **Refutation attempted:** five common-word names were searched again as invocations; `rocknix-scraper`'s raw interface hit was followed to a page nothing opens and the row corrected.
+
+### AC-11: Q4 lists every commit of `c445081a59..upstream/next` touching the package (43) with a disposition each
+**Verdict:** PASS ✓ -- 43 rows (`grep -c '^| \`[0-9a-f]\{10\}\` |'`: 43), none `(missing)`; totals summed from the rows (26 + 4 + 1 + 1 = 32 commits, 11 merges). **Refutation attempted:** the range is the one the first commands fetched (`8b70f693b8`); a commit with a merge-like subject but one parent was treated as a commit, not a merge.
+
+### AC-12: every guest proof says whether it proved the image's or the tree's copy, after a recorded diff
+**Verdict:** PASS ✓ -- § Image versus tree is the recorded diff (78 same, 3 differ, 1 absent); each table row in § Guest proofs names its copy; the `runemu.sh` proofs ran the tree's copy from `/storage/.qa-t1/` with its hash compared. **Refutation attempted:** looked for a proof of `runemu.sh` through the interface or `emulator-exit-test` without the note: both trial runs say "the image's copy".
+
+### AC-13: every defect has a `bug` issue with the VM line and a VM-verifiable criterion; every removal carries `Already written:`; `box-check` passes on each issue
+**Verdict:** UNTESTABLE ? -- issues are stage D's. Removals proposed so far (F-41, F-49's verbs, F-55's nine, F-66) carry `Already written:` in their Q6 rows.
+
+### AC-14: the retro exists, is posted on #648, and answers what the slice did to the two numbers
+**Verdict:** UNTESTABLE ? -- stage G.
+
+### AC-15: the five checkers pass on the branch before its merge, exit codes pasted on #648
+**Verdict:** UNTESTABLE ? -- before the merge; `register-check` and `work-log-index --check` have passed at each commit so far (00-running-log.md).
+
+## Forward Audit Summary
+
+| Verdict | Count | Criteria |
+| --- | ---: | --- |
+| PASS ✓ | 7 | AC-06, AC-07, AC-08, AC-09, AC-10, AC-11, AC-12 |
+| PARTIAL ⚠ | 2 | AC-01, AC-05 |
+| FAIL ✗ | 1 | AC-02 (expected before stage D) |
+| SKIP ○ | 0 | |
+| UNTESTABLE ? | 5 | AC-03, AC-04, AC-13, AC-14, AC-15 (later stages; AC-03 is the 4.6 blocker) |
+
+**Overall assessment (of the code, not the criteria):** PASS WITH FINDINGS -- 69 findings (F-01 to F-69) on the 83 paths; 17 proven on the guest; the state writers and the lock sound under their tests; the launch path's RetroArch half and the upstream-carried control scripts carry most of the defects.
+
+## Coverage Boundary
+
+**Examined:** all 83 paths, at the depth the coverage table's Read column states: 62 read whole, 21 in outline (the verbs, every file and network operation, the shellcheck warnings) -- `rocknix-es-thebezelproject`, `rocknix-memory-manager` (whole but its status JSON skimmed), `rocknix-bluetooth`, `rocknix-bluetooth-agent`, `rocknix-fake-suspend`, `brightness`, `vertical-check` (to `:40`), `rocknix-info`, `rocknix-config`, `rocknix-settings`, `rocknix-scraper`, `rocknix-systems`, `bezels.sh`, `rocknix-retroachievements-info`, `rocknix-keyboard` (its verbs), and the four sourced fragments' unchanged halves. Runtime-probed on the guest: F-01, F-02, F-09, F-10, F-11, F-14, F-16, F-17, F-19, F-21, F-28, F-29, F-32, F-40, F-44, F-47, F-56, F-57, F-58, and the `find`/`gzip`/`top`/`cryptpw`/`espeak`/`quantum`/`rocknix-encode`/`sselph-scraper` facts.
+**Deliberately not examined:** `backuptool` (T17's), the interface's sources beyond the call sites cited, the sysutils runner and units (T22's), the quirks (T29's), the cloud scripts (T16/T17).
+**Dimensions not exercised:** anything on a handheld (no device in this slice): the H700's governors (F-01's H700 half is from the kernel config), backlight, LED, lid/power suspend, HDMI hotplug, USB gadget binding, Bluetooth, the Qualcomm ABL and internal storage (F-39, F-67); KSM on a 1 GiB device; the upgrade rehearsal (`tools/vm-upgrade-rehearsal`, brief § 5's list) has **not been run yet** this session -- owed before stage D, and recorded here so its absence is visible.
+
+#### The unreached scripts (one finding, nine scripts)
+
+- **F-55 (Q6, Low, Renovation): nine scripts have no caller anywhere.** `amionline`, `bezels.sh`, `error.sh`, `find.sh`, `getoverlays`, `migrate_roms`, `rocknix-retroachievements-info`, `setemu.sh`, `show_changelog`: no hit in the distribution (`grep -rlF` over `packages projects scripts tools config distributions`) or the interface at the pin; all present since the import `9f1fab30f6`; each row of `04-analysis.md` § Q6 carries its `Already written:` line and what it exposes. Three carry defects that would matter if anything called them (`error.sh`'s `[ !-z`, `migrate_roms`'s stray `1` argument, `amionline`'s internet probe). Removal, after `engineering-practices.md` § Before deleting a duplicate (none duplicates a survivor).
+
+#### Numbering note
+
+F-61 is unused (the sequence went from F-60 to F-62 while writing); no finding is missing under it.
+
+---
+# Retrospective — M6.P2 T1, the OS scripts: launch, control and state
+
+**Auditor:** Code Auditor skill (v1.13.0), primary Claude Opus 5.5 (Anthropic) at high effort
+**Date:** 2026-10-23
+**Subject:** #648; the 83 paths at `reviewed-at` `efadfea08a` (= `8ebaf8daad`)
+**Spec:** `docs/reviews/briefs/os-launch-control-state.md` v2
+
+---
+
+## Running Notes
+
+### 3.1 Architectural coherence
+
+The package is three layers that grew at different times. **The fork's state layer** (`001-functions`' writers and lock, `chksysconfig`, `rocknix-evidence`, `rocknix-corekeep`, the fork's half of `wifictl`) is coherent, documented to the decision, and covered by tests that run under the image's busybox; nothing in it failed a refutation. **The launch path** (`runemu.sh`, `setsettings.sh`) is JELOS-era code with the fork's targeted repairs (#92, #176, #196, #209, #280, #308) laid over it: the repairs are sound, the code between them is where the defects are (F-09, F-10, F-11, F-14, F-16, F-17, F-21's consumer side). **The control scripts carried from upstream** (`rocknix-config`, `rocknix-settings`, `rocknix-scraper`, `bezels.sh`, `rocknix-retroachievements-info`, `setemu.sh`, `migrate_roms`, `show_changelog`, `amionline`, `find.sh`, `error.sh`, `getoverlays`) are partly Batocera's and partly dead: ten scripts are unreached or reached only through a page nothing opens (Q6), and `rocknix-config`'s live verbs call two programs the image lacks (F-64). Orphaned or dead code: `automount`'s `start_overlay` (F-41), `runemu.sh`'s three dead variables (F-05), `usbgadget`'s deprecated verbs (F-49), the misspelled `system.cfg` keys (F-45 and the one upstream fixed).
+
+### 3.2 Project conformance
+
+**Instruction files whose `paths:` match** (read from this worktree, equal to `next`'s for every scoped file; § Scope lists them):
+
+| Rule § | Relevance | Finding |
+| --- | --- | --- |
+| `packaging-and-patches.md` § A shipped script's tools are dependencies too | ✗ | F-62: 2 of 36 called programs declared |
+| `packaging-and-patches.md` § late binding, headers | ✓ | `pkgcheck` 0; headers kept with a ROCKNIX/fork line on the fork's files |
+| `upgrade-and-install.md` § Fixing forward / Every fix answers what was already written | ⚠ | F-44 (an update resets a player's DPMS choice), F-33 (`last_` copies lost on the second update), F-63 (the seed's mode stays on every device) |
+| `engineering-practices.md` § Guards must fail closed | ✗ | F-29 (`setrootpass`), F-40 (`installtointernal`'s copy), F-67 (`updateabl`), F-36 (`overlays` reports a removal of a path that never existed), F-48 (`wifictl` exits 0 with no adapter) |
+| `engineering-practices.md` § Verify design intent | ✓ applied | F-09's fix shape kept `:989`'s observed behaviour; F-01 narrowed after reading `SystemConf`; F-67's skip check cleared by the ELF |
+| `engineering-practices.md` § A name is not a behaviour | ✓ applied | F-47's header claim tested and found not to hold; `rocknix-memory-manager` is no loop |
+| `generic-x64-vm-testing.md` § What the guest's busybox lacks; § private settings modes | ✓ | every script check ran under the image's busybox or on the guest |
+| `rclone-cloud-sync.md` § Critical gotchas (reachability means the remote) | ⚠ | `amionline` pings `www.google.com` (unreached, F-55) |
+| `handheld-evidence.md` § what survives what | ⚠ | F-28: `upgrade.log` is overwritten at every ordinary boot, though `/var/log` persists |
+| `es-player-text.md` § outcome vocabulary | · | the slice's player-facing words are `factoryreset`'s failure sentences (#119; in register) and `runemu.sh`'s M7 messages; the rest is log text |
+| `time-to-play.md` | ✓ measured | Q5: 0.64 s and 1.01 s; F-03, F-09 and upstream's `25903bb59c` named for their effect |
+| `least-surprise.md` | ✗ | F-01 (a slower governor chosen, the fastest one got), F-44, F-10 (neogeo's rewind silently off), F-19 (an overlay choice ignored) |
+| `vm-first.md`, `bugs-are-agent-first.md` | ✓ | every behaviour claim is a guest proof or is written as a lead with its device fact |
+
+**Blindspot register** (the entries brief § 3 names, and those this work touched):
+
+| Entry | Does this work repeat it? |
+| --- | --- |
+| 7 / 34 (host tools are not the device's) | **Repeated by the brief, caught**: the `/bin/sh` dash claim was the host's own `/usr/bin/sh` through an absolute link (stage A); and `usb-gadget-test`'s default `--shell /bin/sh` is the host's dash, so the guest run was added |
+| 13 (assumed done) / 51 (an open checkbox is a claim) | not repeated: the prior punch lists were provenance only; no checkbox ticked |
+| 22 (a probe that cannot report absence) | **repeated in the product**: F-40 (`find -exec` returns 0 over a failed `cp`), F-36 (`remove_checked` of a mis-parsed path reports gone) |
+| 30 (a resumed session built on its summary) | guarded: the running log carries commands and outputs |
+| 32 (wall-clock ordering) | **repeated in my own log** twice (times written by estimate), corrected with the clock reads named |
+| 33 (sentinel exit codes) | not touched in this package's fragments |
+| 43 (a header's safety claim untested) | **found again**: `rocknix-evidence`'s "a process list can carry one" (F-47) and `setsettings.sh`'s comment that the `-e` slot is guarded because the line is `eval`'d, which the netplay host is not (F-14) |
+| 46 (a name read as a behaviour) | **in the brief**: `rocknix-memory-manager`'s "loop" |
+| 57 (a fix covering fewer sites than named) | **F-14 is its shape**: #275 quoted the values on the command line; the setting's path into `eval` was a second door |
+| 62 (a fix left what was already written) | F-44, F-63 carry an `Already written:` line for that reason |
+| 64 (lengthening a wait) | not repeated |
+| 72 (a comment held an invariant the code stopped keeping) | F-47's header; F-14's `-e` comment |
+| 73 (a monitor of completion) | n/a (no long build) |
+| new | `wait_lock`'s trap replaced my proof script's own (F-22): a fixture that cleans up from an EXIT trap while sourcing a library that installs one; the friction line names it; a candidate blindspot for the retro |
+
+**Project invariants:** *preserve player progress*: F-16 and F-17 destroy core options (not progress) at every launch, F-11 can leave stale keys; no save is touched. *Backups never contain secrets*: F-68 (pairing keys copied onto `/storage/roms` at every Bluetooth stop), a lead for T16/T17. *The filter is an allowlist*: not touched. *Upgrade and clean install*: F-28, F-33, F-44, F-58 (the x86_64 clean install loses its boot-time CPU/GPU defaults).
+
+### 3.3 Spec fidelity
+
+The brief's claims checked against the artifacts: three were wrong and are recorded as deltas, not stops: `/bin/sh` is bash (stage A); `rocknix-memory-manager` is a oneshot, not a loop; `tools/vocabulary-check` reads none of this slice's scripts. One brief path assumption was unreachable as written: `tools/vm-upgrade-rehearsal` uses the shared QA backend and `vm-pair` (asked on #648). The counts, the hash, the image, the M7 delta and every other host path were right.
+
+### 3.4 Platform architecture conformance
+
+| Check | Relevance | Finding |
+| --- | --- | --- |
+| Reference Implementation / Schema-Before-Code / Dogfooding / API-First | · | not this repository's model; not applicable |
+
+### 3.5 Cross-system interaction audit
+
+### Interaction: the launch path x the interface (T2, T21)
+**State shared:** the launch command (`es_systems.cfg`'s `runemu.sh %ROM% -P%SYSTEM% --core=... --controllers=...`), `system.cfg` per-game keys (`<system>["<file>"].<key>`, `FileData.cpp:176-183`), the interface's option lists.
+**Wipe risk:** a per-game key the interface writes that `get_setting` cannot find (F-21); a value the interface lets a player type that `runemu.sh` evaluates (F-14); an option the interface offers that the script cannot apply (F-01).
+**Test coverage:** PARTIAL -- `emulator-exit-test` and `time-to-play` cross the seam for one ROM name without brackets and the default settings; nothing crosses it with a per-game setting, a bracketed name, netplay or a governor.
+**Finding:** broken at three points, each proven on the guest.
+
+### Interaction: the settings writers x the lock
+**State shared:** `system.cfg`, `/tmp/.system.cfg.lock` (pid-only, shared with the interface's `PidLock`, D-INFRA-012).
+**Wipe risk:** a writer outside the lock (F-32's two lines, F-65 latent); a cut file completed into a whole-looking one (F-32, proven).
+**Test coverage:** TESTED for the guarded writers (`wait-lock-test`, `settings-modes-test`, `last-good-scripts-test`); UNTESTED for `post-update`'s lines and `rocknix-settings`.
+**Finding:** risky at the unguarded writers; upstream's `25903bb59c` would change the lock to `flock`, which the interface's `PidLock` does not read (Q4: split).
+
+### Interaction: `post-update` x `/storage`
+**State shared:** `/storage/.config` (system, interface links, modules, sysctl.d, the cloud config), `/var/log/upgrade.log`.
+**Wipe risk:** F-44 (a setting deleted every update), F-33 (a backup copy overwritten by a link), F-28 (its own log overwritten at the next boot), F-34 (dev-image files over the owner's).
+**Test coverage:** PARTIAL -- `melonds-upgrade-test` (one block); the upgrade rehearsal not run this session (asked).
+**Finding:** risky.
+
+### Interaction: `automount` x the cloud scripts' saves root
+**State shared:** what `/storage/roms` is (bind, overlay, or the internal card's own directory).
+**Wipe risk:** a failed mount leaves the internal directory in place with nothing said (F-42); `cloud_saves_root` (D-CLOUD-054/055) refuses a changed card on the cloud side.
+**Test coverage:** PARTIAL -- `last-good-scripts-test` covers `automount`'s fork half; a failed mount is not provoked.
+**Finding:** safe for the cloud by the other side's guard; locally unreported.
+
+### Interaction: `rocknix-bluetooth` x the content tier and Samba
+**State shared:** `/storage/roms/backups/bluetooth.tar` (link keys).
+**Wipe risk:** a credential leaving the device in a content backup or over the share (F-68).
+**Test coverage:** UNTESTED.
+**Finding:** risky; a lead for T16/T17.
+
+### 3.6 What's missing?
+
+Searched with `grep -rlF '<script>' tools/` (less `node_modules` and Markdown), 08:21 UTC:
+
+- **No test exercises `setsettings.sh`'s per-core files, its parallel staging or its `match()`/`add_setting`** (`last-good-scripts-test` and `ra-offline-test` name the file for the redaction and the offline proxy's host): the gap that let F-09, F-10, F-11, F-16 and F-17 ship since the import. The group 1 proofs (`.qa-scratch/t1/proofs/group1.sh`) are the shape such cases would take.
+- **No test reaches `rocknix-fake-suspend`, `paneladj`, `updateabl` or `installtointernal`** (0 tool files each); `paneladj`'s defect (F-57) and `installtointernal`'s copy status (F-40) are provable on the guest with a fixture, as this audit did.
+- **No test passes a per-game setting, a bracketed ROM name or a governor through `runemu.sh`.**
+- **`tools/vocabulary-check` reads none of this slice's scripts** (its `--scripts` default is the rclone sources plus `backuptool`); the slice's player-facing strings are few, but the tool's scope is narrower than the brief assumed.
+- Proximate work checked for a test under another name: `tools/emulator-exit-test` (the exit path only), `tools/time-to-play` (one ROM, default settings), `tools/settings-modes-test` (the writers' modes).
+
+### 3.6.5 Audit-prescription verification: the shapes, every site
+
+**(A) A write to `system.cfg` outside the guarded writers** (grep for `sed -i|>>?|cp |mv |tee` naming `system.cfg`, `J_CONF`, `CFG`, `SYSTEM_CONFIG`, then the variables that hold it):
+
+| Site | Kind | Verdict |
+| --- | --- | --- |
+| `post-update:159-160` (`$ a\`) | Site | FIX-NOW (F-32) |
+| `post-update:202` (dpms delete) | Sibling | FIX-NOW (F-32, F-44) |
+| `rocknix-settings:61-74` (through `ROCKNIX_CONFIGFILE`) | Adjacent | FILE-FOLLOWUP or fix with F-32 (F-65, unreached) |
+| `001-functions:542`, `:595` (`cp -f` seed of a missing file) | Sibling | SAFE-AS-TESTED (only when the file is absent) |
+
+**(B) A value spliced unquoted into `eval` or a `sed` program:**
+
+| Site | Kind | Verdict |
+| --- | --- | --- |
+| `setsettings.sh:683`, `:688` -> `runemu.sh:355`, `:500` (netplay host) | Site | FIX-NOW (F-14) |
+| `setsettings.sh:787` (`--set-shader`) | Sibling | FIX-NOW with F-14 |
+| `setsettings.sh:1048-1087`, `:1123` (core option values into `sed`) | Sibling | FIX with F-19 |
+| `runemu.sh:378`, `:385` (ROM name into PortMaster's `sed`) | Adjacent | FILE-FOLLOWUP (upstream path, D-UI-079 governs behaviour; the quoting is a contained fix) |
+| `rocknix-memory-manager:99` (`eval` of a typed value) | Adjacent | FIX with F-52 |
+| `rocknix-config:39` (`sed` of key/value) | Adjacent | with F-64's disposition |
+
+**(C) Success reported over a no-op or a failure:**
+
+| Site | Kind | Verdict |
+| --- | --- | --- |
+| `setrootpass:32-45` | Site | FIX-NOW (F-29) |
+| `installtointernal:208-215` | Sibling | FIX-NOW (F-40) |
+| `updateabl:69-72` | Sibling | FIX (F-67; device-only proof) |
+| `factoryreset:172` + `remove_checked` | Sibling | FIX (F-36) |
+| `wifictl:55-57` | Sibling | FIX (F-48) |
+| `factoryreset:220-238` (rk817) | Adjacent | FILE-FOLLOWUP (F-37, unshipped hardware) |
+
+**(D) A `#!/bin/sh` script that needs bash** (shellcheck's SC30xx over the slice, and the grep above): `usbgadget`, `rocknix-fake-suspend`, `rocknix-bluetooth`, `volume`, `getfilters`, `updateabl`, `vertical-check`, `autostart/080-network`, `bezels.sh`, `migrate_roms`, and the three autostart fragments that source `001-functions` (`001-setup`, `003-upgrade`, `007-rootpw`) plus `008-perfmode` -- 14 sites. Verdict: BY-DESIGN today (the image's `sh` is bash), but the brief itself believed otherwise, and `008-perfmode`'s fatal `.` (F-58) is a POSIX-mode consequence. One codified rule for the retro: the interpreter line says what the code needs.
+
+**(E) A setting's value executed as a command:** `runemu.sh:131`, `:467` (F-01); no third site (grep for a line that is a lone expansion: the rest are the `${VERBOSE} &&` idiom or a continued argument).
+
+### 3.7 Retrospective Summary
+
+**Architectural assessment:** the fork's own state layer is sound; the launch path's inherited middle and the upstream control scripts carry the defects and the dead ends.
+**Conformance:** MEDIUM -- strong where the fork has worked (lock, writers, evidence), weak on fail-closed guards in inherited scripts and on declared dependencies.
+**Cross-system interactions:** identified at five seams; the launch path x interface seam is broken at three proven points and has no test that crosses it with real settings.
+**Spec drift:** three brief claims wrong (recorded), one brief instruction unrunnable as written (asked).
+**Missing artifacts:** tests for `setsettings.sh`'s settings, for the four untested scripts, and for the launch seam with per-game settings.
+
+---
+# Audit Analysis — M6.P2 T1, the OS scripts: launch, control and state
+
+**Date:** 2026-10-23
+**Spec:** `docs/reviews/briefs/os-launch-control-state.md` v2; `docs/reviews/plan-for-the-plan.md` § 4
+**Issues:** #648, #695, #339
+**Commits:** read at `reviewed-at` `efadfea08a` (slice bytes = `8ebaf8daad`); `upstream/next` for Q4 `8b70f693b8`; image `069fc270442134fe771258418adf4e666e0473fb`
+
+---
+
+## Executive Summary
+
+T1 read the 83 paths of `projects/ROCKNIX/packages/rocknix/` (less `backuptool`) -- 13,327 lines, 29 fork-own and 54 upstream-carried -- at `8ebaf8daad`, under the code-auditor lifecycle with the renovation face, and proved every behaviour claim it could on a GENERIC_X64 guest booted from the M7 lane's newest image. It found **68 findings: 0 Critical, 0 High, 19 Medium, 49 Low**; 18 are proven on the guest, three are already fixed upstream (Q4), and the rest are traces with `file:line` or device-only leads named as such.
+
+The fork's own state layer -- the settings writers and lock, `chksysconfig`, `rocknix-evidence`, `rocknix-corekeep` -- is sound under its tests and every refutation. The defects concentrate in the launch path's inherited middle and in upstream-carried scripts: `setsettings.sh` truncates the Gambatte and MAME 2003-Plus option files at every launch (F-16, F-17), reads `neogeo` as `neogeocd` (F-10), can lose its staged clears to a race (F-11) and ignores an explicit value (F-09); a typed netplay host reaches `runemu.sh`'s `eval` as root (F-14, #275's class through a second door); per-game settings are lost for any ROM whose name carries `[` (F-21); `runemu.sh` executes a governor name the H700 offers without a function (F-01). Guards that report success over a failure recur (F-29 `setrootpass`, F-40 `installtointernal`, F-67 `updateabl`). `post-update` resets a player's DPMS choice at every update (F-44) and is one of the last unguarded writers of `system.cfg` (F-32). On x86_64, `008-perfmode` stops at its third line at every boot (F-58). Ten scripts are unreached (Q6).
+
+Two time-to-play numbers were measured (0.64 s and 1.01 s, against #336's stale 1.05 s and 2.03 s), `setsettings.sh` costs 127 ms a launch at the engineering image's verbose loglevel (99 ms at none), and all 43 upstream commits on the package are dispositioned. Phase 4.6 is incomplete: the Astra seat's result is recorded below, and the Gemini 4 Argon seat is pending because its route is not in this tree (the brief's named blocker).
+
+## Acceptance-criteria scorecard
+
+| ID | Criterion (#648 / brief § 7) | Verdict | Notes |
+| --- | --- | --- | --- |
+| AC-01 | the folder holds `00` to `05` | PARTIAL ⚠ | `05` at stage D |
+| AC-02 | the lint PASS, renovation face included | FAIL ✗ | expected before stage D; re-run then |
+| AC-03 | review plan: Extended, two labs, served models | UNTESTABLE ? | the Argon blocker |
+| AC-04 | every punch item at a Phase 7 outcome | UNTESTABLE ? | stage F |
+| AC-05 | `reviewed-at`/`fixed-at` on #648 | PARTIAL ⚠ | `efadfea08a` recorded; body at stage H |
+| AC-06 | § Scope records hash, counts, BUILD_ID, M7 delta | PASS ✓ | |
+| AC-07 | 83-row coverage table | PASS ✓ | `grep -c` = 83 |
+| AC-08 | the ten mechanical checks recorded | PASS ✓ | |
+| AC-09 | Q5: the two numbers and `setsettings.sh` timed | PASS ✓ | |
+| AC-10 | Q6: one row per script, unreached rows with `Already written:` | PASS ✓ | 47 rows |
+| AC-11 | Q4: 43 commits dispositioned | PASS ✓ | |
+| AC-12 | every guest proof names its copy | PASS ✓ | |
+| AC-13 | bug issues, removals with `Already written:`, `box-check` | UNTESTABLE ? | stage D |
+| AC-14 | the retro | UNTESTABLE ? | stage G |
+| AC-15 | the five checkers before the merge | UNTESTABLE ? | before the merge |
+
+**Pass rate:** 7/15 criteria fully met (47%) at the end of stage B; the rest are later stages' (the Total is the column of the rows above, counted).
+
+## Code Quality Assessment
+
+### Strengths
+- The settings writers and the lock: literal key matching through `index()`, values through the environment, one rename per write, `pipefail` in a subshell gating every rename, a torn last line dropped (`001-functions:360-612`); each decision dated in a comment.
+- `rocknix-evidence`'s filter enforced at the boundary, and `rocknix-corekeep`'s bounds (cap before compression, floor, lock, ring by time).
+- `factoryreset`'s and `wifictl`'s fork halves: every verb returns a status and checks what it removed or wrote.
+
+### Concerns
+- Success over a failure in inherited destructive or credential scripts (F-29, F-36, F-40, F-48, F-67).
+- Values that cross into `eval` or `sed` unquoted (F-14, F-19, F-52, and § 3.6.5 (B)'s siblings).
+- `#!/bin/sh` scripts that need bash, 14 sites (§ 3.6.5 (D)); `008-perfmode`'s fatal `.` is its consequence (F-58).
+
+### Complexity Hotspots
+- `setsettings.sh` (1,479 lines, 24 parallel functions sharing one staged sed file); `runemu.sh` (626 lines, the emulator dispatch, the performance modes and the exit mapping in one script); `rocknix-config` (Batocera's tool, half its verbs without their programs).
+
+## Cornerstone Conformance
+
+**Overall:** MEDIUM. The ⚠ and ✗ rows of `03-retrospective.md` § 3.2: dependencies undeclared (F-62); guards that fail open (F-29, F-36, F-40, F-48, F-67); what was already written on upgraded devices (F-33, F-44, F-63); least surprise (F-01, F-10, F-19, F-44); `upgrade.log` overwritten (F-28); blindspots 22, 43, 57 repeated in product code, 7/34 in the brief, 32 in this audit's own log.
+
+## Spec Fidelity
+
+### Aligned
+The scope, the hash, the counts, the image, the M7 delta, the RetroArch-half rule, the tool arguments of § 5 (all ten ran as written).
+
+### Diverged
+Three brief claims were wrong and are recorded as deltas (`/bin/sh` is bash; `rocknix-memory-manager` is a oneshot; `vocabulary-check` reads none of this slice); `tools/vm-upgrade-rehearsal` cannot run under § 5's own bounds as written (asked on #648, not run). Impact: none on the verdicts; the Coverage Boundary names the rehearsal's absence.
+
+## Missing Artifacts
+
+From `03-retrospective.md` § 3.6 (with its search trail): tests for `setsettings.sh`'s option files, `match()`, `add_setting` and its parallel staging; any test for `rocknix-fake-suspend`, `paneladj`, `updateabl`, `installtointernal`; a launch-seam test with a per-game setting, a bracketed name, netplay or a governor; `vocabulary-check`'s scope over this package's scripts.
+
+## Risk Assessment
+
+Every finding, with its question, severity and evidence class (titles from `02-forward-audit.md`'s finding headings, generated):
+
+| Finding | Question | Severity | Defect or item | Evidence |
+| --- | --- | --- | --- | --- |
+| F-01 | Q3 | Medium | a governor setting is run as a command, and names ES offers have no function | proven on the guest |
+| F-02 | Q3 | Low | `onlinethreads` does not exist on x86_64, and the exit path calls it every time | proven on the guest |
+| F-03 | Q3 | Medium | exit-time restores run in the background and race the next launch | trace / read |
+| F-04 | Q3 | Low | the per-game fan profile is written into the global setting for the length of the game | trace / read |
+| F-05 | Q6 | Low | dead variables | trace / read |
+| F-06 | Q3 | Low | `rm ${ROMNAME}.nvmem*` unquoted | trace / read |
+| F-07 | Q3 | Low | `CORE` and `EMULATOR` are still cut from the joined line | trace / read |
+| F-08 | Q7 | Low | every `log $0 " | trace / read |
+| F-09 | Q3 | Medium | `add_setting`'s condition is two commands, not one | proven on the guest |
+| F-10 | Q3 | Medium | `match()` is a substring regex, so `neogeo` is read as `neogeocd` | proven on the guest |
+| F-11 | Q3 | Medium | the parallel functions share one staged sed file through a check-then-create | proven on the guest |
+| F-12 | Q2 | Low | `set_config_save` passes its arguments in the wrong positions | trace / read |
+| F-13 | Q2 | Low | a joypad autoconfig is sourced as shell, as root | trace / read |
+| F-14 | Q3/Q2 | Medium | the netplay host a player types reaches `runemu.sh`'s `eval` unquoted | proven on the guest |
+| F-15 | Q3 | Low | two netplay `add_setting` calls are malformed | trace / read |
+| F-16 | Q3 | Medium | tate mode wipes the MAME 2003-Plus core options | proven on the guest |
+| F-17 | Q3 | Medium | every Game Boy launch truncates `Gambatte.opt` | proven on the guest |
+| F-18 | Q3 | Low | Kronos's options file is written under a path RetroArch may not read | trace / read |
+| F-19 | Q2/Q3 | Medium | option values are spliced into `sed` programs unquoted, and a default device never applies an overlay choice | proven on the guest |
+| F-20 | Q2 | Low | the sway test prints into the caller's output | trace / read |
+| F-21 | Q3 | Medium | a game's own settings are not found when its file name holds a regex character other than `'`, `(`, `)` or `&` | proven on the guest; fixed upstream (`25903bb59c`) |
+| F-22 | Q7 | Low | `wait_lock` replaces its caller's traps | trace / read |
+| F-23 | Q2 | Low | `sway_fullscreen` prints the sway test's match | trace / read |
+| F-24 | Q5 | Low | the shared `log()` appends to `/var/log/messages` with no bound | trace / read |
+| F-25 | Q3 | Low | `set_online_threads` counts CPUs by `find /sys/devices/system/cpu -name online / wc -l` | device-only: trace |
+| F-26 | Q3 | Low | `create_controller_db` tests `[ ${INPUT_NAME} == "hotkeyenable" -a ${HOTKEYENABLE_BUTTON} == ${SELECT_BUTTON} ]` unquoted (`:132`), so a pad mapped wi | trace / read |
+| F-27 | Q3 | Low | every launch on the default config asks for an empty shader | trace / read |
+| F-28 | Q3/Q5 | Low | the update's own log is gone at the next boot | proven on the guest |
+| F-29 | Q3/Q2 | Medium | a hash that failed to compute, or a shadow line of another shape, is reported as a password change | proven on the guest |
+| F-30 | Q3 | Low | a bound (tens of seconds) costs nothing on a healthy card, where `cat` and `mv` of 5 KB take milliseconds | device-only: trace |
+| F-31 | Q7/Q2 | Low | `Description=ROCKNIX user autostart script` names another unit's job, and `EnvironmentFile=/etc/profile` hands systemd a shell script as an environmen | trace / read |
+| F-32 | Q3/Q2 | Medium | the two last writers of `system.cfg` that bypass the settings lock and the torn-file guard | proven on the guest |
+| F-33 | Q3 | Low | the interface configs' `last_` copies are not idempotent | trace / read |
+| F-34 | Q3 | Low | dev-image blocks overwrite the owner's files | trace / read |
+| F-35 | Q3 | Low | `cd` without a check | trace / read |
+| F-36 | Q7 | Low | `overlays` finds its folders with a greedy match that works by the option order | trace / read |
+| F-37 | Q3 | Low | `rk817-fuelgauge` (`:220-238`) exits 0 having done nothing when no `rk817` is found (the loop's status), unlike every other verb | trace / read |
+| F-38 | Q3 | Low | `audio` removes `/storage/.local/state` whole | trace / read |
+| F-39 | Q3 | Medium | nothing refuses a target that holds the running system | device-only: trace |
+| F-40 | Q3 | Medium | a failed copy of `/storage` ends on "successful" | proven on the guest |
+| F-41 | Q6 | Low | `start_overlay` is dead | trace / read |
+| F-42 | Q3 | Low | a mount that fails is neither checked nor said | trace / read |
+| F-43 | Q7 | Low | `:251` writes `ISMOUNTED="$(grep "${DEV}" /proc/mounts) >/dev/null 2>&1"`, the redirection inside the quotes, so the test at `:252` works only because | trace / read |
+| F-44 | Q3 | Medium | every update turns the player's DPMS choice back off | proven on the guest |
+| F-45 | Q3/Q6 | Low | `ngpc.intergerscale=1` is misspelled | trace / read; fixed upstream (`4e3972d037`) |
+| F-46 | Q6 | Low | `updates.enabled=1`, `updates.branch=auto`, `updates.force=0` | trace / read |
+| F-47 | Q2 | Low | the credential filter misses three argv shapes the slice's scripts produce | trace / read |
+| F-48 | Q3 | Low | the verbs outside the typed list report success with no adapter | trace / read |
+| F-49 | Q6/Q3 | Low | `restart` cannot restart, and nothing calls it | trace / read; cause fixed upstream (`6aa745572b`) |
+| F-50 | Q2 | Low | a `#!/bin/sh` script in bash | trace / read |
+| F-51 | Q7 | Low | the service's `Description=Report anonymous ROCKNIX install statistics` describes what it no longer does | trace / read |
+| F-52 | Q2 | Low | the setting flags write and `eval` their value unquoted | trace / read |
+| F-53 | Q3 | Low | a swap-file resize writes over a file the kernel may still be swapping to | device-only: trace |
+| F-54 | Q2 | Low | names from a remote list reach a file path, guarded by accident | trace / read |
+| F-55 | Q6 | Low | nine scripts have no caller anywhere | trace / read |
+| F-56 | Q3 | Low | `autostart/050-audio` runs a program that is not there, every boot | proven on the guest |
+| F-57 | Q3 | Medium | `paneladj` clamps every stored panel value to its maximum and writes a stray file | proven on the guest |
+| F-58 | Q3 | Medium | `autostart/008-perfmode` stops at its third line on every x86_64 boot | proven on the guest |
+| F-59 | Q3 | Low | `055-hdmi-check` writes the 1080p mode to the wrong file | trace / read |
+| F-60 | Q2 | Low | an unset `audio | trace / read |
+| F-62 | Q2 | Low | the scripts' programs are present but undeclared | trace / read |
+| F-63 | Q2 | Low | `system.cfg` is world-readable and world-executable | trace / read |
+| F-64 | Q3/Q6 | Low | `rocknix-config` is carried with Batocera's dependencies, and the interface's calls reach verbs that do nothing or fail | trace / read |
+| F-65 | Q3 | Low | `rocknix-settings` can write `system.cfg` outside the lock | trace / read |
+| F-66 | Q6 | Low | `rocknix-scraper` (79, upstream-carried) is reached only through a page nothing opens, and runs a scraper the image does not have | trace / read |
+| F-67 | Q3 | Medium | `updateabl` writes the bootloader on both slots without checking the writes | device-only: trace |
+| F-68 | Q2 | Medium | the Bluetooth pairing keys are copied onto the games folder at every Bluetooth stop | trace / read |
+| F-69 | Q1/Q6 | Low | drop the entry, or the file with the verb | trace / read |
+
+**Totals:** 68 findings (19 Medium, 49 Low), counted from the rows above; F-61 is unused.
+
+## Coverage Boundary
+
+**Examined:** all 83 paths; 62 read whole and 21 in outline (named in `02-forward-audit.md` § Coverage Boundary and per row in the coverage table); 18 findings and a dozen image facts runtime-probed on the guest; ten mechanical checks run; shellcheck v0.11.0 over 63 shell files with all 16 errors dispositioned; the M7 delta read as context; the interface's call sites read at the pin.
+**Deliberately not examined:** `backuptool` (T17), the interface's code beyond call sites (T2, T21), the sysutils runner and units (T22), the quirks (T29), the cloud scripts (T16, T17).
+**Dimensions not exercised:** anything on a handheld (no device in M6): H700 governors (from the kernel config), backlight, LED, lid and power suspend, HDMI hotplug, USB gadget binding, Bluetooth, the Qualcomm ABL and internal storage; KSM on a 1 GiB device; `tools/vm-upgrade-rehearsal` (asked on #648); the outline-read files' remaining lines; the second reviewer seat (Argon, pending).
+
+## Finding Verification (Phase 4.5)
+
+No finding is Critical or High. The Medium findings, attacked the same way before they go to the seat:
+
+| Finding | Severity | Survived refutation? | What was checked |
+| --- | --- | --- | --- |
+| F-01 | Medium | yes | reproduced on the guest (§ Guest proofs) |
+| F-03 | Medium | yes | code path re-read end to end; the device fact named |
+| F-09 | Medium | yes | reproduced on the guest (§ Guest proofs) |
+| F-10 | Medium | yes | reproduced on the guest (§ Guest proofs) |
+| F-11 | Medium | yes | reproduced on the guest (§ Guest proofs) |
+| F-14 | Medium | yes | reproduced on the guest (§ Guest proofs) |
+| F-16 | Medium | yes | reproduced on the guest (§ Guest proofs) |
+| F-17 | Medium | yes | reproduced on the guest (§ Guest proofs) |
+| F-19 | Medium | yes | reproduced on the guest (§ Guest proofs) |
+| F-21 | Medium | yes | reproduced on the guest (§ Guest proofs); the fix exists upstream |
+| F-29 | Medium | yes | reproduced on the guest (§ Guest proofs) |
+| F-32 | Medium | yes | reproduced on the guest (§ Guest proofs) |
+| F-39 | Medium | yes | code path re-read end to end; the device fact named |
+| F-40 | Medium | yes | reproduced on the guest (§ Guest proofs) |
+| F-44 | Medium | yes | reproduced on the guest (§ Guest proofs) |
+| F-57 | Medium | yes | reproduced on the guest (§ Guest proofs) |
+| F-58 | Medium | yes | reproduced on the guest (§ Guest proofs) |
+| F-67 | Medium | yes | code path re-read end to end; the device fact named |
+| F-68 | Medium | yes | code path re-read end to end; the device fact named |
+
+Refutations that **changed** a finding before this table: F-01 narrowed (the interface never writes `default`, `SystemConf.cpp:387`); F-32 corrected (busybox `sed` completes the half line rather than joining it); F-47 narrowed (the snapshot's `top` prints names only); F-67's skip-check suspicion cleared by the ELF's size; F-09's fix shape chosen to keep `:989`'s observed behaviour.
+
+
+---
+[Provisional findings: the Risk Assessment table above is the list; Phase 5 is written only after independent review.]

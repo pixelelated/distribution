@@ -62,6 +62,20 @@ then the 83-row coverage table, the Q5/Q6/Q4 work, Phase 3 and 4.
 **A proof script restores explicitly, never from an EXIT trap** (`wait_lock`
 replaces it: F-22), and checks a file bind in `/proc/self/mountinfo`.
 
+**Stage B through Phase 4.5 done; Phase 4.6 in progress (08:27 UTC).**
+68 findings (0 Critical, 0 High, 19 Medium, 49 Low) in `02`/`04`; the
+coverage table (83 rows), Q4 (43 commits), Q5 (0.64 s / 1.01 s;
+`setsettings.sh` 127 ms), Q6 (47 rows) done; `03` written. The Astra
+refutation pass runs under `tools/watch-build --record-only`
+(`.build-runs/20261023T082647Z-e7167ae6/`), output
+`second-opinions/gpt-audit.md` + `.provenance.json`. **Then the Phase 4.6
+blocker:** the Gemini 4 Argon route is absent (`grep -c gemini-argon
+scripts/council-invoke.ts tools/lint-audit-artifacts` = 0, 0); grade the
+Astra items into `04` § Second opinion, record Argon pending, post the
+blocker on #648 and stop -- no Phase 5, no issues, until the coordinator
+brings `1c7d283ad5` + `a7a3bdda4e` or the M7 merge lands. Open on #648:
+the rehearsal question (issuecomment-6360655911).
+
 ## Next commands
 
 ```bash
