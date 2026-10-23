@@ -55,20 +55,38 @@ tocon "Update tool modules..."
 rsync -a /usr/config/modules/* /storage/.config/modules/
 cp -f /usr/config/retroarch/retroarch-core-options.cfg /storage/.config/retroarch/retroarch-core-options.cfg
 
-### Apply developer ssh keys if they exist
+### Apply developer ssh keys if they exist. They are added to the owner's
+### file, a key already there not twice, never copied over it -- and with no
+### /storage/.ssh the copy made a file of that name (#740).
 echo "Apply dev keys if available..." >>${LOG}
 if [ -e /usr/config/ssh/authorized_keys ]
 then
   tocon "Update developer keys..."
-  cp /usr/config/ssh/authorized_keys /storage/.ssh
+  KEYS=/storage/.ssh/authorized_keys
+  if [ -d /storage/.ssh ] || { mkdir -p /storage/.ssh && chmod 700 /storage/.ssh; }
+  then
+    [ -e "${KEYS}" ] || { : > "${KEYS}" && chmod 600 "${KEYS}"; }
+    [ -s "${KEYS}" ] && [ -n "$(tail -c 1 "${KEYS}")" ] && echo >> "${KEYS}"
+    while IFS= read -r key
+    do
+      [ -n "${key}" ] || continue
+      grep -qxF -- "${key}" "${KEYS}" || printf '%s\n' "${key}" >> "${KEYS}"
+    done < /usr/config/ssh/authorized_keys
+  fi
 fi
 
-### Apply developer wifi config if they exist
+### Apply developer wifi config if they exist: a network the owner already
+### has is theirs (#740).
 echo "Apply dev wifi config if available..." >>${LOG}
 if [ -d /usr/config/iwd ]
 then
   tocon "Update developer wifi config..."
-  cp /usr/config/iwd/* /storage/.cache/iwd/
+  mkdir -p /storage/.cache/iwd
+  for f in /usr/config/iwd/*
+  do
+    [ -f "${f}" ] || continue
+    [ -e "/storage/.cache/iwd/${f##*/}" ] || cp "${f}" /storage/.cache/iwd/
+  done
 fi
 
 ### Retire the console-era TOOLS entries
