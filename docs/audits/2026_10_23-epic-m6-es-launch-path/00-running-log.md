@@ -454,3 +454,28 @@ Nothing on this list runs before the coordinator relays M7's `resource return` o
   - `es-unit-tests`, `tests/app-unit`'s targets, and the python harnesses (they compile with `g++`).
   - The syntax recipe over every `.cpp` the branch touched; `a1cbc0ccd`'s `FileData.cpp` is the one not yet compiled.
   - The guest, if anything still needs it.
+
+### [Stage F, the compiled part] 23:47-23:54 — between the resource return and the next M7 window
+
+- **The coordinator's return, 23:47 (#649)**, and PL-035's answer, 21:53: the `ProxyCards` comments go in one comment-only commit with its compile.
+- 23:48:07 **`es-unit-tests`**, at `a1cbc0ccd`: 220 passed, 0 failed, 4917 assertions, rc 0.
+- 23:48-23:51:45 **the python harnesses**, each rc 0:
+  - `launch-capture-gate` PASS (17), `launch-deferred-state` PASS (5) and `hasher-offline-index` PASS, the three the brief names.
+  - This lane's three: `launch-play-through` (4), `system-scan-assets` (3) and `main-parse-args` (11). The last one's refusal messages carry no newline, so `grep -c '^ok'` counts 7 where there are 11 checks.
+  - `credential-quoting`: 9 quoted, 0 bare.
+- 23:49 **PL-035's `ProxyCards` comments**, edited: six blocks, rule first, the audit ids after.
+  - `git diff -U0` shows no changed line that is not a comment, and `grep -nP '^\s*//.*[^\x00-\x7F]'` finds none.
+- 23:49-23:50 **the syntax recipe** over `git diff --name-only 16dbac5211..HEAD -- '*.cpp'` plus the working tree's `ProxyCards.cpp`, with `tools/es-syntax-check --root <root> --tree $W`:
+  - `PASS es-app/src/FileData.cpp`, `main.cpp`, `ProxyCards.cpp`, `SaveState.cpp`, `SaveStateBookkeeper.cpp`, `SaveStateConfigFile.cpp`, `SaveStateRepository.cpp`, `SystemData.cpp`, `views/ViewController.cpp`. Compiler `x86_64-rocknix-linux-gnu-g++-15.2.0`, rc 0 each.
+  - The nine test sources print `NO-CMD` (rc 1): ninja has no command for a file the image does not build. They are compiled by the two suites.
+- 23:50:34 ES **`55158d2a6`** `ProxyCards: each rule first, its audit identifiers after it`. Its compile line is the PASS above, earlier than the commit. Its unit-test line is 23:48:07, on the same code: the commit changes comments only.
+- 23:50:47-23:53:37 **`tests/app-unit`**, built after the commit, ASan+UBSan, all rc 0:
+  - `app-unit-tests` 18/18 (119 assertions)
+  - `jobs-tests` 6/6 (28)
+  - `bookkeeper-tests` 6/6 (25)
+  - `proxycards-tests` 12/12 (71)
+- About 23:52, **the four host checks at the tip:** `credential-quoting` 9/9; `es-menu-map-check` 55 screens, 0 missing; `es-untranslated` 706, 0 without; `vocabulary-check` 0 wrong.
+- **The guest: not started.** All ten pin-binary proofs ran in cycle 1, and every remaining proof is a walk on the image.
+- **A gap, stated: `a1cbc0ccd`.** It was committed at 21:50:06 under the M7 window, where no compile was allowed. So its compile line (`FileData.cpp` PASS, 23:49-23:50) and its unit-test line (23:48:07) come after the commit, not before it as #649's thirteenth item asks. The change is one string literal and the catalogues; the coordinator's re-run at acceptance is the check.
+- **PL-035 Resolved** (`f2758b145`, `2f881879c`, `55158d2a6`). Only PL-032 is still Open, waiting for the Backlog issue at acceptance.
+- **The coordinator's 23:53 note:** an M7 window opens at 00:07, with no compile and no guest until the next return. At 23:53:52 `pgrep` found no T2 build, test or guest process. Posted on #649 (23:54). The ES branch was pushed (`a1cbc0ccd..55158d2a6`).

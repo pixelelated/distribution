@@ -25,6 +25,17 @@ Findings are written as each unit is read (`READ → WRITE → REPEAT`). Line nu
 | syntax-only compile per edited `.cpp` | the fixed `tools/es-syntax-check --root <root>` (#699) | 0 | `FileData.cpp` and `ViewController.cpp` OK at the pin, compiler `x86_64-rocknix-linux-gnu-g++-15.2.0`; no `.cpp` edited yet | 18:36 |
 | `tools/time-to-play --vm --only launch,exit,g2g` | `--port 10033 --identity $R/key --monitor $R/monitor.sock --out $R/ttp-q5 --no-configure-remote --vm --only launch,exit,g2g --repeat 3` | 1 (by design) | first frame **0.65 s** median, next game **1.01 s** median (n=3 each); `Not a pass: the exit sync had no cloud to reach` | 18:43-18:47 |
 | `tools/es-launch-memory` | `--port 10033 --identity $R/key --cycles 5 --rom /storage/roms/gb/TTProbe.gb --output $R/launch-memory-1` | 0 | one ES pid (1567) across 5 cycles; VmSize growth −4,992 KiB, RSS growth −26,300 KiB | 18:48-18:49 |
+| **Stage F, at the ES tip `55158d2a6`** | | | | |
+| credential quoting | `(cd $W && python3 tests/credential-quoting.py)` | 0 | `credential-quoting: 9 credential call site(s), 9 quoted, 0 bare` | 23:5x, at the tip |
+| menu map | `tools/es-menu-map-check --es-src $W --ref feature/m6-es-launch-path-649` | 0 | `55 screen(s) ..., 31 in the map, 24 declared unmapped, 0 missing` | 23:5x, at the tip |
+| French | `tools/es-untranslated --es-src $W --quiet` | 0 | `706 fork string(s) in the source, 706 with French, 0 without` | 23:5x, at the tip |
+| vocabulary | `tools/vocabulary-check --es $W` | 0 | `163 string(s) with back up / backup, save state or Wi-Fi judged, 0 wrong` | 23:5x, at the tip |
+| unit tests `es-unit-tests` | brief § 5 recipe | 0 | `220 passed \| 0 failed`, `4917 assertions` | 23:48:07, at `a1cbc0ccd` (the later commit is comments only) |
+| `tests/app-unit` (ASan+UBSan) | build in `<scratch>/build-app-unit`, run each | 0 each | `proxycards-tests` 12/12 (71 assertions); `bookkeeper-tests` 6/6 (25); `jobs-tests` 6/6 (28); `app-unit-tests` 18/18 (119) | 23:50:47-23:53:37, at the tip |
+| `tests/launch-capture-gate.py`, `tests/launch-deferred-state.py`, `tests/hasher-offline-index.py` | `python3 tests/<name>.py` | 0 each | `launch-capture-gate: PASS` (17), `launch-deferred-state: PASS` (5), `hasher-offline-index: PASS` | 23:48-23:51:45 |
+| this lane's harnesses: `launch-play-through.py`, `system-scan-assets.py`, `main-parse-args.py` | `python3 tests/<name>.py` | 0 each | `PASS` with 4, 3 and 11 checks; each failed on the pin's source first (running log, S4, S3's tail, S5) | 23:48-23:49 |
+| syntax-only compile per edited `.cpp` | the fixed `tools/es-syntax-check --root <root> --tree $W` (#699) over `git diff --name-only $PIN..HEAD -- '*.cpp'` | 0 for each of 9 product files | `PASS`, compiler `x86_64-rocknix-linux-gnu-g++-15.2.0`: `FileData.cpp`, `main.cpp`, `ProxyCards.cpp`, `SaveState.cpp`, `SaveStateBookkeeper.cpp`, `SaveStateConfigFile.cpp`, `SaveStateRepository.cpp`, `SystemData.cpp`, `views/ViewController.cpp`; the 9 test sources `NO-CMD` (not in the image; built by the two suites above) | 23:49-23:50 |
+| the guest | none | n/a | not needed: the ten pin-binary proofs ran in cycle 1; the 21 walks need the image | — |
 
 ## Findings, written as each unit is read
 
