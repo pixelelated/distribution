@@ -14746,6 +14746,149 @@ M5=""; for p in rsync jq curl xmlstarlet parted; do case " ${D5} " in *" ${p} "*
 [ -z "${M5}" ]
 check $? "rsync, jq, curl, xmlstarlet and parted are declared" "undeclared:${M5}"
 
+# M6 T1 stream S6 (#703, #714, #717-#720, #742-#744): the destructive and state
+# scripts. Nothing here touches a device: the ABL slots are files, the
+# internal card a fixture /dev, /proc and /sys listings, and every program
+# that would write a partition or a service (parted, mount, smbpasswd,
+# systemctl, i2cset) a stub that records its call. All from BASE_REF under
+# --old, in S3's sandbox under the image's bash and busybox.
+S6="${TMP}/s6"; mkdir -p "${S6}/stub"
+for f in sources/scripts/updateabl sources/scripts/installtointernal sources/scripts/automount sources/scripts/factoryreset sources/scripts/setrootpass system.d/rocknix-automount.service; do
+    src_of "projects/ROCKNIX/packages/rocknix/${f}" "${S6}/$(basename "${f}")"
+done
+s6_stub() { printf '#!/bin/sh\n%s\n' "$2" > "${S6}/stub/$1"; chmod +x "${S6}/stub/$1"; }
+s6_run() { # <dir> <snippet>: s3_run with the stub folder first on PATH
+    s3_run "$1" "export PATH=${S6}/stub:\${PATH}; $2"
+}
+
+echo "  bu. updateabl writes abl_a, reads it back, and only then abl_b (#703)"
+U6="${S6}/abl"; mkdir -p "${U6}/sr/etc" "${U6}/sr/usr/sbin" "${U6}/sr/usr/bin" "${U6}/sr/usr/share/bootloader/rocknix_abl"
+echo 'HW_DEVICE=SM8550' > "${U6}/sr/etc/os-release"
+printf '#!/bin/sh\nexit 0\n' > "${U6}/sr/usr/sbin/partprobe"
+printf '#!/bin/sh\ncase "$*" in *abl_a*) echo "${D}/abl_a" ;; *abl_b*) echo "${D}/abl_b" ;; esac\n' > "${U6}/sr/usr/sbin/blkid"
+printf '#!/bin/sh\necho 4096\n' > "${U6}/sr/usr/sbin/blockdev"
+printf '#!/bin/sh\nexec %s stat "$@"\n' "${BB_HOST:-$(command -v busybox)}" > "${U6}/sr/usr/bin/stat"
+printf '#!/bin/sh\nexec sha256sum "$@"\n' > "${U6}/sr/usr/bin/sha256sum"
+chmod +x "${U6}/sr/usr/sbin/"* "${U6}/sr/usr/bin/"*
+head -c 8292 /dev/urandom > "${U6}/sr/usr/share/bootloader/rocknix_abl/abl_signed-SM8550.elf"
+ABL_SUM=$(sha256sum < "${U6}/sr/usr/share/bootloader/rocknix_abl/abl_signed-SM8550.elf" | cut -d' ' -f1)
+for c in fail good; do
+    s3_run "${U6}/${c}" "head -c 65536 /dev/zero > abl_a; head -c 65536 /dev/zero > abl_b; [ ${c} = fail ] && chmod 444 abl_a
+        SYSTEM_ROOT=${U6}/sr UPDATEABL_ABL_A=\${D}/abl_a UPDATEABL_ABL_B=\${D}/abl_b ${NP_BASH} ${S6}/updateabl; echo \"rc=\$?\"
+        for s in a b; do echo \"\${s}: \$(head -c 8292 abl_\${s} | sha256sum | cut -d' ' -f1) zero=\$(head -c 65536 /dev/zero | cmp -s - abl_\${s} && echo yes || echo no)\"; done"
+done
+grep -q '^rc=[1-9]' "${U6}/fail/out" && ! grep -q 'completed successfully' "${U6}/fail/out" && grep -q '^b: .* zero=yes$' "${U6}/fail/out"
+check $? "abl_a that cannot be written: abl_b untouched, no success line, a non-zero exit" "a failed abl_a: $(tr '\n' '|' < "${U6}/fail/out" | cut -c1-240)"
+grep -q '^rc=0$' "${U6}/good/out" && grep -q 'completed successfully' "${U6}/good/out" && [ "$(grep -c "^[ab]: ${ABL_SUM} " "${U6}/good/out")" = 2 ]
+check $? "a good run: both slots read back as the update (an ELF of 8292 bytes, not sector-aligned)" "a good run: $(tr '\n' '|' < "${U6}/good/out" | cut -c1-240)"
+
+echo "  bv. installtointernal refuses a target that holds the running system (#717)"
+s6_stub parted 'echo "parted $*" >> /tmp/parted.calls; case "$*" in *"unit B print"*) echo "BYT;"; echo "/dev/x:1B:scsi:512:4096:gpt:fixture:;"; echo "30:1048576B:68719476736B:68718428161B:ext4:userdata:;" ;; *print*) echo "30:1:2:3:ext4:userdata:;" ;; esac; exit 0'
+s6_stub blockdev 'echo 68719476736'
+for c in held free; do
+    s6_run "${S6}/bv-${c}" "[ ${c} = held ] && echo '/dev/sdz32 /storage ext4 rw 0 0' > /tmp/mounts || : > /tmp/mounts
+        HW_DEVICE=SM8550 INSTALLTOINTERNAL_DEVICE=/dev/sdz PROC_MOUNTS=/tmp/mounts ${NP_BASH} ${S6}/installtointernal < /dev/null; echo \"rc=\$?\"
+        echo \"parted calls: \$(grep -c . /tmp/parted.calls 2>/dev/null || echo 0)\""
+done
+grep -q '^rc=[1-9]' "${S6}/bv-held/out" && grep -q '^parted calls: 0$' "${S6}/bv-held/out"
+check $? "/storage on /dev/sdz32: refused before parted runs" "$(tr '\n' '|' < "${S6}/bv-held/out" | cut -c1-240) $(tail -c 160 "${S6}/bv-held/err" | tr '\n' '|')"
+grep -q -E '^parted calls: [1-9]' "${S6}/bv-free/out"
+check $? "control: with nothing of /dev/sdz mounted, the script goes on to parted" "$(tr '\n' '|' < "${S6}/bv-free/out")"
+
+echo "  bw. a parted that fails while printing the userdata line stops the script (#744)"
+s6_stub parted 'echo "parted $*" >> /tmp/parted.calls; echo "30:1048576B:68719476736B:68718428161B:ext4:userdata:;"; exit 1'
+s6_run "${S6}/bw" ": > /tmp/mounts; HW_DEVICE=SM8550 INSTALLTOINTERNAL_DEVICE=/dev/sdz PROC_MOUNTS=/tmp/mounts ${NP_BASH} ${S6}/installtointernal < /dev/null; echo \"rc=\$?\"
+    echo \"parted calls: \$(grep -c . /tmp/parted.calls)\""
+grep -q '^rc=[1-9]' "${S6}/bw/out" && grep -q '^parted calls: 1$' "${S6}/bw/out"
+check $? "the userdata read's failure ends the script at its first parted" "$(tr '\n' '|' < "${S6}/bw/out") $(tail -c 160 "${S6}/bw/err" | tr '\n' '|')"
+
+echo "  bx. a copy of /storage that fails ends on the failure, not on success (#718)"
+s3_lift "${S6}/installtointernal" > "${S6}/iti-fns.sh"
+s3_block "${S6}/installtointernal" '^# 12\) Optionally copy' '^fi$' > "${S6}/bx.block"
+for c in ro rw; do
+    s3_run "${S6}/bx-${c}" "mkdir -p old/a old/roms new; echo 1 > old/a/f; echo 2 > old/.b; echo 3 > old/roms/game
+        [ ${c} = ro ] && chmod 555 new; OLD_STORAGE=\${D}/old TMP_STORAGE=\${D}/new; . ${S6}/iti-fns.sh
+        ( . ${S6}/bx.block ) <<< y; echo \"rc=\$?\"; echo \"new: \$(ls -A new | tr '\n' ';')\""
+done
+grep -q '^rc=[1-9]' "${S6}/bx-ro/out" && grep -q -i 'error\|failed\|couldn' "${S6}/bx-ro/out"
+check $? "a target that cannot be written: the failure is said and the exit is non-zero" "$(tr '\n' '|' < "${S6}/bx-ro/out" | cut -c1-240)"
+grep -q '^rc=0$' "${S6}/bx-rw/out" && grep -q '^new: .b;a;$' "${S6}/bx-rw/out"
+check $? "control: a good copy goes through, roms left out" "$(tr '\n' '|' < "${S6}/bx-rw/out" | cut -c1-240)"
+
+echo "  by. a games-folder mount that fails is said in the journal, with what /storage/roms is (#719, F-24)"
+s6_fx() { sed -e "s#/proc/partitions#${1}/partitions#g" -e "s#/proc/mounts#${1}/mounts#g" -e "s#/sys/#${1}/sys/#g" -e 's#/usr/bin/busybox mountpoint -q /storage#true#'; }
+s3_lift "${S6}/automount" | s6_fx "${S6}/by" > "${S6}/am-by.sh"
+mkdir -p "${S6}/by"; : > "${S6}/by/mounts"
+s3_run "${S6}/by" "mkdir -p /var/log; logger() { echo \"logger \$*\" >> /tmp/journal; }
+    . ${S3}/001-functions; . ${S6}/am-by.sh
+    get_setting() { :; }; set_setting() { :; }; mount() { return 32; }
+    start_ms internal; cat /tmp/journal; echo \"messages: \$([ -e /var/log/messages ] && echo grew || echo absent)\""
+grep -q -i '^logger .*fail.*/storage/roms' "${S6}/by/out" && grep -q '^logger .*/storage/roms is ' "${S6}/by/out"
+check $? "the failed bind is in the journal, with what /storage/roms is" "$(tr '\n' '|' < "${S6}/by/out" | cut -c1-260)"
+grep -q '^messages: absent$' "${S6}/by/out"
+check $? "automount's lines go to the journal only, not to /var/log/messages (F-24)" "$(tail -1 "${S6}/by/out")"
+
+echo "  bz. find_games skips the internal card, a size it cannot read, and matches mounts by whole field (#720)"
+Z6="${S6}/bz"; mkdir -p "${Z6}/dev" "${Z6}/sys/block/sda/sda1" "${Z6}/sys/block/sdb/sdb2" "${Z6}/sys/block/sdb/sdb3" "${Z6}/sys/block/sdc/sdc1" "${Z6}/sys/class/block"
+for p in sda/sda1 sdb/sdb2 sdb/sdb3 sdc/sdc1; do : > "${Z6}/sys/block/${p}/partition"; ln -s "../../block/${p}" "${Z6}/sys/class/block/${p#*/}"; : > "${Z6}/dev/${p#*/}"; done
+printf 'major minor  #blocks  name\n 8 1 16777216 sda1\n 8 18 4194304 sdb2\n 8 19 16777216 sdb3\n' > "${Z6}/partitions"
+printf '%s/dev/sdb2 /storage ext4 rw 0 0\n%s/dev/sda10 /var/media/x vfat rw 0 0\n' "${Z6}" "${Z6}" > "${Z6}/mounts"
+s3_lift "${S6}/automount" | s6_fx "${Z6}" > "${S6}/am-bz.sh"
+s3_run "${Z6}" "mkdir -p /var/log; . ${S3}/001-functions; . ${S6}/am-bz.sh
+    log() { :; }; get_setting() { :; }; set_setting() { :; }; start_ms() { echo \"INTERNAL \$1\"; }; create_game_dirs() { :; }
+    mount_games() { echo \"MOUNT \${1##*/}\"; exit 0; }
+    blkid() { for p in sdc1 sdb3 sdb2 sda1; do echo \"${Z6}/dev/\${p}: TYPE=\\\"ext4\\\"\"; done; }
+    find_games"
+grep -q '^MOUNT sda1$' "${Z6}/out"
+check $? "the card on another disk is mounted, not sdc1 (no size) or sdb3 (the internal card)" "find_games: $(tr '\n' '|' < "${Z6}/out") $(head -c 160 "${Z6}/err" | tr '\n' '|')"
+
+echo "  bA. automount's dead start_overlay is gone, and its mounted test has no redirection in quotes (F-41, F-43b)"
+! grep -q 'start_overlay' "${S6}/automount" && ! grep -q '/proc/mounts) >/dev/null 2>&1"' "${S6}/automount"
+check $? "neither is in automount" "start_overlay: $(grep -c start_overlay "${S6}/automount"); the quoted redirection: $(grep -c '/proc/mounts) >/dev/null 2>&1"' "${S6}/automount")"
+
+echo "  bB. rocknix-automount.service says what it does and takes no environment from a script (F-31)"
+grep -q '^Description=.*games' "${S6}/rocknix-automount.service" && ! grep -q '^EnvironmentFile=' "${S6}/rocknix-automount.service"
+check $? "its own description, no EnvironmentFile" "$(grep -E '^(Description|EnvironmentFile)=' "${S6}/rocknix-automount.service" | tr '\n' '|')"
+
+echo "  bC. factoryreset overlays finds every upper directory whatever the option order (F-36)"
+mkdir -p "${S6}/bC/units"; printf '[Mount]\nOptions=lowerdir=/usr/x,upperdir=/storage/up1,workdir=/storage/.tmp/w1,noatime\n' > "${S6}/bC/units/tmp-a.mount"
+printf '[Mount]\nOptions=lowerdir=/usr/y,upperdir=/storage/up2,workdir=/storage/.tmp/w2\n' > "${S6}/bC/units/tmp-b.mount"
+sed "s#/usr/lib/systemd/system/tmp-#${S6}/bC/units/tmp-#g" "${S6}/factoryreset" > "${S6}/factoryreset.bC"
+s6_stub systemctl 'echo "systemctl $*" >> /tmp/systemctl.calls'
+s6_run "${S6}/bC" "mkdir -p /storage/up1 /storage/up2 /storage/keep; ${NP_BASH} ${S6}/factoryreset.bC overlays --no-restart >/dev/null; echo \"rc=\$?\"; ls /storage | tr '\n' ';'"
+grep -q '^rc=0$' "${S6}/bC/out" && grep -q '^keep;$' "${S6}/bC/out"
+check $? "both upper directories removed, the rest kept" "$(tr '\n' '|' < "${S6}/bC/out")"
+
+echo "  bD. factoryreset rk817-fuelgauge with no rk817 says so and fails (#742)"
+s6_run "${S6}/bD" "${NP_BASH} ${S6}/factoryreset rk817-fuelgauge; echo \"rc=\$?\""
+grep -q '^rc=[1-9]' "${S6}/bD/out"
+check $? "no rk817: a non-zero exit" "$(tr '\n' '|' < "${S6}/bD/out")"
+
+echo "  bE. factoryreset audio clears the audio state only (#743)"
+s6_run "${S6}/bE" "mkdir -p /storage/.local/state/wireplumber /storage/.local/state/other; ${NP_BASH} ${S6}/factoryreset audio --no-restart >/dev/null; echo \"rc=\$?\"; echo \"state: \$(ls -A /storage/.local/state 2>/dev/null | tr '\n' ';')\""
+grep -q '^rc=0$' "${S6}/bE/out" && grep -q '^state: other;$' "${S6}/bE/out"
+check $? "wireplumber's state removed, another program's kept" "$(tr '\n' '|' < "${S6}/bE/out")"
+
+echo "  bF. setrootpass writes nothing when the hash cannot be made, and stores any password (#714, #758)"
+sed "s#^\. /etc/profile\$#. ${S3}/001-functions#" "${S6}/setrootpass" > "${S6}/setrootpass.t"
+s6_stub smbpasswd 'cat > /dev/null; echo smbpasswd >> /tmp/side.calls'
+s6_stub syncthing 'echo syncthing >> /tmp/side.calls'
+for c in broken real; do
+    if [ "${c}" = broken ]; then s6_stub cryptpw 'exit 1'; else s6_stub cryptpw "exec ${BB_HOST:-busybox} cryptpw \"\$@\""; fi
+    s3_run "${S6}/bF-${c}" "export PATH=${S6}/stub:\${PATH}
+        mkdir -p /storage/.cache /storage/.config/system/configs; H=\$(printf '%s%s' '\$6\$' 'fixture\$old'); printf 'root:%s:19000::::::\nnobody:*:19000::::::\n' \"\${H}\" > /storage/.cache/shadow
+        printf 'system.hostname=x\nroot.password=old\n' > /storage/.config/system/configs/system.cfg
+        ${NP_BASH} ${S6}/setrootpass.t default; echo \"rc=\$?\"
+        F2=\$(awk -F: '\$1 == \"root\" { print \$2 }' /storage/.cache/shadow)
+        case \"\${F2}\" in \"\${H}\") echo 'hash: unchanged' ;; '\$6\$'*) echo 'hash: new6' ;; *) echo \"hash: other [\${#F2} characters]\" ;; esac
+        echo \"lines: \$(grep -c . /storage/.cache/shadow)\"; echo \"stored: \$(grep '^root\.password=' /storage/.config/system/configs/system.cfg)\"
+        echo \"side: \$(tr '\n' ' ' < /tmp/side.calls 2>/dev/null)\""
+done
+grep -q '^rc=[1-9]' "${S6}/bF-broken/out" && grep -q '^hash: unchanged$' "${S6}/bF-broken/out" && grep -q '^stored: root.password=old$' "${S6}/bF-broken/out" && grep -q '^side: $' "${S6}/bF-broken/out"
+check $? "cryptpw failing: non-zero, the hash, root.password, Samba and Syncthing untouched" "$(tr '\n' '|' < "${S6}/bF-broken/out" | sed 's/old/<old>/g' | cut -c1-240)"
+grep -q '^rc=0$' "${S6}/bF-real/out" && grep -q '^hash: new6$' "${S6}/bF-real/out" && grep -q '^lines: 2$' "${S6}/bF-real/out" && grep -q '^stored: root.password=default$' "${S6}/bF-real/out"
+check $? "the image's cryptpw: a new \$6\$ hash, the other line kept, and a password that is the word default stored" "$(tr '\n' '|' < "${S6}/bF-real/out" | cut -c1-240)"
+
 if [ "${NOT_APPLICABLE}" -ne 0 ]; then echo "${NOT_APPLICABLE} HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS"; fi
 if [ "${FAIL}" -eq 0 ] && [ "${SKIPPED}" -eq 0 ]; then echo "PASSED"; exit 0
 elif [ "${FAIL}" -eq 0 ]; then echo "PASSED, ${SKIPPED} SKIPPED -- a check that did not run has not passed"; exit 3

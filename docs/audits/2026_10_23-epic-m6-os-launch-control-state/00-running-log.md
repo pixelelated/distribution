@@ -298,3 +298,16 @@
   - **F-65:** a write to `system.cfg` is refused rather than locked. The S4 brief gave these lines to S4 for #758, which did not need them; they are changed here with the row.
 - **Found and not fixed (outside S5's files):** `userconfig-setup` (the systemd package) makes the same two copies at first boot as #740's, and with no `/storage/.ssh` it makes a file of that name. Said on #740.
 - **Queued for the guest** (after resource return, with S4's readings): #713 and #738 (`003-upgrade` with a stub), #715, #716, #721, #740, #741 (`post-update`'s blocks against the tree), #724's live file and record, and F-65's refusal. #724's seed mode and #739's `systemctl show` need an image built from this branch, so they wait for stage F's image, or are recorded as such there.
+
+## [Stage E, S6] 22:20 — Stream S6, the destructive and state scripts
+
+- **Items, in the briefs' order:**
+  - `updateabl`: #703 F-67 (High).
+  - `installtointernal`: #717 F-39, #718 F-40, #744 G-04.
+  - `automount`: #719 F-42 with F-24 (moved from S4), and #720 F-43 with F-43b.
+  - `factoryreset`: #742 F-37, #743 F-38.
+  - `setrootpass`: #714 F-29, with #758's carry-over to `set_setting_value`.
+  - Renovation: F-36 (`factoryreset`), F-41 (`automount`), F-31 (the unit).
+- **The test first:** `tools/last-good-scripts-test` sections bu to bF. Nothing touches a device: the ABL slots are files, the internal card is fixture `/proc` and `/sys` listings, and parted, mount, smbpasswd, syncthing and systemctl are stubs that record their calls. Everything runs under the image's bash and busybox.
+  - **unfixed** (`BASE_REF=52acfb315a --old`, from the tree, 22:10:30-22:19:19, rc 1): 14 checks failed, all in bu to bF.
+  - **A first unfixed run** (22:00:33-22:09:21) had a fault in my own `bF` case: it ran the untransformed `setrootpass`, which sources the host's `/etc/profile`, where `set_setting` does not exist. The case was corrected and the run repeated; the repeat is the evidence.
