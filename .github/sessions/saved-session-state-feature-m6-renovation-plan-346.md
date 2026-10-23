@@ -124,16 +124,17 @@ an Opus 5.5 session at high effort in Herdr pane `wN:p4`, agent
 scratchpad and quoted in the 07:50 work-log entry). This lane's rules from
 the futro: no merge of `next` into a slice branch between stage A and stage
 D; every drift report read at every slice close and the re-open named;
-`tools/box-check` on every issue a lane files, at the pause. Next: T2's brief (`docs/reviews/briefs/es-launch-path.md`), proven like T1's,
-then the interface area epic, the ES worktree for the lane at the pin, the
-lane cut from P1's tip with this tip merged, and dispatch: the maintainer's
-call of 2026-10-23 is that T2 runs beside T1 (D-WORKFLOW-190, work log 16:30
-UTC). T1 is past its Phase 4.6 blocker: the Argon route is on this branch as
-three cherry-picks (`033eb7ed23`, `0ceb2994c5`, `6874394d49`; M7's
-`fac2129787`, `1c7d283ad5`, `a7a3bdda4e`), the lane merges `6874394d49` and
-runs the Argon seat; then its stage-D pause (write the stream briefs; F-21,
-F-45, F-49 are a merge of upstream commits, F-14 and F-03 wait for the M7
-bytes, F-68 is D-SYS-014); T1's drift re-open when the M7 candidate lands.
+`tools/box-check` on every issue a lane files, at the pause. Next: relay the M7 lane's `resource return` (the shared file
+`/tmp/m7-m6-host-coordination-20261023.txt`) to #648 and #649 the moment it
+is written; T1's seven streams (`docs/reviews/briefs/t1-streams.md`) to its
+hand-back, then acceptance (brief § 10), `slices.json`, and the merge order;
+T2 (dispatched 2026-10-23 17:21 UTC: pane `wN:p5`, agent `m6-t2-es-launch`,
+lane tip `46f3a19b2f`, brief version 2 `6de32b24b0`) to its stage-D pause,
+then its stream briefs; an interface slice closes only after the first image
+with its pin bump proves the fixes (plan § 6b H; D-WORKFLOW-191 open with the
+maintainer); T3's brief (#650); T1's drift re-open when the M7 candidate
+lands. Both lanes report on their issues; nothing wakes this lane on a
+post, so read #648 and #649 at every turn.
 
 ## The seed brief (2026-10-22, the planning session's handoff, verbatim)
 

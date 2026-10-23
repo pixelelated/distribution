@@ -311,7 +311,7 @@ sections (§ 7).
 | C. Second opinion | Phase 4.5 self-refutation, then Phase 4.6 at the slice's depth (§ 6c) through the Facilitator; the served model verified | `04-analysis.md` § Second opinion, `second-opinions/` |
 | D. Punch list | Phase 5 and 6: `05-punch-list.md` with the YAML index, every item with its question (Q1 to Q7), severity, category, where, acceptance; the punch-list issue with one checkbox per item | the audit issue, `audit`, `punch-list` labels |
 | E. Remediation | the executing lane pauses after stage D; the **coordinator** writes one brief per stream of related items (the D-WORKFLOW-056 shape: the verdict's lines, the fix as a specification, the test first, the `Already written:` line, the files owned, the commit shape; a brief is planning, D-WORKFLOW-189) and names the branch each stream lands on (the slice's own branch by default, one commit series per stream); the executor works each stream and delivers the branch, never a build | `streams/briefs/*.md`; the slice branch, or `feature/m6-<slice>-<stream>` where the coordinator says so |
-| F. Verification | every behaviour claim proven on the VM (`vm-first.md`), every mechanical check run (`tools/pkgcheck`, `tools/vm-qa` suites that cover the paths, `tools/es-syntax-check` for ES); Phase 7 outcomes re-derived from commands | the outcomes in the audit issue; `audit-completion.json` |
+| F. Verification | every behaviour claim proven on the VM (`vm-first.md`), every mechanical check run (`tools/pkgcheck`, `tools/vm-qa` suites that cover the paths, `tools/es-syntax-check` for ES, or its proven recipe while #699 is open); Phase 7 outcomes re-derived from commands | the outcomes in the audit issue; `audit-completion.json` |
 | G. Learning | the mini-retro skill over the slice; findings that recur become a rule edit, a tool, a blindspot entry with its guard, or a work-log entry (`learning-capture.md`); Instruction-Recommendations mode runs because the scope is epic tier | `docs/retros/<date>-m6-<slice>.md`; rule and register edits |
 | H. Close | the executor posts the hand-back on the slice issue with `reviewed-at:` (the lane's commit the read was made at, its slice bytes equal to `next`'s named hash) and `fixed-at:` (the lane's tip when the fixes are complete) written in the issue's body; the **coordinator** accepts, closes the issue `completed` with the commits named, writes `reviewed_at` and `fixed_at` into `slices.json`, and after the branch merges to `next` regenerates the inventory, `tools/renovation-status` and `tools/renovation-drift` (a drift diff means something only once `fixed-at` is an ancestor of `next`) and moves the M6 body's current/next (D-WORKFLOW-189) **An interface slice** (a fix on an EmulationStation path, `fixed-at-es:` set) is accepted at hand-back, its ES branch merged into `test/qa-integration` and the pin bumped by the coordinator, and closed only when the first image carrying the new pin proves each fix on the guest; `tools/renovation-status` lists it as `remediating` in between (2026-10-23, #700's futro; which build carries the pin bumps is D-WORKFLOW-191, open) | the issue closed `completed` with the commits named |
 
@@ -350,8 +350,12 @@ start to finish without this conversation. Its sections, in order, each
 mandatory:
 
 1. **Identity**: the slice issue, the epic, the milestone phase, the branch
-   and worktree (`feature/m6-<slice>` under
-   `/workspace/repos/pixelelated/distribution.worktrees/<slice>`), the model
+   and worktree (`feature/m6-<slice>-<issue>` under
+   `/workspace/repos/pixelelated/distribution.worktrees/m6-<slice>-<issue>`,
+   the issue number appended, as T1 #648 and T2 #649 do; an interface
+   slice adds an EmulationStation worktree
+   `emulationstation-next.worktrees/m6-<slice>-<issue>` on
+   `feature/m6-<slice>-<issue>` from the pin), the model
    and effort the maintainer selected, the review depth and reviewer
    recipes.
 2. **Scope**: the paths, the tree hash they are read at, the line count per
@@ -362,8 +366,9 @@ mandatory:
    context).
 3. **Read first**: the rule files in scope by name, read from `next`; the
    blindspot entries that touch these paths by number; the prior audits of
-   these paths under `docs/audits/` (as provenance, verdicts sequestered
-   until Phase 2.5); the decisions by ID that settle questions the slice
+   these paths under `docs/audits/` (as provenance; the skill has no Phase 2.5 at
+   epic tier, so the verdicts are read after the slice's own Phase 2 is
+   written, compared then, and never transcribed into it); the decisions by ID that settle questions the slice
    might otherwise re-open.
 4. **The questions**: § 4's table restated for this slice, with the questions
    that do not apply struck and the reason (a provenance table has no Q5).
