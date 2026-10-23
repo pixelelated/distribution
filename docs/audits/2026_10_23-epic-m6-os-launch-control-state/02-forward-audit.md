@@ -98,7 +98,7 @@ Read in chunks, all 1,479 lines by the end of this section.
 - **F-16 (Q3, Medium, proposed bug; the SC2328 site): tate mode wipes the MAME 2003-Plus core options.** `:1012` tests `[ "$(grep mame2003-plus_tate_mode "...opt" > /dev/null 2>&1)" ]`; the substitution captures nothing (the output is redirected), so the test is always false and `:1016` runs `echo 'mame2003-plus_tate_mode = "enabled"' > ".../MAME 2003-Plus.opt"`, truncating the file to that one line at every `mame2003_plus` launch with tate on. Every other option the player set for the core is lost. Fix shape: `if grep -q ... ; then sed ...; else echo ... >>`. To prove on the guest: an `.opt` with two lines, `setsettings.sh` with `CORE=mame2003_plus` and `tatemode=1`, the file after.
 - **F-17 (Q3, Medium, proposed bug): every Game Boy launch truncates `Gambatte.opt`.** `:1247` `if [ ! -f "GAMBATTECONF" ]` names the literal file `GAMBATTECONF`, which never exists, so `:1249` always runs `echo 'gambatte_gbc_color_correction = "disabled"' > ${GAMBATTECONF}`: each `gambatte` launch resets the core's options file to one line, and the `else` branch that deletes only the two colorization keys (`:1251-1252`) is dead. Any Gambatte option changed in RetroArch's quick menu (or written by the netplay link block, `:577-582`, which runs later in the same launch) survives only until the next launch. No `mkdir -p` either, so with no `config/Gambatte` directory the write fails. The exit cell's cartridge runs on `gambatte`, so the guest can show it directly. Both F-16 and F-17 arrived with the file in `9f1fab30f6` (the commands above print the commit that introduced each line).
 - **F-18 (Q3, Low, to verify): Kronos's options file is written under a path RetroArch may not read.** `:1065` `KRONOSDIR="${RETROARCH_PATH}/Kronos/config/Kronos"`, where every other core here uses `${RETROARCH_PATH}/config/<core>/` (`:1037`, `:1096`, `:1112`, `:1143`). To read `retroarch.cfg`'s `rgui_config_directory` and the core's own option path before calling it a defect.
-- **F-19 (Q2, Low): option values are spliced into `sed` programs unquoted.** `:1048-1056`, `:1077-1087`, `:1123` write `'/key = /c\key = "'${VALUE}'"'`, so a value with a space splits the program (`sed` error, the line unchanged) and an unset setting writes `key = ""` over the file's default at every launch; `:1270-1278` echo palette names the same way. Values come from the interface's lists, so the realistic failure is the empty value. `set_atari` (`:1220-1222`) runs `sed -i` on `atari800.cfg` without checking it exists. `write_bezel_config` (`:1306-1331`) builds JSON with a heredoc (`:1405-1411`), so a path with `"` yields invalid JSON and no bezel; `set_overlay` exits after it even when it failed (`:821-822`), so a missing bezel also skips the overlay settings -- and since the shipped default is `global.bezel=thebezelproject`, every launch on a default device takes that branch, so a player's OVERLAY choice is never applied (upgraded to Medium under `system.cfg` below; to prove on the guest).
+- **F-19 (Q2/Q3, Medium -- upgraded from Low under `system.cfg` below, the overlay half proven): option values are spliced into `sed` programs unquoted, and a default device never applies an overlay choice.** `:1048-1056`, `:1077-1087`, `:1123` write `'/key = /c\key = "'${VALUE}'"'`, so a value with a space splits the program (`sed` error, the line unchanged) and an unset setting writes `key = ""` over the file's default at every launch; `:1270-1278` echo palette names the same way. Values come from the interface's lists, so the realistic failure is the empty value. `set_atari` (`:1220-1222`) runs `sed -i` on `atari800.cfg` without checking it exists. `write_bezel_config` (`:1306-1331`) builds JSON with a heredoc (`:1405-1411`), so a path with `"` yields invalid JSON and no bezel; `set_overlay` exits after it even when it failed (`:821-822`), so a missing bezel also skips the overlay settings -- and since the shipped default is `global.bezel=thebezelproject`, every launch on a default device takes that branch, so a player's OVERLAY choice is never applied (upgraded to Medium under `system.cfg` below; to prove on the guest).
 - **Q5 for `setsettings.sh`** (to measure): 3 serial functions, 2 then 24 background functions, a backgrounded `[` per `add_setting` (F-09), a `get_setting` per value, and one staged `sed -i` at the end. The timed run in the guest is owed (brief § 4 Q5).
 - **Q7 for `setsettings.sh`** (`deferred:#336` unless a stream brief says otherwise): one file carries RetroArch's paths, hotkeys, controllers, achievements, netplay, video, audio, save states and per-core option files for nine cores; the per-core blocks (`set_n64opts` to `set_melondsdsopts`, `set_atari`, `set_gambatte`) are separate responsibilities; the staged-sed mechanism (`clear_setting`/`flush_settings`) writes and executes a shell program to delete keys, where `sed -i -e ... -e ...` built as an array would do.
 
@@ -405,3 +405,78 @@ Generated from `.qa-scratch/t1/groups.tsv` and the findings above (08:17 UTC); t
 | `projects/ROCKNIX/packages/rocknix/system.d/save-sysconfig.service` | state | upstream-carried | whole | - | `TimeoutStartSec=0` | F-30 | no upstream change since the merge base | n/a | reached | sound |
 | `projects/ROCKNIX/packages/rocknix/system.d/timers.target.wants/rocknix-report-stats.timer` | control | upstream-carried | whole (symlink) | - | sound | none | no upstream change since the merge base | masked | masked/disabled stub (D-WORKFLOW-110) | sound |
 | `projects/ROCKNIX/packages/rocknix/udev.d/80-usbgadget.rules` | control | upstream-carried | whole | - | sound | none | no upstream change since the merge base | n/a | reached | sound |
+
+## Criterion entries: #648's checklist (= brief § 7), evaluated at the end of Phase 2 (08:19 UTC)
+
+Most criteria are about this audit's own outputs, so a verdict here records the state reached and what is still owed; the stage named closes it. Verdict vocabulary per the skill; refutation lines are recorded only for a PASS.
+
+### AC-01: the audit folder holds `00-running-log.md` and `01-research-notes.md` to `05-punch-list.md`
+**Verdict:** PARTIAL ⚠ -- `00` to `04` exist (`ls docs/audits/2026_10_23-epic-m6-os-launch-control-state/`); `03` follows in Phase 3, `05` at stage D after Phase 4.6.
+
+### AC-02: `tools/lint-audit-artifacts <folder>` prints PASS (pre-issue before stage D; resolution at close), the renovation face included
+**Verdict:** FAIL ✗ (expected at this point) -- the pre-issue run at 08:18 printed `13 CONTRACT FAILURE(S)`: `03` and `05` absent, five `04` sections, the second opinion, Q1/Q2/Q3/Q7 subsections. Re-run before stage D.
+
+### AC-03: `second-opinions/review-plan.json` records Extended depth and two reviewers from two labs, each provenance naming its served model
+**Verdict:** UNTESTABLE ? -- Phase 4.6 has not run; the Argon route is absent (`grep -c gemini-argon scripts/council-invoke.ts tools/lint-audit-artifacts`: `0`, `0` at `5070c88b1b`), so at most the Astra seat can complete this session (the blocker, brief § 1).
+
+### AC-04: the punch-list issue has every item at a Phase 7 outcome
+**Verdict:** UNTESTABLE ? -- no punch list yet (stage D, after 4.6).
+
+### AC-05: `reviewed-at:` and `fixed-at:` on #648
+**Verdict:** PARTIAL ⚠ -- `reviewed-at` is `efadfea08a` (`git diff --quiet 8ebaf8daad efadfea08a -- projects/ROCKNIX/packages/rocknix/`: exit 0), recorded in `00` and `01`; written into #648's body at stage H with `fixed-at`.
+
+### AC-06: `01-research-notes.md` § Scope records `8ebaf8daad`, the three counts, the BUILD_ID and the M7 delta hunk by hunk
+**Verdict:** PASS ✓ -- § Scope carries all four (`01-research-notes.md` § Scope: the hash, the count table with 83/13,327/29/54 and no delta, `BUILD_ID 069fc270442134fe771258418adf4e666e0473fb`, three hunks). **Refutation attempted:** re-ran the three counting commands at 07:10 (they print the brief's numbers); compared the hunk list with `git -C /workspace/repos/rocknix diff --stat next 069fc2704421 -- projects/ROCKNIX/packages/rocknix/` (2 files, +64 -2: `package.mk` 3, `runemu.sh` 63), which the three hunks account for.
+
+### AC-07: a coverage table with exactly one row per path, `grep -c` printing 83, each Q1-Q7 cell answered or `n/a` with a reason
+**Verdict:** PASS ✓ -- `grep -c '^| \`projects/ROCKNIX/packages/rocknix/' 02-forward-audit.md` printed `83` (08:17); the generator reported no path missing. **Refutation attempted:** the generator would have skipped a path not in its dictionary and printed it under MISSING; the list was empty. Cells of `-` mean nothing found; read depth is stated per row and repeated in the Coverage Boundary.
+
+### AC-08: the ten mechanical checks recorded with command, exit status and summary line
+**Verdict:** PASS ✓ -- § Mechanical checks: `pkgcheck` 0, `last-good-scripts-test` 0 under `QA_SYSTEM_ROOT`, `settings-modes-test` 0, `wait-lock-test` 0, `emulator-exit-test --vm` 0, `time-to-play --vm` 1 with its reason (no cloud, under `--no-configure-remote`, both runs), `usb-gadget-test` 0 (host and guest), `rocknix-info-test` 0, `melonds-upgrade-test` 0, `vocabulary-check` 0 with the note that its default reads none of this slice. **Refutation attempted:** each summary line was read from the tool's own output file, and the FAIL counts were grepped (0 in every case).
+
+### AC-09: Q5 carries the two time-to-play numbers beside #336's baseline and a timed `setsettings.sh` run with a launch's arguments
+**Verdict:** PASS ✓ -- `04-analysis.md` § Q5: 0.64 s and 1.01 s (n=3) beside 1.05 s and 2.03 s; `setsettings.sh` 127 ms (verbose) and 99 ms (none), with the arguments from `exec.log`. **Refutation attempted:** the numbers come from `ttp-q5/time-to-play.md`'s table, and the arguments from the guest's own `Execute setsettings` line, not typed; the run's verdict ("Not a pass") is recorded with its reason.
+
+### AC-10: Q6 carries one reachability row per script in `sources/scripts/`, with the search and its output; unreached rows carry `Already written:` and what the unit exposed
+**Verdict:** PASS ✓ -- 47 rows (`grep -c '^| \`' 04-analysis.md` counted 47 at 08:02); the ten unreached-in-effect rows each carry `Already written:` and the name or file they expose. **Refutation attempted:** five common-word names were searched again as invocations; `rocknix-scraper`'s raw interface hit was followed to a page nothing opens and the row corrected.
+
+### AC-11: Q4 lists every commit of `c445081a59..upstream/next` touching the package (43) with a disposition each
+**Verdict:** PASS ✓ -- 43 rows (`grep -c '^| \`[0-9a-f]\{10\}\` |'`: 43), none `(missing)`; totals summed from the rows (26 + 4 + 1 + 1 = 32 commits, 11 merges). **Refutation attempted:** the range is the one the first commands fetched (`8b70f693b8`); a commit with a merge-like subject but one parent was treated as a commit, not a merge.
+
+### AC-12: every guest proof says whether it proved the image's or the tree's copy, after a recorded diff
+**Verdict:** PASS ✓ -- § Image versus tree is the recorded diff (78 same, 3 differ, 1 absent); each table row in § Guest proofs names its copy; the `runemu.sh` proofs ran the tree's copy from `/storage/.qa-t1/` with its hash compared. **Refutation attempted:** looked for a proof of `runemu.sh` through the interface or `emulator-exit-test` without the note: both trial runs say "the image's copy".
+
+### AC-13: every defect has a `bug` issue with the VM line and a VM-verifiable criterion; every removal carries `Already written:`; `box-check` passes on each issue
+**Verdict:** UNTESTABLE ? -- issues are stage D's. Removals proposed so far (F-41, F-49's verbs, F-55's nine, F-66) carry `Already written:` in their Q6 rows.
+
+### AC-14: the retro exists, is posted on #648, and answers what the slice did to the two numbers
+**Verdict:** UNTESTABLE ? -- stage G.
+
+### AC-15: the five checkers pass on the branch before its merge, exit codes pasted on #648
+**Verdict:** UNTESTABLE ? -- before the merge; `register-check` and `work-log-index --check` have passed at each commit so far (00-running-log.md).
+
+## Forward Audit Summary
+
+| Verdict | Count | Criteria |
+| --- | ---: | --- |
+| PASS ✓ | 7 | AC-06, AC-07, AC-08, AC-09, AC-10, AC-11, AC-12 |
+| PARTIAL ⚠ | 2 | AC-01, AC-05 |
+| FAIL ✗ | 1 | AC-02 (expected before stage D) |
+| SKIP ○ | 0 | |
+| UNTESTABLE ? | 5 | AC-03, AC-04, AC-13, AC-14, AC-15 (later stages; AC-03 is the 4.6 blocker) |
+
+**Overall assessment (of the code, not the criteria):** PASS WITH FINDINGS -- 69 findings (F-01 to F-69) on the 83 paths; 17 proven on the guest; the state writers and the lock sound under their tests; the launch path's RetroArch half and the upstream-carried control scripts carry most of the defects.
+
+## Coverage Boundary
+
+**Examined:** all 83 paths, at the depth the coverage table's Read column states: 62 read whole, 21 in outline (the verbs, every file and network operation, the shellcheck warnings) -- `rocknix-es-thebezelproject`, `rocknix-memory-manager` (whole but its status JSON skimmed), `rocknix-bluetooth`, `rocknix-bluetooth-agent`, `rocknix-fake-suspend`, `brightness`, `vertical-check` (to `:40`), `rocknix-info`, `rocknix-config`, `rocknix-settings`, `rocknix-scraper`, `rocknix-systems`, `bezels.sh`, `rocknix-retroachievements-info`, `rocknix-keyboard` (its verbs), and the four sourced fragments' unchanged halves. Runtime-probed on the guest: F-01, F-02, F-09, F-10, F-11, F-14, F-16, F-17, F-19, F-21, F-28, F-29, F-32, F-40, F-44, F-47, F-56, F-57, F-58, and the `find`/`gzip`/`top`/`cryptpw`/`espeak`/`quantum`/`rocknix-encode`/`sselph-scraper` facts.
+**Deliberately not examined:** `backuptool` (T17's), the interface's sources beyond the call sites cited, the sysutils runner and units (T22's), the quirks (T29's), the cloud scripts (T16/T17).
+**Dimensions not exercised:** anything on a handheld (no device in this slice): the H700's governors (F-01's H700 half is from the kernel config), backlight, LED, lid/power suspend, HDMI hotplug, USB gadget binding, Bluetooth, the Qualcomm ABL and internal storage (F-39, F-67); KSM on a 1 GiB device; the upgrade rehearsal (`tools/vm-upgrade-rehearsal`, brief § 5's list) has **not been run yet** this session -- owed before stage D, and recorded here so its absence is visible.
+
+#### The unreached scripts (one finding, nine scripts)
+
+- **F-55 (Q6, Low, Renovation): nine scripts have no caller anywhere.** `amionline`, `bezels.sh`, `error.sh`, `find.sh`, `getoverlays`, `migrate_roms`, `rocknix-retroachievements-info`, `setemu.sh`, `show_changelog`: no hit in the distribution (`grep -rlF` over `packages projects scripts tools config distributions`) or the interface at the pin; all present since the import `9f1fab30f6`; each row of `04-analysis.md` § Q6 carries its `Already written:` line and what it exposes. Three carry defects that would matter if anything called them (`error.sh`'s `[ !-z`, `migrate_roms`'s stray `1` argument, `amionline`'s internet probe). Removal, after `engineering-practices.md` § Before deleting a duplicate (none duplicates a survivor).
+
+#### Numbering note
+
+F-61 is unused (the sequence went from F-60 to F-62 while writing); no finding is missing under it.

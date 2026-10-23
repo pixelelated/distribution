@@ -99,3 +99,16 @@
 - `04-analysis.md` drafted with § Renovation face Q6: 47 rows, 9 unreached (all since the import), 1 hand-run, 37 reached.
 - The 16 shellcheck errors all have a verdict: 7 defects (F-09, F-10's four sites, F-16, F-56, F-57), 4 in unreached scripts, 4 benign.
 - (time not read, between 08:03:44 and 08:10) group 3 finished: `package.mk` (F-62 undeclared runtime tools, all 36 present; F-63 `system.cfg` mode 645), `rocknix-config`/`rocknix-settings` (F-64 Batocera's dependencies missing: `rocknix-encode`, `rocknix-resolution`; F-65 a third unguarded `system.cfg` writer, unreached), `rocknix-scraper` (F-66 a dead chain; the Q6 row corrected), `updateabl` (F-67; the skip-check suspicion cleared by the ELF's 63 x 4,096 bytes), `rocknix-bluetooth` (F-68 link keys under `/storage/roms/backups`), the rest in outline (depth stated per file), `tz` (F-69). Every one of the 83 paths now has a reading recorded; next, the coverage table.
+
+### [Phase 2] 08:20 — Criteria, summary, boundary; two notices on #648
+
+- `02-forward-audit.md`: the 15 criterion entries (7 PASS, 2 PARTIAL, 1 FAIL expected, 5 UNTESTABLE for later stages), the summary, the Coverage Boundary (62 paths whole, 21 in outline).
+- `tools/lint-audit-artifacts --phase pre-issue` at 08:18: 13 contract failures, the list of what Phases 3 to 5 must write.
+- The Argon route is absent (`grep -c gemini-argon ...`: 0, 0); notice on #648 (issuecomment-6360631186) ahead of the 4.6 blocker.
+- `tools/vm-upgrade-rehearsal` not run: it uses the shared QA backend and `vm-pair` with no instance options, which brief § 5 rules out for this lane while also listing the tool; asked on #648 (one question), not run before an answer.
+
+### [Phase 3-4.5] 08:24 — The retrospective and the analysis
+
+- `03-retrospective.md` written: conformance (rules, blindspots, invariants), five seams, the gaps with their search trail, five sibling tables (§ 3.6.5).
+- `04-analysis.md` assembled around the measured Q4/Q5/Q6: 68 findings, **0 Critical, 0 High, 19 Medium, 49 Low** (the risk table generated from `02`'s headings; two parser shapes needed before the count matched the 68 headings: a first count of 58 was wrong and was never published). Phase 4.5: the 19 Mediums survive; five findings changed by refutation before it (F-01, F-09's fix shape, F-32, F-47, F-67).
+- Pre-issue lint: the remaining failures are `05` (stage D) and the second opinion (4.6).
