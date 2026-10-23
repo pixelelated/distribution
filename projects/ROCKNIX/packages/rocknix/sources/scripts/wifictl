@@ -390,7 +390,7 @@ forget_wifi() {
     fi
   fi
   if ! "${NMCLI}" connection delete id "${name}" >/dev/null 2>&1; then
-    if [ "${clear}" -eq 1 ] && ! set_settings wifi.ssid "${named}" wifi.key "${key}"; then
+    if [ "${clear}" -eq 1 ] && ! set_settings_values wifi.ssid "${named}" wifi.key "${key}"; then
       logger -t wifictl "forget ${name}: its profile could not be deleted, and the Wi-Fi settings cleared for it could not be put back; wifi.ssid and wifi.key are unset while the profile remains" 2>/dev/null
     fi
     return 1
@@ -462,7 +462,9 @@ join_wifi() {
     fi
     if [ -z "${psk}" ] && [ -n "${keyed}" ]; then
       logger -t wifictl "joined ${name}; its key did not come back from NetworkManager, so the Wi-Fi settings were left as they were" 2>/dev/null
-    elif ! set_settings wifi.ssid "${ssid}" wifi.key "${psk}"; then
+    # set_settings_values: a network may be named default, which set_settings
+    # reads as "remove" (#758).
+    elif ! set_settings_values wifi.ssid "${ssid}" wifi.key "${psk}"; then
       # One write for the pair (set_settings): a second write failing after
       # the first left this network's SSID with the last network's key, and
       # nothing said so (#307, the audit of the fix round, gpt G2-B-11).

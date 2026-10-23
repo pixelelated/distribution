@@ -2874,7 +2874,7 @@ echo "  u. wifictl current, saved, forget and join read NetworkManager, not the 
 # on the device.
 U="${TMP}/u"; mkdir -p "${U}/shim" "${U}/repo" "${U}/run"
 src_of "${WIFICTL_REL}" "${U}/repo/wifictl"
-printf 'get_setting() { :; }\nset_setting() { printf "%%s=%%s\\n" "$1" "$2" >> /run/settings; }\nset_settings() { while [ $# -ge 2 ]; do set_setting "$1" "$2"; shift 2; done; }\nexport PATH=/shim:/bbin:/usr/bin:/bin\n' > "${U}/profile"
+printf 'get_setting() { :; }\nset_setting() { printf "%%s=%%s\\n" "$1" "$2" >> /run/settings; }\nset_settings() { while [ $# -ge 2 ]; do set_setting "$1" "$2"; shift 2; done; }\nset_settings_values() { set_settings "$@"; }\nexport PATH=/shim:/bbin:/usr/bin:/bin\n' > "${U}/profile"
 cat > "${U}/shim/nmcli" <<'EOS'
 #!/bin/bash
 # NetworkManager as wifictl asks it: the profiles in /run/profiles (name,
@@ -8419,6 +8419,8 @@ p7gate() { [ -e /run/set-fails ] && return 1; n=$(( $(cat /run/set-calls 2>/dev/
 p7put() { if [ "$2" = "default" ]; then awk -v k="$1" 'index($0, k "=") != 1' /run/settings > /run/settings.new; mv /run/settings.new /run/settings; else printf '%s=%s\n' "$1" "$2" >> /run/settings; fi; }
 set_setting() { p7gate || return 1; p7put "$1" "$2"; }
 set_settings() { p7gate || return 1; while [ $# -ge 2 ]; do p7put "$1" "$2"; shift 2; done; }
+# set_settings_values stores every value as given, "default" included (#758).
+set_settings_values() { p7gate || return 1; while [ $# -ge 2 ]; do printf '%s=%s\n' "$1" "$2" >> /run/settings; shift 2; done; }
 export PATH=/shim:/bbin:/usr/bin:/bin
 EOS
 cat > "${P7W}/shim/iwctl" <<'EOS'

@@ -611,11 +611,11 @@ function set_settings() {
     k="${1}"; v="${2}"; shift 2
     [[ "${k}" =~ ^[[:alnum:]] ]] || return 1
     n=$((n + 1))
-    if [ "${v}" = "default" ] && [ "${k}" != "system.hostname" ]
+    if [ "${v}" = "default" ] && [ "${SETTINGS_AS_GIVEN:-0}" != 1 ] && [ "${k}" != "system.hostname" ]
     then
       pairs+=("SK${n}=${k}" "SV${n}=" "SD${n}=1")
     else
-      [ "${v}" = "default" ] && v=""
+      [ "${v}" = "default" ] && [ "${SETTINGS_AS_GIVEN:-0}" != 1 ] && v=""
       pairs+=("SK${n}=${k}" "SV${n}=${v}" "SD${n}=0")
     fi
   done
@@ -642,6 +642,13 @@ function set_settings() {
   fi
   rm -f "${J_CONF_LOCK}"
   return ${rc}
+}
+
+# set_settings with every value stored as given, "default" included: the pair
+# a player's network leaves, a name and a key either of which may be that word
+# (#758; set_setting_value is the one-key form).
+function set_settings_values() {
+  SETTINGS_AS_GIVEN=1 set_settings "$@"
 }
 
 function battery_percent() {
