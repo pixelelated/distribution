@@ -127,7 +127,10 @@ function get_setting() {
   then
     ### Test to see if we have a game setting.
     VAR="$2\[\"$(echo ${3} | sed -E "s~'~\\\x27~g"';s~[()&]~\\&~g')\"\]\.$1"
-    OUTPUT=$(awk 'BEGIN {FS="="} /^'"${VAR}"'/ {print $NF}' ${J_CONF})
+    # The key ends at its '=': integerscale is a prefix of integerscaleoverscale
+    # (#756). Upstream's 25903bb59c rewrites this lookup; the adoption (#563)
+    # reconciles the two.
+    OUTPUT=$(awk 'BEGIN {FS="="} /^'"${VAR}"'=/ {print $NF}' ${J_CONF})
     if [ ! -z "${OUTPUT}" ]
     then
       echo ${OUTPUT}
