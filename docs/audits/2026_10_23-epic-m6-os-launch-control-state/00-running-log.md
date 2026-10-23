@@ -280,3 +280,11 @@
   - **unfixed** (`BASE_REF=b11644ce58 --old`, 19:36:02-19:44:46, rc 1): 3 checks failed, all in bg to bi.
   - **fixed** (19:44:46-19:53:28, rc 0): `PASSED`.
 - **Queued for the guest** (S4 and S5 together): the `get_setting` readings #756 and #759 name, and #758's criterion 1, once S7 has moved `wifictl`.
+
+## [Stage E, S5] 21:41 — Stream S5, the updater, the sysconfig unit and the defaults
+
+- **Items, in the briefs' order:** #713 G-01 and #738 F-28 (`003-upgrade`), #715 F-32 and #721 F-44, #716 F-33, #740 F-34, #741 F-35 (`post-update`), #739 F-30 (`save-sysconfig.service`), #724 F-63 (`package.mk`, `post-update`), G-02 (a comment), F-65 (`rocknix-settings`), F-62 (`package.mk`). F-46 stays as it is, with the reason on #694. F-45 #745 is deferred to #563.
+- **The test first:** `tools/last-good-scripts-test` sections bj to bt. `post-update`'s blocks are lifted between their bounding lines and `003-upgrade` runs whole with a stub `post-update`, all in S3's sandbox under the image's bash and busybox, with the image's `/usr/config` moved to a fixture.
+  - **unfixed** (`BASE_REF=4ded5446cb --old`, from the tree, 21:32:06-21:40:50, rc 1): 15 checks failed, all in bj to bt.
+  - A first unfixed run (21:23:07-21:31:29) ran a copy of the harness from the scratchpad. It failed the same 15 checks plus five outside S5, because the copy looks for `tools/vm-qa`, `tools/melonds-upgrade-test` and others beside itself. It is not evidence; the run from the tree is.
+- **M7 window** (the coordinator, 21:36): the guest was already down (since 19:27:18). Acknowledged on #648 at 21:41 and in the host coordination file.

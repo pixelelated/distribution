@@ -14640,6 +14640,112 @@ J4="${S3}/bi"; s3_run "${J4}" "$(s4_cfg "'x.keep=1'"); set_setting_value wifi.ss
 [ "$(cat "${J4}/out")" = "[default][]" ]
 check $? "set_setting_value stores default; set_setting still reads default as remove" "printed: $(cat "${J4}/out") $(head -c 120 "${J4}/err")"
 
+# M6 T1 stream S5 (#713, #715, #716, #721, #724, #738-#741): the updater, the
+# sysconfig unit and the defaults. post-update's blocks are lifted between the
+# lines that bound them and run in S3's sandbox, the image's /usr/config moved
+# to a fixture under S5; 003-upgrade runs whole with post-update a stub. All
+# from BASE_REF under --old.
+S5="${TMP}/s5"; mkdir -p "${S5}/usr/config/ssh" "${S5}/usr/config/iwd" "${S5}/usr/config/ppsspp/assets"
+for f in sources/post-update autostart/003-upgrade system.d/save-sysconfig.service package.mk sources/scripts/rocknix-settings; do
+    src_of "projects/ROCKNIX/packages/rocknix/${f}" "${S5}/$(basename "${f}")"
+done
+s5_fix() { sed -e "s#/usr/config/#${S5}/usr/config/#g" -e "s#/usr/share/post-update#/storage/post-update#g" -e "s#^\. /etc/profile\.d/001-functions#. ${S3}/001-functions#"; }
+s5_pu() { s3_block "${S5}/post-update" "$1" "$2" | s5_fix; }
+S5_CFG="mkdir -p /storage/.config/system/configs /var/log; C=/storage/.config/system/configs/system.cfg; LOG=/var/log/boot.log"
+s5_fix < "${S5}/003-upgrade" > "${S5}/003-upgrade.t"
+
+echo "  bj. a post-update that fails keeps the update hint, and says so (#713)"
+for r in 1 0; do
+    s3_run "${S5}/bj${r}" "mkdir -p /var/log; echo 'the previous update' > /var/log/upgrade.log; echo UPDATE > /storage/.boot.hint
+        printf '#!/bin/sh\necho post-update ran\nexit ${r}\n' > /storage/post-update; chmod +x /storage/post-update
+        logger() { echo \"logger \$*\" >> /tmp/logger.out; }
+        . ${S5}/003-upgrade.t; echo \"hint \$([ -e /storage/.boot.hint ] && echo kept || echo removed)\"; cat /tmp/logger.out 2>/dev/null
+        echo \"previous log: \$(cat /var/log/upgrade.log.0 2>/dev/null)\""
+done
+grep -q '^hint kept$' "${S5}/bj1/out" && grep -q '^logger .*post-update.*exit 1' "${S5}/bj1/out"
+check $? "post-update exiting 1: the hint is kept and the journal says so" "exit 1: $(tr '\n' '|' < "${S5}/bj1/out")"
+grep -q '^hint removed$' "${S5}/bj0/out"
+check $? "control: post-update exiting 0 removes the hint" "exit 0: $(tr '\n' '|' < "${S5}/bj0/out")"
+
+echo "  bk. an ordinary boot leaves the last update's log alone (#738)"
+s3_run "${S5}/bk" "mkdir -p /var/log; echo 'the last update' > /var/log/upgrade.log; . ${S5}/003-upgrade.t; cat /var/log/upgrade.log"
+[ "$(cat "${S5}/bk/out")" = "the last update" ]
+check $? "upgrade.log after a boot with no hint is the update's" "upgrade.log after a boot with no hint: [$(tr '\n' '|' < "${S5}/bk/out")]"
+grep -q '^previous log: the previous update$' "${S5}/bj0/out"
+check $? "an update boot keeps the log before it as upgrade.log.0" "$(grep '^previous log' "${S5}/bj0/out")"
+
+echo "  bl. post-update's batteryplus write takes the lock and drops a cut line (#715)"
+s5_pu '^# Set the flag to enable batteryplus' 'batteryplus\.enabled[ =]1' > "${S5}/bl.block"
+s3_run "${S5}/bl" "${S5_CFG}; printf 'system.hostname=x\nwifi.country=G' > \$C; . ${S3}/001-functions
+    sleep 2 & echo \$! > /tmp/.system.cfg.lock
+    s=\$(date +%s%N); . ${S5}/bl.block; e=\$(date +%s%N); echo \"waited \$(( (e - s) / 1000000 )) ms\"; cat \$C"
+awk '/^waited/ { exit !($2 >= 1500) }' "${S5}/bl/out"
+check $? "the write waits for the settings lock's holder" "$(head -1 "${S5}/bl/out")"
+grep -q '^system\.batteryplus\.enabled=1$' "${S5}/bl/out" && ! grep -q '^wifi\.country=G$' "${S5}/bl/out"
+check $? "the cut line is dropped, the key written" "system.cfg after: $(tail -n +2 "${S5}/bl/out" | tr '\n' '|')"
+
+echo "  bm. no line of post-update removes the player's DPMS choice (#721)"
+grep -v '^[[:space:]]*#' "${S5}/post-update" | grep 'system\.suspend\.dpms' | s5_fix > "${S5}/bm.block"
+s3_run "${S5}/bm" "${S5_CFG}; printf 'system.hostname=x\nsystem.suspend.dpms=1\n' > \$C; . ${S3}/001-functions; . ${S5}/bm.block; cat \$C"
+grep -q '^system\.suspend\.dpms=1$' "${S5}/bm/out"
+check $? "system.suspend.dpms=1 is still there" "system.cfg after: $(tr '\n' '|' < "${S5}/bm/out")"
+
+echo "  bn. the owner's last_ copy survives a second update (#716)"
+s5_pu '^for es_cfg in es_features' '^done$' > "${S5}/bn.block"
+s3_run "${S5}/bn" "E=/storage/.config/emulationstation; mkdir -p \$E; echo custom > \$E/es_features.cfg
+    . ${S5}/bn.block; . ${S5}/bn.block; echo \"last: \$(cat \$E/last_es_features.cfg 2>/dev/null)\"; echo \"link: \$(readlink \$E/es_features.cfg)\""
+grep -q '^last: custom$' "${S5}/bn/out" && grep -q "^link: ${S5}/usr/config/emulationstation/es_features.cfg$" "${S5}/bn/out"
+check $? "last_es_features.cfg is the owner's copy after two runs" "after two runs: $(tr '\n' '|' < "${S5}/bn/out")"
+
+echo "  bo. an engineering image's keys and Wi-Fi files are added, never put over the owner's (#740)"
+printf 'dev-line\n' > "${S5}/usr/config/ssh/authorized_keys"; printf 'image\n' > "${S5}/usr/config/iwd/Net.psk"; printf 'image\n' > "${S5}/usr/config/iwd/New.psk"
+s5_pu '^### Apply developer ssh keys' '^### Retire the console-era' > "${S5}/bo.block"
+s3_run "${S5}/bo" "${S5_CFG}; . ${S3}/001-functions; mkdir -p /storage/.ssh /storage/.cache/iwd; printf 'owner-line' > /storage/.ssh/authorized_keys; echo owner > /storage/.cache/iwd/Net.psk
+    . ${S5}/bo.block; . ${S5}/bo.block; echo \"keys: \$(tr '\n' ';' < /storage/.ssh/authorized_keys)\"; echo \"Net: \$(cat /storage/.cache/iwd/Net.psk) New: \$(cat /storage/.cache/iwd/New.psk 2>/dev/null)\""
+grep -q '^keys: owner-line;dev-line;$' "${S5}/bo/out" && grep -q '^Net: owner New: image$' "${S5}/bo/out"
+check $? "the owner's key and Wi-Fi file are kept, the image's added once" "after two runs: $(tr '\n' '|' < "${S5}/bo/out")"
+s3_run "${S5}/bo2" "${S5_CFG}; . ${S3}/001-functions; mkdir -p /storage/.cache/iwd; . ${S5}/bo.block; echo \"ssh: \$([ -d /storage/.ssh ] && echo dir || echo not-a-dir) \$(cat /storage/.ssh/authorized_keys 2>/dev/null)\""
+grep -q '^ssh: dir dev-line$' "${S5}/bo2/out"
+check $? "with no /storage/.ssh, a directory is made with the key in it" "$(tr '\n' '|' < "${S5}/bo2/out")"
+
+echo "  bp. PPSSPP's font goes into its folder or nowhere (#741)"
+: > "${S5}/usr/config/ppsspp/assets/NotoSansJP-Regular.ttf"
+s5_pu '^### Fix Japanese language bug' '^fi$' > "${S5}/bp.block"
+s3_run "${S5}/bp" "mkdir -p /storage/.config/ppsspp w; cd w; . ${S5}/bp.block; echo \"cwd: [\$(ls -A \${D}/w | tr '\n' ';')]\""
+grep -q '^cwd: \[\]$' "${S5}/bp/out"
+check $? "with no assets folder, nothing lands in the working directory" "$(tr '\n' '|' < "${S5}/bp/out") $(head -c 100 "${S5}/bp/err")"
+s3_run "${S5}/bp2" "mkdir -p /storage/.config/ppsspp/assets w; cd w; . ${S5}/bp.block; echo \"assets: [\$(ls -A /storage/.config/ppsspp/assets | tr '\n' ';')]\""
+grep -q '^assets: \[NotoSansJP-Regular.ttf;Roboto-Condensed.ttf;\]$' "${S5}/bp2/out"
+check $? "control: with the folder, the font and its link are made there" "$(tr '\n' '|' < "${S5}/bp2/out")"
+
+echo "  bq. the shutdown backup has a bound (#739)"
+awk -F= '/^TimeoutStartSec=/ { print $2 }' "${S5}/save-sysconfig.service" > "${S5}/bq.out"
+grep -q -E '^[1-9][0-9]*s?$' "${S5}/bq.out"
+check $? "TimeoutStartSec is $(cat "${S5}/bq.out")" "TimeoutStartSec=[$(cat "${S5}/bq.out")], unbounded"
+
+echo "  br. system.cfg is private: the seed in the recipe, the live file and its record narrowed (#724)"
+! grep -q 'chmod o+x' "${S5}/package.mk" && grep -q 'chmod 0600 .*/configs/system\.cfg' "${S5}/package.mk"
+check $? "the recipe seeds system.cfg 0600 and gives nothing o+x" "the recipe: $(grep -n 'chmod' "${S5}/package.mk" | head -3 | tr '\n' '|')"
+s5_pu '^# system\.cfg holds the device' '^done$' > "${S5}/br.block"
+s3_run "${S5}/br" "${S5_CFG}; echo system.hostname=x > \$C; cp \$C \$C.backup; chmod 645 \$C \$C.backup; . ${S5}/br.block; . ${S5}/br.block; stat -c '%a' \$C \$C.backup | tr '\n' ' '"
+[ "$(cat "${S5}/br/out")" = "600 600 " ]
+check $? "an upgraded device's system.cfg and its record are 600 after the update" "modes after: [$(cat "${S5}/br/out")]"
+
+echo "  bs. rocknix-settings does not write system.cfg around the settings lock (F-65)"
+s3_run "${S5}/bs" "${S5_CFG}; printf 'system.hostname=x\nx.key=1\n' > \$C; printf 'y.key=1\n' > /tmp/own.cfg
+    ${NP_BASH} ${S5}/rocknix-settings set x.key 2 2>/dev/null; echo \"rc=\$? \$(grep '^x.key=' \$C)\"
+    ${NP_BASH} ${S5}/rocknix-settings /tmp/own.cfg set y.key 2 2>/dev/null; echo \"own: \$(cat /tmp/own.cfg)\""
+grep -q '^rc=2 x.key=1$' "${S5}/bs/out"
+check $? "a write to system.cfg is refused (2) and the file unchanged" "$(tr '\n' '|' < "${S5}/bs/out")"
+grep -q '^own: y.key=2$' "${S5}/bs/out"
+check $? "control: a write to another file still goes through" "$(tr '\n' '|' < "${S5}/bs/out")"
+
+echo "  bt. the recipe declares the programs its scripts call (F-62)"
+D5=$(sed -n 's/^PKG_DEPENDS_TARGET="\(.*\)"$/\1/p' "${S5}/package.mk")
+M5=""; for p in rsync jq curl xmlstarlet parted; do case " ${D5} " in *" ${p} "*) ;; *) M5="${M5} ${p}" ;; esac; done
+[ -z "${M5}" ]
+check $? "rsync, jq, curl, xmlstarlet and parted are declared" "undeclared:${M5}"
+
 if [ "${NOT_APPLICABLE}" -ne 0 ]; then echo "${NOT_APPLICABLE} HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS"; fi
 if [ "${FAIL}" -eq 0 ] && [ "${SKIPPED}" -eq 0 ]; then echo "PASSED"; exit 0
 elif [ "${FAIL}" -eq 0 ]; then echo "PASSED, ${SKIPPED} SKIPPED -- a check that did not run has not passed"; exit 3
