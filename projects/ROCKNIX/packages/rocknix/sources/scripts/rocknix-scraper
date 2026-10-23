@@ -49,6 +49,10 @@ do_scrap() {
 	    test "${LRDIR}" = "/storage/roms/${x}" && EXTRAOPT="-mame"
 	done
 
+	# sselph-scraper is on no image, and ApiSystem::scrape's one caller,
+	# GuiAutoScrape, is opened by nothing at the interface's pin: this verb is
+	# unreached in effect. Kept as upstream carries it, with a line on #585
+	# (F-66).
 	(cd "${LRDIR}" && sselph-scraper -console_src ss,gdb,ovgdb -lang "${sslang}" -console_img "${IMGSTYLE}" -download_videos -workers 5 ${EXTRAOPT}) 2>&1
     fi
 }
