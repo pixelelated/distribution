@@ -120,3 +120,74 @@ Read this session:
 - **The code-auditor skill:** `SKILL.md`; the references at their phases.
 
 Opened at their phase (Phase 1 records them): `generic-x64-vm-testing.md`'s named sections, `rclone-cloud-sync.md`'s named sections, `change-log.md`, `docs/blindspot-register.md`, and the decisions by ID.
+
+## Phase 1 — Research
+
+### 1.1 The spec
+
+The spec is brief § 2 to § 7 and #649's checklist (sixteen criteria, identical to brief § 7). Phase 2's criteria are those sixteen, evaluated at the end of Phase 2. The substance is the seven questions per file (brief § 4) and the coverage table. Two ambiguities are recorded and need no question to the coordinator:
+
+- (a) § 7 item 12 counts `proved:` cells against "the number of guest proofs the running log lists", so each guest proof gets one running-log line.
+- (b) Q6's entry-point list includes the `.h` declarations of the three upstream-carried files, which get Q6 and Q4 first (brief § 4). So those rows are written, not skipped.
+
+### 1.2 The issues (named by brief § 3), read for planned changes and leads, not as a work queue
+
+| Issue | State | Bearing on this slice |
+| --- | --- | --- |
+| #336 | open | Step 1 puts a headless runner in place of RetroArch, chosen per core in the launcher; "ES does not know which ran". The line is drawn in § Scope. |
+| #613 | open (M7.P5) | The `/etc/emulationstation/es_systems.cfg` fallback symlink points into a build directory (`package.mk` line 101). On the device the active config is `/storage/.config/emulationstation/es_systems.cfg`. The ES-side seam is `SystemData::getConfigPath`'s fallback order. The fix is the recipe's (T37), not this slice's. A lead to read in group 2. |
+| #301 | open | The hash-library fetch is on the interface thread. `ThreadedHasher` is outside the slice; `ProxyCards::indexRanOffline` is its consumer here. |
+| #303 | open | The sweep of every fork card and toast (icon, title, a body that does not repeat it). The launch path's toasts and the proxy cards are in its scope. A Q2 lead per card string. |
+| #135 | open | Time to play: the Q5 numbers. |
+| #10 | open | Save states across build families. The guest cannot show it, and it is not this slice's. |
+| #585 | open | The upstream contribution queue, for a fix batocera or ROCKNIX would take. |
+| #644, #645 | open | The build-path read and the upstream PR rules. None of their findings ride this slice. |
+| #730 | open (T1's PL-030) | `runemu.sh:27-30` cuts `CORE`/`EMULATOR` from the joined line, and the last `--core=` wins. `LaunchCommand.h` reads whole words, also last wins. The seam is two readers of one argument line. |
+| #300, #310, #117, #198, #246, #245, #299, #90, #92 | closed | History for these files (below). |
+| #120 | **open** | Automated VM testing. **Delta:** brief § 3 lists #120 among the closed. It is open, which does not change the reading. |
+
+### Closed `bug` issues that name these files (brittleness evidence; leads for sibling sites, Phase 3.6.5)
+
+Pattern `\b(launchGame|FileData|SystemData|ViewController|SaveState\w*|ProxyCards|LaunchCommand|es_systems)\b|\bmain\.cpp\b` over title and body of the 139 closed `bug` issues: **14** match: #101 #114 #149 #183 #205 #206 #207 #209 #210 #246 #275 #300 #305 #520. Each is opened in Phase 3.6.5 where its shape recurs.
+
+### 1.3 Git history (ES, `cada856d8..$PIN`, the fork's own)
+
+Fork commits per path: `main.cpp` 42, `FileData.cpp` 40, `ProxyCards.cpp` 23, `SaveStateBookkeeper.cpp` 7, `ViewController.cpp` 6, `SystemData.cpp` 6, `SaveState.cpp` 5, `SaveStateBookkeeper.h` 4, `ProxyCards.h` 4, `FileData.h` 3, `SaveStateRepository.cpp` 2, `SystemData.h` 2, `ViewController.h` 2, `LaunchCommand.h` 2, `SaveStateRepository.h` 1, `SaveStateJobQueue.*` 1 each. The three upstream-carried files have 0 (last touched 2023-10).
+
+The churn is in `main.cpp` and `FileData.cpp` (the cloud-folder boot work of 2026-10-01 to 2026-10-07, the identity rename, and the scan release of `e6e1e4d0f`), and in the fix rounds of 2026-09-28 (#307 and #313, streams E1 and E2: the capture gate's bound, the bookkeeper under the transfer lock, `LaunchCommand` whole words, the rotation record). The last commit on the pin, `16dbac521` (`GuiWifi: cancel scan worker on normal frontend exit`), touches `main.cpp`.
+
+### 1.4 Documentation and constraints
+
+These are the rules of § Scope § Rules read. The decisions cited by brief § 3 are read from `docs/decision-register.md` as each is cited in a finding, by ID, and never re-argued.
+
+### 1.5 Prior audits: the provenance map (verdicts sequestered until after Phase 2)
+
+| Audit | Tier | Lines in its punch list naming these files (`grep -c`, brief § 3's pattern) |
+| --- | --- | ---: |
+| `2026_09_25-milestone-rc-round-since-258` | milestone | 24 |
+| `2026_09_24-milestone-rc-round-since-186` | milestone | 21 |
+| `2026_09_28-milestone-audit-of-the-fix-round` | milestone | 7 |
+| `2026_09_13-milestone-stable-before-upstream` | milestone | 6 |
+| `2026_09_12-milestone-cloud-saves-since-60` | milestone | 4 |
+| `2026_09_28-milestone-audit-of-the-fixes-307` | milestone | 4 |
+| `2026_10_06-milestone-m7-p4-fixes-383` | milestone | 2 |
+| `2026_10_14-milestone-m7-next-candidate` | milestone | 2 |
+
+These are provenance only. Each was a milestone diff audit over a range, never a line-by-line read of these files whole, so the slice's own read is the first. Their verdicts are opened after Phase 2's own entries are written (plan § 7 item 3).
+
+### 1.6 Research Summary
+
+- **Planned:** a line-by-line read of 20 shipped ES files (11,287 lines) under the seven questions, at Extended depth.
+- **What exists:** the slice issue #649, the area epic #700, and the seams with T1 (#648, #730) and T18, T20, T21, T31, T35 and T36 by name.
+- **Code changed since the merge base:** 115 fork commits, concentrated in `main.cpp`, `FileData.cpp` and `ProxyCards.cpp`.
+- **Constraints:** the host is held for M7, so every runtime proof is queued; nothing builds; ES fixes are stage E's, after the stream briefs.
+- **Red flags carried into Phase 2** (leads, from the brief's seam map, each to be re-read):
+  - raw `FileData*` across the gates' waits while `rescanIfFolderChanged` may delete them;
+  - `mRunningGame` read off the interface thread;
+  - `%BASENAME%`/`%ROM_RAW%` raw and `formatCommandLineArgument` quoting only on a space;
+  - the ROCKNIX netplay client branch computing values it never uses;
+  - the overlay `return` at `SystemData.cpp` 1042/1049;
+  - the unlocked static cache in `SaveStateConfigFile`;
+  - `renumberSlots` with no caller;
+  - the boot-game replay with no events;
+  - the `onGameEnded` comment that disagrees with its code.

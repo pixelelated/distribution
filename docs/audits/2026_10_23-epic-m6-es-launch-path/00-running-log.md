@@ -74,3 +74,17 @@ Nothing on this list runs before the coordinator relays M7's `resource return` o
 - `.claude/rules/es-native-ui.md` § Before the pin moves now has one sentence on `--root` and the moved root (#699 criterion 4). The worktree's rules now differ from `next` in a fourth file, and this lane wrote it.
 - Criterion 2 (no compiler ran; ninja listed commands only): a fake root under the scratchpad holds symlinks to the M7 root's ES build directory and ninja, plus a copy of the two-line wrapper and no `g++-15.2.0`. `tools/es-syntax-check --root <fake> $W/es-app/src/FileData.cpp` printed `(moved) recorded root .../m7-pixelelated/..., rewritten to <fake>` and `NO-COMPILER .../m7-pixelelated/.../toolchain/bin/ccache: named by <fake>/toolchain/bin/x86_64-rocknix-linux-gnu-g++, and no real compiler beside it`, rc 2. `LaunchCommand.h` gave the same (it borrows `FileData.cpp`'s command).
 - Criteria 1 and 3 compile: queued, item 2 above.
+
+### [Phase 1] 17:29 — Research written
+
+- `01-research-notes.md` § Phase 1: the issues of brief § 3 (#120 is **open**, a delta from the brief's closed list); 14 closed bugs naming the files; the history (115 fork commits, concentrated in `main.cpp`, `FileData.cpp` and `ProxyCards.cpp`); the prior audits as provenance only.
+
+### [Phase 2] 17:31-18:0x — Group 1 read (`LaunchCommand.h`, `FileData.*`, `ViewController.*`)
+
+- Provenance per region: `git diff -U0 1750dded8 $PIN` puts the fork's hunks in `FileData.cpp` at about 1-130, 677-723 and 763-1318, and in `ViewController.cpp` at 39-80, 1059-1118 and 1468-1496. The rest is batocera's, byte for byte.
+- Findings FD-1 to FD-21 and VC-1 to VC-6 are in `02-forward-audit.md`. Leads to grade in Phase 4.5:
+  - FD-8: a raw `FileData*` held across the gates' waits; severity depends on group 2's rescan triggers.
+  - FD-14: DELETE GAME removes files outside the game's directory through `.m3u`/`.cue`/`.gdi`.
+  - VC-1: the gates ask after the launch transition and the splash.
+  - FD-1, corrected by a caller search: `netplayClientPassword` is never assigned, and a `SPECTATOR` join becomes a plain client on the image.
+- Seam leads for other slices: FD-7 (the controllers blob, T36), FD-9/FD-19 (`Scripting` quoting, T33/T21), FD-1's `mitm_session` (T31).
