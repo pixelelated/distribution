@@ -586,6 +586,9 @@ Final count: **370 rows** (295 + 13 + 62), command counts 154/32/60, and **5 unr
 - `FileData.cpp` holds five responsibilities in 2,680 lines, and `launchGame` alone is 400 lines (§ 3.1).
 - Nothing in the three big files says which lines are batocera's and which the fork's (the hunk maps above). A header line naming the provenance would save a reader the `git diff`.
 - **FD-4:** `getlaunchCommand` writes `system.cfg`.
+  - **The row for PL-031 (S1, deferred to #678).** The builder seeds `global.netplay.nickname` with the application's name plus `Player` and saves `system.cfg` when the key is empty (`FileData.cpp:653-657`, pin numbering). Three readers rely on that seeding without saying so: the NICKNAME row of `GuiNetPlaySettings.cpp:26`, the NETPLAY NICKNAME row of `GuiGameOptions.cpp:203` (both `addInputTextConfigRow` over the stored key), and `SystemData.cpp:1854`'s export. On a fresh device, any launch fills the key, so those rows show the default. Removing only the write would leave them empty.
+  - **The proposed move:** the default is supplied where netplay is enabled or where those two pages load, either by seeding once or by a read that falls back. The builder then reads the key and falls back to the same default without saving. That reaches two files of T31's (#678) and one of T2's, so it is a lead for T31 on #649, and S1 does not change the builder alone.
+  - **Already written:** devices hold the seeded or chosen nickname, which is read as it is.
 - **FD-13:** the renumbering comment.
 - **MN-4:** three stale comments.
 - **SS-3:** duplicated arms.

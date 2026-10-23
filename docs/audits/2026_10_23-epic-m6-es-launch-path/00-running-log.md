@@ -191,3 +191,29 @@ Nothing on this list runs before the coordinator relays M7's `resource return` o
   - 20:18:05, the header holding the **pin's** behaviour (the double-quoted state file, sequential replaces, a substring option test): `./build-tests/es-unit-tests -tc='state file*,template*'` gave `6 | 3 passed | 3 failed`. The failures were the state-file argument (`:95`), the re-expansion (`:120`) and the substring option (`:135`).
   - 20:18:22, the fix's behaviour: `6 | 6 passed | 0 failed`. The whole suite: **`191 passed | 0 failed`, `4809 assertions`**.
 - 20:18:41 the syntax-only compile with the fixed `tools/es-syntax-check --root <m7-signin-build-20261022-07 root> --tree $W`, compiler `x86_64-rocknix-linux-gnu-g++-15.2.0`: **`PASS es-app/src/SaveState.cpp`** (rc 0). The ASCII-comment check on the three files is empty.
+- **PL-007 / PL-034, the call site.** `FileData::getlaunchCommand`:
+  - `formatCommandLineArgument` is retired. `%GAMENAME%`, `%SYSTEMNAME%`, `%BASENAME%` and `%ROM_RAW%` go through `Utils::String::shellQuote`, and `%ROM%` keeps `getEscapedPath`.
+  - Every placeholder is replaced by one `LaunchTemplate::expand` over the finished template; the netplay branches now assign a value instead of replacing.
+  - The forced `-emulator`/`-core` options are found with `LaunchTemplate::hasOption`.
+  - `configureEmulators()` now runs only when `includeControllers` is true and the template names `%CONTROLLERSCONFIG%`; otherwise that placeholder is left as it is, as before, for the boot game's stored command.
+  - The shipped template still names it (`functions:128`, 125 of 127 commands on the guest), so the controllers blob is still built on every shipped launch.
+  - The test-first evidence is LaunchTemplateTests' 20:18:05 failure (expand, hasOption). The call site has no unit seam; its guest proof is PL-007's walk, recorded as `fix-walk-pending-image`.
+- 20:21:17 `tools/es-syntax-check --root <m7 root> --tree $W es-app/src/FileData.cpp`, compiler `x86_64-rocknix-linux-gnu-g++-15.2.0`: **`PASS`** (rc 0). The ASCII-comment check on the two files is empty.
+- 20:21:24 `es-unit-tests`: **`191 passed | 0 failed`, `4809 assertions`**.
+- A lead, not a change: on WIN32, the `retroarch.exe` test in the netplay branches now reads the template before expansion, not the expanded line. That is upstream's Windows path, outside ROCKNIX's build.
+- ES `2f26f410f` (PL-007, PL-034) committed after the lines above.
+- **PL-021, the test first.**
+  - `LaunchCommandTests.cpp` gained three cases: a quoted value, an explicitly empty value, and a nick that is itself an option word.
+  - The `runemu` stand-in was brought to runemu.sh's reading at distribution `fe3e832e4a` (#730): whole unquoted arguments, the first `-P` after the ROM, the last `--core=`/`--emulator=`. The nick case that recorded the two readings parting company now records that they agree.
+  - 20:23:45, against the unfixed header: `-tc='launch command*'` gave `11 | 9 passed | 2 failed`. The 6 failed assertions are all the header's PL-021 lines (`:190`, `:191`, `:196`, `:197`, `:205`, `:209`); every `runemu` check passed.
+  - 20:24:01, fixed (`findLaunchToken`; the prefix matched on the word as written, the value read as the shell hands it on; `launchArgument` keeps the fallback for an absent word only): `11 | 11 passed`. The whole suite: **`194 passed | 0 failed`, `4829 assertions`**.
+- 20:24:44 `tools/es-syntax-check --root <m7 root> --tree $W`, run from the ES worktree: **`PASS es-app/src/FileData.cpp`** and **`PASS es-app/src/main.cpp`** (the two includers of `LaunchCommand.h`), rc 0 each. The ASCII-comment check on both files is empty. Committed as ES `3872afe5a`.
+- **#699, a gap in my own fix, found and closed.** At 20:24:08, run from the distribution worktree, `es-syntax-check --tree $W es-app/src/FileData.cpp` printed `MISSING es-app/src/FileData.cpp` (rc 1). The cause: the relative path was resolved against the current directory, not against the tree.
+  - With `--tree`, a relative path is now the tree's.
+  - 20:25:13, from the same directory: FileData.cpp and main.cpp give `PASS` (rc 0). A file the tree lacks still gives `MISSING`, `FAIL` and rc 1. `bash -n` is clean.
+- **A lead for T1 (#648)**, from the new case: runemu.sh reads every whole argument, so a netplay nick that is itself a `--core=` word, one quoted argument after the real option, is read as the core. The header keeps the core ES built. `LaunchCommandTests.cpp`'s last case records the difference.
+- **PL-031 deferred to #678 (T31).** Stopping the builder's write alone would empty the NICKNAME rows (`GuiNetPlaySettings.cpp:26`, `GuiGameOptions.cpp:203`) and `SystemData.cpp:1854`'s export on a fresh device. The row with the proposed move is in `04-analysis.md` § Q7.
+- The fix walks W-1 (PL-001), W-2 (PL-007) and W-3 (PL-034) are written in `02-forward-audit.md` § Fix walks, each `proved: fix-walk-pending-image`.
+- 20:27:37 `tests/credential-quoting.py` at the ES tip `3872afe5a`: `9 credential call site(s), 9 quoted, 0 bare`, rc 0.
+- The Phase 7 outcomes are in `05-punch-list.md`: PL-001, PL-007, PL-021 and PL-034 `Resolved` with their commits, and PL-031 `Deferred` to #678. `tools/lint-audit-artifacts --phase pre-issue --issue 790`: `PASS`.
+- **S1 ends at ES `3872afe5a`.**

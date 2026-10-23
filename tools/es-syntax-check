@@ -122,6 +122,11 @@ if [ -n "$TREE" ]; then
 fi
 fail=0
 for f in "${FILES[@]}"; do
+  # With --tree, a relative path is the tree's, whatever the directory the
+  # tool runs from: from the distribution checkout it read MISSING for a
+  # file the tree has, and from another ES worktree it would compile that
+  # worktree's copy against this tree's headers (#699, 2026-10-23).
+  if [ -n "${TREE:-}" ] && [ "${f#/}" = "$f" ]; then f="$TREE/$f"; fi
   [ -f "$f" ] || { echo "  MISSING $f" >&2; fail=1; continue; }
   abs=$(readlink -f "$f")
   # es-app/src/guis/GuiCloudTransfer.cpp -> es-app/CMakeFiles/emulationstation.dir/src/guis/GuiCloudTransfer.cpp.o

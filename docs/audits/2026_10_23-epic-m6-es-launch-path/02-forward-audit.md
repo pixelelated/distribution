@@ -244,6 +244,18 @@ The guest is the lane's own: BUILD_ID `069fc2704421`, instance `/workspace/artif
 | G-9 | SD-4 / FD-15 | interface stopped; `<int name="gb.sort" value="28" />` (28 = the number of sort types, `FileSorts.cpp:43-71`) and `StartupSystem gb` in `es_settings.cfg`; start; A on the gb system | **reproduced**: `terminate called after throwing an instance of 'std::exception'`, `essway.service: Main process exited, code=exited, status=134` (journal 15:03:21), pid 14539 → 14775 (restarted). **Control:** the same with 27, where the list opens and the pid holds. The first attempt tested nothing: `time-to-play` had removed `/storage/roms/gb` | proved: pin-binary |
 | G-10 | SR-2 | 500 `Bulk%03d.state1` beside the probe's states, reboot, `time-to-play ... --only launch,exit,g2g --repeat 3` (18:58-19:01) | **no measurable cost**: next game's first frame 1.01/1.01/1.02 s against 1.01/1.01/1.01 s without them; first frame 0.57 s. Inside the 61 ms frame resolution. SR-2 withdrawn as a Q5 item at this size | proved: pin-binary |
 
+## Fix walks (stage E)
+
+One row per fix the first image carrying the ES branch will prove. Each is written now, against the pin's numbering, and run by the coordinator at that image (t2-streams.md § The test first; plan § 6b stage H). Fixtures are named by reference to the guest proof that made them; the lane's instance is `$R` as above.
+
+| Walk | Item | Fixture | What runs | The artifact and the assertion | Proof class |
+| --- | --- | --- | --- | --- | --- |
+| W-1 | PL-001 (#767) | G-6's, by reference: its ROM and state file under `/storage/roms/gb` and `/storage/roms/savestates/gb`, `gb.autosave 1`, and `$R/ss1.sh` | reboot, then `$R/ss1.sh` as in G-6 | the RetroArch process's argument vector from `/proc/<pid>/cmdline`: the state file argument equals the state file's path on disk, character for character, and `exec.log` records the same path. G-6 on the pin is the failing control | proved: fix-walk-pending-image |
+| W-2 | PL-007 (#773) | G-6's ROM; an `es_systems_custom.cfg` under `/storage/.config/emulationstation/` whose gb command is the shipped one with `%GAMENAME%`, `%BASENAME%` and `%ROM_RAW%` appended, each after a marker option of its own | reboot, `POST /launch` of the ROM | `runemu.sh`'s argument vector from `/proc/<pid>/cmdline` while it runs: the argument after each marker equals, in turn, the game's name, the file's stem and the file's full path, each one argument; the forced options appear once each. The control is the same fixture on the pin, where the name splits | proved: fix-walk-pending-image |
+| W-3 | PL-034 | none beyond G-1's | `tools/time-to-play ... --vm --only launch,exit,g2g --repeat 3`, as G-1 | the `launch` cell's median within one 61 ms frame of G-1's 0.65 s or below it; the `--controllers=` argument in `exec.log` byte-equal to G-1's run | proved: fix-walk-pending-image |
+
+PL-021 is proven by `es-unit-tests` alone (its item's VM line), so it has no walk. PL-031 is deferred to #678 (05's index), so it has none here.
+
 ## Criterion entries: #649's checklist (= brief § 7), evaluated at the end of Phase 2 (17:47 UTC)
 
 ### AC-01: the audit folder holds `00-running-log.md` and `01-research-notes.md` to `05-punch-list.md`
