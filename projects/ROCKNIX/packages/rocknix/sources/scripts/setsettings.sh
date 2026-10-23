@@ -421,10 +421,23 @@ function configure_hotkeys() {
     if grep -q "Sony Interactive Entertainment DualSense Wireless Controller" /proc/bus/input/devices; then
         # InputPlumber virtual DS5
         MY_CONTROLLER="Sony Interactive Entertainment DualSense Wireless Controller"
-    elif grep -q "js0" /proc/bus/input/devices; then
-        MY_CONTROLLER=$(grep -b4 js0 /proc/bus/input/devices | awk 'BEGIN {FS="\""}; /Name/ {printf $2}')
     else
-        MY_CONTROLLER=$(grep -b4 joypad /proc/bus/input/devices | awk 'BEGIN {FS="\""}; /Name/ {printf $2}')
+        ### The Name of the first device whose own stanza holds js0 (or,
+        ### failing that, "joypad"): grep -b4 joined every Name within four
+        ### lines, so a second pad left no autoconfig to find (#760).
+        MY_CONTROLLER=$(awk -v want=js0 'BEGIN { FS = "\"" }
+            /^I:/ { name = ""; hit = 0 } /^N: Name=/ { name = $2 }
+            /^H: Handlers=/ && $0 ~ ("[= ]" want "( |$)") { hit = 1 }
+            /^$/ { if (hit) { print name; done = 1; exit } }
+            END { if (hit && !done) print name }' /proc/bus/input/devices)
+        if [ -z "${MY_CONTROLLER}" ]
+        then
+            MY_CONTROLLER=$(awk 'BEGIN { FS = "\"" }
+                /^I:/ { name = ""; hit = 0 } /^N: Name=/ { name = $2 }
+                /joypad/ { hit = 1 }
+                /^$/ { if (hit) { print name; done = 1; exit } }
+                END { if (hit && !done) print name }' /proc/bus/input/devices)
+        fi
     fi
 
     ### Remove any input settings retroarch may have added.
@@ -434,9 +447,16 @@ function configure_hotkeys() {
     then
         if [ -e "/tmp/joypads/${MY_CONTROLLER}.cfg" ]
         then
-            cp /tmp/joypads/"${MY_CONTROLLER}.cfg" /tmp
-            sed -i "s# = #=#g" /tmp/"${MY_CONTROLLER}.cfg"
-            source /tmp/"${MY_CONTROLLER}.cfg"
+            ### The autoconfig's key = "value" lines are read as values, not
+            ### sourced as shell (#733): a $( ) in a value runs nothing.
+            local AC_LINE AC_RE='^(input_[A-Za-z0-9_]+)[[:space:]]*=[[:space:]]*"([^"]*)"'
+            while IFS= read -r AC_LINE || [ -n "${AC_LINE}" ]
+            do
+                if [[ "${AC_LINE}" =~ ${AC_RE} ]]
+                then
+                    printf -v "${BASH_REMATCH[1]}" '%s' "${BASH_REMATCH[2]}"
+                fi
+            done < /tmp/joypads/"${MY_CONTROLLER}.cfg"
             for HKEYSETTING in input_enable_hotkey_btn input_bind_hold            \
                                input_exit_emulator_btn input_fps_toggle_btn       \
                                input_menu_toggle_btn input_save_state_btn         \
