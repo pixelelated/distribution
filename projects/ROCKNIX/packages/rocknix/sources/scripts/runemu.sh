@@ -28,12 +28,22 @@ for ARG in "${@:2}"; do case "${ARG}" in -P?*) PLATFORM="${ARG#-P}"; break ;; es
 ### winning as the launcher reads them (LaunchCommand.h); cutting them from
 ### the joined line let a state file's path or a nick holding the letters
 ### win instead (#730, #308's sibling).
+### And the argument after a flag that takes a value is that value, never an
+### option: a netplay nick that is itself an option word (--nick --core=x,
+### one argument) was read as the core while the interface kept the core it
+### built the command with (#730, T2's lead).
 CORE=""
 EMULATOR=""
+SKIP_VALUE=""
 for ARG in "${@:2}"; do
+  if [ -n "${SKIP_VALUE}" ]; then
+    SKIP_VALUE=""
+    continue
+  fi
   case "${ARG}" in
     --core=*) CORE="${ARG#--core=}" ;;
     --emulator=*) EMULATOR="${ARG#--emulator=}" ;;
+    --nick|--port|--connect|--netplaymode) SKIP_VALUE="${ARG}" ;;
   esac
 done
 ROMNAME="$1"
