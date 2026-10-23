@@ -38,13 +38,17 @@ before #336 Step 1 as a reading order). The P0 tip `080ad7c52d` was merged
 (`87f447f930`); the fourth version (`slices.json`'s `gate` is now
 `read_before`, the Gate column gone, no slice moved) is committed, the
 ledgers regenerated (`p1-tracking.md` § Pass 7) and posted on #641.
-Question 3 is settled by D-WORKFLOW-184. **Waiting for:** the yes on the
-fourth version, relayed by the coordinator (`m6-renovation-plan-346-d9`).
-#644's findings ride T4 to T12 and T32 at filing (step 2 below).
+Question 3 is settled by D-WORKFLOW-184. **The yes is given** (#641
+comment 6356453637) and the order's row is **D-WORKFLOW-188** (step 1 below
+is done). **Waiting for:** the coordinator's word on who authors the slice
+issues and their criteria (D-WORKFLOW-181 against the lane split); nothing is
+filed until it comes. #644's findings ride T4 to T12 and T32 at filing (step
+2 below), and `--order-row D-WORKFLOW-188`. The coordinator's `5acc101b15`
+(work log, index, this pointer with the seed verbatim) is taken at hand-back.
 
 **On the yes** (a yes that moves a slice renumbers `T<k>` in `slices.json`
 first, then `--order`):
-1. the register row, the next free ID above the P0 tip's highest
+1. (done, D-WORKFLOW-188) the register row, the next free ID above the P0 tip's highest
    (**D-WORKFLOW-188** today; re-derive with the brief § 6 greps first and
    check the other lanes), citing D-WORKFLOW-185, D-WORKFLOW-186 and
    D-WORKFLOW-187;

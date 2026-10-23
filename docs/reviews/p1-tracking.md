@@ -227,7 +227,10 @@ Evidence notes that bear on the order:
 - **D-WORKFLOW-102's two gates bind regardless of the scores**: Tier 1's
   launch, control and state slice before `0.1`, and the interface's
   launch-path slice before #336 Step 1. Both fall in the two areas that
-  score highest here, os-scripts-and-launch and interface.
+  score highest here, os-scripts-and-launch and interface. (Pass 3's
+  record. D-WORKFLOW-187 later retired the `0.1` clause: the renovation
+  gates no release, and what stands is the reading order, both slices
+  before #336 Step 1. The table's "D-WORKFLOW-102's gate" above reads so.)
 
 ## Pass 4: cross-reference
 
