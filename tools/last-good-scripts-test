@@ -15069,6 +15069,57 @@ echo "  bY. vocabulary-check reads this slice's player-facing scripts (A-11b)"
 grep -q 'rocknix/sources/scripts' "${S7}/vocabulary-check" && grep -q '"factoryreset"' "${S7}/vocabulary-check"
 check $? "factoryreset and the slice's scripts are in its default set" "vocabulary-check reads only the cloud scripts and backuptool"
 
+# M6 T1's two tails on S1's lines (#730 with T2's lead; D-WORKFLOW-192 with
+# #702, #708, #776): runemu.sh reads its arguments whole, a flag's value
+# included, and the spectator before the client; set_netplay has a spectator
+# case; --mitm-session=<id> reaches RetroArch's command. From BASE_REF under
+# --old, in S3's sandbox and the S1 netplay runner.
+TL="${TMP}/tails"; mkdir -p "${TL}"
+src_of projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh "${TL}/runemu.sh"
+s3_block "${TL}/runemu.sh" '^ARGUMENTS="\$@"$' '^ROMNAME="\$1"$' > "${TL}/args.block"
+
+echo "  bZ. a nick that is an option word is the nick's, not the core's (#730, T2's lead)"
+s3_run "${TL}/bZ" "set -- /storage/roms/nes/t1.nes -Pnes --core=nestopia --emulator=retroarch --connect 192.0.2.1 --nick '--core=evil'
+    . ${TL}/args.block; echo \"core=\${CORE} emulator=\${EMULATOR} platform=\${PLATFORM}\""
+grep -q '^core=nestopia emulator=retroarch platform=nes$' "${TL}/bZ/out"
+check $? "--nick '--core=evil' leaves the core nestopia" "parsed: $(cat "${TL}/bZ/out")"
+
+echo "  ca. a line with both markers reads as a spectator, and a nick is no marker (D-WORKFLOW-192)"
+s3_block "${TL}/runemu.sh" '# netplay.mode is this launch' '^    (esac|fi)$' > "${TL}/np.block"
+for c in spectator nickhost; do
+    if [ "${c}" = spectator ]; then A="--connect 192.0.2.1 --netplaymode spectator --nick T1"; else A="--connect 192.0.2.1 --nick 'a --host'"; fi
+    s3_run "${TL}/ca-${c}" "set -- /storage/roms/nes/t1.nes -Pnes --core=nestopia --emulator=retroarch ${A}
+        . ${TL}/args.block; VERBOSE=false; log() { :; }; del_setting() { :; }; set_setting() { echo \"set \$1=\$2\"; }
+        . ${TL}/np.block"
+done
+grep -q '^set netplay.mode=spectator$' "${TL}/ca-spectator/out"
+check $? "--connect with --netplaymode spectator: netplay.mode=spectator" "$(tr '\n' '|' < "${TL}/ca-spectator/out")"
+grep -q '^set netplay.mode=client$' "${TL}/ca-nickhost/out"
+check $? "--connect with a nick holding --host: netplay.mode=client" "$(tr '\n' '|' < "${TL}/ca-nickhost/out")"
+
+echo "  cb. set_netplay's spectator is a client that starts watching (D-WORKFLOW-192)"
+NC="${NP}/cb"; mkdir -p "${NC}"
+printf 'global.netplay=1\nnetplay=1\nnetplay.mode=spectator\nglobal.netplay.port=55435\nglobal.netplay.host=192.0.2.1\n' > "${NC}/system.cfg"
+echo "nestopia" > "${NC}/core"
+np_run "${NC}" ""
+grep -q '^netplay_start_as_spectator = "true"$' "${NC}/append.cfg" 2>/dev/null && grep -q -- '\[--connect\]\[192.0.2.1\]' "${NC}/argv" 2>/dev/null
+check $? "the start-as-spectator key, and --connect 192.0.2.1 on the command" "append.cfg: $(grep -c . "${NC}/append.cfg" 2>/dev/null) lines, spectator key $(grep -c netplay_start_as_spectator "${NC}/append.cfg" 2>/dev/null); argv $(cat "${NC}/argv" 2>/dev/null || echo none)"
+
+echo "  cc. --mitm-session=<id> reaches RetroArch's command, and only as a word (D-WORKFLOW-192)"
+s3_block "${TL}/runemu.sh" '^    ### The relay session' "^    RUNTHIS='\\\$\\{EMUPERF\\} /usr/bin/\\\$\\{RABIN\\}" > "${TL}/mitm.block"
+printf '#!/bin/sh\nprintf "[%%s]" "$@" > "${D}/argv"\n' > "${TL}/stub-ra"; chmod +x "${TL}/stub-ra"
+for c in good bad; do
+    if [ "${c}" = good ]; then M="--mitm-session=ab12CD-34"; else M="--mitm-session=x;touch \${D}/marker"; fi
+    s3_run "${TL}/cc-${c}" "set -- /storage/roms/nes/t1.nes -Pnes --core=nestopia --emulator=retroarch --connect 192.0.2.1 '${M}'
+        . ${TL}/args.block; VERBOSE=false; log() { echo \"log: \$*\"; }; RABIN=../..${TL}/stub-ra; EMUPERF=''
+        RETROARCH_TEMP_CONFIG=/tmp/ra.cfg; RETROARCH_APPEND_CONFIG=/tmp/append.cfg; ROMNAME=\$1
+        . ${TL}/mitm.block; eval \${RUNTHIS}; echo \"argv: \$(cat argv 2>/dev/null)\"; echo \"marker: \$([ -e marker ] && echo made || echo none)\""
+done
+grep -q '\[--mitm-session=ab12CD-34\]\[/storage/roms/nes/t1.nes\]' "${TL}/cc-good/out"
+check $? "the session reaches the command before the ROM" "$(tr '\n' '|' < "${TL}/cc-good/out" | cut -c1-240)"
+grep -q '^marker: none$' "${TL}/cc-bad/out" && ! grep -q 'mitm-session' "${TL}/cc-bad/argv" 2>/dev/null && grep -q '^log: .*mitm' "${TL}/cc-bad/out"
+check $? "a session with a ; is dropped, said in the log, and runs nothing" "$(tr '\n' '|' < "${TL}/cc-bad/out" | cut -c1-240)"
+
 if [ "${NOT_APPLICABLE}" -ne 0 ]; then echo "${NOT_APPLICABLE} HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS"; fi
 if [ "${FAIL}" -eq 0 ] && [ "${SKIPPED}" -eq 0 ]; then echo "PASSED"; exit 0
 elif [ "${FAIL}" -eq 0 ]; then echo "PASSED, ${SKIPPED} SKIPPED -- a check that did not run has not passed"; exit 3

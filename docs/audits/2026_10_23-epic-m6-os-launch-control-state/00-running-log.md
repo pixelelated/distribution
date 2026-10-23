@@ -360,4 +360,12 @@
   - **#754:** `setRootPassword` refuses rather than being removed, since upstream carries the script.
   - **#746:** only the five network verbs exit 2.
 - **For the coordinator:** #761's criterion says "leaves `sleep.conf` without `SuspendState=` (the freeze shape)", but the freeze shape the script writes is `SuspendState=freeze standby mem`. The harness checks that shape.
-- **#701:** 32 of 84 checkboxes ticked (PL-074, PL-077, PL-084 resolved; PL-057 withdrawn). PL-065 is deferred to #585.
+- **#701:** 33 of 84 checkboxes ticked: PL-074, PL-077 and PL-084 resolved, PL-057 withdrawn (this line first said 32, a miscount). PL-065 is deferred to #585.
+
+## [Stage E, tails] 23:45 — the two tails on S1's lines: T2's nick lead (#730) and D-WORKFLOW-192's launcher side
+
+- **Items:**
+  - **#730, T2's lead (#648, 20:30):** `runemu.sh` takes the argument after `--nick`, `--port`, `--connect` and `--netplaymode` as that flag's value, so a nick that is itself an option word is not read as the core.
+  - **D-WORKFLOW-192 (#648, 21:29):** the netplay markers are read from whole arguments, with the spectator before the client. `set_netplay` gains a spectator case (`netplay_start_as_spectator`). `--mitm-session=<id>` reaches RetroArch's command when it is a word. Refs #702, #708, #776.
+- **The test first:** `tools/last-good-scripts-test` sections bZ, ca, cb, cc (cb through the S1 netplay runner).
+  - **unfixed** (`BASE_REF=377f9545d4 --old`, from the tree, 23:34:33-23:43:25, rc 1): 6 checks failed, all in bZ to cc.
