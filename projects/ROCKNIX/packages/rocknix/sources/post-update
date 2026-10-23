@@ -155,9 +155,12 @@ if [ -d "/storage/roms/bios/aethersx2/bios" ] && [ ! -d "/storage/roms/bios/arms
   cp -rf /storage/roms/bios/aethersx2/bios /storage/roms/bios/armsx2
 fi
 
-# Set the flag to enable batteryplus capacity reporting if it doesn't already exist
+# Set the flag to enable batteryplus capacity reporting if it doesn't already exist.
+# Through set_setting: the settings lock, and settings_base's whole lines, so a
+# line cut short is dropped rather than completed into one that looks whole
+# (#715).
 grep -q "^system\.batteryplus\.enabled=" /storage/.config/system/configs/system.cfg ||
-    sed -i '$ a\system.batteryplus.enabled=1' /storage/.config/system/configs/system.cfg
+    set_setting system.batteryplus.enabled 1
 
 # Dolphin controller profiles moved from evdev to SDL bindings. Existing copies
 # in /storage name "Microsoft X-Box 360 pad", the virtual pad gptokeyb used to
@@ -197,9 +200,12 @@ rm -f "${DOLPHIN_CFG}/GamecubeControllerProfiles/GCPadNew.ini.east" \
       "${DOLPHIN_CFG}/GamecubeControllerProfiles/GCPadNew.ini.south"
 
 # Turning off the display via DPMS in rocknix-fake-suspend is problematic on
-# some platforms, so delete the setting. It is disabled by default, but can
-# be used on an opt-in basis
-sed -i "/system.suspend.dpms/d" /storage/.config/system/configs/system.cfg
+# some platforms, so it is off by default (system.cfg ships
+# system.suspend.dpms=0) and a player may turn it on. A line here deleted the
+# key at every update, so a player's choice went back to off each time
+# (#721). Every ROCKNIX release since 20260901 carried that line, so a device
+# that has updated since holds only what its player chose; nothing here
+# touches the key now.
 
 # Add newly shipped melonDS hotkeys without resetting the owner's configuration.
 # The old reset (62c343921d) deleted the directory before copying a misspelled
