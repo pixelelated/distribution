@@ -1148,7 +1148,10 @@ function set_saturnopts() {
     if [ "${CORE}" = "kronos" ]
     then
         log "Set up Kronos..."
-        local KRONOSDIR="${RETROARCH_PATH}/Kronos/config/Kronos"
+        ### Where RetroArch reads a core's options with global_core_options
+        ### off: <rgui_config_directory>/<core>/<core>.opt, as every other
+        ### core here is written (#762; it was under Kronos/config/Kronos).
+        local KRONOSDIR="${RETROARCH_PATH}/config/Kronos"
         if [ ! -d "${KRONOSDIR}" ]
         then
             mkdir -p "${KRONOSDIR}"
