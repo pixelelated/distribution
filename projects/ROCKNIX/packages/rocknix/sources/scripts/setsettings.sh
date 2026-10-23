@@ -248,7 +248,7 @@ then
 fi
 
 ### Clean up temp files
-for FILE in ${TMP_CONFIG} ${TMP_CONFIG}.sed
+for FILE in ${TMP_CONFIG} ${TMP_CONFIG}.sed ${TMP_CONFIG}.sed.*
 do
   if [ -f "${FILE}" ]
   then
@@ -307,21 +307,37 @@ function add_setting_either() {
     add_setting "none" "${3}" "${OS_SETTING}"
 }
 
+### The clears are staged one file per process: the setting functions run
+### in parallel, and one shared file made by a check-then-create lost keys
+### and its header under load (#707). flush_settings applies this process's
+### file; flush_all_settings, after a wait, every file the children left.
 function clear_setting() {
       log "Remove setting [${1}]"
-      if [ ! -f "${TMP_CONFIG}.sed" ]
-      then
-          echo -n 'sed -i "/^'${1}'/d;' >${TMP_CONFIG}.sed
-      else
-          echo -n ' /^'${1}'/d;' >>${TMP_CONFIG}.sed
-      fi
+      echo -n ' /^'${1}'/d;' >>"${TMP_CONFIG}.sed.${BASHPID}"
+}
+
+function apply_settings_clears() {
+    local STAGED="${1}"
+    if [ -s "${STAGED}" ]
+    then
+        if ! sed -i "$(cat "${STAGED}")" "${RETROARCH_CONFIG}" 2>/dev/null
+        then
+            log "Could not clear the staged settings from ${RETROARCH_CONFIG}: $(cat "${STAGED}")"
+        fi
+    fi
+    rm -f "${STAGED}"
 }
 
 function flush_settings() {
-    echo -n '" '${RETROARCH_CONFIG}' >/dev/null 2>&1' >>${TMP_CONFIG}.sed
-    chmod 0755 ${TMP_CONFIG}.sed
-    ${TMP_CONFIG}.sed >/dev/null 2>&1 ||:
-    rm -f ${TMP_CONFIG}.sed
+    apply_settings_clears "${TMP_CONFIG}.sed.${BASHPID}"
+}
+
+function flush_all_settings() {
+    local STAGED
+    for STAGED in "${TMP_CONFIG}".sed.*
+    do
+        [ -e "${STAGED}" ] && apply_settings_clears "${STAGED}"
+    done
 }
 
 function add_setting() {
@@ -331,7 +347,10 @@ function add_setting() {
     fi
     local RETROARCH_KEY="${2}"
     local RETROARCH_VALUE="${3}"
-    if [ -z "${RETROARCH_VALUE}" ]& \
+    ### A value the caller passes is written as given (netplay forces
+    ### hardcore off); the OS setting fills in only when it passed none
+    ### (#705: the first test was backgrounded with '&').
+    if [ -z "${RETROARCH_VALUE}" ] && \
        [ ! "${1}" = "none" ]
     then
         RETROARCH_VALUE="${OS_SETTING}"
@@ -339,6 +358,13 @@ function add_setting() {
     clear_setting "${RETROARCH_KEY}"
     echo "${RETROARCH_KEY} = \"${RETROARCH_VALUE}\"" >>${TMP_CONFIG}
     log "Added setting: ${RETROARCH_KEY} = \"${RETROARCH_VALUE}\""
+}
+
+### The other shape (#705): the OS setting when the player set one, else
+### the caller's default.
+function add_setting_default() {
+    local OS_SETTING="$(game_setting ${1})"
+    add_setting "none" "${2}" "${OS_SETTING:-${3}}"
 }
 
 function match() {
@@ -996,7 +1022,7 @@ function set_analogsupport() {
             add_setting "none" "input_player1_analog_dpad_mode" "0"
         ;;
         *)
-            add_setting "analogue" "input_player1_analog_dpad_mode" "1"
+            add_setting_default "analogue" "input_player1_analog_dpad_mode" "1"
         ;;
     esac
 }
@@ -1449,7 +1475,7 @@ set_atari &
 set_gambatte &
 
 wait
-flush_settings
+flush_all_settings
 
 ###
 ### Functions that can execute in parallel.
@@ -1484,6 +1510,6 @@ set_dreamcastopts &
 ### a single process when all forks complete.
 wait
 set_melondsdsopts
-flush_settings
+flush_all_settings
 
 cleanup
