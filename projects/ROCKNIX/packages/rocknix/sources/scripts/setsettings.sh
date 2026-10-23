@@ -867,8 +867,10 @@ function set_overlay() {
         0|false|none)
         ;;
         *)
-            write_bezel_config
-            exit 0
+            ### A bezel that applied ends the overlay setup; one that did
+            ### not (none downloaded, the shipped default) leaves the
+            ### player's overlay choice to apply below (#711).
+            write_bezel_config && exit 0
         ;;
     esac
 
@@ -1080,6 +1082,20 @@ function set_tatemode() {
     fi
 }
 
+### A core option's line set to a value, never a value spliced into a sed
+### program (#711): an unset value leaves the file's own default, and a
+### value with a space, a '/' or a '&' is written as it is.
+function set_core_opt() {
+    local OPT_FILE="${1}" OPT_KEY="${2}" OPT_VALUE="${3}"
+    if [ -z "${OPT_VALUE}" ] || [ ! -f "${OPT_FILE}" ]
+    then
+        return 0
+    fi
+    K="${OPT_KEY}" V="${OPT_VALUE}" awk 'BEGIN { k = ENVIRON["K"]; v = ENVIRON["V"] }
+        index($0, k " = ") == 1 { print k " = \"" v "\""; next } { print }' "${OPT_FILE}" >"${OPT_FILE}.tmp" \
+        && mv -f "${OPT_FILE}.tmp" "${OPT_FILE}"
+}
+
 function set_n64opts() {
     log "Set up N64..."
     if [ "${CORE}" = "parallel_n64" ]
@@ -1095,15 +1111,15 @@ function set_n64opts() {
             cp "/usr/config/retroarch/ParaLLEl N64.opt" "${PARALLELN64DIR}/ParaLLEl N64.opt"
         fi
         local VIDEO_CORE="$(game_setting parallel_n64_video_core)"
-        sed -i '/parallel-n64-gfxplugin = /c\parallel-n64-gfxplugin = "'${VIDEO_CORE}'"' "${PARALLELN64DIR}/ParaLLEl N64.opt"
+        set_core_opt "${PARALLELN64DIR}/ParaLLEl N64.opt" "parallel-n64-gfxplugin" "${VIDEO_CORE}"
         local SCREENSIZE="$(game_setting parallel_n64_internal_resolution)"
-        sed -i '/parallel-n64-screensize = /c\parallel-n64-screensize = "'${SCREENSIZE}'"' "${PARALLELN64DIR}/ParaLLEl N64.opt"
+        set_core_opt "${PARALLELN64DIR}/ParaLLEl N64.opt" "parallel-n64-screensize" "${SCREENSIZE}"
         local GAMESPEED="$(game_setting parallel_n64_gamespeed)"
-        sed -i '/parallel-n64-framerate = /c\parallel-n64-framerate = "'${GAMESPEED}'"' "${PARALLELN64DIR}/ParaLLEl N64.opt"
+        set_core_opt "${PARALLELN64DIR}/ParaLLEl N64.opt" "parallel-n64-framerate" "${GAMESPEED}"
         local ACCURACY="$(game_setting parallel_n64_gfx_accuracy)"
-        sed -i '/parallel-n64-gfxplugin-accuracy = /c\parallel-n64-gfxplugin-accuracy = "'${ACCURACY}'"' "${PARALLELN64DIR}/ParaLLEl N64.opt"
+        set_core_opt "${PARALLELN64DIR}/ParaLLEl N64.opt" "parallel-n64-gfxplugin-accuracy" "${ACCURACY}"
         local CONTROLLERPAK="$(game_setting parallel_n64_controller_pak)"
-        sed -i '/parallel-n64-pak1 = /c\parallel-n64-pak1 = "'${CONTROLLERPAK}'"' "${PARALLELN64DIR}/ParaLLEl N64.opt"
+        set_core_opt "${PARALLELN64DIR}/ParaLLEl N64.opt" "parallel-n64-pak1" "${CONTROLLERPAK}"
     fi
 }
 
@@ -1124,17 +1140,17 @@ function set_saturnopts() {
         fi
         local KRONOSOPT="${KRONOSDIR}/Kronos.opt"
         local HLE_BIOS="$(game_setting force_hle_bios)"
-        sed -i '/kronos_force_hle_bios = /c\kronos_force_hle_bios = "'${HLE_BIOS}'"' "${KRONOSOPT}"
+        set_core_opt "${KRONOSOPT}" "kronos_force_hle_bios" "${HLE_BIOS}"
         local ADDON_CART="$(game_setting addon_cartridge)"
-        sed -i '/kronos_addon_cartridge = /c\kronos_addon_cartridge = "'${ADDON_CART}'"' "${KRONOSOPT}"
+        set_core_opt "${KRONOSOPT}" "kronos_addon_cartridge" "${ADDON_CART}"
         local TESSELATION="$(game_setting tesselation)"
-        sed -i '/kronos_polygon_mode = /c\kronos_polygon_mode = "'${TESSELATION}'"' "${KRONOSOPT}"
+        set_core_opt "${KRONOSOPT}" "kronos_polygon_mode" "${TESSELATION}"
         local RESOLUTION="$(game_setting resolution)"
-        sed -i '/kronos_resolution_mode = /c\kronos_resolution_mode = "'${RESOLUTION}'"' "${KRONOSOPT}"
+        set_core_opt "${KRONOSOPT}" "kronos_resolution_mode" "${RESOLUTION}"
         local COMPUTE_SHADER="$(game_setting compute_shader)"
-        sed -i '/kronos_use_cs = /c\kronos_use_cs = "'${COMPUTE_SHADER}'"' "${KRONOSOPT}"
+        set_core_opt "${KRONOSOPT}" "kronos_use_cs" "${COMPUTE_SHADER}"
         local TRANSPARENCY="$(game_setting transparency)"
-        sed -i '/kronos_mesh_mode = /c\kronos_mesh_mode = "'${TRANSPARENCY}'"' "${KRONOSOPT}"
+        set_core_opt "${KRONOSOPT}" "kronos_mesh_mode" "${TRANSPARENCY}"
     fi
 }
 
@@ -1170,7 +1186,7 @@ function set_dreamcastopts() {
             cp "/usr/config/retroarch/Flycast.opt" "${FLYCASTDIR}/Flycast.opt"
         fi
         local FRAME_SKIP="$(game_setting frame_skip)"
-        sed -i '/flycast_auto_skip_frame = /c\flycast_auto_skip_frame = "'${FRAME_SKIP}'"' "${FLYCASTDIR}/Flycast.opt"
+        set_core_opt "${FLYCASTDIR}/Flycast.opt" "flycast_auto_skip_frame" "${FRAME_SKIP}"
     fi
 }
 
@@ -1265,7 +1281,12 @@ function set_atari() {
         ATARI800CONF="${RETROARCH_PATH}/config/Atari800/Atari800.opt"
         if [ ! -f "$ATARI800CONF" ]
         then
+            mkdir -p "$(dirname "${ATARI800CONF}")"
             touch "$ATARI800CONF"
+        fi
+        if [ ! -f "${ATARICONF}" ]
+        then
+            touch "${ATARICONF}"
         fi
         sed -i "/RAM_SIZE=/d" ${ATARICONF}
         sed -i "/STEREO_POKEY=/d" ${ATARICONF}
@@ -1320,15 +1341,15 @@ function set_gambatte() {
                     echo 'gambatte_gb_colorization = "auto"' >> ${GAMBATTECONF}
                 ;;
                 GBC|SGB)
-                    echo 'gambatte_gb_colorization = "'${COLORIZATION}'"' >> ${GAMBATTECONF}
+                    echo "gambatte_gb_colorization = \"${COLORIZATION}\"" >> "${GAMBATTECONF}"
                 ;;
                 *)
-                    echo 'gambatte_gb_colorization = "internal"' >> ${GAMBATTECONF}
-                    echo 'gambatte_gb_internal_palette = "'${COLORIZATION}'"' >> ${GAMBATTECONF}
-                    echo 'gambatte_gb_palette_twb64_1 = "'${TWB1_COLORIZATION}'"' >> ${GAMBATTECONF}
-                    echo 'gambatte_gb_palette_twb64_2 = "'${TWB2_COLORIZATION}'"' >> ${GAMBATTECONF}
-                    echo 'gambatte_gb_palette_twb64_3 = "'${TWB3_COLORIZATION}'"' >> ${GAMBATTECONF}
-		            echo 'gambatte_gb_palette_pixelshift_1 = "'${PIXELSHIFT1_COLORIZATION}'"' >> ${GAMBATTECONF}
+                    echo 'gambatte_gb_colorization = "internal"' >> "${GAMBATTECONF}"
+                    echo "gambatte_gb_internal_palette = \"${COLORIZATION}\"" >> "${GAMBATTECONF}"
+                    echo "gambatte_gb_palette_twb64_1 = \"${TWB1_COLORIZATION}\"" >> "${GAMBATTECONF}"
+                    echo "gambatte_gb_palette_twb64_2 = \"${TWB2_COLORIZATION}\"" >> "${GAMBATTECONF}"
+                    echo "gambatte_gb_palette_twb64_3 = \"${TWB3_COLORIZATION}\"" >> "${GAMBATTECONF}"
+                    echo "gambatte_gb_palette_pixelshift_1 = \"${PIXELSHIFT1_COLORIZATION}\"" >> "${GAMBATTECONF}"
                 ;;
             esac
         fi
@@ -1456,15 +1477,11 @@ get_bezel_infos() {
         local bezel_base_path="${BEZEL_DIR}/${bezel}"
 
         if check_decorations "${bezel_base_path}" "${system}" "${rom_name}"; then
-            cat << EOF
-{
-    "png": "$bezel_png",
-    "info": "${bezel_info}",
-    "layout": "${layout_file:-null}",
-    "mamezip": "${mame_zip:-null}",
-    "specific_to_game": $specific_to_game
-}
-EOF
+            ### jq writes the JSON, so a path with a '"' stays valid (#711).
+            jq -n --arg png "${bezel_png}" --arg info "${bezel_info}" \
+                  --arg layout "${layout_file:-null}" --arg mamezip "${mame_zip:-null}" \
+                  --argjson specific "${specific_to_game}" \
+                  '{png: $png, info: $info, layout: $layout, mamezip: $mamezip, specific_to_game: $specific}'
             return 0
         fi
     fi
