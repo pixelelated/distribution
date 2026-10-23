@@ -45,7 +45,10 @@ get_gb() {
 get_storage_size_kb() {
   local storage_path="$1"
   local total_kb=0
-  local excluded_folders=("roms" "games-internal" "games-external" ".cache/cores")
+  # What the copy leaves out, and nothing else: .cache/cores was subtracted
+  # here and copied there, so the check could pass a copy that did not fit
+  # (#718).
+  local excluded_folders=("roms" "games-internal" "games-external")
 
   # Get total size first
   total_kb=$(du -ks "$storage_path" | awk '{print $1}')
@@ -233,12 +236,21 @@ if [[ $copy_ans =~ ^[Yy]$ ]]; then
   if (( used_kb <= avail_kb )); then
     echo "Copying /storage to new STORAGE (excluding roms)..."
 
-    # Copy everything except the excluded folders
-    find "$OLD_STORAGE" -mindepth 1 -maxdepth 1 \
-      ! -name "roms" \
-      ! -name "games-internal" \
-      ! -name "games-external" \
-      -exec cp -a {} "$TMP_STORAGE"/ \;
+    # Everything except the excluded folders, in one cp whose status is read:
+    # find's -exec does not carry cp's, so an entry that would not copy (a full
+    # card, a folder it could not write) ended on the success line below, with
+    # the SD card about to be removed (#718).
+    entries=()
+    for entry in "$OLD_STORAGE"/* "$OLD_STORAGE"/.[!.]* "$OLD_STORAGE"/..?*; do
+      [[ -e "$entry" || -L "$entry" ]] || continue
+      case "${entry##*/}" in roms|games-internal|games-external) continue ;; esac
+      entries+=("$entry")
+    done
+    if (( ${#entries[@]} > 0 )) && ! cp -a "${entries[@]}" "$TMP_STORAGE"/; then
+      echo "ERROR: Copying /storage to the new STORAGE partition failed. Your SD card is unchanged: keep it, and run this again."
+      umount "$TMP_ROCKNIX" "$TMP_STORAGE" 2>/dev/null || true
+      exit 1
+    fi
 
     sync
   else
