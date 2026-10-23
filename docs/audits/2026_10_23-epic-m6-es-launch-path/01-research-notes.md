@@ -99,7 +99,11 @@ The scan covered 104 branches, 18 of them `feature/m7-*`. **None of the `feature
 
 ### The shipped template's placeholders
 
-From the distribution tree, `grep -rn -o -E '%[A-Z_]+%' projects/ROCKNIX/packages/virtual/emulators/` is re-derived in Phase 2. The guest's generated `/etc/emulationstation/es_systems.cfg` is read when the guest runs, which is queued.
+From the tree: `distributions/ROCKNIX/config/functions:128` (`RUNCMD`). From the guest's generated file (18:44, `grep -o '%[A-Z_]*%' /usr/config/emulationstation/es_systems.cfg | sort | uniq -c`): `%CONTROLLERSCONFIG%` 125, `%CORE%` 125, `%EMULATOR%` 125, `%ROM%` 127, `%SYSTEM%` 125. `%BASENAME%`, `%ROM_RAW%`, `%GAMENAME%`, `%SYSTEMNAME%` and `%GAMEINFOXML%` appear in **0** commands, and ` -system ` in 0.
+
+### The image
+
+`BUILD_ID 069fc270442134fe771258418adf4e666e0473fb` (the guest's `/etc/os-release`). The copy's `sha256sum -c` printed OK. The binary carries the pin's slice strings.
 
 ### The #336 line
 
