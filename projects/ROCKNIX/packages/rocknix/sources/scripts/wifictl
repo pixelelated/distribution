@@ -45,11 +45,16 @@ ADHOC_CLIENT_ID=$(get_setting wifi.adhoc.id)
 NETPLAY_SSID="NETPLAY_AP"
 WIFI_DEV="$(ls /sys/class/net | grep -m1 ^wlan)"
 
-# Typed scan/security/join callers must not read an unavailable radio as success.
-if [ "${1}" = list ] || [ "${1}" = scanlist ] || \
-   [ "${1}" = security ] || [ "${1}" = connect-open ]; then
-  [ -n "${WIFI_DEV}" ] && [ -d "/sys/class/net/${WIFI_DEV}" ] && [ -n "${NMCLI}" ] || exit 2
-fi
+# Typed scan/security/join callers must not read an unavailable radio as
+# success, and the network verbs neither: connect, join, forget, current and
+# saved exited 0 having done nothing, where join's and forget's contracts
+# above say 2 (#746). enable, disable, pin and the rest keep 0: boot and the
+# switches call them on devices that may have no radio.
+case "${1}" in
+  list|scanlist|security|connect-open|connect|join|forget|current|saved)
+    [ -n "${WIFI_DEV}" ] && [ -d "/sys/class/net/${WIFI_DEV}" ] && [ -n "${NMCLI}" ] || exit 2
+    ;;
+esac
 
 # Exit the script if the WiFi device isn't available
 [ -z "${WIFI_DEV}" ] && exit 0
