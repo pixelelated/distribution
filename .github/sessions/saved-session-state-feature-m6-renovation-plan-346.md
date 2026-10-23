@@ -104,10 +104,24 @@ the build-path read and its PR-process findings. The 46 are filed: #648 (T1) to 
 (T46), sub-issues of #339 on milestone M6, `tools/box-check` 0 fail over all
 open issues (work log 05:40 UTC). P1 was accepted at hand-back and #641
 closed completed on 2026-10-23 (P1's branch at `2174265e9c`; it merges to
-`next` after this branch, after the M7 candidate). Next: T1's brief (plan
-§ 7), which writes T1's specific criteria into #648 with it, then T1's
-dispatch to an Opus 5.5 lane in its own worktree with the OS-scripts area
-epic filed at that dispatch.
+`next` after this branch, after the M7 candidate). T1 is dispatched (2026-10-23): the area
+epic #695 with its futro; the brief `docs/reviews/briefs/os-launch-control-state.md`
+at version 2 (`968ba95993`); the lane `feature/m6-os-launch-control-state-648`
+at `4228561fd2`, worktree `distribution.worktrees/m6-os-launch-control-state-648`,
+an Opus 5.5 session at high effort in Herdr pane `wN:p4`, agent
+`m6-t1-os-launch` (started from this pane: `herdr tab create --workspace wN
+--cwd <worktree> --label ... --no-focus`, then `herdr agent start <name>
+--kind claude --pane <id> -- --model claude-opus-5-5 --effort high`, then
+`herdr agent prompt <name> "<seed>"`; the seed is kept in this session's
+scratchpad and quoted in the 07:50 work-log entry). This lane's rules from
+the futro: no merge of `next` into a slice branch between stage A and stage
+D; every drift report read at every slice close and the re-open named;
+`tools/box-check` on every issue a lane files, at the pause. Next: the
+stage-D pause on #648 (write the stream briefs); the Phase 4.6 blocker if
+the Argon route has not reached the lane (bring M7's `1c7d283ad5` and
+`a7a3bdda4e` onto its branch, or wait for the candidate); T1's drift
+re-open when the M7 candidate lands; T2's brief when the maintainer says
+whether T2 runs beside T1.
 
 ## The seed brief (2026-10-22, the planning session's handoff, verbatim)
 
