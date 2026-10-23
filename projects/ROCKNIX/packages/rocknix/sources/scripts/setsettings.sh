@@ -18,6 +18,7 @@ SNAPSHOTS="${ROMS_DIR}/savestates"
 BEZEL_DIR="/storage/roms/bezels"
 
 TMP_CONFIG="/tmp/.retroarch.cfg"
+LIBRETRO_DIR="/tmp/cores"
 LOG_DIR="/var/log"
 LOG_FILE="exec.log"
 LOCK_FILE="/tmp/.retroarch.lock"
@@ -367,17 +368,20 @@ function add_setting_default() {
     add_setting "none" "${2}" "${OS_SETTING:-${3}}"
 }
 
+### Whole entries only: a regex over the joined list read neogeo as
+### neogeocd (#706).
 function match() {
-    local seek="${1}"
+    local seek="${1}" item MATCH="0"
     shift
-    local myarray=(${@})
-    if [[ "${myarray[*]}" =~ ${seek} ]]
-    then
-        local MATCH="1"
-    else
-        local MATCH="0"
-    fi
-    log "Match: [${seek}] [${MATCH}] (${myarray[*]})"
+    for item in "$@"
+    do
+        if [ "${item}" = "${seek}" ]
+        then
+            MATCH="1"
+            break
+        fi
+    done
+    log "Match: [${seek}] [${MATCH}] (${*})"
     echo ${MATCH}
 }
 
@@ -834,13 +838,22 @@ function set_filter() {
         *)
             local FILTER_PATH="/usr/share/retroarch/filters"
             add_setting "none" "video_ctx_scaling" "false"
-            local CHECK_BITNESS="$(match ${CORE} ${IS_32BIT[@]})"
-            if [ "${CHECK_BITNESS}" = 1 ]
-            then
-                BITS="32"
-            else
-                BITS="64"
-            fi
+            ### The core's own ELF class decides (#731): pcsx_rearmed is a
+            ### 32-bit core on some builds and a 64-bit one on others; the
+            ### list is the fallback when the core's file cannot be read.
+            local CORE_CLASS="$(od -An -tu1 -j4 -N1 "${LIBRETRO_DIR}/${CORE}_libretro.so" 2>/dev/null | tr -d ' ')"
+            case ${CORE_CLASS} in
+                1) BITS="32" ;;
+                2) BITS="64" ;;
+                *)
+                    if [ "$(match "${CORE}" "${IS_32BIT[@]}")" = 1 ]
+                    then
+                        BITS="32"
+                    else
+                        BITS="64"
+                    fi
+                ;;
+            esac
                 add_setting "none" "video_filter" "${FILTER_PATH}/${BITS}bit/video/${FILTER}"
                 add_setting "none" "video_filter_dir" "${FILTER_PATH}/${BITS}bit/video/"
                 add_setting "none" "audio_filter_dir" "${FILTER_PATH}/${BITS}bit/audio"
@@ -877,7 +890,7 @@ function set_rewind() {
     local REWIND="$(game_setting rewind)"
     case ${REWIND} in
         1)
-            case $(match ${PLATFORM} ${NO_REWIND[@]}) in
+            case $(match "${PLATFORM}" "${NO_REWIND[@]}") in
                 0)
                     add_setting "none" "rewind_enable" "true"
                 ;;
@@ -991,7 +1004,7 @@ function set_autosave() {
 
 function set_runahead() {
     local RUNAHEAD="$(game_setting runahead)"
-    local HAS_RUNAHEAD="$(match ${PLATFORM} ${NO_RUNAHEAD[@]})"
+    local HAS_RUNAHEAD="$(match "${PLATFORM}" "${NO_RUNAHEAD[@]}")"
     case ${HAS_RUNAHEAD} in
         1)
             add_setting "none" "run_ahead_enabled" "false"
@@ -1016,7 +1029,7 @@ function set_audiolatency() {
 }
 
 function set_analogsupport() {
-    local HAS_ANALOG="$(match ${PLATFORM} ${NO_ANALOG[@]})"
+    local HAS_ANALOG="$(match "${PLATFORM}" "${NO_ANALOG[@]}")"
     case ${HAS_ANALOG} in
         1)
             add_setting "none" "input_player1_analog_dpad_mode" "0"
