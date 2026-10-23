@@ -73,6 +73,16 @@ function comment_config() {
      sed -i "1,/^\(\s*$1\)/s//$COMMENT_CHAR\1/" "$ROCKNIX_CONFIGFILE"
 }
 
+# system.cfg is written only by the settings library (set_setting and the
+# rest in 001-functions): under its lock, onto settings_base's whole lines. A
+# sed -i here did neither, so a write to it is refused, with 2, the file
+# error; reads stay. No caller writes through this script (F-65).
+function refuse_system_cfg() {
+    [[ "$(readlink -f "$ROCKNIX_CONFIGFILE")" == "$(readlink -f /storage/.config/system/configs/system.cfg)" ]] || return 0
+    echo "error: system.cfg is written with set_setting, not this script" >&2
+    exit 2
+}
+
 function check_argument() {
     # This method does not accept arguments starting with '-'.
     if [[ -z "$2" || "$2" =~ ^- ]]; then
@@ -186,6 +196,7 @@ function main() {
         ;;
 
         "set"|"write"|"save")
+            refuse_system_cfg
             #Is file write protected?
             [[ -w "$ROCKNIX_CONFIGFILE" ]] || { echo "r/o file: $ROCKNIX_CONFIGFILE" >&2; exit 2; }
             #We can comment line above to erase keys, it's much saver to check if a value is setted
@@ -209,6 +220,7 @@ function main() {
         ;;
 
         "uncomment"|"enable"|"activate")
+            refuse_system_cfg
             val="$(get_config $keyvalue)"
             ret=$?
             # Boolean
@@ -224,6 +236,7 @@ function main() {
         ;;
 
         "comment"|"disable"|"remark")
+            refuse_system_cfg
             val="$(get_config $keyvalue)"
             ret=$?
             # Boolean
