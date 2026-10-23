@@ -13,7 +13,7 @@ T1 read the 83 paths of `projects/ROCKNIX/packages/rocknix/` (less `backuptool`)
 
 The fork's own state layer -- the settings writers and lock, `chksysconfig`, `rocknix-evidence`, `rocknix-corekeep` -- is sound under its tests and every refutation. The defects concentrate in the launch path's inherited middle and in upstream-carried scripts: `setsettings.sh` truncates the Gambatte and MAME 2003-Plus option files at every launch (F-16, F-17), reads `neogeo` as `neogeocd` (F-10), can lose its staged clears to a race (F-11) and ignores an explicit value (F-09); a typed netplay host reaches `runemu.sh`'s `eval` as root (F-14, #275's class through a second door); per-game settings are lost for any ROM whose name carries `[` (F-21); `runemu.sh` executes a governor name the H700 offers without a function (F-01). Guards that report success over a failure recur (F-29 `setrootpass`, F-40 `installtointernal`, F-67 `updateabl`). `post-update` resets a player's DPMS choice at every update (F-44) and is one of the last unguarded writers of `system.cfg` (F-32). On x86_64, `008-perfmode` stops at its third line at every boot (F-58). Ten scripts are unreached (Q6).
 
-Two time-to-play numbers were measured (0.64 s and 1.01 s, against #336's stale 1.05 s and 2.03 s), `setsettings.sh` costs 127 ms a launch at the engineering image's verbose loglevel (99 ms at none), and all 43 upstream commits on the package are dispositioned. Phase 4.6 is incomplete: the Astra seat's result is recorded below, and the Gemini 4 Argon seat is pending because its route is not in this tree (the brief's named blocker).
+Two time-to-play numbers were measured (0.64 s and 1.01 s, against #336's stale 1.05 s and 2.03 s), `setsettings.sh` costs 127 ms a launch at the engineering image's verbose loglevel (99 ms at none), and all 43 upstream commits on the package are dispositioned. Phase 4.6 is incomplete. The Astra seat's items are graded in § Second opinion; it adds seven findings and changes the severity of eight, which gives a provisional **75: 0 Critical, 2 High, 22 Medium, 51 Low**. The Gemini 4 Argon seat is pending because its route is not in this tree, and that is the brief's named blocker.
 
 ## Acceptance-criteria scorecard
 
@@ -356,7 +356,76 @@ Totals: 47 scripts; **9 unreached** by any caller, **1 unreached in effect** (`r
 
 ## Second opinion (Phase 4.6)
 
-_Pending: written after the Astra call below; the Gemini 4 Argon seat is pending on its route (`grep -c gemini-argon scripts/council-invoke.ts tools/lint-audit-artifacts`: `0`, `0`)._
+Depth **extended** (`second-opinions/review-plan.json`): the primary (Anthropic, Opus 5.5) and two reviewers from other labs. **One seat ran; one is pending.**
+
+| Seat | Call | Provenance | Served | Outcome |
+| --- | --- | --- | --- | --- |
+| GPT-6 Astra, `max` | `tools/council/run invoke --member gpt --provider openrouter`, brief `second-opinions/gpt-brief.md` (151,087 bytes), under `tools/watch-build --record-only` (`.build-runs/20261023T082647Z-e7167ae6/`) | `second-opinions/gpt-audit.md.provenance.json`, output sha256 `df20875d97a70456...` | `model_field openai/gpt-6-astra`, `served_provider OpenAI`, identity from `provider_response` | success, 664,487 ms, prompt 43,304 / completion 30,329 (reasoning 25,332) tokens |
+| Gemini 4 Argon, `high` | not run | -- | -- | **pending: the route is not in this tree** (`grep -c gemini-argon scripts/council-invoke.ts tools/lint-audit-artifacts`: `0`, `0`). The brief § 1 forbids the roster's `gemini` seat in its place. This is the named Phase 4.6 blocker on #648, and Phase 5 does not start before it clears. |
+
+### Astra's items, graded against the artifacts
+
+Each grade below comes from re-reading the cited lines at `8ebaf8daad` (08:30-08:41 UTC), not from the seat's wording. The grades are: **confirmed**, **agree, re-graded**, **agree, narrowed**, **disagree** (with the artifact that refutes it), and **could not verify**.
+
+**New findings (G-01 to G-07).** Each one is numbered here and gets its punch-list row in Phase 5.
+
+| Item | Grade | Severity | Evidence from this audit's own read |
+| --- | --- | --- | --- |
+| G-01 `003-upgrade:11-15` | **confirmed** | Medium | `rm /storage/.boot.hint` runs unconditionally after `/usr/share/post-update >/var/log/upgrade.log`. A post-update that exits non-zero leaves no retry, and the only trace is the log. A sibling of F-28, which is the same fragment's log handling. |
+| G-02 `post-update:38` | **agree, narrowed** | Low | `rsync -a --delete --exclude=configs /usr/config/system/ /storage/.config/system/` (`:26`, `:38`). It deletes anything an owner put beside `configs/`. The line dates from the fork's founding import (`9f1fab30f6`, `git log -S`), and the directory is the OS's own apart from `configs/`. So this is a documented-intent question (put the reason beside the line, or narrow the delete), not a proven loss. A fresh guest has nothing there to lose. |
+| G-03 `001-functions:129-130` | **confirmed** | Low | The per-game pattern `^<sys>\["<game>"\]\.<key>` has no `=` boundary, while the system-level lookup beside it does (`/^sys.key=/`). Of the keys `setsettings.sh` reads, `integerscale` is a prefix of `integerscaleoverscale`. When a game carries both, `awk` prints both values and `echo ${OUTPUT}` joins them with a space. The fix lands with F-21, in the same function. |
+| G-04 `installtointernal:63` | **agree, narrowed** | Low | `mapfile -t ud_line < <(parted ... | grep ':userdata:')`: under `set -euo pipefail` (`:8`), a process substitution's status is not checked, so a failed `parted` that still printed the userdata line passes the count test. The inventory the destructive loop uses, `MAX_PART_NUM=$(parted ... | awk | sort | tail -1)` (`:89`), is a command substitution in an assignment, and that does stop the script under `-e` and `pipefail`. So the gap is the userdata line's read, not the removal's inventory. |
+| G-05 `runemu.sh:378-379,384-385` | **agree, narrowed** | Low | The ROM name is the text of a `sed` `c\` command. `/` and `&` are literal there, so the transformation is not changed by them as the seat says. A backslash or a newline in the name is interpreted, and a `"` in the name breaks the quoting in `mapper.txt`. It is reached only for PortMaster's `.sh`/`.appimage` and `windows` launches, which sits outside the RetroArch half, so Q3 applies. |
+| G-06 `rocknix-config:39` | **confirmed** | Low | `sed -i "s/#\?$key=.*/$key=$value/g"`: a `/` or `&` in the value rewrites the edit, and `grep "$key"` (`:34`) is unanchored, so one key matches another. The interface does call `rocknix-config` (F-64), so this belongs in F-64's row. |
+| G-07 `handle-hdmi-hotplug:19-21`, `081-usbgadget` | **confirmed** | Low, device-only | `git ls-files` lists no `usbgadget` unit, and the gadget is started by `/usr/bin/usbgadget --start` from the autostart fragment. `systemctl is-active --quiet usbgadget` is therefore false, and the stop never runs. The case is USB-C DisplayPort on RK3588/SM8250, which no VM can show, so it is a keep-an-eye-on lead. The logic can be checked with a fixture. |
+
+**Severity and scope of the first reader's findings.**
+
+| Item | Grade | Result | Evidence |
+| --- | --- | --- | --- |
+| F-01 | **confirmed** | Medium, narrowed to the dispatch | The H700 half is a kernel config, as `02` says. No governor transition was measured. |
+| F-03 | **confirmed** | Medium, as missing coordination | No measured overtaking, as `02` says. |
+| F-09 | **agree, narrowed** | Medium; **the fix shape is rejected** | The seat is right: "OS value when set, else the caller's" still writes `"1"` in the proven case. A forced value (netplay forbids hardcore, `:557`) and a fallback (`:989`) need different calls. Phase 5 carries two shapes. |
+| F-10 | **agree, narrowed** | Medium for the list match; **the `pcsx_rearmed` half is split out** | Whole-entry matching still matches `pcsx_rearmed` in `IS_32BIT` (`:170-172`, `:801`). That half needs the installed core's architecture, and it becomes its own Low row in Phase 5. |
+| F-11 | **confirmed** | Medium | 9 of 200 is the function's rate, not a launch's, as `02` says. |
+| F-14 | **agree, re-graded** | **High** | The marker proof turns a stored setting into a root command. The value's source is `system.cfg`, which the interface writes from free text and which a settings restore also writes (backuptool's archive carries `/storage/.config/system/configs/system.cfg`). So the input is wider than one keyboard press. This is not a network exploit. |
+| F-15 | **agree, re-graded** | Medium | `>` over the TGB Dual options file is the same loss as F-16/F-17, which are Medium. |
+| F-16 | **confirmed** | Medium, scoped to `mame2003_plus` with tate on | -- |
+| F-17 | **agree, narrowed** | Medium | Gambatte launches only, with the options directory present, not "every Game Boy launch". |
+| F-18 | **agree, narrowed** | Low, as a question | A path the code writes but nothing in the packet reads is not proof that RetroArch never reads it. The Phase 5 row is a `question:`. |
+| F-19 | **agree, re-graded** | **Low**; the precedence half becomes a `question:` | Nothing in the tree says whether bezels and overlays are exclusive. The splice and JSON escaping halves stay Low. |
+| F-21 | **agree, narrowed** | Medium | Not every regex character stops the match: some match the original name or another game's name. The upstream repair `25903bb59c` was read in Q4's disposition (the get_setting half), not from its description alone. |
+| F-29, F-44, F-58, F-68 | **confirmed** | Medium; each narrowed to what the guest showed | F-29 does not prove passwordless login, F-58 does not prove harmful CPU defaults, and F-68 does not prove the archive reaches a cloud. `02` already words all three that way. |
+| F-32 | **agree, narrowed** | Medium | The guest proved the half line being completed, not a lost concurrent update. |
+| F-39 | **confirmed** | Medium | -- |
+| F-40 | **disagree** (keep Medium) | Medium | The source card is not touched (`:208-215` copy only, and the success line at `:255` says to remove the card). The harm is the false "successful" message. The data stays on the card until the owner reuses it, which is the owner's own later act. The fix (a failed copy reaches the failure status, and `:200-205` sizes what is copied) is unchanged. |
+| F-67 | **agree, re-graded** | **High**, device-only | A failed `abl_a` write followed by the same write to `abl_b` (`:69-70`, no status read, no read-back) can leave the shipped Retroid Pocket Nova with no good bootloader. The control flow can be proven with loop-file fixtures, as `02` names. |
+
+**Low findings the seat re-graded.**
+
+| Item | Grade | Result | Evidence |
+| --- | --- | --- | --- |
+| F-06 | **disagree** (keep Low) | Low | `rm ${ROMNAME}.nvmem*` (`:309`) deletes another file only when a file's whole path equals a space-delimited prefix of the ROM path, such as `.../atomiswave/My` for `My Game.zip`. The common outcome is the NVRAM left in place, which `02` already states. |
+| F-33 | **agree, re-graded** | Medium | `:33-34` move the link over `last_<name>` at the second update, so an owner's interface config is lost and stays lost. `02`'s `Already written:` line stands. |
+| F-42 | **agree, re-graded** | Medium | A failed bind or overlay at `:57`/`:68` leaves saves written to the internal card's directory. That is #83/#84's state, and the cloud-side guard does not cover the local write. |
+| F-43 | **agree, re-graded** | **Medium** for the storage selection; the assignment oddity stays Q7 | `grep "${DEV}" /proc/mounts` (`:251`) matches by substring, and `mount_games` takes the first large unmounted partition. Neither identifies the external card. Phase 5 splits the row. |
+| F-54 | **agree, narrowed**: **the first reader's example is wrong** | Low | `${index_bezel_name##*.}` removes through the last dot, so an entry ending `./../x` gives `/x`, not `../x`. The traversal derivation in `02` is corrected here, and the finding becomes slash validation plus the empty-system removal. |
+| F-55 | **agree, narrowed** | Low | "No in-tree caller found", not "dead": a manual user is possible, as `installtointernal` shows. |
+| F-57 | **agree, narrowed**; **the seat's "a file named `1` selects the minimum" is refuted** | Medium | `getValue` reaches `:37` only with a non-empty `MYVAL` (`:35`), and `[ "${MYVAL}" ]` is then true, so the `elif` at `:40` never runs and no file `1` is read. `02`'s sentence "the first `<` reads its input from a file named `1`" is wrong on the same ground. The clamp always gives `MAX`. The seat is right that an existing file `100` in the working directory is truncated, not only created. |
+| F-63 | **agree, re-graded** | Medium, bounded to the modes | Mode `645` on a file holding `root.password`, the RetroAchievements password and `wifi.key`. An effective read by another account was not tested. |
+
+**Seat items not graded as findings.** These are § 3, what the seat could not judge. Each one restates a limit `02`/`04` already name: hardware outcomes; the background-restore race; installer and ABL failure paths; the upgrade rehearsal (open on #648, issuecomment-6360655911); the login policy; Bluetooth's trust boundary; emulator semantics; Q5 run against the image's copy of `runemu.sh`; and the lint's `13 CONTRACT FAILURE(S)`, which are expected before Phase 5 writes the punch list. One is answered by the artifacts: the 43 Q4 rows and the 47 Q6 rows are in this file (§ Q4, § Q6). The packet carried their counts, not the tables.
+
+**Net effect.** The tally moves from 68 findings to **75: 0 Critical, 2 High (F-14, F-67), 22 Medium, 51 Low**:
+- 7 new findings (G-01 Medium; G-02 to G-07 Low).
+- F-14 and F-67 move up to High.
+- F-19 moves down to Low.
+- F-15, F-33, F-42, F-43 and F-63 move up to Medium.
+- F-10 and F-43 split in Phase 5.
+- F-09's fix shape is replaced.
+- F-54's and F-57's derivations are corrected.
+
+Two of the seat's claims were refuted by the code: F-40's High, and F-57's minimum branch. These counts are the Astra seat's alone. They are provisional until the Argon seat has run and been graded, and Phase 5 takes the final tally from both seats.
 
 ## Quality Self-Check
 
@@ -366,7 +435,7 @@ _Pending: written after the Astra call below; the Gemini 4 Argon seat is pending
 | Cornerstone conformance tables present | present (`03` § 3.2, summarised above) |
 | Coverage Boundary present (02 + 04) | present |
 | Finding Verification recorded for all Crit/High | present (none Critical or High; the Mediums recorded) |
-| Second opinion recorded (Phase 4.6) | absent: the Astra call follows; Argon pending on its route (the brief's blocker) |
+| Second opinion recorded (Phase 4.6) | partial: the Astra seat ran and is graded (§ Second opinion); the Argon seat is **pending** on its route, which is the brief's named blocker, so Phase 5 does not start |
 | Instruction File Recommendations (epic) | present |
 | Tier B visual-QA consolidation present | absent (no screen changed; no visual-QA process for scripts) |
 | Verdicts use the defined vocabulary only | yes |

@@ -76,6 +76,16 @@ blocker on #648 and stop -- no Phase 5, no issues, until the coordinator
 brings `1c7d283ad5` + `a7a3bdda4e` or the M7 merge lands. Open on #648:
 the rehearsal question (issuecomment-6360655911).
 
+**Stopped at the Phase 4.6 blocker (08:43 UTC).** The Astra pass is done and
+graded in `04-analysis.md` § Second opinion: provisional **75 (0 Critical, 2 High
+F-14/F-67, 22 Medium, 51 Low)**, G-01 to G-07 new. The Argon seat is `pending` in
+`review-plan.json`. Resume only when the coordinator brings `1c7d283ad5` +
+`a7a3bdda4e` (or the M7 merge lands): then run the Argon probe and refutation
+from the same brief (`second-opinions/gpt-brief.md`'s packet plus the Astra
+grades), grade them, and go to Phase 5 (punch list with `punch_index` and
+`question:` rows, F-10/F-43 split, the audit issue, bug issues, `box-check`),
+then the stage-D pause. The guest stays up.
+
 ## Next commands
 
 ```bash

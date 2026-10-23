@@ -16,18 +16,28 @@
       "effort": "max",
       "provider": "openrouter, provider order [openai], allow_fallbacks false (scripts/council-invoke.ts gpt recipe)",
       "calls": [
-        {"phase": "probe", "output": "gpt-probe.md"},
-        {"phase": "refutation", "output": "gpt-audit.md"}
-      ]
+        {
+          "phase": "probe",
+          "output": "gpt-probe.md"
+        },
+        {
+          "phase": "refutation",
+          "output": "gpt-audit.md"
+        }
+      ],
+      "status": "complete: probe and refutation ran; served openai/gpt-6-astra by OpenAI (provider_response); refutation output sha256 df20875d97a7045621a7cb3b448a41a634df0ea6a5a61840bb2bc8b877d6eaff; graded in 04-analysis.md section Second opinion (2026-10-23)"
     },
     {
       "member": "gemini-argon",
       "model": "Gemini 4 Argon (route arriving with 1c7d283ad5 on the legacy checkout's feature/m7-audit-integration-603)",
       "lab": "google",
       "effort": "high",
-      "status": "pending: the route is not in this tree (grep -c gemini-argon scripts/council-invoke.ts tools/lint-audit-artifacts = 0, 0 at 5070c88b1b); brief § 1 forbids the roster's gemini seat in its place",
+      "status": "pending: the route is not in this tree (grep -c gemini-argon scripts/council-invoke.ts tools/lint-audit-artifacts = 0, 0 at 5070c88b1b); brief \u00a7 1 forbids the roster's gemini seat in its place",
       "calls": [
-        {"phase": "refutation", "output": "gemini-argon-audit.md"}
+        {
+          "phase": "refutation",
+          "output": "gemini-argon-audit.md"
+        }
       ]
     }
   ],

@@ -120,3 +120,18 @@
 - **Probe** (`tools/council/run invoke --member gpt --provider openrouter --prompt-file second-opinions/gpt-probe-prompt.md --output second-opinions/gpt-probe.md`, 08:25:36-08:25:49): rc 0, `council-facilitator@1.14.0`, `outcome: success`, `model_field: openai/gpt-6-astra`, `served_provider: OpenAI`, `model_identity_source: provider_response`, 0 retries.
 - **Brief** `second-opinions/gpt-brief.md` (151,087 bytes, sha256 `64c9dc3240a3b169...`): the template's three asks, `02` whole, `03` whole, `04` through § Finding Verification. Before sending: 0 fixture values, 0 credential-shaped lines, `forbidden-terms-check --stdin` 0 hits, 0 `secret-patterns` hits.
 - **Refutation pass in flight** since 08:26:47 UTC: `tools/watch-build --record-only -- tools/council/run invoke --member gpt --provider openrouter --prompt-file second-opinions/gpt-brief.md --output second-opinions/gpt-audit.md --per-attempt-timeout-ms 1800000 --total-timeout-ms 3600000`. What watches it: the watcher's record `.build-runs/20261023T082647Z-e7167ae6/` (status, `build.rc`) and a harness background task that delivers the result to this session when the command ends. Its silent-failure mode: if the session is killed, the harness task dies with it and only the record remains.
+
+### [Phase 4.6] 08:42 — Astra graded; the Argon seat pending; stopped at the blocker
+
+- The refutation pass ended rc 0 (`.build-runs/20261023T082647Z-e7167ae6/`): `model_field openai/gpt-6-astra`, `served_provider OpenAI`, identity `provider_response`, 664,487 ms, output sha256 `df20875d97a70456...`, `gpt-audit.md` + `.provenance.json`.
+- Every item was graded against the cited lines, re-read 08:30-08:41, into `04-analysis.md` § Second opinion:
+  - 7 new findings: G-01 Medium; G-02 to G-07 Low; G-02, G-04 and G-05 narrowed.
+  - Raised to High: F-14 and F-67.
+  - Lowered to Low: F-19.
+  - Raised to Medium: F-15, F-33, F-42, F-43 and F-63.
+  - The seat was refuted on two points: F-40's High (the source card is not touched) and F-57's minimum branch (the `elif` never runs).
+  - The first reader was corrected by the seat on two points: F-54's `../` example and F-57's `1`-file sentence.
+  - F-09's fix shape is replaced; F-10 and F-43 split in Phase 5.
+- Provisional tally: **75: 0 Critical, 2 High, 22 Medium, 51 Low**.
+- `review-plan.json`: the gpt seat is marked complete; gemini-argon is still `pending`.
+- **Stopped at Phase 4.6 (brief § 1, the named blocker):** `grep -c gemini-argon scripts/council-invoke.ts tools/lint-audit-artifacts` is still `0`, `0`. No Phase 5, no audit issue and no bug issues until the route is on this branch (`1c7d283ad5` + `a7a3bdda4e`) or the M7 merge lands. The guest stays up (QEMU pid in `/workspace/artifacts/m6-t1-20261023/qemu.pid`) for the stage-D proofs.
