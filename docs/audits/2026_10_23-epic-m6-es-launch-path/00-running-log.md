@@ -117,3 +117,8 @@ Nothing on this list runs before the coordinator relays M7's `resource return` o
 - Prior punch lists (provenance), grepped for this audit's shapes: `grep -c -E '\.m3u|state_file|rfind\("ports"\)|UKNOWN|formatCommandLineArgument|renumberSlots|getContentFiles|deleteGameFiles|loadAdditionnalConfig'` over the eight is **0** each, and the same over every audit's `05-punch-list.md` is 0. The findings are new to the record.
 - Stage C prepared, with no runtime: `second-opinions/review-plan.json` (status pending), the probe prompts, and `gpt-brief.md` and `gemini-argon-brief.md` (178 KB each: preamble, the audit's 02/03/04 without the Q6 table, and sixteen source excerpts at the pin; `grep -c -i -E 'DEV_LOGIN|devpassword|password='` = 0). Phase 4.6's calls wait for `npm install`, and the install waits for the host's return.
 - **The lane waits** on the host's `resource return` for the queue at the top, then runs Phase 4.6, then Phase 5.
+
+### [Wait] 17:54 — The coordinator read the checkpoint (#649, 17:53:44Z); the hold stands
+
+- No `resource return` yet. Carried to Phase 5: FD-14's `bug` issue carries an `Already written:` line for what such a delete has already removed on devices, and its guest proof uses a fixture `.m3u` under `/storage` (the coordinator's words on #649).
+- Waiter re-armed on #649's comment count above 4 and on a new `resource return` line in the coordination file.
