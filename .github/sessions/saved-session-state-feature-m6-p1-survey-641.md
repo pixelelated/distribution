@@ -27,27 +27,27 @@
 
 ## Current focus
 
-**Checkpoint 2026-10-23, at the pass-7 gate, third version (the executor,
+**Checkpoint 2026-10-23, at the pass-7 gate, fourth version (the executor,
 Opus 5.5, session `dbac446e-3b41-4b28-966d-0a6efe07ea2b`).** The second
-version (47 slices) was posted on #641. The maintainer answered the first
-question through the coordinator (`m6-renovation-plan-346-d9`):
+version (47 slices) was posted on #641. The first question was answered as
 D-WORKFLOW-185 (H700 and SM8550 ship, GENERIC_X64 is the test image) and
-D-WORKFLOW-186 (the build process and its tooling before any device). The P0
-tip `5923dd29a4` was merged (`be3ddf13c5`); the inventory gained a `test`
-reach value; the order was re-sequenced to a third version of 46 slices
-(build cluster T5 to T15, `device-rockchip-shipped` dissolved), every ledger
-regenerated (`p1-tracking.md` § Pass 7), and the third version posted on
-#641 with the commit sent to the coordinator. **Waiting for:** question 2
-(`backuptool` T17 and the system services T22 under the `0.1` gate), then
-question 3 (the 13 Extended slices), then the yes on the third version, all
-relayed by the coordinator. #644 (ROCKNIX's build docs) is the coordinator's;
-its findings are an input to T5 and T9, not a change to their paths.
+D-WORKFLOW-186 (the build process before any device): the third version,
+46 slices, build cluster T5 to T15. Question 2 was withdrawn as outside the
+program: D-WORKFLOW-187 (the renovation gates no release; T1 and T2 are read
+before #336 Step 1 as a reading order). The P0 tip `080ad7c52d` was merged
+(`87f447f930`); the fourth version (`slices.json`'s `gate` is now
+`read_before`, the Gate column gone, no slice moved) is committed, the
+ledgers regenerated (`p1-tracking.md` § Pass 7) and posted on #641.
+Question 3 is settled by D-WORKFLOW-184. **Waiting for:** the yes on the
+fourth version, relayed by the coordinator (`m6-renovation-plan-346-d9`).
+#644's findings ride T4 to T12 and T32 at filing (step 2 below).
 
 **On the yes** (a yes that moves a slice renumbers `T<k>` in `slices.json`
 first, then `--order`):
 1. the register row, the next free ID above the P0 tip's highest
-   (**D-WORKFLOW-187** today; re-derive with the brief § 6 greps first and
-   check the other lanes), citing D-WORKFLOW-185 and D-WORKFLOW-186;
+   (**D-WORKFLOW-188** today; re-derive with the brief § 6 greps first and
+   check the other lanes), citing D-WORKFLOW-185, D-WORKFLOW-186 and
+   D-WORKFLOW-187;
 2. the 46 slice issues: generate the titles and bodies with
    `tools/renovation-inventory --slice-issues <dir> --order-row D-WORKFLOW-<that ID>` (writes `T<k>.title` and
    `T<k>.md`, touches no tracker); before filing, append to the bodies of
@@ -84,9 +84,9 @@ Merge order after the M7 candidate: `feature/m6-renovation-plan-346` to
 (never another lane's feature branch). This branch, the P0 branch and the M7
 lane all append to `docs/decision-register.md`, today's work log and
 `docs/work-logs/INDEX.md`: keep every append, regenerate the index. The
-register ID for the order is the next free above 186 (182 is the stacked-start
-decision, 183 the lane structure, 184 to 186 the coordinator's relays; the M7
+register ID for the order is the next free above 187 (182 is the stacked-start
+decision, 183 the lane structure, 184 to 187 the coordinator's relays; the M7
 lane holds 171 to 180 unmerged).
 The P0 branch is merged into this one when it moves, as the stack's base
-(done twice: `bff1ccec2a`, `be3ddf13c5`). Nothing here builds,
+(done three times: `bff1ccec2a`, `be3ddf13c5`, `87f447f930`). Nothing here builds,
 touches a device, a cloud or the M7 build worktrees.

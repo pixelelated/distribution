@@ -53,7 +53,7 @@ No two commands for one quantity disagreed; no stop.
 - Pass 4 (Cross-reference): **complete** -- 10 code areas N-to-N (90 ordered pairs, 60 with an edge), rule and patch edges, every one of the 12 areas has an edge (see § Pass 4)
 - Pass 5 (Classification): **complete** -- 43 slices in the first version; 47 after pass 6's review (`--order` at `f814d1a75c`: every one of 134,631 rows in exactly one) (see § Pass 5)
 - Pass 6 (Reconciliation, then the preliminary review): **complete** -- reconciliation, then the three-seat review (all verified, all "ready with named changes"), its findings source-checked and the order revised to 47 slices (see § Pass 6)
-- Pass 7 (Action): **at the gate** -- the order and slice list posted on #641; the first question answered (D-WORKFLOW-185) with the build-process weight (D-WORKFLOW-186), so the order is re-sequenced to a third version of 46 slices (see § Pass 7); questions 2 and 3 and the yes still to come, relayed by the coordinator, before any slice issue or the register row
+- Pass 7 (Action): **at the gate** -- the order and slice list posted on #641; the first question answered (D-WORKFLOW-185) with the build-process weight (D-WORKFLOW-186), so the order was re-sequenced to a third version of 46 slices; question 2 was withdrawn as outside the program (D-WORKFLOW-187: the renovation gates no release), so the fourth version drops the release gates for a reading order and moves no slice; question 3 is settled by D-WORKFLOW-184 (see § Pass 7); the yes on the fourth version is still to come, relayed by the coordinator, before any slice issue or the register row
 
 ## Read first (brief § 3), what was read this session
 
@@ -439,6 +439,51 @@ others from T42 to T43. Still 13 Extended (T1 to T3, T5, T10, T16 to T22,
 T30); the first three still one session each. `--slice-issues` drafts 46
 bodies, 230 checkboxes, in the template checked against `box-check`'s
 patterns at pass 6; only its text fields changed.
+
+**The second question withdrawn, 2026-10-23,** relayed by the coordinator
+and recorded as D-WORKFLOW-187 (P0 tip `080ad7c52d`, merged as
+`87f447f930`): the renovation gates no release. D-WORKFLOW-102's release
+clause is retired; a defect found is a bug and reaches a release as every bug
+does (D-QA-051); the one prerequisite that stands is a reading order, T1 and
+T2 before #336 Step 1. Question 3 is not re-asked: D-WORKFLOW-184 settled
+it, and the count of 13 Extended did not change. The order's row cites 185,
+186 and 187 and takes the next free ID above 187 at the yes.
+
+**The fourth version.** `slices.json`'s `gate` became `read_before` (T1 to
+T3: #336 Step 1; T3's is the order's own reading of #336); T1's and T2's
+lenses lost "gate (D-WORKFLOW-102)" and keep the lenses that placed them
+(planned change, security). `tools/renovation-inventory` dropped the
+order's Gate column, renders `read before` in the slice blocks and the issue
+template, and refuses a slice that still carries `gate` (seen to refuse a
+copy of `slices.json` with one on T1, then to load the real file; self-test
+PASS). `order.md` § How the order was argued constraint 1 is rewritten as the
+reading-order prerequisite; constraints 2 and 3, the lens bullets and the
+objection table's preface lose their gate wording; the brief's § 6 field and
+§ 10, and the README's order, slices and drift rows follow (drift at slice
+closes only). No slice moved. Ledgers regenerated at `eb4763e3cc` with the
+26 pass-7 plans (the merge changed no package, project or script path):
+
+```
+$ tools/renovation-inventory --plans <scratch>/plans-p7; echo rc=$?
+paths: 133520 (git ls-files: 133520)
+es-paths: 1114 (git ls-files: 1114)
+patches: 1709 (find: 1709)
+unassigned: 0
+ambiguous: 0
+escaped: 2 (rows whose path matches a credential pattern, hyphens written as \u002d)
+rc=0
+$ tools/renovation-inventory --order
+slices: 46
+rows: 134634 (inventory: 134634)
+unassigned: 0
+ambiguous: 0
+```
+
+The one new path is `docs/reviews/build-path-read.md` (the only path
+`git diff --name-status be3ddf13c5 eb4763e3cc` adds; T39, the only slice
+whose path count moved, 253 to 254). T4 grew by the merged register row,
+T10 by this change to `tools/renovation-inventory`, T46 by the logs. `--slice-issues`
+drafts 46 bodies, 230 checkboxes; only the `Read before` field changed.
 
 ## Item analysis table
 

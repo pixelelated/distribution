@@ -1344,7 +1344,7 @@ def order(args):
                       "--" if sl.get("kind") == "table" else fmt(c["read:fork-own"]), fmt(c["vendor_lines"]),
                       ", ".join("%s %d" % (x.split(":", 1)[1], n) for x, n in sorted(c.items()) if x.startswith("reach:")),
                       describe(sl)),
-                  "- **read before**: %s" % (sl.get("read_before") or "none"),
+                  "- **read before**: %s" % ("%s (a reading order, D-WORKFLOW-187)" % sl["read_before"] if sl.get("read_before") else "none"),
                   "- **depth**: %s -- %s" % (sl["depth"], sl["depth_reason"]),
                   "- **interacting subsystems** (read-only context): %s" % sl["interacting"],
                   "- **closing evidence**: %s" % sl["closing"]]
@@ -1377,7 +1377,7 @@ ISSUE_BODY = """Slice T{k} of the renovation order: `docs/reviews/order.md` § T
 - **Why here:** {why}
 - **Paths:** {desc}. {paths} paths, {lines} lines; {read} lines read, {fork} of them fork-own (inventory at `{head}`). The exact list is `tools/renovation-inventory --order`'s membership of `{id}`.
 - **Provenance tiers:** {tiers}
-- **Read before:** {read_before} (a reading order; the renovation gates no release, D-WORKFLOW-187)
+- **Read before:** {read_before}
 - **Review depth:** {depth} -- {reason}
 - **Interacting subsystems (read-only context):** {inter}
 
@@ -1450,7 +1450,8 @@ def slice_issues(args, out):
             desc=" **plus** ".join(desc), paths=fmt(c["paths"]), lines=fmt(c["lines"]), read=fmt(c["read"]),
             fork=fmt(c["fork"]), head=head,
             tiers=", ".join("%s %s" % (k.split(":", 1)[1], fmt(n)) for k, n in sorted(c.items()) if k.startswith("tier:")),
-            read_before=sl.get("read_before") or "none", depth=sl["depth"], reason=sl["depth_reason"], inter=sl["interacting"],
+            read_before=("%s (a reading order; the renovation gates no release, D-WORKFLOW-187)" % sl["read_before"]
+                         if sl.get("read_before") else "none (the renovation gates no release, D-WORKFLOW-187)"), depth=sl["depth"], reason=sl["depth_reason"], inter=sl["interacting"],
             vm=vm, opinion=opinion, order_row=args.order_row)
         with open(os.path.join(out, "T%d.title" % sl["k"]), "w") as f:
             f.write(title)
