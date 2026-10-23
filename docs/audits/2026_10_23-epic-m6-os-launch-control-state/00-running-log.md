@@ -288,3 +288,13 @@
   - **unfixed** (`BASE_REF=4ded5446cb --old`, from the tree, 21:32:06-21:40:50, rc 1): 15 checks failed, all in bj to bt.
   - A first unfixed run (21:23:07-21:31:29) ran a copy of the harness from the scratchpad. It failed the same 15 checks plus five outside S5, because the copy looks for `tools/vm-qa`, `tools/melonds-upgrade-test` and others beside itself. It is not evidence; the run from the tree is.
 - **M7 window** (the coordinator, 21:36): the guest was already down (since 19:27:18). Acknowledged on #648 at 21:41 and in the host coordination file.
+  - **fixed** (from the tree, 21:42:03-21:50:49, rc 0): `PASSED`; the 18 checks in bj to bt pass.
+  - `tools/pkgcheck rocknix`: rc 0, no findings, on the series' last recipe. `tools/melonds-upgrade-test` over the fixed `post-update` with the image's busybox: rc 0, every control PASS.
+- **Commits:** head `d0ee0f568e`; `9c4001b0b6` (#713, #738), `9f688bb0b6` (#715, #721), `a3d6cecee6` (#716), `fa8b12610d` (#740), `c1e02af9e5` (#741), `78967e7237` (#739), `e5e3a36c1f` (#724), `3e555f72d5` (G-02), `97f5423b4a` (F-65), `ac466e5a39` (F-62), `f324507c1d` (a comment S4's `cadc16429d` had put between `set_settings` and its comment).
+  - One correction before the push: #715's message first said the unfixed `bl` waited 0 ms; the run's line is 3 ms. Groups 2 to 11 were recommitted from their intermediates with the line corrected.
+- **Shapes that differ from an issue's fix line, said where they belong:**
+  - **#721:** the `dpms` delete is removed, not put behind a marker. The old shipped value is `1`, the same as a player's choice, so a one-time delete would still take a player's choice away once.
+  - **F-46 is withdrawn:** EmulationStation reads all three `updates.*` keys (`GuiMenu.cpp:1527-1539`, `NetworkThread.cpp:87` at the pin `16dbac5211`). And `system.cfg` cannot carry a comment, because `chksysconfig`'s `valid()` refuses a line without `=` and the shutdown backup would stop. The note is on #694.
+  - **F-65:** a write to `system.cfg` is refused rather than locked. The S4 brief gave these lines to S4 for #758, which did not need them; they are changed here with the row.
+- **Found and not fixed (outside S5's files):** `userconfig-setup` (the systemd package) makes the same two copies at first boot as #740's, and with no `/storage/.ssh` it makes a file of that name. Said on #740.
+- **Queued for the guest** (after resource return, with S4's readings): #713 and #738 (`003-upgrade` with a stub), #715, #716, #721, #740, #741 (`post-update`'s blocks against the tree), #724's live file and record, and F-65's refusal. #724's seed mode and #739's `systemctl show` need an image built from this branch, so they wait for stage F's image, or are recorded as such there.

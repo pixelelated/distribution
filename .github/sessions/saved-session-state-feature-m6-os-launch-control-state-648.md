@@ -94,6 +94,34 @@ then the stage-D pause. The guest stays up.
 
 **S4 done (19:58 UTC, the last push `2676144008`).** Head `c6e4bf47d1` (harness sections bg to bi), then `9bbab4bf1b` #756, `7201213d55` #759, `cadc16429d` #758 (`set_setting_value`; `default` stays "remove") and `0cbc2c0478` F-22. #701 has 26 of 84 ticked. Deferrals recorded in `05`: F-21, F-45 and F-49 to #563; F-68 to D-SYS-014. **Carried forward:** F-24 goes to S6 (`automount`'s log lines through `logger`); `setrootpass:45` moves to `set_setting_value` in S6, and `wifictl:460` in S7. **Guest queue:** #756's and #759's readings (with S5); #727, #728 and #736 (S3, criterion 1); #758 after S7. **Open on #648:** the S2 overlay-versus-bezel question; then the #758 criterion wording. **Next: S5** (`post-update`, `003-upgrade`, `save-sysconfig.service`, `system.cfg`, `package.mk` lines 15 and 29), from G-01 #713. **The commit-message method that works:** write the messages with Python into the scratchpad. A shell `read` over a here-string drops all but the first line (S4's first try, reset before any push).
 
+**S5 done (21:58 UTC).** Head `d0ee0f568e` (harness sections bj to bt), then:
+- `9c4001b0b6`: #713 and #738.
+- `9f688bb0b6`: #715 and #721. The DPMS delete is removed, not put behind a marker.
+- `a3d6cecee6`: #716.
+- `fa8b12610d`: #740.
+- `c1e02af9e5`: #741.
+- `78967e7237`: #739.
+- `e5e3a36c1f`: #724.
+- `3e555f72d5`: G-02.
+- `97f5423b4a`: F-65, a write to `system.cfg` refused.
+- `ac466e5a39`: F-62.
+- `f324507c1d`: S4's displaced comment.
+
+F-46 is withdrawn (ES reads `updates.*`, and `system.cfg` cannot carry a comment; the note is on #694). #701 has 29 of 84 ticked.
+
+**Guest queue, after the M7 window's resource return:**
+- S4's #756 and #759 readings.
+- S5's #713, #715, #716, #721, #738, #740 and #741, plus #724's live file and record, and F-65.
+- S3's criterion-1 items: #727, #728 and #736.
+- #758, after S7.
+- Needing an image built from this branch (stage F): #724's seed mode and #739's `systemctl show`.
+
+**Queued tails:** T2's nick-as-option-word lead (#730), and D-WORKFLOW-192's netplay seam (`runemu.sh` reads the spectator marker before the client marker, a spectator case in `set_netplay`, `--mitm-session` passed through; Refs #648, #702, #708, #776). Both after S7 or at stage F's end, test first.
+
+**Next: S6.** Starts with F-67 #703 (High).
+
+**Run the harness from the tree**, never a copy: a copy finds its sibling tools beside itself (friction, 21:31).
+
 ## Next commands
 
 ```bash
