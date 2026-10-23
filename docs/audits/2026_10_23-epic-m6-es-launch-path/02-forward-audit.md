@@ -199,3 +199,104 @@ How the image starts it: `emulationstation --log-path /var/log --no-splash` (the
   - The exit: `AppWindow::closing()` before any teardown, then the scan worker, the watchers, the hasher, the scraper, the bookkeeper's join, `saveState`, `deleteSystems`, `window.deinit`, and `processQuitMode` (`:1319-1366`).
 - **PC-1, re-read against the exit:** `AppWindow::closing()` stops posts (`:1322`), and `window.deinit()` runs at `:1358`. The ProxyCards and `ThreadedCloudSync` workers are detached and are not stopped or joined anywhere in the exit. A card worker in its 5-second outcome sleep then calls `card->close()` on a card the deinit has taken down, or the process returns from `main` with the thread still running. That is exit-time only and the tree's shape (the sync card too). Q3 Low, a lead for T35/T18.
 - **Q5 (startup, to measure):** `launchStartupGame` runs before the window (`:799-802`). `serial_number_check` runs through `runSystemCommand` with a splash at every boot (`:918`). Then `preload` and the index start. The startup card's network wait is bounded at 60 s by `cloud_net_ready --wait 60` (`:666-667`; D-CLOUD-112's offline benchmark is the exit sync's, not this one).
+
+## Coverage table: one row per path (20)
+
+Every path was read line by line at the pin. The cells name the findings above, and `04-analysis.md` § Renovation face carries each question across the slice. "Clean" means read with the question in hand and nothing found.
+
+| Path | Group | Tier | Q1 Modernize | Q2 Standards | Q3 Bugs | Q4 Currency | Q5 Efficiency | Q6 Dead ends | Q7 Clarity |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `es-app/src/FileData.cpp` | 1 | fork-own (~1/5 fork lines) | FD-17 raw owning `mDisplayName`, C casts (upstream lines; recorded) | FD-10, FD-11, FD-12 | FD-1, FD-2, FD-3, FD-8, FD-14, FD-15, FD-18 | `d17cf003e` (batocera, to merge) | FD-6; the launch and exit costs itemised (Phase 2 Q5 list) | FD-1, FD-5, FD-16, FD-20, FD-21; Q6 table | FD-4, FD-13, FD-16; no provenance header |
+| `es-app/src/FileData.h` | 1 | fork-own | `netPlayMode` an `int` (FD-21); raw `mParent`/`mSystem` pointers by design (non-owning) | clean | FD-18 (`mRunningGame`) | no batocera commit | n/a: declarations | FD-21 (`isSaveStateInfoTemporary`, `netplayClientPassword`); `isVirtualFolderDisplayEnabled` unreached | clean (the fork's `LaunchGameOptions` comments say why) |
+| `es-app/src/views/ViewController.cpp` | 1 | fork-own (89 fork lines) | upstream's callbacks repeated three times (VC-3) | VC-6 | VC-5 | `308221458`, `5f106acce`, `0806a0c5c` (to merge) | VC-1, VC-2 | `#ifdef _RPI_` and WIN32 arms (Q6 table) | VC-3 |
+| `es-app/src/views/ViewController.h` | 1 | fork-own | clean | clean | clean | `308221458` changes `launch`'s signature (to merge) | n/a: declarations | `hasInstance` reached; Q6 table | clean (`dropGameListView` is documented in place) |
+| `es-app/src/LaunchCommand.h` | 1 | fork-own | the duplicated reader beside `runemu.sh` (seam, § 3.5) | clean | LC-1 (raw words, unreached) | no batocera commit (fork file) | n/a: a word scan per launch | both functions reached (`FileData.cpp:719-720`, `main.cpp:551-559`) | clean (its header states the divergence) |
+| `es-app/src/SystemData.cpp` | 2 | fork-own (280 fork lines) | raw owning members (recorded) | clean | SD-2, SD-3, SD-4 (FD-15), SD-5 | `13e21d420`/`195a517ef`, `b69fb143c` (to merge) | SD-3 (config re-parsed per `loadSystem(name)`) | SD-6 (dead text); `hasGamelist` unreached | SD-6 |
+| `es-app/src/SystemData.h` | 2 | fork-own | clean | clean | clean | `b69fb143c` touches it | n/a | `setIndex` unreached | clean |
+| `es-app/src/SaveState.cpp` | 3 | fork-own | the `racommands` fallback (SS-2) | SS-1 (`shellQuote`) | SS-1, SS-4 | no batocera commit | n/a: string building | SS-2 | SS-3, FD-13 |
+| `es-app/src/SaveState.h` | 3 | upstream-carried (identical to `1750dded8`) | `virtual` in a struct, no virtual destructor, nothing derives (recorded) | n/a: upstream-identical declarations | clean | Q4 first: no batocera commit since the base | n/a | Q6 first: every member reached (Q6 table) | n/a: upstream's, unchanged |
+| `es-app/src/SaveStateRepository.cpp` | 3 | fork-own | clean | clean | SR-3 | no batocera commit | SR-2 (refresh on every exit) | SR-1 (`renumberSlots`) | clean |
+| `es-app/src/SaveStateRepository.h` | 3 | fork-own | clean | clean | clean | no batocera commit | n/a | SR-1 | clean |
+| `es-app/src/SaveStateConfigFile.cpp` | 3 | upstream-carried | n/a: upstream's; kept for the merge | n/a: upstream's | SC-1 (unlocked static cache, never cleared) | Q4 first: no batocera commit since the base | n/a: one parse per process | Q6 first: `isDefaultConfig` unreached; the rest reached | n/a: upstream's |
+| `es-app/src/SaveStateConfigFile.h` | 3 | upstream-carried | n/a | n/a | clean | Q4 first: none | n/a | Q6 first: `isDefaultConfig` declared, unreached | n/a |
+| `es-app/src/SaveStateJobQueue.cpp` | 3 | fork-own (pure) | clean | clean | clean | n/a: fork file | n/a | all reached (the bookkeeper) | clean |
+| `es-app/src/SaveStateJobQueue.h` | 3 | fork-own | clean | clean | clean | n/a: fork file | n/a | all reached | clean (its rules in the header) |
+| `es-app/src/SaveStateBookkeeper.cpp` | 3 | fork-own | clean (the leaked worker is deliberate, commented) | clean (`shellQuote` on every argument) | SB-2, SB-3 | n/a: fork file | n/a: off the interface thread | all reached | clean |
+| `es-app/src/SaveStateBookkeeper.h` | 3 | fork-own | clean | clean | clean | n/a | n/a | all reached (`recordCopy` by hand) | clean |
+| `es-app/src/ProxyCards.cpp` | 4 | fork-own | FD-18's fix (`std::atomic<FileData*>`) | clean (words, French counted) | PC-1, PC-2 | n/a: fork file | bounded polls off-thread (Q5 note) | all reached | Q7 note (audit IDs over intent) |
+| `es-app/src/ProxyCards.h` | 4 | fork-own | clean | clean | clean | n/a | n/a | all reached | clean |
+| `es-app/src/main.cpp` | 5 | fork-own (498 fork lines) | clean | MN-5, MN-6 | MN-2, MN-3, PC-1 (the exit) | no batocera commit on it | startup items (Q5 note) | MN-1; WIN32/BATOCERA/KODI/FREEIMAGE arms (Q6 table) | MN-4 |
+
+## Guest proofs
+
+None has run yet: the host is handed to M7 until its `resource return` (brief § 5). Each proof below is queued, in `00-running-log.md`'s queue and in the finding it would prove. A proof's row gets its `proved:` cell (`pin-binary`, `fix-unit-test` or `fix-walk-pending-image`) when it runs, and none is counted before then.
+
+Can this be done on the VM? **Yes** for every behaviour claim above about the binary: the image carries the pin. **No** for: a netplay join (FD-1, it needs a host), a real pad's name in the controllers blob (FD-7), and anything only a race shows (FD-18). Those stay leads.
+
+## Criterion entries: #649's checklist (= brief § 7), evaluated at the end of Phase 2 (17:47 UTC)
+
+### AC-01: the audit folder holds `00-running-log.md` and `01-research-notes.md` to `05-punch-list.md`
+**Verdict:** PARTIAL ⚠. Evidence: `ls docs/audits/2026_10_23-epic-m6-es-launch-path/` lists `00`, `01` and `02` at this entry. `03` to `05` follow in Phases 3 to 5. Refutation: n/a while in progress.
+
+### AC-02: `tools/lint-audit-artifacts` prints PASS (pre-issue before stage D; resolution at close), the renovation face included
+**Verdict:** UNTESTABLE ?. The lint runs once `04-analysis.md` exists (stage C to D).
+
+### AC-03: `review-plan.json` records Extended depth and two reviewers from two other labs, each provenance naming its served model
+**Verdict:** UNTESTABLE ?. Phase 4.6 waits for the `npm install`, which waits for the host's return line (brief § 1).
+
+### AC-04: every punch item at a Phase 7 outcome
+**Verdict:** UNTESTABLE ?. That is stage F.
+
+### AC-05: `reviewed-at:`, `fixed-at:`, `fixed-at-es:` on #649
+**Verdict:** PARTIAL ⚠. `reviewed-at` is recorded (`00-running-log.md` header: distribution `f4e0f0a196`, ES pin `16dbac5211`). It is written into #649's body at the hand-back.
+
+### AC-06: § Scope records the pin, the two counting commands with output, both upstream refs with hashes and merge bases, the BUILD_ID, the M7 ES branches touching a slice file, and the #336 line
+**Verdict:** PARTIAL ⚠. Evidence: `01-research-notes.md` § Scope holds the pin, both counting commands with their output (20, 11,287, 17, 3; no delta), `rocknix/master` `f6c542872` (delta noted) with merge base `cada856d8`, `batocera/master` `b2ceb55a7` with merge base `1750dded8`, the branch scan (no `m7-*` branch touches the twenty), and the #336 line. **Gap:** the image's BUILD_ID is read from the guest, which is queued.
+
+### AC-07: a coverage table with exactly one row per path, `grep -c` printing 20, every Q1-Q7 cell answered or `n/a` with a reason
+**Verdict:** PASS ✓. Evidence: ``grep -c '^| `es-app/src/' 02-forward-audit.md`` prints 20 (run 17:46). Refutation: every cell was read for an empty or bare `n/a`, and none is bare; each `n/a` gives its reason (declarations, upstream-identical, a fork file with no upstream).
+
+### AC-08: each named check recorded with command, exit status and summary line; a check that could not run recorded with its reason
+**Verdict:** PARTIAL ⚠. Four of fourteen ran (the table at the top). The unit tests, `tests/app-unit`'s three targets, the three python harnesses, `time-to-play` and `es-launch-memory` are recorded as queued for the host's return. No `.cpp` has been edited yet, so no syntax compile is owed yet.
+
+### AC-09: Q5 carries the two time-to-play numbers beside #336's baseline (1.05 s, 2.03 s), the guest's loglevel, and `es-launch-memory`'s per-cycle table
+**Verdict:** UNTESTABLE ?. These are guest measurements, queued.
+
+### AC-10: Q6 carries one reachability row per entry point and per `#if`/`#else`/`#elif` line, with the commands' counts and the final count; every unreached row carries `Already written:` and what it exposed
+**Verdict:** PASS ✓ for the table; it lands in `04-analysis.md` § Q6 in Phase 4. Evidence: `q6-reachability.py` → `q6-table.md`, 370 rows (295 + 13 + 62). The brief's commands' counts (154, 32, 60) are recorded beside it with the reasons they differ. Each of the five unreached rows carries `Already written:` and what it exposed (generator in `q6-table.md`). Refutation: each zero was checked by hand with `git grep -w` over `es-app/src es-core/src es-app/tests`; one zero (`recordCopy`) was wrong and corrected.
+
+### AC-11: Q4 records `rocknix/master`'s zero commits since `cada856d8` with its command, and lists every commit of `1750dded8..batocera/master` (7) with a disposition each
+**Verdict:** PASS ✓, carried into `04-analysis.md` § Q4. Evidence: `git rev-list --count cada856d8..rocknix/master -- <20>` = 0; seven commits, each with an `apply --check` result (`00-running-log.md` 17:43).
+
+### AC-12: every guest proof carries a `proved:` cell; their count equals the running log's guest proofs
+**Verdict:** UNTESTABLE ?. No guest proof has run; both counts are 0 now.
+
+### AC-13: syntax compile and unit-test lines precede every ES `.cpp` commit; the coordinator re-runs; French beside every new string; `es-menu-map-check` still `0 missing`
+**Verdict:** UNTESTABLE ?. There are no ES commits yet (stage E).
+
+### AC-14: every `tracked:` punch item has its bug issue with the VM line and a VM-verifiable criterion; every `removal: yes` item has `Already written:`; `box-check` passes on each issue
+**Verdict:** UNTESTABLE ?. That is stage D.
+
+### AC-15: the retro exists, is posted on #649, and answers what the slice did to the two numbers
+**Verdict:** UNTESTABLE ?. That is stage G.
+
+### AC-16: the five distribution checkers and the ES `pre-push-test` pass before the merges, exit codes on #649
+**Verdict:** UNTESTABLE ?. They run at the hand-back.
+
+## Forward Audit Summary
+
+| Verdict | Count | Criteria |
+| --- | ---: | --- |
+| PASS ✓ | 3 | AC-07, AC-10, AC-11 |
+| PARTIAL ⚠ | 4 | AC-01, AC-05, AC-06, AC-08 |
+| FAIL ✗ | 0 | |
+| SKIP ○ | 0 | |
+| UNTESTABLE ? | 9 | AC-02, AC-03, AC-04, AC-09, AC-12 to AC-16 (later stages, or the host's return) |
+
+**Overall Assessment:** PASS WITH FINDINGS for the read (Phase 2's substance): 20 of 20 paths read, with the findings above. The checklist's runtime and later-stage criteria are open by construction at this point.
+
+## Coverage Boundary
+
+**Examined:** all 20 paths, line by line, at the pin, by reading (`git show $PIN:<path>` through `awk`). Context reads outside the slice, each named where used: `es-core/src/Scripting.cpp` (FD-9), `GuiCloudTransfer.cpp:315-345` (FD-8), `HttpServerThread.cpp:615-630`, `CMakeLists.txt` (the defines), the distribution's `config/functions:128`, `virtual/emulators/package.mk:1735-1739`, `start_es.sh`, `es_savestates.cfg`, and `ApiSystem.cpp`'s support switch.
+**Deliberately not examined:** the files of the interacting slices beyond those reads (brief § 2, out of scope).
+**Dimensions not exercised:** runtime behaviour (no guest yet), timing (Q5), memory (`es-launch-memory`), the compiled tests, and thread interleavings (no sanitizer run).
