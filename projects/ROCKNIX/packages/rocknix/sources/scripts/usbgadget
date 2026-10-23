@@ -1,6 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 # SPDX-License-Identifier: GPL-2.0
 # Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)
+# bash: [[ ]] and == run throughout, and worked because the image's sh is
+# bash (F-50).
 # Copyright (C) 2024 ROCKNIX (https://github.com/ROCKNIX)
 
 # gadget setup functions (prepare_usb_network and cleanup_usb_network) are derived from code from
@@ -184,7 +186,7 @@ prepare_usb_network() {
     # Make NCM the first configuration
     ln -s ${g_cdc}/functions/ncm.usb0 ${g_cdc}/configs/c.1
 
-    if [ -n "$verbose" ]; then echo "Done."; fi
+    if [ "$verbose" -gt "0" ]; then echo "Done."; fi
 }
 
 configure_iface() {
@@ -261,7 +263,7 @@ cleanup_usb_network() {
 
     rm -f ${UDHCPCONF}
 
-    if [ -n "$verbose" ]; then echo "Done."; fi
+    if [ "$verbose" -gt "0" ]; then echo "Done."; fi
 }
 
 
