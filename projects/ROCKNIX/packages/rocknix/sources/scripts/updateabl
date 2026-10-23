@@ -28,9 +28,13 @@ fi
 
 $SYSTEM_ROOT/usr/sbin/partprobe
 
-ABL_A="$($SYSTEM_ROOT/usr/sbin/blkid -t PARTLABEL=abl_a -o device)"
-ABL_B="$($SYSTEM_ROOT/usr/sbin/blkid -t PARTLABEL=abl_b -o device)"
-if [ ! -b "${ABL_A}" ] || [ ! -b "${ABL_B}" ]; then
+# The slots, found by their labels. UPDATEABL_ABL_A and UPDATEABL_ABL_B name
+# them instead, for a test against two loop files, and a path given that way
+# may be a regular file (#703).
+ABL_A="${UPDATEABL_ABL_A:-$($SYSTEM_ROOT/usr/sbin/blkid -t PARTLABEL=abl_a -o device)}"
+ABL_B="${UPDATEABL_ABL_B:-$($SYSTEM_ROOT/usr/sbin/blkid -t PARTLABEL=abl_b -o device)}"
+slot_ok() { [ -b "${1}" ] || { [ -n "${2}" ] && [ -f "${1}" ]; }; }
+if ! slot_ok "${ABL_A}" "${UPDATEABL_ABL_A}" || ! slot_ok "${ABL_B}" "${UPDATEABL_ABL_B}"; then
   echo "Error: ABL partitions not found"
   exit 1
 fi
@@ -69,8 +73,25 @@ fi
 echo "Checksums differ — flashing ABL partitions..."
 
 # ---- Flash ----
-dd if="${ELF}" of="${ABL_A}" bs="${SS}" conv=fsync,notrunc status=none
-dd if="${ELF}" of="${ABL_B}" bs="${SS}" conv=fsync,notrunc status=none
+# One slot at a time, each read back against the update before the next is
+# touched: a write that failed or landed short on abl_a was followed by the
+# same write to abl_b, so both slots could be bad under the success line
+# (#703). The read-back takes the ELF's own length, so it holds for an ELF
+# that is not a whole number of sectors; it reads through the page cache, so
+# it proves the write, not the flash.
+write_slot() {
+  dd if="${ELF}" of="${1}" bs="${SS}" conv=fsync,notrunc status=none || return 1
+  [ "$(dd if="${1}" bs="${SS}" count="${COUNT}" status=none | head -c "${ELF_SIZE}" | $SYSTEM_ROOT/usr/bin/sha256sum | awk '{print $1}')" = "${SUM_UPDATE}" ]
+}
+
+if ! write_slot "${ABL_A}"; then
+  echo "Error: abl_a did not take the update; abl_b was not touched"
+  exit 1
+fi
+if ! write_slot "${ABL_B}"; then
+  echo "Error: abl_b did not take the update; abl_a holds it"
+  exit 1
+fi
 
 sync
 
