@@ -1,21 +1,21 @@
 # Reviews: the codebase renovation program (M6)
 
 The whole codebase, reviewed and brought up to date in slices, progressively,
-beside feature work (D-WORKFLOW-083, D-WORKFLOW-102, D-WORKFLOW-181). The
+beside feature work (D-WORKFLOW-083, D-WORKFLOW-102, D-WORKFLOW-181), and it gates no release (D-WORKFLOW-187). The
 milestone is M6; the epic is #339; the plan for the plan is #346.
 
 | File | What it is | Written by |
 | --- | --- | --- |
 | `plan-for-the-plan.md` | how the program is planned: the survey, the slicing, the ordering lenses, the per-slice procedure, the brief an executor receives, the drift rules, the ledgers | P0 (#346) |
-| `order.md` | the slices in order, each with its lens, paths, line count, the release it gates, its depth and the evidence that closes it (#346's first criterion) | P1 |
+| `order.md` | the slices in order, each with its lens, paths, line count, any reading-order prerequisite (the renovation gates no release, D-WORKFLOW-187), its depth and the evidence that closes it (#346's first criterion) | P1 |
 | `inventory.json`, `inventory.md` | every path's root, provenance tier, language, lines, patches, last fork and upstream commits, reachability; the per-area totals | `tools/renovation-inventory` (P1), re-run at every slice close |
 | `assessment.md` | per area, the evidence for the six ordering lenses: security-token files, blindspot, friction, bug and open-issue mentions, churn since 2026-06-01, change since the merge base, callers, unreached and unshipped sizes | `tools/renovation-inventory --assess` (P1), from `inventory.json` and the tracker |
 | `cross-reference.md` | every area against every other: call edges, shared state, rule-to-area and patch-to-area edges | `tools/renovation-inventory --cross` (P1) |
-| `slices.json` | the order's hand-written input: each slice's number, area, kind, lens, selector, gate, depth, interacting subsystems and closing evidence; the security, state and launch-path globs the drift tool reads | P1, then the planner when the order changes |
+| `slices.json` | the order's hand-written input: each slice's number, area, kind, lens, selector, reading-order prerequisite (`read_before`), depth, interacting subsystems and closing evidence; the security, state and launch-path globs the drift tool reads | P1, then the planner when the order changes |
 | `areas.json` | the area map: every tracked path in exactly one area (the one hand-written input to the inventory) | P1, edited when an area is split or an epic filed |
 | `p1-tracking.md` | the survey's multi-pass tracking file: hashes, counts with their commands, each pass's evidence | P1 |
 | `status.md` | the `order:` row, then one row per slice: area, lines, depth, state, issue, reviewed-at, fixed-at, drift since | `tools/renovation-status --write docs/reviews/status.md` (P1), at every slice close |
-| `drift.md` | per closed slice, what changed under its paths since `fixed-at` | `tools/renovation-drift --write docs/reviews/drift.md`, at every slice close and before every release candidate |
+| `drift.md` | per closed slice, what changed under its paths since `fixed-at` | `tools/renovation-drift --write docs/reviews/drift.md`, at every slice close, the renovation's own cadence, not a release step (D-WORKFLOW-187) |
 | `briefs/<slice>.md` | the brief an executing session runs a slice from, ten sections, committed before dispatch | the planner |
 
 The audits themselves live under `docs/audits/<date>-epic-m6-<slice>/`, the

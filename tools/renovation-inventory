@@ -1219,6 +1219,9 @@ def load_slices(dist, path="docs/reviews/slices.json"):
         doc = json.load(f)
     out = []
     for sl in doc["slices"]:
+        if "gate" in sl:  # D-WORKFLOW-187: the renovation gates no release; a stale field is refused, not dropped
+            sys.exit("renovation-inventory: slice %s carries a release gate; D-WORKFLOW-187 retired them "
+                     "(a reading-order prerequisite is `read_before`)" % sl.get("id"))
         sels = sl.get("select", {})
         compiled = []
         for sel in (sels if isinstance(sels, list) else [sels]):  # a list is a union of selectors
@@ -1311,15 +1314,15 @@ def order(args):
              "holds (fork-written ones are read with their code, the rest by provenance), counted apart from *Read*." % (
                  inv["header"]["distribution"]["head"][:10], inv["header"]["es"]["head"][:10],
                  len(unassigned), len(ambiguous), fmt(len(rows))), "",
-             "| k | Slice | Area | Kind | Lens | Paths | Lines | Read (fork-own) | Patch and config lines | Gate | Depth |",
-             "| ---: | --- | --- | --- | --- | ---: | ---: | --- | ---: | --- | --- |"]
+             "| k | Slice | Area | Kind | Lens | Paths | Lines | Read (fork-own) | Patch and config lines | Depth |",
+             "| ---: | --- | --- | --- | --- | ---: | ---: | --- | ---: | --- |"]
     for sl, _ in slices:
         c, kind = size[sl["id"]], sl.get("kind", "read")
-        lines.append("| %d | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (
+        lines.append("| %d | %s | %s | %s | %s | %s | %s | %s | %s | %s |" % (
             sl["k"], sl["title"], sl["area"], kind, sl["lens"], fmt(c["paths"]), fmt(c["lines"]),
             "-- (%s rows)" % fmt(c["paths"]) if kind == "table" else "%s of prose" % fmt(c["lines"]) if kind == "prose"
             else "%s (%s)" % (fmt(c["read"]), fmt(c["read:fork-own"])),
-            fmt(c["vendor_lines"]), sl.get("gate") or "none", sl["depth"]))
+            fmt(c["vendor_lines"]), sl["depth"]))
     def describe(sl):
         sels = sl.get("select", {})
         parts = []
@@ -1341,7 +1344,7 @@ def order(args):
                       "--" if sl.get("kind") == "table" else fmt(c["read:fork-own"]), fmt(c["vendor_lines"]),
                       ", ".join("%s %d" % (x.split(":", 1)[1], n) for x, n in sorted(c.items()) if x.startswith("reach:")),
                       describe(sl)),
-                  "- **release gate**: %s" % (sl.get("gate") or "none"),
+                  "- **read before**: %s" % (sl.get("read_before") or "none"),
                   "- **depth**: %s -- %s" % (sl["depth"], sl["depth_reason"]),
                   "- **interacting subsystems** (read-only context): %s" % sl["interacting"],
                   "- **closing evidence**: %s" % sl["closing"]]
@@ -1374,7 +1377,7 @@ ISSUE_BODY = """Slice T{k} of the renovation order: `docs/reviews/order.md` § T
 - **Why here:** {why}
 - **Paths:** {desc}. {paths} paths, {lines} lines; {read} lines read, {fork} of them fork-own (inventory at `{head}`). The exact list is `tools/renovation-inventory --order`'s membership of `{id}`.
 - **Provenance tiers:** {tiers}
-- **Release gate:** {gate}
+- **Read before:** {read_before} (a reading order; the renovation gates no release, D-WORKFLOW-187)
 - **Review depth:** {depth} -- {reason}
 - **Interacting subsystems (read-only context):** {inter}
 
@@ -1447,7 +1450,7 @@ def slice_issues(args, out):
             desc=" **plus** ".join(desc), paths=fmt(c["paths"]), lines=fmt(c["lines"]), read=fmt(c["read"]),
             fork=fmt(c["fork"]), head=head,
             tiers=", ".join("%s %s" % (k.split(":", 1)[1], fmt(n)) for k, n in sorted(c.items()) if k.startswith("tier:")),
-            gate=sl.get("gate") or "none", depth=sl["depth"], reason=sl["depth_reason"], inter=sl["interacting"],
+            read_before=sl.get("read_before") or "none", depth=sl["depth"], reason=sl["depth_reason"], inter=sl["interacting"],
             vm=vm, opinion=opinion, order_row=args.order_row)
         with open(os.path.join(out, "T%d.title" % sl["k"]), "w") as f:
             f.write(title)
