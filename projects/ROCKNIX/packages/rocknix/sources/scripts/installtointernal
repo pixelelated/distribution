@@ -16,12 +16,13 @@ case "$HW_DEVICE" in
     ;;
 esac
 
-# Derive internal storage block device
-DEVICE=/dev/sda
+# Derive internal storage block device. INSTALLTOINTERNAL_DEVICE names
+# another, for a test against a loop device (#717).
+DEVICE=${INSTALLTOINTERNAL_DEVICE:-/dev/sda}
 
 if [[ "$HW_DEVICE" == "SM6115" ]]; then
   # SM6115 is eMMC - slightly different
-  DEVICE=/dev/mmcblk1
+  DEVICE=${INSTALLTOINTERNAL_DEVICE:-/dev/mmcblk1}
 fi
 
 # Directory vars
@@ -59,6 +60,19 @@ get_storage_size_kb() {
 
   echo "$total_kb"
 }
+
+# 0) Refuse a target that holds the running system. Booted from an earlier
+# internal install, /flash or /storage is a partition of ${DEVICE}, and the
+# deletions below would go on under the running system with their failures
+# discarded (#717).
+if ! HELD=$(awk -v d="${DEVICE}" '($2 == "/flash" || $2 == "/storage") && index($1, d) == 1 && substr($1, length(d) + 1) ~ /^p?[0-9]+$/ { print $1 " on " $2 }' "${PROC_MOUNTS:-/proc/mounts}"); then
+  echo "ERROR: Could not read the mount table, so nothing was changed."
+  exit 1
+fi
+if [[ -n "${HELD}" ]]; then
+  echo "ERROR: ${DEVICE} holds the running system (${HELD//$'\n'/, }), so nothing was changed. Start from the SD card to install to internal storage."
+  exit 1
+fi
 
 # 1) Find current Android userdata partition
 mapfile -t ud_line < <(parted -m -s "$DEVICE" unit B print | grep ':userdata:')
