@@ -173,3 +173,26 @@
 ## [Stage E] 17:04 — The stream briefs' commit does not carry the document; stopped before S1
 
 - The coordinator's dispatch named `docs/reviews/briefs/t1-streams.md` on `4cb05330c5`. Merged as `9634665a04` (no markers; the friction log, the work log and the index conflicted, and both sides were kept in time order). The commit carries only the work log and its index, and no ref holds the document: it is an untracked file in the coordinator's worktree, which was not read. Raised on #648 (issuecomment-6370350718). S1 starts when the document is committed and merged.
+
+## [Stage E, S1] 17:20 — Stream S1, the netplay host and the eval: PL-001 F-14 #702 (High), PL-007 F-15 #708
+
+- The coordinator's tip `5ac1b27eed` was merged as `0f68957266` (the friction log conflicted, both lines kept; no markers). `docs/reviews/briefs/t1-streams.md` (from `289a95eb05`) was read whole.
+- **One difference from the document, reported on #648:** it says a `#!/bin/sh` script is "proven under dash". The image has no dash: its `/bin/sh` is bash (stage A, on the guest; `$QA_SYSTEM_ROOT/usr/bin/dash` is absent). So S1's cases run under the image's own bash 5.3 (`$QA_SYSTEM_ROOT/usr/bin/bash`), and both scripts are `#!/bin/bash`.
+- **The test first:** `tools/last-good-scripts-test` sections **ai** (#702, with A-05) and **aj** (#708). They lift `set_netplay`, `add_setting`, `clear_setting` and `game_setting` from `setsettings.sh`, and the `EXTRAOPTS` splice from `runemu.sh`, then `eval` through a stub RetroArch that records its argv, under the image's bash.
+- **The failing run, on the unfixed tree** (`0f68957266`, 17:10:43-17:19:09, `QA_SYSTEM_ROOT=<M7 build root>/image/system tools/last-good-scripts-test`, rc 1): `8 CHECK(S) FAILED, 0 SKIPPED`, all eight in ai and aj, and every other section passed:
+  - the marker was created;
+  - the argv was cut to `[-L][/tmp/core.so][--connect][127.0.0.1]`;
+  - no refusal was logged;
+  - the host was written into the appendconfig;
+  - A-05's stray line ran;
+  - the client's port was written as `55435 = "55435"`;
+  - the TGB Dual options were cut to the four link keys.
+
+  The controls (an IPv4 host, an IPv6 host, the link key written once) passed.
+- **Sibling sites** (`03` § 3.6.5, section B):
+  - fixed here: `setsettings.sh:683`, `:688` -> `runemu.sh:355`, `:500`;
+  - `:787` (`--set-shader`): its `eval` half is closed by `runemu.sh`'s check, and the quoting of a space is S2's (the document gives S2 that line);
+  - `:1048-1087` and `:1123`: S2 (F-19); `runemu.sh:378` and `:385`: S3 (G-05); `rocknix-memory-manager:99` and `rocknix-config:39`: S7.
+- **Queued for the guest** (until `resource return`): (1) #702: `global.netplay.host='127.0.0.1;touch /tmp/t1-f14-marker;'`, a client launch through the tree's `runemu.sh` with the stub bound over `/usr/bin/retroarch` (`group1.sh`'s F-14 block), expecting no marker, the full argv and the refusal line in the log; the control `127.0.0.1`. (2) #708: a `tgbdual` client launch keeping a custom `TGB Dual.opt` line, with `netplay_ip_port` in `/tmp/.retroarch.cfg`.
+- **17:29: the first passing run found a fault in the test.** On the fixed tree (17:19:45-17:28:10, rc 1), all of ai and two of aj's three checks passed. The third failed with `the link key is not written exactly once`, which meant the TGB Dual block's `sed -i` deleted nothing before the `>>`. Read directly, the program (backslash-newline between its four commands) is accepted by the image's busybox `sed`, which deletes the keys, and refused by the host's GNU `sed` 4.9 (`unterminated address regex`). `np_run` was running the lifted functions on the host's PATH. So the failure was the test using host tools, against the briefs' rule, not the fix. `np_run` now puts the harness's busybox shims (`${TMP}/bbin`) first on PATH, and the section counts a SKIP when no image busybox is given.
+- A rerun from a copy of the harness in the scratchpad was a mistake (its root comes from its own path: `source checkout has no rclone recipe`). It was stopped by its task id, and nothing was left running. The pair of runs then started from the tree's harness: `BASE_REF=40a274d736 --old` (the unfixed scripts), then the tree.
