@@ -5,17 +5,27 @@
 
 # Minimal OS variable loading for performance
 . /etc/profile.d/001-functions
-. /etc/profile.d/099-freqfunctions
+# The arch's own frequency functions: the recipe installs 099-freqfunctions
+# everywhere but x86_64, and 100-amd64-freqfunctions there. Under sh, a . of
+# the missing one ended this fragment at this line on every x86_64 boot,
+# before the threads, the governor default and gpuperf (#723).
+for FREQFUNCTIONS in /etc/profile.d/099-freqfunctions /etc/profile.d/100-amd64-freqfunctions
+do
+  [ -f "${FREQFUNCTIONS}" ] && . "${FREQFUNCTIONS}"
+done
 
 tocon "Setting performance mode..."
 
 ### Enable the desired number of threads.
 tocon "Restoring cpu threads..."
-NUMTHREADS=$(get_setting "system.threads")
-if [ -n "${NUMTHREADS}" ]; then
-  onlinethreads ${NUMTHREADS} 0
-else
-  onlinethreads all 1
+# x86_64's functions have no onlinethreads: its cores are not taken offline.
+if command -v onlinethreads >/dev/null 2>&1; then
+  NUMTHREADS=$(get_setting "system.threads")
+  if [ -n "${NUMTHREADS}" ]; then
+    onlinethreads ${NUMTHREADS} 0
+  else
+    onlinethreads all 1
+  fi
 fi
 
 ### If we don't have a default governor set, set it
