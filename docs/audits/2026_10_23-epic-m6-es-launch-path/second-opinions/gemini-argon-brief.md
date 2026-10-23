@@ -4,12 +4,18 @@ You are the second reader of a code audit, and the reviewer from Google (Gemini 
 
 The scope is twenty C++ files of an EmulationStation fork, the front end of a handheld Linux distribution. The files cover the launch chain (`ViewController::launch` → `FileData::launchGame`, its gates, the command it builds and the return path), the systems table (`SystemData`), the save-state classes, the offline-achievements cards (`ProxyCards`) and `main.cpp`. They were read at one commit, the pin `16dbac5211`, which every image carries. The binary is built with `-DROCKNIX=1`, and the shipped launch template is `/usr/bin/runemu.sh %ROM% -P%SYSTEM% --core=%CORE% --emulator=%EMULATOR% --controllers="%CONTROLLERSCONFIG%"`. Commands run through `system()` (`/bin/sh`). Most of the three large files is the fork's upstream (batocera) code, byte for byte; the fork's lines are named in the packet.
 
-The first reader is Claude Opus 5.5 (Anthropic). The audit is a renovation: besides defects, its findings answer seven questions (Q1 modernize, Q2 standards, Q3 bugs, Q4 package currency, Q5 efficiency, Q6 dead ends, Q7 clarity). No runtime proof has run yet (the test host was held for another lane); every behaviour claim is a reading.
+The first reader is Claude Opus 5.5 (Anthropic). The audit is a renovation: besides defects, its findings answer seven questions (Q1 modernize, Q2 standards, Q3 bugs, Q4 package currency, Q5 efficiency, Q6 dead ends, Q7 clarity).
+
+Ten proofs ran on a QEMU guest of the image (§ Guest proofs in 02). Two findings first graded Medium from reading alone were corrected by them:
+- FD-14: the delete never reads its playlist, so no file outside the folder went.
+- VC-1: the transition is `instant` by default.
+
+Two Mediums were reproduced: SS-1 and SD-2. Judge the corrections as hard as the findings.
 
 Answer in three parts, in this order:
 
 1. **Your own findings first.** List every defect, gap or unsafe seam in the excerpts that is not already one of the first reader's findings. One line each: an id (G-01, G-02, ...), a severity (Critical / High / Medium / Low), the packet's `file:line`, and what fails and when.
-2. **Refute the first reader.** For every finding at Medium (FD-14, SS-1, SD-2, VC-1), and for any Low you think mis-graded (FD-8, SD-3, SD-4/FD-15, MN-3, SB-2 and FD-18 especially), say one of: agree, disagree, re-grade, or narrow. In each case say what would make the finding false and whether the packet shows it. Say also whether anything graded Medium should be High (the first reader graded nothing above Medium).
+2. **Refute the first reader.** For the two Mediums (SS-1, SD-2), for the two corrected findings (FD-14, VC-1), and for any Low you think mis-graded (FD-8, SD-3, SD-4/FD-15, MN-3, SB-2 and FD-18 especially), say one of: agree, disagree, re-grade, or narrow. In each case say what would make the finding false and whether the packet shows it. Say also whether anything should be High (the first reader graded nothing above Medium).
 3. **What you could not judge.** The claims the packet does not let you verify, so the orchestrator knows where its evidence was thin.
 
 Everyday words, no hedging: a finding either survives your reading or it does not, and you say which.
@@ -36,12 +42,12 @@ Findings are written as each unit is read (`READ → WRITE → REPEAT`). Line nu
 | menu map (`menumap`) | `tools/es-menu-map-check --es-src $W --ref $PIN` | 0 | `55 screen(s) at 16dbac521, 31 in the map, 24 declared unmapped, 0 missing` | 17:26, at the pin |
 | French (`french`) | `tools/es-untranslated --es-src $W` | 0 | `703 fork string(s) in the source, 703 with French, 0 without` | 17:26, at the pin |
 | vocabulary | `tools/vocabulary-check --es $W` | 0 | `163 string(s) with back up / backup, save state or Wi-Fi judged, 0 wrong` | 17:26, at the pin |
-| unit tests `es-unit-tests` | brief § 5 recipe | — | queued (host held for M7) | — |
-| `tests/app-unit`: `proxycards-tests`, `bookkeeper-tests`, `jobs-tests` | brief § 5 | — | queued | — |
-| `tests/launch-capture-gate.py`, `tests/launch-deferred-state.py`, `tests/hasher-offline-index.py` | brief § 5 | — | queued (they compile) | — |
-| syntax-only compile per edited `.cpp` | #699 recipe or the fixed tool | — | no `.cpp` edited yet | — |
-| `tools/time-to-play --vm --only launch,exit,g2g` | brief § 5 | — | queued (guest) | — |
-| `tools/es-launch-memory` | brief § 5 | — | queued (guest) | — |
+| unit tests `es-unit-tests` | brief § 5 recipe (`build-tests`, toolchain cmake, host g++) | 0 | `185 passed \| 0 failed`, `4795 assertions` | 18:37, at the pin |
+| `tests/app-unit` (ASan+UBSan; built out of tree, the scratchpad) | `cmake -S tests/app-unit -B <scratch>/build-app-unit`, build, run each | 0 each | `proxycards-tests` 11/11 (67 assertions); `bookkeeper-tests` 5/5 (20); `jobs-tests` 6/6 (28); `app-unit-tests` 18/18 (119) | 18:37-18:40, at the pin |
+| `tests/launch-capture-gate.py`, `tests/launch-deferred-state.py`, `tests/hasher-offline-index.py` | `TMPDIR=<scratch> python3 -I tests/<name>.py` (no `--help`: the first argument is the source path) | 0 each | `launch-capture-gate: PASS`, `launch-deferred-state: PASS`, `hasher-offline-index: PASS` | 18:40, at the pin |
+| syntax-only compile per edited `.cpp` | the fixed `tools/es-syntax-check --root <root>` (#699) | 0 | `FileData.cpp` and `ViewController.cpp` OK at the pin, compiler `x86_64-rocknix-linux-gnu-g++-15.2.0`; no `.cpp` edited yet | 18:36 |
+| `tools/time-to-play --vm --only launch,exit,g2g` | `--port 10033 --identity $R/key --monitor $R/monitor.sock --out $R/ttp-q5 --no-configure-remote --vm --only launch,exit,g2g --repeat 3` | 1 (by design) | first frame **0.65 s** median, next game **1.01 s** median (n=3 each); `Not a pass: the exit sync had no cloud to reach` | 18:43-18:47 |
+| `tools/es-launch-memory` | `--port 10033 --identity $R/key --cycles 5 --rom /storage/roms/gb/TTProbe.gb --output $R/launch-memory-1` | 0 | one ES pid (1567) across 5 cycles; VmSize growth −4,992 KiB, RSS growth −26,300 KiB | 18:48-18:49 |
 
 ## Findings, written as each unit is read
 
@@ -94,7 +100,7 @@ The shipped template (the distribution's `distributions/ROCKNIX/config/functions
 
 **Provenance inside the file:** `git diff -U0 1750dded8 $PIN -- es-app/src/FileData.cpp` has hunks only at 2, 36-48, 52, 85-126, 677-683, 690-696, 716-721, 763-927, 932-1058, 1076-1081, 1090, 1095, 1123-1170 and 1213-1318 (526 lines added, 1 removed). **Lines 1331-2680 and the property, path and art code before 523 are byte-identical to batocera's.** So this fork-own path is about a fifth fork code by line, and the rest is upstream code the fork carries. That calls for Q6 and Q4 first on those lines (brief § 4's lens by provenance), plus Q3 where a defect reaches the image. The inventory's tier is per file, so this is recorded for Q7: nothing in the file says which part is whose.
 
-- **FD-14 (Q3, Medium, upstream-carried code; lead → bug candidate): DELETE GAME removes every absolute path an `.m3u` lists, and any `..` path a `.cue` names.** `getContentFiles` (`:1386-1476`) inserts an `.m3u` line that `isAbsolute` as is (`:1446-1447`). `.cue` `FILE` tokens go in as `path + "/" + token` with no containment (`:1416-1418`), and so do `.gdi` tracks (`:1465-1467`). `deleteGameFiles` (`:1478-1507`) then `removeFile`s each one (`:1505-1506`). It is reached from GAME OPTIONS > DELETE (`GuiGameOptions.cpp:533`) and the game-list options' delete (`GuiGamelistOptions.cpp:485`), each behind a confirmation that names the game, not the files. A playlist that names `/storage/.config/system.cfg`, or a cue with `FILE "../../bios/scph1001.bin"`, takes those files with it. The `else if (trim[0] == '/') continue;` at `:1448` reads as a guard against exactly this, and it is unreachable, because `isAbsolute` is true for every `/` path on Linux. The other consumers read the list for hashing and scraping (`SystemData.cpp:243`, `ScreenScraper.cpp:297`), which is harmless. The fix keeps `getContentFiles` and makes `deleteGameFiles` refuse any file not under the game's own directory. `Already written:` nothing; the defect is in a delete. Guest proof (queued): a fixture `.m3u` naming a sentinel file under `/storage/` outside `roms/`, DELETE through the API or a walk, and the sentinel's presence checked.
+- **FD-14 (Q3, Low; corrected by the guest, G-7, 18:5x): DELETE GAME never removes the files a playlist or a cue sheet lists, because it deletes the list first and reads it second; and the containment the reading flagged becomes live the moment that order is fixed.** `deleteGameFiles` (`:1478-1507`) removes the game's file (`:1503`) and only then calls `getContentFiles()` (`:1505`), which opens the `.m3u`/`.cue`/`.gdi` it has just deleted (`:1407`, `:1434`, `:1459`) and returns an empty set. So the disc files are left behind. `T2Del (Disc 1).bin` survived, and a `.bin` is a psx game on its own, so the deleted game comes back as its disc at the next scan. My first reading graded this Medium as a delete of files outside the folder. **That is refuted on the guest**: both out-of-folder sentinels survived. The containment gap is still real in the code and only latent: `getContentFiles` admits an absolute `.m3u` line as is (`:1446-1447`; the `trim[0] == '/'` arm at `:1448` is unreachable) and a `..` path from a `.cue`/`.gdi` (`:1416-1418`, `:1465-1467`). So a fix that reads the list before the delete must also refuse anything outside the game's directory, or it turns this Low into the Medium I first wrote. `Already written:` on a device, every DELETE GAME of a multi-file game so far left its discs (and its `.bin`s now listed as games); nothing outside the folder was removed (the coordinator's question on #649). The fix does not clean up what earlier deletes left, which is the player's to see as games again. Reached from `GuiGameOptions.cpp:533` and `GuiGamelistOptions.cpp:485`. The other consumers (`SystemData.cpp:243`, `ScreenScraper.cpp:297`) read the list for hashing and scraping, harmlessly.
 - **FD-15 (Q3, Low, upstream-carried): the sort id's bound is off by one.** `:1658-1662`: `if (currentSortId > getSortTypes().size()) currentSortId = 0;`, then `.at(currentSortId)`. An id equal to the size passes the check and throws `std::out_of_range`, which ends the interface. The id comes from `setSortId` (`SystemData.cpp:1937`, group 2 reads its bound) and from a system's stored sort (`es_settings.cfg`). Reachable only with a stored id equal to the count. `CollectionSystemManager.cpp:540` uses `.at()` on a set value too. To be confirmed at `setSortId`.
 - **FD-16 (Q6/Q7, Low, upstream-carried):**
   - `getThumbnailPath` (`:276-279`) and `getImagePath`/`getVideoPath` test `getType() == FOLDER` inside a branch that requires `getType() == GAME`, so the folder arm never runs.
@@ -121,7 +127,7 @@ The shipped template (the distribution's `distributions/ROCKNIX/config/functions
 
 **Provenance inside the file:** against `1750dded8` the fork's hunks are 2, 20, 39-44 (`configurationReplaced`), 72-79 (the `saveState` guard), 1059-1118 (`dropGameListView`/`remakeGameListView`, #246) and 1468-1496 (`forgetScreenshots`, the #300 note). That is 89 lines added and 0 removed; the rest is batocera's.
 
-- **VC-1 (Q5/Q2, Medium, lead; least surprise): a launch the gates will refuse plays the whole launch transition and the game's splash first, then asks.** `launch` (`:533-671`) runs `checkLaunchOptions`, locks input, puts up the game's splash (`:586-587`) and starts the transition: `fast slide` 750 ms by default (`auto` → `fast slide`, `:596-597`), `slide` 1500, `fade` 800, `fast fade` 400. **Only at the animation's end** does `doLaunchGame` (`:476-488`) call `FileData::launchGame`, whose first act is the four gates (FD-8). A launch held by the capture, a sync, a transfer, the send or the top-up therefore shows the zoom into the game and its splash, then the question. The return animation then plays (`:626`, `:647`, 600 to 800 ms) under the box, with input locked until it ends. A STOP IT AND PLAY goes through `launchNow` → `ViewController::launch` again (FileData `:792`), so the full transition plays a second time. `time-to-play.md` (nothing on the launch path unless it must) and `least-surprise.md` (no screen implies what is not happening) are the rules. The question is asked after the screen has said the game is starting. The fix is to ask the gates' question before the transition, from `checkLaunchOptions`' position. Proof on the guest (queued): a frame series of a launch over a running transfer or a fixture sync, and the time from the press to the question.
+- **VC-1 (Q2, Low; corrected by the guest, G-8): a launch the gates will refuse asks its question over the launch's black handover screen, not over the list it came from.** `launch` (`:533-671`) locks input, sets the splash unless `HideWindow` (`:586-587`), and starts the transition. Only at its end does `doLaunchGame` (`:476-488`) reach `FileData::launchGame`, whose gates ask (FD-8's context). My reading took the transition as `fast slide`, 750 ms (`:596-597`), plus a splash. **That is wrong on the image**: `GameTransitionStyle` defaults to `instant` (`es-core/src/Settings.cpp:250`, the 10 ms arm at `:652-669`), and `HideWindow` is true on ROCKNIX (`:372-376`), so no splash is drawn. On the guest the question appears 0.11 to 0.24 s after `POST /launch`, over black (G-8). What remains is least-surprise (`least-surprise.md`): the screen has left the list before the question is asked. A player who chose a non-instant `GameTransitionStyle` pays the full transition (up to 1.5 s for `slide`) before, and the return animation after. A STOP IT AND PLAY goes through `ViewController::launch` again (FileData `:792`). This is my own repeat of blindspot 35 (a remedy built on a claim about a default nobody read), caught by the guest before the punch list. Recorded in the retro.
 - **VC-2 (Q5, Low, lead): every launch asks `ApiSystem::getIpAddress()` (`:571`)** to decide whether netplay is possible, and compares the result with the literal `"NOT CONNECTED"`. Its cost on the image is T21's to read (`ApiSystem.cpp`). It sits on the press-to-frame path even when netplay is off: the `||` checks `global.netplay` first, so with netplay off it short-circuits. **Correction while writing:** the call is skipped when `global.netplay` is off. It is a Q5 row only for a player with netplay on.
 - **VC-3 (Q7, Low, upstream-carried):** `PowerSaverMode() == "instant"` is tested twice (`:593-594`, `:599-600`). The fade, slide and instant arms repeat the same end-callback body three times (`:615-629`, `:635-650`, `:654-669`).
 - **VC-4 (fork hunk, read, correct):** `saveState` skips its write after `configurationReplaced()` (a factory reset or a settings restore), so a stale `Settings` map is not written back with `LastSystem` (`:72-79`; #308 F-ES-10). It writes `es_settings.cfg`, key `LastSystem` (`:92-93`), only when `StartupSystem` is `lastsystem`. `dropGameListView` and `remakeGameListView` (`:1059-1117`) are es-code-traps § A rescan that deletes FileData drops the view first, implemented: the cursor's path is read while the file is alive, and the view is dropped before the delete. Their callers are read in group 2.
@@ -136,7 +142,7 @@ The shipped template (the distribution's `distributions/ROCKNIX/config/functions
 - **SD-1 (fork code, read; correct by design): `rescanIfFolderChanged` (:378-512).** It runs only for game systems with **no gamelist** (`:382`, cached `exists`; the gamelist is written by ES itself, so the cache is right). It is one `stat` per system (`:385-387`). It is skipped while the hasher, the scraper or a game holds files, and leaves the time unrecorded so the next trigger retries (`:393-397`). It drops this system's view and its group's view before the delete (`:406-417`), merges a fresh tree so a kept file keeps its object (`:431-486`, `FolderMerge`), and drops collection entries before a vanished file is deleted (`dropCollectionEntries`, `:312-342`). The index is set aside while the fresh twins are deleted, so a twin's destructor does not take its kept file's count out (`:491-494`). Then the views are remade by path (`:506-511`). es-code-traps § A rescan that deletes FileData drops the view first is met. **Gap (FD-8):** pending launches hold a `FileData*` the merge's `vanished` can delete. No current trigger lands inside a wait; recorded at FD-8.
 - **SD-2 (Q3, Low, lead): `populateFolder`'s two path filters match a substring anywhere in the path, not the folder's name.** `fileInfo.path.rfind("ports") != npos` (`:627`) and `rfind("windows")` (`:631`) are upstream's. On the image, a sub-folder of **any** system whose path contains `ports` or `windows` is skipped: `/storage/roms/snes/Sports/`, `.../Supports/`, `.../Imports/`, `/storage/roms/psx/Windows 95 era/`. Its games never appear. The comment says "Skip ports folders", meaning the `ports` system. The fix compares the system name (`mMetadata.name == "ports"`), as `:619` and `:623` do. Guest proof (queued): a fixture `/storage/roms/gb/Sports/<rom>.gb`, UPDATE GAMELISTS, then the game list read through the API (`/systems/gb/games`).
 - **SD-3 (Q3, Low, upstream-carried; confirmed from the brief's lead): one unparseable `es_systems_*.cfg` overlay skips every later overlay.** `loadAdditionnalConfig` (`:1024-1095`) `return`s from the whole function on a parse failure (`:1039-1043`) or a missing `<systemList>` (`:1046-1050`). Every overlay later in the directory listing, and every overlay in the second root (`getEmulationStationPath()`), is then never read. The only report is an error log line. The player sees systems silently lose their per-emulator overrides. The distribution ships no overlay (`git ls-files | grep -E 'es_systems_[^/]*\.cfg$'` lists only a QA fixture), so this is reachable with a player's own or an add-on's overlay. The fix is `continue`. The function also re-runs, and re-reads every overlay, for each `loadSystem(name)` and `getKnownSystemNames()` call (`:1327`, `:1357`), which is Q5 at startup (`createGroupedSystems` calls `loadSystem` once per group, `:752`, and each re-parses `es_systems.cfg` from disk, `:1318`). Guest proof (queued): two overlays under `/storage/.config/emulationstation/`, the first malformed, the second changing a system's `<fullname>`, then the system list read through the API after a reload.
-- **SD-4 (Q3, Low; FD-15 confirmed): `setSortId` stores any value, and `mSortId` is read from `es_settings.cfg` unbounded (`:86`, `:1937-1941`).** `getChildrenListToDisplay` then checks `> size()` where it needs `>= size()` (FileData `:1659`). A stored `<system>.sort` equal to the number of sort types throws `std::out_of_range` from `.at()` when that system's list is shown. On an upgrade, a build with more sort types than the next one leaves such a value behind. Under `upgrade-and-install.md`, that is what is already written: settings carried from a different build.
+- **SD-4 (Q3, Low; FD-15 confirmed; reproduced on the guest, G-9, with the control at 27): `setSortId` stores any value, and `mSortId` is read from `es_settings.cfg` unbounded (`:86`, `:1937-1941`).** `getChildrenListToDisplay` then checks `> size()` where it needs `>= size()` (FileData `:1659`). A stored `<system>.sort` equal to the number of sort types throws `std::out_of_range` from `.at()` when that system's list is shown. On an upgrade, a build with more sort types than the next one leaves such a value behind. Under `upgrade-and-install.md`, that is what is already written: settings carried from a different build.
 - **SD-5 (Q3, Low, upstream-carried): data races on progress counters.** `loadConfig`'s `processedSystem` (`:1217`, `:1223-1227`, `:1250-1254`) and `ViewController::reloadAll`'s (VC-5) are plain `int`s incremented from `ThreadPool` workers and read by the splash. Only the splash's progress is affected.
 - **SD-6 (Q6/Q7, Low):** `getConfigPath` (`:1579-1594`) takes `es_systems_custom.cfg` as **the** configuration, a replacement, and `loadAdditionnalConfig` also merges every `es_systems_*.cfg`, the custom file included, so a custom configuration is merged onto itself. That is harmless, and a reader stumbles. The last fallback is `/etc/emulationstation/es_systems.cfg` ("Backward compatibility with Retropie"). On the image it is the link #613 is about, reached only when both user-path files are absent. The ES side is upstream's order; the link is the recipe's (T37). The commented-out symlink check (`:526-538`), the commented-out `loadFeatures()` (`:1285-1286`) and the old count code (`:1814-1820`) are dead text.
 - **SD-7 (fork code, read, correct):** `startIndexesAtStart` (`:1098-1135`) retries the cheevos-only index at most once in ten minutes, with function-local statics read and written only on the interface thread (its callers: `loadConfig`, `main`, the network watcher's post; to confirm in group 5). The `#300` note in `ViewController.cpp:1487-1495` and the single start in `loadConfig` (`:1303-1304`) agree.
@@ -156,7 +162,7 @@ The shipped path: `es_savestates.cfg` is linked into `/storage/.config/emulation
 ### Group 3. `es-app/src/SaveStateRepository.cpp` (342) and `.h` (53), fork-own (34 lines changed against `1750dded8`)
 
 - **SR-1 (Q6): `SaveStateRepository::renumberSlots` (`:251-277`, declared `.h:21`) has no caller.** `git grep -n renumberSlots $PIN -- es-app/src es-core/src` finds the definition and the declaration only. batocera's `SaveState.cpp` at `1750dded8` calls it (`git show 1750dded8:es-app/src/SaveState.cpp | grep -c renumberSlots` = 1). The fork removed the call under D-UI-069 (no renumbering after a session; `SaveState.cpp:192-198` says why). So it is a retired mechanism still carried, and the brief's Q6 candidate is confirmed. `Already written:` nothing. The function renames slot files when called, and it has not been called since D-UI-069, so no device holds anything it left that this code reads. A removal guards and stamps nothing. **What it exposed:** a call would rename every slot above a gap, which the save sync reads as a deletion plus a new file. That is exactly what D-UI-069 stopped. Removal or a comment naming D-UI-069 is the stream brief's to decide (merge cost against batocera, D-WORKFLOW-185's shape).
-- **SR-2 (Q5, Low, to measure): every game exit re-reads the system's whole save-state directory on the interface thread.** `FileData.cpp:1120` calls `refresh()` (`:62-129`): `clear()` deletes every state object, then one `getDirectoryFiles` per config directory, then per file a `std::regex_match` against the slot and the auto patterns, one or two `exists()` for its screenshot, and one `stat` for its time. This sits between the emulator's exit and the interface's next frame (time to play's second number). For a system with hundreds of states it is a measurable cost. The guest measurement (queued) is a fixture of N states under `/storage/roms/savestates/gb/`, with `time-to-play`'s exit cell at N = 0 and N = 500. It is on the RetroArch half of #336's line, so a Q5 finding confined here is `deferred:#336` unless the stream brief says otherwise.
+- **SR-2 (Q5; withdrawn at 500 states by G-10: no measurable exit cost): every game exit re-reads the system's whole save-state directory on the interface thread.** `FileData.cpp:1120` calls `refresh()` (`:62-129`): `clear()` deletes every state object, then one `getDirectoryFiles` per config directory, then per file a `std::regex_match` against the slot and the auto patterns, one or two `exists()` for its screenshot, and one `stat` for its time. This sits between the emulator's exit and the interface's next frame (time to play's second number). For a system with hundreds of states it is a measurable cost. The guest measurement (queued) is a fixture of N states under `/storage/roms/savestates/gb/`, with `time-to-play`'s exit cell at N = 0 and N = 500. It is on the RetroArch half of #336's line, so a Q5 finding confined here is `deferred:#336` unless the stream brief says otherwise.
 - **SR-3 (Q3, Low): the shared state objects are allocated once and never freed.** `_empty` (`:19`, static), `_autosave` and `_newGame` (`:280-294`, per repository; the destructor's `clear()` does not delete them, `:30-42`). There is one leak per system per process, a few bytes each, and nothing reads freed memory. This is a Q1/Q3 row. `isEnabled` (`:211-228`) is true only for the `retroarch` emulator name, which is the #336 line (§ Scope).
 - **Read, correct:** `onDisk`/`anyOnDisk` stat uncached (`exists(path, false)`, `:142-150`; fork #205). That is es-native-ui § Core patterns' rule for files another thread writes, and it is met. `getGameAutoSave` (`:301-342`) hands back a live repository object, which `rememberSaveState` records by file before a gate can wait (FD-8's context).
 
@@ -246,9 +252,20 @@ Every path was read line by line at the pin. The cells name the findings above, 
 
 ## Guest proofs
 
-None has run yet: the host is handed to M7 until its `resource return` (brief § 5). Each proof below is queued, in `00-running-log.md`'s queue and in the finding it would prove. A proof's row gets its `proved:` cell (`pin-binary`, `fix-unit-test` or `fix-walk-pending-image`) when it runs, and none is counted before then.
+The guest is the lane's own: BUILD_ID `069fc2704421`, instance `/workspace/artifacts/m6-t2-20261023/` (`$R`), SSH 10033, VNC :20. Every proof ran on the pin's binary, so each row's proof class is `pin-binary` unless it says otherwise. Can this be done on the VM? **Yes** for each row below. **No** for a netplay join (FD-1, it needs a host), a real pad's name (FD-7) and a race (FD-18); those stay leads. The fixture scripts are kept in `$R` (`fixtures-cycle2.sh`, `ss1.sh`, `fd14/*.steps`, `vc1-sample.py` from the session scratchpad).
 
-Can this be done on the VM? **Yes** for every behaviour claim above about the binary: the image carries the pin. **No** for: a netplay join (FD-1, it needs a host), a real pad's name in the controllers blob (FD-7), and anything only a race shows (FD-18). Those stay leads.
+| Proof | Finding | What ran | What it showed | Proof class |
+| --- | --- | --- | --- | --- |
+| G-1 | Q5 | `tools/time-to-play ... --vm --only launch,exit,g2g --repeat 3` (18:43-18:47) | first frame 0.65/0.67/0.81 s, next game's first frame 1.01/1.01/1.01 s (median/mean/max). No cloud, so the exit sync does nothing | proved: pin-binary |
+| G-2 | Q5 | `tools/es-launch-memory --cycles 5` (18:48-18:49) | one ES pid; VmSize 1,557,112 → 1,552,120 KiB, RSS 157,308 → 131,008 KiB; no growth | proved: pin-binary |
+| G-3 | Q6 (FD-2, FD-3, FD-5) | `grep -o '%[A-Z_]*%' /usr/config/emulationstation/es_systems.cfg \| sort \| uniq -c` | 5 placeholders only; the unshipped ones and ` -system ` in 0 of 128 commands | proved: pin-binary |
+| G-4 | SD-2 | `gb/Sports/SportsProbe.gb` and control `gb/Puzzle/PuzzleProbe.gb`, reboot, `GET /systems/gb/games` | **reproduced**: Puzzle listed, Sports absent | proved: pin-binary |
+| G-5 | SD-3 | `es_systems_aa-broken.cfg` (unclosed) and `es_systems_zz-rename.cfg` (gb → `T2 OVERLAY GB`); `find` gives readdir order aa then zz; reboot | **reproduced**: `ERROR Could not parse es_systems_aa-broken.cfg file!` (`es_log.txt:1`), and `GET /systems/gb` still has `fullname "Game Boy"` | proved: pin-binary |
+| G-6 | SS-1 | ROM `Test $HOME.gb` with `Test $HOME.state.auto`, `gb.autosave 1`, reboot, `POST /launch` | **reproduced**: `exec.log:20` has `--state_file=/storage/roms/savestates/gb/Test /storage.state.auto`, so `$HOME` was expanded inside the double quotes and the launcher got a different file. The ROM argument was intact (`getEscapedPath`) | proved: pin-binary |
+| G-7 | FD-14 | `psx/T2Del.m3u` listing `T2Del (Disc 1).bin`, `/storage/t2-abs-sentinel.bin` and `../t2-rel-sentinel.bin`; GAME OPTIONS > DELETE GAME > YES, through the interface (frames `$R/fd14/`) | **refuted as stated, and a different defect found**: only `T2Del.m3u` went. Both sentinels **and the in-folder disc** remain. `deleteGameFiles` removes the playlist (`FileData.cpp:1503`) before it reads it (`:1505`, `getContentFiles` opens a deleted file), so no listed file is ever removed. See FD-14 (corrected) | proved: pin-binary |
+| G-8 | VC-1 | the synthetic `running` line `route=topup at=<now> index=1 total=3` (a **named substitute** for a running top-up, vm-first.md), `POST /launch`, frames at ~16 Hz (`$R/vc1b/`) | carousel at 0.00 and 0.11 s; the question at 0.24 s, **over a black handover screen**, the carousel gone. No 750 ms transition: `GameTransitionStyle` defaults to `instant` (`es-core/src/Settings.cpp:250`) and `HideWindow` to true on ROCKNIX (`:372-376`, so no splash). See VC-1 (corrected) | proved: pin-binary |
+| G-9 | SD-4 / FD-15 | interface stopped; `<int name="gb.sort" value="28" />` (28 = the number of sort types, `FileSorts.cpp:43-71`) and `StartupSystem gb` in `es_settings.cfg`; start; A on the gb system | **reproduced**: `terminate called after throwing an instance of 'std::exception'`, `essway.service: Main process exited, code=exited, status=134` (journal 15:03:21), pid 14539 → 14775 (restarted). **Control:** the same with 27, where the list opens and the pid holds. The first attempt tested nothing: `time-to-play` had removed `/storage/roms/gb` | proved: pin-binary |
+| G-10 | SR-2 | 500 `Bulk%03d.state1` beside the probe's states, reboot, `time-to-play ... --only launch,exit,g2g --repeat 3` (18:58-19:01) | **no measurable cost**: next game's first frame 1.01/1.01/1.02 s against 1.01/1.01/1.01 s without them; first frame 0.57 s. Inside the 61 ms frame resolution. SR-2 withdrawn as a Q5 item at this size | proved: pin-binary |
 
 ## Criterion entries: #649's checklist (= brief § 7), evaluated at the end of Phase 2 (17:47 UTC)
 
@@ -268,16 +285,16 @@ Can this be done on the VM? **Yes** for every behaviour claim above about the bi
 **Verdict:** PARTIAL ⚠. `reviewed-at` is recorded (`00-running-log.md` header: distribution `f4e0f0a196`, ES pin `16dbac5211`). It is written into #649's body at the hand-back.
 
 ### AC-06: § Scope records the pin, the two counting commands with output, both upstream refs with hashes and merge bases, the BUILD_ID, the M7 ES branches touching a slice file, and the #336 line
-**Verdict:** PARTIAL ⚠. Evidence: `01-research-notes.md` § Scope holds the pin, both counting commands with their output (20, 11,287, 17, 3; no delta), `rocknix/master` `f6c542872` (delta noted) with merge base `cada856d8`, `batocera/master` `b2ceb55a7` with merge base `1750dded8`, the branch scan (no `m7-*` branch touches the twenty), and the #336 line. **Gap:** the image's BUILD_ID is read from the guest, which is queued.
+**Verdict:** PASS ✓ (19:05, after the guest). Evidence: `01-research-notes.md` § Scope holds the pin, both counting commands with their output (20, 11,287, 17, 3; no delta), `rocknix/master` `f6c542872` (delta noted) with merge base `cada856d8`, `batocera/master` `b2ceb55a7` with merge base `1750dded8`, the branch scan (no `m7-*` branch touches the twenty), and the #336 line. The BUILD_ID `069fc270442134fe771258418adf4e666e0473fb` was read from the guest's `/etc/os-release` (§ The image).
 
 ### AC-07: a coverage table with exactly one row per path, `grep -c` printing 20, every Q1-Q7 cell answered or `n/a` with a reason
 **Verdict:** PASS ✓. Evidence: ``grep -c '^| `es-app/src/' 02-forward-audit.md`` prints 20 (run 17:46). Refutation: every cell was read for an empty or bare `n/a`, and none is bare; each `n/a` gives its reason (declarations, upstream-identical, a fork file with no upstream).
 
 ### AC-08: each named check recorded with command, exit status and summary line; a check that could not run recorded with its reason
-**Verdict:** PARTIAL ⚠. Four of fourteen ran (the table at the top). The unit tests, `tests/app-unit`'s three targets, the three python harnesses, `time-to-play` and `es-launch-memory` are recorded as queued for the host's return. No `.cpp` has been edited yet, so no syntax compile is owed yet.
+**Verdict:** PASS ✓ for every check that can run now (19:05): each has its command, exit status and summary line in the table at the top. The syntax-only compile is owed per edited `.cpp`, and none is edited yet (it is re-checked at stage E).
 
 ### AC-09: Q5 carries the two time-to-play numbers beside #336's baseline (1.05 s, 2.03 s), the guest's loglevel, and `es-launch-memory`'s per-cycle table
-**Verdict:** UNTESTABLE ?. These are guest measurements, queued.
+**Verdict:** PASS ✓. `04-analysis.md` § Q5: 0.65 s and 1.01 s beside 1.05 s and 2.03 s, `system.loglevel=verbose`, the six-row cycle table (G-1, G-2).
 
 ### AC-10: Q6 carries one reachability row per entry point and per `#if`/`#else`/`#elif` line, with the commands' counts and the final count; every unreached row carries `Already written:` and what it exposed
 **Verdict:** PASS ✓ for the table; it lands in `04-analysis.md` § Q6 in Phase 4. Evidence: `q6-reachability.py` → `q6-table.md`, 370 rows (295 + 13 + 62). The brief's commands' counts (154, 32, 60) are recorded beside it with the reasons they differ. Each of the five unreached rows carries `Already written:` and what it exposed (generator in `q6-table.md`). Refutation: each zero was checked by hand with `git grep -w` over `es-app/src es-core/src es-app/tests`; one zero (`recordCopy`) was wrong and corrected.
@@ -285,8 +302,8 @@ Can this be done on the VM? **Yes** for every behaviour claim above about the bi
 ### AC-11: Q4 records `rocknix/master`'s zero commits since `cada856d8` with its command, and lists every commit of `1750dded8..batocera/master` (7) with a disposition each
 **Verdict:** PASS ✓, carried into `04-analysis.md` § Q4. Evidence: `git rev-list --count cada856d8..rocknix/master -- <20>` = 0; seven commits, each with an `apply --check` result (`00-running-log.md` 17:43).
 
-### AC-12: every guest proof carries a `proved:` cell; their count equals the running log's guest proofs
-**Verdict:** UNTESTABLE ?. No guest proof has run; both counts are 0 now.
+### AC-12: every guest proof carries a proof-class cell; their count equals the running log's guest proofs
+**Verdict:** PASS ✓. `grep -c 'proved:' 02-forward-audit.md` = 10. The running log lists ten guest proofs (G-1 to G-10). Every one is `pin-binary`, because no fix exists yet.
 
 ### AC-13: syntax compile and unit-test lines precede every ES `.cpp` commit; the coordinator re-runs; French beside every new string; `es-menu-map-check` still `0 missing`
 **Verdict:** UNTESTABLE ?. There are no ES commits yet (stage E).
@@ -365,8 +382,8 @@ No orphaned file. Five unreached functions (Q6) are upstream API kept for the me
 | 7 host tools are not the device's | Not repeated: no device verdict was made from a host tool. `git apply --check` is a host operation on host data (Q4). |
 | 13 assumed done | Not repeated: no criterion was ticked from an artifact's existence. AC-07/10/11 cite commands. |
 | 30 a resumed session built on its own summary | Guarded: every finding cites `file:line` read this session. Phase 4.5 re-reads each. |
-| 35 a remedy built on an audit's claim about a default | Avoided: `CheckBiosesAtLaunch`'s default was read (`Settings.cpp:207`, false) before VC/308221458's Q5 claim was graded. |
-| 44 proven at a fixture's size | **Applies to SR-2**: the exit's state refresh must be measured at hundreds of states, not a handful. The queued proof says N = 500. |
+| 35 a remedy built on an audit's claim about a default | **Repeated by this audit, then caught by the guest.** `CheckBiosesAtLaunch`'s default was read (`Settings.cpp:207`, false), but VC-1 was first graded Medium on a 750 ms transition, without reading `GameTransitionStyle`'s default (`instant`, `Settings.cpp:250`) or `HideWindow`'s on ROCKNIX (true, `:372-376`). G-8 refuted the cost and the finding was regraded Low before the punch list. FD-14 has the same shape (a reading of *what the code would delete* that never read *when it reads the list*); G-7 corrected it. The lesson for the retro: a Medium graded from reading alone waits for its guest proof. |
+| 44 proven at a fixture's size | **Applied to SR-2**: measured at 500 states (G-10): no measurable exit cost. |
 | 46 a name read as a behaviour | **Found in the code**: FD-4 (`getlaunchCommand` persists `system.cfg`). Avoided in this audit: FD-1 was corrected by the caller search, not by the field's name. |
 | 49 an edit made blind to the compiler | No ES edit yet. #699's fix restores the tool that guards it (stage A). |
 | 51 a checklist built from open boxes | Applies at stage D: each punch item is written from the reading, not from a prior audit's box. |
@@ -485,14 +502,17 @@ Unit cases for `formatCommandLineArgument` and for `getContentFiles`/`deleteGame
 
 All twenty paths were read line by line: 11,287 lines, 17 fork-own and 3 upstream-carried. The fork's part of the three big files is the launch: about a fifth of `FileData.cpp`, 280 lines of `SystemData.cpp` and 498 of `main.cpp`. The rest is batocera's, byte for byte.
 
-Leads before the second opinion: no Critical and no High. **Four Medium:**
+After the guest (stage A trials and eight proofs, `02-forward-audit.md` § Guest proofs), there is no Critical and no High. **Two Medium, both reproduced on the pin's binary:**
 
-- **FD-14:** DELETE GAME removes every absolute path an `.m3u` lists and any `..` path a `.cue` or `.gdi` names, with no containment. It is upstream code on a fork-own path.
-- **SS-1:** the shipped save-state path double-quotes the state file into the command, so a ROM name with `$`, a backtick or `"` expands or breaks.
-- **SD-2:** a sub-folder of any system is skipped when its path contains `ports` or `windows` (`Sports/`, `Imports/`). Its games never show.
-- **VC-1:** a launch the gates will refuse plays the whole transition and the game's splash before it asks.
+- **SS-1:** the shipped save-state path double-quotes the state file into the command. A ROM named `Test $HOME.gb` launched from its auto save handed the launcher `--state_file=/storage/roms/savestates/gb/Test /storage.state.auto` (G-6).
+- **SD-2:** a sub-folder of any system is skipped when its path contains `ports` or `windows`. `gb/Sports/` was not listed and `gb/Puzzle/` was (G-4).
 
-The rest are Low and Renovation rows. Q4: `rocknix/master` has 0 commits on the twenty since `cada856d8`; batocera has seven, none merged yet, three applying cleanly. Q6: 370 entry points, five unreached functions (one fork-retired, `renumberSlots`) and the expected unshipped `#if` arms. Q5 and every guest proof are queued for the host's return. So is Phase 4.6: its `npm install` is a runtime under the hold.
+Two findings first graded Medium were **corrected by the guest**:
+
+- **FD-14:** DELETE GAME follows no path outside the folder. Instead it never deletes a playlist's discs at all, because it removes the list before reading it (G-7). The containment gap stays as a latent condition on its fix.
+- **VC-1:** the gated question appears 0.11 to 0.24 s after the press, over a black handover screen. The transition is `instant` by default and there is no splash on ROCKNIX (G-8).
+
+Both are now Low. The rest are Low and Renovation rows. Q4: `rocknix/master` has 0 commits on the twenty since `cada856d8`; batocera has seven, none merged yet, three applying cleanly. Q6: 370 entry points, five unreached functions (one fork-retired, `renumberSlots`) and the expected unshipped `#if` arms. Q5 is measured (0.65 s and 1.01 s, no growth in memory).
 
 ## Acceptance-criteria scorecard
 
@@ -503,13 +523,13 @@ The rest are Low and Renovation rows. Q4: `rocknix/master` has 0 commits on the 
 | AC-03 | UNTESTABLE | 4.6 waits for the host |
 | AC-04 | UNTESTABLE | stage F |
 | AC-05 | PARTIAL | `reviewed-at` recorded; the body is written at the hand-back |
-| AC-06 | PARTIAL | all but the BUILD_ID (guest) |
+| AC-06 | PASS | the BUILD_ID read from the guest (`069fc2704421...`) |
 | AC-07 | PASS | 20 rows |
-| AC-08 | PARTIAL | 4 of 14 checks ran; 10 queued (host) |
-| AC-09 | UNTESTABLE | guest |
+| AC-08 | PASS so far | every named check ran with its line; the syntax compile is owed per edited `.cpp` (none yet) |
+| AC-09 | PASS | the two numbers beside #336's baseline, the loglevel, the memory table |
 | AC-10 | PASS | 370 rows, below |
 | AC-11 | PASS | below |
-| AC-12 | UNTESTABLE | 0 guest proofs yet |
+| AC-12 | PASS | 10 guest proofs, 10 `proved:` cells |
 | AC-13 to AC-16 | UNTESTABLE | stages E to H |
 
 ## Code Quality Assessment
@@ -552,17 +572,17 @@ Unit cases for `formatCommandLineArgument` (FD-2) and `getContentFiles`/`deleteG
 
 | Risk | Likelihood | Impact | Finding |
 | --- | --- | --- | --- |
-| A player's files outside the game's folder deleted by DELETE GAME | low (needs such a playlist) | high (data loss) | FD-14 |
-| A state launch's command broken or expanded by a ROM name | low-medium (`$` in names) | medium (wrong file, or a command) | SS-1 |
-| Games in a folder named `...ports`/`...windows` invisible | medium (genre folders) | medium (games missing) | SD-2 |
-| A refused launch looks like a started one, then asks | high (every gated launch) | low (time, surprise) | VC-1 |
+| DELETE GAME leaves a multi-file game's discs, and they return as games (and, once the order is fixed, files outside the folder would go) | medium (every multi-disc delete) | low now; high if the order is fixed without containment | FD-14 (G-7) |
+| A state launch's command broken or expanded by a ROM name | low-medium (`$` in names) | medium (wrong file, or a command) | SS-1 (reproduced, G-6) |
+| Games in a folder named `...ports`/`...windows` invisible | medium (genre folders) | medium (games missing) | SD-2 (reproduced, G-4) |
+| A refused launch asks over the black handover screen | high (every gated launch) | low (surprise; 0.1-0.24 s) | VC-1 (G-8) |
 | A freed `FileData` used by a deferred launch | very low (API reload during a wait) | high (crash) | FD-8 |
-| A stored sort id crashes a list after a cross-build update | low | medium (crash on open) | SD-4 / FD-15 |
+| A stored sort id crashes a list after a cross-build update | low | medium (crash on open) | SD-4 / FD-15 (reproduced, G-9) |
 
 ## Coverage Boundary
 
 **Examined:** the twenty paths by reading, and the context reads named in `02-forward-audit.md` § Coverage Boundary.
-**Not exercised:** runtime (queued), compiled tests (queued), timing and memory (queued), thread interleavings (no sanitizer).
+**Exercised on the guest:** the ten proofs G-1 to G-10 (the pin's binary). **Compiled:** the unit tests, `tests/app-unit` under ASan/UBSan, the three harnesses. **Not exercised:** a netplay join, a real sync under a gate (a named substitute was used), thread interleavings (no ThreadSanitizer), a DELETE after the order is fixed.
 
 ## Finding Verification (Phase 4.5)
 
@@ -578,6 +598,9 @@ Each graded finding's primary lines were re-read at 17:5x from `git show $PIN:<p
 **Withdrawn or graded down while writing** (recorded where they changed):
 - **FD-1** Medium → Low and Q6: `netplayClientPassword` is never assigned.
 - **FD-8** Medium → Low and latent: the rescan's two posts cannot land in a wait.
+- **FD-14** Medium → Low (G-7): the delete never reads its list, so nothing outside the folder went; the discs stay instead.
+- **VC-1** Medium → Low (G-8): `instant` by default, no splash on ROCKNIX; the question appears in 0.11 to 0.24 s.
+- **SD-3** confirmed (G-5), **SS-1** confirmed (G-6) and **SD-2** confirmed (G-4) on the pin's binary.
 - **VC-2**: netplay off short-circuits the IP check.
 - **FD-18**'s HTTP-thread reader: none exists.
 
@@ -603,8 +626,9 @@ Each graded finding's primary lines were re-read at 17:5x from `git show $PIN:<p
 
 ### Q3 Bugs
 Defects, each a `bug` issue at stage D with its VM criterion:
-- **Medium:** FD-14, SS-1, SD-2.
-- **Low:** SD-3, SD-4/FD-15, FD-8 (latent), MN-2, MN-3, SB-2, FD-1 (spectator), FD-2/FD-3 (reachable under a custom template), FD-18.
+- **Medium:** SS-1 (reproduced, G-6), SD-2 (reproduced, G-4).
+- **Low, corrected by the guest:** FD-14 (G-7) and VC-1 (G-8), both from Medium.
+- **Low:** SD-3 (reproduced, G-5), SD-4/FD-15 (reproduced, G-9), FD-8 (latent), MN-2, MN-3, SB-2, FD-1 (spectator), FD-2/FD-3 (reachable under a custom template), FD-18.
 
 Seam leads posted for other slices: FD-7 (T36), FD-9/FD-19 (T33/T21), PC-1/SB-3 (T35/T16/T18), PC-2 (T21), the 7z hash quoting (`ApiSystem.cpp:1527`, `:1659`; T21), `GuiGamelistOptions.cpp:148` (FD-15's sibling), and `GuiMenu.cpp:11714-11738` (MN-5's sibling).
 
@@ -625,20 +649,39 @@ Seam leads posted for other slices: FD-7 (T36), FD-9/FD-19 (T33/T21), PC-1/SB-3 
 None is merged, none is not applicable, and six are to merge, one by hand. Upstream merges are the coordinator's to schedule (D-WORKFLOW-189). The three `ViewController` commits are best taken before VC-1's fix, so the fix is written once against the new `launch`. The inventory's `overlap` column is false for all twenty, measured against `rocknix/master` only, so these seven come from the log, as the brief says.
 
 ### Q5 Efficiency
-The measurements are **queued** until the host's `resource return` (brief § 5). No number is claimed here. What will be measured, against #336's baseline (a game's first frame 1.05 s from the press, the next game's 2.03 s from the exit), with the guest's `system.loglevel` recorded:
-- `tools/time-to-play --vm --no-configure-remote --only launch,exit,g2g --repeat 3`;
-- `tools/es-launch-memory --cycles 5`'s per-cycle table.
 
-Items to itemise:
-- **Press → command:** the transition, 750 ms by default (VC-1); `captureGate`'s ≤ 300 ms (`FileData.cpp:888`); `configureEmulators` (FD-6); `window->deinit` and `malloc_trim`; `fireEvent("game-start")`'s three directory scans.
-- **Exit → next frame:** `FileSystemCache::reset`; the state repository's `refresh` (SR-2, at N = 0 and N = 500 states); `recordAfterSession`; `fireEvent("game-end")`; `window->init`; `refreshCollectionSystems` and `saveToGamelistRecovery`.
-- **Startup:** the boot game, `serial_number_check`, `preload`, and `loadSystem(name)`'s re-parse per group (SD-3).
+Measured on the lane's guest: BUILD_ID `069fc270442134fe771258418adf4e666e0473fb`, 4 vCPUs, 8 GiB, GL through virgl (the headless default, `generic-x64-vm-testing.md` § The guests render in hardware), `video_driver = "gl"` as shipped, **`system.loglevel = verbose`** (the engineering image's `DEVELOPMENT_DEFAULTS`), and no cloud remote.
 
-Until then this subsection is the named absence of a measurement, which brief § 4 allows, and #649's AC-09 stays open.
+| Number | This slice's guest, at the pin (median / mean / max, n=3) | #336's baseline (VM) | T1's measurement on this image |
+| --- | --- | --- | --- |
+| interface → a game's first frame | **0.65 / 0.67 / 0.81 s** | 1.05 s | 0.64 s |
+| a game's exit → the next game's first frame | **1.01 / 1.01 / 1.01 s** | 2.03 s | 1.01 s |
+| (press → RetroArch existing) | 0.48 / 0.51 / 0.56 s | 0.58 s | — |
+| (press → RetroArch drawing, 200 CPU ticks) | 4.53 / 4.56 / 4.62 s | 4.58 s | — |
+
+The report ends `Not a pass: the exit sync had no cloud to reach`. The exit sync skips at once, so the second number is not like for like with a configured device (T1's caveat, and the brief's). The improvement against #336's baseline predates this slice: #336's numbers were taken before the M7 work this image carries. This slice has changed nothing yet.
+
+**`es-launch-memory`'s per-cycle table** (`$R/launch-memory-1/cycles.csv`; columns cycle, pid, epoch, VmSize KiB, VmRSS KiB, threads):
+
+| cycle | pid | VmSize KiB | VmRSS KiB | threads |
+| ---: | ---: | ---: | ---: | ---: |
+| 0 | 1567 | 1,557,112 | 157,308 | 13 |
+| 1 | 1567 | 1,552,088 | 129,156 | 14 |
+| 2 | 1567 | 1,552,128 | 130,836 | 14 |
+| 3 | 1567 | 1,552,128 | 130,980 | 14 |
+| 4 | 1567 | 1,552,132 | 130,640 | 14 |
+| 5 | 1567 | 1,552,120 | 131,008 | 14 |
+
+So a launch and an exit leave nothing behind in the process: VmSize stays flat to 44 KiB after the first exit's trim (`malloc_trim`, `FileData.cpp:1080`, `:1216`), and #310's 10 MiB per cycle does not recur. The first exit releases about 26 MiB RSS.
+
+**The gated launch (G-8):** the question shows 0.11 to 0.24 s after the press, with the default `instant` transition and no splash. A non-instant `GameTransitionStyle` adds its 0.4 to 1.5 s before the question and again in the return.
+
+**Items still to itemise:**
+- **Press → command:** `captureGate`'s ≤ 300 ms (`FileData.cpp:888`) is waited only when a capture is still recording. `configureEmulators` (FD-6), `window->deinit`, `malloc_trim` and `fireEvent("game-start")`'s three directory scans are inside the 0.48 s to RetroArch existing.
+- **Exit → next frame:** the state repository's `refresh` (SR-2) at 500 states costs nothing measurable (G-10: 1.01 s, as without). `recordAfterSession`, `fireEvent("game-end")`, `window->init`, `refreshCollectionSystems` and `saveToGamelistRecovery` are inside the 1.01 s.
+- **Startup:** the boot game, `serial_number_check`, `preload`, and `loadSystem(name)`'s re-parse per group (SD-3) are not timed here, because `startup` reboots and the brief's cells exclude it.
 
 ### Q6 Dead ends: one reachability row per entry point of the twenty files, and per preprocessor conditional
-
-(The 370-row reachability table is omitted from this packet; its summary is above and below.)
 
 **The commands and their counts** (at the pin):
 - brief § 4's header regex → **154** declarations;
@@ -1528,6 +1571,20 @@ None; the retro is at stage G.
 1505		for (auto contentFile : getContentFiles())
 1506			Utils::FileSystem::removeFile(contentFile);
 1507	}
+```
+
+### `es-app/src/FileData.cpp:1655-1663`
+
+```cpp
+1655			ret.push_back(*it);
+1656		}
+1657	
+1658		unsigned int currentSortId = sys->getSortId();
+1659		if (currentSortId > FileSorts::getSortTypes().size())
+1660			currentSortId = 0;
+1661	
+1662		const FileSorts::SortType& sort = FileSorts::getSortTypes().at(currentSortId);
+1663	
 ```
 
 ### `es-app/src/views/ViewController.cpp:476-671`
@@ -2485,4 +2542,27 @@ None; the retro is at stage G.
 111	            else
 112	                command += " " + data;
 113	        }
+```
+
+### `es-core/src/Settings.cpp:248-251`
+
+```cpp
+248	
+249		mStringMap["TransitionStyle"] = "auto";
+250		mStringMap["GameTransitionStyle"] = "instant";
+251	
+```
+
+### `es-core/src/Settings.cpp:368-376`
+
+```cpp
+368	// once the game has quit, and under sway the game's last frame stayed on
+369	// the panel with the interface alive beneath it -- a minute and more on the
+370	// 640x480 QA guest, the carousel back the moment HideWindow was true. Real
+371	// x86 handhelds take the same path (fork #239).
+372	#if defined(_WIN32) || ((defined(X86) || defined(X86_64)) && !ROCKNIX)
+373		mBoolMap["HideWindow"] = false;
+374	#else
+375		mBoolMap["HideWindow"] = true;
+376	#endif
 ```

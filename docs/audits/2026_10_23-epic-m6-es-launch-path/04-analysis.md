@@ -21,7 +21,7 @@ Two findings first graded Medium were **corrected by the guest**:
 - **FD-14:** DELETE GAME follows no path outside the folder. Instead it never deletes a playlist's discs at all, because it removes the list before reading it (G-7). The containment gap stays as a latent condition on its fix.
 - **VC-1:** the gated question appears 0.11 to 0.24 s after the press, over a black handover screen. The transition is `instant` by default and there is no splash on ROCKNIX (G-8).
 
-Both are now Low. The rest are Low and Renovation rows. Q4: `rocknix/master` has 0 commits on the twenty since `cada856d8`; batocera has seven, none merged yet, three applying cleanly. Q6: 370 entry points, five unreached functions (one fork-retired, `renumberSlots`) and the expected unshipped `#if` arms. Q5 and every guest proof are queued for the host's return. So is Phase 4.6: its `npm install` is a runtime under the hold.
+Both are now Low. The rest are Low and Renovation rows. Q4: `rocknix/master` has 0 commits on the twenty since `cada856d8`; batocera has seven, none merged yet, three applying cleanly. Q6: 370 entry points, five unreached functions (one fork-retired, `renumberSlots`) and the expected unshipped `#if` arms. Q5 is measured (0.65 s and 1.01 s, no growth in memory).
 
 ## Acceptance-criteria scorecard
 
@@ -32,13 +32,13 @@ Both are now Low. The rest are Low and Renovation rows. Q4: `rocknix/master` has
 | AC-03 | UNTESTABLE | 4.6 waits for the host |
 | AC-04 | UNTESTABLE | stage F |
 | AC-05 | PARTIAL | `reviewed-at` recorded; the body is written at the hand-back |
-| AC-06 | PARTIAL | all but the BUILD_ID (guest) |
+| AC-06 | PASS | the BUILD_ID read from the guest (`069fc2704421...`) |
 | AC-07 | PASS | 20 rows |
-| AC-08 | PARTIAL | 4 of 14 checks ran; 10 queued (host) |
-| AC-09 | UNTESTABLE | guest |
+| AC-08 | PASS so far | every named check ran with its line; the syntax compile is owed per edited `.cpp` (none yet) |
+| AC-09 | PASS | the two numbers beside #336's baseline, the loglevel, the memory table |
 | AC-10 | PASS | 370 rows, below |
 | AC-11 | PASS | below |
-| AC-12 | UNTESTABLE | 0 guest proofs yet |
+| AC-12 | PASS | 10 guest proofs, 10 `proved:` cells |
 | AC-13 to AC-16 | UNTESTABLE | stages E to H |
 
 ## Code Quality Assessment
@@ -86,12 +86,12 @@ Unit cases for `formatCommandLineArgument` (FD-2) and `getContentFiles`/`deleteG
 | Games in a folder named `...ports`/`...windows` invisible | medium (genre folders) | medium (games missing) | SD-2 (reproduced, G-4) |
 | A refused launch asks over the black handover screen | high (every gated launch) | low (surprise; 0.1-0.24 s) | VC-1 (G-8) |
 | A freed `FileData` used by a deferred launch | very low (API reload during a wait) | high (crash) | FD-8 |
-| A stored sort id crashes a list after a cross-build update | low | medium (crash on open) | SD-4 / FD-15 |
+| A stored sort id crashes a list after a cross-build update | low | medium (crash on open) | SD-4 / FD-15 (reproduced, G-9) |
 
 ## Coverage Boundary
 
 **Examined:** the twenty paths by reading, and the context reads named in `02-forward-audit.md` § Coverage Boundary.
-**Not exercised:** runtime (queued), compiled tests (queued), timing and memory (queued), thread interleavings (no sanitizer).
+**Exercised on the guest:** the ten proofs G-1 to G-10 (the pin's binary). **Compiled:** the unit tests, `tests/app-unit` under ASan/UBSan, the three harnesses. **Not exercised:** a netplay join, a real sync under a gate (a named substitute was used), thread interleavings (no ThreadSanitizer), a DELETE after the order is fixed.
 
 ## Finding Verification (Phase 4.5)
 
@@ -137,7 +137,7 @@ Each graded finding's primary lines were re-read at 17:5x from `git show $PIN:<p
 Defects, each a `bug` issue at stage D with its VM criterion:
 - **Medium:** SS-1 (reproduced, G-6), SD-2 (reproduced, G-4).
 - **Low, corrected by the guest:** FD-14 (G-7) and VC-1 (G-8), both from Medium.
-- **Low:** SD-3, SD-4/FD-15, FD-8 (latent), MN-2, MN-3, SB-2, FD-1 (spectator), FD-2/FD-3 (reachable under a custom template), FD-18.
+- **Low:** SD-3 (reproduced, G-5), SD-4/FD-15 (reproduced, G-9), FD-8 (latent), MN-2, MN-3, SB-2, FD-1 (spectator), FD-2/FD-3 (reachable under a custom template), FD-18.
 
 Seam leads posted for other slices: FD-7 (T36), FD-9/FD-19 (T33/T21), PC-1/SB-3 (T35/T16/T18), PC-2 (T21), the 7z hash quoting (`ApiSystem.cpp:1527`, `:1659`; T21), `GuiGamelistOptions.cpp:148` (FD-15's sibling), and `GuiMenu.cpp:11714-11738` (MN-5's sibling).
 
@@ -187,7 +187,7 @@ So a launch and an exit leave nothing behind in the process: VmSize stays flat t
 
 **Items still to itemise:**
 - **Press → command:** `captureGate`'s ≤ 300 ms (`FileData.cpp:888`) is waited only when a capture is still recording. `configureEmulators` (FD-6), `window->deinit`, `malloc_trim` and `fireEvent("game-start")`'s three directory scans are inside the 0.48 s to RetroArch existing.
-- **Exit → next frame:** the state repository's `refresh` (SR-2) is measured below at 500 states. `recordAfterSession`, `fireEvent("game-end")`, `window->init`, `refreshCollectionSystems` and `saveToGamelistRecovery` are inside the 1.01 s.
+- **Exit → next frame:** the state repository's `refresh` (SR-2) at 500 states costs nothing measurable (G-10: 1.01 s, as without). `recordAfterSession`, `fireEvent("game-end")`, `window->init`, `refreshCollectionSystems` and `saveToGamelistRecovery` are inside the 1.01 s.
 - **Startup:** the boot game, `serial_number_check`, `preload`, and `loadSystem(name)`'s re-parse per group (SD-3) are not timed here, because `startup` reboots and the brief's cells exclude it.
 
 ### Q6 Dead ends: one reachability row per entry point of the twenty files, and per preprocessor conditional

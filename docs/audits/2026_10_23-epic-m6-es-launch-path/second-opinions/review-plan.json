@@ -22,7 +22,7 @@
           "brief": "gpt-brief.md"
         }
       ],
-      "status": "pending: the host is handed to the M7 lane; npm install --prefix tools/council (a runtime) waits for the coordinator's relay of 'resource return' on #649 (brief sections 1 and 5)",
+      "status": "in flight: probe passed 2026-10-23 19:06 UTC (served openai/gpt-6-astra by OpenAI, provider_response); refutation pass started 19:07 UTC under tools/watch-build --record-only",
       "probes": [
         {
           "phase": "probe",
@@ -43,7 +43,7 @@
           "brief": "gemini-argon-brief.md: the same packet as gpt-brief.md with its own reviewer line, prepared independently (brief section 1: each reviewer's refutation pass alone, neither sees the other's output)"
         }
       ],
-      "status": "pending: as the gpt seat",
+      "status": "in flight: probe passed 2026-10-23 19:06 UTC (served google/gemini-4-argon by Google, provider_response); refutation pass started 19:07 UTC under tools/watch-build --record-only",
       "probes": [
         {
           "phase": "probe",

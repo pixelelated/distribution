@@ -45,8 +45,8 @@ No orphaned file. Five unreached functions (Q6) are upstream API kept for the me
 | 7 host tools are not the device's | Not repeated: no device verdict was made from a host tool. `git apply --check` is a host operation on host data (Q4). |
 | 13 assumed done | Not repeated: no criterion was ticked from an artifact's existence. AC-07/10/11 cite commands. |
 | 30 a resumed session built on its own summary | Guarded: every finding cites `file:line` read this session. Phase 4.5 re-reads each. |
-| 35 a remedy built on an audit's claim about a default | Avoided: `CheckBiosesAtLaunch`'s default was read (`Settings.cpp:207`, false) before VC/308221458's Q5 claim was graded. |
-| 44 proven at a fixture's size | **Applies to SR-2**: the exit's state refresh must be measured at hundreds of states, not a handful. The queued proof says N = 500. |
+| 35 a remedy built on an audit's claim about a default | **Repeated by this audit, then caught by the guest.** `CheckBiosesAtLaunch`'s default was read (`Settings.cpp:207`, false), but VC-1 was first graded Medium on a 750 ms transition, without reading `GameTransitionStyle`'s default (`instant`, `Settings.cpp:250`) or `HideWindow`'s on ROCKNIX (true, `:372-376`). G-8 refuted the cost and the finding was regraded Low before the punch list. FD-14 has the same shape (a reading of *what the code would delete* that never read *when it reads the list*); G-7 corrected it. The lesson for the retro: a Medium graded from reading alone waits for its guest proof. |
+| 44 proven at a fixture's size | **Applied to SR-2**: measured at 500 states (G-10): no measurable exit cost. |
 | 46 a name read as a behaviour | **Found in the code**: FD-4 (`getlaunchCommand` persists `system.cfg`). Avoided in this audit: FD-1 was corrected by the caller search, not by the field's name. |
 | 49 an edit made blind to the compiler | No ES edit yet. #699's fix restores the tool that guards it (stage A). |
 | 51 a checklist built from open boxes | Applies at stage D: each punch item is written from the reading, not from a prior audit's box. |
