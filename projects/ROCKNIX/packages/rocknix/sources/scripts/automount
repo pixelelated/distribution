@@ -11,6 +11,42 @@ MOUNT_GAMES=$(get_setting system.automount)
 GAMES_DEVICE=$(get_setting system.gamesdevice)
 MS_PATH="/storage/roms"
 
+# The journal is where these lines go. The shared log() also appends to
+# /var/log/messages, which is persistent (D-SYS-001) and never trimmed, and
+# this script was its only caller (F-24).
+function log() {
+  [ "${1}" = "${0}" ] && shift
+  logger -t automount "$*" 2>/dev/null
+}
+
+# What /storage/roms is now, for the line about a mount that failed: a failed
+# bind or overlay leaves it the folder on the card under /storage, the state
+# #83 and #84 were about.
+function roms_is() {
+  local src
+  src=$(awk -v m="${MS_PATH}" '$2 == m { s = $1 } END { print s }' /proc/mounts 2>/dev/null)
+  if [ -n "${src}" ]
+  then
+    echo "mounted from ${src}"
+  else
+    echo "not a mount (the folder on the card under /storage)"
+  fi
+}
+
+# A mount whose status is read: a failure is said, with what /storage/roms is,
+# where only the attempt's line was (#719).
+function checked_mount() {
+  local what="${1}" rc
+  shift
+  "$@"
+  rc=$?
+  if [ "${rc}" -ne 0 ]
+  then
+    log $0 "${what} failed (exit ${rc}); /storage/roms is $(roms_is)."
+  fi
+  return ${rc}
+}
+
 function unmount() {
   log $0 "Unmount ${1}."
   umount -f "${1}" 2>/dev/null ||:
@@ -54,7 +90,7 @@ function start_ms() {
      [ ! "${MS_ENABLED}" = 1 ]
   then
     log $0 "Executing bind mount of ${MOUNT_PATH} to ${MS_PATH}"
-    mount --bind ${MOUNT_PATH}/roms ${MS_PATH}
+    checked_mount "The bind mount of ${MOUNT_PATH}/roms on ${MS_PATH}" mount --bind ${MOUNT_PATH}/roms ${MS_PATH}
   else
     log $0 "Enabling merged storage of /storage/games-${LOWER} and /storage/games-${UPPER} to ${MS_PATH}."
 
@@ -65,7 +101,8 @@ function start_ms() {
         mkdir -p "${DIR}"
       fi
     done
-    mount overlay -t overlay -o lowerdir=/storage/games-${LOWER}/roms,upperdir=/storage/games-${UPPER}/roms,workdir=/storage/games-${UPPER}/.tmp/games-workdir ${MS_PATH}
+    checked_mount "The overlay of /storage/games-${LOWER} and /storage/games-${UPPER} on ${MS_PATH}" \
+      mount overlay -t overlay -o lowerdir=/storage/games-${LOWER}/roms,upperdir=/storage/games-${UPPER}/roms,workdir=/storage/games-${UPPER}/.tmp/games-workdir ${MS_PATH}
   fi
 }
 
@@ -164,14 +201,14 @@ function mount_games() {
         umount /var/media/* 2>/dev/null
 
         log $0 "Mounting ${1} on ${MOUNT_PATH}"
-        /usr/bin/busybox mount ${MOUNT_ARGS} ${1} ${MOUNT_PATH} >/dev/null 2>&1
+        checked_mount "Mounting ${1} on ${MOUNT_PATH}" /usr/bin/busybox mount ${MOUNT_ARGS} ${1} ${MOUNT_PATH} >/dev/null 2>&1
 
         log $0 "Checking filesystem ${1}."
         if ! touch "${MOUNT_PATH}/.tmp-rocknix"; then
           log $0 "Fixing filesystem ${1}."
           /usr/bin/busybox umount ${1} >/dev/null 2>&1
           /usr/sbin/fsck -Mly ${1} >/dev/null 2>&1
-          /usr/bin/busybox mount ${MOUNT_ARGS} ${1} ${MOUNT_PATH} >/dev/null 2>&1
+          checked_mount "Mounting ${1} on ${MOUNT_PATH} after fsck" /usr/bin/busybox mount ${MOUNT_ARGS} ${1} ${MOUNT_PATH} >/dev/null 2>&1
         else
           rm "${MOUNT_PATH}/.tmp-rocknix"
 	      fi
