@@ -162,13 +162,14 @@ then
   rsync -a --delete /usr/config/ppsspp/assets/* /storage/.config/ppsspp/assets/
 fi
 
-### Fix Japanese language bug
-if [ ! -e "/storage/.config/ppsspp/assets/NotoSansJP-Regular.ttf" ]
+### Fix Japanese language bug: into the assets folder by its path. A cd
+### that failed (no such folder) put the copy and the link in post-update's
+### own directory (#741).
+PPSSPP_ASSETS=/storage/.config/ppsspp/assets
+if [ -d "${PPSSPP_ASSETS}" ] && [ ! -e "${PPSSPP_ASSETS}/NotoSansJP-Regular.ttf" ]
 then
-  cd /storage/.config/ppsspp/assets
-  cp /usr/config/ppsspp/assets/NotoSansJP-Regular.ttf .
-  ln -s NotoSansJP-Regular.ttf Roboto-Condensed.ttf
-  cd -
+  cp /usr/config/ppsspp/assets/NotoSansJP-Regular.ttf "${PPSSPP_ASSETS}/"
+  ln -s NotoSansJP-Regular.ttf "${PPSSPP_ASSETS}/Roboto-Condensed.ttf"
 fi
 
 ### Add items below this line that are safe to remove after a period of time.
