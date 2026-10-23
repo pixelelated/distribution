@@ -217,3 +217,65 @@ Nothing on this list runs before the coordinator relays M7's `resource return` o
 - 20:27:37 `tests/credential-quoting.py` at the ES tip `3872afe5a`: `9 credential call site(s), 9 quoted, 0 bare`, rc 0.
 - The Phase 7 outcomes are in `05-punch-list.md`: PL-001, PL-007, PL-021 and PL-034 `Resolved` with their commits, and PL-031 `Deferred` to #678. `tools/lint-audit-artifacts --phase pre-issue --issue 790`: `PASS`.
 - **S1 ends at ES `3872afe5a`.**
+
+### [Stage E, S2] 20:30- — DELETE GAME and the save-state files
+
+- **PL-002, the test first.** The new `es-app/src/GameFiles.h` (pure: `normalise`, `isInside`, `cueLine`) and `es-app/tests/unit/GameFilesTests.cpp`, added to the unit tests' `CMakeLists.txt`.
+  - 20:31:01, the header holding the **pin's** behaviour (nothing contained, the cue line read as it is): `-tc='delete scope*'` gave `3 | 1 passed | 2 failed`, with 11 failed assertions (`:26-35` every outside path, `:41-44` the marked and indented cue lines).
+  - 20:31:30, fixed: `3 | 3 passed`.
+- **The call site.** In `FileData::deleteGameFiles`:
+  - The content list is read **before** the game's file is removed (G-7's defect).
+  - Each listed file and each metadata file is removed only when `GameFiles::isInside(<system folder>, <path>)`. Every other path is logged as `DELETE GAME: left ...`.
+  - The paths compared are folded by `getCanonicalPath` (lexical only, the function follows no links), and on Linux the parent's links are resolved with `realpath`, as is the folder's.
+  - `getContentFiles` reads cue lines through `GameFiles::cueLine`. `SystemData.cpp:243` shares that reader, so an indented or marked cue sheet's discs are also hidden from the list, consistently.
+- 20:31:55 `tools/es-syntax-check --root --tree`: **`PASS`** for `FileData.cpp` and `SystemData.cpp`. `es-unit-tests`: **`197 passed | 0 failed`, `4844 assertions`**. The ASCII-comment check on the three files is empty.
+- Walk W-4 is in `02-forward-audit.md` § Fix walks.
+- Reading cannot prove a link the player made inside the folder to a directory outside it. Such a link's target is treated as outside, so its files stay, which is the safe direction.
+- A lead for T36 (#683): `getCanonicalPath`'s fold keeps 32 component indexes in a fixed array (`FileSystemUtil.cpp:726`) and does not check the count.
+- ES `65a4a4f63` (PL-002) committed after the lines above.
+- **PL-016, the test first.** The new `es-app/src/SaveStateFiles.h` (`transfer` and `removeFiles`, which take the three file operations as parameters) and `es-app/tests/unit/SaveStateFilesTests.cpp`.
+  - The tests use operations faked in memory, a named substitute for the brief's temporary directory: `es-unit-tests` touches no files, and `Utils::FileSystem` would pull in Log and Settings. The guest walk gives the real read-only directory.
+  - 20:33:47, the header holding the **pin's** behaviour (the operations run and their results dropped): `-tc='save state files*'` gave `5 | 2 passed | 3 failed`, with 4 assertions failing (`:46`, `:47`, `:56`, `:74`: every case where an operation fails).
+  - 20:34:1x, fixed: `5 | 5 passed`. The whole suite: **`202 passed | 0 failed`, `4858 assertions`**.
+- **The call sites.** `SaveState::copyToSlot` returns the state file's own result, and logs a failed image. `SaveState::remove` now returns `bool` (`SaveState.h`); it has no caller, since deletions go through the bookkeeper.
+  - `GuiSaveState.cpp:516` already branches on `copyToSlot`, so a refused copy is no longer recorded, and the grid is no longer reloaded as if it had happened.
+  - The half where the manager tells the player the copy did not happen is in `GuiSaveState`, T31's file: a lead for #678.
+- 20:34:17 the syntax-only compile **caught a missing `Log.h`** in `SaveState.cpp` (`'LOG' was not declared`). `SaveStateRepository.cpp`, `GuiSaveState.cpp`, `GuiGameOptions.cpp` and `ISimpleGameListView.cpp` (the includers of the changed `SaveState.h`) were `OK`.
+- 20:34:28, with the include added: **`PASS es-app/src/SaveState.cpp`**. The ASCII-comment check on the three files is empty.
+- PL-016 committed as ES `f11e7528a`. Before the push, its `Already written:` line was amended to what the shipped `cloud_capture` adopt branch shows when read: a path that is not on disk as one of the game's states finishes `3 adopt-not-a-member` and records nothing. The first wording claimed the verify passes had settled it, which I had not read.
+- **PL-017.** `SaveState::onGameEnded` now restores the parked auto save and its image for slot −2 as well as numbered slots. Slot −1 parks nothing, and the slots in use are −2, −1 and 0 or more (`git grep 'slot == -'`). There is no pure seam, so its proof is walk W-6.
+  - 20:35:39 syntax-only compile **`PASS es-app/src/SaveState.cpp`**; `es-unit-tests` `202 passed`.
+  - Committed as ES `29de9d910`. Walks W-5 (PL-016) and W-6 (PL-017) are added to `02-forward-audit.md`.
+  - Before the push, its `Already written:` was corrected against `setupSaveState`'s parking (`SaveState.cpp`, the racommands block).
+    - An orphan `.bak` is replaced at the next fallback session's parking when an auto save exists.
+    - When none exists, it is renamed back into place at that session's end.
+    - The punch item's line ("left as it is") was wrong on the second point. This entry supersedes it.
+- **PL-012, the test first.** A new `tests/app-unit/BookkeeperTests.cpp` case: the lock path stays a link to itself, which `open()` refuses with ELOOP whoever asks, as in the existing case. The case waits up to 12 s for `completed()` to move, and makes the lock openable again before it ends.
+  - 20:37:24-20:37:48, the unfixed bookkeeper (built out of tree in the scratchpad): `6 | 5 passed | 1 failed`. `:190` failed (`ended`) and `:192` failed (`isPending` still true after 12 s).
+  - The fix:
+    - `lockUnopenable()` tells a lock file that exists but cannot be opened apart from a held lock.
+    - `transferGone` gives up after `SAVE_STATE_LOCK_OPEN_TRIES` (10) consecutive such polls, at 0.5 s each.
+    - `TransferLock::take` returns `Taken`, `Held` or `Unopenable`, and `runDelete` bounds `Unopenable` the same way.
+    - In each case the deletion is not made, with a `LogWarning`, and the job finishes.
+    - The destructor clears `gHoldsTransferLock` after `close`.
+    - The existing case, where the lock is restored after 1.5 s inside the bound, still waits and then deletes.
+  - 20:38:23-20:38:37, fixed: `6 | 6 passed`, 25 assertions.
+- 20:38:3x syntax-only compile **`PASS es-app/src/SaveStateBookkeeper.cpp`**. The ASCII-comment check is empty.
+- ES `2e6fe8bf1` (PL-012) committed after the lines above.
+- **PL-023.** `SaveStateConfigFile::getSaveStateConfigs` is now keyed by `saveStateCacheKey`: the system's name, its default emulator and core, and each emulator with its cores.
+  - `_cache` and `_default` have locks of their own. The file's `mLock` cannot serve: `Instance()` takes it, and the cache is filled through `Instance()`, so reusing it would deadlock. The item's "the file's existing mutex" is superseded by that reading.
+  - The other option, clearing the cache from `ViewController::reloadAllGames`, was not taken: `ViewController` is not in S2's files, and the key needs no caller.
+  - The file was identical to both upstreams (`git diff --quiet rocknix/master` and `batocera/master` both 0), and this diverges it, as the commit says; the line on #585 is posted at S2's end.
+  - There is no pure seam, so its proof is walk W-7 (`fix-walk-pending-image`).
+  - 20:39:38 syntax-only compile **`PASS es-app/src/SaveStateConfigFile.cpp`**. The ASCII-comment check is empty.
+  - Committed as ES `4d8a695b5`.
+- **PL-027.** The row is in `04-analysis.md` § Q6 (brief rule 3).
+  - `renumberSlots` is kept unchanged. Both upstreams still call it, at `SaveState.cpp:210` and `GuiSaveState.cpp:236`.
+  - The line is on #585, with S1's and S2's six upstream candidates. Each was checked present at `batocera/master` b2ceb55a7 by `git show`/`git grep`.
+  - #790's PL-027 checkbox was ticked and then **unticked within the minute**. Its acceptance asks for a comment citing D-UI-069 beside the function, which the brief's "the row only" rules out. The question goes to the coordinator on #649.
+- **PL-035, the `SaveState.cpp` half.** `setupSaveState`'s incremental and fixed-slot arms were the same text, and are now one arm (ES `f2758b145`).
+  - 20:40:32 syntax-only compile `PASS`; `es-unit-tests` `202 passed`.
+  - The `ViewController` half and the `ProxyCards` comments remain, so PL-035 stays Open.
+- #778's two criteria are ticked, with the evidence comment on it.
+- The Phase 7 outcomes are in `05-punch-list.md` and in #790's lines. `tools/lint-audit-artifacts --phase pre-issue --issue 790`: `PASS`. `box-check --issue 790`: 0 fail.
+- **S2 ends at ES `f2758b145`.**

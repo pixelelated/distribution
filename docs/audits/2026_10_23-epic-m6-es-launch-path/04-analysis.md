@@ -200,6 +200,11 @@ So a launch and an exit leave nothing behind in the process: VmSize stays flat t
 A regex misses multi-line, inline and indented forms, so the list was rebuilt by `q6-reachability.py` (this folder; `python3 -I q6-reachability.py $W $PIN`) to **295** declarations, **13** static functions and **62** conditionals: **370 rows**, read by eye against the headers. The hand corrections: `recordCopy`, whose call spans two lines and is reached (`GuiSaveState.cpp:524`), and the 19 static data lines, which are not entry points.
 
 **Unreached:** five functions, each confirmed with `git grep -n -w <name> $PIN -- es-app/src es-core/src es-app/tests`: `renumberSlots` (SR-1, fork-retired by D-UI-069), `isVirtualFolderDisplayEnabled`, `hasGamelist`, `setIndex` and `isDefaultConfig` (upstream API). Of the conditionals, every WIN32, `_RPI_`, `BATOCERA`, `_ENABLE_KODI_`, `FREEIMAGE_LIB` and `DEBUG` arm and the `#else` of each `#if ROCKNIX` are unshipped. Each is a row, not a removal (D-WORKFLOW-185's shape). Beyond functions:
+- **The row for PL-027 (S2, brief rule 3; resolved by this row).** `renumberSlots` stays as it is, with no removal and no new comment (the stream lists `SaveStateRepository.cpp` as "the row only").
+  - Both upstreams still declare it and call it twice: `SaveState.cpp:210` and `GuiSaveState.cpp:236`, at `rocknix/master` and at `batocera/master` (`git grep -n renumberSlots <ref> -- es-app/src`, 2026-10-23).
+  - The fork's only change is the two calls D-UI-069 removed. Deleting the definition would add a third conflict at every upstream merge of those files, for no change in behaviour.
+  - Reachability is unchanged: row 210 of the Q6 table, no caller on the branch.
+  - The line on #585 records the kept function, and that the fork's half of D-UI-069 is not a contribution: upstream renumbers on purpose.
 - the template placeholders `%BASENAME%`, `%ROM_RAW%`, `%GAMENAME%`, `%SYSTEMNAME%`, `%GAMEINFOXML%`, `%HOME%` and `%NETPLAY%` are not in the shipped command (FD-5; `distributions/ROCKNIX/config/functions:128`);
 - `-monitor` needs ` -system `, which the command lacks;
 - the `racommands` save-state arms run only without `es_savestates.cfg` (SS-2);
