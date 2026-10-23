@@ -99,7 +99,8 @@ GAME_GUIDE_PATH_CHECK="${1%.*}.txt"
 if [ ! -f "${GAME_GUIDE_PATH_CHECK}" ]; then
   GAME_GUIDE_PATH_CHECK="No Game Guide Found"
 fi
-  /usr/bin/game-guides-tool "${1}"
+### Synchronous on purpose: 5 ms on the GENERIC_X64 guest (T1 #648, F-08).
+/usr/bin/game-guides-tool "${1}"
 
 ### PortMaster's mapper.txt is shell; a name is written into it with \, ",
 ### $ and ` escaped, by awk rather than as sed's c\ text (#757).
@@ -125,7 +126,9 @@ function set_mapper_line() {
 ### not piped through a filter: a game's life must not depend on a second
 ### process staying alive to read its stdout. The bundle is filtered whole.
 function log() {
-        if [ ${LOG} == true ]
+        # Callers pass "$0" first; the line already starts with the script's name.
+        [ "${1}" = "$0" ] && shift
+        if [ "${LOG}" == true ]
         then
                 if [[ ! -d "$LOG_DIRECTORY" ]]
                 then
@@ -146,7 +149,7 @@ function loginit() {
         # game's SET_ROTATION line as the next game's, and rocknix-evidence
         # bundled weeks of launches as one. Truncate first, then the header.
         rm -f ${LOG_DIRECTORY}/${LOG_FILE}
-        if [ ${LOG} == true ]
+        if [ "${LOG}" == true ]
         then
                 redact_credentials <<EOF >${LOG_DIRECTORY}/${LOG_FILE}
 Emulation Run Log - Started at $(date)
