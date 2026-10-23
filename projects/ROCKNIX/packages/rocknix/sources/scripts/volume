@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)
@@ -28,15 +28,18 @@ case ${1} in
   ;;
 esac
 
+# An unset or unreadable volume is the default 50, before it is compared:
+# empty, it made the test below an arithmetic error that read as false, and
+# 50 came only from a third branch, with an error line per call (#753).
+# bash, for (( )) (the shebang said sh).
+[[ "${VOLUME}" =~ ^-?[0-9]+$ ]] || VOLUME=50
+
 if (( ${VOLUME} < ${MIN_VOLUME} ))
 then
   VOLUME=${MIN_VOLUME}
 elif (( ${VOLUME} > ${MAX_VOLUME} ))
 then
   VOLUME=${MAX_VOLUME}
-elif [ -z "${VOLUME}" ]
-then
-  VOLUME=50
 fi
 
 pactl -- set-sink-volume @DEFAULT_SINK@ ${VOLUME}%
