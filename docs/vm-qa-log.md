@@ -374,3 +374,19 @@ issuecomment-6369834541; #697, #698): the disk keeps its state for stage F, and
 no M6 runtime starts until M7 writes `resource return`. Results:
 `docs/audits/2026_10_23-epic-m6-os-launch-control-state/02-forward-audit.md`
 § Guest proofs.
+
+## 2026-10-23 18:35-18:43 UTC — M6 T1 stage-F cycle 1: S1 and S2 fixes, four verifications (#648)
+
+The T1 lane's guest (`t1.qcow2`, BUILD_ID `069fc270…`), back up after M7's
+`resource return`. S1's committed scripts (`f3261a5b78`) and S2's working
+`setsettings.sh` were bound over the image's copies, with a stub RetroArch
+for S1. The netplay host refusal (#702), the TGB Dual client (#708) and S2's
+eleven items (#705-#711, #731-#733, #760, #762) all hold. Of the four
+verifications, F-27, A-10 and F-08's timing were withdrawn and F-18 was
+confirmed (#762). One fault in a proof's restore is recorded: an `rm -rf` of
+the overlay mount point `/tmp/joypads` whited out its 518 image autoconfigs.
+It was repaired by stopping `tmp-joypads.mount` and emptying its upper layer,
+and the merged view was verified 518 of 518 identical. The guest was stopped
+by `tools/vm-stop` (rc 0). Results:
+`docs/audits/2026_10_23-epic-m6-os-launch-control-state/00-running-log.md`
+(stage F, cycle 1).

@@ -14332,6 +14332,179 @@ check $? "a TGB Dual client keeps the core's other options and sets the link" "t
 [ "$(grep -c '^tgbdual_gblink_enable = ' "${NJ}/ra/config/TGB Dual/TGB Dual.opt" 2>/dev/null)" = 1 ]
 check $? "the link key is written once" "the link key is not written exactly once"
 
+# M6 T1 stream S2 (#705-#711, #731-#733, #760): setsettings.sh, the per-core
+# settings writer. Every function and array is lifted from the script (from
+# BASE_REF under --old) and run under the image's bash and busybox applets,
+# inside a sandbox whose /storage and /tmp are its own (the functions write
+# /storage/remappings and /tmp/joypads by absolute path); get_setting is a
+# fixture lookup and /proc/bus/input/devices a fixture where a case gives one.
+S2="${TMP}/s2"; mkdir -p "${S2}"
+src_of projects/ROCKNIX/packages/rocknix/sources/scripts/setsettings.sh "${S2}/setsettings.sh"
+# A heredoc's body is skipped when looking for a function's closing brace:
+# get_bezel_infos writes JSON whose last line is a bare "}".
+awk 'hd != "" { if (p) print; t = $0; sub(/^\t+/, "", t); if (t == hd) hd = ""; next }
+     /^(function )?[A-Za-z_][A-Za-z0-9_]*\(\) \{$/ { p = 1 }
+     /^declare -a [A-Za-z_0-9]+=\(/ { p = 1; arr = 1 }
+     p { print }
+     p && match($0, /<<-? *["\047]?[A-Za-z_]+/) { hd = substr($0, RSTART, RLENGTH); sub(/^<<-? *["\047]?/, "", hd) }
+     p && arr && (/^\)$/ || /\)$/ && /^declare/) { p = 0; arr = 0; next }
+     p && !arr && hd == "" && /^}$/ { p = 0 }' "${S2}/setsettings.sh" > "${S2}/lib.sh"
+grep -q '^function set_netplay() {' "${S2}/lib.sh" && grep -q '^declare -a NO_REWIND=(' "${S2}/lib.sh" && "${NP_BASH}" -n "${S2}/lib.sh"
+check $? "setsettings.sh's functions and lists were lifted ($(grep -c -E '^(function )?[A-Za-z_][A-Za-z0-9_]*\(\) \{$' "${S2}/lib.sh") functions)" "could not lift setsettings.sh's functions"
+# s2_run <dir> <bash snippet>: the fixture is <dir>/system.cfg (key=value),
+# <dir>/platform, <dir>/core, <dir>/ra (RETROARCH_PATH), <dir>/devices.
+s2_run() {
+    local d="$1" snip="$2" dev=()
+    mkdir -p "${d}/ra" "${d}/cores" "${d}/bezels"; touch "${d}/system.cfg" "${d}/ra/retroarch.cfg"
+    [ -f "${d}/devices" ] && dev=(--ro-bind "${d}/devices" /proc/bus/input/devices)
+    bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr --ro-bind /etc /etc --ro-bind /workspace /workspace \
+        --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 --symlink usr/sbin /sbin \
+        --dev /dev --proc /proc --tmpfs /storage --tmpfs /tmp --bind "${TMP}" "${TMP}" "${dev[@]}" \
+        env PATH="${TMP}/bbin:/usr/bin" D="${d}" LIB="${S2}/lib.sh" SNIP="${snip}" "${NP_BASH}" -c '
+        get_setting() { # <key> [platform rom]: platform key, then the key, then global.
+            local v k
+            for k in "$2.$1" "$1" "global.$1"; do
+                v=$(awk -F= -v k="$k" "\$1==k{sub(/^[^=]*=/,\"\"); print; exit}" "${D}/system.cfg")
+                [ -n "$v" ] && break
+            done
+            printf "%s" "$v"; }
+        . "${LIB}"
+        # After the library: setsettings.sh defines its own log.
+        log() { echo "log: $*" >> "${D}/log"; }
+        RETROARCH_PATH="${D}/ra"; RETROARCH_CONFIG="${D}/ra/retroarch.cfg"; TMP_CONFIG="${D}/append.cfg"
+        LIBRETRO_DIR="${D}/cores"; BEZEL_DIR="${D}/bezels"; ROM="t1.zip"
+        PLATFORM=$(cat "${D}/platform" 2>/dev/null); CORE=$(cat "${D}/core" 2>/dev/null)
+        cd "${D}"
+        eval "${SNIP}"
+    ' >>"${d}/log" 2>&1
+}
+s2_new() { rm -rf "$1"; mkdir -p "$1/ra"; printf '%s\n' "$2" > "$1/platform"; printf '%s\n' "$3" > "$1/core"; }
+
+echo "  ak. a value the caller forces is written; the analogue default applies when unset (#705)"
+K="${S2}/ak"; s2_new "${K}" nes fbneo
+printf 'netplay=1\nnetplay.mode=host\nretroachievements.hardcore=1\nglobal.netplay.port=55435\n' > "${K}/system.cfg"
+s2_run "${K}" 'set_netplay >/dev/null'
+grep -q '^cheevos_hardcore_mode_enable = "false"$' "${K}/append.cfg" 2>/dev/null
+check $? "netplay forces hardcore off over the player's hardcore=1" "netplay copied the player's hardcore: $(grep '^cheevos_hardcore' "${K}/append.cfg" 2>/dev/null)"
+s2_new "${K}" snes snes9x; : > "${K}/system.cfg"
+s2_run "${K}" 'set_analogsupport'
+grep -q '^input_player1_analog_dpad_mode = "1"$' "${K}/append.cfg" 2>/dev/null
+check $? "analogue unset: the default 1 is written" "analogue unset: $(grep '^input_player1_analog' "${K}/append.cfg" 2>/dev/null)"
+s2_new "${K}" snes snes9x; printf 'analogue=0\n' > "${K}/system.cfg"
+s2_run "${K}" 'set_analogsupport'
+grep -q '^input_player1_analog_dpad_mode = "0"$' "${K}/append.cfg" 2>/dev/null
+check $? "control: analogue=0 is written as 0" "analogue=0: $(grep '^input_player1_analog' "${K}/append.cfg" 2>/dev/null)"
+
+echo "  al. 24 parallel writers' staged clears all apply, and a broken one is said (#707)"
+L="${S2}/al"; s2_new "${L}" nes nestopia
+lost=0
+for it in $(seq 1 200); do
+    { for i in $(seq 1 24); do for j in 1 2 3 4; do echo "k${i}x${j} = \"v\""; done; done; echo 'keep_me = "1"'; } > "${L}/ra/retroarch.cfg"
+    s2_run "${L}" 'for i in $(seq 1 24); do ( for j in 1 2 3 4; do clear_setting "k${i}x${j}"; done ) & done; wait
+        if type flush_all_settings >/dev/null 2>&1; then flush_all_settings; else flush_settings; fi'
+    left=$(grep -c '^k[0-9]*x[0-9] = ' "${L}/ra/retroarch.cfg")
+    { [ "${left}" -ne 0 ] || ! grep -q '^keep_me = ' "${L}/ra/retroarch.cfg"; } && lost=$((lost + 1))
+done
+[ "${lost}" -eq 0 ]
+check $? "200 rounds of 24 writers: every key cleared, the rest kept" "keys left or the rest removed in ${lost} of 200 rounds"
+s2_new "${L}" nes nestopia; echo 'keep_me = "1"' > "${L}/ra/retroarch.cfg"
+s2_run "${L}" 'clear_setting "bad[key"; if type flush_all_settings >/dev/null 2>&1; then flush_all_settings; else flush_settings; fi'
+grep -q -i 'could not clear' "${L}/log" 2>/dev/null
+check $? "a staged program sed refuses is logged" "a staged program sed refuses was dropped silently"
+
+echo "  am. neogeo keeps rewind and run-ahead; neogeocd does not (#706)"
+M="${S2}/am"; s2_new "${M}" neogeo fbneo; printf 'rewind=1\nrunahead=2\n' > "${M}/system.cfg"
+s2_run "${M}" 'set_rewind; set_runahead'
+grep -q '^rewind_enable = "true"$' "${M}/append.cfg" 2>/dev/null && grep -q '^run_ahead_enabled = "true"$' "${M}/append.cfg"
+check $? "neogeo: rewind and run-ahead as the player set them" "neogeo: $(grep -E '^(rewind_enable|run_ahead_enabled) ' "${M}/append.cfg" 2>/dev/null | tr '\n' ';')"
+s2_new "${M}" neogeocd fbneo; printf 'rewind=1\nrunahead=2\n' > "${M}/system.cfg"
+s2_run "${M}" 'set_rewind; set_runahead'
+grep -q '^rewind_enable = "false"$' "${M}/append.cfg" 2>/dev/null && grep -q '^run_ahead_enabled = "false"$' "${M}/append.cfg"
+check $? "control: neogeocd still has both forced off" "neogeocd: $(grep -E '^(rewind_enable|run_ahead_enabled) ' "${M}/append.cfg" 2>/dev/null | tr '\n' ';')"
+
+echo "  an. a core's video filter path follows its own bitness (#731)"
+N="${S2}/an"; s2_new "${N}" psx pcsx_rearmed; printf 'videofilter=Normal2x.filt\n' > "${N}/system.cfg"
+mkdir -p "${N}/cores"; printf '\177ELF\002\001\001' > "${N}/cores/pcsx_rearmed_libretro.so"
+s2_run "${N}" 'set_filter'
+grep -q '^video_filter = ".*/64bit/video/Normal2x.filt"$' "${N}/append.cfg" 2>/dev/null
+check $? "a 64-bit pcsx_rearmed gets the 64-bit filter path" "a 64-bit pcsx_rearmed: $(grep '^video_filter = ' "${N}/append.cfg" 2>/dev/null)"
+s2_new "${N}" gba gpsp; printf 'videofilter=Normal2x.filt\n' > "${N}/system.cfg"
+mkdir -p "${N}/cores"; printf '\177ELF\001\001\001' > "${N}/cores/gpsp_libretro.so"
+s2_run "${N}" 'set_filter'
+grep -q '^video_filter = ".*/32bit/video/Normal2x.filt"$' "${N}/append.cfg" 2>/dev/null
+check $? "control: a 32-bit gpsp gets the 32-bit path" "a 32-bit gpsp: $(grep '^video_filter = ' "${N}/append.cfg" 2>/dev/null)"
+
+echo "  ao. tate mode edits the MAME 2003-Plus options and keeps the rest (#709)"
+O="${S2}/ao"; s2_new "${O}" mame mame2003_plus; printf 'tatemode=1\n' > "${O}/system.cfg"
+mkdir -p "${O}/ra/config/MAME 2003-Plus"
+printf 'mame2003-plus_tate_mode = "disabled"\nmame2003-plus_frameskip = "2"\nt1_custom_option = "kept"\n' > "${O}/ra/config/MAME 2003-Plus/MAME 2003-Plus.opt"
+s2_run "${O}" 'set_tatemode'
+F="${O}/ra/config/MAME 2003-Plus/MAME 2003-Plus.opt"
+grep -q '^mame2003-plus_tate_mode = "enabled"$' "${F}" && grep -q '^mame2003-plus_frameskip = "2"$' "${F}" && grep -q '^t1_custom_option = "kept"$' "${F}"
+check $? "the three-line file keeps two lines and the tate line reads enabled" "MAME 2003-Plus.opt after: $(tr '\n' ';' < "${F}")"
+
+echo "  ap. a Gambatte launch keeps the options file, and its palette lines once (#710)"
+P2="${S2}/ap"; s2_new "${P2}" gb gambatte; printf 'renderer.colorization=TWB64 001 - Aqours Blue\nrenderer.twb1_colorization=TWB64 002\n' > "${P2}/system.cfg"
+mkdir -p "${P2}/ra/config/Gambatte"
+printf 'gambatte_gb_link_mode = "Not Connected"\nt1_custom_option = "kept"\n' > "${P2}/ra/config/Gambatte/Gambatte.opt"
+s2_run "${P2}" 'set_gambatte; set_gambatte'
+F="${P2}/ra/config/Gambatte/Gambatte.opt"
+grep -q '^gambatte_gb_link_mode = "Not Connected"$' "${F}" && grep -q '^t1_custom_option = "kept"$' "${F}"
+check $? "the link mode and the custom line survive two launches" "Gambatte.opt after two launches: $(tr '\n' ';' < "${F}")"
+[ "$(grep -c '^gambatte_gb_palette_twb64_1 = ' "${F}")" = 1 ] && [ "$(grep -c '^gambatte_gb_internal_palette = ' "${F}")" = 1 ]
+check $? "two launches leave each palette key once" "palette keys after two launches: twb64_1 x$(grep -c '^gambatte_gb_palette_twb64_1 = ' "${F}"), internal x$(grep -c '^gambatte_gb_internal_palette = ' "${F}")"
+
+echo "  aq. an overlay applies when no bezel did; an unset core option keeps the file's default (#711)"
+R="${S2}/aq"; s2_new "${R}" nes nestopia; printf 'global.bezel=thebezelproject\nglobal.overlayset=T1overlay.cfg\n' > "${R}/system.cfg"
+s2_run "${R}" 'set_overlay'
+grep -q '^input_overlay_enable = "true"$' "${R}/append.cfg" 2>/dev/null && grep -q '^input_overlay = "/storage/overlays/T1overlay.cfg"$' "${R}/append.cfg"
+check $? "the shipped bezel default with no bezel files: the overlay choice applies" "no bezel files: $(grep -c '^input_overlay' "${R}/append.cfg" 2>/dev/null) input_overlay line(s)"
+s2_new "${R}" n64 parallel_n64; printf 'parallel_n64_internal_resolution=640x480\n' > "${R}/system.cfg"
+mkdir -p "${R}/ra/config/ParaLLEl N64"
+printf 'parallel-n64-gfxplugin = "auto"\nparallel-n64-screensize = "320x240"\nparallel-n64-framerate = "original"\n' > "${R}/ra/config/ParaLLEl N64/ParaLLEl N64.opt"
+s2_run "${R}" 'set_n64opts'
+F="${R}/ra/config/ParaLLEl N64/ParaLLEl N64.opt"
+grep -q '^parallel-n64-gfxplugin = "auto"$' "${F}" && grep -q '^parallel-n64-framerate = "original"$' "${F}"
+check $? "an unset option keeps the file's own default" "unset options were written empty: $(tr '\n' ';' < "${F}")"
+grep -q '^parallel-n64-screensize = "640x480"$' "${F}"
+check $? "control: a set option is written" "the set option was not written: $(tr '\n' ';' < "${F}")"
+
+echo "  ar. config_save_on_exit is set, not a key named false (#732)"
+A2="${S2}/ar"; s2_new "${A2}" nes nestopia
+s2_run "${A2}" 'set_config_save'
+grep -q '^config_save_on_exit = "false"$' "${A2}/append.cfg" 2>/dev/null && ! grep -q '^false = ' "${A2}/append.cfg"
+check $? "the appendconfig sets config_save_on_exit" "set_config_save wrote: $(tr '\n' ';' < "${A2}/append.cfg" 2>/dev/null)"
+
+echo "  as. a joypad autoconfig is read, not run (#733)"
+H="${S2}/as"; s2_new "${H}" nes nestopia; printf 'system.autohotkeys=1\n' > "${H}/system.cfg"
+printf 'I: Bus=0003 Vendor=045e Product=028e Version=0110\nN: Name="Fixture Pad"\nP: Phys=usb-0000:00:14.0-1/input0\nS: Sysfs=/devices/fixture\nU: Uniq=\nH: Handlers=event5 js0\nB: PROP=0\nB: EV=20000b\nB: KEY=7cdb000000000000 0 0 0 0\nB: ABS=3003f\n\n' > "${H}/devices"
+s2_run "${H}" 'mkdir -p /tmp/joypads
+    printf "%s\n" "input_device = \"Fixture Pad\"" "input_select_btn = \"6\"" "input_start_btn = \"7\"" "input_x_btn = \"\$(touch /tmp/t1-f13-marker)\"" > "/tmp/joypads/Fixture Pad.cfg"
+    configure_hotkeys
+    [ -e /tmp/t1-f13-marker ] && echo MARKER > "${D}/marker"'
+[ ! -e "${H}/marker" ]
+check $? "a \$( ) in an autoconfig value runs nothing" "a \$( ) in an autoconfig value ran as a command"
+grep -q '^input_exit_emulator_btn = "7"$' "${H}/ra/retroarch.cfg" && grep -q '^input_bind_hold = "6"$' "${H}/ra/retroarch.cfg"
+check $? "the autoconfig's buttons still set the hotkeys" "hotkeys not set from the autoconfig: $(grep -E '^input_(exit_emulator|bind_hold)' "${H}/ra/retroarch.cfg" | tr '\n' ';')"
+
+echo "  at. with two pads, the first pad's autoconfig is found (#760)"
+T2="${S2}/at"; s2_new "${T2}" nes nestopia; printf 'system.autohotkeys=1\n' > "${T2}/system.cfg"
+printf 'I: Bus=0003\nN: Name="Pad One"\nH: Handlers=event5 js0\n\nI: Bus=0003\nN: Name="Pad Two"\nH: Handlers=event6 js1\nB: EV=b\n\n' > "${T2}/devices"
+s2_run "${T2}" 'mkdir -p /tmp/joypads
+    printf "%s\n" "input_select_btn = \"6\"" "input_start_btn = \"7\"" > "/tmp/joypads/Pad One.cfg"
+    configure_hotkeys'
+grep -q '^input_exit_emulator_btn = "7"$' "${T2}/ra/retroarch.cfg"
+check $? "two pads: the hotkeys come from the first pad's autoconfig" "two pads: no hotkeys set ($(grep -m1 -E 'Configure hotkeys|Pad' "${T2}/log" 2>/dev/null))"
+
+echo "  au. Kronos's options are written where RetroArch reads them (#762)"
+U="${S2}/au"; s2_new "${U}" saturn kronos; printf 'resolution=2x\n' > "${U}/system.cfg"
+mkdir -p "${U}/ra/config/Kronos"; printf 'kronos_resolution_mode = "1x"\nkronos_polygon_mode = "auto"\n' > "${U}/ra/config/Kronos/Kronos.opt"
+s2_run "${U}" 'set_saturnopts'
+grep -q '^kronos_resolution_mode = "2x"$' "${U}/ra/config/Kronos/Kronos.opt" && grep -q '^kronos_polygon_mode = "auto"$' "${U}/ra/config/Kronos/Kronos.opt"
+check $? "the player's resolution reaches config/Kronos/Kronos.opt, the rest kept" "config/Kronos/Kronos.opt after: $(tr '\n' ';' < "${U}/ra/config/Kronos/Kronos.opt")"
+[ ! -e "${U}/ra/Kronos" ]
+check $? "nothing is written under RETROARCH_PATH/Kronos" "a Kronos/ folder was made under RETROARCH_PATH: $(find "${U}/ra/Kronos" -type f 2>/dev/null | head -2 | tr '\n' ' ')"
+
 if [ "${NOT_APPLICABLE}" -ne 0 ]; then echo "${NOT_APPLICABLE} HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS"; fi
 if [ "${FAIL}" -eq 0 ] && [ "${SKIPPED}" -eq 0 ]; then echo "PASSED"; exit 0
 elif [ "${FAIL}" -eq 0 ]; then echo "PASSED, ${SKIPPED} SKIPPED -- a check that did not run has not passed"; exit 3

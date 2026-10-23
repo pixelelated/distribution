@@ -196,3 +196,49 @@
 - **Queued for the guest** (until `resource return`): (1) #702: `global.netplay.host='127.0.0.1;touch /tmp/t1-f14-marker;'`, a client launch through the tree's `runemu.sh` with the stub bound over `/usr/bin/retroarch` (`group1.sh`'s F-14 block), expecting no marker, the full argv and the refusal line in the log; the control `127.0.0.1`. (2) #708: a `tgbdual` client launch keeping a custom `TGB Dual.opt` line, with `netplay_ip_port` in `/tmp/.retroarch.cfg`.
 - **17:29: the first passing run found a fault in the test.** On the fixed tree (17:19:45-17:28:10, rc 1), all of ai and two of aj's three checks passed. The third failed with `the link key is not written exactly once`, which meant the TGB Dual block's `sed -i` deleted nothing before the `>>`. Read directly, the program (backslash-newline between its four commands) is accepted by the image's busybox `sed`, which deletes the keys, and refused by the host's GNU `sed` 4.9 (`unterminated address regex`). `np_run` was running the lifted functions on the host's PATH. So the failure was the test using host tools, against the briefs' rule, not the fix. `np_run` now puts the harness's busybox shims (`${TMP}/bbin`) first on PATH, and the section counts a SKIP when no image busybox is given.
 - A rerun from a copy of the harness in the scratchpad was a mistake (its root comes from its own path: `source checkout has no rclone recipe`). It was stopped by its task id, and nothing was left running. The pair of runs then started from the tree's harness: `BASE_REF=40a274d736 --old` (the unfixed scripts), then the tree.
+
+## [Stage F, guest cycle 1] 18:35-18:43 — S1's and S2's guest proofs and the four verifications; the guest down again
+
+- `resource return` (M7's line 18:34:04, relayed on #648 issuecomment-6372059653). The guest was booted from the kept `t1.qcow2` at 18:35:02 (`generic-x64-vm run --headless --daemonize --pidfile $A/qemu.pid ... --vnc 19 --ssh-port 10032`, pid 3167085). SSH answered at 18:35:10, with BUILD_ID `069fc270442134fe771258418adf4e666e0473fb` as at stage A.
+- **S1** (`.qa-scratch/t1/proofs/s1-guest.sh`, `.out`; S1's committed `runemu.sh` and `setsettings.sh` at `f3261a5b78` bound over the image's copies; a stub RetroArch):
+  - The first run passed no netplay arguments. `runemu.sh` deletes `netplay.mode` and sets it from the launch's own `--connect`/`--host` (`:239-255`), so the block never ran and nothing was shown. The proof now launches with `--connect 192.0.2.1 --nick T1`, as the interface does.
+  - **#702:** no marker; the full argv `[-L] ... [--config] ... [--appendconfig] ... [T1Test.nes]`; `exec.log` carries `setsettings: Refused the netplay host (35 characters): ...` and 0 lines with the value. My first count read `exec.log` from a saved line number, and `runemu.sh` starts the file again at each launch; the whole file has the line. The control `127.0.0.1` reaches `[--connect] [127.0.0.1]`.
+  - **#708:** `TGB Dual.opt` keeps `t1_custom_option` with each link key once; `netplay_ip_port = "55435"`; `[--connect] [192.0.2.1]`.
+  - #702 and #708 are ticked with these artifacts; PL-001 and PL-007 are resolved in `05` and #701.
+- **The four verifications** (`verify-guest.sh`, `a10-guest.sh`, and their `.out`; the image's own scripts; a 32 KiB cartridge built from `tools/emulator-exit-test`'s recipe, named `T1 Verify.gb`):
+  - **F-08's timing:** `game-guides-tool` takes 5 ms on each of three runs. That half is withdrawn; F-08's Q7 half stays in S3.
+  - **F-27:** a default launch (no `shaderset`, so `--set-shader /tmp/shaders/`) logs only RetroArch's own GLSL stock shaders found, with no error or failed load. **Withdrawn.**
+  - **A-10:** a launch through the interface's `POST /launch` puts five `sh -c` wrapper lines first in `ps`, each with the path escaped (`T1\ Verify.gb`), and `vertical-check`'s parse gives the whole path. Only a launch made outside the interface, with the script's own argv first, cuts it at the space (`[/storage/roms/gb/T1]`); no player path does that. **Withdrawn.**
+  - **F-18:** confirmed. RetroArch runs with `global_core_options = "false"` and `rgui_config_directory = ~/.config/retroarch/config`, so it reads `config/<Core>/<Core>.opt`, and `setsettings.sh` writes Kronos under `Kronos/config/Kronos/`. Filed as **#762** (`box-check` 0 fail), fixed in S2 as group 7 with harness case au.
+- **S2** (`s2-guest.sh`, `.out`; the working tree's `setsettings.sh`, S2's final state, sha256 `193d2934eecd87d7...`, bound over the image's copy):
+  - #705: hardcore `false` under netplay; analogue unset `"1"`, `0` `"0"`.
+  - #707: 0 of 200 rounds lost a key.
+  - #706: neogeo `true`/`true`, neogeocd `false`/`false`.
+  - #731: the 64-bit core (ELF class 2) gets `.../64bit/video/Normal2x.filt`.
+  - #709: three lines kept, tate `enabled`.
+  - #710: custom and link mode kept, each palette key once after two launches.
+  - #711: the overlay applies under the shipped `thebezelproject`. The guest's settings set the N64 video core, so this run did not exercise the unset half; harness case aq proves it.
+  - #732: `config_save_on_exit = "false"`.
+  - #733 and #760: with two fixture pads bound over `/proc/bus/input/devices`, no marker, and the hotkeys from `Pad One.cfg`.
+  - #762: `config/Kronos/Kronos.opt` reads `2x`, and no `Kronos/` folder is made.
+- **A mistake in the S2 proof's restore, repaired.** `/tmp/joypads` is an overlay mount (`tmp-joypads.mount`: lower `/usr/share/libretro/autoconfig`, upper `/storage/joypads`). The restore's `rm -rf /tmp/joypads` whited out all 518 image autoconfigs in the upper layer, and the `cp -a` back nested the backup as `/tmp/joypads/s2.joypads/`. The merged view then had no autoconfig at its top level.
+  - Before the proof, the merged view matched the image layer exactly (518 of 518 identical, none extra), so the upper layer had held nothing that showed.
+  - Repair: `systemctl stop tmp-joypads.mount`; remove the 518 whiteouts and the nested directory from `/storage/joypads`; `systemctl start tmp-joypads.mount`. The merged view is the image's 518 again, all identical, with the upper layer empty.
+  - The proof now removes only the fixture file it added.
+- The guest was stopped at 18:43:40 by `tools/vm-stop` (rc 0, pid 3167085 exited), with the queue empty. It comes up again for S3's proofs.
+
+## [Stage E, S2] 19:00 — Stream S2, `setsettings.sh`: eleven items in seven commits
+
+- **Items:** #705 F-09, #707 F-11, #706 F-10, #731 F-10b, #709 F-16, #710 F-17, #711 F-19, #732 F-12, #733 F-13, #760 A-06, and #762 F-18 (from the verification).
+- **The test first:** `tools/last-good-scripts-test` sections ak to au. Every function and array in `setsettings.sh` is lifted (43 in the unfixed file, 47 in the fixed) and run under the image's bash and busybox. Each case runs in a `bwrap` sandbox with its own `/storage` and `/tmp`, and the pad cases bind a fixture over `/proc/bus/input/devices`.
+- **Four faults of my own, caught before any commit:**
+  1. The lift ended `get_bezel_infos` at its JSON heredoc's bare `}`; the lift now skips heredoc bodies.
+  2. `s2_new` did not create `ra/`, so `al`'s first round and its refusal fixture failed for the fixture's sake.
+  3. The library's own `log` replaced the stub; the stub now comes after the library.
+  4. **A bug in the #760 fix itself:** in busybox `awk`, `exit` inside a rule still runs `END`, so the pad's name was printed twice and no autoconfig matched. The fix now sets a `done` flag. The harness caught it, and it would have shipped otherwise.
+
+  After faults 1 and 3 changed the harness, both runs were repeated.
+- **Found while reading:** with F-17 fixed, Gambatte's four palette keys (`twb64_1` to `_3`, `pixelshift_1`) would have piled up, one more copy per launch, because the old one-line cut had been hiding it. #710's fix deletes them before re-adding them.
+- **The failing run** (`BASE_REF=f3261a5b78 tools/last-good-scripts-test --old`, 18:41:20-18:49:51, rc 1): 15 checks failed, all in ak to au, and none before ak.
+- **The passing run** (`tools/last-good-scripts-test`, 18:49:51-18:58:32, rc 0): `PASSED`.
+- **The guest:** 18:42 (stage F, cycle 1 above), all eleven items hold.
