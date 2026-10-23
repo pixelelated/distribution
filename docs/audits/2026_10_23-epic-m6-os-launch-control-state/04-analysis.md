@@ -120,3 +120,21 @@ The package has no upstream tarball (`PKG_VERSION=""`), so currency is ROCKNIX's
 
 Totals: 11 merges; 32 commits: 26 to merge (`abfdcfb57f` among them, a new script for the shipped SM8550), 4 to merge with care (`b011b5144f`, `32ebcdbf1b`, `bb9e42e2a0`, `0c43a50420`), 1 split (`25903bb59c`), 1 not applicable as written (`18aded5898`); 26 + 4 + 1 + 1 = 32, counted from the table's rows. **Three of this audit's findings are already fixed upstream** (F-21 by `25903bb59c`'s lookup, F-45 by `4e3972d037`, F-49's cause by `6aa745572b`); their stream is a merge, not a fork patch (D-WORKFLOW-164's queue, #585, the other way round).
 
+
+### Q5 Efficiency: measured on the guest (`BUILD_ID 069fc270442134fe771258418adf4e666e0473fb`, 4 vCPUs, 8 GiB, virgl GL), `system.loglevel=verbose` (the engineering image's `DEVELOPMENT_DEFAULTS`)
+
+**The two time-to-play numbers**, `tools/time-to-play --port 10032 --identity $A/qa-key --monitor $A/monitor.sock --out $A/ttp-q5 --no-configure-remote --vm --only launch,exit,g2g --repeat 3` (08:12:32-08:16:06 UTC; rc 1, `Not a pass: the exit sync had no cloud to reach`, the expected verdict without a remote):
+
+| Measure | This slice's guest (n=3) | #336's baseline | Note |
+| --- | --- | --- | --- |
+| interface press to **the game's first frame** | **0.64 s** median (mean 0.67, max 0.76) | 1.05 s | the image's `runemu.sh` (the M7 copy, with its lifecycle prologue) |
+| exit (`execute_kill`) to **the next game's first frame** | **1.01 s** median (mean 1.01, max 1.02) | 2.03 s | measured with no cloud: the exit sync skips at once, so this is not like for like with a configured device; #336's figure's conditions are not recorded in its body |
+| exit to the last-sync-exit stamp | 0.55 s median | - | the skip |
+
+Both numbers are well under #336's, which predates the hardware-GL guests (#291) and was taken at an unrecorded loglevel; this slice changed nothing yet, so the comparison says the baseline is stale, not that the slice improved anything. **What the slice's findings would do to the numbers**: F-09's backgrounded `[` costs a fork per `add_setting` (up to 104 a launch); upstream's `25903bb59c` drops a fork per `get_setting` (Q4); F-03's background restores race the next launch rather than delay it.
+
+**`setsettings.sh` per launch**, with the arguments the last launch passed (`gb /storage/roms/gb/TTProbe.gb gambatte --state_file=/storage/roms/savestates/gb/TTProbe.state.auto --controllers= --autosave=1 --snapshot=`, read from `/var/log/exec.log`'s `Execute setsettings` line), five runs each, wall time from `date +%s%N` (08:16 UTC): **verbose 127 ms** median (141, 130, 127, 126, 127); **none 99 ms** median (92, 124, 99, 100, 99). So the verbose log costs about 28 ms a launch on this guest. An H700's four A53 cores will be several times slower; the guest number is the one this slice can stand behind.
+
+**Boot** (`systemd-analyze`, the boot `time-to-play` itself made): startup 3.760 s (1.384 kernel + 2.376 userspace), `rocknix.target` at 1.942 s. This package's units: `rocknix-autostart.service` 1.177 s (T22's runner executing this package's fragments; `008-perfmode` stops at its third line here, F-58), `rocknix-automount.service` 417 ms, `rocknix-evidence.service` 271 ms, `rocknix-sysconfig.service` 16 ms, `rocknix-memory-manager.service` 15 ms.
+
+**Standing costs**: `rocknix-evidence snapshot` 230 ms and 6,856 bytes a page, every five minutes; `/var/log/messages` (F-24) grew from 5,310 to 7,888 bytes across one reboot of the guest, about 2.5 KB a boot with no bound; KSM (on by default, `rocknix-memory-manager`) is not in the guest's kernel (`/sys/kernel/mm/ksm` absent), so its cost on a 1 GiB handheld is a device question, not measured here; `vertical-check` runs a `ps aux` per RetroArch window (not timed). **Not measured**: anything on an A53, KSM's background scan, the fake-suspend path.
