@@ -34,9 +34,8 @@ post-candidate merge to clear the push guard's W42 gate (D-INFRA-026,
 D-WORKFLOW-182); never `--no-verify`. P1 started 2026-10-22 in its own
 worktree `distribution.worktrees/m6-p1-survey-641` on
 `feature/m6-p1-survey-641`, stacked on this branch; its state lives in its
-own pointer. The pass-7 gate is passed (the yes of 2026-10-23); this lane's next acts are
-the filing of the slice issues (D-WORKFLOW-189) and acceptance at hand-back
-(brief § 10); see § State at 2026-10-23.
+own pointer. The pass-7 gate and the hand-back are passed (2026-10-23; #641 closed); this
+lane's next act is T1's brief; see § State at 2026-10-23.
 
 ## Next commands
 
@@ -87,6 +86,14 @@ keep both day-file entries, regenerate the index with
 `tools/work-log-index --write`. Nothing here builds, touches a device, a
 cloud or the M7 build worktrees.
 
+- **This branch carries three of M7's commits as cherry-picks** (`-x`, 2026-10-23
+  16:30 UTC): `033eb7ed23`, `0ceb2994c5`, `6874394d49` from `fac2129787`,
+  `1c7d283ad5`, `a7a3bdda4e` on `feature/m7-audit-integration-603` (the
+  Argon reviewer route and its pins, #636/#638). When the M7 candidate merges
+  to `next` first, the merge of this branch sees them as duplicate patches;
+  expect a clean or trivially identical resolution in `scripts/council-invoke.ts`,
+  `tools/lint-audit-artifacts`, `verifier-pins.json`, `council-seat-efforts.json`
+  and the two `docs/qa-logs/2026-10-22-*-638/` folders, and check for markers.
 ## State at 2026-10-23 (the coordinator's own update)
 
 P0 is done on this branch; its merge waits on the M7 lane's post-candidate
@@ -101,11 +108,32 @@ division of work, the definition of work items and roadmap changes are this
 lane's; a work lane executes. So the 46 slice issues are this lane's to file,
 from P1's renderer (`tools/renovation-inventory --slice-issues DIR`, run
 read-only against P1's tree into this lane's scratchpad). #644 and #645 are
-the build-path read and its PR-process findings. Next: file the 46 (one first,
-`tools/box-check --issue N` on it, then the rest, each a sub-issue of #339);
-the hand-back acceptance against the P1 brief § 10 as amended (inventory and
-order, no slice issues); then the first slice's brief (plan § 7), which adds
-T1's specific criteria to its issue.
+the build-path read and its PR-process findings. The 46 are filed: #648 (T1) to #693
+(T46), sub-issues of #339 on milestone M6, `tools/box-check` 0 fail over all
+open issues (work log 05:40 UTC). P1 was accepted at hand-back and #641
+closed completed on 2026-10-23 (P1's branch at `2174265e9c`; it merges to
+`next` after this branch, after the M7 candidate). T1 is dispatched (2026-10-23): the area
+epic #695 with its futro; the brief `docs/reviews/briefs/os-launch-control-state.md`
+at version 2 (`968ba95993`); the lane `feature/m6-os-launch-control-state-648`
+at `4228561fd2`, worktree `distribution.worktrees/m6-os-launch-control-state-648`,
+an Opus 5.5 session at high effort in Herdr pane `wN:p4`, agent
+`m6-t1-os-launch` (started from this pane: `herdr tab create --workspace wN
+--cwd <worktree> --label ... --no-focus`, then `herdr agent start <name>
+--kind claude --pane <id> -- --model claude-opus-5-5 --effort high`, then
+`herdr agent prompt <name> "<seed>"`; the seed is kept in this session's
+scratchpad and quoted in the 07:50 work-log entry). This lane's rules from
+the futro: no merge of `next` into a slice branch between stage A and stage
+D; every drift report read at every slice close and the re-open named;
+`tools/box-check` on every issue a lane files, at the pause. Next: T2's brief (`docs/reviews/briefs/es-launch-path.md`), proven like T1's,
+then the interface area epic, the ES worktree for the lane at the pin, the
+lane cut from P1's tip with this tip merged, and dispatch: the maintainer's
+call of 2026-10-23 is that T2 runs beside T1 (D-WORKFLOW-190, work log 16:30
+UTC). T1 is past its Phase 4.6 blocker: the Argon route is on this branch as
+three cherry-picks (`033eb7ed23`, `0ceb2994c5`, `6874394d49`; M7's
+`fac2129787`, `1c7d283ad5`, `a7a3bdda4e`), the lane merges `6874394d49` and
+runs the Argon seat; then its stage-D pause (write the stream briefs; F-21,
+F-45, F-49 are a merge of upstream commits, F-14 and F-03 wait for the M7
+bytes, F-68 is D-SYS-014); T1's drift re-open when the M7 candidate lands.
 
 ## The seed brief (2026-10-22, the planning session's handoff, verbatim)
 
