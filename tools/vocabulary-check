@@ -37,6 +37,10 @@ ROOT = os.path.dirname(HERE)
 DEFAULT_ES = os.environ.get("ES_SRC") or os.path.expanduser("~/Development/emulationstation-next.worktrees/qa-integration")
 SCRIPTS = os.path.join(ROOT, "projects/ROCKNIX/packages/network/rclone/sources")
 BACKUPTOOL = os.path.join(ROOT, "projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool")
+# The OS scripts whose lines a player reads: factoryreset's last line is the
+# outcome dialog's (its fail()), installtointernal's and updateabl's the
+# console's (#701 A-11b).
+OS_SCRIPTS = [os.path.join(ROOT, "projects/ROCKNIX/packages/rocknix/sources/scripts", n) for n in ("factoryreset", "installtointernal", "updateabl")]
 
 # Strings that match a heuristic and are nonetheless right, or are not ours to
 # change (upstream's, on pages ROCKNIX does not show). Each with its reason.
@@ -86,7 +90,7 @@ def es_strings(es):
                 yield os.path.relpath(p, es), m.group(1)
 
 def script_lines(paths):
-    say = re.compile(r'\b(log_message|note|say_why|echo)\s+"((?:[^"\\]|\\.)*)"(.*)')
+    say = re.compile(r'\b(log_message|note|say_why|echo|fail)\s+"((?:[^"\\]|\\.)*)"(.*)')
     for p in paths:
         try: lines = open(p, encoding="utf-8", errors="replace").read().splitlines()
         except OSError: continue
@@ -108,7 +112,8 @@ def main():
     if not os.path.isdir(os.path.join(a.es, "es-app", "src")):
         print(f"vocabulary-check: no EmulationStation checkout at {a.es} (set ES_SRC or --es)", file=sys.stderr)
         return 1
-    paths = [os.path.join(a.scripts, n) for n in ("cloud_backup", "cloud_restore", "cloud_content_backup", "cloud_content_restore", "cloud_setup", "cloud_saves_root", "cloud_net_ready")] + [BACKUPTOOL]
+    paths = [os.path.join(a.scripts, n) for n in ("cloud_backup", "cloud_restore", "cloud_content_backup", "cloud_content_restore", "cloud_setup", "cloud_saves_root", "cloud_net_ready")] + [BACKUPTOOL] + OS_SCRIPTS
+    print(f"vocabulary-check: scripts read: {', '.join(os.path.basename(p) for p in paths)}")
     judged = failures = 0
     seen = set()
     for origin, text in list(es_strings(a.es)) + list(script_lines(paths)):
