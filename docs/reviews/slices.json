@@ -537,7 +537,7 @@
       "kind": "read",
       "title": "the OS's system services and platform quirks",
       "lens": "security, brittleness",
-      "why": "busybox's configuration, the systemd units and the per-platform quirks run as root on every device",
+      "why": "busybox's configuration, the systemd units and the per-platform quirks run as root on every device; the inventory reads a whole package as reached, so `system-utils`' per-device sources (`sources/devices/` for AMD64, GENERIC_X64, RK3399, RK3566 and S922X, `sources/autostart/AMD64`) read `shipped` although `package.mk` installs only `${DEVICE}`'s: the slice first derives which the shipped pair (H700, SM8550, which have none) and the VM install, as T29 does for the quirks, reads those line by line, and records the rest as unshipped rows (the coordinator's read of the third version)",
       "select": {
         "globs": [
           "projects/ROCKNIX/packages/sysutils/**",
