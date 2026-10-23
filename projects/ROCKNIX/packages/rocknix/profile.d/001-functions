@@ -122,25 +122,30 @@ function redact_credentials() {
     -e 's#(://[^/[:space:]@:]+:)[^@/[:space:]]+@#\1<redacted>@#g'
 }
 
+# A value is printed as it is (#759): unquoted, a run of spaces collapsed, a
+# '*' globbed against the working directory and -n read as echo's flag. The
+# keys' dots are literal in the patterns below. Upstream's 25903bb59c
+# rewrites this function; the adoption (#563) reconciles the two.
 function get_setting() {
+  local K1="${1//./\\.}" K2="${2//./\\.}"
   if [ -n "${3}" ]
   then
     ### Test to see if we have a game setting.
-    VAR="$2\[\"$(echo ${3} | sed -E "s~'~\\\x27~g"';s~[()&]~\\&~g')\"\]\.$1"
+    VAR="${K2}\[\"$(echo ${3} | sed -E "s~'~\\\x27~g"';s~[()&]~\\&~g')\"\]\.${K1}"
     # The key ends at its '=': integerscale is a prefix of integerscaleoverscale
     # (#756). Upstream's 25903bb59c rewrites this lookup; the adoption (#563)
     # reconciles the two.
     OUTPUT=$(awk 'BEGIN {FS="="} /^'"${VAR}"'=/ {print $NF}' ${J_CONF})
     if [ ! -z "${OUTPUT}" ]
     then
-      echo ${OUTPUT}
+      printf '%s\n' "${OUTPUT}"
       return
     else
       ### If not, check to see if we have a system setting.
-      LOCAL=$(awk -F: '/^'"${2}.${1}"'=/ { st = index($0,"=");print substr($0,st+1);exit}' ${J_CONF})
+      LOCAL=$(awk -F: '/^'"${K2}\.${K1}"'=/ { st = index($0,"=");print substr($0,st+1);exit}' ${J_CONF})
       if [ ! -z "${LOCAL}" ]
       then
-        echo ${LOCAL}
+        printf '%s\n' "${LOCAL}"
         return
       fi
     fi
@@ -149,30 +154,30 @@ function get_setting() {
   if [ -z "${3}" ] && [ -n "${2}" ]
   then
     ### Check to see if we have a global setting.
-    LOCAL=$(awk -F: '/^'"${2}.${1}"'=/ {  st = index($0,"=");print substr($0,st+1);exit}' ${J_CONF})
+    LOCAL=$(awk -F: '/^'"${K2}\.${K1}"'=/ {  st = index($0,"=");print substr($0,st+1);exit}' ${J_CONF})
     if [ ! -z "${LOCAL}" ]
     then
-      echo ${LOCAL}
+      printf '%s\n' "${LOCAL}"
       return
     fi
   fi
 
   ### Check to see if we have a "system." global setting.
-  SYSTEM=$(awk -F: '/^system.'"${1}"='/ { st = index($0,"=");print substr($0,st+1);exit}' ${J_CONF})
+  SYSTEM=$(awk -F: '/^system\.'"${K1}"='/ { st = index($0,"=");print substr($0,st+1);exit}' ${J_CONF})
   if [ -n "${SYSTEM}" ]
   then
-    echo ${SYSTEM}
+    printf '%s\n' "${SYSTEM}"
     return
   fi
 
   ### Check to see if we have a "global." global setting."
-  LOCAL=$(awk -F: '/^'"${1}"='/ { st = index($0,"=");print substr($0,st+1);exit}' ${J_CONF})
+  LOCAL=$(awk -F: '/^'"${K1}"='/ { st = index($0,"=");print substr($0,st+1);exit}' ${J_CONF})
   if [ -z "${LOCAL}" ]
   then
-    awk -F: '/^global.'"${1}"='/ { st = index($0,"=");print substr($0,st+1);exit}' ${J_CONF}
+    awk -F: '/^global\.'"${K1}"='/ { st = index($0,"=");print substr($0,st+1);exit}' ${J_CONF}
     return
   else
-    echo ${LOCAL}
+    printf '%s\n' "${LOCAL}"
   fi
   return
 }
