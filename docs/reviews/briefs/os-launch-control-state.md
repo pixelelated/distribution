@@ -273,8 +273,13 @@ own slice): the interface's launch path (T2: `FileData::getlaunchCommand`
 builds `runemu.sh`'s argument line from the systems table's template,
 `FileData::launchGame` runs it, `ViewController` launches, and
 `LaunchCommand.h` only reads the finished line's `-P`, `--core=` and
-`--emulator=` tokens the way `runemu.sh` does; version 2 said
-`LaunchCommand.h` builds the line, corrected 2026-10-23 from T2's seam map;
+`--emulator=` tokens, as whole shell words with the last one winning,
+where `runemu.sh` reads `${ARGUMENTS##*-P}`, the last occurrence of the
+letters anywhere in the line: the two readings differ by design note (the
+header of `LaunchCommand.h`, lines 9 to 23: the launcher's side is the
+launcher's to change, this slice's F-07 #730); version 2 said
+`LaunchCommand.h` builds the line, corrected 2026-10-23 from T2's seam map
+and its stranger's proof;
 `ApiSystem` calls this package's scripts by name, T21); `es_systems.cfg`
 and its generator `projects/ROCKNIX/packages/virtual/emulators`
 (`mk_es_systems`, T3); the autostart runner and the systemd units, power and
