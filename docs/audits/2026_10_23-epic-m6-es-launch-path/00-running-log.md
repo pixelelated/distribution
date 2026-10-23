@@ -430,3 +430,27 @@ Nothing on this list runs before the coordinator relays M7's `resource return` o
   - `launchStartupGame` refreshes the command and logs each change. `es-unit-tests` 220 passed; syntax-only compile `PASS`. ES `ede4ae1d6`. Option (b)'s row is in 04 § Q7.
 - The walks W-16 to W-21 are in 02.
 - **S5 ends at ES `ede4ae1d6`.**
+
+### [Stage F, host-free part] 21:49-21:52 — under the M7 window: no compile, no guest
+
+- **The coordinator's answers (#649 21:39).** PL-024's spelling is renamed in every catalogue. PL-010's password half is withdrawn as not applicable, the reading its artifact. Stage F's host-free parts now; the compile and the guest wait for "resource return".
+- **PL-024's spelling**, ES `a1cbc0ccd`. The source's `_("UKNOWN ERROR")` and the same `msgid` in **35** catalogues are renamed, each `msgstr` kept, along with `en_GB`'s `msgstr` and the `.pot` template: 37 lines.
+  - **A correction, mine:** I wrote "36 catalogues" and "35 other catalogues besides French" on #649. There are 35 catalogues in all (French and 34 others). The 36 was a line count that included `en_GB`'s `msgstr`.
+  - `es-untranslated` before (21:49:45): 705 fork strings, 0 without; after (21:49:56): 706, 0 without. `vocabulary-check` 0 wrong. `git grep UKNOWN`: none.
+  - **The syntax-only compile of `FileData.cpp` is owed until resource return.**
+- **The Phase 7 outcomes.**
+  - PL-024 is Resolved. PL-028 is resolved by its row in 04 § Q6 (both upstreams still declare `isSaveStateInfoTemporary`: `git grep -c -w` 2 at HEAD, `batocera/master` and `rocknix/master`), with a line on #585.
+  - PL-029 is Deferred to #684 (rule 2). PL-033 is Deferred to #791 (rule 1; `d17cf003e` was picked). PL-010's password half is withdrawn.
+  - Still Open: **PL-032**, waiting for the coordinator's Backlog issue, and **PL-035**'s `ProxyCards` comments, which no stream owns.
+- `tools/lint-audit-artifacts <folder> --issue 790` (resolution phase, 21:51:20): **2 contract failures**, exactly PL-032 and PL-035 ("outcome is not one of Resolved/Deferred/Withdrawn").
+- `box-check`: **0 fail** on #790 and on each of the 25 open issues citing #649 (#699, #767 to #789, #792). The open checkboxes are the walks' criteria (owed at the image), #779's and #786's criterion 2, and #790's lines that wait on those.
+- **The four host checks without a compiler, at ES `a1cbc0ccd` (21:51:47):**
+  - `tests/credential-quoting.py`: 9 quoted, 0 bare.
+  - `es-menu-map-check`: 55 screens, 0 missing.
+  - `es-untranslated`: 706, 0 without.
+  - `vocabulary-check`: 0 wrong.
+- The walks list in 02: **21** fix walks (`proved: fix-walk-pending-image`) beside the 10 guest proofs (`proved: pin-binary`).
+- **Owed at resource return:**
+  - `es-unit-tests`, `tests/app-unit`'s targets, and the python harnesses (they compile with `g++`).
+  - The syntax recipe over every `.cpp` the branch touched; `a1cbc0ccd`'s `FileData.cpp` is the one not yet compiled.
+  - The guest, if anything still needs it.
