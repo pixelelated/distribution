@@ -22,7 +22,7 @@
           "brief": "gpt-brief.md"
         }
       ],
-      "status": "in flight: probe passed 2026-10-23 19:06 UTC (served openai/gpt-6-astra by OpenAI, provider_response); refutation pass started 19:07 UTC under tools/watch-build --record-only",
+      "status": "complete: probe and refutation ran; served openai/gpt-6-astra by OpenAI (provider_response); refutation output sha256 4929f876acc19700ae4b3bb9158744b87640004452b31470868c05af43d3bad5; graded in 04-analysis.md section Second opinion (2026-10-23)",
       "probes": [
         {
           "phase": "probe",
@@ -43,7 +43,7 @@
           "brief": "gemini-argon-brief.md: the same packet as gpt-brief.md with its own reviewer line, prepared independently (brief section 1: each reviewer's refutation pass alone, neither sees the other's output)"
         }
       ],
-      "status": "in flight: probe passed 2026-10-23 19:06 UTC (served google/gemini-4-argon by Google, provider_response); refutation pass started 19:07 UTC under tools/watch-build --record-only",
+      "status": "complete: probe and refutation ran; served google/gemini-4-argon by Google (provider_response); refutation output sha256 9c89f7c6ea305b25669c27f0d0474481a318ff259133e516225cac109ef0d812; graded in 04-analysis.md section Second opinion (2026-10-23)",
       "probes": [
         {
           "phase": "probe",

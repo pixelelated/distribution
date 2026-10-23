@@ -91,7 +91,7 @@ Unit cases for `formatCommandLineArgument` (FD-2) and `getContentFiles`/`deleteG
 ## Coverage Boundary
 
 **Examined:** the twenty paths by reading, and the context reads named in `02-forward-audit.md` § Coverage Boundary.
-**Exercised on the guest:** the ten proofs G-1 to G-10 (the pin's binary). **Compiled:** the unit tests, `tests/app-unit` under ASan/UBSan, the three harnesses. **Not exercised:** a netplay join, a real sync under a gate (a named substitute was used), thread interleavings (no ThreadSanitizer), a DELETE after the order is fixed.
+**Exercised on the guest:** the ten proofs G-1 to G-10 (the pin's binary). **Compiled:** the unit tests, `tests/app-unit` under ASan/UBSan, the three harnesses. **Second reading's limits:** both seats saw only the excerpts (`second-opinions/*-brief.md`); the rest stands on this lane's reading. **Not exercised:** a netplay join, a real sync under a gate (a named substitute was used), thread interleavings (no ThreadSanitizer), a DELETE after the order is fixed.
 
 ## Finding Verification (Phase 4.5)
 
@@ -611,7 +611,88 @@ None; the retro is at stage G.
 
 ## Second opinion (Phase 4.6)
 
-**Pending: the host's return.** Depth Extended: GPT-6 Astra (`--member gpt`, `max`) and Gemini 4 Argon (`--member gemini-argon`, `high`), a refutation pass each, through `tools/council/run` only. The runner needs `npm install --prefix tools/council`, a runtime the M7 handoff holds (brief § 1, § 5). The briefs and `review-plan.json` are prepared before the call. Probes, calls, grading and the net-effect line are written here when they run. Phase 5 follows them.
+**Primary:** Claude Code, `anthropic/claude-opus-5-5`, Anthropic; identity source: the dispatch on #649 (2026-10-23T17:21:03Z) and the session's model metadata.
+**Depth:** extended. **Perspectives:** 3 including the primary. **External reviewers:** 2, each from a different lab (OpenAI, Google). **Calls:** one refutation pass each (epic tier), each preceded by a probe.
+
+**Run:** `tools/watch-build --record-only -- tools/council/run invoke --member <m> --provider openrouter --prompt-file <abs>/second-opinions/<m>-brief.md --output <abs>/second-opinions/<m>-audit.md --per-attempt-timeout-ms 1800000 --total-timeout-ms 3600000`. The key comes from `~/.config/council/env`, sourced by the runner. The two calls ran one after the other (one watched run per worktree; Argon's first start was refused before any provider call, 19:07:05).
+
+**Identity** (each Facilitator receipt, `council-facilitator@1.14.1-pixelelated.2`):
+
+| Seat | Probe | Refutation pass | Observed model / provider | Effort | Output sha256 |
+| --- | --- | --- | --- | --- | --- |
+| `gpt` | 19:06:24, rc 0, `provider_response` PASS | 19:07:00-19:26:32, rc 0, 1,171,305 ms, 0 retries, 37,984 reasoning tokens, brief sha256 `d1224767ab90...` | `openai/gpt-6-astra` / OpenAI (PASS) | max, PASS | `4929f876acc19700ae4b3bb9158744b87640004452b31470868c05af43d3bad5` |
+| `gemini-argon` | 19:06:37, rc 0, `provider_response` PASS | 19:26:4x-19:40:3x, rc 0, 825,007 ms, 1 retry, 38,024 reasoning tokens, brief sha256 `f74ef056b128...` | `google/gemini-4-argon` / Google (PASS) | high, PASS | `9c89f7c6ea305b25669c27f0d0474481a318ff259133e516225cac109ef0d812` |
+
+Every seat item is a lead. Each grade below rests on the orchestrator's own read of the pin (`git show $PIN:<path>`) or on a guest artifact, never on the packet.
+
+### Astra's items, graded against the artifacts
+
+| Seat item | Orchestrator's grade | Evidence |
+| --- | --- | --- |
+| SS-1 should be High: `$(...)`/backtick in a state file name executes a command | **agree, re-graded Medium → High** (Argon's dissent below) | `SaveState.cpp:77,97,111` double quotes; G-6 shows the shell expanding inside them on the shipped path; ES runs commands through `/bin/sh` (`FileData.cpp:1100-1103`) as root on the image |
+| SD-2 Medium; `rfind("windows")` is case-sensitive | **agree, narrowed** (lowercase only; `Windows 95 era` is not matched) | `SystemData.cpp:631` |
+| FD-14: the containment seam is still live through the metadata loop and a failed unlink; `.ccd` builds names without opening | **agree, re-graded Low → Medium** | `FileData.cpp:1487-1494` removes every existing `MD_PATH` file wherever it points; `:1503` is unchecked; `:1424-1430` builds `.ccd` siblings without reading the file |
+| VC-1 Low; keep the timing to `POST /launch`; return 800/600/10 ms | **agree, narrowed** | `ViewController.cpp:626,647,666`; G-8 used the API |
+| FD-8 should be Medium | **disagree, kept Low**: reachable only through the loopback API's reload during a wait; the fix is in the item | `main.cpp:818`; G-search of the rescan posts (`FileData.cpp:1223`, `GuiCloudTransfer.cpp:335`) |
+| SD-3 should be Medium | **agree, re-graded Low → Medium** (Argon concurs with G-04 folded in) | G-5; `SystemData.cpp:1039-1050` |
+| SD-4/FD-15 should be Medium | **agree, re-graded Low → Medium** | G-9 (status 134), control 27 |
+| MN-3 Medium, limited to the stale replay | **agree, re-graded Low → Medium** (Argon concurs) | `main.cpp:529-540`; `FileData.cpp:703-714` bakes the state arguments |
+| SB-2: the exact spin is unproved; the unbounded retry stands | **agree, narrowed** | `SaveStateBookkeeper.cpp:159-173` |
+| FD-18 Low, a real race | **confirmed** | `FileData.cpp:83,1094,1111`; `ProxyCards.cpp:269,410,416` |
+| LC-1 reachable with a quoted custom template | **agree, narrowed** | `LaunchCommand.h:39-41` copies the word's bytes |
+| FD-2/FD-3 Medium as conditional command execution | **agree, re-graded Low → Medium** (a benign custom template plus a scraped name is enough) | `FileData.cpp:528-534,624-630` |
+| FD-9/FD-19 Medium on their optional path | **agree** for T33's lead (not this slice's fix) | `Scripting.cpp:88-113` |
+| G-01 save-state pointer protected too late (dialogs before `rememberSaveState`) | **confirmed, Low, folded into FD-8's item** (Argon G-06 the same) | `ViewController.cpp:500,520`; `FileData.cpp:939` |
+| G-02 a completed capture loses its exit sync when the retried launch is refused | **confirmed, Low** (the saves stay local and go up at the next game's exit sync) | `FileData.cpp:921-923`, `:1295`, `:1303`; Argon G-01 the same |
+| G-03 the rescan misses changes inside subfolders | **confirmed, Low** (documented limitation at `SystemData.cpp:356-357`; Argon G-03 adds the missing multi-disk filter) | `SystemData.cpp:385-387,434` |
+| G-04 deletion proceeds without the retirement record | **disagree, withdrawn**: decided by D-CLOUD-133 (the worker unlinks what the script left; the player asked) | `SaveStateBookkeeper.h:13-21`; `docs/decision-register.md` D-CLOUD-133 |
+| G-05 fallback NEW GAME strands the auto save in `.bak` | **confirmed, Low** (the `racommands` fallback only, SS-2's path) | `SaveState.cpp:81-83,114-133,166-169` |
+| G-06 a later placeholder rewrites inserted data | **confirmed, Low, folded into FD-2's item** (Argon G-02 the same) | `FileData.cpp:622-648` |
+| G-07 forced-option detection by substring | **confirmed, Low, folded into FD-2's item** (FD-5 had it as inert on the shipped command) | `FileData.cpp:611-615` |
+| G-08 an explicitly empty option reads as absent | **confirmed, Low, folded into LC-1** | `LaunchCommand.h:53-54` |
+| G-09 PLAY NOW permission is global | **confirmed, Low** | `FileData.cpp:938`, `:1038` |
+| G-10 the top-up card's screen check expires before the post runs | **confirmed, Low** | `ProxyCards.cpp:253-262` |
+| G-11 the 3-second card wait is not a bound | **agree, narrowed into G-10's item**: unbounded only if the interface thread stalls after claiming, when everything stalls | `ProxyCards.cpp:263-264` |
+| G-12 `executeScript`'s quote test | **confirmed, a lead for T33** (Argon G-10 the same) | `Scripting.cpp:104-105` |
+| G-13 play time includes the return processing | **confirmed, Low** | `FileData.cpp:1088`, `:1199-1203` |
+
+### Argon's items, graded against the artifacts
+
+| Seat item | Orchestrator's grade | Evidence |
+| --- | --- | --- |
+| SS-1 Medium, not High (a single-user handheld) | **disagree, kept at High** (Astra's grade): a ROM name from a downloaded set runs as a root command, and that is a security defect whoever owns the device | as above; G-6 |
+| SD-2: the intent is to skip subfolders of the `ports`/`windows` systems | **agree, narrowed**: the fix compares the system name for those two | `SystemData.cpp:619-632` |
+| FD-14 back to Medium (the metadata loop; broken multi-disc delete) | **agree, re-graded Low → Medium** | as Astra's row |
+| VC-1 Low | **agree** | G-8 |
+| FD-8 Low | **agree** | |
+| SD-3 Medium with G-04 | **agree, re-graded** | G-5 |
+| SD-4 Medium (a possible boot loop when it is the start system with the list) | **agree, re-graded** | G-9 |
+| MN-3 Medium (baked `-state_slot -1`, stale core; p2k and rotation skipped) | **agree, re-graded**; G-08 folded in | `main.cpp:527-572`; `SaveState.cpp:74-75` |
+| SB-2 Low | **agree** | |
+| FD-18 Low | **confirmed** | |
+| FD-1 narrow: the MITM session is dropped too | **agree** (it was in FD-1) | `FileData.cpp:667-678` |
+| G-01 the capture's exit sync lost on a refused retry | **confirmed, Low** (same as Astra's G-02) | `FileData.cpp:897-924`, `:1295-1307` |
+| G-02 a later placeholder rewrites the ROM path | **confirmed, Low, folded into FD-2's item** | `FileData.cpp:622-648` |
+| G-03 the rescan: same-second changes missed; no multi-disk filter | **confirmed, Low, folded with Astra's G-03** | `SystemData.cpp:385-387,434` (no `removeMultiDiskContent` in the rescan) |
+| G-04 overlay order and child-element tags deleted | **confirmed, Low, folded into SD-3's item** | `SystemData.cpp:1026-1029`, `:1081-1084` |
+| G-05 `onShow` not called after a refusal; `windows_installers` leaves input locked | **agree, narrowed**: the refusal arm lacks `onShow`. The `windows_installers` arm reloads the whole `ViewController` (`:622`), so its lock goes with it. Low, folded into VC-1's item | `ViewController.cpp:478`, `:615-668` |
+| G-06 `saveStateInfo` dangling in the dialogs; `mCurrentView` dereferenced unchecked | **confirmed, Low, folded into FD-8's item** | `ViewController.cpp:577-579` |
+| G-07 `.cue` `FILE` lines not trimmed; `\` not normalised | **agree, narrowed**: `FILE` is top-level in a standard cue sheet, but a UTF-8 BOM or leading space on its line defeats `startsWith`. Low, folded into FD-14's item (the same function) | `FileData.cpp:1411-1419` |
+| G-08 the boot game skips `convertP2kFile` and the rotation record | **confirmed, folded into MN-3** | `main.cpp:527-572` |
+| G-09 `attach` blocks 3 s while a game holds the screen | **disagree, withdrawn**: by design and bounded (`ProxyCards.cpp:240-243`: the run goes on without a card) | `:263` |
+| G-10 `executeScript` quote test; `break` drops `arg3` | **confirmed, a lead for T33** | `Scripting.cpp:100-106` |
+| G-11 `populateFolder` leaks a folder already in the map | **confirmed, Low** (upstream lines) | `SystemData.cpp:642-647` |
+| G-12 the lock flag cleared before the lock | **confirmed, Low**: the window is in the safe direction (a DELETE refused for a moment) | `SaveStateBookkeeper.cpp:146-147` |
+| G-13 `/tmp/game.xml` removed on every build; the host's `--port ''` when unset | **agree, narrowed**: the removal is harmless. The port has a shipped default (`system.cfg:74`, `55435`), so it needs a cleared setting. Low, folded into FD-1's item | `FileData.cpp:644`, `:691` |
+
+**Net effect:**
+- **Re-graded:** SS-1 to High; FD-14, SD-3, SD-4, MN-3 and FD-2/FD-3 to Medium; LC-1, SB-2, SD-2 and VC-1 narrowed.
+- **New items:** five, from the seats' findings. The capture's exit sync on a refused retry, the rescan's limits, the fallback NEW GAME `.bak`, the global PLAY NOW, and the play-time measure come from Astra; the `populateFolder` leak from Argon. The top-up card's re-check is folded with its sibling.
+- **Folded into existing items:** ten seat items.
+- **Withdrawn, with their artifact:** two (Astra G-04 by D-CLOUD-133; Argon G-09 by design).
+- **Disagreements recorded:** two (FD-8 kept Low against Astra; SS-1 kept High against Argon).
+- **Leads for other slices:** the `Scripting` quoting (T33/T21).
+- **What both said they could not judge from the packet:** the unexcerpted ranges, the launcher's reading, the notification teardown, the `FolderMerge` ownership, and the startup sync against a boot game's saves. This is carried into § Coverage Boundary: those claims rest on this lane's own reading and guest proofs, not on the second reading.
 
 ## Quality Self-Check
 

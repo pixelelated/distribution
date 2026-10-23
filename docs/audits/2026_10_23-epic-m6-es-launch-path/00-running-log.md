@@ -169,3 +169,11 @@ Nothing on this list runs before the coordinator relays M7's `resource return` o
 - **Probe gemini-argon** 19:06:37: rc 0. Observed **`google/gemini-4-argon`**, provider **Google** (PASS), `provider_response`, effort `high` PASS (186 tokens). Reply `READY Gemini 4 Argon`.
 - **Refutation passes in flight** since 19:07: `tools/watch-build --record-only -- tools/council/run invoke --member <m> --provider openrouter --prompt-file <abs>/<m>-brief.md --output <abs>/<m>-audit.md --per-attempt-timeout-ms 1800000 --total-timeout-ms 3600000`, one per seat. What watches them: the watched runner's record (`.build-runs/<id>/`), plus a harness background waiter per call (tasks `beqefbent` and `bl0p0w30z`) that delivers the result to this session when each command exits. If the session is reaped, the waiters say nothing, and the run's `build.rc` is the record to read.
 - 19:07:05 the Argon call was **refused before any provider call**: `watch-build: another monitored build owns this worktree` (rc 2; `second-opinions/gemini-argon-audit.refused-19-07.run.log`). One monitored run per worktree, so the two refutation passes run one after the other: Argon starts when Astra's `build.rc` exists. Nothing was spent.
+
+### [Phase 4.6] 19:26-19:4x — Both refutation passes complete and graded
+
+- gpt: 19:07:00-19:26:32, rc 0, `openai/gpt-6-astra` by OpenAI, effort max PASS, 0 retries, output sha256 `4929f876...3bad5`.
+- gemini-argon: rc 0, `google/gemini-4-argon` by Google, effort high PASS, 1 retry, 825,007 ms, output sha256 `9c89f7c6...d812`.
+- Each item was graded against the pin and the guest artifacts in `04-analysis.md` § Second opinion. Re-graded: SS-1 to High; FD-14, SD-3, SD-4, MN-3 and FD-2/FD-3 to Medium. Two seat items withdrawn with their artifacts (Astra G-04 by D-CLOUD-133; Argon G-09 by design). Two disagreements recorded (FD-8 kept Low; SS-1 kept High).
+- FD-12 withdrawn as an item: the tree is split, 14 toasts with two spaces after the glyph and 12 with one (`git grep -h 'displayNotificationMessage(_U(' $PIN -- es-app/src`). That is the style guide's inconsistency to settle, not this site's.
+- Phase 5 (the punch list and the issues) is next.
