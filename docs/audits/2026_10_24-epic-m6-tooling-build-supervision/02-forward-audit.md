@@ -93,6 +93,7 @@ Read only, at 15:45:41 UTC; nothing written under any M7 path (`.qa-scratch/t9/r
 | P15 | S4 (#916): `test-watch-job.py` passes at the fix (36/0) with four new cases, each of which fails alone against the unfixed tool | `.qa-scratch/t9/s4-watch-job-fixed.log`, `.qa-scratch/t9/positives/watch-job-unfixed/`; `4a22ed0b41` | proved: fix-control |
 | P16 | S3 (#915): under the pinned image's 3.10.12, the fixed tools hash a 3 MiB and a 6-byte fixture equal to `sha256sum` and to 3.14.4 while the unfixed raise `AttributeError`; `test-build-admission`'s two new cases pass at the fix (70 checks) and fail against the unfixed tools | `.qa-scratch/t9/s3/`; `6a25254359` | proved: fix-control |
 | P17 | S5 (#917, #918): `test-build-monitor` passes at the fix (41/0); its five new cases fail against the unfixed runner (four FAIL lines, the console case hung to its 30 s timeout) and its lock control, with a fresh admission, fails against a runner without its lock | `.qa-scratch/t9/s5-monitor-fixed.log`, `.qa-scratch/t9/positives/s5/`; `dce53bf0ba`, `d1a1495bc5` | proved: fix-control |
+| P18 | S6 (#919, #921, #920): six cases pass at the fix (`test-build-admission` 73 checks, `test-retention-report` 23) and each fails against the unfixed tools; the record's 665 `admission.json` rows equal their registry rows, and their 665 receipts equal those rows | `.qa-scratch/t9/positives/s6/`, `.qa-scratch/t9/s6-record-rows.txt`; `e03fc7982d`, `e8828c13ad`, `82840dbc42` | proved: fix-control |
 
 ## Findings (stage B)
 
@@ -201,3 +202,16 @@ P16 in the table above. A refusal in `admit` is rc 125 and is recorded in the ru
 | the lock control (fresh admission) | passes (the lock is intact there) | passes | a runner without its `flock`: `got 2` runs |
 
 The lock is the command's inherited flock descriptor. It was chosen over a refusal by `command.pid` liveness, which would need a start-identity check against PID reuse (`00` § S5). P17 in the table above.
+
+### S6 (#919, #921, #920; PL-12, PL-16, PL-14)
+
+| Case | Unfixed | At the fix |
+| --- | --- | --- |
+| two clones, one state directory, 1.5 MiB free (#919) | B's `prepare` succeeds: each clone's `.git` holds its own registry | B refused `insufficient space after existing reservations`; the same `prepare` in another state directory succeeds |
+| an `admission.json` with another exited `runner_pid` (#921) | consumed | refused `registry admission identity differs`; no receipt |
+| a registry commit that fails once (#921) | the retry fails: the receipt was written first (`FileExistsError`) | the retry reaches `consumed`; the receipt equals the row |
+| the report's observation start (#920) | absent | `observation_start` ≤ `utc`; the admission window runs from it |
+| a candidate off the volume (#920) | 200,704 bytes counted against `/dev/shm` | 0 |
+| a plan edited during the scan (#920) | the edited file's hash is bound | the hash of the bytes read; it no longer matches the file |
+
+The registry is the filesystem's, in the user's state directory (`00` § S6 says why). The controls are isolated by a per-fixture `XDG_STATE_HOME`. A retention report made before `82840dbc42` is refused, by the tool hash and by the missing `observation_start`. P18 in the table above.

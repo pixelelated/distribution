@@ -289,3 +289,43 @@ PROOF: 17:13 P16 S3: under the pinned 3.10.12 the fixed tools' hashes equal sha2
 - **Left for the coordinator (S3's note):** an admission refusal is still logged as `command launch/output failed: <reason>`, rc 125, and says nothing on stderr but the recording line. This stream's brief did not name it, and it is unchanged.
 
 PROOF: 17:34 P17 S5: test-build-monitor passes at the fix (41/0); its five new cases fail against the unfixed runner and its lock control fails against a runner without its lock -- `.qa-scratch/t9/s5-monitor-fixed.log`, `.qa-scratch/t9/positives/s5/`
+
+### S6 (#919, #921, #920; PL-12, PL-16, PL-14; D-INFRA-029), 17:35 to 17:50
+
+- **The registry's place, chosen:** `${XDG_STATE_HOME:-~/.local/state}/pixelelated/build-admission/<dev>-<fsid>/`, keyed by the measured volume's `st_dev` and `f_fsid`.
+  - **Why the state directory and not the volume:** a registry on the volume would have to sit at the filesystem's mount root, or two plans naming two paths on one filesystem would get two registries again. The user may not be able to write a mount root, and a fixture under `/tmp` would point at `/tmp` or `/`.
+  - **What the state directory gives:** it is the user's own, at mode 0700, as `registry()` already demands (owner == uid). It is in no clone's `.git`, and it takes no write on the volume.
+  - **What it costs:** another user on the same volume keeps a separate registry, and a device renumbered by a reboot starts a new one. Both are written in `build-admission.md`.
+- **Test isolation.** The registry moving out of each fixture's `.git` would have put every control's in-process `prepare` into the real `~/.local/state`, and its subprocesses' registries under their `HOME`.
+  - `admission-test-fixture.py` binds each loaded module's `state_home` to `<fixture root>/.admission-state`.
+  - The five controls pass that directory to their subprocesses as `XDG_STATE_HOME`: `test-build-admission`, `test-build-monitor`, `test-progress.py`, the 2026-10-04 `test-watch-build.py`, and `test-submit.py`. The last three are S1's files, changed by one line each.
+  - `~/.local/state/pixelelated` does not exist after every run.
+  - A shared per-run registry was rejected: `test-build-admission`'s injected 10^18 reservation would refuse every later fixture.
+- **The cases and their unfixed runs** (`.qa-scratch/t9/positives/s6/`):
+  - **#919, two clones in one state directory, `statvfs` faked to 1.5 MiB free:** at the fix, clone B's `prepare` is refused `insufficient space after existing reservations` by clone A's unconsumed 1 MiB, and the same `prepare` in another state directory succeeds. Against the unfixed tools it fails on its own label (`919-unfixed.log`), because each clone's registry is its own `.git`'s.
+  - **#921, an `admission.json` whose `runner_pid` is a different exited PID:** refused `registry admission identity differs`, with no receipt written.
+  - **#921, a registry commit that fails once (an injected `OSError` on `jobs.json`):** the retry reaches `consumed`, and the receipt equals the registry row. Against the unfixed `consume` (an export of `e03fc7982d`), both #921 cases fail (`921-unfixed.log`).
+  - **#920, three cases, each run alone against the unfixed report** (`920-case1..3-unfixed.log`):
+    - no `observation_start` (`AssertionError: None`);
+    - a plan whose `volume` is `/dev/shm` counts 200,704 bytes of a candidate on `/tmp`;
+    - a plan edited during the scan (a shim edits the plan on the first `statvfs`, with `docker` stubbed to empty): the unfixed report binds the edited file's hash, `903c045c…`.
+- **The fixes:**
+  - **`e03fc7982d` (#919):** `registry_for(volume)`; recovery checks the registry against the row's `volume`.
+  - **`e8828c13ad` (#921):** the whole row is compared, and the registry is committed before the receipt, with a retry reconciling the receipt.
+  - **`82840dbc42` (#920):** the plan's bytes are read once and hashed; `observation_start` is stamped, and the admission window runs from it; reclaim counts only candidates on the volume. The fixture report carries `observation_start`.
+- **At the fix** (`82840dbc42`):
+  - `test-build-admission`: rc 0, 73 checks.
+  - `test-retention-report`: rc 0, 23 controls.
+  - `test-build-monitor`: 41 PASS.
+  - `test-progress.py`: 13 PASS.
+  - `test-watch-build.py`: 35 PASS.
+  - `test-submit.py`: rc 0.
+- **Already written, read from the record** (read only; counts printed only; `.qa-scratch/t9/s6-record-rows.txt`): the 46 stage-B run directories hold 665 `admission.json` rows, one more than stage B's 664, in one registry, M7's `/workspace/repos/rocknix/.git/pixelelated-build-admission/`.
+  - All 665 equal their registry row (state aside), and all 665 have a consumed receipt equal to that row.
+  - So the fixed `consume` reads every recorded run unchanged: it opens `row['registry']`, the stored path, which is the old registry for those runs.
+  - New admissions use the new registry. M7's stays the record of its reservations, as D-INFRA-029 says.
+- **A departure:** the stream says earlier retention reports "stay valid for their 900 s". They do not: a report without `observation_start` is refused by the fixed admission. It is refused in any case, because a report binds `retention-report`'s hash, and that changed in `82840dbc42`. A report prepared before this commit must be remade.
+- **A slip of mine:** to stop my slow record glob, I ran `kill $(pgrep -f 's6-record-rows.py')`. The pattern also matched the shell issuing it, which died (exit 144). This broke the rule to kill by PID, never by pattern (`engineering-practices.md`, blindspot: self-matching pattern). The glob's task ended, `failed`. Afterwards, nothing with that name was running (`ps` read by a fixed string), and the background control run was unaffected; it completed rc 0. The count was rerun from the stage-B list.
+- **Q7, the docs against the diff:** `build-admission.md` (where the registry lives and why; consume's whole-row check and commit order; the window from `observation_start`) and `retention-report.md` (plan bytes, `observation_start`, reclaim on the volume), each re-read against `e03fc7982d..82840dbc42`. `git grep` for the old location outside `docs/audits` and `docs/work-logs` finds only historical QA records and my own sentence naming the earlier registry.
+
+PROOF: 17:50 P18 S6: the six cases pass at the fix and each fails against the unfixed tools; the record's 665 rows equal their registry rows and receipts -- `.qa-scratch/t9/positives/s6/`, `.qa-scratch/t9/s6-*.log`, `.qa-scratch/t9/s6-record-rows.txt`
