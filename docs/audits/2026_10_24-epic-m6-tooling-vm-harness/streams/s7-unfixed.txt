@@ -1,0 +1,6 @@
+FAIL exit-only-unknown: rc 0, stdout tail ['PASSED'], guest calls 17 (want rc 2 naming X, no guest call)
+FAIL exit-only-d-alone: rc 0, stdout tail ['PASSED'] (want rc 2: D runs only beside a launch)
+FAIL act-begin-unwritable: rc 0, the act reached the fixture 1 time(s), ssh calls 3 (want non-zero and no call at all)
+FAIL act-end-fails: rc 0, "recorded nothing" said False (want non-zero and that sentence)
+FAIL act-masked: rc 0, key=*** in the log False, stand-in in the log True (want the mask and the value absent)
+0 PASS; 5 FAIL

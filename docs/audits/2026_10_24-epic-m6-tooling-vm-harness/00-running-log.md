@@ -334,3 +334,26 @@ PROOF: 21:34 S5 fix-case: two-checkouts-two-states, runtime-recorded, port-held-
 - **Still open for the cycle:** `--quick` on guest a once. Every row must be measured or the run fails, and the exit sync's stamp must complete.
 - **Already written:** the record's `time-to-play.md` files and `docs/vm-qa-log.md` stand as history. The cycle's rows are re-read in `02` and marked (*would fail under D-QA-062*) where they would. No budget changes; nothing on a device.
 PROOF: 21:42 S6 fix-case: repeat-zero, only-empty-cells, sync-stamp-failed, g2g-no-stamp, cell-ran-unmeasured and scaled-none fail at facb2ae523 (0 PASS, 6 FAIL) and pass at a09bfc5718 (6 PASS, 0 FAIL) -- `streams/s6-unfixed.txt`, `streams/s6-fixed.txt`
+
+## [Stage E] S7: emulator-exit-test and device-act refuse what they cannot prove (#968, #978)
+
+- **The fixes:**
+  - `00b8760457` (#968): `--only` takes only letters from A to D; anything else exits 2, naming it, before any guest call.
+    - **The lane's choice on D:** `--only D` alone exits 2. D checks what a launch left behind, so it runs only beside A, B or C. The header, which `--help` prints, says so.
+  - `c1569b7bc6` (#978):
+    - The record must take a write before anything, the boot-id probe included, else exit 2. A BEGIN that cannot be written refuses the same way.
+    - A failed END fails the run and says "recorded nothing".
+    - The command and label are logged through the mask from `engineering-practices.md` (`key=***`). `%q` still keeps the line one line, and the mask is left unescaped.
+    - A timeout says what `DEVICE_ACT_TIMEOUT` bounds.
+- **The positives:** 0 PASS, 5 FAIL against `facb2ae523` (`streams/s7-unfixed.txt`).
+  - `exit-only-unknown`: PASSED, rc 0, after 17 guest calls. P9 is its guest form.
+  - `exit-only-d-alone`: PASSED, rc 0.
+  - `act-begin-unwritable`: the act reached the fixture, rc 0.
+  - `act-end-fails`: rc 0, with no word of the failed END.
+  - `act-masked`: the stand-in value is in the log.
+- **After the fixes:** 5 PASS, 0 FAIL (`streams/s7-fixed.txt`).
+  - **The one target:** the fixture `ssh` on `PATH`; nothing reached a device (D-QA-015).
+  - **A first-run failure:** `act-masked` first failed on the fix because `%q` escaped the mask to `key=\*\*\*`. The value was absent even then. `logq` now unescapes the mask.
+- **Still open for the cycle:** `emulator-exit-test --only A` on guest a.
+- **Already written:** `/workspace/artifacts/rocknix-device-actions.log` holds every past act's full command. The coordinator reads it through the dropping filter at integration. Nothing on a device.
+PROOF: 21:45 S7 fix-case: exit-only-unknown, exit-only-d-alone, act-begin-unwritable, act-end-fails and act-masked fail at facb2ae523 (0 PASS, 5 FAIL) and pass at c1569b7bc6 (5 PASS, 0 FAIL) -- `streams/s7-unfixed.txt`, `streams/s7-fixed.txt`
