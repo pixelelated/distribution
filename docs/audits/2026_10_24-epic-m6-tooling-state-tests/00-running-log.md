@@ -355,3 +355,34 @@ PROOF: P15 S5's follow-up -- `docs/qa-logs/2026-10-24-state-tests-s5/backup-cont
   - `nova-led-test` already uses a `TemporaryDirectory` context and leaves nothing.
 PROOF: P16 S7's control -- `docs/qa-logs/2026-10-24-state-tests-s7/wrapper-cases.sh` PASS (the wrong-site mutation, the leftover `t.c`, exit 1 without gcc and the killed run's scratch, all at stage D; per-site FAIL, nothing left, exit 2 naming gcc, the scratch removed when killed, and the usage line, fixed).
 PROOF: P17 S6's cleanup follow-up -- `docs/qa-logs/2026-10-24-state-tests-s6/info-cleanup-case.sh` PASS (a failing run leaves its scratch at `359dd435ce` and nothing at `84a2b73140`).
+
+## [Stage E] 22:27 UTC — #1009 filed after its fix; S8: the writers' busybox (#997)
+
+- **The coordinator's answer (22:22 UTC):** file the scratch leak as its own Bug, after the fact. Filed as **#1009**, whose body says it was filed after `84a2b73140` (which cites #995) and carries the code trace and its two ticked criteria. A comment on #995 points at it, and the Phase 7 table will carry both.
+- **The image's applets, read from the M7 root** `m7-pixelelated-replacement20` (BUILD_ID `1a026648442321609b2288c2c9c06803817f9df2`, its `image/system/etc/os-release`): its busybox lists 182 applets.
+  - Every one except `sh` is a `usr/bin` or `usr/sbin` link to busybox; `sh` is bash.
+  - `grep` and `sort` are real binaries from other packages, not applets.
+  - **A trap met on the way:** the root's `bin` is an absolute symlink to `/usr/bin`, so `<root>/bin/sort` resolves to the **host's** uutils `sort`. I read it once that way, and the reading was wrong; only `<root>/usr/bin` is the image's.
+- **#997, `settings-modes-test` (`929355c417`).**
+  - **Provenance:** `--busybox` is accepted under a build root's `image/system/`, with its BUILD_ID read, printed and in the receipt, or with `--busybox-from <BUILD_ID|image>`. Any other is CANNOT, exit 2. `--unverified-busybox` marks every line and exits 3, or 1 when a case failed.
+  - **Shims:** every listed applet but `sh` is shimmed, and quoted. The receipt hashes the copy that ran.
+- **#997, `melonds-upgrade-test` (`30d9339ea3`):** the same contract; the function's five commands were already shimmed and quoted.
+- **The controls,** `docs/qa-logs/2026-10-24-state-tests-s8/settings-cases.sh` and `melonds-cases.sh`, each run with a TMPDIR under the scratch.
+  - **At the stage-D tip:**
+    - the host's BusyBox 1.37.0 passes both tests as the candidate's (29/29, 15/15), and melonDS's receipt names no origin;
+    - a `settings_base` reading with `cat --squeeze-blank`, an option the image's 1.36.1 `cat` lacks, passes 29/29, because `cat` falls through to the host;
+    - a TMPDIR with a space gives 5 PASS, 24 FAIL (the unquoted wrapper; the refuse cases take the 127).
+  - **Fixed:**
+    - the host's busybox is refused, exit 2, naming the remedy;
+    - `--unverified-busybox` exits 3, with 29 of 29 and 15 of 15 lines marked;
+    - the build root's busybox passes, naming its BUILD_ID;
+    - a stand-in root's id, and a declared copy's origin, land in the receipts;
+    - the GNU-only writer fails, 13 PASS, 16 FAIL;
+    - the space passes 29/29.
+  - Both controls PASS.
+- **Two slips of mine in the settings control**, corrected before it was kept:
+  - every run's TMPDIR held a space, so stage D failed throughout, which proved nothing;
+  - the first GNU-only mutation (`rm --interactive=never` on the lock release) changed nothing the test reads, because the shell's EXIT trap removes the lock anyway. It became the `cat` in `settings_base`.
+- **For #662 (T15's), not this lane's:** `last-good-scripts-test`'s host fallback (`:381-400`) is unchanged; it is the coordinator's lead, named in the Phase 7 table.
+- **A note for any caller:** a guest run that passed `--busybox /usr/bin/busybox` (the qualification records of 2026-10-04 to 2026-10-08) now needs `--busybox-from image`. No live caller exists in `.github/workflows` or `tools/vm-qa`.
+PROOF: P18 S8's controls -- `docs/qa-logs/2026-10-24-state-tests-s8/settings-cases.sh` PASS and `melonds-cases.sh` PASS (the host busybox passed as the candidate's, a GNU-only writer passing and a spaced TMPDIR breaking, all at stage D; refusal, exit 3 with every line marked, the BUILD_ID or origin recorded, the GNU-only writer failed and the space passing, all fixed).
