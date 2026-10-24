@@ -37,7 +37,9 @@ if [ -f "$VMHT_TABLE" ]; then
     [ -n "$pat" ] || continue
     case "$cmd" in *"$pat"*)
       # @count answers how many times this row has matched: a boot id that changes.
-      if [ "$out" = @count ]; then c="$VMHT_LOG.count.$(printf '%s' "$pat" | cksum | cut -d' ' -f1)"
+      # @sh:<command> runs the command (a case that changes the world mid-run), then answers nothing.
+      if [ "${out#@sh:}" != "$out" ]; then eval "${out#@sh:}"
+      elif [ "$out" = @count ]; then c="$VMHT_LOG.count.$(printf '%s' "$pat" | cksum | cut -d' ' -f1)"
         n=$(( $(cat "$c" 2>/dev/null || echo 0) + 1 )); echo "$n" > "$c"; echo "boot-$n"
       elif [ -n "$out" ]; then printf '%b\n' "$out"; fi
       exit "$rc" ;; esac
@@ -705,6 +707,49 @@ def exit_only_d_alone(c):
     r = c.run([str(tool), '--port', '10022', '--identity', str(c.dir / 'key'), '--only', 'D'])
     return r.returncode == 2 and 'A, B or C' in r.stderr, \
         f'rc {r.returncode}, stdout tail {r.stdout.strip().splitlines()[-1:]} (want rc 2: D runs only beside a launch)'
+
+
+def act(c, cmd, log, **extra):
+    tool = c.tool('device-act')
+    return c.run([str(tool), 'fixture-device', 'a fixture act', '--', cmd], DEVICE_ACTIONS_LOG=log, **extra)
+
+
+@case
+def act_begin_unwritable(c):
+    locked = c.dir / 'locked'
+    locked.mkdir()
+    locked.chmod(0o500)
+    try:
+        r = act(c, 'echo the-act', locked / 'actions.log')
+    finally:
+        locked.chmod(0o700)
+    acts = [l for l in c.calls('') if 'the-act' in l]
+    calls = c.calls('')
+    return r.returncode != 0 and not calls and 'recorded' not in r.stdout, \
+        f'rc {r.returncode}, the act reached the fixture {len(acts)} time(s), ssh calls {len(calls)} (want non-zero and no call at all)'
+
+
+@case
+def act_end_fails(c):
+    log = c.dir / 'actions.log'
+    # The act itself takes the log's write bit away, so END cannot be written.
+    c.rows([('end-will-fail', 0, f'@sh:chmod 0400 {log}')])
+    try:
+        r = act(c, 'end-will-fail', log)
+    finally:
+        if log.exists():
+            log.chmod(0o600)
+    said = 'recorded nothing' in (r.stdout + r.stderr)
+    return r.returncode != 0 and said, f'rc {r.returncode}, "recorded nothing" said {said} (want non-zero and that sentence)'
+
+
+@case
+def act_masked(c):
+    log = c.dir / 'actions.log'
+    r = act(c, 'echo key=zzqq-standin', log)
+    text = log.read_text() if log.exists() else ''
+    return 'key=***' in text and 'zzqq-standin' not in text, \
+        f'rc {r.returncode}, key=*** in the log {"key=***" in text}, stand-in in the log {"zzqq-standin" in text} (want the mask and the value absent)'
 
 
 def main():
