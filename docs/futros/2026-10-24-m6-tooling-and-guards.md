@@ -594,3 +594,40 @@ brittleness table with four columns per tool; A4 § 1 and § 8 keep T15's file
 out of reach; A5 § 5 authorizes one guest cycle under T12's ritual only if a
 claim needs it; A6 § 7 asks the `|| true`, `assert` and host-path greps by
 name; A7 § 10 includes the host checked for a payload left behind.
+
+### Errata from the stranger's proof of T14's brief (version 2, 2026-10-24)
+
+A reader with no context reproduced the brief's claims read-only (4 API
+calls; seven of the tools run from an export): the membership, the counts,
+the table's lines and commits, the 35 commits, the registers and the host
+facts held; eight items were wrong or partial, corrected in version 2 -- and
+two of them are findings, not errata:
+
+- **`build-identity-test` fails at the hash** (exit 1, 21 passed, 2 failed):
+  its plain-text firmware stand-in is refused by the `pixelelated-state-check`
+  gate `fork-publish-release` gained at `d9f428e1a0` (2026-10-13, #565), two
+  days after the test's last change; it also needs `scripts/` beside
+  `tools/`. Version 1 listed it among the tests the coordinator re-runs
+  expecting a pass. The same class as T9's three controls: a test broken by
+  a guard added beside it, run by nobody since. A stage-D bug, found before
+  the lane began (U-1's answer, in part).
+- **`retroarch-wrapper-test` cannot run bare on this host:** its hardcoded
+  roots `rocknix.worktrees/{devices,generic-x64}` are #640's and absent; it
+  passes with a RetroArch source named, and leaves `t.c` in its temp dir
+  (`:213`). `vm-qa`'s `wrapper` suite runs it bare on every default run.
+- **Two callers were not callers:** `rasteratops-vm-cloud-epic` *sources*
+  T12's `migration-protocol.sh` (`:149`), not the reverse; `cloud-round-trip`
+  names `wait-lock-test`'s property in a docstring. By invocation, thirteen
+  tools have no caller, not eleven.
+- **Twenty `build.*` directories exist** under the M6 worktrees (three
+  entries each, no busybox in any); version 1 expected none. The writer
+  tests **require** `--busybox` and `--output`; they do not "say so when none
+  does".
+- **`rasteratops-identity-check`** is source-only with a required `--es`;
+  version 1 said "in source and an image" and ran it bare.
+- **Issue ranks:** `#356` and `#320` are also cited twice each.
+- **The `--payload-tests` mode** of `pixelelated-state-check-test` invokes
+  `fork-publish-release` and needs the squashfs and disk tools; the brief
+  now runs `--self-test` and names the condition for the other.
+- The stage-A greps' figures are now in the brief from the proof (`|| true`
+  0; `assert` in two tools; 28 host-path lines in ten files).

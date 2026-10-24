@@ -5,15 +5,13 @@ unit of handoff the plan defines (`docs/reviews/plan-for-the-plan.md` § 7);
 read that document whole before the first command, then this brief whole.
 Every section below is mandatory; a section that does not apply says so and
 why. Where this brief and the checklist on #661 differ, #661 wins and the
-coordinator corrects the brief in the same session. **Version 1
-(2026-10-24):** written after T10 (#657, the guards) was accepted at
+coordinator corrects the brief in the same session. **Version 2 (2026-10-24):** version 1 was written after T10 (#657, the guards) was accepted at
 `afdce9a65b` and while T12 (#659, the VM harness) runs in the other lane;
 the tooling area's futro (`docs/futros/2026-10-24-m6-tooling-and-guards.md`,
 posted on #903) carries this slice's kickoff addendum. Every figure below was
 produced by a command on the tree at `8ebaf8daad`, on P1's tip `2174265e9c`
 for the inventory and the ten lint fixtures that live only there, or on this
-host today, and says which; a stranger's proof precedes the dispatch and
-version 2 records what it found. **Each command block sets its own
+host today, and says which; a stranger's proof preceded the dispatch (read-only, 4 API calls, seven of the tools run from an export), and version 2 records what it found: `build-identity-test` fails at the hash (a gate added after its last change refuses its stand-in), `retroarch-wrapper-test` cannot run without a RetroArch source and leaves a file in its temp dir, two "callers" were mentions or the reverse direction (thirteen tools have no caller by invocation, not eleven), twenty `build.*` directories exist with no busybox in any, `rasteratops-identity-check` needs `--es`, and two issue numbers were missing from the ranks -- each corrected below and listed in the futro's errata. **Each command block sets its own
 variables** (`D`): a Bash call in this harness starts a fresh shell. **This
 is a read of the fork's state tests through the lens the order gives it,
 brittleness**: twenty-one test tools and eleven fixture files that prove the
@@ -105,10 +103,7 @@ a claim needs it.
   beside it; the `.identity.json` carries no digest), the one T12 booted;
   T12's cycle record (`docs/audits/2026_10_24-epic-m6-tooling-vm-harness/`
   on `feature/m6-tooling-vm-harness-659`, `00` § The guest cycle) is the
-  shape this slice follows if § 5's cycle is needed. **No build root is
-  expected on this host for this slice's busybox applets**: `settings-modes-test`
-  and `melonds-upgrade-test` take candidate applets from a build root when
-  one exists and say so when none does; the lane records which it had.
+  shape this slice follows if § 5's cycle is needed. **Twenty `build.*` directories exist under the M6 worktrees tonight, three entries each, and none holds a busybox** (`image/system/usr/bin/busybox` and `build/busybox-*/.install_pkg/usr/bin/busybox` match nothing). `settings-modes-test` and `melonds-upgrade-test` **require `--busybox` and `--output`** and refuse without them; `last-good-scripts-test:415-418` supplies `BB_HOST` from a build's `image/system/usr/bin/busybox` or leaves it empty. The lane records whether any busybox was found and, if none, either runs the two with the host's and marks the PASS as the host's (blindspot 34) or records CANNOT. **Two tools do not run bare at the hash** (the stranger's proof): `retroarch-wrapper-test` exits 2 without a RetroArch source (its hardcoded roots `rocknix.worktrees/{devices,generic-x64}` are #640's and absent; `RETROARCH_SRC` or a build root's `build/retroarch-*/gfx/video_thread_wrapper.c` makes it pass -- an M7 build root under `/workspace/repos/rocknix.worktrees/` holds one, read only), and **`build-identity-test` exits 1, 21 passed, 2 failed**: its plain-text firmware stand-in (`:132`) is refused by the `pixelelated-state-check` gate `fork-publish-release` gained at `d9f428e1a0` (2026-10-13, #565), two days after the test's last change; it also needs `scripts/` beside `tools/`. That is a stage-D bug, found before the lane started, the same class as T9's three controls.
 
 First commands:
 
@@ -123,7 +118,7 @@ git diff --stat next -- .claude CLAUDE.md AGENTS.md tools/lint-audit-artifacts  
 cat .github/sessions/saved-session-state-feature-m6-tooling-state-tests-661.md
 tail -3 /tmp/m7-m6-host-coordination-20261023.txt | cut -c1-200; pgrep -c -x qemu-system-x86   # the host file's last lines and the census, before anything
 df -i /tmp | tail -1                                                 # never export a tree under /tmp
-ls -d /workspace/repos/pixelelated/distribution.worktrees/*/build.* 2>/dev/null | head -3   # a build root for the busybox applets, if any (none expected)
+ls -d /workspace/repos/pixelelated/distribution.worktrees/*/build.* 2>/dev/null | wc -l   # twenty tonight, none with a busybox: the writer tests need one (the brief § 1)
 "$D/tools/rules-check" --quiet; echo "rc=$?"; "$D/tools/register-check" | tail -1
 git push -u origin feature/m6-tooling-state-tests-661
 ```
@@ -173,14 +168,14 @@ it* from `git grep -l -F <name> 8ebaf8daad -- tools .github/workflows
 | 783 | `tools/pixelelated-state-check-test` | `8794630e8f` 2026-10-15 | disposable #565 controls: clean and contaminated roots and payloads, no imports of the gate, providers or real accounts | nobody |
 | 724 | `tools/pixelelated-vm-cloud-boundaries` | `083f4fad86` 2026-10-08 | installed-image cloud boundaries and real pair recovery (#356/#365): **a guest, two for the pair** | nobody |
 | 409 | `tools/pixelelated-save-layout-test` | `bc4ae05d30` 2026-10-08 | source-bound real-rclone controls for standalone progress coverage (#520) | nobody |
-| 402 | `tools/rasteratops-vm-cloud-epic` | `bc2dceb406` 2026-10-11 | the cloud epic's guest-d proof, promoted from run 101 (#365): **a guest and the synthetic WebDAV**; cases A to L, T08 to T26 | T12's `vm-walks/cloud-epic/migration-protocol.sh` (which refuses on today's image: `cloud_migrate_layout` is retired) |
+| 402 | `tools/rasteratops-vm-cloud-epic` | `bc2dceb406` 2026-10-11 | the cloud epic's guest-d proof, promoted from run 101 (#365): **a guest and the synthetic WebDAV**; cases A to L, T08 to T26; it *sources* T12's `vm-walks/cloud-epic/migration-protocol.sh` (`:149`), and bare it exits 2: *this migration suite is retired* | nobody |
 | 361 | `tools/pixelelated-duckstation-capture-test` | `bc4ae05d30` 2026-10-08 | actual DuckStation launchers and configs in isolated host fixtures (#521) | nobody |
 | 359 | `tools/pixelelated-cloud-validator-test` | `bc4ae05d30` 2026-10-08 | real local-rclone controls for bounded category validation (#508/#510) | the two retired stubs |
 | 256 | `tools/pixelelated-content-scope-test` | `083f4fad86` 2026-10-08 | selected-library boundaries with production scripts and real rclone | nobody |
-| 226 | `tools/retroarch-wrapper-test` | `8f2803a080` 2026-09-24 | does the threaded video wrapper run a posted command exactly once | `vm-qa` (the `wrapper` suite, on every default run) |
-| 183 | `tools/build-identity-test` | `40bc5469b9` 2026-10-11 | actual assembly identity blocks and offline release planning (#532) | nobody |
-| 159 | `tools/wait-lock-test` | `f13cf9f001` 2026-09-09 | a device-less check of `wait_lock()` in `001-functions`, the settings lock every `get_setting`/`set_setting`, `runemu.sh`, `backuptool` and the cloud scripts take | `cloud-round-trip`; `last-good-scripts-test` (`:148`, `:8608`: it lifts the functions the same way) |
-| 157 | `tools/rasteratops-identity-check` | `7d64713537` 2026-10-04 | 0.0.1 identity inputs and retained RC2 contracts in source and an image (#337, #383) | nobody |
+| 226 | `tools/retroarch-wrapper-test` | `8f2803a080` 2026-09-24 | does the threaded video wrapper run a posted command exactly once; needs a RetroArch source (`RETROARCH_SRC`, or a build root's `build/retroarch-*/gfx/video_thread_wrapper.c`; its hardcoded roots are #640's and absent here: bare it exits 2); leaves `t.c` in its temp dir (`:213`) | `vm-qa` (the `wrapper` suite, on every default run) |
+| 183 | `tools/build-identity-test` | `40bc5469b9` 2026-10-11 | actual assembly identity blocks and offline release planning (#532); **fails at the hash** (exit 1, 21 passed, 2 failed: the `pixelelated-state-check` gate of `d9f428e1a0` refuses its plain-text stand-in; needs `scripts/` beside `tools/`) | nobody |
+| 159 | `tools/wait-lock-test` | `f13cf9f001` 2026-09-09 | a device-less check of `wait_lock()` in `001-functions`, the settings lock every `get_setting`/`set_setting`, `runemu.sh`, `backuptool` and the cloud scripts take | nobody invokes it: `cloud-round-trip:7170` names its property in a docstring; `last-good-scripts-test:148`, `:8608` lift the functions the same way |
+| 157 | `tools/rasteratops-identity-check` | `7d64713537` 2026-10-04 | 0.0.1 identity inputs and retained RC2 contracts in source (#337, #383): `--tree` and a required `--es`; it prints *image qualification still required* | nobody |
 | 147 | `tools/usb-gadget-test` | `6f1d138adb` 2026-10-11 | actual USB preparation functions in a disposable configfs fixture (#531; D-WORKFLOW-160's `bcdDevice`) | nobody |
 | 125 | `tools/melonds-upgrade-test` | `7f58b7b1c5` 2026-10-08 | the actual post-update function with owned paths and candidate busybox applets (#526); an older post-update as the negative control | `last-good-scripts-test` (`:14231`) |
 | 107 | `tools/rasteratops-candidate-store` | `3d7c075f63` 2026-10-02 | keep a candidate bundle by manifest digest, without overwriting it (#344) | `fork-publish-release` |
@@ -202,8 +197,7 @@ beside them on T10's branch, which this lane reads as a delta, not a member).
 upstream/next:<path>` fails for every one). `git log --format=%h
 c445081a59..8ebaf8daad -- <the 22 at the hash> | wc -l` is **35** fork
 commits since the base (35 without merges); counting every occurrence, their
-messages cite #383 (8 times), #565 (6), #471 (5), #532, #409 and #365 (3
-each), #98, #510, #508 and #479 (2 each) -- the family's own record is #365
+messages cite #383 (8 times), #565 (6), #471 (5), #532, #409 and #365 (3 each), #98, #510, #508, #479, #356 and #320 (2 each) -- the family's own record is #365
 (the cloud epic's proofs), #421 and #526 (the settings and melonDS writers),
 #508/#510/#520/#521/#524 (the cloud-folder contracts and their retirement),
 #531/#532 (the USB gadget and the build identity), #565 (the state check),
@@ -219,15 +213,7 @@ scripts' sentinels `wait-lock-test` exercises), D-WORKFLOW-159 (the versioning
 `retroarch-wrapper-test` (the `wrapper` suite) and, through T15's
 `last-good-scripts-test` (the `scripts` suite, 13 minutes of the 33 by
 T12's cost table), `wait-lock-test`'s lifted functions, `settings-modes-test`,
-`melonds-upgrade-test` and `rasteratops-cloud-layout-test`. In the fork CI:
-`rocknix-info-test`. From the release preparer: `pixelelated-state-check`
-and `rasteratops-candidate-store`. From `cloud-round-trip`: `wait-lock-test`.
-From T12's protocol walk: `rasteratops-vm-cloud-epic` (which refuses today).
-**Eleven tools nobody runs**: `build-identity-test`, `nova-led-test`,
-`pixelelated-content-scope-test`, `pixelelated-duckstation-capture-test`,
-`pixelelated-save-layout-test`, `pixelelated-state-check-test`,
-`pixelelated-vm-cloud-boundaries`, `rasteratops-identity-check`,
-`usb-gadget-test`, and the two retired stubs (by design). The lane confirms
+`melonds-upgrade-test` and `rasteratops-cloud-layout-test`. In the fork CI: `rocknix-info-test`. From the release preparer: `pixelelated-state-check` and `rasteratops-candidate-store`. **Thirteen tools nobody invokes**: `build-identity-test`, `nova-led-test`, `pixelelated-content-scope-test`, `pixelelated-duckstation-capture-test`, `pixelelated-save-layout-test`, `pixelelated-state-check-test`, `pixelelated-vm-cloud-boundaries`, `rasteratops-identity-check`, `usb-gadget-test`, `rasteratops-vm-cloud-epic` (it sources T12's protocol walk, not the reverse, and refuses today), `wait-lock-test` (named in `cloud-round-trip`'s docstring only; its property is exercised by T15's lifted functions), and the two retired stubs (by design). The lane confirms
 each from the record (a tool run once for a candidate and recorded in a
 `docs/qa-logs/` folder has a caller in the record, not in the tree; both
 count, and the Q6 table says which).
@@ -338,7 +324,7 @@ the rule that names it, the index row) against the code.
 | Q3 Bugs | **A test that can pass without proving**: a case whose rc 0 does not depend on the thing it checks (an `--only` that matches nothing and passes, as T12 found in `emulator-exit-test`; a fixture copied from the current tool so the test cannot see a regression, as T9 found in the #597 recovery fixture; a negative control that fails for an unrelated reason); a test whose applets fall back to the host's when the build root is absent and still say PASS (the busybox rule, blindspot 34); a cloud test whose rclone backend is the host's real config rather than its isolated one | a `bug` per defect, `Already written:` and the VM line, its fix under a stream with a case |
 | Q4 Currency | Not a package slice. The row is the rclone, busybox and Python the tests assume against the host's and the image's (`rclone version`, the image's busybox applet list from a build root if one exists, `python3 --version`), and the ES, DuckStation and melonDS versions the fixtures encode against the pins | one table |
 | Q5 Efficiency | What each test costs: its wall time on this host (run once each at stage A, the host-side ones; the two guest tests from the record or the one cycle), its temp footprint, and what `last-good-scripts-test` pays for calling four of them on every `vm-qa` run (T12's 13 minutes: how much is theirs) | the figures with their source |
-| Q6 Dead ends and brittleness | **The brittleness table**: for each of the 21, (a) what it depends on that is not the thing it proves -- a build root's applets, a guest, a real rclone binary, a host path, a fixture's bytes, a tool's own current source -- and what happens when that is absent (skip, fail, or a false pass); (b) its last recorded catch (the issue, the qa-log folder, the date) or `nothing recorded`; (c) its caller (`vm-qa` through T15, the CI, the release preparer, another test, a walk) or `nobody`; (d) its positive control, named, or `none`. The eleven no-caller tools confirmed or refuted from the record; the two retired stubs' disposition proposed | the table in `04` § Q6, every row sourced |
+| Q6 Dead ends and brittleness | **The brittleness table**: for each of the 21, (a) what it depends on that is not the thing it proves -- a build root's applets, a guest, a real rclone binary, a host path, a fixture's bytes, a tool's own current source -- and what happens when that is absent (skip, fail, or a false pass); (b) its last recorded catch (the issue, the qa-log folder, the date) or `nothing recorded`; (c) its caller (`vm-qa` through T15, the CI, the release preparer, another test, a walk) or `nobody`; (d) its positive control, named, or `none`. The thirteen no-caller tools confirmed or refuted from the record; the two retired stubs' disposition proposed | the table in `04` § Q6, every row sourced |
 | Q7 Clarity | The three descriptions of each tool (its header, the rule that names it, `instruction-files.md`'s index row) against the code: a header that promises a device-less proof the code does not keep is a Q3 bug if it hides a failure and a Q7 row otherwise; the index rows for the two retired stubs (which say *refuses execution*) against what they do | the rows; a drift in a rule is a lead for the coordinator |
 
 ## 5. The evidence floor
@@ -379,7 +365,14 @@ records it as `CANNOT`, never as a pass):
 ```bash
 D=/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-state-tests-661
 cd "$D"
-for t in wait-lock-test settings-modes-test melonds-upgrade-test retroarch-wrapper-test rocknix-info-test usb-gadget-test nova-led-test build-identity-test rasteratops-identity-check pixelelated-state-check-test pixelelated-duckstation-capture-test; do s=$(date +%s); timeout 900 tools/$t > .qa-scratch/t14/$t.out 2>&1; echo "$t rc=$? $(( $(date +%s) - s ))s $(tail -1 .qa-scratch/t14/$t.out | cut -c1-80)"; done   # read each header first: an argument it needs (a build root, --profile) is given from the tree, never guessed
+mkdir -p .qa-scratch/t14/out; export TMPDIR=/workspace/tmp/m6-t14/tmp; mkdir -p "$TMPDIR"
+for t in wait-lock-test rocknix-info-test nova-led-test; do s=$(date +%s); timeout 900 tools/$t > .qa-scratch/t14/$t.out 2>&1; echo "$t rc=$? $(( $(date +%s) - s ))s $(tail -1 .qa-scratch/t14/$t.out | cut -c1-80)"; done   # the three that run bare (the proof: PASSED; PASS 12 controls; 14 PASS)
+python3 -I tools/usb-gadget-test --output .qa-scratch/t14/out/usb-gadget; echo "rc=$?"                                             # the proof: PASS 18 cases, 72/72
+python3 -I tools/pixelelated-state-check-test --self-test > .qa-scratch/t14/state-check-self.out 2>&1; echo "rc=$?"                # the proof: every control pass; --payload-tests invokes fork-publish-release and needs mksquashfs/unsquashfs/sfdisk/mcopy: run only if all four exist, else CANNOT
+python3 -I tools/build-identity-test --output .qa-scratch/t14/out/build-identity; echo "rc=$?"                                     # the proof: rc 1, 21 passed, 2 failed at the hash -- the stage-D bug; the JSON names the two
+RETROARCH_SRC=$(ls -d /workspace/repos/rocknix.worktrees/*/build.*GENERIC_X64*/build/retroarch-*/gfx/video_thread_wrapper.c 2>/dev/null | head -1); echo "wrapper source: ${RETROARCH_SRC:-none}"; [ -n "$RETROARCH_SRC" ] && python3 -I tools/retroarch-wrapper-test "$RETROARCH_SRC"; echo "rc=$?"   # read only from an M7 build root; bare it exits 2; it leaves t.c in TMPDIR (a Q2 row)
+tools/rasteratops-identity-check --help 2>&1 | head -4                                                                             # needs --tree and --es (an EmulationStation checkout): run with both named if an ES checkout exists on this host, else CANNOT
+python3 -I tools/pixelelated-duckstation-capture-test --help 2>&1 | head -4; python3 -I tools/melonds-upgrade-test --help 2>&1 | head -4; python3 -I tools/settings-modes-test --help 2>&1 | head -4   # the writer tests require --busybox and --output (§ 1)
 for t in rasteratops-cloud-layout-test pixelelated-cloud-validator-test pixelelated-content-scope-test pixelelated-save-layout-test; do tools/$t --help 2>&1 | head -4; done   # the real-rclone four: read what backend each binds before running it against tools/cloud-test-backend's local one
 tools/pixelelated-cloud-folder-test 2>&1 | head -3; echo "rc=$?"; tools/pixelelated-cloud-folder-vm-test 2>&1 | head -3; echo "rc=$?"   # the two retired stubs: they refuse; the refusal text and rc recorded
 tools/rasteratops-candidate-store --help 2>&1 | head -4; tools/pixelelated-state-check --help 2>&1 | head -4   # the release preparer's two: modes only, nothing stored or inspected for real
@@ -424,7 +417,7 @@ All in the worktree, committed on its branch with messages that cite `#661`
 | Research notes | `.../01-research-notes.md` | § Scope: the 32 re-derived with § 2's block and its output, the provenance (35 fork commits, none upstream, ten files on P1 only), the branch's diff from the hash (empty) and T10's #945 delta named; § Phase 1: what each test proves and depends on, in the slice's words, and the stage-A runs with exits | A, B |
 | Forward audit | `.../02-forward-audit.md` | Phase 2 over #661's checklist, plus **a coverage table with one row per path under its own `## Coverage` heading** (32; the first cell the path in backticks), § Mechanical checks, § The runs (each test's run, exit, wall time, *a FAIL would mean ...*, and the fallback it took if any), § The guest cycle (the record, or that none was needed and why), § T15's call sites (read, not edited); every proof with a `proved:` cell | B, then F |
 | Retrospective | `.../03-retrospective.md` | Phase 3 with § 3.5 for the seams: the four tests x T15's `last-good-scripts-test` x `vm-qa`'s `scripts` suite; the real-rclone four x `cloud-test-backend` x the host's `rclone.conf`; the release preparer's two x `release-candidates.md`'s gates; the guest two x T12's harness; the writer tests x the busybox rule x a build root's presence | B |
-| Analysis | `.../04-analysis.md` | Phase 4, § Finding Verification (4.5), § Second opinion (4.6), **§ Renovation face** Q1 to Q7, **Q6 carrying the brittleness table** (every test with its dependencies and their failure mode, its last catch or `nothing recorded`, its caller or `nobody`, its positive or `none`; the eleven no-caller tools confirmed or refuted; the two stubs' proposed disposition), Q5 the cost figures | C |
+| Analysis | `.../04-analysis.md` | Phase 4, § Finding Verification (4.5), § Second opinion (4.6), **§ Renovation face** Q1 to Q7, **Q6 carrying the brittleness table** (every test with its dependencies and their failure mode, its last catch or `nothing recorded`, its caller or `nobody`, its positive or `none`; the thirteen no-caller tools confirmed or refuted; the two stubs' proposed disposition), Q5 the cost figures | C |
 | Second opinions | `.../second-opinions/` | `review-plan.json` (independent; `gpt` at `max`), the brief, `packet-manifest.json`, the probe prompt, the probe and the refutation with their `.provenance.json` | C |
 | Lint, before D | `tools/lint-audit-artifacts <folder> --phase pre-issue` | `PASS pre-issue artifacts (...)` with `review plan: independent, 2 model perspectives, 1 verified external calls` | C |
 | Punch list | `.../05-punch-list.md` | Phase 5: every item with `question:`, severity, category, where (file:line at the hash), acceptance, `Already written:` and the VM line; the YAML `punch_index`; a no-caller test or a retired stub as a `Renovation` item with the coordinator's disposition pending | D |
@@ -448,10 +441,10 @@ hand-back's words.
 - [ ] `reviewed-at:` and `fixed-at:` above carry the lane's commits the read and the fixes were made at (the read on `8ebaf8daad`'s bytes for the 22 and `2174265e9c`'s for the ten lint fixtures, both hashes named; no EmulationStation path), and, after the coordinator closes this issue and the branch merges to `next`, `tools/renovation-status` lists this slice as `closed`.
 - [ ] `01-research-notes.md` § Scope records the read hashes, the filter of brief § 2 with its output (32 paths, 6,911 lines; 32 fork-own; 20 Python, 2 shell, 10 Markdown; reach `n/a` 32, or the deltas beside them), the provenance (35 fork commits since `c445081a59` over the 22; none on `upstream/next`; the ten on P1 only), the branch-vs-hash diff over the 32 (empty, or each hunk listed with its owner), and T10's #945 delta to the lint fixtures named by commit.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p && /^\| `tools\//{n++} END{print n}' 02-forward-audit.md`` prints 32; each row's Q1 to Q7 cells answered or `n/a` with a reason (a fixture file answers Q6 and Q7 at least: who reads it and what it fixes).
-- [ ] `02-forward-audit.md` § The runs records every § 5 run with command, exit status, wall time and summary line, each with the sentence *a FAIL would mean ...* and, for the two writer tests, which busybox the applets came from (a build root's, or the host's with the PASS marked as the host's); the two retired stubs' refusal text and exit; the `|| true`, `assert` and host-path greps with their lines; the real-rclone four's backend binding read before any run.
+- [ ] `02-forward-audit.md` § The runs records every § 5 run with command, exit status, wall time and summary line, each with the sentence *a FAIL would mean ...* and, for the two writer tests, which busybox the applets came from (a build root's, or the host's with the PASS marked as the host's, or CANNOT); `build-identity-test`'s exit 1 at the hash with the two failed checks named; `retroarch-wrapper-test`'s source named or CANNOT; `rasteratops-identity-check`'s `--es` named or CANNOT; the two retired stubs' refusal text and exit; the `|| true`, `assert` and host-path greps with their lines (the proof's figures: 0, 2 files, 28 lines in 10 files); the real-rclone four's backend binding read before any run.
 - [ ] `02-forward-audit.md` § The guest cycle records the one authorized cycle (the image and its `.img.gz.sha256`, the host file line before and after, the pidfile, the two guest tests' commands and results, `tools/vm-stop`'s exit, the census after, the disk retired) -- or records that no cycle was needed, with the claims that would have needed one listed and marked `proved: tree` or `proved: history`.
 - [ ] `00-running-log.md` shows no handheld action, no real provider or real account touched by a cloud test, no guest beyond the one cycle (a second only with a line on #661 quoted), no build, no edit to `tools/last-good-scripts-test`, no `fork-worktree sync|remove|repair`, no write under the M7 lane's trees or `/tmp`, and the host file's lines before and after any cycle quoted.
-- [ ] `04-analysis.md` § Renovation face Q6 carries the brittleness table: one row per tool (21), each with (a) its dependencies that are not the thing it proves and what happens when each is absent (skip, fail, or a false pass, with the line), (b) its last recorded catch by issue or qa-log folder and date or `nothing recorded`, (c) its caller or `nobody`, (d) its positive control named or `none`; the eleven no-caller tools confirmed or refuted from the record; the two retired stubs with a proposed disposition for the coordinator.
+- [ ] `04-analysis.md` § Renovation face Q6 carries the brittleness table: one row per tool (21), each with (a) its dependencies that are not the thing it proves and what happens when each is absent (skip, fail, or a false pass, with the line), (b) its last recorded catch by issue or qa-log folder and date or `nothing recorded`, (c) its caller or `nobody`, (d) its positive control named or `none`; the thirteen no-caller tools confirmed or refuted from the record; the two retired stubs with a proposed disposition for the coordinator.
 - [ ] `04-analysis.md` § Q3 hunts the pass-without-proving shape through every test by name, each with the line read and a constructed input that would pass wrongly or the statement that none can; the busybox fallback of the two writer tests classified; the two guest tests' find/wait/stop path classified pidfile-and-disk or pattern.
 - [ ] `04-analysis.md` § Q7 reads each tool's three descriptions (header, the rule that names it, the index row) against the code, the two retired stubs' index rows against their refusals, with each drift a Q7 row or a Q3 bug; a rule drift is a lead for the coordinator, not an edit here.
 - [ ] `04-analysis.md` § Q5 carries each host-side test's wall time from its stage-A run and the two guest tests' from the record or the cycle, and names what share of T15's `scripts` suite (T12's 13 minutes) the four callees are, from `last-good-scripts-test`'s own timing lines if it prints them or marked unmeasured.
@@ -528,11 +521,7 @@ seat's `review-plan.json` and provenance and the packet's recorded scan; the
 audit issue's checkboxes all at an outcome (the ticked and open counts read
 by name); the coverage table's row count (32) and the brittleness table's
 rows against § 7; **re-running on an export of the tip under
-`/workspace/tmp`: the membership block, the file list with line counts, the
-host-side tests that need no build root (`wait-lock-test`,
-`retroarch-wrapper-test`, `rocknix-info-test`, `usb-gadget-test`,
-`nova-led-test`, `build-identity-test`, `pixelelated-state-check-test`), the
-two stubs' refusals, the `|| true` grep**; the guest cycle's record read if
+`/workspace/tmp`: the membership block, the file list with line counts, the host-side tests that run bare (`wait-lock-test`, `rocknix-info-test`, `nova-led-test`, `usb-gadget-test --output`, `pixelelated-state-check-test --self-test`), `build-identity-test --output` (whose exit at the fix is the stream's claim), `retroarch-wrapper-test` with a RetroArch source named, the two stubs' refusals, the `|| true` grep**; the guest cycle's record read if
 one ran and the host checked for a payload left behind; `register-check` and
 `rules-check` on a simulated merge with the coordinator's tip (the ledgers
 united); the retro's answers; the six exit codes. The lane posts one
