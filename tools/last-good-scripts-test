@@ -14520,8 +14520,11 @@ for f in sources/scripts/runemu.sh profile.d/099-freqfunctions profile.d/100-gam
     src_of "projects/ROCKNIX/packages/rocknix/${f}" "${S3}/$(basename "${f}")"
 done
 s3_lift() { # <file>: every function, heredoc bodies skipped
+    # A comment after the opening brace is allowed: `disk_of() { # ...` and
+    # `saved_state() { # ...` were missed without it, and the cases that
+    # called them failed with "command not found" (#648, S6 and S7).
     awk 'hd != "" { if (p) print; t = $0; sub(/^\t+/, "", t); if (t == hd) hd = ""; next }
-         /^(function )?[A-Za-z_][A-Za-z0-9_]* *(\(\))? *\{$/ && $0 !~ /^(if|for|while|case) / { p = 1 }
+         /^(function )?[A-Za-z_][A-Za-z0-9_]* *(\(\))? *\{( *#.*)?$/ && $0 !~ /^(if|for|while|case) / { p = 1 }
          p { print }
          p && match($0, /<<-? *["\047]?[A-Za-z_]+/) { hd = substr($0, RSTART, RLENGTH); sub(/^<<-? *["\047]?/, "", hd) }
          p && hd == "" && /^}$/ { p = 0 }' "$1"
