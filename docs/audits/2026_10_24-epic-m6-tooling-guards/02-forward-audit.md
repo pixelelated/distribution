@@ -23,7 +23,7 @@ Every finding is a lead until `04` § Finding Verification and § Second opinion
 | 11 | 04 Q6: the guard table and the tool-caller table | the evidence is here (§ Callers, § The suites, F-rows); the tables are `04`'s | `04` § Q6 |
 | 12 | 04 Q3: the fail-open hunt through the named readers | the evidence is here (F-01 to F-30); the table is `04`'s | `04` § Q3 |
 | 13 | 04 Q7: the personal-path diff entry by entry; three descriptions per guard | P2 (the diff); the description rows are `04`'s | `04` § Q7 |
-| 14 | proof cells in § Proofs = proof lines in 00 | 25 = 25 | § Proofs; `command grep -c` |
+| 14 | proof cells in § Proofs = proof lines in 00 | 26 = 26 | § Proofs; `command grep -c` |
 | 15 | every item `question:`; bugs pass box-check; no member edited before a stream | stage D; `git diff --stat a82d784216 HEAD -- .githooks .github tools` empty | `05` |
 | 16 | the retro | stage G | `docs/retros/` |
 | 17 | the six checks pass before the merge; the lint PASS | stage H | the hand-back |
@@ -576,3 +576,20 @@ The `tools/fork-newdrive` item in `fork-workflow.md` § Personal paths and its r
 | Proof | What it shows | Proved |
 | --- | --- | --- |
 | P23 | S6's control fails on the unfixed tool and passes on the fixed; the real run's count equals the listed count | proved: fix-case |
+
+### S7: the lint's index boundary; the folder date (#945) -- `2444828e89`
+
+| Case | Before | Fixed |
+| --- | --- | --- |
+| the renovation face's pass fixture: PASS | ok | ok |
+| the renovation face's fail fixture: a named FAIL | ok | ok |
+| `fixture-epic-m6-index-boundary`: a cell quoting the Verification heading does not end the index | FAIL: PASS (rc 0) | ok: `no entry for G2-I-01 (gpt)` |
+| a dated epic folder `2026_10_24-...` without a review plan: refused | ok | ok |
+| a dated epic folder `2026-10-24-...` without a review plan: refused | FAIL: PASS (rc 0) | ok |
+| `ceremony-check`: an underscore-dated, a hyphen-dated, and a malformed folder date | FAIL: no helper | ok |
+
+**The 2026-09-28 fix-round folder** under the fixed lint requires 14 seat-and-number pairs (11 before), and all 14 have their entries. **For the coordinator:** its one failure, *PL-029 outcome is not one of Resolved/Deferred/Withdrawn*, is the same under the lint at the hash.
+
+| Proof | What it shows | Proved |
+| --- | --- | --- |
+| P24 | S7's fixtures fail before the fix and pass after; the 2026-09-28 folder read whole | proved: fix-case |

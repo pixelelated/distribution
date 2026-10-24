@@ -346,3 +346,18 @@ PROOF: P22 S5's controls and live runs -- `docs/qa-logs/2026-10-24-box-check/run
   The first cut ran two extra `grep`s per file; before commit they became an associative array and a label computed only on a hit. **8/8.**
 - **The real run** over this worktree, with the real list read by the tool alone: rc 0, **`0 hits in 133619 tracked files`**, equal to `git ls-files | wc -l` (133,619), in 149 s (147 s at stage A). So the 180 symlinks and every name carry no listed word, and the stream did not stop.
 PROOF: P23 S6's control and real run -- `docs/qa-logs/2026-10-24-forbidden-terms/run.sh`: the unfixed tool 5 FAIL of 8, the fixed 8 ok PASS (`.qa-scratch/t10/s6/`); the fixed `tools/forbidden-terms-check` over the worktree with the real list: rc 0, 0 hits in 133619 tracked files, `git ls-files | wc -l` 133619, 149 s.
+
+### [Stage E] 18:44 — S7: the lint's boundary; the folder date (#945)
+
+- **The tests first:**
+  - `tools/test-fixtures/lint-audit-artifacts/run.sh`, 5 cases. On the lint before the fix, the boundary fixture passed (rc 0) and the hyphen-dated copy without a review plan passed (rc 0); the pass and fail fixtures and the underscore copy already behaved.
+  - `docs/qa-logs/2026-10-24-ceremony-check-tracker/run.py` gained three folder-date cases, which FAILED on the tool before the fix (no helper).
+- **The fix** (`2444828e89`):
+  - **the boundary:** `^## Findings index` and `^## Verification` found at the start of a line;
+  - **the folder dates:** the lint's `(\d{4})([-_])(\d\d)\2(\d\d)-` gives two plain values, `dated` and `tier`, after a first cut that faked `match.group` with a lambda was replaced before commit, as unreadable;
+  - **`ceremony-check`:** `audit_folder_date`, the same two forms, with future dates ignored;
+  - **the hyphen form** is accepted, not dropped.
+
+  Lint fixtures **5/5**; `ceremony-check` control **14/14**; `hooks-test` and `rules-check` rc 0 after.
+- **The 2026-09-28 fix-round folder** under the fixed lint requires **14** seat-and-number pairs, against 11, and has all 14. Its one failure, *PL-029 outcome is not one of Resolved/Deferred/Withdrawn*, is the same under the lint at the hash and at the previous tip: a coordinator's item.
+PROOF: P24 S7's controls -- `tools/test-fixtures/lint-audit-artifacts/run.sh` on the lint before `2444828e89`: 2 FAIL of 5 (`.qa-scratch/t10/s7/before.txt`), at it 5 ok PASS (`after.txt`); `run.py`'s three folder-date cases FAIL before, 14 of 14 ok after (`cc-after.txt`); the 2026-09-28 fix-round folder: 14 seat-and-number pairs required and present (11 before), the PL-029 failure the same under the lint at `8ebaf8daad` (`fixround-hash.txt`).
