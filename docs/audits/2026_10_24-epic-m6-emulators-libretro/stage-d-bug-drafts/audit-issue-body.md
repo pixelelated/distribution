@@ -1,4 +1,4 @@
-Punch list of the M6 T3 audit (#650): RetroArch and the libretro cores, 344 paths, `reviewed-at: d606301784` (the slice's bytes equal to `next`'s `8ebaf8daad`). The audit is `docs/audits/2026_10_24-epic-m6-emulators-libretro/` on `feature/m6-emulators-libretro-650`. 33 items: 0 critical, 4 high, 8 medium, 21 low.
+Punch list of the M6 T3 audit (#650): RetroArch and the libretro cores, 344 paths, `reviewed-at: d606301784` (the slice's bytes equal to `next`'s `8ebaf8daad`). The audit is `docs/audits/2026_10_24-epic-m6-emulators-libretro/` on `feature/m6-emulators-libretro-650`. 34 items: 0 critical, 4 high, 9 medium, 21 low.
 
 ## Executive summary
 
@@ -58,6 +58,7 @@ Each checkbox is ticked from its acceptance artifact when its Phase 7 outcome is
 - [ ] **PL-031** (Low, Q6, Interaction Defect) (#824): Every built table offers RetroArch's `ffmpeg` core for the media player, and no image installs it. Acceptance: No regenerated table names a retroarch ffmpeg core its device's install tree lacks, and the guest's mplayer system lists only the mplayer emulator.
 - [ ] **PL-032** (Medium, Q3, Security) (#825): Patch 0012 builds a shell line from an achievement's title and description and passes it to system(). Acceptance: On the guest, an award through the loopback provider of an achievement titled with $(touch /tmp/t3-hook) leaves /tmp/t3-hook absent, and a stub achievements hook records the title as one argument ($# = 3).
 - [ ] **PL-033** (Low, Q7, Renovation): `99-ninteno-wii-remote.rules` is a misspelt, byte-identical copy of `99-nintendo-wii-remote.rules`. Acceptance: git ls-files retroarch/udev.d lists one Wii remote rule file.
+- [ ] **PL-034** (Medium, Q4, Interaction Defect) (#841): `fbalpha2019-lr`'s PKG_SHA256 no longer matched its archive, so a build from an empty source cache failed. Acceptance: The archive at the recipe's PKG_URL, downloaded into an empty directory, has the sha256 the recipe names, and tools/pkgcheck fbalpha2019-lr exits 0.
 
 ## Pre-existing tracked scope (not punch items)
 

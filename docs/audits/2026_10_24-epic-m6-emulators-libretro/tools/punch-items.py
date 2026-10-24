@@ -191,7 +191,7 @@ ITEMS = [
   vm="n/a: a host tool",
   aw="nothing",
   acc="grep -c gated tools/retroarch-wrapper-test prints 0, or a --gated run's output differs from the plain run's by what the flag checks.",
-  tracked="", disp="open", note=""),
+  tracked="", disp="resolved", note="S6: `37aa6b8020`: --gated asserts the gate, PASS on the tree and its control doubling (2008), FAIL on a copy without the gate (#799)"),
  dict(id="PL-021", sev="Low", cat="Code Quality", q="Q3", src="F-22", area="Install Steam.sh: the first launch",
   title="An interrupted first launch leaves x86/box64 binfmt disabled",
   what="trap 'systemctl restart systemd-binfmt' EXIT INT TERM around the block.",
@@ -254,7 +254,7 @@ ITEMS = [
   vm="n/a",
   aw="nothing",
   acc="A comment on #585 lists the ten recipes with their rows.",
-  tracked="#585", disp="deferred", note="#585"),
+  tracked="#585", disp="resolved", note="S6: the six pins commented (`47e9aaf93d` to `9df2ffe0c5`), reason not recorded, bumps proposed on #650 in #839 shape; the three moves and the archive named (`18cbb1b2af`, `6a15f12292`, `6c92e35da5`, `3c47325fb2`); #585 keeps its rows"),
  dict(id="PL-028", sev="Low", cat="Renovation", q="Q7", src="Q7", area="RetroArch's profiles: copies",
   title="Four of the fifteen RetroArch profiles are copies of another, with no base file",
   what="The coordinator's choice: leave the upstream profiles as they are (a recipe change across devices the fork does not build), or derive them from a base at install.",
@@ -309,6 +309,15 @@ ITEMS = [
   aw="nothing: udev reads the image's rules",
   acc="git ls-files retroarch/udev.d lists one Wii remote rule file.",
   tracked="", disp="deferred", state="fix-pending-image", note="S5: `384606f4b6`: one Wii remote rule in the tree; the next image carries one"),
+ dict(id="PL-034", sev="Medium", cat="Interaction Defect", q="Q4", src="S6", area="core recipes: fbalpha2019-lr's source",
+  title="`fbalpha2019-lr`'s PKG_SHA256 no longer matched its archive, so a build from an empty source cache failed",
+  what="Name the renamed repository (libretro/beetle-finalarcade2019) and its current archive's sha256; the contents are unchanged apart from the top directory, which scripts/extract strips.",
+  where=R+"emulators/libretro/fbalpha2019-lr/package.mk:5-9",
+  ev="S6: the old PKG_URL redirects and serves sha256 8309b4af... against PKG_SHA256 96812000... (the cache's 2026-08-26 file); scripts/get_archive:5-6 reuses the cache, :43-47 fails a fresh download",
+  vm="n/a: a fetch property, proved by a download into an empty directory",
+  aw="nothing on devices; the shared cache's stamp now disagrees with PKG_SHA256, so the next build re-fetches",
+  acc="The archive at the recipe's PKG_URL, downloaded into an empty directory, has the sha256 the recipe names, and tools/pkgcheck fbalpha2019-lr exits 0.",
+  tracked="#841", disp="resolved", note="S6: `18cbb1b2af`; the download into an empty directory matches, the old recipe's does not (#841)"),
 ]
 
 out = []

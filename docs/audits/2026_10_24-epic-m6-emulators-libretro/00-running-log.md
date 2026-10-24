@@ -188,3 +188,16 @@ GUEST-PROOF: 03:35:37 UTC -- P4, tools/time-to-play --vm --no-configure-remote -
   - PROOF: PL-028. `package.mk:139` copies with `cp -a`, which keeps a symlink, so the identical sets stay copies. After PL-016 the sha256s still match within each group (SM4450=SM8250=SM8550 `7595b782`, SM8650=SM8750 `a7c54b91`).
   - PROOF: PL-033. The two rule files are byte-identical; `scripts/install:112-115` copies `udev.d/*.rules`, so both were in the image (GENERIC_X64's `usr/lib/udev/rules.d`). One is left in the tree.
   - Outcomes: PL-016 and PL-033 Deferred, `fix-pending-image`; PL-028 Resolved. On #650's word, #817's first checkbox was widened to name #824's line and ticked, and #823 carries the closing note.
+- 06:56 **S6, currency rows and the wrapper test** (PL-027, PL-020, and a new PL-034/#841).
+  - PROOF: PL-020, `37aa6b8020`.
+    - Plain run on the tree: 2000/2000, PASS.
+    - `--gated` on the tree: PASS, its built-in control without the gate doubling to 2008 on try 1.
+    - `--gated` on a copy with the gate removed: rc 1, "carries no send_cmd gate".
+    - Plain run on that copy: rc 1.
+  - PROOF: PL-027, the six off-branch pins (`47e9aaf93d` to `9df2ffe0c5`). Every branch of each project was compared with the pin through the API:
+    - hatari `hitari2014-mercurial` (behind), RetroPie `rpi` (identical), SameBoy `SameDuck` (identical), yabause `yabasanshiro` (behind);
+    - dosbox-pure and metallic77/flycast: on no branch, each project having only one, with no tag at the pin.
+    - No reason is recorded in any recipe or its history, so each comment says the ref and that.
+  - PROOF: PL-027, the three moved repositories and the archived one (`18cbb1b2af`, `6a15f12292`, `6c92e35da5`, `3c47325fb2`). Each pinned commit exists at the new home (GitHub or GitLab API). Each recipe's `PKG_URL`, downloaded into an empty directory, has the recipe's sha256.
+  - **New defect, PL-034/#841 (Medium):** fbalpha2019-lr's old URL redirects to the renamed repository, whose archive has a new top directory and sha256 (`8309b4af…`), where `PKG_SHA256` named the cache's `96812000…`. A build from an empty cache failed its checksum (`get_archive:43-47`); the shared cache hid it (`:5-6`). Fixed in `18cbb1b2af`; the old recipe's download mismatches (the control). #841's two checkboxes are ticked.
+  - #826 is updated to 34 items, both its title and its body (0 ticks were overwritten). PL-020, PL-027 and PL-034 are Resolved. Pre-issue lint PASS.
