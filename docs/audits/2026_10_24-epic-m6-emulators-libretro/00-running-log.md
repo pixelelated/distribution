@@ -155,3 +155,16 @@ GUEST-PROOF: 03:35:37 UTC -- P4, tools/time-to-play --vm --no-configure-remote -
   - PROOF: PL-024. The global section evaluated before and after gives the identical `PKG_MAKE_OPTS_TARGET`. pkgcheck WARN 032 is gone.
   - PROOF: PL-005, `.qa-scratch/t3/s1/pl005-resolve.txt`. Each of the eleven resolved (`gh api` for a hash, `git ls-remote …^{}` for a tag) equals the HEAD of the M7 build's own clone; tracy resolved too. `patches/001` applies at fuzz 0 to the pinned source.
   - All six go to Deferred with `state: fix-pending-image`. The coordinator's non-stream dispositions (PL-001 to 004, 007 to 010, 021 to 023, 025, 026, 029) are in the Phase 7 table, recorded through `tools/set-outcome.py`. Pre-issue lint PASS.
+- 06:38 **S2, the launch table** (PL-011, 030, 031, 019): `87e328640d`. PL-006's way out, the coordinator's ask on #650: `de4faa8465`.
+  - PROOF: `tools/s2-regen-check.sh`, before the change.
+    - The five regenerated tables are byte-identical to the GENERIC_X64, H700 and SM8550 images.
+    - **Delta found:** the first run, in this shell's en_US.UTF-8 locale, ordered `amigacd32` differently and matched no image. `mk_es_systems` orders the table with `ls | sort` (`functions:106`). Stage B had run under `env -i`, and the tool now does too.
+    - Missing `retroarch` cores: GENERIC_X64 6, H700 2, SM8550 2.
+  - PROOF: the same check, after.
+    - Each table differs by exactly the intended lines. GENERIC_X64 loses 5 skipped-core offers, `ffmpeg` and `st-v`, and `psx` defaults to `duckstation-sa`. H700, RK3326 and RK3566 lose `ffmpeg` and `st-v`; SM8550 loses `ffmpeg`.
+    - Missing cores: GENERIC_X64 0, H700 and SM8550 only `pcsx_rearmed32` (#802).
+    - No system without an emulator or a default on any of the five.
+    - The scanner: installed on 4 devices, not GENERIC_X64; `generate-idtech.sh` present on the H700 and SM8550 images.
+  - PROOF: the per-game fallback read in the pinned ES (`FileData.cpp:1954-2025`). A stored `<game>.core` or `<game>.emulator` the system no longer lists is dropped, and the system's default launches.
+  - `pkgcheck emulators`: 0 FAIL, one WARN of `next`'s existing class (unknown function).
+  - The four items are Resolved, `state: fix-host-regen`.

@@ -108,7 +108,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing written: a build-time guard
 - **Acceptance:** The sandboxed makeinstall_target exits 1 with the path named for a root with no retroarch install directory and for one with two, refuses a root whose one directory carries another version, and installs retroarch32 for one with the pinned version.
 - **Tracked work:** #814
-- **Disposition note:** S1: fixed at `e8bfe9ddda` (the arm root required, exactly one, at the pin); the fixture proves zero, two and stale die; the image proves the copy
+- **Disposition note:** S1: fixed at `e8bfe9ddda`, its way out named at `de4faa8465` (ENABLE_32BIT=no from the environment); the fixture proves zero, two and stale die; the image proves the copy (#814)
 
 ## PL-007: The table's README claims a build failure on two default cores; one shape fails silently and the other ships two defaults
 
@@ -186,6 +186,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing: a table line
 - **Acceptance:** tools/regen-es-systems.sh's GENERIC_X64 table gives psx exactly one default core, and no device's table has a system with no emulator besides tools and imageviewer.
 - **Tracked work:** #817
+- **Disposition note:** S2: `87e328640d`: st-v only where a core is added; GENERIC_X64 psx defaults to DuckStation standalone; the regenerated five tables have no system without an emulator or a default (#817)
 
 ## PL-012: `sameboy-lr` references PKG_BUILD at global scope, for an option its libretro build never reads
 
@@ -306,6 +307,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** n/a: a comment
 - **Already written:** nothing
 - **Acceptance:** The comment above X64_SKIP_CORES names an open issue, or says the skip is permanent with each core's reason.
+- **Disposition note:** S2: `87e328640d`: the X64_SKIP_CORES comment says #16 closed and how a dropped core is kept off the table
 
 ## PL-020: `tools/retroarch-wrapper-test --gated` asserts nothing
 
@@ -472,6 +474,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing written beyond a per-game choice in the game list, which falls back to the system's default once the line is gone -- read both, nothing to migrate
 - **Acceptance:** tools/regen-es-systems.sh's GENERIC_X64 table names no retroarch core missing from that image's usr/lib/libretro (the .sh system idtech excluded), and the GENERIC_X64 install tree carries Scan id Tech Games.sh only beside usr/bin/generate-idtech.sh.
 - **Tracked work:** #823
+- **Disposition note:** S2: `87e328640d`: core_built guards the five offers and the scanner; GENERIC_X64 missing cores 6 -> 0, the scanner off GENERIC_X64 only (#823)
 
 ## PL-031: Every built table offers RetroArch's `ffmpeg` core for the media player, and no image installs it
 
@@ -487,6 +490,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing written beyond a per-game choice, which falls back to the default once the line is gone
 - **Acceptance:** No regenerated table names a retroarch ffmpeg core its device's install tree lacks, and the guest's mplayer system lists only the mplayer emulator.
 - **Tracked work:** #824
+- **Disposition note:** S2: `87e328640d`: the ffmpeg offer dropped; no regenerated table names it (#824; its guest criterion reads the next image)
 
 ## PL-032: Patch 0012 builds a shell line from an achievement's title and description and passes it to system()
 
@@ -527,12 +531,12 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-003 | Deferred | #806: the recipe packet `ea0af11d07` (fix/m6-806-grep-pcre2), reviewed and applied by M7; the script lines deferred:M7-merge with 6101242e14 |
 | PL-004 | Deferred | class 1: upstream `c4d353449e` with the base merge (the coordinator, #650; the maintainer told on #346) |
 | PL-005 | Deferred | #813: S1: pinned at `df69f527ad` (twelve full commits, each equal to the built clone); carrying the sources stays #813 |
-| PL-006 | Deferred | #814: S1: fixed at `e8bfe9ddda` (the arm root required, exactly one, at the pin); the fixture proves zero, two and stale die; the image proves the copy |
+| PL-006 | Deferred | #814: S1: fixed at `e8bfe9ddda`, its way out named at `de4faa8465` (ENABLE_32BIT=no from the environment); the fixture proves zero, two and stale die; the image proves the copy (#814) |
 | PL-007 | Deferred | routed to T5 (#652, its PL-06): the mechanism in distributions/ROCKNIX/config/functions |
 | PL-008 | Deferred | deferred:M7-merge: Install Steam.sh is changed by the M7 hunk `6101242e14`; its row goes on the follow-up the merge names |
 | PL-009 | Deferred | #815: deferred:M7-merge: Install Steam.sh is changed by the M7 hunk `6101242e14`; its row goes on the follow-up the merge names |
 | PL-010 | Deferred | #816: class 1: upstream `eeb33c5a37` with the base merge |
-| PL-011 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-011 | Resolved | S2: `87e328640d`: st-v only where a core is added; GENERIC_X64 psx defaults to DuckStation standalone; the regenerated five tables have no system without an emulator or a default (#817) |
 | PL-012 | Deferred | #818: S1: fixed at `28968ae585` (pkgcheck rc 1 -> 0); the next image carries sameboy_libretro.so (#818) |
 | PL-013 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-014 | Open | awaiting the coordinator's stream briefs (stage E) |
@@ -540,7 +544,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-016 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-017 | Deferred | S1: fixed at `e8bfe9ddda` (the three dead checks removed; set -e proved to end the build at a failed make) |
 | PL-018 | Deferred | deferred:#336 for the 2D cores' widget surface |
-| PL-019 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-019 | Resolved | S2: `87e328640d`: the X64_SKIP_CORES comment says #16 closed and how a dropped core is kept off the table |
 | PL-020 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-021 | Deferred | #822: deferred:M7-merge: Install Steam.sh is changed by the M7 hunk `6101242e14`; its row goes on the follow-up the merge names |
 | PL-022 | Deferred | deferred:M7-merge: Install Steam.sh is changed by the M7 hunk `6101242e14`; its row goes on the follow-up the merge names |
@@ -551,8 +555,8 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-027 | Deferred | #585: #585 |
 | PL-028 | Open | proposed withdrawal at Phase 7 |
 | PL-029 | Deferred | its own issue #838 (a fork tool; T9/T10) |
-| PL-030 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-031 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-030 | Resolved | S2: `87e328640d`: core_built guards the five offers and the scanner; GENERIC_X64 missing cores 6 -> 0, the scanner off GENERIC_X64 only (#823) |
+| PL-031 | Resolved | S2: `87e328640d`: the ffmpeg offer dropped; no regenerated table names it (#824; its guest criterion reads the next image) |
 | PL-032 | Deferred | #825: S0: fixed at `fac139dd43` (merged `faac89ffc0`); the hook's half proved on the guest (#825 criterion 2), RetroArch's half is fix-pending-image until the first image built with it (#825 criterion 1) |
 | PL-033 | Open | awaiting the coordinator's stream briefs (stage E) |
 
@@ -647,7 +651,8 @@ punch_index:
   source_finding: "F-05"
   owner_area: "the table: systems without a default or an emulator"
   tracked: "#817"
-  outcome: open
+  state: fix-host-regen
+  outcome: resolved
 - id: PL-012
   severity: Low
   category: Code Quality
@@ -710,7 +715,8 @@ punch_index:
   question: Q7
   source_finding: "F-18"
   owner_area: "the metapackage's GENERIC_X64 skip list"
-  outcome: open
+  state: fix-host-regen
+  outcome: resolved
 - id: PL-020
   severity: Low
   category: Test Gap
@@ -791,7 +797,8 @@ punch_index:
   source_finding: "G-01"
   owner_area: "the table: GENERIC_X64's skipped cores"
   tracked: "#823"
-  outcome: open
+  state: fix-host-regen
+  outcome: resolved
 - id: PL-031
   severity: Low
   category: Interaction Defect
@@ -799,7 +806,8 @@ punch_index:
   source_finding: "G-02"
   owner_area: "the table: the media player's RetroArch choice"
   tracked: "#824"
-  outcome: open
+  state: fix-host-regen
+  outcome: resolved
 - id: PL-032
   severity: Medium
   category: Security
