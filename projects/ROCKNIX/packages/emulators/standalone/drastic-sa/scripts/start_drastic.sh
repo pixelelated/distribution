@@ -25,10 +25,20 @@ control-gen_init.sh
 source /storage/.config/gptokeyb/control.ini
 get_controls
 
-#Copy drastic files to .config
-if [ ! -d "/storage/.config/drastic" ]; then
-  mkdir -p /storage/.config/drastic/
-  cp -r /usr/config/drastic/* /storage/.config/drastic/
+#Copy drastic files to .config: every entry the player does not have yet
+#(a first launch gets them all), the player's drastic.cfg kept as it is
+mkdir -p /storage/.config/drastic/
+for ENTRY in /usr/config/drastic/*; do
+  [ -e "/storage/.config/drastic/${ENTRY##*/}" ] || cp -r "${ENTRY}" /storage/.config/drastic/
+done
+
+#The binary runs from /storage, so an OS update's DraStic is copied over the
+#old one when they differ, by temp and rename (it was copied once, ever, #868)
+if ! cmp -s /usr/config/drastic/drastic /storage/.config/drastic/drastic; then
+  cp /usr/config/drastic/drastic /storage/.config/drastic/drastic.new \
+    && chmod 0755 /storage/.config/drastic/drastic.new \
+    && mv -f /storage/.config/drastic/drastic.new /storage/.config/drastic/drastic \
+    || rm -f /storage/.config/drastic/drastic.new
 fi
 
 if [ ! -d "/storage/.config/drastic/system" ]; then
@@ -83,10 +93,11 @@ cd /storage/.config/drastic/
 @HOTKEY@
 
 $GPTOKEYB "drastic" -c "drastic.gptk" &
+GPTOKEYB_PID=$!
 # Fix actual touch inputs by replacing touch->mouse translation and add hw mic support
 export LD_PRELOAD="/usr/lib/libdrastouch.so"
 export SDL_TOUCH_MOUSE_EVENTS="0"
 export DSHOOK_MIC_THRESH="${MICTHRESH}"
 export DSHOOK_SHADER="${SHADER:-none}"
 ./drastic "$1"
-kill -9 $(pidof gptokeyb)
+kill -9 "${GPTOKEYB_PID}"
