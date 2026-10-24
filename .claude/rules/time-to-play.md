@@ -28,20 +28,21 @@ because it can help guide our decision-making."* D-CLOUD-098, #135.
 - **Nothing we add sits on the launch path unless it must.** A sync, a capture, a
   retention write, a check -- each is asked: does the player wait for this? If yes, why,
   for how long, and does the screen say so? A sync that gates a launch (D-CLOUD-038) is
-  bounded and visible. **What ships today** still cancels an automatic sync at launch
-  (D-CLOUD-076; the card reads `SKIPPED - A GAME WAS STARTED`). **D-CLOUD-109 replaces
-  that** with a bounded wait -- see the bullet below; until it lands, both sentences are
-  true of different builds, and a design written against D-CLOUD-076 is written against
-  a decision that has been superseded.
+  bounded and visible. **A launch over a running sync asks** (D-CLOUD-130): the statement,
+  one consequence, and two verbs, STOP IT AND PLAY / KEEP WAITING, and nothing is
+  cancelled until the player answers; the game-to-game number includes that one press
+  (D-CLOUD-131). D-CLOUD-076's silent cancel (`SKIPPED - A GAME WAS STARTED`) and
+  D-CLOUD-109's silent wait, which D-CLOUD-130 reversed for launches, are history: a
+  design written against either is written against a superseded decision.
 - **Rigour is spent where the player is not waiting.** Retain-before-publish, hashing,
   manifests and verification belong after the game has started or after the card has
   said the player may go, not between the press and the frame.
 - **A setting that trades speed for safety says its price** in seconds, where it is
   turned on.
-- **A sync the player can see is never cancelled by a launch; it is bounded instead**
-  (D-CLOUD-109). The launch waits; the sync gets a budget of a few seconds set from
-  measurement, checks connectivity first, and past the budget ends with an outcome the
-  player can act on. A sync never takes minutes. Maintainer, 2026-09-12: "If they think a
+- **A sync the player can see is never cancelled behind their back, and it is bounded**
+  (D-CLOUD-109, D-CLOUD-130). A launch over it asks; a sync left to finish gets a budget
+  of a few seconds set from measurement, checks connectivity first, and past the budget
+  ends with an outcome the player can act on. A sync never takes minutes. Maintainer, 2026-09-12: "If they think a
   sync is happening, they think a sync is happening."
 - **The offline benchmark** (D-CLOUD-112): sync-on-exit stays on, on the subway and on the
   plane; with no connectivity the sync must reach its outcome in about the time a

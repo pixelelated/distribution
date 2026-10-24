@@ -15,9 +15,10 @@ principles every interface and sync decision is weighed against.
 
 ## What it decided today, so the shape is clear
 
-- A sync the player can see is never cancelled by a launch; it finishes or fails
-  with a reason (D-CLOUD-109). "If they think a sync is happening, they think a
-  sync is happening."
+- A sync the player can see is never cancelled behind their back: a launch over it
+  asks STOP IT AND PLAY / KEEP WAITING, and nothing stops until the player answers
+  (D-CLOUD-130, which reversed D-CLOUD-109's silent wait for launches). "If they think a
+  sync is happening, they think a sync is happening."
 - The automatic cards say *sync*; the deliberate page says *back up* and *restore*
   (D-UI-040, D-CLOUD-113). Quick things read as quick; long things read as long.
 - A sync that could not run says why and what it means, and the count of games
