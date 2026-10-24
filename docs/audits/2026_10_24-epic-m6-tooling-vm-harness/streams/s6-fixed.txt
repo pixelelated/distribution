@@ -1,0 +1,7 @@
+PASS repeat-zero: rc 2, ['time-to-play: error: --repeat must be at least 1, not 0'] (want rc 2, a usage error)
+PASS only-empty-cells: rc 2, ['time-to-play: error: --only names no cell'] (want rc 2, a usage error)
+PASS sync-stamp-failed: judged ["an exit sync's stamp did not complete (rc 5, YOUR_CLOUD_STOPPED_ANSWERING): not a measurement"], over budget [] (want the failing stamp named by its token and not timed)
+PASS g2g-no-stamp: judged ['a game-to-game row has no exit sync stamp'] (want the g2g row without its stamp to fail)
+PASS cell-ran-unmeasured: judged ['the launch cell ran and produced no number', 'the exit cell ran and produced no number', 'the g2g cell ran and produced no number'] (want each cell that ran with no number named)
+PASS scaled-none: judged ["RetroArch's 640x480 surface could not be compared with the panel (the panel's screendump did not arrive): the frames are not qualified (#263)"] (want an unread panel to fail surface qualification)
+6 PASS; 0 FAIL

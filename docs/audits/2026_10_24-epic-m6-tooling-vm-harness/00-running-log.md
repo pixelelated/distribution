@@ -309,3 +309,28 @@ PROOF: 21:25 S4 fix-case: disk-held-no-pidfile, partial-up-rollback, down-stops-
 - **Still open for the cycle:** `vm-qa <image>` from this worktree with no override set; the header's paths under the worktree or `/run/user/1000`.
 - **Already written:** `~/.cache/rocknix-cloud-qa` and `/tmp/rocknix-vm-pair` are left as they are; the M7 lane's older checkout may use them. Nothing on a device.
 PROOF: 21:34 S5 fix-case: two-checkouts-two-states, runtime-recorded, port-held-refused, no-tmp-writes and rehearsal-artifacts-root fail at facb2ae523 (0 PASS, 5 FAIL) and pass at f1331aba83 (5 PASS, 0 FAIL; the whole control 24 PASS) -- `streams/s5-unfixed.txt`, `streams/s5-fixed.txt`, `streams/s1-s5-full.txt`
+
+## [Stage E] S6: time-to-play measures or fails (#967, #983; D-QA-062)
+
+- **The fixes:**
+  - `7c5d15b2d8` (#967):
+    - Usage errors (exit 2): `--repeat` below 1, and an `--only` naming no cell or an unknown one.
+    - The online exit sync is timed only on a completed stamp: rc 0 or 9, with the token read. A failing stamp keeps its token, its time moves to `t_sync_stamp_unmeasured`, it is named by the judge, and `over_budget` skips it.
+    - A g2g row needs its stamp.
+    - Every cell that ran is judged: a cell with no rows, the startup arms, the conditions.
+    - A launch first ends a running RetroArch through the guest's helper, and the row records that it did.
+  - `a09bfc5718` (#983):
+    - G-11: `scaled` None fails qualification.
+    - G-13: `seed_payload` seeds the launched ROM's saves and records the paths.
+    - G-14: the kill helper is checked when installed and reinstalled after every reboot; a kill's status goes on its row and a failed kill fails the run.
+    - G-15: `restore()` and the handlers exist before the first change, and the whole setup through `Frames()` runs under them. A failed backup scp stops the run.
+    - G-16: a saved copy goes back whatever its size; an `.absent` marker removes a file the run created; seeded saves are removed; `read_routes` keeps every default route.
+  - **The split:** hunk 19 held #967's judging and #983's kill-rc judge. The #967 file was built from `HEAD` without that block. The controls before each commit: 29 PASS, then 30.
+- **The positives:** 0 PASS, 6 FAIL against `facb2ae523` (`streams/s6-unfixed.txt`).
+  - `repeat-zero` and `only-empty-cells`: both run on into the guest's setup through the doubles, rc 1 at the monitor socket. P8 is the guest form: rc 0 with empty cells.
+  - `sync-stamp-failed`: judged `[]`, and over budget at 9 s, so a failure was timed.
+  - `g2g-no-stamp`, `cell-ran-unmeasured` and `scaled-none`: each judged `[]`.
+- **After the fixes:** 6 PASS, 0 FAIL (`streams/s6-fixed.txt`).
+- **Still open for the cycle:** `--quick` on guest a once. Every row must be measured or the run fails, and the exit sync's stamp must complete.
+- **Already written:** the record's `time-to-play.md` files and `docs/vm-qa-log.md` stand as history. The cycle's rows are re-read in `02` and marked (*would fail under D-QA-062*) where they would. No budget changes; nothing on a device.
+PROOF: 21:42 S6 fix-case: repeat-zero, only-empty-cells, sync-stamp-failed, g2g-no-stamp, cell-ran-unmeasured and scaled-none fail at facb2ae523 (0 PASS, 6 FAIL) and pass at a09bfc5718 (6 PASS, 0 FAIL) -- `streams/s6-unfixed.txt`, `streams/s6-fixed.txt`

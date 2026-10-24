@@ -113,6 +113,7 @@ The one authorized cycle, 19:23 to 19:30 UTC; the full record is in `00` § The 
 | S3 | The walks need a new boot id and an answering interface, a checked seeding, the QA cloud as the active remote and a manifest; the ES suites judge only the pinned source (#973, #974, #981). Seven cases fail at `facb2ae523` and pass at `ca0bf841d2` | `streams/s3-unfixed.txt`, `streams/s3-fixed.txt` | proved: fix-case |
 | S4 | `vm-pair` refuses to remove a held disk, rolls a partial `up` back and `down` stops both; `vm-stop` exits 3 on a missing pidfile and keeps a replaced one (#970). Five cases fail at `facb2ae523` and pass at `eddd21d7a2` | `streams/s4-unfixed.txt`, `streams/s4-fixed.txt` | proved: fix-case |
 | S5 | The pair's state, the runtime directory, the QA cloud's state and the run's scratch belong to the checkout; held ports are refused; the rehearsal reads `ROCKNIX_ARTIFACTS` (#971, #979; D-INFRA-031). Five cases fail at `facb2ae523` and pass at `f1331aba83` | `streams/s5-unfixed.txt`, `streams/s5-fixed.txt` | proved: fix-case |
+| S6 | `time-to-play` refuses `--repeat 0` and an empty `--only`, times the exit sync only on a completed stamp, needs g2g's stamp, judges every cell that ran, and fails an unread panel (#967, #983; D-QA-062). Six cases fail at `facb2ae523` and pass at `a09bfc5718` | `streams/s6-unfixed.txt`, `streams/s6-fixed.txt` | proved: fix-case |
 
 ## The streams' positives
 
@@ -150,8 +151,14 @@ Each stream's `vm-harness-test` case, run against the unfixed tool (`git archive
 | S5 | `port-held-refused` | `rc 0, launches 2, holder named False` | `rc 1, launches 0, holder named True` |
 | S5 | `no-tmp-writes` | `aimed at /tmp: ['/tmp/', '/tmp/rocknix-vm-pair/qa-key']` | `2 temp files asked for, ... aimed at /tmp: []` (`373a366e40`) |
 | S5 | `rehearsal-artifacts-root` | `/workspace/artifacts/rocknix-images/qa-0123456789-upgrade-from-previous-...` | under the case's `ROCKNIX_ARTIFACTS` (`f1331aba83`) |
+| S6 | `repeat-zero` | `rc 1, ['OSError: AF_UNIX path too long']` (ran on into the guest; P8 is rc 0 on one) | `rc 2, --repeat must be at least 1, not 0` (`7c5d15b2d8`) |
+| S6 | `only-empty-cells` | `rc 1`, ran on into the guest | `rc 2, --only names no cell` |
+| S6 | `sync-stamp-failed` | `judged [], over budget ["... took 9.00 s ..."]` | `an exit sync's stamp did not complete (rc 5, YOUR_CLOUD_STOPPED_ANSWERING)`, over budget `[]` |
+| S6 | `g2g-no-stamp` | `judged []` | `a game-to-game row has no exit sync stamp` |
+| S6 | `cell-ran-unmeasured` | `judged []` | each of launch, exit and g2g named |
+| S6 | `scaled-none` | `judged []` | `... could not be compared with the panel ...` (`a09bfc5718`) |
 
-S1's files: `streams/s1-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s1-fixed.txt` (7 PASS, 0 FAIL). The claim correction: `streams/s1-claim-correction.txt`. S2's: `streams/s2-unfixed.txt` (0 PASS, 4 FAIL) and `streams/s2-fixed.txt` (4 PASS, 0 FAIL); the whole control, `streams/s1-s2-full.txt` (12 PASS). S3's: `streams/s3-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s3-fixed.txt` (7 PASS, 0 FAIL); the whole control, `streams/s1-s3-full.txt` (19 PASS). S4's: `streams/s4-unfixed.txt` and `streams/s4-fixed.txt` (vm-pair-test and vm-stop-test, rc 0). S5's: `streams/s5-unfixed.txt` (0 PASS, 5 FAIL) and `streams/s5-fixed.txt` (5 PASS); every control after S5, `streams/s1-s5-full.txt`. `rules-check --quiet` rc 0 and `hooks-test` PASS after `ea2377f1ce`.
+S1's files: `streams/s1-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s1-fixed.txt` (7 PASS, 0 FAIL). The claim correction: `streams/s1-claim-correction.txt`. S2's: `streams/s2-unfixed.txt` (0 PASS, 4 FAIL) and `streams/s2-fixed.txt` (4 PASS, 0 FAIL); the whole control, `streams/s1-s2-full.txt` (12 PASS). S3's: `streams/s3-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s3-fixed.txt` (7 PASS, 0 FAIL); the whole control, `streams/s1-s3-full.txt` (19 PASS). S4's: `streams/s4-unfixed.txt` and `streams/s4-fixed.txt` (vm-pair-test and vm-stop-test, rc 0). S5's: `streams/s5-unfixed.txt` (0 PASS, 5 FAIL) and `streams/s5-fixed.txt` (5 PASS); every control after S5, `streams/s1-s5-full.txt`. S6's: `streams/s6-unfixed.txt` (0 PASS, 6 FAIL) and `streams/s6-fixed.txt` (6 PASS). `rules-check --quiet` rc 0 and `hooks-test` PASS after `ea2377f1ce`.
 
 ## Findings (stage B)
 

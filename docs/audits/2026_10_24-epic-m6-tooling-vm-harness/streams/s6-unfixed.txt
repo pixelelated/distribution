@@ -1,0 +1,7 @@
+FAIL repeat-zero: rc 1, ['OSError: AF_UNIX path too long'] (want rc 2, a usage error)
+FAIL only-empty-cells: rc 1, ['OSError: AF_UNIX path too long'] (want rc 2, a usage error)
+FAIL sync-stamp-failed: judged [], over budget ["the exit sync's stamp took 9.00 s (median of 1), over D-CLOUD-119's 3 s"] (want the failing stamp named by its token and not timed)
+FAIL g2g-no-stamp: judged [] (want the g2g row without its stamp to fail)
+FAIL cell-ran-unmeasured: judged [] (want each cell that ran with no number named)
+FAIL scaled-none: judged [] (want an unread panel to fail surface qualification)
+0 PASS; 6 FAIL
