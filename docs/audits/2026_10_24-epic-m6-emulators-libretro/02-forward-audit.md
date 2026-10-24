@@ -417,3 +417,106 @@ Each is a `FetchContent_Declare(GIT_REPOSITORY ... GIT_TAG ...)`, cloned during 
 `melonds-ds-lr` is in `LIBRETRO_CORES` for every device, so it ships on all five of the fork's images, and it is the `nds` core beside `melonds`/`desmume`. Upstream-carried recipe; upstream builds the same way (CI has network).
 
 Fix shape for the coordinator's stream brief: carry the dependencies as pinned sources, either `PKG_URL`-style extra tarballs with `PKG_SHA256`, or per-dependency packages wired through `FETCHCONTENT_SOURCE_DIR_<NAME>`, and set `-DFETCHCONTENT_FULLY_DISCONNECTED=ON`, so a missing one fails the configure by name. Proof: a build in a container with no network configures (`fix-pending-image`), and the `_deps` find reads empty for the core. Severity Medium. `Already written:` nothing on devices; this is a build-reproducibility defect. #585 candidate (upstream's recipe).
+
+### Group 3: the fork's own core recipes (read whole, each with its fork commits and its delta against `upstream/next`)
+
+Read with `git diff upstream/next 8ebaf8daad -- <recipe>` (`-` upstream's, `+` the fork's) and `git log --no-merges c445081a59..8ebaf8daad -- <recipe>`:
+
+| Recipe | The fork's commits | The fork's delta, read | Verdict |
+| --- | --- | --- | --- |
+| `ppsspp-lr` | `aa07b621e9`, `d4be36a823` | `post_patch` strips patch 005's aarch64-only `-mno-outline-atomics` on x86_64, after the patches, with the late-binding reason in its comment (`device-builds.md` § Late binding); upstream's added `retroarch` dependency (`af70bd435b`) absent | Q2/Q3 PASS; Q4: `af70bd435b` to merge |
+| `mupen64plus-lr` | `eabc3784cb` | GENERIC_X64 takes AMD64's `PKG_PATCH_DIRS`, the reason in the comment (an unknown platform name falls into a `windows.h` branch) | PASS |
+| `idtech-lr` | `63a2090a56` | `PKG_URL` pinned to `ROCKNIX/packages` commit `4cb65b687c` with a `PKG_SHA256`, replacing a `curl` at install time from `raw/main`; licence scope `GPL-2.0-only`, Doom data's terms on #528 | PASS: a fetch-at-build removed, the archive pinned (`q4-pins-byhand.md`: current) |
+| `desmume-lr`, `gpsp-lr` | `43d0bc3bf4` | the ARM root copy by `${DISTRONAME}` (F-09's precedent) | PASS |
+| `freej2me-lr`, `libretro-database` | `63a2090a56` | licence lines (#528) | PASS |
+| `easyrpg-lr/{libspeexdsp,libxmp-lite,wildmidi}` | `63a2090a56` (licence) | `overlap: false` because only this tree has the licence lines; upstream carries all three recipes | PASS; `wildmidi` F-16 |
+| `fbalpha2012-lr`, `fbalpha2019-lr`, `fbneo-lr`, `mame2003-plus-lr`, `mame2010-lr` | `428d44af40`, `9221b4528d`, `65bd183950`, `8e874f87c5`, `d73b0499f8` | +18/-1 each: `Python3:host`, `PKG_NEED_UNPACK` on the shared generator (so an edit to it rebuilds the core), the generator's call with `--min 100 ... \|\| die`; the five tables regenerate byte-identically (above) | Q3 PASS; Q7 F-17; Q4: the base merge's five conflicts (F-09) |
+| `rotation-table-mame.py` (125), `rotation-table-fba.py` (120) | `50d83513fd`, `cbaf461897`, `dcb88d933e`, `d73b0499f8`, `65bd183950` | build-time Python 3 (stdlib only), each with a floor and a reason on refusal; their four September fixes (strings, `#if 0`, `#elif`, separators) are each a case the generators now pass, as the byte-identical tables show | PASS; `reach: n/a` (they run at build only) |
+
+### F-16 (Q2): `easyrpg-lr/wildmidi` pins a short hash
+
+`easyrpg-lr/wildmidi/package.mk:22` sets `PKG_VERSION="405ca73"` with `PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"`. `CLAUDE.md` and `packaging-and-patches.md` say a git source is pinned with the **full** hash (an abbreviated one stops resolving once the object count grows). `gh api repos/Mindwerks/wildmidi/commits/405ca73` resolves it today to `405ca73adfa11659b7579f0b09df1303f42659a4` (2018-11-24); `upstream/next` pins the same short form. Fix shape: the full hash; the tarball's bytes and `PKG_SHA256` are unchanged (GitHub archives a commit, not its name). Proof: `pkgcheck wildmidi` rc 0, then `scripts/get` fetching the same `PKG_SHA256` at the next build (`fix-pending-image`). Q2, Low; #585 candidate. The other six non-full pins are not this defect: `libxmp-lite` `4.5.0` is a release tarball, `freej2me-lr` `1.52` a tag tarball, `idtech-lr` `1.0` a label over a full-hash URL, and the three `vitaquake2-*` take `vitaquake2-lr`'s full hash.
+
+### F-17 (Q7): the rotation-table hook is written out five times
+
+The same 18 lines, the dependency, `PKG_NEED_UNPACK`, a ten-line comment and the generator's call, are in all five arcade recipes, differing only in the generator's name, the drivers directory and the output file. A reader meets the same reasoning five times, and an edit to the hook is five edits (the base merge's five conflicts, F-09, are this copy seen from the other side). Fix shape: none that the build engine offers cleanly (recipes share no include mechanism but `. ${ROOT}/packages/...`, which the stamp trap of `device-builds.md` § After rebasing, item 3 makes costly). So it is recorded with the reason the copies stay. Q7, Low (`Renovation`), withdraw-able at Phase 7 with that reason.
+
+### F-18 (Q6, Q7): `X64_SKIP_CORES` says its cores are "tracked in issue #16", which is closed and tracked nothing of the kind
+
+`virtual/emulators/package.mk` 107 to 115: *"GENERIC_X64 (x86_64): drop libretro cores that don't yet build for x86_64. These are tracked in issue #16 to fix/re-enable per-core later (e.g. parallel-n64-lr's x86 hacktarux dynarec defines fsqrt(), which collides with glibc's C23 fsqrt)."*
+
+- **#16 was closed on 2026-09-24** (*"Closed as delivered in the 2026-09-24 triage (#262, bucket A): GENERIC_X64 landed ... The bare-metal x86_64 question is #230's."*). It was the VM build's issue, not a per-core list.
+- The four skipped cores (`parallel-n64-lr`, `flycast2021-lr`, `duckstation-lr`, `idtech-lr`; `b3bf4ac176`, `a68b4056c3`, `d4fbdbf615` of 2026-08-21) are therefore tracked nowhere. (F-05's missing `psx` default on the VM is not one of their effects: the `psx` `case` has no GENERIC_X64 arm at all, so with the skip gone the table would still carry no default.)
+- Fix shape: the comment names a live issue that holds the four, with each core's reason (the coordinator files or names it), or says the skip is permanent. Q6/Q7, Low.
+
+### `virtual/emulators/sources/Install Steam.sh` (2,755 lines, fork-own; every item here is `deferred:M7-merge`)
+
+**How it was read.** A read-only research subagent read the whole file and returned leads with line numbers (lead, not evidence, SKILL.md § Evidence floor 5). Each lead below was re-read at its lines in `next`'s copy (`8ebaf8daad`) before it was written; leads not re-read are marked as leads.
+
+**Structure (Q7).**
+- `#!/bin/bash`, `set -e` (6), `set -o pipefail` (7), no `set -u`, no `trap` (`grep -c -E '^\s*trap '` 0).
+- Shell functions around five embedded Python 3 programs, run `-I -S -B`:
+  - `steam_root_layout` (19 to 201)
+  - `ensure_fex_rootfs` (249 to 762)
+  - `install_steam_runtime_arm64` (775 to 1155)
+  - `steam_client_state` (1167 to 2365, about 1,200 lines)
+  - `install_proton_variant` (2372 to 2672)
+- The main sequence is 2712 to 2755.
+- **Installed where:** `steam` is in `PKG_EMUS` on SM4450, SM8250, **SM8550**, SM8650 and SM8750 (`package.mk` 72 to 89), so on one of the fork's built devices. `install_script "Install Steam.sh"` sits at 758. Q6 Table 3 lists it for SM8550 alone among the five.
+- M7's `6101242e14` changes eight hunks (§ Scope's table); the items below say where that commit touches them.
+
+### F-19 (Q3): on the SM8550 image, Install Steam stops at its Proton step, because that image's `grep` has no `-P`, and whether it does is decided by a build race
+
+**The script:** `fetch_proton_latest_release` (203 to 247) parses GitHub's release JSON with `grep -oP '"tag_name":\s*"\K[^"]+'` (217) and `grep -oP '"browser_download_url":...'` (222), each `|| die "Failed to parse ..."` under `set -o pipefail`. The main sequence calls it twice, after the FEX rootfs, the runtime and the client are installed and before both Protons and the first launch (2747 to 2753). After `source /etc/profile` `PATH` is `/usr/bin:/usr/sbin`, so `/usr/bin/grep` (GNU grep 3.9) runs; busybox's has no `-P` either.
+
+**The images** (the M7 roots' install trees):
+
+| Image | `usr/bin/grep` | PCRE in it | The grep build's `config.h` |
+| --- | --- | --- | --- |
+| GENERIC_X64 | 880,192 bytes | yes (`exhausted PCRE JIT stack`, static) | `#define HAVE_LIBPCRE 1` |
+| H700 | 789,952 bytes | yes | `#define HAVE_LIBPCRE 1` |
+| **SM8550** | **265,312 bytes** | **no**: it carries `Perl matching not supported in a --disable-perl-regexp build`, and links only `libc.so.6` | **no `HAVE_LIBPCRE`** |
+
+**The cause, a race:**
+
+- `sysutils/grep/package.mk` declares `PKG_DEPENDS_TARGET="toolchain"` and passes no PCRE option, so grep's configure autodetects PCRE2 in the sysroot.
+- On the SM8550 root its `config.log` reads `checking for pcre2_compile` then `conftest.c:457:38: fatal error: pcre2.h: No such file or directory`. PCRE2's `build_target` stamp is 09:46:50 and grep's 09:47:08, so grep configured while PCRE2 was still being built and installed into the sysroot by the parallel build.
+- On the H700 root PCRE2 finished at 06:57:29, a minute before grep (06:58:29), and the same check reads `result: yes`.
+
+**So, as the artifacts read, on the fork's SM8550 image Install Steam installs FEX, the runtime and the client, then dies with `Failed to parse Proton-CachyOS version tag.`**, the parse failing before the network answer is read.
+
+- The `grep -oP` is upstream's (`ff40ff1897`, 2026-04-28), still in M7's copy (`069fc2704421` lines 223 and 228); `6101242e14` does not touch it.
+- **Sibling:** `projects/ROCKNIX/packages/hardware/quirks/platforms/RK3566/bin/volumealign:18` uses `grep -ozP` and is exposed to the same race on RK3566 images (another slice's file).
+
+**Can this be done on the VM?** The mechanism, yes in part: the GENERIC_X64 grep happens to have PCRE, so the guest cannot show the failure with the image's own grep. A guest run of `fetch_proton_latest_release` against a fixture JSON with a no-PCRE grep shim on `PATH` would show the parse dying (a substitute input, named as such, P-05). The criterion that needs no device is the artifact: the image's `grep -P` support, read from the image, or the script not using `-P` (`git grep`).
+
+Fix shapes, two layers:
+- in this slice, parse the JSON with the `python3 -I` the script already runs (`json.loads`), removing the dependency on `grep -P`;
+- in the grep recipe (another slice, routed through the coordinator), `PKG_DEPENDS_TARGET+=" pcre2"` and `--enable-perl-regexp`, so a build without it fails rather than drops the feature.
+
+**Severity High** (a Tools entry that cannot complete on a built device). `Already written:` a failed run leaves FEX, the runtime and the client installed under `/storage`, and a later successful run reuses them through the script's own state checks (`steam_client_state`'s "existing" branch, 2292 to 2294). Read both, nothing to migrate.
+
+### F-20 (Q2, security): network data reaches `eval`
+
+240 to 243: `eval "${var_prefix}_VERSION_FULL='${version_clean}'"`, and the same for `_TAR`, `_DIR` and `_URL`, insert values parsed from GitHub's release JSON inside single quotes. The extraction regexes exclude `"` but not `'` (217, 222), so a `'` in a tag name or an asset URL would close the quote and run what follows as shell. Python's checks of the name and URL (2584 to 2588) run after the `eval`. The attacker is whoever controls those releases' metadata, behind HTTPS. **M7's `6101242e14` replaces exactly these four `eval`s** with literal assignment and limits `var_prefix` to its two callers (its first two hunks), so the fix exists and arrives with the M7 candidate's merge. Severity Medium; `deferred:M7-merge`, resolved by that commit when it lands. `*_VERSION_FULL` is also never read (only its assignment, Q6).
+
+### F-21 (Q3, security): the Steam runtime and Proton archives are installed without an integrity check
+
+- **The runtime:** the version string comes from `curl -fsSL` (1060 to 1062, its shape checked by a regex), and the archive from `wget -t 3 -T 30 -O <work>/runtime.tar.xz` (1069 to 1071). Only the archive's structure and ELF headers are checked afterwards (lead lines 1080 to 1101, 856 to 875).
+- **Proton:** `wget` at 2630, then only `0 < size <= MAX_ARCHIVE` (2632) and the manifest shape. The release's `.sha512sum` asset is deliberately skipped (222's `grep -v '\.sha512sum'`) and never fetched.
+- **The client, by contrast,** is checked against the manifest's `sha2` and size (1749 to 1751).
+
+So two of the three downloaded payloads that the script then runs are trusted on TLS alone. Lead, not re-read: neither `curl` call nor `wget` restricts redirects to HTTPS (the client transfer does, `--proto =https --proto-redir =https`, around 1833 to 1872), and `wget` is probably busybox's (`-t` may be ignored). Fix shape: fetch and check Proton's `.sha512sum`. For the runtime, use the checksum file Valve publishes beside its images, if one exists, which is a lead to read. Severity Medium; `deferred:M7-merge`.
+
+### F-22 (Q3): an interrupted first launch leaves binfmt off
+
+`run_steam_first_launch` (2692 to 2710) writes `0` to `/proc/sys/fs/binfmt_misc/{x86,box32,box64}` (2694 to 2696) and restores them only by `systemctl restart systemd-binfmt` at its end (2709). There is no `trap`. An interrupt or a kill while Steam runs (2703; the player closing the terminal) leaves x86/box64 binfmt disabled until a reboot or a restart of that unit, which breaks every box64 or FEX launch meanwhile. Fix shape: `trap 'systemctl restart systemd-binfmt' EXIT INT TERM` around the block. Severity Low; `deferred:M7-merge`.
+
+### F-23 (Q6, Q7): dead assignments, comments that disagree, and logic written several times
+
+- **Read as dead:** `FEX_ARCH_USR_LIB` (2723), `RUNTIME_DIR` (2724), `STEAM_MANIFEST_URL` (2728) and `STEAM_CDN` (2729) each occur once (`grep -c -w`), their assignment; the embedded Python reads `sys.argv`, not the environment, and has these values as literals of its own. `*_VERSION_FULL` (F-20) is the same. shellcheck flagged the four (SC2034).
+- **Comments that disagree (leads):** `install_bundled_proton_files` logs "Installing bundled Proton files..." and copies only `registry.vdf` (2368 to 2369); 2374 calls the fifth argument "retained for caller compatibility" while `FAMILIES[family]` reads it (2583); `ensure_steam_desktop_stub` is an empty `touch` (769 to 772).
+- **Copies (leads):** a mountinfo octal-unescape parser six times; `no_mounts` three times; two VDF parsers with different grammars (1719, 2425).
+- **Q5 lead:** `ensure_fex_rootfs` runs `begin`, `stage` and `activate` on every run (727 to 731, re-read). Whether `stage` downloads a whole ArchLinux rootfs again when a valid one is present is the subagent's lead (lines 499 to 501), not re-read.
+
+Severity Low (`Renovation`); all `deferred:M7-merge`.
