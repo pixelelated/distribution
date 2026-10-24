@@ -35,11 +35,7 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#653`. No runtime of any kind is needed: no guest, no
-build, no compiler. Read a tool to learn its reach; never run one to find
-out (`distro-tool`, `download-tool` and `imgburn.sh` write).
+**Stage A done (2026-10-24 08:08 UTC).** \`reviewed-at\` \`b96e1ca761\`; the slice's bytes \`8ebaf8daad\`'s. The scope re-derived with no delta (135 paths, 7,369 lines, 134 upstream-carried, 1 fork-own, 108 \`n/a\`, 27 \`unreached\`); Q4 1 differs (\`tools/pkgcheck\`). Audit folder \`docs/audits/2026_10_24-epic-m6-build-engine-upstream-tools/\`: \`00\` and \`01\` § Scope. **Next:** stage B (Phase 1, the mechanical checks, the two-way caller counts, the coverage table, the Q6 reachability table). Nothing runs: no guest, no build.
 
 ## Next commands
 
