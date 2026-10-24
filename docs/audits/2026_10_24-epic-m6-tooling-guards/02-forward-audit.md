@@ -23,7 +23,7 @@ Every finding is a lead until `04` § Finding Verification and § Second opinion
 | 11 | 04 Q6: the guard table and the tool-caller table | the evidence is here (§ Callers, § The suites, F-rows); the tables are `04`'s | `04` § Q6 |
 | 12 | 04 Q3: the fail-open hunt through the named readers | the evidence is here (F-01 to F-30); the table is `04`'s | `04` § Q3 |
 | 13 | 04 Q7: the personal-path diff entry by entry; three descriptions per guard | P2 (the diff); the description rows are `04`'s | `04` § Q7 |
-| 14 | proof cells in § Proofs = proof lines in 00 | 28 = 28 | § Proofs; `command grep -c` |
+| 14 | proof cells in § Proofs = proof lines in 00 | 29 = 29 | § Proofs; `command grep -c` |
 | 15 | every item `question:`; bugs pass box-check; no member edited before a stream | stage D; `git diff --stat a82d784216 HEAD -- .githooks .github tools` empty | `05` |
 | 16 | the retro | stage G | `docs/retros/` |
 | 17 | the six checks pass before the merge; the lint PASS | stage H | the hand-back |
@@ -680,3 +680,38 @@ One commit and one control per tool. Each control was run against the tool as it
 | Proof | What it shows | Proved |
 | --- | --- | --- |
 | P26 | S9's twelve controls fail on each tool before its fix commit (52 of 67 cases) and pass at it (67); the real runs as above | proved: fix-case |
+
+### S10: the fork CI (#944, #913, PL-31) -- `f4381c3501`, `22f9ae0d5e`
+
+The `fork-checks.yml` diff, as committed:
+
+```diff
++# Every check step runs whether or not an earlier one failed (`if: always()`),
++# so a red day shows every verdict; the job still fails when any step does
++# (D-WORKFLOW-202, #944).
+ ...
+       - name: work-log index is current
++        if: always()
+ ...   (the same line on each of the eight check steps)
+           python3 tools/host-maintenance/test-build-admission
++          python3 docs/qa-logs/2026-10-04-watch-progress/test-progress.py .
++          python3 docs/qa-logs/2026-10-04-watch-progress/test-watch-build.py
++          python3 docs/qa-logs/2026-10-05-watch-submit/test-submit.py
+```
+
+The `fork-mirror-build-container.yml` sign-in, as committed:
+
+```yaml
+        env:
+          REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REGISTRY_USER: ${{ github.actor }}
+        run: printf '%s' "$REGISTRY_TOKEN" | skopeo login ghcr.io -u "$REGISTRY_USER" --password-stdin
+```
+
+- **The parse:** both files load with `yaml.safe_load`, with 10 and 3 steps, and each step's `if` was read back. No `fork-*` workflow now carries an expression inside `run:`; before, the mirror's sign-in did.
+- **fix-pending-ci, the coordinator's read:** the first red run on `next` after both merges, T9's (the three controls' fixed bodies) and this branch's, with every step's conclusion `success` or `failure` and none `skipped` (`gh run view`).
+- **For the coordinator:** GitHub's expression documentation also offers `!cancelled()`, which runs a step after a failure but not after a cancel; D-WORKFLOW-202 decided `always()`, and that is what is here.
+
+| Proof | What it shows | Proved |
+| --- | --- | --- |
+| P27 | the two workflows parse with `always()` on every check step and no expression inside `run:`; the run itself is the coordinator's | proved: fix-pending-ci |

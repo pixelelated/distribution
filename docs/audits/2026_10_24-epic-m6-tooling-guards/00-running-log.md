@@ -421,3 +421,16 @@ PROOF: P25 S8's control and runs -- `docs/qa-logs/2026-10-24-package-freshness/r
   - API budget read first: core 4,932 of 5,000 before the tracker reads.
 - **After the stream:** `hooks-test` PASS, `rules-check` rc 0, `register-check` rc 1 as recorded.
 PROOF: P26 S9's controls and runs -- the twelve controls under `docs/qa-logs/2026-10-24-record-checkers/` and `docs/qa-logs/2026-10-02-candidate-preflight/rc-preflight-t10.py`: each fails on its tool before the fix commit (52 FAIL of 67 cases in all) and passes at it (67 ok, `/workspace/tmp/m6-t10/s9-controls.txt`); the real runs above (`/workspace/tmp/m6-t10/s9-*.txt`).
+
+### [Stage E] 19:24 — S10: the fork CI (#944, #913, PL-31)
+
+- **The fix:**
+  - `fork-checks.yml` (`f4381c3501`): `if: always()` on all eight check steps (the checkout and the upstream fetch keep the default). The three watcher controls join the lifecycle step: `test-progress.py .`, `test-watch-build.py` and `test-submit.py`.
+  - `fork-mirror-build-container.yml` (`22f9ae0d5e`): the token and the actor pass through `env:` (`REGISTRY_TOKEN`, `REGISTRY_USER`), and the token reaches skopeo on stdin through `printf '%s'`.
+- **The test:** both files parse (`yaml.safe_load`: 10 and 3 steps), and each step's `if` was read back. Across the four `fork-*` workflows, 0 steps carry an expression inside `run:` (1 before, the mirror's sign-in).
+- **Not run:** no `gh workflow run`. The three controls were not run on this branch, since their fixed bodies arrive with T9's merge. Whether the first red run on `next` shows every step's conclusion is the coordinator's read (`fix-pending-ci`).
+- **After the stream:**
+  - `hooks-test` PASS, 67 ok lines (`/workspace/tmp/m6-t10/s10-hooks.txt`);
+  - `rules-check --quiet` rc 0;
+  - `register-check` rc 1, as recorded (MISSING 2, SHAPE 12).
+PROOF: P27 S10's parse and read-back -- `yaml.safe_load` on `.github/workflows/fork-checks.yml` (10 steps, `always()` on the eight check steps) and `fork-mirror-build-container.yml` (3 steps); the expression-in-run scan over the four `fork-*` workflows, 0 after and 1 before; the diffs in `/workspace/tmp/m6-t10/s10-checks.diff` and `s10-mirror.diff`; the CI run itself fix-pending-ci.
