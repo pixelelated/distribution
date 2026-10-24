@@ -42,23 +42,32 @@ update_packages() {
         sed -i "s/PKG_VERSION=\"${PKG_VERSION}/PKG_VERSION=\"${UPS_VERSION}/" $f
       else
         echo "Could not find version, not updating ${PKG_NAME}."
+        continue
       fi
     fi
 
     if [[ ! "${PKG_URL}" =~ git$ ]]
     then
-     if grep -q PKG_SHA256 "${f}"; then
-       echo "PKG_SHA256 exists on ${f}, clearing"
-       sed -i "/PKG_SHA256=.*\$/d" ${f}
+     # An archive recipe keeps a PKG_SHA256, or its fetch fails (D-WORKFLOW-193).
+     # When the version moved, the new archive's checksum replaces the old one,
+     # from one verified fetch into a temporary file; a recipe with no checksum
+     # line or more than one (a per-device case) is left as it is and named.
+     if [ "${UPS_VERSION}" ] && [ "${UPS_VERSION}" != "${PKG_VERSION}" ]; then
+       if [ "$(grep -c '^ *PKG_SHA256=' "${f}")" != "1" ]; then
+         echo "${PKG_NAME}: not one PKG_SHA256 line in ${f}; set its checksum by hand"
+       else
+         source "${f}"
+         TMP_ARCHIVE=$(mktemp)
+         if wget -q -O "${TMP_ARCHIVE}" "${PKG_URL}"; then
+           SHA=$(sha256sum "${TMP_ARCHIVE}" | cut -d" " -f1)
+           sed -i "s/^\( *\)PKG_SHA256=\"[^\"]*\"/\1PKG_SHA256=\"${SHA}\"/" "${f}"
+           echo "${PKG_NAME}: PKG_SHA256 ${SHA} (fetched once, trusted on first use)"
+         else
+           echo "${PKG_NAME}: could not fetch ${PKG_URL}; its PKG_SHA256 is the old version's"
+         fi
+         rm -f "${TMP_ARCHIVE}"
+       fi
      fi
-     source "${f}"
-     ./scripts/get "${PKG_NAME}" >/dev/null
-     if [ "${p}" != "linux" ]; then
-       SHA=$(cat ./${SOURCES}/${PKG_NAME}/${PKG_NAME}-${UPS_VERSION}.*.sha256 2>/dev/null ||:)
-     else
-       SHA=$(cat ./${SOURCES}/${PKG_NAME}/linux-$LINUX-${UPS_VERSION}.tar.gz.sha256 2>/dev/null ||:)
-     fi
-     sed -e "/PKG_VERSION=\"${UPS_VERSION}\"/{ N; s/PKG_VERSION=\"${UPS_VERSION}\".*PKG_SHA256=\"\"/PKG_VERSION=\"${UPS_VERSION}\"\nPKG_SHA256=\"${SHA}\"/;}" -i ${f}
    else
      sed "/^PKG_SHA256=/d" -i ${f}
    fi
