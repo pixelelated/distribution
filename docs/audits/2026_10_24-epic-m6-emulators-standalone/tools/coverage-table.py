@@ -3,132 +3,148 @@
 # Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 # Copied for M6 T30 (#677) from T3's docs/audits/2026_10_24-epic-m6-emulators-libretro/tools/coverage-table.py at b3cb4ec8c5
 # (feature/m6-emulators-libretro-650); T30's changes, if any, are named below.
-"""coverage-table.py -- 02-forward-audit.md's coverage table, one row per path
-of the slice (M6 T3, #650 criterion 7).
+# T30 change: the body is rewritten for this slice (its membership, its
+# findings, its file kinds); T3's contract is kept: one row per member, the
+# path in backticks first, Q1 to Q7 never empty, the row count asserted.
+"""coverage-table.py -- 02-forward-audit.md's coverage table for T30, one row
+per path of the slice (#677 criterion 7).
 
     python3 -I coverage-table.py <tree> <audit-dir> > table.md
 
-The membership is brief section 2's filter over docs/reviews/inventory.json.
-Each row: the path in backticks, its group, its tier, its Q1 to Q7 cells and,
-for a fork-own path, the fork commits read. A cell is the findings that name
-the path (the FINDINGS map below, written from 02's findings), else the slice
-table that answers it (Q4: q4-pins.json, q4a-dispositions.md; Q6:
-q6-tables.md), else `n/a` with its reason. An upstream-carried recipe's Q1,
-Q2, Q3 and Q7 read `n/a: upstream's recipe, unchanged here` (brief section 4)
-unless a finding names it. The script asserts 344 rows and no empty cell.
+The membership is brief section 2's filter over docs/reviews/inventory.json
+(543 rows). A cell is the finding that names the path (F, from 02's F-NN
+list), else the slice table that answers it, else `n/a` with its reason.
+The script asserts 543 rows and no empty cell.
 """
-import json, re, subprocess, sys, os
+import json, os, re, sys
 
 tree, audit = sys.argv[1:3]
 inv = json.load(open(os.path.join(tree, "docs/reviews/inventory.json")))
 cols = inv["columns"]
-rows = [dict(zip(cols, r)) for r in inv["rows"]]
+P = "projects/ROCKNIX/packages/emulators/standalone/"
+sel = {r["path"]: r for r in (dict(zip(cols, x)) for x in inv["rows"])
+       if r["tree"] == "distribution" and r["area"] == "emulators-and-cores"
+       and r["path"].startswith(P) and r["reach"] in ("shipped", "test", "n/a")}
 
-def gm(p, g):
-    return re.fullmatch(re.escape(g).replace(r"\*\*/", "(?:.*/)?").replace(r"\*\*", ".*").replace(r"\*", "[^/]*"), p) is not None
-
-rules = [({"emulators-and-cores"}, ["projects/ROCKNIX/packages/emulators/**"], ["projects/ROCKNIX/packages/emulators/standalone/**"], {"shipped", "test", "n/a"}),
-         ({"patches-and-configs"}, ["projects/ROCKNIX/packages/emulators/libretro/retroarch/**"], [], None),
-         ({"generic-packages"}, ["projects/ROCKNIX/packages/virtual/emulators/**"], [], None)]
-sel = {}
-for areas, inc, exc, reach in rules:
-    for r in rows:
-        if r["tree"] != "distribution" or r["area"] not in areas: continue
-        if reach and r["reach"] not in reach: continue
-        if not any(gm(r["path"], g) for g in inc) or any(gm(r["path"], g) for g in exc): continue
-        sel[r["path"]] = r
-
-LR = "projects/ROCKNIX/packages/emulators/libretro/"
-VE = "projects/ROCKNIX/packages/virtual/emulators/"
-RA = LR + "retroarch/"
-
-# Findings by path prefix -> {question: text}. Written from 02's F-NN entries.
-FINDINGS = [
-    (RA + "package.mk", {"Q1": "F-13 (dead status checks)", "Q2": "PASS (header, guard 129-134)", "Q3": "F-11 (retroarch32 skipped silently, latent); F-08's mechanism", "Q5": "five tmp-*.mount at boot (not measured)", "Q6": "/etc/retroarch.cfg read by no script (row)", "Q7": "libass twice; `empty` dependency unexplained"}),
-    (RA + "sources/GENERIC_X64/retroarch.cfg", {"Q1": "F-12 (24 keys not read)", "Q2": "PASS (no credential value shipped)", "Q3": "P1: installed = tree's hash", "Q5": "P2, P4 (log_verbosity: no measured cost)", "Q6": "F-12; F-14 (video_font_path)", "Q7": "Q7 copies table (F-12)"}),
-    (RA + "sources/GENERIC_X64/", {"Q1": "n/a: a data file of four lines or a remap", "Q2": "PASS (P1 hash = tree's)", "Q3": "P1", "Q5": "n/a: read once at launch", "Q6": "Table 4 (built)", "Q7": "n/a: data"}),
-    (RA + "sources/*/retroarch.cfg", {"Q1": "F-12 (not-read keys, same lines in every profile)", "Q2": "n/a: upstream's profile, unchanged here", "Q3": "F-12 (armhf core-updater URL on aarch64 profiles)", "Q5": "not measured: no guest for this panel", "Q6": "Table 4", "Q7": "F-12 (copies: SM4450 = SM8250 = SM8550)"}),
-    (RA + "sources/", {"Q1": "n/a: a remap or an append file; F-12 reads the profiles' retroarch.cfg only (Phase 4.6)", "Q2": "n/a: upstream's file, unchanged here", "Q3": "n/a: upstream's file, unchanged here", "Q5": "n/a: read once at launch", "Q6": "Table 4", "Q7": "Q7 copies table (the profile sets)"}),
-    (RA + "patches/0011-video-thread-wrapper", {"Q1": "n/a: a fix, current at the pin", "Q2": "PASS (applies at fuzz 0)", "Q3": "PASS (reading); not driven by the wrapper test", "Q4": "Q4 (c): superseded on master (#19518)", "Q5": "one mutex per post (not measured)", "Q6": "Table 5; retires with a bump", "Q7": "PASS (header says why)"}),
-    (RA + "patches/0015-", {"Q1": "n/a: a fix", "Q2": "PASS (fuzz 0)", "Q3": "PASS: wrapper test 2000/2000, reversed 2011/2000", "Q4": "Q4 (c): fixed on master (#19577)", "Q5": "n/a: no added work on the frame path", "Q6": "Table 5; retires with a bump", "Q7": "PASS"}),
-    (RA + "patches/0013-", {"Q1": "n/a", "Q2": "PASS (strings in us/fr)", "Q3": "PASS (header parse bounded, flags reset per callback)", "Q4": "Q4 (c): fails at master", "Q5": "n/a: one header scan per HTTP answer", "Q6": "Table 5; reached when the proxy is on", "Q7": "PASS"}),
-    (RA + "patches/0014-", {"Q1": "deferred:#336 (widget surface)", "Q2": "PASS (fuzz 0)", "Q3": "PASS (reading)", "Q4": "Q4 (c): fails at master", "Q5": "deferred:#336", "Q6": "Table 5", "Q7": "deferred:#336"}),
-    (RA + "patches/0016-", {"Q1": "deferred:#336", "Q2": "PASS", "Q3": "PASS; P3: floor 13 engages", "Q4": "Q4 (c): fails at master", "Q5": "deferred:#336", "Q6": "Table 5; reached (P3)", "Q7": "measured for Inter, drawn on M+ 1p (with F-14)"}),
-    (RA + "patches/0017-", {"Q1": "deferred:#336", "Q2": "PASS", "Q3": "PASS (reading)", "Q4": "Q4 (c): fails at master", "Q5": "deferred:#336", "Q6": "F-14: its step engages on no shipped profile (P3)", "Q7": "F-14"}),
-    (RA + "patches/0018-", {"Q1": "n/a", "Q2": "PASS", "Q3": "PASS: P3b on the guest; config_append_file read", "Q4": "Q4 (c): fails at master (#19223)", "Q5": "n/a: one pointer compare per load", "Q6": "Table 5; reached (P3b)", "Q7": "PASS"}),
-    (RA + "patches/0019-", {"Q1": "deferred:#336", "Q2": "PASS", "Q3": "PASS (lock read at 676/728/1196/1220)", "Q4": "Q4 (c): fuzz at master", "Q5": "deferred:#336", "Q6": "Table 5", "Q7": "deferred:#336"}),
-    (RA + "patches/0004-", {"Q2": "F-10 (applies only with fuzz)", "Q4": "Q4 (c): fuzz at master"}),
-    (RA + "patches/", {"Q1": "n/a: an upstream patch, a provenance row", "Q2": "PASS at the pin (Q4 (c))", "Q3": "n/a: upstream's patch, unchanged here", "Q4": "Q4 (c) row", "Q5": "n/a: upstream's patch", "Q6": "Table 5", "Q7": "n/a: upstream's patch"}),
-    (VE + "package.mk", {"Q1": "n/a: the table's idiom is T5's functions", "Q2": "pkgcheck rc 0 (install_script warn read); shellcheck read", "Q3": "F-05 (psx/st-v); F-08 (default psx core); F-06 (default rule, T5's)", "Q4": "F-07 (aethersx2), Q4 (a) rows 1, 3, 4", "Q5": "n/a: build time only", "Q6": "Table 2; F-18 (#16 closed)", "Q7": "F-06 comment; F-18"}),
-    (VE + "sources/Install Steam.sh", {"Q1": "F-23 (deferred:M7-merge)", "Q2": "F-20 eval (deferred:M7-merge; M7's 6101242e14 fixes)", "Q3": "F-19 (grep -P on SM8550), F-21, F-22 (deferred:M7-merge)", "Q5": "F-23 lead (FEX re-fetch)", "Q6": "Table 3 (SM8550); F-23 dead assignments", "Q7": "F-23"}),
-    (VE + "sources/Start Azahar.sh", {"Q2": "F-04 (line-2 shebang)"}),
-    (VE + "sources/Start MelonDS.sh", {"Q2": "F-04 (line-2 shebang)"}),
-    (VE + "sources/Start RPCS3.sh", {"Q3": "Q4 (a) row 9: kill target `rpcs3`, binary `rpcs3-sa`", "Q4": "Q4 (a) row 9 to merge"}),
-    (VE + "sources/Start AetherSX2.sh", {"Q4": "Q4 (a) rows 1, 9 (F-07)"}),
-    (VE + "sources/", {"Q1": "n/a: upstream's launcher, unchanged here", "Q2": "shellcheck read (§ shellcheck)", "Q3": "n/a: upstream's launcher, unchanged here", "Q4": "Q4 (a): no row unless named", "Q5": "n/a: standalone emulator start, T30's", "Q6": "Table 3", "Q7": "n/a: upstream's launcher, unchanged here"}),
-    (VE + "udev.d/99-automount.rules", {"Q4": "Q4 (a) rows 11 to 13 to merge"}),
-    (VE, {"Q1": "n/a: upstream's file, unchanged here", "Q2": "shellcheck read where shell", "Q3": "n/a: upstream's file, unchanged here", "Q4": "Q4 (a): no commit on it", "Q5": "n/a: boot or build only", "Q6": "installed on every built device (the recipe's makeinstall_target)", "Q7": "n/a: upstream's file, unchanged here"}),
-    (LR + "sameboy-lr/package.mk", {"Q2": "F-02 (late binding, pkgcheck FAIL)", "Q6": "F-02 (dead option)"}),
-    (LR + "flycast2021-lr/package.mk", {"Q2": "F-03 (cosmetic warn)", "Q7": "F-03"}),
-    (LR + "pcsx_rearmed-lr/package.mk", {"Q3": "F-08 (#802): the default core's install path; the fix lands in this recipe"}),
-    (LR + "melonds-ds-lr/package.mk", {"Q3": "F-15 (FetchContent at configure)", "Q4": "F-15 (eleven fetched at configure: nine by short hash, two by tag)"}),
-    (LR + "easyrpg-lr/wildmidi/package.mk", {"Q2": "F-16 (short-hash pin)"}),
-    (LR + "rotation-table-", {"Q1": "PASS (Python 3, stdlib)", "Q2": "PASS (floor guard, reason on refusal)", "Q3": "PASS: byte-identical to the image, constructed failures seen", "Q4": "n/a: the fork's own tool", "Q5": "1 to 3 s at build", "Q6": "reach n/a: build time; called by five recipes", "Q7": "PASS"}),
-]
-ROT = ["fbalpha2012-lr", "fbalpha2019-lr", "fbneo-lr", "mame2003-plus-lr", "mame2010-lr"]
-
+SHIPPED = {"H700", "SM8550", "GENERIC_X64"}
 q4 = {r["path"]: r for r in json.load(open(os.path.join(audit, "q4-pins.json")))["rows"]}
-byhand = {"libxmp-lite": "behind-project (by hand)", "emuscv-lr": "behind-project (by hand)", "idtech-lr": "current (by hand)"}
-fork_commits = {}
-def commits(p):
-    out = subprocess.run(["git", "-C", tree, "log", "--no-merges", "--format=%h", "c445081a59..8ebaf8daad", "--", p], capture_output=True, text=True).stdout.split()
-    return " ".join(out[:6]) + (" ..." if len(out) > 6 else "")
+q4shape = {"aethersx2-sa": "moving tarball, matches today; class 1 (deleted upstream, F-26)",
+           "drastic-sa": "moving tarball, matches today", "duckstation-sa": "release asset, ~900 builds behind (F-27)",
+           "dsperate-sa": "release asset 2.0.1, upstream 3.0.5 (F-27, class 1)", "bigpemu-sa": "release asset v119, project v1221 (F-27)",
+           "steam": "release .deb 1.0.0.85, pool 1.0.0.87 (F-27)", "gzdoom-sa": "tag g4.14.2 = latest release",
+           "scummvm-sa": "tag 2026.1.0, project v2026.4.0 (F-27)", "vice-sa": "tag 3.8, project 3.10 (F-27)",
+           "mednafen": "fork tag 1.32.1-chd, current", "pico-8": "no project: the player's binary",
+           "heroic": "no project: metapackage", "mupen64plus-sa": "no project: metapackage",
+           "portaudio": "repo-missing: source gone (F-13)", "supermodel-sa": "pin on no default branch (F-28)",
+           "yabasanshiro-sa": "pin on no default branch (F-28)", "azahar-sa": "behind-upstream (q4a, class 1)"}
 
-def group(p):
-    if p.startswith(RA): return 1
-    if p.startswith(VE): return 2
-    if p.startswith(LR + "rotation-table") or sel[p]["tier"] == "fork-own": return 3
-    return 4
+# Findings by path (exact, or a prefix ending in /) -> {question: text}.
+F = {}
+def f(path, **qs):
+    for q, v in qs.items():
+        old = F.setdefault(path, {}).get(q)
+        F[path][q] = f"{old}; {v}" if old else v
+f("duckstation-sa/scripts/start_duckstation.sh", Q3="F-01 (kill target AppRun.wrapped matches no process; G1, G7); F-12 (memcards/savestates deleted uncopied; G8)", Q5="G12 launch-to-process 0.52-0.62 s; G11 helper 0.04-0.07 s", Q6="F-25 (cheevos call commented out, :130)")
+f("duckstation-sa/sources/Start Duckstation.sh", Q3="F-01 (same kill target); creates neither save link", Q6="Tools launcher, installed to /usr/config/modules")
+f("duckstation-sa/scripts/cheevos_duckstation.sh", Q3="F-09 shape, not called", Q2="F-10 (unquoted test)", Q6="F-25 (dead: start_duckstation.sh:130 commented)")
+f("duckstation-sa/scripts/duckstation_screenshot_path", Q1="PASS (Python 3, stdlib)", Q2="PASS (staged write, identity re-check)", Q3="PASS (reading); G11 runs it", Q5="G11: 0.04-0.07 s per launch", Q7="PASS")
+f("openbor/scripts/start_OpenBOR.sh", Q3="F-02 (no kill target; G1 survived)", Q2="no /etc/profile sourced")
+f("mupen64plus-sa/mupen64plus-sa-core/scripts/start_mupen64plus.sh", Q3="F-03 (simplecore kill, G6); F-06 (zipped ROMs, G5; loose zip test)", Q5="F-29 (ROM copied to tmpfs; config in /tmp)", Q1="the fork's GENERIC_X64 repair block read (PASS)")
+f("hatarisa/scripts/start_hatari.sh", Q3="F-04 (the route asks for start_hatarisa.sh; no kill target; G2); F-06 shape (:37)", Q2="echo -e ${ARGS} unquoted (Low, with F-04)", Q7="F-12 shape (:18-21 rm -rf /storage/.hatari)")
+f("hatarisa/package.mk", Q3="F-04 (installs start_hatari.sh; upstream 2e7041d273 renames)")
+f("scummvm-sa/scripts/start_scummvm.sh", Q3="F-07 (eval of the .scummvm file as root; G3)")
+f("gzdoom-sa/scripts/start_gzdoom.sh", Q3="F-08 (xargs: an apostrophe stops the launch; G4)", Q5="G11: pk3 sha256 0.02 s x2 (not a finding)")
+for s in ("ppsspp-sa/scripts/cheevos_ppsspp.sh", "flycast-sa/scripts/cheevos_flycast.sh", "armsx2-sa/scripts/cheevos_armsx2.sh", "aethersx2-sa/scripts/cheevos_aethersx2.sh", "skyemu-sa/scripts/cheevos_skyemu.sh"):
+    f(s, Q3="F-09 (the previous session kept on switch-on, token-empty" + ("; G9" if "ppsspp" in s or "flycast" in s else "") + ")")
+for s in ("armsx2-sa/scripts/cheevos_armsx2.sh", "aethersx2-sa/scripts/cheevos_aethersx2.sh", "flycast-sa/scripts/cheevos_flycast.sh"):
+    f(s, Q2="F-10 (unquoted [ ! ${enabled} = 1 ]; G9 shows the fall-through)")
+f("ppsspp-sa/scripts/cheevos_ppsspp.sh", Q2="F-22 (token written twice, default umask)")
+f("dolphin-sa/scripts/cheevos_dolphin.sh", Q3="PASS (publish_disabled; G9 control)", Q2="PASS (umask 077, mktemp, mv -fT)", Q6="F-25 (password read, unused)")
+f("melonds-sa/scripts/cheevos_melonds.sh", Q3="F-21 (RA_Password written plain each launch; the patch logs in with it)", Q2="F-21 (escape_sed escapes / and &, delimiter is |)")
+for s, l in (("aethersx2-sa/scripts/start_aethersx2.sh", ":102"), ("armsx2-sa/scripts/start_armsx2.sh", ":113"), ("daedalusx64-sa/scripts/start_daedalusx64.sh", ":48 (<>; H3)"), ("mednafen/scripts/start_mednafen.sh", ":82,89,144,157,187"), ("melonds-sa/scripts/start_melonds.sh", ":93,100")):
+    f(s, Q3=f"F-11 (comparison as redirection {l}; G10, G13)")
+for s, l in (("rpcs3-sa/scripts/start_rpcs3.sh", ":25 dev_flash, dev_hdd0, dev_hdd1, custom_configs"), ("azahar-sa/scripts/start_azahar.sh", ":28,32,37,226"), ("drastic-sa/scripts/start_drastic.sh", ":57,61"), ("ares-sa/scripts/start_ares.sh", ":24"), ("skyemu-sa/scripts/start_skyemu.sh", ":30"), ("bigpemu-sa/scripts/start_bigpemu.sh", ":17"), ("cemu-sa/scripts/start_cemu.sh", ":40-43,53-81, copy unchecked")):
+    f(s, Q3=f"F-12 (a real directory deleted before linking, {l})")
+f("nanoboyadvance-sa/scripts/start_nanoboyadvance.sh", Q3="F-14 (a directory named gba_bios.bin)")
+f("amiberry/scripts/start_amiberry.sh", Q3="F-15 (resolution keys deleted, H2; AGA grep literal; conf/* overwritten); F-06 shape (:76)")
+f("supermodel-sa/scripts/start_supermodel.sh", Q3="F-16 (options passed as one argument; class 1)")
+f("mednafen/scripts/start_mednafen.sh", Q7="F-17 (-vb.3dmode gets ${CE}; set -x every launch)")
+f("yabasanshiro-sa/scripts/start_yabasanshiro.sh", Q3="F-19 (eval of a pad's self-reported name)")
+f("gopher64-sa/scripts/start_gopher64.sh", Q3="F-20 (RA password on argv, unquoted)")
+f("dolphin-sa/scripts/start_dolphin_gc.sh", Q6="F-24 (:436 -v overwritten)", Q7="F-24 (gc/wii: 282 shared lines)", Q3="PASS (reading; G1: started, exited on the synthetic input); dolphin-save-paths gates", Q5="G11: dolphin-save-paths 0.03-0.05 s x2 per launch")
+f("dolphin-sa/scripts/start_dolphin_wii.sh", Q7="F-24 (shared with _gc; hotkey edited twice)", Q3="PASS (reading); :69 rm -r without -f (noisy)")
+f("dolphin-sa/scripts/dolphin-save-paths", Q1="PASS (Python 3, stdlib)", Q2="PASS (plan before apply, exclusive links, lock, alarm)", Q3="PASS (reading); /storage/roms must be a mount point (G1's launch passed it)", Q5="G11: 0.03-0.05 s", Q7="PASS")
+f("flycast-sa/scripts/start_flycast.sh", Q3="F-30 (mv/ln over data fragile; kill -9 \"$(pidof gptokeyb)\")")
+f("ppsspp-sa/scripts/psp_save_mover.sh", Q6="F-25 (no caller in the tree)")
+f("ppsspp-sa/scripts/start_ppsspp.sh", Q3="PASS: its kill target ends ppsspp (G1); :105 strips backslashes", Q5="G12 launch-to-process 0.61-0.67 s")
+f("vice-sa/scripts/start_vice.sh", Q3="PASS: x64sc ended by its kill (G1)", Q5="G12 launch-to-process 0.56-0.67 s")
+f("touchhle-sa/scripts/start_touchhle.sh", Q7="F-25 (echoes ${GOPHER64_JSON}, copy-paste)")
+f("steam/scripts/start_steam.sh", Q3="PASS: execs a flavour that sets the kill target (resolves the route tool's 'none')")
+f("aethersx2-sa/", Q4="F-26 (deleted upstream, class 1)", Q6="F-26 (deferred: base merge, class 1; Already written in 04)")
+f("hatarisa/portaudio/package.mk", Q3="F-13 (archive URL 404; builds pass only from the shared cache)", Q4="F-13 (repo-missing; commit not in PortAudio/portaudio)")
 
-out = ["| Path | Group | Tier | Q1 | Q2 | Q3 | Q4 | Q5 | Q6 | Q7 | Fork commits read |", "| --- | ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
+def lookup(rel):
+    cells = {}
+    for k in sorted(F, key=len, reverse=True):
+        if rel == k or (k.endswith("/") and rel.startswith(k)):
+            for q, v in F[k].items():
+                cells.setdefault(q, v)
+    return cells
+
+def recipe_of(rel):
+    parts = rel.split("/")
+    sub = parts[1] if len(parts) > 2 and os.path.isfile(os.path.join(tree, P, parts[0], parts[1], "package.mk")) else None
+    return parts[0], sub
+
+def reach(r):
+    return ",".join(sorted({d.split("-")[0] for d in (r.get("reachable_by") or [])})) or "none"
+
+def device_dir(rel):
+    m = re.search(r"/(?:config|sources)/([A-Z0-9_]+)(?:/|$)", "/" + rel)
+    return m.group(1) if m and re.fullmatch(r"[A-Z0-9_]{3,}", m.group(1)) else None
+
+out = ["| Path | Recipe | Tier | Q1 | Q2 | Q3 | Q4 | Q5 | Q6 | Q7 |", "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
 empty = []
 for p in sorted(sel):
-    r = sel[p]; cells = {}
-    for prefix, qs in FINDINGS:
-        if (gm(p, prefix) if "*" in prefix else p.startswith(prefix)):
-            for k, v in qs.items(): cells.setdefault(k, v)
-    name = p.split("/")[-2] if p.endswith("package.mk") else None
-    if p.endswith("package.mk") and p.startswith(LR) and not p.startswith(RA + "package"):
+    r = sel[p]; rel = p[len(P):]; rec, sub = recipe_of(rel); name = sub or rec
+    cells = lookup(rel)
+    lang = r["language"]; fo = r["tier"] == "fork-own"
+    if rel.endswith("package.mk"):
         row = q4.get(p)
-        cls = byhand.get(name) or (row["class"] if row else "?")
-        cells.setdefault("Q4", f"Q4 (b): {cls}" + ("; Q4 (a) row" if name in ("np2kai-lr", "pcsx_rearmed-lr", "mame-lr", "emuscv-lr", "same_cdi-lr", "uae4arm-lr", "vircon32-lr", "flycast2021-lr", "doublecherrygb-lr") else ""))
-        if name.endswith("-lr") or name.endswith("_lr"):
-            cells.setdefault("Q6", "Table 1")
+        cells.setdefault("Q2", "pkgcheck rc 0 (its own row); PKG_SHA256 present or a .git/empty URL")
+        cells.setdefault("Q4", "q4-pins: " + q4shape.get(name, (row or {}).get("class", "?")))
+        cells.setdefault("Q6", f"04 Q6 reachability row ({reach(r)})")
+        cells.setdefault("Q5", "n/a: build-time recipe")
+        for k in ("Q1", "Q3", "Q7"):
+            cells.setdefault(k, "PASS (the fork's delta read; q4a fork-own table)" if fo else "n/a: upstream's recipe, unchanged here")
+    elif lang in ("shell", "python", "c"):
+        cells.setdefault("Q1", "PASS (read; no retired mechanism)" if fo else "n/a: upstream's script; read for the sweeps")
+        cells.setdefault("Q2", "bash -n PASS" if lang == "shell" else "PASS (read)")
+        cells.setdefault("Q3", "PASS (read; exit sweep and shell-line sweep rows in 04)")
+        cells.setdefault("Q4", f"with {name}'s Q4 row")
+        cells.setdefault("Q5", "nothing heavy before exec (read)" if "start" in rel.lower() else "n/a: not on the launch path's hot part")
+        cells.setdefault("Q6", f"installed with {name} ({reach(r)})")
+        cells.setdefault("Q7", "PASS (read)" if fo else "n/a: upstream's script, unchanged here")
+    else:
+        dev = device_dir(rel)
+        cells.setdefault("Q1", "n/a: data")
+        cells.setdefault("Q2", "n/a: data (no credential value shipped: the cheevos scripts write tokens at run time)")
+        cells.setdefault("Q3", "n/a: data read by its emulator; GENERIC_X64's exercised by G1/G12" if dev == "GENERIC_X64" else "n/a: data read by its emulator")
+        cells.setdefault("Q4", f"with {name}'s Q4 row")
+        cells.setdefault("Q5", "n/a: read once at launch")
+        if dev and dev not in SHIPPED:
+            cells.setdefault("Q6", f"per-device file for {dev}, a device the fork does not ship (D-WORKFLOW-185): installed only on a {dev} build (T25's unshipped table)")
+        elif dev:
+            cells.setdefault("Q6", f"per-device file installed on {dev} only")
         else:
-            reach = sorted(set(r.get("reachable_by") or []) | set(r.get("buildable_by") or []))
-            cells.setdefault("Q6", "not a Table 1 row (Table 1 is the *-lr recipes); the inventory's reach: " + (", ".join(reach) or "none"))
-        if name in ROT:
-            cells.setdefault("Q3", "PASS: its table regenerates byte-identically")
-            cells.setdefault("Q7", "F-17 (the hook in five copies)")
-        if r["tier"] == "fork-own":
-            for k in ("Q1", "Q2", "Q3", "Q7"): cells.setdefault(k, "PASS (the fork's delta read, group 3 table)")
-            cells.setdefault("Q5", "n/a: build-time recipe")
-        else:
-            for k in ("Q1", "Q2", "Q3", "Q7"): cells.setdefault(k, "n/a: upstream's recipe, unchanged here")
-            cells.setdefault("Q5", "n/a: upstream's recipe, build time")
-    elif p.startswith(LR) and not p.startswith(RA):
-        # a non-recipe file under a core's directory (other than patches, outside the membership)
-        for k in ("Q1", "Q2", "Q3", "Q5", "Q7"): cells.setdefault(k, "n/a: upstream's file, unchanged here")
-        cells.setdefault("Q4", "with its recipe's Q4 (b) row"); cells.setdefault("Q6", "with its recipe's Table 1 row")
-    elif p.startswith(RA):
-        for k in ("Q1", "Q2", "Q3", "Q5", "Q7"): cells.setdefault(k, "n/a: upstream's RetroArch file, unchanged here")
-        cells.setdefault("Q4", "with RetroArch's Q4 (c)"); cells.setdefault("Q6", "installed by the recipe on every built device")
+            cells.setdefault("Q6", f"installed with {name} ({reach(r)})")
+        cells.setdefault("Q7", "n/a: data (62,331 lines; provenance only)" if "GameIndex" in rel else "n/a: data")
     for k in ("Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7"):
         if not cells.get(k): empty.append((p, k))
-    fc = commits(p) if r["tier"] == "fork-own" else "-"
     esc = lambda s: s.replace("|", "/")
-    out.append(f"| `{p}` | {group(p)} | {r['tier']}{' (fork-written)' if r['tier_note']=='fork-written' else ''} | " + " | ".join(esc(cells.get(k, '')) for k in ("Q1","Q2","Q3","Q4","Q5","Q6","Q7")) + f" | {fc} |")
+    out.append(f"| `{p}` | {name} | {r['tier']} | " + " | ".join(esc(cells.get(k, "")) for k in ("Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7")) + " |")
 assert not empty, f"empty cells: {empty[:10]}"
-assert len(out) - 2 == 344, f"{len(out)-2} rows"
+assert len(out) - 2 == 543, f"{len(out) - 2} rows"
+assert not any("proved:" in l for l in out), "the token criterion 12 counts must not appear in the coverage table"
 print("\n".join(out))
-print(f"coverage-table: {len(out)-2} rows, 0 empty cells", file=sys.stderr)
+print(f"coverage-table: {len(out) - 2} rows, 0 empty cells", file=sys.stderr)
