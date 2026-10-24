@@ -36,27 +36,48 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#650`. **The host:** the M7 lane returned it at
-02:22 UTC on 2026-10-24 (last block when this pointer was seeded:
-`== M6 coordinator — 02:23 UTC: resource return read (both H700 and SM8550 builds and their`); a later M7 window is requested five minutes ahead in
-`/tmp/m7-m6-host-coordination-20261023.txt` and relayed on #650 by the
-coordinator, and while one is open this lane runs no guest, no compiler and
-no `npm install` (brief § 5).
+**Updated 2026-10-24 ~03:45 UTC by the executor (Opus 5.5, session `a6d65411`, pane `wN:p6`).**
+
+**Stage B, Phase 2, mid-read.** `reviewed-at: d606301784` (the slice's bytes equal `8ebaf8daad`). The audit folder is `docs/audits/2026_10_24-epic-m6-emulators-libretro/`.
+
+Written so far:
+
+- `00` (the running log) and `01` (§ Scope, Phase 1).
+- `02` with the mechanical checks done:
+  - wrapper test, plain and `--gated`, with both constructed failures;
+  - `pkgcheck` 152 runs;
+  - shellcheck over 30 files;
+  - the table parse, and the host regeneration (`tools/regen-es-systems.sh`), byte-identical to the GENERIC_X64, H700 and SM8550 images;
+  - the rotation generators, byte-identical;
+  - the `FetchContent` grep.
+- Q4 (b) `tools/q4-pins.py` (151 rows) and Q4 (c) `tools/q4c-patches.sh`, at the pin and at master. Q4 (a) is partly done: the `merge-tree` preview, five conflicts, F-09.
+- Guest proofs P1, P2, P3, P3b, P4 (criterion 12: `proved:` 5 = `GUEST-PROOF:` 5). The guest is down.
+- Findings F-01 to F-15.
+
+Bugs: #799 (the wrapper test's roots, fixed `d606301784`) and #802 (filed by the coordinator: the default PSX core, F-08/F-09).
+
+The coordinator's rulings, read on #650:
+
+- F-07 (aethersx2): `to merge`, class 1, with the base merge.
+- F-06: routed to T5 (#652).
+- #802: references only; the fix comes with the base merge.
+
+**The host:** an M7 window opened at 03:47 UTC (#650 comment 6379424513). No guest, no compiler, no `npm install` until the coordinator relays the return on #650. Reading, `gh api`, `pkgcheck`, shellcheck and the host sandbox continue.
 
 ## Next commands
 
-```bash
-D=/workspace/repos/pixelelated/distribution.worktrees/m6-emulators-libretro-650
-cd "$D" && git fetch origin && git fetch upstream --no-tags
-git merge-base --is-ancestor 2174265e9c HEAD && echo stacked-on-P1
-git diff --stat next -- .claude CLAUDE.md AGENTS.md          # exactly the four files above
-git diff --quiet 8ebaf8daad HEAD -- projects/ROCKNIX/packages/emulators/libretro projects/ROCKNIX/packages/virtual/emulators && echo "slice bytes are next's"
-ls "$(git config core.hooksPath)"                             # must list pre-push
-tail -3 /tmp/m7-m6-host-coordination-20261023.txt            # the host's state
-sed -n '1,140p' docs/reviews/briefs/emulators-libretro.md
-```
+The rest of stage B, in order:
+
+1. **Group 3:** the fork's own core recipes, each `git log -p` and the delta against `upstream/next`; `easyrpg-lr`'s three sub-recipes; the two rotation-table generators read whole.
+2. **Group 2:** `virtual/emulators/package.mk`'s GENERIC_X64 arms and the `X64_SKIP_CORES` comment (#16 is closed); `Install Steam.sh` read structurally, every finding `deferred:M7-merge`; the 24 `sources/*.sh` against `PKG_EMUS`.
+3. **The remaining widget patches:** 0014, 0016, 0019.
+4. **Q4 (a):** the 14 dispositions.
+5. **The Q6 tables:** 131 recipes, 142 systems (from `.qa-scratch/t3-regen/<DEVICE>`), 24 scripts, 15 source sets, 21 patches.
+6. **The `02` coverage table** (344 rows: ``grep -c '^| `projects/ROCKNIX/packages/' 02`` must print 344).
+7. **The fifteen criterion entries.**
+8. **`03`, then `04`** with the renovation face.
+
+Then Phase 4.6, after the return line: `npm install --prefix tools/council`, `tools/council/run verify-pins`, `tools/council/run test`, a probe per seat, Astra (`--member gpt`, max) and Argon (`--member gemini-argon`, high). Then `05`, the lint with `--phase pre-issue`, the audit issue, and the stage-D pause.
 
 ## Merge notes
 
