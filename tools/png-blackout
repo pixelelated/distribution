@@ -12,6 +12,12 @@
 # all (the README of each day says where the box is). Handles 8-bit RGB and
 # RGBA, non-interlaced, one IDAT stream, which is what QEMU's screendump
 # converted by vm-visual-qa produces; anything else is refused, not guessed.
+#
+# A rectangle that covers no pixel of the image -- zero width or height, or
+# wholly off it -- is refused, never reported as painted out (G-62). The
+# text chunks (tEXt, iTXt, zTXt) are dropped from the output: the tool exists
+# so a frame naming the QA account can be filed, and a text chunk can name it
+# too.
 import struct, sys, zlib
 
 def chunks(data):
@@ -66,16 +72,20 @@ def main():
         elif ftype != 0:
             sys.exit(f"unsupported filter {ftype} on row {r}")
         rows.append(line); prev = line
-    for r in range(max(0, y), min(height, y + h)):
-        for c in range(max(0, x), min(width, x + w)):
+    r0, r1 = max(0, y), min(height, y + h)
+    c0, c1 = max(0, x), min(width, x + w)
+    if w <= 0 or h <= 0 or r0 >= r1 or c0 >= c1:
+        sys.exit(f"png-blackout: {w}x{h} at ({x},{y}) covers no pixel of a {width}x{height} image; nothing painted out")
+    for r in range(r0, r1):
+        for c in range(c0, c1):
             rows[r][c * bpp:c * bpp + 3] = b"\x00\x00\x00"
     out = b"".join(b"\x00" + bytes(row) for row in rows)
     png = b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", ihdr)
     for kind, body in others:
-        if kind in (b"tEXt", b"iTXt", b"zTXt", b"pHYs", b"gAMA", b"sRGB"): png += chunk(kind, body)
+        if kind in (b"pHYs", b"gAMA", b"sRGB"): png += chunk(kind, body)   # never the text chunks
     png += chunk(b"IDAT", zlib.compress(out, 9)) + chunk(b"IEND", b"")
     open(dst, "wb").write(png)
-    print(f"{dst}: {width}x{height}, {w}x{h} at ({x},{y}) painted out")
+    print(f"{dst}: {width}x{height}, {c1 - c0}x{r1 - r0} at ({c0},{r0}) painted out")
 
 if __name__ == "__main__":
     main()

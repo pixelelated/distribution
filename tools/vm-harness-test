@@ -1300,6 +1300,40 @@ def kill_judged_by_effect(c):
 
 
 
+def tiny_png(path, w=4, h=2, text=None):
+    import struct, zlib
+    def chunk(kind, body):
+        return struct.pack('>I', len(body)) + kind + body + struct.pack('>I', zlib.crc32(kind + body) & 0xFFFFFFFF)
+    raw = b''.join(b'\x00' + b'\x80\x80\x80' * w for _ in range(h))
+    png = b'\x89PNG\r\n\x1a\n' + chunk(b'IHDR', struct.pack('>IIBBBBB', w, h, 8, 2, 0, 0, 0))
+    if text:
+        png += chunk(b'tEXt', b'Comment\x00' + text.encode())
+    png += chunk(b'IDAT', zlib.compress(raw)) + chunk(b'IEND', b'')
+    Path(path).write_bytes(png)
+
+
+
+@case
+def blackout_empty_rect(c):
+    tool = c.tool('png-blackout')
+    src, dst = c.dir / 'in.png', c.dir / 'out.png'
+    tiny_png(src)
+    r = c.run([sys.executable, '-I', str(tool), str(src), str(dst), '1', '1', '0', '1'])
+    return r.returncode != 0 and 'painted out' not in r.stdout, f'rc {r.returncode}, {(r.stdout + r.stderr).strip()[:110]!r} (want a refusal: a 0-wide rectangle paints nothing)'
+
+
+
+@case
+def blackout_drops_text(c):
+    tool = c.tool('png-blackout')
+    src, dst = c.dir / 'in.png', c.dir / 'out.png'
+    tiny_png(src, text='qa-account-standin')
+    r = c.run([sys.executable, '-I', str(tool), str(src), str(dst), '0', '0', '2', '1'])
+    kept = dst.exists() and b'qa-account-standin' in dst.read_bytes()
+    return r.returncode == 0 and dst.exists() and not kept, f'rc {r.returncode}, the text chunk kept {kept} (want it dropped)'
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')
