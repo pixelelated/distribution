@@ -97,3 +97,12 @@ GUEST-PROOF: 03:35:37 UTC -- P4, tools/time-to-play --vm --no-configure-remote -
 - 04:33 **Stream 802** (the coordinator's fix packet, posted on #802) is done. `fix/m6-802-pcsx-rearmed32` at `a0defbd527` is the cherry-pick of `c9820d0e89` with `DISTRONAME`. `pkgcheck` rc 0, the `DISTRO` grep empty, `git apply --check` against `8ebaf8daad` clean; pushed; handed back on #802 (issuecomment-6379900683). One note: this shell's `grep` is a ugrep function that misread the stream's test pattern, so the counts used `/usr/bin/grep`. Waiter `bjv3uppwd` is still armed for the M7 return.
 - 04:36 The coordinator reviewed stream 802 on #802, asked for no change, and marked the packet ready for M7. Still waiting on the M7 window.
 - 05:27 The waiter fired at 05:26:51 on a false positive: M7's 05:26 block says it "retains host window for this immediate check, then explicit resource return", an announcement, not a return. No relay on #650. Re-armed on M7's actual return phrasing.
+- 05:43 **M7 returned the host at 05:42:07.** The host-file block was seen at 05:43:05 by waiter `bpcovzq0w`. The coordinator's relay on #650 followed: "Resume Phase 4.6 now". The pointer was updated first (`443a174955`).
+- 05:44 `npm install --prefix tools/council`: rc 0, tsx v4.23.15, node v24.21.0. `tools/council/run verify-pins`: "OK - verifier pins match current files and every re-pin is accountable." `tools/council/run test`: 39/39, 127/127 and 19/19 pass, 0 fail.
+- 05:45 **Probes**, one per seat, each with `--provider openrouter` and its own `*-probe-prompt.md`. Both passed identity, effort and provider verification.
+  - `gpt`: served `openai/gpt-6-astra` by OpenAI, effort max, 374 reasoning tokens, 9.6 s.
+  - `gemini-argon`: served `google/gemini-4-argon` by Google, effort high, 216 reasoning tokens, 7.2 s.
+  - Outputs: `gpt-probe.md`, `gemini-argon-probe.md`, and their provenance files.
+- 05:46:20 **The refutation passes started**, both seats in parallel, each on its own copy of the one packet (sha256 `55ecef113c703cbf…` for both briefs). Outputs go to `gpt-audit.md` and `gemini-argon-audit.md`.
+  - Harness task `bdlih7ayr` waits on both and delivers their end; the per-seat logs are in the session scratchpad.
+  - Its blind spot: a seat that hangs is ended only by the Facilitator's own timeouts, 1 h per attempt and 4 h in total.

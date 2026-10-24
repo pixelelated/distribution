@@ -1,0 +1,135 @@
+{
+  "artifact_path": "docs/audits/2026_10_24-epic-m6-emulators-libretro/second-opinions/gpt-probe.md",
+  "output_file_sha256": "46f709d38d4cf8f342fc0e74812d5b1c3f850a2c9de8addd8beb6d9d5967e9cf",
+  "source_file_paths": [],
+  "source_file_hashes": [],
+  "facilitator_version": "council-facilitator@1.14.1-pixelelated.2",
+  "prev_verdict_sha256": null,
+  "member": "gpt",
+  "declared_model": "openai/gpt-6-astra (OpenRouter, via openai, effort=max)",
+  "substrate": "openrouter",
+  "transport": "buffered",
+  "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+  "request": {
+    "started_at": "2026-10-24T05:45:49.004Z",
+    "system_prompt_sha256": null,
+    "user_prompt_sha256": "36c433559eac407de1293632fdcc9b1e810cc1c0adf6dad463e6c65ae76ae215"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started_at": "2026-10-24T05:45:49.005Z",
+      "duration_ms": 9609,
+      "max_tokens": 128000,
+      "transport": "buffered",
+      "http_status": 200,
+      "outcome": "success",
+      "outcome_reason": null,
+      "model_field": "openai/gpt-6-astra",
+      "finish_reason": "stop",
+      "content_length": 40,
+      "tokens": {
+        "prompt": 28,
+        "completion": 385,
+        "total": 413,
+        "reasoning": 374
+      },
+      "model_identity_source": "provider_response",
+      "served_provider": "OpenAI",
+      "served_provider_observations": [
+        "OpenAI"
+      ],
+      "content_sha256": "46f709d38d4cf8f342fc0e74812d5b1c3f850a2c9de8addd8beb6d9d5967e9cf",
+      "usage": {
+        "prompt_tokens": 28,
+        "completion_tokens": 385,
+        "total_tokens": 413,
+        "cost": 0.01953,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.01953,
+          "upstream_inference_prompt_cost": 0.00028,
+          "upstream_inference_completions_cost": 0.01925
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 374,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_headers": {
+        "content-type": "application/json",
+        "x-generation-id": "gen-1792820749-Kl3GHM7ZmOQKAyNxjKUz"
+      },
+      "generation_id": "gen-1792820749-Kl3GHM7ZmOQKAyNxjKUz",
+      "native_finish_reason": "completed",
+      "response_body_sha256": "2cd86f36e6381badfcd8300b27c8dd1311c4f3ad22c4f9f45c43c677695d649e"
+    }
+  ],
+  "final": {
+    "outcome": "success",
+    "assurance_tier": "local_capture_provider_attested",
+    "total_duration_ms": 9612,
+    "retries_used": 0,
+    "file_artifact_sha256": "46f709d38d4cf8f342fc0e74812d5b1c3f850a2c9de8addd8beb6d9d5967e9cf",
+    "usage": {
+      "prompt_tokens": 28,
+      "completion_tokens": 385,
+      "total_tokens": 413,
+      "cost": 0.01953,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.01953,
+        "upstream_inference_prompt_cost": 0.00028,
+        "upstream_inference_completions_cost": 0.01925
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 374,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "tokens": {
+      "prompt": 28,
+      "completion": 385,
+      "total": 413,
+      "reasoning": 374
+    },
+    "verification": {
+      "result": "PASS",
+      "match_kind": "semantic",
+      "declared": "openai/gpt-6-astra (OpenRouter, via openai, effort=max)",
+      "observed": "openai/gpt-6-astra",
+      "model_identity_source": "provider_response"
+    },
+    "effort_verification": {
+      "result": "PASS",
+      "declared": "max",
+      "evidence": "reasoning_tokens",
+      "observed_reasoning_tokens": 374
+    },
+    "provider_verification": {
+      "result": "PASS",
+      "declared": [
+        "OpenAI"
+      ],
+      "evidence": "response_provider_field",
+      "observed": "OpenAI",
+      "observed_providers": [
+        "OpenAI"
+      ]
+    }
+  }
+}
