@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Execute real entrypoint prefixes and Makefile with isolated build payloads."""
 import argparse
+import importlib.util
 import json
 import os
 from pathlib import Path
@@ -15,6 +16,13 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[3])
 args = parser.parse_args()
 root = args.root.resolve()
+# Each fixture takes an admission as test-build-monitor's does (#493, #913); the
+# helper is this repository's, whatever --root the negative case passes.
+helper_spec = importlib.util.spec_from_file_location(
+    'admission_test_fixture',
+    Path(__file__).resolve().parents[3] / 'tools/host-maintenance/admission-test-fixture.py')
+helper = importlib.util.module_from_spec(helper_spec)
+helper_spec.loader.exec_module(helper)
 passed = 0
 entries = ('build_distro', 'image', 'build', 'build_compat', 'install')
 
@@ -71,12 +79,13 @@ with tempfile.TemporaryDirectory(prefix='watch-build-394-') as temporary:
             elif name == 'install':
                 body += './scripts/build fake\n'
             executable(d / 'scripts' / name, prefix + body)
+        helper.prepare_fixture(d, root)
         return d
 
     def environment(d):
         # No personal account/environment values enter fixtures or receipts.
         return {'PATH': os.environ['PATH'], 'HOME': str(d), 'TEST_ENV': 'retained',
-                'LC_ALL': 'C'}
+                'LC_ALL': 'C', 'PIXELELATED_BUILD_ADMISSION': str(d / 'admission.json')}
 
     def run(d, command, env=None):
         return subprocess.run(command, cwd=d, env=env or environment(d),
@@ -231,6 +240,13 @@ print('new cold root observed')
 ''')
     env = environment(d)
     env['BUILD_DIR'] = str(d / 'new-external-build-root')
+    # A redirected BUILD_DIR must be a declared output of its admission (#493).
+    mod = helper.load(d / 'tools/host-maintenance/build-admission')
+    plan = mod.read(d / 'admission-plan.json')
+    plan['outputs'][0]['path'] = env['BUILD_DIR']
+    mod.write(d / 'admission-plan.json', plan)
+    mod.prepare(d / 'admission-plan.json', d / 'admission-redirect.json')
+    env['PIXELELATED_BUILD_ADMISSION'] = str(d / 'admission-redirect.json')
     result = run(d, ['./tools/watch-build', '--interval', '1', '--', './activity.py'], env)
     check(result.returncode == 0 and 'new cold root observed' in result.stdout,
           'cold build roots discovered after launch; buffered progress observed')

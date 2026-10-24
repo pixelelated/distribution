@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Exercise the real shared runner against mixed aggregate/package counters (#412)."""
 import argparse
+import importlib.util
 import os
 from pathlib import Path
 import shutil
@@ -12,6 +13,12 @@ p = argparse.ArgumentParser()
 p.add_argument('root', type=Path)
 a = p.parse_args()
 checks = []
+# The runner refuses an unadmitted build-shaped run (#493); take the admission
+# route test-build-monitor takes, one fresh receipt per case (#913).
+helper_spec = importlib.util.spec_from_file_location(
+    'admission_test_fixture', a.root / 'tools/host-maintenance/admission-test-fixture.py')
+helper = importlib.util.module_from_spec(helper_spec)
+helper_spec.loader.exec_module(helper)
 
 
 def check(ok, name):
@@ -38,14 +45,21 @@ with tempfile.TemporaryDirectory(prefix='watch-progress-412-') as temporary:
         (root / 'tools').mkdir(parents=True)
         for tool in ['watch-build', 'watch-job']:
             shutil.copy2(a.root / 'tools' / tool, root / 'tools' / tool)
+        (root / 'scripts').mkdir()
+        (root / 'scripts/README').write_text('fixture\n')
+        (root / 'Makefile').write_text('')
+        _, _, receipt = helper.prepare_fixture(root, a.root)
         payload = root / 'emit.py'
         payload.write_text('import sys\nprint(' + repr(log) + ',end="",flush=True)\nsys.exit(' + str(code) + ')\n')
         command = [str(root / 'tools/watch-build'), '--interval', '1']
+        case_env = dict(env)
         if qa:
             (root / 'artifacts').mkdir()
-            command += ['--activity-dir', str(root / 'artifacts')]
+            command += ['--record-only', '--activity-dir', str(root / 'artifacts')]
+        else:
+            case_env['PIXELELATED_BUILD_ADMISSION'] = str(receipt)
         command += ['--', sys.executable, str(payload)]
-        result = subprocess.run(command, cwd=root, env=env, capture_output=True, text=True, timeout=15)
+        result = subprocess.run(command, cwd=root, env=case_env, capture_output=True, text=True, timeout=15)
         runs = list((root / '.build-runs').glob('*/build.status'))
         status = runs[0].read_text() if len(runs) == 1 else ''
         check(result.returncode == code and 'outcome:     rc=' + str(code) in status,

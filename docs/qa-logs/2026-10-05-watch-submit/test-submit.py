@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Actual subprocess controls for #444; no VM or network required."""
 from pathlib import Path
+import atexit
+import importlib.util
 import json
 import os
 import shutil
@@ -13,9 +15,30 @@ import time
 root = Path(__file__).resolve().parents[3]
 launcher = root / 'tools/watch-build-submit'
 base = Path(tempfile.mkdtemp(prefix='pixelelated-watch-submit-'))
+# The fixture root is removed however the control ends (#913).
+atexit.register(shutil.rmtree, base, True)
 (base / 'tools').mkdir()
 for name in ['watch-build', 'watch-job']:
     shutil.copy2(root / 'tools' / name, base / 'tools' / name)
+# The runner refuses an unadmitted run (#493): the fixture is an admitted
+# checkout, as test-build-monitor's is, and each launch takes a receipt
+# prepared just before it, since an admission binds the registry generation.
+(base / 'scripts').mkdir()
+(base / 'scripts/README').write_text('fixture\n')
+(base / 'Makefile').write_text('')
+helper_spec = importlib.util.spec_from_file_location(
+    'admission_test_fixture', root / 'tools/host-maintenance/admission-test-fixture.py')
+helper = importlib.util.module_from_spec(helper_spec)
+helper_spec.loader.exec_module(helper)
+admission, admission_plan, _ = helper.prepare_fixture(base, root)
+
+
+def admitted_environment(name):
+    receipt = base / ('admission-' + name + '.json')
+    admission.prepare(admission_plan, receipt)
+    return dict(os.environ, PIXELELATED_BUILD_ADMISSION=str(receipt))
+
+
 rows = []
 
 
@@ -32,11 +55,12 @@ def submit(owner, code):
     args = [sys.executable, str(launcher), '--owner', str(owner), '--',
             '--interval', '1', '--stall-min', '1', '--',
             sys.executable, '-c', 'import time;time.sleep(2);raise SystemExit(' + str(code) + ')']
-    result = subprocess.run(args, cwd=base, capture_output=True, text=True)
+    env = admitted_environment(owner.name)
+    result = subprocess.run(args, cwd=base, env=env, capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
     assert json.loads(result.stdout)['state'] == 'submitted'
     assert not (owner / 'tool-wrapper.rc').exists()
-    duplicate = subprocess.run(args, cwd=base, capture_output=True, text=True)
+    duplicate = subprocess.run(args, cwd=base, env=env, capture_output=True, text=True)
     assert duplicate.returncode == 2
     got = int(wait_file(owner / 'tool-wrapper.rc'))
     assert got == code
@@ -54,8 +78,8 @@ command = [sys.executable, str(launcher), '--owner', str(owner), '--',
            sys.executable, '-c', 'import time;time.sleep(3);raise SystemExit(0)']
 controller = subprocess.Popen([sys.executable, '-c',
     'import subprocess,sys,time;subprocess.run(sys.argv[1:],check=True);time.sleep(30)',
-    *command], cwd=base, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-    start_new_session=True)
+    *command], cwd=base, env=admitted_environment(owner.name),
+    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
 wait_file(owner / 'launcher-start.json')
 os.killpg(controller.pid, signal.SIGTERM)
 assert controller.wait(timeout=5) == -signal.SIGTERM
