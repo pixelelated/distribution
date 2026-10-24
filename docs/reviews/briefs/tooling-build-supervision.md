@@ -371,7 +371,7 @@ preflight's thresholds against `device-builds.md`'s.
 `tools/council/run verify-pins`, `tools/council/run test`; the probe
 (`gpt-probe.md` with its `.provenance.json`: served model, provider,
 effort); then the refutation over the packet (`gpt-brief.md`, the 18 files
-and the six entry lines, `packet-manifest.json` with the sha256 of each),
+and the seven entry lines, `packet-manifest.json` with the sha256 of each),
 asked first for `reclaim-swap`, `install` and `build-admission`
 (`gpt-audit.md` with its `.provenance.json`); each item graded in `04` §
 Second opinion with the artifact that decided it. `tools/watch-build

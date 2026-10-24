@@ -222,7 +222,7 @@ conflict is real and foreseeable: **A8** names it in the merge notes.
 
 - **A1** § 1 states the host substrate as read today (the helper, the grant
   and the broad fleet grant beside it, the swap at 8 of 8 GiB, Docker, the
-  three M7 `.build-runs/`), and forbids every mutating run: no build, no
+  the 45 M7 `.build-runs/`), and forbids every mutating run: no build, no
   `--reclaim-swap`, no `install`, no `--stop-vms`, no `fork-newdrive`, no
   `fork-publish-release` past `--prepare`; the tests run in the lane's
   worktree after the host file is read and the census recorded, and the lane
