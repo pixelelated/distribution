@@ -117,6 +117,18 @@ cat >"${TARGET_IMG}/${IMAGE_NAME}.identity.json" <<EOF
   "image_name": "${IMAGE_NAME}"
 }
 EOF
+# The sidecar names an image that exists: when a later step fails (the image
+# assembly, mkimage), it goes with the failure. config/functions' EXIT trap is
+# kept and sees the same status (#833).
+pixelelated_sidecar_on_exit() {
+  local rc=$?
+  [ ${rc} -eq 0 ] && return 0
+  rm -f "${TARGET_IMG}/${IMAGE_NAME}.identity.json"
+  [ "${NOONEXIT}" = "yes" ] && return ${rc}
+  # onexitcleanup reads the status from $?; `||` hands it over under set -e
+  (exit ${rc}) || onexitcleanup "$@"
+}
+trap "pixelelated_sidecar_on_exit $0 $@" EXIT
 
 # Create legacy sym links
 ln -sfn /var/media ${INSTALL}/media
