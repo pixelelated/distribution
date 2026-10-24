@@ -20,7 +20,7 @@ Read at `8ebaf8daad` (the 22) and `2174265e9c` (the ten lint fixtures); `reviewe
 | 12 | `04` Q3's hunt | stage B | `04` |
 | 13 | `04` Q7's descriptions | stage B | `04` |
 | 14 | `04` Q5's costs | the stage-A walls recorded | § The runs, `04` |
-| 15 | every proof with `proved:`; the counts equal | running | § Proofs |
+| 15 | every proof with its proof-kind cell; the counts equal | running | § Proofs |
 | 16 | `question:` on every item; the bugs pass `box-check --issue`; no tool edited before a stream | stage D onward | `05` |
 | 17 | the retro | stage G | — |
 | 18 | the six checkers and the lint at hand-back | stage H | — |
@@ -77,3 +77,73 @@ Every run is in this worktree with `TMPDIR=/workspace/tmp/m6-t14/tmp`, except th
 - `docs/qa-logs/2026-10-08-pixelelated-replacement-18/qa21/.../scripts.log:3` and `2026-10-04-pixelelated-57cbc-qualification/qa-07/.../scripts.log:3` show `BusyBox v1.36.1 ... a copy of /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement...`.
 - Their cloud-layout sections pass: `13 PASS, 0 FAIL` (2026-10-08) and `316 PASS, 0 FAIL` (2026-10-04, migration still available).
 - Their artifacts are under `/tmp/cloud-layout-*`, so `vm-qa` ran T15 without a `TMPDIR` that would leak into the sandbox.
+
+## Coverage
+
+One row per path. The Q cells are short; `04` carries the evidence for each.
+
+| Path | Q1 | Q2 | Q3 | Q4 | Q5 | Q6 (who reads it; what it caught) | Q7 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `tools/build-identity-test` | current | no assert; refusals accept any nonzero (F-01) | fails at the hash: the state gate refuses its stand-in (F-01) | n/a: no package | 0.2 s, fails early | nobody; caught nothing recorded beyond its harness (§ Q6) | row names `device-builds.md`, which names it |
+| `tools/melonds-upgrade-test` | current | shims cover every external; no assert | accepts any busybox (F-13) | busybox 1.36.1 pin vs the applets given | 0.1 s | T15 `:14231`; #526's 15 old FAILs | `upgrade-and-install.md` never names it (F-12) |
+| `tools/nova-led-test` | current | one assert on ledcontrol's exit (F-07) | `-O` drops `:50` (F-07) | n/a | 0.2 s | nobody; #332's run | `generic-x64-vm-testing.md` never names it (F-12) |
+| `tools/pixelelated-cloud-folder-test` | a retired stub kept in place (F-10) | refuses before work | docstring names stale rclone 1.75.1 as current coverage (F-03) | n/a | 0 s | nobody, by design; disposition proposed | row says *refuses execution*: matches; list entry carries no note (F-12) |
+| `tools/pixelelated-cloud-folder-vm-test` | a retired stub kept in place (F-10) | refuses before work | n/a: refuses | n/a | 0 s | nobody, by design; disposition proposed | row says *refuses execution*: matches; `generic-x64-vm-testing.md` never names it |
+| `tools/pixelelated-cloud-validator-test` | rclone 1.75.1 hardcoded (F-03) | no `--clearenv` in its sandbox (F-04) | fails at the hash (F-03); empty `--case` false PASS (F-06) | rclone 1.75.1 against the pin 1.75.2 | 0.1 s, refused | nobody; `2026-10-07-cloud-validator` root-old01 | `rclone-cloud-sync.md` never names it |
+| `tools/pixelelated-content-scope-test` | current | inherits the caller's environment (F-04) | fails at the hash: a stale `argv` read (F-05) | rclone required, unversioned | 3.3 s | nobody; `2026-10-07-cloud-validator/content-scope` | `rclone-cloud-sync.md` never names it |
+| `tools/pixelelated-duckstation-capture-test` | rclone 1.75.1 hardcoded (F-03) | payload runs on the host (F-14); no `--clearenv` | fails at the hash (F-03); `--cases` drops unknown names | rclone 1.75.1 against 1.75.2 | 0.1 s, refused | nobody; `2026-10-08-save-repair-cases/duckstation-captures/old02` | `rclone-cloud-sync.md` never names it |
+| `tools/pixelelated-save-layout-test` | current | `--unshare-net`; no `--clearenv` | without `--busybox`, the host's applets unmarked (F-13) | rclone required; busybox optional | 29.2 s | nobody; `2026-10-08-save-repair-cases/coverage` | `rclone-cloud-sync.md` names it |
+| `tools/pixelelated-state-check` | current | fails closed on every missing reader | none found (fails closed) | the host's readers | n/a (run by its test) | `fork-publish-release`; no contamination caught recorded | `release-candidates.md` never names it |
+| `tools/pixelelated-state-check-test` | current | `control_count` unasserted | expected-2 cases pass on any error | `mcopy` absent here: `--payload-tests` CANNOT | 9.1 s | nobody; `2026-10-13-clean-state-runtime` pix565 | `release-candidates.md` never names it |
+| `tools/pixelelated-vm-cloud-boundaries` | a retired migration suite in place (F-10) | one assert; stops by `/proc` scan (F-09) | refuses at the hash (F-10) | n/a | refuses at once | nobody; `2026-10-06-...replacement-15` | row describes a suite that refuses every run (F-10) |
+| `tools/rasteratops-candidate-store` | current | no assert | `verify` proves self-consistency only | n/a | n/a (not run for real) | `fork-publish-release`; candidate-store.log's constructed corruption | `release-candidates.md` never names it |
+| `tools/rasteratops-cloud-layout-test` | the migration matrix retired (#508) | sandbox passes the caller's env (F-04) | false FAIL under a caller's `TMPDIR` (F-04) | rclone printed, not asserted | 19.8 s | T15 `:14188`; partial-retry-host01 | `rclone-cloud-sync.md` never names it |
+| `tools/rasteratops-identity-check` | current | `check(True, ...)` cannot fail (F-15) | fails at the hash: the ES licence string (F-02) | n/a | 0.1 s | nobody; `2026-10-04-es-identity-export` | `release-candidates.md` never names it |
+| `tools/rasteratops-vm-cloud-epic` | a retired migration suite; `/tmp` pidfile (#640) | 9 host-path lines | refuses at the hash (F-10); negated probes if it ran | n/a | refuses at once | nobody; only negative controls | row describes a suite that refuses (F-10) |
+| `tools/retroarch-wrapper-test` | #640's roots (F-08) | leaves `t.c` (F-08) | `gcc` absent reads as *ran twice* (F-08) | the build root's RetroArch source, not the tree's patch | 0.1 s | `vm-qa` `wrapper`; `e5d14d4220` | `engineering-practices.md` names it |
+| `tools/rocknix-info-test` | current | the verdict on `assert` (F-07) | `-O` false PASS (F-07, P4) | n/a | 0.5 s | the fork CI; #548 | `generic-x64-vm-testing.md` names it |
+| `tools/settings-modes-test` | current | host `grep`/`sort`/`mktemp` from PATH | accepts any busybox (F-13); refuse-cases pass on rc 127 | busybox pin 1.36.1 vs the applets given | 0.4 s | T15 `:14224`; #421 | `generic-x64-vm-testing.md` names it |
+| `tools/test-fixtures/cloud_connections_fixture.py` | current | no credential literal at rest | applied only `if hasattr(m, "connections")`; old sources skip it silently | n/a | n/a | read by `last-good-scripts-test` (`:5005`, `:11521`); fixes the connections module's paths and `config create` | the fixture's purpose is stated in its header |
+| `tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-fail/01-research-notes.md` | current | n/a: Markdown fixture | n/a: a fixture, not a test | n/a | n/a | read by `lint-audit-artifacts`' fixture cases (and T10's `run.sh`, `2444828e89`); fixes the renovation face's fail case | its folder name says which case |
+| `tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-fail/02-forward-audit.md` | current | n/a: Markdown fixture | n/a: a fixture, not a test | n/a | n/a | read by `lint-audit-artifacts`' fixture cases (and T10's `run.sh`, `2444828e89`); fixes the renovation face's fail case | its folder name says which case |
+| `tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-fail/03-retrospective.md` | current | n/a: Markdown fixture | n/a: a fixture, not a test | n/a | n/a | read by `lint-audit-artifacts`' fixture cases (and T10's `run.sh`, `2444828e89`); fixes the renovation face's fail case | its folder name says which case |
+| `tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-fail/04-analysis.md` | current | n/a: Markdown fixture | n/a: a fixture, not a test | n/a | n/a | read by `lint-audit-artifacts`' fixture cases (and T10's `run.sh`, `2444828e89`); fixes the renovation face's fail case | its folder name says which case |
+| `tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-fail/05-punch-list.md` | current | n/a: Markdown fixture | n/a: a fixture, not a test | n/a | n/a | read by `lint-audit-artifacts`' fixture cases (and T10's `run.sh`, `2444828e89`); fixes the renovation face's fail case | its folder name says which case |
+| `tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-pass/01-research-notes.md` | current | n/a: Markdown fixture | n/a: a fixture, not a test | n/a | n/a | read by `lint-audit-artifacts`' fixture cases (and T10's `run.sh`, `2444828e89`); fixes the renovation face's pass case | its folder name says which case |
+| `tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-pass/02-forward-audit.md` | current | n/a: Markdown fixture | n/a: a fixture, not a test | n/a | n/a | read by `lint-audit-artifacts`' fixture cases (and T10's `run.sh`, `2444828e89`); fixes the renovation face's pass case | its folder name says which case |
+| `tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-pass/03-retrospective.md` | current | n/a: Markdown fixture | n/a: a fixture, not a test | n/a | n/a | read by `lint-audit-artifacts`' fixture cases (and T10's `run.sh`, `2444828e89`); fixes the renovation face's pass case | its folder name says which case |
+| `tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-pass/04-analysis.md` | current | n/a: Markdown fixture | n/a: a fixture, not a test | n/a | n/a | read by `lint-audit-artifacts`' fixture cases (and T10's `run.sh`, `2444828e89`); fixes the renovation face's pass case | its folder name says which case |
+| `tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-pass/05-punch-list.md` | current | n/a: Markdown fixture | n/a: a fixture, not a test | n/a | n/a | read by `lint-audit-artifacts`' fixture cases (and T10's `run.sh`, `2444828e89`); fixes the renovation face's pass case | its folder name says which case |
+| `tools/usb-gadget-test` | current | the host's `/bin/sh` (F-15) | none found | n/a | 0.3 s | nobody; `2026-10-11-usb-revision` | header promises image functions, runs host `sh` (F-15) |
+| `tools/wait-lock-test` | GNU `date +%s%N` unchecked | no assert | none found | n/a | 7.5 s | nobody; #98 | `generic-x64-vm-testing.md` names it |
+
+## Mechanical checks
+
+- **The packet scan** (brief § 5, before the seat): pending.
+- **`tools/lint-audit-artifacts --phase pre-issue`:** pending, before stage D.
+- **The greps:** `|| true` 0; `assert` 2 files; host paths 28 lines in 10 files (§ The runs).
+
+## The guest cycle
+
+**None was needed.** Both guest tests refuse before any guest on this tree, so a cycle would show only the refusal:
+- `pixelelated-vm-cloud-boundaries:709-710` requires `sources/cloud_migrate_layout`;
+- `rasteratops-vm-cloud-epic:22-25` refuses without it, rc 2.
+
+`cloud_migrate_layout` is absent at `8ebaf8daad` (P6). The claims that would have needed a cycle are each classified from the source and proved from the tree:
+- the boundaries test's guest start (`vm-pair up` with an owned pair directory, refusing if any `qemu-system-*` exists, `:270-276`) and stop (a `/proc` cmdline scan for the owned path, `:675-690`);
+- the epic's use of a pre-existing guest's pidfile (`:48-50`).
+
+No host file line was written, because no guest started. The census was 0 throughout.
+
+## Proofs
+
+| Proof | What it shows | Proved |
+| --- | --- | --- |
+| P1 | the membership and the two read hashes (32 paths, 6,911 lines, both diffs empty) | proved: tool-run |
+| P2 | the stage-A runs: five tools fail at the hash with the package's own inputs | proved: tool-run |
+| P3 | the two traces: cloud-layout's `TMPDIR` inheritance, content-scope's stale `argv` read | proved: tool-run |
+| P4 | `rocknix-info-test` under `python3 -O` passes a constructed regression | proved: tool-run |
+| P5 | `pixelelated-cloud-validator-test --case no-such-case` passes with 0 controls | proved: tool-run |
+| P6 | the guest pair refuses every run on this tree | proved: tree |
+| P7 | the thirteen no-caller tools, by invocation | proved: tree |
+| P8 | the index rows and their *Detail in* rules: 13 never name the tool | proved: tree |

@@ -139,3 +139,23 @@ The last two are traced at stage B before they are called defects: an environmen
 - **The coordinator's post (20:31 UTC):** both traces are accepted as test defects; the busybox correction stands (the override's 1.36.1 is the effective pin); the two rclone-pin tests are one bug. The post says *six stage-D bugs*. The defects are six: `build-identity-test`, `rasteratops-identity-check`, the two rclone-pin tests, cloud-layout's `TMPDIR` inheritance and content-scope's stale read. Issued one bug per shape, that is **five bug issues**. The count is confirmed at stage D.
 - **The read, fanned out:** two read-only research agents read the 21 tools for Q6's four columns and Q3's shapes, eleven and ten tools each, with no tool run and no file written. Their leads are re-derived here before they enter `04`.
 - **Written:** `02` § Phase 2, § The runs (every stage-A run with *a FAIL would mean*) and § T15's call sites.
+
+## [Stage B] 20:42 UTC — the constructed inputs; the guest question; the proofs
+
+- **Constructed 1, `rocknix-info-test` under `python3 -O`** (`/workspace/tmp/m6-t14/q3-info/`, a scratch root): the tool is copied, beside a copy of `rocknix-info` with `exit 0` appended (a quirk failure that no longer propagates). The plain run gives rc 1, `AssertionError: real quirk failure survives later success`. Under `python3 -I -O` it gives **rc 0, `PASS 12 full-script positive/negative controls`**, and its own `result.json` lists `real quirk failure survives later success` as failed.
+- **Constructed 2, `pixelelated-cloud-validator-test --case no-such-case`** (`/workspace/tmp/m6-t14/q3-validator/`): a copy whose only change is `:58`'s version literal, 1.75.1 to 1.75.2, so it gets past the stale pin (`diff` shows the one line), beside the rclone sources. It gives **rc 0, `PASS 0 controls`**, and `result.json` reads `result: PASS`, 0 cases.
+- **The guest question.** Can this be done on the VM? **Not needed.** Both guest tests refuse before any guest on this tree:
+  - `pixelelated-vm-cloud-boundaries:709-710` requires `.../sources/cloud_migrate_layout`;
+  - `rasteratops-vm-cloud-epic:22-25` refuses without it, rc 2 (the bare run in `00` § Stage A);
+  - `git cat-file -e 8ebaf8daad:projects/ROCKNIX/packages/network/rclone/sources/cloud_migrate_layout` fails.
+
+  A cycle would only show the refusal. The two tests' find, wait and stop paths are classified from the source (`04` § Q3). The authorized cycle was not used; the census stays 0.
+- **The research passes** (two read-only agents, no tool run, no file written): every lead that entered `04` was re-read at its line or reproduced. Two were withdrawn or demoted (`04` § Finding Verification). One claim was corrected against `00`: the pass said the payload controls passed, where `00` records `--payload-tests` as CANNOT.
+PROOF: P1 the membership -- brief § 2's block: 32 paths, 6,911 lines, 32 fork-own, reach n/a 32, 20 Python, 2 shell, 10 Markdown, 0 in other areas; both read-hash diffs empty; 35 commits; none upstream (`00` § Stage A).
+PROOF: P2 the host-side runs -- every stage-A run with its exit and wall (`00` § Stage A, `.qa-scratch/t14/runs.txt`): five tools fail at the hash with the package's own inputs, the rest pass, the stubs and the epic refuse.
+PROOF: P3 the two traces -- cloud-layout `--archives-only`: 2 FAIL with `TMPDIR` set, 13 of 13 unset; content-scope: 2 FAIL either way, the script refusing `..` before rclone (`00` § Stage B).
+PROOF: P4 rocknix-info-test under -O -- a constructed regression: plain rc 1, `-O` rc 0 `PASS 12`, `result.json` listing the failed case.
+PROOF: P5 the validator's empty selection -- `--case no-such-case`: rc 0, `PASS 0 controls`, `result: PASS`.
+PROOF: P6 the guest pair refuses on this tree -- `cloud_migrate_layout` absent at `8ebaf8daad`; the boundaries test's require (`:709-710`) and the epic's refusal (rc 2).
+PROOF: P7 the thirteen no-caller tools -- `git grep -n -F <name> 8ebaf8daad -- tools .github/workflows .claude/skills .githooks`, per tool: no invocation for thirteen; T15's four call sites and `vm-qa:185` and `fork-checks.yml:50` for the rest.
+PROOF: P8 the index and its rules -- `instruction-files.md` at the hash: 21 of 21 rows; 13 whose *Detail in* rule never names the tool (the per-tool loop over the index and each rule at the hash; its output `.qa-scratch/t14/q7-index.txt`, 13 lines ending `naming it: 0`).
