@@ -128,14 +128,18 @@ maintainer's yes.
 
 ### `tools/renovation-drift`
 
-For every slice in `slices.json` with a `fixed_at` (a distribution commit,
-plus `es` for EmulationStation paths), `git diff --numstat <fixed_at>..next`
-filtered to the slice's paths (the same membership `--order` uses; the ES
+For every slice whose issue is closed as completed with a `fixed-at:` line
+(plus `fixed-at-es:` for EmulationStation paths; read from the slice issues,
+the same reader `renovation-status` imports, #957), `git diff --numstat
+<baseline>..next`, the baseline being `slices.json`'s `drift_checked_at` once
+a drift review has accepted the changes, else the issue's fixed-at, filtered
+to the slice's paths (the same membership `--order` uses; the ES
 target is the pin `next` carries). It reports files, lines changed, the share
-of the slice's lines, and any `sensitive` file touched, with plan § 8's
+of the slice's lines, and any `sensitive` file touched (a glob's `!` exclusions honoured), with plan § 8's
 verdict: `small` (under 20 % and nothing sensitive: an issue-tier pass over
 the diff) or `re-open`. Exit 1 when any slice must re-open, 2 when it cannot
-run. `--pretend SLICE=HASH[,es=HASH]` sets a `fixed_at` for one run: on
+run. `--pretend SLICE=HASH[,es=HASH]` sets a baseline for one run (and
+`--no-issues` reads no tracker): on
 2026-10-22 a pretend close of T1 at the merge base reported `re-open`
 (29 files, 3,273 lines, 24.6 %, all three sensitive lists) and exit 1, and
 the same at `HEAD` reported `none` and exit 0. `--self-test` checks the
@@ -148,8 +152,12 @@ then one row per slice, its lines from the inventory, its depth from
 `slices.json`, and its state from the slice issue on milestone M6 (title
 `M6.P2 E<epic>/T<k>: ...`; body lines `reviewed-at:`, `fixed-at:`,
 `fixed-at-es:`) and the audit folders: `unreviewed`, `reading`,
-`remediating`, `closed`, or `drifted` (closed, and `renovation-drift` says
-re-open). One bounded `gh issue list`; it fails at its limit.
+`remediating`, `fixed` (both lines set, the issue still open), `closed`
+(closed as completed with fixed-at), `drifted` (closed, and drift's verdict
+for that slice is re-open) or `withdrawn` (closed for another reason). *Drift
+since* is drift's share of the slice and its verdict, from
+`renovation-drift`'s own functions, imported (#957). One bounded `gh issue
+list`, drift's; it fails at its limit.
 
 ### The renovation face of `tools/lint-audit-artifacts`
 
