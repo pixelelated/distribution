@@ -41,19 +41,14 @@
 
 ## Current focus
 
-**Stage B done; stage C (Phase 4.6, the two seats) next.**
-- `02` holds 34 findings, the 31-row coverage table, § The suites, § The CI, § Callers and 16 proofs (= 16 `PROOF:` lines in `00`).
-- `03` holds the history and § 3.5's seams.
-- `04` holds 4.5 and the renovation face, with the Q3 hunt, the Q6 guard table and the Q7 diff. § Second opinion is pending.
-- The constructed cases are in `tools/t10-guard-gaps.sh`, with a stand-in list.
-
-Next:
-- `npm install --prefix tools/council`, `verify-pins`, `test`;
-- the packet (the 31 files, `fork-workflow.md`'s *Personal paths* and *Safety net*, `ceremonies.md`'s table, `02` to `04`), scanned with `forbidden-terms-check --stdin` and the pre-commit's patterns before it is sent;
-- the probes, then the refutations, in parallel with a harness waiter;
-- grading in `04`, then `lint --phase pre-issue`, then stage D.
-
-Use `command grep` for every count: the shell's `grep` is a ugrep function.
+**Stage C done; stage D (the punch list, the bugs, the audit issue) next.**
+- 44 findings, graded in `04` § Second opinion: 6 High, 25 Medium, 13 Low; the map is `.qa-scratch/t10/grades.json` (gitignored; the counts are in `04`).
+- **Ruled by the coordinator at 16:57:**
+  - F-01 and F-11 are `bug`s with constructed positives from a stand-in list and a throwaway repository;
+  - F-04 and F-07 are `bug`s (the 16:33 ruling);
+  - F-16 and F-30 are recorded leads;
+  - `pkgcheck` is #928's.
+- Stage D: write `05` with its YAML index, run the pre-issue lint (it fails today only on `05`'s absence), file the bugs and the audit issue, then pause for the coordinator's stream briefs.
 
 ## Next commands
 

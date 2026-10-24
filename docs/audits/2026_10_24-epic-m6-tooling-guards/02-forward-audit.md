@@ -23,7 +23,7 @@ Every finding is a lead until `04` § Finding Verification and § Second opinion
 | 11 | 04 Q6: the guard table and the tool-caller table | the evidence is here (§ Callers, § The suites, F-rows); the tables are `04`'s | `04` § Q6 |
 | 12 | 04 Q3: the fail-open hunt through the named readers | the evidence is here (F-01 to F-30); the table is `04`'s | `04` § Q3 |
 | 13 | 04 Q7: the personal-path diff entry by entry; three descriptions per guard | P2 (the diff); the description rows are `04`'s | `04` § Q7 |
-| 14 | proof cells in § Proofs = proof lines in 00 | 16 = 16 | § Proofs; `command grep -c` |
+| 14 | proof cells in § Proofs = proof lines in 00 | 18 = 18 | § Proofs; `command grep -c` |
 | 15 | every item `question:`; bugs pass box-check; no member edited before a stream | stage D; `git diff --stat a82d784216 HEAD -- .githooks .github tools` empty | `05` |
 | 16 | the retro | stage G | `docs/retros/` |
 | 17 | the six checks pass before the merge; the lint PASS | stage H | the hand-back |
@@ -36,7 +36,7 @@ Every command was run in this worktree at stage A (16:28-16:31 UTC), with its ou
 | --- | ---: | --- | --- |
 | run `.githooks/hooks-test` (the worktree: the hash's hooks plus #696's marker refusal) | 0 | `PASS`, 41 `ok` lines: **29** `expect` results (refused/allowed) and 12 `says`/`silent` checks | a hook allowed a shape it exists to refuse, refused a clean one, or printed a value or a listed word |
 | run `.qa-scratch/t10/at-hash/.githooks/hooks-test` (the hash; what the primary checkout runs today) | 0 | `PASS`, 38 `ok` lines: **27** `expect` results and 11 `says`/`silent` checks | the same, for the copy every lane's commits actually run |
-| run `tools/register-check` | 0 | `667 IDs, each once; every citation in the live documents names a row` | a duplicate ID, a citation naming no row, a placeholder row, or a decided row under the open table |
+| run `tools/register-check` | 0 | `667 IDs, each once; every citation in the live documents names a row` | a duplicate ID, a citation naming no row, a placeholder row, or (this branch's copy only, `f00ab3e163`; not the hash's) a decided row under the open table |
 | run `tools/rules-check --quiet` | 0 | (silent) | a rule without its front matter, an unindexed rule, a count in `CLAUDE.md`/`AGENTS.md` wrong, `AGENTS.md` over budget |
 | run `tools/work-log-index --check` | 0 | `work-log index: current` | the index not regenerated after a log entry |
 | run `tools/prose-check --self-test` | 0 | the maintainer's page passes; the machine draft fails (its last tell: *a closing summary or sign-off*); `self-test: PASS` | a tell no longer caught, or the reference page flagged |
@@ -287,15 +287,71 @@ The draft severities are this reader's, before `04` grades them. "Positive" name
 `fork-worktree:72,74`'s remediation hint names `/workspace/repos/rocknix/.githooks`, which **exists**: it is the M7 lane's legacy checkout, so following the hint would point this clone at another checkout's hooks. `renovation-inventory`'s default `--es` does not exist (it fails closed). *Draft: Low (Q1), deferred to #640.*
 - **Positive:** the tree; the paths tested with `test -e`.
 
-**F-33 — The two upstream release scripts are two upstream commits behind** (`76693a738d`, `71d8932b33`; stage A), **and nothing in this fork runs them.** *Draft: Low (Q4, Q6).* They are upstream-carried, and the merge of `upstream/next` is the build-engine area's.
+**F-33 — One of the two upstream release scripts (`generate-changelog.sh`) is two upstream commits behind; `generate-release-body.sh` is identical** (`76693a738d`, `71d8932b33`; stage A), **and nothing in this fork runs them.** *Draft: Low (Q4, Q6).* They are upstream-carried, and the merge of `upstream/next` is the build-engine area's.
 - **Positive:** stage A's provenance; the callers table.
 
 **F-34 — `pre-push:337` is `if true; then`, a conditional with no condition; its header still teaches `../rocknix.worktrees/` (F-32).** *Draft: Low. Q7.*
 - **Positive:** the tree.
 
+### Found by the second opinion, re-derived here at stage C
+
+Each of these is a seat's claim (`second-opinions/gpt-audit.md` G-nn, `gemini-argon-audit.md` G-nn) that this lane constructed or re-read before it became a finding. The seats' claims that did not hold are in `04` § Second opinion.
+
+**F-35 — The diff parser takes an added line for a file header when the hunk deleted a line beginning `-- `: a credential or a listed word on an added line beginning `++ b/` passes the pre-commit, and the push guard when it is gone at the tip.** *Draft: High. Q3. Both seats (gpt G-02, gemini G-01).*
+- **Where:** `guard-lib:60`. A deleted `-- note` prints as `--- note` and sets `minus`, and `:73` (`/^-/ { next }`) never resets it. The added `++ b/...` prints as `+++ b/...`, matches `:64` and becomes the label `f`, and `next` skips it. No `unknown` or `orphan` is counted, so the scan does not refuse.
+- **What this refutes:** `04` § Q3's *none that reaches it*. `hooks-test`'s case *a content line beginning ++* has no preceding `--- ` deletion and no `b/`.
+- **Positive:** P15 (pre-commit rc 0 for both shapes; the hooks-test-shaped control rc 1; the push of the middle commit rc 0).
+
+**F-36 — The push guard sets a new branch's range from the last commit `rev-list` prints, which is the oldest by date, not the root of what is new: a commit dated after one of its own children falls outside the range, and neither its lines nor its message are scanned.** *Draft: High. Q3. gpt G-04.*
+- **Where:** `pre-push:249-251` (`oldest=... | tail -1`, then `range="${oldest}^..${local_sha}"`). Committer dates are the committer's to set, and a rebase or an `--amend` sequence can produce them.
+- **Positive:** P15 (`rev-list`'s last is the child `D`; the parent `C`, whose message carries the stand-in word, is unscanned; rc 0).
+
+**F-37 — An annotated tag's annotation is never scanned: the push guard reads the commits a tag points at, and `fork-wordlist.yml` does not run on tags.** *Draft: Medium. Q3. gpt G-05.*
+- **Where:** `pre-push:234-310` (no `git cat-file tag` read) and `fork-wordlist.yml:10-13` (`push: branches:` only).
+- **Positive:** P15 (rc 0).
+
+**F-38 — A line carrying both a credential and a listed word prints the listed word: the credential scan runs first and redacts only its own match.** *Draft: Medium. Q3. Both seats (gpt G-07, gemini G-03).*
+- **Where:** `guard-lib:98-100`, called first at `pre-commit:18`, `commit-msg:23` and `pre-push:304,307,309`. This breaks `guard-lib:12` (*a refusal names the file and the line, never the word*).
+- **Positive:** P15 (`WORD-PRINTED`, with the stand-in word).
+
+**F-39 — The credential patterns miss a lowercase assignment (`password = <a long value>`) and a JSON refresh token whose value carries `/` (a Google OAuth refresh token begins `1//`), which is the shape `rclone.conf` writes for a Google Drive remote.** *Draft: Medium. Q3. gemini G-02.*
+- **Where:** `secret-patterns:8`. The assignment alternative is upper-case only, and the scans pass `ci=''`. The token alternative's value class has no `/`.
+- **The bound on a fix:** a stream widens a pattern only with the constructed line it then catches *and* the line it must still pass (brief § 2's policy). `device-builds.md` and the docs carry lowercase prose about passwords, which a careless widening would refuse.
+- **Positive:** P15 (rc 0 for both, built from pieces).
+
+**F-40 — A listed word in a file's name passes every guard: the hooks judge a line after its label (`guard-lib:18-19`), and `forbidden-terms-check` reads file contents only.** *Draft: Medium. Q3, Q7. gpt G-08.*
+- **Where:** a path is in the tree, and D-WORKFLOW-061 says the fork must not carry the words *anywhere*. The label rule exists for credentials (PL-026: a kernel patch's name carried the key shape), not for the wordlist.
+- **Positive:** P15 (rc 0).
+
+**F-41 — The push guard's `pr/*` base falls back to `origin/next`, which is the fork's `next` and holds the personal overlay: with no `upstream/next` in the clone, a `pr/*` branch carrying a personal path is compared against a base that has it, and the push is allowed.** *Draft: Medium. Q3. gpt G-06.*
+- **Where:** `pre-push:216-223`. The header (`:28-29`) treats `origin/next` as a clean base.
+- **Positive:** P15 (rc 0, with `docs/plan.md` on both).
+
+**F-42 — `fork-worktree remove` always runs `git worktree remove --force`, whether or not `--force` was given, so a feature worktree's uncommitted edits and untracked non-build files are destroyed without the refusal plain `git worktree remove` would give.** *Draft: High. Q3. Both seats (gpt G-18, gemini G-07).*
+- **Where:** `fork-worktree:198-201`. The tool's own refusal covers only `build.*`, `target`, `sources` and `release` (`:38`). The rules send every agent to this tool *instead of* `git worktree remove --force` (`worktrees.md` § Removing a worktree).
+- **Widened by the seats on F-11 and F-12**, with each piece re-read at its line:
+  - preserving into a directory inside the worktree succeeds and is then removed with it (gpt G-15);
+  - `mv` onto an existing name overwrites it (gpt G-16);
+  - `repair` ignores a failed `mv` before its `rm -rf` (gpt G-17, gemini G-09);
+  - `remove` and `repair` call git in the caller's repository, not `ROOT` (gpt G-19, gemini G-09).
+- **Positive:** the tree. `:201` carries `--force` unconditionally.
+
+**F-43 — The two readers of a dated audit folder disagree on its date format: `lint-audit-artifacts` matches underscores (`:144`), `ceremony-check`'s folder clock hyphens (`:364`), and all 23 folders use underscores.** *Draft: Low. Q7, Q6. gemini G-12, G-16; gpt G-39.*
+- **Effect:** `ceremony-check`'s folder branch never fires, and the lint's current-contract test would skip the review-plan checks on a hyphen-dated folder.
+- **What the seats got wrong:** gemini said the folders use hyphens. None does.
+- **Positive:** P16.
+
+**F-44 — `ceremony-check` accepts a completion marker whose receipt says `"exact_bodies_and_states": "false"` (any truthy string) or whose issue body has an unticked `* [ ]` checkbox, and an `Audit:`-titled issue resets the audit clock without a marker.** *Draft: Medium. Q3. gpt G-28; gemini G-16.*
+- **Where:** `ceremony-check:118-129` (`not receipt.get(...)`, and the `^\s*- \[ \]` test only) and `:359-362`.
+- **Positive:** the tree.
+
 ### Leads not in this slice's paths
 
-- **`tools/pkgcheck`** (T6's and T8's leads on #657: the heredoc `}` and Lua tables read as functions; the duplicate-function check across an `if`'s two arms) is not one of the 31. It is upstream's tool, and the inventory puts it in no T10 row. The coordinator's leads say *a T10 row*. This slice records them here and asks once on #657 whether `pkgcheck` joins the scope or goes to its own slice. The rows are not graded here.
+- **`tools/pkgcheck`** (T6's and T8's leads on #657: the heredoc `}` and Lua tables read as functions; the duplicate-function check across an `if`'s two arms) is not one of the 31.
+  - It is upstream's tool, the build-engine area's.
+  - The coordinator's ruling on #657 (16:57 UTC, answering this lane's question of 2026-10-24T16:54:17Z, issuecomment-6386952155): `pkgcheck` does not join this slice, and its two leads are **bug #928** under #800.
+  - They stay here as out-of-path leads pointing at #928, and are not graded.
+  - T8's row's other half, `fork-package-freshness`, is this slice's: F-09.
 
 ## Coverage
 
@@ -304,25 +360,25 @@ One row per path. A cell names the finding or says `none` with what was read; `n
 | Path | Q1 Modernize | Q2 Standards | Q3 Bugs | Q4 Currency | Q5 Efficiency | Q6 Dead ends | Q7 Clarity |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `.githooks/commit-msg` | none (bash, `pipefail`) | fails closed on every read (`:8-15`) | F-03 | n/a: no pin | one grep pair per commit | run by git; no case for `-m` `#` lines | header true but for F-03's assumption |
-| `.githooks/guard-lib` | none | fails closed (`:14-22`); sources its lists (`. "${f}"`) | F-01 (no `--text` in its callers); redaction proven with a `/` in a class (P3b) | n/a | one awk per diff | sourced by three hooks | header claims *no path is exempt* against F-02 |
+| `.githooks/guard-lib` | none | fails closed (`:14-22`); sources its lists (`. "${f}"`) | F-35, F-38, F-40; F-01 (no `--text` in its callers); redaction proven with a `/` in a class (P3b) | n/a | one awk per diff | sourced by three hooks | header claims *no path is exempt* against F-02 |
 | `.githooks/hooks-test` | none | fixtures built at run time (`:13-16`) | none of its own; it has no case for F-01, F-02, F-03, F-10 | n/a | 0.71 s (16:47Z) | nobody runs it automatically (`04` § Q6) | case count 29/27, not the brief's 22/20 |
-| `.githooks/pre-commit` | none | fails closed | F-01, F-02 | n/a | one diff of the index | run by git | the marker refusal is on lane branches only |
-| `.githooks/pre-push` | F-32 (`:7,11,381,416`) | `pipefail`; `|| true` swallows the console-first diff's failure (`:456-459`) | F-01, F-02, F-10, F-16 | n/a | P3: 0.07 s to 9.82 s | the index warning only warns | F-34; header's *proven* refusals true (P1 controls) |
-| `.githooks/secret-patterns` | none | one definition (`:8`), 15 alternatives | none (P3b) | n/a | n/a: data | sourced | true |
+| `.githooks/pre-commit` | none | fails closed | F-01, F-02, F-35, F-38, F-39, F-40 | n/a | one diff of the index | run by git | the marker refusal is on lane branches only |
+| `.githooks/pre-push` | F-32 (`:7,11,381,416`) | `pipefail`; `|| true` swallows the console-first diff's failure (`:456-459`) | F-01, F-02, F-10, F-16, F-35, F-36, F-37, F-41 | n/a | P3: 0.07 s to 9.82 s | the index warning only warns | F-34; header's *proven* refusals true (P1 controls) |
+| `.githooks/secret-patterns` | none | one definition (`:8`), 15 alternatives | F-39 (P3b: the redaction survives its slash) | n/a | n/a: data | sourced | true |
 | `.github/scripts/generate-changelog.sh` | n/a: upstream's | upstream's | a bad range gives an empty changelog, rc 0 (R3) | F-33 | n/a | F-33: never run here | upstream's |
 | `.github/scripts/generate-release-body.sh` | n/a: upstream's | upstream's | ignores the changelog's exit (R3) | identical to `upstream/next` | n/a | F-33 | upstream's |
 | `.github/workflows/fork-checks.yml` | `actions/checkout@v4`, `ubuntu-24.04`: current | read-only permissions | F-06 | the pins named | 2 min 41 s a run | n/a: runs daily | header lists five checks of eight steps |
 | `.github/workflows/fork-generic-x64.yml` | n/a | `if: ${{ false }}` | none | n/a | none | disabled on purpose (D-WORKFLOW-119/120) | header says so |
 | `.github/workflows/fork-mirror-build-container.yml` | `ubuntu-latest` floats (F-31) | F-31 | none: the digest is checked (`:48`) | `skopeo` from apt, unpinned | n/a | dispatch only | true |
-| `.github/workflows/fork-wordlist.yml` | `checkout@v4` | `pipefail` in its message step | F-30 (fifty messages on a new branch) | the pins | not read | n/a | header true |
+| `.github/workflows/fork-wordlist.yml` | `checkout@v4` | `pipefail` in its message step | F-30 (fifty messages on a new branch); F-37 (no tags) | the pins | not read | n/a | header true |
 | `tools/archaeology` | F-32 (`:221`) | always exit 0 | F-20 | n/a | 15 git hits a term, unannounced cap | rules only | header says `-S`; code uses `-G` |
 | `tools/box-check` | none | `gh` failure exits 1 (`:53`) | F-04 | n/a | one GraphQL call, 2 s | CI, ceremony, preflight | header true for 300 |
-| `tools/ceremony-check` | none | F-05's uncounted reports | F-05, F-15, F-16 (and #905's fixed reader) | n/a | 7.95 s with `box-check` (2.02 s of it), core 4,925 → 4,924 (16:47Z) | CI, push guard, preflight | `--no-gh` still runs `box-check` (`:18`, `:344`) |
+| `tools/ceremony-check` | none | F-05's uncounted reports | F-05, F-15, F-16, F-43, F-44 (and #905's fixed reader) | n/a | 7.95 s with `box-check` (2.02 s of it), core 4,925 → 4,924 (16:47Z) | CI, push guard, preflight | `--no-gh` still runs `box-check` (`:18`, `:344`) |
 | `tools/es-menu-map-check` | none | exits 2 when it cannot run | F-21 | n/a | reads one pin | `vm-qa` | docstring's *not merely mention* against shape 6 |
 | `tools/forbidden-terms-check` | none | fails closed on the list | F-07 | n/a | 147 s for the tree, one grep a file | CI only | `--help` is a tree named `--help` |
 | `tools/fork-package-freshness` | none | `eval`s recipe lines (`:136`) | F-09 | it is the currency tool | network per recipe | `rc-preflight` | header's *fork-added* set is a two-tree diff |
-| `tools/fork-worktree` | F-32 (`:9,72,74`) | F-14 | F-11, F-12, F-13 | n/a | `du` capped at 10 s | rules; `pr-stack-check` | `remove` uses the cwd's git, against its header (`:27-31`) |
-| `tools/lint-audit-artifacts` | none | broad `except` ends in `bad()` | F-08 | n/a | small | `ceremony-check`, the skill | fixtures prove two checks at once |
+| `tools/fork-worktree` | F-32 (`:9,72,74`) | F-14 | F-11, F-12, F-13, F-42 | n/a | `du` capped at 10 s | rules; `pr-stack-check` | `remove` uses the cwd's git, against its header (`:27-31`) |
+| `tools/lint-audit-artifacts` | none | broad `except` ends in `bad()` | F-08, F-43 | n/a | small | `ceremony-check`, the skill | fixtures prove two checks at once |
 | `tools/pr-stack-check` | F-32 (`:122`) | EXIT trap `--force` | F-25 | n/a | not run | the release-notes skill | F-25: header claims a stack |
 | `tools/prose-check` | none | self-test needs out-of-tree files | F-23 | n/a | small | two skills | the dead check |
 | `tools/rc-preflight` | F-32 (`:345`) | exit codes defined | F-26 | it reads currency | network | rules only | header calls the audit *step 6* (step 4) |
@@ -355,3 +411,5 @@ One row per path. A cell names the finding or says `none` with what was read; `n
 | P12 | `es-menu-map-check`'s visible and invisible settings pages at the pin | proved: tool-run |
 | P13 | `vocabulary-check`'s script list against the cloud scripts that print player text | proved: tree |
 | P14 | `fork-package-freshness`'s set against the merge base, the edited recipes, and a missing base ref | proved: tool-run |
+| P15 | the seats' constructed cases: the parser's header state, the date-ordered range, a tag, both shapes on one line, the lowercase and slash-bearing credentials, a listed word in a name, the quoted personal `.po`, the `origin/next` base | proved: tool-run |
+| P16 | the audit folders' date format | proved: tool-run |

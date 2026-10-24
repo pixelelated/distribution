@@ -6,24 +6,25 @@ The fork's guards do what their own suites say. `hooks-test` passes at the hash 
 
 What the read found is one class, in eleven findings: **a checker that reads less than it reports, and passes**. The other findings around it are bugs of other shapes, Q6 gaps and Q1/Q7 rows.
 
-**On the security list proper,** two findings matter:
+**On the security list proper,** four High findings matter: F-01 and F-02 below, F-35 (the diff parser takes an added `++ b/` line for a header after a deleted `-- ` line) and F-36 (a date-ordered range boundary leaves the oldest pushed commit unscanned):
 - **F-01, High:** a file git treats as binary is never diff-scanned, so a credential or a listed word committed there passes the pre-commit. It passes the push guard too when it is removed again inside the push.
-- **F-02:** `.po` and `.pot` files are exempt from every hook scan, with no recorded reason.
+- **F-02, High after the second opinion:** `.po` and `.pot` files are exempt from every hook scan, with no recorded reason.
 
 **`fork-worktree`**, the tool whose contract is never destroying build output:
 - **F-11, High:** `remove --preserve` force-removes after a failed `mv`.
+- **F-42, High:** `remove` always passes `--force` to git, so uncommitted work outside the build directories is destroyed without a refusal.
 - **F-12:** `repair` deletes every untracked file inside a tracked directory.
 
 **The fork CI:** a failing step hides every verdict after it (F-06), and it carries no credential scan (F-30, a contract lead).
 
-`02` carries **34 findings** (F-01 to F-34), with draft severities counted from their headings:
-- **2 High:** F-01, F-11.
-- **13 Medium:** F-02, F-04, F-05, F-06, F-07, F-12, F-16, F-17, F-20, F-08, F-21, F-25, F-09. F-16 and F-30 are also contract leads for the coordinator.
-- **19 Low:** F-03, F-10, F-30, F-13, F-14, F-15, F-18, F-19, F-22, F-23, F-24, F-26, F-27, F-28, F-29, F-31, F-32, F-33, F-34.
+`02` carries **44 findings** (F-01 to F-44). F-35 to F-44 were found by the second opinion and re-derived here. After § Second opinion's grading:
+- **6 High:** F-01, F-02, F-11, F-35, F-36, F-42.
+- **25 Medium:** F-04, F-05, F-07, F-08, F-09, F-10, F-12, F-14, F-15, F-16, F-17, F-20, F-21, F-25, F-26, F-27, F-28, F-30, F-32, F-37, F-38, F-39, F-40, F-41, F-44. F-16 and F-30 are the coordinator's recorded leads, not streams (16:57 UTC ruling).
+- **13 Low:** F-03, F-06, F-13, F-18, F-19, F-22, F-23, F-24, F-29, F-31, F-33, F-34, F-43.
 
 The punch list's size is stage D's: an item may carry more than one finding, and a withdrawn lead carries none.
 
-These grades are this reader's before § Second opinion; the seats' pass is graded there.
+The draft grades in `02`'s headings are the first reader's; the outcome above is § Second opinion's.
 
 ## Acceptance-criteria scorecard
 
@@ -108,11 +109,82 @@ Each finding re-read against the artifact that would make it false.
 | F-32 | the paths current | `test -e`: the hint's path exists and is the legacy checkout's | confirmed; #640 |
 | F-33 | the scripts merged and run | stage A; `build-nightly.yml`'s owner gate | confirmed |
 | F-34 | the conditional doing something | `pre-push:337` | confirmed |
+| F-35 to F-44 | the seat's construction failing here | P15, P16 and the lines named in § Second opinion | confirmed (§ Second opinion) |
 | R1–R4 leads not carried | — | R4's D2 withdrawn (the plan measures the same way); R1's AGENTS.md count withdrawn; the `secret-patterns` slash withdrawn (P3b) | withdrawn |
 
 ## Second opinion
 
-*Pending stage C*: the two seats (GPT-6 Astra at `max`, Gemini 4 Argon at `high`), their probes and refutations, and each item graded with the artifact that decided it. The packet's manifest and its scan are recorded here before it is sent.
+**Depth: Extended** (D-WORKFLOW-184), with two reviewers from two labs other than the primary's (Anthropic), through the Facilitator on OpenRouter with `allow_fallbacks: false`. `second-opinions/review-plan.json` carries the plan; each output has its `.provenance.json` beside it.
+
+| Seat | Probe | Refutation | Served | Verification |
+| --- | --- | --- | --- | --- |
+| `gpt` | 16:55, `READY unknown` (the provider's field is the identity) | 16:56:51 → 17:33:42, 37,745 bytes, `finish=stop`, first attempt | `openai/gpt-6-astra`, OpenAI, effort `max` | identity PASS (semantic, `provider_response`), effort PASS, provider PASS |
+| `gemini-argon` | 16:55, `READY Gemini 4 Argon` | 16:56:51 → 17:04:49 (its start plus its 477,771 ms), 23,188 bytes, `finish=stop`, first attempt, under its 6,000-word bound | `google/gemini-4-argon`, Google, effort `high` | identity PASS, effort PASS, provider PASS |
+
+**The packet:** one body of 479,616 bytes for both (`packet-manifest.json`: 39 sources with their sha256, the 31 files at their read refs among them, plus `fork-workflow.md`'s *Personal paths* and *Safety net* and `ceremonies.md`'s table from `next`). Gemini's ask was bounded (D-WORKFLOW-195).
+
+**The packet's own scan, before it was sent:** both briefs gave `forbidden-terms-check --stdin` `0 hits on stdin` (rc 0), and 0 lines matched the pre-commit's credential patterns. Both outputs were scanned the same way before they were read: 0 and 0.
+
+### What the seats found, and what decided each
+
+Constructed claims ran in `tools/t10-guard-gaps-2.sh` (P15), with a stand-in list and a throwaway repository; the rest were re-read at the line the seat named.
+
+| Seat claim | Verdict | Decided by |
+| --- | --- | --- |
+| gpt G-02 / gemini G-01: the parser's header state | **confirmed, High: F-35** | P15 (rc 0 twice; the control refused) |
+| gpt G-04: the date-ordered range boundary | **confirmed, High: F-36** | P15 |
+| gpt G-05: an annotated tag | **confirmed, Medium: F-37** | P15; `fork-wordlist.yml:10-13` |
+| gpt G-07 / gemini G-03: both shapes on one line print the word | **confirmed, Medium: F-38** | P15 (`WORD-PRINTED`) |
+| gemini G-02: lowercase assignment; slash-bearing refresh token | **confirmed, Medium: F-39** | P15 |
+| gpt G-08: a listed word in a file name | **confirmed, Medium: F-40** | P15 |
+| gpt G-06: the `origin/next` fallback base | **confirmed, Medium: F-41** | P15 |
+| gpt G-18 / gemini G-07: `remove` always forces | **confirmed, High: F-42** | `fork-worktree:201` |
+| gpt G-15, G-16, G-17, G-19; gemini G-08, G-09: preserve into the worktree, overwrite, repair's failed `mv`, the caller's repository | **confirmed, folded into F-42** | `fork-worktree:188-238` read |
+| gemini G-12, G-16; gpt G-39: the dated-folder conventions | **confirmed in part, Low: F-43**. Gemini's *folders use hyphens* is false (0 of 23) | P16 |
+| gpt G-28; gemini G-16: the completion marker's truthy string, the `* [ ]` checkbox, the clock reset by an `Audit:` issue | **confirmed, Medium: F-44** | `ceremony-check:118-129,359-362` |
+| gpt G-01: a credential hidden by history simplification across a merge | **refuted** | P15: refused (rc 1, `cred`) in both shapes |
+| gpt (on Q6): `hooks-test`'s quoted-name push case may pass for the wrong reason | **refuted** | P15: refused with the `cred` tag as well as `unread` |
+| gemini G-11: `register-check` has no `MISPLACED` | **narrowed: true of the packet's hash copy, not of this branch.** `MISPLACED` is `f00ab3e163`, on this branch, not on `next`; the CI on `next` runs the hash's copy without it. `02`, `03` and § Q6 now say so | `git diff 8ebaf8daad HEAD -- tools/register-check` (+17) |
+| gpt G-10: SIGPIPE under `pipefail` in the assistant-name scan (`pre-push:388`) | **confirmed by reading, Low**: needs a message over the pipe buffer; folded into F-34's row | the line |
+| gpt G-11 (= the Q2 note on `pre-push:456-459`), G-12, G-13; gemini G-04, G-05; gpt G-03, G-09, G-14, G-22, G-23 | **Low, recorded under the nearest finding** (F-34 for the push guard's shapes, F-07 for the list loaders). Each depends on a configuration this repository does not set (`diff.external`, textconv, a submodule, an anchored list entry) or on the owner's own file | read; the configuration absent here |
+| gpt G-24, G-25; gemini G-06: the CI reads the tip and the messages, not the history, and a clean `pr/*` branch carries no workflow | **confirmed, folded into F-30**, which the coordinator holds as a lead | `fork-wordlist.yml:27-40` |
+| gpt G-26, G-27: the upstream scripts' empty-success paths | **confirmed by reading, Low, folded into F-33**: upstream-carried, and never run here; a contribution candidate for #585 | read |
+| gpt G-29 to G-33; gemini G-17, G-18 | **folded into F-15** (R1's leads 8, 10, 13 and G-31's epic limit) and **F-05** (the unasserted limits) | `ceremony-check:270-297,320-338,352,383,400` |
+| gpt G-34, G-35; gemini (on F-17) | **folded into F-17** | `register-check:65-96` |
+| gpt G-36; gemini G-24 | **folded into F-18** | `rules-check:65-96,114-125` |
+| gpt G-37 | **folded into F-19** | `work-log-index:31-47` |
+| gpt G-38, G-40, G-41; gemini G-13, G-14, G-15 | **folded into F-08**: this audit's own `02` has no `## Findings index`, so the seat-verification machinery does not read it either | `lint-audit-artifacts:182-213,279-336,379-385` |
+| gpt G-42; gemini G-19 | **folded into F-21**: a title ending in `?` fails the trailing `\b` | `es-menu-map-check:144-153` |
+| gpt G-43 to G-47, G-50; gemini G-21 | **folded into F-09** | `fork-package-freshness:46,54-62,95-103,132-136,153-164`; `rc-preflight:168-171` |
+| gpt G-48, G-49; gemini G-22 | **folded into F-26**, re-graded Medium: `--limit 300` on both bug readers, unasserted | `rc-preflight:234-328` |
+| gpt G-51 to G-53; gemini G-23 | **folded into F-25** | `pr-stack-check:75,104-159` |
+| gpt G-54, G-55; gemini G-26 | **folded into F-23** | `prose-check:44-59,120-127` |
+| gpt G-56, G-57; gemini G-20 | **folded into F-22**: `//` stripping eats URLs inside `_("...")` | `vocabulary-check:76-100` |
+| gpt G-58 to G-72; gemini G-28 | **folded into F-27, F-28 and F-29**, which both seats re-grade Medium | the three tools' lines |
+
+### The seats' re-grades of the first reader, and the outcome
+
+| Finding | gpt | gemini | Outcome, with the reason |
+| --- | --- | --- | --- |
+| F-01 | agree High; narrow (type changes escape the tip scan too) | agree High | **High**, the narrowing added |
+| F-02 | High | High | **re-graded High**: a credential stays at the pushed tip, and no CI scan exists (F-30) |
+| F-06 | Low: an observability gap on a run already red, not a pass | agree Medium | **re-graded Low and removed from the class** (gpt's reason holds: a red run is not a pass); the class is now ten |
+| F-09 | narrow: edited recipes are outside the tool's declared scope (*packages the fork introduces*, D-WORKFLOW-024) | agree | **narrowed**: the two-tree diff, the missing ref and the verdict misreads stand; the edited-recipe count is a scope question for the coordinator, not a defect |
+| F-10 | Medium: a quoted personal `.po` path composes the two gaps into an allowed push | — | **re-graded Medium**: P15 shows the allowed push |
+| F-14, F-15 | Medium | — | **re-graded Medium** |
+| F-16 | agree; widen (`ref='next'` at `ceremony-check:171`) | agree | **Medium, widened**; a lead for the coordinator, as ruled |
+| F-17 | narrow (the hash copy has no `MISPLACED`) | narrow | **narrowed**, as above |
+| F-20 | narrow: exit 0 after a *successful* empty search is right; after an unread one it is not | agree | **narrowed** |
+| F-25 | narrow: the reset to `BASE` implements D-WORKFLOW-079's one commit per PR; the header is stale, not the algorithm. The `--force` fallback and the rename gap stand | agree | **narrowed** |
+| F-26, F-27, F-28 | Medium | F-27, F-28 Medium | **re-graded Medium** |
+| F-30 | — | Medium | **Medium**, held as the coordinator's lead |
+| F-32 | — | Medium for the hint into the legacy checkout | **re-graded Medium for `fork-worktree:72,74`**; the other lines stay Low under #640 |
+| F-33 | the heading overstates (only `generate-changelog.sh` is behind) | — | **wording corrected** |
+| `03` § 3.3 | *no checker asserts completeness* is false: `renovation-status:77-84` and `renovation-inventory:943-946` refuse a saturated list, and `rules-check` compares sets | — | **corrected**: the technique exists in three places and is missing in the rest |
+| § Q6 | omissions (commit-count failure, zero commits, `guard_scan`'s run-time grep failure, the message's temp-file and numbering failures, `rules-check`'s `always`, `fork-worktree`'s inside-the-worktree and permission refusals); `mktemp` is constructible with an unusable `TMPDIR` | omissions (the mirror workflow's digest refusals, `ceremony-check`'s marker and coverage refusals, `register-check`'s UNREADABLE, the renovation refusals) | **added to the table**; the `mktemp` row corrected |
+| § Q3 | `guard_added_lines` cleared wrongly; the receipt, blindspot, coverage and RC readers missed | the same, plus the per-tool readers | **corrected**: F-35 replaces the *none*, and the missed readers have rows |
+
+**What the seats could not judge** (gpt § 3, gemini § 3): the real wordlist (never in the packet); the effective git configuration; the counts behind P4 to P14, whose artifacts were not in the packet; #905's diff; and the destructive paths as runs. The last is this lane's limit too: F-11, F-12 and F-42 are confirmed by reading, and their fixtures in a throwaway repository are the bugs' acceptance (the coordinator's 16:57 ruling).
 
 ## Renovation face
 
@@ -148,12 +220,17 @@ The fail-open hunt the brief names, through every reader. For each: the line rea
 | `box-check`'s issue list and checkbox regex | `:83`, `:47` | the 158 (now 173) oldest open issues; a `* [ ]` or `1. [ ]` checkbox; a curly apostrophe in *maintainer’s* (F-04) | P4 |
 | `work-log-index`'s heading regex | `:40` | the 14 `### HH:MM UTC` entries (F-19) | P8 |
 | `pre-push`'s personal-path match | `:395-409` | a path git quotes (`docs/<non-ASCII>.md`): unmatched, refused only by the tip scan's read failure (F-10) | P1 |
-| `guard_added_lines`'s diff parser | `guard-lib:57-81` | **none that reaches it.** Every header it cannot read is refused (`unknown`, `orphan`), and the three shapes the fix round named are `hooks-test` cases. The skip is upstream of it: a binary file sends it no lines (F-01) | P1, `hooks-test` |
+| `guard_added_lines`'s diff parser | `guard-lib:57-81` | **an added `++ b/...` line after a deleted `-- ` line in the same hunk** is taken for a header and skipped (F-35, both seats). This stage-B row first said *none that reaches it*; the second opinion refuted it, and P15 shows it. A binary file sends the parser no lines at all (F-01) | P15 |
 | `forbidden-terms-check`'s file loop | `:37`, `:46-50` | the 180 tracked symlinks; a checkout with its files absent passes as `0 hits in 0 tracked files` (F-07) | P1, P6 |
 | the lint's index boundary and YAML reader | `:182`, `:351` (hash) | a table cell quoting `## Verification`; an indented `punch_index` (F-08) | P10 |
 | `archaeology`'s blindspot reader | `:76-91` | blindspots 1 to 29 (F-20) | P9 |
 | `es-menu-map-check`'s screen patterns | `:50-56` | the 22 computed titles (F-21) | P12 |
-| `fork-package-freshness`'s set | `:91`, `:163` | the 63 edited recipes; a missing base ref (F-09) | P14 |
+| `fork-package-freshness`'s set | `:91`, `:163` | 22 upstream deletions in and one fork addition out; a missing base ref (F-09). The 63 edited recipes are outside its declared scope (D-WORKFLOW-024), narrowed by the second opinion | P14 |
+| `commit-msg`'s comment filter | `commit-msg:11` | a `#` line given with `git commit -m` (F-03) | P1 |
+| `pre-push`'s range and message readers | `:249-251`, `:265` | the parent of a child dated earlier than it (F-36); an annotated tag's annotation (F-37). `msgawk` keeps every message line: none | P15 |
+| `fork-wordlist.yml`'s range reader | `:35-40` | intermediate commits' lines; a new branch's 51st message; a tag (F-30, F-37) | tree |
+| `ceremony-check`'s completion-marker, blindspot-guard and coverage readers | `:85-130`, `:320-338`, `:171-200` | a receipt's truthy-string flag and a `* [ ]` checkbox (F-44); a heading the splitter misses and a guard path that always exists (F-15); a commit back-dated past the baseline (`%ct`, F-15) | tree |
+| `rc-preflight`'s bug and trace readers | `:234-328` | the bugs past `--limit 300`; a bare *Code trace* heading or *Already written:* line (F-26) | tree |
 
 Beside the hunt, the other bugs:
 - the two hook gaps that are not reader skips (F-02, F-03);
@@ -201,7 +278,7 @@ Not a package slice. One table:
 | `pre-commit` | no wordlist | *no wordlist at all* |
 | `pre-commit` | an unreadable index | *an index that cannot be read* |
 | `pre-commit` | a conflict marker (lane branches only, #696) | *a leftover conflict marker* (worktree's suite) |
-| `pre-commit` | `mktemp` failing | **none** (not constructible without a full tmp; named, not a punch item) |
+| `pre-commit` | `mktemp` failing | **none**; constructible with an unusable `TMPDIR` (gpt's correction) |
 | `commit-msg` | a listed word | *a listed word in the message* |
 | `commit-msg` | a credential-shaped line | *a credential-shaped line in the message* |
 | `commit-msg` | an unreadable message file | *a message file that cannot be read* |
@@ -223,7 +300,7 @@ Not a package slice. One table:
 | `pre-push` | `ceremony-check` missing | **none** |
 | `guard_load` | an unreadable or empty list | *no wordlist at all* (both hooks) |
 | `register-check` | DUPLICATE, MISSING, PLACEHOLDER | **none found** by this session's search (a work-log line naming the tool beside a positive word) |
-| `register-check` | MISPLACED | its constructed failure, 2026-10-23 work log `:250` (#646) |
+| `register-check` (this branch only) | MISPLACED | its constructed failure, 2026-10-23 work log `:250` (#646); `f00ab3e163` is on this lane's branch, **not at the hash and not on `next`**, so the CI on `next` does not run it (gemini G-11's narrowing) |
 | `rules-check` | front, index, tools, agents, count, budget, list, mention | **none found** in the record by tool name and a positive word (stage B search); the brief cites D-WORKFLOW-045's adoption only |
 | `box-check` | a person or device checkbox without a fact | its constructed positive on each side, 2026-09-25 work log `:25`; the first run's *46 of 479* is the brief's § 3, not re-found by the phrase |
 | `ceremony-check` | its eleven lines | the CI dispatch input `ceremony_today` (#258 PL-020); #905's fixture for the friction line (off branch) |
@@ -239,7 +316,16 @@ Not a package slice. One table:
 | `work-log-index` | `--check` STALE | **none found** |
 | `forbidden-terms-check` | a hit in the tree; an unreadable list | **none found** for a tree hit; the unreadable-list refusal is constructed by `hooks-test`'s stand-in only for the hooks |
 | `fork-worktree` | `remove`'s refusal on build output | **none found** |
-| the `renovation-*` tools | counts disagree; re-open | `--self-test` for parsing; **none** for the count assertions (F-27) |
+| the `renovation-*` tools | counts disagree; re-open; a bare `**`; a changed ignored set; a credential match; a retired `gate` field; an oversize or empty slice | `--self-test` for parsing; **none** for the count assertions and the other refusals (F-27) |
+| `pre-push` | `rev-list --count` failing; zero commits on `pr/*`; the personal-path diff failing | **none** |
+| `guard_scan` | grep failing at run time (rc > 1), not at compile | **none** |
+| `commit-msg` | the temp file, the filter and the numbering failing | **none** |
+| `rules-check` | `always` (a no-`paths:` rule not saying so) | **none found** |
+| `register-check` | UNREADABLE (a top-level `LIVE` path) | **none found** |
+| `ceremony-check` | the completion marker refused; issue coverage | the #540 marker controls (`ceremonies.md` § The completed-audit marker); **none found** for coverage |
+| `fork-worktree` | inside the target worktree; the permission preflight's refusals | **none found** |
+| `fork-mirror-build-container.yml` | an unpinned source; a digest mismatch | **none** (dispatch only) |
+| `fork-wordlist.yml` | a listed word in the tree; in a message | its green runs show the pass; **none recorded** for a red one |
 
 **The tools nobody runs automatically** (from `02` § Callers):
 - `hooks-test`;

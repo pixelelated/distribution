@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "depth": "extended",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's dispatch on #657 (issuecomment-6386632699, 2026-10-24T16:26:15Z: 'Opus 5.5 at high effort') and the session's own model metadata (claude-opus-5-5)"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
+      "calls": [
+        {
+          "phase": "refutation",
+          "output": "gpt-audit.md"
+        }
+      ],
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gpt-probe.md"
+        }
+      ],
+      "status": "complete: probe PASS 16:55; refutation 16:56:51-17:33:42 on the first attempt, finish=stop, 37,745 bytes; identity, effort max and provider OpenAI PASS; graded in 04 \u00a7 Second opinion"
+    },
+    {
+      "member": "gemini-argon",
+      "model": "google/gemini-4-argon",
+      "lab": "google",
+      "effort": "high",
+      "provider": "openrouter, the installed gemini-argon recipe (Argon route, #636/#638)",
+      "calls": [
+        {
+          "phase": "refutation",
+          "output": "gemini-argon-audit.md"
+        }
+      ],
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gemini-argon-probe.md"
+        }
+      ],
+      "status": "complete: probe PASS 16:55; refutation on the first attempt (477,771 ms), finish=stop, 23,188 bytes, within its bound; identity, effort high and provider Google PASS; graded in 04 \u00a7 Second opinion"
+    }
+  ],
+  "packets": {
+    "gpt": {
+      "file": "gpt-brief.md",
+      "content": "the ask, then the packet body: 02, 03, 04 whole; fork-workflow.md's Personal paths and Safety net and ceremonies.md's table from next; the 31 files line-numbered at their read refs (the two guards and forbidden-terms-check and fork-worktree first); t10-guard-gaps.sh and its 16:36:51Z output"
+    },
+    "gemini-argon": {
+      "file": "gemini-argon-brief.md",
+      "content": "the same packet body (sha256 aa74cfd9c66a93a6bf7e8ac1), the ask bounded to 6,000 words with parts 1 and 2 first (D-WORKFLOW-195's lesson)"
+    }
+  },
+  "packet_manifest": "packet-manifest.json",
+  "packet_scan": "both briefs: tools/forbidden-terms-check --stdin 0 hits (rc 0); 0 lines matching .githooks/secret-patterns' SECRET_PATTERNS (GNU grep -a -c -E), before either was sent",
+  "allow_fallbacks": false,
+  "status": "complete",
+  "output_scan": "both outputs: forbidden-terms-check --stdin 0 hits, 0 credential-pattern lines, before they were read"
+}

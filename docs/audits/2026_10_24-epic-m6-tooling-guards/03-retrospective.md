@@ -12,7 +12,7 @@ Phase 3 of the code-auditor skill, read over the 31 paths at the two hashes, wit
 
   The fix round's audit (claude G3-E-01/02/07, gpt G3-E-05/06) found three scan-skipping shapes: `diff.noprefix`, a `++ ` content line, a quoted name. Each became a `hooks-test` case.
 
-  **The binary file is the fourth shape of the same family (F-01).** Each of the three was a way an added line reached `guard_added_lines` in a form it did not read; the binary file is a way an added line never reaches it at all. No round constructed a file git does not diff as text.
+  **The binary file is the fourth shape of the same family (F-01).** Each of the three was a way an added line reached `guard_added_lines` in a form it did not read; the binary file is a way an added line never reaches it at all. No round constructed a file git does not diff as text, nor the fifth shape the second opinion found: a deleted `-- ` line in the same hunk, after which an added `++ b/` line is read as a header (F-35).
 - **The checkers as a state machine** (`ceremony-check`, D-WORKFLOW-028, 2026-09-23), the push guard's gate and the fork CI's red badge. Audit #258 then moved the gate onto the primary checkout's tools (PL-004), so that a stale worktree could not skip it. That move also changed *which tree the gate reads* (F-16), and no record says that was weighed.
 - **The renovation tools** (P1, 2026-10-22/23): the newest, and the only ones with a `--self-test`. The self-tests cover the parsing, not the counts the tools assert (F-27).
 
@@ -24,11 +24,11 @@ Phase 3 of the code-auditor skill, read over the 31 paths at the two hashes, wit
 | #307 / #312 (2026-09-28) | the pre-commit, the wordlist, three skip shapes | F-01 (binary), F-02 (`.po`), F-03 (`-m` `#` lines); the CI's lack of a credential scan (F-30) |
 | #258 (2026-09-24/29) | the gate on the primary's tools; the retro marker anchored; the positives rule | F-16 (the gate reads the primary's tree); F-15 (the futro marker not anchored like the retro's) |
 | #905 (2026-10-24, off this branch) | the friction reader reads every dated entry | F-15's residual: non-entry lines named, never owed |
-| #646 (2026-10-22/23) | `register-check`'s `MISPLACED` | F-17 (slash shorthand, seven docs outside `LIVE`, T4's three) |
+| #646 (2026-10-22/23) | `register-check`'s `MISPLACED`, on this lane's branch (`f00ab3e163`), not yet on `next` | F-17 (slash shorthand, seven docs outside `LIVE`, T4's three) |
 
 ## 3.3 The class this slice hunted
 
-T4's F-02 (`ceremony-check`'s friction reader skipping every line its regex did not match) and T6's #845 (`pkgcheck` exiting 0 on a name that matches nothing) are one class: **a checker that reads less than it reports, and passes.** Here it has 11 members (F-04, F-05, F-06, F-07, F-08, F-09, F-19, F-20, F-21, F-22, F-23; `command grep -o` over this list):
+T4's F-02 (`ceremony-check`'s friction reader skipping every line its regex did not match) and T6's #845 (`pkgcheck` exiting 0 on a name that matches nothing) are one class: **a checker that reads less than it reports, and passes.** Here it had 11 members at stage B; after the second opinion it has 10 (F-04, F-05, F-07, F-08, F-09, F-19, F-20, F-21, F-22, F-23). F-06 was removed on gpt's reason: a red run that hides a later verdict is not a pass.
 
 - **A limit with no assertion:** F-04 (`box-check`, 300 of 458), F-05 (`ceremony-check`'s hygiene, 200 of 331).
 - **A skip with no count:** F-07 (180 symlinks), F-19 (14 level-3 entries), F-20 (29 blindspot rows).
@@ -43,7 +43,7 @@ T4's F-02 (`ceremony-check`'s friction reader skipping every line its regex did 
 
 The guards on the security list proper (the hooks) belong to it once, through their callers: F-01, git's binary diff.
 
-The rule that would have caught most of these is already written: `engineering-practices.md` § Guards must fail closed, *prefer a positive assertion over the absence of an error: collect what exists and check the count*. What is missing is its tool: **no checker here asserts that it read what exists.**
+The rule that would have caught most of these is already written: `engineering-practices.md` § Guards must fail closed, *prefer a positive assertion over the absence of an error: collect what exists and check the count*. What is missing is its general use. The technique exists in three places, as gpt pointed out: `renovation-status:77-84` and `renovation-inventory:943-946` refuse a saturated issue list, and `rules-check` compares the file set with the index. The other readers here assert nothing about what they read.
 
 ## 3.4 What the record says the guards have been seen to do
 
