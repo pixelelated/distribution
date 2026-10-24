@@ -256,3 +256,36 @@ PROOF: 17:05 P15 S4: test-watch-job passes at the fix with four new cases, each 
   - **`grep -rn 'file_digest(' tools/` prints one line: `tools/ceremony-check:113`.** It is outside S3's files, and it runs on the host only (the pre-push guard and the fork CI). It is left and named. The two comments and the test's deletion name `file_digest` without a call.
 
 PROOF: 17:13 P16 S3: under the pinned 3.10.12 the fixed tools' hashes equal sha256sum's and 3.14's while the unfixed raise AttributeError; test-build-admission's two new cases pass at the fix and fail against the unfixed tools -- `.qa-scratch/t9/s3/`
+
+### S5 (#917, #918; PL-06, PL-07), 17:14 to 17:34
+
+- **Test first:** six cases in `tools/host-maintenance/test-build-monitor`.
+  - **Lock control, rewritten:** its second launch carries a fresh admission (`fresh()`), so the refusal it sees is the lock's. It also asserts the stderr `another monitored build owns this worktree`.
+  - **A runner killed with its command alive:** a second admitted launch in the same worktree must be refused (#918).
+  - **A watcher that ignores SIGTERM:** the runner must still record `runner-error` and `runner-result.json`, rc 125, and the watcher must be gone.
+  - **A log the runner cannot write:** `RLIMIT_FSIZE` of 200,000 bytes, with a payload writing 400 KB and then sleeping. The payload must not outlive the runner.
+  - **A SIGTERM while admission runs:** a `git` double on PATH marks entry and then sleeps 2 s. The run must end rc 143, with no `command.pid` and no payload.
+  - **A console pipe that is never read,** against a 1 MiB payload: rc 0, and the log holds all 1,048,576 bytes.
+- **Against the unfixed runner** (an export of `6779d487f0` at `/workspace/tmp/m6-t9/s5-unfixed-root`, through a copy of the control whose `check` prints FAIL and goes on; `.qa-scratch/t9/positives/s5/unfixed.log`):
+  - the lock control passes there, as it should with the lock intact;
+  - the five new cases fail: four `FAIL:` lines, and the console case by `TimeoutExpired` after 30 s, the runner stuck on the console.
+  - The stubborn-watcher case's first unfixed result was invalid. Its fixture replaced the tracked `watch-job` after the admission was measured, so `admit` refused (`command_rc` 125). The case now prepares its admission after the double is written. Standalone against the unfixed runner (`unfixed-stubborn-standalone.log`): rc 2 with `timed out after 5 seconds`, no `runner-error`, no `runner-result.json`, and the double left running. It exited by itself once its directory was removed (pid 3546549, gone when checked).
+- **The signal case, standalone** (`signal-standalone.log`): the unfixed runner gives `rc 143 command.pid True payload-started False` (the command was started, then signalled); the fixed one gives `rc 143 command.pid False`.
+- **The lock's positive:** the fixed runner with its `flock` removed (`/workspace/tmp/m6-t9/s5-nolock-root`) fails the lock control, `FAIL: one top-level build per worktree` and then `expected one outer run; got 2` (`nolock.log`).
+- **The fixes:**
+  - **`dce53bf0ba` (#917):**
+    - the second `monitor.wait` timeout kills the watcher and records the finish;
+    - the output loop's failure handler stops the payload before it writes its note, and that write is guarded;
+    - `interrupted` is checked between `admit` and `Popen`;
+    - `console_write` selects for 2 s and writes 4 KiB at a time; a stalled or closed console is dropped, with a `console-dropped` note in the run.
+  - **`d1a1495bc5` (#918):** the command inherits the lock descriptor (`pass_fds`).
+- **The lock mechanism, and why:** the kernel holds an flock while any process holds its open file description, so exclusion lasts as long as the command, with no PID to reuse. The other choice, a refusal while an earlier run's `command.pid` group is alive, would need a start-identity check against PID reuse, and it would be a second code path. The detached watcher is not given the descriptor. Nested `--entry` runs take the inherited-run path, which never locks.
+- **At the fix:**
+  - `test-build-monitor`: rc 0, `41 PASS; 0 FAIL`; at `dce53bf0ba` alone, 40 PASS.
+  - `test-build-admission`: rc 0, 70 checks.
+  - `test-progress.py`: 13 PASS.
+  - The 2026-10-04 `test-watch-build.py`: 35 PASS.
+  - `test-submit.py`: rc 0, with `/tmp/pixelelated-watch-submit-*` at 1 before and 1 after.
+- **Left for the coordinator (S3's note):** an admission refusal is still logged as `command launch/output failed: <reason>`, rc 125, and says nothing on stderr but the recording line. This stream's brief did not name it, and it is unchanged.
+
+PROOF: 17:34 P17 S5: test-build-monitor passes at the fix (41/0); its five new cases fail against the unfixed runner and its lock control fails against a runner without its lock -- `.qa-scratch/t9/s5-monitor-fixed.log`, `.qa-scratch/t9/positives/s5/`

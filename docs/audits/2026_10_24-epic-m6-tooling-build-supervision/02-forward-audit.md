@@ -92,6 +92,7 @@ Read only, at 15:45:41 UTC; nothing written under any M7 path (`.qa-scratch/t9/r
 | P14 | S2 (#914): `test-build-preflight` passes at the fix (8/0) and fails against the unfixed tool, which stopped the control's own sleeper, read `READY` over a failed census and missed the helper's swap boundary | `.qa-scratch/t9/s2-control-fixed.log`, `.qa-scratch/t9/positives/preflight-unfixed/`; `c9e38e2939` | proved: fix-control |
 | P15 | S4 (#916): `test-watch-job.py` passes at the fix (36/0) with four new cases, each of which fails alone against the unfixed tool | `.qa-scratch/t9/s4-watch-job-fixed.log`, `.qa-scratch/t9/positives/watch-job-unfixed/`; `4a22ed0b41` | proved: fix-control |
 | P16 | S3 (#915): under the pinned image's 3.10.12, the fixed tools hash a 3 MiB and a 6-byte fixture equal to `sha256sum` and to 3.14.4 while the unfixed raise `AttributeError`; `test-build-admission`'s two new cases pass at the fix (70 checks) and fail against the unfixed tools | `.qa-scratch/t9/s3/`; `6a25254359` | proved: fix-control |
+| P17 | S5 (#917, #918): `test-build-monitor` passes at the fix (41/0); its five new cases fail against the unfixed runner (four FAIL lines, the console case hung to its 30 s timeout) and its lock control, with a fresh admission, fails against a runner without its lock | `.qa-scratch/t9/s5-monitor-fixed.log`, `.qa-scratch/t9/positives/s5/`; `dce53bf0ba`, `d1a1495bc5` | proved: fix-control |
 
 ## Findings (stage B)
 
@@ -187,3 +188,16 @@ P15 in the table above.
 | the pinned image, `python3` 3.10.12 | the unfixed `digest` raises `AttributeError` | the fixed one equals `sha256sum` and 3.14.4 on both fixture files | the unfixed copies in the same start |
 
 P16 in the table above. A refusal in `admit` is rc 125 and is recorded in the run's log, not rc 2 on stderr (`00` § S3). `tools/ceremony-check:113` keeps its `file_digest` call; it is host-only and outside S3.
+
+### S5 (#917, #918; PL-06, PL-07)
+
+| Case | Unfixed runner (`6779d487f0`) | At the fix | Positive |
+| --- | --- | --- | --- |
+| a watcher that will not exit | rc 2, `timed out after 5 seconds`, no `runner-result.json`, watcher left running | rc 125, `runner-error`, `runner-result.json` (`command_rc` 0, `monitor_rc` -9), watcher gone | the unfixed runner |
+| a failed log write (`RLIMIT_FSIZE` 200,000) | the payload outlives the runner | the payload is stopped first | the unfixed runner |
+| a signal during admission | `command.pid` written: the payload was started, then signalled | rc 143, no `command.pid`, no payload | the unfixed runner |
+| a console that stops reading | hangs; `TimeoutExpired` at 30 s | rc 0; the log holds 1,048,576 bytes; `console-dropped` | the unfixed runner |
+| a killed runner, command alive, second admitted launch | the second launch runs | refused: `another monitored build owns this worktree` | the unfixed runner |
+| the lock control (fresh admission) | passes (the lock is intact there) | passes | a runner without its `flock`: `got 2` runs |
+
+The lock is the command's inherited flock descriptor. It was chosen over a refusal by `command.pid` liveness, which would need a start-identity check against PID reuse (`00` § S5). P17 in the table above.
