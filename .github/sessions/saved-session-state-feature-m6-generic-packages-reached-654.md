@@ -37,15 +37,14 @@
 
 ## Current focus
 
-**Stage A done (10:14 UTC); stage B next.** The scope re-derived equal to the
-brief (266 paths, 7,612 lines, 243 recipes; 13 / 3 / 227 by git); the
-branch differs from `8ebaf8daad` on none of the 266; `reviewed-at` is
-`4ea87f17dd`. The audit folder is
-`docs/audits/2026_10_24-epic-m6-generic-packages-reached/` (`00`, `01`
-§ Scope). Next: the rules the work touches read, the tools read whole
-(`fork-package-freshness`, `update_packages`, `update-pkg`, `pkgcheck`,
-`viewplan`), then § 5's loops (a), (b), (c), the fetch sweep, the stamps,
-the checksum count, the two `pkgcheck` runs and the record.
+**At the stage-D pause (10:57 UTC); waiting for the coordinator's stream briefs.**
+- **Branch:** `reviewed-at` `4ea87f17dd`.
+- **Audit:** `docs/audits/2026_10_24-epic-m6-generic-packages-reached/`, `00` to `05` with `q4-table.md` and `q4-pins.json`. The pre-issue lint passes.
+- **Audit issue:** #884, fifteen items.
+- **Bugs:** #880 to #883 (mirror-covered dead URLs), plus the coordinator's #877 (`libfmt`, fixed in packet `cf3a8d8e62`).
+- **Dispositions:** PL-11 → #879; PL-12 withdrawn.
+- **Incident 10:44 to 10:47:** an unquoted heredoc ran `scripts/update_packages`, which rewrote `hatarisa`'s recipe in this worktree. It was reverted before any commit (`00` § Incident). Write prose with a quoted heredoc or the Write tool only.
+- **Next:** the stream briefs on #654, then stage E. Nothing under `packages/` changes before a brief.
 
 ## Next commands
 

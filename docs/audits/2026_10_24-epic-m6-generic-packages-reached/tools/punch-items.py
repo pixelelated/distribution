@@ -14,20 +14,20 @@ I = [
   vm=VMNO, aw="nothing on devices or in clouds: the archive's bytes are a build input. Every GENERIC_X64 and H700 build since ROCKNIX wrote the empty value (`ea767206a2`, 2025-07-19) fetched 9.1.0 unverified; the cache's file `libfmt-9.1.0.tar.gz` and its stamp hold `5dea48d1...`, equal to today's fetch, so nothing already built is suspect on this evidence",
   acc="`PROJECT=ROCKNIX DEVICE=GENERIC_X64 ARCH=x86_64 bash -c '. config/options libfmt; echo $PKG_SHA256'` prints `5dea48d1...` (and the same for H700 aarch64 and arm); `git grep -E 'PKG_SHA256=(\"\"|$)' -- '*package.mk'` prints nothing; with T5's `get_archive`, a fetch of `libfmt` for GENERIC_X64 into an empty source directory exits 0 with that sha256.",
   bug=True, upstream=True),
- dict(f="F-02", t="`wsdd2`'s `PKG_URL` is gone: the `Netgear/wsdd2` repository is deleted", sev="Low", cat="Code Quality", q="Q3", area="a generic recipe: `packages/network/wsdd2`",
+ dict(f="F-02", tracked="#880", t="`wsdd2`'s `PKG_URL` is gone: the `Netgear/wsdd2` repository is deleted", sev="Low", cat="Code Quality", q="Q3", area="a generic recipe: `packages/network/wsdd2`",
   what="The source survives only in ROCKNIX's mirror and the shared cache (both `b0b6b315...`, equal to the recipe). LibreELEC master moved the recipe to `pesa1234/wsdd2` at v1.9.2, which has no 1.8.7 tag, so no `PKG_URL` line keeps 1.8.7 at a live origin: the fix is the base merge's bump; until then the mirror is the fetch's only working source and the cache's copy is a retained input.",
   where="`packages/network/wsdd2/package.mk:9`", ev="P8, P9, P13; `02` § The fetch sweep",
   vm=VMNO, aw=AWF, acc="a fetch of `wsdd2` for GENERIC_X64 into an empty source directory exits 0 with `b0b6b315...` (from the mirror today); the bug names the base merge that replaces the URL.",
   bug=True, upstream=True),
- dict(f="F-03", t="`newt`'s `PKG_URL` is gone: `releases.pagure.org/newt/` serves no archive", sev="Low", cat="Code Quality", q="Q3", area="a generic recipe (GENERIC_X64 only): `packages/tools/newt`",
+ dict(f="F-03", tracked="#881", t="`newt`'s `PKG_URL` is gone: `releases.pagure.org/newt/` serves no archive", sev="Low", cat="Code Quality", q="Q3", area="a generic recipe (GENERIC_X64 only): `packages/tools/newt`",
   what="LibreELEC master carries the same URL, so the defect is upstream's; ROCKNIX's mirror serves the recipe's sha256 (`ef0ca9ee...`), and the shared cache holds the file. Record it; propose the URL to #585 when a live origin for 0.52.25 is found.",
   where="`packages/tools/newt/package.mk:9`", ev="P8, P9", vm=VMNO, aw=AWF,
   acc="a fetch of `newt` for GENERIC_X64 into an empty source directory exits 0 with `ef0ca9ee...`; the bug names the origin's state on each read.", bug=True, upstream=True),
- dict(f="F-04", t="`libmpeg2`'s `PKG_URL` ends in a 404 at `libmpeg2.sourceforge.io`", sev="Low", cat="Code Quality", q="Q3", area="a generic recipe: `packages/multimedia/libmpeg2`",
+ dict(f="F-04", tracked="#882", t="`libmpeg2`'s `PKG_URL` ends in a 404 at `libmpeg2.sourceforge.io`", sev="Low", cat="Code Quality", q="Q3", area="a generic recipe: `packages/multimedia/libmpeg2`",
   what="LibreELEC master carries the same URL; the mirror serves `dee22e89...`, equal to the recipe; the cache holds the file. Record it; propose a live URL to #585 if one carries 0.5.1.",
   where="`packages/multimedia/libmpeg2/package.mk:10`", ev="P8, P9", vm=VMNO, aw=AWF,
   acc="a fetch of `libmpeg2` for GENERIC_X64 into an empty source directory exits 0 with `dee22e89...`.", bug=True, upstream=True),
- dict(f="F-05", t="`configtools`'s `PKG_URL` is refused (400) by savannah's new cgit host", sev="Low", cat="Code Quality", q="Q3", area="a generic recipe: `packages/devel/configtools`",
+ dict(f="F-05", tracked="#883", t="`configtools`'s `PKG_URL` is refused (400) by savannah's new cgit host", sev="Low", cat="Code Quality", q="Q3", area="a generic recipe: `packages/devel/configtools`",
   what="Three reads over six minutes: 400, 502, 400. LibreELEC master carries the same URL; the mirror serves `6e4ebaa2...`, equal to the recipe; the cache holds the file. Re-read before a fix; if it holds, propose savannah's current snapshot URL to #585.",
   where="`packages/devel/configtools/package.mk:10`", ev="P8, P9", vm=VMNO, aw=AWF,
   acc="a fetch of `configtools` for GENERIC_X64 into an empty source directory exits 0 with `6e4ebaa2...`; the bug records each read of the origin with its time.", bug=True, upstream=True),
@@ -78,7 +78,7 @@ P7 = {   # (outcome, evidence, proved) by F; filled at Phase 7
 
 def main():
   out = ["# Punch List — M6.P2 T7, the generic packages the image builds", "",
-         "**Local depth** (plan § 6c, D-WORKFLOW-184): no reviewer; Phase 4.5 in `04`. Fifteen items, one Medium and fourteen Low: five `bug`s (PL-01 is #877, the coordinator's, fixed in its packet; PL-02 to PL-05 are this lane's), four Backlog bumps (PL-06 to PL-09), the #645 rows (PL-10), and six `Renovation` rows (PL-12 withdrawn at the coordinator's disposition). Every `where` is at `8ebaf8daad`. Generated by `tools/punch-items.py` from one list, so the items, the `punch_index` and the Phase 7 table agree.", "", "---", ""]
+         "**Local depth** (plan § 6c, D-WORKFLOW-184): no reviewer; Phase 4.5 in `04`. Fifteen items, one Medium and fourteen Low: five `bug`s (PL-01 is #877, the coordinator's, fixed in its packet; PL-02 to PL-05 are this lane's), four Backlog bumps (PL-06 to PL-09), the #645 rows (PL-10), and six `Renovation` rows (PL-12 withdrawn at the coordinator's disposition). Every `where` is at `8ebaf8daad`. The audit issue is #884 (a sub-issue of #654). Generated by `tools/punch-items.py` from one list, so the items, the `punch_index` and the Phase 7 table agree.", "", "---", ""]
   idx = ["```yaml", "punch_index:"]
   gate = ["## Phase 7 resolution gate", "", "| Item | Outcome | Evidence |", "| --- | --- | --- |"]
   for n, x in enumerate(I, 1):

@@ -146,3 +146,14 @@ PROOF: 10:39 P13 of 75 GitHub repositories the URLs name, 3 renamed, 1 gone, 1 a
 
 PROOF: 10:51 P14 the effective `PKG_ARCH` excludes one plan entry of the 243: `btrfs-progs` on GENERIC_X64 -- `probe/arch-<plan>.txt`
 PROOF: 10:52 P15 #877's packet `cf3a8d8e62` gives `libfmt` 9.1.0 the three witnesses' `5dea48d1...` -- `git show cf3a8d8e62:projects/ROCKNIX/packages/devel/libfmt/package.mk`
+
+### [Stage D] 10:55 to 10:57 — the punch list, the issues, the pause
+
+- **The four lane bugs:** #880 `wsdd2`, #881 `newt`, #882 `libmpeg2`, #883 `configtools`.
+  - Each is labelled `bug` with no milestone, has a code trace with an `Already written:` line and the VM line, and is classed *dead primary URL, mirror-covered*.
+  - `tools/box-check --issue N`: 2 open, 0 fail for each.
+  - Each body's sha256 is read from its recipe at the hash, and checked against the mirror's fetch and the cache's stamp. A first draft carried a typed hash for `configtools` whose tail was wrong; it was caught by that comparison before filing and appears nowhere.
+- **#877 is the coordinator's** (PL-01, `libfmt`), resolved by its packet.
+- **The audit issue:** #884, `Audit: M6 T7 the generic packages the image builds -- 15 findings (0 critical, 0 high)`. Labels `audit` and `punch-list`, milestone M6, a sub-issue of #654. `tools/box-check --issue 884`: 15 open, 0 fail.
+- **`05-punch-list.md`** is regenerated with the issue numbers. The pre-issue lint passes.
+- **Stage-D pause:** the lane waits for the coordinator's stream briefs (plan § 6b E, D-WORKFLOW-189) and drafts nothing under `packages/`.
