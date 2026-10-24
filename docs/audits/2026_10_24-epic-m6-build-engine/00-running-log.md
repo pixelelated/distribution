@@ -8,7 +8,7 @@
 **Spec:** `docs/reviews/briefs/build-engine.md` version 2 (`01ff4c0bcd`; its § 7 is #652's checklist); `docs/reviews/plan-for-the-plan.md`
 **Depth:** Extended (two reviewers from two other labs: GPT-6 Astra `--member gpt` at `max`, Gemini 4 Argon `--member gemini-argon` at `high`; refutation pass alone each)
 **Branch / worktree:** `feature/m6-build-engine-652` at `/workspace/repos/pixelelated/distribution.worktrees/m6-build-engine-652`
-**Read hash:** the slice's bytes are `next`'s `8ebaf8daad`; **`reviewed-at` = `46f6c7d428`** (the branch `HEAD` at stage A; the commit that carries this log changes no slice path)
+**Read hash:** the slice's bytes are `next`'s `8ebaf8daad`; **`reviewed-at` = `46f6c7d428`** (the branch `HEAD` at stage A; the commit that carries this log changes no slice path); **`fixed-at` = `877775e61e`** (the branch tip after stream E8, every fix in it; written into #652's body at the close-out)
 
 Every log line read in this audit goes through `readlog() { grep -v -i -E 'key|pass|token|user|psk|login' "$@"; }` or the masking `sed` of brief § 5; no build command line or `.env` content is reproduced here.
 

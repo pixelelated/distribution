@@ -172,6 +172,12 @@ Read at the sites (the subagent's leads 21, 22); not run. Also re-read and left 
 
 `get_git` 28 `git restore --staged .` leaves working-tree edits in a cached clone (lead 4); `get_git` 201 to 202 a token in the clone URL, dead (`PKG_USETOKEN` set by no recipe) (6); `get_archive` 33 a test that cannot fail (8); `pkgjson` 14's `exit` override (11: its failure path is caught at 18 to 21, so the claim is partial); `scripts/clean` and `scripts/build` `--all` unreachable (13); `exec_thread_safe`'s dead `$?` and its lock left on failure (15); `do_autoreconf` skipped without `intltoolize` (17); `CPPFLAGS_OPTIM_HARDENING` on C only, latent (18); the CMake toolchain conf appended non-atomically (20); `unpack` 196 default patch fuzz, 127 `PATCH_ARCH`, 100 the shared-`BUILD` fallback (24); `config/options` 92 `CONCURRENCY_LOAD` from `os.cpu_count()` ignoring affinity (26); `cortex-a710` mapped to `aarch64` in `arch.aarch64` and `armv9-a` in `arch.arm` (27's second half); the build stamp ignoring dependencies' stamps and settings, and `clean` leaving sysroot files (design notes). Each is re-read before it is carried to the punch list; otherwise it stays here.
 
+### Leads carried out of stage E (not changed in this slice)
+
+- `scripts/get_env`'s `KEYS` word drops `LOCAL_SSH_KEYS_FILE` inside the container, as it has since the filter was written (`d704c9d563`, 2026-09-05), so `projects/ROCKNIX/packages/rocknix/package.mk` 36 to 39 (the development `authorized_keys` copy) has not run in a Docker build since. `KEEP` is not changed in this slice (the coordinator, #652, after E7); **put to the maintainer on #346**.
+- `config/functions` 1313: `. ${PKG_DIR}/package.mk || die` disables errexit for a recipe's global scope; latent while recipes keep assignments only at global scope (late binding). Not named by E8's brief.
+- `scripts/makefile_helper` 10 to 11 capture all of `config/options`' standard output into `BUILD_ROOT` (Argon G-17): one line today (a sandbox at 4.6); a user's options file that prints would corrupt it, and line 13 guards only against empty.
+
 ## The nine #644 findings this slice carries
 
 | # | #644's disposition for T5 | What this reading found | Disposition |

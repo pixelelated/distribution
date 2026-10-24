@@ -1,6 +1,6 @@
 # Analysis — M6.P2 T5, the build engine
 
-**Date:** 2026-10-24. **Read at:** `reviewed-at: 46f6c7d428`, the slice's bytes `next`'s `8ebaf8daad`; `upstream/next` `3421d7d178`. Findings are `02-forward-audit.md`'s `F-NN`; proofs its `P<n>`. Severity and category are set here and carried to `05`.
+**Date:** 2026-10-24. **Read at:** `reviewed-at: 46f6c7d428`; **fixed at** `fixed-at: 877775e61e` (stage E, streams E1 to E8); the slice's bytes `next`'s `8ebaf8daad`; `upstream/next` `3421d7d178`. Findings are `02-forward-audit.md`'s `F-NN`; proofs its `P<n>`. Severity and category are set here and carried to `05`.
 
 ## Executive summary
 
