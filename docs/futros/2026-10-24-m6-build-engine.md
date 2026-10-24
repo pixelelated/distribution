@@ -366,3 +366,66 @@ replacement's record is T9's. Not applicable, said so.
 
 - None. #801 tracks the tool-without-a-runner shape; an entry is written
   if T9's reading finds the shape a third time.
+
+## Addendum: T6 at its kickoff (2026-10-24, from the brief `docs/reviews/briefs/build-engine-upstream-tools.md` version 1)
+
+**What we know and assume.** T6 is a Local reachability table over 135
+paths (134 upstream-carried, one fork-own) under `tools/` and the two other
+distributions; the engine it serves was audited by T5 (#837 closed). The
+assumptions, each checked: the inventory's *area* is what keeps the fork's
+own tools out of the slice (`tools/` has 139 entries, 135 of them here --
+checked from `inventory.json` at `eb4763e3cc`); the lint accepts Local at
+epic tier only through #810's two keys (merged on the coordinator's branch
+at `18747fbc52`, so on the lane's branch by the merge of the tip); nothing
+the fork runs selects `distributions/LibreELEC` or `LEIoT` (`DISTRO=ROCKNIX`
+in `distributions/ROCKNIX/options` and the `Makefile`); and an
+upstream-carried file is not deleted by this slice (plan § 5 and the base
+merge's cost), so the table's dispositions are *kept* with the #585
+proposal for finding 24's class. **Substrate:** the lane's worktree does
+not exist until dispatch; the T5 session is reused; no guest, no build, no
+runtime at all.
+
+**Known unknowns.** `tools/pkgcheck`'s tier (the inventory says fork-own,
+two rules say upstream's; `git log upstream/next..8ebaf8daad -- tools/pkgcheck`
+decides -- the slice's first Q4 row); whether `scripts/update_packages`
+reaching `tools/update-functions/<pkg>` counts the 62 helpers as *reached*
+(it does, by the table's own rule: a line in the tree calls them -- but
+nobody runs `make update` on the fork, so the row says *reached by a
+script nobody runs*, a class the brief should name); shellcheck absent on
+the host (recorded as not runnable).
+
+**Patterns.** T5's Q6 tables and its E8 are the nearest prior work (the
+same files' callers); #644 finding 24 is the slice's thesis already
+written; T3's tool row (#799, `tools/retroarch-wrapper-test`) is the shape
+of a *fork-only tool defect routed to T10*, which this slice must not
+mistake for its own.
+
+**What could we be missing (simulation).** A fresh Opus session with the
+brief: (1) **runs a tool to learn what it does** -- `tools/distro-tool`
+and `download-tool` write to `release/` and `sources/`, `imgburn.sh` writes
+a device; the brief must say *read a tool, never run it to learn its
+reach* (adjustment A1); (2) counts callers with one pattern and files
+*unreached* on a zero (blindspot 22; the brief has the two-way rule, and
+the positive control: a reached tool found by the same command); (3)
+treats a tool documented in `CLAUDE.md` as unreached because no script
+calls it (the brief has the *reached by a document* class); (4) deletes
+LibreELEC's and LEIoT's directories as dead (the brief forbids a deletion
+of an upstream-carried file three times); (5) spends the session reading
+62 update-function scripts line by line (a table reads rows; the brief
+says so, and the per-directory row with a file count is the shape for
+`update-functions/`); (6) writes the review plan without the two keys and
+fails the lint at pre-issue (the brief carries the keys and the expected
+line). **Pre-mortem:** the table lands with 108 *unreached* rows and a
+stream brief proposing to delete them; the coordinator declines, the
+slice's value is the #585 proposal and the one fork-own row -- which is
+the honest outcome for this slice, and the brief should say so, so the
+executor does not over-grade a table that is meant to be mostly *kept*.
+
+**Adjustments before execution (into version 2):** A1 *read, never run* a
+tool to learn its reach, with the three tools that write named; A2 the
+class *reached by a script nobody runs* for `update-functions/` and the
+`update-*` pair; A3 a sentence that a mostly-*kept* table is the expected
+shape and not a thin result; A4 the positive control named in § 5's
+caller-count block (`pkgcheck` and `adjust_kernel_config` are reached, so
+a zero elsewhere is a zero). The stranger's proof of the brief runs
+beside this addendum; version 2 records both.
