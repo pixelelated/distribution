@@ -44,14 +44,18 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#651` (prose through a quoted heredoc or the Write
-tool). No runtime of any kind is needed: no guest, no compiler, no
-container, no Facilitator call (Local). The host is M6's; T8's guest cycles
-run on it from the other lane; this slice does not touch it. **A rule is
-edited here only under a stream brief at stage E** (brief § 1); stage B
-reads and records.
+**Stage A done (2026-10-24 14:40 UTC; the executor).** The audit folder `docs/audits/2026_10_24-epic-m6-doctrine-rules/` holds `00-running-log.md` (Phase 0, Stage A) and `01-research-notes.md` § Scope.
+- **No delta:** 36 paths; 11,394 lines at the hash and 11,414 in the inventory; 24 of 30 rules and 5,179 lines load every session.
+- **The branch's deltas** are listed hunk by hunk with their owners. D-QA-040's `**Open:**` marker (`f00ab3e163`, #646) is a Q2 lead.
+- **The branch scan:** no unaccepted M6 lane rule edit.
+- `reviewed-at: 00e75ab135`. The read tree is `.qa-scratch/t4/at-hash/`.
+
+**Next is stage B**:
+1. The reader's pass over the 36, in brief § 2's five groups, with at least one line per file into `01` § The reader's pass.
+2. The auditor's pass: § 5's host checks; the command blocks; the Q4 tables, written by a script under `.qa-scratch/t4/` and committed beside `04`; the Q6 tables.
+3. `02` to `04`, then the pre-issue lint, then stage D's punch list, `bug` issues and the pause.
+
+No rule is edited before a stage-E stream brief. Each stage-B session ends with `git status --short -- <the 36>` empty.
 
 ## Next commands
 
