@@ -68,7 +68,6 @@ fi
 # Debugging info:
   echo "GAME set to: ${GAME}"
   echo "PLATFORM set to: ${PLATFORM}"
-  echo "CONF DIR: ${CONF_DIR}/${GOPHER64_JSON}"
   echo "CPU CORES set to: ${EMUPERF}"
   echo "DEVICE TYPE set to: ${DEVICE}"
   echo "Launching /usr/bin/touchHLE --fullscreen=${DEVICE} ${1}"
