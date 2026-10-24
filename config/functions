@@ -198,14 +198,14 @@ safe_remove() {
 flag_enabled() {
   # check flag
   if [ -n "${PKG_BUILD_FLAGS}" ] && listcontains "${PKG_BUILD_FLAGS}" "[+]?$1"; then
-    if [ "${3:none}" = "only-disable" ]; then
+    if [ "${3:-none}" = "only-disable" ]; then
       die "ERROR: $1 cannot enable via PKG_BUILD_FLAGS (found in $PKG_NAME)"
     fi
     return 0
   elif [ "$2" = "yes" ] && ! listcontains "${PKG_BUILD_FLAGS}" "-$1"; then
     return 0
   else
-    if [ "${3:none}" = "only-enable" ]; then
+    if [ "${3:-none}" = "only-enable" ]; then
       die "ERROR: $1 cannot disable via PKG_BUILD_FLAGS (found in $PKG_NAME)"
     fi
     return 1
