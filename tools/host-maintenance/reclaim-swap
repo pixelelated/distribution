@@ -17,7 +17,10 @@ INSTALLED = Path('/usr/local/sbin/pixelelated-reclaim-swap')
 LOCK = Path('/run/pixelelated-reclaim-swap.lock')
 RESERVE_KIB = 16 * 1024 * 1024
 ENV = {'PATH': '/usr/sbin:/usr/bin:/sbin:/bin', 'LC_ALL': 'C'}
-SIGNALS = (signal.SIGINT, signal.SIGTERM, signal.SIGHUP)
+# Every catchable signal whose default ends the process is deferred, so none
+# can end it between swapoff and the verified swapon (#922).
+SIGNALS = (signal.SIGINT, signal.SIGTERM, signal.SIGHUP, signal.SIGQUIT, signal.SIGUSR1,
+           signal.SIGUSR2, signal.SIGALRM, signal.SIGPIPE)
 PENDING_SIGNAL = None
 
 
@@ -148,6 +151,9 @@ def recycle():
         raise Refused('negative swap priority differs from reviewed serval configuration')
     assert_idle()
     headroom(before)
+    # Said before the final checks, so a stalled stdout cannot hold the
+    # mutation past them (#922).
+    print('Reclaiming /swap.img with 16 GiB RAM reserve', flush=True)
     # Re-read immediately before mutation; headroom is a snapshot, not a reservation.
     current = swap_state()
     if current is None or current[:3] != before[:3] or current[4] != before[4]:
@@ -158,7 +164,6 @@ def recycle():
         raise Refused('swapfile changed during checks')
     if PENDING_SIGNAL:
         raise Interrupted(f'interrupted by signal {PENDING_SIGNAL} before mutation')
-    print('Reclaiming /swap.img with 16 GiB RAM reserve', flush=True)
     try:
         command(['/usr/sbin/swapoff', '--', str(TARGET)])
     finally:

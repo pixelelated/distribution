@@ -18,8 +18,10 @@ nonnegative priorities are preserved using `swapon --priority`.
 
 Only absolute `/usr/sbin/swapoff -- /swap.img` and corresponding `swapon` are
 run, with a fixed environment. Active state, size and priority are read back.
-Normal command failures and handled SIGINT/SIGTERM/SIGHUP paths attempt
-reactivation before returning an error. Termination may wait for the current
+Normal command failures and every catchable terminating signal (SIGINT,
+SIGTERM, SIGHUP, SIGQUIT, SIGUSR1, SIGUSR2, SIGALRM, SIGPIPE) are deferred, and
+reactivation is attempted before the error is returned (#922). The installed
+copy changes only when the owner reinstalls it (D-INFRA-015). Termination may wait for the current
 command's120second timeout. SIGKILL/power loss cannot run process cleanup.
 Memory observations are snapshots, not reservations against unrelated work.
 

@@ -282,6 +282,63 @@ class Reclamation(unittest.TestCase):
         self.assertEqual(len(self.calls), 2)
 
 
+    def test_print_precedes_the_final_checks(self):
+        # #922: a stalled stdout cannot hold the mutation past its checks.
+        events = []
+        self.idle.side_effect = lambda: events.append('idle')
+        with patch('builtins.print', side_effect=lambda *a, **k: events.append('print')):
+            helper.recycle()
+        first_print = events.index('print')
+        self.assertEqual(events[:first_print], ['idle'])
+        self.assertIn('idle', events[first_print:])
+
+
+# A real signal is delivered only to a disposable child, which runs recycle()
+# against the same doubles: a signal the helper does not handle ends that
+# child, never this suite. No swap command runs.
+SIGNAL_CHILD = r"""
+import importlib.machinery, importlib.util, os, resource, signal, sys
+from unittest.mock import patch
+resource.setrlimit(resource.RLIMIT_CORE, (0, 0))
+path, name = sys.argv[1], sys.argv[2]
+loader = importlib.machinery.SourceFileLoader('h', path)
+h = importlib.util.module_from_spec(importlib.util.spec_from_loader('h', loader)); loader.exec_module(h)
+ROW = ('/swap.img', 'file', 8 * 1024 * 1024, 7 * 1024 * 1024, -1)
+state, calls = {'row': ROW}, []
+def command(argv):
+    calls.append(argv[0])
+    if argv[0].endswith('swapoff'):
+        state['row'] = None
+        os.kill(os.getpid(), getattr(signal, name))
+    else:
+        state['row'] = (*ROW[:3], 0, -1)
+for sig in h.SIGNALS:
+    signal.signal(sig, h.interrupted)
+with patch.object(h, 'file_identity', return_value=(1, 2, 3)), \
+     patch.object(h, 'swap_state', side_effect=lambda: state['row']), \
+     patch.object(h, 'available_kib', return_value=32 * 1024 * 1024), \
+     patch.object(h, 'assert_idle'), patch.object(h, 'assert_default_activation'), \
+     patch.object(h, 'command', side_effect=command):
+    try:
+        h.recycle()
+        print('NO SIGNAL SEEN', calls)
+    except h.Interrupted as error:
+        print('INTERRUPTED', error, calls)
+"""
+
+
+class Signals(unittest.TestCase):
+    def test_terminating_signals_during_swapoff_are_deferred_until_reactivation(self):
+        # #922: SIGQUIT (Ctrl-\\) and the rest ended the helper with swap off.
+        for name in ['SIGQUIT', 'SIGUSR1', 'SIGUSR2', 'SIGALRM', 'SIGPIPE', 'SIGTERM']:
+            with self.subTest(signal=name):
+                result = subprocess.run(['/usr/bin/python3', '-I', '-c', SIGNAL_CHILD, str(args.helper), name],
+                                        capture_output=True, text=True, timeout=30)
+                self.assertEqual(result.returncode, 0, (name, result.returncode, result.stderr[-300:]))
+                self.assertIn('swap reactivation verified', result.stdout)
+                self.assertIn("'/usr/sbin/swapon'", result.stdout)
+
+
 class Preflight(unittest.TestCase):
     def setUp(self):
         self.directory = tempfile.TemporaryDirectory()
