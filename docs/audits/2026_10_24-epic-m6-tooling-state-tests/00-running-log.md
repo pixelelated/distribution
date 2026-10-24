@@ -114,3 +114,22 @@ The last two are traced at stage B before they are called defects: an environmen
 
 - **Host footprint after the runs:** `/workspace/tmp/m6-t14/` holds 173 MB (the ES clone, the rclone and busybox copies, the outputs). `TMPDIR` holds only the wrapper test's `tmpi9wqx8u7/`. `git status --short` is clean.
 - **No guest:** the census is 0 throughout. No handheld, no real provider or account, no build, no edit to `tools/last-good-scripts-test`, no write under `/tmp` or `/workspace/repos/rocknix*` (the M7 roots were only read and executed from).
+
+## [Stage B] 20:29 UTC — the two traces; the coordinator's busybox ruling
+
+- **The coordinator's post (20:28 UTC):** the busybox copied read-only from the M7 GENERIC_X64 root's image is a build root's applet set, recorded with the root, its BUILD_ID and the pin; the host's run is recorded as the host's. The four failing tools are stage-D bugs, and the two traced cases stay dependence rows until the trace says otherwise.
+- **The applet set:**
+  - **The root:** `/workspace/repos/rocknix.worktrees/m7-pixelelated-replacement20/build.pixelelated-GENERIC_X64.x86_64`, image `BUILD_ID="1a026648442321609b2288c2c9c06803817f9df2"`, `VERSION="0.0.1-dev+20261011T194522Z.g1a0266484423"`, `BUILD_BRANCH="build/m7-pixelelated-replacement20"`; its `build/busybox-1.36.1`; the binary `BusyBox v1.36.1`.
+  - **The tree's effective pin** is `projects/ROCKNIX/packages/sysutils/busybox/package.mk:7` `PKG_VERSION="1.36.1"`, the override. The generic `packages/sysutils/busybox/package.mk:6` reads `1.38.0`, and the override wins (`device-builds.md` § After rebasing: the effective version). So the root's binary is the tree's pin.
+  - **The host's:** BusyBox v1.37.0 (Ubuntu). Both writer tests passed under each, and the second pass is recorded as the host's.
+- **Trace 1: `rasteratops-cloud-layout-test --archives-only`, the two `T24-local-*-recovery` FAILs.**
+  - The case's logger journal (`ctl/journal`) reads `a temporary file could not be made (mktemp failed or gave no file)`, then `the restore's lists could not be made (a temporary file)`.
+  - The sandbox (`:138-146`) mounts `--tmpfs /tmp`, sets `HOME` and `PATH` with `--setenv`, and otherwise passes the caller's environment through `bwrap`. The caller's `TMPDIR=/workspace/tmp/m6-t14/tmp` is not mounted inside, so `backuptool`'s `mktemp` fails.
+  - **Rerun with `env -u TMPDIR`** (the test makes no host temp when `--output` is given, `:1201`; the host's `/tmp` held 9,562 entries before and after): `13 PASS, 0 FAIL`, rc 0, 19.8 s.
+  - **The cause is the test's sandbox,** which inherits a caller variable that names a host path. It is not the scripts. A caller that sets `TMPDIR` as `device-builds.md` § Temporary directories (#549) asks gets a false FAIL.
+- **Trace 2: `pixelelated-content-scope-test`, `system-traversal-refused` and `content-pointer-traversal-refused`.**
+  - Unchanged with `TMPDIR` unset: 19 PASS, 2 FAIL.
+  - The current `cloud_content_restore` refuses `../gb` before any rclone call (`02-cloud_content_restore.log`: `That system folder name can't be used. Nothing was restored.`), so the case's `ctl/` holds no `argv`.
+  - The cases read `ctl/argv` unconditionally (`:121`, `:222`), and the read raises `[Errno 2]` before their assertion. The sibling cases at `:178` and `:195` already test `not exists()`.
+  - The refusal moved earlier at `e6645cb5ea` (2026-10-08 07:19Z, *cloud: integrate explicit folder setup and save coverage*), five hours after the test's last commit `083f4fad86` (02:25Z).
+  - **The cause is the test,** stale against a safer script. The property it protects (no transfer started) holds; the test reports FAIL over it. Nothing calls this test, so the failure has gone unseen since that day.
