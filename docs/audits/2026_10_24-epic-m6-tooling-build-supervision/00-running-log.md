@@ -329,3 +329,32 @@ PROOF: 17:34 P17 S5: test-build-monitor passes at the fix (41/0); its five new c
 - **Q7, the docs against the diff:** `build-admission.md` (where the registry lives and why; consume's whole-row check and commit order; the window from `observation_start`) and `retention-report.md` (plan bytes, `observation_start`, reclaim on the volume), each re-read against `e03fc7982d..82840dbc42`. `git grep` for the old location outside `docs/audits` and `docs/work-logs` finds only historical QA records and my own sentence naming the earlier registry.
 
 PROOF: 17:50 P18 S6: the six cases pass at the fix and each fails against the unfixed tools; the record's 665 rows equal their registry rows and receipts -- `.qa-scratch/t9/positives/s6/`, `.qa-scratch/t9/s6-*.log`, `.qa-scratch/t9/s6-record-rows.txt`
+
+### S7 (#922, #923; PL-17, PL-19), 17:50 to 17:56
+
+- **#922, test first:** two cases in `test-swap-reclaim`.
+  - **Signals during `swapoff`.** A disposable child (`python3 -I -c`, core size 0) loads the helper, installs `helper.SIGNALS` handlers as `main` does, and runs `recycle()` against the doubles. Its `swapoff` double signals the child itself, so a real signal is delivered and no swap command runs. Six signals are tried.
+  - **The print's place:** the "Reclaiming" print must come before the final re-checks.
+- **Against the unfixed helper** (`.qa-scratch/t9/positives/s7-swap-unfixed.log`):
+  - SIGQUIT, SIGUSR1, SIGUSR2 and SIGALRM end the child during `swapoff` (rc -3, -10, -12, -14), with no `swapon`.
+  - SIGPIPE: Python ignores it at startup, so the run completes and never acknowledges the signal.
+  - SIGTERM, the control, passes.
+  - The print case gives `['idle', 'idle'] != ['idle']`.
+- **The fix** (`39d9fc1e04`): eight signals are deferred and blocked through reactivation, and the print moves before the re-checks. The README says which signals.
+  - **At the fix:** `Ran 39 tests ... OK` (37 before).
+  - **The installed helper on serval is unchanged** until the owner reinstalls it (D-INFRA-015). `build-preflight --reclaim-swap` keeps using the installed copy until then. The reinstallation is the owner's, to be asked on #346 by the coordinator.
+- **#923, test first:** two cases in `test-submit.py`.
+  - **A stale receipt:** an owner holding a stale `launcher-result.json` must be refused (rc 2, naming it), and nothing reserved.
+  - **A signalled worker:** a SIGTERM to the worker (the PID from `launcher-pid.json`) must give `runner_returncode` 143, `signals: [15]`, `launcher-signal.json` and the run's `build.rc` 143. Cleanup kills only this case's recorded `build.pid` and command group.
+- **Against the unfixed launcher:**
+  - the stale owner was accepted, rc 0 (`s7-submit-stale-unfixed.log`);
+  - with the stale case cut from a temporary copy, deleted after, the signalled worker left no `launcher-result.json` within 15 s (`s7-submit-signal-unfixed.log`).
+  - No `time.sleep(30)` was left running.
+- **The fix** (`c1e799b3b5`):
+  - the fresh-owner check names every launcher and run receipt;
+  - `launcher-pid.json` is opened exclusively before `Popen`, then filled and fsynced;
+  - the worker uses `Popen`, forwards SIGINT, SIGTERM and SIGHUP to the runner, waits for it, and records the signals.
+  - **At the fix:** `test-submit.py` rc 0, with its six rows.
+- **A consequence named in the commit:** `test-build-admission`'s #597 recovery fixture copied the *current* launcher, while recovery accepts only the reviewed launcher, by `COLLISION_LAUNCHER_SHA256`. The fixture now takes those bytes from their content-addressed blob, `571997938e3d…`, and checks the hash first: rc 0, 73 checks. Recovery itself is unchanged. It binds the launcher an actual #597 owner retained, not the current one.
+
+PROOF: 17:56 P19 S7: test-swap-reclaim (39 OK) and test-submit.py (six rows) pass at the fix; the six signal cases and the print case fail against the unfixed helper, and the two receipt cases against the unfixed launcher -- `.qa-scratch/t9/positives/s7-*.log`, `.qa-scratch/t9/s7-*.log`

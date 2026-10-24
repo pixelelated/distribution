@@ -94,6 +94,7 @@ Read only, at 15:45:41 UTC; nothing written under any M7 path (`.qa-scratch/t9/r
 | P16 | S3 (#915): under the pinned image's 3.10.12, the fixed tools hash a 3 MiB and a 6-byte fixture equal to `sha256sum` and to 3.14.4 while the unfixed raise `AttributeError`; `test-build-admission`'s two new cases pass at the fix (70 checks) and fail against the unfixed tools | `.qa-scratch/t9/s3/`; `6a25254359` | proved: fix-control |
 | P17 | S5 (#917, #918): `test-build-monitor` passes at the fix (41/0); its five new cases fail against the unfixed runner (four FAIL lines, the console case hung to its 30 s timeout) and its lock control, with a fresh admission, fails against a runner without its lock | `.qa-scratch/t9/s5-monitor-fixed.log`, `.qa-scratch/t9/positives/s5/`; `dce53bf0ba`, `d1a1495bc5` | proved: fix-control |
 | P18 | S6 (#919, #921, #920): six cases pass at the fix (`test-build-admission` 73 checks, `test-retention-report` 23) and each fails against the unfixed tools; the record's 665 `admission.json` rows equal their registry rows, and their 665 receipts equal those rows | `.qa-scratch/t9/positives/s6/`, `.qa-scratch/t9/s6-record-rows.txt`; `e03fc7982d`, `e8828c13ad`, `82840dbc42` | proved: fix-control |
+| P19 | S7 (#922, #923): `test-swap-reclaim` (39 OK) and `test-submit.py` (six rows) pass at the fix; against the unfixed helper SIGQUIT, SIGUSR1, SIGUSR2 and SIGALRM end the child during `swapoff` with swap off (rc -3, -10, -12, -14), SIGPIPE goes unacknowledged and the print sits after the checks; against the unfixed launcher a stale `launcher-result.json` is accepted and a signalled worker leaves no result | `.qa-scratch/t9/positives/s7-*.log`; `39d9fc1e04`, `c1e799b3b5` | proved: fix-control |
 
 ## Findings (stage B)
 
@@ -215,3 +216,15 @@ The lock is the command's inherited flock descriptor. It was chosen over a refus
 | a plan edited during the scan (#920) | the edited file's hash is bound | the hash of the bytes read; it no longer matches the file |
 
 The registry is the filesystem's, in the user's state directory (`00` § S6 says why). The controls are isolated by a per-fixture `XDG_STATE_HOME`. A retention report made before `82840dbc42` is refused, by the tool hash and by the missing `observation_start`. P18 in the table above.
+
+### S7 (#922, #923; PL-17, PL-19)
+
+| Case | Unfixed | At the fix |
+| --- | --- | --- |
+| SIGQUIT, SIGUSR1, SIGUSR2, SIGALRM during `swapoff` (a disposable child, doubles only) | the child ends (rc -3, -10, -12, -14) with swap off | deferred; `swap reactivation verified` |
+| SIGPIPE during `swapoff` | ignored by Python; never acknowledged | deferred and acknowledged after reactivation |
+| the "Reclaiming" print | after the final re-checks | before them |
+| an owner holding a stale `launcher-result.json` | accepted, rc 0 | refused, rc 2, nothing reserved |
+| SIGTERM to the worker | the worker ends; no `launcher-result.json` | forwarded; `runner_returncode` 143, `signals: [15]`, `launcher-signal.json` |
+
+The installed `reclaim-swap` on serval is unchanged until the owner reinstalls it (D-INFRA-015); `build-preflight --reclaim-swap` keeps the installed copy until then. P19 in the table above.
