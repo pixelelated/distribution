@@ -74,31 +74,30 @@ else
   unofficial="0"
 fi
 
-# Clean up any special characters
+# Escape a value for the replacement side of sed's s|||: the delimiter |,
+# the backslash and the & (PL-020: / and & were escaped, | and \ were not).
 escape_sed() {
-  printf '%s\n' "$1" | sed 's/[\/&]/\\&/g'
+  printf '%s\n' "$1" | sed 's/[\\|&]/\\&/g'
 }
 
-username_esc=$(escape_sed "${username}")
-password_esc=$(escape_sed "${password}")
-token_esc=$(escape_sed "${token}")
-
-# Update emulator config with RetroAchievements settings
+# Update emulator config with RetroAchievements settings. set_key takes the
+# raw value: escaped only where sed reads it, written as is where printf
+# appends it (the append used to write the escaped bytes).
 set_key() {
   key="$1"
   value="$2"
 
   if grep -q "^[[:space:]]*${key}[[:space:]]*=" "${MELONDS_CFG}"; then
-    sed -i "s|^[[:space:]]*${key}[[:space:]]*=.*|${key}=${value}|g" "${MELONDS_CFG}"
+    sed -i "s|^[[:space:]]*${key}[[:space:]]*=.*|${key}=$(escape_sed "${value}")|g" "${MELONDS_CFG}"
   else
     printf '%s=%s\n' "${key}" "${value}" >> "${MELONDS_CFG}"
   fi
 }
 
 set_key RA_Enabled "${enabled}"
-set_key RA_Username "${username_esc}"
-set_key RA_Password "${password_esc}"
-set_key RA_Token "${token_esc}"
+set_key RA_Username "${username}"
+set_key RA_Password "${password}"
+set_key RA_Token "${token}"
 set_key RA_HardcoreMode "${hardcore}"
 set_key RA_EncoreMode "${encore}"
 set_key RA_Unofficial "${unofficial}"
