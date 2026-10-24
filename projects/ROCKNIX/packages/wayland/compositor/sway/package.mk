@@ -12,6 +12,7 @@ PKG_PATCH_DIRS+="${DEVICE}"
 case ${DEVICE} in
   RK3588)
     PKG_VERSION="1.9"
+    PKG_SHA256="ee978ecb92d10ea799d746e9e73df7cd1b8138aed5361d55abfc6f59d82587f4"
     PKG_URL="https://github.com/swaywm/sway/archive/${PKG_VERSION}.zip"
     ;;
   *)

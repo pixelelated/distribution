@@ -12,9 +12,11 @@ case "${DEVICE}" in
   RK3588)
     # Pin rk3588 here until it hits mainline
     PKG_VERSION="7c35e21a8529b3758d1f051d1a5dc62aae934b2b"
+    PKG_SHA256="18bde6ce71df308197db0e1d95fd73a19b6a32f4f0b6f5567333ef3c5b617452"
     ;;
   *)
     PKG_VERSION="74213af1e952c4683d2e35952507133b61394862"
+    PKG_SHA256="b565faeab846950262c07e6debbd6519ea9e7f34943dbb305b9cea6b1026e11a"
     ;;
 esac
 

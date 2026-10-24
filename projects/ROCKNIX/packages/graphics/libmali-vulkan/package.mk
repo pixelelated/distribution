@@ -11,6 +11,7 @@ PKG_LONGDESC="Vulkan Mali drivers for RK3588 soc"
 case ${DEVICE} in
   RK3588)
     PKG_VERSION="11759f18e195e89300bcfeb5ada0d977a7851151"
+    PKG_SHA256="f8356a29161b447fbb0718b21b3826d5be9c6d4ef4a0a876a1bb5521b457abb1"
     PKG_SOURCE_NAME="g610-vulkan-mali.tar.gz"
     FILENAME="libmali-valhall-g610-g6p0-wayland-gbm-vulkan.so"
     # This is some weird default? I didn't want to change behavior of rk3588

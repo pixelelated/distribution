@@ -15,6 +15,7 @@ PKG_PATCH_DIRS+="${DEVICE}"
 case ${DEVICE} in
   H700)
     PKG_VERSION="2.12.0"
+    PKG_SHA256="30abf4da07418ad0f840369c3e64dc6a0bc6a936d53a213ce10783f3d1a3430f"
     PKG_DEPENDS_TARGET+=" h700-suspend-stub"
     # BL31 embeds the stubs; rebuild when they change
     PKG_NEED_UNPACK+=" $(get_pkg_directory h700-suspend-stub) ${SYSROOT_PREFIX}/usr/share/h700-suspend-stub"
