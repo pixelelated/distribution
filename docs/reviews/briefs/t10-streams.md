@@ -189,8 +189,7 @@ dispositioned below.
 - **The test first**, in the throwaway repository only: a worktree with an
   uncommitted edit, `remove` without `--force`: refused by git, the edit
   intact (the unfixed tool destroys it: the positive); with `--force`:
-  removed; a worktree holding a `build.*` directory: refused by the tool
-  before git is asked, with and without `--force`; `--preserve <dir>` with
+  removed; a worktree holding a `build.*` directory: refused by the tool before git is asked when `--force` is absent; with `--force`, the tool names what dies and then removes (the documented contract, `worktrees.md`, D-WORKFLOW-005 -- the lane's reading at S4, 18:28 UTC, corrects version 1's "with and without"); `--preserve <dir>` with
   the move made to fail (a read-only destination): nothing removed, the
   path named (the unfixed tool removes: the positive); `repair` over an
   orphaned directory with an untracked file three levels deep: the file is
@@ -429,6 +428,10 @@ tools the push guard and the CI run first (`register-check`,
   quoted; the `fix-pending-ci` cell naming the coordinator's run to read.
 - **Commits:** `fork-checks: every step runs; the three watcher controls join (#944, #913)` and
   `fork-mirror-build-container: the token through env and --password-stdin (#657)`.
+
+### S2 follow-up (18:3x UTC, on the lane's S4 question): the two rule entries leave with the pattern
+
+`tools/rules-check` ties the three lists (the hook's `PERSONAL_PATTERNS`, `fork-workflow.md`'s list, `instruction-files.md`'s index), so S2's removal of the `'tools/fork-newdrive'` pattern fails the check while the two rule entries stay. **Decided:** S2's follow-up removes both entries on this branch as rule edits under this brief (the list item in `fork-workflow.md` § Personal paths and the index row in `instruction-files.md`), with `rules-check --quiet` rc 0 after; the file `tools/fork-newdrive` itself leaves with T9's S8 (`ad70390f60`), which merges before this branch, and the coordinator takes this branch's deletions over T9's "retired" row at the merge. **And the register citations stay as written** (D-WORKFLOW-200, 201, 202 in `tools/` and `.githooks/`): the rows live on the coordinator's branch, and the coordinator merges that branch into this one at hand-back, before criterion 17's checkers run, as was done for T9 at `bf4445a13c`; `register-check`'s `MISSING` on this branch until then is recorded, not fixed by citing the bug alone.
 
 ## Dispositions that are not streams (the coordinator's, written into the Phase 7 table by the lane)
 
