@@ -1,0 +1,135 @@
+{
+  "artifact_path": "docs/audits/2026_10_24-epic-m6-build-engine/second-opinions/gpt-audit.md",
+  "output_file_sha256": "b8d3f25ce93ea19f38c146a56af0564c5f85cdae271cd2789d6197f0a9236884",
+  "source_file_paths": [],
+  "source_file_hashes": [],
+  "facilitator_version": "council-facilitator@1.14.1-pixelelated.2",
+  "prev_verdict_sha256": null,
+  "member": "gpt",
+  "declared_model": "openai/gpt-6-astra (OpenRouter, via openai, effort=max)",
+  "substrate": "openrouter",
+  "transport": "buffered",
+  "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+  "request": {
+    "started_at": "2026-10-24T05:47:31.470Z",
+    "system_prompt_sha256": null,
+    "user_prompt_sha256": "9fe8531132086a7aabb18188ab981635be2d920ed983ab7a81ffc4bf67e70bb9"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started_at": "2026-10-24T05:47:31.470Z",
+      "duration_ms": 1038085,
+      "max_tokens": 128000,
+      "transport": "buffered",
+      "http_status": 200,
+      "outcome": "success",
+      "outcome_reason": null,
+      "model_field": "openai/gpt-6-astra",
+      "finish_reason": "stop",
+      "content_length": 18920,
+      "tokens": {
+        "prompt": 75028,
+        "completion": 49430,
+        "total": 124458,
+        "reasoning": 45291
+      },
+      "model_identity_source": "provider_response",
+      "served_provider": "OpenAI",
+      "served_provider_observations": [
+        "OpenAI"
+      ],
+      "content_sha256": "b8d3f25ce93ea19f38c146a56af0564c5f85cdae271cd2789d6197f0a9236884",
+      "usage": {
+        "prompt_tokens": 75028,
+        "completion_tokens": 49430,
+        "total_tokens": 124458,
+        "cost": 3.4093425,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 75025,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 3.4093425,
+          "upstream_inference_prompt_cost": 0.9378425,
+          "upstream_inference_completions_cost": 2.4715
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 45291,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_headers": {
+        "content-type": "application/json",
+        "x-generation-id": "gen-1792820851-FXacmAXno45swmIXEWX8"
+      },
+      "generation_id": "gen-1792820851-FXacmAXno45swmIXEWX8",
+      "native_finish_reason": "completed",
+      "response_body_sha256": "60f83bbff58bbe396754c787ab5e811c9883d7186a9b83a9504d8ba02240d9c3"
+    }
+  ],
+  "final": {
+    "outcome": "success",
+    "assurance_tier": "local_capture_provider_attested",
+    "total_duration_ms": 1038087,
+    "retries_used": 0,
+    "file_artifact_sha256": "b8d3f25ce93ea19f38c146a56af0564c5f85cdae271cd2789d6197f0a9236884",
+    "usage": {
+      "prompt_tokens": 75028,
+      "completion_tokens": 49430,
+      "total_tokens": 124458,
+      "cost": 3.4093425,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 75025,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 3.4093425,
+        "upstream_inference_prompt_cost": 0.9378425,
+        "upstream_inference_completions_cost": 2.4715
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 45291,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "tokens": {
+      "prompt": 75028,
+      "completion": 49430,
+      "total": 124458,
+      "reasoning": 45291
+    },
+    "verification": {
+      "result": "PASS",
+      "match_kind": "semantic",
+      "declared": "openai/gpt-6-astra (OpenRouter, via openai, effort=max)",
+      "observed": "openai/gpt-6-astra",
+      "model_identity_source": "provider_response"
+    },
+    "effort_verification": {
+      "result": "PASS",
+      "declared": "max",
+      "evidence": "reasoning_tokens",
+      "observed_reasoning_tokens": 45291
+    },
+    "provider_verification": {
+      "result": "PASS",
+      "declared": [
+        "OpenAI"
+      ],
+      "evidence": "response_provider_field",
+      "observed": "OpenAI",
+      "observed_providers": [
+        "OpenAI"
+      ]
+    }
+  }
+}

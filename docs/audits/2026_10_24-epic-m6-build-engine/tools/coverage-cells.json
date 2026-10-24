@@ -1,6 +1,6 @@
 {
  "scripts/build": {
-  "Q1": "SC2166/SC2044/SC2046 in upstream's lines: idioms, not defects (`02` \u00a7 shellcheck)",
+  "Q1": "SC2166/SC2044/SC2046 in upstream's lines: idioms, not defects (`02` § shellcheck)",
   "Q2": "the fork's 12 lines read: the watch entry (7 to 12) and `--wrap-mode=nodownload` (196, 227); the hook order is upstream's (`packages/README.md`)",
   "Q3": "no defect in the fork's lines; P10 proves the meson guard reached 85 of 85 configures",
   "Q5": "the watch entry: one exec and a lock per top-level entry; the recorded runs' timings in `04` Q5",
@@ -26,7 +26,7 @@
  "scripts/build_distro": {
   "Q1": "F-14: a dead `$?` check under `set -e`",
   "Q2": "`set -e` (15); the watch entry; `DISTRONAME` roots",
-  "Q3": "F-09: the prune of `target/` (84) defeats the image's refusal",
+  "Q3": "F-09: the prune of `target/` (84) defeats the image's refusal; F-24: the initramfs clean (78) needs `DEVICE_ROOT`, set only for RK3566",
   "Q5": "the whole-device run; timings in `04` Q5",
   "Q6": "the `Makefile`'s device targets (Table 1)",
   "Q7": "F-09's reason lives in `c2bb7ec0b9`'s message only"
@@ -57,7 +57,7 @@
  },
  "Makefile": {
   "Q1": "the per-device recipes repeat two lines each; a pattern rule would do, upstream's shape",
-  "Q2": "the `.env` lifecycle traced (205 to 208): sound for the file (`03` \u00a7 3.5); F-13 (the options mount writable)",
+  "Q2": "the `.env` lifecycle traced (205 to 208): sound for the file (`03` § 3.5); F-13 (the options mount writable)",
   "Q3": "no defect; F-02 lands through its `--env-file`",
   "Q5": "the container pin's age (F-11)",
   "Q6": "every fork build's entry",
@@ -65,7 +65,7 @@
  },
  "config/build-identity": {
   "Q1": "no finding",
-  "Q2": "fails closed on every invalid input (P9's 16 rejections)",
+  "Q2": "fails closed on every invalid input (P9's 16 rejections) except F-23: a failing `git status` reads as clean (37)",
   "Q3": "no defect (P9: 21 identity checks pass); F-09 is the caller's",
   "Q5": "n/a: one call per image",
   "Q6": "`scripts/image` 60 to 61",
@@ -193,7 +193,7 @@
   "Q7": "F-15: the options files at 132 to 140; 98's comment says per project, the cache is per build root"
  },
  "config/functions": {
-  "Q3": "F-17 (device files outside the stamp, P12); F-21; `calculate_stamp`'s generic recipe correct (P2)",
+  "Q3": "F-17 (files `find_path` reads outside the stamp, P12; Low after 4.6); F-21; `calculate_stamp`'s generic recipe correct (P2)",
   "Q5": "`calculate_stamp`'s whole-directory hash: `04` Q5",
   "Q1": "F-21: substring expansions for defaults; unquoted `$@` (996, 1437, 1656, 1895)",
   "Q2": "F-21: `. package.mk \\|\\| die` disables errexit for recipe globals",
@@ -208,7 +208,7 @@
  },
  "scripts/get_git": {
   "Q2": "sets its own `set -e` and `pipefail` (15 to 16)",
-  "Q3": "F-18: a cached clone accepted on any ref (P13)",
+  "Q3": "F-25: a cache directory it cannot enter runs `git clean -fdx` in the caller's tree (P14, High); F-18: a cached clone accepted on any ref (P13, Medium after 4.6)",
   "Q7": "lead 6: a token-URL path set by no recipe"
  },
  "scripts/get_archive": {

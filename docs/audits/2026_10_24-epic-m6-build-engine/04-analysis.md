@@ -6,29 +6,29 @@
 
 The slice is the engine every build runs: LibreELEC's scripts and `config/functions`, ROCKNIX's distribution layer, and the fork's additions (the watch entry, the identity, the container's lifecycle, the meson guard, the name). **The fork's additions are small, commented and mostly right; the engine's weak points are where a failure is reported as success, or where a guarantee holds on one route and not the one people use.** Nothing was built: every claim is a reading at a site, a sandboxed call with its trace read first (P1 to P8, P11 to P13), an install tree (P7), or a recorded run (P10), and the build-only proofs are `fix-pending-image`.
 
-**22 findings. Two are High:**
+**25 findings, after Phase 4.6. Two are High:**
 
-- **F-16:** `scripts/mkimage` reports success over an incomplete image on the `qcom-abl` route, SM8550's, the Retroid Pocket Nova's (unchecked copies of the kernel and `SYSTEM`, unchecked compression, an exit status that is always 0).
-- **F-18:** `scripts/get_git` accepts a cached clone whose `HEAD` is not the pinned commit when the pin matches any of the clone's refs, and the package then builds from the old source under the new version (P13).
+- **F-16:** `scripts/mkimage` reports success over an incomplete image on the `qcom-abl` route, SM8550's, the Retroid Pocket Nova's (unchecked copies of the kernel and `SYSTEM` there and in the shared bootloader hook, unchecked compression and checksum, and a closing `exit` that returns 0 after any of them fails).
+- **F-25** (from Astra's pass): a git cache directory the build user cannot enter makes `scripts/get_git` run `git clean -fdx` in the build tree, which deletes its build roots, `sources/` and untracked files without a word (P14). The trigger is narrow; the loss is hours of unrecoverable output. Upstream's code.
 
-**Eight are Medium:**
+**Seven are Medium:**
 
 - `scripts/get_env` keeps six constructed secret-shaped names (F-01).
 - A multi-line value lets a dropped name return through docker's `--env-file` (F-02).
 - `add_es_system` carries a system's fragment into the next, so `daphne` and `gp32` ship a wrong year on every image, and the next system appended would launch nothing (F-03).
 - The launch table's one-default rule stops a build silently on one shape and ships two defaults on the other (F-04, T3's F-06).
 - `build_distro`'s prune defeats the image's refusal to reuse an identity on the documented route (F-09).
-- A device-level file `find_file_path` reads is outside the stamp (F-17, P12).
 - Archives are fetched without TLS verification and accepted unhashed (F-19).
-- `checkdeps` changes the host's compiler and `/nix` with `sudo` (F-20).
+- `checkdeps` changes the host's compiler and `/nix` with `sudo` when its conditions hold (F-20).
+- `scripts/get_git` accepts a cached clone whose `HEAD` is not the pin when the pin matches any of its refs (F-18, P13). Re-graded from High in Phase 4.6: the cache directory is keyed by the pin, so an ordinary bump gets a fresh clone.
 
-**The rest are Low or `Renovation`:** a stale rule (F-05: two items of `device-builds.md` describe defects fixed in August), dead identity code (F-06, F-07), upstream's glob test (F-08), a workflow red on every run (F-10), the options file's two spellings (F-15), small helper defects (F-21), two upstream lines that fail a run for the wrong reason (F-22), the container pin's age and three files behind upstream (F-11, F-12), and two items #644 assigned (finding 3's sentence, finding 8's measurement).
+**The rest are Low or `Renovation`:** a stale rule (F-05: two items of `device-builds.md` describe defects fixed in August), dead identity code (F-06, F-07), upstream's glob test (F-08), a workflow red on every run (F-10), the options file's two spellings (F-15), small helper defects (F-21), two upstream lines that fail a run for the wrong reason (F-22), a device file outside the stamp, which a device build cleans anyway (F-17, P12), the identity's dirty check failing open (F-23), an initramfs clean that never fires off RK3566 (F-24), the container pin's age and three files behind upstream (F-11, F-12), and two items #644 assigned (finding 3's sentence, finding 8's measurement).
 
 **Currency (Q4):**
 
 - **Against ROCKNIX:** the slice is level but for three upstream commits, all `to merge` with the next base merge.
 - **The container:** the pin is 29 days behind upstream's image of today; the `Dockerfile` is identical.
-- **Upstream contributions (#585 candidates):** F-03, F-04, F-08, F-16, F-17, F-18, F-19 and F-20 are upstream's code; D-WORKFLOW-164, with submissions deferred by D-WORKFLOW-165.
+- **Upstream contributions (#585 candidates):** F-03, F-04, F-08, F-16, F-17, F-18, F-19, F-20, F-24 and F-25 are upstream's code; D-WORKFLOW-164, with submissions deferred by D-WORKFLOW-165.
 
 ## Acceptance-criteria scorecard
 
@@ -75,7 +75,8 @@ The nine #644 findings this slice carries are each recorded with their dispositi
 | Risk | From | Likelihood | Impact | Mitigation |
 | --- | --- | --- | --- | --- |
 | an SM8550 image missing part of `SYSTEM` reported built and staged on the Nova | F-16 | low (needs a full FAT partition or a full disk) | a device that does not boot, from an image the record calls good | the two branches' `|| show_error`, `pigz` checked, `exit` with a real status |
-| an image built from an older source than its recipe names | F-18 | low to medium (a pin bumped to a branch tip a cached clone already knows; the shared cache lives for months) | the image's claimed version is false, and a fix said to ship does not | compare `HEAD` with `PKG_VERSION` |
+| a build tree's roots, `sources/` and untracked files deleted by a fetch | F-25 | low (a cache directory the build user cannot enter) | hours of build output lost, with nothing reporting it | `pushd ... \|\| return 1` |
+| an image built from an older source than its recipe names | F-18 | low (the cache is keyed by the pin, so it needs a cached clone whose `HEAD` moved or whose files were edited) | the image's claimed version is false, and a fix said to ship does not | compare `HEAD` with `PKG_VERSION` |
 | a secret in the developer's shell reaching `.env` and the container | F-01, F-02 | low (needs such a name, or a multi-line value) | a credential in a container and a world-unreadable file in the worktree | case-insensitive names, the missing words, values with newlines refused |
 | a new system appended to the table launching nothing | F-03 | medium (upstream adds systems) | a system that does nothing when a game is chosen | unset the fragment's keys per call |
 | a rebuilt identity's bytes replaced in `target/` | F-09 | low (a frozen timestamp and a rebuild of one device) | two different files under one identity until the store is checked | refuse before the prune |
@@ -125,7 +126,7 @@ Each finding re-read against its primary artifact, asking what would refute it:
 
 ### Q3 Bugs
 
-F-01, F-02, F-03, F-04, F-08, F-09, F-16, F-17, F-18, F-19, F-20, F-21 (`02`). The `bug` issues are filed at stage D for the defects that a sandbox, a recorded run or an install tree can verify: F-01 with F-02 (one issue, `get_env`), F-03, F-04, F-09, F-16, F-17, F-18, F-19, F-20. Of these, F-04's issue is T3's lead made this slice's, and F-08 and F-21 stay punch items (Low, upstream's, no shipped effect).
+F-01, F-02, F-03, F-04, F-08, F-09, F-16, F-17, F-18, F-19, F-20, F-21 (`02`). F-23, F-24 and F-25 were added in Phase 4.6. The `bug` issues are filed at stage D for the defects that a sandbox, a recorded run or an install tree can verify: F-01 with F-02 (one issue, `get_env`), F-03, F-04, F-09, F-16, F-17, F-18, F-19, F-20, F-25. Of these, F-04's issue is T3's lead made this slice's, and F-08 and F-21 stay punch items (Low, upstream's, no shipped effect).
 
 ### Q4 Package currency
 
@@ -244,11 +245,126 @@ Every unreached row carries its `Already written:` line in the table (nothing, i
 - A stamp written in a running log is a `date -u` reading taken when it is written (this lane's friction twice; `lint-audit-artifacts` could refuse a log time ahead of its commit's).
 
 ### Recommended Action Sequence
-The two High fixes first (F-16, F-18), each with its sandbox or trace; then the credential filter (F-01, F-02); then the table (F-03, F-04, proven by the regeneration); then F-09, F-17, F-19, F-20 under stream briefs that name the build proving them.
+The two High fixes first (F-16, F-25), each with its sandbox or trace, and F-18 with F-25 since both rewrite `_repo_exists_and_valid`; then the credential filter (F-01, F-02); then the table (F-03, F-04, proven by the regeneration); then F-09, F-17, F-19, F-20 under stream briefs that name the build proving them.
 
 ## Second opinion (Phase 4.6)
 
-**Pending: the Phase 4.6 calls wait for the host.** Depth Extended; two reviewers from two other labs: GPT-6 Astra (`--member gpt`, `max`) and Gemini 4 Argon (`--member gemini-argon`, `high`), refutation pass each, a probe of each seat first (`second-opinions/review-plan.json`, written 2026-10-24 before any call). The `npm install --prefix tools/council` and both calls wait for the M7 host window's return line, relayed on #652; the window opened at 03:47 UTC and was still held at the coordinator's 04:26 census. Until then no Phase 5 item is final and no issue is filed (brief § 8).
+**Primary:** Claude Code, `anthropic/claude-opus-5-5`, Anthropic (the dispatch on #652, issuecomment-6379501933, and the session's model metadata). **Depth:** extended: three perspectives, two external reviewers from two other labs (OpenAI, Google), one refutation pass each (epic tier), each preceded by a probe (`second-opinions/review-plan.json`, written before any call). **Both seats ran, and both are graded below.**
+
+**Run:** `tools/council/run invoke --member <m> --provider openrouter --prompt-file <abs>/second-opinions/<m>-brief.md --output <abs>/second-opinions/<m>-audit.md --per-attempt-timeout-ms 1800000 --total-timeout-ms 3600000`, the key sourced by the runner from `~/.config/council/env`. The gpt call ran under `tools/watch-build --record-only` (`.build-runs/20261024T054731Z-0b725524/`, `build.rc` 0). The watcher holds one run per worktree, so the gemini-argon call ran through the Facilitator directly, in parallel; its output and provenance are the Facilitator's own. Both briefs were built by `tools/build-briefs.sh` and committed before sending (`9c23bb5095`), each from the same packet, neither carrying the other's output.
+
+**Identity** (each Facilitator receipt, `council-facilitator@1.14.1-pixelelated.2`; toolchain `verify-pins` OK and `test` 185 of 185 at 05:45):
+
+| Seat | Probe | Refutation pass | Observed model / provider | Effort | Output sha256 |
+| --- | --- | --- | --- | --- | --- |
+| `gpt` | 05:47:07, rc 0, `provider_response` PASS, reply `READY unknown` | 05:47:31, 1,038,085 ms, rc 0, 0 retries, 45,291 reasoning tokens, brief sha256 `9fe8531132086a7a...` (246,501 bytes) | `openai/gpt-6-astra` / OpenAI (PASS) | max, PASS | `b8d3f25ce93ea19f38c146a56af0564c5f85cdae271cd2789d6197f0a9236884` |
+| `gemini-argon` | 05:47:16, rc 0, `provider_response` PASS, reply `READY Gemini 4 Argon` | 05:47:53, 392,700 ms, rc 0, 0 retries, 32,195 reasoning tokens, brief sha256 `a88a961829f455a3...` (246,527 bytes) | `google/gemini-4-argon` / Google, route `google-vertex/global` (PASS) | high, PASS | `c7ea46aa7154961cd1c41f96d5eafde3fad28068aaf406951365cc2da1c9ea16` |
+
+Every seat item is a lead until this lane reads its site. The two seats disagreed on F-18 (Argon: High stands; Astra: Medium) and agreed on F-16 (High) and on the dirty check (Argon G-01, Astra G-10, F-23). Neither proposed withdrawing a finding. Astra's G-01 is the one item that changed the audit's top: it is **F-25, High**, proven by P14.
+
+**Outcome, carried to `05`:**
+- Added: F-25 (High), F-23 and F-24 (Low).
+- Re-graded: F-18 from High to Medium, and F-17 from Medium to Low.
+- Narrowed: F-02, F-03, F-16, F-19, F-20 and F-22.
+- Fix shapes extended: F-04, F-08, F-09, F-13, F-16, F-18, F-19, F-21 and F-24.
+- Declined, each on an artifact: the seats' re-grades of F-08, F-15, F-19 and F-22, and items G-04 (Argon) and G-09 and G-17 (Astra).
+- Final count: **25 findings, 26 punch items: 2 High (F-16, F-25), 7 Medium, 17 Low.**
+
+### Argon's items, graded against the artifacts
+
+Every seat item is a lead. Each grade below rests on this lane's own read of the cited lines at `8ebaf8daad` (`git show 8ebaf8daad:<path>`, 05:54-06:02 UTC, `date -u` readings), a sandbox, or a read-only look at an M7 build root, never on the seat's wording. Grades: **confirmed**, **agree, narrowed**, **agree, re-graded**, **folded** (into the named finding's punch item), **disagree** (with the artifact that refutes it).
+
+**New findings (G-01 to G-17).**
+
+| Seat item | Grade | Severity | Evidence from this lane's read |
+| --- | --- | --- | --- |
+| G-01 `config/build-identity:37` | **confirmed, re-graded High → Low**; new finding **F-23** | Low | `$(git status --porcelain=v1 ...)` has no status check, so a failing `git status` reads as clean and stamps `BUILD_DIRTY=no`, where line 16 returns on a failing `rev-parse`. The guard fails open (`engineering-practices.md` § Guards must fail closed). Narrow: the usual failures (dubious ownership, no repository) also fail line 16 first, and `git status` exits 0 with an `index.lock` present, so the open path needs a status failure that `rev-parse` does not share. Fork code (D-WORKFLOW-157). |
+| G-02 `scripts/image:61,104,111` | **agree, narrowed**; the freeze half **disagree** | Low, folded into F-09 | That the identity is frozen at 61, before the package build, is by design: the identity names the commit the build started from, and `worktrees.md` forbids moving a worktree under a running build. The orphan half stands: `.identity.json` is written at 111, before `do_mkimage` (334/337), so a failed `mkimage` leaves a sidecar that names an image that does not exist. A retry with the same frozen `BUILD_TIMESTAMP` is then refused at 79-82, which is the policy (never reuse an identity). On `make <DEVICE>`, `build_distro`'s prune removes the sidecar first (F-09). Goes into F-09's item: write the sidecar after the image's checksum. |
+| G-03 `scripts/build_distro:78` | **confirmed**; new finding **F-24** | Low (upstream's, identical at `upstream/next:72`) | The `Makefile` sets `DEVICE_ROOT` only for RK3566 (`Makefile:65-66`) and `unset`s it for every other target, so on H700, SM8550 and GENERIC_X64 line 78 removes `build.pixelelated-.<arch>/...`, a path that does not exist (read-only: no such directory beside the M7 roots). The initramfs is therefore never cleaned on the fork's devices. The M7 H700 root's `.stamps/initramfs/build_init` is dated 2026-10-07 07:12, and its `.stamps/image/build_target` is dated 2026-10-11 22:49. Whether the initramfs carries a stale version string is **not checked**. |
+| G-04 `scripts/build_distro:72-93` | **disagree** | none | With `ENABLE_32BIT` not `true`, the `ARCH=arm` call cleans stamps in an arm root that is then not built (no cost) and prunes `target/<distro>-<device>.arm-*`, which only an arm image would match, and none is made. Nothing the next call needs is removed. |
+| G-05 `scripts/get_git:33-48` | **agree, narrowed: no effect**; folded into F-18 | Low | The four error returns do skip `popd`. But `PACKAGE` is absolute (`scripts/get:27`, `SOURCES` from `config/path:10`), and `_get_repo`'s `cd ..` (129) runs before the clone. The clone and `rm -rf "${PACKAGE}"` do not depend on the working directory. F-18's fix rewrites this function, so the `popd` goes in with it. |
+| G-06 `scripts/get_git:214-233` | **disagree** as a defect; **corrects F-18's wording** | none | A fresh clone is reset to the pin at 137 (`git reset --hard "${PKG_VERSION}" \|\| return 1`), so its `HEAD` is `PKG_VERSION`. The check at 214-233 compares only `PKG_GIT_SHA`, as the seat says. `02` F-18's sentence that "the fresh-clone path checks `HEAD` correctly (212 to 218)" cites the wrong lines: the fresh path is right because of 137. Corrected in F-18's item. The seat's point that the fix must accept the abbreviated hash that line 8 documents is adopted: compare `git rev-parse HEAD` with `git rev-parse "${PKG_VERSION}^{commit}"`. |
+| G-07 `scripts/get_git:26-29,199` | **confirmed**; folded into F-18 | (part of the High item) | `_repo_exists_and_valid && exit 0` runs the function on the left of `&&`, so `set -e` does not apply inside it. `git restore --staged .` exits 0, so `git switch --force` never runs, and `git clean -fdx` removes only untracked files. A cached clone with an edited tracked file is accepted as it is. The one fix covers both halves: verify the pin, then `git reset --hard` to it. |
+| G-08 `scripts/get_git:41,201-203` | **confirmed, latent**; folded into F-18 | Low | No recipe at `8ebaf8daad` sets `PKG_USETOKEN` (`git grep`: only `get_git:201`). If one did, the token would sit in the clone's `.git/config` and line 41 would miss the cache at every fetch. Note for F-01: `ROCKNIX_GHTOKEN` is a fused name that `DROP` does not match (the `GHTOKEN` component is not `TOKEN`), the same shape as P1's `DOCKERHUBTOKEN`. |
+| G-09 `scripts/mkimage:31-53` | **confirmed**; folded into F-16 | (part of the High item) | `trap cleanup SIGINT` with a `cleanup` that does not exit lets an interrupted `mkimage` carry on with `IMG_TMP` gone. With F-16's unchecked steps and closing bare `exit`, that can still end 0. Neither `cleanup` nor `show_error` removes the partial `${DISK}` (53). F-16's item adds a trap that exits non-zero and removes `${DISK}`. |
+| G-10 `scripts/mkimage:303-316,327-330` | **agree, narrowed: unreached on the fork**; folded into F-16 | Low | The OVA block runs only when `PROJECT` is `Generic` (287), and all 27 `PROJECT=` settings in the `Makefile` are `ROCKNIX` (`Makefile:46-113`). `SUBDEVICE` is not set by any image build: the only assignments are on-device in `RK3326`/`RK3399` `bootloader/update.sh`. The checksum subshell's unchecked `sha256sum` (327-330) is already in F-16's fix ("`exit 0` only after the checksum is written"). |
+| G-11 `scripts/get_archive:4-8,41-54` | **agree, narrowed**; folded into F-19 | Low | `STAMP_URL`'s content is never compared, but with `PKG_SHA256` set line 6 compares the checksum, so this matters only for the unhashed recipes F-19 already covers. The leftover-archive half has no effect: the stamps are removed at 30, so line 5 refuses the leftover file at the next run. |
+| G-12 `scripts/update_packages:40-64` | **confirmed, and wider than the seat says**; folded into F-19 | Low (unreached: `make update` has never run on the fork, `q6-tables.md` Table 1) | Line 52 deletes `PKG_SHA256` from every non-git recipe it visits, including one already up to date, and line 61 rewrites only a `PKG_SHA256=""` line, which line 52 has just removed. So no checksum is ever written back. This is the tool that would produce F-19's unhashed state, and F-19's fix (refuse an empty `PKG_SHA256`) has to keep it from running unchanged. |
+| G-13 `config/functions:1112-1126,1188-1205` | **agree**: F-17 broadened | Medium (F-17) | `calculate_stamp` hashes `PKG_DIR`, the project patches and packages, and the device patches (1112-1113). `find_path` also searches `devices/$DEVICE/packages/$PKG_NAME` (1188) and `$DISTRO_DIR/$DISTRO/packages/$PKG_NAME` (1192). In the tree, 27 device or distribution package directories exist, and 2 have no `package.mk`: `devices/RK3566/packages/linux/modprobe.d/rtw88.conf`, which is read by `scripts/install` (80-82, 152-154; install stamps are removed at every image, `scripts/image:95`, so it is current), and `devices/AMD64/packages/initramfs/config/initramfs.x86_64.conf` (reader not found by search; not a fork device). No further shipped instance was found for the five devices. The wildcard half (1201-1202 ignores `-f`/`-d`, `FOUND_PATH` is the unexpanded glob) goes to F-21 as Low. |
+| G-14 `scripts/unpack:90-105` | **agree, narrowed**; folded into F-08 | Low | The `mkdir` at 105 is by design for packages with no archive. For an archive whose top directory matches neither pattern, the build fails at configure instead of succeeding wrongly. F-08's fix (fail when an archive was extracted and nothing moved to `.intermediate`) covers both the zero-match and the many-match shapes. |
+| G-15 `distributions/ROCKNIX/config/functions:129-214` | **agree, narrowed: latent**; folded into F-03 | Low | All 139 `add_es_system` calls in the tree have their fragment (a search of the calls against `config/emulators/*.conf`: 0 missing), and the fragments escape their own entities (`gameandwatch.conf:2` `Game &amp; Watch`). `2>&1 >/dev/null` sends `xmlstarlet`'s errors to the build log, which loses nothing. F-03's fix adds a refusal of a missing fragment. |
+| G-16 `Makefile:150,153,205-208` | `.env` half **disagree**; `-n` half **confirmed**, folded into F-13 | Low | Docker reads `--env-file` when the container starts, so a later `.env` rewrite or delete by another recipe does not change a running container. The `-n` tests at 150 and 153 mount a set but missing path, which makes Docker create an empty host directory. That is Docker's documented `-v` behaviour; it was not run here (brief § 5). |
+| G-17 `scripts/makefile_helper:10-11` | **agree, narrowed: latent**; folded into F-22 | Low | Sourcing `config/options` with `PROJECT= DEVICE= ARCH=` and a scratch `HOME` printed exactly one line, the echo (sandbox, between 05:54 and 06:00). A user's options file that prints would corrupt `BUILD_ROOT`, and line 13 guards only against empty. |
+
+**The first reader's findings.**
+
+| Item | Grade | Result | Evidence |
+| --- | --- | --- | --- |
+| F-16 | **confirmed** | High | -- |
+| F-18 | **confirmed, wording corrected** | High | See G-06 and G-07: the fresh path is right because of 137, and the cache path also keeps edited tracked files. |
+| F-01 | **confirmed** | Medium | The seat's allowlist is one fix shape for the stream brief to weigh against the extended `DROP`. |
+| F-02, F-03, F-04, F-09, F-20 | **confirmed** | Medium | -- |
+| F-17 | **agree, broadened** | Medium | G-13 |
+| F-19 | **disagree with the re-grade to High**, kept Medium | Medium | Of 1,347 archive recipes (`PKG_URL` not ending `.git`), 8 lack a `PKG_SHA256` line; `wavpack`, `zlib` and `libevdev` inherit one from the generic recipe they source. The unverified-TLS fetch is therefore checked by a hash for all but a handful (`rkbin` is one). The exposure is real and narrow; Medium stands. |
+| F-22 | **disagree with the re-grade to Medium**, kept Low | Low | The seat's reason, that `chmod -R` fails on dangling symlinks, is **refuted**. In a scratch tree with two dangling symlinks, `chmod -R u+rwX` exited 0 (the host's `chmod`, uutils coreutils 0.10.0, which is what `make distclean` runs; GNU documents that symlinks met in a recursive walk are ignored). The same command over a glob that matches nothing exited 1, which is F-22 as written. |
+| F-08 | **disagree with the re-grade to Medium**, kept Low | Low | G-14: the empty build directory fails the build at configure, not silently. |
+| F-15 | **disagree with the re-grade to Medium**, kept Low | Low | The fast development loop runs inside `make docker-shell`, whose `.env` carries the four credentials (`Makefile:1` includes the upper-case file, and `get_env`'s `KEEP` passes them). Only a bare host shell misses them, and the images are built through `make`. |
+
+**What the seat could not judge** (part 3) is the coverage boundary `04` already states: the three Python builders, the 16 Group 2 files read by the subagent, the excerpt gaps in `scripts/build`, `scripts/build_compat` and `scripts/install`, and the container's runtime. One item is answered here: the recipe-level exposure count for F-19 (above).
+
+### Astra's items, graded against the artifacts
+
+The same standard as Argon's table above: each grade rests on this lane's read at `8ebaf8daad`, a sandbox, or a read-only M7 artifact (06:04-06:11 UTC, `date -u` readings).
+
+**New findings (G-01 to G-19).**
+
+| Seat item | Grade | Severity | Evidence from this lane's read |
+| --- | --- | --- | --- |
+| G-01 `scripts/get_git:26-34,199` | **confirmed by sandbox**; new finding **F-25** | **High** | P14 (`tools/sb-get-git-pushd.sh`, 06:07:52): a cache directory at mode 000 makes `pushd` fail, `_clean_repo` runs anyway (the function is on the left of `&&`, so `set -e` does not apply), and `git clean -fdx` removes the fixture worktree's `build.fixture-1/`, `sources/`, `.gitignore` and untracked file. Only `.git` is left, and the check prints `rejected rc=1`. Upstream carries the same lines (`upstream/next` 26 to 35). How such a directory arises on this host was not found; the loss is hours of build output. |
+| G-02 `scripts/get_git:26-28` | **confirmed**; folded into F-18 | (F-18) | The same as Argon G-07. And `git clean`'s failure is hidden: `_clean_repo`'s status is the last command's. |
+| G-03 `scripts/get_git:194-206,239` | **confirmed by a recorded run**; folded into F-21 | Low | Bare `main` (239) drops the arguments, so `lock_source_dir ""` (196) locks `${SOURCES}/` itself (`scripts/get:17`), which serialises every git fetch on one lock. The SM8550 run `20261024T020912Z-68374394`'s log (read through the filter) shows `GET       (git)` with no package name. |
+| G-04 `scripts/get_git:15-16,36-38` | **confirmed, latent** (this lane's lead 5); folded into F-18 | Low | F-18's fix replaces the pipe with `git rev-parse`. |
+| G-05 `Makefile:179,205-208` | **agree, narrowed**; folded into F-13 | Low | The race is real, since `BUILD_WATCH` takes its lock in the `docker run` line after `.env` is rewritten (205-208). Its outcomes are loud (`docker` cannot open a removed `--env-file`) or benign (both recipes write the same `get_env` output). One builder per worktree is the rule (`worktrees.md`). |
+| G-06 `scripts/get_env:16-22` | **confirmed**; folded into F-01/F-02 | Low | A failed `echo` (a full disk) is not the script's status when a later iteration runs `continue`, so a truncated `.env` can pass the `Makefile`'s check (207). |
+| G-07 `Makefile:153,207-208` | **confirmed by reading**; folded into F-13 | Low | Not run (no `make`, brief § 1). `projects/ROCKNIX/packages/rocknix/package.mk:36-39` does read `LOCAL_SSH_KEYS_FILE` in the container, so an exported value replaced by `-v "path:path"` reaches a `cp` that fails, a loud build failure. Nothing in the container reads `EMULATIONSTATION_SRC` (`device-builds.md` § Iterating on EmulationStation). |
+| G-08 `scripts/get_archive:4-11` | **agree, narrowed**; folded into F-19 | Low | The same as Argon G-11. |
+| G-09 `scripts/get_archive:23,33-35` | **disagree** | none | `DISTRO_MIRROR` is set for this distribution (`distributions/ROCKNIX/options:186`), so `PACKAGE_MIRROR` is a real mirror URL. |
+| G-10 `config/build-identity:36-43` | **confirmed** (= Argon G-01), F-23; Medium **not** adopted | Low | See Argon G-01: the open path needs a `git status` failure that `rev-parse` at 16 does not share. |
+| G-11 `scripts/image:74-75,111-124` | **agree, latent**; folded into F-09 | Low | None of the 47 `IMAGE_SUFFIX` or `UBOOT_SYSTEM` values in the tree carries a quote, a backslash or a glob character (search, before 06:07). |
+| G-12 `scripts/image:74-81` | **agree, latent**; folded into F-09 | Low | As G-11: no value carries `[`, `*` or `?`. F-09's fix uses a literal test. |
+| G-13 `config/functions:1114,1126-1129` | **confirmed**; folded into F-17 | Low (F-17) | `find -L ... -not -name '.*'` then `sha256sum`: modes are not hashed, a symlink is hashed by its target's content, and dotfiles are skipped even when `PKG_NEED_UNPACK` names them. No shipped case was looked for. |
+| G-14 `config/functions:1180-1204` | **confirmed** (= Argon G-13's wildcard half); folded into F-21 | Low | -- |
+| G-15 `distributions/ROCKNIX/config/functions:144-157` | **agree, latent** (= Argon G-15); folded into F-03 | Low | The fragments escape their own entities. |
+| G-16 `scripts/build_distro:72-78` | **confirmed**; folded into F-24 | Low | `2>/dev/null \|\| true` is deliberate, so that a package never built does not stop the device build, but it also hides a real failure. F-24's item asks for the failure to be named. |
+| G-17 `scripts/build_distro:44-64` | **disagree: unreached** | none | The block runs only when `DEVICE_ROOT` is set and differs from `DEVICE` (41-42). The only target that sets it sets it equal (`Makefile:65-66`, RK3566). |
+| G-18 `scripts/unpack:94-100` | **agree, latent**; folded into F-08 | Low | The fallback is upstream's. The fix moves only a directory this unpack created. |
+| G-19 `scripts/mkimage:31-34,49` | **confirmed** (= Argon G-09); folded into F-16 | (F-16) | -- |
+
+**The first reader's findings.**
+
+| Item | Grade | Result | Evidence |
+| --- | --- | --- | --- |
+| F-16 | **confirmed, wording narrowed** | High | The checked steps exit 1 through `show_error`. The script exits 0 when it reaches its end after an unchecked failure, not always. The checksum is unchecked too. Astra could not see the SM8550 hook, and it was read here: `projects/ROCKNIX/bootloader/mkimage` (no device hook exists) sets no shell option, and its own SM8550 copies (82, 110) are unchecked. |
+| F-18 | **agree, re-graded High → Medium** | Medium | Astra's question, how `PACKAGE` is keyed, is answered against High. `PKG_SOURCE_NAME=${PKG_NAME}-${PKG_VERSION}` for a git URL (`config/functions:1350`) and `PACKAGE="${SOURCES}/${1}/${PKG_SOURCE_NAME}"` (`scripts/get:27`), so a pin bump gets a new directory and a fresh clone reset to the pin (`get_git:137`). The defect stands for a directory of the right name whose `HEAD` moved or whose tracked files were edited (G-02). The image-level consequence `02` first gave needs that rarer state. Argon kept it High on the predicate alone. Astra's reading is the one the code supports. |
+| F-17 | **agree, re-graded Medium → Low** | Low | Astra asked about the automatic clean lists. `kernel-firmware` is in `CLEAN_OS_BASE` (`distributions/ROCKNIX/options:45`), cleaned at every `make <DEVICE>` without `DIRTY` (`build_distro:72-77`). The stale firmware set needs a single-package or `DIRTY` build. |
+| F-01 | **confirmed** | Medium | -- |
+| F-02 | **confirmed, wording narrowed** | Medium | `Makefile:208` also passes `RASTERATOPS_BUILD_RUN`, `BUILDER_NAME` and `BUILDER_VERSION` by `-e`. `02`'s "the rest" means every other name. |
+| F-03 | **confirmed, narrowed** | Medium | "Launches nothing" means a following system that sets no command of its own. |
+| F-04 | **confirmed; the fix shape is extended** | Medium | Case A's status is 2, a failure with no diagnostic and a truncated table, not a success. `core[last()]` alone lets two `true` rows produce two well-formed defaults, so PL-06 also refuses a second `true` row by name. |
+| F-09 | **confirmed** | Medium | Scoped to `./target`, as `05` says: the candidate store is not touched. |
+| F-19 | **confirmed, narrowed** | Medium | The exposure count Astra asked for: 8 of 1,347 archive recipes lack a `PKG_SHA256` line, and 3 inherit one. |
+| F-20 | **confirmed, narrowed** | Medium | Not "on every entry": the compiler switch needs Debian or Ubuntu, `gcc-12` and no `gcc-12` in the query (296-306), and `/nix` is skipped when it is already writable (324-326). |
+| F-15 | **disagree with the re-grade to Medium**, kept Low | Low | As Argon's row. |
+| F-22 | **agree, split** | Low | The statistics half reaches only `scripts/build_mt` (16, bare, under `config/path`'s `set -e`), upstream's CI route. `scripts/image:104` and `scripts/build_compat:100` call it on the left of `\|\|`, and `create_addon:188` inside `if`. The `distclean` half stands. |
+
+**What Astra could not judge** (its part 3). Answered here:
+- the cache keying (F-18, above);
+- the SM8550 hook (F-16, above);
+- the clean lists (F-17, above);
+- the recipe count (F-19, above);
+- `lock_source_dir`'s body (`scripts/get:16-22`, G-03).
+
+Left as the coverage boundary: the planner and builder (`pkgbuilder.py`, `genbuildplan.py`), `actionlint`, the container's package contents, and #801's two failures, which stay failures (`02` § Mechanical checks says expected, not passed).
 
 ## Quality Self-Check
 

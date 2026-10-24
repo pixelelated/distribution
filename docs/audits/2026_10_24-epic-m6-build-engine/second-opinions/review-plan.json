@@ -18,16 +18,18 @@
       "calls": [
         {
           "phase": "refutation",
-          "output": "gpt-audit.md"
+          "output": "gpt-audit.md",
+          "provenance": "gpt-audit.md.provenance.json"
         }
       ],
       "probes": [
         {
           "phase": "probe",
-          "output": "gpt-probe.md"
+          "output": "gpt-probe.md",
+          "provenance": "gpt-probe.md.provenance.json"
         }
       ],
-      "status": "pending: the npm install and both calls wait for the M7 host window's return line relayed on #652 (the window opened 2026-10-24 03:47 UTC)"
+      "status": "completed 2026-10-24: probe 05:47:07 rc 0, refutation 05:47:31 to 06:04:49 (1,038,085 ms) rc 0 under tools/watch-build --record-only (.build-runs/20261024T054731Z-0b725524), served openai/gpt-6-astra by OpenAI, effort max; graded in 04 § Second opinion"
     },
     {
       "member": "gemini-argon",
@@ -38,18 +40,21 @@
       "calls": [
         {
           "phase": "refutation",
-          "output": "gemini-argon-audit.md"
+          "output": "gemini-argon-audit.md",
+          "provenance": "gemini-argon-audit.md.provenance.json"
         }
       ],
       "probes": [
         {
           "phase": "probe",
-          "output": "gemini-argon-probe.md"
+          "output": "gemini-argon-probe.md",
+          "provenance": "gemini-argon-probe.md.provenance.json"
         }
       ],
-      "status": "pending: as gpt"
+      "status": "completed 2026-10-24: probe 05:47:16 rc 0, refutation 05:47:53 to 05:54:26 (392,700 ms) rc 0 through the Facilitator directly (the watcher holds one run per worktree), served google/gemini-4-argon by Google via google-vertex/global, effort high; graded in 04 § Second opinion"
     }
   ],
   "written_before_first_call": "2026-10-24",
-  "probes_note": "Each seat is probed once before its refutation pass (brief section 1); the probes are listed under probes, not calls, because an epic-tier audit has exactly one review pass per reviewer (phases.md section 4.6). Each reviewer is prepared independently: two briefs, neither carrying the other's output."
+  "probes_note": "Each seat is probed once before its refutation pass (brief section 1); the probes are listed under probes, not calls, because an epic-tier audit has exactly one review pass per reviewer (phases.md section 4.6). Each reviewer is prepared independently: two briefs, neither carrying the other's output.",
+  "briefs_commit": "9c23bb5095 (tools/build-briefs.sh; gpt-brief.md sha256 9fe8531132086a7a..., gemini-argon-brief.md sha256 a88a961829f455a3...)"
 }
