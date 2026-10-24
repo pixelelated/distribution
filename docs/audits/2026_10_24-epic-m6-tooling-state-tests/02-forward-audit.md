@@ -166,6 +166,7 @@ No host file line was written, because no guest started. The census was 0 throug
 | S9 #1001 | `control-cases.sh` (a gate whose `text()` crashes on a NUL; a deleted `case("clean-image")` registration) | at `3657e0e801`: both pass (190, 189) | both rc 2; the plain pair 190 | `b74dcaa78b` |
 | S9 #1002 | `store-cases.sh` (a symlink named for bundle A pointing at bundle B, in a scratch store) | verifies, rc 0 | refused, rc 1, naming both; B verifies by its own path | `64ea405f3f` |
 | S9 PL-17 | `scratch-cases.sh` (SIGTERM while a synthetic update tar's SYSTEM is in the scratch) | at `b74dcaa78b`: rc 143, the scratch left | rc 2, the error JSON, nothing left | `a5397e2e9f` |
+| S10 (#1003) | `docs/qa-logs/2026-10-24-state-tests-s10/lock-cases.sh` (a `wait_lock` that returns 1 after taking the lock; check-then-create in place of `ln -T`, a 0.1 s sleep in the window; the tree's file under the image busybox) | both mutations PASSED | 7 and 2 checks fail; the turns overlap; the tree's file PASSED under BusyBox 1.36.1 | `bcf5a013ad` |
 
 | Proof | What it shows | Proved |
 | --- | --- | --- |
@@ -183,5 +184,6 @@ No host file line was written, because no guest started. The census was 0 throug
 | P20 | #1001's control fails before the fix and passes after it | proved: fix-case |
 | P21 | #1002's control fails at the stage-D tip and passes fixed | proved: fix-case |
 | P22 | PL-17's control fails before the fix and passes after it | proved: fix-case |
+| P23 | S10's control fails at the stage-D tip and passes fixed | proved: fix-case |
 
 **The busybox this host offers (S8, for reading the record):** `readlink -f $(command -v busybox)` is `/usr/bin/busybox`, `BusyBox v1.37.0 (Ubuntu 1:1.37.0-7ubuntu1)`. The image's is the M7 root `m7-pixelelated-replacement20`'s `image/system/usr/bin/busybox`, `BusyBox v1.36.1`, BUILD_ID `1a026648442321609b2288c2c9c06803817f9df2`, 182 applets, every one but `sh` a busybox link on the image. The record's earlier `settings-modes-test` and `melonds-upgrade-test` passes name no busybox; from `929355c417` and `30d9339ea3` on, each receipt carries `busybox_origin`.

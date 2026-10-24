@@ -424,3 +424,20 @@ PROOF: P19 #1000's control -- `docs/qa-logs/2026-10-24-state-tests-s9/ready-case
 PROOF: P20 #1001's control -- `control-cases.sh` PASS (a crashing gate and a dropped registration both pass the test before and both fail it after).
 PROOF: P21 #1002's control -- `store-cases.sh` PASS (a symlink named for one bundle verifies over another at the stage-D tip and is refused fixed, naming both).
 PROOF: P22 PL-17's control -- `scratch-cases.sh` PASS (a SIGTERM leaves the payload scratch before and removes it after, with the value-free exit 2).
+
+## [Stage E] 22:50 UTC — S10: wait-lock-test (#1003); #1010
+
+- **The coordinator's answer (22:46 UTC):** #1001's (a). The self-test-only limit stays in `SELF_TEST_CONTROLS`' comment and the Phase 7 row; the payload half is Backlog **#1010**, which the coordinator filed.
+- **Read on the image, first:** BusyBox 1.36.1's `ln` supports `-T`. A scratch link made with it succeeded, so `wait_lock`'s atomic link path works under the device's applet.
+- **#1003 (`bcf5a013ad`): what changed.**
+  - Every case reads `wait_lock`'s own status (`WL=0`) beside `HELD`.
+  - Case 7 starts two acquirers together on an absent lock. Each must get 0, hold the lock for its whole 1 s turn and not overlap the other, and the lock must be gone after both.
+  - `--busybox <path>` runs `ln`, `rm`, `cat`, `sleep` and `flock` through shims. The first line names what ran: the busybox's version, path and hash, or the host's.
+- **The control,** `docs/qa-logs/2026-10-24-state-tests-s10/lock-cases.sh`, run over copies of `001-functions`:
+  - **a `wait_lock` that takes the lock and returns 1:** PASSED at stage D; fixed, 7 checks fail;
+  - **check-then-create in place of the atomic `ln -T`,** with a 0.1 s sleep inside the window, a named substitution that widens the real race: PASSED at stage D; fixed, the two turns overlap (`…106414-…107447` twice), and one acquirer finds the file not its own mid-turn;
+  - **the tree's file:** passes fixed under the M7 image's BusyBox 1.36.1.
+  - PASS, 47 s. Without `--busybox`: PASSED.
+- **A slip of mine in the control, corrected before it was kept:** the first race mutation wrote over the lock whoever held it. That also stole a live holder's lock, which stage D already catches, so it proved nothing about the race. It is now check-then-create, which honours a visible holder.
+- **A refinement after the first fixed run:** the racer's exit status was the last line's test, so a loser exited 1. It now exits 0, the verdict being its `MINE` line; rc carries only `timeout`'s 124.
+PROOF: P23 S10's control -- `docs/qa-logs/2026-10-24-state-tests-s10/lock-cases.sh` PASS (a status-failing wait_lock and a check-then-create lock both PASSED at stage D and fail fixed; the tree's wait_lock passes under the image busybox).
