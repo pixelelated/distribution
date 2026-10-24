@@ -35,12 +35,11 @@
 
 ## Current focus
 
-**Stage E done and the close-out through the retro (2026-10-24 08:46 UTC); waiting for the coordinator's acceptance and #846's close.**
-- `reviewed-at` `b96e1ca761`, `fixed-at` `820e413179` (both on #653's body, read back).
-- S1 `7fa8bafba4` (#845: `pkgcheck` exits 2 on no match) and S2 `44f64842b6` (18 late names; `TOOLCHAIN` and `SYSROOT_PREFIX` derived as not late). Proofs P11 to P14; the pre-issue and full lints print PASS.
-- #846: 6 of 6 ticked at their Phase 7 outcomes (2 Resolved, 4 Deferred), `box-check` 0 fail. #845: both checkboxes ticked, open until the merge.
-- The retro is `docs/retros/2026-10-24-m6-build-engine-upstream-tools.md`, posted on #653 with the stage-H hand-back.
-- **Next, after the coordinator closes #846:** `audit-completion.json` via a `write-completion.py` adapted from T5's for issue 846 and this folder; the full lint PASS posted; this pointer at idle. Nothing runs here: no guest, no build.
+**T6 complete; the lane is idle (2026-10-24 08:58 UTC).** Accepted on #653; #846 closed as completed.
+- `reviewed-at` `b96e1ca761`, `fixed-at` `820e413179`. S1 `7fa8bafba4` (#845) and S2 `44f64842b6`.
+- `audit-completion.json` was written from #846's closed readback, and the full lint prints PASS (posted on #653).
+- #845 stays open until the branch merges to `next`.
+- **Next:** nothing in this lane. The coordinator merges the branch in its turn (after T5's, before T4's); this worktree stays read-only until then.
 
 ## Next commands
 

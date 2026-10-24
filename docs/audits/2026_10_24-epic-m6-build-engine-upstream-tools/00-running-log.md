@@ -101,3 +101,10 @@ PROOF: 08:32-08:38 P11 `tools/pkgcheck` exits 2 for a name no recipe matches, af
 PROOF: 08:38 P12 a global `${INSTALL}` FAILs after S2 and passed before; global `${TOOLCHAIN}` and `${SYSROOT_PREFIX}` pass throughout -- `tools/fx-pkgcheck.sh`
 PROOF: 08:30-08:39 P13 the sweep over every recipe: FAIL 12, 12, 21; WARN 43 throughout; exit 1 each time
 PROOF: 08:33-08:36 P14 the late names derived from where the build sets them; `TOOLCHAIN` never reset; `SYSROOT_PREFIX` reset after `post_make`, its 66 global uses correct
+
+### [Close] 08:57 to 08:58 — Accepted; #846 closed completed; the completion marker written
+
+- The coordinator accepted T6 on #653 (15 of 16 ticked) and closed #846 as completed.
+- `tools/write-completion.py` (T5's, for #846 and this folder) read #846 back: closed, `completed`, 6 ticked, 0 open. It wrote `tracker-final-readback.json`, `tracker-completion.json` and `audit-completion.json` (`completed_at` 08:57:44), hash-binding `04`, `05` and both receipts.
+- `tools/lint-audit-artifacts` on the folder (08:57:53): **`PASS`**, with the D-WORKFLOW-184 line.
+- `tools/ceremony-check`: its `audit` line reads the marker via #846. It exits 1 on one overdue item that predates this lane: the 2026-W42 weekly summary, missing on `next`, on the coordinator's branch and on T5's.
