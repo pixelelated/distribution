@@ -160,3 +160,32 @@ PROOF: 16:28 P12 two clones' admission registries on one volume (device 66304) -
   - #640's row PL-09.
 - **The lane pauses here** for the coordinator's stream briefs (brief § 8). No file under `tools/` has changed on this lane: `git diff --stat cdc45513b0 HEAD -- tools` is empty, and the 18 equal the hash.
 - **A correction to the line above as first committed** (`bb1478835c`). It said `git diff --stat 8ebaf8daad HEAD -- tools` is empty. That command prints **15 files changed, 2130 insertions, 8 deletions**, all inherited before stage A in `8ebaf8daad..cdc45513b0`: P1's `renovation-inventory`, `renovation-drift` and `renovation-status`, the coordinator's `lint-audit-artifacts` and `register-check`, and the lint's two fixtures. None is one of the 18. Criterion 15's command therefore cannot read empty on a branch stacked on P1; the delta is put to the coordinator.
+
+## [Stage E] 16:48 UTC onward — the streams (`t9-streams.md` at `4c842e2485`)
+
+- **Read first:** the coordinator's 16:48 dispatch on #656 and `t9-streams.md` whole (`/workspace/tmp/m6-t9/t9-streams.md`). The host file's last lines: the coordinator's 16:40 grant to M7 of a bounded VM window. Census 0 at 16:49:17.
+- **Moved:** the lane's 28 stage-D drafts, messages and logs, from `/workspace/tmp/m6-t8/` to `/workspace/tmp/m6-t9/`.
+
+### S1 (#913; PL-01, PL-02, PL-15), 16:50 to 16:57
+
+- **Test first:**
+  - The progress control at the stage-D tip: rc 1, `3 PASS; 10 FAIL`, its first run at 16:51 being an Edit refused for want of a Read, so the file was unchanged.
+  - The stage-A exits of all three, and the stage-A diagnostic copies (module added, no receipt): rc 1, the receipt `watch-build: build admission required`.
+- **The fix**, test files only (`9b071c5d12`):
+  - **`test-progress.py`:** each case's root gains `scripts/README` and a `Makefile`, and `prepare_fixture` gives it a receipt. The four build-shaped cases carry it; `generic-qa` runs `--record-only`.
+  - **The 2026-10-04 `test-watch-build.py`:** the helper is loaded from its own repository (`parents[3]`), and each fixture prepares a receipt. The cold-root case declares its redirected `BUILD_DIR` as an output, with a fresh receipt, as `test-build-monitor:249-255` does. The untouched historical original is `docs/qa-logs/2026-10-03-watch-job/test-watch-build.py`.
+  - **`test-submit.py`:** an admitted fixture root, a receipt prepared just before each launch (an admission binds the registry generation), and `atexit` removing the root.
+- **At the fix:**
+  - `test-progress.py`: rc 0, `13 PASS; 0 FAIL`, 5.9 s.
+  - `test-watch-build.py`: rc 0, `35 PASS; 0 FAIL`, 58.8 s. The first fixed run stopped at 33 on the cold-root case, until its `BUILD_DIR` was declared.
+  - `test-submit.py`: rc 0, its four rows; `/tmp/pixelelated-watch-submit-*` 10 before and 10 after.
+- **The positives** (`.qa-scratch/t9/positives/`, each fixed control with its admission step removed): `test-progress.py` rc 1 `5 PASS; 8 FAIL`, `test-watch-build.py` rc 1, `test-submit.py` rc 1. `/tmp` was still 10 after.
+- **The retention control** (`a9bd346d54`):
+  - Its `/proc` root and `docker` are injected; the live-owner case copies its real process's `cmdline` once the child has exec'd. A new case, "a live QEMU holds every candidate", was added.
+  - The first sleeper run found that race in my own edit: "actual live owner process" read eligible, because `/proc/<pid>/cmdline` was read before the child exec'd. The wait was added.
+  - After the fix: three runs rc 0 (20 controls, 4 eligible). Beside a sleeper renamed `qemu-system-x86_64` (`comm` `sleep`; `pgrep -c -x qemu-system-x86` 0), the unchanged control gives rc 1 (`AssertionError: ('eligible independent completed QA disk', ...)`) and the fixed one rc 0. The sleeper was killed by its PID (`.qa-scratch/t9/s1-retention-sleeper.sh`).
+- **A slip in my first sleeper command:** `a && b && bash -c '...' &` backgrounded the whole chain, so the following commands ran with `P` empty. They wrote nothing (`/with-sleeper.log: Permission denied`; `/test-retention-report` absent). The orphaned renamed `sleep` (pid 3312321, ppid 1) was found by its exact `cmdline` and killed by PID after its `comm` and `argv` were checked. The proof was rerun from a script.
+- **`/tmp`:** the six directories this lane's runs left (15:44:27, 15:45:10, 16:26:18, 16:26:22, 16:27:41, 16:27:44) were removed by literal path. The other four stay: 2026-10-05T07:42:06Z, 2026-10-24T14:58:26Z, 14:59:15Z and 15:22:36Z, each made before this lane ran a control.
+- **Guard-table rows closed:** 12 (progress) and 27, 65 (the launcher's owner refusals) now have running controls. Row 59 is host-isolated, with the new QEMU case beside it. The CI clause is #657's.
+
+PROOF: 16:57 P13 S1: the three controls pass at the fix and their removed-admission copies fail; the retention control passes beside a live process named qemu-system-x86_64 where the unchanged one fails -- `.qa-scratch/t9/s1-*.log`, `.qa-scratch/t9/positives/`

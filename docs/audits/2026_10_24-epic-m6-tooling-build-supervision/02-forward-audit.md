@@ -88,6 +88,7 @@ Read only, at 15:45:41 UTC; nothing written under any M7 path (`.qa-scratch/t9/r
 | P10 | The three controls pass at `e198f0fc3b` (`d7e2d6be41^`) and fail at `d7e2d6be41`: F-01 began with the admission guard | exports under `/workspace/tmp/m6-t9/hist-*`, each control's rc and last line | proved: tool-run |
 | P11 | The record's 1,885 terminal outcomes: rc 0 1,470; rc 1 397; rc 2 10; rc 125 4; rc 143 3; rc 137, 130 and 127 one each | the outcome lines read from every `build.status` | proved: tool-run |
 | P12 | Two clones' admission registries on one volume: both `.git` on device 66304; `rocknix`'s holds `pixelelated-build-admission/`, `pixelelated/distribution`'s holds none | `stat -c %d` and `test -d` of both | proved: tool-run |
+| P13 | S1 (#913): the three watcher controls pass at the fix (13/0, 35/0, rc 0) and each removed-admission copy fails (rc 1); the retention control passes beside a live process named `qemu-system-x86_64` where the unchanged control fails | `.qa-scratch/t9/s1-*.log`, `.qa-scratch/t9/positives/`; `9b071c5d12`, `a9bd346d54` | proved: fix-control |
 
 ## Findings (stage B)
 
@@ -139,3 +140,19 @@ Read only, at 15:45:41 UTC; nothing written under any M7 path (`.qa-scratch/t9/r
 | `tools/watch-build` | 223 | the runner every build enters | none | one except tuple per level; `AttributeError` absent (F-04) | F-06, F-07 | Python 3 | admission plus arming; 0.09 s median for the check | inherited-run refusals and `--record-only`/`--entry` error: no control (F-08) | the docstring matches |
 | `tools/watch-build-submit` | 101 | durable submission | none | exclusive writes (`'x'`) throughout | none found; its control is broken (F-01) | Python 3 | n/a: one fork | owner refusals: no running control (F-01, F-08) | the docstring says submission is not completion |
 | `tools/watch-job` | 270 | the status file | F-09 (`:36`) | `set -u`; outputs checked against inputs; progress pipelines without `pipefail` give "none matched", not a pass | F-05 | bash 4 (`read -d ''`, `[[ =~ ]]`) | one whole-log scan per interval: 0.45 s on the largest log | 32 checks; `died` over an unreadable PID: no control | the header names every state and its meaning |
+
+## Stage E
+
+The streams of `t9-streams.md` (`4c842e2485`), each with its test first and its positive.
+
+### S1 (#913; PL-01, PL-02, PL-15)
+
+| Control | Before (the stage-D tip) | After (`9b071c5d12`, `a9bd346d54`) | Positive (`.qa-scratch/t9/positives/`) |
+| --- | --- | --- | --- |
+| `test-progress.py` | rc 1, `3 PASS; 10 FAIL`; the diagnostic copy with the module added: rc 1 | rc 0, `13 PASS; 0 FAIL` | admission removed: rc 1, `5 PASS; 8 FAIL` |
+| `test-watch-build.py` (2026-10-04) | rc 1, `AssertionError: shared runner observes nested QA logs ...`; the diagnostic: rc 1 | rc 0, `35 PASS; 0 FAIL` | admission removed: rc 1 |
+| `test-submit.py` | rc 1, `AssertionError`; the diagnostic's receipt `watch-build: build admission required` | rc 0, four rows; `/tmp` 10 → 10 | admission removed: rc 1; `/tmp` 10 → 10 |
+| `test-retention-report` | rc 0 at a census of 0; beside a sleeper renamed `qemu-system-x86_64`: rc 1, the eligible case refused | rc 0, 20 controls (one new: an injected QEMU holds every candidate); beside the sleeper: rc 0 | the unchanged control beside the sleeper |
+
+**`/tmp`:** this lane's six leftovers were removed by literal path; the four made before its runs stay (2026-10-05T07:42:06Z; 2026-10-24T14:58:26Z, 14:59:15Z, 15:22:36Z).
+
