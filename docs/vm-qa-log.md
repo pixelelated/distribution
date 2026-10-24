@@ -390,3 +390,16 @@ and the merged view was verified 518 of 518 identical. The guest was stopped
 by `tools/vm-stop` (rc 0). Results:
 `docs/audits/2026_10_23-epic-m6-os-launch-control-state/00-running-log.md`
 (stage F, cycle 1).
+
+## 2026-10-24 00:25-00:43 UTC — M6 T1 stage F: the streams' guest proofs and the timing runs (#648)
+
+The T1 lane's guest (`t1.qcow2`, BUILD_ID `069fc270…`) ran three batches, each on its own boot and each stopped with `tools/vm-stop` (rc 0). Every batch used the tree's scripts at `ff95b3a211`, copied to `/storage/.qa-t1/` with sha256 matched.
+- **q1 (S3, S4, S5):** the batch restored `system.cfg`, the update hint, `upgrade.log` and the interface configs.
+- **q2 (S6):** loop devices and a private mount namespace, nothing on the guest's own disk; the shadow file and the audio state put back.
+- **q3 (S7, the tails):** stubs for every program that would act on the device; `sleep.conf`, the volume and the bezel fixtures put back.
+
+The timing runs bound the tree's `runemu.sh`, `setsettings.sh` and `001-functions`:
+- `emulator-exit-test --vm`: PASSED.
+- `time-to-play --vm --quick`: 0.73 s and 1.01 s (n=1; stage B 0.64 s and 1.01 s).
+
+`time-to-play` reboots the guest when it seeds its ROM or changes the cloud settings, which drops bind mounts. Two runs measured the image's `runemu.sh` that way and are not counted. The counted run bound the scripts from a temporary `/storage/.config/autostart/` hook, since removed. **Left behind:** for this tool, a bind over an installed script must be re-made after its reboot, or the run measures the image (the running log, stage F). The guest could not show: swap (no `/proc/swaps`, no `swapon`), a Wi-Fi device, a fan, and anything read at boot from a script that is not in the image. Results: `docs/audits/2026_10_23-epic-m6-os-launch-control-state/02-forward-audit.md` § Stage F verification.

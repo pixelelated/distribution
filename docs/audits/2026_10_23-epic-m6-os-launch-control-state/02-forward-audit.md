@@ -480,3 +480,45 @@ Most criteria are about this audit's own outputs, so a verdict here records the 
 #### Numbering note
 
 F-61 is unused (the sequence went from F-60 to F-62 while writing); no finding is missing under it.
+
+## Stage F verification (2026-10-23 23:43 to 2026-10-24 00:43 UTC)
+
+After the seven streams and the two tails, at the branch tip (`c877cf0770`, code last changed in `0f7558cff7`). Every guest proof below ran the **tree's** copy of each script. The copies were made at `ff95b3a211`, and their sha256 matched the tree before each batch (`.qa-scratch/t1/proofs/copy.host.sha` against `copy.guest.sha`; the image's copies differ by the streams' commits). The image is the M7 GENERIC_X64 candidate, BUILD_ID `069fc270442134fe771258418adf4e666e0473fb`.
+
+### Mechanical checks at the tip
+
+| Check | Command | Exit | Summary line |
+| --- | --- | --- | --- |
+| pkgcheck | `tools/pkgcheck rocknix` | 0 | no FAIL lines |
+| last-good-scripts-test | `QA_SYSTEM_ROOT=... tools/last-good-scripts-test` (23:43:59-23:52:47) | 0 | `PASSED` |
+| settings-modes-test | as in stage B, the tree's `001-functions` and `chksysconfig` | 0 | `PASS refuse-rename` |
+| wait-lock-test | `tools/wait-lock-test` | 0 | `PASSED` |
+| usb-gadget-test | host `sh`, and `--shell <image>/usr/bin/bash` | 0, 0 | `PASS USB descriptor fixture: 18 cases, 72/72 checks` |
+| rocknix-info-test | `tools/rocknix-info-test --output ...` | 0 | `PASS 12 full-script positive/negative controls` |
+| melonds-upgrade-test | the tree's `post-update`, the image's busybox | 0 | `PASS temp-failure` |
+| vocabulary-check | the default (ES at the pin `16dbac521`), and `--scripts .../rocknix/sources/scripts` | 0, 0 | `176 ... judged, 0 wrong`; `141 ... judged, 0 wrong` |
+| emulator-exit-test | `tools/emulator-exit-test --port 10032 --identity $A/qa-key --vm`, the tree's `runemu.sh`, `setsettings.sh`, `001-functions` bound (00:33) | 0 | `PASSED` |
+| time-to-play | `tools/time-to-play ... --no-configure-remote --vm --quick`, the tree's three scripts bound through a temporary autostart hook (00:40:56-00:43:07) | 0 | first frame 0.73 s, next game 1.01 s; `Not a pass: the exit sync had no cloud to reach`, as in stage B without a remote |
+| lint (resolution) | `tools/lint-audit-artifacts docs/audits/2026_10_23-epic-m6-os-launch-control-state` | 0 | `PASS` |
+| box-check | `tools/box-check --issue N`, N = 701 and 702 to 762 | 0 each | `0 fail` on all 62 |
+
+### The guest batches (the tree's copies)
+
+- **q1, 00:25-00:27** (S3's open criteria, S4, S5): `.qa-scratch/t1/proofs/q1-guest.sh` and `.out`.
+- **q2, 00:30-00:31** (S6): `q2-guest.sh` and `.out`, with two reruns on the same boot (`q2-744-rerun.out`, `q2-714-rerun.out`).
+- **q3, 00:32-00:33** (S7, the tails): `q3-guest.sh` and `.out`, with one rerun (`q3-755-rerun.out`).
+- Each item's guest lines are on its bug issue, and each row's outcome in `05`'s Phase 7 gate names its commit and the check that passes.
+
+### What the guest could not show (Deferred in `05`, each with its reason)
+
+- **An image built from the branch:**
+  - #723's and #750's boot journals;
+  - #724's 0600 seed;
+  - #739's `systemctl show`;
+  - F-24's ten boots;
+  - F-31's and F-51's `systemctl cat`;
+  - F-41's and F-43b's boot-time mount.
+
+  These are fix-pending-image rows; the coordinator proves them at the first image after the merge.
+- **Device facts:** #728 (a fan; the guest's run forced `DEVICE_HAS_FAN`); #748 (swap: this kernel has none, and the image no `swapon`); #758 (a Wi-Fi device).
+- **#720:** the criterion's shape (loop devices, removability) is not the fix's; the wording is the coordinator's.
