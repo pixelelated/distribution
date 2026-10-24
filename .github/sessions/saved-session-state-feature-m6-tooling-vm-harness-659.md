@@ -41,49 +41,35 @@
 
 ## Current focus
 
-**Stage E complete (S1 to S13); both guest cycles returned; stage F in progress** (updated 2026-10-24, 23:15 UTC).
-- **`reviewed-at`:** `facb2ae523`. **The code tip:** `6e2d204987`. Everything up to it is pushed except this file's commit.
-- **The streams:** S1 to S13 are all landed, one commit per bug or tool; each commit's tree was gated on its controls. Every control in full at `930ea05d70`: `vm-harness-test` 77 PASS, and `vm-pair-test`, `vm-stop-test` and `vm-upgrade-readiness-test` rc 0 (`streams/all-controls-final.txt`).
-- **Cycle 1** (22:14 to 22:48): `vm-qa <069fc2704421 image>` with no override.
-  - The report is in `cycle-e/vm-qa-report.md`: BUILD_ID matches the image; `tear-down: vm-pair down rc 0`; walks 16/16 hold the frames their steps name.
-  - S7 and S8 ran on guest b (a recorded deviation).
-  - scripts, wrapper and time-to-play FAILED; the six ES rows SKIP (02 § Why the six ES rows stayed SKIP).
-- **Cycle 2** (22:56 to 22:59): `--only time-to-play`, in `cycle-e2/`. The kill fix held. The g2g row has no stamp because the product ran no exit sync: **product #1012**.
-- **Both cycles are returned** on the host file, census 0, disks retired. No guest is up, and no further cycle is planned.
-- **`proved:` 33 = `PROOF:` 33; coverage rows 60** (`grep -c -E '^\| `tools/'`).
+**Stages E, F and G complete; stage H (the hand-back) is the next step** (updated 2026-10-24, 23:34 UTC).
+- **`reviewed-at`:** `facb2ae523`. **`fixed-at`:** `159ed33562`, both on #659's body, read back.
+- **The tools' last change:** S5b, `3eba8ce4b0`. `vm-qa`'s run scratch is `<runtime>/qa.XXXXXX`, removed at exit. `vm-harness-test` 78 PASS.
+- **The scripts FAIL is settled** (`02` § The scripts suite's FAIL, settled; `streams/scripts-tmpdir-compare.txt`):
+  - 326, 319 and 319 FAIL under the worktree, `/workspace/tmp` and tmpfs;
+  - seven `AF_UNIX path too long` were S5's, fixed by S5b;
+  - the 319 are location-independent: Bug #1015, filed by this lane under T15's #662, with the build-root busybox lead in its comment.
+- **The lint reads `PASS`**; `proved:` 35 = `PROOF:` 35; 60 coverage rows. #984: 19 Resolved, 4 Deferred; `box-check` 0 fail.
+- **The retro:** `docs/retros/2026-10-24-m6-tooling-vm-harness.md`, posted on #659.
+- **The checkers:**
+  - `rules-check --quiet` rc 0; `work-log-index --check` rc 0.
+  - `register-check` rc 1, only on citations of D-INFRA-031, D-QA-061 and D-QA-062. Those are the coordinator's rows; the check is red until its merge.
+- **No guest is up, and no process is running for this lane.**
 - **Open items, none of them this lane's to decide:**
-  - **#1012**, the g2g exit sync stopped before it starts, has no stamp (the cloud lane's bug). The g2g row fails on this image until the product stamps it.
-  - **#1013** (Backlog, under #800): the ES pin in `.identity.json`.
-  - **The frame-diff baseline**, the maintainer's on #346: with the 348 `#578` proposals inert, the fixed compare over cycle 1's walks shows 65 unclaimed boxes (`cycle-e/frame-diff-fixed.md`).
-  - **#986, #987, #988:** PL-19, PL-20 and PL-22's Backlog issues.
-- **In flight:** the scripts-suite TMPDIR runs, which settle cycle 1's 326-check scripts FAIL (the coordinator: if the worktree TMPDIR is the cause, the fix is S5's).
-  - Run 1 (TMPDIR under the worktree) is done: **rc 1, 326 failed**, the same as the cycle.
-  - Run 2 (`TMPDIR=/workspace/tmp/m6-t12/scripts-probe-ws`) started about 23:11. Its pids: the outer shell 834647, `timeout` 1360740 and `last-good-scripts-test` 1360741. It is the harness's background task `b0ekxo82h`.
-  - The results land in `/workspace/tmp/m6-t12/scripts-tmpdir/{wt,ws}/{scripts.log,rc}`, with `finished` written when both are done.
-  - **The reading so far:** the harness unsets TMPDIR before its bwrap runs, and backuptool's mktemp uses the sandbox's private /tmp. If run 2 also fails 326, the cause is not the location; look at the host's uutils coreutils (`/usr/bin/mktemp` is uutils, bound into the sandbox from /usr).
-- **Uncommitted, beside this file:** `02` (#1012 and #1013 recorded) and `tools/punch-items.py` (the Phase 7 outcomes in `P7`; PL-06's evidence ends in a `SCRIPTS_RESULT` placeholder to replace).
+  - #1012 (the g2g exit sync's stamp, the cloud lane's);
+  - #1013 (the ES pin, Backlog under #800);
+  - the frame baseline (the maintainer's, on #346);
+  - #986, #987 and #988 (PL-19, PL-20 and PL-22);
+  - #1015 (the scripts suite on this host, T15's).
 
 ## Next commands
 
 ```bash
 D=/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659; A=$D/docs/audits/2026_10_24-epic-m6-tooling-vm-harness
-cd "$D" && git status --short && git log --oneline -1
-# 1. The scripts result (wait for task b0ekxo82h, or read the files once `finished` exists):
-L=/workspace/tmp/m6-t12/scripts-tmpdir; cat $L/finished $L/wt/rc $L/ws/rc; tail -n 1 $L/wt/scripts.log $L/ws/scripts.log
-#    Copy both logs and rcs into $A/streams/ (scripts-tmpdir-wt.txt, scripts-tmpdir-ws.txt), write a 00 entry and a PROOF line,
-#    and put the answer in punch-items.py's PL-06 (replace SCRIPTS_RESULT). If ws passes and wt fails, the fix is S5's
-#    (vm-qa's exported TMPDIR), with a vm-harness-test case; then rerun the scripts suite under vm-qa's TMPDIR, with no guest.
-# 2. Regenerate 05 and lint the folder:
-python3 -I $A/tools/punch-items.py > $A/05-punch-list.md && tools/lint-audit-artifacts $A | tail -3   # want PASS (the default phase)
-grep -c 'proved:' $A/02-forward-audit.md; grep -c 'PROOF:' $A/00-running-log.md; grep -c -E '^\| `tools/' $A/02-forward-audit.md   # equal; 60
-# 3. 02 § The suites re-run: vm-harness-test, vm-pair-test, vm-stop-test, the seven S12 tools' controls, and the cycles' reports.
-#    No guest; the ports must be free (port-held-refused binds 10022).
-# 4. fixed-at: <tip> in #659's body (gh issue edit 659 --repo pixelelated/distribution --body-file ...; read it back).
-# 5. Stage G: the retro at docs/retros/2026-10-24-m6-tooling-vm-harness.md, posted on #659. It covers what the slice did to the
-#    two time-to-play numbers (nothing to the numbers; the cells now fail when unmeasured) and what each stream did to a refusal.
-# 6. The checkers: tools/register-check (red here until the coordinator's hand-back merge; D-QA-061 and D-INFRA-031 live on
-#    feature/m6-renovation-plan-346), tools/rules-check --quiet, tools/work-log-index --check, the lint.
-#    Then a work-log entry, this pointer, and the hand-back comment on #659 naming the tip and each artifact by path.
+cd "$D" && git status --short && git log --oneline -1 && git status -sb | head -1   # clean, in sync with origin
+# Stage H: the hand-back comment on #659, naming the tip and each artifact by path (00 to 05, streams/, cycle-e/, cycle-e2/,
+# the retro), and the coordinator's accept command from t12-streams.md:
+#   AUDIT_ISSUE=984 $S/t12-accept.sh <tip> <coordinator tip>
+# Then wait for the coordinator; nothing else runs here until it answers.
 ```
 
 ## Merge notes
