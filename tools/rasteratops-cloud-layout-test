@@ -142,7 +142,10 @@ exec /rclone.real "$@"
         for folder, guest in [('repo','/repo'),('shim','/shim'),('storage','/storage'),('cloud','/cloud'),
                               ('ctl','/ctl'),('log','/var/log'),('run','/var/run')]:
             cmd += ['--bind', str(self.path/folder), guest]
-        cmd += ['--chdir', '/storage', '--setenv', 'HOME', '/storage', '--setenv', 'PATH', '/shim:/repo:/usr/bin:/bin',
+        # The scripts see only the variables named here, and no network: the backend is the local /cloud.
+        # The caller's environment never crosses (a TMPDIR not mounted inside, an RCLONE_* remote, BASH_ENV,
+        # an exported function), and save-layout's wrapper still finds '--ro-bind /usr /usr' and '--chdir' (#992).
+        cmd += SANDBOX_ENV + ['--chdir', '/storage', '--setenv', 'HOME', '/storage', '--setenv', 'PATH', '/shim:/repo:/usr/bin:/bin',
                 'bash', '/repo/'+script, *argv]
         r = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, timeout=120,
                            start_new_session=True)
@@ -151,6 +154,11 @@ exec /rclone.real "$@"
         stem.with_suffix('.json').write_text(json.dumps(dict(argv=[script,*argv], rc=r.returncode, pointers=self.pointers()), indent=2))
         require(r.returncode not in (126,127), f'fixture could not execute {script}: {r.stdout[-500:]}')
         return r
+
+
+# The environment and namespaces every sandboxed script runs under (#992): nothing of the caller's.
+SANDBOX_ENV = ['--clearenv', '--unshare-net', '--setenv', 'LANG', 'C', '--setenv', 'TERM', 'dumb',
+               '--setenv', 'TMPDIR', '/tmp']
 
 
 def require(condition, message):

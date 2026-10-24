@@ -332,7 +332,8 @@ exit "$rc"''')
              '--ro-bind',a.rclone,'/rclone.real','--dev','/dev','--proc','/proc','--tmpfs','/tmp']
         for folder,guest in [('repo','/repo'),('shim','/shim'),('storage','/storage'),('cloud','/cloud'),('ctl','/ctl'),('log','/var/log'),('run','/var/run')]:
             cmd+=['--bind',str(f.path/folder),guest]
-        cmd+=['--setenv','HOME','/storage','--setenv','PATH','/shim:/repo:/usr/bin:/bin','bash','/repo/cloud_sync_helper']
+        # The adoption runs under the shared sandbox's environment: nothing of the caller's, no network (#992).
+        cmd+=legacy.SANDBOX_ENV+['--setenv','HOME','/storage','--setenv','PATH','/shim:/repo:/usr/bin:/bin','bash','/repo/cloud_sync_helper']
         r=subprocess.run(cmd,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,timeout=15)
         (f.path/'adoption.log').write_text(r.stdout)
         (f.path/'adoption-result.json').write_text(json.dumps({'rc':r.returncode,'public_ref':ref,'public_conf_sha256':hashlib.sha256(public).hexdigest(),'pointers':f.pointers()},indent=2))
