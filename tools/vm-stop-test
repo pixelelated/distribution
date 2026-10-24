@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)
-"""Delayed exit, timeout and wrong-owner controls for vm-stop (#454)."""
+"""Delayed exit, timeout, wrong-owner, missing and replaced pidfile controls for vm-stop (#454, #970)."""
+import argparse
 from pathlib import Path
 import subprocess
 import socket
@@ -9,12 +10,17 @@ import sys
 import tempfile
 import time
 
-tool = Path(__file__).resolve().with_name('vm-stop')
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--source', type=Path, default=Path(__file__).resolve().with_name('vm-stop'),
+                    help='the vm-stop under test (an unfixed copy, for the positives)')
+tool = parser.parse_args().source.resolve()
 fixture = '''import signal,socket,sys,time,os
 s=socket.socket();s.bind(('127.0.0.1',0));s.listen()
 def quit(signum,frame):
  time.sleep(0.2)
  if sys.argv[-1].startswith('remove:'):os.unlink(sys.argv[-1][7:])
+ if sys.argv[-1].startswith('replace:'):
+  p=sys.argv[-1][8:];t=p+'.new';open(t,'w').write(open(p).read());os.replace(t,p)
  sys.exit(0)
 signal.signal(signal.SIGTERM, signal.SIG_IGN if sys.argv[-1]=='ignore' else quit)
 print(s.getsockname()[1],flush=True)
@@ -25,11 +31,12 @@ with tempfile.TemporaryDirectory() as temp:
     root = Path(temp)
     disk = root/'owned.qcow2'
     pidfile = root/'guest.pid'
-    for case in ['delayed-exit','self-removed-pidfile','timeout','wrong-disk','wrong-process']:
+    for case in ['delayed-exit','self-removed-pidfile','timeout','wrong-disk','wrong-process','pidfile-changed-under-us']:
         argv0 = 'python-fixture' if case == 'wrong-process' else 'qemu-system-fixture'
         child = subprocess.Popen([argv0,'-c',fixture,'-drive',
             'if=none,id=rocknix,format=qcow2,file='+str(disk),
-            'ignore' if case == 'timeout' else 'remove:'+str(pidfile) if case == 'self-removed-pidfile' else 'delay'], executable=sys.executable,
+            'ignore' if case == 'timeout' else 'remove:'+str(pidfile) if case == 'self-removed-pidfile'
+            else 'replace:'+str(pidfile) if case == 'pidfile-changed-under-us' else 'delay'], executable=sys.executable,
             stdout=subprocess.PIPE, text=True)
         try:
             port = int(child.stdout.readline())
@@ -44,6 +51,12 @@ with tempfile.TemporaryDirectory() as temp:
                 with socket.socket() as listener:
                     listener.bind(('127.0.0.1',port))
                 print('PASS '+case+' waits for exit and immediate port reuse')
+            elif case == 'pidfile-changed-under-us':
+                # The guest stopped, but the pidfile at the path is a new inode
+                # (same content): another owner's. Reported, never removed (#970).
+                assert child.wait(timeout=1) == 0, result
+                assert result.returncode == 1 and pidfile.exists() and 'replaced' in result.stderr, result
+                print('PASS '+case+' reports a pidfile replaced during the stop and keeps it')
             else:
                 assert result.returncode == 1 and child.poll() is None and pidfile.exists(), result
                 assert {'timeout':'retaining pidfile','wrong-disk':'expected disk',
@@ -56,11 +69,17 @@ with tempfile.TemporaryDirectory() as temp:
             child.wait(timeout=2)
             child.stdout.close()
             pidfile.unlink(missing_ok=True)
-    # A dead owned PID and a missing pidfile are idempotent shutdowns.
+    # A dead owned PID is an idempotent shutdown.
     pidfile.write_text(str(child.pid)+'\n')
     assert subprocess.run([str(tool),str(pidfile),str(disk)],capture_output=True).returncode == 0
     assert not pidfile.exists()
-    assert subprocess.run([str(tool),str(pidfile),str(disk)],capture_output=True).returncode == 0
-    passed += 2
-    print('PASS exited PID and missing pidfile are idempotent')
+    passed += 1
+    print('PASS exited PID is an idempotent shutdown')
+    # missing-pidfile-exit-3: nothing to stop and nothing verified is not a
+    # stop, so a caller about to remove files cannot read it as one (#970).
+    disk.write_text('a disk nobody recorded')
+    result = subprocess.run([str(tool),str(pidfile),str(disk)],capture_output=True,text=True)
+    assert result.returncode == 3 and disk.exists() and 'nothing to stop' in result.stderr, result
+    passed += 1
+    print('PASS missing-pidfile-exit-3 exits 3, says nothing was stopped, removes nothing')
 print('PASS %d vm-stop controls' % passed)

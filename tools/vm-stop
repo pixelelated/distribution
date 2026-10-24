@@ -1,7 +1,17 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)
-"""Stop the exact owned QEMU, awaiting exit before its ports may be reused."""
+"""Stop the exact owned QEMU, awaiting exit before its ports may be reused.
+
+Exits 0 when the owned QEMU exited (or had already); 1 when it refused or
+could not finish; 3 when there is no pidfile -- nothing to stop, and nothing
+verified, so a caller that removes files next must not read it as a stop (#970).
+
+A QEMU is identified by its argv: a qemu-system-* first word and the exact
+-drive argument for the disk. No hostile process is in the threat model -- a
+process that names itself qemu-system-* and carries that argument is accepted,
+as vm-stop-test's renamed python is (G-26 recorded as a design, not a defect).
+"""
 import argparse
 import os
 from pathlib import Path
@@ -10,11 +20,27 @@ import signal
 import sys
 
 
+class NothingToStop(Exception):
+    pass
+
+
 def stop(pidfile, disk, timeout):
+    # One descriptor from the read to the unlink (#970): the content compared
+    # at the end is read through it, and the path is unlinked only while it
+    # still names the inode the descriptor holds.
     try:
-        recorded = pidfile.read_text()
+        fd = os.open(pidfile, os.O_RDONLY | os.O_NOFOLLOW)
     except FileNotFoundError:
-        return
+        raise NothingToStop('no pidfile at %s: nothing to stop, nothing verified' % pidfile)
+    try:
+        return stop_fd(fd, pidfile, disk, timeout)
+    finally:
+        os.close(fd)
+
+
+def stop_fd(fd, pidfile, disk, timeout):
+    held = os.fstat(fd)
+    recorded = os.pread(fd, 64, 0).decode()
     pid = int(recorded.strip())
     if pid <= 1:
         raise ValueError('invalid guest PID')
@@ -48,12 +74,18 @@ def stop(pidfile, disk, timeout):
         if handle is not None:
             os.close(handle)
     try:
-        if pidfile.read_text() != recorded:
-            raise ValueError('pidfile changed; retaining it')
-        pidfile.unlink()
+        now = os.stat(pidfile, follow_symlinks=False)
     except FileNotFoundError:
-        # Daemonized QEMU removes its own pidfile during normal shutdown.
-        pass
+        now = None  # Daemonized QEMU removes its own pidfile during normal shutdown.
+    if now is not None:
+        if (now.st_dev, now.st_ino) != (held.st_dev, held.st_ino):
+            raise ValueError('pidfile was replaced while the guest stopped (another owner?); retaining it')
+        if os.pread(fd, 64, 0).decode() != recorded:
+            raise ValueError('pidfile changed; retaining it')
+        # The window that remains: a rename onto this path between the stat
+        # above and the unlink below. Nothing in this harness renames a
+        # pidfile, and Python has no unlink-if-inode.
+        pidfile.unlink()
     print('down: owned QEMU exited (pid %d)' % pid)
 
 
@@ -67,6 +99,9 @@ def main():
         parser.error('timeout must be greater than zero and at most 60 seconds')
     try:
         stop(args.pidfile, args.disk, args.timeout)
+    except NothingToStop as nothing:
+        print('vm-stop: ' + str(nothing), file=sys.stderr)
+        return 3
     except (OSError, ValueError, TimeoutError) as error:
         print('vm-stop: ' + str(error), file=sys.stderr)
         return 1
