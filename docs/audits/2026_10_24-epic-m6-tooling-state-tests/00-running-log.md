@@ -178,3 +178,11 @@ PROOF: P8 the index and its rules -- `instruction-files.md` at the hash: 21 of 2
 - **The refutation** started with `--per-attempt-timeout-ms 3600000 --total-timeout-ms 10800000`, its log `/workspace/tmp/m6-t14/audit.log`.
   - **What watches it:** the harness background task that runs it, which delivers its end.
   - **Its silent mode:** a hung seat is ended only by those timeouts. The failed-seat rule holds: hold, diagnose, one same-slug retry on a transient cause.
+
+## [Stage C] 21:05 UTC — the 21:03 ruling, while the seat runs
+
+- **The coordinator's answer on #661 (21:03 UTC):**
+  - one `Renovation` item for the no-caller class, with the nine tools named (T12's PL-19 shape; the Backlog is #986);
+  - the six broken-and-unseen tools each a `bug` of its own;
+  - the two stubs a separate disposition.
+- **One conflict, to raise at the stage-D pause, not to resolve here:** F-11's six broken-and-unseen tools include the two rclone-pin tests, which the 20:31 ruling made one bug, and the guest pair. The pair refuses because #508 retired the migration it proves; that refusal is by design, which makes it a disposition beside the stubs rather than a defect. Until the coordinator answers, `05` drafts them as the 20:31 ruling and F-10 read.
