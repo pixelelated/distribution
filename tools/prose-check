@@ -8,6 +8,7 @@
 #                                                  # .claude/skills/developer-relations/SKILL.md § Tells,
 #                                                  # warns on the second
 #   tools/prose-check --self-test                  # the site's own pages pass; a machine-sounding draft fails
+#                                                  # (samples: tools/test-fixtures/prose/, copies of three site pages)
 #
 # The lists are the skill's (#323, D-WORKFLOW-068), grown page by page in its
 # loop; a tell added there is added here. Front matter, fenced code, inline
@@ -26,7 +27,7 @@ FAIL = [
     (r"\?\s*$", "a rhetorical question"),
     (r"[^`]![^\[\]\(=]", "an exclamation mark in body text"),
     (r"(^|[.!?]\s+)let's\b", "'Let's'"),
-    (r"\b(in summary|to sum up|in conclusion|overall,|that's it!|you're all set|happy gaming)\b", "a closing summary or sign-off"),
+    (r"\b(in summary|to sum up|in conclusion|you're all set|happy gaming)\b|\b(overall,|that's it!|you're all set!)(?=\s|$)", "a closing summary or sign-off"),
 ]
 # First person plural (D-WORKFLOW-074): the fork posts as one person. A fail under
 # docs/releases/ (notes, PR descriptions) and with PROSE_FIRST_PERSON=fail; a warning
@@ -72,7 +73,7 @@ def check(path, text):
             if len(sent.split()) > 35: warns.append((i, "a sentence over 35 words", sent[:90]))
             first = sent.split()[0].lower() if sent.split() else None
             if first and first == prev_first and first not in ("the", "a", "an", "if", "in", "on", "to", "for", "you", "this", "it", "select", "press"):
-                pass
+                warns.append((i, f"two consecutive sentences start with the same word ('{first}')", sent[:90]))
             prev_first = first
         if l.strip().startswith("#") and l.strip().endswith("?"):
             warns.append((i, "a heading that is a question", l.strip()[:90]))
@@ -101,7 +102,8 @@ In summary, cloud sync is fast, simple, and secure. Happy gaming!
 
 def main(argv):
     if len(argv) >= 2 and argv[1] == "--self-test":
-        S = "/workspace/tmp/rocknix-session"
+        S = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools", "test-fixtures", "prose")
+        print("self-test: samples from tools/test-fixtures/prose")
         ok = True
         for f in ("prose-sample-maintainer-rclone.md", "prose-sample-update.md", "prose-sample-ra.md"):
             p = os.path.join(S, f)
@@ -114,6 +116,15 @@ def main(argv):
         print(f"{'ok  ' if fails else 'FAIL'}  the machine-sounding draft: {len(fails)} fail (seen to fail: {len(fails) >= 5})")
         for i, why, s in fails: print(f"        {i}: {why}: {s}")
         ok = ok and len(fails) >= 5
+        # a sign-off at the line's end (#953: That's it! passed, the \b needed a word after the !)
+        fails, warns = check("signoff-draft", "# Page\n\nChoose the folder.\n\nThat's it!\n")
+        print(f"{'ok  ' if fails else 'FAIL'}  a draft ending That's it!: {len(fails)} fail")
+        ok = ok and bool(fails)
+        # two sentences opening with the same word (computed and dropped until #953)
+        fails, warns = check("opener-draft", "# Page\n\nSaves go to the folder. Saves come back on restore.\n")
+        same = [w for w in warns if "same word" in w[1]]
+        print(f"{'ok  ' if same and not fails else 'FAIL'}  two sentences opening with the same word: {len(same)} warn")
+        ok = ok and bool(same) and not fails
         print("self-test: PASS" if ok else "self-test: FAIL"); return 0 if ok else 1
     if len(argv) < 2: print(__doc__ or "usage: tools/prose-check <page.md>..."); return 2
     rc = 0
