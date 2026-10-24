@@ -681,7 +681,7 @@ One commit and one control per tool. Each control was run against the tool as it
 | --- | --- | --- |
 | P26 | S9's twelve controls fail on each tool before its fix commit (52 of 67 cases) and pass at it (67); the real runs as above | proved: fix-case |
 
-### S10: the fork CI (#944, #913, PL-31) -- `f4381c3501`, `22f9ae0d5e`
+### S10: the fork CI (#944, #913, PL-31) -- `f4381c3501`, `22f9ae0d5e`, `f22b989ab1`
 
 The `fork-checks.yml` diff, as committed:
 
@@ -710,8 +710,8 @@ The `fork-mirror-build-container.yml` sign-in, as committed:
 
 - **The parse:** both files load with `yaml.safe_load`, with 10 and 3 steps, and each step's `if` was read back. No `fork-*` workflow now carries an expression inside `run:`; before, the mirror's sign-in did.
 - **fix-pending-ci, the coordinator's read:** the first red run on `next` after both merges, T9's (the three controls' fixed bodies) and this branch's, with every step's conclusion `success` or `failure` and none `skipped` (`gh run view`).
-- **For the coordinator:** GitHub's expression documentation also offers `!cancelled()`, which runs a step after a failure but not after a cancel; D-WORKFLOW-202 decided `always()`, and that is what is here.
+- **The follow-up (`f22b989ab1`, D-WORKFLOW-205 refining 202, the coordinator's 19:27 UTC post):** the eight check steps carry `if: ${{ !cancelled() }}` instead of `always()`: a step still runs after an earlier failure and no longer after a cancel. Re-parsed with `yaml.safe_load` (10 steps), and each step's `if` read back: the eight check steps `${{ !cancelled() }}`, the checkout and the fetch the default.
 
 | Proof | What it shows | Proved |
 | --- | --- | --- |
-| P27 | the two workflows parse with `always()` on every check step and no expression inside `run:`; the run itself is the coordinator's | proved: fix-pending-ci |
+| P27 | the two workflows parse with `${{ !cancelled() }}` (first `always()`) on every check step and no expression inside `run:`; the run itself is the coordinator's | proved: fix-pending-ci |

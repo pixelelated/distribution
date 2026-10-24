@@ -434,3 +434,11 @@ PROOF: P26 S9's controls and runs -- the twelve controls under `docs/qa-logs/202
   - `rules-check --quiet` rc 0;
   - `register-check` rc 1, as recorded (MISSING 2, SHAPE 12).
 PROOF: P27 S10's parse and read-back -- `yaml.safe_load` on `.github/workflows/fork-checks.yml` (10 steps, `always()` on the eight check steps) and `fork-mirror-build-container.yml` (3 steps); the expression-in-run scan over the four `fork-*` workflows, 0 after and 1 before; the diffs in `/workspace/tmp/m6-t10/s10-checks.diff` and `s10-mirror.diff`; the CI run itself fix-pending-ci.
+
+### [Stage E] 19:28 — S10's follow-up and the close-out
+
+- **The coordinator's posts:**
+  - 19:25 UTC: S9 accepted. Both new `renovation-status` states stay (D-WORKFLOW-204); the docstring cites it at `38306d3123`. The four rc-accept rows are #963's. #964 and #965 take the catalog folders and the computed-title pages.
+  - 19:27 UTC: S10 accepted, and `!cancelled()` in place of `always()` (D-WORKFLOW-205).
+- **The follow-up (`f22b989ab1`):** `if: ${{ !cancelled() }}` on the eight check steps. Re-parsed (10 steps) and each condition read back. P27's text is updated to match.
+- **The Phase 7 table and `punch_index` (`38eff70b01`):** 40 Resolved, each row with its commit and bug, and 4 Deferred: PL-16 to #959, PL-30 to #960, PL-32 to #640, PL-33 to #585. The lint on the folder at its default phase: PASS.
