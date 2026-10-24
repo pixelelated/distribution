@@ -161,6 +161,25 @@ commit, so the T8 retention pass does not take them.
   empty.
 - **Commit:** `host-maintenance: hash with a streamed loop; a failed digest is a refusal, not a traceback (#915)`.
 
+### S3 addendum (17:4x UTC, from the lane's S3 and S5 reads): an admission refusal is named as one
+
+The lane found that a refusal inside `admit` (a changed plan, an unreadable
+plan, a registry that is not an object) lands in the run's `build.log` as
+`watch-build: command launch/output failed: <reason>`, rc 125, because
+`admit` runs inside the run's own try (`watch-build:164`, caught at `:190`);
+the stream's "rc 2 on stderr" belonged to failures before the run directory
+exists, and the lane's reading is right. **Decided:** the exit code stays
+125 (the run exists, so the run-level code is the honest one), and the
+catch names what happened: an exception raised by `admit` is logged as
+`watch-build: admission refused: <reason>`, every other failure in that try
+keeps `command launch/output failed: <reason>`. One hunk in the catch at
+`:190` (or a narrow `except` before it), and the existing broken-digest case
+in `test-build-admission` (S3) asserts the new text while a launch failure
+case asserts the old one still appears. Files: `tools/watch-build` (the
+catch only), `tools/host-maintenance/test-build-admission`. Done before S8,
+after S6 and S7; commit `watch-build: an admission refusal is logged as one (#915)`,
+`Refs #915, #656`. Not a change to any guard's contract.
+
 ## S4. `watch-job`: an unreadable PID is not `died`, and the caller's pattern and names reach `grep` and `mv` guarded (PL-05, PL-18; #916) -- `fix-case`
 
 - **Why a stream:** Low twice, one file, one control; #506's rule (an
