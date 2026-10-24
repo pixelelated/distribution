@@ -29,7 +29,7 @@ package_worker() {
         [ ${num} -eq 1 ] && echo "The following log(s) for already failed dependencies are available:"
         printf "  %-7s %s => %s\n" "${ftask}" "${fpkgname}" "${THREAD_CONTROL}/logs/${fseq}.log"
       else
-        print_color CLR_ERROR "ALREADY FAILED [${ftask} ${fpkg}]"
+        print_color CLR_ERROR "ALREADY FAILED [${ftask} ${fpkgname}]"
         echo
       fi
     done
