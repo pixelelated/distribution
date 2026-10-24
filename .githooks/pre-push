@@ -267,11 +267,11 @@ while read -r local_ref local_sha remote_ref remote_sha; do
   scan_ok=1
   msgawk='/^commit [0-9a-f]+$/ { c = $2; n = 0; next } { n++; print c ":message:" n t $0 }'
   if [ "$whole" = 1 ]; then
-    git diff --name-only --no-renames --diff-filter=AMT "$empty_tree" "$local_sha" -- . > "$names" 2>/dev/null || scan_ok=0
+    git diff --name-only -z --no-renames --diff-filter=AMT "$empty_tree" "$local_sha" -- . > "$names" 2>/dev/null || scan_ok=0
     git log -p --text --no-ext-diff --no-textconv --src-prefix=a/ --dst-prefix=b/ --root --no-renames --diff-merges=first-parent --format='commit %h' "$local_sha" "${history_excludes[@]}" -- . > "$added" 2>/dev/null || scan_ok=0
     git log --root --format='commit %h%n%B' "$local_sha" "${history_excludes[@]}" 2>/dev/null | awk -v t="$guard_tab" "$msgawk" > "$msgs" || scan_ok=0
   else
-    git diff --name-only --no-renames --diff-filter=AMT "$range" -- . > "$names" 2>/dev/null || scan_ok=0
+    git diff --name-only -z --no-renames --diff-filter=AMT "$range" -- . > "$names" 2>/dev/null || scan_ok=0
     git log -p --text --no-ext-diff --no-textconv --src-prefix=a/ --dst-prefix=b/ --no-renames --diff-merges=first-parent --format='commit %h' "$range" "${history_excludes[@]}" -- . > "$added" 2>/dev/null || scan_ok=0
     git log --format='commit %h%n%B' "$range" "${history_excludes[@]}" 2>/dev/null | awk -v t="$guard_tab" "$msgawk" > "$msgs" || scan_ok=0
   fi
@@ -297,7 +297,7 @@ while read -r local_ref local_sha remote_ref remote_sha; do
   #     the audit of the fix round (PL-011, PL-012, PL-026).
   hook="pre-push (${pushed})"
   refused=0
-  while IFS= read -r f; do
+  while IFS= read -r -d '' f; do     # -z names: the bytes git stores, never a quoted form (T10 S1, #937)
     [ -n "$f" ] || continue
     if ! git show "${local_sha}:${f}" 2>/dev/null | guard_numbered "$f" > "$blob"; then
       echo "✖ ${hook}: ${f} could not be read at ${local_sha}; nothing was scanned, so nothing is allowed" >&2
@@ -394,22 +394,28 @@ while read -r local_ref local_sha remote_ref remote_sha; do
     continue
   fi
 
-  # Files that differ between clean upstream and this PR branch tip.
-  if ! changed="$(git diff --name-only "$base_ref" "$local_sha" 2>/dev/null)"; then
+  # Files that differ between clean upstream and this PR branch tip, read
+  # NUL-separated: a name git would print quoted (a non-ASCII byte, a quote)
+  # is matched as the bytes it is, not as "docs/caf\303\251.md" (T10 S1, #937).
+  declare -A changed=()
+  if ! mapfile -d '' changed_list < <(git diff --name-only -z "$base_ref" "$local_sha" 2>/dev/null; printf 'rc=%d' "$?"); \
+     [ "${changed_list[-1]:-}" != rc=0 ]; then
     echo "✗ pre-push: refusing to push ${branch}: git diff ${base_ref} ${local_sha} failed, so the personal-path guard could not run." >&2
     status=1
     continue
   fi
+  unset 'changed_list[-1]'
 
   hits=''
-  while IFS= read -r f; do
+  for f in "${changed_list[@]}"; do
     [ -z "$f" ] && continue
+    changed["$f"]=1
     for pat in "${PERSONAL_PATTERNS[@]}"; do
       case "$f" in
         "$pat"|"$pat"*) hits+="    $f"$'\n' ;;
       esac
     done
-  done <<< "$changed"
+  done
 
   if [ -n "$hits" ]; then
     {
@@ -430,17 +436,17 @@ while read -r local_ref local_sha remote_ref remote_sha; do
   # are PR'd, so being next-only is not proof of being personal.
   if git rev-parse --verify --quiet "${base_ref}^{commit}" >/dev/null; then
     unlisted=''
-    while IFS= read -r f; do
+    while IFS= read -r -d '' f; do
       [ -z "$f" ] && continue
-      printf '%s\n' "$changed" | grep -Fxq -- "$f" || continue
+      [ -n "${changed[$f]:-}" ] || continue
       listed=0
       for pat in "${PERSONAL_PATTERNS[@]}"; do
         case "$f" in "$pat"|"$pat"*) listed=1; break ;; esac
       done
       [ "$listed" -eq 1 ] && continue
       unlisted+="    $f"$'\n'
-    done <<< "$(git diff --name-only --diff-filter=A "$base_ref" next -- \
-                . ':!packages' ':!projects' 2>/dev/null)"
+    done < <(git diff --name-only -z --diff-filter=A "$base_ref" next -- \
+                . ':!packages' ':!projects' 2>/dev/null)
 
     if [ -n "$unlisted" ]; then
       {

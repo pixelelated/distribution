@@ -108,8 +108,15 @@ echo '--- commit-msg'
 printf 'tidy the qzx-estate notes\n' > "${SCRATCH}/msg"
 expect refused "a listed word in the message" "${HOOKS}/commit-msg" "${SCRATCH}/msg"
 silent "the refusal" "qzx-estate"
-printf 'tidy the notes\n\n# a comment line naming the zebrafish quartet is not the message\n' > "${SCRATCH}/msg"
-expect allowed "a clean message (git drops the # comment)" "${HOOKS}/commit-msg" "${SCRATCH}/msg"
+# A # line is scanned (T10 S1, #938): git keeps it under -m, and refusing a
+# line the editor path would have stripped is the safe branch. The case that
+# stood here allowed a listed word on a # line; it now carries a clean one.
+printf 'tidy the notes\n\n# a comment line naming nothing listed\n' > "${SCRATCH}/msg"
+expect allowed "a clean message with a clean # comment line" "${HOOKS}/commit-msg" "${SCRATCH}/msg"
+g checkout -q -b msgtest
+expect refused "a # line carrying a listed word, given with git commit -m, is refused (#938)" git -c user.name=t -c user.email=t@t -c commit.gpgsign=false -c "core.hooksPath=${HOOKS}" commit -q --allow-empty -m tidy -m "# the zebrafish quartet notes"
+silent "the refusal" "zebrafish"
+g checkout -q main
 printf 'note\n\n%s\n' "${FAKE}" > "${SCRATCH}/msg"
 expect refused "a credential-shaped line in the message" "${HOOKS}/commit-msg" "${SCRATCH}/msg"
 expect refused "a message file that cannot be read (claude G3-E-02 / gpt G3-E-05)" "${HOOKS}/commit-msg" "${SCRATCH}/no-such-msg"
@@ -137,9 +144,15 @@ expect allowed "a clean commit, touching the file named like a key" push_line "r
 SECRET_PATTERNS_FILE="${SCRATCH}/badlist" expect refused "a credential list that does not compile" push_line "refs/heads/clean $(git rev-parse HEAD) refs/heads/clean ${ZERO}"
 FORBIDDEN_TERMS_FILE="${SCRATCH}/absent" expect refused "no wordlist at all" push_line "refs/heads/clean $(git rev-parse HEAD) refs/heads/clean ${ZERO}"
 expect refused "a tip this clone does not have" push_line "refs/heads/clean 1234567890123456789012345678901234567890 refs/heads/clean ${ZERO}"
-# T10 S1 (#929): a binary-detected file in a middle commit.
+# T10 S1 (#929, #937): a binary-detected file in a middle commit; a personal
+# path git quotes on a pr/* branch, refused as a personal path.
 g checkout -q -b binmid "${remote}"; printf 'x\0y\nthe zebrafish quartet\n' > b.dat; g add b.dat; g commit -q -m b1; g rm -q b.dat; g commit -q -m b2
 expect refused "a listed word in a binary-detected file in a middle commit, gone at the tip (#929)" push_line "refs/heads/binmid $(git rev-parse HEAD) refs/heads/binmid ${ZERO}"
 silent "the refusal" "zebrafish"
+g update-ref refs/remotes/upstream/next "${remote}"
+g checkout -q -b prq "${remote}"; mkdir -p docs; echo note > "docs/$(printf 'caf\303\251').md"; g add docs; g commit -q -m 'q: a note'
+expect refused "a pr/* branch adding a personal path git quotes (#937)" push_line "refs/heads/prq $(git rev-parse HEAD) refs/heads/pr/q ${ZERO}"
+says "it is refused as a personal path" "personal artifacts"
+g update-ref -d refs/remotes/upstream/next
 
 if [ "${fail}" -eq 0 ]; then echo PASS; else echo FAIL; exit 1; fi
