@@ -1,7 +1,7 @@
 # Session pointer: M6.P2 T30, the standalone emulators (#677)
 
 > **Seeded:** 2026-10-24 by the coordinator (Fable 5.1, lane `m6-coordinator`, D-WORKFLOW-189); the executor updates this file at every checkpoint
-> **Updated:** 2026-10-24 by the executor (the T3 session, `m6-t3-emulators`), at stage A
+> **Updated:** 2026-10-24 by the executor (the T3 session, `m6-t3-emulators`), at stage D (the pause)
 > **Branch:** `feature/m6-emulators-standalone-677`, stacked on `feature/m6-p1-survey-641` at `2174265e9c` (which carries the P0 branch); the coordinator's tip merged in at `f606d29bef`
 > **Worktree:** `/workspace/repos/pixelelated/distribution.worktrees/m6-emulators-standalone-677`; the T3 worktree `m6-emulators-libretro-650` beside it is this session's earlier slice, accepted and idle: read only until the merge (its audit folder's tools are copied from there by path)
 > **Primary checkout:** `/workspace/repos/pixelelated/distribution` on `next` (D-INFRA-025); the legacy `/workspace/repos/rocknix` and every `rocknix.worktrees/*` are the M7 lane's: read only, no process started there (the three install trees the brief § 5 names are read with `ls`)
@@ -36,24 +36,23 @@
 
 ## Current focus
 
-**Stage A done (08:22 UTC); stage B next.** The audit folder is
-`docs/audits/2026_10_24-epic-m6-emulators-standalone/`: `00-running-log.md`
-(header, Phase 0, stage A), `01-research-notes.md` § Scope (no delta; the
-device x recipe table: H700 17, SM8550 35, GENERIC_X64 15), and `tools/`
-(T3's nine tools copied by path, `q4-pins.py` pointed at `standalone/`).
-`reviewed-at` candidate `c7e3dfcc87`. The host is M6's (M7's last block is
-the 05:42 resource return); no guest has run. Nothing of the 543 is edited
-before a stream brief.
+**The stage-D pause.** Stages A to D are done. Audit folder: `docs/audits/2026_10_24-epic-m6-emulators-standalone/` (00-05, second-opinions, tools).
+- Punch list: #872, 41 items (2 High, 17 Medium, 22 Low).
+- Bugs: #853 to #871.
+- The lint: `PASS pre-issue artifacts`.
+- Proofs: 21 (16 on the guest in three cycles, 5 on the host).
+- Phase 4.6: both seats graded; Gemini's on a trimmed packet (D-WORKFLOW-195).
+
+The lane waits for the coordinator's stream briefs (D-WORKFLOW-189), drafting the retro meanwhile, and edits nothing of the 543. `reviewed-at` candidate `c7e3dfcc87`.
 
 ## Next commands
 
 ```bash
 D=/workspace/repos/pixelelated/distribution.worktrees/m6-emulators-standalone-677
 cd "$D" && git status --short && git log --oneline -3
+gh issue view 677 --repo pixelelated/distribution --comments | tail -40   # the stream briefs
 A=docs/audits/2026_10_24-epic-m6-emulators-standalone
-tail -20 $A/00-running-log.md
-# stage B: the brief's section 5 host-side checks into 02 section Mechanical checks,
-# then Phase 1 (T3's and T1's leads), Phase 2 over #677, the exit sweep, the shell-line sweep, Q4
+python3 -I $A/tools/set-outcome.py $A/tools/punch-items.py PL-NNN resolved - "<note with commit>"   # Phase 7 outcomes
 ```
 
 ## Merge notes

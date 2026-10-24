@@ -7,7 +7,7 @@ Written 2026-10-24 09:10 UTC (`date -u`), stage B, from `02` and `03`; § Second
 The 35 standalone recipes (543 paths; 55 fork-own) are upstream's architecture, repeated by hand forty times, with the fork's own additions (Dolphin's save paths, DuckStation's screenshot default, the achievements sessions, the GENERIC_X64 repair) written to a higher standard. The defects cluster by **shape** on the launch path:
 
 - **the exit hotkey does nothing** in four emulators (F-01 to F-04), DuckStation's among them, now the VM's default for PSX;
-- **a ROM-library file or a name runs as shell** in three (F-07 as root from a `.scummvm` file, F-08's apostrophe, F-19's pad name);
+- **a ROM-library file or a device's name runs as shell** in two (F-07 as root from a `.scummvm` file; F-19's pad name), and a ROM's name stops a launch in a third (F-08's apostrophe, through `xargs`: not code);
 - **the previous RetroAchievements account stays signed in** in five achievements scripts (F-09) on a state the interface creates;
 - **a real directory is deleted before it is linked** in nine (F-12), memory cards included;
 - **comparisons written as redirections** in five (F-11).
@@ -57,10 +57,10 @@ A standalone exit test in `tools/emulator-exit-test`; free guest content for fly
 
 | Risk | Where | Likelihood | Consequence |
 | --- | --- | --- | --- |
-| The player cannot leave a game with the hotkey | F-01, F-02 (every image), F-03, F-04 | every DuckStation and OpenBOR session | the emulator's own menu is the only exit; least surprise |
+| The player cannot leave a game with the hotkey | F-01, F-02 (every image), F-03, F-04 | every DuckStation and OpenBOR session | the global exit does nothing; least surprise |
 | Root shell from a ROM-library file | F-07 | a crafted file in a ROM pack or a shared cloud library | code as root on the handheld |
 | Awards sent to the wrong account | F-09 | after an offline account change or a refused sign-in | the previous account earns them |
-| A memory card or a PS3 save deleted | F-12 | a real directory where the link belongs (an old archive restored, the file manager) | the player's saves |
+| A save state, a memory card or a PS3 save deleted | F-12 | a real directory where the link belongs: DuckStation from the Tools launcher, then a game (G16); an old archive restored; the file manager | the player's saves |
 | A fresh build fails | F-13 (#849) | any host without this cache | no image |
 
 ## Coverage Boundary
@@ -76,7 +76,7 @@ Each lead was re-read at its artifact before grading, and refuted where it could
 - **F-07**: does `runemu.sh` reach `start_scummvm.sh`'s `eval` arm? Yes: the generic arm, then `*)` (G3). Stands.
 - **F-09**: does the interface ever leave switch on, token empty? Yes (`GuiRetroAchievementsSettings.cpp:767,780`). Stands.
 - **F-11** depends on the cwd. It is `/storage`, writable (G13). Stands.
-- **F-12** needs a real directory to occur. Rare: current backups carry no symlink content (`backuptool:813-822`). Stands, graded by trigger.
+- **F-12** needs a real directory to occur. Not rare: the Tools launcher's DuckStation creates one (G16, after Gemini's G-03); current backups carry no symlink content (`backuptool:813-822`). Re-graded High in § Second opinion.
 - **F-18** is refuted by the image's busybox `sed`. Withdrawn.
 - **The steam route's "no kill target"** is refuted by `start_steam.sh:262-281`. Not a finding.
 - **`amiberry` and `yabasanshiro-sa` absent on GENERIC_X64** are by design (`PKG_ARCH`). Not a finding; their table rows are F-05.
@@ -86,7 +86,7 @@ Each lead was re-read at its artifact before grading, and refuted where it could
 
 ### Q1 Modernize
 
-The fork's code is current: Python 3 stdlib, `renameat2`, `mktemp` with `umask 077`. The upstream-carried scripts write against busybox without knowing it: `unzip -Zl` (F-06), `grep -i .zip` regexes, and `echo -e` with unquoted arguments. One retired mechanism is still carried: `cheevos_duckstation.sh` ships though `start_duckstation.sh:130` no longer calls it (F-25), and `backuptool:705` still lists DuckStation's settings for blanking, correctly, because DuckStation signs itself in. The `testunofficial` fallback is read by `cheevos_dolphin.sh` and `cheevos_melonds.sh` as the pre-2026-09 spelling; upstream's `f8844ab04e` adds the same to `cheevos_armsx2.sh` (a q4a conflict row). The interface writes `.unofficial`, so the fallback is a compatibility read with no retirement condition (NAMING.md's shape), a Renovation note, not a defect.
+The fork's code is current: Python 3 stdlib, `renameat2`, `mktemp` with `umask 077`. The upstream-carried scripts write against busybox without knowing it: `unzip -Zl` (F-06), `grep -i .zip` regexes, and `echo -e` with unquoted arguments. One retired mechanism is still carried: `cheevos_duckstation.sh` ships though `start_duckstation.sh:130` no longer calls it (F-25), and `backuptool:705` still lists DuckStation's settings for blanking. DuckStation's own sign-in is switched off at every launch by `start_duckstation.sh:131` (F-38; corrected in Phase 4.6). The `testunofficial` fallback is read by `cheevos_dolphin.sh` and `cheevos_melonds.sh` as the pre-2026-09 spelling; upstream's `f8844ab04e` adds the same to `cheevos_armsx2.sh` (a q4a conflict row). The interface writes `.unofficial`, so the fallback is a compatibility read with no retirement condition (NAMING.md's shape), a Renovation note, not a defect.
 
 ### Q2 Standards and best practices
 
@@ -113,7 +113,7 @@ The name each start script writes to `/tmp/.process-kill-data` (`set_kill set`),
 | Recipe | Start script(s) | Kill names written | Devices that build it | Executable of that name in the trees | Guest (GENERIC_X64) | Row |
 | --- | --- | --- | --- | --- | --- | --- |
 | `aethersx2-sa` | start_aethersx2.sh | aethersx2 | SM8550 | aethersx2: SM8550 | not on the guest | matches; class 1 (deleted upstream, F-26) |
-| `amiberry` | start_amiberry.sh | amiberry | GENERIC_X64, H700, SM8550 | amiberry: H700,SM8550 | not built for GENERIC_X64; the table's route exits 127 (G2) | matches |
+| `amiberry` | start_amiberry.sh | amiberry | H700, SM8550 (GENERIC_X64 lists it, PKG_ARCH drops it) | amiberry: H700,SM8550 | not built for GENERIC_X64; the table's route exits 127 (G2) | matches |
 | `ares-sa` | start_ares.sh | ares | SM8550 | ares: SM8550 | not on the guest | matches |
 | `armsx2-sa` | start_armsx2.sh | armsx2-qt | SM8550 | armsx2-qt: SM8550 | not on the guest | matches |
 | `azahar-sa` | start_azahar.sh | azahar | SM8550 | azahar: SM8550 | not on the guest | matches |
@@ -146,7 +146,7 @@ The name each start script writes to `/tmp/.process-kill-data` (`set_kill set`),
 | `vice-sa` | start_vice.sh | @EMU@ | GENERIC_X64, H700, SM8550 | @EMU@: runtime/variable | comm x64sc: ended (G1) | matches |
 | `vita3k-sa` | start_vita3k.sh | vita3k-sa | SM8550 | vita3k-sa: SM8550 | not on the guest | matches |
 | `xemu-sa` | start_xemu.sh | xemu | SM8550 | xemu: SM8550 | not on the guest | matches |
-| `yabasanshiro-sa` | start_yabasanshiro.sh | yabasanshiro | GENERIC_X64, H700, SM8550 | yabasanshiro: H700,SM8550 | not built for GENERIC_X64; the default saturn route exits 127 (G2) | matches |
+| `yabasanshiro-sa` | start_yabasanshiro.sh | yabasanshiro | H700, SM8550 (GENERIC_X64 lists it, PKG_ARCH drops it) | yabasanshiro: H700,SM8550 | not built for GENERIC_X64; the default saturn route exits 127 (G2) | matches |
 
 35 rows.
 
@@ -327,7 +327,7 @@ The thirteen fork-own recipes' pins equal upstream's (`q4a-dispositions.md` § T
   - Mupen64Plus copies the whole ROM into tmpfs (F-29: up to 64 MB of RAM, plus the copy's time).
   - DaedalusX64 copies its binary on every launch (F-11's `<>`).
   - amiberry copies its configs on every launch (F-15).
-  - Measured: none above 0.07 s on the VM. Mupen64Plus's copy grows with the ROM and was not measured with a real one.
+  - Measured: Dolphin's `check` phase, DuckStation's helper and one pk3 hash, each 0.02-0.07 s. Not measured: Dolphin's `prepare` phase, the `sed` passes, and Mupen64Plus's copy with a real ROM (narrowed in Phase 4.6).
 - **Configs:** read once at launch; not measured.
 
 ### Q6 Dead ends
@@ -378,7 +378,7 @@ Per-file rows where a file's reach differs from its recipe's are the coverage ta
 - `cheevos_duckstation.sh` is not called (F-25).
 - Six achievements scripts read the password and never use it (F-25).
 - `start_steam_x86.sh` is reached only through `start_steam.sh`'s `steam_version` setting.
-- **`aethersx2-sa`:** every row is `deferred: base merge, class 1` (F-26). **Already written:** on SM8550, `/storage/.config/aethersx2/` (configs, and `inis/PCSX2.ini`'s `Token =`, which `backuptool:708` already blanks), `/storage/roms/bios/aethersx2/` (the player's BIOS) and the PS2 save states under `/storage/roms/savestates/ps2`, which ARMSX2 shares. After the deletion nothing launches AetherSX2, and nothing removes those files. The player's data stays where it was, and ARMSX2 (the remaining PS2 emulator) reads the same save-state folder. Nothing is to be migrated; the token in `PCSX2.ini` stays at rest, as for any emulator the player stops using.
+- **`aethersx2-sa`:** every row is `deferred: base merge, class 1` (F-26). **Already written:** on SM8550, `/storage/.config/aethersx2/` (configs, and `inis/PCSX2.ini`'s `Token =`, which `backuptool:708` already blanks), `/storage/roms/bios/aethersx2/` (the player's BIOS) and the PS2 save states under `/storage/roms/savestates/ps2`, which ARMSX2 shares. After the deletion nothing launches AetherSX2, and nothing removes those files. The player's data stays where it was, and ARMSX2 (the remaining PS2 emulator) reads the same save-state folder. Nothing is removed by the deletion; whether ARMSX2 reads AetherSX2's save states is not shown (narrowed in Phase 4.6). The token in `PCSX2.ini` stays at rest, as for any emulator the player stops using.
 
 ### Q7 Clarity and structure
 
@@ -405,7 +405,102 @@ Proposals for the coordinator: the exit fixes first (F-01 to F-04, three of them
 
 ## Second opinion (Phase 4.6)
 
-**Pending:** the two seats (GPT-6 Astra `max`, Gemini 4 Argon `high`) run next, probes first. This section is filled from their outputs and graded item by item.
+Graded 2026-10-24 10:24 UTC (`date -u`), after both seats returned. **Depth: Extended** (D-WORKFLOW-184): `gpt` (`openai/gpt-6-astra`, max, provider OpenAI) and `gemini-argon` (`google/gemini-4-argon`, high, provider Google), each a probe and a refutation, all verified from the provider's own fields (`second-opinions/*.provenance.json`).
+
+**The seats saw different evidence** (D-WORKFLOW-195). GPT read the full packet (`gpt-brief.md`, 438,502 B, sha256 `4c24f7cc03c94eec…`). Gemini's first attempt on the same bytes truncated at its 65,536-token ceiling; its provenance is kept as `gemini-argon-audit-run1-truncated.md.provenance.json`. Its second attempt read the trimmed packet (`gemini-argon-brief.md`, 237,403 B, sha256 `adfc1f750b629faa…`). That packet held `02`, `03`, `04` and q4a verbatim from GPT's, the guest outputs and the achievements scripts whole, the 41 start scripts as excerpts (2,240 of 5,752 lines), and no context excerpts. A Gemini item resting on a start-script line it saw only in excerpt carries **excerpt** below.
+
+Every seat item was re-read at its artifact before it was graded. A verdict is **CONFIRMED** (the artifact shows it, with the command or the proof named), **PLAUSIBLE** (the reading shows the code path; the effect needs a run this slice could not make), **REFUTED** (the artifact contradicts it) or **NARROWED** (part of it holds). G16 (cycle 3) was run to decide one seat claim.
+
+### The re-grades of the first reader's findings
+
+| Finding | GPT | Gemini | Decision and the artifact |
+| --- | --- | --- | --- |
+| F-01 | agree; narrow "any image" (H1 is not an ARM runtime test) | agree | **Medium, stands.** "Every image" rests on H1 (both pinned AppImages' layout) for aarch64 and on G7 at run time for x86_64; the wording now says so |
+| F-02 | agree; the `gptokeyb openbor` behaviour not supplied | agree | **Medium, stands.** The "own menu is the only exit" phrase is withdrawn; `gptokeyb` without `-k` is not shown to kill |
+| F-03 | Medium | Medium | **Re-graded Medium** (both): the simple core is a supported per-game setting (`start_mupen64plus.sh:19,101-106`); same player impact as F-01 |
+| F-04 | agree; the missing kill target is latent until the route works | agree | **Medium, stands**, worded as a broken route plus a latent kill target |
+| F-05 | agree at the read hash; T3's tip not verifiable from the packet | agree | **Medium, stands**; T3's tip read by this lane at `3c47325fb2` (`02` F-05) |
+| F-06 | agree | agree | **Medium, stands** |
+| F-07 | **High** | **High** | **Re-graded High** (both): G3, root code from library content on a launch |
+| F-08 | agree; not shell execution; the summary's grouping wrong | agree; adds globbing | **Medium, stands**; `04`'s summary no longer groups it with code execution; `echo ${params}` also globs against `/storage/roms/doom` (Gemini, **excerpt**: `start_gzdoom.sh:95-96`) |
+| F-09 | agree; melonDS disables, does not clear | agree; melonDS refuted as "clears"; widen to "off" | **Medium, stands; wording corrected:** `cheevos_melonds.sh:28-54,98-104` sets `RA_Enabled=0` and keeps the username and password (it nulls only empty values), so melonDS does not reuse the session but does keep the credentials. Widened: on "off", ppsspp, armsx2, aethersx2 and flycast leave the token at rest (Gemini G-05, CONFIRMED by reading) |
+| F-10 | Low | Medium | **Low, stands**: the image ships `global.retroachievements=0` (`/usr/config/system/configs/system.cfg:77`), so the empty case needs the key deleted |
+| F-11 | Low; add `start_melonds.sh:140`; `:187` always false; `>` truncates | Medium; the same additions | **Low, stands; corrected to 11 sites** (`start_melonds.sh:140`, `if [ "$SROTATION" ] >"0"`, both seats, CONFIRMED by reading). `start_mednafen.sh:187` fails (`[: missing ']'`, always the else branch) rather than testing non-emptiness. A `>` redirection truncates an existing file of that name in `/storage` |
+| F-12 | **High**; normal unlinking of a link is not deletion; cemu's globs miss hidden entries | agree; the trigger is not rare (G-03, G-04) | **Re-graded High.** G16 shows the Tools launcher's DuckStation creating `savestates` as a real directory, and the next game launch deleting it: a normal sequence, not only an old archive restored |
+| F-13 | agree; "nowhere public" overstated | agree | **Medium, stands** (#849); worded "absent from the named locations" |
+| F-14 | Medium | Medium | **Re-graded Medium** (both): the directory blocks the BIOS path every launch re-tests |
+| F-15 | Low | Medium | **Low, stands**: amiberry is not on a shipped device's default route, and the effects are configuration, not saves |
+| F-16 | Low; the parser not shown | Medium | **Low, stands**: class 1 (upstream's array form); the effect on Supermodel's start not shown |
+| F-17 | Low; adds `right]` | Medium (as G-07) | **Low, stands; widened** with `pce[_fast]` (both seats; CONFIRMED with bash: `[[ pce =~ pce[_fast] ]]` is false), the stray `]` in `right]`, and the unquoted `$(get_setting …)` tests at 107, 131 and 137 (Gemini, **excerpt**) |
+| F-19 | Medium; narrow the devices (SM8550 takes the fixed-name branch) | -- | **Low, stands; narrowed:** `start_yabasanshiro.sh:42-43` gives SM8550 a fixed name, so the device-name `eval` runs on H700 only, and needs a crafted device connected |
+| F-20 | Medium | Medium; adds: an empty password shifts the arguments | **Re-graded Medium.** Gemini's G-02 is CONFIRMED by reading (`start_gopher64.sh:104,125`): with the password empty, `--ra-password` takes the ROM path |
+| F-21 | Medium; the missing-key branch writes the escaped value | Medium | **Re-graded Medium**; both additions CONFIRMED (`cheevos_melonds.sh:94` writes `${password_esc}` with `escape_sed`'s backslashes) |
+| F-22 | Low; broaden to SkyEmu | Low (in G-11) | **Low, widened** to `cheevos_skyemu.sh:30-33` |
+| F-23 | Low; per-row not independently confirmed | -- | **Low, stands**; the per-row records are `.qa-scratch/t30/routes.json`, not in the packet |
+| F-24 | Low; narrow: the ini sets the renderer | -- | **Low, stands**, worded as a dead construction |
+| F-25 | Low; caller search for `psp_save_mover.sh` not shown | -- | **Low, stands**: `git grep -n psp_save_mover 8ebaf8daad -- projects packages` printed nothing (stage C) |
+| F-26 | accept; "nothing to migrate" needs an inventory | -- | **Low, narrowed:** the deletion removes no data; whether ARMSX2 reads AetherSX2's save states is not shown, so "nothing to migrate" becomes "nothing removed; compatibility unproven" |
+| F-27 | Low/informational | -- | stands |
+| F-28 | narrow to provenance information | -- | **Low, narrowed** to "name the branch" |
+| F-29 | Low | Medium | **Low, stands**: settings, not saves (`SaveSRAMPath` stays under `/storage/roms/n64`) |
+| F-30 | Low; **wording wrong**: a quoted multi-PID kills none | Medium; the same correction | **Low, wording corrected:** `kill -9 "$(pidof gptokeyb)"` with two PIDs fails as one bad argument and kills none; the same quoted form at `start_melonds.sh:190` and `start_skyemu.sh:56`; the unquoted form at `start_azahar.sh:240` and `start_drastic.sh:93` kills every `gptokeyb` |
+| F-18 | withdrawal accepted, but the empty-file and last-line cases stand | -- | **Withdrawn as filed; G-40 carried** (below) |
+
+### Seat items: own findings
+
+| Seat item | Verdict | New finding | Artifact |
+| --- | --- | --- | --- |
+| GPT G-01 / Gemini G-01 (Steam's `exit 0`) | **CONFIRMED** (both) | **F-31**, Medium | `start_steam.sh:253,264` exit inside `steam_launch_bigpicture`; the flavours' `steam_dual_screen_end` and `systemctl start/restart systemd-binfmt` (`start_steam_x86.sh:26-30`, `start_steam_arm64.sh:28-30`) never run |
+| Gemini G-13 (x86 Steam's kill target names only `FEX`) | PLAUSIBLE | in **F-31** | `start_steam_x86.sh:10` against `start_steam.sh:259-260` |
+| GPT G-21 (Steam URI and `-silent` as one argument) | CONFIRMED by reading; the effect PLAUSIBLE | **F-32**, Low | `start_steam.sh:205,240,260` |
+| GPT G-16 (DraStic's binary never refreshed) | **CONFIRMED** by reading | **F-33**, Medium | `start_drastic.sh:28-31,92`: the copy only when `/storage/.config/drastic` is absent, the run from there; an OS update's DraStic never reaches an existing H700 (the default `nds` emulator there) |
+| GPT G-13 (Dolphin's face swap re-applied to `Hotkeys.ini`) | **CONFIRMED** by reading | **F-34**, Medium | `start_dolphin_gc.sh:43-47,404-419`: `GCPadNew.ini` is recopied each launch, `Hotkeys.ini` is not, so its swap alternates launch to launch on an affected pad |
+| GPT G-04 (melonDS's regenerated TOML holds the credentials) | PLAUSIBLE | **F-35**, Medium (to verify) | `start_melonds.sh:182`; patch `000:7519-7522`; `backuptool:707` blanks only the INI |
+| GPT G-44 (`-9` with no orderly shutdown) | PLAUSIBLE | **F-36**, Medium (an open item to test) | every `set_kill` line; Dolphin's `start_dolphin_gc.sh:34-35` comment; #117's precedent for RetroArch |
+| GPT G-02 (OpenBOR empties `Paks`) | CONFIRMED by reading | **F-37**, Low | `start_OpenBOR.sh:27`; the script's staging folder; loss only of files placed there by hand, or through a `Paks` link |
+| Gemini G-04 / GPT G-19 (SkyEmu's link parent) | PLAUSIBLE (needs `/storage/.local/share/Sky` absent) | in **F-12** | `start_skyemu.sh:21,30-31` |
+| Gemini G-03 (Tools-then-game) | **CONFIRMED** (G16) | in **F-12** (the High) | `p3-tools-then-game.out` |
+| Gemini G-03's second half (DuckStation's achievements disabled every launch) / GPT G-42 | CONFIRMED by reading | **F-38**, Low | `start_duckstation.sh:131`, upstream's workaround ("not working"); `04` § Q1's "signs itself in" corrected |
+| Gemini G-05 (tokens kept on "off") | CONFIRMED by reading | in **F-09** | the five scripts' "off" branches |
+| Gemini G-06 / GPT G-14, G-15 (settings overwritten every launch) | CONFIRMED by reading | **F-39**, Low | `start_xemu.sh:19`; `start_melonds.sh:181-182`; `start_dolphin_gc.sh:72-76` |
+| GPT G-08, G-09, G-10 / Gemini G-11 (sed escaping; section bounds; armsx2's first section) | CONFIRMED by reading | **F-40**, Low | the achievements scripts' `sed` lines; `cheevos_armsx2.sh:46-48` |
+| GPT G-17, G-41 (ScummVM's seed unreachable; generated names unconfined) | CONFIRMED by reading | **F-41**, Low | `start_scummvm.sh:22-25,41-44,31-37` |
+| GPT G-03, G-27 (hypseus device-name path; `.commands` word-split) | PLAUSIBLE | **F-42**, Low (hygiene) | `start_hypseus.sh:17-20,68,75-84` |
+| GPT G-05, G-06, G-07 (publication failures not launch failures; temp files beside the configs; `.tmp.$$`) | PLAUSIBLE | **F-42** | `cheevos_armsx2.sh:106-131`; `cheevos_dolphin.sh:43-62` |
+| GPT G-20 / Gemini G-12 (Daedalus's `rm` without `-r`) | CONFIRMED by reading | **F-42** | `start_daedalusx64.sh:20-25` |
+| GPT G-23, G-24, G-25 (amiberry and Hatari floppies: `echo -e`, arbitrary entries, writes to a deleted temp tree) | CONFIRMED by reading; G-25's save loss PLAUSIBLE | **F-42** | `start_amiberry.sh:79-159`, `start_hatari.sh:40-74` |
+| GPT G-26 (DS archives: unchecked extraction, top-level lowercase `.nds` only) | CONFIRMED by reading | **F-42** | `start_dsperate.sh:147-155`, `start_melonds.sh:157-165` |
+| GPT G-29 (backslashes stripped from ROM paths) | CONFIRMED | **F-42** | `start_ppsspp.sh:105`, `start_vice.sh:15` |
+| GPT G-31 (VSync read, not applied) | CONFIRMED by reading | **F-42** | `start_aethersx2.sh:35`, `start_armsx2.sh:45`, `start_cemu.sh:115,226-228` |
+| GPT G-32 (cemu forwards the platform) | CONFIRMED by reading | **F-42** | `start_cemu.sh:335` |
+| GPT G-33 (gzdoom's pk3 repair skipped when the copy is missing) | CONFIRMED by reading | **F-42** | `start_gzdoom.sh:28-33` |
+| GPT G-34 (pico-8: "splore" anywhere in the path) | CONFIRMED by reading | **F-42** | `start_pico8.sh:20-27` |
+| GPT G-35, G-36, G-37 (Vita3K's install paths) | CONFIRMED by reading | **F-42** | `start_vita3k.sh:14,32,187-190,210,227-244` |
+| GPT G-38 (RPCS3's M3U prefix) | CONFIRMED by reading | **F-42** | `start_rpcs3.sh:182-186` |
+| GPT G-39 (emulator status discarded) | CONFIRMED by reading | **F-42** | the eleven sites GPT lists |
+| GPT G-40 (melonDS: a matching last line deleted, the append skipped) | PLAUSIBLE | **F-42** | `start_melonds.sh:112-113,130,133` |
+| GPT G-22 (Steam's VDF index) | CONFIRMED by reading | **F-42** | `start_steam.sh:12-17` |
+| GPT G-43 (the kill debounce across launches) | CONFIRMED as code | **F-42** | `input_sense:217-221` (T1's file; noted for its owner) |
+| GPT G-12 (compositor replies evaluated) | CONFIRMED as code; a trust seam, not data a player supplies | **F-42** (a note) | `start_steam.sh:81-84`, `start_heroic_play_gamescope.sh:33-36` |
+| GPT G-45 (gzdoom's provenance) | **REFUTED** as provenance; CONFIRMED as cosmetic | **F-42** (gzdoom's banner) | `git describe --tags b137d8c373` prints `rc1-20260929-185-gb137d8c373`: GZDoom stamps the enclosing checkout's describe |
+| GPT G-18 (Hatari's config seed) | PLAUSIBLE, conditional on the first-boot seed (`post-update:38-49,118` names `system`, `game`, `modules` and a list) | **F-42** | `start_hatari.sh:8-34` |
+| Gemini G-08 / GPT G-28 (yabasanshiro's unquoted `cp`) | **NARROWED**: latent | **F-42** | the only keymap seed is `keymapv2_rg_arc_joypad.json` (`git ls-tree`); no seed name has a space, so SM8550's DualSense name fails the `[ -e ]` test first |
+| Gemini G-09 (ScummVM's `libretro` arm writes no kill target) | **REFUTED** | -- | `runemu.sh:263-264` sets `retroarch retroarch32` for every RetroArch launch before the `scummvm` platform case swaps `RUNTHIS`; the `add` arm is a scan, not a game |
+| Gemini G-10 | CONFIRMED | in **F-11** | `start_melonds.sh:140` |
+| Gemini G-07 | CONFIRMED | in **F-17** | above |
+
+### The exit sweep and Q4, as the seats read them
+
+- **Exit sweep.** Both seats accept it as an inventory, not as 35 live verdicts. The table's *Guest* column says which rows were seen live: G1, G7, G14, G15 and G16 cover ppsspp, x64sc, gzdoom, ScummVM, DuckStation and OpenBOR; G6 covers Dolphin's name length by substitute. Two device cells are corrected: GENERIC_X64 *lists* `amiberry` and `yabasanshiro-sa` but does not *build* them (`PKG_ARCH`). Steam's contract differs by flavour (F-31). ScummVM's row stands (G-09 refuted).
+- **Q4.** Both seats accept the tally. Taken from them:
+  - the five `conflicts` rows are flagged dispositions, not trial-merged conflicts;
+  - `dsperate-sa` is behind upstream as well as its project;
+  - q4a's merge rows are classed by their first-parent diff, which is why a merge touching `cheevos_armsx2.sh` reads differently from `f8844ab04e`.
+- **Q5.** GPT is right that "nothing above 0.07 s" overstates: Dolphin's `prepare` phase and the `sed` passes were not timed. Q5 now says which helper runs were measured.
+
+### Not judged by either seat, and said here
+
+Real-game shutdown durability (F-36), melonDS's TOML (F-35), the 22 members the guest lacks, and the per-device configs.
 
 ## Quality Self-Check
 

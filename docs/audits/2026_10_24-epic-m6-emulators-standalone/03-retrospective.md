@@ -36,7 +36,7 @@ The table is generated from the device's lists; a recipe can drop itself from a 
 
 ### Interaction: the cheevos scripts × the interface's sign-in state × the offline proxy (D-RA-*)
 
-The interface keeps the switch on and clears the token when an account changes offline or a sign-in is refused (`GuiRetroAchievementsSettings.cpp:767,780` at `16dbac52`). Two scripts were written for that state (dolphin, melonDS); five were not (F-09). The proxy routing in ppsspp's and dolphin's scripts (`proxy_listening`) is correct and identical in both, as `raofflineproxy-ctl`'s. #825's class does not reach the cheevos scripts: none builds a command from a value.
+The interface keeps the switch on and clears the token when an account changes offline or a sign-in is refused (`GuiRetroAchievementsSettings.cpp:767,780` at `16dbac52`). Dolphin's script clears the session and melonDS's disables it (keeping the credentials, Phase 4.6); five scripts do neither (F-09). The proxy routing in ppsspp's and dolphin's scripts (`proxy_listening`) is correct and identical in both, as `raofflineproxy-ctl`'s. #825's class does not reach the cheevos scripts: none builds a command from a value.
 
 ### Interaction: the configs × the save layout (#520) × the cloud sync
 

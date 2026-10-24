@@ -83,6 +83,24 @@ f("steam/scripts/start_steam.sh", Q3="PASS: execs a flavour that sets the kill t
 f("aethersx2-sa/", Q4="F-26 (deleted upstream, class 1)", Q6="F-26 (deferred: base merge, class 1; Already written in 04)")
 f("hatarisa/portaudio/package.mk", Q3="F-13 (archive URL 404; builds pass only from the shared cache)", Q4="F-13 (repo-missing; commit not in PortAudio/portaudio)")
 
+# Phase 4.6 (both seats graded, 04 § Second opinion): F-31 to F-42.
+f("steam/scripts/start_steam.sh", Q3="F-31 (exit 0 skips the flavours' cleanup); F-32 (URI and -silent one argument)")
+f("steam/scripts/start_steam_x86.sh", Q3="F-31 (binfmt left stopped; kill names only FEX)")
+f("steam/scripts/start_steam_arm64.sh", Q3="F-31 (dual-screen cleanup never runs)")
+f("drastic-sa/scripts/start_drastic.sh", Q3="F-33 (the binary in /storage never refreshed by an update)")
+f("dolphin-sa/scripts/start_dolphin_gc.sh", Q3="F-34 (Hotkeys.ini's swap alternates); F-39 (triforce codes dir deleted)")
+f("dolphin-sa/scripts/start_dolphin_wii.sh", Q3="F-34 (Hotkeys.ini's swap alternates)")
+f("melonds-sa/scripts/start_melonds.sh", Q3="F-35 (regenerated TOML may hold the credentials); F-39 (TOML deleted every launch)")
+f("openbor/scripts/start_OpenBOR.sh", Q3="F-37 (Paks emptied every launch)")
+f("duckstation-sa/scripts/start_duckstation.sh", Q1="F-38 (DuckStation's own achievements disabled every launch)")
+f("xemu-sa/scripts/start_xemu.sh", Q3="F-39 (xemu.toml overwritten every launch)")
+for s_ in ("ppsspp-sa/scripts/cheevos_ppsspp.sh", "flycast-sa/scripts/cheevos_flycast.sh", "armsx2-sa/scripts/cheevos_armsx2.sh", "aethersx2-sa/scripts/cheevos_aethersx2.sh", "skyemu-sa/scripts/cheevos_skyemu.sh", "melonds-sa/scripts/cheevos_melonds.sh"):
+    f(s_, Q2="F-40 (sign-in values unescaped in sed)")
+f("scummvm-sa/scripts/start_scummvm.sh", Q3="F-41 (first-run seed unreachable)")
+for s_ in ("hypseus-singe/scripts/start_hypseus.sh", "daedalusx64-sa/scripts/start_daedalusx64.sh", "amiberry/scripts/start_amiberry.sh", "hatarisa/scripts/start_hatari.sh", "dsperate-sa/scripts/start_dsperate.sh", "ppsspp-sa/scripts/start_ppsspp.sh", "vice-sa/scripts/start_vice.sh", "cemu-sa/scripts/start_cemu.sh", "gzdoom-sa/scripts/start_gzdoom.sh", "pico-8/scripts/start_pico8.sh", "vita3k-sa/scripts/start_vita3k.sh", "rpcs3-sa/scripts/start_rpcs3.sh", "aethersx2-sa/scripts/start_aethersx2.sh", "armsx2-sa/scripts/start_armsx2.sh", "skyemu-sa/scripts/start_skyemu.sh", "azahar-sa/scripts/start_azahar.sh", "yabasanshiro-sa/scripts/start_yabasanshiro.sh"):
+    f(s_, Q7="F-42 (launch-script hygiene, 04 § Second opinion)")
+f("skyemu-sa/scripts/start_skyemu.sh", Q3="F-12 conditional: no mkdir -p of the link's parent (seats)")
+
 def lookup(rel):
     cells = {}
     for k in sorted(F, key=len, reverse=True):

@@ -27,7 +27,7 @@
           "output": "gpt-probe.md"
         }
       ],
-      "status": "refutation succeeded on the first attempt 2026-10-24 09:15:57-09:32:03 (identity, effort max, provider OpenAI: PASS); grading held until the second seat returns (the coordinator's rule on #650)"
+      "status": "complete: probe and refutation succeeded on the first attempt 2026-10-24 (identity, effort max and provider OpenAI PASS); full packet; graded in 04 \u00a7 Second opinion"
     },
     {
       "member": "gemini-argon",
@@ -47,7 +47,7 @@
           "output": "gemini-argon-probe.md"
         }
       ],
-      "status": "run 2 started on the trimmed packet (D-WORKFLOW-195); run 1 failed at its token ceiling (provenance kept)"
+      "status": "complete: probe PASS; refutation run 1 on the full packet truncated at the 65,536-token ceiling (provenance kept as gemini-argon-audit-run1-truncated.md.provenance.json); run 2 on the trimmed packet (D-WORKFLOW-195) succeeded on its first attempt (identity, effort high and provider Google PASS); graded in 04 \u00a7 Second opinion, excerpt-only items marked"
     }
   ],
   "packets": {
@@ -70,5 +70,6 @@
       "sha256_prefix": "adfc1f750b629faa1b121313",
       "content": "trimmed (D-WORKFLOW-195): 02/03/04/q4a verbatim from gpt-brief.md, the guest outputs, the 8 achievements scripts whole, the 41 start scripts as excerpts (every cited line +/-20 and each kill-target line +/-20: 2,240 of 5,752 lines in 56 ranges), no context excerpts; the ask bounded (one line per item, parts 1 and 2 first, at most 6,000 words)"
     }
-  }
+  },
+  "status": "complete"
 }

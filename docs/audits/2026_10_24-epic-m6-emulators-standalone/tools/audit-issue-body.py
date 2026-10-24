@@ -5,7 +5,7 @@
 # (feature/m6-emulators-libretro-650); T30's changes, if any, are named below.
 """audit-issue-body.py -- the stage-D audit issue's body from the same item
 list as 05-punch-list.md (tools/punch-items.py), so the issue's checkboxes
-are the punch list's items, one each (M6 T3, #650).
+are the punch list's items, one each (M6 T30, #677; T3's text replaced -- the T30 change).
 
     python3 -I audit-issue-body.py > body.md
 
@@ -27,24 +27,18 @@ exec("\n".join(l for l in bc.splitlines() if re.match(r'^(PERSON|DEVICE|FACT) = 
 
 c = Counter(i["sev"] for i in ITEMS)
 o = []
-o.append(f"Punch list of the M6 T3 audit (#650): RetroArch and the libretro cores, 344 paths, `reviewed-at: d606301784` (the slice's bytes equal to `next`'s `8ebaf8daad`). The audit is `docs/audits/2026_10_24-epic-m6-emulators-libretro/` on `feature/m6-emulators-libretro-650`. {len(ITEMS)} items: {c['Critical']} critical, {c['High']} high, {c['Medium']} medium, {c['Low']} low.\n")
+o.append(f"Punch list of the M6 T30 audit (#677): the standalone emulators, 543 paths, `reviewed-at: c7e3dfcc87` (the slice's bytes equal to `next`'s `8ebaf8daad`). The audit is `docs/audits/2026_10_24-epic-m6-emulators-standalone/` on `feature/m6-emulators-standalone-677`. {len(ITEMS)} items: {c['Critical']} critical, {c['High']} high, {c['Medium']} medium, {c['Low']} low. Depth: Extended (GPT-6 Astra and Gemini 4 Argon, the latter on a trimmed packet, D-WORKFLOW-195).\n")
 o.append("## Executive summary\n")
-o.append("The launch table is the build's own: the host regeneration from the tree's shell is byte-identical to the GENERIC_X64, H700 and SM8550 images, and the guest's installed set equals the tree's.")
+o.append("**The two High findings:**")
 o.append("")
-o.append("**The four High findings:**")
+o.append("- A `.scummvm` file in the ROM library runs as shell, as root, at launch (PL-007, #859; proven on the guest).")
+o.append("- Start scripts delete a real directory before linking it; a save state made in DuckStation from the Tools launcher is deleted by the next game launch (PL-012, #863; proven on the guest).")
 o.append("")
-o.append("- The default PlayStation core on four built devices is installed where the launcher does not load it (#802).")
-o.append("- The next base merge brings upstream's fix for that, and the new `yabadabadoo-lr`, as `build.${DISTRO}-` copies that fail on the fork's roots (#802).")
-o.append("- SM8550's grep has no PCRE, so Install Steam stops at its Proton step (#806).")
-o.append("- `aethersx2-sa`, dropped upstream for licensing, still ships on SM8550 and RK3566.")
+o.append("**The exit hotkey does nothing** in DuckStation (every image; its psx default on the VM), OpenBOR, Mupen64Plus's simple core and the hatarisa route (PL-001 to PL-004). **The previous RetroAchievements session stays signed in** in five achievements scripts (PL-009). Six of the defects are fixed upstream after our base (class 1 with the base merge). `portaudio`'s source is gone (#849).")
 o.append("")
-o.append("**The Medium found in the second opinion:** patch 0012 hands RetroArch's `system()` a shell line built from an achievement's title and description, on every unlock (PL-032).")
-o.append("")
-o.append("**Currency:** all 14 upstream commits on the slice are `to merge`, two of them adapted. Of the 151 pins, 40 are current, 104 behind their project, 1 behind ROCKNIX and 6 not on their project's default branch. RetroArch is 7,623 commits behind master, and a bump is a re-cut of its patch series.")
-o.append("")
-o.append("**Time to play** on the image as built: 0.62 s to the first frame and 1.01 s game to game (n = 3).\n")
-o.append("## Acceptance-criteria scorecard (#650, at the end of Phase 2)\n")
-o.append("4 PASS (AC-06, AC-07, AC-08, AC-12); 5 PARTIAL (AC-01, AC-05, AC-09, AC-10, AC-11); 6 open for later stages of the lane (AC-02, AC-03, AC-04, AC-13, AC-14, AC-15); 0 FAIL. `02-forward-audit.md` § Criterion entries has each with its evidence.\n")
+o.append("**Time to play** (`runemu.sh` to the emulator, n = 3): gzdoom's first frame 1.03-3.13 s with Freedoom; ScummVM's first draw 0.64-1.08 s; ppsspp, x64sc and DuckStation 0.52-0.67 s to the process. Not the interface's press (an SSH launch).\n")
+o.append("## Acceptance-criteria scorecard (#677, at stage D)\n")
+o.append("Met: criteria 6, 7, 8, 9, 10, 11, 12 (21 = 21) and 14 (three guest cycles); the lint `PASS pre-issue artifacts`; open for later stages: 1 (05 lands with this issue), 2 (resolution), 4, 5, 13, 15, 16.\n")
 o.append("## The items\n")
 o.append("Each checkbox is ticked from its acceptance artifact when its Phase 7 outcome is recorded in `05-punch-list.md` (resolved with its commit, deferred to a named issue, or withdrawn with its reason).\n")
 bad = []
@@ -55,8 +49,8 @@ for i in ITEMS:
         bad.append(i["id"])
     o.append(line)
 o.append("\n## Pre-existing tracked scope (not punch items)\n")
-o.append("#336 (the libretro runner: RetroArch's menu and widget items are `deferred:#336` for the 2D cores), #762 (Kronos's options, T1's), #730 (`-P` in the launch line, T1's), #613 (the table's fallback symlink, T2's), #652 (T5: the table's default-marking mechanism, F-06), #669 (T22: grep's PCRE dependency, #806's recipe layer).\n")
-o.append("Refs #650, #798, #339.")
+o.append("#849 (portaudio's source: PL-013), #336 (the headless libretro runner, not this slice's), #648 (T1: `runemu.sh`, `input_sense`), #650 (T3: the launch table's file, where PL-005 and PL-022 live), #520 (the standalone save layout), #117 (TERM before KILL for RetroArch: PL-035's precedent).\n")
+o.append("Refs #677, #798, #339.")
 if bad:
     sys.exit("audit-issue-body: checkboxes naming a person or device without a fact: " + ", ".join(bad))
 sys.stdout.write("\n".join(o) + "\n")
