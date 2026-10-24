@@ -1,9 +1,16 @@
 # SPDX-License-Identifier: GPL-2.0-only
 # Copyright (C) 2018-present Team LibreELEC (https://libreelec.tv)
 
+# An archive is used only when its bytes match the recipe's PKG_SHA256, and it is
+# fetched over verified TLS: a recipe without a checksum fails here, before the
+# cache or the network is consulted (D-WORKFLOW-193, #834).
+if [ -z "${PKG_SHA256}" ]; then
+  die "\nCannot get ${1} sources: its recipe has no PKG_SHA256, so the archive cannot be verified (D-WORKFLOW-193)"
+fi
+
 _get_file_already_downloaded() {
   { [ ! -f "${PACKAGE}" ] || [ ! -f "${STAMP_URL}" ] || [ ! -f "${STAMP_SHA}" ]; } && return 1
-  { [ -n "${PKG_SHA256}" ] && [ "$(cat ${STAMP_SHA} 2>/dev/null)" != "${PKG_SHA256}" ]; } && return 1
+  [ "$(cat ${STAMP_SHA} 2>/dev/null)" != "${PKG_SHA256}" ] && return 1
   return 0
 }
 
@@ -22,7 +29,7 @@ pkg_lock_status "GETPKG" "${PKG_NAME}" "unpack" "downloading package..."
 
 PACKAGE_MIRROR="${DISTRO_MIRROR}/${PKG_SOURCE_NAME}"
 [ "${VERBOSE}" != "yes" ] && WGET_OPT=-q
-WGET_CMD="wget --secure-protocol=TLSv1_2 --output-file=- --timeout=30 --tries=3 --passive-ftp --no-check-certificate -c ${WGET_OPT} --progress=bar:force --retry-connrefused --waitretry=5 --retry-on-http-error=429,500,502,503,504 --show-progress -O ${PACKAGE}"
+WGET_CMD="wget --secure-protocol=TLSv1_2 --output-file=- --timeout=30 --tries=3 --passive-ftp -c ${WGET_OPT} --progress=bar:force --retry-connrefused --waitretry=5 --retry-on-http-error=429,500,502,503,504 --show-progress -O ${PACKAGE}"
 
 # unset LD_LIBRARY_PATH to stop wget from using toolchain/lib and loading libssl.so/libcrypto.so instead of host libraries
 unset LD_LIBRARY_PATH
@@ -42,7 +49,7 @@ while [ ${NBWGET} -gt 0 ]; do
     if ${WGET_CMD} "${url}"; then
       CALC_SHA256=$(sha256sum "${PACKAGE}" | cut -d" " -f1)
 
-      [ -z "${PKG_SHA256}" -o "${PKG_SHA256}" = "${CALC_SHA256}" ] && break 2
+      [ "${PKG_SHA256}" = "${CALC_SHA256}" ] && break 2
 
       build_msg "CLR_WARNING" "WARNING" "Incorrect checksum calculated on downloaded file: got ${CALC_SHA256} wanted ${PKG_SHA256}"
     fi
