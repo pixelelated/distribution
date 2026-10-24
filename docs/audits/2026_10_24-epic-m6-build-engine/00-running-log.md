@@ -89,3 +89,9 @@ PROOF: 03:58 P9 `tools/build-identity-test`, 21 identity checks passed (the 2 fa
 
 PROOF: 04:20 P10 `-Dwrap_mode=nodownload` in all 85 meson logs of the GENERIC_X64 build root, read-only
 PROOF: 04:18 P11 the H700 and SM8550 launch tables regenerated, byte-identical to their install trees -- `tools/regen-es-systems.sh`
+
+### [Stage B] 04:22 to 04:28 — Phase 3 written; F-15; the `.env` scan
+
+- `03-retrospective.md` written (3.1 to 3.6.5: the instruction files and blindspots against the findings, six seams, the futro's predictions checked).
+- `config/options` 86 to 152 read: `CONCURRENCY_MAKE_LEVEL=$(nproc)` (91), `CCACHE_CACHE_SIZE="15G"` (100), `CCACHE_COMPRESSLEVEL="0"` (109), `CCACHE_SLOPPINESS="pch_defines,time_macros"` (118); the options files at 132 to 140 led to F-15 (`~/.rocknix/options` against `~/.ROCKNIX/options`; both tested by `test -f` and mode only).
+- 04:24 `.env` at rest: none in 134 checkouts.
