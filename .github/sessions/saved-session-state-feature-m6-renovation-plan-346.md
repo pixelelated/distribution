@@ -265,7 +265,7 @@ is the narrative; this is the index of what a resuming agent must know.
 - **Open with the maintainer on #346:** a third lane for T4; the #825
   disclosure timing; `LOCAL_SSH_KEYS_FILE` in Docker builds; D-SYS-014;
   D-WORKFLOW-191; the `portaudio` re-hosting (#849).
-- **Integration (after the M7 candidate):** P0, P1, T1, T2, T3, T30, T5, T6,
+- **Integration (after the M7 candidate):** P0, P1, T1, T2, T3, T30, **`fix/m6-877-libfmt-sha256` (`cf3a8d8e62`, one commit: the empty `PKG_SHA256` T5's fetch would refuse)**, T5, T6,
   T7, T4; at integration flip `add_es_system`'s zero-default WARNING to
   `return 1` after T3's S2 and regenerate the five tables; the #802/#806/#825
   adaptations; close #823, #841, #845 and the other fixed bugs at the merge;
