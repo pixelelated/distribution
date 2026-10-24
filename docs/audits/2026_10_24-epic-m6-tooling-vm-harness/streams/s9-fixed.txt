@@ -1,0 +1,7 @@
+PASS negative-read-fails: ['FAIL  nothing listens on 127.0.0.1:8080 -- the read failed, so the absence is unproven'] (want a FAIL: the read failed, so the absence is unproven)
+PASS host-passed-through: qa-accounts was called as 'qa-accounts --host root@127.0.0.2 --identity /workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659/.qa-scratch/t12/vm-harness-test/host-passed-through/given-key --port 10026 ra' (want the given host and key)
+PASS cleanup-counted: rc 143, cleanup ran on the stop True, its failure counted True (want both, and a non-zero exit)
+PASS flushed-exact: flushed=10 judged '1', flushed=1 judged '0' (0 is accepted); achievement 1003590 counted as 100359: 0 (want rejected, accepted, 0)
+PASS endpoints-inconsistent: rc 2, ['ra-offline-test: the endpoints name different guests: pid 192579 (/run/user/1000/vmht-1bb_9700/rocknix-qemu-d.pid) does not carry the ssh port 10026'] (want rc 2: the endpoints name different guests)
+PASS accounts-readback: rc 1, ['qa-accounts: on :10022 these do not hold what was sent: global.retroachievements.key'] (want rc 1 naming the key that differs)
+6 PASS; 0 FAIL

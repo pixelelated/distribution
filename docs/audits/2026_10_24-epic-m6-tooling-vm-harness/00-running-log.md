@@ -391,3 +391,37 @@ PROOF: 21:45 S7 fix-case: exit-only-unknown, exit-only-d-alone, act-begin-unwrit
 - **A gap named:** `vm-serial`'s own `--socket` default is still `/tmp/rocknix-qemu-serial.sock`; S5's files did not include it. The cycle passes `--socket` explicitly. Filed as a line on #983 for S13.
 PROOF: 22:00 S8 fix-case: screendump-fails, fewer-frames, ppm-truncated, serial-false, ssh-never-ends and vnc-partial fail at facb2ae523 (0 PASS, 6 FAIL) and pass at 05117efe58 (6 PASS, 0 FAIL) -- `streams/s8-unfixed.txt`, `streams/s8-fixed.txt`
 PROOF: 22:00 S8-baseline history: walk-baseline (d72084ccad) holds the frames its steps name for all 16 walks (78 frames) -- `streams/s8-baseline-frame-counts.txt`
+
+## [Stage E] S9: ra-offline-test and qa-accounts (#977, #983)
+
+- **The order, forced:** the fixed `ra-offline-test` calls `qa-accounts --host ...`, which the old `qa-accounts` rejects, so `qa-accounts` landed first. The controls before each commit: 42, 47 and 47 PASS.
+- **The fixes:**
+  - `9a1300f141` (#983, G-58): `qa-accounts` takes `--host`, `--port` and `--identity`. Its RetroAchievements write is read back for equality, including the switch: the values cross ssh's stdin, and only the names that differ come back. The ScreenScraper branch keeps its name readback.
+  - `33efb4d801` (#977):
+    - The host and key reach `qa-accounts`.
+    - From the account step on, cleanup runs once on any exit, and each of its steps is counted.
+    - `absent()` makes a negative check read first.
+    - `field_is` and an anchored id make the matches exact.
+    - Every capture requested with `--frames` is checked by name.
+    - G-45: `--guest`, and the pidfile's QEMU must name the port and both sockets, else exit 2.
+    - G-52 is written into the header as a design.
+  - `15b8f11334` (#969): the same trap defect in `vm-qa`'s exit trap.
+- **A defect found while landing it:** `cleanup-counted` passed once and then failed five times in five. The SIGTERM landed inside `S '...disable' >/dev/null 2>&1`, and bash runs a trap inside the command it interrupted, under that command's redirections. The whole cleanup ran and its report went to `/dev/null`.
+  - The tool now saves its stdout and stderr at the start and restores them in `on_exit`. After that, five of five passed.
+  - `vm-qa`'s exit trap had the same shape, and was fixed in its own commit.
+- **The cases' first form ran the unfixed tool into its `/tmp` socket defaults,** so it stopped at the preconditions, and those were FAILs for the wrong reason. The cases now name `--monitor` and `--serial`, which both versions take.
+- **Nothing reached a guest, a device, retroarchievements.org or a credential file:**
+  - `curl` answered from a fixed JSON;
+  - the serial double answers markers and runs nothing;
+  - `qa-accounts` was a double, except in `accounts-readback`, which ran the real one against a stand-in accounts file and an ssh double.
+  - The account path never ran.
+- **The positives:** 0 PASS, 6 FAIL against `facb2ae523` (`streams/s9-unfixed.txt`).
+  - `negative-read-fails`: "PASS nothing listens" over a failed read.
+  - `host-passed-through`: `qa-accounts 10026 ra`.
+  - `cleanup-counted`: no cleanup on a stop.
+  - `flushed-exact`: `flushed=10` and achievement 1003590 both accepted.
+  - `endpoints-inconsistent`: no check; the run stopped at its preconditions.
+  - `accounts-readback`: rc 0, "set", over a key that differs.
+- **After the fixes:** 6 PASS, 0 FAIL (`streams/s9-fixed.txt`), with no fixture left.
+- **Already written:** the QA account's state on the RetroAchievements side is untouched. The real-account proof stays the release procedure's.
+PROOF: 22:15 S9 fix-case: negative-read-fails, host-passed-through, cleanup-counted, flushed-exact, endpoints-inconsistent and accounts-readback fail at facb2ae523 (0 PASS, 6 FAIL) and pass at 15b8f11334 (6 PASS, 0 FAIL) -- `streams/s9-unfixed.txt`, `streams/s9-fixed.txt`

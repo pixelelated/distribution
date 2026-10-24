@@ -1,0 +1,7 @@
+FAIL negative-read-fails: ['PASS  nothing listens on 127.0.0.1:8080'] (want a FAIL: the read failed, so the absence is unproven)
+FAIL host-passed-through: qa-accounts was called as 'qa-accounts 10026 ra' (want the given host and key)
+FAIL cleanup-counted: rc -15, cleanup ran on the stop False, its failure counted False (want both, and a non-zero exit)
+FAIL flushed-exact: flushed=10 judged '0', flushed=1 judged '0' (0 is accepted); achievement 1003590 counted as 100359: 1 (want rejected, accepted, 0)
+FAIL endpoints-inconsistent: rc 1, ['FAILED (1) -- preconditions; nothing ran'] (want rc 2: the endpoints name different guests)
+FAIL accounts-readback: rc 0, ['set on :10022: global.retroachievements=1 global.retroachievements.username global.retroachievements.password global.retroachievements.key (read by the interface at its next start: reboot the guest)'] (want rc 1 naming the key that differs)
+0 PASS; 6 FAIL
