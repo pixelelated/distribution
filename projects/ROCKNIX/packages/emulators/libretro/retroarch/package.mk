@@ -90,12 +90,11 @@ pre_configure_target() {
 }
 
 make_target() {
+  # A failed make ends the build here: scripts/build runs this function
+  # under set -e (config/path), outside any condition (#650 PL-017).
   make HAVE_UPDATE_ASSETS=0 HAVE_LIBRETRODB=1 HAVE_BLUETOOTH=0 HAVE_NETWORKING=1 HAVE_ZARCH=1 HAVE_QT=0 HAVE_LANGEXTRA=1
-  [ $? -eq 0 ] && echo "(retroarch ok)" || { echo "(retroarch failed)" ; exit 1 ; }
   make -C gfx/video_filters compiler=$CC extra_flags="$CFLAGS"
-  [ $? -eq 0 ] && echo "(video filters ok)" || { echo "(video filters failed)" ; exit 1 ; }
   make -C libretro-common/audio/dsp_filters compiler=$CC extra_flags="$CFLAGS"
-  [ $? -eq 0 ] && echo "(audio filters ok)" || { echo "(audio filters failed)" ; exit 1 ; }
 }
 
 makeinstall_target() {
@@ -105,10 +104,20 @@ makeinstall_target() {
 
   case ${ARCH} in
     aarch64)
-      if [ -f ${ROOT}/build.${DISTRONAME}-${DEVICE}.arm/install_pkg/retroarch-*/usr/bin/retroarch ]; then
-        cp -vP ${ROOT}/build.${DISTRONAME}-${DEVICE}.arm/install_pkg/retroarch-*/usr/bin/retroarch ${INSTALL}/usr/bin/retroarch32
+      # The 32-bit cores (pcsx_rearmed32, gpsp, desmume) run under this
+      # binary, so a 32-bit build must carry exactly the arm root's RetroArch
+      # of this recipe's version: none, two, or a stale one fails the build
+      # rather than shipping an image without it or with an old one (#814).
+      # scripts/build_distro builds the arm root under the same two conditions.
+      if [ "${ENABLE_32BIT}" = "true" ] && [ "${BASE_ONLY}" != "true" ]; then
+        local ra32_root="${ROOT}/build.${DISTRONAME}-${DEVICE}.arm/install_pkg"
+        local ra32=(${ra32_root}/retroarch-*/usr/bin/retroarch)
+        [ -f "${ra32[0]}" ] || die "retroarch32: no ${ra32_root}/retroarch-*/usr/bin/retroarch; build the arm root first"
+        [ "${#ra32[@]}" -eq 1 ] || die "retroarch32: ${#ra32[@]} retroarch install directories in ${ra32_root}, expected one"
+        [ "${ra32[0]}" = "${ra32_root}/retroarch-${PKG_VERSION}/usr/bin/retroarch" ] || die "retroarch32: ${ra32[0]} is not this recipe's version ${PKG_VERSION}"
+        cp -vP "${ra32[0]}" ${INSTALL}/usr/bin/retroarch32
         mkdir -p ${INSTALL}/usr/share/retroarch/filters/32bit
-        cp -rvP ${ROOT}/build.${DISTRONAME}-${DEVICE}.arm/install_pkg/retroarch-*/usr/share/retroarch/filters/64bit/* ${INSTALL}/usr/share/retroarch/filters/32bit/
+        cp -rvP ${ra32_root}/retroarch-${PKG_VERSION}/usr/share/retroarch/filters/64bit/* ${INSTALL}/usr/share/retroarch/filters/32bit/
       fi
       ;;
   esac
