@@ -294,6 +294,17 @@ is a lead for the coordinator, not a stream. The two legacy-layout lines
   directories under `/tmp` (four `pixelelated-watch-submit-*` on
   2026-10-24): a Q3 lead. `test-watch-job.py tools/watch-job` passes (rc 0,
   10 s).
+  **The lane's stage A (15:47 UTC) found a second layer under the first:**
+  with the module copied in, the three still fail, because `watch-build:96-98`
+  (#493, `d7e2d6be41`) refuses any run with neither an admission receipt nor
+  `--record-only` (`build admission required; prepare
+  tools/host-maintenance/build-admission first`); `test-build-monitor` passes
+  because `admission-test-fixture.py` copies the module **and** prepares a
+  receipt. So the stream that revives the three controls gives their fixtures
+  a prepared admission (the `admission-test-fixture.py` route) or, for the
+  QA-shaped cases, `--record-only`; copying the module alone is not a fix.
+  The record's count is the lane's: 46 `.build-runs/` directories, 1,902 run
+  directories, 2,131 entries (the stranger's 2,022 counted differently).
 
 ## 4. The questions
 
