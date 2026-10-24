@@ -5,32 +5,46 @@ unit of handoff the plan defines (`docs/reviews/plan-for-the-plan.md` § 7);
 read that document whole before the first command, then this brief whole.
 Every section below is mandatory; a section that does not apply says so and
 why. Where this brief and the checklist on #652 differ, #652 wins and the
-coordinator corrects the brief in the same session. **Version 1
-(2026-10-24):** written after T1's, T2's and T3's briefs had each been
-through a futro and a stranger's proof (plan § 3, principle 3), so the
-shapes those found wrong -- a count the executor cannot reproduce, a tool
-absent from the host, a line number quoted from memory, a command whose
-variables do not survive a Bash call, a path that belongs to another slice's
-area, a seam described as agreement where the files disagree -- are
-answered from the start; it goes through the same two readings before
-dispatch, and version 2 records what they found. **Each command block below
+coordinator corrects the brief in the same session. **Version 2
+(2026-10-24):** version 1 (`d2da1e2c3c`) was written after T1's, T2's and
+T3's briefs had each been through a futro and a stranger's proof (plan § 3,
+principle 3), so the shapes those found wrong -- a count the executor
+cannot reproduce, a tool absent from the host, a line number quoted from
+memory, a command whose variables do not survive a Bash call, a path that
+belongs to another slice's area, a seam described as agreement where the
+files disagree -- were answered from the start; it then went through the
+same two readings itself: the area epic's futro
+(`docs/futros/2026-10-24-m6-build-engine.md`, #800, `fd46029257`), whose
+substrate inspection ran the parse checks, the manifest reads and the
+identity test (which fails its release-plan half today, #801) and whose
+simulation added the `readlog` filter, the sandbox's `bash -x` trace, the
+run-time fixture names, the digests as Q4 (b)'s comparison, the
+fixed-string caller search, and the rule that a change altering what a
+build does waits for a stream brief naming the build that proves it; and a
+stranger's proof that checked some hundred claims by command and found
+the code-class set, two paths' owners, most of the seam map's line numbers
+for the upstream core, one upstream commit, six issue states and one
+blindspot number wrong, and three commands that lost an exit status or
+needed a directory. Every one is answered in the text below, and the proof
+is recorded at the end of § 10. **Each command block below
 sets its own variables** (`D`, `B`, `A`): a Bash call in this harness starts
 a fresh shell, only the working directory persists, and the fork's tools are
 run by absolute path from `$D`.
 
 ## 1. Identity
 
-- **Issue:** #652 `M6.P2 E339/T5: build-engine: the build engine`, slice
+- **Issue:** #652 `M6.P2 E800/T5: build-engine: the build engine`, slice
   `build-engine` (`k: 5`) in `docs/reviews/slices.json`, fifth in
-  `docs/reviews/order.md` (§ 3 of the order: *"The build process before any
-  device and before the rest of the interface (D-WORKFLOW-186)"*; T5 to T9
-  are one cluster, the engine first "so the engine is read whole before
-  anything it builds"; the order's row is on the P1 branch). **Epic:** the
-  area epic for **the build engine** (`build-engine` in
+  `docs/reviews/order.md` (the order's argument 3, *How the order was
+  argued*: *"The build process before any device and before the rest of the
+  interface (D-WORKFLOW-186)"*; T5 to T15 are one cluster in three steps,
+  the build T5 to T9 the first, the engine first "so the engine is read
+  whole before anything it builds"; the order's row is on the P1 branch).
+  **Epic:** #800, the area epic for **the build engine** (`build-engine` in
   `docs/reviews/areas.json`: T5 and T6 `build-engine-upstream-tools`), filed
-  by the coordinator at this slice's dispatch with its futro, under the
-  renovation epic #339; #652 and #653 are re-parented to it and retitled
-  `E<epic>/T<k>` (`milestone-phase-naming.md`). **Milestone:** M6 (`M6:
+  by the coordinator on 2026-10-24 under the renovation epic #339 with its
+  futro as its first comment; #652 and #653 are its sub-issues, retitled
+  `E800/T<k>` (`milestone-phase-naming.md`). **Milestone:** M6 (`M6:
   Codebase renovation`); its body holds the live order; read it first.
   **Predecessors:** #346 (the plan), #641 (the survey, the inventory and the
   order; closed 2026-10-23), #644 (the coordinator's read of ROCKNIX's
@@ -98,8 +112,9 @@ run by absolute path from `$D`.
     recipe (`openai/gpt-6-astra`, provider pinned to OpenAI).
   - **Gemini 4 Argon** (Google): `--member gemini-argon --provider
     openrouter` at `high`. **Its route is in this tree**: the coordinator
-    branch carries M7's three commits (`fac2129787`, `1c7d283ad5`,
-    `a7a3bdda4e` cherry-picked, #636/#638), so `grep -c gemini-argon
+    branch carries M7's three commits cherry-picked as `033eb7ed23`,
+    `0ceb2994c5` and `6874394d49` (the originals `fac2129787`,
+    `1c7d283ad5`, `a7a3bdda4e`, #636/#638, are on the legacy checkout), so `grep -c gemini-argon
     scripts/council-invoke.ts tools/lint-audit-artifacts` prints `7` and `4`;
     T1 and T2 each ran the seat on 2026-10-23 (served `google/gemini-4-argon`
     by `Google`; T1's call about nine minutes). The roster's `--member
@@ -143,11 +158,11 @@ git fetch origin && git fetch upstream --no-tags
 git branch --show-current                                            # feature/m6-build-engine-652
 git merge-base --is-ancestor 2174265e9c HEAD || echo "not stacked on the P1 tip: stop"
 git diff --stat next -- .claude CLAUDE.md AGENTS.md   # the four files § 1 names; any other file is STALE
-grep -c 'Renovation face' tools/lint-audit-artifacts; grep -c gemini-argon tools/lint-audit-artifacts   # both non-zero: the merged lint carries P1's renovation face and M7's Argon receipts
+grep -c 'Renovation face' tools/lint-audit-artifacts; grep -c gemini-argon tools/lint-audit-artifacts   # 4 and 4: the merged lint carries P1's renovation face and M7's Argon receipts (the two edits sit in disjoint hunks and merged cleanly in T1's, T2's and T3's worktrees; T3's stage A printed 4 and 4)
 ls tools/renovation-inventory tools/renovation-status tools/renovation-drift docs/reviews/inventory.json docs/reviews/slices.json docs/reviews/build-path-read.md   # P1's and #644's, present because the branch is stacked on P1 and carries the coordinator's tip
 git rev-parse --short upstream/next                                  # record it: Q4's upstream, fetched now
 git merge-base next upstream/next                                    # c445081a59 on 2026-10-24; record it
-git diff --quiet 8ebaf8daad HEAD -- scripts config distributions/ROCKNIX Makefile Dockerfile .gitignore .merge-head .github/workflows .github/ISSUE_TEMPLATE .github/pull_request_template.md .github/scripts && echo "slice bytes are next's at 8ebaf8daad" || echo "the slice's bytes differ from 8ebaf8daad: record the diff --stat and stop (§ 8)"
+git diff --quiet 8ebaf8daad HEAD -- scripts config distributions/ROCKNIX Makefile Dockerfile .gitignore .merge-head .github/workflows .github/ISSUE_TEMPLATE .github/pull_request_template.md ':!scripts/lib' ':!scripts/council*' ':!scripts/lint-council*' ':!scripts/verify-*' ':!scripts/write-step-seal.ts' ':!scripts/owner-queue-lint.mjs' ':!scripts/setup-council-*' ':!scripts/forge-*' ':!scripts/__tests__' ':!scripts/build-council-prompt.ts' ':!scripts/check-stale-blob-drift.ts' ':!.github/workflows/fork-*' && echo "slice bytes are next's at 8ebaf8daad" || echo "the slice's bytes differ from 8ebaf8daad: record the diff --stat and stop (§ 8)"   # the exclusions are T10's paths (the council toolchain the coordinator tip carries, the fork workflows); without them the check fires on every branch that carries the Argon route"
 git push -u origin feature/m6-build-engine-652                       # the lane's own branch, at the coordinator's merge until the first commit
 test -f docs/reviews/briefs/build-engine.md || { echo "the brief is not in this tree: stop"; exit 1; }
 test -f docs/futros/2026-10-24-m6-build-engine.md || echo "the epic's futro is not in this tree: ask the coordinator before the first audit commit"
@@ -168,9 +183,11 @@ rows of the slice's own area, `build-engine`, under the globs `scripts/**`,
 `config/**`, `distributions/ROCKNIX/**`, `Makefile`, `Dockerfile`,
 `.gitignore`, `.merge-head`, `.github/**`. **The area filter is the whole
 point**: the globs alone would sweep in the council toolchain under
-`scripts/` (46 paths, `tooling-and-guards`, T10's), the fork's own CI
-workflows (`.github/workflows/fork-*.yml`, 6 paths, T10's) and every
-`.github/sessions/**` checkpoint (353 paths, the `records` area). #652 says
+`scripts/` (46 paths, `tooling-and-guards`, T10's), the fork's own CI (the 4
+`.github/workflows/fork-*.yml` and the 2 `.github/scripts/*.sh`,
+`tooling-and-guards`, T10's) and every `.github/sessions/**` checkpoint
+(353 paths, the `records` area); the globs alone give 647 paths, the area
+filter 242. #652 says
 the same set as `--order`'s membership; the filter below is the
 re-derivation, because `--order` writes files (and `--slice-issues <dir>`
 writes forty-six issue bodies into that directory: never run either in a
@@ -199,7 +216,7 @@ globs = ["scripts/**", "config/**", "distributions/ROCKNIX/**", "Makefile", "Doc
 def gm(p, g): return re.fullmatch(re.escape(g).replace(r"\*\*/", "(?:.*/)?").replace(r"\*\*", ".*").replace(r"\*", "[^/]*"), p) is not None
 t5 = [r for r in rows if r["tree"] == "distribution" and r["area"] == "build-engine" and any(gm(r["path"], g) for g in globs)]
 L = lambda rs: sum(r["lines"] or 0 for r in rs)
-CODE = {"shell", "python", "yaml", "recipe", "cmake", "udev", "systemd"}
+CODE = {"shell", "python", "recipe", "c", "c++", "c-header", "c++-header", "javascript", "typescript", "make", "cmake", "systemd", "udev", "script", "perl", "lua", "rust", "go", "assembly", "shader", "docker", "kconfig", "html", "css"}   # the tool's own set, tools/renovation-inventory lines 674 to 676 (no yaml); order() applies it at line 1274
 print("paths", len(t5), "lines", L(t5), dict(collections.Counter(r["tier"] for r in t5)))
 print("fork-own lines", L([r for r in t5 if r["tier"] == "fork-own"]), "| code-class lines", L([r for r in t5 if r["language"] in CODE]), "| of which fork-own", L([r for r in t5 if r["language"] in CODE and r["tier"] == "fork-own"]))
 print("by language", dict(collections.Counter(r["language"] for r in t5)))
@@ -213,37 +230,45 @@ Recorded (the coordinator's run of this filter on 2026-10-24 against the
 P1 tip's `inventory.json`): **242 paths, 13,910 lines; 18 fork-own paths,
 3,266 lines; 224 upstream-carried, no vendor-carried row.** The order's row
 prints `242 paths 13,910 lines 6,776 (2,419)`: its 6,776 is the inventory's
-code classes summed whatever their tier (the tool's `read_lines`, line 999:
-`recipe`, `shell`, `python`, `yaml`, `cmake`, `udev`, `systemd`) and the
-2,419 the fork-own part of those; the 139 `config/emulators/*.conf` system
-fragments, `config/functions` (1,936 lines, classed `none`), the
-`config/arch.*` files and the `distributions/ROCKNIX` configuration are
-outside the tool's `read` and inside this brief's (the lane states the
-three figures beside its own). **By language:** `config` 139 files, `shell`
+code classes summed whatever their tier (the tool's `CODE` set at
+`tools/renovation-inventory` lines 674 to 676 -- `shell`, `python`,
+`recipe`, `make`, `cmake`, `systemd`, `udev`, `docker`, the C, C++, script
+and web classes; **no `yaml`**, so the 19 workflow files are outside it --
+applied by `order()` at line 1274) and the 2,419 the fork-own part of those;
+the filter above reproduces both exactly with that set. The 139
+`config/emulators/*.conf` system fragments, `config/functions` (1,936
+lines, classed `none`), the `config/arch.*` files, the workflows and the
+`distributions/ROCKNIX` configuration are outside the tool's `read` and
+inside this brief's (the lane states the three figures beside its own). **By language:** `config` 139 files, `shell`
 30, `yaml` 19, `none` 12, `image` 11 and the rest. **By directory:**
 `config/emulators` 139 (the system fragments T3's launch table sources),
 `.github/workflows` 19 (upstream's workflows as the fork carries them;
 `validate-pull-request.yml` and `check-freeze-period.yml` are fork-own
 edits), `config/noobs` 15, `config/addon` 7, `config/docker` 7,
 `distributions/ROCKNIX` 5 (`config/functions` 400 fork-own, `options` 219
-fork-own, `version` 11 fork-own, `kernel_options` 0 lines, and one more the
-filter lists), `scripts/` 30 files 5,834 lines, `config/` 13 top-level
-files, `.github/ISSUE_TEMPLATE` 2, `.github/pull_request_template.md`,
-`.github/scripts` 2, and the five top-level files. **Not in the membership,
+fork-own, `version` 11 fork-own, `kernel_options` 0 lines,
+`logos/rocknix-logo.png` binary), `scripts/` 30 files 5,834 lines,
+`config/` 13 top-level files, `.github/ISSUE_TEMPLATE` 2,
+`.github/pull_request_template.md`, and the four top-level files
+(`Makefile`, `Dockerfile`, `.gitignore`, `.merge-head`): 139 + 19 + 15 + 7 +
+7 + 5 + 30 + 13 + 2 + 1 + 4 = 242. **Not in the membership,
 read only where the engine points at them:** the council toolchain under
 `scripts/` (`council-*`, `lib/council-*`, `lint-council-*`, `verify-*`,
 `write-step-seal.ts`, `owner-queue-lint.mjs`, `build-council-prompt.ts`,
 `check-stale-blob-drift.ts`, `forge-write-status.mjs`,
 `setup-council-mistral-tokenizer.mjs`, `__tests__/`: T10's); the fork's CI
 `fork-checks.yml`, `fork-generic-x64.yml`, `fork-mirror-build-container.yml`,
-`fork-wordlist.yml` and `.githooks/**` (T10's); `.github/sessions/**` (the
+`fork-wordlist.yml`, `.github/scripts/generate-changelog.sh`,
+`generate-release-body.sh` and `.githooks/**` (T10's); `.github/sessions/**` (the
 `records` area, nobody's slice); `tools/**` -- `tools/pkgcheck` (fork-own,
 `build-engine` area, T6's by its `tools/**` glob), `tools/watch-build`,
 `tools/watch-build-submit`, `tools/watch-job`, `tools/build-preflight`,
 `tools/host-maintenance/**` (T9's, `tooling-build-supervision`: the watcher
 the engine's entry points exec into, the admission the Makefile's targets
-require, the swap helper), `tools/build-identity-test` (T9's area, though
-it tests this slice's `config/build-identity`: run it, § 5);
+require, the swap helper), `tools/build-identity-test` (**T14's**, `tooling-state-tests`, by
+`slices.json`'s globs -- `docs/reviews/build-path-read.md`'s finding 13
+says T9 reads it, which is that document's error -- though it tests this
+slice's `config/build-identity`: run it, § 5);
 `distributions/LibreELEC/**` and `distributions/LEIoT/**` (T6's, unreached);
 `packages/**` and `projects/**` (the recipes the engine builds: T7, T8 and
 the device slices; `packages/README.md` is read as the contract the engine
@@ -252,28 +277,31 @@ promises them).
 **Where the code runs.** Nothing here ships on an image except what
 `scripts/image` writes into it: `/etc/os-release`'s `BUILD_ID`,
 `BUILD_BRANCH`, `BUILD_VERSION` and `BUILDER_VERSION` (the identity,
-`config/build-identity` called at `scripts/image` 74 to 75), and the
+`config/build-identity` sourced and called at `scripts/image` 60 to 61), and the
 `/etc/emulationstation/es_systems.cfg` and its document that
 `distributions/ROCKNIX/config/functions`'s `mk_es_systems` and
 `mk_system_doc` write when the `emulators` metapackage installs (T3's
 caller, this slice's functions). Everything else runs **on the build host or
 in the build container**: `make <DEVICE>` and `make docker-<DEVICE>`
-(`Makefile`; the Docker targets pull the fork's mirror by digest, line 205
-to 208, write `.env` owner-only through `scripts/get_env` and remove it on
-exit, lines 138 to 195); every native entry point execs into
+(`Makefile`; the Docker targets pull the fork's mirror by digest -- the
+digest at 138 to 139, the pull at 192 -- and write `.env` owner-only through
+`scripts/get_env` and remove it on exit, the recipe at 205 to 208); every native entry point execs into
 `tools/watch-build` first (`scripts/build` 9, `scripts/image` 9,
 `scripts/install` 10, `scripts/build_distro` 11, `scripts/build_compat` 7:
 the `RASTERATOPS_WATCH_EXEC` marker, D-WORKFLOW-142; `scripts/build_mt` and
 `scripts/clean` do not, #644's finding 6, T9's); `scripts/build` configures,
 builds and installs one package through the hooks `packages/README.md`
 documents, with `--wrap-mode=nodownload` on every meson configure (lines
-185 and 196, #226, blindspot 47) and `calculate_stamp` (`config/functions`
-961) deciding whether a package rebuilds by hashing its `PKG_DIR`
+196 and 227, the target's and the host's; 185 is the comment; #226,
+blindspot 47) and `calculate_stamp` (`config/functions` 1109) deciding whether a package rebuilds by hashing its `PKG_DIR`
 (`device-builds.md` § After rebasing onto upstream, item 3: an override that
 sources the generic recipe is never invalidated by the generic file's
 change); `scripts/build_distro` builds a device's whole set;
-`scripts/image` assembles the image (identity 60 to 75, the `target/`
-collision refusal at 139 to 168); `scripts/install` copies a package's
+`scripts/image` assembles the image (the identity sourced at 60 to 61,
+the refusal of an existing identity in `target/` at 78 to 82, the
+`.identity.json` sidecar at 109 to 121, `/etc/os-release` written at 139 to
+168 with `BUILD_ID` at 153, `BUILD_BRANCH` at 154 and `BUILDER_VERSION` at
+168); `scripts/install` copies a package's
 install tree; `scripts/mkimage` writes the disk image; `scripts/unpack`,
 `get`, `get_git`, `get_archive`, `get_file`, `extract`, `autoreconf`,
 `checkdeps`, `pkgbuild`, `pkgjson`, `pkgbuilder.py`, `genbuildplan.py`,
@@ -282,9 +310,10 @@ install tree; `scripts/mkimage` writes the disk image; `scripts/unpack`,
 `build_mt`, `clean` are the rest, each with its callers to find (Q6).
 `config/options` is sourced by every script (the layered resolution
 `CLAUDE.md` § Architecture describes: distribution, project, device, arch;
-ccache at 91 to 118, `SOURCES_DIR` and `DISTRO_MIRROR` at 142 to 151);
-`config/path` sets `TARGET_IMG` (`target/`, line 10), `SOURCES` (13) and the
-build roots. The 19 upstream workflows under `.github/workflows/` run on
+`CONCURRENCY_MAKE_LEVEL` at 91, the ccache settings at 100 to 118, the
+local ccache at 142 to 151); `config/path` sets `SOURCES` (line 10,
+`SOURCES_DIR` or `$ROOT/sources`), `TARGET_IMG` (`target/`, 13) and the
+build roots; `DISTRO_MIRROR` is `distributions/ROCKNIX/options` 186. The 19 upstream workflows under `.github/workflows/` run on
 GitHub against the fork's repository (all active; `Build` ends
 `startup_failure` daily, #644's finding 19 with T10); the fork builds
 locally and nothing from CI is published (D-WORKFLOW-120).
@@ -295,20 +324,22 @@ numbers are `next`'s at `8ebaf8daad`, from a read-only seam map the
 coordinator made on 2026-10-24; each is a lead to re-read, not a verdict:
 
 1. **The fork's own engine lines** (18 fork-own paths, read whole first):
-   `scripts/build` (646; +12 against upstream: the watch entry 9 to 12 and
-   `--wrap-mode=nodownload` at 185 and 196), `scripts/image` (481; +63/-54:
-   the watch entry, the identity at 60 to 75 and 139 to 168 --
-   `BUILD_TIMESTAMP`, `IMAGE_SUFFIX`, the refusal of an existing identity in
-   `target/`, the `.identity.json` sidecar, D-WORKFLOW-157/159),
+   `scripts/build` (646; +12 against upstream: the watch entry 8 to 11 with
+   the exec at 9, and `--wrap-mode=nodownload` at 196 and 227),
+   `scripts/image` (481; +63/-54: the watch entry at 9, the identity
+   sourced at 60 to 61, `IMAGE_SUFFIX` appended at 74 to 75, the refusal of
+   an existing identity in `target/` at 78 to 82, the `.identity.json`
+   sidecar at 109 to 121, `/etc/os-release` at 139 to 168;
+   D-WORKFLOW-157/159),
    `scripts/install` (196; +6, the watch entry), `scripts/build_distro`
    (106; +17/-11), `scripts/build_compat` (103; +6), `scripts/extract` (84;
    +1/-1), **`scripts/get_env` (22; +19/-2: the `KEEP` and `DROP` name
    patterns at 14 and 15 that decide which exported variables reach `.env`
    and the container; its own comment says a secret under an innocent name
    still leaks; D-INFRA-006; #644's finding 3)**, `Makefile` (208; +42/-7:
-   the watch entry at 40, the `.env` lifecycle at 138 to 195, the container
-   digest `sha256:988c0ba5…` and `ghcr.io/pixelelated/build` at 205 to 208;
-   #644's findings 1, 2, 4), `config/build-identity` (44, new:
+   the watch entry at 40, the container digest `sha256:988c0ba5…` and
+   `ghcr.io/pixelelated/build` at 138 to 139, the pull at 192, the `.env`
+   lifecycle at 205 to 208; #644's findings 1, 2, 4), `config/build-identity` (44, new:
    `pixelelated_build_identity`, the MAJOR.MINOR.PATCH and `BUILD_QUALIFIER`
    rules, D-WORKFLOW-157/159, #532), `config/graphic` (168; +7/-1: the
    GL/GLES/Vulkan support flags every recipe reads), `config/show_config`
@@ -316,12 +347,13 @@ coordinator made on 2026-10-24; each is a lead to re-read, not a verdict:
    `add_emu_doc` 50, `mk_system_doc` 64, `clean_es_cache` 80, `add_emu_core`
    88, `mk_es_systems` 99 with its `ls | sort` concatenation and its
    `xmlstarlet fo -t ... 2>/dev/null`, `add_system_dir` 117, `add_es_system`
-   127 with `RUNCMD` at 128 and the `SYSTEM_COMMAND` default at 138 to 141 --
+   127 with `RUNCMD` at 128 and the `SYSTEM_COMMAND` default at 139 to 142 --
    T3's lead on the silenced formatter is **this slice's** to judge and fix),
    `distributions/ROCKNIX/options` (219; +9/-6: `DISTRONAME="pixelelated"`
-   at 17, `DISTRO_VERSION="devel"`), `distributions/ROCKNIX/version` (11;
-   +9/-3: `OS_VERSION="0.0.1"`, the `BUILD_QUALIFIER` comment,
-   `IMAGE_SUFFIX="from-ROCKNIX"`, D-WORKFLOW-128), `.gitignore` (84),
+   at 17, `DISTRO_MIRROR` at 186), `distributions/ROCKNIX/version` (11;
+   +9/-3: `DISTRO_VERSION="devel"` at 2, `OS_VERSION="0.0.1"`, the
+   `BUILD_QUALIFIER` comment, `IMAGE_SUFFIX="from-ROCKNIX"`,
+   D-WORKFLOW-128), `.gitignore` (84),
    `.github/workflows/validate-pull-request.yml` (121) and
    `check-freeze-period.yml` (63) (both edited to `ubuntu` runners, #644's
    finding 19), and **`scripts/test-audit-review.py` (150; the code-auditor
@@ -338,10 +370,10 @@ coordinator made on 2026-10-24; each is a lead to re-read, not a verdict:
    read with its commit (`engineering-practices.md` § Verify design intent).
 2. **The engine's upstream-carried core** (read whole; the fork runs every
    line of it on every build): `config/functions` (1,936 lines: the build
-   helpers every recipe and script calls -- `calculate_stamp` 961,
-   `get_pkg_version` 991, `get_pkg_directory` 1057, `enable_service` 1109,
-   `die` 1700, the `LIBTOOLIZE`/`AUTOCONF` exports `device-builds.md` § After
-   rebasing names at 6), `config/options` (197), `config/path` (105),
+   helpers every recipe and script calls -- `die` 6, the `AUTOCONF`,
+   `LIBTOOLIZE` and `ACLOCAL` exports `device-builds.md` § After rebasing
+   names at 943, 961 and 969, `get_pkg_version` 1035, `get_pkg_directory`
+   1057, `calculate_stamp` 1109, `enable_service` 1700), `config/options` (197), `config/path` (105),
    `config/arch.{arm,aarch64,x86_64}` (87, 46, 22), `config/optimize` (102),
    `config/multithread` (72), `config/sources` (2), `config/blocklist` (29;
    still names `aethersx2-sa`, which upstream dropped in `c4d353449e`:
@@ -358,9 +390,11 @@ coordinator made on 2026-10-24; each is a lead to re-read, not a verdict:
 3. **The system fragments** (139 `config/emulators/*.conf`, upstream-carried,
    10 keys each -- `SYSTEM_NAME`, `SYSTEM_FULLNAME`, `SYSTEM_MANUFACTURER`,
    `SYSTEM_RELEASE`, `SYSTEM_HARDWARE`, `SYSTEM_PATH`, `SYSTEM_EXTENSION`,
-   `SYSTEM_PLATFORM`, `SYSTEM_THEME`, `SYSTEM_WIKI_PATH`; three set
-   `SYSTEM_COMMAND`; one lacks `SYSTEM_NAME`, two lack `SYSTEM_RELEASE` and
-   `SYSTEM_WIKI_PATH`): what `add_es_system` sources for each system T3's
+   `SYSTEM_PLATFORM`, `SYSTEM_THEME`, `SYSTEM_WIKI_PATH`; 132 carry exactly
+   those ten; `daphne` and `gp32` lack `SYSTEM_RELEASE`, `arcade` and
+   `segamodel3` lack `SYSTEM_WIKI_PATH`; three set `SYSTEM_COMMAND`
+   (`imageviewer` `/usr/bin/true`, `moonlight` `/bin/sh %ROM%`, `tools`
+   `%RUNCOMMAND%`)): what `add_es_system` sources for each system T3's
    metapackage names. Read at Q4 and Q6: which fragments the five built
    devices' tables use (T3's Q6 lists the systems; the cross-check is a
    diff of names), which keys the interface reads (T2's `SystemData` rows),
@@ -372,24 +406,30 @@ coordinator made on 2026-10-24; each is a lead to re-read, not a verdict:
    add-on), a row each with `Already written:` where a removal is proposed
    (D-WORKFLOW-185's shape: unshipped is not dead when upstream reaches it;
    the fork merges upstream through these files).
-5. **The workflows and templates** (19 upstream workflows the fork carries
-   active -- `build-nightly.yml` 336 lines, the `build-aarch64-*` series,
-   `build-device.yml`, `build-docker-image.yml`, `check-freeze-period.yml`,
-   `retry-workflow.yml`, `trigger-fail-if-upstream-changed.yml`,
-   `update-kernel-configs-docs.yml`, `update-mirror-sources.yml`,
-   `validate-pull-request.yml`; `.github/ISSUE_TEMPLATE/`,
-   `pull_request_template.md`, `.github/scripts/generate-*.sh`): #644's
-   findings 18 to 21 name their state (all active on the fork; the daily
-   `Build` fails at startup; the fork publishes nothing from CI). Q6 and Q4
+5. **The workflows and templates** (19 workflow files: 18 upstream `.yml`
+   workflows the fork carries active -- `build-nightly.yml` 336 lines, the
+   `build-aarch64-*` series, `build-device.yml`, `build-docker-image.yml`,
+   `check-freeze-period.yml`, `retry-workflow.yml`,
+   `trigger-fail-if-upstream-changed.yml`, `update-kernel-configs-docs.yml`,
+   `update-mirror-sources.yml`, `validate-pull-request.yml`, `build-arm.yml`,
+   `build-aarch64.yml` -- and `ai-usage.yml.disabled`, 84 lines, classed
+   `other`; `.github/ISSUE_TEMPLATE/` 2 and `pull_request_template.md`;
+   `.github/scripts/generate-*.sh` are T10's): #644's findings 18 to 21 name
+   their state (`gh workflow list --all` shows the 18 active beside the 4
+   fork workflows and GitHub's Copilot agent; the daily `Build` fails at
+   startup; the fork publishes nothing from CI). Q6 and Q4
    first, with T10 (the fork's own CI) as the neighbour: this slice says
    what each upstream workflow would do on the fork and whether anything
    reaches it; T10 decides the fork's gates.
 
-**Upstream's side of Q4, at the first commands' fetch:** 4 commits of
-`c445081a59..upstream/next` touch the membership (2026-10-24: `c4d353449e`
-aethersx2 dropped for licensing -- `config/blocklist`; `71d8932b33` openabl
-introduced; `76693a738d` the GitHub username in the release workflow;
-`c200cc906d` the pull request template), against the fork's 31. **The
+**Upstream's side of Q4, at the first commands' fetch:** **3** commits of
+`c445081a59..upstream/next` touch the membership (2026-10-24, `git log
+c445081a59..upstream/next -- <the 242 paths>`: `c4d353449e` aethersx2
+dropped for licensing -- `config/blocklist`; `76693a738d` the GitHub
+username in the release workflow; `c200cc906d` the pull request template;
+`71d8932b33`, openabl, touches `projects/` only and is not one of them),
+against the fork's **31** counted over the same 242 paths (the glob list
+without the exclusions counts 46, with the council toolchain's commits). **The
 pinned build container** is the slice's other currency question: the
 Makefile pins `ghcr.io/pixelelated/build@sha256:988c0ba5…`, a mirror of
 upstream's image of 2026-09-25, while upstream's CI rebuilds
@@ -454,7 +494,8 @@ session's first hour; stage A follows it):
   contribution), 11 (the fork downloads from ROCKNIX's `DISTRO_MIRROR` and
   carries the mirror workflow: record the dependency; a mirror of our own is
   the maintainer's call only if upstream's goes away), 13 (the identity:
-  keep; T9 reads `tools/build-identity-test`, this lane runs it, § 5), 22
+  keep; `build-path-read.md` says T9 reads `tools/build-identity-test`, but
+  `slices.json` gives that tool to T14; this lane runs it, § 5), 22
   (the credentials' path from `~/.ROCKNIX/options` through `.env` by name:
   keep). The other seventeen are named with their carriers so this lane
   does not take them (2, 5, 14 T4; 6, 7 T9; 12, 23 T11 and T12; 15, 16 T7
@@ -509,17 +550,17 @@ session's first hour; stage A follows it):
   sentence (#644's finding 14: only `BUILD_DATE` is honoured and the fork
   defaults it; T4 corrects the sentence).
 - `docs/blindspot-register.md` whole, once (74 entries). The entries that
-  touch the engine: **14** (a hook is proven by a constructed failure),
+  touch the engine: **14** (a guard stored inside what it guards),
   **26** (`core.hooksPath` naming a directory that no longer exists runs
   nothing), **47** (pango fetched its own cairo: `--wrap-mode=nodownload`),
   **48** (an option changed without reading the log: four webkitgtk builds),
   **49** (an edit made blind to the compiler), **73** (a monitor of
   completion, not activity: `watch-job --build-progress`), **74** (a fixture
   or a stub that silently did not engage); and the general ones a reading
-  repeats: 7 (host tools are not the device's), 13 (assumed done), 30 (a
-  resumed session built on its own summary), 39 (a suite that passed over
-  a table of dashes), 46 (a name read as a behaviour), 51 (an open checkbox
-  is a claim).
+  repeats: 34 (a check written for the device, proven only under the
+  host's tools), 13 (assumed done), 30 (a resumed session built on its own
+  summary), 39 (a suite that passed over a table of dashes), 46 (a name
+  read as a behaviour), 51 (an open checkbox is a claim).
 - Prior audits under `docs/audits/`, **as provenance only**: which engine
   files were audited, when, at what tier; read after stage B's own Phase 2
   is written, compared then, never transcribed (plan § 7 item 3). The punch
@@ -568,20 +609,24 @@ session's first hour; stage A follows it):
   build supervision: the watcher and the admission this engine execs
   into), #493 (build storage and admission), #635 and #634 (memory
   admission; swap to 32 GiB), #395 (watcher alerts while disconnected),
-  #233 (a self-hosted QA runner), #532 (identity, `tools/build-identity-test`),
-  #528 (release component licences and corresponding source: what
-  `scripts/image` would have to carry), #549 (TMPDIR in the container),
-  #412 and #413 (`watch-job --build-progress`), #228 (webkitgtk held at
-  2.52.6; the compile cache's PCH), #585 (the upstream contribution queue:
+  #233 (a self-hosted QA runner), #528 (release component licences and
+  corresponding source: what `scripts/image` would have to carry), #228
+  (webkitgtk held at 2.52.6; the compile cache's PCH), #312 (the wordlist
+  guard, open), #585 (the upstream contribution queue:
   `--wrap-mode=nodownload` is its candidate), #640 (the legacy paths in the
-  rules), #650 (T3, beside this lane: its lead on `mk_es_systems`'s silenced
-  formatter is this slice's function). **Closed, read for their history on
+  rules), #650 (T3, beside this lane: its F-06 -- the launch table's default
+  marking at `functions` 212 to 214 and the silenced formatter at 113 -- is
+  this slice's function, posted as a lead on #652 on 2026-10-24 with the
+  two constructed cases that show it); #801 (`tools/build-identity-test`
+  failing its release-plan half on `next`; the fork CI never ran it). **Closed, read for their history on
   these files:** #226 (pango's fetched cairo), #227 (`fork-package-freshness`),
   #492 (the helper verified with the container's interpreter), #394
-  (`watch-build`), #393 (`watch-job`'s activity dir), #444 (`watch-build-submit`),
-  #410 (`build-preflight --reclaim-swap`), #461 (the retention planner),
-  #307 and #312 (the credential and wordlist guards the `.env` work sits
-  beside), #16 (the GENERIC_X64 build). Every `gh` call carries `--repo
+  (`watch-build`), #393 (`watch-job`'s activity dir), #412 and #413
+  (`watch-job --build-progress`), #444 (`watch-build-submit`), #410
+  (`build-preflight --reclaim-swap`), #461 (the retention planner), #532 (the
+  identity and its test), #549 (TMPDIR in the container), #307 (the
+  credential guard the `.env` work sits beside), #16 (the GENERIC_X64
+  build). Every `gh` call carries `--repo
   pixelelated/distribution`.
 
 ## 4. The questions
@@ -604,8 +649,8 @@ criterion 7 accepts that cell). Per file, the evidence that answers each:
 | Q2 Standards | The rules § 3 names, cited by section: `engineering-practices.md` § Guards must fail closed on every pipeline, test and exit path in the 30 scripts (`set -o pipefail`, quoted expansions, a positive assertion over an absent error); `device-builds.md` on what the engine promises the watcher and the admission (the `RASTERATOPS_WATCH_EXEC` marker, the entry points that carry it and the two that do not, #644 finding 6); D-INFRA-006 on the `.env` lifecycle (`scripts/get_env`'s name patterns; the Makefile's owner-only write and exit removal; what `.env` holds at rest in a worktree); `packages/README.md` on the hook order `scripts/build` honours; `fork-workflow.md` on which of these files are personal paths (none: the engine goes upstream) and `.githooks/pre-push`'s content rule | the rule and section cited; the test or trace per guard; the `.env` lifecycle traced in the Makefile's recipe lines with their numbers |
 | Q3 Bugs | Where each unit fails: `calculate_stamp` hashing `PKG_DIR` so a generic recipe's change never invalidates an override that sources it (`device-builds.md` § After rebasing, item 3: 53 ROCKNIX packages use the pattern -- a defect in the engine, or a documented limit, decided with a sandboxed call of the function over a fixture tree); `get_env`'s DROP by name (a secret under an innocent name reaches the container: the comment says so; is the fix a value-shape check, an allowlist, or the documented limit?); the `.env` left behind when a recipe fails before its removal (`67cd0e6493` says what happens); `scripts/image`'s refusal of a duplicate identity and what a same-day rebuild does (D-WORKFLOW-157); `mk_es_systems`'s empty table on a formatter error (T3's lead; the fix is this slice's, proven by the host regeneration § 5); `mkimage`'s partition arithmetic for the GENERIC_X64 16 GB rule; the TMPDIR trap (#549); a workflow that assumes a secret the fork does not hold (the daily `startup_failure`) | a reproduction in a sandbox (the function sourced with scratch variables), a recorded run's log (`.build-runs/<id>/build.log` in an M7 worktree, read-only), or a trace with file:line; the code-auditor evidence floor applies (host reasoning about a build's behaviour is a lead until a recorded run or a sandboxed call shows it) |
 | Q4 Package currency | Two readings, each a table in `04`: (a) **the fork against ROCKNIX**: the 4 commits of `c445081a59..upstream/next` on the membership dispositioned one by one (merged already / not applicable to this fork / to merge, with the reason; `config/blocklist`'s `aethersx2-sa` among them), plus every membership file that differs textually from `upstream/next` (`git diff --stat upstream/next 8ebaf8daad -- <the membership>`), each difference named as the fork's (with its commit) or upstream's (with its commit); (b) **the build container**: the Makefile's pinned digest and its date against upstream's current `ghcr.io/rocknix/rocknix-build:latest` digest and date (`gh api` or `docker manifest inspect` without a pull, if the host has a token for GHCR; else the registry's public manifest; never a pull during a host window), the `Dockerfile` here against upstream's, and what changed in the container between the two dates as far as the registry's labels and upstream's commits say; the refresh itself is the coordinator's, recorded as `to merge` | the two tables with their commands and dates; the fetch's hash recorded; `tools/fork-package-freshness --list` run once to show it covers nothing here (the engine introduces no package) |
-| Q5 Efficiency | What the engine costs a build and the host: the ccache settings (`config/options` 91 to 118) against CI's (#644 finding 8), decided from recorded runs' `ccache_stats` and the `.build-runs/` logs the M7 worktrees hold, never a build of this lane's; `calculate_stamp`'s granularity (a whole-directory hash: a metadata-only change rebuilds the package, `device-builds.md` § A metadata-only upstream change), with the count of packages a `PKG_SHA256` sweep would rebuild as the measure; the watch entry's overhead per entry point (one exec and a lock); `CONCURRENCY_MAKE_LEVEL` and the per-package `-j` caps as the host's memory rule; image assembly's steps and their times from a recorded `scripts/image` run; what the engine costs the player: nothing at run time except the identity read by `rocknix-info` | a recorded run's timings (`build.start`, `build.status`, `build.log` in an M7 `.build-runs/<id>/`), the ccache statistics a root's `.ccache/` reports read-only, or the named absence of a measurement |
-| Q6 Dead ends | Is each unit reached: **by a fork build** (which of the 30 scripts the Makefile, `scripts/build_distro`, `scripts/build`, `scripts/image`, the workflows and `tools/watch-build` call -- `git grep -n -F -e "scripts/<name>" -e "SCRIPTS}/<name>" -e "/<name> "` for each, the hits listed; `genbuildplan.py` and `pkgbuilder.py` are CI's builder, `create_addon`, `install_addon`, `create_docker_package`, `pkgjson`, `uboot_helper`, `ccache_stats`, `makefile_helper`, `update_packages` are each a row; `.merge-head`'s reader; `config/noobs`, `config/addon`, `config/docker` against the five devices' options), **by a fork image** (what `scripts/image` writes that a device reads: the identity, the `es_systems.cfg` and its document), **by the fork's CI** (each of the 19 upstream workflows: its trigger, whether it runs on the fork, what it would need -- a secret, a runner, a PAT -- and whether anything reads its result; `Build`'s daily `startup_failure` is a row), and the 139 fragments against the systems the five devices' tables name (T3's list); the misfiled `scripts/test-audit-review.py` | the reachability tables in `04` Q6: one row per script (30) with its callers, one per workflow (19), one per configuration tree (3), one per fragment (139) with the devices whose table names it, one for `.merge-head`; the search commands and their output; every row marked unreached by any fork build, image or CI carries an `Already written:` line and what the unit exposed |
+| Q5 Efficiency | What the engine costs a build and the host: the ccache settings (`config/options` 100 to 118) against CI's (#644 finding 8), decided from the `.build-runs/` logs the M7 worktrees hold where they carry ccache statistics, else `not measured` with the reason -- `ccache --show-stats` against an M7 root's `.ccache/` is a process started in the M7 lane's tree and is **not run** -- never a build of this lane's; `calculate_stamp`'s granularity (a whole-directory hash: a metadata-only change rebuilds the package, `device-builds.md` § A metadata-only upstream change), with the count of packages a `PKG_SHA256` sweep would rebuild as the measure; the watch entry's overhead per entry point (one exec and a lock); `CONCURRENCY_MAKE_LEVEL` and the per-package `-j` caps as the host's memory rule; image assembly's steps and their times from a recorded `scripts/image` run; what the engine costs the player: nothing at run time except the identity read by `rocknix-info` | a recorded run's timings (`build.start`, `build.status`, `build.log` in an M7 `.build-runs/<id>/`), the ccache statistics a root's `.ccache/` reports read-only, or the named absence of a measurement |
+| Q6 Dead ends | Is each unit reached: **by a fork build** (which of the 30 scripts the Makefile, `scripts/build_distro`, `scripts/build`, `scripts/image`, the workflows and `tools/watch-build` call -- `git grep -n -F -e "scripts/<name>" -e "SCRIPTS}/<name>" -e "/<name> " -e "/<name>\""` for each, the hits listed, and **a zero re-checked with a second pattern before it is a verdict** (git's default regex has no `\b`; the coordinator's quick scan on 2026-10-24 read zero callers for `get_git`, `get_archive`, `get_file` and `uboot_helper` that `scripts/get` and `scripts/unpack` call through `${SCRIPTS}/`, blindspot 39's shape); `genbuildplan.py` and `pkgbuilder.py` are CI's builder, `create_addon`, `install_addon`, `create_docker_package`, `pkgjson`, `uboot_helper`, `ccache_stats`, `makefile_helper`, `update_packages` are each a row; `.merge-head`'s reader; `config/noobs`, `config/addon`, `config/docker` against the five devices' options), **by a fork image** (what `scripts/image` writes that a device reads: the identity, the `es_systems.cfg` and its document), **by the fork's CI** (each of the 19 upstream workflows: its trigger, whether it runs on the fork, what it would need -- a secret, a runner, a PAT -- and whether anything reads its result; `Build`'s daily `startup_failure` is a row), and the 139 fragments against the systems the five devices' tables name (T3's list); the misfiled `scripts/test-audit-review.py` | the reachability tables in `04` Q6: one row per script (30) with its callers, one per workflow (19), one per configuration tree (3), one per fragment (139) with the devices whose table names it, one for `.merge-head`; the search commands and their output; every row marked unreached by any fork build, image or CI carries an `Already written:` line and what the unit exposed |
 | Q7 Clarity | Can a reader new to it tell what each unit does and why in one pass: `config/functions` at 1,936 lines (how many responsibilities; which helpers nothing calls); `scripts/build` at 646 and `scripts/image` at 481 with the fork's identity hunk; the identity split across four files (`distributions/ROCKNIX/version`, `options`, `config/build-identity`, `scripts/image`) and `CLAUDE.md`'s sentence about it (#644 finding 14, T4's edit); the Makefile's `docker-%` recipe and its `.env` lifecycle as a reader follows it; comments that match the code (`get_env`'s does; `X64_SKIP_CORES`'s neighbour in T3 did not); headers that say where a script came from (LibreELEC, OpenELEC, JELOS, ROCKNIX) | the specific unit named with what a reader stumbles on; a duplicate named with its original and the diff's size |
 
 A finding is one question with its evidence; severity and category are the
@@ -643,10 +688,11 @@ The code-auditor skill's rules apply to every verdict, as its `SKILL.md`
    `.build-runs/<id>/` records and `build.*` logs in the legacy worktrees,
    read-only; the image's `/etc/os-release` in a build root's
    `image/system`), by **a sandboxed call** of the function or script with
-   every variable set to a scratch path (the host's bash is the container's
-   bash for these scripts, since the container runs them under the same
-   interpreter the host does -- say so where it matters and name the
-   version read from the pinned image's labels), or by **the guest** for
+   every variable set to a scratch path (the host's bash is 5.3; the
+   container's is not read -- the image's labels do not name it and nothing
+   here pulls the image -- so a finding that depends on a bash version is
+   written as a lead until a recorded run's `build.log` shows the
+   container's `bash --version`), or by **the guest** for
    what the engine wrote into an image; a claim about what the engine would
    do after a fix is `fix-pending-image` (§ 6) and the hand-back says so per
    fix.
@@ -685,14 +731,20 @@ backend, or a QA guest another lane owns.
   sandboxed shell**, none of which the window forbids; the only compiles
   are `tools/build-identity-test`'s and `tools/host-maintenance/test-build-monitor`'s
   Python (no compiler), so a window costs this lane nothing but a guest it
-  does not expect to need.
+  does not expect to need; a sandbox run that is not a compile continues
+  through a window, `npm install` and any compile wait.
 - **The recorded runs.** The M7 lane's build worktrees under
   `/workspace/repos/rocknix.worktrees/` hold `.build-runs/<id>/` directories
   (`build.log`, `build.pid`, `build.rc`, `build.start`, `build.status`,
   `build.status.pid`, `command.pid`, `runner-result.json`, `watch-job`,
-  `watcher.err`, `watcher.interval`, `watcher.pid`), each a run of this
-  engine under the watcher: `m7-signin-build-20261022-07` (the GENERIC_X64
-  image of 2026-10-22, BUILD_ID `069fc2704421`), `m7-pixelelated-h700-03`,
+  `watcher.err`, `watcher.interval`, `watcher.pid`), a run id per invocation of
+  the watcher, not per build (about 1,760 run directories across the legacy
+  worktrees on 2026-10-24; many are short QA or record-only runs, and
+  `20261022T235650Z-bfce2199` is a 35-second run that ended `rc 1`), so the
+  lane **picks the image runs by `build.start`, `build.status` and the
+  size of `build.log`, and names the ids it read** in `02` § Recorded runs:
+  `m7-signin-build-20261022-07` (the GENERIC_X64 image of 2026-10-22,
+  BUILD_ID `069fc2704421`), `m7-pixelelated-h700-03`,
   `m7-signin-h700-build-20261023-05`, and the runs of 2026-10-24 from
   `08cc7ff6cd` (H700 and SM8550, the M7 window's). **Read-only, every one of
   them** (the M7 lane's; `ls`, `cat`, `grep`, `tail` only; never a write,
@@ -702,10 +754,13 @@ backend, or a QA guest another lane owns.
   step's identity lines and timings; `build.status` is the watcher's record
   (`state`, `written`, `progress`). **A run's log may carry the build's
   credential-shaped defines** (`-DSCREENSCRAPER_DEV_LOGIN=`): every line
-  read from a log passes `grep -v -i -E 'key|pass|token|user|psk|LOGIN'`
-  or the masking `sed` below, and no `ninja -t commands` or `make` command
-  line is ever pasted into an artifact, an issue or a transcript (T2's
-  § 5 learned this; the pre-commit scan refuses it).
+  read from a log passes a filter the lane defines once in its proof
+  scripts and uses for every read -- `readlog() { grep -v -i -E
+  'key|pass|token|user|psk|login' "$@"; }` -- or the masking `sed` below;
+  no raw `cat`, `head` or `tail` of a log reaches an artifact, and no
+  `ninja -t commands` or `make` command line is ever pasted into an
+  artifact, an issue or a transcript (T2's § 5 learned this; the
+  pre-commit scan refuses it).
 - **The sandbox.** A function from `config/functions` or
   `distributions/ROCKNIX/config/functions`, or a script such as `scripts/get_env`,
   is run under `bash` from a directory the lane owns under `.qa-scratch/`
@@ -715,22 +770,41 @@ backend, or a QA guest another lane owns.
   lists them from the function's text first, as T3's brief § 5 says for the
   table), `config/options` sourced only where the function needs it and
   with `ROOT` pointing at the worktree; nothing under `/workspace/repos/rocknix*`,
-  `/usr`, `/storage` or another worktree is a target. **For `get_env`**: a
+  `/usr`, `/storage` or another worktree is a target. **The first run of
+  every sandbox is a `bash -x` trace into a file**, read for every path the
+  sourced code touched (`grep -E 'mkdir|>|cp |mv |touch ' trace`): a path
+  outside `.qa-scratch/` is a FAIL of the sandbox and grows the variable
+  list until none remains (`config/path` derives `BUILD`, `TARGET_IMG` and
+  `SOURCES` from `ROOT`, so a sourcing with `ROOT=$D` can reach into the
+  worktree); and a trace that shows no call of the function under test is
+  a FAIL too (blindspot 74: a fixture that did not engage). **For `get_env`**: a
   fixture environment built at run time (`env -i` with a handful of
-  variables whose names match and do not match `KEEP` and `DROP`, their
-  values the words `fixture-a`, `fixture-b`: never a real value, never a
-  credential-shaped literal in the test file, `engineering-practices.md`
-  § Guards must fail closed's fixture rule) and the script's output
+  variables whose names match and do not match `KEEP` and `DROP`, the
+  names assembled at run time (`printf 'MY_API_%s' KEY`) and the values the
+  words `fixture-a`, `fixture-b`: never a real value, never a
+  credential-shaped literal in a committed file, `engineering-practices.md`
+  § Guards must fail closed's fixture rule, #307's rewrite) and the script's output
   compared with the expected set; the case that would FAIL (a name the DROP
   pattern should catch and does not) is constructed and seen to fail before
   the pattern is called proven. **For `calculate_stamp`**: a fixture
   package directory and a generic twin it sources, the stamp computed, the
   generic file changed, the stamp computed again; whether it moves is the
-  finding's evidence. **For `mk_es_systems`**: the recipe T3's brief § 5
-  gives (the pre-format `.es_systems.cfg` through `python3 -I` and
-  `xml.etree.ElementTree`; `xmlstarlet` is absent on the host, so the
-  formatted file is empty and that emptiness is itself Q3's evidence for
-  the silenced formatter).
+  finding's evidence. **For `mk_es_systems` and `add_es_system`**: T3 found the host method
+  and proved it on 2026-10-24 (its `02-forward-audit.md` at `772e116dca`):
+  `xmlstarlet` is absent on the host **but present in every build root's
+  host toolchain** (`<root>/toolchain/bin/xmlstarlet`, read-only on the M7
+  roots), and `add_es_system` calls `xmlstarlet sel` and `xmlstarlet ed`
+  for every core (`functions` 171 to 214), so the regeneration runs with
+  that binary first on `PATH` and comes out **byte-identical** to the
+  GENERIC_X64, H700 and SM8550 images' `es_systems.cfg` (and their
+  `system-dirs.conf` and `core-pins`). Reuse T3's recipe; the pre-format
+  file through `ElementTree` is the fallback only where no toolchain is
+  readable. **T3's F-06 is this slice's Q3 lead** (#652's lead comment of
+  2026-10-24): the default step at `functions` 212 to 214 marks every core
+  added so far rather than the new one, so two defaults ship silently with
+  a `false` core before the `true` one, and two `true` lines stop the build
+  with no message because line 113 silences the formatter; T3's two
+  constructed cases are the sandbox this lane reruns.
 - **The host-side checks that exist for these sources**, each run and its
   command, exit status and summary line recorded in `02-forward-audit.md`;
   a check that cannot run is recorded as such, never as a pass (each block
@@ -738,12 +812,14 @@ backend, or a QA guest another lane owns.
   ```bash
   D=/workspace/repos/pixelelated/distribution.worktrees/m6-build-engine-652
   cd "$D"
-  for f in $(git ls-files scripts | grep -vE 'scripts/(lib/|council|lint-council|verify-|write-step-seal|owner-queue-lint|build-council-prompt|check-stale-blob-drift|forge-|setup-council|__tests__)'); do head -1 "$f" | grep -q -E '^#!.*(bash|sh)' && { bash -n "$f" && echo "ok $f" || echo "FAIL $f"; }; done | sort | uniq -c | sort -rn | head    # bash -n over the membership's shell scripts; record the two counts
-  for f in scripts/pkgbuilder.py scripts/genbuildplan.py scripts/uboot_helper scripts/test-audit-review.py; do python3 -I -m py_compile "$f" && echo "ok $f" || echo "FAIL $f"; done
-  python3 -I "$D/tools/build-identity-test" --output .qa-scratch/t5/build-identity-test.json; echo "rc=$?"          # #532's identity controls over config/build-identity, scripts/image's blocks and the release plan (T9's tool, this slice's file); read its docstring for what it asserts
-  python3 -I "$D/tools/host-maintenance/test-build-monitor" 2>&1 | tail -3; echo "rc=$?"                           # the watcher the entry points exec into (T9's tool): a trial that it runs here, not this slice's check
-  "$D/tools/fork-package-freshness" --list | wc -l                                                                     # the engine introduces no package: record the line and that none is this slice's
-  "$D/tools/pkgcheck" rocknix | tail -1                                                                                # pkgcheck is run where a recipe changes; the engine changes none, so this is the trial that the tool runs from this tree
+  mkdir -p .qa-scratch/t5
+  PY='pkgbuilder.py|genbuildplan.py|uboot_helper|test-audit-review.py'
+  for f in $(git ls-files scripts | grep -vE 'scripts/(lib/|council|lint-council|verify-|write-step-seal|owner-queue-lint|build-council-prompt|check-stale-blob-drift|forge-|setup-council|__tests__)' | grep -vE "scripts/($PY)$") config/functions config/options config/path config/graphic config/show_config config/build-identity config/multithread config/optimize config/sources config/arch.arm config/arch.aarch64 config/arch.x86_64 distributions/ROCKNIX/config/functions distributions/ROCKNIX/options distributions/ROCKNIX/version; do bash -n "$f" 2>/dev/null && echo "ok $f" || echo "FAIL $f"; done | awk '{print $1}' | sort | uniq -c    # bash -n over the 26 shell scripts (get_archive and get_file have no shebang and are sourced; bash -n reads them anyway) and the 15 sourced fragments: the two counts
+  for f in scripts/pkgbuilder.py scripts/genbuildplan.py scripts/uboot_helper scripts/test-audit-review.py config/docker/source/default.py; do python3 -I -m py_compile "$f" && echo "ok $f" || echo "FAIL $f"; done   # the five Python files of the membership
+  OUT=.qa-scratch/t5/build-identity-test-$(date -u +%Y%m%dT%H%M%SZ).json; python3 -I "$D/tools/build-identity-test" --output "$OUT"; echo "rc=$?"   # a fresh output name each run: the tool opens it with mode x and refuses an existing file. #532's identity controls over config/build-identity, scripts/image's blocks and the release plan (T14's tool, this slice's file). EXPECTED on 2026-10-24: "FAIL build identity: 21 passed, 2 failed", rc 1 -- the two are the release-plan half ("rc1 public plan accepted", "harness completed": fork-publish-release --prepare's selected-state inspection refuses the synthetic firmware, #801, T14's or T9's to fix; the fork CI never ran the test); the 21 passes are this slice's identity evidence. A different result is the finding.
+  python3 -I "$D/tools/host-maintenance/test-build-monitor" > .qa-scratch/t5/test-build-monitor.out 2>&1; echo "rc=$?"; tail -3 .qa-scratch/t5/test-build-monitor.out   # the watcher the entry points exec into (T9's tool): a trial that it runs here, not this slice's check; the rc is the tool's, not tail's
+  "$D/tools/fork-package-freshness" --list > .qa-scratch/t5/freshness-list.out; echo "rc=$?"; wc -l < .qa-scratch/t5/freshness-list.out                 # the engine introduces no package: record the line and that none is this slice's
+  "$D/tools/pkgcheck" rocknix > .qa-scratch/t5/pkgcheck-rocknix.out 2>&1; echo "rc=$?"; tail -1 .qa-scratch/t5/pkgcheck-rocknix.out                      # pkgcheck is run where a recipe changes; the engine changes none, so this is the trial that the tool runs from this tree
   ```
   - **shellcheck** is not installed on the host. T1 downloaded the release
     `shellcheck-v0.11.0` into its `.qa-scratch/` (gitignored) and ran
@@ -770,9 +846,16 @@ backend, or a QA guest another lane owns.
     (a network read, no runtime; if the host's docker has no GHCR token for
     the fork's mirror, `gh api` on the package versions or the registry's
     anonymous token flow is the alternative; the lane records which worked
-    and never runs `docker pull`), their `created` labels and digests in the
-    Q4 table beside the Makefile's pin and `docs/reviews/build-path-read.md`
-    § 4 finding 1's dates.
+    and never runs `docker pull`), their manifest-list and per-platform **digests** in the Q4 table beside
+    the Makefile's pin (the digests decide same-or-different; the
+    coordinator read both anonymously on 2026-10-24: upstream's `latest`
+    answers with an amd64 image digest `sha256:a81b63a53612…`); the
+    `created` dates are read only if the registry gives them without a
+    pull (`docker manifest inspect -v` names the config blob, not its
+    content), else recorded as `not read` with the commands tried, and
+    `docs/reviews/build-path-read.md` § 4 finding 1's dates and the
+    Makefile's commit `2c349c6d51` (2026-10-01) stand in. **Never `docker
+    pull`.**
   - **The guest**, only if a finding needs the running system's reading of
     the identity: T3's brief § 5 recipe with this lane's ports; the image's
     install tree on the host is the primary artifact for what the engine
@@ -816,7 +899,14 @@ in a worktree that is kept; a change to `docs/reviews/order.md`,
 `slices.json`, `areas.json`, the plan, the brief, #652's criteria or the M6
 body (the coordinator's, D-WORKFLOW-189); **a move of the build container's
 pin, a change to the admission's or the watcher's contract, or an edit to a
-workflow's trigger** without a stream brief that says so (the pin is the
+workflow's trigger** without a stream brief that says so; **a change to
+`scripts/build`, `scripts/image`, `scripts/install`, `scripts/build_distro`,
+`config/functions`, `config/options` or `config/path` that alters what a
+build does** without a stream brief that names the build proving it (the
+coordinator's, scheduled; the lane's branch carries behaviour-preserving
+changes with a sandbox proof of equivalence -- both versions over one
+fixture, the traces diffed -- and everything else as `fix-pending-image`
+rows the stream brief decides) (the pin is the
 coordinator's act, #644 finding 1; the admission and the watcher are T9's;
 the fork's CI gates are T10's); a GitHub issue other than the audit
 punch-list issue and `bug` issues (§ 1).
@@ -865,17 +955,17 @@ from this lane's word.
 - [ ] `second-opinions/review-plan.json` records Extended depth and two reviewers from two other labs, and each reviewer's provenance names its served model (plan § 6c, D-WORKFLOW-137).
 - [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue, or withdrawn with its reason.
 - [ ] `reviewed-at:` and `fixed-at:` above carry the lane's commits the read and the fixes were made at (the read made with the slice's bytes equal to `next`'s `8ebaf8daad`, the branch on the P1 tip; no EmulationStation path here, so no `fixed-at-es:`), and, after the coordinator closes this issue and the branch merges to `next`, `tools/renovation-status` lists this slice as `closed` (the coordinator's regeneration).
-- [ ] `01-research-notes.md` § Scope records the read hash `8ebaf8daad`, the filter of brief § 2 with its output (242 paths, 13,910 lines, 18 fork-own with 3,266 lines, 224 upstream-carried, or the deltas beside them, and the order row's 6,776 and 2,419 explained as the code classes), the list of what the globs would have swept in and the areas that own it (the council scripts, the fork workflows, the session files), the M7 delta on the membership (none, or the hunks), and the two upstream trackers checked with dates.
+- [ ] `01-research-notes.md` § Scope records the read hash `8ebaf8daad`, the filter of brief § 2 with its output (242 paths, 13,910 lines, 18 fork-own with 3,266 lines, 224 upstream-carried, or the deltas beside them, and the order row's 6,776 and 2,419 reproduced with the tool's own `CODE` set of `tools/renovation-inventory` lines 674 to 676), the list of what the globs would have swept in and the areas that own it (the council scripts, the fork workflows, the session files), the M7 delta on the membership (none, or the hunks), and the two upstream trackers checked with dates.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path, the path in backticks as the first cell: ``grep -c -E '^\| `(scripts|config|distributions|Makefile|Dockerfile|\.gitignore|\.merge-head|\.github)' 02-forward-audit.md`` prints 242; each row's Q1 to Q7 cells answered or `n/a` with a reason (`n/a: upstream's, unchanged here` is a reason for a group 3 to 5 file's Q1, Q2, Q3 and Q7 cells, § 4).
-- [ ] `02-forward-audit.md` records, with command, exit status and summary line, each of: `bash -n` over every shell script of the membership with the two counts, `python3 -I -m py_compile` over the four Python scripts, shellcheck over the shell sources named in § 5 with every error read at its site, `tools/build-identity-test`, `tools/host-maintenance/test-build-monitor`, the three sandboxed calls of § 5 (`get_env` with a constructed failing case, `calculate_stamp` over a fixture override and its generic twin, `mk_es_systems` with the pre-format table through `ElementTree`), the container manifest reads with both digests and dates, `gh workflow list` and the last three conclusions of each of the 19 workflows, and `tools/fork-package-freshness --list`'s line showing it covers nothing here; a check that could not run is recorded with the reason, never as a pass.
+- [ ] `02-forward-audit.md` records, with command, exit status and summary line, each of: `bash -n` over every shell script of the membership with the two counts, `python3 -I -m py_compile` over the five Python files, shellcheck over the shell sources named in § 5 with every error read at its site, `tools/build-identity-test` with its result read against the expected `21 passed, 2 failed` of #801 (a different result is the finding), `tools/host-maintenance/test-build-monitor`, the three sandboxed calls of § 5 (`get_env` with a constructed failing case, `calculate_stamp` over a fixture override and its generic twin, `mk_es_systems` with the pre-format table through `ElementTree`), the container manifest reads with both digests and dates, `gh workflow list` and the last three conclusions of each of the 19 workflows, and `tools/fork-package-freshness --list`'s line showing it covers nothing here; a check that could not run is recorded with the reason, never as a pass.
 - [ ] `02-forward-audit.md` § The nine #644 findings carries one row per finding (1, 3, 4, 8, 9, 10, 11, 13, 22) with the disposition brief § 3 names and what the reading found, and names the other seventeen with their carriers so none is taken here.
 - [ ] `04-analysis.md` § Renovation face Q4 carries the two currency tables: (a) the 4 commits of `c445081a59..upstream/next` on the membership each with a disposition (merged / not applicable / to merge, with the reason) and every membership file that differs textually from `upstream/next` named as the fork's or upstream's with its commit; (b) the Makefile's pinned container digest and its date beside upstream's current `latest` digest and date, the `Dockerfile` diff, and the refresh recorded as the coordinator's act.
-- [ ] `04-analysis.md` § Renovation face Q5 carries the ccache settings beside CI's with a measurement from a recorded run or the words `not measured` with why, the stamp granularity's cost as the count of packages a metadata sweep rebuilds, and the recorded runs' timings with their run ids; the two time-to-play numbers are named as untouched by this slice, with the one identity read as the exception if it moved.
+- [ ] `04-analysis.md` § Renovation face Q5 carries the ccache settings beside CI's with a measurement from a recorded run or the words `not measured` with why, the stamp granularity's cost illustrated from `device-builds.md` § A metadata-only upstream change (the 2026-09-04 merge's 446 rebuilt recipes, 220 of them changed only by the checksum sweep) rather than a new count, and the recorded runs' timings with their run ids; the two time-to-play numbers are named as untouched by this slice, with the one identity read as the exception if it moved.
 - [ ] `04-analysis.md` § Renovation face Q6 carries the five reachability tables of brief § 4 (30 scripts with their callers; 19 workflows with trigger, state and last conclusions on the fork; 3 configuration trees against the five devices' options; 139 fragments against the systems the five devices' tables name; `.merge-head`'s reader and `scripts/test-audit-review.py`'s misfiling), each with its search command and output; every row marked unreached by any fork build, image or CI carries an `Already written:` line and what the unit exposed.
 - [ ] Every proof in `02-forward-audit.md` carries a `proved:` cell reading `recorded-run`, `sandbox`, `image-set`, `fix-sandbox` or `fix-pending-image` (§ 6, Verification); ``grep -c 'proved:' 02-forward-audit.md`` equals ``grep -c '^PROOF:' 00-running-log.md`` (the convention of § 6).
 - [ ] Every punch item whose `punch_index` entry carries a `tracked: "#N"` has that `bug` issue carrying the `Can this be done on the VM?` line answered honestly and a verifiable criterion (the sandbox or a recorded run named where the VM cannot show it); every item whose entry carries `removal: yes` has an `Already written:` line in its row; no pin, admission, watcher or workflow-trigger change is applied on this branch without a stream brief; `tools/box-check --issue N` passes on the audit issue and on each `bug` issue this lane files.
 - [ ] The retro exists at `docs/retros/<date>-m6-build-engine.md`, is posted on #652, and answers what the slice did to the two time-to-play numbers.
-- [ ] `tools/register-check`, `tools/work-log-index --check`, `tools/rules-check --quiet`, `tools/forbidden-terms-check` and `.githooks/hooks-test` pass on the branch before its merge; the five exit codes pasted on #652.
+- [ ] `tools/register-check`, `tools/work-log-index --check`, `tools/rules-check --quiet`, `tools/forbidden-terms-check` and `.githooks/hooks-test` pass on the branch before its merge, and `tools/lint-audit-artifacts` prints `PASS` on the folder; the six exit codes pasted on #652.
 
 ## 8. Stop conditions
 
@@ -960,7 +1050,9 @@ hand-back comment on #652 naming the branch tip and each of those artifacts
 by path, writes `reviewed-at:` and `fixed-at:` into #652's body, then says
 it is idle. After acceptance the coordinator writes the hashes into
 `slices.json`, merges the branch in its turn after the M7 candidate (P0,
-P1, T1, T2, T3, T5), regenerates the ledgers (§ 6, Hand-back row), and
+P1, T1, T2, T3, T5: **the engine's fixes last**, after the slices whose
+proofs the first build carries, so a failing build is attributable),
+regenerates the ledgers (§ 6, Hand-back row), and
 **closes #652 only when the first build after the merge has proved each
 `fix-pending-image` row** (the slice is `remediating` until then, plan § 6b
 stage H). A brief that needed the coordinator's help mid-slice, beyond the
@@ -968,8 +1060,36 @@ stage-D pause, the Phase 4.6 blocker and the host's return line this brief
 already names, is a defect in this brief: log the friction, and the
 coordinator fixes the template in plan § 7 before the next brief.
 
-**The two readings before dispatch** (plan § 3, principle 3): the area
-epic's futro (`docs/futros/2026-10-24-m6-build-engine.md`, posted on the
-epic) and a stranger's proof of this brief by a reader with no context given
-this tree and the brief. Version 2 records what each found and where it is
-answered.
+**The two readings before dispatch** (plan § 3, principle 3). The area
+epic's futro (`docs/futros/2026-10-24-m6-build-engine.md`, #800,
+`fd46029257`) inspected the substrate and simulated the lane; its findings
+are in § 1's version paragraph and in the text. **The stranger's proof**,
+run 2026-10-24 on version 1 (`d2da1e2c3c`) by a reader with no context given
+this tree and the brief, read-only, in 36 minutes: some hundred claims
+checked by command, with the wrong ones -- the filter's code-class set
+(`yaml` in, `make` and `docker` out, so the brief's own script and the
+order row disagreed: the tool's set reproduces 6,776 and 2,419 exactly);
+`.github/scripts` (T10's) counted in the membership and the fork workflows
+counted as six; `tools/build-identity-test` given to T9 where `slices.json`
+gives it to T14; the line numbers of `scripts/image`'s identity and refusal,
+the Makefile's digest and `.env` recipe, `config/functions`' helpers,
+`config/options`' ccache block, `config/path`'s two paths and
+`distributions/ROCKNIX/version`'s `DISTRO_VERSION`; a fragment said to lack
+`SYSTEM_NAME` (none does); four upstream commits where three touch the
+membership; #532, #549, #412 and #413 listed as open and #312 as closed;
+blindspot 7 named for 34; T3's lead described as the formatter alone where
+it is the default marking and a stopped build -- and the imprecise ones (the
+watch block's lines, the wrap-mode sites, the Argon commits' hashes on this
+branch, the order's "§ 3", the cluster T5 to T15, `ai-usage.yml.disabled`
+among the nineteen, the identity test's expected result, the manifest's
+missing `created`, a fifth Python file, 1,760 run directories, the
+container's bash). It asked twelve questions (the stage-A byte check firing
+on the council cherry-picks; #652's five criteria against sixteen; the VM
+line on #652; #801's owner; the code-class set; the lint's merge; T3's lead;
+the lockfile; the run ids; the model) and found three commands that would
+not serve as written (the `uniq -c` that cannot print two counts, the
+identity test's missing directory and refused rerun, the pipes that lose an
+exit status). Version 2 answers each in the text; #652's body carries the
+sixteen criteria, the two never-run switches and the VM line as § 5 gives
+it; `tools/council/package-lock.json` does not exist, so the `tsx` version
+is whatever the registry gives and is recorded.
