@@ -35,18 +35,23 @@ notes and § State at 2026-10-24. **Accepted:** P1 (#641), T1 (#648), T2
 `docs/reviews/briefs/t30-streams.md` (S0 to S5; audit issue #872; its
 hand-backs arrive one per stream on #677, the coordinator accepts each by
 the brief's shape and the whole by brief § 10 at stage H); **T8** (#655, the image's own
-packages, Independent: the first Independent slice, one GPT-6 Astra
-reviewer through the Facilitator) is being briefed for the T5 session
-(`m6-t5-build-engine`, idle after T7): the area futro gets a T8 addendum,
-then brief v1, a stranger's proof, v2, #655's criteria, a worktree stacked
-on P1 with this tip, the pointer, the dispatch. The T1 session
+packages, Independent: the first Independent slice, one GPT-6 Astra seat
+through the Facilitator) **dispatched 12:09 UTC** to the T5 session
+(`m6-t5-build-engine`) from `docs/reviews/briefs/image-packages.md`
+version 2 (`dede8effec`), lane `feature/m6-image-packages-655` at
+`caf1de3727`, worktree `distribution.worktrees/m6-image-packages-655`; its
+stage-D pause is the coordinator's next act there. **Packets:** #877
+(reviewed, before T5's branch); **#887** (`backuptool` blanks `melonDS.toml`;
+`fix/m6-887-melonds-toml-blank`, with the T1 session). **T30** is in S4 of
+six; S0 to S3 accepted on #677. The T1 session
 (`m6-t1-os-launch`) is idle after #877's packet. **Waiting on the
 maintainer (#346):** T4's dispatch (#651, brief v2 `0921782112`; a third
 lane). **At integration (the coordinator dispatches):** one packet for
 #857 and #873 after T3's merge (the launch table's guards and the five
 regenerated tables); the Backlog bumps #878 and T7's; the
 `fix-pending-image` rows. **Filed today by this lane:** #807 to #811,
-#838, #839, #842 to #844, #847 to #852, #873 to #879.
+#838, #839, #842 to #844, #847 to #852, #873 to #879, #885; the lanes filed
+#880 to #884, #886, #887.
 
 ## Next commands
 
