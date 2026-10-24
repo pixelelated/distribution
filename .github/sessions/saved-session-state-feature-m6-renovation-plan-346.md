@@ -30,17 +30,19 @@ wait for the M7 lane's post-candidate merge to clear the push guard's W42
 gate before anything merges to `next` (never `--no-verify`); the order is in
 § Merge notes and § State at 2026-10-24. **Accepted:** P1 (#641), T1 (#648),
 T2 (#649), T3 (#650), T5 (#652), T6 (#653), T7 (#654, `db6597356b`), T30
-(#677, `a020b3d375`, its completion marker written and the full lint PASS).
+(#677, `a020b3d375`), **T24 (#671, `e524d3bdbc`, 14:3x; #900 closed; its
+completion marker is the lane's next commit)**.
 **Running:** **T8** (#655, Independent) in the T5 session
 (`m6-t5-build-engine`) at **stage E** from `docs/reviews/briefs/t8-streams.md`
-(`7c4867330b`): S1 #852 fixed `43f6a81070`, S2 #893 fixed `4db09f6e2e` and
-`1904e29d54`, S3 #894 on a GENERIC_X64 guest next (M6 holds the host; census
-before the boot); audit #895; then stages F to H and the coordinator accepts
-by brief § 10. **T24** (#671, Local) **dispatched 13:4x UTC** to the T3
-session (`m6-t3-emulators`) from brief v2 `c25d772b21`, lane
-`feature/m6-emulators-dead-ends-671` at `81331b499e` (the merge `8fd13c3133`
-carried the index's conflict markers for one commit; `81331b499e` fixed it;
-blindspot 76). **Packets** reviewed and waiting for the merge: #877
+(`3e64156023`): S1 #852 `43f6a81070`, S2 #893 `4db09f6e2e` and `1904e29d54`,
+S3 #894 `467f19fc14` with #899 `0602f598e9` (found on the guest) and the
+addendum `412be96c77`, all landed; **S4 #901** (the media's `syslinux.cfg`
+over the generated one, confirmed by S3's read) runs on the guest now; then
+stages F to H and the coordinator accepts by brief § 10 (`t8-accept.sh` in
+the scratchpad); audit #895. **T24** ran 13:4x to 14:20 in the T3 session (`m6-t3-emulators`) from brief
+v2 `c25d772b21` on lane `feature/m6-emulators-dead-ends-671` (the merge
+`8fd13c3133` carried the index's conflict markers for one commit;
+`81331b499e` fixed it; blindspot 76) and is accepted. **Packets** reviewed and waiting for the merge: #877
 `cf3a8d8e62` and #890 `566b01448f` (before T5's branch); #887 `c60cdddf8b`
 and #889 `828472eb59` (after T30's). The T1 session is idle. **Waiting on
 the maintainer (#346):** T4's dispatch (#651, brief v2 `0921782112`; a third
@@ -48,8 +50,8 @@ lane). **At integration (the coordinator dispatches):** the #857/#873 packet
 after T3's merge; the Backlogs #839, #878, #885, #896, #897; the
 `fix-pending-image` rows; T8's conflict list (11 rows) read under
 D-WORKFLOW-198/199. **Filed today by this lane:** #807 to #811, #838, #839,
-#842 to #844, #847 to #852, #873 to #879, #885, #888, #890, #896 to #898; the
-lanes filed #880 to #884, #886, #887, #889, #891 to #895. **Guard added
+#842 to #844, #847 to #852, #873 to #879, #885, #888, #890, #896 to #898, #901;
+the lanes filed #880 to #884, #886, #887, #889, #891 to #895, #899, #900. **Guard added
 today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 ## Next commands
@@ -275,8 +277,9 @@ is the narrative; this is the index of what a resuming agent must know.
   futros (doctrine, build-engine, emulators-and-cores, generic-packages).
 - **Issues filed by this lane today:** #807, #808, #809, #810 (fixed, merged
   here at `18747fbc52`), #811, #838, #839, #842, #843, #844, #847, #848, #849,
-  #850, #851, #852, #873 to #879, #885, #888, #890, #896, #897, #898. The lanes
-  filed #813 to #837, #841, #845, #846, #880 to #884, #886, #887, #889, #891 to #895.
+  #850, #851, #852, #873 to #879, #885, #888, #890, #896, #897, #898, #901. The lanes
+  filed #813 to #837, #841, #845, #846, #880 to #884, #886, #887, #889, #891 to #895,
+  #899, #900.
 - **Open with the maintainer on #346:** a third lane for T4; the #825
   disclosure timing; `LOCAL_SSH_KEYS_FILE` in Docker builds; D-SYS-014;
   D-WORKFLOW-191 (the `portaudio` question was withdrawn: the mirror serves it; #849 corrected).
