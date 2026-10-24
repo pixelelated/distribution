@@ -170,9 +170,10 @@ a claim about one tree; blindspot 75's guard). **Accepted lanes' rule
 edits, the coordinator's by acceptance, reaching `next` in the merge order:**
 T2 `f16cf7fc28` `es-native-ui.md` +5/-1 (#699's `--root` paragraph). The
 registers' and the friction log's appends are not rule edits. **T4's brief is
-at version 2** (`0921782112`); #810 (the lint refuses Local at epic tier) is on the
-T1 lane as a stream and gates T4's dispatch with the maintainer's answer on
-#346. Both lanes report on their issues; nothing wakes this lane on a
+at version 2** (`0921782112`); #810 (the lint refuses Local at epic tier) is fixed on
+`fix/m6-810-lint-local-epic` (`fa6bcdafa8`, T1's lane) and merged here at
+`18747fbc52`; T4's dispatch now waits only on the maintainer's answer on #346. A
+`fix/*` branch stays one commit; its work-log entry is this lane's. Both lanes report on their issues; nothing wakes this lane on a
 post, so read #648 and #649 at every turn. **And nothing wakes a lane on a
 comment:** a lane's turn ends when it posts a question, so every answer the
 coordinator gives on an issue is also sent as `herdr agent prompt <lane>`,
