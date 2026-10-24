@@ -411,6 +411,32 @@ def overwrite_refused(c):
     return ok, f'rc {r.returncode}, copies {len(copied)}, cloud resets {len(reset)}, walked {len(walked)}, named {"/storage/roms/snes/shared.sfc" in log} (want a refusal naming it, nothing copied)'
 
 
+@case
+def es_src_mismatch(c):
+    vmqa = c.tool('vm-qa')
+    executable(c.root / 'tools' / 'vocabulary-check', PASS_DOUBLE)
+    git = ['git', '-c', 'user.name=vmht', '-c', 'user.email=vmht@invalid', '-c', 'commit.gpgsign=false']
+    pin = 'a' * 40
+    mk = c.root / 'projects' / 'ROCKNIX' / 'packages' / 'ui' / 'emulationstation' / 'package.mk'
+    mk.parent.mkdir(parents=True)
+    mk.write_text(f'PKG_NAME="emulationstation"\nPKG_VERSION="{pin}"\n')
+    subprocess.run(git + ['init', '-q', str(c.root)], check=True)
+    subprocess.run(git + ['-C', str(c.root), 'add', 'projects'], check=True)
+    subprocess.run(git + ['-C', str(c.root), 'commit', '-q', '-m', 'build'], check=True)
+    build = subprocess.run(['git', '-C', str(c.root), 'rev-parse', 'HEAD'], capture_output=True, text=True, check=True).stdout.strip()
+    es = c.dir / 'es'
+    es.mkdir()
+    subprocess.run(git + ['init', '-q', str(es)], check=True)
+    subprocess.run(git + ['-C', str(es), 'commit', '-q', '--allow-empty', '-m', 'other'], check=True)
+    head = subprocess.run(['git', '-C', str(es), 'rev-parse', 'HEAD'], capture_output=True, text=True, check=True).stdout.strip()
+    c.rows([('os-release', 0, f'"{build}"')])
+    r = c.run([str(vmqa), '--skip-up', '--only', 'vocabulary'], ES_SRC=es)
+    text = c.reports()[0].read_text() if c.reports() else ''
+    row = f'| vocabulary | SKIP (ES_SRC {head[:10]}, image pins {pin[:10]}) |'
+    ok = r.returncode == 3 and row in text and not c.calls('vocabulary-check')
+    return ok, f'rc {r.returncode}, SKIP row with both hashes {row in text}, check ran {bool(c.calls("vocabulary-check"))} (want rc 3, the row, not run)'
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')

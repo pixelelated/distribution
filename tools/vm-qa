@@ -211,7 +211,29 @@ REPORT="$OUT/report.md"
 case "$GUEST" in a) PIDF="$RUNTIME"/rocknix-qemu.pid ;; b) PIDF="$RUNTIME"/rocknix-qemu-b.pid ;; *) PIDF="$RUNTIME"/rocknix-qemu-$GUEST.pid ;; esac
 DISPLAY_MODE=$(ps -o args= -p "$(cat "$PIDF" 2>/dev/null)" 2>/dev/null | grep -o -E 'egl-headless,rendernode=[^ ]+' | sed 's/^egl-headless,rendernode=/GL through virgl on /'); DISPLAY_MODE=${DISPLAY_MODE:-software rendering (no GL display)}
 BRINGUP_S=$(( $(date +%s) - T_START ))
-{ echo "# vm-qa on $BUILD"; echo; echo "started $(date -u '+%Y-%m-%d %H:%M UTC'), guest $GUEST at :$PORT, cloud $BACKEND (port $("$ROOT/tools/cloud-test-backend" port), $("$ROOT/tools/cloud-test-backend" caps)), image ${IMAGE:-(already up)}, display: $DISPLAY_MODE"; echo; echo "BUILD_ID $GUEST_ID -- the image names ${WANT:-nothing (already up)}"; echo; echo "| suite | result | time | log |"; echo "| --- | --- | --- | --- |"; } > "$REPORT"
+# The suites that read ES_SRC judge the EmulationStation source the image pins,
+# or they have not judged the image (#981, D-QA-061). The pin is read from the
+# build's own commit; a checkout at another commit, or a pin that cannot be
+# read, makes those rows SKIP with both hashes. A missing checkout keeps each
+# suite's own answer (lifetime fails, register runs without the interface).
+ES_DIR="${ES_SRC:-$HOME/Development/emulationstation-next.worktrees/qa-integration}"
+ES_HEAD=""; ES_PIN=""; ES_GATE=0
+if [ -d "$ES_DIR" ]; then
+  ES_HEAD=$(git -C "$ES_DIR" rev-parse HEAD 2>/dev/null)
+  ES_PIN=$(git -C "$ROOT" show "$GUEST_ID:projects/ROCKNIX/packages/ui/emulationstation/package.mk" 2>/dev/null | sed -n 's/^PKG_VERSION="\([0-9a-f]\{40\}\)".*/\1/p')
+  [ -n "$ES_HEAD" ] && [ "$ES_HEAD" = "$ES_PIN" ] || ES_GATE=3
+  ES_LINE="ES_SRC $ES_DIR at ${ES_HEAD:-?}; the image's build $GUEST_ID pins ${ES_PIN:-(pin unreadable)}"
+else
+  ES_LINE="ES_SRC $ES_DIR is absent"
+fi
+es_skip() { echo "$ES_LINE"; echo "this suite would judge a source the image does not pin, so it did not run: SKIP (D-QA-061)"; return 3; }
+es_suite() {  # name, log, command... -- run only on the source the image pins
+  local name=$1 log=$2; shift 2
+  if [ "$ES_GATE" = 0 ]; then run_suite "$name" "$log" "$@"; return; fi
+  local head=${ES_HEAD:0:10} pin=${ES_PIN:0:10}
+  ROW_NOTE="(ES_SRC ${head:-?}, image pins ${pin:-unreadable})" run_suite "$name" "$log" es_skip
+}
+{ echo "# vm-qa on $BUILD"; echo; echo "started $(date -u '+%Y-%m-%d %H:%M UTC'), guest $GUEST at :$PORT, cloud $BACKEND (port $("$ROOT/tools/cloud-test-backend" port), $("$ROOT/tools/cloud-test-backend" caps)), image ${IMAGE:-(already up)}, display: $DISPLAY_MODE"; echo; echo "BUILD_ID $GUEST_ID -- the image names ${WANT:-nothing (already up)}"; echo; echo "$ES_LINE"; echo; echo "| suite | result | time | log |"; echo "| --- | --- | --- | --- |"; } > "$REPORT"
 FAILS=0
 SKIPS=0  # a suite that could not run (rc 3) is shown as such, never folded into PASS
 run_suite() {  # name, log, command...
@@ -221,6 +243,7 @@ run_suite() {  # name, log, command...
   local dt=$(( $(date +%s) - t0 ))
   local res=PASS
   if [ "$rc" = 3 ]; then res="SKIP"; SKIPS=$((SKIPS+1)); elif [ "$rc" != 0 ]; then res="FAIL ($rc)"; FAILS=$((FAILS+1)); fi
+  res="$res${ROW_NOTE:+ $ROW_NOTE}"   # what the row's verdict was judged on, when it differs from the default (#981)
   # A row that cannot be written is a failure counted, not a silent gap (#982).
   printf '| %s | %s | %ds | `%s` |\n' "$name" "$res" "$dt" "$(basename "$log")" >> "$REPORT" \
     || { FAILS=$((FAILS+1)); echo "vm-qa: cannot write $name's row to $REPORT" >&2; }
@@ -252,7 +275,7 @@ lifetime_suite() {
   # Closing System Settings must also survive absent hardware options (#436).
   python3 "$es/tests/gpu-governor-save.py"
 }
-case ",$ONLY," in *,lifetime,*)   run_suite lifetime   "$OUT/lifetime.log"   lifetime_suite ;; esac
+case ",$ONLY," in *,lifetime,*)   es_suite lifetime   "$OUT/lifetime.log"   lifetime_suite ;; esac
 # The player-facing words held to their rules (es-player-text.md, player-language.md):
 # "back up" two words as a verb, "backup" one as a noun, across every _("")
 # string in the ES checkout the image pins and every sentence the scripts
@@ -262,17 +285,17 @@ case ",$ONLY," in *,lifetime,*)   run_suite lifetime   "$OUT/lifetime.log"   lif
 # and no suite ran it (audit #258 PL-020), which is the shape blindspot 14
 # names. Seconds, on the host; 2 when no source is found, which is not a pass.
 case ",$ONLY," in *,wrapper,*) run_suite wrapper "$OUT/wrapper.log" "$ROOT/tools/retroarch-wrapper-test" ;; esac
-case ",$ONLY," in *,vocabulary,*) run_suite vocabulary "$OUT/vocabulary.log" env ES_SRC="${ES_SRC:-$HOME/Development/emulationstation-next.worktrees/qa-integration}" "$ROOT/tools/vocabulary-check" ;; esac
+case ",$ONLY," in *,vocabulary,*) es_suite vocabulary "$OUT/vocabulary.log" env ES_SRC="${ES_SRC:-$HOME/Development/emulationstation-next.worktrees/qa-integration}" "$ROOT/tools/vocabulary-check" ;; esac
 # Every string the fork adds has French (D-UI-051): tools/es-untranslated lists the ones that do not and exits 1 while any remain (#152).
-case ",$ONLY," in *,french,*) run_suite french "$OUT/french.log" env ES_SRC="${ES_SRC:-$HOME/Development/emulationstation-next.worktrees/qa-integration}" "$ROOT/tools/es-untranslated" ;; esac
+case ",$ONLY," in *,french,*) es_suite french "$OUT/french.log" env ES_SRC="${ES_SRC:-$HOME/Development/emulationstation-next.worktrees/qa-integration}" "$ROOT/tools/es-untranslated" ;; esac
 # Every command built from a credential a player types reaches the shell quoted (fork #198):
 # the check reads the ES source the french suite reads.
-case ",$ONLY," in *,quoting,*) run_suite quoting "$OUT/quoting.log" python3 "${ES_SRC:-$HOME/Development/emulationstation-next.worktrees/qa-integration}/tests/credential-quoting.py" "${ES_SRC:-$HOME/Development/emulationstation-next.worktrees/qa-integration}" ;; esac
+case ",$ONLY," in *,quoting,*) es_suite quoting "$OUT/quoting.log" python3 "${ES_SRC:-$HOME/Development/emulationstation-next.worktrees/qa-integration}/tests/credential-quoting.py" "${ES_SRC:-$HOME/Development/emulationstation-next.worktrees/qa-integration}" ;; esac
 # The menu map still describes what ships (D-UI-039): tools/es-menu-map-check reads the
 # screens in the ES commit the package pins and fails on one the map neither maps nor
 # declares under "## Not mapped". The rule predates the check by a month, and 30 screens
 # had drifted out by the time anybody counted (2026-09-18).
-case ",$ONLY," in *,menumap,*) run_suite menumap "$OUT/menumap.log" env ES_SRC="${ES_SRC:-$HOME/Development/emulationstation-next.worktrees/qa-integration}" "$ROOT/tools/es-menu-map-check" ;; esac
+case ",$ONLY," in *,menumap,*) es_suite menumap "$OUT/menumap.log" env ES_SRC="${ES_SRC:-$HOME/Development/emulationstation-next.worktrees/qa-integration}" "$ROOT/tools/es-menu-map-check" ;; esac
 # The decision register as a lookup table (D-WORKFLOW-013): every ID once,
 # and every `D-<AREA>-<n>` cited in a live document -- the rules, the
 # scripts, the tools, and EmulationStation's sources when the checkout the
@@ -291,7 +314,10 @@ register_suite() {
     env -u ES_SRC "$ROOT/tools/register-check"
   fi
 }
-case ",$ONLY," in *,register,*)   run_suite register   "$OUT/register.log"   register_suite ;; esac
+# Its row says when it ran without the interface's citations (#981).
+case ",$ONLY," in *,register,*)
+  if [ -d "$ES_DIR" ]; then es_suite register "$OUT/register.log" register_suite
+  else ROW_NOTE="(without the interface's citations: no ES checkout)" run_suite register "$OUT/register.log" register_suite; fi ;; esac
 # The two guests are two devices (#91): different MACs, different
 # cloud_device_ids. The round trip's own guard for this (assert_two_devices)
 # runs only under --second-port, which also runs the two-device fixtures that
