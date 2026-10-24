@@ -34,6 +34,19 @@ say(){ echo "=== $(date -u '+%H:%M:%S') $*" | tee -a "$LOG"; }
 ssha(){ ./tools/vm-pair ssh a ". /etc/profile >/dev/null 2>&1; $*" 2>>"$LOG"; }
 fail=0
 check(){ if [ "$2" = "$3" ]; then echo "PASS $1" | tee -a "$LOG"; else echo "FAIL $1: got '$2' want '$3'" | tee -a "$LOG"; fail=1; fi; }
+# The pair comes down on every exit after it came up, and a stop that fails
+# fails the rehearsal (#979, G-30): it was ignored, and an early exit left
+# the guests running.
+PAIR_UP=0
+pair_down() {
+  [ "$PAIR_UP" = 1 ] || return 0
+  PAIR_UP=0; say "pair down"
+  ./tools/vm-pair down >>"$LOG" 2>&1 || { echo "FAIL pair down: vm-pair down exited non-zero" | tee -a "$LOG"; fail=1; return 1; }
+}
+trap 'pair_down; [ "$fail" = 0 ] || [ ! -d "$OUT" ] || echo 1 > "$OUT/rc"' EXIT
+# The seed's own manifest: each file's sha256, name and size, read once
+# after the seed and compared file by file after the update (#979).
+MANIFEST_CMD='cd /storage/roms && for f in savestates/nes/Rehearsal.state.auto savestates/nes/Rehearsal.state1 savestates/nes/Rehearsal.state2 nes/Rehearsal.srm; do printf "%s %s\n" "$(sha256sum "$f" | cut -d" " -f1)  $f" "$(stat -c %s "$f")"; done'
 
 # SSH answers before autostart has mounted the ROM tree. Readiness belongs to
 # the current boot, before seeding or reading retained state (#546).
@@ -55,7 +68,8 @@ wait_for_storage() {
 
 say "backend: $(./tools/cloud-test-backend status 2>&1 | head -1)"; ./tools/cloud-test-backend up >>"$LOG" 2>&1 || true
 say "pair up from $(basename "$OLD")"
-./tools/vm-pair up "$OLD" >>"$LOG" 2>&1 || { say "vm-pair up FAILED"; echo 1 > "$OUT/rc"; exit 1; }
+PAIR_UP=1   # before up: a partial up is taken down too
+./tools/vm-pair up "$OLD" >>"$LOG" 2>&1 || { say "vm-pair up FAILED"; fail=1; exit 1; }
 for i in $(seq 1 40); do ssha 'echo ok' 2>/dev/null | grep -q '^ok$' && break; sleep 10; done
 BID0=$(ssha 'grep ^BUILD_ID= /etc/os-release | cut -d\" -f2'); echo "old build id: $BID0" | tee -a "$LOG"; check "old build id read" "$([ -n "$BID0" ] && echo yes)" "yes"
 
@@ -70,8 +84,8 @@ head -c 100000 /dev/urandom > /storage/roms/savestates/nes/Rehearsal.state2
 head -c 8192   /dev/urandom > /storage/roms/nes/Rehearsal.srm
 echo rehearsal-marker > /storage/.config/rehearsal-marker
 set_setting rehearsal.marker '"$WANT"'; sync' >>"$LOG" 2>&1
-SUMS0=$(ssha 'cd /storage/roms && sha256sum savestates/nes/Rehearsal.state.auto savestates/nes/Rehearsal.state1 savestates/nes/Rehearsal.state2 nes/Rehearsal.srm'); echo "$SUMS0" >> "$LOG"
-check "four seeded files exist" "$(echo "$SUMS0" | grep -c '^[0-9a-f]\{64\} ')" "4"
+SUMS0=$(ssha "$MANIFEST_CMD"); echo "$SUMS0" >> "$LOG"
+check "four seeded files in the seed's manifest, each with a hash and a size" "$(echo "$SUMS0" | grep -c -E '^[0-9a-f]{64}  [^ ]+ [0-9]+$')" "4"
 check "set_setting is a function on the guest" "$(ssha 'command -v set_setting >/dev/null && echo yes')" "yes"
 check "setting reads back before the update" "$(ssha 'get_setting rehearsal.marker')" "$WANT"
 
@@ -95,7 +109,13 @@ check "rclone (previous) lists the remote" "$(ssha "rclone lsd ${REM0} >/dev/nul
 
 say "a settings backup"
 ssha 'backuptool backup >/dev/null 2>&1; ls /storage/roms/backup/ 2>/dev/null' >>"$LOG" 2>&1
-BK0=$(ssha 'ls /storage/roms/backup/ 2>/dev/null | wc -l'); echo "backups before: $BK0" >> "$LOG"
+BKN0=$(ssha 'ls -1 /storage/roms/backup/ 2>/dev/null'); BK0=$(printf '%s' "$BKN0" | grep -c .); echo "backups before: $BK0" >> "$LOG"
+# A rehearsal of keeping an archive needs an archive to keep (#979): zero
+# before and zero after passed as "kept".
+if [ "$BK0" -lt 1 ]; then
+  echo "FAIL a settings backup archive exists before the update: backuptool left none in /storage/roms/backup" | tee -a "$LOG"; fail=1
+  say "RESULT FAIL -- nothing to keep, so the update was not run"; exit 1
+fi
 
 say "seed what the retired GENERIC_X64 quirks left in /storage (#307 PL-019)"
 # Until 2026-09 the QEMU quirks 091-101 wrote these through the image's links
@@ -143,8 +163,13 @@ done
 say "guest a back after $i polls"
 check "new build id is $WANT" "${BID1:0:${#WANT}}" "$WANT"
 wait_for_storage "$BOOT1" || { echo 1 > "$OUT/rc"; exit 1; }
-SUMS1=$(ssha 'cd /storage/roms && sha256sum savestates/nes/Rehearsal.state.auto savestates/nes/Rehearsal.state1 savestates/nes/Rehearsal.state2 nes/Rehearsal.srm')
-check "saves and save states byte-identical" "$SUMS1" "$SUMS0"
+SUMS1=$(ssha "$MANIFEST_CMD")
+# File by file, against the seed's manifest: a size or hash that moved is
+# named, and a file that did not answer is a failure, not an equal blank.
+for f in savestates/nes/Rehearsal.state.auto savestates/nes/Rehearsal.state1 savestates/nes/Rehearsal.state2 nes/Rehearsal.srm; do
+  want=$(printf '%s\n' "$SUMS0" | grep -F "  $f " | head -1); got=$(printf '%s\n' "$SUMS1" | grep -F "  $f " | head -1)
+  check "seeded $f kept, same size and sha256" "$([ -n "$want" ] && [ "$got" = "$want" ] && echo same || echo "changed or missing")" "same"
+done
 check "marker file kept" "$(ssha 'cat /storage/.config/rehearsal-marker')" "rehearsal-marker"
 check "setting kept" "$(ssha 'get_setting rehearsal.marker')" "$WANT"
 check "active rclone remote kept" "$(ssha "$ACTIVE_READER")" "$REM0"
@@ -152,7 +177,7 @@ check "active selection bytes/presence kept" "$(ssha 'if test -e /storage/.confi
 check "rclone (new) lists the remote" "$(ssha "rclone lsd ${REM0} >/dev/null 2>&1 && echo ok")" "ok"
 check "saves remote kept" "$(ssha "grep -E '^SAVES_REMOTE=' $CONFPATH 2>/dev/null")" "$SR0"
 check "cloud conf gained the new defaults, kept the old values" "$(ssha "grep -cE '^(CONTENT_REMOTE|SAVES_REMOTE)=' $CONFPATH")" "2"
-check "backup archive kept" "$(ssha 'ls /storage/roms/backup/ 2>/dev/null | wc -l')" "$BK0"
+check "backup archives kept, by count and by name" "$(ssha 'ls -1 /storage/roms/backup/ 2>/dev/null')" "$BKN0"
 check "update queue empty" "$(ssha 'ls /storage/.update | wc -l')" "0"
 check "retired quirk files taken back after the update (#307 PL-019)" "$(ssha "cd /storage && ls $RETIRED 2>/dev/null | wc -l; [ -L .config/system.d/emergency.target ] && echo masked || echo unmasked" | tr '\n' ' ')" "0 unmasked "
 check "and the owner's file beside them kept" "$(ssha 'cat /storage/.config/tmpfiles.d/50-rehearsal-owner.conf')" "# the owner's own (vm-upgrade-rehearsal)"
@@ -165,7 +190,7 @@ check "release check #226: libcairo.so.2 is a link to that one file (#226 box 1;
 echo "rclone after: $(ssha 'rclone version | head -1')" | tee -a "$LOG"
 ssha 'journalctl -b -p err --no-pager | tail -30' > "$OUT/journal-err-after.txt" 2>&1
 ssha 'ls -la /storage/roms/savestates/nes /storage/roms/nes; cat /etc/os-release' > "$OUT/state-after.txt" 2>&1
-say "pair down"; ./tools/vm-pair down >>"$LOG" 2>&1
+pair_down
 if [ $fail = 0 ]; then say "RESULT PASS"; else say "RESULT FAIL"; fi
 echo $fail > "$OUT/rc"; echo "$OUT"
 exit $fail

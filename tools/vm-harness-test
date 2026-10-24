@@ -40,6 +40,12 @@ if [ -f "$VMHT_TABLE" ]; then
       # @sh:<command> runs the command (a case that changes the world mid-run), then answers nothing.
       if [ "${out#@sh:}" != "$out" ]; then eval "${out#@sh:}"
       elif [ "${out#@sleep:}" != "$out" ]; then sleep "${out#@sleep:}"
+      # @seq:a||b||c answers a, then b, then c on later matches, and keeps the last.
+      elif [ "${out#@seq:}" != "$out" ]; then c="$VMHT_LOG.seq.$(printf '%s' "$pat" | cksum | cut -d' ' -f1)"
+        n=$(( $(cat "$c" 2>/dev/null || echo 0) + 1 )); echo "$n" > "$c"
+        rest=${out#@seq:}; i=1; item=$rest
+        while [ "$i" -lt "$n" ] && [ "${rest#*||}" != "$rest" ]; do rest=${rest#*||}; i=$((i+1)); done
+        item=${rest%%||*}; printf '%b\n' "$item"
       elif [ "$out" = @count ]; then c="$VMHT_LOG.count.$(printf '%s' "$pat" | cksum | cut -d' ' -f1)"
         n=$(( $(cat "$c" 2>/dev/null || echo 0) + 1 )); echo "$n" > "$c"; echo "boot-$n"
       elif [ -n "$out" ]; then printf '%b\n' "$out"; fi
@@ -60,6 +66,7 @@ case "$1" in
   caps) echo "hash=none modtime=no" ;;
   rclone-conf) printf '[qa-cloud]\ntype = webdav\nurl = http://10.0.2.2:19999/\n' ;;
   shipped-default) echo "${2}-folder" ;;
+  remote-name) echo qa-cloud ;;
   seed-device) printf 'mkdir -p /storage/roms/snes\nhead -c 10 /dev/zero > /storage/roms/snes/shared.sfc\nhead -c 10 /dev/urandom > /storage/roms/gb/only.gb\necho seeded\n' ;;
 esac
 exit 0
@@ -79,6 +86,8 @@ printf 'vm-pair %s\n' "$*" >> "$VMHT_LOG"
 case "$1" in
   down) exit "${VMHT_PAIR_DOWN_RC:-0}" ;;
   up) echo "up: a"; echo "ready: a"; exit "${VMHT_PAIR_UP_RC:-0}" ;;
+  ssh) shift 2; exec ssh -n -p 10022 root@127.0.0.1 "$@" ;;
+  scp) exit "${VMHT_PAIR_SCP_RC:-0}" ;;
 esac
 exit 0
 '''
@@ -1158,6 +1167,90 @@ def accounts_readback(c):
     r = c.run([str(tool), '10022', 'ra'], QA_ACCOUNTS=acct, QA_KEY=c.dir / 'key')
     return r.returncode == 1 and 'global.retroachievements.key' in r.stderr, \
         f'rc {r.returncode}, {(r.stderr.strip() or r.stdout.strip()).splitlines()[-1:]} (want rc 1 naming the key that differs)'
+
+
+# --- S10: vm-upgrade-rehearsal (#979) -----------------------------------------------
+
+def rehearsal_rows(backups='settings-1.zip', after_hash_of_state1=None):
+    """A guest that seeds, updates and comes back as the rehearsal expects, call by call."""
+    h = ['%064x' % n for n in (1, 2, 3, 4)]
+    names = ['savestates/nes/Rehearsal.state.auto', 'savestates/nes/Rehearsal.state1',
+             'savestates/nes/Rehearsal.state2', 'nes/Rehearsal.srm']
+    sizes = [300000, 200000, 100000, 8192]
+    before = '\\n'.join('%s  %s %d' % (x, n, z) for x, n, z in zip(h, names, sizes))
+    after_h = list(h)
+    if after_hash_of_state1:
+        after_h[1] = after_hash_of_state1
+    after = '\\n'.join('%s  %s %d' % (x, n, z) for x, n, z in zip(after_h, names, sizes))
+    count = '1' if backups else '0'
+    return [
+        ('systemctl is-active rocknix-autostart', 0, '@seq:B1 active||B2 active'),
+        ('random/boot_id', 0, '@seq:B1||B1||B2'),
+        ('grep ^BUILD_ID=', 0, '@seq:oldbuild00||newbuild00'),
+        ('cd /storage/roms && ', 0, '@seq:%s||%s' % (before, after)),
+        ('command -v set_setting', 0, 'yes'),
+        ('get_setting rehearsal.marker', 0, 'newbuild00'),
+        ('cat /storage/.config/rehearsal-marker', 0, 'rehearsal-marker'),
+        ('cloud_remote active', 0, 'qa-cloud:'),
+        ('active-connection; else echo absent', 0, 'absent'),
+        ('rclone lsd', 0, 'ok'),
+        ('ls /storage/.config/cloud_sync.conf', 0, '/storage/.config/cloud_sync.conf'),
+        ("grep -E '^SAVES_REMOTE='", 0, 'SAVES_REMOTE="/Rehearsal/Saves"'),
+        ("grep -cE '^(CONTENT_REMOTE|SAVES_REMOTE)='", 0, '2'),
+        ('backup/ 2>/dev/null | wc -l', 0, count),
+        ('ls -1 /storage/roms/backup/', 0, backups),
+        ('ls /storage/.update | wc -l', 0, '0'),
+        ('readlink .config/system.d/emergency.target', 0, '5\\n/dev/null'),
+        ('[ -L .config/system.d/emergency.target ]', 0, '0\\nunmasked'),
+        ('cat /storage/.config/tmpfiles.d/50-rehearsal-owner.conf', 0, "# the owner's own (vm-upgrade-rehearsal)"),
+        # Joined by the guest's own `tr '\\n' ' '` in that command, so one line with a trailing space.
+        ("grep -E '^(video_fullscreen_x", 0, '@seq:video_driver = "vulkan" video_fullscreen_x = "1024" video_fullscreen_y = "768" ||video_driver = "gl" video_fullscreen_x = "1024" video_fullscreen_y = "768" '),
+        ('ls /usr/lib/libcairo.so.2.* | wc -l', 0, '1'),
+        ('readlink /usr/lib/libcairo.so.2', 0, 'libcairo.so.2.11805.5'),
+        ('basename $(ls /usr/lib/libcairo.so.2.*)', 0, 'libcairo.so.2.11805.5'),
+    ]
+
+
+def rehearse(c, rows, **extra):
+    tool = c.tool('vm-upgrade-rehearsal')
+    executable(c.bin / 'sleep', SLEEP_DOUBLE)
+    old = c.dir / 'old' / 'pixelelated-old.img.gz'
+    old.parent.mkdir()
+    old.write_bytes(b'')
+    new = c.dir / 'new.tar'
+    new.write_bytes(b'')
+    c.rows(rows)
+    r = c.run([str(tool), str(old), str(new), 'newbuild00'], timeout=120, **extra)
+    out = r.stdout + r.stderr
+    result = [l for l in out.splitlines() if 'RESULT ' in l]
+    return r, out, (result[-1].split('RESULT ', 1)[1].split()[0] if result else None)
+
+
+@case
+def rehearsal_clean(c):
+    # The control's own control: on this guest the rehearsal passes, so a FAIL in the
+    # three cases below is theirs and not the doubles'.
+    r, out, result = rehearse(c, rehearsal_rows())
+    return result == 'PASS' and r.returncode == 0, f'RESULT {result}, rc {r.returncode} (want PASS on a guest that kept everything)'
+
+
+@case
+def rehearsal_no_archive(c):
+    r, out, result = rehearse(c, rehearsal_rows(backups=''))
+    return result == 'FAIL' and r.returncode != 0, f'RESULT {result}, rc {r.returncode} (want FAIL: nothing to keep)'
+
+
+@case
+def rehearsal_hash_changed(c):
+    r, out, result = rehearse(c, rehearsal_rows(after_hash_of_state1='%064x' % 99))
+    named = 'FAIL seeded savestates/nes/Rehearsal.state1 kept' in out
+    return result == 'FAIL' and named, f'RESULT {result}, the changed file named {named} (want FAIL naming Rehearsal.state1)'
+
+
+@case
+def rehearsal_stop_fails(c):
+    r, out, result = rehearse(c, rehearsal_rows(), VMHT_PAIR_DOWN_RC=1)
+    return result == 'FAIL' and r.returncode != 0, f'RESULT {result}, rc {r.returncode} (want FAIL: the stop failed)'
 
 
 def main():
