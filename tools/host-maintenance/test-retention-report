@@ -6,9 +6,12 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import tarfile
 import tempfile
+import time
+from types import SimpleNamespace
 
 source = Path(__file__).with_name('retention-report')
 loader = importlib.machinery.SourceFileLoader('retention', str(source))
@@ -19,6 +22,21 @@ results = []
 with tempfile.TemporaryDirectory(prefix='pixelelated-retention-controls-') as tmp:
     root = Path(tmp); owner = root/'owner'; kept = root/'kept'; store = root/'store'
     for p in [owner, kept, store]: p.mkdir()
+    # Host isolation (#913): the report's process census reads this fixture
+    # /proc and its container census sees no containers, so a guest or a
+    # container elsewhere on the host changes nothing these controls read.
+    fake_proc = Path(tempfile.mkdtemp(prefix='proc-', dir=tmp))
+    def observe(*argvs):
+        shutil.rmtree(fake_proc); fake_proc.mkdir()
+        for n, argv in enumerate(argvs, 1000):
+            (fake_proc/str(n)).mkdir(); (fake_proc/str(n)/'cmdline').write_bytes(argv)
+    mod.Path = lambda *parts: fake_proc if Path(*parts) == Path('/proc') else Path(*parts)
+    def no_containers(argv, **kwargs):
+        assert argv[0] == 'docker', argv
+        return ''
+    mod.subprocess = SimpleNamespace(run=subprocess.run, check_output=no_containers,
+                                     SubprocessError=subprocess.SubprocessError,
+                                     TimeoutExpired=subprocess.TimeoutExpired)
     disk = owner/'guest.qcow2'
     subprocess.run(['qemu-img','create','-f','qcow2',str(disk),'16M'], check=True, stdout=subprocess.DEVNULL)
     ended = subprocess.Popen(['true']); ended.wait()
@@ -61,8 +79,18 @@ with tempfile.TemporaryDirectory(prefix='pixelelated-retention-controls-') as tm
     hard=store/'hardlink';os.link(disk,hard)
     check('hardlinked candidate',False);hard.unlink()
     sleeper=subprocess.Popen(['python3','-c','import time;time.sleep(60)',str(disk)])
-    try: check('actual live owner process',False)
-    finally: sleeper.terminate();sleeper.wait()
+    try:
+        # Until the child has exec'd, its cmdline is still this script's.
+        argv=b''
+        for _ in range(200):
+            argv=Path('/proc', str(sleeper.pid), 'cmdline').read_bytes()
+            if os.fsencode(str(disk)) in argv: break
+            time.sleep(.01)
+        observe(argv)
+        check('actual live owner process',False)
+    finally: sleeper.terminate();sleeper.wait();observe()
+    observe(b'qemu-system-x86_64\0-name\0fixture\0')
+    check('a live QEMU holds every candidate',False);observe()
     other=copy.deepcopy(plan);other['protected'].append(str(owner))
     check('protected tree',False,other)
     other=copy.deepcopy(plan);other['candidates'][0]['identity']['inode']+=1
