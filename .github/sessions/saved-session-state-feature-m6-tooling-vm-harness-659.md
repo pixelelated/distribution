@@ -41,36 +41,22 @@
 
 ## Current focus
 
-**Stages E, F and G complete; stage H (the hand-back) is the next step** (updated 2026-10-24, 23:34 UTC).
-- **`reviewed-at`:** `facb2ae523`. **`fixed-at`:** `159ed33562`, both on #659's body, read back.
-- **The tools' last change:** S5b, `3eba8ce4b0`. `vm-qa`'s run scratch is `<runtime>/qa.XXXXXX`, removed at exit. `vm-harness-test` 78 PASS.
-- **The scripts FAIL is settled** (`02` § The scripts suite's FAIL, settled; `streams/scripts-tmpdir-compare.txt`):
-  - 326, 319 and 319 FAIL under the worktree, `/workspace/tmp` and tmpfs;
-  - seven `AF_UNIX path too long` were S5's, fixed by S5b;
-  - the 319 are location-independent: Bug #1015, filed by this lane under T15's #662, with the build-root busybox lead in its comment.
-- **The lint reads `PASS`**; `proved:` 35 = `PROOF:` 35; 60 coverage rows. #984: 19 Resolved, 4 Deferred; `box-check` 0 fail.
-- **The retro:** `docs/retros/2026-10-24-m6-tooling-vm-harness.md`, posted on #659.
-- **The checkers:**
-  - `rules-check --quiet` rc 0; `work-log-index --check` rc 0.
-  - `register-check` rc 1, only on citations of D-INFRA-031, D-QA-061 and D-QA-062. Those are the coordinator's rows; the check is red until its merge.
-- **No guest is up, and no process is running for this lane.**
-- **Open items, none of them this lane's to decide:**
-  - #1012 (the g2g exit sync's stamp, the cloud lane's);
-  - #1013 (the ES pin, Backlog under #800);
-  - the frame baseline (the maintainer's, on #346);
-  - #986, #987 and #988 (PL-19, PL-20 and PL-22);
-  - #1015 (the scripts suite on this host, T15's).
+**Idle (23:40 UTC 2026-10-24): T12 accepted by the coordinator at 23:39 UTC on #659; #984 is closed as completed, with its 23 checkboxes ticked by name.**
+- **The marker:** `docs/audits/2026_10_24-epic-m6-tooling-vm-harness/audit-completion.json`, written by `tools/write-completion.py` from #984's closed readback (completed 23:40:02 UTC). Beside it are `tracker-final-readback.json` and `tracker-completion.json`. `tools/ceremony-check`'s `completed_audit_marker()` accepts it, and `tools/lint-audit-artifacts` on the folder prints `PASS`.
+- **Commits:** `reviewed-at` `facb2ae523`, `fixed-at` `159ed33562` (in #659's body); the hand-back tip `d9991735d8`.
+- **Stopped:** the QA webdav backend this lane's cycle 1 started (pid 188175, 22:14:47) went down through `tools/cloud-test-backend down` (rc 0); the pid is gone and port 9010 is free.
+- **Running for this lane:** nothing. No guest, no backend, no watcher.
+- **What the lane waits for:** the merge to `next`, the coordinator's, after T10's and before T14's. `register-check` turns green with it (D-INFRA-031, D-QA-061, D-QA-062).
+- **Open elsewhere, not this lane's:**
+  - #1012, the g2g stamp;
+  - #1013, the ES pin;
+  - #1015, the scripts suite on this host, T15's;
+  - the frame baseline, the maintainer's on #346;
+  - #986, #987 and #988.
 
 ## Next commands
 
-```bash
-D=/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659; A=$D/docs/audits/2026_10_24-epic-m6-tooling-vm-harness
-cd "$D" && git status --short && git log --oneline -1 && git status -sb | head -1   # clean, in sync with origin
-# Stage H: the hand-back comment on #659, naming the tip and each artifact by path (00 to 05, streams/, cycle-e/, cycle-e2/,
-# the retro), and the coordinator's accept command from t12-streams.md:
-#   AUDIT_ISSUE=984 $S/t12-accept.sh <tip> <coordinator tip>
-# Then wait for the coordinator; nothing else runs here until it answers.
-```
+None. The lane is idle until the coordinator's merge, and nothing runs here until then.
 
 ## Merge notes
 
