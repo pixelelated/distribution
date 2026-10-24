@@ -1,17 +1,65 @@
 diff --git a/cheevos/cheevos.c b/cheevos/cheevos.c
-index d8fc40c..aed6de4 100644
 --- a/cheevos/cheevos.c
 +++ b/cheevos/cheevos.c
-@@ -470,6 +470,13 @@ static void rcheevos_award_achievement(const rc_client_achievement_t* cheevo)
+@@ -16,6 +16,13 @@
+ 
+ #include <string.h>
+ #include <ctype.h>
++#if defined(__linux__)
++#include <errno.h>
++#include <fcntl.h>
++#include <sys/types.h>
++#include <sys/wait.h>
++#include <unistd.h>
++#endif
+ 
+ #include <file/file_path.h>
+ #include <string/stdstring.h>
+@@ -452,6 +459,48 @@
        }
     }
  
-+   const char* cheevos_cmd = settings->arrays.cheevos_cmd;
-+   if (cheevos_cmd[0]) {
-+     char cmdargs[256];
-+     snprintf(cmdargs, sizeof(cmdargs), "%s %u \"%s\" \"%s\" > /dev/null 2>/dev/null", cheevos_cmd, cheevo->id, cheevo->title, cheevo->description);
-+     system(cmdargs);
++#if defined(__linux__)
++   /* ROCKNIX: run the achievements hook with the id, the title and the
++    * description as its arguments. They are the set's text, so they are
++    * never given to a shell, which would run a $( ) or a backtick in them. */
++   {
++      const char *cheevos_cmd = settings->arrays.cheevos_cmd;
++      if (cheevos_cmd[0])
++      {
++         char idbuf[16];
++         char *const hook_argv[] = {
++            (char*)cheevos_cmd,
++            idbuf,
++            (char*)(cheevo->title       ? cheevo->title       : ""),
++            (char*)(cheevo->description ? cheevo->description : ""),
++            NULL };
++         pid_t pid;
++
++         snprintf(idbuf, sizeof(idbuf), "%u", (unsigned)cheevo->id);
++         pid = fork();
++         if (pid == 0)
++         {
++            /* The child: only async-signal-safe calls until execv. */
++            int devnull = open("/dev/null", O_WRONLY);
++            if (devnull >= 0)
++            {
++               dup2(devnull, STDOUT_FILENO);
++               dup2(devnull, STDERR_FILENO);
++               if (devnull > STDERR_FILENO)
++                  close(devnull);
++            }
++            execv(cheevos_cmd, hook_argv);
++            _exit(127);
++         }
++         else if (pid > 0)
++         {
++            while (waitpid(pid, NULL, 0) < 0 && errno == EINTR)
++               ;
++         }
++      }
 +   }
++#endif
 +
  #ifdef HAVE_AUDIOMIXER
     /* Play the unlock sound */
