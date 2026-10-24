@@ -67,6 +67,12 @@ except TypeError:
     got = mod.last_marker(days, futro_rx, "futros")
 check("only a mention: no clock (got %s)" % got, got is None)
 
+print("--- the dated audit folder (T10 S7, #945)")
+afd = getattr(mod, "audit_folder_date", None)
+check("an underscore-dated folder (all 23 today) is read", afd is not None and afd("2026_10_24-epic-m6-x") == dt.date(2026, 10, 24))
+check("a hyphen-dated folder is read too", afd is not None and afd("2026-10-24-epic-m6-x") == dt.date(2026, 10, 24))
+check("a mixed separator, a bad date or no date is no folder date", afd is not None and afd("2026_10-24-x") is None and afd("2026_13_01-x") is None and afd("README.md") is None)
+
 print("--- the tracker, through the gh double")
 bin_ = os.path.join(S, "bin"); os.makedirs(bin_); shutil.copy(os.path.join(HERE, "../2026-10-24-box-check/gh-double"), os.path.join(bin_, "gh")); os.chmod(os.path.join(bin_, "gh"), 0o755)
 pop = [{"number": 2000 - i, "title": "issue %d" % i, "state": "CLOSED", "labels": [], "createdAt": "2026-09-01T00:00:00Z",

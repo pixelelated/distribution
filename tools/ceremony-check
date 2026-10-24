@@ -117,6 +117,20 @@ def gh_all(args, query):
     return data, None
 
 
+def audit_folder_date(name):
+    """The date a docs/audits/ folder's name carries, YYYY_MM_DD-... (all 23
+    today) or YYYY-MM-DD-..., one separator throughout, as lint-audit-artifacts
+    reads it; None for anything else (T10 S7, #945: this read hyphens only,
+    so no folder ever moved the audit clock)."""
+    m = re.match(r'(\d{4})([-_])(\d\d)\2(\d\d)-', name)
+    if not m:
+        return None
+    try:
+        return dt.date(int(m.group(1)), int(m.group(3)), int(m.group(4)))
+    except ValueError:
+        return None
+
+
 def file_sha256(path):
     """sha256 of a file, read in chunks (any Python 3; hashlib.file_digest is 3.11+)."""
     h = hashlib.sha256()
@@ -424,9 +438,8 @@ def main():
                     if d <= today:
                         last_audit = d if last_audit is None or d > last_audit else last_audit
             for path in glob.glob(os.path.join(ROOT, 'docs/audits/*')):
-                m = re.match(r'(\d{4})-(\d\d)-(\d\d)', os.path.basename(path))
-                if m:
-                    d = dt.date(*map(int, m.groups()))
+                d = audit_folder_date(os.path.basename(path))
+                if d and d <= today:
                     last_audit = d if last_audit is None or d > last_audit else last_audit
             start = max(SINCE, last_audit) if last_audit else SINCE
             cutoff = dt.datetime.combine(start, dt.time.min, tzinfo=dt.timezone.utc)

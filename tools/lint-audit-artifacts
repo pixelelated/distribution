@@ -154,15 +154,20 @@ def main():
     # v1.12 (2026-10-02): cross-lab plans and all selected passes are verified.
     # Completed older audits retain v1.11's historical GPT-only contract;
     # their evidence is not rewritten to claim a different review occurred.
-    m = re.match(r"(\d{4})_(\d\d)_(\d\d)-(milestone|epic|issue)-", d.name)
+    # A dated folder is YYYY_MM_DD-... (all 23 today) or YYYY-MM-DD-..., one
+    # separator throughout; ceremony-check reads the same two (T10 S7, #945:
+    # the lint read underscores only and ceremony-check hyphens only).
+    m = re.match(r"(\d{4})([-_])(\d\d)\2(\d\d)-(milestone|epic|issue)-", d.name)
+    dated = (m.group(1), m.group(3), m.group(4)) if m else None   # (year, month, day)
+    tier = m.group(5) if m else None
     current_contract = (d / "second-opinions/review-plan.json").exists() or (
-        m and m.group(4) in ("milestone", "epic")
-        and m.group(1, 2, 3) >= ("2026", "10", "02"))
+        tier in ("milestone", "epic")
+        and dated >= ("2026", "10", "02"))
     if current_contract:
         check_review_plan(d, milestone, bad, ok)
         if not re.search(r"^##+ Second opinion", analysis, re.M):
             bad("04-analysis.md has no Second opinion section recording the selected depth/outcome")
-    elif m and m.group(4) in ("milestone", "epic") and m.group(1, 2, 3) >= ("2026", "09", "24"):
+    elif tier in ("milestone", "epic") and dated >= ("2026", "09", "24"):
         if re.search(r"^##+ Second opinion", analysis, re.M):
             ok("04 § Second opinion (Phase 4.6)")
         else:
@@ -192,7 +197,11 @@ def main():
     # the parenthesis after the id -- `F-CS-02 (gpt, ...)`, `(claude and gpt`,
     # `(both seats` -- or sits under a seat heading such as `### 3-rclone-setup (gpt):`.
     forward = (d / "02-forward-audit.md").read_text() if (d / "02-forward-audit.md").exists() else ""
-    fi, vi = forward.find("## Findings index"), forward.find("## Verification")
+    # The headings at the start of a line, never a substring: a table cell
+    # quoting "## Verification" ended the index at line 192 of the 2026-09-28
+    # fix-round audit, and rows 192-881 were never required (T10 S7, #945).
+    fm = re.search(r"^## Findings index", forward, re.M); vm = re.search(r"^## Verification", forward, re.M)
+    fi, vi = (fm.start() if fm else -1), (vm.start() if vm else -1)
     if fi >= 0 and vi > fi:
         index, ver = forward[fi:vi], forward[vi:]
         need = set()
