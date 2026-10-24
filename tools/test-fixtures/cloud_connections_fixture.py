@@ -22,9 +22,20 @@ def configure(module, directory):
     def run(args):
         stage = Path(args[1])
         command = args[2:]
-        if module.subprocess is subprocess and module.RCLONE == '/usr/bin/rclone':
-            raise RuntimeError('OAuth fixture needs its fake provider')
-        answer = module.subprocess.run([module.RCLONE] + command, capture_output=True, text=True)
+        if module.subprocess is subprocess:
+            # A real process runs: only a script shim inside this fixture's own
+            # directory is admitted, never an rclone binary wherever it sits, and
+            # the stage's --config goes with it, so nothing reaches the caller's
+            # default configuration (#999).
+            binary = Path(module.RCLONE).resolve()
+            with open(binary, 'rb') as head:
+                elf = head.read(4) == b'\x7fELF'
+            if elf or root.resolve() not in binary.parents:
+                raise RuntimeError('OAuth fixture needs its fake provider: ' + str(binary) + ' is not a shim in ' + str(root))
+            answer = module.subprocess.run([module.RCLONE] + list(args), capture_output=True, text=True)
+        else:
+            # A table fake answers by the command after the binary; nothing runs.
+            answer = module.subprocess.run([module.RCLONE] + command, capture_output=True, text=True)
         if answer.returncode:
             raise c.Refused('The connection could not be verified. Your settings were not changed.')
         if command[:2] == ['config', 'create']:
