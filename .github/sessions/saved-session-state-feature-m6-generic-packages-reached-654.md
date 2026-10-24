@@ -37,12 +37,12 @@
 
 ## Current focus
 
-**Stage G done (11:06 UTC); the stage-H hand-back is next.**
-- **S1:** `ce74769bab`, `49bddf9b3e`, `063f10154a` (`fixed-at`); `reviewed-at` `4ea87f17dd`.
-- **#884:** 15 of 15 at a Phase 7 outcome; `box-check` 0 open. The full lint passes.
-- **Retro:** `docs/retros/2026-10-24-m6-generic-packages-reached.md`.
-- **Next:** the six checkers and a simulated merge with the coordinator's tip under `/workspace/tmp/m6-t7/`; then the hand-back on #654, with `reviewed-at:` and `fixed-at:` in its body.
-- **Rule:** write prose with a quoted heredoc or Python only (`00` § Incident).
+**T7 handed back (11:10 UTC); the lane is idle until the coordinator's acceptance.**
+- `reviewed-at` `4ea87f17dd`, `fixed-at` `063f10154a`; both are in #654's body.
+- The six checkers exit 0; the full lint passes; `register-check` passes on a simulated merge with `e09b57d16c`.
+- #884 is 15 of 15 at its outcomes; #880 to #883 stay open, mirror-covered, and are deferred to #585's section.
+- After acceptance: `audit-completion.json` from #884's closed readback, the full lint posted, and this pointer set to idle.
+- **Rule:** write prose with a quoted heredoc or Python only.
 
 ## Next commands
 

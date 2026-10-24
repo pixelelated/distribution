@@ -183,3 +183,26 @@ PROOF: 10:52 P15 #877's packet `cf3a8d8e62` gives `libfmt` 9.1.0 the three witne
 PROOF: 11:02 P16 the old `PKG_URL` lines give `3.1/` for a synthetic 3.10.0, the new give `3.10/` -- `.qa-scratch/t7/s1/fixture.txt`
 PROOF: 11:02 P17 the three archives fetched from the old and the new URLs into empty directories match the unchanged `PKG_SHA256` -- `.qa-scratch/t7/s1/`
 PROOF: 11:03 P18 `pkgcheck` 0 on the three; the branch's diff from `8ebaf8daad` is the three lines, no `PKG_VERSION` -- `git diff --stat 8ebaf8daad 063f10154a`
+
+### [Stage G] 11:05 to 11:06 — the retro
+
+- `docs/retros/2026-10-24-m6-generic-packages-reached.md` (`bcc19abd98`), posted whole on #654 (issuecomment-6383451536). It says the slice did nothing to the two time-to-play numbers.
+
+### [Stage H] 11:06 to 11:10 — the checks and the hand-back
+
+- **The six checkers on `bcc19abd98`** (11:06:35 to 11:09:10), `git status --short` empty:
+  - `register-check` 0;
+  - `work-log-index --check` 0;
+  - `rules-check --quiet` 0;
+  - `forbidden-terms-check` 0;
+  - `.githooks/hooks-test` 0 (`PASS`);
+  - `tools/lint-audit-artifacts <folder>` 0: `PASS`, with `ok    review-plan: local at epic tier under D-WORKFLOW-184 (...)`.
+- **The simulated merge** with the coordinator's tip `e09b57d16c` (merge base `e7978a1ca5`; `git merge-tree --write-tree` tree `be03882049`):
+  - Exported to `/workspace/tmp/m6-t7/sim-merge-110935/` after `df -i` (`/workspace` 19%).
+  - It conflicts only in `docs/friction-log.md`, the 10-24 work log and `INDEX.md`, which were united with `git merge-file --union`; `decision-register.md` auto-merged.
+  - The marker grep is empty; the index was regenerated.
+  - `register-check`: `664 IDs, each once; every citation in the live documents names a row`, rc 0.
+- **#654's body:** `reviewed-at: 4ea87f17dd`, `fixed-at: 063f10154a`, read back.
+- **Over the slice:** `git diff --stat 8ebaf8daad 063f10154a -- packages` gives three files and three lines. `--diff-filter=DR` gives 0 files. `PKG_VERSION` changes: 0.
+- **#884:** 15 of 15 ticked at their outcomes; `box-check` 0 open, 0 fail.
+- **API budget over the slice:** 4,291 at 10:12 and 4,325 at 10:57 (the hour reset at 10:18:26 mid-loop). The loops' calls were about 245 for (b), 23 for the other paths, 11 for the hash pins, 75 for the GitHub owners and 4 for LibreELEC's commits, plus the tool's own and the tracker's.
