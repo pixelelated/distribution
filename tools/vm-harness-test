@@ -679,6 +679,15 @@ def cell_ran_unmeasured(c):
     return named == ['launch', 'exit', 'g2g'], f'judged {missing} (want each cell that ran with no number named)'
 
 
+@case
+def scaled_none(c):
+    m = ttp_module(c)
+    report = {'cells': {'launch': [{'t_first_game_frame': 0.8}]}, 'remote_reachable': 'yes',
+              'surface': {'surface': '640x480', 'panel': None, 'scaled': None, 'source': "the launch log's Using resolution line"}}
+    missing = m.headline_missing(report)
+    return any('could not be compared' in x for x in missing), f'judged {missing} (want an unread panel to fail surface qualification)'
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')
