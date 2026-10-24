@@ -616,7 +616,7 @@ punch_index:
 | PL-04 | **Resolved** | `10f688e3cd` (E3): `DROP` matched in upper case with the missing words and fused endings; a value spanning lines not forwarded, named on stderr; a failed write exits 1. P18 before and after; fix-sandbox; the next `make docker-*` run's `.env` read back as names only |
 | PL-05 | **Resolved** | `cbb3e308b7` (E4): the eleven per-system keys unset before each fragment, a missing fragment refused; `daphne.conf` and `gp32.conf` gain 1983 and 2001. P19 (case C) and P20 (the five tables); fix-host-regen; fix-pending-image: the three images' tables |
 | PL-06 | **Resolved** | `cbb3e308b7` (E4): the default marks `core[last()]`; defaults counted once per system, more than one fails by name, none warned (GENERIC_X64 `psx`, #650's line); `mk_es_systems` prints `xmlstarlet`'s error. P19 (cases A and B) and P20; fix-host-regen; fix-pending-image: the three images' tables |
-| PL-07 | **Resolved** | `cfb391e75d` (E5): the prune keeps the outputs of a frozen `BUILD_TIMESTAMP`, so `scripts/image`'s refusal fires. P21 case 1; fix-sandbox; fix-pending-image: the next build's `target/` |
+| PL-07 | **Resolved** | `cfb391e75d` (E5): the prune keeps the outputs of a frozen `BUILD_TIMESTAMP`, so `scripts/image`'s refusal fires (P21 case 1); `0a580b2d4d` (E5b): the identity sidecar is removed when a later step fails (P22); fix-sandbox; fix-pending-image: the next build's `target/` |
 | PL-08 | Open | stage E's stream brief resolves (`t5-streams.md`) |
 | PL-09 | Open | stage E's stream brief resolves (`t5-streams.md`) |
 | PL-10 | Open | stage E's stream brief resolves (`t5-streams.md`) |

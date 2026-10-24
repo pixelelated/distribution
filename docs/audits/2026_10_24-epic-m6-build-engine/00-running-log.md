@@ -231,3 +231,14 @@ PROOF: 06:38-06:41 P20 the five devices' tables after E4 differ from today's in 
 - Not in this stream: `.identity.json` is still written before `do_mkimage` (Argon G-02, folded into F-09's item). After E1 a failed `mkimage` removes its image, but the sidecar stays. The brief's files for `scripts/image` were 71 to 84, so it goes to the coordinator in the hand-back.
 
 PROOF: 06:46 P21 `build_distro` keeps a frozen identity's outputs so the image refuses, fails a failed step by name, and cleans the initramfs without `DEVICE_ROOT` -- `tools/sb-build-distro.sh` (F-09, F-14, F-24, #833)
+
+### [Stage E] 06:50 to 06:53 — E5b, the identity sidecar on failure (PL-07, #833)
+
+- The coordinator accepted E5 and authorized E5b on #652: write `.identity.json` only after `do_mkimage` returns 0, or remove it on the failure path. Fixture first; one commit.
+- Why not move the write: `tools/build-identity-test` (T14's) lifts the block from `# Record the identity` to `# Create legacy sym links`, so moving the write would break that test. The removal on failure was the option kept.
+- Fixture: `tools/sb-image-sidecar.sh`. Before: a failing step leaves the sidecar.
+- The change (`0a580b2d4d`): an `EXIT` handler removes the sidecar on a non-zero exit, then calls `onexitcleanup` with the same status; `NOONEXIT` is honoured. `bash -n` passes.
+- A slip of mine, caught by the fixture: the first cut called `(exit ${rc}); onexitcleanup`, which under `set -e` exits before the call. Rewritten as `(exit ${rc}) || onexitcleanup`, then rerun.
+- After: the sidecar is removed and `onexitcleanup` sees rc=1; success unchanged. `tools/build-identity-test`: 21 passed, 2 failed, the same two checks as stage B (#801).
+
+PROOF: 06:52 P22 `scripts/image` removes its identity sidecar when a later step fails, where it left one naming no image -- `tools/sb-image-sidecar.sh` (F-09, #833)
