@@ -104,3 +104,38 @@ PROOF: 12:22 P12 sourcing `virtual/image` wrote `image/system/opt` in three buil
 PROOF: 12:20 P13 the units: no directive warning; `xorg-configure`'s script in no image -- `units-verify.txt`, `units-exec.txt`
 PROOF: 12:21 P14 every plan's reached recipes stamped; the unbuilt the 12 virtual and `qcom-abl` -- `stamps-*.txt`
 PROOF: 12:30 P15 the orphans' pins after the base merge; `glslang` 16.6.0 to 16.5.0 -- `git show upstream/next:<generic>`
+
+### [Stage C] 12:36 to 12:40:00 — Phase 4.6: the Facilitator, the probe, the packet, the refutation started
+
+- **Setup (12:36:46 to 12:37:17):** `npm install --prefix tools/council` rc 0. `tools/council/run verify-pins`: `OK - verifier pins match current files and every re-pin is accountable.` `tools/council/run test`: 39/39, 127/127, 19/19, 0 fail. `run` sources `~/.config/council/env` itself, and the env was not read.
+- **The probe** (12:37:35 to 12:37:43): `tools/council/run invoke --member gpt --provider openrouter --prompt-file second-opinions/gpt-probe-prompt.md --output second-opinions/gpt-probe.md`, rc 0.
+  - attempt 1, http 200, `model_field` `openai/gpt-6-astra` (`model_identity_source: provider_response`), served by **OpenAI**, effort `max`, 252 reasoning tokens, `finish=stop`;
+  - `final.verification`: **PASS** (semantic; observed `openai/gpt-6-astra`);
+  - the seat's own line reads `READY unknown`; the provider's field is the authority.
+- **The packet** (`tools/t8-packet.py`): `second-opinions/gpt-brief.md`, **398,152 bytes, sha256 `7e93a08906a8168fe86ecf6b24c9e2d6381d1f316c28ce1af63cd59e41d6dca5`**, 69 parts (`second-opinions/packet-manifest.json` names each with its sha256).
+  - **What it carries:** `02` less its 485 generated rows, `03`, `04` less its 260 generated rows, `q4-table.md`, the 35 fork-own files whole, the 64 upstream-carried paths that differ from `upstream/next` as their diff, 14 line-numbered excerpts, 15 mechanical outputs, and the ask.
+  - **Checks before sending:** redirect query strings cut; the hook's secret patterns 0 hits; `forbidden-terms-check --stdin` rc 0; under the 440,000-byte cap.
+- **The refutation** started at 12:40:00: `tools/council/run invoke --member gpt --provider openrouter --prompt-file second-opinions/gpt-brief.md --output second-opinions/gpt-audit.md`, in the background.
+  - **Watching it:** the harness task delivers its end.
+  - **Its silent mode:** a seat that hangs is ended only by the Facilitator's own per-attempt and total timeouts, and by the `timeout 5400` around it.
+
+### [Stage C] 12:55 to 13:01 — the second opinion graded, the punch list drafted
+
+- **The refutation ended at 12:55:20, rc 0.** One attempt, http 200, `model_field` `openai/gpt-6-astra` (`provider_response`), served by OpenAI, effort `max`, 40,720 reasoning tokens, 46,644 completion, `finish=stop`, 920 s. `final.verification`: PASS. The provenance's `user_prompt_sha256` equals the packet's `7e93a089...`. The output is `second-opinions/gpt-audit.md`, 26,313 bytes.
+- **Graded in `04` § Second opinion, every item read at its site:**
+  - **27 new items:**
+    - G-01 and G-15 confirmed Medium → F-14 and F-13, both `bug`s;
+    - G-20 confirmed → F-15, a lead for #844;
+    - G-22 confirmed → F-16;
+    - G-27 confirmed → F-11 widened to the `spirv-headers` triple;
+    - G-16 folded into F-02's stream;
+    - the eight small shapes → F-17;
+    - G-07 refuted (`050-sway.conf:4-5` exports the session variables);
+    - G-08, G-18, G-19 and G-25 withdrawn with reasons;
+    - G-26 applied (17 table rows now say *first `PKG_VERSION` literal*).
+  - **Its refutations of F-01 to F-12:** accepted, narrowing F-01, F-06, F-10, F-11 and F-12, and correcting eight conflict dispositions (`gcc`, `gstreamer`, `gamelist.xml`, `gst-plugins-base`, `spirv-tools`, `rocknix-abl`, `cairo`, `111-sway-init`).
+- **Two of my statements corrected in the grading:**
+  - `make update` would move four hash pins, not "three at HEAD" (five are at HEAD);
+  - `cairo`'s listing read was not stamped.
+- **D-WORKFLOW-198** (the coordinator's, `152c4ee3c3`) settles F-11: keep the fork's `glslang` override at the base merge. The coordinator's 12:42 answer: the conflict list is one Renovation item, F-11 its own Medium, and `libaio` and `rocknix-abl` two Low bugs.
+- **Written:** `05` from `tools/punch-items.py` (seventeen items); `second-opinions/review-plan.json` complete.

@@ -85,27 +85,27 @@ ORPH_USE = {
  "libfreeaptx": ("its own `PKG_SHA256` over the generic URL", "0.2.2", "0.2.2"),
  "opus": ("1.5.2 over the generic 1.6.1, from a xiph mirror", "1.5.2", "1.6.1"),
  "libfmt": ("9.1.0 on every plan but SM's (#877)", "9.1.0 / 12.2.0", "12.2.0"),
- "glslang": ("16.6.0, the fork's own bump (`b4fc2a28cf`); spirv-tools' pin follows its `known_good.json`", "16.6.0", "16.5.0"),
+ "glslang": ("16.6.0, the fork's own bump (`b4fc2a28cf`); spirv-tools' and spirv-headers' pins follow its `known_good.json`", "16.6.0", "16.5.0 only if the deletion is taken; `merge-tree` leaves ours, and D-WORKFLOW-198 keeps it"),
  "vulkan-headers": ("ROCKNIX's own copy", "1.4.347", "1.4.359"),
- "cargo": ("ROCKNIX's own copy", "1.94.1", "$(get_pkg_version rust)"),
+ "cargo": ("ROCKNIX's own copy", "1.94.1", "the generic's `$(get_pkg_version rust)`, evaluated in the merged tree (not read here)"),
  "miniupnpc": ("ROCKNIX's own copy", "2.3.3", "2.3.3"),
- "rocknix-abl": ("SM8550's bootloader payload (`9aa7affee9`, #600)", "1.2", "none: replaced by `openabl` (`71d8932b33`)"),
+ "rocknix-abl": ("SM8550's bootloader payload (`9aa7affee9`, #600)", "1.2", "`openabl` (`71d8932b33`) if the deletion is taken; `merge-tree` leaves ours"),
  "tllist": ("ROCKNIX's own copy", "1.1.0", "1.1.0"),
  "mtdev": ("ROCKNIX's own copy", "1.1.6", "1.1.7"),
  "swaybg": ("ROCKNIX's own copy", "1.2.1", "1.2.2"),
 }
 CONF_DISP = {
  "apps/gamescope/package.mk": ("auto-merges", "different, keep ours: upstream bumps the pin to `6867f509...` (3.16.31), ours adds the glm/stb packages; the wraps at both commits name the same revisions, so the auto-merge builds (`:55` would stop it otherwise)"),
- "graphics/cairo/package.mk": ("content", "conflict: upstream's is a sourcing override too; take its shape, keep ours' xcb/xlib-xcb options; the version line becomes the generic's"),
- "graphics/glslang/package.mk": ("modify/delete", "conflict: upstream deleted it (the generic is 16.5.0); ours is 16.6.0 and `spirv-tools` follows 16.6.0's `known_good.json` -- taking the deletion downgrades glslang under spirv-tools (F-11)"),
- "graphics/spirv-tools/package.mk": ("content", "conflict: upstream made it a sourcing override; ours pins `ef96ed76...` to glslang 16.6.0 with a GCC 12 diagnostic; resolve with glslang (F-11)"),
- "lang/gcc/package.mk": ("content", "conflict: ours enables libatomic for x86_64; upstream restructured it for aarch64 only and dropped the 15.2.0 hold (the generic is 16.2.0); keep the x86_64 case and decide the hold"),
- "misc/modules/sources/gamelist.xml": ("auto-merges", "different, keep ours: ours rewrites descriptions (identity); upstream removes the AetherSX2 entry"),
- "multimedia/gstreamer/gst-plugins-base/package.mk": ("content", "conflict: both enable GL; ours keeps the install WebKit needs (#228); take upstream's GLES/EGL options and keep ours' install"),
- "multimedia/gstreamer/gstreamer/package.mk": ("add/add", "conflict: added on both sides; ours enables the plugin registry WebKit needs, upstream's removes `/usr/share`; keep ours, check upstream's removal against the registry"),
- "network/networkmanager/config/NetworkManager.conf": ("content", "same change: both add `hostname-mode=none`; drop ours' comment-only hunk"),
- "tools/rocknix-abl/package.mk": ("modify/delete", "conflict: upstream replaced it with `openabl`; ours carries the v1.2 checksum fix; take the deletion and check SM8550's bootloader against `openabl`"),
- "wayland/compositor/sway/autostart/111-sway-init": ("content", "different, keep ours: ours adds the virtio `Virtual` connector and the software cursor (GENERIC_X64); upstream adds essway masking, AFBC and the Duo Lite case; both"),
+ "graphics/cairo/package.mk": ("content", "conflict: upstream's is a sourcing override too; take its shape, keep ours' xcb/xlib-xcb options and the dependencies they need (`:33-36`, `:56-65`); the version line becomes the generic's"),
+ "graphics/glslang/package.mk": ("modify/delete", "conflict, left as ours in the tree by `merge-tree`: upstream deleted it (the generic is 16.5.0); ours is 16.6.0 with `spirv-tools` and `spirv-headers` on 16.6.0's `known_good.json`; D-WORKFLOW-198 keeps ours (F-11)"),
+ "graphics/spirv-tools/package.mk": ("content", "conflict: upstream made it a sourcing override; ours pins `ef96ed76...` to glslang 16.6.0 with a GCC 12 diagnostic; resolve as a triple with `glslang` and `spirv-headers` (a third modify/delete outside this slice's paths, the seat's G-27), keeping or retiring the GCC 12 workaround deliberately (F-11)"),
+ "lang/gcc/package.mk": ("content", "conflict: ours enables libatomic for `arm`, `aarch64` and `x86_64` (`:10-17`); upstream restructured it around aarch64 and dropped the 15.2.0 hold (the generic is 16.2.0); keep all three architectures and decide the hold, which its recipe gives no reason for"),
+ "misc/modules/sources/gamelist.xml": ("auto-merges", "both: the merge keeps ours' rewritten descriptions and applies upstream's removal of the AetherSX2 entry (`:171-183` here); a whole-file 'ours' would restore it, so read with `aethersx2-sa`'s own modify/delete"),
+ "multimedia/gstreamer/gst-plugins-base/package.mk": ("content", "conflict: both enable GL; ours also builds `-Dapp=enabled` with its GL dependencies and keeps the install WebKit needs (#228; `:8`, `:31-35`, `:93-108`); take upstream's GLES/EGL options and keep all three of ours"),
+ "multimedia/gstreamer/gstreamer/package.mk": ("add/add", "conflict: added on both sides; ours enables the plugin registry, the tools and the scanner WebKit needs (`:18`, `:23`, `:36`) and already removes `/usr/share` (`:49-53`), which is upstream's whole override; keep ours"),
+ "network/networkmanager/config/NetworkManager.conf": ("content", "same change: both add `hostname-mode=none` (upstream's hunk `+# network-base-setup sets the hostname`, `+hostname-mode=none`); keep the line, drop ours' longer comment"),
+ "tools/rocknix-abl/package.mk": ("modify/delete", "conflict, left as ours in the tree: upstream replaced it with `openabl` (`71d8932b33`); ours carries the v1.2 checksum fix; verify `openabl` for SM8550's bootloader (`devices/SM8550/options:66` names `rocknix-abl`) before taking the deletion"),
+ "wayland/compositor/sway/autostart/111-sway-init": ("content", "different: ours adds the virtio `Virtual` connector and the software cursor (GENERIC_X64, `:31`, `:59-63`); upstream makes the existing essway mask conditional and adds AFBC and the Duo Lite case; take upstream's hunks over the lines ours shares and keep ours' two additions"),
 }
 assert {short(p) for p in conf} == set(CONF_DISP)
 
@@ -163,7 +163,7 @@ def disp(n):
     m = re.search(r'^\s*PKG_VERSION="([^"]*)"', uv, re.M)
     hv = eff[n]["GENERIC_X64"]["v"]
     if m and m.group(1) and m.group(1) != hv and not m.group(1).startswith("$"):
-        return f"follows the base merge: upstream's pin `{m.group(1)[:12]}`" + (f" ({FIND[n]})" if n in FIND else "")
+        return f"follows the base merge: upstream's recipe changed (its first `PKG_VERSION` literal `{m.group(1)[:12]}`; per-plan not expanded)" + (f" ({FIND[n]})" if n in FIND else "")
     return "follows the base merge: upstream changed the recipe, not its top-level pin" + (f" ({FIND[n]})" if n in FIND else "")
 def probe_cell(n):
     if n not in head:

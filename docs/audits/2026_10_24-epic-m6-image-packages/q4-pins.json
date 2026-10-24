@@ -153,7 +153,7 @@
    ],
    "stamped": true,
    "fork_own": false,
-   "disposition": "follows the base merge: upstream's pin `b06fef21d7e6`"
+   "disposition": "follows the base merge: upstream's recipe changed (its first `PKG_VERSION` literal `b06fef21d7e6`; per-plan not expanded)"
   },
   {
    "recipe": "gamescope-glm",
@@ -685,7 +685,7 @@
    ],
    "stamped": true,
    "fork_own": false,
-   "disposition": "follows the base merge: upstream's pin `2026.06.23-0`"
+   "disposition": "follows the base merge: upstream's recipe changed (its first `PKG_VERSION` literal `2026.06.23-0`; per-plan not expanded)"
   },
   {
    "recipe": "layer-shell-qt",
@@ -1673,7 +1673,7 @@
    ],
    "stamped": true,
    "fork_own": false,
-   "disposition": "follows the base merge: upstream's pin `1.6.8`"
+   "disposition": "follows the base merge: upstream's recipe changed (its first `PKG_VERSION` literal `1.6.8`; per-plan not expanded)"
   },
   {
    "recipe": "pulseaudio",
@@ -1825,7 +1825,7 @@
    ],
    "stamped": true,
    "fork_own": false,
-   "disposition": "follows the base merge: upstream's pin `0.5.15`"
+   "disposition": "follows the base merge: upstream's recipe changed (its first `PKG_VERSION` literal `0.5.15`; per-plan not expanded)"
   },
   {
    "recipe": "box64",
@@ -1939,7 +1939,7 @@
    ],
    "stamped": true,
    "fork_own": false,
-   "disposition": "follows the base merge: upstream's pin `14c92681f4d6`"
+   "disposition": "follows the base merge: upstream's recipe changed (its first `PKG_VERSION` literal `14c92681f4d6`; per-plan not expanded)"
   },
   {
    "recipe": "lib32",
@@ -2775,7 +2775,7 @@
    ],
    "stamped": true,
    "fork_own": false,
-   "disposition": "follows the base merge: upstream's pin `2.44`"
+   "disposition": "follows the base merge: upstream's recipe changed (its first `PKG_VERSION` literal `2.44`; per-plan not expanded)"
   },
   {
    "recipe": "json-glib",
@@ -3687,7 +3687,7 @@
    ],
    "stamped": true,
    "fork_own": true,
-   "disposition": "conflict at the base merge (content): conflict: upstream's is a sourcing override too; take its shape, keep ours' xcb/xlib-xcb options; the version line becomes the generic's; and fork's: Backlog bump proposed (#839's shape), 1.18.4 -> 1.18.6 (F-05)"
+   "disposition": "conflict at the base merge (content): conflict: upstream's is a sourcing override too; take its shape, keep ours' xcb/xlib-xcb options and the dependencies they need (`:33-36`, `:56-65`); the version line becomes the generic's; and fork's: Backlog bump proposed (#839's shape), 1.18.4 -> 1.18.6 (F-05)"
   },
   {
    "recipe": "capsimg",
@@ -3915,7 +3915,7 @@
    ],
    "stamped": true,
    "fork_own": true,
-   "disposition": "orphan, a modify/delete conflict at the base merge: dropped by the base merge; the fork used it for 16.6.0, the fork's own bump (`b4fc2a28cf`); spirv-tools' pin follows its `known_good.json`; after it, 16.5.0; dependants resolve by name (F-11)"
+   "disposition": "orphan, a modify/delete conflict at the base merge: dropped by the base merge; the fork used it for 16.6.0, the fork's own bump (`b4fc2a28cf`); spirv-tools' and spirv-headers' pins follow its `known_good.json`; after it, 16.5.0 only if the deletion is taken; `merge-tree` leaves ours, and D-WORKFLOW-198 keeps it; dependants resolve by name (F-11)"
   },
   {
    "recipe": "grim",
@@ -4485,7 +4485,7 @@
    ],
    "stamped": true,
    "fork_own": false,
-   "disposition": "follows the base merge: upstream's pin `26.2.4`"
+   "disposition": "follows the base merge: upstream's recipe changed (its first `PKG_VERSION` literal `26.2.4`; per-plan not expanded)"
   },
   {
    "recipe": "plutosvg",
@@ -4751,7 +4751,7 @@
    ],
    "stamped": true,
    "fork_own": true,
-   "disposition": "conflict at the base merge (content): conflict: upstream made it a sourcing override; ours pins `ef96ed76...` to glslang 16.6.0 with a GCC 12 diagnostic; resolve with glslang (F-11)"
+   "disposition": "conflict at the base merge (content): conflict: upstream made it a sourcing override; ours pins `ef96ed76...` to glslang 16.6.0 with a GCC 12 diagnostic; resolve as a triple with `glslang` and `spirv-headers` (a third modify/delete outside this slice's paths, the seat's G-27), keeping or retiring the GCC 12 workaround deliberately (F-11)"
   },
   {
    "recipe": "tiff",
@@ -4941,7 +4941,7 @@
    ],
    "stamped": true,
    "fork_own": false,
-   "disposition": "follows the base merge: upstream's pin `3b20e4d7bccc`"
+   "disposition": "follows the base merge: upstream's recipe changed (its first `PKG_VERSION` literal `3b20e4d7bccc`; per-plan not expanded)"
   },
   {
    "recipe": "wxwidgets",
@@ -5017,7 +5017,7 @@
    ],
    "stamped": true,
    "fork_own": true,
-   "disposition": "conflict at the base merge (content): conflict: ours enables libatomic for x86_64; upstream restructured it for aarch64 only and dropped the 15.2.0 hold (the generic is 16.2.0); keep the x86_64 case and decide the hold"
+   "disposition": "conflict at the base merge (content): conflict: ours enables libatomic for `arm`, `aarch64` and `x86_64` (`:10-17`); upstream restructured it around aarch64 and dropped the 15.2.0 hold (the generic is 16.2.0); keep all three architectures and decide the hold, which its recipe gives no reason for"
   },
   {
    "recipe": "go",
@@ -5283,7 +5283,7 @@
    ],
    "stamped": true,
    "fork_own": false,
-   "disposition": "follows the base merge: upstream's pin `9.0`"
+   "disposition": "follows the base merge: upstream's recipe changed (its first `PKG_VERSION` literal `9.0`; per-plan not expanded)"
   },
   {
    "recipe": "gmu",
@@ -5435,7 +5435,7 @@
    ],
    "stamped": true,
    "fork_own": true,
-   "disposition": "conflict at the base merge (content): conflict: both enable GL; ours keeps the install WebKit needs (#228); take upstream's GLES/EGL options and keep ours' install"
+   "disposition": "conflict at the base merge (content): conflict: both enable GL; ours also builds `-Dapp=enabled` with its GL dependencies and keeps the install WebKit needs (#228; `:8`, `:31-35`, `:93-108`); take upstream's GLES/EGL options and keep all three of ours"
   },
   {
    "recipe": "gst-plugins-good",
@@ -5511,7 +5511,7 @@
    ],
    "stamped": true,
    "fork_own": true,
-   "disposition": "conflict at the base merge (add/add): conflict: added on both sides; ours enables the plugin registry WebKit needs, upstream's removes `/usr/share`; keep ours, check upstream's removal against the registry"
+   "disposition": "conflict at the base merge (add/add): conflict: added on both sides; ours enables the plugin registry, the tools and the scanner WebKit needs (`:18`, `:23`, `:36`) and already removes `/usr/share` (`:49-53`), which is upstream's whole override; keep ours"
   },
   {
    "recipe": "libdvbpsi",
@@ -5625,7 +5625,7 @@
    ],
    "stamped": true,
    "fork_own": false,
-   "disposition": "follows the base merge: upstream's pin `1.16.0`"
+   "disposition": "follows the base merge: upstream's recipe changed (its first `PKG_VERSION` literal `1.16.0`; per-plan not expanded)"
   },
   {
    "recipe": "mpv",
@@ -6233,7 +6233,7 @@
    ],
    "stamped": true,
    "fork_own": false,
-   "disposition": "follows the base merge: upstream's pin `4.24.5`"
+   "disposition": "follows the base merge: upstream's recipe changed (its first `PKG_VERSION` literal `4.24.5`; per-plan not expanded)"
   },
   {
    "recipe": "simple-http-server",
@@ -6575,7 +6575,7 @@
    ],
    "stamped": true,
    "fork_own": false,
-   "disposition": "orphan: dropped by the base merge; the fork used it for ROCKNIX's own copy; after it, $(get_pkg_version rust); dependants resolve by name"
+   "disposition": "orphan: dropped by the base merge; the fork used it for ROCKNIX's own copy; after it, the generic's `$(get_pkg_version rust)`, evaluated in the merged tree (not read here); dependants resolve by name"
   },
   {
    "recipe": "rust",
@@ -7107,7 +7107,7 @@
    ],
    "stamped": true,
    "fork_own": false,
-   "disposition": "follows the base merge: upstream's pin `2.12.0`"
+   "disposition": "follows the base merge: upstream's recipe changed (its first `PKG_VERSION` literal `2.12.0`; per-plan not expanded)"
   },
   {
    "recipe": "batteryplus",
@@ -7145,7 +7145,7 @@
    ],
    "stamped": true,
    "fork_own": false,
-   "disposition": "follows the base merge: upstream's pin `31a3b629bc22`"
+   "disposition": "follows the base merge: upstream's recipe changed (its first `PKG_VERSION` literal `31a3b629bc22`; per-plan not expanded)"
   },
   {
    "recipe": "bin2c",
@@ -7449,7 +7449,7 @@
    ],
    "stamped": true,
    "fork_own": false,
-   "disposition": "follows the base merge: upstream's pin `0.82.0`"
+   "disposition": "follows the base merge: upstream's recipe changed (its first `PKG_VERSION` literal `0.82.0`; per-plan not expanded)"
   },
   {
    "recipe": "installer",
@@ -7753,7 +7753,7 @@
    ],
    "stamped": true,
    "fork_own": true,
-   "disposition": "orphan, a modify/delete conflict at the base merge: dropped by the base merge; the fork used it for SM8550's bootloader payload (`9aa7affee9`, #600); after it, none: replaced by `openabl` (`71d8932b33`); dependants resolve by name (F-04)"
+   "disposition": "orphan, a modify/delete conflict at the base merge: dropped by the base merge; the fork used it for SM8550's bootloader payload (`9aa7affee9`, #600); after it, `openabl` (`71d8932b33`) if the deletion is taken; `merge-tree` leaves ours; dependants resolve by name (F-04)"
   },
   {
    "recipe": "rocknix-splash",
@@ -7867,7 +7867,7 @@
    ],
    "stamped": true,
    "fork_own": false,
-   "disposition": "follows the base merge: upstream's pin `1.8.1.3`"
+   "disposition": "follows the base merge: upstream's recipe changed (its first `PKG_VERSION` literal `1.8.1.3`; per-plan not expanded)"
   },
   {
    "recipe": "libvorbisidec",
@@ -8475,7 +8475,7 @@
    ],
    "stamped": true,
    "fork_own": true,
-   "disposition": "follows the base merge: upstream's pin `1.9`"
+   "disposition": "follows the base merge: upstream's recipe changed (its first `PKG_VERSION` literal `1.9`; per-plan not expanded)"
   },
   {
    "recipe": "fcft",
@@ -8665,7 +8665,7 @@
    ],
    "stamped": true,
    "fork_own": false,
-   "disposition": "follows the base merge: upstream's pin `132e31cfe19f`"
+   "disposition": "follows the base merge: upstream's recipe changed (its first `PKG_VERSION` literal `132e31cfe19f`; per-plan not expanded)"
   },
   {
    "recipe": "libinput",

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "depth": "independent",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's dispatch on #655 (issuecomment-6384032445, 2026-10-24T12:09:42Z: 'Opus 5.5 at high effort') and the session's own model metadata (claude-opus-5-5); herdr agent m6-t5-build-engine, session c649553c-8086-4db7-ad9c-248c7e41ff95"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
+      "calls": [
+        {
+          "phase": "refutation",
+          "output": "gpt-audit.md"
+        }
+      ],
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gpt-probe.md"
+        }
+      ],
+      "status": "complete: probe PASS 12:37 and refutation PASS 12:40-12:55 on the first attempt (served openai/gpt-6-astra by OpenAI, effort max, 40720 reasoning tokens, finish stop); full packet; graded item by item in 04 \u00a7 Second opinion"
+    }
+  ],
+  "packets": {
+    "gpt": {
+      "file": "gpt-brief.md",
+      "bytes": 398152,
+      "sha256": "7e93a08906a8168fe86ecf6b24c9e2d6381d1f316c28ce1af63cd59e41d6dca5",
+      "manifest": "packet-manifest.json",
+      "content": "02 (less generated rows), 03, 04 (less generated rows), q4-table.md, the 35 fork-own files whole, the 64 upstream-carried paths' diff against upstream/next, 14 excerpts, 15 mechanical outputs"
+    }
+  },
+  "written_before_first_call": "2026-10-24",
+  "status": "complete"
+}
