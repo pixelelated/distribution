@@ -176,7 +176,10 @@ eleven `fix-pending-image` items at the first image). **T5 accepted at hand-back
 `fixed-at 877775e61e`; #837 closed completed; 15 of 16 ticked; the
 coordinator's rows on #652: the container pin at the first M6 build, the three
 base-merge files, the ccache measurement, `areas.json` at the P1 merge). Both
-work lanes idle. **T6 dispatched 08:0x** (brief version 2 `3d60062ce5`; lane
+work lanes idle. **T6 accepted at hand-back 08:5x** (`ec5f7cf3fd`; `reviewed-at b96e1ca761`,
+`fixed-at 820e413179`; #846 closed; 15 of 16 ticked; S1 #845's exit 2, S2 the
+late-binding list widened; the sweep's leads on #654, #655, #657; the merge
+after T5's, before T4's). **T6 dispatched 08:0x** (brief version 2 `3d60062ce5`; lane
 `feature/m6-build-engine-upstream-tools-653` at `b96e1ca761` in
 `m6-build-engine-upstream-tools-653`, the T5 session `m6-t5-build-engine`;
 Local, no calls). **A merge recipe stops on the union script's failure and on a
