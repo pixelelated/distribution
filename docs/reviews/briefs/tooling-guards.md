@@ -5,8 +5,7 @@ unit of handoff the plan defines (`docs/reviews/plan-for-the-plan.md` § 7);
 read that document whole before the first command, then this brief whole.
 Every section below is mandatory; a section that does not apply says so and
 why. Where this brief and the checklist on #657 differ, #657 wins and the
-coordinator corrects the brief in the same session. **Version 1
-(2026-10-24):** written after the tooling area's futro
+coordinator corrects the brief in the same session. **Version 2 (2026-10-24):** version 1 was written after the tooling area's futro
 (`docs/futros/2026-10-24-m6-tooling-and-guards.md`, posted on #903) gained
 its T10 kickoff addendum, and after T4 (#651, the doctrine, accepted at
 `cceac27d6a`) read the rules that describe these tools and left this slice
@@ -14,8 +13,7 @@ two leads on #657 and the `ceremony-check` packet `9e12014623` (#905). Every
 figure below was produced by a command on the tree at `8ebaf8daad`, on P1's
 tip `2174265e9c` for the three tools that exist only there, on an export
 under `/workspace/tmp/m6-coordinator/t10-hash/`, or on GitHub this afternoon,
-and says which; a stranger's proof precedes the dispatch and version 2 records
-what it found. **Each command block sets its own variables** (`D`): a Bash
+and says which; a stranger's proof preceded the dispatch (read-only, 8 API calls), and version 2 records what it found: six figures wrong (the at-hash line counts, the fork-commit count, the `PERSONAL_PATTERNS` range and count, the register's ID count, the CI's red streak, one upstream script's bytes) and two partial (the secret listing, P1's read-line derivation), each corrected below and listed in the futro's errata. **Each command block sets its own variables** (`D`): a Bash
 call in this harness starts a fresh shell. **This is a read of the fork's own
 guards at Extended depth, the security list's**: the hooks that keep a
 credential-shaped line and the words of a list kept outside every tree out of
@@ -31,7 +29,7 @@ lane's worktree, and every mutating mode is named in § 8 as a stop.
   the fork CI and the checkers`, slice `tooling-guards` (`k: 10`) in
   `docs/reviews/slices.json`, tenth in `docs/reviews/order.md` (its § T10
   paths line: *"31 paths, 6,676 lines, 6,400 read, of which 6,014 fork-own;
-  0 patch and config lines; reach n/a 31"*; its `why`: *"the secret and
+  0 patch and config lines; reach n/a 31"* -- *read* is P1's own derivation; the inventory's columns give fork-own 6,290 and upstream-carried 386 lines; its `why`: *"the secret and
   wordlist guards and the ceremony state machine; 28 blindspot entries name
   tooling; early, because every slice's commits pass through these guards
   and every slice closes on `tools/lint-audit-artifacts`, and because the
@@ -64,9 +62,7 @@ lane's worktree, and every mutating mode is named in § 8 as a stop.
   `/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-guards-657`,
   created by the coordinator, **stacked on `feature/m6-p1-survey-641` at
   `2174265e9c`** with the coordinator's tip merged in and the lane's pointer
-  seeded (the two hashes are in the dispatch comment on #657). **Before that
-  comment exists there is no worktree at that path and none of the first
-  commands can run.** The session is the T3 lane's (`m6-t3-emulators`, pane
+  seeded (the two hashes are in the dispatch comment on #657). **The worktree exists since 16:1x UTC (cut by the coordinator at `50137e3ee0`, the coordinator's tip merged in); before the dispatch comment on #657 nothing runs in it.** The session is the T3 lane's (`m6-t3-emulators`, pane
   `wN:p6`), which ran T3, T30, T24 and T4; those worktrees stay beside this
   one, idle, until their merges, and nothing is written there. The primary
   checkout `/workspace/repos/pixelelated/distribution` stays on `next`
@@ -124,17 +120,14 @@ lane's worktree, and every mutating mode is named in § 8 as a stop.
   `update-mirror-sources.yml`, ...), the latter the build-engine area's files
   (T5/T6's, upstream-carried), not this slice's -- what a scheduled upstream
   workflow does on a fork is a lead for the coordinator, named once, not this
-  slice's row. `fork-checks.yml` has **failed on every run on `next` since
-  2026-10-22** on one step, *ceremonies are not overdue* (the W42 summary,
-  the M7 lane's); `fork-wordlist.yml` last passed on `next` on 2026-10-17 and
+  slice's row. `fork-checks.yml` has **failed on every run on `next` since 2026-10-19** (last green 2026-10-18T11:00Z): the 2026-10-24 run on one step, *ceremonies are not overdue* (the W42 summary, the M7 lane's), the 2026-10-21 run on *every open acceptance checkbox is agent-verifiable* (`box-check`); the 2026-10-22 and 2026-10-23 runs' failing steps are the lane's to read; `fork-wordlist.yml` last passed on `next` on 2026-10-17 and
   runs on every branch push (it ran on the coordinator's pushes today);
   `fork-mirror-build-container.yml` is `workflow_dispatch` only and logs into
   `ghcr.io` with `GITHUB_TOKEN` through `skopeo`; `fork-generic-x64.yml` is
   13 lines whose one step is an `echo`. The hooks run from the primary
   checkout; `ls "$(git config core.hooksPath)"` lists `pre-push` on this
   host. The wordlist is `~/.config/rocknix/forbidden-terms` (mode 0600) on
-  the host and the repository secret `FORBIDDEN_PATTERNS` in the CI: the
-  slice confirms each exists (`test -r`, `gh secret list`) and reads neither.
+  the host and the repository secret `FORBIDDEN_PATTERNS` in the CI: the slice confirms the host's with `test -r` and reads neither; `gh secret list` fails for this token (it prints `failed`: no `secrets` scope), so the secret's existence is inferred from `fork-wordlist.yml`'s green runs, whose header says the job is red without it.
 
 First commands:
 
@@ -158,9 +151,7 @@ git push -u origin feature/m6-tooling-guards-657
 
 ## 2. Scope
 
-**31 paths, 6,676 lines; 29 fork-own and 2 upstream-carried; 14 Python, 11
-shell, 4 YAML, 2 without a language tag (`guard-lib`, `secret-patterns`);
-reach `n/a` 31.** The membership is the inventory's at P1's `2174265e9c`
+**31 paths; 6,676 lines by the inventory's column (computed on P1's tree) and 6,642 at the read refs; 29 fork-own and 2 upstream-carried; 14 Python, 11 shell, 4 YAML, 2 without a language tag (`guard-lib`, `secret-patterns`: `language` is `none`); reach `n/a` 31.** The membership is the inventory's at P1's `2174265e9c`
 with the slice's rule (`k: 10`): the area `tooling-and-guards` and the globs
 `.githooks/**`, `.github/**` and the nineteen named tools. **The brace glob
 is written out here because a naive glob-to-regex misreads it** (the
@@ -181,14 +172,14 @@ os.makedirs(".qa-scratch/t10", exist_ok=True)
 open(".qa-scratch/t10/paths.txt", "w").write("".join(r["path"] + "\n" for r in sorted(t10, key=lambda r: r["path"])))
 PY
 wc -l < .qa-scratch/t10/paths.txt                                                                        # 31
-while IFS= read -r p; do case "$p" in tools/renovation-*) r=2174265e9c;; *) r=8ebaf8daad;; esac; printf '%6d %s\n' "$(git show $r:"$p" | wc -l)" "$p"; done < .qa-scratch/t10/paths.txt | awk '{s+=$1; print} END {print s " lines"}'   # 6676
+while IFS= read -r p; do case "$p" in tools/renovation-*) r=2174265e9c;; *) r=8ebaf8daad;; esac; printf '%6d %s\n' "$(git show $r:"$p" | wc -l)" "$p"; done < .qa-scratch/t10/paths.txt | awk '{s+=$1; print} END {print s " lines"}'   # 6642 at the read refs: the inventory's 6,676 counts P1's +3 in pre-push and +32 in lint-audit-artifacts, and a stale 1,596 for renovation-inventory
 ```
 
 Recorded (2026-10-24):
 
 | Lines | Path | Last fork commit | What it is |
 | ---: | --- | --- | --- |
-| 473 | `.githooks/pre-push` | `60a5d7f9c7` 2026-10-13 | the push guard: personal paths on `pr/*`, the console-first rule, the credential and wordlist scans over every pushed commit and message, the index warning, `ceremony-check --gate`; its header records the refusals proven on 2026-09-13 (audit #151 PL-08) |
+| 470 (473 on P1's tip) | `.githooks/pre-push` | `60a5d7f9c7` 2026-10-13 | the push guard: personal paths on `pr/*`, the console-first rule, the credential and wordlist scans over every pushed commit and message, the index warning, `ceremony-check --gate`; its header records the refusals proven on 2026-09-13 (audit #151 PL-08) |
 | 21 | `.githooks/pre-commit` | `eb4fbe9b2c` 2026-09-29 | refuses a commit that adds a credential-shaped or listed line (the coordinator's branch adds a conflict-marker refusal, #696, not at the hash) |
 | 25 | `.githooks/commit-msg` | `eb4fbe9b2c` | the message against the same two lists |
 | 107 | `.githooks/guard-lib` | `eb4fbe9b2c` | `guard_load`, `guard_added_lines`, `guard_numbered`, `guard_scan`: the shared scans, failing closed |
@@ -204,10 +195,10 @@ Recorded (2026-10-24):
 | 107 | `tools/box-check` | `a9af618398` | every open checkbox agent-verifiable (D-QA-044); reads the open issues through the API |
 | 461 | `tools/ceremony-check` | `8e8ad7c406` 2026-10-08 | the ceremony state machine (D-WORKFLOW-028); `--gate` is the push guard's call; the #905 packet fixes its friction reader after the hash |
 | 200 | `tools/es-menu-map-check` | `d52e3d81c7` 2026-09-24 | the menu map against the ES pin's screens (`--es-src`, `--ref`) |
-| 50 | `tools/forbidden-terms-check` | `3e70ef9239` 2026-09-28 | a tree or stdin against the wordlist outside the tree; refuses when the list is unreadable |
+| 50 | `tools/forbidden-terms-check` | `3e70ef9239` 2026-09-28 | a tree or stdin against the wordlist outside the tree; refuses when the list is unreadable; takes its first argument as the tree, so `--help` is a tree named `--help` (rc 2) |
 | 164 | `tools/fork-package-freshness` | `a0f60255ab` 2026-10-11 | the fork's recipes against their projects' releases (network) |
 | 309 | `tools/fork-worktree` | `ef1e53334f` 2026-10-06 | `list`, `sync`, `remove`, `repair`: refuses to destroy build output (D-WORKFLOW-005); the #460 permission scan |
-| 426 | `tools/lint-audit-artifacts` | `850cf9bee7` 2026-10-06 | the audit folder against the artifact contract (`--phase pre-issue`, `--issue`); T6's and T4's fixes to it are on their branches |
+| 394 (426 on P1's tip) | `tools/lint-audit-artifacts` | `850cf9bee7` 2026-10-06 | the audit folder against the artifact contract (`--phase pre-issue`, `--issue`); T6's and T4's fixes to it are on their branches |
 | 167 | `tools/pr-stack-check` | `5ec054a768` 2026-09-29 | builds the upstream series by content in a throwaway worktree (#322): **mutating** |
 | 131 | `tools/prose-check` | `1070d05378` 2026-09-29 | a rocknix.org draft's tells; `--self-test` |
 | 420 | `tools/rc-preflight` | `3c31e2aa18` 2026-10-15 | may this tree be cut as a candidate (#271): packages, bases, bugs, the record; `--tree`, `--only`, `--no-fetch` |
@@ -216,43 +207,29 @@ Recorded (2026-10-24):
 | 245 | `tools/rules-check` | `c3f0c75661` 2026-10-03 | the rule files' front matter, the index, the two entry files' counts, Codex's budget (D-WORKFLOW-045) |
 | 132 | `tools/vocabulary-check` | `e1839046ae` 2026-09-12 | back up / backup, save state, Wi-Fi over the ES strings and the scripts' sentences |
 | 106 | `tools/work-log-index` | `51bbb9f95a` 2026-09-23 | the day/week/month index; `--check`, `--write` |
-| 1,596 | `tools/renovation-inventory` | `00ca350666` 2026-10-23 (P1's branch) | the survey's inventory: paths, tiers, reach from `viewplan`; **#898**: its reach omits `PKG_DEPENDS_UNPACK` |
+| 1,597 (the inventory's column says 1,596) | `tools/renovation-inventory` | `00ca350666` 2026-10-23 (P1's branch) | the survey's inventory: paths, tiers, reach from `viewplan`; **#898**: its reach omits `PKG_DEPENDS_UNPACK` |
 | 212 | `tools/renovation-drift` | `a7cbde1737` 2026-10-22 (P1's) | closed slices whose paths changed |
 | 147 | `tools/renovation-status` | `af24589b1c` 2026-10-22 (P1's) | the slices' states from the tracker |
 
 **Provenance.** The two `.github/scripts/*.sh` are upstream's: `git
 cat-file -e upstream/next:<path>` succeeds for both and for nothing else of
-the 31; whether their bytes equal upstream's is the (a) read (`git diff
---quiet upstream/next 8ebaf8daad -- <path>`). The three `renovation-*` tools
+the 31; `generate-release-body.sh` is byte-identical to `upstream/next`; `generate-changelog.sh` carries one fork hunk (`8a7f33791d`, 2026-09-11: 1 insertion, 8 deletions, the `gh api repos/ROCKNIX/distribution/commits/... --jq .author.login` author lookup dropped), which the (a) read reads for its reason (`git log -1 8a7f33791d`) and records as a Q4 row. The three `renovation-*` tools
 exist only on P1's branch (`git cat-file -e 8ebaf8daad:tools/renovation-inventory`
 fails): they are read at `2174265e9c`, and `reviewed-at:` names both hashes.
 `git log --format=%h c445081a59..8ebaf8daad -- <the 28 at the hash> | wc -l`
-is **92** fork commits since the base; their messages cite #383 (12 times),
+is **128** fork commits since the base (125 without merges); their messages cite #383 (12 times),
 #344 and #258 (7 each), and #532, #508, #471, #409, #361, #288, #268, #225,
 #211, #148, #147, #120 (3 each) among others -- the guards' own record is on
 #307, #312, #151 (the push guard's proofs), #696 (the marker refusal), #845
 (`pkgcheck`'s class), #905 (the friction reader), #898 (the inventory's reach).
 **Two lists must agree by construction**: the hook's `PERSONAL_PATTERNS`
-(`pre-push:62-160`, 92 quoted entries at the hash) and `fork-workflow.md`
+(`pre-push:62-188`, 115 quoted entries at the hash, 84 of them `tools/` paths and 12 `scripts/`; 62-191 and 118 on P1's tip, which adds the three `renovation-*` tools) and `fork-workflow.md`
 § *Personal paths* (*"This list and `PERSONAL_PATTERNS` are the same list;
 change one and change the other"*): the (a) read diffs them entry by entry,
 not by count (the rule's prose names 84 `tools/` paths and other shapes
 besides).
 
-**The hash.** The 28 at-hash files' bytes are `8ebaf8daad`'s and the three
-others' are `2174265e9c`'s; `reviewed-at:` is the branch `HEAD` at stage A,
-and the read is made on the two at-hash trees (`.qa-scratch/t10/at-hash/`,
-`.qa-scratch/t10/at-p1/`). The branch differs from the hash on none of the
-28 (`tr '\n' '\0' < .qa-scratch/t10/paths.txt | grep -zv renovation- |
-xargs -0 git diff --stat 8ebaf8daad HEAD --` is empty) and from P1's tip on
-none of the three; a non-empty result is the first lead. **The coordinator's
-branch and T4's branch change three of these files after the hash** --
-`tools/ceremony-check` (the #905 packet, `9e12014623`), `.githooks/pre-commit`
-(the marker refusal, #696, the coordinator's `1b8ac30421`) and
-`tools/lint-audit-artifacts` (#810's Local-at-epic-tier fix, `18747fbc52`)
--- and they are **read as the deltas they are**: the slice reads the hash,
-names each delta with its commit in `01` § Scope, and reads the fixed file
-beside the hash's where a finding would otherwise be already fixed.
+**The hash.** The 28 at-hash files are read at `8ebaf8daad`'s bytes and the three others at `2174265e9c`'s, both from the exports (`.qa-scratch/t10/at-hash/`, `.qa-scratch/t10/at-p1/`); `reviewed-at:` is the branch `HEAD` at stage A and names both hashes. **The lane's branch differs from the hash on five of the 28**, each with a known owner, and that is the expected shape, not a lead: `.githooks/pre-push` (+3: P1's personal patterns for the three `renovation-*` tools, `2174265e9c`), `tools/lint-audit-artifacts` (+61/-9: P1's renovation face, `fc88815ccb`, and #810's `18747fbc52`), `tools/register-check` (+17: f00ab3e163 (register: ten decided rows moved from under Open decisions into the De)), `.githooks/pre-commit` (+13/-1) and `.githooks/hooks-test` (+7) (the marker refusal, #696, `1b8ac30421`). It differs from P1's tip on none of the three `renovation-*` tools. `tr '\n' '\0' < .qa-scratch/t10/paths.txt | grep -zv renovation- | xargs -0 git diff --stat 8ebaf8daad HEAD --` prints exactly those five; **any other hunk is the first lead.** Off this branch, `tools/ceremony-check` changes in the #905 packet (`9e12014623`). The slice reads the hash, names every delta with its commit in `01` § Scope, runs `hooks-test` twice (the at-hash export: 20 cases; the worktree: 22), and reads the changed file beside the hash's where a finding would otherwise be already fixed (the friction reader, the lint's local-at-epic rule, the marker refusal).
 
 **The policy on change (plan § 5; D-WORKFLOW-187):** a defect here is the
 fork's alone and is fixed under a stream brief at stage E, never at stage B;
@@ -385,8 +362,8 @@ records the exit; a control that fails at the hash is a finding):
 ```bash
 D=/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-guards-657
 cd "$D"
-.githooks/hooks-test 2>&1 | tail -3                                              # export: PASS; 20 expect cases at the hash (the coordinator's branch adds 2)
-tools/register-check; echo "rc=$?"                                               # export: 667 IDs, each once (the lane's branch: its count)
+.githooks/hooks-test 2>&1 | tail -3                                              # in the worktree: PASS, 22 expect cases (the hash's 20 + #696's two); the at-hash export's copy too: PASS, rc 0, 38 ok lines
+tools/register-check; echo "rc=$?"                                               # the hash's export: 644 IDs, each once; the lane's branch after the merge: 667
 tools/rules-check --quiet; echo "rc=$?"                                          # rc 0; `--help` is not handled: it runs the checks (read what it does with an argument)
 tools/work-log-index --check; echo "rc=$?"                                       # current
 tools/prose-check --self-test 2>&1 | tail -2                                     # the maintainer's page passes, the machine draft fails (#323)
@@ -403,11 +380,11 @@ tools/es-menu-map-check --help; tools/rc-preflight --help; tools/archaeology --h
 
 ```bash
 gh api rate_limit --jq '.resources.core.remaining'
-gh run list --repo pixelelated/distribution --workflow fork-checks.yml --branch next --limit 5 --json conclusion,createdAt,databaseId --jq '.[] | "\(.createdAt) \(.conclusion) \(.databaseId)"'   # failure since 2026-10-22 on `ceremonies are not overdue`
+gh run list --repo pixelelated/distribution --workflow fork-checks.yml --branch next --limit 5 --json conclusion,createdAt,databaseId --jq '.[] | "\(.createdAt) \(.conclusion) \(.databaseId)"'   # red on every run since 2026-10-19 (last green 2026-10-18T11:00Z)
 gh run view <id> --repo pixelelated/distribution --json jobs --jq '.jobs[] | .steps[] | "\(.name): \(.conclusion)"'                                                                         # which step fails; which steps run
 gh run list --repo pixelelated/distribution --workflow fork-wordlist.yml --limit 5 --json conclusion,createdAt,headBranch --jq '.[] | "\(.createdAt) \(.headBranch) \(.conclusion)"'
 gh api repos/pixelelated/distribution/actions/workflows --paginate --jq '.workflows[] | "\(.state) \(.path)"'                                                                                  # 23 active on 2026-10-24
-gh secret list --repo pixelelated/distribution 2>&1 | cut -c1-40                                                                                                                                # the name FORBIDDEN_PATTERNS exists; never its value
+gh secret list --repo pixelelated/distribution 2>&1 | awk '{print $1}' | head -1                                                                                                 # prints `failed`: this token cannot list secrets; the secret's existence is inferred from fork-wordlist.yml's runs, its value never read
 ```
 
 **The reading, per file:** every refusal path of the three hooks and
@@ -440,7 +417,7 @@ All in the worktree, committed on its branch with messages that cite `#657`
 | Output | Path | Shape | Stage |
 | --- | --- | --- | --- |
 | Running log | `docs/audits/<yyyy_mm_dd>-epic-m6-tooling-guards/00-running-log.md` | the flight recorder: the model and effort, `reviewed-at` with `8ebaf8daad` and `2174265e9c` beside it, every § 5 command with its exit status, every `PROOF:` line, the API budget before and after each loop, each time from `date -u` | A onward |
-| Research notes | `.../01-research-notes.md` | § Scope: the 31 re-derived with § 2's block and its output, the provenance (92 fork commits, two upstream-carried, three on P1 only), the branch's deltas from the hash and the three after-hash deltas named with their commits; § Phase 1: what each guard refuses, in the slice's words, and the suites' baseline with exits | A, B |
+| Research notes | `.../01-research-notes.md` | § Scope: the 31 re-derived with § 2's block and its output, the provenance (128 fork commits, two upstream-carried, one of them with a fork hunk, three on P1 only), the branch's deltas from the hash and the three after-hash deltas named with their commits; § Phase 1: what each guard refuses, in the slice's words, and the suites' baseline with exits | A, B |
 | Forward audit | `.../02-forward-audit.md` | Phase 2 over #657's checklist, plus **a coverage table with one row per path** (31; the first cell the path in backticks so ``grep -c -E '^\| `(\.githooks|\.github|tools)/'`` counts them), § Mechanical checks (every § 5 block with command, exit status, summary), § The suites (each run, its exit, *a FAIL would mean ...*), § The CI (the runs read, the failing step, the 23 active workflows); every proof with a `proved:` cell | B, then F |
 | Retrospective | `.../03-retrospective.md` | Phase 3 with § 3.5 for the seams: the hooks x the CI (the same two lists, two runners); `ceremony-check` x the push guard x `fork-checks.yml`; `rules-check` x the two entry files x the index; `lint-audit-artifacts` x every slice's close; the `renovation-*` tools x the dead-end tables | B |
 | Analysis | `.../04-analysis.md` | Phase 4, § Finding Verification (4.5), **§ Second opinion** (4.6: both seats' probes and refutations graded item by item), **§ Renovation face** Q1 to Q7, **Q6 carrying the guard table** (every refusal with its positive, its case, or `none`; every tool with its caller or `nobody`), Q7 the three descriptions per guard | C |
@@ -465,16 +442,16 @@ hand-back's words.
 - [ ] `second-opinions/review-plan.json` records `depth: extended` with `gpt` (`openai/gpt-6-astra`, `max`) and `gemini-argon` (`google/gemini-4-argon`, `high`), and each seat's probe and refutation outputs have a `.provenance.json` beside them whose served model is the seat's and whose verification is PASS; `packet-manifest.json` lists the 31 files and the two rule sections with their sha256, and `02` records the packet's own scan (`forbidden-terms-check --stdin` 0 hits, the credential patterns 0 hits) before it was sent.
 - [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue (#640 for a legacy path; a `bug` for a defect; the coordinator's lead for a contract change or a tool nobody runs), or withdrawn with its reason.
 - [ ] `reviewed-at:` and `fixed-at:` above carry the lane's commits the read and the fixes were made at (the read on `8ebaf8daad`'s bytes for 28 files and `2174265e9c`'s for the three `renovation-*` tools, both hashes named; no EmulationStation path), and, after the coordinator closes this issue and the branch merges to `next`, `tools/renovation-status` lists this slice as `closed`.
-- [ ] `01-research-notes.md` § Scope records the read hashes, the filter of brief § 2 with its output (31 paths, 6,676 lines; 29 fork-own, 2 upstream-carried; 14 Python, 11 shell, 4 YAML, 2 untagged; reach `n/a` 31, or the deltas beside them), the provenance (92 fork commits since `c445081a59` over the 28; the two `.github/scripts` on `upstream/next` with their (a) state; the three on P1 only), the branch-vs-hash diff over the 31 (empty, or each hunk listed with its owner), and the three after-hash deltas by commit (`9e12014623`, `1b8ac30421`, `18747fbc52`).
+- [ ] `01-research-notes.md` § Scope records the read hashes, the filter of brief § 2 with its output (31 paths; 6,676 lines by the inventory, 6,642 at the read refs; 29 fork-own, 2 upstream-carried; 14 Python, 11 shell, 4 YAML, 2 untagged; reach `n/a` 31, or the deltas beside them), the provenance (128 fork commits, 125 without merges, since `c445081a59` over the 28; the two `.github/scripts` on `upstream/next` with their (a) state; the three on P1 only), the branch-vs-hash diff over the 31 (the five hunks brief § 2 names, each with its owner; any other named as a lead), and the after-hash deltas by commit (`9e12014623` on `ceremony-check`, off this branch; `1b8ac30421`, `18747fbc52`, P1's `pre-push` and lint edits, and `register-check`'s, on it).
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path, the path in backticks as the first cell: ``grep -c -E '^\| `(\.githooks|\.github|tools)/' 02-forward-audit.md`` prints 31; each row's Q1 to Q7 cells answered or `n/a` with a reason.
 - [ ] `02-forward-audit.md` § The suites records every § 5 run with command, exit status and summary line, each with the sentence *a FAIL would mean ...*; `hooks-test` PASS with its case count; the lint's pass fixture PASS and fail fixture FAIL by name; `prose-check --self-test`'s two verdicts; `register-check`, `rules-check --quiet`, `work-log-index --check` rc 0; `box-check --quiet` with the API budget before and after; `ceremony-check` rc 1 on W42 alone, with the #905 packet's tool compared from a detached checkout.
-- [ ] `02-forward-audit.md` § The CI records the `fork-checks.yml` runs on `next` read (the failing step by name since 2026-10-22), the `fork-wordlist.yml` runs, the 23 active workflows as GitHub lists them (the 19 upstream ones named as the build-engine area's, with one lead for the coordinator on what a scheduled upstream workflow does on a fork), and that `FORBIDDEN_PATTERNS` exists as a secret name, its value never read.
+- [ ] `02-forward-audit.md` § The CI records the `fork-checks.yml` runs on `next` read (red since 2026-10-19, last green 2026-10-18; each run's failing step by name), the `fork-wordlist.yml` runs, the 23 active workflows as GitHub lists them (the 19 upstream ones named as the build-engine area's, with one lead for the coordinator on what a scheduled upstream workflow does on a fork), and the `FORBIDDEN_PATTERNS` secret's existence inferred from `fork-wordlist.yml`'s runs (`gh secret list` fails for this token), its value never read.
 - [ ] `00-running-log.md` shows no `git push` other than the lane's own branch, no `fork-worktree sync|remove|repair`, no `pr-stack-check` run past `--help`, no `gh workflow run`, no `gh secret set`, no write under the primary checkout's `.githooks/`, and no line of the wordlist or credential shape anywhere in the folder (``grep -c -E 'devpassword=[^<]|OPENSSH PRIVATE KEY' docs/audits/<folder> -r`` prints 0 and the forbidden-terms check over the folder prints 0 hits).
 - [ ] `04-analysis.md` § Renovation face Q6 carries the guard table: one row per refusal brief § 4 names (its list read against the code: every refusal the code wires is a row), each with its recorded positive or `hooks-test` case by file and name, or `none` (a punch item); and one row per tool with its caller (a hook, a workflow step, a rule, a skill) or `nobody`.
 - [ ] `04-analysis.md` § Q3 hunts the fail-open shape T4 found in `ceremony-check` through every other reader the slice names (`register-check`, `rules-check`, `box-check`, `work-log-index`, `pre-push`'s personal-path match, `guard_added_lines`), each with the line read and a constructed input that would be skipped or the statement that none can be.
 - [ ] `04-analysis.md` § Q7 diffs `fork-workflow.md`'s *Personal paths* list against `pre-push`'s `PERSONAL_PATTERNS` entry by entry (the entries on one side only, named), and reads each guard's three descriptions (header, rule, index) against the code, with each drift a Q7 row or a Q3 bug; a rule drift is a lead for the coordinator, not an edit here.
 - [ ] Every proof in `02-forward-audit.md` carries a `proved:` cell reading `tree`, `history`, `tool-run`, `fix-tree`, `fix-case` (a fix proved by a new `hooks-test` or fixture case that failed on the unfixed guard) or `fix-pending-ci` (a fix whose proof is the fork CI's next run on `next`, the coordinator's); ``grep -c 'proved:' 02-forward-audit.md`` equals ``grep -c '^PROOF:' 00-running-log.md``.
-- [ ] Every punch item carries `question:`; every `bug` this lane files passes `tools/box-check --issue N`; no file under `.githooks/`, `.github/` or `tools/` is changed on this branch before a stream brief (`git diff --stat 8ebaf8daad <fixed-at> -- .githooks .github tools` is empty, or every hunk is a stream the coordinator briefed), and a stream on a hook records in `02` the `hooks-test` case that failed on the unfixed hook and passes on the fixed one.
+- [ ] Every punch item carries `question:`; every `bug` this lane files passes `tools/box-check --issue N`; no file under `.githooks/`, `.github/` or `tools/` is changed on this branch before a stream brief (`git diff --stat <the lane tip the dispatch comment names> <fixed-at> -- .githooks .github tools` is empty, or every hunk is a stream the coordinator briefed), and a stream on a hook records in `02` the `hooks-test` case that failed on the unfixed hook and passes on the fixed one.
 - [ ] The retro exists at `docs/retros/<date>-m6-tooling-guards.md`, is posted on #657, says what the slice did to the two time-to-play numbers (nothing, or the change named), and, if a stream touched a guard, what it did to that guard's refusals.
 - [ ] `tools/register-check`, `tools/work-log-index --check`, `tools/rules-check --quiet`, `tools/forbidden-terms-check` and `.githooks/hooks-test` pass on the branch before its merge, and `tools/lint-audit-artifacts` prints `PASS` on the folder, each exit code in the hand-back comment.
 
