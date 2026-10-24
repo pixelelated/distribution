@@ -34,7 +34,17 @@
    and write stage A (the hashes, the counts, the upstream ref, the host
    file's state) before reading a line of the slice.
 
-## Current focus (05:44 UTC update)
+## Current focus (06:55 UTC update)
+
+**Stage D done. The lane is PAUSED for the coordinator's stream briefs (stage E).**
+
+- **Phase 4.6:** both seats verified. The grading is in `04` § Second opinion.
+- **The audit issue:** #826, 33 items (4 High, 8 Medium, 21 Low), a sub-issue of #650.
+- **Bugs:** #813 to #825 (PL-005 to PL-032's defects).
+- **The pre-issue lint:** `tools/lint-audit-artifacts --phase pre-issue` PASS.
+- **Do nothing** until a stream brief arrives on #650. Then work only the items the brief names, each fix with its `Already written:` line and its two runs.
+
+## Earlier focus (05:44 UTC update)
 
 **Stage C running.** M7 returned the host at 05:42:07 (its block on the host file, quoted by the coordinator on #650). Phase 4.6 has begun, in this order:
 1. `npm install --prefix tools/council`;

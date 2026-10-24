@@ -126,3 +126,8 @@ GUEST-PROOF: 03:35:37 UTC -- P4, tools/time-to-play --vm --no-configure-remote -
   - **Withdrawn:** Astra G-06, 0019's race, is benign: the move re-reads under the lock.
   - **Refuted:** Argon G-02, G-07 and G-09, and SC3014.
   - **Result:** 33 items (4 High, 8 Medium, 21 Low); `tools/lint-audit-artifacts --phase pre-issue` prints `PASS pre-issue artifacts`. Thirteen bug drafts have 0 box-check failures; the issue body's 33 checkboxes have 0. Stage D next.
+- 06:55 **Stage D filed.**
+  - **Bugs:** #813 to #825, 13 issues labelled `bug` with no milestone, the T1 shape, one per defect that had no issue: PL-005, 006, 009, 010, 011, 012, 013, 014, 015, 021, 030, 031 and 032. Each passes `tools/box-check --issue N` with 0 failures.
+  - **The audit issue:** #826, `Audit: M6 T3 RetroArch and the libretro cores -- 33 findings (0 critical, 4 high)`, labelled `audit` and `punch-list`, milestone M6, attached under #650. It has 33 checkboxes, with 0 failures.
+  - **The punch list:** `05` names #826 and each bug's number. The pre-issue lint passes.
+  - **Next:** the punch list goes on #650, then the lane pauses for the coordinator's stream briefs.
