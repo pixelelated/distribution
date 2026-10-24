@@ -21,7 +21,7 @@ The slice is the recipes, patches and configuration that decide which libretro c
 - **#802 (F-08):** the default PlayStation core on H700, RK3326, RK3566 and SM8550, `pcsx_rearmed32`, is installed under `/usr/lib32/libretro` only, while `runemu.sh` loads cores from `/tmp/cores` over `/usr/lib/libretro`. P1 shows that overlay on the guest.
 - **F-09:** the next base merge brings upstream's fix for that, and the new `yabadabadoo-lr`, as `build.${DISTRO}-` copies that fail on the fork's `build.${DISTRONAME}` roots. `git merge-tree` merges both cleanly.
 - **#806 (F-19):** on the SM8550 image `grep` has no PCRE, through a build-order race in grep's recipe, so `Install Steam.sh`'s `grep -oP` stops Install Steam at its Proton step.
-- **F-07:** `aethersx2-sa`, which upstream dropped for a licensing concern, still ships on SM8550. The coordinator has ruled it class 1, with the base merge.
+- **F-07:** `aethersx2-sa`, which upstream dropped for a licensing concern, still ships on SM8550 (its image) and RK3566 (its regenerated table; Argon, Phase 4.6). The coordinator has ruled it class 1, with the base merge.
 
 **Medium:**
 
@@ -44,7 +44,7 @@ The slice is the recipes, patches and configuration that decide which libretro c
 
 ## Acceptance-criteria scorecard
 
-At the end of Phase 2 (`02` § Criterion entries): 4 PASS (AC-06, AC-07, AC-08, AC-12), 5 PARTIAL (AC-01, AC-05, AC-09, AC-10, AC-11), 6 open for later stages of this lane (AC-02, AC-03, AC-04, AC-13, AC-14, AC-15), 0 FAIL. This file closes AC-09's, AC-10's and AC-11's gaps (§ Renovation face). AC-01's closes when `05` exists. AC-05 closes at hand-back.
+At the end of Phase 2 (`02` § Criterion entries): 4 PASS (AC-06, AC-07, AC-08, AC-12), 5 PARTIAL (AC-01, AC-05, AC-09, AC-10, AC-11), 6 open for later stages of this lane (AC-02, AC-03, AC-04, AC-13, AC-14, AC-15), 0 FAIL. This file closes AC-09's, AC-10's and AC-11's gaps (§ Renovation face); AC-09's needed rows 7 and 14 read for save and state changes, done in § Second opinion after both seats found them unread. AC-01's closes when `05` exists. AC-05 closes at hand-back.
 
 ## Code Quality Assessment
 
@@ -160,7 +160,7 @@ The rotation generators are current Python 3, standard library only, with floors
 | F-21 | Medium | live (no integrity check on two payloads) |
 | F-11 | Medium | latent |
 | F-06 | Medium | latent; T5's code |
-| F-05 | Low | live: `psx` falls back to DuckStation standalone on the VM; `st-v` has no emulator on four devices |
+| F-05 | Medium (Phase 4.6; was Low) | live: `psx` falls back to DuckStation standalone on the VM; `st-v` has no emulator on four devices |
 | F-22 | Low | live on interrupt |
 
 The proofs: P3b shows patch 0018's fix holding for the AUTO SAVE tile's arguments. The wrapper test shows 0015's.
@@ -171,7 +171,7 @@ The proofs: P3b shows patch 0018's fix holding for the AUTO SAVE tile's argument
 
 **(b)** One row per recipe (151), from `tools/q4-pins.py` (run 2026-10-24 03:06 to 03:11 UTC; GitHub API only; no empty cell, the script's assertion, rc 0) and the three non-GitHub rows by hand (`q4-pins-byhand.md`). **Classes: `current` 40, `behind-project` 104, `behind-upstream` 1 (`np2kai-lr`), `pin-not-on-project` 6** (`dosbox-pure-lr` and `hatari-lr`: no common ancestor with the default branch; `flycast2021-lr`: the pin is ahead of `master`, on another line; `retropie-shaders`, `sameduck-lr`, `yabasanshiro-lr`: diverged). `behind-project` is informational for an upstream-carried recipe (ROCKNIX's to take); for the fork-introduced or fork-changed ones it is a line for #585. Repository facts the API answered: `fbalpha2019-lr`'s is renamed (`libretro/beetle-finalarcade2019`), `mu-lr`'s moved (`SquirrelJME/Mu`), `emuscv-lr`'s moved (GitLab 301 to `MaaaX-EPOCH84/libretro-emuscv`), and **`mupen64plus-lr`'s is archived**.
 
-**(c)** The pin `bdba046fa6` (2026-06-06) is on `libretro/RetroArch` master, 7,623 commits behind it (`compare`, 0 behind), and after the last release `v1.22.2` (2025-11-20). The 21 patches applied as the build applies them (`tools/q4c-patches.sh`): all 21 at the pin (0004 only with fuzz, F-10); at master `4fe09508d4`, 15 fail outright and two need fuzz. Of the fork's eight, 0011 is upstream's (#19518) and 0015's defect is fixed on master (#19577), so both retire at a bump, and the other six fail as the build would meet them and need re-cutting. **A RetroArch bump is a re-cut of the series, not a pin edit**, and so `deferred:` to a stream brief, never applied here. The table is reproduced in this subsection below.
+**(c)** The pin `bdba046fa6` (2026-06-06) is on `libretro/RetroArch` master, 7,623 commits behind it (`compare`, 0 behind), and after the last release `v1.22.2` (2025-11-20). The 21 patches applied as the build applies them (`tools/q4c-patches.sh`): all 21 at the pin (0004 only with fuzz, F-10); at master `4fe09508d4`, 15 fail outright and two need fuzz. Of the fork's eight, 0011 is upstream's (#19518) and 0015's defect is fixed on master (#19577), so both retire at a bump, and the other six need re-cutting: five fail as the build would meet them and 0019 applies only with fuzz (Astra, Phase 4.6). **A RetroArch bump is a re-cut of the series, not a pin edit**, and so `deferred:` to a stream brief, never applied here. The table is reproduced in this subsection below.
 
 `tools/fork-package-freshness --list` names no path of this slice (its one emulators path is T30's `aethersx2-sa`).
 
@@ -872,7 +872,75 @@ Installed on no built device: 0 (none).
 
 ## Second opinion (Phase 4.6)
 
-**Pending at this writing.** Extended depth: GPT-6 Astra (`--member gpt`, `max`) and Gemini 4 Argon (`--member gemini-argon`, `high`), each a refutation pass alone (epic tier), through `tools/council/run invoke` after `npm install --prefix tools/council`, `verify-pins`, `test`, and a probe of each seat. The M7 host window opened at 03:47 UTC holds the `npm install`, so this section is completed after the coordinator relays the return on #650. `second-opinions/review-plan.json` is written before the first call. Every seat item is a lead, re-read at its artifact before a row is written. No Phase 5 punch-list issue is filed before this section is complete.
+**Completed 2026-10-24 05:58 UTC; graded by 06:40.** Extended depth, epic tier: one refutation pass per seat, on the same packet (`gpt-brief.md` = `gemini-argon-brief.md`, 308,850 bytes, sha256 `55ecef113c703cbf…`). Neither seat saw the other's output.
+
+| Seat | Served (provider-observed) | Effort (reasoning tokens) | Provider | Time | Output |
+| --- | --- | --- | --- | --- | --- |
+| `gpt` | `openai/gpt-6-astra` | max (30,359) | OpenAI | 691.7 s | `second-opinions/gpt-audit.md`, 18,174 B |
+| `gemini-argon` | `google/gemini-4-argon` | high (30,337) | Google | 424.9 s | `second-opinions/gemini-argon-audit.md`, 25,217 B |
+
+**Preparation:**
+- **Toolchain:** `npm install --prefix tools/council` (tsx v4.23.15, node v24.21.0); `verify-pins` OK; `test` 185/185.
+- **Probes:** one per seat (`*-probe.md`), each PASS on identity, effort and provider.
+- **Grading rule:** every seat item is a lead until it has been re-read at its artifact. The verdicts below name that artifact.
+
+### Seat items: own findings
+
+The seats' own finding numbers are given as Astra G-nn and Argon G-nn. **PL** is the punch item that carries each one.
+
+| Seat item | Verdict | The artifact that decided it | PL |
+| --- | --- | --- | --- |
+| Astra G-01, Argon G-01: the table offers cores the image lacks | **CONFIRMED, narrowed; Low, not High.** The non-default GENERIC_X64 choices `uae4arm`, `parallel_n64` ×2 and `ppsspp` ×2 are missing, and so is `ffmpeg` on every image. `idtech` is a `.sh` system, which `runemu.sh:488` runs itself, so it is not a missing core. The idtech *scanner* is the defect: on GENERIC_X64 it calls a `generate-idtech.sh` the image lacks. Argon's `nds`/`desmume` part is refuted: `desmume_libretro.so` is installed. | Every `retroarch` `<core>` of the GENERIC_X64, H700 and SM8550 images' `es_systems.cfg` against their `usr/lib/libretro` (7, 3 and 3 missing); `runemu.sh:488-492`; `usr/bin/generate-idtech.sh` absent from GENERIC_X64's image | PL-030, PL-031 |
+| Astra G-02: a single stale ARM install directory is copied | **CONFIRMED** (reading). Folded into F-11's fix: pin the directory to `${PKG_VERSION}`. | `retroarch/package.mk:106-112` | PL-006 |
+| Astra G-03: yabadabadoo-lr's 32-bit handoff | **Answered.** `8704addb6b` adds `yabadabadoo` to `runemu.sh`'s 32-bit selector, out of this slice. Recorded as a condition on Q4 (a) row 4. | `git show 8704addb6b -- …/runemu.sh` | PL-026 |
+| Astra G-04, G-05; Argon G-03: `call_achievements_hooks.sh` | **SC2048 CONFIRMED** (`$*` re-splits the title). **SC3014 REFUTED:** `/bin/sh` is bash on the image (`02`, F-04). The lead found the real defect behind the hook: patch 0012 runs `system()` on a line built from server data. **New, Medium, Security.** | `0012-cheevos-cmd.patch:9-13`; `setsettings.sh:485`; `call_achievements_hooks.sh:15,17` | PL-032 |
+| Astra G-06: 0019's unlocked `current_msgs_size` test | **WITHDRAWN.** The unlocked test only decides whether to call `gfx_widgets_msg_queue_move`, which re-reads the size under `current_msgs_lock` (`gfx_widgets.c:676-679`). Upstream's own line 1186 uses the same idiom. A stale read costs one re-place, the case the next message corrects. | pinned `gfx/gfx_widgets.c:676-728,1186,1219-1220` | - |
+| Astra G-07, Argon G-12: AC-09 called closed with rows 7 and 14 unread | **CONFIRMED, and closed here.** Row 14 (np2kai `d1a40352e2..5939e0c6d5`, 7 commits, 217 files): `statsave.c`, `statsave.tbl` and `libretro.c` changed mode only, so the state serializer is unchanged. The disk-image handlers did change. Row 7 bumps no core: it makes build and link fixes and adds three patches. Argon's "contradicts Q4 (b)" is right, and the row's wording is corrected. | `gh api …/NP2kai/compare/…` (134 files with no line change); `git show 6103571f67` | PL-026 |
+| Astra G-08; Argon F-12 scope: coverage-table mapping | **CONFIRMED; fixed in the table.** F-12 had attached to 56 remap and append files, and `pcsx_rearmed-lr`'s Q3 read `n/a` beside #802. The coverage table is regenerated: 344 rows, 0 empty cells. | `tools/coverage-table.py` diff; `02` § Coverage table | - |
+| Astra G-09; Argon G-10: Table 5 is not reachability | **CONFIRMED as a limit, written down.** Table 5 maps each patch to its source files. Of the conditional set, `batteryplus` reaches H700 only (`BATTERYPLUS_SUPPORT="yes"` in `devices/H700/options:49`; `no` on RK3326 and RK3566). **Argon's Q2 claim is REFUTED:** `git apply --check` fails, but the build's `patch -p1` applies it clean at fuzz 0 (`q4c-at-pin.txt:22`), and that is the build's test. | device `options`; `q4c-at-pin.txt` | - |
+| Astra G-10: the fetch scan's scope | **CONFIRMED, wording narrowed.** The scan covered top-level build files in the x86_64 root's unpacked trees. It did not cover included scripts or cores absent from that root. | the scan's command | - |
+| Astra G-11: T24's "nothing written" | **CONFIRMED, wording narrowed.** "Nothing in the current images" is established. Earlier images and `/storage/cores` copies were not checked. | Q6 Table 1's five T24 rows | - |
+| Argon G-02: `param_device` in `Start Dolphin.sh` | **REFUTED as a defect.** `control-gen` writes `param_device` in the `get_controls` it emits, and the script sources that (`control-gen.cpp:31`), so SC2154 is a false positive. **CONFIRMED as a record gap:** `02` promised a "group 2" read and never wrote it. The read is recorded here. | `control-gen.cpp:31`; `Start Dolphin.sh:20-28` | - |
+| Argon G-04: the other deferred shellcheck sites | **CONFIRMED as a record gap; no defect.** Read now:<br>- `Start Azahar.sh:32`: `kill -9 $(pidof gptokeyb)` is meant to split, and an empty result is a harmless usage error.<br>- `Start BigPEmu.sh:11`: an empty `gpudriver` makes the test false, the safe branch.<br>- `Start DaedalusX64.sh:12`: the unchecked `cd` precedes an absolute path.<br>- `Start Vita3K.sh:17`: `-o` inside `[ ]` works in bash.<br>The 37 SC2086 lines are named in `.qa-scratch/t3-sc-out`, not here. | the four sites | - |
+| Argon G-05: F-06's fix misses two emulators | **CONFIRMED** (reading `functions:212-214`: the XPath is scoped to `emulator[@name=X]`). The fix counts defaults over the whole system. | `functions:212-214` | PL-007 |
+| Argon G-06: other `set_kill` mismatches | **CONFIRMED, one more.** `Start AetherSX2.sh` registers `aethersx2-sa` while running `…/aethersx2`. The consumer is `killall ${TO_KILL}` by name (`input_sense:224`). Upstream's `eeb33c5a37` corrects it, and F-07's removal deletes the script. The other 16 launchers match their binaries. | the 18 `set_kill` lines against their exec lines | PL-010 |
+| Argon G-07: SameBoy's prebuilt boot ROMs | **REFUTED.** `BootROMs/prebuilt/` ships `agb`, `cgb`, `dmg`, `sgb` and `sgb2` boot ROMs in the pinned tarball, so F-02's fix stands. | `$B/build/sameboy-lr-aa158a889a…/BootROMs/prebuilt/` | PL-012 |
+| Argon G-08: Table 1 omits 13 non-`-lr` recipes | **CONFIRMED; fixed in the coverage table.** Their Q6 cells now carry the inventory's reach. | `tools/coverage-table.py` | - |
+| Argon G-09: 0016 forces M+ 1p onto a blurry size | **REFUTED as a defect, kept as a note.** The 13 px floor raises the text from 8.22 px. It does not make it blurrier than it was. Its sharpness rationale was measured on Inter, not on the shipped face. | `0016` and `0017` headers; P3 | PL-018 |
+| Argon G-11: the misspelt Wii remote rule | **CONFIRMED** (byte-identical duplicate). | `diff` of the two files | PL-033 |
+| Argon G-13: row 8's rebuild cost | **CONFIRMED as a cost**, written into the row. Not a defect. | `af70bd435b` | PL-026 |
+
+### Seat items: refutations of the first reader
+
+| Finding | Astra | Argon | Graded |
+| --- | --- | --- | --- |
+| F-07 | Low: no legal analysis was supplied | High holds; also RK3566; the removal must travel whole | **High holds.** The grade rests on upstream's removal for licensing (the coordinator's class 1 ruling, #650), not on a legal reading, and the item now says so. RK3566 added; the whole-commit condition added. |
+| F-08 | holds; the claim is image-checked for H700 and SM8550 only | holds | **Holds, narrowed in its text:** RK3326 and RK3566 rest on the recipe and their tables. |
+| F-09, F-19 | hold | hold | **Hold.** F-19's timeline rests on `config.log`, as Astra says. |
+| F-06 | holds; the fix is incomplete | holds; Case C | **Holds, its fix widened** (PL-007). |
+| F-11 | Medium; G-02 added | Low (a latent build-root guard) | **Medium holds.** A missing or stale `retroarch32` breaks the default PSX core of four devices, F-08's own sibling. |
+| F-15 | holds; "eleven unpinned" is wrong | holds | **Holds,** the count's wording corrected: nine by short hash, two by tag. |
+| F-20, F-21 | hold | hold | **Hold.** |
+| F-24 | Low until the consumer is read | Medium if the match is by name | **Medium holds.** The consumer is read: `killall` by name, `input_sense:224`. Still unobserved: whether `rpcs3-sa` names its process `rpcs3`. |
+| F-05 | split: `st-v` is Medium | Medium | **Medium** for `st-v` on four devices, which offers a system that cannot launch. `psx` on the VM is the fallback both describe. |
+| F-22 | Medium | Medium, with a wider trigger | **Low holds.** The launch at 2703 is `||`-guarded, both `swaymsg` calls are guarded, and a reboot restores the entries. Argon's wider trigger is refuted by the line itself. |
+| F-12 | | scope and renamed keys | **Scope fixed** in the table. Whether a profile sets a renamed key away from its default is PL-016's stream's to read when it names each successor. |
+| F-13 | wording | | **Wording corrected.** |
+| Q4 (c) | five fail, 0019 needs fuzz | | **Corrected** in § Q4 (c). |
+| Q6 | counts hold; selection is not reachability | Table 1 and Table 5 gaps | **Counts hold;** the limits are written down. Check A (the image comparison above) is that reachability check, run once by hand. |
+
+**What neither seat could judge, and nobody has observed yet:**
+- ARM launch outcomes;
+- RPCS3's process name;
+- AetherSX2's licence terms;
+- the out-of-slice halves of the incoming merge;
+- end-to-end patch behaviour beyond P1 to P4;
+- the Steam installer's redirect and extraction safety;
+- WildMIDI's archive equality.
+
+These stay where `02` § Coverage Boundary and the items put them.
+
+**Outcome.** Four items added: PL-030 and PL-031 (Low), PL-032 (Medium) and PL-033 (Low). F-05 rises to Medium. Seven items are reworded or widened (PL-004, 005, 006, 007, 010, 017, 018), and PL-021 and PL-026 carry the graded notes. Two seat claims are withdrawn and four refuted, each with its artifact. The punch list is 33 items: 4 High, 8 Medium, 21 Low.
 
 ## Quality Self-Check
 
@@ -887,6 +955,6 @@ Installed on no built device: 0 (none).
 | Risk assessment | yes | |
 | Coverage boundary | yes | |
 | Finding verification (4.5) | yes | the four High |
-| Second opinion (4.6) | **pending** | the M7 window; completed after the return line |
+| Second opinion (4.6) | yes | extended: Astra and Argon, both verified; graded item by item |
 | Renovation face Q1 to Q7 | yes | Q4's three tables and Q6's five below |
 | Instruction file recommendations | yes | epic tier, Instruction-Recommendations mode |

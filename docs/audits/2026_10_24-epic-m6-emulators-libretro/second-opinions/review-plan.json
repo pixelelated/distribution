@@ -16,12 +16,18 @@
       "effort": "max",
       "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
       "calls": [
-        {"phase": "refutation", "output": "gpt-audit.md"}
+        {
+          "phase": "refutation",
+          "output": "gpt-audit.md"
+        }
       ],
       "probes": [
-        {"phase": "probe", "output": "gpt-probe.md"}
+        {
+          "phase": "probe",
+          "output": "gpt-probe.md"
+        }
       ],
-      "status": "pending: written 2026-10-24 before the first call; the M7 host window of 03:47 UTC holds the npm install"
+      "status": "complete: probe and refutation succeeded on the first attempt 2026-10-24 (identity, effort and provider PASS); graded in 04 \u00a7 Second opinion"
     },
     {
       "member": "gemini-argon",
@@ -30,12 +36,18 @@
       "effort": "high",
       "provider": "openrouter, the installed gemini-argon recipe (Argon route, #636/#638)",
       "calls": [
-        {"phase": "refutation", "output": "gemini-argon-audit.md"}
+        {
+          "phase": "refutation",
+          "output": "gemini-argon-audit.md"
+        }
       ],
       "probes": [
-        {"phase": "probe", "output": "gemini-argon-probe.md"}
+        {
+          "phase": "probe",
+          "output": "gemini-argon-probe.md"
+        }
       ],
-      "status": "pending: as above; prepared independently of the gpt call (the same packet, neither seat's output shown to the other), as brief section 1 says"
+      "status": "complete: probe and refutation succeeded on the first attempt 2026-10-24 (identity, effort and provider PASS); graded in 04 \u00a7 Second opinion"
     }
   ]
 }

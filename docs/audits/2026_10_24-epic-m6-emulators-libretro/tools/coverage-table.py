@@ -45,7 +45,8 @@ FINDINGS = [
     (RA + "package.mk", {"Q1": "F-13 (dead status checks)", "Q2": "PASS (header, guard 129-134)", "Q3": "F-11 (retroarch32 skipped silently, latent); F-08's mechanism", "Q5": "five tmp-*.mount at boot (not measured)", "Q6": "/etc/retroarch.cfg read by no script (row)", "Q7": "libass twice; `empty` dependency unexplained"}),
     (RA + "sources/GENERIC_X64/retroarch.cfg", {"Q1": "F-12 (24 keys not read)", "Q2": "PASS (no credential value shipped)", "Q3": "P1: installed = tree's hash", "Q5": "P2, P4 (log_verbosity: no measured cost)", "Q6": "F-12; F-14 (video_font_path)", "Q7": "Q7 copies table (F-12)"}),
     (RA + "sources/GENERIC_X64/", {"Q1": "n/a: a data file of four lines or a remap", "Q2": "PASS (P1 hash = tree's)", "Q3": "P1", "Q5": "n/a: read once at launch", "Q6": "Table 4 (built)", "Q7": "n/a: data"}),
-    (RA + "sources/", {"Q1": "F-12 (not-read keys, same lines in every profile)", "Q2": "n/a: upstream's profile, unchanged here", "Q3": "F-12 (armhf core-updater URL on aarch64 profiles)", "Q5": "not measured: no guest for this panel", "Q6": "Table 4", "Q7": "F-12 (copies: SM4450 = SM8250 = SM8550)"}),
+    (RA + "sources/*/retroarch.cfg", {"Q1": "F-12 (not-read keys, same lines in every profile)", "Q2": "n/a: upstream's profile, unchanged here", "Q3": "F-12 (armhf core-updater URL on aarch64 profiles)", "Q5": "not measured: no guest for this panel", "Q6": "Table 4", "Q7": "F-12 (copies: SM4450 = SM8250 = SM8550)"}),
+    (RA + "sources/", {"Q1": "n/a: a remap or an append file; F-12 reads the profiles' retroarch.cfg only (Phase 4.6)", "Q2": "n/a: upstream's file, unchanged here", "Q3": "n/a: upstream's file, unchanged here", "Q5": "n/a: read once at launch", "Q6": "Table 4", "Q7": "Q7 copies table (the profile sets)"}),
     (RA + "patches/0011-video-thread-wrapper", {"Q1": "n/a: a fix, current at the pin", "Q2": "PASS (applies at fuzz 0)", "Q3": "PASS (reading); not driven by the wrapper test", "Q4": "Q4 (c): superseded on master (#19518)", "Q5": "one mutex per post (not measured)", "Q6": "Table 5; retires with a bump", "Q7": "PASS (header says why)"}),
     (RA + "patches/0015-", {"Q1": "n/a: a fix", "Q2": "PASS (fuzz 0)", "Q3": "PASS: wrapper test 2000/2000, reversed 2011/2000", "Q4": "Q4 (c): fixed on master (#19577)", "Q5": "n/a: no added work on the frame path", "Q6": "Table 5; retires with a bump", "Q7": "PASS"}),
     (RA + "patches/0013-", {"Q1": "n/a", "Q2": "PASS (strings in us/fr)", "Q3": "PASS (header parse bounded, flags reset per callback)", "Q4": "Q4 (c): fails at master", "Q5": "n/a: one header scan per HTTP answer", "Q6": "Table 5; reached when the proxy is on", "Q7": "PASS"}),
@@ -67,7 +68,8 @@ FINDINGS = [
     (VE, {"Q1": "n/a: upstream's file, unchanged here", "Q2": "shellcheck read where shell", "Q3": "n/a: upstream's file, unchanged here", "Q4": "Q4 (a): no commit on it", "Q5": "n/a: boot or build only", "Q6": "installed on every built device (the recipe's makeinstall_target)", "Q7": "n/a: upstream's file, unchanged here"}),
     (LR + "sameboy-lr/package.mk", {"Q2": "F-02 (late binding, pkgcheck FAIL)", "Q6": "F-02 (dead option)"}),
     (LR + "flycast2021-lr/package.mk", {"Q2": "F-03 (cosmetic warn)", "Q7": "F-03"}),
-    (LR + "melonds-ds-lr/package.mk", {"Q3": "F-15 (FetchContent at configure)", "Q4": "F-15 (eleven unpinned dependencies)"}),
+    (LR + "pcsx_rearmed-lr/package.mk", {"Q3": "F-08 (#802): the default core's install path; the fix lands in this recipe"}),
+    (LR + "melonds-ds-lr/package.mk", {"Q3": "F-15 (FetchContent at configure)", "Q4": "F-15 (eleven fetched at configure: nine by short hash, two by tag)"}),
     (LR + "easyrpg-lr/wildmidi/package.mk", {"Q2": "F-16 (short-hash pin)"}),
     (LR + "rotation-table-", {"Q1": "PASS (Python 3, stdlib)", "Q2": "PASS (floor guard, reason on refusal)", "Q3": "PASS: byte-identical to the image, constructed failures seen", "Q4": "n/a: the fork's own tool", "Q5": "1 to 3 s at build", "Q6": "reach n/a: build time; called by five recipes", "Q7": "PASS"}),
 ]
@@ -91,14 +93,18 @@ empty = []
 for p in sorted(sel):
     r = sel[p]; cells = {}
     for prefix, qs in FINDINGS:
-        if p.startswith(prefix):
+        if (gm(p, prefix) if "*" in prefix else p.startswith(prefix)):
             for k, v in qs.items(): cells.setdefault(k, v)
     name = p.split("/")[-2] if p.endswith("package.mk") else None
     if p.endswith("package.mk") and p.startswith(LR) and not p.startswith(RA + "package"):
         row = q4.get(p)
         cls = byhand.get(name) or (row["class"] if row else "?")
         cells.setdefault("Q4", f"Q4 (b): {cls}" + ("; Q4 (a) row" if name in ("np2kai-lr", "pcsx_rearmed-lr", "mame-lr", "emuscv-lr", "same_cdi-lr", "uae4arm-lr", "vircon32-lr", "flycast2021-lr", "doublecherrygb-lr") else ""))
-        cells.setdefault("Q6", "Table 1")
+        if name.endswith("-lr") or name.endswith("_lr"):
+            cells.setdefault("Q6", "Table 1")
+        else:
+            reach = sorted(set(r.get("reachable_by") or []) | set(r.get("buildable_by") or []))
+            cells.setdefault("Q6", "not a Table 1 row (Table 1 is the *-lr recipes); the inventory's reach: " + (", ".join(reach) or "none"))
         if name in ROT:
             cells.setdefault("Q3", "PASS: its table regenerates byte-identically")
             cells.setdefault("Q7", "F-17 (the hook in five copies)")
