@@ -357,3 +357,37 @@ PROOF: 21:42 S6 fix-case: repeat-zero, only-empty-cells, sync-stamp-failed, g2g-
 - **Still open for the cycle:** `emulator-exit-test --only A` on guest a.
 - **Already written:** `/workspace/artifacts/rocknix-device-actions.log` holds every past act's full command. The coordinator reads it through the dropping filter at integration. Nothing on a device.
 PROOF: 21:45 S7 fix-case: exit-only-unknown, exit-only-d-alone, act-begin-unwritable, act-end-fails and act-masked fail at facb2ae523 (0 PASS, 5 FAIL) and pass at c1569b7bc6 (5 PASS, 0 FAIL) -- `streams/s7-unfixed.txt`, `streams/s7-fixed.txt`
+
+## [Stage E] S8: vm-visual-qa and vm-serial (#972, #976, #983)
+
+- **The fixes:**
+  - `ff10d77c28` (#972):
+    - `wait_for_change` returns `None` when no frame arrived, and `run_steps` raises naming the press. None is falsy, so `cloud-round-trip`'s callers still fail.
+    - A walk short of its named shots exits 3, naming them; a frame that is not a whole image counts as missing.
+    - The stdlib PPM reader raises at EOF instead of spinning.
+  - `2e790e7e52` (#976):
+    - `vm-serial` runs the command in a subshell and returns its status from the END marker. A missing marker exits 124 (it was 2), and no caller read 2.
+    - Both drains have an absolute deadline.
+    - Every ssh and scp in `vm-qa`, `emulator-exit-test` and `ra-offline-test` runs under `timeout` (`VM_SSH_BOUND`, defaults 300, 120 and 300 s).
+    - A cut goes to stderr and to `SSH_CUT_LOG`. `vm-qa`'s footer counts the cuts, and `emulator-exit-test` counts them as a failure. `ra-offline-test` says them on stderr only.
+    - `time-to-play`'s scp calls get 120 s.
+  - `05117efe58` (#983):
+    - G-35: VNC coverage is counted by pixel in both grabbers, and `vnc-grab.py` fails on an incomplete frame.
+    - G-39: `dismiss_dialogs_checked` ends on "carousel", "unmoved", or a WalkFailed for "limit" and "no frame". `dismiss_dialogs` keeps returning the count.
+  - **The split:** `vm-visual-qa`'s hunks were divided across the three commits. The controls before each commit: 38, 40 and 41 PASS.
+- **How the cases were first run, and two fixes to them:**
+  - `ssh-never-ends` first looked for the cut on `vm-qa`'s stderr. `fresh_suite` sends ssh's stderr to `/dev/null`, so the cut was enforced (8 s, not 150) but said nowhere. That is why `SSH_CUT_LOG` and the footer line exist.
+  - `vnc-partial`'s double first held the connection open, so the fixed grabbers failed by timeout. The double now closes, and they fail with `vnc closed`.
+  - The unix sockets of the monitor and serial doubles are under `XDG_RUNTIME_DIR`, since a case path is past the 107-byte cap. None survived the runs.
+- **The positives:** 0 PASS, 6 FAIL against `facb2ae523` (`streams/s8-unfixed.txt`).
+  - `screendump-fails` and `fewer-frames`: rc 0 with a WARN.
+  - `ppm-truncated`: hung past 10 s.
+  - `serial-false`: `sh false` rc 0.
+  - `ssh-never-ends`: ran past 40 s.
+  - `vnc-partial`: both grabbers returned a frame.
+- **After the fixes:** 6 PASS, 0 FAIL (`streams/s8-fixed.txt`).
+- **Already written:** the accepted baseline `walk-baseline` (build `d72084ccad`) was counted against `suite.txt` and the step files at that commit (`streams/s8-baseline-frame-counts.txt`). All 16 walks hold exactly the frames their steps name, 78 in all, so no recorded walk in it lost a frame silently.
+- **Still open for the cycle:** `vm-serial sh false` on guest a exits non-zero, and the walks suite's frame counts equal its step files'.
+- **A gap named:** `vm-serial`'s own `--socket` default is still `/tmp/rocknix-qemu-serial.sock`; S5's files did not include it. The cycle passes `--socket` explicitly. Filed as a line on #983 for S13.
+PROOF: 22:00 S8 fix-case: screendump-fails, fewer-frames, ppm-truncated, serial-false, ssh-never-ends and vnc-partial fail at facb2ae523 (0 PASS, 6 FAIL) and pass at 05117efe58 (6 PASS, 0 FAIL) -- `streams/s8-unfixed.txt`, `streams/s8-fixed.txt`
+PROOF: 22:00 S8-baseline history: walk-baseline (d72084ccad) holds the frames its steps name for all 16 walks (78 frames) -- `streams/s8-baseline-frame-counts.txt`

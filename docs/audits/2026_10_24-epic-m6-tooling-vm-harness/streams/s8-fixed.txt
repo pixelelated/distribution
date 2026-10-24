@@ -1,0 +1,7 @@
+PASS screendump-fails: rc 3, stderr tail ['WALK FAILED: wait-for-change (line 2): no frame arrived from the monitor after `key ret` on line 1, so whether the press landed is unknown'] (want non-zero: no frame arrived)
+PASS fewer-frames: rc 3, stderr tail ['WALK FAILED: 1 of the shots this walk names did not land: three'] (want non-zero naming three)
+PASS ppm-truncated: error: truncated PPM header in /workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659/.qa-scratch/t12/vm-harness-test/ppm-truncated/cut.ppm (1 fields of 4) (want an error, not a hang)
+PASS serial-false: sh false rc 1, sh true rc 0 (want 1 and 0)
+PASS ssh-never-ends: 8 s, report line ['ssh and scp calls cut at the 2 s bound: 4 (ssh-cuts.log)'] (want the calls cut at 2 s and counted)
+PASS vnc-partial: {'vm-visual-qa': 'failed: vnc closed', 'vnc-grab': 'failed: vnc closed'} (want both to fail on half a frame)
+6 PASS; 0 FAIL

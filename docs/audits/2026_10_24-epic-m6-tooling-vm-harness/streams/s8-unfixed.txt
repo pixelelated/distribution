@@ -1,0 +1,7 @@
+FAIL screendump-fails: rc 0, stderr tail ['WARN: no frame captured for after'] (want non-zero: no frame arrived)
+FAIL fewer-frames: rc 0, stderr tail ['WARN: no frame captured for three'] (want non-zero naming three)
+FAIL ppm-truncated: hung past 10 s (want an error, not a hang)
+FAIL serial-false: sh false rc 0, sh true rc 0 (want 1 and 0)
+FAIL ssh-never-ends: ran past 40 s: no bound cut the ssh call that never ends
+FAIL vnc-partial: {'vm-visual-qa': 'returned a frame', 'vnc-grab': 'returned a frame'} (want both to fail on half a frame)
+0 PASS; 6 FAIL
