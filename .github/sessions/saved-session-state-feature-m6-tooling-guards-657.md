@@ -41,13 +41,19 @@
 
 ## Current focus
 
-**Stage A done (2026-10-24 16:3x UTC); stage B (the read) next.** The audit folder is `docs/audits/2026_10_24-epic-m6-tooling-guards/`, and `00-running-log.md` holds Phase 0 and stage A with every suite's exit. `01-research-notes.md` § Scope holds the 31 paths at the two hashes, the provenance and the deltas. `reviewed-at` is `a82d784216`. The leads for stage B, in order:
-- the two from T4 and the #905 row on #657;
-- `box-check --limit 300` against 458 open issues;
-- `generate-changelog.sh`, which is two upstream commits behind;
-- `forbidden-terms-check`'s scanned count, which is never compared with the listed count.
+**Stage B done; stage C (Phase 4.6, the two seats) next.**
+- `02` holds 34 findings, the 31-row coverage table, § The suites, § The CI, § Callers and 16 proofs (= 16 `PROOF:` lines in `00`).
+- `03` holds the history and § 3.5's seams.
+- `04` holds 4.5 and the renovation face, with the Q3 hunt, the Q6 guard table and the Q7 diff. § Second opinion is pending.
+- The constructed cases are in `tools/t10-guard-gaps.sh`, with a stand-in list.
 
-The read trees are `.qa-scratch/t10/at-hash/` and `.qa-scratch/t10/at-p1/`; the baseline outputs are under `/workspace/tmp/m6-t10/baseline/`.
+Next:
+- `npm install --prefix tools/council`, `verify-pins`, `test`;
+- the packet (the 31 files, `fork-workflow.md`'s *Personal paths* and *Safety net*, `ceremonies.md`'s table, `02` to `04`), scanned with `forbidden-terms-check --stdin` and the pre-commit's patterns before it is sent;
+- the probes, then the refutations, in parallel with a harness waiter;
+- grading in `04`, then `lint --phase pre-issue`, then stage D.
+
+Use `command grep` for every count: the shell's `grep` is a ugrep function.
 
 ## Next commands
 
