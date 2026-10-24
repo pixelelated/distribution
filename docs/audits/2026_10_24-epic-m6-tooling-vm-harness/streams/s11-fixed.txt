@@ -1,0 +1,8 @@
+PASS baseline-empty: rc 1, ['frame-diff: the baseline at /workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659/.qa-scratch/t12/vm-harness-test/baseline-empty/base (build b0) holds no frame, so nothing was compared'] (want 1: a baseline of no frame compares nothing)
+PASS mask-narrowed: rc 1, reported True (want the hub's change reported: the hub has no transfer to mask)
+PASS proposal-inert: with the marker rc 1, adopted rc 0; the claims file's proposals read as inert: 348 (want 1, 0 and 348)
+PASS min-pixels-sentence: rc 0, says pixel-identical False (want the uncounted box said, not identity)
+PASS scoped-compare: rc 0, ['baseline `/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659/.qa-scratch/t12/vm-harness-test/scoped-compare/base` (build b0) against `/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659/.qa-scratch/t12/vm-harness-test/scoped-compare/run`: 1 screens of 1 walk(s) compared in 0 s.'] (want walk a alone compared, rc 0)
+PASS png-zero: rc 1, ['**FAIL** -- 0 box(es) claimed, 1 unclaimed, 0 screen(s) missing.'] (want 1: a 0x0 PNG is no frame)
+PASS claim-missing-still-fails: rc 1 (want 1: a change no claim covers fails)
+7 PASS; 0 FAIL

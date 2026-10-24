@@ -1,0 +1,5 @@
+PASS rehearsal-clean: RESULT PASS, rc 0 (want PASS on a guest that kept everything)
+PASS rehearsal-no-archive: RESULT FAIL, rc 1 (want FAIL: nothing to keep)
+PASS rehearsal-hash-changed: RESULT FAIL, the changed file named True (want FAIL naming Rehearsal.state1)
+PASS rehearsal-stop-fails: RESULT FAIL, rc 1 (want FAIL: the stop failed)
+4 PASS; 0 FAIL

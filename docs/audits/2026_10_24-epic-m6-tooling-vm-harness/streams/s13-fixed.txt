@@ -1,0 +1,15 @@
+PASS blackout-empty-rect: rc 1, 'png-blackout: 0x1 at (1,1) covers no pixel of a 4x2 image; nothing painted out' (want a refusal: a 0-wide rectangle paints nothing)
+PASS blackout-drops-text: rc 0, the text chunk kept False (want it dropped)
+PASS untranslated-fuzzy-ctx: French read {'BACK UP': '', 'RESTORE': '', 'SAVES': 'SAUVEGARDES'} (want none for the fuzzy and the msgctxt entries)
+PASS untranslated-unreadable-source: rc 2, ['es-untranslated: cannot read 1 source file(s) in /workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659/.qa-scratch/t12/vm-harness-test/untranslated-unreadable-source/es, first /workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659/.qa-scratch/t12/vm-harness-test/untranslated-unreadable-source/es/es-app/src/Locked.cpp'] (want 2: a source it could not read is no answer)
+PASS font-stems-reversed: rc 2, ['font-stems: --sizes 20-10 names no size (LOW must be at least 1 and no more than HIGH)'] (want 2: 20-10 names no size)
+game.gb
+  Stand-in  [GB]
+  hashed as RetroAchievements would: d75f8ba185c9531a5f8e42ba3a5a1808
+  MATCH  d75f8ba185c9531a5f8e42ba3a5a1808  stand-in
+  -> this ROM carries the set
+PASS candidate-games-bare-list: check() returned 0 on a bare-list answer holding the ROM's hash (want 0)
+PASS syntax-check-no-substitution: rc 1, ["  NO-SUB  /workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659/.qa-scratch/t12/vm-harness-test/syntax-check-no-substitution/es/es-app/src/Foo.cpp: the build's compile line names no source this check could replace, so the edit would not be compiled"] (want 1: the edit would not have been compiled)
+PASS launch-memory-start-time: the identity read ['587181', '197359896'] (want the pid and its start time 197359896)
+PASS signin-memory-run-files: rc 1, ['signin-memory: FAIL -- the window could not be launched on the guest (ssh 1: )'] (want a FAIL naming the launch)
+9 PASS; 0 FAIL

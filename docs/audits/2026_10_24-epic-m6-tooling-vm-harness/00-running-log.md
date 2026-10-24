@@ -425,3 +425,114 @@ PROOF: 22:00 S8-baseline history: walk-baseline (d72084ccad) holds the frames it
 - **After the fixes:** 6 PASS, 0 FAIL (`streams/s9-fixed.txt`), with no fixture left.
 - **Already written:** the QA account's state on the RetroAchievements side is untouched. The real-account proof stays the release procedure's.
 PROOF: 22:15 S9 fix-case: negative-read-fails, host-passed-through, cleanup-counted, flushed-exact, endpoints-inconsistent and accounts-readback fail at facb2ae523 (0 PASS, 6 FAIL) and pass at 15b8f11334 (6 PASS, 0 FAIL) -- `streams/s9-unfixed.txt`, `streams/s9-fixed.txt`
+
+## [Stage E] S10: vm-upgrade-rehearsal (#979)
+
+- **The fix,** `82b5edf1ee`:
+  - A count of zero settings archives before the update fails the rehearsal before it updates. Afterwards the archives must match by count and by name.
+  - The seed's own manifest (sha256, name and size) is compared file by file, and a change is named.
+  - The pair comes down on every exit after `up`, and a failed stop fails the result.
+- **The doubles grew:** the `vm-pair` double forwards `ssh` and `scp` to the ssh double, and the ssh double gains `@seq:` rows, so boot ids, build ids and the manifest can change between calls. `rehearsal-clean` is the control's own control: the doubles' guest passes the rehearsal on both versions.
+- **A row error, found and fixed:** the RetroArch check joins its lines with the guest's own `tr`, so its row must be one line. With three lines, both versions read FAIL, which hid the positives.
+- **The positives:** against `facb2ae523` (`streams/s10-unfixed.txt`, 1 PASS, the clean control, and 3 FAIL):
+  - `rehearsal-no-archive`: RESULT PASS with no archive.
+  - `rehearsal-stop-fails`: RESULT PASS with a failed stop.
+  - `rehearsal-hash-changed`: RESULT FAIL, but without naming the file. This is the weaker positive the brief describes; the old whole-string compare caught the change and did not say which file.
+- **After the fix:** 4 PASS, 0 FAIL (`streams/s10-fixed.txt`).
+- **Gated on the port-free cases only:** the pair was up, so `port-held-refused` and `runtime-recorded` waited for the end of the cycle.
+
+## [Stage E] Two defects the stage-E cycle found in my S6 and S8 fixes (#976, #967)
+
+- **`vm-serial`, found on real guest b.** The console sent `END<tag>` and `:<status>` in separate chunks. `run()` stopped at the bare tag, so `sh false` and `sh true` both returned 124. The double sent one chunk, which is why `serial-false` passed.
+  - Fixed in `1d5dc8a698`: read until `END<tag>:<digits>` and a line end have arrived.
+  - On guest b afterwards: `sh false` 1, `sh true` 0, `exit 7` 7 (`cycle-e/s8-serial-b-fixed.txt`; the failing reads are in `cycle-e/s8-serial-b.txt`).
+  - `vm-pair`'s key install reads the same channel, and was flaky on a real guest until this fix.
+- **`time-to-play`, found by the cycle's `--quick` on guest a.** Two things:
+  - "The kill helper exited 1" was a false failure from my judge. `execute_kill` ends in `killall <every emulator name>`, which exits 1 after a clean kill, and RetroArch was gone in 0.16 s.
+  - The g2g row had no stamp (`-`, token `?`) because it read the stamp once, before the stopped sync wrote it.
+  - Fixed in `327e743189`: a kill is judged by its effect, and the g2g repeat waits up to 30 s for its stamp. The wait has no host case; the second cycle proves it.
+- **The cases:** `serial-split-marker` fails at `05117efe58`, and `kill-judged-by-effect` fails at `a09bfc5718`; both pass at `95241c0158` (`streams/cycle-found-fixes.txt`).
+- **What it says about the controls:** a double that delivers in one chunk, or a helper's exit status read as its effect, passes code a real guest breaks. That is the reason the brief puts guest acceptances in the cycle.
+
+## [Stage E] S13: the small fixes, one commit per tool (#983)
+
+- **The commits:**
+  - `3edb5f2b89` `png-blackout` (G-62): an empty or off-image rectangle is refused; the text chunks are dropped.
+  - `8e29c6e2cc` `es-untranslated` (G-63, G-64): an unreadable or empty current source exits 2; fuzzy and `msgctxt` entries are not French.
+  - `181b67293a` `font-stems` (G-69): a reversed or malformed `--sizes` exits 2; failed glyphs are counted and fail the run.
+  - `a4ae0aee6c` `ra-candidate-games` (G-68): the bare-list answer is read.
+  - `d4ccc8b14b` `es-syntax-check` (G-65): the edit must be on the compile line (NO-SUB otherwise); the farm's statuses are read.
+  - `f676d8bb5f` `es-launch-memory` (G-47): the identity is the pid plus its start time.
+  - `95241c0158` `signin-memory` (G-47): the launch's status is read, the files carry a run token, and only processes started after the launch count.
+- **How the commits were built:** each staged test file was `HEAD`'s plus only its own cases, and each commit was gated on the port-free cases, 50 to 60 PASS.
+- **The positives:** 0 PASS, 9 FAIL against `facb2ae523` (`streams/s13-unfixed.txt`). After the fixes: 9 PASS, 0 FAIL (`streams/s13-fixed.txt`).
+- **Three fixture faults fixed before the positives were trusted:**
+  - `untranslated-unreadable-source` first lacked a git base, and failed for that reason.
+  - `signin-memory-run-files` first matched its launch command on the `wayland-` row.
+  - `launch-memory-start-time` was first a text match. It now runs the tool's own identity command against a live pid.
+- **Gaps named, not fixed here** (outside S5's file list): `signin-memory`'s key default and `vm-serial`'s `--socket` default are still under `/tmp`.
+PROOF: 22:45 S10 fix-case: rehearsal-no-archive, rehearsal-hash-changed and rehearsal-stop-fails fail at facb2ae523 and pass at 82b5edf1ee; rehearsal-clean passes on both -- `streams/s10-unfixed.txt`, `streams/s10-fixed.txt`
+PROOF: 22:45 cycle-found fix-case: serial-split-marker fails at 05117efe58 and kill-judged-by-effect at a09bfc5718; both pass at 95241c0158 -- `streams/cycle-found-fixes.txt`
+PROOF: 22:28 cycle-found guest: on guest b, vm-serial sh false 1, sh true 0, exit 7 7 after 1d5dc8a698 (124 for both before) -- `cycle-e/s8-serial-b.txt`, `cycle-e/s8-serial-b-fixed.txt`
+PROOF: 22:45 S13 fix-case: the nine S13 cases fail at facb2ae523 (0 PASS, 9 FAIL) and pass at 95241c0158 (9 PASS, 0 FAIL) -- `streams/s13-unfixed.txt`, `streams/s13-fixed.txt`
+
+## [Stage E] The stage-E pair cycle (22:14 to 22:48) and the second short cycle (22:56 to 22:59)
+
+- **Cycle 1:**
+  - **START at 22:14** under the 22:10 release. Census 0; `free -g` 41 GB available (`cycle-e/free-before.txt`).
+  - **Before it:** the image matched its sidecar (`6b4c3079…`). The read-only fetch of `069fc270…` failed (`upload-pack: not our ref`), so the ES pin stayed unreadable (`02` § Why the six ES rows stayed SKIP).
+  - **The run:** `tools/vm-qa <image>` from the worktree with no override, under `timeout 3600`.
+  - **The report** (`cycle-e/vm-qa-report.md`):
+    - BUILD_ID `069fc270442134fe…` = the image's.
+    - The paths are under the worktree and `/run/user/1000`, with the report root `/workspace/artifacts` named as the brief's exception.
+    - Bring-up took 75 s and the fixture 6 s; `tear-down: vm-pair down rc 0`; no ssh call was cut.
+  - **The suites:**
+    - PASS: pair-identity, fresh, round-trip, exit, walks (16 walks, 1029 s), frame-diff.
+    - SKIP: the six ES suites (pin unreadable).
+    - FAIL: scripts (326 checks; being settled by the two TMPDIR runs), wrapper (the RetroArch source is gone from the old build-root paths, host state), and time-to-play (two defects in my own S6 fix, below).
+    - `vm-qa` rc 1.
+  - **Acceptances met:**
+    - S2: bring-up from the image, BUILD_ID matching, down rc 0, census 0 after.
+    - S5: no override set, and the paths in the header.
+    - S8: walks 16/16 hold the frames their steps name (`cycle-e/walks-vs-steps.txt`).
+    - On guest b, while `vm-qa` drove guest a: S7 `emulator-exit-test --only A` rc 0, and S8 `vm-serial sh false` 1 (after `1d5dc8a698`).
+    - **Deviation:** S7 and S8 ran on guest b, not a, because S2 needed `vm-qa` itself to take the pair down at the end.
+  - **RETURN at 22:48:** census 0, 46 GB available. Disks retired: two 2.3 GB qcow2 and two OVMF stores, with their sizes and hashes in `cycle-e/retired.txt`.
+- **M7 between the cycles:** M7's START landed at 22:50, within the 22:43 rule's 5 minutes, so M7 went first. Its FINAL RETURN came at 22:53, and my second cycle was released at 22:54.
+  - The two scripts runs I had begun at 22:51 were stopped by PID at the release, so they would not load the host during `time-to-play`. They were restarted after the second cycle's RETURN.
+- **Cycle 2:**
+  - **START at 22:56;** `vm-qa <image> --only time-to-play` under `timeout 900`. Bring-up took 52 s; `tear-down: vm-pair down rc 0`; RETURN at 22:59, census 0, disks retired (`cycle-e2/`).
+  - **The kill fix held:** no kill-helper failure, with RetroArch gone in 0.15 s.
+  - **The g2g row still had no stamp, and the cause is the product's exit sync:** game 1's exit in the g2g repeat started no sync at all. `cloud_sync.log` has no `cloud_backup` after it, only `cloud_capture`, so no stamp was written and the 30 s wait could not help. The relaunch went 0.17 s after the kill; STOP IT AND PLAY was pressed at 1.36 s.
+  - Under D-QA-062 the cell fails. The unfixed tool passed it, as token `?`. Whether an exit sync skipped with no stamp is intended or a silent outcome is put to the coordinator on #659.
+- **S11's acceptance, the fixed compare over cycle 1's walks** (`cycle-e/frame-diff-fixed.md`): rc 1.
+  - 78 screens of 16 walks; 43 live claims; 348 inert proposals.
+  - 40 boxes claimed and 65 unclaimed: 64 are `0 0 552 708`, the Last Played backdrop, and one is `0 0 40 382` on `manager-nes/01-0-carousel.png`.
+  - Cycle 1's own frame-diff PASS rested on those boxes, "claimed by 578", the proposal claims applied live.
+  - Adopting the proposals or moving the baseline is the maintainer's (#346).
+
+## [Stage E] S11 and S12 (#980; #975, #983)
+
+- **S11:**
+  - `36138c8da5` (frame-diff): an empty baseline exits 1; a scoped run compares only its walks; the `--min-pixels` sentence; a zero-size PNG is refused; `proposal:` claims are inert.
+  - `476ab6e69b` (vm-walks): the three transfer masks cover only the transfer page; the 348 `#578` claims are marked `proposal:d72084ccad`, with no substance changed.
+  - Written on a scratch copy while cycle 1's own frame-diff suite ran, and applied after it.
+  - Against `facb2ae523`: 1 PASS (`claim-missing-still-fails`, the control's own control) and 6 FAIL (`streams/s11-unfixed.txt`). Fixed: 7 PASS (`streams/s11-fixed.txt`).
+- **S12, one commit per tool:**
+  - `6ca9da4831` vm-manager-system-check: explicit refusals; P6 reproduces at `facb2ae523`.
+  - `6871f964c8` vm-stop-test, `b6413b19e8` vm-pair-test and `4757b48385` vm-upgrade-readiness-test: their asserts become `require()` through an `ast` rewrite.
+  - `29bf33cbb8` ra-ui-test, `639b45a8a6` raofflineproxy-installed-native-test and `5988d06c9a` raofflineproxy-consent-test: each refuses under `-O` (exit 2) before argparse.
+  - `930ea05d70` raofflineproxy-consent-test (G-67): the collector records the event, then `judge()` reports the problem without raising.
+  - Against `facb2ae523`: 1 PASS and 7 FAIL (`streams/s12-unfixed.txt`). Fixed: 8 PASS (`streams/s12-fixed.txt`).
+  - **No positive found for `vm-stop-test`:** the old test's port-reuse bind, a plain check rather than an assert, fails it under `-O` against the broken subject too.
+  - **Two slips on the way:**
+    - The first guard placement fell after a later import in the native test, so `--help` beat it. In `ra-ui-test`, it relied on a `sys` import that existed only inside the embedded guest script. Both guards now sit at the first import with their own `import sys`.
+    - One staged gate lacked a helper (`guarded`), and that commit was redone; nothing broken was committed.
+- **Every control in full on the final tree** (`streams/all-controls-final.txt`, at `930ea05d70`): `vm-harness-test` 77 PASS; `vm-pair-test`, `vm-stop-test` and `vm-upgrade-readiness-test` rc 0; no fixture left.
+PROOF: 22:48 cycle guest: vm-qa <069fc2704421 image> with no override: BUILD_ID matches, tear-down vm-pair down rc 0, census 0 after, walks 16/16 frames equal to their steps -- `cycle-e/vm-qa-report.md`, `cycle-e/walks-vs-steps.txt`, `cycle-e/census-after.txt`
+PROOF: 22:46 S7 guest: emulator-exit-test --only A on guest b ran part A, 3 PASS, rc 0 -- `cycle-e/s7-exit-only-a-b.txt`
+PROOF: 22:59 cycle2 guest: --only time-to-play after 327e743189: no kill-helper failure; the g2g row has no stamp because no exit sync ran (cloud_sync.log) -- `cycle-e2/vm-qa-report.md`, `cycle-e2/time-to-play.json`
+PROOF: 23:00 S11 guest: the fixed compare over cycle 1 walks: 65 unclaimed (64 the Last Played backdrop) once the 348 proposals are inert -- `cycle-e/frame-diff-fixed.md`
+PROOF: 23:05 S11 fix-case: six cases fail at facb2ae523 and pass at 476ab6e69b; the control passes on both -- `streams/s11-unfixed.txt`, `streams/s11-fixed.txt`
+PROOF: 23:05 S12 fix-case: seven cases fail at facb2ae523 and pass at 930ea05d70 (vm-stop-test: no positive found) -- `streams/s12-unfixed.txt`, `streams/s12-fixed.txt`
+PROOF: 23:04 controls tool-run: every control in full at 930ea05d70: vm-harness-test 77 PASS; vm-pair-test, vm-stop-test, vm-upgrade-readiness-test rc 0 -- `streams/all-controls-final.txt`

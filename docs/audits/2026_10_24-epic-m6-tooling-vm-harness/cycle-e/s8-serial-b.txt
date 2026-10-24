@@ -1,0 +1,10 @@
+22:27:38
+vm-serial: no END marker within 20s (command still running, or the guest is down)
+BEG21a83ffe
+END21a83ffe
+vm-serial sh false (guest b) rc 124
+vm-serial: no END marker within 20s (command still running, or the guest is down)
+BEGc885a171
+serial-ok
+ENDc885a171
+vm-serial sh 'echo serial-ok' (guest b) rc 124

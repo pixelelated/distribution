@@ -1,0 +1,6 @@
+22:28:00
+vm-serial sh 'false' (guest b) rc 1
+vm-serial sh 'true' (guest b) rc 0
+serial-ok
+vm-serial sh 'echo serial-ok' (guest b) rc 0
+vm-serial sh 'exit 7' (guest b) rc 7

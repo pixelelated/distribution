@@ -118,6 +118,17 @@ The one authorized cycle, 19:23 to 19:30 UTC; the full record is in `00` § The 
 | S8 | `vm-visual-qa` fails a missing frame, counts a walk's frames, ends its header loop, covers VNC by pixel and ends dismissal on a checked state; `vm-serial sh` returns the command's status; every harness ssh has a bound (#972, #976, #983). Six cases fail at `facb2ae523` and pass at `05117efe58` | `streams/s8-unfixed.txt`, `streams/s8-fixed.txt` | proved: fix-case |
 | S8-baseline | The accepted walk baseline (`d72084ccad`) holds exactly the frames its steps name: 16 walks, 78 frames | `streams/s8-baseline-frame-counts.txt` | proved: history |
 | S9 | `ra-offline-test` passes host and key to `qa-accounts`, cleans up on any exit and counts it, reads before a negative check, matches exactly and checks one guest's endpoints; `qa-accounts` reads back equality (#977, #983). Six cases fail at `facb2ae523` and pass at `15b8f11334` | `streams/s9-unfixed.txt`, `streams/s9-fixed.txt` | proved: fix-case |
+| S10 | `vm-upgrade-rehearsal` needs an archive to keep, compares the seed's manifest file by file, and fails on a failed stop (#979). Three cases fail at `facb2ae523` and pass at `82b5edf1ee`; `rehearsal-clean` passes on both | `streams/s10-unfixed.txt`, `streams/s10-fixed.txt` | proved: fix-case |
+| cycle-found | Two defects in my own S6 and S8 fixes, found by the stage-E cycle: `vm-serial` stopped at the END tag before the status arrived; `time-to-play` failed a clean kill on `killall`'s 1 and read the g2g stamp too soon. `serial-split-marker` fails at `05117efe58` and `kill-judged-by-effect` at `a09bfc5718`; both pass at `95241c0158` | `streams/cycle-found-fixes.txt` | proved: fix-case |
+| cycle-found-guest | On guest b, after `1d5dc8a698`: `vm-serial sh false` 1, `sh true` 0, `exit 7` 7; before it, 124 for both | `cycle-e/s8-serial-b.txt`, `cycle-e/s8-serial-b-fixed.txt` | proved: fix-guest |
+| S13 | The small fixes, one commit per tool (#983: G-47, G-62 to G-65, G-68, G-69). Nine cases fail at `facb2ae523` and pass at `95241c0158` | `streams/s13-unfixed.txt`, `streams/s13-fixed.txt` | proved: fix-case |
+| cycle | The stage-E pair cycle: `vm-qa <069fc2704421 image>` with no override; BUILD_ID matches the image's; `tear-down: vm-pair down rc 0`; census 0 after; walks 16/16 hold the frames their steps name (S2, S5, S8) | `cycle-e/vm-qa-report.md`, `cycle-e/walks-vs-steps.txt`, `cycle-e/census-after.txt` | proved: fix-guest |
+| S7-guest | `emulator-exit-test --only A` on guest b ran part A alone: 3 PASS, rc 0 | `cycle-e/s7-exit-only-a-b.txt` | proved: fix-guest |
+| cycle2 | `--only time-to-play` after `327e743189`: the kill is judged by its effect on a guest. The g2g row has no stamp because the product started no exit sync for that repeat; D-QA-062 fails it, where the unfixed tool passed it as `?` | `cycle-e2/vm-qa-report.md`, `cycle-e2/time-to-play.json` | proved: fix-guest |
+| S11-guest | The fixed compare over cycle 1's walks: with the 348 proposals inert, 65 boxes are unclaimed, 64 of them the Last Played backdrop that cycle 1's PASS had rested on | `cycle-e/frame-diff-fixed.md` | proved: fix-guest |
+| S11 | `frame-diff` refuses an empty baseline, compares a scoped run's walks only, says what `--min-pixels` left out and refuses a 0x0 PNG; the transfer masks name their screens; the 348 proposals are inert (#980). Six cases fail at `facb2ae523` and pass at `476ab6e69b` | `streams/s11-unfixed.txt`, `streams/s11-fixed.txt` | proved: fix-case |
+| S12 | Refusals survive `-O` in seven tools; the consent test records before it judges (#975, #983). Seven cases fail at `facb2ae523` and pass at `930ea05d70`; for `vm-stop-test` no positive was found | `streams/s12-unfixed.txt`, `streams/s12-fixed.txt` | proved: fix-case |
+| controls | Every control in full at `930ea05d70`: `vm-harness-test` 77 PASS; `vm-pair-test`, `vm-stop-test` and `vm-upgrade-readiness-test` rc 0 | `streams/all-controls-final.txt` | proved: tool-run |
 
 ## The streams' positives
 
@@ -178,8 +189,35 @@ Each stream's `vm-harness-test` case, run against the unfixed tool (`git archive
 | S9 | `flushed-exact` | `flushed=10 judged '0'`, 1003590 counted `1` | `flushed=10 judged '1'`, counted `0` |
 | S9 | `endpoints-inconsistent` | `rc 1, FAILED (1) -- preconditions` (no check) | `rc 2, the endpoints name different guests` |
 | S9 | `accounts-readback` | `rc 0, set on :10022: ...` | `rc 1, ... do not hold what was sent: global.retroachievements.key` (`9a1300f141`) |
+| S10 | `rehearsal-clean` (the control's control) | `RESULT PASS, rc 0` | `RESULT PASS, rc 0` (`82b5edf1ee`) |
+| S10 | `rehearsal-no-archive` | `RESULT PASS, rc 0` | `RESULT FAIL, rc 1` |
+| S10 | `rehearsal-hash-changed` | `RESULT FAIL`, the changed file not named | `RESULT FAIL`, `seeded savestates/nes/Rehearsal.state1` named |
+| S10 | `rehearsal-stop-fails` | `RESULT PASS, rc 0` | `RESULT FAIL, rc 1` |
+| cycle | `serial-split-marker` | at `05117efe58`: `sh false rc 124, sh true rc 124` | `sh false rc 1, sh true rc 0` (`1d5dc8a698`) |
+| cycle | `kill-judged-by-effect` | at `a09bfc5718`: a kill that worked judged `the kill helper exited 1` | only the kill that left RetroArch fails (`327e743189`) |
+| S13 | `blackout-empty-rect` | `rc 0`, `... painted out` | `rc 1, covers no pixel ...; nothing painted out` (`3edb5f2b89`) |
+| S13 | `blackout-drops-text` | the text chunk kept `True` | `False` |
+| S13 | `untranslated-fuzzy-ctx` | `{'BACK UP': 'SAUVEGARDER', 'RESTORE': 'RESTAURER', ...}` | `{'BACK UP': '', 'RESTORE': '', ...}` (`8e29c6e2cc`) |
+| S13 | `untranslated-unreadable-source` | `rc 0`, the unreadable file skipped | `rc 2, cannot read 1 source file(s)` |
+| S13 | `font-stems-reversed` | `rc 1` at the font (no range check) | `rc 2, --sizes 20-10 names no size` (`181b67293a`) |
+| S13 | `candidate-games-bare-list` | `AttributeError: 'list' object has no attribute 'get'` | `check() returned 0` (`a4ae0aee6c`) |
+| S13 | `syntax-check-no-substitution` | `rc 0, PASS` | `rc 1, NO-SUB` (`d4ccc8b14b`) |
+| S13 | `launch-memory-start-time` | `the identity read ['<pid>']` | `['<pid>', '<start time>']` (`f676d8bb5f`) |
+| S13 | `signin-memory-run-files` | samples on past a failed launch | `the window could not be launched on the guest (ssh 1: )` (`95241c0158`) |
 
-S1's files: `streams/s1-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s1-fixed.txt` (7 PASS, 0 FAIL). The claim correction: `streams/s1-claim-correction.txt`. S2's: `streams/s2-unfixed.txt` (0 PASS, 4 FAIL) and `streams/s2-fixed.txt` (4 PASS, 0 FAIL); the whole control, `streams/s1-s2-full.txt` (12 PASS). S3's: `streams/s3-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s3-fixed.txt` (7 PASS, 0 FAIL); the whole control, `streams/s1-s3-full.txt` (19 PASS). S4's: `streams/s4-unfixed.txt` and `streams/s4-fixed.txt` (vm-pair-test and vm-stop-test, rc 0). S5's: `streams/s5-unfixed.txt` (0 PASS, 5 FAIL) and `streams/s5-fixed.txt` (5 PASS); every control after S5, `streams/s1-s5-full.txt`. S6's: `streams/s6-unfixed.txt` (0 PASS, 6 FAIL) and `streams/s6-fixed.txt` (6 PASS). S7's: `streams/s7-unfixed.txt` (0 PASS, 5 FAIL) and `streams/s7-fixed.txt` (5 PASS). S8's: `streams/s8-unfixed.txt` (0 PASS, 6 FAIL) and `streams/s8-fixed.txt` (6 PASS); the baseline's frame counts, `streams/s8-baseline-frame-counts.txt`. S9's: `streams/s9-unfixed.txt` (0 PASS, 6 FAIL) and `streams/s9-fixed.txt` (6 PASS). `rules-check --quiet` rc 0 and `hooks-test` PASS after `ea2377f1ce`.
+S1's files: `streams/s1-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s1-fixed.txt` (7 PASS, 0 FAIL). The claim correction: `streams/s1-claim-correction.txt`. S2's: `streams/s2-unfixed.txt` (0 PASS, 4 FAIL) and `streams/s2-fixed.txt` (4 PASS, 0 FAIL); the whole control, `streams/s1-s2-full.txt` (12 PASS). S3's: `streams/s3-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s3-fixed.txt` (7 PASS, 0 FAIL); the whole control, `streams/s1-s3-full.txt` (19 PASS). S4's: `streams/s4-unfixed.txt` and `streams/s4-fixed.txt` (vm-pair-test and vm-stop-test, rc 0). S5's: `streams/s5-unfixed.txt` (0 PASS, 5 FAIL) and `streams/s5-fixed.txt` (5 PASS); every control after S5, `streams/s1-s5-full.txt`. S6's: `streams/s6-unfixed.txt` (0 PASS, 6 FAIL) and `streams/s6-fixed.txt` (6 PASS). S7's: `streams/s7-unfixed.txt` (0 PASS, 5 FAIL) and `streams/s7-fixed.txt` (5 PASS). S8's: `streams/s8-unfixed.txt` (0 PASS, 6 FAIL) and `streams/s8-fixed.txt` (6 PASS); the baseline's frame counts, `streams/s8-baseline-frame-counts.txt`. S9's: `streams/s9-unfixed.txt` (0 PASS, 6 FAIL) and `streams/s9-fixed.txt` (6 PASS). S10's: `streams/s10-unfixed.txt` and `streams/s10-fixed.txt`; the cycle-found cases, `streams/cycle-found-fixes.txt`; S13's, `streams/s13-unfixed.txt` and `streams/s13-fixed.txt`. `rules-check --quiet` rc 0 and `hooks-test` PASS after `ea2377f1ce`.
+
+## Why the six ES rows stayed SKIP in the stage-E cycle
+
+The ES gate (#981, `ca0bf841d2`) reads the image's EmulationStation pin from the build's own commit: `git show 069fc270442134fe…:projects/ROCKNIX/packages/ui/emulationstation/package.mk`. That commit was not in this repository. The read-only fetch was `git fetch origin 069fc270442134fe771258418adf4e666e0473fb`, and origin answered `upload-pack: not our ref`. That answer means origin holds no ref the commit is reachable from. Which branch the image was built from is not recorded here, and no object store this worktree shares holds the commit. So the pin read `(pin unreadable)`, and the six suites that read `ES_SRC` (lifetime, vocabulary, french, quoting, menumap, register) were SKIP with `ES_SRC 16dbac5211, image pins unreadable`.
+
+That is the gate doing what D-QA-061 asks: a check that cannot tie its source to the image has not judged the image. `ES_SRC` sat at `16dbac5211`, which is the pin in this branch's own `package.mk`. Whether the image pinned the same commit cannot be read from here. The image's identity sidecar names its build commit, not its EmulationStation pin.
+
+Two routes would let a later cycle judge them:
+- publish the commit that produced `069fc2704421` to origin, or fetch it from the checkout that built it;
+- record the EmulationStation pin in the image's `.identity.json`, so the gate reads it without the commit.
+
+The second is a change to build identity, `docs/releases/versioning.md`'s and #532's, not this slice's. It is put to the coordinator as a lead.
 
 ## Findings (stage B)
 

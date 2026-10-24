@@ -1,0 +1,10 @@
+22:28:09
+helpers-ready
+A  one press ends the game cleanly and the save is written
+  PASS  runemu.sh exit code is 0 (got 0)
+  PASS  .srm exists and its first byte is 55
+  PASS  the exit-hotkey marker was consumed
+
+PASSED
+emulator-exit-test --only A (guest b) rc 0
+22:28:21

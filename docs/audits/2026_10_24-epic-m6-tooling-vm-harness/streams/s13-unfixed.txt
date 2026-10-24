@@ -1,0 +1,10 @@
+FAIL blackout-empty-rect: rc 0, '/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659/.qa-scratch/t12/vm-harness-test/' (want a refusal: a 0-wide rectangle paints nothing)
+FAIL blackout-drops-text: rc 0, the text chunk kept True (want it dropped)
+FAIL untranslated-fuzzy-ctx: French read {'BACK UP': 'SAUVEGARDER', 'RESTORE': 'RESTAURER', 'SAVES': 'SAUVEGARDES'} (want none for the fuzzy and the msgctxt entries)
+FAIL untranslated-unreadable-source: rc 0, ['  es-core/src/Core.cpp:1\tA CORE STRING'] (want 2: a source it could not read is no answer)
+FAIL font-stems-reversed: rc 1, ['font-stems: cannot open /workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659/.qa-scratch/t12/vm-harness-test/font-stems-reversed/no.ttf'] (want 2: 20-10 names no size)
+FAIL candidate-games-bare-list: AttributeError on the bare-list answer: 'list' object has no attribute 'get'
+FAIL syntax-check-no-substitution: rc 0, ['PASS'] (want 1: the edit would not have been compiled)
+FAIL launch-memory-start-time: the identity read ['587085'] (want the pid and its start time 197359775)
+FAIL signin-memory-run-files: rc 1, ['FAIL -- the window or its web process never appeared; read /tmp/signin-memory.log on the guest'] (want a FAIL naming the launch)
+0 PASS; 9 FAIL

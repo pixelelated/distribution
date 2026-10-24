@@ -1,0 +1,9 @@
+FAIL optimize-vm-manager-system-check: rc 0, ['PASS actual selected manager system nes'] (want 1: no such system, even under -O)
+PASS optimize-vm-stop-test: rc 1, ['OSError: [Errno 98] Address already in use'] (want non-zero against a vm-stop that claims every stop)
+FAIL optimize-vm-pair-test: rc 0, ['PASS 9 VM launch controls; fixtures are not a real boot claim'] (want non-zero against a vm-pair whose start_one claims every launch)
+FAIL optimize-vm-upgrade-readiness-test: rc 0, ['PASS 7 storage-readiness controls; actual guest query, synthetic states, no boot claim'] (want non-zero against a wait that always says ready)
+FAIL optimize-ra-ui-test: rc 0, ['  --failure-control'] (want 2: refused under -O)
+FAIL optimize-raofflineproxy-consent-test: rc 0, ['                        cache interval'] (want 2: refused under -O)
+FAIL optimize-raofflineproxy-installed-native-test: rc 0, ['  --output OUTPUT'] (want 2: refused under -O)
+FAIL consent-records-before-judging: no judge(): the collector asserts inside its handler, before the event is recorded
+1 PASS; 7 FAIL

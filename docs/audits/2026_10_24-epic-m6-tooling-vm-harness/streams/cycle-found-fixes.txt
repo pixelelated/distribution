@@ -1,0 +1,8 @@
+== serial-split-marker at 05117efe58
+FAIL serial-split-marker: sh false rc 124, sh true rc 124 (want 1 and 0 with the status in a later chunk)
+== kill-judged-by-effect at a09bfc5718
+FAIL kill-judged-by-effect: a kill that worked judged ['the kill helper exited 1 in a exit repeat']; one that left RetroArch judged ['the kill helper exited 1 in a exit repeat'] (want only the second failed)
+== both at 95241c0158
+PASS serial-split-marker: sh false rc 1, sh true rc 0 (want 1 and 0 with the status in a later chunk)
+PASS kill-judged-by-effect: a kill that worked judged []; one that left RetroArch judged ['the kill helper exited 1 and RetroArch did not go in a exit repeat'] (want only the second failed)
+2 PASS; 0 FAIL
