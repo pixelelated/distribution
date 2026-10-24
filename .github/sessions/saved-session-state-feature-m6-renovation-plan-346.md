@@ -176,7 +176,13 @@ eleven `fix-pending-image` items at the first image). **T5 accepted at hand-back
 `fixed-at 877775e61e`; #837 closed completed; 15 of 16 ticked; the
 coordinator's rows on #652: the container pin at the first M6 build, the three
 base-merge files, the ccache measurement, `areas.json` at the P1 merge). Both
-work lanes idle. **Tree exports go under `/workspace/tmp/m6-coordinator/`,
+work lanes idle. **Next briefs:** T6 (`docs/reviews/briefs/build-engine-upstream-tools.md`,
+Local, for the T5 session in a new worktree `m6-build-engine-upstream-tools-653`)
+and T30 (`docs/reviews/briefs/emulators-standalone.md`, Extended, for the T3
+session in `m6-emulators-standalone-677`), both at version 1 with futro
+addenda, their stranger's proofs running at 07:3x; version 2, the issues'
+sixteen criteria, the worktrees stacked on P1 + this tip, the seeds, then the
+dispatch comments. **Tree exports go under `/workspace/tmp/m6-coordinator/`,
 never the scratchpad on `/tmp`** (the tmpfs ran out of inodes at 07:13 under
 two lanes' exports). **Rule edits by this lane
 since `8ebaf8daad`** (the ledger the doctrine futro's A7 asks for; posted on
