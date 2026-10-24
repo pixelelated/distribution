@@ -4,6 +4,7 @@
 # Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 
 . /etc/profile
+set_kill set "-9 hatarisa"
 
 # Set some common variables
 HATARI_DIR_HOME=/storage/.hatari
