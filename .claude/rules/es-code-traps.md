@@ -179,8 +179,10 @@ So, for a change that must reach "the picture next to the list":
 - **Check the theme before trusting an element name.** `grep -rn 'md_image\|{game:image}'`
   on `/usr/share/themes/<theme>/` says which component actually draws.
 - **An Info log line shows nowhere on the image** until `Debug=true` is in
-  es_settings.cfg with essway stopped, and `/var/log/es_log.txt` is tmpfs,
-  so a proof script's closing reboot wipes it (memory `es-info-log-needs-debug`).
+  es_settings.cfg with essway stopped, and after a proof script's closing reboot
+  the line is in the previous boot's `es_log.0.txt`, not `es_log.txt` (`/var/log` is
+  `var-log.mount`'s bind of `/storage/.cache/log`, D-SYS-001; memory
+  `es-info-log-needs-debug`).
 
 ## A rescan that deletes FileData drops the view first (2026-09-22, #246)
 

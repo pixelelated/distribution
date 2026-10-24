@@ -106,8 +106,9 @@ now one flag:
 ```bash
 VM_TOOL=projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm
 $VM_TOOL run --headless --daemonize target/ROCKNIX-GENERIC_X64.x86_64-<date>.qcow2
-#   virtio-gpu-pci, -display none, -vnc 127.0.0.1:9 (a committed scanout for
-#   screendump), the serial console on /tmp/rocknix-qemu-serial.sock, a
+#   virtio-gpu-gl-pci with egl-headless on a host render node (--gl auto; --gl
+#   none is virtio-gpu-pci with -display none), -vnc 127.0.0.1:9 (the frames come
+#   over VNC), the serial console on /tmp/rocknix-qemu-serial.sock, a
 #   pidfile at /tmp/rocknix-qemu.pid, and QEMU returns once the VM is up
 tools/vm-serial wait                          # until EmulationStation is running
 tools/vm-serial sh 'df -h /storage'           # a root shell line, its output back
@@ -541,8 +542,8 @@ page decides "toggle off" and asks the web.
 
 The scripts run on the image, not on the host, and the host's coreutils hide
 that. Present: `mapfile` (bash), `stat -c`, `find -path`, `mktemp -d`,
-`sort -u`, `flock`, `base64 -d`. Absent: **`comm`**, **`pgrep -c`**,
-`find -printf`, `ls --time-style`, `realpath`. `comm ... | wc -l` reading 0
+`sort -u`, `flock`, `base64 -d`, `realpath` (`CONFIG_REALPATH=y`). Absent:
+**`comm`**, **`pgrep -c`**, `find -printf`, `ls --time-style`. `comm ... | wc -l` reading 0
 on the image shipped once (2026-09-06, a difference count that said
 "identical"); `pgrep -c` prints usage and exits 1, which a `$(...)` reads as
 an empty string. And **`pgrep -x` matches the whole command line**, not the
@@ -689,9 +690,9 @@ whole SD card *before* the rsync).
 Confirm from the serial shell: `df -h /storage` shows `100%`, and
 `journalctl | grep -i "no space"` shows `rsync: ... No space left on device`.
 
-- **Fix:** run on a **16GB+ disk**. `tools/fork-publish-release` converts the raw image into
-  the sparse disk size defined by the canonical VM profile and packages that same qcow2 into
-  `.utm.zip`; first-boot resize then gives ~12GB `STORAGE` and every resource populates. For
+- **Fix:** run on a **16GB+ disk**. `generic-x64-vm utm --output <name>.utm.zip <disk.qcow2>`
+  packages a flat qcow2 of at least the canonical profile's 16 GiB into a `.utm.zip` (it
+  refuses a smaller disk, a backing file or an external data file); first-boot resize then gives ~12GB `STORAGE` and every resource populates. For
   a bare `.img`, grow the disk (`qemu-img resize <disk> 16G`, or a ≥16GB target) **before**
   first boot.
 - **Don't** chase weston / Mesa / `glBlitFramebuffer` for a missing menu dim — that is a red
@@ -745,7 +746,8 @@ sg kvm -c '<qemu command>'      # picks up the group with no re-login
   2 s after one leaves it in `es_log.0.txt` (ten of ten). **ERROR and
   WARNING lines also go to stderr, which is the journal** (`journalctl -b
   -u essway` -- the unit is `essway.service`, whose `start_es.sh[pid]` lines
-  these are; there is no `emustation` unit); INFO lines reach only the
+  these are; `emustation.service` is installed but inactive, so its journal
+  is empty); INFO lines reach only the
   file and are not written at the shipped level. To provoke exactly one
   WARNING line on a guest with nothing else logging, ask the interface's
   API from a loopback address it does not treat as local:
@@ -760,8 +762,10 @@ sg kvm -c '<qemu command>'      # picks up the group with no re-login
   whole line.
 - **Offline logs** (VM off): `dd if=IMG of=/tmp/p2.ext4 bs=512 skip=<part2 start sector>`
   then `debugfs -R "cat /.config/emulationstation/es_settings.cfg" /tmp/p2.ext4` (toolchain
-  `debugfs`/`mtools` are under `build.*/toolchain/bin`). Handy because `/var/log` is lost on
-  shutdown; `/storage` (partition 2, ext4, label `STORAGE`) persists.
+  `debugfs`/`mtools` are under `build.*/toolchain/bin`). Handy when the guest will
+  not boot: `/storage` (partition 2, ext4, label `STORAGE`) persists, and the logs are on
+  it too (`/var/log` is `var-log.mount`'s bind of `/storage/.cache/log` unless
+  `/storage/.cache/volatile-log` opts out, D-SYS-001).
 
 ## Debug order
 
@@ -806,7 +810,9 @@ actual counter/uptime/module hashes are saved before assertion (#457).
 Preserve every failed attempt (#361).
 
 **Supervise long QA runs as well as builds (#395, D-WORKFLOW-143).** Use the
-shared `tools/watch-build` runner around the frozen checkout's test command.
+shared `tools/watch-build --record-only` runner around the frozen checkout's test
+command (a QA job compiles nothing; without `--record-only` or an admission the runner
+refuses with *build admission required*).
 For long agent-owned runs, submit that runner through
 `tools/watch-build-submit --owner <fresh-owner> --` (D-WORKFLOW-148). A
 successful submission is only a launch receipt; check the eventual runner,
@@ -878,8 +884,8 @@ that separate destination remains #395. Preserve failed runs and stop owned
 guests/endpoints when their job ends.
 
 `./tools/vm-qa <ROCKNIX-GENERIC_X64...img.gz>` brings the pair up from the
-image and runs the scripts test, the round-trip suite, the emulator-exit cell
-and every walk, leaving `report.md` and the logs and frames under
+image and runs its seventeen `SUITES` (`tools/vm-qa`'s line 63; the scripts test,
+the round-trip suite, the emulator-exit cell and the walks among them), leaving `report.md` and the logs and frames under
 `/workspace/artifacts/rocknix-images/qa-<build>-<backend>-<guest>-<date>/`;
 it exits non-zero if any suite failed. `--skip-up` for a pair already on the
 image, `--only` for a subset, `--link` for the seven link-loss cells (minutes
@@ -908,7 +914,7 @@ which takes ~578 s, nearly all of it in one step against a refused endpoint
 
 ## Crash and hang recipes
 
-The profile carries QEMU's `i6300esb` watchdog with `-action watchdog=reset`,
+`generic-x64-vm` adds QEMU's `i6300esb` watchdog with `-action watchdog=reset`,
 and the GENERIC_X64 kernel has pstore over UEFI variables (the guest boots
 OVMF, so a panic's kernel log lands in the variable store and comes back as
 `/sys/fs/pstore/dmesg-efi-*` on the next boot). That makes the whole of
@@ -1000,8 +1006,9 @@ before trusting `vm-serial wait`: read `/proc/sys/kernel/random/boot_id` and
 below what it would have read without a reset -- `uptime < u0` alone fails
 when the previous boot was seconds ago. Then `pgrep emulationstation | wc -l`
 = 1, the network test, and `flock -n /var/run/cloud_sync.lock true` (the
-startup sync). `/var/log` does not survive, so anything to be read from
-`es_log.txt` is read in the boot after the cut, and `Could not parse Settings
+startup sync). `/var/log` is the bind of `/storage/.cache/log`, so its files
+survive the cut and are read in the boot after it (by then the cut boot's log is
+`es_log.0.txt`, as the previous boots' files are -- see the ES log paragraph above), and `Could not parse Settings
 file` never lands there at all (Settings load before the log opens). A boot on
 a reseeded `system.cfg` can come up with sshd off: `sshd.service` needs
 `/storage/.cache/services/sshd.conf`, written from `ssh.enabled` at boot, so
