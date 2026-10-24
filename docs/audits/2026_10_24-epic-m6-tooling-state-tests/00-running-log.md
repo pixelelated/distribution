@@ -133,3 +133,9 @@ The last two are traced at stage B before they are called defects: an environmen
   - The cases read `ctl/argv` unconditionally (`:121`, `:222`), and the read raises `[Errno 2]` before their assertion. The sibling cases at `:178` and `:195` already test `not exists()`.
   - The refusal moved earlier at `e6645cb5ea` (2026-10-08 07:19Z, *cloud: integrate explicit folder setup and save coverage*), five hours after the test's last commit `083f4fad86` (02:25Z).
   - **The cause is the test,** stale against a safer script. The property it protects (no transfer started) holds; the test reports FAIL over it. Nothing calls this test, so the failure has gone unseen since that day.
+
+## [Stage B] 20:32 UTC — the 20:31 ruling; the read fanned out
+
+- **The coordinator's post (20:31 UTC):** both traces are accepted as test defects; the busybox correction stands (the override's 1.36.1 is the effective pin); the two rclone-pin tests are one bug. The post says *six stage-D bugs*. The defects are six: `build-identity-test`, `rasteratops-identity-check`, the two rclone-pin tests, cloud-layout's `TMPDIR` inheritance and content-scope's stale read. Issued one bug per shape, that is **five bug issues**. The count is confirmed at stage D.
+- **The read, fanned out:** two read-only research agents read the 21 tools for Q6's four columns and Q3's shapes, eleven and ten tools each, with no tool run and no file written. Their leads are re-derived here before they enter `04`.
+- **Written:** `02` § Phase 2, § The runs (every stage-A run with *a FAIL would mean*) and § T15's call sites.
