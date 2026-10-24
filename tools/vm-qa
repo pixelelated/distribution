@@ -193,10 +193,12 @@ fi
 # matrix is (#133) -- started in the same minute, shared a directory, and the
 # second overwrote the first's report and logs: two runs, one answer, and the
 # surviving report named the other run's cloud.
-# Seconds in the name, and a mkdir that must create the directory: two runs in
-# one second get two directories (-2, -3, ...), never one shared (#982).
+# Seconds in the name, and a claim only one run can win: two runs in one second
+# get two directories (-2, -3, ...), never one shared (#982). The claim is a
+# file opened with O_EXCL (bash's noclobber), not mkdir's status: this host's
+# mkdir (uutils coreutils 0.10.0) answers 0 to both of two racing calls.
 OUT_BASE="$ART/qa-${BUILD}-${BACKEND}-${GUEST}-$(date +%Y%m%d-%H%M%S)"; OUT=$OUT_BASE; n=1
-until mkdir "$OUT" 2>/dev/null; do
+until mkdir -p "$OUT" 2>/dev/null && (set -C; echo "$$" > "$OUT/.vm-qa-claim") 2>/dev/null; do
   n=$((n+1)); OUT="$OUT_BASE-$n"
   [ "$n" -le 50 ] || { echo "vm-qa: cannot create a report directory under $ART" >&2; exit 1; }
 done

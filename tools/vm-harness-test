@@ -189,15 +189,56 @@ def report_unwritable(c):
 
 @case
 def two_runs_one_minute(c):
+    # Three runs at once, five rounds: a claim that can be won twice shows here.
+    # One pair per run caught it about one time in seven on this host (uutils mkdir).
     vmqa = c.tool('vm-qa')
     env = c.env()
     argv = [str(vmqa), '--skip-up', '--only', 'fresh']
-    procs = [subprocess.Popen(argv, cwd=c.root, env=env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-             for _ in range(2)]
-    for p in procs:
-        p.wait(timeout=60)
-    dirs = sorted(c.art.glob('rocknix-images/qa-*'))
-    return len(dirs) == 2, f'{len(dirs)} report directories (want 2)'
+    shared = []
+    for rnd in range(5):
+        before = set(c.art.glob('rocknix-images/qa-*'))
+        procs = [subprocess.Popen(argv, cwd=c.root, env=env, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+                                  text=True) for _ in range(3)]
+        reports = []
+        for p in procs:
+            out, _ = p.communicate(timeout=60)
+            reports += [l for l in out.splitlines() if l.startswith('report: ')]
+        made = set(c.art.glob('rocknix-images/qa-*')) - before
+        if len(made) != 3 or len(set(reports)) != 3:
+            shared.append(f'round {rnd}: {len(made)} directories, {len(set(reports))} distinct reports')
+    return not shared, '; '.join(shared) or '5 rounds of 3 concurrent runs, 3 directories and 3 reports each (want that)'
+
+
+MKDIR_DOUBLE = r'''#!/bin/bash
+# mkdir double: 0 for a directory that already exists -- what this host's mkdir
+# (uutils coreutils 0.10.0) answered to 41 of 300 racing calls on 2026-10-24.
+paths=(); for a in "$@"; do case "$a" in -*) ;; *) paths+=("$a") ;; esac; done
+exec /bin/mkdir -p -- "${paths[@]}"
+'''
+
+
+@case
+def report_dir_claimed(c):
+    # Deterministic form of the race: the directory this run would name is already
+    # another run's, and mkdir says 0 anyway. The run must take a directory of its own.
+    import time
+    vmqa = c.tool('vm-qa')
+    executable(c.bin / 'mkdir', MKDIR_DOUBLE)
+    base = c.art / 'rocknix-images'
+    base.mkdir()
+    claimed = set()
+    now = time.time()
+    for dt in range(-1, 6):
+        t = time.localtime(now + dt)
+        for stamp in (time.strftime('%Y%m%d-%H%M%S', t), time.strftime('%Y%m%d-%H%M', t)):
+            d = base / f'qa-0123456789-webdav-a-{stamp}'
+            d.mkdir(exist_ok=True)
+            (d / '.vm-qa-claim').write_text('another run\n')
+            claimed.add(d.name)
+    r = c.run([str(vmqa), '--skip-up', '--only', 'fresh'])
+    rep = [l.split('report: ', 1)[1] for l in r.stdout.splitlines() if l.startswith('report: ')]
+    where = Path(rep[0]).parent.name if rep else None
+    return bool(where) and where not in claimed, f'report in {where} (want a directory no other run had claimed)'
 
 
 # --- S2: bring-up, identity and tear-down (#969, #981) --------------------------
