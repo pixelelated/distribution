@@ -16,16 +16,8 @@ for FOLDER_LINK in "${FOLDER_LINKS[@]}"; do
   TARGET_FOLDER="/storage/roms/bios/rpcs3/$FOLDER_LINK"
   SOURCE_FOLDER="/storage/.config/rpcs3/$FOLDER_LINK"
 
-  # Create the target folder if it doesn't exist
-  if [ ! -d "$TARGET_FOLDER" ]; then
-      mkdir -p "$TARGET_FOLDER"
-  fi
-
-  # Remove existing source folder
-  rm -rf "$SOURCE_FOLDER"
-
-  # Create symbolic link
-  ln -sf "$TARGET_FOLDER" "$SOURCE_FOLDER"
+  # Link the source folder to the target, keeping what is in it
+  link_storage_dir "$SOURCE_FOLDER" "$TARGET_FOLDER"
 done
 
 #Emulation Station Features
