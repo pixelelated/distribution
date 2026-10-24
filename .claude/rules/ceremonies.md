@@ -24,7 +24,7 @@ are mandatory, as opposed to things that are just optional?"* Yes.
 
 | Ceremony | Marker the tool reads | Cadence (D-QA-040) | When overdue |
 | --- | --- | --- | --- |
-| Friction entry | a line in `docs/friction-log.md` with `issue: #N` or `guard` | an issue or a guard within 3 days of the line | **refuses a push of next** |
+| Friction entry | every `- <yyyy-mm-dd>` line under `## Entries` in `docs/friction-log.md`; its owner is the `issue: #N`/`guard` field, else any `#N` on the entry, else a guard path in backticks that exists | an issue or a guard within 3 days of the line | **refuses a push of next** |
 | Mini-retro (phase tier) | `docs/retros/<date>-<scope>.md`, or a work-log heading that says retro | every 5 active days, grace 2 | refuses a push |
 | Weekly summary | `docs/work-logs/<yyyy_mm>-work_logs/<yyyy>-W<ww>-summary.md` | by the Tuesday after the week | refuses a push |
 | Monthly summary | `docs/work-logs/<yyyy_mm>-work_logs/SUMMARY.md` | by the 3rd of the next month | refuses a push |
@@ -89,7 +89,11 @@ One line, the moment the work slowed: what slowed it, what would have
 caught it, and the issue or guard. The mini-retro's second question ("what
 was harder than expected?") is answered from this file. An entry without an
 issue expires in three days and refuses the next push, which is the point:
-a friction nobody owns is a blindspot in waiting. Filing the issue follows
+a friction nobody owns is a blindspot in waiting. The check reads every
+`- <yyyy-mm-dd>` line under `## Entries` as an entry (an indented line right
+after one continues it), whatever follows the date, and names by number any
+other line under the heading rather than skipping it (#905); until then an
+entry without the `issue:` field was never read, so it could never be owed. Filing the issue follows
 D-QA-012 (the maintainer's words quoted, the same session).
 
 ## Running it
