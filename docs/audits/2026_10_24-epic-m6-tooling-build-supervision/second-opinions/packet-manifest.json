@@ -1,0 +1,265 @@
+{
+ "packet": "gpt-brief.md",
+ "bytes": 295270,
+ "sha256": "4e15670d1c7b8b46f23ee5e8f64d2cd9a7c6959de368f9ef540a936077bc7967",
+ "parts": [
+  {
+   "part": "02-forward-audit.md",
+   "source": "02-forward-audit.md",
+   "bytes": 20263,
+   "sha256": "88e73294e69f3afa3b31033ad29988ed190e8b3c79671a737dd28cb3852dcc25"
+  },
+  {
+   "part": "03-retrospective.md",
+   "source": "03-retrospective.md",
+   "bytes": 6132,
+   "sha256": "45c1aacaa12f39dfeec438f0e0775306c223d3a1972df5a2f5b467c962339a2a"
+  },
+  {
+   "part": "04-analysis.md",
+   "source": "04-analysis.md",
+   "bytes": 26287,
+   "sha256": "a1202813f7726e28123b0975e375f0de7a1d18a2d619efae1e1c279d256d4945"
+  },
+  {
+   "part": "file, whole, at 8ebaf8daad: tools/build-preflight",
+   "source": "tools/build-preflight",
+   "bytes": 6565,
+   "sha256": "12684510ac0d765f03617e975027f723e2796379d9a7161b6a6ad6e24914f304",
+   "file_sha256": "4b99deaf03accc7ebe0b66699dfc9b7147d762915a1e5dc20a02dda31c3ff12f"
+  },
+  {
+   "part": "file, whole, at 8ebaf8daad: tools/fork-newdrive",
+   "source": "tools/fork-newdrive",
+   "bytes": 7462,
+   "sha256": "fd4bb65270430a02cf25ac323ff84d7f519899fd8453e7934eb4e758f73f5c5e",
+   "file_sha256": "36f754e9157547238f955f97ee975d70aedec9b8eb80c309b4fff2485ea9788c"
+  },
+  {
+   "part": "file, whole, at 8ebaf8daad: tools/fork-publish-release",
+   "source": "tools/fork-publish-release",
+   "bytes": 8513,
+   "sha256": "02893bbb233a432b7c4b559fc22ffb76ab7f6dd09282361ae3ff29451d3a9df0",
+   "file_sha256": "7c7a3b093d62361d31408cb80fbd8ad0028cb4ab605a49de7686ca82690a754c"
+  },
+  {
+   "part": "file, whole, at 8ebaf8daad: tools/host-maintenance/README.md",
+   "source": "tools/host-maintenance/README.md",
+   "bytes": 6162,
+   "sha256": "4db770dae374d1f7e75f9a8db934aac7c00cffcc4ab276d82a634e8a254a666b",
+   "file_sha256": "70eefc73db0d00438153a3eba2390a3ae6b1c95ba8891ca38e698d7379d1ba31"
+  },
+  {
+   "part": "file, whole, at 8ebaf8daad: tools/host-maintenance/admission-test-fixture.py",
+   "source": "tools/host-maintenance/admission-test-fixture.py",
+   "bytes": 2733,
+   "sha256": "5779f0c8580ff76a77055b4bc982c3e4230befb66814b47fa2ed46f2efc42c81",
+   "file_sha256": "05ccfdba12c2beb3fb20c304222e36088aa63c6f694f2e5534c46f247265a2d1"
+  },
+  {
+   "part": "file, whole, at 8ebaf8daad: tools/host-maintenance/build-admission",
+   "source": "tools/host-maintenance/build-admission",
+   "bytes": 33635,
+   "sha256": "3565ff454111cb91a530421c457820e5afff22ec15ea816bcda23481cd741f62",
+   "file_sha256": "8923610caf6a8a1b32775bc1a7e3f67d5e5d5b7468955b35fd40d07da2e2047d"
+  },
+  {
+   "part": "file, whole, at 8ebaf8daad: tools/host-maintenance/build-admission.md",
+   "source": "tools/host-maintenance/build-admission.md",
+   "bytes": 13353,
+   "sha256": "31e0731e5e91713ce4f6343e5925065f34742c4cb4965ae1e5e97c9ebcb2d9b0",
+   "file_sha256": "1a4c127c8ece464a63fdbf1aa662196c9a5ed7c16aa283aaef992f848e41b95e"
+  },
+  {
+   "part": "file, whole, at 8ebaf8daad: tools/host-maintenance/install",
+   "source": "tools/host-maintenance/install",
+   "bytes": 9591,
+   "sha256": "1b11da9f51d353ec30bd5b6cf876c712daae3a138979d684356ccab15b32609d",
+   "file_sha256": "0bf0af109455cb0e8cbd038abead79bb355948459aca56d4453c46fa8fd07278"
+  },
+  {
+   "part": "file, whole, at 8ebaf8daad: tools/host-maintenance/reclaim-swap",
+   "source": "tools/host-maintenance/reclaim-swap",
+   "bytes": 11576,
+   "sha256": "6177072e3cdd8d3131d6adf81e409f0e5f85e42f097c49c91b25ead8e8307de6",
+   "file_sha256": "acfb7936c7271cd642a628a66b9a50d2b70c765eac9dd43bca60a67a7fec0547"
+  },
+  {
+   "part": "file, whole, at 8ebaf8daad: tools/host-maintenance/retention-report",
+   "source": "tools/host-maintenance/retention-report",
+   "bytes": 18529,
+   "sha256": "79fad885018629503ac83dcc496e2c9aefe83dc01972fc4e6afd379f7e1a613a",
+   "file_sha256": "1187725512f1a0586bc4d7812a886076c71bc6fdd460f6cd4a73e91198518798"
+  },
+  {
+   "part": "file, whole, at 8ebaf8daad: tools/host-maintenance/retention-report.md",
+   "source": "tools/host-maintenance/retention-report.md",
+   "bytes": 6281,
+   "sha256": "475795e8df4e85955694bb6485ef73f7eb2602e3f8cc4f15b8118ddadb443d75",
+   "file_sha256": "717735e6966bfe3f4dc09556402acdeab320c704c9c0c03860b84802caadb03b"
+  },
+  {
+   "part": "file, whole, at 8ebaf8daad: tools/host-maintenance/test-build-admission",
+   "source": "tools/host-maintenance/test-build-admission",
+   "bytes": 20078,
+   "sha256": "b5df3dd4c2a07beeb183ad95b7e0c9ef158dfe373ac90979fa4f13807fa9ad13",
+   "file_sha256": "e626dd3d8d4c22ffdf58170103e38a07356a853db123259d81ee209819c1059a"
+  },
+  {
+   "part": "file, whole, at 8ebaf8daad: tools/host-maintenance/test-build-monitor",
+   "source": "tools/host-maintenance/test-build-monitor",
+   "bytes": 14942,
+   "sha256": "23444f31322912bfff6f9b8a84e7c622437f1ac465c330fb13cd35634cafac12",
+   "file_sha256": "e959ed29d1afb6f9a466298971aa72f6002067421e0ef1cec2265e7f4fb0535b"
+  },
+  {
+   "part": "file, whole, at 8ebaf8daad: tools/host-maintenance/test-retention-report",
+   "source": "tools/host-maintenance/test-retention-report",
+   "bytes": 6317,
+   "sha256": "4fbe8f40e079035e400ece6ad0162d10e9a53615cc03f5fd3edee3005541c8c3",
+   "file_sha256": "dba88aea5c2d5cd06f35c7860e7e74dd970a2d2b0df8da9d5e62b278a2dcda88"
+  },
+  {
+   "part": "file, whole, at 8ebaf8daad: tools/host-maintenance/test-swap-reclaim",
+   "source": "tools/host-maintenance/test-swap-reclaim",
+   "bytes": 31346,
+   "sha256": "42cf37179492b90b0553ba1a73ea09aa11144093fb51cab57d99d8d2d8963a41",
+   "file_sha256": "643c50053c5b2006ae9277f2f283edab06f40cd50f87be59e9d83fc2773efe96"
+  },
+  {
+   "part": "file, whole, at 8ebaf8daad: tools/watch-build",
+   "source": "tools/watch-build",
+   "bytes": 11715,
+   "sha256": "1ade00d5ea5891e736464aa8a8dd805f67bf0a1c53d443b69d34fdf658e79b19",
+   "file_sha256": "44a6d87505fd6a465c384d2f30bfeda5f4fe436978d227d8b0c4bae73da7e0bc"
+  },
+  {
+   "part": "file, whole, at 8ebaf8daad: tools/watch-build-submit",
+   "source": "tools/watch-build-submit",
+   "bytes": 4805,
+   "sha256": "1ffa2ff13f0f8a6257be8c07d803c1e5656a0a08a58b4b0611dd993c9d43f414",
+   "file_sha256": "3777c68fb2677775550183f8bacdb860d7e1e477ebac4e923beda63beba8e88e"
+  },
+  {
+   "part": "file, whole, at 8ebaf8daad: tools/watch-job",
+   "source": "tools/watch-job",
+   "bytes": 14559,
+   "sha256": "133999f309a84118cc69d4921f352617cdf61113842a443084eae14061af5ac0",
+   "file_sha256": "052cdea2b449eb4a61f33ed41f4079a36d82605fa08c99a4006f3112d57926a2"
+  },
+  {
+   "part": "entry-line file at 8ebaf8daad (context below)",
+   "source": "Makefile",
+   "file_sha256": "8322fcfa85d0a0159ac05ce17058e23f8e18418d2344adf82456b5813b6094fa"
+  },
+  {
+   "part": "entry-line file at 8ebaf8daad (context below)",
+   "source": "scripts/build",
+   "file_sha256": "91d9b9c65d97c0ddbaccf26f3e4338c23287873b7d00d74b6c5cd69c3fa8321b"
+  },
+  {
+   "part": "entry-line file at 8ebaf8daad (context below)",
+   "source": "scripts/build_distro",
+   "file_sha256": "e4ccf640cbfb80ec8d06495bca37e102998204d76c37b26d378527741f3f1cd7"
+  },
+  {
+   "part": "entry-line file at 8ebaf8daad (context below)",
+   "source": "scripts/image",
+   "file_sha256": "4c5d26ea688c6c033cd80af6dcb7eae944b3d67bb3b410d54d6856d2651f8fee"
+  },
+  {
+   "part": "entry-line file at 8ebaf8daad (context below)",
+   "source": "scripts/install",
+   "file_sha256": "7fefd07feeeb0d3610a3877e3455cbed54d6fd65e3a93e373fa04d26bac80334"
+  },
+  {
+   "part": "entry-line file at 8ebaf8daad (context below)",
+   "source": "scripts/build_compat",
+   "file_sha256": "d772c8736d1026ed747e39e3bc67cd81b6512b5f4d54f0c91a876dd46c1722e8"
+  },
+  {
+   "part": "entry-line context: Makefile:30-50",
+   "source": "Makefile:30-50",
+   "bytes": 914,
+   "sha256": "74baf9754ed8e859b3c7552eed11d5dd530d38e923f5ebe104512a7f70e3db7f"
+  },
+  {
+   "part": "entry-line context: Makefile:170-212",
+   "source": "Makefile:170-212",
+   "bytes": 2943,
+   "sha256": "313721d9213e51cad4c4d86d9c4b580b299b4ff4278541a223ccb572a4004a18"
+  },
+  {
+   "part": "entry-line context: scripts/build:1-12",
+   "source": "scripts/build:1-12",
+   "bytes": 470,
+   "sha256": "3258b85cf9686f6e3c463e29541318ee5a5576cab9374a2dd28feeef7b7f1796"
+  },
+  {
+   "part": "entry-line context: scripts/build_distro:1-14",
+   "source": "scripts/build_distro:1-14",
+   "bytes": 455,
+   "sha256": "df210d794dcc313928d2699030fdc34e32095dd93c3af1b8242ff2b477dad445"
+  },
+  {
+   "part": "entry-line context: scripts/image:1-12",
+   "source": "scripts/image:1-12",
+   "bytes": 470,
+   "sha256": "48e76dc1c143b7aadc10d66f79fdc225acb9a551103037381c20186fffa3f00b"
+  },
+  {
+   "part": "entry-line context: scripts/install:1-13",
+   "source": "scripts/install:1-13",
+   "bytes": 535,
+   "sha256": "42d255a377aea0373130216f0c35368797d84c7739f6d9bbde269c33e01fd71a"
+  },
+  {
+   "part": "entry-line context: scripts/build_compat:1-10",
+   "source": "scripts/build_compat:1-10",
+   "bytes": 384,
+   "sha256": "0f6664de0fac0d6c11049d3635f703d10394243b1f9d565e3e4c0aed7e31f608"
+  },
+  {
+   "part": "entry-line context: .github/workflows/fork-checks.yml:30-50",
+   "source": ".github/workflows/fork-checks.yml:30-50",
+   "bytes": 1212,
+   "sha256": "ec9182d4871e68c803a2c5b0b331ba0b780d8ecd745ac64765c85e8ed2c5fe5f"
+  },
+  {
+   "part": "output: the eight controls and hooks-test, in the lane's worktree at the hash",
+   "source": "the eight controls and hooks-test, in the lane's worktree at the hash",
+   "bytes": 644,
+   "sha256": "446658938cbb6c6e66a79fcb77dcdaf2d6b3c84e8a190fbfb6fa907dc01b8a1c"
+  },
+  {
+   "part": "output: test-submit.py's receipt, unmodified control (layer 1)",
+   "source": "test-submit.py's receipt, unmodified control (layer 1)",
+   "bytes": 117,
+   "sha256": "3a95e1fb46414b0cf54502c42439ab181f57976c1dbf55f9d2bb7c5e0e8ac866"
+  },
+  {
+   "part": "output: test-submit.py's receipt, diagnostic copy with build-admission added (layer 2)",
+   "source": "test-submit.py's receipt, diagnostic copy with build-admission added (layer 2)",
+   "bytes": 145,
+   "sha256": "1f6d1eacd44287ea8c0241e55191291ccf6fd4881dff68732840ff7a9a2b5ea6"
+  },
+  {
+   "part": "output: the record: .build-runs directories and states",
+   "source": "the record: .build-runs directories and states",
+   "bytes": 201,
+   "sha256": "1335fbe41c618987c424bdf0b6ab242dbf1a97febc809ef43773bb508ac9d90f"
+  },
+  {
+   "part": "output: the cost figures",
+   "source": "the cost figures",
+   "bytes": 258,
+   "sha256": "abfc19d7e4794d6e9d72daf3c736eec42e1e477d99966367695c0a2981f152ef"
+  },
+  {
+   "part": "output: the container Python record",
+   "source": "the container Python record",
+   "bytes": 258,
+   "sha256": "5aff0bbdeb8fa82e1f26899a34903830d3cb9c2725c80abe484c8dfec7d6a5bb"
+  }
+ ]
+}

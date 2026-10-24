@@ -83,3 +83,20 @@ PROOF: 15:50 P6 `test-submit.py` leaves its `mkdtemp` under `/tmp`; the other co
 PROOF: 15:51 P7 the refusals with no control, by text search and the named checks -- the grep in this entry
 PROOF: 15:54 P8 `build-preflight --stop-vms` stops every `pgrep -f` match by plain `kill`, unowned and unwaited, and can print READY -- `build-preflight:101-123`, `test-swap-reclaim:368-369`
 PROOF: 15:52 P9 the memory-guard-removed control ran once and is not retained -- `README.md:99`, the 2026-10-04 work log `:241`
+
+## [Stage C] 16:00 UTC onward — Phase 4.6: the Facilitator, the probe, the packet, the refutation
+
+- **Setup (16:00:11 to 16:00:41):** `npm install --prefix tools/council` rc 0. `tools/council/run verify-pins`: `OK - verifier pins match current files and every re-pin is accountable.` `tools/council/run test`: 39/39, 127/127 and 19/19 pass, 0 fail. `run` sources `~/.config/council/env` itself; the env was not read.
+- **The probe** (16:01:25 to 16:01:35): `tools/council/run invoke --member gpt --provider openrouter --prompt-file second-opinions/gpt-probe-prompt.md --output second-opinions/gpt-probe.md`, rc 0. The provenance reads:
+  - declared `openai/gpt-6-astra (OpenRouter, via openai, effort=max)`;
+  - observed `openai/gpt-6-astra`, PASS, `model_identity_source: provider_response`;
+  - provider OpenAI, PASS;
+  - effort `max`, PASS, 302 reasoning tokens.
+  - The seat's own line reads `READY unknown`; the provider's field is the authority.
+- **The packet** (`tools/t9-packet.py`): `second-opinions/gpt-brief.md`, **295,270 bytes, sha256 `4e15670d1c7b8b46f23ee5e8f64d2cd9a7c6959de368f9ef540a936077bc7967`**, 41 parts. `second-opinions/packet-manifest.json` names each part with its sha256, and the 18 files and the six entry-line files with their own `file_sha256`.
+  - **What it carries:** the ask, with `reclaim-swap`, `install` and `build-admission` first; `02`, `03` and `04` whole; the 18 files whole and line-numbered; the context of the seven entry lines (`Makefile:30-50` and `:170-212`, the five scripts' heads, `fork-checks.yml:30-50`); the controls' summary, the two-layer receipts, and the record and cost figures.
+  - **Checks before sending:** the hook's secret patterns 0 hits; `forbidden-terms-check --stdin` rc 0; under the 440,000-byte cap.
+- **The refutation** started at 16:03: `timeout 5400 tools/council/run invoke --member gpt --provider openrouter --prompt-file second-opinions/gpt-brief.md --output second-opinions/gpt-audit.md`, in the background.
+  - **Watching it:** the harness task `bgsvjury2` delivers its end.
+  - **Its silent mode:** a hung call is ended only by the Facilitator's own per-attempt and total timeouts and by the `timeout 5400` around it.
+- **`review-plan.json`** is written in T8's shape: depth `independent`, scope `epic`, one reviewer `gpt` (`openai/gpt-6-astra`, lab `openai`, effort `max`, OpenRouter pinned to OpenAI). Its status reads `running` until the seat ends.

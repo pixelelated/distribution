@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "depth": "independent",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's dispatch on #656 (2026-10-24T15:41:29Z: 'the T5 session ... Opus 5.5 at high effort') and the session's own model metadata (claude-opus-5-5); herdr agent m6-t5-build-engine, session c649553c-8086-4db7-ad9c-248c7e41ff95"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
+      "calls": [
+        {
+          "phase": "refutation",
+          "output": "gpt-audit.md"
+        }
+      ],
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gpt-probe.md"
+        }
+      ],
+      "status": "running: probe PASS 16:01 (served openai/gpt-6-astra by OpenAI, effort max, 302 reasoning tokens); refutation started 16:03"
+    }
+  ],
+  "packets": {
+    "gpt": {
+      "file": "gpt-brief.md",
+      "bytes": 295270,
+      "sha256": "4e15670d1c7b8b46f23ee5e8f64d2cd9a7c6959de368f9ef540a936077bc7967",
+      "manifest": "packet-manifest.json",
+      "content": "the ask (reclaim-swap, install and build-admission first), 02, 03 and 04 whole, the 18 files whole at 8ebaf8daad line-numbered, the seven entry lines' context (Makefile, five scripts, fork-checks.yml), the controls' outputs, the two-layer receipts, the record and cost figures"
+    }
+  },
+  "written_before_first_call": "2026-10-24",
+  "status": "running"
+}
