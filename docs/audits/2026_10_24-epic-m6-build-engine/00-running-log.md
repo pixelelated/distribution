@@ -259,3 +259,22 @@ PROOF: 06:52 P22 `scripts/image` removes its identity sidecar when a later step 
 PROOF: 06:54 P23 `get_archive` refuses an archive whose recipe has no checksum, cached or not, and no fetch skips TLS verification -- `tools/sb-get-archive.sh` (F-19, #834)
 PROOF: 06:56 P24 `unpack` dies naming both entries when two match, where it emptied the package -- `tools/sb-unpack-glob.sh` (F-08)
 PROOF: 06:57 P25 `kernel-firmware`'s stamp moves when the device's firmware list changes -- `tools/sb-stamp-device-config.sh` (F-17, #836)
+
+### [Stage E] 06:59 to 07:03 — E7, the host side (PL-09 #835, PL-18)
+
+- The coordinator accepted E6 and recorded the five-not-eight count as D-WORKFLOW-194. The close-out order is as given to T3 on #650.
+- **#835** (`6b38804029`): `host_change` runs `sudo` only with `CHECKDEPS_ALLOW_HOST_CHANGES=1`; otherwise it prints the command, and `checkdeps` exits 1 at its end. Read first:
+  - the `Dockerfile` already sets the gcc alternative (39, 43) and makes a 777 `/nix` (45), so container builds meet neither branch;
+  - the `/nix` preparation came with FEX-emu and Steam (`214b17f900`);
+  - this host has no `/nix` and no gcc alternative, so P26's fixture shows both branches with a recording shim and changes nothing.
+- **PL-18** (`805b82a97d`):
+  - the options mount gets `:ro`;
+  - `LOCAL_SSH_KEYS_FILE` is tested with `-f` and `EMULATIONSTATION_SRC` with `-d`, under mount names of their own (Argon G-16, Astra G-07);
+  - `docker-image-build` is kept, upstream-carried, with its use written down: nothing calls it, and the mirror is copied by `skopeo` in `fork-mirror-build-container.yml`. A `DOCKER_IMAGE` override is not documented, because the image would then record the pinned digest as its `BUILDER_VERSION`.
+  - P27: `make -n` with a scratch `HOME`. No command line was pasted, and the real options file was not read.
+- **Already written:**
+  - A host `checkdeps` has already changed stays changed. The owner would undo it by hand with `sudo update-alternatives --remove gcc /usr/bin/gcc-12` and `sudo rm -rf /nix`, the latter only if nothing else uses it.
+  - Inside the container, `LOCAL_SSH_KEYS_FILE` is still dropped by `get_env`'s `KEYS` word. That was so before E3, so `rocknix`'s `authorized_keys` copy has never run in a Docker build. Named for the coordinator; not this stream's.
+
+PROOF: 07:00 P26 `checkdeps` changes the build host only on `CHECKDEPS_ALLOW_HOST_CHANGES=1` and otherwise prints the commands and stops, where it ran four sudo changes unasked -- `tools/sb-checkdeps.sh` (F-20, #835)
+PROOF: 07:02 P27 the options mount is read-only and a missing optional path is not mounted, every docker target still resolving -- `tools/sb-make-n.sh` (F-13)

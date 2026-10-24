@@ -121,6 +121,8 @@ P7 = {
  "F-19": ("Resolved", "`ca91e943fc`, `b34868cb18`, `430abc8f66` (E6, D-WORKFLOW-193): an unhashed recipe refused before cache and network, TLS verified; `update_packages` keeps and refreshes checksums; the five unhashed archive versions gain theirs (two matching the shared cache too). P23", "fix-sandbox; fix-pending-image: the first build fetches the five with their checksums"),
  "F-08": ("Resolved", "`64bca887c0` (E6): two matching entries fail naming both; one moves as before. P24", "fix-sandbox"),
  "F-17": ("Resolved", "`0c786d298e` (E6): `kernel-firmware`'s `PKG_NEED_UNPACK` names the firmware list at the device, project and distribution levels. P25", "fix-sandbox; fix-pending-image: the eight devices' roots rebuild `kernel-firmware` once"),
+ "F-20": ("Resolved", "`6b38804029` (E7): the gcc alternative and `/nix` change the host only with `CHECKDEPS_ALLOW_HOST_CHANGES=1`; otherwise the commands are printed and `checkdeps` exits 1. P26", "fix-sandbox; the build container meets neither branch (its `Dockerfile` has both)"),
+ "F-13": ("Resolved", "`805b82a97d` (E7): the options mount `:ro`; the optional mounts tested for existence under names of their own; `docker-image-build` kept with its use written. P27", "fix-sandbox (`make -n`, a scratch `HOME`)"),
  "F-05": ("Deferred", "deferred:#651 (T4): `device-builds.md` § After rebasing items 2 and 3 (the coordinator's disposition, `t5-streams.md`)", None),
  "F-15": ("Deferred", "deferred:#651 (T4): § Build credentials' two spellings of the options file (the coordinator's disposition)", None),
  "F-10": ("Deferred", "deferred:#657 (T10): `update-kernel-configs-docs.yml` fails on every fork push (the coordinator's disposition)", None),

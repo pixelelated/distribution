@@ -478,7 +478,8 @@ punch_index:
   source_finding: "F-20"
   owner_area: "host preparation: `checkdeps`"
   tracked: "#835"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-sandbox; the build container meets neither branch (its `Dockerfile` has both)"
 - id: PL-10
   severity: Low
   category: Code Quality
@@ -548,7 +549,8 @@ punch_index:
   question: Q2
   source_finding: "F-13"
   owner_area: "the container's mounts"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-sandbox (`make -n`, a scratch `HOME`)"
 - id: PL-19
   severity: Low
   category: Documentation Gap
@@ -621,7 +623,7 @@ punch_index:
 | PL-06 | **Resolved** | `cbb3e308b7` (E4): the default marks `core[last()]`; defaults counted once per system, more than one fails by name, none warned (GENERIC_X64 `psx`, #650's line); `mk_es_systems` prints `xmlstarlet`'s error. P19 (cases A and B) and P20; fix-host-regen; fix-pending-image: the three images' tables |
 | PL-07 | **Resolved** | `cfb391e75d` (E5): the prune keeps the outputs of a frozen `BUILD_TIMESTAMP`, so `scripts/image`'s refusal fires (P21 case 1); `0a580b2d4d` (E5b): the identity sidecar is removed when a later step fails (P22); fix-sandbox; fix-pending-image: the next build's `target/` |
 | PL-08 | **Resolved** | `ca91e943fc`, `b34868cb18`, `430abc8f66` (E6, D-WORKFLOW-193): an unhashed recipe refused before cache and network, TLS verified; `update_packages` keeps and refreshes checksums; the five unhashed archive versions gain theirs (two matching the shared cache too). P23; fix-sandbox; fix-pending-image: the first build fetches the five with their checksums |
-| PL-09 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-09 | **Resolved** | `6b38804029` (E7): the gcc alternative and `/nix` change the host only with `CHECKDEPS_ALLOW_HOST_CHANGES=1`; otherwise the commands are printed and `checkdeps` exits 1. P26; fix-sandbox; the build container meets neither branch (its `Dockerfile` has both) |
 | PL-10 | **Resolved** | `0c786d298e` (E6): `kernel-firmware`'s `PKG_NEED_UNPACK` names the firmware list at the device, project and distribution levels. P25; fix-sandbox; fix-pending-image: the eight devices' roots rebuild `kernel-firmware` once |
 | PL-11 | **Deferred** | deferred:#651 (T4): `device-builds.md` § After rebasing items 2 and 3 (the coordinator's disposition, `t5-streams.md`) |
 | PL-12 | **Resolved** | `07b92ce5b7` (E5): `ORIGIN_URL` and `BUILD_FILENAME` removed; `git grep` finds no reader; a reading (`git grep`, `bash -n`) |
@@ -630,7 +632,7 @@ punch_index:
 | PL-15 | **Deferred** | deferred:#657 (T10): `update-kernel-configs-docs.yml` fails on every fork push (the coordinator's disposition) |
 | PL-16 | **Deferred** | deferred:#652, the coordinator's act: the pin moves with the first M6 image build after the M7 candidate merges, in the stream brief naming that build; until then behind by 29 days, identical `Dockerfile` |
 | PL-17 | **Deferred** | deferred:#652, the coordinator's act: the base merge takes `config/blocklist`, `build-nightly.yml` and the PR template |
-| PL-18 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-18 | **Resolved** | `805b82a97d` (E7): the options mount `:ro`; the optional mounts tested for existence under names of their own; `docker-image-build` kept with its use written. P27; fix-sandbox (`make -n`, a scratch `HOME`) |
 | PL-19 | **Deferred** | deferred:#651 (T4): § Build credentials' two spellings of the options file (the coordinator's disposition) |
 | PL-20 | **Resolved** | `cfb391e75d` (E5): each step fails with its message; the dead `$?` check gone. P21 case 2; fix-sandbox |
 | PL-21 | Open | stage E's stream brief resolves (`t5-streams.md`) |
