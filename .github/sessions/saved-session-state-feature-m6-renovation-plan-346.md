@@ -168,8 +168,12 @@ given the row; `t5-streams.md` E1 to E8 after audit issue #837 and bugs
 routed items. **S0 reviewed 06:3x**: `fix/m6-825-cheevos-hook-no-shell` at
 `fac139dd43` (merged into the slice branch as `faac89ffc0`), the hook half
 proven on the guest, the RetroArch half `fix-pending-image`; M7 told the
-hash; the fix worktree stays until M7 consumes it. The coordinator reviews
-each later stream as it lands. **Rule edits by this lane
+hash; the fix worktree stays until M7 consumes it. **T3 accepted at hand-back 07:1x** (`d9003d819f`; `reviewed-at d606301784`,
+`fixed-at 3c47325fb2`; #826 closed completed; 14 of 15 ticked, the
+`renovation-status` clause at the merge; its `slices.json` row written when
+this branch takes P1's at integration; #823 and #841 close at the merge; the
+eleven `fix-pending-image` items at the first image). T5 is at its close-out
+after E1 to E8 (all accepted); the coordinator closes #837 at acceptance. **Rule edits by this lane
 since `8ebaf8daad`** (the ledger the doctrine futro's A7 asks for; posted on
 #651 once T4 is at stage A, and listed here as they happen):
 `8c9b1d4721` `generic-x64-vm-testing.md` +7, lines 1225 to 1231 (`time-to-play`'s
