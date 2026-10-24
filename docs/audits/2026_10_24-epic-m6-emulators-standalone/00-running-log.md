@@ -141,3 +141,9 @@ GUEST-PROOF: 09:20:27 UTC (c2-scummvm.out's mtime) -- G15, ScummVM with Flight o
   - No context excerpts outside the membership: they are not in D-WORKFLOW-195's list.
   - The ask is bounded: one line per item, parts 1 and 2 before 3, at most 6,000 words.
 - `tools/forbidden-terms-check --stdin` rc 0. The run started in the background (harness task `b8sicheu7`), on the same model, effort and provider.
+
+### [Stage C] 10:10-10:23 — Gemini run 2 succeeded; the third guest cycle (named on #677, issuecomment-6383042792)
+
+- **Gemini run 2** (trimmed packet): 10:10:57-10:19:34, rc 0, first attempt; served `google/gemini-4-argon` by Google, effort high, provider and identity PASS; 41,141 reasoning tokens, `finish=stop`; `second-opinions/gemini-argon-audit.md`, 22,666 bytes, 2,672 words.
+- **Cycle 3:** the host file unchanged (the last M7 block 05:42); census 0; boot 10:21:55, QEMU pid 910037, the T30 disk; `vm-serial wait` ready about 20 s later; script hash equal on both sides (`1b3558fb968e…`); `tools/vm-stop` rc 0 at 10:22:49, census after 0.
+GUEST-PROOF: 10:22:49 UTC (p3-tools-then-game.out's mtime) -- G16, Gemini's G-03 tested: with DuckStation's two links removed, the Tools launcher's Start Duckstation.sh (run 8 s) left /storage/.config/duckstation/savestates a REAL directory created by DuckStation (memcards: not created); a synthetic state there, then a game launch through runemu.sh: 0 copies of the state remain, in the constructed run (targets present) and in the control (targets absent). A synthetic card placed by the script in a real memcards directory: 0 copies with the target present, migrated with it absent. /workspace/artifacts/m6-t30-20261024/p3-tools-then-game.sh, /workspace/artifacts/m6-t30-20261024/p3-tools-then-game.out

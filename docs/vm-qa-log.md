@@ -375,3 +375,9 @@ preserved. All original lifecycle channels0, owners exited, admission consumed,
 - **Found:** both kill targets end their live processes. gzdoom's first frame is 1.03-3.13 s after the launch call (the first run cold). ScummVM's first draw, its splash, is 0.64-1.08 s.
 - **Could not prove:** the interface's own launch and return path. An SSH launch leaves EmulationStation on screen; a launch driven from the interface (a walk) is that measurement. ScummVM's game frame, which comes after its splash, was also not taken.
 - **Left behind:** `c2-frames.py`, a reusable first-frame harness, in the artifacts. A candidate tool: launch-to-first-frame for a standalone emulator, through the interface rather than SSH.
+
+## 2026-10-24 10:23 UTC — M6 T30 cycle 3: the Tools launcher, then a game (#677)
+
+- **Image and disk** as cycles 1 and 2; up 10:21:55, `tools/vm-stop` rc 0 at 10:22:49; census 0 before and after.
+- **Found:** DuckStation started from the Tools launcher creates `.config/duckstation/savestates` as a real directory. The next game launch from `start_duckstation.sh` deletes it, contents included, before linking (`p3-tools-then-game.out`).
+- **Left behind:** nothing beyond synthetic files on the T30 disk.

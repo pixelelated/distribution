@@ -17,9 +17,9 @@ Written 2026-10-24 09:07 UTC (`date -u`) at stage B, from the read tree `8ebaf8d
 | 9 | 04 Q3: the exit sweep (35 rows) and the shell-line sweep | the evidence is here (G1-G9, H1, H5); the tables are `04`'s | `04` § Q3 |
 | 10 | 04 Q4: the two currency tables, no empty cell | `q4-pins.json`, `q4a-dispositions.md` | `04` § Q4 |
 | 11 | 04 Q5 measurements; Q6 reachability; aethersx2's rows | G11, G12; the device × recipe table | `04` § Q5, § Q6 |
-| 12 | the proof cells in § Proofs = the proof lines in 00 | 20 = 20 | § Proofs; `grep -c` |
+| 12 | the proof cells in § Proofs = the proof lines in 00 | 21 = 21 | § Proofs; `grep -c` |
 | 13 | every item question:, bugs pass box-check, ladder named, no member edited | stage D; `git status --short -- <membership>` empty | `05` |
-| 14 | census, vm-stop, census; pidfile under /workspace/tmp/m6-t30 | **done** for both cycles (08:51:30-09:01:08, 09:18:46-09:21:44) | 00's guest-cycle entry; `docs/vm-qa-log.md` |
+| 14 | census, vm-stop, census; pidfile under /workspace/tmp/m6-t30 | **done** for three cycles (08:51:30-09:01:08, 09:18:46-09:21:44, 10:21:55-10:22:49) | 00's guest-cycle entry; `docs/vm-qa-log.md` |
 | 15 | the retro | stage G | |
 | 16 | the six checkers on the branch | stage H | |
 
@@ -115,6 +115,7 @@ Each row's input is named; a synthetic one says so (blindspot 65). The time is t
 | G13 | the interface runs in /storage, writable | the running interface | `00's G13 line` | proved: guest |
 | G14 | gzdoom's kill target ends it; first frame 1.03-3.13 s | Freedoom 0.13.0 (real, free) | `c2-gzdoom.out`, `c2-frames/` | proved: guest |
 | G15 | ScummVM's kill target ends it; first draw (its splash) 0.64-1.08 s | Flight of the Amazon Queen (real, freeware) | `c2-scummvm.out`, `c2-frames/` | proved: guest |
+| G16 | the Tools launcher's DuckStation makes savestates a real directory; the next game launch deletes its contents (Gemini G-03) | synthetic state and card files, named | `p3-tools-then-game.out` | proved: guest |
 
 ## Coverage
 
