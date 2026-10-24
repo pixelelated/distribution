@@ -9,6 +9,7 @@ as they are, so a gate that accepts the ExecStart refuses later, at the
 """
 import subprocess, sys
 from importlib.machinery import SourceFileLoader
+sys.dont_write_bytecode = True   # nothing written beside the gate
 gate = SourceFileLoader("gate", sys.argv[1]).load_module()
 path, argv = sys.argv[2], sys.argv[3]
 execstart = ("{ path=%s ; argv[]=%s ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; "

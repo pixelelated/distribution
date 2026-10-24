@@ -17,7 +17,7 @@ check() { if [ "$2" = 0 ]; then echo "  ok    $1"; else echo "  FAIL  $1"; fail=
 WRAP='/bin/bash -a -c source /etc/profile && exec /usr/bin/autostart'
 for side in before:"$GB" after:"$T/tools/pixelelated-state-check"; do
   n=${side%%:*}; g=${side#*:}
-  a=$(python3 -I "$P" "$g" /usr/bin/env "/usr/bin/env /usr/bin/autostart" 2>&1); b=$(python3 -I "$P" "$g" /bin/bash "$WRAP" 2>&1)
+  a=$(python3 -I -B "$P" "$g" /usr/bin/env "/usr/bin/env /usr/bin/autostart" 2>&1); b=$(python3 -I -B "$P" "$g" /bin/bash "$WRAP" 2>&1)
   echo "  $n: argument -> $a | shipped -> $b"
   check "$n: the shipped wrapper gets past the ExecStart check" "$(case "$b" in *ExecStart*|*autostart*) echo 1;; "REFUSED AT "*) echo 0;; *) echo 1;; esac)"
   if [ "$n" = before ]; then
