@@ -165,6 +165,7 @@ both lists and to this table, or it is invisible.**
 | `vm-pair`, `vm-pair-test`, `vm-serial`, `vm-visual-qa`, `vm-walks/` | bring guests up, test launch failures, drive them, capture frames, walk the interface | `generic-x64-vm-testing.md` |
 | `vm-qa` | every automated check against one image, one report | `generic-x64-vm-testing.md` |
 | `vm-stop`, `vm-stop-test` | stop only the owned QEMU and await exit; exercise delayed exit, timeout and refusal controls | `generic-x64-vm-testing.md` |
+| `vm-harness-test` | host-only controls for the harness: vm-qa's exit and selection, its report, bring-up and the D-INFRA-031 defaults, against doubles of ssh, scp and the backend (#659) | `generic-x64-vm-testing.md` |
 | `vm-manager-system-check` | refuse manager walkthroughs on an absent or wrongly selected system | `generic-x64-vm-testing.md` |
 | `cloud-round-trip`, `cloud-test-backend`, `cloud-census`, `cloud-capture-stamp-test` | the cloud-sync suites and their backends | `rclone-cloud-sync.md` |
 | `cloud-connections-test`, `test-fixtures/` | staged connection transactions, real-rclone OAuth state and shutdown cleanup, with synthetic dependencies (#537/#540) | `rclone-cloud-sync.md` |
