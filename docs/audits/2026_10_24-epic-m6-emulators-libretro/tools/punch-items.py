@@ -103,7 +103,7 @@ ITEMS = [
   acc="On the merged tree, Start RPCS3.sh registers set_kill set \"-9 rpcs3-sa\".",
   tracked="", disp="deferred", note="to merge with the base merge: upstream's `eeb33c5a37`"),
  dict(id="PL-011", sev="Low", cat="Code Quality", q="Q3", src="F-05", area="the table: systems without a default or an emulator",
-  title="On GENERIC_X64 `psx` has no default core, and `st-v` has no emulator on H700, RK3326, RK3566 and the VM",
+  title="The GENERIC_X64 table gives `psx` no default core, and the H700, RK3326, RK3566 and GENERIC_X64 tables give `st-v` no emulator",
   what="Give psx a GENERIC_X64 arm with a default (the coordinator's choice of core: swanstation or beetle_psx), and skip add_es_system st-v where no core is added.",
   where=R+"virtual/emulators/package.mk:1165-1209,1395-1401",
   ev="the regenerated tables; SystemData::getDefaultEmulator at the interface's pin",

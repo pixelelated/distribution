@@ -166,7 +166,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Acceptance:** On the merged tree, Start RPCS3.sh registers set_kill set "-9 rpcs3-sa".
 - **Disposition note:** to merge with the base merge: upstream's `eeb33c5a37`
 
-## PL-011: On GENERIC_X64 `psx` has no default core, and `st-v` has no emulator on H700, RK3326, RK3566 and the VM
+## PL-011: The GENERIC_X64 table gives `psx` no default core, and the H700, RK3326, RK3566 and GENERIC_X64 tables give `st-v` no emulator
 
 - **Severity:** Low
 - **Category:** Code Quality
