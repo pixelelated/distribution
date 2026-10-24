@@ -23,6 +23,13 @@
 # that cannot be read has not been checked, and this says so and fails rather
 # than passing over it (engineering-practices.md, guards fail closed). Runs on
 # the host as tools/vm-qa's `register` suite, beside `vocabulary`.
+# Since T10 S9 (#947) it also reads the second ID of a slash shorthand (a
+# pair written with one area and two numbers), fails a file inside a listed
+# directory that grep could not read, fails a row whose cell count differs
+# from its table's header (an unescaped pipe in a decided row; the open
+# table's header against its rows), and reports, without failing, a decided
+# row whose text changed after the commit that added it (a decided row is
+# append-only; history cannot be undone, so it is named for the record).
 # Exit 0 when clean, 1 with every problem listed.
 set -u
 ROOT="$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)"
@@ -50,6 +57,10 @@ LIVE=(
     "${ROOT}/docs/blindspot-register.md" "${ROOT}/docs/cloud-sync-changelog.md"
     "${ROOT}/docs/es-menu-map.md" "${ROOT}/docs/device-testing-policy.md"
     "${ROOT}/docs/device-flashing-runbook.md"
+    "${ROOT}/docs/conflict-wizard-ia.md" "${ROOT}/NAMING.md"
+    "${ROOT}/docs/releases/device-facts.md" "${ROOT}/docs/releases/versioning.md"
+    "${ROOT}/docs/pixelelated/rename-plan.md" "${ROOT}/docs/reviews/README.md"
+    "${ROOT}/docs/upstream/README.md"
     "${ROOT}/projects/ROCKNIX/packages/network/rclone/sources"
     "${ROOT}/projects/ROCKNIX/packages/network/raofflineproxy/sources"
     "${ROOT}/projects/ROCKNIX/packages/network/raofflineproxy/patches"
@@ -69,6 +80,19 @@ for p in "${LIVE[@]}"; do
     fi
 done
 missing=0
+# The citations, with grep's own errors kept: a file inside a listed
+# directory that cannot be read used to vanish into 2>/dev/null.
+cites="$(mktemp)" && gerr="$(mktemp)" || exit 2
+trap 'rm -f "${cites}" "${gerr}"' EXIT
+grep -rnI -o -E "${CITE}" "${LIVE[@]}" > "${cites}" 2> "${gerr}"; grc=$?   # -I: a binary file holds no citation
+if [ "${grc}" -gt 1 ] || [ -s "${gerr}" ]; then
+    sed -E "s|^grep: ||; s|${ROOT}/||" "${gerr}" | while IFS= read -r e; do echo "UNREADABLE ${e}: it is in a live document's tree and was not checked"; done
+    FAIL=1
+fi
+# A slash shorthand names two rows with one area: the second number is a
+# citation too (D-<AREA>-<n>/<m>, as written in four rules).
+grep -rnI -o -E 'D-[A-Z]+-[0-9]+(/[0-9]+)+' "${LIVE[@]}" 2>/dev/null \
+    | awk -F: '{ n = split($3, part, "/"); area = part[1]; sub(/-[0-9]+$/, "", area); for (i = 2; i <= n; i++) print $1 ":" $2 ":" area "-" part[i] }' >> "${cites}"
 while IFS=: read -r file line cite; do
     [ -n "${cite}" ] || continue
     case "${cite}" in *-000) continue ;; esac            # a placeholder in prose ("D-CLOUD-000")
@@ -76,8 +100,7 @@ while IFS=: read -r file line cite; do
         echo "MISSING ${cite}: ${file#${ROOT}/}:${line}"
         missing=$((missing + 1))
     fi
-done < <(grep -rn -o -E "${CITE}" "${LIVE[@]}" 2>/dev/null \
-         | grep -v -F "${REG}:" \
+done < <(grep -v -F "${REG}:" "${cites}" \
          | sed -E 's/^([^:]+):([0-9]+):(.*)$/\1:\2:\3/' | sort -u)
 # the register's own cross-references (a row citing an earlier row)
 while IFS= read -r cite; do
@@ -111,6 +134,45 @@ if [ -n "${open_at}" ]; then
             *) echo "MISPLACED ${id}: a statement under '## Open decisions' is a decided row in the wrong table (#646)"; FAIL=1 ;;
         esac
     done < <(tail -n +"${open_at}" "${REG}" | grep -E '^\| D-[A-Z]+-[0-9]+ ')
+fi
+
+# 5. every row has its table's cell count. An unescaped pipe in a cell
+# splits it, and a header that lists fewer columns than its rows carry
+# misreads every row; both break the column a reader or a tool looks in.
+# Named for the register's owner to fix by a clerical row; never edited here.
+while IFS=: read -r ln id n want; do
+    echo "SHAPE ${id}: line ${ln} has ${n} unescaped pipes where its table's header has ${want}"
+    FAIL=1
+done < <(awk '
+    /^## Decided/ { t = "decided"; h = 0; next }
+    /^## Open decisions/ { t = "open"; h = 0; next }
+    /^## / { t = ""; next }
+    t != "" && /^\|/ {
+        line = $0; gsub(/\\\|/, "", line); n = gsub(/\|/, "|", line)
+        if (!h) { h = n; next }
+        if ($0 ~ /^\|[ ]*-/) next
+        if (n != h) { id = $0; sub(/^\| */, "", id); sub(/ *\|.*/, "", id); print NR ":" id ":" n ":" h }
+    }' "${REG}")
+
+# 6. a decided row whose text differs from the commit that added it. A
+# decided row is append-only (decision-register.md); a change made in place
+# cannot be undone, so it is reported, not failed. Needs the register's
+# history; without it, says so.
+if git -C "${ROOT}" rev-parse --git-dir >/dev/null 2>&1; then
+    edited="$(git -C "${ROOT}" log --reverse -p --no-renames --format='commit %H' -- docs/decision-register.md 2>/dev/null \
+        | awk -v reg="${REG}" '
+            /^\+\| D-[A-Z]+-[0-9]+ \|/ { r = substr($0, 2); id = r; sub(/^\| /, "", id); sub(/ \|.*/, "", id); if (!(id in first)) first[id] = r }
+            END {
+                while ((getline l < reg) > 0) {
+                    if (l ~ /^## Decided/) d = 1; else if (l ~ /^## /) d = 0
+                    if (d && l ~ /^\| D-[A-Z]+-[0-9]+ \|/) { id = l; sub(/^\| /, "", id); sub(/ \|.*/, "", id); if ((id in first) && first[id] != l) print id }
+                }
+            }')"
+    for id in ${edited}; do
+        echo "EDITED ${id}: its text differs from the commit that added it (reported, not failed)"
+    done
+else
+    echo "note: no git history here, so in-place edits of decided rows were not looked for"
 fi
 
 n_rows=$(printf '%s\n' "${ids}" | grep -c .)
