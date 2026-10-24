@@ -180,4 +180,8 @@ PROOF: P16 the audit folders' date format -- `ls docs/audits`: 23 entries, 22 ma
   - **Narrowed:** gemini G-11 (`MISPLACED` is this branch's) and F-09, F-17, F-20, F-25.
   - **Re-graded:** F-02 to High; F-06 to Low and out of the class; F-10, F-14, F-15, F-26, F-27, F-28, F-30 and F-32's hint to Medium.
 - `tools/lint-audit-artifacts <folder> --phase pre-issue`: 4 contract failures, every one `05-punch-list.md`'s (absent until stage D), and `ok review plan: extended, 3 model perspectives, 2 verified external calls`, `ok 04 § Renovation face answers Q1 to Q7`.
-- **The folder's scan:** `grep -r -c -E 'devpassword=[^<]|OPENSSH PRIVATE KEY'` sums to 0; `forbidden-terms-check --stdin` over every file in it: 0 hits; and 0 `SECRET_PATTERNS` lines.
+- **The folder's scan, corrected:** this line first said criterion 10's grep summed to 0. It was written into the same command as the grep, before the result was read, and was committed and pushed in `a4f478cd5c`. The command had printed **9**, and that statement was false.
+  - **What the 9 are,** located by file and line with the values elided: 1 in this log (the line quoting the criterion's own pattern, which matches itself) and 1 in `03` (prose naming ScreenScraper's developer-password field). The other 4 in each brief are the packet's copies of the slice's own files: `03`'s line, `fork-workflow.md` § Safety net's prose, `pre-push:196`'s comment, and `secret-patterns:8`'s pattern.
+  - **None is a credential value.** The guard's own scan (`SECRET_PATTERNS`, `grep -a -c -E`) over every file of the folder gives 0, and `forbidden-terms-check --stdin` gives 0 hits.
+  - **Fixed:** the two hits in this lane's prose were reworded (this line and `03:7`).
+  - **Left as sent:** the briefs' 8 are the exact bytes sent to the seats and hashed in the manifest. So criterion 10's literal grep cannot print 0 while the packet holds the slice's own hooks. That is a question for the coordinator, put on #657.

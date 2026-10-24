@@ -4,7 +4,7 @@ Phase 3 of the code-auditor skill, read over the 31 paths at the two hashes, wit
 
 ## 3.1 How the guards were built
 
-- **The push guard first** (`f51d081c04`, 2026-09-05): the credential scan at the tip, for the two secrets GitHub's push protection does not know (a ScreenScraper `devpassword=` and a RetroAchievements key).
+- **The push guard first** (`f51d081c04`, 2026-09-05): the credential scan at the tip, for the two secrets GitHub's push protection does not know (ScreenScraper's developer password and a RetroAchievements key).
 
   **The `.po`/`.pot` exemption arrived in that same commit**, with no reason in its message (F-02). Every later rewrite carried it forward: `17dbb85b88` (PL-08, #151), `3e70ef9239` (the guard library), `9e104c65f3` (the pre-commit). None re-read why it was there. That is the shape `engineering-practices.md` § Verify design intent warns about, the other way round: a constraint whose reason was never written, preserved by every round because it looked deliberate.
 - **Every commit in the push, not only the tip** (`17dbb85b88`, 2026-09-13, audit #151 PL-08), with the three proven refusals in the hook's header.
