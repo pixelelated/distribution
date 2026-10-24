@@ -159,8 +159,13 @@ request of about 04:30): #802 to T3 (`fix/m6-802-pcsx-rearmed32`, upstream
 on the host file; M7 applies to its candidate tree and its images prove the
 criteria; the two fix worktrees (`m6-802-pcsx-rearmed32`,
 `m6-806-grep-pcre2`) are removed with `tools/fork-worktree remove` once M7
-has consumed the packets. **The host is M7's from 03:47**; the return line is
-relayed to #650 and #652 the minute it lands. **Rule edits by this lane
+has consumed the packets. **M7 returned the host at 05:42** (relayed on #650 and #652); **both
+lanes are at stage E** on their stream briefs (`docs/reviews/briefs/t3-streams.md`
+S0 to S6 after audit issue #826 and bugs #813 to #825 -- #825 the security
+defect in RetroArch patch 0012, the maintainer notified, M7 told, #585
+given the row; `t5-streams.md` E1 to E8 after audit issue #837 and bugs
+#827 to #836; D-WORKFLOW-193 written for E6). #838 and #839 filed for T3's
+routed items. The coordinator reviews each stream as it lands. **Rule edits by this lane
 since `8ebaf8daad`** (the ledger the doctrine futro's A7 asks for; posted on
 #651 once T4 is at stage A, and listed here as they happen):
 `8c9b1d4721` `generic-x64-vm-testing.md` +7, lines 1225 to 1231 (`time-to-play`'s
