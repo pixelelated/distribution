@@ -57,3 +57,71 @@
   - the default monitor and serial sockets and the QA key path (`ra-offline-test:65-66`, the usage lines of `time-to-play` and `emulator-exit-test`);
   - `ra-offline-test:259`'s `/tmp/ra-offline-acct.$$` and `:345`'s `.steps`;
   - `time-to-play:158`'s SSH control socket `/tmp/ttp-cm-<pid>`.
+
+PROOF: 19:05 P1 tree: the 60 equal the brief at 8ebaf8daad (60 paths, 8,790 lines, 484,627 bytes, 145 fork commits, none upstream's) and the branch's diff over them is empty -- `.qa-scratch/t12/membership.txt`, `lines-at-hash.txt`
+PROOF: 19:05 P2 tool-run: vm-pair-test 9, vm-upgrade-readiness-test 7 and vm-stop-test 7 PASS (rc 0); vm-qa --list prints 17; es-syntax-check rc 2 without a build root -- `.qa-scratch/t12/controls/`
+
+## [Stage B] 19:07 onward — the reading, the record, and the one guest cycle
+
+- **The reading:** the 60 are read from the export, the large tools whole (`vm-qa`, `vm-pair`, `vm-stop`, `frame-diff`, `emulator-exit-test`) and the rest by their exit and pass logic. The leads are in `03` and `04`.
+- **Two read-only research agents read the record** (D-WORKFLOW-189's fan-out, with their leads re-derived here):
+  - the cost side: 61 reports, 59 distinct;
+  - the value side: catches, positives and callers.
+  - **Re-derived by the lane:** the per-suite times and verdicts from the 61 reports (`/workspace/tmp/m6-t12/q5-rederived.txt`), and three catches against their sources (`fresh` PL-001, `quoting` blindspot 57, `menumap` #542).
+  - **A deviation:** the value agent wrote, then deleted, a stray grep dump at `/tmp/claude-1000/q6-rules.txt` (its own report says so). That is a `/tmp` write by the lane's helper, against brief § 8, and the lane reports it here. No other write was made outside `/workspace/tmp/m6-t12/`.
+- **The claims reconciliation** (`/workspace/tmp/m6-t12/walks-reconcile.txt`):
+  - `suite.txt` holds **16** walks and `default-pre`, a delta against the brief's 17;
+  - there are 22 step files, 8 of which no suite walk replays;
+  - every claim matches a walk and every walk owns a claim;
+  - all 391 claims are against `d72084ccad`, the host's baseline accepted 2026-09-26;
+  - three are whole-frame claims (`claims.txt:38-40`, #455).
+- **The times on the PROOF lines** are the cited artifacts' mtimes (`date -u -r`), corrected after the lines were first written with typed minutes.
+- **A host-only probe:** `vm-manager-system-check` under `PYTHONOPTIMIZE=1` passes an empty system list (`.qa-scratch/t12/probes/manager-check-optimize.txt`).
+
+PROOF: 19:05 P3 tree: every pgrep, pkill and kill in the eight guest-touching tools is guest-side; vm-pair, vm-stop and vm-qa have no host-side kill; vm-pair down stops by tools/vm-stop with pidfile and disk -- `.qa-scratch/t12/controls/kill-grep.txt`, `vm-pair:124-130`
+PROOF: 19:23 P4 history: 61 vm-qa reports (59 distinct) give each suite's seconds and verdicts; walks 1000 s, scripts 779 s, round-trip 84.5 s, time-to-play 69 s, exit 28 s median; ra-offline in none -- `/workspace/tmp/m6-t12/q5-rederived.txt`
+PROOF: 19:14 P5 tree: suite.txt's 16 walks against claims.txt's 391 lines and the 22 step files: no claim without a walk, no walk without a claim, 8 step files outside suite.txt, every key followed by wait-for-change -- `/workspace/tmp/m6-t12/walks-reconcile.txt`, `steps-profile.txt`
+PROOF: 19:26 P6 tool-run: vm-manager-system-check with PYTHONOPTIMIZE=1 prints PASS (rc 0) for an empty system list and a wrong selection that the plain run refuses (rc 1) -- `.qa-scratch/t12/probes/manager-check-optimize.txt`
+
+### The guest cycle (brief § 5), 19:23 to 19:30 UTC
+
+- **The image:** `pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261022T235948Z.g069fc2704421-from-ROCKNIX.img.gz`, copied from `/workspace/artifacts/m6-t1-20261023/` to `/workspace/tmp/m6-t12/cycle/`.
+  - Its sha256, `6b4c3079bdee2f47bd1149aac07b11714c591b847f22157fcd6d85f39a7e08fb`, is checked against the `.img.gz.sha256` beside it: `OK`.
+  - **A delta against the brief:** the `.identity.json` carries no sha256; it carries `build_commit 069fc270442134fe771258418adf4e666e0473fb`, `dirty no`.
+- **Before:** census 0. The host file's line, quoted:
+
+  `== M6 T12 lane (#659) -- 2026-10-24T19:23:39Z: census qemu 0; one GENERIC_X64 guest from pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261022T235948Z.g069fc2704421-from-ROCKNIX.img.gz (sha256 6b4c3079bdee2f47bd1149aac07b11714c591b847f22157fcd6d85f39a7e08fb), pidfile /workspace/tmp/m6-t12/cycle/rocknix-qemu.pid, ssh :10022, vnc :9, 8 GiB/4 vCPU; QA cloud isolated (CLOUD_QA_STATE under /workspace/tmp/m6-t12, port 19010); runs vm-qa --skip-up --only fresh,round-trip,exit,time-to-play,frame-diff and three argument probes; stopped by tools/vm-stop; no link, no ra-offline, no handheld, no build.`
+- **The disk:** gunzip, `qemu-img convert`, `resize 16G`, as `vm-pair up` does, under `/workspace/tmp/m6-t12/cycle/`. It took 8 s.
+- **The launch:** `generic-x64-vm run --headless --daemonize --monitor … --serial … --pidfile /workspace/tmp/m6-t12/cycle/rocknix-qemu.pid --vnc 9 --ssh-port 10022 --mac 52:54:00:52:4E:58 vm-a.qcow2`, rc 0.
+  - PID 1439420, whose command line owns the disk; census 1.
+  - Serial up in 15 s. The key went in by `vm-serial`, as `vm-pair`'s `ready_one` does. SSH answered with `BUILD_ID="069fc270442134fe771258418adf4e666e0473fb"` after 27 s.
+- **The guest's readings:**
+  - `test -x /usr/bin/cloud_migrate_layout` rc 1 (absent);
+  - guest memory used 718 of 7771 MB after boot;
+  - QEMU's host VmRSS and VmHWM 2,662,384 kB (`cycle/guest-checks.txt`).
+- **`vm-qa`:** `env VM_PAIR_DIR=… VM_QEMU_RUNTIME_DIR=… ROCKNIX_ARTIFACTS=… CLOUD_QA_STATE=… CLOUD_QA_PORT=19010 WALK_BASELINE=<empty dir> tools/vm-qa --skip-up --only fresh,round-trip,exit,time-to-play,frame-diff`, 19:25:39 to 19:28:45, **rc 0**.
+  - **The report** (`cycle/vm-qa/report.md`): fresh PASS 1 s, round-trip PASS 84 s, exit PASS 27 s, time-to-play PASS 72 s, frame-diff SKIP 0 s.
+  - **Its last line is `**PASSED with 1 suite(s) SKIPPED**`, with rc 0.**
+  - **Time to play:** 0.74 s to the game's first frame, 1.59 s to the exit-sync stamp, 1.01 s game to game; the remote is reachable.
+- **The argument probes:**
+  - `time-to-play … --repeat 0 --only launch,exit,g2g --vm`: rc 0 in 30 s, with `cells {launch: 0, exit: 0, g2g: 0}`, `headline_missing []` and `over_budget []` (`cycle/ttp-repeat0/`).
+  - `emulator-exit-test … --vm --only X`: rc 0 in 1 s, `PASSED` with no check run (`cycle/exit-onlyX.out`).
+- **The stop:** `tools/vm-stop /workspace/tmp/m6-t12/cycle/rocknix-qemu.pid …/vm-a.qcow2`, rc 0 in 0.25 s (`down: owned QEMU exited (pid 1439420)`). The PID is gone and the pidfile removed.
+  - The isolated backend's `down` rc 0, `status` `not running`.
+  - Ports 19010, 10022 and 5909 are free; census 0.
+- **After:** the host file's line, quoted:
+
+  `== M6 T12 lane (#659) -- 2026-10-24T19:30:19Z: the cycle is done. tools/vm-stop rc 0 in 0.25 s (pid 1439420 gone, pidfile removed); the isolated QA cloud down; census qemu 0. The disk and the image copy under /workspace/tmp/m6-t12/cycle are retired next, after their record.`
+- **Retired** at 19:30:49Z (D-INFRA-022; `cycle/RETIRED.txt`):
+  - the disk, 2,315,583,488 bytes, sha256 `230153933c0d…`;
+  - the image copy, 2,122,289,964 bytes;
+  - the OVMF vars and the cycle's key.
+  - The original image stays under `/workspace/artifacts/m6-t1-20261023/`.
+  - The compact record is kept under the audit folder's `cycle/`, scanned before it was kept: credential-shaped lines 0, apart from one prose false positive; `forbidden-terms-check --stdin` 0 hits. No frame is needed by a claim, so none is kept.
+- **The ledger:** a row in `docs/vm-qa-log.md` (2026-10-24).
+
+PROOF: 19:28 P7 guest: vm-qa with frame-diff SKIPped (no baseline) exits 0 and prints PASSED with 1 suite(s) SKIPPED -- `cycle/vm-qa/report.md`, `cycle/t-vmqa.txt`
+PROOF: 19:29 P8 guest: time-to-play --repeat 0 --only launch,exit,g2g exits 0 with every headline cell empty and headline_missing [] -- `cycle/ttp-repeat0/time-to-play.json`, `cycle/ttp-repeat0.out`
+PROOF: 19:29 P9 guest: emulator-exit-test --only X prints PASSED, rc 0, with no check run -- `cycle/exit-onlyX.out`
+PROOF: 19:25 P10 guest: the 069fc2704421 image ships no /usr/bin/cloud_migrate_layout, so vm-walks/cloud-epic/migration-protocol.sh refuses on it -- `cycle/guest-checks.txt`
+PROOF: 19:30 P11 guest: tools/vm-stop stops the owned QEMU in 0.25 s and removes its pidfile; the guest held 2,662,384 kB resident on the host after boot -- `cycle/guest-checks.txt`, this log
