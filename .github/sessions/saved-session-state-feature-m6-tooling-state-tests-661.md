@@ -42,7 +42,16 @@
    and the census, whether a build root exists for the busybox applets, the
    host-side runs with their exits and wall times -- before reading a tool.
 
-## Current focus
+## Current focus (20:26 UTC update)
+
+**Stage A done** (`docs/audits/2026_10_24-epic-m6-tooling-state-tests/00-running-log.md`).
+- `reviewed-at` is `30da4853bb`; 32 paths and 6,911 lines, matching both hashes.
+- Five tests fail at the hash: `build-identity-test`, `rasteratops-identity-check`, `pixelelated-cloud-validator-test`, `pixelelated-duckstation-capture-test`, and 2 FAIL each in `rasteratops-cloud-layout-test --archives-only` and `pixelelated-content-scope-test`. The last two are to be traced first at stage B.
+- No guest so far.
+
+**Next:** stage B (Phases 1 to 4) with Q6's brittleness table, then the seat.
+
+## Earlier focus
 
 Not started. The first commit on this branch is the running log's header,
 `01-research-notes.md` § Scope, this pointer updated, and the day's
