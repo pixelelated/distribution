@@ -290,189 +290,189 @@ punch_index:
   question: Q3
   source_finding: "F-01, G-5"
   tracked: "#989"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-02
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-02, G-6, G-36"
   tracked: "#990"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-03
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-03, G-7"
   tracked: "#991"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-04
   severity: High
   category: Security
   question: Q2
   source_finding: "F-04, G-1, G-8"
   tracked: "#992"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-05
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-05, G-9, G-23, G-29, G-30"
   tracked: "#993"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-06
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-06, G-10, G-24, G-26, G-27, G-41"
   tracked: "#994"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-07
   severity: Medium
   category: Correctness
   question: Q2
   source_finding: "F-07, G-11, G-37"
   tracked: "#995"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-08
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-08, G-12, G-34"
   tracked: "#996"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-09
   severity: Medium
   category: Renovation
   question: Q6
   source_finding: "F-09, F-10, G-2, G-13, G-14, G-21, G-22, G-23, G-33"
-  tracked: "the coordinator's disposition (#661): retire in place, with the index rows saying so, or fix the historical path; the bug count of the 21:03 ruling asks whether this is a bug or the disposition beside the stubs"
-  outcome: "open"
+  tracked: "#1011 (the live path, resolved); retire in place, the removal on #346"
+  outcome: "resolved"
 - id: PL-10
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-10, F-03 (the stub's docstring)"
-  tracked: "the coordinator's disposition (#661): remove with their index rows and list entries, or keep as refusing markers with the docstring corrected"
-  outcome: "open"
+  tracked: "retire in place, the docstring resolved; the removal on #346, the list entries #1007"
+  outcome: "resolved"
 - id: PL-11
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-11, G-15"
-  tracked: "#986 (Backlog, T12's PL-19 shape: which suite each joins is the coordinator's)"
-  outcome: "open"
+  tracked: "#986"
+  outcome: "deferred"
 - id: PL-12
   severity: Low
   category: Renovation
   question: Q7
   source_finding: "F-12, G-16"
-  tracked: "the coordinator's lead (a rule and index edit; never made by this lane)"
-  outcome: "open"
+  tracked: "#1007"
+  outcome: "deferred"
 - id: PL-13
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-13, G-4, G-17, G-39, G-41"
   tracked: "#997"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-14
   severity: Low
   category: Correctness
   question: Q2
   source_finding: "F-14, G-18, G-23"
   tracked: "#998"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-15
   severity: Medium
   category: Security
   question: Q2
   source_finding: "G-20"
   tracked: "#999"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-16
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "G-25"
   tracked: "#1000"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-17
   severity: Low
   category: Renovation
   question: Q7
   source_finding: "G-3"
-  tracked: "the coordinator's lead (the gate's described contract, release-candidates.md)"
-  outcome: "open"
+  tracked: "a5397e2e9f; the rules' sentence #1007"
+  outcome: "resolved"
 - id: PL-18
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "G-32"
   tracked: "#1001"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-19
   severity: Medium
   category: Security
   question: Q3
   source_finding: "G-38"
   tracked: "#1002"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-20
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "G-35"
   tracked: "#1003"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-21
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "G-28, G-29, G-31"
   tracked: "#1004"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-22
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "G-40, G-41"
   tracked: "#1005"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-23
   severity: Low
   category: Renovation
   question: Q3
   source_finding: "G-42"
-  tracked: "the coordinator's read after T10's #945 merges: its run.sh (2444828e89) names the failure it expects, which may already answer this"
-  outcome: "open"
+  tracked: "7679426e48; run.sh's lines at #945's merge"
+  outcome: "resolved"
 ```
 
 ## Phase 7 resolution gate
 
-Pre-issue: every item is open until the coordinator's stage-E dispositions. Each row names what tracks the item.
+At the resolution phase. Each bug's fix is on this branch, and the bug closes when it reaches `next` (no closing keyword). The items that are not streams carry the coordinator's dispositions (#661, the stream brief at `13242d182a`). Each row names the commit or the issue.
 
 | Item | Outcome | Tracked |
 | --- | --- | --- |
-| PL-01 | Open | #989 |
-| PL-02 | Open | #990 |
-| PL-03 | Open | #991 |
-| PL-04 | Open | #992 |
-| PL-05 | Open | #993 |
-| PL-06 | Open | #994 |
-| PL-07 | Open | #995 |
-| PL-08 | Open | #996 |
-| PL-09 | Open | the coordinator's disposition (#661): retire in place, with the index rows saying so, or fix the historical path; the bug count of the 21:03 ruling asks whether this is a bug or the disposition beside the stubs |
-| PL-10 | Open | the coordinator's disposition (#661): remove with their index rows and list entries, or keep as refusing markers with the docstring corrected |
-| PL-11 | Open | #986 (Backlog, T12's PL-19 shape: which suite each joins is the coordinator's) |
-| PL-12 | Open | the coordinator's lead (a rule and index edit; never made by this lane) |
-| PL-13 | Open | #997 |
-| PL-14 | Open | #998 |
-| PL-15 | Open | #999 |
-| PL-16 | Open | #1000 |
-| PL-17 | Open | the coordinator's lead (the gate's described contract, release-candidates.md) |
-| PL-18 | Open | #1001 |
-| PL-19 | Open | #1002 |
-| PL-20 | Open | #1003 |
-| PL-21 | Open | #1004 |
-| PL-22 | Open | #1005 |
-| PL-23 | Open | the coordinator's read after T10's #945 merges: its run.sh (2444828e89) names the failure it expects, which may already answer this |
+| PL-01 | Resolved | `3c9730bc78` (S1), #989 |
+| PL-02 | Resolved | `648e9ca228` (S1), #990 |
+| PL-03 | Resolved | `2f614eef1f` (S3), #991 |
+| PL-04 | Resolved | `2e6639ec57` (S2), #992 |
+| PL-05 | Resolved | `6b41f05962` (S4), #993 |
+| PL-06 | Resolved | `6b5cd16160` (S3), #994 |
+| PL-07 | Resolved | `359dd435ce`, `081f19d2f0` (S6), #995; and #1009, the scratch leak found during S7, fixed in `84a2b73140` (which cites #995) and filed after it, per the coordinator's 22:22 UTC ruling |
+| PL-08 | Resolved | `0037b04172` (S7), #996 |
+| PL-09 | Resolved | `6016f57a75` (S11), #1011, the live path: a refused start stops nothing, and a stop goes by pidfile in D-INFRA-031's runtime shape (the coordinator, 22:54 UTC). The disposition is the coordinator's: retire in place as a refusing marker, with the removal bundle on #346 and the index rows #1007's |
+| PL-10 | Resolved | `8816d078fa` (S11), the docstring naming the coverage by tool and flow. The disposition is the coordinator's: retire in place as refusing markers, with the removal bundle on #346 and the list entries #1007's |
+| PL-11 | Deferred | #986, the coordinator's Backlog, with T14's ten tools and the suites each could join; the validator's own defects are #994, resolved in `6b5cd16160` |
+| PL-12 | Deferred | #1007, the T14 rules Backlog (a sub-issue of #903), made at integration in the doctrine packet; no rule was edited by this lane |
+| PL-13 | Resolved | `929355c417`, `30d9339ea3`, `4e94ccd833` (S8), #997. Under --unverified-busybox a failing case exits 1 and an all-pass run exits 3, with the marker on every line in both (the coordinator, 22:29 UTC); last-good-scripts-test's host fallback is #662's lead |
+| PL-14 | Resolved | `fe41fca9a9`, `802bb51924` (S3), #998 |
+| PL-15 | Resolved | `89efee384c` (S2), #999 |
+| PL-16 | Resolved | `3657e0e801` (S9), #1000: two shapes, a constant, and a tree-side drift check (the coordinator, 22:30 UTC); the gate's requirement is unchanged |
+| PL-17 | Resolved | `a5397e2e9f` (S9): the header states no value in reports, and the scratch is removed on every exit, signals included; the rules' sentence is #1007's, and release-candidates.md's gate contract is unchanged |
+| PL-18 | Resolved | `b74dcaa78b` (S9), #1001: the self-test-only limit is in SELF_TEST_CONTROLS' comment, and the payload half is Backlog #1010 (the coordinator, 22:46 UTC) |
+| PL-19 | Resolved | `64ea405f3f` (S9), #1002 |
+| PL-20 | Resolved | `bcf5a013ad` (S10), #1003 |
+| PL-21 | Resolved | `c25f69d19a`, `ef31b4bf22` (S5), #1004: the backups' historical contract, rc 0, COMPLETED and the configured folder (the coordinator, 22:08 UTC) |
+| PL-22 | Resolved | `15bce9aa23` (S5), #1005 |
+| PL-23 | Resolved | `7679426e48` (S12): fixture-epic-m6-renovation-fail-face and fixture-epic-m6-renovation-fail-question; run.sh gains its two lines at #945's merge (the coordinator's) |
