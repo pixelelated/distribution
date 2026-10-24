@@ -37,14 +37,12 @@
 
 ## Current focus
 
-**At the stage-D pause (10:57 UTC); waiting for the coordinator's stream briefs.**
-- **Branch:** `reviewed-at` `4ea87f17dd`.
-- **Audit:** `docs/audits/2026_10_24-epic-m6-generic-packages-reached/`, `00` to `05` with `q4-table.md` and `q4-pins.json`. The pre-issue lint passes.
-- **Audit issue:** #884, fifteen items.
-- **Bugs:** #880 to #883 (mirror-covered dead URLs), plus the coordinator's #877 (`libfmt`, fixed in packet `cf3a8d8e62`).
-- **Dispositions:** PL-11 → #879; PL-12 withdrawn.
-- **Incident 10:44 to 10:47:** an unquoted heredoc ran `scripts/update_packages`, which rewrote `hatarisa`'s recipe in this worktree. It was reverted before any commit (`00` § Incident). Write prose with a quoted heredoc or the Write tool only.
-- **Next:** the stream briefs on #654, then stage E. Nothing under `packages/` changes before a brief.
+**Stage G done (11:06 UTC); the stage-H hand-back is next.**
+- **S1:** `ce74769bab`, `49bddf9b3e`, `063f10154a` (`fixed-at`); `reviewed-at` `4ea87f17dd`.
+- **#884:** 15 of 15 at a Phase 7 outcome; `box-check` 0 open. The full lint passes.
+- **Retro:** `docs/retros/2026-10-24-m6-generic-packages-reached.md`.
+- **Next:** the six checkers and a simulated merge with the coordinator's tip under `/workspace/tmp/m6-t7/`; then the hand-back on #654, with `reviewed-at:` and `fixed-at:` in its body.
+- **Rule:** write prose with a quoted heredoc or Python only (`00` § Incident).
 
 ## Next commands
 
