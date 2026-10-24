@@ -275,3 +275,54 @@ GUEST-PROOF: 11:36:30 UTC (s2-hatarisa.out's mtime) -- S2-G3, hatarisa's first f
 - **No guest cycle for S3,** as the brief names: these scripts' emulators are fixture-proved.
 
 PROOF: 11:47:27 UTC (s3-fixtures-WORKTREE.out's mtime; the 03141ed056 run's at 11:47:27) -- S3-F1, tools/s3-fixtures.sh at 03141ed056: 15 FAIL (each of the four scripts keeps the old token signed out and off; flycast's and ARMSX2's empty switch key falls through as enabled, DuckStation's too; the token file keeps its mode and is written twice; a token holding / & and a backslash is mangled; ARMSX2's first section lacks three keys; melonDS's set_key mangles | and \\ on both paths); WORKTREE: 15 PASS, 0 old-token lines and a disabled flag in each, ppsspp's token file mode 600 with one temp write, the bytes intact everywhere, the other keys and sections kept; /workspace/artifacts/m6-t30-20261024/s3-fixtures-03141ed056.out, /workspace/artifacts/m6-t30-20261024/s3-fixtures-WORKTREE.out
+
+## Stage E, S4 (12:09:06 UTC): the launch scripts do what they say (PL-006 #858, PL-011 #862, PL-015, PL-017, PL-028, PL-032 #868, PL-033 #869, PL-038, PL-040, PL-041 #871; PL-014b #886)
+
+- **The test first:** `tools/s4-fixtures.sh` (`fb5e1ce22c`, file loop fixed in `09586ffbbf`), 20 cases. At `3429d4f29e`: 18 FAIL, plus 2 controls PASS (Dolphin's GameSettings, and a player BIOS the old config already named). On the fixed tree: 19 PASS and 1 FAIL, the melonDS TOML question below. Earlier on #677 I said 21 PASS; that was a miscount, and the case count is 20.
+  - **Fixture faults found and fixed:** the path rewrite hit the fixture root, which lives under `/workspace/tmp`, until `/tmp` was rewritten first. The VDF case rewrote an escaped `\/storage` inside a sed replacement. The redirection grep split `Start Duckstation.sh` on its space.
+- **The changes**, one commit per package:
+  - `819e2397bf` Mupen64Plus: upstream's `unzip -qql` line (ROCKNIX `195a8eba4b`), checked under the image's busybox for 8- and 9-digit sizes; the ROM run in place; `--configdir` in `/storage`.
+  - `49d8a87f2b` amiberry.
+  - `156971040a`, `78efb93d77`, `f8b777c353`, `3e4eac7f8b`: the ten redirection tests. No option in the tree offers `screen_orientation`, `internal_resolution` or `screen_rotation`, so the numeric reading changes only a value of exactly `0` or a non-number, both of which take the default.
+  - `b30dc0a66b` Dolphin's swap, once, in both scripts.
+  - `e0e9f6d167` DraStic.
+  - `e942dbdf12` xemu.
+  - `5771c915ec` ScummVM.
+  - `6b646ac212` NanoBoyAdvance (PL-014b). The recipe's check is a trust-on-first-use sha256 `661a9afb…`, equal in a fresh fetch and two SM8550 build roots, and it restamps the package (pkgcheck rc 0).
+  - `cfb1c0ff48` hatarisa.
+  - `8047c0794d` the other F-42 sites.
+  - Seven ROCKNIX header lines went in with their scripts. `bash -n` passes on all.
+- **PL-038:**
+  - xemu: fixed.
+  - Dolphin: F-39's claim does not hold at `reviewed-at`, because lines 72-76 already copy only what is absent; withdrawn, with the fixture's control showing it.
+  - **melonDS: open.** `start_melonds.sh:181-182` deletes the TOML on purpose ("temporary hack"), so that melonDS rebuilds it from `melonDS.ini`, where the script writes EmulationStation's settings. Keeping the TOML would stop those settings applying. Put to the coordinator on #677.
+- **PL-041, the F-42 rows, each fixed or withdrawn:**
+  1. hypseus: the device-name path and the arithmetic, fixed (fixture). `.commands` read as words, fixed [tree].
+  2. `cheevos_armsx2.sh` and `cheevos_dolphin.sh`, publication failures and temp files: withdrawn. Dolphin already refuses a launch it cannot configure, and ARMSX2 logs and launches as the other emulators do. The temp file sits beside its target so the rename is atomic on one filesystem, and `.$$` is unique per launch.
+  3. Daedalus `rm` without `-r`: fixed by `link_storage_dir` [tree].
+  4. amiberry and Hatari floppies: `printf` lines from disk images only, fixed [tree]. Writes to the deleted temp tree are withdrawn: keeping an unzipped disk's writes needs a decision about where unzipped disks live.
+  5. DS archives (dsperate, melonDS): extraction checked, `-iname` at any depth, fixed [tree].
+  6. Backslashes stripped (ppsspp, vice): fixed [tree]. EmulationStation passes paths unescaped: S0's `exec.log` `ARG1` was `/storage/roms/scummvm/Flight of the Amazon Queen.scummvm`.
+  7. VSync read but not applied (armsx2, cemu; aethersx2 is class 1): withdrawn. Applying it changes rendering on devices the VM cannot show; it's a feature gap, and no data is lost.
+  8. cemu forwards the platform: fixed [tree].
+  9. gzdoom's pk3 test: quoted, fixed [tree].
+  10. pico-8's splore match: fixed (fixture).
+  11. Vita3K: the zip installed from its own folder, no `-r ""`, `mv -n`; fixed [tree].
+  12. RPCS3's M3U: fixed (fixture).
+  13. Emulator status discarded: withdrawn. Propagating it would make every hotkey exit (SIGKILL, 137) a failure in `runemu.sh`'s error check, which is T1's file.
+  14. melonDS's last line: fixed (fixture).
+  15. Steam's VDF index: fixed (fixture).
+  16. `input_sense`'s debounce: withdrawn; T1's file, noted for its owner.
+  17. Compositor replies evaluated: withdrawn as a note. It's a trust seam, and the fields are numbers and sway's own transform keyword.
+  18. gzdoom's banner: withdrawn. It's cosmetic, the build's `git describe`.
+  19. Hatari's config seed: fixed [tree].
+  20. yabasanshiro's `cp`: quoted, fixed [tree].
+- **The guest cycle S4:**
+  - Named on #677 at 12:06:26 (`created_at`). Host file: last M7 block 05:42. Census 0.
+  - Boot at 12:06:39, QEMU pid 2329855.
+  - The fixed scripts went into an overlay on `/usr/bin`, detached with `umount -l`. ScummVM's config was set aside and restored.
+  - `tools/vm-stop` rc 0 at 12:08:12. Census after: 0.
+  - The guest's pad does not need the face swap, so Dolphin's flip can't show there. The fixture proves it with a pad row where a>b.
+
+PROOF: 12:05:39 UTC (s4-fixtures-WORKTREE.out's mtime; the 3429d4f29e run's at 12:05:38) -- S4-F1, tools/s4-fixtures.sh at 3429d4f29e: 18 FAIL, 2 controls PASS; WORKTREE: 19 PASS (Mupen64Plus's zip member and in-place ROM with the config in /storage; the ten tests make no file and the acceptance grep is empty; amiberry's keys and kept config; mednafen [tree]; DraStic's refresh; Dolphin's swap once and the normalisation; xemu's and GameSettings' settings kept; NanoBoyAdvance's BIOS choice and the recipe's check; the F-42 cases), 1 FAIL (melonDS.toml, open); /workspace/artifacts/m6-t30-20261024/s4-fixtures-3429d4f29e.out, /workspace/artifacts/m6-t30-20261024/s4-fixtures-WORKTREE.out
+GUEST-PROOF: 12:07:56 UTC (s4-guest.out's mtime) -- S4-G1, on the guest. The image's scripts: the zipped ROM never got a launch line; "Zippy Race.z64" was taken for a zip (nothing to run); mupen64plus.cfg copied into /tmp/mupen64plus; ScummVM with its config dir absent got only what ScummVM writes itself (games, scummvm.ini), no seed. The fixed scripts: "Launching mupen64plus with /tmp/mupen64plus/Wave Race.z64"; "Launching mupen64plus with /storage/roms/n64/Zippy Race.z64" with no copy in /tmp/mupen64plus; ScummVM seeded from /usr/config/scummvm (themes present); Dolphin's Hotkeys.ini identical across two launches (sha1 1147e8789eed, no swap wanted by this pad); /workspace/artifacts/m6-t30-20261024/s4-guest.sh, /workspace/artifacts/m6-t30-20261024/s4-guest.out, /workspace/artifacts/m6-t30-20261024/t30/s4/

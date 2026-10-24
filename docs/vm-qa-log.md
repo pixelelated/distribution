@@ -408,3 +408,12 @@ preserved. All original lifecycle channels0, owners exited, admission consumed,
   - The fixed ones end DuckStation, OpenBOR, hatarisa and the substitute.
   - hatarisa draws EmuTOS in 0.36-0.42 s, then exits between +4 s and +6 s, for no logged reason.
 - **Left behind:** synthetic files on the T30 disk, and the overlay's upper layer under `/storage/t30/s2` (not mounted at boot).
+
+## 2026-10-24 12:09 UTC — M6 T30 S4 cycle: Mupen64Plus, Dolphin, ScummVM, before and after (#677, #872)
+
+- **Image and disk** as before. The fixed scripts were in an overlay on `/usr/bin`, detached with `umount -l`. Up 12:06:39, `tools/vm-stop` rc 0 at 12:08:12; census 0 before and after.
+- **Found:**
+  - The image's scripts don't launch a zipped ROM, take "Zippy Race.z64" for a zip, and never reach ScummVM's seed.
+  - The fixed ones launch the member, run the ROM in place without a tmpfs copy, and seed ScummVM.
+  - Dolphin's `Hotkeys.ini` is stable across two launches with this pad, which needs no swap.
+- **Left behind:** synthetic ROMs on the T30 disk, and the overlay's upper layer under `/storage/t30/s4` (not mounted at boot).

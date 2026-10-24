@@ -109,6 +109,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing written: /tmp/mupen64plus is rebuilt each launch
 - **Acceptance:** On the guest, a zipped .z64 reaches the emulator with the archive's member as its ROM argument; a ROM named 'Zippy Race.z64' is not unzipped (the command line in exec.log).
 - **Tracked work:** #858
+- **Disposition note:** S4: `819e2397bf` (upstream 195a8eba4b's line); guest S4-G1: a zipped .z64 launches as its member, 'Zippy Race.z64' runs in place
 
 ## PL-007: `start_scummvm.sh` runs a `.scummvm` file's content through `eval`, as root
 
@@ -188,6 +189,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** empty files named 0, 1, 2] or a sha1 in /storage on handhelds that launched those emulators: the fix removes only empty files of exactly those names
 - **Acceptance:** `grep -E '\[ [^]]*[^-]( <>| >| <) [^]]*\]'` over the 55 shell files prints nothing; the fixture over each fixed line creates no file.
 - **Tracked work:** #862
+- **Disposition note:** S4: `156971040a`, `78efb93d77`, `f8b777c353`, `3e4eac7f8b`; S4-F1: the ten tests make no file, the acceptance grep is empty (aethersx2's goes with the base merge)
 
 ## PL-012: Start scripts delete a real directory before linking it, with no copy: a save state made in DuckStation from the Tools launcher is deleted by the next game launch
 
@@ -251,6 +253,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** the player's edited conf files were overwritten at each launch; nothing to restore
 - **Acceptance:** A fixture of the fixed lines over the shipped seed writes gfx_width=<w> and gfx_height=<h>.
 - **Tracked work:** #871
+- **Disposition note:** S4: `49d8a87f2b`; S4-F1: gfx_width and gfx_height written as keys, the player's config kept
 
 ## PL-016: Supermodel receives all its options as one argument
 
@@ -281,6 +284,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing written
 - **Acceptance:** start_mednafen.sh:175 passes ${DM}; no set -x.
 - **Tracked work:** #871
+- **Disposition note:** S4: `f8b777c353`: -vb.3dmode passes ${DM} (its regex fixed), no set -x
 
 ## PL-018: yabasanshiro's first launch `eval`s a pad's self-reported name
 
@@ -448,6 +452,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing: /tmp is rebuilt per launch; the player's config in /storage is untouched
 - **Acceptance:** A launch of an unzipped ROM leaves no copy under /tmp/mupen64plus; a setting changed in the emulator survives the next launch.
 - **Tracked work:** #871
+- **Disposition note:** S4: `819e2397bf`; guest S4-G1: no ROM copy in /tmp/mupen64plus; S4-F1: --configdir /storage/.config/mupen64plus
 
 ## PL-029: flycast's script moves data then links over a path the move may have made a directory; its quoted `kill -9 "$(pidof gptokeyb)"` kills no helper when there are two
 
@@ -511,6 +516,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** every device that launched DraStic carries the binary of its first launch in /storage/.config/drastic; the fix runs the image's
 - **Acceptance:** A fixture with a stale /storage copy and a newer image copy runs the newer one; the player's drastic.cfg is unchanged.
 - **Tracked work:** #868
+- **Disposition note:** S4: `e0e9f6d167`; S4-F1: a stale /storage binary replaced by the image's, the player's drastic.cfg unchanged
 
 ## PL-033: Dolphin's face-button swap is re-applied to the retained Hotkeys.ini on every launch, so its bindings alternate
 
@@ -526,6 +532,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** Hotkeys.ini on affected devices is in one of the two swapped states; the fix must normalise it once
 - **Acceptance:** Two consecutive launch preparations with FACE_SWAP=yes leave Hotkeys.ini byte-identical.
 - **Tracked work:** #869
+- **Disposition note:** S4: `b30dc0a66b`; S4-F1: two preparations byte-identical with a pad row a>b, a swapped file normalised; the guest's pad needs no swap (S4-G1 stable)
 
 ## PL-034: melonDS's TOML, regenerated every launch, may hold the RetroAchievements password and token outside the backup's blanking
 
@@ -602,6 +609,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** edits already lost; nothing to restore
 - **Acceptance:** A setting changed in xemu.toml, melonDS.toml and Dolphin's GameSettings survives the next launch preparation (fixtures).
 - **Tracked work:** #871
+- **Disposition note:** S4: xemu `e942dbdf12` fixed (S4-F1); Dolphin's part withdrawn (lines 72-76 already copy only what is absent); melonDS's TOML open, a question on #677 (its deletion is how EmulationStation's settings apply)
 
 ## PL-039: Sign-in values enter sed unescaped; sections are bounded by a blank line; ARMSX2's first section omits three keys
 
@@ -633,6 +641,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** a first-run device has no seeded scummvm.ini; the fix seeds when absent
 - **Acceptance:** On the guest, a launch with /storage/.config/scummvm absent seeds it from /usr/config/scummvm.
 - **Tracked work:** #871
+- **Disposition note:** S4: `5771c915ec`; guest S4-G1: with the config dir absent the seed runs (themes present)
 
 ## PL-041: Launch-script hygiene the seats found: twenty-two sites (hypseus, Daedalus, amiberry and Hatari floppies, DS archives, backslashes, VSync, cemu, gzdoom, pico-8, Vita3K, RPCS3, status, melonDS last line, Steam VDF, gzdoom's banner)
 
@@ -648,6 +657,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** per site, in the stream brief
 - **Acceptance:** Each listed site is fixed or withdrawn with its reason in the stream's record.
 - **Tracked work:** #871
+- **Disposition note:** S4: `8047c0794d`, `cfb1c0ff48`, `49d8a87f2b`, `78efb93d77`, `3e4eac7f8b`; every F-42 row fixed or withdrawn with its reason in 00 (S4)
 
 ## Phase 7 resolution gate
 
@@ -658,18 +668,18 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-003 | Resolved | S2: `827f93d13a` (upstream eeb33c5a37); guest S2-G2 with a SUBSTITUTE named mupen64plus-simple (a renamed python3): ended by the fixed line, alive under the image's; #855's checkbox stays open until a real mupen64plus-simple process is seen |
 | PL-004 | Resolved | S2: `a149cc76d5` (upstream 2e7041d273); guest S2-G1: the route starts hatarisa on EmuTOS (exit 127 before) and -9 hatarisa ends it; first frame 0.36-0.42 s (S2-G3) |
 | PL-005 | Open | T3's file: the coordinator routes it (T3's lane is closed; the table's owner decides) |
-| PL-006 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-006 | Resolved | S4: `819e2397bf` (upstream 195a8eba4b's line); guest S4-G1: a zipped .z64 launches as its member, 'Zippy Race.z64' runs in place |
 | PL-007 | Resolved | S0: `dfa9a5a694`; guest S0-G1 (bind-mounted): the crafted file's marker absent, ScummVM refuses the stray word; FOTAQ launches (S0-G2) |
 | PL-008 | Resolved | S0: `46b6601e98`; guest S0-G1 and S0-G2: "Free Doom's Gate.wad" one argument and its title in 0.92-1.00 s; .doom values by fixture (S0-F1) |
 | PL-009 | Resolved | S3: `619e20ced8`, `fd23630624`, `ff6f4d9c1e`, `d0f95815a1`; S3-F1: 0 old-token lines and a disabled flag in each of the four, switch off and token empty |
 | PL-010 | Resolved | S3: `fd23630624`, `ff6f4d9c1e`, `974866ef81`; S3-F1: the three take their disabled branch with the key unset; the fourth, cheevos_aethersx2.sh, goes with the base merge (PL-025, class 1), so #861's checkbox waits for it |
-| PL-011 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-011 | Resolved | S4: `156971040a`, `78efb93d77`, `f8b777c353`, `3e4eac7f8b`; S4-F1: the ten tests make no file, the acceptance grep is empty (aethersx2's goes with the base merge) |
 | PL-012 | Resolved | S1: the helper `ce27f80fa2` and the nine sites `019020d579`..`6da932bc1f`; guest S1-G1 (G8: the card kept, memcards a link) and S1-G2 (G16: the Tools launcher's state survives the game launch); every site by fixture S1-F1 |
 | PL-013 | Deferred | #849: filed by the coordinator; re-graded Low by the coordinator on #677 (the mirror covers an empty-cache build); the cache read, never moved; a second copy under /workspace/tmp/m6-coordinator/preserve/ |
 | PL-014 | Resolved | S1: `0cd4cafc92`; S1-F1: no gba_bios.bin directory on a fresh device, the exact old copy removed, a changed copy and a real file kept. The brief's HLE premise does not hold at the pin (the SDL frontend exits without a BIOS at bios_path, main.cpp:180-185); reported on #677 |
-| PL-015 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-015 | Resolved | S4: `49d8a87f2b`; S4-F1: gfx_width and gfx_height written as keys, the player's config kept |
 | PL-016 | Deferred | base merge, class 1: upstream `0c43a50420` |
-| PL-017 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-017 | Resolved | S4: `f8b777c353`: -vb.3dmode passes ${DM} (its regex fixed), no set -x |
 | PL-018 | Resolved | S0: `9b56828bf8`; S0-F1: the crafted pad name creates no marker, a plain name gives the same file (yabasanshiro is not on the GENERIC_X64 image) |
 | PL-019 | Resolved | S0: `861bdbe82b`; S0-F1: no empty password, a spaced password one argument, gopher64's own token preferred; until that token exists, the first sign-in still passes the password on the command line, as gopher64's CLI requires |
 | PL-020 | Resolved | S3: `c4367e12a0`; S3-F1: | \\ & and / byte for byte on both set_key paths; the password's presence in melonDS.ini stays #866's open half |
@@ -680,20 +690,20 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-025 | Deferred | base merge, class 1: upstream `c4d353449e` |
 | PL-026 | Open | the coordinator files the bumps |
 | PL-027 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-028 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-028 | Resolved | S4: `819e2397bf`; guest S4-G1: no ROM copy in /tmp/mupen64plus; S4-F1: --configdir /storage/.config/mupen64plus |
 | PL-029 | Resolved | S1: `a3c443166e`; guest S1-G1: two launches leave dreamcast/data a link to bios/dc with its file, no dc link inside, and an unrelated gptokeyb alive |
 | PL-030 | Resolved | S2: `b0ae783c5e`; S2-F1: both flavours reach steam_dual_screen_end and the binfmt restore after the session returns (neither did at the base) |
 | PL-031 | Resolved | S0: `6894bfd3cd`; S0-F1: the URI and -silent two arguments on both launch lines |
-| PL-032 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-033 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-032 | Resolved | S4: `e0e9f6d167`; S4-F1: a stale /storage binary replaced by the image's, the player's drastic.cfg unchanged |
+| PL-033 | Resolved | S4: `b30dc0a66b`; S4-F1: two preparations byte-identical with a pad row a>b, a swapped file normalised; the guest's pad needs no swap (S4-G1 stable) |
 | PL-034 | Deferred | S3: confirmed by reading (start_melonds.sh:182; Config.cpp at 906e9ebb; patch 7520-7522, 8851, 9879; backuptool:705-710); deferred to #887 (the cloud area) |
 | PL-035 | Open | an open item to test (bugs-are-agent-first.md): the coordinator classifies |
 | PL-036 | Resolved | S1: `ee1ecc0a88`; guest S1-G1: a real pak in Paks survives a launch (deleted by the image's script) |
 | PL-037 | Resolved | S3: `974866ef81`: the comment above start_duckstation.sh's disabling line names upstream's 0c3c2b6818 and the guest proof its retirement needs; nothing removed |
-| PL-038 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-038 | Open | S4: xemu `e942dbdf12` fixed (S4-F1); Dolphin's part withdrawn (lines 72-76 already copy only what is absent); melonDS's TOML open, a question on #677 (its deletion is how EmulationStation's settings apply) |
 | PL-039 | Resolved | S3: `619e20ced8`, `fd23630624`, `ff6f4d9c1e`, `d0f95815a1`; S3-F1: a token holding / & and a backslash intact in each config; ARMSX2's first section gets its three keys |
-| PL-040 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-041 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-040 | Resolved | S4: `5771c915ec`; guest S4-G1: with the config dir absent the seed runs (themes present) |
+| PL-041 | Resolved | S4: `8047c0794d`, `cfb1c0ff48`, `49d8a87f2b`, `78efb93d77`, `3e4eac7f8b`; every F-42 row fixed or withdrawn with its reason in 00 (S4) |
 
 ## Machine-readable index
 
@@ -750,7 +760,8 @@ punch_index:
   source_finding: "F-06"
   owner_area: "launch: archives"
   tracked: "#858"
-  outcome: open
+  state: fix-guest
+  outcome: resolved
 - id: PL-007
   severity: High
   category: Security
@@ -794,7 +805,8 @@ punch_index:
   source_finding: "F-11"
   owner_area: "launch: shell hygiene"
   tracked: "#862"
-  outcome: open
+  state: fixture
+  outcome: resolved
 - id: PL-012
   severity: High
   category: State
@@ -828,7 +840,8 @@ punch_index:
   source_finding: "F-15"
   owner_area: "launch: amiberry"
   tracked: "#871"
-  outcome: open
+  state: fixture
+  outcome: resolved
 - id: PL-016
   severity: Low
   category: Bug
@@ -843,7 +856,8 @@ punch_index:
   source_finding: "F-17"
   owner_area: "launch: mednafen"
   tracked: "#871"
-  outcome: open
+  state: tree
+  outcome: resolved
 - id: PL-018
   severity: Low
   category: Security
@@ -931,7 +945,8 @@ punch_index:
   source_finding: "F-29"
   owner_area: "launch: Mupen64Plus"
   tracked: "#871"
-  outcome: open
+  state: fix-guest
+  outcome: resolved
 - id: PL-029
   severity: Low
   category: Bug
@@ -966,7 +981,8 @@ punch_index:
   source_finding: "F-33"
   owner_area: "launch: DraStic"
   tracked: "#868"
-  outcome: open
+  state: fixture
+  outcome: resolved
 - id: PL-033
   severity: Medium
   category: Bug
@@ -974,7 +990,8 @@ punch_index:
   source_finding: "F-34"
   owner_area: "launch: Dolphin"
   tracked: "#869"
-  outcome: open
+  state: fixture
+  outcome: resolved
 - id: PL-034
   severity: Medium
   category: Security
@@ -1030,7 +1047,8 @@ punch_index:
   source_finding: "F-41"
   owner_area: "launch: ScummVM"
   tracked: "#871"
-  outcome: open
+  state: fix-guest
+  outcome: resolved
 - id: PL-041
   severity: Low
   category: Bug
@@ -1038,5 +1056,6 @@ punch_index:
   source_finding: "F-42"
   owner_area: "launch: script hygiene"
   tracked: "#871"
-  outcome: open
+  state: fixture
+  outcome: resolved
 ```
