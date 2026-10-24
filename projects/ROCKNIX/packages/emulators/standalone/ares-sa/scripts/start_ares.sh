@@ -21,8 +21,7 @@ if [ ! -f "${CONF_DIR}/${ARES_INI}" ]; then
 fi
 
 # Link  .config/ares to .local
-rm -rf /storage/.local/share/ares
-ln -sf /storage/.config/ares /storage/.local/share/ares
+link_storage_dir /storage/.local/share/ares /storage/.config/ares
 
 # Emulation Station Features
 GAME=$(echo "${1}"| sed "s#^/.*/##")
