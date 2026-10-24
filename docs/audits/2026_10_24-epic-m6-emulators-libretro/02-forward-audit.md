@@ -365,3 +365,55 @@ So 0018's detection engages on the image for the interface's request and not for
 | the next game's first frame | 1.01 / 1.01 / 1.02 | 1.01 / 1.01 / 1.02 |
 
 The 0.04 s median difference lies inside the spread T1 recorded on the same image (0.64 to 0.76 s), so at n = 3 **the logging costs no measurable time to play on the guest**. The surface check still passed from RetroArch's GPU screenshot (`889x800`, not scaled), with no log line to read, as expected.
+
+### The two rotation-table generators against the build root's sources (03:40 UTC)
+
+Run as the recipes call them (`mame2003-plus-lr/package.mk:32`, `mame2010-lr:44`, `fbneo-lr:43`, `fbalpha2019-lr:36`, `fbalpha2012-lr:35`), `python3 -I <tree>/emulators/libretro/rotation-table-{mame,fba}.py --min 100 <the M7 GENERIC_X64 root's unpack> [drivers dir]`. The output went under the artifacts directory and was compared (`cmp`) with the image's `usr/config/emulationstation/rotation/<core>.txt`:
+
+| Core | Generator, source | rc | Games with a turn | Against the image |
+| --- | --- | ---: | ---: | --- |
+| `mame2003_plus` | mame, `mame2003-plus-lr-a045126dad`, `src/drivers` | 0 | 1,642 | **identical** |
+| `mame2010` | mame, `mame2010-lr-4844568183`, `src/mame/drivers` | 0 | 2,180 | **identical** |
+| `fbneo` | fba, `fbneo-lr-f3b774987e` | 0 | 2,543 | **identical** |
+| `fbalpha2019` | fba, `fbalpha2019-lr-0581797db6` | 0 | 1,923 | **identical** |
+| `fbalpha2012` | fba, `fbalpha2012-lr-0ce31536be/svn-current/trunk` | 0 | 852 | **identical** |
+
+**Constructed failures, both seen:**
+
+- `--min 100000` on the 852-game tree: rc 1, `852 games with a turn, under the 100000 a real source tree has -- check the source root handed to it`.
+- A missing source root: rc 1, `0 games with a turn, under the 100 ...`.
+
+Each recipe's `|| die "rotation table <core>.txt: ..."` then stops the build, and `die` is defined (`config/functions:6`). So the generators are the build's own, and their floor is a guard that fails closed with its reason (`d73b0499f8`). Q3 PASS for the five tables as shipped. The brief's note holds: the generators take no `--help`.
+
+### `FetchContent` and friends over the build root's unpacked core sources (03:43 UTC)
+
+`grep -rl -E 'FetchContent|ExternalProject_Add|git clone|curl |wget ' $B/build/*-lr-*/CMakeLists.txt $B/build/*-lr-*/Makefile*` over the 111 unpacked `*-lr` trees hits four. Each was read at its site, and the root was searched for what was actually fetched (`find $B/build -mindepth 3 -maxdepth 3 -type d -name _deps`):
+
+| Core | The hit | Fetched in the build? |
+| --- | --- | --- |
+| `b2-lr` | `Makefile:101`, a `_set_submodule_upstream` maintenance target; `USE_SYSTEM_CURL` in `CMakeLists.txt` | no (the target is not a build step; no `_deps`) |
+| `mojozork-lr` | `CMakeLists.txt:63 to 71`, `FetchContent_Declare(SDL3)` | no: inside `if(MOJOZORK_SDL3)`, which the libretro build does not set; no `_deps` |
+| `skyemu-lr` | `USE_SYSTEM_CURL OFF` (`:29`), so `add_subdirectory(src/curl)` (`:137`) | no: the bundled curl ships in the tarball; no `_deps` |
+| **`melonds-ds-lr`** | `include(FetchContent)` (`:38`); `cmake/FetchDependencies.cmake` 44 to 60 | **yes (F-15)** |
+
+`_deps` exists for `melonds-ds-lr` and for `commander` (outside the slice), and for nothing else.
+
+### F-15 (Q3, Q4): `melonds-ds-lr` fetches eleven dependencies from the network at configure time, by short hash or tag
+
+`cmake/FetchDependencies.cmake` (the core's own, at its pin `bc4e4b67d2`) calls `fetch_dependency` for:
+
+- melonDS `7117178`, libretro-common `ad9124f`, embed-binaries `078b62b`, glm `e7970a8`, libslirp `e61dbd4`, pntr `922aed0`;
+- fmt **`11.2.0`** (a tag), yamc `4e015a7`, span-lite `00afc28`, date `1ead671`, zlib **`v1.3.1`** (a tag);
+- tracy `v0.11.1` (off).
+
+Each is a `FetchContent_Declare(GIT_REPOSITORY ... GIT_TAG ...)`, cloned during the build's configure into `.x86_64-rocknix-linux-gnu/_deps/<name>-src` (all eleven present in the M7 GENERIC_X64 root; `melonds` HEAD `7117178c2d…`, `fmt` `40626af88b…`, `zlib` `51b7f2abda…`, `libslirp` `e61dbd459c…`). The recipe sets no `FETCHCONTENT_FULLY_DISCONNECTED` and no `FETCHCONTENT_SOURCE_DIR_<NAME>` (`melonds-ds-lr/package.mk` 14 to 21 pass only the GL options).
+
+**So this core's image is built from code no recipe in this tree pins with a full hash**, against a network at configure time. That is blindspot 47's shape (#226, pango's cairo) through cmake, which has no `--wrap-mode=nodownload` switch. Concretely:
+
+- a build container without DNS fails here;
+- a moved tag (`fmt`, `zlib`) changes the image silently;
+- the core links its own `zlib` 1.3.1 beside the image's.
+
+`melonds-ds-lr` is in `LIBRETRO_CORES` for every device, so it ships on all five of the fork's images, and it is the `nds` core beside `melonds`/`desmume`. Upstream-carried recipe; upstream builds the same way (CI has network).
+
+Fix shape for the coordinator's stream brief: carry the dependencies as pinned sources, either `PKG_URL`-style extra tarballs with `PKG_SHA256`, or per-dependency packages wired through `FETCHCONTENT_SOURCE_DIR_<NAME>`, and set `-DFETCHCONTENT_FULLY_DISCONNECTED=ON`, so a missing one fails the configure by name. Proof: a build in a container with no network configures (`fix-pending-image`), and the `_deps` find reads empty for the core. Severity Medium. `Already written:` nothing on devices; this is a build-reproducibility defect. #585 candidate (upstream's recipe).
