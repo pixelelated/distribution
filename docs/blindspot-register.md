@@ -1226,3 +1226,25 @@ otherwise), and the plan's two readings before every dispatch
 reproduces each figure with its command, and version 2 records what it
 found. No tool reads a brief's prose for a number it can recompute; the
 proof is the audit.
+
+## 76. A merge chain that does not stop on its own check (2026-10-24)
+
+Twice in one day the coordinator's shell chain merged a branch into a lane
+worktree, met a conflict, printed the marker count it had been told to stop
+on, and went on to `git add -A` and the commit: at 08:05 (T6's worktree, two
+ledgers, #696's friction line) and at 13:40 (T24's worktree, `8fd13c3133`,
+the work-log index with `<<<<<<< HEAD` at line 5). Both were caught by a
+read of the output and fixed within minutes; neither was caught by anything
+that refuses. The rule said *stops on a non-empty marker grep before `git
+add`*; the chain was `a; b; c` and a printed count is not a stop. The shape
+is blindspot 8 (a check whose failure changes nothing) applied to an
+operator's own script, and `working-principles.md`'s ladder says a rule
+broken twice moves up a stage.
+
+**Guard.** `.githooks/pre-commit` refuses a commit whose staged diff adds a
+line beginning `<<<<<<< ` or `>>>>>>> `, naming the file and line, failing
+closed when its grep cannot run (#696); `.githooks/hooks-test` stages the
+three markers and sees the refusal, and stages a Markdown setext underline
+(`=======` alone) and sees it allowed. A merge chain's own `set -e` and an
+explicit stop remain the first line; the hook is the one that cannot be
+skipped by not reading.

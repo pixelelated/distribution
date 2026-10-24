@@ -25,36 +25,32 @@
 
 ## Current focus
 
-**2026-10-24, midday.** P0 and every accepted slice branch wait for the M7
-lane's post-candidate merge to clear the push guard's W42 gate before
-anything merges to `next` (never `--no-verify`); the order is in § Merge
-notes and § State at 2026-10-24. **Accepted:** P1 (#641), T1 (#648), T2
-(#649), T3 (#650), T5 (#652), T6 (#653), **T7 (#654, `db6597356b`, 11:17)**,
-**T30 (#677, `f94a6fc62f`, 12:30; its completion marker next)**; the packet `fix/m6-877-libfmt-sha256`
-(`cf3a8d8e62`, reviewed, merges before T5's branch). **Running:** T30
-(#677, Extended) in the T3 session (`m6-t3-emulators`), **stage E** from
-`docs/reviews/briefs/t30-streams.md` (S0 to S5; audit issue #872; its
-hand-backs arrive one per stream on #677, the coordinator accepts each by
-the brief's shape and the whole by brief § 10 at stage H); **T8** (#655, the image's own
-packages, Independent: the first Independent slice, one GPT-6 Astra seat
-through the Facilitator) **dispatched 12:09 UTC** to the T5 session
-(`m6-t5-build-engine`) from `docs/reviews/briefs/image-packages.md`
-version 2 (`dede8effec`), lane `feature/m6-image-packages-655` at
-`caf1de3727`, worktree `distribution.worktrees/m6-image-packages-655`; its
-stage-D pause is the coordinator's next act there. **Packets:** #877 and #890
-(reviewed, the two checksums before T5's branch); **#887** (`backuptool`
-blanks `melonDS.toml`, `c60cdddf8b`, reviewed: the whole harness PASSED in a
-detached checkout; after T30's branch); **#889** (the scan reads `.toml`;
-`828472eb59`, reviewed, beside #887's). The T1 session is idle. **T24** (#671, the emulators' dead ends, Local) is
-being briefed for the T3 session: brief v1 and the futro addendum written. The T1 session
-(`m6-t1-os-launch`) is idle after #877's packet. **Waiting on the
-maintainer (#346):** T4's dispatch (#651, brief v2 `0921782112`; a third
-lane). **At integration (the coordinator dispatches):** one packet for
-#857 and #873 after T3's merge (the launch table's guards and the five
-regenerated tables); the Backlog bumps #878 and T7's; the
-`fix-pending-image` rows. **Filed today by this lane:** #807 to #811,
-#838, #839, #842 to #844, #847 to #852, #873 to #879, #885; the lanes filed
-#880 to #884, #886, #887.
+**2026-10-24, afternoon (13:5x UTC).** P0 and every accepted slice branch
+wait for the M7 lane's post-candidate merge to clear the push guard's W42
+gate before anything merges to `next` (never `--no-verify`); the order is in
+§ Merge notes and § State at 2026-10-24. **Accepted:** P1 (#641), T1 (#648),
+T2 (#649), T3 (#650), T5 (#652), T6 (#653), T7 (#654, `db6597356b`), T30
+(#677, `f94a6fc62f`; its completion marker is the lane's next act there).
+**Running:** **T8** (#655, Independent) in the T5 session
+(`m6-t5-build-engine`) at **stage E** from `docs/reviews/briefs/t8-streams.md`
+(`7c4867330b`): S1 #852 fixed `43f6a81070`, S2 #893 fixed `4db09f6e2e` and
+`1904e29d54`, S3 #894 on a GENERIC_X64 guest next (M6 holds the host; census
+before the boot); audit #895; then stages F to H and the coordinator accepts
+by brief § 10. **T24** (#671, Local) **dispatched 13:4x UTC** to the T3
+session (`m6-t3-emulators`) from brief v2 `c25d772b21`, lane
+`feature/m6-emulators-dead-ends-671` at `81331b499e` (the merge `8fd13c3133`
+carried the index's conflict markers for one commit; `81331b499e` fixed it;
+blindspot 76). **Packets** reviewed and waiting for the merge: #877
+`cf3a8d8e62` and #890 `566b01448f` (before T5's branch); #887 `c60cdddf8b`
+and #889 `828472eb59` (after T30's). The T1 session is idle. **Waiting on
+the maintainer (#346):** T4's dispatch (#651, brief v2 `0921782112`; a third
+lane). **At integration (the coordinator dispatches):** the #857/#873 packet
+after T3's merge; the Backlogs #839, #878, #885, #896, #897; the
+`fix-pending-image` rows; T8's conflict list (11 rows) read under
+D-WORKFLOW-198/199. **Filed today by this lane:** #807 to #811, #838, #839,
+#842 to #844, #847 to #852, #873 to #879, #885, #888, #890, #896 to #898; the
+lanes filed #880 to #884, #886, #887, #889, #891 to #895. **Guard added
+today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 ## Next commands
 
@@ -249,10 +245,11 @@ is the narrative; this is the index of what a resuming agent must know.
   before any runtime. `/tmp` is a tmpfs that ran out of inodes at 07:13:
   tree exports and simulated merges go under `/workspace/tmp/m6-coordinator/`
   after `df -i`.
-- **Lanes and sessions.** `m6-t3-emulators` (pane `wN:p6`) ran T3 and runs
-  T30 in `distribution.worktrees/m6-emulators-standalone-677`;
-  `m6-t5-build-engine` (pane `wN:p7`) ran T5 and T6 and is free for T7; the
-  T1 session ran the #802/#806/#825/#810 fix packets. A lane's worktree is
+- **Lanes and sessions.** `m6-t3-emulators` (pane `wN:p6`) ran T3 and T30 and runs T24 in
+  `distribution.worktrees/m6-emulators-dead-ends-671`; `m6-t5-build-engine`
+  (pane `wN:p7`) ran T5, T6 and T7 and runs T8 in
+  `distribution.worktrees/m6-image-packages-655`; the T1 session ran the
+  #802/#806/#825/#810 fix packets and cut the #877, #887, #889 and #890 packets. A lane's worktree is
   read with `git -C`, never written. The agent-state watch (`herdr agent
   get` every 30 s, idle named at ten minutes) is re-armed for every working
   lane; before calling a lane idle, read its worktree and the host's
@@ -262,24 +259,28 @@ is the narrative; this is the index of what a resuming agent must know.
   archive versions in four recipes; 195: a seat cut by its output ceiling
   re-runs on a trimmed packet, same model and effort; 196: an empty
   `PKG_SHA256=""` is a missing checksum, `libfmt` the sixth); the next free
-  ID is 197 and a lane may take it. Blindspot entries run to 75 (a corpus read on the wrong tree;
-  its guard is `engineering-practices.md` bullet `ab8f750784`); 29 is used
+  ID was 197 at midday; **since: 197 (seven archive versions, `simple-http-server`), 198 (glslang's modify/delete keeps the fork's copy), 199 (the spirv triple); the next free ID is 200** and a lane may take it. Blindspot entries run to 76 (75: a corpus read on the wrong tree, guard `engineering-practices.md` bullet `ab8f750784`; 76: a merge chain that does not stop on its own check, guard `.githooks/pre-commit`'s marker refusal, #696); 29 is used
   twice (#811).
 - **Briefs and streams on this branch:** `docs/reviews/briefs/` holds the
   slice briefs (p1-survey, os-launch-control-state, es-launch-path,
   emulators-libretro, emulators-standalone, build-engine,
-  build-engine-upstream-tools, doctrine-rules, generic-packages-reached v1),
-  the stream briefs (`t1-` to `t6-streams.md`, `fix-packets-802-806.md`,
-  `lint-local-epic-tier.md`); `docs/futros/2026-10-24-m6-*.md` the area
+  build-engine-upstream-tools, doctrine-rules, generic-packages-reached v2, image-packages v2,
+  emulators-dead-ends v2), the stream briefs (`t1-` to `t8-streams.md`,
+  `t30-streams.md`, `fix-packets-802-806.md`, `fix-packet-libfmt.md`,
+  `fix-packet-simple-http-server.md`, `fix-packet-887-melonds-toml.md`,
+  `fix-packet-889-scan-toml.md`, `lint-local-epic-tier.md`); `docs/futros/2026-10-24-m6-*.md` the area
   futros (doctrine, build-engine, emulators-and-cores, generic-packages).
 - **Issues filed by this lane today:** #807, #808, #809, #810 (fixed, merged
   here at `18747fbc52`), #811, #838, #839, #842, #843, #844, #847, #848, #849,
-  #850. The lanes filed #813 to #837, #841, #845, #846.
+  #850, #851, #852, #873 to #879, #885, #888, #890, #896, #897, #898. The lanes
+  filed #813 to #837, #841, #845, #846, #880 to #884, #886, #887, #889, #891 to #895.
 - **Open with the maintainer on #346:** a third lane for T4; the #825
   disclosure timing; `LOCAL_SSH_KEYS_FILE` in Docker builds; D-SYS-014;
-  D-WORKFLOW-191; the `portaudio` re-hosting (#849).
+  D-WORKFLOW-191 (the `portaudio` question was withdrawn: the mirror serves it; #849 corrected).
 - **Integration (after the M7 candidate):** P0, P1, T1, T2, T3, T30, **`fix/m6-877-libfmt-sha256` (`cf3a8d8e62`) and `fix/m6-890-shs-sha256` (`566b01448f`), the two checksums T5's fetch would refuse**, T5, T6,
-  T7 (`db6597356b`), T4; at integration flip `add_es_system`'s zero-default WARNING to
+  T7 (`db6597356b`), T8 and T24 at their hand-backs, T4; #887 (`c60cdddf8b`) and #889
+  (`828472eb59`) after T30's branch; T8's conflict list (11 rows) read under
+  D-WORKFLOW-198/199 with the `spirv-headers` override kept; at integration flip `add_es_system`'s zero-default WARNING to
   `return 1` after T3's S2 and regenerate the five tables; the #802/#806/#825
   adaptations; close #823, #841, #845 and the other fixed bugs at the merge;
   the `fix-pending-image` rows are proved on the first image.
