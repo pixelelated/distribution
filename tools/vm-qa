@@ -389,12 +389,34 @@ ensure_remote() {
     echo "vm-qa: choose the QA connection explicitly; saved connection state is present" >&2
     return 1
   fi
-  local conf; conf=$(mktemp)
-  "$ROOT/tools/cloud-test-backend" rclone-conf > "$conf"
-  SSH 'mkdir -p /storage/.config/rclone' 2>/dev/null
-  scp -q -i "$KEY" -P "$PORT" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR "$conf" root@127.0.0.1:/storage/.config/rclone/rclone.conf
+  # Every step's status is read (#974): a seeding that failed is a fixture
+  # that is not there, and the walks after it would judge a guest without it.
+  local conf rc=0 folders; conf=$(mktemp) || return 1
+  { "$ROOT/tools/cloud-test-backend" rclone-conf > "$conf" && [ -s "$conf" ]; } || { rm -f "$conf"; echo "vm-qa: the QA backend gave no rclone.conf" >&2; return 1; }
+  SSH 'mkdir -p /storage/.config/rclone' 2>/dev/null || rc=1
+  [ "$rc" = 0 ] && { scp -q -i "$KEY" -P "$PORT" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR "$conf" root@127.0.0.1:/storage/.config/rclone/rclone.conf || rc=1; }
   rm -f "$conf"
-  SSH "chmod 600 /storage/.config/rclone/rclone.conf; /usr/bin/cloud_sync_helper >/dev/null 2>&1; $(shipped_folders_cmd); echo \"vm-qa: seeded the QA remote \${r} (the guest had none)\"" 2>/dev/null
+  [ "$rc" = 0 ] || { echo "vm-qa: the QA rclone.conf could not be copied to the guest" >&2; return 1; }
+  folders=$(shipped_folders_cmd) || return 1
+  SSH "chmod 600 /storage/.config/rclone/rclone.conf && /usr/bin/cloud_sync_helper >/dev/null 2>&1 && $folders && echo \"vm-qa: seeded the QA remote \${r} (the guest had none)\"" 2>/dev/null \
+    || { echo "vm-qa: the QA remote was copied but its folders or settings could not be made" >&2; return 1; }
+}
+# The guest's active remote is this run's QA cloud, or nothing that writes to
+# a cloud runs (#974): match-dialog presses YES on deletions and the transfer
+# walks move files, and the content seed rewrites rclone.conf. The stanza's
+# endpoint fields -- type, url, endpoint, host, port -- are compared with the
+# backend's. Only those fields are read off the guest, and the dropping filter
+# runs over them as well, so no credential crosses into this run's output.
+endpoint_fields() { grep -i -E '^[[:space:]]*(type|url|endpoint|host|port)[[:space:]]*=' | grep -v -i -E 'key|pass|token|user|psk' | sed -E 's/^[[:space:]]*//; s/[[:space:]]*=[[:space:]]*/=/' | LC_ALL=C sort; }
+qa_endpoint_check() {
+  local r want got
+  r=$(SSH "$ACTIVE_READER" 2>/dev/null) || r=""
+  [ -n "$r" ] || { echo "walks: the guest names no active remote, so the QA cloud is not proven to be the one the walks would write to"; return 1; }
+  want=$("$ROOT/tools/cloud-test-backend" rclone-conf | endpoint_fields)
+  got=$(SSH "r=\$($ACTIVE_READER); [ -n \"\$r\" ] || exit 1; rclone config show \"\${r%%:*}\" | grep -i -E '^[[:space:]]*(type|url|endpoint|host|port)[[:space:]]*='" 2>/dev/null | endpoint_fields)
+  [ -n "$want" ] || { echo "walks: the QA backend gave no endpoint to compare"; return 1; }
+  [ "$got" = "$want" ] || { echo "walks: refused before the first walk -- the guest's active remote ${r%%:*} is not this run's QA cloud (its endpoint fields differ from the backend's); nothing was seeded or walked"; return 1; }
+  echo "walks: the guest's active remote ${r%%:*} is the QA cloud"
 }
 # The guest-side command that makes the shipped saves and backups folders in
 # the remote: their names from cloud_sync.conf.defaults, through the backend
@@ -404,7 +426,7 @@ shipped_folders_cmd() {
   local saves backups
   saves=$("$ROOT/tools/cloud-test-backend" shipped-default SAVES_REMOTE) || exit 2
   backups=$("$ROOT/tools/cloud-test-backend" shipped-default SETTINGS_REMOTE) || exit 2
-  printf 'r=$(%s); [ -n "$r" ] || exit 1; rclone mkdir "${r}%s" >/dev/null 2>&1; rclone mkdir "${r}%s" >/dev/null 2>&1' "$ACTIVE_READER" "$saves" "$backups"
+  printf 'r=$(%s); [ -n "$r" ] || exit 1; rclone mkdir "${r}%s" >/dev/null 2>&1 && rclone mkdir "${r}%s" >/dev/null 2>&1' "$ACTIVE_READER" "$saves" "$backups"
 }
 # Time to play (#135). --quick is the bounded form -- one repeat of the
 # launch, the exit sync and a game-to-game, no reboot and no host fixtures --
@@ -450,42 +472,75 @@ case ",$ONLY," in *,ra-offline,*) run_suite ra-offline "$OUT/ra-offline.log" "$R
 # pictures under tools/vm-walks/fixtures/ (a ring that is round only at the
 # right aspect, a green mark on the edge that is the game's top), and fixed
 # mtimes, so the tile dates read the same on every run and the frames compare.
+# A fixture is reseeded on a manifest -- every file's name and sha256, written
+# on the guest after a seed -- not on one surviving file (#974): a walk that
+# changed or removed one of them leaves a fixture the frames do not expect. And
+# a guest file the seed would overwrite that no manifest names was not put
+# there by this runner, so the seed refuses and names it.
+FIXTURE_MANIFESTS=/storage/.cache/vm-qa-fixture
+fixture_current() { SSH "test -s $FIXTURE_MANIFESTS-$1.sha256 && sha256sum -c $FIXTURE_MANIFESTS-$1.sha256 >/dev/null 2>&1" 2>/dev/null; }
+fixture_refuse_overwrite() {  # name, paths...
+  local m="$FIXTURE_MANIFESTS-$1.sha256" out; shift
+  out=$(SSH ": vm-qa-would-overwrite; m=$m; for f in $*; do [ -e \"\$f\" ] || continue; [ -f \"\$m\" ] && awk -v f=\"\$f\" '\$2 == f { found = 1 } END { exit !found }' \"\$m\" && continue; echo \"\$f\"; done" 2>/dev/null) \
+    || { echo "walks: could not check what the fixture would overwrite on the guest"; return 1; }
+  [ -z "$out" ] || { echo "walks: refused to seed -- these guest files are not the fixture's (no manifest names them): $(echo $out)"; return 1; }
+}
+fixture_record() {  # name, paths...: the positive check that the seed wrote every file
+  local m="$FIXTURE_MANIFESTS-$1.sha256"; shift
+  SSH "mkdir -p /storage/.cache && sha256sum $* > $m.tmp && mv $m.tmp $m" 2>/dev/null \
+    || { echo "walks: the $1 fixture is incomplete on the guest after seeding: a file it writes is missing"; return 1; }
+}
+MANAGER_PATHS="/storage/roms/nes/Bobl.nes /storage/roms/gb/Ninoid.gb /storage/roms/fbneo/mspacman.zip /storage/roms/savestates/nes/Bobl.state.auto /storage/roms/savestates/gb/Ninoid.state.auto /storage/roms/savestates/fbn/mspacman.state.auto /storage/roms/savestates/nes/Bobl.rotation /storage/roms/savestates/nes/Bobl.state.auto.png /storage/roms/savestates/gb/Ninoid.state.auto.png /storage/roms/savestates/fbn/mspacman.state.auto.png /storage/roms/screenshots/Bobl-260901-120000.png /storage/roms/screenshots/Ninoid-260901-120100.png /storage/roms/screenshots/mspacman-260901-120200.png"
 ensure_manager_fixture() {
-  # match-dialog deliberately deletes the device-only GB ROMs. A surviving
-  # FBNeo thumbnail says nothing about the later Game Boy fixture (#455).
-  SSH 'test -f /storage/roms/savestates/fbn/mspacman.state.auto.png && test -f /storage/roms/nes/Bobl.nes && test -f /storage/roms/gb/Ninoid.gb && test -f /storage/roms/fbneo/mspacman.zip' 2>/dev/null && return 0
+  # match-dialog deliberately deletes the device-only GB ROMs, so the
+  # manifest no longer checks and the fixture is put back (#455).
+  fixture_current manager && return 0
+  fixture_refuse_overwrite manager $MANAGER_PATHS || return 1
   local F="$ROOT/tools/vm-walks/fixtures" put
-  put() { scp -q -i "$KEY" -P "$PORT" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR "$1" "root@127.0.0.1:$2"; }
-  SSH 'mkdir -p /storage/roms/nes /storage/roms/gb /storage/roms/fbneo /storage/roms/savestates/nes /storage/roms/savestates/gb /storage/roms/savestates/fbn /storage/roms/screenshots; for f in nes/Bobl.nes gb/Ninoid.gb fbneo/mspacman.zip; do head -c 4096 /dev/urandom > /storage/roms/$f; done; for s in nes/Bobl gb/Ninoid fbn/mspacman; do head -c 4096 /dev/urandom > /storage/roms/savestates/$s.state.auto; done; printf "turns=1\nfrom=checked-launch\n" > /storage/roms/savestates/nes/Bobl.rotation' 2>/dev/null
-  put "$F/nes-256x240-right.png" /storage/roms/savestates/nes/Bobl.state.auto.png
-  put "$F/gb-160x144.png" /storage/roms/savestates/gb/Ninoid.state.auto.png
-  put "$F/arcade-vertical-raw-left.png" /storage/roms/savestates/fbn/mspacman.state.auto.png
-  put "$F/nes-256x240-right.png" /storage/roms/screenshots/Bobl-260901-120000.png
-  put "$F/gb-160x144.png" /storage/roms/screenshots/Ninoid-260901-120100.png
-  put "$F/arcade-vertical-raw-left.png" /storage/roms/screenshots/mspacman-260901-120200.png
-  SSH 'touch -d "2026-09-01 12:00:00" /storage/roms/savestates/*/* /storage/roms/screenshots/* /storage/roms/nes/* /storage/roms/gb/* /storage/roms/fbneo/*; sync; echo "walks: seeded the manager fixture (nes with a turn recorded, gb as is, fbn from the core table; mtimes 2026-09-01 12:00)"' 2>/dev/null
+  put() { scp -q -i "$KEY" -P "$PORT" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR "$1" "root@127.0.0.1:$2" || { echo "walks: could not copy $(basename "$1") to $2"; return 1; }; }
+  SSH 'set -e; mkdir -p /storage/roms/nes /storage/roms/gb /storage/roms/fbneo /storage/roms/savestates/nes /storage/roms/savestates/gb /storage/roms/savestates/fbn /storage/roms/screenshots; for f in nes/Bobl.nes gb/Ninoid.gb fbneo/mspacman.zip; do head -c 4096 /dev/urandom > /storage/roms/$f; done; for s in nes/Bobl gb/Ninoid fbn/mspacman; do head -c 4096 /dev/urandom > /storage/roms/savestates/$s.state.auto; done; printf "turns=1\nfrom=checked-launch\n" > /storage/roms/savestates/nes/Bobl.rotation' 2>/dev/null \
+    || { echo "walks: the manager fixture's ROMs and states could not be written"; return 1; }
+  put "$F/nes-256x240-right.png" /storage/roms/savestates/nes/Bobl.state.auto.png || return 1
+  put "$F/gb-160x144.png" /storage/roms/savestates/gb/Ninoid.state.auto.png || return 1
+  put "$F/arcade-vertical-raw-left.png" /storage/roms/savestates/fbn/mspacman.state.auto.png || return 1
+  put "$F/nes-256x240-right.png" /storage/roms/screenshots/Bobl-260901-120000.png || return 1
+  put "$F/gb-160x144.png" /storage/roms/screenshots/Ninoid-260901-120100.png || return 1
+  put "$F/arcade-vertical-raw-left.png" /storage/roms/screenshots/mspacman-260901-120200.png || return 1
+  SSH 'touch -d "2026-09-01 12:00:00" /storage/roms/savestates/*/* /storage/roms/screenshots/* /storage/roms/nes/* /storage/roms/gb/* /storage/roms/fbneo/* && sync' 2>/dev/null \
+    || { echo "walks: the manager fixture's mtimes could not be set"; return 1; }
+  fixture_record manager $MANAGER_PATHS || return 1
+  echo "walks: seeded the manager fixture (nes with a turn recorded, gb as is, fbn from the core table; mtimes 2026-09-01 12:00)"
 }
 ensure_fixture() {
-  ensure_remote
-  SSH 'test -f /storage/roms/snes/shared.sfc' 2>/dev/null && return 0
+  fixture_current content && return 0
   # The transfer walks upload the device-only ROMs, and the cloud keeps them:
   # a second run then frames a systems page and a phase line that count what
   # the first run left there (runs 17 and 18, 2026-09-23). The frame-diff
   # suite compares those frames, so the endpoint is put back to the seed
   # every time the guest is seeded, the way the round-trip suite does before
   # its own work.
-  "$ROOT/tools/cloud-test-backend" reset >/dev/null 2>&1
-  "$ROOT/tools/cloud-test-backend" seed-content >/dev/null 2>&1
-  local scr; scr=$(mktemp)
-  "$ROOT/tools/cloud-test-backend" seed-device > "$scr"
-  scp -q -i "$KEY" -P "$PORT" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR "$scr" root@127.0.0.1:/tmp/qa-seed-device.sh
+  local scr paths; scr=$(mktemp) || return 1
+  { "$ROOT/tools/cloud-test-backend" seed-device > "$scr" && [ -s "$scr" ]; } || { rm -f "$scr"; echo "walks: the backend gave no seed-device script"; return 1; }
+  # The files the seed writes, read from the backend's own script (blindspot 71).
+  paths=$(grep -o '> /storage/roms/[^ ;]*' "$scr" | sed 's/^> //' | LC_ALL=C sort -u | paste -sd' ' -)
+  [ -n "$paths" ] || { rm -f "$scr"; echo "walks: the seed-device script names no device file"; return 1; }
+  fixture_refuse_overwrite content $paths || { rm -f "$scr"; return 1; }
+  "$ROOT/tools/cloud-test-backend" reset >/dev/null 2>&1 || { rm -f "$scr"; echo "walks: the QA cloud could not be reset"; return 1; }
+  "$ROOT/tools/cloud-test-backend" seed-content >/dev/null 2>&1 || { rm -f "$scr"; echo "walks: the QA cloud could not be seeded"; return 1; }
+  scp -q -i "$KEY" -P "$PORT" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR "$scr" root@127.0.0.1:/tmp/qa-seed-device.sh \
+    || { rm -f "$scr"; echo "walks: the seed-device script could not be copied to the guest"; return 1; }
   rm -f "$scr"
-  SSH 'bash /tmp/qa-seed-device.sh >/dev/null 2>&1; rm -f /tmp/qa-seed-device.sh; echo "walks: seeded the content fixture (cloud seed-content, device ROMs) -- the guest had no ROMs"' 2>/dev/null
+  # The script ends in an echo, so its status says nothing: the manifest over
+  # every file it should have written is the check (fixture_record).
+  SSH 'bash /tmp/qa-seed-device.sh >/dev/null 2>&1; rm -f /tmp/qa-seed-device.sh' 2>/dev/null || { echo "walks: the seed-device script did not run on the guest"; return 1; }
   # The shipped saves and backups folders beside the content, since the reset
   # took them: RESTORE FROM THE CLOUD's scan (D-CLOUD-167) reaches the options
   # page only when the cloud has the saves folder; without it the walk ends
   # on the offer to create one (D-CLOUD-161), which guest d's proofs cover.
-  SSH "$(shipped_folders_cmd)" 2>/dev/null
+  local folders; folders=$(shipped_folders_cmd) || return 1
+  SSH "$folders" 2>/dev/null || { echo "walks: the shipped saves and backups folders could not be made in the QA cloud"; return 1; }
+  fixture_record content $paths || return 1
+  echo "walks: seeded the content fixture (cloud seed-content, device ROMs)"
 }
 # Folder navigation must not rewrite pointers/credentials or move payloads.
 # These guests and their endpoint are synthetic QA fixtures only. Keep each
@@ -504,12 +559,20 @@ folder_walk_witness() {
 }
 
 case ",$ONLY," in *,walks,*)
-  fixture_time ensure_fixture
-  fixture_time ensure_manager_fixture
+  # The walks' preconditions, in order, inside the suite so a failure is its
+  # FAIL with the reason, before the first walk (#974): the QA remote seeded,
+  # proven to be the active one, then the content and manager fixtures.
+  walks_ready() {
+    ensure_remote || { echo "walks: the QA remote could not be seeded"; return 1; }
+    qa_endpoint_check || return 1
+    ensure_fixture || return 1
+    ensure_manager_fixture || return 1
+  }
   # Every walk starts from a rebooted guest, which the README names as the
   # one deterministic start; a boot-time dialog is dismissed with B first.
   walk_all() {
     local rc=0 name legs w pre defpre=""
+    fixture_time walks_ready || return 1
     # tools/vm-walks/suite.txt names the compositions: most walk files are a
     # leg that starts on a screen an earlier leg reaches, so replaying them
     # one at a time drove A presses into the carousel and counted the frames

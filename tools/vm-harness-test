@@ -35,7 +35,12 @@ cmd="${@: -1}"
 if [ -f "$VMHT_TABLE" ]; then
   while IFS=$'\t' read -r pat rc out; do
     [ -n "$pat" ] || continue
-    case "$cmd" in *"$pat"*) [ -n "$out" ] && printf '%b\n' "$out"; exit "$rc" ;; esac
+    case "$cmd" in *"$pat"*)
+      # @count answers how many times this row has matched: a boot id that changes.
+      if [ "$out" = @count ]; then c="$VMHT_LOG.count.$(printf '%s' "$pat" | cksum | cut -d' ' -f1)"
+        n=$(( $(cat "$c" 2>/dev/null || echo 0) + 1 )); echo "$n" > "$c"; echo "boot-$n"
+      elif [ -n "$out" ]; then printf '%b\n' "$out"; fi
+      exit "$rc" ;; esac
   done < "$VMHT_TABLE"
 fi
 exit 0
@@ -52,7 +57,18 @@ case "$1" in
   caps) echo "hash=none modtime=no" ;;
   rclone-conf) printf '[qa-cloud]\ntype = webdav\nurl = http://10.0.2.2:19999/\n' ;;
   shipped-default) echo "${2}-folder" ;;
+  seed-device) printf 'mkdir -p /storage/roms/snes\nhead -c 10 /dev/zero > /storage/roms/snes/shared.sfc\nhead -c 10 /dev/urandom > /storage/roms/gb/only.gb\necho seeded\n' ;;
 esac
+exit 0
+'''
+SLEEP_DOUBLE = '#!/bin/bash\nexit 0\n'
+VISUAL_DOUBLE = r'''#!/bin/bash
+printf 'visual-qa %s\n' "$*" >> "$VMHT_LOG"
+cat > /dev/null
+exit 0
+'''
+PASS_DOUBLE = r'''#!/bin/bash
+printf '%s %s\n' "$(basename "$0")" "$*" >> "$VMHT_LOG"
 exit 0
 '''
 PAIR_DOUBLE = r'''#!/bin/bash
@@ -100,6 +116,15 @@ class Case:
         shutil.copy2(src, dst)
         dst.chmod(0o755)
         return dst
+
+    def walks(self):
+        """The walks as the runner reads them, the step files and suite.txt; vm-visual-qa as a double."""
+        shutil.copytree(self.tools_from / 'vm-walks', self.root / 'tools' / 'vm-walks')
+        executable(self.root / 'tools' / 'vm-visual-qa', VISUAL_DOUBLE)
+        executable(self.bin / 'sleep', SLEEP_DOUBLE)
+
+    def calls(self, prefix):
+        return [l for l in self.log.read_text().splitlines() if l.startswith(prefix)]
 
     def rows(self, rows):
         self.table.write_text(''.join(f'{p}\t{rc}\t{out}\n' for p, rc, out in rows))
@@ -305,6 +330,69 @@ def fresh_port(c):
     reads = [l for l in c.log.read_text().splitlines() if 'readlink' in l or '.configured' in l]
     ports = sorted({l.split('-p ')[1].split()[0] for l in reads if '-p ' in l})
     return bool(reads) and ports == ['10023'], f'{len(reads)} fresh reads at ports {ports} (want all at 10023)'
+
+
+# --- S3: the walks' preconditions and the ES sources (#973, #974, #981) ----------
+
+WALK = 'back-up-page'
+QA_ENDPOINT = 'type = webdav\\nurl = http://10.0.2.2:19999/'
+
+
+def walk_rows(*first, boot='@count', endpoint=QA_ENDPOINT):
+    """The guest as a walk sees it: the QA remote active, its endpoint the backend's, a new boot after each reboot."""
+    return list(first) + [('rclone config show', 0, endpoint), ('cloud_remote active', 0, 'qa-cloud:'),
+                          ('os-release', 0, f'"{GUEST_ID}"'), ('boot_id', 0, boot)]
+
+
+def run_walk(c, rows, **extra):
+    vmqa = c.tool('vm-qa')
+    c.walks()
+    c.rows(rows)
+    r = c.run([str(vmqa), '--skip-up', '--only', 'walks', '--walk', WALK], **extra)
+    rep = c.reports()
+    return r, (rep[0].read_text() if rep else ''), c.calls('visual-qa')
+
+
+@case
+def seed_scp_fails(c):
+    (c.dir / 'scp-fail').write_text('')
+    r, text, walked = run_walk(c, walk_rows(('sha256sum -c', 1, ''), ('test -f /storage/roms/snes/shared.sfc', 1, '')))
+    log = (c.reports()[0].parent / 'walks.log').read_text() if c.reports() else ''
+    ok = r.returncode == 1 and not walked and 'could not be copied' in log
+    return ok, f'rc {r.returncode}, walked {len(walked)}, the copy failure in walks.log {"could not be copied" in log} (want rc 1 before the first walk)'
+
+
+@case
+def remote_not_qa(c):
+    secret = 'STANDIN-SECRET-9f3e'
+    r, text, walked = run_walk(c, walk_rows(endpoint=f'type = webdav\\nurl = http://203.0.113.9/\\npass = {secret}'))
+    log = (c.reports()[0].parent / 'walks.log').read_text() if c.reports() else ''
+    leaked = secret in r.stdout + r.stderr or any(secret in f.read_text(errors='replace')
+                                                 for f in c.art.rglob('*') if f.is_file())
+    seeded = c.calls('backend reset') + c.calls('scp ')
+    ok = r.returncode == 1 and not walked and not seeded and 'not this run\'s QA cloud' in log and not leaked
+    return ok, (f'rc {r.returncode}, walked {len(walked)}, seeded {len(seeded)}, refusal in walks.log '
+                f'{"not this run" in log}, stand-in value leaked {leaked} (want rc 1, nothing seeded or walked, no leak)')
+
+
+@case
+def reseed_manifest(c):
+    r, text, walked = run_walk(c, walk_rows(('sha256sum -c', 1, '')))
+    seeded = c.calls('backend seed-device')
+    recorded = [l for l in c.log.read_text().splitlines() if 'vm-qa-fixture-content.sha256.tmp' in l]
+    ok = bool(seeded) and bool(recorded) and bool(walked)
+    return ok, f'seed-device calls {len(seeded)}, manifest written {bool(recorded)}, walked {len(walked)} (want a reseed, its manifest, then the walk)'
+
+
+@case
+def overwrite_refused(c):
+    r, text, walked = run_walk(c, walk_rows(('sha256sum -c', 1, ''), ('vm-qa-would-overwrite', 0, '/storage/roms/snes/shared.sfc'),
+                                            ('test -f /storage/roms/snes/shared.sfc', 1, '')))
+    log = (c.reports()[0].parent / 'walks.log').read_text() if c.reports() else ''
+    copied = c.calls('scp ')
+    reset = c.calls('backend reset')
+    ok = r.returncode == 1 and not copied and not reset and not walked and '/storage/roms/snes/shared.sfc' in log
+    return ok, f'rc {r.returncode}, copies {len(copied)}, cloud resets {len(reset)}, walked {len(walked)}, named {"/storage/roms/snes/shared.sfc" in log} (want a refusal naming it, nothing copied)'
 
 
 def main():
