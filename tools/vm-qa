@@ -180,8 +180,12 @@ fi
 # A run that brought the pair up takes it down: at the end below, and by this
 # trap on any earlier exit; --keep-up leaves it up and the report says so.
 PAIR_UP=0
+# A trap runs inside the command it interrupted, under its redirections (a
+# suite's `> "$log"`), so the run's own stderr, saved here, is put back first.
+exec 9>&2
 pair_down_on_exit() {
   local rc=$? out drc
+  exec 2>&9
   [ "$PAIR_UP" = 1 ] && [ "$KEEP_UP" = 0 ] || return 0
   PAIR_UP=0
   out=$("$ROOT/tools/vm-pair" down 2>&1); drc=$?
