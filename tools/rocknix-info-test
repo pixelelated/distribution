@@ -21,12 +21,22 @@ with tempfile.TemporaryDirectory(prefix='hardware-',dir=P) as td:
  def execute(source,arch='x86_64',label='new'):
   # Rewrite only OS filesystem roots into the disposable fixture. Keep the
   # complete script and real shell/awk/grep/arithmetic logic intact.
-  code=source.replace('/etc/profile',str(t/'profile')).replace('/tmp/battery.percent',str(t/'battery.percent')).replace('/sys/',str(t/'sys')+'/').replace('/proc/cpuinfo',str(t/'proc/cpuinfo')).replace('/proc/meminfo',str(t/'proc/meminfo')).replace('/usr/lib/autostart/quirks',str(t/'quirks')).replace('/storage/games-internal',str(t/'storage')).replace('/storage/games-external',str(t/'storage'))
+  # Each root must be found and replaced: a path the script no longer spells this way would
+  # otherwise run against the host's own (#995).
+  code=source
+  for old,new in (('/etc/profile',str(t/'profile')),('/tmp/battery.percent',str(t/'battery.percent')),
+                  ('/sys/',str(t/'sys')+'/'),('/proc/cpuinfo',str(t/'proc/cpuinfo')),('/proc/meminfo',str(t/'proc/meminfo')),
+                  ('/usr/lib/autostart/quirks',str(t/'quirks')),('/storage/games-internal',str(t/'storage')),
+                  ('/storage/games-external',str(t/'storage'))):
+   if old not in code: raise RuntimeError('adaptation pattern not found in the script: '+old)
+   code=code.replace(old,new)
   env={**os.environ,'HW_ARCH':arch,'HW_DEVICE':'QA','HW_CPU':'QA CPU','OS_NAME':'pixelelated','OS_VERSION':'0.0.1-dev','BUILD_ID':'a0f60255ab','BUILD_BRANCH':'test','GPU_FREQ':str(t/'sys/gpu'),'DEVICE_GPU_CUR_FREQ':str(t/'sys/gpu/cur_freq'),'DEVICE_GPU_MAX_FREQ':str(t/'sys/gpu/clocks'),'DEVICE_TEMP_SENSOR':str(t/'sys/thermal/*/temp'),'DEVICE_GPU_TEMP_SENSOR':str(t/'sys/gpu/temp'),'DEVICE_HAS_FAN':'false'}
   r=subprocess.run(['bash'],input=code,text=True,env=env,capture_output=True)
   (P/(label+'.json')).write_text(json.dumps({'returncode':r.returncode,'stdout':r.stdout,'stderr':r.stderr},indent=2)+'\n');return r
  def check(name,condition):
-  results.append({'case':name,'passed':bool(condition)});assert condition,name
+  # An explicit verdict, not assert: python3 -O and PYTHONOPTIMIZE remove asserts (#995).
+  results.append({'case':name,'passed':bool(condition)})
+  if not condition: raise RuntimeError(name)
  write('profile','');write('proc/cpuinfo','processor\t: 0\nmodel name\t: QA CPU\n');write('proc/meminfo','MemTotal: 1000000 kB\nMemAvailable: 500000 kB\n');(t/'storage').mkdir()
  write('sys/class/dmi/id/sys_vendor','QA\n');write('sys/class/dmi/id/product_name','VM\n');(t/'sys/class/net').mkdir(parents=True)
  a=execute(old,label='original-absent') if old else None;b=execute(new,label='fixed-absent')
