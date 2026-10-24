@@ -1508,7 +1508,12 @@ get_module_dir() {
   if [ -n "${_CACHED_KERNEL_MODULE_DIR}" ]; then
     echo "${_CACHED_KERNEL_MODULE_DIR}"
   else
-    basename $(ls -d $(get_install_dir linux)/usr/lib/kernel-overlays/base/lib/modules/*)
+    # One kernel's modules: with two, basename read the second as a suffix
+    local dirs=("$(get_install_dir linux)"/usr/lib/kernel-overlays/base/lib/modules/*)
+    if [ ${#dirs[@]} -ne 1 ] || [ ! -d "${dirs[0]}" ]; then
+      die "get_module_dir: expected one kernel module directory, found: ${dirs[*]##*/}"
+    fi
+    basename "${dirs[0]}"
   fi
 }
 
