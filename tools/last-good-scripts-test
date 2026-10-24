@@ -15123,6 +15123,9 @@ check $? "the session reaches the command before the ROM" "$(tr '\n' '|' < "${TL
 grep -q '^marker: none$' "${TL}/cc-bad/out" && ! grep -q 'mitm-session' "${TL}/cc-bad/argv" 2>/dev/null && grep -q '^log: .*mitm' "${TL}/cc-bad/out"
 check $? "a session with a ; is dropped, said in the log, and runs nothing" "$(tr '\n' '|' < "${TL}/cc-bad/out" | cut -c1-240)"
 
+echo "  cd. the lifter takes a function whose brace line carries a comment (#648, the retro's adjustment 1)"
+s3_lift "${S7}/wifictl" | grep -q '^saved_state() {'
+check $? "saved_state() { # ... is lifted from wifictl" "saved_state() { # ... was not lifted from wifictl: a case calling it would fail with command not found"
 if [ "${NOT_APPLICABLE}" -ne 0 ]; then echo "${NOT_APPLICABLE} HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS"; fi
 if [ "${FAIL}" -eq 0 ] && [ "${SKIPPED}" -eq 0 ]; then echo "PASSED"; exit 0
 elif [ "${FAIL}" -eq 0 ]; then echo "PASSED, ${SKIPPED} SKIPPED -- a check that did not run has not passed"; exit 3
