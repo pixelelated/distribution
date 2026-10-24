@@ -403,3 +403,134 @@ most held; six were wrong and two partial, corrected in version 2:
   and now says it in the present. `rules-check --help` runs the checks,
   `forbidden-terms-check --help` treats `--help` as a tree (rc 2): both
   reproduced, both Q7 rows for the lane.
+
+### Errata from T10's stage A (16:31 UTC, lane tip `5611a4fb62`)
+
+Three figures of version 2 corrected by the lane's own read, written into
+the brief by the coordinator the same hour:
+
+- **`generate-changelog.sh`'s diff against `upstream/next` is upstream's,
+  not the fork's**: two upstream commits (`76693a738d`, `71d8932b33`,
+  2026-10-13/14) are not yet in `next`; the stranger's proof saw the diff
+  and the errata above called it a fork hunk without reading its direction
+  (`git merge-base --is-ancestor` on the two commits settles it). The fork
+  carries no hunk of its own on either upstream script.
+- **`PERSONAL_PATTERNS` holds 14 `scripts/` entries**, not 12 (the 84
+  `tools/` and the 115 total stand).
+- **`hooks-test`'s 20 `expect` call sites print 27 results** at the hash
+  (a site inside a loop runs more than once), 22 sites and 29 results in
+  the worktree; version 2 called the sites "cases" and gave no result
+  count.
+
+Two leads the lane raised for its stage B, noted here because the
+coordinator's own ceremonies lean on them: `box-check:83` reads
+`gh issue list --limit 300` against 458 open issues and prints `0 fail`
+(the checkbox gate in `fork-checks.yml` and `ceremony-check`'s line read a
+third fewer issues than exist), and `forbidden-terms-check` skips the
+tree's 180 tracked symlinks without comparing its scanned count with the
+listed one. Both are Q3's shape (a guard that reads less than it claims);
+the lane files them as bugs at stage D (D-WORKFLOW-187).
+
+## Addendum: T12 at its kickoff (2026-10-24, from the brief `docs/reviews/briefs/tooling-vm-harness.md` version 1)
+
+**What we know and assume.** T12 is the area's third slice, **Independent**
+(one GPT-6 Astra seat), over **60 paths, 8,790 lines, all fork-own; 20
+Python, 10 shell, 22 `.steps` walks, 3 text, 2 Markdown, 3 PNG fixtures;
+484,627 bytes at the hash** -- `vm-qa` and its 17 suites, `vm-visual-qa` and
+the walks, `time-to-play`, `frame-diff` with its 391 claims, the pair, the
+serial shell, `vm-stop`, the rehearsal, the three RetroAchievements proofs
+and the two proxy tests, the memory measurements, the QA-account carrier,
+`device-act`, `es-syntax-check`, `es-untranslated`, `font-stems`,
+`png-blackout`. 145 fork commits since the base; none on `upstream/next`;
+the branch differs from the hash on none of them. Two of the 60 run in the
+fork CI (`vm-pair-test`, `vm-upgrade-readiness-test`); `vm-qa` is the one
+caller of most of the rest; eight candidates may have no caller at all. The
+lens is **cost against value**: the record (`docs/vm-qa-log.md`, ten
+`docs/qa-logs/` folders with reports, sixteen blindspots naming these tools)
+is the value side, the reports' minutes and the host's guests the cost side.
+
+**Known unknowns.** U-1 how each tool finds, waits for and stops a QEMU
+(pidfile and owned disk, or pattern -- T9's F-03 shape in `build-preflight`
+is the warning). U-2 which suites have caught nothing recorded (the value
+table's `nothing recorded` rows are the lens's output). U-3 whether a
+GENERIC_X64 image on the host still boots the harness as the tools expect
+(the newest is 2026-10-02's; the M7 lane's QA images are newer). U-4 the
+`/tmp` roots (`/tmp/rocknix-qemu-monitor-*.sock`, `/tmp/ttp`) against the
+inode exhaustion of this morning. U-5 the 391 claims against the 17 walks
+and 22 step files: claims no walk exercises, walks no claim owns. U-6 the
+cost of one guest cycle on the lane's clock (T8's five cycles ran 14 to 30
+minutes each).
+
+**Patterns.** Blindspot 39 (a PASS over missing numbers) is the harness's
+own founding lesson and the Q3 shape to hunt through every suite. T8's five
+guest cycles on 2026-10-24 are the recorded shape of a cycle (host file,
+pidfile, `vm-stop`, census, retirement). T9's `build-preflight` finding
+(stop by pattern) is the Q2 shape. T10's class (a checker that reads less
+than it reports) applies to a runner that folds a suite that could not run
+into a pass -- `vm-qa` says it does not (`SKIPS=0`); the proof is a
+constructed rc 3.
+
+**What could we be missing.** A fresh lane reads "the VM harness" and
+reaches for a full `vm-qa` run on a fresh pair (an hour of two guests): the
+brief authorizes one bounded cycle with `--only` the suites the cost table
+needs and names the image first. A lane finds a suite with no catch and
+proposes deleting it: the brief says the lens is not a licence; the
+coordinator decides with the maintainer. A seat proposes changing what
+`time-to-play` measures: a contract lead (D-QA-022, D-CLOUD-122), not a
+stream. Pre-mortem: a month on, a candidate passes `vm-qa` while a suite
+silently skipped, because the SKIP accounting was never seen to fire -- so
+the brief's Q3 asks for the constructed rc 3. Replaced mechanism: none (a
+read).
+
+**Adjustments written into version 1 of the brief:** A1 § 2 writes the
+brace glob out as names and lists the eight no-caller candidates; A2 § 5
+authorizes one guest cycle with its exact ritual and forbids the second
+without a line; A3 § 4 makes Q5 and Q6 the two tables (cost, value) the
+slice is for; A4 § 7 asks the claims-against-walks reconciliation and the
+find/stop classification by name; A5 § 8 names the handheld, the QA account,
+the pattern kill and `/tmp` as stops; A6 § 9 adds the cycle's own ritual
+(`docs/vm-qa-log.md`); A7 § 10 includes the host checked for a payload left
+behind.
+
+### Errata from the stranger's proof of T12's brief (version 2, 2026-10-24)
+
+A reader with no context reproduced the brief's claims read-only (4 API
+calls; the three no-guest controls run from an export, rc 0 each):
+most held; nine were wrong or partial, corrected in version 2:
+
+- **The host held no image where version 1 pointed.** The `x64-*`
+  directories live under `/workspace/artifacts/rocknix-images/`, not
+  `/workspace/artifacts/`, and their payloads were retired on 2026-10-07
+  (`RECORD.txt`, `SHA256SUMS` and the retirement JSON remain). The newest
+  GENERIC_X64 image present is the M6 lanes' copy of the `069fc2704421`
+  build under `/workspace/artifacts/m6-t1-20261023/` (2,122,289,964 bytes,
+  with its `.identity.json`). A lane following version 1's § 5 would have
+  found nothing to boot; the brief now names the file and its sidecar.
+- **The at-hash line loop sums to 8,813**, not 8,790: `wc -l` counts 23
+  newline bytes inside the three PNGs; the inventory's column, which stores
+  no count for an image, sums to 8,790. Both figures are now in the brief.
+- **Three walk files' last commits** were given as the directory's:
+  `fixtures/system-selected.sh` is `d97f64ddfd` (2026-10-05),
+  `cloud-epic/migration-protocol.sh` `083f4fad86` (2026-10-08),
+  `cloud-epic/vnc-grab.py` `3b9a62d976` (2026-10-02).
+- **`docs/vm-qa-log.md`'s five entries run 2026-10-06 to 2026-10-17**, not
+  "since 2026-10-15"; 13 `### ` sub-entries sit under the 2026-10-09 one.
+- **The report folders:** 27 top-level `docs/qa-logs/` folders hold a
+  `vm-qa` report (61 reports) and 13 a `time-to-play.log`; "ten" was the
+  `*-pixelelated-replacement-NN` subset.
+- **Blindspot 65 names none of the 60** (the proxy's guest script and the
+  shims); fifteen entries name the harness, not sixteen.
+- **Three of the eight "no caller" candidates have callers** by the
+  brief's own criterion: `png-blackout` (a skill instruction), `vm-serial`
+  (rule commands; four callers in the 60), `device-act` (a rule
+  instruction). Five remain: three with index mentions only, two with a
+  descriptive rule paragraph.
+- **`generic-x64-vm-testing.md` names 17 of the 30 scripts**, not "almost
+  all"; the thirteen it does not name are listed in the brief.
+- **The issue ranks hold under every-occurrence counting**; the method is
+  now stated.
+
+And one unknown answered early: **U-1** -- every `pgrep`, `pkill` and
+`kill` in the 60 is guest-side over SSH or serial; no tool finds or stops a
+host QEMU by pattern, and `vm-pair`, `vm-stop` and `vm-qa` carry no
+host-side kill. The lane confirms it and reads `vm-pair down`'s stop path.
