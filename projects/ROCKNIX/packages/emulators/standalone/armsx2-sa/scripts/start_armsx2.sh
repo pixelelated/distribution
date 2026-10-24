@@ -2,6 +2,7 @@
 
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2022-present JELOS (https://github.com/JustEnoughLinuxOS)
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 
 . /etc/profile
 
@@ -109,8 +110,11 @@ fi
                 sed -i '/^Renderer =/c\Renderer = 13' /storage/.config/ARMSX2/inis/PCSX2.ini
         fi
 
+  # The test below was a redirection that left an empty file named 0 in
+  # /storage; it goes once, only when empty (#862).
+        [ -f /storage/0 ] && [ ! -s /storage/0 ] && rm -f /storage/0
   #Internal Resolution
-        if [ "$IRES" > "0" ]
+        if [ "${IRES:-0}" -gt 0 ] 2>/dev/null
         then
                 sed -i "/^upscale_multiplier =/c\upscale_multiplier = $IRES" /storage/.config/ARMSX2/inis/PCSX2.ini
         else
