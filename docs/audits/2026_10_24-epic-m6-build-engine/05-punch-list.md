@@ -442,7 +442,8 @@ punch_index:
   source_finding: "F-03"
   owner_area: "the launch table: `add_es_system`"
   tracked: "#831"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-host-regen; fix-pending-image: the three images' tables"
 - id: PL-06
   severity: Medium
   category: Code Quality
@@ -450,7 +451,8 @@ punch_index:
   source_finding: "F-04"
   owner_area: "the launch table: the default core"
   tracked: "#832"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-host-regen; fix-pending-image: the three images' tables"
 - id: PL-07
   severity: Medium
   category: Interaction Defect
@@ -607,8 +609,8 @@ punch_index:
 | PL-02 | **Resolved** | `6712ae5ef3` (E2): `pushd` and `_clean_repo` checked on their own lines, every return pops; a cache directory that cannot be entered is invalid. P17 before and after; fix-sandbox; fix-pending-image: the first build that reuses a warm cache |
 | PL-03 | **Resolved** | `6712ae5ef3` (E2): `HEAD` must equal `git rev-parse "${PKG_VERSION}^{commit}"`; `_clean_repo` resets tracked edits. P16 before and after; fix-sandbox; fix-pending-image: the first build that reuses a warm cache |
 | PL-04 | **Resolved** | `10f688e3cd` (E3): `DROP` matched in upper case with the missing words and fused endings; a value spanning lines not forwarded, named on stderr; a failed write exits 1. P18 before and after; fix-sandbox; the next `make docker-*` run's `.env` read back as names only |
-| PL-05 | Open | stage E's stream brief resolves (`t5-streams.md`) |
-| PL-06 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-05 | **Resolved** | `cbb3e308b7` (E4): the eleven per-system keys unset before each fragment, a missing fragment refused; `daphne.conf` and `gp32.conf` gain 1983 and 2001. P19 (case C) and P20 (the five tables); fix-host-regen; fix-pending-image: the three images' tables |
+| PL-06 | **Resolved** | `cbb3e308b7` (E4): the default marks `core[last()]`; defaults counted once per system, more than one fails by name, none warned (GENERIC_X64 `psx`, #650's line); `mk_es_systems` prints `xmlstarlet`'s error. P19 (cases A and B) and P20; fix-host-regen; fix-pending-image: the three images' tables |
 | PL-07 | Open | stage E's stream brief resolves (`t5-streams.md`) |
 | PL-08 | Open | stage E's stream brief resolves (`t5-streams.md`) |
 | PL-09 | Open | stage E's stream brief resolves (`t5-streams.md`) |

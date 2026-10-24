@@ -189,3 +189,29 @@ PROOF: 06:33 P17 `get_git`'s cache check over a directory it cannot enter leaves
 - Already written: none in the 134 checkouts at stage B.
 
 PROOF: 06:35-06:36 P18 `get_env` forwards no secret-shaped or multi-line name and fails on a failed write, where 12 names leaked and the write failure exited 0 -- `tools/sb-get-env.sh` (F-01, F-02, #830)
+
+### [Stage E] 06:37 to 06:43 — E4, the launch table (PL-05 #831, PL-06 #832)
+
+- The coordinator accepted E3 on #652.
+- The test first:
+  - `tools/sb-es-cases.sh` runs cases A, B and C.
+  - `tools/sb-es-regen5.sh` (new) regenerates the five devices' tables from a tree, with T3's parameters, for a diff between trees.
+  - Before: run on an archive of `8ebaf8daad` and on the unchanged tree, whose copied paths had no diff from `8ebaf8daad`.
+- Read before the change:
+  - All 139 `add_es_system` calls have their fragment.
+  - Nothing reads `SYSTEM_WIKI_PATH`, so `arcade` and `segamodel3` are left alone.
+  - No caller sets a `SYSTEM_*` key before calling.
+  - `SYSTEM_SIZE` and `SYSTEM_PART_START` are image options, kept out of the reset.
+  - In today's tables, every system with cores has exactly one default, except GENERIC_X64's `psx`, which has none (T3's finding; its recipe line is #650's S2).
+- The change (`cbb3e308b7`):
+  - the reset, and a missing fragment refused by name;
+  - `core[last()]`;
+  - the defaults counted once per system: more than one fails by name, none is a WARNING (see below);
+  - `mk_es_systems` failing loudly;
+  - the two years.
+  - `bash -n` passes.
+- Not done as briefed: the brief asked for a count of anything but one to fail. A system with no default warns instead, because failing on it would stop GENERIC_X64's table until S2 gives `psx` a default. Put to the coordinator in the hand-back.
+- After: A fails by name, B ships `b2` alone, C gets `runemu.sh`. The five tables differ in the two release lines only.
+
+PROOF: 06:38-06:41 P19 the launch table's cases: two defaults fail by name, a false core first ships one default, an appended system gets the default command -- `tools/sb-es-cases.sh` (F-03, F-04, #831, #832)
+PROOF: 06:38-06:41 P20 the five devices' tables after E4 differ from today's in `daphne`'s and `gp32`'s years only -- `tools/sb-es-regen5.sh` (F-03, #831)
