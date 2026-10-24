@@ -25,17 +25,33 @@
 
 ## Current focus
 
-P0, the plan for the plan: the document is on the branch (`0bfd387f7b` and
-the correction after the first proof); the milestone and issue edits are made;
-#641 is M6.P1 with the brief `docs/reviews/briefs/p1-survey.md` (version 2,
-after the first stranger's proof found sixteen gaps, all answered in the text).
-What remains of P0: the merge to `next`, which waits for the M7 lane's
-post-candidate merge to clear the push guard's W42 gate (D-INFRA-026,
-D-WORKFLOW-182); never `--no-verify`. P1 started 2026-10-22 in its own
-worktree `distribution.worktrees/m6-p1-survey-641` on
-`feature/m6-p1-survey-641`, stacked on this branch; its state lives in its
-own pointer. The pass-7 gate and the hand-back are passed (2026-10-23; #641 closed); this
-lane's next act is T1's brief; see § State at 2026-10-23.
+**2026-10-24, late morning (tip `8b22f8abfc`).** P0 and every accepted slice
+branch wait for the M7 lane's post-candidate merge to clear the push guard's
+W42 gate before anything merges to `next` (never `--no-verify`); the merge
+order is in § Merge notes. **Accepted:** P1 (#641), T1 (#648), T2 (#649), T3
+(#650, audit #826 closed), T5 (#652, #837 closed), T6 (#653, #846 closed).
+**Running:** T30 (#677) in the T3 session (`m6-t3-emulators`), stage C,
+Phase 4.6's seats called (the Facilitator process is alive in its worktree;
+the GPT seat has returned), a second guest cycle named; the lane's turn ends
+while it waits on the seats, which is not idleness. **Waiting on the
+maintainer (#346):** T4's dispatch (#651, brief v2 `0921782112`; a third
+lane). **Being briefed for the free T5 session:** T7 (#654), the generic
+packages the image builds -- the area epic #848 is filed (T7, T8 #655, T23
+#670), its futro is on #848, the brief `docs/reviews/briefs/generic-packages-reached.md`
+is at version 1 and under a stranger's proof (report expected at
+`/workspace/tmp/m6-coordinator/stranger-t7/report.md`); then version 2,
+#654's criteria from § 7 (`rewrite-body.py` in the scratchpad), the worktree
+`distribution.worktrees/m6-generic-packages-reached-654` on
+`feature/m6-generic-packages-reached-654` stacked on P1's `2174265e9c` with
+this tip merged in (the marker-stop merge recipe), the pointer seeded from
+the scratchpad's `t6-pointer.md` shape, the dispatch comment, and `herdr
+agent prompt m6-t5-build-engine` with a seed that ends *"do not end a turn
+on a post that asks nothing; post checkpoints and continue"*. **Fix packets
+for M7** (#802, #806, #825) are reviewed and named on the host file; M7
+applied #802 and #806 locally at 04:48. **Filed this morning:** #848, #849
+(`portaudio`'s source gone; the cache's copy is a retained input, a second
+copy under `/workspace/tmp/m6-coordinator/preserve/`), #850 (the
+Facilitator's stale `--help`). See § State at 2026-10-24.
 
 ## Next commands
 
@@ -216,6 +232,52 @@ and status, not the origin. **A seed ends with "do not end a turn on a post that
 within a minute went nowhere: `herdr agent read <lane>` shows why (a settings or
 usage dialog eats typed text; `herdr agent send-keys <lane> esc`, then the
 prompt, then `send-keys enter`).
+
+## State at 2026-10-24 (the coordinator's own update, midday)
+
+The day's work log (`docs/work-logs/2026_10-work_logs/2026_10_24-work_log.md`)
+is the narrative; this is the index of what a resuming agent must know.
+
+- **Host.** M7 returned the host at 05:42 (its last block on
+  `/tmp/m7-m6-host-coordination-20261023.txt`); M6 holds it. T30's guest
+  cycles run under that hold with census lines; every M6 block on the file
+  is an `== M6 coordinator -- HH:MM UTC:` ack with the census
+  (`pgrep -c -x qemu-system-x86`, M6 pidfiles, compilers). Read the file
+  before any runtime. `/tmp` is a tmpfs that ran out of inodes at 07:13:
+  tree exports and simulated merges go under `/workspace/tmp/m6-coordinator/`
+  after `df -i`.
+- **Lanes and sessions.** `m6-t3-emulators` (pane `wN:p6`) ran T3 and runs
+  T30 in `distribution.worktrees/m6-emulators-standalone-677`;
+  `m6-t5-build-engine` (pane `wN:p7`) ran T5 and T6 and is free for T7; the
+  T1 session ran the #802/#806/#825/#810 fix packets. A lane's worktree is
+  read with `git -C`, never written. The agent-state watch (`herdr agent
+  get` every 30 s, idle named at ten minutes) is re-armed for every working
+  lane; before calling a lane idle, read its worktree and the host's
+  processes (a Facilitator call in flight is a wait, not idleness).
+- **Register and blindspots.** Decided rows end at D-WORKFLOW-194 on this
+  branch (193: an archive without `PKG_SHA256` fails the fetch; 194: five
+  archive versions in four recipes); the next free ID is 195 and a lane may
+  take it. Blindspot entries run to 75 (a corpus read on the wrong tree;
+  its guard is `engineering-practices.md` bullet `ab8f750784`); 29 is used
+  twice (#811).
+- **Briefs and streams on this branch:** `docs/reviews/briefs/` holds the
+  slice briefs (p1-survey, os-launch-control-state, es-launch-path,
+  emulators-libretro, emulators-standalone, build-engine,
+  build-engine-upstream-tools, doctrine-rules, generic-packages-reached v1),
+  the stream briefs (`t1-` to `t6-streams.md`, `fix-packets-802-806.md`,
+  `lint-local-epic-tier.md`); `docs/futros/2026-10-24-m6-*.md` the area
+  futros (doctrine, build-engine, emulators-and-cores, generic-packages).
+- **Issues filed by this lane today:** #807, #808, #809, #810 (fixed, merged
+  here at `18747fbc52`), #811, #838, #839, #842, #843, #844, #847, #848, #849,
+  #850. The lanes filed #813 to #837, #841, #845, #846.
+- **Open with the maintainer on #346:** a third lane for T4; the #825
+  disclosure timing; `LOCAL_SSH_KEYS_FILE` in Docker builds; D-SYS-014;
+  D-WORKFLOW-191; the `portaudio` re-hosting (#849).
+- **Integration (after the M7 candidate):** P0, P1, T1, T2, T3, T30, T5, T6,
+  T7, T4; at integration flip `add_es_system`'s zero-default WARNING to
+  `return 1` after T3's S2 and regenerate the five tables; the #802/#806/#825
+  adaptations; close #823, #841, #845 and the other fixed bugs at the merge;
+  the `fix-pending-image` rows are proved on the first image.
 
 ## The seed brief (2026-10-22, the planning session's handoff, verbatim)
 
