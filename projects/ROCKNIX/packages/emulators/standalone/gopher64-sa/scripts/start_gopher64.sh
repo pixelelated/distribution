@@ -99,12 +99,25 @@ ra_password=$(get_setting "global.retroachievements.password")
 ra_enabled=$(get_setting "global.retroachievements")
 
 # Check if RetroAchievements are enabled in Emulation Station
-if [ "${ra_enabled}" = 1 ]; then
+# Each value is its own argument. gopher64 stores a token for the account
+# after its first sign-in (retroachievements.json in its config directory);
+# that is used when it names the same user, the password only otherwise, and
+# an empty password is never passed.
+CHEEVOS=()
+if [ "${ra_enabled}" = "1" ] && [ -n "${ra_username}" ]; then
   echo "RetroAchievements enabled." > ${CHEEVOS_LOG_FILE}
-  CHEEVOS="--ra-username $ra_username --ra-password $ra_password"
+  RA_JSON="${CONF_DIR}/retroachievements.json"
+  ra_token=""
+  if [ -f "${RA_JSON}" ] && [ "$(sed -n 's/^ *"username": *"\(.*\)",* *$/\1/p' "${RA_JSON}")" = "${ra_username}" ]; then
+    ra_token=$(sed -n 's/^ *"token": *"\([A-Za-z0-9]*\)",* *$/\1/p' "${RA_JSON}")
+  fi
+  if [ -n "${ra_token}" ]; then
+    CHEEVOS=(--ra-username "${ra_username}" --ra-token "${ra_token}")
+  elif [ -n "${ra_password}" ]; then
+    CHEEVOS=(--ra-username "${ra_username}" --ra-password "${ra_password}")
+  fi
 else
   echo "RetroAchievements are disabled, please turn them on in Emulation Station." > ${CHEEVOS_LOG_FILE}
-  CHEEVOS=""
 fi
 
 # Debugging info:
@@ -122,4 +135,4 @@ fi
   echo "Launching /usr/bin/gopher64 ${1}"
 
 # Start Gopher64
-${EMUPERF} /usr/bin/gopher64 --fullscreen --assign-controller 0 --port 1 ${CHEEVOS} "${1}"
+${EMUPERF} /usr/bin/gopher64 --fullscreen --assign-controller 0 --port 1 "${CHEEVOS[@]}" "${1}"
