@@ -3,9 +3,12 @@
 
 PKG_NAME="fbalpha2019-lr"
 PKG_VERSION="0581797db6fdffd826086b053ced4b6b29bb6678"
-PKG_SHA256="96812000a349e413d63bc5ef04ab7a330bb0b4194047c048ed6ec549b8274936"
+PKG_SHA256="8309b4af12c532e4454f07e46632a6c9bcd42ec54417e724948bfe2a5e83cf00"
 PKG_LICENSE="Non-commercial"
-PKG_SITE="https://github.com/libretro/fbalpha"
+# The repository was renamed from libretro/fbalpha; GitHub names the archive's
+# top directory after the current name, so the checksum is the current archive's
+# (the contents are unchanged; #841).
+PKG_SITE="https://github.com/libretro/beetle-finalarcade2019"
 PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
 # Python3:host runs the rotation-table generator in the install step: the
 # interpreter the build's PATH finds, not whatever the container carries.
