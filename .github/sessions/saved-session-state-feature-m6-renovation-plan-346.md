@@ -137,9 +137,32 @@ D; every drift report read at every slice close and the re-open named;
 `QA_SYSTEM_ROOT` and `pkgcheck` once; the `fix-pending-image` rows stay open);
 T2 accepted 2026-10-24 (above), its ES merge and pin bump held for the M7 ES
 fixes and D-WORKFLOW-191; the merge order to `next` after
-the M7 candidate (P0, P1, T1, T2, T3, then T5 last; the ledgers united by whole entries; the change log for T1's player-visible lines the day it lands; `audit-completion.json` for T1 after #701 closes; the drift re-open over M7's `runemu.sh` hunks; the image proof of T1's nine fix-pending-image rows and T2's 21 walks, then #648/#649 and their bugs close, the three device-fact bugs as open items to test). **At the next base merge of `upstream/next`:** take upstream's `c9820d0e89` (the 32-bit PlayStation core installed where the launcher loads it, #802) and `yabadabadoo-lr`, and **rewrite their `build.${DISTRO}-${DEVICE}.arm` to `build.${DISTRONAME}-`** (the fork's roots since `43d0bc3bf4`; `DISTRO` is still `ROCKNIX`), with `git grep -F 'build.${DISTRO}-' -- projects packages` printing nothing on the merged tree as the check (T3's F-09); take upstream's `aethersx2-sa` deletion (`c4d353449e`, licensing; T3's F-07) rather than keep the recipe, as #644's finding 16 routes the retired overrides; the two calls open with the maintainer on
+the M7 candidate (P0, P1, T1, T2, T3, T5, then T4 last so the doctrine's edits land once, each rule-file conflict resolved in this lane's favour and the slice's edit re-applied by the paragraph its stream brief names; the ledgers united by whole entries; the change log for T1's player-visible lines the day it lands; `audit-completion.json` for T1 after #701 closes; the drift re-open over M7's `runemu.sh` hunks; the image proof of T1's nine fix-pending-image rows and T2's 21 walks, then #648/#649 and their bugs close, the three device-fact bugs as open items to test). **At the next base merge of `upstream/next`:** take upstream's `c9820d0e89` (the 32-bit PlayStation core installed where the launcher loads it, #802) and `yabadabadoo-lr`, and **rewrite their `build.${DISTRO}-${DEVICE}.arm` to `build.${DISTRONAME}-`** (the fork's roots since `43d0bc3bf4`; `DISTRO` is still `ROCKNIX`), with `git grep -F 'build.${DISTRO}-' -- projects packages` printing nothing on the merged tree as the check (T3's F-09); take upstream's `aethersx2-sa` deletion (`c4d353449e`, licensing; T3's F-07) rather than keep the recipe, as #644's finding 16 routes the retired overrides; the two calls open with the maintainer on
 #346 (D-SYS-014, D-WORKFLOW-191); the host handoff file is read before any
-runtime. Both lanes report on their issues; nothing wakes this lane on a
+runtime. **State at 2026-10-24 04:3x UTC:** T3 (#650) has stage C prepared and
+waits for M7's return line for its Phase 4.6 (ten `bug` drafts at `00f535942a`;
+context at 1 %, a compaction is expected); T5 (#652) is at stage B
+(`da3e6559cc`, the 242-row coverage table); **T4 (#651) is briefed** at
+version 1 (`docs/reviews/briefs/doctrine-rules.md`, `8a056c4a60`, Local),
+the doctrine area epic **#807** filed (T4, T38 #685, T39 #686 retitled
+`E807/T<k>`) with its futro (`docs/futros/2026-10-24-m6-doctrine.md`,
+`12d163dd2c`, nine adjustments A1 to A9 for version 2), the stranger's proof
+running, **the dispatch held for the maintainer's answer on #346 about a third
+lane**; #808 (`bug`: `CLAUDE.md`'s rule table names 29 of 30) and #809
+(Backlog: the inventory's three read-count renderings) filed from the
+brief's re-derivation. **Two fix-packet streams for the M7 candidate**
+(`docs/reviews/briefs/fix-packets-802-806.md`, `3f04de3342`, at the M7 lane's
+request of about 04:30): #802 to T3 (`fix/m6-802-pcsx-rearmed32`, upstream
+`c9820d0e89` with `${DISTRONAME}`), #806 to the T1 lane
+(`fix/m6-806-grep-pcre2`); each hands back one comment; this lane reads the
+diff, writes *reviewed* on the issue and on the host file, and M7 applies to
+its candidate tree. **The host is M7's from 03:47**; the return line is
+relayed to #650 and #652 the minute it lands. **Rule edits by this lane
+since `8ebaf8daad`** (the ledger the doctrine futro's A7 asks for; posted on
+#651 once T4 is at stage A, and listed here as they happen):
+`8c9b1d4721` `generic-x64-vm-testing.md` +7 at line 1222 (`time-to-play`'s
+reboot drops bind mounts, #797). The registers' and the friction log's
+appends are not rule edits. Both lanes report on their issues; nothing wakes this lane on a
 post, so read #648 and #649 at every turn. **And nothing wakes a lane on a
 comment:** a lane's turn ends when it posts a question, so every answer the
 coordinator gives on an issue is also sent as `herdr agent prompt <lane>`,
