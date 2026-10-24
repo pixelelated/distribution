@@ -15,7 +15,17 @@ memory, a glob that reached another slice's files, a guest proof claimed
 for an input the guest cannot have -- are answered from the start; every
 figure below was produced by a command at `8ebaf8daad` unless it says
 *branch*. It goes through a stranger's proof before dispatch; version 2
-records what it found. **Each command block sets its own variables** (`D`,
+records what it found. **Version 2 (2026-10-24):** the proof reproduced 103
+claims -- 78 right, 19 wrong (9 outright, 10 partial), 6 uncheckable -- and
+asked 26 questions; every wrong claim is corrected in place (the directory
+holds 80 patches beside the slice's 543; the kill-target lead is T3's PL-010,
+not a T1 finding; T1's folder is dated 2026-10-23; `q4-pins.py` hardcodes
+`libretro/`; the GENERIC_X64 image carries thirteen members, `moonlight`
+not among them; 47 `PKG_VERSION` lines; the `bash -n` loop word-split a
+name; the checksum check's expected count; blindspot 8's subject;
+`testunofficial` is being added upstream, not retired) and every question
+answered where it arose; the hatari start-script rename is named as a lead.
+The futro addendum's A1 to A4 are folded in. **Each command block sets its own variables** (`D`,
 `P`): a Bash call in this harness starts a fresh shell. **This is a currency
 slice with a launch-path lens**: its fork-own lines are read line by line,
 the rest for reachability and currency (plan § 2), and every start script is
@@ -47,8 +57,11 @@ read as the thing a player's press runs.
   recipe is this slice's)), **T1 #648** (the launcher: `runemu.sh`'s
   standalone arms start these scripts, `input_sense` ends them with
   `killall ${TO_KILL}` from `/tmp/.process-kill-data`, which
-  `001-functions:511` writes -- T1's F-24 is this slice's class: the name
-  written must be the process the emulator runs as). **Beside it:** T6
+  `001-functions:511` writes -- T3's PL-010 is this slice's class: the
+   tools-system launcher `Start RPCS3.sh` (T3's file) named `rpcs3` for a
+   binary `rpcs3-sa`, fixed upstream by `eeb33c5a37`, while this slice's
+   `start_rpcs3.sh` already names `rpcs3-sa`; the name written must be the
+   process the emulator runs as, for all 35). **Beside it:** T6
   (#653) runs in the other lane (D-WORKFLOW-190); the two share no path.
 - **The division of labour (D-WORKFLOW-189).** This lane executes; the
   coordinator plans. The lane files its audit punch-list issue (stage D) and
@@ -68,7 +81,7 @@ read as the thing a player's press runs.
   the M7 lane's, read only (the three install trees § 5 names are read
   there, never written, never a process started there); the other lanes'
   worktrees are `git -C` only. **The rules in this worktree are `next`'s
-  except six files** (P1's `fork-workflow.md` and `instruction-files.md`;
+  except seven paths** (P1's `fork-workflow.md` and `instruction-files.md`;
   the coordinator's `generic-x64-vm-testing.md` paragraph `8c9b1d4721` and
   `engineering-practices.md` bullet `ab8f750784`; M7's
   `.claude/skills/council/IMPORTED-FROM.md`; `tools/lint-audit-artifacts`
@@ -100,7 +113,7 @@ git fetch origin && git fetch upstream --no-tags
 git branch --show-current                                            # feature/m6-emulators-standalone-677
 git merge-base --is-ancestor 2174265e9c HEAD || echo "not stacked on the P1 tip: stop"
 test -f docs/reviews/inventory.json || echo "no inventory.json: this is not the lane's worktree (stacked on P1): stop"
-git diff --stat next -- .claude CLAUDE.md AGENTS.md tools/lint-audit-artifacts   # the six files § 1 names, nothing else
+git diff --stat next -- .claude CLAUDE.md AGENTS.md tools/lint-audit-artifacts   # the seven paths § 1 names, nothing else
 mkdir -p .qa-scratch/t30/at-hash && git archive 8ebaf8daad projects/ROCKNIX/packages/emulators/standalone | tar -x -C .qa-scratch/t30/at-hash   # the read tree; every line number in the artifacts is this tree's unless marked branch
 git diff --stat 8ebaf8daad HEAD -- projects/ROCKNIX/packages/emulators/standalone   # empty on 2026-10-24 (T3's streams touched libretro/, virtual/emulators and retroarch, not standalone/): a non-empty result is the first lead
 "$D/tools/rules-check"; echo "rc=$?"; "$D/tools/register-check"; echo "rc=$?"; "$D/tools/ceremony-check"; echo "rc=$?"   # rc 1 on 2026-10-24: W42 OVERDUE (M7's week), a retro DUE; neither is this lane's
@@ -143,7 +156,7 @@ print("read", len(read), "lines", L(read), "fork-own read lines", L([r for r in 
 print("languages", dict(collections.Counter(r["language"] for r in t30)))
 print("recipes", sorted({r["path"].split("/")[5] for r in t30}))
 PY
-git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/packages/emulators/standalone | wc -l           # 543
+git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/packages/emulators/standalone | wc -l           # 623: the directory also holds 80 .patch files, the patches-and-configs area's (T42 patches-shipped 77, T43 patches-unshipped 3), not this slice's
 git ls-tree --name-only 8ebaf8daad -- projects/ROCKNIX/packages/emulators/standalone/ | wc -l             # 35 recipe directories
 ```
 
@@ -152,14 +165,19 @@ lines), upstream-carried 488; all `shipped`; code classes 10,695 lines
 (shell 55 files, recipe 47, python 2, c 1), 3,104 of them fork-own.**
 Languages: config 277, symlink 80, shell 55, other 52, recipe 47, xml 13,
 yaml 9, json 2, python 2, c 1, image 1, font 1, text 1, none 2. **No
-patch** in the membership (0 `.patch` files). **35 recipe directories**:
+patch in the membership**: the directory's 80 `.patch` files are the
+`patches-and-configs` area's (T42's 77 shipped and T43's 3 unshipped rows);
+this slice reads a recipe's patches only as that recipe's context, never as
+rows. **35 recipe directories**:
 `aethersx2-sa amiberry ares-sa armsx2-sa azahar-sa bigpemu-sa cemu-sa
 daedalusx64-sa dolphin-sa drastic-sa dsperate-sa duckstation-sa flycast-sa
 gopher64-sa gzdoom-sa hatarisa heroic hypseus-singe mednafen melonds-sa
 mupen64plus-sa nanoboyadvance-sa openbor pico-8 ppsspp-sa rpcs3-sa
 scummvm-sa skyemu-sa steam supermodel-sa touchhle-sa vice-sa vita3k-sa
-xemu-sa yabasanshiro-sa` (47 `package.mk` with `mupen64plus-sa`'s
-sub-recipes). **Thirteen `package.mk` are fork-own** (the fork changed
+xemu-sa yabasanshiro-sa` (47 `package.mk`: the 35, `mupen64plus-sa`'s ten
+sub-recipes, and two more sub-recipes, `zmusic` and `portaudio`; `order.md`'s
+§ T30 text counts 41 start scripts where `git ls-tree` at the hash finds 40 --
+the lane records both, #809's class). **Thirteen `package.mk` are fork-own** (the fork changed
 them: `aethersx2-sa`, `amiberry`, `bigpemu-sa`, `daedalusx64-sa`,
 `dolphin-sa`, `drastic-sa`, `duckstation-sa`, two of `mupen64plus-sa`'s,
 `openbor`, `ppsspp-sa`, `steam`, `yabasanshiro-sa`); the rest of the 55
@@ -204,24 +222,30 @@ on the launch path for its emulator. **The exit:** `input_sense`
 (`projects/ROCKNIX/packages/sysutils/system-utils/sources/scripts/input_sense:179-224`,
 T1's) runs `killall ${TO_KILL}` with the names `001-functions:511` wrote to
 `/tmp/.process-kill-data` -- so for every standalone emulator the name
-written must be the process it runs as, which is T1's F-24 (`rpcs3` for a
-binary `rpcs3-sa`, fixed upstream by `eeb33c5a37`) generalised: **a Q3 sweep
+written must be the process it runs as, which is T3's PL-010 (`Start RPCS3.sh`
+naming `rpcs3` for a binary `rpcs3-sa`, fixed upstream by `eeb33c5a37`, a
+commit that also edits this slice's `start_mupen64plus.sh`: a `class 1` Q4
+row) generalised: **a Q3 sweep
 of all 35**. **Which device ships which** is the `emulators` metapackage's
-device arms (`projects/ROCKNIX/packages/virtual/emulators/package.mk:12-94`,
+device arms (`projects/ROCKNIX/packages/virtual/emulators/package.mk:12-105`, the
+GENERIC_X64 and AMD64 arms at 97 to 105,
 `PKG_EMUS`; T3's file, read-only here): the base set `amiberry
 duckstation-sa flycast-sa gzdoom-sa hatarisa hypseus-singe moonlight
 mupen64plus-sa openbor pico-8 ...` plus per-device additions (H700 adds
-`drastic-sa mednafen`; SM8550 adds `aethersx2-sa azahar-sa bigpemu-sa
-cemu-sa dolphin-sa heroic mednafen melonds-sa nanoboyadvance-sa rpcs3-sa
-supermodel-sa ...`; the arms are read for the exact lists). **What the
+`drastic-sa mednafen`; SM8550 adds a dozen more, `aethersx2-sa`, `rpcs3-sa` and `supermodel-sa`
+among them`; the arms are read for the exact lists). **What the
 GENERIC_X64 image ships** (the M7 root's install tree, read only):
-`dolphin-emu`, `duckstation-sa`, `flycast`, `hatarisa`, `hypseus`,
-`moonlight`, `ppsspp`, `scummvm`, the `mupen64plus` set, and their start
-scripts -- nine standalone emulators the guest can start; the rest are
-aarch64-only or absent on x86_64 and are proven on the host (`image-set`
+`dolphin-emu`, `duckstation-sa`, `flycast`, `hatarisa`, `hypseus`, `ppsspp`,
+`scummvm`, `OpenBOR`, `gzdoom`, `touchHLE` and `vice`'s binaries, the
+`mupen64plus` set under `/usr/local/bin`, and `pico-8`'s start script, with
+their start scripts -- **thirteen** of the 35 the guest can reach (twelve
+binaries and one script; `moonlight` is `packages/apps/moonlight`, not a
+member); the other twenty-two are aarch64-only or absent on x86_64 and are proven on the host (`image-set`
 from the H700 and SM8550 trees) or marked for the first image.
 
-**The pins (Q4).** 35 `PKG_VERSION` lines of five shapes: a full commit hash
+**The pins (Q4).** 47 `PKG_VERSION` lines (the 35 top-level recipes,
+`mupen64plus-sa`'s ten sub-recipes, `zmusic` and `portaudio`); the 35 fall
+in five shapes: a full commit hash
 (23: `amiberry`, `ares-sa`, `armsx2-sa`, `azahar-sa`, `cemu-sa`,
 `daedalusx64-sa`, `dolphin-sa`, `flycast-sa`, `gopher64-sa`, `hatarisa`,
 `hypseus-singe`, `melonds-sa`, `nanoboyadvance-sa`, `openbor`, `pico-8`
@@ -236,10 +260,13 @@ moving branch** (`aethersx2-sa` `1.5-3606` from
 from `ROCKNIX/packages/raw/main/drastic.tar.gz` -- the bytes can change
 under the version; `PKG_SHA256` is the only pin, D-WORKFLOW-193's class,
 and #844's check is the guard); and metapackages with no source
-(`mupen64plus-sa`, `heroic` `1.0`). T3's `tools/q4-pins.py` takes the
-recipe root as a parameter and reads a GitHub recipe's pin, default branch
-and head through `gh api` (no clone): run it over `standalone/` for the 23
-hashes and the tags; the release assets and the moving tarballs are rows
+(`mupen64plus-sa`, `heroic` `1.0`). T3's `tools/q4-pins.py` hardcodes
+`libretro/` at its lines 59 and 60: copy it into this slice's folder, change
+those two lines to `standalone/`, say so in its header (a copied tool in the
+audit folder is not one of the 543, so stage B's no-edit rule does not bind
+it), and it reads a GitHub recipe's pin, default branch and head through `gh
+api` (no clone): run it for the 23 hashes, the twelve sub-recipes and the
+tags; the release assets and the moving tarballs are rows
 of their own shape (the asset's current release; the tarball's current
 sha256 against `PKG_SHA256`, downloaded into `/workspace/tmp/m6-t30/`,
 never the shared cache). **Upstream's side:** `git diff --stat
@@ -291,17 +318,28 @@ D, and re-baselines after.
   `punch-items.py`, `coverage-table.py`, `audit-issue-body.py`,
   `set-outcome.py`) -- reuse them by path, copied into this slice's folder
   with their headers saying where they came from. **T1's audit**
-  (`docs/audits/2026_10_24-epic-m6-os-launch-control-state/` at
-  `d3aa6a19c5`): `runemu.sh`'s standalone arms and F-24 (the kill target),
-  the `001-functions` writer of `.process-kill-data`, and
+  (`docs/audits/2026_10_23-epic-m6-os-launch-control-state/` at
+  `d3aa6a19c5`): `runemu.sh`'s standalone arms and the `001-functions` writer
+  of `.process-kill-data` (T1 has no kill-target finding; that lead is T3's
+  PL-010), and
   `tools/emulator-exit-test`'s scope (it drives RetroArch only on
   2026-10-24: `grep -o retroarch tools/emulator-exit-test` finds it, no
   standalone name appears -- the harness gap § 5 names).
+- **A lead the brief's own commands surface:** the metapackage's
+  `add_emu_core atarist hatarisa hatarisa` with the generic arm's
+  `start_${CORE%-*}.sh` resolves to `start_hatarisa.sh`, while the recipe
+  installs `start_hatari.sh` (the GENERIC_X64 and H700 trees carry
+  `start_hatari.sh`); upstream's `2e7041d273` renames it -- a Q1 row,
+  `class 1` if the base merge takes the rename, read first and its launch
+  on the guest proven either way.
 - **`docs/reviews/build-path-read.md`** (#644): none of its 26 findings is
   this slice's; say so.
-- `docs/blindspot-register.md` whole once, then **8** (an assertion that
-  holds only because nothing had happened yet: a kill target that works
-  because the emulator has never been exited by hotkey on that device),
+- `docs/blindspot-register.md` whole once, then **8** (synthetic-fixture
+  testing: a homebrew title standing in for a commercial one is this shape,
+  with blindspot 65's rule that the tick says so), `engineering-practices.md`'s
+  sentence that an assertion holding only because nothing had happened yet is
+  the one to distrust (a kill target that works because the emulator has
+  never been exited by hotkey on that device),
   **22** (a probe that cannot report absence), **46**, **65** (a substitute
   input passing where the real one fails: a homebrew ROM is not a
   commercial one), **74**, **75**.
@@ -331,9 +369,9 @@ with a launch-path lens; Q6 is reachability per device.
 
 | # | Question, for this slice | Evidence |
 | --- | --- | --- |
-| Q1 Modernize | A start script written against a mechanism the tree has retired: a path under `/storage` the save layout moved (D-CLOUD rows; `dolphin-save-paths` is the fork's own answer), a setting key the interface renamed (the `testunofficial` spelling `cheevos_*.sh` still reads *before 2026-09*), a `jslisten`/`gptokeyb` call the quirks replaced, a `${CORE%-*}` naming that a renamed recipe broke; a config shipped for a device the fork no longer builds (D-WORKFLOW-185: H700 and SM8550 ship; the other devices' configs are carried for the unshipped tables, T25's) | the retiring row or commit beside the line; the current mechanism's line |
+| Q1 Modernize | A start script written against a mechanism the tree has retired: a path under `/storage` the save layout moved (D-CLOUD rows; `dolphin-save-paths` is the fork's own answer), a setting key the interface renamed (the `testunofficial` spelling `cheevos_*.sh` reads as its pre-2026-09 fallback -- which upstream's `f8844ab04e` now *adds*, so this is a seam to read against the interface's current key, not a retirement), a `jslisten`/`gptokeyb` call the quirks replaced, a `${CORE%-*}` naming that a renamed recipe broke; a config shipped for a device the fork no longer builds (D-WORKFLOW-185: H700 and SM8550 ship; the other devices' configs are carried for the unshipped tables, T25's) | the retiring row or commit beside the line; the current mechanism's line |
 | Q2 Standards | `tools/pkgcheck` on all 47 recipes (late binding; T3's S1 found it catches global-scope `PKG_BUILD`); `bash -n` on the 55 shell files, shellcheck not runnable on the host (recorded); the fork's header kept on the thirteen changed recipes; `PKG_SHA256` present per `case` branch (D-WORKFLOW-193) | the commands and their counts |
-| Q3 Bugs | **The exit sweep:** for each of the 35, the name written to `/tmp/.process-kill-data` (by `001-functions`' caller in `runemu.sh` or the start script) against the binary's process name in the install tree (`comm` on the guest for the nine it ships) -- F-24's class; **the shell-line sweep (#825's class):** every start script and cheevos script that builds a command, a config line or a file name from `${ROMNAME}`, a game's title, or a server's answer, with the quoting read (a ROM named `$(…).iso` is a player's file; a title is the set's text); a script that writes the player's RetroAchievements credentials into a config with the wrong mode or logs them (`LOG_FILE=/var/log/cheevos.log`: what goes in it?); a start script whose failure leaves the player on a black screen with no return to the interface; a config that points at a BIOS or a path that does not exist on the device; `duckstation-sa`'s AppImage strip override and its `install -m 0755` into `/usr/bin` | the artifact: the install tree's binary name, the guest's `comm`, a fixture under `.qa-scratch/t30/` that feeds a crafted name, the script's own log; every finding a `bug` with its VM line |
+| Q3 Bugs | **The exit sweep:** for each of the 35, the name written to `/tmp/.process-kill-data` (by `001-functions`' caller in `runemu.sh` or the start script) against the binary's process name in the install tree (`comm` on the guest for the nine it ships) -- PL-010's class; **the shell-line sweep (#825's class):** every start script and cheevos script that builds a command, a config line or a file name from `${ROMNAME}`, a game's title, or a server's answer, with the quoting read (a ROM named `$(…).iso` is a player's file; a title is the set's text); a script that writes the player's RetroAchievements credentials into a config with the wrong mode or logs them (`LOG_FILE=/var/log/cheevos.log`: what goes in it?); a start script whose failure leaves the player on a black screen with no return to the interface; a config that points at a BIOS or a path that does not exist on the device; `duckstation-sa`'s AppImage strip override and its `install -m 0755` into `/usr/bin` | the artifact: the install tree's binary name, the guest's `comm`, a fixture under `.qa-scratch/t30/` that feeds a crafted name, the script's own log; every finding a `bug` with its VM line |
 | Q4 Currency | Two tiers as T3's: **behind-upstream** (the thirteen fork-own recipes against `upstream/next`'s, and every upstream commit since the base on `standalone/`, each `to merge`, `superseded` or `conflicts`) is actionable; **behind-project** (each of the 35 pins against its project's default branch head and release, through `q4-pins.py` for the GitHub hashes and tags, by hand for the release assets, the two moving tarballs and the fork-sourced `mednafen`) is informational, with a disposition per row: bump proposed (#842's shape, the coordinator files), kept with the reason in the recipe (D-WORKFLOW-024), or no project (`pico-8`, `heroic`, `mupen64plus-sa`'s meta) | the two tables with no empty cell (T3's rule); `q4-pins.json`/`.md`; `q4a-dispositions.md` |
 | Q5 Efficiency | **Time to play for the standalone emulators the guest ships**: `tools/time-to-play` measures interface → first frame and game → game for RetroArch; for the nine standalones, the launch's own wall time from `runemu.sh`'s start to the emulator's first frame (the guest's screen) and from the exit hotkey to the interface, measured once each where free content exists (§ 5), reported beside T1's and T3's numbers; what a start script does before `exec` (a `sleep`, a config rewrite on every launch, a `find` over `/storage/roms`) is the cost to name; the configs' size against what the emulator reads | the measurements with their method; a `Renovation` item per avoidable step on the launch path |
 | Q6 Dead ends | Per device: which of the 35 each shipped device gets (the metapackage's arms) and which the GENERIC_X64 image ships (nine); a start script no arm names (`start_heroic_*` on which devices? `start_steam_x86.sh` on an aarch64-only set?); a per-device config directory for a device no table builds (T25's rows: named, not removed here); a cheevos script for an emulator that has no RetroAchievements support in its pinned version; `aethersx2-sa` whole (deleted upstream: every row of its 60-odd files is `deferred: base merge, class 1`, read for what the deletion leaves on a device -- its saves and configs under `/storage`, `Already written:`) | the reachability table: one row per recipe (35) with its devices, its start scripts, its configs per device, and the guest's yes/no; per-file rows only where a file's reach differs from its recipe's |
@@ -360,7 +398,7 @@ floor):
 2. Mechanical evidence outranks reading: `pkgcheck`, `bash -n`, the install
    tree's `ls`, the guest's `comm`, a measured launch.
 3. **Run it on a device, not on the host: the GENERIC_X64 guest for the
-   nine standalone emulators it ships, with free content**; the H700 and
+   thirteen standalone emulators it carries, with free content**; the H700 and
    SM8550 install trees (read only, from the M7 roots) for the rest's
    presence and names; a fixture for a script's quoting. A claim about a
    launch the guest cannot make (an aarch64-only emulator, a commercial
@@ -372,16 +410,21 @@ floor):
 5. Subagent output is a lead; fan-out is read-only research only.
 
 **What runs on the VM, and how.** Can this be done on the VM? **Yes, for
-the nine standalone emulators the GENERIC_X64 image ships and for every
-script's quoting; no for the twenty-six it does not ship** (aarch64-only
+the thirteen standalone emulators the GENERIC_X64 image carries and for every
+script's quoting; no for the twenty-two it does not** (aarch64-only
 builds, or absent from the x86_64 image), whose presence and names are read
 from the H700 and SM8550 install trees and whose launch is an open item to
 test (D-QA-051). **Free content for the guest:** ScummVM's freeware games
 (the project's own downloads), EmuTOS for `hatarisa` (free TOS
 replacement), a homebrew `.pbp` for `ppsspp`, a homebrew N64 ROM for
-`mupen64plus`, a homebrew `.dol` for `dolphin`; `duckstation-sa` needs a
-PlayStation BIOS and `flycast` a Dreamcast one (the open items), `hypseus`
-laserdisc content, `moonlight` a streaming host -- each a row saying so.
+`mupen64plus`, a homebrew `.dol` for `dolphin`, Freedoom for `gzdoom`, a free
+game pack for `OpenBOR`, a free demo for `vice`; `duckstation-sa` needs a
+PlayStation BIOS and `flycast` a Dreamcast one, `hypseus` laserdisc content,
+`touchHLE` an iOS app and `pico-8` the player's own binary (the open items)
+-- each a row saying so. **The three install trees are the M7 candidate's
+builds** (their `usr/lib/os-release` names the BUILD_ID), not `8ebaf8daad`'s:
+every `image-set` row says so, and a recipe that differs between the two
+trees is a caveat on the row.
 Nothing in this slice touches a handheld, a person's cloud, a shared QA
 backend or a guest another lane owns.
 
@@ -402,13 +445,19 @@ backend or a guest another lane owns.
   P=projects/ROCKNIX/packages/emulators/standalone
   cd "$D"; mkdir -p .qa-scratch/t30 /workspace/tmp/m6-t30
   for r in $(git ls-tree -r --name-only 8ebaf8daad -- $P | grep 'package.mk$'); do d=$(dirname $r); n=$(basename $d); tools/pkgcheck "$n" >/dev/null 2>&1; echo "$? $n"; done | sort | uniq -c | sort -rn | head        # Q2: pkgcheck over the 47 recipes (a name that is a sub-recipe directory is checked by its own name)
-  for f in $(git ls-tree -r --name-only 8ebaf8daad -- $P | grep '\.sh$'); do bash -n ".qa-scratch/t30/at-hash/$f" 2>/dev/null && echo ok || echo "FAIL $f"; done | sort | uniq -c    # Q2: bash -n over the 55 shell files
-  for r in $(git ls-tree -r --name-only 8ebaf8daad -- $P | grep 'package.mk$'); do n=$(grep -c 'PKG_SHA256=' ".qa-scratch/t30/at-hash/$r"); u=$(grep -c 'PKG_URL=' ".qa-scratch/t30/at-hash/$r"); echo "$u urls $n sha256 $r"; done | grep -v '^0 urls' | awk '$1 > $3' | head   # D-WORKFLOW-193: a URL branch without a checksum (none expected after T5's E6 count; the per-branch read decides)
+  python3 -I - <<'PY' > .qa-scratch/t30/shell.txt
+import json
+inv = json.load(open("docs/reviews/inventory.json")); cols = inv["columns"]
+for r in (dict(zip(cols, x)) for x in inv["rows"]):
+    if r["tree"] == "distribution" and r["path"].startswith("projects/ROCKNIX/packages/emulators/standalone/") and r["language"] == "shell": print(r["path"])
+PY
+  while IFS= read -r f; do bash -n ".qa-scratch/t30/at-hash/$f" 2>/dev/null && echo ok || echo "FAIL $f"; done < .qa-scratch/t30/shell.txt | sort | uniq -c    # Q2: bash -n over the inventory's 55 shell files (52 end in .sh, three do not); a word-splitting loop fails `Start Duckstation.sh` by its space
+  for r in $(git ls-tree -r --name-only 8ebaf8daad -- $P | grep 'package.mk$'); do n=$(grep -c 'PKG_SHA256=' ".qa-scratch/t30/at-hash/$r"); u=$(grep -c 'PKG_URL=' ".qa-scratch/t30/at-hash/$r"); echo "$u urls $n sha256 $r"; done | grep -v '^0 urls' | awk '$1 > $3' | head   # D-WORKFLOW-193: 16 lines on 2026-10-24 -- fourteen `.git` URLs (pinned by commit, no checksum by design) and the two empty-URL metapackages; an archive URL without PKG_SHA256 would be the finding, and the per-branch read finds none
   git grep -n -F '.process-kill-data' 8ebaf8daad -- projects/ROCKNIX/packages/rocknix/profile.d/001-functions projects/ROCKNIX/packages/rocknix/sources/scripts/runemu.sh $P | head   # who writes the kill name; then, per emulator, the name against the install tree's binary
   R=/workspace/repos/rocknix.worktrees/m7-signin-build-20261022-07/build.pixelelated-GENERIC_X64.x86_64/image/system; H=/workspace/repos/rocknix.worktrees/m7-signin-h700-build-20261023-06/build.pixelelated-H700.aarch64/image/system; S=/workspace/repos/rocknix.worktrees/m7-signin-sm8550-build-20261023-03/build.pixelelated-SM8550.aarch64/image/system
   for t in "$R" "$H" "$S"; do echo "== $t"; ls "$t/usr/bin" | grep -E '^start_.*\.sh$' | tr '\n' ' '; echo; done   # image-set: the start scripts each image carries (read only; the roots are M7's)
-  grep -n -E 'eval|\$\(|`' .qa-scratch/t30/at-hash/$P/*/scripts/*.sh | grep -i -E 'ROMNAME|title|name|game' | head -20    # #825's class: a command or a line built from a name; each hit is read, not graded by the grep
-  grep -n -E 'LOG_FILE|>>|tee' .qa-scratch/t30/at-hash/$P/*/scripts/cheevos_*.sh | head                                          # what the cheevos scripts log; never print the values a setting holds
+  find .qa-scratch/t30/at-hash/$P -name '*.sh' -print0 | xargs -0 grep -n -E 'eval|\$\(|`' | grep -i -E 'ROMNAME|title|name|game' | head -20    # #825's class: a command or a line built from a name; each hit is read, not graded by the grep
+  find .qa-scratch/t30/at-hash/$P -name 'cheevos_*.sh' -print0 | xargs -0 grep -n -E 'LOG_FILE|>>|tee' | head                                          # what the cheevos scripts log; never print the values a setting holds
   git log --oneline 8ebaf8daad..upstream/next -- $P | cat                                                                        # upstream's commits since the base on the membership: each a q4a row
   git diff --stat upstream/next 8ebaf8daad -- $P | tail -1                                                                       # how far the fork's standalone/ is from upstream's today
   ```
@@ -453,7 +502,7 @@ All in the worktree, committed on its branch with messages that cite `#677`
 | --- | --- | --- | --- |
 | Running log | `docs/audits/<yyyy_mm_dd>-epic-m6-emulators-standalone/00-running-log.md` | the skill's flight recorder: the model and effort, `reviewed-at` with `8ebaf8daad` beside it, every command with its exit status and time (from `date -u`, never typed), each stage's entry; **every guest check that stands as a proof on a line that begins `GUEST-PROOF:`** (criterion 12's token) and every host proof on `PROOF:`; each stage-B session's last line records `git status --short -- projects/ROCKNIX/packages/emulators/standalone` empty | A onward |
 | Research notes | `.../01-research-notes.md` | § Scope: the 543 re-derived with § 2's filter and its output, the 35 recipes, the thirteen fork-own `package.mk`, the branch's deltas (none expected); § Phase 1: T3's and T1's leads named with their dispositions, #644's none, the metapackage's device arms as a table (device × recipe) | A, B |
-| Forward audit | `.../02-forward-audit.md` | Phase 2 over #677's checklist, plus **a coverage table with one row per path** (543; the first cell the path in backticks so ``grep -c -E '^\| `projects/ROCKNIX/packages/emulators/standalone/' 02-forward-audit.md`` prints 543, generated by T3's `coverage-table.py` adapted; Q1 to Q7 each answered or `n/a` with a reason); § Mechanical checks (every check of § 5); § The leads (T3's three, T1's F-24 class, #825's class per script); § Proofs with a `proved:` cell each | B onward |
+| Forward audit | `.../02-forward-audit.md` | Phase 2 over #677's checklist, plus **a coverage table with one row per path** (543; the first cell the path in backticks so ``grep -c -E '^\| `projects/ROCKNIX/packages/emulators/standalone/' 02-forward-audit.md`` prints 543, generated by T3's `coverage-table.py` adapted; Q1 to Q7 each answered or `n/a` with a reason); § Mechanical checks (every check of § 5); § The leads (T3's three, T3's PL-010 class, #825's class per script); § Proofs with a `proved:` cell each | B onward |
 | Retrospective | `.../03-retrospective.md` | Phase 3 with § 3.5 for the seams: start scripts x `runemu.sh`'s arms x `input_sense`'s kill; cheevos scripts x the offline proxy's rows x #825; configs x the save layout (#520) x the cloud sync; `duckstation-sa` x S2's `psx` default on GENERIC_X64; the futro's predictions checked | B |
 | Analysis | `.../04-analysis.md` | Phase 4, § Finding Verification (4.5), **§ Second opinion** (4.6: both seats' probes and refutations graded item by item with the artifact that decided each, as T3's), **§ Renovation face** Q1 to Q7 (Q4's two tables, Q6's reachability table, Q5's measurements) | B, C |
 | Second opinions | `.../second-opinions/` | `review-plan.json` (extended; `gpt` and `gemini-argon`), the briefs, the probe prompts, each output with its `.provenance.json` beside it | C |
@@ -523,8 +572,9 @@ a post that asks nothing**.
   lane and may take 195); it goes at the end of `## Decided`.
 - `tools/ceremony-check` before every push; what another lane owes is noted,
   not paid. Never `--no-verify`. Conflict markers checked (#696); ledgers
-  united by whole entries. **A commit names its paths**; **a tree export
-  goes under `/workspace/tmp/m6-t30/` after `df -i`**; **a regeneration or
+  united by whole entries. **A commit names its paths**; **a whole-tree export or a simulated merge
+  goes under `/workspace/tmp/m6-t30/` after `df -i`** (the at-hash export of
+  `standalone/` alone, 623 files, fits under `.qa-scratch/t30/`); **a regeneration or
   a fixture sets its own environment** (`env -i`, the C locale), as T3's
   `s2-regen-check.sh` does; **a stub or a fixture is part of the claim**
   (its call count and the bound file's hash printed before the verdict,

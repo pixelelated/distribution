@@ -470,3 +470,18 @@ stated (RetroArch) with the hand method for standalones; A4 the grading
 rule for upstream-carried configs (*kept: upstream's* unless a defect). The
 stranger's proof of the brief runs beside this addendum; version 2 records
 both.
+
+### Errata to the T30 addendum (after the stranger's proof)
+
+The addendum said the GENERIC_X64 image ships nine of the 35 with
+`moonlight` among them: it carries **thirteen** (twelve binaries and
+`pico-8`'s script), and `moonlight` is `packages/apps/moonlight`, not a
+member. It called the kill-target lead *T1's F-24*: T1's F-24 is the shared
+`log()`'s unbounded append, and the lead is **T3's PL-010** (`Start
+RPCS3.sh`, fixed upstream by `eeb33c5a37`, which also edits this slice's
+`start_mupen64plus.sh`). The directory holds 623 files, the slice 543: the
+80 patches are T42's and T43's. `q4-pins.py` hardcodes `libretro/` and is
+copied and edited, not parameterised. A lead the proof surfaced and the
+addendum missed: `start_hatarisa.sh` is what the generic arm asks for and
+`start_hatari.sh` is what the recipe installs, renamed upstream by
+`2e7041d273`.
