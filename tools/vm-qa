@@ -106,9 +106,19 @@ fi
 # and the only one `up` is written around; --guest b exists because two
 # sessions share this host and the walks suite is the one that can run
 # anywhere -- it needs a monitor socket and a guest to reboot, nothing else.
-# Use the same run-owned key that vm-pair injects into the guests.
-KEY="${VM_PAIR_DIR:-/tmp/rocknix-vm-pair}/qa-key"
-RUNTIME="${VM_QEMU_RUNTIME_DIR:-/tmp}"
+# Use the same run-owned key that vm-pair injects into the guests. The host
+# state belongs to this checkout (D-INFRA-031): the pair's directory, the
+# runtime directory vm-pair resolves the same way, and the QA cloud's state,
+# each honoured when set and exported so every tool this run starts agrees.
+export VM_PAIR_DIR="${VM_PAIR_DIR:-$ROOT/.qa-scratch/vm-pair}"
+if [ -z "${VM_QEMU_RUNTIME_DIR:-}" ]; then
+  if [ -s "$VM_PAIR_DIR/RUNTIME" ]; then VM_QEMU_RUNTIME_DIR=$(head -1 "$VM_PAIR_DIR/RUNTIME")
+  else VM_QEMU_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/tmp}/pixelelated-vm-$(printf '%s' "$ROOT" | sha256sum | cut -c1-8)"; fi
+fi
+export VM_QEMU_RUNTIME_DIR
+export CLOUD_QA_STATE="${CLOUD_QA_STATE:-$ROOT/.qa-scratch/cloud-qa}"
+KEY="$VM_PAIR_DIR/qa-key"
+RUNTIME="$VM_QEMU_RUNTIME_DIR"
 # The ssh options every suite here runs with. Declared, not inherited: the
 # pair-identity suite used $SSHO without this line and passed for a night
 # because the shell that started the runner had it set; started under a
@@ -133,6 +143,26 @@ ART="${ROCKNIX_ARTIFACTS:-/workspace/artifacts}/rocknix-images"
 mkdir -p "$ART" 2>/dev/null && probe=$(mktemp "$ART/.vm-qa-write-XXXXXX" 2>/dev/null) && rm -f "$probe" \
   || { echo "vm-qa: the report root $ART cannot be written" >&2; exit 1; }
 export CLOUD_QA_BACKEND="$BACKEND"
+# The backend's port is fixed per backend, not per state, so another
+# checkout's server on it would answer this run's walks -- and they reset and
+# seed what they talk to (D-INFRA-031). A holder whose command line does not
+# name this run's CLOUD_QA_STATE is a refusal naming it.
+backend_port=$("$ROOT/tools/cloud-test-backend" port 2>/dev/null) || backend_port=""
+[ -n "$backend_port" ] || { echo "vm-qa: the $BACKEND QA backend names no port" >&2; exit 1; }
+if command -v ss >/dev/null; then
+  holder=$(ss -ltnpH "sport = :$backend_port" 2>/dev/null)
+  if [ -n "$holder" ]; then
+    holder_pid=$(printf '%s\n' "$holder" | grep -o 'pid=[0-9]*' | head -1 | cut -d= -f2)
+    if [ -z "$holder_pid" ] || ! tr '\0' ' ' < "/proc/$holder_pid/cmdline" 2>/dev/null | grep -qF -- "$CLOUD_QA_STATE"; then
+      who="a process this user cannot see"
+      [ -n "$holder_pid" ] && who="pid $holder_pid ($(tr '\0' '\n' < "/proc/$holder_pid/cmdline" 2>/dev/null | head -1 | xargs -r basename))"
+      echo "vm-qa: port $backend_port is held by $who, not this checkout's QA cloud ($CLOUD_QA_STATE); refusing" >&2
+      exit 1
+    fi
+  fi
+else
+  echo "vm-qa: no ss on this host, so the backend's port cannot be checked" >&2; exit 1
+fi
 "$ROOT/tools/cloud-test-backend" up >/dev/null 2>&1 || { echo "vm-qa: the $BACKEND QA cloud backend did not come up" >&2; exit 1; }
 # The pair this run brings up is the pair it judges (#969). down's status is
 # read before bring-up -- a failure there may have left a guest running, and
@@ -205,6 +235,10 @@ done
 mkdir -p "$OUT/walks" || { echo "vm-qa: cannot create $OUT/walks" >&2; exit 1; }
 REPORT="$OUT/report.md"
 : > "$REPORT" || { echo "vm-qa: cannot write $REPORT" >&2; exit 1; }
+# The run's scratch files under this checkout, never /tmp (D-INFRA-031): every
+# mktemp here and in the tools this run starts lands in the run's own directory.
+export TMPDIR="$ROOT/.qa-scratch/vm-qa-tmp/$(basename "$OUT")"
+mkdir -p "$TMPDIR" || { echo "vm-qa: cannot create the run's scratch directory $TMPDIR" >&2; exit 1; }
 # The guest's display, read from its QEMU's own command line (#291): hardware GL through virgl on a host
 # render node, or the software path. The renderer the guest's Mesa then reports is read at the end, from
 # the launch log the exit suite leaves, so a guest that fell back to softpipe says so on its report.
@@ -233,7 +267,7 @@ es_suite() {  # name, log, command... -- run only on the source the image pins
   local head=${ES_HEAD:0:10} pin=${ES_PIN:0:10}
   ROW_NOTE="(ES_SRC ${head:-?}, image pins ${pin:-unreadable})" run_suite "$name" "$log" es_skip
 }
-{ echo "# vm-qa on $BUILD"; echo; echo "started $(date -u '+%Y-%m-%d %H:%M UTC'), guest $GUEST at :$PORT, cloud $BACKEND (port $("$ROOT/tools/cloud-test-backend" port), $("$ROOT/tools/cloud-test-backend" caps)), image ${IMAGE:-(already up)}, display: $DISPLAY_MODE"; echo; echo "BUILD_ID $GUEST_ID -- the image names ${WANT:-nothing (already up)}"; echo; echo "$ES_LINE"; echo; echo "| suite | result | time | log |"; echo "| --- | --- | --- | --- |"; } > "$REPORT"
+{ echo "# vm-qa on $BUILD"; echo; echo "started $(date -u '+%Y-%m-%d %H:%M UTC'), guest $GUEST at :$PORT, cloud $BACKEND (port $("$ROOT/tools/cloud-test-backend" port), $("$ROOT/tools/cloud-test-backend" caps)), image ${IMAGE:-(already up)}, display: $DISPLAY_MODE"; echo; echo "BUILD_ID $GUEST_ID -- the image names ${WANT:-nothing (already up)}"; echo; echo "$ES_LINE"; echo; echo "paths: pair $VM_PAIR_DIR; runtime $VM_QEMU_RUNTIME_DIR; QA cloud $CLOUD_QA_STATE; scratch $TMPDIR; key $KEY -- and this report under the report root $ART, which stays where the record keeps every run"; echo; echo "| suite | result | time | log |"; echo "| --- | --- | --- | --- |"; } > "$REPORT"
 FAILS=0
 SKIPS=0  # a suite that could not run (rc 3) is shown as such, never folded into PASS
 run_suite() {  # name, log, command...

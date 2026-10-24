@@ -4,7 +4,7 @@
 #
 # time-to-play - the two numbers a player feels, measured on one VM guest.
 #
-#   tools/time-to-play --port 10025 --identity /tmp/rocknix-vm-pair/qa-key \
+#   tools/time-to-play --port 10025 --identity .qa-scratch/vm-pair/qa-key \
 #       --monitor /tmp/rocknix-qemu-monitor-c.sock --backend sftp \
 #       --repeat 5 --out /tmp/ttp
 #
@@ -155,7 +155,10 @@ class Guest:
 
     def __init__(self, host, port, key):
         self.host, self.port, self.key = host, str(port), key
-        self.cp = "/tmp/ttp-cm-%d" % os.getpid()
+        # The ssh master's socket under the user's runtime directory, never a
+        # fixed /tmp name (D-INFRA-031); a unix socket path is capped at 107 bytes.
+        self.cp = os.path.join(os.environ.get("XDG_RUNTIME_DIR") or tempfile.gettempdir(),
+                               "ttp-cm-%d" % os.getpid())
 
     def _opts(self, master=True):
         o = ["-o", "StrictHostKeyChecking=no", "-o", "UserKnownHostsFile=/dev/null",
@@ -987,7 +990,9 @@ def main():
         epilog=__doc__)
     ap.add_argument("--host", default="root@127.0.0.1")
     ap.add_argument("--port", default="10022", help="the guest's forwarded SSH port")
-    ap.add_argument("--identity", default="/tmp/rocknix-vm-pair/qa-key")
+    # vm-pair's key, where vm-pair keeps it for this checkout (D-INFRA-031).
+    pair_dir = os.environ.get("VM_PAIR_DIR") or os.path.join(os.path.dirname(HERE), ".qa-scratch", "vm-pair")
+    ap.add_argument("--identity", default=os.path.join(pair_dir, "qa-key"))
     ap.add_argument("--monitor", required=True, help="the guest's QEMU monitor socket")
     ap.add_argument("--backend", default=os.environ.get("CLOUD_QA_BACKEND", "webdav"),
                     help="which QA cloud the guest's remote points at")

@@ -4,7 +4,7 @@
 #
 # emulator-exit-test - the exit hotkey ends a game once, cleanly, with the save written.
 #
-#   ./tools/emulator-exit-test --port 10022 --identity /tmp/rocknix-vm-pair/qa-key [--vm] [--only BC]
+#   ./tools/emulator-exit-test --port 10022 --identity .qa-scratch/vm-pair/qa-key [--vm] [--only BC]
 #
 # Why this exists. The exit hotkey (A+B+C on a handheld) sends SIGTERM to the
 # emulator through input_sense's execute_kill. RetroArch ends cleanly on the

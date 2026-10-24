@@ -574,6 +574,27 @@ def port_held_refused(c):
         reap_fixtures(set(pids) | set(fixture_pids(c.dir)))
 
 
+@case
+def no_tmp_writes(c):
+    import time
+    executable(c.bin / 'mktemp', MKTEMP_DOUBLE)
+    marker = time.time()
+    vmqa = c.tool('vm-qa')
+    c.walks()
+    # A guest with no remote and no saved state, so the runner seeds one: its mktemp is the write in question.
+    c.rows([('test -s /storage/.config/rclone/rclone.conf', 1, ''), ('cloud_remote active', 0, ''),
+            ('os-release', 0, f'"{GUEST_ID}"'), ('boot_id', 0, '@count')])
+    c.run([str(vmqa), '--skip-up', '--only', 'walks', '--walk', WALK], drop=DEFAULTS, XDG_RUNTIME_DIR=c.dir / 'xdg', VMHT_CASE=c.dir)
+    made = [l.split(' ', 1)[1] for l in c.calls('mktemp ')]
+    keys = sorted({a for l in c.calls('') for a in l.split() if a.endswith('/qa-key')})
+    fixed_names = ('rocknix-vm-pair', 'rocknix-qemu', 'ttp-cm-', 'ra-offline-', 'vm-qa-')
+    found = [str(p) for p in Path('/tmp').iterdir() if p.name.startswith(fixed_names)
+             and p.stat().st_mtime >= marker and p.owner() == Path.home().owner()] if Path('/tmp').is_dir() else []
+    in_tmp = [m for m in made if m.startswith('/tmp/')] + [k for k in keys if k.startswith('/tmp/')] + found
+    ok = bool(made) and not in_tmp
+    return ok, f'{len(made)} temp files asked for, key {keys}, aimed at /tmp: {in_tmp[:3]} (want temp files and none aimed at /tmp)'
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')

@@ -5,8 +5,9 @@
 # ra-offline-test - the offline RetroAchievements scenario on a QA guest, end to
 # end, with a PASS/FAIL line per assertion (fork #166, D-RA-001/002/004).
 #
-#   ./tools/ra-offline-test --port 10026 --identity /tmp/rocknix-vm-pair/qa-key \
-#       --monitor /tmp/rocknix-qemu-monitor-d.sock --serial /tmp/rocknix-qemu-serial-d.sock
+#   ./tools/ra-offline-test --port 10026 --identity .qa-scratch/vm-pair/qa-key \
+#       --monitor "$RUNTIME"/rocknix-qemu-monitor-d.sock --serial "$RUNTIME"/rocknix-qemu-serial-d.sock
+#   (RUNTIME: what `tools/vm-pair info` prints; these are the defaults)
 #   ./tools/ra-offline-test ... --control        # the toggle OFF: the same unlock is lost (#162)
 #   ./tools/ra-offline-test ... --game bobl      # this game, whatever the account holds
 #   ./tools/ra-offline-test ... --frames DIR     # frame exits and the reconnect send card (#465)
@@ -62,8 +63,14 @@
 # FAILs before anything runs -- a guard that cannot run has not passed.
 set -u
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-HOST=root@127.0.0.1; PORT=10026; KEY=/tmp/rocknix-vm-pair/qa-key
-MONITOR=/tmp/rocknix-qemu-monitor-d.sock; SERIAL=/tmp/rocknix-qemu-serial-d.sock
+# The key and guest d's sockets where vm-pair and vm-qa keep them for this
+# checkout (D-INFRA-031); each flag below still overrides.
+PAIR_DIR="${VM_PAIR_DIR:-$ROOT/.qa-scratch/vm-pair}"
+if [ -n "${VM_QEMU_RUNTIME_DIR:-}" ]; then RUNTIME=$VM_QEMU_RUNTIME_DIR
+elif [ -s "$PAIR_DIR/RUNTIME" ]; then RUNTIME=$(head -1 "$PAIR_DIR/RUNTIME")
+else RUNTIME="${XDG_RUNTIME_DIR:-/tmp}/pixelelated-vm-$(printf '%s' "$ROOT" | sha256sum | cut -c1-8)"; fi
+HOST=root@127.0.0.1; PORT=10026; KEY="$PAIR_DIR/qa-key"
+MONITOR="$RUNTIME/rocknix-qemu-monitor-d.sock"; SERIAL="$RUNTIME/rocknix-qemu-serial-d.sock"
 ROMS="${ROCKNIX_ARTIFACTS:-/workspace/artifacts}/rocknix-qa-roms"
 CONTROL=0; GAME=""; NETDEV=net0; FRAMES=""
 ACCOUNTS="${QA_ACCOUNTS:-$HOME/.ROCKNIX/qa-accounts}"
@@ -256,11 +263,12 @@ cleanup() {
 # was there before (chain 90, 2026-09-29: the clear left the proofs after
 # this test starting one row off).
 ACCT_WAS=0; [ -n "$(S '. /etc/profile; get_setting global.retroachievements.username' 2>/dev/null)" ] && ACCT_WAS=1
-"$ROOT/tools/qa-accounts" "$PORT" ra > /tmp/ra-offline-acct.$$ 2>&1; rc=$?
+acct_out=$(mktemp) || { echo "FAILED -- no scratch file for the account step"; exit 1; }
+"$ROOT/tools/qa-accounts" "$PORT" ra > "$acct_out" 2>&1; rc=$?
 # qa-accounts prints names and never values (its contract), so its line is
 # masked for the account's name but not dropped by the value filter, which
 # would eat it on the word "password".
-check "$rc" "tools/qa-accounts $PORT ra: $(sed "s/${ACCOUNT}/<account>/g" /tmp/ra-offline-acct.$$ | head -1)"; rm -f /tmp/ra-offline-acct.$$
+check "$rc" "tools/qa-accounts $PORT ra: $(sed "s/${ACCOUNT}/<account>/g" "$acct_out" | head -1)"; rm -f "$acct_out"
 [ "$rc" = 0 ] || { echo; echo "FAILED ($FAILS) -- no account; nothing launched"; exit 1; }
 if [ "$CONTROL" = 1 ]; then
   S 'raofflineproxy-ctl disable' >/dev/null 2>&1
@@ -342,9 +350,10 @@ S 'rm -f /var/log/exec.log' >/dev/null 2>&1
 # -- a finished transfer page waiting on A or B, a dialog -- takes the
 # launch's 200 and launches nothing (2026-09-21, the same run as above).
 # vm-visual-qa's dismiss-dialogs presses B until the screen stops changing.
-printf 'dismiss-dialogs\nsettle\n' > /tmp/ra-offline-dismiss.steps
-"$ROOT/tools/vm-visual-qa" --monitor "$MONITOR" run /tmp/ra-offline-dismiss.steps --outdir /tmp >/dev/null 2>&1
-rm -f /tmp/ra-offline-dismiss.steps
+# Its steps and frames in a scratch directory of the run's (TMPDIR), never /tmp.
+dismiss_dir=$(mktemp -d) && printf 'dismiss-dialogs\nsettle\n' > "$dismiss_dir/dismiss.steps" \
+  && "$ROOT/tools/vm-visual-qa" --monitor "$MONITOR" run "$dismiss_dir/dismiss.steps" --outdir "$dismiss_dir" >/dev/null 2>&1
+[ -n "${dismiss_dir:-}" ] && rm -rf -- "$dismiss_dir"
 # And the interface idle. After a reboot with a copied ROM the hasher indexes
 # it, and HttpServerThread's /launch is refused while ThreadedHasher runs --
 # with a 200 and nothing launched (chain 90's run on 8dd6765af0, 2026-09-29:
