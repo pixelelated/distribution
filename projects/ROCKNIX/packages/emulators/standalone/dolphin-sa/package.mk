@@ -110,7 +110,9 @@ post_install() {
   # nogui is the default player, so its -p platform is Wayland everywhere.
   DOLPHIN_BACKEND="wayland"
 
-  for script in start_dolphin_{gc,wii}.sh; do
+  # dolphin_common.sh holds the steps both scripts share (#872 PL-023), so it
+  # carries placeholders too.
+  for script in start_dolphin_{gc,wii}.sh dolphin_common.sh; do
     sed -i \
         -e "s/@DOLPHIN_BACKEND@/${DOLPHIN_BACKEND}/g" \
         -e "s/@GRENDERER@/${GRENDERER}/g" \
