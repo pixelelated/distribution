@@ -27,8 +27,7 @@ if [ ! -f "/storage/.config/SkyEmu/SkyEmu.gptk" ]; then
 fi
 
 # Link  .config/dolphin-emu to .local
-rm -rf /storage/.local/share/Sky/SkyEmu
-ln -sf /storage/.config/SkyEmu /storage/.local/share/Sky/SkyEmu
+link_storage_dir /storage/.local/share/Sky/SkyEmu /storage/.config/SkyEmu
 
 # Retroachievements
 /usr/bin/cheevos_skyemu.sh
