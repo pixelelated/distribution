@@ -5,17 +5,21 @@
 command exactly once?
 
     tools/retroarch-wrapper-test [path/to/video_thread_wrapper.c] [--gated]
+    RETROARCH_SRC=<tree> tools/retroarch-wrapper-test
 
 It extracts send_packet, wait_reply, reply, send_and_wait_user_to_thread and
-the dequeue block of video_thread_loop VERBATIM from the file given (by
-default the H700 build root's), compiles them against small doubles --
+the dequeue block of video_thread_loop VERBATIM from the file given (or the
+one under RETROARCH_SRC, or a build root's), compiles them against small doubles --
 pthreads for slock/scond, a stub handle_packet carrying the real
 CUSTOM_COMMAND case -- and drives them: one thread posts a command whose data
 is a LOCAL, as every caller of video_thread_texture_handle does; another sets
 frame.updated, which wakes the loop in the window where cmd_data still holds
 the packet that has just completed.
 
-The method counts its calls. 2000 posts must produce exactly 2000 calls.
+Two call sites post in turn, each a different method reading its own local,
+and each site counts its own calls: 1000 posts from each must produce exactly
+1000 calls of each. One global count could not tell a site whose command ran
+twice from another whose command never ran (#996).
 
 Written after #211, where a doubled call dereferenced a returned stack frame
 and segfaulted RetroArch on a handheld -- four times over two weeks, once with
@@ -24,10 +28,14 @@ a core dump. Against the unfixed source it fails in seconds:
     as shipped:   posted 2000 command(s); the method ran 2017 time(s)  FAIL
     with 0015:    posted 2000 command(s); the method ran 2000 time(s)  PASS
 
-Exit 0 when every command ran once, 1 when any ran twice, 2 when the fixture
-could not be built -- a check that cannot run has not passed.
+(those two lines are from the single-site count before #996).
+
+Exit 0 when every command ran once at its own site, 1 when any ran twice or
+not at all, 2 when the fixture could not be built or no source was found --
+a check that cannot run has not passed. The scratch sources are removed on
+every exit.
 """
-import re, subprocess, sys, tempfile
+import atexit, re, shutil, signal, subprocess, sys, tempfile
 from pathlib import Path
 
 args = [a for a in sys.argv[1:] if not a.startswith("--")]
@@ -50,7 +58,9 @@ else:
         found += sorted(r.glob("gfx/video_thread_wrapper.c"))
     if not found:
         print("retroarch-wrapper-test: no video_thread_wrapper.c given and none under "
-              + ", ".join(str(r) for r in roots) + " (RETROARCH_SRC names another tree)", file=sys.stderr)
+              + ", ".join(str(r) for r in roots), file=sys.stderr)
+        print("usage: tools/retroarch-wrapper-test <video_thread_wrapper.c> [--gated], or "
+              "RETROARCH_SRC=<a tree holding gfx/video_thread_wrapper.c> tools/retroarch-wrapper-test", file=sys.stderr)
         sys.exit(2)
     src_path = found[0]
 print(f"retroarch-wrapper-test: source {src_path}")
@@ -108,20 +118,27 @@ typedef struct { slock_t *lock, *user_lock; scond_t *cond_cmd, *cond_thread;
    int send_cmd, reply_cmd; thread_packet_t cmd_data;
    struct { bool updated; } frame; } thread_video_t;
 
-static int g_calls = 0;
+static int g_calls[2] = { 0, 0 };
 static bool video_thread_handle_packet(thread_video_t *thr, const thread_packet_t *incoming);
 __SEND_PACKET__
 __WAIT_REPLY__
 __REPLY__
 __SEND_WAIT__
 
-/* The wrap the drivers post: reads the caller's stack object. */
+/* The wraps the drivers post: each reads its caller's stack object, and
+   each counts at its own site. */
 typedef struct { void *gl; void *payload; } gl3_texture_cmd_t;
 static uintptr_t_ texture_wrap(void *data)
 {
    gl3_texture_cmd_t *cmd = (gl3_texture_cmd_t*)data;
-   __sync_fetch_and_add(&g_calls, 1);
+   __sync_fetch_and_add(&g_calls[0], 1);
    return (uintptr_t_)(cmd->gl != NULL);   /* the read that faulted in #211 */
+}
+static uintptr_t_ unload_wrap(void *data)
+{
+   gl3_texture_cmd_t *cmd = (gl3_texture_cmd_t*)data;
+   __sync_fetch_and_add(&g_calls[1], 1);
+   return (uintptr_t_)(cmd->payload != NULL);
 }
 
 static bool video_thread_handle_packet(thread_video_t *thr, const thread_packet_t *incoming)
@@ -157,13 +174,13 @@ __DEQUEUE__
 }
 
 /* gl3_load_texture's shape: the cmd is a local, and the frame dies on return. */
-static void post_one(void)
+static void post_one(int site)
 {
    gl3_texture_cmd_t cmd;
    thread_packet_t pkt;
    cmd.gl = (void*)0x1; cmd.payload = (void*)0x2;
    pkt.type = CMD_CUSTOM_COMMAND;
-   pkt.data.custom_command.method = texture_wrap;
+   pkt.data.custom_command.method = site ? unload_wrap : texture_wrap;
    pkt.data.custom_command.data   = &cmd;
    video_thread_send_and_wait_user_to_thread(&g_thr, &pkt);
 }
@@ -193,15 +210,21 @@ int main(void)
    g_thr.lock = &l; g_thr.user_lock = &u; g_thr.cond_cmd = &c; g_thr.cond_thread = &t;
    pthread_create(&vt, NULL, video_thread, &g_thr);
    pthread_create(&ft, NULL, frame_thread, NULL);
-   for (int i = 0; i < posts; i++) post_one();
+   for (int i = 0; i < posts; i++) post_one(i % 2);
    g_stop = true;
    /* wake the dequeue's inner wait, which tests neither stop flag */
    slock_lock(g_thr.lock); g_thr.frame.updated = true;
    scond_signal(g_thr.cond_thread); slock_unlock(g_thr.lock);
    pthread_join(ft, NULL); pthread_join(vt, NULL);
-   printf("posted %d command(s); the method ran %d time(s)\n", posts, g_calls);
-   if (g_calls != posts) { printf("FAIL: a posted command was executed more than once\n"); return 1; }
-   printf("PASS: every command ran exactly once\n");
+   int bad = 0;
+   for (int s = 0; s < 2; s++)
+   {
+      int want = posts / 2;
+      printf("site %d posted %d command(s); its method ran %d time(s)\n", s, want, g_calls[s]);
+      if (g_calls[s] != want) bad = 1;
+   }
+   if (bad) { printf("FAIL: a posted command ran more than once or not at all at its site\n"); return 1; }
+   printf("PASS: every command ran exactly once at its own site\n");
    return 0;
 }
 """
@@ -210,11 +233,28 @@ harness = (harness.replace("__SEND_PACKET__", send_packet)
                   .replace("__REPLY__", reply)
                   .replace("__SEND_WAIT__", send_wait)
                   .replace("__DEQUEUE__", dequeue))
-out = Path(tempfile.mkdtemp()) / "t.c"
+# The scratch sources go on every exit: a normal one, a sys.exit, an
+# exception, and SIGTERM/SIGINT/SIGHUP (each turned into an exit so the
+# atexit handler runs). They were left behind in TMPDIR before #996.
+scratch = Path(tempfile.mkdtemp(prefix="retroarch-wrapper-test."))
+atexit.register(shutil.rmtree, scratch, True)
+for sig in (signal.SIGTERM, signal.SIGINT, signal.SIGHUP):
+    signal.signal(sig, lambda n, f: sys.exit(128 + n))
+out = scratch / "t.c"
 out.write_text(harness)
 exe = out.with_suffix("")
-cc = subprocess.run(["gcc", "-O1", "-g", "-fsanitize=address", "-fno-omit-frame-pointer",
-                     str(out), "-o", str(exe), "-lpthread"], capture_output=True, text=True)
+# A missing compiler is a fixture that could not be built (2), never the
+# "ran twice" code (1) a FileNotFoundError traceback used to exit with.
+gcc = shutil.which("gcc")
+if not gcc:
+    print("retroarch-wrapper-test: CANNOT -- no gcc on PATH to build the fixture", file=sys.stderr)
+    sys.exit(2)
+try:
+    cc = subprocess.run([gcc, "-O1", "-g", "-fsanitize=address", "-fno-omit-frame-pointer",
+                         str(out), "-o", str(exe), "-lpthread"], capture_output=True, text=True)
+except OSError as e:
+    print(f"retroarch-wrapper-test: CANNOT -- gcc could not be run: {e}", file=sys.stderr)
+    sys.exit(2)
 if cc.returncode:
     print(cc.stderr[-2500:]); sys.exit(2)
 env = {"ASAN_OPTIONS": "detect_stack_use_after_return=1:abort_on_error=0", "PATH": "/usr/bin:/bin"}
