@@ -15,8 +15,9 @@ if [ ! -d "${CONF_DIR}" ]; then
         cp -r "${SOURCE_DIR}" "${CONF_DIR}"
 fi
 
-#Copy Xemu config at script launch
-cp -r "${SOURCE_DIR}/${XEMU_INI}" "${CONF_DIR}/${XEMU_INI}"
+#Copy Xemu config when the player has none; a setting the player changed
+#is kept (it was overwritten every launch, #871)
+[ -f "${CONF_DIR}/${XEMU_INI}" ] || cp "${SOURCE_DIR}/${XEMU_INI}" "${CONF_DIR}/${XEMU_INI}"
 
 #Make xemu bios folder
 if [ ! -d "${BIOS_DIR}/bios" ]; then
