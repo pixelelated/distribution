@@ -2,6 +2,8 @@
 # Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)
 
 PKG_NAME="hatari-lr"
+# Pinned to 24e7bd744f on the project's hitari2014-mercurial branch, not main.
+# The reason is not recorded (#650 PL-027).
 PKG_VERSION="24e7bd744f24f20b464385f365a3850c269bd140"
 PKG_SHA256="f45c64793a082f1d5a33cb32560276cfd32945912c958066e422f819489817d8"
 PKG_LICENSE="GPL-2.0-or-later"
