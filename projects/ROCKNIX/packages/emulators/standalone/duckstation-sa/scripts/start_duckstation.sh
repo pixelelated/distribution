@@ -6,7 +6,7 @@
 # Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 
 . /etc/profile
-set_kill set "-9 AppRun.wrapped"
+set_kill set "-9 duckstation-qt"
 
 # Filesystem vars
 IMMUTABLE_CONF_DIR="/usr/config/duckstation"
