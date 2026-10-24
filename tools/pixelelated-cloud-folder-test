@@ -8,7 +8,8 @@ Those contracts were removed by #508. It cannot qualify current source, even
 with --ref. No fixture or cloud operation starts from this retired entrypoint.
 
 Current host coverage: tools/pixelelated-cloud-validator-test with a fresh
---output directory and package-pinned rclone 1.75.1 via --rclone.
+--output directory and, via --rclone, the rclone the package pins (the
+validator reads the recipe's version and refuses any other).
 Current target qualification also uses tools/vm-qa, tools/cloud-round-trip and
 the cloud-folder flow in docs/pixelelated/cloud-folder-flow-review.md.
 
