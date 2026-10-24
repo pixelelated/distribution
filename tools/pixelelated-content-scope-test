@@ -37,7 +37,10 @@ def main():
         return {str(p.relative_to(path)): hashlib.sha256(p.read_bytes()).hexdigest()
                 for p in path.rglob('*') if p.is_file()}
 
+    registered = []
+
     def case(name, run):
+        registered.append(name)
         if args.cases and name not in args.cases.split(','):
             return
         f = fixture.Fixture(args.output / name, args)
@@ -75,6 +78,9 @@ def main():
         fixture.require(not (f.path / 'storage/roms/gb/Outside.gb').exists(),
                         'account-root library restored')
         calls = (f.path / 'ctl/argv').read_text().splitlines()
+        # The selected library was read: absence is a finding about it, not a run that did nothing (#993).
+        fixture.require(any(line.startswith('lsf ') and 'qa:/Chosen/Library' in line for line in calls),
+                        'the selected library was never listed')
         for line in calls:
             if line.startswith(('lsf ', 'copy ', 'sync ')):
                 fixture.require('qa:/Chosen/Library' in line,
@@ -108,7 +114,7 @@ def main():
             text = shim.read_text()
             text = text.replace("printf '%s\\n' \"$*\" >> /ctl/argv",
                                 "printf '%s\\n' \"$*\" >> /ctl/argv\n"
-                                "if [ \"$1\" = lsf ]; then echo '99|gb/Partial.gb'; exit 3; fi")
+                                "if [ \"$1\" = lsf ]; then printf '%s\\n' \"$*\" >> /ctl/fault-fired; echo '99|gb/Partial.gb'; exit 3; fi")
             # Verify fault installation rather than a vacuous error case.
             fixture.require('Partial.gb' in text, 'could not install partial-list fault')
             shim.write_text(text)
@@ -118,6 +124,10 @@ def main():
         fixture.require(r.returncode != 0, 'provider failure looked like success: ' + r.stdout)
         fixture.require(not any(p.name.endswith('.gb') for p in (f.path/'storage/roms').rglob('*')),
                         'failure caused an unintended restore')
+        # The injected failure is what failed the run, not something before it (#993).
+        fired = f.path/'ctl/fault-fired'
+        fixture.require(fired.exists() and any(l.startswith('lsf ') for l in fired.read_text().splitlines()),
+                        'the injected listing failure never fired')
         calls = (f.path/'ctl/argv').read_text()
         fixture.require(not any(line.startswith(('copy ', 'sync ')) for line in calls.splitlines()),
                         'failed discovery started a transfer')
@@ -129,9 +139,9 @@ def main():
     def traversal(f):
         r = f.run('cloud_content_restore', '../gb')
         fixture.require(r.returncode != 0, 'relative traversal accepted')
-        calls = (f.path/'ctl/argv').read_text()
-        fixture.require(not any(line.startswith(('copy ', 'sync ')) for line in calls.splitlines()),
-                        'traversal started transfer')
+        # The refusal comes before any provider call: its sentence, and rclone never run (#993).
+        fixture.require("That system folder name can't be used" in r.stdout, 'traversal refused for another reason: ' + r.stdout[-300:])
+        fixture.require(not (f.path/'ctl/argv').exists(), 'traversal reached the provider')
     case('system-traversal-refused', traversal)
 
     def scan_binding(f):
@@ -219,9 +229,9 @@ def main():
         f.conf(content='../Other')
         r = f.run('cloud_content_restore', '--list')
         fixture.require(r.returncode != 0, 'traversing content pointer accepted')
-        calls = (f.path/'ctl/argv').read_text()
-        fixture.require(not any(line.startswith(('lsf ', 'copy ', 'sync ')) for line in calls.splitlines()),
-                        'traversing pointer read a cloud folder')
+        fixture.require("YOUR CLOUD SYNC SETTINGS COULDN'T BE READ" in r.stdout,
+                        'traversing pointer refused for another reason: ' + r.stdout[-300:])
+        fixture.require(not (f.path/'ctl/argv').exists(), 'traversing pointer reached the provider')
 
     case('content-pointer-traversal-refused', pointer_traversal)
 
@@ -247,6 +257,10 @@ def main():
                'rclone_sha256': hashlib.sha256(Path(args.rclone).read_bytes()).hexdigest(),
                'results': results}
     (args.output/'result.json').write_text(json.dumps(receipt, indent=2)+'\n')
+    unknown = sorted(set(args.cases.split(',')) - set(registered)) if args.cases else []
+    if unknown:
+        print('FAIL unknown --cases: ' + ', '.join(repr(n) for n in unknown), flush=True)
+        return 2
     if not results:
         raise RuntimeError('No selected controls ran')
     return int(any(row['result'] != 'PASS' for row in results))
