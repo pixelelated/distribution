@@ -494,7 +494,7 @@ Fix shapes, two layers:
 - in this slice, parse the JSON with the `python3 -I` the script already runs (`json.loads`), removing the dependency on `grep -P`;
 - in the grep recipe (another slice, routed through the coordinator), `PKG_DEPENDS_TARGET+=" pcre2"` and `--enable-perl-regexp`, so a build without it fails rather than drops the feature.
 
-**Severity High** (a Tools entry that cannot complete on a built device). `Already written:` a failed run leaves FEX, the runtime and the client installed under `/storage`, and a later successful run reuses them through the script's own state checks (`steam_client_state`'s "existing" branch, 2292 to 2294). Read both, nothing to migrate.
+**Severity High** (a Tools entry that cannot complete on a built device). **Tracked as #806** (the coordinator, 2026-10-24): the recipe layer is T22's (#669), and this slice's script layer stays `deferred:M7-merge` referencing #806. `Already written:` a failed run leaves FEX, the runtime and the client installed under `/storage`, and a later successful run reuses them through the script's own state checks (`steam_client_state`'s "existing" branch, 2292 to 2294). Read both, nothing to migrate.
 
 ### F-20 (Q2, security): network data reaches `eval`
 
@@ -985,3 +985,7 @@ Verdicts as the skill defines them. **OPEN (stage X)** means the criterion's art
 - a device;
 - the exit hotkey end to end (T1's);
 - the load-state hotkey after 0018 (#249).
+
+### F-24 (Q3): on SM8550 the exit hotkey's kill target for RPCS3 names a process that never runs
+
+`virtual/emulators/sources/Start RPCS3.sh:27` registers `set_kill set "-9 rpcs3"`, and line 29 starts `/usr/bin/rpcs3-sa`. The SM8550 image carries the binary as `usr/bin/rpcs3-sa` and no `rpcs3` (`ls` of the install tree). The exit hotkey kills the registered name (`set_kill`, T1's `001-functions`), so on SM8550 it targets a name no process has. Upstream's `eeb33c5a37` (2026-10-05, *"emulators: fix quit hotkey targets for RPCS3, AetherSX2 and mupen64plus"*) changes it to `rpcs3-sa`; it applies to `next` cleanly (Q4 (a) row 9). Whether the hotkey path then also matches by a pattern that would catch `rpcs3-sa` anyway is T1's `input_sense` reading, a lead not settled here. **Can this be done on the VM?** No: GENERIC_X64 carries no RPCS3. The artifact (the binary's name against the registered target) is host-readable. Severity Medium; `to merge` with the base merge (`eeb33c5a37`).
