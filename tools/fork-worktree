@@ -163,7 +163,7 @@ cmd_remove() {
         esac
     done
     [ -n "${wt}" ] || { echo "usage: fork-worktree remove <path> [--preserve <dir>] [--force]" >&2; exit 1; }
-    wt="$(cd "${wt}" 2>/dev/null && pwd)" || { echo "error: no such directory" >&2; exit 1; }
+    wt="$(cd "${wt}" 2>/dev/null && pwd -P)" || { echo "error: no such directory" >&2; exit 1; }
 
     # Refusing to delete the ground you are standing on: the shell's cwd would
     # vanish mid-command and every later step would fail for an unrelated-looking
@@ -186,21 +186,48 @@ cmd_remove() {
     fi
 
     if [ -n "${preserve}" ]; then
+        # Every move is checked before anything is removed: a failed move used
+        # to be ignored and the worktree forced away with the output still in
+        # it (T10 S4, #939). The destination may not lie inside the worktree,
+        # and an existing name in it is never overwritten.
         mkdir -p "${preserve}" || exit 1
+        local pdir; pdir="$(cd "${preserve}" && pwd -P)" || exit 1
+        case "${pdir}/" in
+            "${wt}"/*) echo "refusing: --preserve ${preserve} is inside ${wt}, which is about to be removed" >&2; exit 1 ;;
+        esac
         while IFS= read -r base; do
             [ -n "${base}" ] || continue
-            mv "${wt}/${base}" "${preserve}/${base}" && echo "  preserved: ${base} -> ${preserve}/"
+            if [ -e "${pdir}/${base}" ] || [ -L "${pdir}/${base}" ]; then
+                echo "refusing: ${pdir}/${base} already exists; nothing was removed (move it aside, or choose another --preserve)" >&2; exit 1
+            fi
+            if ! mv -T "${wt}/${base}" "${pdir}/${base}"; then
+                echo "refusing: could not move ${wt}/${base} to ${pdir}/; nothing was removed" >&2; exit 1
+            fi
+            echo "  preserved: ${base} -> ${pdir}/"
         done <<< "${art}"
+        art="$(artifacts_in "${wt}")"
+        [ -z "${art}" ] || { echo "refusing: build output is still in ${wt} after the moves; nothing was removed" >&2; exit 1; }
     elif [ -n "${art}" ]; then
         echo "  destroying build output as instructed:"; printf '%s\n' "${art}" | sed 's/^/    /'
     fi
 
+    # git's own refusal of uncommitted or untracked files is a second guard,
+    # given --force only when the user gave it (D-WORKFLOW-201, #940; the
+    # unconditional --force since bcf03f7338 had no recorded reason, against
+    # blindspot 15). Ignored files alone do not stop git, which is why the
+    # build-output refusal above always runs first.
+    local gforce=()
     if [ "${force}" -eq 1 ]; then
         prepare_forced_removal "${wt}" || exit 1
+        gforce=(--force)
     fi
-    git worktree remove --force "${wt}"
+    git -C "${ROOT}" worktree remove "${gforce[@]}" "${wt}"
     local rc=$?
 
+    if [ "${rc}" -ne 0 ] && git -C "${ROOT}" worktree list --porcelain | awk '/^worktree /{sub(/^worktree /, ""); print}' | grep -qxF "${wt}"; then
+        echo "refusing: git kept ${wt} (uncommitted or untracked files); commit or stash them, or remove with --force to destroy them" >&2
+        exit "${rc}"
+    fi
     # git can unregister and still leave the directory. Say so plainly rather
     # than letting a non-zero exit disappear into a loop.
     if [ -d "${wt}" ]; then
