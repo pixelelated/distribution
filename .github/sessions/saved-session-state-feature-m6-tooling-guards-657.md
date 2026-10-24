@@ -41,14 +41,13 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#657` (prose through a quoted heredoc or the Write
-tool). The suites run in this worktree only; `.qa-scratch/` is gitignored
-and `git status --short` is read before every `git add -A`. The two seats'
-four calls and the read-only `gh run`/`gh api` reads are the only network
-beyond GitHub's issue API; `box-check` reads every open issue, so the API
-budget is read before and after it.
+**Stage A done (2026-10-24 16:3x UTC); stage B (the read) next.** The audit folder is `docs/audits/2026_10_24-epic-m6-tooling-guards/`, and `00-running-log.md` holds Phase 0 and stage A with every suite's exit. `01-research-notes.md` § Scope holds the 31 paths at the two hashes, the provenance and the deltas. `reviewed-at` is `a82d784216`. The leads for stage B, in order:
+- the two from T4 and the #905 row on #657;
+- `box-check --limit 300` against 458 open issues;
+- `generate-changelog.sh`, which is two upstream commits behind;
+- `forbidden-terms-check`'s scanned count, which is never compared with the listed count.
+
+The read trees are `.qa-scratch/t10/at-hash/` and `.qa-scratch/t10/at-p1/`; the baseline outputs are under `/workspace/tmp/m6-t10/baseline/`.
 
 ## Next commands
 
