@@ -37,14 +37,15 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#654`. No runtime of any kind is needed: no guest, no
-compiler, no container; the network reads are the GitHub API (the contents
-API for LibreELEC master, `compare` for the hash pins), the hosts
-`tools/fork-package-freshness` reads, and one HEAD probe per `PKG_URL`. The
-host is M6's (M7's return at 05:42 on the coordination file); this slice
-does not touch it beyond those reads.
+**Stage A done (10:14 UTC); stage B next.** The scope re-derived equal to the
+brief (266 paths, 7,612 lines, 243 recipes; 13 / 3 / 227 by git); the
+branch differs from `8ebaf8daad` on none of the 266; `reviewed-at` is
+`4ea87f17dd`. The audit folder is
+`docs/audits/2026_10_24-epic-m6-generic-packages-reached/` (`00`, `01`
+§ Scope). Next: the rules the work touches read, the tools read whole
+(`fork-package-freshness`, `update_packages`, `update-pkg`, `pkgcheck`,
+`viewplan`), then § 5's loops (a), (b), (c), the fetch sweep, the stamps,
+the checksum count, the two `pkgcheck` runs and the record.
 
 ## Next commands
 
