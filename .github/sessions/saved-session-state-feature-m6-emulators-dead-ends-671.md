@@ -1,7 +1,7 @@
 # Session pointer: M6.P2 T24, emulator recipes and files no shipped image builds (#671)
 
 > **Seeded:** 2026-10-24 by the coordinator (Fable 5.1, lane `m6-coordinator`, D-WORKFLOW-189); the executor updates this file at every checkpoint
-> **Branch:** `feature/m6-emulators-dead-ends-671`, stacked on `feature/m6-p1-survey-641` at `2174265e9c` (which carries the P0 branch); the coordinator's tip merged in at `77141a45c7`
+> **Branch:** `feature/m6-emulators-dead-ends-671`, stacked on `feature/m6-p1-survey-641` at `2174265e9c` (which carries the P0 branch); the coordinator's tip `c25d772b21` merged in at `8fd13c3133` (whose work-log index carried conflict markers until the next commit; nothing else in it was touched)
 > **Worktree:** `/workspace/repos/pixelelated/distribution.worktrees/m6-emulators-dead-ends-671`; the T3 and T30 worktrees beside it (`m6-emulators-libretro-650`, `m6-emulators-standalone-677`) are this session's earlier slices, accepted and idle until their merges: nothing is written there
 > **Primary checkout:** `/workspace/repos/pixelelated/distribution` on `next` (D-INFRA-025); the legacy `/workspace/repos/rocknix` and every `rocknix.worktrees/*` are the M7 lane's: read only, no process started there, `ls` of their `build/` directories is the one read this slice makes
 > **Repository:** `pixelelated/distribution`; every `gh` call carries `--repo pixelelated/distribution`
