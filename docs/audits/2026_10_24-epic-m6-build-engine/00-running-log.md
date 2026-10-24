@@ -118,3 +118,8 @@ PROOF: 04:11-04:31 P13 `get_git`'s cache check accepts `PKG_VERSION` matching a 
 
 - `second-opinions/gpt-brief.md` and `gemini-argon-brief.md` (242,776 and 242,802 bytes): the same packet, a three-part instruction (own findings, refute the Mediums and Highs, what could not be judged), `02` to `04`, `q6-tables.md`, and the code at each finding's site from `8ebaf8daad` (16 excerpts). Neither carries the other's output. No credential-shaped value line (a pattern search, and the pre-commit scan on this commit). The two probe prompts (one line each).
 - **Not sent:** the `npm install --prefix tools/council`, `verify-pins`, `test`, the probes and the two refutation calls wait for the host window's return line relayed on #652 (brief § 1, § 5). Until then Phase 5 is not final and no issue is filed.
+
+### [Stage C] 04:37 — `05-punch-list.md` drafted (before Phase 4.6)
+
+- 22 items from `tools/punch-items.py` (2 High, 7 Medium, 13 Low), every one with its question, `Already written:`, the VM line and an acceptance an agent can check; nine marked for `bug` issues at stage D, seven deferred to a named issue (#651 T4, #657 T10, #652 the coordinator's), eight #585 candidates. **Draft:** the reviewers' grades come first, and nothing is filed before them.
+- `tools/lint-audit-artifacts ... --phase pre-issue`: **1 contract failure**, the review plan's call evidence (no provenance file until Phase 4.6 runs). Everything else `ok`.

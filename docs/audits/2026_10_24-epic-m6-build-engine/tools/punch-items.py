@@ -1,0 +1,107 @@
+#!/usr/bin/env python3
+"""05-punch-list.md from one list (#652): the items, the punch_index and the Phase 7 table.
+    python3 -I punch-items.py > 05-punch-list.md
+"""
+I = [
+ dict(t="`scripts/mkimage` reports success over an incomplete `qcom-abl` or `arm-efi` image", sev="High", cat="Code Quality", q="Q3", f="F-16", area="image assembly: the disk image writer",
+  what="Guard the four copies in the `arm-efi` and `qcom-abl` branches with `>\"${SAVE_ERROR}\" 2>&1 || show_error` as every other branch does; check `pigz` the same way; end with the status of the work (`exit 0` only after the checksum is written), not `cleanup`'s.",
+  where="`scripts/mkimage:252-255,270-273,324,333-334`", ev="the read of every `mcopy` site (`02` F-16); `projects/ROCKNIX/devices/SM8550/options:34` (`qcom-abl`)",
+  vm="No: GENERIC_X64 is `syslinux`; a sandbox of the branch with `mtools` and a too-small FAT image shows the refusal, and the SM8550 build proves the image (fix-pending-image)",
+  aw="nothing on devices to migrate: an incomplete image either failed to boot or was never flashed; whether any SM8550 image in the record was incomplete is not checked here (its `SYSTEM` size against the FAT partition would say)", acc="A sandboxed run of `scripts/mkimage`'s `qcom-abl` branch over a FAT image too small for `SYSTEM` exits non-zero and prints `image: An error has occurred...`; the next SM8550 build's `target/` holds its image and sidecar with `build.rc` 0.", tracked=True, upstream=True),
+ dict(t="`scripts/get_git` accepts a cached clone whose `HEAD` is not `PKG_VERSION`", sev="High", cat="Code Quality", q="Q3", f="F-18", area="the source fetch: git sources",
+  what="In `_repo_exists_and_valid`, compare `git rev-parse HEAD` with `PKG_VERSION` (full hash, or the prefix the recipe gives) instead of `git ls-remote . | grep`; on a mismatch fall through to the re-clone (or `git reset --hard` after a fetch).",
+  where="`scripts/get_git:36,198`", ev="P13 (`tools/sb-get-git-head.sh`)",
+  vm="No: a fetch on the build host; `tools/sb-get-git-head.sh` is the agent-verifiable artifact (fix-sandbox), the first build after the merge the image proof",
+  aw="source caches under `sources/` and `/workspace/cache/rocknix-sources` may hold clones whose `HEAD` is not their recipe's pin; the fixed check finds each at the next fetch and re-clones it; images already built from a stale clone are corrected by their next build", acc="`tools/sb-get-git-head.sh` run against the fixed check prints `refused` for `PKG_VERSION=A` with `HEAD` at B, and `accepted` for `PKG_VERSION=B`.", tracked=True, upstream=True),
+ dict(t="`scripts/get_env` keeps secret-shaped names `DROP` misses, and a value with a newline writes lines of its own into `.env`", sev="Medium", cat="Security", q="Q3", f="F-01, F-02", area="the container's environment: `get_env`",
+  what="Match `DROP` case-insensitively, add `PASS`, `PASSPHRASE`, `COOKIE`, `SESSION` and fused `*TOKEN`/`*KEY` names, keep `KEEP` as is; skip (and name on stderr) any variable whose value contains a newline. The `get_env` comment says what is and is not filtered, including #644 finding 3's two guide variables.",
+  where="`scripts/get_env:2-21`; `Makefile:205-208`", ev="P1 (`tools/sb-get-env.sh`)",
+  vm="No: the build host's shell and docker; `tools/sb-get-env.sh` is the artifact (fix-sandbox); a Docker build after the merge shows nothing the build needs was dropped (fix-pending-image)",
+  aw="nothing at rest: `.env` is removed when each container exits and none exists in any of the 134 checkouts (`02` § Mechanical checks); nothing to migrate", acc="`tools/sb-get-env.sh` prints none of `DB_PASS`, `SSHPASS`, `DOCKERHUBTOKEN`, `github_token`, `MY_PASSPHRASE`, `SESSION_COOKIE`, `MULTILINE` or a bare `OTHER_TOKEN` line, and still prints `PROJECT`, `DEVICE`, `ARCH` and `SCREENSCRAPER_DEV_LOGIN`.", tracked=True),
+ dict(t="`add_es_system` carries one system's fragment into the next: `daphne` and `gp32` ship the wrong year, and a system appended after `imageviewer` would launch nothing", sev="Medium", cat="Code Quality", q="Q3", f="F-03", area="the launch table: `add_es_system`",
+  what="Unset the ten `SYSTEM_*` keys and `SYSTEM_COMMAND` at the top of `add_es_system`; give `config/emulators/daphne.conf` and `gp32.conf` their `SYSTEM_RELEASE` (1983, 2001) and `arcade.conf`, `segamodel3.conf` their `SYSTEM_WIKI_PATH`.",
+  where="`distributions/ROCKNIX/config/functions:127-142`; `config/emulators/{daphne,gp32,arcade,segamodel3}.conf`", ev="P6, P7",
+  vm="Yes: the host regeneration (`tools/regen-es-systems.sh`) shows the table; the guest shows the year in the system view after the build (fix-pending-image for the two shipped lines)",
+  aw="every image built carries `release=\"1996\"` for both systems; the table is regenerated at each image and nothing on a device stores it, so the next image corrects it; nothing to migrate", acc="The regeneration for all five devices gives `daphne` `1983` and `gp32` `2001`, and the case C fixture (`tools/sb-es-cases.sh`) gives the appended system the default `runemu.sh` command; every other line of the five tables is unchanged.", tracked=True, upstream=True),
+ dict(t="The launch table's one-default rule stops a build silently on two `true` lines and ships two defaults when a `false` core comes first", sev="Medium", cat="Code Quality", q="Q3", f="F-04", area="the launch table: the default core",
+  what="Mark only the core just added (`.../cores/core[last()]`); let `mk_es_systems` print `xmlstarlet fo`'s error and fail by name.",
+  where="`distributions/ROCKNIX/config/functions:113,209-215`", ev="P4, P5 (T3's F-06 cases rerun)",
+  vm="Yes: the host regeneration (fix-sandbox); the shipped tables are byte-identical before and after",
+  aw="nothing: no shipped table has either shape (T3's five tables)", acc="Case A fails with a message naming the duplicate attribute, case B ships one default (`b2`), and the five devices' regenerated tables are byte-identical to today's.", tracked=True, upstream=True),
+ dict(t="`build_distro` prunes the device's outputs before `scripts/image`, so an identity's bytes can be replaced on the documented route", sev="Medium", cat="Interaction Defect", q="Q3", f="F-09", area="the identity: `build_distro` x `scripts/image`",
+  what="Refuse in `build_distro`, before the prune, when `BUILD_TIMESTAMP` is set and `target/` already holds an output of that identity; or prune only outputs of another timestamp. The stream brief chooses.",
+  where="`scripts/build_distro:82-84`; `scripts/image:78-82`", ev="the trace in `02` F-09; three M7 `target/` directories",
+  vm="No: a device build on the host; a sandbox of `build_distro`'s prune and the image's refusal over a fixture `target/` (fix-sandbox), then a rebuild with a frozen timestamp (fix-pending-image)",
+  aw="candidates live in the immutable store, which `build_distro` never touches; a `target/` replaced in the past is not detectable now; nothing to migrate", acc="With `BUILD_TIMESTAMP` set and a matching output in a fixture `target/`, the sandboxed `build_distro` prune-and-image sequence refuses and leaves the existing files byte-identical.", tracked=True),
+ dict(t="A device-level file that `find_file_path` reads is outside the stamp: a device's firmware list can change without a rebuild", sev="Medium", cat="Code Quality", q="Q3", f="F-17", area="the stamp: `calculate_stamp` x `find_file_path`",
+  what="List `devices/${DEVICE}/config` (the files the recipe reads) in `kernel-firmware`'s `PKG_NEED_UNPACK` (T8's recipe); the engine-wide option (hash what `find_file_path` returned) is the stream brief's to weigh.",
+  where="`config/functions:1109-1129,1188-1191`; `projects/ROCKNIX/packages/linux-firmware/kernel-firmware/package.mk:10,39`", ev="P12 (`tools/sb-stamp-device-config.sh`)",
+  vm="No: a build's stamp; `tools/sb-stamp-device-config.sh` is the artifact (fix-sandbox)",
+  aw="nothing on devices: no device's firmware list has changed since the base (`git log` empty); a build root built before a future edit would keep its old firmware set, which the fix forces to rebuild", acc="`tools/sb-stamp-device-config.sh` with the recipe's fixed `PKG_NEED_UNPACK` prints that the stamp moved.", tracked=True),
+ dict(t="Archives are fetched without TLS verification and accepted unhashed when a recipe has no `PKG_SHA256`", sev="Medium", cat="Security", q="Q3", f="F-19", area="the source fetch: archives",
+  what="Drop `--no-check-certificate`; refuse (or warn loudly, the stream brief's choice) an archive with no `PKG_SHA256`; fix `update_packages` to write the new checksum rather than delete the old one.",
+  where="`scripts/get_archive:25,45`; `scripts/update_packages:50-61`", ev="the read in `02` F-19",
+  vm="No: a download on the build host; a sandbox of `get_archive`'s acceptance over a fixture with an empty `PKG_SHA256` (fix-sandbox); a full build after the merge shows every source still fetches (fix-pending-image)",
+  aw="`sources/` holds archives accepted unverified; their bytes are not re-checked by the fix unless their recipe gains a checksum (T7's and T8's count of recipes without one); nothing to migrate", acc="A sandboxed `get_archive` with an empty `PKG_SHA256` refuses (or prints the chosen warning), and its `wget` line carries no `--no-check-certificate`.", tracked=True, upstream=True),
+ dict(t="`scripts/checkdeps` changes the build host: the default compiler and `/nix`, with `sudo`, on every entry", sev="Medium", cat="Code Quality", q="Q2", f="F-20", area="host preparation: `checkdeps`",
+  what="Report what is needed and stop, or act only under an explicit opt-in variable; never switch `update-alternatives` or create `/nix` unasked.",
+  where="`scripts/checkdeps:296-309,324-345`", ev="the read in `02` F-20",
+  vm="No: the build host; a sandbox with `sudo` and `update-alternatives` shims on `PATH` records whether they are called (fix-sandbox)",
+  aw="on a Debian or Ubuntu host with gcc-12, an earlier run may already have set the default compiler; the fix does not undo it, and the owner is told in its message", acc="A sandboxed `checkdeps` with shimmed `sudo` and `update-alternatives` calls neither unless the opt-in is set.", tracked=True),
+ dict(t="`device-builds.md` § After rebasing items 2 and 3 describe defects fixed in August", sev="Low", cat="Documentation Gap", q="Q7", f="F-05", area="doctrine: `device-builds.md`",
+  what="Rewrite both items as history: fixed in `5ce3dcc9d7` and `cb884edb0f`, upstream since PR #3213; the manual steps apply to a root older than 2026-08-20.",
+  where="`.claude/rules/device-builds.md` § After rebasing, items 2 and 3", ev="P2; `config/functions:954-962,1109-1129`",
+  vm="n/a: a rule", aw="nothing", acc="The two items name the fixing commits and say when the manual steps still apply.", defer="#651"),
+ dict(t="`ORIGIN_URL` and `BUILD_FILENAME` are written for nobody", sev="Low", cat="Renovation", q="Q6", f="F-06", area="image assembly: dead writes",
+  what="Remove `scripts/image` 71 to 72 (the comment names consumers that do not exist); leave `BUILD_FILENAME` (upstream's, harmless) with a comment, or remove it in both writers under a stream brief.",
+  where="`scripts/image:71-72,84`; `scripts/build_compat:82`", ev="`git grep` over the tree, the workflows and `tools/`",
+  vm="n/a: a removal; `bash -n` and the identity test", aw="every build root holds a `BUILD_FILENAME` file nobody reads; it stays harmless", acc="`git grep -n ORIGIN_URL -- scripts` prints nothing, `bash -n scripts/image` passes, and `tools/build-identity-test` still reports 21 passed.", removal=True),
+ dict(t="`scripts/build_compat` keeps the naming `config/build-identity` replaced", sev="Low", cat="Renovation", q="Q7", f="F-07", area="image assembly: the compatibility root",
+  what="Remove `GIT_HASH`, `ORIGIN_URL` and the `CUSTOM_VERSION`/`CUSTOM_IMAGE_NAME` branches, or name the root from the identity; the stream brief chooses.",
+  where="`scripts/build_compat:56-82`", ev="the read in `02` F-07",
+  vm="n/a: shell; `bash -n`, shellcheck, and an H700 build's ARM root (fix-pending-image)", aw="nothing read: the root's `BUILD_FILENAME` only", acc="`shellcheck -f gcc scripts/build_compat` reports no SC2034, and `bash -n` passes.", removal=True),
+ dict(t="`scripts/unpack` 90 empties a package when two `name-version*` entries unpack", sev="Low", cat="Code Quality", q="Q3", f="F-08", area="the unpack step", what="Iterate the glob, or test for exactly one match, before the `mv`.",
+  where="`scripts/unpack:90-91`", ev="P8 (`tools/sb-unpack-glob.sh`)", vm="No: the build host; the sandbox (fix-sandbox)", aw="nothing", acc="`tools/sb-unpack-glob.sh` against the fixed test moves one directory with one match and refuses (by name) with two.", upstream=True),
+ dict(t="`update-kernel-configs-docs.yml` runs on the fork and fails every time", sev="Low", cat="Code Quality", q="Q6", f="F-10", area="the upstream workflows on the fork",
+  what="Gate it on the repository, as `build-nightly.yml` and `update-mirror-sources.yml` are, or disable it on the fork (T10's call).",
+  where="`.github/workflows/update-kernel-configs-docs.yml`", ev="`gh run list`: failure 2026-09-04, 09-19, 09-28", vm="n/a: GitHub", aw="nothing", acc="The next push to `next` touching the linux recipe starts no failing run of the workflow (`gh run list --workflow update-kernel-configs-docs.yml`).", defer="#657"),
+ dict(t="The build container's pin is 29 days behind upstream's image", sev="Low", cat="Renovation", q="Q4", f="F-11", area="the build container",
+  what="Refresh the mirror from upstream's current digest and move the `Makefile` line (the coordinator's act, #644 finding 1).",
+  where="`Makefile:138`", ev="`04` Q4 (b)", vm="n/a: a pin; the first build after the move proves it", aw="every image records its container in `BUILDER_VERSION`; nothing to migrate", acc="`Makefile`'s `DOCKER_IMAGE_DIGEST` names a mirror whose config `created` date is the refresh's, recorded on #652.", defer="#652"),
+ dict(t="`config/blocklist`, `build-nightly.yml` and the PR template are behind upstream", sev="Low", cat="Renovation", q="Q4", f="F-12", area="the base merge",
+  what="Take `c4d353449e`, `76693a738d` and `c200cc906d` with the next base merge.", where="`config/blocklist`; `.github/workflows/build-nightly.yml`; `.github/pull_request_template.md`", ev="`04` Q4 (a)",
+  vm="n/a: a merge", aw="nothing", acc="`git diff --stat upstream/next -- config/blocklist .github/workflows/build-nightly.yml .github/pull_request_template.md` is empty after the merge.", defer="#652"),
+ dict(t="The options file is mounted writable, and the local container `docker-image-build` makes is run by no target", sev="Low", cat="Code Quality", q="Q2", f="F-13", area="the container's mounts",
+  what="Mount `~/.ROCKNIX/options` `:ro`; say in the `Makefile` comment and `device-builds.md` that `docker-%` always runs the pin.", where="`Makefile:131-147,186-188`", ev="the read in `02` F-13",
+  vm="n/a: a mount; a Docker build after the merge (fix-pending-image)", aw="nothing", acc="`Makefile`'s `GLOBAL_SETTINGS` mount ends `:ro`.", ),
+ dict(t="Two options files a letter's case apart", sev="Low", cat="Documentation Gap", q="Q7", f="F-15", area="doctrine: build credentials",
+  what="Name `~/.rocknix/options` (the scripts') beside `~/.ROCKNIX/options` (the `Makefile`'s) in `device-builds.md` § Build credentials, with which route reads which, and #644 finding 3's two guide variables.",
+  where="`config/options:132-140`; `Makefile:1,147`; `.claude/rules/device-builds.md` § Build credentials", ev="`02` F-15", vm="n/a: a rule", aw="nothing", acc="§ Build credentials names both files and the route that reads each, and `LOCAL_SSH_KEYS_FILE` and `LOCAL_WIFI_KEY`.", defer="#651"),
+ dict(t="`build_distro`'s exit-status check after `make image` is dead under `set -e`", sev="Low", cat="Renovation", q="Q1", f="F-14", area="the device build", what="Drop the four lines.",
+  where="`scripts/build_distro:103-106`", ev="`build_distro:15` (`set -e`)", vm="n/a: shell; `bash -n`", aw="nothing", acc="`grep -c 'if \\[ \\$? -ne 0 \\]' scripts/build_distro` prints 0 and `bash -n` passes."),
+ dict(t="Small defects in upstream's helpers", sev="Low", cat="Code Quality", q="Q1", f="F-21", area="`config/functions` and `scripts/pkgbuild`",
+  what="`${3:-none}` and `${PKG_NAME:-exec}`; anchor `add_group`'s grep; `get_module_dir` refusing two module directories; `${fpkgname}` in `pkgbuild`.", where="`config/functions:201,208,1511,1694,1894,1897`; `scripts/pkgbuild:32`", ev="`02` F-21",
+  vm="n/a: shell; a sandbox of each helper (fix-sandbox)", aw="nothing", acc="`grep -n -E '\\$\\{[0-9A-Z_]+:(none|exec)\\}' config/functions` prints nothing and `add_group` adds `bar` when `foobar` exists in a fixture `group` file.", upstream=True),
+ dict(t="Measure the ccache settings against CI's at a real build", sev="Low", cat="Renovation", q="Q5", f="#644 finding 8", area="the compile cache",
+  what="At the first build after the merge, record `ccache --show-stats` for the build root before and after, and decide `CCACHE_COMPRESSLEVEL` and the sloppiness from it (LibreELEC #11890 as context).", where="`config/options:100-118`", ev="`04` Q5: not measured",
+  vm="n/a: a build", aw="nothing", acc="#652 carries the two statistics and the decision.", defer="#652"),
+ dict(t="`scripts/test-audit-review.py` is the code-auditor's test, filed in the build engine's area", sev="Low", cat="Renovation", q="Q6", f="Table 5", area="the inventory's areas",
+  what="Move it to `tooling-and-guards` in `areas.json` (the coordinator's), and consider running it in `fork-checks.yml` (T10's).", where="`docs/reviews/areas.json`; `scripts/test-audit-review.py`", ev="`q6-tables.md` Table 5",
+  vm="n/a: the inventory", aw="nothing", acc="`tools/renovation-inventory --no-write` classes `scripts/test-audit-review.py` as `tooling-and-guards`.", defer="#652"),
+]
+out = ["# Punch List — M6.P2 T5, the build engine", "", "**DRAFT, before Phase 4.6.** The two reviewers' passes wait for the host; their grades may add, re-grade or withdraw items. No issue is filed until they are graded (brief § 8). Generated by `tools/punch-items.py` from one list, so the items, the `punch_index` and the Phase 7 table agree. Upstream contribution candidates (#585) are marked; submissions are deferred (D-WORKFLOW-165).", "", "---", ""]
+idx = ["```yaml", "punch_index:"]
+gate = ["## Phase 7 resolution gate", "", "| Item | Outcome | Evidence |", "| --- | --- | --- |"]
+for n, x in enumerate(I, 1):
+    pl = f"PL-{n:02d}"
+    out += [f"## {pl}: {x['t']}", "", f"- **Severity:** {x['sev']}", f"- **Category:** {x['cat']}", f"- **Question:** {x['q']}", f"- **Source Finding:** {x['f']}", f"- **Owner area:** {x['area']}", f"- **What:** {x['what']}", f"- **Where:** {x['where']}", f"- **Evidence:** {x['ev']}", f"- **Can this be done on the VM?** {x['vm']}", f"- **Already written:** {x['aw']}", f"- **Acceptance:** {x['acc']}"]
+    if x.get("upstream"): out.append("- **Upstream:** a #585 candidate (D-WORKFLOW-164; submission deferred, D-WORKFLOW-165)")
+    if x.get("defer"): out.append(f"- **Disposition note:** deferred:{x['defer']} at Phase 7")
+    out.append("")
+    idx += [f"- id: {pl}", f"  severity: {x['sev']}", f"  category: {x['cat']}", f"  question: {x['q']}", f"  source_finding: \"{x['f']}\"", f"  owner_area: \"{x['area']}\""]
+    if x.get("tracked"): idx.append("  tracked: \"bug issue filed at stage D\"")
+    if x.get("removal"): idx.append("  removal: yes")
+    idx.append("  outcome: open")
+    gate.append(f"| {pl} | Open | stage D files the issue; stage E's stream brief resolves |")
+idx.append("```")
+print("\n".join(out + ["## Machine-readable index", ""] + idx + [""] + gate))
