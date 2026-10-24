@@ -384,18 +384,32 @@ def main():
     if args.cases:
         require(set(args.cases.split(',')) == {r['case'] for r in results}, 'unknown selected case')
     require(results, 'no cases selected')
+
+    def source_digests(args):
+        # The receipt names the files of the tree that ran: the ref's own list for a --ref, not today's (#1005).
+        if args.ref:
+            names = subprocess.check_output(['git', '-C', str(args.source_root), 'ls-tree', '--name-only',
+                                             args.ref + ':' + str(SOURCES)], text=True).split()
+            blob = lambda n: subprocess.check_output(['git', '-C', str(args.source_root), 'show',
+                                                      args.ref + ':' + str(SOURCES / n)])
+            return {n: hashlib.sha256(blob(n)).hexdigest() for n in names}
+        return {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
+                for p in (args.source_root/SOURCES).iterdir() if p.is_file()}
+
     summary = {'results': results, 'passed': sum(r['result'] == 'PASS' for r in results),
                'failed': sum(r['result'] == 'FAIL' for r in results),
                'source_root': str(args.source_root), 'source_ref': args.ref,
                'fixture_source_sha256': sources,
                'fixture_override': ['cloud_device_id'],
-               'source_sha256': {p.name: hashlib.sha256(subprocess.check_output(['git', '-C', str(args.source_root), 'show', args.ref+':'+str(SOURCES/p.name)]) if args.ref else p.read_bytes()).hexdigest() for p in (args.source_root/SOURCES).iterdir() if p.is_file()}, 'rclone_sha256': hashlib.sha256(Path(args.rclone).read_bytes()).hexdigest()}
+               'source_sha256': source_digests(args), 'rclone_sha256': hashlib.sha256(Path(args.rclone).read_bytes()).hexdigest()}
     if busybox:
         counts = {applet: 0 for applet in ('find', 'awk')}
         for log in args.output.glob('*/ctl/busybox-calls'):
             for applet in log.read_text().splitlines():
                 counts[applet] += 1
-        require(all(counts.values()), 'requested image applet was never invoked by the controls')
+        # Every applet is required of a full run; a selection is judged on its own cases, its counts recorded (#1005).
+        if not args.cases:
+            require(all(counts.values()), 'requested image applet was never invoked by the controls')
         summary['busybox'] = {'source': str(args.busybox),
                               'sha256': hashlib.sha256(busybox.read_bytes()).hexdigest(),
                               'invocations': counts,
