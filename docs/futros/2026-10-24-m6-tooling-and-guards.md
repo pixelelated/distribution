@@ -631,3 +631,76 @@ two of them are findings, not errata:
   now runs `--self-test` and names the condition for the other.
 - The stage-A greps' figures are now in the brief from the proof (`|| true`
   0; `assert` in two tools; 28 host-path lines in ten files).
+
+## Addendum: T15 at its kickoff (2026-10-24, from the brief `docs/reviews/briefs/tooling-last-good-test.md` version 1)
+
+**What we know and assume.** T15 is the area's fifth slice, **Independent**
+(one GPT-6 Astra seat), over **one path, `tools/last-good-scripts-test`:
+14,238 lines, 1,167,697 bytes, fork-own, shell, 408 fork commits since
+2026-09-10, none upstream** -- the order's deliberate exception to the
+8,000-to-12,000-line bound, because a test split across two sessions loses
+its fixtures' context. Thirty-four sections `a` to `ah`, 120 `check` call
+sites (a run counts about 1,300 to 1,400 checks), 85 `bwrap` sandboxes
+from `y` onward, `set -u` only, eight `|| true`. **Who runs it:** `vm-qa`'s
+`scripts` suite on every default run (13 of 33 minutes) and the release
+procedure's step 3 through it; by hand with `--old` for its five historical
+controls. **Its record this week:** the last PASS in a report is 2026-10-06
+(qa-18, 1,719 PASS lines, the image's BusyBox 1.36.1 from a build root);
+every run since from an M6 worktree resolved the host's 1.37.0 through
+`image_tool_source`'s silent fallback and FAILed 319 checks whatever its
+scratch (T12's three runs, Bug #1015; T14's run, 323 with two of its own
+and two of its contract's). T14's accepted fixes make the two writer tests
+this file calls refuse a busybox without provenance (#997), which this
+file's two call sites do not yet give. The lens is **brittleness**: what
+each section depends on that is not the thing it proves, what happens when
+it is absent, what it caught, who runs it, its positive.
+
+**Known unknowns.** U-1 the busybox split: of the 319 FAILs under the
+host's busybox, which are the host's applets (`flock` absent in 1.37.0;
+`tr`, `sed`, `stat` semantics) and which the tree's -- answered by two
+stage-A runs at the hash, one with `QA_SYSTEM_ROOT` on an M7 root and one
+without, and the diff of their verdict lines. U-2 the five `--old` recipes:
+does each still FAIL as the header promises, or has a control stopped
+controlling. U-3 the sandbox's host network (no `--unshare-net` in
+`sa_run`): does any sandboxed script reach the network. U-4 the `check $?`
+after compound tests and the `|| true` sites: which can pass on a failed
+read. U-5 the split: what a split of `y` (4,683 lines) and `z` (541) out of
+the file would cost in shared harness, and whether the order's invitation
+stands. U-6 the seat's packet: a 1.1 MiB file exceeds a comfortable input,
+so the packet is the harness, the helpers, the index, the call sites and
+the verdict plus Q3's suspect sections whole, and the seat asks for more.
+
+**Patterns.** Blindspot 34 (the host's `tr` is not the guest's), which is
+this file's founding lesson and whose fallback undoes it; T14's S8 (a
+busybox without provenance is CANNOT, or marked and exit 3); T12's
+`--only X` and `--repeat 0` shapes (a selection that runs nothing and
+passes); T10's five fail-open shapes and the `|| true` lesson; T9's #597
+fixture (a fixture copied from the current tool cannot see a regression --
+the `--old` recipes are this file's answer, if they still fire).
+
+**What could we be missing.** A fresh lane runs the suite as a shell
+background job and reads the SIGINT refusal (exit 2) as a defect: the
+brief names `setsid -w`. A lane runs it from the worktree with `TMPDIR`
+under the worktree and meets T12's seven `AF_UNIX path too long`: the brief
+puts `TMPDIR` under `/workspace/tmp/m6-t15/`. A lane edits a script the
+file proves because a check FAILs on the tree: the brief makes that a `bug`
+for the script's lane. A lane edits T14's tools from T14's worktree to make
+the call sites agree: the brief reads them from `7c1d729b57` and never
+writes there. A lane treats a run under the host's busybox as the suite's
+verdict: the brief keeps the two runs apart and names the banner line.
+Pre-mortem: a month on, the release procedure's step 3 reads `scripts PASS`
+from a box with no build root, under the host's applets, and the device's
+`flock` path is untested -- so S1 of this slice makes the fallback refuse
+or mark, and the call sites say their provenance. Replaced mechanism: none
+(a read).
+
+**Adjustments written into version 1 of the brief:** A1 § 1 names the two
+M7 roots with their BusyBox version and BUILD_ID as the read-only source
+for `QA_SYSTEM_ROOT`, and the host's 1.37.0 beside them; A2 § 5 runs the
+suite twice at stage A (image and host busybox) and diffs the verdicts;
+A3 § 5 runs each of the five `--old` recipes once; A4 § 7 makes the
+fallback's refusal or marking and the two call sites' provenance flags the
+slice's acceptance, not a coordinator edit; A5 § 1 sizes the seat's packet
+by excerpt and lets the seat ask for more; A6 § 8 forbids a shell
+background start and a worktree `TMPDIR` by name; A7 § 8 requires the
+session pointer at every checkpoint (#1014).
