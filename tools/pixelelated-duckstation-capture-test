@@ -363,7 +363,7 @@ def main():
             result={'error':str(error)}
         put(f.path/'installed-execution.json',json.dumps({'source_mode':oct(app.stat().st_mode & 0o777),
             'installed_mode':oct(installed.stat().st_mode & 0o777),'sha256':digest(payload),'execution':result,
-            'scope':'synthetic permission witness, not the AppImage runtime'},indent=2)+'\n')
+            'scope':'synthetic permission witness, not the AppImage runtime: it proves the installed 0755 mode and direct execution inside the case sandbox'},indent=2)+'\n')
         require(installed.stat().st_mode & 0o777 == 0o755,'installed AppImage is not executable0755')
         require(result.get('rc')==0 and 'synthetic-executable-permission-witness' in result.get('stdout',''),'installed direct execution failed')
         helper=f.path/'packagework/install/usr/bin/duckstation_screenshot_path'
