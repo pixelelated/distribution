@@ -4,7 +4,7 @@
 
 # Called once by image assembly. Export the frozen identity to package installs.
 pixelelated_build_identity() {
-  local number='(0|[1-9][0-9]*)' qualifier="${BUILD_QUALIFIER-dev}" actual_hash
+  local number='(0|[1-9][0-9]*)' qualifier="${BUILD_QUALIFIER-dev}" actual_hash tree_state
   [[ "${OS_VERSION}" =~ ^${number}\.${number}\.${number}$ ]] || {
     echo "build identity: OS_VERSION must be MAJOR.MINOR.PATCH" >&2; return 1;
   }
@@ -33,8 +33,12 @@ pixelelated_build_identity() {
   RELEASE_VERSION="${OS_VERSION}${qualifier:+-$qualifier}"
   BUILD_VERSION="${RELEASE_VERSION}+${BUILD_TIMESTAMP}.g${GIT_HASH:0:12}"
   # Local edits may be useful for development, but never look like a clean cut.
+  # A status that cannot be read is not a clean tree: refuse, as for rev-parse.
+  tree_state=$(git status --porcelain=v1 --untracked-files=normal) || {
+    echo "build identity: git status failed, so the tree's state is unknown" >&2; return 1;
+  }
   BUILD_DIRTY=no
-  if [[ -n "$(git status --porcelain=v1 --untracked-files=normal)" ]]; then
+  if [[ -n "${tree_state}" ]]; then
     BUILD_DIRTY=yes
     BUILD_VERSION+=.dirty
   fi
