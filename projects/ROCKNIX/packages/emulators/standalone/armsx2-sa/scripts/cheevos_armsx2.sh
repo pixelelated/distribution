@@ -26,60 +26,31 @@ encore=$(to_bool "${encore}")
 leaderboards=$(to_bool "${leaderboards}")
 unofficial=$(to_bool "${unofficial}")
 
-# Check if RetroAchievements are enabled in Emulation Station
-if [ ! ${enabled} = 1 ]; then
-    echo "RetroAchievements are not enabled, please turn them on in Emulation Station." > ${LOG_FILE}
-    sed -i '/\[Achievements\]/,/^\s*$/s/Enabled =.*/Enabled = false/' ${ARMSX2_CFG}
-    exit 1
-fi
-
-# Check if api token is present in system.cfg
-if [ -z "${token}" ]; then
-    echo "RetroAchievements token is empty, please log in with your RetroAchievements credentials in Emulation Station." > ${LOG_FILE}
-    exit 1
-fi
-
-# Update emulator config with RetroAchievements settings
-zcheevos=$(grep -Fx "[Achievements]" ${ARMSX2_CFG})
-datets=$(date +%s%N | cut -b1-13)
-
-if [ -z "${zcheevos}" ]; then
-    sed -i "\$a [Achievements]\nEnabled = true\nUsername = ${username}\nChallengeMode = ${hardcore}\nLoginTimestamp = ${datets}" ${ARMSX2_CFG}
-else
-    sed -i '/\[Achievements\]/,/^\s*$/s/Enabled =.*/Enabled = true/' ${ARMSX2_CFG}
-
-    if ! grep -q "^Username = " ${ARMSX2_CFG}; then
-        sed -i "/^\[Achievements\]/a Username = ${username}" ${ARMSX2_CFG}
-    else
-        sed -i "/^\[Achievements\]/,/^\[/{s/^Username = .*/Username = ${username}/;}" ${ARMSX2_CFG}
-    fi
-
-    if ! grep -q "^ChallengeMode = " ${ARMSX2_CFG}; then
-        sed -i "/^\[Achievements\]/a ChallengeMode = ${hardcore}" ${ARMSX2_CFG}
-    else
-        sed -i "/^\[Achievements\]/,/^\[/{s/^ChallengeMode = .*/ChallengeMode = ${hardcore}/;}" ${ARMSX2_CFG}
-    fi
-
-    if ! grep -q "^EncoreMode = " ${ARMSX2_CFG}; then
-        sed -i "/^\[Achievements\]/a EncoreMode = ${encore}" ${ARMSX2_CFG}
-    else
-        sed -i "/^\[Achievements\]/,/^\[/{s/^EncoreMode = .*/EncoreMode = ${encore}/;}" ${ARMSX2_CFG}
-    fi
-
-    if ! grep -q "^LeaderboardNotifications = " ${ARMSX2_CFG}; then
-        sed -i "/^\[Achievements\]/a LeaderboardNotifications = ${leaderboards}" ${ARMSX2_CFG}
-    else
-        sed -i "/^\[Achievements\]/,/^\[/{s/^LeaderboardNotifications = .*/LeaderboardNotifications = ${leaderboards}/;}" ${ARMSX2_CFG}
-    fi
-
-    if ! grep -q "^UnofficialTestMode = " ${ARMSX2_CFG}; then
-        sed -i "/^\[Achievements\]/a UnofficialTestMode = ${unofficial}" ${ARMSX2_CFG}
-    else
-        sed -i "/^\[Achievements\]/,/^\[/{s/^UnofficialTestMode = .*/UnofficialTestMode = ${unofficial}/;}" ${ARMSX2_CFG}
-    fi
-
-    sed -i "/^\[Achievements\]/,/^\[/{s/^LoginTimestamp = .*/LoginTimestamp = ${datets}/;}" ${ARMSX2_CFG}
-fi
+# Write [SECTION]'s keys as data: awk reads each value from the environment,
+# so no sign-in value reaches sed or the shell; every other key and section
+# is kept, the section ends at the next [header], and the file is replaced
+# only once the new one is written (temp and rename).
+write_section() { # file section key=value...
+  local file="$1" section="$2" pair keys="" tmp
+  local -a envs=()
+  shift 2
+  for pair in "$@"; do keys="${keys} ${pair%%=*}"; envs+=("V_${pair%%=*}=${pair#*=}"); done
+  [ -e "${file}" ] || : > "${file}" || return 1
+  tmp=$(umask 077; mktemp "${file}.XXXXXX") || return 1
+  if env "${envs[@]}" KEYS="${keys}" SECTION="[${section}]" awk '
+      BEGIN { n = split(ENVIRON["KEYS"], k, " "); for (i = 1; i <= n; i++) want[k[i]] = 1 }
+      function rest(   i) { for (i = 1; i <= n; i++) if (!done[k[i]]) { print k[i] " = " ENVIRON["V_" k[i]]; done[k[i]] = 1 } }
+      /^\[/ { if (insec) { rest(); insec = 0 } if ($0 == ENVIRON["SECTION"]) { insec = 1; seen = 1 } print; next }
+      insec { key = $0; sub(/[ \t]*=.*/, "", key); sub(/^[ \t]+/, "", key)
+              if (key in want) { if (!done[key]) print key " = " ENVIRON["V_" key]; done[key] = 1; next } }
+      { print }
+      END { if (insec) rest(); else if (!seen) { print ENVIRON["SECTION"]; rest() } }
+    ' "${file}" > "${tmp}" && mv -f "${tmp}" "${file}"; then
+    return 0
+  fi
+  rm -f "${tmp}"
+  return 1
+}
 
 # The token lives in secrets.ini, whatever PCSX2.ini holds (fork #170: testing
 # PCSX2.ini never matched, and a Token line was appended at every launch). One
@@ -102,30 +73,63 @@ fi
 # file with no section, or no lines, gains the section. To a temp file with
 # the owner's permissions only, then renamed over the old one, so a launch
 # killed part-way leaves the file as it was.
-mkdir -p "${ARMSX2_TOKEN%/*}"
-[ -e "${ARMSX2_TOKEN}" ] || : > "${ARMSX2_TOKEN}"
-ARMSX2_TOKEN_TMP="${ARMSX2_TOKEN}.tmp.$$"
-if ( umask 077; TOKEN="${token}" awk '
-    FNR == 1 { pass++; section = 0 }
-    /^\[/ { section = ($0 ~ /^\[Achievements\][[:space:]]*$/) }
-    pass == 1 { if (section && $0 !~ /^\[/ && $0 !~ /^Token[[:space:]]*=/) keep[++kept] = $0; next }
-    section {
-        if (!written && $0 ~ /^\[/) {
-            print "[Achievements]"; print "Token = " ENVIRON["TOKEN"]
-            for (i = 1; i <= kept; i++) print keep[i]
-            written = 1
-        }
-        next
-    }
-    { print }
-    END { if (!written) { print "[Achievements]"; print "Token = " ENVIRON["TOKEN"] } }
-' "${ARMSX2_TOKEN}" "${ARMSX2_TOKEN}" > "${ARMSX2_TOKEN_TMP}" ) && [ -s "${ARMSX2_TOKEN_TMP}" ] \
-    && mv -f "${ARMSX2_TOKEN_TMP}" "${ARMSX2_TOKEN}"; then
-    :
-else
-    # The rewrite, the check and the rename are one operation: whichever
-    # fails, the temp goes and secrets.ini is as it was (audit of the
-    # fixes, gpt G-F2-07: the rename sat outside this branch).
-    rm -f "${ARMSX2_TOKEN_TMP}"
-    echo "ARMSX2's secrets.ini could not be rewritten; its token was left as it was." >> ${LOG_FILE}
+write_token() { # token (empty clears it)
+  mkdir -p "${ARMSX2_TOKEN%/*}"
+  [ -e "${ARMSX2_TOKEN}" ] || : > "${ARMSX2_TOKEN}"
+  ARMSX2_TOKEN_TMP="${ARMSX2_TOKEN}.tmp.$$"
+  if ( umask 077; TOKEN="${1}" awk '
+      FNR == 1 { pass++; section = 0 }
+      /^\[/ { section = ($0 ~ /^\[Achievements\][[:space:]]*$/) }
+      pass == 1 { if (section && $0 !~ /^\[/ && $0 !~ /^Token[[:space:]]*=/) keep[++kept] = $0; next }
+      section {
+          if (!written && $0 ~ /^\[/) {
+              print "[Achievements]"; print "Token = " ENVIRON["TOKEN"]
+              for (i = 1; i <= kept; i++) print keep[i]
+              written = 1
+          }
+          next
+      }
+      { print }
+      END { if (!written) { print "[Achievements]"; print "Token = " ENVIRON["TOKEN"] } }
+  ' "${ARMSX2_TOKEN}" "${ARMSX2_TOKEN}" > "${ARMSX2_TOKEN_TMP}" ) && [ -s "${ARMSX2_TOKEN_TMP}" ] \
+      && mv -f "${ARMSX2_TOKEN_TMP}" "${ARMSX2_TOKEN}"; then
+      :
+  else
+      # The rewrite, the check and the rename are one operation: whichever
+      # fails, the temp goes and secrets.ini is as it was (audit of the
+      # fixes, gpt G-F2-07: the rename sat outside this branch).
+      rm -f "${ARMSX2_TOKEN_TMP}"
+      echo "ARMSX2's secrets.ini could not be rewritten; its token was left as it was." >> ${LOG_FILE}
+  fi
+}
+
+# Off, or on with no token: publish a disabled session -- the flag off, the
+# user and the token cleared -- so the previous account is not signed in (#861).
+publish_disabled() {
+  write_section "${ARMSX2_CFG}" Achievements "Enabled=false" "Username=" \
+    || echo "ARMSX2's achievements settings could not be written." >> ${LOG_FILE}
+  write_token ""
+}
+
+# Check if RetroAchievements are enabled in Emulation Station (quoted: an
+# empty read fell through as enabled, #870)
+if [ "${enabled}" != "1" ]; then
+    echo "RetroAchievements are not enabled, please turn them on in Emulation Station." > ${LOG_FILE}
+    publish_disabled
+    exit 1
 fi
+
+# Check if api token is present in system.cfg
+if [ -z "${token}" ]; then
+    echo "RetroAchievements token is empty, please log in with your RetroAchievements credentials in Emulation Station." > ${LOG_FILE}
+    publish_disabled
+    exit 1
+fi
+
+# Update emulator config with RetroAchievements settings, as data: every
+# key, a first section included (#870), then the token in secrets.ini.
+datets=$(date +%s%N | cut -b1-13)
+write_section "${ARMSX2_CFG}" Achievements "Enabled=true" "Username=${username}" "ChallengeMode=${hardcore}" \
+    "EncoreMode=${encore}" "LeaderboardNotifications=${leaderboards}" "UnofficialTestMode=${unofficial}" "LoginTimestamp=${datets}" \
+  || echo "ARMSX2's achievements settings could not be written." >> ${LOG_FILE}
+write_token "${token}"
