@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+"""gh-double -- a stand-in for gh, for the tracker readers' controls (T10 S5,
+#941, #943). Installed as `gh` first on PATH by the control. It reads its
+answers from the environment, never from GitHub:
+  GH_DOUBLE_ISSUES  a JSON file: the list of issues every `gh issue list`
+                    returns, cut to its --limit (filters are ignored: one
+                    population per run)
+  GH_DOUBLE_TOTAL   the total every `gh api graphql` count returns
+                    (default: the length of that list)
+  GH_DOUBLE_FAIL    when set, every call exits 1 with a message on stderr
+Every call is appended to GH_DOUBLE_LOG when it is set, one line each."""
+import json, os, sys
+a = sys.argv[1:]
+if os.environ.get("GH_DOUBLE_LOG"):
+    with open(os.environ["GH_DOUBLE_LOG"], "a") as f:
+        f.write(" ".join(a) + "\n")
+if os.environ.get("GH_DOUBLE_FAIL"):
+    sys.stderr.write("gh-double: HTTP 502: the tracker did not answer\n")
+    sys.exit(1)
+issues = json.load(open(os.environ["GH_DOUBLE_ISSUES"]))
+if a[:2] == ["issue", "list"]:
+    limit = int(a[a.index("--limit") + 1]) if "--limit" in a else 30
+    print(json.dumps(issues[:limit]))
+elif a[:2] == ["issue", "view"]:
+    n = int(a[2])
+    print(json.dumps(next(i for i in issues if i["number"] == n)))
+elif a[:2] == ["api", "graphql"]:
+    print(os.environ.get("GH_DOUBLE_TOTAL", str(len(issues))))
+else:
+    sys.stderr.write("gh-double: unhandled call: %s\n" % " ".join(a))
+    sys.exit(2)

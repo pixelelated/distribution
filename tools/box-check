@@ -7,6 +7,8 @@
 # which here means a machine (D-QA-045); the script keeps its name.
 #
 #   tools/box-check                 # every open issue on the fork; exit 1 when a checkbox fails
+#                                   # exit 2 when the tracker did not answer, or answered short
+#                                   # of its own open count (T10 S5, #941)
 #   tools/box-check --issue 266     # one issue
 #   tools/box-check --quiet         # failures only (CI)
 #
@@ -47,11 +49,37 @@ FACT = re.compile(r"\bradio\b|wi-?fi (switch|join|radio|network)|hotspot|battery
 BOX = re.compile(r'^\s*- \[ \] (.*)$')
 
 
+EX_CANNOT = 2      # the tracker did not answer, or answered short: no verdict
+CEILING = 1000     # a read cut at this many is refused, never judged
+
+
 def gh(args):
     out = subprocess.run(['gh'] + args, capture_output=True, text=True)
     if out.returncode != 0:
-        sys.exit('box-check: gh failed: %s' % out.stderr.strip()[:200])
+        print('box-check: gh failed: %s' % out.stderr.strip()[:200], file=sys.stderr)
+        sys.exit(EX_CANNOT)
     return json.loads(out.stdout)
+
+
+def open_total():
+    """The tracker's own count of open issues, read from GraphQL."""
+    q = '{repository(owner:"%s",name:"%s"){issues(states:OPEN){totalCount}}}' % tuple(REPO.split('/'))
+    return int(gh(['api', 'graphql', '-f', 'query=' + q, '--jq', '.data.repository.issues.totalCount']))
+
+
+def all_open_issues():
+    """Every open issue, or a refusal (T10 S5, #941). The list is read with a
+    ceiling far above the tracker and compared with the tracker's total, read
+    before and after; a read that returns fewer than the total, or hits the
+    ceiling, has not read every issue and gives no verdict (it read 300 of 458
+    and printed 0 fail until 2026-10-24)."""
+    before = open_total()
+    issues = gh(['issue', 'list', '--repo', REPO, '--state', 'open', '--limit', str(CEILING), '--json', 'number,title,body,state'])
+    after = open_total()
+    if len(issues) >= CEILING or not (len(issues) == before == after):
+        print('box-check: read %d of %d open issues (%d after); refused, since a checkbox on an unread issue is unjudged' % (len(issues), before, after), file=sys.stderr)
+        sys.exit(EX_CANNOT)
+    return issues
 
 
 def register_refs():
@@ -80,7 +108,7 @@ def main():
     if one:
         issues = [gh(['issue', 'view', one, '--repo', REPO, '--json', 'number,title,body,state'])]
     else:
-        issues = gh(['issue', 'list', '--repo', REPO, '--state', 'open', '--limit', '300', '--json', 'number,title,body,state'])
+        issues = all_open_issues()
     refs = register_refs()
     fails, notes, boxes = [], [], 0
     for it in issues:
