@@ -10,7 +10,10 @@ PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
 PKG_DEPENDS_TARGET="toolchain util-linux:host"
 PKG_LONGDESC="Gameboy and Gameboy Color emulator written in C"
 
-PKG_MAKE_OPTS_TARGET="-C libretro BOOTROMS_DIR=${PKG_BUILD}/BootROMs/prebuilt"
+# SameBoy's libretro/Makefile takes the boot ROMs from its own
+# BootROMs/prebuilt (Makefile:368,381), which the tarball ships; BOOTROMS_DIR
+# is read only by the top-level Makefile, which this build does not use (#818).
+PKG_MAKE_OPTS_TARGET="-C libretro"
 
 makeinstall_target() {
   mkdir -p ${INSTALL}/usr/lib/libretro
