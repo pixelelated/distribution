@@ -82,8 +82,18 @@ while [ $# -gt 0 ]; do
     *) IMAGE=$1; shift ;;
   esac
 done
+# An unknown or empty selection is a usage error, never a run of nothing that
+# passes (#966, D-QA-061): every name must be a suite, and at least one must be
+# named. --walk is held to the same rule below.
+selected=0
+for selected_suite in ${ONLY//,/ }; do
+  case " $SUITES " in *" $selected_suite "*) selected=$((selected+1)) ;;
+    *) echo "vm-qa: unknown suite $selected_suite (vm-qa --list names them)" >&2; exit 2 ;; esac
+done
+[ "$selected" -gt 0 ] || { echo 'vm-qa: --only names no suite' >&2; exit 2; }
 if [ -n "$WALKS" ]; then
   case ",$ONLY," in *,walks,*) ;; *) echo 'vm-qa: --walk requires the walks suite' >&2; exit 2 ;; esac
+  [ -n "${WALKS//[, ]/}" ] || { echo 'vm-qa: --walk names no walk' >&2; exit 2; }
   for selected_walk in ${WALKS//,/ }; do
     [[ "$selected_walk" =~ ^[a-z0-9-]+$ && "$selected_walk" != default-pre ]] && grep -qE "^$selected_walk[[:space:]]*=" "$ROOT/tools/vm-walks/suite.txt" \
       || { echo "vm-qa: unknown walk $selected_walk" >&2; exit 2; }
@@ -525,7 +535,7 @@ frame_diff_suite() {
   "$ROOT/tools/frame-diff" compare "$base" "$OUT/walks" --masks "$ROOT/tools/vm-walks/masks.txt" --claims "$ROOT/tools/vm-walks/claims.txt" --report "$OUT/frame-diff.md"
 }
 case ",$ONLY," in *,frame-diff,*) run_suite frame-diff "$OUT/frame-diff.log" frame_diff_suite ;; esac
-{ echo; if [ "$FAILS" = 0 ] && [ "$SKIPS" = 0 ]; then echo "**PASSED** -- every suite that ran passed."; elif [ "$FAILS" = 0 ]; then echo "**PASSED with $SKIPS suite(s) SKIPPED** -- a skipped suite could not run (its log says why) and has not passed."; else echo "**FAILED** -- $FAILS suite(s) failed; see the logs beside this file."; fi; echo; echo "finished $(date -u '+%Y-%m-%d %H:%M UTC')"; } >> "$REPORT"
+{ echo; if [ "$FAILS" = 0 ] && [ "$SKIPS" = 0 ]; then echo "**PASSED** -- every suite that ran passed (exit 0)."; elif [ "$FAILS" = 0 ]; then echo "**PASSED with $SKIPS suite(s) SKIPPED** -- a skipped suite could not run (its log says why) and has not passed (exit 3)."; else echo "**FAILED** -- $FAILS suite(s) failed; see the logs beside this file (exit 1)."; fi; echo; echo "finished $(date -u '+%Y-%m-%d %H:%M UTC')"; } >> "$REPORT"
 # The time-to-play numbers go BELOW the footer, not into the suite table: the
 # table is one row per suite and this cell reports four of its own. No budget
 # row exists yet, so nothing here fails the run -- the numbers are reported
@@ -538,4 +548,10 @@ fi
 RENDERER=$(SSH 'grep -h -m1 "\[GL\].*Renderer:" /var/log/exec.log 2>/dev/null' 2>/dev/null | sed 's/.*Renderer: //' | tr -d '\r')
 { echo; echo "renderer: ${RENDERER:-(no RetroArch launch log on the guest)} -- the guest's Mesa, from the launch log; display: $DISPLAY_MODE"; } >> "$REPORT"
 echo; cat "$REPORT"; echo; echo "report: $REPORT"
-[ "$FAILS" = 0 ]
+# The run's exit (D-QA-061, #966): 0 only when every selected suite ran and
+# passed; 1 when any failed; 2 on a usage error (above); 3 when nothing failed
+# and at least one suite was skipped -- a SKIP is a check that did not happen,
+# and a caller that takes 0 as green must not read it as one.
+[ "$FAILS" = 0 ] || exit 1
+[ "$SKIPS" = 0 ] || exit 3
+exit 0

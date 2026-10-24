@@ -1,0 +1,193 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)
+"""Host-only controls for the VM harness (#659's streams; no guest, no device).
+
+    python3 -I tools/vm-harness-test                     # every case, against this checkout's tools
+    python3 -I tools/vm-harness-test --case exit-skip    # one case (repeatable)
+    python3 -I tools/vm-harness-test --tools-from DIR    # the tools under test from DIR (an unfixed export)
+
+Each case copies the tool under test into a scratch root of its own under
+.qa-scratch/t12/vm-harness-test/ beside doubles of its siblings
+(cloud-test-backend, vm-pair) and puts ssh and scp doubles first on PATH.
+The doubles answer from a table the case writes and log every call. Nothing
+runs against a guest, a device or a cloud; TMPDIR is the scratch root's, so
+nothing is written under /tmp. A case prints PASS or FAIL with its reason;
+the run exits 1 when any case failed.
+"""
+import argparse
+import json
+import os
+from pathlib import Path
+import shutil
+import stat
+import subprocess
+import sys
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parent
+SCRATCH = ROOT / '.qa-scratch' / 't12' / 'vm-harness-test'
+
+SSH_DOUBLE = r'''#!/bin/bash
+# ssh double: log the call, answer from $VMHT_TABLE (substring<TAB>rc<TAB>stdout).
+printf '%s\n' "$*" >> "$VMHT_LOG"
+cmd="${@: -1}"
+if [ -f "$VMHT_TABLE" ]; then
+  while IFS=$'\t' read -r pat rc out; do
+    [ -n "$pat" ] || continue
+    case "$cmd" in *"$pat"*) [ -n "$out" ] && printf '%b\n' "$out"; exit "$rc" ;; esac
+  done < "$VMHT_TABLE"
+fi
+exit 0
+'''
+SCP_DOUBLE = r'''#!/bin/bash
+printf 'scp %s\n' "$*" >> "$VMHT_LOG"
+[ -f "$VMHT_SCP_FAIL" ] && exit 1
+exit 0
+'''
+BACKEND_DOUBLE = r'''#!/bin/bash
+printf 'backend %s\n' "$*" >> "$VMHT_LOG"
+case "$1" in
+  port) echo 19999 ;;
+  caps) echo "hash=none modtime=no" ;;
+  rclone-conf) printf '[qa-cloud]\ntype = webdav\nurl = http://10.0.2.2:19999/\n' ;;
+  shipped-default) echo "${2}-folder" ;;
+esac
+exit 0
+'''
+PAIR_DOUBLE = r'''#!/bin/bash
+printf 'vm-pair %s\n' "$*" >> "$VMHT_LOG"
+case "$1" in
+  down) exit "${VMHT_PAIR_DOWN_RC:-0}" ;;
+  up) echo "up: a"; echo "ready: a"; exit "${VMHT_PAIR_UP_RC:-0}" ;;
+esac
+exit 0
+'''
+
+
+def executable(path, text):
+    path.write_text(text)
+    path.chmod(0o755)
+
+
+class Case:
+    def __init__(self, name, tools_from):
+        self.name = name
+        self.dir = SCRATCH / name
+        if self.dir.exists():
+            shutil.rmtree(self.dir)
+        self.root = self.dir / 'root'
+        (self.root / 'tools').mkdir(parents=True)
+        self.bin = self.dir / 'bin'
+        self.bin.mkdir()
+        self.tmp = self.dir / 'tmp'
+        self.tmp.mkdir()
+        self.art = self.dir / 'artifacts'
+        self.art.mkdir()
+        self.log = self.dir / 'calls.log'
+        self.log.write_text('')
+        self.table = self.dir / 'table.tsv'
+        self.tools_from = tools_from
+        executable(self.bin / 'ssh', SSH_DOUBLE)
+        executable(self.bin / 'scp', SCP_DOUBLE)
+        executable(self.root / 'tools' / 'cloud-test-backend', BACKEND_DOUBLE)
+        executable(self.root / 'tools' / 'vm-pair', PAIR_DOUBLE)
+        self.rows([('os-release', 0, '"0123456789abcdef0123456789abcdef01234567"')])
+
+    def tool(self, name):
+        src = self.tools_from / name
+        dst = self.root / 'tools' / name
+        shutil.copy2(src, dst)
+        dst.chmod(0o755)
+        return dst
+
+    def rows(self, rows):
+        self.table.write_text(''.join(f'{p}\t{rc}\t{out}\n' for p, rc, out in rows))
+
+    def env(self, **extra):
+        e = {'PATH': f'{self.bin}:{os.environ["PATH"]}', 'HOME': str(self.dir), 'LC_ALL': 'C',
+             'TMPDIR': str(self.tmp), 'VMHT_LOG': str(self.log), 'VMHT_TABLE': str(self.table),
+             'VMHT_SCP_FAIL': str(self.dir / 'scp-fail'),
+             'ROCKNIX_ARTIFACTS': str(self.art), 'VM_PAIR_DIR': str(self.dir / 'pair'),
+             'VM_QEMU_RUNTIME_DIR': str(self.dir / 'runtime'), 'CLOUD_QA_STATE': str(self.dir / 'cloud-qa')}
+        e.update({k: str(v) for k, v in extra.items()})
+        return e
+
+    def run(self, argv, timeout=60, **extra):
+        return subprocess.run(argv, cwd=self.root, env=self.env(**extra), capture_output=True,
+                              text=True, timeout=timeout)
+
+    def reports(self):
+        return sorted(self.art.glob('rocknix-images/qa-*/report.md'))
+
+
+CASES = {}
+
+
+def case(fn):
+    CASES[fn.__name__.replace('_', '-')] = fn
+    return fn
+
+
+# --- S1: vm-qa's exit and selection (#966, #982; D-QA-061) -------------------
+
+@case
+def exit_skip(c):
+    vmqa = c.tool('vm-qa')
+    empty = c.dir / 'empty-baseline'
+    empty.mkdir()
+    r = c.run([str(vmqa), '--skip-up', '--only', 'frame-diff'], WALK_BASELINE=empty)
+    rep = c.reports()
+    row = rep and '| frame-diff | SKIP |' in rep[0].read_text()
+    return r.returncode == 3 and bool(row), f'rc {r.returncode}, SKIP row {bool(row)} (want rc 3 and a SKIP row)'
+
+
+@case
+def only_unknown(c):
+    vmqa = c.tool('vm-qa')
+    r = c.run([str(vmqa), '--skip-up', '--only', 'nosuch'])
+    return r.returncode == 2 and 'nosuch' in r.stderr, f'rc {r.returncode}, stderr {r.stderr.strip()[:120]!r} (want rc 2 naming nosuch)'
+
+
+@case
+def only_empty(c):
+    vmqa = c.tool('vm-qa')
+    r = c.run([str(vmqa), '--skip-up', '--only', ','])
+    return r.returncode == 2, f'rc {r.returncode} (want 2)'
+
+
+@case
+def walk_empty(c):
+    vmqa = c.tool('vm-qa')
+    r = c.run([str(vmqa), '--skip-up', '--only', 'walks', '--walk', ','])
+    return r.returncode == 2, f'rc {r.returncode} (want 2)'
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
+    ap.add_argument('--case', action='append', help='run only this case (repeatable)')
+    ap.add_argument('--tools-from', type=Path, default=HERE, help='the directory holding the tools under test')
+    ap.add_argument('--list', action='store_true')
+    a = ap.parse_args()
+    if a.list:
+        print('\n'.join(CASES)); return 0
+    names = a.case or list(CASES)
+    unknown = [n for n in names if n not in CASES]
+    if unknown:
+        ap.error('unknown case: ' + ', '.join(unknown))
+    SCRATCH.mkdir(parents=True, exist_ok=True)
+    failed = 0
+    for n in names:
+        c = Case(n, a.tools_from.resolve())
+        try:
+            ok, why = CASES[n](c)
+        except Exception as error:  # a case that cannot run has not passed
+            ok, why = False, f'{type(error).__name__}: {error}'
+        print(('PASS ' if ok else 'FAIL ') + n + ': ' + why, flush=True)
+        failed += not ok
+    print(f'{len(names) - failed} PASS; {failed} FAIL')
+    return 1 if failed else 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())
