@@ -17,9 +17,13 @@ if [ ! -d "/storage/roms/bios/gba" ]; then
     mkdir -p "/storage/roms/bios/gba"
 fi
 
-#Copy open source bios if no other bios exists
-if [ ! -f "/storage/roms/bios/gba/gba_bios.bin" ]; then
-  cp -r "/usr/config/nanoboyadvance" "/storage/roms/bios/gba/gba_bios.bin"
+#The old script copied the whole config folder to gba/gba_bios.bin, a
+#directory nothing reads (config.toml's bios_path is bios/gba_bios.bin).
+#Remove it only when it is exactly that copy.
+OLD_BIOS_COPY="/storage/roms/bios/gba/gba_bios.bin"
+if [ -d "${OLD_BIOS_COPY}" ] && [ ! -L "${OLD_BIOS_COPY}" ] && \
+   diff -r "/usr/config/nanoboyadvance" "${OLD_BIOS_COPY}" >/dev/null 2>&1; then
+  rm -rf "${OLD_BIOS_COPY}"
 fi
 
 #Set the cores to use
