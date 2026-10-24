@@ -15,10 +15,7 @@ MAX_DRIVES=2
 i=0
 
 # create symlink to hatari config dir
-if [ ! -L $HATARI_DIR_HOME ]; then
-  rm -rf $HATARI_DIR_HOME
-  ln -s $HATARI_DIR $HATARI_DIR_HOME
-fi
+link_storage_dir "$HATARI_DIR_HOME" "$HATARI_DIR"
 
 # Which file should hatari load?
 echo "Trying to boot this game:" "$1" >> $HATARI_LOG
