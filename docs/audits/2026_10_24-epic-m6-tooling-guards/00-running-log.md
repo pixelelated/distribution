@@ -442,3 +442,9 @@ PROOF: P27 S10's parse and read-back -- `yaml.safe_load` on `.github/workflows/f
   - 19:27 UTC: S10 accepted, and `!cancelled()` in place of `always()` (D-WORKFLOW-205).
 - **The follow-up (`f22b989ab1`):** `if: ${{ !cancelled() }}` on the eight check steps. Re-parsed (10 steps) and each condition read back. P27's text is updated to match.
 - **The Phase 7 table and `punch_index` (`38eff70b01`):** 40 Resolved, each row with its commit and bug, and 4 Deferred: PL-16 to #959, PL-30 to #960, PL-32 to #640, PL-33 to #585. The lint on the folder at its default phase: PASS.
+
+### [Stage H] 19:49 — accepted; the completion marker
+
+- **The coordinator's post (19:47 UTC):** T10 accepted at `afdce9a65b` (this lane's tip with the coordinator's branch merged), every checker passing there; 16 of 17 criteria ticked, criterion 5's merge clause open until `next`; #958 closed as completed. The worktree was fast-forwarded to `afdce9a65b`.
+- **The marker:** `audit-completion.json`, `tracker-completion.json` and `tracker-final-readback.json`, written by `tools/write-completion.py` (T3's writer, copied) from #958 read back closed/completed with 44 ticked and 0 open.
+- **The checks:** the full `tools/lint-audit-artifacts` on the folder: PASS. `tools/ceremony-check` reports the audit line `ok` via #958; its one DUE is W42, the M7 lane's.

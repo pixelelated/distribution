@@ -39,7 +39,18 @@
    and the census, every suite and self-test with its exit -- before reading
    a tool.
 
-## Current focus
+## Current focus (19:49 UTC update)
+
+**The lane is IDLE. T10 is accepted on #657 (19:47 UTC) at `afdce9a65b`, and #958 is closed as completed (44 ticked).**
+
+- **The record:** `audit-completion.json` is written from #958's closed readback (`docs/audits/2026_10_24-epic-m6-tooling-guards/tools/write-completion.py`). The full `tools/lint-audit-artifacts` prints `PASS`, and `tools/ceremony-check` accepts the marker; its one DUE is W42, which is the M7 lane's.
+- **Nothing is owed by this lane.** The coordinator owns:
+  - the merge to `next`, which completes criterion 5's merge clause;
+  - #944's fix-pending-ci read of the first red run;
+  - closing the bugs once their fixes reach `next`.
+- **If a new brief arrives on #657,** read it, then `00-running-log.md`'s tail, then this file's earlier sections.
+
+## Earlier focus
 
 **The stage-D pause (2026-10-24, after 17:44 UTC).**
 - 29 bugs (#929-#957) and the audit issue #958, 44 checkboxes, a sub-issue of #657.
