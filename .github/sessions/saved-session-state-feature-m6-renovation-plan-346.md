@@ -94,6 +94,15 @@ cloud or the M7 build worktrees.
   expect a clean or trivially identical resolution in `scripts/council-invoke.ts`,
   `tools/lint-audit-artifacts`, `verifier-pins.json`, `council-seat-efforts.json`
   and the two `docs/qa-logs/2026-10-22-*-638/` folders, and check for markers.
+- **T2 accepted 2026-10-24 00:3x UTC** (#649: distribution `f16cf7fc28`, ES
+  `55158d2a64`, 35 commits on the pin `16dbac5211`; `reviewed-at: f4e0f0a196`).
+  Its `slices.json` row (`reviewed_at`, `fixed_at`, `es`) is written when this
+  branch takes the P1 branch at integration. **The ES integration order:** the
+  M7 lane's EmulationStation fixes of 2026-10-23 (#697/#698) reach
+  `test/qa-integration` first, then T2's branch is merged there and the pin
+  bumped in `package.mk` on this branch; both wait for D-WORKFLOW-191 (which
+  build carries the renovation's pin bump). #649 stays open as `remediating`
+  until that image proves the 21 walks; then it and the 24 `bug` issues close.
 ## State at 2026-10-23 (the coordinator's own update)
 
 P0 is done on this branch; its merge waits on the M7 lane's post-candidate
@@ -124,16 +133,14 @@ an Opus 5.5 session at high effort in Herdr pane `wN:p4`, agent
 scratchpad and quoted in the 07:50 work-log entry). This lane's rules from
 the futro: no merge of `next` into a slice branch between stage A and stage
 D; every drift report read at every slice close and the re-open named;
-`tools/box-check` on every issue a lane files, at the pause. Next: relay the M7 lane's `resource return` (the shared file
-`/tmp/m7-m6-host-coordination-20261023.txt`) to #648 and #649 the moment it
-is written; T1's seven streams (`docs/reviews/briefs/t1-streams.md`) to its
-hand-back, then acceptance (brief § 10), `slices.json`, and the merge order;
-T2 (dispatched 2026-10-23 17:21 UTC: pane `wN:p5`, agent `m6-t2-es-launch`,
-lane tip `46f3a19b2f`, brief version 2 `6de32b24b0`) to its stage-D pause,
-then its stream briefs; an interface slice closes only after the first image
-with its pin bump proves the fixes (plan § 6b H; D-WORKFLOW-191 open with the
-maintainer); T3's brief (#650); T1's drift re-open when the M7 candidate
-lands. Both lanes report on their issues; nothing wakes this lane on a
+`tools/box-check` on every issue a lane files, at the pause. Next: T1's stage-F guest half (three batches, the timing runs), its retro and
+hand-back, then its acceptance (brief § 10: re-run the harness under
+`QA_SYSTEM_ROOT` and `pkgcheck` once; the `fix-pending-image` rows stay open);
+T2 accepted 2026-10-24 (above), its ES merge and pin bump held for the M7 ES
+fixes and D-WORKFLOW-191; T3's brief (#650); the merge order to `next` after
+the M7 candidate (P0, P1, T1, T2); the two calls open with the maintainer on
+#346 (D-SYS-014, D-WORKFLOW-191); the host handoff file is read before any
+runtime. Both lanes report on their issues; nothing wakes this lane on a
 post, so read #648 and #649 at every turn. **And nothing wakes a lane on a
 comment:** a lane's turn ends when it posts a question, so every answer the
 coordinator gives on an issue is also sent as `herdr agent prompt <lane>`,
