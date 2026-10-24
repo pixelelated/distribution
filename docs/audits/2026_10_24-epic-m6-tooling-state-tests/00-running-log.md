@@ -441,3 +441,34 @@ PROOF: P22 PL-17's control -- `scratch-cases.sh` PASS (a SIGTERM leaves the payl
 - **A slip of mine in the control, corrected before it was kept:** the first race mutation wrote over the lock whoever held it. That also stole a live holder's lock, which stage D already catches, so it proved nothing about the race. It is now check-then-create, which honours a visible holder.
 - **A refinement after the first fixed run:** the racer's exit status was the last line's test, so a loser exited 1. It now exits 0, the verdict being its `MINE` line; rc carries only `timeout`'s 124.
 PROOF: P23 S10's control -- `docs/qa-logs/2026-10-24-state-tests-s10/lock-cases.sh` PASS (a status-failing wait_lock and a check-then-create lock both PASSED at stage D and fail fixed; the tree's wait_lock passes under the image busybox).
+
+## [Stage E] 22:56 UTC — S11: the guest pair's refused start (#1011); the stubs' docstrings (PL-10)
+
+- **#1011 filed first,** as PL-09's live defect. Its body carries the code trace, the VM line, `Already written:` and three agent-checkable criteria. It was scanned, and `tools/box-check` (the checkbox checker) gave 0 fail over 300 issues. Its third criterion was made exact the same session: the first wording miscounted the `/proc` hits, one of which is a command run inside a guest.
+- **The coordinator's answer (22:54 UTC):** a run-owned runtime in D-INFRA-031's shape (row 743, on `feature/m6-renovation-plan-346`):
+  - `VM_PAIR_DIR=<output>/vm-pair`;
+  - `VM_QEMU_RUNTIME_DIR=${XDG_RUNTIME_DIR:-/tmp}/pixelelated-vm-<8 hex of sha256 of the output path>`, recorded in `<output>/RUNTIME`, and not under the output, because of the 107-byte socket cap;
+  - a caller's explicit value honoured.
+- **On this host while S11 ran:** another lane's QEMU guests were live, and read only, never touched. The unfixed tool's scan matched only argv naming its own fresh scratch pair path. No run reached `vm-pair`, because `--image` named a path that does not exist.
+- **#1011 (`6016f57a75`): what changed.**
+  - **A refused start stops nothing.** `pair_attempted` is set just before `vm-pair up`, and cleanup stops only when it is set.
+  - **A started pair is stopped by pidfile.** `vm-pair down` goes through `vm-stop`, using the pidfiles in the run's own runtime directory.
+  - **A recorded pid not visible in `/proc` is an `observation_error`.** No stop, and no absence claimed.
+  - **The runtime directory follows D-INFRA-031,** computed and not created (`vm-pair` makes it), so a refused start creates nothing outside the output.
+- **The control,** `docs/qa-logs/2026-10-24-state-tests-s11/pair-cases.sh` with `cleanup-probe.py`: a disposable fixture (`argv[0]` `qemu-system-fixture`, the pair path in its argv, never a QEMU), ended by its own pid.
+  - **Before (`a08a5d7997`):** the refused start signals the fixture and writes `all_absent: True`, and a started run's cleanup writes `all_absent: true` reading no pidfile.
+  - **After:** the fixture is alive and no `all_absent` is written. `RUNTIME` names `<scratch>/xdg/pixelelated-vm-<8 hex>`, which the refused start did not create. A stand-in pidfile naming pid 4194303 is refused as an observation error, and `vm-pair down` is not called. PASS.
+- **`grep -n '/proc\|os.kill' tools/pixelelated-vm-cloud-boundaries` at `6016f57a75`** (for #1011's third criterion): no `os.kill`, and `cleanup()` has no `/proc` glob.
+```
+282:        for p in Path('/proc').glob('[0-9]*/cmdline'):
+304:            identities.append({'guest': guest, 'build': build, 'boot_id': self.on(guest, 'cat /proc/sys/kernel/random/boot_id').stdout.strip(),
+692:        # this pair's disk). Never a /proc pattern scan: after a refused start
+709:            hidden = sorted(pid for pid in recorded.values() if not Path('/proc', str(pid)).exists())
+711:                error = ('recorded guest pid(s) %s not visible in /proc: an exit cannot be told from a '
+```
+  `:282` is start's refusal scan, read-only. `:304` is a command inside a guest. `:692` and `:711` are a comment and a message. `:709` is the pid-visibility read.
+- **`rasteratops-vm-cloud-epic`:** its refusal exits at `:22-24`, before `trap cleanup` at `:57`, so it stops nothing. Read only; nothing changed.
+- **The stubs (`8816d078fa`):** `pixelelated-cloud-folder-test` named "package-pinned rclone 1.75.1", while the package pins 1.75.2. It now names the coverage by tool and flow. `grep -c '1.75.1'` over both stubs: 1 before, 0 after. `--help` rc 0 and a run rc 2, both.
+- **A slip of mine, recurring:** the probes loaded tools through `SourceFileLoader` under `-I` only, which writes `tools/__pycache__`. Both probes now set `dont_write_bytecode` and run with `-B` (`8748b80f06`), and the cache was listed and removed by its literal path. The two `/tmp/pixelelated-vm-stop-controls*` directories seen are dated 2026-10-05, not this lane's, and were left.
+PROOF: P24 #1011's control -- `docs/qa-logs/2026-10-24-state-tests-s11/pair-cases.sh` PASS (the fixture signalled and all_absent written before; the fixture alive, no all_absent, the derived runtime uncreated and a hidden pid an observation error after).
+PROOF: P25 PL-10's docstring -- `grep -c '1.75.1'` over the two stubs: 1 at `6016f57a75`, 0 at `8816d078fa`; both stubs `--help` rc 0 and a run rc 2.
