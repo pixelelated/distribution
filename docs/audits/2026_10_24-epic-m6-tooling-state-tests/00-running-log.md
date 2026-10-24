@@ -257,3 +257,19 @@ PROOF: P9 S2's control -- `docs/qa-logs/2026-10-24-state-tests-s2/sandbox-case.p
 
   - **On the tree,** with the ES clone at the pin: 0 failures.
 PROOF: P10 S1's controls -- build-identity-test at 7aa8eac253 rc 1 (21/2), fixed rc 0 (57/57); `docs/qa-logs/2026-10-24-state-tests-s1/identity-reasons-case.sh` PASS (wrong reasons failed by the fixed test, credited by any-non-zero); `identity-check-case.sh`: stage-D FAIL/PASS/PASS, fixed PASS/FAIL/FAIL (`.qa-scratch/t14/s1-identity-check.txt`).
+
+## [Stage E] 21:53 UTC — S3: the validator and the capture test (#991, #994, #998); the 21:44 ruling
+
+- **The coordinator's post (21:44 UTC):** `build-identity-test` keeps CANNOT (exit 2, the reason named) without `mksquashfs`, and no gate double. Its `--help` names the requirement: `python3 -I tools/build-identity-test --help` prints a line with `mksquashfs`, 1 match.
+- **#991 (`2f614eef1f`): the pin from the recipe, in both tools.**
+  - **Positives:** at `7aa8eac253` both refuse 1.75.2 (`00` § Stage A). Fixed, with the image's 1.75.2: the validator passes 30 controls (16 s) and DuckStation 31 PASS (5 s). With a scratch recipe pinning 9.9.9, both refuse, naming the recipe and the version.
+  - **S2's pending case:** the validator's full run under the caller's witness variables passes 30.
+- **#994 (`6b5cd16160`): the validator's controls.**
+  - **The fix:** an unknown or empty `--case` exits 2, and the control count is asserted. `request()` requires exactly the requested categories. The ROM seed requires its folder and note, the byte limit is fed valid JSON over 2 MiB, and the timeout is fed a listing that sleeps 12 s and fails, with the elapsed time asserted under 12 s. The receipt hashes the binary first.
+  - **Two slips of mine in the fixture, each corrected before the commit:** the timeout inject first exited 3, which rclone means as "directory not found", so the listing read as missing; it now exits 5. The seed mutation first broke the script instead of making it a no-op.
+  - **The control,** `validator-controls-case.sh`: four product mutations in scratch roots. The stage-D controls credit three of them (empty categories, a no-op ROM seed, a raised byte bound), and a state-only timeout check credits the fourth (a raised time bound). The fixed controls fail all four. `--case no-such-case`: rc 0 `PASS 0 controls` at stage D (P5), rc 2 fixed.
+- **#998 (`fe41fca9a9`): DuckStation.**
+  - **The fix:** the payload runs through `Fixture.run`, its shebang now `/bin/bash` because the sandbox binds no `sh`. The sandbox takes S2's `--clearenv` allowlist, and an unknown `--cases` name exits 2.
+  - **The control,** `duckstation-case.sh`, with one named substitution: the payload also writes a host marker named by a caller variable. Stage D: the marker present (host execution), and the unknown name dropped (rc 0). Fixed: the marker absent, the case passes, and the unknown name gives rc 2.
+- **Slip, and its fix:** my `sed` adding `import re` also matched a `from pathlib import Path` inside a script the test embeds as a string. That stray line was removed before the commit, and the full run reread: 31 PASS.
+PROOF: P11 S3's controls -- #991: the stage-D refusals of 1.75.2, the fixed passes (30, 31), a 9.9.9 recipe refused; #994: `docs/qa-logs/2026-10-24-state-tests-s3/validator-controls-case.sh` PASS (four mutations credited by the old controls, failed by the fixed), `--case no-such-case` rc 0 then rc 2; #998: `duckstation-case.sh` PASS (host marker present at stage D, absent fixed; unknown name rc 0 then 2).
