@@ -111,7 +111,19 @@ try:
 except Exception:
     ok2 = False
 argv = (d / "argv").read_text().split() if (d / "argv").exists() else []
-check("a shim in the fixture's own directory still runs, and receives the stage's --config", ok2 and argv[:2] == ["--config", str(stage)], " ".join(argv))
+check("a shim in the fixture's own directory still runs, and receives the stage's --config after its command", ok2 and argv == ["listremotes", "--config", str(stage)], " ".join(argv))
+# T15's broker shims read the command from $1 and $2 (last-good-scripts-test's
+# load_remote): a shim whose `config create` fails must make the create fail.
+# The first cut of #999 put --config first, the shim saw "--config <stage>",
+# fell to its default `exit 0`, and two of T15's checks failed on the
+# close-out run (the follow-up's case).
+t15 = d / "rclone"; t15.write_text('#!/bin/bash\ncase "$1 $2" in\n  "config create") echo refused >&2; exit 1 ;;\n  *) exit 0 ;;\nesac\n'); t15.chmod(0o755)
+m4 = module_with(t15, subprocess); fx.configure(m4, d)
+try:
+    m4.connections.run(["--config", str(stage), "config", "create", "t14qa2", "webdav", "url=https://dav.example"]); refused = False
+except Exception as error:
+    refused = type(error).__name__ == "Refused"
+check("a shim that reads its command from $1 and $2 (T15's shape) sees config create, and its failure refuses the create", refused, "the shim's config create did not refuse: it read something other than the command")
 # and T15's table-answered fake: the argv shape its prefixes match is unchanged
 class Fake:
     def __init__(self): self.calls = []
