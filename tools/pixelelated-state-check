@@ -802,6 +802,35 @@ def payload(path):
         return result
 
 
+AUTOSTART = "/usr/bin/autostart"
+# The shipped unit's argv, projects/ROCKNIX/packages/sysutils/autostart/system.d/
+# rocknix-autostart.service:9. A constant, not a read of the guest's unit: an
+# edit to the unit fails the gate until this follows it, and
+# pixelelated-state-check-test compares the tree's unit with it (#1000).
+AUTOSTART_WRAPPER = ("/bin/bash", "-a", "-c", "source /etc/profile && exec /usr/bin/autostart")
+EXEC_ENTRY = re.compile(r"\{ path=(?P<path>[^ ]+) ; argv\[\]=(?P<argv>.*?) ; ignore_errors=(?:yes|no) ; "
+                        r"start_time=\[[^]]*\] ; stop_time=\[[^]]*\] ; pid=\d+ ; code=[^ ]+ ; status=[^ ]+ \}")
+
+
+def runs_autostart(value):
+    """Does one systemctl-show ExecStart entry run autostart?
+
+    systemctl prints each command as `{ path=P ; argv[]=A ; ... }`, A being the
+    argv joined with single spaces, unquoted (systemd 255, systemctl-show.c), and
+    a second command as a second ExecStart line, which the caller refuses. Two
+    shapes run it: the command word itself, or the shipped wrapper's argv
+    exactly. Before #1000 this was a search for the path anywhere in the value,
+    so `/usr/bin/foo /usr/bin/autostart` read as autostart. The join cannot tell
+    a token boundary from a space inside one; the wrapper's path and whole argv
+    must still match.
+    """
+    entry = EXEC_ENTRY.fullmatch(value)
+    if not entry:
+        return False
+    return (entry["path"] == AUTOSTART or
+            (entry["path"] == AUTOSTART_WRAPPER[0] and entry["argv"] == " ".join(AUTOSTART_WRAPPER)))
+
+
 def first_boot_ready():
     """Inspect effective unit execution, not is-active on one assumed unit name.
 
@@ -836,7 +865,7 @@ def first_boot_ready():
                 fields["ExecMainCode"] == "1" and fields["ExecMainStatus"] == "0")
         require((fields["ActiveState"], fields["SubState"]) in
                 (("active", "exited"), ("inactive", "dead")))
-        require(re.search(r"/usr/bin/autostart(?:[\s;\"']|$)", fields["ExecStart"]))
+        require(runs_autostart(fields["ExecStart"]))
         start = int(fields["ExecMainStartTimestampMonotonic"])
         end = int(fields["ExecMainExitTimestampMonotonic"])
         uptime = float(Path("/proc/uptime").read_text().split()[0]) * 1000000

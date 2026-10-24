@@ -3,6 +3,10 @@
 # Copyright (C) 2026-present pixelelated
 """Disposable #565 controls. No imports of the gate, providers, or real accounts.
 
+The gate is never imported into this process; one subprocess loads it to read
+its first-boot ExecStart predicate and the shipped wrapper's argv, so the tree's
+rocknix-autostart.service is compared with that constant on the host (#1000).
+
 --self-test runs root-policy subprocess controls. --payload-tests additionally
 creates tiny synthetic SYSTEM/update/install payloads and release bundles using
 installed filesystem tools (no distro build). Coordinator allocates these runs.
@@ -17,6 +21,7 @@ import io
 import json
 import os
 from pathlib import Path
+import shlex
 import shutil
 import stat
 import subprocess
@@ -135,6 +140,43 @@ def invoke(args, expected, category=None, env=None):
         require(any(row["category"] == category and row.get("count", 0) > 0
                     for row in report["checks"]))
     return report
+
+
+UNIT = HERE.parent / "projects/ROCKNIX/packages/sysutils/autostart/system.d/rocknix-autostart.service"
+EXEC_PROBE = r"""
+import json, sys
+from importlib.machinery import SourceFileLoader
+gate = SourceFileLoader("gate", sys.argv[1]).load_module()
+print(json.dumps({"wrapper": list(gate.AUTOSTART_WRAPPER),
+                  "verdicts": [gate.runs_autostart(v) for v in json.loads(sys.argv[2])]}))
+"""
+
+
+def exec_start_controls():
+    """The readiness predicate, on systemctl-show values shaped as systemd 255
+    prints them, and the tree's unit against the gate's constant (#1000)."""
+    def entry(path, argv):
+        return ("{ path=" + path + " ; argv[]=" + argv + " ; ignore_errors=no ; start_time=[n/a] ; "
+                "stop_time=[n/a] ; pid=0 ; code=exited ; status=0 }")
+    cases = [("exec-start-shipped-wrapper", entry("/bin/bash", "/bin/bash -a -c source /etc/profile && exec /usr/bin/autostart"), True),
+             ("exec-start-command-word", entry("/usr/bin/autostart", "/usr/bin/autostart"), True),
+             ("exec-start-autostart-as-argument", entry("/usr/bin/env", "/usr/bin/env /usr/bin/autostart"), False),
+             ("exec-start-other-shell-script", entry("/bin/sh", "/bin/sh -c exec /usr/bin/autostart"), False),
+             ("exec-start-wrapper-other-script", entry("/bin/bash", "/bin/bash -a -c source /etc/profile && exec /usr/bin/autostart --other"), False),
+             ("exec-start-unparsed", "/usr/bin/autostart", False)]
+    probe = subprocess.run([sys.executable, "-I", "-B", "-c", EXEC_PROBE, str(GATE),
+                            json.dumps([value for _, value, _ in cases])], capture_output=True, text=True, timeout=30)
+    require(probe.returncode == 0 and not probe.stderr)
+    answer = json.loads(probe.stdout)
+    rows = []
+    for (name, _, expected), verdict in zip(cases, answer["verdicts"], strict=True):
+        require(verdict is expected)
+        rows.append({"case": name, "status": "pass", "ready": expected})
+    lines = [l for l in UNIT.read_text().splitlines() if l.startswith("ExecStart=")]
+    require(len(lines) == 1)
+    require(shlex.split(lines[0][len("ExecStart="):]) == answer["wrapper"])
+    rows.append({"case": "exec-start-tree-unit-matches-gate", "status": "pass"})
+    return rows
 
 
 def root_controls(work):
@@ -768,7 +810,7 @@ def main():
                                                   "mkfs.vfat", "mkfs.ext4", "e2fsck", "debugfs")))
     with tempfile.TemporaryDirectory(prefix="pix565-controls-") as directory:
         work = Path(directory)
-        rows = root_controls(work)
+        rows = root_controls(work) + exec_start_controls()
         if args.payload_tests:
             rows += payload_controls(work)
     print(json.dumps({"schema": 1, "status": "pass", "control_count": len(rows), "controls": rows}, indent=2))
