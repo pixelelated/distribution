@@ -26,19 +26,27 @@
 # guest b had its own address keeps the shared id until `up` rebuilds the
 # disks; clearing the stored id alone re-derives the same one. Both reach
 # the host's QA backend at 10.0.2.2. Disks live under $VM_PAIR_DIR
-# (default /tmp/rocknix-vm-pair): scratch, rebuilt from the image on every up.
-# RUNTIME is VM_QEMU_RUNTIME_DIR (default /tmp). Keep both VM_PAIR_DIR and
-# VM_QEMU_RUNTIME_DIR unchanged for up, info, SSH, serial, reimage and down;
-# commands do not discover or take ownership of guests under another root.
+# (default <this checkout>/.qa-scratch/vm-pair): scratch, rebuilt from the
+# image on every up. RUNTIME, for the sockets and pidfiles, is
+# VM_QEMU_RUNTIME_DIR (default ${XDG_RUNTIME_DIR:-/tmp}/pixelelated-vm-<8 hex
+# of sha256 of the checkout's path>); up records it in $VM_PAIR_DIR/RUNTIME
+# and the other commands read it back. The host state belongs to the
+# checkout that runs it (D-INFRA-031): two checkouts never share disks,
+# sockets or a pidfile, and an explicit value of either is honoured as
+# before. Commands do not discover or take ownership of guests under another
+# root, and up refuses a fixed port another process holds.
 set -euo pipefail
 HERE=$(cd "$(dirname "$0")" && pwd)
 ROOT=$(cd "$HERE/.." && pwd)
 VM_TOOL="$ROOT/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm"
-DIR="${VM_PAIR_DIR:-/tmp/rocknix-vm-pair}"
+DIR="${VM_PAIR_DIR:-$ROOT/.qa-scratch/vm-pair}"
 KEY="$DIR/qa-key"
-# Keep short-lived socket/PID writes off a quota-limited /tmp when requested.
-# vm-qa uses the same root; the default remains compatible with standalone tools.
-RUNTIME="${VM_QEMU_RUNTIME_DIR:-/tmp}"
+# The sockets and pidfiles: an explicit VM_QEMU_RUNTIME_DIR, else the one the
+# last up recorded, else this checkout's own under the user's runtime
+# directory (a unix socket path is capped at 107 bytes, so not the checkout).
+if [ -n "${VM_QEMU_RUNTIME_DIR:-}" ]; then RUNTIME=$VM_QEMU_RUNTIME_DIR
+elif [ -s "$DIR/RUNTIME" ]; then RUNTIME=$(head -1 "$DIR/RUNTIME")
+else RUNTIME="${XDG_RUNTIME_DIR:-/tmp}/pixelelated-vm-$(printf '%s' "$ROOT" | sha256sum | cut -c1-8)"; fi
 [[ "$RUNTIME" = /* && ! "$RUNTIME" =~ [[:space:]] ]] || {
   echo 'vm-pair: VM_QEMU_RUNTIME_DIR needs an absolute path without whitespace' >&2; exit 2;
 }
@@ -129,6 +137,20 @@ stop_one() {
   # vm-stop's 3 is "no pidfile: nothing to stop, nothing verified" (#970).
   "$HERE/vm-stop" "$pid" "$DIR/vm-$1.qcow2"
 }
+# The fixed ports a launch takes -- each guest's SSH and VNC -- are free, or
+# up refuses naming the process that holds one (D-INFRA-031): a second
+# session's guest on 10022 used to meet this one's as a silent collision.
+refuse_held_ports() {
+  local p line who bad=0
+  command -v ss >/dev/null || { echo 'vm-pair: no ss on this host, so the ports cannot be checked' >&2; return 1; }
+  for p in "$@"; do
+    line=$(ss -ltnpH "sport = :$p" 2>/dev/null) || { echo "vm-pair: ss could not list port $p" >&2; return 1; }
+    [ -n "$line" ] || continue
+    who=$(printf '%s\n' "$line" | grep -o 'users:(("[^"]*",pid=[0-9]*' | head -1 | sed 's/users:(("\([^"]*\)",pid=\([0-9]*\)/pid \2 (\1)/')
+    echo "vm-pair: port $p is held by ${who:-a process this user cannot see}; refusing to launch" >&2; bad=1
+  done
+  return "$bad"
+}
 # Before a guest is replaced: stopped, or nothing was recorded (3).
 stop_before_replace() { local rc=0; stop_one "$1" || rc=$?; [ "$rc" = 0 ] || [ "$rc" = 3 ] || exit "$rc"; }
 # A disk is never removed while a process holds it (#970). A missing pidfile
@@ -178,7 +200,8 @@ case "${1:-}" in
     img="${2:-}"; [ -f "$img" ] || { echo "usage: vm-pair up <ROCKNIX-GENERIC_X64...img.gz>" >&2; exit 2; }
     check_runtime
     stop_before_replace a; stop_before_replace b
-    mkdir -p "$DIR"
+    mkdir -p "$DIR"; printf '%s\n' "$RUNTIME" > "$DIR/RUNTIME"
+    refuse_held_ports 10022 10023 5909 5910
     refuse_held "$DIR"/vm-*.qcow2 "$DIR"/vm-*.ovmf-vars.fd
     rm -f "$DIR"/vm-*.qcow2 "$DIR"/vm-*.ovmf-vars.fd
     [ -f "$KEY" ] || ssh-keygen -q -t ed25519 -N '' -f "$KEY" -C vm-pair
@@ -211,7 +234,9 @@ case "${1:-}" in
     [ -f "$img" ] || { echo "usage: vm-pair reimage <a|b> <ROCKNIX-GENERIC_X64...img.gz>" >&2; exit 2; }
     check_runtime
     stop_before_replace "$g"
-    mkdir -p "$DIR"
+    mkdir -p "$DIR"; printf '%s\n' "$RUNTIME" > "$DIR/RUNTIME"
+    read -r _ _ _ vnc_g port_g _ <<<"$(settings "$g")"
+    refuse_held_ports "$port_g" $((5900 + vnc_g))
     refuse_held "$DIR/vm-$g.qcow2" "$DIR/vm-$g.ovmf-vars.fd"
     rm -f "$DIR/vm-$g.qcow2" "$DIR/vm-$g.ovmf-vars.fd"
     [ -f "$KEY" ] || ssh-keygen -q -t ed25519 -N '' -f "$KEY" -C vm-pair
@@ -247,6 +272,8 @@ case "${1:-}" in
     read -r _ ser _ _ _ _ <<<"$(settings "${2:-}")"; shift 2
     exec "$HERE/vm-serial" --socket "$ser" sh "$@" ;;
   info)
+    printf 'paths: VM_PAIR_DIR=%s VM_QEMU_RUNTIME_DIR=%s (%s)\n' "$DIR" "$RUNTIME" \
+      "$( [ -n "${VM_QEMU_RUNTIME_DIR:-}" ] && echo explicit || { [ -s "$DIR/RUNTIME" ] && echo "recorded in $DIR/RUNTIME" || echo "this checkout's default"; } )"
     for g in a b; do read -r mon ser pid vnc port mac <<<"$(settings "$g")"; printf '%s: ssh -i %s -p %s root@127.0.0.1   monitor %s   serial %s   pid %s   vnc :%s   mac %s\n' "$g" "$KEY" "$port" "$mon" "$ser" "$([ -f "$pid" ] && cat "$pid" || echo -)" "$vnc" "$mac"; done ;;
   *) sed -n '2,29p' "$0" | sed 's/^# \{0,1\}//'; exit 2 ;;
 esac

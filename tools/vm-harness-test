@@ -129,17 +129,19 @@ class Case:
     def rows(self, rows):
         self.table.write_text(''.join(f'{p}\t{rc}\t{out}\n' for p, rc, out in rows))
 
-    def env(self, **extra):
+    def env(self, drop=(), **extra):
         e = {'PATH': f'{self.bin}:{os.environ["PATH"]}', 'HOME': str(self.dir), 'LC_ALL': 'C',
              'TMPDIR': str(self.tmp), 'VMHT_LOG': str(self.log), 'VMHT_TABLE': str(self.table),
              'VMHT_SCP_FAIL': str(self.dir / 'scp-fail'),
              'ROCKNIX_ARTIFACTS': str(self.art), 'VM_PAIR_DIR': str(self.dir / 'pair'),
              'VM_QEMU_RUNTIME_DIR': str(self.dir / 'runtime'), 'CLOUD_QA_STATE': str(self.dir / 'cloud-qa')}
+        for k in drop:  # the defaults a case leaves unset; what it passes is set after
+            e.pop(k, None)
         e.update({k: str(v) for k, v in extra.items()})
         return e
 
-    def run(self, argv, timeout=60, **extra):
-        return subprocess.run(argv, cwd=self.root, env=self.env(**extra), capture_output=True,
+    def run(self, argv, timeout=60, drop=(), **extra):
+        return subprocess.run(argv, cwd=self.root, env=self.env(drop, **extra), capture_output=True,
                               text=True, timeout=timeout)
 
     def reports(self):
@@ -435,6 +437,141 @@ def es_src_mismatch(c):
     row = f'| vocabulary | SKIP (ES_SRC {head[:10]}, image pins {pin[:10]}) |'
     ok = r.returncode == 3 and row in text and not c.calls('vocabulary-check')
     return ok, f'rc {r.returncode}, SKIP row with both hashes {row in text}, check ran {bool(c.calls("vocabulary-check"))} (want rc 3, the row, not run)'
+
+
+# --- S5: the host state belongs to the worktree (#971, #979; D-INFRA-031) --------
+
+DEFAULTS = ('VM_PAIR_DIR', 'VM_QEMU_RUNTIME_DIR', 'CLOUD_QA_STATE', 'TMPDIR')
+FIXTURE_GUEST = 'import signal, sys, time\nsignal.signal(signal.SIGTERM, lambda *a: sys.exit(0))\nwhile True: time.sleep(1)\n'
+LAUNCHER_DOUBLE = r'''#!/bin/bash
+# generic-x64-vm double: a python named qemu-system-fixture owning the disk, its pid in --pidfile.
+printf 'launch %s\n' "$*" >> "$VMHT_LOG"
+pid=""; for ((i=1; i<=$#; i++)); do [ "${!i}" = --pidfile ] && { j=$((i+1)); pid=${!j}; }; done
+disk=${@: -1}
+( exec -a qemu-system-fixture python3 -c "$VMHT_GUEST" -drive "if=none,id=rocknix,format=qcow2,file=$disk" ) >/dev/null 2>&1 &
+echo $! > "$pid"
+'''
+QEMU_IMG_DOUBLE = '#!/bin/bash\n[ "$1" != convert ] || : > "${@: -1}"\n'
+SERIAL_DOUBLE = '#!/bin/bash\nexit 0\n'
+MKTEMP_DOUBLE = r'''#!/bin/bash
+# mktemp double: logs the directory each temp file would land in, and makes it
+# there only when that is inside the case; one aimed at /tmp is made in the case
+# instead, so the old tool's /tmp write is seen without being made (no /tmp writes).
+dir=${TMPDIR:-/tmp}; for a in "$@"; do case "$a" in -p) ;; */*) dir=$(dirname "$a") ;; esac; done
+printf 'mktemp %s/\n' "$dir" >> "$VMHT_LOG"
+case "$dir" in "$VMHT_CASE"/*) exec /usr/bin/mktemp "$@" ;; esac
+exec /usr/bin/mktemp -p "$VMHT_CASE/tmp" "$(printf '%s' "${@: -1}" | grep -q X && basename "${@: -1}" || echo tmp.XXXXXXXXXX)"
+'''
+MKDIR_LOGGING = r'''#!/bin/bash
+# mkdir double: logs every call; creates only inside the case's own directory, so a
+# tool aimed at /workspace/artifacts is seen without anything being written there.
+printf 'mkdir %s\n' "$*" >> "$VMHT_LOG"
+for a in "$@"; do case "$a" in -*) ;; "$VMHT_CASE"/*) ;; *) exit 0 ;; esac; done
+exec /bin/mkdir "$@"
+'''
+
+
+def pair_tree(c):
+    """vm-pair and vm-stop under test, a launcher that starts fixture guests, a gz image."""
+    c.tool('vm-pair'); c.tool('vm-stop')
+    executable(c.root / 'tools' / 'vm-serial', SERIAL_DOUBLE)
+    vm = c.root / 'projects' / 'ROCKNIX' / 'devices' / 'GENERIC_X64' / 'vm'
+    vm.mkdir(parents=True)
+    executable(vm / 'generic-x64-vm', LAUNCHER_DOUBLE)
+    executable(c.bin / 'qemu-img', QEMU_IMG_DOUBLE)
+    executable(c.bin / 'sleep', SLEEP_DOUBLE)
+    img = c.dir / 'image.img.gz'
+    subprocess.run(['bash', '-c', 'printf image | gzip > "$1"', 'gz', str(img)], check=True)
+    c.rows([('BUILD_ID=', 0, '0123456789')])
+    return img
+
+
+def fixture_pids(*dirs):
+    """Every fixture guest's pid from the pidfiles under the given directories, wherever a tool put them."""
+    pids = []
+    for d in dirs:
+        for f in Path(d).rglob('rocknix-qemu*.pid') if Path(d).is_dir() else []:
+            try:
+                pids.append(int(f.read_text().strip()))
+            except (OSError, ValueError):
+                pass
+    return pids
+
+
+def fixture_alive(pid):
+    try:
+        return Path(f'/proc/{pid}/cmdline').read_bytes().split(b'\0')[0] == b'qemu-system-fixture'
+    except OSError:
+        return False
+
+
+def reap_fixtures(pids):
+    import signal
+    for pid in pids:
+        if fixture_alive(pid):
+            os.kill(pid, signal.SIGTERM)
+
+
+@case
+def two_checkouts_two_states(c):
+    outs = []
+    for name in ('one', 'two'):
+        root = c.dir / name / 'checkout'
+        (root / 'tools').mkdir(parents=True)
+        shutil.copy2(c.tools_from / 'vm-pair', root / 'tools' / 'vm-pair')
+        r = subprocess.run([str(root / 'tools' / 'vm-pair'), 'info'], cwd=root, capture_output=True, text=True,
+                           env=c.env(DEFAULTS, XDG_RUNTIME_DIR=c.dir / 'xdg'), timeout=30)
+        outs.append(r.stdout)
+    shared = sorted(set(outs[0].split()) & set(outs[1].split()) & {w for w in outs[0].split() if '/' in w})
+    in_tmp = [w for o in outs for w in o.split() if w.startswith('/tmp/')]
+    ok = outs[0] != outs[1] and not shared and not in_tmp
+    return ok, f'paths shared by the two checkouts {shared[:3]}, paths under /tmp {in_tmp[:2]} (want none of either)'
+
+
+@case
+def runtime_recorded(c):
+    img = pair_tree(c)
+    explicit = c.dir / 'rt-explicit'
+    env = dict(VMHT_GUEST=FIXTURE_GUEST, XDG_RUNTIME_DIR=c.dir / 'xdg')
+    pids = []
+    try:
+        up = c.run([str(c.root / 'tools' / 'vm-pair'), 'up', str(img)], drop=('VM_QEMU_RUNTIME_DIR',),
+                   VM_QEMU_RUNTIME_DIR=explicit, **env)
+        pids = fixture_pids(explicit)
+        recorded = (c.dir / 'pair' / 'RUNTIME').read_text().strip() if (c.dir / 'pair' / 'RUNTIME').exists() else ''
+        if recorded != str(explicit):
+            # Never run the unfixed down: its default runtime directory is /tmp, another session's.
+            return False, f'up rc {up.returncode}, RUNTIME recorded {recorded!r} (want {str(explicit)!r}); down not run'
+        down = c.run([str(c.root / 'tools' / 'vm-pair'), 'down'], drop=('VM_QEMU_RUNTIME_DIR',), **env)
+        import time; time.sleep(0.3)
+        alive = [p for p in pids if fixture_alive(p)]
+        ok = up.returncode == 0 and down.returncode == 0 and len(pids) == 2 and not alive
+        return ok, f'up rc {up.returncode}, recorded {recorded == str(explicit)}, down rc {down.returncode}, guests {len(pids)}, still running {len(alive)}'
+    finally:
+        reap_fixtures(set(pids) | set(fixture_pids(c.dir)))
+
+
+@case
+def port_held_refused(c):
+    import socket
+    img = pair_tree(c)
+    rt = c.dir / 'rt'
+    listener = socket.socket()
+    try:
+        listener.bind(('127.0.0.1', 10022))
+    except OSError as error:
+        return False, f'10022 is already held on this host ({error}); the case cannot run, so it has not passed'
+    listener.listen()
+    pids = []
+    try:
+        r = c.run([str(c.root / 'tools' / 'vm-pair'), 'up', str(img)], VM_QEMU_RUNTIME_DIR=rt, VMHT_GUEST=FIXTURE_GUEST)
+        pids = fixture_pids(rt)
+        launched = c.calls('launch ')
+        ok = r.returncode != 0 and not launched and f'pid {os.getpid()}' in r.stderr
+        return ok, f'rc {r.returncode}, launches {len(launched)}, holder named {f"pid {os.getpid()}" in r.stderr} (want a refusal naming this pid, nothing launched)'
+    finally:
+        listener.close()
+        reap_fixtures(set(pids) | set(fixture_pids(c.dir)))
 
 
 def main():
