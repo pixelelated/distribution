@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2021-present Shanti Gilbert (https://github.com/shantigilbert)
 # Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 
 # Source predefined functions and variables
 . /etc/profile
@@ -40,19 +41,21 @@ then
 
   # Handle inputplumber platforms first
   if [[ "${HW_DEVICE}" =~ RK3576|SM6115|SM4450|SM8550|SM8650|SM8750|SM8250 ]]; then
-    GAMEPAD="'Sony Interactive Entertainment DualSense Wireless Controller'"
+    GAMEPAD_NAME="Sony Interactive Entertainment DualSense Wireless Controller"
   else
     # Check for js0, else fall back to joypad
     if grep -q "js0" /proc/bus/input/devices; then
-      GAMEPAD="'$(grep -b4 js0 /proc/bus/input/devices | awk 'BEGIN {FS="\""}; /Name/ {printf $2}')'"
+      GAMEPAD_NAME="$(grep -b4 js0 /proc/bus/input/devices | awk 'BEGIN {FS="\""}; /Name/ {printf $2}')"
     else
-      GAMEPAD="'$(grep -b4 joypad /proc/bus/input/devices | awk 'BEGIN {FS="\""}; /Name/ {printf $2}')'"
+      GAMEPAD_NAME="$(grep -b4 joypad /proc/bus/input/devices | awk 'BEGIN {FS="\""}; /Name/ {printf $2}')"
     fi
   fi
+  # The pad's name is the device's own text: quoted for the XPath, never eval'd.
+  GAMEPAD="'${GAMEPAD_NAME}'"
 
   GAMEPADCONFIG=$(xmlstarlet sel -t -c "//inputList/inputConfig[@deviceName=${GAMEPAD}]" -n /storage/.emulationstation/es_input.cfg)
 
-  MAPPING_FILE="/usr/config/yabasanshiro/devices/keymapv2_$(eval echo $GAMEPAD).json"
+  MAPPING_FILE="/usr/config/yabasanshiro/devices/keymapv2_${GAMEPAD_NAME}.json"
   if [ -e "${MAPPING_FILE}" ]; then
     cp ${MAPPING_FILE} ${CONFIG_DIR}/keymapv2.json
   fi
