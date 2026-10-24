@@ -63,6 +63,8 @@ today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 **T14 (#661) accepted (2026-10-24 23:33 UTC)** at the hand-back `7c1d729b57`, the coordinator's branch merged in at `e8d866507d` (two ledger conflicts united; register-check 679); #1006 closed (ticked=23 open=0 by name); 17 of 18 criteria ticked, the before-its-merge checker line open for the merge packet. The lane writes `audit-completion.json`, the full lint and the idle pointer next. At T14's merge (after T12's, before T4's): T15's two `--busybox` calls gain `--busybox-from`/`--unverified-busybox` (`last-good-scripts-test:14224`, `:14231`); `run.sh`'s two lines for the split lint fixtures (#945's file); the `docs/releases/` receipts since `d9f428e1a0` re-read against the fixed state check and store. **Accepted today: T7, T30, T24, T8, T4, T9, T10, T14.** Running: T12 (stage F, then G and the hand-back; `t12-accept.sh` ready).
 
+**T12 (#659) accepted (2026-10-24 23:39 UTC)** at the hand-back `d9991735d8` (`fixed-at 159ed33562`), the coordinator's branch merged in at `a1bdd18355`; #984 closed (ticked=23 open=0 by name); 17 of 18 criteria ticked. The lane writes `audit-completion.json`, the full lint, `cloud-test-backend down` and the idle pointer next. **Accepted today: T7, T30, T24, T8, T4, T9, T10, T14, T12.** Running: nothing dispatched; next in the order: T15 (#662, `last-good-scripts-test`, with #1015 and the `image_tool_source` fallback as its first findings) and T45 (#692), briefs to be written. At T12's merge: the catalog re-read for `vm-qa` PASSes over a SKIP; the device-action log's redaction (S7). Acceptance exports: `accept-t12` (retire after this record), `t12-proof` (43M, retire).
+
 ## Next commands
 
 ```bash
