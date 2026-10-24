@@ -24,18 +24,11 @@ SWAY_CONFIG="/storage/.config/sway/config"
 [ ! -d ${CONF_DIR}/log ] && mkdir -p ${CONF_DIR}/log
 
 # Move sdmc & nand to 3ds roms folder
-[ ! -d /storage/roms/3ds/azahar/sdmc ] && mkdir -p ${ROMS_DIR}/azahar/sdmc
-rm -rf ${CONF_DIR}/sdmc
-ln -sf ${ROMS_DIR}/azahar/sdmc ${CONF_DIR}/sdmc
-
-[ ! -d ${ROMS_DIR}/azahar/nand ] && mkdir -p ${ROMS_DIR}/azahar/nand
-rm -rf ${CONF_DIR}/nand
-ln -sf ${ROMS_DIR}/azahar/nand ${CONF_DIR}/nand
+link_storage_dir "${CONF_DIR}/sdmc" "${ROMS_DIR}/azahar/sdmc"
+link_storage_dir "${CONF_DIR}/nand" "${ROMS_DIR}/azahar/nand"
 
 # Move states to savestates folder
-[ ! -d ${SAVESTATES_DIR} ] && mkdir -p ${SAVESTATES_DIR}
-rm -rf ${CONF_DIR}/states
-ln -sf ${SAVESTATES_DIR} ${CONF_DIR}/states
+link_storage_dir "${CONF_DIR}/states" "${SAVESTATES_DIR}"
 
 # RK3588 - handle different config files for ACE / CM5
 if [ "${HW_DEVICE}" = "RK3588" ] && [ ! -f "${CONF_FILE}" ]; then
@@ -223,8 +216,7 @@ case ${HW_DEVICE} in
     ;;
 esac
 
-rm -rf /storage/.local/share/azahar
-ln -sf ${CONF_DIR} /storage/.local/share/azahar
+link_storage_dir /storage/.local/share/azahar "${CONF_DIR}"
 
 # Run Azahar Emulator
 if [ "${EMOUSE}" = "0" ]; then
