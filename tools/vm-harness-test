@@ -1635,6 +1635,20 @@ def optimize_vm_upgrade_readiness_test(c):
 
 
 
+def guarded(c, name):
+    # --help only: the tool's real runs reach a guest, and the guard comes before anything does.
+    tool = c.tool(name)
+    rc, last = optimized(c, [sys.executable, str(tool), '--help'], timeout=30)
+    return rc == 2 and any('refuses to run under python -O' in l for l in last), f'rc {rc}, {last} (want 2: refused under -O)'
+
+
+
+@case
+def optimize_ra_ui_test(c):
+    return guarded(c, 'ra-ui-test')
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')
