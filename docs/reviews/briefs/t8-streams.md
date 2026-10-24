@@ -124,7 +124,7 @@ since it needs the host, which M6 holds (census 0 at 13:20 UTC).
   unpack the three subprojects from the source cache`), each `Refs #893,
   #895, #655`, the attribution line.
 
-## S3. The installer stops at a failed step and says which (PL-14, #894; G-02 to G-06 read) -- `fix-guest`
+## S3. The installer stops at a failed step and says which, and no longer forks itself without a pad (PL-14, #894; #899 found on the guest; G-02 to G-06 read) -- `fix-guest`
 
 - **Why a stream:** Medium; a person installing GENERIC_X64 on a PC is told
   the install completed after a wipe, format or mount failed. The script is
@@ -133,6 +133,18 @@ since it needs the host, which M6 holds (census 0 at 13:20 UTC).
 - **Files owned:** `projects/ROCKNIX/packages/tools/installer/scripts/installer`
   only. No restructuring: the steps stay where they are; each destructive
   command gets a test.
+- **#899, found by the lane on the first guest run (13:4x UTC) and added here
+  by the coordinator:** with no game controller `control.ini` is empty,
+  `GPTOKEYB` is unset, and line 45's `${GPTOKEYB} "installer" -c ... &` runs
+  the installer itself in the background, without end; a copy whose dialog
+  returns Close runs `poweroff -f`, which powered the guest off. Its fix is
+  a guard on `:43-47` (the gptokeyb line runs only when `GPTOKEYB` is set),
+  its own commit (`Refs #899, #895, #655`), **made first**, so that #894's two
+  runs then happen on the fixed script with no `gptokeyb` or `poweroff`
+  stub -- a real input (no controller, the guard), not a named substitute.
+  The stub reproduction stands as #899's failing control in `02`, and a stub
+  `gptokeyb` recording its argv is the fixture #899's third criterion names.
+  Punch item PL-18 (Medium, Q3, `bug`, #899); a #585 row, the coordinator's.
 - **The shape:** the steps run inside `{ ... } | whiptail --gauge`
   (`:200-372`), where stdout is the gauge, so a failure cannot show a dialog
   from inside. Inside the braces, `dd` (`:207`), the label and partition
