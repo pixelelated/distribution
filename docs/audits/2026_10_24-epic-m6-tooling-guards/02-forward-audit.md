@@ -48,6 +48,26 @@ Every command was run in this worktree at stage A (16:28-16:31 UTC), with its ou
 | run `tools/fork-worktree list` | 0 | read only; one worktree `HOLDS BUILD OUTPUT (2.6G)` | — (list has no failing verdict) |
 | run `tools/{es-menu-map-check,rc-preflight,archaeology,pr-stack-check} --help` | 0 each | usage only; each parser read before the call | — |
 
+**Re-run at the fixed tip** (`8283414574`, after S10's follow-up; the outputs are under `/workspace/tmp/m6-t10/final/`):
+
+| Command | Exit | Summary | Against stage A |
+| --- | ---: | --- | --- |
+| `.githooks/hooks-test` | 0 | `PASS`, 67 `ok` lines: **44** `expect` results and 23 `says`/`silent` checks | 41 lines, 29 `expect`: each new case is a stream's (S1 to S3) |
+| `tools/register-check` | 1 | `FAILED`: MISSING 3 (D-WORKFLOW-201 at `tools/fork-worktree:219` and `tools/fork-worktree-test:3`, D-WORKFLOW-204 at `tools/renovation-status:18`), SHAPE 12, EDITED 42 reported | 0. The rows and the twelve SHAPE fixes are on the coordinator's branch, merged at hand-back before criterion 17's checkers |
+| `tools/rules-check --quiet` | 0 | (silent) | the same |
+| `tools/work-log-index --check` | 0 | `work-log index: current` | the same |
+| `tools/prose-check --self-test` | 0 | the three samples (now `tools/test-fixtures/prose/`) pass; the machine draft fails (7 fails); the new *That's it!* and same-opener cases; `self-test: PASS` | the same verdicts, plus two cases |
+| `tools/ceremony-check` | 1 | `DUE weekly OVERDUE: 2026-W42`, and `DUE register FAIL` (`register-check`'s rc 1 above); 11 lines `ok` | W42 only. The register line follows `register-check` and clears at the merge |
+| lint, `fixture-epic-m6-renovation-pass` | 0 | `PASS` | the same |
+| lint, `fixture-epic-m6-renovation-fail` | 1 | `2 CONTRACT FAILURE(S)` | the same (the FAIL is the point) |
+| `tools/test-fixtures/lint-audit-artifacts/run.sh` | 0 | 5 `ok`, `PASS` (the index boundary and both folder-date forms, S7) | not there at stage A |
+| lint on this folder (default phase) | 0 | `PASS` | stage A ran at `--phase pre-issue` |
+| `tools/box-check --quiet` | 0 | `510 issue(s), 1588 open checkbox(es), 0 fail, 136 issue(s) with rows to re-derive against` (core 4,987 → 4,986, GraphQL 4,974 → 4,973) | 300 issues, the limit (F-04); every open issue now |
+| `tools/forbidden-terms-check` (the tree) | 0 | `0 hits in 133642 tracked files`, 150 s; `git ls-files` 133642 | 133409 files, the 180 symlinks skipped (F-07); every file now, and the count asserted |
+| `tools/fork-worktree list` | 0 | read only | the same |
+| `--help` of `es-menu-map-check`, `rc-preflight`, `archaeology`, `pr-stack-check` | 0 each | usage only | the same |
+| the twelve S9 controls | 0 each | 67 cases, `PASS` | the stream's |
+
 **`ceremony-check` against #905's packet.** The #905 tool is not on this branch (`9e12014623` is not an ancestor). It was read as a diff (`git diff 8ebaf8daad 9e12014623 -- tools/ceremony-check`, +55/-9), not run from a detached checkout, because its friction line reads `docs/friction-log.md` from its own `ROOT`. Its own before/after fixture is the packet's evidence (`docs/qa-logs/2026-10-24-905-ceremony-friction/`, on that branch). The diff closes the shape the hash fails open on (`ceremony-check:250-252`: `if not m: continue`). It leaves the residual that F-15 names.
 
 ## The CI
