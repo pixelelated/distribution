@@ -87,8 +87,16 @@ if { [ -d "${SOURCES}/${PKG_NAME}" ] || [ -d "${PKG_DIR}/sources" ]; } || pkg_ca
     pkg_call_finish
   fi
 
-  if [ -z "${PKG_SOURCE_DIR}" -a -d "${PKG_UNPACK_DIR}/${PKG_NAME}-${PKG_VERSION}"* ]; then
-    mv "${PKG_UNPACK_DIR}/${PKG_NAME}-${PKG_VERSION}"* "${PKG_UNPACK_DIR}/.intermediate"
+  # The unpacked tree is the one directory named after the package; two of them
+  # cannot both be its source, and a `[ -d ... ]` over two words is false, which
+  # used to leave the package empty with no word said.
+  if [ -z "${PKG_SOURCE_DIR}" ]; then
+    unpacked=("${PKG_UNPACK_DIR}/${PKG_NAME}-${PKG_VERSION}"*)
+    if [ ${#unpacked[@]} -gt 1 ]; then
+      die "unpack: ${PKG_NAME}: ${#unpacked[@]} entries match ${PKG_NAME}-${PKG_VERSION}*: ${unpacked[*]##*/}; set PKG_SOURCE_DIR in its recipe"
+    elif [ -d "${unpacked[0]}" ]; then
+      mv "${unpacked[0]}" "${PKG_UNPACK_DIR}/.intermediate"
+    fi
   fi
 
   if [ ! -d "${PKG_UNPACK_DIR}/.intermediate" ]; then
