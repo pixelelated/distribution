@@ -688,6 +688,25 @@ def scaled_none(c):
     return any('could not be compared' in x for x in missing), f'judged {missing} (want an unread panel to fail surface qualification)'
 
 
+# --- S7: emulator-exit-test and device-act refuse what they cannot prove (#968, #978) ---
+
+@case
+def exit_only_unknown(c):
+    tool = c.tool('emulator-exit-test')
+    r = c.run([str(tool), '--port', '10022', '--identity', str(c.dir / 'key'), '--only', 'X'])
+    acted = c.calls('')
+    return r.returncode == 2 and 'X' in r.stderr and not acted, \
+        f'rc {r.returncode}, stdout tail {r.stdout.strip().splitlines()[-1:]}, guest calls {len(acted)} (want rc 2 naming X, no guest call)'
+
+
+@case
+def exit_only_d_alone(c):
+    tool = c.tool('emulator-exit-test')
+    r = c.run([str(tool), '--port', '10022', '--identity', str(c.dir / 'key'), '--only', 'D'])
+    return r.returncode == 2 and 'A, B or C' in r.stderr, \
+        f'rc {r.returncode}, stdout tail {r.stdout.strip().splitlines()[-1:]} (want rc 2: D runs only beside a launch)'
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')

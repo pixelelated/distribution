@@ -20,6 +20,11 @@
 #   C  the window closes: on a generic target, a press 4 s after the first goes through
 #   D  the exit-hotkey marker never outlives a launch
 #
+# --only takes letters from A to D, and nothing else (#968): a selection that
+# names no part ran nothing and printed PASSED. D checks what the launches of
+# A, B or C left behind, so it runs only beside at least one of them; --only D
+# alone is refused rather than passed on a guest where no launch happened.
+#
 # It fails against an input_sense without the debounce -- B finds no .srm, C
 # finds the repeat went through -- which is what makes it a regression gate
 # rather than a demonstration (proven both ways on the VM, 2026-09-10). The
@@ -42,10 +47,14 @@ while [ $# -gt 0 ]; do
     --identity) KEY=$2; shift 2 ;;
     --vm) VM=1; shift ;;
     --only) ONLY=$2; shift 2 ;;
-    -h|--help) sed -n '5,32p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    -h|--help) sed -n '5,38p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     *) echo "unknown argument: $1" >&2; exit 2 ;;
   esac
 done
+case "$ONLY" in
+  ""|*[!ABCD]*) echo "emulator-exit-test: --only takes parts from A to D, not '$ONLY'" >&2; exit 2 ;;
+esac
+case "$ONLY" in *[ABC]*) ;; *) echo "emulator-exit-test: --only D checks what a launch left behind, so it runs only beside A, B or C" >&2; exit 2 ;; esac
 SSHO=(-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR -o ConnectTimeout=8 -o BatchMode=yes -p "$PORT")
 [ -n "$KEY" ] && SSHO+=(-i "$KEY")
 S() { ssh -n "${SSHO[@]}" "$HOST" "$@"; }
