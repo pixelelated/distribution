@@ -10,9 +10,8 @@ PPSSPP_ACHIEVEMENTS="/storage/.config/ppsspp/PSP/SYSTEM/ppsspp_retroachievements
 PPSSPP_INI="/storage/.config/ppsspp/PSP/SYSTEM/ppsspp.ini"
 LOG_FILE="/var/log/cheevos.log"
 
-# Extract username, password, token, if enabled, and hardcore mode from system.cfg
+# Extract username, token, if enabled, and hardcore mode from system.cfg
 username=$(get_setting "global.retroachievements.username")
-password=$(get_setting "global.retroachievements.password")
 token=$(get_setting "global.retroachievements.token")
 enabled=$(get_setting "global.retroachievements")
 hardcore=$(get_setting "global.retroachievements.hardcore")
