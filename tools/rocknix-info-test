@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)
 from pathlib import Path
-import subprocess,tempfile,os,json,shutil,hashlib
+import subprocess,tempfile,os,json,shutil,hashlib,atexit
 import argparse
 parser=argparse.ArgumentParser(description="Exercise optional hardware reporting with complete-script filesystem fixtures.")
 parser.add_argument('--baseline', type=Path, help='Optional original script for the failing control and valid-output comparison.')
@@ -10,6 +10,9 @@ parser.add_argument('--output', type=Path, help='Retain original result channels
 args=parser.parse_args()
 P=args.output or Path(tempfile.mkdtemp(prefix='rocknix-info-test-'))
 P.mkdir(parents=True,exist_ok=True)
+# The scratch goes on every exit, a failing check's included; a rmtree at the
+# end ran only after a pass (#995).
+if not args.output:atexit.register(shutil.rmtree,P,True)
 ROOT=Path(__file__).resolve().parent.parent
 file='projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-info'
 old=args.baseline.read_text() if args.baseline else None;new=(ROOT/file).read_text()
@@ -67,4 +70,3 @@ with tempfile.TemporaryDirectory(prefix='hardware-',dir=P) as td:
 (P/'result.json').write_text(json.dumps({'source_sha256':hashlib.sha256(new.encode()).hexdigest(),'cases':results},indent=2)+'\n')
 print('PASS',len(results),'full-script positive/negative controls',flush=True)
 
-if not args.output:shutil.rmtree(P)
