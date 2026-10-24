@@ -74,24 +74,29 @@ and treats raw/core-specific saves as semantically unverified.
 - the `savefiles/`, `savestates/`, `screenshots/` directories;
 - save-file extensions anywhere: `*.srm`, `*.sav`, `*.fs`, `*.state*`, `*.auto`, `*.dsv*`;
 - a few system save dirs (`n64/save/*`, `psx/memcards/*`, `dc/shared/savefiles/`, `psp/PPSSPP/`);
-- `backup/*.zip` (the settings-backup archive).
+- `backup/*.zip` and `backup/*.tar.gz` (the settings-backup archives; `tar.gz` now,
+  `cloud_backup:747`).
 
 Everything else is **excluded**: `roms/`, **`bios/`**, `downloads/`, `images/`, `manuals/`,
 `videos/`, `themes/`, disc/ROM types (`*.iso *.chd *.bin *.img *.rom *.7z *.zip ...`),
 `*.xml` (gamelists), then a final `- /**` that drops anything not explicitly included. So
-ROMs, BIOS, and artwork are **never** uploaded — only saves, savestates, and screenshots.
+this allowlist never uploads ROMs, BIOS, or artwork — only saves, savestates, and
+screenshots. ROMs, BIOS, and game content move only through the content tier
+(`cloud_content_backup --selected`, D-CLOUD-050; § The content tier's flags below).
 
-**Scope guardrail (intent):** every cloud-sync change must serve syncing *only* that set
-(saves/savestates/screenshots + the settings-backup zip) across devices, and must **never** risk
-non-synced local data. Stay within the allowlist; preserve the excludes in any `sync`/bisync
-direction (never delete ROMs/BIOS/art); keep a directory chooser limited to save dirs; and keep
-the settings-backup zip partitioned from the saves flow.
+**Scope guardrail (intent):** every change to the saves sync must serve syncing *only* that
+set (saves/savestates/screenshots + the settings-backup archive) across devices, and must
+**never** risk non-synced local data. Stay within the allowlist; preserve the excludes in
+any `sync`/bisync direction (never delete ROMs/BIOS/art); keep a directory chooser
+limited to save dirs; and keep the settings-backup archive partitioned from the saves
+flow.
 
 **User intent (design north star):** the two flows to serve are (1) *new/reset device* —
 restore saves/savestates/screenshots from the cloud onto a fresh handheld, and (2)
 *multi-device* — the cloud as the hub for moving between handhelds, which is why conflict
 resolution (below) is the long-term goal. ROM/BIOS distribution is **not** part of the
-gamesave sync flows; if it ever belongs anywhere, it's the settings backup/restore domain.
+gamesave sync flows; it is the content tier's (`cloud_content_backup` and
+`cloud_content_restore --selected`, D-CLOUD-050), described below.
 
 **Console-first (hard rule, 2026-07-25):** ROCKNIX is a handheld gaming OS. Product
 surfaces — UI labels, dialogs, script output, on-device help, public docs — must assume a
@@ -124,15 +129,17 @@ including successful fixture-start witnesses for old-source failing controls.
 ## Layout & packaging
 
 - `package.mk` installs a **prebuilt rclone binary** (`PKG_TOOLCHAIN="manual"`); there is
-  **no `PKG_SHA256`** and no compile. `PKG_URL` is arch-mapped (`aarch64`→`arm64`, else
-  `amd64`). To bump rclone, change `PKG_VERSION` only — the URL/unpack derive from it.
+  no compile, and **a `PKG_SHA256` per arch** (verified against rclone's `SHA256SUMS`, #541).
+  `PKG_URL` is arch-mapped (`aarch64`→`arm64`, else `amd64`). To bump rclone, change
+  `PKG_VERSION` and both `PKG_SHA256` values — the URL/unpack derive from the version, and
+  the fetch fails on a stale checksum.
 - Scripts install to `/usr/bin`; config templates to `/usr/config`; the user's live config
   is `/storage/.config/`. The EmulationStation **Tools** entries are the symlinks
   `/usr/config/modules/{cloud_backup,cloud_restore}.sh` → `/usr/bin/...`.
 - Pieces and their roles:
   - `cloud_backup` / `cloud_restore` — controller-driven TUI flows; each has two phases
-    (game saves, then the settings-backup `.zip`). Keep these two scripts **structurally in
-    sync** — most fixes belong in both.
+    (game saves, then the settings-backup archive, `tar.gz` now). Keep these two scripts
+    **structurally in sync** — most fixes belong in both.
   - `cloud_sync_helper` — merges `*.defaults` into the user's config on OS update.
   - `cloud_sync_cleanup_duplicates.sh` — removes duplicate `VAR=` lines from the conf.
   - `cloud_capture` (#21) — the save-manifest producer. Records what a game
@@ -232,7 +239,8 @@ seeded from the `/usr/config/*.defaults` templates:
   not exist -- and its `- /**/*.zip` matches the archive itself. **Never pass
   `--filter-from` in the settings-backup phase.** The archive lives at the *root*
   of `SETTINGS_REMOTE`, not under a `backup/` directory: match it with
-  `--include=*.zip`. (2026-08-26: `cloud_restore` filtered on `backup/*.zip`,
+  `--include=/*.{zip,tar.gz}`, as `cloud_backup` does. (2026-08-26: `cloud_restore`
+  filtered on `backup/*.zip`,
   matched nothing, transferred nothing, exited 0 and printed SUCCESS. It shipped
   in four images that way.)
 
@@ -372,7 +380,8 @@ why the recent path spawns rclone once, reads the remote's name from
 `rclone.conf` instead of `rclone listremotes`, and probes nothing. Nothing
 changed: 18 s → 5 s. One save written: about 7 s, most of it Dropbox's commit.
 `tools/cloud-round-trip` asserts the window, the untouched remote, the
-single-file push, and the exit-4 timing.
+single-file push, and the no-network exit, 69 (`tools/cloud-round-trip`'s
+no-route step).
 
 ## Both runs are bounded: the automatic one from its start, the deliberate one from its last progress (D-CLOUD-118, D-CLOUD-126)
 
@@ -614,7 +623,9 @@ Four things that cost time on 2026-09-03:
   `--backend`; `CLOUD_QA_PORT` still moves one if you need two of the same
   kind.
 - **The host's rclone is not the device's.** This host had **1.60.1-DEV**; the
-  device ships **1.74.4**. Backend options differ across that gap —
+  device ships the recipe's `PKG_VERSION`
+  (`projects/ROCKNIX/packages/network/rclone/package.mk`). Backend options differ
+  across that gap —
   `--s3-directory-markers` does not exist in 1.60. Test rclone behaviour by
   running rclone *on the device* against the QA endpoint, not on the host.
 - **A real device can reach the host's MinIO too**, not just a VM: bind the
