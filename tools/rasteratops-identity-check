@@ -37,8 +37,14 @@ def read(path):
 
 
 def value(text, name):
-    match = re.search(r'^\s*' + re.escape(name) + r'="([^"]*)"', text, re.M)
-    return match.group(1) if match else None
+    """The value the shell would see: the last assignment of the name, not the first (#990)."""
+    found = re.findall(r'^\s*' + re.escape(name) + r'="([^"]*)"', text, re.M)
+    return found[-1] if found else None
+
+
+# The ES recipe's licence expression: MIT is the ES source's own (its LICENSE.md);
+# every further term is a dependency the recipe builds in, named here with why (#990).
+ES_EXTRA_LICENCES = {"BSD-3-Clause": "the RVZ hash dependency the recipe builds in (84ff94fb3d)"}
 
 
 options = read(root / "distributions/ROCKNIX/options")
@@ -103,6 +109,8 @@ check(timer.is_symlink() and os.readlink(timer) == "/dev/null", "statistics time
 try:
     tools = ET.parse(root / "projects/ROCKNIX/packages/misc/modules/sources/gamelist.xml")
     check(True, "Tools metadata is well-formed XML")
+    games = tools.getroot().findall("game") if tools.getroot().tag == "gameList" else []
+    check(bool(games), "Tools metadata names its games (a gamelist with none is empty, not current)")
     stale = [game.findtext("path", "") for game in tools.getroot()
              if any(re.search(r"rocknix|rasteratops", game.findtext(field, ""), re.I)
                     for field in ("name", "desc"))]
@@ -140,7 +148,11 @@ try:
 except subprocess.CalledProcessError:
     head = None
 check(head is not None and value(recipe, "PKG_VERSION") == head, "ES recipe pins the checked commit")
-check(value(recipe, "PKG_LICENSE") == "MIT", "ES licence matches its source")
+licence = value(recipe, "PKG_LICENSE") or ""
+terms = [t.strip() for t in licence.split(" AND ")]
+own_mit = "Permission is hereby granted, free of charge" in read(es / "LICENSE.md")
+check(own_mit and "MIT" in terms and all(t == "MIT" or t in ES_EXTRA_LICENCES for t in terms),
+      "ES licence matches its source (the recipe says " + repr(licence) + ")")
 
 art = root / "docs/pixelelated/art/pixelelated-wordmark.svg"
 theme = root / "projects/ROCKNIX/packages/ui/themes/es-theme-art-book-next"
