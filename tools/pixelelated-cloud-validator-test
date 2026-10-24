@@ -53,6 +53,9 @@ def request(f, categories='saves,settings,roms,bios,media', run='proof01', rc=0)
     value = json.loads(r.stdout)
     require(snapshot(f) == before, 'validation changed local/cloud bytes')
     require(value['run_id'] == run, 'run identity absent')
+    # Every requested category answered, and no other: an empty list is not 'all present' (#994).
+    got = sorted(r['category'] for r in value.get('categories', []))
+    require(got == sorted(categories.split(',')), f'categories {got} for a request of {categories}')
     return value
 
 
@@ -76,9 +79,12 @@ def main():
     want=pinned_rclone(ROOT, a.ref)
     require(version == 'rclone v'+want, 'use the package-pinned rclone '+want+' ('+RCLONE_RECIPE+'), not '+version)
     require(not a.output.exists(), 'use a new output directory')
+    # The receipt binds the bytes that run: hashed before the cases, not after (#994).
+    rclone_sha256=hashlib.sha256(Path(a.rclone).read_bytes()).hexdigest()
     a.output.mkdir(parents=True)
-    results=[]
+    results=[];registered=[]
     def case(name, work):
+        registered.append(name)
         if a.case and name not in a.case:return
         f=legacy.Fixture(a.output/name,a);initial(f)
         work(f)
@@ -192,7 +198,8 @@ def main():
     case('entry-limit',overlimit)
 
     def byte_limit(f):
-        inject(f,'''if [ "$1" = lsjson ]; then python3 -c 'print("x"*2200000)'; exit 0; fi''')
+        # Valid JSON, inside the entry bound, over the byte bound: only the byte limit can refuse it (#994).
+        inject(f,'''if [ "$1" = lsjson ]; then python3 -c 'import json;print(json.dumps([dict(Path="f"+str(n)+"x"*2600,IsDir=False) for n in range(1000)]))'; exit 0; fi''')
         require(rows(request(f,'saves',rc=5))['saves']['state']=='unreadable','oversize bytes accepted')
     case('byte-limit',byte_limit)
 
@@ -284,6 +291,7 @@ def main():
         require(not (f.path/'cloud/pixelelated/Content').exists(),'disabled content created')
         require(not (f.path/'cloud/pixelelated/Saves/savefiles').exists(),'disabled saves folders created')
         r=f.run('cloud_setup','--seed-folders','roms');require(r.returncode==0,r.stdout)
+        require((f.path/'cloud/pixelelated/Content/ROMs/README.txt').is_file(),'selected ROM folder and its note not created')
         require(not (f.path/'cloud/pixelelated/Content/BIOS').exists(),'disabled BIOS created')
     case('explicit-category-seeding',seeds)
 
@@ -368,12 +376,21 @@ exit "$rc"''')
     case('public-rocknix-custom-library-preserved',lambda f:public_adoption(f,'Separate/Library'))
 
     def timeout(f):
-        inject(f,'''if [ "$1" = lsjson ]; then sleep 12; fi''')
+        # A listing that would fail only after 12 s: unreadable before then proves the bound, not the failure (#994).
+        inject(f,'''if [ "$1" = lsjson ]; then sleep 12; exit 5; fi''')
+        started=time.monotonic()
         require(rows(request(f,'saves',rc=5))['saves']['state']=='unreadable','unbounded request')
+        elapsed=time.monotonic()-started
+        require(elapsed < 12, f'the request took {elapsed:.1f} s: the listing was not cut short')
     case('request-timeout',timeout)
 
+    unknown=sorted(set(a.case or [])-set(registered))
+    if unknown or (a.case is not None and not results):
+        print('FAIL unknown or empty --case: '+(', '.join(repr(n) for n in unknown) or 'none selected'),flush=True)
+        sys.exit(2)
+    require(len(results)==(len(set(a.case)) if a.case else len(registered)), f'{len(results)} controls ran of {len(registered)}')
     sources=ROOT/'projects/ROCKNIX/packages/network/rclone/sources'
-    (a.output/'result.json').write_text(json.dumps({'result':'PASS','cases':results,'rclone_version':version,'rclone_sha256':hashlib.sha256(Path(a.rclone).read_bytes()).hexdigest(),'source_sha256':{n:hashlib.sha256(subprocess.check_output(['git','-C',str(ROOT),'show',a.ref+':projects/ROCKNIX/packages/network/rclone/sources/'+n]) if a.ref else (sources/n).read_bytes()).hexdigest() for n in ['cloud_setup','cloud_folder_validate','cloud_content_restore','cloud_sync_helper']}},indent=2)+'\n')
+    (a.output/'result.json').write_text(json.dumps({'result':'PASS','cases':results,'rclone_version':version,'rclone_sha256':rclone_sha256,'source_sha256':{n:hashlib.sha256(subprocess.check_output(['git','-C',str(ROOT),'show',a.ref+':projects/ROCKNIX/packages/network/rclone/sources/'+n]) if a.ref else (sources/n).read_bytes()).hexdigest() for n in ['cloud_setup','cloud_folder_validate','cloud_content_restore','cloud_sync_helper']}},indent=2)+'\n')
     print(f'PASS {len(results)} controls')
 
 if __name__=='__main__':main()
