@@ -40,14 +40,19 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#652`. **The host is the M7 lane's from 03:47 UTC**
-(a bounded rclone diagnostic on a GENERIC_X64 guest, then focused checks;
-last block when this pointer was seeded: `== M7 root — 2026-10-24T03:47:08.200041+00:00:03:47 handoff read and accepted. S`): until the coordinator
-relays M7's `resource return` on #652, this lane runs no guest, no
-compiler and no `npm install`; the reading, `git`, `gh api`, `bash -n`,
-`py_compile`, shellcheck, `pkgcheck` and the sandbox go on (brief § 5).
+**Stage A written (2026-10-24 03:53 UTC).** Executor Opus 5.5 at high
+effort, session `c649553c-8086-4db7-ad9c-248c7e41ff95`, pane `wN:p7`; start
+confirmed on #652 (issuecomment-6379521847). `reviewed-at` = `46f6c7d428`
+(the slice's bytes are `next`'s at `8ebaf8daad`; `upstream/next`
+`3421d7d178`; merge base `c445081a59`). The membership re-derived with no
+delta (242 paths, 13,910 lines, 18 fork-own 3,266, code-class 6,776 of
+which fork-own 2,419); M7's delta on it none; the branch scan 17 old
+remote branches. Artifacts so far:
+`docs/audits/2026_10_24-epic-m6-build-engine/00-running-log.md` and
+`01-research-notes.md` § Scope. **The host is M7's from 03:47**: no guest,
+compiler or `npm install` until the coordinator relays the return on #652.
+Next: brief § 3's reading (the pre-flight), then stage B (Phase 1, then
+Phase 2 with the coverage table and the mechanical checks of § 5).
 
 ## Next commands
 
