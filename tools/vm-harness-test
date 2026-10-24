@@ -595,6 +595,22 @@ def no_tmp_writes(c):
     return ok, f'{len(made)} temp files asked for, key {keys}, aimed at /tmp: {in_tmp[:3]} (want temp files and none aimed at /tmp)'
 
 
+@case
+def rehearsal_artifacts_root(c):
+    reh = c.tool('vm-upgrade-rehearsal')
+    executable(c.bin / 'mkdir', MKDIR_LOGGING)
+    old = c.dir / 'old' / 'pixelelated-GENERIC_X64-old.img.gz'
+    old.parent.mkdir()
+    old.write_bytes(b'')
+    new = c.dir / 'new.tar'
+    new.write_bytes(b'')
+    r = c.run([str(reh), str(old), str(new), '0123456789'], VMHT_PAIR_UP_RC=1, VMHT_CASE=c.dir)
+    dirs = [l.split()[-1] for l in c.calls('mkdir ') if 'upgrade-from' in l]
+    outside = [d for d in dirs if not d.startswith(str(c.art))]
+    ok = bool(dirs) and not outside
+    return ok, f'the report directory it made: {dirs[:1]} (want it under ROCKNIX_ARTIFACTS={c.art.name}/)'
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')

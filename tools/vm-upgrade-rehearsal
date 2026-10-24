@@ -18,7 +18,7 @@
 # its own seeding before the step under test, so a fixture fault cannot be
 # booked to the build (2026-09-20, generic-x64-vm-testing.md).
 #
-# Output: a directory under /workspace/artifacts/rocknix-images/ named
+# Output: a directory under ${ROCKNIX_ARTIFACTS:-/workspace/artifacts}/rocknix-images/ named
 # qa-<new>-upgrade-from-<old>-<stamp>/ with rehearsal.log, the post-update
 # journal errors, and rc.
 set -u
@@ -27,7 +27,8 @@ OLD=${1:?previous image (.img.gz)}; NEW=${2:?new update tar}; WANT=${3:?expected
 [ -f "$NEW" ] || { echo "no such tar: $NEW" >&2; exit 2; }
 cd "$(dirname "$0")/.." || exit 2
 OLDID=$(basename "$(dirname "$OLD")" | grep -oE '[0-9a-f]{10}$' || echo previous)   # the artifact directories end in the BUILD_ID
-OUT=/workspace/artifacts/rocknix-images/qa-${WANT}-upgrade-from-${OLDID}-$(date -u +%Y%m%d-%H%M); mkdir -p "$OUT"
+# The report root as vm-qa reads it (#979).
+OUT="${ROCKNIX_ARTIFACTS:-/workspace/artifacts}/rocknix-images/qa-${WANT}-upgrade-from-${OLDID}-$(date -u +%Y%m%d-%H%M)"; mkdir -p "$OUT" || exit 2
 LOG=$OUT/rehearsal.log; : > "$LOG"
 say(){ echo "=== $(date -u '+%H:%M:%S') $*" | tee -a "$LOG"; }
 ssha(){ ./tools/vm-pair ssh a ". /etc/profile >/dev/null 2>&1; $*" 2>>"$LOG"; }
