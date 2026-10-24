@@ -286,3 +286,72 @@ staleness checks, the submit launcher's duplicate-owner refusal,
 version 1's list. #656's checklist is P1's five until the dispatch writes § 7
 there. `build-preflight` in report mode exits 1 on this host today (the swap),
 by design.
+
+## Addendum: T10 at its kickoff (2026-10-24, from the brief `docs/reviews/briefs/tooling-guards.md` version 1)
+
+**What we know and assume.** T10 is the area's second slice, **Extended**
+(the security list: `.githooks/**`, the credential and wordlist guards),
+over **31 paths, 6,676 lines; 29 fork-own and 2 upstream-carried (the two
+`.github/scripts/*.sh`, ROCKNIX's); 14 Python, 11 shell, 4 YAML, 2 untagged;
+reach `n/a` 31; 336,673 bytes** -- the three hooks with `guard-lib`,
+`secret-patterns` and `hooks-test` (20 cases at the hash); the four fork
+workflows; the sixteen checkers under `tools/`; and the three `renovation-*`
+tools that exist only on P1's branch (read at `2174265e9c`). 92 fork commits
+since the base over the 28 at the hash. **Three of the 31 changed after the
+hash on other branches** (`ceremony-check` by the #905 packet,
+`pre-commit` by the coordinator's marker refusal, `lint-audit-artifacts` by
+#810's fix): read as deltas, named by commit. The fork's GitHub has **23
+workflows active**, upstream's 19 among them (the build-engine area's). The
+fork CI `fork-checks.yml` has **failed on `next` since 2026-10-22** on one
+step, the W42 summary (M7's); `fork-wordlist.yml` passes and runs on every
+push. The brace glob in `slices.json` is written out in the brief because a
+naive glob-to-regex read one tool of nineteen (the coordinator's own first
+pass, caught the same hour).
+
+**Known unknowns.** U-1 whether any other reader shares `ceremony-check`'s
+fail-open shape (a regex that skips what it does not fit): the hunt is Q3's.
+U-2 whether a checker reads nothing and passes (#845's class) -- each
+checker's empty-input behaviour. U-3 the `PERSONAL_PATTERNS` list against
+`fork-workflow.md`'s *same list* claim, entry by entry (92 quoted entries in
+the hook; the rule's prose is a different shape). U-4 what upstream's 19
+active workflows do on the fork (a schedule that fires, a PR check that
+runs): a lead for the coordinator, not this slice's row. U-5 Gemini's output
+ceiling on a 328 KiB packet (T30's was larger and hit it once): D-WORKFLOW-195
+answers it. U-6 whether `box-check`'s API cost (300 open issues) fits beside
+the coordinator's monitors: the budget is read before and after.
+
+**Patterns.** T4's F-02 (the friction reader), F-22, F-23 are this slice's
+first leads and were found by reading the rule against the tool: the same
+read in the other direction (the tool against its three descriptions) is Q7.
+T6's #845 (`pkgcheck` exits 0 on an unknown name) is the class for Q3. The
+pre-push's header carries its own proven refusals (2026-09-13), the model
+for every guard's positive. Blindspot 67 (a fixture in history before any
+guard read it) is why fixtures are built at run time and why the packet is
+scanned before it is sent. Blindspot 76 is why `pre-commit` now refuses a
+marker on the coordinator's branch -- a delta this slice reads, not a change
+it makes.
+
+**What could we be missing.** A fresh lane runs `tools/forbidden-terms-check`
+and, reading its code, wants to see the list it reads: the brief forbids the
+read (D-WORKFLOW-061); the constructed refusal uses a stand-in file as
+`hooks-test` does. A lane runs `pr-stack-check` to see what it builds: it
+builds a throwaway worktree in the repository -- `--help` only. A seat
+proposes widening `SECRET_PATTERNS`: a stream adds the line it now catches
+*and* the line it must still pass, in `hooks-test`, never a widening alone.
+Pre-mortem: a month on, a push carries a listed word because a stream
+"tidied" `guard_scan`'s regex and the only case that would have caught it
+was never written -- so **a stream on a hook adds the `hooks-test` case that
+fails on the unfixed hook, or it is not a stream**. Replaced mechanism: none
+(a read).
+
+**Adjustments written into version 1 of the brief:** A1 § 2 writes the tool
+list out and names the three after-hash deltas by commit; A2 § 5 scans the
+packet before it is sent and forbids every read of the wordlist and the
+secret's value; A3 § 4 Q6 is a guard table with a positive or a case per
+refusal and a caller per tool; A4 § 4 Q3 hunts the fail-open shape through
+every reader by name; A5 § 7 records the CI's runs and the 23 active
+workflows with one lead for the coordinator; A6 § 8 names the mutating modes
+(`fork-worktree sync|remove|repair`, `pr-stack-check`, `gh workflow run`,
+`gh secret set`) as stops; A7 § 10 runs `hooks-test` on the simulated merge,
+since the coordinator's branch also changes a hook; A8 § 9 the merge order
+(after T9's branch, before T4's).
