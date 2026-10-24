@@ -31,14 +31,7 @@ gate before anything merges to `next` (never `--no-verify`); the order is in
 § Merge notes and § State at 2026-10-24. **Accepted:** P1 (#641), T1 (#648),
 T2 (#649), T3 (#650), T5 (#652), T6 (#653), T7 (#654, `db6597356b`), T30
 (#677, `a020b3d375`), **T24 (#671, complete at `26e4a34edf`: #900 closed, the completion marker written, the full lint PASS)**.
-**Running:** **T8** (#655, Independent) in the T5 session
-(`m6-t5-build-engine`) at **stage E** from `docs/reviews/briefs/t8-streams.md`
-(`3e64156023`): S1 #852 `43f6a81070`, S2 #893 `4db09f6e2e` and `1904e29d54`,
-S3 #894 `467f19fc14` with #899 `0602f598e9` (found on the guest) and the
-addendum `412be96c77`, all landed; **S4 #901** (the media's `syslinux.cfg`
-over the generated one, confirmed by S3's read) runs on the guest now; then
-stages F to H and the coordinator accepts by brief § 10 (`t8-accept.sh` in
-the scratchpad); audit #895. **T24** ran 13:4x to 14:20 in the T3 session (`m6-t3-emulators`) from brief
+**T8 (#655, Independent) accepted at `13394550d6` (14:48 UTC)** from the T5 session (`m6-t5-build-engine`): four streams from `t8-streams.md` (`89e71c23fa`) -- S1 #852 `43f6a81070`, S2 #893 `4db09f6e2e` and `1904e29d54`, S3 #894 `467f19fc14` with #899 `0602f598e9` and `412be96c77`, S4 #901 `b58489297c` -- proved on an export and on the GENERIC_X64 guest; audit #895 closed; its completion marker and the retirement of its guest payloads (D-INFRA-022) are the lane's next commit, after which that session is free for the next slice. **T24** ran 13:4x to 14:20 in the T3 session (`m6-t3-emulators`) from brief
 v2 `c25d772b21` on lane `feature/m6-emulators-dead-ends-671` (the merge
 `8fd13c3133` carried the index's conflict markers for one commit;
 `81331b499e` fixed it; blindspot 76) and is accepted. **Packets** reviewed and waiting for the merge: #877
@@ -281,7 +274,7 @@ is the narrative; this is the index of what a resuming agent must know.
   disclosure timing; `LOCAL_SSH_KEYS_FILE` in Docker builds; D-SYS-014;
   D-WORKFLOW-191 (the `portaudio` question was withdrawn: the mirror serves it; #849 corrected).
 - **Integration (after the M7 candidate):** P0, P1, T1, T2, T3, T30, **`fix/m6-877-libfmt-sha256` (`cf3a8d8e62`) and `fix/m6-890-shs-sha256` (`566b01448f`), the two checksums T5's fetch would refuse**, T5, T6,
-  T7 (`db6597356b`), T24 (`26e4a34edf`) after T30's, T8 at its hand-back, T4 last; #887 (`c60cdddf8b`) and #889 (`828472eb59`) after T30's branch; T8's conflict list (11 rows) read under
+  T7 (`db6597356b`), T24 (`26e4a34edf`) after T30's, T8 (`13394550d6`, or its completion tip), a packet for #902 after T30's, T4 last; #887 (`c60cdddf8b`) and #889 (`828472eb59`) after T30's branch; T8's conflict list (11 rows) read under
   D-WORKFLOW-198/199 with the `spirv-headers` override kept; at integration flip `add_es_system`'s zero-default WARNING to
   `return 1` after T3's S2 and regenerate the five tables; the #802/#806/#825
   adaptations; close #823, #841, #845 and the other fixed bugs at the merge;
