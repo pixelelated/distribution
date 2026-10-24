@@ -242,3 +242,20 @@ PROOF: 06:46 P21 `build_distro` keeps a frozen identity's outputs so the image r
 - After: the sidecar is removed and `onexitcleanup` sees rc=1; success unchanged. `tools/build-identity-test`: 21 passed, 2 failed, the same two checks as stage B (#801).
 
 PROOF: 06:52 P22 `scripts/image` removes its identity sidecar when a later step fails, where it left one naming no image -- `tools/sb-image-sidecar.sh` (F-09, #833)
+
+### [Stage E] 06:53 to 06:58 — E6, fetch and unpack fail closed (PL-08 #834, PL-14, PL-10 #836)
+
+- The coordinator accepted E5b on #652.
+- **#834 under D-WORKFLOW-193.** `tools/sb-get-archive.sh` covers four cases with a `wget` shim (P23).
+  - Check made before dropping `--no-check-certificate`: the container has a CA store, because every recorded `GET (git)` clones over verified `https`. The flag came with the 2025-07-13 import (`f6010e7b77`); LibreELEC's `curl --fail` verified.
+  - `ca91e943fc`: an unhashed recipe is refused before the cache or the network is consulted, naming the package.
+  - `b34868cb18`: `update_packages` keeps checksums and refreshes them from a verified fetch, and skips a package with no upstream version (G-12). Read and `bash -n` only; it has never run on the fork.
+  - `430abc8f66`: the five archive versions without a checksum gain theirs. A per-branch scan of 1,347 recipes found five versions in four recipes, not the eight my stage-B count said; the correction is in `02` F-19. Each archive was fetched once into scratch over `curl --proto =https --tlsv1.2`. `atf` 2.12.0 and `rkbin` 74213af1 match the shared cache's earlier copies and stamps. `pkgcheck` passes on all four recipes.
+  - Ordering: I edited `get_archive` before writing its fixture. The before/after evidence comes from `8ebaf8daad` and the working tree, so it is unaffected.
+- **PL-14** (`64bca887c0`): `tools/sb-unpack-glob.sh` now lifts the real block (P24). Two matches die naming both. The zero-match `mkdir` stays, as the brief asks. In M7's three roots the empty build directories are all no-archive packages (`box86` on aarch64, `nspr`, `entware`, `quirks`, `installer`, `heroic`, `lib32`, H700's `u-boot`), so no recorded build meets the new die.
+- **#836** (`0c786d298e`): the contained fix, in the recipe. The general one, teaching `calculate_stamp` what `find_file_path` resolves, is not taken: the recipe line covers the one shipped reader, and the broader fix changes stamp logic for every package. P25 runs P12's fixture against the recipe's own lines; `NOONEXIT=yes` was added to it, so sourcing `config/functions` sets no trap.
+- **Already written:** archives in the shared cache are unaffected; a cached archive is checked against its new checksum at the next fetch, and two of the five match. The eight devices' roots rebuild `kernel-firmware` once.
+
+PROOF: 06:54 P23 `get_archive` refuses an archive whose recipe has no checksum, cached or not, and no fetch skips TLS verification -- `tools/sb-get-archive.sh` (F-19, #834)
+PROOF: 06:56 P24 `unpack` dies naming both entries when two match, where it emptied the package -- `tools/sb-unpack-glob.sh` (F-08)
+PROOF: 06:57 P25 `kernel-firmware`'s stamp moves when the device's firmware list changes -- `tools/sb-stamp-device-config.sh` (F-17, #836)

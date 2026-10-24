@@ -469,7 +469,8 @@ punch_index:
   source_finding: "F-19"
   owner_area: "the source fetch: archives"
   tracked: "#834"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-sandbox; fix-pending-image: the first build fetches the five with their checksums"
 - id: PL-09
   severity: Medium
   category: Code Quality
@@ -485,7 +486,8 @@ punch_index:
   source_finding: "F-17"
   owner_area: "the stamp: `calculate_stamp` x `find_file_path`"
   tracked: "#836"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-sandbox; fix-pending-image: the eight devices' roots rebuild `kernel-firmware` once"
 - id: PL-11
   severity: Low
   category: Documentation Gap
@@ -517,7 +519,8 @@ punch_index:
   question: Q3
   source_finding: "F-08"
   owner_area: "the unpack step"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-sandbox"
 - id: PL-15
   severity: Low
   category: Code Quality
@@ -617,13 +620,13 @@ punch_index:
 | PL-05 | **Resolved** | `cbb3e308b7` (E4): the eleven per-system keys unset before each fragment, a missing fragment refused; `daphne.conf` and `gp32.conf` gain 1983 and 2001. P19 (case C) and P20 (the five tables); fix-host-regen; fix-pending-image: the three images' tables |
 | PL-06 | **Resolved** | `cbb3e308b7` (E4): the default marks `core[last()]`; defaults counted once per system, more than one fails by name, none warned (GENERIC_X64 `psx`, #650's line); `mk_es_systems` prints `xmlstarlet`'s error. P19 (cases A and B) and P20; fix-host-regen; fix-pending-image: the three images' tables |
 | PL-07 | **Resolved** | `cfb391e75d` (E5): the prune keeps the outputs of a frozen `BUILD_TIMESTAMP`, so `scripts/image`'s refusal fires (P21 case 1); `0a580b2d4d` (E5b): the identity sidecar is removed when a later step fails (P22); fix-sandbox; fix-pending-image: the next build's `target/` |
-| PL-08 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-08 | **Resolved** | `ca91e943fc`, `b34868cb18`, `430abc8f66` (E6, D-WORKFLOW-193): an unhashed recipe refused before cache and network, TLS verified; `update_packages` keeps and refreshes checksums; the five unhashed archive versions gain theirs (two matching the shared cache too). P23; fix-sandbox; fix-pending-image: the first build fetches the five with their checksums |
 | PL-09 | Open | stage E's stream brief resolves (`t5-streams.md`) |
-| PL-10 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-10 | **Resolved** | `0c786d298e` (E6): `kernel-firmware`'s `PKG_NEED_UNPACK` names the firmware list at the device, project and distribution levels. P25; fix-sandbox; fix-pending-image: the eight devices' roots rebuild `kernel-firmware` once |
 | PL-11 | **Deferred** | deferred:#651 (T4): `device-builds.md` § After rebasing items 2 and 3 (the coordinator's disposition, `t5-streams.md`) |
 | PL-12 | **Resolved** | `07b92ce5b7` (E5): `ORIGIN_URL` and `BUILD_FILENAME` removed; `git grep` finds no reader; a reading (`git grep`, `bash -n`) |
 | PL-13 | **Resolved** | `5f71b30310` (E5): the compat root's dead naming and uncalled `do_mkimage` removed; it names no file before or after; a reading (`bash -n`; 5 naming writes before, 0 after) |
-| PL-14 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-14 | **Resolved** | `64bca887c0` (E6): two matching entries fail naming both; one moves as before. P24; fix-sandbox |
 | PL-15 | **Deferred** | deferred:#657 (T10): `update-kernel-configs-docs.yml` fails on every fork push (the coordinator's disposition) |
 | PL-16 | **Deferred** | deferred:#652, the coordinator's act: the pin moves with the first M6 image build after the M7 candidate merges, in the stream brief naming that build; until then behind by 29 days, identical `Dockerfile` |
 | PL-17 | **Deferred** | deferred:#652, the coordinator's act: the base merge takes `config/blocklist`, `build-nightly.yml` and the PR template |
