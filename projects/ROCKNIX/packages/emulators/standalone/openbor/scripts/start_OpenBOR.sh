@@ -5,6 +5,9 @@
 # Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)
 # Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 
+. /etc/profile
+set_kill set "-9 OpenBOR"
+
 # OpenBOR only works with Pak files, if you have an extracted game you will need to create a pak first.
 
 pakname=$(basename "$1")
@@ -38,10 +41,11 @@ SAVES="${CONFIGDIR}/Saves"
 
 # We start the fake keyboard
   gptokeyb openbor &
+  GPTOKEYB_PID=$!
 
 # Run OpenBOR in the config folder
   cd "${CONFIGDIR}"
   OpenBOR
 
 # We stop the fake keyboard
-  killall gptokeyb &
+  kill -9 "${GPTOKEYB_PID}"
