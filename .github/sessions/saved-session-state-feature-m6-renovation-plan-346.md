@@ -274,7 +274,7 @@ is the narrative; this is the index of what a resuming agent must know.
   disclosure timing; `LOCAL_SSH_KEYS_FILE` in Docker builds; D-SYS-014;
   D-WORKFLOW-191 (the `portaudio` question was withdrawn: the mirror serves it; #849 corrected).
 - **Integration (after the M7 candidate):** P0, P1, T1, T2, T3, T30, **`fix/m6-877-libfmt-sha256` (`cf3a8d8e62`) and `fix/m6-890-shs-sha256` (`566b01448f`), the two checksums T5's fetch would refuse**, T5, T6,
-  T7 (`db6597356b`), T24 (`26e4a34edf`) after T30's, T8 (`13394550d6`, or its completion tip), a packet for #902 after T30's, T4 last; #887 (`c60cdddf8b`) and #889 (`828472eb59`) after T30's branch; T8's conflict list (11 rows) read under
+  T7 (`db6597356b`), T24 (`26e4a34edf`) after T30's, T8 (`13394550d6`, or its completion tip), a packet for #902 cut over `next` once T3's and T30's branches are in (five of its seven files are T30's, one T3's; the T1 session cuts it; its guest proof then), T4 last; #887 (`c60cdddf8b`) and #889 (`828472eb59`) after T30's branch; T8's conflict list (11 rows) read under
   D-WORKFLOW-198/199 with the `spirv-headers` override kept; at integration flip `add_es_system`'s zero-default WARNING to
   `return 1` after T3's S2 and regenerate the five tables; the #802/#806/#825
   adaptations; close #823, #841, #845 and the other fixed bugs at the merge;
