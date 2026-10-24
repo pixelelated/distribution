@@ -3,6 +3,7 @@
 # Copyright (C) 0riginally created by Escalade (https://github.com/escalade)
 # Copyright (C) 2018-present 5schatten (https://github.com/5schatten)
 # Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 
 . /etc/profile
 
@@ -30,8 +31,12 @@ then
   cp -rf /usr/config/amiberry ${AMIBERRY_DIR}
 fi
 
-### Refresh the configs so we can manage them.
-cp -f /usr/config/amiberry/conf/* ${AMIBERRY_DIR}/conf
+### Seed the configs the player does not have; a config the player
+### changed is kept (it was overwritten every launch, #871).
+mkdir -p "${AMIBERRY_DIR}/conf"
+for CONF in /usr/config/amiberry/conf/*; do
+  [ -e "${AMIBERRY_DIR}/conf/${CONF##*/}" ] || cp "${CONF}" "${AMIBERRY_DIR}/conf/"
+done
 
 find_gamepad() {
   # Check for js0 first, else fall back to joypad
@@ -59,7 +64,7 @@ mkdir -p "${AMIBERRY_TMP_DIR}"
 
 # Check if the file is an Amiga 1200/CD32 game and set configuration options for an Amiga 1200
 AMIBERRY_SET_CONF() {
-  if [ `echo $1 | grep -E 'AGA|CD32' | wc -l` -eq 1 -o `echo "${AMIBERRY_TMP_DIR}"/* | grep -e 'AGA|CD32' | wc -l` -eq 1 ]; then
+  if echo "$1" | grep -q -E 'AGA|CD32' || ls "${AMIBERRY_TMP_DIR}" | grep -q -E 'AGA|CD32'; then
     echo "Loading Amiga 1200/CD32 config." >> ${AMIBERRY_LOG}
     cp ${AMIBERRY_CONFIG_DIR}/AmigaA1200-default.uae "${AMIBERRY_TMP_CONFIG}"
   else
@@ -67,13 +72,16 @@ AMIBERRY_SET_CONF() {
     cp ${AMIBERRY_CONFIG_DIR}/AmigaA500-default.uae "${AMIBERRY_TMP_CONFIG}"
   fi
   sed -i "s#@BIOS_PATH@#${BIOS_PATH}#g" ${AMIBERRY_TMP_CONFIG}
-  sed -i "s#gfx_width=.*\$#$(fbwidth)#g" ${AMIBERRY_TMP_CONFIG}
-  sed -i "s#gfx_height=.*\$#$(fbheight)#g" ${AMIBERRY_TMP_CONFIG}
+  # The key stays and takes the panel's size (the whole line was replaced
+  # by the bare number, deleting the key, #871).
+  sed -i "s#^gfx_width=.*\$#gfx_width=$(fbwidth)#" "${AMIBERRY_TMP_CONFIG}"
+  sed -i "s#^gfx_height=.*\$#gfx_height=$(fbheight)#" "${AMIBERRY_TMP_CONFIG}"
   find_gamepad 
 }
 
 # Check if we are loading a .zip file
-if [ `echo $1 | grep -i .zip | wc -l` -eq 1 ]; then
+case "$1" in *.[zZ][iI][pP]) IS_ZIP=1 ;; *) IS_ZIP=0 ;; esac
+if [ "${IS_ZIP}" = 1 ]; then
   
   # Unpack the zip file
   unzip -q -o "$1" -d "${AMIBERRY_TMP_DIR}"
@@ -96,28 +104,27 @@ if [ `echo $1 | grep -i .zip | wc -l` -eq 1 ]; then
     # Set default config
     AMIBERRY_SET_CONF "$1"
   
-    # Assign files to floppy0-3
+    # Assign the archive's disk images, in name order, to floppy0-3: each
+    # line written as data (echo -e read backslashes in a name and split it
+    # on spaces, and every file in the folder became a floppy, #871)
+    printf ';\n; *** temporary added Floppy Drives\n;\n' >> "${AMIBERRY_TMP_CONFIG}"
+    echo "Assigned floppy drives:" >> "${AMIBERRY_LOG}"
     for FILE in "${AMIBERRY_TMP_DIR}"/*
     do
-      ARGS="${ARGS}\nfloppy$i="${FILE}""
+      case "${FILE,,}" in *.adf|*.adz|*.dms|*.ipf) ;; *) continue ;; esac
+      [ -f "${FILE}" ] || continue
+      printf 'floppy%d=%s\n' "$i" "${FILE}" | tee -a "${AMIBERRY_LOG}" >> "${AMIBERRY_TMP_CONFIG}"
       i=$(($i+1))
       # This emulator supports 4 floppies max
       if [ $i -eq ${MAX_DRIVES} ]; then
         break;
       fi
     done
-  
-    # Add game files as floppies 0-3 to amiberry.uae & start amiberry
-    echo -e ";" >> "${AMIBERRY_TMP_CONFIG}"
-    echo -e "; *** temporary added Floppy Drives" >> "${AMIBERRY_TMP_CONFIG}"
-    echo -e ";" >> "${AMIBERRY_TMP_CONFIG}"
-    echo -e ${ARGS} >> "${AMIBERRY_TMP_CONFIG}"
-    echo -e "\nAssigned floppy drives:" ${ARGS} "\n" >> "${AMIBERRY_LOG}"
     amiberry -f "${AMIBERRY_TMP_CONFIG}" >> ${AMIBERRY_LOG} 2>&1
   fi
 
 # Check for WHDload files (.lha)
-elif [ `echo $1 | grep -i .lha | wc -l` -eq 1 ]; then
+elif case "$1" in *.[lL][hH][aA]) true ;; *) false ;; esac; then
     
   #.lha file detected
   echo "Loading a WHDLoad (.lha) file..." >> ${AMIBERRY_LOG}
@@ -129,7 +136,7 @@ elif [ `echo $1 | grep -i .lha | wc -l` -eq 1 ]; then
   amiberry -f "${AMIBERRY_TMP_CONFIG}" --autoload "$1" >> ${AMIBERRY_LOG} 2>&1
 
 # Check for .uae config file
-elif [ `echo $1 | grep -i .uae | wc -l` -eq 1 ]; then
+elif case "$1" in *.[uU][aA][eE]) true ;; *) false ;; esac; then
 
   # .uae file detected
   echo "Loading an .uae file..." >> ${AMIBERRY_LOG}
@@ -147,11 +154,9 @@ else
   AMIBERRY_SET_CONF "$1"
 
   # Add game file as floppy0 to amiberry.uae & start amiberry
-  echo -e ";" >> "${AMIBERRY_TMP_CONFIG}"
-  echo -e "; *** temporary added Floppy Drives" >> "${AMIBERRY_TMP_CONFIG}"
-  echo -e ";" >> "${AMIBERRY_TMP_CONFIG}"
-  echo -e "\nfloppy0=$1" >> "${AMIBERRY_TMP_CONFIG}"
-  echo -e "\nAssigned floppy drive:\nfloppy0=$1\n" >> "${AMIBERRY_LOG}"
+  printf ';\n; *** temporary added Floppy Drives\n;\n' >> "${AMIBERRY_TMP_CONFIG}"
+  printf 'floppy0=%s\n' "$1" >> "${AMIBERRY_TMP_CONFIG}"
+  printf 'Assigned floppy drive:\nfloppy0=%s\n' "$1" >> "${AMIBERRY_LOG}"
   amiberry -f "${AMIBERRY_TMP_CONFIG}" >> ${AMIBERRY_LOG} 2>&1
 fi
 
