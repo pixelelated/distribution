@@ -13,7 +13,7 @@ those found wrong -- a count from the wrong tree, a tool absent from the
 host, a line number from memory, a command whose variables do not survive a
 Bash call -- are answered from the start, and every figure below was
 produced by a command at `8ebaf8daad` unless it says *branch*. It goes
-through a stranger's proof before dispatch; version 2 records what it found.
+through a stranger's proof before dispatch; version 2 records what it found. **Version 2 (2026-10-24):** the proof reproduced 107 claims -- 83 right, 21 wrong (11 outright, 10 partial), 2 uncheckable -- and asked 22 questions; every wrong claim is corrected in place (the `tools/` entry count; who sources `update-functions`; the `Makefile` as a caller; what sets `DISTRO`; the blindspot count; the branch's fork-only files under `tools/`; the two-way search's roots; the sweep's file set) and every question answered where it arose. The futro addendum's A1 to A4 are folded in.
 **Each command block sets its own variables** (`D`): a Bash call in this
 harness starts a fresh shell. **This is a table slice**: it reads rows, one
 per path, for reachability; it reads no file line by line unless a row needs
@@ -31,8 +31,8 @@ it, and it removes nothing upstream carries.
   nothing selects; with the build engine, so the engine is read whole before
   anything it builds (D-WORKFLOW-186 ...)"*). **Epic:** #800 (the build
   engine: T5 #652 accepted 2026-10-24, this slice), whose futro
-  (`docs/futros/2026-10-24-m6-build-engine.md`) covers T6's order and gains
-  a kickoff addendum with this brief's version 2. **Milestone:** M6; its body
+  (`docs/futros/2026-10-24-m6-build-engine.md`) covers T6's order and carries
+  a T6 kickoff addendum (written with version 1; its errata with version 2). **Milestone:** M6; its body
   holds the live order; read it first. **Predecessors:** #346 (the plan),
   #641 (the survey), #644 (the build-path read: its finding **24** is this
   slice's -- *"LibreELEC's `tools/update-scan`, `update-pkg`, `distro-tool`,
@@ -63,7 +63,7 @@ it, and it removes nothing upstream carries.
   checkout `/workspace/repos/pixelelated/distribution` stays on `next`
   (D-INFRA-025); the legacy checkout and `rocknix.worktrees/*` are the M7
   lane's, read only; the T1 to T5 worktrees are other lanes', `git -C` only.
-  **The rules in this worktree are `next`'s except six files** (P1's
+  **The rules in this worktree are `next`'s except seven paths** (P1's
   `fork-workflow.md` and `instruction-files.md`; the coordinator's
   `generic-x64-vm-testing.md` paragraph `8c9b1d4721` and
   `engineering-practices.md` bullet `ab8f750784`; M7's
@@ -71,7 +71,7 @@ it, and it removes nothing upstream carries.
   with `templates.md` from #810, which this slice's lint needs). Known stale
   facts in the rules (the legacy layout in eight files, #640) do not cost an
   hour here: every rule the work touches is named in § 3.
-- **Model and effort:** Opus 5.5 at high effort (the maintainer, 2026-10-22).
+- **Model and effort:** Opus 5.5 (the maintainer, 2026-10-22: *"the work will be Opus 5.5"*) at high effort (the coordinator's setting for every lane since T1).
   Record what ran in `00-running-log.md`'s header.
 - **Review depth: Local** (plan § 6c: *"a dead-end table ... Local: the
   executor alone; the lint and the counts are the check"*; D-WORKFLOW-184).
@@ -95,8 +95,8 @@ git fetch origin && git fetch upstream --no-tags
 git branch --show-current                                            # feature/m6-build-engine-upstream-tools-653
 git merge-base --is-ancestor 2174265e9c HEAD || echo "not stacked on the P1 tip: stop"
 test -f docs/reviews/inventory.json || echo "no inventory.json: this is not the lane's worktree (stacked on P1): stop"
-git diff --stat next -- .claude CLAUDE.md AGENTS.md tools/lint-audit-artifacts   # the six files § 1 names, nothing else
-mkdir -p .qa-scratch/t6/at-hash && git archive 8ebaf8daad tools distributions | tar -x -C .qa-scratch/t6/at-hash   # the read tree: every row is this tree's unless marked branch (A1)
+git diff --stat next -- .claude CLAUDE.md AGENTS.md tools/lint-audit-artifacts   # the seven paths § 1 names, nothing else
+mkdir -p .qa-scratch/t6/at-hash && git archive 8ebaf8daad tools distributions | tar -x -C .qa-scratch/t6/at-hash   # the read tree, two directories, small enough for .qa-scratch: every row is this tree's unless marked branch
 ls tools/renovation-inventory tools/renovation-status tools/renovation-drift docs/reviews/slices.json docs/reviews/cross-reference.md   # P1's
 "$D/tools/rules-check"; echo "rc=$?"; "$D/tools/register-check"; echo "rc=$?"; "$D/tools/ceremony-check"; echo "rc=$?"   # rc 1 on 2026-10-24: W42 OVERDUE (M7's week), a retro DUE; neither is this lane's
 git push -u origin feature/m6-build-engine-upstream-tools-653
@@ -113,10 +113,11 @@ df -i /tmp | tail -1                                                 # never exp
 needs it.** The membership is the inventory's at P1's `eb4763e3cc`, with
 the slice's rule (`k: 6`): the rows of the `build-engine` area under
 `tools/**` and `distributions/**` less `distributions/ROCKNIX/**`. **The
-area filter is what keeps the fork's own tools out**: `tools/` holds 139
-entries at `8ebaf8daad`, of which the inventory assigns the fork-only ones
+area filter is what keeps the fork's own tools out**: `tools/` holds 115
+top-level entries and 236 files at `8ebaf8daad`, of which the inventory assigns the fork-only ones
 (`tools/vm-qa`, `tools/cloud-*`, `tools/council/`, ... -- the list in
-`fork-workflow.md` § Personal paths) to `tooling-and-guards` (T9/T10) and
+`fork-workflow.md` § Personal paths) to the fork's own areas (`tooling-and-guards`,
+`cloud-sync-and-saves` and the rest: T9 to T15's slices) and
 upstream's to `build-engine`; a path under `tools/` that is not in this
 slice's 135 is not this slice's, however much it looks like a tool. The
 re-derivation:
@@ -169,27 +170,40 @@ search is § 4 Q6's.
 
 **The hash.** The slice's bytes are `8ebaf8daad`'s; `reviewed-at:` is the
 branch `HEAD` at stage A; the read is made on the at-hash tree
-(`.qa-scratch/t6/at-hash`, the first block). The branch differs from the
-hash on none of the 135 on 2026-10-24 (T5's streams touched `scripts/` and
-`config/`, not `tools/` or the other distributions -- the lane confirms with
-`git diff --stat 8ebaf8daad HEAD -- tools distributions ':!distributions/ROCKNIX'`,
-and a non-empty result is the first lead).
+(`.qa-scratch/t6/at-hash`, the first block: two directories, 7,369 lines,
+small enough for the worktree's scratch; the `/workspace/tmp` rule is for
+whole-tree exports and simulated merges). The branch differs from the
+hash on none of the 135 on 2026-10-24, **but it does differ under `tools/`**:
+P1 added its three renovation tools and ten test fixtures and changed
+`tools/lint-audit-artifacts` and `tools/register-check` (15 files), and the
+coordinator's tip changed the lint again (#810) -- every one fork-only, none
+in the 135. So the check is made over the slice's own paths, never over the
+two roots whole: the § 2 block's path column is written to
+`.qa-scratch/t6/paths.txt` and `git diff --stat 8ebaf8daad HEAD -- $(cat
+.qa-scratch/t6/paths.txt)` is empty; a non-empty result there is the first
+lead.
 
 **Where these run.** A tool under `tools/` runs when something calls it:
-the `Makefile` (none of the 135 on 2026-10-24 by the first count),
+the `Makefile` (`Makefile:31,34` run `./tools/adjust_kernel_config`: one of the 135 is reached from the top),
 `scripts/*` (`scripts/build` calls `tools/pkgcheck`? -- the row says;
 `config/multithread` pipes to `tools/mtstats.py`, T5's E8 made that
-step's failure harmless; `scripts/update_packages` calls
-`tools/update-functions/<pkg>` by name when a recipe has one), a kernel
+step's failure harmless; `tools/update-pkg` sources
+`tools/update-functions/<pkg>` at its lines 70 and 167, and nothing in
+`scripts/` or `config/` calls `update-pkg`, `update-scan` or a helper -- so
+the 62 are reached by a tool nobody runs: two layers of *unreached*, a row
+class to name), a kernel
 recipe (`adjust_kernel_config`, `check_kernel_config` from
 `packages/linux/package.mk` or a device's), a workflow under
 `.github/workflows/` (upstream's -- `update-kernel-configs-docs.yml` is
 T10's PL-15 of T5's list), a developer by hand (documented in
 `CLAUDE.md`, `AGENTS.md`, a rule, `packages/README.md`, `tools/docker/README.md`
 -- a documented hand-run tool is *reached by a document*, a row class of
-its own), or nothing. `distributions/<name>/` is read by `config/options`
-when `DISTRO=<name>`; the fork sets `DISTRO=ROCKNIX` everywhere
-(`distributions/ROCKNIX/options`, the `Makefile`), so LibreELEC's and
+its own; `check_kernel_config` is named only in a message the kernel
+recipes print, *Please run ./tools/check_kernel_config*, which is this class
+and not a call), or nothing. `distributions/<name>/` is read by `config/options`
+when `DISTRO=<name>`; the only setter is `config/options:24`,
+`DISTRO="${DISTRO:-ROCKNIX}"` (neither `distributions/ROCKNIX/options` nor
+the `Makefile` sets it; a developer could export another), so LibreELEC's and
 LEIoT's files are reached by no build the fork can make, and by upstream's
 only where upstream builds those distributions -- which ROCKNIX does not.
 
@@ -236,9 +250,10 @@ the coordinator's; this lane runs it to read.
 - **T5's audit** (`docs/audits/2026_10_24-epic-m6-build-engine/` at
   `52e6794ba7`, read with `git -C` or `git show`): its `02-forward-audit.md`
   coverage rows for `scripts/update_packages` (E6 changed it: it keeps
-  checksums and refreshes one from a verified fetch; it calls
-  `tools/update-functions/<pkg>` -- the row that decides whether the 62
-  helpers are reached), `config/multithread` (E8: `tools/mtstats.py`),
+  checksums and refreshes one from a verified fetch; it does **not** call
+  `tools/update-functions` -- only `tools/update-pkg` sources them, so T5's
+  row does not decide the 62 helpers' reach; this slice's does),
+  `config/multithread` (E8: `tools/mtstats.py`),
   `scripts/build` (does it call `tools/pkgcheck`?), its Q6 tables
   (`q6-tables.md`) for anything under `tools/` it already dispositioned,
   and PL-15 (`update-kernel-configs-docs.yml`, deferred to #657) and PL-26
@@ -248,8 +263,9 @@ the coordinator's; this lane runs it to read.
 - **`docs/reviews/build-path-read.md`** (#644): finding 24 whole, and its
   table's column for *both carry dead tooling*; the other 25 findings named
   with their carriers so none is taken here.
-- `docs/blindspot-register.md` whole once (75 entries on the branch, 74 at
-  the hash under the numbers 1 to 73 and 74), then **13** (assumed done),
+- `docs/blindspot-register.md` whole once (76 entries on the branch under the numbers
+  1 to 75, 74 at the hash under 1 to 73 -- the number 29 is used twice,
+  #811), then **13** (assumed done),
   **22** (a probe that cannot report absence: a caller search that returns
   nothing because the pattern was wrong is this shape -- every zero is
   searched a second way before it is a row), **46** (a name read as a
@@ -259,11 +275,12 @@ the coordinator's; this lane runs it to read.
   engine first), D-WORKFLOW-187 (no release gate; every defect a bug),
   D-WORKFLOW-164/165 (upstream contributions prepared, submissions held),
   D-WORKFLOW-024 (`tools/fork-package-freshness`: the fork's own packages
-  current -- not this slice's packages, but its tool is T9's), D-UI-079
+  current -- not this slice's packages, but its tool is T10's, `tooling-guards`), D-UI-079
   (change inside the fork's lanes: the engine's upstream tools are outside
   them, which is why the policy above is *table, propose, do not delete*),
-  D-INFRA-025/026, D-WORKFLOW-193/194 (T5's fetch policy: `tools/update-pkg`
-  and `update-scan` write checksums -- do they still agree with it?).
+  D-INFRA-025/026, D-WORKFLOW-193/194 (T5's fetch policy: `tools/update-pkg` writes
+  `PKG_SHA256` lines; `update-scan` does not -- does `update-pkg` still agree
+  with the policy?).
 - Issues: #653 (this), #652 (T5, accepted), #644/#645, #657 (T10: the
   fork's tooling slice, where a fork-only tool's defect goes), #585 (the
   contribution queue: finding 24's row lands there), #226 (a build that
@@ -332,12 +349,20 @@ QA guest or a build. The host handoff file is read for the protocol alone.
   ```bash
   D=/workspace/repos/pixelelated/distribution.worktrees/m6-build-engine-upstream-tools-653
   cd "$D"; mkdir -p .qa-scratch/t6
-  git diff --stat 8ebaf8daad HEAD -- tools distributions ':!distributions/ROCKNIX'          # empty on 2026-10-24: the branch carries the hash's bytes for the 135
-  for p in $(git ls-tree -r --name-only 8ebaf8daad -- tools distributions | grep -v '^distributions/ROCKNIX/'); do printf '%s %s\n' "$p" "$(git diff --quiet upstream/next 8ebaf8daad -- "$p" && echo identical || echo differs)"; done > .qa-scratch/t6/q4-upstream.txt; grep -c differs .qa-scratch/t6/q4-upstream.txt   # Q4: which of the two roots' files the fork changed; the slice keeps the 135 of them
-  for t in distro-tool mkpkg update-scan update-pkg refresh-patches pkgcheck adjust_kernel_config check_kernel_config mtstats.py viewplan viewconfig dashboard download-tool download-cleaner pkginfo packages-checker checkunpack repo-tool fixlecode.py icon-generate imgburn.sh upload_to_filebin change_addon_version find_build_warnings.sh; do printf '%-24s path:%s name:%s\n' "$t" "$(git grep -l -F "tools/$t" 8ebaf8daad -- Makefile scripts config .github distributions projects packages docs .claude CLAUDE.md AGENTS.md | wc -l)" "$(git grep -l -w -F "$t" 8ebaf8daad -- Makefile scripts config .github distributions projects packages | wc -l)"; done   # the two-way caller count per single tool; the directories (mkpkg, update-functions, docker, RPi, the gen-patches dirs) by their callers' names
-  git grep -n -F 'tools/update-functions' 8ebaf8daad -- scripts config | head          # the 62 helpers are reached through update_packages or not at all
-  git grep -n -E 'DISTRO=|DISTRO:=' 8ebaf8daad -- Makefile config scripts distributions | head   # what selects a distribution: the two others are reached by nothing the fork runs
-  for f in $(git ls-tree -r --name-only 8ebaf8daad -- tools | grep -v '^tools/update-functions/' ); do case "$f" in *.py) python3 -I -m py_compile "$f" >/dev/null 2>&1 && echo "py ok $f" || echo "py FAIL $f";; *) head -1 "$f" | grep -q 'sh$' && { bash -n "$f" >/dev/null 2>&1 && echo "sh ok $f" || echo "sh FAIL $f"; };; esac; done | grep -c ok   # Q2 over the shell and python tools of the slice (only those the inventory lists; the fork-only ones are T10's)
+  python3 -I - <<'PY' > .qa-scratch/t6/paths.txt
+import json, re
+inv = json.load(open("docs/reviews/inventory.json")); cols = inv["columns"]
+def gm(p, g): return re.fullmatch(re.escape(g).replace(r"\*\*/", "(?:.*/)?").replace(r"\*\*", ".*").replace(r"\*", "[^/]*"), p) is not None
+for r in (dict(zip(cols, x)) for x in inv["rows"]):
+    if r["tree"] == "distribution" and r["area"] == "build-engine" and any(gm(r["path"], g) for g in ["tools/**", "distributions/**"]) and not gm(r["path"], "distributions/ROCKNIX/**"): print(r["path"])
+PY
+  wc -l < .qa-scratch/t6/paths.txt                                                             # 135
+  git diff --stat 8ebaf8daad HEAD -- $(cat .qa-scratch/t6/paths.txt) | tail -1                 # empty on 2026-10-24: the 135 carry the hash's bytes (the two roots whole differ by P1's and the coordinator's fork-only files, none of them the slice's)
+  while read -r p; do printf '%s %s\n' "$p" "$(git diff --quiet upstream/next 8ebaf8daad -- "$p" && echo identical || echo differs)"; done < .qa-scratch/t6/paths.txt > .qa-scratch/t6/q4-upstream.txt; grep -c differs .qa-scratch/t6/q4-upstream.txt   # Q4 over the 135: 1 on 2026-10-24 (tools/pkgcheck); a loop over the two roots whole says 129, because the fork-only tools do not exist upstream
+  for t in distro-tool mkpkg update-scan update-pkg refresh-patches pkgcheck adjust_kernel_config check_kernel_config mtstats.py viewplan viewconfig dashboard download-tool download-cleaner pkginfo packages-checker checkunpack repo-tool fixlecode.py icon-generate imgburn.sh upload_to_filebin change_addon_version find_build_warnings.sh; do printf '%-24s path:%s name:%s\n' "$t" "$(git grep -l -F "tools/$t" 8ebaf8daad -- Makefile scripts config .github/workflows distributions projects packages docs .claude CLAUDE.md AGENTS.md ':!docs/qa-logs' ':!docs/reviews' ':!docs/audits' | wc -l)" "$(git grep -l -w -F "$t" 8ebaf8daad -- Makefile scripts config .github/workflows distributions projects packages | wc -l)"; done   # the two-way caller count per single tool; the directories (mkpkg, update-functions, docker, RPi, the gen-patches dirs) by their callers' names; pkgcheck and adjust_kernel_config come out reached, the positive control for every zero
+  git grep -n -F 'update-functions' 8ebaf8daad -- tools/update-pkg tools/update-scan scripts config | head   # the 62 helpers are sourced by tools/update-pkg:70,167 and by nothing in scripts/ or config/: reached by a tool nobody runs
+  git grep -n -E 'DISTRO=|DISTRO:=' 8ebaf8daad -- Makefile config scripts distributions | head   # config/options:24 is the only setter, DISTRO="${DISTRO:-ROCKNIX}": the two other distributions are reached by nothing the fork runs
+  while read -r f; do case "$f" in *.py) python3 -I -B -c "import ast,sys; ast.parse(open(sys.argv[1]).read())" ".qa-scratch/t6/at-hash/$f" 2>/dev/null && echo "py ok $f" || echo "py FAIL $f";; *) head -1 ".qa-scratch/t6/at-hash/$f" 2>/dev/null | grep -qE '^#!.*\b(ba)?sh\b' && { bash -n ".qa-scratch/t6/at-hash/$f" >/dev/null 2>&1 && echo "sh ok $f" || echo "sh FAIL $f"; };; esac; done < .qa-scratch/t6/paths.txt | sort | uniq -c   # Q2 over the slice's own files at the hash (shebang-detected shells, the python files parsed without writing a __pycache__); the fork-only tools are T9 to T15's
   ls /workspace/repos/rocknix.worktrees/*/release 2>/dev/null | head; ls /workspace/repos/rocknix.worktrees/*/sources 2>/dev/null | head -3   # read only: what a hand-run tool left in the M7 roots, for Already written:
   ```
 - **A read is free and goes through the filter** (`grep -v -i -E
@@ -370,8 +395,8 @@ All in the worktree, committed on its branch with messages that cite `#653`
 | Retrospective | `.../03-retrospective.md` | Phase 3 with § 3.5 for the seams: `tools/update-*` x `scripts/update_packages` (T5's E6) x D-WORKFLOW-193; `tools/mtstats.py` x `config/multithread` (E8); `tools/pkgcheck` x `packages/README.md` x `packaging-and-patches.md`; `tools/docker/*` x the root `Dockerfile` x the `Makefile`'s pinned digest; the futro's predictions checked | B |
 | Analysis | `.../04-analysis.md` | Phase 4, § Finding Verification (4.5 in full), **§ Renovation face** Q1 to Q7 (all seven required), **Q6 carrying the reachability table** (one row per path or per tool-directory with its file count, the two-way search per row, the verdict, the tier, the Q4 state, the disposition, `Already written:` on every unreached row); § Second opinions reads *not applicable at Local depth (plan § 6c, D-WORKFLOW-184)* | B, C |
 | Second opinions | `.../second-opinions/review-plan.json` | § 1's Local plan file with `tier_exception` and `reason`; no call, no provenance file | C |
-| Lint, before D | `tools/lint-audit-artifacts <folder> --phase pre-issue` | `PASS pre-issue artifacts`, with the line `review-plan: local at epic tier under D-WORKFLOW-184 (...)` in its output, both recorded | C to D |
-| Punch list | `.../05-punch-list.md` | Phase 5: every item with `question:`, severity, category (`Renovation` where not a defect), where (file:line at `8ebaf8daad`), acceptance; the YAML `punch_index`; the #585 candidates grouped (finding 24's tools) as one `Renovation` item whose outcome is *proposed on #585*; a defect in a fork-only tool is not this slice's and is routed to #657 as a lead | D |
+| Lint, before D | `tools/lint-audit-artifacts <folder> --phase pre-issue` | `PASS pre-issue artifacts (does not certify resolution)`, with the line `review-plan: local at epic tier under D-WORKFLOW-184 (...)` in its output, both recorded | C to D |
+| Punch list | `.../05-punch-list.md` | Phase 5: every item with `question:`, severity, category (`Renovation` where not a defect), where (file:line at `8ebaf8daad`), acceptance; the YAML `punch_index`; the #585 candidates grouped (finding 24's tools) as one `Renovation` item whose outcome is *proposed on #585*; a defect in a fork-only tool is not this slice's and is routed as a lead to the slice `slices.json` assigns that tool to (T9 to T15; #657 is T10's, `tooling-guards`) | D |
 | Audit issue | GitHub, labels `audit`, `punch-list`, milestone M6, a sub-issue of #653 | `Audit: M6 T6 upstream's helper tools and the other distributions -- N findings (...)`; one checkbox per item, agent-verifiable; `tools/box-check --issue N` once | D |
 | Bug issues | GitHub, label `bug`, `Bug:` title, milestone-less | one per defect (D-WORKFLOW-187): the code trace shape, `Already written:`, the VM line (*No -- the tree and a fixture show it*), an agent-verifiable criterion | D |
 | **The stage-D pause** | #653 | the punch list posted with the audit issue's and the bugs' numbers; the lane waits for the coordinator's stream briefs (plan § 6b E; D-WORKFLOW-189) -- meanwhile it drafts the retro's four answers and edits nothing of the 135 | D to E |
@@ -465,5 +490,5 @@ pause is a defect in this brief: log the friction; the coordinator fixes
 the template.
 
 **The readings before dispatch** (plan § 3, principle 3): the epic's futro
-(#800) gains a T6 kickoff addendum, and a stranger's proof of this brief is
-run by a reader with no context; version 2 records what each found.
+(#800) carries a T6 kickoff addendum, and a stranger's proof of this brief
+was run by a reader with no context; version 2 records what each found.
