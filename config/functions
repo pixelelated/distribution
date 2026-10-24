@@ -1691,7 +1691,7 @@ add_group() {
   # Usage: add_group "groupname" "groupid" ("members")
   mkdir -p ${INSTALL}/etc
   touch ${INSTALL}/etc/group
-  if [ -z "`grep "$1:" ${INSTALL}/etc/group`" ]; then
+  if [ -z "`grep "^$1:" ${INSTALL}/etc/group`" ]; then
     echo "$1:x:$2:$3" >> ${INSTALL}/etc/group
   fi
 }
