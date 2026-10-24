@@ -72,4 +72,119 @@ with tempfile.TemporaryDirectory(prefix='vm-pair-test-') as scratch:
     result = run('check_runtime')
     assert result.returncode == 0 and not list(runtime.glob('.pixelelated-vm-write-*')), result
     print('PASS writable runtime root preflight leaves no probe')
-print('PASS 9 VM launch controls; fixtures are not a real boot claim')
+
+# The whole script, in a scratch root of its own, with a fixture launcher and
+# the vm-stop beside the vm-pair under test (#970). Fixture "guests" are python
+# processes named qemu-system-fixture whose argv carries the disk's -drive.
+GUEST = 'import signal, sys, time\nsignal.signal(signal.SIGTERM, lambda *a: sys.exit(0))\nf = open(sys.argv[-1].split("file=", 1)[1], "rb")\nwhile True: time.sleep(1)\n'
+LAUNCHER = r'''#!/bin/bash
+# fixture generic-x64-vm: `run ... --pidfile P ... <disk>`; FAIL_GUEST names a disk leaf to fail.
+pid=""; for ((i=1; i<=$#; i++)); do [ "${!i}" = --pidfile ] && { j=$((i+1)); pid=${!j}; }; done
+disk=${@: -1}
+case "$(basename "$disk")" in "${FAIL_GUEST:-none}") echo "fixture: $disk fails to launch" >&2; exit 9 ;; esac
+( exec -a qemu-system-fixture python3 -c "$GUEST_CODE" -drive "if=none,id=rocknix,format=qcow2,file=$disk" ) >/dev/null 2>&1 &
+echo $! > "$pid"
+'''
+
+
+def tree(scratch):
+    """A checkout-shaped root: tools/vm-pair and vm-stop from --source's directory, a fixture launcher, a gz image."""
+    tools = scratch / 'tools'
+    tools.mkdir(parents=True)
+    for name in ('vm-pair', 'vm-stop'):
+        (tools / name).write_bytes((source.parent / name).read_bytes())
+        (tools / name).chmod(0o700)
+    (tools / 'vm-serial').write_text('#!/bin/sh\nexit 0\n')
+    (tools / 'vm-serial').chmod(0o700)
+    vm = scratch / 'projects' / 'ROCKNIX' / 'devices' / 'GENERIC_X64' / 'vm'
+    vm.mkdir(parents=True)
+    (vm / 'generic-x64-vm').write_text(LAUNCHER)
+    (vm / 'generic-x64-vm').chmod(0o700)
+    bin_ = scratch / 'bin'
+    bin_.mkdir()
+    (bin_ / 'qemu-img').write_text('#!/bin/bash\n# fixture: convert makes its output file; resize changes nothing\n[ "$1" != convert ] || : > "${@: -1}"\n')
+    (bin_ / 'qemu-img').chmod(0o700)
+    image = scratch / 'image.img.gz'
+    subprocess.run(['bash', '-c', 'printf image | gzip > "$1"', 'gz', str(image)], check=True)
+    pair = scratch / 'pair'
+    runtime = scratch / 'runtime'
+    env = dict(os.environ, VM_PAIR_DIR=str(pair), VM_QEMU_RUNTIME_DIR=str(runtime), GUEST_CODE=GUEST,
+               PATH=f'{bin_}:{os.environ["PATH"]}')
+    return tools / 'vm-pair', image, pair, runtime, env
+
+
+def alive(pid):
+    try:
+        return Path(f'/proc/{pid}/cmdline').read_bytes().split(b'\0')[0] == b'qemu-system-fixture'
+    except OSError:
+        return False
+
+
+def reap(*pids):
+    for pid in pids:
+        if pid and alive(pid):
+            os.kill(int(pid), 15)
+
+
+cases = 0
+failed = []
+with tempfile.TemporaryDirectory(prefix='vm-pair-test-') as scratch:
+    # disk-held-no-pidfile: a process holds vm-a.qcow2 with no pidfile recorded.
+    vmpair, image, pair, runtime, env = tree(Path(scratch) / 'held')
+    pair.mkdir()
+    disk = pair / 'vm-a.qcow2'
+    disk.write_text('another session\'s disk')
+    holder = subprocess.Popen(['qemu-system-fixture', '-c', GUEST, '-drive',
+                               'if=none,id=rocknix,format=qcow2,file=' + str(disk)], executable=sys.executable)
+    try:
+        import time; time.sleep(0.3)
+        r = subprocess.run([str(vmpair), 'up', str(image)], env=dict(env, FAIL_GUEST='vm-a.qcow2'),
+                           capture_output=True, text=True, timeout=30)
+        ok = (r.returncode != 0 and disk.exists() and disk.read_text() == 'another session\'s disk'
+              and f'pid {holder.pid}' in r.stderr)
+        print(('PASS' if ok else 'FAIL') + f' disk-held-no-pidfile: rc {r.returncode}, disk kept {disk.exists() and disk.read_text() == "another session\'s disk"}, '
+              f'holder named {f"pid {holder.pid}" in r.stderr}')
+        failed += [] if ok else ['disk-held-no-pidfile']
+    finally:
+        holder.terminate(); holder.wait(timeout=3)
+    cases += 1
+
+    # partial-up-rollback: guest a launches, guest b fails; a must be stopped.
+    vmpair, image, pair, runtime, env = tree(Path(scratch) / 'partial')
+    r = subprocess.run([str(vmpair), 'up', str(image)], env=dict(env, FAIL_GUEST='vm-b.qcow2'),
+                       capture_output=True, text=True, timeout=30)
+    pid_a = (runtime / 'rocknix-qemu.pid').read_text().strip() if (runtime / 'rocknix-qemu.pid').exists() else ''
+    m = [l for l in r.stdout.splitlines() if l.startswith('up: a (pid ')]
+    started_a = m[0].split('(pid ')[1].split(',')[0] if m else pid_a
+    ok = r.returncode != 0 and bool(started_a) and not alive(started_a)
+    print(('PASS' if ok else 'FAIL') + f' partial-up-rollback: rc {r.returncode}, guest a started {bool(started_a)}, still running {bool(started_a) and alive(started_a)}')
+    if not ok:
+        print('  stderr: ' + r.stderr.strip()[-300:])
+    failed += [] if ok else ['partial-up-rollback']
+    reap(started_a)
+    cases += 1
+
+    # down-stops-both: a's pidfile names a process that is not QEMU, b is live.
+    vmpair, image, pair, runtime, env = tree(Path(scratch) / 'down')
+    pair.mkdir(); runtime.mkdir()
+    disk_b = pair / 'vm-b.qcow2'
+    disk_b.write_text('b')
+    guest_b = subprocess.Popen(['qemu-system-fixture', '-c', GUEST, '-drive',
+                                'if=none,id=rocknix,format=qcow2,file=' + str(disk_b)], executable=sys.executable)
+    try:
+        (runtime / 'rocknix-qemu.pid').write_text(str(os.getpid()))
+        (runtime / 'rocknix-qemu-b.pid').write_text(str(guest_b.pid))
+        import time; time.sleep(0.3)
+        r = subprocess.run([str(vmpair), 'down'], env=env, capture_output=True, text=True, timeout=30)
+        time.sleep(0.2)
+        ok = r.returncode == 1 and guest_b.poll() is not None
+        print(('PASS' if ok else 'FAIL') + f' down-stops-both: rc {r.returncode}, guest b stopped {guest_b.poll() is not None} (want rc 1 from a, b stopped)')
+        failed += [] if ok else ['down-stops-both']
+    finally:
+        if guest_b.poll() is None:
+            guest_b.terminate()
+        guest_b.wait(timeout=3)
+    cases += 1
+if failed:
+    sys.exit('FAIL ' + ', '.join(failed))
+print('PASS 9 VM launch controls and %d whole-script controls; fixtures are not a real boot claim' % cases)

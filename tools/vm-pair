@@ -126,15 +126,61 @@ stop_one() {
   read -r _ _ pid _ _ _ <<<"$(settings "$1")"
   # TERM only requests shutdown. Wait for this owned process to release its
   # disk and VNC port before a caller can immediately restart it (#454).
+  # vm-stop's 3 is "no pidfile: nothing to stop, nothing verified" (#970).
   "$HERE/vm-stop" "$pid" "$DIR/vm-$1.qcow2"
+}
+# Before a guest is replaced: stopped, or nothing was recorded (3).
+stop_before_replace() { local rc=0; stop_one "$1" || rc=$?; [ "$rc" = 0 ] || [ "$rc" = 3 ] || exit "$rc"; }
+# A disk is never removed while a process holds it (#970). A missing pidfile
+# says nothing about the disk, and under a shared directory another session's
+# live guest's disk was rm -f'd by the next up. Every process this user can
+# read is checked: an open descriptor on the file, or a qemu-system-* whose
+# argv names it (file=<path>). The refusal names the pid and its argv's first word.
+refuse_held() {
+  python3 - "$@" <<'HELD'
+import os, sys
+from pathlib import Path
+paths = {q for p in sys.argv[1:] if os.path.exists(p) for q in (os.path.abspath(p), os.path.realpath(p))}
+held = []
+for proc in Path('/proc').iterdir():
+    if not proc.name.isdigit():
+        continue
+    try:
+        argv = (proc / 'cmdline').read_bytes().split(b'\0')
+    except OSError:
+        continue
+    first = os.fsdecode(argv[0]) if argv and argv[0] else '?'
+    hits = set()
+    if Path(first).name.startswith('qemu-system-'):
+        for arg in argv:
+            for path in paths:
+                if os.fsencode('file=' + path) in arg:
+                    hits.add(path)
+    try:
+        for fd in (proc / 'fd').iterdir():
+            try:
+                target = os.readlink(fd)
+            except OSError:
+                continue
+            if target in paths:
+                hits.add(target)
+    except OSError:
+        pass
+    held += [(path, proc.name, Path(first).name) for path in sorted(hits)]
+for path, pid, name in held:
+    print('vm-pair: refusing to remove %s: pid %s (%s) holds it' % (path, pid, name), file=sys.stderr)
+sys.exit(1 if held else 0)
+HELD
 }
 
 case "${1:-}" in
   up)
     img="${2:-}"; [ -f "$img" ] || { echo "usage: vm-pair up <ROCKNIX-GENERIC_X64...img.gz>" >&2; exit 2; }
     check_runtime
-    stop_one a; stop_one b
-    mkdir -p "$DIR"; rm -f "$DIR"/vm-*.qcow2 "$DIR"/vm-*.ovmf-vars.fd
+    stop_before_replace a; stop_before_replace b
+    mkdir -p "$DIR"
+    refuse_held "$DIR"/vm-*.qcow2 "$DIR"/vm-*.ovmf-vars.fd
+    rm -f "$DIR"/vm-*.qcow2 "$DIR"/vm-*.ovmf-vars.fd
     [ -f "$KEY" ] || ssh-keygen -q -t ed25519 -N '' -f "$KEY" -C vm-pair
     # one raw image, two disks
     gunzip -c "$img" > "$DIR/image.img"
@@ -143,7 +189,17 @@ case "${1:-}" in
       qemu-img resize "$DIR/vm-$g.qcow2" 16G >/dev/null
     done
     rm -f "$DIR/image.img"
-    for g in a b; do start_one "$g"; done
+    # A partial up is rolled back (#970): a guest that started is stopped,
+    # through the same vm-stop, when the next one fails to launch.
+    started=""
+    for g in a b; do
+      rc=0; start_one "$g" || rc=$?
+      if [ "$rc" != 0 ]; then
+        for s in $started; do stop_one "$s" || echo "vm-pair: guest $s could not be stopped after guest $g failed" >&2; done
+        exit "$rc"
+      fi
+      started="$started $g"
+    done
     for g in a b; do ready_one "$g" || exit 1; done
     ;;
   reimage)
@@ -154,8 +210,10 @@ case "${1:-}" in
     settings "$g" >/dev/null || exit 2
     [ -f "$img" ] || { echo "usage: vm-pair reimage <a|b> <ROCKNIX-GENERIC_X64...img.gz>" >&2; exit 2; }
     check_runtime
-    stop_one "$g"
-    mkdir -p "$DIR"; rm -f "$DIR/vm-$g.qcow2" "$DIR/vm-$g.ovmf-vars.fd"
+    stop_before_replace "$g"
+    mkdir -p "$DIR"
+    refuse_held "$DIR/vm-$g.qcow2" "$DIR/vm-$g.ovmf-vars.fd"
+    rm -f "$DIR/vm-$g.qcow2" "$DIR/vm-$g.ovmf-vars.fd"
     [ -f "$KEY" ] || ssh-keygen -q -t ed25519 -N '' -f "$KEY" -C vm-pair
     gunzip -c "$img" > "$DIR/image-$g.img" || exit 1
     qemu-img convert -f raw -O qcow2 "$DIR/image-$g.img" "$DIR/vm-$g.qcow2" || exit 1
@@ -164,7 +222,16 @@ case "${1:-}" in
     start_one "$g"
     ready_one "$g" || exit 1
     ;;
-  down) stop_one a; stop_one b ;;
+  down)
+    # Both guests, whatever the first returned (#970), and the worst status:
+    # a failure over 3 (nothing to stop) over 0.
+    ra=0; stop_one a || ra=$?
+    rb=0; stop_one b || rb=$?
+    worst=0
+    for r in "$ra" "$rb"; do
+      if [ "$r" != 0 ] && [ "$r" != 3 ]; then worst=$r; elif [ "$r" = 3 ] && [ "$worst" = 0 ]; then worst=3; fi
+    done
+    exit "$worst" ;;
   ssh)
     read -r _ _ _ _ port _ <<<"$(settings "${2:-}")"; shift 2
     exec ssh -i "$KEY" -p "$port" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o BatchMode=yes -o LogLevel=ERROR root@127.0.0.1 "$@" ;;
