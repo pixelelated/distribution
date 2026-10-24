@@ -586,357 +586,357 @@ punch_index:
   question: Q3
   source_finding: "F-01"
   tracked: "#929"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-02
   severity: High
   category: Security
   question: Q3
   source_finding: "F-02"
   tracked: "#930"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-03
   severity: Low
   category: Security
   question: Q3
   source_finding: "F-03"
   tracked: "#938"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-04
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-04"
   tracked: "#941"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-05
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-05"
   tracked: "#943"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-06
   severity: Low
   category: Correctness
   question: Q6
   source_finding: "F-06"
   tracked: "#944"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-07
   severity: Medium
   category: Security
   question: Q3
   source_finding: "F-07"
   tracked: "#942"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-08
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-08"
   tracked: "#945"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-09
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-09"
   tracked: "#946"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-10
   severity: Medium
   category: Security
   question: Q3
   source_finding: "F-10"
   tracked: "#937"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-11
   severity: High
   category: Data Safety
   question: Q3
   source_finding: "F-11"
   tracked: "#939"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-12
   severity: Medium
   category: Data Safety
   question: Q3
   source_finding: "F-12"
   tracked: "#940"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-13
   severity: Low
   category: Data Safety
   question: Q3
   source_finding: "F-13"
   tracked: "#940"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-14
   severity: Medium
   category: Data Safety
   question: Q2
   source_finding: "F-14"
   tracked: "#940"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-15
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-15"
   tracked: "#943"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-16
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-16"
-  tracked: "the coordinator's recorded lead (#657, 16:57 UTC ruling: a contract question und"
-  outcome: "open"
+  tracked: "#959"
+  outcome: "deferred"
 - id: PL-17
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-17"
   tracked: "#947"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-18
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-18"
   tracked: "#948"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-19
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-19"
   tracked: "#949"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-20
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-20"
   tracked: "#950"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-21
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-21"
   tracked: "#951"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-22
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-22"
   tracked: "#952"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-23
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-23"
   tracked: "#953"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-24
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-24"
   tracked: "#954"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-25
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-25"
   tracked: "#955"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-26
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-26"
   tracked: "#956"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-27
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-27"
   tracked: "#957"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-28
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-28"
   tracked: "#957"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-29
   severity: Low
   category: Correctness
   question: Q7
   source_finding: "F-29"
   tracked: "#957"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-30
   severity: Medium
   category: Security
   question: Q6
   source_finding: "F-30"
-  tracked: "the coordinator's recorded lead (#657, 16:57 UTC ruling: the CI half of D-WORKFL"
-  outcome: "open"
+  tracked: "#960"
+  outcome: "deferred"
 - id: PL-31
   severity: Low
   category: Security
   question: Q2
   source_finding: "F-31"
-  tracked: "a Renovation item with the coordinator's disposition pending (#657)"
-  outcome: "open"
+  tracked: "#657 (S10, `22f9ae0d5e`)"
+  outcome: "resolved"
 - id: PL-32
   severity: Medium
   category: Renovation
   question: Q1
   source_finding: "F-32"
   tracked: "#640 (the legacy layout's cutover), with `fork-worktree:72,74`'s hint named firs"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-33
   severity: Low
   category: Renovation
   question: Q4
   source_finding: "F-33"
-  tracked: "the coordinator's lead for the build-engine area (the merge of `upstream/next`),"
-  outcome: "open"
+  tracked: "#585 (and the coordinator's note on #800)"
+  outcome: "deferred"
 - id: PL-34
   severity: Low
   category: Renovation
   question: Q7
   source_finding: "F-34"
-  tracked: "a Renovation item with the coordinator's disposition pending (#657)"
-  outcome: "open"
+  tracked: "#657 (S2, `db8ad3958a`) and #640 (the header)"
+  outcome: "resolved"
 - id: PL-35
   severity: High
   category: Security
   question: Q3
   source_finding: "F-35"
   tracked: "#931"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-36
   severity: High
   category: Security
   question: Q3
   source_finding: "F-36"
   tracked: "#932"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-37
   severity: Medium
   category: Security
   question: Q3
   source_finding: "F-37"
   tracked: "#933"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-38
   severity: Medium
   category: Security
   question: Q3
   source_finding: "F-38"
   tracked: "#934"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-39
   severity: Medium
   category: Security
   question: Q3
   source_finding: "F-39"
   tracked: "#935"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-40
   severity: Medium
   category: Security
   question: Q3
   source_finding: "F-40"
   tracked: "#936"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-41
   severity: Medium
   category: Security
   question: Q3
   source_finding: "F-41"
   tracked: "#937"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-42
   severity: High
   category: Data Safety
   question: Q3
   source_finding: "F-42"
   tracked: "#940"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-43
   severity: Low
   category: Correctness
   question: Q7
   source_finding: "F-43"
   tracked: "#945"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-44
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-44"
   tracked: "#943"
-  outcome: "open"
+  outcome: "resolved"
 ```
 
 ## Phase 7 resolution gate
 
-Pre-issue: every item is open until the coordinator's stage-E dispositions. Each row names what tracks the item.
+At the resolution phase: each bug's fix is on this branch and the bug closes when it reaches `next` (no closing keyword); the four items that are not streams carry the coordinator's dispositions (#657, the stream brief at `cc46c1112a`). Each row names the commit or the issue.
 
 | Item | Outcome | Tracked |
 | --- | --- | --- |
-| PL-01 | Open | #929 |
-| PL-02 | Open | #930 |
-| PL-03 | Open | #938 |
-| PL-04 | Open | #941 |
-| PL-05 | Open | #943 |
-| PL-06 | Open | #944 |
-| PL-07 | Open | #942 |
-| PL-08 | Open | #945 |
-| PL-09 | Open | #946 |
-| PL-10 | Open | #937 |
-| PL-11 | Open | #939 |
-| PL-12 | Open | #940 |
-| PL-13 | Open | #940 |
-| PL-14 | Open | #940 |
-| PL-15 | Open | #943 |
-| PL-16 | Open | the coordinator's recorded lead (#657, 16:57 UTC ruling: a contract question under D-WORKFLOW-028 and #258 PL-004; not a stream) |
-| PL-17 | Open | #947 |
-| PL-18 | Open | #948 |
-| PL-19 | Open | #949 |
-| PL-20 | Open | #950 |
-| PL-21 | Open | #951 |
-| PL-22 | Open | #952 |
-| PL-23 | Open | #953 |
-| PL-24 | Open | #954 |
-| PL-25 | Open | #955 |
-| PL-26 | Open | #956 |
-| PL-27 | Open | #957 |
-| PL-28 | Open | #957 |
-| PL-29 | Open | #957 |
-| PL-30 | Open | the coordinator's recorded lead (#657, 16:57 UTC ruling: the CI half of D-WORKFLOW-061; not a stream) |
-| PL-31 | Open | a Renovation item with the coordinator's disposition pending (#657) |
-| PL-32 | Open | #640 (the legacy layout's cutover), with `fork-worktree:72,74`'s hint named first |
-| PL-33 | Open | the coordinator's lead for the build-engine area (the merge of `upstream/next`), and #585 for the empty-success paths as a contribution candidate |
-| PL-34 | Open | a Renovation item with the coordinator's disposition pending (#657) |
-| PL-35 | Open | #931 |
-| PL-36 | Open | #932 |
-| PL-37 | Open | #933 |
-| PL-38 | Open | #934 |
-| PL-39 | Open | #935 |
-| PL-40 | Open | #936 |
-| PL-41 | Open | #937 |
-| PL-42 | Open | #940 |
-| PL-43 | Open | #945 |
-| PL-44 | Open | #943 |
+| PL-01 | Resolved | `a00b0ac7bb`, `d55d34d6e1` (S1), #929 |
+| PL-02 | Resolved | `a00b0ac7bb` (S1), #930 |
+| PL-03 | Resolved | `d55d34d6e1` (S1), #938 |
+| PL-04 | Resolved | `66b08a6672` (S5), #941 |
+| PL-05 | Resolved | `811e7f7d2f`, `66b324d1cd` (S5), #943 |
+| PL-06 | Resolved | `f4381c3501` (S10; the run is fix-pending-ci), #944 |
+| PL-07 | Resolved | `34f32b28e6` (S6), #942 |
+| PL-08 | Resolved | `2444828e89` (S7), #945 |
+| PL-09 | Resolved | `917f91677b` (S8), #946 |
+| PL-10 | Resolved | `d55d34d6e1` (S1), `32cb3a903e` (S2), #937 |
+| PL-11 | Resolved | `4b8419002d`, `0c0be666eb`, `d0c88f4528` (S4), #939 |
+| PL-12 | Resolved | `4b8419002d`, `0c0be666eb`, `d0c88f4528` (S4), #940 |
+| PL-13 | Resolved | `4b8419002d`, `0c0be666eb`, `d0c88f4528` (S4), #940 |
+| PL-14 | Resolved | `4b8419002d`, `0c0be666eb`, `d0c88f4528` (S4), #940 |
+| PL-15 | Resolved | `811e7f7d2f`, `66b324d1cd` (S5), #943 |
+| PL-16 | Deferred | #959, the coordinator's Backlog issue (D-WORKFLOW-028's gate reading the pushed tree; #258 PL-004) |
+| PL-17 | Resolved | `4228bf4daa` (S9), #947 |
+| PL-18 | Resolved | `f7ba5f415c` (S9), #948 |
+| PL-19 | Resolved | `1f7d618069` (S9), #949 |
+| PL-20 | Resolved | `3773d7f06a` (S9), #950 |
+| PL-21 | Resolved | `78884d5f9a` (S9), #951 |
+| PL-22 | Resolved | `48c656f393` (S9), #952 |
+| PL-23 | Resolved | `9aabdbac20` (S9), #953 |
+| PL-24 | Resolved | `2035e51ed2` (S9), #954 |
+| PL-25 | Resolved | `40bdc979a0` (S9), #955 |
+| PL-26 | Resolved | `f943c3375d` (S9), #956 |
+| PL-27 | Resolved | `4acaf55ceb`, `d78f422212`, `38306d3123` (S9), #957 |
+| PL-28 | Resolved | `4acaf55ceb`, `d78f422212`, `38306d3123` (S9), #957 |
+| PL-29 | Resolved | `4acaf55ceb`, `d78f422212`, `38306d3123` (S9), #957 |
+| PL-30 | Deferred | #960, the coordinator's Backlog issue (the CI half of D-WORKFLOW-061 through `forbidden-terms-check` and `fork-wordlist.yml`) |
+| PL-31 | Resolved | `22f9ae0d5e` (S10) |
+| PL-32 | Deferred | #640 (the legacy layout's cutover), with `fork-worktree:72,74`'s hint named first |
+| PL-33 | Deferred | #585 (the empty-success paths as a contribution candidate); the build-engine area's merge of `upstream/next` is the coordinator's note on #800 |
+| PL-34 | Resolved | `db8ad3958a` (S2: the empty conditional); the header's `../rocknix.worktrees/` is #640's |
+| PL-35 | Resolved | `a00b0ac7bb` (S1), #931 |
+| PL-36 | Resolved | `32cb3a903e` (S2), #932 |
+| PL-37 | Resolved | `32cb3a903e` (S2), #933 |
+| PL-38 | Resolved | `32cb3a903e` (S2), #934 |
+| PL-39 | Resolved | `148cee2a31` (S3), #935 |
+| PL-40 | Resolved | `148cee2a31` (S3), `34f32b28e6` (S6), #936 |
+| PL-41 | Resolved | `d55d34d6e1` (S1), `32cb3a903e` (S2), #937 |
+| PL-42 | Resolved | `4b8419002d`, `0c0be666eb`, `d0c88f4528` (S4), #940 |
+| PL-43 | Resolved | `2444828e89` (S7), #945 |
+| PL-44 | Resolved | `811e7f7d2f`, `66b324d1cd` (S5), #943 |
