@@ -22,9 +22,9 @@ Answer in three parts, in this order:
 1. **Your own findings first.** Read the packet's evidence -- the code
    excerpts at the end, the checks, the proofs -- and list every defect,
    gap, or unsafe seam you find that is not already one of the first
-   reader's findings. One line each: an id (G-01, G-02, ...), a severity
-   (Critical / High / Medium / Low), the packet's `file:line`, what fails
-   and when.
+   reader's findings (F-01 to F-22). One line each: an id (G-01, G-02, ...),
+   a severity (Critical / High / Medium / Low), the packet's `file:line`,
+   what fails and when.
 2. **Refute the first reader.** For every finding at Medium or above (High:
    F-16, F-18; Medium: F-01, F-02, F-03, F-04, F-09, F-17, F-19, F-20) and
    any Low you think mis-graded: agree, disagree, re-grade, or narrow -- and
@@ -183,9 +183,16 @@ The 23 upstream-carried core files were read whole by one read-only research sub
 - `scripts/pkgbuild` 32: `${fpkg}` is undefined (26 reads `fpkgname`), so an already-failed line prints an empty name.
 - `config/functions` 1313: `. ${PKG_DIR}/package.mk || die`: bash disables errexit inside an `||` list, so a failing command at a recipe's global scope is ignored unless it is the last; recipes keep their global scope to assignments (late binding), so latent.
 
+### F-22 (Q2; Low): two upstream lines that fail a run for the wrong reason
+
+- `config/multithread` 64: `[ ${result} -eq 0 -a -f .../history ] && echo && cat .../history | ${ROOT}/tools/mtstats.py`. Under `set -e` and `pipefail` (set at 47), the last command of an `&&` list is subject to errexit, so a statistics script that fails after a successful build fails the build.
+- `scripts/makefile_helper` 26 (`set -e`, 6): `chmod -R u+rwX "${BUILD_ROOT}/${BUILD_BASE}."* 2>/dev/null` with no `|| true`, so `make distclean` with no build root exits 1 before it removes `.ccache` (27); `--clean` (22) has the `|| true`.
+
+Read at the sites (the subagent's leads 21, 22); not run. Also re-read and left as they were: lead 5 (`get_git` 15 to 16 set `pipefail`, so `ls-remote | grep -q -m1` can return 141 on a ref list larger than a pipe; clones use `--no-tags`, so latent), lead 25 (`scripts/build` 598 to 611: `strip`'s errors silenced by design, `|| :`), lead 27 (`config/arch.aarch64` 19 to 36 has no default branch; every built device's CPU is listed, SM8550's `cortex-x3` at 28).
+
 ### Leads from the subagent not re-read (carried as leads, not findings)
 
-`get_git` 28 `git restore --staged .` leaves working-tree edits in a cached clone (lead 4); `get_git` 36 under `pipefail` may SIGPIPE on a large ref list and force a re-clone (5); `get_git` 201 to 202 a token in the clone URL, dead (`PKG_USETOKEN` set by no recipe) (6); `get_archive` 33 a test that cannot fail (8); `pkgjson` 14's `exit` override (11: its failure path is caught at 18 to 21, so the claim is partial); `scripts/clean` and `scripts/build` `--all` unreachable (13); `exec_thread_safe`'s dead `$?` and its lock left on failure (15); `do_autoreconf` skipped without `intltoolize` (17); `CPPFLAGS_OPTIM_HARDENING` on C only, latent (18); the CMake toolchain conf appended non-atomically (20); `config/multithread` 64 the stats pipeline able to fail a finished build (21); `makefile_helper` 26 `distclean` exiting before its `rm` (22); `unpack` 196 default patch fuzz, 127 `PATCH_ARCH`, 100 the shared-`BUILD` fallback (24); `scripts/build` 600 to 611 `strip` errors silenced (25); `config/options` 92 `CONCURRENCY_LOAD` from `os.cpu_count()` ignoring affinity (26); `config/arch.aarch64` 19 to 36 no default CPU branch, and `cortex-a710` mapped to `armv8.2-a` there and `armv9-a` in `arch.arm` (27); the build stamp ignoring dependencies' stamps and settings, and `clean` leaving sysroot files (design notes). Each is re-read before it is carried to the punch list; otherwise it stays here.
+`get_git` 28 `git restore --staged .` leaves working-tree edits in a cached clone (lead 4); `get_git` 201 to 202 a token in the clone URL, dead (`PKG_USETOKEN` set by no recipe) (6); `get_archive` 33 a test that cannot fail (8); `pkgjson` 14's `exit` override (11: its failure path is caught at 18 to 21, so the claim is partial); `scripts/clean` and `scripts/build` `--all` unreachable (13); `exec_thread_safe`'s dead `$?` and its lock left on failure (15); `do_autoreconf` skipped without `intltoolize` (17); `CPPFLAGS_OPTIM_HARDENING` on C only, latent (18); the CMake toolchain conf appended non-atomically (20); `unpack` 196 default patch fuzz, 127 `PATCH_ARCH`, 100 the shared-`BUILD` fallback (24); `config/options` 92 `CONCURRENCY_LOAD` from `os.cpu_count()` ignoring affinity (26); `cortex-a710` mapped to `aarch64` in `arch.aarch64` and `armv9-a` in `arch.arm` (27's second half); the build stamp ignoring dependencies' stamps and settings, and `clean` leaving sysroot files (design notes). Each is re-read before it is carried to the punch list; otherwise it stays here.
 
 ## The nine #644 findings this slice carries
 
@@ -395,7 +402,7 @@ Generated by `tools/coverage-table.py` (committed beside this file) from brief ย
 | `config/emulators/zxspectrum.conf` | 3 | upstream-carried | n/a: upstream's, unchanged here | n/a: upstream's, unchanged here | n/a: upstream's, unchanged here | Q4 (a): identical to `upstream/next` | n/a: read once per build by `add_es_system`; no cost of its own | Table 2 (`q6-tables.md`) | n/a: upstream's, unchanged here | - |
 | `config/functions` | 2 | upstream-carried | F-21: substring expansions for defaults; unquoted `$@` (996, 1437, 1656, 1895) | F-21: `. package.mk \\|\\| die` disables errexit for recipe globals | F-17 (device files outside the stamp, P12); F-21; `calculate_stamp`'s generic recipe correct (P2) | Q4 (a): identical to `upstream/next` | `calculate_stamp`'s whole-directory hash: `04` Q5 | sourced by `config/options` or `config/path` on every build | nine sections, about twelve responsibilities in 1,936 lines (`04` Q7); F-05 is the rule's | - |
 | `config/graphic` | 1 | fork-own | no finding | the fork's `LLVM_SUPPORT` line (#291) read | no defect | Q4 (a): differs (M), see `04` Q4 (a) | n/a: flags only | sourced by recipes through `config/options` | the fork's comment explains the change | f483f215ad 73b20caf86 |
-| `config/multithread` | 2 | upstream-carried | SC2068 at 50: an upstream idiom | `bash -n` ok (shell); shellcheck read; leads re-read: no finding | read whole by the research subagent, leads re-read: no finding | Q4 (a): identical to `upstream/next` | n/a: no measurement of its own | sourced by `config/options` or `config/path` on every build | read whole by the research subagent: no finding | - |
+| `config/multithread` | 2 | upstream-carried | SC2068 at 50: an upstream idiom | `bash -n` ok (shell); shellcheck read; leads re-read: no finding | F-22: a statistics pipe can fail a finished build (64) | Q4 (a): identical to `upstream/next` | n/a: no measurement of its own | sourced by `config/options` or `config/path` on every build | read whole by the research subagent: no finding | - |
 | `config/noobs/marketing/slides/A.png` | 4 | upstream-carried | n/a: upstream's, unchanged here | n/a: upstream's, unchanged here | n/a: upstream's, unchanged here | Q4 (a): identical to `upstream/next` | n/a: not read by a fork build | Table 3: no fork build, image or CI reaches it | n/a: upstream's, unchanged here | - |
 | `config/noobs/marketing/slides/B.png` | 4 | upstream-carried | n/a: upstream's, unchanged here | n/a: upstream's, unchanged here | n/a: upstream's, unchanged here | Q4 (a): identical to `upstream/next` | n/a: not read by a fork build | Table 3: no fork build, image or CI reaches it | n/a: upstream's, unchanged here | - |
 | `config/noobs/marketing/slides/C.png` | 4 | upstream-carried | n/a: upstream's, unchanged here | n/a: upstream's, unchanged here | n/a: upstream's, unchanged here | Q4 (a): identical to `upstream/next` | n/a: not read by a fork build | Table 3: no fork build, image or CI reaches it | n/a: upstream's, unchanged here | - |
@@ -442,7 +449,7 @@ Generated by `tools/coverage-table.py` (committed beside this file) from brief ย
 | `scripts/image` | 1 | fork-own | SC2046/SC2061/SC2044 in upstream's lines | the identity blocks read (60 to 61, 78 to 82, 106 to 121, 139 to 168): fail closed on an invalid identity (`die`) | F-09: its refusal is bypassed by `build_distro`'s prune | Q4 (a): differs (M), see `04` Q4 (a) | image assembly 5 m 7 s for GENERIC_X64 in run `20261022T235954Z-4749157a` (the whole run; `04` Q5) | reached by every device build (Table 1); writes `/etc/os-release` and the sidecar on every image | F-06: `ORIGIN_URL` and `BUILD_FILENAME` written for nobody; the identity split over four files (`04` Q7) | f10eec1306 a9af618398 0159cb3235 1aac875e88 73b20caf86 |
 | `scripts/install` | 1 | fork-own | SC2166 at 164 (upstream's) | the watch entry read (6 lines) | no defect in the fork's lines | Q4 (a): differs (M), see `04` Q4 (a) | the watch entry only | reached by every fork build | no finding | 1aac875e88 |
 | `scripts/install_addon` | 2 | upstream-carried | n/a: unreached by any fork build, image or CI (Table 1); upstream's, unchanged here | `bash -n` ok; shellcheck read | n/a: unreached by any fork build, image or CI (Table 1); upstream's, unchanged here | Q4 (a): identical to `upstream/next` | n/a: no measurement of its own | upstream add-on path only: `scripts/pkgbuild` when a package is an add-on; no fork image builds one | n/a: unreached by any fork build, image or CI (Table 1); upstream's, unchanged here | - |
-| `scripts/makefile_helper` | 2 | upstream-carried | read whole by the research subagent, leads re-read: no finding | `bash -n` ok (shell); shellcheck read; leads re-read: no finding | read whole by the research subagent, leads re-read: no finding | Q4 (a): identical to `upstream/next` | n/a: no measurement of its own | `Makefile` `clean`/`distclean` | read whole by the research subagent: no finding | - |
+| `scripts/makefile_helper` | 2 | upstream-carried | read whole by the research subagent, leads re-read: no finding | `bash -n` ok (shell); shellcheck read; leads re-read: no finding | F-22: `distclean` exits before its `rm` with no build root (26) | Q4 (a): identical to `upstream/next` | n/a: no measurement of its own | `Makefile` `clean`/`distclean` | read whole by the research subagent: no finding | - |
 | `scripts/mkimage` | 2 | upstream-carried | no `set -e`; per-step `\\|\\| show_error` | F-16: two branches and `pigz` unguarded | F-16: success reported over an incomplete `qcom-abl` (SM8550) or `arm-efi` image | Q4 (a): identical to `upstream/next` | part of the image step; not timed separately in the recorded runs | fork build: `scripts/image` `do_mkimage` | one structure per bootloader, repeated four times (`04` Q7) | - |
 | `scripts/pkgbuild` | 2 | upstream-carried | read whole by the research subagent, leads re-read: no finding | `bash -n` ok (shell); shellcheck read; leads re-read: no finding | F-21: `${fpkg}` undefined (32) | Q4 (a): identical to `upstream/next` | n/a: no measurement of its own | fork build: `config/multithread` (the per-package worker), `scripts/pkgbuilder.py` | read whole by the research subagent: no finding | - |
 | `scripts/pkgbuilder.py` | 2 | upstream-carried | not read line by line: `py_compile` ok and its callers read (Q6); a coverage boundary (`04`) | `py_compile` ok | not read line by line: `py_compile` ok and its callers read (Q6); a coverage boundary (`04`) | Q4 (a): identical to `upstream/next` | n/a: no measurement of its own | fork build: `config/multithread` (the parallel builder every build runs) | not read line by line: `py_compile` ok and its callers read (Q6); a coverage boundary (`04`) | - |
@@ -506,7 +513,7 @@ Verdicts as the skill defines them. **OPEN (stage X)** means the criterion's art
 ### AC-10 to AC-12: `04` ยง Renovation face Q4 (two currency tables), Q5 (ccache, the stamp's cost, the recorded runs, time to play), Q6 (five reachability tables)
 **Verdict:** OPEN (stage B, `04`). Inputs ready: `q6-tables.md` Tables 1 to 5; Q4 (a)'s 21 rows; Q4 (b)'s digests; the three runs' timings.
 
-### AC-13: every proof carries a `proved:` cell; ``grep -c 'proved:' 02`` equals ``grep -c '^PROOF:' 00``
+### AC-13: every proof carries its class cell, and the count of those cells in 02 equals the count of PROOF lines in 00
 **Verdict:** PASS โ“ (at this point). **Evidence:** 13 and 13 (P1 to P13; `sandbox` 11, `image-set` 1, `recorded-run` 1). Re-counted at stages F and H.
 
 ### AC-14: `tracked:` items' bug issues carry the VM line and a verifiable criterion; `removal: yes` items carry `Already written:`; no pin, admission, watcher or trigger change without a stream brief; `box-check` passes on the issues
@@ -639,7 +646,7 @@ Tests for `get_env`, for the prune and refusal together, and for the launch tabl
 
 The slice is the engine every build runs: LibreELEC's scripts and `config/functions`, ROCKNIX's distribution layer, and the fork's additions (the watch entry, the identity, the container's lifecycle, the meson guard, the name). **The fork's additions are small, commented and mostly right; the engine's weak points are where a failure is reported as success, or where a guarantee holds on one route and not the one people use.** Nothing was built: every claim is a reading at a site, a sandboxed call with its trace read first (P1 to P8, P11 to P13), an install tree (P7), or a recorded run (P10), and the build-only proofs are `fix-pending-image`.
 
-**21 findings. Two are High:**
+**22 findings. Two are High:**
 
 - **F-16:** `scripts/mkimage` reports success over an incomplete image on the `qcom-abl` route, SM8550's, the Retroid Pocket Nova's (unchecked copies of the kernel and `SYSTEM`, unchecked compression, an exit status that is always 0).
 - **F-18:** `scripts/get_git` accepts a cached clone whose `HEAD` is not the pinned commit when the pin matches any of the clone's refs, and the package then builds from the old source under the new version (P13).
@@ -655,7 +662,7 @@ The slice is the engine every build runs: LibreELEC's scripts and `config/functi
 - Archives are fetched without TLS verification and accepted unhashed (F-19).
 - `checkdeps` changes the host's compiler and `/nix` with `sudo` (F-20).
 
-**The rest are Low or `Renovation`:** a stale rule (F-05: two items of `device-builds.md` describe defects fixed in August), dead identity code (F-06, F-07), upstream's glob test (F-08), a workflow red on every run (F-10), the options file's two spellings (F-15), small helper defects (F-21), the container pin's age and three files behind upstream (F-11, F-12), and two items #644 assigned (finding 3's sentence, finding 8's measurement).
+**The rest are Low or `Renovation`:** a stale rule (F-05: two items of `device-builds.md` describe defects fixed in August), dead identity code (F-06, F-07), upstream's glob test (F-08), a workflow red on every run (F-10), the options file's two spellings (F-15), small helper defects (F-21), two upstream lines that fail a run for the wrong reason (F-22), the container pin's age and three files behind upstream (F-11, F-12), and two items #644 assigned (finding 3's sentence, finding 8's measurement).
 
 **Currency (Q4):**
 
@@ -2316,4 +2323,75 @@ Read 2026-10-24 04:08 UTC: `gh workflow list --repo pixelelated/distribution --a
   150  else
   151    export LOCAL_CCACHE=""
   152  fi
+```
+
+### `config/multithread` lines 40 to 70 (at `8ebaf8daad`)
+
+```
+   40    fi
+   41    [ "${MTBOOKENDS}" = "no" ] && buildopts+=" --without-bookends" || buildopts+=" --with-bookends"
+   42    [ "${MTIMMEDIATE}" = "no" ] && buildopts+=" --fail-after-active" || buildopts+=" --fail-immediately"
+   43  
+   44    buildopts+=" --stats-interval ${MTINTERVAL:-60}"
+   45  
+   46    # pipefail: return value of a pipeline is the value of the last (rightmost) command to exit with a non-zero status
+   47    set -o pipefail
+   48  
+   49    ${SCRIPTS}/pkgjson | ${SCRIPTS}/genbuildplan.py --show-wants --with-json "${THREAD_CONTROL}"/plan.json \
+   50        --build ${@} > "${THREAD_CONTROL}"/plan || result=1
+   51  
+   52    if [ ${result} -eq 0 ]; then
+   53      save_build_config
+   54  
+   55      # export the following vars so that they will be available to subprocesses of pkgbuilder.py
+   56      export ROOT SCRIPTS THREAD_CONTROL
+   57  
+   58      MTBUILDSTART=$(date +%s) MTWITHLOCKS=yes ${SCRIPTS}/pkgbuilder.py \
+   59          --plan "${THREAD_CONTROL}"/plan.json \
+   60          --joblog "${THREAD_CONTROL}"/joblog \
+   61          --loadstats "${THREAD_CONTROL}"/loadstats \
+   62          --max-procs ${THREADCOUNT} ${buildopts} || result=1
+   63  
+   64      [ ${result} -eq 0 -a -f "${THREAD_CONTROL}"/history ] && echo && cat "${THREAD_CONTROL}"/history | ${ROOT}/tools/mtstats.py
+   65  
+   66      rm -f "${THREAD_CONTROL}/parallel.pid"
+   67    fi
+   68  
+   69    set +o pipefail
+   70  
+```
+
+### `scripts/makefile_helper` lines 1 to 30 (at `8ebaf8daad`)
+
+```
+    1  #!/bin/bash
+    2  
+    3  # SPDX-License-Identifier: GPL-2.0-only
+    4  # Copyright (C) 2022-present Team LibreELEC (https://libreelec.tv)
+    5  
+    6  set -e
+    7  
+    8  # If config/options can't be sourced, abort. PWD isn't the expected ROOT.
+    9  # Only source from config/options what will be used
+   10  BUILD_ROOT=$(PROJECT= DEVICE= ARCH= . config/options "" && echo "${BUILD_ROOT}")
+   11  BUILD_BASE=$(PROJECT= DEVICE= ARCH= . config/options "" && echo "${BUILD_BASE}")
+   12  
+   13  if [ -z "${BUILD_BASE}" ] || [ -z "${BUILD_ROOT}" ]; then
+   14    # make sure variables are set before running an rm
+   15    echo "error: ${0}: both BUILD_BASE and BUILD_ROOT must be set when running \"[clean|distclean]\"; aborting"
+   16    exit 1
+   17  fi
+   18  
+   19  # task handling
+   20  case $1 in
+   21    --clean)
+   22      chmod -R u+rwX "${BUILD_ROOT}/${BUILD_BASE}."*/build/syncthing-* 2>/dev/null || true
+   23      rm -rf "${BUILD_ROOT}/${BUILD_BASE}."*/* "${BUILD_ROOT}/${BUILD_BASE}."*/.stamps
+   24      ;;
+   25    --distclean)
+   26      chmod -R u+rwX "${BUILD_ROOT}/${BUILD_BASE}."* 2>/dev/null
+   27      rm -rf "${BUILD_ROOT}/.ccache" "${BUILD_ROOT}/${BUILD_BASE}."*
+   28      ;;
+   29    *)
+   30      echo "error: ${0}: unsupported option on CLI; aborting"
 ```
