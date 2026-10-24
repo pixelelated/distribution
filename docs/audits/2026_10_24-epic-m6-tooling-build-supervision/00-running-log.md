@@ -58,3 +58,28 @@
 
 PROOF: 15:45 P1 the slice is the brief's 18 paths, 3,795 lines and 201,453 bytes; none upstream's; 35 fork commits; the branch equals the hash on all 18 -- `.qa-scratch/t9/scope.txt`
 PROOF: 15:44 P2 the eight controls at the hash in this checkout: five pass, three fail; the three fail on a missing module and then on the admission guard -- `.qa-scratch/t9/controls/`, `.qa-scratch/t9/diag/`, the two `/tmp` receipts
+
+## [Stage B] 15:47 to 15:58 UTC — the reading
+
+- **The 18, read whole at the hash** (`.qa-scratch/t9/at-hash/`): the six tools, `build-admission`, `reclaim-swap`, `install` and `retention-report` line by line; the three guides against the code; the five controls by their test and case names (37 swap tests, 68 admission checks, 36 monitor checks, 32 watcher checks, 19 retention controls).
+- **Each refusal matched to a control:** a `grep -l -E` of each refusal's text over the nine controls (`test-build-admission`, `test-build-monitor`, `test-swap-reclaim`, `test-retention-report`, `admission-test-fixture.py`, the four qa-logs controls), read beside the named checks. The unmatched refusals are `04` § Q6's `none` rows.
+- **Outside the slice:** the release tool's control is `tools/build-identity-test:104-167`. `--stop-vms` is tested only for refusing to combine with `--reclaim-swap` (`test-swap-reclaim:368-369`).
+- **The README's memory-guard-removed control** is in `git grep` only as the 2026-10-04 work log `:241` ("runs the same35 tests and fails exactly2"). The evidence folder `2026-10-04-host-swap-rollout/` holds none.
+- **The container's Python:**
+  - The pin `sha256:988c0ba5…` is unchanged since `2c349c6d51` (2026-10-01).
+  - `device-builds.md:379-380` and the 2026-10-07 work log `:793-794` record that this container runs Python 3.10 without `hashlib.file_digest`.
+  - The host has no 3.10 interpreter (`/usr/bin/python3.14` only), and the brief names no container start, so this rests on the record.
+- **The record's states:** across all 1,885 `build.status` files, `head -1` gives `finished` 1,885. There are no `runner-error` files. The 17 directories without a status are hand-made folders (16 in `conflict-resolution`, 1 in `m7-browser-memory-570`).
+- **Q5 costs:**
+  - `build.start` to `admission.json`'s `admitted` over 663 recorded runs: median 0.09 s (0.08 to 0.19).
+  - `watch-job`'s `--build-progress` pipeline, run read-only over the largest recorded `build.log` (213,562,360 bytes): 0.50, 0.45 and 0.44 s. Over the SM8550 log (45,743,868 bytes): 0.13 s. Both runs' `watcher.interval` is 5.
+- **`/tmp` after the controls and diagnostics:** `pixelelated-watch-submit-*` 6 (4 at the start; one per `test-submit` run). `watch-job-393-*`, `pixelelated-retention-controls-*`, `pixelelated-build-admission*` and `pixelelated-build-monitor*` 0.
+- **Written:** `02-forward-audit.md` (F-01 to F-11, P1 to P9, the 18 coverage rows), then `03` and `04`.
+
+PROOF: 15:45 P3 the record: 46 directories, 1,902 runs, every status file `finished`, 17 non-run folders, mtimes recorded before -- `.qa-scratch/t9/record/`
+PROOF: 15:52 P4 supervision's cost: admission 0.09 s median over 663 runs; a whole-log progress scan 0.45 s on the largest log and 0.13 s on the SM8550 log, per 5-second interval -- the two commands above
+PROOF: 15:53 P5 `hashlib.file_digest` in the admission and retention tools against the pinned container's Python 3.10 -- `build-admission:34`, `retention-report:22`, `device-builds.md:379-380`, the 2026-10-07 work log, `2c349c6d51`
+PROOF: 15:50 P6 `test-submit.py` leaves its `mkdtemp` under `/tmp`; the other controls clean up -- the `/tmp` counts
+PROOF: 15:51 P7 the refusals with no control, by text search and the named checks -- the grep in this entry
+PROOF: 15:54 P8 `build-preflight --stop-vms` stops every `pgrep -f` match by plain `kill`, unowned and unwaited, and can print READY -- `build-preflight:101-123`, `test-swap-reclaim:368-369`
+PROOF: 15:52 P9 the memory-guard-removed control ran once and is not retained -- `README.md:99`, the 2026-10-04 work log `:241`
