@@ -534,3 +534,63 @@ And one unknown answered early: **U-1** -- every `pgrep`, `pkill` and
 `kill` in the 60 is guest-side over SSH or serial; no tool finds or stops a
 host QEMU by pattern, and `vm-pair`, `vm-stop` and `vm-qa` carry no
 host-side kill. The lane confirms it and reads `vm-pair down`'s stop path.
+
+## Addendum: T14 at its kickoff (2026-10-24, from the brief `docs/reviews/briefs/tooling-state-tests.md` version 1)
+
+**What we know and assume.** T14 is the area's fourth slice, **Independent**
+(one GPT-6 Astra seat), over **32 paths, 6,911 lines, all fork-own; 20
+Python, 2 shell, 10 Markdown; 396,588 bytes at the read refs** -- twenty-one
+test tools (the `pixelelated-*` and `rasteratops-*` family, the settings,
+wait-lock, melonDS, USB gadget, Nova LED, RetroArch wrapper, hardware
+readings, build identity and candidate store tests, two retired stubs) and
+eleven fixture files, ten of them the lint's fixtures that exist only on
+P1's tip. 35 fork commits since the base; none on `upstream/next`; the
+branch differs from the hash on none of them. **Who runs them:** every
+default `vm-qa` run reaches five of them (the `wrapper` suite directly;
+four through T15's `last-good-scripts-test`, the `scripts` suite, 13 of the
+33 minutes by T12's table); the fork CI runs `rocknix-info-test`; the
+release preparer calls two; `cloud-round-trip` one; T12's protocol walk one
+that refuses today; **eleven nobody runs**, two of them retired by design.
+No blindspot entry names any of the 21; three decision rows do. The lens is
+**brittleness**: what each test depends on that is not the thing it proves,
+what it caught, who runs it, what its positive is.
+
+**Known unknowns.** U-1 the busybox fallback: `settings-modes-test` and
+`melonds-upgrade-test` take candidate applets from a build root, and this
+host has none for this lane (T9's and T10's worktrees build nothing) -- does
+each say so, and is a PASS under the host's applets marked as the host's
+(blindspot 34)? U-2 the real-rclone four's backend binding: could a host
+`rclone.conf` leak into a test meant to be isolated? U-3 the two guest
+tests: whether any claim needs the one authorized cycle, or the record (the
+2026-10-08 and 10-11 qa-logs) answers. U-4 the eleven no-caller tools: which
+have a caller in the record (a candidate's qa-log) rather than in the tree.
+U-5 the two retired stubs: keep as refusing markers, or remove with their
+index rows and list entries (the coordinator's call at the pause). U-6 how
+T15 assumes these four behave (read, never edited: T15's brief follows).
+
+**Patterns.** T9's F-13 (an `assert` as a final check; `python3 -O`) and
+its #597 fixture (a fixture copied from the current tool cannot see a
+regression); T10's five fail-open shapes and its `|| true` lesson; T12's
+`--only X` passing with nothing run and `--repeat 0` with empty headlines;
+blindspot 34 (the host's `tr` is not the guest's). Each is a stage-A grep
+or a Q3 hunt here.
+
+**What could we be missing.** A fresh lane runs the four real-rclone tests
+without reading what backend they bind and touches a real `rclone.conf`: the
+brief reads the binding first and names the local backends. A lane sees
+eleven tools nobody runs and proposes deleting them: the lens is not a
+licence; a caller in the record counts. A lane edits
+`last-good-scripts-test` to fix how it calls a tool here: T15's file, never
+edited here. Pre-mortem: a month on, a candidate's `scripts` suite passes
+while `settings-modes-test` quietly took the host's applets because no build
+root existed on the box that ran it -- so U-1 is asked in writing at stage
+A. Replaced mechanism: none (a read).
+
+**Adjustments written into version 1 of the brief:** A1 § 2 writes the globs
+out, lists who runs each tool, and names the eleven no-caller ones and the
+two stubs; A2 § 5 reads the real-rclone four's backend binding before any
+run and marks a host-applet PASS as the host's; A3 § 4 makes Q6 the
+brittleness table with four columns per tool; A4 § 1 and § 8 keep T15's file
+out of reach; A5 § 5 authorizes one guest cycle under T12's ritual only if a
+claim needs it; A6 § 7 asks the `|| true`, `assert` and host-path greps by
+name; A7 § 10 includes the host checked for a payload left behind.
