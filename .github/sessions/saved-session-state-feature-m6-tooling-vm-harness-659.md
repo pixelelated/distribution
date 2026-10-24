@@ -41,14 +41,16 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#659` (prose through a quoted heredoc or the Write
-tool). The no-guest controls run in this worktree; the guest cycle, when a
-claim needs it, follows § 5's ritual to the letter and is recorded in `00`,
-in `02` § The guest cycle and in `docs/vm-qa-log.md`. `.qa-scratch/` is
-gitignored and `git status --short` is read before every `git add -A`. The
-seat's two calls and the read-only tracker reads are the only network.
+**Stage A done (19:06 UTC); stage B next.**
+- **`reviewed-at`:** `facb2ae523`, equal to `8ebaf8daad` on the 60.
+- **Scope:** 60 paths, 8,790 lines, 484,627 bytes, 145 fork commits, none upstream's: equal to the brief.
+- **The no-guest controls:**
+  - `vm-pair-test` 9, `vm-upgrade-readiness-test` 7 and `vm-stop-test` 7 PASS, each rc 0;
+  - `vm-qa --list` gives 17;
+  - `es-syntax-check` rc 2 (not a pass);
+  - `vm-manager-system-check --help` rc 1 (the tool takes no `--help`; the asserts are a lead).
+- **Census:** 0. No guest has run.
+- **Next:** stage B, the reading and the record (Q5's cost side, Q6's value side). Then the one guest cycle, if a claim needs it, by § 5's ritual.
 
 ## Next commands
 
