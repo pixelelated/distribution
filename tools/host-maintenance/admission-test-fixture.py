@@ -33,7 +33,8 @@ def prepare_fixture(root, source, state=None):
             'evidence':[{'path':str(kept/'measurement.json'),'sha256':mod.digest(kept/'measurement.json')}]}
     plan={'volume':str(root),'scan_roots':[str(root)],'reference_stores':[], 'protected':[str(kept)],'candidates':[],'builds':[budget]}
     rp=root/'retention-plan.json';rp.write_text(json.dumps(plan))
-    report={'schema':1,'utc':mod.utc(),'result':'REPORT_COMPLETE','deletion_performed':False,'inventory':{'errors':[]},
+    observed=mod.utc()
+    report={'schema':1,'utc':mod.utc(),'observation_start':observed,'result':'REPORT_COMPLETE','deletion_performed':False,'inventory':{'errors':[]},
             'plan_sha256':mod.digest(rp),'tool_sha256':mod.digest(folder/'retention-report'),
             'protected':[{'path':str(kept),'identity':mod.path_identity(kept)}],
             'builds':[dict(budget,required_bytes=1048576,fits_now=True)]}

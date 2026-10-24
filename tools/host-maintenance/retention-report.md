@@ -8,6 +8,10 @@ tools/watch-build --record-only -- python3 -I tools/host-maintenance/retention-r
   --plan /absolute/review/plan.json --output /absolute/review/report.json
 ```
 
+The plan's bytes are read once, and the report's `plan_sha256` is the hash of
+those bytes, so a plan edited during the scan no longer matches its report. The
+report stamps `observation_start` before it observes anything, beside `utc` at
+the end; the admission's 15-minute window runs from `observation_start` (#920).
 The output must be new. The tool reads production storage and writes only the
 requested report. It has no deletion, permission-changing, process-stopping,
 swap or privileged mode. A successful command means the report was produced;
@@ -30,7 +34,9 @@ The JSON plan contains:
   sources, licensing inputs, shared cache and required evidence. Their identity
   observations are retained. Protection includes descendants and ancestors.
 - `volume`: the filesystem whose available bytes must accommodate the build.
-  Availability uses `f_bavail`; filesystem reserve is excluded.
+  Availability uses `f_bavail`; filesystem reserve is excluded. A build's
+  `eligible_reclaim_bytes` counts only eligible candidates on this filesystem
+  (#920).
 - `candidates`: exact paths classified as `superseded-qa-disk`, each with its
   expected `identity`, owner path, original lifecycle and cleanup receipts,
   independent retained evidence paths and SHA256 values, and a hash-bound

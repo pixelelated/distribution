@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Exercise retention refusals with real temporary QCOW files and processes."""
 import copy
+import hashlib
 import importlib.machinery
 import importlib.util
 import json
@@ -8,6 +9,7 @@ import os
 from pathlib import Path
 import shutil
 import subprocess
+import sys
 import tarfile
 import tempfile
 import time
@@ -120,4 +122,33 @@ with tempfile.TemporaryDirectory(prefix='pixelelated-retention-controls-') as tm
     other=copy.deepcopy(plan);other['protected']=[]
     check('unprotected fixture rejected',False,other)
     check('exact fixture remains valid after controls',True)
+    # #920: the report says when it began observing.
+    result=mod.report(plan)
+    assert 'observation_start' in result and result['observation_start']<=result['utc'],result.get('observation_start')
+    results.append(dict(name='the report carries its observation start',passed=True))
+    # #920: a candidate off the measured volume frees nothing there.
+    other=next(p for p in ['/dev/shm','/run','/proc'] if os.stat(p).st_dev!=disk.stat().st_dev)
+    elsewhere=copy.deepcopy(plan);elsewhere['volume']=other
+    budget=mod.report(elsewhere)['builds'][0];here=mod.report(plan)['builds'][0]
+    assert here['eligible_reclaim_bytes']>0 and budget['eligible_reclaim_bytes']==0,(here,budget)
+    results.append(dict(name='a candidate off the volume is not summed',passed=True))
+    # #920: a plan edited while the report scans is bound as it was read.
+    shim=("import os,runpy,subprocess,sys\n"
+          "real=os.statvfs;check_output=subprocess.check_output;plan=sys.argv[sys.argv.index('--plan')+1];done=[]\n"
+          "def edit(p):\n"
+          "    if not done:\n"
+          "        done.append(1)\n"
+          "        with open(plan,'a') as f:f.write(' ')\n"
+          "    return real(p)\n"
+          "os.statvfs=edit\n"
+          "subprocess.check_output=lambda argv,**k:'' if argv[0]=='docker' else check_output(argv,**k)\n"
+          "sys.argv=sys.argv[1:];runpy.run_path(sys.argv[0],run_name='__main__')\n")
+    scan=copy.deepcopy(plan);scan['candidates']=[];scan.pop('source_fixtures',None)
+    plan_file=root/'scan-plan.json';plan_file.write_text(json.dumps(scan));read_bytes=plan_file.read_bytes()
+    out=root/'scan-report.json'
+    subprocess.run([sys.executable,'-I','-c',shim,str(source),'--plan',str(plan_file),'--output',str(out)],
+                   check=True,stdout=subprocess.DEVNULL)
+    bound=json.loads(out.read_text())['plan_sha256']
+    assert plan_file.read_bytes()!=read_bytes and bound==hashlib.sha256(read_bytes).hexdigest() and bound!=mod.digest(plan_file),bound
+    results.append(dict(name='a plan edited during the scan no longer matches the report',passed=True))
 print(json.dumps(dict(result='PASS',controls=results,tool_sha256=mod.digest(source)),indent=2))

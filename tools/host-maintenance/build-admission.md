@@ -63,7 +63,8 @@ For durable submission, pass those runner arguments after
 `tools/watch-build-submit --owner FRESH_OWNER --`. A fresh submission owner is
 always required. Do not label a compiler or cache copy `--record-only`.
 
-Both the report and admission expire after15minutes. The guard binds the report
+Both the report and admission expire after15minutes; a report's window runs
+from its `observation_start`, when it began observing, not from when it finished (#920). The guard binds the report
 and its producing tool, plan, measurement evidence, protected identities, tracked
 source state, checkout, profiles, filesystem and current shared registry generation.
 It rechecks `f_bavail` at launch, excluding filesystem reserve, and subtracts

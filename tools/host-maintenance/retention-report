@@ -275,10 +275,13 @@ def evaluate(candidate, plan, observed):
 
 
 def report(plan):
+    # The observations are as old as their start; the window runs from here (#920).
+    started = datetime.now(timezone.utc).isoformat()
     observed = inventory(plan)
     rows = [evaluate(c, plan, observed) for c in plan['candidates']]
     free = os.statvfs(plan['volume'])
     available = free.f_bavail * free.f_frsize
+    volume_device = os.stat(plan['volume']).st_dev
     preserved = []
     for p in plan['protected']:
         preserved.append(dict(path=p, identity=identity(p)))
@@ -293,13 +296,16 @@ def report(plan):
         if not terms or any(type(v) is not int or v < 0 for v in terms.values()):
             raise ValueError('invalid capacity terms')
         need = sum(terms.values())
-        reclaim = sum(r['identity']['allocated_bytes'] for r in rows if r['eligible'])
+        # Only a removal on the measured volume frees its bytes (#920).
+        reclaim = sum(r['identity']['allocated_bytes'] for r in rows
+                      if r['eligible'] and r['identity']['device'] == volume_device)
         budgets.append(dict(name=budget['name'], terms_bytes=terms, required_bytes=need,
                             available_bytes=available, fits_now=available >= need,
                             eligible_reclaim_bytes=reclaim,
                             headroom_after_proposed_bytes=available + reclaim - need,
                             basis=budget['basis']))
-    return dict(utc=datetime.now(timezone.utc).isoformat(), schema=1, deletion_performed=False,
+    return dict(utc=datetime.now(timezone.utc).isoformat(), observation_start=started,
+                schema=1, deletion_performed=False,
                 result='REPORT_COMPLETE', protected=preserved, inventory=observed,
                 candidates=rows, builds=budgets, preservation_additional_bytes=0,
                 limitations='Evidence is already independently retained. Available bytes exclude filesystem reserve. '
@@ -311,9 +317,11 @@ if __name__ == '__main__':
     parser.add_argument('--plan', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
-    plan = json.loads(args.plan.read_text())
+    # The plan's bytes are read once, and those are what the report binds (#920).
+    plan_bytes = args.plan.read_bytes()
+    plan = json.loads(plan_bytes)
     result = report(plan)
-    result['plan_sha256'] = digest(args.plan)
+    result['plan_sha256'] = hashlib.sha256(plan_bytes).hexdigest()
     result['tool_sha256'] = digest(__file__)
     with args.output.open('x') as stream:
         json.dump(result, stream, indent=2); stream.write('\n')

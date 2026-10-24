@@ -128,7 +128,10 @@ def current(plan):
     require(report['plan_sha256'] == digest(retention_plan), 'retention plan changed')
     tool = Path(__file__).with_name('retention-report')
     require(report['tool_sha256'] == digest(tool), 'retention report tool changed')
-    age = time.time() - datetime.datetime.fromisoformat(report['utc']).timestamp()
+    # The window runs from when the report began observing, not when it finished (#920).
+    started = datetime.datetime.fromisoformat(report['observation_start']).timestamp()
+    require(started <= datetime.datetime.fromisoformat(report['utc']).timestamp(), 'retention report times invalid')
+    age = time.time() - started
     require(0 <= age <= MAX_AGE, 'retention report expired or from the future')
     volume = Path(rp['volume']); volume_id = path_identity(volume)
     require(root.stat().st_dev == volume_id['device'], 'checkout and budget volume differ')
