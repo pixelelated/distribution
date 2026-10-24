@@ -47,6 +47,8 @@ today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 **T10 (#657) stage E dispatched at 18:01 UTC (2026-10-24)** from `docs/reviews/briefs/t10-streams.md` (`9e0718eeb5`): ten streams S1 to S10 over 29 bugs (#929 to #957), audit #958; three contract rows D-WORKFLOW-200/201/202 (put to the maintainer on #346 for veto before the merge); leads #959 (PL-16), #960 (PL-30); #928 (pkgcheck, under #800). Accept with `AUDIT_ISSUE=958 $S/t10-accept.sh <tip> <coordinator tip>` (to be written in the shape of `t9-accept.sh`, with `hooks-test` on the tip and on the simulated merge). Two lanes run: T9 (S7, S8 next) and T10 (S1).
 
+**T9 (#656) accepted (2026-10-24 18:3x UTC)** at `bf4445a13c`, #924 closed; the lane writes its completion marker next. T10 (#657) is at S5 of ten; its hand-back is accepted with `AUDIT_ISSUE=958 $S/t10-accept.sh <tip> <coordinator tip>` after the coordinator's branch is merged into it (criterion 17). Findings carried today: #961 (ES fork's guard-lib), #962 (ten credential-shaped tree lines; redaction packet after the maintainer's word on #312), the history counts on #312.
+
 ## Next commands
 
 ```bash
@@ -277,7 +279,7 @@ is the narrative; this is the index of what a resuming agent must know.
   disclosure timing; `LOCAL_SSH_KEYS_FILE` in Docker builds; D-SYS-014;
   D-WORKFLOW-191 (the `portaudio` question was withdrawn: the mirror serves it; #849 corrected).
 - **Integration (after the M7 candidate):** P0, P1, T1, T2, T3, T30, **`fix/m6-877-libfmt-sha256` (`cf3a8d8e62`) and `fix/m6-890-shs-sha256` (`566b01448f`), the two checksums T5's fetch would refuse**, T5, T6,
-  T7 (`db6597356b`), T24 (`26e4a34edf`) after T30's, T8 (`f50a031158`), T9 at its hand-back, T10 (`feature/m6-tooling-guards-657`, dispatched 16:26 UTC from brief v2 `2a4be1006b`, lane `a82d784216`) at its hand-back after T9's, a packet for #902 cut over `next` once T3's and T30's branches are in (five of its seven files are T30's, one T3's; the T1 session cuts it; its guest proof then), T4 (`6ec78bbf8c`, complete) last; #887 (`c60cdddf8b`) and #889 (`828472eb59`) after T30's branch; T8's conflict list (11 rows) read under
+  T7 (`db6597356b`), T24 (`26e4a34edf`) after T30's, T8 (`f50a031158`), T9 (`feature/m6-tooling-build-supervision-656`, **accepted at `bf4445a13c`**, #924 closed; at its merge and T10's, the `fork-newdrive` index row and list entry leave with T10's deletions over T9's "retired" row), T10 (`feature/m6-tooling-guards-657`, dispatched 16:26 UTC from brief v2 `2a4be1006b`, lane `a82d784216`) at its hand-back after T9's, a packet for #902 cut over `next` once T3's and T30's branches are in (five of its seven files are T30's, one T3's; the T1 session cuts it; its guest proof then), T4 (`6ec78bbf8c`, complete) last; #887 (`c60cdddf8b`) and #889 (`828472eb59`) after T30's branch; T8's conflict list (11 rows) read under
   D-WORKFLOW-198/199 with the `spirv-headers` override kept; at integration flip `add_es_system`'s zero-default WARNING to
   `return 1` after T3's S2 and regenerate the five tables; the #802/#806/#825
   adaptations; close #823, #841, #845 and the other fixed bugs at the merge;
