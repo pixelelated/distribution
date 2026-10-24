@@ -113,3 +113,8 @@ PROOF: 04:11-04:31 P13 `get_git`'s cache check accepts `PKG_VERSION` matching a 
 
 - `04-analysis.md` (Phase 4, 4.5 with one lead withdrawn, the renovation face Q1 to Q7 with Q4's two tables, Q5's runs and ccache table, Q6's summary of `q6-tables.md`; § Second opinion pending on the host).
 - `tools/lint-audit-artifacts docs/audits/2026_10_24-epic-m6-build-engine --phase pre-issue`: 5 contract failures, all expected at this stage: the review plan's call evidence (no provenance file yet: Phase 4.6 waits for the host) and `05-punch-list.md` (not yet written: Phase 5 follows 4.6). Every `04` section, the renovation face's Q1 to Q7 included, reads `ok`.
+
+### [Stage C] 04:34 — The reviewers' briefs, written and not sent
+
+- `second-opinions/gpt-brief.md` and `gemini-argon-brief.md` (242,776 and 242,802 bytes): the same packet, a three-part instruction (own findings, refute the Mediums and Highs, what could not be judged), `02` to `04`, `q6-tables.md`, and the code at each finding's site from `8ebaf8daad` (16 excerpts). Neither carries the other's output. No credential-shaped value line (a pattern search, and the pre-commit scan on this commit). The two probe prompts (one line each).
+- **Not sent:** the `npm install --prefix tools/council`, `verify-pins`, `test`, the probes and the two refutation calls wait for the host window's return line relayed on #652 (brief § 1, § 5). Until then Phase 5 is not final and no issue is filed.
