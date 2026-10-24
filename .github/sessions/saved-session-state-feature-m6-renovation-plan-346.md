@@ -43,6 +43,8 @@ today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 **T10 (#657) dispatched at 16:26 UTC (2026-10-24)** to the T3 session (`m6-t3-emulators`, pane `wN:p6`) from brief v2 `2a4be1006b` after the tooling futro's T10 addendum and a stranger's proof (6 wrong, 2 partial, corrected); lane `feature/m6-tooling-guards-657` at `a82d784216`; its stage-D pause and `t10-streams.md` are the coordinator's next after T9's. The host is M6's again since M7's 16:00 return (census qemu 0, compilers 0). Two lanes run: T9 (T5 session, stage C) and T10 (T3 session, stage A).
 
+**T9 (#656) stage E dispatched at 16:48 UTC (2026-10-24)** from `docs/reviews/briefs/t9-streams.md` (`4c842e2485`): eight streams S1 to S8, three contract rows D-INFRA-028/029/030 (put to the maintainer on #346 for veto before the merge), leads filed #925 (PL-08's rows), #926 (PL-21), #927 (PL-13, the owner's), PL-20 on #528, two rows on #657. Accept with `AUDIT_ISSUE=924 $S/t9-accept.sh <tip> <coordinator tip>`. M7 holds a second VM window (16:50 to 18:30 UTC, extendable); M6 starts no guest until its return line.
+
 ## Next commands
 
 ```bash
