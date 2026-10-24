@@ -235,3 +235,25 @@ PROOF: P8 the index and its rules -- `instruction-files.md` at the hash: 21 of 2
 - **The lane's `~/.config/rclone/rclone.conf` mtime:** `2026-07-29 05:00:22.58Z` before and after (the mtime only).
 - **For T15 (#662), through the coordinator:** the fixture's change keeps every argv shape T15's FakeSP and its authorize shim use (`last-good-scripts-test:5244-5250`, `:5062-5067`). T15's run was not repeated here.
 PROOF: P9 S2's control -- `docs/qa-logs/2026-10-24-state-tests-s2/sandbox-case.py` with the caller's TMPDIR, RCLONE_CONFIG, an RCLONE_CONFIG_* remote, BASH_ENV and a function exported: at 7aa8eac253 9 of 10 FAIL (`.qa-scratch/t14/s2-unfixed.txt`), fixed 10 of 10 (`s2-fixed.txt`); save-layout 39/39 and content-scope 19/2 (S4's) under the same variables.
+
+## [Stage E] 21:43 UTC — S1: the release identity tests (#989, #990); the 21:39 ruling
+
+- **The coordinator's post (21:39 UTC):** `tools/last-good-scripts-test` runs once on the host before hand-back, read-only, with its exit, wall time and the resolved busybox recorded beside S2. T15's acceptance stays #662's.
+- **`build-identity-test` (`3c9730bc78`).**
+  - **The stand-in** is an update tar whose SYSTEM is a squashfs of `pixelelated-state-check-test`'s `clean()` root, built with its `make_tar()`, and this build's os-release. Without `mksquashfs` the run exits 2.
+  - **Each refusal** checks its exit and reason. The reasons were read from a discovery copy under `/workspace/tmp/m6-t14/bi-root/` that printed each one: `build identity fields disagree`, `public release version must be ...`, `checksum file disagrees with manifest`, `bundle contains firmware without matching identity`, the store's `artifact does not match`, and the policy's and the image block's own messages.
+  - **Positives:**
+    - at `7aa8eac253`, from a full export (`/workspace/tmp/m6-t14/export-D-full/`): rc 1, 21 passed, 2 failed; fixed: rc 0, **57 passed** (1 s).
+    - `identity-reasons-case.sh`: with the preparer, or the identity policy, refusing for a wrong reason, the fixed test fails (2 checks each), while the same test with `refused()` reverted to any non-zero credits it (57/57).
+- **`rasteratops-identity-check` (`648e9ca228`).**
+  - **The fix:** the licence is read from the recipe's expression (MIT from the ES `LICENSE.md`, and each further term from the named `ES_EXTRA_LICENCES`); `value()` reads the last assignment; an empty gamelist fails.
+  - **The control,** `identity-check-case.sh` over scratch trees from `HEAD`:
+
+    | Tree | Stage-D tool | Fixed tool |
+    | --- | --- | --- |
+    | the tree as is | FAIL | PASS |
+    | an empty gamelist | PASS | FAIL |
+    | a shadowed licence, `MIT` then `GPL-2.0` | PASS | FAIL, quoting `'GPL-2.0'` |
+
+  - **On the tree,** with the ES clone at the pin: 0 failures.
+PROOF: P10 S1's controls -- build-identity-test at 7aa8eac253 rc 1 (21/2), fixed rc 0 (57/57); `docs/qa-logs/2026-10-24-state-tests-s1/identity-reasons-case.sh` PASS (wrong reasons failed by the fixed test, credited by any-non-zero); `identity-check-case.sh`: stage-D FAIL/PASS/PASS, fixed PASS/FAIL/FAIL (`.qa-scratch/t14/s1-identity-check.txt`).
