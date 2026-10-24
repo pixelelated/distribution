@@ -106,3 +106,9 @@ GUEST-PROOF: 03:35:37 UTC -- P4, tools/time-to-play --vm --no-configure-remote -
 - 05:46:20 **The refutation passes started**, both seats in parallel, each on its own copy of the one packet (sha256 `55ecef113c703cbf…` for both briefs). Outputs go to `gpt-audit.md` and `gemini-argon-audit.md`.
   - Harness task `bdlih7ayr` waits on both and delivers their end; the per-seat logs are in the session scratchpad.
   - Its blind spot: a seat that hangs is ended only by the Facilitator's own timeouts, 1 h per attempt and 4 h in total.
+- 05:50 **The coordinator's rule for a failed seat**, from #650:
+  - Hold. There is no stage D on one seat: this is extended depth, and adversarial-council.md fails closed.
+  - Record the failure's provenance line, and diagnose it from the seat's log.
+  - Retry once on the same slug, and only for a transient cause; then post and wait.
+  - Escalation (gpt-6-astra-pro for the GPT seat) is the coordinator's to authorize. gemini-argon has no recorded escalation, so a non-transient failure there is a hold.
+  - Never reduce the depth, and never grade from one seat.
