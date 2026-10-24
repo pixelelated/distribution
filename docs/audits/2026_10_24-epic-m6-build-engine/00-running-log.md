@@ -45,3 +45,35 @@ Every log line read in this audit goes through `readlog() { grep -v -i -E 'key|p
 - **The M7 delta** (`git -C /workspace/repos/rocknix log next..069fc2704421 -- <the membership>`; the legacy `next` is `8ebaf8daad` too): 12 commits past `next`, **none on the membership**.
 - **The branch scan** (predicate: `git log --oneline next..<branch> -- <the membership>` prints a line; over `refs/heads` and `refs/remotes/origin` of this clone): 17 branches, all old remote branches (`origin/feature/conflict-resolution` 8, `origin/x64-build-fix` 6, `origin/backup/generic-x64-pre-rebase-20260714` 5, `origin/rclone-bisync-beta` 3, `origin/pr/01-build` to `pr/10-es-pin` 1 to 2 each, `origin/pr/cairo-1.18` 1, two `verification-anchors/2026-09-30-*` 1 each); no local or M6 branch. The list is in `01-research-notes.md` § Scope; posted on #652 as a lead, not read.
 - **The host:** still M7's (03:47 block the last at 03:53:48).
+
+### [Phase 0] 03:56 — Reading (§ 3, the pre-flight)
+
+- **Read whole:** the lane's pointer; the brief (version 2, 1,095 lines); `docs/reviews/build-path-read.md` (#644, 216 lines; the nine findings this slice carries: 1, 3, 4, 8, 9, 10, 11, 13, 22); the futro `docs/futros/2026-10-24-m6-build-engine.md` § 4 and § 5 (the simulation, the pre-mortem and the plan edits); the dispatch comment and the coordinator's stage-A reply (issuecomment-6379559529: carry on without waiting). T3's `02-forward-audit.md` structure and its § The host regeneration and F-06, at T3's tip `2481a04332`, read with `git -C`/by path, never written.
+- **The rules this session read in full** (they are loaded in this session's context, `next`'s copies but the four files the stage-A diff names): `engineering-practices.md`, `device-builds.md`, `upgrade-and-install.md`, `fork-workflow.md`, `worktrees.md`, `issue-tracking.md`, `decision-register.md`, `learning-capture.md`, `ceremonies.md`, `milestone-phase-naming.md`, `adversarial-council.md`, `working-principles.md`, `instruction-files.md`, `release-candidates.md`, `bugs-are-agent-first.md`, `vm-first.md`, `time-to-play.md`, `least-surprise.md`, `player-language.md`, the four ES rules, `handheld-evidence.md`. **Not yet read this session:** `docs/reviews/plan-for-the-plan.md` beyond the brief's citations, `packages/README.md`, `packaging-and-patches.md`, `change-log.md`, `generic-x64-vm-testing.md`, `docs/blindspot-register.md` whole, the code-auditor skill's references; each is read before the stage it governs (Phase 3's interaction audit, Phase 4's analysis and the punch list).
+
+### [Stage B] 03:57 — Phase 1
+
+- Closed `bug` issues: `gh issue list --repo pixelelated/distribution --label bug --state closed --limit 500 --json number,title,body` (rc 0), 139 issues; pattern `(?<![\w/-])(scripts/build|scripts/image|get_env|calculate_stamp|mkimage|build_distro|Makefile|\.env|wrap-mode|build-identity)(?![\w-])` over title and body: **2** (#226, #413).
+- Prior audits: `grep -c -E 'scripts/(build|image|install|mkimage|get_env|build_distro)|config/(functions|options|build-identity)|Makefile|\.env|wrap-mode'` per `05-punch-list.md`: 3 of 20 folders, 1, 6 and 9 lines (`2026_09_13-milestone-stable-before-upstream`, `2026_09_24-milestone-rc-round-since-186`, `2026_09_25-milestone-rc-round-since-258`). Compared after Phase 2 is written, never transcribed.
+- The register: `grep -ciE 'scripts/(build|image)|get_env|Makefile|build-identity|calculate_stamp|watch-build|admission' docs/decision-register.md` 8 lines.
+- Upstream's trackers (D-WORKFLOW-162), 03:57 UTC: `gh pr list --repo ROCKNIX/distribution --state all --limit 300 --search "updated:>=2026-09-01" --json number,title,state,mergedAt,files` (300 returned: **the limit, so the window is truncated**), intersected with the 242 paths; `gh pr list --repo LibreELEC/LibreELEC.tv --state all --limit 200 --search "updated:>=2026-08-01"` (200 returned, the limit), intersected with the engine's file prefixes. Hits in `01` § Phase 1.
+
+### [Stage B] 03:58 — The mechanical checks
+
+- `bash -n` 41 ok (26 scripts, 15 fragments); `py_compile` 5 ok (its `__pycache__/` removed); `tools/build-identity-test` rc 1, `21 passed, 2 failed` as #801 expects; `tools/host-maintenance/test-build-monitor` rc 0, `36 PASS; 0 FAIL` (read first: temporary directories, stub docker, no compiler); `tools/fork-package-freshness --list` rc 0, 47 recipes, none of the slice; `tools/pkgcheck rocknix` rc 0. Detail in `02` § Mechanical checks.
+- 04:01 shellcheck v0.11.0, the release's digest checked (`sha256sum -c` OK); 5 errors, 271 warnings over 41 files; the errors read at their sites (`02` § shellcheck errors).
+
+### [Stage B] 04:00 to 04:11 — The sandboxes, the manifests, the workflows
+
+- One harness refusal, recorded as friction: a scratch-tree set-up that began with `rm -rf "$F"` over a variable path was stopped by the session's safety check (04:05); the trees were made with `mkdir` into new names instead, and no removal was run. The committed sandbox scripts take an explicit scratch directory (`${1:?}`) rather than writing beside themselves.
+- 04:08 the two container manifests read without a pull, and the two config blobs through GHCR's anonymous token; the 19 workflows' states from `gh`.
+
+PROOF: 04:00 P1 `scripts/get_env` over a constructed environment -- `tools/sb-get-env.sh`, trace `.qa-scratch/t5/sb-get-env/trace.txt` (F-01, F-02)
+PROOF: 04:02 P2 `calculate_stamp` over a fixture override and its generic twin -- `tools/sb-calculate-stamp.sh` (F-05)
+PROOF: 04:04 P3 the GENERIC_X64 launch table regenerated, byte-identical to `069fc2704421`'s install tree -- `tools/regen-es-systems.sh`
+PROOF: 04:05 P4 case A, two default lines -- `tools/sb-es-cases.sh` (F-04)
+PROOF: 04:05 P5 case B, a false core before the true one -- `tools/sb-es-cases.sh` (F-04)
+PROOF: 04:05 P6 case C, a system after imageviewer -- `tools/sb-es-cases.sh` (F-03)
+PROOF: 04:06 P7 `daphne` and `gp32` `<release>` in two install trees, read-only (F-03)
+PROOF: 04:10 P8 `scripts/unpack` 90's test with one and two matches -- `tools/sb-unpack-glob.sh` (F-08)
+PROOF: 03:58 P9 `tools/build-identity-test`, 21 identity checks passed (the 2 failures #801's)
