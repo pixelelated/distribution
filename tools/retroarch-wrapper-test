@@ -27,6 +27,12 @@ a core dump. Against the unfixed source it fails in seconds:
 
 Exit 0 when every command ran once, 1 when any ran twice, 2 when the fixture
 could not be built -- a check that cannot run has not passed.
+
+--gated also asserts the gate itself (patch 0015's have_cmd, read from
+send_cmd under the lock): the source must carry it (else exit 1), and a copy
+of the dequeue with only the gate removed must run a command twice, the
+check's own failing control, up to three tries (else exit 2: the harness did
+not reproduce the doubling, so the pass would prove nothing; #650 PL-020).
 """
 import re, subprocess, sys, tempfile
 from pathlib import Path
@@ -220,22 +226,47 @@ int main(void)
    return 0;
 }
 """
-harness = (harness.replace("__SEND_PACKET__", send_packet)
-                  .replace("__WAIT_REPLY__", wait_reply)
-                  .replace("__REPLY__", reply)
-                  .replace("__SEND_WAIT__", send_wait)
-                  .replace("__DEQUEUE__", dequeue))
-out = Path(tempfile.mkdtemp()) / "t.c"
-out.write_text(harness)
-exe = out.with_suffix("")
-cc = subprocess.run(["gcc", "-O1", "-g", "-fsanitize=address", "-fno-omit-frame-pointer",
-                     str(out), "-o", str(exe), "-lpthread"], capture_output=True, text=True)
-if cc.returncode:
-    print(cc.stderr[-2500:]); sys.exit(2)
-env = {"ASAN_OPTIONS": "detect_stack_use_after_return=1:abort_on_error=0", "PATH": "/usr/bin:/bin"}
-r = subprocess.run([str(exe)], capture_output=True, text=True, env=env, timeout=60)
-print(r.stdout.strip())
-if r.returncode != 0:
-    tail = [l for l in r.stderr.splitlines() if "ERROR" in l or "stack-use-after" in l or "#0 " in l or "#1 " in l]
-    print("\n".join(tail[:6]) if tail else r.stderr[-800:])
-sys.exit(r.returncode)
+def run(deq):
+    """Build the harness around one dequeue and run it: (rc, stdout, stderr)."""
+    h = (harness.replace("__SEND_PACKET__", send_packet)
+                .replace("__WAIT_REPLY__", wait_reply)
+                .replace("__REPLY__", reply)
+                .replace("__SEND_WAIT__", send_wait)
+                .replace("__DEQUEUE__", deq))
+    out = Path(tempfile.mkdtemp()) / "t.c"
+    out.write_text(h)
+    exe = out.with_suffix("")
+    cc = subprocess.run(["gcc", "-O1", "-g", "-fsanitize=address", "-fno-omit-frame-pointer",
+                         str(out), "-o", str(exe), "-lpthread"], capture_output=True, text=True)
+    if cc.returncode:
+        return 2, "", cc.stderr[-2500:]
+    env = {"ASAN_OPTIONS": "detect_stack_use_after_return=1:abort_on_error=0", "PATH": "/usr/bin:/bin"}
+    r = subprocess.run([str(exe)], capture_output=True, text=True, env=env, timeout=60)
+    return r.returncode, r.stdout.strip(), r.stderr
+
+def report(rc, stdout, stderr):
+    print(stdout)
+    if rc != 0:
+        tail = [l for l in stderr.splitlines() if "ERROR" in l or "stack-use-after" in l or "#0 " in l or "#1 " in l]
+        print("\n".join(tail[:6]) if tail else stderr[-800:])
+
+GATE = "have_cmd && video_thread_handle_packet"
+if gated and (GATE not in dequeue or not re.search(r"have_cmd\s*=\s*\(thr->send_cmd != CMD_VIDEO_NONE\)", dequeue)):
+    print("FAIL: --gated: the dequeue carries no send_cmd gate (patch 0015's have_cmd)")
+    sys.exit(1)
+rc, so, se = run(dequeue)
+report(rc, so, se)
+if not gated or rc != 0:
+    sys.exit(rc)
+ungated = dequeue.replace(GATE, "video_thread_handle_packet")
+for attempt in range(1, 4):
+    crc, cso, cse = run(ungated)
+    if crc == 2:
+        print(cse); sys.exit(2)
+    if crc == 1:
+        print(f"control (the gate removed, try {attempt}): {cso.splitlines()[0]} -- FAIL, as it must")
+        print("PASS: --gated: the gate is present and is what keeps each command to one run")
+        sys.exit(0)
+    print(f"control (the gate removed, try {attempt}): {cso.splitlines()[0] if cso else 'no output'} -- did not double")
+print("--gated: the harness did not reproduce the doubling without the gate in three tries; the pass proves nothing")
+sys.exit(2)
