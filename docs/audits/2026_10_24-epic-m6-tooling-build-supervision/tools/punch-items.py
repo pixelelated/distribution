@@ -104,8 +104,27 @@ I = [
 ]
 
 P7 = {   # (outcome, evidence, proved) by F; filled at Phase 7
- "F-09": ("Deferred", "deferred:#640, the legacy-layout rows (brief § 2; futro A5); the lines unchanged on this branch", ""),
+ "F-01": ("Resolved", "resolved:`9b071c5d12` (#913, S1): the three controls prepare an admission; P13. The CI clause is deferred:#657 (`fork-checks.yml` is T10's)", "fix-control"),
+ "F-02": ("Resolved", "resolved:`9b071c5d12` (S1): `test-submit.py` removes its root at exit; `/tmp` 10 before and after; P13", "fix-control"),
+ "F-03": ("Resolved", "resolved:`c9e38e2939`, `c4d4c147d0` (#914, S2, D-INFRA-028): the preflight stops nothing and names `tools/vm-stop`; P14", "fix-control"),
+ "F-04": ("Resolved", "resolved:`6a25254359`, `86ef7ae6b1` (#915, S3 and its addendum): a streamed hash, proved under the pinned 3.10.12; a refusal logged as one; P16, P20", "fix-control"),
+ "F-05": ("Resolved", "resolved:`4a22ed0b41` (#916, S4): an unreadable PID is an observation error; the namespace limit is #506's; P15", "fix-control"),
+ "F-06": ("Resolved", "resolved:`dce53bf0ba` (#917, S5): four end-of-run cases; P17", "fix-control"),
+ "F-07": ("Resolved", "resolved:`d1a1495bc5` (#918, S5): the command inherits the lock; P17", "fix-control"),
+ "F-08": ("Deferred", "deferred:#925 for the `none` rows no stream reached; the streams' controls close their rows, and the five misattributed rows are corrected in `04` § Q6 (S5, S6)", ""),
+ "F-09": ("Deferred", "deferred:#640, the legacy-layout rows (brief § 2; futro A5); after S8 its `fork-newdrive:20-21` row is moot (said on #640)", ""),
+ "F-10": ("Resolved", "resolved:`ad70390f60`, `00e571b8a8` (S8, D-INFRA-030): retired; its index row and personal-paths entry leave with `.githooks/pre-push`'s pattern (#657); P21", "fix-tree"),
  "F-11": ("Withdrawn", "withdrawn at stage C: `test_insufficient_memory_and_boundary` (`test-swap-reclaim:199-206`) is the retained control; the seat's refutation, `04` § Second opinion", ""),
+ "F-12": ("Resolved", "resolved:`e03fc7982d` (#919, S6, D-INFRA-029): one registry per filesystem in the user's state directory; P18", "fix-control"),
+ "F-13": ("Deferred", "deferred:#927, the installer's digest, assert and interruption (an `Ops:` lead for the owner, D-INFRA-015); never a real installation here", ""),
+ "F-14": ("Resolved", "resolved:`82840dbc42` (#920, S6): the plan bytes read are hashed, `observation_start`, reclaim on the volume; P18", "fix-control"),
+ "F-15": ("Resolved", "resolved:`a9bd346d54` (S1): `test-retention-report` reads a fixture `/proc` and no daemon; P13", "fix-control"),
+ "F-16": ("Resolved", "resolved:`e8828c13ad` (#921, S6): the whole row compared; the registry committed first; P18", "fix-control"),
+ "F-17": ("Resolved", "resolved:`39d9fc1e04` (#922, S7): eight signals deferred; the installed copy changes when the owner reinstalls (D-INFRA-015); P19", "fix-control"),
+ "F-18": ("Resolved", "resolved:`4a22ed0b41` (#916, S4): `-e` and `--` before every caller value; derived outputs resolved; P15", "fix-control"),
+ "F-19": ("Resolved", "resolved:`c1e799b3b5` (#923, S7): every receipt checked, the pid receipt first, termination forwarded; P19", "fix-control"),
+ "F-20": ("Deferred", "deferred:#528, whole: the release preparer's store and orphan, with the seat's G-54 and G-55", ""),
+ "F-21": ("Deferred", "deferred:#926, one lead per letter, to be dispositioned with the owner as contract rows", ""),
 }
 
 def main():

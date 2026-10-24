@@ -392,3 +392,12 @@ PROOF: 18:02 P20 the S3 addendum: an admission refusal is logged as `admission r
   - the grep: the two lines of departure 1 and the ten historical lines, nothing else.
 
 PROOF: 18:03 P21 S8: fork-newdrive is removed; rules-check rc 0 and hooks-test PASS after; the grep holds only the two rows the hook pattern keeps (#657) and historical records -- `.qa-scratch/t9/s8-*.log`
+
+### The close-out (after S8)
+
+- **Phase 7:** `tools/punch-items.py`'s `P7` now holds all 21 outcomes, and `05` was regenerated from it: 15 Resolved, 5 Deferred (#925, #640, #927, #528, #926), and 1 Withdrawn. PL-01's CI clause is deferred to #657. `tools/lint-audit-artifacts` on the folder: `PASS`.
+- **`04` § Q6, stage E:**
+  - the rows without a full control, as the streams left them: 9 closed, 2 moot (S8), 4 partial and 13 untouched;
+  - 17 rows go to #925 (the 13 and the 4 partial), with each guard's location at `8ebaf8daad`;
+  - the five misattributed rows are corrected there.
+- **Criterion 14, the record replay:** two recorded M7 runs, one finished with rc 0 and one an admitted rc 1, replayed through the fixed and the stage-D `watch-job` and the fixed `watch-build --record-only`. Each gives the run's recorded state, progress and outcome, and the replayed log is byte-equal (`02` § Stage E, `.qa-scratch/t9/record-replay.txt`). The logs were copied out read only, to `/workspace/tmp/m6-t9/record-replay/`; only status lines and hashes were printed.

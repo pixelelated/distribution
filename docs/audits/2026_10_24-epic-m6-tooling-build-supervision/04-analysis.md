@@ -276,6 +276,44 @@ What a build pays for its supervision, from the record (P4):
 - `fork-newdrive` (F-10) is a one-time migration whose layout has gone (#640).
 - `consume-reporting-failure` is live: it is pinned to the current launcher's hash (`3777c68f…` equals `watch-build-submit` at the hash), and it settles one incident's custody by design.
 
+
+#### Stage E: the rows without a full control, as the streams left them
+
+The five misattributed rows (PL-08): 14 is now isolated (S5); 16 stays without a control (no stream reached the heartbeat age); 29 keeps its control, whose label differs from its guard (stage C); 31's report-digest half and 59's host dependence are below.
+
+| Row | Stage E | Where it goes |
+| --- | --- | --- |
+| 12 | S1 `9b071c5d12`: `test-progress.py` 13/0, its admission-removed copy fails | closed |
+| 13 | S4 `4a22ed0b41`: `--pid 1` reads `alive=yes`; a PID another namespace hides still reads exited (#506) | closed |
+| 14 | S5 `d1a1495bc5`: the lock control prepares a fresh admission and fails against a runner without its `flock`; a killed runner whose command lives still holds the worktree | closed |
+| 16 | no stream reached it | #925 |
+| 17 | no stream reached it | #925 |
+| 19 | no stream reached it | #925 |
+| 25 | S5 `dce53bf0ba`: "a watcher that will not exit is stopped and the result recorded" | closed |
+| 26 | S5 `d1a1495bc5`: "a killed runner whose command lives still holds the worktree" | closed |
+| 27 | S1 `9b071c5d12` and S7 `c1e799b3b5`: `test-submit.py` runs again; a stale `launcher-result.json` is refused | closed |
+| 31 | the seven cases stand, and the `changed plan` case now asserts `admission refused` (`86ef7ae6b1`); the report-digest half (the seat's note) has no case: #925 | partial: #925 |
+| 33 | no stream reached it | #925 |
+| 34 | no stream reached it | #925 |
+| 35 | no stream reached it | #925 |
+| 36 | no stream reached it | #925 |
+| 58 | no stream reached it | #925 |
+| 59 | S1 `a9bd346d54`: host-isolated (a fixture `/proc`, no daemon), 23 controls with S6's three; fails unchanged beside a live `qemu-system-x86_64` | closed |
+| 61 | S2 `c9e38e2939`: `test-build-preflight` 8/0; `--stop-vms` stops nothing | closed |
+| 63 | S8 `ad70390f60`: `fork-newdrive` retired (D-INFRA-030) | moot |
+| 64 | no stream reached it | #925 |
+| 65 | S1 `9b071c5d12`: `test-submit.py` runs again | closed |
+| 66 | S3's malformed-registry case and S6's two-clone case reach the registry's schema and sharing; the rest has no case: #925 | partial: #925 |
+| 67 | S6's edited-`admission.json` case adds the whole-row check (`e8828c13ad`); the launcher, result and group checks stay partial: #925 | partial: #925 |
+| 68 | no stream reached it | #925 |
+| 69 | no stream reached it | #925 |
+| 70 | no stream reached it | #925 |
+| 71 | no stream reached it | #925 |
+| 72 | S6's off-volume case adds one budget path (`82840dbc42`); the rest stay partial: #925 | partial: #925 |
+| 73 | S8 `ad70390f60`: `fork-newdrive` retired (D-INFRA-030) | moot |
+
+Rows for #925 (the lane's hand-back): 16, 17, 19, 31, 33, 34, 35, 36, 58, 64, 66, 67, 68, 69, 70, 71, 72.
+
 ### Q7 Clarity and structure
 
 **`README.md` against the code.** Every claim holds except F-11:

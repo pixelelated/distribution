@@ -235,3 +235,33 @@ The installed `reclaim-swap` on serval is unchanged until the owner reinstalls i
 
 - **Addendum (#915):** `admit`'s exceptions are logged as `admission refused`; the code stays 125. P20.
 - **S8 (PL-10):** the script is retired. Its index row (now "retired") and personal-paths entry stay until `.githooks/pre-push`'s pattern leaves, which is T10's (#657); `rules-check` requires the three to agree. P21.
+
+### The recorded runs the watcher streams were proved against (criterion 14)
+
+S3, S4, S5 and the addendum changed `tools/watch-job` or `tools/watch-build`. Beside their synthetic controls, two recorded M7 runs were replayed. Their `build.log` and `build.rc` were copied out of the record (read only) to `/workspace/tmp/m6-t9/record-replay/`, and only hashes and the status lines were read (`.qa-scratch/t9/record-replay.txt`):
+
+| Recorded run | Recorded status | Fixed `watch-job` | Stage-D `watch-job` (`cdc45513b0`) | Fixed `watch-build --record-only -- cat <log>` |
+| --- | --- | --- | --- | --- |
+| `m7-p5-build-20261014-01/.build-runs/20261014T204343Z-b7a72fc6` (12,716,447 bytes) | `finished`, `[654/654]`, `rc=0` | `finished`, `[654/654]`, `rc=0` | the same | the log byte-equal to the record; `finished`, `[654/654]` |
+| `m7-pixelelated-sm8550-05/.build-runs/20261015T081827Z-07dceee9` (45,743,868 bytes; an admitted failure) | `finished`, `[737/737]`, `rc=1` | `finished`, `[737/737]`, `rc=1` | the same | the log byte-equal; `finished`, `[737/737]` |
+
+The replayed runner's own outcome is `rc=0`, because that is `cat`'s code: the replay reproduces the log, not the build's exit. The record's exits are read by `watch-job` from the copied `build.rc`.
+
+### The suites re-run at the tip (`3527d977a8`, 18:07:20 to 18:10:33 UTC)
+
+The working tree differed from the tip only in this folder's `04`, `05` and generator. Logs are under `.qa-scratch/t9/controls-tip/`.
+
+| Control | Stage A (`8ebaf8daad`'s bytes) | At the tip |
+| --- | --- | --- |
+| `test-swap-reclaim` | rc 0, 37 tests | rc 0, 39 tests (S7: signals, print order) |
+| `test-retention-report` | rc 0, 19 controls, host-dependent | rc 0, 23 controls, host-isolated (S1, S6) |
+| `test-build-admission` | rc 0, 68 checks | rc 0, 75 checks (S3, S6, S7, the addendum) |
+| `test-build-monitor` | rc 0, `36 PASS` | rc 0, `41 PASS` (S5) |
+| `test-build-preflight` | (absent) | rc 0, `8 PASS` (S2) |
+| `test-watch-job.py` | rc 0, `32 PASS` | rc 0, `36 PASS` (S4) |
+| `test-progress.py` | **rc 1**, `3 PASS; 10 FAIL` | rc 0, `13 PASS` (S1) |
+| `test-watch-build.py` (2026-10-04) | **rc 1** | rc 0, `35 PASS` (S1) |
+| `test-submit.py` | **rc 1** | rc 0, six rows (S1, S7) |
+| `.githooks/hooks-test` | `PASS` | `PASS` |
+
+`/tmp/pixelelated-watch-submit-*` held 1 directory before and 1 after, made 2026-10-05T07:42:06Z, long before this lane (S1 left it in place). `~/.local/state/pixelelated` does not exist.

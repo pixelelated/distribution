@@ -323,7 +323,8 @@ punch_index:
   source_finding: "F-01"
   owner_area: "the controls: `docs/qa-logs/2026-10-04-watch-progress/test-progress.py`, `test-watch-build.py`, `docs/qa-logs/2026-10-05-watch-submit/test-submit.py`"
   tracked: "#913"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-control"
 - id: PL-02
   severity: Low
   category: Code Quality
@@ -331,7 +332,8 @@ punch_index:
   source_finding: "F-02"
   owner_area: "the control `docs/qa-logs/2026-10-05-watch-submit/test-submit.py`"
   tracked: "#913"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-control"
 - id: PL-03
   severity: Medium
   category: Interaction Defect
@@ -339,7 +341,8 @@ punch_index:
   source_finding: "F-03"
   owner_area: "`tools/build-preflight`"
   tracked: "#914"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-control"
 - id: PL-04
   severity: Medium
   category: Interaction Defect
@@ -347,7 +350,8 @@ punch_index:
   source_finding: "F-04"
   owner_area: "`tools/host-maintenance/build-admission`, `retention-report`, `tools/watch-build`"
   tracked: "#915"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-control"
 - id: PL-05
   severity: Low
   category: Code Quality
@@ -355,7 +359,8 @@ punch_index:
   source_finding: "F-05"
   owner_area: "`tools/watch-job`"
   tracked: "#916"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-control"
 - id: PL-06
   severity: Low
   category: Code Quality
@@ -363,7 +368,8 @@ punch_index:
   source_finding: "F-06"
   owner_area: "`tools/watch-build`"
   tracked: "#917"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-control"
 - id: PL-07
   severity: Medium
   category: Interaction Defect
@@ -371,14 +377,15 @@ punch_index:
   source_finding: "F-07"
   owner_area: "`tools/watch-build`"
   tracked: "#918"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-control"
 - id: PL-08
   severity: Medium
   category: Renovation
   question: Q6
   source_finding: "F-08"
   owner_area: "the eighteen files' controls"
-  outcome: open
+  outcome: "deferred"
 - id: PL-09
   severity: Low
   category: Renovation
@@ -392,7 +399,8 @@ punch_index:
   question: Q6
   source_finding: "F-10"
   owner_area: "`tools/fork-newdrive`"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-tree"
 - id: PL-11
   severity: Low
   category: Code Quality
@@ -407,14 +415,15 @@ punch_index:
   source_finding: "F-12"
   owner_area: "`tools/host-maintenance/build-admission`"
   tracked: "#919"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-control"
 - id: PL-13
   severity: Medium
   category: Interaction Defect
   question: Q3
   source_finding: "F-13"
   owner_area: "`tools/host-maintenance/install`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-14
   severity: Low
   category: Code Quality
@@ -422,7 +431,8 @@ punch_index:
   source_finding: "F-14"
   owner_area: "`tools/host-maintenance/retention-report`"
   tracked: "#920"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-control"
 - id: PL-15
   severity: Low
   category: Code Quality
@@ -430,7 +440,8 @@ punch_index:
   source_finding: "F-15"
   owner_area: "`tools/host-maintenance/test-retention-report`"
   tracked: "#913"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-control"
 - id: PL-16
   severity: Low
   category: Code Quality
@@ -438,7 +449,8 @@ punch_index:
   source_finding: "F-16"
   owner_area: "`tools/host-maintenance/build-admission`"
   tracked: "#921"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-control"
 - id: PL-17
   severity: Low
   category: Code Quality
@@ -446,7 +458,8 @@ punch_index:
   source_finding: "F-17"
   owner_area: "`tools/host-maintenance/reclaim-swap`"
   tracked: "#922"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-control"
 - id: PL-18
   severity: Low
   category: Code Quality
@@ -454,7 +467,8 @@ punch_index:
   source_finding: "F-18"
   owner_area: "`tools/watch-job`"
   tracked: "#916"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-control"
 - id: PL-19
   severity: Low
   category: Code Quality
@@ -462,45 +476,46 @@ punch_index:
   source_finding: "F-19"
   owner_area: "`tools/watch-build-submit`"
   tracked: "#923"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-control"
 - id: PL-20
   severity: Low
   category: Code Quality
   question: Q3
   source_finding: "F-20"
   owner_area: "`tools/fork-publish-release`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-21
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-21"
   owner_area: "`tools/host-maintenance/build-admission`, `retention-report`, `tools/watch-build`"
-  outcome: open
+  outcome: "deferred"
 ```
 
 ## Phase 7 resolution gate
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-02 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-03 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-04 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-05 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-06 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-07 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-08 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-09 | **Deferred** | deferred:#640, the legacy-layout rows (brief § 2; futro A5); the lines unchanged on this branch |
-| PL-10 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
+| PL-01 | **Resolved** | resolved:`9b071c5d12` (#913, S1): the three controls prepare an admission; P13. The CI clause is deferred:#657 (`fork-checks.yml` is T10's); fix-control |
+| PL-02 | **Resolved** | resolved:`9b071c5d12` (S1): `test-submit.py` removes its root at exit; `/tmp` 10 before and after; P13; fix-control |
+| PL-03 | **Resolved** | resolved:`c9e38e2939`, `c4d4c147d0` (#914, S2, D-INFRA-028): the preflight stops nothing and names `tools/vm-stop`; P14; fix-control |
+| PL-04 | **Resolved** | resolved:`6a25254359`, `86ef7ae6b1` (#915, S3 and its addendum): a streamed hash, proved under the pinned 3.10.12; a refusal logged as one; P16, P20; fix-control |
+| PL-05 | **Resolved** | resolved:`4a22ed0b41` (#916, S4): an unreadable PID is an observation error; the namespace limit is #506's; P15; fix-control |
+| PL-06 | **Resolved** | resolved:`dce53bf0ba` (#917, S5): four end-of-run cases; P17; fix-control |
+| PL-07 | **Resolved** | resolved:`d1a1495bc5` (#918, S5): the command inherits the lock; P17; fix-control |
+| PL-08 | **Deferred** | deferred:#925 for the `none` rows no stream reached; the streams' controls close their rows, and the five misattributed rows are corrected in `04` § Q6 (S5, S6) |
+| PL-09 | **Deferred** | deferred:#640, the legacy-layout rows (brief § 2; futro A5); after S8 its `fork-newdrive:20-21` row is moot (said on #640) |
+| PL-10 | **Resolved** | resolved:`ad70390f60`, `00e571b8a8` (S8, D-INFRA-030): retired; its index row and personal-paths entry leave with `.githooks/pre-push`'s pattern (#657); P21; fix-tree |
 | PL-11 | **Withdrawn** | withdrawn at stage C: `test_insufficient_memory_and_boundary` (`test-swap-reclaim:199-206`) is the retained control; the seat's refutation, `04` § Second opinion |
-| PL-12 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-13 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-14 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-15 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-16 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-17 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-18 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-19 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-20 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-21 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
+| PL-12 | **Resolved** | resolved:`e03fc7982d` (#919, S6, D-INFRA-029): one registry per filesystem in the user's state directory; P18; fix-control |
+| PL-13 | **Deferred** | deferred:#927, the installer's digest, assert and interruption (an `Ops:` lead for the owner, D-INFRA-015); never a real installation here |
+| PL-14 | **Resolved** | resolved:`82840dbc42` (#920, S6): the plan bytes read are hashed, `observation_start`, reclaim on the volume; P18; fix-control |
+| PL-15 | **Resolved** | resolved:`a9bd346d54` (S1): `test-retention-report` reads a fixture `/proc` and no daemon; P13; fix-control |
+| PL-16 | **Resolved** | resolved:`e8828c13ad` (#921, S6): the whole row compared; the registry committed first; P18; fix-control |
+| PL-17 | **Resolved** | resolved:`39d9fc1e04` (#922, S7): eight signals deferred; the installed copy changes when the owner reinstalls (D-INFRA-015); P19; fix-control |
+| PL-18 | **Resolved** | resolved:`4a22ed0b41` (#916, S4): `-e` and `--` before every caller value; derived outputs resolved; P15; fix-control |
+| PL-19 | **Resolved** | resolved:`c1e799b3b5` (#923, S7): every receipt checked, the pid receipt first, termination forwarded; P19; fix-control |
+| PL-20 | **Deferred** | deferred:#528, whole: the release preparer's store and orphan, with the seat's G-54 and G-55 |
+| PL-21 | **Deferred** | deferred:#926, one lead per letter, to be dispositioned with the owner as contract rows |
