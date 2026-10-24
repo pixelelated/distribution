@@ -13,8 +13,9 @@
 # LOCAL; 1 when any is BEHIND; 2 when any could not be checked (UNKNOWN):
 # a check that cannot run has not passed (engineering-practices.md).
 #
-# Which packages: every package.mk on HEAD_REF (next) that is absent on
-# BASE_REF (upstream/next) -- the fork added it -- plus EXTRA_PACKAGES,
+# Which packages: every package.mk HEAD_REF (HEAD, FRESHNESS_HEAD) added
+# since its merge base with BASE_REF (upstream/next, FRESHNESS_BASE) -- the
+# fork added it -- plus EXTRA_PACKAGES,
 # recipes the fork owns although upstream carries a copy. Maintainer,
 # 2026-09-20 (fork #227, D-WORKFLOW-024): "we should also make sure that
 # packages we're introducing into the system are up to date ... it's a good
@@ -39,7 +40,7 @@
 set -uo pipefail
 
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-HEAD_REF=${FRESHNESS_HEAD:-next}
+HEAD_REF=${FRESHNESS_HEAD:-HEAD}
 BASE_REF=${FRESHNESS_BASE:-upstream/next}
 EXTRA_PACKAGES="projects/ROCKNIX/packages/network/rclone"
 
@@ -86,9 +87,22 @@ commits_behind() {  # <owner/repo> <sha>
     gh api "repos/$1/compare/$2...HEAD" --jq 'if .ahead_by == 0 then "0 behind"
         else "\(.ahead_by) behind \(.commits[-1].sha[0:10]) (\(.commits[-1].commit.committer.date[0:10]))" end' 2>/dev/null
 }
+# The fork's packages are the recipes it added since its merge base with
+# upstream (D-WORKFLOW-024: the packages the fork introduces). A two-tree diff
+# against upstream's tip counted recipes upstream deleted since and missed
+# ones both sides added; a ref that does not resolve, or a diff that fails,
+# exits 2 rather than checking a shorter list (T10 S8, #946).
+for ref in "$BASE_REF" "$HEAD_REF"; do
+    git -C "$ROOT" rev-parse --verify --quiet "${ref}^{commit}" >/dev/null \
+        || { echo "fork-package-freshness: cannot resolve ${ref}; nothing was checked" >&2; exit 2; }
+done
+MERGE_BASE=$(git -C "$ROOT" merge-base "$BASE_REF" "$HEAD_REF") \
+    || { echo "fork-package-freshness: no merge base of ${BASE_REF} and ${HEAD_REF}; nothing was checked" >&2; exit 2; }
+PACKAGES=$(git -C "$ROOT" diff --name-only --diff-filter=A "$MERGE_BASE" "$HEAD_REF" -- packages projects) \
+    || { echo "fork-package-freshness: git diff ${MERGE_BASE} ${HEAD_REF} failed; nothing was checked" >&2; exit 2; }
 packages() {
     # Only build-engine recipe roots; docs/ holds immutable historical fixtures.
-    git -C "$ROOT" diff --name-only --diff-filter=A "$BASE_REF" "$HEAD_REF" -- packages projects | sed -n 's|/package.mk$||p'
+    printf '%s\n' "$PACKAGES" | sed -n 's|/package.mk$||p'
     for p in $EXTRA_PACKAGES; do echo "$p"; done
 }
 
