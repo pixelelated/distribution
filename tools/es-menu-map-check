@@ -57,6 +57,23 @@ SCREEN_PATTERNS = [
 
 SOURCE_DIRS = ["es-app/src/guis", "es-core/src/guis"]
 
+# A page whose title is not a _("...") literal (a ternary, a helper's return)
+# matches none of the patterns above, so its title is never checked against
+# the map. It is reported by file and line rather than skipped in silence; the
+# exit code does not change (T10 S9, #951: 22 of 75 at the pin 16dbac5211).
+PAGE_CALL = re.compile(r'new\s+GuiSettings\s*\(')
+
+
+def unchecked(files: dict[str, str]) -> list[tuple[str, int]]:
+    """(file, line) of every `new GuiSettings(` whose title no pattern reads."""
+    out = []
+    for path, text in files.items():
+        literal = {m.start() for m in SCREEN_PATTERNS[0].finditer(text)}
+        for m in PAGE_CALL.finditer(text):
+            if m.start() not in literal:
+                out.append((path.rsplit("/", 1)[-1], text.count("\n", 0, m.start()) + 1))
+    return sorted(out)
+
 
 def die(message: str) -> None:
     print(f"es-menu-map-check: {message}", file=sys.stderr)
@@ -165,7 +182,9 @@ def main() -> int:
         die(f"{src} is not an EmulationStation checkout (--es-src or ES_SRC)")
     ref = args.ref or shipped_ref()
 
-    found = screens(source_files(src, ref))
+    files = source_files(src, ref)
+    found = screens(files)
+    computed = unchecked(files)
     text, exclusions = map_text_and_exclusions()
 
     missing = {}
@@ -189,6 +208,9 @@ def main() -> int:
             print(f"  MISSING  {title}  ({where})")
         for title in stale:
             print(f"  STALE    {title} is declared unmapped but no longer exists")
+        print(f"{len(computed)} page(s) with a computed title, not checked against the map:")
+        for where, line in computed:
+            print(f"  UNCHECKED  {where}:{line}")
 
     # A stale declaration counts as a failure too. It is not cosmetic: it
     # sits there excusing a title that no longer exists, and will silently
