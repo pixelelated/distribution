@@ -67,3 +67,47 @@
   - **M7:** `feature/m7-manual-cloud-folders` carries `e484380a34` (2026-10-07, `fork-workflow.md` and `instruction-files.md`), which is not in `next`. It is M7's.
   - **Older branches:** `feature/conflict-resolution` (36 commits, tip 2026-10-07), `x64-build-fix` (3, 2025-10-22) and the two `verification-anchors/2026-09-30-*` branches (1 each) predate the renovation and carry rule edits `next` does not have. Each is a lead for Q6.
 - `reviewed-at: 00e75ab135`. The read is on `8ebaf8daad`'s bytes.
+
+### [Stage B] 14:37-15:01 — the reader's pass, the auditor's pass, `02`
+
+- **The reader's pass** (`01` § The reader's pass):
+  - 25 files were read whole in this session at the hash's bytes (`cmp` against T3's loaded copies: 30 of 36 identical; `fork-workflow.md` and `instruction-files.md` differ by P1's listed hunks).
+  - 11 files went to four read-only readers with no context (brief § 5, rule 5), launched 14:38 and back by 14:45. Their reports are leads, and each finding taken from them was re-read here with its command.
+- **The auditor's pass:**
+  - § 5's checks: the six checkers, `box-check`, the globs, the IDs, the tool table and the legacy paths.
+  - The Q4 and Q6 scripts: `tools/t4-q4.py` (ids, ledger-ids, tools, paths, counts) and `tools/t4-q6.py` (rules, tooltable, blindspots, retired, friction).
+  - The 56 command blocks (`tools/t4-blocks.py`); the coverage table (`tools/t4-coverage.py`).
+- **Corrected before commit:**
+  - my first "no issue number" list for the friction log searched lines cut to 90 characters, and gave 27 where the full lines give 2;
+  - `01`'s "120-entry line" was a guess, now counted as 100;
+  - F-23's "7 of 11 rows carry four cells" was the reader's, recounted as 5 of four and 1 of five;
+  - the command-block rows began with a rule path and inflated criterion 7's grep to 92; they are numbered now, and it prints 36.
+- **`tools/box-check`** spent no core API calls: 4,390 before and after.
+
+PROOF: 14:34 P1 the membership: 36 paths, 11,414 inventory lines, all fork-own markdown, reach n/a -- `.qa-scratch/t4/membership.txt`
+PROOF: 14:37 P2 the lines at the hash: 11,394 by numstat and by `wc -l`; the inventory's 20 extra lines are in the friction log, the decision register and `instruction-files.md` -- `hash-lines.txt`
+PROOF: 14:34 P3 24 of 30 rules and 5,179 lines load every session (7 no `paths:`, 17 `**`) -- `loads.txt`, `t4-q6.py rules`
+PROOF: 14:35 P4 the branch's deltas over the 36: 8 files, +130/-3, owners listed; D-QA-040's `**Open:**` is `f00ab3e163` -- `branch-delta.diff`
+PROOF: 14:35 P5 the branch scan: 20 of 70 refs ahead; no unaccepted M6 lane rule edit; T2's `es-native-ui.md` edit is `11a2ee182f` -- `branch-scan-own.txt`
+PROOF: 14:42 P6 `rules-check` 0, `register-check` 0 (667 IDs), `ceremony-check` 1 (W42 only), `forbidden-terms-check` 0 (0 hits in 133,406 files), `hooks-test` 0 (PASS), `box-check` 0 (0 fail)
+PROOF: 14:42 P7 57 `paths:` globs over 23 rules; one matches nothing at the hash and the branch, `council-substrate-integrity.md`'s `research/council-research/**` -- `globs-hash.txt`
+PROOF: 14:43 P8 181 IDs cited in the 33; 178 decided, 3 open, 0 absent -- `t4-q4.py ids`
+PROOF: 14:42 P9 the tool table's 72 rows, every tool and rule they name present at the hash -- `t4-q6.py tooltable`
+PROOF: 14:42 P10 the legacy paths: 8 files, 25 lines (#640)
+PROOF: 14:46 P11 `ceremony-check:250-252`'s friction regex, lifted and applied: 125 of 445 dated entries never seen; 2 name no issue, both a guard -- `t4-q6.py friction`
+PROOF: 14:44 P12 `rules-check`'s header lists eight checks, none comparing a fact between `AGENTS.md` and `CLAUDE.md` (`AGENTS.md:19-20`)
+PROOF: 14:49 P13 `OS_VERSION` assigned unconditionally (`distributions/ROCKNIX/version:8`, sourced at `config/options:42`); `BUILD_DATE` defaulted (`distributions/ROCKNIX/options:212`)
+PROOF: 14:49 P14 `tools/vocabulary-check` checks SAVESTATE and Wi-Fi as well as back up / backup (its lines 12-15, 55-57)
+PROOF: 14:50 P15 D-CLOUD-130 reverses D-CLOUD-109 for launches; T2's running log :114 reads `FileData.cpp:993-1008` as D-CLOUD-130
+PROOF: 14:45 P16 `var-log.mount` binds `/storage/.cache/log` on `/var/log` at the hash and in the GENERIC_X64 install tree
+PROOF: 14:44 P17 `fork-publish-release` makes no qcow2 or `.utm.zip`; `CONFIG_REALPATH=y` and `usr/bin/realpath -> busybox`; `emustation.service` installed; `watch-build:98` refuses without an admission or `--record-only`
+PROOF: 14:45 P18 `generic-x64-vm:281-295` (virgl default), `:435` (the watchdog), `profile.json` without one, `vm-qa:63` (17 suites)
+PROOF: 14:55 P19 `rclone/package.mk:7,39,43` (1.75.2, two `PKG_SHA256`), `cloud_sync-rules.txt:63-64`, `cloud_backup:747`, `cloud-round-trip:1460-1470` (exit 69), the rule's content tier at `:705-709`
+PROOF: 14:54 P20 31 of the index's 85 tool-to-rule pointers name a rule that never names the tool; `cloud-pair-migration:58-62` refuses
+PROOF: 14:54 P21 the ES checkout's `origin` is `pixelelated/emulationstation` (`git remote -v`, read only); `fork-workflow.md:62` names `maxengel`
+PROOF: 14:58 P22 ten paths `council-substrate-integrity.md` names absent at the hash (`git cat-file -e`); its glob matches 0
+PROOF: 14:56 P23 the 56 command blocks each with a verdict (`t4-blocks.py`); the seven read-only blocks ran (14:48); the drop filter printed `name=ok` only and the mask kept no value
+PROOF: 14:51 P24 the superseded citations: 45 candidates, 2 cite a superseded row as current (`time-to-play.md`, `least-surprise.md`) -- `q4-superseded-review.txt`
+PROOF: 14:52 P25 74 blindspot entries, 29 numbered twice; every named guard path exists -- `t4-q6.py blindspots`
+PROOF: 14:50 P26 `build.ROCKNIX-` in 8 lines of 4 rules; `config/path:19` and `DISTRONAME="pixelelated"` make `build.pixelelated-*`
+- `git status --short -- <the 36>`: 0 lines (none of the 36 changed at stage B).
