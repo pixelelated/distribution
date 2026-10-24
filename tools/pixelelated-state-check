@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: GPL-2.0
 # Copyright (C) 2026-present pixelelated
-"""Inspect selected image/default/first-boot state without disclosing values (#565).
+"""Inspect selected image/default/first-boot state, with no value in reports (#565).
 
 Read-only policy, not a universal secret scanner. Exit 0: selected policy passes;
 1: prohibited presence; 2: incomplete/unsupported/unreadable/malformed input.
 The JSON uses policy paths, never input-derived names, values, or content hashes.
+The guarantee is about reports, not about the scratch: payload inspection copies
+the selected raw bytes (an update tar's SYSTEM, an install image and its storage
+partition) and reads files through private temporary files, all of which are
+removed on every exit, a SIGTERM, SIGINT or SIGHUP included (PL-17, #661).
 No config is sourced, provider contacted, state repaired, or release published.
 """
 import argparse
@@ -18,6 +22,7 @@ from pathlib import Path, PurePosixPath
 import re
 import resource
 import shlex
+import signal
 import stat
 import subprocess
 import sys
@@ -908,7 +913,17 @@ class Parser(argparse.ArgumentParser):
         raise Invalid()
 
 
+def interrupted(number, frame):
+    # A signal unwinds like a refusal: the temporary directory's context and the
+    # TemporaryFile close as the stack unwinds, a child is killed by
+    # subprocess.run, and the report is the value-free error. The default
+    # handler would end the process with the payload's bytes left in the scratch.
+    raise Invalid()
+
+
 def main():
+    for number in (signal.SIGTERM, signal.SIGINT, signal.SIGHUP):
+        signal.signal(number, interrupted)
     parser = Parser(description=__doc__)
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--root", type=Path)
