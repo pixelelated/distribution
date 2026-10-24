@@ -172,3 +172,11 @@ in the legacy checkout) is expected drift: when it lands on `next`, the
 coordinator reads `tools/renovation-drift`'s report and re-opens this slice
 over the diff at its depth. Nothing here builds, touches a device, a cloud,
 or another lane's worktree.
+
+**Handed back (2026-10-24 01:15 UTC); the lane is idle.**
+- **The two commits:** `reviewed-at` `efadfea08a` (stage A); `fixed-at` `0f7558cff7` (the last commit to change the slice's paths).
+- **After those:** harness and docs only, the lifter fix `6b426ea624` and its case `02dc0eee78`.
+- **Stage F and the retro:** stage F is complete (`02` § Stage F verification), and the retro is at `docs/retros/2026-10-24-m6-os-launch-control-state.md`.
+- **`05`:** 66 resolved or withdrawn, 18 deferred; the resolution lint is PASS.
+- **`tools/register-check` fails only on D-WORKFLOW-192.** Its row is on the coordinator's `68a4e05112` (feature/m6-renovation-plan-346), so it passes when that is merged. That tip appears to lack D-WORKFLOW-188, which this branch's register carries (line 722).
+- **What the coordinator does next:** accept per brief § 10, close #648 and the resolved bugs, write `slices.json`, merge, prove the nine fix-pending-image rows at the first image after the merge, write the change log at the merge (retro adjustment 7), and write `audit-completion.json` after #701 is closed.
