@@ -1,0 +1,8 @@
+FAIL reboot-same-boot-id: rc 0, walked 1, "no new boot" in walks.log False (want rc 1, no walk)
+FAIL reboot-es-silent: rc 0, walked 1, the reason in walks.log False (want rc 1, no walk)
+FAIL seed-scp-fails: rc 0, walked 1, the copy failure in walks.log False (want rc 1 before the first walk)
+FAIL remote-not-qa: rc 0, walked 1, seeded 0, refusal in walks.log False, stand-in value leaked False (want rc 1, nothing seeded or walked, no leak)
+FAIL reseed-manifest: seed-device calls 0, manifest written False, walked 1 (want a reseed, its manifest, then the walk)
+FAIL overwrite-refused: rc 0, copies 1, cloud resets 1, walked 1, named False (want a refusal naming it, nothing copied)
+FAIL es-src-mismatch: rc 0, SKIP row with both hashes False, check ran True (want rc 3, the row, not run)
+0 PASS; 7 FAIL

@@ -224,3 +224,24 @@ PROOF: 21:11 S1-claim fix-case: report-dir-claimed and two-runs-one-minute fail 
 - **Still open for the cycle:** the fixed runner brings the pair up from the `069fc2704421` image; the report's BUILD_ID matches the image's; `tear-down: vm-pair down rc 0`; the census reads 0 after.
 - **Already written:** the 19 full runs in the record each began with a `down` whose status nobody read, and their reports name the requested image. Whether any of them judged a surviving guest cannot be known from the reports. Per the brief, that is noted for the catalog at integration; nothing on a device.
 PROOF: 21:11 S2 fix-case: up-fails-guest-answers, build-id-mismatch, down-at-end and fresh-port fail at facb2ae523 (0 PASS, 4 FAIL) and pass at 813e4dd270 (4 PASS, 0 FAIL) -- `streams/s2-unfixed.txt`, `streams/s2-fixed.txt`
+
+## [Stage E] S3: the walks' preconditions and the ES sources (#973, #974, #981)
+
+- **The fixes:**
+  - `5edb265e59` (#974):
+    - Every seeding step's status is read, and the walks' preconditions run inside the suite, so a failure is a FAIL before the first walk.
+    - The guest's active remote must have the backend's endpoint fields (type, url, endpoint, host, port) before anything is seeded or walked. Only those fields are read off the guest, with the dropping filter over them too.
+    - Fixtures are reseeded on a manifest (every file's name and sha256 on the guest). Writing it is the positive check that the seed wrote every file.
+    - A guest file the seed would overwrite that no manifest names is a refusal naming it. The content seed's paths are read from the backend's script.
+  - `a68bfadcd5` (#973): a walk starts only after a new boot id and then an answering EmulationStation, each within 135 s.
+  - `ca0bf841d2` (#981): the six ES_SRC suites SKIP, with both hashes in the row, unless ES_SRC's HEAD is the pin read from the build's own commit. register's row says when it ran without the interface's citations.
+- **The positives:** 0 PASS, 7 FAIL against `facb2ae523` (`streams/s3-unfixed.txt`).
+  - `reboot-same-boot-id`, `reboot-es-silent`, `seed-scp-fails` and `remote-not-qa`: each walks on, rc 0.
+  - `reseed-manifest`: no reseed.
+  - `overwrite-refused`: 1 copy and 1 cloud reset over a file no manifest names.
+  - `es-src-mismatch`: rc 0, the check run on the wrong source.
+- **After the fixes:** 7 PASS, 0 FAIL (`streams/s3-fixed.txt`). `remote-not-qa` also finds its stand-in credential in no output. The whole control gives 19 PASS (`streams/s1-s3-full.txt`).
+- **The split:** S3's diff was split into its three commits from `HEAD` (hunk 11 held #974's `walks_ready` and #973's `wait_rebooted`). Each commit's control ran before it was committed: 16, 18 and 19 PASS, rc 0.
+- **For the cycle:** the build commit `069fc270442134fe…` is not in this repo (`git cat-file -e` fails). Without it the ES pin is unreadable and the six ES suites SKIP, so the run exits 3. The cycle fetches that commit read-only first, or records the SKIPs as the answer.
+- **Already written:** the walks in the record ran against the QA endpoint by construction of their runs. Fixtures seeded by the old runner have no manifest, so a `--skip-up` rerun on such a guest refuses by name until those files are removed. A fresh pair (`vm-pair up`) has none. Nothing on a device.
+PROOF: 21:20 S3 fix-case: reboot-same-boot-id, reboot-es-silent, seed-scp-fails, remote-not-qa, reseed-manifest, overwrite-refused and es-src-mismatch fail at facb2ae523 (0 PASS, 7 FAIL) and pass at ca0bf841d2 (7 PASS, 0 FAIL) -- `streams/s3-unfixed.txt`, `streams/s3-fixed.txt`

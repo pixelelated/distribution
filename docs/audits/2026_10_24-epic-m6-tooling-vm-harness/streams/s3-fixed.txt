@@ -1,0 +1,8 @@
+PASS reboot-same-boot-id: rc 1, walked 0, "no new boot" in walks.log True (want rc 1, no walk)
+PASS reboot-es-silent: rc 1, walked 0, the reason in walks.log True (want rc 1, no walk)
+PASS seed-scp-fails: rc 1, walked 0, the copy failure in walks.log True (want rc 1 before the first walk)
+PASS remote-not-qa: rc 1, walked 0, seeded 0, refusal in walks.log True, stand-in value leaked False (want rc 1, nothing seeded or walked, no leak)
+PASS reseed-manifest: seed-device calls 1, manifest written True, walked 1 (want a reseed, its manifest, then the walk)
+PASS overwrite-refused: rc 1, copies 0, cloud resets 0, walked 0, named True (want a refusal naming it, nothing copied)
+PASS es-src-mismatch: rc 3, SKIP row with both hashes True, check ran False (want rc 3, the row, not run)
+7 PASS; 0 FAIL
