@@ -872,7 +872,7 @@ Installed on no built device: 0 (none).
 
 ## Second opinion (Phase 4.6)
 
-**Completed 2026-10-24 05:58 UTC; graded by 06:40.** Extended depth, epic tier: one refutation pass per seat, on the same packet (`gpt-brief.md` = `gemini-argon-brief.md`, 308,850 bytes, sha256 `55ecef113c703cbf…`). Neither seat saw the other's output.
+**Completed 2026-10-24 05:58 UTC; graded by 06:10.** Extended depth, epic tier: one refutation pass per seat, on the same packet (`gpt-brief.md` = `gemini-argon-brief.md`, 308,850 bytes, sha256 `55ecef113c703cbf…`). Neither seat saw the other's output.
 
 | Seat | Served (provider-observed) | Effort (reasoning tokens) | Provider | Time | Output |
 | --- | --- | --- | --- | --- | --- |

@@ -34,7 +34,7 @@
    and write stage A (the hashes, the counts, the upstream ref, the host
    file's state) before reading a line of the slice.
 
-## Current focus (06:55 UTC update)
+## Current focus (06:12 UTC update)
 
 **Stage D done. The lane is PAUSED for the coordinator's stream briefs (stage E).**
 

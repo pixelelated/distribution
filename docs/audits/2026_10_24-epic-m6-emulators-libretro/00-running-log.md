@@ -117,7 +117,7 @@ GUEST-PROOF: 03:35:37 UTC -- P4, tools/time-to-play --vm --no-configure-remote -
   - **`gpt`:** ended 05:57:51 after 691.7 s. Served `openai/gpt-6-astra` by OpenAI; effort max verified by 30,359 reasoning tokens. 97,025 prompt tokens, 18,174 B of output.
   - Identity, effort and provider verification are PASS for both. Both outputs are committed beside their provenance files.
   - The grading starts now; every seat item is a lead until it has been re-read at its artifact.
-- 06:40 **Phase 4.6 graded.** `04` § Second opinion has every seat item with its verdict and its artifact.
+- 06:10 **Phase 4.6 graded.** `04` § Second opinion has every seat item with its verdict and its artifact.
   - **Check A:** each image's `retroarch` cores against its `usr/lib/libretro`. GENERIC_X64 is missing 7, H700 3 and SM8550 3. The `.sh` system `idtech` is not a missing core, because `runemu.sh:488` runs `.sh` ROMs itself.
   - **New items:** PL-030 (GENERIC_X64's skipped-core choices and the id Tech scanner, Low); PL-031 (`ffmpeg` for mplayer on every image, Low); PL-032 (patch 0012's `system()` on achievement text, Medium, Security); PL-033 (the misspelt Wii rule, Low, Renovation).
   - **Re-grades:** F-05 rises to Medium for `st-v`. F-22 stays Low: its launch is `||`-guarded.
@@ -126,8 +126,9 @@ GUEST-PROOF: 03:35:37 UTC -- P4, tools/time-to-play --vm --no-configure-remote -
   - **Withdrawn:** Astra G-06, 0019's race, is benign: the move re-reads under the lock.
   - **Refuted:** Argon G-02, G-07 and G-09, and SC3014.
   - **Result:** 33 items (4 High, 8 Medium, 21 Low); `tools/lint-audit-artifacts --phase pre-issue` prints `PASS pre-issue artifacts`. Thirteen bug drafts have 0 box-check failures; the issue body's 33 checkboxes have 0. Stage D next.
-- 06:55 **Stage D filed.**
+- 06:12 **Stage D filed.**
   - **Bugs:** #813 to #825, 13 issues labelled `bug` with no milestone, the T1 shape, one per defect that had no issue: PL-005, 006, 009, 010, 011, 012, 013, 014, 015, 021, 030, 031 and 032. Each passes `tools/box-check --issue N` with 0 failures.
   - **The audit issue:** #826, `Audit: M6 T3 RetroArch and the libretro cores -- 33 findings (0 critical, 4 high)`, labelled `audit` and `punch-list`, milestone M6, attached under #650. It has 33 checkboxes, with 0 failures.
   - **The punch list:** `05` names #826 and each bug's number. The pre-issue lint passes.
   - **Next:** the punch list goes on #650, then the lane pauses for the coordinator's stream briefs.
+- 06:22 **A correction.** The two entries above were first stamped 06:40 and 06:55, and `04` § Second opinion said "graded by 06:40". Those times were written without reading the clock. The true times are the commits' own: `347ec37894` at 06:10:58 and `2081fc1a37` at 06:12:38, with #826 created at 06:12:21. Corrected in place in this log, in `04` and in the pointer. The #650 posts carried no time, so nothing to correct there.
