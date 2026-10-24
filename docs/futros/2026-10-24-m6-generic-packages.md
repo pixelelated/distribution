@@ -342,3 +342,97 @@ guard proposed for it; a third instance in T7's sweep makes the entry.
 freshness tool's other 34 entries plus one; finding 16's orphan separation
 is its), then T23 (its `shadowed_by` rows need T7's and T8's). Neither is
 dispatched before T7's hand-back.
+
+## Addendum: T8 at its kickoff (2026-10-24, from the brief `docs/reviews/briefs/image-packages.md` version 1)
+
+**What we know and assume.** T8 is the area's second slice and the
+renovation's **first Independent slice**: the image's own recipes under
+`projects/ROCKNIX/**` less the emulators metapackage, reach `shipped`,
+`test` or `n/a` -- **485 paths, 20,644 lines** (260 recipes, 65 configs, 45
+shell scripts, 38 images, 30 systemd units, 7 makefiles, 5 C++ files and
+the rest); **450 upstream-carried, 35 fork-own** (27 recipes and 8 other
+files: 11 added by the fork, 24 edited). Unlike T7, every comparison here
+is live: **upstream has changed 66 of the 260 recipes since the base** (93
+files, 40 commits on these paths), **18 recipes present here are absent on
+`upstream/next`** -- 11 orphans upstream deleted since the base (#644
+finding 16: `libfreeaptx`, `opus`, `libfmt`, `glslang`, `vulkan-headers`,
+`cargo`, `miniupnpc`, `rocknix-abl`, `tllist`, `mtdev`, `swaybg`) and 7 the
+fork added (`gamescope-glm`, `gamescope-stb`, `mangohud-vulkan-headers`,
+`mangohud-vulkan-utility-libraries`, `harfbuzz-icu`, `gst-plugins-bad`,
+`gnutls`) -- and `gstreamer/gstreamer` was added on both sides (a merge to
+pre-read). 50 recipes source a generic recipe and inherit its pin (the
+effective pin is the override's: T7's seven, `opus`, `gcc`, `libfmt`,
+`wavpack`, `zlib`, `libevdev`, `libfreeaptx`, are this slice's rows); 169
+version pins, 41 commit hashes. **`make update` is this slice's mover for
+13 recipes** (the three virtual packages' dependency lists for RK3588 name
+171 packages; 13 are here, 8 of them hash-pinned: `box64`, `box86`,
+`gamecontrollerdb`, `jstest-sdl`, `rocknix-hotkey`, `sdljoytest`,
+`sdltouchtest`, `sixaxis`; `control-gen` and `portmaster` are on
+`config/blocklist`), and it has never run on the fork (finding 15's T8
+half). The record: 232 of the 260 names have a build directory in one of
+the five M7 roots; the 28 without are 12 virtual packages, 3 recipes with
+no URL of their own and **13 real recipes** (`armsx2-turnip`, `ecm`,
+`enet`, `glfw`, `inih`, `inputplumber`, `layer-shell-qt`, `libsndfile`,
+`m8c`, `renderdoc`, `rocknix-touchscreen-keyboard`, `speedtest-cli`,
+`swayimg`) to settle per plan with `PKG_ARCH` expanded (plan § 6b E's new
+bullet). Two bugs already stand in this set: #852 (`virtual/image`'s
+load-time symlink) is this slice's to fix under a stream; #877 (`libfmt`'s
+empty checksum) is fixed by a packet and read, not touched. #851
+(`systemd`) is the OS-scripts area's, not this slice's.
+
+**Known unknowns.** U-1 which of the fork's 19 edited recipes upstream also
+changed (the base merge's conflicts, pre-read now). U-2 whether anything
+fork-own depends on one of the 11 orphans (the base merge deletes them;
+a fork dependant breaks). U-3 the 13 unbuilt real recipes: `PKG_ARCH`, a
+plan condition, or a `shipped` claim to question. U-4 how far the 41 hash
+pins are behind their default branches, and whether `make update` would
+move any past a branch the recipe means to hold. U-5 the packet's size for
+one GPT seat: 20,644 lines of recipes plus the analyses exceed what T30's
+438 KB packet carried; the brief bounds it.
+
+**Patterns.** T7's three-source Q4 with the mover named (here: (a) is
+real, (b) does not exist -- these are ROCKNIX's recipes, not LibreELEC's --
+(c) is the fork's for the 27 and the orphans' projects for the 11); T6's
+late-binding leads (#852 here); T5's checksum policy (the per-shape count
+over 260, including `case` branches: `libfmt`'s shape); T3's Phase 4.6 (one
+probe, one refutation, the provenance beside each output), now with one
+seat; the record's listing checked against names with `-<digit>` (T7's
+`ntfs-3g`); `scripts/update_packages` read, never run (T7's incident).
+
+**What could we be missing (simulation).** S-1 a lane runs `make update`
+or `scripts/update_packages` "to see what moves": never-run, it edits
+recipes and fetches. S-2 it deletes the 11 orphans as dead code: no -- the
+base merge deletes them (D-WORKFLOW-187; `release-candidates.md` step 0),
+the slice writes each one's row with what the fork used it for and whether
+a fork-own recipe depends on it. S-3 it bumps a BEHIND fork-own recipe: a
+build; Backlog in #839's shape. S-4 it edits the `rocknix` package, a cloud
+or proxy package, a quirk or the emulators metapackage: outside the 485.
+S-5 it hands the GPT seat every recipe in full and the seat's answer is cut
+or the request refused: the packet is bounded by the brief (the analyses
+whole; the 35 fork-own files whole; the upstream-carried recipes as the
+fork's diff against `upstream/next` plus line-numbered excerpts around each
+finding; a cap near T30's 438 KB, which the GPT seat took whole). S-6 it
+reads a Gemini seat into the plan: Independent is one seat, GPT-6 Astra at
+`max`; no second seat, no Local fallback, a failed seat is a hold. S-7 it
+regenerates a table or a config with the host's locale: `env -i`, C locale.
+S-8 an unquoted heredoc: the plan's bullet, re-read first. Pre-mortem: the
+table says *66 behind upstream* and nothing happens until the base merge --
+which is the point: the rows name what the merge brings, the conflicts it
+meets and the orphans it deletes, so step 0 of the next candidate is a
+read, not a discovery.
+
+**Adjustments before execution (into version 1):** A1 Q4 has two live
+tiers and one informational: (a) `upstream/next` per recipe with the
+fork-edited ∩ upstream-changed set named as the merge's conflicts; (c)
+the project for the 27 fork-own and the 11 orphans; `make update`'s 13 as
+their own table; no LibreELEC column. A2 the orphans' dispositions are
+*drop at the base merge*, each with its dependants searched. A3 the packet
+is bounded as S-5 says, with its size and sha256 recorded beside the
+provenance. A4 one seat, probe then refutation, the Facilitator installed
+and verified first; a failure is a hold. A5 the 28 unbuilt names settled
+per plan with `PKG_ARCH` expanded before any row says `shipped`. A6 #852's
+fix is a stream of this slice; #877 is read only. A7 the 45 shell scripts,
+30 units and 65 configs are read as code (Q2, Q3) with the GENERIC_X64
+guest for any behaviour claim a stream makes. A8 the acceptance re-runs
+the membership, the (a) loop and `pkgcheck` in full, the hash-pin `compare`
+on ten seeded rows, and reads the provenance file's served model.
