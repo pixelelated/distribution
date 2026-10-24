@@ -398,3 +398,75 @@ would, and is not this slice. Not applicable, said so.
 
 - Entry 74 added (above), guard `tools/last-good-scripts-test` (partial)
   and #797 for the rest.
+
+## Addendum: T30 at its kickoff (2026-10-24, from the brief `docs/reviews/briefs/emulators-standalone.md` version 1)
+
+**What we know and assume.** T30 is an Extended currency slice with a
+launch-path lens over the 35 standalone emulator recipes (543 paths, 55
+fork-own, 10,695 code-class lines), run by the T3 session in a new worktree.
+The assumptions, each checked at `8ebaf8daad`: the membership is the
+`standalone/**` glob with every row `shipped` (543 of 543); `runemu.sh`
+starts a standalone emulator through `/usr/bin/start_<core>.sh` (line 391,
+with named arms for mednafen, scummvm and dolphin); the exit is
+`input_sense`'s `killall ${TO_KILL}` from `/tmp/.process-kill-data`, which
+`001-functions:511` writes (so a kill name is checkable against a binary
+name without a device); the GENERIC_X64 image ships nine of the 35
+(`dolphin-emu`, `duckstation-sa`, `flycast`, `hatarisa`, `hypseus`,
+`moonlight`, `ppsspp`, `scummvm`, the `mupen64plus` set -- read from the M7
+root's install tree); `tools/emulator-exit-test` drives RetroArch only (one
+match for `retroarch`, none for any standalone name); the eight cheevos
+scripts use no `eval`, `curl` or `jq` (a grep, not a reading: the slice
+reads them); the pins fall in five shapes, two of them tarballs on a moving
+branch of `ROCKNIX/packages`. **Substrate:** the lane's worktree does not
+exist until dispatch; a guest needs M6 to hold the host and free content;
+the Facilitator route for both seats is the one T3 used an hour before.
+
+**Known unknowns.** Whether free content exists on the host for the nine
+shipped emulators (ScummVM freeware, EmuTOS, homebrew `.pbp`/`.dol`/N64 --
+to be fetched into `/workspace/tmp/m6-t30/`, never into `/storage/roms` of a
+shared guest without saying so); what the cheevos scripts write and where
+(`/var/log/cheevos.log`; the configs' modes) -- read masked; how
+`tools/time-to-play` can be made to measure a standalone launch (it is
+written for RetroArch; a hand measurement with the method stated is the
+honest fallback); whether `q4-pins.py` runs over `standalone/` without
+change (its recipe root is a parameter; its GitHub-only path means the
+release-asset and tarball pins are hand rows).
+
+**Patterns.** T3's whole method is the model (two-tier Q4, the regeneration
+check, the `proved:` classes, the stage-D pause in under two hours); T1's
+F-24 is the exit sweep's seed; #825 is the shell-line sweep's seed; #841 and
+#844 are the moving-tarball pins' class; blindspot 65 (a substitute input)
+governs every homebrew-title proof.
+
+**What could we be missing (simulation).** A fresh session with the brief:
+(1) **launches a standalone emulator on the guest with no content and
+reads a black screen as a defect** -- the brief lists what each needs; the
+row says *no free content* and the launch is an open item; (2) **reads
+`GameIndex.yaml` (62,331 lines) or `mednafen.template` (17,652) line by
+line** -- data, read for provenance; (3) **grades the cheevos scripts from
+the `eval|curl|jq` grep** instead of reading each (the brief says the grep
+is not the grading); (4) **prints a `get_setting` value** from a cheevos log
+while proving the logging claim -- the masking rule is in § 5 and the
+never-run list; (5) **fixes `aethersx2-sa`** that upstream deletes (class
+1: every row `deferred: base merge`); (6) **treats a kill-name mismatch on
+an emulator no built image ships as a High** -- the exit sweep's row class
+*not shipped on any built image* exists for it; (7) **runs the guest while
+M7 holds the host** -- the relay rule and the census are in § 5; (8)
+**measures time to play once with no n** -- the brief asks for method and
+n; a single run is a lead. **Pre-mortem:** the two seats return thirty
+items about emulator configs the fork carries from upstream unchanged, the
+punch list balloons to sixty, and the stream briefs take the coordinator a
+day; prevention: a Q4 `behind-upstream` row for an upstream-carried config
+is a disposition (*kept: upstream's*), not a fix, and the brief's grading
+rule (a defect is a `bug`; a wording item rides the audit issue) keeps the
+streams to the fork-own 55 and the launch-path defects.
+
+**Adjustments before execution (into version 2):** A1 a line in § 5 that
+free content is fetched into `/workspace/tmp/m6-t30/content/` and placed
+on the guest by `scp` or the serial console into `/storage/roms/<system>/`,
+named in the running log, never a commercial file; A2 the exit sweep's
+third row class named in § 4 (it is); A3 `tools/time-to-play`'s scope
+stated (RetroArch) with the hand method for standalones; A4 the grading
+rule for upstream-carried configs (*kept: upstream's* unless a defect). The
+stranger's proof of the brief runs beside this addendum; version 2 records
+both.
