@@ -17,7 +17,7 @@ enabled=$(get_setting "global.retroachievements")
 hardcore=$(get_setting "global.retroachievements.hardcore")
 
 # Check if RetroAchievements are enabled in Emulation Station
-if [ ! ${enabled} = 1 ]; then
+if [ "${enabled}" != "1" ]; then
     echo "RetroAchievements are not enabled, please turn them on in Emulation Station." > ${LOG_FILE}
     sed -i '/\[Cheevos\]/,/^\s*$/s/Enabled =.*/Enabled = false/' ${DUCK_CFG}
     exit 1
