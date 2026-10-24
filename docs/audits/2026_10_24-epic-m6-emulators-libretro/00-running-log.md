@@ -145,3 +145,13 @@ GUEST-PROOF: 03:35:37 UTC -- P4, tools/time-to-play --vm --no-configure-remote -
   - Test 5: RetroArch's half is fix-pending-image (#825 criterion 1, the first image with the patch).
   - `tools/pkgcheck retroarch` rc 0; `git status --short` empty after the commit. PL-032 is Deferred with `state: fix-pending-image` in the index.
 - 06:23 Every time above is read from a clock or a file's mtime; the first draft of these lines had guessed three of them, corrected before commit.
+- 06:30 **S1, the recipes** (PL-006, 017, 012, 015, 024, 005). Five commits on this branch: `e8bfe9ddda` retroarch, `28968ae585` sameboy-lr, `b45a4f1f7a` wildmidi, `8210c7a960` flycast2021-lr, `df69f527ad` melonds-ds-lr. `tools/pkgcheck` is 0 FAIL and 0 WARN on all five after; `git status --short` empty.
+  - PROOF: PL-006, `.qa-scratch/t3/s1/pl006-fixture.sh`. The recipe's aarch64 block runs under set -e against constructed arm roots.
+    - Before (`next`): zero, two and stale are all rc 0, copying nothing, nothing and the stale binary.
+    - After: zero, two and stale each die with the reason (rc 1); one current root copies.
+  - PROOF: PL-017, `.qa-scratch/t3/s1/pl017-fixture.sh`. A failing make in scripts/build:407-408's shape gives rc 2 before and after, the line after never reached. The control without set -e reaches it.
+  - PROOF: PL-012. `pkgcheck sameboy-lr` FAIL 013 (late binding, PKG_BUILD) before, rc 0 after. `pkgcheck` catches it, so there is no lead for #657.
+  - PROOF: PL-015. `gh api …/commits/405ca73` gives `405ca73adfa11659b7579f0b09df1303f42659a4`, and `git ls-remote` lists it. GitHub's archive of the full hash has the same sha256 as the cached short one (`4f4a7f7a…`), and the extracted trees are identical, which answers Astra's "WildMIDI archive equality".
+  - PROOF: PL-024. The global section evaluated before and after gives the identical `PKG_MAKE_OPTS_TARGET`. pkgcheck WARN 032 is gone.
+  - PROOF: PL-005, `.qa-scratch/t3/s1/pl005-resolve.txt`. Each of the eleven resolved (`gh api` for a hash, `git ls-remote …^{}` for a tag) equals the HEAD of the M7 build's own clone; tracy resolved too. `patches/001` applies at fuzz 0 to the pinned source.
+  - All six go to Deferred with `state: fix-pending-image`. The coordinator's non-stream dispositions (PL-001 to 004, 007 to 010, 021 to 023, 025, 026, 029) are in the Phase 7 table, recorded through `tools/set-outcome.py`. Pre-issue lint PASS.

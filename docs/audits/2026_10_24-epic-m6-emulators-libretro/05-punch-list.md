@@ -29,7 +29,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing written by the defect; a player who fetched the core into /storage/cores keeps it above the image's -- read both, nothing to migrate
 - **Acceptance:** An arm-enabled build's install tree (H700 or SM8550) carries usr/lib/libretro/pcsx_rearmed32_libretro.so; tools/regen-es-systems.sh's table for that device is unchanged.
 - **Tracked work:** #802
-- **Disposition note:** the coordinator's #802: the fix comes with the base merge as c9820d0e89 adapted to DISTRONAME; nothing on this branch
+- **Disposition note:** the packet `a0defbd527` (fix/m6-802-pcsx-rearmed32, upstream c9820d0e89 with DISTRONAME), reviewed and applied by M7; reaches next with the integration
 
 ## PL-002: The next base merge brings two `build.${DISTRO}-` copies the fork's roots cannot satisfy, and git merges them cleanly
 
@@ -45,7 +45,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing inherited: a build-time path
 - **Acceptance:** On the merged tree, git grep -F 'build.${DISTRO}-' -- projects packages scripts prints nothing, and the five rotation-table recipes carry Python3:host, retroarch and PKG_NEED_UNPACK.
 - **Tracked work:** #802
-- **Disposition note:** #802 (the coordinator filed F-08 and F-09 together); the base merge is the coordinator's act
+- **Disposition note:** with the packet `a0defbd527` and the base merge, which takes yabadabadoo-lr the same way
 
 ## PL-003: On the SM8550 image Install Steam stops at its Proton step: `grep -oP` with a grep built without PCRE
 
@@ -61,7 +61,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** a failed run leaves FEX, the runtime and the client under /storage; a later run reuses them through steam_client_state -- read both, nothing to migrate
 - **Acceptance:** git grep -n -E 'grep (-[a-zA-Z]*P|--perl-regexp)' on Install Steam.sh prints nothing, and a guest run of fetch_proton_latest_release against a fixture release JSON, with a grep that refuses -P first on PATH, sets PROTON_GE_URL and PROTON_GE_TAR.
 - **Tracked work:** #806
-- **Disposition note:** deferred:M7-merge (6101242e14 changes the file); #806
+- **Disposition note:** the recipe packet `ea0af11d07` (fix/m6-806-grep-pcre2), reviewed and applied by M7; the script lines deferred:M7-merge with 6101242e14
 
 ## PL-004: `aethersx2-sa`, dropped upstream for a licensing concern, still ships on SM8550 and RK3566
 
@@ -76,7 +76,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** n/a: a removal decided by licence; its proof is the merged tree and the next SM8550 image
 - **Already written:** AetherSX2's settings and memory cards under /storage/.config/aethersx2 on SM8550 and RK3566 devices stay; the removal deletes nothing of a player's
 - **Acceptance:** On the merged tree, git grep -n aethersx2 -- projects/ROCKNIX/packages/virtual/emulators prints nothing.
-- **Disposition note:** upstream's `c4d353449e`, taken with the base merge (class 1, the coordinator's ruling on #650; the maintainer told on #346)
+- **Disposition note:** class 1: upstream `c4d353449e` with the base merge (the coordinator, #650; the maintainer told on #346)
 
 ## PL-005: `melonds-ds-lr` fetches eleven dependencies from the network at configure time, by short hash or tag
 
@@ -92,6 +92,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing on devices: build reproducibility
 - **Acceptance:** The recipe sets FETCHCONTENT_FULLY_DISCONNECTED=ON and names each dependency with a full hash and a checksum, and a build of the core from an unseeded source cache in a container with no network configures, with find <root>/build/melonds-ds-lr-*/.*/_deps -name '*-subbuild' printing nothing.
 - **Tracked work:** #813
+- **Disposition note:** S1: pinned at `df69f527ad` (twelve full commits, each equal to the built clone); carrying the sources stays #813
 
 ## PL-006: `retroarch32` is skipped silently when the ARM root's install directory is not exactly one, and a single stale one is copied unchecked
 
@@ -107,6 +108,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing written: a build-time guard
 - **Acceptance:** The sandboxed makeinstall_target exits 1 with the path named for a root with no retroarch install directory and for one with two, refuses a root whose one directory carries another version, and installs retroarch32 for one with the pinned version.
 - **Tracked work:** #814
+- **Disposition note:** S1: fixed at `e8bfe9ddda` (the arm root required, exactly one, at the pin); the fixture proves zero, two and stale die; the image proves the copy
 
 ## PL-007: The table's README claims a build failure on two default cores; one shape fails silently and the other ships two defaults
 
@@ -121,7 +123,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** n/a for the comment; the mechanism's proof is the regeneration (fix-host-regen)
 - **Already written:** nothing inherited: no device's table has two defaults today
 - **Acceptance:** package.mk's README comment states the two behaviours or the check T5's fix adds, and the regeneration's tables for the five devices are byte-unchanged.
-- **Disposition note:** the mechanism routed to T5 (#652) by the coordinator
+- **Disposition note:** routed to T5 (#652, its PL-06): the mechanism in distributions/ROCKNIX/config/functions
 
 ## PL-008: GitHub release data reaches `eval` in `fetch_proton_latest_release`
 
@@ -136,7 +138,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** n/a: a reading of the merged file
 - **Already written:** nothing inherited
 - **Acceptance:** On the merged file, grep -n eval in fetch_proton_latest_release prints nothing.
-- **Disposition note:** deferred:M7-merge; resolved by the M7 lane's `6101242e14` when it lands
+- **Disposition note:** deferred:M7-merge: Install Steam.sh is changed by the M7 hunk `6101242e14`; its row goes on the follow-up the merge names
 
 ## PL-009: The Steam runtime and Proton archives are installed with no integrity check
 
@@ -152,7 +154,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** installed runtimes and Protons stay; the check applies to the next download
 - **Acceptance:** On the guest with a fixture release whose .sha512sum does not match its archive, install_proton_variant refuses with a named reason and installs nothing; with a matching one it installs.
 - **Tracked work:** #815
-- **Disposition note:** deferred:M7-merge at Phase 7 (6101242e14 changes the file); its follow-up issue named then
+- **Disposition note:** deferred:M7-merge: Install Steam.sh is changed by the M7 hunk `6101242e14`; its row goes on the follow-up the merge names
 
 ## PL-010: On SM8550 the exit hotkey's kill target for RPCS3 names a process that never runs
 
@@ -168,7 +170,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing written: /tmp/.process-kill-data is per launch
 - **Acceptance:** On the merged tree, Start RPCS3.sh registers set_kill set "-9 rpcs3-sa".
 - **Tracked work:** #816
-- **Disposition note:** to merge with the base merge: upstream's `eeb33c5a37`
+- **Disposition note:** class 1: upstream `eeb33c5a37` with the base merge
 
 ## PL-011: The H700, RK3326, RK3566 and GENERIC_X64 tables offer `st-v` with no emulator, and GENERIC_X64's gives `psx` no default core
 
@@ -199,6 +201,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing inherited
 - **Acceptance:** tools/pkgcheck sameboy-lr exits 0, and the next image's usr/lib/libretro/sameboy_libretro.so exists.
 - **Tracked work:** #818
+- **Disposition note:** S1: fixed at `28968ae585` (pkgcheck rc 1 -> 0); the next image carries sameboy_libretro.so (#818)
 
 ## PL-013: `Start Azahar.sh` and `Start MelonDS.sh` put their shebang on line 2
 
@@ -244,6 +247,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing
 - **Acceptance:** PKG_VERSION is the 40-hex hash and tools/pkgcheck wildmidi exits 0.
 - **Tracked work:** #821
+- **Disposition note:** S1: fixed at `b45a4f1f7a` (the full hash; the archive byte-identical, PKG_SHA256 unchanged) (#821)
 
 ## PL-016: Every shipped retroarch.cfg carries 24 or 25 keys the pinned RetroArch never reads, and fourteen carry the armhf core-updater URL
 
@@ -272,6 +276,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** n/a: a recipe
 - **Already written:** nothing
 - **Acceptance:** grep -c '\[ \$? -eq 0 \]' retroarch/package.mk prints 0 and tools/pkgcheck retroarch exits 0.
+- **Disposition note:** S1: fixed at `e8bfe9ddda` (the three dead checks removed; set -e proved to end the build at a failed make)
 
 ## PL-018: Patch 0017's size step engages on no shipped profile
 
@@ -330,7 +335,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing persistent: /proc state, reset at boot
 - **Acceptance:** On the guest, run_steam_first_launch with a stub client killed mid-run leaves /proc/sys/fs/binfmt_misc/box64 reading enabled.
 - **Tracked work:** #822
-- **Disposition note:** deferred:M7-merge at Phase 7 (6101242e14 changes the file); its follow-up issue named then
+- **Disposition note:** deferred:M7-merge: Install Steam.sh is changed by the M7 hunk `6101242e14`; its row goes on the follow-up the merge names
 
 ## PL-022: Four dead assignments, comments that disagree with their code, and parsers in several copies
 
@@ -345,7 +350,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** n/a: shellcheck
 - **Already written:** nothing
 - **Acceptance:** shellcheck reports no SC2034 for FEX_ARCH_USR_LIB, RUNTIME_DIR, STEAM_MANIFEST_URL or STEAM_CDN on the merged file.
-- **Disposition note:** deferred:M7-merge at Phase 7 (6101242e14 changes the file); its follow-up issue named then
+- **Disposition note:** deferred:M7-merge: Install Steam.sh is changed by the M7 hunk `6101242e14`; its row goes on the follow-up the merge names
 
 ## PL-023: The rotation-table hook is written out in five recipes
 
@@ -360,7 +365,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** n/a
 - **Already written:** nothing
 - **Acceptance:** Withdrawn with the reason above, or a shared mechanism the build engine offers is named.
-- **Disposition note:** proposed withdrawal at Phase 7
+- **Disposition note:** routed to T5 (#652) as a lead: a shared rotation-table function in distributions/ROCKNIX/config/functions, the five recipes calling it after T5 lands
 
 ## PL-024: `flycast2021-lr` assigns PKG_MAKE_OPTS_TARGET between two functions
 
@@ -375,6 +380,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** n/a
 - **Already written:** nothing
 - **Acceptance:** tools/pkgcheck flycast2021-lr prints no WARN.
+- **Disposition note:** S1: fixed at `8210c7a960` (pkgcheck WARN gone; the options value proved identical)
 
 ## PL-025: RetroArch's pin is 7,623 commits behind master, and a bump is a re-cut of the patch series
 
@@ -389,7 +395,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** Yes for the bump's proof at its image: P1 to P4 again
 - **Already written:** RetroArch's config and states under /storage; a bump's own Already written is its stream's
 - **Acceptance:** A stream brief names the bump's target, or this item is deferred to a named issue.
-- **Disposition note:** a stream brief decides the bump (brief section 5); deferred to a named issue at Phase 7
+- **Disposition note:** its own issue #839: a bump is a re-cut and a build, after the M7 candidate
 
 ## PL-026: Eleven more upstream commits on the slice are `to merge` with the base merge
 
@@ -404,7 +410,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** n/a: a merge
 - **Already written:** per row in q4a-dispositions.md
 - **Acceptance:** git log next..upstream/next -- the two directories prints none of the eleven after the base merge.
-- **Disposition note:** the coordinator's base merge; deferred to its named issue at Phase 7
+- **Disposition note:** the base merge, the coordinator act: the eleven commits of q4a-dispositions.md (`075a7c303b` and the ten beside it)
 
 ## PL-027: Six pins are not on their project's default branch, and four recipes name a moved, renamed or archived repository
 
@@ -450,7 +456,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** n/a: a host tool over install trees
 - **Already written:** nothing
 - **Acceptance:** The check run over the H700 install tree of 069fc2704421's generation reports pcsx_rearmed32 and mplayer's ffmpeg missing, over the GENERIC_X64 tree the PL-030 and PL-031 cores, and over a tree with them present nothing; systems whose games are .sh files (idtech: runemu.sh runs a .sh ROM itself) are excluded by extension, not by name.
-- **Disposition note:** routed to the coordinator; deferred to a named issue at Phase 7
+- **Disposition note:** its own issue #838 (a fork tool; T9/T10)
 
 ## PL-030: GENERIC_X64's table offers core choices its skip list does not build, and its id Tech scanner calls a script the image lacks
 
@@ -516,35 +522,35 @@ The lane does not start on these: the coordinator writes one remediation brief p
 
 | Item | Outcome | Evidence / reason |
 | --- | --- | --- |
-| PL-001 | Deferred | #802: the coordinator's #802: the fix comes with the base merge as c9820d0e89 adapted to DISTRONAME; nothing on this branch |
-| PL-002 | Deferred | #802: #802 (the coordinator filed F-08 and F-09 together); the base merge is the coordinator's act |
-| PL-003 | Deferred | #806: deferred:M7-merge (6101242e14 changes the file); #806 |
-| PL-004 | Deferred | upstream's `c4d353449e`, taken with the base merge (class 1, the coordinator's ruling on #650; the maintainer told on #346) |
-| PL-005 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-006 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-007 | Open | the mechanism routed to T5 (#652) by the coordinator |
-| PL-008 | Deferred | deferred:M7-merge; resolved by the M7 lane's `6101242e14` when it lands |
-| PL-009 | Open | deferred:M7-merge at Phase 7 (6101242e14 changes the file); its follow-up issue named then |
-| PL-010 | Deferred | #816: to merge with the base merge: upstream's `eeb33c5a37` |
+| PL-001 | Deferred | #802: the packet `a0defbd527` (fix/m6-802-pcsx-rearmed32, upstream c9820d0e89 with DISTRONAME), reviewed and applied by M7; reaches next with the integration |
+| PL-002 | Deferred | #802: with the packet `a0defbd527` and the base merge, which takes yabadabadoo-lr the same way |
+| PL-003 | Deferred | #806: the recipe packet `ea0af11d07` (fix/m6-806-grep-pcre2), reviewed and applied by M7; the script lines deferred:M7-merge with 6101242e14 |
+| PL-004 | Deferred | class 1: upstream `c4d353449e` with the base merge (the coordinator, #650; the maintainer told on #346) |
+| PL-005 | Deferred | #813: S1: pinned at `df69f527ad` (twelve full commits, each equal to the built clone); carrying the sources stays #813 |
+| PL-006 | Deferred | #814: S1: fixed at `e8bfe9ddda` (the arm root required, exactly one, at the pin); the fixture proves zero, two and stale die; the image proves the copy |
+| PL-007 | Deferred | routed to T5 (#652, its PL-06): the mechanism in distributions/ROCKNIX/config/functions |
+| PL-008 | Deferred | deferred:M7-merge: Install Steam.sh is changed by the M7 hunk `6101242e14`; its row goes on the follow-up the merge names |
+| PL-009 | Deferred | #815: deferred:M7-merge: Install Steam.sh is changed by the M7 hunk `6101242e14`; its row goes on the follow-up the merge names |
+| PL-010 | Deferred | #816: class 1: upstream `eeb33c5a37` with the base merge |
 | PL-011 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-012 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-012 | Deferred | #818: S1: fixed at `28968ae585` (pkgcheck rc 1 -> 0); the next image carries sameboy_libretro.so (#818) |
 | PL-013 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-014 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-015 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-015 | Deferred | #821: S1: fixed at `b45a4f1f7a` (the full hash; the archive byte-identical, PKG_SHA256 unchanged) (#821) |
 | PL-016 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-017 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-017 | Deferred | S1: fixed at `e8bfe9ddda` (the three dead checks removed; set -e proved to end the build at a failed make) |
 | PL-018 | Deferred | deferred:#336 for the 2D cores' widget surface |
 | PL-019 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-020 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-021 | Open | deferred:M7-merge at Phase 7 (6101242e14 changes the file); its follow-up issue named then |
-| PL-022 | Open | deferred:M7-merge at Phase 7 (6101242e14 changes the file); its follow-up issue named then |
-| PL-023 | Open | proposed withdrawal at Phase 7 |
-| PL-024 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-025 | Open | a stream brief decides the bump (brief section 5); deferred to a named issue at Phase 7 |
-| PL-026 | Open | the coordinator's base merge; deferred to its named issue at Phase 7 |
+| PL-021 | Deferred | #822: deferred:M7-merge: Install Steam.sh is changed by the M7 hunk `6101242e14`; its row goes on the follow-up the merge names |
+| PL-022 | Deferred | deferred:M7-merge: Install Steam.sh is changed by the M7 hunk `6101242e14`; its row goes on the follow-up the merge names |
+| PL-023 | Deferred | routed to T5 (#652) as a lead: a shared rotation-table function in distributions/ROCKNIX/config/functions, the five recipes calling it after T5 lands |
+| PL-024 | Deferred | S1: fixed at `8210c7a960` (pkgcheck WARN gone; the options value proved identical) |
+| PL-025 | Deferred | its own issue #839: a bump is a re-cut and a build, after the M7 candidate |
+| PL-026 | Deferred | the base merge, the coordinator act: the eleven commits of q4a-dispositions.md (`075a7c303b` and the ten beside it) |
 | PL-027 | Deferred | #585: #585 |
 | PL-028 | Open | proposed withdrawal at Phase 7 |
-| PL-029 | Open | routed to the coordinator; deferred to a named issue at Phase 7 |
+| PL-029 | Deferred | its own issue #838 (a fork tool; T9/T10) |
 | PL-030 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-031 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-032 | Deferred | #825: S0: fixed at `fac139dd43` (merged `faac89ffc0`); the hook's half proved on the guest (#825 criterion 2), RetroArch's half is fix-pending-image until the first image built with it (#825 criterion 1) |
@@ -593,7 +599,8 @@ punch_index:
   source_finding: "F-15"
   owner_area: "core recipes: melonds-ds-lr"
   tracked: "#813"
-  outcome: open
+  state: fix-pending-image
+  outcome: deferred
 - id: PL-006
   severity: Medium
   category: Code Quality
@@ -601,14 +608,15 @@ punch_index:
   source_finding: "F-11"
   owner_area: "RetroArch's recipe: the 32-bit binary"
   tracked: "#814"
-  outcome: open
+  state: fix-pending-image
+  outcome: deferred
 - id: PL-007
   severity: Medium
   category: Documentation Gap
   question: Q7
   source_finding: "F-06"
   owner_area: "the table: the one-default rule"
-  outcome: open
+  outcome: deferred
 - id: PL-008
   severity: Medium
   category: Code Quality
@@ -623,7 +631,7 @@ punch_index:
   source_finding: "F-21"
   owner_area: "Install Steam.sh: downloads"
   tracked: "#815"
-  outcome: open
+  outcome: deferred
 - id: PL-010
   severity: Medium
   category: Code Quality
@@ -647,7 +655,8 @@ punch_index:
   source_finding: "F-02"
   owner_area: "core recipes: sameboy-lr"
   tracked: "#818"
-  outcome: open
+  state: fix-pending-image
+  outcome: deferred
 - id: PL-013
   severity: Low
   category: Code Quality
@@ -671,7 +680,8 @@ punch_index:
   source_finding: "F-16"
   owner_area: "core recipes: wildmidi"
   tracked: "#821"
-  outcome: open
+  state: fix-pending-image
+  outcome: deferred
 - id: PL-016
   severity: Low
   category: Renovation
@@ -685,7 +695,8 @@ punch_index:
   question: Q1
   source_finding: "F-13"
   owner_area: "RetroArch's recipe"
-  outcome: open
+  state: fix-pending-image
+  outcome: deferred
 - id: PL-018
   severity: Low
   category: Renovation
@@ -714,42 +725,43 @@ punch_index:
   source_finding: "F-22"
   owner_area: "Install Steam.sh: the first launch"
   tracked: "#822"
-  outcome: open
+  outcome: deferred
 - id: PL-022
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-23"
   owner_area: "Install Steam.sh: dead code and copies"
-  outcome: open
+  outcome: deferred
 - id: PL-023
   severity: Low
   category: Renovation
   question: Q7
   source_finding: "F-17"
   owner_area: "core recipes: the rotation hook"
-  outcome: open
+  outcome: deferred
 - id: PL-024
   severity: Low
   category: Renovation
   question: Q7
   source_finding: "F-03"
   owner_area: "core recipes: flycast2021-lr"
-  outcome: open
+  state: fix-pending-image
+  outcome: deferred
 - id: PL-025
   severity: Low
   category: Renovation
   question: Q4
   source_finding: "Q4 (c)"
   owner_area: "RetroArch: the bump"
-  outcome: open
+  outcome: deferred
 - id: PL-026
   severity: Low
   category: Renovation
   question: Q4
   source_finding: "Q4 (a)"
   owner_area: "the base merge: the other upstream commits"
-  outcome: open
+  outcome: deferred
 - id: PL-027
   severity: Low
   category: Renovation
@@ -771,7 +783,7 @@ punch_index:
   question: Q3
   source_finding: "03 3.6"
   owner_area: "tools: table against image"
-  outcome: open
+  outcome: deferred
 - id: PL-030
   severity: Low
   category: Interaction Defect
