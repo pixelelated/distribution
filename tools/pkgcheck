@@ -20,6 +20,18 @@ TXCLR="$(tput el)"
 # exit 0 having checked nothing (#845).
 FAILS=0
 
+# The late-binding list's last line (#653) holds the names the build sets
+# after it has sourced a recipe, so a global reference reads a value the
+# recipe's functions never see: source_package after its ". package.mk"
+# (config/functions:1303-1388: BUILD_WITH_DEBUG, PKG_INSTALL, PKG_QA_CHECKS),
+# setup_toolchain from scripts/build:137 (config/functions:300-579: the TARGET_
+# flags, NINJA_OPTS, MAKEFLAGS, AWK, TARGET_CC/CXX/AR, HOST_STRIP, the cargo
+# and rust paths, CCACHE_DIR), and config/path's INSTALL, which scripts/build:140
+# replaces. Not listed: TOOLCHAIN and the rest of config/path, which
+# config/options:185 sources before the recipe and nothing resets; and
+# SYSROOT_PREFIX, which keeps its value until scripts/build:471, after
+# post_make -- its global uses are configure and make options, and correct.
+
 log() {
   local filename="$1" lc=$2 level="$3" msg="$4" data="$5"
   local txcolour flc colw
@@ -61,7 +73,11 @@ process_line() {
     TARGET_CONFIGURE_OPTS CMAKE_GENERATOR_NINJA TARGET_CMAKE_OPTS TARGET_MESON_OPTS \
     HOST_CONFIGURE_OPTS HOST_CMAKE_OPTS HOST_MESON_OPTS \
     INIT_CONFIGURE_OPTS INIT_CMAKE_OPTS INIT_MESON_OPTS \
-    BOOTSTRAP_CONFIGURE_OPTS BOOTSTRAP_CMAKE_OPTS BOOTSTRAP_MESON_OPTS; do
+    BOOTSTRAP_CONFIGURE_OPTS BOOTSTRAP_CMAKE_OPTS BOOTSTRAP_MESON_OPTS \
+    BUILD_WITH_DEBUG PKG_INSTALL PKG_QA_CHECKS \
+    TARGET_CFLAGS TARGET_CXXFLAGS TARGET_LDFLAGS NINJA_OPTS MAKEFLAGS AWK \
+    TARGET_CC TARGET_CXX TARGET_AR HOST_STRIP CARGO_TARGET_DIR CARGO_HOME RUST_TARGET_PATH CCACHE_DIR \
+    INSTALL; do
 
     # After PKG_DIR, treat assigns to var as invalid
     [ "${var}" = "PKG_DIR" ] && assignallowed=N
