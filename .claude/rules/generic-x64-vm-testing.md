@@ -1222,6 +1222,13 @@ measurements among them -- was that scaled picture (blindspot 54).
 
 So, for any claim about RetroArch's text, widgets or picture on a guest:
 
+- **`tools/time-to-play` reboots the guest when it seeds its ROM or changes
+  the two cloud settings, and the reboot drops bind mounts.** A run meant to
+  measure the tree's scripts rather than the image's binds them from a
+  `/storage/.config/autostart/` hook and reads the installed script's hash
+  after the run; two of T1's runs on 2026-10-24 measured the image's
+  `runemu.sh` before the hash said so (#648). The flag that makes this the
+  tool's own job (`--bind <src>:<dst>`, the hashes printed) is #797.
 - **Read `Using resolution` from the guest's `/var/log/exec.log` after the
   launch, and compare it with the screendump's size.** `tools/time-to-play`
   does this after its first launch (`surface_check`) and is not a pass when
