@@ -293,16 +293,31 @@ if [ "${#need_map[@]}" -gt 0 ]; then
 fi
 
 # Configure gcc-12/g++-12 as default via update-alternatives (Debian/Ubuntu)
+#
+# checkdeps changes the build host (the default compiler, /nix) only when asked
+# (#835): with CHECKDEPS_ALLOW_HOST_CHANGES=1 it runs each change through sudo
+# as it always did; otherwise it prints the command the host needs and stops at
+# the end, before any build starts. The build container already has both.
+HOST_CHANGES_NEEDED=""
+host_change() {
+  if [ "${CHECKDEPS_ALLOW_HOST_CHANGES}" = "1" ]; then
+    sudo "$@"
+  else
+    echo "checkdeps: the build host needs: sudo $*"
+    HOST_CHANGES_NEEDED=yes
+  fi
+}
+
 case "${DISTRO}" in
   ubuntu|debian)
     if command -v gcc-12 >/dev/null && command -v sudo >/dev/null; then
       if ! update-alternatives --query gcc >/dev/null 2>&1 || \
          ! update-alternatives --query gcc 2>/dev/null | grep -q "gcc-12"; then
         echo "Setting gcc-12/g++-12 as default via update-alternatives..."
-        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 100 \
+        host_change update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 100 \
           --slave /usr/bin/g++ g++ /usr/bin/g++-12 \
           --slave /usr/bin/gcov gcov /usr/bin/gcov-12
-        sudo update-alternatives --set gcc /usr/bin/gcc-12
+        host_change update-alternatives --set gcc /usr/bin/gcc-12
       fi
     fi
     ;;
@@ -333,13 +348,18 @@ prepare_nix_dir() {
 
   if [ ! -d /nix ]; then
     echo "Creating /nix directory..."
-    sudo mkdir -p /nix
+    host_change mkdir -p /nix
   fi
 
   if [ ! -w /nix ]; then
     echo "Setting /nix ownership to $(whoami)..."
-    sudo chown "$(whoami)" /nix
+    host_change chown "$(whoami)" /nix
   fi
 }
 
 prepare_nix_dir
+
+if [ -n "${HOST_CHANGES_NEEDED}" ]; then
+  echo "**** checkdeps changes the build host only with CHECKDEPS_ALLOW_HOST_CHANGES=1; run the commands above, or set it ****"
+  exit 1
+fi
