@@ -1376,6 +1376,14 @@ def untranslated_unreadable_source(c):
 
 
 
+@case
+def font_stems_reversed(c):
+    tool = c.tool('font-stems')
+    r = c.run([sys.executable, '-I', str(tool), str(c.dir / 'no.ttf'), '--sizes', '20-10'])
+    return r.returncode == 2, f'rc {r.returncode}, {(r.stderr or r.stdout).strip().splitlines()[-1:]} (want 2: 20-10 names no size)'
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')

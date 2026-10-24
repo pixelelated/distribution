@@ -102,7 +102,8 @@ def load_freetype():
 
 
 def render(ft, face, text, px):
-    """The text at px, as RetroArch draws it: integer pen, integer advance. Returns rows of coverage 0..255 and the baseline row."""
+    """The text at px, as RetroArch draws it: integer pen, integer advance. Returns rows of coverage 0..255,
+    the baseline row, and the characters whose glyph did not load (G-69: counted, never dropped silently)."""
     if ft.FT_Set_Pixel_Sizes(face, 0, px):
         sys.exit("font-stems: FT_Set_Pixel_Sizes(%d) failed" % px)
     height = px * 3
@@ -110,8 +111,10 @@ def render(ft, face, text, px):
     width = px * len(text) + 4 * px
     canvas = [[0] * width for _ in range(height)]
     pen = px
+    failed = []
     for ch in text:
         if ft.FT_Load_Char(face, ord(ch), LOAD_FLAGS):
+            failed.append(ch)
             continue
         slot = face.contents.glyph.contents
         bm = slot.bitmap
@@ -127,7 +130,7 @@ def render(ft, face, text, px):
                     if v > row[x]:
                         row[x] = v
         pen += slot.advance.x >> 6
-    return canvas, baseline
+    return canvas, baseline, failed
 
 
 def x_height_px(ft, face, px):
@@ -170,8 +173,15 @@ def main():
     i = 1
     while i < len(args):
         if args[i] == "--sizes":
-            lo, hi = args[i + 1].split("-")
-            sizes = range(int(lo), int(hi) + 1)
+            # A range that names no size, reversed or malformed, is a usage
+            # error (G-69): it printed a table with no rows and exited 0.
+            try:
+                lo, hi = (int(v) for v in args[i + 1].split("-"))
+            except (IndexError, ValueError):
+                print("font-stems: --sizes takes LOW-HIGH, such as 9-32", file=sys.stderr); return 2
+            if lo < 1 or hi < lo:
+                print("font-stems: --sizes %d-%d names no size (LOW must be at least 1 and no more than HIGH)" % (lo, hi), file=sys.stderr); return 2
+            sizes = range(lo, hi + 1)
             i += 2
         elif args[i] == "--text":
             text = args[i + 1]
@@ -201,7 +211,7 @@ def main():
     em = stem_em(ft, face)
     out = {"font": font, "family": fam, "style": sty, "freetype": version, "stem_em": em, "text": text, "sizes": []}
     for px in sizes:
-        canvas, baseline = render(ft, face, text, px)
+        canvas, baseline, failed = render(ft, face, text, px)
         xh = x_height_px(ft, face, px)
         # the x-height row: half way up the lower-case letters, where every stem crosses
         y = baseline - max(1, xh // 2)
@@ -210,16 +220,22 @@ def main():
         solid = sum(1 for _, s in strokes if s)
         mean = (sum(w for w, _ in strokes) / n) if n else 0.0
         out["sizes"].append({"px": px, "strokes": n, "solid": solid, "mean_stem": round(mean, 2),
-                             "geometric_stem": round(px * em, 2) if em else None})
+                             "geometric_stem": round(px * em, 2) if em else None, "glyphs_failed": len(failed)})
+        if failed:
+            print("font-stems: at %d px, %d glyph(s) did not load: %s" % (px, len(failed), "".join(sorted(set(failed)))), file=sys.stderr)
+    failures = sum(r["glyphs_failed"] for r in out["sizes"])
     if as_json:
         print(json.dumps(out, indent=1))
-        return 0
+        return 1 if failures else 0
     print("%s %s (%s), FreeType %s, l stem %.4f em; text: %s" % (fam, sty, font, version, em or 0, text))
     print("%4s %8s %6s %9s %10s  %s" % ("px", "strokes", "solid", "mean_stem", "geometric", "share solid"))
     for r in out["sizes"]:
         share = (100.0 * r["solid"] / r["strokes"]) if r["strokes"] else 0
         print("%4d %8d %6d %9.2f %10s  %3.0f%% %s" % (r["px"], r["strokes"], r["solid"], r["mean_stem"],
               ("%.2f" % r["geometric_stem"]) if r["geometric_stem"] is not None else "-", share, "#" * int(share / 5)))
+    if failures:
+        print("font-stems: %d glyph(s) did not load across the sizes; the strokes above measure less than the text asked for" % failures)
+        return 1
     return 0
 
 
