@@ -20,6 +20,13 @@ else
   GAME="$1"
 fi
 
+# Seed the config on a first run. This has to come before games/ is made,
+# which creates CONFIG_DIR and made the seed unreachable (#871).
+if [ ! -d "${CONFIG_DIR}" ]; then
+ mkdir -p "${CONFIG_DIR}"
+ cp -rf /usr/config/scummvm/* "${CONFIG_DIR}/"
+fi
+
 if [ ! -d "${CONFIG_DIR}/games" ]
 then
   mkdir -p "${CONFIG_DIR}/games"
@@ -31,18 +38,15 @@ create_svm(){
   do
     id=($line);
     filename=$(sed -n "/^\[$id\]/,/^\[/{s/^description=//p}" ${CONFIG_DIR}/scummvm.ini | \
-      sed -e 's# (.*)# ('${id}')#g' -e "s#'##g" -e "s#: # - #g" \
+      sed -e 's# (.*)# ('${id}')#g' -e "s#'##g" -e "s#: # - #g" -e "s#/#-#g" \
     )
 
     SVMPATH="$(sed -n "/^\[$id\]/,/^\[/{s/^path=//p}" ${CONFIG_DIR}/scummvm.ini)"
-    echo '--path="'${SVMPATH}'" '${id} >"${CONFIG_DIR}/games/${filename}.scummvm"
+    # A name stays inside games/ (a / in a description made a path, #871)
+    printf -- '--path="%s" %s\n' "${SVMPATH}" "${id}" >"${CONFIG_DIR}/games/${filename}.scummvm"
   done
 }
 
-if [ ! -d "${CONFIG_DIR}" ]; then
- mkdir -p ${CONFIG_DIR}
- cp -rf /usr/config/scummvm/* ${CONFIG_DIR}/
-fi
 
 case $1 in
   "libretro")
