@@ -152,68 +152,68 @@ both lists and to this table, or it is invisible.**
 | `watch-build-submit` | submit the standard runner independently of its shell; distinguish launch from eventual completion | `engineering-practices.md` |
 | `fork-worktree` | worktree list / remove / repair / sync, refusing to destroy build output | `worktrees.md` |
 | `fork-package-freshness` | are the packages the fork introduces at their latest upstream release, or pinned with a stated reason | `fork-workflow.md` |
-| `vm-upgrade-rehearsal`, `vm-upgrade-readiness-test` | boot the previous image in a guest, seed a player's state, update in place, check every piece survived | `upgrade-and-install.md` |
-| `cloud-pair-migration` | the mixed-installation test: one cloud, a device updated in place from the previous build and a fresh install, the folder's join, move and follow read from the cloud and both confs (D-CLOUD-158) | `rclone-cloud-sync.md` |
+| `vm-upgrade-rehearsal`, `vm-upgrade-readiness-test` | boot the previous image in a guest, seed a player's state, update in place, check every piece survived | `upgrade-and-install.md` for `vm-upgrade-rehearsal`; `generic-x64-vm-testing.md` for `vm-upgrade-readiness-test` |
+| `cloud-pair-migration` | retired: the mixed-installation test of D-CLOUD-158's folder join, move and follow; refuses execution (D-CLOUD-175, #508) | the tool's own header (no rule describes it) |
 | `es-syntax-check` | compile an EmulationStation edit syntax-only with the image build's own command, before the pin moves | `es-native-ui.md` |
-| `png-blackout` | paint a rectangle of a frame black with the standard library, so a screendump carrying the QA account's name is filed with the band painted out | `generic-x64-vm-testing.md` |
-| `fork-newdrive` | move the build estate to another volume | `device-builds.md` |
+| `png-blackout` | paint a rectangle of a frame black with the standard library, so a screendump carrying the QA account's name is filed with the band painted out | the tool's own header (no rule describes it) |
+| `fork-newdrive` | move the build estate to another volume | the tool's own header (no rule describes it) |
 | `fork-publish-release` | prepare a release plan from exact candidate bytes, with selected-state inspection; never publishes | `device-builds.md` |
-| `pixelelated-state-check` | inspect selected account, cloud and history state in final payloads or a ready guest; value-free reports | `release-candidates.md` |
-| `pixelelated-state-check-test` | synthetic clean/contaminated roots and payloads, plus prepared first-boot proof | `release-candidates.md` |
+| `pixelelated-state-check` | inspect selected account, cloud and history state in final payloads or a ready guest; value-free reports | the tool's own header (no rule describes it) |
+| `pixelelated-state-check-test` | synthetic clean/contaminated roots and payloads, plus prepared first-boot proof | the tool's own header (no rule describes it) |
 | `device-act` | run one command on a device, recorded with the boot id before and after | `engineering-practices.md` |
 | `qa-accounts` | carry QA credentials into a guest without printing them | `generic-x64-vm-testing.md` |
-| `vm-pair`, `vm-pair-test`, `vm-serial`, `vm-visual-qa`, `vm-walks/` | bring guests up, test launch failures, drive them, capture frames, walk the interface | `generic-x64-vm-testing.md` |
+| `vm-pair`, `vm-pair-test`, `vm-serial`, `vm-visual-qa`, `vm-walks/` | bring guests up, test launch failures, drive them, capture frames, walk the interface | `generic-x64-vm-testing.md`; `vm-pair-test`: its own header |
 | `vm-qa` | every automated check against one image, one report | `generic-x64-vm-testing.md` |
 | `vm-stop`, `vm-stop-test` | stop only the owned QEMU and await exit; exercise delayed exit, timeout and refusal controls | `generic-x64-vm-testing.md` |
 | `vm-manager-system-check` | refuse manager walkthroughs on an absent or wrongly selected system | `generic-x64-vm-testing.md` |
 | `cloud-round-trip`, `cloud-test-backend`, `cloud-census`, `cloud-capture-stamp-test` | the cloud-sync suites and their backends | `rclone-cloud-sync.md` |
-| `cloud-connections-test`, `test-fixtures/` | staged connection transactions, real-rclone OAuth state and shutdown cleanup, with synthetic dependencies (#537/#540) | `rclone-cloud-sync.md` |
-| `cloud-input-test` | open/protected Wi-Fi selection and ordered phone input under delayed HTTP (#535/#536) | `generic-x64-vm-testing.md` |
-| `cloud-save-integrity`, `cloud-save-integrity-test` | bounded offline save-byte/container verification and synthetic corruption controls | `rclone-cloud-sync.md`, `docs/cloud-save-integrity.md` |
+| `cloud-connections-test`, `test-fixtures/` | staged connection transactions, real-rclone OAuth state and shutdown cleanup, with synthetic dependencies (#537/#540) | the tools' own headers (no rule describes them) |
+| `cloud-input-test` | open/protected Wi-Fi selection and ordered phone input under delayed HTTP (#535/#536) | the tool's own header (no rule describes it) |
+| `cloud-save-integrity`, `cloud-save-integrity-test` | bounded offline save-byte/container verification and synthetic corruption controls | `rclone-cloud-sync.md`, `docs/cloud-save-integrity.md`; `cloud-save-integrity-test`: its own header |
 | `settings-modes-test` | do shell settings and recovery writers preserve private modes and refuse failed staging with the image applets (#421) | `generic-x64-vm-testing.md` |
-| `melonds-upgrade-test` | does post-update preserve melonDS settings while adding missing hotkeys, including absent-package and failed-write controls (#526) | `upgrade-and-install.md` |
+| `melonds-upgrade-test` | does post-update preserve melonDS settings while adding missing hotkeys, including absent-package and failed-write controls (#526) | the tool's own header (no rule describes it) |
 | `emulator-exit-test`, `wait-lock-test`, `last-good-scripts-test` | the exit hotkey, the lock's patience, the scripts under busybox | `generic-x64-vm-testing.md` |
 | `time-to-play` | interface to a game's first frame, and game to game | `time-to-play.md` |
 | `ra-offline-test` | an achievement earned offline survives to the server | `generic-x64-vm-testing.md` |
 | `ra-ui-test` | installed reconnect cards with local success/refusal fixtures and full-panel frames | `generic-x64-vm-testing.md` |
-| `ra-candidate-games` | which homebrew titles have cheap achievements, and does a ROM carry its set | `generic-x64-vm-testing.md` |
+| `ra-candidate-games` | which homebrew titles have cheap achievements, and does a ROM carry its set | the tool's own header (no rule describes it) |
 | `retroarch-wrapper-test` | does the threaded video wrapper run a posted command exactly once | `engineering-practices.md` |
 | `es-menu-map-check` | does `docs/es-menu-map.md` still describe the menus that ship | `es-native-ui.md` |
-| `es-untranslated` | which fork strings have no French | `es-native-ui.md` |
-| `font-stems` | how sharp a widget face renders at each pixel size: strokes, solid cores, mean stem, per px, on FreeType | `es-native-ui.md` |
-| `signin-memory` | what the cloud sign-in window costs in memory on a QA guest: the window's and WebKit's peak RSS while a page loads | `generic-x64-vm-testing.md` |
+| `es-untranslated` | which fork strings have no French | the tool's own header (no rule describes it) |
+| `font-stems` | how sharp a widget face renders at each pixel size: strokes, solid cores, mean stem, per px, on FreeType | `generic-x64-vm-testing.md` |
+| `signin-memory` | what the cloud sign-in window costs in memory on a QA guest: the window's and WebKit's peak RSS while a page loads | the tool's own header (no rule describes it) |
 | `vocabulary-check` | back up / backup, and the rest of the player vocabulary | `es-player-text.md` |
 | `forbidden-terms-check` | does a tree, or a set of lines, carry a word from the list kept outside every tree (D-WORKFLOW-061); the fork CI runs it | `fork-workflow.md` |
 | `register-check` | every decision ID once, every citation naming a real row | `decision-register.md` |
-| `lint-audit-artifacts` | the audit artifacts are well formed, and an M6 renovation slice answers the seven questions (its renovation face, #641) | `issue-tracking.md`, `docs/reviews/README.md` |
+| `lint-audit-artifacts` | the audit artifacts are well formed, and an M6 renovation slice answers the seven questions (its renovation face, #641) | `engineering-practices.md`, `docs/reviews/README.md` |
 | `rules-check` | every rule file front-mattered per the standard, every file in this index, the counts in `CLAUDE.md` and `AGENTS.md` true, `AGENTS.md` within Codex's budget and naming every rule (D-WORKFLOW-045) | `instruction-files.md` |
 | `box-check` | is every open acceptance checkbox on the fork agent-verifiable -- names its artifact, and a physical fact when it asks for a device (D-QA-044; the checkbox checker, D-QA-045) | `issue-tracking.md` |
 | `prose-check` | does a rocknix.org draft read as the site's own writers write -- the tells the samples named, fail and warn; `--self-test` passes the maintainer's page and fails a machine-sounding draft (#323, D-WORKFLOW-068) | the `developer-relations` skill |
-| `release-catalog` | what each kept cut carried, what was proven on it and where it is, generated from the artifacts' RECORD.txt into `docs/releases/catalog.md` (D-WORKFLOW-044) | `issue-tracking.md` |
+| `release-catalog` | what each kept cut carried, what was proven on it and where it is, generated from the artifacts' RECORD.txt into `docs/releases/catalog.md` (D-WORKFLOW-044) | the tool's own header (no rule describes it) |
 | `rc-preflight` | may this tree be cut as a release candidate: packages current, the bases level with ROCKNIX, no bug without a disposition, the record clean -- or each finding accepted by a register row (#271, D-WORKFLOW-047) | `release-candidates.md` |
 | `pr-stack-check` | build the upstream series by content from `docs/pr-series/map.txt` in a throwaway worktree, and prove the last head equals `next` on every upstream-bound path (#322) | `fork-workflow.md` |
 | `renovation-inventory` | every tracked path of the distribution and the EmulationStation fork with its area, provenance tier, lines, last commits and reachability by the images the Makefile builds; fails when a count disagrees or a path is in no area or two (M6.P1, #641) | `docs/reviews/README.md` |
 | `renovation-drift` | what changed under each closed renovation slice since its fixes merged, as a share of its lines and whether a security, state or launch-path file was touched; exits 1 when one must re-open (plan § 8, #641) | `docs/reviews/README.md` |
 | `renovation-status` | one table of the renovation: every slice's size, depth, state, reviewed-at, fixed-at and drift, from the order, the inventory and the slice issues (#641) | `docs/reviews/README.md` |
-| `es-launch-memory` | capture stable-PID launch/exit memory and successful exit-sync stamps on an owned QA guest | `generic-x64-vm-testing.md` |
+| `es-launch-memory` | capture stable-PID launch/exit memory and successful exit-sync stamps on an owned QA guest | the tool's own header (no rule describes it) |
 | `build-identity-test` | execute actual image identity blocks and offline release plans with RC/release, engineering and tamper controls (#532) | `device-builds.md` |
 | `usb-gadget-test` | run actual USB preparation functions with old/new version metadata in a disposable configfs fixture; preserve descriptor identities and mode links (#531) | `generic-x64-vm-testing.md` |
-| `nova-led-test` | exercise all eight LED nodes, saved brightness and the battery writer using actual scripts and fixture sysfs | `generic-x64-vm-testing.md` |
-| `raofflineproxy-integration-test` | preserve old-writer state and prove full-library preparation, retries and rate-limit pacing | `generic-x64-vm-testing.md` |
+| `nova-led-test` | exercise all eight LED nodes, saved brightness and the battery writer using actual scripts and fixture sysfs | the tool's own header (no rule describes it) |
+| `raofflineproxy-integration-test` | preserve old-writer state and prove full-library preparation, retries and rate-limit pacing | the tool's own header (no rule describes it) |
 | `rocknix-info-test` | full-script optional hardware readings, conversions and quirk success/failure controls | `generic-x64-vm-testing.md` |
 | `raofflineproxy-installed-native-test` | run unchanged upstream format tests against verified installed modules/library, without product overlays | `generic-x64-vm-testing.md` |
 | `raofflineproxy-consent-test` | exercise installed reporting consent with synthetic state, actual loopback HTTP and restart controls | `generic-x64-vm-testing.md` |
-| `rasteratops-cloud-layout-test` | prove numbered layout transitions, partial-state recovery and missing-remote refusal | `rclone-cloud-sync.md` |
-| `pixelelated-content-scope-test` | prove selected-library boundaries, bounded root refusal and scan-result binding with synthetic real-rclone controls | `rclone-cloud-sync.md` |
-| `pixelelated-cloud-folder-test` | retired implicit-seeding/derived-pointer contract; refuses execution; current host coverage is `pixelelated-cloud-validator-test` | `rclone-cloud-sync.md` |
-| `pixelelated-cloud-folder-vm-test` | retired historical overlay contract; refuses execution; current target coverage uses `vm-qa`, `cloud-round-trip` and canonical cloud-folder flows | `generic-x64-vm-testing.md` |
-| `pixelelated-cloud-validator-test` | qualify bounded selected-category metadata checks and explicit folder creation | `rclone-cloud-sync.md` |
+| `rasteratops-cloud-layout-test` | prove numbered layout transitions, partial-state recovery and missing-remote refusal | the tool's own header (no rule describes it) |
+| `pixelelated-content-scope-test` | prove selected-library boundaries, bounded root refusal and scan-result binding with synthetic real-rclone controls | the tool's own header (no rule describes it) |
+| `pixelelated-cloud-folder-test` | retired implicit-seeding/derived-pointer contract; refuses execution; current host coverage is `pixelelated-cloud-validator-test` | the tool's own header (no rule describes it) |
+| `pixelelated-cloud-folder-vm-test` | retired historical overlay contract; refuses execution; current target coverage uses `vm-qa`, `cloud-round-trip` and canonical cloud-folder flows | the tool's own header (no rule describes it) |
+| `pixelelated-cloud-validator-test` | qualify bounded selected-category metadata checks and explicit folder creation | the tool's own header (no rule describes it) |
 | `pixelelated-save-layout-test` | prove source-derived standalone save coverage and exclusion from library transfers with synthetic real-rclone controls | `rclone-cloud-sync.md` |
-| `pixelelated-duckstation-capture-test` | prove actual launcher screenshot defaults, custom/history preservation and AppImage install mode with synthetic fixtures | `packaging-and-patches.md`, `rclone-cloud-sync.md` |
-| `rasteratops-vm-cloud-epic` | run promoted cloud and settings cases against actual guest scripts | `generic-x64-vm-testing.md` |
+| `pixelelated-duckstation-capture-test` | prove actual launcher screenshot defaults, custom/history preservation and AppImage install mode with synthetic fixtures | the tool's own header (no rule describes it) |
+| `rasteratops-vm-cloud-epic` | run promoted cloud and settings cases against actual guest scripts | the tool's own header (no rule describes it) |
 | `pixelelated-vm-cloud-boundaries` | prove explicit layout1 migration, recovered-cloud followers on a separate guest, and independent settings/content/provider boundaries | `generic-x64-vm-testing.md` |
-| `rasteratops-identity-check` | check distribution identity contracts in source and an image | `release-candidates.md` |
-| `rasteratops-candidate-store` | retain and verify an exact candidate by manifest and digest | `release-candidates.md` |
+| `rasteratops-identity-check` | check distribution identity contracts in source and an image | the tool's own header (no rule describes it) |
+| `rasteratops-candidate-store` | retain and verify an exact candidate by manifest and digest | the tool's own header (no rule describes it) |
 | `council/` | verified external reviewer invocation and retained receipts | `adversarial-council.md` |
 | `pkgcheck` *(upstream's)* | a `package.mk` obeys late binding | `packaging-and-patches.md` |
 
