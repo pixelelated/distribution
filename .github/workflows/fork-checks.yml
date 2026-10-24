@@ -3,9 +3,9 @@
 # left without an issue, the retro / weekly / monthly cadence kept, every
 # recent blindspot naming a guard, an audit and a futro when they are owed.
 # Red until each overdue ceremony has its artifact (#254, D-WORKFLOW-028).
-# Every check step runs whether or not an earlier one failed (`if: always()`),
-# so a red day shows every verdict; the job still fails when any step does
-# (D-WORKFLOW-202, #944).
+# Every check step runs whether or not an earlier one failed, and not after a
+# cancel (`if: ${{ !cancelled() }}`), so a red day shows every verdict; the
+# job still fails when any step does (D-WORKFLOW-202, refined by 205; #944).
 # Fork-only (`fork-*`): never part of an upstream PR.
 name: fork record checks
 
@@ -35,16 +35,16 @@ jobs:
       - name: identify upstream history for the fork issue-coverage check
         run: git fetch --no-tags https://github.com/ROCKNIX/distribution.git next:refs/remotes/upstream/next
       - name: work-log index is current
-        if: always()
+        if: ${{ !cancelled() }}
         run: ./tools/work-log-index --check
       - name: decision register is a lookup table
-        if: always()
+        if: ${{ !cancelled() }}
         run: ./tools/register-check
       - name: the instruction files are what their index says
-        if: always()
+        if: ${{ !cancelled() }}
         run: ./tools/rules-check
       - name: builds always enter the shared watcher and retain lifecycle evidence
-        if: always()
+        if: ${{ !cancelled() }}
         run: |
           python3 docs/qa-logs/2026-10-03-watch-job/test-watch-job.py tools/watch-job
           python3 tools/host-maintenance/test-build-monitor
@@ -53,20 +53,20 @@ jobs:
           python3 docs/qa-logs/2026-10-04-watch-progress/test-watch-build.py
           python3 docs/qa-logs/2026-10-05-watch-submit/test-submit.py
       - name: VM launch failures cannot report a guest as running
-        if: always()
+        if: ${{ !cancelled() }}
         run: |
           ./tools/vm-pair-test
           ./tools/vm-upgrade-readiness-test
       - name: optional hardware readings are valid or explicitly unavailable
-        if: always()
+        if: ${{ !cancelled() }}
         run: ./tools/rocknix-info-test
       - name: every open acceptance checkbox is agent-verifiable (D-QA-044)
-        if: always()
+        if: ${{ !cancelled() }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: ./tools/box-check --quiet
       - name: ceremonies are not overdue
-        if: always()
+        if: ${{ !cancelled() }}
         env:
           GH_TOKEN: ${{ github.token }}
           CEREMONY_TODAY: ${{ inputs.ceremony_today }}
