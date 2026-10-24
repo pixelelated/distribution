@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "depth": "independent",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's dispatch on #659 (2026-10-24T19:04:19Z: 'the T5 session (m6-t5-build-engine), Opus 5.5 at high effort') and the session's own model metadata (claude-opus-5-5); session c649553c-8086-4db7-ad9c-248c7e41ff95"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
+      "calls": [
+        {
+          "phase": "refutation",
+          "output": "gpt-audit.md"
+        }
+      ],
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gpt-probe.md"
+        }
+      ],
+      "status": "probe PASS 19:41:05-19:41:15 (served openai/gpt-6-astra by OpenAI, effort max); refutation pending"
+    }
+  ],
+  "packets": {
+    "gpt": {
+      "file": "gpt-brief.md",
+      "bytes": 712845,
+      "sha256": "b733086bc58dfd572bd6541e75da5e64c33c34928eef0d319d69c1c2be2bbe46",
+      "manifest": "packet-manifest.json",
+      "content": "the ask (vm-qa's accounting, time-to-play's headline rule, frame-diff's claims and vm-stop's wait first), 02, 03 and 04 whole, the 57 text files whole at 8ebaf8daad line-numbered, the three PNG fixtures named with size and sha256, vm-first.md and generic-x64-vm-testing.md from next, the controls' and the guest cycle's outputs",
+      "scan": "before it was sent, 19:39:36: .githooks/secret-patterns 0 lines; tools/forbidden-terms-check --stdin 0 hits"
+    }
+  },
+  "written_before_first_call": "2026-10-24",
+  "status": "in progress"
+}

@@ -125,3 +125,32 @@ PROOF: 19:29 P8 guest: time-to-play --repeat 0 --only launch,exit,g2g exits 0 wi
 PROOF: 19:29 P9 guest: emulator-exit-test --only X prints PASSED, rc 0, with no check run -- `cycle/exit-onlyX.out`
 PROOF: 19:25 P10 guest: the 069fc2704421 image ships no /usr/bin/cloud_migrate_layout, so vm-walks/cloud-epic/migration-protocol.sh refuses on it -- `cycle/guest-checks.txt`
 PROOF: 19:30 P11 guest: tools/vm-stop stops the owned QEMU in 0.25 s and removes its pidfile; the guest held 2,662,384 kB resident on the host after boot -- `cycle/guest-checks.txt`, this log
+
+## [Stage C] 19:36 onward — the second opinion
+
+- **Stage B's documents** are committed in `6cc544cd56`:
+  - `02`: the controls, the cycle, 11 proofs, 20 findings and the 60 coverage rows (`grep -c -E '^\| \`tools/'` gives 60);
+  - `03`;
+  - `04`: Q5's cost table and Q6's value table.
+- **The coordinator's reading on #659, 19:33:** the cycle is accepted; criterion 9 names the `.img.gz.sha256` sidecar; F-01, F-02 and F-03 are stage-D bugs with their inputs; F-10 is a Q2/Q6 row.
+- **The packet:** `tools/t12-packet.py` writes `second-opinions/gpt-brief.md` and `packet-manifest.json`.
+  - **Contents:** the ask; `02`, `03` and `04` whole; the 57 text files at the hash, line-numbered; the three PNGs named with size and sha256; `vm-first.md` and `generic-x64-vm-testing.md` from `next`; the controls' and the cycle's outputs. 712,845 bytes, sha256 `b733086bc58d…`, 71 manifest parts.
+  - The controls' part reads `.qa-scratch/t12/controls/summary.txt`, written from the logs before the second build.
+- **The scan before it was sent (19:39:36):**
+  - `.githooks/secret-patterns`, sourced as the hook sources it and checked to compile: **0 lines** (grep rc 1). Matching lines are counted, not printed.
+  - `tools/forbidden-terms-check --stdin`: `0 hits`, rc 0.
+- **Setup (19:39:56 to 19:40:26):**
+  - `npm install --prefix tools/council` rc 0;
+  - `tools/council/run verify-pins`: `OK - verifier pins match current files and every re-pin is accountable.`;
+  - `tools/council/run test` rc 0: 39/39, 127/127 and 19/19, fail 0.
+- **The probe:**
+  - **The first attempt (19:40:53) returned rc 4,** `[FAIL local_config_error] Failed to read prompt file`: `run` resolves paths from the worktree root, and the command passed them relative to the audit folder. No seat was reached.
+  - **The second (19:41:05 to 19:41:15), with absolute paths,** returned rc 0, `READY`. The provenance reads:
+    - `verification PASS` (semantic), observed `openai/gpt-6-astra`, model identity from the provider's response;
+    - `effort_verification PASS`, max, 349 reasoning tokens;
+    - `provider_verification PASS`, OpenAI;
+    - `outcome success`.
+- **`review-plan.json`** was written before the refutation call: depth `independent`, scope `epic`, primary `anthropic/claude-opus-5-5`, one reviewer `gpt` (`openai/gpt-6-astra`, `openai`, `max`), OpenRouter, `allow_fallbacks false`.
+- **The refutation:** `timeout 5400 tools/council/run invoke --member gpt --provider openrouter --prompt-file <abs>/gpt-brief.md --output <abs>/gpt-audit.md`, in the background.
+  - **What watches it:** the harness's background task, which notifies this session when the call exits, and `/workspace/tmp/m6-t12/refutation-start.txt`, which gets its rc line.
+  - **How the watch fails:** a call killed outright writes no rc line. Its output then does not appear.
