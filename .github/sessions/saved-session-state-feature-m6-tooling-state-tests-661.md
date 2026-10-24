@@ -42,7 +42,43 @@
    and the census, whether a build root exists for the busybox applets, the
    host-side runs with their exits and wall times -- before reading a tool.
 
-## Current focus (21:19 UTC update)
+## Current focus (23:15 UTC update)
+
+**Handed back; idle until the coordinator accepts.** The hand-back comment on #661 names the tip and every artifact.
+
+- **Stage E complete, S1 to S12,** per `docs/reviews/briefs/t14-streams.md` (`13242d182a` on `feature/m6-renovation-plan-346`). Each stream lands with a control under `docs/qa-logs/2026-10-24-state-tests-s<N>/` that passes the stage-D tool (`7aa8eac253`), or the commit before its fix, and fails the fixed one. 27 proofs, 27 `PROOF:` lines in `00`.
+- **The Phase 7 table:**
+  - 23 items: 21 Resolved and 2 Deferred (PL-11 to #986, PL-12 to #1007).
+  - The `punch_index` agrees with the table.
+  - `tools/lint-audit-artifacts` on the folder, at the default phase: PASS.
+- **The bugs:** the 17 audit bugs #989 to #1005 are fixed on this branch, and each closes when it reaches `next` (no closing keyword). The lane also filed two Bugs, each with its criteria ticked from the artifacts:
+  - **#1009,** the info test's scratch leak, filed after its fix `84a2b73140`;
+  - **#1011,** the guest pair's refused-start kill, fixed in `6016f57a75`.
+- **The coordinator's rulings applied:** 22:08 (#1004's backup contract), 22:22 (#1009), 22:29 (#997's exit split), 22:30 (#1000's two shapes and constant), 22:35 (`${S:?}` removals), 22:46 (#1001's self-test-only limit; #1010), 22:54 (#1011's D-INFRA-031 runtime).
+- **The suites at the fixed tip:** `02` § The suites at the fixed tip, all 21 tools, and every stage-A failure now passes. The S2 environment case passes 10 of 10. The historical cloud-layout matrix gives 398/0. The busybox provenance is the M7 root's BusyBox 1.36.1, BUILD_ID `1a026648442321609b2288c2c9c06803817f9df2`.
+- **`last-good-scripts-test`, once, read-only, beside S2:** rc 1, 671.7 s, 990 PASS, 323 FAIL, under the **host's** BusyBox 1.37.0 (`image_tool_source`'s silent fallback, #662). Of the failures:
+  - **2 were S2's regression,** fixed in `9df25309f3`: the fixture's `--config` ahead of the command that T15's shims read.
+  - **2 are S8's contract refusing T15's *copied* busybox** (sections ag and ah). This is open with the coordinator: T15's call is #662's file.
+  - **319 are elsewhere:** 61 print `flock: applet not found`, an applet the host's busybox lacks; the rest were not traced. Details: `02` § The suites at the fixed tip.
+- **The retro:** `docs/retros/2026-10-24-m6-tooling-state-tests.md`, posted on #661: time to play unchanged, what each stream did to a test's refusals, and the brittleness after-column.
+- **Open items, none of them this lane's to act on:**
+  - **T15's two calls into the writer tests** pass a copied busybox, which S8's contract refuses. The coordinator decides: #662 adds `--busybox-from`, or the contract changes;
+  - #1009 and #1011 close at the merge, like the 17;
+  - **#1010,** the payload half of #1001's name list (it needs a host with `mcopy`);
+  - **PL-09 and PL-10,** the four refusing markers retired in place; the removal bundle is on #346, for the maintainer;
+  - **#1007,** the index rows, the stubs' list entries and the state check's rule sentence;
+  - **#986,** the ten uncalled tools;
+  - **#662,** T15: `image_tool_source`'s host fallback.
+- **What the coordinator does next:**
+  - `AUDIT_ISSUE=1006 $S/t14-accept.sh <tip> <coordinator tip>` on an export;
+  - read every stream's diff and positives, tick #661 and #1006 from the artifacts, and close #1006 when its checkboxes read back ticked;
+  - at the merge, after T12's and before T4's: `run.sh`'s two fixture lines, and the re-read of the `docs/releases/` receipts since `d9f428e1a0` against the fixed state check and store;
+  - put the removal bundle on #346.
+- **After acceptance (the lane):** `audit-completion.json` from #1006's closed readback, the full lint, and this pointer set idle.
+
+## Earlier focus
+
+### The stage-D pause (21:19 UTC)
 
 **The stage-D pause.**
 - `05` holds 23 items (1 High, 15 Medium, 7 Low). There are 17 bugs (#989 to #1005), and the audit issue is #1006, a sub-issue of #661.
@@ -50,7 +86,6 @@
 - No guest; no tool edited.
 - Waiting for the coordinator's stage-E stream briefs, and its answer on whether PL-09 (the guest pair) is a bug or a disposition.
 
-## Earlier focus
 
 Not started. The first commit on this branch is the running log's header,
 `01-research-notes.md` § Scope, this pointer updated, and the day's

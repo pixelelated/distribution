@@ -483,3 +483,13 @@ PROOF: P25 PL-10's docstring -- `grep -c '1.75.1'` over the two stubs: 1 at `601
   - The pass fixture: rc 0, `PASS`. The coupled one: rc 1, both failures, `2 CONTRACT FAILURE(S)` (the positive).
 - **The control,** `docs/qa-logs/2026-10-24-state-tests-s12/fixture-cases.sh`, which also disables each guard in a scratch copy of the lint. With the face guard off, fail-face passes and fail-question still fails; with the question guard off, the reverse. So each fixture rests on its one guard alone. PASS.
 PROOF: P26 S12's control -- `docs/qa-logs/2026-10-24-state-tests-s12/fixture-cases.sh` PASS (the coupled fixture names both failures in one run; each split fixture names exactly one, and passes once its own guard alone is disabled).
+
+## [Close-out] 23:26 UTC — the suites at the fixed tip; last-good-scripts-test once; a fixture follow-up (#999)
+
+- **`02` § The suites at the fixed tip:** all 21 tools, run by `docs/qa-logs/2026-10-24-state-tests-close/suites.sh` with `TMPDIR` set. The six stage-A failures pass, and the new refusals are the designed ones. The historical matrix gives 398/0 in 400.8 s, the self-test 190, and the S2 environment case 10/10. No bytecode was written.
+- **`last-good-scripts-test`, once, read-only:** rc 1, 671.7 s, 990 PASS, 323 FAIL, under the **host's** BusyBox 1.37.0, `image_tool_source`'s silent fallback (#662). Attribution is in `02`:
+  - **2 are S2's regression,** in section C: the fixture put `--config` before the command that T15's shims read from `$1 $2`. Fixed in `9df25309f3`.
+  - **2 are S8's contract refusing T15's copied busybox,** sections ag and ah. T15's file is not this lane's, so this is put to the coordinator.
+  - **319 are elsewhere;** 61 of them print `flock: applet not found`, an applet the host's busybox lacks and the image's has.
+- **A miss of mine:** S2's control asserted `argv[:2] == ["--config", stage]`, the very shape that broke T15. The consumer was never run before the close-out, although the coordinator's 21:39 ruling asked for exactly this run because a consumer proves a shared fixture.
+PROOF: P27 the fixture follow-up -- `docs/qa-logs/2026-10-24-state-tests-s2/sandbox-case.py`'s two new checks FAIL on the fixture at `89efee384c` (argv `--config <stage> listremotes`; a T15-shaped shim's `config create` never refuses) and pass at `9df25309f3`.

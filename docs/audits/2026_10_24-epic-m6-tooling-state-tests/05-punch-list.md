@@ -465,9 +465,9 @@ At the resolution phase. Each bug's fix is on this branch, and the bug closes wh
 | PL-10 | Resolved | `8816d078fa` (S11), the docstring naming the coverage by tool and flow. The disposition is the coordinator's: retire in place as refusing markers, with the removal bundle on #346 and the list entries #1007's |
 | PL-11 | Deferred | #986, the coordinator's Backlog, with T14's ten tools and the suites each could join; the validator's own defects are #994, resolved in `6b5cd16160` |
 | PL-12 | Deferred | #1007, the T14 rules Backlog (a sub-issue of #903), made at integration in the doctrine packet; no rule was edited by this lane |
-| PL-13 | Resolved | `929355c417`, `30d9339ea3`, `4e94ccd833` (S8), #997. Under --unverified-busybox a failing case exits 1 and an all-pass run exits 3, with the marker on every line in both (the coordinator, 22:29 UTC); last-good-scripts-test's host fallback is #662's lead |
+| PL-13 | Resolved | `929355c417`, `30d9339ea3`, `4e94ccd833` (S8), #997. Under --unverified-busybox a failing case exits 1 and an all-pass run exits 3, with the marker on every line in both (the coordinator, 22:29 UTC); last-good-scripts-test's host fallback is #662's lead. T15 passes a copied busybox (`--busybox "${BB_HOST}"`, `:14224`, `:14231`), which this contract refuses (CANNOT, exit 2) even for a build root's busybox; its call is #662's file, and the fix is put to the coordinator on #661 |
 | PL-14 | Resolved | `fe41fca9a9`, `802bb51924` (S3), #998 |
-| PL-15 | Resolved | `89efee384c` (S2), #999 |
+| PL-15 | Resolved | `89efee384c`, `9df25309f3` (S2; the follow-up puts `--config` after the command, where T15's shims read it, found by the close-out's last-good-scripts-test run), #999 |
 | PL-16 | Resolved | `3657e0e801` (S9), #1000: two shapes, a constant, and a tree-side drift check (the coordinator, 22:30 UTC); the gate's requirement is unchanged |
 | PL-17 | Resolved | `a5397e2e9f` (S9): the header states no value in reports, and the scratch is removed on every exit, signals included; the rules' sentence is #1007's, and release-candidates.md's gate contract is unchanged |
 | PL-18 | Resolved | `b74dcaa78b` (S9), #1001: the self-test-only limit is in SELF_TEST_CONTROLS' comment, and the payload half is Backlog #1010 (the coordinator, 22:46 UTC) |

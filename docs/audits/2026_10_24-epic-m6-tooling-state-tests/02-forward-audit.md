@@ -170,6 +170,7 @@ No host file line was written, because no guest started. The census was 0 throug
 | S11 #1011 | `docs/qa-logs/2026-10-24-state-tests-s11/pair-cases.sh` with `cleanup-probe.py` (a disposable `qemu-system-fixture` beside a refused start; a started run's cleanup with a pidfile naming an invisible pid) | the fixture signalled, `all_absent: True`; `all_absent: true` from no pidfile | the fixture alive, no `all_absent`, the derived runtime uncreated; an `observation_error`, no `vm-pair down` | `6016f57a75` |
 | S11 PL-10 | `grep -c '1.75.1'` over the two cloud-folder stubs | 1 | 0; `--help` rc 0, a run rc 2 | `8816d078fa` |
 | S12 PL-23 | `docs/qa-logs/2026-10-24-state-tests-s12/fixture-cases.sh` (the coupled fail fixture; two split fixtures; each with its guard disabled in a scratch lint) | the coupled fixture names both failures in one run | each split fixture names exactly one, and passes with only its own guard disabled | `7679426e48` |
+| S2 follow-up (#999) | `sandbox-case.py`'s two new checks (a shim's argv; a T15-shaped shim reading `$1 $2`) | at `89efee384c`'s fixture: argv `--config <stage> listremotes`, no refusal | `listremotes --config <stage>`; the create refused | `9df25309f3` |
 
 | Proof | What it shows | Proved |
 | --- | --- | --- |
@@ -191,5 +192,69 @@ No host file line was written, because no guest started. The census was 0 throug
 | P24 | #1011's control fails before the fix and passes after it | proved: fix-case |
 | P25 | the stubs' stale version count goes 1 to 0 | proved: fix-case |
 | P26 | S12's split fixtures each prove one guard | proved: fix-case |
+| P27 | the fixture follow-up's two checks fail on 89efee384c's fixture and pass at 9df25309f3 | proved: fix-case |
 
 **The busybox this host offers (S8, for reading the record):** `readlink -f $(command -v busybox)` is `/usr/bin/busybox`, `BusyBox v1.37.0 (Ubuntu 1:1.37.0-7ubuntu1)`. The image's is the M7 root `m7-pixelelated-replacement20`'s `image/system/usr/bin/busybox`, `BusyBox v1.36.1`, BUILD_ID `1a026648442321609b2288c2c9c06803817f9df2`, 182 applets, every one but `sh` a busybox link on the image. The record's earlier `settings-modes-test` and `melonds-upgrade-test` passes name no busybox; from `929355c417` and `30d9339ea3` on, each receipt carries `busybox_origin`.
+
+## The suites at the fixed tip
+
+Every one of the 21 tools, at `b968264c8d` (no file under `tools/` had changed since `7679426e48`, S12's commit; the one change after, `9df25309f3`, is the connections fixture, below), run by `docs/qa-logs/2026-10-24-state-tests-close/suites.sh`. `TMPDIR` is set throughout to `.qa-scratch/t14/close/tmp`, the condition that failed cloud-layout at stage A. The outputs are in `.qa-scratch/t14/close/<n>.txt`.
+
+| Run | Exit | Wall | Last line |
+| --- | ---: | ---: | --- |
+| wait-lock-test --busybox <image> | 0 | 10.8 s | PASSED |
+| wait-lock-test (host tools) | 0 | 10.9 s | PASSED |
+| rocknix-info-test | 0 | 0.5 s | PASS 12 full-script positive/negative controls |
+| nova-led-test | 0 | 0.1 s | 14 PASS, 0 FAIL |
+| usb-gadget-test --output | 0 | 0.3 s | PASS USB descriptor fixture: 18 cases, 72/72 checks |
+| pixelelated-state-check-test --self-test | 0 | 9.4 s | } |
+| pixelelated-state-check-test --payload-tests (no mcopy here) | 2 | 0.0 s | {"schema":1,"status":"error","category":"fixture-or-reader-failure"} |
+| pixelelated-state-check --help | 0 | 0.0 s |                         only for --root / --mode first-boot |
+| build-identity-test --output | 0 | 1.4 s | PASS build identity: 57 passed, 0 failed |
+| retroarch-wrapper-test <source> | 0 | 0.1 s | PASS: every command ran exactly once at its own site |
+| retroarch-wrapper-test (bare) | 2 | 0.0 s | usage: tools/retroarch-wrapper-test <video_thread_wrapper.c> [--gated], or RETROARCH_SRC=<a tree holding gfx/v |
+| rasteratops-identity-check --tree --es | 0 | 0.0 s | identity source contracts: 0 failure(s); image qualification still required |
+| settings-modes-test --busybox <image> | 0 | 0.3 s | PASS refuse-rename |
+| settings-modes-test --busybox <host> (refused) | 2 | 0.0 s | settings-modes-test: CANNOT -- /usr/bin/busybox is not under a build root's image/system/; name its origin wit |
+| melonds-upgrade-test --busybox <image> | 0 | 0.1 s | PASS temp-failure |
+| melonds-upgrade-test --busybox <host> (refused) | 2 | 0.0 s | melonds-upgrade-test: CANNOT -- /usr/bin/busybox is not under a build root's image/system/; name its origin wi |
+| rasteratops-cloud-layout-test --archives-only, TMPDIR set | 0 | 20.0 s | cloud-layout-test: 13 PASS, 0 FAIL; artifacts: /workspace/repos/pixelelated/distribution.worktrees/m6-tooling- |
+| rasteratops-cloud-layout-test --ref 22571b47d2 (the historical matrix) | 0 | 400.8 s | cloud-layout-test: 398 PASS, 0 FAIL; artifacts: /workspace/repos/pixelelated/distribution.worktrees/m6-tooling |
+| pixelelated-cloud-validator-test --rclone <image> | 0 | 15.7 s | PASS 30 controls |
+| pixelelated-content-scope-test | 0 | 3.3 s | PASS absolute-root-unreadable-bounded |
+| pixelelated-save-layout-test --busybox <image> | 0 | 29.3 s | save-layout: 39 PASS, 0 FAIL |
+| pixelelated-duckstation-capture-test | 0 | 5.0 s | DuckStation captures: 31 PASS, 0 FAIL |
+| pixelelated-cloud-folder-test (bare) | 2 | 0.0 s | --help exits 0; every attempted run exits 2 before starting any work. |
+| pixelelated-cloud-folder-vm-test (bare) | 2 | 0.0 s | --help exits 0; every attempted run exits 2 before starting any work. |
+| rasteratops-vm-cloud-epic --output (refuses current source) | 2 | 0.0 s | This migration suite is retired. Use a historical source checkout for historical firmware; #508 qualifies manu |
+| pixelelated-vm-cloud-boundaries (bare) | 1 | 0.0 s | FAIL: tree, image, build-id and output required |
+| pixelelated-vm-cloud-boundaries --tree <current> (refuses, #508) | 1 | 0.0 s | FAIL: migration suite retired by #508; use a historical source checkout and firmware |
+| rasteratops-candidate-store --help | 0 | 0.0 s |   -h, --help    show this help message and exit |
+| S2 environment case (sandbox-case.py, fixed tools) | 0 | 19.8 s | PASS |
+
+**Against stage A (`02` § The runs):**
+- **The six that failed now pass:** `build-identity-test` 57/0 (was 21/2), `rasteratops-identity-check` 0 failures (was 1), the validator 30 controls and DuckStation 31/0 (both had refused rclone 1.75.2), content-scope 21/0 (was 19/2), and cloud-layout 13/0 with `TMPDIR` set (was 11/2).
+- **The new refusals are the designed ones:**
+  - the host's busybox, given bare to either writer test, is CANNOT, exit 2 (#997);
+  - `retroarch-wrapper-test` bare exits 2 with its usage line (#996);
+  - `--payload-tests` is still CANNOT here (no `mcopy`, #1010).
+- **The historical cloud-layout matrix:** 398/0 in 400.8 s.
+- **The state check's self-test:** 190 controls, against 183 at stage A; the seven `exec-start-*` are #1000's.
+
+**The S2 environment case:** `sandbox-case.py` against the fixed tools, with the caller's `TMPDIR`, `RCLONE_CONFIG`, an `RCLONE_CONFIG_QA_TYPE` remote, `BASH_ENV` and a function exported. All 10 checks pass:
+- nothing leaked; no function; `BASH_ENV` not sourced; `mktemp` works; loopback only;
+- cloud-layout 13/13;
+- the copied real rclone refused, the stand-in default configuration never written, `--config` passed, and the FakeSP shape intact.
+
+**After `9df25309f3`:** the S2 case, re-run with the fixture's argument order fixed, passes every check. That includes its new one, a T15-shaped shim that reads `$1 $2` refusing `config create`.
+
+**`tools/last-good-scripts-test`, once, on the host, read-only (T15's file, unchanged, sha256 `b8495055873e4ce5…`):**
+- **The run:** bare, with `QA_SYSTEM_ROOT` unset and `TMPDIR=/workspace/tmp/m6-t14/lgst-tmp`, at `b968264c8d`. **rc 1, 671.7 s, 990 PASS, 323 FAIL.**
+- **The busybox it resolved:** its own line reads `sed/mv/cp/tr/head/wc/cut/awk: BusyBox v1.37.0 (Ubuntu 1:1.37.0-7ubuntu1) multi-call binary. -- a copy of /usr/bin/busybox`. That is **the host's**: `image_tool_source` finds no build root beside this worktree and falls back silently (`:400`), which is #662's lead.
+- **The 323 FAIL, attributed as far as they were traced:**
+  - **2 were this slice's, a regression from S2:** section C's broker cases. `89efee384c` put `--config <stage>` before the command, and T15's `load_remote` shims read the command from `$1 $2`. **Fixed in `9df25309f3`**, with the case added to `sandbox-case.py`. The whole suite was not re-run after the fix.
+  - **2 were this slice's, from S8's contract:** sections ag (#421) and ah (#526). T15 passes `--busybox "${BB_HOST}"`, a **copy** in its temp root, so `settings-modes-test` and `melonds-upgrade-test` refuse it: CANNOT, exit 2, *not under a build root's image/system/*. A copy is refused even when T15 resolved a build root's busybox. **Not fixed here:** T15's call is #662's file. It is put to the coordinator on #661.
+  - **The other 319 are in sections that call none of this slice's tools.** Section CF uses the connections fixture, and its failures read rc 75. 61 FAIL lines print `flock: applet not found`: the host's BusyBox 1.37.0 has no `flock` applet, and the image's 1.36.1 has one (both read). The rest were not traced; they are #662's.
+  - **Section ae** (cloud-layout `--archives-only`, T15's call of S5's tool) passed.
+
+**The busybox provenance:** `BusyBox v1.36.1 (2026-10-05 03:37:19 UTC)` from the M7 root `m7-pixelelated-replacement20`'s `image/system/usr/bin/busybox`, sha256 `79e7b20ddbe5abb6…`, the image's BUILD_ID `1a026648442321609b2288c2c9c06803817f9df2`. The rclone is `v1.75.2`, the image's copy at `/workspace/tmp/m6-t14/rclone-image`. No `tools/__pycache__` was written.

@@ -10,7 +10,7 @@ brittleness lens, with one GPT-6 Astra seat. Stage E was the twelve streams of
 the stage-D tip is `7aa8eac253`; the fixed tip is the hand-back's.
 **Delta:** 23 punch items. Twenty-one are resolved and two deferred (PL-11 to
 #986, PL-12 to #1007). The 17 audit bugs (#989 to #1005) are fixed, and the
-lane filed two more and fixed them (#1009, #1011). 26 proofs, each a control
+lane filed two more and fixed them (#1009, #1011). 27 proofs, each a control
 under `docs/qa-logs/2026-10-24-state-tests-s*/` that passes the stage-D tool
 (or the commit before its fix) and fails the fixed one, or the reverse where
 the fix adds a pass.
@@ -91,6 +91,16 @@ the fixed tip.
   recurring cause: a mutation that changes more than the one property under
   test. The fix was the same each time: confirm the stage-D run passes for
   the right reason, by reading its output, before trusting the positive.
+- **A shared fixture broke its consumer, and only running the consumer
+  showed it.** S2 moved `--config` before the command in the connections
+  fixture, and T15's shims read the command from `$1 $2`. S2's own control
+  asserted the moved shape, so it passed. The close-out's single
+  `last-good-scripts-test` run, which the coordinator asked for at 21:39
+  because a consumer proves a shared fixture, failed two broker checks.
+  Fixed in `9df25309f3`, with T15's shim shape added to the control. The
+  same run showed S8's provenance contract refusing T15's copied busybox
+  (#662's file). Both should have been found at their streams: run the
+  consumer when a stream changes something it calls.
 - **Bytecode written beside the tools.** `SourceFileLoader` under `-I` writes
   `tools/__pycache__`, and so does `py_compile`. It happened in
   stages A to D and again in S9 and S11, each time removed by name, before both
@@ -125,6 +135,10 @@ the fixed tip.
 
 ## Practice adjustments
 
+- **A stream that changes a shared fixture or a tool's contract runs that
+  thing's callers before it closes.** Not at the close-out:
+  `git grep -n <tool or fixture> tools/` lists them, and T15's file is
+  run read-only.
 - **A control's mutation changes one property.** Before keeping it, read the
   stage-D run's output for the reason it passed, not only its exit. The two
   discarded mutations, S8's `rm` and S10's lock-stealer, would each have been
