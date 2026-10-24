@@ -25,24 +25,27 @@
 
 ## Current focus
 
-**2026-10-24, late morning.** P0 and every accepted slice branch wait for
-the M7 lane's post-candidate merge to clear the push guard's W42 gate before
+**2026-10-24, midday.** P0 and every accepted slice branch wait for the M7
+lane's post-candidate merge to clear the push guard's W42 gate before
 anything merges to `next` (never `--no-verify`); the order is in § Merge
-notes. **Accepted:** P1 (#641), T1 (#648), T2 (#649), T3 (#650), T5 (#652),
-T6 (#653). **Running:** T30 (#677, Extended) in the T3 session
-(`m6-t3-emulators`), stage C: the GPT seat returned; the Gemini Argon seat
-hit its output ceiling on the full packet and runs again on a trimmed one
-(D-WORKFLOW-195, 10:10:57); a second guest cycle was named. **T7 (#654,
-Local) dispatched 10:11 UTC** to the T5 session (`m6-t5-build-engine`) from
-`docs/reviews/briefs/generic-packages-reached.md` version 2 (`e7978a1ca5`),
-lane `feature/m6-generic-packages-reached-654` at `4ea87f17dd`, worktree
-`distribution.worktrees/m6-generic-packages-reached-654`; its stage-D pause
-is the coordinator's next act there (stream briefs, plan § 6b E). **Waiting
-on the maintainer (#346):** T4's dispatch (#651, brief v2 `0921782112`; a
-third lane); the `portaudio` re-hosting (#849). **Fix packets for M7**
-(#802, #806, #825) are reviewed and named on the host file. **Filed today
-by this lane:** #807 to #811, #838, #839, #842 to #844, #847 to #852. See
-§ State at 2026-10-24.
+notes and § State at 2026-10-24. **Accepted:** P1 (#641), T1 (#648), T2
+(#649), T3 (#650), T5 (#652), T6 (#653); the packet `fix/m6-877-libfmt-sha256`
+(`cf3a8d8e62`, reviewed, merges before T5's branch). **Running:** T30
+(#677, Extended) in the T3 session (`m6-t3-emulators`), **stage E** from
+`docs/reviews/briefs/t30-streams.md` (S0 to S5; audit issue #872; its
+hand-backs arrive one per stream on #677, the coordinator accepts each by
+the brief's shape and the whole by brief § 10 at stage H); **T7** (#654,
+Local) in the T5 session (`m6-t5-build-engine`), through stage B into C
+(its stage-D pause is the coordinator's next act there: stream briefs for
+the four dead-URL bugs it files, the fork-introduced BEHIND rows as Backlog
+bumps in #839's shape, the sixteen #645 rows to post). The T1 session
+(`m6-t1-os-launch`) is idle after #877's packet. **Waiting on the
+maintainer (#346):** T4's dispatch (#651, brief v2 `0921782112`; a third
+lane). **At integration (the coordinator dispatches):** one packet for
+#857 and #873 after T3's merge (the launch table's guards and the five
+regenerated tables); the Backlog bumps #878 and T7's; the
+`fix-pending-image` rows. **Filed today by this lane:** #807 to #811,
+#838, #839, #842 to #844, #847 to #852, #873 to #879.
 
 ## Next commands
 
@@ -245,11 +248,12 @@ is the narrative; this is the index of what a resuming agent must know.
   get` every 30 s, idle named at ten minutes) is re-armed for every working
   lane; before calling a lane idle, read its worktree and the host's
   processes (a Facilitator call in flight is a wait, not idleness).
-- **Register and blindspots.** Decided rows end at D-WORKFLOW-195 on this
+- **Register and blindspots.** Decided rows end at D-WORKFLOW-196 on this
   branch (193: an archive without `PKG_SHA256` fails the fetch; 194: five
   archive versions in four recipes; 195: a seat cut by its output ceiling
-  re-runs on a trimmed packet, same model and effort); the next free ID is
-  196 and a lane may take it. Blindspot entries run to 75 (a corpus read on the wrong tree;
+  re-runs on a trimmed packet, same model and effort; 196: an empty
+  `PKG_SHA256=""` is a missing checksum, `libfmt` the sixth); the next free
+  ID is 197 and a lane may take it. Blindspot entries run to 75 (a corpus read on the wrong tree;
   its guard is `engineering-practices.md` bullet `ab8f750784`); 29 is used
   twice (#811).
 - **Briefs and streams on this branch:** `docs/reviews/briefs/` holds the
