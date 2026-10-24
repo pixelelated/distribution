@@ -286,3 +286,147 @@ staleness checks, the submit launcher's duplicate-owner refusal,
 version 1's list. #656's checklist is P1's five until the dispatch writes § 7
 there. `build-preflight` in report mode exits 1 on this host today (the swap),
 by design.
+
+## Addendum: T10 at its kickoff (2026-10-24, from the brief `docs/reviews/briefs/tooling-guards.md` version 1)
+
+**What we know and assume.** T10 is the area's second slice, **Extended**
+(the security list: `.githooks/**`, the credential and wordlist guards),
+over **31 paths, 6,676 lines; 29 fork-own and 2 upstream-carried (the two
+`.github/scripts/*.sh`, ROCKNIX's); 14 Python, 11 shell, 4 YAML, 2 untagged;
+reach `n/a` 31; 336,673 bytes** -- the three hooks with `guard-lib`,
+`secret-patterns` and `hooks-test` (20 cases at the hash); the four fork
+workflows; the sixteen checkers under `tools/`; and the three `renovation-*`
+tools that exist only on P1's branch (read at `2174265e9c`). 92 fork commits
+since the base over the 28 at the hash. **Three of the 31 changed after the
+hash on other branches** (`ceremony-check` by the #905 packet,
+`pre-commit` by the coordinator's marker refusal, `lint-audit-artifacts` by
+#810's fix): read as deltas, named by commit. The fork's GitHub has **23
+workflows active**, upstream's 19 among them (the build-engine area's). The
+fork CI `fork-checks.yml` has **failed on `next` since 2026-10-22** on one
+step, the W42 summary (M7's); `fork-wordlist.yml` passes and runs on every
+push. The brace glob in `slices.json` is written out in the brief because a
+naive glob-to-regex read one tool of nineteen (the coordinator's own first
+pass, caught the same hour).
+
+**Known unknowns.** U-1 whether any other reader shares `ceremony-check`'s
+fail-open shape (a regex that skips what it does not fit): the hunt is Q3's.
+U-2 whether a checker reads nothing and passes (#845's class) -- each
+checker's empty-input behaviour. U-3 the `PERSONAL_PATTERNS` list against
+`fork-workflow.md`'s *same list* claim, entry by entry (92 quoted entries in
+the hook; the rule's prose is a different shape). U-4 what upstream's 19
+active workflows do on the fork (a schedule that fires, a PR check that
+runs): a lead for the coordinator, not this slice's row. U-5 Gemini's output
+ceiling on a 328 KiB packet (T30's was larger and hit it once): D-WORKFLOW-195
+answers it. U-6 whether `box-check`'s API cost (300 open issues) fits beside
+the coordinator's monitors: the budget is read before and after.
+
+**Patterns.** T4's F-02 (the friction reader), F-22, F-23 are this slice's
+first leads and were found by reading the rule against the tool: the same
+read in the other direction (the tool against its three descriptions) is Q7.
+T6's #845 (`pkgcheck` exits 0 on an unknown name) is the class for Q3. The
+pre-push's header carries its own proven refusals (2026-09-13), the model
+for every guard's positive. Blindspot 67 (a fixture in history before any
+guard read it) is why fixtures are built at run time and why the packet is
+scanned before it is sent. Blindspot 76 is why `pre-commit` now refuses a
+marker on the coordinator's branch -- a delta this slice reads, not a change
+it makes.
+
+**What could we be missing.** A fresh lane runs `tools/forbidden-terms-check`
+and, reading its code, wants to see the list it reads: the brief forbids the
+read (D-WORKFLOW-061); the constructed refusal uses a stand-in file as
+`hooks-test` does. A lane runs `pr-stack-check` to see what it builds: it
+builds a throwaway worktree in the repository -- `--help` only. A seat
+proposes widening `SECRET_PATTERNS`: a stream adds the line it now catches
+*and* the line it must still pass, in `hooks-test`, never a widening alone.
+Pre-mortem: a month on, a push carries a listed word because a stream
+"tidied" `guard_scan`'s regex and the only case that would have caught it
+was never written -- so **a stream on a hook adds the `hooks-test` case that
+fails on the unfixed hook, or it is not a stream**. Replaced mechanism: none
+(a read).
+
+**Adjustments written into version 1 of the brief:** A1 § 2 writes the tool
+list out and names the three after-hash deltas by commit; A2 § 5 scans the
+packet before it is sent and forbids every read of the wordlist and the
+secret's value; A3 § 4 Q6 is a guard table with a positive or a case per
+refusal and a caller per tool; A4 § 4 Q3 hunts the fail-open shape through
+every reader by name; A5 § 7 records the CI's runs and the 23 active
+workflows with one lead for the coordinator; A6 § 8 names the mutating modes
+(`fork-worktree sync|remove|repair`, `pr-stack-check`, `gh workflow run`,
+`gh secret set`) as stops; A7 § 10 runs `hooks-test` on the simulated merge,
+since the coordinator's branch also changes a hook; A8 § 9 the merge order
+(after T9's branch, before T4's).
+
+### Errata from the stranger's proof of T10's brief (version 2, 2026-10-24)
+
+A reader with no context reproduced the brief's claims read-only (8 API
+calls, nothing written outside `/workspace/tmp/m6-coordinator/t10-proof/`):
+most held; six were wrong and two partial, corrected in version 2:
+
+- **The line counts.** The table's "Lines" column was the inventory's
+  (computed on P1's tree): at the read refs `pre-push` is 470 (473 on P1's
+  tip, which adds the three `renovation-*` personal patterns),
+  `lint-audit-artifacts` 394 (426 on P1's: the renovation face,
+  `fc88815ccb`) and `renovation-inventory` 1,597 (the inventory's 1,596
+  predates `00ca350666`); the sum at the read refs is 6,642, the inventory's
+  6,676. Both are now in the brief, labelled. The same fact corrects § 2's
+  claim that the lane's branch differs from the hash on none of the 28: it
+  differs on five (`pre-push`, `lint-audit-artifacts`, `register-check`,
+  `pre-commit`, `hooks-test`), each with a known owner, now listed as the
+  expected shape.
+- **128 fork commits** since the base over the 28, not 92 (125 without
+  merges); the citation ranks (#383 12, #344 and #258 7) were right. The
+  addendum above carries the old figure.
+- **`PERSONAL_PATTERNS`** spans `pre-push:62-188` with 115 quoted entries
+  at the hash (84 `tools/`, 12 `scripts/`), not 62-160 and 92; 62-191 and
+  118 on P1's tip. The rule's 84 `tools/` paths match the hook's 84 by
+  count; the entry-by-entry read stands.
+- **`register-check`** reads 644 IDs on the hash's export, 656 on P1's tip,
+  666 on the coordinator's, 667 on the lane's branch after the merge -- not
+  "667 on the export".
+- **The fork CI** has been red on every run of `next` since 2026-10-19
+  (last green 2026-10-18T11:00Z), not since 10-22; the 2026-10-24 run
+  fails on *ceremonies are not overdue*, the 2026-10-21 run failed on the
+  `box-check` step; 10-22 and 10-23 are the lane's to read.
+- **`generate-changelog.sh`** is not byte-identical to `upstream/next`: one
+  fork hunk (`8a7f33791d`, 2026-09-11) drops the author lookup through
+  `gh api`; `generate-release-body.sh` is identical. The brief had left
+  this as a read to make; it is now the answer, with the hunk's reason as
+  a Q4 row.
+- **Partial: `gh secret list`** fails for this token (`failed`), so the
+  `FORBIDDEN_PATTERNS` secret's existence is inferred from the wordlist
+  workflow's green runs; the brief's command and criterion say so.
+- **Partial: `order.md`'s "6,400 read (6,014 fork-own)"** is P1's own
+  derivation; the inventory's columns give fork-own 6,290 and
+  upstream-carried 386. Quoted as P1's, with the inventory's figures beside.
+- **Not an error:** the lane worktree existed when the proof ran (cut at
+  `50137e3ee0` before the dispatch); the brief said so in the future tense
+  and now says it in the present. `rules-check --help` runs the checks,
+  `forbidden-terms-check --help` treats `--help` as a tree (rc 2): both
+  reproduced, both Q7 rows for the lane.
+
+### Errata from T10's stage A (16:31 UTC, lane tip `5611a4fb62`)
+
+Three figures of version 2 corrected by the lane's own read, written into
+the brief by the coordinator the same hour:
+
+- **`generate-changelog.sh`'s diff against `upstream/next` is upstream's,
+  not the fork's**: two upstream commits (`76693a738d`, `71d8932b33`,
+  2026-10-13/14) are not yet in `next`; the stranger's proof saw the diff
+  and the errata above called it a fork hunk without reading its direction
+  (`git merge-base --is-ancestor` on the two commits settles it). The fork
+  carries no hunk of its own on either upstream script.
+- **`PERSONAL_PATTERNS` holds 14 `scripts/` entries**, not 12 (the 84
+  `tools/` and the 115 total stand).
+- **`hooks-test`'s 20 `expect` call sites print 27 results** at the hash
+  (a site inside a loop runs more than once), 22 sites and 29 results in
+  the worktree; version 2 called the sites "cases" and gave no result
+  count.
+
+Two leads the lane raised for its stage B, noted here because the
+coordinator's own ceremonies lean on them: `box-check:83` reads
+`gh issue list --limit 300` against 458 open issues and prints `0 fail`
+(the checkbox gate in `fork-checks.yml` and `ceremony-check`'s line read a
+third fewer issues than exist), and `forbidden-terms-check` skips the
+tree's 180 tracked symlinks without comparing its scanned count with the
+listed one. Both are Q3's shape (a guard that reads less than it claims);
+the lane files them as bugs at stage D (D-WORKFLOW-187).

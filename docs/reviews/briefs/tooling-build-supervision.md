@@ -294,6 +294,17 @@ is a lead for the coordinator, not a stream. The two legacy-layout lines
   directories under `/tmp` (four `pixelelated-watch-submit-*` on
   2026-10-24): a Q3 lead. `test-watch-job.py tools/watch-job` passes (rc 0,
   10 s).
+  **The lane's stage A (15:47 UTC) found a second layer under the first:**
+  with the module copied in, the three still fail, because `watch-build:96-98`
+  (#493, `d7e2d6be41`) refuses any run with neither an admission receipt nor
+  `--record-only` (`build admission required; prepare
+  tools/host-maintenance/build-admission first`); `test-build-monitor` passes
+  because `admission-test-fixture.py` copies the module **and** prepares a
+  receipt. So the stream that revives the three controls gives their fixtures
+  a prepared admission (the `admission-test-fixture.py` route) or, for the
+  QA-shaped cases, `--record-only`; copying the module alone is not a fix.
+  The record's count is the lane's: 46 `.build-runs/` directories, 1,902 run
+  directories, 2,131 entries (the stranger's 2,022 counted differently).
 
 ## 4. The questions
 
@@ -420,7 +431,7 @@ ticks at acceptance, from the artifacts, never from the hand-back's words.
 - [ ] `04-analysis.md` § Q1 carries the two legacy-layout rows (`tools/fork-newdrive:20-21`, `tools/watch-job:36`) deferred to #640, with the lines quoted and unchanged on the branch (`git diff 8ebaf8daad <fixed-at> -- tools/fork-newdrive tools/watch-job` touches neither line, or a stream brief names the change).
 - [ ] `04-analysis.md` § Q7 reads each claim of the three guides (`README.md`, `build-admission.md`, `retention-report.md`) against a line of code, with the sudoers policy the installer writes quoted from `install`'s source beside the README's sentence about it, and any drift between a rule's description of these tools and the code named as a lead for T4 (posted on #651 by the coordinator).
 - [ ] Every proof in `02-forward-audit.md` carries a `proved:` cell reading `tree`, `history`, `tool-run`, `fix-tree`, `fix-control` (a fix proved by a control re-run in the worktree) or `fix-pending-build` (a fix whose proof is the next real build's own run, the coordinator's); ``grep -c 'proved:' 02-forward-audit.md`` equals ``grep -c '^PROOF:' 00-running-log.md``.
-- [ ] Every punch item carries `question:`; every `bug` this lane files passes `tools/box-check --issue N`; no file under `tools/` is changed on this branch before a stream brief (`git diff --stat 8ebaf8daad <fixed-at> -- tools` is empty, or every hunk is a stream the coordinator briefed), and a stream on `tools/watch-job` or `tools/watch-build` records in `02` the recorded M7 run whose copied logs it was proved against beside the synthetic control.
+- [ ] Every punch item carries `question:`; every `bug` this lane files passes `tools/box-check --issue N`; no file under `tools/` is changed on this branch before a stream brief (`git diff --stat cdc45513b0 <fixed-at> -- tools` is empty -- from the lane's tip at dispatch, since the branch stacked on P1 inherits fifteen `tools/` files from P1 and the coordinator, recorded in `00` and `02` -- or every hunk is a stream the coordinator briefed), and a stream on `tools/watch-job` or `tools/watch-build` records in `02` the recorded M7 run whose copied logs it was proved against beside the synthetic control.
 - [ ] The retro exists at `docs/retros/<date>-m6-tooling-build-supervision.md`, is posted on #656, says what the slice did to the two time-to-play numbers (nothing, or the change named), and, if a stream touched a watcher, what it did to the watcher's silence modes.
 - [ ] `tools/register-check`, `tools/work-log-index --check`, `tools/rules-check --quiet`, `tools/forbidden-terms-check` and `.githooks/hooks-test` pass on the branch before its merge, and `tools/lint-audit-artifacts` prints `PASS` on the folder, each exit code in the hand-back comment.
 
