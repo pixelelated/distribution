@@ -391,7 +391,7 @@ glob_literal() {
 #
 # Two shapes, the same two the pre-push guard knows (#307 PL-006):
 #
-#   A key and a value, in a text config file (.cfg, .conf, .ini, and the
+#   A key and a value, in a text config file (.cfg, .conf, .ini, .toml -- #889 --, and the
 #   network's .nmconnection and .psk) or a copy of one (.backup, .bak, or
 #   any <name>.cfg.<something>: a last-good record is a config too). The key word is matched in any case --
 #   Password=, TOKEN=, PrivateKey = and ClientSecret= were all passed by a
@@ -442,7 +442,7 @@ credential_lines() {
         N=0
         case "${F}" in
             */lang/*|*/locale/*|*/translations/*) ;;
-            *.cfg|*.conf|*.ini|*.nmconnection|*.psk|*.backup|*.bak|*.cfg.*|*.conf.*|*.ini.*)
+            *.cfg|*.conf|*.ini|*.toml|*.nmconnection|*.psk|*.backup|*.bak|*.cfg.*|*.conf.*|*.ini.*)
                 N=$(grep -ciE "${CREDENTIAL_KEYS}" "${F}" 2>/dev/null); RC=$?
                 [ "${RC}" -le 1 ] && [ -n "${N}" ] || { logger -t backuptool "the credential scan could not read ${F#${TREE}/}"; rm -f "${LIST}"; return 1; } ;;
         esac

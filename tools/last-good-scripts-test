@@ -1110,6 +1110,24 @@ rm -f "${KS}/roms/backup"/*.tar.gz "${KS}/roms/backup"/*.zip
 btk backup; rck4=${RC}
 [ "${rck4}" -ne 0 ] && [ -z "$(ls "${KS}/roms/backup"/*.tar.gz 2>/dev/null)" ] && grep -q 'could not be filtered' "${OUT}"; check $? "a backup whose list filter dies part-way (grep exit 2) writes nothing and says why in the log" "rc ${rck4}; archives written: $(ls "${KS}/roms/backup"/*.tar.gz 2>/dev/null | wc -l); log: $(grep -o 'could not be filtered[^|]*' "${OUT}" | head -1) -- one line of the list became a backup announced as a success (#151 PL-14)"
 rm -f "${K}/kshim/grep"
+# A .toml the strip does not know, under the selection (#889). The scan read
+# the key and value shape only in .cfg, .conf, .ini and the network's files,
+# so melonDS.toml's Password = "..." passed it whole before #887 blanked it,
+# and the next TOML with a secret would too. A clean backup first, so the
+# refused one has a previous archive to leave alone; then the same file with
+# the value emptied, which is not a sign-in and must complete. The values are
+# short words, so the file at rest is no credential.
+KST="${KS}/.config/test/settings.toml"
+btk backup; rck5=${RC}
+kst_prev=$(ls "${KS}/roms/backup"/*.tar.gz 2>/dev/null)
+printf '[synth]\nEnabled = true\nPassword = "synth-other"\n' > "${KST}"
+btk backup; rck5b=${RC}
+[ "${rck5}" -eq 0 ] && [ -n "${kst_prev}" ] && [ "${rck5b}" -ne 0 ] && grep -q '^>>> why A SIGN-IN WAS FOUND IN THE BACKUP' "${OUT}" && grep -q 'found 1 line(s) that look like a password or key, in: storage/.config/test/settings.toml$' "${OUT}" && [ "$(ls "${KS}/roms/backup"/*.tar.gz 2>/dev/null)" = "${kst_prev}" ]; check $? "a Password = \"...\" line in a .toml the strip does not know ends the backup, and the previous archive stays the only one (#889)" "#889: clean backup rc ${rck5}; with the .toml rc ${rck5b}; scanner: $(grep -oE 'found [0-9]+ line[^|]*' "${OUT}" | head -1 | grep . || echo silent); archives: $(ls "${KS}/roms/backup"/*.tar.gz 2>/dev/null | wc -l); the .toml in the newest: $(tar -xzOf "$(ls -t "${KS}/roms/backup"/*.tar.gz 2>/dev/null | head -1)" storage/.config/test/settings.toml 2>/dev/null | grep -c synth-other) line(s) carrying the value"
+printf '[synth]\nEnabled = true\nPassword = ""\n' > "${KST}"
+btk backup; rck5c=${RC}
+kst_new=$(ls -t "${KS}/roms/backup"/*.tar.gz 2>/dev/null | head -1)
+[ "${rck5c}" -eq 0 ] && [ "${kst_new}" != "${kst_prev}" ] && tar -xzOf "${kst_new}" storage/.config/test/settings.toml 2>/dev/null | grep -qx 'Password = ""'; check $? "and the same .toml with Password = \"\" is not a sign-in: the backup completes rc 0 and carries it (#889)" "#889: rc ${rck5c}; why '$(grep -o '^>>> why .*' "${OUT}" | head -1)'; scanner: $(grep -oE 'found [0-9]+ line[^|]*' "${OUT}" | head -1 | grep . || echo silent)"
+rm -f "${KST}" "${KS}/roms/backup"/*.tar.gz
 
 echo "  l. a missing cloud folder reads as not there yet whatever the server's words (#142)"
 # absent_not_broken, lifted from cloud_content_restore and run against a shim
