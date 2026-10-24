@@ -12,6 +12,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import shutil
 import subprocess
 import sys
@@ -20,6 +21,23 @@ PACKAGE = Path('projects/ROCKNIX/packages/emulators/standalone/duckstation-sa')
 RULES = Path('projects/ROCKNIX/packages/network/rclone/sources/cloud_sync-rules.txt')
 DEFAULT = '/storage/roms/screenshots'
 LEGACY = '/storage/.config/duckstation/screenshots'
+
+
+RCLONE_RECIPE = 'projects/ROCKNIX/packages/network/rclone/package.mk'
+
+
+def pinned_rclone(root, ref=None):
+    """The rclone version the recipe pins (its last PKG_VERSION), read at run time, not a literal (#991).
+    The same reader is in pixelelated-cloud-validator-test."""
+    if ref:
+        text = subprocess.run(['git', '-C', str(root), 'show', ref + ':' + RCLONE_RECIPE], check=True,
+                              capture_output=True, text=True).stdout
+    else:
+        text = (Path(root) / RCLONE_RECIPE).read_text()
+    found = re.findall(r'^PKG_VERSION="([^"]+)"', text, re.M)
+    if not found:
+        raise AssertionError('no PKG_VERSION in ' + RCLONE_RECIPE)
+    return found[-1]
 
 
 def digest(data):
@@ -175,7 +193,8 @@ def main():
     args.source_root=args.source_root.resolve();args.rclone=args.rclone.resolve();args.output=args.output.resolve()
     args.output.mkdir(parents=True,exist_ok=False)
     version=subprocess.check_output([str(args.rclone),'version'],text=True).splitlines()[0]
-    require(version == 'rclone v1.75.1','use package-pinned rclone: '+version)
+    want=pinned_rclone(args.source_root,args.ref)
+    require(version == 'rclone v'+want,'use the package-pinned rclone '+want+' ('+RCLONE_RECIPE+'), not '+version)
     results=[];sources={}
 
     def case(name,test,entry='game',seed='InputPlumber'):

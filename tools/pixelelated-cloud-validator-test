@@ -11,6 +11,7 @@ import importlib.util
 import json
 from pathlib import Path
 import shutil
+import re
 import subprocess
 import time
 import sys
@@ -21,6 +22,23 @@ spec = importlib.util.spec_from_loader(loader.name, loader)
 legacy = importlib.util.module_from_spec(spec)
 loader.exec_module(legacy)
 require, put = legacy.require, legacy.put
+
+
+RCLONE_RECIPE = 'projects/ROCKNIX/packages/network/rclone/package.mk'
+
+
+def pinned_rclone(root, ref=None):
+    """The rclone version the recipe pins (its last PKG_VERSION), read at run time, not a literal (#991).
+    The same reader is in pixelelated-duckstation-capture-test."""
+    if ref:
+        text = subprocess.run(['git', '-C', str(root), 'show', ref + ':' + RCLONE_RECIPE], check=True,
+                              capture_output=True, text=True).stdout
+    else:
+        text = (Path(root) / RCLONE_RECIPE).read_text()
+    found = re.findall(r'^PKG_VERSION="([^"]+)"', text, re.M)
+    if not found:
+        raise AssertionError('no PKG_VERSION in ' + RCLONE_RECIPE)
+    return found[-1]
 
 
 def snapshot(f):
@@ -55,7 +73,8 @@ def main():
     p.add_argument('--ref', help='Read historical product sources from this commit')
     a=p.parse_args()
     version=subprocess.check_output([a.rclone,'version'],text=True).splitlines()[0]
-    require(version == 'rclone v1.75.1', 'Use the package-pinned rclone1.75.1, not the host fallback: '+version)
+    want=pinned_rclone(ROOT, a.ref)
+    require(version == 'rclone v'+want, 'use the package-pinned rclone '+want+' ('+RCLONE_RECIPE+'), not '+version)
     require(not a.output.exists(), 'use a new output directory')
     a.output.mkdir(parents=True)
     results=[]
