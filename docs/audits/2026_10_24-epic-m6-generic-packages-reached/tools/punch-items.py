@@ -74,6 +74,18 @@ P7 = {   # (outcome, evidence, proved) by F; filled at Phase 7
  "F-01": ("Resolved", "#877, filed by the coordinator; fixed in the packet `fix/m6-877-libfmt-sha256` at `cf3a8d8e62`, ordered ahead of T5's branch; `cf3a8d8e62:projects/ROCKNIX/packages/devel/libfmt/package.mk:12` reads the three witnesses' `5dea48d1...` (P15); D-WORKFLOW-196", "fix-tree"),
  "F-11": ("Deferred", "deferred:#879 (the coordinator's, 10:49): the override's `PKG_ARCH=\"aarch64\"` excludes GENERIC_X64; the inventory applies no `PKG_ARCH`; P14 finds no sibling", ""),
  "F-12": ("Withdrawn", "withdrawn at the coordinator's disposition (#654, 10:49): a sourced generic recipe is live, so `shadowed_by` 0 is right; the effective pins are `04` § Q4's", ""),
+ "F-02": ("Deferred", "deferred:#585, the coordinator's (D-WORKFLOW-164; submission held, D-WORKFLOW-165): #585 (its body's section *Generic recipes the image builds: T7's upstream candidates*, 2026-10-24 11:03 UTC); #880 stays open, Low, with ROCKNIX's mirror named, until a live URL exists or a register row accepts the row as mirror-only", ""),
+ "F-03": ("Deferred", "deferred:#585, the same section; #881 stays open, Low, mirror-covered", ""),
+ "F-04": ("Deferred", "deferred:#585, the same section; #882 stays open, Low, mirror-covered", ""),
+ "F-05": ("Deferred", "deferred:#585, the same section; #883 stays open, Low, mirror-covered", ""),
+ "F-06": ("Deferred", "deferred:#885, one Backlog issue in #839's shape with four sections (the coordinator's); no pin moves in M6", ""),
+ "F-07": ("Deferred", "deferred:#885, its ruby section", ""),
+ "F-08": ("Deferred", "deferred:#885, its glib-networking section", ""),
+ "F-09": ("Deferred", "deferred:#885, its webkitgtk section", ""),
+ "F-10": ("Deferred", "deferred:#645, the sixteen rows posted by the coordinator ([issuecomment-6383422228](https://github.com/pixelelated/distribution/issues/645#issuecomment-6383422228), 11:03 UTC); `git diff --diff-filter=DR --name-only 8ebaf8daad 063f10154a -- packages` is empty", ""),
+ "F-13": ("Resolved", "`ce74769bab` (libsoup) and `49bddf9b3e` (ruby), T7's S1: `${PKG_VERSION%.*}`; the expanded URLs unchanged today, the archives fetched into an empty directory at the unchanged sha256; the fixture's synthetic 3.10.0 gives `3.1/` on the old lines and `3.10/` on the new (P16, P17)", "fixture; fix-tree"),
+ "F-14": ("Resolved", "`063f10154a` (dmidecode over https, the fork's one), T7's S1: the same path, the archive at the unchanged sha256 (P17); the twenty upstream http URLs deferred to #585 (its body's section *Generic recipes the image builds: T7's upstream candidates*, 2026-10-24 11:03 UTC)", "fix-tree"),
+ "F-15": ("Deferred", "deferred:#585 (its body's section *Generic recipes the image builds: T7's upstream candidates*, 2026-10-24 11:03 UTC)", ""),
 }
 
 def main():

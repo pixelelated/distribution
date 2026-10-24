@@ -157,3 +157,29 @@ PROOF: 10:52 P15 #877's packet `cf3a8d8e62` gives `libfmt` 9.1.0 the three witne
 - **The audit issue:** #884, `Audit: M6 T7 the generic packages the image builds -- 15 findings (0 critical, 0 high)`. Labels `audit` and `punch-list`, milestone M6, a sub-issue of #654. `tools/box-check --issue 884`: 15 open, 0 fail.
 - **`05-punch-list.md`** is regenerated with the issue numbers. The pre-issue lint passes.
 - **Stage-D pause:** the lane waits for the coordinator's stream briefs (plan § 6b E, D-WORKFLOW-189) and drafts nothing under `packages/`.
+
+### [Stage E] 11:02 to 11:03 — S1, three `PKG_URL` lines
+
+- **Read first:** `t7-streams.md` at `5955f07e1f` (`git show`, not merged), and plan § 6b E's heredoc rule, re-read at that commit as the stream's first act.
+- **The tests, before the change (11:02):**
+  - the three expanded URLs (`s1/before.txt`);
+  - a fetch into the empty `s1/before-fetch/`: three MATCH;
+  - the synthetic `3.10.0`: `${PKG_VERSION:0:3}` gives `3.1`, `${PKG_VERSION%.*}` gives `3.10`;
+  - https for `dmidecode` answers 302 to a savannah mirror.
+- **The change:** three lines by an exact-string replacement asserted to match once.
+- **After the change:** the URLs are unchanged but `dmidecode`'s scheme; a fetch into the empty `s1/after-fetch/` gives three MATCH; `pkgcheck` rc 0 on all three; the fixture on the recipes' own lines (`s1/fixture.txt`).
+- **Commits:** `ce74769bab` libsoup, `49bddf9b3e` ruby, `063f10154a` dmidecode. One `git add -- <file>` each, with `git status --short` read before and after. Pushed.
+- **Posted on #654** at 11:03 (issuecomment-6383425820).
+
+### [Stage F] 11:03 to 11:04 — verification and the Phase 7 gate
+
+- **The coordinator's targets (#654, 11:03):**
+  - #885 for PL-06 to PL-09;
+  - #645 issuecomment-6383422228 for PL-10;
+  - #585's body section for PL-02 to PL-05, PL-14's twenty and PL-15. Read from #585's body, updated 11:03:19.
+- **`05` regenerated:** every item has an outcome. Resolved: PL-01, PL-13, PL-14. Deferred: PL-02 to PL-11 and PL-15. Withdrawn: PL-12.
+- **`02` § Verification:** P16 to P18.
+
+PROOF: 11:02 P16 the old `PKG_URL` lines give `3.1/` for a synthetic 3.10.0, the new give `3.10/` -- `.qa-scratch/t7/s1/fixture.txt`
+PROOF: 11:02 P17 the three archives fetched from the old and the new URLs into empty directories match the unchanged `PKG_SHA256` -- `.qa-scratch/t7/s1/`
+PROOF: 11:03 P18 `pkgcheck` 0 on the three; the branch's diff from `8ebaf8daad` is the three lines, no `PKG_VERSION` -- `git diff --stat 8ebaf8daad 063f10154a`

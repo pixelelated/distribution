@@ -388,3 +388,21 @@ One row per path (266). (a) and (b) are the two upstream reads; Q4 is the dispos
 | `packages/x11/util/util-macros/package.mk` | upstream-carried | shipped | 17 | identical | `1.20.2` (identical) | none read | `pkgcheck` PASS, T6's copy PASS | HEAD 200 (not fetched); cache stamp matches | follows the base merge; LibreELEC master at `1.20.2` | n/a: upstream-carried, not measured | shipped: 5 plan(s), stamped in 5 of their roots | n/a |
 | `packages/x11/util/xorg-launch-helper/package.mk` | upstream-carried | shipped | 24 | identical | `4` (identical) | `PKG_URL` over http (F-14) | `pkgcheck` PASS, T6's copy PASS | HEAD 200 (not fetched); cache stamp matches | follows the base merge; LibreELEC master at `4` | n/a: upstream-carried, not measured | shipped: 5 plan(s), stamped in 5 of their roots | n/a |
 | `packages/x11/util/xorg-launch-helper/scripts/xorg-launch` | upstream-carried | shipped | 28 | identical | identical | none read | n/a: not a recipe | n/a: a data file its recipe installs | follows the base merge (byte-identical to both) | n/a | shipped: with its recipe | n/a |
+
+## Verification
+
+Stage F, after S1 (`t7-streams.md` at `5955f07e1f`) and the coordinator's dispositions. Every outcome is in `05` § Phase 7 resolution gate.
+
+| # | Claim | Evidence | Class |
+| --- | --- | --- | --- |
+| P16 | the old `PKG_URL` lines of `libsoup` and `ruby` cut a two-digit minor to the wrong series; the new lines do not | each recipe's `PKG_URL` line at `HEAD~3` and after, evaluated under `env -i` with `PKG_VERSION=3.10.0`: `.../3.1/...` before, `.../3.10/...` after (`.qa-scratch/t7/s1/fixture.txt`) | proved: fixture |
+| P17 | S1 changes transport or derivation only: the three archives are the recipes' bytes from the old and the new URLs | `config/options <pkg>` before and after (`before.txt`, `after.txt`: only `dmidecode`'s scheme differs); `curl -fsSL` into the empty `before-fetch/` and `after-fetch/`, `sha256sum` equal to each unchanged `PKG_SHA256`, three MATCH each | proved: fix-tree |
+| P18 | the branch changes three recipe lines and no pin | `tools/pkgcheck` rc 0 on `libsoup`, `ruby` and `dmidecode`; `git diff --stat 8ebaf8daad 063f10154a -- packages projects`: those three files, 3 insertions, 3 deletions; `grep -c '^[-+]PKG_VERSION='` over the diff: 0; `--diff-filter=DR`: empty | proved: fix-tree |
+
+**Re-derived at stage F:**
+- **#877:** `cf3a8d8e62`'s `libfmt` checksum (P15). #877's last checkbox, the integrated build, is #877's own (`fix-pending-image` there).
+- **Bugs:** #880 to #883 stay open, mirror-covered and deferred to #585's section.
+- **Deferrals:** #885 (the four bumps), #645 (the sixteen rows) and #879 (`btrfs-progs`) exist and carry the items.
+- **PL-12** is withdrawn.
+
+**Each S1 commit restamps its package:** `calculate_stamp` hashes the recipe directory. The next build rebuilds `libsoup`, `ruby` and `dmidecode` from the bytes P17 fetched.

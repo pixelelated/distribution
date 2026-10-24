@@ -252,7 +252,7 @@ punch_index:
   source_finding: "F-02"
   owner_area: "a generic recipe: `packages/network/wsdd2`"
   tracked: "#880"
-  outcome: open
+  outcome: "deferred"
 - id: PL-03
   severity: Low
   category: Code Quality
@@ -260,7 +260,7 @@ punch_index:
   source_finding: "F-03"
   owner_area: "a generic recipe (GENERIC_X64 only): `packages/tools/newt`"
   tracked: "#881"
-  outcome: open
+  outcome: "deferred"
 - id: PL-04
   severity: Low
   category: Code Quality
@@ -268,7 +268,7 @@ punch_index:
   source_finding: "F-04"
   owner_area: "a generic recipe: `packages/multimedia/libmpeg2`"
   tracked: "#882"
-  outcome: open
+  outcome: "deferred"
 - id: PL-05
   severity: Low
   category: Code Quality
@@ -276,42 +276,42 @@ punch_index:
   source_finding: "F-05"
   owner_area: "a generic recipe: `packages/devel/configtools`"
   tracked: "#883"
-  outcome: open
+  outcome: "deferred"
 - id: PL-06
   severity: Low
   category: Renovation
   question: Q4
   source_finding: "F-06"
   owner_area: "a fork-introduced recipe: `packages/compress/brotli`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-07
   severity: Low
   category: Renovation
   question: Q4
   source_finding: "F-07"
   owner_area: "a fork-introduced recipe: `packages/devel/ruby`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-08
   severity: Low
   category: Renovation
   question: Q4
   source_finding: "F-08"
   owner_area: "a fork-introduced recipe: `packages/network/glib-networking`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-09
   severity: Low
   category: Renovation
   question: Q4
   source_finding: "F-09"
   owner_area: "a fork-introduced recipe: `packages/web/webkitgtk` (the sign-in window, #576)"
-  outcome: open
+  outcome: "deferred"
 - id: PL-10
   severity: Low
   category: Renovation
   question: Q7
   source_finding: "F-10"
   owner_area: "the upstream series: #645's move table"
-  outcome: open
+  outcome: "deferred"
 - id: PL-11
   severity: Low
   category: Renovation
@@ -332,21 +332,23 @@ punch_index:
   question: Q7
   source_finding: "F-13"
   owner_area: "fork-introduced recipes: `packages/web/libsoup`, `packages/devel/ruby`"
-  outcome: open
+  outcome: "resolved"
+  proved: "fixture; fix-tree"
 - id: PL-14
   severity: Low
   category: Renovation
   question: Q1
   source_finding: "F-14"
   owner_area: "generic recipes (`04` § Q1 lists them)"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-tree"
 - id: PL-15
   severity: Low
   category: Renovation
   question: Q1
   source_finding: "F-15"
   owner_area: "generic recipes: `lm_sensors`, `libfreeaptx`, `nss-mdns`, `oniguruma`, `populatefs`"
-  outcome: open
+  outcome: "deferred"
 ```
 
 ## Phase 7 resolution gate
@@ -354,17 +356,17 @@ punch_index:
 | Item | Outcome | Evidence |
 | --- | --- | --- |
 | PL-01 | **Resolved** | #877, filed by the coordinator; fixed in the packet `fix/m6-877-libfmt-sha256` at `cf3a8d8e62`, ordered ahead of T5's branch; `cf3a8d8e62:projects/ROCKNIX/packages/devel/libfmt/package.mk:12` reads the three witnesses' `5dea48d1...` (P15); D-WORKFLOW-196; fix-tree |
-| PL-02 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-03 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-04 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-05 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-06 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-07 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-08 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-09 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-10 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
+| PL-02 | **Deferred** | deferred:#585, the coordinator's (D-WORKFLOW-164; submission held, D-WORKFLOW-165): #585 (its body's section *Generic recipes the image builds: T7's upstream candidates*, 2026-10-24 11:03 UTC); #880 stays open, Low, with ROCKNIX's mirror named, until a live URL exists or a register row accepts the row as mirror-only |
+| PL-03 | **Deferred** | deferred:#585, the same section; #881 stays open, Low, mirror-covered |
+| PL-04 | **Deferred** | deferred:#585, the same section; #882 stays open, Low, mirror-covered |
+| PL-05 | **Deferred** | deferred:#585, the same section; #883 stays open, Low, mirror-covered |
+| PL-06 | **Deferred** | deferred:#885, one Backlog issue in #839's shape with four sections (the coordinator's); no pin moves in M6 |
+| PL-07 | **Deferred** | deferred:#885, its ruby section |
+| PL-08 | **Deferred** | deferred:#885, its glib-networking section |
+| PL-09 | **Deferred** | deferred:#885, its webkitgtk section |
+| PL-10 | **Deferred** | deferred:#645, the sixteen rows posted by the coordinator ([issuecomment-6383422228](https://github.com/pixelelated/distribution/issues/645#issuecomment-6383422228), 11:03 UTC); `git diff --diff-filter=DR --name-only 8ebaf8daad 063f10154a -- packages` is empty |
 | PL-11 | **Deferred** | deferred:#879 (the coordinator's, 10:49): the override's `PKG_ARCH="aarch64"` excludes GENERIC_X64; the inventory applies no `PKG_ARCH`; P14 finds no sibling |
 | PL-12 | **Withdrawn** | withdrawn at the coordinator's disposition (#654, 10:49): a sourced generic recipe is live, so `shadowed_by` 0 is right; the effective pins are `04` § Q4's |
-| PL-13 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-14 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-15 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
+| PL-13 | **Resolved** | `ce74769bab` (libsoup) and `49bddf9b3e` (ruby), T7's S1: `${PKG_VERSION%.*}`; the expanded URLs unchanged today, the archives fetched into an empty directory at the unchanged sha256; the fixture's synthetic 3.10.0 gives `3.1/` on the old lines and `3.10/` on the new (P16, P17); fixture; fix-tree |
+| PL-14 | **Resolved** | `063f10154a` (dmidecode over https, the fork's one), T7's S1: the same path, the archive at the unchanged sha256 (P17); the twenty upstream http URLs deferred to #585 (its body's section *Generic recipes the image builds: T7's upstream candidates*, 2026-10-24 11:03 UTC); fix-tree |
+| PL-15 | **Deferred** | deferred:#585 (its body's section *Generic recipes the image builds: T7's upstream candidates*, 2026-10-24 11:03 UTC) |
