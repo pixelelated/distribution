@@ -206,3 +206,11 @@ PROOF: 11:03 P18 `pkgcheck` 0 on the three; the branch's diff from `8ebaf8daad` 
 - **Over the slice:** `git diff --stat 8ebaf8daad 063f10154a -- packages` gives three files and three lines. `--diff-filter=DR` gives 0 files. `PKG_VERSION` changes: 0.
 - **#884:** 15 of 15 ticked at their outcomes; `box-check` 0 open, 0 fail.
 - **API budget over the slice:** 4,291 at 10:12 and 4,325 at 10:57 (the hour reset at 10:18:26 mid-loop). The loops' calls were about 245 for (b), 23 for the other paths, 11 for the hash pins, 75 for the GitHub owners and 4 for LibreELEC's commits, plus the tool's own and the tracker's.
+
+### [Close] 11:16 to 11:16 — the completion marker
+
+- **Accepted:** the coordinator accepted T7 at hand-back and closed #884 as completed (`closedAt` 2026-10-24T11:16:04Z).
+- **The marker:** `tools/write-completion.py` (T6's, with `A` and `ISSUE = 884`) printed `#884 closed/completed, 15 ticked, 0 open; completed_at 2026-10-24T11:16:25.987460+00:00`. It wrote `audit-completion.json`, `tracker-final-readback.json` and `tracker-completion.json`, hash-binding `04`, `05` and the two receipts.
+- **The full lint** (11:16:33): `PASS`, with the D-WORKFLOW-184 line.
+- **`ceremony-check`** reads the marker: `audit last 2026-10-24T11:16:25... via #884`. It exits 1 only on M7's W42 summary, as at stage A.
+- **The lane is idle.**

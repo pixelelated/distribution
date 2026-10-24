@@ -37,12 +37,11 @@
 
 ## Current focus
 
-**T7 handed back (11:10 UTC); the lane is idle until the coordinator's acceptance.**
-- `reviewed-at` `4ea87f17dd`, `fixed-at` `063f10154a`; both are in #654's body.
-- The six checkers exit 0; the full lint passes; `register-check` passes on a simulated merge with `e09b57d16c`.
-- #884 is 15 of 15 at its outcomes; #880 to #883 stay open, mirror-covered, and are deferred to #585's section.
-- After acceptance: `audit-completion.json` from #884's closed readback, the full lint posted, and this pointer set to idle.
-- **Rule:** write prose with a quoted heredoc or Python only.
+**T7 complete; the lane is idle (11:16 UTC).**
+- **Accepted** on #654; #884 closed completed.
+- **The marker:** `docs/audits/2026_10_24-epic-m6-generic-packages-reached/audit-completion.json`. The full lint passes.
+- **Hashes:** `reviewed-at` `4ea87f17dd`, `fixed-at` `063f10154a`.
+- **Open:** #880 to #883 stay open until their URLs exist (deferred to #585's section). The worktree stays read only until the coordinator merges it (after T6's, before T4's).
 
 ## Next commands
 
