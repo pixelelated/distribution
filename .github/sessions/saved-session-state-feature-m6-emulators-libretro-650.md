@@ -36,48 +36,32 @@
 
 ## Current focus
 
-**Updated 2026-10-24 ~03:45 UTC by the executor (Opus 5.5, session `a6d65411`, pane `wN:p6`).**
+**Updated 2026-10-24 04:06 UTC by the executor (Opus 5.5, session `a6d65411`, pane `wN:p6`).**
 
-**Stage B, Phase 2, mid-read.** `reviewed-at: d606301784` (the slice's bytes equal `8ebaf8daad`). The audit folder is `docs/audits/2026_10_24-epic-m6-emulators-libretro/`.
+**Stage C pending the M7 window.** Stages A and B are done, and `00` to `04` and a draft `05` are written, under `docs/audits/2026_10_24-epic-m6-emulators-libretro/`.
 
-Written so far:
+- **Findings:** F-01 to F-24.
+- **Bugs:** #799 (fixed `d606301784`), #802 and #806 (the coordinator's).
+- **Guest proofs:** P1 to P4; `proved:` 5 = `GUEST-PROOF:` 5. The guest is down.
+- **The pre-issue lint:** one failure, the pending reviewer provenance.
 
-- `00` (the running log) and `01` (§ Scope, Phase 1).
-- `02` with the mechanical checks done:
-  - wrapper test, plain and `--gated`, with both constructed failures;
-  - `pkgcheck` 152 runs;
-  - shellcheck over 30 files;
-  - the table parse, and the host regeneration (`tools/regen-es-systems.sh`), byte-identical to the GENERIC_X64, H700 and SM8550 images;
-  - the rotation generators, byte-identical;
-  - the `FetchContent` grep.
-- Q4 (b) `tools/q4-pins.py` (151 rows) and Q4 (c) `tools/q4c-patches.sh`, at the pin and at master. Q4 (a) is partly done: the `merge-tree` preview, five conflicts, F-09.
-- Guest proofs P1, P2, P3, P3b, P4 (criterion 12: `proved:` 5 = `GUEST-PROOF:` 5). The guest is down.
-- Findings F-01 to F-15.
-
-Bugs: #799 (the wrapper test's roots, fixed `d606301784`) and #802 (filed by the coordinator: the default PSX core, F-08/F-09).
-
-The coordinator's rulings, read on #650:
-
-- F-07 (aethersx2): `to merge`, class 1, with the base merge.
-- F-06: routed to T5 (#652).
-- #802: references only; the fix comes with the base merge.
-
-**The host:** an M7 window opened at 03:47 UTC (#650 comment 6379424513). No guest, no compiler, no `npm install` until the coordinator relays the return on #650. Reading, `gh api`, `pkgcheck`, shellcheck and the host sandbox continue.
+The M7 window opened at 03:47 UTC. Until the coordinator relays its return on #650: no guest, no compiler, no `npm install`.
 
 ## Next commands
 
-The rest of stage B, in order:
-
-1. **Group 3:** the fork's own core recipes, each `git log -p` and the delta against `upstream/next`; `easyrpg-lr`'s three sub-recipes; the two rotation-table generators read whole.
-2. **Group 2:** `virtual/emulators/package.mk`'s GENERIC_X64 arms and the `X64_SKIP_CORES` comment (#16 is closed); `Install Steam.sh` read structurally, every finding `deferred:M7-merge`; the 24 `sources/*.sh` against `PKG_EMUS`.
-3. **The remaining widget patches:** 0014, 0016, 0019.
-4. **Q4 (a):** the 14 dispositions.
-5. **The Q6 tables:** 131 recipes, 142 systems (from `.qa-scratch/t3-regen/<DEVICE>`), 24 scripts, 15 source sets, 21 patches.
-6. **The `02` coverage table** (344 rows: ``grep -c '^| `projects/ROCKNIX/packages/' 02`` must print 344).
-7. **The fifteen criterion entries.**
-8. **`03`, then `04`** with the renovation face.
-
-Then Phase 4.6, after the return line: `npm install --prefix tools/council`, `tools/council/run verify-pins`, `tools/council/run test`, a probe per seat, Astra (`--member gpt`, max) and Argon (`--member gemini-argon`, high). Then `05`, the lint with `--phase pre-issue`, the audit issue, and the stage-D pause.
+1. On the return line:
+   - `npm install --prefix tools/council`, recording the `tsx` version;
+   - `tools/council/run verify-pins` (its OK line) and `tools/council/run test`;
+   - a probe of each seat (`--prompt-file second-opinions/<member>-probe-prompt.md`);
+   - `tools/council/run invoke --member gpt --provider openrouter --prompt-file second-opinions/gpt-brief.md --output second-opinions/gpt-audit.md` (max);
+   - the same with `--member gemini-argon` (high).
+2. Grade every seat item in `04` § Second opinion, re-reading each artifact. Add any `G-nn` to `tools/punch-items.py`, regenerate `05`, and update `review-plan.json`'s status.
+3. `tools/lint-audit-artifacts <folder> --phase pre-issue` must print `PASS pre-issue artifacts`.
+4. Stage D:
+   - file the audit issue (`Audit: M6 T3 RetroArch and the libretro cores -- N findings (X critical, Y high)`, labels `audit` and `punch-list`, milestone M6, a sub-issue of #650);
+   - file the `bug` issues for the defects without one (PL-005, 006, 009, 010, 011, 012, 021, and whichever the seats add);
+   - run `tools/box-check --issue N` on each;
+   - post the punch list on #650 and pause for the stream briefs.
 
 ## Merge notes
 
