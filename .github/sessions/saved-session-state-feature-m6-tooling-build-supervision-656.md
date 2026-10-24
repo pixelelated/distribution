@@ -38,13 +38,29 @@
 
 ## Current focus
 
-**Stage A done (15:47 UTC); stage B next.**
-- **`reviewed-at`:** `cdc45513b0`, whose bytes equal `8ebaf8daad` on all 18.
-- **Scope:** 18 paths, 3,795 lines, 201,453 bytes, 35 fork commits, none upstream's: equal to the brief.
-- **The eight controls in this worktree:** five pass (swap-reclaim, retention-report, build-admission, build-monitor, watch-job) and three fail (test-progress, test-watch-build of 2026-10-04, test-submit). `hooks-test` passes.
-- **Why the three fail, at two layers:** their fixtures lack `build-admission`; past that, `watch-build:96-98` (#493, `d7e2d6be41`) refuses any run without an admission or `--record-only`. Proved by diagnostic copies under `.qa-scratch/t9/diag/`.
-- **The record:** 46 `.build-runs/`; 1,902 run directories and 2,131 entries against the brief's 2,022. Mtimes are in `.qa-scratch/t9/record/mtimes-before.txt`.
-- **Next:** stage B, the reading (Phases 1 to 4, the guard table), then the seat.
+**Stages A to G done; the lane hands back on #656 and is idle until the coordinator accepts.**
+- **`reviewed-at`:** `cb8019a10b` (bytes equal to `8ebaf8daad` on all 18).
+- **`fixed-at`:** `00e571b8a8`. Both are set in #656's body.
+- **The fixes,** one commit or two per bug:
+  - #913 `9b071c5d12`, `a9bd346d54`;
+  - #914 `c9e38e2939`, `c4d4c147d0`;
+  - #916 `4a22ed0b41`;
+  - #915 `6a25254359`, `86ef7ae6b1` (the addendum);
+  - #917 `dce53bf0ba`;
+  - #918 `d1a1495bc5`;
+  - #919 `e03fc7982d`;
+  - #921 `e8828c13ad`;
+  - #920 `82840dbc42`;
+  - #922 `39d9fc1e04`;
+  - #923 `c1e799b3b5`;
+  - S8 `ad70390f60`, `00e571b8a8`.
+- **#924:** 21 of 21 ticked: 15 Resolved, 5 Deferred (#925, #640, #927, #528, #926), 1 Withdrawn. The lint prints `PASS`, with 21 PROOF lines and 21 `proved:` cells.
+- **The controls at the tip `3527d977a8`:** all ten pass. The table is in `02` § Stage E.
+- **Open with the coordinator:**
+  - S8's index row and personal-paths entry, which leave with `.githooks/pre-push`'s pattern (#657);
+  - #925's 17 rows, copied from the hand-back;
+  - the reinstallation of `reclaim-swap`, the owner's (D-INFRA-015, #346).
+- **Retro:** `docs/retros/2026-10-24-m6-tooling-build-supervision.md`.
 - **Rule:** prose through a quoted heredoc or the Write tool only.
 
 ## Next commands
