@@ -133,11 +133,11 @@ an Opus 5.5 session at high effort in Herdr pane `wN:p4`, agent
 scratchpad and quoted in the 07:50 work-log entry). This lane's rules from
 the futro: no merge of `next` into a slice branch between stage A and stage
 D; every drift report read at every slice close and the re-open named;
-`tools/box-check` on every issue a lane files, at the pause. Next: T1 is through stage F (`c877cf0770`, 2026-10-24 00:58; #720 reworded and ticked, P-05 notes on #728/#748/#758, #796 filed) and its retro is posted; its hand-back, then its acceptance (brief § 10: re-run the harness under
+`tools/box-check` on every issue a lane files, at the pause. Next: **T1 accepted at hand-back 2026-10-24 01:24** (`ba22eea867`; `reviewed-at efadfea08a`, `fixed-at 0f7558cff7`; 13 of 15 criteria ticked; one `Already written:` line owed on Q6's `installtointernal` row, asked of the lane; the simulated merge of this tip into the lane's conflicts only in the four ledgers; #796 and #797 filed from its stage F and retro). Both lanes are idle. **Next: T3's brief (#650, `emulators-libretro`, Extended, currency; research in the 01:00 to 01:20 reads of this session: 344 paths, 31,961 lines, 10,185 read, RetroArch at `bdba046fa6` v1.22.2, 151 core recipes with 144 full-hash pins, one pin differing from `upstream/next`, 14 upstream commits on the paths since `c445081a59`, upstream's `retroarch-0100-ffmpeg9-lavc63.patch` absent here, `mk_es_systems` defined in T5's `distributions/ROCKNIX/config/functions:99` and called at `virtual/emulators/package.mk:1726`, `Install Steam.sh` 2,755 lines fork-own by M7's October commits).** At integration, T1's acceptance leaves (brief § 10: re-run the harness under
 `QA_SYSTEM_ROOT` and `pkgcheck` once; the `fix-pending-image` rows stay open);
 T2 accepted 2026-10-24 (above), its ES merge and pin bump held for the M7 ES
-fixes and D-WORKFLOW-191; T3's brief (#650); the merge order to `next` after
-the M7 candidate (P0, P1, T1, T2); the two calls open with the maintainer on
+fixes and D-WORKFLOW-191; the merge order to `next` after
+the M7 candidate (P0, P1, T1, T2; the ledgers united by whole entries; the change log for T1's player-visible lines the day it lands; `audit-completion.json` for T1 after #701 closes; the drift re-open over M7's `runemu.sh` hunks; the image proof of T1's nine fix-pending-image rows and T2's 21 walks, then #648/#649 and their bugs close, the three device-fact bugs as open items to test); the two calls open with the maintainer on
 #346 (D-SYS-014, D-WORKFLOW-191); the host handoff file is read before any
 runtime. Both lanes report on their issues; nothing wakes this lane on a
 post, so read #648 and #649 at every turn. **And nothing wakes a lane on a
