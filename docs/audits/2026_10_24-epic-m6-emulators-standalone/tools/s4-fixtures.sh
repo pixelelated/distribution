@@ -113,7 +113,14 @@ dcase() { # name want-swap(a>b yes/no) runs
   [ -f "$R/storage/.config/dolphin-emu/Hotkeys.ini" ] || cp "$R/usr/config/dolphin-emu/Hotkeys.ini" "$R/storage/.config/dolphin-emu/"
   local ml="a:b0,b:b1"; [ "$2" = yes ] && ml="a:b1,b:b0"
   { echo "CONF_DIR=$R/storage/.config/dolphin-emu; CON=standard; CONTROLLER_INI=GCPadNew.ini; SDL_DEVICE=pad; MAPLINE='$ml'"
-    lift "${SA}/dolphin-sa/scripts/start_dolphin_gc.sh" '^# Some SDL strings are set for XBox-style' '^done$' | rw "$R"; } > "$R/s.sh"
+    # Since S5 the block lives in dolphin_common.sh (#872 PL-023): source it
+    # (functions only) and call it as start_dolphin_gc.sh does.
+    if src "${SA}/dolphin-sa/scripts/start_dolphin_gc.sh" | grep -q '^# Some SDL strings are set for XBox-style'; then
+      lift "${SA}/dolphin-sa/scripts/start_dolphin_gc.sh" '^# Some SDL strings are set for XBox-style' '^done$' | rw "$R"
+    else
+      src "${SA}/dolphin-sa/scripts/dolphin_common.sh" | rw "$R"
+      echo 'dolphin_face_swap_configs "${CONF_DIR}/${CONTROLLER_INI}" "${CONF_DIR}/${CONTROLLER_INI}"'
+    fi; } > "$R/s.sh"
   local i; for i in $(seq 1 "$3"); do runin "$R" "$R/s.sh"; sha1sum < "$R/storage/.config/dolphin-emu/Hotkeys.ini" | cut -c1-40 >> "$R/hashes"; done
 }
 dcase twice yes 2; H1=$(sed -n 1p "${FX}/dol-twice/hashes"); H2=$(sed -n 2p "${FX}/dol-twice/hashes")
@@ -136,7 +143,11 @@ printf 'shipped' > "$R/usr/config/dolphin-emu/triforce_gecko_codes/GVSJ8P.ini"; 
 runin "$R" "$R/s.sh"
 [ "$(cat "$R/storage/.config/dolphin-emu/GameSettings/GVSJ8P.ini")" = mine ]; verdict dolphin-gamesettings-kept $? "a changed GameSettings file survives (the loop copies only what is absent: F-39's Dolphin claim withdrawn)"
 M=$(src "${SA}/melonds-sa/scripts/start_melonds.sh")
-! grep -q 'rm -rf "${CONF_DIR}/melonDS.toml"' <<<"$M"; verdict melonds-toml-kept $? "[tree] melonDS.toml is not deleted every launch (open: see the stream's record)"
+if grep -q 'rm -rf "${CONF_DIR}/melonDS.toml"' <<<"$M"; then
+  echo "DEFERRED melonds-toml-kept: [tree] melonDS.toml is still deleted every launch, by design until #888 (the coordinator's answer on #677)"
+else
+  verdict melonds-toml-kept 0 "[tree] melonDS.toml is not deleted every launch"
+fi
 
 # ---- NanoBoyAdvance (PL-014b): bios_path, and the recipe's check ----
 ncase() { # name player-bios(yes/no)

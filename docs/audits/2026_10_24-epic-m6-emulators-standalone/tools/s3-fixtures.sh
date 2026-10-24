@@ -120,10 +120,14 @@ verdict skyemu-new-token $? "ra_token.txt holds the user and the token byte for 
 
 # ---- DuckStation's achievements script (S5 may remove it): the quoted test ----
 D=${SA}/duckstation-sa/scripts/cheevos_duckstation.sh
+if [ -z "$(src "$D")" ]; then
+  echo "SKIP duckstation-switch-unset: cheevos_duckstation.sh is not in this tree (removed in S5 as dead, #872 PL-024)"
+else
 mkdir -p "${FX}/d-unset/storage/.config/duckstation"; printf '[Cheevos]\nEnabled = true\n\n' > "${FX}/d-unset/storage/.config/duckstation/settings.ini"
 run d-unset "$D" global.retroachievements.username=synthuser
 { [ "$(rc d-unset)" = 1 ] && grep -q 'not enabled' "${FX}/d-unset/var/log/cheevos.log" && grep -qx 'Enabled = false' "${FX}/d-unset/storage/.config/duckstation/settings.ini"; }
 verdict duckstation-switch-unset $? "the switch key unset: the disabled branch (its log line, Enabled = false), rc 1" "rc $(rc d-unset)"
+fi
 
 # ---- melonDS's set_key (PL-020): | and \ as data, on both paths ----
 M=${SA}/melonds-sa/scripts/cheevos_melonds.sh

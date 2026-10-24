@@ -97,7 +97,8 @@ site drastic ${SA}/drastic-sa/scripts/start_drastic.sh '^#Link savestates to rom
 site ares ${SA}/ares-sa/scripts/start_ares.sh '^# Link  .config/ares to .local' '^# Emulation Station Features' /storage/.local/share/ares /storage/.config/ares
 site skyemu ${SA}/skyemu-sa/scripts/start_skyemu.sh '^# Link  .config/dolphin-emu to .local' '^# Retroachievements' /storage/.local/share/Sky/SkyEmu /storage/.config/SkyEmu
 site bigpemu ${SA}/bigpemu-sa/scripts/start_bigpemu.sh '^# Link bigpemu userdata' '^#Emulation Station Features' /storage/.bigpemu_userdata /storage/.config/bigpemu/userdata
-site hatari ${SA}/hatarisa/scripts/start_hatari.sh '^# create symlink to hatari config dir' '^# Which file should hatari load' /storage/.hatari /storage/.config/hatari
+HATARI_SCRIPT=${SA}/hatarisa/scripts/start_hatarisa.sh; [ -n "$(src "${HATARI_SCRIPT}")" ] || HATARI_SCRIPT=${SA}/hatarisa/scripts/start_hatari.sh   # renamed in S2 (#856)
+site hatari "${HATARI_SCRIPT}" '^# create symlink to hatari config dir' '^# Which file should hatari load' /storage/.hatari /storage/.config/hatari
 site cemu ${SA}/cemu-sa/scripts/start_cemu.sh '^# create link to config directory' '^# Create symlink to logfile' /storage/.config/Cemu/share/mlc01 /storage/roms/bios/cemu/mlc01
 
 # ---- flycast: the old script's own layout, then a second launch ----
