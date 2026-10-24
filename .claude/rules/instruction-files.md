@@ -150,7 +150,7 @@ both lists and to this table, or it is invisible.**
 | `watch-job` | is a long job still alive, stalled, finished, or killed — and is the watcher itself alive | `engineering-practices.md` |
 | `watch-build` | automatically arm the shared watcher for native/Docker builds and retain each run's logs, PID and result | `device-builds.md` |
 | `watch-build-submit` | submit the standard runner independently of its shell; distinguish launch from eventual completion | `engineering-practices.md` |
-| `fork-worktree` | worktree list / remove / repair / sync, refusing to destroy build output | `worktrees.md` |
+| `fork-worktree`, `fork-worktree-test` | worktree list / remove / repair / sync, refusing to destroy build output; its control runs a copy in a throwaway repository | `worktrees.md` |
 | `fork-package-freshness` | are the packages the fork introduces at their latest upstream release, or pinned with a stated reason | `fork-workflow.md` |
 | `vm-upgrade-rehearsal`, `vm-upgrade-readiness-test` | boot the previous image in a guest, seed a player's state, update in place, check every piece survived | `upgrade-and-install.md` |
 | `cloud-pair-migration` | the mixed-installation test: one cloud, a device updated in place from the previous build and a fresh install, the folder's join, move and follow read from the cloud and both confs (D-CLOUD-158) | `rclone-cloud-sync.md` |
