@@ -408,3 +408,35 @@ The details are in the T8 audit's `00` § Stage E, S3.
 **Stops:** five guests (pids 600819, 830264, 865097, 893477 and 901487), each stopped with `tools/vm-stop`, rc 0. Census 0 before and after; host-file lines at 14:18, 14:27 and 14:32.
 
 The details are in the T8 audit's `00` § Stage E, S4.
+
+## 2026-10-24 14:49 UTC — M6 T8: the S3 and S4 payloads retired (D-INFRA-022, #655)
+
+T8 was accepted on #655 at 14:46 UTC, so the record of these cycles is the accepted one: `00` § Stage E, `02` P18 to P21 and § S4's reads, the two entries above, and the transcripts, frames and serial captures under the branch's `.qa-scratch/t8/s3/`. No named test needs these payloads.
+
+**Retired** at 14:49 UTC; nothing held them (`fuser` empty, no QEMU). Each is listed with its sha256 and size, hashed at 14:48:
+
+- `/workspace/artifacts/m6-t8-20261024/t8-target.raw` -- `bb680cc783b43d0f8e599f08d895c9f0f09fad9f6bedb42aee242f10f5931c17`, 6,442,450,944 bytes
+- `/workspace/artifacts/m6-t8-20261024/t8-small.raw` -- `084d0132040e3cfaad540d5c207983541c0ca69c5d182024a3d2e5323da0021d`, 8,388,608 bytes
+- `/workspace/artifacts/m6-t8-20261024/t8-target-s4.raw` -- `17a94f441e75f7699c08c6a5345e573cb02834511be9f94291e2694ecbbfada7`, 6,442,450,944 bytes
+- `/workspace/artifacts/m6-t8-20261024/t8-target-s4b.raw` -- `6f5aa92c4c43b3785d5dc42d02b809029adceea0948c1ee1f2de59803aadb2b4`, 6,442,450,944 bytes
+- `/workspace/artifacts/m6-t8-20261024/s3-boot.qcow2` -- `242d9f49ba5ca09fd6c61c1bfcaa1c23d2bfcb8c7174feb9b038cef8f1c8ef24`, 181,207,040 bytes
+- `/workspace/artifacts/m6-t8-20261024/s4-boot.qcow2` -- `fe7e2237e3e85ebd2624a895806f78e713b415c5a7337f5281e5d8a7ef6ad607`, 180,420,608 bytes
+- `/workspace/artifacts/m6-t8-20261024/s4b-boot.qcow2` -- `9f143ec1a032cd3d01187ccad425229e8c3c4cdc91fe2246d5a179c816e7e2bb`, 180,289,536 bytes
+- `/workspace/artifacts/m6-t8-20261024/s3-boot.ovmf-vars.fd` -- `9b8f8a2ea35cb2b854f255c4a6aa62feb572ff2c12fbb6c3e1be936837d2d4b9`, 540,672 bytes
+- `/workspace/artifacts/m6-t8-20261024/s4-boot.ovmf-vars.fd` -- `0ece195c99033efa9ce19927e3b72b49b89ab5e3ba68d9e2b7209236628bfb87`, 540,672 bytes
+- `/workspace/artifacts/m6-t8-20261024/s4b-boot.ovmf-vars.fd` -- `943f49db378698f6b18721ffbf19a9de633c85476a313fa1724a42cede9b172f`, 540,672 bytes
+- `/workspace/artifacts/m6-t8-20261024/t8.ovmf-vars.fd` -- `404b6b1850fcfa2e3149e72251cb6e3c99862cf4b6df271c7930b887d96a7e52`, 540,672 bytes
+- `/workspace/artifacts/m6-t8-20261024/t8.qcow2` -- `15b8c836baa267ce4e9497932ba91c135e2bc8a7e8690814e40c33fae01b7234`, 2,316,763,136 bytes
+- `/workspace/artifacts/m6-t8-20261024/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261022T235948Z.g069fc2704421-from-ROCKNIX.img.gz` -- `6b4c3079bdee2f47bd1149aac07b11714c591b847f22157fcd6d85f39a7e08fb`, 2,122,289,964 bytes
+- `/workspace/artifacts/m6-t8-20261024/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261022T235948Z.g069fc2704421-from-ROCKNIX.img.gz.sha256` -- `0798edb7d2bc16955715481b1134fd9e33f585f734f3a349aa4faea02f3af3fb`, 158 bytes
+- `/workspace/artifacts/m6-t8-20261024/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261022T235948Z.g069fc2704421-from-ROCKNIX.identity.json` -- `743b6c41120051acb1b5ec3221f745f315e4d8c98f8c91f40fb7c330876d04c7`, 411 bytes
+- `/workspace/tmp/m6-t8/g05/part1.fat` -- `4b51e4e91993d7fce498e13e6dd465beae8b5cb19412a4bdfeb461d1faf38da3`, 4,294,967,296 bytes
+
+**Recovered:** 15,791,276,032 bytes, measured as `/workspace`'s available space before and after. The raw targets were sparse, so this is their allocated size, not their apparent 6 GiB each.
+
+**Kept:**
+- the firmware the image copy came from, `/workspace/artifacts/m6-t1-20261023/pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261022T235948Z.g069fc2704421-from-ROCKNIX.img.gz` (T1's): its sha256 equals the copy's, and its `sha256sum -c` passes. A later proof regenerates a guest from it;
+- the three small files read from S3's pre-fix install (`/workspace/tmp/m6-t8/g05/x/`: `syslinux.cfg`, `grub.cfg`, `fs-resize.log`), the failing control's bytes for #901;
+- the manifest, `.qa-scratch/t8/retire/manifest.txt`.
+
+Nothing of the lane's remains under `/workspace/artifacts/m6-t8-20261024/`; the directory is removed.
