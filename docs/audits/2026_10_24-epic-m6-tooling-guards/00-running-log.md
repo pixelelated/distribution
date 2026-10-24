@@ -300,3 +300,30 @@ PROOF: P20 S3's cases and reads -- `.githooks/hooks-test` on the S2 hooks with S
   This is my miss: `rules-check` was not run after S2. Every later stream now runs it.
 - `worktrees.md` § Removing a worktree, read against the fixed tool: its sentences hold (*refuses if build output is present*, *`--force` only after it has told you what dies*). Left unchanged.
 PROOF: P21 S4's control -- `tools/fork-worktree-test <the tool at 8ebaf8daad> .qa-scratch/t10/s4`: rc 1, the positives FAIL (`.qa-scratch/t10/s4/before.txt`); on the intermediate tool of `4b8419002d`: rc 1 with only repair, sync and the bare-`--preserve` cases failing (`inter.txt`), `hooks-test` PASS; `tools/fork-worktree-test` at `0c0be666eb`: rc 0, 19 ok, PASS (`final.txt`); the throwaway repositories under `.qa-scratch/t10/s4/`, never the fork's.
+
+### [Stage E] 18:34 — S2 follow-up; S5: the tracker readers (#941, #943)
+
+- **A slip, corrected:** S4's checkpoint said `register-check` passed. The sentence was written in the same command as the check, which printed `FAILED`: `MISSING D-WORKFLOW-201` at `tools/fork-worktree:219` and `tools/fork-worktree-test:3`. D-WORKFLOW-200 to 202 are rows on the coordinator's branch, and `register-check` reads `tools/` (not `.githooks/`). The comment was corrected in place at 18:28:31Z, with the correction visible; a friction line records it.
+- **The coordinator's 18:30 UTC post:**
+  - (1) S2's follow-up removes the `fork-newdrive` list item and index row here. Done in `9f6c9b56f9`, after which `rules-check` exits 0.
+  - (2) The D-WORKFLOW-200/201/202 citations stay, since the coordinator merges its branch in at hand-back before criterion 17's checkers run. `register-check` reports the two MISSING lines until then.
+  - (3) My `--force` reading is the documented contract, and the brief is corrected at `cc46c1112a`.
+- **S5, the tests first:**
+  - `docs/qa-logs/2026-10-24-box-check/run.sh`, 4 cases through `gh-double`. All four FAILED on the unfixed tool: it read 300 of 458, passed with the failing checkbox at 350 unseen (rc 0), accepted 458 against a total of 473, and exited 1 on a failing tracker.
+  - `docs/qa-logs/2026-10-24-ceremony-check-tracker/run.py`, 11 cases. On the unfixed tool, 9 FAILED: the `"false"` receipt and the `* [ ]` body accepted, no streamed digest helper, the 2099 futro and *skipped the futro* setting the clock, the hygiene line `ok` over 200 of 250, over a short read and over a failing tracker, and futro and hygiene not counted overdue.
+- **The fixes:**
+  - `66b08a6672` (`box-check`): reads with a ceiling of 1,000 against `totalCount` before and after; exit 2 on a short or failed read. **4/4.**
+  - `811e7f7d2f` (`ceremony-check`):
+    - `gh_all` for the four reads, with a failed `gh` counted;
+    - the receipt typed `is True`, and `[-*+] [ ]` counted;
+    - an `Audit:` issue needs the `audit` label;
+    - `FUTRO_MARKER` anchored; markers after today ignored, with `last_marker` taking main's `today`;
+    - `--no-gh` skips `box-check`;
+    - `file_sha256` streamed (the coordinator's 18:18 hunk).
+
+    **11/11.** The friction reader is untouched (#905's packet).
+- **The live runs** (18:33:32Z to 18:33:53Z; core 4,981 → 4,981, GraphQL 4,907 → 4,897):
+  - `box-check --quiet`: rc 0, `507 issue(s), 1568 open checkbox(es), 0 fail` (300 before the fix). **No newly visible failing checkbox**, so there is nothing to list for the coordinator.
+  - `ceremony-check`: rc 1 on W42 (M7's) and `register` (the recorded MISSING). Hygiene read every closed-completed issue since 2026-09-21: none with an open checkbox.
+- **The open count moved during the slice:** 458 (16:29Z), 473 (16:47Z), 507 (18:33Z).
+PROOF: P22 S5's controls and live runs -- `docs/qa-logs/2026-10-24-box-check/run.sh`: the unfixed tool 4 FAIL, the fixed 4 ok PASS; `docs/qa-logs/2026-10-24-ceremony-check-tracker/run.py`: the unfixed tool 9 FAIL of 11, the fixed 11 ok PASS (`.qa-scratch/t10/s5/`); live at 18:33Z: `box-check --quiet` rc 0, 507 issues, 1568 open checkboxes, 0 fail; `ceremony-check` rc 1 on W42 and the recorded register MISSING, hygiene ok over the full read; budget core 4,981 to 4,981, GraphQL 4,907 to 4,897.

@@ -23,7 +23,7 @@ Every finding is a lead until `04` § Finding Verification and § Second opinion
 | 11 | 04 Q6: the guard table and the tool-caller table | the evidence is here (§ Callers, § The suites, F-rows); the tables are `04`'s | `04` § Q6 |
 | 12 | 04 Q3: the fail-open hunt through the named readers | the evidence is here (F-01 to F-30); the table is `04`'s | `04` § Q3 |
 | 13 | 04 Q7: the personal-path diff entry by entry; three descriptions per guard | P2 (the diff); the description rows are `04`'s | `04` § Q7 |
-| 14 | proof cells in § Proofs = proof lines in 00 | 23 = 23 | § Proofs; `command grep -c` |
+| 14 | proof cells in § Proofs = proof lines in 00 | 24 = 24 | § Proofs; `command grep -c` |
 | 15 | every item `question:`; bugs pass box-check; no member edited before a stream | stage D; `git diff --stat a82d784216 HEAD -- .githooks .github tools` empty | `05` |
 | 16 | the retro | stage G | `docs/retros/` |
 | 17 | the six checks pass before the merge; the lint PASS | stage H | the hand-back |
@@ -529,3 +529,31 @@ The control passes 19 of 19. **`rules-check` reports one failure since S2:** *ho
 | Proof | What it shows | Proved |
 | --- | --- | --- |
 | P21 | S4's control fails on the unfixed tool and passes on the fixed, the intermediate commit's harness green | proved: fix-case |
+
+### S2's follow-up -- `9f6c9b56f9`
+
+The `tools/fork-newdrive` item in `fork-workflow.md` § Personal paths and its row in `instruction-files.md`'s index are removed, as the coordinator ruled at 18:30 UTC. `rules-check --quiet` exits 0; it had failed since `db8ad3958a`.
+
+`register-check` reports `MISSING D-WORKFLOW-201` at `tools/fork-worktree:219` and `tools/fork-worktree-test:3` until the coordinator's branch, which carries the row, is merged in at hand-back.
+
+### S5: the tracker readers (#941, #943) -- `66b08a6672`, `811e7f7d2f`
+
+| Case | Unfixed | Fixed |
+| --- | --- | --- |
+| `box-check`: 458 open issues, a failing checkbox at 350 | FAIL: rc 0, 300 read | ok: rc 1, `FAIL  #650`, 458 read |
+| `box-check`: a total of 473, a read of 458 | FAIL: rc 0 | ok: rc 2, `read 458 of 473` |
+| `box-check`: the tracker does not answer | FAIL: rc 1 | ok: rc 2 |
+| marker: a receipt with `"false"` as a string | FAIL: accepted | ok: refused |
+| marker: a readback body with `* [ ]` | FAIL: accepted | ok: refused |
+| the streamed digest equals `hashlib.sha256` (the 18:18 hunk) | FAIL: no helper | ok |
+| a futro file dated 2099 | FAIL: the clock at 2099-01-01 | ok: none |
+| only a heading that mentions a futro | FAIL: the clock at 2026-10-20 | ok: none |
+| hygiene over 250 closed, an open checkbox at 230 | FAIL: `ok` (200 read) | ok: `DUE`, `#1770` named |
+| hygiene with a total of 999, a read of 250 | FAIL: `ok` | ok: `DUE`, `read 250 of 999` |
+| the tracker does not answer: futro and hygiene counted overdue | FAIL, FAIL | ok, ok |
+
+**The live runs** at 18:33Z read all **507** open issues (1,568 open checkboxes, 0 fail) and every closed-completed issue since 2026-09-21, with no open checkbox among them. **Newly visible failing checkboxes for the coordinator: none.**
+
+| Proof | What it shows | Proved |
+| --- | --- | --- |
+| P22 | S5's controls fail on the unfixed tools and pass on the fixed; the live full reads | proved: fix-case |
