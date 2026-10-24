@@ -96,7 +96,66 @@ PROOF: 15:52 P9 the memory-guard-removed control ran once and is not retained --
 - **The packet** (`tools/t9-packet.py`): `second-opinions/gpt-brief.md`, **295,270 bytes, sha256 `4e15670d1c7b8b46f23ee5e8f64d2cd9a7c6959de368f9ef540a936077bc7967`**, 41 parts. `second-opinions/packet-manifest.json` names each part with its sha256, and the 18 files and the six entry-line files with their own `file_sha256`.
   - **What it carries:** the ask, with `reclaim-swap`, `install` and `build-admission` first; `02`, `03` and `04` whole; the 18 files whole and line-numbered; the context of the seven entry lines (`Makefile:30-50` and `:170-212`, the five scripts' heads, `fork-checks.yml:30-50`); the controls' summary, the two-layer receipts, and the record and cost figures.
   - **Checks before sending:** the hook's secret patterns 0 hits; `forbidden-terms-check --stdin` rc 0; under the 440,000-byte cap.
-- **The refutation** started at 16:03: `timeout 5400 tools/council/run invoke --member gpt --provider openrouter --prompt-file second-opinions/gpt-brief.md --output second-opinions/gpt-audit.md`, in the background.
+- **The refutation** started at 16:02:33 (the log's `start` line): `timeout 5400 tools/council/run invoke --member gpt --provider openrouter --prompt-file second-opinions/gpt-brief.md --output second-opinions/gpt-audit.md`, in the background.
   - **Watching it:** the harness task `bgsvjury2` delivers its end.
   - **Its silent mode:** a hung call is ended only by the Facilitator's own per-attempt and total timeouts and by the `timeout 5400` around it.
 - **`review-plan.json`** is written in T8's shape: depth `independent`, scope `epic`, one reviewer `gpt` (`openai/gpt-6-astra`, lab `openai`, effort `max`, OpenRouter pinned to OpenAI). Its status reads `running` until the seat ends.
+- **The refutation ended at 16:22:33, rc 0.**
+  - One attempt, http 200, `model=openai/gpt-6-astra`, `providers=["OpenAI"]`, effort `max`.
+  - 44,956 reasoning tokens, 51,800 completion tokens, 1,200 s, USD 3.59458, `outcome=success`.
+  - `final.verification`: PASS (observed `openai/gpt-6-astra`, `provider_response`); provider PASS; effort PASS.
+  - The provenance's `user_prompt_sha256` equals the packet's `4e15670d…`. The output is `second-opinions/gpt-audit.md`, 30,928 bytes.
+
+## [Stage C] 16:23 to 16:40 UTC — the second opinion graded
+
+- **Read at their sites before grading:**
+  - Rows 14, 16, 29 and 31's controls (`test-build-monitor:188-196`, `:215-228`; `test-build-admission:28-32`, `:55-60`, `:80-84`).
+  - `test-retention-report:35-44` (G-46) and `scripts/build:5-10` (G-16).
+  - Both clones' `.git` devices (G-12): 66304 and 66304. The `rocknix` registry is present and the `distribution` one absent.
+- **F-01's history** (the seat asked): exports of `d7e2d6be41^` (`e198f0fc3b`) and `d7e2d6be41` under `/workspace/tmp/m6-t9/hist-*` (`df -i` 21%).
+  - At `e198f0fc3b`: `test-progress.py` rc 0 `13 PASS; 0 FAIL`; `test-watch-build.py` rc 0 `35 PASS; 0 FAIL`; `test-submit.py` rc 0.
+  - At `d7e2d6be41`: all three rc 1.
+  - A first pass printed `rc 0` for all six because `$?` was read after a command substitution inside `printf`'s arguments. The second pass captured each exit first, and those are the exits recorded.
+  - `/tmp/pixelelated-watch-submit-*` went 6 → 10: passing runs leak too.
+- **The record's outcomes:** rc 0 1,470; rc 1 397; rc 2 10; rc 125 4; rc 143 3; rc 137, 130 and 127 one each.
+- **Graded in `04` § Second opinion,** all 55 items:
+  - **Confirmed, into findings:** G-03, G-06, G-08 (narrowed to Medium), G-10, G-11, G-12, G-17, G-22, G-26, G-27, G-28, G-29, G-30, G-33, G-34, G-36, G-37, G-38, G-40, G-41, G-45, G-46, G-47, G-48, G-49 to G-53, G-55.
+  - **Narrowed to F-21's leads:** G-13 to G-19, G-21, G-25, G-42 to G-44. G-54 is a lead in F-20.
+  - **Withdrawn or no item, each with its reason:** G-01, G-02, G-04, G-05, G-07, G-09, G-20, G-23, G-24, G-31, G-32, G-35, G-39.
+- **The refutations accepted:**
+  - F-04, F-07, F-08 and F-10 re-graded Medium; F-05 broadened; F-06's escape made precise.
+  - F-11 withdrawn: the boundary test is the retained control.
+  - F-01's history proved (P10).
+  - Five guard-table rows corrected (14, 16, 29, 31, 59), ten rows added (64 to 73), and row 51 corrected.
+- **My statements corrected:**
+  - `03` § 3.2 said no control touches real Docker; `test-retention-report` does (G-46).
+  - `03` § 3.5 said the 900 s window covers the scan; it starts after it (G-41).
+  - `02`'s install row said the `assert` is safe because `-O` is never passed; an administrator can pass it (G-11).
+- **New findings:** F-12 to F-21.
+
+PROOF: 16:30 P10 the three controls pass at `d7e2d6be41^` and fail at `d7e2d6be41` -- `/workspace/tmp/m6-t9/hist-*`
+PROOF: 16:28 P11 the record's 1,885 outcomes: rc 0 1,470, rc 1 397, and the rest -- the outcome lines of every `build.status`
+PROOF: 16:28 P12 two clones' admission registries on one volume (device 66304) -- `stat` and `test -d` of both `.git`
+- **Written:** `05` from `tools/punch-items.py` (21 items: 8 Medium, 13 Low, PL-11 withdrawn). `review-plan.json` complete. `tools/lint-audit-artifacts --phase pre-issue`: `PASS pre-issue artifacts`, with `review plan: independent, 2 model perspectives, 1 verified external calls`.
+
+## [Stage D] 16:33 to 16:36 UTC — the bugs, the audit issue, the pause
+
+- **Eleven `bug`s, milestone M6** (16:34:03), each with its trace, its VM line, criteria an agent can tick and `Already written:`:
+  - #913: F-01, with F-02 and F-15;
+  - #914: F-03, with G-47 and G-48;
+  - #915: F-04;
+  - #916: F-05, with F-18;
+  - #917: F-06;
+  - #918: F-07;
+  - #919: F-12;
+  - #920: F-14;
+  - #921: F-16;
+  - #922: F-17;
+  - #923: F-19.
+  - `tools/box-check --issue N`: 0 fail on each.
+- **The audit issue #924**, `Audit: M6 T9 build supervision and host maintenance -- 21 findings (0 critical, 0 high, 8 medium, 13 low)`, labels `audit` and `punch-list`, milestone M6, attached as a sub-issue of #656. One checkbox per item; `box-check` 0 fail.
+- **For the coordinator at this pause:**
+  - the stream briefs;
+  - the leads PL-13 (the installer, D-INFRA-015), PL-20, PL-21, and PL-03's, PL-10's and PL-12's contract choices;
+  - #640's row PL-09.
+- **The lane pauses here** for the coordinator's stream briefs (brief § 8). No file under `tools/` has changed: `git diff --stat 8ebaf8daad HEAD -- tools` is empty.
