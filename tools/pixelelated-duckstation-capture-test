@@ -164,7 +164,9 @@ fbheight() { echo 480; }
                 cmd += ['--bind',str(self.path/directory),'/'+directory]
         for path in self.readonly:
             cmd += ['--ro-bind',str(self.guest(path)),path]
-        cmd += ['--dev','/dev','--proc','/proc','--tmpfs','/tmp','--chdir','/storage',
+        # Nothing of the caller's environment crosses: the named variables only (#998, as #992 for the cloud tests).
+        cmd += ['--dev','/dev','--proc','/proc','--tmpfs','/tmp','--chdir','/storage','--clearenv',
+                '--setenv','LANG','C','--setenv','TERM','dumb','--setenv','TMPDIR','/tmp',
                 '--setenv','HOME','/storage','--setenv','PATH','/usr/bin:/bin',
                 '--setenv','CAPTURE_PROBE','yes' if capture else 'no']
         cmd += command or ['/bin/bash','/entry','/storage/roms/psx/fixture.chd','psx']
@@ -197,7 +199,10 @@ def main():
     require(version == 'rclone v'+want,'use the package-pinned rclone '+want+' ('+RCLONE_RECIPE+'), not '+version)
     results=[];sources={}
 
+    registered=[]
+
     def case(name,test,entry='game',seed='InputPlumber'):
+        registered.append(name)
         if args.cases and name not in args.cases.split(','):
             return
         f=Fixture(args,name,entry,seed);sources.update(f.source)
@@ -341,7 +346,8 @@ def main():
                 f.source[str(PACKAGE/relative)]=digest(data)
         (package/'config/GENERIC_X64').symlink_to('InputPlumber')
         app=f.path/'packagework/build/duckstation-sa-0.1-10998.AppImage'
-        payload=b'#!/bin/sh\nprintf "%s\\n" synthetic-executable-permission-witness\n'
+        # bash, not sh: the payload runs in the case's sandbox, which binds bash and no sh (#998).
+        payload=b'#!/bin/bash\nprintf "%s\\n" synthetic-executable-permission-witness\n'
         put(app,payload,0o644)
         f.run(['/bin/bash','-c',
                'export TARGET_ARCH=x86_64 DEVICE=GENERIC_X64 INSTALL=/packagework/install PKG_BUILD=/packagework/build PKG_DIR=/package-input; '
@@ -349,11 +355,12 @@ def main():
         installed=f.path/'packagework/install/usr/bin/duckstation-sa'
         require(app.stat().st_mode & 0o777 == 0o644,'source/cache mode changed')
         require(installed.read_bytes()==payload,'install altered AppImage bytes')
+        # The installed payload runs inside the same sandbox as the rest, not on the host (#998).
         try:
-            execution=subprocess.run([str(installed)],capture_output=True,text=True,timeout=10)
+            execution=f.run(['/packagework/install/usr/bin/duckstation-sa'])
             result={'rc':execution.returncode,'stdout':execution.stdout,'stderr':execution.stderr}
-        except OSError as error:
-            result={'errno':error.errno,'error':str(error)}
+        except (OSError, AssertionError) as error:
+            result={'error':str(error)}
         put(f.path/'installed-execution.json',json.dumps({'source_mode':oct(app.stat().st_mode & 0o777),
             'installed_mode':oct(installed.stat().st_mode & 0o777),'sha256':digest(payload),'execution':result,
             'scope':'synthetic permission witness, not the AppImage runtime'},indent=2)+'\n')
@@ -364,6 +371,10 @@ def main():
         require('Python3' in (package/'package.mk').read_text(),'runtime dependency absent')
     case('package-executable-mode',package_install)
 
+    unknown=sorted(set(args.cases.split(','))-set(registered)) if args.cases else []
+    if unknown:
+        print('FAIL unknown --cases: '+', '.join(repr(n) for n in unknown),flush=True)
+        sys.exit(2)
     require(results,'no matching cases')
     summary={'passed':sum(r['result']=='PASS' for r in results),'failed':sum(r['result']=='FAIL' for r in results),
              'results':results,'source_ref':args.ref,'source_root':str(args.source_root),'source_sha256':sources,
