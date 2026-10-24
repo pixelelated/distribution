@@ -41,24 +41,49 @@
 
 ## Current focus
 
-**Stage D done (20:33 UTC); paused for the coordinator's stream briefs.**
-- **`reviewed-at`:** `facb2ae523`.
-- **The audit:** `docs/audits/2026_10_24-epic-m6-tooling-vm-harness/`, `00` to `05` plus `cycle/` and `second-opinions/`. The pre-issue lint prints `PASS`.
-- **The one guest cycle** is done and accepted on #659 (19:33): `vm-qa` exits 0 over a SKIP, and `time-to-play --repeat 0` and `emulator-exit-test --only X` pass having measured nothing. The disk is retired.
-- **The seat:** GPT-6 Astra, probe and refutation PASS. Its 72 items are graded: 56 confirmed, 15 narrowed, 1 withdrawn.
-- **Filed:** 18 bugs (#966 to #983) and the audit issue #984 (23 items; 2 High: #969, #970), a sub-issue of #659.
-- **No `tools/` file has changed.** Next: the streams the coordinator briefs (`docs/reviews/briefs/t12-streams.md`), then stages F to H.
+**Stage E complete (S1 to S13); both guest cycles returned; stage F in progress** (updated 2026-10-24, 23:15 UTC).
+- **`reviewed-at`:** `facb2ae523`. **The code tip:** `6e2d204987`. Everything up to it is pushed except this file's commit.
+- **The streams:** S1 to S13 are all landed, one commit per bug or tool; each commit's tree was gated on its controls. Every control in full at `930ea05d70`: `vm-harness-test` 77 PASS, and `vm-pair-test`, `vm-stop-test` and `vm-upgrade-readiness-test` rc 0 (`streams/all-controls-final.txt`).
+- **Cycle 1** (22:14 to 22:48): `vm-qa <069fc2704421 image>` with no override.
+  - The report is in `cycle-e/vm-qa-report.md`: BUILD_ID matches the image; `tear-down: vm-pair down rc 0`; walks 16/16 hold the frames their steps name.
+  - S7 and S8 ran on guest b (a recorded deviation).
+  - scripts, wrapper and time-to-play FAILED; the six ES rows SKIP (02 § Why the six ES rows stayed SKIP).
+- **Cycle 2** (22:56 to 22:59): `--only time-to-play`, in `cycle-e2/`. The kill fix held. The g2g row has no stamp because the product ran no exit sync: **product #1012**.
+- **Both cycles are returned** on the host file, census 0, disks retired. No guest is up, and no further cycle is planned.
+- **`proved:` 33 = `PROOF:` 33; coverage rows 60** (`grep -c -E '^\| `tools/'`).
+- **Open items, none of them this lane's to decide:**
+  - **#1012**, the g2g exit sync stopped before it starts, has no stamp (the cloud lane's bug). The g2g row fails on this image until the product stamps it.
+  - **#1013** (Backlog, under #800): the ES pin in `.identity.json`.
+  - **The frame-diff baseline**, the maintainer's on #346: with the 348 `#578` proposals inert, the fixed compare over cycle 1's walks shows 65 unclaimed boxes (`cycle-e/frame-diff-fixed.md`).
+  - **#986, #987, #988:** PL-19, PL-20 and PL-22's Backlog issues.
+- **In flight:** the scripts-suite TMPDIR runs, which settle cycle 1's 326-check scripts FAIL (the coordinator: if the worktree TMPDIR is the cause, the fix is S5's).
+  - Run 1 (TMPDIR under the worktree) is done: **rc 1, 326 failed**, the same as the cycle.
+  - Run 2 (`TMPDIR=/workspace/tmp/m6-t12/scripts-probe-ws`) started about 23:11. Its pids: the outer shell 834647, `timeout` 1360740 and `last-good-scripts-test` 1360741. It is the harness's background task `b0ekxo82h`.
+  - The results land in `/workspace/tmp/m6-t12/scripts-tmpdir/{wt,ws}/{scripts.log,rc}`, with `finished` written when both are done.
+  - **The reading so far:** the harness unsets TMPDIR before its bwrap runs, and backuptool's mktemp uses the sandbox's private /tmp. If run 2 also fails 326, the cause is not the location; look at the host's uutils coreutils (`/usr/bin/mktemp` is uutils, bound into the sandbox from /usr).
+- **Uncommitted, beside this file:** `02` (#1012 and #1013 recorded) and `tools/punch-items.py` (the Phase 7 outcomes in `P7`; PL-06's evidence ends in a `SCRIPTS_RESULT` placeholder to replace).
 
 ## Next commands
 
 ```bash
-D=/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659
-cd "$D" && git fetch origin && git fetch upstream --no-tags
-git merge-base --is-ancestor 2174265e9c HEAD && echo stacked-on-P1
-git diff --stat next -- .claude CLAUDE.md AGENTS.md tools/lint-audit-artifacts   # exactly the dispatch's paths
-test -f docs/reviews/inventory.json && echo inventory
-tail -3 /tmp/m7-m6-host-coordination-20261023.txt | cut -c1-200; pgrep -c -x qemu-system-x86
-sed -n '1,170p' docs/reviews/briefs/tooling-vm-harness.md
+D=/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659; A=$D/docs/audits/2026_10_24-epic-m6-tooling-vm-harness
+cd "$D" && git status --short && git log --oneline -1
+# 1. The scripts result (wait for task b0ekxo82h, or read the files once `finished` exists):
+L=/workspace/tmp/m6-t12/scripts-tmpdir; cat $L/finished $L/wt/rc $L/ws/rc; tail -n 1 $L/wt/scripts.log $L/ws/scripts.log
+#    Copy both logs and rcs into $A/streams/ (scripts-tmpdir-wt.txt, scripts-tmpdir-ws.txt), write a 00 entry and a PROOF line,
+#    and put the answer in punch-items.py's PL-06 (replace SCRIPTS_RESULT). If ws passes and wt fails, the fix is S5's
+#    (vm-qa's exported TMPDIR), with a vm-harness-test case; then rerun the scripts suite under vm-qa's TMPDIR, with no guest.
+# 2. Regenerate 05 and lint the folder:
+python3 -I $A/tools/punch-items.py > $A/05-punch-list.md && tools/lint-audit-artifacts $A | tail -3   # want PASS (the default phase)
+grep -c 'proved:' $A/02-forward-audit.md; grep -c 'PROOF:' $A/00-running-log.md; grep -c -E '^\| `tools/' $A/02-forward-audit.md   # equal; 60
+# 3. 02 § The suites re-run: vm-harness-test, vm-pair-test, vm-stop-test, the seven S12 tools' controls, and the cycles' reports.
+#    No guest; the ports must be free (port-held-refused binds 10022).
+# 4. fixed-at: <tip> in #659's body (gh issue edit 659 --repo pixelelated/distribution --body-file ...; read it back).
+# 5. Stage G: the retro at docs/retros/2026-10-24-m6-tooling-vm-harness.md, posted on #659. It covers what the slice did to the
+#    two time-to-play numbers (nothing to the numbers; the cells now fail when unmeasured) and what each stream did to a refusal.
+# 6. The checkers: tools/register-check (red here until the coordinator's hand-back merge; D-QA-061 and D-INFRA-031 live on
+#    feature/m6-renovation-plan-346), tools/rules-check --quiet, tools/work-log-index --check, the lint.
+#    Then a work-log entry, this pointer, and the hand-back comment on #659 naming the tip and each artifact by path.
 ```
 
 ## Merge notes
