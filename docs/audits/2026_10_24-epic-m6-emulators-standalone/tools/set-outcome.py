@@ -3,6 +3,7 @@
 # Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 # Copied for M6 T30 (#677) from T3's docs/audits/2026_10_24-epic-m6-emulators-libretro/tools/set-outcome.py at b3cb4ec8c5
 # (feature/m6-emulators-libretro-650); T30's changes, if any, are named below.
+# T30 change: an item without a note= field (an open item) gets one added.
 """set-outcome.py -- record a punch item's Phase 7 outcome in punch-items.py
 (M6 T3, #650), so 05 is regenerated from one list rather than edited.
 
@@ -27,6 +28,8 @@ if state != "-":
     item = item.replace(f'disp="{disp}"', f'disp="{disp}", state="{state}"', 1)
 esc = note.replace("\\", "\\\\").replace('"', '\\"')
 item, n = re.subn(r'note="(?:[^"\\]|\\.)*"', lambda m: f'note="{esc}"', item, count=1)
+if n == 0:  # an open item carries no note yet: add one after disp/state
+    item, n = re.subn(r'(disp="[^"]*"(?:, state="[^"]*")?)', lambda m: m.group(1) + f', note="{esc}"', item, count=1)
 assert n == 1, pl
 open(path, "w").write(s[:i] + item + s[j:])
 print(f"{pl}: {disp}{' (' + state + ')' if state != '-' else ''}")

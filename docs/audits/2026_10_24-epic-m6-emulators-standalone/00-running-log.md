@@ -169,3 +169,28 @@ GUEST-PROOF: 10:22:49 UTC (p3-tools-then-game.out's mtime) -- G16, Gemini's G-03
 - Checked: the mirror's `portaudio-64d1bf913433d7a2835526b80a93487d5038cb8e.tar.gz` fetched to `/workspace/tmp/m6-t30/fetch/mirror-849/` (not the shared cache): http 200, 1,451,821 bytes, sha256 `c33e48217a844cca3b66ab88571b90beefb8fcb6967177951d4dc283587bf834` = `PKG_SHA256` (10:36:26 by `date -u` in the fetch's command).
 - Changed: PL-013 Medium to Low in `tools/punch-items.py` and `05` regenerated (2 High, 16 Medium, 23 Low); F-13's rows in `02` and the coverage row regenerated; `04`'s summary, risk row, Q3 list, Q4(b) row and grading row; #872's body regenerated. The stage-D entry above keeps its counts as written then.
 - What missed it: the stage-B check read the primary URL and the commit and never `get_archive`'s fallback; a fetch check for #841's class must test the primary and the mirror.
+
+## Stage E, S0 (11:08:58 UTC): commands built from data (PL-007 #859, PL-008 #860, PL-018, PL-019 #865, PL-031)
+
+- **Brief:** `docs/reviews/briefs/t30-streams.md` at `bf8184e494` (on `feature/m6-renovation-plan-346`, read with `git show`, not merged).
+- **The test first:** `tools/s0-fixtures.sh` (`787daa65bd`) lifts each script's lines by marker from a commit or `WORKTREE` and runs them under the GENERIC_X64 image's bash, GNU grep and busybox applets (the M7 root `m7-pixelelated-replacement20`, read only; nothing started there). At the unfixed `4c581e492f`: 8 FAIL, with the 6 controls PASS. On the fixed tree: 14 PASS.
+- **The changes**, one commit each:
+  - `dfa9a5a694` scummvm: the `.scummvm` line parsed without a shell.
+  - `9b56828bf8` yabasanshiro: the pad's name kept as text.
+  - `46b6601e98` gzdoom: an argument array, and `doom_value` for a `.doom` file's values.
+  - `861bdbe82b` gopher64: an argument array, no empty password, gopher64's own `retroachievements.json` token preferred (read from its source at the pin, `src/retroachievements.rs:45-68`, `src/main.rs:194-212`).
+  - `6894bfd3cd` Steam: the URI and `-silent` as two elements. The brief named lines 205, 240 and 260; the declaration at 177 changed with them.
+  - Three scripts gained a ROCKNIX copyright line.
+  - `bash -n` passes on all five.
+- **A difference from the brief, said:** the brief wrote gzdoom's prefix as `"${EMUPERF[@]}"`. `EMUPERF` is a string (`${SLOW_CORES}`, `runemu.sh:407`), and quoting it would pass "taskset -c …" as one word, so it stays unquoted, as every other start script has it.
+- **The guest cycle S0**, named on #677 at 11:03:52 (the comment's created_at):
+  - Host file: last M7 block 05:42. Census 0.
+  - Boot at 11:04:05, QEMU pid 1421088, the T30 disk, pidfile `/workspace/tmp/m6-t30/qemu.pid`.
+  - The two fixed scripts were copied by `ssh` with matching sha256 (`840f3c7a5e15…`, `6a4f3cb1a453…`), and bind-mounted over `/usr/bin` for part B only. They were unbound before the stop; the image's hashes (`fd85e7b56f39…`, `55f441e4467f…`) are back.
+  - The crafted file and the renamed copy were removed.
+  - `tools/vm-stop` rc 0 at 11:07:41. Census after: 0.
+- **A fixture fault, recorded:** the guest script's helper block was copied from P2 by line range (7-44) and took P2's C1 lines with it. Three route launches ran again (hatarisa, drastic, amiberry: exit 127, as in G2) and changed nothing.
+
+PROOF: 11:08:03 UTC (s0-fixtures-WORKTREE.out's mtime; the 4c581e492f run's at 11:08:02) -- S0-F1, tools/s0-fixtures.sh at 4c581e492f: 8 FAIL (gopher64: empty password's slot, spaced password, token not used; Steam: URI and -silent one argument; yabasanshiro: the crafted name's marker created; gzdoom: apostrophe, gzdoom calls 0; gzdoom: .doom values; scummvm: the crafted marker created) and 6 controls PASS; WORKTREE: 14 PASS, each stub's call count printed; /workspace/artifacts/m6-t30-20261024/s0-fixtures-4c581e492f.out, /workspace/artifacts/m6-t30-20261024/s0-fixtures-WORKTREE.out
+GUEST-PROOF: 11:05:13 UTC (s0-guest.out's mtime) -- S0-G1, PL-007 and PL-008 on the guest. The image's scripts: the crafted .scummvm marker PRESENT (owner root); "Free Doom's Gate.wad" stops at "xargs: unmatched single quote". The fixed scripts bind-mounted: the crafted file's marker absent, and ScummVM answers "Stray argument 't30-no-such-game;'" (svm-crafted-fixed.exec.log). FOTAQ's argv is "--path=/storage/roms/scummvm/FOTAQ queen". The renamed WAD's argv is "-iwad /storage/roms/doom/Free Doom's Gate.wad", with 0 "unmatched" lines; /workspace/artifacts/m6-t30-20261024/s0-guest.sh, /workspace/artifacts/m6-t30-20261024/s0-guest.out, /workspace/artifacts/m6-t30-20261024/t30/s0/
+GUEST-PROOF: 11:07:01 UTC (s0-gzdoom-renamed.out's mtime; s0-scummvm.out 11:05:57, s0-gzdoom.out 11:06:29) -- S0-G2, first frames with the fixed scripts through G14/G15's harness, n=3 each. FOTAQ (ScummVM's splash) +0.59 / 0.66 / 0.69 s. Freedoom 0.94 / 0.99 / 1.00 s. "Free Doom's Gate.wad" 0.92 / 0.99 / 0.95 s, its frame Freedoom 0.13.0's title (opened: gzdoom-renamed-fixed-2-first.png). killall ended each run, the window gone 0.15-0.17 s after; /workspace/artifacts/m6-t30-20261024/s0-scummvm.out, /workspace/artifacts/m6-t30-20261024/s0-gzdoom.out, /workspace/artifacts/m6-t30-20261024/s0-gzdoom-renamed.out, /workspace/artifacts/m6-t30-20261024/s0-frames/

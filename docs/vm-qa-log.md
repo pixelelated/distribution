@@ -381,3 +381,11 @@ preserved. All original lifecycle channels0, owners exited, admission consumed,
 - **Image and disk** as cycles 1 and 2; up 10:21:55, `tools/vm-stop` rc 0 at 10:22:49; census 0 before and after.
 - **Found:** DuckStation started from the Tools launcher creates `.config/duckstation/savestates` as a real directory. The next game launch from `start_duckstation.sh` deletes it, contents included, before linking (`p3-tools-then-game.out`).
 - **Left behind:** nothing beyond synthetic files on the T30 disk.
+
+## 2026-10-24 11:09 UTC — M6 T30 S0 cycle: commands built from data, before and after (#677, #872)
+
+- **Image and disk** as cycles 1 to 3 (`069fc27044`, `t30.qcow2`). The fixed `start_scummvm.sh` and `start_gzdoom.sh` were bind-mounted over `/usr/bin` for part B, and unbound before the stop. Up 11:04:05, `tools/vm-stop` rc 0 at 11:07:41; census 0 before and after.
+- **Found:**
+  - The image's scripts: the crafted `.scummvm` runs its command as root, and the apostrophe in "Free Doom's Gate.wad" stops `xargs`.
+  - The fixed scripts: no marker, and ScummVM refuses the stray word. Freedoom reaches its title under both names in 0.92-1.00 s. FOTAQ reaches ScummVM's splash in 0.59-0.69 s.
+- **Left behind:** nothing beyond synthetic files on the T30 disk. The binds, the renamed copy and the crafted file were removed.

@@ -120,6 +120,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing stored by the defect; a crafted file in a ROM library would have run once per launch
 - **Acceptance:** On the guest, the crafted .scummvm of G3 launches ScummVM (or its error) and leaves no /tmp/t30-svm-injected; Flight of the Amazon Queen's .scummvm still launches (G15).
 - **Tracked work:** #859
+- **Disposition note:** S0: `dfa9a5a694`; guest S0-G1 (bind-mounted): the crafted file's marker absent, ScummVM refuses the stray word; FOTAQ launches (S0-G2)
 
 ## PL-008: gzdoom's arguments pass through `echo | xargs`: a WAD path with an apostrophe never launches, one with a space is split
 
@@ -135,6 +136,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing written
 - **Acceptance:** On the guest, Freedoom renamed `Free Doom's Gate.wad` reaches its first frame (G14's harness), as does the plain name.
 - **Tracked work:** #860
+- **Disposition note:** S0: `46b6601e98`; guest S0-G1 and S0-G2: "Free Doom's Gate.wad" one argument and its title in 0.92-1.00 s; .doom values by fixture (S0-F1)
 
 ## PL-009: Five achievements scripts keep the previous RetroAchievements session when the switch is on and the token empty, and leave the token at rest when it is off
 
@@ -286,6 +288,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing stored
 - **Acceptance:** A fixture of the fixed lines with a device name holding `'; touch /tmp/x; '` creates no /tmp/x.
 - **Tracked work:** #871
+- **Disposition note:** S0: `9b56828bf8`; S0-F1: the crafted pad name creates no marker, a plain name gives the same file (yabasanshiro is not on the GENERIC_X64 image)
 
 ## PL-019: gopher64 receives the RetroAchievements password on its command line, unquoted; an empty password makes the ROM path its value
 
@@ -301,6 +304,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing stored by the script
 - **Acceptance:** A fixture of the fixed lines with an empty password and with one holding a space prints the ROM path as the last argument and the password as one argument.
 - **Tracked work:** #865
+- **Disposition note:** S0: `861bdbe82b`; S0-F1: no empty password, a spaced password one argument, gopher64's own token preferred; until that token exists, the first sign-in still passes the password on the command line, as gopher64's CLI requires
 
 ## PL-020: melonDS's script writes the RetroAchievements password in plain text into melonDS.ini every launch, with an incomplete sed escape
 
@@ -479,6 +483,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing written
 - **Acceptance:** A fixture prints the URI and -silent as two arguments.
 - **Tracked work:** #871
+- **Disposition note:** S0: `6894bfd3cd`; S0-F1: the URI and -silent two arguments on both launch lines
 
 ## PL-032: DraStic's binary is copied to /storage once and run from there, so an OS update's DraStic never reaches an existing device
 
@@ -639,8 +644,8 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-004 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-005 | Open | T3's file: the coordinator routes it (T3's lane is closed; the table's owner decides) |
 | PL-006 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-007 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-008 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-007 | Resolved | S0: `dfa9a5a694`; guest S0-G1 (bind-mounted): the crafted file's marker absent, ScummVM refuses the stray word; FOTAQ launches (S0-G2) |
+| PL-008 | Resolved | S0: `46b6601e98`; guest S0-G1 and S0-G2: "Free Doom's Gate.wad" one argument and its title in 0.92-1.00 s; .doom values by fixture (S0-F1) |
 | PL-009 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-010 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-011 | Open | awaiting the coordinator's stream briefs (stage E) |
@@ -650,8 +655,8 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-015 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-016 | Deferred | base merge, class 1: upstream `0c43a50420` |
 | PL-017 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-018 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-019 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-018 | Resolved | S0: `9b56828bf8`; S0-F1: the crafted pad name creates no marker, a plain name gives the same file (yabasanshiro is not on the GENERIC_X64 image) |
+| PL-019 | Resolved | S0: `861bdbe82b`; S0-F1: no empty password, a spaced password one argument, gopher64's own token preferred; until that token exists, the first sign-in still passes the password on the command line, as gopher64's CLI requires |
 | PL-020 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-021 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-022 | Open | T3's file: the coordinator routes it |
@@ -663,7 +668,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-028 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-029 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-030 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-031 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-031 | Resolved | S0: `6894bfd3cd`; S0-F1: the URI and -silent two arguments on both launch lines |
 | PL-032 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-033 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-034 | Open | PLAUSIBLE: the classification (bug, open item to test) is the coordinator's |
@@ -734,7 +739,8 @@ punch_index:
   source_finding: "F-07"
   owner_area: "launch: commands from data"
   tracked: "#859"
-  outcome: open
+  state: fix-guest
+  outcome: resolved
 - id: PL-008
   severity: Medium
   category: Bug
@@ -742,7 +748,8 @@ punch_index:
   source_finding: "F-08"
   owner_area: "launch: commands from data"
   tracked: "#860"
-  outcome: open
+  state: fix-guest
+  outcome: resolved
 - id: PL-009
   severity: Medium
   category: Bug
@@ -821,7 +828,8 @@ punch_index:
   source_finding: "F-19"
   owner_area: "launch: commands from data"
   tracked: "#871"
-  outcome: open
+  state: fixture
+  outcome: resolved
 - id: PL-019
   severity: Medium
   category: Security
@@ -829,7 +837,8 @@ punch_index:
   source_finding: "F-20"
   owner_area: "achievements: credentials"
   tracked: "#865"
-  outcome: open
+  state: fixture
+  outcome: resolved
 - id: PL-020
   severity: Medium
   category: Security
@@ -921,7 +930,8 @@ punch_index:
   source_finding: "F-32"
   owner_area: "launch: Steam"
   tracked: "#871"
-  outcome: open
+  state: fixture
+  outcome: resolved
 - id: PL-032
   severity: Medium
   category: Bug

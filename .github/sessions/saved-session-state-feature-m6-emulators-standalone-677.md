@@ -1,7 +1,7 @@
 # Session pointer: M6.P2 T30, the standalone emulators (#677)
 
 > **Seeded:** 2026-10-24 by the coordinator (Fable 5.1, lane `m6-coordinator`, D-WORKFLOW-189); the executor updates this file at every checkpoint
-> **Updated:** 2026-10-24 by the executor (the T3 session, `m6-t3-emulators`), at stage D (the pause)
+> **Updated:** 2026-10-24 by the executor (the T3 session, `m6-t3-emulators`), at stage E (S0 done, S1 next)
 > **Branch:** `feature/m6-emulators-standalone-677`, stacked on `feature/m6-p1-survey-641` at `2174265e9c` (which carries the P0 branch); the coordinator's tip merged in at `f606d29bef`
 > **Worktree:** `/workspace/repos/pixelelated/distribution.worktrees/m6-emulators-standalone-677`; the T3 worktree `m6-emulators-libretro-650` beside it is this session's earlier slice, accepted and idle: read only until the merge (its audit folder's tools are copied from there by path)
 > **Primary checkout:** `/workspace/repos/pixelelated/distribution` on `next` (D-INFRA-025); the legacy `/workspace/repos/rocknix` and every `rocknix.worktrees/*` are the M7 lane's: read only, no process started there (the three install trees the brief § 5 names are read with `ls`)
@@ -36,14 +36,14 @@
 
 ## Current focus
 
-**The stage-D pause.** Stages A to D are done. Audit folder: `docs/audits/2026_10_24-epic-m6-emulators-standalone/` (00-05, second-opinions, tools).
+**Stage E: the streams of `docs/reviews/briefs/t30-streams.md` at `bf8184e494`** (on `feature/m6-renovation-plan-346`; read with `git show`, never merged), S0 to S5 in order. **S0 is done** (`787daa65bd`..`6894bfd3cd`; PL-007 and PL-008 fix-guest, PL-018, PL-019 and PL-031 by fixture). **Next: S1**, the `link_storage_dir` helper (a new file under `projects/ROCKNIX/packages/rocknix/sources/scripts/`, authorised) and the nine link sites. Stages A to D are done. Audit folder: `docs/audits/2026_10_24-epic-m6-emulators-standalone/` (00-05, second-opinions, tools).
 - Punch list: #872, 41 items (2 High, 16 Medium, 23 Low; PL-013 re-graded Low by the coordinator, the mirror fact).
 - Bugs: #853 to #871.
 - The lint: `PASS pre-issue artifacts`.
 - Proofs: 21 (16 on the guest in three cycles, 5 on the host).
 - Phase 4.6: both seats graded; Gemini's on a trimmed packet (D-WORKFLOW-195).
 
-The lane waits for the coordinator's stream briefs (D-WORKFLOW-189), drafting the retro meanwhile, and edits nothing of the 543. `reviewed-at` candidate `c7e3dfcc87`.
+Each stream: the test first, seen to fail, then a commit per script with `Refs`; a guest cycle named on #677 before its boot; the Phase 7 rows at the stream's end; one hand-back comment on #677, then straight on. The retro draft is `docs/retros/2026-10-24-m6-emulators-standalone.md`. `reviewed-at` candidate `c7e3dfcc87`.
 
 ## Next commands
 
