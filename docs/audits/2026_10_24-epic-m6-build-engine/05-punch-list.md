@@ -572,21 +572,24 @@ punch_index:
   question: Q1
   source_finding: "F-21"
   owner_area: "`config/functions` and `scripts/pkgbuild`"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-sandbox (`pkgbuild` a reading)"
 - id: PL-22
   severity: Low
   category: Code Quality
   question: Q2
   source_finding: "F-22"
   owner_area: "`config/multithread`, `scripts/makefile_helper`"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-sandbox"
 - id: PL-23
   severity: Low
   category: Code Quality
   question: Q2
   source_finding: "F-23"
   owner_area: "the identity: `config/build-identity`"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-sandbox"
 - id: PL-24
   severity: Low
   category: Code Quality
@@ -635,9 +638,9 @@ punch_index:
 | PL-18 | **Resolved** | `805b82a97d` (E7): the options mount `:ro`; the optional mounts tested for existence under names of their own; `docker-image-build` kept with its use written. P27; fix-sandbox (`make -n`, a scratch `HOME`) |
 | PL-19 | **Deferred** | deferred:#651 (T4): § Build credentials' two spellings of the options file (the coordinator's disposition) |
 | PL-20 | **Resolved** | `cfb391e75d` (E5): each step fails with its message; the dead `$?` check gone. P21 case 2; fix-sandbox |
-| PL-21 | Open | stage E's stream brief resolves (`t5-streams.md`) |
-| PL-22 | Open | stage E's stream brief resolves (`t5-streams.md`) |
-| PL-23 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-21 | **Resolved** | E8: `ca0e1e4f57`, `3795666fad`, `76311ef19e`, `4cb9964229`, `799f04b69c` (`config/functions`), `48e6992994` (`get_git`), `220ae79382` (`pkgbuild`), one commit per site for #585. P28; fix-sandbox (`pkgbuild` a reading) |
+| PL-22 | **Resolved** | E8: `7abea6eb86` (`multithread`), `7bc8487b7a` (`makefile_helper`). P28; fix-sandbox |
+| PL-23 | **Resolved** | E8: `5817b5698c` (`config/build-identity`): a failing `git status` refuses the identity. P28; `tools/build-identity-test` 21 passed, 2 failed, unchanged (#801); fix-sandbox |
 | PL-24 | **Resolved** | `cfb391e75d` (E5): `${DEVICE_ROOT:-${DEVICE}}`; a failed clean named. P21 case 3; fix-sandbox; fix-pending-image: the next H700 or SM8550 build's initramfs stamp |
 | PL-25 | **Deferred** | deferred:#652: `ccache --show-stats` before and after the first M6 build, recorded on #652 by the coordinator |
 | PL-26 | **Deferred** | deferred:#652: moves to `tooling-and-guards` in `areas.json` when the P1 branch merges (the coordinator's ledger edit, D-WORKFLOW-189) |

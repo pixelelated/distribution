@@ -278,3 +278,17 @@ PROOF: 06:57 P25 `kernel-firmware`'s stamp moves when the device's firmware list
 
 PROOF: 07:00 P26 `checkdeps` changes the build host only on `CHECKDEPS_ALLOW_HOST_CHANGES=1` and otherwise prints the commands and stops, where it ran four sudo changes unasked -- `tools/sb-checkdeps.sh` (F-20, #835)
 PROOF: 07:02 P27 the options mount is read-only and a missing optional path is not mounted, every docker target still resolving -- `tools/sb-make-n.sh` (F-13)
+
+### [Stage E] 07:03 to 07:07 — E8, upstream's helpers (PL-21, PL-22, PL-23)
+
+- The coordinator accepted E7 on #652.
+- The test first: `tools/sb-helpers.sh` runs eight sites from a commit, each over its own fixture (P28). Before, every site shows its defect; after, the right behaviour.
+- The changes, one commit per site, so each is separable for #585:
+  - `config/functions`, split from one diff into five patches applied in turn: `ca0e1e4f57` (`${3:-none}`), `3795666fad` (`${PKG_NAME:-exec}`), `76311ef19e` (`add_group` anchored), `4cb9964229` (`get_module_dir`), `799f04b69c` (`find_path`'s wildcard; its loop variable declared `local`, a slip of mine caught before the commit).
+  - `48e6992994` `get_git`; `220ae79382` `pkgbuild` (a reading); `7abea6eb86` `multithread`; `7bc8487b7a` `makefile_helper`; `5817b5698c` `build-identity`.
+  - `bash -n` passes on all seven files.
+- Not changed: `config/functions` 1313 (`. package.mk || die` disables errexit for a recipe's globals). It is latent while recipes keep assignments only at global scope, and the brief did not name it.
+- `tools/build-identity-test` at HEAD: 21 passed, 2 failed, the same two checks as stage B (#801).
+- Already written: nothing.
+
+PROOF: 07:05-07:06 P28 eight upstream helper sites move from their wrong behaviour to the right one, each over a fixture -- `tools/sb-helpers.sh` (F-21, F-22, F-23)
