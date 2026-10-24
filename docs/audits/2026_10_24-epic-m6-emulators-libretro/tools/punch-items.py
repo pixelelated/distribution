@@ -155,7 +155,7 @@ ITEMS = [
   vm="Yes: the key test reads 0 on the edited files, and a guest launch with the edited GENERIC_X64 profile (fix-guest-copy)",
   aw="each device copied its profile once to /storage/.config/retroarch/retroarch.cfg; the dead lines stay there, harmless -- read both, nothing to migrate",
   acc="The key test of q6-retroarch-cfg-keys-not-read.txt run over the edited profiles prints 0 for every profile, and grep -c core_updater_buildbot_url over sources/*/retroarch.cfg prints 0.",
-  tracked="", disp="open", note=""),
+  tracked="", disp="deferred", state="fix-pending-image", note="S5: `4bd7e65e23`: 381 unread keys -> 0 across the fifteen profiles; core_updater_buildbot_cores_url names each device architecture; a fresh install proves it"),
  dict(id="PL-017", sev="Low", cat="Renovation", q="Q1", src="F-13", area="RetroArch's recipe",
   title="Three status checks after RetroArch's makes have failure arms set -e never reaches",
   what="Drop the three `[ $? -eq 0 ] && echo || exit 1` lines: their success echoes run, their failure arms cannot, since a failed make has already ended the recipe under set -e (config/path:4; Astra).",
@@ -263,7 +263,7 @@ ITEMS = [
   vm="n/a",
   aw="nothing",
   acc="Withdrawn with the reason, or a stream brief names it.",
-  tracked="", disp="open", note="proposed withdrawal at Phase 7"),
+  tracked="", disp="resolved", note="S5: kept as copies, the reason in sources/README at `f9453d954b` (cp -a keeps a symlink, package.mk:139)"),
  dict(id="PL-029", sev="Low", cat="Missing Artifact", q="Q3", src="03 3.6", area="tools: table against image",
   title="No check reads that every core the table names exists where the launcher loads it",
   what="A host check over an image's install tree: every <core> of es_systems.cfg against usr/lib/libretro/<core>_libretro.so, the non-libretro emulators excluded; it would have caught #802.",
@@ -308,7 +308,7 @@ ITEMS = [
   vm="n/a: the rule is the same with one copy",
   aw="nothing: udev reads the image's rules",
   acc="git ls-files retroarch/udev.d lists one Wii remote rule file.",
-  tracked="", disp="open", note=""),
+  tracked="", disp="deferred", state="fix-pending-image", note="S5: `384606f4b6`: one Wii remote rule in the tree; the next image carries one"),
 ]
 
 out = []

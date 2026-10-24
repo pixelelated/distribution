@@ -178,3 +178,13 @@ GUEST-PROOF: 03:35:37 UTC -- P4, tools/time-to-play --vm --no-configure-remote -
   - PROOF: PL-018. The hunks' `+` and `-` lines of 0017 diff empty, before against after (rc 0); the patch reads clean at the pin. The decision cites D-UI-110 and the open D-UI-111.
   - #817, #823 and #824's host-met checkboxes are ticked, at the coordinator's word; #823 has all its checkboxes ticked. #817's first stays open, its exception list lacking #824's line.
   - PL-014 is Deferred, `state: fix-pending-image`; PL-018 is Resolved. Pre-issue lint PASS.
+- 06:48 **S5, the configs** (PL-016, PL-028, PL-033): `4bd7e65e23`, `f9453d954b`, `384606f4b6`.
+  - **A process note:** the first cut of these commits swept the staged udev deletion into the profiles commit. Both commits were still unpushed, so they were soft-reset and recommitted as three; nothing pushed was rewritten.
+  - PROOF: PL-016, `tools/s5-keytest.py` (stage B's rule plus one addition) over the pin's `.c`/`.h`. 381 unread keys before, 0 after, across the fifteen profiles.
+    - The addition: `core_updater_buildbot_url` is only a menu label in the pin (`msg_hash_lbl_str.h:228`). The pin reads `core_updater_buildbot_cores_url` (`configuration.c:1683`).
+    - An empty value overrides `DEFAULT_BUILDBOT_SERVER_URL` (`config_get_path` at 4210). It now names `linux/aarch64` on 13 profiles and `linux/x86_64` on 2. The updater is hidden on all fifteen.
+    - A stricter list (the `SETTING_*` tables plus literal `config_get_*` reads) over-reports 23 keys the pin builds at run time (`quit_press_twice`, `network_remote_enable_user_pN`), so it was not used for removal.
+  - PROOF: the renamed keys against their successors' pinned defaults (`config.def.h`): `input_turbo_button` B (0), `input_turbo_allow_dpad` false, `video_scale_integer_scaling` 0, `video_hdr_paper_white_nits` already set. `input_duty_cycle` "3" is not carried to `input_turbo_duty_cycle` (default 0), since it is unhonoured since the rename.
+  - PROOF: PL-028. `package.mk:139` copies with `cp -a`, which keeps a symlink, so the identical sets stay copies. After PL-016 the sha256s still match within each group (SM4450=SM8250=SM8550 `7595b782`, SM8650=SM8750 `a7c54b91`).
+  - PROOF: PL-033. The two rule files are byte-identical; `scripts/install:112-115` copies `udev.d/*.rules`, so both were in the image (GENERIC_X64's `usr/lib/udev/rules.d`). One is left in the tree.
+  - Outcomes: PL-016 and PL-033 Deferred, `fix-pending-image`; PL-028 Resolved. On #650's word, #817's first checkbox was widened to name #824's line and ticked, and #823 carries the closing note.

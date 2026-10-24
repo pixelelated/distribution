@@ -265,6 +265,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** Yes: the key test reads 0 on the edited files, and a guest launch with the edited GENERIC_X64 profile (fix-guest-copy)
 - **Already written:** each device copied its profile once to /storage/.config/retroarch/retroarch.cfg; the dead lines stay there, harmless -- read both, nothing to migrate
 - **Acceptance:** The key test of q6-retroarch-cfg-keys-not-read.txt run over the edited profiles prints 0 for every profile, and grep -c core_updater_buildbot_url over sources/*/retroarch.cfg prints 0.
+- **Disposition note:** S5: `4bd7e65e23`: 381 unread keys -> 0 across the fifteen profiles; core_updater_buildbot_cores_url names each device architecture; a fresh install proves it
 
 ## PL-017: Three status checks after RetroArch's makes have failure arms set -e never reaches
 
@@ -445,7 +446,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** n/a
 - **Already written:** nothing
 - **Acceptance:** Withdrawn with the reason, or a stream brief names it.
-- **Disposition note:** proposed withdrawal at Phase 7
+- **Disposition note:** S5: kept as copies, the reason in sources/README at `f9453d954b` (cp -a keeps a symlink, package.mk:139)
 
 ## PL-029: No check reads that every core the table names exists where the launcher loads it
 
@@ -523,6 +524,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** n/a: the rule is the same with one copy
 - **Already written:** nothing: udev reads the image's rules
 - **Acceptance:** git ls-files retroarch/udev.d lists one Wii remote rule file.
+- **Disposition note:** S5: `384606f4b6`: one Wii remote rule in the tree; the next image carries one
 
 ## Phase 7 resolution gate
 
@@ -543,7 +545,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-013 | Deferred | #819: S3: fixed at `5935e3ce8e` (the shebang on line 1 of both; bash -n and shellcheck clean); the next image installs them (#819) |
 | PL-014 | Deferred | #820: S4: re-cut at `43323b54b7`; 0004 clean at the pin, its +/- lines byte-identical; the image proves it applies in the build (#820) |
 | PL-015 | Deferred | #821: S1: fixed at `b45a4f1f7a` (the full hash; the archive byte-identical, PKG_SHA256 unchanged) (#821) |
-| PL-016 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-016 | Deferred | S5: `4bd7e65e23`: 381 unread keys -> 0 across the fifteen profiles; core_updater_buildbot_cores_url names each device architecture; a fresh install proves it |
 | PL-017 | Deferred | S1: fixed at `e8bfe9ddda` (the three dead checks removed; set -e proved to end the build at a failed make) |
 | PL-018 | Resolved | S4: kept, the decision written into 0017's header at `0485392d88` (dormant on every shipped profile, D-UI-110; the face question stays D-UI-111's) |
 | PL-019 | Resolved | S2: `87e328640d`: the X64_SKIP_CORES comment says #16 closed and how a dropped core is kept off the table |
@@ -555,12 +557,12 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-025 | Deferred | its own issue #839: a bump is a re-cut and a build, after the M7 candidate |
 | PL-026 | Deferred | the base merge, the coordinator act: the eleven commits of q4a-dispositions.md (`075a7c303b` and the ten beside it) |
 | PL-027 | Deferred | #585: #585 |
-| PL-028 | Open | proposed withdrawal at Phase 7 |
+| PL-028 | Resolved | S5: kept as copies, the reason in sources/README at `f9453d954b` (cp -a keeps a symlink, package.mk:139) |
 | PL-029 | Deferred | its own issue #838 (a fork tool; T9/T10) |
 | PL-030 | Resolved | S2: `87e328640d`: core_built guards the five offers and the scanner; GENERIC_X64 missing cores 6 -> 0, the scanner off GENERIC_X64 only (#823) |
 | PL-031 | Resolved | S2: `87e328640d`: the ffmpeg offer dropped; no regenerated table names it (#824; its guest criterion reads the next image) |
 | PL-032 | Deferred | #825: S0: fixed at `fac139dd43` (merged `faac89ffc0`); the hook's half proved on the guest (#825 criterion 2), RetroArch's half is fix-pending-image until the first image built with it (#825 criterion 1) |
-| PL-033 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-033 | Deferred | S5: `384606f4b6`: one Wii remote rule in the tree; the next image carries one |
 
 ## Machine-readable index
 
@@ -697,7 +699,8 @@ punch_index:
   question: Q6
   source_finding: "F-12"
   owner_area: "RetroArch's profiles"
-  outcome: open
+  state: fix-pending-image
+  outcome: deferred
 - id: PL-017
   severity: Low
   category: Renovation
@@ -786,7 +789,7 @@ punch_index:
   question: Q7
   source_finding: "Q7"
   owner_area: "RetroArch's profiles: copies"
-  outcome: open
+  outcome: resolved
 - id: PL-029
   severity: Low
   category: Missing Artifact
@@ -827,5 +830,6 @@ punch_index:
   question: Q7
   source_finding: "G-04"
   owner_area: "RetroArch's udev rules"
-  outcome: open
+  state: fix-pending-image
+  outcome: deferred
 ```
