@@ -42,5 +42,25 @@ else
   unset EMUPERF
 fi
 
+#NanoBoyAdvance exits without a BIOS at bios_path (#886). Point it at the
+#player's BIOS when there is one, else at the open BIOS the image ships;
+#nothing is copied into the player's BIOS folder. A path the player chose
+#that still exists is kept.
+NBA_CFG="/storage/.config/nanoboyadvance/config.toml"
+PLAYER_BIOS="/storage/roms/bios/gba_bios.bin"
+OPEN_BIOS="/usr/config/nanoboyadvance/bios/gba_bios.bin"
+if [ -f "${NBA_CFG}" ]; then
+  CUR_BIOS=$(sed -n 's/^bios_path = "\(.*\)"$/\1/p' "${NBA_CFG}")
+  if [ ! -f "${CUR_BIOS}" ] || [ "${CUR_BIOS}" = "${OPEN_BIOS}" ]; then
+    NEW_BIOS="${CUR_BIOS}"
+    if [ -f "${PLAYER_BIOS}" ]; then
+      NEW_BIOS="${PLAYER_BIOS}"
+    elif [ -f "${OPEN_BIOS}" ]; then
+      NEW_BIOS="${OPEN_BIOS}"
+    fi
+    [ "${NEW_BIOS}" = "${CUR_BIOS}" ] || sed -i "s#^bios_path = .*#bios_path = \"${NEW_BIOS}\"#" "${NBA_CFG}"
+  fi
+fi
+
 #Run nanoboyadvance emulator
 ${EMUPERF} /usr/bin/NanoBoyAdvance "${1}"

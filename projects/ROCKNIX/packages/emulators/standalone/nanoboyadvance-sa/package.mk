@@ -10,6 +10,10 @@ PKG_DEPENDS_TARGET="toolchain SDL2 glew"
 PKG_LONGDESC="NanoBoyAdvance is a cycle-accurate Game Boy Advance emulator."
 
 PKG_OPEN_SOURCE_BIOS="https://github.com/Nebuleon/ReGBA/raw/master/bios/gba_bios.bin"
+# The URL names a branch, not a commit, so its bytes are checked: the sha256
+# below was first seen on 2026-10-24, equal in a fresh fetch and in two SM8550
+# build roots' copies (trust on first use, #886).
+PKG_OPEN_SOURCE_BIOS_SHA256="661a9afb93624f2c5e77d07dab137bd8d23cff79e8639c62fe621b49bb064749"
 
 if [ "${OPENGL_SUPPORT}" = "yes" ] && [ ! "${PREFER_GLES}" = "yes" ]; then
   PKG_DEPENDS_TARGET+=" ${OPENGL} glu libglvnd"
@@ -32,4 +36,5 @@ makeinstall_target() {
 
   mkdir -p ${INSTALL}/usr/config/nanoboyadvance/bios
     curl -Lo ${INSTALL}/usr/config/nanoboyadvance/bios/gba_bios.bin ${PKG_OPEN_SOURCE_BIOS}
+    echo "${PKG_OPEN_SOURCE_BIOS_SHA256}  ${INSTALL}/usr/config/nanoboyadvance/bios/gba_bios.bin" | sha256sum -c -
 }
