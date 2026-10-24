@@ -392,3 +392,37 @@ The guest was not brought up at the 23:47 return: the tails were finishing on so
 
 - **The guest half waits for resource return:** batches q1 (S3's open criteria, S4, S5), q2 (S6) and q3 (S7 and the tails), then `emulator-exit-test --vm` and `time-to-play --vm --quick` with the tree's `runemu.sh`, `setsettings.sh` and `001-functions` bound over the image's for the run. The cycle is driven by `.qa-scratch/t1/proofs/qrun.sh` (`up`, `copy`, `batch qN`, `ttp`, `down`), and the guest goes down between batches when a window asks for it.
 - **A first `vocabulary-check` run** used the local ES checkout, which is not the pin; it showed that checkout's 15 interface failures. The default checkout, `qa-integration` at the pin `16dbac521`, is stage B's and the evidence.
+
+## [Stage F, guest half] 00:44 — the three batches, the two timing runs, the lint and the checkbox checker
+
+The coordinator's resource return was at 00:24. Each batch had its own boot from `t1.qcow2` (SSH 10032, VNC 19), with `tools/vm-stop` between them. Before every batch the tree's scripts at `ff95b3a211` were copied to `/storage/.qa-t1/`, and their sha256 matched the tree. The driver is `.qa-scratch/t1/proofs/qrun.sh`.
+
+- **q1** (S3's open criteria, S4, S5), 00:25-00:27:09.
+  - Ticked: #727, #736, #756, #759, #713, #738, #715, #721, #716, #740, #741.
+  - Open: #728 (the fan input was synthetic: `DEVICE_HAS_FAN` forced; P-05) and #724 (the seed's mode needs an image).
+  - A first run (00:25:42) had a fault in my proof: a `sed` rewrote a path it had just inserted, so #740's block was skipped. The rerun at 00:26:36 is the evidence.
+- **q2** (S6), 00:30-00:31:55. Loop devices, a private mount namespace, nothing on the guest's own disk.
+  - Ticked: #703, #717, #744, #718, #719, #742, #743, #714, and F-36's list.
+  - Open: #720, whose criterion asks for loop devices and removability, not the fix's shape. Put to the coordinator.
+  - Two faults in my proof, rerun on the same boot: #744's stub was not executable (rerun 00:31:11), and #714 sourced the image's `001-functions` (rerun 00:31:30 with the tree's bound).
+- **q3** (S7, the tails), 00:32-00:43:23.
+  - Ticked: #722, #751, #752, #761, #753, #749, #746, #754, #755; F-50, F-52 and A-11a shown; the tails' argv (#730, D-WORKFLOW-192).
+  - Open:
+    - #723 and #750: their boot-journal halves need an image.
+    - #748: this kernel has no swap and the image no `swapon`; the H700 build roots have it.
+    - #758: the guest has no Wi-Fi device.
+  - #755's edit is from a rerun (00:33:19): my lifter missed `bato_config_set_value () {`, with its space before `()`.
+- **Criterion 2** (the unfixed run first, both runs in the fix commit) ticked on all thirty S5-S7 bugs, from their harness runs.
+- **`tools/emulator-exit-test --vm`** (00:33:3x-00:33:58, the tree's `runemu.sh`, `setsettings.sh` and `001-functions` bound): `PASSED`.
+- **`tools/time-to-play --vm --quick`** with the tree's scripts: first frame **0.73 s**, next game's first frame **1.01 s** (n=1).
+  - Stage B measured 0.64 s and 1.01 s. With the image's own scripts, stage A read 0.76 s and stage B 0.64 s, a 0.12 s spread at n=1 that covers the difference, so no stream is named as having moved a number.
+  - The run ends `Not a pass` on the exit sync with no cloud, as in stage B under `--no-configure-remote`.
+  - **Two runs did not count** (00:33:58 and 00:38:14): the tool reboots the guest when it seeds its ROM or changes the two cloud settings, and the reboot dropped the binds, so those runs measured the image's `runemu.sh` (hash `a81a2bd04cea`, not the tree's `3fca2f25ada9`).
+  - The counted run (00:40:56-00:43:07) bound the scripts from a temporary `/storage/.config/autostart/` hook; the guest's `runemu.sh` hashed as the tree's after the tool's reboot. The hook was removed, the cloud settings put back unset as before, and the probe ROMs are gone.
+- **`05`:** 66 rows Resolved or Withdrawn, 18 Deferred:
+  - 9 to a fix-pending-image row, the coordinator's after the merge: #723's and #750's journals, #724's seed, #739, F-24, F-31, F-41, F-43b and F-51;
+  - 3 as device facts: #728, #748, #758;
+  - #720's wording, put to the coordinator;
+  - and the five from the briefs: #563 (F-21, F-45, F-49), D-SYS-014 (F-68), #585 (F-55).
+  - `tools/lint-audit-artifacts` (resolution): **PASS**.
+- **#701:** 66 of 84 ticked. `tools/box-check`: 0 fail on #701 and on #702-#762.
