@@ -12,8 +12,8 @@ fi
 
 if [ "${CHEEVOS_LED}" == "1" ]; then
   if [ -f "/usr/lib/autostart/quirks/devices/${QUIRK_DEVICE}/bin/achievements" ]; then
-    "/usr/lib/autostart/quirks/devices/${QUIRK_DEVICE}/bin/achievements" $* &
+    "/usr/lib/autostart/quirks/devices/${QUIRK_DEVICE}/bin/achievements" "$@" &
   elif [ -f "/usr/lib/autostart/quirks/platforms/${HW_DEVICE}/bin/achievements" ]; then
-    "/usr/lib/autostart/quirks/platforms/${HW_DEVICE}/bin/achievements" $* &
+    "/usr/lib/autostart/quirks/platforms/${HW_DEVICE}/bin/achievements" "$@" &
   fi
 fi
