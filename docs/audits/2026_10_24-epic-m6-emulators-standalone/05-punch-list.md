@@ -93,7 +93,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** a player's per-game emulator choice for a removed row falls back to the system default (FileData::getEmulator, T3's note): read both, nothing to migrate
 - **Acceptance:** tools/t30-routes.py over a regenerated GENERIC_X64 table reports 0 routes with no script among the members' emulators.
 - **Tracked work:** #857
-- **Disposition note:** T3's file: the coordinator routes it (T3's lane is closed; the table's owner decides)
+- **Disposition note:** the coordinator's disposition (t30-streams.md): one packet at integration after T3's branch merges, #857; tools/t30-routes.py is its check
 
 ## PL-006: Zipped N64 ROMs do not launch in standalone Mupen64Plus: `unzip -Zl -1` under busybox; the `.zip` test matches any name with 'zip' in it
 
@@ -364,7 +364,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** a per-game choice of AdvanceMame falls back to the default
 - **Acceptance:** tools/t30-routes.py over the regenerated tables: no AdvanceMame or moonlight route without its script.
 - **Tracked work:** #857
-- **Disposition note:** T3's file: the coordinator routes it
+- **Disposition note:** the coordinator's disposition (t30-streams.md): the same integration packet, #873
 
 ## PL-023: Dolphin's gc and wii scripts share 282 lines, and `-v $GRENDERER` is overwritten before use
 
@@ -379,6 +379,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** Yes: GENERIC_X64 ships dolphin-sa; a free homebrew .dol is the content (an open item)
 - **Already written:** nothing written
 - **Acceptance:** The two scripts source one shared file; diff of each against its shared part is the system-specific half only.
+- **Disposition note:** S5: `1ed62b9ea0`; S5-T1: each split script with dolphin_common.sh inlined equals the pre-split one with the two named edits (the face swap's definitions moved, the dead -v line dropped)
 
 ## PL-024: Dead code: psp_save_mover.sh (no caller), cheevos_duckstation.sh (not called), six unused password reads, touchHLE's echo of an unset variable
 
@@ -393,6 +394,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** n/a: reachability
 - **Already written:** nothing written by them
 - **Acceptance:** git grep finds no caller for any removed file; pkgcheck and bash -n pass.
+- **Disposition note:** S5: `9af3961853` and the two removal commits; S5-T2: no caller of either removed file, pkgcheck and bash -n pass
 
 ## PL-025: `aethersx2-sa` is deleted upstream for licensing; every row goes with the base merge (nothing removed; save-state compatibility with ARMSX2 not shown)
 
@@ -422,7 +424,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** n/a
 - **Already written:** nothing
 - **Acceptance:** 04 § Q4 (b): each bump proposed has an issue, or the recipe states why it is pinned.
-- **Disposition note:** the coordinator files the bumps
+- **Disposition note:** the coordinator's disposition: the four bumps after the M7 candidate, #878 (D-WORKFLOW-187)
 
 ## PL-027: supermodel-sa and yabasanshiro-sa pin commits that are on no default branch
 
@@ -437,6 +439,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** n/a
 - **Already written:** nothing
 - **Acceptance:** Each recipe's comment names the branch its PKG_VERSION is on.
+- **Disposition note:** S5: `10df1d2f90`: each recipe names the branch its PKG_VERSION is on
 
 ## PL-028: Mupen64Plus copies every ROM into tmpfs before launch and runs with --configdir in /tmp, losing in-emulator settings
 
@@ -562,7 +565,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** Yes for the emulators GENERIC_X64 ships, with content that writes at exit (an open item to test until such content is named)
 - **Already written:** saves lost at shutdown are gone; nothing to migrate
 - **Acceptance:** For each emulator on the guest, a save written at exit survives the hotkey's kill, or the emulator is shown to write nothing at exit.
-- **Disposition note:** an open item to test (bugs-are-agent-first.md): the coordinator classifies
+- **Disposition note:** the coordinator's disposition: an open item to test, #874 (TERM first where an emulator writes at shutdown; the exit path, T1's area)
 
 ## PL-036: OpenBOR's script empties /storage/openbor/Paks on every launch
 
@@ -609,7 +612,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** edits already lost; nothing to restore
 - **Acceptance:** A setting changed in xemu.toml, melonDS.toml and Dolphin's GameSettings survives the next launch preparation (fixtures).
 - **Tracked work:** #871
-- **Disposition note:** S4: xemu `e942dbdf12` fixed (S4-F1); Dolphin's part withdrawn (lines 72-76 already copy only what is absent); melonDS's TOML open, a question on #677 (its deletion is how EmulationStation's settings apply)
+- **Disposition note:** xemu resolved by fixture (`e942dbdf12`, S4-F1); Dolphin withdrawn (lines 72-76 already copy only what is absent); melonDS deferred to #888 (the coordinator's answer on #677)
 
 ## PL-039: Sign-in values enter sed unescaped; sections are bounded by a blank line; ARMSX2's first section omits three keys
 
@@ -667,7 +670,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-002 | Resolved | S2: `9598a24df5`; guest S2-G1: kill data -9 OpenBOR, killall ends it; the image's script wrote none |
 | PL-003 | Resolved | S2: `827f93d13a` (upstream eeb33c5a37); guest S2-G2 with a SUBSTITUTE named mupen64plus-simple (a renamed python3): ended by the fixed line, alive under the image's; #855's checkbox stays open until a real mupen64plus-simple process is seen |
 | PL-004 | Resolved | S2: `a149cc76d5` (upstream 2e7041d273); guest S2-G1: the route starts hatarisa on EmuTOS (exit 127 before) and -9 hatarisa ends it; first frame 0.36-0.42 s (S2-G3) |
-| PL-005 | Open | T3's file: the coordinator routes it (T3's lane is closed; the table's owner decides) |
+| PL-005 | Deferred | #857: the coordinator's disposition (t30-streams.md): one packet at integration after T3's branch merges, #857; tools/t30-routes.py is its check |
 | PL-006 | Resolved | S4: `819e2397bf` (upstream 195a8eba4b's line); guest S4-G1: a zipped .z64 launches as its member, 'Zippy Race.z64' runs in place |
 | PL-007 | Resolved | S0: `dfa9a5a694`; guest S0-G1 (bind-mounted): the crafted file's marker absent, ScummVM refuses the stray word; FOTAQ launches (S0-G2) |
 | PL-008 | Resolved | S0: `46b6601e98`; guest S0-G1 and S0-G2: "Free Doom's Gate.wad" one argument and its title in 0.92-1.00 s; .doom values by fixture (S0-F1) |
@@ -684,12 +687,12 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-019 | Resolved | S0: `861bdbe82b`; S0-F1: no empty password, a spaced password one argument, gopher64's own token preferred; until that token exists, the first sign-in still passes the password on the command line, as gopher64's CLI requires |
 | PL-020 | Resolved | S3: `c4367e12a0`; S3-F1: | \\ & and / byte for byte on both set_key paths; the password's presence in melonDS.ini stays #866's open half |
 | PL-021 | Resolved | S3: `619e20ced8`, `d0f95815a1`; S3-F1: ppsspp's token file mode 600, one temp write; SkyEmu's mode 600 |
-| PL-022 | Open | T3's file: the coordinator routes it |
-| PL-023 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-024 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-022 | Deferred | #857: the coordinator's disposition (t30-streams.md): the same integration packet, #873 |
+| PL-023 | Resolved | S5: `1ed62b9ea0`; S5-T1: each split script with dolphin_common.sh inlined equals the pre-split one with the two named edits (the face swap's definitions moved, the dead -v line dropped) |
+| PL-024 | Resolved | S5: `9af3961853` and the two removal commits; S5-T2: no caller of either removed file, pkgcheck and bash -n pass |
 | PL-025 | Deferred | base merge, class 1: upstream `c4d353449e` |
-| PL-026 | Open | the coordinator files the bumps |
-| PL-027 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-026 | Deferred | the coordinator's disposition: the four bumps after the M7 candidate, #878 (D-WORKFLOW-187) |
+| PL-027 | Resolved | S5: `10df1d2f90`: each recipe names the branch its PKG_VERSION is on |
 | PL-028 | Resolved | S4: `819e2397bf`; guest S4-G1: no ROM copy in /tmp/mupen64plus; S4-F1: --configdir /storage/.config/mupen64plus |
 | PL-029 | Resolved | S1: `a3c443166e`; guest S1-G1: two launches leave dreamcast/data a link to bios/dc with its file, no dc link inside, and an unrelated gptokeyb alive |
 | PL-030 | Resolved | S2: `b0ae783c5e`; S2-F1: both flavours reach steam_dual_screen_end and the binfmt restore after the session returns (neither did at the base) |
@@ -697,10 +700,10 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-032 | Resolved | S4: `e0e9f6d167`; S4-F1: a stale /storage binary replaced by the image's, the player's drastic.cfg unchanged |
 | PL-033 | Resolved | S4: `b30dc0a66b`; S4-F1: two preparations byte-identical with a pad row a>b, a swapped file normalised; the guest's pad needs no swap (S4-G1 stable) |
 | PL-034 | Deferred | S3: confirmed by reading (start_melonds.sh:182; Config.cpp at 906e9ebb; patch 7520-7522, 8851, 9879; backuptool:705-710); deferred to #887 (the cloud area) |
-| PL-035 | Open | an open item to test (bugs-are-agent-first.md): the coordinator classifies |
+| PL-035 | Deferred | the coordinator's disposition: an open item to test, #874 (TERM first where an emulator writes at shutdown; the exit path, T1's area) |
 | PL-036 | Resolved | S1: `ee1ecc0a88`; guest S1-G1: a real pak in Paks survives a launch (deleted by the image's script) |
 | PL-037 | Resolved | S3: `974866ef81`: the comment above start_duckstation.sh's disabling line names upstream's 0c3c2b6818 and the guest proof its retirement needs; nothing removed |
-| PL-038 | Open | S4: xemu `e942dbdf12` fixed (S4-F1); Dolphin's part withdrawn (lines 72-76 already copy only what is absent); melonDS's TOML open, a question on #677 (its deletion is how EmulationStation's settings apply) |
+| PL-038 | Deferred | #871: xemu resolved by fixture (`e942dbdf12`, S4-F1); Dolphin withdrawn (lines 72-76 already copy only what is absent); melonDS deferred to #888 (the coordinator's answer on #677) |
 | PL-039 | Resolved | S3: `619e20ced8`, `fd23630624`, `ff6f4d9c1e`, `d0f95815a1`; S3-F1: a token holding / & and a backslash intact in each config; ARMSX2's first section gets its three keys |
 | PL-040 | Resolved | S4: `5771c915ec`; guest S4-G1: with the config dir absent the seed runs (themes present) |
 | PL-041 | Resolved | S4: `8047c0794d`, `cfb1c0ff48`, `49d8a87f2b`, `78efb93d77`, `3e4eac7f8b`; every F-42 row fixed or withdrawn with its reason in 00 (S4) |
@@ -752,7 +755,7 @@ punch_index:
   source_finding: "F-05"
   owner_area: "the launch table (T3's file)"
   tracked: "#857"
-  outcome: open
+  outcome: deferred
 - id: PL-006
   severity: Medium
   category: Bug
@@ -901,14 +904,15 @@ punch_index:
   source_finding: "F-23"
   owner_area: "the launch table (T3's file)"
   tracked: "#857"
-  outcome: open
+  outcome: deferred
 - id: PL-023
   severity: Low
   category: Renovation
   question: Q7
   source_finding: "F-24"
   owner_area: "launch: Dolphin"
-  outcome: open
+  state: tree
+  outcome: resolved
 - id: PL-024
   severity: Low
   category: Renovation
@@ -916,7 +920,8 @@ punch_index:
   source_finding: "F-25"
   owner_area: "dead code"
   removal: yes
-  outcome: open
+  state: tree
+  outcome: resolved
 - id: PL-025
   severity: Low
   category: Package Currency
@@ -930,14 +935,15 @@ punch_index:
   question: Q4
   source_finding: "F-27"
   owner_area: "recipes: pins"
-  outcome: open
+  outcome: deferred
 - id: PL-027
   severity: Low
   category: Package Currency
   question: Q4
   source_finding: "F-28"
   owner_area: "recipes: pins"
-  outcome: open
+  state: tree
+  outcome: resolved
 - id: PL-028
   severity: Low
   category: Renovation
@@ -1005,7 +1011,7 @@ punch_index:
   question: Q3
   source_finding: "F-36"
   owner_area: "exit: kill targets"
-  outcome: open
+  outcome: deferred
 - id: PL-036
   severity: Low
   category: Bug
@@ -1030,7 +1036,7 @@ punch_index:
   source_finding: "F-39"
   owner_area: "launch: settings"
   tracked: "#871"
-  outcome: open
+  outcome: deferred
 - id: PL-039
   severity: Low
   category: Standards

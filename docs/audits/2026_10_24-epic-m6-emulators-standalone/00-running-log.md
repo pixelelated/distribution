@@ -326,3 +326,24 @@ PROOF: 11:47:27 UTC (s3-fixtures-WORKTREE.out's mtime; the 03141ed056 run's at 1
 
 PROOF: 12:05:39 UTC (s4-fixtures-WORKTREE.out's mtime; the 3429d4f29e run's at 12:05:38) -- S4-F1, tools/s4-fixtures.sh at 3429d4f29e: 18 FAIL, 2 controls PASS; WORKTREE: 19 PASS (Mupen64Plus's zip member and in-place ROM with the config in /storage; the ten tests make no file and the acceptance grep is empty; amiberry's keys and kept config; mednafen [tree]; DraStic's refresh; Dolphin's swap once and the normalisation; xemu's and GameSettings' settings kept; NanoBoyAdvance's BIOS choice and the recipe's check; the F-42 cases), 1 FAIL (melonDS.toml, open); /workspace/artifacts/m6-t30-20261024/s4-fixtures-3429d4f29e.out, /workspace/artifacts/m6-t30-20261024/s4-fixtures-WORKTREE.out
 GUEST-PROOF: 12:07:56 UTC (s4-guest.out's mtime) -- S4-G1, on the guest. The image's scripts: the zipped ROM never got a launch line; "Zippy Race.z64" was taken for a zip (nothing to run); mupen64plus.cfg copied into /tmp/mupen64plus; ScummVM with its config dir absent got only what ScummVM writes itself (games, scummvm.ini), no seed. The fixed scripts: "Launching mupen64plus with /tmp/mupen64plus/Wave Race.z64"; "Launching mupen64plus with /storage/roms/n64/Zippy Race.z64" with no copy in /tmp/mupen64plus; ScummVM seeded from /usr/config/scummvm (themes present); Dolphin's Hotkeys.ini identical across two launches (sha1 1147e8789eed, no swap wanted by this pad); /workspace/artifacts/m6-t30-20261024/s4-guest.sh, /workspace/artifacts/m6-t30-20261024/s4-guest.out, /workspace/artifacts/m6-t30-20261024/t30/s4/
+
+## Stage E, S5 (12:18:39 UTC): renovation (PL-023, PL-024, PL-027); PL-038 answered
+
+- **The coordinator's answer on PL-038 (#677):** (a). melonDS's part is deferred to **#888** (keep `melonDS.toml`, write the interface's settings into it). The Phase 7 row reads: xemu resolved (fixture), Dolphin withdrawn, melonDS deferred to #888. S4's fixture now reports that case as DEFERRED.
+- **PL-023, the Dolphin library (`1ed62b9ea0`):**
+  - Shared stretches were found with difflib. A stretch is taken when it is a whole statement list (`bash -n` as a function body), at least 8 lines, with no `shift`, `local` or `return`. Each became `dolphin_shared_N`, moved verbatim and called in place with `"$@"`.
+  - The face swap's definitions moved as they stood, and its detection and loop became `dolphin_face_swap_configs <custom> <fresh>`.
+  - The recipe's `post_install` loop names `dolphin_common.sh`, so its placeholders are filled; `package.mk:92` (`cp -a ${PKG_DIR}/scripts/* ${INSTALL}/usr/bin`) installs it.
+  - The dead `-v $GRENDERER` line is replaced by a comment.
+  - gc 513 → 164 lines, wii 477 → 128, the library 404. The two scripts still share 84 lines: the 10-line header each keeps, and short lines between their own steps.
+  - Verified by `tools/s5-dolphin-split-check.py`.
+- **PL-024, removed:** `psp_save_mover.sh` `cheevos_duckstation.sh`, four unused password reads, and touchHLE's `${GOPHER64_JSON}` echo.
+  - The six reads the item counted are these four, plus `cheevos_duckstation.sh`'s (the file is gone) and `cheevos_aethersx2.sh`'s (class 1).
+  - Before deleting, what each doomed copy guarded, stamped or exposed: nothing. No caller runs either file, and each read's variable was never used.
+  - S3's quoting of `cheevos_duckstation.sh` is moot. S3's fixture now reports that case as SKIP.
+- **PL-027:** comments above each `PKG_VERSION` (`10df1d2f90`). The branch reasons are worded as inferred from the branch names.
+- **No guest cycle for S5,** as the brief names.
+- **The earlier streams' fixtures, re-run on the final tree:** S0 14/14, S1 22/22, S2 2/2, S3 14 + 1 SKIP, S4 19 + 1 DEFERRED (#888). S1's Hatari case needed the renamed path, after S2's rename.
+
+PROOF: 12:18:15 UTC (s5-split-check.out's mtime; the control's at 12:18:15) -- S5-T1, tools/s5-dolphin-split-check.py 3dde7f4347 -> WORKTREE: start_dolphin_gc.sh and start_dolphin_wii.sh rebuilt by inlining dolphin_common.sh's 9 shared functions and the face-swap function equal the pre-split scripts with exactly the two named edits, PASS both; against c7e3dfcc87 (before S4's swap change) it FAILs at that change (rc 1, the control); /workspace/artifacts/m6-t30-20261024/s5-split-check.out, /workspace/artifacts/m6-t30-20261024/s5-split-check-control.out
+PROOF: 12:18:16 UTC (s5-checks.out's mtime) -- S5-T2, after the removals: git grep finds 0 callers of psp_save_mover.sh or cheevos_duckstation.sh (comment lines only); pkgcheck rc 0 on dolphin-sa, ppsspp-sa, duckstation-sa, supermodel-sa and yabasanshiro-sa; bash -n passes on all 9 changed shell files; /workspace/artifacts/m6-t30-20261024/s5-checks.out
