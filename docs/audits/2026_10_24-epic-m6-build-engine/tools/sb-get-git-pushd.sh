@@ -18,7 +18,8 @@ mkdir sources/pkg/pkg-v1 && chmod 000 sources/pkg/pkg-v1
 echo "before: $(ls -A | tr '\n' ' ')"
 { echo 'set -e; set -o pipefail'
   echo "PACKAGE=\"$W/sources/pkg/pkg-v1\"; PKG_VERSION=fixture-3; PKG_URL=fixture-4"
-  git -C "$REPO" show "$R:scripts/get_git" | sed -n '26,55p'
+  # the two functions by name, so a fix that moves lines is still lifted whole
+  git -C "$REPO" show "$R:scripts/get_git" | sed -n '/^_clean_repo() {/,/^_update_submodules() {/p' | sed '$d'
   echo '_repo_exists_and_valid && echo "check: accepted" || echo "check: rejected rc=$?"'
 } > "$S/harness-$$.sh"
 bash -x "$S/harness-$$.sh" 2>&1 | grep -E '^\+ (pushd|_clean_repo|git clean)|Permission denied|^Removing|^check:' || true

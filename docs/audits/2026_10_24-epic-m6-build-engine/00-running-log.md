@@ -146,3 +146,11 @@ PROOF: 04:11-04:31 P13 `get_git`'s cache check accepts `PKG_VERSION` matching a 
 - `02`: F-23 to F-25 written, Phase 4.6 notes under F-16, F-17, F-18 and F-22, the coverage cells of `config/build-identity`, `config/functions`, `scripts/build_distro` and `scripts/get_git` updated (the table regenerated: 242 rows, 0 empty cells), AC-01, AC-03, AC-10 to AC-12 and AC-13 re-evaluated. `review-plan.json`: both seats completed.
 
 PROOF: 06:07:52 P14 `get_git`'s cache check over a directory it cannot enter runs `git clean -fdx` in the caller's tree -- `tools/sb-get-git-pushd.sh` (F-25)
+
+### [Stage D] 06:15 to 06:16 — The ten bug issues and the audit issue filed
+
+- `tools/sb-get-git-pushd.sh` now lifts `_clean_repo` and `_repo_exists_and_valid` by name, so it still runs against a fix that moves lines; rerun at 06:14:45 with the same result (`after: .git`). F-25's criterion names the fix commit as its second argument.
+- The ten drafts regenerated (with the folder's link) and pre-checked against `tools/box-check`'s patterns and `tools/forbidden-terms-check --stdin` (no hit). Filed 06:15 with the label `bug` and no milestone: PL-01 #827, PL-02 #828, PL-03 #829, PL-04 #830, PL-05 #831, PL-06 #832, PL-07 #833, PL-08 #834, PL-09 #835, PL-10 #836. `tools/box-check --issue N` on each: rc 0, 2 open checkboxes, 0 fail.
+- The audit issue **#837**, "Audit: M6 T5 the build engine -- 25 findings (0 critical, 2 high)": labels `audit`, `punch-list`, milestone M6, a sub-issue of #652 (the parent read back as 652), one checkbox per item. `tools/box-check --issue 837`: 26 open checkboxes, 0 fail.
+- `tools/punch-items.py` carries `tracked: "#N"` for the ten, and `05` shows each item's bug issue. `tools/lint-audit-artifacts ... --phase pre-issue`: **PASS**.
+- The lane now pauses for the coordinator's stream briefs (plan § 6b stage E).

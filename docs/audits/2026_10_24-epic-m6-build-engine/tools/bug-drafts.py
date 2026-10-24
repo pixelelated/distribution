@@ -8,7 +8,7 @@ out = pathlib.Path(sys.argv[1]); out.mkdir(exist_ok=True)
 for n, x in enumerate(I, 1):
     if not x.get("tracked"): continue
     pl = f"PL-{n:02d}"
-    body = f"""Found by the M6 renovation's T5 slice, the build engine (#652; audit `docs/audits/2026_10_24-epic-m6-build-engine/`, {x['f']}, punch item {pl}). D-WORKFLOW-187: a defect the renovation finds is a bug like any other.
+    body = f"""Found by the M6 renovation's T5 slice, the build engine (#652; audit [`docs/audits/2026_10_24-epic-m6-build-engine/`](https://github.com/pixelelated/distribution/tree/feature/m6-build-engine-652/docs/audits/2026_10_24-epic-m6-build-engine), {x['f']}, punch item {pl}; its sandboxes are under `tools/` there). D-WORKFLOW-187: a defect the renovation finds is a bug like any other.
 
 ## Code trace
 

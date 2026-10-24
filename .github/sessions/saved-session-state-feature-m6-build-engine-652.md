@@ -40,19 +40,7 @@
 
 ## Current focus
 
-**Stage C ready but for Phase 4.6 (2026-10-24 04:38 UTC).** `reviewed-at` `46f6c7d428`. Written in
-`docs/audits/2026_10_24-epic-m6-build-engine/`: `00` to `04`, `q6-tables.md`, a
-draft `05` (22 items: 2 High, 7 Medium, 13 Low), `second-opinions/review-plan.json`
-and both reviewer briefs (not sent), `stage-d-bug-drafts/` (nine `bug` bodies,
-not filed), and the sandbox scripts under `tools/`. 21 findings, 13 proofs
-(`PROOF:` = `proved:` = 13), the coverage table 242 rows. The pre-issue lint
-fails only on the missing Phase 4.6 provenance. **Blocked on the host:** the
-`npm install --prefix tools/council`, `verify-pins`, `test`, both probes and
-both refutation calls wait for the coordinator's relay of M7's `resource
-return` on #652. Then: grade the two outputs into `04` § Second opinion,
-finalise `05`, run the pre-issue lint to PASS, file the audit issue and the
-bug issues (`tools/bug-drafts.py`), `box-check` each, post the punch list on
-#652, and **pause** for the stream briefs.
+**Stage D done; paused for the coordinator's stream briefs (2026-10-24 06:16 UTC).** `reviewed-at` `46f6c7d428`. Phase 4.6 ran on the host's return (05:42): GPT-6 Astra (max) and Gemini 4 Argon (high), both PASS on identity, graded in `04` § Second opinion. The audit has 25 findings in 26 punch items (2 High: F-16 `mkimage`, F-25 `get_git`'s `git clean -fdx`; 7 Medium; 17 Low), 14 proofs (`PROOF:` = `proved:` = 14), and a coverage table of 242 rows. The pre-issue lint printed PASS. Filed: the audit issue **#837** (a sub-issue of #652) and ten `bug` issues **#827 to #836**, all passing `box-check`. The punch list is posted on #652. **Next:** wait for the coordinator's stream briefs on #652 (stage E). Nothing is running in this lane: no guest, compiler or watched run.
 
 ## Next commands
 
