@@ -16,11 +16,9 @@ import os
 from pathlib import Path
 import re
 import shlex
-import signal
 import subprocess
 import sys
 import tarfile
-import time
 
 CONF = '/storage/.config/cloud_sync.conf'
 QA = '/tmp/pixelelated-cloud-boundaries'
@@ -47,14 +45,27 @@ class Proof:
         self.tree = args.tree.resolve(strict=True)
         self.owner = args.output.resolve(strict=True)
         require(not any(self.owner.iterdir()), 'output must be a fresh empty directory')
-        self.pair = self.owner / 'pair'
+        self.pair = self.owner / 'vm-pair'
         self.cloud = self.owner / 'cloud'
         self.data = self.cloud / 'data'
         self.logs = self.owner / 'artifacts'
         for p in (self.pair, self.cloud, self.logs):
             p.mkdir(mode=0o700)
-        self.env = dict(os.environ, VM_PAIR_DIR=str(self.pair), CLOUD_QA_STATE=str(self.cloud),
-                        CLOUD_QA_BACKEND='webdav', CLOUD_QA_PORT='9040', VM_GL='none')
+        # The pair's pidfiles and sockets are this run's own, not the /tmp every
+        # other pair on the host shares (#1011, D-INFRA-031's shape). Not under
+        # the output directory: a socket path is capped at 107 bytes. A short
+        # directory named for the output path, recorded in RUNTIME beside it, or
+        # the caller's explicit VM_QEMU_RUNTIME_DIR. vm-pair makes it, so a
+        # start refused before vm-pair leaves nothing outside the output.
+        explicit = os.environ.get('VM_QEMU_RUNTIME_DIR')
+        digest = hashlib.sha256(str(self.owner).encode()).hexdigest()[:8]
+        self.runtime = Path(explicit) if explicit else (
+            Path(os.environ.get('XDG_RUNTIME_DIR') or '/tmp') / ('pixelelated-vm-' + digest))
+        (self.owner / 'RUNTIME').write_text(str(self.runtime) + '\n')
+        self.env = dict(os.environ, VM_PAIR_DIR=str(self.pair), VM_QEMU_RUNTIME_DIR=str(self.runtime),
+                        CLOUD_QA_STATE=str(self.cloud), CLOUD_QA_BACKEND='webdav', CLOUD_QA_PORT='9040',
+                        VM_GL='none')
+        self.pair_attempted = False
         self.seq = 0
         self.results = []
         self.case = 'setup'
@@ -274,7 +285,11 @@ class Proof:
             except (FileNotFoundError, ProcessLookupError):
                 continue
             require(not name.startswith('qemu-system-'), 'another QEMU owns VM resources')
-        self.local('vm-pair', 'up', str(self.args.image.resolve(strict=True)))
+        image = str(self.args.image.resolve(strict=True))
+        # From here a guest may exist, so cleanup stops the pair; before it,
+        # this run started nothing and cleanup stops nothing.
+        self.pair_attempted = True
+        self.local('vm-pair', 'up', image)
         self.backend_started = True
         self.local('cloud-test-backend', 'up')
         config = self.local('cloud-test-backend', 'rclone-conf', capture_output=True, text=True).stdout
@@ -672,26 +687,39 @@ p.write_text(text)
         return 0 if all(x['status'] == 'PASS' for x in self.results) else 1
 
     def cleanup(self):
-        # Stop only processes whose argv carries a disk beneath this fresh owner.
-        stopped = []
-        for p in Path('/proc').glob('[0-9]*/cmdline'):
-            try:
-                argv = p.read_bytes().split(b'\0')
-            except (FileNotFoundError, ProcessLookupError):
-                continue
-            if Path(argv[0].decode()).name.startswith('qemu-system-') and any(str(self.pair).encode() in x for x in argv):
-                pid = int(p.parent.name)
-                os.kill(pid, signal.SIGTERM)
-                stopped.append(pid)
-        for _ in range(100):
-            if all(not Path('/proc', str(pid)).exists() for pid in stopped):
-                break
-            time.sleep(.1)
-        require(all(not Path('/proc', str(pid)).exists() for pid in stopped), 'owned guest failed to exit')
+        # Stop only what this run started, through vm-pair down by the pidfiles
+        # in its own runtime directory (vm-stop checks each is the QEMU owning
+        # this pair's disk). Never a /proc pattern scan: after a refused start
+        # that signalled whatever named the pair path, and it recorded
+        # all_absent from what the scan could see (#1011).
+        record = {'utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                  'pair_started': self.pair_attempted}
+        error = None
+        if self.pair_attempted:
+            pidfiles = [self.runtime / 'rocknix-qemu.pid', self.runtime / 'rocknix-qemu-b.pid']
+            recorded = {}
+            for pidfile in pidfiles:
+                try:
+                    recorded[pidfile.name] = int(pidfile.read_text().strip())
+                except FileNotFoundError:
+                    continue
+            record['qemu_pids'] = recorded
+            # A sandbox can hide a live host process (#506): a recorded pid this
+            # reader cannot see is an observation error, not an absence.
+            hidden = sorted(pid for pid in recorded.values() if not Path('/proc', str(pid)).exists())
+            if hidden:
+                error = ('recorded guest pid(s) %s not visible in /proc: an exit cannot be told from a '
+                         'hidden namespace; read them from the host (#506)' % hidden)
+                record['observation_error'] = error
+            else:
+                self.local('vm-pair', 'down')
+                record['all_absent'] = not any(pidfile.exists() for pidfile in pidfiles)
+                if not record['all_absent']:
+                    error = 'a pidfile remains after vm-pair down'
         if self.backend_started:
             self.local('cloud-test-backend', 'down')
-        save(self.owner / 'cleanup.json', {'utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
-                                        'qemu_pids': stopped, 'all_absent': True})
+        save(self.owner / 'cleanup.json', record)
+        require(error is None, error)
 
 
 def main():
