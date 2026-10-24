@@ -38,16 +38,13 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#655` (prose through a quoted heredoc). No compiler,
-no container. The network reads are the GitHub API (`compare` for the hash
-pins; no LibreELEC column here), the hosts `tools/fork-package-freshness`
-reads, one HEAD probe per effective `PKG_URL`, and **the Facilitator's two
-calls** (the GPT seat's probe and refutation, Phase 4.6). A guest cycle is
-owed only by a stage-E stream that claims a behaviour, named on #655 before
-its boot with the host file read first. The host is M6's (M7's return at
-05:42 on the coordination file).
+**Stage A done (12:12 UTC); stage B next.**
+- The scope matches the brief: 485 / 20,644 / 260; 14 paths with spaces.
+- The provenance: 35 fork changes; 87 M against `upstream/next`; 11 orphans and 7 fork-added; 66 recipes changed upstream; a conflict set of 11.
+- The branch differs from `8ebaf8daad` on none of the 485. `reviewed-at` is `caf1de3727`.
+- The audit folder is `docs/audits/2026_10_24-epic-m6-image-packages/`.
+- **Next:** stage B, § 5's loops in order.
+- **Prose through Python or a quoted heredoc only.**
 
 ## Next commands
 
