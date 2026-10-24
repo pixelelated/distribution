@@ -284,15 +284,25 @@ def consume(run, evidence_path):
             except FileNotFoundError:
                 pass
     with registry(row['registry']) as jobs:
-        job=jobs['jobs'][row['id']]
-        require(job['run'] == str(run), 'registry run mismatch')
+        job = jobs['jobs'].get(row['id'])
+        # The whole row, as recovery compares it (#921): the run's own copy is
+        # what the checks above read, and the registry is what was admitted.
+        require(job is not None and job['run'] == str(run)
+                and all(job.get(k) == v for k, v in row.items() if k != 'state'),
+                'registry admission identity differs')
         if job['state'] == 'consumed':
             require(job['evidence_sha256'] == digest(evidence_path), 'different evidence for consumed run')
-            return job
-        job.update(state='consumed', consumed=utc(), evidence_sha256=digest(evidence_path),
-                   original_result=rc, deleted_bytes=0, outputs_held=True)
-        jobs['generation'] += 1
-        write(run/'admission-consumed.json',job,exclusive=True)
+        else:
+            job.update(state='consumed', consumed=utc(), evidence_sha256=digest(evidence_path),
+                       original_result=rc, deleted_bytes=0, outputs_held=True)
+            jobs['generation'] += 1
+    # The registry is committed before the run's receipt, so a failure between
+    # them leaves a consumed row that a retry completes (#921).
+    receipt = run / 'admission-consumed.json'
+    if receipt.exists():
+        require(read(receipt) == job, 'consumed receipt differs from the registry')
+    else:
+        write(receipt, job, exclusive=True)
     return job
 
 

@@ -110,6 +110,14 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
         except ValueError:ok=True
         check(ok,'foreign PID namespace cannot prove completion')
     finally:m.write(runpath/'admission.json',original_row)
+    # #921: consume trusts the registry's row, not an edited copy in the run.
+    ended=subprocess.Popen(['true']);ended.wait()
+    edited=copy.deepcopy(original_row);edited['runner_pid']=ended.pid;m.write(runpath/'admission.json',edited)
+    try:
+        try:m.consume(runpath,ep);ok=False
+        except ValueError as error:ok='identity differs' in str(error)
+        check(ok and not (runpath/'admission-consumed.json').exists(),'an edited admission.json is refused by the registry row')
+    finally:m.write(runpath/'admission.json',original_row)
     original_log=(runpath/'build.log').read_bytes();(runpath/'build.log').write_bytes(original_log+b'changed')
     try:
         try:m.consume(runpath,ep);ok=False
@@ -118,6 +126,27 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
     finally:(runpath/'build.log').write_bytes(original_log)
     c=m.consume(runpath,ep);check(c['state']=='consumed' and (held/'keep').read_text()=='retained cache','consume releases reservation without deleting retained output')
     check(m.consume(runpath,ep)==c,'same completion evidence reconciles idempotently')
+    # #921: a registry commit that fails is completed by the retry.
+    d,m,p,r,e=fixture('commit-retry');a=run(d,e)
+    runpath=next(x for x in (d/'.build-runs').iterdir() if x.is_dir());row=m.read(runpath/'admission.json')
+    proof={'run':str(runpath),'disposition':'qualified','expected_rc':0,'outputs':row['outputs'],
+      'evidence':[{'path':str(runpath/'build.log'),'sha256':m.digest(runpath/'build.log')}]}
+    ep=d/'acceptance.json';m.write(ep,proof)
+    real_write=m.write;failed=[]
+    def failing_commit(path,data,exclusive=False):
+        if Path(path).name=='jobs.json' and not failed:
+            failed.append(path);raise OSError('injected registry commit failure')
+        return real_write(path,data,exclusive)
+    m.write=failing_commit
+    try:
+        try:m.consume(runpath,ep);first=False
+        except OSError:first=True
+    finally:m.write=real_write
+    try:retried=m.consume(runpath,ep)['state']=='consumed'
+    except (OSError,ValueError):retried=False
+    job=m.read(Path(row['registry'])/'jobs.json')['jobs'][row['id']]
+    check(first and retried and job['state']=='consumed' and m.read(runpath/'admission-consumed.json')==job,
+          'a failed registry commit retries to consumed')
     d,m,p,r,e=fixture('failure');a=run(d,e,['sh','-c','exit 37']);check(a.returncode==37,'actual failure remains 37')
     runpath=next(x for x in (d/'.build-runs').iterdir() if x.is_dir());row=m.read(runpath/'admission.json')
     proof={'run':str(runpath),'disposition':'qualified','expected_rc':37,'outputs':row['outputs'],'evidence':[{'path':str(runpath/'build.log'),'sha256':m.digest(runpath/'build.log')}]};ep=d/'acceptance.json';m.write(ep,proof)

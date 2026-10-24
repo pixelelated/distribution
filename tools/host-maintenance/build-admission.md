@@ -106,10 +106,14 @@ python3 -I tools/host-maintenance/build-admission consume \
   --run /absolute/frozen-checkout/.build-runs/ID --evidence /absolute/owner/acceptance.json
 ```
 
-The consumer checks original results, terminal watcher state, retained evidence,
+The consumer compares the run's `admission.json` with the registry's row field by
+field, and refuses an edited copy (#921). It checks original results, terminal
+watcher state, retained evidence,
 recorded process exits and surviving command-group members. A lost watcher or
 unknown/active process keeps the reservation. Repeating the same accepted evidence
-is idempotent; different evidence for a consumed run is refused. An interactive
+is idempotent; different evidence for a consumed run is refused. The registry is
+committed before the run's `admission-consumed.json`, so a retry after a failure
+between the two writes the receipt from the committed row (#921). An interactive
 Docker-shell run must be consumed in its original container namespace before that
 container is removed; ordinary host-wrapped Docker builds are preferred. A
 container namespace that has disappeared is not proof of individual host exits.
