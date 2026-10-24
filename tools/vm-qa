@@ -352,19 +352,20 @@ case ",$ONLY," in *,pair-identity,*) run_suite pair-identity "$OUT/pair-identity
 # device carries a copy while an updated one carries a link. es_savestates.cfg
 # shipped that way for two weeks (audit #258 PL-001). Guest a is booted from
 # the image by this runner, so it is exactly the fresh device in question.
+# It reads the guest --guest selects, on that guest's port (#981).
 fresh_suite() {
   local bad=0 f target
   for f in es_features.cfg es_systems.cfg es_savestates.cfg; do
-    target=$(ssh -n -i "$KEY" -p 10022 $SSHO root@127.0.0.1 "readlink /storage/.config/emulationstation/$f" 2>/dev/null)
-    echo "guest a: emulationstation/$f -> ${target:-(not a link)}"
+    target=$(ssh -n -i "$KEY" -p "$PORT" $SSHO root@127.0.0.1 "readlink /storage/.config/emulationstation/$f" 2>/dev/null)
+    echo "guest $GUEST: emulationstation/$f -> ${target:-(not a link)}"
     [ "$target" = "/usr/config/emulationstation/$f" ] || { echo "FAIL: /storage/.config/emulationstation/$f is not a link to /usr/config/emulationstation/$f on a fresh boot -- userconfig-setup copied it and the link was not made"; bad=1; }
   done
-  target=$(ssh -n -i "$KEY" -p 10022 $SSHO root@127.0.0.1 'readlink /storage/.config/SDL-GameControllerDB/gamecontrollerdb.txt' 2>/dev/null)
-  echo "guest a: SDL-GameControllerDB/gamecontrollerdb.txt -> ${target:-(not a link)}"
+  target=$(ssh -n -i "$KEY" -p "$PORT" $SSHO root@127.0.0.1 'readlink /storage/.config/SDL-GameControllerDB/gamecontrollerdb.txt' 2>/dev/null)
+  echo "guest $GUEST: SDL-GameControllerDB/gamecontrollerdb.txt -> ${target:-(not a link)}"
   [ "$target" = "/usr/config/SDL-GameControllerDB/gamecontrollerdb.txt" ] || { echo "FAIL: the controller database is not a link on a fresh boot"; bad=1; }
   local conf
-  conf=$(ssh -n -i "$KEY" -p 10022 $SSHO root@127.0.0.1 '[ -e /storage/.configured ] && echo yes || echo no' 2>/dev/null)
-  echo "guest a: /storage/.configured ${conf:-?}"
+  conf=$(ssh -n -i "$KEY" -p "$PORT" $SSHO root@127.0.0.1 '[ -e /storage/.configured ] && echo yes || echo no' 2>/dev/null)
+  echo "guest $GUEST: /storage/.configured ${conf:-?}"
   [ "$conf" = yes ] || { echo "FAIL: /storage/.configured is absent: first-boot configuration did not finish, or the guest did not answer"; bad=1; }
   [ "$bad" = 0 ] || return 1
 }

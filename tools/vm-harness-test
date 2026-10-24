@@ -256,6 +256,16 @@ def down_at_end(c):
     return ok, f'rc {r.returncode}, vm-pair calls {calls}, tear-down line {"tear-down: vm-pair down rc 0" in text} (want rc 0, one down after up, the line in the report)'
 
 
+@case
+def fresh_port(c):
+    vmqa = c.tool('vm-qa')
+    c.rows([('os-release', 0, f'"{GUEST_ID}"')] + FRESH_ROWS)
+    c.run([str(vmqa), '--skip-up', '--guest', 'b', '--only', 'fresh'])
+    reads = [l for l in c.log.read_text().splitlines() if 'readlink' in l or '.configured' in l]
+    ports = sorted({l.split('-p ')[1].split()[0] for l in reads if '-p ' in l})
+    return bool(reads) and ports == ['10023'], f'{len(reads)} fresh reads at ports {ports} (want all at 10023)'
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')
