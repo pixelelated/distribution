@@ -78,7 +78,7 @@ hand-back.
   watcher's `state: finished`, `written: 2026-10-22 23:57:25 UTC`,
   `progress: none matched`. Read-only; the M7 lane's.
 - **The host has what the sandbox and the checks need, except two tools.**
-  Evidence (`command -v`, 2026-10-24 03:08): `bash`, `python3`, `gh`, `git`,
+  Evidence (`command -v`, 2026-10-24 02:58): `bash`, `python3`, `gh`, `git`,
   `jq` present; `docker` 29.8.2 present and **`docker manifest inspect`
   reads both images without a pull** (upstream's
   `ghcr.io/rocknix/rocknix-build:latest` answers with a manifest list whose
@@ -108,7 +108,7 @@ hand-back.
   Evidence: as for T3 (`033eb7ed23`, `0ceb2994c5`, `6874394d49`; T1's and
   T2's provenance files; `~/.config/council/env` present, never read).
 - **The register's next Decided ID is 193.** Evidence (base-divergence
-  check, 2026-10-24 03:12): this branch's register has 189, 190, 192
+  check, 2026-10-24 02:59): this branch's register has 189, 190, 192
   Decided and 191 Open; P1's 188 and 189; T1's and T2's 188 to 191; T3's
   branch at `origin/feature/m6-emulators-libretro-650` carries no
   D-WORKFLOW-193. No collision; 193 is free on every branch.
@@ -135,7 +135,7 @@ a pull, and § 2 treats both.
 | Whether sourcing `config/options` in the sandbox creates directories (`config/path` derives `BUILD`, `TARGET_IMG`, `SOURCES` from `ROOT`) or otherwise writes outside the scratch | Investigate at stage A as the first sandbox trial: `bash -x` the sourcing with every variable set to the scratch, the trace to a file, and `grep -E 'mkdir|> |>>|cp |mv |touch' trace` read; any path outside `.qa-scratch/` is a FAIL of the sandbox and the variable list grows until none remains | the lane, stage A; version 2 says so |
 | Whether `calculate_stamp` can be exercised on a fixture tree without the rest of the engine's environment (`config/functions` 961 reads `PKG_DIR` and the stamp inputs; its helpers may read `BUILD` or `PKG_BUILD`) | Investigate at stage A: read the function and its helpers first, list every variable, then the fixture; if it cannot run in isolation, the finding is made by reading with the line cited and the device-builds.md record (`device-builds.md` § After rebasing, item 3: 35 stale packages on 2026-08-19) as the recorded evidence | the lane, stage A |
 | Which `.build-runs/<id>/` records hold a full image run's log (`scripts/image`'s identity lines and timings) rather than a package or QA run | Proceed; the lane lists the M7 worktrees' `.build-runs/` directories with `ls` and reads `build.status`'s first lines to pick the runs (the 2026-10-22 GENERIC_X64 image run and the 2026-10-24 H700 and SM8550 runs), read-only | the lane, stage B |
-| Whether the fork CI runs `tools/build-identity-test` (if so, `fork record checks` should already be red for #801's reason; if not, the test has had no runner since `40bc5469b9`) | **Resolved at writing:** `grep -n build-identity-test .github/workflows/fork-checks.yml` prints nothing; the fork CI does not run it, so the test has had no runner since 2026-10-11 and nobody saw it fail. Recorded on #801; the brief's § 5 trial line says so | coordinator; done 2026-10-24 03:20 |
+| Whether the fork CI runs `tools/build-identity-test` (if so, `fork record checks` should already be red for #801's reason; if not, the test has had no runner since `40bc5469b9`) | **Resolved at writing:** `grep -n build-identity-test .github/workflows/fork-checks.yml` prints nothing; the fork CI does not run it, so the test has had no runner since 2026-10-11 and nobody saw it fail. Recorded on #801; the brief's § 5 trial line says so | coordinator; done 2026-10-24 03:05 |
 | Whether T3 will post a lead on `mk_es_systems` before T5 reaches it (T3's brief § 5 regenerates the table on the host and will meet the empty formatted file) | Proceed; whichever lane meets it first records it; the fix is T5's by the membership and the brief says so; the coordinator routes T3's lead to #652 | coordinator |
 
 ## 3. What patterns from prior work apply that we haven't named?
