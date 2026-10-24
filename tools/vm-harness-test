@@ -919,6 +919,57 @@ def ssh_never_ends(c):
     return cut and took < 40, f'{took:.0f} s, report line {line[:1]} (want the calls cut at 2 s and counted)'
 
 
+def vnc_double(c, rects):
+    """A VNC server for one client: a 4x2 frame, then the given rectangles (x, y, w, h)."""
+    import socket, struct, threading
+    srv = socket.socket()
+    srv.bind(('127.0.0.1', 0))
+    srv.listen(1)
+    srv.settimeout(5)
+
+    def run():
+        try:
+            conn, _ = srv.accept()
+        except OSError:
+            return
+        with conn:
+            conn.sendall(b'RFB 003.008\n'); conn.recv(12)
+            conn.sendall(b'\x01\x01'); conn.recv(1)
+            conn.sendall(struct.pack('>I', 0)); conn.recv(1)
+            conn.sendall(struct.pack('>HH', 4, 2) + b'\x00' * 16 + struct.pack('>I', 4) + b'vmht')
+            got = b''
+            while len(got) < 20 + 8 + 10:
+                chunk = conn.recv(64)
+                if not chunk:
+                    return
+                got += chunk
+            body = b''.join(struct.pack('>HHHHi', x, y, w, h, 0) + b'\x7f' * (w * h * 4) for x, y, w, h in rects)
+            conn.sendall(b'\x00\x00' + struct.pack('>H', len(rects)) + body)
+    threading.Thread(target=run, daemon=True).start()
+    c.cleanup.append(srv.close)
+    return srv.getsockname()[1]
+
+
+@case
+def vnc_partial(c):
+    import importlib.machinery, importlib.util
+    results = {}
+    for name, rel in (('vm-visual-qa', 'vm-visual-qa'), ('vnc-grab', 'vm-walks/cloud-epic/vnc-grab.py')):
+        loader = importlib.machinery.SourceFileLoader('vmht_%s' % name.replace('-', '_'), str(c.tools_from / rel))
+        spec = importlib.util.spec_from_loader(loader.name, loader)
+        mod = importlib.util.module_from_spec(spec)
+        loader.exec_module(mod)
+        port = vnc_double(c, [(0, 0, 4, 1), (0, 0, 4, 1)])   # the top row, twice: half the frame
+        grab = mod.vnc_frame if name == 'vm-visual-qa' else mod.grab
+        try:
+            grab('127.0.0.1', port, 2.0)
+            results[name] = 'returned a frame'
+        except (OSError, IOError) as e:
+            results[name] = 'failed: %s' % e
+    ok = all(v.startswith('failed') for v in results.values())
+    return ok, f'{results} (want both to fail on half a frame)'
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')

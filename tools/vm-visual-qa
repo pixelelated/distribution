@@ -180,6 +180,10 @@ def vnc_frame(host, port, timeout=10.0):
         s.sendall(b"\x02\x00" + struct.pack(">H", 1) + struct.pack(">i", 0))
         s.sendall(b"\x03\x00" + struct.pack(">HHHH", 0, 0, w, h))
         fb = bytearray(w * h * 4)
+        # Coverage is the pixels written, not the areas of the rectangles
+        # sent: a server that sends one rectangle twice used to read as a
+        # whole frame with half of it zeros (G-35).
+        seen = bytearray(w * h)
         covered = 0
         deadline = time.time() + timeout
         while covered < w * h and time.time() < deadline:
@@ -197,11 +201,15 @@ def vnc_frame(host, port, timeout=10.0):
                 x, y, rw, rh, enc = struct.unpack(">HHHHi", read(12))
                 if enc != 0:
                     raise OSError("vnc encoding %d" % enc)
+                if x + rw > w or y + rh > h:
+                    raise OSError("vnc rectangle %dx%d at %d,%d outside a %dx%d frame" % (rw, rh, x, y, w, h))
                 data = read(rw * rh * 4)
                 for row in range(rh):
                     o = ((y + row) * w + x) * 4
                     fb[o:o + rw * 4] = data[row * rw * 4:(row + 1) * rw * 4]
-                covered += rw * rh
+                    p = (y + row) * w + x
+                    seen[p:p + rw] = b"\x01" * rw
+            covered = seen.count(1)
     finally:
         s.close()
     if covered < w * h:
@@ -392,6 +400,11 @@ def wait_for_change(frame_fn, before, timeout=CHANGE_TIMEOUT, poll=POLL):
 
 
 def dismiss_dialogs(frame_fn, sendkey_fn, key="z", limit=8, quiet=0.8, timeout=8.0):
+    """dismiss_dialogs_checked's count, for callers that only want it."""
+    return dismiss_dialogs_checked(frame_fn, sendkey_fn, key, limit, quiet, timeout)[0]
+
+
+def dismiss_dialogs_checked(frame_fn, sendkey_fn, key="z", limit=8, quiet=0.8, timeout=8.0):
     """Press B until nothing is open, ending on the system carousel.
 
     B closes a dialog, a menu or a game list; on the carousel it opens GO
@@ -405,7 +418,11 @@ def dismiss_dialogs(frame_fn, sendkey_fn, key="z", limit=8, quiet=0.8, timeout=8
 
     A press that changes nothing at all was eaten rather than obeyed, so it
     is re-sent instead of being read as the cycle. Returns how many presses
-    moved the screen (the last of them is GO TO opening, not a close)."""
+    moved the screen (the last of them is GO TO opening, not a close), and
+    the state it ended on (G-39): "carousel" when a screen repeated, which is
+    the only proof of the carousel; "unmoved" when B stopped moving anything;
+    "limit" when the presses ran out with neither -- possibly on GO TO, which
+    is not the carousel and must not be announced as it."""
     settle(frame_fn, timeout=timeout, quiet=quiet)
     seen = [frame_fn()]
     closed = 0
@@ -414,17 +431,19 @@ def dismiss_dialogs(frame_fn, sendkey_fn, key="z", limit=8, quiet=0.8, timeout=8
         sendkey_fn(key)
         settle(frame_fn, timeout=timeout, quiet=quiet)
         cur = frame_fn()
+        if cur is None:
+            return closed, "no frame"
         if frame_diff(cur, seen[-1]) <= SAME_MAX:
             eaten += 1
             if eaten > 2:
-                return closed              # B does nothing here; stop pressing
+                return closed, "unmoved"   # B does nothing here; stop pressing
             continue
         eaten = 0
         if any(frame_diff(cur, s) <= SAME_MAX for s in seen[:-1]):
-            return closed                  # back on a screen we have had: the carousel
+            return closed, "carousel"      # back on a screen we have had: the carousel
         seen.append(cur)
         closed += 1
-    return closed
+    return closed, "limit"
 
 
 def to_png(ppm_path, png_path):
@@ -635,8 +654,13 @@ def run_steps(mon, steps, outdir):
 
         elif verb == "dismiss-dialogs":
             limit = int(_floats(rest, 8)[0])
-            closed = dismiss_dialogs(mon.frame, mon.sendkey, limit=limit)
-            print("dismiss-dialogs: %d press(es) moved the screen, back on the carousel" % closed)
+            closed, state = dismiss_dialogs_checked(mon.frame, mon.sendkey, limit=limit)
+            if state in ("limit", "no frame"):
+                raise WalkFailed("dismiss-dialogs (line %d): %d press(es) moved the screen and it never"
+                                 " came back to one it had shown (%s), so it is not known to be the carousel"
+                                 % (lineno, closed, state))
+            print("dismiss-dialogs: %d press(es) moved the screen, %s"
+                  % (closed, "back on the carousel" if state == "carousel" else "and B then moved nothing: the screen is as it was found"))
 
         elif verb == "shot":
             shot(rest)
@@ -702,8 +726,12 @@ def main():
             print("settle: %s after %.1fs" % ("still" if ok else "still moving at the bound", took))
         elif args.command == "dismiss":
             mon.sendkey("shift")
-            print("%d press(es) moved the screen, back on the carousel"
-                  % dismiss_dialogs(mon.frame, mon.sendkey))
+            closed, state = dismiss_dialogs_checked(mon.frame, mon.sendkey)
+            if state in ("limit", "no frame"):
+                raise WalkFailed("%d press(es) moved the screen and it never came back to one it had shown (%s)"
+                                 % (closed, state))
+            print("%d press(es) moved the screen, %s" % (closed, "back on the carousel" if state == "carousel"
+                  else "and B then moved nothing: the screen is as it was found"))
     except WalkFailed as exc:
         print("WALK FAILED: %s" % exc, file=sys.stderr)
         raise SystemExit(3)

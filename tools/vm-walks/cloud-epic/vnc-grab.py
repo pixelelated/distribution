@@ -30,7 +30,9 @@ def grab(host, port, timeout=2.0):
     s.sendall(b"\x00\x00\x00\x00" + struct.pack(">BBBBHHHBBB", 32, 24, 0, 1, 255, 255, 255, 16, 8, 0) + b"\x00\x00\x00")
     s.sendall(b"\x02\x00" + struct.pack(">H", 1) + struct.pack(">i", 0))
     s.sendall(b"\x03\x00" + struct.pack(">HHHH", 0, 0, w, h))
-    fb = bytearray(w * h * 4); deadline = time.time() + timeout; covered = 0
+    # Coverage by pixel, and an incomplete frame is a failure, never a frame
+    # with zeros where the server sent nothing (G-35).
+    fb = bytearray(w * h * 4); seen = bytearray(w * h); deadline = time.time() + timeout; covered = 0
     while covered < w * h and time.time() < deadline:
         mt = read(s, 1)[0]
         if mt != 0:
@@ -41,12 +43,15 @@ def grab(host, port, timeout=2.0):
         for _ in range(nrect):
             x, y, rw, rh, enc = struct.unpack(">HHHHi", read(s, 12))
             if enc != 0: raise IOError("vnc encoding %d" % enc)
+            if x + rw > w or y + rh > h: raise IOError("vnc rectangle outside the frame")
             data = read(s, rw * rh * 4)
             for row in range(rh):
                 o = ((y + row) * w + x) * 4
                 fb[o:o + rw * 4] = data[row * rw * 4:(row + 1) * rw * 4]
-            covered += rw * rh
+                p = (y + row) * w + x; seen[p:p + rw] = b"\x01" * rw
+        covered = seen.count(1)
     s.close()
+    if covered < w * h: raise IOError("vnc frame incomplete: %d of %d pixels" % (covered, w * h))
     return w, h, fb
 
 def png(path, w, h, fb):
