@@ -38,11 +38,12 @@ trap '' 2
 # Initialize controller input
 /usr/bin/control-gen_init.sh
 source /storage/.config/gptokeyb/control.ini
-get_controls
+# Without a game controller control-gen writes an empty control.ini: neither
+# get_controls nor GPTOKEYB is defined, and the gptokeyb line below would start
+# the installer itself again in the background, without end (#899). Use the pad
+# only when there is one.
+command -v get_controls >/dev/null 2>&1 && get_controls
 
-# Without a game controller control-gen writes an empty control.ini and
-# GPTOKEYB is unset, so the line below would start the installer itself again
-# in the background, without end (#899). Map the pad only when there is one.
 if [ -f "/etc/installer.gptk" ] && [ -n "${GPTOKEYB}" ]
 then
   cp /etc/installer.gptk /storage/.config/gptokeyb/installer.gptk
