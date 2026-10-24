@@ -23,7 +23,7 @@ Every finding is a lead until `04` § Finding Verification and § Second opinion
 | 11 | 04 Q6: the guard table and the tool-caller table | the evidence is here (§ Callers, § The suites, F-rows); the tables are `04`'s | `04` § Q6 |
 | 12 | 04 Q3: the fail-open hunt through the named readers | the evidence is here (F-01 to F-30); the table is `04`'s | `04` § Q3 |
 | 13 | 04 Q7: the personal-path diff entry by entry; three descriptions per guard | P2 (the diff); the description rows are `04`'s | `04` § Q7 |
-| 14 | proof cells in § Proofs = proof lines in 00 | 24 = 24 | § Proofs; `command grep -c` |
+| 14 | proof cells in § Proofs = proof lines in 00 | 25 = 25 | § Proofs; `command grep -c` |
 | 15 | every item `question:`; bugs pass box-check; no member edited before a stream | stage D; `git diff --stat a82d784216 HEAD -- .githooks .github tools` empty | `05` |
 | 16 | the retro | stage G | `docs/retros/` |
 | 17 | the six checks pass before the merge; the lint PASS | stage H | the hand-back |
@@ -557,3 +557,22 @@ The `tools/fork-newdrive` item in `fork-workflow.md` § Personal paths and its r
 | Proof | What it shows | Proved |
 | --- | --- | --- |
 | P22 | S5's controls fail on the unfixed tools and pass on the fixed; the live full reads | proved: fix-case |
+
+### S6: forbidden-terms-check (#942, #936) -- `34f32b28e6`
+
+| Case (`docs/qa-logs/2026-10-24-forbidden-terms/run.sh`, stand-in list) | Unfixed | Fixed |
+| --- | --- | --- |
+| a clean tree with a symlink: 0 hits in 2 tracked files | FAIL: 1 file read | ok |
+| a symlink whose link text carries a listed word: a hit | FAIL: rc 0 | ok: rc 1 |
+| the hit is named by place, never by word | ok | ok |
+| a clean file whose name carries a listed word: a hit | FAIL: rc 0 | ok: rc 1, `ls-files:<n>:name` |
+| the name is never printed | ok | ok |
+| a checkout whose tracked files are absent: exit 2 | FAIL: rc 0 | ok |
+| a tree with no tracked files: exit 2 | FAIL: rc 0 | ok |
+| --stdin, unchanged | ok | ok |
+
+**The real run** (the real list, through the tool only): `0 hits in 133619 tracked files`, equal to `git ls-files | wc -l`, in 149 s. **No hit, so nothing goes to the coordinator.**
+
+| Proof | What it shows | Proved |
+| --- | --- | --- |
+| P23 | S6's control fails on the unfixed tool and passes on the fixed; the real run's count equals the listed count | proved: fix-case |

@@ -327,3 +327,22 @@ PROOF: P21 S4's control -- `tools/fork-worktree-test <the tool at 8ebaf8daad> .q
   - `ceremony-check`: rc 1 on W42 (M7's) and `register` (the recorded MISSING). Hygiene read every closed-completed issue since 2026-09-21: none with an open checkbox.
 - **The open count moved during the slice:** 458 (16:29Z), 473 (16:47Z), 507 (18:33Z).
 PROOF: P22 S5's controls and live runs -- `docs/qa-logs/2026-10-24-box-check/run.sh`: the unfixed tool 4 FAIL, the fixed 4 ok PASS; `docs/qa-logs/2026-10-24-ceremony-check-tracker/run.py`: the unfixed tool 9 FAIL of 11, the fixed 11 ok PASS (`.qa-scratch/t10/s5/`); live at 18:33Z: `box-check --quiet` rc 0, 507 issues, 1568 open checkboxes, 0 fail; `ceremony-check` rc 1 on W42 and the recorded register MISSING, hygiene ok over the full read; budget core 4,981 to 4,981, GraphQL 4,907 to 4,897.
+
+### [Stage E] 18:39 — S6: forbidden-terms-check (#942, #936)
+
+- **The test first:** `docs/qa-logs/2026-10-24-forbidden-terms/run.sh`, 8 cases, a stand-in list in `FORBIDDEN_PATTERNS`, throwaway trees under `.qa-scratch/t10/s6/`. On the unfixed tool five FAILED:
+  - a clean tree with a symlink read 1 of 2 files;
+  - a word in a symlink's link text was missed (rc 0);
+  - a word in a file's name was missed (rc 0);
+  - a checkout with its tracked files absent exited 0;
+  - a tree with nothing tracked exited 0.
+
+  The two silence checks and `--stdin` passed before and after.
+- **The fix** (`34f32b28e6`): every tracked path is read.
+  - **What is read:** the link text and the in-tree target of a symlink, a gitlink by name, and every name once.
+  - **How a hit prints:** `path:line`, or `ls-files:<n>` where the path's own name carries a word.
+  - **The count:** read must equal listed, and nothing tracked is exit 2.
+
+  The first cut ran two extra `grep`s per file; before commit they became an associative array and a label computed only on a hit. **8/8.**
+- **The real run** over this worktree, with the real list read by the tool alone: rc 0, **`0 hits in 133619 tracked files`**, equal to `git ls-files | wc -l` (133,619), in 149 s (147 s at stage A). So the 180 symlinks and every name carry no listed word, and the stream did not stop.
+PROOF: P23 S6's control and real run -- `docs/qa-logs/2026-10-24-forbidden-terms/run.sh`: the unfixed tool 5 FAIL of 8, the fixed 8 ok PASS (`.qa-scratch/t10/s6/`); the fixed `tools/forbidden-terms-check` over the worktree with the real list: rc 0, 0 hits in 133619 tracked files, `git ls-files | wc -l` 133619, 149 s.
