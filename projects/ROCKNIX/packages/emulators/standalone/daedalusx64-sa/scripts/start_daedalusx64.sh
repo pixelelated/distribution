@@ -17,12 +17,11 @@ if [ ! -d "/storage/roms/savestates/n64/daedalus" ]; then
 fi
 
 # Link Roms, Saves, and SaveStates to correct dir
-rm "/storage/.config/DaedalusX64/Roms"
-ln -sf "/storage/roms/n64" "/storage/.config/DaedalusX64/Roms"
-rm "/storage/.config/DaedalusX64/SavesGames"
-ln -sf "/storage/roms/n64" "/storage/.config/DaedalusX64/SavesGames"
-rm "/storage/.config/DaedalusX64/SaveStates"
-ln -sf "/storage/roms/savestates/n64/daedalus" "/storage/.config/DaedalusX64/SaveStates"
+# (rm without -r failed on a real folder, and ln -sf then made the link
+# inside it; link_storage_dir keeps what is there, F-42)
+link_storage_dir "/storage/.config/DaedalusX64/Roms" "/storage/roms/n64"
+link_storage_dir "/storage/.config/DaedalusX64/SavesGames" "/storage/roms/n64"
+link_storage_dir "/storage/.config/DaedalusX64/SaveStates" "/storage/roms/savestates/n64/daedalus"
 
 #Emulation Station Features
 GAME=$(echo "${1}"| sed "s#^/.*/##")
@@ -45,7 +44,11 @@ fi
 shasum1=$(sha1sum /usr/config/DaedalusX64/daedalus | awk '{print $1}')
 shasum2=$(sha1sum /storage/.config/DaedalusX64/daedalus | awk '{print $1}')
 
-if [ "$shasum1" <> "$shasum2" ]; then
+# "<>" was a redirection: it opened a file named after the second sum in
+# /storage and copied on every launch. Compare, and drop that empty file
+# once (#862).
+[ -n "$shasum2" ] && [ -f "/storage/$shasum2" ] && [ ! -s "/storage/$shasum2" ] && rm -f "/storage/$shasum2"
+if [ "$shasum1" != "$shasum2" ]; then
   cp -r "/usr/config/DaedalusX64/daedalus" "/storage/.config/DaedalusX64/daedalus"
 fi
 
