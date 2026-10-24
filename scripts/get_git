@@ -24,34 +24,44 @@ fi
 
 
 _clean_repo() {
-  git clean -fdx
-  git restore --staged . || git switch --force # Clear changes and ensure correct branch
+  # Clear untracked files and changes to tracked ones; HEAD does not move
+  git clean -fdx && git reset --quiet --hard
 }
 
+# Called as `_repo_exists_and_valid && exit 0`, so set -e does not apply in
+# here: every step that can fail is checked, and a cache directory that cannot
+# be entered is not a valid repo (otherwise _clean_repo runs in the caller's
+# directory, the build tree).
 _repo_exists_and_valid() {
-  if [[ -d "${PACKAGE}" ]]; then
-    pushd "${PACKAGE}" > /dev/null
-    _clean_repo || return 1
+  local head pin
 
-    if ! git ls-remote . | grep -q -m1 "^${PKG_VERSION}"; then
-      echo "ERROR: ${PACKAGE}: failed to determine git HEAD" >&2
-      return 1
-    fi
+  [[ -d "${PACKAGE}" ]] || return 1
+  pushd "${PACKAGE}" > /dev/null || return 1
 
-    if [[ "${PKG_URL}" != "$(git remote get-url origin)" ]]; then
-      echo "ERROR: ${PACKAGE}: failed to obtain URL of origin" >&2
-      return 1
-    fi
-
-    if [[ -n "${PKG_GIT_CLONE_BRANCH}" && "${PKG_GIT_CLONE_BRANCH}" != "$(git rev-parse --abbrev-ref HEAD)" ]]; then
-      echo "ERROR: ${PACKAGE}: failed to determine current git branch" >&2
-      return 1
-    fi
-
-    popd > /dev/null
-    return 0
+  if ! _clean_repo; then
+    popd > /dev/null; return 1
   fi
-  return 1
+
+  # HEAD must be the pin itself, not merely a commit some ref of the cache points at
+  head="$(git rev-parse --verify --quiet HEAD)"
+  pin="$(git rev-parse --verify --quiet "${PKG_VERSION}^{commit}")"
+  if [[ -z "${pin}" || "${head}" != "${pin}" ]]; then
+    echo "ERROR: ${PACKAGE}: HEAD is not ${PKG_VERSION}" >&2
+    popd > /dev/null; return 1
+  fi
+
+  if [[ "${PKG_URL}" != "$(git remote get-url origin)" ]]; then
+    echo "ERROR: ${PACKAGE}: failed to obtain URL of origin" >&2
+    popd > /dev/null; return 1
+  fi
+
+  if [[ -n "${PKG_GIT_CLONE_BRANCH}" && "${PKG_GIT_CLONE_BRANCH}" != "$(git rev-parse --abbrev-ref HEAD)" ]]; then
+    echo "ERROR: ${PACKAGE}: failed to determine current git branch" >&2
+    popd > /dev/null; return 1
+  fi
+
+  popd > /dev/null
+  return 0
 }
 
 _update_submodules() {
