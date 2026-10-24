@@ -5,6 +5,7 @@
 from pathlib import Path
 import os
 import argparse
+import re
 import subprocess
 import sys
 import tempfile
@@ -31,12 +32,24 @@ set_setting() { printf '%s=%s\\n' "$1" "$2" >> "$QA_SETTINGS"; }
 systemctl() { [ "$*" = "restart batteryledstatus.service" ] || return 9; bash "$QA_ROOT/battery_led_status"; }
 sleep() { cat "$LED_PATH"/multi-*/leds/*/brightness >> "$QA_ROOT/sleep-brightness"; QA_SLEEP_COUNT=$((${QA_SLEEP_COUNT:-0}+1)); [ "$QA_SLEEP_COUNT" -lt "${QA_SLEEP_STEPS:-1}" ] || exit 0; }
 ''')
-    for name in ['ledcontrol','analog_sticks_ledcontrol','battery_led_status']:
-        text=(source/name).read_text().replace('. /etc/profile',f'. "{profile}"')
-        text=text.replace('/usr/bin/analog_sticks_ledcontrol',str(root/'analog_sticks_ledcontrol'))
-        # Redirect immutable hardware paths only; run all production branches.
-        text=text.replace('LED_PATH="/sys/devices/platform/"','LED_PATH="${LED_PATH:-/sys/devices/platform/}"')
-        text=text.replace('/sys/class/power_supply/battery/',str(battery)+'/')
+    # Each script's adaptations, each required to match (#995): a spelling the script no longer uses
+    # would otherwise leave the host's path in what runs. The hardware paths are not rewritten: the
+    # scripts take LED_PATH and BATTERY_PATH from the environment, and every assignment of either must
+    # keep its ${VAR:-default} form, with no other /sys/ path left, before anything runs.
+    adapt={'ledcontrol':[('. /etc/profile',f'. "{profile}"'),('/usr/bin/analog_sticks_ledcontrol',str(root/'analog_sticks_ledcontrol'))],
+           'analog_sticks_ledcontrol':[],
+           'battery_led_status':[('. /etc/profile',f'. "{profile}"')]}
+    for name,pairs in adapt.items():
+        text=(source/name).read_text()
+        for old,new in pairs:
+            if old not in text: raise SystemExit(f'FAIL {name}: adaptation pattern not found: {old}')
+            text=text.replace(old,new)
+        for n,line in enumerate(text.splitlines(),1):
+            assignment=re.match(r'\s*(LED_PATH|BATTERY_PATH)=(.*)',line)
+            if assignment and not assignment.group(2).startswith('"${'+assignment.group(1)+':-'):
+                raise SystemExit(f'FAIL {name}:{n}: {assignment.group(1)} is assigned without its ${{{assignment.group(1)}:-}} default')
+            if '/sys/' in re.sub(r'\$\{(LED_PATH|BATTERY_PATH):-[^}]*\}','',line):
+                raise SystemExit(f'FAIL {name}:{n}: a /sys/ path outside the LED_PATH and BATTERY_PATH defaults')
         (root/name).write_text(text); (root/name).chmod(0o755)
     env=dict(os.environ, LED_PATH=str(led), QA_ROOT=str(root), QA_SETTINGS=str(settings), BATTERY_PATH=str(battery))
     def set_setting(k,v):
@@ -47,7 +60,8 @@ sleep() { cat "$LED_PATH"/multi-*/leds/*/brightness >> "$QA_ROOT/sleep-brightnes
         checked+=1; ok=bool(test); failed+=not ok; print(('PASS ' if ok else 'FAIL ')+label)
     def run(*args):
         r=subprocess.run(['bash',str(root/'ledcontrol'),*args],env=env,text=True,capture_output=True,timeout=10)
-        assert r.returncode==0,(args,r.stderr)
+        # Explicit, not assert: python3 -O and PYTHONOPTIMIZE remove asserts (#995).
+        if r.returncode != 0: raise SystemExit(f'FAIL ledcontrol {args} rc {r.returncode}: {r.stderr[-300:]}')
     for name,value in [('max','255'),('mid','128'),('min','32')]:
         run('brightness',name); check(f'{name}: all eight brightness files = {value}',values('brightness')==[value]*8)
     run('rgb'); check('unset custom RGB: actual helper writes white at saved min', values('brightness')==['32']*8 and values('multi_intensity')==['255 255 255']*8)
