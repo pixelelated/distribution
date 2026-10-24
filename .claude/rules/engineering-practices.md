@@ -237,6 +237,13 @@ So, before stating what code does:
   prose, a second table. Read to the bottom before repeating the top.
 - **Say which one you did.** "The row's timestamp moved" and "the function is
   called refresh" are different sentences, and only one of them is evidence.
+- **A count or a line number is a claim about one tree.** Produce it by a
+  command run at the hash the claim is about, and mark anything else as the
+  branch's. A figure typed from the session's memory, or read off the
+  working tree for a read pinned to a hash, is this same error at the
+  altitude of a number: every renovation brief's version 1, and T4's own
+  draft, carried counts from the wrong tree until a reader with no context
+  reproduced each one (blindspot 75, 2026-10-24).
 
 
 ## A promise is not a mechanism: report the running state, not the intention
