@@ -47,7 +47,28 @@
           "output": "gemini-argon-probe.md"
         }
       ],
-      "status": "HOLD: refutation failed 09:15:57-10:02:20, retries_exhausted_empty_content (attempts 1-3 finish=length at the 65,536-token ceiling, about 57,000 reasoning tokens each; attempt 4 empty, finish=error); identity and provider PASS, effort unverifiable; not transient, so no same-slug retry; the way forward is the coordinator's"
+      "status": "run 2 started on the trimmed packet (D-WORKFLOW-195); run 1 failed at its token ceiling (provenance kept)"
     }
-  ]
+  ],
+  "packets": {
+    "gpt": {
+      "file": "gpt-brief.md",
+      "bytes": 438502,
+      "sha256_prefix": "4c24f7cc03c94eec8a13a1e6",
+      "content": "full: 02 (less generated rows), 03, 04, q4a, all 49 start and achievements scripts in full plus ten files, context excerpts, guest outputs"
+    },
+    "gemini-argon run 1": {
+      "file": "the same bytes as gpt-brief.md (the brief was overwritten by run 2's)",
+      "bytes": 438502,
+      "sha256_prefix": "4c24f7cc03c94eec8a13a1e6",
+      "provenance": "gemini-argon-audit-run1-truncated.md.provenance.json",
+      "outcome": "retries_exhausted_empty_content (finish=length at 65,536)"
+    },
+    "gemini-argon run 2": {
+      "file": "gemini-argon-brief.md",
+      "bytes": 237403,
+      "sha256_prefix": "adfc1f750b629faa1b121313",
+      "content": "trimmed (D-WORKFLOW-195): 02/03/04/q4a verbatim from gpt-brief.md, the guest outputs, the 8 achievements scripts whole, the 41 start scripts as excerpts (every cited line +/-20 and each kill-target line +/-20: 2,240 of 5,752 lines in 56 ranges), no context excerpts; the ask bounded (one line per item, parts 1 and 2 first, at most 6,000 words)"
+    }
+  }
 }

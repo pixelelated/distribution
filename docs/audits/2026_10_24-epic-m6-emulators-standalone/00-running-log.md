@@ -126,3 +126,18 @@ GUEST-PROOF: 09:20:27 UTC (c2-scummvm.out's mtime) -- G15, ScummVM with Flight o
   - Identity and provider PASS; effort unverifiable, since no completed attempt reported it.
 - **Diagnosis: not transient.** The packet (438,502 bytes) drives Argon's high-effort reasoning to about 57,000 tokens of a 65,536 ceiling, which leaves too little for the answer. Three attempts on the same input ended the same way. T3's 308 KB packet took Argon 30,337 reasoning tokens.
 - **The coordinator's failed-seat rule (#650), applied:** hold; the failure recorded; diagnosed; **no same-slug retry**, the cause not being transient; never one seat; the way forward is the coordinator's. Posted on #677 with options. The GPT output is read while the stage holds, its items re-read at their artifacts, but nothing is graded into `04` § Second opinion until the second seat returns.
+
+### [Stage C] 10:11 — The Gemini seat again, on a trimmed packet (D-WORKFLOW-195, the coordinator's answer on #677)
+
+- The first attempt's provenance is kept as `second-opinions/gemini-argon-audit-run1-truncated.md.provenance.json` (`git mv`).
+- **The packets, side by side:**
+  - GPT's: `gpt-brief.md`, 438,502 bytes, sha256 `4c24f7cc03c94eec8a13a1e6…`. Gemini's run 1 had the same bytes; its brief file was overwritten by run 2's.
+  - Gemini's run 2: `gemini-argon-brief.md`, **237,403 bytes, sha256 `adfc1f750b629faa1b121313…`**.
+- **What run 2's packet holds:**
+  - `02`, `03`, `04` and q4a **verbatim from GPT's packet**, so that only the trimming differs, not the later cycle-2 updates to the live files;
+  - the guest scripts, outputs and proof lines as GPT had them;
+  - the eight achievements scripts whole;
+  - the other 41 start scripts as line-numbered excerpts headed by path and range: every line `02`, `03` or `04` cites, and each `set_kill` line, with 20 lines either side. That is 2,240 of 5,752 lines in 56 ranges (`.qa-scratch/t30/gemini-trim-stats.txt`).
+  - No context excerpts outside the membership: they are not in D-WORKFLOW-195's list.
+  - The ask is bounded: one line per item, parts 1 and 2 before 3, at most 6,000 words.
+- `tools/forbidden-terms-check --stdin` rc 0. The run started in the background (harness task `b8sicheu7`), on the same model, effort and provider.
