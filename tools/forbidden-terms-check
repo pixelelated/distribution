@@ -4,7 +4,12 @@
 # outside every tree -- ~/.config/rocknix/forbidden-terms (FORBIDDEN_TERMS_FILE),
 # or FORBIDDEN_PATTERNS in the environment (the fork CI's repository secret) --
 # because a list of words a tree must not hold would itself hold them. A hit is
-# printed as path:line, never the text.
+# printed as path:line, never the text; a path whose own name carries a listed
+# word is printed by its place in `git ls-files` (ls-files:<n>), never by name.
+# Every tracked path is read: a regular file's contents, a symlink's link text
+# (and its target's contents when it resolves to a file inside the tree), and
+# every path's name. The count read must equal the count listed, and a tree
+# with nothing tracked is no clean run (T10 S6, #942, #936).
 #   tools/forbidden-terms-check                     # this tree
 #   tools/forbidden-terms-check <dir>               # another git tree (the ES fork)
 #   git log --format=%B a..b | tools/forbidden-terms-check --stdin   # commit messages
@@ -28,23 +33,65 @@ if [ "${1:-}" = --stdin ]; then
 fi
 
 TREE="${1:-$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)}"
-list="$(mktemp)" || exit 2
-trap 'rm -f "${list}"' EXIT
+TREE="$(cd "${TREE}" 2>/dev/null && pwd -P)" || { echo "forbidden-terms-check: no such tree" >&2; exit 2; }
+list="$(mktemp)" && links="$(mktemp)" || exit 2
+trap 'rm -f "${list}" "${links}"' EXIT
 git -C "${TREE}" ls-files -z > "${list}" || { echo "forbidden-terms-check: git ls-files failed in ${TREE}" >&2; exit 2; }
-hits=0; scanned=0
-while IFS= read -r -d '' f; do
-  p="${TREE}/${f}"
-  [ -f "${p}" ] && [ ! -L "${p}" ] || continue        # a submodule, a symlink, a path deleted but tracked
-  scanned=$((scanned + 1))
-  out="$(grep -a -i -n -E -e "${FORBIDDEN_PATTERNS}" -- "${p}" 2>&1)"; rc=$?
+# gitlinks (submodules) are judged by name only: their contents are another tree.
+git -C "${TREE}" ls-files -s -z | tr '\0' '\n' | awk '$1 == "160000" { sub(/^[^\t]*\t/, ""); print }' > "${links}" \
+  || { echo "forbidden-terms-check: git ls-files -s failed in ${TREE}" >&2; exit 2; }
+declare -A gitlink=()
+while IFS= read -r g; do [ -n "${g}" ] && gitlink["${g}"]=1; done < "${links}"
+hits=0; scanned=0; listed=0; unread=0
+# say <path> <n> <grep-output> [suffix]: one label:line per hit, the label
+# being the path, or its ls-files place when its name carries a listed word,
+# so no word is printed (computed only when there is a hit).
+say() { local lab ln; lab="$(label "$1" "$2")$4"; while IFS= read -r ln; do echo "${lab}:${ln%%:*}"; hits=$((hits + 1)); done <<< "$3"; }
+label() {  # label <path> <n>: the path, or ls-files:<n> when its name is a hit
+  if printf '%s\n' "$1" | grep -a -q -i -E -e "${FORBIDDEN_PATTERNS}"; then echo "ls-files:$2"; else echo "$1"; fi
+}
+scan() {  # scan <path> <n> <file> [suffix]
+  local out rc
+  out="$(grep -a -i -n -E -e "${FORBIDDEN_PATTERNS}" -- "$3" 2>&1)"; rc=$?
   case "${rc}" in
     1) ;;
-    0) while IFS= read -r ln; do echo "${f}:${ln%%:*}"; hits=$((hits + 1)); done <<< "${out}" ;;
-    *) echo "forbidden-terms-check: grep failed on ${f} (rc ${rc})" >&2; exit 2 ;;
+    0) say "$1" "$2" "${out}" "${4:-}" ;;
+    *) echo "forbidden-terms-check: grep failed on $(label "$1" "$2") (rc ${rc})" >&2; exit 2 ;;
   esac
+}
+while IFS= read -r -d '' f; do
+  listed=$((listed + 1))
+  p="${TREE}/${f}"
+  if [ -n "${gitlink[${f}]:-}" ]; then
+    scanned=$((scanned + 1))                           # a gitlink: its name is read below
+  elif [ -L "${p}" ]; then
+    scanned=$((scanned + 1))
+    t="$(readlink -- "${p}")" || { echo "forbidden-terms-check: could not read the link $(label "${f}" "${listed}")" >&2; exit 2; }
+    if printf '%s\n' "${t}" | grep -a -q -i -E -e "${FORBIDDEN_PATTERNS}"; then echo "$(label "${f}" "${listed}"):link"; hits=$((hits + 1)); fi
+    r="$(readlink -f -- "${p}" 2>/dev/null)"
+    case "${r}" in "${TREE}"/*) [ -f "${r}" ] && scan "${f}" "${listed}" "${r}" " -> its target" ;; esac
+  elif [ -f "${p}" ]; then
+    scanned=$((scanned + 1))
+    scan "${f}" "${listed}" "${p}"
+  else
+    unread=$((unread + 1))                             # tracked, but not in this checkout
+  fi
 done < "${list}"
+# Every tracked path's name, judged once.
+n="$(tr '\0' '\n' < "${list}" | grep -a -i -n -E -e "${FORBIDDEN_PATTERNS}" 2>&1)"; rc=$?
+case "${rc}" in
+  1) ;;
+  0) while IFS= read -r ln; do echo "ls-files:${ln%%:*}:name"; hits=$((hits + 1)); done <<< "${n}" ;;
+  *) echo "forbidden-terms-check: the name scan failed (rc ${rc})" >&2; exit 2 ;;
+esac
+if [ "${listed}" -eq 0 ]; then
+  echo "forbidden-terms-check: ${TREE} tracks no file, so nothing was scanned; that is no clean run" >&2; exit 2
+fi
+if [ "${unread}" -gt 0 ] || [ "${scanned}" -ne "${listed}" ]; then
+  echo "forbidden-terms-check: read ${scanned} of ${listed} tracked paths (${unread} not in this checkout); refused, since a path not read is not judged" >&2; exit 2
+fi
 if [ "${hits}" -gt 0 ]; then
-  echo "forbidden-terms-check: ${hits} hit(s) in ${scanned} tracked files (path:line above; the words are never printed)"
+  echo "forbidden-terms-check: ${hits} hit(s) in ${scanned} tracked files (path:line above, ls-files:<n> where a name carries the word; the words are never printed)"
   exit 1
 fi
 echo "forbidden-terms-check: 0 hits in ${scanned} tracked files"
