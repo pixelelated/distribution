@@ -34,7 +34,20 @@
    and write stage A (the hashes, the counts, the upstream ref, the host
    file's state) before reading a line of the slice.
 
-## Current focus (04:20 UTC update)
+## Current focus (05:44 UTC update)
+
+**Stage C running.** M7 returned the host at 05:42:07 (its block on the host file, quoted by the coordinator on #650). Phase 4.6 has begun, in this order:
+1. `npm install --prefix tools/council`;
+2. `verify-pins` and `test`;
+3. a probe per seat;
+4. one refutation pass per seat: Astra (`gpt`) at max and Argon (`gemini-argon`) at high, both on the packet;
+5. the grading in `04` § Second opinion;
+6. regenerate `05` and the issue body, and run the pre-issue lint;
+7. stage D (`stage-d-bug-drafts/`), then the pause for stream briefs.
+
+T5 runs its own seat calls beside these. No guest is needed. If a session resumes mid-way, check which `second-opinions/*-audit.md` and `*-probe.md` outputs exist before re-invoking a seat.
+
+## Earlier focus (04:20 UTC update)
 
 **Stage C pending. Stream 802 DONE (04:4x UTC): `fix/m6-802-pcsx-rearmed32` at `a0defbd527`, pushed, handed back on #802 (issuecomment-6379900683); its worktree `../m6-802-pcsx-rearmed32` is the coordinator's to remove once M7 consumes it.** Stage D is fully drafted:
 - the bug bodies and the audit issue body are in `docs/audits/2026_10_24-epic-m6-emulators-libretro/stage-d-bug-drafts/`;
