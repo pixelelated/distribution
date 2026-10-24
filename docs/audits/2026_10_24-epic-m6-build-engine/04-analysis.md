@@ -6,7 +6,7 @@
 
 The slice is the engine every build runs: LibreELEC's scripts and `config/functions`, ROCKNIX's distribution layer, and the fork's additions (the watch entry, the identity, the container's lifecycle, the meson guard, the name). **The fork's additions are small, commented and mostly right; the engine's weak points are where a failure is reported as success, or where a guarantee holds on one route and not the one people use.** Nothing was built: every claim is a reading at a site, a sandboxed call with its trace read first (P1 to P8, P11 to P13), an install tree (P7), or a recorded run (P10), and the build-only proofs are `fix-pending-image`.
 
-**21 findings. Two are High:**
+**22 findings. Two are High:**
 
 - **F-16:** `scripts/mkimage` reports success over an incomplete image on the `qcom-abl` route, SM8550's, the Retroid Pocket Nova's (unchecked copies of the kernel and `SYSTEM`, unchecked compression, an exit status that is always 0).
 - **F-18:** `scripts/get_git` accepts a cached clone whose `HEAD` is not the pinned commit when the pin matches any of the clone's refs, and the package then builds from the old source under the new version (P13).
@@ -22,7 +22,7 @@ The slice is the engine every build runs: LibreELEC's scripts and `config/functi
 - Archives are fetched without TLS verification and accepted unhashed (F-19).
 - `checkdeps` changes the host's compiler and `/nix` with `sudo` (F-20).
 
-**The rest are Low or `Renovation`:** a stale rule (F-05: two items of `device-builds.md` describe defects fixed in August), dead identity code (F-06, F-07), upstream's glob test (F-08), a workflow red on every run (F-10), the options file's two spellings (F-15), small helper defects (F-21), the container pin's age and three files behind upstream (F-11, F-12), and two items #644 assigned (finding 3's sentence, finding 8's measurement).
+**The rest are Low or `Renovation`:** a stale rule (F-05: two items of `device-builds.md` describe defects fixed in August), dead identity code (F-06, F-07), upstream's glob test (F-08), a workflow red on every run (F-10), the options file's two spellings (F-15), small helper defects (F-21), two upstream lines that fail a run for the wrong reason (F-22), the container pin's age and three files behind upstream (F-11, F-12), and two items #644 assigned (finding 3's sentence, finding 8's measurement).
 
 **Currency (Q4):**
 

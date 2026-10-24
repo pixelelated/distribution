@@ -296,7 +296,22 @@
 - **Acceptance:** `grep -n -E '\$\{[0-9A-Z_]+:(none|exec)\}' config/functions` prints nothing and `add_group` adds `bar` when `foobar` exists in a fixture `group` file.
 - **Upstream:** a #585 candidate (D-WORKFLOW-164; submission deferred, D-WORKFLOW-165)
 
-## PL-21: Measure the ccache settings against CI's at a real build
+## PL-21: Two upstream lines fail a run for the wrong reason: a statistics pipe after a good build, and `distclean` with no build root
+
+- **Severity:** Low
+- **Category:** Code Quality
+- **Question:** Q2
+- **Source Finding:** F-22
+- **Owner area:** `config/multithread`, `scripts/makefile_helper`
+- **What:** Make the statistics line non-fatal (`|| true`, or outside the `&&` list); add `|| true` to `--distclean`'s `chmod` as `--clean` has.
+- **Where:** `config/multithread:64`; `scripts/makefile_helper:26`
+- **Evidence:** `02` F-22
+- **Can this be done on the VM?** n/a: shell; a sandbox of each line with a failing `mtstats.py` shim and an empty build root (fix-sandbox)
+- **Already written:** nothing
+- **Acceptance:** A sandboxed `--distclean` over an empty fixture root exits 0 and removes the fixture `.ccache`.
+- **Upstream:** a #585 candidate (D-WORKFLOW-164; submission deferred, D-WORKFLOW-165)
+
+## PL-22: Measure the ccache settings against CI's at a real build
 
 - **Severity:** Low
 - **Category:** Renovation
@@ -311,7 +326,7 @@
 - **Acceptance:** #652 carries the two statistics and the decision.
 - **Disposition note:** deferred:#652 at Phase 7
 
-## PL-22: `scripts/test-audit-review.py` is the code-auditor's test, filed in the build engine's area
+## PL-23: `scripts/test-audit-review.py` is the code-auditor's test, filed in the build engine's area
 
 - **Severity:** Low
 - **Category:** Renovation
@@ -483,12 +498,19 @@ punch_index:
   outcome: open
 - id: PL-21
   severity: Low
+  category: Code Quality
+  question: Q2
+  source_finding: "F-22"
+  owner_area: "`config/multithread`, `scripts/makefile_helper`"
+  outcome: open
+- id: PL-22
+  severity: Low
   category: Renovation
   question: Q5
   source_finding: "#644 finding 8"
   owner_area: "the compile cache"
   outcome: open
-- id: PL-22
+- id: PL-23
   severity: Low
   category: Renovation
   question: Q6
@@ -523,3 +545,4 @@ punch_index:
 | PL-20 | Open | stage D files the issue; stage E's stream brief resolves |
 | PL-21 | Open | stage D files the issue; stage E's stream brief resolves |
 | PL-22 | Open | stage D files the issue; stage E's stream brief resolves |
+| PL-23 | Open | stage D files the issue; stage E's stream brief resolves |

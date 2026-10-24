@@ -121,5 +121,9 @@ PROOF: 04:11-04:31 P13 `get_git`'s cache check accepts `PKG_VERSION` matching a 
 
 ### [Stage C] 04:37 — `05-punch-list.md` drafted (before Phase 4.6)
 
-- 22 items from `tools/punch-items.py` (2 High, 7 Medium, 13 Low), every one with its question, `Already written:`, the VM line and an acceptance an agent can check; nine marked for `bug` issues at stage D, seven deferred to a named issue (#651 T4, #657 T10, #652 the coordinator's), eight #585 candidates. **Draft:** the reviewers' grades come first, and nothing is filed before them.
+- 22 items from `tools/punch-items.py` (2 High, 7 Medium, 13 Low; a 23rd, F-22, added after the subagent's leads 21 and 22 were re-read), every one with its question, `Already written:`, the VM line and an acceptance an agent can check; nine marked for `bug` issues at stage D, seven deferred to a named issue (#651 T4, #657 T10, #652 the coordinator's), eight #585 candidates. **Draft:** the reviewers' grades come first, and nothing is filed before them.
 - `tools/lint-audit-artifacts ... --phase pre-issue`: **1 contract failure**, the review plan's call evidence (no provenance file until Phase 4.6 runs). Everything else `ok`.
+
+### [Stage C] 04:39 — Leads re-read while the host is held
+
+- Re-read: leads 5, 21, 22, 25, 27 (`get_git` 13 to 18, `scripts/build` 598 to 612, `config/multithread` 60 to 66, `scripts/makefile_helper` 22 to 28, `config/arch.aarch64` 17 to 40 with the five devices' `TARGET_CPU`). 21 and 22 confirmed as F-22 (Low; PL-21); 5, 25, 27 left latent or by design, said so in `02`. `05` regenerated: 23 items.
