@@ -370,6 +370,44 @@ if [ -n "${MAPLINE}" ]; then
   fi
 fi
 
+# The face swap, applied once (#869). It exchanges S with E and W with N, so a
+# second pass undoes it, and a file kept between launches (Hotkeys.ini, and
+# the controller file this script does not copy afresh) flipped every launch.
+# A swapped file's state is recorded beside it, as a hash of the file without
+# the lines every launch rewrites (Device, and Back/Guide); a file whose hash
+# matches is swapped, any other is not. A kept file with no record yet (every
+# device before this change) is read once against the shipped file: equal to
+# its swap, it is swapped; equal to it, it is not; changed by the player, it
+# is taken as it stands.
+face_key() {
+  sed -e '/^Device = /d' -e 's/`Guide`/`Back`/g' "$1" | sha1sum | cut -d' ' -f1
+}
+face_swap_file() {
+  sed -i -e 's/`Button S`/`Button %`/g' \
+         -e 's/`Button E`/`Button S`/g' \
+         -e 's/`Button %`/`Button E`/g' \
+         -e 's/`Button W`/`Button %`/g' \
+         -e 's/`Button N`/`Button W`/g' \
+         -e 's/`Button %`/`Button N`/g' "$1"
+}
+face_swap_once() { # cfg want(yes|no) [shipped copy, for a kept file]
+  local cfg="$1" want="$2" shipped="${3:-}" rec="$1.faceswap" state="no" swapped key
+  key=$(face_key "${cfg}")
+  if [ -f "${rec}" ]; then
+    [ "$(cat "${rec}")" = "${key}" ] && state="yes"
+  elif [ -n "${shipped}" ] && [ -f "${shipped}" ]; then
+    swapped=$(mktemp) && cp "${shipped}" "${swapped}" && face_swap_file "${swapped}"
+    if [ "${key}" = "$(face_key "${swapped}")" ]; then
+      state="yes"
+    elif [ "${key}" != "$(face_key "${shipped}")" ]; then
+      state="${want}"
+    fi
+    rm -f "${swapped}"
+  fi
+  [ "${state}" = "${want}" ] || face_swap_file "${cfg}"
+  if [ "${want}" = "yes" ]; then face_key "${cfg}" > "${rec}"; else rm -f "${rec}"; fi
+}
+
 for CFG in "${CONF_DIR}/Hotkeys.ini" "${CONF_DIR}/GCPadNew.ini" "${CONF_DIR}/WiimoteNew.ini"; do
   [ -f "${CFG}" ] || continue
   sed -i "/^Device = /c\\Device = SDL/0/${SDL_DEVICE}" "${CFG}"
@@ -377,14 +415,10 @@ for CFG in "${CONF_DIR}/Hotkeys.ini" "${CONF_DIR}/GCPadNew.ini" "${CONF_DIR}/Wii
   # A custom profile is whatever the user bound in Dolphin's own UI, which
   # already records what the pad really reports; only the shipped profiles are
   # written positionally and need correcting.
-  if [ "${FACE_SWAP}" = "yes" ] && \
-     ! { [ "${CON}" = "custom" ] && [ "${CFG}" = "${CONF_DIR}/WiimoteNew.ini" ]; }; then
-    sed -i -e 's/`Button S`/`Button %`/g' \
-           -e 's/`Button E`/`Button S`/g' \
-           -e 's/`Button %`/`Button E`/g' \
-           -e 's/`Button W`/`Button %`/g' \
-           -e 's/`Button N`/`Button W`/g' \
-           -e 's/`Button %`/`Button N`/g' "${CFG}"
+  if ! { [ "${CON}" = "custom" ] && [ "${CFG}" = "${CONF_DIR}/WiimoteNew.ini" ]; }; then
+    SHIPPED="/usr/config/dolphin-emu/${CFG##*/}"
+    [ "${CFG}" = "${CONF_DIR}/WiimoteNew.ini" ] && SHIPPED=""
+    face_swap_once "${CFG}" "${FACE_SWAP}" "${SHIPPED}"
   fi
 done
 
