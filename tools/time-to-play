@@ -122,6 +122,7 @@ vq = importlib.util.module_from_spec(_spec)
 _loader.exec_module(vq)
 
 ROM = "/storage/roms/nes/Probe.nes"
+CELLS = ("launch", "exit", "g2g", "startup", "offline", "bounds")
 RETROARCH_CFG = "/storage/.config/retroarch/retroarch.cfg"
 # Busybox pgrep -x compares the whole argv and RetroArch's argv[0] is its
 # full path, so -x never matches it (generic-x64-vm-testing.md). The bracket
@@ -518,8 +519,20 @@ def measure_launch(g, fr, tag, budget=45.0, rom=ROM):
     existed and when it had burnt enough CPU to be drawing. The process poll
     is a thread so that a 15 ms SSH round trip does not sit between two
     screendumps."""
-    base = fr.rest()
     result = {"tag": tag}
+    # A launch is measured from no RetroArch (#967): one still running from an
+    # earlier cell is ended through the guest's own helper first, and the row
+    # says so, or the number would be a launch over a game.
+    if g.retroarch() is not None:
+        result["retroarch_was_running"] = True
+        result["ended_with_kill_rc"] = g.kill_game()
+        for _ in range(40):
+            if g.retroarch() is None:
+                break
+            time.sleep(0.25)
+        else:
+            result["retroarch_still_running"] = True
+    base = fr.rest()
     ra = {"seen": None, "ticks200": None, "pid": None}
     stop = threading.Event()
     t0 = [None]
@@ -639,6 +652,13 @@ def wait_drawing(g, budget=60):
             return True
         time.sleep(0.2)
     return False
+
+
+def stamp_completed(st):
+    """A sync's stamp says it completed: rc 0, or rclone's 9 (nothing to
+    transfer), and its token read. A failing sync's stamp is an outcome, not
+    a timing (#967, D-QA-062)."""
+    return bool(st) and st.get("rc") in ("0", "9") and bool(st.get("token"))
 
 
 def parse_stamp(line):
@@ -998,7 +1018,7 @@ def main():
                     help="which QA cloud the guest's remote points at")
     ap.add_argument("--repeat", type=int, default=5)
     ap.add_argument("--out", required=True)
-    ap.add_argument("--only", default="launch,exit,g2g,startup,offline,bounds",
+    ap.add_argument("--only", default=",".join(CELLS),
                     help="cells to run: launch,exit,g2g,startup,offline,bounds")
     ap.add_argument("--label", default="", help="the host state these numbers were taken under")
     ap.add_argument("--payload", default="full", choices=("full", "srm"),
@@ -1024,6 +1044,15 @@ def main():
         args.only = "launch,exit,g2g"
 
     only = [c.strip() for c in args.only.split(",") if c.strip()]
+    # A run that would measure nothing is a usage error, never a pass (#967,
+    # D-QA-062): --repeat 0 printed every cell empty and exited 0 (P8).
+    if args.repeat < 1:
+        ap.error("--repeat must be at least 1, not %d" % args.repeat)
+    unknown = [c for c in only if c not in CELLS]
+    if unknown:
+        ap.error("--only names no cell called %s (the cells: %s)" % (", ".join(unknown), ", ".join(CELLS)))
+    if not only:
+        ap.error("--only names no cell")
     out = os.path.abspath(args.out)
     os.makedirs(out, exist_ok=True)
     frames_dir = os.path.join(out, "frames")
@@ -1214,6 +1243,11 @@ def main():
             L, E = [], []
             for i in range(args.repeat):
                 a, b = cycle("r%d" % (i + 1), False, i, keep_frames=(i == 0))
+                # The online exit sync is timed only on a completed stamp: a
+                # failing sync's row keeps its token and is not a measurement.
+                if b.get("t_sync_stamp") is not None and not stamp_completed(b.get("stamp")):
+                    b["t_sync_stamp_unmeasured"] = b.pop("t_sync_stamp")
+                    b["t_sync_stamp"] = None
                 L.append(a)
                 E.append(b)
                 settle_sync(g)
@@ -1299,7 +1333,8 @@ EXIT_SYNC_BUDGET_S = 3.0
 
 def over_budget(report):
     out = []
-    rows = [r for r in (report["cells"].get("exit") or []) if r.get("t_sync_stamp") is not None]
+    rows = [r for r in (report["cells"].get("exit") or [])
+            if r.get("t_sync_stamp") is not None and stamp_completed(r.get("stamp"))]
     if rows:
         med = statistics.median(r["t_sync_stamp"] for r in rows)
         if med > EXIT_SYNC_BUDGET_S:
@@ -1329,11 +1364,47 @@ def headline_missing(report):
     if (report.get("cells", {}).get("exit") or report.get("cells", {}).get("g2g")) and report.get("remote_reachable") != "yes":
         out.append("the exit sync had no cloud to reach (rclone lsd qa-cloud: %s): its stamp times a sync that did nothing"
                    % (report.get("remote_reachable") or "not checked"))
+    cells = report.get("cells", {})
+    # Every cell that ran is judged (D-QA-062): one that ran and produced no
+    # number fails the run, named -- --repeat 0 ran three cells of nothing.
     for cell, field, what in checks:
-        rows = report["cells"].get(cell) or []
+        if cell not in cells:
+            continue
+        rows = cells.get(cell) or []
+        if not rows:
+            out.append("the %s cell ran and produced no number" % cell)
+            continue
         n = sum(1 for r in rows if r.get(field) is None)
         if n:
             out.append("%s missing in %d of %d %s repeat(s)" % (what, n, len(rows), cell))
+    # The exit sync is a timing only when its stamp completed; a failing
+    # stamp is named by its token.
+    for r in cells.get("exit") or []:
+        st = r.get("stamp") or {}
+        if (r.get("t_sync_stamp") is not None or r.get("t_sync_stamp_unmeasured") is not None) and not stamp_completed(st):
+            out.append("an exit sync's stamp did not complete (rc %s, %s): not a measurement"
+                       % (st.get("rc", "-"), st.get("token") or "no token"))
+    # The next game's frame is judged with the stamp that says what the launch
+    # did to the sync; a row without it is a frame with no account.
+    for r in cells.get("g2g") or []:
+        if not (r.get("stamp") or {}).get("token"):
+            out.append("a game-to-game row has no exit sync stamp")
+    if "startup" in cells:
+        st = cells.get("startup") or {}
+        if not st:
+            out.append("the startup cell ran and produced no number")
+        for arm, field in (("boot", "t_startup_stamp"), ("boot-launch", "t_game_frame_after_launch")):
+            e = st.get(arm)
+            if st and (not e or e.get("error") or e.get(field) is None):
+                out.append("the startup cell's %s arm has no %s%s" % (arm, field, (" (%s)" % e["error"]) if e and e.get("error") else ""))
+    if "conditions" in cells:
+        conds = cells.get("conditions") or {}
+        if not conds:
+            out.append("the offline and bounds cells ran and produced no number")
+        for cond, e in conds.items():
+            ex = (e or {}).get("exit") or {}
+            if ex.get("t_sync_stamp") is None or not (ex.get("stamp") or {}).get("token"):
+                out.append("the %s condition has no exit sync outcome and time" % cond)
     return out
 
 

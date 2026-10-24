@@ -611,6 +611,74 @@ def rehearsal_artifacts_root(c):
     return ok, f'the report directory it made: {dirs[:1]} (want it under ROCKNIX_ARTIFACTS={c.art.name}/)'
 
 
+# --- S6: time-to-play measures or fails (#967, #983; D-QA-062) -------------------
+
+def ttp_module(c):
+    """time-to-play under test, loaded as a module beside the vm-visual-qa it loads."""
+    import importlib.machinery, importlib.util
+    path = c.tool('time-to-play')
+    c.tool('vm-visual-qa')
+    loader = importlib.machinery.SourceFileLoader('ttp_under_test_%s' % c.name.replace('-', '_'), str(path))
+    spec = importlib.util.spec_from_loader(loader.name, loader)
+    mod = importlib.util.module_from_spec(spec)
+    loader.exec_module(mod)
+    return mod
+
+
+def ttp_usage(c, extra):
+    tool = c.tool('time-to-play')
+    c.tool('vm-visual-qa')
+    executable(c.bin / 'sleep', SLEEP_DOUBLE)
+    # A guest that answers and needs no reboot, so an unfixed run gets as far as it can.
+    c.rows([('get_setting cloudsaves.gameexit', 0, '1'), ('get_setting cloudsaves.startup', 0, '0'),
+            ("test -f '", 0, 'y'), ('pgrep -x emulationstation', 0, 'y')])
+    try:
+        r = c.run([sys.executable, '-I', str(tool), '--monitor', str(c.dir / 'no-monitor.sock'),
+                   '--out', str(c.dir / 'out')] + extra, timeout=90)
+        return r.returncode, r.stderr.strip().splitlines()[-1:] if r.stderr.strip() else []
+    except subprocess.TimeoutExpired:
+        return 'timeout', []
+
+
+@case
+def repeat_zero(c):
+    rc, last = ttp_usage(c, ['--repeat', '0'])
+    return rc == 2, f'rc {rc}, {last} (want rc 2, a usage error)'
+
+
+@case
+def only_empty_cells(c):
+    rc, last = ttp_usage(c, ['--only', ','])
+    return rc == 2, f'rc {rc}, {last} (want rc 2, a usage error)'
+
+
+@case
+def sync_stamp_failed(c):
+    m = ttp_module(c)
+    row = {'t_sync_stamp': 9.0, 'stamp': m.parse_stamp('1789000000 5 YOUR_CLOUD_STOPPED_ANSWERING')}
+    report = {'cells': {'exit': [row]}, 'remote_reachable': 'yes'}
+    missing, over = m.headline_missing(report), m.over_budget(report)
+    named = any('YOUR_CLOUD_STOPPED_ANSWERING' in x for x in missing)
+    return named and not over, f'judged {missing}, over budget {over} (want the failing stamp named by its token and not timed)'
+
+
+@case
+def g2g_no_stamp(c):
+    m = ttp_module(c)
+    report = {'cells': {'g2g': [{'t_second_game_frame': 3.0, 'stamp': m.parse_stamp('')}]}, 'remote_reachable': 'yes'}
+    missing = m.headline_missing(report)
+    return any('stamp' in x for x in missing), f'judged {missing} (want the g2g row without its stamp to fail)'
+
+
+@case
+def cell_ran_unmeasured(c):
+    m = ttp_module(c)
+    report = {'cells': {'launch': [], 'exit': [], 'g2g': []}, 'remote_reachable': 'yes'}
+    missing = m.headline_missing(report)
+    named = [cell for cell in ('launch', 'exit', 'g2g') if any(f'the {cell} cell ran' in x for x in missing)]
+    return named == ['launch', 'exit', 'g2g'], f'judged {missing} (want each cell that ran with no number named)'
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')
