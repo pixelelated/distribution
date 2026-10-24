@@ -22,8 +22,8 @@ mkimage_uboot() {
   elif [ -f "${RELEASE_DIR}/3rdparty/bootloader/rocknix-u-boot.img" ]; then
     # SM8750, SM8650 & SM8550
     echo "image: copying rocknix u-boot files..."
-    mcopy -o "${RELEASE_DIR}/3rdparty/bootloader/rocknix-u-boot.img" ::
-    mcopy -s -o "${RELEASE_DIR}/3rdparty/bootloader/device_trees" ::
+    mcopy -o "${RELEASE_DIR}/3rdparty/bootloader/rocknix-u-boot.img" :: >"${SAVE_ERROR}" 2>&1 || show_error
+    mcopy -s -o "${RELEASE_DIR}/3rdparty/bootloader/device_trees" :: >"${SAVE_ERROR}" 2>&1 || show_error
   else
     echo "ERROR no u-boot file found for ${SUBDEVICE}"
   fi
@@ -32,7 +32,7 @@ mkimage_uboot() {
 mkimage_extlinux() {
   if [ -d "${RELEASE_DIR}/3rdparty/bootloader/extlinux" ]; then
     echo "image: copying custom extlinux.conf..."
-    mcopy -s -o "${RELEASE_DIR}/3rdparty/bootloader/extlinux" ::
+    mcopy -s -o "${RELEASE_DIR}/3rdparty/bootloader/extlinux" :: >"${SAVE_ERROR}" 2>&1 || show_error
   else
     local fdt_type
     local fdt_overlays
@@ -56,14 +56,14 @@ EOF
     fi
 
     echo "image: copying extlinux.conf..."
-    mcopy -s -o "${IMG_TMP}/extlinux" ::
+    mcopy -s -o "${IMG_TMP}/extlinux" :: >"${SAVE_ERROR}" 2>&1 || show_error
   fi
 }
 
 mkimage_bootscr() {
   if [ -f "${RELEASE_DIR}/3rdparty/bootloader/${SUBDEVICE}_boot.scr" ]; then
     echo "image: copying ${SUBDEVICE}_boot.scr..."
-    mcopy "${RELEASE_DIR}/3rdparty/bootloader/${SUBDEVICE}_boot.scr" ::/boot.scr
+    mcopy "${RELEASE_DIR}/3rdparty/bootloader/${SUBDEVICE}_boot.scr" ::/boot.scr >"${SAVE_ERROR}" 2>&1 || show_error
   else
     echo "cannot find ${RELEASE_DIR}/3rdparty/bootloader/${SUBDEVICE}_boot.scr"
     exit 2
@@ -74,40 +74,40 @@ mkimage_dtb() {
   echo "image: copying device trees..."
   case "$DEVICE" in
     RK3326)
-      mcopy "${RELEASE_DIR}/3rdparty/bootloader/device_trees/"*.dtb ::
-      mcopy "${RELEASE_DIR}/3rdparty/bootloader/stock" ::
-      mcopy "${RELEASE_DIR}/3rdparty/bootloader/overlays" ::
+      mcopy "${RELEASE_DIR}/3rdparty/bootloader/device_trees/"*.dtb :: >"${SAVE_ERROR}" 2>&1 || show_error
+      mcopy "${RELEASE_DIR}/3rdparty/bootloader/stock" :: >"${SAVE_ERROR}" 2>&1 || show_error
+      mcopy "${RELEASE_DIR}/3rdparty/bootloader/overlays" :: >"${SAVE_ERROR}" 2>&1 || show_error
       ;;
     SM8550|SM8650|SM8750|SM8250|SM6115|SM4450)
-      mcopy -s -o "${RELEASE_DIR}/3rdparty/bootloader/boot" ::
+      mcopy -s -o "${RELEASE_DIR}/3rdparty/bootloader/boot" :: >"${SAVE_ERROR}" 2>&1 || show_error
       ;;
     S922X)
-      mcopy "${RELEASE_DIR}/3rdparty/bootloader/"*.dtb ::
+      mcopy "${RELEASE_DIR}/3rdparty/bootloader/"*.dtb :: >"${SAVE_ERROR}" 2>&1 || show_error
       ;;
     *)
-      mcopy -s "${RELEASE_DIR}/3rdparty/bootloader/device_trees" ::
+      mcopy -s "${RELEASE_DIR}/3rdparty/bootloader/device_trees" :: >"${SAVE_ERROR}" 2>&1 || show_error
       ;;
   esac
 
   if [ -d "${RELEASE_DIR}/3rdparty/bootloader/overlays" ]; then
     echo "image: copying device tree overlays..."
-    mcopy -s "${RELEASE_DIR}/3rdparty/bootloader/overlays" ::
+    mcopy -s "${RELEASE_DIR}/3rdparty/bootloader/overlays" :: >"${SAVE_ERROR}" 2>&1 || show_error
   fi
 }
 
 mkimage_gou_extras() {
   echo "image: copying res..."
-  mcopy "${RELEASE_DIR}/3rdparty/bootloader/res" ::
+  mcopy "${RELEASE_DIR}/3rdparty/bootloader/res" :: >"${SAVE_ERROR}" 2>&1 || show_error
 }
 
 mkimage_grub() {
   echo "image: copying grub files and dtb..."
-  mcopy -s -o "${RELEASE_DIR}/3rdparty/bootloader/EFI" ::
+  mcopy -s -o "${RELEASE_DIR}/3rdparty/bootloader/EFI" :: >"${SAVE_ERROR}" 2>&1 || show_error
 }
 
 mkimage_abl() {
   echo "image: copying ROCKNIX ABL..."
-  mcopy "${RELEASE_DIR}/3rdparty/bootloader/rocknix_abl" ::
+  mcopy "${RELEASE_DIR}/3rdparty/bootloader/rocknix_abl" :: >"${SAVE_ERROR}" 2>&1 || show_error
 }
 
 mkimage_all

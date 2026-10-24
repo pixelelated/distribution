@@ -33,6 +33,11 @@ cleanup() {
   rm -rf "${IMG_TMP}"
 }
 
+# an incomplete image must not stay behind looking like a finished one
+remove_partial() {
+  rm -f "${DISK}" "${DISK}.gz" "${DISK}.gz.sha256"
+}
+
 show_error() {
   echo "image: An error has occurred..."
   echo
@@ -42,11 +47,12 @@ show_error() {
     echo "Folder ${IMG_TMP} might be out of free space..."
   fi
   echo
+  remove_partial
   cleanup
   exit 1
 }
 
-trap cleanup SIGINT
+trap 'echo "image: interrupted"; remove_partial; cleanup; exit 130' SIGINT SIGTERM
 
 # create an image
 echo -e "\nimage: creating sparse file for disk image ${DISK##*/}..."
@@ -62,7 +68,7 @@ fi
 
 # write a disklabel
 echo "image: creating ${DISK_LABEL} partition table..."
-parted -s "${DISK}" mklabel ${DISK_LABEL}
+parted -s "${DISK}" mklabel ${DISK_LABEL} >"${SAVE_ERROR}" 2>&1 || show_error
 sync
 
 # create partitions
@@ -73,13 +79,13 @@ STORAGE_PART_START=$((${SYSTEM_PART_END} + 1))
 STORAGE_PART_END=$((${STORAGE_PART_START} + (${STORAGE_SIZE} * 1024 * 1024 / 512) - 1))
 
 if [ "${DISK_LABEL}" = "gpt" ]; then
-  parted -s "${DISK}" -a min unit s mkpart system fat32 ${SYSTEM_PART_START} ${SYSTEM_PART_END}
-  parted -s "${DISK}" -a min unit s mkpart storage ext4 ${STORAGE_PART_START} ${STORAGE_PART_END}
-  parted -s "${DISK}" set 1 legacy_boot on
+  parted -s "${DISK}" -a min unit s mkpart system fat32 ${SYSTEM_PART_START} ${SYSTEM_PART_END} >"${SAVE_ERROR}" 2>&1 || show_error
+  parted -s "${DISK}" -a min unit s mkpart storage ext4 ${STORAGE_PART_START} ${STORAGE_PART_END} >"${SAVE_ERROR}" 2>&1 || show_error
+  parted -s "${DISK}" set 1 legacy_boot on >"${SAVE_ERROR}" 2>&1 || show_error
 else
-  parted -s "${DISK}" -a min unit s mkpart primary fat32 ${SYSTEM_PART_START} ${SYSTEM_PART_END}
-  parted -s "${DISK}" -a min unit s mkpart primary ext4 ${STORAGE_PART_START} ${STORAGE_PART_END}
-  parted -s "${DISK}" set 1 boot on
+  parted -s "${DISK}" -a min unit s mkpart primary fat32 ${SYSTEM_PART_START} ${SYSTEM_PART_END} >"${SAVE_ERROR}" 2>&1 || show_error
+  parted -s "${DISK}" -a min unit s mkpart primary ext4 ${STORAGE_PART_START} ${STORAGE_PART_END} >"${SAVE_ERROR}" 2>&1 || show_error
+  parted -s "${DISK}" set 1 boot on >"${SAVE_ERROR}" 2>&1 || show_error
 fi
 sync
 
@@ -97,7 +103,7 @@ dd if="${DISK}" of="${IMG_TMP}/part2.ext4" bs=512 count=0 seek="${STORAGE_PART_C
 
 # create filesystem on part2
 echo "image: creating filesystem on part2..."
-mke2fs -F -q -t ext4 -T ext4 -O ^orphan_file -m 0 "${IMG_TMP}/part2.ext4"
+mke2fs -F -q -t ext4 -T ext4 -O ^orphan_file -m 0 "${IMG_TMP}/part2.ext4" >"${SAVE_ERROR}" 2>&1 || show_error
 tune2fs -L "${DISTRO_DISKLABEL}" -U ${UUID_STORAGE} "${IMG_TMP}/part2.ext4" >"${SAVE_ERROR}" 2>&1 || show_error
 e2fsck -n "${IMG_TMP}/part2.ext4" >"${SAVE_ERROR}" 2>&1 || show_error
 sync
@@ -138,6 +144,13 @@ if [ "${BOOTLOADER}" = "syslinux" -o "${BOOTLOADER}" = "bcm2835-bootloader" -o "
   mformat -i "${IMG_TMP}/part1.fat" -v "${DISTRO_BOOTLABEL}" -N "${UUID_SYSTEM//-/}" :: >"${SAVE_ERROR}" 2>&1 || show_error
 fi
 sync
+
+# the kernel and SYSTEM must fit part1 before anything is copied into it
+PART1_NEEDED=$(( $(stat -c %s "${TARGET_IMG}/${BUILD_NAME}.kernel") + $(stat -c %s "${TARGET_IMG}/${BUILD_NAME}.system") ))
+if [ "${PART1_NEEDED}" -ge $((${SYSTEM_SIZE} * 1024 * 1024)) ]; then
+  echo "part1 is ${SYSTEM_SIZE} MiB (SYSTEM_SIZE) and the kernel and SYSTEM need ${PART1_NEEDED} bytes" >"${SAVE_ERROR}"
+  show_error
+fi
 
 if [ "${BOOTLOADER}" = "syslinux" ]; then
   # create bootloader configuration
@@ -249,10 +262,10 @@ elif [ "${BOOTLOADER}" = "arm-efi" ]; then
 
   # copy files
   echo "image: copying files to part1..."
-  mcopy "${TARGET_IMG}/${BUILD_NAME}.kernel" "::/${KERNEL_NAME}"
-  mcopy "${TARGET_IMG}/${BUILD_NAME}.system" ::/SYSTEM
-  mcopy "${RELEASE_DIR}/target/KERNEL.md5" "::/${KERNEL_NAME}.md5"
-  mcopy "${RELEASE_DIR}/target/SYSTEM.md5" ::/SYSTEM.md5
+  mcopy "${TARGET_IMG}/${BUILD_NAME}.kernel" "::/${KERNEL_NAME}" >"${SAVE_ERROR}" 2>&1 || show_error
+  mcopy "${TARGET_IMG}/${BUILD_NAME}.system" ::/SYSTEM >"${SAVE_ERROR}" 2>&1 || show_error
+  mcopy "${RELEASE_DIR}/target/KERNEL.md5" "::/${KERNEL_NAME}.md5" >"${SAVE_ERROR}" 2>&1 || show_error
+  mcopy "${RELEASE_DIR}/target/SYSTEM.md5" ::/SYSTEM.md5 >"${SAVE_ERROR}" 2>&1 || show_error
 
 elif [ "${BOOTLOADER}" = "qcom-abl" ]; then
   # create bootloader configuration
@@ -267,10 +280,10 @@ elif [ "${BOOTLOADER}" = "qcom-abl" ]; then
 
   # copy files
   echo "image: copying files to part1..."
-  mcopy "${TARGET_IMG}/${BUILD_NAME}.kernel" "::/${KERNEL_NAME}"
-  mcopy "${TARGET_IMG}/${BUILD_NAME}.system" ::/SYSTEM
-  mcopy "${RELEASE_DIR}/target/KERNEL.md5" "::/${KERNEL_NAME}.md5"
-  mcopy "${RELEASE_DIR}/target/SYSTEM.md5" ::/SYSTEM.md5
+  mcopy "${TARGET_IMG}/${BUILD_NAME}.kernel" "::/${KERNEL_NAME}" >"${SAVE_ERROR}" 2>&1 || show_error
+  mcopy "${TARGET_IMG}/${BUILD_NAME}.system" ::/SYSTEM >"${SAVE_ERROR}" 2>&1 || show_error
+  mcopy "${RELEASE_DIR}/target/KERNEL.md5" "::/${KERNEL_NAME}.md5" >"${SAVE_ERROR}" 2>&1 || show_error
+  mcopy "${RELEASE_DIR}/target/SYSTEM.md5" ::/SYSTEM.md5 >"${SAVE_ERROR}" 2>&1 || show_error
 
 fi # bootloader
 
@@ -321,14 +334,13 @@ fi
 
 # gzip
 echo "image: compressing..."
-pigz --best --force "${DISK}"
+pigz --best --force "${DISK}" >"${SAVE_ERROR}" 2>&1 || show_error
 
 # create sha256 checksum of image
 (
-  cd "${TARGET_IMG}"
-  sha256sum "${DISK##*/}.gz" >"${DISK##*/}.gz.sha256"
-)
+  cd "${TARGET_IMG}" && sha256sum "${DISK##*/}.gz" >"${DISK##*/}.gz.sha256"
+) 2>"${SAVE_ERROR}" || show_error
 
-# cleanup
+# cleanup: every step above has been checked, so this is a success
 cleanup
-exit
+exit 0
