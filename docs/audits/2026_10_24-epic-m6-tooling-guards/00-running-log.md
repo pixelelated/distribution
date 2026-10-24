@@ -255,3 +255,25 @@ PROOF: P18 S1's history read -- `docs/audits/2026_10_24-epic-m6-tooling-guards/t
   - **Re-run with no removal and no file:** `git ls-remote --tags origin` lists 7 tags. They were fetched into a throwaway namespace (`refs/t10-origin-tags/*`) and **all 7 are lightweight** (0 annotated), so there are 0 annotation lines and 0 hits. The namespace was then deleted ref by ref, 0 left.
   - **A delta:** the brief expected 0 tags; there are 7, none annotated.
 PROOF: P19 S2's cases -- `.githooks/hooks-test` with the four new cases on the hooks before `32cb3a903e`: rc 1, five FAIL lines (`.qa-scratch/t10/s2/before.txt`); at `32cb3a903e` and at `db8ad3958a`: rc 0, PASS, 39 expect results (`.qa-scratch/t10/s2/after.txt`, `after2.txt`); origin's 7 tags, 0 annotated, 0 annotation lines scanned (counts through `guard_load`'s real lists).
+
+### [Stage E] 18:21 — S3: two credential shapes; a listed word in a file name (#935, #936)
+
+- **The coordinator's posts:**
+  - 18:16 UTC: S1 and S2 accepted; the header example at `pre-push:44-46` to be aligned (done in S3's commit); the history finding with the maintainer on #312; the ES fork's `guard-lib` is #961.
+  - 18:18 UTC: S5 gains the streamed sha256 loop for `ceremony-check:113`.
+- **The measure before the widening:** a first form (any of `pass`, `secret`, `token`, `api_key`, separator `:` or `=`) matched **205** tree lines in 190 files, mostly a `pass:` label with a 16-character hash-like value. It was narrowed to the brief's scope: `[Pp]ass(word|wd)?` with `=`, a value of 16 or more characters, ending at a quote, a space or the line's end.
+- **Two slips:**
+  - an intermediate measure dropped the length floor (31 lines) and was re-run;
+  - the first edit wrote the quote class as `[""'"'"]`, so the list no longer parsed as shell. Every hook then refused everything (`guard_load` failing closed, 13 FAIL lines in `hooks-test`), and it was corrected to the file's own `["'"'"']`.
+- **The tests first:** five new cases on the S2 hooks (`.qa-scratch/t10/s3/before.txt`). The four that must refuse failed: the lowercase assignment, the slash-bearing refresh token, and a listed word in a file name at commit and at push. The control (a placeholder, a prose sentence, a short value) was allowed before and after.
+- **The fix** (`148cee2a31`):
+  - **The two shapes:** `secret-patterns` gains the lowercase assignment and `/` in the JSON token value; 19 alternatives, and `grep -E` compiles them (rc 1 on empty input).
+  - **The name scan:** `guard_scan_names` judges added path names against the wordlist and refuses with a count, never a name; the pre-commit and all three `pre-push` paths call it.
+  - **The coordinator's hunk:** the header example now carries S2's refusal text.
+
+  `hooks-test` PASS, **44 `expect` results**.
+- **Already written:**
+  - **Today's tree:** the old list matches 0 lines and the widened one **10** (path:line in `02` § Stage E S3, posted on #935). Among them are 4 `rclone.conf.saved` files under `docs/qa-logs/`, each holding a `pass =` value of 36 mixed characters, the shape rclone writes for an obscured password, and two fixture literals in live tools.
+  - **History, widened:** credential-shaped added lines rise from 3 to **15**, every one a lowercase assignment the old list could not match.
+  - **Names:** 0 of the 126,890 distinct paths ever added carry a listed word.
+PROOF: P20 S3's cases and reads -- `.githooks/hooks-test` on the S2 hooks with S3's cases: rc 1, four FAIL lines (`.qa-scratch/t10/s3/before.txt`); at `148cee2a31`: rc 0, PASS, 44 expect results (`after.txt`); `git grep -I -c -E` over the tree with the hash's list 0 lines, with the widened list 10 (`/workspace/tmp/m6-t10/s3-new-tree-hits.txt`); `t10-history-scan.sh` with the widened list: 15 credential-shaped added lines (was 3), 77 listed-word lines, messages 1 and 3; `git log --name-only -z --diff-filter=AC c445081a59..8ebaf8daad`: 126,890 distinct paths, 0 carrying a listed word (counted through `guard_load`'s list).

@@ -23,7 +23,7 @@ Every finding is a lead until `04` § Finding Verification and § Second opinion
 | 11 | 04 Q6: the guard table and the tool-caller table | the evidence is here (§ Callers, § The suites, F-rows); the tables are `04`'s | `04` § Q6 |
 | 12 | 04 Q3: the fail-open hunt through the named readers | the evidence is here (F-01 to F-30); the table is `04`'s | `04` § Q3 |
 | 13 | 04 Q7: the personal-path diff entry by entry; three descriptions per guard | P2 (the diff); the description rows are `04`'s | `04` § Q7 |
-| 14 | proof cells in § Proofs = proof lines in 00 | 21 = 21 | § Proofs; `command grep -c` |
+| 14 | proof cells in § Proofs = proof lines in 00 | 22 = 22 | § Proofs; `command grep -c` |
 | 15 | every item `question:`; bugs pass box-check; no member edited before a stream | stage D; `git diff --stat a82d784216 HEAD -- .githooks .github tools` empty | `05` |
 | 16 | the retro | stage G | `docs/retros/` |
 | 17 | the six checks pass before the merge; the lint PASS | stage H | the hand-back |
@@ -474,3 +474,36 @@ Each stream is from `docs/reviews/briefs/t10-streams.md` at `9e0718eeb5`, with i
 | Proof | What it shows | Proved |
 | --- | --- | --- |
 | P19 | S2's four cases fail before the fix and pass after; the tags read | proved: fix-case |
+
+### S3: two credential shapes; a listed word in a file name (#935, #936) -- `148cee2a31`
+
+| Case (`.githooks/hooks-test`) | Before (S2's hooks) | Fixed |
+| --- | --- | --- |
+| a lowercase 'password = <a long value>' assignment (#935) | FAIL: exited 0 | ok: refused, the value never printed |
+| a JSON refresh token whose value carries a slash (#935) | FAIL: exited 0 | ok: refused |
+| a placeholder, a sentence and a short value still pass (#935's controls) | ok: allowed | ok: allowed |
+| a clean file whose name carries a listed word, at commit (#936) | FAIL: exited 0 | ok: refused, the name never printed |
+| a clean file whose name carries a listed word, at push (#936) | FAIL: exited 0 | ok: refused |
+
+`hooks-test`: PASS with 44 `expect` results.
+
+**For the coordinator (#935's third criterion):** the widened list matches these **10** tracked lines that the hash's list did not, by path and line, values never printed. The push guard's tip scan will refuse the next push that touches any of these files.
+- **Four `rclone.conf.saved` files**, each with a `pass =` value of 36 mixed characters (rclone's obscured-password shape, the QA WebDAV backends'):
+  - `docs/qa-logs/2026-10-06-pixelelated-replacement-15/qa19/artifacts/rocknix-images/qa-ed5a6a51f5-webdav-a-20261006-2003/time-to-play/rclone.conf.saved:6`
+  - `docs/qa-logs/2026-10-07-pixelelated-replacement-16/qa-20/artifacts/rocknix-images/qa-ee01490913-webdav-a-20261007-0152/time-to-play/rclone.conf.saved:6`
+  - `docs/qa-logs/2026-10-08-pixelelated-replacement-18/qa21/artifacts/rocknix-images/qa-7f58b7b1c5-webdav-a-20261008-1950/time-to-play/rclone.conf.saved:6`
+  - `docs/qa-logs/2026-10-11-pixelelated-replacement-19/retained/artifacts/rocknix-images/qa-a0f60255ab-webdav-a-20261011-1841/time-to-play/rclone.conf.saved:6`
+- **Two fixture literals in live tools**, against the run-time-fixture rule:
+  - `tools/last-good-scripts-test:8004` (`Password=`, 25 characters);
+  - `tools/cloud-connections-test:37` (`password='...'`, 24 lowercase letters).
+- **Their copies:**
+  - `docs/audits/2026_10_11-epic-m7-network-cloud-344/inputs/source/distribution/tools/last-good-scripts-test:7994`
+  - `docs/audits/2026_10_11-epic-m7-network-cloud-344/inputs/source/distribution/tools/cloud-connections-test:35`
+  - `docs/audits/2026_10_11-epic-m7-network-cloud-344/second-opinions/claude-brief.md:12960`
+  - `docs/audits/2026_09_28-milestone-audit-of-the-fixes-307/seats/B.harness.txt:220`
+
+**History, widened:** credential-shaped added lines rise from 3 to **15**. The 12 new ones are the lines above plus `46d7cd00b5:docs/audits/2026_09_28-milestone-audit-of-the-fix-round/seats/B.diff:2821`, `ce9f306c61:tools/last-good-scripts-test:6727` and `fed919f1c3:tools/last-good-scripts-test:3251` (labels only, `/workspace/tmp/m6-t10/history-s3/`). **File names:** 0 of 126,890 distinct paths ever added carry a listed word.
+
+| Proof | What it shows | Proved |
+| --- | --- | --- |
+| P20 | S3's cases fail before the fix and pass after; the tree, history and name reads | proved: fix-case |
