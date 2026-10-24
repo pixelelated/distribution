@@ -159,7 +159,6 @@ PERSONAL_PATTERNS=(
   'tools/ceremony-check'
   'tools/es-syntax-check'
   'tools/png-blackout'
-  'tools/fork-newdrive'
   'tools/council/'
   # The council toolchain, scaffold's export at its own paths (.claude/skills/council/COUNCIL-BUNDLE.md)
   'scripts/council-'
@@ -349,18 +348,16 @@ while read -r local_ref local_sha remote_ref remote_sha; do
       status=1
       continue
     fi
-    if true; then
-      if ! gate_out="$("$hooks_root/tools/ceremony-check" --gate 2>&1)"; then
-        {
-          echo "✗ pre-push: refusing to push next: a ceremony is overdue past its grace."
-          printf '%s\n' "$gate_out" | sed 's/^/    /'
-          echo "  Write the artifact it names (docs/friction-log.md, docs/retros/, the summary, the index), then push again."
-        } >&2
-        status=1
-        continue
-      elif [ -n "$gate_out" ]; then
-        printf '%s\n' "$gate_out" | sed 's/^/  ⚠ pre-push: /' >&2
-      fi
+    if ! gate_out="$("$hooks_root/tools/ceremony-check" --gate 2>&1)"; then
+      {
+        echo "✗ pre-push: refusing to push next: a ceremony is overdue past its grace."
+        printf '%s\n' "$gate_out" | sed 's/^/    /'
+        echo "  Write the artifact it names (docs/friction-log.md, docs/retros/, the summary, the index), then push again."
+      } >&2
+      status=1
+      continue
+    elif [ -n "$gate_out" ]; then
+      printf '%s\n' "$gate_out" | sed 's/^/  ⚠ pre-push: /' >&2
     fi
   fi
 
