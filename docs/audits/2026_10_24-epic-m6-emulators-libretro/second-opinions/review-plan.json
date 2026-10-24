@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "depth": "extended",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's dispatch on #650 (issuecomment-6378830351, 2026-10-24T02:36:34Z: 'Opus 5.5 at high effort') and the session's own model metadata (claude-opus-5-5)"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
+      "calls": [
+        {"phase": "refutation", "output": "gpt-audit.md"}
+      ],
+      "probes": [
+        {"phase": "probe", "output": "gpt-probe.md"}
+      ],
+      "status": "pending: written 2026-10-24 before the first call; the M7 host window of 03:47 UTC holds the npm install"
+    },
+    {
+      "member": "gemini-argon",
+      "model": "google/gemini-4-argon",
+      "lab": "google",
+      "effort": "high",
+      "provider": "openrouter, the installed gemini-argon recipe (Argon route, #636/#638)",
+      "calls": [
+        {"phase": "refutation", "output": "gemini-argon-audit.md"}
+      ],
+      "probes": [
+        {"phase": "probe", "output": "gemini-argon-probe.md"}
+      ],
+      "status": "pending: as above; prepared independently of the gpt call (the same packet, neither seat's output shown to the other), as brief section 1 says"
+    }
+  ]
+}
