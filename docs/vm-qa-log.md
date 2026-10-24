@@ -367,3 +367,11 @@ preserved. All original lifecycle channels0, owners exited, admission consumed,
 - **Found:** DuckStation and OpenBOR survive the exit kill; four table routes on the VM have no script (two of them defaults); a `.scummvm` file runs shell as root; an apostrophe stops gzdoom; zipped N64 ROMs fail; a real `memcards` directory is deleted uncopied; ppsspp and flycast keep a previous RetroAchievements session.
 - **Could not prove:** the kill names of flycast, Dolphin, Mupen64Plus, touchHLE and ScummVM live (they exited on synthetic inputs; free content is the next cycle's); any first frame (no real content); the 22 members the image lacks.
 - **Left behind:** a fixture fault and its fix (P1 killed the interface where the emulator had already exited; P2 kills only a live emulator), in the scripts. No walk; no rule line yet: the "kill only a live emulator" guard is the lesson.
+
+## 2026-10-24 09:22 UTC — M6 T30 cycle 2: two free titles, live kill and first frame (#677)
+
+- **Image and disk** as cycle 1 (`069fc27044`, `t30.qcow2`); up 09:18:46, `tools/vm-stop` rc 0 at 09:21:44; census 0 before and after.
+- **What ran:** `c2-frames.py` (frames through `tools/vm-visual-qa`'s Monitor): Freedoom 0.13.0 on gzdoom and Flight of the Amazon Queen on ScummVM, n=3 each, through `runemu.sh`.
+- **Found:** both kill targets end their live processes. gzdoom's first frame is 1.03-3.13 s after the launch call (the first run cold). ScummVM's first draw, its splash, is 0.64-1.08 s.
+- **Could not prove:** the interface's own launch and return path. An SSH launch leaves EmulationStation on screen; a launch driven from the interface (a walk) is that measurement. ScummVM's game frame, which comes after its splash, was also not taken.
+- **Left behind:** `c2-frames.py`, a reusable first-frame harness, in the artifacts. A candidate tool: launch-to-first-frame for a standalone emulator, through the interface rather than SSH.

@@ -12,7 +12,7 @@ The 35 standalone recipes (543 paths; 55 fork-own) are upstream's architecture, 
 - **a real directory is deleted before it is linked** in nine (F-12), memory cards included;
 - **comparisons written as redirections** in five (F-11).
 
-Six of these are fixed upstream after our base and arrive with the base merge (class 1). One currency finding is not code: `portaudio`'s source exists nowhere public (F-13, #849). 30 leads, 1 withdrawn (F-18), 13 guest proofs and 5 host proofs. Nothing in the membership was edited.
+Six of these are fixed upstream after our base and arrive with the base merge (class 1). One currency finding is not code: `portaudio`'s source exists nowhere public (F-13, #849). 30 leads, 1 withdrawn (F-18), 15 guest proofs in two cycles and 5 host proofs. Nothing in the membership was edited.
 
 ## Acceptance-criteria scorecard
 
@@ -51,7 +51,7 @@ The install trees' `os-release` path; the 41 start scripts; the table's reach (F
 
 ## Missing Artifacts
 
-A standalone exit test in `tools/emulator-exit-test`; free guest content for flycast, Dolphin, Mupen64Plus, touchHLE and ScummVM; shellcheck.
+A standalone exit test in `tools/emulator-exit-test`; free guest content for flycast, Dolphin, Mupen64Plus and touchHLE; shellcheck.
 
 ## Risk Assessment
 
@@ -65,7 +65,7 @@ A standalone exit test in `tools/emulator-exit-test`; free guest content for fly
 
 ## Coverage Boundary
 
-Read at `8ebaf8daad`; the guest is the M7 image `069fc27044`, whose start scripts are the hash's (H4). Not covered: the 22 members the GENERIC_X64 image lacks, beyond reading and the image-set; first frames (no real content); the live kill of five emulators that exited on synthetic inputs; the 80 patches (T42/T43); the data files' contents (provenance only); `libdrastouch.c` beyond a skim.
+Read at `8ebaf8daad`; the guest is the M7 image `069fc27044`, whose start scripts are the hash's (H4). Not covered: the 22 members the GENERIC_X64 image lacks, beyond reading and the image-set; first frames (no real content); the live kill of four emulators that exited on synthetic inputs (flycast, Dolphin, Mupen64Plus, touchHLE; gzdoom and ScummVM were proven with free content, G14, G15); the 80 patches (T42/T43); the data files' contents (provenance only); `libdrastouch.c` beyond a skim.
 
 ## Finding Verification (Phase 4.5)
 
@@ -126,7 +126,7 @@ The name each start script writes to `/tmp/.process-kill-data` (`set_kill set`),
 | `duckstation-sa` | Start Duckstation.sh, start_duckstation.sh | AppRun.wrapped | GENERIC_X64, H700, SM8550 | AppRun.wrapped: runtime/variable | comm AppRun, exe duckstation-qt: SURVIVED (G1, G7) | **differs** (F-01) |
 | `flycast-sa` | start_flycast.sh | flycast | GENERIC_X64, H700, SM8550 | flycast: GENERIC_X64,H700,SM8550 | exited on the synthetic input before the kill (G1): not tested | matches |
 | `gopher64-sa` | start_gopher64.sh | gopher64 | SM8550 | gopher64: SM8550 | not on the guest | matches |
-| `gzdoom-sa` | start_gzdoom.sh | gzdoom | GENERIC_X64, H700, SM8550 | gzdoom: GENERIC_X64,H700,SM8550 | not run to a live process (G4's inputs) | matches |
+| `gzdoom-sa` | start_gzdoom.sh | gzdoom | GENERIC_X64, H700, SM8550 | gzdoom: GENERIC_X64,H700,SM8550 | comm gzdoom: ended by its kill (G14, Freedoom) | matches |
 | `hatarisa` | start_hatari.sh | **none** | GENERIC_X64, H700, SM8550 | - | the route's script absent: exit 127 (G2) | **differs**: no target, and the route's script is absent (F-04) |
 | `heroic` | start_heroic_authenticate.sh, start_heroic_play.sh, start_heroic_play_gamescope.sh | Heroic heroic | SM8550 | Heroic: runtime/variable; heroic: runtime/variable | not on the guest | matches (runtime binaries: the player's or downloaded) |
 | `hypseus-singe` | start_hypseus.sh | hypseus | GENERIC_X64, H700, SM8550 | hypseus: GENERIC_X64,H700,SM8550 | not run (no laserdisc content) | matches |
@@ -138,7 +138,7 @@ The name each start script writes to `/tmp/.process-kill-data` (`set_kill set`),
 | `pico-8` | start_pico8.sh | ${STATIC_BIN} start_pico8.sh | GENERIC_X64, H700, SM8550 | ${STATIC_BIN}: runtime/variable; start_pico8.sh: GENERIC_X64,H700,SM8550 | not run (the player's binary) | matches (runtime binaries: the player's or downloaded) |
 | `ppsspp-sa` | start_ppsspp.sh | ppsspp | GENERIC_X64, H700, SM8550 | ppsspp: GENERIC_X64,H700,SM8550 | comm ppsspp: ended (G1) | matches |
 | `rpcs3-sa` | start_rpcs3.sh | rpcs3-sa | SM8550 | rpcs3-sa: SM8550 | not on the guest | matches |
-| `scummvm-sa` | start_scummvm.sh | scummvm | GENERIC_X64, H700, SM8550 | scummvm: GENERIC_X64,H700,SM8550 | exited on the synthetic input (G1): not tested | matches |
+| `scummvm-sa` | start_scummvm.sh | scummvm | GENERIC_X64, H700, SM8550 | scummvm: GENERIC_X64,H700,SM8550 | comm scummvm: ended by its kill (G15, FOTAQ) | matches |
 | `skyemu-sa` | start_skyemu.sh | SkyEmu | SM8550 | SkyEmu: SM8550 | not on the guest | matches |
 | `steam` | start_steam.sh, start_steam_arm64.sh, start_steam_x86.sh | FEX gamescope steam | SM8550 | FEX: SM8550; gamescope: SM8550; steam: SM8550 | not on the guest | matches (runtime binaries: the player's or downloaded) |
 | `supermodel-sa` | start_supermodel.sh | supermodel | SM8550 | supermodel: SM8550 | not on the guest | matches |
@@ -319,7 +319,7 @@ The thirteen fork-own recipes' pins equal upstream's (`q4a-dispositions.md` § T
 
 ### Q5 Efficiency
 
-- **Time to play, standalone.** `runemu.sh` start to the emulator's process (G12, n=3 each, synthetic inputs): ppsspp 0.61/0.63/0.63 s, x64sc 0.62/0.67/0.56 s, DuckStation 0.62/0.53/0.52 s. This is not interface to first frame. T3's RetroArch numbers on the same image are interface to first frame 0.62 s and game to game 1.01 s; T1's are in its retro. A first frame needs real content, which is the second guest cycle's job.
+- **Time to play, standalone.** `runemu.sh` start to the emulator's process (G12, n=3 each, synthetic inputs): ppsspp 0.61/0.63/0.63 s, x64sc 0.62/0.67/0.56 s, DuckStation 0.62/0.53/0.52 s. **With real free content (G14, G15, n=3):** gzdoom, from the launch call to Freedoom's title, 3.13 / 1.03 / 1.11 s (the first run cold); ScummVM, to its own splash, 0.64-1.08 s. These start at `runemu.sh`, not at the interface's press, because an SSH launch skips the interface's own launch path. A launch driven from the interface is the measurement still owed. T3's RetroArch numbers on the same image are interface to first frame 0.62 s and game to game 1.01 s; T1's are in its retro. A first frame needs real content, which is the second guest cycle's job.
 - **Before `exec`:**
   - Dolphin runs two Python helpers (0.03-0.05 s each) and some forty `sed -i` passes.
   - DuckStation runs one helper (0.04-0.07 s) and five `sed` passes.
@@ -412,7 +412,7 @@ Proposals for the coordinator: the exit fixes first (F-01 to F-04, three of them
 - **Every verdict names its artifact:** a line at the hash, a proof (G1-G13, H1-H5), or a command's output in `00`.
 - **Every substitute input is named** (blindspot 65): G1-G12's inputs are synthetic and G6's binaries are renamed copies. No verdict about a real game is drawn from them.
 - **What was not checked is said:**
-  - five live kills;
+  - four live kills (flycast, Dolphin, Mupen64Plus, touchHLE);
   - first frames;
   - the 22 members the guest lacks, beyond reading;
   - `libdrastouch.c`, skimmed only;
