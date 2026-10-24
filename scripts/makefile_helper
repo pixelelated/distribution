@@ -23,7 +23,7 @@ case $1 in
     rm -rf "${BUILD_ROOT}/${BUILD_BASE}."*/* "${BUILD_ROOT}/${BUILD_BASE}."*/.stamps
     ;;
   --distclean)
-    chmod -R u+rwX "${BUILD_ROOT}/${BUILD_BASE}."* 2>/dev/null
+    chmod -R u+rwX "${BUILD_ROOT}/${BUILD_BASE}."* 2>/dev/null || true
     rm -rf "${BUILD_ROOT}/.ccache" "${BUILD_ROOT}/${BUILD_BASE}."*
     ;;
   *)
