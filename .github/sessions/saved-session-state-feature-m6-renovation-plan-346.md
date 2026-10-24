@@ -154,9 +154,12 @@ brief's re-derivation. **Two fix-packet streams for the M7 candidate**
 (`docs/reviews/briefs/fix-packets-802-806.md`, `3f04de3342`, at the M7 lane's
 request of about 04:30): #802 to T3 (`fix/m6-802-pcsx-rearmed32`, upstream
 `c9820d0e89` with `${DISTRONAME}`), #806 to the T1 lane
-(`fix/m6-806-grep-pcre2`); each hands back one comment; this lane reads the
-diff, writes *reviewed* on the issue and on the host file, and M7 applies to
-its candidate tree. **The host is M7's from 03:47**; the return line is
+(`fix/m6-806-grep-pcre2`); **both handed back and reviewed 04:3x**:
+`a0defbd527` and `ea0af11d07`, one commit each on `8ebaf8daad`, told to M7
+on the host file; M7 applies to its candidate tree and its images prove the
+criteria; the two fix worktrees (`m6-802-pcsx-rearmed32`,
+`m6-806-grep-pcre2`) are removed with `tools/fork-worktree remove` once M7
+has consumed the packets. **The host is M7's from 03:47**; the return line is
 relayed to #650 and #652 the minute it lands. **Rule edits by this lane
 since `8ebaf8daad`** (the ledger the doctrine futro's A7 asks for; posted on
 #651 once T4 is at stage A, and listed here as they happen):

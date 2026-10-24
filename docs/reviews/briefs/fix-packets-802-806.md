@@ -1,5 +1,11 @@
 # Fix packets for the M7 candidate: #802 and #806
 
+**Handed back and reviewed 2026-10-24 04:3x UTC:** #802 as
+`fix/m6-802-pcsx-rearmed32` at `a0defbd527` (T3), #806 as
+`fix/m6-806-grep-pcre2` at `ea0af11d07` (T1; its stamps found the cause, a
+build-order race between `pcre2`'s install and `grep`'s configure on the
+SM8550 root). Both ready for M7; the proofs are M7's images.
+
 Two narrow remediation streams, written by the coordinator on 2026-10-24
 (D-WORKFLOW-189) at the M7 lane's request, relayed through the maintainer's
 channel at about 04:30 UTC: *"#802 and #806 are now in our next-candidate
@@ -98,8 +104,10 @@ session knows the OS-scripts area and its rules.
   `usr/bin/grep` carries today). Check `packages/devel/pcre2/package.mk`
   (10.47) builds for the target as a plain dependency (`PKG_DEPENDS_TARGET`
   and no host-only marker), and say in the comment what the image gains
-  (`libpcre2-8.so`, its size from the recipe's install or from another
-  build root's `image/system/usr/lib/` -- read, never built). Keep the
+  (**erratum, 2026-10-24 04:3x, from the hand-back:** `pcre2`'s target
+  build is static, `-DBUILD_SHARED_LIBS=OFF`, so no `libpcre2-8.so` is
+  added; `usr/bin/grep` grows by about 525 KB; #806's criterion 2 reads the
+  binary and stands as written). Keep the
   host side as it is (`PKG_CONFIGURE_OPTS_HOST` unchanged).
 - **Already written:** nothing inherited that the recipe fix changes; a
   Steam install that stopped at the Proton step left the client and runtime
