@@ -45,6 +45,8 @@ today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 **T9 (#656) stage E dispatched at 16:48 UTC (2026-10-24)** from `docs/reviews/briefs/t9-streams.md` (`4c842e2485`): eight streams S1 to S8, three contract rows D-INFRA-028/029/030 (put to the maintainer on #346 for veto before the merge), leads filed #925 (PL-08's rows), #926 (PL-21), #927 (PL-13, the owner's), PL-20 on #528, two rows on #657. Accept with `AUDIT_ISSUE=924 $S/t9-accept.sh <tip> <coordinator tip>`. M7 holds a second VM window (16:50 to 18:30 UTC, extendable); M6 starts no guest until its return line.
 
+**T10 (#657) stage E dispatched at 18:01 UTC (2026-10-24)** from `docs/reviews/briefs/t10-streams.md` (`9e0718eeb5`): ten streams S1 to S10 over 29 bugs (#929 to #957), audit #958; three contract rows D-WORKFLOW-200/201/202 (put to the maintainer on #346 for veto before the merge); leads #959 (PL-16), #960 (PL-30); #928 (pkgcheck, under #800). Accept with `AUDIT_ISSUE=958 $S/t10-accept.sh <tip> <coordinator tip>` (to be written in the shape of `t9-accept.sh`, with `hooks-test` on the tip and on the simulated merge). Two lanes run: T9 (S7, S8 next) and T10 (S1).
+
 ## Next commands
 
 ```bash
