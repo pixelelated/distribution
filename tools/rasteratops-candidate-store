@@ -3,7 +3,10 @@
 
 put --store DIR --inputs INPUTS.json FILE... copies images and evidence under
 DIR/sha256/<manifest digest> using a store lock and an atomic directory rename.
-verify BUNDLE checks every byte before and after QA. QA writes elsewhere.
+verify BUNDLE checks every byte before and after QA. QA writes elsewhere. The
+bundle is verified under the name it was given: a symlink, or a path whose
+own name differs from the directory it resolves to, is refused naming both,
+since the name is the digest being vouched for (#1002).
 This is local candidate storage; it never creates or publishes a release.
 """
 import argparse
@@ -23,6 +26,14 @@ def digest(path):
         for block in iter(lambda: stream.read(4 * 1024 * 1024), b""):
             h.update(block)
     return h.hexdigest()
+
+
+def given(bundle):
+    """The bundle as named, refused when that name is not the directory's own."""
+    resolved = bundle.resolve()
+    if bundle.is_symlink() or bundle.name != resolved.name:
+        raise ValueError("bundle " + str(bundle) + " is not the directory it names: it resolves to " + str(resolved))
+    return resolved
 
 
 def verify(bundle):
@@ -54,7 +65,7 @@ check.add_argument("bundle", type=Path)
 args = parser.parse_args()
 try:
     if args.command == "verify":
-        verify(args.bundle.resolve())
+        verify(given(args.bundle))
     else:
         inputs = json.loads(args.inputs.read_text())
         if not isinstance(inputs, dict) or not inputs:
