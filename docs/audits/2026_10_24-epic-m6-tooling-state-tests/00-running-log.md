@@ -273,3 +273,19 @@ PROOF: P10 S1's controls -- build-identity-test at 7aa8eac253 rc 1 (21/2), fixed
   - **The control,** `duckstation-case.sh`, with one named substitution: the payload also writes a host marker named by a caller variable. Stage D: the marker present (host execution), and the unknown name dropped (rc 0). Fixed: the marker absent, the case passes, and the unknown name gives rc 2.
 - **Slip, and its fix:** my `sed` adding `import re` also matched a `from pathlib import Path` inside a script the test embeds as a string. That stray line was removed before the commit, and the full run reread: 31 PASS.
 PROOF: P11 S3's controls -- #991: the stage-D refusals of 1.75.2, the fixed passes (30, 31), a 9.9.9 recipe refused; #994: `docs/qa-logs/2026-10-24-state-tests-s3/validator-controls-case.sh` PASS (four mutations credited by the old controls, failed by the fixed), `--case no-such-case` rc 0 then rc 2; #998: `duckstation-case.sh` PASS (host marker present at stage D, absent fixed; unknown name rc 0 then 2).
+
+## [Stage E] 21:55 UTC — S4: content-scope (#993); the 21:54 ruling
+
+- **The coordinator's post (21:54 UTC):** `#!/bin/bash` stays, and no `sh` is bound. The payload case's scope string now says what the witness proves (`802bb51924`). The receipt reads `... not the AppImage runtime: it proves the installed 0755 mode and direct execution inside the case sandbox`.
+- **#993 (`6b41f05962`): what changed.**
+  - **The traversal cases** assert the refusal sentence and that rclone was never run.
+  - **The missing-\* cases** require a listing of the selected library.
+  - **The failure cases** require the injected fault to have fired. The shim's `/ctl/fault-fired` records it, and the partial injection now writes there too.
+  - **An unknown `--cases` name** exits 2.
+- **#993: the evidence.**
+  - **The tree:** fixed, 21 PASS, 0 FAIL; at `7aa8eac253`, 19/2.
+  - **The control,** `docs/qa-logs/2026-10-24-state-tests-s4/scope-cases.sh`, with two product mutations in scratch source roots:
+    - a script that lists remotes and exits 0: the stage-D missing cases pass it (rc 0), and the fixed ones fail it (rc 1);
+    - the same exiting 1: the stage-D failure cases pass it, and the fixed ones fail it;
+    - `--cases missing-list,no-such-case`: rc 0 at stage D, rc 2 fixed.
+PROOF: P12 S4's control -- `docs/qa-logs/2026-10-24-state-tests-s4/scope-cases.sh` PASS (the stage-D test credits both mutations and the typo; the fixed fails them, rc 2 on the typo); the tree 21/0 fixed against 19/2 at the stage-D tip.
