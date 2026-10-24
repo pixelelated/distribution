@@ -40,7 +40,10 @@ trap '' 2
 source /storage/.config/gptokeyb/control.ini
 get_controls
 
-if [ -f "/etc/installer.gptk" ]
+# Without a game controller control-gen writes an empty control.ini and
+# GPTOKEYB is unset, so the line below would start the installer itself again
+# in the background, without end (#899). Map the pad only when there is one.
+if [ -f "/etc/installer.gptk" ] && [ -n "${GPTOKEYB}" ]
 then
   cp /etc/installer.gptk /storage/.config/gptokeyb/installer.gptk
   ${GPTOKEYB} "installer" -c "/storage/.config/gptokeyb/installer.gptk" &
