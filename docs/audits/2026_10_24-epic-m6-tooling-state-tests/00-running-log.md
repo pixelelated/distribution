@@ -386,3 +386,41 @@ PROOF: P17 S6's cleanup follow-up -- `docs/qa-logs/2026-10-24-state-tests-s6/inf
 - **For #662 (T15's), not this lane's:** `last-good-scripts-test`'s host fallback (`:381-400`) is unchanged; it is the coordinator's lead, named in the Phase 7 table.
 - **A note for any caller:** a guest run that passed `--busybox /usr/bin/busybox` (the qualification records of 2026-10-04 to 2026-10-08) now needs `--busybox-from image`. No live caller exists in `.github/workflows` or `tools/vm-qa`.
 PROOF: P18 S8's controls -- `docs/qa-logs/2026-10-24-state-tests-s8/settings-cases.sh` PASS and `melonds-cases.sh` PASS (the host busybox passed as the candidate's, a GNU-only writer passing and a spaced TMPDIR breaking, all at stage D; refusal, exit 3 with every line marked, the BUILD_ID or origin recorded, the GNU-only writer failed and the space passing, all fixed).
+
+## [Stage E] 22:44 UTC — S9: the release state check, its control and the candidate store (#1000, #1001, #1002, PL-17)
+
+- **Read first:** `release-candidates.md`, loaded this session and re-read for its procedure and its private/public split (D-WORKFLOW-168). These fixes change what the tools read, not what the procedure asks.
+- **The coordinator's rulings on #661:**
+  - **22:29:** under `--unverified-busybox` a failing case exits 1 and an all-pass run exits 3, the marker on every line in both. It is now in both tools' `--help` (`4e94ccd833`), and `settings-cases.sh` shows it by running: rc 1, 13 PASS 16 FAIL, 29 of 29 lines marked. It goes into #997's Phase 7 row.
+  - **22:30:** #1000 gets two shapes and a constant, plus a tree-side drift check; the gate's requirement is unchanged.
+  - **22:35:** a removal on a possibly-empty variable is written `"${S:?}"`, in a short command of its own. Every stage-E control was swept (`ab7faf40ca`), all 16 pass `bash -n`, and the rule is kept as a memory.
+- **#1000 (`3657e0e801`): what changed.**
+  - **The predicate:** `runs_autostart()` parses the systemctl-show entry as systemd 255.8, the image's, prints it. `systemctl-show.c:1386` joins argv with single spaces, unquoted, and prints each command as its own `ExecStart=` line, which the gate already refuses as a repeated key.
+  - **The two accepted shapes:** `path=/usr/bin/autostart`, or `path=/bin/bash` with exactly `AUTOSTART_WRAPPER`, the shipped `rocknix-autostart.service:9` argv.
+  - **The test** gains seven `exec-start-*` controls: the predicate over six values, run in one subprocess that loads the gate, and the tree's unit parsed with `shlex` and compared with the constant. 190 controls.
+- **#1000: the evidence.**
+  - **The control,** `docs/qa-logs/2026-10-24-state-tests-s9/ready-cases.sh`, with `ready-probe.py` running each gate's own `first_boot_ready()` against a stand-in systemctl and naming the first refusing check by its source line.
+  - **Before:** `/usr/bin/env /usr/bin/autostart` gets past the ExecStart check and is refused only at the host's missing `/storage` mounts.
+  - **After:** it is refused at `require(runs_autostart(fields["ExecStart"]))`, and the shipped wrapper reaches the mounts.
+  - **The test before** passes a scratch tree whose unit gained `--drifted`, 183 controls, rc 0. The fixed one fails it, and passes the same tree restored. PASS.
+- **#1001 (`b74dcaa78b`): what changed.**
+  - **The gate's catch-all** reports an exception outside `INPUT_ERRORS` as `reader-failure`, still exit 2 and value-free. `INPUT_ERRORS` is `Invalid` plus the parsers', the filesystem's and the subprocess errors.
+  - **An expected-2 control** requires an error row and no `reader-failure`; no current control reaches one.
+  - **`--self-test`** requires exactly `SELF_TEST_CONTROLS`, the 190 names its run observed.
+  - **Not listed: the payload controls.** `--payload-tests` is CANNOT here, because `mcopy` is absent, as at stage A, so their names were never observed by a run. That limit is written in the constant's comment.
+- **#1001: the evidence.**
+  - **A slip of mine, corrected before the commit:** the first cut required the error category to be `input-invalid` exactly. That failed `missing-required`, whose exit 2 is the Check's own named error row.
+  - **The control,** `control-cases.sh`, each pair in a scratch tree:
+    - before, a gate whose `text()` crashes (AttributeError) on a NUL passes 190, and a test with the `clean-image` registration deleted passes 189;
+    - after, both are rc 2, and the plain pair passes 190. PASS.
+- **#1002 (`64ea405f3f`): what changed.** `verify` checks the bundle under the name it was given; a symlink, or a name other than the resolved directory's, is refused naming both.
+- **#1002: the evidence.**
+  - **The control,** `store-cases.sh`, two synthetic bundles put into a scratch store under `.qa-scratch/t14/`, never the real store. At stage D a link named A that points at B verifies, rc 0; fixed refuses it, rc 1, naming A and B, while B verifies by its own path. PASS.
+  - **A slip in that control, corrected:** `put` seals bundles 0555/0444, so a rerun could not reset the scratch. The reset now restores owner write on that scratch alone, and the rerun printed no `rm` error.
+- **PL-17 (`a5397e2e9f`).** The header now reads: *"Inspect selected image/default/first-boot state, with no value in reports (#565). … The guarantee is about reports, not about the scratch: payload inspection copies the selected raw bytes (an update tar's SYSTEM, an install image and its storage partition) and reads files through private temporary files, all of which are removed on every exit, a SIGTERM, SIGINT or SIGHUP included."* The signal handlers raise the gate's own refusal.
+  - **The control,** `scratch-cases.sh`, a synthetic update tar, with `unsquashfs` a sleeping shim ended by its pid, and SIGTERM sent while the copied SYSTEM is in `pix-state-*`. Before: rc 143, the scratch and SYSTEM left. After: rc 2, the error JSON, nothing left. PASS.
+- **At the tip `a5397e2e9f`:** all four S9 controls PASS, `--self-test` rc 0 with 190, and `--payload-tests` is CANNOT (`mcopy` absent). The brief's acceptance asks for `--self-test` rc 0.
+PROOF: P19 #1000's control -- `docs/qa-logs/2026-10-24-state-tests-s9/ready-cases.sh` PASS (an argument of another command gets past the ExecStart check before and is refused there after; a drifted unit passes the test before and fails it after, the restored tree passing).
+PROOF: P20 #1001's control -- `control-cases.sh` PASS (a crashing gate and a dropped registration both pass the test before and both fail it after).
+PROOF: P21 #1002's control -- `store-cases.sh` PASS (a symlink named for one bundle verifies over another at the stage-D tip and is refused fixed, naming both).
+PROOF: P22 PL-17's control -- `scratch-cases.sh` PASS (a SIGTERM leaves the payload scratch before and removes it after, with the value-free exit 2).

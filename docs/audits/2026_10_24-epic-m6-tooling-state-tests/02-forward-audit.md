@@ -162,6 +162,10 @@ No host file line was written, because no guest started. The census was 0 throug
 | S6 follow-up (#995) | `docs/qa-logs/2026-10-24-state-tests-s6/info-cleanup-case.sh` (a failing run and a passing run, each with a fresh `TMPDIR`) | at `359dd435ce`: the failing run leaves its scratch | nothing left after either | `84a2b73140` |
 | S7 (#996) | `docs/qa-logs/2026-10-24-state-tests-s7/wrapper-cases.sh` (a `send_packet` that keeps the first method; the plain copy; no `gcc`; SIGTERM mid-build; the bare run) | the mutation credited (rc 0, total 2000); `t.c` left; rc 1 without `gcc`; the scratch left when killed | per-site FAIL (site 1 ran 0 times); nothing left; rc 2 naming `gcc`; nothing left when killed; rc 2 with the usage line | `0037b04172` |
 | S8 (#997) | `docs/qa-logs/2026-10-24-state-tests-s8/settings-cases.sh` (the host busybox; `--unverified-busybox`; the build root's; a stand-in root; a TMPDIR with a space; a `settings_base` using `cat --squeeze-blank`); `melonds-cases.sh` (host, unverified, root, stand-in, declared) | the host busybox passes both as the candidate's (29/29, 15/15), no origin recorded; the GNU-only writer 29/29; the space 5/24 | the host refused (exit 2); exit 3 with every line marked; the BUILD_ID or origin in each receipt; the GNU-only writer 13/16; the space 29/29 | `929355c417`, `30d9339ea3` |
+| S9 #1000 | `docs/qa-logs/2026-10-24-state-tests-s9/ready-cases.sh` with `ready-probe.py` (`/usr/bin/autostart` as another command's argument; the shipped wrapper; a tree whose unit drifted) | at `4e94ccd833`: the argument passes the ExecStart check; the drifted unit passes the test (183) | refused at `runs_autostart`; the wrapper passes; the drifted unit fails the test, the restored tree passes (190) | `3657e0e801` |
+| S9 #1001 | `control-cases.sh` (a gate whose `text()` crashes on a NUL; a deleted `case("clean-image")` registration) | at `3657e0e801`: both pass (190, 189) | both rc 2; the plain pair 190 | `b74dcaa78b` |
+| S9 #1002 | `store-cases.sh` (a symlink named for bundle A pointing at bundle B, in a scratch store) | verifies, rc 0 | refused, rc 1, naming both; B verifies by its own path | `64ea405f3f` |
+| S9 PL-17 | `scratch-cases.sh` (SIGTERM while a synthetic update tar's SYSTEM is in the scratch) | at `b74dcaa78b`: rc 143, the scratch left | rc 2, the error JSON, nothing left | `a5397e2e9f` |
 
 | Proof | What it shows | Proved |
 | --- | --- | --- |
@@ -175,5 +179,9 @@ No host file line was written, because no guest started. The census was 0 throug
 | P16 | S7's control fails at the stage-D tip and passes fixed | proved: fix-case |
 | P17 | S6's cleanup control fails before the follow-up and passes after it | proved: fix-case |
 | P18 | S8's controls fail at the stage-D tip and pass fixed | proved: fix-case |
+| P19 | #1000's control fails before the fix and passes after it | proved: fix-case |
+| P20 | #1001's control fails before the fix and passes after it | proved: fix-case |
+| P21 | #1002's control fails at the stage-D tip and passes fixed | proved: fix-case |
+| P22 | PL-17's control fails before the fix and passes after it | proved: fix-case |
 
 **The busybox this host offers (S8, for reading the record):** `readlink -f $(command -v busybox)` is `/usr/bin/busybox`, `BusyBox v1.37.0 (Ubuntu 1:1.37.0-7ubuntu1)`. The image's is the M7 root `m7-pixelelated-replacement20`'s `image/system/usr/bin/busybox`, `BusyBox v1.36.1`, BUILD_ID `1a026648442321609b2288c2c9c06803817f9df2`, 182 applets, every one but `sh` a busybox link on the image. The record's earlier `settings-modes-test` and `melonds-upgrade-test` passes name no busybox; from `929355c417` and `30d9339ea3` on, each receipt carries `busybox_origin`.
