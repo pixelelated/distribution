@@ -5,8 +5,10 @@ unit of handoff the plan defines (`docs/reviews/plan-for-the-plan.md` § 7);
 read that document whole before the first command, then this brief whole.
 Every section below is mandatory; a section that does not apply says so and
 why. Where this brief and the checklist on #656 differ, #656 wins and the
-coordinator corrects the brief in the same session. **Version 1
-(2026-10-24):** written after the tooling area's futro
+coordinator corrects the brief in the same session. **Version 2
+(2026-10-24, after the stranger's proof of version 1 -- 72 claims: 54 right, 4
+wrong, 6 partial, 1 uncounted, 7 uncheckable -- each wrong or partial one
+corrected in place and listed in the futro's errata):** written after the tooling area's futro
 (`docs/futros/2026-10-24-m6-tooling-and-guards.md`, posted on #903), whose
 adjustments A1 to A8 are written into this version, and after T5, T6, T7,
 T8, T30 and T24 were accepted, so their retros' *adjustments for the next
@@ -88,10 +90,11 @@ named in § 8 as a stop.
   each output, as T8's `second-opinions/` did with one seat. **A failed seat
   is a hold**, not a Local fallback (D-WORKFLOW-195: a seat cut by its output
   ceiling re-runs on a trimmed packet, the coordinator's call). The packet is
-  the whole slice: 18 files, 3,795 lines, about 150 KB on the export, plus
-  the six entry lines (`Makefile:40`, `:179`; `scripts/{build,build_distro,
-  image,install,build_compat}`'s `exec ./tools/watch-build --entry`) as
-  read-only context; **the seat is asked first for `reclaim-swap`, `install`
+  the whole slice: 18 files, 3,795 lines, 201,453 bytes (197 KiB) at the
+  hash, plus the seven entry lines (`Makefile:40`, `:179`;
+  `scripts/{build,build_distro,image,install,build_compat}`'s `exec
+  ./tools/watch-build --entry`, at `build:9`, `build_distro:11`, `image:9`,
+  `install:10`, `build_compat:7`) as read-only context; **the seat is asked first for `reclaim-swap`, `install`
   and `build-admission`** -- the sudo helper and the guard that admits a
   compiler -- where a second lab's eye matters most (futro A6).
   `review-plan.json` records depth `independent`, scope `epic`, primary
@@ -104,12 +107,16 @@ named in § 8 as a stop.
   beside `zz-fleet-hardening`; `sudo -n -l` lists the helper's `--reclaim`
   alone, as root, without a password and with `NOSETENV`, **and above it the
   fleet's `(ALL : ALL) ALL` for `max`**; `/swap.img` 8 GiB with 8 GiB used;
-  Docker 29.8.2; `.build-runs/` in three M7 worktrees (`conflict-resolution`,
-  `m7-audit507-tools`, `m7-browser-memory-570`); host Python 3.14 (the
+  Docker 29.8.2; `.build-runs/` in **45** M7 worktrees under
+  `/workspace/repos/rocknix.worktrees/` (2,022 run ids; `conflict-resolution`
+  alone 362) and in `/workspace/repos/rocknix/` itself -- version 1 said
+  three, the first three of an `ls | head -3`; host Python 3.14 (the
   container's is 3.10, #492; these tools run on the host). **The lane changes
   none of it.** No build, no `tools/build-preflight --reclaim-swap` or
   `--stop-vms` (report mode only), no `host-maintenance/install`, no
-  `fork-newdrive` (it formats and moves; no dry run), no `fork-publish-release`
+  `fork-newdrive` (it moves the worktrees and re-mounts -- `sudo mv`, an
+  `fstab` line, `mount`, `rsync`; the `parted` and `mkfs` lines in its header
+  are the operator's, as comments; no dry run), no `fork-publish-release`
   past `--prepare` (a plan file, never a tag, a draft or an asset), no
   `watch-build` entry around a real command. The isolated tests run in the
   lane's worktree after the host file is read and the census recorded
@@ -188,14 +195,16 @@ Recorded (2026-10-24, the export of the hash):
 is upstream's. `git log --format=%h c445081a59..8ebaf8daad -- <the 18> | wc
 -l` is **35** fork commits since the base; their messages cite #383 (6
 times), #410 (3), and #489, #471, #461, #409, #395, #394, #393, #344, #265
-(2 each), #597, #565, #532 (once): the watcher (#393 to #395), the swap
+(2 each), and once each #597, #565, #532, #530, #529, #493, #491, #490,
+#444, #413, #412, #411, #371, #368, #367, #310: the watcher (#393 to #395), the swap
 helper (#410), retention and admission (#461, #489, #493, #597), the release
 identity (#532, #565), the build-path read (#644 is the input, #383 the
 earlier record). **The entry points** are outside the slice and read-only
 context: `Makefile:40` (`./tools/watch-build -- $(MAKE) $@`) and `:179` (the
 `docker-%` target's `BUILD_WATCH`), and `scripts/{build,build_distro,image,
 install,build_compat}` each `exec ./tools/watch-build --entry -- "$0" "$@"`
-near their top -- T5's accepted files. **The fork CI** runs three of the
+at `build:9`, `build_distro:11`, `image:9`, `install:10` and
+`build_compat:7` -- seven entry lines in six files, T5's accepted. **The fork CI** runs three of the
 controls (`.github/workflows/fork-checks.yml:42-44`): `test-watch-job.py
 tools/watch-job`, `test-build-monitor`, `test-build-admission`.
 
@@ -268,9 +277,23 @@ is a lead for the coordinator, not a stream. The two legacy-layout lines
   producer; the launcher receipt collision the guide's last section
   recovers); **#640** (the legacy layout); **#492** (host Python against the
   container's).
-- **The stranger's proof of this brief** (version 2's errata) and the
-  futro's U-1: two qa-logs controls failed on a bare export of the hash;
-  the lane's stage A settles whether they pass in a checkout.
+- **The stranger's proof of this brief settled the futro's U-1**: three
+  qa-logs controls fail at the hash in any checkout, not for want of `.git`.
+  `test-watch-build.py` (2026-10-04), `test-progress.py` and
+  `test-submit.py` copy only `watch-build` and `watch-job` into their
+  fixture trees, while `watch-build:50-51` loads `build-admission` beside
+  itself (the receipts `test-submit.py` leaves say `[Errno 2] No such file
+  or directory: '<fixture>/tools/host-maintenance/build-admission'`);
+  `test-build-monitor` passes because `admission-test-fixture.py:16-18`
+  copies it, and `2026-10-04-watch-progress/source-hashes.json` records an
+  older `watch-build` (`9c15e068...` against the hash's `44a6d875...`). Three
+  recorded controls stopped running when the admission guard landed and
+  nothing said so: **a finding at the hash, the lane's at stage A**, its fix
+  (the fixtures copy the admission module too, and the CI runs them) a
+  stream the coordinator briefs. `test-submit.py` also leaves its `mkdtemp`
+  directories under `/tmp` (four `pixelelated-watch-submit-*` on
+  2026-10-24): a Q3 lead. `test-watch-job.py tools/watch-job` passes (rc 0,
+  10 s).
 
 ## 4. The questions
 
@@ -285,7 +308,7 @@ Q5 what a build pays for its supervision.
 | Q3 Bugs | A guard that can report success over a no-op; a status that can read `running` while the process is gone; an admission that can be reused; a receipt a second owner can overwrite (#597); a kill by pattern; a watch whose silent-failure mode is unnamed; a mode or ownership check the helper skips | a `bug` per defect, `Already written:` and the VM line, its fix under a stream |
 | Q4 Currency | Not a currency slice: the tools pin nothing. The row is the Python and bash features they require against the host's versions, and whether `tools/council` is the only `npm` consumer | one paragraph |
 | Q5 Efficiency | What a build pays for its supervision: the runner's startup, the watcher's interval, the admission's checks, from the code and the recorded runs' timings (read-only), never a new build | the figures with their source |
-| Q6 Dead ends and brittleness | **The guard table** (futro A3): for each guard the tools wire -- `watch-job`'s `running`/`stalled`/`died`/`error`; `watch-build`'s lock, admission check, marker refusal (`RASTERATOPS_BUILD_RUN`), record-only route; the submit launcher's receipts; `build-admission`'s stale, reused and capacity refusals; `reclaim-swap`'s ownership, mode, priority, busy and memory refusals and its reactivation; `retention-report`'s refusals; `build-preflight`'s exits; `fork-publish-release`'s plan checks -- the control that constructs its failure, by file and test name, or **none**, which is a finding | the table in `04` § Q6, every row sourced |
+| Q6 Dead ends and brittleness | **The guard table** (futro A3): for each guard the tools wire -- `watch-job`'s `running`/`stalled`/`died`/`error`; `watch-build`'s lock, admission check, marker refusal (`RASTERATOPS_BUILD_RUN`), record-only route; the submit launcher's receipts; `build-admission`'s stale, reused and capacity refusals; `reclaim-swap`'s ownership, mode, priority, busy and memory refusals and its reactivation; `retention-report`'s refusals; `build-preflight`'s exits; `fork-publish-release`'s plan checks; and the ones the stranger's proof found unlisted: `install`'s eleven checks (ownership, modes, the sudoers include, the validation and its rollback), `watch-build`'s lock refusal (*another monitored build owns this worktree*) and its inherited-run staleness checks, the submit launcher's duplicate-owner refusal (rc 2), `reclaim-swap`'s lock, hard-link, namespace and `fstab` refusals, `build-admission`'s checkout, plan and schema identity refusals -- the control that constructs its failure, by file and test name, or **none**, which is a finding | the table in `04` § Q6, every row sourced |
 | Q7 Clarity | A guide (`README.md`, `build-admission.md`, `retention-report.md`) that claims what the code does not do, or omits what it does; the rules' descriptions of these tools against the code (`device-builds.md` § Before a build, `engineering-practices.md`): a drift is a lead for T4, named on #651 by the coordinator | the rows; T4's leads |
 
 ## 5. The evidence floor
@@ -321,17 +344,17 @@ python3 -I tools/host-maintenance/test-swap-reclaim        2>&1 | tail -3      #
 python3 -I tools/host-maintenance/test-retention-report    2>&1 | tail -3      # export: rc 0, 7 s
 python3 -I tools/host-maintenance/test-build-admission     2>&1 | tail -3      # export: rc 0, 18 s
 python3 -I tools/host-maintenance/test-build-monitor       2>&1 | tail -3      # export: rc 0, 64 s; runs the real entrypoint prefixes and the Makefile with isolated payloads in THIS worktree; .build-runs/ is gitignored (:84)
-python3 -I docs/qa-logs/2026-10-03-watch-job/test-watch-job.py tools/watch-job 2>&1 | tail -3        # needs the watcher's path; --baseline is its other mode; the CI's form (fork-checks.yml:42)
-python3 -I docs/qa-logs/2026-10-04-watch-progress/test-progress.py "$D" 2>&1 | tail -3               # needs a root
-python3 -I docs/qa-logs/2026-10-04-watch-progress/test-watch-build.py 2>&1 | tail -3                 # FAILED on the bare export: AssertionError "shared runner observes nested QA logs and retains terminal result" -- a .git dependency, or a regression at the hash (U-1)
-python3 -I docs/qa-logs/2026-10-05-watch-submit/test-submit.py 2>&1 | tail -3                        # FAILED on the bare export at :49 submit(base / 'success', 0) -- the same question
+python3 -I docs/qa-logs/2026-10-03-watch-job/test-watch-job.py tools/watch-job 2>&1 | tail -3        # needs the watcher's path; --baseline is its other mode; the CI's form (fork-checks.yml:42); export: rc 0, 10 s
+python3 -I docs/qa-logs/2026-10-04-watch-progress/test-progress.py "$D" 2>&1 | tail -3               # needs a root; FAILS at the hash in any checkout (all 10 case checks): its fixture lacks build-admission (§ 3)
+python3 -I docs/qa-logs/2026-10-04-watch-progress/test-watch-build.py 2>&1 | tail -3                 # FAILS at the hash in any checkout: AssertionError "shared runner observes nested QA logs and retains terminal result"; the fixture copies watch-build and watch-job, not build-admission, which watch-build:50-51 loads (§ 3)
+python3 -I docs/qa-logs/2026-10-05-watch-submit/test-submit.py 2>&1 | tail -3                        # FAILS at the hash in any checkout (the AssertionError at :42, raised from :49's submit(base / 'success', 0)): the same cause; it also leaves its mkdtemp under /tmp
 .githooks/hooks-test 2>&1 | tail -1                                                                  # T10's bench, run here as a control of the worktree, not of this slice
 ```
 
 **The record, read only:**
 
 ```bash
-ls -d /workspace/repos/rocknix.worktrees/*/.build-runs 2>/dev/null                                   # three on 2026-10-24
+ls -d /workspace/repos/rocknix.worktrees/*/.build-runs /workspace/repos/rocknix/.build-runs 2>/dev/null | wc -l   # 46 on 2026-10-24: 45 worktrees and the legacy checkout; 2,022 run ids in all, conflict-resolution alone 362
 for d in /workspace/repos/rocknix.worktrees/*/.build-runs/*/; do printf '%s ' "$d"; ls "$d" | tr '\n' ' '; echo; done 2>/dev/null | head -20   # the files a run leaves: status, rc, launcher receipts, the log
 cat /workspace/repos/rocknix.worktrees/<wt>/.build-runs/<id>/*.status 2>/dev/null | grep -v -i -E 'key|pass|token|user|psk' | head   # what the watcher said of a real run
 ```
@@ -377,21 +400,23 @@ All in the worktree, committed on its branch with messages that cite `#656`
 
 ## 7. Acceptance
 
-The checklist on #656 is this section, written there by the coordinator.
+The checklist on #656 becomes this section at dispatch, written there by
+the coordinator in place of P1's five generated ones (until then #656
+carries those five).
 Every checkbox names the artifact that ticks it (D-QA-044); the coordinator
 ticks at acceptance, from the artifacts, never from the hand-back's words.
 
 - [ ] `docs/audits/<date>-epic-m6-tooling-build-supervision/` holds `00-running-log.md` and `01-research-notes.md` to `05-punch-list.md`.
 - [ ] `tools/lint-audit-artifacts docs/audits/<date>-epic-m6-tooling-build-supervision/` prints `PASS` (its default `resolution` phase, at close; before stage D the same command with `--phase pre-issue` prints `PASS pre-issue artifacts`), the renovation face included: Q1 to Q7 answered in `04-analysis.md`, and every punch item's `question:` in the index.
-- [ ] `second-opinions/review-plan.json` records `depth: independent`, one reviewer (`gpt`, `openai/gpt-6-astra`, `max`), and the seat's probe and refutation outputs each have a `.provenance.json` beside them whose served model is `openai/gpt-6-astra` and whose verification is PASS; `packet-manifest.json` lists the 18 files and the six entry lines with their sha256.
+- [ ] `second-opinions/review-plan.json` records `depth: independent`, one reviewer (`gpt`, `openai/gpt-6-astra`, `max`), and the seat's probe and refutation outputs each have a `.provenance.json` beside them whose served model is `openai/gpt-6-astra` and whose verification is PASS; `packet-manifest.json` lists the 18 files and the seven entry lines with their sha256.
 - [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue (#640 for a legacy path; a `bug` for a defect; the coordinator's lead for a contract change), or withdrawn with its reason.
 - [ ] `reviewed-at:` and `fixed-at:` above carry the lane's commits the read and the fixes were made at (the read on `8ebaf8daad`'s bytes; no EmulationStation path), and, after the coordinator closes this issue and the branch merges to `next`, `tools/renovation-status` lists this slice as `closed`.
 - [ ] `01-research-notes.md` § Scope records the read hash, the filter of brief § 2 with its output (18 paths, 3,795 lines; 18 fork-own; 12 Python, 3 bash, 3 Markdown; reach `n/a` 18, or the deltas beside them), the provenance (35 fork commits since `c445081a59`; none of the 18 on `upstream/next`), and the branch-vs-hash diff over the 18 (empty, or each hunk listed with its owner).
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path, the path in backticks as the first cell: ``grep -c -E '^\| `tools/' 02-forward-audit.md`` prints 18; each row's Q1 to Q7 cells answered or `n/a` with a reason.
-- [ ] `02-forward-audit.md` § The controls records all eight of brief § 5 with command, exit status and summary line, run in the lane's checkout at stage A, each with the sentence *a FAIL would mean ...*; the two that failed on the coordinator's bare export (`test-watch-build.py` of 2026-10-04, `test-submit.py`) are either green with the reason the export failed, or findings with their tracebacks (never worked around).
-- [ ] `02-forward-audit.md` § The record lists the M7 `.build-runs/` directories read (`ls`, through the credential filter) and what each status file said, with no write under any of them (the directories' mtimes before and after the slice, quoted).
+- [ ] `02-forward-audit.md` § The controls records all eight of brief § 5 with command, exit status and summary line, run in the lane's checkout at stage A, each with the sentence *a FAIL would mean ...*; the three that fail at the hash (`test-watch-build.py` of 2026-10-04, `test-progress.py`, `test-submit.py`: their fixtures copy no `build-admission`, brief § 3) are findings with their tracebacks and that cause, never worked around; `test-watch-job.py` and the four `host-maintenance` tests pass.
+- [ ] `02-forward-audit.md` § The record lists the M7 `.build-runs/` directories (45 worktrees and the legacy checkout on 2026-10-24, 2,022 run ids) and the ones read (`ls`, through the credential filter) and what each status file said, with no write under any of them (the directories' mtimes before and after the slice, quoted).
 - [ ] `00-running-log.md` records the host file's last line and the census (`pgrep -c -x qemu-system-x86`) before the first test run, and no command in it is a build, `--reclaim-swap`, `--stop-vms`, `host-maintenance/install`, `fork-newdrive`, or `fork-publish-release` without `--prepare`; `grep -c -E 'reclaim-swap|stop-vms|host-maintenance/install|fork-newdrive ' 00-running-log.md` counts only lines that quote this brief or a reading.
-- [ ] `04-analysis.md` § Renovation face Q6 carries the guard table: one row per guard brief § 4 names (at least the twenty listed there), each with the control that constructs its failure by file and test name, or `none`; every `none` is a punch item.
+- [ ] `04-analysis.md` § Renovation face Q6 carries the guard table: one row per guard brief § 4 names (its list read against the code: every guard the code wires is a row, including the ones the stranger's proof added), each with the control that constructs its failure by file and test name, or `none`; every `none` is a punch item.
 - [ ] `04-analysis.md` § Q1 carries the two legacy-layout rows (`tools/fork-newdrive:20-21`, `tools/watch-job:36`) deferred to #640, with the lines quoted and unchanged on the branch (`git diff 8ebaf8daad <fixed-at> -- tools/fork-newdrive tools/watch-job` touches neither line, or a stream brief names the change).
 - [ ] `04-analysis.md` § Q7 reads each claim of the three guides (`README.md`, `build-admission.md`, `retention-report.md`) against a line of code, with the sudoers policy the installer writes quoted from `install`'s source beside the README's sentence about it, and any drift between a rule's description of these tools and the code named as a lead for T4 (posted on #651 by the coordinator).
 - [ ] Every proof in `02-forward-audit.md` carries a `proved:` cell reading `tree`, `history`, `tool-run`, `fix-tree`, `fix-control` (a fix proved by a control re-run in the worktree) or `fix-pending-build` (a fix whose proof is the next real build's own run, the coordinator's); ``grep -c 'proved:' 02-forward-audit.md`` equals ``grep -c '^PROOF:' 00-running-log.md``.

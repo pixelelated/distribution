@@ -42,15 +42,16 @@ enters.
   pass: `test-swap-reclaim` (`Ran 37 tests`, rc 0), `test-retention-report`
   (rc 0, 7 s), `test-build-admission` (rc 0, 18 s), `test-build-monitor` (rc 0,
   64 s: it runs the real entrypoint prefixes and the Makefile with isolated
-  payloads). The four controls under `docs/qa-logs/` are not argument-free:
+  payloads). Of the four controls under `docs/qa-logs/`, two take an argument and one an option:
   `2026-10-03-watch-job/test-watch-job.py <watcher> [--baseline]`,
   `2026-10-04-watch-progress/test-progress.py <root>`,
   `2026-10-04-watch-progress/test-watch-build.py [--root ROOT]`,
-  `2026-10-05-watch-submit/test-submit.py`; the last two **failed on the bare
-  export** (`AssertionError: shared runner observes nested QA logs and
-  retains terminal result`; `test-submit.py:49 submit(base / 'success', 0)`
-  raised), which is either a `.git` dependency of the export or a regression
-  at the hash -- U-1 below, the lane's first stage-A fact.
+  `2026-10-05-watch-submit/test-submit.py`; **three fail at the hash in any checkout** (`test-watch-build.py`,
+  `test-progress.py`, `test-submit.py`): their fixtures copy `watch-build`
+  and `watch-job` but not `build-admission`, which `watch-build:50-51` loads
+  beside itself -- the stranger's proof read the cause from the receipts
+  `test-submit.py` leaves; U-1 below is answered, and the answer is a
+  finding.
 - **The fork CI runs three of them**, `fork-checks.yml:42-44`:
   `test-watch-job.py tools/watch-job`, `test-build-monitor`,
   `test-build-admission`. "CI green" is a claim about those three only; the
@@ -67,8 +68,8 @@ enters.
   of other sudo; `/swap.img` is 8 GiB with **8 GiB used** (the cushion the
   preflight exists to see is gone right now; the next build is M7's, and so
   is the reclamation, D-INFRA-015); Docker 29.8.2; `.build-runs/` exists in
-  three M7 worktrees (`conflict-resolution`, `m7-audit507-tools`,
-  `m7-browser-memory-570`), read-only. The host's Python is 3.14; the
+  45 M7 worktrees and the legacy checkout (2,022 run ids), read-only --
+  version 1 said three, an `ls | head -3`. The host's Python is 3.14; the
   container's is 3.10 (#492): these tools run on the host.
 - **Nothing in this slice may act on the host.** No build, no `--reclaim-swap`,
   no `install`, no `--stop-vms`, no `fork-newdrive` (it formats a disk and
@@ -128,8 +129,8 @@ register; a lane may take 200 (T4 runs beside T9). Blindspot entries run to
   file) is its synthetic control; `fork-newdrive` has no dry run and is read
   only. Proceeding: a read with the tests that exist, and a punch item where a
   mutating tool has no safe control.
-- **U-5** Does one GPT packet hold the slice? 18 files, 3,795 lines, about
-  150 KB: yes. The seat is asked first for the sudo helper (`reclaim-swap`,
+- **U-5** Does one GPT packet hold the slice? 18 files, 3,795 lines, 201,453
+  bytes (197 KiB) at the hash: yes. The seat is asked first for the sudo helper (`reclaim-swap`,
   `install`) and the admission guard (`build-admission`), where a second
   lab's eye matters most.
 - **U-6** Is the swap state a finding? 8 GiB used of 8 GiB is the host's
@@ -256,3 +257,32 @@ conflict is real and foreseeable: **A8** names it in the merge notes.
 observation on the host coordination file for the M7 lane (U-6).
 
 **Proceeding without:** U-1's answer until stage A; U-2 as a read.
+
+**Errata from the stranger's proof of T9's brief, version 1 (2026-10-24,
+15:3x UTC; 72 claims: 54 right, 4 wrong, 6 partial, 1 uncounted, 7
+uncheckable), folded into version 2.** `.build-runs/` exists in **45** M7
+worktrees and the legacy checkout (2,022 run ids; `conflict-resolution` alone
+362), not three: the three were the first of an `ls | head -3`, this futro's
+own § 1 included. The entry lines are **seven** (`Makefile:40`, `:179`, and
+`build:9`, `build_distro:11`, `image:9`, `install:10`, `build_compat:7`), not
+six. The 18 files weigh **201,453 bytes (197 KiB)** at the hash, not about 150
+KB. The 35 fork commits also cite #530, #529, #493, #491, #490, #444, #413,
+#412, #411, #371, #368, #367 and #310 once each. **U-1 is answered, and it is
+a finding, not a `.git` artefact:** `test-watch-build.py` (2026-10-04),
+`test-progress.py` and `test-submit.py` all fail at the hash in any checkout
+because their fixture trees copy `watch-build` and `watch-job` without the
+`build-admission` module `watch-build:50-51` loads beside itself;
+`test-build-monitor` passes because its fixture copies it; `source-hashes.json`
+in the 10-04 folder records an older `watch-build`. Three recorded controls
+stopped running when the admission guard landed and nothing said so; the
+lane's stage A records it, the fix is a stream. `test-submit.py` takes no
+argument and leaks its `mkdtemp` under `/tmp`. `fork-newdrive` moves and
+re-mounts (`sudo mv`, an `fstab` line, `mount`, `rsync`); its `parted` and
+`mkfs` lines are header comments for the operator. § 4 Q6's guard list gains
+`install`'s eleven checks, `watch-build`'s lock refusal and inherited-run
+staleness checks, the submit launcher's duplicate-owner refusal,
+`reclaim-swap`'s lock, hard-link, namespace and `fstab` refusals, and
+`build-admission`'s identity refusals, all present in the code and absent from
+version 1's list. #656's checklist is P1's five until the dispatch writes § 7
+there. `build-preflight` in report mode exits 1 on this host today (the swap),
+by design.
