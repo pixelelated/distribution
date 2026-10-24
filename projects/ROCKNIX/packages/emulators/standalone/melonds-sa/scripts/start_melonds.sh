@@ -2,6 +2,7 @@
 
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2022-present JELOS (https://github.com/JustEnoughLinuxOS)
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 
 . /etc/profile
 
@@ -89,15 +90,20 @@ case "$GRENDERER" in
   ;;
 esac
 
+# These tests were written with a redirection where a comparison belonged,
+# which left an empty file named 0 in /storage; it goes once, only when
+# empty (#862).
+[ -f /storage/0 ] && [ ! -s /storage/0 ] && rm -f /storage/0
+
 #Internal Resolution
-if [ "$IRES" > "0" ]; then
+if [ "${IRES:-0}" -gt 0 ] 2>/dev/null; then
         sed -i "/^GL_ScaleFactor=/c\GL_ScaleFactor=$IRES" "${CONF_DIR}/${MELONDS_INI}"
 else
         sed -i '/^GL_ScaleFactor=/c\GL_ScaleFactor=1' "${CONF_DIR}/${MELONDS_INI}"
 fi
 
 #Screen Orientation
-if [ "$SORIENTATION" > "0" ]; then
+if [ "${SORIENTATION:-0}" -gt 0 ] 2>/dev/null; then
 	sed -i "/^ScreenLayout=/c\ScreenLayout=$SORIENTATION" "${CONF_DIR}/${MELONDS_INI}"
 else
 	sed -i '/^ScreenLayout=/c\ScreenLayout=2' "${CONF_DIR}/${MELONDS_INI}"
@@ -107,10 +113,17 @@ fi
 # Screen Layout
 sed -i '/^Screen1Enabled=/c\Screen1Enabled=0' "${CONF_DIR}/${MELONDS_INI}"
 
+# Replace a key's line: delete it, then append it. In one sed script the
+# delete ended the cycle on a last line, and the append was skipped (F-42).
+set_ini_line() { # key value
+    sed -i "/^$1=/d" "${CONF_DIR}/${MELONDS_INI}"
+    printf '%s=%s\n' "$1" "$2" >> "${CONF_DIR}/${MELONDS_INI}"
+}
+
 enable_second_screen() {
     sed -i '/^ScreenSizing=/c\ScreenSizing=4' "${CONF_DIR}/${MELONDS_INI}"
-    sed -i '/^Screen1Enabled=/d$ a Screen1Enabled=1' "${CONF_DIR}/${MELONDS_INI}"
-    sed -i '/^Screen1Layout=/d$ a Screen1Layout=2' "${CONF_DIR}/${MELONDS_INI}"
+    set_ini_line Screen1Enabled 1
+    set_ini_line Screen1Layout 2
 }
 
 if [ "$SLAYOUT" = "6" ]; then
@@ -127,17 +140,17 @@ fi
 if [[ "${DEVICE_HAS_DUAL_SCREEN}" = "true" && ( -z "$SLAYOUT" || "$SLAYOUT" = "6" ) ]]; then
     if [ "$SWAP" = "1" ]; then
         sed -i '/^ScreenSizing=/c\ScreenSizing=5' "${CONF_DIR}/${MELONDS_INI}"
-        sed -i '/^Screen1Sizing=/d$ a Screen1Sizing=4' "${CONF_DIR}/${MELONDS_INI}"
+        set_ini_line Screen1Sizing 4
     else
         sed -i '/^ScreenSizing=/c\ScreenSizing=4' "${CONF_DIR}/${MELONDS_INI}"
-        sed -i '/^Screen1Sizing=/d$ a Screen1Sizing=5' "${CONF_DIR}/${MELONDS_INI}"
+        set_ini_line Screen1Sizing 5
     fi
 else
     sed -i "/^ScreenSwap=/c\ScreenSwap=${SWAP:-0}" "${CONF_DIR}/${MELONDS_INI}"
 fi
 
 #Screen Rotation
-if [ "$SROTATION" ] >"0"; then
+if [ "${SROTATION:-0}" -gt 0 ] 2>/dev/null; then
 	sed -i "/^ScreenRotation=/c\ScreenRotation=$SROTATION" "${CONF_DIR}/${MELONDS_INI}"
 else
 	sed -i '/^ScreenRotation=/c\ScreenRotation=0' "${CONF_DIR}/${MELONDS_INI}"
@@ -154,12 +167,13 @@ fi
 TEMP="/tmp/melonds"
 rm -rf "${TEMP}"
 mkdir -p "${TEMP}"
-if [[ "${1}" == *.zip ]]; then
-    unzip -o "${1}" -d "${TEMP}"
-    ROM=$(find "${TEMP}" -maxdepth 1 -type f -name "*.nds" | head -n 1)
-elif [[ "${1}" == *.7z ]]; then
-    7z x -y -o"${TEMP}" "${1}"
-    ROM=$(find "${TEMP}" -maxdepth 1 -type f -name "*.nds" | head -n 1)
+# An archive's extraction checked, and its .nds found at any depth, in any
+# case (F-42)
+if [[ "${1,,}" == *.zip || "${1,,}" == *.7z ]]; then
+    if [[ "${1,,}" == *.zip ]]; then unzip -o "${1}" -d "${TEMP}"; else 7z x -y -o"${TEMP}" "${1}"; fi \
+      || { echo "melonDS: could not extract ${1}"; exit 1; }
+    ROM=$(find "${TEMP}" -type f -iname "*.nds" | sort | head -n 1)
+    [ -n "${ROM}" ] || { echo "melonDS: no .nds in ${1}"; exit 1; }
 else
     ROM="${1}"
 fi
