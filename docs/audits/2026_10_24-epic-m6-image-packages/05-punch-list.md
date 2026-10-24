@@ -264,6 +264,22 @@
 - **Acceptance:** each of the eight is named in #585's proposal or in a stream brief, with its verdict.
 - **Upstream:** a #585 candidate (D-WORKFLOW-164; submission deferred, D-WORKFLOW-165); the coordinator posts it
 
+## PL-18: without a game controller the installer starts copies of itself without end, and a copy's Close runs `poweroff -f`
+
+- **Severity:** Medium
+- **Category:** Interaction Defect
+- **Question:** Q3
+- **Source Finding:** F-18
+- **Owner area:** an upstream-carried script (fork-own by its identity edits): `projects/ROCKNIX/packages/tools/installer/scripts/installer` (GENERIC_X64)
+- **What:** Found on S3's guest cycle and added to S3 by the coordinator (13:51 UTC on #655). `control-gen` prints nothing without a pad, so `control.ini` is empty, `GPTOKEYB` is unset, and the gptokeyb line runs `installer -c ...` in the background. Guard the line on `GPTOKEYB` being set. Upstream carries the same lines (`09810c3ece`): rule 6, and a #585 row, the coordinator's.
+- **Where:** `installer:43-47`
+- **Evidence:** P18: 153 to 381 copies in a minute on the guest; one with the guard
+- **Can this be done on the VM?** Yes: the GENERIC_X64 guest has no game controller, so a plain run reproduces it; a stub `poweroff` keeps the failing control's guest up
+- **Already written:** nothing inherited: each start rewrites `control.ini` and `installer.gptk`, and the guard reads them as before; no format changes
+- **Acceptance:** on the guest with no pad, one installer process at MAIN MENU; with a pad-shaped `control.ini`, `gptokeyb` is run once with `installer -c .../installer.gptk`; `bash -n` and busybox `sh -n` pass.
+- **Bug issue:** #899
+- **Upstream:** a #585 candidate (D-WORKFLOW-164; submission deferred, D-WORKFLOW-165); the coordinator posts it
+
 ## Machine-readable index
 
 ```yaml
@@ -372,7 +388,8 @@ punch_index:
   source_finding: "F-14"
   owner_area: "an upstream-carried script (fork-own by its identity edits): `projects/ROCKNIX/packages/tools/installer/scripts/installer` (GENERIC_X64)"
   tracked: "#894"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-guest"
 - id: PL-15
   severity: Low
   category: Renovation
@@ -394,6 +411,15 @@ punch_index:
   source_finding: "F-17"
   owner_area: "scripts, a unit, recipes and a config (`04` § Second opinion G-09 to G-14, G-17, G-21, G-23, G-24)"
   outcome: open
+- id: PL-18
+  severity: Medium
+  category: Interaction Defect
+  question: Q3
+  source_finding: "F-18"
+  owner_area: "an upstream-carried script (fork-own by its identity edits): `projects/ROCKNIX/packages/tools/installer/scripts/installer` (GENERIC_X64)"
+  tracked: "#899"
+  outcome: "resolved"
+  proved: "fix-guest"
 ```
 
 ## Phase 7 resolution gate
@@ -413,7 +439,8 @@ punch_index:
 | PL-11 | **Deferred** | deferred:the integration, settled by D-WORKFLOW-198 (`152c4ee3c3`): the fork's glslang override is kept at the base merge; the pair's bump is the coordinator's Backlog |
 | PL-12 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
 | PL-13 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-14 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
+| PL-14 | **Resolved** | `467f19fc14`: each step in the gauge ends it on failure, and the dialog names the step; G-03 fixed with it; G-02, G-04 to G-06 are #585 rows (`02` § S3's leads); fix-guest |
 | PL-15 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
 | PL-16 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
 | PL-17 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
+| PL-18 | **Resolved** | `0602f598e9`: the gptokeyb line runs only when `GPTOKEYB` is set (#899, added to S3 by the coordinator); fix-guest |

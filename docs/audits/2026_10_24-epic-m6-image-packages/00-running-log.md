@@ -152,3 +152,66 @@ PROOF: 12:30 P15 the orphans' pins after the base merge; `glslang` 16.6.0 to 16.
 - **The audit issue:** #895, `Audit: M6 T8 the image's own packages -- 17 findings (0 critical, 0 high)`. Labels `audit` and `punch-list`, milestone M6, a sub-issue of #655. `tools/box-check --issue 895`: 17 open, 0 fail.
 - **`05`** is regenerated with the numbers; the pre-issue lint passes.
 - **Stage-D pause:** the lane waits for the coordinator's stream briefs and drafts nothing under `projects/`.
+
+### [Stage E] 13:26 to 13:29 — S1, #852 (`t8-streams.md` at `7c4867330b`)
+
+- **Read first:** the stream brief whole (`git show 7c4867330b:docs/reviews/briefs/t8-streams.md`, not merged); plan § 6b E's three bullets again (the commit names its paths; a time is produced; prose through a quoted heredoc or the Write tool); `scripts/install:150-192` (`post_install` at `:189` for `TARGET=target`) and `config/path:39-40`.
+- **Before** (13:27:57): an export of `8ebaf8daad` under `/workspace/tmp/m6-t8/s1-before-132757` (`df -i /workspace` 20%). Sourcing `config/options image` left `./build.pixelelated-GENERIC_X64.x86_64/image/system/opt -> /storage/.opt`.
+- **The change:** `:109-110` moved into `post_install()`, `ln -sf` → `ln -sfn`, and the trailing `true` placed before the function, so no global line follows a function (`pkgcheck`'s intertwined warning).
+- **After** (13:28:47): a fresh export with the fixed file laid over it (`cmp` equal):
+  - links after sourcing: 0;
+  - the hook in a scratch `INSTALL`: `opt -> /storage/.opt`, both on an empty tree and over an existing link to a directory;
+  - the old `ln -sf` on the second shape nested `.opt` inside the directory.
+- **`pkgcheck image`:** rc 0 with both copies.
+- **Commit:** `43f6a81070`, one file, pushed. Outputs posted on #852; checkpoint on #655.
+
+PROOF: 13:28 P16 S1: sourcing the old recipe leaves `image/system/opt`, the fixed one leaves none; the hook makes the link and replaces an existing one -- `.qa-scratch/t8/s1-before.txt`, `s1-after.txt`
+
+### [Stage E] 13:30 to 13:33 — S2, #893
+
+- **The hunt** (13:30:03): `git grep -n -E 'curl -[A-Za-z]*L|wget ' 8ebaf8daad -- 'projects/ROCKNIX/packages/*package.mk'` gives 19 lines (`s2-hunt.txt`): `mangohud`'s 6 (3 live, 3 commented) and 13 elsewhere, which are verdict lines.
+- **Read before choosing:** `mangohud` v0.8.4's `subprojects/{imgui,implot,spdlog}.wrap` from the cached source (read only). Each names `directory`, `source_filename` and `source_hash`.
+- **The fetch** (13:30:33), into the empty `/workspace/tmp/m6-t8/s2-fetch-133033`: all three equal their wrap's hash, and their top directories equal the wraps' `directory` lines.
+- **Written:** three recipes in `mangohud-vulkan-headers`' shape, each checksum copied from the fetch output by a command; then `mangohud`'s `PKG_DEPENDS_TARGET` gains the three, and each `curl` block (and the commented `#curl` lines) gives way to an unpack from `${SOURCES}` behind a missing-file guard.
+- **The tests:**
+  - `scripts/get` into `.qa-scratch/t8/s2/sources` (13:31:12): rc 0 ×3, stamps equal; the shared cache has no file newer than 13:30;
+  - one digit changed (13:31:30): rc 1, 10 `Incorrect checksum`, `Cannot get`;
+  - the real `pre_configure_target` on the host (13:32:33): rc 0, the three directories each with a `meson.build`;
+  - ImGui absent (13:32:46): rc 1, the guard's message, nothing extracted;
+  - `pkgcheck` on four: 0 and 0;
+  - `grep -c 'curl '`: 0.
+- **Commits:** `4db09f6e2e` (the three recipes) and `1904e29d54` (`mangohud`), pushed. Outputs on #893; checkpoint on #655.
+- **Criterion 14:** its `PKG_VERSION` grep now counts the three added lines (3; with `--diff-filter=M`, 0). Put to the coordinator on #655.
+
+PROOF: 13:32 P17 S2: the three archives equal their wraps' hashes; `scripts/get` fetches them and refuses a one-digit change; the real hook unpacks them and stops on a missing one -- `.qa-scratch/t8/s2-*.txt`, `s2/sources`
+
+### [Stage E] 13:36 to 14:06 — S3, #894 and #899
+
+- **Read first:** the stream brief's S3 (`7c4867330b`, then `a5dae9f5d9` naming #899); `installer:1-60`, `:89-200`, `:300-345`, `:416-575` at `8ebaf8daad`; `generic-x64-vm run --help` and `qemu-args --help`; `tools/vm-serial`; T30's guest-cycle lines for the disk recipe.
+- **The bench, and where it differs from the brief:**
+  - The image `…20261022T235948Z.g069fc2704421…img.gz` was copied from `m6-t1-20261023/` to `/workspace/artifacts/m6-t8-20261024/`, `sha256sum -c` OK; its identity reads `build_commit 069fc270…`, `dirty: no`. `t8.qcow2` made by `gunzip`, `qemu-img convert`, `resize 16G`.
+  - The target disks were attached over AHCI (`-device ahci`, `ide-hd` on `ahci.0` and `ahci.1`), not `if=virtio`. `get_device_unmount` (`:106`) lists only `/dev/sd*`, `/dev/mmcblk*` and `/dev/nvme*`, so a `/dev/vd*` target never reaches the menu.
+  - The passing target was 6 GiB, not 2 GB. `/etc/installer.conf` sets `PARTSIZE_SYSTEM="4096"` (MB), so 2 GB fails at the system partition. It was grown live with the monitor's `block_resize`; libata kept the old size until a reset.
+  - The failing target was an 8 MB raw disk, `/dev/sdb`.
+  - The QEMU command is `qemu-args` plus the two disks (`/workspace/tmp/m6-t8/qemu-argv.txt`), with `--pidfile /workspace/tmp/m6-t8/qemu.pid`, VNC :28 and SSH 10041.
+  - The dialogs were driven over the serial console by `tools/t8-installer-drive.py`, and its stripped transcripts are the evidence. Reads, the counts and every stop went over SSH with the QA key, provisioned over serial.
+- **The guest's history, as it happened:**
+  - Boot 1 at 13:40:18 (pid 4107561) ended by itself at about 13:43: the image's installer on MAIN MENU had powered it off. This is #899.
+  - Boot 2 at 13:44:29 (pid 4146565). Reset from the monitor three times: at 13:48 to stop the loop; at 13:53 because whiptail holds the console raw, so Ctrl-\ is a key and the serial shell could not be reached; at 14:02 for the target's new size.
+  - Stopped with `tools/vm-stop` at 14:04:07, rc 0 ("owned QEMU exited"). Census before 0 and after 0; the host file has an M6 line before and after.
+- **#899 found** (13:45 to 13:49): the image's own installer (sha256 `9f437a91…`, equal to the tree's) starts copies of itself without end. `control-gen` prints nothing without a game controller, so `control.ini` is 0 bytes, `get_controls` is not found (`:41`), `GPTOKEYB` is unset, and `:46` runs `installer -c …` in the background. Filed as #899; the coordinator put it in S3 at 13:51, first and as its own commit.
+- **#899's failing control** (13:55:58, the image's installer with a stub `poweroff` first in PATH so the guest stays up): `/proc/*/comm` counted 153 `installer` processes, then 234, 302 and 381 by 13:57:24. Every copy was killed, and the count was 0. Transcript `.qa-scratch/t8/s3/p899-control-original.txt`: 51 `get_controls: command not found` lines.
+- **#899's fix:** a guard on `:43-47`, so the gptokeyb line runs only when `GPTOKEYB` is set. `bash -n` ok and the image busybox's `sh -n` ok. Commit `0602f598e9`.
+  - No pad, no stubs (13:58:10): one `installer-899` and one `whiptail` at 13:58:36 and 13:58:42; `control.ini` 0 bytes.
+  - A stub `control-gen` bind-mounted over `/usr/bin/control-gen`, printing control-gen's shape with `GPTOKEYB` set to a stub (13:59:32): `gptokeyb` ran once with `installer -c /storage/.config/gptokeyb/installer.gptk`; one installer, one whiptail. Unmounted after, and the real `control-gen` printed 0 bytes again.
+  - `get_controls: command not found` (`:41`) still prints once before the first dialog, because the coordinator's scope was `:43-47` only.
+- **#894's change** was re-applied on top of `0602f598e9` from its saved patch (`git apply --check` clean; the union of the two diffs equals the two changes). `bash -n` ok and busybox `sh -n` ok. Commit `467f19fc14`. The guest's copy is sha256 `956e2290…`, equal to the host's.
+  - **Failing control, no stubs** (14:01:28, the #899-only script on `/dev/sdb`): it ended on "Install Complete — You may now remove the install media and shutdown." with 5 `Error:` lines in its log and no marker. The copy went to `/tmp/installer/part1` in RAM: 2.0 G, `/tmp` 52% full.
+  - **Run 2, the failing target, no stubs** (14:00:34): the confirmation named `/dev/sdb ATA_QEMU_HARDDISK_8389kB`, and parted logged "The location 8396799 is outside of the device /dev/sdb." The dialog read "Install Couldn't Finish — The installer stopped while creating the system partition. The disk may be partly written. Check the disk and the cable, then run the installer again. The details are under View installation log." The marker held the step, and the log `# FAILED: creating the system partition`. One installer and one whiptail; `control.ini` 0 bytes.
+  - **Run 1, the blank target, no stubs** (14:02:58): the confirmation named `/dev/sda ATA_QEMU_HARDDISK_6442MB`, and the run ended on "Install Complete". There was no marker and no `FAILED` line; the 2 `Error:` lines are parted reading the blank disk before the write. `blkid`: `/dev/sda1` `LABEL="ROCKNIX"` vfat and `/dev/sda2` `LABEL="STORAGE"` ext4; `/dev/sda1` holds `KERNEL`, `SYSTEM` and their `.md5` files, `syslinux.cfg` and `EFI`.
+  - The sampler saw 2 `installer` processes at 14:03:09 and 1 at 14:03:19. On the guest, a pipeline's brace group runs as a forked copy under the script's own name (`t8-pipe` pid 3415, ppid 3413), and the gauge is `{ … } | whiptail`, so the second process is that subshell. It is not a background copy.
+- **G-05 read from the bytes:** the installed system partition (`dd` from `t8-target.raw` at sector 8192, listed and read with `7z`) has the installation media's `syslinux.cfg` (`DEFAULT run`, `portable`, the media's console arguments), not the one `:322-329` writes (`DEFAULT linux`, `${EXTRA_CMDLINE}`). It also has the media's `EFI/BOOT/grub.cfg` and `fs-resize.log`, which records `/dev/vda2`. `cp -r /flash/*` (`:339`) runs after the generated config and replaces it.
+- **The leads' verdicts** are in `02` § S3's leads.
+
+PROOF: 13:59 P18 #899: the image's installer started 153, then 381 copies of itself with no pad; the guarded one runs one, and with a pad-shaped `control.ini` calls `gptokeyb` once -- `.qa-scratch/t8/s3/p899-*.txt`, the `/proc` counts
+PROOF: 14:03 P19 #894: with no stubs, the 8 MB disk stops at "creating the system partition", the 6 GiB disk ends on Install Complete with ROCKNIX and STORAGE, and without the change the 8 MB disk claimed complete -- `.qa-scratch/t8/s3/run-*.txt`, `blkid`

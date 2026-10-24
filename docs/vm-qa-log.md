@@ -359,3 +359,33 @@ GPU or performance. Earlier SIGXFSZ/file-limit and DOM-schema fixture failures
 preserved. All original lifecycle channels0, owners exited, admission consumed,
 2,312,990,720bytes of disposable disk/firmware retired.
 [Exact results](qa-logs/2026-10-17-browser-controls-results-616/README.md).
+
+## 2026-10-24 13:40 UTC — M6 T8 S3: the installer's failed steps (#894) and its self-forking without a pad (#899)
+
+**What I tested:** the installer on a GENERIC_X64 guest, writing to blank SATA disks.
+
+**Setup**
+- **Image:** `pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261022T235948Z.g069fc2704421-from-ROCKNIX`, copied from `m6-t1-20261023/` to `/workspace/artifacts/m6-t8-20261024/`. `sha256sum -c` OK; `build_commit` `069fc270…`, not dirty.
+- **Guest disk:** `t8.qcow2`, 16 GiB.
+- **Target disks:**
+  - `t8-target.raw`: 2 GB, grown to 6 GiB live with `block_resize`, because `PARTSIZE_SYSTEM` is 4096 MB;
+  - `t8-small.raw`: 8 MB.
+  - Both are on AHCI (`ide-hd` on `ahci.0` and `ahci.1`). The installer lists only `/dev/sd*`, `/dev/mmcblk*` and `/dev/nvme*`, so a virtio disk never appears.
+- **Command:** `generic-x64-vm qemu-args --headless --daemonize` with the two disks added; the full argv is `/workspace/tmp/m6-t8/qemu-argv.txt`.
+- **Pidfile:** `/workspace/tmp/m6-t8/qemu.pid`; VNC :28, SSH 10041.
+- **Driving it:** the dialogs went over the serial console, through `docs/audits/2026_10_24-epic-m6-image-packages/tools/t8-installer-drive.py`. Reads and stops went over SSH with the QA key, provisioned over serial.
+
+**Outcome**
+- **#899, the failing control.** With no pad, the image's installer started copies of itself, from 153 to 381 in about a minute. That run had a stub `poweroff` so the guest stayed up. Without the stub, the first boot powered itself off at about 13:43.
+- **#899, fixed** (`0602f598e9`, no stubs): one installer. With a pad-shaped `control.ini`, `gptokeyb` ran once.
+- **#894, the failing control.** The #899-only script on 8 MB ended on "Install Complete" after copying 2.0 G into `/tmp`.
+- **#894, fixed** (`467f19fc14`, no stubs):
+  - on the 8 MB disk it stops at "creating the system partition";
+  - on the 6 GiB disk it ends on "Install Complete", with `ROCKNIX` (vfat) and `STORAGE` (ext4).
+- **G-05 confirmed:** the installed `syslinux.cfg` is the media's, not the generated one.
+
+**Stops:** three monitor resets. The first stopped the fork loop. The second was because whiptail holds the console raw, so Ctrl-\ is a key. The third was so the guest would read the target's new size.
+
+**Stopped** with `tools/vm-stop` at 14:04:07 (rc 0). Census before 0 and after 0.
+
+The details are in the T8 audit's `00` § Stage E, S3.

@@ -81,10 +81,17 @@ I = [
   what="Upstream's (`111-sway-init`'s lines, `glibc`, `wlr-randr`, the H700 `m8c` config): #585 candidates or the base merge. The fork's three (`avahi-daemon.service`'s ordering, `tailscale`'s cache name, the GENERIC_X64 `m8c` copy): the coordinator's call for a stream.",
   where="`04` § Second opinion", ev="each read at its site in § Second opinion", vm=VMT, aw=AWN,
   acc="each of the eight is named in #585's proposal or in a stream brief, with its verdict.", upstream=True),
+ dict(f="F-18", tracked="#899", t="without a game controller the installer starts copies of itself without end, and a copy's Close runs `poweroff -f`", sev="Medium", cat="Interaction Defect", q="Q3", area="an upstream-carried script (fork-own by its identity edits): `projects/ROCKNIX/packages/tools/installer/scripts/installer` (GENERIC_X64)",
+  what="Found on S3's guest cycle and added to S3 by the coordinator (13:51 UTC on #655). `control-gen` prints nothing without a pad, so `control.ini` is empty, `GPTOKEYB` is unset, and the gptokeyb line runs `installer -c ...` in the background. Guard the line on `GPTOKEYB` being set. Upstream carries the same lines (`09810c3ece`): rule 6, and a #585 row, the coordinator's.",
+  where="`installer:43-47`", ev="P18: 153 to 381 copies in a minute on the guest; one with the guard", vm="Yes: the GENERIC_X64 guest has no game controller, so a plain run reproduces it; a stub `poweroff` keeps the failing control's guest up",
+  aw="nothing inherited: each start rewrites `control.ini` and `installer.gptk`, and the guard reads them as before; no format changes",
+  acc="on the guest with no pad, one installer process at MAIN MENU; with a pad-shaped `control.ini`, `gptokeyb` is run once with `installer -c .../installer.gptk`; `bash -n` and busybox `sh -n` pass.", bug=True, upstream=True),
 ]
 
 P7 = {   # (outcome, evidence, proved) by F; filled at Phase 7
  "F-01": ("Resolved", "#890, filed by the coordinator (D-WORKFLOW-197); fixed in the packet `fix/m6-890-shs-sha256` ahead of T5's branch", "fix-tree"),
+ "F-14": ("Resolved", "`467f19fc14`: each step in the gauge ends it on failure, and the dialog names the step; G-03 fixed with it; G-02, G-04 to G-06 are #585 rows (`02` § S3's leads)", "fix-guest"),
+ "F-18": ("Resolved", "`0602f598e9`: the gptokeyb line runs only when `GPTOKEYB` is set (#899, added to S3 by the coordinator)", "fix-guest"),
  "F-11": ("Deferred", "deferred:the integration, settled by D-WORKFLOW-198 (`152c4ee3c3`): the fork's glslang override is kept at the base merge; the pair's bump is the coordinator's Backlog", ""),
 }
 
