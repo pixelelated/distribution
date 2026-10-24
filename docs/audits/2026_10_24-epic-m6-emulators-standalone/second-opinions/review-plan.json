@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "depth": "extended",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's dispatch on #677 (issuecomment-6381895209, 2026-10-24T08:16:35Z: 'Opus 5.5 at high effort') and the session's own model metadata (claude-opus-5-5)"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
+      "calls": [
+        {
+          "phase": "refutation",
+          "output": "gpt-audit.md"
+        }
+      ],
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gpt-probe.md"
+        }
+      ],
+      "status": "running"
+    },
+    {
+      "member": "gemini-argon",
+      "model": "google/gemini-4-argon",
+      "lab": "google",
+      "effort": "high",
+      "provider": "openrouter, the installed gemini-argon recipe (Argon route, #636/#638)",
+      "calls": [
+        {
+          "phase": "refutation",
+          "output": "gemini-argon-audit.md"
+        }
+      ],
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gemini-argon-probe.md"
+        }
+      ],
+      "status": "running"
+    }
+  ]
+}
