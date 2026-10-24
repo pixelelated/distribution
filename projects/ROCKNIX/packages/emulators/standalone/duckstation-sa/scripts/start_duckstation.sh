@@ -114,12 +114,11 @@ fi
 
 #Retroachievements
 # Disabled, not working. Seems like Duckstation changed the token encruption...
-# /usr/bin/cheevos_duckstation.sh
 # Upstream's workaround (ROCKNIX 0c3c2b6818, "duckstation: disable
 # retroachievements"): DuckStation's own sign-in is turned off on every
-# launch, so the token cheevos_duckstation.sh would write is never used.
-# Retiring this line needs a guest proof that DuckStation's own sign-in
-# survives a launch (#872 PL-037).
+# launch (the script that wrote its token, cheevos_duckstation.sh, was never
+# called and was removed, #872 PL-024). Retiring this line needs a guest
+# proof that DuckStation's own sign-in survives a launch (#872 PL-037).
 sed -i '/\[Cheevos\]/,/^\s*$/s/Enabled =.*/Enabled = false/' ${CONF_FILE}
 
 
