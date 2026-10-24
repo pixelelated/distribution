@@ -29,27 +29,34 @@ if [ -d "$HATARI_TMP_DIR" ]; then
 fi
 mkdir -p "$HATARI_TMP_DIR"
 
-# copy default config file to tmp
-cp $HATARI_CONFIG_DIR/Atari-ST-default.cfg "$HATARI_TMP_CONFIG"
+# Seed the default config if the player has none (it is copied to /storage
+# only by the first boot's seed), then copy it to tmp
+if [ ! -f "$HATARI_CONFIG_DIR/Atari-ST-default.cfg" ]; then
+  mkdir -p "$HATARI_CONFIG_DIR"
+  cp /usr/config/hatari/conf/Atari-ST-default.cfg "$HATARI_CONFIG_DIR/"
+fi
+cp "$HATARI_CONFIG_DIR/Atari-ST-default.cfg" "$HATARI_TMP_CONFIG"
 
 # Check if we are loading a .zip file
-if [ `echo $1 | grep -i .zip | wc -l` -eq 1 ]; then
+if case "$1" in *.[zZ][iI][pP]) true ;; *) false ;; esac; then
 
   #unpack the zip file
   unzip -q -o "$1" -d "$HATARI_TMP_DIR"
 
-  # Assign files to floppy 1 & 2
+  # Assign the archive's disk images, in name order, to floppy A and B:
+  # each line written as data (echo -e read backslashes in a name and split
+  # it on spaces, and every file in the folder became a floppy, #871)
+  echo "Assigned floppy drives:" >> "$HATARI_LOG"
   for FILE in "$HATARI_TMP_DIR"/*
   do
+    case "${FILE,,}" in *.st|*.msa|*.dim|*.stx|*.ipf) ;; *) continue ;; esac
+    [ -f "$FILE" ] || continue
     i=$(($i+1))
     case "$i" in
-    1)
-      ARGS="\nszDiskAFileName = "$FILE""
-      ;;
-    2)
-      ARGS="${ARGS}\nszDiskBFileName = "$FILE""
-      ;;
+    1) DRIVE=A ;;
+    2) DRIVE=B ;;
     esac
+    printf 'szDisk%sFileName = %s\n' "$DRIVE" "$FILE" | tee -a "$HATARI_LOG" >> "$HATARI_TMP_CONFIG"
 
     # This emulator supports 2 floppies max
     if [ $i -eq $MAX_DRIVES ]; then
@@ -57,13 +64,11 @@ if [ `echo $1 | grep -i .zip | wc -l` -eq 1 ]; then
     fi
   done
 
-    # Add game files as floppy 1 & 2 to .hatari-temp.cfg & start hatari
-    echo -e ${ARGS} >> "$HATARI_TMP_CONFIG"
-    echo -e "\nAssigned floppy drives:" ${ARGS} "\n" >> "$HATARI_LOG"
+    # Start hatari with the floppies added to .hatari-temp.cfg
     nice -n -19 hatarisa --configfile "$HATARI_TMP_CONFIG" >> $HATARI_LOG 2>&1
 
 # Check for .cfg config file
-elif [ `echo $1 | grep -i .cfg | wc -l` -eq 1 ]; then
+elif case "$1" in *.[cC][fF][gG]) true ;; *) false ;; esac; then
   nice -n -19 hatarisa --configfile "$1" >> $HATARI_LOG 2>&1
 # All other files
 else
