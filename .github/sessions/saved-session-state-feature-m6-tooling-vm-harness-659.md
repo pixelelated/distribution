@@ -41,16 +41,13 @@
 
 ## Current focus
 
-**Stage A done (19:06 UTC); stage B next.**
-- **`reviewed-at`:** `facb2ae523`, equal to `8ebaf8daad` on the 60.
-- **Scope:** 60 paths, 8,790 lines, 484,627 bytes, 145 fork commits, none upstream's: equal to the brief.
-- **The no-guest controls:**
-  - `vm-pair-test` 9, `vm-upgrade-readiness-test` 7 and `vm-stop-test` 7 PASS, each rc 0;
-  - `vm-qa --list` gives 17;
-  - `es-syntax-check` rc 2 (not a pass);
-  - `vm-manager-system-check --help` rc 1 (the tool takes no `--help`; the asserts are a lead).
-- **Census:** 0. No guest has run.
-- **Next:** stage B, the reading and the record (Q5's cost side, Q6's value side). Then the one guest cycle, if a claim needs it, by § 5's ritual.
+**Stage D done (20:33 UTC); paused for the coordinator's stream briefs.**
+- **`reviewed-at`:** `facb2ae523`.
+- **The audit:** `docs/audits/2026_10_24-epic-m6-tooling-vm-harness/`, `00` to `05` plus `cycle/` and `second-opinions/`. The pre-issue lint prints `PASS`.
+- **The one guest cycle** is done and accepted on #659 (19:33): `vm-qa` exits 0 over a SKIP, and `time-to-play --repeat 0` and `emulator-exit-test --only X` pass having measured nothing. The disk is retired.
+- **The seat:** GPT-6 Astra, probe and refutation PASS. Its 72 items are graded: 56 confirmed, 15 narrowed, 1 withdrawn.
+- **Filed:** 18 bugs (#966 to #983) and the audit issue #984 (23 items; 2 High: #969, #970), a sub-issue of #659.
+- **No `tools/` file has changed.** Next: the streams the coordinator briefs (`docs/reviews/briefs/t12-streams.md`), then stages F to H.
 
 ## Next commands
 
