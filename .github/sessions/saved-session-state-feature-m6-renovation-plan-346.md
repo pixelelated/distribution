@@ -181,7 +181,10 @@ work lanes idle. **T6 dispatched 08:0x** (brief version 2 `3d60062ce5`; lane
 `m6-build-engine-upstream-tools-653`, the T5 session `m6-t5-build-engine`;
 Local, no calls). **A merge recipe stops on the union script's failure and on a
 non-empty marker grep before `git add`** (the first T6 push carried markers;
-replaced within minutes; #696). **Next brief:** T30 (`docs/reviews/briefs/emulators-standalone.md`, Extended, for the T3
+replaced within minutes; #696). **T30 dispatched 08:2x** (brief version 2 `b81fc193a1`; lane
+`feature/m6-emulators-standalone-677` at `c7e3dfcc87` in `m6-emulators-standalone-677`,
+the T3 session `m6-t3-emulators`; Extended, the two calls authorized; VNC 24,
+SSH 10037). **Earlier:** T30 (`docs/reviews/briefs/emulators-standalone.md`, Extended, for the T3
 session in `m6-emulators-standalone-677`), both at version 1 with futro
 addenda, their stranger's proofs running at 07:3x; version 2, the issues'
 sixteen criteria, the worktrees stacked on P1 + this tip, the seeds, then the
