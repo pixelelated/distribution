@@ -95,3 +95,12 @@ PROOF: 04:18 P11 the H700 and SM8550 launch tables regenerated, byte-identical t
 - `03-retrospective.md` written (3.1 to 3.6.5: the instruction files and blindspots against the findings, six seams, the futro's predictions checked).
 - `config/options` 86 to 152 read: `CONCURRENCY_MAKE_LEVEL=$(nproc)` (91), `CCACHE_CACHE_SIZE="15G"` (100), `CCACHE_COMPRESSLEVEL="0"` (109), `CCACHE_SLOPPINESS="pch_defines,time_macros"` (118); the options files at 132 to 140 led to F-15 (`~/.rocknix/options` against `~/.ROCKNIX/options`; both tested by `test -f` and mode only).
 - 04:24 `.env` at rest: none in 134 checkouts.
+
+### [Stage B] 04:33 to 04:45 — The subagent's leads re-read
+
+- 04:33 the research subagent returned (28 leads, the sections of `config/functions`, the `set -e` status); a lead, never evidence (brief § 5 rule 5).
+- Re-read at their sites: `scripts/mkimage` (F-16), `find_path`/`calculate_stamp`/`kernel-firmware` (F-17, P12), `get_git` 30 to 52, 193 to 218 (F-18, P13), `get_archive` and `update_packages` 46 to 64 (F-19; the subagent's line numbers for `update_packages` were wrong, 108 and 117 for 52 and 61), `checkdeps` 255 to 345 (F-20), and five small ones (F-21). Lead 11 found partly wrong (the failure path is caught). `config/functions` 948 to 962 and `5ce3dcc9d7`: the libtoolize guard, merged upstream as PR #3213 (`02c9dd740e`), widens F-05 (`device-builds.md` § After rebasing items 2 and 3 both describe fixed defects).
+- Not re-read: 17 leads, listed in `02` as leads.
+
+PROOF: 04:38 P12 `calculate_stamp` unchanged by a device-level file `find_file_path` reads -- `tools/sb-stamp-device-config.sh` (F-17)
+PROOF: 04:41 P13 `get_git`'s cache check accepts `PKG_VERSION` matching a remote ref while `HEAD` differs -- `tools/sb-get-git-head.sh` (F-18)

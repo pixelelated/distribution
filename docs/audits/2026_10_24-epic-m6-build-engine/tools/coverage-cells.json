@@ -1,0 +1,291 @@
+{
+ "scripts/build": {
+  "Q1": "SC2166/SC2044/SC2046 in upstream's lines: idioms, not defects (`02` \u00a7 shellcheck)",
+  "Q2": "the fork's 12 lines read: the watch entry (7 to 12) and `--wrap-mode=nodownload` (196, 227); the hook order is upstream's (`packages/README.md`)",
+  "Q3": "no defect in the fork's lines; P10 proves the meson guard reached 85 of 85 configures",
+  "Q5": "the watch entry: one exec and a lock per top-level entry; the recorded runs' timings in `04` Q5",
+  "Q6": "reached by every package of every fork build (Table 1)",
+  "Q7": "646 lines, upstream's structure; the fork's hunks commented in place"
+ },
+ "scripts/image": {
+  "Q1": "SC2046/SC2061/SC2044 in upstream's lines",
+  "Q2": "the identity blocks read (60 to 61, 78 to 82, 106 to 121, 139 to 168): fail closed on an invalid identity (`die`)",
+  "Q3": "F-09: its refusal is bypassed by `build_distro`'s prune",
+  "Q5": "image assembly 5 m 7 s for GENERIC_X64 in run `20261022T235954Z-4749157a` (the whole run; `04` Q5)",
+  "Q6": "reached by every device build (Table 1); writes `/etc/os-release` and the sidecar on every image",
+  "Q7": "F-06: `ORIGIN_URL` and `BUILD_FILENAME` written for nobody; the identity split over four files (`04` Q7)"
+ },
+ "scripts/install": {
+  "Q1": "SC2166 at 164 (upstream's)",
+  "Q2": "the watch entry read (6 lines)",
+  "Q3": "no defect in the fork's lines",
+  "Q5": "the watch entry only",
+  "Q6": "reached by every fork build",
+  "Q7": "no finding"
+ },
+ "scripts/build_distro": {
+  "Q1": "F-14: a dead `$?` check under `set -e`",
+  "Q2": "`set -e` (15); the watch entry; `DISTRONAME` roots",
+  "Q3": "F-09: the prune of `target/` (84) defeats the image's refusal",
+  "Q5": "the whole-device run; timings in `04` Q5",
+  "Q6": "the `Makefile`'s device targets (Table 1)",
+  "Q7": "F-09's reason lives in `c2bb7ec0b9`'s message only"
+ },
+ "scripts/build_compat": {
+  "Q1": "F-07: pre-identity naming kept",
+  "Q2": "the watch entry read",
+  "Q3": "F-07: honours `CUSTOM_VERSION`/`CUSTOM_IMAGE_NAME`, which the identity refuses",
+  "Q5": "the ARM compatibility root, part of each H700/SM8550 run",
+  "Q6": "`build_distro` for `arm` (Table 1)",
+  "Q7": "F-07: `GIT_HASH`, `ORIGIN_URL` unused"
+ },
+ "scripts/extract": {
+  "Q1": "no finding",
+  "Q2": "the fork's `mkdir -p` (one line)",
+  "Q3": "no defect",
+  "Q5": "n/a: per-package unpack cost",
+  "Q6": "`scripts/unpack` (Table 1)",
+  "Q7": "no finding"
+ },
+ "scripts/get_env": {
+  "Q1": "no finding",
+  "Q2": "D-INFRA-006: F-01 (the names), F-02 (the line format)",
+  "Q3": "F-01, F-02 (P1)",
+  "Q5": "n/a: one listing per Docker build",
+  "Q6": "the `Makefile`'s `docker-%` recipe (Table 1)",
+  "Q7": "its comment promises more than `DROP` does (F-01)"
+ },
+ "Makefile": {
+  "Q1": "the per-device recipes repeat two lines each; a pattern rule would do, upstream's shape",
+  "Q2": "the `.env` lifecycle traced (205 to 208): sound for the file (`03` \u00a7 3.5); F-13 (the options mount writable)",
+  "Q3": "no defect; F-02 lands through its `--env-file`",
+  "Q5": "the container pin's age (F-11)",
+  "Q6": "every fork build's entry",
+  "Q7": "F-13: the local container no target runs; F-15: the options file's case"
+ },
+ "config/build-identity": {
+  "Q1": "no finding",
+  "Q2": "fails closed on every invalid input (P9's 16 rejections)",
+  "Q3": "no defect (P9: 21 identity checks pass); F-09 is the caller's",
+  "Q5": "n/a: one call per image",
+  "Q6": "`scripts/image` 60 to 61",
+  "Q7": "one function, one responsibility; `04` Q7 on the identity's four files"
+ },
+ "config/graphic": {
+  "Q1": "no finding",
+  "Q2": "the fork's `LLVM_SUPPORT` line (#291) read",
+  "Q3": "no defect",
+  "Q5": "n/a: flags only",
+  "Q6": "sourced by recipes through `config/options`",
+  "Q7": "the fork's comment explains the change"
+ },
+ "config/show_config": {
+  "Q1": "no finding",
+  "Q2": "the fork's one line read",
+  "Q3": "no defect",
+  "Q5": "n/a",
+  "Q6": "`scripts/image`, `build_compat`",
+  "Q7": "no finding"
+ },
+ "distributions/ROCKNIX/config/functions": {
+  "Q1": "`ls | sort` in a loop (106); `2>/dev/null` over the formatter (113)",
+  "Q2": "F-04: the formatter's error silenced (Guards must fail closed)",
+  "Q3": "F-03 (carry-over, two shipped years wrong), F-04 (T3's F-06 confirmed)",
+  "Q5": "n/a: one table per image",
+  "Q6": "the `emulators` metapackage (T3's caller); P3, P11 regenerate its output byte-exactly",
+  "Q7": "F-04: the default step marks every core so far"
+ },
+ "distributions/ROCKNIX/options": {
+  "Q1": "no finding",
+  "Q2": "the fork's identity lines read; `DISTRO_MIRROR` 186 (#644 finding 11)",
+  "Q3": "no defect",
+  "Q5": "n/a",
+  "Q6": "sourced first by `config/options` on every build",
+  "Q7": "63 SC2034 notes: an options file, noise"
+ },
+ "distributions/ROCKNIX/version": {
+  "Q1": "no finding",
+  "Q2": "read whole (11 lines)",
+  "Q3": "no defect",
+  "Q5": "n/a",
+  "Q6": "sourced by `config/options` on every build",
+  "Q7": "the identity's first file of four (`04` Q7)"
+ },
+ ".gitignore": {
+  "Q1": "no finding",
+  "Q2": "`/.env` (51) and `/.qa-scratch/` ignored; `__pycache__/`",
+  "Q3": "no defect",
+  "Q5": "n/a",
+  "Q6": "git's, every checkout",
+  "Q7": "each fork block commented"
+ },
+ ".github/workflows/validate-pull-request.yml": {
+  "Q1": "no finding",
+  "Q2": "the runner edit read",
+  "Q3": "no defect",
+  "Q5": "n/a: GitHub",
+  "Q6": "Table 4: only on a PR to the fork's `next`; none has run",
+  "Q7": "no finding"
+ },
+ ".github/workflows/check-freeze-period.yml": {
+  "Q1": "no finding",
+  "Q2": "the runner edit read",
+  "Q3": "no defect",
+  "Q5": "n/a: GitHub",
+  "Q6": "Table 4: called by `validate-pull-request.yml` only",
+  "Q7": "no finding"
+ },
+ "scripts/test-audit-review.py": {
+  "Q1": "no finding",
+  "Q2": "`py_compile` ok",
+  "Q3": "n/a: the code-auditor's test, not the engine's",
+  "Q5": "n/a",
+  "Q6": "Table 5: no caller, not in CI; misfiled into this area",
+  "Q7": "belongs with `tools/lint-audit-artifacts` (a lead for `areas.json`)"
+ },
+ "config/blocklist": {
+  "Q4": "Q4 (a): behind upstream (`c4d353449e`), F-12: to merge",
+  "Q6": "`scripts/update_packages` (`make update`), never run on the fork",
+  "Q1": "read whole (29 lines): one reason per held-back package: no finding",
+  "Q3": "read whole (29 lines): one reason per held-back package: no finding",
+  "Q7": "read whole (29 lines): one reason per held-back package: no finding",
+  "Q2": "read whole"
+ },
+ ".github/workflows/build-nightly.yml": {
+  "Q4": "Q4 (a): behind upstream (`76693a738d`), F-12: to merge",
+  "Q3": "F-10's sibling: daily `startup_failure` (#644 finding 19, T10)"
+ },
+ ".github/workflows/update-kernel-configs-docs.yml": {
+  "Q3": "F-10: fails on every push to the linux recipe (3 runs)"
+ },
+ ".github/pull_request_template.md": {
+  "Q4": "Q4 (a): behind upstream (`c200cc906d`), F-12: to merge"
+ },
+ "scripts/unpack": {
+  "Q3": "F-08: two `name-version*` matches empty the package (P8); leads 24",
+  "Q1": "SC2144 at 90 (F-08)",
+  "Q7": "read whole by the research subagent; its leads re-read here: no finding"
+ },
+ "scripts/build_mt": {
+  "Q1": "SC2068 `${@}` unquoted: an upstream idiom"
+ },
+ "config/multithread": {
+  "Q1": "SC2068 at 50: an upstream idiom"
+ },
+ "Dockerfile": {
+  "Q4": "Q4 (b): identical to `upstream/next`; the pin is 29 days older than upstream's image (F-11)",
+  "Q6": "CI's `build-docker-image.yml` and the fork's mirror workflow; `make docker-image-build`",
+  "Q1": "read whole (50 lines), identical to `upstream/next`: no finding",
+  "Q3": "read whole (50 lines), identical to `upstream/next`: no finding",
+  "Q7": "read whole (50 lines), identical to `upstream/next`: no finding",
+  "Q2": "read whole; the fork never runs it (the pin is a mirror, F-13)"
+ },
+ ".merge-head": {
+  "Q6": "Table 5: no reader in either tree",
+  "Q7": "read: one LibreELEC commit hash: no finding",
+  "Q1": "read: one LibreELEC commit hash: no finding",
+  "Q3": "read: one LibreELEC commit hash: no finding",
+  "Q2": "n/a: data, not code"
+ },
+ "config/options": {
+  "Q5": "the ccache settings (100 to 118) and `CONCURRENCY_MAKE_LEVEL` (91): `04` Q5",
+  "Q7": "F-15: the options files at 132 to 140; 98's comment says per project, the cache is per build root"
+ },
+ "config/functions": {
+  "Q3": "F-17 (device files outside the stamp, P12); F-21; `calculate_stamp`'s generic recipe correct (P2)",
+  "Q5": "`calculate_stamp`'s whole-directory hash: `04` Q5",
+  "Q1": "F-21: substring expansions for defaults; unquoted `$@` (996, 1437, 1656, 1895)",
+  "Q2": "F-21: `. package.mk \\|\\| die` disables errexit for recipe globals",
+  "Q7": "nine sections, about twelve responsibilities in 1,936 lines (`04` Q7); F-05 is the rule's"
+ },
+ "scripts/mkimage": {
+  "Q1": "no `set -e`; per-step `\\|\\| show_error`",
+  "Q2": "F-16: two branches and `pigz` unguarded",
+  "Q3": "F-16: success reported over an incomplete `qcom-abl` (SM8550) or `arm-efi` image",
+  "Q5": "part of the image step; not timed separately in the recorded runs",
+  "Q7": "one structure per bootloader, repeated four times (`04` Q7)"
+ },
+ "scripts/get_git": {
+  "Q2": "sets its own `set -e` and `pipefail` (15 to 16)",
+  "Q3": "F-18: a cached clone accepted on any ref (P13)",
+  "Q7": "lead 6: a token-URL path set by no recipe"
+ },
+ "scripts/get_archive": {
+  "Q2": "F-19: `--no-check-certificate`",
+  "Q3": "F-19: an empty `PKG_SHA256` accepts any download"
+ },
+ "scripts/update_packages": {
+  "Q3": "F-19: strips the checksum of every archive recipe it bumps (latent: never run)"
+ },
+ "scripts/checkdeps": {
+  "Q2": "F-20: changes the host's default compiler and `/nix` with `sudo`",
+  "Q3": "F-20"
+ },
+ "scripts/pkgbuild": {
+  "Q3": "F-21: `${fpkg}` undefined (32)"
+ },
+ "scripts/pkgbuilder.py": {
+  "Q1": "not read line by line: `py_compile` ok and its callers read (Q6); a coverage boundary (`04`)",
+  "Q2": "`py_compile` ok",
+  "Q3": "not read line by line: `py_compile` ok and its callers read (Q6); a coverage boundary (`04`)",
+  "Q7": "not read line by line: `py_compile` ok and its callers read (Q6); a coverage boundary (`04`)"
+ },
+ "scripts/genbuildplan.py": {
+  "Q1": "not read line by line: `py_compile` ok and its callers read (Q6); a coverage boundary (`04`)",
+  "Q2": "`py_compile` ok",
+  "Q3": "not read line by line: `py_compile` ok and its callers read (Q6); a coverage boundary (`04`)",
+  "Q7": "not read line by line: `py_compile` ok and its callers read (Q6); a coverage boundary (`04`)"
+ },
+ "scripts/uboot_helper": {
+  "Q1": "not read line by line: `py_compile` ok and its callers read (Q6); a coverage boundary (`04`)",
+  "Q2": "`py_compile` ok",
+  "Q3": "not read line by line: `py_compile` ok and its callers read (Q6); a coverage boundary (`04`)",
+  "Q7": "not read line by line: `py_compile` ok and its callers read (Q6); a coverage boundary (`04`)"
+ },
+ "scripts/create_addon": {
+  "Q1": "n/a: unreached by any fork build, image or CI (Table 1); upstream's, unchanged here",
+  "Q2": "`bash -n` ok; shellcheck read",
+  "Q3": "n/a: unreached by any fork build, image or CI (Table 1); upstream's, unchanged here",
+  "Q7": "n/a: unreached by any fork build, image or CI (Table 1); upstream's, unchanged here"
+ },
+ "scripts/install_addon": {
+  "Q1": "n/a: unreached by any fork build, image or CI (Table 1); upstream's, unchanged here",
+  "Q2": "`bash -n` ok; shellcheck read",
+  "Q3": "n/a: unreached by any fork build, image or CI (Table 1); upstream's, unchanged here",
+  "Q7": "n/a: unreached by any fork build, image or CI (Table 1); upstream's, unchanged here"
+ },
+ "scripts/create_docker_package": {
+  "Q1": "n/a: unreached by any fork build, image or CI (Table 1); upstream's, unchanged here",
+  "Q2": "`bash -n` ok; shellcheck read",
+  "Q3": "n/a: unreached by any fork build, image or CI (Table 1); upstream's, unchanged here",
+  "Q7": "n/a: unreached by any fork build, image or CI (Table 1); upstream's, unchanged here"
+ },
+ "scripts/ccache_stats": {
+  "Q1": "read whole (9 lines): `${TOOLCHAIN}/bin/ccache -s`: no finding",
+  "Q3": "read whole (9 lines): `${TOOLCHAIN}/bin/ccache -s`: no finding",
+  "Q7": "read whole (9 lines): `${TOOLCHAIN}/bin/ccache -s`: no finding"
+ },
+ "config/sources": {
+  "Q1": "read whole (2 lines): `SOURCEFORGE_SRC`: no finding",
+  "Q3": "read whole (2 lines): `SOURCEFORGE_SRC`: no finding",
+  "Q7": "read whole (2 lines): `SOURCEFORGE_SRC`: no finding"
+ },
+ "distributions/ROCKNIX/kernel_options": {
+  "Q1": "read: empty (0 lines); `linux/package.mk` 318 tests for it: no finding",
+  "Q3": "read: empty (0 lines); `linux/package.mk` 318 tests for it: no finding",
+  "Q7": "read: empty (0 lines); `linux/package.mk` 318 tests for it: no finding",
+  "Q2": "n/a: data, not code"
+ },
+ "scripts/get_file": {
+  "Q1": "read whole (6 lines): no finding",
+  "Q3": "read whole (6 lines): no finding",
+  "Q7": "read whole (6 lines): no finding"
+ },
+ "distributions/ROCKNIX/logos/rocknix-logo.png": {
+  "Q1": "n/a: an image",
+  "Q2": "n/a: an image",
+  "Q3": "n/a: an image",
+  "Q7": "n/a: an image",
+  "Q6": "read by nobody in the build; `.github/scripts/generate-release-body.sh` links upstream's copy by URL (T10's)"
+ }
+}

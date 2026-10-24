@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "depth": "extended",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's dispatch on #652 (issuecomment-6379501933: 'Model and effort: Opus 5.5 at high effort') and the session's own model metadata (claude-opus-5-5); herdr agent m6-t5-build-engine, session c649553c-8086-4db7-ad9c-248c7e41ff95"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider order [openai], allow_fallbacks false (scripts/council-invoke.ts gpt recipe)",
+      "calls": [
+        {
+          "phase": "refutation",
+          "output": "gpt-audit.md"
+        }
+      ],
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gpt-probe.md"
+        }
+      ],
+      "status": "pending: the npm install and both calls wait for the M7 host window's return line relayed on #652 (the window opened 2026-10-24 03:47 UTC)"
+    },
+    {
+      "member": "gemini-argon",
+      "model": "google/gemini-4-argon",
+      "lab": "google",
+      "effort": "high",
+      "provider": "openrouter, provider only/order [google-vertex/global], allow_fallbacks false (scripts/council-invoke.ts AUDIT_OPENROUTER_SEATS gemini-argon, the route cherry-picked on the coordinator branch as 033eb7ed23, 0ceb2994c5, 6874394d49)",
+      "calls": [
+        {
+          "phase": "refutation",
+          "output": "gemini-argon-audit.md"
+        }
+      ],
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gemini-argon-probe.md"
+        }
+      ],
+      "status": "pending: as gpt"
+    }
+  ],
+  "written_before_first_call": "2026-10-24",
+  "probes_note": "Each seat is probed once before its refutation pass (brief section 1); the probes are listed under probes, not calls, because an epic-tier audit has exactly one review pass per reviewer (phases.md section 4.6). Each reviewer is prepared independently: two briefs, neither carrying the other's output."
+}
