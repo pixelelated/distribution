@@ -1205,7 +1205,7 @@ linker is hung; recorded status still does not deliver a notification.
 
 ## 75. A corpus read on the wrong tree (2026-10-24)
 
-A read pinned to a hash (`next` at `8ebaf8daad`) was briefed with counts and
+**Observed.** A read pinned to a hash (`next` at `8ebaf8daad`) was briefed with counts and
 line numbers taken from the briefing session's own branch or from its
 memory: the always-loaded rule total, the register's row count, the
 blindspot register's entry count, the friction log's length, `CLAUDE.md`'s
@@ -1218,7 +1218,7 @@ not the hash's 11,394). The shape is blindspot 46 at the altitude of a
 number: a figure is an author's claim until the command that produces it has
 run on the tree the claim is about.
 
-The guard: `.claude/rules/engineering-practices.md` § A name is not a
+**Guard.** `.claude/rules/engineering-practices.md` § A name is not a
 behaviour, its bullet *A count or a line number is a claim about one tree*
 (a figure is produced by a command run at the hash and marked *branch*
 otherwise), and the plan's two readings before every dispatch
