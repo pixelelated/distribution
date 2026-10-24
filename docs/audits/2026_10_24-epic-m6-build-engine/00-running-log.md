@@ -274,7 +274,7 @@ PROOF: 06:57 P25 `kernel-firmware`'s stamp moves when the device's firmware list
   - P27: `make -n` with a scratch `HOME`. No command line was pasted, and the real options file was not read.
 - **Already written:**
   - A host `checkdeps` has already changed stays changed. The owner would undo it by hand with `sudo update-alternatives --remove gcc /usr/bin/gcc-12` and `sudo rm -rf /nix`, the latter only if nothing else uses it.
-  - Inside the container, `LOCAL_SSH_KEYS_FILE` is still dropped by `get_env`'s `KEYS` word. That was so before E3, so `rocknix`'s `authorized_keys` copy has never run in a Docker build. Named for the coordinator; not this stream's.
+  - Inside the container, `LOCAL_SSH_KEYS_FILE` is still dropped by `get_env`'s `KEYS` word. That was so before E3, so `rocknix`'s `authorized_keys` copy has not run in a Docker build since that filter was written (`d704c9d563`, 2026-09-05). Named for the coordinator; not this stream's.
 
 PROOF: 07:00 P26 `checkdeps` changes the build host only on `CHECKDEPS_ALLOW_HOST_CHANGES=1` and otherwise prints the commands and stops, where it ran four sudo changes unasked -- `tools/sb-checkdeps.sh` (F-20, #835)
 PROOF: 07:02 P27 the options mount is read-only and a missing optional path is not mounted, every docker target still resolving -- `tools/sb-make-n.sh` (F-13)
