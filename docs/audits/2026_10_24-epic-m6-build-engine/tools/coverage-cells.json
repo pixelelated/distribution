@@ -170,7 +170,8 @@
   "Q1": "SC2068 `${@}` unquoted: an upstream idiom"
  },
  "config/multithread": {
-  "Q1": "SC2068 at 50: an upstream idiom"
+  "Q1": "SC2068 at 50: an upstream idiom",
+  "Q3": "F-22: a statistics pipe can fail a finished build (64)"
  },
  "Dockerfile": {
   "Q4": "Q4 (b): identical to `upstream/next`; the pin is 29 days older than upstream's image (F-11)",
@@ -287,5 +288,8 @@
   "Q3": "n/a: an image",
   "Q7": "n/a: an image",
   "Q6": "read by nobody in the build; `.github/scripts/generate-release-body.sh` links upstream's copy by URL (T10's)"
+ },
+ "scripts/makefile_helper": {
+  "Q3": "F-22: `distclean` exits before its `rm` with no build root (26)"
  }
 }
