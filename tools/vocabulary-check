@@ -3,7 +3,7 @@
 # Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 """vocabulary-check - the player-facing words, held to the rules a reader would apply.
 
-  ./tools/vocabulary-check [--es <emulationstation checkout>] [--scripts <dir>] [--show]
+  ./tools/vocabulary-check [--es <emulationstation checkout>] [--scripts <dir>] [--rocknix-scripts <dir>] [--show]
 
 Three rules, from es-player-text.md and player-language.md (D-UI-022/045,
 #148): "back up" is two words as a verb (BACK UP SAVES TO THE CLOUD, back up
@@ -18,9 +18,12 @@ suite).
 
 What it reads: every _("...") string in the EmulationStation checkout
 (default: the qa-integration worktree, or $ES_SRC), and every sentence the
-cloud scripts print for a player -- log_message ... "true", note, say_why,
-echo -- plus the whole of backuptool's notes. Comments are skipped. It exits
-1 with each offending string and the file it came from; 0 when clean.
+product-surface scripts print for a player -- log_message ... "true", note,
+say_why, echo. The scripts are derived, not named: every file in the rclone
+package's sources and the rocknix scripts directory that prints a ">>> "
+protocol line, calls say_why or carries a _("") string; the list is printed
+(#952). Comments are skipped. It exits 1 with each offending string and the
+file it came from; 2 when a script cannot be read; 0 when clean.
 
 Heuristics, so an allowlist carries the few strings that are right and
 still match (upstream's hidden BACKUP USER DATA page, for one):
@@ -36,7 +39,13 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 DEFAULT_ES = os.environ.get("ES_SRC") or os.path.expanduser("~/Development/emulationstation-next.worktrees/qa-integration")
 SCRIPTS = os.path.join(ROOT, "projects/ROCKNIX/packages/network/rclone/sources")
-BACKUPTOOL = os.path.join(ROOT, "projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool")
+ROCKNIX_SCRIPTS = os.path.join(ROOT, "projects/ROCKNIX/packages/rocknix/sources/scripts")
+# A script is a product surface when it speaks the interface's protocol (a
+# ">>> " line the cards and pages read, a say_why) or carries a _("") string.
+# The list is derived from the two directories, not named, so a script added
+# later is judged without anybody remembering to add it here (#952: cloud_scan
+# printed >>> why lines and was never read).
+SURFACE = re.compile(r'>>> |\bsay_why\b|_\("')
 
 # Strings that match a heuristic and are nonetheless right, or are not ours to
 # change (upstream's, on pages ROCKNIX does not show). Each with its reason.
@@ -85,11 +94,25 @@ def es_strings(es):
             for m in pat.finditer(src):
                 yield os.path.relpath(p, es), m.group(1)
 
+def surface_scripts(dirs):
+    """(paths, unreadable): every regular file under dirs that speaks the
+    protocol; a file that cannot be read is named, never skipped."""
+    paths, bad = [], []
+    for d in dirs:
+        try: names = sorted(os.listdir(d))
+        except OSError as e: bad.append(f"{d}: {e.strerror}"); continue
+        for n in names:
+            p = os.path.join(d, n)
+            if not os.path.isfile(p): continue
+            try: text = open(p, encoding="utf-8", errors="replace").read()
+            except OSError as e: bad.append(f"{os.path.relpath(p, ROOT)}: {e.strerror}"); continue
+            if SURFACE.search(text): paths.append(p)
+    return paths, bad
+
 def script_lines(paths):
     say = re.compile(r'\b(log_message|note|say_why|echo)\s+"((?:[^"\\]|\\.)*)"(.*)')
     for p in paths:
-        try: lines = open(p, encoding="utf-8", errors="replace").read().splitlines()
-        except OSError: continue
+        lines = open(p, encoding="utf-8", errors="replace").read().splitlines()
         for line in lines:
             s = line.strip()
             if s.startswith("#"): continue
@@ -103,12 +126,18 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--es", default=DEFAULT_ES)
     ap.add_argument("--scripts", default=SCRIPTS)
+    ap.add_argument("--rocknix-scripts", default=ROCKNIX_SCRIPTS)
     ap.add_argument("--show", action="store_true", help="also list every string that was judged")
     a = ap.parse_args()
     if not os.path.isdir(os.path.join(a.es, "es-app", "src")):
         print(f"vocabulary-check: no EmulationStation checkout at {a.es} (set ES_SRC or --es)", file=sys.stderr)
         return 1
-    paths = [os.path.join(a.scripts, n) for n in ("cloud_backup", "cloud_restore", "cloud_content_backup", "cloud_content_restore", "cloud_setup", "cloud_saves_root", "cloud_net_ready")] + [BACKUPTOOL]
+    paths, bad = surface_scripts([a.scripts, a.rocknix_scripts])
+    if bad:
+        for b in bad: print(f"vocabulary-check: cannot read {b}", file=sys.stderr)
+        print("vocabulary-check: could not run -- a product-surface script was unreadable", file=sys.stderr)
+        return 2
+    print(f"vocabulary-check: reads {len(paths)} script(s): {' '.join(os.path.basename(p) for p in paths)}")
     judged = failures = 0
     seen = set()
     for origin, text in list(es_strings(a.es)) + list(script_lines(paths)):
