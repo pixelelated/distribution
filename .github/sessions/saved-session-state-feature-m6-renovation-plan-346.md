@@ -30,8 +30,7 @@ wait for the M7 lane's post-candidate merge to clear the push guard's W42
 gate before anything merges to `next` (never `--no-verify`); the order is in
 § Merge notes and § State at 2026-10-24. **Accepted:** P1 (#641), T1 (#648),
 T2 (#649), T3 (#650), T5 (#652), T6 (#653), T7 (#654, `db6597356b`), T30
-(#677, `a020b3d375`), **T24 (#671, `e524d3bdbc`, 14:3x; #900 closed; its
-completion marker is the lane's next commit)**.
+(#677, `a020b3d375`), **T24 (#671, complete at `26e4a34edf`: #900 closed, the completion marker written, the full lint PASS)**.
 **Running:** **T8** (#655, Independent) in the T5 session
 (`m6-t5-build-engine`) at **stage E** from `docs/reviews/briefs/t8-streams.md`
 (`3e64156023`): S1 #852 `43f6a81070`, S2 #893 `4db09f6e2e` and `1904e29d54`,
@@ -44,9 +43,7 @@ v2 `c25d772b21` on lane `feature/m6-emulators-dead-ends-671` (the merge
 `8fd13c3133` carried the index's conflict markers for one commit;
 `81331b499e` fixed it; blindspot 76) and is accepted. **Packets** reviewed and waiting for the merge: #877
 `cf3a8d8e62` and #890 `566b01448f` (before T5's branch); #887 `c60cdddf8b`
-and #889 `828472eb59` (after T30's). The T1 session is idle. **Waiting on
-the maintainer (#346):** T4's dispatch (#651, brief v2 `0921782112`; a third
-lane). **At integration (the coordinator dispatches):** the #857/#873 packet
+and #889 `828472eb59` (after T30's). The T1 session is idle. **T4 (#651, the doctrine, Local) dispatched 14:34 UTC** to the T3 session, freed by T24: brief v2 `0921782112`, lane `feature/m6-doctrine-rules-651` at `00e75ab135` (the merge `e3897db16d`: four ledger conflicts united by the recipe, the chain stopping on them first; the worktree differs from `next` on eleven doctrine paths, the first lead). The third-lane question on #346 is withdrawn as moot. **Waiting on the maintainer (#346):** #825's disclosure timing, `LOCAL_SSH_KEYS_FILE`, D-SYS-014, D-WORKFLOW-191. **At integration (the coordinator dispatches):** the #857/#873 packet
 after T3's merge; the Backlogs #839, #878, #885, #896, #897; the
 `fix-pending-image` rows; T8's conflict list (11 rows) read under
 D-WORKFLOW-198/199. **Filed today by this lane:** #807 to #811, #838, #839,
@@ -280,12 +277,11 @@ is the narrative; this is the index of what a resuming agent must know.
   #850, #851, #852, #873 to #879, #885, #888, #890, #896, #897, #898, #901. The lanes
   filed #813 to #837, #841, #845, #846, #880 to #884, #886, #887, #889, #891 to #895,
   #899, #900.
-- **Open with the maintainer on #346:** a third lane for T4; the #825
+- **Open with the maintainer on #346:** (the third lane for T4 is moot: T4 runs in the T3 session since 14:34); the #825
   disclosure timing; `LOCAL_SSH_KEYS_FILE` in Docker builds; D-SYS-014;
   D-WORKFLOW-191 (the `portaudio` question was withdrawn: the mirror serves it; #849 corrected).
 - **Integration (after the M7 candidate):** P0, P1, T1, T2, T3, T30, **`fix/m6-877-libfmt-sha256` (`cf3a8d8e62`) and `fix/m6-890-shs-sha256` (`566b01448f`), the two checksums T5's fetch would refuse**, T5, T6,
-  T7 (`db6597356b`), T8 and T24 at their hand-backs, T4; #887 (`c60cdddf8b`) and #889
-  (`828472eb59`) after T30's branch; T8's conflict list (11 rows) read under
+  T7 (`db6597356b`), T24 (`26e4a34edf`) after T30's, T8 at its hand-back, T4 last; #887 (`c60cdddf8b`) and #889 (`828472eb59`) after T30's branch; T8's conflict list (11 rows) read under
   D-WORKFLOW-198/199 with the `spirv-headers` override kept; at integration flip `add_es_system`'s zero-default WARNING to
   `return 1` after T3's S2 and regenerate the five tables; the #802/#806/#825
   adaptations; close #823, #841, #845 and the other fixed bugs at the merge;
