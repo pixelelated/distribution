@@ -133,8 +133,7 @@ an Opus 5.5 session at high effort in Herdr pane `wN:p4`, agent
 scratchpad and quoted in the 07:50 work-log entry). This lane's rules from
 the futro: no merge of `next` into a slice branch between stage A and stage
 D; every drift report read at every slice close and the re-open named;
-`tools/box-check` on every issue a lane files, at the pause. Next: T1's stage-F guest half (three batches, the timing runs), its retro and
-hand-back, then its acceptance (brief § 10: re-run the harness under
+`tools/box-check` on every issue a lane files, at the pause. Next: T1 is through stage F (`c877cf0770`, 2026-10-24 00:58; #720 reworded and ticked, P-05 notes on #728/#748/#758, #796 filed) and its retro is posted; its hand-back, then its acceptance (brief § 10: re-run the harness under
 `QA_SYSTEM_ROOT` and `pkgcheck` once; the `fix-pending-image` rows stay open);
 T2 accepted 2026-10-24 (above), its ES merge and pin bump held for the M7 ES
 fixes and D-WORKFLOW-191; T3's brief (#650); the merge order to `next` after
