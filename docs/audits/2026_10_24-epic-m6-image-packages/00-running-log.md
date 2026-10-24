@@ -139,3 +139,16 @@ PROOF: 12:30 P15 the orphans' pins after the base merge; `glslang` 16.6.0 to 16.
   - `cairo`'s listing read was not stamped.
 - **D-WORKFLOW-198** (the coordinator's, `152c4ee3c3`) settles F-11: keep the fork's `glslang` override at the base merge. The coordinator's 12:42 answer: the conflict list is one Renovation item, F-11 its own Medium, and `libaio` and `rocknix-abl` two Low bugs.
 - **Written:** `05` from `tools/punch-items.py` (seventeen items); `second-opinions/review-plan.json` complete.
+
+### [Stage D] 13:02 to 13:04 — the punch list, the issues, the pause
+
+- **Four lane bugs**, each labelled `bug` with no milestone, a code trace with `Already written:` and the VM line, and every hash and line read from the tree:
+  - #891 `libaio` and #892 `rocknix-abl` (dead primary URLs, mirror-covered, Low);
+  - #893 `mangohud` (three unverified downloads at configure, Medium);
+  - #894 the installer (unchecked destructive steps, Medium).
+
+  `tools/box-check --issue N`: 2 open, 0 fail for each.
+- **#890 and #852** are the coordinator's and T6's issues, carried as PL-01 and PL-02.
+- **The audit issue:** #895, `Audit: M6 T8 the image's own packages -- 17 findings (0 critical, 0 high)`. Labels `audit` and `punch-list`, milestone M6, a sub-issue of #655. `tools/box-check --issue 895`: 17 open, 0 fail.
+- **`05`** is regenerated with the numbers; the pre-issue lint passes.
+- **Stage-D pause:** the lane waits for the coordinator's stream briefs and drafts nothing under `projects/`.

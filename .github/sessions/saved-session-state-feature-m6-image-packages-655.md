@@ -38,10 +38,13 @@
 
 ## Current focus
 
-**Stage B done (12:36 UTC); stage C next.**
-- **Written:** `02`, `03`, `04` (§ Second opinion pending), `q4-table.md` and `q4-pins.json`.
-- **Findings:** twelve. #890 is the coordinator's; #852 is this slice's stream.
-- **Next:** stage C. `npm install --prefix tools/council`, `verify-pins` and `test`, then the GPT seat's probe and one refutation over one bounded packet near 440 KB (the dispatch authorizes both calls; a failed seat is a hold). Then the pre-issue lint and stage D.
+**At the stage-D pause (13:04 UTC); waiting for the coordinator's stream briefs.**
+- `reviewed-at` is `caf1de3727`.
+- The second opinion is done: GPT-6 Astra, probe and refutation both PASS, graded in `04`.
+- **Audit:** #895, seventeen items.
+- **Bugs:** #891 to #894 (this lane's), #890 (the coordinator's), #852 (this slice's stream).
+- **The `glslang` triple:** D-WORKFLOW-198 settles `glslang`; the seat's `spirv-headers` triple is reported for the row.
+- **Next:** the stream briefs on #655, then stage E. #852's stream needs `ln -sfn` inside a hook (G-16).
 - **Prose through Python or a quoted heredoc only.**
 
 ## Next commands

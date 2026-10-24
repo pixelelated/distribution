@@ -18,11 +18,11 @@ I = [
   where="`projects/ROCKNIX/packages/virtual/image/package.mk:109-110`", ev="P10 (T6's `pkgcheck`), P12 (this worktree's three `image/system/opt` symlinks)", vm="Yes: the image's root carries `opt -> /storage/.opt` after the fix (`fix-pending-image`); the load-time write is proved gone on the host by sourcing a fresh export",
   aw="nothing on devices: the image's `/opt -> /storage/.opt` is the intended result and stays; what the load-time write left behind is `build.*/image/system/opt` in build roots and in any worktree that sourced the recipe, which the next image build overwrites with the same link",
   acc="a fresh export sourced through `config/options image` for GENERIC_X64 leaves no `build.*/image/system/opt`; `tools/pkgcheck image` with T6's copy exits 0; the first image built from the fix carries `/opt -> /storage/.opt`.", upstream=True),
- dict(f="F-03", t="`libaio`'s `PKG_URL` is gone (pagure's archive answers 404); every fetch depends on ROCKNIX's mirror", sev="Low", cat="Code Quality", q="Q3", area="an upstream-carried recipe: `projects/ROCKNIX/packages/devel/libaio`",
+ dict(f="F-03", tracked="#891", t="`libaio`'s `PKG_URL` is gone (pagure's archive answers 404); every fetch depends on ROCKNIX's mirror", sev="Low", cat="Code Quality", q="Q3", area="an upstream-carried recipe: `projects/ROCKNIX/packages/devel/libaio`",
   what="Record it; propose a live URL for 0.3.113 to #585 when one is found (upstream carries the same URL). The mirror and the cache are the retained copies.",
   where="`projects/ROCKNIX/packages/devel/libaio/package.mk:10`", ev="P8, P9", vm=VMNO, aw=AWF,
   acc="a fetch of `libaio` for GENERIC_X64 into an empty source directory exits 0 with `716c7059...` (from the mirror today).", bug=True, upstream=True),
- dict(f="F-04", t="`rocknix-abl`'s `PKG_URL` is gone (`ROCKNIX/abl` answers 404); every fetch depends on ROCKNIX's mirror", sev="Low", cat="Code Quality", q="Q3", area="an orphan recipe: `projects/ROCKNIX/packages/tools/rocknix-abl` (SM8550)",
+ dict(f="F-04", tracked="#892", t="`rocknix-abl`'s `PKG_URL` is gone (`ROCKNIX/abl` answers 404); every fetch depends on ROCKNIX's mirror", sev="Low", cat="Code Quality", q="Q3", area="an orphan recipe: `projects/ROCKNIX/packages/tools/rocknix-abl` (SM8550)",
   what="The base merge removes the orphan and SM8550's payload comes from `openabl` (`71d8932b33`); until then the mirror and the cache are the copies.",
   where="`projects/ROCKNIX/packages/tools/rocknix-abl/package.mk:8`", ev="P8, P9, P15", vm=VMNO, aw=AWF,
   acc="a fetch of `rocknix-abl` for SM8550 into an empty source directory exits 0 with `64034fb0...` (from the mirror today); after the base merge the recipe is gone and SM8550 builds `openabl`.", bug=True),
@@ -58,12 +58,12 @@ I = [
   what="The orphan table (`04` § Q4) is the merge's pre-read: `opus` 1.5.2 → 1.6.1, `libfmt` 9.1.0 → 12.2.0 on GENERIC_X64 and H700, `vulkan-headers` 1.4.347 → 1.4.359, `mtdev` and `swaybg` a patch each, `glslang` (F-11), `rocknix-abl` → `openabl`; no dependant breaks by name.",
   where="`04` § Q4's orphan table", ev="P2, P15", vm=VMT, aw=AWM,
   acc="the coordinator records the table as read at the base merge.", defer="the integration (the coordinator's)"),
- dict(f="F-13", t="`mangohud` downloads ImGui, ImPlot and spdlog at configure with `curl -L` and no checksum", sev="Medium", cat="Code Quality", q="Q3", area="an upstream-carried recipe: `projects/ROCKNIX/packages/apps/mangohud` (SM8550)",
+ dict(f="F-13", tracked="#893", t="`mangohud` downloads ImGui, ImPlot and spdlog at configure with `curl -L` and no checksum", sev="Medium", cat="Code Quality", q="Q3", area="an upstream-carried recipe: `projects/ROCKNIX/packages/apps/mangohud` (SM8550)",
   what="Bring the three in as sources the build verifies (the fork's own shape for the two Vulkan subprojects: a source package each, hash-checked at download, `50f3eeb726`), or as `PKG_URL`-fetched archives; until then an empty-cache or offline build of SM8550 depends on three unverified downloads that neither `get_archive`, ROCKNIX's mirror nor T5's guard covers (`device-builds.md` § A build that fetches its own dependency). ROCKNIX's lines (`01520aff68`): rule 6, and a #585 candidate.",
   where="`projects/ROCKNIX/packages/apps/mangohud/package.mk:66-91`", ev="the second opinion's G-15, read at its site; `git log -S`", vm="Yes, in part: a build with the network cut fails at `pre_configure_target`; the fixture for the fix is a grep of the recipe for `curl` and a hash check of each source; no build runs in M6",
   aw="nothing on devices: every SM8550 image built mangohud from whatever the three URLs served at that build; none is recorded, so nothing built is known to differ from the tags",
   acc="`grep -c 'curl ' projects/ROCKNIX/packages/apps/mangohud/package.mk` prints 0, and each of the three sources is fetched with a `PKG_SHA256`.", bug=True, upstream=True),
- dict(f="F-14", t="the installer runs `dd`, `parted`, `mkfs.vfat` and `mount` unchecked and reports Install Complete whatever happened", sev="Medium", cat="Code Quality", q="Q3", area="an upstream-carried script (fork-own by its identity edits): `projects/ROCKNIX/packages/tools/installer/scripts/installer` (GENERIC_X64)",
+ dict(f="F-14", tracked="#894", t="the installer runs `dd`, `parted`, `mkfs.vfat` and `mount` unchecked and reports Install Complete whatever happened", sev="Medium", cat="Code Quality", q="Q3", area="an upstream-carried script (fork-own by its identity edits): `projects/ROCKNIX/packages/tools/installer/scripts/installer` (GENERIC_X64)",
   what="Check each destructive step and end on failure with what did not happen (`engineering-practices.md` § Fail gracefully; § Guards must fail closed); the second opinion's G-02 to G-06 (the text match on mount sources, `PARTID` never reset, 512-byte sectors, the boot-config order, the helper's cleanup) are leads for the same stream, read before it. Upstream's logic: rule 6, and a #585 candidate.",
   where="`installer:207`, `:280`, `:303`, `:374`", ev="the second opinion's G-01, read at its sites", vm="Yes: a GENERIC_X64 guest with a second virtual disk, the target made to fail (a read-only or detached disk), and the screen read for the message",
   aw="nothing on devices that kept their install: a past install that failed and said it completed left a half-written disk its owner has since reinstalled or noticed; nothing the fix reads",
@@ -90,7 +90,7 @@ P7 = {   # (outcome, evidence, proved) by F; filled at Phase 7
 
 def main():
   out = ["# Punch List — M6.P2 T8, the image's own packages (projects/ROCKNIX)", "",
-         "**Independent depth** (D-WORKFLOW-184): one GPT-6 Astra seat, graded in `04` § Second opinion. Every `where` is at `8ebaf8daad`. Generated by `tools/punch-items.py` from one list, so the items, the `punch_index` and the Phase 7 table agree.", "", "---", ""]
+         "**Independent depth** (D-WORKFLOW-184): one GPT-6 Astra seat, graded in `04` § Second opinion. Every `where` is at `8ebaf8daad`. The audit issue is #895 (a sub-issue of #655). Generated by `tools/punch-items.py` from one list, so the items, the `punch_index` and the Phase 7 table agree.", "", "---", ""]
   idx = ["```yaml", "punch_index:"]
   gate = ["## Phase 7 resolution gate", "", "| Item | Outcome | Evidence |", "| --- | --- | --- |"]
   for n, x in enumerate(I, 1):
