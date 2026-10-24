@@ -26,6 +26,12 @@ BASE = os.path.join(ROOT, 'docs/work-logs')
 OUT = os.path.join(BASE, 'INDEX.md')
 
 
+# An entry is a "## " heading, or a timestamped "### HH:MM UTC" one: 14 of
+# those were in no index while --check passed (T10 S9, #949). An untimed
+# "### " is a sub-heading inside an entry, not an entry.
+ENTRY = re.compile(r'^(## |### \d\d:\d\d UTC)')
+
+
 def entries():
     days = {}
     for d, _, files in os.walk(BASE):
@@ -37,13 +43,18 @@ def entries():
             rel = os.path.relpath(os.path.join(d, f), BASE)
             items = []
             for line in open(os.path.join(d, f), encoding='utf-8'):
-                if not line.startswith('## '):
+                if not ENTRY.match(line):
                     continue
-                hm = re.match(r'## (\d\d:\d\d) UTC\s*[—–-]+\s*(.*)', line.strip())
+                hm = re.match(r'###? (\d\d:\d\d) UTC\s*[—–-]+\s*(.*)', line.strip())
                 if hm:
                     items.append((hm.group(1), hm.group(2).strip()))
                 else:
                     items.append(('', line.strip().lstrip('# ').strip()))
+            if date in days:
+                # Two day files for one date: one would replace the other, in
+                # whichever order os.walk met them (T10 S9, #949).
+                print('work-log-index: two day files for %s: %s and %s' % (date, days[date][0], rel), file=sys.stderr)
+                sys.exit(2)
             days[date] = (rel, items)
     return days
 
