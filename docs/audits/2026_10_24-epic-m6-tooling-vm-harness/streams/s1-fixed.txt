@@ -1,0 +1,8 @@
+PASS exit-skip: rc 3, SKIP row True (want rc 3 and a SKIP row)
+PASS only-unknown: rc 2, stderr 'vm-qa: unknown suite nosuch (vm-qa --list names them)' (want rc 2 naming nosuch)
+PASS only-empty: rc 2 (want 2)
+PASS walk-empty: rc 2 (want 2)
+PASS help-whole: 17 names from --list; missing from --help: []
+PASS report-unwritable: rc 1, guest calls 0 (want non-zero and none)
+PASS two-runs-one-minute: 2 report directories (want 2)
+7 PASS; 0 FAIL

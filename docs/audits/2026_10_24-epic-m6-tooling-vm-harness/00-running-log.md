@@ -169,3 +169,22 @@ PROOF: 19:30 P11 guest: tools/vm-stop stops the owned QEMU in 0.25 s and removes
 - **The bugs:** 18, one per defect item, label `bug`, milestone M6. They are #966 to #983 (PL-01 to PL-18). `tools/box-check --issue N` gives 0 fail on each.
 - **The audit issue:** #984, `Audit: M6 T12 the VM harness -- 23 findings (0 critical, 2 high, 12 medium, 9 low)`, labels `audit` and `punch-list`, milestone M6, attached as a sub-issue of #659. Its 23 checkboxes give `box-check` 0 fail.
 - **The lane pauses here** for the coordinator's stream briefs (brief § 8). No file under `tools/` has changed on this branch: `git diff --stat facb2ae523 HEAD -- tools` is empty.
+
+## [Stage E] S1: vm-qa's exit, selection and report (#966, #982; D-QA-061)
+
+- **The stream briefs:** `docs/reviews/briefs/t12-streams.md` at `6d9898a493`, read with `git show` and not merged. The coordinator's dispatch on #659 is dated 20:57 UTC.
+- **The control:** `tools/vm-harness-test` is new and host-only. Each case copies the tool under test into `.qa-scratch/t12/vm-harness-test/<case>/` beside doubles for ssh, scp, `cloud-test-backend` and `vm-pair`. TMPDIR, `ROCKNIX_ARTIFACTS`, `VM_PAIR_DIR`, `VM_QEMU_RUNTIME_DIR` and `CLOUD_QA_STATE` all point under the case directory, so no guest, device or cloud is touched and nothing is written under `/tmp`.
+- **The unfixed tools:** `git archive facb2ae523 tools` was extracted to `/workspace/tmp/m6-t12/unfixed-tools/` (118 entries). The control ran against it with `--tools-from`.
+- **The positives:** all seven cases fail against the unfixed runner (`streams/s1-unfixed.txt`).
+  - `exit-skip` gives rc 0 over a SKIP row.
+  - `only-unknown`, `only-empty` and `walk-empty` give rc 0 each.
+  - `help-whole` is missing `link`, `ra-offline`, `walks` and `frame-diff`.
+  - `report-unwritable` gives rc 1, but only after 3 guest calls.
+  - `two-runs-one-minute` leaves 1 directory.
+- **The fixes:**
+  - `0ecbbb9339` (#966): a SKIP exits 3; an unknown or empty `--only`, or an empty `--walk`, exits 2.
+  - `3c0b9d53c6` (#982): `--help` is whole. The report root is probed before the guest. The run directory carries seconds and is made by a `mkdir` that must succeed. A failed row or footer write is a FAIL. The footer records `bring-up Ns, fixture Ns`.
+  - `ea2377f1ce`: the three list entries for `vm-harness-test`. `rules-check --quiet` rc 0; `.githooks/hooks-test` PASS.
+- **After the fixes:** 7 PASS, 0 FAIL (`streams/s1-fixed.txt`). A generated report's footer reads `bring-up 0s, fixture 0s -- outside the suite rows ...`.
+- **Still open:** the guest half of #966 (a real `vm-qa` run whose footer names its exit) waits for the single cycle after S5.
+PROOF: 21:00 S1 fix-case: tools/vm-harness-test's seven S1 cases fail against facb2ae523's tools (0 PASS, 7 FAIL) and pass at 3c0b9d53c6 (7 PASS, 0 FAIL) -- `streams/s1-unfixed.txt`, `streams/s1-fixed.txt`

@@ -1,0 +1,8 @@
+FAIL exit-skip: rc 0, SKIP row True (want rc 3 and a SKIP row)
+FAIL only-unknown: rc 0, stderr '' (want rc 2 naming nosuch)
+FAIL only-empty: rc 0 (want 2)
+FAIL walk-empty: rc 0 (want 2)
+FAIL help-whole: 17 names from --list; missing from --help: ['link', 'ra-offline', 'walks', 'frame-diff']
+FAIL report-unwritable: rc 1, guest calls 3 (want non-zero and none)
+FAIL two-runs-one-minute: 1 report directories (want 2)
+0 PASS; 7 FAIL

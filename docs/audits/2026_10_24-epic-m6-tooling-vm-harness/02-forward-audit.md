@@ -107,6 +107,23 @@ The one authorized cycle, 19:23 to 19:30 UTC; the full record is in `00` § The 
 | P9 | `emulator-exit-test --only X` prints `PASSED` with no check run | `cycle/exit-onlyX.out` | proved: guest |
 | P10 | The image ships no `cloud_migrate_layout`, so `migration-protocol.sh` refuses | `cycle/guest-checks.txt` | proved: guest |
 | P11 | `vm-stop` stops the owned QEMU in 0.25 s; the guest held 2.54 GiB resident on the host | `cycle/guest-checks.txt`; `00` | proved: guest |
+| S1 | `vm-qa`: a SKIP exits 3; an unknown or empty selection exits 2; `--help` is whole; the report root is checked before the guest; two runs get two directories (#966, #982). Seven `vm-harness-test` cases fail at `facb2ae523` and pass at `3c0b9d53c6` | `streams/s1-unfixed.txt`, `streams/s1-fixed.txt` | proved: fix-case |
+
+## The streams' positives
+
+Each stream's `vm-harness-test` case, run against the unfixed tool (`git archive facb2ae523 tools`, through `--tools-from`) and then against the fix. The quotes are the control's own lines.
+
+| Stream | Case | Unfixed (`facb2ae523`) | Fixed |
+| --- | --- | --- | --- |
+| S1 | `exit-skip` | `rc 0, SKIP row True` | `rc 3, SKIP row True` (`0ecbbb9339`) |
+| S1 | `only-unknown` | `rc 0, stderr ''` | `rc 2, stderr 'vm-qa: unknown suite nosuch (vm-qa --list names them)'` |
+| S1 | `only-empty` | `rc 0` | `rc 2` |
+| S1 | `walk-empty` | `rc 0` | `rc 2` |
+| S1 | `help-whole` | `missing from --help: ['link', 'ra-offline', 'walks', 'frame-diff']` | `missing from --help: []` (`3c0b9d53c6`) |
+| S1 | `report-unwritable` | `rc 1, guest calls 3` | `rc 1, guest calls 0` |
+| S1 | `two-runs-one-minute` | `1 report directories` | `2 report directories` |
+
+S1's files: `streams/s1-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s1-fixed.txt` (7 PASS, 0 FAIL). `rules-check --quiet` rc 0 and `hooks-test` PASS after `ea2377f1ce`.
 
 ## Findings (stage B)
 
