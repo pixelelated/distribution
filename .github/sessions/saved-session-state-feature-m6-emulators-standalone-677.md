@@ -37,7 +37,7 @@
 ## Current focus
 
 **The stage-D pause.** Stages A to D are done. Audit folder: `docs/audits/2026_10_24-epic-m6-emulators-standalone/` (00-05, second-opinions, tools).
-- Punch list: #872, 41 items (2 High, 17 Medium, 22 Low).
+- Punch list: #872, 41 items (2 High, 16 Medium, 23 Low; PL-013 re-graded Low by the coordinator, the mirror fact).
 - Bugs: #853 to #871.
 - The lint: `PASS pre-issue artifacts`.
 - Proofs: 21 (16 on the guest in three cycles, 5 on the host).

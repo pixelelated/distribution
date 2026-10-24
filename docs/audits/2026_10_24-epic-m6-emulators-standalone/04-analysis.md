@@ -12,7 +12,7 @@ The 35 standalone recipes (543 paths; 55 fork-own) are upstream's architecture, 
 - **a real directory is deleted before it is linked** in nine (F-12), memory cards included;
 - **comparisons written as redirections** in five (F-11).
 
-Six of these are fixed upstream after our base and arrive with the base merge (class 1). One currency finding is not code: `portaudio`'s source exists nowhere public (F-13, #849). 30 leads, 1 withdrawn (F-18), 15 guest proofs in two cycles and 5 host proofs. Nothing in the membership was edited.
+Six of these are fixed upstream after our base and arrive with the base merge (class 1). One currency finding is not code: `portaudio`'s primary source URL is dead, and ROCKNIX's source mirror serves its archive with the recipe's sha256, so an empty-cache build succeeds (F-13, #849, Low). 30 leads, 1 withdrawn (F-18), 15 guest proofs in two cycles and 5 host proofs. Nothing in the membership was edited.
 
 ## Acceptance-criteria scorecard
 
@@ -61,7 +61,7 @@ A standalone exit test in `tools/emulator-exit-test`; free guest content for fly
 | Root shell from a ROM-library file | F-07 | a crafted file in a ROM pack or a shared cloud library | code as root on the handheld |
 | Awards sent to the wrong account | F-09 | after an offline account change or a refused sign-in | the previous account earns them |
 | A save state, a memory card or a PS3 save deleted | F-12 | a real directory where the link belongs: DuckStation from the Tools launcher, then a game (G16); an old archive restored; the file manager | the player's saves |
-| A fresh build fails | F-13 (#849) | any host without this cache | no image |
+| portaudio's only working source is ROCKNIX's mirror | F-13 (#849) | a build after the mirror's `sources-v2` release loses the archive, on a host without this cache | no image |
 
 ## Coverage Boundary
 
@@ -211,7 +211,7 @@ Every written name resolves to an executable in each tree that builds the recipe
 
 #### The defects (each a `bug` at stage D unless noted)
 
-F-01 to F-04 (the exit), F-05 (T3's file: the coordinator routes it), F-06, F-07, F-08, F-09 with F-10, F-11, F-12, F-13 (filed as #849 by the coordinator; a Medium row, no tree change), F-14, F-15, F-16 (class 1), F-17, F-19, F-20, F-21, F-29, F-30. F-22 is a standards item; F-24 and F-25 Renovation; F-26 to F-28 currency.
+F-01 to F-04 (the exit), F-05 (T3's file: the coordinator routes it), F-06, F-07, F-08, F-09 with F-10, F-11, F-12, F-13 (filed as #849 by the coordinator; a Low row after the coordinator's mirror correction, no tree change), F-14, F-15, F-16 (class 1), F-17, F-19, F-20, F-21, F-29, F-30. F-22 is a standards item; F-24 and F-25 Renovation; F-26 to F-28 currency.
 
 ### Q4 Package currency
 
@@ -284,7 +284,7 @@ The thirteen fork-own recipes' pins equal upstream's (`q4a-dispositions.md` § T
 | `gzdoom-sa` | tag | `g4.14.2` | g4.14.2 = the latest release (2025-05-03) | pin-not-on-project | current |
 | `zmusic` | tag | `1.1.14` | 1.1.14 | behind-project | informational (upstream-carried) |
 | `hatarisa` | hash | `6da06056d89b` | behind-project; default branch head 2026-10-24 | behind-project | informational (upstream-carried; ROCKNIX's to take) |
-| `portaudio` | hash | `64d1bf913433` | repository 404; the commit is not in PortAudio/portaudio | repo-missing | deferred: #849 (F-13); the hosting choice via #346 |
+| `portaudio` | hash | `64d1bf913433` | repository 404; the commit is not in PortAudio/portaudio; ROCKNIX's mirror serves the archive with the recipe's sha256 | repo-missing | deferred: #849 (F-13, Low: mirror-covered); the hosting choice via #346 |
 | `heroic` | no project | `1.0` | metapackage; Heroic is installed by the player | by-hand | n/a |
 | `hypseus-singe` | hash | `b353e1728bf5` | behind-project; default branch head 2026-08-30 | behind-project | informational (upstream-carried; ROCKNIX's to take) |
 | `mednafen` | tag (a fork's) | `1.32.1` | 1.32.1-chd, the fork's only tag | pin-not-on-project | current |
@@ -427,7 +427,7 @@ Every seat item was re-read at its artifact before it was graded. A verdict is *
 | F-10 | Low | Medium | **Low, stands**: the image ships `global.retroachievements=0` (`/usr/config/system/configs/system.cfg:77`), so the empty case needs the key deleted |
 | F-11 | Low; add `start_melonds.sh:140`; `:187` always false; `>` truncates | Medium; the same additions | **Low, stands; corrected to 11 sites** (`start_melonds.sh:140`, `if [ "$SROTATION" ] >"0"`, both seats, CONFIRMED by reading). `start_mednafen.sh:187` fails (`[: missing ']'`, always the else branch) rather than testing non-emptiness. A `>` redirection truncates an existing file of that name in `/storage` |
 | F-12 | **High**; normal unlinking of a link is not deletion; cemu's globs miss hidden entries | agree; the trigger is not rare (G-03, G-04) | **Re-graded High.** G16 shows the Tools launcher's DuckStation creating `savestates` as a real directory, and the next game launch deleting it: a normal sequence, not only an old archive restored |
-| F-13 | agree; "nowhere public" overstated | agree | **Medium, stands** (#849); worded "absent from the named locations" |
+| F-13 | agree; "nowhere public" overstated | agree | **Medium, stands** (#849); worded "absent from the named locations". **Re-graded Low after grading** (the coordinator on #677): `scripts/get_archive:23,35` falls back to `DISTRO_MIRROR` (`distributions/ROCKNIX/options:186`), which serves the archive with the recipe's sha256 (http 200, `c33e4821…`, fetched at 10:36:26), so an empty-cache build succeeds. Neither seat nor the first reader read the mirror fallback |
 | F-14 | Medium | Medium | **Re-graded Medium** (both): the directory blocks the BIOS path every launch re-tests |
 | F-15 | Low | Medium | **Low, stands**: amiberry is not on a shipped device's default route, and the effects are configuration, not saves |
 | F-16 | Low; the parser not shown | Medium | **Low, stands**: class 1 (upstream's array form); the effect on Supermodel's start not shown |

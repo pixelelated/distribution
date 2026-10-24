@@ -35,7 +35,7 @@ q4shape = {"aethersx2-sa": "moving tarball, matches today; class 1 (deleted upst
            "scummvm-sa": "tag 2026.1.0, project v2026.4.0 (F-27)", "vice-sa": "tag 3.8, project 3.10 (F-27)",
            "mednafen": "fork tag 1.32.1-chd, current", "pico-8": "no project: the player's binary",
            "heroic": "no project: metapackage", "mupen64plus-sa": "no project: metapackage",
-           "portaudio": "repo-missing: source gone (F-13)", "supermodel-sa": "pin on no default branch (F-28)",
+           "portaudio": "repo-missing: primary URL dead, mirror-covered (F-13)", "supermodel-sa": "pin on no default branch (F-28)",
            "yabasanshiro-sa": "pin on no default branch (F-28)", "azahar-sa": "behind-upstream (q4a, class 1)"}
 
 # Findings by path (exact, or a prefix ending in /) -> {question: text}.
@@ -81,7 +81,7 @@ f("vice-sa/scripts/start_vice.sh", Q3="PASS: x64sc ended by its kill (G1)", Q5="
 f("touchhle-sa/scripts/start_touchhle.sh", Q7="F-25 (echoes ${GOPHER64_JSON}, copy-paste)")
 f("steam/scripts/start_steam.sh", Q3="PASS: execs a flavour that sets the kill target (resolves the route tool's 'none')")
 f("aethersx2-sa/", Q4="F-26 (deleted upstream, class 1)", Q6="F-26 (deferred: base merge, class 1; Already written in 04)")
-f("hatarisa/portaudio/package.mk", Q3="F-13 (archive URL 404; builds pass only from the shared cache)", Q4="F-13 (repo-missing; commit not in PortAudio/portaudio)")
+f("hatarisa/portaudio/package.mk", Q3="F-13 (archive URL 404; an empty-cache build fetches from ROCKNIX's mirror)", Q4="F-13 (repo-missing; commit not in PortAudio/portaudio)")
 
 # Phase 4.6 (both seats graded, 04 § Second opinion): F-31 to F-42.
 f("steam/scripts/start_steam.sh", Q3="F-31 (exit 0 skips the flavours' cleanup); F-32 (URI and -silent one argument)")
