@@ -145,5 +145,5 @@ No host file line was written, because no guest started. The census was 0 throug
 | P4 | `rocknix-info-test` under `python3 -O` passes a constructed regression | proved: tool-run |
 | P5 | `pixelelated-cloud-validator-test --case no-such-case` passes with 0 controls | proved: tool-run |
 | P6 | the guest pair refuses every run on this tree | proved: tree |
-| P7 | the thirteen no-caller tools, by invocation | proved: tree |
+| P7 | the no-caller tools by invocation (thirteen, then fourteen after G-15) | proved: tree |
 | P8 | the index rows and their *Detail in* rules: 13 never name the tool | proved: tree |

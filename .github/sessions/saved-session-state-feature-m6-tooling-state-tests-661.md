@@ -42,14 +42,13 @@
    and the census, whether a build root exists for the busybox applets, the
    host-side runs with their exits and wall times -- before reading a tool.
 
-## Current focus (20:26 UTC update)
+## Current focus (21:19 UTC update)
 
-**Stage A done** (`docs/audits/2026_10_24-epic-m6-tooling-state-tests/00-running-log.md`).
-- `reviewed-at` is `30da4853bb`; 32 paths and 6,911 lines, matching both hashes.
-- Five tests fail at the hash: `build-identity-test`, `rasteratops-identity-check`, `pixelelated-cloud-validator-test`, `pixelelated-duckstation-capture-test`, and 2 FAIL each in `rasteratops-cloud-layout-test --archives-only` and `pixelelated-content-scope-test`. The last two are to be traced first at stage B.
-- No guest so far.
-
-**Next:** stage B (Phases 1 to 4) with Q6's brittleness table, then the seat.
+**The stage-D pause.**
+- `05` holds 23 items (1 High, 15 Medium, 7 Low). There are 17 bugs (#989 to #1005), and the audit issue is #1006, a sub-issue of #661.
+- `lint --phase pre-issue` passes. The seat came back clean and is graded 42 of 42.
+- No guest; no tool edited.
+- Waiting for the coordinator's stage-E stream briefs, and its answer on whether PL-09 (the guest pair) is a bug or a disposition.
 
 ## Earlier focus
 
