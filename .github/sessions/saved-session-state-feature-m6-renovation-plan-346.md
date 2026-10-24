@@ -43,8 +43,10 @@ version 2 (`dede8effec`), lane `feature/m6-image-packages-655` at
 `caf1de3727`, worktree `distribution.worktrees/m6-image-packages-655`; its
 stage-D pause is the coordinator's next act there. **Packets:** #877 and #890
 (reviewed, the two checksums before T5's branch); **#887** (`backuptool`
-blanks `melonDS.toml`, `c60cdddf8b`, criteria ticked, the whole harness
-re-run pending); **#889** (the scan reads `.toml`; with the T1 session). The T1 session
+blanks `melonDS.toml`, `c60cdddf8b`, reviewed: the whole harness PASSED in a
+detached checkout; after T30's branch); **#889** (the scan reads `.toml`;
+with the T1 session). **T24** (#671, the emulators' dead ends, Local) is
+being briefed for the T3 session: brief v1 and the futro addendum written. The T1 session
 (`m6-t1-os-launch`) is idle after #877's packet. **Waiting on the
 maintainer (#346):** T4's dispatch (#651, brief v2 `0921782112`; a third
 lane). **At integration (the coordinator dispatches):** one packet for

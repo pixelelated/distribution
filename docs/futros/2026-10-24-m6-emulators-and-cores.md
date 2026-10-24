@@ -485,3 +485,72 @@ copied and edited, not parameterised. A lead the proof surfaced and the
 addendum missed: `start_hatarisa.sh` is what the generic arm asks for and
 `start_hatari.sh` is what the recipe installs, renamed upstream by
 `2e7041d273`.
+
+## Addendum: T24 at its kickoff (2026-10-24, from the brief `docs/reviews/briefs/emulators-dead-ends.md` version 1)
+
+**What we know and assume.** T24 is the area's third and last slice, a
+Local reachability table over **the rest of the area: 86 paths, 2,399
+lines, every one upstream-carried; 84 `unreached`, 2 `unshipped`**. The 86
+are 85 recipes and one cmake file: **83 under `packages/emulation/`** --
+LibreELEC's 79 `libretro-*` core recipes for Kodi's RetroPlayer,
+`cyclone68000`, `libretro-common` and `rcheevos` (two files) -- which
+ROCKNIX never builds because it carries its own `*-lr` recipes under
+`projects/ROCKNIX/packages/emulators/libretro/` (T3's set), and **5 ROCKNIX
+recipes** T3's Q6 already named as *carried by no built device*: `boom3-lr`
+and `vitaquake3-lr` (`unshipped`: `idtech-lr` adds them on x86_64 only, where
+GENERIC_X64 skips `idtech-lr`; AMD64 alone builds them), `mame2003-lr`,
+`panda3ds-lr` and `play-lr` (`unreached`). The fork changed none of the 86
+since the base; upstream changed the five ROCKNIX recipes in one commit
+(`af70bd435b`, *libretro-cores: add retroarch as PKG_DEPENDS_TARGET*), so
+tier (a) is 81 identical and 5 differing by upstream's own hunk. LibreELEC
+master still carries the 79 (`libretro-snes9x`'s pin has moved there;
+`libretro-mgba`'s has not): every base merge brings them again, and the
+last commit touching them in this tree is `2dd698ba24` of 2026-06-02.
+`shadowed_by` is 0 for all 86 because the duplication is by content, not by
+name (`libretro-snes9x` against `snes9x-lr`). Twelve of the 85 recipes carry
+patches (T42's and T43's rows). No path carries a space.
+
+**Known unknowns.** U-1 which of the 79 LibreELEC cores have a ROCKNIX
+`*-lr` twin and which have none (a core ROCKNIX does not offer at all is a
+different row from a duplicate). U-2 whether anything in `projects/` or a
+device's `packages/` names one of the 83 (`git grep` per name; the inventory
+says no plan reaches them). U-3 whether `core-info`'s `.info` files for
+`boom3` and `vitaquake3` on the shipped images (T3's note) are the only
+trace of the five on a device. U-4 how LibreELEC master's 79 compare with
+ours by pin (an API read per recipe, 83 calls under the budget).
+
+**Patterns.** T6's reachability table (one row per path, a positive control
+beside every zero, `proved:` classes, no deletion of an upstream-carried
+file, the `#585 candidate` disposition with `Already written:`); T3's Q6
+table, which already carries the five ROCKNIX recipes' rows and their
+`Already written:` -- T24 cites them, it does not re-derive them; T7's and
+T8's record check by name prefix; the API read with `--paginate` and a
+budget floor; `make update`'s set does not name any of the 86 (the three
+virtual packages' lists are T8's finding).
+
+**What could we be missing (simulation).** S-1 a lane removes the 83 as
+dead weight: no -- they are LibreELEC's, the base merge re-raises them, and
+the disposition is a proposal to ROCKNIX on #585 (the merge carries a tree
+ROCKNIX never builds; the lane counts it, the coordinator posts it). S-2 it
+removes the five ROCKNIX recipes: no -- ROCKNIX's, AMD64 builds two of them;
+rows with `kept: upstream's; no shipped device builds it`. S-3 it reads
+`shadowed_by` 0 as "nothing duplicated" and misses the 79 twins: U-1 maps
+them by name and by `PKG_SITE`/`PKG_URL`. S-4 it fetches 79 archives to
+compare: no download; the tree and the API. S-5 it edits a patch under one
+of the 12 patched recipes: T43's rows. S-6 a stripping `sed` on the roots:
+match by name prefix. S-7 `.[-1]` on a long issue's comments without
+`--paginate` (the coordinator's own slip today): `--paginate`. Pre-mortem: the
+table says *86 rows, nothing removed* and the maintainer asks what it was
+for -- the answer is one proposal to ROCKNIX with the count and the bytes
+it carries for nothing, the twin map, and the five recipes' standing said
+once; a dead-end table shrinks what every later reading has to carry.
+
+**Adjustments before execution (into version 1):** A1 no deletion, no
+relocation; every unreached upstream-carried row `kept: upstream's; #585
+candidate` with `Already written:`. A2 the twin map (U-1) is Q7's table,
+by name and by source. A3 the five ROCKNIX rows cite T3's Q6 and add only
+what T3 did not say. A4 the LibreELEC comparison through the contents API,
+serially, with the budget read before and after. A5 the record by name
+prefix over the five roots; the `.info` trace read in the install trees
+(`ls` only). A6 the acceptance re-runs the membership, the (a) loop and the
+record in full and the API read on ten seeded rows.
