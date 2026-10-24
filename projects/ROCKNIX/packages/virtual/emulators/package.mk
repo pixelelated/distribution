@@ -104,9 +104,11 @@ case "${DEVICE}" in
     LIBRETRO_CORES+=" beetle-psx-lr beetle-saturn-lr bsnes-lr bsnes-hd-lr dolphin-lr"
 esac
 
-# GENERIC_X64 (x86_64): drop libretro cores that don't yet build for x86_64.
-# These are tracked in issue #16 to fix/re-enable per-core later (e.g. parallel-n64-lr's
-# x86 hacktarux dynarec defines fsqrt(), which collides with glibc's C23 fsqrt).
+# GENERIC_X64 (x86_64): drop libretro cores that don't yet build for x86_64
+# (e.g. parallel-n64-lr's x86 hacktarux dynarec defines fsqrt(), which
+# collides with glibc's C23 fsqrt). #16, which tracked them, closed on
+# 2026-09-24; re-enabling one is its own issue, and core_built below keeps
+# the table from offering a dropped core meanwhile (#650 PL-019).
 if [ "${DEVICE}" = "GENERIC_X64" ]; then
   X64_SKIP_CORES="parallel-n64-lr flycast2021-lr duckstation-lr idtech-lr"
   for _core in ${X64_SKIP_CORES}; do
@@ -128,6 +130,16 @@ case "${TARGET_TYPE}" in
     PKG_DEPENDS_TARGET+=" ${PKG_EMUS} ${EMUS_32BIT} ${PKG_RETROARCH} ${LIBRETRO_CORES}"
     ;;
 esac
+
+# core_built <recipe>: the recipe is in this device's lists, so its core is in
+# the image. A table line offering a core only some devices build asks this,
+# so no device's table offers a core its image lacks (#823).
+core_built() {
+  case " ${LIBRETRO_CORES} ${EMUS_32BIT} ${PKG_EMUS} " in
+    *" $1 "*) return 0 ;;
+  esac
+  return 1
+}
 
 install_script() {
   if [ ! -d "${INSTALL}/usr/config/modules" ]; then
@@ -221,7 +233,7 @@ makeinstall_target() {
       add_emu_core amigacd32 retroarch puae2021 false
       ;;
   esac
-  add_emu_core amigacd32 retroarch uae4arm false
+  core_built uae4arm-lr && add_emu_core amigacd32 retroarch uae4arm false
   add_es_system amigacd32
 
   ### Amstrad CPC
@@ -441,7 +453,8 @@ makeinstall_target() {
   ### iD Software game engines
   add_emu_core idtech retroarch idtech true
   add_es_system idtech
-  install_script "Scan id Tech Games.sh"
+  # The scanner runs idtech-lr's generate-idtech.sh (#823).
+  core_built idtech-lr && install_script "Scan id Tech Games.sh"
 
   ### Apple Macintosh Plus
   add_emu_core macintosh retroarch minivmac true
@@ -946,7 +959,7 @@ makeinstall_target() {
     # This core only has gles renderer
     add_emu_core n64 retroarch mupen64plus false
   fi
-  add_emu_core n64 retroarch parallel_n64 false
+  core_built parallel-n64-lr && add_emu_core n64 retroarch parallel_n64 false
   add_emu_core n64 mupen64plus mupen64plus-sa false
   case ${DEVICE} in
     SM4450|SM8250)
@@ -968,7 +981,7 @@ makeinstall_target() {
 
   ### Nintendo 64 Disk Drive
   add_emu_core n64dd retroarch mupen64plus_next true
-  add_emu_core n64dd retroarch parallel_n64 false
+  core_built parallel-n64-lr && add_emu_core n64dd retroarch parallel_n64 false
   add_emu_core n64dd mupen64plus mupen64plus-sa false
   case ${DEVICE} in
     SM8550|SM8650|SM8750|AMD64)
@@ -1204,7 +1217,13 @@ makeinstall_target() {
       add_emu_core psx retroarch beetle_psx false
       add_emu_core psx mednafen psx false
   esac
-  add_emu_core psx duckstation duckstation-sa false
+  # GENERIC_X64 has no arm above, so its default is DuckStation standalone:
+  # the emulator EmulationStation already launched first there (#817).
+  if [ "${DEVICE}" = "GENERIC_X64" ]; then
+    add_emu_core psx duckstation duckstation-sa true
+  else
+    add_emu_core psx duckstation duckstation-sa false
+  fi
   add_emu_core psx retroarch swanstation false
   add_es_system psx
 
@@ -1235,13 +1254,13 @@ makeinstall_target() {
 
   ### Sony Playstation Portable
   add_emu_core psp ppsspp ppsspp-sa true
-  add_emu_core psp retroarch ppsspp false
+  core_built ppsspp-lr && add_emu_core psp retroarch ppsspp false
   add_es_system psp
   install_script "Start PPSSPP.sh"
 
   ### Sony Playstation Portable Minis
   add_emu_core pspminis ppsspp ppsspp-sa true
-  add_emu_core pspminis retroarch ppsspp false
+  core_built ppsspp-lr && add_emu_core pspminis retroarch ppsspp false
   add_es_system pspminis
 
   ### Sony Playstation Vita
@@ -1396,9 +1415,11 @@ makeinstall_target() {
   case ${DEVICE} in
     RK3588|SM4450|SM6115|SM8250|SM8550|SM8650|SM8750|AMD64)
       add_emu_core st-v mednafen ss true
+      # Only where a core is added: a system with no emulator is offered and
+      # cannot launch (#817).
+      add_es_system st-v
       ;;
   esac
-  add_es_system st-v
 
   ### Sega SG-1000
   add_emu_core sg-1000 retroarch gearsystem true
@@ -1705,7 +1726,6 @@ makeinstall_target() {
   ### Media Player
   add_emu_core mplayer mplayer mplayer true
   # Note - there is actually no ffmpeg core, it is compiled into retroarch
-  add_emu_core mplayer retroarch ffmpeg false
   add_es_system mplayer
 
   ### Music Player
