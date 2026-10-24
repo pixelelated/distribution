@@ -40,7 +40,11 @@
 
 ## Current focus
 
-**Stage D done; paused for the coordinator's stream briefs (2026-10-24 06:16 UTC).** `reviewed-at` `46f6c7d428`. Phase 4.6 ran on the host's return (05:42): GPT-6 Astra (max) and Gemini 4 Argon (high), both PASS on identity, graded in `04` § Second opinion. The audit has 25 findings in 26 punch items (2 High: F-16 `mkimage`, F-25 `get_git`'s `git clean -fdx`; 7 Medium; 17 Low), 14 proofs (`PROOF:` = `proved:` = 14), and a coverage table of 242 rows. The pre-issue lint printed PASS. Filed: the audit issue **#837** (a sub-issue of #652) and ten `bug` issues **#827 to #836**, all passing `box-check`. The punch list is posted on #652. **Next:** wait for the coordinator's stream briefs on #652 (stage E). Nothing is running in this lane: no guest, compiler or watched run.
+**Idle (2026-10-24 07:20 UTC): T5 accepted by the coordinator on #652; the audit closed.**
+- **Status:** #837 closed as completed. `docs/audits/2026_10_24-epic-m6-build-engine/audit-completion.json` was written from its closed readback (completed 07:20:05 UTC) and is accepted by `tools/ceremony-check`'s validator. `tools/lint-audit-artifacts` on the folder prints `PASS`.
+- **Commits:** `reviewed-at` `46f6c7d428`, `fixed-at` `877775e61e` (in #652's body).
+- **Work done:** streams E1 to E8 and E5b, each accepted on #652. The ten `bug` issues #827 to #836 stay open for the coordinator, who closes them after the integration's first image proves the `fix-pending-image` halves.
+- **What the lane waits for:** nothing. The merge to `next` (the engine's fixes last), the launch table's regeneration after T3's S2, and the zero-default case made fatal are the coordinator's. Nothing runs in this lane: no guest, no compiler, no watched run, no waiter.
 
 ## Next commands
 
