@@ -5,15 +5,26 @@
 import json
 import sys
 
+class Refused(Exception):
+    pass
+
+
+def require(ok, why):
+    # An explicit refusal, not an assert statement: python -O removes asserts,
+    # and every refusal here then read as a pass (#975, P6).
+    if not ok:
+        raise Refused(why)
+
+
 try:
     expected, selected = sys.argv[1:]
     systems = json.load(sys.stdin)
     matches = [s for s in systems if s.get('name') == expected]
-    assert len(matches) == 1, 'requested system is missing or duplicated'
-    assert matches[0].get('visible') == 'true', 'requested system is not visible'
-    assert matches[0].get('visibleGames', 0) > 0, 'requested system has no visible games'
-    assert selected == expected, 'actual selected system is %r, expected %r' % (selected, expected)
-except (ValueError, AssertionError, TypeError) as error:
+    require(len(matches) == 1, 'requested system is missing or duplicated')
+    require(matches[0].get('visible') == 'true', 'requested system is not visible')
+    require(matches[0].get('visibleGames', 0) > 0, 'requested system has no visible games')
+    require(selected == expected, 'actual selected system is %r, expected %r' % (selected, expected))
+except (ValueError, Refused, TypeError) as error:
     print('FAIL manager system: ' + str(error), file=sys.stderr)
     sys.exit(1)
 print('PASS actual selected manager system ' + expected)

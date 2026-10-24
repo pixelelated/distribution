@@ -1582,6 +1582,21 @@ def proposal_inert(c):
 
 
 
+def optimized(c, argv, stdin=None, timeout=120):
+    env = c.env(PYTHONOPTIMIZE=1)
+    r = subprocess.run(argv, cwd=c.root, env=env, input=stdin, capture_output=True, text=True, timeout=timeout)
+    return r.returncode, (r.stderr.strip() or r.stdout.strip()).splitlines()[-1:]
+
+
+
+@case
+def optimize_vm_manager_system_check(c):
+    tool = c.tool('vm-manager-system-check')
+    rc, last = optimized(c, [sys.executable, str(tool), 'nes', 'gb'], stdin='[]')
+    return rc == 1, f'rc {rc}, {last} (want 1: no such system, even under -O)'
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')
