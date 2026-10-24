@@ -38,3 +38,41 @@ Every time below is a `date -u` reading taken in the command that wrote it.
 - **Branch against the hash, over the 135:** `git diff --stat 8ebaf8daad HEAD -- $(cat paths.txt)` is empty.
 - **Over the two roots whole:** 15 files, every one fork-only and outside the 135. P1 added `tools/renovation-inventory` (`00ca350666`), `renovation-status` (`af24589b1c`), `renovation-drift` (`a7cbde1737`), `register-check` (`f00ab3e163`), and the ten `tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-{pass,fail}/` files (`fc88815ccb`). The coordinator's tip carried `tools/lint-audit-artifacts` (#810, merged at `e84180386d`).
 - **Q4, the upstream-state loop over the 135:** 1 `differs` (`tools/pkgcheck`), 134 identical (08:07:43).
+
+### [Stage B] 08:08 to 08:23 — Phase 1 to 4: the searches, the fixture, the tables
+
+- **Phase 1:** #644 finding 24 read whole; T5's rows for `update_packages`, `multithread` and `build`, and its Q6 Tables 1 and 4, read with `git show` from `feature/m6-build-engine-652`; the five blindspots; the rules (`01` § Phase 1).
+- **§ 5's checks**, each in `02` § Mechanical checks:
+  - the two-way caller count for the 24 single tools (08:09:06); every zero searched the second way;
+  - the `update-functions` and `DISTRO=` greps (08:09:58);
+  - the syntax sweep (shell 37 of 37, helpers 61 of 61, Python 3 of 3; shellcheck absent);
+  - `pkgcheck`'s tier (08:11:45);
+  - the M7 roots read only: no `release/` directory, no other distribution's root; 0 of 28 `linux` builds printed the kernel-options message;
+  - the git-writing tools' subjects: none.
+- **The fixture** `tools/fx-pkgcheck.sh` (08:12:31), the only tool run: `pkgcheck`, a reader, over a fixture tree. It gives F-02.
+- **Found by reading a reached tool:** `adjust_kernel_config:38` calls `check_kernel_config`. **Found by the export:** `distributions/LEIoT/kernel_options` dangles (F-03).
+- **The tables:**
+  - `tools/t6-tables.py` generates `02`'s coverage table (135 rows), `04`'s Q6 (33 rows, files summing to 135) and `04`'s Q4 (135 rows) from one list.
+  - The criterion's `grep -c` first printed 140: five lines outside the table began with a backticked path. A fix of mine over-matched to 131; corrected to **135**.
+  - The generator's first run stopped on its own assertion, which I had written too strictly (it required `Already written:` on a document-reached row); narrowed to the unreached rows.
+  - I wrote "Python 2-era" for `distro-tool` without evidence; its shebang is `#!/bin/bash`. Corrected before any commit.
+  - Two claims in `03` corrected after a check: the README's line range for `pkgcheck`, and that the mirror workflow copies upstream's container with `skopeo` rather than building the root `Dockerfile`.
+- **Six findings, none above Low:** F-01 and F-05 doctrine (for T4); F-02 a `bug`; F-03 a #585 line; F-04 and F-06 `Renovation`. Phase 4.5 in `04`: one verdict changed (`check_kernel_config` to reached), none withdrawn.
+- `git status --short -- tools distributions` is empty; no file under the two roots has changed.
+
+PROOF: 08:09 P1 the two-way caller count for the 24 single tools, `pkgcheck` and `adjust_kernel_config` the positive controls -- `.qa-scratch/t6/callers-two-way.txt`
+PROOF: 08:10 P2 every zero searched by bare name in the documents and inside the slice; `adjust_kernel_config:38` calls `check_kernel_config`
+PROOF: 08:09 P3 the 62 helpers are sourced only by `tools/update-pkg:70,167`
+PROOF: 08:09 P4 `config/options:24` is the only `DISTRO` setter
+PROOF: 08:10 P5 shell 37 of 37 and helpers 61 of 61 `bash -n` ok; Python 3 of 3 parse
+PROOF: 08:11 P6 `tools/pkgcheck` carries one fork commit, `81221658b3`, and upstream has not touched it since the base
+PROOF: 08:12 P7 `tools/pkgcheck` exits 0 for a name no recipe matches, as for a clean recipe -- `tools/fx-pkgcheck.sh` (F-02)
+PROOF: 08:12-08:23 P8 `distributions/LEIoT/kernel_options` is a dangling symlink, LibreELEC's since `4130b59b50` (F-03)
+PROOF: 08:12-08:23 P9 the twelve `update to` commits carry a trailer `update-pkg` never writes
+PROOF: 08:07 P10 Q4 over the 135: 134 identical, 1 differs
+
+### [Stage C] 08:23 to 08:24 — Local depth: Phase 4.5 only; `05`; the pre-issue lint
+
+- Phase 4.6 does not apply at Local depth (plan § 6c, D-WORKFLOW-184). `second-opinions/review-plan.json` carries `tier_exception` and `reason`; no call, no provenance file. Phase 4.5 is in `04`, every verdict asked what would make it false.
+- `05-punch-list.md` from `tools/punch-items.py`: 6 items, all Low; PL-01 for a `bug`; PL-02 the #585 item; PL-03 for #585; PL-04 and PL-05 for #651; PL-06 for #657.
+- `tools/lint-audit-artifacts docs/audits/2026_10_24-epic-m6-build-engine-upstream-tools --phase pre-issue`: **`PASS pre-issue artifacts (does not certify resolution)`**, with `ok    review-plan: local at epic tier under D-WORKFLOW-184 (plan § 6c: a reachability table is Local ...)`.
