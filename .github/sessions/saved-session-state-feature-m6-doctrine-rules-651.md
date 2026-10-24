@@ -44,13 +44,12 @@
 
 ## Current focus
 
-**Stage H, handed back (2026-10-24; the executor).**
-- **The streams:** S1 to S8 are committed and proven (`0faea874de` to `b3c1d0d7c3`).
-- **`reviewed-at: 00e75ab135`, `fixed-at: b3c1d0d7c3`,** written in #651's body.
-- **#912** has 25 checkboxes ticked (16 Resolved, 8 Deferred, 1 Withdrawn). The resolution lint passes with `--issue 912`.
-- **The retro** is `docs/retros/2026-10-24-m6-doctrine-rules.md`.
-
-**Waiting on the coordinator:** acceptance by brief § 10, then #912's close. After the close, write `audit-completion.json` from #912's closed readback (T24's `write-completion.py` shape) and run the full lint again. Otherwise the lane is idle.
+**Accepted; the lane idle (2026-10-24 15:48 UTC).**
+- The coordinator accepted T4 at `cceac27d6a` (#651, 15:47 UTC) and closed #912 as completed.
+- `audit-completion.json` is written from #912's closed readback, and the full `lint-audit-artifacts` prints `PASS`.
+- `reviewed-at: 00e75ab135`, `fixed-at: b3c1d0d7c3`.
+- Nothing is owed. The branch merges last in the order, after the M7 candidate: the coordinator's merge, then `renovation-status`.
+- #904 and #906 to #910 stay open, ticked, until that merge. #905 closes with its packet; #911 is T38's.
 
 ## Next commands
 

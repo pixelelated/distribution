@@ -161,3 +161,12 @@ PROOF: 15:33 P32 S5: `maxengel` 4 to 2, the two left naming the working ES route
 PROOF: 15:33 P33 S6: `build.ROCKNIX-` 8 to 0
 PROOF: 15:33 P34 S7: `t4-q6.py pointers` 31 unnamed pairs at the hash, 0 at the tip
 PROOF: 15:33 P35 S8: the friction row's shape 0 to 1, matching the reviewed packet's reader at `9e12014623`
+
+### [Stage H] 15:42-15:48 — the hand-back, the acceptance, the completion marker
+
+- **The hand-back** was posted on #651 at 15:42 (issuecomment-6386168654), at tip `cceac27d6a`. `reviewed-at: 00e75ab135` and `fixed-at: b3c1d0d7c3` are in #651's body.
+- **Accepted** by the coordinator (15:47:21Z), by brief § 10 on an export of the tip, with `register-check` and `rules-check` passing on a simulated merge with `d071dce5cc`. #912 closed as completed at 15:47:24Z.
+- **`tools/write-completion.py`** (T24's copy at `26e4a34edf`, one provenance line added) on #912: rc 0, `#912 closed/completed, 25 ticked; verified 2026-10-24T15:47:47.077920+00:00`. It wrote `tracker-final-readback.json`, `tracker-completion.json` (`PASS`) and `audit-completion.json`, which hash-binds `04`, `05` and both tracker files.
+- **`tools/lint-audit-artifacts <folder>`** (full, the resolution phase): rc 0, `PASS`, 0 FAIL lines, with `review-plan: local at epic tier under D-WORKFLOW-184`. With `--issue 912`: `PASS`.
+- **`tools/ceremony-check`** reads the marker (`audit last 2026-10-24T15:47:47 via #912`). Its rc 1 is the W42 summary only, which is M7's.
+- **The lane is idle.** #904 and #906 to #910 stay open, ticked, until this branch merges to `next`, last in the order, after the M7 candidate. #905 closes with its packet; #911 is T38's.
