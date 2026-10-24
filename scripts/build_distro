@@ -73,15 +73,23 @@ if [ -z "${DIRTY}" ]; then
   # Clean packages to ensure build date and version are updated
   for package in ${PKG_CLEAN}; do
     echo "Clean: ${package}"
-    ./scripts/clean "${package}" 2>/dev/null || true
+    ./scripts/clean "${package}" 2>/dev/null || echo "Clean: ${package} failed; it keeps its earlier build" >&2
   done
-  rm -rf build.${DISTRONAME}-${DEVICE_ROOT}.${ARCH}/{.stamps/initramfs,initramfs}
+  # DEVICE_ROOT is set only where a device shares another's root (Makefile)
+  rm -rf build.${DISTRONAME}-${DEVICE_ROOT:-${DEVICE}}.${ARCH}/{.stamps/initramfs,initramfs}
 fi
 
-# Prune old releases
+# Prune old releases. The outputs of a frozen BUILD_TIMESTAMP stay, so that
+# scripts/image finds them and refuses to replace that identity (#833).
 echo "Prune old releases: ${DISTRONAME}-${DEVICE}.${ARCH}-*"
-rm -f ./release/${DISTRONAME}-${DEVICE}.${ARCH}-*
-rm -rf ./target/${DISTRONAME}-${DEVICE}.${ARCH}-*
+for old in ./release/${DISTRONAME}-${DEVICE}.${ARCH}-* ./target/${DISTRONAME}-${DEVICE}.${ARCH}-*; do
+  [ -e "${old}" ] || continue
+  if [ -n "${BUILD_TIMESTAMP}" ] && [[ "${old}" == *"+${BUILD_TIMESTAMP}."* ]]; then
+    echo "Keeping ${old}: it carries this build's BUILD_TIMESTAMP"
+    continue
+  fi
+  rm -rf "${old}"
+done
 
 # Remove image root
 rm -rf ./build.${DISTRONAME}-${DEVICE}.${ARCH}/image
@@ -92,15 +100,10 @@ case "${ARCH}" in
       exit 0
     fi
     export PKG_BUILD_PERF=no
-    scripts/build_compat arm
-    scripts/install arm
+    scripts/build_compat arm || { echo "Build failed..exiting." >&2; exit 1; }
+    scripts/install arm || { echo "Build failed..exiting." >&2; exit 1; }
     ;;
   *)
-    make image
+    make image || { echo "Build failed..exiting." >&2; exit 1; }
     ;;
 esac
-
-if [ $? -ne 0 ]; then
-  echo "Build failed..exiting."
-  exit 1
-fi
