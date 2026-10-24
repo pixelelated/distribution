@@ -2,6 +2,12 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)
 """Run unchanged upstream hashing tests against the image's installed proxy."""
+import sys
+# Its checks are assert statements, which python -O removes: under -O every
+# refusal would read as a pass, so it refuses to run at all (#975).
+if sys.flags.optimize:
+    print('raofflineproxy-installed-native-test: refuses to run under python -O (PYTHONOPTIMIZE): its checks are asserts, which -O removes', file=sys.stderr)
+    sys.exit(2)
 import argparse
 import hashlib
 import importlib.util

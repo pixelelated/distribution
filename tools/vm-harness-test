@@ -1649,6 +1649,12 @@ def optimize_ra_ui_test(c):
 
 
 
+@case
+def optimize_raofflineproxy_installed_native_test(c):
+    return guarded(c, 'raofflineproxy-installed-native-test')
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')
