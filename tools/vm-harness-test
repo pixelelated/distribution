@@ -1253,6 +1253,38 @@ def rehearsal_stop_fails(c):
     return result == 'FAIL' and r.returncode != 0, f'RESULT {result}, rc {r.returncode} (want FAIL: the stop failed)'
 
 
+@case
+def serial_split_marker(c):
+    # A real console sent END<tag> and its :status in two chunks (stage-E, guest b).
+    import re, time
+    tool = c.tool('vm-serial')
+    path = short_dir(c) / 'ser.sock'
+
+    def handle(conn):
+        buf = b''
+        while True:
+            try:
+                chunk = conn.recv(4096)
+            except OSError:
+                return
+            if not chunk:
+                return
+            buf += chunk
+            while b'\n' in buf:
+                line, buf = buf.split(b'\n', 1)
+                m = re.search(r'echo (BEG\w+); \( (.*) \); echo (END\w+):', line.decode(errors='replace'))
+                if m:
+                    status = 1 if m.group(2).strip() == 'false' else 0
+                    conn.sendall(('%s\r\n%s' % (m.group(1), m.group(3))).encode())
+                    time.sleep(0.3)
+                    conn.sendall((':%d\r\n' % status).encode())
+    serve_unix(c, path, handle)
+    r = c.run([sys.executable, '-I', str(tool), '--socket', str(path), '--timeout', '5', 'sh', 'false'], timeout=30)
+    t = c.run([sys.executable, '-I', str(tool), '--socket', str(path), '--timeout', '5', 'sh', 'true'], timeout=30)
+    return r.returncode == 1 and t.returncode == 0, f'sh false rc {r.returncode}, sh true rc {t.returncode} (want 1 and 0 with the status in a later chunk)'
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')

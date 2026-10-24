@@ -72,7 +72,9 @@ class Serial:
             if not chunk:
                 break
             buf += chunk
-            if end.encode() in buf:
+            # The status follows the END tag, often in a later chunk on a real
+            # console: read until the whole `END<tag>:<status>` line is here.
+            if re.search(re.escape(end).encode() + rb":\d+[\r\n]", buf):
                 break
         text = buf.decode(errors="replace")
         i, j = text.find(beg), text.find(end + ":")
