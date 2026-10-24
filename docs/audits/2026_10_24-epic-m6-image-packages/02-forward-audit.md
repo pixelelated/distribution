@@ -645,3 +645,26 @@ One row per path (485). (a) is `upstream/next`; Q4 is the disposition with the m
 | `projects/ROCKNIX/packages/x11/xserver/xwayland/system.d/xorg.service` | upstream-carried | shipped | 16 | identical | none read | `systemd-analyze verify`: host-only unresolved names, no directive warning | n/a: a file its recipe installs | follows the base merge (identical) | n/a | shipped: with its recipe | n/a |
 | `projects/ROCKNIX/packages/x11/xserver/xwayland/tmpfiles.d/z_90_xorg-server.conf` | upstream-carried | shipped | 5 | identical | none read | n/a: data | n/a: a file its recipe installs | follows the base merge (identical) | n/a | shipped: with its recipe | n/a |
 | `projects/ROCKNIX/packages/x11/xserver/xwayland/udev.d/97-xorg.rules` | upstream-carried | shipped | 20 | identical | none read | n/a: data | wants `xorg-configure@<drv>`, whose script no image installs (F-10) | follows the base merge (identical) | n/a | shipped: with its recipe | n/a |
+
+## Verification
+
+Stage F, after S1 to S3 (`t8-streams.md` at `7c4867330b`, S3 corrected at `a5dae9f5d9`) and the coordinator's dispositions. Every outcome is in `05` § Phase 7 resolution gate. Re-derived at `d797678ede` (14:12 UTC, `.qa-scratch/t8/stage-f/`).
+
+| # | Claim | Evidence | Class |
+| --- | --- | --- | --- |
+| P16 | `virtual/image` no longer writes at load; its `post_install` makes `opt -> /storage/.opt` and replaces an existing link | sourcing an export of `8ebaf8daad` leaves `image/system/opt`, the fixed recipe none; the hook in a scratch `INSTALL` on an empty tree and over a link to a directory (`.qa-scratch/t8/s1-*`); `pkgcheck image` rc 0 | proved: fix-tree |
+| P17 | `mangohud`'s three subprojects come from checksummed source recipes, not `curl` | each archive's sha256 equals its wrap's `source_hash`; `scripts/get` rc 0 ×3 and rc 1 on a one-digit change; the real `pre_configure_target` unpacks three `meson.build` trees and stops on a missing archive (`.qa-scratch/t8/s2-*`); `pkgcheck` rc 0 ×4; `grep -c 'curl '` 0 | proved: fix-tree |
+| P18 | without a pad the image's installer starts copies of itself; the guarded one runs one, and with a pad calls `gptokeyb` once (#899) | on the GENERIC_X64 guest, `/proc/*/comm` counts of 153, 234, 302, 381 (control, stub `poweroff`), then 1 `installer-899` and 1 `whiptail` (no stubs); the bind-mounted `control-gen` fixture's argv `installer -c /storage/.config/gptokeyb/installer.gptk` (`.qa-scratch/t8/s3/p899-*.txt`) | proved: fix-guest |
+| P19 | a failed step ends the install on a dialog naming it; a working disk still completes (#894) | with no stubs: the 8 MB `/dev/sdb` ends on "Install Couldn't Finish -- ... creating the system partition", with parted's `outside of the device` and `# FAILED:` in the log; the 6 GiB `/dev/sda` ends on Install Complete with `ROCKNIX` vfat and `STORAGE` ext4 (`blkid`); without the change, the 8 MB disk claimed complete (`.qa-scratch/t8/s3/run-*.txt`) | proved: fix-guest |
+
+**Re-derived at stage F:**
+- **The branch:** `git diff --stat 8ebaf8daad HEAD -- projects packages` shows six files (S1's one, S2's four, S3's installer), 124 insertions and 31 deletions.
+- **No pins moved:** with `--diff-filter=M`, 0 `PKG_VERSION` and 0 `PKG_SHA256` lines. Over all files the `PKG_VERSION` count is 3, all from S2's three new recipes, which carry the only checksums added. Nothing deleted or renamed.
+- **Checks:** `pkgcheck` rc 0 on `image`, `mangohud` and S2's three new recipes. The installer passes `bash -n` and the image busybox's `sh -n`.
+- **Not yet proved on an image** (`fix-pending-image`; held by each issue's own checkbox, not by this audit):
+  - the image's `/opt` link from `post_install` (#852);
+  - a `mangohud` build from the cache with the network off (#893).
+- **Bugs:** #891 and #892 stay open, Low, mirror-covered, deferred to #585 (item 4 of the coordinator's proposal), with #844 the guard. #894 and #899 are fixed on this branch; their checkboxes wait on the coordinator's acceptance.
+- **Deferrals:** #585 (the proposal and its installer addendum), #657 (two T10 rows), #844 (the `get_archive` lead), #896 (`cairo`) and #897 (the glslang triple) exist and carry the items. PL-09 and PL-12 are the integration's pre-read.
+- **Each S1 and S2 commit restamps its package:** `calculate_stamp` hashes the recipe directory, so the next build rebuilds `image`, `mangohud` and the three new recipes.
+- **S3 restamps `installer`,** which is in the image only where `INSTALLER_SUPPORT` is set (GENERIC_X64).

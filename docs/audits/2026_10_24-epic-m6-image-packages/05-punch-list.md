@@ -300,7 +300,8 @@ punch_index:
   source_finding: "F-02"
   owner_area: "the image's recipe: `projects/ROCKNIX/packages/virtual/image`"
   tracked: "#852"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-tree"
 - id: PL-03
   severity: Low
   category: Code Quality
@@ -308,7 +309,7 @@ punch_index:
   source_finding: "F-03"
   owner_area: "an upstream-carried recipe: `projects/ROCKNIX/packages/devel/libaio`"
   tracked: "#891"
-  outcome: open
+  outcome: "deferred"
 - id: PL-04
   severity: Low
   category: Code Quality
@@ -316,49 +317,49 @@ punch_index:
   source_finding: "F-04"
   owner_area: "an orphan recipe: `projects/ROCKNIX/packages/tools/rocknix-abl` (SM8550)"
   tracked: "#892"
-  outcome: open
+  outcome: "deferred"
 - id: PL-05
   severity: Low
   category: Renovation
   question: Q4
   source_finding: "F-05"
   owner_area: "a fork-edited recipe: `projects/ROCKNIX/packages/graphics/cairo`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-06
   severity: Low
   category: Renovation
   question: Q4
   source_finding: "F-06"
   owner_area: "a fork tool: `tools/fork-package-freshness`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-07
   severity: Low
   category: Renovation
   question: Q2
   source_finding: "F-07"
   owner_area: "upstream-carried recipes: `SDL2_gfx`, `glfw`, `libsndfile`, `pyudev`, `six`, `soundfont-generaluser`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-08
   severity: Low
   category: Renovation
   question: Q2
   source_finding: "F-08"
   owner_area: "a tool: `tools/pkgcheck`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-09
   severity: Low
   category: Renovation
   question: Q7
   source_finding: "F-09"
   owner_area: "the integration: the next merge of `upstream/next`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-10
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-10"
   owner_area: "an upstream-carried recipe: `projects/ROCKNIX/packages/x11/xserver/xwayland`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-11
   severity: Medium
   category: Interaction Defect
@@ -372,7 +373,7 @@ punch_index:
   question: Q1
   source_finding: "F-12"
   owner_area: "the integration: the 11 orphan overrides"
-  outcome: open
+  outcome: "deferred"
 - id: PL-13
   severity: Medium
   category: Code Quality
@@ -380,7 +381,8 @@ punch_index:
   source_finding: "F-13"
   owner_area: "an upstream-carried recipe: `projects/ROCKNIX/packages/apps/mangohud` (SM8550)"
   tracked: "#893"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-tree"
 - id: PL-14
   severity: Medium
   category: Code Quality
@@ -396,21 +398,21 @@ punch_index:
   question: Q3
   source_finding: "F-15"
   owner_area: "the build engine: `scripts/get_archive` (T5's slice)"
-  outcome: open
+  outcome: "deferred"
 - id: PL-16
   severity: Low
   category: Security
   question: Q3
   source_finding: "F-16"
   owner_area: "an upstream-carried unit: `projects/ROCKNIX/packages/network/simple-http-server`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-17
   severity: Low
   category: Renovation
   question: Q2
   source_finding: "F-17"
   owner_area: "scripts, a unit, recipes and a config (`04` § Second opinion G-09 to G-14, G-17, G-21, G-23, G-24)"
-  outcome: open
+  outcome: "deferred"
 - id: PL-18
   severity: Medium
   category: Interaction Defect
@@ -427,20 +429,20 @@ punch_index:
 | Item | Outcome | Evidence |
 | --- | --- | --- |
 | PL-01 | **Resolved** | #890, filed by the coordinator (D-WORKFLOW-197); fixed in the packet `fix/m6-890-shs-sha256` ahead of T5's branch; fix-tree |
-| PL-02 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-03 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-04 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-05 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-06 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-07 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-08 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-09 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-10 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
+| PL-02 | **Resolved** | `43f6a81070`, T8's S1: the link is made in `post_install()` with `ln -sfn`; sourcing a fresh export leaves no `image/system/opt` (P16); `pkgcheck image` rc 0 at `d797678ede`. The image's `/opt -> /storage/.opt` is #852's `fix-pending-image` criterion; fix-tree |
+| PL-03 | **Deferred** | deferred:#585, item 4 of #585's T8 proposal ([issuecomment-6384909664](https://github.com/pixelelated/distribution/issues/585#issuecomment-6384909664), 13:40 UTC; the installer addendum [issuecomment-6385022026](https://github.com/pixelelated/distribution/issues/585#issuecomment-6385022026), 13:51); #891 stays open, Low, mirror-covered, with #844 the guard |
+| PL-04 | **Deferred** | deferred:#585, item 4 of #585's T8 proposal ([issuecomment-6384909664](https://github.com/pixelelated/distribution/issues/585#issuecomment-6384909664), 13:40 UTC; the installer addendum [issuecomment-6385022026](https://github.com/pixelelated/distribution/issues/585#issuecomment-6385022026), 13:51); #892 stays open, Low, mirror-covered; `openabl` is read at the integration (conflict row 10) before any deletion |
+| PL-05 | **Deferred** | deferred:#896 (the coordinator's Backlog); no pin moves in M6; read with the merge's conflict row 2 |
+| PL-06 | **Deferred** | deferred:#657, the coordinator's T10 rows ([issuecomment-6384909901](https://github.com/pixelelated/distribution/issues/657#issuecomment-6384909901), 13:40 UTC) |
+| PL-07 | **Deferred** | deferred:#585, item 5 of #585's T8 proposal ([issuecomment-6384909664](https://github.com/pixelelated/distribution/issues/585#issuecomment-6384909664), 13:40 UTC; the installer addendum [issuecomment-6385022026](https://github.com/pixelelated/distribution/issues/585#issuecomment-6385022026), 13:51), with the six full hashes resolved through the GitHub API |
+| PL-08 | **Deferred** | deferred:#657, the same comment's second row, with `moonlight` as the failing control |
+| PL-09 | **Deferred** | deferred:the integration's pre-read, the coordinator's at #655's merge (the disposition in `t8-streams.md` at `7c4867330b`): `02` § The conflict set, 11 rows; nothing on this branch |
+| PL-10 | **Deferred** | deferred:#585, item 6 of #585's T8 proposal ([issuecomment-6384909664](https://github.com/pixelelated/distribution/issues/585#issuecomment-6384909664), 13:40 UTC; the installer addendum [issuecomment-6385022026](https://github.com/pixelelated/distribution/issues/585#issuecomment-6385022026), 13:51) |
 | PL-11 | **Deferred** | deferred:the integration, settled by D-WORKFLOW-198 (`152c4ee3c3`): the fork's glslang override is kept at the base merge; the pair's bump is the coordinator's Backlog |
-| PL-12 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-13 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
+| PL-12 | **Deferred** | deferred:the integration's pre-read, the coordinator's at #655's merge (the disposition in `t8-streams.md` at `7c4867330b`): `04`'s orphan table, 11 rows; nothing on this branch |
+| PL-13 | **Resolved** | `4db09f6e2e` (the three source recipes, each `PKG_SHA256` its wrap's `source_hash`) and `1904e29d54` (`mangohud` unpacks them from `${SOURCES}`), T8's S2: `scripts/get` fetches them and refuses a one-digit change; the real hook unpacks them and stops on a missing one (P17); `pkgcheck` rc 0 on all four at `d797678ede`; no `curl` left; fix-tree |
 | PL-14 | **Resolved** | `467f19fc14`: each step in the gauge ends it on failure, and the dialog names the step; G-03 fixed with it; G-02, G-04 to G-06 are #585 rows (`02` § S3's leads); fix-guest |
-| PL-15 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-16 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
-| PL-17 | Open | stage D files the issue; a stage-E stream brief or the named issue resolves |
+| PL-15 | **Deferred** | deferred:#844, the coordinator's lead ([issuecomment-6384910123](https://github.com/pixelelated/distribution/issues/844#issuecomment-6384910123), 13:40 UTC) |
+| PL-16 | **Deferred** | deferred:#585, item 7 of #585's T8 proposal ([issuecomment-6384909664](https://github.com/pixelelated/distribution/issues/585#issuecomment-6384909664), 13:40 UTC; the installer addendum [issuecomment-6385022026](https://github.com/pixelelated/distribution/issues/585#issuecomment-6385022026), 13:51) |
+| PL-17 | **Deferred** | deferred:#585, items 8 to 11 and the tailscale shape of #585's T8 proposal ([issuecomment-6384909664](https://github.com/pixelelated/distribution/issues/585#issuecomment-6384909664), 13:40 UTC; the installer addendum [issuecomment-6385022026](https://github.com/pixelelated/distribution/issues/585#issuecomment-6385022026), 13:51). The fork's three: G-14 withdrawn (`network-base.service` is enabled by `systemd/package.mk:328`, so `After=` alone orders it); G-17 a #585 row, its one-line `PKG_SOURCE_NAME` free to ride the integration; G-24 a #585 row, the fork's GENERIC_X64 copy following upstream's fix |
 | PL-18 | **Resolved** | `0602f598e9`: the gptokeyb line runs only when `GPTOKEYB` is set (#899, added to S3 by the coordinator); fix-guest |
