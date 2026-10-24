@@ -1548,6 +1548,40 @@ def claim_missing_still_fails(c):
 
 
 
+@case
+def mask_narrowed(c):
+    # A change inside the old transfer mask's phase-line box, on the hub frame.
+    tool_masks = c.tools_from / 'vm-walks' / 'masks.txt'
+    base = baseline(c, {'run-transfer/01-cloud-hub.png': (1280, 800, ())})
+    rgb_png(c.dir / 'run' / 'run-transfer' / '01-cloud-hub.png', 1280, 800, [(600, 380)])
+    rc, out = fd(c, 'compare', base, c.dir / 'run', '--masks', tool_masks)
+    return rc == 1 and 'UNCLAIMED' in out, f'rc {rc}, reported {"UNCLAIMED" in out} (want the hub\'s change reported: the hub has no transfer to mask)'
+
+
+
+@case
+def proposal_inert(c):
+    base = baseline(c, {'w/01.png': (8, 8, ())})
+    rgb_png(c.dir / 'run' / 'w' / '01.png', 8, 8, [(2, 2)])
+    claims = c.dir / 'claims.txt'
+    claims.write_text('proposal:b0 w/01.png 0 0 8 8 #1  # a proposal only\n')
+    rc, out = fd(c, 'compare', base, c.dir / 'run', '--claims', claims)
+    claims.write_text('b0 w/01.png 0 0 8 8 #1  # the same claim, adopted\n')
+    rc2, out2 = fd(c, 'compare', base, c.dir / 'run', '--claims', claims)
+    # And the file's own proposals: the #578 block carried only a comment, so its claims were live.
+    import re
+    base2 = c.dir / 'base2'
+    rgb_png(base2 / 'w' / '01.png', 8, 8)
+    (base2 / 'BASELINE.txt').write_text('build d72084ccad\n')
+    rgb_png(c.dir / 'run2' / 'w' / '01.png', 8, 8)
+    _, out3 = fd(c, 'compare', base2, c.dir / 'run2', '--claims', c.tools_from / 'vm-walks' / 'claims.txt')
+    m = re.search(r'(\d+) inert proposal', out3)
+    inert = int(m.group(1)) if m else 0
+    return rc == 1 and rc2 == 0 and inert == 348, \
+        f'with the marker rc {rc}, adopted rc {rc2}; the claims file\'s proposals read as inert: {inert} (want 1, 0 and 348)'
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')
