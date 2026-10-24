@@ -1,0 +1,5 @@
+PASS up-fails-guest-answers: rc 1, green report False, stderr '456789ab-from-ROCKNIX.img.gz exited 1; nothing was judged\nvm-qa: the run stopped before its tear-down; vm-pair down rc 0' (want rc 1 naming vm-pair up, no green report)
+PASS build-id-mismatch: rc 1, stderr '+20261024T000000Z.gfedcba987654-from-ROCKNIX.img.gz is build fedcba987654: another guest answered\nvm-qa: the run stopped before its tear-down; vm-pair down rc 0' (want rc 1 naming both ids)
+PASS down-at-end: rc 0, vm-pair calls ['down', 'up', 'down'], tear-down line True (want rc 0, one down after up, the line in the report)
+PASS fresh-port: 5 fresh reads at ports ['10023'] (want all at 10023)
+4 PASS; 0 FAIL

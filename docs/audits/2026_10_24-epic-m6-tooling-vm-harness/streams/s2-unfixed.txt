@@ -1,0 +1,5 @@
+FAIL up-fails-guest-answers: rc 0, green report True, stderr '' (want rc 1 naming vm-pair up, no green report)
+FAIL build-id-mismatch: rc 0, stderr '' (want rc 1 naming both ids)
+FAIL down-at-end: rc 0, vm-pair calls ['down', 'up'], tear-down line False (want rc 0, one down after up, the line in the report)
+FAIL fresh-port: 5 fresh reads at ports ['10022'] (want all at 10023)
+0 PASS; 4 FAIL

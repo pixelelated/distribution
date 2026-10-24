@@ -1,0 +1,16 @@
+== tools from: /workspace/tmp/m6-t12/unfixed-tools
+FAIL report-dir-claimed: report in qa-0123456789-webdav-a-20261024-2111 (want a directory no other run had claimed)
+FAIL two-runs-one-minute: round 0: 1 directories, 1 distinct reports; round 1: 0 directories, 1 distinct reports; round 2: 0 directories, 1 distinct reports; round 3: 0 directories, 1 distinct reports; round 4: 0 directories, 1 distinct reports
+0 PASS; 2 FAIL
+rc 1
+== tools from: /workspace/tmp/m6-t12/race-at-3c0b/tools-base
+FAIL report-dir-claimed: report in qa-0123456789-webdav-a-20261024-211154 (want a directory no other run had claimed)
+FAIL two-runs-one-minute: round 0: 2 directories, 2 distinct reports
+0 PASS; 2 FAIL
+rc 1
+== tools from: tools
+PASS report-dir-claimed: report in qa-0123456789-webdav-a-20261024-211154-2 (want a directory no other run had claimed)
+PASS two-runs-one-minute: 5 rounds of 3 concurrent runs, 3 directories and 3 reports each (want that)
+2 PASS; 0 FAIL
+rc 0
+== mkdir on this host: /usr/lib/cargo/bin/coreutils/mkdir, mkdir (uutils coreutils) 0.10.0

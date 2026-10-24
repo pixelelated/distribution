@@ -188,3 +188,39 @@ PROOF: 19:30 P11 guest: tools/vm-stop stops the owned QEMU in 0.25 s and removes
 - **After the fixes:** 7 PASS, 0 FAIL (`streams/s1-fixed.txt`). A generated report's footer reads `bring-up 0s, fixture 0s -- outside the suite rows ...`.
 - **Still open:** the guest half of #966 (a real `vm-qa` run whose footer names its exit) waits for the single cycle after S5.
 PROOF: 21:00 S1 fix-case: tools/vm-harness-test's seven S1 cases fail against facb2ae523's tools (0 PASS, 7 FAIL) and pass at 3c0b9d53c6 (7 PASS, 0 FAIL) -- `streams/s1-unfixed.txt`, `streams/s1-fixed.txt`
+
+## [Stage E] S1 corrected: the report directory's claim (#982)
+
+- **The S1 entry above is wrong on one point.** It said `two-runs-one-minute` passes at `3c0b9d53c6`. It passed there by luck.
+  - **How it showed:** after S2's second commit the control printed `10 PASS; 1 FAIL`. The commit chain read that through `| tail -1 &&` and committed anyway (`813e4dd270`, whose tree is sound). Eight more runs failed 2 times.
+  - **The cause:** both racing runs printed the same `report:` path. This host's `mkdir` is uutils coreutils 0.10.0 (`/usr/bin/mkdir -> ../lib/cargo/bin/coreutils/mkdir`). Of 300 pairs of racing calls on `/workspace` (ext4), both calls succeeded 41 times; with `os.mkdir`, 0 times. So `until mkdir` is no exclusive claim on this host.
+  - **Upstream** (checked 21:12): no matching report. The nearest is uutils #12355 / Ubuntu bug 2152495, where concurrent `install -D` fails on EEXIST. That is the opposite direction and another command.
+  - **Scope:** `git grep` over `tools`, `scripts`, `.githooks` and the cloud scripts finds no other `mkdir` used as a claim. Device scripts run busybox.
+- **The fix,** `fc8754b29b`: the claim is `.vm-qa-claim`, opened with bash's noclobber (O_EXCL) inside the directory.
+- **The control:**
+  - `two-runs-one-minute` now runs three concurrent runs for five rounds.
+  - `report-dir-claimed` is new and deterministic: an `mkdir` double answers 0 for an existing directory, as the host did, and the directories for the seconds around the start are pre-claimed.
+  - Both fail at `facb2ae523` and at `3c0b9d53c6`, and both pass at `fc8754b29b` (`streams/s1-claim-correction.txt`). The whole control ran 5 times at 12 PASS, rc 0.
+- **The friction line** is in `docs/friction-log.md`, citing #982.
+PROOF: 21:11 S1-claim fix-case: report-dir-claimed and two-runs-one-minute fail at facb2ae523 and at 3c0b9d53c6 and pass at fc8754b29b; this host's mkdir is uutils coreutils 0.10.0 -- `streams/s1-claim-correction.txt`
+
+## [Stage E] S2: bring-up, identity and tear-down (#969, #981)
+
+- **The fixes:**
+  - `9df1c65c68` (#969):
+    - `vm-pair down`'s status is read before bring-up; 0 and 3 pass, anything else exits 1 before anything is judged.
+    - `vm-pair up` runs with its own status read; a failure exits 1 naming it.
+    - The guest's whole BUILD_ID is compared with the image's build: `identity.json`'s `build_commit` when the sidecar is present (an unreadable one names nothing), else the `g<12 hex>` in the name. A mismatch, or an image that names no build, exits 1.
+    - The header carries `BUILD_ID <id> -- the image names <id>`.
+    - The run takes the pair down at the end, recording `tear-down: vm-pair down rc N`; anything but 0 is a FAIL. An EXIT trap does the same on an earlier exit. `--keep-up` opts out and says so.
+  - `813e4dd270` (#981): `fresh` reads `$PORT` and names `$GUEST`.
+- **The two real images resolve:** `069fc2704421` through its sidecar (the full `069fc270442134fe…`), `6e3a2165d415` through its name.
+- **The positives:** 0 PASS, 4 FAIL against `facb2ae523` (`streams/s2-unfixed.txt`):
+  - `up-fails-guest-answers`: rc 0 and a green report over a failed `up`;
+  - `build-id-mismatch`: rc 0 over another build's guest;
+  - `down-at-end`: no `down` after `up`;
+  - `fresh-port`: all five reads at 10022.
+- **After the fixes:** 4 PASS, 0 FAIL (`streams/s2-fixed.txt`); the whole control 12 PASS (`streams/s1-s2-full.txt`).
+- **Still open for the cycle:** the fixed runner brings the pair up from the `069fc2704421` image; the report's BUILD_ID matches the image's; `tear-down: vm-pair down rc 0`; the census reads 0 after.
+- **Already written:** the 19 full runs in the record each began with a `down` whose status nobody read, and their reports name the requested image. Whether any of them judged a surviving guest cannot be known from the reports. Per the brief, that is noted for the catalog at integration; nothing on a device.
+PROOF: 21:11 S2 fix-case: up-fails-guest-answers, build-id-mismatch, down-at-end and fresh-port fail at facb2ae523 (0 PASS, 4 FAIL) and pass at 813e4dd270 (4 PASS, 0 FAIL) -- `streams/s2-unfixed.txt`, `streams/s2-fixed.txt`

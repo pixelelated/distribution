@@ -107,7 +107,9 @@ The one authorized cycle, 19:23 to 19:30 UTC; the full record is in `00` § The 
 | P9 | `emulator-exit-test --only X` prints `PASSED` with no check run | `cycle/exit-onlyX.out` | proved: guest |
 | P10 | The image ships no `cloud_migrate_layout`, so `migration-protocol.sh` refuses | `cycle/guest-checks.txt` | proved: guest |
 | P11 | `vm-stop` stops the owned QEMU in 0.25 s; the guest held 2.54 GiB resident on the host | `cycle/guest-checks.txt`; `00` | proved: guest |
-| S1 | `vm-qa`: a SKIP exits 3; an unknown or empty selection exits 2; `--help` is whole; the report root is checked before the guest; two runs get two directories (#966, #982). Seven `vm-harness-test` cases fail at `facb2ae523` and pass at `3c0b9d53c6` | `streams/s1-unfixed.txt`, `streams/s1-fixed.txt` | proved: fix-case |
+| S1 | `vm-qa`: a SKIP exits 3; an unknown or empty selection exits 2; `--help` is whole; the report root is checked before the guest; two runs get two directories (#966, #982). Seven `vm-harness-test` cases fail at `facb2ae523` and pass at `3c0b9d53c6`; the directory claim passed there by luck, corrected below | `streams/s1-unfixed.txt`, `streams/s1-fixed.txt` | proved: fix-case |
+| S1-claim | The report directory's claim is an O_EXCL file, because this host's mkdir (uutils 0.10.0) answers 0 to two racing calls; `report-dir-claimed` and `two-runs-one-minute` fail at `facb2ae523` and `3c0b9d53c6` and pass at `fc8754b29b` | `streams/s1-claim-correction.txt` | proved: fix-case |
+| S2 | `vm-qa` reads `down` and `up`, compares the guest's BUILD_ID with the image's build, takes the pair down at the end; `fresh` reads the selected port (#969, #981). Four cases fail at `facb2ae523` and pass at `813e4dd270` | `streams/s2-unfixed.txt`, `streams/s2-fixed.txt` | proved: fix-case |
 
 ## The streams' positives
 
@@ -122,8 +124,14 @@ Each stream's `vm-harness-test` case, run against the unfixed tool (`git archive
 | S1 | `help-whole` | `missing from --help: ['link', 'ra-offline', 'walks', 'frame-diff']` | `missing from --help: []` (`3c0b9d53c6`) |
 | S1 | `report-unwritable` | `rc 1, guest calls 3` | `rc 1, guest calls 0` |
 | S1 | `two-runs-one-minute` | `1 report directories` | `2 report directories` |
+| S1 | `two-runs-one-minute`, from `fc8754b29b` (3 runs at once, 5 rounds) | `round 0: 1 directories, 1 distinct reports; ...`; at `3c0b9d53c6`: `round 0: 2 directories, 2 distinct reports` | `5 rounds of 3 concurrent runs, 3 directories and 3 reports each` |
+| S1 | `report-dir-claimed` (an mkdir double answering as this host's did) | `report in qa-...-2111`; at `3c0b9d53c6`: `report in qa-...-211154` | `report in qa-...-211154-2` (`fc8754b29b`) |
+| S2 | `up-fails-guest-answers` | `rc 0, green report True` | `rc 1, green report False`, stderr `... exited 1; nothing was judged` (`9df1c65c68`) |
+| S2 | `build-id-mismatch` | `rc 0, stderr ''` | `rc 1`, stderr `... is build fedcba987654: another guest answered` |
+| S2 | `down-at-end` | `vm-pair calls ['down', 'up'], tear-down line False` | `vm-pair calls ['down', 'up', 'down'], tear-down line True` |
+| S2 | `fresh-port` | `5 fresh reads at ports ['10022']` | `5 fresh reads at ports ['10023']` (`813e4dd270`) |
 
-S1's files: `streams/s1-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s1-fixed.txt` (7 PASS, 0 FAIL). `rules-check --quiet` rc 0 and `hooks-test` PASS after `ea2377f1ce`.
+S1's files: `streams/s1-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s1-fixed.txt` (7 PASS, 0 FAIL). The claim correction: `streams/s1-claim-correction.txt`. S2's: `streams/s2-unfixed.txt` (0 PASS, 4 FAIL) and `streams/s2-fixed.txt` (4 PASS, 0 FAIL); the whole control, `streams/s1-s2-full.txt` (12 PASS). `rules-check --quiet` rc 0 and `hooks-test` PASS after `ea2377f1ce`.
 
 ## Findings (stage B)
 
