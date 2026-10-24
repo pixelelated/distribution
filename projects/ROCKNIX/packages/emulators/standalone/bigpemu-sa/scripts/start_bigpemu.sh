@@ -14,8 +14,7 @@ if [ ! -d "/storage/.config/bigpemu/userdata" ]; then
 fi
 
 # Link bigpemu userdata to .config/bigemu
-rm -r /storage/.bigpemu_userdata
-ln -sf /storage/.config/bigpemu/userdata /storage/.bigpemu_userdata
+link_storage_dir /storage/.bigpemu_userdata /storage/.config/bigpemu/userdata
 
 #Emulation Station Features
 GAME=$(echo "${1}"| sed "s#^/.*/##")
