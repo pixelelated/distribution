@@ -34,9 +34,8 @@ post-candidate merge to clear the push guard's W42 gate (D-INFRA-026,
 D-WORKFLOW-182); never `--no-verify`. P1 started 2026-10-22 in its own
 worktree `distribution.worktrees/m6-p1-survey-641` on
 `feature/m6-p1-survey-641`, stacked on this branch; its state lives in its
-own pointer. The pass-7 gate is passed (the yes of 2026-10-23); this lane's next acts are
-the filing of the slice issues (D-WORKFLOW-189) and acceptance at hand-back
-(brief § 10); see § State at 2026-10-23.
+own pointer. The pass-7 gate and the hand-back are passed (2026-10-23; #641 closed); this
+lane's next act is T1's brief; see § State at 2026-10-23.
 
 ## Next commands
 
@@ -87,6 +86,23 @@ keep both day-file entries, regenerate the index with
 `tools/work-log-index --write`. Nothing here builds, touches a device, a
 cloud or the M7 build worktrees.
 
+- **This branch carries three of M7's commits as cherry-picks** (`-x`, 2026-10-23
+  16:30 UTC): `033eb7ed23`, `0ceb2994c5`, `6874394d49` from `fac2129787`,
+  `1c7d283ad5`, `a7a3bdda4e` on `feature/m7-audit-integration-603` (the
+  Argon reviewer route and its pins, #636/#638). When the M7 candidate merges
+  to `next` first, the merge of this branch sees them as duplicate patches;
+  expect a clean or trivially identical resolution in `scripts/council-invoke.ts`,
+  `tools/lint-audit-artifacts`, `verifier-pins.json`, `council-seat-efforts.json`
+  and the two `docs/qa-logs/2026-10-22-*-638/` folders, and check for markers.
+- **T2 accepted 2026-10-24 00:3x UTC** (#649: distribution `f16cf7fc28`, ES
+  `55158d2a64`, 35 commits on the pin `16dbac5211`; `reviewed-at: f4e0f0a196`).
+  Its `slices.json` row (`reviewed_at`, `fixed_at`, `es`) is written when this
+  branch takes the P1 branch at integration. **The ES integration order:** the
+  M7 lane's EmulationStation fixes of 2026-10-23 (#697/#698) reach
+  `test/qa-integration` first, then T2's branch is merged there and the pin
+  bumped in `package.mk` on this branch; both wait for D-WORKFLOW-191 (which
+  build carries the renovation's pin bump). #649 stays open as `remediating`
+  until that image proves the 21 walks; then it and the 24 `bug` issues close.
 ## State at 2026-10-23 (the coordinator's own update)
 
 P0 is done on this branch; its merge waits on the M7 lane's post-candidate
@@ -101,11 +117,38 @@ division of work, the definition of work items and roadmap changes are this
 lane's; a work lane executes. So the 46 slice issues are this lane's to file,
 from P1's renderer (`tools/renovation-inventory --slice-issues DIR`, run
 read-only against P1's tree into this lane's scratchpad). #644 and #645 are
-the build-path read and its PR-process findings. Next: file the 46 (one first,
-`tools/box-check --issue N` on it, then the rest, each a sub-issue of #339);
-the hand-back acceptance against the P1 brief § 10 as amended (inventory and
-order, no slice issues); then the first slice's brief (plan § 7), which adds
-T1's specific criteria to its issue.
+the build-path read and its PR-process findings. The 46 are filed: #648 (T1) to #693
+(T46), sub-issues of #339 on milestone M6, `tools/box-check` 0 fail over all
+open issues (work log 05:40 UTC). P1 was accepted at hand-back and #641
+closed completed on 2026-10-23 (P1's branch at `2174265e9c`; it merges to
+`next` after this branch, after the M7 candidate). T1 is dispatched (2026-10-23): the area
+epic #695 with its futro; the brief `docs/reviews/briefs/os-launch-control-state.md`
+at version 2 (`968ba95993`); the lane `feature/m6-os-launch-control-state-648`
+at `4228561fd2`, worktree `distribution.worktrees/m6-os-launch-control-state-648`,
+an Opus 5.5 session at high effort in Herdr pane `wN:p4`, agent
+`m6-t1-os-launch` (started from this pane: `herdr tab create --workspace wN
+--cwd <worktree> --label ... --no-focus`, then `herdr agent start <name>
+--kind claude --pane <id> -- --model claude-opus-5-5 --effort high`, then
+`herdr agent prompt <name> "<seed>"`; the seed is kept in this session's
+scratchpad and quoted in the 07:50 work-log entry). This lane's rules from
+the futro: no merge of `next` into a slice branch between stage A and stage
+D; every drift report read at every slice close and the re-open named;
+`tools/box-check` on every issue a lane files, at the pause. Next: **T1 accepted at hand-back 2026-10-24 01:24** (`ba22eea867`; `reviewed-at efadfea08a`, `fixed-at 0f7558cff7`; 13 of 15 criteria ticked; one `Already written:` line owed on Q6's `installtointernal` row, asked of the lane; the simulated merge of this tip into the lane's conflicts only in the four ledgers; #796 and #797 filed from its stage F and retro). Both lanes are idle; the host is M7's from 2026-10-24 01:33 (H700 then SM8550 builds) until its return line, acknowledged with a census at 01:27, both lanes holding. **T3's brief version 1 is written** (`docs/reviews/briefs/emulators-libretro.md`) and the area epic #798 filed (T3 #650, T30 #677, T24 #671 re-parented and retitled); next its futro (`docs/futros/2026-10-24-m6-emulators-and-cores.md`, posted on #798), the stranger's proof, version 2, then the lane's worktree `distribution.worktrees/m6-emulators-libretro-650` on `feature/m6-emulators-libretro-650` stacked on P1 `2174265e9c` with this tip merged, the pointer seeded, dispatch (Opus 5.5 high, pane and agent `m6-t3-emulators`) after the return line. **The research behind the brief (#650, `emulators-libretro`, Extended, currency; the 01:00 to 01:45 reads of this session: 344 paths, 31,961 lines, 10,185 read, RetroArch at `bdba046fa6` v1.22.2, 151 core recipes with 144 full-hash pins, one pin differing from `upstream/next`, 14 upstream commits on the paths since `c445081a59`, upstream's `retroarch-0100-ffmpeg9-lavc63.patch` absent here, `mk_es_systems` defined in T5's `distributions/ROCKNIX/config/functions:99` and called at `virtual/emulators/package.mk:1726`, `Install Steam.sh` 2,755 lines fork-own by M7's October commits).** At integration, T1's acceptance leaves (brief § 10: re-run the harness under
+`QA_SYSTEM_ROOT` and `pkgcheck` once; the `fix-pending-image` rows stay open);
+T2 accepted 2026-10-24 (above), its ES merge and pin bump held for the M7 ES
+fixes and D-WORKFLOW-191; the merge order to `next` after
+the M7 candidate (P0, P1, T1, T2; the ledgers united by whole entries; the change log for T1's player-visible lines the day it lands; `audit-completion.json` for T1 after #701 closes; the drift re-open over M7's `runemu.sh` hunks; the image proof of T1's nine fix-pending-image rows and T2's 21 walks, then #648/#649 and their bugs close, the three device-fact bugs as open items to test); the two calls open with the maintainer on
+#346 (D-SYS-014, D-WORKFLOW-191); the host handoff file is read before any
+runtime. Both lanes report on their issues; nothing wakes this lane on a
+post, so read #648 and #649 at every turn. **And nothing wakes a lane on a
+comment:** a lane's turn ends when it posts a question, so every answer the
+coordinator gives on an issue is also sent as `herdr agent prompt <lane>`,
+the same minute (T1 sat idle 78 minutes on 2026-10-23 after an answer that
+was only a comment). Before calling a lane idle, read its worktree's branch
+and status, not the origin. A prompt that does not flip a lane to `working`
+within a minute went nowhere: `herdr agent read <lane>` shows why (a settings or
+usage dialog eats typed text; `herdr agent send-keys <lane> esc`, then the
+prompt, then `send-keys enter`).
 
 ## The seed brief (2026-10-22, the planning session's handoff, verbatim)
 
