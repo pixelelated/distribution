@@ -59,7 +59,7 @@ git switch -c pr/<name>
 git checkout next -- <the feature paths>                    # e.g. projects/ROCKNIX/packages/network/rclone/
 git commit                                                  # ONE commit, message per CI rules below
 git push -u origin pr/<name>
-gh pr create --repo ROCKNIX/distribution --base next --head maxengel:pr/<name>
+gh pr create --repo ROCKNIX/distribution --base next --head pixelelated:pr/<name>   # origin's owner: git remote get-url origin
 ```
 
 **Why by content and not by commit.** The old recipe was
