@@ -38,12 +38,10 @@
 
 ## Current focus
 
-**Stage A done (12:12 UTC); stage B next.**
-- The scope matches the brief: 485 / 20,644 / 260; 14 paths with spaces.
-- The provenance: 35 fork changes; 87 M against `upstream/next`; 11 orphans and 7 fork-added; 66 recipes changed upstream; a conflict set of 11.
-- The branch differs from `8ebaf8daad` on none of the 485. `reviewed-at` is `caf1de3727`.
-- The audit folder is `docs/audits/2026_10_24-epic-m6-image-packages/`.
-- **Next:** stage B, § 5's loops in order.
+**Stage B done (12:36 UTC); stage C next.**
+- **Written:** `02`, `03`, `04` (§ Second opinion pending), `q4-table.md` and `q4-pins.json`.
+- **Findings:** twelve. #890 is the coordinator's; #852 is this slice's stream.
+- **Next:** stage C. `npm install --prefix tools/council`, `verify-pins` and `test`, then the GPT seat's probe and one refutation over one bounded packet near 440 KB (the dispatch authorizes both calls; a failed seat is a hold). Then the pre-issue lint and stage D.
 - **Prose through Python or a quoted heredoc only.**
 
 ## Next commands
