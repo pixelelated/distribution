@@ -156,7 +156,7 @@ both lists and to this table, or it is invisible.**
 | `cloud-pair-migration` | the mixed-installation test: one cloud, a device updated in place from the previous build and a fresh install, the folder's join, move and follow read from the cloud and both confs (D-CLOUD-158) | `rclone-cloud-sync.md` |
 | `es-syntax-check` | compile an EmulationStation edit syntax-only with the image build's own command, before the pin moves | `es-native-ui.md` |
 | `png-blackout` | paint a rectangle of a frame black with the standard library, so a screendump carrying the QA account's name is filed with the band painted out | `generic-x64-vm-testing.md` |
-| `fork-newdrive` | move the build estate to another volume | `device-builds.md` |
+| `fork-newdrive` | retired (D-INFRA-030): the 2026-09-04 move to `/workspace`, read in git history; this row leaves with the hook's pattern (#657) | `device-builds.md` |
 | `fork-publish-release` | prepare a release plan from exact candidate bytes, with selected-state inspection; never publishes | `device-builds.md` |
 | `pixelelated-state-check` | inspect selected account, cloud and history state in final payloads or a ready guest; value-free reports | `release-candidates.md` |
 | `pixelelated-state-check-test` | synthetic clean/contaminated roots and payloads, plus prepared first-boot proof | `release-candidates.md` |

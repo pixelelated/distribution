@@ -46,6 +46,8 @@ the fleet's `/workspace` convention (lorry `fleet/blueprints/build-box.yml`,
 
 It used to be `~/Development/rocknix{,.worktrees}` on the 1 TB OS disk, which
 four device build roots plus the cache had filled to 36 GB free.
+The one-time script for that move is retired (D-INFRA-030); the procedure is
+this section and the 2026-09-04 work log, and git history keeps the script.
 
 ## Where to build
 
