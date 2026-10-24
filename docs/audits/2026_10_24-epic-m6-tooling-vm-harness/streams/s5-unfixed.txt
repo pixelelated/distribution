@@ -1,0 +1,6 @@
+FAIL two-checkouts-two-states: paths shared by the two checkouts ['/tmp/rocknix-qemu-monitor-b.sock', '/tmp/rocknix-qemu-monitor.sock', '/tmp/rocknix-qemu-serial-b.sock'], paths under /tmp ['/tmp/rocknix-vm-pair/qa-key', '/tmp/rocknix-qemu-monitor.sock'] (want none of either)
+FAIL runtime-recorded: up rc 0, RUNTIME recorded '' (want '/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659/.qa-scratch/t12/vm-harness-test/runtime-recorded/rt-explicit'); down not run
+FAIL port-held-refused: rc 0, launches 2, holder named False (want a refusal naming this pid, nothing launched)
+FAIL no-tmp-writes: 1 temp files asked for, key ['/tmp/rocknix-vm-pair/qa-key'], aimed at /tmp: ['/tmp/', '/tmp/rocknix-vm-pair/qa-key'] (want temp files and none aimed at /tmp)
+FAIL rehearsal-artifacts-root: the report directory it made: ['/workspace/artifacts/rocknix-images/qa-0123456789-upgrade-from-previous-20261024-2134'] (want it under ROCKNIX_ARTIFACTS=artifacts/)
+0 PASS; 5 FAIL

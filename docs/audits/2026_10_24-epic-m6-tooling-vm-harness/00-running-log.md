@@ -271,3 +271,41 @@ PROOF: 21:20 S3 fix-case: reboot-same-boot-id, reboot-es-silent, seed-scp-fails,
 - **Still open for the cycle:** `down` exits 0, and the census after is 0.
 - **Already written:** `worktrees.md` and `generic-x64-vm-testing.md` describe stopping through `tools/vm-stop` by pidfile. Exit 3 goes into PL-22's packet, not here.
 PROOF: 21:25 S4 fix-case: disk-held-no-pidfile, partial-up-rollback, down-stops-both, missing-pidfile-exit-3 and pidfile-changed-under-us fail against facb2ae523's vm-pair and vm-stop and pass at eddd21d7a2 (vm-pair-test and vm-stop-test rc 0) -- `streams/s4-unfixed.txt`, `streams/s4-fixed.txt`
+
+## [Stage E] S5: the host state belongs to the worktree (#971, #979; D-INFRA-031)
+
+- **The fixes:**
+  - `3f5998bbaf` (vm-pair):
+    - `VM_PAIR_DIR` defaults to `<checkout>/.qa-scratch/vm-pair`.
+    - `VM_QEMU_RUNTIME_DIR` is the explicit value, else the one `$VM_PAIR_DIR/RUNTIME` records, else `${XDG_RUNTIME_DIR:-/tmp}/pixelelated-vm-<sha8 of the checkout path>`. `up` and `reimage` record it.
+    - 10022, 10023, 5909 and 5910 are probed with `ss` before a launch, and a holder is refused by pid. Without `ss` the check fails closed.
+    - `info` prints the resolved paths.
+  - `373a366e40` (vm-qa, time-to-play, ra-offline-test, emulator-exit-test):
+    - `vm-qa` exports the pair's paths, `CLOUD_QA_STATE=<checkout>/.qa-scratch/cloud-qa` and `TMPDIR=<checkout>/.qa-scratch/vm-qa-tmp/<run>`.
+    - `vm-qa` refuses a backend port whose holder does not name this run's `CLOUD_QA_STATE`. The port is fixed per backend, so another checkout's server would otherwise have answered, and the walks reset and seed what they talk to.
+    - `vm-qa` prints the paths in the header.
+    - `time-to-play`'s ssh master socket goes under `XDG_RUNTIME_DIR`, and its key default follows the pair.
+    - `ra-offline-test`'s key and sockets follow the pair, and its three fixed `/tmp` files go through mktemp.
+    - `emulator-exit-test`'s usage line changes. `vm-visual-qa` is unchanged: its mkdtemp follows the TMPDIR `vm-qa` sets.
+  - `f1331aba83` (vm-upgrade-rehearsal): the report root is read from `ROCKNIX_ARTIFACTS`.
+- **Two readings of the brief, stated:**
+  - The brief's `time-to-play:137-139` are the fixture ports at `facb2ae523`, not scratch files. The scratch is `:158` (moved) and `:803`/`:938` (they follow TMPDIR).
+  - The brief keeps the report root at `${ROCKNIX_ARTIFACTS:-/workspace/artifacts}/rocknix-images`, but its acceptance wants all five printed paths under the worktree or `/run/user/1000`. The header prints pair, runtime, QA cloud, scratch and key, all under one or the other, and names the report root as the exception.
+- **The positives:** 0 PASS, 5 FAIL against `facb2ae523` (`streams/s5-unfixed.txt`).
+  - `two-checkouts-two-states`: two checkouts share every socket and `/tmp/rocknix-vm-pair/qa-key`.
+  - `runtime-recorded`: `up` records nothing. The unfixed `down` is never run, because its `/tmp` default could be another session's.
+  - `port-held-refused`: `up` launches both guests with 10022 held.
+  - `no-tmp-writes`: a temp file aimed at `/tmp/`, and the key under `/tmp`.
+  - `rehearsal-artifacts-root`: the report directory under `/workspace/artifacts`, seen through an `mkdir` double that does not create it.
+- **After the fixes:** 5 PASS, 0 FAIL (`streams/s5-fixed.txt`). The whole set is in `streams/s1-s5-full.txt`: `vm-harness-test` 24 PASS, `vm-pair-test` and `vm-stop-test` rc 0, no fixture left. This checkout's `vm-pair info` reads `VM_PAIR_DIR=<worktree>/.qa-scratch/vm-pair VM_QEMU_RUNTIME_DIR=/run/user/1000/pixelelated-vm-1c7e8c12`.
+- **Deviations, recorded as they happened:**
+  - `no-tmp-writes`' first form ran the unfixed `vm-qa` with TMPDIR unset. That made `/tmp/tmp.dLtl5SdwPE` and `/tmp/tmp.YpBcMXuAU5`, which the old runner removed itself (both absent when checked).
+    - The `mktemp` double now records where a file would land and makes a `/tmp`-aimed one inside the case.
+    - A `find /tmp -newer <mark> -user <me> -name 'tmp.*'` around both runs then counted 0.
+  - `runtime-recorded`'s first form dropped its own explicit `VM_QEMU_RUNTIME_DIR` (the test's `env()` dropped after updating). Four fixture processes outlived the run.
+    - They were stopped by PID after their cmdlines were checked against this case's scratch disks.
+    - The test now drops before updating and reaps every pidfile under the case.
+- **Superseded:** the lane's earlier cycle overrides under `/workspace/tmp/m6-t12/` are replaced by these defaults. The stage-E cycle runs with none set.
+- **Still open for the cycle:** `vm-qa <image>` from this worktree with no override set; the header's paths under the worktree or `/run/user/1000`.
+- **Already written:** `~/.cache/rocknix-cloud-qa` and `/tmp/rocknix-vm-pair` are left as they are; the M7 lane's older checkout may use them. Nothing on a device.
+PROOF: 21:34 S5 fix-case: two-checkouts-two-states, runtime-recorded, port-held-refused, no-tmp-writes and rehearsal-artifacts-root fail at facb2ae523 (0 PASS, 5 FAIL) and pass at f1331aba83 (5 PASS, 0 FAIL; the whole control 24 PASS) -- `streams/s5-unfixed.txt`, `streams/s5-fixed.txt`, `streams/s1-s5-full.txt`

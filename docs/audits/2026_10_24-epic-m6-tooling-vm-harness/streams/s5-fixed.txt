@@ -1,0 +1,6 @@
+PASS two-checkouts-two-states: paths shared by the two checkouts [], paths under /tmp [] (want none of either)
+PASS runtime-recorded: up rc 0, recorded True, down rc 0, guests 2, still running 0
+PASS port-held-refused: rc 1, launches 0, holder named True (want a refusal naming this pid, nothing launched)
+PASS no-tmp-writes: 2 temp files asked for, key ['/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659/.qa-scratch/t12/vm-harness-test/no-tmp-writes/root/.qa-scratch/vm-pair/qa-key'], aimed at /tmp: [] (want temp files and none aimed at /tmp)
+PASS rehearsal-artifacts-root: the report directory it made: ['/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659/.qa-scratch/t12/vm-harness-test/rehearsal-artifacts-root/artifacts/rocknix-images/qa-0123456789-upgrade-from-previous-20261024-2134'] (want it under ROCKNIX_ARTIFACTS=artifacts/)
+5 PASS; 0 FAIL

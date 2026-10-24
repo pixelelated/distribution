@@ -112,6 +112,7 @@ The one authorized cycle, 19:23 to 19:30 UTC; the full record is in `00` § The 
 | S2 | `vm-qa` reads `down` and `up`, compares the guest's BUILD_ID with the image's build, takes the pair down at the end; `fresh` reads the selected port (#969, #981). Four cases fail at `facb2ae523` and pass at `813e4dd270` | `streams/s2-unfixed.txt`, `streams/s2-fixed.txt` | proved: fix-case |
 | S3 | The walks need a new boot id and an answering interface, a checked seeding, the QA cloud as the active remote and a manifest; the ES suites judge only the pinned source (#973, #974, #981). Seven cases fail at `facb2ae523` and pass at `ca0bf841d2` | `streams/s3-unfixed.txt`, `streams/s3-fixed.txt` | proved: fix-case |
 | S4 | `vm-pair` refuses to remove a held disk, rolls a partial `up` back and `down` stops both; `vm-stop` exits 3 on a missing pidfile and keeps a replaced one (#970). Five cases fail at `facb2ae523` and pass at `eddd21d7a2` | `streams/s4-unfixed.txt`, `streams/s4-fixed.txt` | proved: fix-case |
+| S5 | The pair's state, the runtime directory, the QA cloud's state and the run's scratch belong to the checkout; held ports are refused; the rehearsal reads `ROCKNIX_ARTIFACTS` (#971, #979; D-INFRA-031). Five cases fail at `facb2ae523` and pass at `f1331aba83` | `streams/s5-unfixed.txt`, `streams/s5-fixed.txt` | proved: fix-case |
 
 ## The streams' positives
 
@@ -144,8 +145,13 @@ Each stream's `vm-harness-test` case, run against the unfixed tool (`git archive
 | S4 | `down-stops-both` (vm-pair-test) | `rc 1, guest b stopped False` | `rc 1, guest b stopped True` |
 | S4 | `missing-pidfile-exit-3` (vm-stop-test) | `rc 0` | `exits 3, says nothing was stopped, removes nothing` (`eddd21d7a2`) |
 | S4 | `pidfile-changed-under-us` (vm-stop-test) | `returncode=0`, `down: owned QEMU exited`, the replaced pidfile removed | `reports a pidfile replaced during the stop and keeps it` |
+| S5 | `two-checkouts-two-states` | `paths shared by the two checkouts ['/tmp/rocknix-qemu-monitor-b.sock', ...]` | `paths shared by the two checkouts [], paths under /tmp []` (`3f5998bbaf`) |
+| S5 | `runtime-recorded` | `up rc 0, RUNTIME recorded ''` | `up rc 0, recorded True, down rc 0, guests 2, still running 0` |
+| S5 | `port-held-refused` | `rc 0, launches 2, holder named False` | `rc 1, launches 0, holder named True` |
+| S5 | `no-tmp-writes` | `aimed at /tmp: ['/tmp/', '/tmp/rocknix-vm-pair/qa-key']` | `2 temp files asked for, ... aimed at /tmp: []` (`373a366e40`) |
+| S5 | `rehearsal-artifacts-root` | `/workspace/artifacts/rocknix-images/qa-0123456789-upgrade-from-previous-...` | under the case's `ROCKNIX_ARTIFACTS` (`f1331aba83`) |
 
-S1's files: `streams/s1-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s1-fixed.txt` (7 PASS, 0 FAIL). The claim correction: `streams/s1-claim-correction.txt`. S2's: `streams/s2-unfixed.txt` (0 PASS, 4 FAIL) and `streams/s2-fixed.txt` (4 PASS, 0 FAIL); the whole control, `streams/s1-s2-full.txt` (12 PASS). S3's: `streams/s3-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s3-fixed.txt` (7 PASS, 0 FAIL); the whole control, `streams/s1-s3-full.txt` (19 PASS). S4's: `streams/s4-unfixed.txt` and `streams/s4-fixed.txt` (vm-pair-test and vm-stop-test, rc 0). `rules-check --quiet` rc 0 and `hooks-test` PASS after `ea2377f1ce`.
+S1's files: `streams/s1-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s1-fixed.txt` (7 PASS, 0 FAIL). The claim correction: `streams/s1-claim-correction.txt`. S2's: `streams/s2-unfixed.txt` (0 PASS, 4 FAIL) and `streams/s2-fixed.txt` (4 PASS, 0 FAIL); the whole control, `streams/s1-s2-full.txt` (12 PASS). S3's: `streams/s3-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s3-fixed.txt` (7 PASS, 0 FAIL); the whole control, `streams/s1-s3-full.txt` (19 PASS). S4's: `streams/s4-unfixed.txt` and `streams/s4-fixed.txt` (vm-pair-test and vm-stop-test, rc 0). S5's: `streams/s5-unfixed.txt` (0 PASS, 5 FAIL) and `streams/s5-fixed.txt` (5 PASS); every control after S5, `streams/s1-s5-full.txt`. `rules-check --quiet` rc 0 and `hooks-test` PASS after `ea2377f1ce`.
 
 ## Findings (stage B)
 
