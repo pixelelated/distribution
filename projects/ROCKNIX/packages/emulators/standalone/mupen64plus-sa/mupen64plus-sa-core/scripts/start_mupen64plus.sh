@@ -32,7 +32,9 @@ M64PCONF="${GAMEDATA}/mupen64plus.cfg"
 CUSTOMINP="${GAMEDATA}/custominput.ini"
 TMP="/tmp/mupen64plus"
 
-# Clean and create directories
+# Clean and create directories. The temporary folder holds only this
+# launch's input mapping (SharedDataPath) and an unzipped ROM; the config
+# stays in GAMEDATA, so a setting changed in the emulator survives (#871).
 rm -rf ${TMP}
 mkdir -p ${TMP}
 mkdir -p ${GAMEDATA}
@@ -67,8 +69,7 @@ if [ "${HW_DEVICE}" = "GENERIC_X64" ] && grep -qx '\[Retroid Pocket Gamepad\]' "
 fi
 # ROCKNIX: GENERIC_X64 repair end
 
-# Copy files to TMP
-cp ${M64PCONF} ${TMP}
+# This launch's input mapping
 if [ "${CON}" = "custom" ]; then
     cp ${CUSTOMINP} ${TMP}/InputAutoCfg.ini
 elif [ "${CON}" = "standard" ]; then
@@ -76,14 +77,18 @@ elif [ "${CON}" = "standard" ]; then
 else
     cp ${SHARE}/default.ini ${TMP}/InputAutoCfg.ini
 fi
-if [ $(echo $1 | grep -i .zip | wc -l) -eq 1 ]; then
-    # Unzip the game ROM if needed
+# A .zip by its extension (not a name holding "zip"), unzipped into TMP;
+# any other ROM is run where it is. The member's name from busybox's
+# unzip -qql, upstream's line (ROCKNIX 195a8eba4b; unzip -Zl is not busybox's).
+case "${1,,}" in
+  *.zip)
     unzip -q -o "$1" -d ${TMP}
-    ROM=$(unzip -Zl -1 "$1")
-else
-    cp "$1" ${TMP}
-    ROM="${GAME}"
-fi
+    ROM="${TMP}/$(unzip -qql "$1" | head -n1 | cut -c31-)"
+    ;;
+  *)
+    ROM="$1"
+    ;;
+esac
 
 # CPU core settings
 if [ "${CORES}" = "little" ]; then
@@ -209,4 +214,5 @@ SET_PARAMS+=" --audio mupen64plus-audio-sdl${SIMPLESUFFIX}.so"
 # Echo the command line options to the log for debugging
 echo ${SET_PARAMS}
 
-${EMUPERF} /usr/local/bin/mupen64plus${SIMPLESUFFIX} --configdir ${TMP} ${SET_PARAMS} "${TMP}/${ROM}"
+echo "Launching mupen64plus${SIMPLESUFFIX} with ${ROM}"
+${EMUPERF} /usr/local/bin/mupen64plus${SIMPLESUFFIX} --configdir "${GAMEDATA}" ${SET_PARAMS} "${ROM}"
