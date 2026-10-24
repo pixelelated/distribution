@@ -80,3 +80,9 @@
   - Nothing owed.
 - Commits `772e116dca`, `8dbe5762bc`, pushed.
 - 03:19 The coordinator: **F-08/F-09 verified and filed as #802** (the maintainer and the M7 lane told; no device run asked). F-08's row references #802; the fix comes with the base merge as `c9820d0e89` adapted to `DISTRONAME`; nothing on this branch. `gh issue view 802` read back.
+GUEST-PROOF: 03:27:01 UTC -- P1, the installed set on the guest (ssh 10034, BUILD_ID 069fc270442134fe771258418adf4e666e0473fb): cores, table, retroarch.cfg, modules, retroarch32; inline commands, output /workspace/artifacts/m6-t3-20261024/p1-installed-set.out
+GUEST-PROOF: 03:27:22 UTC -- P2, tools/time-to-play --vm --no-configure-remote --only launch,exit,g2g --repeat 3 on the image's own scripts (Q5); output /workspace/artifacts/m6-t3-20261024/ttp-1/, log /workspace/artifacts/m6-t3-20261024/ttp-1.log
+GUEST-PROOF: 03:33:10 UTC -- P3, patches 0018 and 0017 on two real launches through runemu.sh (Auto slot asked; control without), script /workspace/artifacts/m6-t3-20261024/p3-guest.sh, output /workspace/artifacts/m6-t3-20261024/p3-guest.out
+GUEST-PROOF: 03:34:01 UTC -- P3b, patch 0018 re-run with the AUTO SAVE tile's arguments as separate words (P3's run A packed them into --controllers and did not engage: a fixture fault), script /workspace/artifacts/m6-t3-20261024/p3-guest.sh, output /workspace/artifacts/m6-t3-20261024/p3b-guest.out
+GUEST-PROOF: 03:35:37 UTC -- P4, tools/time-to-play --vm --no-configure-remote --only launch,exit,g2g --repeat 3 with log_verbosity = "false" in the guest's /storage retroarch.cfg (Q5: the logging key's cost), output /workspace/artifacts/m6-t3-20261024/ttp-2/, log /workspace/artifacts/m6-t3-20261024/ttp-2.log
+- 03:40 The guest stopped (`tools/vm-stop` rc 0 at 03:39:37; no QEMU left); this VM cycle's section was appended to `docs/vm-qa-log.md`.

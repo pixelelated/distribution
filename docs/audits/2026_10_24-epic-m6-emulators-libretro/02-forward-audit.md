@@ -266,3 +266,102 @@ Proof: the key test above reads 0 on the edited files, and a guest launch reads 
 ### F-13 (Q1): RetroArch's `make_target` carries three status checks that `set -e` has made dead
 
 `emulators/libretro/retroarch/package.mk` 92 to 98: each of the three `make` calls (RetroArch, `gfx/video_filters`, `libretro-common/audio/dsp_filters`) is followed by `[ $? -eq 0 ] && echo "(... ok)" || { echo "(... failed)" ; exit 1 ; }`. The recipe's functions run under `set -e` (`config/path:4`). A failing `make` therefore ends `make_target` before the next line, and a succeeding one prints a status the build log already carries. Fix shape: drop the three lines, behaviour unchanged. Proof: `pkgcheck retroarch` rc 0; the build log of the next image shows the three makes; `fix-pending-image`. Q1, Low (`Renovation`). Upstream's lines (#585 candidate).
+
+### The eight fork-written RetroArch patches (1,244 lines; all seven questions)
+
+**Q4 for all eight** is the table above: none applies to master as the build would meet it; 0011 and 0015 are superseded there. Read one by one:
+
+- **`0011-video-thread-wrapper-serialise-posters`** (85 lines, `1c4fa3b308`, #211):
+  - What it does: a `user_lock` serialises posters on the threaded wrapper's one-packet mailbox.
+  - Q3: the header's argument holds in the code read at the pin: the video thread never takes `user_lock`, and every marshalled entry goes through `video_thread_send_and_wait_user_to_thread`.
+  - Q6: superseded upstream by its author's own PR #19518 (merged 2026-09-08), so it **retires with a bump** and is kept until then.
+  - Q5: one uncontended mutex per posted command. Not measured; it is not on the frame path.
+  - Its mechanical check is not this tool: `tools/retroarch-wrapper-test` drives one poster, so it does not exercise 0011 (§ Mechanical checks).
+- **`0015-video-thread-wrapper-run-a-command-once`** (89 lines, `e5d14d4220`, #211): the dequeue runs a posted command once. **Proven by `tools/retroarch-wrapper-test`**: 2000 of 2000 with it, 2011 of 2000 with it reversed. Q6: master already fixes it (#19577), so it retires with a bump.
+- **`0013-cheevos-offline-proxy-toast`** (188 lines, `d5ea1bdedf`, #194):
+  - What it does: reads `X-RA-Proxy: 1` / `X-RA-Offline: 1` from the response headers (`rcheevos_client_header_is_set`: case-insensitive name, blanks skipped, value exactly `1`, bounded by the header's NUL) and shows `RetroAchievements: Logged in as "%s" (offline).` (French beside it).
+  - Q3: the two flags are reset at every HTTP callback, and the login callback reads them synchronously inside it, so they cannot belong to another request. A non-proxy server could send the header and change one word of a toast; that is not a security effect.
+  - Q2: the strings in `msg_hash_us.h`/`msg_hash_fr.h`, the enum in `msg_hash.h`. PASS.
+- **`0018-auto-slot-survives-content-load`** (181 lines, `8db9042afa`, `a8175c6193`, `c2bdcf0797`, `f53264dcb0`, `a81db9971b`; #209, #249; D-LAUNCH-005, D-LAUNCH-007):
+  - What it does: keeps `state_slot = -1` (Auto) when this launch's append config sets it, in both `command_event_set_savestate_auto_index` and `runtime_log_init`'s restore.
+  - Q3: the detection is `config_get_entry(conf, "state_slot") != main_slot` after the append files load. It is sound only if loading an append file that sets the key points the map at a new entry. **The pinned `libretro-common/file/config_file.c` `config_append_file` (761 to 793) does exactly that** (`RHMAP_SET_FULL(conf->entries_map, new_hash, new_key, entry)` with the appended file's own entry), so reading supports it.
+  - **The patch's own header says this final form "has not yet run on a guest"**. The guest proof below is the answer (D-LAUNCH-007's case).
+  - Q4: #19223 (merged after the pin) rewrote the runtime log's slot handling, so 0018's second half needs re-reading at a bump.
+- **`0017-widgets-sharp-font-sizes`** (230 lines, `eb131d112f`, `24badef3cb`, `150a4e1402`; #255, D-UI-0xx): moves a computed widget size up to a "sharp" one from a table measured for **Inter** (`ozone/regular.ttf`, `ozone/bold.ttf`), chosen by the file the face is loaded from. F-14 below.
+
+### F-14 (Q6): patch 0017's size step engages on no shipped profile
+
+0017's table is chosen by the face's file. Its lookup (`gfx_widgets_sharp_face`, patch lines 107 to 119) matches only `ozone/regular.ttf` and `ozone/bold.ttf` (lines 88 to 89), and a NULL or empty `video_font_path` selects the ozone faces. **All fifteen shipped profiles set `video_font_path = "/usr/share/retroarch-assets/xmb/monochrome/font.ttf"`** (`grep -H '^video_font_path' sources/*/retroarch.cfg`, fifteen identical lines), and neither `runemu.sh` nor `setsettings.sh` writes `video_font_path` (`grep -n video_font`, no hit). The patch's own header says so: *"ROCKNIX's shipped profiles name xmb/monochrome/font.ttf in video_font_path, which is M+ 1p. It has no table ... the faces those profiles draw keep their computed size."* **So on the shipped configuration 0017 changes no size, and what runs of it is the per-face log line** (`no sharp-size table for this face`), to be read on the guest (below). It is reached only when a player sets `video_font_path` to an ozone face by hand. Not a defect: a mechanism carried for a configuration nothing ships. **Q6/Q7, Low (`Renovation`); its disposition is the coordinator's.** The candidates: keep it, with the recipe or the profile saying it is for a configuration the fork may choose; ship an Inter `video_font_path` (a player-visible change, D-UI-079, the maintainer's); or drop it at the bump where it must be re-cut anyway (Q4 (c)). Also `deferred:#336` for the 2D cores (the widget surface retires there). `Already written:` nothing; a log line.
+
+## Guest proofs
+
+The guest: `/workspace/artifacts/m6-t3-20261024/t3.qcow2`, converted from the copied image (`sha256sum -c` OK) and resized to 16 GiB. It was started at 03:26:02 UTC with `generic-x64-vm run --headless --daemonize --pidfile .../qemu.pid --serial .../serial.sock --monitor .../monitor.sock --vnc 21 --ssh-port 10034` (QEMU pid 304271; KVM, Haswell-v4, 4 vCPUs, 8 GiB; virgl on the Intel iGPU). No other QEMU was running. On the second boot (uptime 15.7 s) the guest's `/etc/os-release` read **`BUILD_ID="069fc270442134fe771258418adf4e666e0473fb"`**, `VERSION="0.0.1-dev+20261022T235948Z.g069fc2704421"`, the `.identity.json`'s. The lane's own key is under the artifacts directory.
+
+**Can this be done on the VM?** Yes for both proofs below: the image's installed set and RetroArch's start on x86_64. No for F-08's load failure (no 32-bit RetroArch on x86_64) and for any device's own `retroarch.cfg` on its panel (brief § 5).
+
+### P1, the installed set on the running guest (03:27 UTC; `p1-installed-set.out` in the artifacts directory)
+
+**proved: image-set.**
+
+| Quantity | On the guest | Against |
+| --- | --- | --- |
+| `/usr/lib/libretro/*_libretro.so` | 116 | 116 in the host install tree |
+| `es_systems.cfg` sha256 (`/usr/config/emulationstation/`, and `/etc/emulationstation/es_systems.cfg`, the symlink to it) | `95b1a9b6b166a47d…` | the image's and the host regeneration's (byte-identical, § The host regeneration) |
+| `/usr/config/retroarch/retroarch.cfg`, `retroarch-core-options.cfg`, `TATE-MAME 2003-Plus.rmp`, `retroarch64bit-append.cfg` | `9162a687…`, `9561b487…`, `7bb466e0…`, `29b44aef…` | the tree's `sources/GENERIC_X64/` files, the same four hashes |
+| `/usr/config/modules/*.sh` | 17 | the install tree's |
+| `/usr/bin/retroarch32` | absent (x86_64) | the recipe's aarch64-only branch |
+| `/tmp/cores` | `overlay (lowerdir=/usr/lib/libretro,upperdir=/storage/cores, ...)`, 116 cores through it | **F-08's mechanism, seen on a running image** |
+
+### P2, time to play on the image as built (03:27:22 to 03:31:01 UTC; `tools/time-to-play --port 10034 --identity <key> --monitor <sock> --out .../ttp-1 --vm --no-configure-remote --only launch,exit,g2g --repeat 3`)
+
+**proved: image-set.** rc 1, the report ending **`Not a pass:` the exit sync had no cloud to reach (rclone lsd qa-cloud: no)** (`headline_missing`, as the brief expects with `--no-configure-remote`, T1's caveat: the exit sync skips at once, so the game-to-game number is not like for like with a configured device).
+
+- `interface_rebooted: True` (the tool rebooted the guest when it seeded `TTProbe.gb`; uptime 214 s at the end). No file was bound, because the image's own scripts are what this measures.
+- The surface check: `surface 889x800, panel 1280x800, scaled: false`, from RetroArch's GPU screenshot. Its evidence lines: `Loading content file: ".../TTProbe.gb"`, `Detecting screen resolution: 1280x800`, `Using resolution 240x256`. The last is the splash-size line blindspot 55's guard no longer trusts.
+- Renderer `virgl (Mesa Intel(R) Graphics (ARL))` (`exec.log`).
+- **The configuration it ran with: `/storage/.config/retroarch/retroarch.cfg` sha256 `7b31c3cdbe618a77…`, read after the run**, with `video_driver = "gl"` (the image's profile already says `gl`, so `--vm`'s switch is a no-op here, as the brief predicted).
+
+| Number (median / mean / max, n = 3) | T3, the image | T1 (`--quick` n=1, tree's scripts / stage B median of three, image's) | T2 (pin, median of three) | #336's baseline |
+| --- | --- | --- | --- | --- |
+| interface to the game's first frame | **0.62 / 0.68 / 0.83** | 0.73 / 0.64 | 0.65 | 1.05 |
+| a game's exit to the next game's first frame | **1.01 / 1.01 / 1.02** | 1.01 / 1.01 | 1.01 | 2.03 |
+| (RetroArch existing, from the press) | 0.49 / 0.51 / 0.58 | | | |
+| (execute_kill to the emulator gone) | 0.15 / 0.15 / 0.15 | | | |
+
+The slice has changed nothing yet, so these are the "before" numbers. They agree with T1's and T2's within the spread T1 recorded (0.64 to 0.76 s for the launch on the same image).
+
+### P3, patch 0017's per-face line on two real launches (03:33:10 to 03:33:24 UTC; `p3-guest.sh`, `p3-guest.out`)
+
+**proved: image-set.** Two launches through `/usr/bin/runemu.sh` over SSH, in the interface's environment (read from ES's `/proc/<pid>/environ`: `WAYLAND_DISPLAY=wayland-1`, `SDL_VIDEODRIVER=wayland`, `XDG_RUNTIME_DIR=/var/run/0-runtime-dir`).
+
+- The fixture `TTProbe.gb` (`time-to-play`'s, sha256 `085a0105555d5a11…`) was placed under `/storage/roms/gb/` and removed after.
+- The binaries hashed beside the verdict (blindspot 74): `runemu.sh` `a81a2bd04ceafa24…`, `setsettings.sh` `02e110af2f2697db…`, `retroarch` `878f78a53cfabc29…`.
+- `exec.log` was removed before each launch (blindspot 50), and RetroArch was stopped by its pid.
+
+**Both launches log, for every widget face:** `font regular: /usr/share/retroarch-assets/xmb/monochrome/font.ttf, computed 13.16 px, floor 9, no sharp-size table for this face, drawn 13 px` (and `bold`, and at the 3.06 px context-reset size); `font msg_queue: ..., computed 8.22 px, floor 13, no sharp-size step, drawn 13 px`. **F-14 on the running image:** 0017's step does not engage, and 0016's floor does (8.22 to 13 px).
+
+**This run's launch A did not test 0018** and is not counted for it. It passed `-state_slot -1 -autosave 1` inside the `--controllers` value. `runemu.sh` reads those flags from the separate words after it (`parse_savestate_arguments`, 194 to 231), so `setsettings` received `--controllers=-state_slot -1 -autosave 1` with `--autosave=` and `--snapshot=` empty. That is a fixture that did not engage (blindspot 74), seen because the log named what the launcher received; P3b is the corrected run.
+
+### P3b, patch 0018 with the AUTO SAVE tile's arguments (03:34:01 to 03:34:15 UTC; the same script corrected, `p3b-guest.out`)
+
+**proved: image-set.** The same fixture and hashes as P3. The arguments were the interface's own shape, as separate words: `--controllers="" -state_slot -1 -autosave 1 -state_file /storage/roms/savestates/gb/TTProbe.state.auto`.
+
+- **Launch A (Auto asked):**
+  - `setsettings: Remove setting [state_slot]`, then `Added setting: state_slot = "-1"`
+  - `[INFO] [Content] Loading content file: "/storage/roms/gb/TTProbe.gb".`
+  - **`[INFO] [State] Keeping the Auto slot this launch's configuration asks for.`**
+- **Launch B (the control, no slot asked):** the content line and no `Keeping the Auto slot` line.
+
+So 0018's detection engages on the image for the interface's request and not for a plain launch, which **answers the patch header's "has not yet run on a guest"** for its 2026-09-28 form. The image carries the tree's patch (the slice's bytes are `next`'s; `retroarch` was built from it). What this does not show: the load-state hotkey reloading `TTProbe.state.auto` (#249's end-to-end case), which needs the hotkey driven; it is a lead the stage-F guest can close if a stream touches 0018.
+
+### P4, the logging key's cost (03:35:37 to 03:39:11 UTC; `time-to-play ... --repeat 3`, output `ttp-2/`)
+
+**proved: image-set** (the image's own scripts and binary, with one key of the guest's `/storage` copy changed for the run). All fifteen shipped profiles set `log_verbosity = "true"` (`grep -H '^log_verbosity' sources/*/retroarch.cfg`: 15 identical), and `runemu.sh` starts RetroArch with no `--verbose` (302). So the profile key, not `system.loglevel`, decides RetroArch's INFO log on every device. For this run the guest's `/storage/.config/retroarch/retroarch.cfg` was copied aside (`7b31c3cdbe618a77…`), then edited to `log_verbosity = "false"`. **The configuration the run used: sha256 `f00841def91de6b8…`**, read before and after. The original was put back afterwards and its hash and `log_verbosity = "true"` read back.
+
+| Number (median / mean / max, n = 3) | `log_verbosity = "true"` (P2) | `log_verbosity = "false"` (P4) |
+| --- | --- | --- |
+| the game's first frame | 0.62 / 0.68 / 0.83 | 0.58 / 0.60 / 0.71 |
+| RetroArch existing | 0.49 / 0.51 / 0.58 | 0.48 / 0.48 / 0.49 |
+| the next game's first frame | 1.01 / 1.01 / 1.02 | 1.01 / 1.01 / 1.02 |
+
+The 0.04 s median difference lies inside the spread T1 recorded on the same image (0.64 to 0.76 s), so at n = 3 **the logging costs no measurable time to play on the guest**. The surface check still passed from RetroArch's GPU screenshot (`889x800`, not scaled), with no log line to read, as expected.

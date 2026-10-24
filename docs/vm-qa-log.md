@@ -359,3 +359,30 @@ GPU or performance. Earlier SIGXFSZ/file-limit and DOM-schema fixture failures
 preserved. All original lifecycle channels0, owners exited, admission consumed,
 2,312,990,720bytes of disposable disk/firmware retired.
 [Exact results](qa-logs/2026-10-17-browser-controls-results-616/README.md).
+
+## 2026-10-24 03:26 to 03:39 UTC — M6 T3, RetroArch and the libretro cores: the installed set, 0017, 0018, time to play (#650)
+
+**The guest:**
+
+- Image `069fc270442134fe771258418adf4e666e0473fb`, copied to `/workspace/artifacts/m6-t3-20261024/` (`sha256sum -c` OK) and converted to a 16 GiB qcow2.
+- Run with `generic-x64-vm run --headless --daemonize` on the lane's own pidfile and sockets: SSH 10034, VNC :21, KVM, 4 vCPU / 8 GiB, virgl on the Intel iGPU, 1280x800. `BUILD_ID` was read from `/etc/os-release`.
+- Stopped with `tools/vm-stop` (rc 0, pid 304271 exited, no QEMU left).
+
+**What the VM found:**
+
+- **P1.** The installed set equals the tree's and the host install tree's: 116 cores, `es_systems.cfg` `95b1a9b6…` (byte-identical to the host regeneration of the table), and the four `retroarch` configs' hashes. `/tmp/cores` is an overlay with `lowerdir=/usr/lib/libretro`. That last fact is #802's mechanism, seen on a running image.
+- **P2, time to play on the image as built,** n = 3, `--vm --no-configure-remote --only launch,exit,g2g`: first frame 0.62 / 0.68 / 0.83 s, game to game 1.01 / 1.01 / 1.02 s. The run ends `Not a pass` because the exit sync had no cloud, as expected.
+- **P3, patch 0017:** every widget face logs `no sharp-size table for this face`, so its step engages on no shipped profile.
+- **P3b, patch 0018:** with the AUTO SAVE tile's arguments, RetroArch logs `Keeping the Auto slot this launch's configuration asks for.`, and the control launch does not.
+- **P4:** `log_verbosity = "false"` gives 0.58 / 0.60 / 0.71 s, inside T1's spread, so the logging has no measured cost.
+
+**What it could not prove:**
+
+- #802's load failure: there is no 32-bit RetroArch on x86_64.
+- Any device's own `retroarch.cfg` on its panel.
+- The load-state hotkey end to end after 0018 (#249).
+
+**Left behind:**
+
+- A fixture lesson: P3's run A put `-state_slot` inside `--controllers=`. `runemu.sh` reads those flags from the separate words after it, so the fixture did not engage (blindspot 74's shape). P3b is the corrected run.
+- Where the evidence lives: `docs/audits/2026_10_24-epic-m6-emulators-libretro/02-forward-audit.md` § Guest proofs, with the frames and JSON under the artifacts directory.
