@@ -321,8 +321,17 @@ do_install_quick() {
         # installing syslinux
         msg_progress_install "50" "Installing syslinux to $TMPDIR/part1"
         syslinux -i ${INSTALL_DEVICE}${PARTID}${PART1} >> $LOGFILE 2>&1 || install_failed "installing the boot loader"
+      ;;
+    esac
 
-        # configuring bootloader
+    # install system files
+    msg_progress_install "60" "Installing boot files"
+    cp -r /flash/* $TMPDIR/part1/ >> $LOGFILE 2>&1 || install_failed "copying the system files"
+
+    case ${HW_ARCH} in
+      i686|x86_64)
+        # configuring bootloader -- after the copy, which would otherwise put the
+        # installation media's syslinux.cfg (DEFAULT run, portable) over this one (#901)
         msg_progress_install "80" "Setup bootloader with boot label = $DISKLABEL_SYSTEM and disk label = $DISKLABEL_STORAGE"
         mkdir -p $TMPDIR/part1/EFI/BOOT
         cat << EOF > $TMPDIR/part1/syslinux.cfg
@@ -331,7 +340,7 @@ PROMPT 0
 
 LABEL linux
  KERNEL /KERNEL
- APPEND boot=LABEL=${DISKLABEL_SYSTEM} disk=LABEL=${DISKLABEL_STORAGE} ${EXTRA_CMDLINE}
+ APPEND boot=LABEL=${DISKLABEL_SYSTEM} disk=LABEL=${DISKLABEL_STORAGE} @EXTRA_CMDLINE@
 EOF
 
         # uefi boot (syslinux only, 64-bit UEFI)
@@ -339,10 +348,6 @@ EOF
         cp /usr/share/syslinux/ldlinux.e64 $TMPDIR/part1/EFI/BOOT
       ;;
     esac
-
-    # install system files
-    msg_progress_install "60" "Installing boot files"
-    cp -r /flash/* $TMPDIR/part1/ >> $LOGFILE 2>&1 || install_failed "copying the system files"
     sync
 
     sync
