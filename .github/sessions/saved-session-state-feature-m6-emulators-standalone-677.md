@@ -1,6 +1,7 @@
 # Session pointer: M6.P2 T30, the standalone emulators (#677)
 
 > **Seeded:** 2026-10-24 by the coordinator (Fable 5.1, lane `m6-coordinator`, D-WORKFLOW-189); the executor updates this file at every checkpoint
+> **Updated:** 2026-10-24 by the executor (the T3 session, `m6-t3-emulators`), at stage A
 > **Branch:** `feature/m6-emulators-standalone-677`, stacked on `feature/m6-p1-survey-641` at `2174265e9c` (which carries the P0 branch); the coordinator's tip merged in at `f606d29bef`
 > **Worktree:** `/workspace/repos/pixelelated/distribution.worktrees/m6-emulators-standalone-677`; the T3 worktree `m6-emulators-libretro-650` beside it is this session's earlier slice, accepted and idle: read only until the merge (its audit folder's tools are copied from there by path)
 > **Primary checkout:** `/workspace/repos/pixelelated/distribution` on `next` (D-INFRA-025); the legacy `/workspace/repos/rocknix` and every `rocknix.worktrees/*` are the M7 lane's: read only, no process started there (the three install trees the brief § 5 names are read with `ls`)
@@ -35,20 +36,24 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#677`. The host is M6's since 05:42 UTC (M7's return
-line on the host file); a guest runs only with the census, the pidfile and
-the stop, and never while a later M7 block says the host is held.
+**Stage A done (08:22 UTC); stage B next.** The audit folder is
+`docs/audits/2026_10_24-epic-m6-emulators-standalone/`: `00-running-log.md`
+(header, Phase 0, stage A), `01-research-notes.md` § Scope (no delta; the
+device x recipe table: H700 17, SM8550 35, GENERIC_X64 15), and `tools/`
+(T3's nine tools copied by path, `q4-pins.py` pointed at `standalone/`).
+`reviewed-at` candidate `c7e3dfcc87`. The host is M6's (M7's last block is
+the 05:42 resource return); no guest has run. Nothing of the 543 is edited
+before a stream brief.
 
 ## Next commands
 
 ```bash
 D=/workspace/repos/pixelelated/distribution.worktrees/m6-emulators-standalone-677
-cd "$D" && git fetch origin && git fetch upstream --no-tags
-git merge-base --is-ancestor 2174265e9c HEAD && echo stacked-on-P1
-git diff --stat next -- .claude CLAUDE.md AGENTS.md tools/lint-audit-artifacts    # the six files
-sed -n '1,140p' docs/reviews/briefs/emulators-standalone.md
+cd "$D" && git status --short && git log --oneline -3
+A=docs/audits/2026_10_24-epic-m6-emulators-standalone
+tail -20 $A/00-running-log.md
+# stage B: the brief's section 5 host-side checks into 02 section Mechanical checks,
+# then Phase 1 (T3's and T1's leads), Phase 2 over #677, the exit sweep, the shell-line sweep, Q4
 ```
 
 ## Merge notes
