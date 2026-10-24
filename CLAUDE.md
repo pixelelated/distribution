@@ -24,16 +24,17 @@ a feature worktree, or read the rules from `next` (#367).
 
   | Always (no glob, or `paths: "**"`) | Scoped |
   | --- | --- |
-  | `least-surprise` · `player-language` · `time-to-play` · `vm-first` · `bugs-are-agent-first` — the four principles every interface and sync decision is weighed against | `packaging-and-patches` (`packages/**`, `projects/**`) |
+  | `least-surprise` · `player-language` · `time-to-play` · `vm-first` · `bugs-are-agent-first` — the five principles every interface and sync decision is weighed against | `packaging-and-patches` (`packages/**`, `projects/**`) |
   | `es-native-ui` · `es-player-text` · `es-ui-style-guide` · `es-code-traps` — the EmulationStation four: the mechanics · the words a player reads · how a screen looks · the codebase's sharp edges (D-WORKFLOW-007/008) | `rclone-cloud-sync` (the rclone package, `rocknix/sources/scripts`, the cloud tools) |
   | `engineering-practices` · `upgrade-and-install` · `documentation-accuracy` | `generic-x64-vm-testing` (GENERIC_X64, `projects/ROCKNIX/packages/**`, the VM tools) |
   | `fork-workflow` · `worktrees` · `device-builds` · `release-candidates` · `issue-tracking` · `decision-register` · `learning-capture` · `instruction-files` · `ceremonies` · `working-principles` | `handheld-evidence` (device packages, device kernels, `docs/**`) |
   | `adversarial-council` | `council-substrate-integrity` (council artifacts and skills) |
   | | `change-log` (`projects/ROCKNIX/packages/**`, the running change log) |
 
-  Two more documents carry interface law and load *nowhere*: `docs/es-menu-map.md`
+  Three more documents carry interface law and load *nowhere*: `docs/es-menu-map.md`
   (where a row belongs — and D-UI-039: a row added, moved or renamed updates it in the
-  same change) and `docs/conflict-wizard-ia.md` (the wizard's IA). Open them when the
+  same change), `docs/conflict-wizard-ia.md` (the wizard's IA), and
+  `docs/device-testing-policy.md` (the device and QA-guest policy). Open them when the
   work is theirs; `es-native-ui.md` says which owns what.
 
 ## Current project identity
@@ -56,14 +57,15 @@ OS upgrade preservation and normal sync/restore testing still apply.
 ## Build & development commands
 
 Builds are driven by `PROJECT` (default `ROCKNIX`), `DEVICE`, and `ARCH`. Per-device make
-targets exist for: `RK3588`, `RK3576`, `RK3566`, `RK3326`, `RK3399`, `S922X`, `SM6115`,
-`SM8250`, `SM8550`, `SM8650`, `SM8750`, `H700`, `AMD64` (see `Makefile`; most build both
-`arm` and `aarch64`). `make world` builds the primary device set.
+targets exist for: `RK3588`, `RK3576`, `RK3566`, `RK3326`, `RK3399`, `S922X`, `SM4450`,
+`SM6115`, `SM8250`, `SM8550`, `SM8650`, `SM8750`, `H700`, `AMD64`, `GENERIC_X64` (see `Makefile`;
+most build both `arm` and `aarch64`). `make world` builds twelve of them: every one but
+`AMD64`, `SM4450` and `SM6115` (`Makefile:42`).
 
 Docker is the recommended way to build:
 
 ```bash
-make docker-image-pull                   # pull Rasteratops mirror at Makefile's pinned digest
+make docker-image-pull                   # pull ghcr.io/pixelelated/build at the Makefile's pinned digest
 make docker-RK3588                       # full image build for a device
 make docker-shell                        # interactive shell in the build container
 PACKAGE=retroarch make docker-package    # build one package in the container
@@ -85,7 +87,7 @@ Fast dev loop — rebuild one package, then remake the image instead of a full b
 make docker-shell                        # skip when building natively
 export PROJECT=ROCKNIX DEVICE=RK3588 ARCH=aarch64
 ./scripts/clean <pkg> && ./scripts/build <pkg>
-./scripts/install <pkg> && ./scripts/image mkimage   # needs OS_VERSION/BUILD_DATE exported
+./scripts/install <pkg> && ./scripts/image mkimage   # OS_VERSION is distributions/ROCKNIX/version's; BUILD_DATE defaults to now
 ```
 
 Native image/package entrypoints and Docker build targets automatically use
@@ -182,7 +184,7 @@ No Conventional Commits. Scope by package or device, matching history:
   presentation. Source, references and the exact-source frame index precede
   completion or pin promotion (`es-ui-style-guide.md`, D-WORKFLOW-155/156).
 - **Clarity, then brevity, then sized to the space** for every string a player reads, and surprise them as little as possible — `player-language.md` (D-UI-045) and `least-surprise.md` (D-UI-042), beside `time-to-play.md` (D-CLOUD-098): interface → first frame and exit → next first frame are measured on every image, and nothing goes on the launch path unless it must.
-- **Vocabulary is not decoration.** Four tiers (settings; saves; ROMs and BIOS; game content), two verbs (*back up*, *restore*), *sync* reserved for the automatic behaviour, "Wi-Fi" hyphenated, the serial comma, *game save* vs *save state* — `es-player-text.md` § Conventions, D-UI-022. Only "back up" vs "backup" is checked mechanically (`tools/vocabulary-check`, the `vocabulary` suite of `tools/vm-qa`).
+- **Vocabulary is not decoration.** Four tiers (settings; saves; ROMs and BIOS; game content), two verbs (*back up*, *restore*), *sync* reserved for the automatic behaviour, "Wi-Fi" hyphenated, the serial comma, *game save* vs *save state* — `es-player-text.md` § Conventions, D-UI-022. Three of these are checked mechanically: "back up" vs "backup", "save state" as two words, and the hyphen in "Wi-Fi" (`tools/vocabulary-check`, the `vocabulary` suite of `tools/vm-qa`).
 - **Every build ships onto devices that already have state.** Before publishing, check both the upgrade path (a device keeping its `/storage`) and a clean install — see `upgrade-and-install.md`. A fix that changes what we *write* does nothing for what is already written.
 - **Can this be done on the VM?** Asked and answered in writing, in the issue, before
   every test, proof or measurement; only a reasoned no (a real panel, a board's memory,

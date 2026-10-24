@@ -16,9 +16,11 @@ a feature worktree, or read the rules from `next` (#367).
 `AGENTS.md` adds to its own subtree) and nothing else on its own, so this file stands
 alone: the commands, the rules that bind every session, and the list of every rule file
 with what it decides. Claude Code reads `CLAUDE.md` and loads `.claude/rules/*.md` by
-their `paths:` globs. Both files carry the same facts and are kept equal by
-`tools/rules-check` (D-WORKFLOW-045), which also regenerates the rule list below from
-the rule files' own front matter. When something here and a rule file disagree, the rule
+their `paths:` globs. Both files mean to carry the same facts, and `tools/rules-check`
+(D-WORKFLOW-045) holds part of that: the "All N" count in each, every rule named in
+`CLAUDE.md`, this file within Codex's 32 KiB budget, and the rule list below, which it
+regenerates from the rule files' own front matter. The rest is kept equal by hand.
+When something here and a rule file disagree, the rule
 file is right and this file has a bug.
 
 **Canonical deep-dive docs (this file summarizes; they are authoritative):**
@@ -28,10 +30,10 @@ file is right and this file has a bug.
   descriptions and when each loads. `instruction-files.md` is their index and carries the
   front-matter standard (D-WORKFLOW-009). Open the every-session ones before starting;
   open a scoped one before touching its paths.
-- Two documents carry interface law and are loaded by no rule: `docs/es-menu-map.md`
+- Three documents carry interface law and are loaded by no rule: `docs/es-menu-map.md`
   (where a row belongs; D-UI-039: a row added, moved or renamed updates it in the same
-  change) and `docs/conflict-wizard-ia.md` (the wizard's IA). `docs/device-testing-policy.md`
-  is the device and QA-guest policy.
+  change), `docs/conflict-wizard-ia.md` (the wizard's IA), and
+  `docs/device-testing-policy.md` (the device and QA-guest policy).
 
 ## Current project identity
 
@@ -53,15 +55,16 @@ OS upgrade preservation and normal sync/restore testing still apply.
 ## Build & development commands
 
 Builds are driven by `PROJECT` (default `ROCKNIX`), `DEVICE`, and `ARCH`. Per-device make
-targets exist for: `RK3588`, `RK3576`, `RK3566`, `RK3326`, `RK3399`, `S922X`, `SM6115`,
-`SM8250`, `SM8550`, `SM8650`, `SM8750`, `H700`, `AMD64` (see `Makefile`; most build both
-`arm` and `aarch64`). `make world` builds the primary device set. The fork adds
+targets exist for: `RK3588`, `RK3576`, `RK3566`, `RK3326`, `RK3399`, `S922X`, `SM4450`,
+`SM6115`, `SM8250`, `SM8550`, `SM8650`, `SM8750`, `H700`, `AMD64` (see `Makefile`; most build
+both `arm` and `aarch64`). `make world` builds twelve: every one but `AMD64`, `SM4450` and
+`SM6115`, plus `GENERIC_X64` (`Makefile:42`). The fork adds
 `GENERIC_X64`, the VM image every change is QA'd on first.
 
 Docker is the recommended way to build:
 
 ```bash
-make docker-image-pull                   # pull Rasteratops mirror at Makefile's pinned digest
+make docker-image-pull                   # pull ghcr.io/pixelelated/build at the Makefile's pinned digest
 make docker-RK3588                       # full image build for a device
 make docker-shell                        # interactive shell in the build container
 PACKAGE=retroarch make docker-package    # build one package in the container
@@ -83,7 +86,7 @@ Fast dev loop — rebuild one package, then remake the image instead of a full b
 make docker-shell                        # skip when building natively
 export PROJECT=ROCKNIX DEVICE=RK3588 ARCH=aarch64
 ./scripts/clean <pkg> && ./scripts/build <pkg>
-./scripts/install <pkg> && ./scripts/image mkimage   # needs OS_VERSION/BUILD_DATE exported
+./scripts/install <pkg> && ./scripts/image mkimage   # OS_VERSION is distributions/ROCKNIX/version's; BUILD_DATE defaults to now
 ```
 
 Native image/package entrypoints and Docker build targets automatically use
@@ -306,7 +309,8 @@ every-session ones at the start of a session and a scoped one before touching it
 - **Vocabulary is not decoration.** Four tiers (settings; saves; ROMs and BIOS; game
   content), two verbs (*back up*, *restore*), *sync* reserved for the automatic behaviour,
   "Wi-Fi" hyphenated, the serial comma, *game save* vs *save state* — `es-player-text.md`,
-  D-UI-022. Only "back up" vs "backup" is checked mechanically (`tools/vocabulary-check`).
+  D-UI-022. Three of these are checked mechanically: "back up" vs "backup", "save state"
+  as two words, and the hyphen in "Wi-Fi" (`tools/vocabulary-check`).
 - **Read the rules from `next`, not from a feature worktree.** A branch cut from an older
   base silently lacks rule files added since:
   `diff -q <file> <(git -C /workspace/repos/rocknix show next:<file>)`.
