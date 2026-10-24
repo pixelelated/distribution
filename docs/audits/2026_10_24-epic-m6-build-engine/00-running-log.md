@@ -78,29 +78,33 @@ PROOF: 04:06 P7 `daphne` and `gp32` `<release>` in two install trees, read-only 
 PROOF: 04:10 P8 `scripts/unpack` 90's test with one and two matches -- `tools/sb-unpack-glob.sh` (F-08)
 PROOF: 03:58 P9 `tools/build-identity-test`, 21 identity checks passed (the 2 failures #801's)
 
-### [Stage B] 04:12 to 04:22 — The fork-own files, Q4 (a), Q6, the recorded runs
+### [Stage B] after 04:11:41 — The fork-own files, Q4 (a), Q6, the recorded runs
 
 - Read with their fork commits: `scripts/get_env`, the `Makefile` (1 to 60, 120 to 208), `config/build-identity`, `distributions/ROCKNIX/version`, `scripts/image` (its diff against `upstream/next`), `scripts/build_compat`, and the diffs of `build_distro`, `install`, `extract`, `show_config`, `graphic`, `options`, `distributions/ROCKNIX/config/functions`, `.gitignore`, the two PR workflows. F-06, F-07, F-09, F-13, F-14 written.
-- 04:13 Q4 (a): `git diff --name-status upstream/next 8ebaf8daad -- <the 242 paths>`, 21 files, each with its fork and upstream commits since the base (`.qa-scratch/t5/q4a-table.tsv`); three differ only by upstream's (F-12).
-- 04:15 Q6: the caller search for the 30 scripts (fixed strings, the second pattern for each zero, then `scripts/get`'s dispatch); four device tables regenerated; `q6-tables.md` written (Tables 1 to 5).
-- 04:16 the subagent dispatched: one read-only research subagent (general-purpose) over the upstream core (`config/functions` and the 22 other core files), returning leads only; every lead is re-read before it is a finding (brief § 5 rule 5).
-- 04:19 the recorded runs (read-only, `readlog` filtered): `m7-signin-build-20261022-07/.build-runs/20261022T235954Z-4749157a` (GENERIC_X64, 23:59:54 to 00:05:01, `[654/654]`, rc 0), `m7-signin-h700-build-20261023-06/.build-runs/20261024T014932Z-8a1ff937` (H700, 01:49:32 to 02:00:04, `[671/671]`, rc 0; its predecessor `20261024T013624Z-826391e2` rc 1 after 2 minutes, `progress: none matched`), `m7-signin-sm8550-build-20261023-03/.build-runs/20261024T020912Z-68374394` (SM8550, 02:09:12 to 02:20:16, `[737/737]`, rc 0). No ccache statistics in any of them.
-- 04:20 the meson logs of the GENERIC_X64 root for the wrap mode.
+- Q4 (a): `git diff --name-status upstream/next 8ebaf8daad -- <the 242 paths>`, 21 files, each with its fork and upstream commits since the base (`.qa-scratch/t5/q4a-table.tsv`); three differ only by upstream's (F-12).
+- Q6: the caller search for the 30 scripts (fixed strings, the second pattern for each zero, then `scripts/get`'s dispatch); four device tables regenerated; `q6-tables.md` written (Tables 1 to 5).
+- The subagent dispatched: one read-only research subagent (general-purpose) over the upstream core (`config/functions` and the 22 other core files), returning leads only; every lead is re-read before it is a finding (brief § 5 rule 5).
+- The recorded runs (read-only, `readlog` filtered): `m7-signin-build-20261022-07/.build-runs/20261022T235954Z-4749157a` (GENERIC_X64, 23:59:54 to 00:05:01, `[654/654]`, rc 0), `m7-signin-h700-build-20261023-06/.build-runs/20261024T014932Z-8a1ff937` (H700, 01:49:32 to 02:00:04, `[671/671]`, rc 0; its predecessor `20261024T013624Z-826391e2` rc 1 after 2 minutes, `progress: none matched`), `m7-signin-sm8550-build-20261023-03/.build-runs/20261024T020912Z-68374394` (SM8550, 02:09:12 to 02:20:16, `[737/737]`, rc 0). No ccache statistics in any of them.
+- The meson logs of the GENERIC_X64 root for the wrap mode.
 
-PROOF: 04:20 P10 `-Dwrap_mode=nodownload` in all 85 meson logs of the GENERIC_X64 build root, read-only
-PROOF: 04:18 P11 the H700 and SM8550 launch tables regenerated, byte-identical to their install trees -- `tools/regen-es-systems.sh`
+PROOF: 04:11-04:31 P10 `-Dwrap_mode=nodownload` in all 85 meson logs of the GENERIC_X64 build root, read-only
+PROOF: 04:11-04:31 P11 the H700 and SM8550 launch tables regenerated, byte-identical to their install trees -- `tools/regen-es-systems.sh`
 
-### [Stage B] 04:22 to 04:28 — Phase 3 written; F-15; the `.env` scan
+### [Stage B] before 04:31:01 — Phase 3 written; F-15; the `.env` scan
 
 - `03-retrospective.md` written (3.1 to 3.6.5: the instruction files and blindspots against the findings, six seams, the futro's predictions checked).
 - `config/options` 86 to 152 read: `CONCURRENCY_MAKE_LEVEL=$(nproc)` (91), `CCACHE_CACHE_SIZE="15G"` (100), `CCACHE_COMPRESSLEVEL="0"` (109), `CCACHE_SLOPPINESS="pch_defines,time_macros"` (118); the options files at 132 to 140 led to F-15 (`~/.rocknix/options` against `~/.ROCKNIX/options`; both tested by `test -f` and mode only).
-- 04:24 `.env` at rest: none in 134 checkouts.
+- `.env` at rest: none in 134 checkouts.
 
-### [Stage B] 04:33 to 04:45 — The subagent's leads re-read
+### [Stage B] before 04:31:01 — The subagent's leads re-read
 
-- 04:33 the research subagent returned (28 leads, the sections of `config/functions`, the `set -e` status); a lead, never evidence (brief § 5 rule 5).
+- The research subagent returned (it ran 8 minutes 41 seconds by the harness's count) (28 leads, the sections of `config/functions`, the `set -e` status); a lead, never evidence (brief § 5 rule 5).
 - Re-read at their sites: `scripts/mkimage` (F-16), `find_path`/`calculate_stamp`/`kernel-firmware` (F-17, P12), `get_git` 30 to 52, 193 to 218 (F-18, P13), `get_archive` and `update_packages` 46 to 64 (F-19; the subagent's line numbers for `update_packages` were wrong, 108 and 117 for 52 and 61), `checkdeps` 255 to 345 (F-20), and five small ones (F-21). Lead 11 found partly wrong (the failure path is caught). `config/functions` 948 to 962 and `5ce3dcc9d7`: the libtoolize guard, merged upstream as PR #3213 (`02c9dd740e`), widens F-05 (`device-builds.md` § After rebasing items 2 and 3 both describe fixed defects).
 - Not re-read: 17 leads, listed in `02` as leads.
 
-PROOF: 04:38 P12 `calculate_stamp` unchanged by a device-level file `find_file_path` reads -- `tools/sb-stamp-device-config.sh` (F-17)
-PROOF: 04:41 P13 `get_git`'s cache check accepts `PKG_VERSION` matching a remote ref while `HEAD` differs -- `tools/sb-get-git-head.sh` (F-18)
+PROOF: 04:11-04:31 P12 `calculate_stamp` unchanged by a device-level file `find_file_path` reads -- `tools/sb-stamp-device-config.sh` (F-17)
+PROOF: 04:11-04:31 P13 `get_git`'s cache check accepts `PKG_VERSION` matching a remote ref while `HEAD` differs -- `tools/sb-get-git-head.sh` (F-18)
+
+### [Stage B] 04:31 — Clock correction
+
+- `date -u` read **04:31:01** while the criterion entries were being written, and the entries since the previous reading (04:11:41) had been stamped by estimate as late as 04:50: the same shape as the 03:52 heading. Every stamp written between the two readings is corrected in place to the bracket the two readings support (`after 04:11:41`, `before 04:31:01`, `04:11-04:31`); the order of the entries is the order the work was done. From here, every stamp is a `date -u` reading taken at the moment it is written. A friction line records it (the second time in this lane).

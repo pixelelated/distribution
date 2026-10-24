@@ -4,7 +4,7 @@ Generated from `.qa-scratch/t5/q6-callers.tsv` (the search below) and the readin
 
 ## Table 1: the 30 scripts and their callers
 
-Search per script (2026-10-24 04:15 UTC): `git grep -l -F -e "scripts/<n>" -e "SCRIPTS}/<n>" -e "/<n> " -e "/<n>\"" -- . ':!docs' ':!.github/sessions' ':!research' ':!plans' ':!seed'`, the script itself excluded; a zero re-checked with `git grep -l -w -F <n>` before it is a verdict, and then with the dispatch read (`scripts/get` 48 to 53).
+Search per script (2026-10-24, between 04:11 and 04:31 UTC): `git grep -l -F -e "scripts/<n>" -e "SCRIPTS}/<n>" -e "/<n> " -e "/<n>\"" -- . ':!docs' ':!.github/sessions' ':!research' ':!plans' ':!seed'`, the script itself excluded; a zero re-checked with `git grep -l -w -F <n>` before it is a verdict, and then with the dispatch read (`scripts/get` 48 to 53).
 
 | Script | Files naming it | Reached by | Already written |
 | --- | ---: | --- | --- |

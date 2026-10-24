@@ -28,7 +28,7 @@ Findings are numbered `F-NN` in the order they are written; each names its quest
 | `actionlint` | — | not on the host; the 19 workflows read, and their state from `gh` (below) | — | — |
 | The container manifests | 04:08 | `docker manifest inspect` (and `-v`) of `ghcr.io/pixelelated/build@sha256:988c0ba5…` and `ghcr.io/rocknix/rocknix-build:latest`; the two config blobs through GHCR's anonymous token flow (`https://ghcr.io/token?scope=repository:<repo>:pull`, then `GET /v2/<repo>/blobs/<config digest>`, 5,778 and 5,777 bytes; no layer fetched, **no `docker pull`**) | 0 | pin `sha256:988c0ba586263caeba4be4c03bd16eee055c9d066657951e320087bb8226ee39`, linux/amd64, config `sha256:9783cb20…`, **created 2026-09-25T03:09:54Z**; upstream `latest` answers **`sha256:67e1fd0adbcfe71cc524ef49941242853f3daa7f1eecea74ec765b9b6d24973d`**, linux/amd64, config `sha256:3acf6ac8…`, **created 2026-10-24T03:03:03Z** (the coordinator's read earlier on 2026-10-24 answered `sha256:a81b63a53612…`: upstream rebuilt it since). Both single-platform v2 manifests of 12 layers, label `org.opencontainers.image.version: 22.04`; 10 of the 12 layer `diff_ids` differ; `git diff upstream/next 8ebaf8daad -- Dockerfile` empty. Q4 (b) in `04` |
 | The 19 workflows | 04:08 | `gh workflow list --repo pixelelated/distribution --all`; `gh run list --workflow <file> --limit 3` per file; triggers, repository gates, secrets and runners read from each file | 0 | all 18 `.yml` **active**; `ai-usage.yml.disabled` is not a workflow to GitHub. Runs on the fork: `build-nightly.yml` (`Build`) `startup_failure` on 2026-10-22, 23, 24 (schedule); `update-kernel-configs-docs.yml` **`failure` on 2026-09-04, 09-19, 09-28 (push)**; `update-mirror-sources.yml` `skipped` on 10-04, 10-12, 10-18 (its repository gate); every other one never ran. Table in `04` Q6 |
-| `.env` at rest | 04:24 | `test -e <checkout>/.env` over all 134 checkouts (the legacy primary, every `rocknix.worktrees/*`, the fresh primary, every `distribution.worktrees/*`); a hit would be reported by path, size and mode only | 0 | **none found** |
+| `.env` at rest | 04:11-04:31 | `test -e <checkout>/.env` over all 134 checkouts (the legacy primary, every `rocknix.worktrees/*`, the fresh primary, every `distribution.worktrees/*`); a hit would be reported by path, size and mode only | 0 | **none found** |
 | `tools/vm-qa`'s suites | — | none is this slice's (the engine writes no surface a suite reads beyond the identity, which `tools/build-identity-test` covers); the runner not run | — | — |
 
 ### shellcheck errors, read at their sites
@@ -109,7 +109,7 @@ Q4 (b) in `04`. The pin `988c0ba5…` (`Makefile` 138; `2c349c6d51`, `440ad22b68
 
 ### The upstream core: a research subagent's read, and what was re-read
 
-The 23 upstream-carried core files were read whole by one read-only research subagent (04:16 to 04:33 UTC; D-WORKFLOW-183's fan-out), which returned 28 ranked leads, an inventory of `config/functions`' sections and the `set -e` status of each script. It reported these files byte-identical to `upstream/next`: `config/functions`, `options`, `path`, `optimize`, `multithread`, `scripts/mkimage`, `unpack`, `get`, `get_git`, `get_archive`, `pkgbuild`, `clean`, `build_mt`, `checkdeps`, `autoreconf` (the Q4 (a) diff agrees: none is among the 21 that differ). **Every lead below was re-read at its site by this auditor before it became a finding;** the ones not re-read are listed as leads at the end of this section.
+The 23 upstream-carried core files were read whole by one read-only research subagent (dispatched after 04:11:41, returned before 04:31:01 UTC, 8 m 41 s; D-WORKFLOW-183's fan-out), which returned 28 ranked leads, an inventory of `config/functions`' sections and the `set -e` status of each script. It reported these files byte-identical to `upstream/next`: `config/functions`, `options`, `path`, `optimize`, `multithread`, `scripts/mkimage`, `unpack`, `get`, `get_git`, `get_archive`, `pkgbuild`, `clean`, `build_mt`, `checkdeps`, `autoreconf` (the Q4 (a) diff agrees: none is among the 21 that differ). **Every lead below was re-read at its site by this auditor before it became a finding;** the ones not re-read are listed as leads at the end of this section.
 
 ### F-16 (Q3, Q2): `scripts/mkimage` reports success over an incomplete `qcom-abl` or `arm-efi` image, the Retroid Pocket Nova's route
 
@@ -422,8 +422,54 @@ Each proof's cell names its class (brief § 6, Verification). The scripts are un
 | P6 | case C, a system after `imageviewer` | the same | rc 0, 129 systems | F-03's carry-over | proved: sandbox |
 | P7 | `<release>` of `daphne` and `gp32` in two install trees | `image/system/usr/config/emulationstation/es_systems.cfg` of `m7-signin-build-20261022-07` (GENERIC_X64, `069fc2704421`) and `m7-signin-h700-build-20261023-06` (H700), read-only, parsed with `ElementTree` | — | `1996` both, on both | proved: image-set |
 | P8 | `scripts/unpack` 90's test with one and two matches | `tools/sb-unpack-glob.sh <scratch>` (04:10) | the lifted line runs twice; writes only the fixture directories | F-08 | proved: sandbox |
-| P10 | `--wrap-mode=nodownload` reached meson | the GENERIC_X64 build root `m7-signin-build-20261022-07/build.pixelelated-GENERIC_X64.x86_64/build/*/.<triple>/meson-logs/meson-log.txt`, read-only (04:20) | — | 85 of 85 logs carry `-Dwrap_mode=nodownload` in `Build Options`; `find ... -path '*/subprojects/*/.git'` empty | proved: recorded-run |
-| P11 | the H700 and SM8550 launch tables regenerated from this tree | `tools/regen-es-systems.sh` (04:18) | — | rc 0, 126 and 139 systems, each byte-identical to its install tree (`m7-signin-h700-build-20261023-06`, `m7-signin-sm8550-build-20261023-03`); RK3326 126 and RK3566 132 have no image on the host | proved: sandbox |
-| P12 | `calculate_stamp` against a device-level file `find_file_path` reads | `tools/sb-stamp-device-config.sh <scratch>` (04:38) | 4 calls of `calculate_stamp`; `find_file_path` resolved the fixture's `devices/H700/config/kernel-firmware.dat` | the list extended, the stamp unchanged | proved: sandbox |
-| P13 | `get_git` 36's cache check over a clone whose `HEAD` is behind its remote branch | `tools/sb-get-git-head.sh <scratch>` (04:41; `GIT_CONFIG_GLOBAL=/dev/null`, fixture author) | the check's two runs and `ls-remote`'s refs printed | `PKG_VERSION=A` accepted with `HEAD` at B | proved: sandbox |
+| P10 | `--wrap-mode=nodownload` reached meson | the GENERIC_X64 build root `m7-signin-build-20261022-07/build.pixelelated-GENERIC_X64.x86_64/build/*/.<triple>/meson-logs/meson-log.txt`, read-only (04:11-04:31) | — | 85 of 85 logs carry `-Dwrap_mode=nodownload` in `Build Options`; `find ... -path '*/subprojects/*/.git'` empty | proved: recorded-run |
+| P11 | the H700 and SM8550 launch tables regenerated from this tree | `tools/regen-es-systems.sh` (04:11-04:31) | — | rc 0, 126 and 139 systems, each byte-identical to its install tree (`m7-signin-h700-build-20261023-06`, `m7-signin-sm8550-build-20261023-03`); RK3326 126 and RK3566 132 have no image on the host | proved: sandbox |
+| P12 | `calculate_stamp` against a device-level file `find_file_path` reads | `tools/sb-stamp-device-config.sh <scratch>` (04:11-04:31) | 4 calls of `calculate_stamp`; `find_file_path` resolved the fixture's `devices/H700/config/kernel-firmware.dat` | the list extended, the stamp unchanged | proved: sandbox |
+| P13 | `get_git` 36's cache check over a clone whose `HEAD` is behind its remote branch | `tools/sb-get-git-head.sh <scratch>` (04:11-04:31; `GIT_CONFIG_GLOBAL=/dev/null`, fixture author) | the check's two runs and `ls-remote`'s refs printed | `PKG_VERSION=A` accepted with `HEAD` at B | proved: sandbox |
 | P9 | the identity rules of `config/build-identity` and `scripts/image`'s blocks | `tools/build-identity-test` (T14's), synthetic only | — | 21 passed; the 2 failures #801's | proved: sandbox |
+
+## Criterion entries: #652's checklist (= brief § 7), evaluated at the end of Phase 2 (2026-10-24 04:31 UTC, `date -u`)
+
+Verdicts as the skill defines them. **OPEN (stage X)** means the criterion's artifact is produced by a later stage of this lane and is not yet due: neither PASS nor FAIL, re-evaluated at that stage.
+
+### AC-01: the audit folder holds `00-running-log.md` and `01-research-notes.md` to `05-punch-list.md`
+**Verdict:** PARTIAL ⚠ (OPEN for `04`, `05`: stages B to D). **Evidence:** `00` to `03`, `q6-tables.md`, `tools/`, `second-opinions/review-plan.json` present.
+
+### AC-02: `tools/lint-audit-artifacts` prints PASS (pre-issue before stage D; resolution at close), the renovation face included
+**Verdict:** OPEN (stage C to D, then H).
+
+### AC-03: `second-opinions/review-plan.json` records Extended depth and two reviewers from two other labs, each provenance naming its served model
+**Verdict:** PARTIAL ⚠. `review-plan.json` written before any call (depth `extended`, reviewers `gpt`/openai and `gemini-argon`/google); the probes and calls wait for the host window's return (opened 03:47).
+
+### AC-04: the punch-list issue has every item at a Phase 7 outcome
+**Verdict:** OPEN (stages D to F).
+
+### AC-05: `reviewed-at:` and `fixed-at:` carry the lane's commits
+**Verdict:** PARTIAL ⚠. `reviewed-at: 46f6c7d428`, the slice's bytes `8ebaf8daad`'s (the stage-A byte check, exit 0), the branch on the P1 tip (`merge-base --is-ancestor`, exit 0); in `00` and `01` § Scope. #652's body at hand-back; `fixed-at` after stage E.
+
+### AC-06: `01` § Scope records the read hash, the filter's output with the order row's figures reproduced by the tool's `CODE` set, what the globs sweep in, the M7 delta, and the two trackers with dates
+**Verdict:** PASS ✓. **Evidence:** `01` § Scope: `8ebaf8daad`; 242 / 13,910 / 18 fork-own 3,266 / 224 / 6,776 / 2,419, no delta, with `tools/renovation-inventory` 674 to 676's set and `order()`'s predicate at 1274; the 52 extra files of the glob directories, all T10's; the 353 `records` rows; the M7 delta none; ROCKNIX's and LibreELEC's PRs read 2026-10-24 03:57 UTC (`01` § Phase 1, each truncated at its `--limit`, said so). **What would have failed it:** any figure that differed without a delta row, or a tracker read without a date.
+
+### AC-07: `02` carries a coverage table with exactly one row per path, `grep -c` 242, each Q cell answered or `n/a` with a reason
+**Verdict:** PASS ✓. **Evidence:** ``grep -c -E '^\| `(scripts|config|distributions|Makefile|Dockerfile|\.gitignore|\.merge-head|\.github)' 02-forward-audit.md`` prints 242; the generator asserts 242 rows and 0 empty cells. Three Python builders' and three add-on scripts' Q1, Q3 and Q7 cells say what was done to them (not read line by line; unreached), which is the coverage boundary `04` states. **What would have failed it:** another table in this file whose rows begin with a membership path (none does: the mechanical and proof tables begin with a check or `P<n>`).
+
+### AC-08: `02` records each mechanical check with command, exit status and summary, a check that could not run with its reason
+**Verdict:** PASS ✓. **Evidence:** § Mechanical checks: `bash -n` (41 ok; 26 and 15), `py_compile` (5), `tools/build-identity-test` (`21 passed, 2 failed`, as #801 expects), `test-build-monitor` (36 PASS), shellcheck (5 errors read at their sites), the three sandboxed calls (P1 `get_env` with the constructed failing names, P2 `calculate_stamp`, P3 to P6 and P11 the launch table with the pre-format table through `ElementTree` in P4 and P5), the container manifests with both digests and both `created` dates, the 19 workflows' state and last three conclusions, `fork-package-freshness --list` (nothing of the slice); `actionlint` and the `Makefile` as shellcheck input recorded as not run, with the reason.
+
+### AC-09: § The nine #644 findings, one row each with its disposition, the other seventeen named with their carriers
+**Verdict:** PASS ✓. **Evidence:** § The nine #644 findings this slice carries: 1, 3, 4, 8, 9, 10, 11, 13, 22, and the seventeen with carriers.
+
+### AC-10 to AC-12: `04` § Renovation face Q4 (two currency tables), Q5 (ccache, the stamp's cost, the recorded runs, time to play), Q6 (five reachability tables)
+**Verdict:** OPEN (stage B, `04`). Inputs ready: `q6-tables.md` Tables 1 to 5; Q4 (a)'s 21 rows; Q4 (b)'s digests; the three runs' timings.
+
+### AC-13: every proof carries a `proved:` cell; ``grep -c 'proved:' 02`` equals ``grep -c '^PROOF:' 00``
+**Verdict:** PASS ✓ (at this point). **Evidence:** 13 and 13 (P1 to P13; `sandbox` 11, `image-set` 1, `recorded-run` 1). Re-counted at stages F and H.
+
+### AC-14: `tracked:` items' bug issues carry the VM line and a verifiable criterion; `removal: yes` items carry `Already written:`; no pin, admission, watcher or trigger change without a stream brief; `box-check` passes on the issues
+**Verdict:** OPEN (stage D). No change of any kind has been made to the slice's code on this branch (`git diff --stat 8ebaf8daad HEAD -- <the 242 paths>` empty but for nothing: the branch adds only `docs/`).
+
+### AC-15: the retro exists, is posted, and answers what the slice did to the two time-to-play numbers
+**Verdict:** OPEN (stage G).
+
+### AC-16: the five checkers and `hooks-test` pass on the branch; the lint prints PASS; the six exit codes on #652
+**Verdict:** OPEN (stage H).
