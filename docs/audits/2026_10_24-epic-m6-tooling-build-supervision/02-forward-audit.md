@@ -20,7 +20,7 @@ Read at `8ebaf8daad` (the export `.qa-scratch/t9/at-hash/`); every line number b
 | 12 | `04` Q1: the two legacy rows, deferred to #640 | done | `04` § Q1 |
 | 13 | `04` Q7: the three guides read against the code; the sudoers policy quoted | done | `04` § Q7 |
 | 14 | Every proof carries its class cell, equal in count to `00`'s `PROOF:` lines | kept equal at each commit | § Proofs |
-| 15 | No file under `tools/` changed before a stream brief | `git diff --stat 8ebaf8daad HEAD -- tools`: empty | § Mechanical checks |
+| 15 | No file under `tools/` changed before a stream brief | none by this lane: `git diff --stat cdc45513b0 HEAD -- tools` empty; the hash-based command lists P1's and the coordinator's 15 inherited files | § Mechanical checks |
 | 16 | The retro | stage G | `docs/retros/` |
 | 17 | The six checkers' exits | stage H | the hand-back |
 
@@ -32,7 +32,7 @@ Read at `8ebaf8daad` (the export `.qa-scratch/t9/at-hash/`); every line number b
 | Line and byte counts | `git show 8ebaf8daad:<path> \| wc -l` and `wc -c`, summed | 0 | 3,795 lines; 201,453 bytes |
 | Provenance | `git cat-file -e upstream/next:<path>` for each; `git log c445081a59..8ebaf8daad -- <the 18>` | 0 | 0 of 18 upstream; 35 fork commits |
 | Branch against hash | `xargs -0 git diff --stat 8ebaf8daad HEAD -- <the 18>` | 0 | empty |
-| No tool changed | `git diff --stat 8ebaf8daad HEAD -- tools` | 0 | empty at stage B |
+| No tool changed | `git diff --stat cdc45513b0 HEAD -- tools`; the 18 against the hash | 0 | empty. `git diff --stat 8ebaf8daad HEAD -- tools` lists 15 files inherited before stage A (P1's three renovation tools, the coordinator's lint and `register-check`, the lint's fixtures), none of the 18 |
 | The rules in the worktree | `git diff --stat next -- .claude CLAUDE.md AGENTS.md tools/lint-audit-artifacts` | 0 | exactly the dispatch's eight paths |
 | The checkers at stage A | `tools/rules-check`, `tools/register-check`, `tools/ceremony-check` | 0, 0, 1 | `ceremony-check`: the W42 summary only, M7's week |
 | Version-sensitive Python | `grep -n -E 'file_digest\|removeprefix\|strict=\|match ...'` over the 12 Python files | 0 | `hashlib.file_digest` at `build-admission:34`, `retention-report:22`, `:69` (3.11 and later); nothing else past 3.9 |

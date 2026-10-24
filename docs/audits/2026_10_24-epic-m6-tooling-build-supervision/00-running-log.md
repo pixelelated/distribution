@@ -158,4 +158,5 @@ PROOF: 16:28 P12 two clones' admission registries on one volume (device 66304) -
   - the stream briefs;
   - the leads PL-13 (the installer, D-INFRA-015), PL-20, PL-21, and PL-03's, PL-10's and PL-12's contract choices;
   - #640's row PL-09.
-- **The lane pauses here** for the coordinator's stream briefs (brief § 8). No file under `tools/` has changed: `git diff --stat 8ebaf8daad HEAD -- tools` is empty.
+- **The lane pauses here** for the coordinator's stream briefs (brief § 8). No file under `tools/` has changed on this lane: `git diff --stat cdc45513b0 HEAD -- tools` is empty, and the 18 equal the hash.
+- **A correction to the line above as first committed** (`bb1478835c`). It said `git diff --stat 8ebaf8daad HEAD -- tools` is empty. That command prints **15 files changed, 2130 insertions, 8 deletions**, all inherited before stage A in `8ebaf8daad..cdc45513b0`: P1's `renovation-inventory`, `renovation-drift` and `renovation-status`, the coordinator's `lint-audit-artifacts` and `register-check`, and the lint's two fixtures. None is one of the 18. Criterion 15's command therefore cannot read empty on a branch stacked on P1; the delta is put to the coordinator.

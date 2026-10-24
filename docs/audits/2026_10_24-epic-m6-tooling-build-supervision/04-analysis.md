@@ -52,7 +52,7 @@ The guards are carefully built. Most of them construct their refusals in control
 | The Q1 legacy rows | below |
 | The Q7 guides and the sudoers quote | below |
 | Proof classes equal to `00`'s PROOF lines | 9 and 9 at stage B |
-| No `tools/` change before a stream | `git diff --stat 8ebaf8daad HEAD -- tools` empty |
+| No `tools/` change before a stream | none by this lane (`git diff --stat cdc45513b0 HEAD -- tools` empty); the hash-based command lists 15 inherited files, a delta |
 | The retro; the six exits | stages G, H |
 
 ## Code Quality Assessment
