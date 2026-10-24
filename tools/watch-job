@@ -104,16 +104,22 @@ done
 STALL=$((10#$STALL)); INTERVAL=$((10#$INTERVAL))
 [ "$INTERVAL" -gt 0 ] || die "--interval needs a positive integer"
 [[ -z "$PID" || "$PID" =~ ^[1-9][0-9]*$ ]] || die "--pid needs a positive integer"
-grep -E "$PATTERN" /dev/null >/dev/null 2>&1
+grep -E -e "$PATTERN" -- /dev/null >/dev/null 2>&1
 [ $? -le 1 ] || die "invalid --pattern regex"
 [ -z "$ACTIVITY_DIR" ] || [ -d "$ACTIVITY_DIR" ] || die "activity directory does not exist"
 [[ -z "$ACTIVITY_DIR" || -z "$ACTIVITY_ROOT" ]] || die "choose activity-dir or activity-root"
 [[ "$RECURSIVE_ACTIVITY" = 0 || -n "$ACTIVITY_DIR" ]] || die "recursive activity needs activity-dir"
 # Outputs must never overwrite inputs or create their own activity signal.
 status_path=$(readlink -m -- "$STATUS") || die "cannot resolve status path"
+# Each derived name is resolved on its own: a pre-existing .pid or .tmp link
+# would otherwise write through to its target (#916).
+outputs=()
+for output in "$STATUS" "$STATUS.tmp" "$STATUS.pid" "$STATUS.err"; do
+  outputs+=("$(readlink -m -- "$output")") || die "cannot resolve status path"
+done
 for input in "$LOG" "$RC"; do
   input_path=$(readlink -m -- "$input") || die "cannot resolve input path"
-  for output in "$status_path" "$status_path.tmp" "$status_path.pid" "$status_path.err"; do
+  for output in "${outputs[@]}"; do
     [ "$input_path" != "$output" ] || die "status outputs overlap a watched input"
   done
 done
@@ -143,8 +149,8 @@ if [ "$DETACH" = 1 ]; then
   setsid nohup "$0" "${args[@]}" >/dev/null 2>"$STATUS.err" &
   watcher=$!
   for ((attempt=0; attempt<50; attempt++)); do
-    if grep -qE "^watcher_pid: $watcher$" "$STATUS" 2>/dev/null; then
-      grep -q '^state:       error$' "$STATUS" && die "detached observation failed; see $STATUS"
+    if grep -qE -e "^watcher_pid: $watcher$" -- "$STATUS" 2>/dev/null; then
+      grep -q -e '^state:       error$' -- "$STATUS" && die "detached observation failed; see $STATUS"
       echo "watch-job: detached pid $watcher, status at $STATUS"
       exit 0
     fi
@@ -159,11 +165,19 @@ started=$(date -u '+%Y-%m-%d %H:%M:%S UTC')
 started_s=$(date +%s)
 printf '%s\n' "$$" > "$STATUS.pid" || die "cannot write watcher pidfile"
 
-# kill -0 alone considers an unreaped zombie alive and cannot notice PID reuse.
+# Liveness is read from /proc, not from kill -0, which considers an unreaped
+# zombie alive and refuses a live process of another user (#916). Returns 0
+# with the start time when alive, 1 when exited (absent, zombie or dead), and
+# 2 when a /proc entry exists but its state cannot be read: unknown, never died.
+# A PID hidden by another PID namespace has no entry here and still reads as
+# exited; #506 is that case, and this tool cannot tell it from an exit.
 job_identity() {
   local raw fields
-  [ -n "$PID" ] && kill -0 "$PID" 2>/dev/null || return 1
-  raw=$(cat "/proc/$PID/stat" 2>/dev/null) || return 1
+  [ -n "$PID" ] && [ -e "/proc/$PID" ] || return 1
+  if ! raw=$(cat "/proc/$PID/stat" 2>/dev/null); then
+    [ -e "/proc/$PID" ] && return 2
+    return 1
+  fi
   read -ra fields <<< "${raw##*) }"
   [[ ${fields[0]:-Z} != Z && ${fields[0]:-X} != X ]] || return 1
   printf '%s\n' "${fields[19]:-}"
@@ -189,7 +203,7 @@ while :; do
   fi
   for directory in "${activity_dirs[@]}"; do
     # Capture find's exit status rather than hiding it in process substitution.
-    scan=$(mktemp "${STATUS}.scan.XXXXXX") || die "cannot create activity scan"
+    scan=$(mktemp -- "${STATUS}.scan.XXXXXX") || die "cannot create activity scan"
     depth=(-maxdepth 1)
     [ "$RECURSIVE_ACTIVITY" = 0 ] || depth=()
     if find "$directory" "${depth[@]}" -type f -name '*.log' -printf '%T@ %p\0' > "$scan"; then
@@ -209,17 +223,22 @@ while :; do
   if [ "$BUILD_PROGRESS" = 1 ]; then
     # Completed package logs are copied into LOG and carry their own Ninja
     # counters. Only pkgbuilder's structured status identifies overall work.
-    progress=$(sed 's/\x1b\[[0-9;]*m//g' "$LOG" 2>/dev/null |
+    progress=$(sed 's/\x1b\[[0-9;]*m//g' -- "$LOG" 2>/dev/null |
       grep -E '^\[[0-9]+/[0-9]+\][[:space:]]+\[(DONE|FAIL)\][[:space:]]+(build|install|unpack)[[:space:]]' |
       grep -oE '^\[[0-9]+/[0-9]+\]' | tail -1)
   else
-    progress=$(grep -oE "$PATTERN" "$LOG" 2>/dev/null | tail -1)
+    progress=$(grep -oE -e "$PATTERN" -- "$LOG" 2>/dev/null | tail -1)
   fi
   alive=unknown
   if [ -n "$PID" ]; then
-    alive=no
-    current_identity=$(job_identity) || current_identity=""
-    if [ -n "$identity" ] && [ "$identity" = "$current_identity" ]; then alive=yes; fi
+    current_identity=$(job_identity); job_state=$?
+    if [ "$job_state" = 2 ]; then
+      observation_error="cannot read the state of job pid $PID"
+    elif [ -n "$identity" ] && [ "$identity" = "$current_identity" ]; then
+      alive=yes
+    else
+      alive=no
+    fi
   fi
 
   if [ -f "$RC" ]; then
@@ -259,11 +278,11 @@ while :; do
     [ "$state" = died ] && echo "outcome:     NO EXIT CODE WRITTEN -- job absent, exited or PID reused"
     [ "$state" = stalled ] && echo "note:        suspected stall: no watched log writes in over ${STALL} min; inspect process before acting"
     if [ -n "$activity" ] && [ "$activity" != "$LOG" ]; then
-      echo "activity_progress: $(grep -oE "$PATTERN" "$activity" 2>/dev/null | tail -1)"
+      echo "activity_progress: $(grep -oE -e "$PATTERN" -- "$activity" 2>/dev/null | tail -1)"
     fi
     echo "tail:"
-    tail -2 "${activity:-$LOG}" 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g' | cut -c1-130 | sed 's/^/  /'
-  } > "$STATUS.tmp" && mv "$STATUS.tmp" "$STATUS" || die "cannot publish status"
+    tail -2 -- "${activity:-$LOG}" 2>/dev/null | sed 's/\x1b\[[0-9;]*m//g' | cut -c1-130 | sed 's/^/  /'
+  } > "$STATUS.tmp" && mv -- "$STATUS.tmp" "$STATUS" || die "cannot publish status"
 
   case "$state" in finished|died) exit 0 ;; error) exit 2 ;; esac
   sleep "$INTERVAL"

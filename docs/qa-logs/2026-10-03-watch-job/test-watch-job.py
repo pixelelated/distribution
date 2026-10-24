@@ -213,6 +213,45 @@ with tempfile.TemporaryDirectory(prefix='watch-job-393-') as temporary:
                 invalid = subprocess.run(command(d, extra), capture_output=True, timeout=10)
                 check(invalid.returncode == 2, 'refuse invalid setup ' + ' '.join(extra[:2]))
 
+            # #916: what the watcher cannot signal is not therefore dead.
+            d = setup('foreign-live')
+            p = start(d, pid=1)
+            check('alive=yes' in status(d, 'running'),
+                  'a live process this user cannot signal is alive, not died')
+            stop(p)
+
+            # #916: the caller's pattern reaches grep as a pattern, never an option.
+            d = setup('dash-pattern')
+            (d / 'build.log').write_text('--help 3\n')
+            p = start(d, ['--pattern', '--help'], activity=False)
+            check('progress:    --help\n' in status(d, 'running'),
+                  'a pattern beginning with a dash is matched literally')
+            stop(p)
+
+            # #916: a status name beginning with a dash is a path, not an option.
+            d = setup('dash-status')
+            p = subprocess.Popen([watcher, '--log', 'build.log', '--rc', 'build.rc', '--status', '-status',
+                                  '--pid', str(os.getpid()), '--interval', '1', '--activity-dir', 'package logs'],
+                                 cwd=d, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, start_new_session=True)
+            processes.append(p)
+            deadline = time.monotonic() + 5
+            while time.monotonic() < deadline and not (d / '-status').exists() and p.poll() is None:
+                time.sleep(.05)
+            check((d / '-status').exists() and (d / '-status').read_text().startswith('state:       running\n'),
+                  'a status name beginning with a dash is published')
+            stop(p)
+
+            # #916: a derived output that links to an input is refused before any write.
+            d = setup('pid-alias')
+            os.symlink('build.log', d / 'build.status.pid')
+            p = start(d)
+            deadline = time.monotonic() + 3
+            while time.monotonic() < deadline and p.poll() is None:
+                time.sleep(.05)
+            check(p.poll() == 2 and (d / 'build.log').read_text() == '[636/642] complete\n',
+                  'a derived status output that links to an input is refused')
+            stop(p)
+
             help_result = subprocess.run([watcher, '--help'], capture_output=True, text=True, timeout=5)
             check(help_result.returncode == 0 and '--activity-dir' in help_result.stdout,
                   'help is side effect free and documents package activity')
