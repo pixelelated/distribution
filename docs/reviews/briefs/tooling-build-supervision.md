@@ -436,7 +436,7 @@ as such with the running log current. A checkpoint is not a stop; a
 differing count is a delta; `next` moving is drift. An idle session says it
 is idle on #656, **and does not end a turn on a post that asks nothing**.
 
-**Never run in this slice:** a build or `make` target outside
+**What never runs in this slice:** a build or `make` target outside
 `test-build-monitor`'s own isolated run; `tools/build-preflight --reclaim-swap`
 or `--stop-vms`; `tools/host-maintenance/install` or `reclaim-swap` directly;
 `tools/fork-newdrive`; `tools/fork-publish-release` without `--prepare`, or
