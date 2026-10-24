@@ -68,9 +68,6 @@ if [ -n "${UBOOT_SYSTEM}" ] && [ "${UBOOT_SYSTEM}" != "${DEVICE:-${PROJECT}}" ];
   IMAGE_NAME="${IMAGE_NAME}-${UBOOT_SYSTEM}"
 fi
 
-# Keep source provenance available to the existing image metadata consumers.
-ORIGIN_URL="$(git remote get-url origin | sed -e 's#\.git$##' -e 's#^git:#https:#' -e 's#^git@github\.com:#https://github.com/#' -e 's#://.*@#://#')"
-
 if [ -n "${IMAGE_SUFFIX}" ]; then
   IMAGE_NAME="${IMAGE_NAME}-${IMAGE_SUFFIX}"
 fi
@@ -80,8 +77,6 @@ if compgen -G "${TARGET_IMG}/${IMAGE_NAME}.*" >/dev/null ||
    compgen -G "${TARGET_IMG}/${IMAGE_NAME}-*" >/dev/null; then
   die "Build identity already exists in target; choose a new BUILD_TIMESTAMP"
 fi
-
-echo "${IMAGE_NAME}" >${BUILD}/BUILD_FILENAME
 
 # Setup fakeroot
 rm -rf ${FAKEROOT_SCRIPT}   # remove ${FAKEROOT_SCRIPT} if it exist
