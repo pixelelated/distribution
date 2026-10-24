@@ -304,3 +304,30 @@ PROOF: P12 S4's control -- `docs/qa-logs/2026-10-24-state-tests-s4/scope-cases.s
   - **Positives,** in `save-layout-cases.sh`: `--busybox --cases filter-psp` and `--ref a1b0c65165 --cases filter-psp` both exit 1 at stage D and both pass fixed.
   - **The full suite:** 39/39.
 PROOF: P13 S5's controls -- `docs/qa-logs/2026-10-24-state-tests-s5/layout-cases.sh` PASS (three mutations credited at stage D, failed fixed), `save-layout-cases.sh` PASS (rc 1 both at stage D, rc 0 fixed); the historical matrix 398/0 and the archive cases 13/13 fixed.
+
+## [Stage E] 22:16 UTC — S5's follow-up (#1004) after the 22:08 ruling; S6: the hardware tests (#995)
+
+- **The coordinator's post (22:08 UTC):** my reading of the backups is the historical contract, not a design question. A backup whose layout read failed exits 0, says `COMPLETED`, and copies into the configured folder, never a derived one; restores keep the non-zero requirement; the layout detection is retired by D-CLOUD-175, so no product change.
+- **#1004's follow-up (`ef31b4bf22`):** `provider_failure` asserts that contract for a backup: rc 0, `COMPLETED`, and every `copy` target exactly `qa:/ROCKNIX/Saves/`.
+  - **The control,** `docs/qa-logs/2026-10-24-state-tests-s5/backup-contract-cases.sh`, two mutations of the historical `cloud_backup` (`22571b47d2`) run with `--case T18-bucket-backup-unknown` by the test as committed at `c25f69d19a` and by the current one:
+    - **silent** (makes the faulted listing, exits 0): rc 0 before, rc 1 after (no `COMPLETED`);
+    - **derived** (the copy goes to `/pixelelated/Saves/`): rc 0 before, rc 1 after (`copied into ['qa:/pixelelated/Saves/'], not the configured /ROCKNIX/Saves/`);
+    - the unmutated backup passes both. PASS.
+  - **A slip of mine, corrected before the commit:** the first derived mutation changed the layout read at `:1671`, not the copy; it now changes the copy destination at `:1931`.
+  - **The historical T18 set after:** 17 PASS, 0 FAIL.
+- **#995: `rocknix-info-test` (`359dd435ce`).**
+  - **The fix:** each adaptation pattern must be found in the script, or the run raises naming it; `check()` raises rather than asserting, so `PYTHONOPTIMIZE` cannot strip it.
+  - **The control,** `docs/qa-logs/2026-10-24-state-tests-s6/info-cases.sh`:
+    - a `rocknix-info` with `exit 0` appended, run under `PYTHONOPTIMIZE=1`: rc 0 at stage D (`PASS 12`), rc 1 fixed (`real quirk failure survives later success`);
+    - `/tmp/battery.percent` renamed (a path the script only tests and reads): rc 0 at stage D, rc 1 fixed (`adaptation pattern not found in the script: /tmp/battery.percent`). PASS.
+  - **A slip of mine, corrected before the control was kept:** the first rename was `/storage/games-internal`, which made stage D fail downstream for a different reason and so proved nothing.
+  - **The tree:** `PASS 12`, rc 0.
+- **#995: `nova-led-test` (`081f19d2f0`).**
+  - **The fix:** a per-script adaptation table with every pattern required; the `LED_PATH` and `BATTERY_PATH` assignments must keep their `"${VAR:-` default, and no bare `/sys/` may remain; `run()` raises `SystemExit` rather than asserting.
+  - **The control,** `docs/qa-logs/2026-10-24-state-tests-s6/nova-cases.sh`:
+    - a `ledcontrol` with an EXIT trap exiting 3, under `PYTHONOPTIMIZE=1`: rc 0 at stage D (`14 PASS`), rc 1 fixed;
+    - `LED_PATH` hardcoded to a stand-in tree under the scratch, every file seeded `untouched`: stage D ran it and wrote 8 of the stand-in's files; fixed refuses at `ledcontrol:9` before running and writes none. PASS.
+  - **Two slips of mine in the control:** `standin()`'s loops clobbered the caller's `side` and `n` (now locals), and seeding the stand-in with `0` hid the writes (now `untouched`).
+  - **The tree:** 14 PASS, 0 FAIL.
+PROOF: P14 S6's controls -- `docs/qa-logs/2026-10-24-state-tests-s6/info-cases.sh` PASS (both mutations credited at stage D, failed fixed, naming the pattern) and `nova-cases.sh` PASS (credited at stage D with 8 stand-in files written; failed fixed with none written); the trees PASS 12 and 14/0.
+PROOF: P15 S5's follow-up -- `docs/qa-logs/2026-10-24-state-tests-s5/backup-contract-cases.sh` PASS (the silent and derived backups pass the test at `c25f69d19a` and fail it at `ef31b4bf22`; the unmutated backup passes both); the historical T18 set 17/0.
