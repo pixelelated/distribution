@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "depth": "local",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the dispatch on #651 (issuecomment-6385443829: 'Opus 5.5 at high effort') and the session's model metadata (claude-opus-5-5); herdr agent m6-t3-emulators, session a6d65411-5a44-4596-9a6c-337855905c17"
+  },
+  "reviewers": [],
+  "tier_exception": "D-WORKFLOW-184",
+  "reason": "plan § 6c: a doctrine read is Local (the executor alone; the lint and the counts are the check), the depth slices.json k 4 records",
+  "written_before_first_call": "2026-10-24"
+}

@@ -107,7 +107,29 @@ PROOF: 14:54 P20 31 of the index's 85 tool-to-rule pointers name a rule that nev
 PROOF: 14:54 P21 the ES checkout's `origin` is `pixelelated/emulationstation` (`git remote -v`, read only); `fork-workflow.md:62` names `maxengel`
 PROOF: 14:58 P22 ten paths `council-substrate-integrity.md` names absent at the hash (`git cat-file -e`); its glob matches 0
 PROOF: 14:56 P23 the 56 command blocks each with a verdict (`t4-blocks.py`); the seven read-only blocks ran (14:48); the drop filter printed `name=ok` only and the mask kept no value
-PROOF: 14:51 P24 the superseded citations: 45 candidates, 2 cite a superseded row as current (`time-to-play.md`, `least-surprise.md`) -- `q4-superseded-review.txt`
+PROOF: 14:51 P24 the superseded citations: 45 candidates, 3 cite a superseded row as current (`time-to-play.md`, `least-surprise.md`, `instruction-files.md:156`) -- `q4-superseded-review.txt`
 PROOF: 14:52 P25 74 blindspot entries, 29 numbered twice; every named guard path exists -- `t4-q6.py blindspots`
 PROOF: 14:50 P26 `build.ROCKNIX-` in 8 lines of 4 rules; `config/path:19` and `DISTRONAME="pixelelated"` make `build.pixelelated-*`
 - `git status --short -- <the 36>`: 0 lines (none of the 36 changed at stage B).
+
+### [Stages C-D] 14:58-15:12 — 03, 04, the Local plan, the bugs, the punch list, the pre-issue lint
+
+- **`03-retrospective.md`:** § 3.1 to § 3.5, with the five seams of brief § 6, and the futro's six unknowns, nine adjustments and pre-mortem checked item by item. The futro was read whole for this, at lines 130-410.
+- **`04-analysis.md`:** every section the lint requires, and the renovation face Q1 to Q7.
+  - **Q4:** the IDs (181), the narrowed superseded review (72 citations, 3 superseded-as-current), the ledgers' IDs (40), the tools (104), the counts (10 rows), the paths (245).
+  - **Q5:** the load table, every rule's lines and area reach. The new `load` mode reproduces `cross-reference.md`'s per-area counts.
+  - **Q6:** the 30 rules' globs, the 72 tool rows, the 74 blindspot entries, the 15 retired-flow mentions classed, and the 125 unseen friction entries, each dead row with `Already written:`.
+  - **Q7:** the duplicates with their differences.
+  - **Phase 4.6:** not applicable (Local).
+- **`second-opinions/review-plan.json`:** Local, `reviewers: []`, `tier_exception: D-WORKFLOW-184`, the reason plan § 6c's row (`slices.json` k 4: *a doctrine read*).
+- **Corrected before commit:**
+  - **the superseded count, 2 to 3:** `instruction-files.md:156` cites D-CLOUD-158 for the retired join/move/follow;
+  - **the blindspot guard count, 33 to 32:** the script counted the separator row, and its formula is fixed;
+  - **`generic-x64-vm-testing.md`'s reach:** 11 of 12 areas, not 7;
+  - **the absent-path split:** 8 and 5, not 9 and 4;
+  - **the Q3 count is 13, not *eleven*.** Stage B's commit message (`ef09e6f54e`) says eleven; this line is the correction.
+- **The bugs:** the 13 Q3 findings make 8 `bug` issues by file, filed 15:10 as **#904 to #911** (label `bug`, no milestone, not sub-issues, in the code-trace shape). `tools/box-check --issue N`: 0 fail on each.
+- **A slip, recorded:** the eight bodies were written through unquoted heredocs (plan § 6b says never). Nothing expanded: even backtick counts, no empty pairs, `git status` clean. Friction line 15:09, `issue: #651`.
+- **`05-punch-list.md`:** 25 items (5 Medium, 20 Low), each with `question:`, its ladder rung and the next rung's tool, and `tracked:` where an issue exists; the `punch_index`; the Phase 7 table, all `Open`.
+- **`tools/lint-audit-artifacts <folder> --phase pre-issue`:** rc 0, `PASS pre-issue artifacts`, with `review-plan: local at epic tier under D-WORKFLOW-184`.
+- **#912** (`Audit: M6 T4 the binding doctrine -- 25 findings (0 critical, 0 high)`, labels `audit` and `punch-list`, M6, a sub-issue of #651): its first body carried one checkbox, because the generator's title pattern ran across newlines under `re.S`. The body was rebuilt with 25 at once and read back equal except a trailing blank line. The first body is kept as `.qa-scratch/t4/audit-body-912-first.md`. `box-check --issue 912`: 0 fail. `lint-audit-artifacts --phase pre-issue --issue 912`: `PASS pre-issue artifacts`.

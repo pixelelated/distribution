@@ -4,7 +4,7 @@
 """t4-q6.py -- the reachability tables of M6 T4 (#651, brief § 4 Q6) and the
 load table of Q5, read from the doctrine at a hash and never typed by hand.
 
-    python3 -I t4-q6.py <read-tree> <tree-list> rules|tooltable|blindspots|retired|friction
+    python3 -I t4-q6.py <read-tree> <tree-list> rules|load|tooltable|blindspots|retired|friction
 
 <read-tree> is the at-hash export (`.qa-scratch/t4/at-hash/`), <tree-list>
 `git ls-tree -r --name-only 8ebaf8daad`. Tool text is read with
@@ -67,6 +67,29 @@ if mode == "rules":
         zero = ", ".join(f"`{g}`" for g, c in counts if c == 0) or "none"
         out.append(f"| `{f}` | {n} | {shown} | {k} | {zero} |")
     out += ["", f"<!-- rules: 30; every session {tot['every session'][0]} rules, {tot['every session'][1]} lines; on a match {tot['on a match'][0]} rules, {tot['on a match'][1]} lines -->"]
+elif mode == "load":
+    import json
+    inv = json.load(open(os.environ.get("T4_INVENTORY", "docs/reviews/inventory.json"))); cols = inv["columns"]
+    rows = [dict(zip(cols, r)) for r in inv["rows"] if r[cols.index("tree")] == "distribution"]
+    areas = sorted({r["area"] for r in rows})
+    out += ["| Rule | Lines | Loads | Areas whose paths it reaches (of %d) |" % len(areas), "| --- | ---: | --- | ---: |"]
+    per_area = {a: 0 for a in areas}; tot = 0
+    for f in sorted(os.listdir(os.path.join(root, R))):
+        s2 = read(R + f); n = s2.count("\n")
+        m = re.match(r"^---\n(.*?)\n---\n", s2, re.S); fm = m.group(1) if m else ""
+        pm = re.search(r"^paths:\s*\n((?:[ \t]*(?:-.*|#.*)\n?)+)", fm + "\n", re.M)
+        globs = re.findall(r'^[ \t]*-\s*"([^"]+)"', pm.group(1), re.M) if pm else []
+        every = (not pm) or globs == ["**"]
+        if every:
+            hit = set(areas)
+        else:
+            rx = [glob_rx(g) for g in globs]
+            hit = {r["area"] for r in rows if any(x.match(r["path"]) for x in rx)}
+        for a in hit: per_area[a] += 1
+        if every: tot += n
+        out.append(f"| `{f}` | {n} | {'every session' if every else 'on a match'} | {len(hit)} |")
+    out += ["", "| Area | Rules reaching it |", "| --- | ---: |"] + [f"| {a} | {per_area[a]} |" for a in areas]
+    out += ["", f"<!-- load: {len(areas)} areas; every-session lines {tot} -->"]
 elif mode == "tooltable":
     s = read(R + "instruction-files.md")
     sec = s[s.index("## The fork's own tools"):s.index("**When a rule earns")]
@@ -97,7 +120,7 @@ elif mode == "blindspots":
         out.append(f"| {num} | {n} | {'table row' if s[n - 1].startswith('|') else 'heading'} | {', '.join('`' + p + '`' for p in paths) or 'none named'} | {('yes' if len(ok) == len(paths) else 'NO: ' + ', '.join(sorted(set(paths) - set(ok)))) if paths else 'n/a'} |")
     nums = [e[0] for e in ents]
     dup = sorted({x for x in nums if nums.count(x) > 1})
-    out += ["", f"<!-- blindspots: {len(ents)} entries, numbers {min(nums)} to {max(nums)}, used twice: {dup or 'none'}; entries naming a guard path {sum(1 for l in out if l.startswith('| ') and 'none named' not in l) - 1} -->"]
+    out += ["", f"<!-- blindspots: {len(ents)} entries, numbers {min(nums)} to {max(nums)}, used twice: {dup or 'none'}; entries naming a guard path {sum(1 for l in out if re.match(r'^\| \d+ \|', l) and 'none named' not in l)} -->"]
 elif mode == "retired":
     pat = re.compile(r"cloud_migrate_layout|\bjoin(?:s|ed|ing)?\b.{0,40}\bfollow|rclonectl|\.github/instructions|copilot", re.I)
     files = [R + f for f in sorted(os.listdir(os.path.join(root, R)))] + ["CLAUDE.md", "AGENTS.md", "NAMING.md"]
@@ -124,7 +147,7 @@ elif mode == "friction":
         out.append(f"| {n} | {m.group(1)} | {why} | {iss} |")
     out += ["", f"<!-- friction: {tot} dated entries; {k} never seen by the check's matcher -->"]
 else:
-    sys.exit("usage: t4-q6.py <read-tree> <tree-list> rules|tooltable|blindspots|retired|friction")
+    sys.exit("usage: t4-q6.py <read-tree> <tree-list> rules|load|tooltable|blindspots|retired|friction")
 
 for l in out:
     if re.search(r"\|\s*\|", l):

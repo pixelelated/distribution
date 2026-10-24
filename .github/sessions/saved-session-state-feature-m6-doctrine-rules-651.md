@@ -44,18 +44,23 @@
 
 ## Current focus
 
-**Stage A done (2026-10-24 14:40 UTC; the executor).** The audit folder `docs/audits/2026_10_24-epic-m6-doctrine-rules/` holds `00-running-log.md` (Phase 0, Stage A) and `01-research-notes.md` § Scope.
-- **No delta:** 36 paths; 11,394 lines at the hash and 11,414 in the inventory; 24 of 30 rules and 5,179 lines load every session.
-- **The branch's deltas** are listed hunk by hunk with their owners. D-QA-040's `**Open:**` marker (`f00ab3e163`, #646) is a Q2 lead.
-- **The branch scan:** no unaccepted M6 lane rule edit.
-- `reviewed-at: 00e75ab135`. The read tree is `.qa-scratch/t4/at-hash/`.
+**Stage D, paused (2026-10-24 15:2x UTC; the executor).** The audit folder `docs/audits/2026_10_24-epic-m6-doctrine-rules/` holds:
+- `00` to `05`;
+- `second-opinions/review-plan.json` (Local);
+- `tools/t4-q4.py`, `t4-q6.py`, `t4-blocks.py` and `t4-coverage.py`.
 
-**Next is stage B**:
-1. The reader's pass over the 36, in brief § 2's five groups, with at least one line per file into `01` § The reader's pass.
-2. The auditor's pass: § 5's host checks; the command blocks; the Q4 tables, written by a script under `.qa-scratch/t4/` and committed beside `04`; the Q6 tables.
-3. `02` to `04`, then the pre-issue lint, then stage D's punch list, `bug` issues and the pause.
+What stands:
+- 27 findings; 26 proofs (26 = 26); 36 coverage rows; 56 command blocks.
+- The pre-issue lint passes, with `--issue 912` too.
+- **Bugs #904 to #911** (8, by file) and the **audit issue #912**: 25 items, a sub-issue of #651.
 
-No rule is edited before a stage-E stream brief. Each stage-B session ends with `git status --short -- <the 36>` empty.
+**The lane waits** for the coordinator's dispositions and stage-E stream briefs, and edits none of the 36 meanwhile (only its own friction append). During the pause (A6): draft the retro's four answers; the Q5 reader costs are in `04`.
+
+**After the streams:**
+1. Each stream's rule edit, with its failing check first.
+2. Stage F, verification.
+3. Stage G, the retro.
+4. Stage H, the hand-back: `reviewed-at: 00e75ab135`.
 
 ## Next commands
 
