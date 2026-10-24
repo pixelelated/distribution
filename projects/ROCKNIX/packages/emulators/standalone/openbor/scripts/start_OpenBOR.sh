@@ -23,8 +23,9 @@ SAVES="${CONFIGDIR}/Saves"
     cp -f "/usr/config/openbor/master.cfg" "${CONFIGDIR}/"
   fi
 
-# Clear PAKS folder to avoid getting the launcher on next run
-  rm -rf ${PAKS}/*
+# Clear the link the previous launch made, to avoid getting the launcher on
+# next run; only links are removed, a pak file put here stays
+  find "${PAKS}" -maxdepth 1 -type l -exec rm -f {} \;
 
 # make a symlink to the pak
   ln -sf "$1" "${PAKS}"
