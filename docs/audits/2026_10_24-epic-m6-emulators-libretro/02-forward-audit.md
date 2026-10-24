@@ -171,3 +171,43 @@ The README comment in `makeinstall_target` (`virtual/emulators/package.mk` 150 t
 - `yabadabadoo-lr/package.mk:46`, the new core (`8704addb6b`).
 
 On a fork build with `ENABLE_32BIT=true` both resolve to `build.ROCKNIX-<DEVICE>.arm`, which does not exist. Their `cp -a` fails, and `set -e` stops the build at that package. **So the fix for F-08 cannot be taken verbatim: the base merge must rewrite those two lines to `${DISTRONAME}`**, as `43d0bc3bf4` did for the other five. A check that would have caught it: `git grep -F 'build.${DISTRO}-'` empty on the merged tree.
+
+### Q4 (c): the 21 RetroArch patches against master (03:18 UTC), `tools/q4c-patches.sh`
+
+`q4c-patches.sh` fetches, from `libretro/RetroArch` through `gh api` (raw), the 25 files the series touches: 24 sources plus `retroarch/`-prefixed duplicates that `-p1` strips. It then applies the series in `scripts/unpack`'s order (`patches/*.patch` sorted, then `batteryplus/`, which the recipe adds through `PKG_PATCH_DIRS`). For each patch it records `git apply --check -p1` (#650 criterion 9's form) and `patch -p1 --fuzz=0 --dry-run`, then advances with `patch -p1` as `scripts/unpack:197` runs it (default fuzz). Outputs: `q4c-at-pin.txt`, `q4c-at-master-4fe09508d4.txt`. Master was **`4fe09508d4b9a2a1732e4249e7ee53af03ac68ed`** at 03:18:31; it had been `deebdf6a4c` at 02:58, and it moves by the hour.
+
+| Patch | Author | At the pin (control): `git apply` / fuzz 0 / applied | At master: `git apply` / fuzz 0 / applied |
+| --- | --- | --- | --- |
+| `0001-Increase-glui-size` | upstream | ok / ok / offset | FAIL / FAIL / **FAILED** (2 of 2 hunks) |
+| `0001-Increase-ozone-size` | upstream | ok / ok / offset | FAIL / FAIL / **FAILED** (2 of 2) |
+| `0001-Increase-ozone-widget_size` | upstream | ok / ok / offset | FAIL / FAIL / **FAILED** (1 of 1) |
+| `0002-quit-not-restart` | upstream | ok / ok / offset | FAIL / FAIL / **FAILED** (1 of 1) |
+| `0003-fix-oga-no-preferred` | upstream | ok / ok / clean | ok / ok / offset |
+| `0004-drm-resolution` | upstream | **FAIL / FAIL / fuzz** | FAIL / FAIL / fuzz |
+| `0006-no-screen-brightness` | upstream | ok / ok / offset | FAIL / FAIL / **FAILED** (1 of 2) |
+| `0008-disable_search` | upstream | ok / ok / offset | ok / ok / offset |
+| `0009-hide-wayland-checkerboard` | upstream | ok / ok / offset | ok / ok / offset |
+| `0010-paths` | upstream | ok / ok / clean | FAIL / FAIL / **FAILED** (1 of 4) |
+| `0011-cheevos-sounds` | upstream | ok / ok / offset | FAIL / FAIL / **FAILED** (1 of 2) |
+| `0011-video-thread-wrapper-serialise-posters` | **fork** | ok / ok / clean | FAIL / FAIL / **FAILED** (4 of 4); **upstream's own form of it is on master** (#19518, merged 2026-09-08) |
+| `0012-cheevos-cmd` | upstream | ok / ok / offset | FAIL / FAIL / **FAILED** (1 of 1) |
+| `0013-cheevos-offline-proxy-toast` | **fork** | ok / ok / clean | FAIL / FAIL / **FAILED** (`intl/msg_hash_fr.h`, `msg_hash.h`) |
+| `0014-widgets-backdrop-follows-the-font` | **fork** | ok / ok / clean | FAIL / FAIL / **FAILED** (3 of 6) |
+| `0015-video-thread-wrapper-run-a-command-once` | **fork** | ok / ok / clean | FAIL / FAIL / **FAILED** (2 of 2); **its defect is already fixed on master** (#19577, its author: *"master already fixes this"*) |
+| `0016-widgets-message-queue-floor` | **fork** | ok / ok / clean | FAIL / FAIL / **FAILED** (2 of 4) |
+| `0017-widgets-sharp-font-sizes` | **fork** | ok / ok / clean | FAIL / FAIL / **FAILED** (3 of 5) |
+| `0018-auto-slot-survives-content-load` | **fork** | ok / ok / clean | FAIL / FAIL / **FAILED** (`runtime_file.c`, 1 of 2; #19223 changed `state_slot` there after the pin) |
+| `0019-widgets-message-queue-keeps-its-place` | **fork** | ok / ok / clean | FAIL / FAIL / fuzz |
+| `batteryplus/0001-batteryplus-capacity` | upstream | **FAIL** / ok / clean | FAIL / ok / offset |
+
+**What it shows:**
+
+- **The control holds.** The build's `patch -p1` applies all 21 at the pin, so the method reproduces the build.
+- **One finding inside the control (F-10):** `0004-drm-resolution` applies to the pin only with fuzz, and `git apply` refuses it there.
+- **Against master, a bump is a re-cut of the series, not a pin edit.** Fifteen patches fail outright, and two of the fork's (0011, 0015) are superseded by master's own fixes, so they are dropped, not rebased. Brief § 5 says the bump itself is a stream brief's decision; the punch list records it as `deferred:` with this table.
+- A failure later in the series can be partly a consequence of an earlier one: several patches touch `gfx/gfx_widgets.c` and `configuration.c`. So each fork patch's master row is "does not apply to master as the build would meet it", not a hunk-exact rebase estimate.
+- `git apply --check` refuses `batteryplus` at both refs while `patch` at fuzz 0 accepts it. The cause is not read here; the build uses `patch`, so it does not affect the build.
+
+### F-10 (Q2): `0004-drm-resolution.patch` applies to the pin only with fuzz
+
+At the pin, `patch -p1 --fuzz=0 --dry-run` refuses `0004-drm-resolution.patch` and `git apply --check` refuses it. The build's `patch -p1` (default fuzz 2) applies it, logging `with fuzz`. A patch that holds only by fuzz is the shape `150a4e1402` (2026-09-28, *"widget patches follow the drawn face and apply at fuzz 0"*) cured for the fork's widget patches: fuzz lets a patch land on the wrong lines when the context moves. Upstream-carried (ROCKNIX's patch); fix shape: refresh its context against the pin so it applies at fuzz 0, the same content. Proof: `q4c-patches.sh` at the pin reads `fuzz0=ok` for it. The build's own proof is an image, so `fix-pending-image`.

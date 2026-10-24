@@ -61,3 +61,21 @@
 - **Found alongside:** `--gated` is dead since `e5d14d4220` (parsed at line 57, never read; a `--gated` run printed the plain run's lines). Recorded for the punch list.
 - **Another small delta:** the brief names `m7-signin-h700-build-20261023-05`; the host also has `-06`, and `-06` holds the live H700 aarch64 root.
 - **`reviewed-at: d606301784`**: the slice's bytes there equal `8ebaf8daad` (`git diff --quiet`, exit 0).
+
+### [Stage B, Phase 1-2] 02:53-03:17 — Phase 1; the mechanical checks that need no compiler; Q4 (b); F-01 to F-09
+
+- **Phase 1** (`01` § Phase 1): 22 of 139 closed bugs match the brief's pattern. Upstream's trackers: 0011's #19518 merged to RetroArch master 2026-09-08; 0015's #19577 closed by its author as already fixed on master; #19223 (merged after the pin) is 0018's neighbour. Prior audits: eight folders name the slice; verdicts are sequestered.
+- **`pkgcheck`:** 152 runs, 151 rc 0; `sameboy-lr` FAIL (F-02).
+- **shellcheck v0.11.0** (digest checked): 30 files, 6 errors, of which 4 were lift artifacts and 2 are line-2 shebangs (F-04).
+- **The image's table parsed:** 128 / 152 / **348 `<core>`** (the recorded 500 counted `<cores>` too).
+- **The host regeneration** (`tools/regen-es-systems.sh`, the build's own host `xmlstarlet` copied from the M7 root): **byte-identical to the GENERIC_X64, H700 and SM8550 images**; RK3326 and RK3566 regenerated too. Constructed cases for the one-default rule: F-06.
+- **Q4 (b):** `tools/q4-pins.py`, 03:06-03:11 UTC (rate 4,744 to 4,143), then two fixes run from its cache. First run rc 1 on two errored rows: the guard fired as designed; the cause was GitHub's "No common ancestor", which is `pin-not-on-project`. Final: 151 rows, `current` 39, `behind-project` 102, `behind-upstream` 1 (`np2kai-lr`), `pin-not-on-project` 6, 3 by hand (`q4-pins-byhand.md`: `libxmp-lite` and `emuscv-lr` behind-project, `idtech-lr` current), rc 0.
+- **Q4 (a) in progress:** all 14 commits are absent from `next` (none reverse-applies; the merge base precedes them). `git merge-tree --write-tree next upstream/next` (read-only, tree `d2df30a92a`) gives five conflicts on the slice, the rotation-table recipes; F-09 is the `build.${DISTRO}-` trap.
+- **Leads posted on #650:**
+  - 6379089613: F-07 aethersx2-sa licensing and F-06 to T5.
+  - 6379206910: **F-08**, the H700/SM8550 default PSX core absent from `/usr/lib/libretro`, time-sensitive while M7 tests H700.
+- **The coordinator's answers** (#650 comment 6379108501, relayed into this session):
+  - **F-07** is `to merge` in the class-1 shape: the deletion lands with the next base merge, the coordinator's act; no removal on this branch; raised with the maintainer on #346.
+  - **F-06** is routed to T5 (#652) with this lane's evidence; this lane's side is the recipe comment and the two constructed cases.
+  - Nothing owed.
+- Commits `772e116dca`, `8dbe5762bc`, pushed.

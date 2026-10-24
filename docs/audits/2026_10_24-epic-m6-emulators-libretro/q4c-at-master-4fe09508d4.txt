@@ -1,0 +1,66 @@
+fetched 25 of 25 files at 4fe09508d4b9a2a1732e4249e7ee53af03ac68ed
+0001-Increase-glui-size.patch git-apply=FAIL fuzz0=FAIL applied=FAILED
+    Hunk #1 FAILED at 3591.
+    Hunk #2 FAILED at 8133.
+    2 out of 2 hunks FAILED -- saving rejects to file menu/drivers/materialui.c.rej
+0001-Increase-ozone-size.patch git-apply=FAIL fuzz0=FAIL applied=FAILED
+    Hunk #1 FAILED at 9103.
+    Hunk #2 FAILED at 10256.
+    2 out of 2 hunks FAILED -- saving rejects to file menu/drivers/ozone.c.rej
+0001-Increase-ozone-widget_size.patch git-apply=FAIL fuzz0=FAIL applied=FAILED
+    Hunk #1 FAILED at 931.
+    1 out of 1 hunk FAILED -- saving rejects to file gfx/gfx_widgets.c.rej
+0002-quit-not-restart.patch git-apply=FAIL fuzz0=FAIL applied=FAILED
+    Hunk #1 FAILED at 9321.
+    1 out of 1 hunk FAILED -- saving rejects to file menu/menu_setting.c.rej
+0003-fix-oga-no-preferred.patch git-apply=ok fuzz0=ok applied=offset
+0004-drm-resolution.patch git-apply=FAIL fuzz0=FAIL applied=fuzz
+0006-no-screen-brightness.patch git-apply=FAIL fuzz0=FAIL applied=FAILED
+    Hunk #2 FAILED at 2879.
+    1 out of 2 hunks FAILED -- saving rejects to file frontend/drivers/platform_unix.c.rej
+0008-disable_search.patch git-apply=ok fuzz0=ok applied=offset
+0009-hide-wayland-checkerboard.patch git-apply=ok fuzz0=ok applied=offset
+0010-paths.patch git-apply=FAIL fuzz0=FAIL applied=FAILED
+    Hunk #3 FAILED at 2102.
+    1 out of 4 hunks FAILED -- saving rejects to file frontend/drivers/platform_unix.c.rej
+0011-cheevos-sounds.patch git-apply=FAIL fuzz0=FAIL applied=FAILED
+    Hunk #1 FAILED at 1568.
+    1 out of 2 hunks FAILED -- saving rejects to file configuration.c.rej
+0011-video-thread-wrapper-serialise-posters.patch git-apply=FAIL fuzz0=FAIL applied=FAILED
+    Hunk #1 FAILED at 173.
+    1 out of 1 hunk FAILED -- saving rejects to file gfx/video_thread_wrapper.h.rej
+    Hunk #1 FAILED at 93.
+    Hunk #2 FAILED at 697.
+    Hunk #3 FAILED at 863.
+    3 out of 3 hunks FAILED -- saving rejects to file gfx/video_thread_wrapper.c.rej
+0012-cheevos-cmd.patch git-apply=FAIL fuzz0=FAIL applied=FAILED
+    Hunk #1 FAILED at 1523.
+    1 out of 1 hunk FAILED -- saving rejects to file configuration.c.rej
+0013-cheevos-offline-proxy-toast.patch git-apply=FAIL fuzz0=FAIL applied=FAILED
+    Hunk #1 FAILED at 14738.
+    1 out of 1 hunk FAILED -- saving rejects to file intl/msg_hash_fr.h.rej
+    Hunk #1 FAILED at 3955.
+    1 out of 1 hunk FAILED -- saving rejects to file msg_hash.h.rej
+0014-widgets-backdrop-follows-the-font.patch git-apply=FAIL fuzz0=FAIL applied=FAILED
+    Hunk #4 FAILED at 1079.
+    Hunk #5 FAILED at 1159.
+    Hunk #6 FAILED at 2281.
+    3 out of 6 hunks FAILED -- saving rejects to file gfx/gfx_widgets.c.rej
+0015-video-thread-wrapper-run-a-command-once.patch git-apply=FAIL fuzz0=FAIL applied=FAILED
+    Hunk #1 FAILED at 431.
+    Hunk #2 FAILED at 441.
+    2 out of 2 hunks FAILED -- saving rejects to file gfx/video_thread_wrapper.c.rej
+0016-widgets-message-queue-floor.patch git-apply=FAIL fuzz0=FAIL applied=FAILED
+    Hunk #2 FAILED at 894.
+    Hunk #4 FAILED at 1011.
+    2 out of 4 hunks FAILED -- saving rejects to file gfx/gfx_widgets.c.rej
+0017-widgets-sharp-font-sizes.patch git-apply=FAIL fuzz0=FAIL applied=FAILED
+    Hunk #2 FAILED at 55.
+    Hunk #3 FAILED at 896.
+    Hunk #5 FAILED at 1011.
+    3 out of 5 hunks FAILED -- saving rejects to file gfx/gfx_widgets.c.rej
+0018-auto-slot-survives-content-load.patch git-apply=FAIL fuzz0=FAIL applied=FAILED
+    Hunk #2 FAILED at 292.
+    1 out of 2 hunks FAILED -- saving rejects to file runtime_file.c.rej
+0019-widgets-message-queue-keeps-its-place.patch git-apply=FAIL fuzz0=FAIL applied=fuzz
+batteryplus/0001-batteryplus-capacity.patch git-apply=FAIL fuzz0=ok applied=offset
