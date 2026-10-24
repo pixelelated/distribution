@@ -172,3 +172,9 @@ GUEST-PROOF: 03:35:37 UTC -- P4, tools/time-to-play --vm --no-configure-remote -
   - PROOF: `head -1` of `Start Azahar.sh` and `Start MelonDS.sh` reads `#!/bin/bash`; `bash -n` rc 0 on both; shellcheck reports 0 SC1128.
   - Line 2 never bit: the tools system runs `/usr/bin/foot %ROM%`, whose `execvp` falls back to `/bin/sh`, which is bash on the image (`02`, F-04).
   - PL-013 is Deferred, `state: fix-pending-image`.
+- 06:43 **S4, the patches** (PL-014, PL-018): `43323b54b7` re-cuts 0004; `0485392d88` adds 0017's header note.
+  - PROOF: PL-014. `drm_common.c` came from the cached pin tarball; no earlier patch touches it. The old 0004 applies with fuzz 1 at offset 16, because a context line changed upstream (`.vrefresh` became `drm_calc_refresh_rate(&…)`). The re-cut applies at `-F0`, and its `+`/`-` lines are identical to the old patch's.
+  - PROOF: `tools/q4c-patches.sh` at the pin (`.qa-scratch/t3/s4/q4c-after.txt`). 0004 is `git-apply=ok fuzz0=ok applied=clean` (was FAIL/FAIL/fuzz). All 21 are clean or offset; 0013 is now offset, from S0's longer 0012 hunk in `cheevos.c`.
+  - PROOF: PL-018. The hunks' `+` and `-` lines of 0017 diff empty, before against after (rc 0); the patch reads clean at the pin. The decision cites D-UI-110 and the open D-UI-111.
+  - #817, #823 and #824's host-met checkboxes are ticked, at the coordinator's word; #823 has all its checkboxes ticked. #817's first stays open, its exception list lacking #824's line.
+  - PL-014 is Deferred, `state: fix-pending-image`; PL-018 is Resolved. Pre-issue lint PASS.

@@ -234,6 +234,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing
 - **Acceptance:** tools/q4c-patches.sh at the pin reads fuzz0=ok for 0004 and applied=clean or offset for all 21.
 - **Tracked work:** #820
+- **Disposition note:** S4: re-cut at `43323b54b7`; 0004 clean at the pin, its +/- lines byte-identical; the image proves it applies in the build (#820)
 
 ## PL-015: `easyrpg-lr/wildmidi` pins a short hash
 
@@ -293,7 +294,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** Yes: P3's log lines
 - **Already written:** nothing: a log line
 - **Acceptance:** Either the profiles' video_font_path names an ozone face and P3's log reads a sharp-size table, or 0017 is absent from the series, or a comment beside video_font_path in the GENERIC_X64 profile names 0017 and why it waits.
-- **Disposition note:** deferred:#336 for the 2D cores' widget surface
+- **Disposition note:** S4: kept, the decision written into 0017's header at `0485392d88` (dormant on every shipped profile, D-UI-110; the face question stays D-UI-111's)
 
 ## PL-019: `X64_SKIP_CORES` says its cores are tracked in #16, which is closed
 
@@ -540,11 +541,11 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-011 | Resolved | S2: `87e328640d`: st-v only where a core is added; GENERIC_X64 psx defaults to DuckStation standalone; the regenerated five tables have no system without an emulator or a default (#817) |
 | PL-012 | Deferred | #818: S1: fixed at `28968ae585` (pkgcheck rc 1 -> 0); the next image carries sameboy_libretro.so (#818) |
 | PL-013 | Deferred | #819: S3: fixed at `5935e3ce8e` (the shebang on line 1 of both; bash -n and shellcheck clean); the next image installs them (#819) |
-| PL-014 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-014 | Deferred | #820: S4: re-cut at `43323b54b7`; 0004 clean at the pin, its +/- lines byte-identical; the image proves it applies in the build (#820) |
 | PL-015 | Deferred | #821: S1: fixed at `b45a4f1f7a` (the full hash; the archive byte-identical, PKG_SHA256 unchanged) (#821) |
 | PL-016 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-017 | Deferred | S1: fixed at `e8bfe9ddda` (the three dead checks removed; set -e proved to end the build at a failed make) |
-| PL-018 | Deferred | deferred:#336 for the 2D cores' widget surface |
+| PL-018 | Resolved | S4: kept, the decision written into 0017's header at `0485392d88` (dormant on every shipped profile, D-UI-110; the face question stays D-UI-111's) |
 | PL-019 | Resolved | S2: `87e328640d`: the X64_SKIP_CORES comment says #16 closed and how a dropped core is kept off the table |
 | PL-020 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-021 | Deferred | #822: deferred:M7-merge: Install Steam.sh is changed by the M7 hunk `6101242e14`; its row goes on the follow-up the merge names |
@@ -679,7 +680,8 @@ punch_index:
   source_finding: "F-10"
   owner_area: "RetroArch's patches"
   tracked: "#820"
-  outcome: open
+  state: fix-pending-image
+  outcome: deferred
 - id: PL-015
   severity: Low
   category: Code Quality
@@ -710,7 +712,7 @@ punch_index:
   question: Q6
   source_finding: "F-14"
   owner_area: "RetroArch's widget patches"
-  outcome: deferred
+  outcome: resolved
 - id: PL-019
   severity: Low
   category: Documentation Gap
