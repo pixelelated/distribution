@@ -415,7 +415,8 @@ punch_index:
   source_finding: "F-25"
   owner_area: "the source fetch: git sources"
   tracked: "#828"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-sandbox; fix-pending-image: the first build that reuses a warm cache"
 - id: PL-03
   severity: Medium
   category: Code Quality
@@ -423,7 +424,8 @@ punch_index:
   source_finding: "F-18"
   owner_area: "the source fetch: git sources"
   tracked: "#829"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-sandbox; fix-pending-image: the first build that reuses a warm cache"
 - id: PL-04
   severity: Medium
   category: Security
@@ -601,8 +603,8 @@ punch_index:
 | Item | Outcome | Evidence |
 | --- | --- | --- |
 | PL-01 | **Resolved** | `cfd5ee7324` (E1): every part1 copy, the hook's fifteen, the partitioning, `pigz` and the checksum through `show_error`; a size check; the partial image removed on failure or interrupt. P15 before and after; fix-sandbox; fix-pending-image: the next SM8550 and H700 builds' `target/` |
-| PL-02 | Open | stage E's stream brief resolves (`t5-streams.md`) |
-| PL-03 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-02 | **Resolved** | `6712ae5ef3` (E2): `pushd` and `_clean_repo` checked on their own lines, every return pops; a cache directory that cannot be entered is invalid. P17 before and after; fix-sandbox; fix-pending-image: the first build that reuses a warm cache |
+| PL-03 | **Resolved** | `6712ae5ef3` (E2): `HEAD` must equal `git rev-parse "${PKG_VERSION}^{commit}"`; `_clean_repo` resets tracked edits. P16 before and after; fix-sandbox; fix-pending-image: the first build that reuses a warm cache |
 | PL-04 | Open | stage E's stream brief resolves (`t5-streams.md`) |
 | PL-05 | Open | stage E's stream brief resolves (`t5-streams.md`) |
 | PL-06 | Open | stage E's stream brief resolves (`t5-streams.md`) |

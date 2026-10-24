@@ -165,3 +165,15 @@ PROOF: 06:07:52 P14 `get_git`'s cache check over a directory it cannot enter run
 - Not changed: the `Generic` OVA block (`qemu-img`, `tar`, its checksum; unreached, `PROJECT=ROCKNIX` everywhere) and the hook's `exit 2` on a missing `boot.scr`, which already fails.
 
 PROOF: 06:27-06:30 P15 `scripts/mkimage` exits 1 and leaves no image over a SYSTEM the FAT cannot hold or a missing ABL, where it exited 0 with an image -- `tools/sb-mkimage.sh` (F-16, #827)
+
+### [Stage E] 06:31 to 06:34 — E2, `get_git`'s cache check (PL-02 #828, PL-03 #829)
+
+- The coordinator accepted E1 on #652 (nothing owed).
+- The test first: `tools/sb-get-git-head.sh` now lifts `_clean_repo` and `_repo_exists_and_valid` by name, from a commit or the working tree. It runs the check as `main` does, over a clone with `HEAD` at B behind its branch A, and then over the same clone with a tracked file edited. `tools/sb-get-git-pushd.sh` takes `WORKTREE` too.
+- Before (`8ebaf8daad`): A accepted with `HEAD` at B; the edited file kept and accepted; P14's fixture left with `.git` alone.
+- The change (`6712ae5ef3`): `pushd` and `_clean_repo` are checked on their own lines, and every return pops. `_clean_repo` is now `git clean -fdx && git reset --quiet --hard`. `HEAD` must equal `git rev-parse --verify "${PKG_VERSION}^{commit}"`, and the `ls-remote | grep` pipe is gone. `bash -n` passes.
+- After: A refused; B accepted, full and abbreviated; the edit discarded and the cache accepted. P14's fixture comes back intact (`.git .gitignore build.fixture-1 sources untracked-file`), and the trace shows nothing after the refused `pushd`.
+- Already written: the shared cache `/workspace/cache/rocknix-sources`, read only. All 311 git clones have `HEAD` equal to the pin in their directory name, so none is corrected by the next fetch. A tree already cleaned by #828 cannot be recovered, and none is known.
+
+PROOF: 06:33 P16 `get_git`'s cache check refuses a clone whose `HEAD` is not the pin and discards tracked edits, where it accepted both -- `tools/sb-get-git-head.sh` (F-18, #829)
+PROOF: 06:33 P17 `get_git`'s cache check over a directory it cannot enter leaves the build tree intact, where it ran `git clean -fdx` in it -- `tools/sb-get-git-pushd.sh` (F-25, #828)

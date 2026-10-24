@@ -4,7 +4,7 @@
 # two functions from `scripts/get_git` at the read commit against a fixture
 # worktree under the scratch directory given; prints what is left. Run as a
 # non-root user (root can enter a mode-000 directory).
-#   sb-get-git-pushd.sh <scratch-dir> [commit]
+#   sb-get-git-pushd.sh <scratch-dir> [commit|WORKTREE]
 set -euo pipefail
 S="${1:?scratch directory}"; R="${2:-8ebaf8daad}"
 REPO="$(git rev-parse --show-toplevel)"
@@ -19,7 +19,7 @@ echo "before: $(ls -A | tr '\n' ' ')"
 { echo 'set -e; set -o pipefail'
   echo "PACKAGE=\"$W/sources/pkg/pkg-v1\"; PKG_VERSION=fixture-3; PKG_URL=fixture-4"
   # the two functions by name, so a fix that moves lines is still lifted whole
-  git -C "$REPO" show "$R:scripts/get_git" | sed -n '/^_clean_repo() {/,/^_update_submodules() {/p' | sed '$d'
+  if [ "$R" = WORKTREE ]; then cat "$REPO/scripts/get_git"; else git -C "$REPO" show "$R:scripts/get_git"; fi | sed -n '/^_clean_repo() {/,/^_update_submodules() {/p' | sed '$d'
   echo '_repo_exists_and_valid && echo "check: accepted" || echo "check: rejected rc=$?"'
 } > "$S/harness-$$.sh"
 bash -x "$S/harness-$$.sh" 2>&1 | grep -E '^\+ (pushd|_clean_repo|git clean)|Permission denied|^Removing|^check:' || true

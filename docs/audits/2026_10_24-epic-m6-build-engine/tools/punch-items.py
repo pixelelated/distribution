@@ -108,6 +108,8 @@ I = [
 # dispositions there fill it; an item absent here is still Open.
 P7 = {
  "F-16": ("Resolved", "`cfd5ee7324` (E1): every part1 copy, the hook's fifteen, the partitioning, `pigz` and the checksum through `show_error`; a size check; the partial image removed on failure or interrupt. P15 before and after", "fix-sandbox; fix-pending-image: the next SM8550 and H700 builds' `target/`"),
+ "F-25": ("Resolved", "`6712ae5ef3` (E2): `pushd` and `_clean_repo` checked on their own lines, every return pops; a cache directory that cannot be entered is invalid. P17 before and after", "fix-sandbox; fix-pending-image: the first build that reuses a warm cache"),
+ "F-18": ("Resolved", "`6712ae5ef3` (E2): `HEAD` must equal `git rev-parse \"${PKG_VERSION}^{commit}\"`; `_clean_repo` resets tracked edits. P16 before and after", "fix-sandbox; fix-pending-image: the first build that reuses a warm cache"),
  "F-05": ("Deferred", "deferred:#651 (T4): `device-builds.md` § After rebasing items 2 and 3 (the coordinator's disposition, `t5-streams.md`)", None),
  "F-15": ("Deferred", "deferred:#651 (T4): § Build credentials' two spellings of the options file (the coordinator's disposition)", None),
  "F-10": ("Deferred", "deferred:#657 (T10): `update-kernel-configs-docs.yml` fails on every fork push (the coordinator's disposition)", None),
