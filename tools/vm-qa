@@ -134,6 +134,15 @@ case "$GUEST" in
 esac
 [ "$LINK" = 1 ] && ONLY="$ONLY,link"
 [ "$RA_OFFLINE" = 1 ] && ONLY="$ONLY,ra-offline"
+# Every ssh and scp this tool runs has an execution bound (#976): ConnectTimeout
+# ends a connection that never opens, not a command that never ends. VM_SSH_BOUND
+# overrides the default for a run that needs longer (or a control that needs less).
+# A cut is also appended to SSH_CUT_LOG when the tool has one, because a caller
+# that sends ssh's stderr to /dev/null would otherwise hear nothing of it.
+ssh_cut() { echo "vm-qa: an $1 call ran past its ${VM_SSH_BOUND:-300} s bound and was cut" >&2
+  [ -z "${SSH_CUT_LOG:-}" ] || echo "$(date -u +%T) $1 cut at the ${VM_SSH_BOUND:-300} s bound" >> "$SSH_CUT_LOG"; }
+ssh() { local rc; timeout "${VM_SSH_BOUND:-300}" ssh "$@"; rc=$?; [ "$rc" != 124 ] || ssh_cut ssh; return "$rc"; }
+scp() { local rc; timeout "${VM_SSH_BOUND:-300}" scp "$@"; rc=$?; [ "$rc" != 124 ] || ssh_cut scp; return "$rc"; }
 SSH() { ssh -n -i "$KEY" -p "$PORT" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR -o ConnectTimeout=8 -o BatchMode=yes root@127.0.0.1 "$@"; }
 
 # The report root must take a write before anything touches a guest (#982):
@@ -238,6 +247,7 @@ REPORT="$OUT/report.md"
 # The run's scratch files under this checkout, never /tmp (D-INFRA-031): every
 # mktemp here and in the tools this run starts lands in the run's own directory.
 export TMPDIR="$ROOT/.qa-scratch/vm-qa-tmp/$(basename "$OUT")"
+SSH_CUT_LOG="$OUT/ssh-cuts.log"
 mkdir -p "$TMPDIR" || { echo "vm-qa: cannot create the run's scratch directory $TMPDIR" >&2; exit 1; }
 # The guest's display, read from its QEMU's own command line (#291): hardware GL through virgl on a host
 # render node, or the software path. The renderer the guest's Mesa then reports is read at the end, from
@@ -753,7 +763,7 @@ elif [ "$PAIR_UP" = 1 ]; then
   TEARDOWN="vm-pair down rc $down_rc"
   [ "$down_rc" = 0 ] || { FAILS=$((FAILS+1)); TEARDOWN="$TEARDOWN -- FAIL: the pair this run brought up was not taken down cleanly"; printf '%s\n' "$down_out" | tail -3 >&2; }
 fi
-{ echo; if [ "$FAILS" = 0 ] && [ "$SKIPS" = 0 ]; then echo "**PASSED** -- every suite that ran passed (exit 0)."; elif [ "$FAILS" = 0 ]; then echo "**PASSED with $SKIPS suite(s) SKIPPED** -- a skipped suite could not run (its log says why) and has not passed (exit 3)."; else echo "**FAILED** -- $FAILS suite(s) failed; see the logs beside this file (exit 1)."; fi; echo; echo "finished $(date -u '+%Y-%m-%d %H:%M UTC')"; echo; echo "bring-up ${BRINGUP_S}s, fixture ${FIXTURE_S}s -- outside the suite rows, so the minutes a reader sums are the run's"; echo; echo "tear-down: $TEARDOWN"; } >> "$REPORT" || FAILS=$((FAILS+1))
+{ echo; if [ "$FAILS" = 0 ] && [ "$SKIPS" = 0 ]; then echo "**PASSED** -- every suite that ran passed (exit 0)."; elif [ "$FAILS" = 0 ]; then echo "**PASSED with $SKIPS suite(s) SKIPPED** -- a skipped suite could not run (its log says why) and has not passed (exit 3)."; else echo "**FAILED** -- $FAILS suite(s) failed; see the logs beside this file (exit 1)."; fi; echo; echo "finished $(date -u '+%Y-%m-%d %H:%M UTC')"; echo; echo "bring-up ${BRINGUP_S}s, fixture ${FIXTURE_S}s -- outside the suite rows, so the minutes a reader sums are the run's"; echo; echo "tear-down: $TEARDOWN"; echo; echo "ssh and scp calls cut at the ${VM_SSH_BOUND:-300} s bound: $(cat "$SSH_CUT_LOG" 2>/dev/null | wc -l)$([ -s "$SSH_CUT_LOG" ] && echo " (ssh-cuts.log)")"; } >> "$REPORT" || FAILS=$((FAILS+1))
 # The time-to-play numbers go BELOW the footer, not into the suite table: the
 # table is one row per suite and this cell reports four of its own. No budget
 # row exists yet, so nothing here fails the run -- the numbers are reported

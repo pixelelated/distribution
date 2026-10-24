@@ -115,6 +115,15 @@ while [ $# -gt 0 ]; do
 done
 [ -z "$GAME" ] || case " $CANDIDATES " in *" $GAME "*) ;; *) echo "ra-offline-test: --game is one of: $CANDIDATES (--list-games)" >&2; exit 2 ;; esac
 SSHO=(-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR -o ConnectTimeout=8 -o BatchMode=yes -p "$PORT" -i "$KEY")
+# Every ssh and scp this tool runs has an execution bound (#976): ConnectTimeout
+# ends a connection that never opens, not a command that never ends. VM_SSH_BOUND
+# overrides the default for a run that needs longer (or a control that needs less).
+# A cut is also appended to SSH_CUT_LOG when the tool has one, because a caller
+# that sends ssh's stderr to /dev/null would otherwise hear nothing of it.
+ssh_cut() { echo "ra-offline-test: an $1 call ran past its ${VM_SSH_BOUND:-300} s bound and was cut" >&2
+  [ -z "${SSH_CUT_LOG:-}" ] || echo "$(date -u +%T) $1 cut at the ${VM_SSH_BOUND:-300} s bound" >> "$SSH_CUT_LOG"; }
+ssh() { local rc; timeout "${VM_SSH_BOUND:-300}" ssh "$@"; rc=$?; [ "$rc" != 124 ] || ssh_cut ssh; return "$rc"; }
+scp() { local rc; timeout "${VM_SSH_BOUND:-300}" scp "$@"; rc=$?; [ "$rc" != 124 ] || ssh_cut scp; return "$rc"; }
 S() { ssh -n "${SSHO[@]}" "$HOST" "$@"; }
 # The serial console: the channel that works with the link down (tools/vm-serial).
 # The console's lines end in CRLF; vm-serial strips only the outermost, so

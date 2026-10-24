@@ -224,11 +224,14 @@ class Monitor:
         self._scratch = None
 
     def _drain(self, seconds):
-        """Absorb whatever the monitor has to say (banner, echoes, prompts)."""
+        """Absorb whatever the monitor has to say (banner, echoes, prompts):
+        until it has been quiet for `seconds`, and never past an absolute
+        deadline, so a monitor that keeps talking cannot hold a walk (#976)."""
         self.sock.settimeout(seconds)
         out = b""
+        deadline = time.time() + seconds + 10
         try:
-            while True:
+            while time.time() < deadline:
                 chunk = self.sock.recv(4096)
                 if not chunk:
                     break

@@ -189,8 +189,12 @@ class Guest:
         """scp's exit status: a copy that failed is said by the caller, never
         assumed done (a missing directory on a fresh guest made the conf
         copy fail silently, and two comparisons timed syncs to nowhere)."""
-        return subprocess.run(["scp", "-q", "-P", self.port] + self._opts() + [local, self.host + ":" + remote],
-                              capture_output=True).returncode
+        # Bounded like every ssh here (#976): a copy that never ends is a failed one.
+        try:
+            return subprocess.run(["scp", "-q", "-P", self.port] + self._opts() + [local, self.host + ":" + remote],
+                                  capture_output=True, timeout=120).returncode
+        except subprocess.TimeoutExpired:
+            return 124
 
     def drop_master(self):
         subprocess.run(["ssh", "-O", "exit", "-o", "ControlPath=" + self.cp,
@@ -1146,8 +1150,11 @@ def main():
             if g.sh("test -e %s && echo y" % path)[1] != "y":
                 open(saved + ".absent", "w").close()
                 continue
-            r = subprocess.run(["scp", "-q", "-P", g.port] + g._opts() + [g.host + ":" + path, saved],
-                               capture_output=True)
+            try:
+                r = subprocess.run(["scp", "-q", "-P", g.port] + g._opts() + [g.host + ":" + path, saved],
+                                   capture_output=True, timeout=120)
+            except subprocess.TimeoutExpired:
+                sys.exit("time-to-play: backing up the guest's %s ran past 120 s; nothing was changed" % path)
             if r.returncode != 0 or not os.path.exists(saved):
                 sys.exit("time-to-play: could not back up the guest's %s (scp %d); nothing was changed"
                          % (path, r.returncode))
