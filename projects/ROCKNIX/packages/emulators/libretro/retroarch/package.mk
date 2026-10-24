@@ -112,7 +112,7 @@ makeinstall_target() {
       if [ "${ENABLE_32BIT}" = "true" ] && [ "${BASE_ONLY}" != "true" ]; then
         local ra32_root="${ROOT}/build.${DISTRONAME}-${DEVICE}.arm/install_pkg"
         local ra32=(${ra32_root}/retroarch-*/usr/bin/retroarch)
-        [ -f "${ra32[0]}" ] || die "retroarch32: no ${ra32_root}/retroarch-*/usr/bin/retroarch; build the arm root first"
+        [ -f "${ra32[0]}" ] || die "retroarch32: no ${ra32_root}/retroarch-*/usr/bin/retroarch; build the arm root first, or set ENABLE_32BIT=no in the environment for a build without the 32-bit cores"
         [ "${#ra32[@]}" -eq 1 ] || die "retroarch32: ${#ra32[@]} retroarch install directories in ${ra32_root}, expected one"
         [ "${ra32[0]}" = "${ra32_root}/retroarch-${PKG_VERSION}/usr/bin/retroarch" ] || die "retroarch32: ${ra32[0]} is not this recipe's version ${PKG_VERSION}"
         cp -vP "${ra32[0]}" ${INSTALL}/usr/bin/retroarch32
