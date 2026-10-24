@@ -389,3 +389,13 @@ preserved. All original lifecycle channels0, owners exited, admission consumed,
   - The image's scripts: the crafted `.scummvm` runs its command as root, and the apostrophe in "Free Doom's Gate.wad" stops `xargs`.
   - The fixed scripts: no marker, and ScummVM refuses the stray word. Freedoom reaches its title under both names in 0.92-1.00 s. FOTAQ reaches ScummVM's splash in 0.59-0.69 s.
 - **Left behind:** nothing beyond synthetic files on the T30 disk. The binds, the renamed copy and the crafted file were removed.
+
+## 2026-10-24 11:26 UTC — M6 T30 S1 cycle: the link step, before and after (#677, #872)
+
+- **Image and disk** as before (`069fc27044`, `t30.qcow2`). For part B the fixed scripts and `link_storage_dir` were in an overlay on `/usr/bin`, upper layer `/storage/t30/s1/upper`; `input_sense`'s `evtest` held it, so it was detached with `umount -l`. Up 11:20:49, `tools/vm-stop` rc 0 at 11:25:06; census 0 before and after.
+- **Found:**
+  - The image's scripts lose a memory card, a pak and flycast's layout, and their gptokeyb kill ends another process's gptokeyb.
+  - The fixed ones keep all three, kill only their own gptokeyb, and keep G16's card and state.
+  - P3's control-run restore nested the targets' previous contents one level down. That is the harness's own move-aside, and the helper alone on the guest stays flat.
+  - The P3 script on the disk had become 0 bytes since cycle 3.
+- **Left behind:** synthetic files on the T30 disk, including the nested folders, and the overlay's upper layer under `/storage/t30/s1` (not mounted at boot).

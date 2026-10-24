@@ -197,6 +197,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** saves already deleted are gone; saves sitting in a real directory today (an old archive restored before a link existed) are kept and merged by the fix on their next launch
 - **Acceptance:** The G8 fixture keeps the synthetic card (found once under the target) and replaces the directory by the link; a failed copy leaves the directory in place.
 - **Tracked work:** #863
+- **Disposition note:** S1: the helper `ce27f80fa2` and the nine sites `019020d579`..`6da932bc1f`; guest S1-G1 (G8: the card kept, memcards a link) and S1-G2 (G16: the Tools launcher's state survives the game launch); every site by fixture S1-F1
 
 ## PL-013: `portaudio`'s primary source URL is dead (404); an empty-cache build succeeds through ROCKNIX's source mirror
 
@@ -228,6 +229,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** a directory /storage/roms/bios/gba/gba_bios.bin (a copy of /usr/config/nanoboyadvance) on SM8550 handhelds that launched it without a BIOS: the fix removes it when it is that copy
 - **Acceptance:** A fixture run of the fixed script on a tree without the BIOS leaves no gba_bios.bin; with a fixture of the old directory, it is removed.
 - **Tracked work:** #864
+- **Disposition note:** S1: `0cd4cafc92`; S1-F1: no gba_bios.bin directory on a fresh device, the exact old copy removed, a changed copy and a real file kept. The brief's HLE premise does not hold at the pin (the SDL frontend exits without a BIOS at bios_path, main.cpp:180-185); reported on #677
 
 ## PL-015: amiberry's script deletes the resolution keys it means to set, matches 'AGA|CD32' literally, and overwrites the player's configs every launch
 
@@ -453,6 +455,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** a data directory moved under /storage/roms/dreamcast/data on devices that had one: kept
 - **Acceptance:** On the guest, two launches leave /storage/roms/dreamcast/data a link to bios/dc and kill only the launch's gptokeyb.
 - **Tracked work:** #871
+- **Disposition note:** S1: `a3c443166e`; guest S1-G1: two launches leave dreamcast/data a link to bios/dc with its file, no dc link inside, and an unrelated gptokeyb alive
 
 ## PL-030: Steam's launcher exits before its callers' cleanup, so an x86 Steam session leaves systemd-binfmt stopped and dual-screen state on
 
@@ -559,6 +562,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** PAKs a player put in the staging folder were deleted; nothing to restore
 - **Acceptance:** On the guest, a real file in /storage/openbor/Paks survives an OpenBOR launch.
 - **Tracked work:** #871
+- **Disposition note:** S1: `ee1ecc0a88`; guest S1-G1: a real pak in Paks survives a launch (deleted by the image's script)
 
 ## PL-037: DuckStation's own achievements are disabled on every launch (upstream's workaround), and cheevos_duckstation.sh is dead
 
@@ -649,9 +653,9 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-009 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-010 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-011 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-012 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-012 | Resolved | S1: the helper `ce27f80fa2` and the nine sites `019020d579`..`6da932bc1f`; guest S1-G1 (G8: the card kept, memcards a link) and S1-G2 (G16: the Tools launcher's state survives the game launch); every site by fixture S1-F1 |
 | PL-013 | Deferred | #849: filed by the coordinator; re-graded Low by the coordinator on #677 (the mirror covers an empty-cache build); the cache read, never moved; a second copy under /workspace/tmp/m6-coordinator/preserve/ |
-| PL-014 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-014 | Resolved | S1: `0cd4cafc92`; S1-F1: no gba_bios.bin directory on a fresh device, the exact old copy removed, a changed copy and a real file kept. The brief's HLE premise does not hold at the pin (the SDL frontend exits without a BIOS at bios_path, main.cpp:180-185); reported on #677 |
 | PL-015 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-016 | Deferred | base merge, class 1: upstream `0c43a50420` |
 | PL-017 | Open | awaiting the coordinator's stream briefs (stage E) |
@@ -666,14 +670,14 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-026 | Open | the coordinator files the bumps |
 | PL-027 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-028 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-029 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-029 | Resolved | S1: `a3c443166e`; guest S1-G1: two launches leave dreamcast/data a link to bios/dc with its file, no dc link inside, and an unrelated gptokeyb alive |
 | PL-030 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-031 | Resolved | S0: `6894bfd3cd`; S0-F1: the URI and -silent two arguments on both launch lines |
 | PL-032 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-033 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-034 | Open | PLAUSIBLE: the classification (bug, open item to test) is the coordinator's |
 | PL-035 | Open | an open item to test (bugs-are-agent-first.md): the coordinator classifies |
-| PL-036 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-036 | Resolved | S1: `ee1ecc0a88`; guest S1-G1: a real pak in Paks survives a launch (deleted by the image's script) |
 | PL-037 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-038 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-039 | Open | awaiting the coordinator's stream briefs (stage E) |
@@ -781,7 +785,8 @@ punch_index:
   source_finding: "F-12"
   owner_area: "launch: save links"
   tracked: "#863"
-  outcome: open
+  state: fix-guest
+  outcome: resolved
 - id: PL-013
   severity: Low
   category: Package Currency
@@ -797,7 +802,8 @@ punch_index:
   source_finding: "F-14"
   owner_area: "launch: BIOS"
   tracked: "#864"
-  outcome: open
+  state: fixture
+  outcome: resolved
 - id: PL-015
   severity: Low
   category: Bug
@@ -914,7 +920,8 @@ punch_index:
   source_finding: "F-30"
   owner_area: "launch: flycast"
   tracked: "#871"
-  outcome: open
+  state: fix-guest
+  outcome: resolved
 - id: PL-030
   severity: Medium
   category: Bug
@@ -969,7 +976,8 @@ punch_index:
   source_finding: "F-37"
   owner_area: "launch: OpenBOR"
   tracked: "#871"
-  outcome: open
+  state: fix-guest
+  outcome: resolved
 - id: PL-037
   severity: Low
   category: Renovation
