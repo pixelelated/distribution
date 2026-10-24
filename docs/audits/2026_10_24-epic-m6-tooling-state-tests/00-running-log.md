@@ -331,3 +331,27 @@ PROOF: P13 S5's controls -- `docs/qa-logs/2026-10-24-state-tests-s5/layout-cases
   - **The tree:** 14 PASS, 0 FAIL.
 PROOF: P14 S6's controls -- `docs/qa-logs/2026-10-24-state-tests-s6/info-cases.sh` PASS (both mutations credited at stage D, failed fixed, naming the pattern) and `nova-cases.sh` PASS (credited at stage D with 8 stand-in files written; failed fixed with none written); the trees PASS 12 and 14/0.
 PROOF: P15 S5's follow-up -- `docs/qa-logs/2026-10-24-state-tests-s5/backup-contract-cases.sh` PASS (the silent and derived backups pass the test at `c25f69d19a` and fail it at `ef31b4bf22`; the unmutated backup passes both); the historical T18 set 17/0.
+
+## [Stage E] 22:21 UTC — S7: retroarch-wrapper-test (#996); a leak in rocknix-info-test (#995)
+
+- **The source:** a copy of the M7 root's `build/retroarch-bdba046fa6766380bc2457532f38e589df769aaf/gfx/video_thread_wrapper.c` (`m7-pixelelated-replacement20`, GENERIC_X64), read only, sha256 `b578746ee1b053b5211961f6f56f08cd0b2568fef8bb8bfc84b374b307c76952`, at `.qa-scratch/t14/retroarch/gfx/` (ignored by `.gitignore:63`). Nothing was written under the root.
+- **#996 (`0037b04172`): what changed.**
+  - **Per-site counting:** two call sites post in turn, each a different method reading its own local, and each site's count is compared with its own 1000.
+  - **Cleanup:** the scratch `t.c` and binary are removed on every exit, through `atexit`, with SIGTERM, SIGINT and SIGHUP turned into an exit.
+  - **No compiler:** a missing or unrunnable `gcc` is CANNOT, exit 2, naming it.
+  - **The bare run** exits 2 with a usage line naming `RETROARCH_SRC`. The retired default roots (`:42-43`) stay #640's, and none moved.
+- **The control,** `docs/qa-logs/2026-10-24-state-tests-s7/wrapper-cases.sh`: the stage-D test and the fixed one against the same copies, each with a fresh `TMPDIR` under the scratch.
+  - **A `send_packet` that keeps the first command's method** (every post runs site 0's method, and the total is still 2000): rc 0 at stage D (`PASS: every command ran exactly once`), rc 1 fixed (`site 1 posted 1000 command(s); its method ran 0 time(s)`).
+  - **The plain copy:** rc 0 both; stage D leaves one `t.c`, fixed leaves nothing.
+  - **`PATH` holding only `python3`:** rc 1 at stage D (`FileNotFoundError ... 'gcc'`), rc 2 fixed (`CANNOT -- no gcc on PATH`).
+  - **SIGTERM during a build by a `gcc` shim that sleeps:** rc 143 both; stage D leaves 2 entries, fixed none.
+  - **The bare run:** rc 2 both; fixed prints the usage line. PASS, 5 s.
+- **A slip of mine in the control:** the first cut ended the shim by an anchored `pgrep -f` pattern, and my own check `pgrep -af shim-bin` matched the session's shell (the self-match trap). The shim now writes its pid and `exec`s the sleep, and the control kills that pid; both pids were read afterwards as gone from `/proc`.
+- **Already written:** the lane's own leftover from stage A, `/workspace/tmp/m6-t14/tmp/tmpi9wqx8u7/{t,t.c}`, was listed and removed. Earlier runs' `TMPDIR`s elsewhere are the record's, and were not touched.
+- **Found while listing that `TMPDIR`: `rocknix-info-test` left its scratch on every failing run.** There were eleven `rocknix-info-test-*` directories from S6's own control runs; its `shutil.rmtree` at the end ran only after a pass, at stage D and after `359dd435ce` alike.
+  - **The fix (`84a2b73140`, under #995):** an `atexit` handler registered when the scratch is made.
+  - **The control,** `docs/qa-logs/2026-10-24-state-tests-s6/info-cleanup-case.sh`: at `359dd435ce` a failing run leaves one directory, fixed none; a passing run leaves none either way. PASS.
+  - **After:** the tree PASS 12, and `info-cases.sh` PASS. The eleven were listed and removed.
+  - `nova-led-test` already uses a `TemporaryDirectory` context and leaves nothing.
+PROOF: P16 S7's control -- `docs/qa-logs/2026-10-24-state-tests-s7/wrapper-cases.sh` PASS (the wrong-site mutation, the leftover `t.c`, exit 1 without gcc and the killed run's scratch, all at stage D; per-site FAIL, nothing left, exit 2 naming gcc, the scratch removed when killed, and the usage line, fixed).
+PROOF: P17 S6's cleanup follow-up -- `docs/qa-logs/2026-10-24-state-tests-s6/info-cleanup-case.sh` PASS (a failing run leaves its scratch at `359dd435ce` and nothing at `84a2b73140`).

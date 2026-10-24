@@ -159,6 +159,8 @@ No host file line was written, because no guest started. The census was 0 throug
 | S5 (#1004, #1005) | `docs/qa-logs/2026-10-24-state-tests-s5/layout-cases.sh` (a no-op backup; a seeder that never settles; a restore that swallows its listing failure); `save-layout-cases.sh` (a pure-rclone selection with `--busybox`; `--ref` before a current source) | each mutation credited (rc 0); both save-layout runs rc 1 | each mutation failed; both rc 0; the historical matrix 398/0 | `c25f69d19a`, `15bce9aa23` |
 | S5 follow-up (#1004) | `docs/qa-logs/2026-10-24-state-tests-s5/backup-contract-cases.sh` (a backup that exits 0 silently after the faulted listing; one that copies into `/pixelelated/Saves/`) | at `c25f69d19a`, the test before the follow-up: both credited (rc 0) | both failed (no `COMPLETED`; the derived folder named); the unmutated backup passes; T18 17/0 | `ef31b4bf22` |
 | S6 (#995) | `docs/qa-logs/2026-10-24-state-tests-s6/info-cases.sh` (an appended `exit 0` under `PYTHONOPTIMIZE=1`; an unadapted `/tmp/battery.percent`); `nova-cases.sh` (an EXIT trap under `PYTHONOPTIMIZE=1`; a hardcoded `LED_PATH` at a stand-in tree) | all four credited (rc 0); the stand-in's 8 files written | all four failed, the pattern or line named; no stand-in file written | `359dd435ce`, `081f19d2f0` |
+| S6 follow-up (#995) | `docs/qa-logs/2026-10-24-state-tests-s6/info-cleanup-case.sh` (a failing run and a passing run, each with a fresh `TMPDIR`) | at `359dd435ce`: the failing run leaves its scratch | nothing left after either | `84a2b73140` |
+| S7 (#996) | `docs/qa-logs/2026-10-24-state-tests-s7/wrapper-cases.sh` (a `send_packet` that keeps the first method; the plain copy; no `gcc`; SIGTERM mid-build; the bare run) | the mutation credited (rc 0, total 2000); `t.c` left; rc 1 without `gcc`; the scratch left when killed | per-site FAIL (site 1 ran 0 times); nothing left; rc 2 naming `gcc`; nothing left when killed; rc 2 with the usage line | `0037b04172` |
 
 | Proof | What it shows | Proved |
 | --- | --- | --- |
@@ -169,3 +171,5 @@ No host file line was written, because no guest started. The census was 0 throug
 | P13 | S5's controls fail at the stage-D tip and pass fixed | proved: fix-case |
 | P14 | S6's controls fail at the stage-D tip and pass fixed | proved: fix-case |
 | P15 | S5's follow-up control fails before the follow-up and passes after it | proved: fix-case |
+| P16 | S7's control fails at the stage-D tip and passes fixed | proved: fix-case |
+| P17 | S6's cleanup control fails before the follow-up and passes after it | proved: fix-case |
