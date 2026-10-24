@@ -71,6 +71,11 @@ def register(terms, since):
     return hits
 
 
+# A search that could not run is not a search that found nothing: each
+# reader that fails adds its reason here, and main exits 2 (T10 S9, #950).
+ERRORS = []
+
+
 def blindspots(terms, since):
     path = os.path.join(ROOT, 'docs/blindspot-register.md')
     if not os.path.exists(path):
@@ -86,6 +91,17 @@ def blindspots(terms, since):
             if not (since and date and date < since):
                 hits.append((date, 'blindspot', clip(head.lstrip('# '), 150)))
     for line in open(path, encoding='utf-8'):
+        # Entries 1 to 29 are table rows before the first "## N." heading;
+        # each is an entry of its own (T10 S9, #950: they were never searched).
+        row = re.match(r'^\| *(\d+) *\|(.*)$', line)
+        if row and head is None:
+            text = row.group(2)
+            if all(t.search(text) for t in terms):
+                m = re.search(r'(\d{4}-\d\d-\d\d)', text)
+                date = m.group(1) if m else ''
+                if not (since and date and date < since):
+                    hits.append((date, 'blindspot %s' % row.group(1), clip(re.sub(r'\s*\|\s*', ' ', text).strip(), 150)))
+            continue
         if line.startswith('## '):
             flush()
             head, body = line.strip(), []
@@ -158,10 +174,14 @@ def git_history(terms, since, limit=15):
         if since:
             cmd.insert(4, '--since=' + since)
         try:
-            out = subprocess.run(cmd, capture_output=True, text=True, timeout=120).stdout
+            p = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
         except Exception as e:  # noqa: BLE001
-            hits.append(('', 'git', 'git log failed: %s' % e))
+            ERRORS.append('git log failed: %s' % e)
             continue
+        if p.returncode != 0:
+            ERRORS.append('git log failed for %r: %s' % (t.pattern, p.stderr.strip()[:160]))
+            continue
+        out = p.stdout
         for line in out.splitlines()[:limit]:
             date, sha, subj = line.split(' ', 2)
             hits.append((date, 'git %s' % sha, clip(subj, 150)))
@@ -221,11 +241,18 @@ def reversal(pattern):
     es = os.environ.get('ES_SRC') or os.path.expanduser('~/Development/emulationstation-next.worktrees/qa-integration')
     if os.path.isdir(es):
         roots.append(es)
+    else:
+        print('note: no EmulationStation checkout at %s, so it was not swept' % es)
     total = 0
     for r in roots:
         cmd = ['grep', '-rnIE', '--exclude-dir=.git', '--exclude-dir=build.*', '--exclude-dir=sources', '--exclude-dir=target',
-               '--exclude-dir=build-tests', '--exclude-dir=node_modules', pattern, r]
-        out = subprocess.run(cmd, capture_output=True, text=True).stdout
+               '--exclude-dir=build-tests', '--exclude-dir=node_modules', '-e', pattern, r]
+        p = subprocess.run(cmd, capture_output=True, text=True)
+        if p.returncode > 1:
+            # grep's 1 is "nothing matched"; above it, the sweep did not run.
+            print('archaeology: the sweep of %s could not run (grep exited %d: %s)' % (r, p.returncode, p.stderr.strip()[:160]), file=sys.stderr)
+            return 2
+        out = p.stdout
         for line in out.splitlines():
             print(line[:220])
             total += 1
@@ -283,6 +310,11 @@ def main():
             print('  %-10s  %-28s  %s' % (date or '', where, what))
         total += len(hits)
     print('\n%d line(s). A decision listed as pending without a register OPEN row above is a claim to check.' % total)
+    if ERRORS:
+        for e in ERRORS:
+            print('archaeology: %s' % e, file=sys.stderr)
+        print('archaeology: %d reader(s) could not run, so the counts above are not the record' % len(ERRORS), file=sys.stderr)
+        return 2
     return 0
 
 
