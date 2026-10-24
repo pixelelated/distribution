@@ -19,7 +19,7 @@
 ################################################################################
 
 PKG_NAME="wildmidi"
-PKG_VERSION="405ca73"
+PKG_VERSION="405ca73adfa11659b7579f0b09df1303f42659a4"
 # Library is LGPL; player is GPL. Preserve both notices (#528).
 PKG_LICENSE="LGPL-3.0-or-later AND GPL-3.0-or-later"
 PKG_SHA256="4f4a7f7a06256f1d61b2c7d1a243b0198765456d427c38f13f7a2320842a4207"
