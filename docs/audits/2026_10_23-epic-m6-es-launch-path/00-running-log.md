@@ -479,3 +479,10 @@ Nothing on this list runs before the coordinator relays M7's `resource return` o
 - **A gap, stated: `a1cbc0ccd`.** It was committed at 21:50:06 under the M7 window, where no compile was allowed. So its compile line (`FileData.cpp` PASS, 23:49-23:50) and its unit-test line (23:48:07) come after the commit, not before it as #649's thirteenth item asks. The change is one string literal and the catalogues; the coordinator's re-run at acceptance is the check.
 - **PL-035 Resolved** (`f2758b145`, `2f881879c`, `55158d2a6`). Only PL-032 is still Open, waiting for the Backlog issue at acceptance.
 - **The coordinator's 23:53 note:** an M7 window opens at 00:07, with no compile and no guest until the next return. At 23:53:52 `pgrep` found no T2 build, test or guest process. Posted on #649 (23:54). The ES branch was pushed (`a1cbc0ccd..55158d2a6`).
+
+### [Hand-back] 00:0x — PL-032 deferred to #794
+
+- The coordinator's 00:04 note on #649: PL-032's deferral target is **#794** (Backlog, with PL-006 option b), and the reading-state delta is #795, the coordinator's.
+- 05's gate row and index entry now read `deferred:#794`. #790's PL-032 line carries the outcome; the stale PL-035 and PL-028 notes there were brought to their ticks.
+- `tools/lint-audit-artifacts <folder> --issue 790` (host-free): **rc 0, `PASS`**, 0 FAIL lines. `box-check --issue 790`: 0 fail.
+- Final outcomes, `grep -c` on the index: **32 Resolved, 4 Deferred** (#678, #684, #791, #794), 0 Open.
