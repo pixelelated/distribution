@@ -34,7 +34,18 @@
    and write stage A (the hashes, the counts, the upstream ref, the host
    file's state) before reading a line of the slice.
 
-## Current focus (07:04 UTC update)
+## Current focus (07:11 UTC update)
+
+**The lane is IDLE. T3 has been accepted on #650, and #826 closed as completed.**
+
+- **The record:** `audit-completion.json` is written from #826's closed readback, at `b3cb4ec8c5`. The full `tools/lint-audit-artifacts` prints `PASS`, and `tools/ceremony-check` accepts the marker.
+- **Nothing is owed by this lane.** The coordinator owns:
+  - the merge to `next`;
+  - closing #823 and #841 after it;
+  - the image proofs of the 11 `fix-pending-image` items.
+- **If a new brief arrives on #650,** read it, then `00-running-log.md`'s tail, then this file's earlier sections.
+
+## Earlier focus (07:04 UTC update)
 
 **Stages E to H are done. The lane waits for the coordinator to close #826, then three last steps.**
 
