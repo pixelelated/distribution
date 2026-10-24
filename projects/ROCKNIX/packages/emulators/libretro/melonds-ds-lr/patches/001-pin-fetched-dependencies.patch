@@ -1,0 +1,51 @@
+cmake: pin every fetched dependency to a full commit
+
+FetchDependencies.cmake names its dependencies by 7-character hash or by
+tag, and FetchContent clones them at configure time. A short hash grows
+ambiguous as a repository grows, and a tag can be moved, so the same
+recipe could build different sources. Each ref is replaced by the full
+commit it resolved to on 2026-10-24, the original kept as a comment.
+Resolved with `gh api repos/<owner>/<repo>/commits/<short>` for a hash and
+`git ls-remote <url> refs/tags/<tag>^{}` for a tag; all eleven equal the
+HEAD of the clone the M7 GENERIC_X64 build fetched (tracy, off in this
+build, resolved the same way). The fetch itself still happens at
+configure: carrying the sources is #813's follow-up.
+
+--- a/cmake/FetchDependencies.cmake
++++ b/cmake/FetchDependencies.cmake
+@@ -41,23 +41,23 @@
+     FetchContent_GetProperties(${name})
+ endfunction()
+ 
+-fetch_dependency(melonDS "https://github.com/melonDS-emu/melonDS" "7117178")
+-fetch_dependency(libretro-common "https://github.com/libretro/libretro-common" "ad9124f")
+-fetch_dependency("embed-binaries" "https://github.com/andoalon/embed-binaries" "078b62b")
+-fetch_dependency(glm "https://github.com/g-truc/glm" "e7970a8")
+-fetch_dependency(libslirp "https://github.com/JesseTG/libslirp-mirror" "e61dbd4")
+-fetch_dependency(pntr "https://github.com/robloach/pntr" "922aed0")
+-fetch_dependency(fmt "https://github.com/fmtlib/fmt" "11.2.0")
+-fetch_dependency(yamc "https://github.com/yohhoy/yamc" "4e015a7")
+-fetch_dependency(span-lite "https://github.com/martinmoene/span-lite" "00afc28")
+-fetch_dependency(date "https://github.com/HowardHinnant/date" "1ead671")
++fetch_dependency(melonDS "https://github.com/melonDS-emu/melonDS" "7117178c2dd56df32b6534ba6a54ad1f8547e693")  # 7117178
++fetch_dependency(libretro-common "https://github.com/libretro/libretro-common" "ad9124f1ecc5d0092fd285cbf9c4ffac317b1a65")  # ad9124f
++fetch_dependency("embed-binaries" "https://github.com/andoalon/embed-binaries" "078b62beba97e8192c99bfb16d5e17220cfc7598")  # 078b62b
++fetch_dependency(glm "https://github.com/g-truc/glm" "e7970a8b26732f1b0df9690f7180546f8c30e48e")  # e7970a8
++fetch_dependency(libslirp "https://github.com/JesseTG/libslirp-mirror" "e61dbd459c8c06607b3a84694489427e8ec60f17")  # e61dbd4
++fetch_dependency(pntr "https://github.com/robloach/pntr" "922aed03c4c53803466100596211da7549945da7")  # 922aed0
++fetch_dependency(fmt "https://github.com/fmtlib/fmt" "40626af88bd7df9a5fb80be7b25ac85b122d6c21")  # 11.2.0
++fetch_dependency(yamc "https://github.com/yohhoy/yamc" "4e015a7e8eb0d61c34e6928676c8c78881a72d73")  # 4e015a7
++fetch_dependency(span-lite "https://github.com/martinmoene/span-lite" "00afc281a8c3c7657bb9c5b000d6e7082c1bbc7f")  # 00afc28
++fetch_dependency(date "https://github.com/HowardHinnant/date" "1ead6715dec030d340a316c927c877a3c4e5a00c")  # 1ead671
+ 
+ # We build zlib from source because some distributions (e.g. Ubuntu) ship a static library
+ # that wasn't compiled with -fPIC, which causes linking errors when building a shared library.
+-fetch_dependency(zlib "https://github.com/madler/zlib" "v1.3.1")
++fetch_dependency(zlib "https://github.com/madler/zlib" "51b7f2abdade71cd9bb0e7a373ef2610ec6f9daf")  # v1.3.1
+ 
+ if (TRACY_ENABLE)
+-    fetch_dependency(tracy "https://github.com/wolfpld/tracy" "v0.11.1")
++    fetch_dependency(tracy "https://github.com/wolfpld/tracy" "5d542dc09f3d9378d005092a4ad446bd405f819a")  # v0.11.1
+ endif()
+ 
+ set(CMAKE_MODULE_PATH "${FETCHCONTENT_BASE_DIR}/melonds-src/cmake" "${FETCHCONTENT_BASE_DIR}/embed-binaries-src/cmake" "${CMAKE_MODULE_PATH}")

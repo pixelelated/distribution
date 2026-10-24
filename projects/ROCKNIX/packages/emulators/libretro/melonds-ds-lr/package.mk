@@ -11,6 +11,11 @@ PKG_DEPENDS_TARGET="toolchain"
 PKG_LONGDESC="An enhanced remake of the melonDS core for libretro that prioritizes standalone parity, reliability, and usability."
 PKG_BUILD_FLAGS="+lto-off"
 
+# The core clones its eleven dependencies with FetchContent at configure
+# time; patches/001 pins each to a full commit, so the sources cannot move.
+# The fetch itself is still a network step the build does not record:
+# carrying the sources with PKG_SHA256 and FETCHCONTENT_FULLY_DISCONNECTED
+# is #813 (device-builds.md: A build that fetches its own dependency).
 PKG_CMAKE_OPTS_TARGET=" -DENABLE_OPENGL=ON -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 
 if [ "${OPENGL_SUPPORT}" = "yes" ]; then
