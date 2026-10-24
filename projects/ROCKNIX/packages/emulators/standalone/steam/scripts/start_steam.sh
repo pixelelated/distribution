@@ -174,7 +174,7 @@ steam_arm64_binfmt_and_proton_prep() {
 }
 
 steam_launch_bigpicture() {
-  local game_uri=""
+  local game_args=()
   local force_orientation="normal"
   local gamescope_mode_file="/storage/.config/gamescope/modes.cfg"
   local steam_exit_code=0
@@ -202,7 +202,8 @@ steam_launch_bigpicture() {
   if [[ "$1" == *.desktop && -f "$1" && "$(basename "$1")" != "Steam.desktop" ]]; then
     local exec_line
     exec_line=$(grep -m1 '^Exec=' "$1" | cut -d'=' -f2-)
-    game_uri="${exec_line#steam } -silent"
+    # The URI and -silent are two arguments.
+    game_args=("${exec_line#steam }" -silent)
   fi
 
   # SM4450 Steam UI requires wayland gamescope backend
@@ -237,7 +238,7 @@ steam_launch_bigpicture() {
         "$@"
         printf "%s\n" "$?" >"${exit_file}"
       ' _ "${steam_exit_code_file}" \
-      /storage/.local/share/Steam/steamrtarm64/steam -deckard -steamos3 -gamepadui -noshaders ${game_uri:+"$game_uri"}
+      /storage/.local/share/Steam/steamrtarm64/steam -deckard -steamos3 -gamepadui -noshaders "${game_args[@]}"
       gamescope_exit_code=$?
       if [ -f "${steam_exit_code_file}" ]; then
         steam_exit_code=$(cat "${steam_exit_code_file}")
@@ -257,7 +258,7 @@ steam_launch_bigpicture() {
     trap steam_touch_calibration_end EXIT
     GAMESCOPE_MODE_SAVE_FILE="${gamescope_mode_file}" GAMESCOPE_FAKE_OUTPUT_MM=508x286 ${EMUPERF} \
       gamescope $PREFER_OUTPUT -W "$W" -H "$H" -r "$REFRESH_HZ" --xwayland-count 2 --backend "${gamescope_backend}" --force-orientation "${force_orientation}" ${rotate_clamp} -- \
-      FEX /usr/bin/steam -nobigpicture -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -norepairfiles -noshaders ${game_uri:+"$game_uri"}
+      FEX /usr/bin/steam -nobigpicture -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -norepairfiles -noshaders "${game_args[@]}"
     steam_touch_calibration_end
     trap - EXIT
     systemctl start essway
