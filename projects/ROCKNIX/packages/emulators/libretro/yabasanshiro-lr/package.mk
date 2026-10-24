@@ -2,6 +2,8 @@
 # Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)
 
 PKG_NAME="yabasanshiro-lr"
+# Pinned to 39535a6abc on the project's yabasanshiro branch, not master.
+# The reason is not recorded (#650 PL-027).
 PKG_VERSION="39535a6abcad5abf9f71c8b2a7975f005ee12ed6"
 PKG_LICENSE="GPL-2.0-or-later"
 PKG_SITE="https://github.com/libretro/yabause"
