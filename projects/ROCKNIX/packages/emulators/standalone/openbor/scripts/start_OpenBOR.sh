@@ -3,6 +3,7 @@
 # Copyright (C) 2019-present Shanti Gilbert (https://github.com/shantigilbert)
 # Copyright (C) 2021-present 351ELEC (https://github.com/351ELEC)
 # Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 
 # OpenBOR only works with Pak files, if you have an extracted game you will need to create a pak first.
 
