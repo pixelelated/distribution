@@ -359,3 +359,11 @@ GPU or performance. Earlier SIGXFSZ/file-limit and DOM-schema fixture failures
 preserved. All original lifecycle channels0, owners exited, admission consumed,
 2,312,990,720bytes of disposable disk/firmware retired.
 [Exact results](qa-logs/2026-10-17-browser-controls-results-616/README.md).
+
+## 2026-10-24 09:02 UTC — M6 T30 the standalone emulators' launch and exit (#677)
+
+- **Image:** GENERIC_X64 `069fc270442134fe771258418adf4e666e0473fb` (the M7 root's, read only), fresh disk `/workspace/artifacts/m6-t30-20261024/t30.qcow2` (16 GiB), VNC 24, SSH 10037, pidfile `/workspace/tmp/m6-t30/qemu.pid`; up 08:51:30, `tools/vm-stop` rc 0 at 09:01:08; census 0 before and after.
+- **What ran:** `p1-exit-sweep.sh` (13 standalone routes through `runemu.sh`, synthetic inputs) and `p2-cases.sh` (C1-C11: missing scripts, the crafted `.scummvm`, the gzdoom apostrophe, the zipped N64 ROM, busybox `killall` names, DuckStation's targets, the memory cards, the RetroAchievements session, a comparison as redirection, helper timings, launch-to-process n=3). Outputs beside the scripts; the running log's G1-G13.
+- **Found:** DuckStation and OpenBOR survive the exit kill; four table routes on the VM have no script (two of them defaults); a `.scummvm` file runs shell as root; an apostrophe stops gzdoom; zipped N64 ROMs fail; a real `memcards` directory is deleted uncopied; ppsspp and flycast keep a previous RetroAchievements session.
+- **Could not prove:** the kill names of flycast, Dolphin, Mupen64Plus, touchHLE and ScummVM live (they exited on synthetic inputs; free content is the next cycle's); any first frame (no real content); the 22 members the image lacks.
+- **Left behind:** a fixture fault and its fix (P1 killed the interface where the emulator had already exited; P2 kills only a live emulator), in the scripts. No walk; no rule line yet: the "kill only a live emulator" guard is the lesson.

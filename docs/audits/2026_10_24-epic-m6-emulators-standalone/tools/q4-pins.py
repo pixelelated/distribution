@@ -5,7 +5,8 @@
 # (feature/m6-emulators-libretro-650); T30's changes, if any, are named below.
 # T30 change: lines 64-65 (T3's 59-60) read emulators/standalone instead of
 # emulators/libretro. The docstring still describes T3's run (151 libretro
-# recipes); T30's run is the 47 standalone package.mk.
+# recipes); T30's run is the 47 standalone package.mk, and line 143's row-count
+# assertion (T3's 142) reads 47 for T3's 151.
 """q4-pins.py -- the libretro recipes' pins against ROCKNIX and against their
 projects (M6 T3, #650; brief section 4 Q4 (a) and (b)).
 
@@ -139,4 +140,4 @@ with open(out_md, "w") as fh:
         up = "" if r["upstream"] == "same" else f"`{(r['upstream_pin'] or '')[:12]}`"
         fh.write(f"| `{r['recipe']}` | `{(r['pin'] or '')[:12]}` | {(r.get('pin_date') or '-')[:10]} | {(r.get('head_date') or '-')[:10]} | {r.get('days', '-')} | {r['class']} | {r['upstream']} | {up} |\n")
 print(f"q4-pins: {len(rows)} rows; classes " + json.dumps(dict(sorted(__import__('collections').Counter(r['class'] for r in rows).items()))) + f"; empty or errored: {bad}")
-sys.exit(1 if bad or len(rows) != 151 else 0)
+sys.exit(1 if bad or len(rows) != 47 else 0)
