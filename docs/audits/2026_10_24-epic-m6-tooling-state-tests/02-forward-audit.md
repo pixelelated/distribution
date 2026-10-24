@@ -169,6 +169,7 @@ No host file line was written, because no guest started. The census was 0 throug
 | S10 (#1003) | `docs/qa-logs/2026-10-24-state-tests-s10/lock-cases.sh` (a `wait_lock` that returns 1 after taking the lock; check-then-create in place of `ln -T`, a 0.1 s sleep in the window; the tree's file under the image busybox) | both mutations PASSED | 7 and 2 checks fail; the turns overlap; the tree's file PASSED under BusyBox 1.36.1 | `bcf5a013ad` |
 | S11 #1011 | `docs/qa-logs/2026-10-24-state-tests-s11/pair-cases.sh` with `cleanup-probe.py` (a disposable `qemu-system-fixture` beside a refused start; a started run's cleanup with a pidfile naming an invisible pid) | the fixture signalled, `all_absent: True`; `all_absent: true` from no pidfile | the fixture alive, no `all_absent`, the derived runtime uncreated; an `observation_error`, no `vm-pair down` | `6016f57a75` |
 | S11 PL-10 | `grep -c '1.75.1'` over the two cloud-folder stubs | 1 | 0; `--help` rc 0, a run rc 2 | `8816d078fa` |
+| S12 PL-23 | `docs/qa-logs/2026-10-24-state-tests-s12/fixture-cases.sh` (the coupled fail fixture; two split fixtures; each with its guard disabled in a scratch lint) | the coupled fixture names both failures in one run | each split fixture names exactly one, and passes with only its own guard disabled | `7679426e48` |
 
 | Proof | What it shows | Proved |
 | --- | --- | --- |
@@ -189,5 +190,6 @@ No host file line was written, because no guest started. The census was 0 throug
 | P23 | S10's control fails at the stage-D tip and passes fixed | proved: fix-case |
 | P24 | #1011's control fails before the fix and passes after it | proved: fix-case |
 | P25 | the stubs' stale version count goes 1 to 0 | proved: fix-case |
+| P26 | S12's split fixtures each prove one guard | proved: fix-case |
 
 **The busybox this host offers (S8, for reading the record):** `readlink -f $(command -v busybox)` is `/usr/bin/busybox`, `BusyBox v1.37.0 (Ubuntu 1:1.37.0-7ubuntu1)`. The image's is the M7 root `m7-pixelelated-replacement20`'s `image/system/usr/bin/busybox`, `BusyBox v1.36.1`, BUILD_ID `1a026648442321609b2288c2c9c06803817f9df2`, 182 applets, every one but `sh` a busybox link on the image. The record's earlier `settings-modes-test` and `melonds-upgrade-test` passes name no busybox; from `929355c417` and `30d9339ea3` on, each receipt carries `busybox_origin`.

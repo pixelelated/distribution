@@ -472,3 +472,14 @@ PROOF: P23 S10's control -- `docs/qa-logs/2026-10-24-state-tests-s10/lock-cases.
 - **A slip of mine, recurring:** the probes loaded tools through `SourceFileLoader` under `-I` only, which writes `tools/__pycache__`. Both probes now set `dont_write_bytecode` and run with `-B` (`8748b80f06`), and the cache was listed and removed by its literal path. The two `/tmp/pixelelated-vm-stop-controls*` directories seen are dated 2026-10-05, not this lane's, and were left.
 PROOF: P24 #1011's control -- `docs/qa-logs/2026-10-24-state-tests-s11/pair-cases.sh` PASS (the fixture signalled and all_absent written before; the fixture alive, no all_absent, the derived runtime uncreated and a hidden pid an observation error after).
 PROOF: P25 PL-10's docstring -- `grep -c '1.75.1'` over the two stubs: 1 at `6016f57a75`, 0 at `8816d078fa`; both stubs `--help` rc 0 and a run rc 2.
+
+## [Stage E] 22:59 UTC — S12: one lint fail fixture per violation (PL-23)
+
+- **Found on this branch:** `tools/test-fixtures/lint-audit-artifacts/` holds the pass and the coupled fail fixture, so nothing was read from T10's branch. T10's `run.sh` is absent here; its two check lines are the coordinator's at the merge.
+- **`7679426e48`:** `fixture-epic-m6-renovation-fail-face` is the pass fixture without the Renovation face section (17 lines). `fixture-epic-m6-renovation-fail-question` is the pass fixture without `question: Q3`. The coupled fixture is left as it is.
+- **The two runs, quoted:**
+  - `tools/lint-audit-artifacts …/fixture-epic-m6-renovation-fail-face`: rc 1, `FAIL  04-analysis.md has no '## Renovation face' section (an M6 slice answers Q1 to Q7)`, `1 CONTRACT FAILURE(S)`.
+  - `tools/lint-audit-artifacts …/fixture-epic-m6-renovation-fail-question`: rc 1, `FAIL  PL-01 carries no 'question: Q1..Q7' (or 'none' with a reason) in the punch_index`, `1 CONTRACT FAILURE(S)`.
+  - The pass fixture: rc 0, `PASS`. The coupled one: rc 1, both failures, `2 CONTRACT FAILURE(S)` (the positive).
+- **The control,** `docs/qa-logs/2026-10-24-state-tests-s12/fixture-cases.sh`, which also disables each guard in a scratch copy of the lint. With the face guard off, fail-face passes and fail-question still fails; with the question guard off, the reverse. So each fixture rests on its one guard alone. PASS.
+PROOF: P26 S12's control -- `docs/qa-logs/2026-10-24-state-tests-s12/fixture-cases.sh` PASS (the coupled fixture names both failures in one run; each split fixture names exactly one, and passes once its own guard alone is disabled).
