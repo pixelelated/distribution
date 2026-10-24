@@ -112,3 +112,8 @@ GUEST-PROOF: 03:35:37 UTC -- P4, tools/time-to-play --vm --no-configure-remote -
   - Retry once on the same slug, and only for a transient cause; then post and wait.
   - Escalation (gpt-6-astra-pro for the GPT seat) is the coordinator's to authorize. gemini-argon has no recorded escalation, so a non-transient failure there is a hold.
   - Never reduce the depth, and never grade from one seat.
+- 05:58 **Both refutation passes succeeded on their first attempt.**
+  - **`gemini-argon`:** ended 05:53:25 after 424.9 s. Served `google/gemini-4-argon` by Google; effort high verified by 30,337 reasoning tokens. 111,568 prompt tokens, 25,217 B of output.
+  - **`gpt`:** ended 05:57:51 after 691.7 s. Served `openai/gpt-6-astra` by OpenAI; effort max verified by 30,359 reasoning tokens. 97,025 prompt tokens, 18,174 B of output.
+  - Identity, effort and provider verification are PASS for both. Both outputs are committed beside their provenance files.
+  - The grading starts now; every seat item is a lead until it has been re-read at its artifact.
