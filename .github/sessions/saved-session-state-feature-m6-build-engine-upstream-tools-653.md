@@ -35,7 +35,12 @@
 
 ## Current focus
 
-**Stage A done (2026-10-24 08:08 UTC).** `reviewed-at` `b96e1ca761`; the slice's bytes `8ebaf8daad`'s. The scope re-derived with no delta (135 paths, 7,369 lines, 134 upstream-carried, 1 fork-own, 108 `n/a`, 27 `unreached`); Q4 1 differs (`tools/pkgcheck`). Audit folder `docs/audits/2026_10_24-epic-m6-build-engine-upstream-tools/`: `00` and `01` § Scope. **Next:** stage B (Phase 1, the mechanical checks, the two-way caller counts, the coverage table, the Q6 reachability table). Nothing runs: no guest, no build.
+**Stage D done; paused for the coordinator's stream briefs (2026-10-24 08:25 UTC).**
+- `reviewed-at` `b96e1ca761`.
+- The folder `docs/audits/2026_10_24-epic-m6-build-engine-upstream-tools/` holds `00` to `05` and the Local `review-plan.json`; the pre-issue lint prints PASS, with the D-WORKFLOW-184 line.
+- The Q6 table has 33 rows over 135 files: 3 reached, 8 by a document only, 22 unreached, all kept.
+- Six Low findings. Filed: the bug #845 (`pkgcheck` exits 0 for an unmatched name) and the audit issue #846 (a sub-issue of #653); the punch list is posted on #653.
+- **Next:** the coordinator's stream briefs on #653. Nothing runs here: no guest, no build.
 
 ## Next commands
 

@@ -76,3 +76,9 @@ PROOF: 08:07 P10 Q4 over the 135: 134 identical, 1 differs
 - Phase 4.6 does not apply at Local depth (plan § 6c, D-WORKFLOW-184). `second-opinions/review-plan.json` carries `tier_exception` and `reason`; no call, no provenance file. Phase 4.5 is in `04`, every verdict asked what would make it false.
 - `05-punch-list.md` from `tools/punch-items.py`: 6 items, all Low; PL-01 for a `bug`; PL-02 the #585 item; PL-03 for #585; PL-04 and PL-05 for #651; PL-06 for #657.
 - `tools/lint-audit-artifacts docs/audits/2026_10_24-epic-m6-build-engine-upstream-tools --phase pre-issue`: **`PASS pre-issue artifacts (does not certify resolution)`**, with `ok    review-plan: local at epic tier under D-WORKFLOW-184 (plan § 6c: a reachability table is Local ...)`.
+
+### [Stage D] 08:24 to 08:25 — The bug and the audit issue filed; the pause
+
+- PL-01's bug **#845** (`Bug: tools/pkgcheck exits 0 when no recipe matches the package name`, label `bug`, no milestone): the code trace, `Already written:`, the VM line, two agent-verifiable checkboxes. `tools/box-check --issue 845`: 2 open, 0 fail.
+- The audit issue **#846** (`Audit: M6 T6 upstream's helper tools and the other distributions -- 6 findings (0 critical, 0 high)`): labels `audit` and `punch-list`, milestone M6, a sub-issue of #653 (read back), one checkbox per item. `tools/box-check --issue 846`: 6 open, 0 fail.
+- `05` carries `tracked: "#845"` and #846. The lane pauses for the coordinator's stream briefs (plan § 6b E) and edits nothing of the 135; `git status --short -- tools distributions` is empty.
