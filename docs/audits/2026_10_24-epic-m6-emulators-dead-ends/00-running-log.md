@@ -107,3 +107,13 @@ PROOF: 14:11 P19 (a) at the tip: 81 identical, 5 differs, against `e0f9deb899` a
 PROOF: 14:11 P20 the record at the tip: the five roots' listings unchanged since stage B (`cmp`), 85 of 85 unbuilt
 PROOF: 14:12 P21 (b) on the ten rows `shuf --random-source=<(yes t24)` draws: 10 of 10 equal to stage B's copies; budget 3,630 to 3,618
 PROOF: 14:13 P22 `git diff --stat` and `--diff-filter=DR` over `packages projects`, from `8ebaf8daad` to `81331b499e` and to the tip: empty
+
+### [Stage H] 14:20-14:26 — the hand-back, the acceptance, the completion marker
+
+- **The hand-back** went up on #671 (issuecomment-6385321340, 14:20:55Z) at tip `e524d3bdbc`. `reviewed-at: 81331b499e` and `fixed-at: 81331b499e` are in #671's body at lines 13 and 14, read back.
+- **Accepted** by the coordinator (issuecomment-6385372339, 14:25:50Z), by brief § 10, on an export of the tip. #900 closed as completed at 14:25:52Z.
+- **The coordinator's note for the record:** `git log c445081a59..8ebaf8daad -- <the 86>` counts one commit, the fork's merge `7650de7dd6`, while the byte diff against the base is empty. "0 fork changes" is the byte diff's claim, which is the one the brief made, so it is not a finding.
+- **`tools/write-completion.py`** (T30's copy at `a020b3d375`, one provenance line added), run as `python3 -I tools/write-completion.py <tree> <folder> 900`: rc 0, `#900 closed/completed, 3 ticked; verified 2026-10-24T14:26:16.245700+00:00`. It wrote `tracker-final-readback.json` (900 closed completed `2026-10-24T14:25:52Z`), `tracker-completion.json` (`PASS`), and `audit-completion.json`, which hash-binds `04`, `05` and both tracker files.
+- **`tools/lint-audit-artifacts <folder>`** (full, the resolution phase, 14:26:25): rc 0, `PASS`, 0 FAIL lines, with `review-plan: local at epic tier under D-WORKFLOW-184`. With `--issue 900`: `PASS`.
+- **`tools/ceremony-check`:** rc 1. It reads the marker (`audit last 2026-10-24T14:26:16 via #900 …/audit-completion.json`); its one overdue line is the W42 summary, which is M7's.
+- **The lane is idle.** The branch merges in its turn: after the M7 candidate, after T30's.

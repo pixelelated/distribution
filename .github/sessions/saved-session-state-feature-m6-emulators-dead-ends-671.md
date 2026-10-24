@@ -38,12 +38,11 @@
 
 ## Current focus
 
-**Stage H, handed back (2026-10-24; the executor).** The coordinator's stage E (#671, 14:10): no streams, and three deferrals (PL-01 and PL-02 to #585, PL-03 to the #857/#873 packet). `reviewed-at` and `fixed-at` are both `81331b499e`.
-- Stage F is in `02` § Stage F (P18 to P22, 22 = 22).
-- The retro is `docs/retros/2026-10-24-m6-emulators-dead-ends.md`.
-- The resolution lint passes. #900's checkboxes are ticked.
-
-**Waiting on the coordinator**: acceptance by brief § 10, then the close of #900. After the close, write `audit-completion.json` from #900's closed readback and run the full lint again (T30's `write-completion.py` shape). The lane is otherwise idle.
+**Accepted; the lane idle (2026-10-24 14:26 UTC).**
+- The coordinator accepted T24 at `e524d3bdbc` (#671, issuecomment-6385372339) and closed #900 as completed (14:25:52Z).
+- `audit-completion.json` is written from #900's closed readback, and the full `lint-audit-artifacts` prints `PASS`.
+- `reviewed-at` = `fixed-at` = `81331b499e`.
+- Nothing is owed. The branch merges in its turn, after the M7 candidate and after T30's: the coordinator's merge, then `renovation-status`, which ticks #671's last clause.
 
 ## Next commands
 
