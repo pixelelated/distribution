@@ -1,7 +1,7 @@
 # T8's remediation streams (#655, audit issue #895)
 
 Written by the coordinator at T8's stage-D pause (2026-10-24, 13:04 UTC post
-at `c5a8c5c4a8`; D-WORKFLOW-189). Seventeen items, three streams: the slice's
+at `c5a8c5c4a8`; D-WORKFLOW-189). Seventeen items (PL-18 and PL-19 added during stage E), four streams: the slice's
 own first stream (#852, named in the brief's § 7) and the two Medium bugs the
 second opinion found whose fix is contained (#893, #894). Everything else is a
 disposition below. Plan § 6b E binds every stream: **a commit names its
@@ -213,6 +213,59 @@ since it needs the host, which M6 holds (census 0 at 13:20 UTC).
   one file; the five leads' verdict lines in `02`.
 - **Commit:** `installer: stop at a failed step and say which`, `Refs #894,
   #895, #655`, the attribution line.
+
+### S3 addendum (14:2x UTC): #899's guard reaches line 41 too
+
+The lane narrowed #899's second criterion to its fix's first scope (`:43-47`),
+because `:41`'s unconditional `get_controls` still prints `command not found`
+once without a pad. The scope was the coordinator's and is widened instead:
+`get_controls` runs only when it is defined (`command -v get_controls
+>/dev/null 2>&1 && get_controls`, or the same test the gptokeyb line uses),
+so the installer says nothing and goes on without pad input, and the
+criterion's original clause stands (restored by the coordinator on #899). One
+more commit on the same file, `Refs #899, #895, #655`; the guest run that
+proves it is S4's (one quick install, its serial transcript read for the
+line).
+
+## S4. The installer writes its boot configuration after the copy (PL-19, #901; the seat's G-05, confirmed by S3) -- `fix-guest`
+
+- **Why a stream:** S3 confirmed it from the installed bytes: the installer
+  writes its `syslinux.cfg` (`:321-328`, `DEFAULT linux`, the two labels, no
+  `portable`) and then `cp -r /flash/*` (`:339`) lands the media's
+  `syslinux.cfg` over it (`scripts/mkimage:145-153`: `DEFAULT run`, the
+  `portable` word, an `installer` label). Upstream's order is the same
+  (`09810c3ece`); a contained fix is ours (rule 6) and a #585 row, the
+  coordinator's. The brief excluded reorders from S3 to keep it bounded;
+  this is the one reorder, in its own stream, now that it is a confirmed
+  defect rather than a lead. `portable` at boot is `init:1245`'s branch
+  (`SYSLINUX_DEFAULT="run"`): the installed disk boots the `run` label with
+  the same two labels, so the file is wrong and the boot the same; the
+  severity is the lane's call from that read, written in PL-19.
+- **Files owned:** `projects/ROCKNIX/packages/tools/installer/scripts/installer`
+  only, the `x86_64` arm of the `case` and the copy.
+- **The shape:** the generated file must be the one on the disk. Either move
+  the `x86_64` bootloader-configuration block (the `syslinux.cfg` heredoc and
+  the two EFI copies) below the `cp -r /flash/*`, keeping `syslinux -i` where
+  it is, or copy everything but `syslinux.cfg`. Read the `arm|aarch64` arm
+  first (`update.sh` with `BOOT_ROOT=/flash`) so its order is untouched, and
+  read whether the media's `EFI/BOOT/*` differ from the two files the
+  installer copies at `:331-332` (the sibling S3 named); say which in `02`.
+- **The test, on the same guest and disk recipe as S3:** a quick install onto
+  a blank 6 GiB virtual disk; afterwards the target's system partition is
+  mounted (over SSH or serial) and `syslinux.cfg` read: `DEFAULT linux`, the
+  two labels, no `portable` (the passing run); S3's own read of the pre-fix
+  install (`DEFAULT run`, `portable`) is the failing control and is quoted
+  beside it. The media's `/flash/syslinux.cfg` first line before and after.
+  The serial transcript of this run is also the proof of the S3 addendum (no
+  `get_controls: command not found`). Census, pidfile, `tools/vm-stop`, the
+  host-file lines and the `vm-qa-log` entry as before.
+- **Already written:** every GENERIC_X64 disk installed so far carries the
+  media's file; a reinstall rewrites it; nothing under `/storage` or a cloud.
+- **Acceptance (PL-19; #901's two criteria):** the target's `syslinux.cfg`
+  lines quoted; the media's unchanged; `bash -n` and busybox `sh -n`; `git
+  diff --stat 8ebaf8daad HEAD -- projects` still six files.
+- **Commit:** `installer: write the boot configuration after the system
+  files are copied`, `Refs #901, #895, #655`, the attribution line.
 
 ## Dispositions that are not streams (the coordinator's, written into the Phase 7 table by the lane)
 
