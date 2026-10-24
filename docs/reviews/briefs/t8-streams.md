@@ -266,6 +266,22 @@ line).
   diff --stat 8ebaf8daad HEAD -- projects` still six files.
 - **Commit:** `installer: write the boot configuration after the system
   files are copied`, `Refs #901, #895, #655`, the attribution line.
+- **Addendum (14:3x UTC), from the lane's mid-stream read:** the reorder
+  alone costs the installed disk its device cmdline. The generated `APPEND`
+  ends in `${EXTRA_CMDLINE}`, unset at run time, while the recipe's
+  `post_install` runs `sed -e "s/@EXTRA_CMDLINE@/${EXTRA_CMDLINE}/g"` over a
+  script that never carried that token (both from `09810c3ece`); the media's
+  file, which S4 stops copying over, was the only reason an installed disk
+  had `quiet console=ttyS0,115200 console=tty0`. **Authorized:** S4's one
+  commit also turns `${EXTRA_CMDLINE}` into `@EXTRA_CMDLINE@` on the moved
+  line, named in the message; the proof is the recipe's `sed` applied to the
+  guest copy with GENERIC_X64's value, the install, the target's
+  `syslinux.cfg`, and `/proc/cmdline` read over the installed disk's serial
+  console (the lane boots each installed disk through a qcow2 overlay, the
+  raw disks kept as evidence). Also recorded in `02`: the media's
+  `ldlinux.e64` differs from the image's (the image's boots), the media's
+  `grub.cfg` is unread by syslinux. The token mismatch is upstream's: a #585
+  row, the coordinator's.
 
 ## Dispositions that are not streams (the coordinator's, written into the Phase 7 table by the lane)
 
