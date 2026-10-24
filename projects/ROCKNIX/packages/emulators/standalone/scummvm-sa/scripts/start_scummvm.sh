@@ -2,6 +2,7 @@
 
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2019-present Shanti Gilbert (https://github.com/shantigilbert)
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 
 # Source predefined functions and variables
 . /etc/profile
@@ -65,9 +66,20 @@ case $1 in
 
   *)
     set_kill set "-9 scummvm"
-    GAME=$(cat "${GAME}")
+    # The .scummvm file is data, never shell: --path="<dir>" <target> as
+    # create_svm writes it, or a bare target. Its first line's words become
+    # scummvm's arguments, the quoted path one of them.
+    IFS= read -r SVM_LINE <"${GAME}"
+    SVM_LINE="${SVM_LINE%$'\r'}"
+    SVM_ARGS=()
+    if [[ "${SVM_LINE}" =~ ^[[:space:]]*--path=\"([^\"]*)\"(.*)$ ]]; then
+      SVM_ARGS=("--path=${BASH_REMATCH[1]}")
+      SVM_LINE="${BASH_REMATCH[2]}"
+    fi
+    read -r -a SVM_REST <<<"${SVM_LINE}"
+    SVM_ARGS+=("${SVM_REST[@]}")
     systemctl start fluidsynth
-    eval /usr/bin/scummvm --fullscreen --joystick=0 --themepath=/usr/config/scummvm/themes "${GAME}"
+    /usr/bin/scummvm --fullscreen --joystick=0 --themepath=/usr/config/scummvm/themes "${SVM_ARGS[@]}"
     systemctl stop fluidsynth
   ;;
 esac
