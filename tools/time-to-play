@@ -793,11 +793,19 @@ def measure_exit(g, fr, tag, rest_ref, relaunch=False, budget=150.0,
     stop.set()
     if th is not None:
         th.join(timeout=8)
-    if marks["stamp"] is None and ssh_poll:
+    # A game-to-game repeat ends at the next game's first frame, while the
+    # sync it stopped is still writing its stamp: wait for it, bounded (#967),
+    # since the row is judged with the stamp that says what the launch did.
+    wait_until = time.monotonic() + (30 if relaunch else 0)
+    while marks["stamp"] is None and ssh_poll:
         after = g.stamp("exit")
         if after and after != before:
             marks["stamp"] = time.monotonic()
             result["stamp_after"] = after
+            break
+        if time.monotonic() >= wait_until:
+            break
+        time.sleep(0.5)
     result.update({
         "t_emulator_gone": None if marks["gone"] is None else round(marks["gone"] - t0, 3),
         "t_sync_stamp": None if marks["stamp"] is None else round(marks["stamp"] - t0, 3),
@@ -1422,11 +1430,15 @@ def headline_missing(report):
         n = sum(1 for r in rows if r.get(field) is None)
         if n:
             out.append("%s missing in %d of %d %s repeat(s)" % (what, n, len(rows), cell))
-    # A kill the helper did not carry out is a cycle that measured nothing.
+    # A kill the helper did not carry out is a cycle that measured nothing. It
+    # is judged by its effect: execute_kill ends in `killall <every emulator>`,
+    # which exits 1 whenever one of the names has no process, so the status
+    # alone fails a kill that worked (the stage-E cycle: 1, with RetroArch gone
+    # in 0.16 s). The status is kept on the row.
     for cell in ("exit", "g2g"):
         for r in cells.get(cell) or []:
-            if r.get("kill_rc") not in (None, 0):
-                out.append("the kill helper exited %s in a %s repeat" % (r["kill_rc"], cell))
+            if r.get("kill_rc") not in (None, 0) and r.get("t_emulator_gone") is None:
+                out.append("the kill helper exited %s and RetroArch did not go in a %s repeat" % (r["kill_rc"], cell))
     # The exit sync is a timing only when its stamp completed; a failing
     # stamp is named by its token.
     for r in cells.get("exit") or []:
