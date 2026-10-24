@@ -1,0 +1,1 @@
+Each <DEVICE>/ set is copied whole into that device's /usr/config/retroarch by package.mk (cp -a, which keeps a symlink as a link), so a set that equals another (SM4450 = SM8250 = SM8550, SM8650 = SM8750) is kept as a copy, not linked (#650 PL-028).
