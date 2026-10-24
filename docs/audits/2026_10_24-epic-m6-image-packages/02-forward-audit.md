@@ -142,6 +142,7 @@ The fork's changes since the base that upstream also changed (11), read hunk by 
 | F-16 | Q3 | `simple-http-server.service` passes the root password unquoted, and in the process's arguments (the seat's G-22) | `network/simple-http-server/system.d/simple-http-server.service:7` |
 | F-17 | Q2 | eight small shapes, confirmed or plausible, read in `04` § Second opinion: `111-sway-init`'s card digit and topology branches, `avahi-daemon`'s `After=` without `Wants=`, `tailscale`'s shared cache name, `glibc`'s `-O.` rewrite, `wlr-randr`'s parser, `m8c`'s doubled scancode | `04` § Second opinion (G-09 to G-14, G-17, G-21, G-23, G-24) |
 | F-18 | Q3 | the installer starts copies of itself without end when no game controller is attached (`GPTOKEYB` unset, the gptokeyb line runs `installer`), and a copy's Close runs `poweroff -f`; found on S3's guest cycle, **#899** | `tools/installer/scripts/installer:43-47` |
+| F-19 | Q3 | the installer writes its `syslinux.cfg` and then copies the media's over it, so an installed GENERIC_X64 boots on the live media's cmdline (`portable`); the generated `APPEND`'s `${EXTRA_CMDLINE}` is never set, while the recipe's `sed` looks for `@EXTRA_CMDLINE@` (the seat's G-05, confirmed by S3, **#901**) | `tools/installer/scripts/installer:321-339`; `tools/installer/package.mk` `post_install` |
 
 ## S3's leads (G-02 to G-06), read at stage E
 
@@ -150,9 +151,33 @@ Read at `8ebaf8daad` and on the guest cycle of 2026-10-24 (`00` § Stage E, S3).
 - **G-02** (the exclusion is a text match on mount sources) -- **agreed in part, a #585 row.** `:106-118` builds the list from `parted -l` and removes each mounted disk with an unanchored `sed "s|$i||"`. The same disk mounted twice (`sda1` and `sda2` both give `/dev/sda`) removes `/dev/sda` and then cuts `/dev/sda` out of a later `/dev/sdaa`, leaving `a`. Read, not run. A `/dev/mapper` or MD member, or active swap, is not looked at: the device graph is not read at all. Not a one-liner. The VM can test it later with a second guest disk mounted twice.
 - **G-03** (`PARTID` never reset) -- **agreed, fixed in `467f19fc14`.** `:178` sets `PARTID="p"` for MMC and NVMe, and nothing clears it. A cancelled confirmation returns from `do_install_quick` and leaves it set for the next device. `PARTID=""` now precedes the device case. Read, not run: the guest has no MMC or NVMe target.
 - **G-04** (512-byte sectors assumed) -- **plausible, a #585 row.** `:241-244` computes sector counts as `MB * 1024 * 1024 / 512` for `parted unit s`, and `prompt_gpt` multiplies `/sys/block/*/size` by 512. That size file counts 512-byte units whatever the disk's logical block, so the second is right and the first is the open question on a 4Kn disk. Not a one-liner. The VM can answer it: QEMU's `nvme` device takes `logical_block_size=4096`, and the installer lists `/dev/nvme*`. Not run here.
-- **G-05** (the generated boot config is overwritten by the copy) -- **confirmed from the bytes, a #585 row.** On the 6 GiB target the installed `syslinux.cfg` is the installation media's (`DEFAULT run`, `portable`, the media's console arguments), not the one `:322-329` writes (`DEFAULT linux`, `${EXTRA_CMDLINE}`). The media's `EFI/BOOT/grub.cfg` and its `fs-resize.log` (recording `/dev/vda2`) were copied too, because `cp -r /flash/*` (`:339`) runs after the generated files. Moving the copy is a reorder, which S3's brief excludes ("the steps stay where they are"). Read with `7z` from `t8-target.raw` at sector 8192.
+- **G-05** (the generated boot config is overwritten by the copy) -- **confirmed from the bytes, a #585 row.** On the 6 GiB target the installed `syslinux.cfg` is the installation media's (`DEFAULT run`, `portable`, the media's console arguments), not the one `:322-329` writes (`DEFAULT linux`, `${EXTRA_CMDLINE}`). The media's `EFI/BOOT/grub.cfg` and its `fs-resize.log` (recording `/dev/vda2`) were copied too, because `cp -r /flash/*` (`:339`) runs after the generated files. Moving the copy is a reorder, which S3's brief excludes ("the steps stay where they are"). Read with `7z` from `t8-target.raw` at sector 8192. **Filed by the coordinator as #901 and fixed in S4** (PL-19; `00` § Stage E, S4).
 - **G-06** (the controller helper is never cleaned up) -- **agreed, a #585 row; narrowed by #899.** `:46` backgrounds the helper without keeping its PID, and `:558` (`kill -9 $(pidof gptokeyb)`) follows `while true` with no `break`, so it never runs. The only ways out are `poweroff -f` and a signal. Since `0602f598e9` the helper starts only when `GPTOKEYB` is set, so a machine without a pad starts none. With a pad, the gap stands. A `trap … EXIT` is more than this stream's one-line guard.
 - **#899**, found on the guest and added to S3 by the coordinator: the image's installer started 153, then 381 copies of itself without a pad, and powered the first boot off. The guard at `:43-47` (`0602f598e9`) leaves one installer, and with a pad-shaped `control.ini` calls `gptokeyb` once. P18; PL-18.
+
+## S4's reads (#901), at stage E
+
+Read on the guest cycle of 2026-10-24, 14:18 to 14:31 (`00` § Stage E, S4). The fix is `b58489297c`.
+
+- **The reorder:** the `syslinux.cfg` heredoc and the two `EFI/BOOT` copies now run in an `x86_64` arm after `cp -r /flash/*`. `syslinux -i` stays before the copy. The `arm|aarch64` arm (`update.sh` with `BOOT_ROOT=/flash`) is untouched, because it writes no file the copy replaces.
+- **`ldlinux.e64` differs:**
+  - The media's `EFI/BOOT/ldlinux.e64` is the toolchain's syslinux (`scripts/mkimage:180`, sha256 `6b1ec643…`); the image's `/usr/share/syslinux/ldlinux.e64`, which the installer copies, is `2b34610e…`.
+  - `bootx64.efi` is the same bytes in both (`83199a7a…`).
+  - Before the fix, the media's pair landed last. After it, the image's `ldlinux.e64` sits beside that `bootx64.efi`, and the installed disk boots on it (below).
+- **The media's `grub.cfg` is not read:** `mkimage:181` copies it into `EFI/BOOT`, and the installer copies it to the target with everything else. The loader is syslinux's `bootx64.efi`, which reads the root `/syslinux.cfg`; the control's command line shows it (below).
+- **The command line:**
+  - The generated `APPEND` ended in `${EXTRA_CMDLINE}`, which nothing sets at run time. `tools/installer/package.mk`'s `post_install` substitutes `@EXTRA_CMDLINE@`, which the script never carried. Both halves are upstream's `09810c3ece`.
+  - An installed disk had the device's words (GENERIC_X64: `quiet console=ttyS0,115200 console=tty0`, `devices/GENERIC_X64/options:76`) only by way of the media's file.
+  - The reorder alone would have cost `quiet` and the serial console: the first install's disk booted with no answer on serial. `b58489297c` carries `@EXTRA_CMDLINE@`, the coordinator's yes at 14:35.
+  - The token mismatch is a #585 row, the coordinator's.
+- **The boot-test method:**
+  - each installed raw disk is booted alone under OVMF through a qcow2 overlay (`qemu-img create -f qcow2 -b <raw> -F raw`), grown to the launcher's 16 GiB floor, so the raw disk stays as evidence;
+  - frames come from the monitor's `screendump`, and `/proc/cmdline` is read over serial where the command line carries `console=ttyS0`.
+  - **The control** (S3's pre-fix disk) booted with `… portable quiet console=ttyS0,115200 console=tty0`.
+  - **The reorder alone** reached the carousel at 110 s with a silent serial console.
+  - **`b58489297c`'s file**, with `post_install`'s `sed` applied, booted with `… boot=LABEL=ROCKNIX disk=LABEL=STORAGE quiet console=ttyS0,115200 console=tty0`.
+- **Severity, Low:** `portable` only sets `SYSLINUX_DEFAULT=run` (`busybox/scripts/init:1245-1246`), which `:777-785` uses to keep `DEFAULT run` in a `syslinux.cfg` that has that label. So the boot was the same; the file and the command line were wrong.
+- **Not read:** legacy-BIOS boot. The guest is UEFI. The media's `ldlinux.sys` and `ldlinux.c32` are copied over the ones `syslinux -i` wrote; whether that moves `ldlinux.sys` off the sectors the boot record points at is a lead, not run.
 
 ## Coverage table
 
@@ -648,7 +673,7 @@ One row per path (485). (a) is `upstream/next`; Q4 is the disposition with the m
 
 ## Verification
 
-Stage F, after S1 to S3 (`t8-streams.md` at `7c4867330b`, S3 corrected at `a5dae9f5d9`) and the coordinator's dispositions. Every outcome is in `05` § Phase 7 resolution gate. Re-derived at `d797678ede` (14:12 UTC, `.qa-scratch/t8/stage-f/`).
+Stage F, after S1 to S4 (`t8-streams.md` at `7c4867330b`, S3 corrected at `a5dae9f5d9`, S4 and S3's addendum at `3e64156023`) and the coordinator's dispositions. Every outcome is in `05` § Phase 7 resolution gate. Re-derived at `d797678ede` (14:12 UTC, `.qa-scratch/t8/stage-f/`) and again at `b58489297c` (14:36 UTC, `.qa-scratch/t8/stage-f2/`): `pkgcheck` rc 0 on the five recipes and `installer`; both syntax checks rc 0; the same pin counts; `@EXTRA_CMDLINE@` once in the script and once in the recipe's `sed`.
 
 | # | Claim | Evidence | Class |
 | --- | --- | --- | --- |
@@ -656,9 +681,11 @@ Stage F, after S1 to S3 (`t8-streams.md` at `7c4867330b`, S3 corrected at `a5dae
 | P17 | `mangohud`'s three subprojects come from checksummed source recipes, not `curl` | each archive's sha256 equals its wrap's `source_hash`; `scripts/get` rc 0 ×3 and rc 1 on a one-digit change; the real `pre_configure_target` unpacks three `meson.build` trees and stops on a missing archive (`.qa-scratch/t8/s2-*`); `pkgcheck` rc 0 ×4; `grep -c 'curl '` 0 | proved: fix-tree |
 | P18 | without a pad the image's installer starts copies of itself; the guarded one runs one, and with a pad calls `gptokeyb` once (#899) | on the GENERIC_X64 guest, `/proc/*/comm` counts of 153, 234, 302, 381 (control, stub `poweroff`), then 1 `installer-899` and 1 `whiptail` (no stubs); the bind-mounted `control-gen` fixture's argv `installer -c /storage/.config/gptokeyb/installer.gptk` (`.qa-scratch/t8/s3/p899-*.txt`) | proved: fix-guest |
 | P19 | a failed step ends the install on a dialog naming it; a working disk still completes (#894) | with no stubs: the 8 MB `/dev/sdb` ends on "Install Couldn't Finish -- ... creating the system partition", with parted's `outside of the device` and `# FAILED:` in the log; the 6 GiB `/dev/sda` ends on Install Complete with `ROCKNIX` vfat and `STORAGE` ext4 (`blkid`); without the change, the 8 MB disk claimed complete (`.qa-scratch/t8/s3/run-*.txt`) | proved: fix-guest |
+| P20 | the installed disk carries the generated `syslinux.cfg` and boots on it, with the device's words and without `portable` (#901) | on the GENERIC_X64 guest with no stubs: `b58489297c`'s file with `post_install`'s `sed` applied, a quick install to a blank 6 GiB disk, the target's `syslinux.cfg` read (`DEFAULT linux`, `APPEND boot=LABEL=ROCKNIX disk=LABEL=STORAGE quiet console=ttyS0,115200 console=tty0`); that disk booted alone through an overlay, `/proc/cmdline` read over serial; S3's pre-fix disk booted the same way carries the media's `portable` (the control); the media's `/flash/syslinux.cfg` unchanged (`.qa-scratch/t8/s3/s4*-after.txt`, `s4b-boot-cmdline.txt`, `boot/`) | proved: fix-guest |
+| P21 | without a pad the installer starts silently: no `get_controls: command not found` (#899's addendum, `412be96c77`) | the serial transcripts of both S4 installs, no stubs: 0 `get_controls` and 0 `not found` lines; `control.ini` 0 bytes (`.qa-scratch/t8/s3/run-s4-6g.txt`, `run-s4b-6g.txt`) | proved: fix-guest |
 
 **Re-derived at stage F:**
-- **The branch:** `git diff --stat 8ebaf8daad HEAD -- projects packages` shows six files (S1's one, S2's four, S3's installer), 124 insertions and 31 deletions.
+- **The branch:** `git diff --stat 8ebaf8daad HEAD -- projects packages` shows six files (S1's one, S2's four, the installer), 124 insertions and 31 deletions at `d797678ede`, and 136 and 37 at `b58489297c` (S3's addendum and S4 on the same file).
 - **No pins moved:** with `--diff-filter=M`, 0 `PKG_VERSION` and 0 `PKG_SHA256` lines. Over all files the `PKG_VERSION` count is 3, all from S2's three new recipes, which carry the only checksums added. Nothing deleted or renamed.
 - **Checks:** `pkgcheck` rc 0 on `image`, `mangohud` and S2's three new recipes. The installer passes `bash -n` and the image busybox's `sh -n`.
 - **Not yet proved on an image** (`fix-pending-image`; held by each issue's own checkbox, not by this audit):

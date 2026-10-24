@@ -280,6 +280,22 @@
 - **Bug issue:** #899
 - **Upstream:** a #585 candidate (D-WORKFLOW-164; submission deferred, D-WORKFLOW-165); the coordinator posts it
 
+## PL-19: the installer copies the media's `syslinux.cfg` over the one it generated, so an installed GENERIC_X64 boots on the live media's cmdline
+
+- **Severity:** Low
+- **Category:** Interaction Defect
+- **Question:** Q3
+- **Source Finding:** F-19
+- **Owner area:** an upstream-carried script (fork-own by its identity edits): `projects/ROCKNIX/packages/tools/installer/scripts/installer` (GENERIC_X64)
+- **What:** The second opinion's G-05, confirmed from the installed bytes in S3 and filed by the coordinator as #901 (S4). Write the `x86_64` boot configuration after `cp -r /flash/*`. Graded Low: the installed disk boots either way, on the same two labels, because `portable` only sets `SYSLINUX_DEFAULT=run` (`busybox/scripts/init:1245-1246`), which `:777-785` uses to keep `DEFAULT run` in a `syslinux.cfg` that has that label; the file and the cmdline are wrong, not the boot (both disks boot to the carousel on the guest). The reorder exposes the recipe's dead `@EXTRA_CMDLINE@` substitution: the script reads a run-time `${EXTRA_CMDLINE}` nothing sets, so the reorder alone would have cost `quiet` and the serial console (the first S4 install's disk booted with no answer on serial); S4 also turns the moved line's `${EXTRA_CMDLINE}` into `@EXTRA_CMDLINE@`, at the coordinator's yes (14:35 UTC on #655). Upstream's lines (`09810c3ece`): rule 6, and a #585 row, the coordinator's.
+- **Where:** `installer:321-339` at `8ebaf8daad`; `tools/installer/package.mk` `post_install`
+- **Evidence:** P20: S3's installed `syslinux.cfg` and the control boot's `/proc/cmdline` (`portable`); S4's installs and boots
+- **Can this be done on the VM?** Yes: a quick install on the GENERIC_X64 guest to a blank SATA disk, the target's `syslinux.cfg` read, and the installed disk booted alone through an overlay
+- **Already written:** every GENERIC_X64 disk installed so far carries the media's `syslinux.cfg` and boots with `portable`; the fix changes the next install, and a reinstall rewrites the file; nothing under `/storage` or in a cloud
+- **Acceptance:** after a quick install on the guest, the target's `syslinux.cfg` is the generated one (`DEFAULT linux`, the two labels, no `portable`), and the media's `/flash/syslinux.cfg` is unchanged; `bash -n` and busybox `sh -n` pass.
+- **Bug issue:** #901
+- **Upstream:** a #585 candidate (D-WORKFLOW-164; submission deferred, D-WORKFLOW-165); the coordinator posts it
+
 ## Machine-readable index
 
 ```yaml
@@ -422,6 +438,15 @@ punch_index:
   tracked: "#899"
   outcome: "resolved"
   proved: "fix-guest"
+- id: PL-19
+  severity: Low
+  category: Interaction Defect
+  question: Q3
+  source_finding: "F-19"
+  owner_area: "an upstream-carried script (fork-own by its identity edits): `projects/ROCKNIX/packages/tools/installer/scripts/installer` (GENERIC_X64)"
+  tracked: "#901"
+  outcome: "resolved"
+  proved: "fix-guest"
 ```
 
 ## Phase 7 resolution gate
@@ -446,3 +471,4 @@ punch_index:
 | PL-16 | **Deferred** | deferred:#585, item 7 of #585's T8 proposal ([issuecomment-6384909664](https://github.com/pixelelated/distribution/issues/585#issuecomment-6384909664), 13:40 UTC; the installer addendum [issuecomment-6385022026](https://github.com/pixelelated/distribution/issues/585#issuecomment-6385022026), 13:51) |
 | PL-17 | **Deferred** | deferred:#585, items 8 to 11 and the tailscale shape of #585's T8 proposal ([issuecomment-6384909664](https://github.com/pixelelated/distribution/issues/585#issuecomment-6384909664), 13:40 UTC; the installer addendum [issuecomment-6385022026](https://github.com/pixelelated/distribution/issues/585#issuecomment-6385022026), 13:51). The fork's three: G-14 withdrawn (`network-base.service` is enabled by `systemd/package.mk:328`, so `After=` alone orders it); G-17 a #585 row, its one-line `PKG_SOURCE_NAME` free to ride the integration; G-24 a #585 row, the fork's GENERIC_X64 copy following upstream's fix |
 | PL-18 | **Resolved** | `0602f598e9`: the gptokeyb line runs only when `GPTOKEYB` is set (#899, added to S3 by the coordinator); fix-guest |
+| PL-19 | **Resolved** | `b58489297c`, T8's S4: the `x86_64` boot configuration is written after `cp -r /flash/*`, and the `APPEND` line carries `@EXTRA_CMDLINE@` for `post_install`'s `sed`; the installed disk booted alone reads `/proc/cmdline` `... disk=LABEL=STORAGE quiet console=ttyS0,115200 console=tty0` without `portable` (P20); the token mismatch is a #585 row, the coordinator's; fix-guest |

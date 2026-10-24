@@ -215,3 +215,36 @@ PROOF: 13:32 P17 S2: the three archives equal their wraps' hashes; `scripts/get`
 
 PROOF: 13:59 P18 #899: the image's installer started 153, then 381 copies of itself with no pad; the guarded one runs one, and with a pad-shaped `control.ini` calls `gptokeyb` once -- `.qa-scratch/t8/s3/p899-*.txt`, the `/proc` counts
 PROOF: 14:03 P19 #894: with no stubs, the 8 MB disk stops at "creating the system partition", the 6 GiB disk ends on Install Complete with ROCKNIX and STORAGE, and without the change the 8 MB disk claimed complete -- `.qa-scratch/t8/s3/run-*.txt`, `blkid`
+
+### [Stage E] 14:16 to 14:31 — S3's addendum (#899) and S4 (#901)
+
+- **Read first:** the coordinator's 14:16 post on #655 and `t8-streams.md` at `3e64156023` (S4, the S3 addendum); `scripts/mkimage:140-181` and `:290-293` (the media's `syslinux.cfg`, `grub.cfg` and `EFI/BOOT` copies); `tools/installer/package.mk` `post_install`.
+- **S3 addendum:** `:41` now reads `command -v get_controls >/dev/null 2>&1 && get_controls`.
+  - Under the image's busybox, `command -v` finds a defined function and skips an undefined one with status 127, which stops nothing because the script runs without `set -e`.
+  - `bash -n` ok and busybox `sh -n` ok. Commit `412be96c77`.
+- **S4, the reorder:** the `syslinux.cfg` heredoc and the two `EFI/BOOT` copies move into an `x86_64` arm of a second `case` after `cp -r /flash/*`. `syslinux -i` stays before the copy, and the `arm|aarch64` arm is untouched. The moved lines are unchanged and get no new checks.
+- **The media's `EFI/BOOT`**, read on the guest:
+  - `bootx64.efi` equals `/usr/share/syslinux/bootx64.efi` (`83199a7a…`);
+  - `ldlinux.e64` differs: media `6b1ec643…` (`mkimage:180`, the toolchain's syslinux), image `2b34610e…`;
+  - the media also has a `grub.cfg` (`mkimage:181`) that syslinux does not read.
+- **The guest cycles** (`t8.qcow2`, AHCI targets, `--pidfile /workspace/tmp/m6-t8/qemu.pid`; each stopped with `tools/vm-stop` rc 0; census 0 before each; host-file lines at 14:18 and 14:27):
+  - **Install 1** (14:19:13, pid 600819; the reorder alone; blank 6 GiB `t8-target-s4.raw`, `/dev/sda ATA_QEMU_HARDDISK_6442MB`; no stubs):
+    - Install Complete; 0 `get_controls` lines and 0 "not found" lines in the transcript (the addendum's proof); 0 `FAILED`;
+    - the target's `syslinux.cfg`: `DEFAULT linux` / `PROMPT 0` / `LABEL linux` / ` KERNEL /KERNEL` / ` APPEND boot=LABEL=ROCKNIX disk=LABEL=STORAGE `, with no `portable`;
+    - `EFI/BOOT`: the image's pair, `83199a7a…` and `2b34610e…`;
+    - the media's `/flash/syslinux.cfg` still reads `DEFAULT run`, sha256 `0d7363c7…`, before and after.
+  - **Boot of install 1** (14:20:44, pid 830264): the disk alone, under UEFI, through the overlay `s4-boot.qcow2`. The overlays are grown to 16 GiB, the launcher's floor, so the raw disk is untouched.
+    - It reaches the EmulationStation carousel at 110 s (`s4-boot-110s.png`), so the image's `ldlinux.e64` beside the toolchain's `bootx64.efi` boots.
+    - The serial console does not answer: the generated `APPEND` carries no `console=ttyS0`.
+  - **Boot of S3's pre-fix disk, the control** (14:24:08, pid 865097): it boots, and `/proc/cmdline` reads `root=/dev/sda1 init=/sbin/init usbcore.autosuspend=-1 BOOT_IMAGE=/KERNEL boot=LABEL=ROCKNIX disk=LABEL=STORAGE portable quiet console=ttyS0,115200 console=tty0`. That is the media's `APPEND`, so syslinux's EFI loader reads the root `/syslinux.cfg`.
+- **What the reorder exposed:** the generated `APPEND` ends in `${EXTRA_CMDLINE}`, which nothing sets at run time.
+  - `tools/installer/package.mk`'s `post_install` runs `sed "s/@EXTRA_CMDLINE@/${EXTRA_CMDLINE}/g"` over the script, but the script carried no placeholder. Both halves are upstream's `09810c3ece`.
+  - GENERIC_X64's value, through `config/options installer`, is `quiet console=ttyS0,115200 console=tty0` (`devices/GENERIC_X64/options:76`).
+  - With the reorder alone, an installed disk boots without `quiet` and without its serial console.
+  - Put to the coordinator at 14:26 on #655. Proposed: `@EXTRA_CMDLINE@` on the moved `APPEND` line, in S4's commit.
+- **The variant**, `@EXTRA_CMDLINE@` on that line, with the recipe's own `sed` applied to the guest's copy with GENERIC_X64's value, as `post_install` does (sha256 `6cb5a145…`):
+  - **Install 2** (14:27:55, pid 893477; blank 6 GiB `t8-target-s4b.raw`; no stubs): Install Complete, with 0 `get_controls` and 0 "not found" lines. `syslinux.cfg`: `DEFAULT linux` … ` APPEND boot=LABEL=ROCKNIX disk=LABEL=STORAGE quiet console=ttyS0,115200 console=tty0`. The media's file is unchanged.
+  - **Boot of install 2** (14:28:38, pid 901487): `/proc/cmdline` reads `root=/dev/sda1 init=/sbin/init usbcore.autosuspend=-1 BOOT_IMAGE=/KERNEL boot=LABEL=ROCKNIX disk=LABEL=STORAGE quiet console=ttyS0,115200 console=tty0`, with no `portable`. `BUILD_ID` `069fc270…`; `/flash` holds the installed system files.
+
+PROOF: 14:30 P20 #901: the installed disk carries the generated `syslinux.cfg`, not the media's, and boots on it under UEFI (`/proc/cmdline` without `portable`); S3's pre-fix disk, the control, boots on the media's (`portable`) -- `.qa-scratch/t8/s3/s4*-after.txt`, `s4b-boot-cmdline.txt`, the boot frames
+PROOF: 14:19 P21 #899's addendum: with no pad, the installer's serial transcript carries no `get_controls: command not found` -- `.qa-scratch/t8/s3/run-s4-6g.txt`, `run-s4b-6g.txt`

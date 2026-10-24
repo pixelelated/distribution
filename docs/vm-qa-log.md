@@ -389,3 +389,22 @@ preserved. All original lifecycle channels0, owners exited, admission consumed,
 **Stopped** with `tools/vm-stop` at 14:04:07 (rc 0). Census before 0 and after 0.
 
 The details are in the T8 audit's `00` § Stage E, S3.
+
+## 2026-10-24 14:18 UTC — M6 T8 S4: the installer's boot configuration (#901) and its silent start without a pad (#899's addendum)
+
+**What I tested:** the installer on the same `t8.qcow2` guest (`069fc270…`), then each installed disk booted on its own.
+
+**Setup**
+- **Targets:** blank 6 GiB raw disks on AHCI (`t8-target-s4.raw`, then `t8-target-s4b.raw`); the argv is in `/workspace/tmp/m6-t8/qemu-argv-s4*.txt`.
+- **Pidfile:** `/workspace/tmp/m6-t8/qemu.pid`, the same as S3's.
+- **Boot tests:** each installed disk alone under OVMF, through a qcow2 overlay grown to the launcher's 16 GiB floor, so the raw disk stays as evidence. Frames by the monitor's `screendump`.
+
+**Outcome**
+- **Install 1** (the reorder alone, no stubs): Install Complete. No `get_controls` line in the transcript, so #899's addendum holds. The target's `syslinux.cfg` is the generated one, with no `portable`. Booted alone, it reaches the carousel at 110 s, but its serial console is silent: no `console=ttyS0`.
+- **The control,** S3's pre-fix disk booted alone: `/proc/cmdline` carries the media's `portable quiet console=ttyS0,115200 console=tty0`.
+- **Install 2** (`@EXTRA_CMDLINE@` restored, built as `post_install` does): `syslinux.cfg` ends `quiet console=ttyS0,115200 console=tty0`. Booted alone, its `/proc/cmdline` reads `… boot=LABEL=ROCKNIX disk=LABEL=STORAGE quiet console=ttyS0,115200 console=tty0`, without `portable`.
+- **The media** `/flash/syslinux.cfg` is unchanged throughout (sha256 `0d7363c7…`). Its `ldlinux.e64` (the toolchain's) differs from the image's.
+
+**Stops:** five guests (pids 600819, 830264, 865097, 893477 and 901487), each stopped with `tools/vm-stop`, rc 0. Census 0 before and after; host-file lines at 14:18, 14:27 and 14:32.
+
+The details are in the T8 audit's `00` § Stage E, S4.
