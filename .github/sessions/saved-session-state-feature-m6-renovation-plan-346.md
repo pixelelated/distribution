@@ -25,33 +25,24 @@
 
 ## Current focus
 
-**2026-10-24, late morning (tip `8b22f8abfc`).** P0 and every accepted slice
-branch wait for the M7 lane's post-candidate merge to clear the push guard's
-W42 gate before anything merges to `next` (never `--no-verify`); the merge
-order is in § Merge notes. **Accepted:** P1 (#641), T1 (#648), T2 (#649), T3
-(#650, audit #826 closed), T5 (#652, #837 closed), T6 (#653, #846 closed).
-**Running:** T30 (#677) in the T3 session (`m6-t3-emulators`), stage C,
-Phase 4.6's seats called (the Facilitator process is alive in its worktree;
-the GPT seat has returned), a second guest cycle named; the lane's turn ends
-while it waits on the seats, which is not idleness. **Waiting on the
-maintainer (#346):** T4's dispatch (#651, brief v2 `0921782112`; a third
-lane). **Being briefed for the free T5 session:** T7 (#654), the generic
-packages the image builds -- the area epic #848 is filed (T7, T8 #655, T23
-#670), its futro is on #848, the brief `docs/reviews/briefs/generic-packages-reached.md`
-is at version 1 and under a stranger's proof (report expected at
-`/workspace/tmp/m6-coordinator/stranger-t7/report.md`); then version 2,
-#654's criteria from § 7 (`rewrite-body.py` in the scratchpad), the worktree
-`distribution.worktrees/m6-generic-packages-reached-654` on
-`feature/m6-generic-packages-reached-654` stacked on P1's `2174265e9c` with
-this tip merged in (the marker-stop merge recipe), the pointer seeded from
-the scratchpad's `t6-pointer.md` shape, the dispatch comment, and `herdr
-agent prompt m6-t5-build-engine` with a seed that ends *"do not end a turn
-on a post that asks nothing; post checkpoints and continue"*. **Fix packets
-for M7** (#802, #806, #825) are reviewed and named on the host file; M7
-applied #802 and #806 locally at 04:48. **Filed this morning:** #848, #849
-(`portaudio`'s source gone; the cache's copy is a retained input, a second
-copy under `/workspace/tmp/m6-coordinator/preserve/`), #850 (the
-Facilitator's stale `--help`). See § State at 2026-10-24.
+**2026-10-24, late morning.** P0 and every accepted slice branch wait for
+the M7 lane's post-candidate merge to clear the push guard's W42 gate before
+anything merges to `next` (never `--no-verify`); the order is in § Merge
+notes. **Accepted:** P1 (#641), T1 (#648), T2 (#649), T3 (#650), T5 (#652),
+T6 (#653). **Running:** T30 (#677, Extended) in the T3 session
+(`m6-t3-emulators`), stage C: the GPT seat returned; the Gemini Argon seat
+hit its output ceiling on the full packet and runs again on a trimmed one
+(D-WORKFLOW-195, 10:10:57); a second guest cycle was named. **T7 (#654,
+Local) dispatched 10:11 UTC** to the T5 session (`m6-t5-build-engine`) from
+`docs/reviews/briefs/generic-packages-reached.md` version 2 (`e7978a1ca5`),
+lane `feature/m6-generic-packages-reached-654` at `4ea87f17dd`, worktree
+`distribution.worktrees/m6-generic-packages-reached-654`; its stage-D pause
+is the coordinator's next act there (stream briefs, plan § 6b E). **Waiting
+on the maintainer (#346):** T4's dispatch (#651, brief v2 `0921782112`; a
+third lane); the `portaudio` re-hosting (#849). **Fix packets for M7**
+(#802, #806, #825) are reviewed and named on the host file. **Filed today
+by this lane:** #807 to #811, #838, #839, #842 to #844, #847 to #852. See
+§ State at 2026-10-24.
 
 ## Next commands
 
@@ -254,10 +245,11 @@ is the narrative; this is the index of what a resuming agent must know.
   get` every 30 s, idle named at ten minutes) is re-armed for every working
   lane; before calling a lane idle, read its worktree and the host's
   processes (a Facilitator call in flight is a wait, not idleness).
-- **Register and blindspots.** Decided rows end at D-WORKFLOW-194 on this
+- **Register and blindspots.** Decided rows end at D-WORKFLOW-195 on this
   branch (193: an archive without `PKG_SHA256` fails the fetch; 194: five
-  archive versions in four recipes); the next free ID is 195 and a lane may
-  take it. Blindspot entries run to 75 (a corpus read on the wrong tree;
+  archive versions in four recipes; 195: a seat cut by its output ceiling
+  re-runs on a trimmed packet, same model and effort); the next free ID is
+  196 and a lane may take it. Blindspot entries run to 75 (a corpus read on the wrong tree;
   its guard is `engineering-practices.md` bullet `ab8f750784`); 29 is used
   twice (#811).
 - **Briefs and streams on this branch:** `docs/reviews/briefs/` holds the
