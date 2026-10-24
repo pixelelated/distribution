@@ -154,3 +154,14 @@ PROOF: 06:07:52 P14 `get_git`'s cache check over a directory it cannot enter run
 - The audit issue **#837**, "Audit: M6 T5 the build engine -- 25 findings (0 critical, 2 high)": labels `audit`, `punch-list`, milestone M6, a sub-issue of #652 (the parent read back as 652), one checkbox per item. `tools/box-check --issue 837`: 26 open checkboxes, 0 fail.
 - `tools/punch-items.py` carries `tracked: "#N"` for the ten, and `05` shows each item's bug issue. `tools/lint-audit-artifacts ... --phase pre-issue`: **PASS**.
 - The lane now pauses for the coordinator's stream briefs (plan § 6b stage E).
+
+### [Stage E] 06:20 to 06:32 — E1, `scripts/mkimage` fails closed (PL-01, #827)
+
+- The coordinator's streams E1 to E8 read from `feature/m6-renovation-plan-346:docs/reviews/briefs/t5-streams.md` (`7335583619`), with D-WORKFLOW-193 for E6.
+- The test first: `tools/sb-mkimage.sh` runs the real `scripts/mkimage` and `projects/ROCKNIX/bootloader/mkimage`, at a commit or from the working tree, over fixture files. It uses mtools, populatefs and xmlstarlet copied read-only from the M7 SM8550 toolchain, because the host has no mtools. Before (`8ebaf8daad`): `overflow`, `nearfull` and `noabl` each exit 0 with an image and its checksum, `Disk full` or the missing ABL printed. The trace was read first.
+- The change (`cfd5ee7324`): every part1 copy in the two branches and all fifteen in the hook, the seven `parted` calls, `mke2fs`, `pigz` and the checksum go through `show_error`. A size check compares the kernel and `SYSTEM` with `SYSTEM_SIZE` before any copy. `remove_partial` runs on an error and on `SIGINT` or `SIGTERM`, and the script ends `exit 0`. `bash -n` passes on both files.
+- After: the same three modes exit 1 through the error path with no image; `fit` still builds. Two checks that no working build changes: the M7 SM8550 and H700 images need 75% and 61% of `SYSTEM_SIZE` (2,048 MiB), from their update tars read only; and their recorded image steps show no mtools refusal, so checking the hook's copies changes nothing that works today. RK3326's `stock` and `overlays` sources are in the tree but no RK3326 run is on record (`fix-pending-image`).
+- Already written: of 26 recorded M7 image steps, none shows a copy refusal, so no image in the record shipped incomplete.
+- Not changed: the `Generic` OVA block (`qemu-img`, `tar`, its checksum; unreached, `PROJECT=ROCKNIX` everywhere) and the hook's `exit 2` on a missing `boot.scr`, which already fails.
+
+PROOF: 06:27-06:30 P15 `scripts/mkimage` exits 1 and leaves no image over a SYSTEM the FAT cannot hold or a missing ABL, where it exited 0 with an image -- `tools/sb-mkimage.sh` (F-16, #827)

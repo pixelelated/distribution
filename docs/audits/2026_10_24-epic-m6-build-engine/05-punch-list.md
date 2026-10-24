@@ -406,7 +406,8 @@ punch_index:
   source_finding: "F-16"
   owner_area: "image assembly: the disk image writer"
   tracked: "#827"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-sandbox; fix-pending-image: the next SM8550 and H700 builds' `target/`"
 - id: PL-02
   severity: High
   category: Code Quality
@@ -485,7 +486,7 @@ punch_index:
   question: Q7
   source_finding: "F-05"
   owner_area: "doctrine: `device-builds.md`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-12
   severity: Low
   category: Renovation
@@ -515,21 +516,21 @@ punch_index:
   question: Q6
   source_finding: "F-10"
   owner_area: "the upstream workflows on the fork"
-  outcome: open
+  outcome: "deferred"
 - id: PL-16
   severity: Low
   category: Renovation
   question: Q4
   source_finding: "F-11"
   owner_area: "the build container"
-  outcome: open
+  outcome: "deferred"
 - id: PL-17
   severity: Low
   category: Renovation
   question: Q4
   source_finding: "F-12"
   owner_area: "the base merge"
-  outcome: open
+  outcome: "deferred"
 - id: PL-18
   severity: Low
   category: Code Quality
@@ -543,7 +544,7 @@ punch_index:
   question: Q7
   source_finding: "F-15"
   owner_area: "doctrine: build credentials"
-  outcome: open
+  outcome: "deferred"
 - id: PL-20
   severity: Low
   category: Renovation
@@ -585,43 +586,43 @@ punch_index:
   question: Q5
   source_finding: "#644 finding 8"
   owner_area: "the compile cache"
-  outcome: open
+  outcome: "deferred"
 - id: PL-26
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "Table 5"
   owner_area: "the inventory's areas"
-  outcome: open
+  outcome: "deferred"
 ```
 
 ## Phase 7 resolution gate
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-02 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-03 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-04 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-05 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-06 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-07 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-08 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-09 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-10 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-11 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-12 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-13 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-14 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-15 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-16 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-17 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-18 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-19 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-20 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-21 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-22 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-23 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-24 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-25 | Open | stage D files the issue; stage E's stream brief resolves |
-| PL-26 | Open | stage D files the issue; stage E's stream brief resolves |
+| PL-01 | **Resolved** | `cfd5ee7324` (E1): every part1 copy, the hook's fifteen, the partitioning, `pigz` and the checksum through `show_error`; a size check; the partial image removed on failure or interrupt. P15 before and after; fix-sandbox; fix-pending-image: the next SM8550 and H700 builds' `target/` |
+| PL-02 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-03 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-04 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-05 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-06 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-07 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-08 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-09 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-10 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-11 | **Deferred** | deferred:#651 (T4): `device-builds.md` § After rebasing items 2 and 3 (the coordinator's disposition, `t5-streams.md`) |
+| PL-12 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-13 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-14 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-15 | **Deferred** | deferred:#657 (T10): `update-kernel-configs-docs.yml` fails on every fork push (the coordinator's disposition) |
+| PL-16 | **Deferred** | deferred:#652, the coordinator's act: the pin moves with the first M6 image build after the M7 candidate merges, in the stream brief naming that build; until then behind by 29 days, identical `Dockerfile` |
+| PL-17 | **Deferred** | deferred:#652, the coordinator's act: the base merge takes `config/blocklist`, `build-nightly.yml` and the PR template |
+| PL-18 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-19 | **Deferred** | deferred:#651 (T4): § Build credentials' two spellings of the options file (the coordinator's disposition) |
+| PL-20 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-21 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-22 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-23 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-24 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-25 | **Deferred** | deferred:#652: `ccache --show-stats` before and after the first M6 build, recorded on #652 by the coordinator |
+| PL-26 | **Deferred** | deferred:#652: moves to `tooling-and-guards` in `areas.json` when the P1 branch merges (the coordinator's ledger edit, D-WORKFLOW-189) |
