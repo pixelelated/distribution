@@ -187,7 +187,8 @@ def main():
                         console = False
         child.wait()
         code = child.returncode if child.returncode >= 0 else 128 - child.returncode
-    except (OSError, ValueError, KeyError, TypeError, RuntimeError, subprocess.SubprocessError) as error:
+    except (OSError, ValueError, LookupError, TypeError, AttributeError, RuntimeError,
+            subprocess.SubprocessError) as error:
         log.write(f'watch-build: command launch/output failed: {error}\n'.encode())
         if child is not None and child.poll() is None:
             os.killpg(child.pid, signal.SIGTERM)
@@ -218,6 +219,7 @@ def main():
 if __name__ == '__main__':
     try:
         sys.exit(main())
-    except (OSError, RuntimeError, ValueError, KeyError, TypeError, subprocess.SubprocessError) as error:
+    except (OSError, RuntimeError, ValueError, LookupError, TypeError, AttributeError,
+            subprocess.SubprocessError) as error:
         print(f'watch-build: {error}', file=sys.stderr)
         sys.exit(2)

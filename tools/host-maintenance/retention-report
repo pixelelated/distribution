@@ -17,9 +17,18 @@ import tarfile
 import time
 
 
+def stream_digest(stream):
+    # Streamed, not hashlib.file_digest: that is 3.11's, and the pinned build
+    # container's interpreter is 3.10 (#492, #915).
+    hashed = hashlib.sha256()
+    for block in iter(lambda: stream.read(1 << 20), b''):
+        hashed.update(block)
+    return hashed.hexdigest()
+
+
 def digest(path):
     with Path(path).open('rb') as stream:
-        return hashlib.file_digest(stream, 'sha256').hexdigest()
+        return stream_digest(stream)
 
 
 def identity(path):
@@ -66,7 +75,7 @@ def source_fixtures(plan):
                 if not member.isfile():
                     raise ValueError('archive member is not a regular file')
                 stream = source.extractfile(member)
-                expected = hashlib.file_digest(stream, 'sha256').hexdigest()
+                expected = stream_digest(stream)
             if expected != item['sha256'] or digest(path) != expected:
                 raise ValueError('fixture differs from exact archive member')
             accepted[str(path)] = item

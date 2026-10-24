@@ -30,8 +30,13 @@ def require(value, message):
 
 
 def digest(path):
+    # Streamed, not hashlib.file_digest: that is 3.11's, and the pinned build
+    # container's interpreter is 3.10 (#492, #915).
+    hashed = hashlib.sha256()
     with Path(path).open('rb') as f:
-        return hashlib.file_digest(f, 'sha256').hexdigest()
+        for block in iter(lambda: f.read(1 << 20), b''):
+            hashed.update(block)
+    return hashed.hexdigest()
 
 
 def read(path):

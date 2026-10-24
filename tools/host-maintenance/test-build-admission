@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Negative admission/lifecycle controls; synthetic host roots, no compiler/VM."""
-import copy,importlib.util,json,os,shutil,subprocess,tempfile,datetime,hashlib,types
+import copy,importlib.util,json,os,shutil,subprocess,sys,tempfile,datetime,hashlib,types
 from pathlib import Path
 root=Path(__file__).resolve().parents[2]
 spec=importlib.util.spec_from_file_location('fixture',Path(__file__).with_name('admission-test-fixture.py'));helper=importlib.util.module_from_spec(spec);spec.loader.exec_module(helper)
@@ -34,6 +34,19 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
     for name,mutate in mutations.items():
         d,m,p,r,e=fixture(name.replace(' ','-'));mutate(d,m,p,r,e);a=run(d,e)
         check(a.returncode!=0 and not (d/'compiler-started').exists(),name+' blocks payload')
+    # #915: an admission the helper cannot read is a refusal in the run's record,
+    # never a traceback; and the pinned container's 3.10 has no hashlib.file_digest.
+    def refused_in_record(d,a):
+        log=''.join(x.read_text() for x in (d/'.build-runs').glob('*/build.log'))
+        return (a.returncode!=0 and 'Traceback' not in a.stderr and not (d/'compiler-started').exists()
+                and 'watch-build: command launch/output failed: ' in log)
+    d,m,p,r,e=fixture('registry-not-an-object');m.write(m.registry_for(d)/'jobs.json',[]);a=run(d,e)
+    check(refused_in_record(d,a),'a registry that is not an object is a refusal, not a traceback')
+    without='import hashlib,runpy,sys;del hashlib.file_digest;sys.argv=sys.argv[1:];runpy.run_path(sys.argv[0],run_name="__main__")'
+    d,m,p,r,e=fixture('hashlib-without-file-digest')
+    a=subprocess.run([sys.executable,'-c',without,str(d/'tools/watch-build'),'--interval','1','--','touch','compiler-started'],cwd=d,env=e,capture_output=True,text=True,timeout=15)
+    check(a.returncode==0 and (d/'compiler-started').exists() and 'Traceback' not in a.stderr,
+          'a hashlib without file_digest (3.10) admits and hashes')
     d,m,p,r,e=fixture('capacity')
     real = m.os.statvfs
     try:
