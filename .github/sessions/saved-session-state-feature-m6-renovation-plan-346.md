@@ -163,9 +163,16 @@ has consumed the packets. **The host is M7's from 03:47**; the return line is
 relayed to #650 and #652 the minute it lands. **Rule edits by this lane
 since `8ebaf8daad`** (the ledger the doctrine futro's A7 asks for; posted on
 #651 once T4 is at stage A, and listed here as they happen):
-`8c9b1d4721` `generic-x64-vm-testing.md` +7 at line 1222 (`time-to-play`'s
-reboot drops bind mounts, #797). The registers' and the friction log's
-appends are not rule edits. Both lanes report on their issues; nothing wakes this lane on a
+`8c9b1d4721` `generic-x64-vm-testing.md` +7, lines 1225 to 1231 (`time-to-play`'s
+reboot drops bind mounts, #797); `ab8f750784` `engineering-practices.md`
++7, a bullet under § A name is not a behaviour (a count or a line number is
+a claim about one tree; blindspot 75's guard). **Accepted lanes' rule
+edits, the coordinator's by acceptance, reaching `next` in the merge order:**
+T2 `f16cf7fc28` `es-native-ui.md` +5/-1 (#699's `--root` paragraph). The
+registers' and the friction log's appends are not rule edits. **T4's brief is
+at version 2** (`0921782112`); #810 (the lint refuses Local at epic tier) is on the
+T1 lane as a stream and gates T4's dispatch with the maintainer's answer on
+#346. Both lanes report on their issues; nothing wakes this lane on a
 post, so read #648 and #649 at every turn. **And nothing wakes a lane on a
 comment:** a lane's turn ends when it posts a question, so every answer the
 coordinator gives on an issue is also sent as `herdr agent prompt <lane>`,
