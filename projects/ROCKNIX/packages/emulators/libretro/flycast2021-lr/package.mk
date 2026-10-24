@@ -2,6 +2,9 @@
 # Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)
 
 PKG_NAME="flycast2021-lr"
+# Pinned to 603814c9f7, a commit on none of the project's branches (its one
+# branch, master, does not contain it; the hash still fetches). The reason is not
+# recorded (#650 PL-027).
 PKG_VERSION="603814c9f73b773c455d9a497f389d2f93a257fd"
 PKG_SHA256="8aa94bdd669bab05a10ff03c8a977eccd41a30063271da3f81a7a50b1a72f4ca"
 PKG_LICENSE="GPL-2.0-or-later"
