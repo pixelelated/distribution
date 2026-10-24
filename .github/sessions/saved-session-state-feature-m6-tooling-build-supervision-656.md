@@ -38,13 +38,14 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#656` (prose through a quoted heredoc or the Write
-tool). **The controls run in this worktree only**, after the host file and
-the census; `.build-runs/` and `.qa-scratch/` are gitignored (`:84`, `:63`)
-and `git status --short` is read before every `git add -A`. The GPT seat's
-two calls are the only network beyond GitHub.
+**Stage A done (15:47 UTC); stage B next.**
+- **`reviewed-at`:** `cdc45513b0`, whose bytes equal `8ebaf8daad` on all 18.
+- **Scope:** 18 paths, 3,795 lines, 201,453 bytes, 35 fork commits, none upstream's: equal to the brief.
+- **The eight controls in this worktree:** five pass (swap-reclaim, retention-report, build-admission, build-monitor, watch-job) and three fail (test-progress, test-watch-build of 2026-10-04, test-submit). `hooks-test` passes.
+- **Why the three fail, at two layers:** their fixtures lack `build-admission`; past that, `watch-build:96-98` (#493, `d7e2d6be41`) refuses any run without an admission or `--record-only`. Proved by diagnostic copies under `.qa-scratch/t9/diag/`.
+- **The record:** 46 `.build-runs/`; 1,902 run directories and 2,131 entries against the brief's 2,022. Mtimes are in `.qa-scratch/t9/record/mtimes-before.txt`.
+- **Next:** stage B, the reading (Phases 1 to 4, the guard table), then the seat.
+- **Rule:** prose through a quoted heredoc or the Write tool only.
 
 ## Next commands
 
