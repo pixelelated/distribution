@@ -469,7 +469,7 @@ Verdicts as the skill defines them. **OPEN (stage X)** means the criterion's art
 ### AC-10 to AC-12: `04` § Renovation face Q4 (two currency tables), Q5 (ccache, the stamp's cost, the recorded runs, time to play), Q6 (five reachability tables)
 **Verdict:** OPEN (stage B, `04`). Inputs ready: `q6-tables.md` Tables 1 to 5; Q4 (a)'s 21 rows; Q4 (b)'s digests; the three runs' timings.
 
-### AC-13: every proof carries a `proved:` cell; ``grep -c 'proved:' 02`` equals ``grep -c '^PROOF:' 00``
+### AC-13: every proof carries its class cell, and the count of those cells in 02 equals the count of PROOF lines in 00
 **Verdict:** PASS ✓ (at this point). **Evidence:** 13 and 13 (P1 to P13; `sandbox` 11, `image-set` 1, `recorded-run` 1). Re-counted at stages F and H.
 
 ### AC-14: `tracked:` items' bug issues carry the VM line and a verifiable criterion; `removal: yes` items carry `Already written:`; no pin, admission, watcher or trigger change without a stream brief; `box-check` passes on the issues
