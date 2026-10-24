@@ -12,8 +12,17 @@ found wrong -- a count from the wrong tree, a baseline assumed, a tool
 absent from the host, a line number from memory -- are answered from the
 start, and every figure below was produced by a command at `8ebaf8daad`
 (the tree) or in the inventory at P1's `2174265e9c` unless it says
-*branch*. It goes through a stranger's proof before dispatch; version 2
-records what it found. **Each command block sets its own variables**
+*branch*. It went through a stranger's proof before dispatch. **Version 2
+(2026-10-24):** the proof reproduced 79 claims -- 64 right, 3 wrong, 9
+partial, 3 uncheckable (`/workspace/tmp/m6-coordinator/stranger-t7/report.md`);
+every wrong and partial claim is corrected below, and the three it could not
+check (the lane pointer, the (b) loop's 404 branch, the fetch sweep) are the
+lane's to make. Its chief corrections: the two late-binding leads T6 routed
+here are T23's rows (`reach: unreached`), the `tools/pkgcheck` baseline over
+the 243 is 0 FAIL with both copies, the § 2 block now writes the two path
+files every later command reads, the recipes without a checksum are eight
+(`nspr` has no `PKG_URL` line at all), and the freshness tool has six
+classes. **Each command block sets its own variables**
 (`D`): a Bash call in this harness starts a fresh shell. **This is a table
 slice**: one row per recipe, read for currency against three sources; it
 reads a recipe line by line only where a row needs it; **it moves no pin,
@@ -43,8 +52,10 @@ is #645's).
   pins* -- **16** -- *the freshness tool's set is a diff, not a provenance*
   -- and **17** -- *upstream refuses any PR touching `packages/`*, #645),
   **T5 #652** (accepted: the fetch, `scripts/get_archive`, D-WORKFLOW-193/194),
-  **T6 #653** (accepted: its late-binding sweep's leads on #654, posted
-  08:57 UTC), **T3 #650** (accepted: the two-tier Q4 method of
+  **T6 #653** (accepted: its late-binding sweep's leads were posted on #654
+  at 08:57 UTC, and the proof found both outside this set -- `jre.zulu` and
+  `mesa-reusable` are `reach: unreached`, T23's rows, #670; the routing is
+  corrected on both issues), **T3 #650** (accepted: the two-tier Q4 method of
   `docs/audits/2026_10_24-epic-m6-emulators-libretro/q4-pins-table.md` and
   `q4-pins.json`; #841's class). **Beside it:** T30 (#677, the standalone
   emulators) runs in the other lane (D-WORKFLOW-190); the two share no path
@@ -153,9 +164,13 @@ print(dict(collections.Counter(r["language"] for r in t7)))
 pk = [r for r in t7 if r["path"].endswith("/package.mk")]
 print("recipes", len(pk), "groups", dict(collections.Counter(r["path"].split("/")[1] for r in pk)))
 print("with patches", sum(1 for r in pk if r["patches"]), "shadowed", sum(1 for r in pk if r["shadowed_by"]))
+import os; os.makedirs(".qa-scratch/t7", exist_ok=True)
+open(".qa-scratch/t7/paths.txt", "w").write("".join(r["path"] + "\n" for r in sorted(t7, key=lambda r: r["path"])))      # the 266, read by every later command
+open(".qa-scratch/t7/recipes.txt", "w").write("".join(r["path"] + "\n" for r in sorted(pk, key=lambda r: r["path"])))    # the 243
 for r in sorted(t7, key=lambda r: r["path"]): print(r["reach"], r["tier"], r["lines"], r["path"])
 PY
-git ls-tree -r --name-only 8ebaf8daad -- packages | grep -v -E '^packages/(emulation|linux|linux-firmware|linux-driver-addons)/' | grep -c '/package.mk$'   # every generic recipe outside the excluded trees: the 243 are those the inventory reaches
+wc -l .qa-scratch/t7/paths.txt .qa-scratch/t7/recipes.txt                                                                   # 266, 243
+git ls-tree -r --name-only 8ebaf8daad -- packages | grep -v -E '^packages/(emulation|linux|linux-firmware|linux-driver-addons)/' | grep -c '/package.mk$'   # 942: every generic recipe outside the excluded trees; the 243 are those a shipped or test plan reaches, the other 699 are T23's
 ```
 
 Recorded (2026-10-24, at `2174265e9c`'s inventory, the tree at
@@ -174,7 +189,7 @@ Reached by plan: GENERIC_X64-x86_64 234, SM8550-aarch64 234, H700-aarch64
 `c445081a59` and against `upstream/next` (`e0f9deb899`):
 
 ```bash
-P=.qa-scratch/t7/recipes.txt   # the 243 package.mk paths, from the block above
+P=.qa-scratch/t7/recipes.txt   # the 243 package.mk paths, written by the block above (paths.txt beside it holds the 266)
 git diff --diff-filter=A --name-only c445081a59 8ebaf8daad -- $(cat $P) | wc -l      # 13: added by the fork
 for f in $(git diff --diff-filter=A --name-only c445081a59 8ebaf8daad -- $(cat $P)); do git cat-file -e upstream/next:$f 2>/dev/null && echo "upstream-has $f" || echo "fork-only $f"; done | cut -d' ' -f1 | sort | uniq -c   # 13 fork-only
 git diff --diff-filter=M --name-only c445081a59 8ebaf8daad -- $(cat $P)              # 3: libyaml, libsamplerate, syslinux
@@ -199,17 +214,19 @@ present at the base and deleted upstream; these were never upstream's).
 criterion is a table of dispositions for the 21 files, and this slice
 proposes the 16 recipes' rows for it (§ 4 Q7), moving nothing.
 
-**The pins at the hash.** 232 version strings, 10 commit hashes (`x264`,
+**The pins at the hash.** 232 `PKG_VERSION` strings (226 non-empty, and the
+6 virtual packages' empty `PKG_VERSION=""`), 10 commit hashes (`x264`,
 `arm-mem`, `configtools`, `crossguid`, `heimdal`, `kmsxx`, `dbussy`,
 `fuse`, `udevil`, `populatefs`), 1 recipe with no `PKG_VERSION` of its own
 (`harfbuzz-icu` sources `harfbuzz`'s recipe: the freshness tool's INHERITED
 class). By `PKG_URL`'s host over the 242 with a version: other 78,
 github.com 73, freedesktop.org 39, gnu.org 23, kernel.org 12, gitlab 10,
 sourceforge 6, no `PKG_URL` 1 -- *other* is the lead class, read by host at
-stage B. **Checksums:** every archive recipe carries `PKG_SHA256`; the 7
+stage B. **Checksums:** every archive recipe carries `PKG_SHA256`; the 8
 without one are the 6 virtual packages (`alsa`, `autotools`, `corefonts`,
-`debug`, `misc-packages`, `toolchain`, each `PKG_URL=""`) and
-`harfbuzz-icu`. T5's five archive versions without one (D-WORKFLOW-194:
+`debug`, `misc-packages`, `toolchain`, each `PKG_URL=""`), `harfbuzz-icu`
+(it sources `harfbuzz`'s recipe) and `nspr` (no `PKG_URL` line at all: it
+unpacks from `nss`'s source through `PKG_DEPENDS_UNPACK`). T5's five archive versions without one (D-WORKFLOW-194:
 `atf`, `rkbin`, `libmali-vulkan`, `sway`) are ROCKNIX overrides under
 `projects/`, outside this set; the generic `atf`, `rkbin` and `sway` copies
 at `packages/tools/` and `packages/wayland/compositor/` are shadowed, so
@@ -318,8 +335,10 @@ the coordinator's; this lane runs it to read.
   (the checksum policy and the per-shape count -- read before any checksum
   row here). **T6's audit** (`docs/audits/2026_10_24-epic-m6-build-engine-upstream-tools/`
   on its branch at `37d1d98aed`): `02-forward-audit.md` § Leads from the
-  sweeps (the two late-binding leads on this slice's recipes and the
-  `wireplumber` parser case, routed to #657), its Q6 table for
+  sweeps (its table routes `jre.zulu:12` and `mesa-reusable:14` to T7 by
+  group, but both are `reach: unreached` -- T23's rows, #670, the
+  coordinator's correction on both issues; the `wireplumber` parser case is
+  #657's; its real hits are #818, #851 and #852), its Q6 table for
   `tools/update-pkg` and `tools/update-functions/` (unreached), and the
   widened `tools/pkgcheck` at `44f64842b6` (read from that branch with `git
   show`, run from this worktree; A7). **T3's audit** (`q4-pins-table.md`,
@@ -327,7 +346,7 @@ the coordinator's; this lane runs it to read.
   (#841: a renamed repository's archive). **T30's** post of 09:02 UTC on
   #677 and #849: the gone source, and the cache as the only copy.
 - **`docs/reviews/build-path-read.md`** (#644): findings 15, 16 and 17 whole
-  with § 5's recommendations; the other findings named with their carriers
+  with § 6's recommendations (*For the maintainer*); the other findings named with their carriers
   so none is taken here. **#645** whole: the move table this slice feeds.
 - `docs/blindspot-register.md` whole once (76 entries on the branch under
   the numbers 1 to 75; 29 is used twice, #811), then **13** (assumed done:
@@ -339,7 +358,8 @@ the coordinator's; this lane runs it to read.
   another), **51**, **75** (a corpus read on the wrong tree).
 - Decisions by ID: D-WORKFLOW-184 (Local for a table), D-WORKFLOW-186 (the
   build process first), D-WORKFLOW-187 (no release gate; every defect a
-  bug; no bump here), D-WORKFLOW-164/165 (upstream contributions prepared,
+  bug -- the no-bump rule is this brief's § 2, from D-WORKFLOW-191's *M6
+  builds nothing*), D-WORKFLOW-164/165 (upstream contributions prepared,
   submissions held), D-WORKFLOW-162 (check upstream early), D-WORKFLOW-024
   (`tools/fork-package-freshness`: the fork's own packages current -- its
   13 entries here are this slice's rows), D-WORKFLOW-193/194 (the fetch
@@ -357,7 +377,8 @@ the coordinator's; this lane runs it to read.
   (the inventory's renderings). Every `gh` call carries `--repo
   pixelelated/distribution`.
 - Tools, read whole before run: `tools/fork-package-freshness` (its header
-  names the hosts it can read and its five classes), `scripts/update_packages`
+  names the hosts it can read and its six classes: CURRENT, BEHIND, PINNED,
+  UNKNOWN, INHERITED, LOCAL), `scripts/update_packages`
   and `tools/update-pkg` (read, **never run**: both edit recipes in place),
   `tools/pkgcheck`, `tools/viewplan`.
 
@@ -370,9 +391,9 @@ and as counts to the rest.
 | # | Question, for this slice | Evidence |
 | --- | --- | --- |
 | Q1 Modernize | A recipe pinned to a retired series or a retired host (a python2-era helper, a `sourceforge` download, a `PKG_URL` under a personal GitHub namespace rather than the project's -- portaudio's shape, #849), and for the 16 fork-own rows the recipe's own shape against `packages/README.md` | the `PKG_URL` host column; the 73 GitHub owners read against the project `PKG_SITE` names; one row per finding, `Renovation` unless a build would fail |
-| Q2 Standards | `tools/pkgcheck` over the 243 at the hash: **the baseline count first** (T6 saw 12 FAILs on real recipes over the whole tree; this slice's own number over its 243 is recorded before one FAIL is read as a finding), then T6's widened copy from this worktree; each row says which copy produced it; the two leads `jre.zulu/package.mk:12` and `mesa-reusable/package.mk:14` read directly; `wireplumber`'s parser false positive is #657's and is cited, not re-found | the two runs' PASS/FAIL counts and the FAIL list; a FAIL on an upstream-carried recipe is a `Renovation` row with a #585 candidate unless the shape would break a build (then a `bug`, rule 6) |
+| Q2 Standards | `tools/pkgcheck` over the 243: **the baseline first** -- the proof's run on 2026-10-24 is **243 PASS, 0 FAIL** with the tree's copy and with T6's widened copy (none of the 7 recipes behind T6's 12 FAIL lines is in this set), so a FAIL is a delta to explain, never a finding class; both runs recorded with their counts; T6's two leads are T23's (#670) and are not read here; `wireplumber`'s parser false positive is #657's | the two runs' PASS/FAIL counts and the FAIL list; a FAIL on an upstream-carried recipe is a `Renovation` row with a #585 candidate unless the shape would break a build (then a `bug`, rule 6) |
 | Q3 Bugs | A recipe that fails a build from an empty source cache: a `PKG_URL` that redirects (#841's class: the archive's sha256 may have changed) or is gone (#849's class); a `PKG_SHA256` that disagrees with the shared cache's `.sha256` stamp for the same file name; an archive recipe with no checksum (expected 0, A6); a recipe whose `PKG_VERSION` and `PKG_URL` disagree (a URL that names a version the pin does not) | § 5's sweep: the HEAD probe per URL (no `-L`), the cache stamps, the per-shape checksum count; one `bug` per defect in #849's shape with the cache named as a retained input |
-| Q4 Currency | **The table**: one row per recipe (243) with the pin, its shape (version / hash / inherited), and the three sources -- (a) identical to `upstream/next` or not; (b) LibreELEC master's `PKG_VERSION` for the same path, or `absent`, or `not read`; (c) the project's release for the 13 fork-introduced (the freshness tool's class: CURRENT / BEHIND / PINNED / UNKNOWN) and the commits behind the default branch for the 10 hash pins where readable -- and **a disposition naming the mover**: `current`; `follows the base merge; LibreELEC master at <v>`; `fork's: Backlog bump proposed (#839's shape)`; `pinned on purpose (# freshness: pinned -- <why>)`; `unknown: <host> not readable` | § 5's three loops with their exit codes and counts; the 227 untouched rows' (c) cell reads `not read: follows LibreELEC`; a row never reads *current* on a source that was not read |
+| Q4 Currency | **The table**: one row per recipe (243) with the pin, its shape (version / hash / inherited), and the three sources -- (a) identical to `upstream/next` or not; (b) LibreELEC master's `PKG_VERSION` for the same path, or `absent`, or `not read`; (c) the project's release for the 13 fork-introduced (the freshness tool's six classes: CURRENT / BEHIND / PINNED / UNKNOWN / INHERITED / LOCAL) and the commits behind the default branch for the 10 hash pins where readable -- and **a disposition naming the mover**: `current`; `follows the base merge; LibreELEC master at <v>`; `fork's: Backlog bump proposed (#839's shape)`; `pinned on purpose (# freshness: pinned -- <why>)`; `unknown: <host> not readable` | § 5's three loops with their exit codes and counts; the 227 untouched rows' (c) cell reads `not read: follows LibreELEC`; a row never reads *current* on a source that was not read |
 | Q5 Efficiency | For the 16 fork-own rows, what the recipe asks of a build (`webkitgtk`'s `-j4` cap and its 114 lines; `ruby`'s host build; a `PKG_BUILD_FLAGS` that disables a cache) -- read, not measured: no build runs; for the rest, a count of recipes whose `PKG_SHA256` sweep would restamp them (none here: the sweep is upstream's past) | reading only, each claim with its line; `not measured` is the honest cell everywhere a number would need a build |
 | Q6 Dead ends | Within this set everything is reached by definition; the row class here is **claimed shipped, built in none of the five recorded roots**: the 6 virtual packages (by construction) and `ntfs-3g_ntfsprogs` (A5), settled by `tools/viewplan` per shipped plan in this worktree before the row stands; and any `test` row the GENERIC_X64 root did not build | the five `built-*.txt` files, the `comm` against the 243 names, and the `viewplan` outputs; a `shipped` row the record contradicts is a note for the inventory's owner (the coordinator files it under #657's epic), not a change here |
 | Q7 Clarity | **The #645 rows**: for each of the 16 fork-own recipes a proposed disposition for #645's move table -- `move to projects/ROCKNIX/packages/<group>/<name>` (a ROCKNIX override that shadows nothing, since none exists upstream), `keep fork-only, excluded from docs/pr-series/map.txt`, or, for the 3 edited upstream recipes, `propose the hunk to LibreELEC through #585` or `drop at the next base merge` -- written in `04-analysis.md` for the coordinator to post; a `PKG_SITE` that names something other than the project (portaudio's shape); two recipes for one library (none expected: `shadowed_by` is 0 here) | one table of 16 rows with the reason per row; counts for the rest |
@@ -440,14 +461,16 @@ host handoff file is read for the protocol alone.
   FRESHNESS_HEAD=8ebaf8daad FRESHNESS_BASE=upstream/next tools/fork-package-freshness $(FRESHNESS_HEAD=8ebaf8daad FRESHNESS_BASE=upstream/next tools/fork-package-freshness --list | tr ' ' '\n' | grep '^packages/' | xargs -n1 basename) | tee .qa-scratch/t7/q4c.txt; echo "rc=$?"
   # the 10 hash pins: commits behind the default branch where the host is GitHub (the tool's own method); other hosts "unknown"
   # the fetch sweep: the URL expanded as the build expands it, probed with HEAD and no -L; a redirect is #841's class (then, and only then, a full fetch into an empty directory to compare sha256); 405 or 403 on HEAD -> a ranged GET; 404 or no answer is #849's class
-  while read -r p; do n=$(basename "$(dirname "$p")"); url=$(PROJECT=ROCKNIX DEVICE=GENERIC_X64 ARCH=x86_64 bash -c '. config/options "$1" >/dev/null 2>&1; printf "%s" "$PKG_URL"' _ "$n"); [ -z "$url" ] && { echo "$n no-url"; continue; }; printf '%s %s %s\n' "$n" "$(curl -sS -o /dev/null --head --max-time 30 -w '%{http_code} %{redirect_url}' "$url" 2>/dev/null || echo '000')" "$url"; sleep 0.2; done < .qa-scratch/t7/recipes.txt > .qa-scratch/t7/probe/head.txt; awk '{print $2}' .qa-scratch/t7/probe/head.txt | sort | uniq -c
+  while read -r p; do n=$(basename "$(dirname "$p")"); url=$(PROJECT=ROCKNIX DEVICE=GENERIC_X64 ARCH=x86_64 bash -c '. config/options "$1" >/dev/null 2>&1; printf "%s" "$PKG_URL"' _ "$n"); [ -z "$url" ] && { echo "$n no-url"; continue; }; printf '%s %s %s\n' "$n" "$(curl -sS -o /dev/null --head --max-time 30 -w '%{http_code} %{redirect_url}' "$url" 2>/dev/null)" "$url"; sleep 0.2; done < .qa-scratch/t7/recipes.txt > .qa-scratch/t7/probe/head.txt; awk '{print $2}' .qa-scratch/t7/probe/head.txt | sort | uniq -c   # a failed curl prints 000 through -w
+  # sourcing config/options (and tools/viewplan) creates build.pixelelated-GENERIC_X64.x86_64/.cache_package_{local,global} in this worktree (gitignored; config/functions:806): remove that directory at the end only after 'find build.pixelelated-GENERIC_X64.x86_64 -type f | wc -l' prints 2
   # the cache stamps against the recipes' checksums (read only; the cache is never moved)
   while read -r p; do n=$(basename "$(dirname "$p")"); s=$(grep -m1 '^PKG_SHA256=' ".qa-scratch/t7/at-hash/$p" | cut -d'"' -f2); for f in /workspace/cache/rocknix-sources/"$n"/*.sha256; do [ -f "$f" ] || continue; c=$(cut -c1-64 "$f"); [ "$c" = "$s" ] && echo "match $n" || echo "stamp-differs $n $(basename "$f")"; done; done < .qa-scratch/t7/recipes.txt | cut -d' ' -f1 | sort | uniq -c
   # the checksum count per shape (D-WORKFLOW-194): top-level or in a case branch
-  while read -r p; do grep -q '^PKG_URL=' ".qa-scratch/t7/at-hash/$p" || continue; grep -q 'PKG_SHA256=' ".qa-scratch/t7/at-hash/$p" || echo "no-sha $p"; done < .qa-scratch/t7/recipes.txt   # 7 on 2026-10-24: the 6 virtual packages and harfbuzz-icu, none an archive
-  # pkgcheck, baseline at the hash, then T6's widened copy run from this worktree
+  while read -r p; do grep -q 'PKG_SHA256=' ".qa-scratch/t7/at-hash/$p" || printf 'no-sha %s url=%s\n' "$p" "$(grep -m1 '^PKG_URL=' ".qa-scratch/t7/at-hash/$p" | cut -d'"' -f2)"; done < .qa-scratch/t7/recipes.txt   # 8 on 2026-10-24: the 6 virtual packages (PKG_URL=""), harfbuzz-icu (sources harfbuzz) and nspr (no PKG_URL line; unpacks from nss) -- none an archive
+  # pkgcheck over the 243 (it resolves a name on the working tree, whose bytes equal the hash's once the diff above is empty), then T6's widened copy run from this worktree; expected 243 PASS / 0 FAIL for both (the proof's result, 2026-10-24)
   for p in $(cat .qa-scratch/t7/recipes.txt); do tools/pkgcheck "$(basename "$(dirname "$p")")" >/dev/null 2>&1 && echo PASS || echo FAIL; done | sort | uniq -c
   git -C /workspace/repos/pixelelated/distribution.worktrees/m6-build-engine-upstream-tools-653 show 44f64842b6:tools/pkgcheck > .qa-scratch/t7/pkgcheck-t6 && chmod +x .qa-scratch/t7/pkgcheck-t6   # read from T6's branch; run here, never there
+  for p in $(cat .qa-scratch/t7/recipes.txt); do .qa-scratch/t7/pkgcheck-t6 "$(basename "$(dirname "$p")")" >/dev/null 2>&1 && echo PASS || echo FAIL; done | sort | uniq -c
   # the record: the five roots' built names against the 243 (§ 2's block), then viewplan for the 7 that match none
   LC_ALL=C comm -23 <(sed 's#.*/\([^/]*\)/package.mk#\1#' .qa-scratch/t7/recipes.txt | LC_ALL=C sort -u) <(cat .qa-scratch/t7/built-*.txt | LC_ALL=C sort -u)
   ```
@@ -462,8 +485,9 @@ host handoff file is read for the protocol alone.
 handheld, a cloud or a shared backend; a process in an M7 worktree; a
 model call outside `tools/council/run` (none expected: Local); `npm
 install`; `git remote add` (the contents API is the read); `make update`,
-`scripts/update_packages`, `tools/update-pkg` or `tools/update-scan` (they
-edit recipes); a full archive download except for a URL the probe
+`scripts/update_packages` or `tools/update-pkg` (they edit recipes in
+place), and `tools/update-scan` (it reads every recipe's upstream over the
+network; this slice's loops are the budgeted read); a full archive download except for a URL the probe
 redirected (then once, into an empty directory under `.qa-scratch/t7/`);
 `curl -L` on the probe (the redirect is the finding); a move, copy or
 deletion in `/workspace/cache/rocknix-sources/`; a pin change; a deletion
@@ -516,7 +540,7 @@ names the artifact that ticks it; the coordinator ticks at hand-back.
 - [ ] `reviewed-at:` and `fixed-at:` above carry the lane's commits the read and the fixes were made at (the read on `8ebaf8daad`'s bytes; no EmulationStation path), and, after the coordinator closes this issue and the branch merges to `next`, `tools/renovation-status` lists this slice as `closed`.
 - [ ] `01-research-notes.md` § Scope records the read hash, the filter of brief § 2 with its output (266 paths, 7,612 lines; 250 upstream-carried, 16 fork-own; 256 `shipped`, 7 `test`, 3 `n/a`; 243 recipes, or the deltas beside them), the provenance counts from the two bases (13 added and absent upstream, 3 edited, 227 untouched), and `git diff --stat 8ebaf8daad HEAD -- $(cat .qa-scratch/t7/paths.txt)` (empty, or each hunk listed with its owner).
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path, the path in backticks as the first cell: ``grep -c -E '^\| `packages/' 02-forward-audit.md`` prints 266; each row's Q1 to Q7 cells answered or `n/a` with a reason.
-- [ ] `02-forward-audit.md` § Mechanical checks records, with command, exit status and summary line, each of: the branch-vs-hash diff over the slice's paths, the (a) loop with its `identical` / `differs` / `absent-upstream` counts, the (b) loop with its row count and the API budget before and after, the freshness tool's run over the 13 with its exit code and each recipe's class, the fetch sweep's status-code histogram, the cache-stamp comparison's counts, the per-shape checksum count (expected 7, none an archive), and the two `pkgcheck` runs' PASS/FAIL counts; a check that could not run is recorded with the reason, never as a pass.
+- [ ] `02-forward-audit.md` § Mechanical checks records, with command, exit status and summary line, each of: the branch-vs-hash diff over the slice's paths, the (a) loop with its `identical` / `differs` / `absent-upstream` counts, the (b) loop with its row count and the API budget before and after, the freshness tool's run over the 13 with its exit code and each recipe's class, the fetch sweep's status-code histogram, the cache-stamp comparison's counts, the per-shape checksum count (expected 8, none an archive), and the two `pkgcheck` runs' PASS/FAIL counts (243 PASS / 0 FAIL expected for both); a check that could not run is recorded with the reason, never as a pass.
 - [ ] `04-analysis.md` § Renovation face Q4 carries the currency table: 243 rows (``grep -c -E '^\| `packages/' q4-table.md`` prints 243), each with the pin, its shape, the (a), (b) and (c) cells, and a disposition from the five of § 4 Q4 that names the mover; **no row reads `current` on a source whose cell is `not read`**, and every `BEHIND` row of the 13 is a punch item whose outcome names a Backlog issue in #839's shape.
 - [ ] `04-analysis.md` § Renovation face Q7 carries sixteen proposed rows for #645's move table (one per fork-own recipe, with the reason), and § Q6 settles the seven names built in none of the five recorded roots (six virtual by construction; `ntfs-3g_ntfsprogs` by `tools/viewplan` per shipped plan, outputs quoted).
 - [ ] `02-forward-audit.md` § The fetch sweep lists every `PKG_URL` whose HEAD probe did not answer 200 with its status, its disposition and, for a redirect, the sha256 of the archive fetched from the redirect target against the recipe's `PKG_SHA256`; every gone or mismatched URL is a `bug` issue cited by number; the two control probes (`fbalpha2019-lr`'s old URL, `portaudio`'s) are recorded as controls.
