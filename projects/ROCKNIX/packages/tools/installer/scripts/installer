@@ -176,6 +176,7 @@ do_install_quick() {
   INSTALL_DEVICE=$(cat "$TMPDIR/device_for_install")
   INSTALL_DEVICE_FULL=$(echo ${DEVICE_LIST} | sed "s|.*${INSTALL_DEVICE} \([^ ]*\).*|${INSTALL_DEVICE} \1|")
 
+  PARTID=""
   case ${INSTALL_DEVICE} in
     "/dev/mmcblk"*|"/dev/nvme"*)
       PARTID="p"
@@ -201,20 +202,21 @@ do_install_quick() {
   [ $? -ne 0 ] && return
 
   # start the progress bar (whiptail --gauge)
+  rm -f $TMPDIR/install_failed
   {
     # remove all partitions
     msg_progress_install "1" "Get all partitions ${INSTALL_DEVICE}"
     get_partition ${INSTALL_DEVICE} 2>>$LOGFILE
 
     msg_progress_install "5" "Wiping disk ${INSTALL_DEVICE}"
-    dd if=/dev/zero of=${INSTALL_DEVICE} bs=4096 count=1024 2>>$LOGFILE
+    dd if=/dev/zero of=${INSTALL_DEVICE} bs=4096 count=1024 2>>$LOGFILE || install_failed "wiping the disk"
 
     # create 2 new partitions (first $PARTSIZE_SYSTEM, second rest)
     msg_progress_install "7"  "Creating label on ${INSTALL_DEVICE}"
     if [ "$GPT" = "1" ]; then
-      parted -s ${INSTALL_DEVICE} mklabel gpt >> $LOGFILE 2>&1
+      parted -s ${INSTALL_DEVICE} mklabel gpt >> $LOGFILE 2>&1 || install_failed "writing the partition table"
     else
-      parted -s ${INSTALL_DEVICE} mklabel msdos >> $LOGFILE 2>&1
+      parted -s ${INSTALL_DEVICE} mklabel msdos >> $LOGFILE 2>&1 || install_failed "writing the partition table"
     fi
 
     case ${HW_ARCH} in
@@ -234,9 +236,9 @@ do_install_quick() {
         msg_progress_install "9" "Writing Master Boot Record on ${INSTALL_DEVICE}"
         PART1=0
         if [ "$GPT" = "1" ]; then
-          cat /usr/share/syslinux/gptmbr.bin > ${INSTALL_DEVICE}
+          cat /usr/share/syslinux/gptmbr.bin > ${INSTALL_DEVICE} || install_failed "writing the boot record"
         else
-          cat /usr/share/syslinux/mbr.bin > ${INSTALL_DEVICE}
+          cat /usr/share/syslinux/mbr.bin > ${INSTALL_DEVICE} || install_failed "writing the boot record"
         fi
       ;;
     esac
@@ -251,21 +253,21 @@ do_install_quick() {
 
     msg_progress_install "10" "Creating flash partition on ${INSTALL_DEVICE}${PARTID}${PART1}"
     if [ "$GPT" = "1" ]; then
-      parted -s ${INSTALL_DEVICE} unit s mkpart $DISKLABEL_SYSTEM fat32 -- $partsize_system_start $partsize_system_end >> $LOGFILE 2>&1
+      parted -s ${INSTALL_DEVICE} unit s mkpart $DISKLABEL_SYSTEM fat32 -- $partsize_system_start $partsize_system_end >> $LOGFILE 2>&1 || install_failed "creating the system partition"
     else
-      parted -s ${INSTALL_DEVICE} unit s mkpart primary fat32 -- $partsize_system_start $partsize_system_end >> $LOGFILE 2>&1
+      parted -s ${INSTALL_DEVICE} unit s mkpart primary fat32 -- $partsize_system_start $partsize_system_end >> $LOGFILE 2>&1 || install_failed "creating the system partition"
     fi
 
     PART2=$(( ${PART1} + 1 ))
     msg_progress_install "13" "Creating storage partition on ${INSTALL_DEVICE}${PARTID}${PART2}"
     if [ "$GPT" = "1" ]; then
-      parted -s ${INSTALL_DEVICE} unit s mkpart $DISKLABEL_STORAGE ext4 -- $partsize_storage_start $partsize_storage_end >> $LOGFILE 2>&1
+      parted -s ${INSTALL_DEVICE} unit s mkpart $DISKLABEL_STORAGE ext4 -- $partsize_storage_start $partsize_storage_end >> $LOGFILE 2>&1 || install_failed "creating the storage partition"
     else
-      parted -s ${INSTALL_DEVICE} unit s mkpart primary ext4 -- $partsize_storage_start $partsize_storage_end >> $LOGFILE 2>&1
+      parted -s ${INSTALL_DEVICE} unit s mkpart primary ext4 -- $partsize_storage_start $partsize_storage_end >> $LOGFILE 2>&1 || install_failed "creating the storage partition"
     fi
 
     msg_progress_install "16" "Setup bootflag on partition ${BOOT_PART} of ${INSTALL_DEVICE}"
-    parted -s ${INSTALL_DEVICE} set ${BOOT_PART} boot on >> $LOGFILE 2>&1
+    parted -s ${INSTALL_DEVICE} set ${BOOT_PART} boot on >> $LOGFILE 2>&1 || install_failed "marking the system partition bootable"
 
     case ${HW_ARCH} in
       i686|x86_64)
@@ -276,20 +278,20 @@ do_install_quick() {
     esac
 
     msg_progress_install "20" "Tell the kernel we have a new partition table on ${INSTALL_DEVICE}"
-    partprobe ${INSTALL_DEVICE} >> $LOGFILE 2>&1
+    partprobe ${INSTALL_DEVICE} >> $LOGFILE 2>&1 || install_failed "reading the new partition table"
 
     # create filesystem
     msg_progress_install "23" "Creating filesystem on ${INSTALL_DEVICE}1"
-    mkfs.vfat ${INSTALL_DEVICE}${PARTID}${PART1} >> $LOGFILE 2>&1
+    mkfs.vfat ${INSTALL_DEVICE}${PARTID}${PART1} >> $LOGFILE 2>&1 || install_failed "formatting the system partition"
 
     msg_progress_install "25" "Set uuid and disklabel $DISKLABEL_SYSTEM on ${INSTALL_DEVICE}${PART1}"
-    dosfslabel ${INSTALL_DEVICE}${PARTID}${PART1}  $DISKLABEL_SYSTEM >> $LOGFILE 2>&1
+    dosfslabel ${INSTALL_DEVICE}${PARTID}${PART1}  $DISKLABEL_SYSTEM >> $LOGFILE 2>&1 || install_failed "labelling the system partition"
 
     msg_progress_install "28" "Creating filesystem on ${INSTALL_DEVICE}${PARTID}${PART2}"
-    mke2fs -t ext4 -m 0 ${INSTALL_DEVICE}${PARTID}${PART2} >> $LOGFILE 2>&1
+    mke2fs -t ext4 -m 0 ${INSTALL_DEVICE}${PARTID}${PART2} >> $LOGFILE 2>&1 || install_failed "formatting the storage partition"
 
     msg_progress_install "30" "Set uuid and disklabel $DISKLABEL_STORAGE on ${INSTALL_DEVICE}${PARTID}${PART2}"
-    tune2fs -U random -L $DISKLABEL_STORAGE  ${INSTALL_DEVICE}${PARTID}${PART2} >> $LOGFILE 2>&1
+    tune2fs -U random -L $DISKLABEL_STORAGE  ${INSTALL_DEVICE}${PARTID}${PART2} >> $LOGFILE 2>&1 || install_failed "labelling the storage partition"
 
     UUID_SYSTEM="$(blkid --output udev ${INSTALL_DEVICE}${PARTID}${PART1} | grep ^ID_FS_UUID= | cut -d= -f2)"
     UUID_STORAGE="$(blkid --output udev ${INSTALL_DEVICE}${PARTID}${PART2} | grep ^ID_FS_UUID= | cut -d= -f2)"
@@ -303,7 +305,7 @@ do_install_quick() {
     mkdir -p $TMPDIR/part1 >> $LOGFILE 2>&1
 
     msg_progress_install "40" "Mounting ${INSTALL_DEVICE}${PART1} to $TMPDIR/part1"
-    mount -t vfat ${INSTALL_DEVICE}${PARTID}${PART1} $TMPDIR/part1 >> $LOGFILE 2>&1
+    mount -t vfat ${INSTALL_DEVICE}${PARTID}${PART1} $TMPDIR/part1 >> $LOGFILE 2>&1 || install_failed "mounting the system partition"
 
     case ${HW_ARCH} in
       arm|aarch64)
@@ -317,7 +319,7 @@ do_install_quick() {
       i686|x86_64)
         # installing syslinux
         msg_progress_install "50" "Installing syslinux to $TMPDIR/part1"
-        syslinux -i ${INSTALL_DEVICE}${PARTID}${PART1} >> $LOGFILE 2>&1
+        syslinux -i ${INSTALL_DEVICE}${PARTID}${PART1} >> $LOGFILE 2>&1 || install_failed "installing the boot loader"
 
         # configuring bootloader
         msg_progress_install "80" "Setup bootloader with boot label = $DISKLABEL_SYSTEM and disk label = $DISKLABEL_STORAGE"
@@ -339,7 +341,7 @@ EOF
 
     # install system files
     msg_progress_install "60" "Installing boot files"
-    cp -r /flash/* $TMPDIR/part1/ >> $LOGFILE 2>&1
+    cp -r /flash/* $TMPDIR/part1/ >> $LOGFILE 2>&1 || install_failed "copying the system files"
     sync
 
     sync
@@ -373,6 +375,13 @@ EOF
     fi
   } | whiptail --backtitle "$BACKTITLE" --gauge "Please wait while your system is being setup ..." 6 73 0
 
+  if [ -f $TMPDIR/install_failed ]; then
+    MSG_TITLE="pixelelated Install Couldn't Finish"
+    MSG_DETAIL="The installer stopped while $(cat $TMPDIR/install_failed).\n\nThe disk may be partly written. Check the disk and the cable, then run the installer again. The details are under View installation log.\n"
+    whiptail --backtitle "$BACKTITLE" --title "$MSG_TITLE" --msgbox "$MSG_DETAIL" 12 73
+    return
+  fi
+
   # install complete
   MSG_TITLE="pixelelated Install Complete"
   MSG_DETAIL="You may now remove the install media and shutdown.\n"
@@ -396,6 +405,15 @@ msg_progress_install() {
   echo $1
   echo "$2 ..."
   echo XXX
+}
+
+install_failed() {
+  # A step inside the gauge failed: the gauge owns stdout, so no dialog can be
+  # drawn here. Leave the step's name for do_install_quick and end the gauge's
+  # subshell; the caller reads the marker after the pipe (#894).
+  dbglg "FAILED: $1"
+  echo "$1" > $TMPDIR/install_failed
+  exit 1
 }
 
 prompt_gpt() {
