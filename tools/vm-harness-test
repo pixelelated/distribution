@@ -1423,6 +1423,24 @@ def syntax_check_no_substitution(c):
 
 
 
+@case
+def launch_memory_start_time(c):
+    # The identity command, built by the tool's own expression, run here with a
+    # pgrep double naming a live process: the pid must come with its start time.
+    import re, shlex
+    text = (c.tools_from / 'es-launch-memory').read_text()
+    m = re.search(r"pid_command = (\(.*?\)|'[^\n]*?'(?: \+ [^\n]*)?)\n", text, re.S)
+    if not m:
+        return False, 'no pid_command in the tool'
+    cmd = eval(m.group(1), {'shlex': shlex, 'args': type('A', (), {'process_name': 'emulationstation'})})
+    executable(c.bin / 'pgrep', '#!/bin/sh\necho %d\n' % os.getpid())
+    out = subprocess.run(['sh', '-c', cmd], env=c.env(), capture_output=True, text=True).stdout.split()
+    start = open('/proc/%d/stat' % os.getpid()).read().split(')')[-1].split()[19]
+    ok = len(out) == 2 and out[0] == str(os.getpid()) and out[1] == start
+    return ok, f'the identity read {out} (want the pid and its start time {start})'
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')

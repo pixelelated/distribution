@@ -73,10 +73,14 @@ def main():
     if guest(running).strip():
         raise RuntimeError('a game is already running')
     wait_for(idle, is_idle, 'idle interface')
-    pid_command = 'pgrep -o -- ' + shlex.quote(args.process_name)
-    pid = guest(pid_command).strip()
-    if not pid.isdigit():
-        raise RuntimeError('no unique interface PID')
+    # The oldest match carries its start time (G-47): a pid alone can be
+    # recycled by another process between two snapshots.
+    pid_command = ('p=$(pgrep -o -- ' + shlex.quote(args.process_name) + '); '
+                   '[ -n "$p" ] && echo "$p $(awk \'{print $22}\' /proc/$p/stat)"')
+    identity = guest(pid_command).strip()
+    pid = identity.split()[0] if identity else ''
+    if not pid.isdigit() or len(identity.split()) != 2:
+        raise RuntimeError('no unique interface PID with a start time')
     filtered = "grep -v -i -E 'key|pass|token|user|psk'"
     (args.output / 'os-release.txt').write_text(guest(f'cat /etc/os-release | {filtered}'))
     (args.output / 'binary.sha256').write_text(guest('sha256sum /usr/bin/emulationstation'))
@@ -91,8 +95,8 @@ def main():
     rows = []
 
     def snapshot(iteration):
-        if guest(pid_command).strip() != pid:
-            raise RuntimeError('interface PID changed; this cannot prove bounded growth')
+        if guest(pid_command).strip() != identity:
+            raise RuntimeError('interface PID or its start time changed; this cannot prove bounded growth')
         status = ''
         for kind in ('status', 'maps', 'smaps'):
             text = guest(f'cat /proc/{pid}/{kind} | {filtered}')
