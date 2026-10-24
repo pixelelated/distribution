@@ -4,7 +4,8 @@
 #
 # vm-qa - every automated check the fork has, against one GENERIC_X64 image, one report.
 #
-#   ./tools/vm-qa <ROCKNIX-GENERIC_X64...img.gz>            # bring the pair up from the image, run everything
+#   ./tools/vm-qa <ROCKNIX-GENERIC_X64...img.gz>            # bring the pair up from the image, run everything, take it down
+#   ./tools/vm-qa <image> --keep-up                          # the same, and leave the pair up for --skip-up follow-ups
 #   ./tools/vm-qa --skip-up                                  # the pair is already up on the image under test
 #   ./tools/vm-qa <image> --only round-trip,exit             # a subset: scripts, round-trip, exit, walks, link
 #
@@ -54,7 +55,7 @@
 # handheld: the guests are tools/vm-pair's, on this host (fork #120, box 1).
 set -u
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
-IMAGE=""; SKIP_UP=0; LINK=0; RA_OFFLINE=0; GUEST=a; WALKS=""
+IMAGE=""; SKIP_UP=0; KEEP_UP=0; LINK=0; RA_OFFLINE=0; GUEST=a; WALKS=""
 # The default run is every suite in SUITES except the two that are opt-in
 # (link needs a second backend, ra-offline spends a QA achievement). It used
 # to be a second, hand-typed list here -- and menumap, added to SUITES on
@@ -71,6 +72,7 @@ BACKEND="${CLOUD_QA_BACKEND:-webdav}"
 while [ $# -gt 0 ]; do
   case "$1" in
     --skip-up) SKIP_UP=1; shift ;;
+    --keep-up) KEEP_UP=1; shift ;;
     --only) ONLY=$2; shift 2 ;;
     --walk) WALKS="${WALKS:+$WALKS,}${2:?walk name required}"; shift 2 ;;
     --guest) GUEST=$2; shift 2 ;;
@@ -132,13 +134,60 @@ mkdir -p "$ART" 2>/dev/null && probe=$(mktemp "$ART/.vm-qa-write-XXXXXX" 2>/dev/
   || { echo "vm-qa: the report root $ART cannot be written" >&2; exit 1; }
 export CLOUD_QA_BACKEND="$BACKEND"
 "$ROOT/tools/cloud-test-backend" up >/dev/null 2>&1 || { echo "vm-qa: the $BACKEND QA cloud backend did not come up" >&2; exit 1; }
+# The pair this run brings up is the pair it judges (#969). down's status is
+# read before bring-up -- a failure there may have left a guest running, and
+# that guest would answer for the image; 3 (S4's "nothing to stop") is not a
+# failure. up's own status is read, never a pipe's whose status is tail's.
+# A run that brought the pair up takes it down: at the end below, and by this
+# trap on any earlier exit; --keep-up leaves it up and the report says so.
+PAIR_UP=0
+pair_down_on_exit() {
+  local rc=$? out drc
+  [ "$PAIR_UP" = 1 ] && [ "$KEEP_UP" = 0 ] || return 0
+  PAIR_UP=0
+  out=$("$ROOT/tools/vm-pair" down 2>&1); drc=$?
+  echo "vm-qa: the run stopped before its tear-down; vm-pair down rc $drc" >&2
+  [ "$drc" = 0 ] || { printf '%s\n' "$out" | tail -3 >&2; [ "$rc" != 0 ] || rc=1; }
+  exit "$rc"
+}
+trap pair_down_on_exit EXIT
+trap 'exit 130' INT TERM
 if [ "$SKIP_UP" = 0 ]; then
-  "$ROOT/tools/vm-pair" down >/dev/null 2>&1
-  "$ROOT/tools/vm-pair" up "$IMAGE" 2>&1 | tail -2
+  down_out=$("$ROOT/tools/vm-pair" down 2>&1); down_rc=$?
+  case "$down_rc" in
+    0|3) ;;
+    *) echo "vm-qa: vm-pair down exited $down_rc before bring-up, so a guest may have survived it; nothing was judged" >&2
+       printf '%s\n' "$down_out" | tail -3 >&2; exit 1 ;;
+  esac
+  PAIR_UP=1   # before up: a partial up is taken down too
+  up_out=$("$ROOT/tools/vm-pair" up "$IMAGE" 2>&1); up_rc=$?
+  printf '%s\n' "$up_out" | tail -2
+  [ "$up_rc" = 0 ] || { echo "vm-qa: vm-pair up $IMAGE exited $up_rc; nothing was judged" >&2; exit 1; }
 fi
 for i in $(seq 1 40); do SSH true 2>/dev/null && break; sleep 3; done
-BUILD=$(SSH 'sed -n "s/^BUILD_ID=//p" /etc/os-release' 2>/dev/null | tr -d '"' | cut -c1-10)
+GUEST_ID=$(SSH 'sed -n "s/^BUILD_ID=//p" /etc/os-release' 2>/dev/null | tr -d '"')
+BUILD=${GUEST_ID:0:10}
 [ -n "$BUILD" ] || { echo "vm-qa: guest $GUEST does not answer" >&2; exit 1; }
+# The build an image names: its identity sidecar's build_commit when the
+# sidecar is there (and nothing else if it cannot be read), else the
+# g<12 hex> in its file name. A guest whose BUILD_ID is not that build is
+# some other guest, and its answers are not this image's (#969).
+image_id() {
+  local stem=${1%.img.gz}
+  if [ -f "$stem.identity.json" ]; then
+    sed -n 's/.*"build_commit"[[:space:]]*:[[:space:]]*"\([0-9a-f]\{10,40\}\)".*/\1/p' "$stem.identity.json" | head -1
+    return
+  fi
+  [[ "$(basename "$1")" =~ \.g([0-9a-f]{12})[-.] ]] && echo "${BASH_REMATCH[1]}"
+}
+WANT=""
+if [ -n "$IMAGE" ]; then
+  WANT=$(image_id "$IMAGE")
+  [ -n "$WANT" ] || { echo "vm-qa: cannot tell which build $IMAGE is: no g<12 hex> in its name and no readable identity.json beside it" >&2; exit 1; }
+  n=${#WANT}; [ "${#GUEST_ID}" -ge "$n" ] || n=${#GUEST_ID}
+  [ "$n" -ge 10 ] && [ "${WANT:0:n}" = "${GUEST_ID:0:n}" ] \
+    || { echo "vm-qa: guest $GUEST runs BUILD_ID $GUEST_ID, but $IMAGE is build $WANT: another guest answered" >&2; exit 1; }
+fi
 # The backend and the guest are in the directory name, not only the build and
 # the minute. Two vm-qa runs against one image -- which is what a backend
 # matrix is (#133) -- started in the same minute, shared a directory, and the
@@ -160,7 +209,7 @@ REPORT="$OUT/report.md"
 case "$GUEST" in a) PIDF="$RUNTIME"/rocknix-qemu.pid ;; b) PIDF="$RUNTIME"/rocknix-qemu-b.pid ;; *) PIDF="$RUNTIME"/rocknix-qemu-$GUEST.pid ;; esac
 DISPLAY_MODE=$(ps -o args= -p "$(cat "$PIDF" 2>/dev/null)" 2>/dev/null | grep -o -E 'egl-headless,rendernode=[^ ]+' | sed 's/^egl-headless,rendernode=/GL through virgl on /'); DISPLAY_MODE=${DISPLAY_MODE:-software rendering (no GL display)}
 BRINGUP_S=$(( $(date +%s) - T_START ))
-{ echo "# vm-qa on $BUILD"; echo; echo "started $(date -u '+%Y-%m-%d %H:%M UTC'), guest $GUEST at :$PORT, cloud $BACKEND (port $("$ROOT/tools/cloud-test-backend" port), $("$ROOT/tools/cloud-test-backend" caps)), image ${IMAGE:-(already up)}, display: $DISPLAY_MODE"; echo; echo "| suite | result | time | log |"; echo "| --- | --- | --- | --- |"; } > "$REPORT"
+{ echo "# vm-qa on $BUILD"; echo; echo "started $(date -u '+%Y-%m-%d %H:%M UTC'), guest $GUEST at :$PORT, cloud $BACKEND (port $("$ROOT/tools/cloud-test-backend" port), $("$ROOT/tools/cloud-test-backend" caps)), image ${IMAGE:-(already up)}, display: $DISPLAY_MODE"; echo; echo "BUILD_ID $GUEST_ID -- the image names ${WANT:-nothing (already up)}"; echo; echo "| suite | result | time | log |"; echo "| --- | --- | --- | --- |"; } > "$REPORT"
 FAILS=0
 SKIPS=0  # a suite that could not run (rc 3) is shown as such, never folded into PASS
 run_suite() {  # name, log, command...
@@ -553,7 +602,17 @@ frame_diff_suite() {
   "$ROOT/tools/frame-diff" compare "$base" "$OUT/walks" --masks "$ROOT/tools/vm-walks/masks.txt" --claims "$ROOT/tools/vm-walks/claims.txt" --report "$OUT/frame-diff.md"
 }
 case ",$ONLY," in *,frame-diff,*) run_suite frame-diff "$OUT/frame-diff.log" frame_diff_suite ;; esac
-{ echo; if [ "$FAILS" = 0 ] && [ "$SKIPS" = 0 ]; then echo "**PASSED** -- every suite that ran passed (exit 0)."; elif [ "$FAILS" = 0 ]; then echo "**PASSED with $SKIPS suite(s) SKIPPED** -- a skipped suite could not run (its log says why) and has not passed (exit 3)."; else echo "**FAILED** -- $FAILS suite(s) failed; see the logs beside this file (exit 1)."; fi; echo; echo "finished $(date -u '+%Y-%m-%d %H:%M UTC')"; echo; echo "bring-up ${BRINGUP_S}s, fixture ${FIXTURE_S}s -- outside the suite rows, so the minutes a reader sums are the run's"; } >> "$REPORT" || FAILS=$((FAILS+1))
+RENDERER=$(SSH 'grep -h -m1 "\[GL\].*Renderer:" /var/log/exec.log 2>/dev/null' 2>/dev/null | sed 's/.*Renderer: //' | tr -d '\r')
+TEARDOWN="the pair left up (--skip-up: this run did not bring it up)"
+if [ "$PAIR_UP" = 1 ] && [ "$KEEP_UP" = 1 ]; then
+  PAIR_UP=0; TEARDOWN="the pair left up (--keep-up)"
+elif [ "$PAIR_UP" = 1 ]; then
+  PAIR_UP=0
+  down_out=$("$ROOT/tools/vm-pair" down 2>&1); down_rc=$?
+  TEARDOWN="vm-pair down rc $down_rc"
+  [ "$down_rc" = 0 ] || { FAILS=$((FAILS+1)); TEARDOWN="$TEARDOWN -- FAIL: the pair this run brought up was not taken down cleanly"; printf '%s\n' "$down_out" | tail -3 >&2; }
+fi
+{ echo; if [ "$FAILS" = 0 ] && [ "$SKIPS" = 0 ]; then echo "**PASSED** -- every suite that ran passed (exit 0)."; elif [ "$FAILS" = 0 ]; then echo "**PASSED with $SKIPS suite(s) SKIPPED** -- a skipped suite could not run (its log says why) and has not passed (exit 3)."; else echo "**FAILED** -- $FAILS suite(s) failed; see the logs beside this file (exit 1)."; fi; echo; echo "finished $(date -u '+%Y-%m-%d %H:%M UTC')"; echo; echo "bring-up ${BRINGUP_S}s, fixture ${FIXTURE_S}s -- outside the suite rows, so the minutes a reader sums are the run's"; echo; echo "tear-down: $TEARDOWN"; } >> "$REPORT" || FAILS=$((FAILS+1))
 # The time-to-play numbers go BELOW the footer, not into the suite table: the
 # table is one row per suite and this cell reports four of its own. No budget
 # row exists yet, so nothing here fails the run -- the numbers are reported
@@ -563,7 +622,6 @@ if [ -f "$OUT/time-to-play/time-to-play.md" ]; then
   # rather than beside the report's.
   { echo; sed -e 's/^## /### /' -e '1s/^# /## /' "$OUT/time-to-play/time-to-play.md"; } >> "$REPORT"
 fi
-RENDERER=$(SSH 'grep -h -m1 "\[GL\].*Renderer:" /var/log/exec.log 2>/dev/null' 2>/dev/null | sed 's/.*Renderer: //' | tr -d '\r')
 { echo; echo "renderer: ${RENDERER:-(no RetroArch launch log on the guest)} -- the guest's Mesa, from the launch log; display: $DISPLAY_MODE"; } >> "$REPORT"
 echo; cat "$REPORT"; echo; echo "report: $REPORT"
 # The run's exit (D-QA-061, #966): 0 only when every selected suite ran and
