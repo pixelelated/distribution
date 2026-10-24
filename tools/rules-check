@@ -135,6 +135,31 @@ def tool_inventory_errors(index_text, workflow_text, hook_text):
     return errors
 
 
+def names_word(text, word):
+    """Whether text names word as a word: not inside a path or a longer name
+    (T10 S9, #948: `worktrees` was found in ../rocknix.worktrees/)."""
+    return re.search(r'(?<![\w./-])' + re.escape(word) + r'(?![\w-])', text) is not None
+
+
+def detail_in_gaps(index_text, read_rule):
+    """(tool, rule) pairs of the fork-tools table whose Detail-in rule never
+    names the tool (T4's lead, T10 S9, #948: 31 of 85 at 8ebaf8daad).
+    read_rule(name) returns a rule file's text."""
+    sec = index_text.partition("## The fork's own tools")[2].partition("**When a rule earns")[0]
+    gaps = []
+    for line in sec.splitlines():
+        if not line.startswith('| `'):
+            continue
+        cells = [c.strip() for c in line.strip().strip('|').split('|')]
+        tools = [t.split(' ')[0].rstrip('/') for t in re.findall(r'`([^`]+)`', cells[0])]
+        for rule in re.findall(r'`([a-z0-9-]+\.md)`', cells[-1]):
+            text = read_rule(rule)
+            for t in tools:
+                if text and not re.search(r'(?<![\w-])' + re.escape(t) + r'(?![\w-])', text):
+                    gaps.append((t, rule))
+    return gaps
+
+
 def main():
     quiet = '--quiet' in sys.argv
     fails = []
@@ -188,6 +213,17 @@ def main():
         fail('tools   ' + error)
     if not inventory_errors:
         ok('tools   hook, fork-workflow and instruction index agree')
+    # detail: each tool's Detail-in rule names the tool. Reported, not failed,
+    # until the index's rows are re-pointed (the coordinator's, after T4's
+    # merge); then it becomes a failure (T10 S9, #948).
+    def read_rule(name):
+        p = os.path.join(RULES, name)
+        return open(p, encoding='utf-8').read() if os.path.exists(p) else ''
+    gaps = detail_in_gaps(text, read_rule)
+    if not quiet:
+        for tool, rule in gaps:
+            print('note  detail  %s points at %s, which never names it' % (tool, rule))
+        print('note  detail  %d tool-to-rule pair(s) whose rule never names the tool' % len(gaps))
     # count
     for name in ('CLAUDE.md', 'AGENTS.md'):
         p = os.path.join(ROOT, name)
@@ -228,7 +264,7 @@ def main():
     cp = os.path.join(ROOT, 'CLAUDE.md')
     if os.path.exists(cp):
         t = open(cp, encoding='utf-8').read()
-        missing = [f for f in files if f[:-3] not in t]
+        missing = [f for f in files if not names_word(t, f[:-3])]
         if missing:
             fail('mention CLAUDE.md does not name: %s' % ', '.join(missing))
         else:
