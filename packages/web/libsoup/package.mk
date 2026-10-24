@@ -6,7 +6,7 @@ PKG_VERSION="3.8.0"
 PKG_SHA256="bbf08fa3e03a88c31a3d27a0d87cb422e9490f2d08e149211103df6d638a2238"
 PKG_LICENSE="LGPL-2.1-or-later"
 PKG_SITE="https://libsoup.gnome.org/"
-PKG_URL="https://download.gnome.org/sources/${PKG_NAME}/${PKG_VERSION:0:3}/${PKG_NAME}-${PKG_VERSION}.tar.xz"
+PKG_URL="https://download.gnome.org/sources/${PKG_NAME}/${PKG_VERSION%.*}/${PKG_NAME}-${PKG_VERSION}.tar.xz"
 PKG_DEPENDS_TARGET="toolchain glib libpsl libxml2 nghttp2 sqlite"
 PKG_LONGDESC="HTTP client/server library for GNOME; WebKit's network backend."
 
