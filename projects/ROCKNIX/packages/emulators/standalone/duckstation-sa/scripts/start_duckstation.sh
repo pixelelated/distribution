@@ -25,26 +25,13 @@ MEMCARDS_DIR="/storage/roms/psx/duckstation/memcards"
 
 #Link config dir to where appimage can find it
 mkdir -p /storage/.local/share
-rm -rf "${APPIMAGE_CONF_DIR}"
-ln -sfv "${CONF_DIR}" "${APPIMAGE_CONF_DIR}"
+link_storage_dir "${APPIMAGE_CONF_DIR}" "${CONF_DIR}"
 
-#Link savestates to roms/savestates
-[ ! -d "${SAVESTATES_DIR}" ] && mkdir -p "${SAVESTATES_DIR}"
-[ -d "${CONF_DIR}/savestates" ] && rm -rf "${CONF_DIR}/savestates"
-ln -sfv "${SAVESTATES_DIR}" "${CONF_DIR}/savestates"
+#Link savestates to roms/savestates; states in a real folder there are kept
+link_storage_dir "${CONF_DIR}/savestates" "${SAVESTATES_DIR}"
 
-# Link memcards to roms
-if [ ! -d "${MEMCARDS_DIR}" ]; then
-    mkdir -p ${MEMCARDS_DIR}
-
-    # Migrate any existing memcards
-    if [ -d "${CONF_DIR}/memcards" ]; then
-        cp -rf ${CONF_DIR}/memcards/* ${MEMCARDS_DIR}
-    fi
-fi
-
-[ -d "${CONF_DIR}/memcards" ] && rm -rf ${CONF_DIR}/memcards
-ln -sfv ${MEMCARDS_DIR} ${CONF_DIR}/memcards
+# Link memcards to roms; cards in a real folder there are kept
+link_storage_dir "${CONF_DIR}/memcards" "${MEMCARDS_DIR}"
 
 # Keep default captures in the backed-up screenshots tree (#521). Explicit
 # custom paths and historical captures stay where the player left them.
