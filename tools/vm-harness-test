@@ -1610,6 +1610,21 @@ def optimize_vm_stop_test(c):
 
 
 
+@case
+def optimize_vm_pair_test(c):
+    tool = c.tool('vm-pair-test')
+    c.tool('vm-stop')
+    src = (c.tools_from / 'vm-pair').read_text()
+    i = src.index('start_one() {'); j = src.index('\n}\n', i) + 3
+    broken = src[:i] + 'start_one() {\n  echo "up: $1 (a launch that never happened)"\n}\n' + src[j:]
+    target = c.root / 'tools' / 'vm-pair'
+    target.write_text(broken)
+    target.chmod(0o755)
+    rc, last = optimized(c, [sys.executable, str(tool), '--source', str(target)], timeout=120)
+    return rc != 0, f'rc {rc}, {last} (want non-zero against a vm-pair whose start_one claims every launch)'
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')

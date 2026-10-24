@@ -9,12 +9,18 @@ import subprocess
 import sys
 import tempfile
 
+
+def require(ok, why):
+    """An assert that survives python -O (#975): a refusal is a raise, not an assert statement."""
+    if not ok:
+        raise AssertionError(why)
+
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--source', type=Path, default=Path(__file__).with_name('vm-pair'))
 args = parser.parse_args()
 source = args.source.resolve()
 prefix = source.read_text().split('case "${1:-}" in', 1)[0]
-assert 'start_one()' in prefix and 'ready_one()' in prefix
+require('start_one()' in prefix and 'ready_one()' in prefix, 'line 17')
 with tempfile.TemporaryDirectory(prefix='vm-pair-test-') as scratch:
     root = Path(scratch)
     runtime = root / 'runtime'
@@ -35,15 +41,15 @@ with tempfile.TemporaryDirectory(prefix='vm-pair-test-') as scratch:
                               text=True, capture_output=True, timeout=3)
 
     result = run(LAUNCH_RC='17')
-    assert result.returncode == 17 and 'up: a' not in result.stdout, result
+    require(result.returncode == 17 and 'up: a' not in result.stdout, result)
     print('PASS launcher failure preserves exit17 with no false up message')
     result = run()
-    assert result.returncode != 0 and 'up: a' not in result.stdout, result
+    require(result.returncode != 0 and 'up: a' not in result.stdout, result)
     print('PASS zero-exit launcher without PID file is refused')
     for label, pid in [('wrong-process', os.getpid()), ('dead-process', 2147483646)]:
         pidfile.write_text(str(pid))
         result = run()
-        assert result.returncode != 0 and 'up: a' not in result.stdout, result
+        require(result.returncode != 0 and 'up: a' not in result.stdout, result)
         print('PASS ' + label + ' PID is refused')
     for label, owned in [('wrong-disk', False), ('owned-disk', True)]:
         child = subprocess.Popen(['qemu-system-fixture', '-c', 'import time; time.sleep(30)',
@@ -53,8 +59,8 @@ with tempfile.TemporaryDirectory(prefix='vm-pair-test-') as scratch:
         try:
             pidfile.write_text(str(child.pid))
             result = run()
-            assert (result.returncode == 0) == owned, result
-            assert ('up: a' in result.stdout) == owned, result
+            require((result.returncode == 0) == owned, result)
+            require(('up: a' in result.stdout) == owned, result)
             print('PASS ' + label + (' live PID is verified, silent launcher allowed' if owned else ' PID is refused'))
         finally:
             child.terminate()
@@ -62,15 +68,15 @@ with tempfile.TemporaryDirectory(prefix='vm-pair-test-') as scratch:
     # ready_one is intentionally used in a conditional by the caller. A
     # serial failure must return before SSH even with bash errexit suppressed.
     result = run('HERE="$DIR"; if ready_one a; then exit 42; else exit $?; fi')
-    assert result.returncode == 1, result
+    require(result.returncode == 1, result)
     print('PASS failed serial readiness returns immediately from conditional call')
     bad = root / 'not-a-directory'
     bad.write_text('fixture')
     result = run('check_runtime', VM_QEMU_RUNTIME_DIR=str(bad))
-    assert result.returncode != 0, result
+    require(result.returncode != 0, result)
     print('PASS unusable runtime root refuses preflight')
     result = run('check_runtime')
-    assert result.returncode == 0 and not list(runtime.glob('.pixelelated-vm-write-*')), result
+    require(result.returncode == 0 and not list(runtime.glob('.pixelelated-vm-write-*')), result)
     print('PASS writable runtime root preflight leaves no probe')
 
 # The whole script, in a scratch root of its own, with a fixture launcher and
