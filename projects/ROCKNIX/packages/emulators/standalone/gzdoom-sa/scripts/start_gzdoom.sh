@@ -2,6 +2,7 @@
 
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2021-present 351ELEC (https://github.com/351ELEC)
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 
 . /etc/profile
 set_kill set "-9 gzdoom"
@@ -46,28 +47,45 @@ fi
 
 mkdir -p ${SAVE_DIR}
 
-params=" -config ${CONFIG} -savedir ${SAVE_DIR}"
-params+=" +gl_es 1 +vid_preferbackend 3 +cl_capfps 0 +vid_fps 0"
+params=(-config "${CONFIG}" -savedir "${SAVE_DIR}")
+params+=(+gl_es 1 +vid_preferbackend 3 +cl_capfps 0 +vid_fps 0)
 
 if [ "$VSYNC" = "false" ]; then
-  params+=" +vid_vsync 0"
+  params+=(+vid_vsync 0)
 else
-  params+=" +vid_vsync 1"
+  params+=(+vid_vsync 1)
 fi
+
+# A .doom value is one path, a quoted path, or several paths separated by
+# spaces (as xargs split it before); each becomes its own argument.
+doom_value() {
+  local flag="$1" value="$2" words
+  case "${value}" in
+    \"*\"|\'*\') params+=("${flag}" "${value:1:${#value}-2}") ;;
+    *)
+      if [ -e "${value}" ]; then
+        params+=("${flag}" "${value}")
+      else
+        read -r -a words <<<"${value}"
+        params+=("${flag}" "${words[@]}")
+      fi
+    ;;
+  esac
+}
 
 # EXT can be wad, WAD, iwad, IWAD, pwad, PWAD or doom
 EXT=${1##*.}
 
 # If its not a simple wad (extension .doom) read the file and parse the data
-if [ ${EXT} == "doom" ]; then
+if [ "${EXT}" == "doom" ]; then
   dos2unix "${1}"
   local_savedir=""
   while IFS== read -r key value; do
     if [ "$key" == "IWAD" ]; then
-      params+=" -iwad $value"
+      doom_value -iwad "$value"
     fi
     if [ "$key" == "MOD" ]; then
-      params+=" -file $value"
+      doom_value -file "$value"
     fi
     if [ "$key" == "SAVEDIR" ]; then
       local_savedir="$value"
@@ -75,10 +93,10 @@ if [ ${EXT} == "doom" ]; then
   done <"${1}"
   if [ -n "$local_savedir" ]; then
     mkdir -p "$local_savedir"
-    params="${params/-savedir ${SAVE_DIR}/-savedir ${local_savedir}}"
+    params[3]="${local_savedir}"
   fi
 else
-  params+=" -iwad ${1}"
+  params+=(-iwad "${1}")
 fi
 
 #Set the cores to use
@@ -93,4 +111,4 @@ else
 fi
 
 cd "${RUN_DIR}"
-echo ${params} | ${EMUPERF} xargs /usr/bin/gzdoom >/var/log/gzdoom.log 2>&1
+${EMUPERF} /usr/bin/gzdoom "${params[@]}" >/var/log/gzdoom.log 2>&1
