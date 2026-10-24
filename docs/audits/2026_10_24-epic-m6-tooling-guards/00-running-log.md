@@ -229,3 +229,29 @@ PROOF: P16 the audit folders' date format -- `ls docs/audits`: 23 entries, 22 ma
 - **Not this lane's:** the EmulationStation fork's `.githooks/guard-lib`, which carries the same reader (its header: *change both together*). It is named for the coordinator; that repository is outside this lane.
 PROOF: P17 S1's cases -- `.githooks/hooks-test` with the five new cases on the unfixed hooks: rc 1, the five named FAIL lines (`.qa-scratch/t10/s1/before.txt`); on the intermediate tree (`a00b0ac7bb`): rc 0, PASS, 33 expect results; on the final tree (`d55d34d6e1`): rc 0, PASS, 35 expect results, 51 ok lines (`.qa-scratch/t10/s1/final.txt`).
 PROOF: P18 S1's history read -- `docs/audits/2026_10_24-epic-m6-tooling-guards/tools/t10-history-scan.sh <worktree> c445081a59..8ebaf8daad /workspace/tmp/m6-t10/history-s1` (18:05:07Z, rc 0, 14 s), the fixed reader with the real lists through `guard_load`, counts and labels only: 27,038,430 added lines and 32,333 message lines; added lines 3 credential-shaped and 77 with a listed word, messages 1 and 3. Every commit carrying a hit predates the guard that would have refused it: the 77 word lines and 3 word messages are in 13 commits dated 2026-08-19 to 2026-09-28T13:58Z, before the wordlist guard `3e70ef9239` (2026-09-28T15:44Z); the credential lines are `9c9305eabf` (2026-08-22, before any scan) and two audit-packet seat diffs of 2026-09-28 (04:25Z, 13:58Z) committed under the audit-packet exemption that `3e70ef9239` removed; the credential message `06846da9ef` (2026-09-28T02:36Z) predates any message scan. No hit is a guard escape. The labels (commit:path:line) are in /workspace/tmp/m6-t10/history-s1/ and in `02` § Stage E for the coordinator.
+
+### [Stage E] 18:14 — S2: the range, the base, tags, one redaction (#932, #937, #933, #934; D-WORKFLOW-200)
+
+- **The tests first:** four new `hooks-test` cases on the S1-fixed, S2-unfixed hooks (`.qa-scratch/t10/s2/before.txt`), all failing:
+  - *a listed word in a parent dated after its child, on a new branch (#932)*: exited 0;
+  - *a pr/\* push with no upstream/next is refused (#937)*: exited 0, and *the fetch is named* FAILED;
+  - *an annotated tag whose annotation carries a listed word (#933)*: exited 0;
+  - *a line carrying a credential shape and a listed word (#934)*: refused, but its `silent` check FAILED (the word was printed).
+- **The fix** (`32cb3a903e`):
+  - a new branch's set is `"$local_sha" --not --remotes=<remote>`, read whole with `--topo-order`; the tip scan takes the files the set touches that are still at the tip;
+  - `base_ref` is `upstream/next` only, and a `pr/*` push without it is refused with the fetch named;
+  - a tag object's message joins the messages;
+  - `guard_scan`'s redaction prints a line that also carries a listed word as its label and `[REDACTED]`.
+
+  The last lives in `guard-lib`, which all three hooks share, so the stream touched it beside the brief's two files; the commit says so. `hooks-test` PASS, **39 `expect` results**.
+- **`db8ad3958a`:**
+  - `if true; then` removed and its body dedented. It was left by `d52e3d81c7` (audit #258) when `if [ -x ... ]` moved up as a refusal, so the condition is checked above it.
+  - `'tools/fork-newdrive'` out of `PERSONAL_PATTERNS` (D-INFRA-030).
+
+  `hooks-test` PASS, 39. The gate path itself (a push to `next`) is not exercised by `hooks-test`; `bash -n` passes.
+- **A method check:** `git log --name-only -z --format=` emits pure NUL-separated names with no newline between commits (a scratch repository under `.qa-scratch/t10/s2/`), so the first cut's `tr '\n' '\0'` was dropped before commit; it would have split a name holding a newline.
+- **Already written (tags):**
+  - **The first attempt was refused** by the harness's safety check: an `rm` inside a `bash -c` script. Nothing ran.
+  - **Re-run with no removal and no file:** `git ls-remote --tags origin` lists 7 tags. They were fetched into a throwaway namespace (`refs/t10-origin-tags/*`) and **all 7 are lightweight** (0 annotated), so there are 0 annotation lines and 0 hits. The namespace was then deleted ref by ref, 0 left.
+  - **A delta:** the brief expected 0 tags; there are 7, none annotated.
+PROOF: P19 S2's cases -- `.githooks/hooks-test` with the four new cases on the hooks before `32cb3a903e`: rc 1, five FAIL lines (`.qa-scratch/t10/s2/before.txt`); at `32cb3a903e` and at `db8ad3958a`: rc 0, PASS, 39 expect results (`.qa-scratch/t10/s2/after.txt`, `after2.txt`); origin's 7 tags, 0 annotated, 0 annotation lines scanned (counts through `guard_load`'s real lists).

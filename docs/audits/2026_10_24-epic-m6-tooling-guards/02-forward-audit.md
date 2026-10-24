@@ -23,7 +23,7 @@ Every finding is a lead until `04` § Finding Verification and § Second opinion
 | 11 | 04 Q6: the guard table and the tool-caller table | the evidence is here (§ Callers, § The suites, F-rows); the tables are `04`'s | `04` § Q6 |
 | 12 | 04 Q3: the fail-open hunt through the named readers | the evidence is here (F-01 to F-30); the table is `04`'s | `04` § Q3 |
 | 13 | 04 Q7: the personal-path diff entry by entry; three descriptions per guard | P2 (the diff); the description rows are `04`'s | `04` § Q7 |
-| 14 | proof cells in § Proofs = proof lines in 00 | 20 = 20 | § Proofs; `command grep -c` |
+| 14 | proof cells in § Proofs = proof lines in 00 | 21 = 21 | § Proofs; `command grep -c` |
 | 15 | every item `question:`; bugs pass box-check; no member edited before a stream | stage D; `git diff --stat a82d784216 HEAD -- .githooks .github tools` empty | `05` |
 | 16 | the retro | stage G | `docs/retros/` |
 | 17 | the six checks pass before the merge; the lint PASS | stage H | the hand-back |
@@ -455,3 +455,22 @@ Each stream is from `docs/reviews/briefs/t10-streams.md` at `9e0718eeb5`, with i
 | --- | --- | --- |
 | P17 | S1's five cases fail on the unfixed hooks and pass on the fixed, and the suite stays green on the intermediate tree | proved: fix-case |
 | P18 | the fixed reader over the fork's history: no guard escape | proved: tool-run |
+
+### S2: the range, the base, tags, one redaction (#932, #937, #933, #934; D-WORKFLOW-200) -- `32cb3a903e`, `db8ad3958a`
+
+| Case (`.githooks/hooks-test`) | Before (S1's hooks) | Fixed |
+| --- | --- | --- |
+| a listed word in a parent dated after its child, on a new branch (#932) | FAIL: exited 0 | ok: refused |
+| a pr/* push with no upstream/next is refused, never judged against origin/next (#937) | FAIL: exited 0; *the fetch is named* FAIL | ok: refused, `git fetch upstream` named |
+| an annotated tag whose annotation carries a listed word (#933) | FAIL: exited 0 | ok: refused, never prints the word |
+| a line carrying a credential shape and a listed word (#934) | refused, but *the output carries "zebrafish"* FAIL | ok: refused, prints neither |
+
+`hooks-test`: PASS with 39 `expect` results.
+- **The empty conditional:** `if true; then` is removed, and its body runs as before. `d52e3d81c7` left it when the `-x` test moved up as a refusal.
+- **`tools/fork-newdrive`** leaves `PERSONAL_PATTERNS` (D-INFRA-030).
+- **The tags on `origin`:** 7, none annotated, so there were 0 annotations to scan. The brief expected 0 tags.
+- **A deviation from the brief's file list:** the redaction fix is in `guard-lib`'s `guard_scan`, which all three hooks share.
+
+| Proof | What it shows | Proved |
+| --- | --- | --- |
+| P19 | S2's four cases fail before the fix and pass after; the tags read | proved: fix-case |
