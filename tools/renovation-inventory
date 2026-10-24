@@ -23,8 +23,9 @@ Exit 2 when it cannot run (a git command, a plan, a missing input).
 Rules (docs/reviews/README.md, the futro of 2026-10-22):
 
 - The inventory reads committed trees: the distribution at its HEAD, the ES
-  checkout at its HEAD (a detached worktree at the pin). Each total is checked
-  against `git ls-files` there, so staged-but-uncommitted paths fail the run.
+  checkout at its HEAD (a detached worktree at the pin). Each tree's paths are
+  checked against `git ls-files` there, as sets, so staged-but-uncommitted
+  paths fail the run, and a failing run writes nothing (#957).
 - Areas: a glob is relative to the distribution unless prefixed `es:`; a glob
   prefixed `!` excludes within its own area; `**` crosses `/`, `*` and `?`
   stay inside a segment, `{a,b}` alternates globs (no nesting). A path must match
@@ -185,7 +186,13 @@ def assign(compiled, tree, path):
 def tracked(repo):
     head = zsplit(git(repo, "ls-tree", "-r", "-z", "--name-only", "HEAD"))
     index = zsplit(git(repo, "ls-files", "-z"))
-    return head, len(index)
+    return head, index
+
+
+def index_differs(head, index):
+    """The paths in HEAD or the index but not both: a staged rm plus a staged add
+    leaves the counts equal and the sets apart (#957)."""
+    return sorted(set(head) ^ set(index))
 
 
 def line_counts(repo):
@@ -616,7 +623,8 @@ def build(args):
         "plan_runner": {"mode": args.runner, "image": runner.image},
         "seconds": {"git": round(t_git, 1), "plans": round(t_plans, 1)},
     }
-    counts = {"paths": (len(dpaths) + len(injected), d_index), "es-paths": (len(epaths), e_index),
+    counts = {"paths": (len(dpaths) + len(injected), len(d_index)), "es-paths": (len(epaths), len(e_index)),
+              "paths-differ": index_differs(dpaths, d_index), "es-paths-differ": index_differs(epaths, e_index),
               "patches": (len(patch_paths), found), "unassigned": len(unassigned), "ambiguous": len(ambiguous)}
     return header, rows, counts, unassigned, ambiguous
 
@@ -1559,13 +1567,26 @@ def main():
     print("patches: %d (find: %d)" % counts["patches"])
     print("unassigned: %d" % counts["unassigned"])
     print("ambiguous: %d" % counts["ambiguous"])
+    for k in ("paths-differ", "es-paths-differ"):
+        print("%s: %d (in HEAD or the index, not both)" % (k, len(counts[k])))
+        for p in counts[k][:20]:
+            print("  %s %s" % (k, p))
     for tree, p in unassigned[:20]:
         print("  unassigned %s:%s" % (tree, p))
     for tree, p, hits in ambiguous[:20]:
         print("  ambiguous %s:%s -> %s" % (tree, p, ", ".join(hits)))
     print("seconds: git %.1f, plans %.1f" % (header["seconds"]["git"], header["seconds"]["plans"]))
     failed = (counts["paths"][0] != counts["paths"][1] or counts["es-paths"][0] != counts["es-paths"][1]
-              or counts["patches"][0] != counts["patches"][1] or counts["unassigned"] or counts["ambiguous"])
+              or counts["patches"][0] != counts["patches"][1] or counts["unassigned"] or counts["ambiguous"]
+              or counts["paths-differ"] or counts["es-paths-differ"])
+    if failed:
+        # A run whose counts disagree describes a tree nobody committed: it writes nothing (#957).
+        print("renovation-inventory: the counts disagree; %s and %s are left as they were" % (args.out, args.markdown))
+        return EX_FAIL
+    return write_outputs(args, header, rows, counts)
+
+
+def write_outputs(args, header, rows, counts):
     if not args.no_write and not args.inject_path:
         dist = os.path.abspath(args.distribution)
         pkgdirs = package_dirs([r[1] for r in rows if r[0] == "distribution"])
@@ -1590,7 +1611,7 @@ def main():
             print("renovation-inventory: %s lines %s match a credential pattern" % (args.markdown, hits[:5]), file=sys.stderr)
             return EX_CANNOT
         print("wrote %s (%d bytes), %s" % (args.out, os.path.getsize(os.path.join(dist, args.out)), args.markdown))
-    return EX_FAIL if failed else 0
+    return 0
 
 
 if __name__ == "__main__":

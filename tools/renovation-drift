@@ -5,18 +5,20 @@
 (plan § 8; M6.P1, #641).
 
   tools/renovation-drift [--write docs/reviews/drift.md] [--target next]
-                         [--pretend SLICE=HASH[,es=HASH] ...]
+                         [--pretend SLICE=HASH[,es=HASH] ...] [--no-issues]
   tools/renovation-drift --self-test
 
-For every slice in docs/reviews/slices.json with a `fixed_at` (written at the
-slice's stage H as {"distribution": <commit>, "es": <commit>}, the `es` key
-for a slice with EmulationStation paths; a bare string is a distribution
-commit), it diffs from the baseline to `<target>` over the slice's paths. The
-baseline is `drift_checked_at` when a drift review has accepted the changes
-since (it then advances, so reviewed drift is not reported again), else
-`fixed_at`; a dependency replaced under a slice (an interacting subsystem,
-not its own paths) is the planner's call, recorded on the slice issue, not
-this tool's
+For every slice whose issue is closed as completed with a `fixed-at:` line in
+its body (and `fixed-at-es:` for a slice with EmulationStation paths) -- the
+slice issues on pixelelated/distribution, titled `M6.P2 E<epic>/T<k>: ...`,
+read once and bounded; `tools/renovation-status` reads them through this same
+function, so the two cannot disagree on a slice's fixed-at (#957) -- it diffs
+from the baseline to `<target>` over the slice's paths. The baseline is
+slices.json's `drift_checked_at` when a drift review has accepted the changes
+since (it then advances, so reviewed drift is not reported again), else the
+issue's fixed-at; `--pretend` replaces both for one run. A dependency replaced
+under a slice (an interacting subsystem, not its own paths) is the planner's
+call, recorded on the slice issue, not this tool's
 (the slice's rows of docs/reviews/inventory.json, the same membership
 `tools/renovation-inventory --order` uses) and reports the files touched, the
 lines changed, that as a share of the slice's lines, and whether a file on
@@ -34,7 +36,8 @@ work is rows, not lines.
 Exit 0 when no slice needs re-opening, 1 when one does, 2 when it cannot run
 (an unreadable ledger, a missing commit, a git command failing).
 `--pretend` sets a fixed_at for this run only, so the report can be seen to
-fire before any slice has closed.
+fire before any slice has closed; `--no-issues` reads no tracker and so
+reports only the pretended slices.
 """
 
 import argparse
@@ -48,6 +51,7 @@ import sys
 
 EX_FAIL, EX_CANNOT = 1, 2
 SMALL_SHARE = 0.20  # plan § 8
+LIMIT = 400
 ES_DEFAULT = "/home/max/Development/emulationstation-next"
 PIN_FILE = "projects/ROCKNIX/packages/ui/emulationstation/package.mk"
 
@@ -66,6 +70,46 @@ def git(repo, *args):
     if r.returncode != 0:
         raise RuntimeError("git %s: %s" % (" ".join(args[:3]), r.stderr.strip()[:300]))
     return r.stdout
+
+
+def field(body, name):
+    m = re.search(r"(?im)^[-*\s`]*%s:\s*`?([0-9a-f]{7,40})?`?\s*$" % re.escape(name), body or "")
+    return m.group(1) if m and m.group(1) else None
+
+
+def slice_issues():
+    """{k: issue} for the M6 slice issues: one bounded read, shared with renovation-status."""
+    r = subprocess.run(["gh", "issue", "list", "--repo", "pixelelated/distribution", "--milestone",
+                        "M6: Codebase renovation", "--state", "all", "--limit", str(LIMIT),
+                        "--json", "number,title,state,stateReason,body"], capture_output=True, text=True)
+    if r.returncode != 0:
+        raise RuntimeError("gh issue list: %s" % r.stderr.strip()[:200])
+    got = json.loads(r.stdout)
+    if len(got) >= LIMIT:
+        raise RuntimeError("the issue list reached its limit of %d" % LIMIT)
+    issues = {}
+    for i in got:
+        t = re.match(r"M6\.P2 E\d+/T(\d+): ", i["title"])
+        if t:
+            issues[int(t.group(1))] = i
+    return issues, len(got)
+
+
+def fixed_from_issue(issue):
+    """The slice's fixed-at, from its issue: only an issue closed as completed carries one."""
+    if not issue or issue.get("state") != "CLOSED" or issue.get("stateReason") != "COMPLETED":
+        return None
+    fx = field(issue.get("body"), "fixed-at")
+    if not fx:
+        return None
+    es = field(issue.get("body"), "fixed-at-es")
+    return {"distribution": fx, **({"es": es} if es else {})}
+
+
+def sensitive_hits(sens, tree, path):
+    """The sensitive kinds a path belongs to: a glob matches and none of its `!` exclusions does."""
+    return [k for k, inc, exc in sens
+            if any(x.match(path) for x in inc.get(tree, [])) and not any(x.match(path) for x in exc.get(tree, []))]
 
 
 _NUMSTAT = {}
@@ -97,13 +141,27 @@ def verdict(changed, slice_lines, sensitive_hits, table_paths=None):
 
 def run(args):
     dist = os.path.realpath(args.distribution)
+    issues = {} if args.no_issues else slice_issues()[0]
+    report, target = compute(dist, args.es, args.target, args.pretend or [], issues)
+    lines = table(report, args.target, target)
+    text = "\n".join(lines) + "\n"
+    print(text, end="")
+    if args.write:
+        with open(os.path.join(dist, args.write), "w") as f:
+            f.write(text)
+    return max([{"none": 0, "small": 0, "re-open": 1}[r[6]] for r in report] or [0])
+
+
+def compute(dist, es_repo, target_ref, pretends, issues):
+    """The drift of every slice that has a baseline: [(slice, fixed, files, lines changed, total, sensitive,
+    verdict, source, table)], and the target commit."""
     inv_mod = load_inventory_module(dist)
     with open(os.path.join(dist, "docs/reviews/inventory.json")) as f:
         inv = json.load(f)
     rows = [dict(zip(inv["columns"], r)) for r in inv["rows"]]
     doc, slices = inv_mod.load_slices(dist)
     pretend = {}
-    for p in args.pretend or []:
+    for p in pretends:
         sid, _, rest = p.partition("=")
         parts = rest.split(",")
         fx = {"distribution": parts[0]}
@@ -119,11 +177,15 @@ def run(args):
             m[r["tree"]].append(r["path"])
             m["lines"] += r["lines"] or 0
     sens = inv_mod.load_areas([{"area": k, "globs": g} for k, g in doc.get("sensitive", {}).items()])
-    target = git(dist, "rev-parse", args.target).strip()
+    target = git(dist, "rev-parse", target_ref).strip()
     es_pin = None
-    report, worst = [], 0
+    report = []
     for sl, _ in slices:
-        fixed = pretend.get(sl["id"]) or sl.get("drift_checked_at") or sl.get("fixed_at")
+        issue = issues.get(sl["k"])
+        fixed = pretend.get(sl["id"]) or (sl.get("drift_checked_at") if fixed_from_issue(issue) else None) \
+            or fixed_from_issue(issue)
+        source = "pretend" if sl["id"] in pretend else ("drift review" if sl.get("drift_checked_at") else
+                                                         "issue #%d" % issue["number"] if issue else "--")
         if not fixed:
             continue
         if isinstance(fixed, str):
@@ -137,44 +199,47 @@ def run(args):
             git(dist, "cat-file", "-e", base + "^{commit}")
             for p, n in numstat(dist, base, target, m["distribution"]).items():
                 changed[p] = n
-                hit += [k for k, inc, _ in sens if any(x.match(p) for x in inc.get("distribution", []))]
+                hit += sensitive_hits(sens, "distribution", p)
         if m["es"]:
             base = fixed.get("es")
             if not base:
                 raise RuntimeError("slice %s has EmulationStation paths and no es fixed_at" % sl["id"])
             if es_pin is None:
-                text = git(dist, "show", "%s:%s" % (args.target, PIN_FILE))
+                text = git(dist, "show", "%s:%s" % (target_ref, PIN_FILE))
                 es_pin = re.search(r'^PKG_VERSION="([0-9a-f]{40})"', text, re.M).group(1)
-            git(args.es, "cat-file", "-e", base + "^{commit}")
-            for p, n in numstat(args.es, base, es_pin, m["es"]).items():
+            git(es_repo, "cat-file", "-e", base + "^{commit}")
+            for p, n in numstat(es_repo, base, es_pin, m["es"]).items():
                 changed["es:" + p] = n
-                hit += [k for k, inc, _ in sens if any(x.match(p) for x in inc.get("es", []))]
+                hit += sensitive_hits(sens, "es", p)
         table = sl.get("kind") == "table"
         npaths = len(m["distribution"]) + len(m["es"])
         v = verdict(changed, m["lines"], hit, npaths if table else None)
-        worst = max(worst, {"none": 0, "small": 0, "re-open": 1}[v])
         report.append((sl, fixed, len(changed), sum(changed.values()), npaths if table else m["lines"],
-                       sorted(set(hit)), v, "pretend" if sl["id"] in pretend else "slices.json", table))
+                       sorted(set(hit)), v, source, table))
+    return report, target
+
+
+def share(row):
+    sl, fixed, files, changed, total, hit, v, src, table = row
+    return "%.1f %%%s" % (100.0 * (files if table else changed) / max(total, 1), " of rows" if table else "")
+
+
+def table(report, target_ref, target):
     lines = ["# Renovation drift", "",
              "Generated by `tools/renovation-drift` against `%s` (`%s`); never hand-edited. Plan § 8: under 20 %% of a "
              "slice's lines and no sensitive file is `small` (an issue-tier pass over the diff); over 20 %%, or any "
              "security, state or launch-path file, is `re-open` (the slice at its depth, over the diff)." % (
-                 args.target, target[:10]), "",
+                 target_ref, target[:10]), "",
              "| k | Slice | fixed-at | Files | Lines changed | Share of slice | Sensitive touched | Verdict | Source |",
              "| ---: | --- | --- | ---: | ---: | ---: | --- | --- | --- |"]
-    for sl, fixed, files, changed, total, hit, v, src, table in report:
-        lines.append("| %d | %s | %s | %d | %d | %.1f %%%s | %s | %s | %s |" % (
+    for row in report:
+        sl, fixed, files, changed, total, hit, v, src, _ = row
+        lines.append("| %d | %s | %s | %d | %d | %s | %s | %s | %s |" % (
             sl["k"], sl["id"], ", ".join("%s `%s`" % (k, h[:10]) for k, h in fixed.items()), files, changed,
-            100.0 * (files if table else changed) / max(total, 1), " of rows" if table else "",
-            ", ".join(hit) or "--", v, src))
+            share(row), ", ".join(hit) or "--", v, src))
     if not report:
-        lines.append("| -- | no slice has a `fixed_at` yet | | | | | | | |")
-    text = "\n".join(lines) + "\n"
-    print(text, end="")
-    if args.write:
-        with open(os.path.join(dist, args.write), "w") as f:
-            f.write(text)
-    return worst
+        lines.append("| -- | no slice has a fixed-at yet | | | | | | | |")
+    return lines
 
 
 def self_test():
@@ -197,6 +262,7 @@ def main():
     ap.add_argument("--target", default="next")
     ap.add_argument("--write", help="also write the table here (docs/reviews/drift.md)")
     ap.add_argument("--pretend", action="append", help="SLICE=HASH[,es=HASH]: a fixed_at for this run only")
+    ap.add_argument("--no-issues", action="store_true", help="read no tracker: only --pretend slices are reported")
     ap.add_argument("--self-test", action="store_true")
     args = ap.parse_args()
     if args.self_test:
