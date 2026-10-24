@@ -79,16 +79,25 @@ def source_state(root):
             'tracked_diff_sha256': hashlib.sha256(git('diff', '--binary', 'HEAD', '--')).hexdigest()}
 
 
-def registry_for(root):
-    common = subprocess.check_output(['git', 'rev-parse', '--path-format=absolute', '--git-common-dir'],
-                                     cwd=root, text=True, stderr=subprocess.PIPE).strip()
-    return Path(common) / 'pixelelated-build-admission'
+def state_home():
+    state = os.environ.get('XDG_STATE_HOME', '')
+    return Path(state) if os.path.isabs(state) else Path.home() / '.local/state'
+
+
+def registry_for(volume):
+    # A reservation is a claim on a filesystem's free bytes, so the registry is
+    # the filesystem's: every clone that measures one volume reads one registry
+    # (D-INFRA-029, #919). It is keyed by the device and filesystem id and kept
+    # in the user's state directory: private to the user (registry() requires
+    # that), outside every clone's .git, and needing no write on the volume.
+    s, v = os.stat(volume), os.statvfs(volume)
+    return state_home() / 'pixelelated' / 'build-admission' / f'{s.st_dev:x}-{v.f_fsid:x}'
 
 
 @contextlib.contextmanager
 def registry(path):
     path = Path(path)
-    path.mkdir(mode=0o700, exist_ok=True)
+    path.mkdir(mode=0o700, parents=True, exist_ok=True)
     require(not path.is_symlink() and path.stat().st_uid == os.getuid(), 'invalid registry owner/path')
     with (path / 'lock').open('a') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX)
@@ -160,7 +169,7 @@ def current(plan):
             'volume': str(volume), 'volume_device': volume_id['device'],
             'required_bytes': need, 'available_bytes': s.f_bavail * s.f_frsize,
             'retention_plan_sha256': digest(retention_plan), 'retention_report_sha256': digest(report_path),
-            'outputs': holds, 'registry': str(registry_for(root)),
+            'outputs': holds, 'registry': str(registry_for(volume)),
             'container_checkout': plan.get('container_checkout', str(root))}
 
 
@@ -335,7 +344,7 @@ def consume_reporting_failure(run, evidence_path, failure_path):
     root = Path(row['checkout']); owner = Path(row['submission_owner'])
     path_identity(root); path_identity(owner)
     require(run.parent == root / '.build-runs' and row['run'] == str(run), 'wrong original run path')
-    require(row['registry'] == str(registry_for(root)), 'wrong original registry')
+    require(row['registry'] == str(registry_for(row['volume'])), 'wrong original registry')
     require(os.stat('/proc/self/ns/pid').st_ino == row['pid_namespace'], 'recover from original host PID namespace')
     require(source_state(root) == row['source'], 'original source changed')
     require(proof['run'] == str(run) and proof['disposition'] == 'failed-investigated'

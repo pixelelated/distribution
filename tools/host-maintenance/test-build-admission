@@ -14,7 +14,8 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
         for x in ['watch-build','watch-job']:shutil.copy2(root/'tools'/x,d/'tools'/x)
         shutil.copy2(root/'Makefile',d/'Makefile')
         mod,plan,receipt=helper.prepare_fixture(d,root)
-        env={'PATH':os.environ['PATH'],'HOME':str(d),'LC_ALL':'C','PIXELELATED_BUILD_ADMISSION':str(receipt)}
+        env={'PATH':os.environ['PATH'],'HOME':str(d),'LC_ALL':'C','PIXELELATED_BUILD_ADMISSION':str(receipt),
+             'XDG_STATE_HOME':str(helper.state_dir(d))}
         return d,mod,plan,receipt,env
     def run(d,env,cmd=None):
         return subprocess.run([str(d/'tools/watch-build'),'--interval','1','--',*(cmd or ['touch','compiler-started'])],cwd=d,env=env,capture_output=True,text=True,timeout=15)
@@ -50,7 +51,8 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
     d,m,p,r,e=fixture('capacity')
     real = m.os.statvfs
     try:
-        m.os.statvfs = lambda _:types.SimpleNamespace(f_bavail=0,f_frsize=4096)
+        # The registry is keyed by the filesystem id, which the fake keeps (#919).
+        m.os.statvfs = lambda path:types.SimpleNamespace(f_bavail=0,f_frsize=4096,f_fsid=real(path).f_fsid)
         try:m.prepare(p,d/'no-space.json');ok=False
         except ValueError:ok=True
         check(ok and not (d/'no-space.json').exists(),'prepare refuses insufficient current capacity')
@@ -66,6 +68,27 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
     try:m.prepare(p,d/'overcommitted.json');ok=False
     except ValueError:ok=True
     check(ok,'existing unresolved reservations reduce new capacity')
+    # #919: two clones on one filesystem read one registry, whoever measured it.
+    shared=base/'one-user-state'
+    clones=[]
+    for name in ['clone-a','clone-b']:
+        c=base/name;c.mkdir();(c/'tools').mkdir();(c/'scripts').mkdir()
+        for x in ['watch-build','watch-job']:shutil.copy2(root/'tools'/x,c/'tools'/x)
+        shutil.copy2(root/'Makefile',c/'Makefile');clones.append(c)
+    ma,pa,ra=helper.prepare_fixture(clones[0],root,state=shared)
+    runa=clones[0]/'.build-runs/clone-a';runa.mkdir(parents=True);ma.admit(ra,clones[0],runa,{})
+    mb,pb,rb=helper.prepare_fixture(clones[1],root,state=shared)
+    alone=helper.load(clones[1]/'tools/host-maintenance/build-admission',state=base/'another-user-state')
+    real=os.statvfs
+    try:
+        # Room for one 1 MiB reservation and a half, not two.
+        os.statvfs=lambda path:types.SimpleNamespace(f_bavail=3*2**19,f_frsize=1,f_fsid=real(path).f_fsid)
+        try:mb.prepare(pb,clones[1]/'second.json');refused=False
+        except ValueError as error:refused='after existing reservations' in str(error)
+        alone.prepare(pb,clones[1]/'alone.json')
+    finally:os.statvfs=real
+    check(refused and (clones[1]/'alone.json').exists(),
+          "a second clone on one filesystem is refused by the first clone's reservation")
     d,m,p,r,e=fixture('positive');a=run(d,e);check(a.returncode==0 and (d/'compiler-started').exists(),'valid admission launches payload')
     runs=[x for x in (d/'.build-runs').iterdir() if x.is_dir()];runpath=runs[0];row=m.read(runpath/'admission.json')
     check(row['outputs']==m.read(p)['outputs'],'registered output release conditions match plan')

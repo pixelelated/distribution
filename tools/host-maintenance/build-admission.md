@@ -72,8 +72,19 @@ as free space. A changed plan/source/input, unresolved inventory error, refused
 budget, changed registry or used admission requires fresh preparation. A report
 being written successfully does not make its budget acceptable.
 
-The registry is shared by Git worktrees in the common Git directory under
-`pixelelated-build-admission/`, with a file lock. Reservations are conservative
+A reservation is a claim on a filesystem's free bytes, so the registry belongs to
+the filesystem (D-INFRA-029, #919). It lives at
+`${XDG_STATE_HOME:-~/.local/state}/pixelelated/build-admission/<dev>-<fsid>/`,
+keyed by the measured volume's device and filesystem id, with a file lock.
+Every clone and worktree that measures one volume reads that one registry. It
+is outside every clone's `.git`, private to the user (the tool refuses a
+registry it does not own), and needs no write on the volume. Builds by another
+user on the same volume keep their own registry. A device renumbered by a
+reboot starts a new one, which matters only to runs that the reboot ended. The
+earlier per-clone registry (`<git common dir>/pixelelated-build-admission/`) is
+read by nothing and migrates nothing: it stays as the record of its own
+reservations. Until every lane runs this tool, capacity between lanes is still
+coordinated by hand. Reservations are conservative
 future byte allowances; existing allocated files are already reflected in available
 space. Ordinary host processes outside these tools are not space-reserved. Existing
 memory/swap preflight and ongoing pressure monitoring remain required.

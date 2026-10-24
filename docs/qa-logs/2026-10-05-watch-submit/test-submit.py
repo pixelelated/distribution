@@ -36,7 +36,7 @@ admission, admission_plan, _ = helper.prepare_fixture(base, root)
 def admitted_environment(name):
     receipt = base / ('admission-' + name + '.json')
     admission.prepare(admission_plan, receipt)
-    return dict(os.environ, PIXELELATED_BUILD_ADMISSION=str(receipt))
+    return dict(os.environ, PIXELELATED_BUILD_ADMISSION=str(receipt), XDG_STATE_HOME=str(helper.state_dir(base)))
 
 
 rows = []

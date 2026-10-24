@@ -6,20 +6,29 @@ import subprocess
 from pathlib import Path
 
 
-def load(path, name='admission_fixture_module'):
+def state_dir(root):
+    """The fixture's own admission state; a subprocess gets it as XDG_STATE_HOME."""
+    return Path(root)/'.admission-state'
+
+
+def load(path, name='admission_fixture_module', state=None):
     loader=importlib.machinery.SourceFileLoader(name,str(path))
     spec=importlib.util.spec_from_loader(loader.name,loader)
-    mod=importlib.util.module_from_spec(spec);loader.exec_module(mod);return mod
+    mod=importlib.util.module_from_spec(spec);loader.exec_module(mod)
+    # Never the user's real state directory (#919): the registry is the fixture's.
+    state=Path(state) if state is not None else state_dir(Path(path).parents[2])
+    mod.state_home=lambda:state
+    return mod
 
 
-def prepare_fixture(root, source):
+def prepare_fixture(root, source, state=None):
     folder=root/'tools/host-maintenance';folder.mkdir(exist_ok=True)
     for name in ['build-admission','retention-report']:
         (folder/name).write_bytes((source/'tools/host-maintenance'/name).read_bytes())
     kept=root/'kept';kept.mkdir();(kept/'measurement.json').write_text('{"synthetic_required_bytes":1048576}\n')
     for args in [['init','-q'],['add','tools','scripts','Makefile'],['-c','user.name=Fixture','-c','user.email=fixture@example.invalid','commit','-qm','Synthetic admission fixture']]:
         subprocess.run(['git',*args],cwd=root,check=True,stdout=subprocess.DEVNULL,stderr=subprocess.PIPE)
-    mod=load(folder/'build-admission')
+    mod=load(folder/'build-admission',state=state)
     budget={'name':'fixture','terms_bytes':{'growth':1048576},'basis':'synthetic 1MiB test allowance; no compilation',
             'evidence':[{'path':str(kept/'measurement.json'),'sha256':mod.digest(kept/'measurement.json')}]}
     plan={'volume':str(root),'scan_roots':[str(root)],'reference_stores':[], 'protected':[str(kept)],'candidates':[],'builds':[budget]}

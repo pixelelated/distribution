@@ -52,7 +52,7 @@ with tempfile.TemporaryDirectory(prefix='watch-progress-412-') as temporary:
         payload = root / 'emit.py'
         payload.write_text('import sys\nprint(' + repr(log) + ',end="",flush=True)\nsys.exit(' + str(code) + ')\n')
         command = [str(root / 'tools/watch-build'), '--interval', '1']
-        case_env = dict(env)
+        case_env = dict(env, XDG_STATE_HOME=str(helper.state_dir(root)))
         if qa:
             (root / 'artifacts').mkdir()
             command += ['--record-only', '--activity-dir', str(root / 'artifacts')]

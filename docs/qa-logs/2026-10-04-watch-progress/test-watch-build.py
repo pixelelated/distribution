@@ -85,6 +85,7 @@ with tempfile.TemporaryDirectory(prefix='watch-build-394-') as temporary:
     def environment(d):
         # No personal account/environment values enter fixtures or receipts.
         return {'PATH': os.environ['PATH'], 'HOME': str(d), 'TEST_ENV': 'retained',
+                'XDG_STATE_HOME': str(helper.state_dir(d)),
                 'LC_ALL': 'C', 'PIXELELATED_BUILD_ADMISSION': str(d / 'admission.json')}
 
     def run(d, command, env=None):
