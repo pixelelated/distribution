@@ -10,7 +10,11 @@
 #   - a STALE lock (its pid is dead, or the file is empty or not a pid) is
 #     removed, logged with the pid, and the caller proceeds within two seconds;
 #   - a LIVE holder is honoured for as long as it lives, and never stolen;
-#   - a long live wait is logged once, naming the holder, not every second.
+#   - a long live wait is logged once, naming the holder, not every second;
+#   - wait_lock's own status is read in every case: it returns 0 when, and
+#     only when, the caller holds the lock (#1003);
+#   - two acquirers started together on an absent lock: one holds it at a
+#     time, and each takes it in turn (#1003).
 #
 # It lifts wait_lock() (and wait_lock_say(), where the copy has one) out of
 # the 001-functions it is given, points J_CONF_LOCK at a temp file, and runs
@@ -25,12 +29,23 @@
 #     tools/wait-lock-test /tmp/old      # FAILs: a stale lock hangs until the timeout
 #     tools/wait-lock-test               # PASSED
 #
-# Host tool: needs GNU `date +%s%N` and coreutils `timeout`. The functions
-# under test are the ones that run on the device, unchanged.
+#     tools/wait-lock-test [--busybox <image busybox>] [<001-functions>]
+#
+# With --busybox, the commands wait_lock runs that are applets on the device
+# (ln, rm, cat, sleep, flock) are that busybox, through shims as
+# last-good-scripts-test's; without it they are the host's, and the first line
+# says so. Host tool: needs GNU `date +%s%N` and coreutils `timeout`. The
+# functions under test are the ones that run on the device, unchanged.
 #
 # Exit 0 when every check passes, 1 otherwise, 2 when it cannot run.
 set -u
 
+BUSYBOX=""
+if [ "${1:-}" = --busybox ]; then
+    [ -n "${2:-}" ] || { echo "usage: wait-lock-test [--busybox <image busybox>] [<001-functions>]" >&2; exit 2; }
+    BUSYBOX="$(readlink -f "$2")"; shift 2
+    [ -x "${BUSYBOX}" ] && "${BUSYBOX}" ln --help >/dev/null 2>&1 || { echo "cannot run ${BUSYBOX} as a busybox" >&2; exit 2; }
+fi
 SCRIPT="${1:-$(dirname "$(readlink -f "$0")")/../projects/ROCKNIX/packages/rocknix/profile.d/001-functions}"
 [ -r "${SCRIPT}" ] || { echo "cannot read ${SCRIPT}" >&2; exit 2; }
 
@@ -40,9 +55,23 @@ FUNCS="$(sed -n '/^function wait_lock_say() {/,/^}/p; /^function wait_lock() {/,
 grep -q '^function wait_lock() {' <<<"${FUNCS}" || { echo "no wait_lock() found in ${SCRIPT}" >&2; exit 2; }
 command -v timeout >/dev/null || { echo "needs coreutils timeout" >&2; exit 2; }
 
-TMP="$(mktemp -d)"; trap 'rm -rf "${TMP}"' EXIT
+TMP="$(mktemp -d)"; trap 'rm -rf "${TMP:?}"' EXIT
 LOCK="${TMP}/system.cfg.lock"
 FAIL=0
+
+# The device's applets, when a busybox is given: a shim per applet, first on
+# every caller's PATH. TOOLS names what ran, for the record.
+mkdir -p "${TMP}/applets"
+if [ -n "${BUSYBOX}" ]; then
+    cp "${BUSYBOX}" "${TMP}/busybox"
+    for a in ln rm cat sleep flock; do
+        printf '#!/bin/sh\nexec %q %s "$@"\n' "${TMP}/busybox" "${a}" > "${TMP}/applets/${a}"; chmod 755 "${TMP}/applets/${a}"
+    done
+    TOOLS="$("${TMP}/busybox" 2>&1 | head -1) from ${BUSYBOX}, sha256 $(sha256sum < "${TMP}/busybox" | cut -c1-16)"
+else
+    TOOLS="the host's ln, rm, cat, sleep and flock (no --busybox), not the device's"
+fi
+export PATH="${TMP}/applets:${PATH}"
 
 check() { # <0|nonzero> ok-text bad-text
     if [ "$1" -eq 0 ]; then echo "    PASS  $2"; else echo "    FAIL  $3"; FAIL=$((FAIL + 1)); fi
@@ -58,11 +87,30 @@ now_ms() { echo $(( $(date +%s%N) / 1000000 )); }
     printf 'J_CONF_LOCK=%q\n' "${LOCK}"
     cat <<'EOF'
 eval "${PREAMBLE:-}"
-wait_lock
+wait_lock; echo "WL=$?"
 if [ "$(cat "${J_CONF_LOCK}" 2>/dev/null)" = "$$" ]; then echo HELD; else echo "NOT-HELD:$(cat "${J_CONF_LOCK}" 2>/dev/null)"; fi
 rm -f "${J_CONF_LOCK}"
 EOF
 } > "${TMP}/take.sh"
+
+# The race's acquirer: waits for the start file, takes the lock, holds it for
+# a second while checking the file still names it, and records when it held.
+{
+    printf '%s\n' "${FUNCS}"
+    printf 'J_CONF_LOCK=%q\n' "${LOCK}"
+    cat <<'EOF'
+logger() { :; }
+until [ -e "$1" ]; do :; done
+wait_lock; wl=$?
+t0=$(( $(date +%s%N) / 1000000 ))
+mine=yes
+for i in 1 2 3 4 5; do [ "$(cat "${J_CONF_LOCK}" 2>/dev/null)" = "$$" ] || mine=no; sleep 0.2; done
+t1=$(( $(date +%s%N) / 1000000 ))
+echo "WL=${wl} MINE=${mine} FROM=${t0} TO=${t1}"
+[ "$(cat "${J_CONF_LOCK}" 2>/dev/null)" = "$$" ] && rm -f "${J_CONF_LOCK}"
+exit 0   # the verdict is the line above; rc is only timeout's 124
+EOF
+} > "${TMP}/race.sh"
 
 # take <timeout-s> <preamble>: runs take.sh; stdout to $OUT, stderr to $ERR,
 # rc in $RC (124 is timeout's "it hung"), wall time in $MS.
@@ -82,11 +130,12 @@ DEAD=$(( (1 << 22) - 1 ))
 while kill -0 "${DEAD}" 2>/dev/null; do DEAD=$((DEAD - 1)); done
 
 echo "wait-lock-test: wait_lock() from ${SCRIPT}"
+echo "  tools: ${TOOLS}"
 
 echo "  1. a stale lock -- the file names pid ${DEAD}, which is not running"
 echo "${DEAD}" > "${LOCK}"
 take 4 "${FAKE_LOGGER}"
-[ "${RC}" -eq 0 ] && grep -qx HELD "${OUT}"; check $? "wait_lock returned and the lock was taken (rc 0, HELD)" "rc ${RC} (124 = hung until the timeout), stdout '$(cat "${OUT}")'"
+[ "${RC}" -eq 0 ] && grep -qx WL=0 "${OUT}" && grep -qx HELD "${OUT}"; check $? "wait_lock returned and the lock was taken (rc 0, wait_lock 0, HELD)" "rc ${RC} (124 = hung until the timeout), stdout '$(cat "${OUT}")'"
 [ "${MS}" -lt 2000 ]; check $? "in under two seconds (${MS} ms)" "took ${MS} ms"
 [ ! -e "${LOCK}" ]; check $? "the lock file is gone afterwards" "the lock file is still there"
 grep -q -- "-t wait_lock .*stale.*${DEAD}" "${ERR}"; check $? "one syslog line, tagged wait_lock, says the stale lock held by ${DEAD} was removed" "no such line; stderr: '$(tr '\n' '|' < "${ERR}")'"
@@ -110,7 +159,7 @@ kill -0 "${TAKER}" 2>/dev/null; check $? "1.5 s in, the caller is still waiting"
 wait "${TAKER}"; RC=$?
 MS=$(( $(now_ms) - t0 ))
 wait "${HOLDER}" 2>/dev/null
-[ "${RC}" -eq 0 ] && grep -qx HELD "${OUT}"; check $? "the caller took the lock once the holder released it (rc 0, HELD)" "rc ${RC} (124 = hung until the timeout), stdout '$(cat "${OUT}")'"
+[ "${RC}" -eq 0 ] && grep -qx WL=0 "${OUT}" && grep -qx HELD "${OUT}"; check $? "the caller took the lock once the holder released it (rc 0, wait_lock 0, HELD)" "rc ${RC} (124 = hung until the timeout), stdout '$(cat "${OUT}")'"
 [ "${MS}" -ge 2500 ]; check $? "after waiting at least 2.5 s (${MS} ms)" "returned after only ${MS} ms"
 ! grep -q 'stale' "${ERR}"; check $? "nothing was reported as stale" "a live holder was reported stale: '$(tr '\n' '|' < "${ERR}")'"
 
@@ -126,23 +175,23 @@ kill -9 "${HOLDER}" 2>/dev/null; wait "${HOLDER}" 2>/dev/null
 tk=$(now_ms)
 wait "${TAKER}"; RC=$?
 MS=$(( $(now_ms) - tk ))
-[ "${RC}" -eq 0 ] && grep -qx HELD "${OUT}"; check $? "the caller took the lock after the holder was killed (rc 0, HELD)" "rc ${RC} (124 = hung until the timeout), stdout '$(cat "${OUT}")'"
+[ "${RC}" -eq 0 ] && grep -qx WL=0 "${OUT}" && grep -qx HELD "${OUT}"; check $? "the caller took the lock after the holder was killed (rc 0, wait_lock 0, HELD)" "rc ${RC} (124 = hung until the timeout), stdout '$(cat "${OUT}")'"
 [ "${MS}" -lt 2000 ]; check $? "within two seconds of the kill (${MS} ms)" "took ${MS} ms after the kill"
 grep -q -- "-t wait_lock .*stale.*${HOLDER}" "${ERR}"; check $? "one syslog line says the stale lock held by ${HOLDER} was removed" "no such line; stderr: '$(tr '\n' '|' < "${ERR}")'"
 
 echo "  4. an empty lock file is stale; with no logger on PATH the line goes to stderr"
 mkdir -p "${TMP}/bin"
-for t in rm sleep cat; do ln -s "$(command -v "${t}")" "${TMP}/bin/${t}"; done
+for t in rm sleep cat; do ln -s "$(command -v "${t}")" "${TMP}/bin/${t}"; done   # the shims first, when --busybox
 : > "${LOCK}"
 take 4 "PATH=${TMP}/bin"
-[ "${RC}" -eq 0 ] && grep -qx HELD "${OUT}"; check $? "wait_lock returned and the lock was taken (rc 0, HELD)" "rc ${RC} (124 = hung until the timeout), stdout '$(cat "${OUT}")'"
+[ "${RC}" -eq 0 ] && grep -qx WL=0 "${OUT}" && grep -qx HELD "${OUT}"; check $? "wait_lock returned and the lock was taken (rc 0, wait_lock 0, HELD)" "rc ${RC} (124 = hung until the timeout), stdout '$(cat "${OUT}")'"
 [ "${MS}" -lt 2000 ]; check $? "in under two seconds (${MS} ms)" "took ${MS} ms"
 grep -q '^wait_lock: removed stale lock' "${ERR}"; check $? "the removal was said on stderr, prefixed wait_lock:" "no fallback line; stderr: '$(tr '\n' '|' < "${ERR}")'"
 
 echo "  5. a file whose content is not a pid is stale"
 echo "not-a-pid" > "${LOCK}"
 take 4 "${FAKE_LOGGER}"
-[ "${RC}" -eq 0 ] && grep -qx HELD "${OUT}" && [ "${MS}" -lt 2000 ]; check $? "removed and taken in under two seconds (${MS} ms)" "rc ${RC} after ${MS} ms, stdout '$(cat "${OUT}")'"
+[ "${RC}" -eq 0 ] && grep -qx WL=0 "${OUT}" && grep -qx HELD "${OUT}" && [ "${MS}" -lt 2000 ]; check $? "removed and taken in under two seconds (${MS} ms)" "rc ${RC} after ${MS} ms, stdout '$(cat "${OUT}")'"
 
 echo "  6. a long live wait is logged once, naming the holder (the caller's sleep shadowed, so 30 polls take no time)"
 rm -f "${LOCK}"
@@ -150,10 +199,23 @@ hold_and_release 2
 until [ -s "${LOCK}" ]; do sleep 0.05; done
 take 8 "${FAKE_LOGGER}; sleep() { :; }"
 wait "${HOLDER}" 2>/dev/null
-[ "${RC}" -eq 0 ] && grep -qx HELD "${OUT}"; check $? "the caller took the lock once the holder released it (rc 0, HELD)" "rc ${RC} (124 = hung until the timeout), stdout '$(cat "${OUT}")'"
+[ "${RC}" -eq 0 ] && grep -qx WL=0 "${OUT}" && grep -qx HELD "${OUT}"; check $? "the caller took the lock once the holder released it (rc 0, wait_lock 0, HELD)" "rc ${RC} (124 = hung until the timeout), stdout '$(cat "${OUT}")'"
 n=$(grep -c -- "-t wait_lock .*${HOLDER}" "${ERR}")
 [ "${n}" = 1 ]; check $? "exactly one syslog line names the live holder ${HOLDER}" "${n} line(s) name the holder; stderr: '$(tr '\n' '|' < "${ERR}" | cut -c1-300)'"
 ! grep -q 'stale' "${ERR}"; check $? "and it was never called stale" "a live holder was reported stale"
+
+echo "  7. two acquirers started together on an absent lock -- one holds it at a time, and each takes it in turn"
+rm -f "${LOCK}" "${TMP}/go"
+timeout 10 bash "${TMP}/race.sh" "${TMP}/go" > "${TMP}/race1" 2>&1 & R1=$!
+timeout 10 bash "${TMP}/race.sh" "${TMP}/go" > "${TMP}/race2" 2>&1 & R2=$!
+sleep 0.3; : > "${TMP}/go"
+wait "${R1}"; RC1=$?; wait "${R2}"; RC2=$?
+f() { sed -n "s/.*$2=\([^ ]*\).*/\1/p" "$1"; }
+[ "${RC1}" -eq 0 ] && [ "${RC2}" -eq 0 ] && [ "$(f "${TMP}/race1" WL)" = 0 ] && [ "$(f "${TMP}/race2" WL)" = 0 ]; check $? "both returned, and wait_lock returned 0 to each" "rc ${RC1}/${RC2}; $(tr '\n' ' ' < "${TMP}/race1") | $(tr '\n' ' ' < "${TMP}/race2")"
+[ "$(f "${TMP}/race1" MINE)" = yes ] && [ "$(f "${TMP}/race2" MINE)" = yes ]; check $? "each held the lock throughout its turn" "the lock was not each one's for its whole turn: $(tr '\n' ' ' < "${TMP}/race1") | $(tr '\n' ' ' < "${TMP}/race2")"
+a0=$(f "${TMP}/race1" FROM); a1=$(f "${TMP}/race1" TO); b0=$(f "${TMP}/race2" FROM); b1=$(f "${TMP}/race2" TO)
+[ -n "${a0}" ] && [ -n "${b0}" ] && { [ "${a1}" -le "${b0}" ] || [ "${b1}" -le "${a0}" ]; }; check $? "their turns did not overlap (${a0}-${a1}, ${b0}-${b1} ms)" "the turns overlapped: ${a0:-?}-${a1:-?} and ${b0:-?}-${b1:-?} ms"
+[ ! -e "${LOCK}" ]; check $? "and the lock is gone after both" "the lock file is still there"
 
 echo
 if [ "${FAIL}" -eq 0 ]; then echo "PASSED"; exit 0; else echo "${FAIL} CHECK(S) FAILED"; exit 1; fi
