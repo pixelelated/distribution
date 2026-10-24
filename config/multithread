@@ -61,7 +61,10 @@ start_multithread_build() {
         --loadstats "${THREAD_CONTROL}"/loadstats \
         --max-procs ${THREADCOUNT} ${buildopts} || result=1
 
-    [ ${result} -eq 0 -a -f "${THREAD_CONTROL}"/history ] && echo && cat "${THREAD_CONTROL}"/history | ${ROOT}/tools/mtstats.py
+    # statistics after a finished build: their failure is not the build's
+    if [ ${result} -eq 0 ] && [ -f "${THREAD_CONTROL}"/history ]; then
+      echo && cat "${THREAD_CONTROL}"/history | ${ROOT}/tools/mtstats.py || echo "build statistics could not be printed" >&2
+    fi
 
     rm -f "${THREAD_CONTROL}/parallel.pid"
   fi
