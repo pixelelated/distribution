@@ -462,9 +462,11 @@ count).
 **The branch scan**, by one predicate: a branch is *ahead* of `next` on the
 two directories when `git log --oneline next..<branch> -- <the two
 directories>` prints a line. On 2026-10-24, 18 `origin` branches were
-(`feature/m7-player-setup` among them, by the M7 lane's `Install Steam.sh`
-hunk `6101242e14`, so that delta is on `origin` too, not only in the legacy
-checkout); 44 merely *differ* (`git diff --quiet next <branch> -- ...`
+(`feature/m7-player-setup` among them, by `d9054efc46`, whose `Install
+Steam.sh` is blob-equal to `next`'s; **the M7 hunk `6101242e14` is on no
+`origin` branch** -- it lives on the legacy checkout's
+`legacy/m7-audit-integration-603` and local branches only, T3's stage-A
+correction of 2026-10-24); 44 merely *differ* (`git diff --quiet next <branch> -- ...`
 non-zero), most of them older than `next`. Record the predicate, the
 command and the list in `01-research-notes.md`; a branch ahead of `next` on
 a slice path is a lead for the coordinator, posted on #650, not a reason to
