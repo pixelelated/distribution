@@ -14,7 +14,8 @@ issues on pixelelated/distribution (one bounded `gh issue list` on milestone
 `fixed-at:` and, for EmulationStation paths, `fixed-at-es:` lines in the body;
 the run fails if the list reaches its limit). The tracker read, a slice's
 fixed-at and its drift are `tools/renovation-drift`'s own functions, imported,
-so the two tools read one fixed-at (#957). A slice's state:
+so the two tools read one fixed-at (#957). A slice's state (`fixed` and
+`withdrawn` beyond plan § 9's five, D-WORKFLOW-204):
 
   unreviewed   no issue yet, or an issue with no audit folder and no reviewed-at
   reading      an audit folder docs/audits/*-epic-m6-<slice id>/ exists, reviewed-at empty
