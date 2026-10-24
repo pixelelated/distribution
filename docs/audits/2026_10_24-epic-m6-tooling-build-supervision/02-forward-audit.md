@@ -89,6 +89,8 @@ Read only, at 15:45:41 UTC; nothing written under any M7 path (`.qa-scratch/t9/r
 | P11 | The record's 1,885 terminal outcomes: rc 0 1,470; rc 1 397; rc 2 10; rc 125 4; rc 143 3; rc 137, 130 and 127 one each | the outcome lines read from every `build.status` | proved: tool-run |
 | P12 | Two clones' admission registries on one volume: both `.git` on device 66304; `rocknix`'s holds `pixelelated-build-admission/`, `pixelelated/distribution`'s holds none | `stat -c %d` and `test -d` of both | proved: tool-run |
 | P13 | S1 (#913): the three watcher controls pass at the fix (13/0, 35/0, rc 0) and each removed-admission copy fails (rc 1); the retention control passes beside a live process named `qemu-system-x86_64` where the unchanged control fails | `.qa-scratch/t9/s1-*.log`, `.qa-scratch/t9/positives/`; `9b071c5d12`, `a9bd346d54` | proved: fix-control |
+| P14 | S2 (#914): `test-build-preflight` passes at the fix (8/0) and fails against the unfixed tool, which stopped the control's own sleeper, read `READY` over a failed census and missed the helper's swap boundary | `.qa-scratch/t9/s2-control-fixed.log`, `.qa-scratch/t9/positives/preflight-unfixed/`; `c9e38e2939` | proved: fix-control |
+| P15 | S4 (#916): `test-watch-job.py` passes at the fix (36/0) with four new cases, each of which fails alone against the unfixed tool | `.qa-scratch/t9/s4-watch-job-fixed.log`, `.qa-scratch/t9/positives/watch-job-unfixed/`; `4a22ed0b41` | proved: fix-control |
 
 ## Findings (stage B)
 
@@ -156,3 +158,21 @@ The streams of `t9-streams.md` (`4c842e2485`), each with its test first and its 
 
 **`/tmp`:** this lane's six leftovers were removed by literal path; the four made before its runs stay (2026-10-05T07:42:06Z; 2026-10-24T14:58:26Z, 14:59:15Z, 15:22:36Z).
 
+
+### S2 (#914; PL-03)
+
+| Control | Before (unfixed tool, PATH doubles) | After (`c9e38e2939`) | Positive |
+| --- | --- | --- | --- |
+| `test-build-preflight` (new) | rc 1: `--stop-vms` stopped the control's own sleeper; `pgrep` exit 3 read `READY`; 200 MB free of 1001 MB was not exhausted | rc 0, `8 PASS; 0 FAIL` | the unfixed tool, `.qa-scratch/t9/positives/preflight-unfixed/` |
+
+P14 in the table above.
+
+### S4 (#916; PL-05, PL-18)
+
+| Control | Before (unfixed tool) | After (`4a22ed0b41`) | Positive |
+| --- | --- | --- | --- |
+| `test-watch-job.py` (+4 cases) | rc 1; alone: `expected running: state: died` for PID 1; a dash pattern, a dash status and a linked `.pid`, each failing on its own label | rc 0, `36 PASS; 0 FAIL` | the unfixed copy, `.qa-scratch/t9/positives/watch-job-unfixed/` |
+
+The EPERM input is PID 1, because `unshare` is refused here. A PID hidden by another namespace still reads as exited (#506); that limit is named, not fixed.
+
+P15 in the table above.

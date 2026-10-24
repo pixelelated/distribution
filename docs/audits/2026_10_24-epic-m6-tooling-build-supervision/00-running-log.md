@@ -189,3 +189,40 @@ PROOF: 16:28 P12 two clones' admission registries on one volume (device 66304) -
 - **Guard-table rows closed:** 12 (progress) and 27, 65 (the launcher's owner refusals) now have running controls. Row 59 is host-isolated, with the new QEMU case beside it. The CI clause is #657's.
 
 PROOF: 16:57 P13 S1: the three controls pass at the fix and their removed-admission copies fail; the retention control passes beside a live process named qemu-system-x86_64 where the unchanged one fails -- `.qa-scratch/t9/s1-*.log`, `.qa-scratch/t9/positives/`
+
+### S2 (#914; PL-03, D-INFRA-028), 16:57 to 17:00
+
+- **Test first:** a new control, `tools/host-maintenance/test-build-preflight` (8 cases). It uses PATH doubles for `pgrep`, `ps` and `free`; the only guest it can see is its own sleeper, whose argv[0] is `qemu-system-x86_64`. No real guest, swap or sudo is touched, and the unfixed tool's `--stop-vms` was run only against that double, never on the host.
+- **Against the unfixed tool** (`.qa-scratch/t9/positives/preflight-unfixed/`):
+  - the control gives rc 1, `AssertionError: --stop-vms leaves a listed guest running`, because the unfixed tool stopped the control's own sleeper;
+  - with `pgrep` exiting 3 it gives rc 0 and `READY`;
+  - at 200 MB free of 1001 MB of swap it gives rc 0 and no exhaustion.
+- **The fix** (`c9e38e2939`): `tools/build-preflight` stops nothing.
+  - Each guest is listed with `its owner stops it with: tools/vm-stop <pidfile> <disk>`, read from the guest's own command line.
+  - `--stop-vms` says it stops nothing, and the verdict stays nonzero.
+  - A `pgrep` exit of 2 or more is `ERROR: cannot census guests`, with exit 1.
+  - Exhaustion is `free * 5 < total`, as `reclaim-swap` counts it.
+- **The rules** (`c4d4c147d0`): `device-builds.md` and `generic-x64-vm-testing.md`, the two sentences S2 names.
+- **At the fix:** rc 0, `8 PASS; 0 FAIL` (`.qa-scratch/t9/s2-control-fixed.log`). `test-swap-reclaim` 37 OK; `tools/rules-check` rc 0.
+
+PROOF: 17:00 P14 S2: test-build-preflight passes at the fix and fails against the unfixed tool, which stopped the control's own sleeper, said READY over a failed census and missed the helper's boundary -- `.qa-scratch/t9/s2-control-fixed.log`, `.qa-scratch/t9/positives/preflight-unfixed/`
+
+### S4 (#916; PL-05, PL-18), 17:00 to 17:05
+
+- **Test first:** four cases added to `docs/qa-logs/2026-10-03-watch-job/test-watch-job.py`, before the help case:
+  - `--pid 1`, a live process this user cannot signal, must read `alive=yes` in `running`;
+  - `--pattern --help` must give the progress `--help`;
+  - a status named `-status`, with relative paths, must be published;
+  - a `build.status.pid` symlinked to `build.log` must be refused with rc 2, leaving the log intact.
+- **The EPERM input is PID 1**, because `unshare -Upf --mount-proc` is refused on this host (`Permission denied`). A PID that another namespace hides still reads as exited after the fix (#506); the fix's comment names that limit.
+- **Against the unfixed tool** (`.qa-scratch/t9/positives/watch-job-unfixed/`), each case alone:
+  - case 1: `AssertionError: expected running: state: died`;
+  - cases 2 to 4: each fails on its own label.
+  - The full control gives rc 1.
+- **The fix** (`4a22ed0b41`):
+  - `job_identity` reads `/proc` only. It returns alive with the start time; exited, for absent, zombie or dead; or unreadable, which is an observation error rather than a death.
+  - The pattern reaches `grep` after `-e`, and every path comes after `--`.
+  - The derived outputs `.tmp`, `.pid` and `.err` are resolved and checked against the inputs, beside the status itself.
+- **At the fix:** rc 0, `36 PASS; 0 FAIL`, 9.7 s (`.qa-scratch/t9/s4-watch-job-fixed.log`).
+
+PROOF: 17:05 P15 S4: test-watch-job passes at the fix with four new cases, each of which fails alone against the unfixed tool -- `.qa-scratch/t9/s4-watch-job-fixed.log`, `.qa-scratch/t9/positives/watch-job-unfixed/`
