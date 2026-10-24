@@ -179,4 +179,27 @@ silent "the refusal" "zebrafish"
 silent "the refusal" "QwErTyUiOpAsDfGh"
 g reset -q; rm both.txt
 
+# T10 S3 (#935, #936): two credential shapes the patterns missed, each with
+# the lines it must still pass; a listed word in a file NAME, at commit and push.
+LOWER="$(printf 'pass%s = %s' word Ab12Cd34Ef56Gh78Ij90)"
+SLASHTOK="$(printf '{"refresh_%s": "1//0%s"}' token gAbCdEfGhIjKlMnOpQrStUvWx)"
+printf '%s\n' "${LOWER}" > low.conf; g add low.conf
+expect refused "a lowercase 'password = <a long value>' assignment (#935)" "${HOOKS}/pre-commit"
+silent "the refusal" "Ab12Cd34"
+g reset -q; rm low.conf
+printf '%s\n' "${SLASHTOK}" > tok.json; g add tok.json
+expect refused "a JSON refresh token whose value carries a slash (#935)" "${HOOKS}/pre-commit"
+g reset -q; rm tok.json
+printf 'password = <your password>\nthe password is the one you chose when you set it up\npass = abc123\n' > ok.conf; g add ok.conf
+expect allowed "a placeholder, a sentence and a short value still pass (#935's controls)" "${HOOKS}/pre-commit"
+g reset -q; rm ok.conf
+echo clean > 'notes zebrafish quartet.txt'; g add 'notes zebrafish quartet.txt'
+expect refused "a clean file whose name carries a listed word, at commit (#936)" "${HOOKS}/pre-commit"
+silent "the refusal" "zebrafish"
+g reset -q; rm 'notes zebrafish quartet.txt'
+g checkout -q -b nameword "${remote}"; echo clean > 'notes zebrafish quartet.txt'; g add -A; g commit -q -m n
+expect refused "a clean file whose name carries a listed word, at push (#936)" push_line "refs/heads/nameword $(git rev-parse HEAD) refs/heads/nameword ${ZERO}"
+silent "the refusal" "zebrafish"
+g checkout -q main
+
 if [ "${fail}" -eq 0 ]; then echo PASS; else echo FAIL; exit 1; fi

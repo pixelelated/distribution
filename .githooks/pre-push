@@ -41,9 +41,13 @@
 #   git push scratch feature/p:refs/heads/pr/p
 #     -> "pre-push blocked: pr/p (pushed from feature/p) carries personal artifacts
 #         that must not go upstream:  docs/note.md", exit 1
-#   # a pr/* push with no upstream/next and no origin/next in the repo
+#   # a pr/* push with no upstream/next in the repo (an origin/next is no
+#   #   substitute: it is the fork's next and carries the overlay)
 #   git push scratch pr/y
-#     -> "refusing to push pr/y: no upstream/next or origin/next to compare a pr/* branch against", exit 1
+#     -> "refusing to push pr/y: no upstream/next to compare a pr/* branch against
+#         (origin/next is the fork's next and carries the overlay, D-WORKFLOW-200)", exit 1
+#     (the wording since T10 S2; the 2026-09-13 run printed the older one, which
+#      named origin/next as a fallback)
 #
 # The hook at next 6e09b6fcca let all three through (the first two silently,
 # the third with a warning); the same three shapes without their fault push
@@ -257,8 +261,8 @@ while read -r local_ref local_sha remote_ref remote_sha; do
   else
     range="${remote_sha}..${local_sha}"
   fi
-  names="$(mktemp)"; added="$(mktemp)"; lines="$(mktemp)"; blob="$(mktemp)"; msgs="$(mktemp)"
-  trap 'rm -f "${names:-}" "${added:-}" "${lines:-}" "${blob:-}" "${msgs:-}"' EXIT   # an interrupted push leaves nothing behind (the audit of the fixes, claude G3-E-07)
+  names="$(mktemp)"; added="$(mktemp)"; lines="$(mktemp)"; blob="$(mktemp)"; msgs="$(mktemp)"; pnames="$(mktemp)"
+  trap 'rm -f "${names:-}" "${added:-}" "${lines:-}" "${blob:-}" "${msgs:-}" "${pnames:-}"' EXIT   # an interrupted push leaves nothing behind (the audit of the fixes, claude G3-E-07)
   scan_ok=1
   msgawk='/^commit [0-9a-f]+$/ { c = $2; n = 0; next } { n++; print c ":message:" n t $0 }'
   if [ "$newset" = 1 ]; then
@@ -271,14 +275,17 @@ while read -r local_ref local_sha remote_ref remote_sha; do
     rm -f "$names.all"
     git log -p --text --no-ext-diff --no-textconv --src-prefix=a/ --dst-prefix=b/ --root --topo-order --no-renames --diff-merges=first-parent --format='commit %h' "$local_sha" "${history_excludes[@]}" -- . > "$added" 2>/dev/null || scan_ok=0
     git log --root --topo-order --format='commit %h%n%B' "$local_sha" "${history_excludes[@]}" 2>/dev/null | awk -v t="$guard_tab" "$msgawk" > "$msgs" || scan_ok=0
+    git log --name-only -z --format= --no-renames --diff-filter=AC "$local_sha" "${history_excludes[@]}" -- . > "$pnames" 2>/dev/null || scan_ok=0
   elif [ "$whole" = 1 ]; then
     git diff --name-only -z --no-renames --diff-filter=AMT "$empty_tree" "$local_sha" -- . > "$names" 2>/dev/null || scan_ok=0
     git log -p --text --no-ext-diff --no-textconv --src-prefix=a/ --dst-prefix=b/ --root --no-renames --diff-merges=first-parent --format='commit %h' "$local_sha" "${history_excludes[@]}" -- . > "$added" 2>/dev/null || scan_ok=0
     git log --root --format='commit %h%n%B' "$local_sha" "${history_excludes[@]}" 2>/dev/null | awk -v t="$guard_tab" "$msgawk" > "$msgs" || scan_ok=0
+    git log --name-only -z --format= --no-renames --diff-filter=AC "$local_sha" "${history_excludes[@]}" -- . > "$pnames" 2>/dev/null || scan_ok=0
   else
     git diff --name-only -z --no-renames --diff-filter=AMT "$range" -- . > "$names" 2>/dev/null || scan_ok=0
     git log -p --text --no-ext-diff --no-textconv --src-prefix=a/ --dst-prefix=b/ --no-renames --diff-merges=first-parent --format='commit %h' "$range" "${history_excludes[@]}" -- . > "$added" 2>/dev/null || scan_ok=0
     git log --format='commit %h%n%B' "$range" "${history_excludes[@]}" 2>/dev/null | awk -v t="$guard_tab" "$msgawk" > "$msgs" || scan_ok=0
+    git log --name-only -z --format= --no-renames --diff-filter=AC "$range" "${history_excludes[@]}" -- . > "$pnames" 2>/dev/null || scan_ok=0
   fi
   # An annotated tag's message is read with the commit messages (D-WORKFLOW-200,
   # #933): a tag object carries text no commit does.
@@ -288,7 +295,7 @@ while read -r local_ref local_sha remote_ref remote_sha; do
   fi
   guard_added_lines < "$added" > "$lines" || scan_ok=0
   if [ "$scan_ok" != 1 ]; then
-    rm -f "$names" "$added" "$lines" "$blob" "$msgs"
+    rm -f "$names" "$added" "$lines" "$blob" "$msgs" "$pnames"
     echo "✗ pre-push: refusing to push ${pushed}: could not diff ${range:-$local_sha} to scan it." >&2
     status=1
     continue
@@ -322,7 +329,8 @@ while read -r local_ref local_sha remote_ref remote_sha; do
   guard_scan "$hook" "$lines" "a commit in this push adds a listed word (the wordlist outside the tree)" -i "$FORBIDDEN_PATTERNS" where || refused=1
   guard_scan "$hook" "$msgs" "a commit message in this push carries a credential-shaped line" '' "$SECRET_PATTERNS" redact || refused=1
   guard_scan "$hook" "$msgs" "a commit message in this push carries a listed word" -i "$FORBIDDEN_PATTERNS" where || refused=1
-  rm -f "$names" "$added" "$lines" "$blob" "$msgs"
+  guard_scan_names "$hook" "$pnames" "a commit in this push adds a path whose name carries a listed word" || refused=1
+  rm -f "$names" "$added" "$lines" "$blob" "$msgs" "$pnames"
   if [ "$refused" = 1 ]; then
     echo "✗ pre-push: refusing to push ${pushed}. Placeholders belong in <angle brackets>; a real value, and a listed word, have to come out of history before this pushes." >&2
     status=1

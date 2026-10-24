@@ -83,6 +83,23 @@ guard_added_lines() {
     }'
 }
 
+# guard_scan_names <hook> <file> <what>: <file> holds NUL-separated path
+# names; each is judged against the wordlist (never the credential patterns,
+# which judge a value after its label). A path is in the tree and in every
+# clone (D-WORKFLOW-061), so a name carrying a listed word is refused; the
+# refusal gives the count, never a name, since the name would print the word
+# (T10 S3, #936). Returns 0 when none matched, 1 otherwise.
+guard_scan_names() {
+  local hook="$1" file="$2" what="$3" n rc
+  n="$(tr '\0' '\n' < "${file}" | grep -a -i -c -E -e "${FORBIDDEN_PATTERNS}" 2>/dev/null)"; rc=$?
+  case "${rc}" in
+    1) return 0 ;;
+    0) echo "✖ ${hook}: ${what}: ${n} path name(s) carry a listed word; the names are not printed, since each would print the word. Rename them (git diff --cached --name-only, or git log --name-only, lists them)." >&2
+       return 1 ;;
+    *) echo "✖ ${hook}: the scan of path names could not run (grep exited ${rc}); nothing was scanned, so nothing is allowed" >&2; return 1 ;;
+  esac
+}
+
 # guard_numbered <label>: stdin is a file; stdout "<label>:<n>TAB<line>".
 guard_numbered() {
   awk -v t="${guard_tab}" -v l="$1" '{ print l ":" NR t $0 }'

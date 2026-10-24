@@ -19,6 +19,12 @@ if ! git diff --cached -U0 --no-color --text --no-ext-diff --no-textconv --src-p
   exit 1
 fi
 status=0
+# The names the commit adds, judged against the wordlist (T10 S3, #936).
+newnames="$(mktemp)" || { echo "✖ pre-commit: mktemp failed; nothing was scanned, so nothing is allowed" >&2; exit 1; }
+trap 'rm -f "${added}" "${newnames}"' EXIT
+git diff --cached --name-only -z --no-renames --diff-filter=AC -- . > "${newnames}" \
+  || { echo "✖ pre-commit: could not list the paths this commit adds; nothing was scanned, so nothing is allowed" >&2; exit 1; }
+guard_scan_names pre-commit "${newnames}" "this commit would add a path whose name carries a listed word" || status=1
 guard_scan pre-commit "${added}" "this commit would add a credential-shaped line" '' "${SECRET_PATTERNS}" redact || status=1
 guard_scan pre-commit "${added}" "this commit would add a listed word (the wordlist outside the tree; the file and line above)" -i "${FORBIDDEN_PATTERNS}" where || status=1
 # A conflict marker at the start of an added line: <<<<<<< or >>>>>>> (both are
