@@ -110,7 +110,10 @@ EOF
   cat <<EOF >>${ESTMP}/.es_systems.cfg
 </systemList>
 EOF
-xmlstarlet fo -t ${ESTMP}/.es_systems.cfg >${ESTMP}/es_systems.cfg 2>/dev/null
+if ! xmlstarlet fo -t ${ESTMP}/.es_systems.cfg >${ESTMP}/es_systems.cfg; then
+  echo "mk_es_systems: ${ESTMP}/.es_systems.cfg is not well-formed (xmlstarlet's error above)" >&2
+  return 1
+fi
 
 }
 
@@ -126,10 +129,16 @@ EOF
 
 add_es_system() {
   RUNCMD='/usr/bin/runemu.sh %ROM% -P%SYSTEM% --core=%CORE% --emulator=%EMULATOR% --controllers="%CONTROLLERSCONFIG%"'
-  if [ -e "${ROOT}/config/emulators/${1}.conf" ]
+  # Every system starts from nothing: a key its fragment does not set must
+  # not carry over from the system registered before it (a year, a command).
+  unset SYSTEM_NAME SYSTEM_FULLNAME SYSTEM_MANUFACTURER SYSTEM_RELEASE SYSTEM_HARDWARE \
+        SYSTEM_PATH SYSTEM_EXTENSION SYSTEM_COMMAND SYSTEM_PLATFORM SYSTEM_THEME SYSTEM_WIKI_PATH
+  if [ ! -e "${ROOT}/config/emulators/${1}.conf" ]
   then
-    . ${ROOT}/config/emulators/${1}.conf
+    echo "add_es_system: ${1} has no fragment config/emulators/${1}.conf" >&2
+    return 1
   fi
+  . ${ROOT}/config/emulators/${1}.conf
 
   if [ ! -d "${ESTMP}" ]
   then
@@ -210,10 +219,24 @@ EOF
       then
         ### Add an attribute defining the default core
         xmlstarlet ed --omit-decl --inplace \
-            -i "//system/emulators/emulator[@name=\"${SYSTEM_EMULATOR}\"]/cores/core" -t attr -n "default" -v "true" \
+            -i "//system/emulators/emulator[@name=\"${SYSTEM_EMULATOR}\"]/cores/core[last()]" -t attr -n "default" -v "true" \
             ${ESTMP}/${SYSTEM_NAME}.tmp 2>&1 >/dev/null
       fi
     done <${ESTMP}/${SYSTEM_NAME}-emulators.tmp
+
+    # One default per system, over all its emulators. Two fail the build, by
+    # name. None is said, and does not yet fail: GENERIC_X64's psx ships so
+    # today, and its recipe line is the emulators slice's (#650).
+    DEFAULTS=$(xmlstarlet sel -t -m "//system/emulators/emulator/cores/core[@default='true']" -v "concat(../../@name, '/', .)" -o " " ${ESTMP}/${SYSTEM_NAME}.tmp 2>/dev/null ||:)
+    set -- ${DEFAULTS}
+    if [ $# -gt 1 ]
+    then
+      echo "add_es_system: ${SYSTEM_NAME} has $# default cores (${DEFAULTS% }); exactly one add_emu_core line may say true" >&2
+      return 1
+    elif [ $# -eq 0 ]
+    then
+      echo "add_es_system: WARNING: ${SYSTEM_NAME} has cores and no default core" >&2
+    fi
   fi
   add_system_doc ${SYSTEM_NAME}
 }
