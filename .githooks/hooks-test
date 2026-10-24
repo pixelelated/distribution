@@ -82,6 +82,20 @@ g reset -q; rm 'odd"name.txt'
 echo 'clean content' > "${KEYNAME}"; g add "${KEYNAME}"
 expect allowed "a file NAMED like a key, clean inside (the label is not scanned)" "${HOOKS}/pre-commit"
 g commit -q -m named
+# T10 S1 (#929, #930, #931): three shapes the diff reader skipped. A NUL byte
+# makes git call a file binary; a .po was exempt; a deleted "-- " line made
+# the next added "++ b/" line read as a file header.
+printf 'x\0y\nthe zebrafish quartet\n' > bin.dat; g add bin.dat
+expect refused "a listed word in a file git treats as binary (#929)" "${HOOKS}/pre-commit"
+silent "the refusal" "zebrafish"
+g reset -q; rm bin.dat
+printf 'msgid "x"\nmsgstr "the zebrafish quartet"\n' > fr.po; g add fr.po
+expect refused "a listed word in a .po file (#930)" "${HOOKS}/pre-commit"
+g reset -q; rm fr.po
+printf -- '-- old note\n' > hdr.txt; g add hdr.txt; g commit -q -m hdr
+printf '++ b/the zebrafish quartet\n' > hdr.txt; g add hdr.txt
+expect refused "an added '++ b/' line after a deleted '-- ' line is content, not a header (#931)" "${HOOKS}/pre-commit"
+g reset -q; git checkout -q -- hdr.txt
 echo 'plain' > e.txt; g add e.txt
 SECRET_PATTERNS_FILE="${SCRATCH}/badlist" expect refused "a credential list that does not compile" "${HOOKS}/pre-commit"
 says "it says so" "does not compile"
@@ -123,5 +137,9 @@ expect allowed "a clean commit, touching the file named like a key" push_line "r
 SECRET_PATTERNS_FILE="${SCRATCH}/badlist" expect refused "a credential list that does not compile" push_line "refs/heads/clean $(git rev-parse HEAD) refs/heads/clean ${ZERO}"
 FORBIDDEN_TERMS_FILE="${SCRATCH}/absent" expect refused "no wordlist at all" push_line "refs/heads/clean $(git rev-parse HEAD) refs/heads/clean ${ZERO}"
 expect refused "a tip this clone does not have" push_line "refs/heads/clean 1234567890123456789012345678901234567890 refs/heads/clean ${ZERO}"
+# T10 S1 (#929): a binary-detected file in a middle commit.
+g checkout -q -b binmid "${remote}"; printf 'x\0y\nthe zebrafish quartet\n' > b.dat; g add b.dat; g commit -q -m b1; g rm -q b.dat; g commit -q -m b2
+expect refused "a listed word in a binary-detected file in a middle commit, gone at the tip (#929)" push_line "refs/heads/binmid $(git rev-parse HEAD) refs/heads/binmid ${ZERO}"
+silent "the refusal" "zebrafish"
 
 if [ "${fail}" -eq 0 ]; then echo PASS; else echo FAIL; exit 1; fi
