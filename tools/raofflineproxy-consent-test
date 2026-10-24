@@ -7,6 +7,12 @@ Uses real packaged reporting functions, SQLite and loopback HTTP. Only the log
 upload destination constant is redirected; no reporting/consent function is
 replaced. Does not prove scheduler timing, UI consent or a real provider.
 """
+import sys
+# Its checks are assert statements, which python -O removes: under -O every
+# refusal would read as a pass, so it refuses to run at all (#975).
+if sys.flags.optimize:
+    print('raofflineproxy-consent-test: refuses to run under python -O (PYTHONOPTIMIZE): its checks are asserts, which -O removes', file=sys.stderr)
+    sys.exit(2)
 import argparse
 import hashlib
 import http.server

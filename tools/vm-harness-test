@@ -1655,6 +1655,12 @@ def optimize_raofflineproxy_installed_native_test(c):
 
 
 
+@case
+def optimize_raofflineproxy_consent_test(c):
+    return guarded(c, 'raofflineproxy-consent-test')
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')
