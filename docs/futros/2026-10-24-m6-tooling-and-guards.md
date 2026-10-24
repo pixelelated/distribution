@@ -430,3 +430,64 @@ third fewer issues than exist), and `forbidden-terms-check` skips the
 tree's 180 tracked symlinks without comparing its scanned count with the
 listed one. Both are Q3's shape (a guard that reads less than it claims);
 the lane files them as bugs at stage D (D-WORKFLOW-187).
+
+## Addendum: T12 at its kickoff (2026-10-24, from the brief `docs/reviews/briefs/tooling-vm-harness.md` version 1)
+
+**What we know and assume.** T12 is the area's third slice, **Independent**
+(one GPT-6 Astra seat), over **60 paths, 8,790 lines, all fork-own; 20
+Python, 10 shell, 22 `.steps` walks, 3 text, 2 Markdown, 3 PNG fixtures;
+484,627 bytes at the hash** -- `vm-qa` and its 17 suites, `vm-visual-qa` and
+the walks, `time-to-play`, `frame-diff` with its 391 claims, the pair, the
+serial shell, `vm-stop`, the rehearsal, the three RetroAchievements proofs
+and the two proxy tests, the memory measurements, the QA-account carrier,
+`device-act`, `es-syntax-check`, `es-untranslated`, `font-stems`,
+`png-blackout`. 145 fork commits since the base; none on `upstream/next`;
+the branch differs from the hash on none of them. Two of the 60 run in the
+fork CI (`vm-pair-test`, `vm-upgrade-readiness-test`); `vm-qa` is the one
+caller of most of the rest; eight candidates may have no caller at all. The
+lens is **cost against value**: the record (`docs/vm-qa-log.md`, ten
+`docs/qa-logs/` folders with reports, sixteen blindspots naming these tools)
+is the value side, the reports' minutes and the host's guests the cost side.
+
+**Known unknowns.** U-1 how each tool finds, waits for and stops a QEMU
+(pidfile and owned disk, or pattern -- T9's F-03 shape in `build-preflight`
+is the warning). U-2 which suites have caught nothing recorded (the value
+table's `nothing recorded` rows are the lens's output). U-3 whether a
+GENERIC_X64 image on the host still boots the harness as the tools expect
+(the newest is 2026-10-02's; the M7 lane's QA images are newer). U-4 the
+`/tmp` roots (`/tmp/rocknix-qemu-monitor-*.sock`, `/tmp/ttp`) against the
+inode exhaustion of this morning. U-5 the 391 claims against the 17 walks
+and 22 step files: claims no walk exercises, walks no claim owns. U-6 the
+cost of one guest cycle on the lane's clock (T8's five cycles ran 14 to 30
+minutes each).
+
+**Patterns.** Blindspot 39 (a PASS over missing numbers) is the harness's
+own founding lesson and the Q3 shape to hunt through every suite. T8's five
+guest cycles on 2026-10-24 are the recorded shape of a cycle (host file,
+pidfile, `vm-stop`, census, retirement). T9's `build-preflight` finding
+(stop by pattern) is the Q2 shape. T10's class (a checker that reads less
+than it reports) applies to a runner that folds a suite that could not run
+into a pass -- `vm-qa` says it does not (`SKIPS=0`); the proof is a
+constructed rc 3.
+
+**What could we be missing.** A fresh lane reads "the VM harness" and
+reaches for a full `vm-qa` run on a fresh pair (an hour of two guests): the
+brief authorizes one bounded cycle with `--only` the suites the cost table
+needs and names the image first. A lane finds a suite with no catch and
+proposes deleting it: the brief says the lens is not a licence; the
+coordinator decides with the maintainer. A seat proposes changing what
+`time-to-play` measures: a contract lead (D-QA-022, D-CLOUD-122), not a
+stream. Pre-mortem: a month on, a candidate passes `vm-qa` while a suite
+silently skipped, because the SKIP accounting was never seen to fire -- so
+the brief's Q3 asks for the constructed rc 3. Replaced mechanism: none (a
+read).
+
+**Adjustments written into version 1 of the brief:** A1 § 2 writes the
+brace glob out as names and lists the eight no-caller candidates; A2 § 5
+authorizes one guest cycle with its exact ritual and forbids the second
+without a line; A3 § 4 makes Q5 and Q6 the two tables (cost, value) the
+slice is for; A4 § 7 asks the claims-against-walks reconciliation and the
+find/stop classification by name; A5 § 8 names the handheld, the QA account,
+the pattern kill and `/tmp` as stops; A6 § 9 adds the cycle's own ritual
+(`docs/vm-qa-log.md`); A7 § 10 includes the host checked for a payload left
+behind.
