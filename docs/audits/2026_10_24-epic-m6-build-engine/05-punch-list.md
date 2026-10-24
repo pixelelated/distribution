@@ -433,7 +433,8 @@ punch_index:
   source_finding: "F-01, F-02"
   owner_area: "the container's environment: `get_env`"
   tracked: "#830"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-sandbox; the next `make docker-*` run's `.env` read back as names only"
 - id: PL-05
   severity: Medium
   category: Code Quality
@@ -605,7 +606,7 @@ punch_index:
 | PL-01 | **Resolved** | `cfd5ee7324` (E1): every part1 copy, the hook's fifteen, the partitioning, `pigz` and the checksum through `show_error`; a size check; the partial image removed on failure or interrupt. P15 before and after; fix-sandbox; fix-pending-image: the next SM8550 and H700 builds' `target/` |
 | PL-02 | **Resolved** | `6712ae5ef3` (E2): `pushd` and `_clean_repo` checked on their own lines, every return pops; a cache directory that cannot be entered is invalid. P17 before and after; fix-sandbox; fix-pending-image: the first build that reuses a warm cache |
 | PL-03 | **Resolved** | `6712ae5ef3` (E2): `HEAD` must equal `git rev-parse "${PKG_VERSION}^{commit}"`; `_clean_repo` resets tracked edits. P16 before and after; fix-sandbox; fix-pending-image: the first build that reuses a warm cache |
-| PL-04 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-04 | **Resolved** | `10f688e3cd` (E3): `DROP` matched in upper case with the missing words and fused endings; a value spanning lines not forwarded, named on stderr; a failed write exits 1. P18 before and after; fix-sandbox; the next `make docker-*` run's `.env` read back as names only |
 | PL-05 | Open | stage E's stream brief resolves (`t5-streams.md`) |
 | PL-06 | Open | stage E's stream brief resolves (`t5-streams.md`) |
 | PL-07 | Open | stage E's stream brief resolves (`t5-streams.md`) |

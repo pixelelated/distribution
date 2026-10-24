@@ -177,3 +177,15 @@ PROOF: 06:27-06:30 P15 `scripts/mkimage` exits 1 and leaves no image over a SYST
 
 PROOF: 06:33 P16 `get_git`'s cache check refuses a clone whose `HEAD` is not the pin and discards tracked edits, where it accepted both -- `tools/sb-get-git-head.sh` (F-18, #829)
 PROOF: 06:33 P17 `get_git`'s cache check over a directory it cannot enter leaves the build tree intact, where it ran `git clean -fdx` in it -- `tools/sb-get-git-pushd.sh` (F-25, #828)
+
+### [Stage E] 06:34 to 06:37 — E3, `get_env`'s filter (PL-04, #830)
+
+- The coordinator accepted E2 on #652 (nothing owed).
+- The fixture: `tools/sb-get-env.sh` now takes a scratch directory and a commit or `WORKTREE`, and runs over `env -i` with 30 names built at run time. It prints names only, with a verdict of leaked and missing names. Besides the brief's set, it adds `WIFI_PSK`, `app_secret`, `ROCKNIX_GHTOKEN` (Argon G-08) and a carriage-return value. It also checks innocent names that must still pass: `KEYBOARD_LAYOUT`, `XDG_SESSION_TYPE`, `BYPASS_CACHE`, `BUILD_TIMESTAMP`, `OS_VERSION`, `DIRTY`, `SOURCES_DIR` and `TMPDIR`.
+- Before: 12 names leaked; a failed write to `/dev/full` with the last name dropped exited 0 (Astra G-06).
+- The change: `10f688e3cd`.
+- After: none leaked; 15 kept; two notices naming `MULTILINE` and `CRLINE`; the failed write exits 1. `bash -n` passes.
+- The `Makefile` recipe, read and unchanged: it removes a leftover `.env` before writing (205), writes 0600 under `set -C` (207), and removes it on exit by `trap` (206).
+- Already written: none in the 134 checkouts at stage B.
+
+PROOF: 06:35-06:36 P18 `get_env` forwards no secret-shaped or multi-line name and fails on a failed write, where 12 names leaked and the write failure exited 0 -- `tools/sb-get-env.sh` (F-01, F-02, #830)
