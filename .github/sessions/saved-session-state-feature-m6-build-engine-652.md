@@ -40,19 +40,19 @@
 
 ## Current focus
 
-**Stage A written (2026-10-24 03:53 UTC).** Executor Opus 5.5 at high
-effort, session `c649553c-8086-4db7-ad9c-248c7e41ff95`, pane `wN:p7`; start
-confirmed on #652 (issuecomment-6379521847). `reviewed-at` = `46f6c7d428`
-(the slice's bytes are `next`'s at `8ebaf8daad`; `upstream/next`
-`3421d7d178`; merge base `c445081a59`). The membership re-derived with no
-delta (242 paths, 13,910 lines, 18 fork-own 3,266, code-class 6,776 of
-which fork-own 2,419); M7's delta on it none; the branch scan 17 old
-remote branches. Artifacts so far:
-`docs/audits/2026_10_24-epic-m6-build-engine/00-running-log.md` and
-`01-research-notes.md` § Scope. **The host is M7's from 03:47**: no guest,
-compiler or `npm install` until the coordinator relays the return on #652.
-Next: brief § 3's reading (the pre-flight), then stage B (Phase 1, then
-Phase 2 with the coverage table and the mechanical checks of § 5).
+**Stage C ready but for Phase 4.6 (2026-10-24 04:38 UTC).** `reviewed-at` `46f6c7d428`. Written in
+`docs/audits/2026_10_24-epic-m6-build-engine/`: `00` to `04`, `q6-tables.md`, a
+draft `05` (22 items: 2 High, 7 Medium, 13 Low), `second-opinions/review-plan.json`
+and both reviewer briefs (not sent), `stage-d-bug-drafts/` (nine `bug` bodies,
+not filed), and the sandbox scripts under `tools/`. 21 findings, 13 proofs
+(`PROOF:` = `proved:` = 13), the coverage table 242 rows. The pre-issue lint
+fails only on the missing Phase 4.6 provenance. **Blocked on the host:** the
+`npm install --prefix tools/council`, `verify-pins`, `test`, both probes and
+both refutation calls wait for the coordinator's relay of M7's `resource
+return` on #652. Then: grade the two outputs into `04` § Second opinion,
+finalise `05`, run the pre-issue lint to PASS, file the audit issue and the
+bug issues (`tools/bug-drafts.py`), `box-check` each, post the punch list on
+#652, and **pause** for the stream briefs.
 
 ## Next commands
 
