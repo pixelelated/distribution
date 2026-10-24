@@ -17,22 +17,69 @@ token=$(get_setting "global.retroachievements.token")
 enabled=$(get_setting "global.retroachievements")
 hardcore=$(get_setting "global.retroachievements.hardcore")
 
+# Write [SECTION]'s keys as data: awk reads each value from the environment,
+# so no sign-in value reaches sed or the shell; every other key and section
+# is kept, the section ends at the next [header], and the file is replaced
+# only once the new one is written (temp and rename).
+write_section() { # file section key=value...
+  local file="$1" section="$2" pair keys="" tmp
+  local -a envs=()
+  shift 2
+  for pair in "$@"; do keys="${keys} ${pair%%=*}"; envs+=("V_${pair%%=*}=${pair#*=}"); done
+  [ -e "${file}" ] || : > "${file}" || return 1
+  tmp=$(umask 077; mktemp "${file}.XXXXXX") || return 1
+  if env "${envs[@]}" KEYS="${keys}" SECTION="[${section}]" awk '
+      BEGIN { n = split(ENVIRON["KEYS"], k, " "); for (i = 1; i <= n; i++) want[k[i]] = 1 }
+      function rest(   i) { for (i = 1; i <= n; i++) if (!done[k[i]]) { print k[i] " = " ENVIRON["V_" k[i]]; done[k[i]] = 1 } }
+      /^\[/ { if (insec) { rest(); insec = 0 } if ($0 == ENVIRON["SECTION"]) { insec = 1; seen = 1 } print; next }
+      insec { key = $0; sub(/[ \t]*=.*/, "", key); sub(/^[ \t]+/, "", key)
+              if (key in want) { if (!done[key]) print key " = " ENVIRON["V_" key]; done[key] = 1; next } }
+      { print }
+      END { if (insec) rest(); else if (!seen) { print ENVIRON["SECTION"]; rest() } }
+    ' "${file}" > "${tmp}" && mv -f "${tmp}" "${file}"; then
+    return 0
+  fi
+  rm -f "${tmp}"
+  return 1
+}
+
+# Write a private file whole, once: mode 0600, temp and rename.
+write_private() { # file content
+  local tmp
+  mkdir -p "${1%/*}" || return 1
+  tmp=$(umask 077; mktemp "${1}.XXXXXX") || return 1
+  if printf '%s' "$2" > "${tmp}" && mv -f "${tmp}" "$1"; then
+    return 0
+  fi
+  rm -f "${tmp}"
+  return 1
+}
+
+# Off, or on with no token: publish a disabled session -- the flag off, the
+# user and the token cleared -- so the previous account is not signed in
+# (cheevos_dolphin.sh's publish_disabled shape, #861).
+publish_disabled() {
+  write_private "${PPSSPP_ACHIEVEMENTS}" "" \
+    || echo "PPSSPP's achievements token file could not be cleared." >> ${LOG_FILE}
+  write_section "${PPSSPP_INI}" Achievements "AchievementsEnable=False" "AchievementsUserName=" "AchievementsHost=" \
+    || echo "PPSSPP's achievements settings could not be written." >> ${LOG_FILE}
+}
+
 # Check if RetroAchievements are enabled in Emulation Station. Quoted: an
 # empty read used to make the test a syntax error that fell through to
 # "enabled" (audit #186 PL-31).
 if [ "${enabled}" != "1" ]; then
     echo "RetroAchievements are not enabled, please turn them on in Emulation Station." > ${LOG_FILE}
-    sed -i '/^AchievementsEnable =/c\AchievementsEnable = False' ${PPSSPP_INI}
+    publish_disabled
     exit 1
 fi
 
 # Check if api token is present in system.cfg
 if [ -z "${token}" ]; then
     echo "RetroAchievements token is empty, please log in with your RetroAchievements credentials in Emulation Station." > ${LOG_FILE}
+    publish_disabled
     exit 1
 fi
-
-echo "${token}" > ${PPSSPP_ACHIEVEMENTS}
 
 # Set hardcore mode
 hardcore_raw="${hardcore}"
@@ -100,32 +147,10 @@ if [ "$(get_setting "global.retroachievements.offlineproxy")" = 1 ] && [ "${hard
   esac
 fi
 
-# Update emulator config with RetroAchievements settings
-zcheevos=$(grep -Fx "[Achievements]" ${PPSSPP_INI})
-echo "${token}" > ${PPSSPP_ACHIEVEMENTS}
-
-if [ -z "${zcheevos}" ]
-then
-    echo -e "[Achievements]\nAchievementsEnable = True\nAchievementsUserName = ${username}\nAchievementsChallengeMode = ${hardcore}\nAchievementsHost = ${host}" >> ${PPSSPP_INI}
-else
-    sed -i '/^AchievementsEnable =/c\AchievementsEnable = True' ${PPSSPP_INI}
-    if ! grep -q "^AchievementsUserName = " ${PPSSPP_INI}; then
-        sed -i "/^\[Achievements\]/a AchievementsUserName = ${username}" ${PPSSPP_INI}
-    else
-        sed -i "/^\[Achievements\]/,/^\[/{s/^AchievementsUserName = .*/AchievementsUserName = ${username}/;}" ${PPSSPP_INI}
-    fi
-
-    if ! grep -q "^AchievementsChallengeMode = " ${PPSSPP_INI}; then
-        sed -i "/^\[Achievements\]/a AchievementsChallengeMode = ${hardcore}" ${PPSSPP_INI}
-    else
-        sed -i "/^\[Achievements\]/,/^\[/{s/^AchievementsChallengeMode = .*/AchievementsChallengeMode = ${hardcore}/;}" ${PPSSPP_INI}
-    fi
-
-    # Matched up to the "=", not past it: an empty value is written as
-    # "AchievementsHost = " and PPSSPP may save it back without the space.
-    if ! grep -q "^AchievementsHost =" ${PPSSPP_INI}; then
-        sed -i "/^\[Achievements\]/a AchievementsHost = ${host}" ${PPSSPP_INI}
-    else
-        sed -i "/^\[Achievements\]/,/^\[/{s/^AchievementsHost =.*/AchievementsHost = ${host}/;}" ${PPSSPP_INI}
-    fi
-fi
+# Update emulator config with RetroAchievements settings: the token file
+# once, private; the [Achievements] keys as data.
+write_private "${PPSSPP_ACHIEVEMENTS}" "${token}"$'\n' \
+  || echo "PPSSPP's achievements token file could not be written." >> ${LOG_FILE}
+write_section "${PPSSPP_INI}" Achievements "AchievementsEnable=True" "AchievementsUserName=${username}" \
+    "AchievementsChallengeMode=${hardcore}" "AchievementsHost=${host}" \
+  || echo "PPSSPP's achievements settings could not be written." >> ${LOG_FILE}
