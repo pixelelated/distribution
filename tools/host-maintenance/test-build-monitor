@@ -243,8 +243,10 @@ sys.exit(subprocess.call(a[at+1:]))
                          cwd=d, env=environment(d), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     try:
         wait_for(lambda: list((d / '.build-runs').glob('*/command.pid')) if (d / '.build-runs').exists() else [])
-        blocked = run(d, ['./tools/watch-build', '--', 'touch', 'second-command'])
-        check(blocked.returncode != 0 and not (d / 'second-command').exists(),
+        # #918: a fresh admission, so the refusal is the lock's and not a used receipt's.
+        blocked = run(d, ['./tools/watch-build', '--', 'touch', 'second-command'], fresh(d, 'lock'))
+        check(blocked.returncode != 0 and not (d / 'second-command').exists()
+              and 'another monitored build owns this worktree' in blocked.stderr,
               'one top-level build per worktree')
         p.send_signal(signal.SIGTERM)
         check(p.wait(timeout=10) == 143 and finished(d, 143), 'termination forwards to child and retains143')
@@ -291,6 +293,11 @@ print('new cold root observed')
         r = only_run(d)
         wait_for(lambda: 'state:       died\n' in (r / 'build.status').read_text())
         check(not (r / 'build.rc').exists(), 'detached monitor records killed runner without inventing result')
+        # #918: the runner is gone and its command is not; the worktree is still taken.
+        second = run(d, ['./tools/watch-build', '--interval', '1', '--', 'touch', 'second-command'], fresh(d, 'after-kill'))
+        check(alive(child_pid) and second.returncode != 0 and not (d / 'second-command').exists()
+              and 'another monitored build owns this worktree' in second.stderr,
+              'a killed runner whose command lives still holds the worktree')
     finally:
         if child_pid is not None:
             try:

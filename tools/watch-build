@@ -194,8 +194,11 @@ def main():
             # A cancellation during admission starts nothing (#917).
             code = 128 + interrupted
             raise Interrupted(f'signal {interrupted} before the command started')
+        # The command inherits the worktree lock, so exclusion lasts as long as
+        # the command does, not only the runner (#918, worktrees.md).
         child = subprocess.Popen(command, env=environment, stdout=subprocess.PIPE,
                                  stderr=subprocess.STDOUT, start_new_session=True,
+                                 pass_fds=(lock.fileno(),),
                                  preexec_fn=lambda: os.umask(build_umask))
         (run / 'command.pid').write_text(str(child.pid) + '\n')
         if interrupted is not None:
