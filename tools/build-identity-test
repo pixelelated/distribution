@@ -5,9 +5,17 @@
 
 Only synthetic Git repositories, tiny firmware stand-ins and temporary outputs.
 No image build, tag, network, device or cloud action is performed.
+
+The stand-in is an update tar whose SYSTEM is a squashfs of the selected-state
+gate's own clean root (pixelelated-state-check-test's clean() and make_tar()),
+so fork-publish-release's gate inspects real bytes and accepts them (#989).
+It needs mksquashfs; without it the run exits 2, a CANNOT, never a pass.
+Every refusal case names the reason it expects and the exit, not any non-zero.
 """
 import argparse
 import hashlib
+import importlib.machinery
+import importlib.util
 import json
 import os
 from pathlib import Path
@@ -24,6 +32,13 @@ def main():
         parser.error('output already exists; retain original results')
     root = Path(__file__).resolve().parents[1]
     checks, examples = [], {}
+    if not shutil.which('mksquashfs'):
+        print('CANNOT build identity: mksquashfs is required for the update-tar stand-in', flush=True)
+        return 2
+    loader = importlib.machinery.SourceFileLoader('state_check_fixture', str(root / 'tools/pixelelated-state-check-test'))
+    spec = importlib.util.spec_from_loader(loader.name, loader)
+    state_fixture = importlib.util.module_from_spec(spec)
+    loader.exec_module(state_fixture)
 
     def run(argv, **kw):
         return subprocess.run(argv, text=True, capture_output=True, timeout=30, **kw)
@@ -32,6 +47,10 @@ def main():
         checks.append({'name': name, 'passed': bool(condition)})
         if not condition:
             raise AssertionError(name)
+
+    def refused(result, reason, code=1):
+        """A refusal with the exit and the reason it names, never any non-zero (#989)."""
+        return result.returncode == code and reason in result.stderr
 
     def sha(p):
         return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -76,11 +95,14 @@ def main():
                   json.loads(default.stdout)['RELEASE_VERSION'] == '0.0.1-dev')
             for qualifier in ('alpha.1', 'beta.1', 'rc', 'rc.0', 'rc.01', 'rc.-1',
                               'rc.1.2', 'rc.1+extra', 'stable', 'bad/'):
-                check('reject qualifier ' + qualifier, derive(BUILD_QUALIFIER=qualifier).returncode != 0)
-            for changes in ({'OS_VERSION': '01.0.1'}, {'BUILD_TIMESTAMP': '20260230T120000Z'},
-                            {'CUSTOM_VERSION': 'bad'}, {'CUSTOM_IMAGE_NAME': 'bad'},
-                            {'CUSTOM_GIT_HASH': 'a' * 40}):
-                check('reject override ' + repr(changes), derive(**changes).returncode != 0)
+                check('reject qualifier ' + qualifier, refused(derive(BUILD_QUALIFIER=qualifier),
+                                                              'qualifier must be dev, rc.N'))
+            for changes, reason in (({'OS_VERSION': '01.0.1'}, 'OS_VERSION must be MAJOR.MINOR.PATCH'),
+                                    ({'BUILD_TIMESTAMP': '20260230T120000Z'}, 'invalid UTC date'),
+                                    ({'CUSTOM_VERSION': 'bad'}, 'not custom version/image names'),
+                                    ({'CUSTOM_IMAGE_NAME': 'bad'}, 'not custom version/image names'),
+                                    ({'CUSTOM_GIT_HASH': 'a' * 40}, 'CUSTOM_GIT_HASH must match')):
+                check('reject override ' + repr(changes), refused(derive(**changes), reason))
             (repo / 'dirty').write_text('untracked')
             check('dirty build identified', json.loads(derive().stdout)['BUILD_VERSION'].endswith('.dirty'))
             (repo / 'dirty').unlink()
@@ -128,11 +150,16 @@ def main():
                       item['build_version'] == build and item['image_name'] == base and files[0].name == base + '.identity.json')
                 check(label + ' installed metadata contract', fields['OS_VERSION'] == '"' + release + '"' and
                       fields['BUILD_VERSION'] == '"' + build + '"' and fields['BUILD_ID'] == '"' + commit + '"')
-                firmware = stage / (base + '-DDR4.img.gz')
-                firmware.write_bytes(b'SYNTHETIC FIRMWARE ONLY\n' + (stage / 'etc/os-release').read_bytes())
+                # An update tar the gate inspects for real: its clean root, this build's os-release.
+                system_root = work / (label + '-system')
+                state_fixture.clean(system_root, runtime=False)
+                state_fixture.put(system_root, 'etc/os-release', (stage / 'etc/os-release').read_text())
+                firmware = stage / (base + '.tar')
+                state_fixture.make_tar(system_root, firmware).unlink()
                 before = sha(firmware)
                 collision = run(['bash', '-c', prefix + block], cwd=repo, env=case_env)
-                check(label + ' duplicate output refused without replacement', collision.returncode != 0 and sha(firmware) == before)
+                check(label + ' duplicate output refused without replacement',
+                      refused(collision, 'Build identity already exists in target') and sha(firmware) == before)
                 (stage / (firmware.name + '.sha256')).write_text(before + '  ' + firmware.name + '\n')
                 metadata_text = (stage / 'etc/os-release').read_text()
                 shutil.rmtree(stage / 'etc')  # the candidate store accepts flat files only
@@ -140,7 +167,8 @@ def main():
                 bundles[label] = path
                 result = plan(path)
                 if q == 'dev':
-                    check('engineering public plan refused', result.returncode != 0)
+                    check('engineering public plan refused',
+                          refused(result, 'dev is engineering only'))
                     continue
                 check(label + ' public plan accepted: ' + result.stderr.strip(), result.returncode == 0)
                 data = json.loads(result.stdout)
@@ -153,18 +181,23 @@ def main():
             check('same-day RC identities distinct', examples['rc1']['identity']['build_version'] != examples['rc2']['identity']['build_version'])
             check('release reassembly changes bytes and manifest', examples['rc1']['synthetic_firmware_sha256'] != examples['release']['synthetic_firmware_sha256'] and bundles['rc1'].name != bundles['release'].name)
             # A renamed/retagged identity and unbound/modified bytes cannot pass.
-            for label, mutate in (
-                    ('relabeled RC as release', lambda s: next(s.glob('*.identity.json')).write_text(json.dumps({**examples['rc1']['identity'], 'release_version': '0.0.1'}))),
-                    ('unsupported alpha public version', lambda s: next(s.glob('*.identity.json')).write_text(json.dumps({**examples['rc1']['identity'], 'release_version': '0.0.1-alpha.1'}))),
-                    ('bad checksum', lambda s: next(s.glob('*.sha256')).write_text('wrong\n')),
-                    ('unbound firmware', lambda s: (s / 'extra.tar').write_bytes(b'wrong'))):
+            for label, mutate, reason in (
+                    ('relabeled RC as release', lambda s: next(s.glob('*.identity.json')).write_text(json.dumps({**examples['rc1']['identity'], 'release_version': '0.0.1'})),
+                     'build identity fields disagree'),
+                    ('unsupported alpha public version', lambda s: next(s.glob('*.identity.json')).write_text(json.dumps({**examples['rc1']['identity'], 'release_version': '0.0.1-alpha.1'})),
+                     'public release version must be MAJOR.MINOR.PATCH[-rc.N]'),
+                    ('bad checksum', lambda s: next(s.glob('*.sha256')).write_text('wrong\n'),
+                     'checksum file disagrees with manifest'),
+                    ('unbound firmware', lambda s: (s / 'extra.tar').write_bytes(b'wrong'),
+                     'bundle contains firmware without matching identity')):
                 stage = work / ('bad-' + str(len(checks)))
                 shutil.copytree(bundles['rc1'], stage)
                 (stage / 'manifest.json').unlink()
                 mutate(stage)
-                check(label + ' refused', plan(bundle(stage)).returncode != 0)
-            next(bundles['rc1'].glob('*.img.gz')).write_bytes(b'TAMPER')
-            check('modified bundle refused', plan(bundles['rc1']).returncode != 0)
+                r = plan(bundle(stage))
+                check(label + ' refused', refused(r, reason))
+            next(bundles['rc1'].glob('*.tar')).write_bytes(b'TAMPER')
+            check('modified bundle refused', refused(plan(bundles['rc1']), 'artifact does not match'))
     except Exception as error:
         checks.append({'name': 'harness completed', 'passed': False, 'error': str(error)})
     report = {'checks': checks, 'passed': sum(c['passed'] for c in checks),
