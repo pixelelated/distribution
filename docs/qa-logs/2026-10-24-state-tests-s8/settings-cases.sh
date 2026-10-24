@@ -3,7 +3,8 @@
 # stage-D test and the fixed one, over the tree's profile.d/001-functions and
 # chksysconfig, with:
 #   host       -- the host's busybox as --busybox
-#   unverified -- the same with --unverified-busybox (fixed only: stage D has no such flag)
+#   unverified -- the same with --unverified-busybox (fixed only: stage D has no such flag),
+#                 over the tree's functions and over the gnu-only copy below (a failing case)
 #   root       -- the build root's busybox
 #   standin    -- a copy of it under a scratch tree shaped like a build root, whose etc/os-release names a stand-in BUILD_ID
 #   space      -- the build root's busybox with a TMPDIR whose path holds a space
@@ -39,9 +40,12 @@ for side in old:"$OLD/settings-modes-test" new:"$T/tools/settings-modes-test"; d
   else
     u=$(run "$n-unverified" "$t" "$PROF" /usr/bin/busybox --unverified-busybox)
     lines=$(grep -cE '^(PASS|FAIL) ' "$S/$n-unverified.txt"); marked=$(grep -cE "^(PASS|FAIL) .* -- host busybox, not the candidate's$" "$S/$n-unverified.txt")
-    echo "  $n: unverified rc $u, $marked of $lines result lines marked"
+    uf=$(run "$n-unverified-failing" "$t" "$S/gnu-only-functions" /usr/bin/busybox --unverified-busybox)
+    flines=$(grep -cE '^(PASS|FAIL) ' "$S/$n-unverified-failing.txt"); fmarked=$(grep -cE "^(PASS|FAIL) .* -- host busybox, not the candidate's$" "$S/$n-unverified-failing.txt")
+    echo "  $n: unverified rc $u, $marked of $lines result lines marked | unverified with a failing case rc $uf ($(counts $n-unverified-failing)), $fmarked of $flines marked"
     check "fixed refuses the host busybox bare, exit 2, naming the remedy" "$([ "$h" = 2 ] && grep -q 'not under a build root' "$S/$n-host.txt" && echo 0 || echo 1)"
     check "fixed with --unverified-busybox exits 3 with the marker on every line" "$([ "$u" = 3 ] && [ "$lines" -gt 0 ] && [ "$marked" = "$lines" ] && echo 0 || echo 1)"
+    check "fixed with --unverified-busybox and a failing case exits 1, the marker still on every line" "$([ "$uf" = 1 ] && grep -q '^FAIL' "$S/$n-unverified-failing.txt" && [ "$fmarked" = "$flines" ] && echo 0 || echo 1)"
     check "fixed passes the build root's busybox and names its BUILD_ID" "$([ "$r" = 0 ] && grep -q 'BUILD_ID 1a026648442321609b2288c2c9c06803817f9df2' "$S/$n-root.txt" && echo 0 || echo 1)"
     check "fixed accepts the stand-in build root, its id in the result" "$([ "$si" = 0 ] && grep -q '"build_id": "standin0000000000000000000000000000000000"' "$S/$n-standin.json" && echo 0 || echo 1)"
     check "fixed fails the GNU-only writer: cat is the image's busybox" "$([ "$g" = 1 ] && echo 0 || echo 1)"

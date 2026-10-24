@@ -5,9 +5,10 @@ The busybox must be the candidate's (#997): a path under a build root's
 image/system/ (its BUILD_ID read from that root's etc/os-release), or one
 whose origin --busybox-from names (a BUILD_ID, or `image` on the candidate
 itself, as a guest run passes /usr/bin/busybox). Any other is refused, exit 2;
---unverified-busybox runs it anyway, marks every line `host busybox, not the
-candidate's` and exits 3, because a run that could not qualify the candidate
-has not passed. Every applet that busybox lists is shimmed (on the image each
+--unverified-busybox runs it anyway and marks every line `host busybox, not the
+candidate's`: it exits 3 when every case passed, because a run that could not
+qualify the candidate has not passed, and 1 when a case failed, because a
+defect found under another busybox is still a defect. Every applet that busybox lists is shimmed (on the image each
 is the busybox's, sh aside, which is bash), so a writer's command runs as the
 device runs it, and the receipt hashes the bytes that ran.
 """
@@ -26,7 +27,7 @@ def origin(path,declared,unverified):
  if declared:return {'kind':'declared','from':declared}
  if unverified:return {'kind':'unverified','marker':UNVERIFIED}
  cannot(f'{path} is not under a build root\'s image/system/; name its origin with --busybox-from <BUILD_ID|image>, or pass --unverified-busybox (exit 3)')
-p=argparse.ArgumentParser(description=__doc__,formatter_class=argparse.RawDescriptionHelpFormatter);p.add_argument('--profile',type=Path,required=True);p.add_argument('--chksysconfig',type=Path,required=True);p.add_argument('--busybox',type=Path,required=True);p.add_argument('--busybox-from',help='the busybox\'s origin when it is not under a build root: a BUILD_ID, or image');p.add_argument('--unverified-busybox',action='store_true',help='run a busybox of no known origin; every line is marked and the exit is 3');p.add_argument('--output',type=Path,required=True);a=p.parse_args()
+p=argparse.ArgumentParser(description=__doc__,formatter_class=argparse.RawDescriptionHelpFormatter);p.add_argument('--profile',type=Path,required=True);p.add_argument('--chksysconfig',type=Path,required=True);p.add_argument('--busybox',type=Path,required=True);p.add_argument('--busybox-from',help='the busybox\'s origin when it is not under a build root: a BUILD_ID, or image');p.add_argument('--unverified-busybox',action='store_true',help='run a busybox of no known origin: every line is marked; exit 3 when every case passed, 1 when one failed');p.add_argument('--output',type=Path,required=True);a=p.parse_args()
 src=origin(a.busybox,a.busybox_from,a.unverified_busybox);mark=' -- '+UNVERIFIED if src['kind']=='unverified' else ''
 print('busybox: '+(f"build root {src['root']}, BUILD_ID {src['build_id']}" if src['kind']=='build-root' else f"declared from {src['from']}" if src['kind']=='declared' else UNVERIFIED),flush=True)
 fn=a.profile.read_text();ck=a.chksysconfig.read_text();rows=[]

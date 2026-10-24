@@ -10,9 +10,10 @@ The busybox must be the candidate's (#997): a path under a build root's
 image/system/ (its BUILD_ID read from that root's etc/os-release), or one
 whose origin --busybox-from names (a BUILD_ID, or `image` on the candidate
 itself, as a guest run passes /usr/bin/busybox). Any other is refused, exit 2;
---unverified-busybox runs it anyway, marks every line "host busybox, not the
-candidate's" and exits 3, because a run that could not qualify the candidate
-has not passed. Every applet that busybox lists is shimmed (sh aside), and
+--unverified-busybox runs it anyway and marks every line "host busybox, not the
+candidate's": it exits 3 when every case passed, because a run that could not
+qualify the candidate has not passed, and 1 when a case failed, because a
+defect found under another busybox is still a defect. Every applet that busybox lists is shimmed (sh aside), and
 the receipt hashes the bytes that ran.
 """
 import argparse
@@ -61,7 +62,7 @@ def main():
     parser.add_argument('--busybox', required=True, type=Path)
     parser.add_argument('--busybox-from', help="the busybox's origin when it is not under a build root: a BUILD_ID, or image")
     parser.add_argument('--unverified-busybox', action='store_true',
-                        help='run a busybox of no known origin; every line is marked and the exit is 3')
+                        help='run a busybox of no known origin: every line is marked; exit 3 when every case passed, 1 when one failed')
     parser.add_argument('--output', required=True, type=Path)
     args = parser.parse_args()
     origin = busybox_origin(args.busybox, args.busybox_from, args.unverified_busybox)
