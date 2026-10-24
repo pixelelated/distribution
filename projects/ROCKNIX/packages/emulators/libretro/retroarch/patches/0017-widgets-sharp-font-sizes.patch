@@ -30,6 +30,12 @@ size. The CJK message-queue faces are not measured and are left alone.
 Each face logs its computed, floored and drawn size and the table it
 took ("[Widgets] font regular: <file>, computed 17.40 px, floor 9, ...").
 
+So on every profile ROCKNIX ships the size step is dormant: it engages
+only where video_font_path is empty or names an ozone face (D-UI-110).
+Whether M+ 1p gets a table of its own, or the profiles move to a face
+that has one, is D-UI-111's open question; the patch is kept for those
+faces and for that answer (#650 PL-018).
+
 diff --git a/gfx/gfx_widgets.c b/gfx/gfx_widgets.c
 --- a/gfx/gfx_widgets.c
 +++ b/gfx/gfx_widgets.c
