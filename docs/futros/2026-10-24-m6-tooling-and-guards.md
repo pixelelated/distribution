@@ -403,3 +403,30 @@ most held; six were wrong and two partial, corrected in version 2:
   and now says it in the present. `rules-check --help` runs the checks,
   `forbidden-terms-check --help` treats `--help` as a tree (rc 2): both
   reproduced, both Q7 rows for the lane.
+
+### Errata from T10's stage A (16:31 UTC, lane tip `5611a4fb62`)
+
+Three figures of version 2 corrected by the lane's own read, written into
+the brief by the coordinator the same hour:
+
+- **`generate-changelog.sh`'s diff against `upstream/next` is upstream's,
+  not the fork's**: two upstream commits (`76693a738d`, `71d8932b33`,
+  2026-10-13/14) are not yet in `next`; the stranger's proof saw the diff
+  and the errata above called it a fork hunk without reading its direction
+  (`git merge-base --is-ancestor` on the two commits settles it). The fork
+  carries no hunk of its own on either upstream script.
+- **`PERSONAL_PATTERNS` holds 14 `scripts/` entries**, not 12 (the 84
+  `tools/` and the 115 total stand).
+- **`hooks-test`'s 20 `expect` call sites print 27 results** at the hash
+  (a site inside a loop runs more than once), 22 sites and 29 results in
+  the worktree; version 2 called the sites "cases" and gave no result
+  count.
+
+Two leads the lane raised for its stage B, noted here because the
+coordinator's own ceremonies lean on them: `box-check:83` reads
+`gh issue list --limit 300` against 458 open issues and prints `0 fail`
+(the checkbox gate in `fork-checks.yml` and `ceremony-check`'s line read a
+third fewer issues than exist), and `forbidden-terms-check` skips the
+tree's 180 tracked symlinks without comparing its scanned count with the
+listed one. Both are Q3's shape (a guard that reads less than it claims);
+the lane files them as bugs at stage D (D-WORKFLOW-187).

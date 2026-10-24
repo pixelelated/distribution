@@ -213,7 +213,7 @@ Recorded (2026-10-24):
 
 **Provenance.** The two `.github/scripts/*.sh` are upstream's: `git
 cat-file -e upstream/next:<path>` succeeds for both and for nothing else of
-the 31; `generate-release-body.sh` is byte-identical to `upstream/next`; `generate-changelog.sh` carries one fork hunk (`8a7f33791d`, 2026-09-11: 1 insertion, 8 deletions, the `gh api repos/ROCKNIX/distribution/commits/... --jq .author.login` author lookup dropped), which the (a) read reads for its reason (`git log -1 8a7f33791d`) and records as a Q4 row. The three `renovation-*` tools
+the 31; `generate-release-body.sh` is byte-identical to `upstream/next`; `generate-changelog.sh` differs by 1 insertion and 8 deletions **because the fork is two upstream commits behind on it** (`76693a738d` 2026-10-13 and `71d8932b33` 2026-10-14 add the release author's GitHub name and are not in `next`); the fork carries no hunk of its own on either script. A Q4 row, corrected from version 2's "fork hunk" by T10's stage A (16:31 UTC). The three `renovation-*` tools
 exist only on P1's branch (`git cat-file -e 8ebaf8daad:tools/renovation-inventory`
 fails): they are read at `2174265e9c`, and `reviewed-at:` names both hashes.
 `git log --format=%h c445081a59..8ebaf8daad -- <the 28 at the hash> | wc -l`
@@ -223,13 +223,13 @@ is **128** fork commits since the base (125 without merges); their messages cite
 #307, #312, #151 (the push guard's proofs), #696 (the marker refusal), #845
 (`pkgcheck`'s class), #905 (the friction reader), #898 (the inventory's reach).
 **Two lists must agree by construction**: the hook's `PERSONAL_PATTERNS`
-(`pre-push:62-188`, 115 quoted entries at the hash, 84 of them `tools/` paths and 12 `scripts/`; 62-191 and 118 on P1's tip, which adds the three `renovation-*` tools) and `fork-workflow.md`
+(`pre-push:62-188`, 115 quoted entries at the hash, 84 of them `tools/` paths and 14 `scripts/`; 62-191 and 118 on P1's tip, which adds the three `renovation-*` tools) and `fork-workflow.md`
 § *Personal paths* (*"This list and `PERSONAL_PATTERNS` are the same list;
 change one and change the other"*): the (a) read diffs them entry by entry,
 not by count (the rule's prose names 84 `tools/` paths and other shapes
 besides).
 
-**The hash.** The 28 at-hash files are read at `8ebaf8daad`'s bytes and the three others at `2174265e9c`'s, both from the exports (`.qa-scratch/t10/at-hash/`, `.qa-scratch/t10/at-p1/`); `reviewed-at:` is the branch `HEAD` at stage A and names both hashes. **The lane's branch differs from the hash on five of the 28**, each with a known owner, and that is the expected shape, not a lead: `.githooks/pre-push` (+3: P1's personal patterns for the three `renovation-*` tools, `2174265e9c`), `tools/lint-audit-artifacts` (+61/-9: P1's renovation face, `fc88815ccb`, and #810's `18747fbc52`), `tools/register-check` (+17: f00ab3e163 (register: ten decided rows moved from under Open decisions into the De)), `.githooks/pre-commit` (+13/-1) and `.githooks/hooks-test` (+7) (the marker refusal, #696, `1b8ac30421`). It differs from P1's tip on none of the three `renovation-*` tools. `tr '\n' '\0' < .qa-scratch/t10/paths.txt | grep -zv renovation- | xargs -0 git diff --stat 8ebaf8daad HEAD --` prints exactly those five; **any other hunk is the first lead.** Off this branch, `tools/ceremony-check` changes in the #905 packet (`9e12014623`). The slice reads the hash, names every delta with its commit in `01` § Scope, runs `hooks-test` twice (the at-hash export: 20 cases; the worktree: 22), and reads the changed file beside the hash's where a finding would otherwise be already fixed (the friction reader, the lint's local-at-epic rule, the marker refusal).
+**The hash.** The 28 at-hash files are read at `8ebaf8daad`'s bytes and the three others at `2174265e9c`'s, both from the exports (`.qa-scratch/t10/at-hash/`, `.qa-scratch/t10/at-p1/`); `reviewed-at:` is the branch `HEAD` at stage A and names both hashes. **The lane's branch differs from the hash on five of the 28**, each with a known owner, and that is the expected shape, not a lead: `.githooks/pre-push` (+3: P1's personal patterns for the three `renovation-*` tools, `2174265e9c`), `tools/lint-audit-artifacts` (+61/-9: P1's renovation face, `fc88815ccb`, and #810's `18747fbc52`), `tools/register-check` (+17: f00ab3e163 (register: ten decided rows moved from under Open decisions into the De)), `.githooks/pre-commit` (+13/-1) and `.githooks/hooks-test` (+7) (the marker refusal, #696, `1b8ac30421`). It differs from P1's tip on none of the three `renovation-*` tools. `tr '\n' '\0' < .qa-scratch/t10/paths.txt | grep -zv renovation- | xargs -0 git diff --stat 8ebaf8daad HEAD --` prints exactly those five; **any other hunk is the first lead.** Off this branch, `tools/ceremony-check` changes in the #905 packet (`9e12014623`). The slice reads the hash, names every delta with its commit in `01` § Scope, runs `hooks-test` twice (the at-hash export: 20 call sites, 27 results; the worktree: 22 and 29), and reads the changed file beside the hash's where a finding would otherwise be already fixed (the friction reader, the lint's local-at-epic rule, the marker refusal).
 
 **The policy on change (plan § 5; D-WORKFLOW-187):** a defect here is the
 fork's alone and is fixed under a stream brief at stage E, never at stage B;
@@ -362,7 +362,7 @@ records the exit; a control that fails at the hash is a finding):
 ```bash
 D=/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-guards-657
 cd "$D"
-.githooks/hooks-test 2>&1 | tail -3                                              # in the worktree: PASS, 22 expect cases (the hash's 20 + #696's two); the at-hash export's copy too: PASS, rc 0, 38 ok lines
+.githooks/hooks-test 2>&1 | tail -3                                              # in the worktree: PASS, 22 expect call sites printing 29 results (the hash's 20 sites print 27: a site inside a loop runs more than once); the at-hash export's copy too: PASS, rc 0
 tools/register-check; echo "rc=$?"                                               # the hash's export: 644 IDs, each once; the lane's branch after the merge: 667
 tools/rules-check --quiet; echo "rc=$?"                                          # rc 0; `--help` is not handled: it runs the checks (read what it does with an argument)
 tools/work-log-index --check; echo "rc=$?"                                       # current
