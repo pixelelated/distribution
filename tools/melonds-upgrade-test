@@ -5,6 +5,15 @@
 Runs the actual post-update function with owned paths and candidate BusyBox
 applets. An older post-update runs its exact legacy tail with those paths
 relocated into the fixture; its failures are discriminating negative controls.
+
+The busybox must be the candidate's (#997): a path under a build root's
+image/system/ (its BUILD_ID read from that root's etc/os-release), or one
+whose origin --busybox-from names (a BUILD_ID, or `image` on the candidate
+itself, as a guest run passes /usr/bin/busybox). Any other is refused, exit 2;
+--unverified-busybox runs it anyway, marks every line "host busybox, not the
+candidate's" and exits 3, because a run that could not qualify the candidate
+has not passed. Every applet that busybox lists is shimmed (sh aside), and
+the receipt hashes the bytes that ran.
 """
 import argparse
 import hashlib
@@ -15,15 +24,52 @@ import re
 import shlex
 import shutil
 import subprocess
+import sys
 import tempfile
+
+UNVERIFIED = "host busybox, not the candidate's"
+
+
+def cannot(why):
+    print('melonds-upgrade-test: CANNOT -- ' + why, file=sys.stderr)
+    raise SystemExit(2)
+
+
+def busybox_origin(path, declared, unverified):
+    """Where the busybox came from: a build root's image, a named origin, or
+    nowhere known (only with --unverified-busybox)."""
+    for directory in path.resolve().parents:
+        if directory.name == 'system' and directory.parent.name == 'image':
+            release = directory / 'etc/os-release'
+            ids = []
+            if release.is_file() and not release.is_symlink():
+                ids = re.findall(r'^BUILD_ID="?([^"\n]*)"?$', release.read_text(), re.M)
+            if not ids or not ids[-1]:
+                cannot(f'{path} is under {directory} but {release} names no BUILD_ID')
+            return {'kind': 'build-root', 'root': str(directory.parent.parent), 'build_id': ids[-1]}
+    if declared:
+        return {'kind': 'declared', 'from': declared}
+    if unverified:
+        return {'kind': 'unverified', 'marker': UNVERIFIED}
+    cannot(f"{path} is not under a build root's image/system/; name its origin with "
+           '--busybox-from <BUILD_ID|image>, or pass --unverified-busybox (exit 3)')
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('--post-update', required=True, type=Path)
     parser.add_argument('--busybox', required=True, type=Path)
+    parser.add_argument('--busybox-from', help="the busybox's origin when it is not under a build root: a BUILD_ID, or image")
+    parser.add_argument('--unverified-busybox', action='store_true',
+                        help='run a busybox of no known origin; every line is marked and the exit is 3')
     parser.add_argument('--output', required=True, type=Path)
     args = parser.parse_args()
+    origin = busybox_origin(args.busybox, args.busybox_from, args.unverified_busybox)
+    mark = ' -- ' + UNVERIFIED if origin['kind'] == 'unverified' else ''
+    if origin['kind'] == 'build-root':
+        print(f"busybox: build root {origin['root']}, BUILD_ID {origin['build_id']}", flush=True)
+    else:
+        print('busybox: ' + (f"declared from {origin['from']}" if origin['kind'] == 'declared' else UNVERIFIED), flush=True)
     source = args.post_update.read_text()
     function = re.search(r'^update_melonds_hotkeys\(\) \{.*?^\}', source, re.M | re.S)
     legacy = re.search(r'^rm -rf /storage/\.config/melonDS\ncp -r /usr/config/melondDS /storage/\.config/\s*$', source, re.M)
@@ -38,9 +84,13 @@ def main():
         root = Path(temporary)
         busybox = root / 'busybox'
         shutil.copy2(args.busybox, busybox)
+        busybox_sha256 = hashlib.sha256(busybox.read_bytes()).hexdigest()
         binary = root / 'bin'
         binary.mkdir()
-        for applet in ['mktemp', 'cp', 'awk', 'mv', 'rm']:
+        applets = [a for a in subprocess.run([str(busybox), '--list'], capture_output=True, text=True).stdout.split() if a != 'sh']
+        if not {'mktemp', 'cp', 'awk', 'mv', 'rm'} <= set(applets):
+            cannot(f"{args.busybox} --list lacks the function's applets")
+        for applet in applets:
             wrapper = binary / applet
             wrapper.write_text('#!/bin/sh\nexec ' + shlex.quote(str(busybox)) + ' ' + applet + ' "$@"\n')
             wrapper.chmod(0o700)
@@ -111,14 +161,15 @@ def main():
                                         timeout=15, env={**os.environ, 'PATH': str(binary) + ':/usr/bin:/bin'})
                 okay = repeat.returncode == 0 and config.read_text() == expected and config.stat().st_ino == after
             rows.append({'case': name, 'pass': okay, 'rc': result.returncode, 'stderr': result.stderr})
-            print(('PASS ' if okay else 'FAIL ') + name, flush=True)
+            print(('PASS ' if okay else 'FAIL ') + name + mark, flush=True)
     report = {'pass': all(row['pass'] for row in rows), 'checks': rows,
               'legacy_negative_control': not bool(function),
               'post_update_sha256': hashlib.sha256(args.post_update.read_bytes()).hexdigest(),
-              'busybox_sha256': hashlib.sha256(args.busybox.read_bytes()).hexdigest()}
+              'busybox_sha256': busybox_sha256, 'busybox_origin': origin,
+              'shimmed_applets': len(applets)}
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + '\n')
-    return 0 if report['pass'] else 1
+    return 1 if not report['pass'] else 3 if mark else 0
 
 
 if __name__ == '__main__':
