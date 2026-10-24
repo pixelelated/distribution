@@ -29,6 +29,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing written: the kill data lives in /tmp (tmpfs) for one launch
 - **Acceptance:** On the guest, a launch of duckstation-sa through runemu.sh writes a kill target that `killall` ends: the emulator process is gone after `killall $(cat /tmp/.process-kill-data)` (the G7 shape).
 - **Tracked work:** #853
+- **Disposition note:** S2: `3ba3eef736` (upstream 4a6415c033); guest S2-G1: killall -9 duckstation-qt ends DuckStation; the image's AppRun.wrapped left it alive
 
 ## PL-002: `start_OpenBOR.sh` names no kill target, so the exit hotkey does nothing in OpenBOR on every image
 
@@ -44,6 +45,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing written
 - **Acceptance:** On the guest, during an OpenBOR launch through runemu.sh, /tmp/.process-kill-data names OpenBOR and `killall $(cat /tmp/.process-kill-data)` ends the process.
 - **Tracked work:** #854
+- **Disposition note:** S2: `9598a24df5`; guest S2-G1: kill data -9 OpenBOR, killall ends it; the image's script wrote none
 
 ## PL-003: Mupen64Plus's kill target misses the simple core's binary `mupen64plus-simple`
 
@@ -59,6 +61,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing written
 - **Acceptance:** start_mupen64plus.sh's kill data names mupen64plus-simple; on the guest a renamed-binary substitute named mupen64plus-simple is ended by the written target (G6's shape), the substitute named in the tick.
 - **Tracked work:** #855
+- **Disposition note:** S2: `827f93d13a` (upstream eeb33c5a37); guest S2-G2 with a SUBSTITUTE named mupen64plus-simple (a renamed python3): ended by the fixed line, alive under the image's; #855's checkbox stays open until a real mupen64plus-simple process is seen
 
 ## PL-004: The table's `atarist`/`hatarisa` route asks for `start_hatarisa.sh`, which no image has; the script installed sets no kill target
 
@@ -74,6 +77,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing written: the route never ran
 - **Acceptance:** On the guest, `runemu.sh <st> -Patarist --core=hatarisa --emulator=hatarisa` reaches hatarisa (no exit 127), and its kill data ends the process.
 - **Tracked work:** #856
+- **Disposition note:** S2: `a149cc76d5` (upstream 2e7041d273); guest S2-G1: the route starts hatarisa on EmuTOS (exit 127 before) and -9 hatarisa ends it; first frame 0.36-0.42 s (S2-G3)
 
 ## PL-005: GENERIC_X64's table offers five standalone emulators its image does not build, two of them as the nds and saturn defaults
 
@@ -471,6 +475,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** systemd-binfmt is stopped until the next boot on devices that ran an x86 Steam session; the fix restores it at the session's end
 - **Acceptance:** A fixture sourcing start_steam.sh with stub launch functions records steam_dual_screen_end and the binfmt start after steam_launch_bigpicture returns.
 - **Tracked work:** #867
+- **Disposition note:** S2: `b0ae783c5e`; S2-F1: both flavours reach steam_dual_screen_end and the binfmt restore after the session returns (neither did at the base)
 
 ## PL-031: A Steam desktop entry's URI and `-silent` reach Steam as one argument
 
@@ -642,10 +647,10 @@ The lane does not start on these: the coordinator writes one remediation brief p
 
 | Item | Outcome | Evidence / reason |
 | --- | --- | --- |
-| PL-001 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-002 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-003 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-004 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-001 | Resolved | S2: `3ba3eef736` (upstream 4a6415c033); guest S2-G1: killall -9 duckstation-qt ends DuckStation; the image's AppRun.wrapped left it alive |
+| PL-002 | Resolved | S2: `9598a24df5`; guest S2-G1: kill data -9 OpenBOR, killall ends it; the image's script wrote none |
+| PL-003 | Resolved | S2: `827f93d13a` (upstream eeb33c5a37); guest S2-G2 with a SUBSTITUTE named mupen64plus-simple (a renamed python3): ended by the fixed line, alive under the image's; #855's checkbox stays open until a real mupen64plus-simple process is seen |
+| PL-004 | Resolved | S2: `a149cc76d5` (upstream 2e7041d273); guest S2-G1: the route starts hatarisa on EmuTOS (exit 127 before) and -9 hatarisa ends it; first frame 0.36-0.42 s (S2-G3) |
 | PL-005 | Open | T3's file: the coordinator routes it (T3's lane is closed; the table's owner decides) |
 | PL-006 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-007 | Resolved | S0: `dfa9a5a694`; guest S0-G1 (bind-mounted): the crafted file's marker absent, ScummVM refuses the stray word; FOTAQ launches (S0-G2) |
@@ -671,7 +676,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-027 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-028 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-029 | Resolved | S1: `a3c443166e`; guest S1-G1: two launches leave dreamcast/data a link to bios/dc with its file, no dc link inside, and an unrelated gptokeyb alive |
-| PL-030 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-030 | Resolved | S2: `b0ae783c5e`; S2-F1: both flavours reach steam_dual_screen_end and the binfmt restore after the session returns (neither did at the base) |
 | PL-031 | Resolved | S0: `6894bfd3cd`; S0-F1: the URI and -silent two arguments on both launch lines |
 | PL-032 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-033 | Open | awaiting the coordinator's stream briefs (stage E) |
@@ -695,7 +700,8 @@ punch_index:
   source_finding: "F-01"
   owner_area: "exit: kill targets"
   tracked: "#853"
-  outcome: open
+  state: fix-guest
+  outcome: resolved
 - id: PL-002
   severity: Medium
   category: Bug
@@ -703,7 +709,8 @@ punch_index:
   source_finding: "F-02"
   owner_area: "exit: kill targets"
   tracked: "#854"
-  outcome: open
+  state: fix-guest
+  outcome: resolved
 - id: PL-003
   severity: Medium
   category: Bug
@@ -711,7 +718,8 @@ punch_index:
   source_finding: "F-03"
   owner_area: "exit: kill targets"
   tracked: "#855"
-  outcome: open
+  state: fix-guest
+  outcome: resolved
 - id: PL-004
   severity: Medium
   category: Bug
@@ -719,7 +727,8 @@ punch_index:
   source_finding: "F-04"
   owner_area: "exit: kill targets and routes"
   tracked: "#856"
-  outcome: open
+  state: fix-guest
+  outcome: resolved
 - id: PL-005
   severity: Medium
   category: Interaction Defect
@@ -929,7 +938,8 @@ punch_index:
   source_finding: "F-31"
   owner_area: "launch: Steam"
   tracked: "#867"
-  outcome: open
+  state: fixture
+  outcome: resolved
 - id: PL-031
   severity: Low
   category: Bug

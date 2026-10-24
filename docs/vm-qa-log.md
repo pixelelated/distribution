@@ -399,3 +399,12 @@ preserved. All original lifecycle channels0, owners exited, admission consumed,
   - P3's control-run restore nested the targets' previous contents one level down. That is the harness's own move-aside, and the helper alone on the guest stays flat.
   - The P3 script on the disk had become 0 bytes since cycle 3.
 - **Left behind:** synthetic files on the T30 disk, including the nested folders, and the overlay's upper layer under `/storage/t30/s1` (not mounted at boot).
+
+## 2026-10-24 11:38 UTC — M6 T30 S2 cycle: kill targets, before and after (#677, #872)
+
+- **Image and disk** as before. The fixed scripts were in an overlay on `/usr/bin`, detached with `umount -l`. EmuTOS 1.4 (192k US, GPL) served as `tos.img` and was removed afterwards. Up 11:34:20, `tools/vm-stop` rc 0 at 11:37:08; census 0 before and after.
+- **Found:**
+  - The image's scripts: DuckStation's kill misses, OpenBOR writes no kill data, the hatarisa route exits 127, and the Mupen64Plus line misses `mupen64plus-simple` (shown with a substitute).
+  - The fixed ones end DuckStation, OpenBOR, hatarisa and the substitute.
+  - hatarisa draws EmuTOS in 0.36-0.42 s, then exits between +4 s and +6 s, for no logged reason.
+- **Left behind:** synthetic files on the T30 disk, and the overlay's upper layer under `/storage/t30/s2` (not mounted at boot).
