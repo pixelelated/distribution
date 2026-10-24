@@ -21,18 +21,24 @@ if [ ! -d "/storage/.config/flycast" ]; then
   cp -r "${SOURCE_DIR}" "${CONF_DIR}"
 fi
 
-#Move save file storage/roms
-if [ -d "${CONF_DIR}/data" ]; then
-  mv "${CONF_DIR}/data" "/storage/roms/dreamcast/"
-fi
-
 #Make flycast bios folder
 if [ ! -d "/storage/roms/bios/dc" ]; then
   mkdir -p "/storage/roms/bios/dc"
 fi
 
+#Keep flycast's data folder in bios/dc. The old script moved it to
+#dreamcast/data and then linked bios/dc inside it as "dc": drop that link
+#before merging, so bios/dc does not gain a link to itself.
+if [ -d "/storage/roms/dreamcast/data" ] && [ ! -L "/storage/roms/dreamcast/data" ] && \
+   [ "$(readlink "/storage/roms/dreamcast/data/dc")" = "/storage/roms/bios/dc" ]; then
+  rm -f "/storage/roms/dreamcast/data/dc"
+fi
+if [ -d "${CONF_DIR}/data" ] && [ ! -L "${CONF_DIR}/data" ]; then
+  link_storage_dir "${CONF_DIR}/data" "/storage/roms/bios/dc"
+fi
+
 #Link  .config/flycast to .local
-ln -sf "/storage/roms/bios/dc" "/storage/roms/dreamcast/data"
+link_storage_dir "/storage/roms/dreamcast/data" "/storage/roms/bios/dc"
 
 
 #Make sure flycast gptk config exists
@@ -145,5 +151,6 @@ fi
 
 #Run flycast emulator
 $GPTOKEYB "flycast" -c "${CONF_DIR}/flycast.gptk" &
+GPTOKEYB_PID=$!
 ${EMUPERF} /usr/bin/flycast "${1}"
-kill -9 "$(pidof gptokeyb)"
+kill -9 "${GPTOKEYB_PID}"
