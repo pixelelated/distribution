@@ -77,3 +77,15 @@ PROOF: 04:05 P6 case C, a system after imageviewer -- `tools/sb-es-cases.sh` (F-
 PROOF: 04:06 P7 `daphne` and `gp32` `<release>` in two install trees, read-only (F-03)
 PROOF: 04:10 P8 `scripts/unpack` 90's test with one and two matches -- `tools/sb-unpack-glob.sh` (F-08)
 PROOF: 03:58 P9 `tools/build-identity-test`, 21 identity checks passed (the 2 failures #801's)
+
+### [Stage B] 04:12 to 04:22 — The fork-own files, Q4 (a), Q6, the recorded runs
+
+- Read with their fork commits: `scripts/get_env`, the `Makefile` (1 to 60, 120 to 208), `config/build-identity`, `distributions/ROCKNIX/version`, `scripts/image` (its diff against `upstream/next`), `scripts/build_compat`, and the diffs of `build_distro`, `install`, `extract`, `show_config`, `graphic`, `options`, `distributions/ROCKNIX/config/functions`, `.gitignore`, the two PR workflows. F-06, F-07, F-09, F-13, F-14 written.
+- 04:13 Q4 (a): `git diff --name-status upstream/next 8ebaf8daad -- <the 242 paths>`, 21 files, each with its fork and upstream commits since the base (`.qa-scratch/t5/q4a-table.tsv`); three differ only by upstream's (F-12).
+- 04:15 Q6: the caller search for the 30 scripts (fixed strings, the second pattern for each zero, then `scripts/get`'s dispatch); four device tables regenerated; `q6-tables.md` written (Tables 1 to 5).
+- 04:16 the subagent dispatched: one read-only research subagent (general-purpose) over the upstream core (`config/functions` and the 22 other core files), returning leads only; every lead is re-read before it is a finding (brief § 5 rule 5).
+- 04:19 the recorded runs (read-only, `readlog` filtered): `m7-signin-build-20261022-07/.build-runs/20261022T235954Z-4749157a` (GENERIC_X64, 23:59:54 to 00:05:01, `[654/654]`, rc 0), `m7-signin-h700-build-20261023-06/.build-runs/20261024T014932Z-8a1ff937` (H700, 01:49:32 to 02:00:04, `[671/671]`, rc 0; its predecessor `20261024T013624Z-826391e2` rc 1 after 2 minutes, `progress: none matched`), `m7-signin-sm8550-build-20261023-03/.build-runs/20261024T020912Z-68374394` (SM8550, 02:09:12 to 02:20:16, `[737/737]`, rc 0). No ccache statistics in any of them.
+- 04:20 the meson logs of the GENERIC_X64 root for the wrap mode.
+
+PROOF: 04:20 P10 `-Dwrap_mode=nodownload` in all 85 meson logs of the GENERIC_X64 build root, read-only
+PROOF: 04:18 P11 the H700 and SM8550 launch tables regenerated, byte-identical to their install trees -- `tools/regen-es-systems.sh`
