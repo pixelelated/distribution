@@ -35,12 +35,12 @@
 
 ## Current focus
 
-**Stage D done; paused for the coordinator's stream briefs (2026-10-24 08:25 UTC).**
-- `reviewed-at` `b96e1ca761`.
-- The folder `docs/audits/2026_10_24-epic-m6-build-engine-upstream-tools/` holds `00` to `05` and the Local `review-plan.json`; the pre-issue lint prints PASS, with the D-WORKFLOW-184 line.
-- The Q6 table has 33 rows over 135 files: 3 reached, 8 by a document only, 22 unreached, all kept.
-- Six Low findings. Filed: the bug #845 (`pkgcheck` exits 0 for an unmatched name) and the audit issue #846 (a sub-issue of #653); the punch list is posted on #653.
-- **Next:** the coordinator's stream briefs on #653. Nothing runs here: no guest, no build.
+**Stage E done and the close-out through the retro (2026-10-24 08:46 UTC); waiting for the coordinator's acceptance and #846's close.**
+- `reviewed-at` `b96e1ca761`, `fixed-at` `820e413179` (both on #653's body, read back).
+- S1 `7fa8bafba4` (#845: `pkgcheck` exits 2 on no match) and S2 `44f64842b6` (18 late names; `TOOLCHAIN` and `SYSROOT_PREFIX` derived as not late). Proofs P11 to P14; the pre-issue and full lints print PASS.
+- #846: 6 of 6 ticked at their Phase 7 outcomes (2 Resolved, 4 Deferred), `box-check` 0 fail. #845: both checkboxes ticked, open until the merge.
+- The retro is `docs/retros/2026-10-24-m6-build-engine-upstream-tools.md`, posted on #653 with the stage-H hand-back.
+- **Next, after the coordinator closes #846:** `audit-completion.json` via a `write-completion.py` adapted from T5's for issue 846 and this folder; the full lint PASS posted; this pointer at idle. Nothing runs here: no guest, no build.
 
 ## Next commands
 
