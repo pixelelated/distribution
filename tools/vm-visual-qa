@@ -368,10 +368,20 @@ def settle(frame_fn, timeout=SETTLE_TIMEOUT, quiet=SETTLE_QUIET, poll=POLL):
 
 
 def wait_for_change(frame_fn, before, timeout=CHANGE_TIMEOUT, poll=POLL):
-    """Wait until the screen differs from `before`. Returns (ok, seconds)."""
+    """Wait until the screen differs from `before`. Returns (ok, seconds).
+
+    ok is None when a frame did not arrive -- before the key, or while
+    waiting -- because frame_diff counts a missing frame as completely
+    different, and a screendump that failed then read as a key that landed
+    (#972). None is falsy, so a caller that only tests ok still fails."""
     t0 = time.time()
+    if before is None:
+        return None, 0.0
     while True:
-        if frame_diff(frame_fn(), before) >= CHANGED_MIN:
+        cur = frame_fn()
+        if cur is None:
+            return None, time.time() - t0
+        if frame_diff(cur, before) >= CHANGED_MIN:
             return True, time.time() - t0
         if time.time() - t0 >= timeout:
             return False, time.time() - t0
@@ -434,6 +444,10 @@ def _ppm_to_png_stdlib(ppm_path, png_path):
     data = open(ppm_path, "rb").read()
     fields, pos = [], 0
     while len(fields) < 4:                      # P6 <width> <height> <maxval>
+        # A header cut short ends here with an error; the token loop below
+        # used to spin forever at the end of the file (#972).
+        if pos >= len(data):
+            raise ValueError("truncated PPM header in %s (%d fields of 4)" % (ppm_path, len(fields)))
         while data[pos:pos + 1].isspace():
             pos += 1
         if data[pos:pos + 1] == b"#":
@@ -441,14 +455,18 @@ def _ppm_to_png_stdlib(ppm_path, png_path):
                 pos += 1
             continue
         start = pos
-        while not data[pos:pos + 1].isspace():
+        while pos < len(data) and not data[pos:pos + 1].isspace():
             pos += 1
+        if pos >= len(data):
+            raise ValueError("truncated PPM header in %s (%d fields of 4)" % (ppm_path, len(fields)))
         fields.append(data[start:pos])
     pos += 1
     if fields[0] != b"P6" or int(fields[3]) != 255:
         return False
     w, h = int(fields[1]), int(fields[2])
     px = data[pos:pos + w * h * 3]
+    if len(px) != w * h * 3:
+        raise ValueError("truncated PPM pixels in %s: %d of %d bytes" % (ppm_path, len(px), w * h * 3))
     raw = b"".join(b"\x00" + px[y * w * 3:(y + 1) * w * 3] for y in range(h))
 
     def chunk(kind, body):
@@ -517,6 +535,7 @@ def run_steps(mon, steps, outdir):
     # it for a file that asks: an old step file must cost what it used to.
     tracking = any(v == "wait-for-change" for _, v, _ in parsed)
     shots = []
+    missing = []             # the shots the steps named that did not land (#972)
     index = 0
     before = None            # the frame taken just before the last key step
     last_key = None          # (lineno, keyname, times)
@@ -529,9 +548,16 @@ def run_steps(mon, steps, outdir):
         ppm = base + ".ppm"
         if not mon.screendump(ppm):
             print("WARN: no frame captured for " + label, file=sys.stderr)
+            missing.append(label)
             return None
         png = base + ".png"
-        if to_png(ppm, png):
+        try:
+            converted = to_png(ppm, png)
+        except (OSError, ValueError) as exc:
+            print("WARN: the frame for %s is not a whole image: %s" % (label, exc), file=sys.stderr)
+            missing.append(label)
+            return None
+        if converted:
             os.remove(ppm)
             shots.append(png)
             print("captured " + png)
@@ -575,6 +601,9 @@ def run_steps(mon, steps, outdir):
             timeout, retries = _floats(rest, CHANGE_TIMEOUT, CHANGE_RETRIES)
             kline, kname, ktimes = last_key
             ok, took = wait_for_change(mon.frame, before, timeout=timeout)
+            if ok is None:
+                raise WalkFailed("wait-for-change (line %d): no frame arrived from the monitor after `key %s`"
+                                 " on line %d, so whether the press landed is unknown" % (lineno, kname, kline))
             tries = 0
             while not ok and tries < int(retries):
                 tries += 1
@@ -582,6 +611,9 @@ def run_steps(mon, steps, outdir):
                       % (kname, kline, took, tries), file=sys.stderr)
                 mon.sendkey(kname, ktimes)
                 ok, took = wait_for_change(mon.frame, before, timeout=timeout)
+                if ok is None:
+                    raise WalkFailed("wait-for-change (line %d): no frame arrived from the monitor after"
+                                     " re-sending `key %s`" % (lineno, kname))
             if not ok:
                 shot("stuck-after-%s" % kname)
                 raise WalkFailed(
@@ -608,6 +640,9 @@ def run_steps(mon, steps, outdir):
 
         else:
             raise SystemExit("unknown step on line %d: %s %s" % (lineno, verb, rest))
+    if missing:
+        raise WalkFailed("%d of the shots this walk names did not land: %s"
+                         % (len(missing), ", ".join(missing)))
     return shots
 
 

@@ -105,6 +105,7 @@ class Case:
         self.log = self.dir / 'calls.log'
         self.log.write_text('')
         self.table = self.dir / 'table.tsv'
+        self.cleanup = []
         self.tools_from = tools_from
         executable(self.bin / 'ssh', SSH_DOUBLE)
         executable(self.bin / 'scp', SCP_DOUBLE)
@@ -752,6 +753,116 @@ def act_masked(c):
         f'rc {r.returncode}, key=*** in the log {"key=***" in text}, stand-in in the log {"zzqq-standin" in text} (want the mask and the value absent)'
 
 
+# --- S8: vm-visual-qa and vm-serial (#972, #976, #983) ----------------------------
+
+def short_dir(c):
+    """A directory for unix sockets: a case's own path is past the 107-byte cap."""
+    import tempfile
+    base = os.environ.get('XDG_RUNTIME_DIR') or str(c.dir)
+    d = Path(tempfile.mkdtemp(prefix='vmht-', dir=base))
+    c.cleanup.append(lambda: shutil.rmtree(d, ignore_errors=True))
+    return d
+
+
+def serve_unix(c, path, handle):
+    """A threaded unix-socket server calling handle(conn) per connection; stopped at the case's end."""
+    import socket, threading
+    srv = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+    srv.bind(str(path))
+    srv.listen(4)
+    srv.settimeout(0.2)
+    stop = threading.Event()
+
+    def loop():
+        while not stop.is_set():
+            try:
+                conn, _ = srv.accept()
+            except OSError:
+                continue
+            threading.Thread(target=handle, args=(conn,), daemon=True).start()
+    threading.Thread(target=loop, daemon=True).start()
+    c.cleanup.append(lambda: (stop.set(), srv.close()))
+
+
+def monitor_double(c, dumps_that_work):
+    """QEMU's monitor: sendkey answered; screendump writes a P6 frame for the first
+    dumps_that_work calls and then answers an error; no VNC server."""
+    path = short_dir(c) / 'mon.sock'
+    state = {'dumps': 0, 'keys': 0}
+
+    def handle(conn):
+        conn.sendall(b'QEMU 10.2.1 monitor\r\n(qemu) ')
+        buf = b''
+        while True:
+            try:
+                chunk = conn.recv(4096)
+            except OSError:
+                return
+            if not chunk:
+                return
+            buf += chunk
+            while b'\n' in buf:
+                line, buf = buf.split(b'\n', 1)
+                words = line.decode().split()
+                reply = b''
+                if words[:1] == ['sendkey']:
+                    state['keys'] += 1
+                elif words[:1] == ['screendump']:
+                    state['dumps'] += 1
+                    if state['dumps'] <= dumps_that_work:
+                        Path(words[1]).write_bytes(b'P6\n2 2\n255\n' + bytes([state['dumps'] % 256] * 12))
+                    else:
+                        reply = b'Error: dump failed\r\n'
+                elif words[:2] == ['info', 'vnc']:
+                    reply = b'Server: disabled\r\n'
+                conn.sendall(reply + b'(qemu) ')
+    serve_unix(c, path, handle)
+    return path, state
+
+
+def visual_run(c, steps, monitor):
+    tool = c.tool('vm-visual-qa')
+    f = c.dir / 'walk.steps'
+    f.write_text(steps)
+    return c.run([sys.executable, '-I', str(tool), '--monitor', str(monitor), 'run', str(f),
+                  '--outdir', str(c.dir / 'frames')], timeout=120)
+
+
+@case
+def screendump_fails(c):
+    mon, state = monitor_double(c, 0)
+    r = visual_run(c, 'key ret\nwait-for-change 2 0\nshot after\n', mon)
+    return r.returncode != 0 and 'no frame' in r.stderr, \
+        f'rc {r.returncode}, stderr tail {r.stderr.strip().splitlines()[-1:]} (want non-zero: no frame arrived)'
+
+
+@case
+def fewer_frames(c):
+    mon, state = monitor_double(c, 2)
+    r = visual_run(c, 'shot one\nshot two\nshot three\n', mon)
+    return r.returncode != 0 and 'three' in r.stderr and 'did not land' in r.stderr, \
+        f'rc {r.returncode}, stderr tail {r.stderr.strip().splitlines()[-1:]} (want non-zero naming three)'
+
+
+@case
+def ppm_truncated(c):
+    tool = c.tool('vm-visual-qa')
+    ppm = c.dir / 'cut.ppm'
+    ppm.write_bytes(b'P6\n640')
+    code = ('import importlib.machinery, importlib.util, sys\n'
+            'l = importlib.machinery.SourceFileLoader("vq", sys.argv[1]); s = importlib.util.spec_from_loader("vq", l)\n'
+            'm = importlib.util.module_from_spec(s); l.exec_module(m)\n'
+            'try:\n    m._ppm_to_png_stdlib(sys.argv[2], sys.argv[3]); print("returned")\n'
+            'except ValueError as e:\n    print("error:", e)\n')
+    try:
+        r = subprocess.run([sys.executable, '-I', '-c', code, str(tool), str(ppm), str(c.dir / 'cut.png')],
+                           capture_output=True, text=True, timeout=10)
+        out = r.stdout.strip()
+    except subprocess.TimeoutExpired:
+        out = 'hung past 10 s'
+    return out.startswith('error:'), f'{out} (want an error, not a hang)'
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')
@@ -772,6 +883,12 @@ def main():
             ok, why = CASES[n](c)
         except Exception as error:  # a case that cannot run has not passed
             ok, why = False, f'{type(error).__name__}: {error}'
+        finally:
+            for done in reversed(c.cleanup):
+                try:
+                    done()
+                except Exception:
+                    pass
         print(('PASS ' if ok else 'FAIL ') + n + ': ' + why, flush=True)
         failed += not ok
     print(f'{len(names) - failed} PASS; {failed} FAIL')
