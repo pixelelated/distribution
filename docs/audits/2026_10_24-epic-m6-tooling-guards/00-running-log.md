@@ -361,3 +361,21 @@ PROOF: P23 S6's control and real run -- `docs/qa-logs/2026-10-24-forbidden-terms
   Lint fixtures **5/5**; `ceremony-check` control **14/14**; `hooks-test` and `rules-check` rc 0 after.
 - **The 2026-09-28 fix-round folder** under the fixed lint requires **14** seat-and-number pairs, against 11, and has all 14. Its one failure, *PL-029 outcome is not one of Resolved/Deferred/Withdrawn*, is the same under the lint at the hash and at the previous tip: a coordinator's item.
 PROOF: P24 S7's controls -- `tools/test-fixtures/lint-audit-artifacts/run.sh` on the lint before `2444828e89`: 2 FAIL of 5 (`.qa-scratch/t10/s7/before.txt`), at it 5 ok PASS (`after.txt`); `run.py`'s three folder-date cases FAIL before, 14 of 14 ok after (`cc-after.txt`); the 2026-09-28 fix-round folder: 14 seat-and-number pairs required and present (11 before), the PL-029 failure the same under the lint at `8ebaf8daad` (`fixround-hash.txt`).
+
+### [Stage E] 18:47 — S8: fork-package-freshness (#946)
+
+- **The coordinator's 18:46 UTC post:** S5 to S7 accepted; the 2026-09-28 folder's PL-029 outcome is recorded as a historical fact, not rewritten.
+- **The test first:** `docs/qa-logs/2026-10-24-package-freshness/run.sh`, a throwaway repository with a known merge base. On the unfixed tool:
+  - the set was **`b f`**, upstream's deletion counted in and the shared addition `g` out;
+  - a missing base ref exited **0**.
+
+  The third case (a missing ref without `--list`) exited 2 unfixed too, but because the fixture has no `rclone` recipe, not because of the ref, so it is no positive and is recorded as such.
+- **The fix** (`917f91677b`):
+  - the set is `git diff --diff-filter=A <merge-base> HEAD`, with `HEAD` as the default head;
+  - an unresolved ref, no merge base, or a failed diff exits 2 before any network read;
+  - the header describes the set it now reads.
+
+  **3/3.** The real `--list` is **26 rows, identical** to stage B's merge-base list (P14).
+- **The real run** (18:46:27Z to 18:46:49Z, core 4,967 → 4,959): rc 1. The verdicts: 10 CURRENT, 4 INHERITED (`gstreamer` among them), 1 LOCAL, 6 PINNED, and BEHIND for `brotli` (1.2.0 → 1.2.1), `ruby` (3.3.12 → 3.3.13), `glib-networking` (2.90.0 → 2.90.1), `webkitgtk` (2.54.1 → 2.54.2) and `raofflineproxy` (15 commits behind `45726b18c6`).
+- **Against `docs/releases/rc-accept.txt`:** six package acceptances still match PINNED rows. `zip` and `spirv-headers` are accepted there but are **not in the fixed set**: `spirv-headers` was counted only because upstream deleted it, and `zip` is not a fork addition since the merge base.
+PROOF: P25 S8's control and runs -- `docs/qa-logs/2026-10-24-package-freshness/run.sh`: the unfixed tool's set `b f`, a missing ref rc 0 (2 FAIL); fixed: `f g`, rc 2, 3 ok PASS (`.qa-scratch/t10/s8/`); the real `--list`: 26 rows, `cmp` equal to stage B's merge-base list; the real run rc 1, five BEHIND rows (/workspace/tmp/m6-t10/s8-real.txt).

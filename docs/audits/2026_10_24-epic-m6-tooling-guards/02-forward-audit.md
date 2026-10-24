@@ -23,7 +23,7 @@ Every finding is a lead until `04` § Finding Verification and § Second opinion
 | 11 | 04 Q6: the guard table and the tool-caller table | the evidence is here (§ Callers, § The suites, F-rows); the tables are `04`'s | `04` § Q6 |
 | 12 | 04 Q3: the fail-open hunt through the named readers | the evidence is here (F-01 to F-30); the table is `04`'s | `04` § Q3 |
 | 13 | 04 Q7: the personal-path diff entry by entry; three descriptions per guard | P2 (the diff); the description rows are `04`'s | `04` § Q7 |
-| 14 | proof cells in § Proofs = proof lines in 00 | 26 = 26 | § Proofs; `command grep -c` |
+| 14 | proof cells in § Proofs = proof lines in 00 | 27 = 27 | § Proofs; `command grep -c` |
 | 15 | every item `question:`; bugs pass box-check; no member edited before a stream | stage D; `git diff --stat a82d784216 HEAD -- .githooks .github tools` empty | `05` |
 | 16 | the retro | stage G | `docs/retros/` |
 | 17 | the six checks pass before the merge; the lint PASS | stage H | the hand-back |
@@ -593,3 +593,22 @@ The `tools/fork-newdrive` item in `fork-workflow.md` § Personal paths and its r
 | Proof | What it shows | Proved |
 | --- | --- | --- |
 | P24 | S7's fixtures fail before the fix and pass after; the 2026-09-28 folder read whole | proved: fix-case |
+
+### S8: fork-package-freshness (#946) -- `917f91677b`
+
+| Case (`docs/qa-logs/2026-10-24-package-freshness/run.sh`) | Unfixed | Fixed |
+| --- | --- | --- |
+| the set is the fork's additions since the merge base: `f g` | FAIL: `b f` | ok: `f g` |
+| a base ref it cannot resolve: exit 2, the ref named | FAIL: rc 0 | ok: rc 2 |
+| the same without `--list`: exit 2 before any network read | rc 2, for an unrelated reason (no `rclone` recipe in the fixture): no positive | ok |
+
+The real `--list` has 26 rows, identical to stage B's merge-base list.
+
+**For the coordinator** (the real run, 18:46Z, rc 1):
+- **BEHIND:** `brotli` 1.2.0 → 1.2.1, `ruby` 3.3.12 → 3.3.13, `glib-networking` 2.90.0 → 2.90.1, `webkitgtk` 2.54.1 → 2.54.2, and `raofflineproxy` 15 commits behind `45726b18c6`.
+- **The package the old set missed:** `gstreamer` reads INHERITED.
+- **Stale acceptances:** `docs/releases/rc-accept.txt` accepts `zip` and `spirv-headers`, which are not in the fixed set.
+
+| Proof | What it shows | Proved |
+| --- | --- | --- |
+| P25 | S8's control fails on the unfixed tool and passes on the fixed; the real set equals the merge-base list | proved: fix-case |
