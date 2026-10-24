@@ -155,4 +155,28 @@ expect refused "a pr/* branch adding a personal path git quotes (#937)" push_lin
 says "it is refused as a personal path" "personal artifacts"
 g update-ref -d refs/remotes/upstream/next
 
+# T10 S2 (D-WORKFLOW-200; #932, #937, #933, #934): the range set by date, the
+# fallback base, a tag annotation, both shapes on one line.
+g checkout -q -b dated "${remote}"
+GIT_COMMITTER_DATE='2020-01-02T00:00:00' g commit -q --allow-empty -m 'c: the zebrafish quartet notes'; parent="$(git rev-parse HEAD)"
+GIT_COMMITTER_DATE='2020-01-01T00:00:00' g commit -q --allow-empty -m d
+g checkout -q -b dated-e "${parent}"; GIT_COMMITTER_DATE='2020-01-03T00:00:00' g commit -q --allow-empty -m e
+g checkout -q dated; GIT_COMMITTER_DATE='2020-01-04T00:00:00' g merge -q --no-ff -m m dated-e
+expect refused "a listed word in a parent dated after its child, on a new branch (#932)" push_line "refs/heads/dated $(git rev-parse HEAD) refs/heads/dated ${ZERO}"
+g checkout -q -b overlay "${remote}"; mkdir -p docs; echo personal > docs/plan.md; g add docs; g commit -q -m overlay
+g update-ref refs/remotes/origin/next "$(git rev-parse HEAD)"
+g checkout -q -b prz overlay; echo feature > feature.txt; g add feature.txt; g commit -q -m 'z: a feature'
+expect refused "a pr/* push with no upstream/next is refused, never judged against origin/next (#937)" push_line "refs/heads/prz $(git rev-parse HEAD) refs/heads/pr/z ${ZERO}"
+says "the fetch is named" "git fetch upstream"
+g update-ref -d refs/remotes/origin/next
+g tag -a -m 'release: the zebrafish quartet notes' tz "${remote}"
+expect refused "an annotated tag whose annotation carries a listed word (#933)" push_line "refs/tags/tz $(git rev-parse tz) refs/tags/tz ${ZERO}"
+silent "the refusal" "zebrafish"
+g checkout -q main
+printf 'note %s and the zebrafish quartet\n' "${FAKE}" > both.txt; g add both.txt
+expect refused "a line carrying a credential shape and a listed word (#934)" "${HOOKS}/pre-commit"
+silent "the refusal" "zebrafish"
+silent "the refusal" "QwErTyUiOpAsDfGh"
+g reset -q; rm both.txt
+
 if [ "${fail}" -eq 0 ]; then echo PASS; else echo FAIL; exit 1; fi

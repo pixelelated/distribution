@@ -100,7 +100,16 @@ guard_scan() {
     1) return 0 ;;
     0) echo "✖ ${hook}: ${what}:" >&2
        if [ "${show}" = redact ]; then
-         printf '%s\n' "${out}" | sed -E "s/(${patterns})/[REDACTED]/Ig; s/${guard_tab}/: /" | head -5 | sed 's/^/    /' >&2
+         # A line that also carries a listed word is printed as its label and
+         # [REDACTED] alone: the credential's redaction leaves the rest of the
+         # line, and a listed word is never printed (D-WORKFLOW-200, #934).
+         printf '%s\n' "${out}" | head -5 | while IFS= read -r l; do
+           if printf '%s\n' "${l#*${guard_tab}}" | grep -a -q -i -E -e "${FORBIDDEN_PATTERNS:-}"; then
+             printf '    %s: [REDACTED]\n' "${l%%${guard_tab}*}"
+           else
+             printf '%s\n' "${l}" | sed -E "s/(${patterns})/[REDACTED]/Ig; s/${guard_tab}/: /" | sed 's/^/    /'
+           fi
+         done >&2
        else
          printf '%s\n' "${out}" | sed -E "s/${guard_tab}.*//" | head -5 | sed 's/^/    /' >&2
        fi

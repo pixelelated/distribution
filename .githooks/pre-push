@@ -25,9 +25,10 @@
 # wordlist kept outside the tree (.githooks/guard-lib says where), in every
 # commit the push carries and its message, not only at its tip.
 #
-# Fails closed: a pr/* push with no upstream/next or origin/next to compare
-# against is refused, not waved through with a warning, and so is any push
-# whose range this hook cannot diff. Proven on 2026-09-13 (audit #151 PL-08)
+# Fails closed: a pr/* push with no upstream/next to compare against is
+# refused, not waved through with a warning and not judged against
+# origin/next, which is the fork's own next and carries the overlay
+# (D-WORKFLOW-200, #937); so is any push whose range this hook cannot diff. Proven on 2026-09-13 (audit #151 PL-08)
 # in a scratch repo with `core.hooksPath` pointing at this directory, one
 # refusal each -- the commands, then the hook's answer:
 #
@@ -216,14 +217,13 @@ case "$hooks_path" in
      echo "  Fix with: git config core.hooksPath \"\$(git rev-parse --show-toplevel)/.githooks\"" >&2 ;;
 esac
 
-# Pick a clean base to compare PR branches against.
+# The clean base to compare PR branches against: upstream/next only. The
+# fork's origin/next carries the personal overlay, so a pr/* branch built on
+# it shows no personal path in a diff against it (D-WORKFLOW-200, #937).
 base_ref=''
-for cand in upstream/next origin/next; do
-  if git rev-parse --verify --quiet "${cand}^{commit}" >/dev/null; then
-    base_ref="$cand"
-    break
-  fi
-done
+if git rev-parse --verify --quiet "upstream/next^{commit}" >/dev/null; then
+  base_ref=upstream/next
+fi
 
 # Do not re-judge commits already published on this destination's other
 # branches (#371). An unrelated remote is not evidence that the destination
@@ -247,18 +247,14 @@ while read -r local_ref local_sha remote_ref remote_sha; do
   # value committed and removed again inside one push is in the history being
   # pushed and invisible at the tip (audit #151 PL-08). A range this hook
   # cannot diff is refused -- a scan that did not run has not passed.
-  whole=0
+  # A new branch's commits are the set the remote has none of, read whole
+  # and in topological order -- never a range from rev-list's last line,
+  # which is the oldest by date and left a parent dated after its child
+  # outside the scan (D-WORKFLOW-200, #932). With no configured remote the
+  # remote's refs are unknown, and everything is read.
+  whole=0; newset=0; range=''
   if [ "$remote_sha" = "$zero" ]; then
-    oldest="$(git rev-list "$local_sha" "${history_excludes[@]}" 2>/dev/null | tail -1)"
-    if [ -n "$oldest" ] && git rev-parse --verify --quiet "${oldest}^" >/dev/null; then
-      range="${oldest}^..${local_sha}"
-    elif [ -n "$oldest" ]; then
-      whole=1                      # the remotes have none of this history: scan all of it
-    elif git rev-parse --verify --quiet "${local_sha}^" >/dev/null; then
-      range="${local_sha}^..${local_sha}"
-    else
-      whole=1
-    fi
+    if [ "${#history_excludes[@]}" -gt 0 ]; then newset=1; else whole=1; fi
   else
     range="${remote_sha}..${local_sha}"
   fi
@@ -266,7 +262,17 @@ while read -r local_ref local_sha remote_ref remote_sha; do
   trap 'rm -f "${names:-}" "${added:-}" "${lines:-}" "${blob:-}" "${msgs:-}"' EXIT   # an interrupted push leaves nothing behind (the audit of the fixes, claude G3-E-07)
   scan_ok=1
   msgawk='/^commit [0-9a-f]+$/ { c = $2; n = 0; next } { n++; print c ":message:" n t $0 }'
-  if [ "$whole" = 1 ]; then
+  if [ "$newset" = 1 ]; then
+    # The files the new commits touch that are still at the tip; a file added
+    # and removed inside the set is read by the line scan.
+    git log --name-only -z --format= --no-renames --diff-filter=AMT "$local_sha" "${history_excludes[@]}" -- . > "$names.all" 2>/dev/null || scan_ok=0
+    while IFS= read -r -d '' f; do
+      [ -n "$f" ] && git cat-file -e "${local_sha}:${f}" 2>/dev/null && printf '%s\0' "$f"
+    done < <(sort -zu "$names.all") > "$names"
+    rm -f "$names.all"
+    git log -p --text --no-ext-diff --no-textconv --src-prefix=a/ --dst-prefix=b/ --root --topo-order --no-renames --diff-merges=first-parent --format='commit %h' "$local_sha" "${history_excludes[@]}" -- . > "$added" 2>/dev/null || scan_ok=0
+    git log --root --topo-order --format='commit %h%n%B' "$local_sha" "${history_excludes[@]}" 2>/dev/null | awk -v t="$guard_tab" "$msgawk" > "$msgs" || scan_ok=0
+  elif [ "$whole" = 1 ]; then
     git diff --name-only -z --no-renames --diff-filter=AMT "$empty_tree" "$local_sha" -- . > "$names" 2>/dev/null || scan_ok=0
     git log -p --text --no-ext-diff --no-textconv --src-prefix=a/ --dst-prefix=b/ --root --no-renames --diff-merges=first-parent --format='commit %h' "$local_sha" "${history_excludes[@]}" -- . > "$added" 2>/dev/null || scan_ok=0
     git log --root --format='commit %h%n%B' "$local_sha" "${history_excludes[@]}" 2>/dev/null | awk -v t="$guard_tab" "$msgawk" > "$msgs" || scan_ok=0
@@ -274,6 +280,12 @@ while read -r local_ref local_sha remote_ref remote_sha; do
     git diff --name-only -z --no-renames --diff-filter=AMT "$range" -- . > "$names" 2>/dev/null || scan_ok=0
     git log -p --text --no-ext-diff --no-textconv --src-prefix=a/ --dst-prefix=b/ --no-renames --diff-merges=first-parent --format='commit %h' "$range" "${history_excludes[@]}" -- . > "$added" 2>/dev/null || scan_ok=0
     git log --format='commit %h%n%B' "$range" "${history_excludes[@]}" 2>/dev/null | awk -v t="$guard_tab" "$msgawk" > "$msgs" || scan_ok=0
+  fi
+  # An annotated tag's message is read with the commit messages (D-WORKFLOW-200,
+  # #933): a tag object carries text no commit does.
+  if [ "$scan_ok" = 1 ] && [ "$(git cat-file -t "$local_sha" 2>/dev/null)" = tag ]; then
+    git cat-file tag "$local_sha" 2>/dev/null \
+      | awk -v t="$guard_tab" -v n="${local_ref#refs/tags/}" 'b { i++; print "tag " n ":message:" i t $0; next } /^$/ { b = 1 }' >> "$msgs" || scan_ok=0
   fi
   guard_added_lines < "$added" > "$lines" || scan_ok=0
   if [ "$scan_ok" != 1 ]; then
@@ -327,7 +339,7 @@ while read -r local_ref local_sha remote_ref remote_sha; do
   # audit, a futro) are reported here and enforced by the fork's CI, so a fix
   # can still be pushed while one is owed (#254, D-WORKFLOW-028).
   if [ "$remote_ref" = "refs/heads/next" ]; then
-    if [ "$whole" = 0 ] && git diff --name-only "$range" -- 'docs/work-logs/' 2>/dev/null | grep -qE 'work_log\.md$' \
+    if [ -n "$range" ] && git diff --name-only "$range" -- 'docs/work-logs/' 2>/dev/null | grep -qE 'work_log\.md$' \
        && ! git diff --name-only "$range" -- 'docs/work-logs/INDEX.md' 2>/dev/null | grep -q .; then
       echo "⚠ pre-push: this push changes work logs without docs/work-logs/INDEX.md -- run tools/work-log-index --write and amend." >&2
     fi
@@ -365,7 +377,7 @@ while read -r local_ref local_sha remote_ref remote_sha; do
   [ "$dest" = "$pushed" ] || branch="${dest} (pushed from ${pushed})"
 
   if [ -z "$base_ref" ]; then
-    echo "✗ pre-push: refusing to push ${branch}: no upstream/next or origin/next to compare a pr/* branch against." >&2
+    echo "✗ pre-push: refusing to push ${branch}: no upstream/next to compare a pr/* branch against (origin/next is the fork's next and carries the overlay, D-WORKFLOW-200)." >&2
     echo "  git fetch upstream, then push again." >&2
     status=1
     continue
