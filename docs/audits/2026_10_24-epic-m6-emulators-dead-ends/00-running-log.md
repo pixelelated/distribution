@@ -88,3 +88,10 @@ PROOF: 13:51 P17 the five ROCKNIX pins against their projects: T3's `04-analysis
   - three generalisations in `04` § Q7 were narrowed to what P8 and the source reads show.
 - `tools/lint-audit-artifacts <folder> --phase pre-issue` (14:04:26): rc 0, `PASS pre-issue artifacts (does not certify resolution)`, with `review-plan: local at epic tier under D-WORKFLOW-184 (...)` and `04 § Renovation face answers Q1 to Q7`.
 - Proof count: 17 `proved:` cells in `02`, 17 proof lines here.
+
+### [Stage D] 14:08-14:07 — the punch-list issue; the pause
+
+- **#900** `Audit: M6 T24 emulator recipes and files no shipped image builds -- 3 findings (0 high, 0 medium, 3 low)` was created with labels `audit` and `punch-list`, milestone M6, and attached as a sub-issue of #671 (REST id 6013783886). Read back: the title, both labels, the milestone, and 3 open checkboxes.
+- `tools/lint-audit-artifacts <folder> --phase pre-issue --issue 900`: `PASS pre-issue artifacts`, with `issue #900 carries a task list (3 items)` and PL-01 to PL-03 referenced.
+- `tools/box-check`: rc 0; `300 issue(s), 825 open checkbox(es), 0 fail`. #900 and #671 are not among its notes.
+- **The stage-D pause:** the dispositions for PL-01 to PL-03 are asked on #671. The lane is idle on this slice until they come.

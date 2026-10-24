@@ -38,33 +38,21 @@
 
 ## Current focus
 
-**Stage A done (2026-10-24 13:41 UTC; the executor; `b7ac3b087b`).** The
-audit folder is `docs/audits/2026_10_24-epic-m6-emulators-dead-ends/`:
-`00-running-log.md` (Phase 0 and Stage A) and `01-research-notes.md`
-§ Scope.
-- The membership matches the brief exactly: 86 paths, 2,399 lines, 84
-  `unreached` and 2 `unshipped`, 85 recipes and 1 cmake file.
-- The fork changed none of them. 81 are identical to `upstream/next` and
-  5 differ by `af70bd435b`.
-- The branch differs from `8ebaf8daad` on none of the 86, so
-  `reviewed-at: 81331b499e`.
-- `upstream/next` moved during the stage-A fetch, from `e0f9deb899` to
-  `481c9d0d75` (heroic only). The (a) loop records both heads.
+**Stage D, paused (2026-10-24; the executor).** The audit folder `docs/audits/2026_10_24-epic-m6-emulators-dead-ends/` holds `00` to `05`, `second-opinions/review-plan.json` (Local, D-WORKFLOW-184) and `tools/t24-tables.py` and `t24-twin.py`.
+- All 86 rows are unreached and kept, each with its `Already written:` line.
+- The twin map has 77 rows; there are 17 proofs.
+- The pre-issue lint passes, with `--issue 900` too.
+- The audit issue is **#900**, a sub-issue of #671, with 3 Low `Renovation` items:
+  - PL-01, the #585 proposal for the 81;
+  - PL-02, the five ROCKNIX recipes;
+  - PL-03, the `core-pins` rows, in T3's file.
+- The dispositions are asked on #671. **The lane is idle on T24 until the coordinator answers.**
 
-**Next is stage B**: brief § 5's host-side checks, in this order:
-1. the (a) loop;
-2. the (b) LibreELEC master loop: 80 serial reads, the budget read
-   before and after, `libretro-snes9x` as the control;
-3. the three `viewplan` reads, with `snes9x-lr` as the control;
-4. the metapackage and `git grep` reads;
-5. the record by name prefix over the five M7 roots, and the `.info`
-   trace;
-6. the two `pkgcheck` runs;
-7. the weight.
-
-After that come `02` to `04`, then the lint (`--phase pre-issue`), then
-the stage-D punch list and the pause. No runtime of any kind; the host is
-M6's, and this slice does not touch it.
+**After the dispositions:**
+1. Record each Phase 7 outcome in `05` and #900.
+2. Run stage F's re-derivations.
+3. Write the retro (G): `docs/retros/2026-10-24-m6-emulators-dead-ends.md`, saying that the slice did nothing to the two time-to-play numbers.
+4. Hand back (H): `reviewed-at: 81331b499e`, and `fixed-at` the tip, since nothing changes; the six checkers.
 
 ## Next commands
 

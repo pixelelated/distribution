@@ -1,6 +1,6 @@
 # Punch List — M6.P2 T24, emulator recipes and files no shipped image builds
 
-**Local depth** (plan § 6c, D-WORKFLOW-184): no reviewer; Phase 4.5 is in `04`. Three items, all Low and all `Renovation`; no `bug`.
+**Local depth** (plan § 6c, D-WORKFLOW-184): no reviewer; Phase 4.5 is in `04`. Three items, all Low and all `Renovation`; no `bug`. The audit issue is #900 (a sub-issue of #671).
 - **PL-01** is the #585 proposal for the 81 LibreELEC files: one item, whose outcome is the coordinator's post.
 - **PL-02** is the five ROCKNIX recipes, said once with T3 cited.
 - **PL-03** is the one finding outside the 86, in a fork-own line of T3's file.
