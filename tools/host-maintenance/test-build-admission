@@ -176,7 +176,11 @@ with tempfile.TemporaryDirectory(prefix='pix493-admission-') as tmp:
         for name,value in [('build.rc',0),('build.pid',4102),('command.pid',4103),('watcher.pid',4104),('build.status.pid',4104)]:
             (runpath/name).write_text(str(value)+'\n')
         (runpath/'build.status').write_text('state:       finished\nwatcher_pid: 4104\njob_pid:     4102  alive=yes\noutcome:     rc=0\n')
-        shutil.copy2(root/'tools/watch-build-submit',owner/'watch-build-submit.py')
+        # Recovery is for the reviewed #597 launcher only, not the current one
+        # (#923 changed it): its bytes come from their content-addressed blob.
+        reviewed=subprocess.check_output(['git','-C',str(root),'cat-file','blob','571997938e3de3b8280bf2df1c76151cdd2587d3'])
+        assert hashlib.sha256(reviewed).hexdigest()==m.COLLISION_LAUNCHER_SHA256
+        (owner/'watch-build-submit.py').write_bytes(reviewed)
         (owner/'tool-wrapper.rc').write_text('0\n');(owner/'inner.rc').write_text('0\n')
         (owner/'console.log').write_text("watch-build-submit: [Errno 17] File exists: '"+str(owner/'tool-wrapper.rc')+"'\n")
         m.write(owner/'launcher-start.json',dict(pid=4101,start_ticks='99',cwd=str(d)))

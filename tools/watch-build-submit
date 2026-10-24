@@ -13,6 +13,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import signal
 import subprocess
 import sys
 
@@ -33,18 +34,36 @@ def worker(owner, command):
         'utc': now(), 'pid': os.getpid(), 'cwd': str(Path.cwd()),
         'start_ticks': Path('/proc/self/stat').read_text().rsplit(')', 1)[1].split()[19],
     })
+    child = None
+    received = []
+
+    def forward(signum, _frame):
+        # The runner gets the signal and ends its own run; the worker waits for
+        # it and records both (#923).
+        received.append(signum)
+        if child is not None and child.poll() is None:
+            child.send_signal(signum)
+
+    for sig in (signal.SIGINT, signal.SIGTERM, signal.SIGHUP):
+        signal.signal(sig, forward)
     try:
         environment = os.environ.copy()
         environment['PIXELELATED_SUBMISSION_OWNER'] = str(owner)
-        result = subprocess.run(command, env=environment).returncode
+        child = subprocess.Popen(command, env=environment)
+        if received:
+            child.send_signal(received[0])
+        result = child.wait()
         result = result if result >= 0 else 128 - result
     except OSError:
         result = 125
+    if received:
+        write_json(owner / 'launcher-signal.json', {
+            'utc': now(), 'signals': received, 'forwarded_to': child.pid if child else None})
     # Never manufacture the runner's build.rc, or the job's own inner/outer rc.
     with (owner / 'tool-wrapper.rc').open('x') as stream:
         stream.write(str(result) + '\n')
     write_json(owner / 'launcher-result.json', {
-        'utc': now(), 'pid': os.getpid(), 'runner_returncode': result,
+        'utc': now(), 'pid': os.getpid(), 'runner_returncode': result, 'signals': received,
         'submission_is_not_completion': True,
     })
     return result
@@ -66,7 +85,10 @@ def main():
         parser.error('existing owner and executable cwd/tools/watch-build required')
     if not runner_args or os.environ.get('RASTERATOPS_BUILD_RUN'):
         parser.error('runner arguments required; inherited active runs cannot be submitted')
-    for name in ['qa.start', 'start', 'inner.rc', 'outer.rc', 'tool-wrapper.rc', 'console.log']:
+    # Every receipt this launcher or a run writes; any one means not fresh (#923).
+    for name in ['qa.start', 'start', 'inner.rc', 'outer.rc', 'tool-wrapper.rc', 'console.log',
+                 'launcher-submission.json', 'launcher-start.json', 'launcher-pid.json',
+                 'launcher-result.json', 'launcher-signal.json', 'watch-build-submit.py']:
         if (owner / name).exists():
             parser.error('owner has already started: ' + name)
     os.umask(0o077)
@@ -80,13 +102,19 @@ def main():
     with copy.open('xb') as output:
         output.write(Path(__file__).read_bytes())
     copy.chmod(0o500)
-    with (owner / 'console.log').open('xb', buffering=0) as log:
+    # The pid receipt is reserved before the start, so a collision refuses
+    # before anything runs; its content follows the start (#923).
+    with (owner / 'launcher-pid.json').open('x') as pid_receipt, \
+            (owner / 'console.log').open('xb', buffering=0) as log:
         child = subprocess.Popen(
             [sys.executable, '-I', str(copy), '--worker', str(owner),
              str(runner), *runner_args], stdin=subprocess.DEVNULL,
             stdout=log, stderr=subprocess.STDOUT,
             start_new_session=True, close_fds=True)
-    write_json(owner / 'launcher-pid.json', {'pid': child.pid, 'utc': now()})
+        json.dump({'pid': child.pid, 'utc': now()}, pid_receipt, indent=2)
+        pid_receipt.write('\n')
+        pid_receipt.flush()
+        os.fsync(pid_receipt.fileno())
     print(json.dumps({'state': 'submitted', 'pid': child.pid, 'owner': str(owner),
                       'completion': str(owner / 'launcher-result.json'),
                       'submission_is_not_completion': True}))

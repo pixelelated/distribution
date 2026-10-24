@@ -99,4 +99,57 @@ for case in ['success', 'nonzero', 'lost-submitter']:
         if proc.exists():
             assert (proc / 'stat').read_text().rsplit(')', 1)[1].split()[0] == 'Z'
 rows.append({'case': 'all_standard_terminal_receipts_and_process_cleanup', 'pass': True})
+
+
+def wait_json(path):
+    deadline = time.monotonic() + 15
+    while True:
+        try:
+            return json.loads(path.read_text())
+        except (FileNotFoundError, ValueError):
+            assert time.monotonic() < deadline, str(path)
+            time.sleep(.05)
+
+
+# #923: an owner that already holds a launcher receipt is not fresh.
+owner = base / 'stale-result'; owner.mkdir()
+(owner / 'launcher-result.json').write_text('{}\n')
+stale = subprocess.run([sys.executable, str(launcher), '--owner', str(owner), '--',
+                        '--interval', '1', '--', 'true'], cwd=base,
+                       env=admitted_environment(owner.name), capture_output=True, text=True)
+assert stale.returncode == 2 and 'launcher-result.json' in stale.stderr, (stale.returncode, stale.stderr)
+assert not (owner / 'launcher-submission.json').exists()
+rows.append({'case': 'stale_launcher_receipt_refused', 'submission_rc': stale.returncode})
+
+# #923: a signal to the worker reaches the runner and is recorded.
+owner = base / 'worker-signalled'; owner.mkdir()
+submitted = subprocess.run([sys.executable, str(launcher), '--owner', str(owner), '--',
+                            '--interval', '1', '--stall-min', '1', '--',
+                            sys.executable, '-c', 'import time;time.sleep(30)'], cwd=base,
+                           env=admitted_environment(owner.name), capture_output=True, text=True)
+assert submitted.returncode == 0, submitted.stderr
+worker_pid = wait_json(owner / 'launcher-pid.json')['pid']
+recorded = []
+try:
+    deadline = time.monotonic() + 15
+    while 'watch-build: recording in ' not in (owner / 'console.log').read_text():
+        assert time.monotonic() < deadline
+        time.sleep(.05)
+    run = Path((owner / 'console.log').read_text().split('watch-build: recording in ', 1)[1].splitlines()[0])
+    wait_file(run / 'command.pid')
+    recorded = [int((run / name).read_text()) for name in ['build.pid', 'command.pid']]
+    os.kill(worker_pid, signal.SIGTERM)
+    result = wait_json(owner / 'launcher-result.json')
+    assert result['runner_returncode'] == 143 and result.get('signals') == [15], result
+    assert int((owner / 'tool-wrapper.rc').read_text()) == 143
+    assert wait_json(owner / 'launcher-signal.json')['signals'] == [15]
+    assert int((run / 'build.rc').read_text()) == 143
+finally:
+    # Only this case's own recorded runner and command group.
+    for pid in recorded:
+        try:
+            os.killpg(pid, signal.SIGKILL) if pid == recorded[-1] else os.kill(pid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+rows.append({'case': 'worker_signal_forwarded_and_recorded', 'runner_rc': 143})
 print(json.dumps({'passed': True, 'fixture': str(base), 'controls': rows}, indent=2))
