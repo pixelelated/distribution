@@ -1,0 +1,67 @@
+#!/bin/bash
+
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
+
+# link_storage_dir <source> <target>
+#
+# Make <source> a symbolic link to the directory <target> without losing what
+# is in <source>. Used by the emulator start scripts, which point a config
+# folder (saves, states, memory cards) at its place under /storage/roms.
+#
+# - <source> already a link to <target>: nothing is done.
+# - <source> a real directory: its contents are copied into <target> without
+#   overwriting anything there (cp -n), every file is checked to have arrived
+#   with the same bytes, and only then is <source> removed and linked. A file
+#   that exists on both sides with different bytes stops the step: both stay.
+# - <source> a link elsewhere, or absent: it is (re)made as the link.
+#
+# On any failure both sides are left as they are (copies already made into
+# <target> stay; nothing is removed), one line goes to stderr, and the exit
+# status is 1 (2 for a usage error). The emulator then runs with the real
+# directory, as it did before, and the next launch tries again.
+
+src="${1%/}"
+tgt="${2%/}"
+if [ -z "${src}" ] || [ -z "${tgt}" ] || [ "$#" -ne 2 ]; then
+  echo "usage: link_storage_dir <source> <target>" >&2
+  exit 2
+fi
+
+fail() {
+  echo "link_storage_dir: ${src}: $* (left in place)" >&2
+  exit 1
+}
+
+mkdir -p "${tgt}" || fail "cannot create ${tgt}"
+
+if [ -L "${src}" ]; then
+  [ "$(readlink -f "${src}")" = "$(readlink -f "${tgt}")" ] && exit 0
+  rm -f "${src}" || fail "cannot replace the old link"
+elif [ -d "${src}" ]; then
+  # File by file: busybox cp -n skips a whole tree whose top folder exists
+  # at the destination, so "cp -an src/. tgt/" would copy nothing.
+  while IFS= read -r -d '' d; do
+    mkdir -p "${tgt}${d#"${src}"}" || fail "cannot create a folder in ${tgt}"
+  done < <(find "${src}" -type d -print0)
+  copied=0
+  while IFS= read -r -d '' f; do
+    rel="${f#"${src}"/}"
+    if [ ! -e "${tgt}/${rel}" ] && [ ! -L "${tgt}/${rel}" ]; then
+      cp -a "${f}" "${tgt}/${rel}" 2>/dev/null
+    fi
+    if [ -L "${f}" ]; then
+      [ -L "${tgt}/${rel}" ] || [ -e "${tgt}/${rel}" ] || fail "${rel} did not arrive"
+    else
+      cmp -s "${f}" "${tgt}/${rel}" || fail "${rel} differs from, or is missing in, ${tgt}"
+    fi
+    copied=$((copied + 1))
+  done < <(find "${src}" \( -type f -o -type l \) -print0)
+  [ "$(find "${src}" \( -type f -o -type l \) | wc -l)" -eq "${copied}" ] || fail "could not check every file"
+  rm -rf "${src}" || fail "copied ${copied} file(s) but could not remove the folder"
+elif [ -e "${src}" ]; then
+  fail "is a file, not a folder"
+fi
+
+mkdir -p "$(dirname "${src}")" || fail "cannot create its parent folder"
+ln -s "${tgt}" "${src}" || fail "cannot create the link"
