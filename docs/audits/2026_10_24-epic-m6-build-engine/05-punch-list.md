@@ -460,7 +460,8 @@ punch_index:
   source_finding: "F-09"
   owner_area: "the identity: `build_distro` x `scripts/image`"
   tracked: "#833"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-sandbox; fix-pending-image: the next build's `target/`"
 - id: PL-08
   severity: Medium
   category: Security
@@ -499,7 +500,8 @@ punch_index:
   source_finding: "F-06"
   owner_area: "image assembly: dead writes"
   removal: yes
-  outcome: open
+  outcome: "resolved"
+  proved: "a reading (`git grep`, `bash -n`)"
 - id: PL-13
   severity: Low
   category: Renovation
@@ -507,7 +509,8 @@ punch_index:
   source_finding: "F-07"
   owner_area: "image assembly: the compatibility root"
   removal: yes
-  outcome: open
+  outcome: "resolved"
+  proved: "a reading (`bash -n`; 5 naming writes before, 0 after)"
 - id: PL-14
   severity: Low
   category: Code Quality
@@ -556,7 +559,8 @@ punch_index:
   question: Q1
   source_finding: "F-14"
   owner_area: "the device build"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-sandbox"
 - id: PL-21
   severity: Low
   category: Code Quality
@@ -584,7 +588,8 @@ punch_index:
   question: Q3
   source_finding: "F-24"
   owner_area: "the device build: `build_distro`"
-  outcome: open
+  outcome: "resolved"
+  proved: "fix-sandbox; fix-pending-image: the next H700 or SM8550 build's initramfs stamp"
 - id: PL-25
   severity: Low
   category: Renovation
@@ -611,23 +616,23 @@ punch_index:
 | PL-04 | **Resolved** | `10f688e3cd` (E3): `DROP` matched in upper case with the missing words and fused endings; a value spanning lines not forwarded, named on stderr; a failed write exits 1. P18 before and after; fix-sandbox; the next `make docker-*` run's `.env` read back as names only |
 | PL-05 | **Resolved** | `cbb3e308b7` (E4): the eleven per-system keys unset before each fragment, a missing fragment refused; `daphne.conf` and `gp32.conf` gain 1983 and 2001. P19 (case C) and P20 (the five tables); fix-host-regen; fix-pending-image: the three images' tables |
 | PL-06 | **Resolved** | `cbb3e308b7` (E4): the default marks `core[last()]`; defaults counted once per system, more than one fails by name, none warned (GENERIC_X64 `psx`, #650's line); `mk_es_systems` prints `xmlstarlet`'s error. P19 (cases A and B) and P20; fix-host-regen; fix-pending-image: the three images' tables |
-| PL-07 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-07 | **Resolved** | `cfb391e75d` (E5): the prune keeps the outputs of a frozen `BUILD_TIMESTAMP`, so `scripts/image`'s refusal fires. P21 case 1; fix-sandbox; fix-pending-image: the next build's `target/` |
 | PL-08 | Open | stage E's stream brief resolves (`t5-streams.md`) |
 | PL-09 | Open | stage E's stream brief resolves (`t5-streams.md`) |
 | PL-10 | Open | stage E's stream brief resolves (`t5-streams.md`) |
 | PL-11 | **Deferred** | deferred:#651 (T4): `device-builds.md` § After rebasing items 2 and 3 (the coordinator's disposition, `t5-streams.md`) |
-| PL-12 | Open | stage E's stream brief resolves (`t5-streams.md`) |
-| PL-13 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-12 | **Resolved** | `07b92ce5b7` (E5): `ORIGIN_URL` and `BUILD_FILENAME` removed; `git grep` finds no reader; a reading (`git grep`, `bash -n`) |
+| PL-13 | **Resolved** | `5f71b30310` (E5): the compat root's dead naming and uncalled `do_mkimage` removed; it names no file before or after; a reading (`bash -n`; 5 naming writes before, 0 after) |
 | PL-14 | Open | stage E's stream brief resolves (`t5-streams.md`) |
 | PL-15 | **Deferred** | deferred:#657 (T10): `update-kernel-configs-docs.yml` fails on every fork push (the coordinator's disposition) |
 | PL-16 | **Deferred** | deferred:#652, the coordinator's act: the pin moves with the first M6 image build after the M7 candidate merges, in the stream brief naming that build; until then behind by 29 days, identical `Dockerfile` |
 | PL-17 | **Deferred** | deferred:#652, the coordinator's act: the base merge takes `config/blocklist`, `build-nightly.yml` and the PR template |
 | PL-18 | Open | stage E's stream brief resolves (`t5-streams.md`) |
 | PL-19 | **Deferred** | deferred:#651 (T4): § Build credentials' two spellings of the options file (the coordinator's disposition) |
-| PL-20 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-20 | **Resolved** | `cfb391e75d` (E5): each step fails with its message; the dead `$?` check gone. P21 case 2; fix-sandbox |
 | PL-21 | Open | stage E's stream brief resolves (`t5-streams.md`) |
 | PL-22 | Open | stage E's stream brief resolves (`t5-streams.md`) |
 | PL-23 | Open | stage E's stream brief resolves (`t5-streams.md`) |
-| PL-24 | Open | stage E's stream brief resolves (`t5-streams.md`) |
+| PL-24 | **Resolved** | `cfb391e75d` (E5): `${DEVICE_ROOT:-${DEVICE}}`; a failed clean named. P21 case 3; fix-sandbox; fix-pending-image: the next H700 or SM8550 build's initramfs stamp |
 | PL-25 | **Deferred** | deferred:#652: `ccache --show-stats` before and after the first M6 build, recorded on #652 by the coordinator |
 | PL-26 | **Deferred** | deferred:#652: moves to `tooling-and-guards` in `areas.json` when the P1 branch merges (the coordinator's ledger edit, D-WORKFLOW-189) |

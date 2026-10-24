@@ -215,3 +215,19 @@ PROOF: 06:35-06:36 P18 `get_env` forwards no secret-shaped or multi-line name an
 
 PROOF: 06:38-06:41 P19 the launch table's cases: two defaults fail by name, a false core first ships one default, an appended system gets the default command -- `tools/sb-es-cases.sh` (F-03, F-04, #831, #832)
 PROOF: 06:38-06:41 P20 the five devices' tables after E4 differ from today's in `daphne`'s and `gp32`'s years only -- `tools/sb-es-regen5.sh` (F-03, #831)
+
+### [Stage E] 06:43 to 06:48 — E5, the image path (PL-07 #833; PL-20, PL-24, PL-12, PL-13)
+
+- The coordinator accepted E4. The zero-default case stays a warning here; the coordinator makes it fatal at the integration, after T3's S2, and has put that in the merge notes.
+- The test first: `tools/sb-build-distro.sh` lifts `build_distro`'s prune, clean and closing blocks and `scripts/image`'s identity block by their marker lines. It does not run the real `build_distro`, because that enters `tools/watch-build` and its nesting marker is never pre-set. Before (`8ebaf8daad`): the three defects reproduced.
+- The changes:
+  - `cfb391e75d`, `build_distro`: the prune keeps the frozen identity's outputs, each step fails with its message, the initramfs clean falls back to `DEVICE`, and a failed clean is named.
+  - `07b92ce5b7`, `image`: `ORIGIN_URL` and `BUILD_FILENAME` removed; `git grep` finds no reader in the tree, the workflows or the fork's tools.
+  - `5f71b30310`, `build_compat`: 58 dead lines removed. The compat root names no file, and `do_mkimage` was never called. `CUSTOM_VERSION`'s export of `OS_VERSION` went with it, and the image step's identity already refuses `CUSTOM_VERSION`.
+  - `bash -n` passes on all three.
+- The history of `DEVICE_ROOT`: upstream's `Makefile` sets it for RK3566 only too (`f27f9088f6`, the 2025-07-13 import), and no reason is recorded. The fallback keeps RK3566's behaviour.
+- After: the refusal fires with the files byte-identical; exit 1 with the message; the stamp removed.
+- Already written: an identity already published is immutable (D-WORKFLOW-157). `${BUILD}/BUILD_FILENAME` files remain in old build roots, unread.
+- Not in this stream: `.identity.json` is still written before `do_mkimage` (Argon G-02, folded into F-09's item). After E1 a failed `mkimage` removes its image, but the sidecar stays. The brief's files for `scripts/image` were 71 to 84, so it goes to the coordinator in the hand-back.
+
+PROOF: 06:46 P21 `build_distro` keeps a frozen identity's outputs so the image refuses, fails a failed step by name, and cleans the initramfs without `DEVICE_ROOT` -- `tools/sb-build-distro.sh` (F-09, F-14, F-24, #833)
