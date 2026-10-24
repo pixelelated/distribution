@@ -15,6 +15,9 @@ TXCLR="$(tput el)"
 # Every FAIL logged, so the exit status can say whether any check failed.
 # The script used to end with whatever its last command returned -- 0 -- and
 # printed [FAIL] lines a caller could not see (fork audit 2026-09-12, F-08).
+# Exit 0: every recipe checked passed. 1: a FAIL. 2: a package name matched no
+# recipe, so nothing under that name was checked -- a mistyped name used to
+# exit 0 having checked nothing (#845).
 FAILS=0
 
 log() {
@@ -152,12 +155,19 @@ process_pkg() {
 
 TARGET_FUNCS="$(init_target_funcs)"
 
+UNMATCHED=0
 if [ $# -ne 0 ]; then
   for arg in ${@}; do
+    matched=0
     for p in $(find packages projects -type f -path */${arg}/package.mk | sort); do
       echo -en "${TXCLR}${p}...\r" >&2
       process_pkg "${p}"
+      matched=$((matched + 1))
     done
+    if [ ${matched} -eq 0 ]; then
+      echo "pkgcheck: no recipe matches ${arg} (packages/**/${arg}/package.mk, projects/**/${arg}/package.mk)" >&2
+      UNMATCHED=$((UNMATCHED + 1))
+    fi
   done
 else
   for p in $(find packages projects -type f -name package.mk | sort); do
@@ -166,4 +176,5 @@ else
   done
 fi
 echo -en "${TXCLR}" >&2
+[ ${UNMATCHED} -eq 0 ] || exit 2
 [ ${FAILS} -eq 0 ]
