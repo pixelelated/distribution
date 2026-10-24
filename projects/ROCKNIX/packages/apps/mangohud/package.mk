@@ -7,7 +7,7 @@ PKG_SHA256="edd61f4716710681a9e3b535556831ee0c6187b7b6f90d29f8d8ac234448f4a5"
 PKG_LICENSE="GPL"
 PKG_SITE="https://github.com/flightlessmango/MangoHud"
 PKG_URL="${PKG_SITE}/archive/${PKG_VERSION}.tar.gz"
-PKG_DEPENDS_TARGET="toolchain glslang mesa Python3 wayland libxcb dbus mangohud-vulkan-headers mangohud-vulkan-utility-libraries"
+PKG_DEPENDS_TARGET="toolchain glslang mesa Python3 wayland libxcb dbus mangohud-vulkan-headers mangohud-vulkan-utility-libraries mangohud-imgui mangohud-implot mangohud-spdlog"
 PKG_LONGDESC="A Vulkan and OpenGL overlay for monitoring FPS, temperatures, CPU/GPU load and more."
 
 PKG_PATCH_DIRS+=" common"
@@ -63,28 +63,32 @@ pre_configure_target() {
     cp "${SOURCES}/mangohud-${wrap}/${want}" ${PKG_BUILD}/subprojects/packagecache/${want}
   done
 
+  ### imgui, implot and spdlog: unpacked from the source cache, never fetched
+  # here (#893). Each comes in through its mangohud-<name> package, which
+  # get_archive fetches and checks against its PKG_SHA256; the archive is the
+  # one the wrap names, and its top directory is the wrap's, where meson finds
+  # it. The wraps' patches are carried in meson-patches/.
+  local src
+  for src in mangohud-imgui/imgui-1.91.6.tar.gz mangohud-implot/implot-0.16.zip mangohud-spdlog/spdlog-1.14.1.tar.gz; do
+    [ -f "${SOURCES}/${src}" ] || die "mangohud: ${SOURCES}/${src} is missing -- the ${src%%/*} package supplies it"
+  done
+
   ### imgui
-  curl -Lo ${PKG_BUILD}/subprojects/imgui.tar.gz https://github.com/ocornut/imgui/archive/refs/tags/v1.91.6.tar.gz
-  tar -xvf ${PKG_BUILD}/subprojects/imgui.tar.gz -C ${PKG_BUILD}/subprojects/
-  #curl -Lo ${PKG_BUILD}/subprojects/imgui_patch_1.91.6-3.zip https://wrapdb.mesonbuild.com/v2/imgui_1.91.6-3/get_patch
+  tar -xf ${SOURCES}/mangohud-imgui/imgui-1.91.6.tar.gz -C ${PKG_BUILD}/subprojects/
   #unzip -o ${PKG_BUILD}/subprojects/imgui_patch_1.91.6-3.zip -d ${PKG_BUILD}/subprojects
   unzip -o ${PKG_DIR}/meson-patches/imgui_patch_1.91.6-3.zip -d ${PKG_BUILD}/subprojects
   rm -rf ${PKG_BUILD}/subprojects/imgui.tar.gz
   rm -rf ${PKG_BUILD}/subprojects/imgui_patch_1.91.6-3.zip
 
   ### implot
-  curl -Lo ${PKG_BUILD}/subprojects/implot.zip https://github.com/epezent/implot/archive/refs/tags/v0.16.zip
-  unzip -o ${PKG_BUILD}/subprojects/implot.zip -d ${PKG_BUILD}/subprojects
-  #curl -Lo ${PKG_BUILD}/subprojects/implot_patch_0.16-1.zip https://wrapdb.mesonbuild.com/v2/implot_0.16-1/get_patch
+  unzip -o ${SOURCES}/mangohud-implot/implot-0.16.zip -d ${PKG_BUILD}/subprojects
   #unzip -o ${PKG_BUILD}/subprojects/implot_patch_0.16-1.zip -d ${PKG_BUILD}/subprojects
   unzip -o ${PKG_DIR}/meson-patches/implot_patch_0.16-1.zip -d ${PKG_BUILD}/subprojects
   rm -rf ${PKG_BUILD}/subprojects/implot.zip
   rm -rf ${PKG_BUILD}/subprojects/implot_patch_0.16-1.zip
 
   ### spdlog
-  curl -Lo ${PKG_BUILD}/subprojects/spdlog.tar.gz https://github.com/gabime/spdlog/archive/refs/tags/v1.14.1.tar.gz
-  tar -xvf ${PKG_BUILD}/subprojects/spdlog.tar.gz -C ${PKG_BUILD}/subprojects/
-  #curl -Lo ${PKG_BUILD}/subprojects/spdlog_patch_1.14.1-1.zip https://wrapdb.mesonbuild.com/v2/spdlog_1.14.1-1/get_patch
+  tar -xf ${SOURCES}/mangohud-spdlog/spdlog-1.14.1.tar.gz -C ${PKG_BUILD}/subprojects/
   #unzip -o ${PKG_BUILD}/subprojects/spdlog_patch_1.14.1-1.zip -d ${PKG_BUILD}/subprojects
   unzip -o ${PKG_DIR}/meson-patches/spdlog_patch_1.14.1-1.zip -d ${PKG_BUILD}/subprojects
   rm -rf ${PKG_BUILD}/subprojects/spdlog.tar.gz
