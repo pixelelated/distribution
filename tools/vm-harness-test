@@ -974,6 +974,178 @@ def vnc_partial(c):
 # The account path never runs: no call reaches a guest or retroachievements.org,
 # and the accounts file is a stand-in with stand-in words, never the real store.
 
+RA_SHA = {'Tobu Tobu Girl Deluxe.gb': '0a0e8018dbbc8d7f', 'Ninoid.gb': 'a40191c169c68e66', 'Bobl.nes': '025ec44d0d84ac46'}
+CURL_DOUBLE = r'''#!/bin/bash
+# curl double: the RetroAchievements API's answer for an achievement not earned; nothing leaves the host.
+printf 'curl %s\n' "$*" >> "$VMHT_LOG"
+cat > /dev/null
+echo '{"Achievements":{"100359":{"ID":100359}}}'
+'''
+QA_ACCOUNTS_DOUBLE = r'''#!/bin/bash
+printf 'qa-accounts %s\n' "$*" >> "$VMHT_LOG"
+case " $* " in *" ra "*) echo "set (double)"; exit "${VMHT_QA_RA_RC:-0}" ;; *" clear "*) echo "cleared (double)"; exit "${VMHT_QA_CLEAR_RC:-0}" ;; esac
+exit 0
+'''
+
+
+def serial_marker_double(c, path):
+    """A serial console that answers vm-serial's markers and runs nothing; `echo serial-ok` says serial-ok."""
+    import re
+
+    def handle(conn):
+        buf = b''
+        while True:
+            try:
+                chunk = conn.recv(4096)
+            except OSError:
+                return
+            if not chunk:
+                return
+            buf += chunk
+            while b'\n' in buf:
+                line, buf = buf.split(b'\n', 1)
+                m = re.search(r'echo (BEG\w+); \(? ?(.*?) ?\)?; echo (END\w+)', line.decode(errors='replace'))
+                if m:
+                    out = 'serial-ok' if m.group(2).strip() == 'echo serial-ok' else ''
+                    conn.sendall(('%s\r\n%s\r\n%s:0\r\n' % (m.group(1), out, m.group(3))).encode())
+    serve_unix(c, path, handle)
+
+
+def ra_tree(c, guest_argv_port=10026, serial_leaf='rocknix-qemu-serial-d.sock'):
+    """ra-offline-test under test, beside vm-serial, the doubles, and a fixture guest d behind its pidfile."""
+    tool = c.tool('ra-offline-test')
+    c.tool('vm-serial')
+    executable(c.root / 'tools' / 'qa-accounts', QA_ACCOUNTS_DOUBLE)
+    executable(c.bin / 'curl', CURL_DOUBLE)
+    rt = short_dir(c)
+    mon, ser = rt / 'rocknix-qemu-monitor-d.sock', rt / 'rocknix-qemu-serial-d.sock'
+    serve_unix(c, mon, lambda conn: conn.recv(65536))
+    serial_marker_double(c, ser)
+    guest = subprocess.Popen(['qemu-system-fixture', '-c', FIXTURE_GUEST, '-monitor', 'unix:%s,server,nowait' % mon,
+                              '-serial', 'unix:%s,server,nowait' % (rt / serial_leaf),
+                              '-netdev', 'user,id=net0,hostfwd=tcp:127.0.0.1:%d-:22' % guest_argv_port],
+                             executable=sys.executable)
+    c.cleanup.append(lambda: (guest.terminate(), guest.wait(timeout=5)))
+    (rt / 'rocknix-qemu-d.pid').write_text('%d\n' % guest.pid)
+    roms = c.dir / 'roms'
+    for rel in ('tobu/Tobu Tobu Girl Deluxe.gb', 'ninoid/Ninoid.gb', 'bobl/Bobl (v1.2)-unpacked/böbl-1.2.nes'):
+        (roms / rel).parent.mkdir(parents=True, exist_ok=True)
+        (roms / rel).write_bytes(b'stand-in rom')
+    acct = c.dir / 'qa-accounts.standin'
+    acct.write_text('export RA_QA_USER=standin-user\nexport RA_QA_WEBKEY=standin-key\n')
+    acct.chmod(0o600)
+    rows = [('os-release', 0, f'"{GUEST_ID}"'), ('raofflineproxy-ctl status', 0, 'enabled=0 marker=0 service=inactive')]
+    rows += [(name, 0, sha) for name, sha in RA_SHA.items()]
+    env = dict(VM_QEMU_RUNTIME_DIR=rt, QA_ACCOUNTS=acct)
+    # The sockets named outright: both versions take the flags, and an old default under /tmp
+    # would stop the unfixed run at its preconditions, before the code under test.
+    argv = [str(tool), '--roms', str(roms), '--control', '--port', '10026', '--monitor', str(mon), '--serial', str(rt / serial_leaf)]
+    return tool, rt, rows, env, argv
+
+
+def run_until(c, argv, marker, timeout=90, **extra):
+    """Read the tool's output until a line holding marker (or its end), then stop its process group."""
+    import signal, select, time
+    p = subprocess.Popen(argv, cwd=c.root, env=c.env(**extra), stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                         text=True, start_new_session=True)
+    lines, end = [], time.monotonic() + timeout
+    try:
+        while time.monotonic() < end:
+            r, _, _ = select.select([p.stdout], [], [], 1)
+            if r:
+                line = p.stdout.readline()
+                if not line:
+                    break
+                lines.append(line.rstrip('\n'))
+                if marker and marker in line:
+                    break
+    finally:
+        try:
+            os.killpg(p.pid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+        p.wait(timeout=10)
+    return lines
+
+
+@case
+def negative_read_fails(c):
+    tool, rt, rows, env, argv = ra_tree(c)
+    executable(c.bin / 'sleep', SLEEP_DOUBLE)
+    c.rows(rows + [('netstat -ltn', 255, '')])
+    lines = run_until(c, argv, 'nothing listens on 127.0.0.1:8080', **env)
+    got = [l.strip() for l in lines if 'nothing listens on 127.0.0.1:8080' in l]
+    return bool(got) and got[0].startswith('FAIL'), f'{got[:1] or lines[-2:]} (want a FAIL: the read failed, so the absence is unproven)'
+
+
+@case
+def host_passed_through(c):
+    tool, rt, rows, env, argv = ra_tree(c)
+    executable(c.bin / 'sleep', SLEEP_DOUBLE)
+    c.rows(rows)
+    key = c.dir / 'given-key'
+    run_until(c, argv + ['--host', 'root@127.0.0.2', '--identity', str(key)], 'no account', VMHT_QA_RA_RC=1, **env)
+    calls = c.calls('qa-accounts ')
+    first = calls[0] if calls else ''
+    ok = '--host root@127.0.0.2' in first and f'--identity {key}' in first
+    return ok, f'qa-accounts was called as {first!r} (want the given host and key)'
+
+
+@case
+def cleanup_counted(c):
+    import signal, time
+    tool, rt, rows, env, argv = ra_tree(c)
+    c.rows(rows + [('raofflineproxy-ctl disable', 0, '@sleep:3')])
+    p = subprocess.Popen(argv, cwd=c.root, env=c.env(VMHT_QA_CLEAR_RC=1, **env), stdout=subprocess.PIPE,
+                         stderr=subprocess.STDOUT, text=True, start_new_session=True)
+    try:
+        end = time.monotonic() + 60
+        while time.monotonic() < end and not any(' ra' in l for l in c.calls('qa-accounts ')):
+            time.sleep(0.2)
+        os.kill(p.pid, signal.SIGTERM)
+        out, _ = p.communicate(timeout=60)
+    finally:
+        try:
+            os.killpg(p.pid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+    cleared = any(' clear' in l for l in c.calls('qa-accounts '))
+    counted = 'FAIL  cleanup: the account cleared' in out
+    return cleared and counted and p.returncode != 0, \
+        f'rc {p.returncode}, cleanup ran on the stop {cleared}, its failure counted {counted} (want both, and a non-zero exit)'
+
+
+@case
+def flushed_exact(c):
+    import re, shlex
+    text = (c.tools_from / 'ra-offline-test').read_text()
+    fn = re.search(r'^field_is\(\).*$', text, re.M)
+    line = [l for l in text.splitlines() if 'proxy: ${fltext}' in l][0]
+    expr = re.search(r'check "\$\((.*?)\)" "proxy:', line).group(1)
+    def judged(sample):
+        script = (fn.group(0) + '\n' if fn else '') + 'fl=%s; %s' % (shlex.quote(sample), expr)
+        return subprocess.run(['bash', '-c', script], capture_output=True, text=True).stdout.strip()
+    ten, one = judged('INFO Flush complete: flushed=10 failed=0'), judged('INFO Flush complete: flushed=1 failed=0')
+    aline = [l for l in text.splitlines() if l.strip().startswith('n=$(SER "grep -c')][0]
+    m = re.search(r"grep (-c(?: -E)?) '([^']*)'", aline)
+    pat = m.group(2).replace('${AID}', '100359').replace('$AID', '100359').replace('\\$', '$')
+    r = subprocess.run(['grep', '-c'] + (['-E'] if '-E' in m.group(1) else []) + [pat], input='Awarding achievement 1003590\n',
+                       capture_output=True, text=True)
+    longer_id = r.stdout.strip()
+    ok = ten != '0' and one == '0' and longer_id == '0'
+    return ok, f'flushed=10 judged {ten!r}, flushed=1 judged {one!r} (0 is accepted); achievement 1003590 counted as 100359: {longer_id} (want rejected, accepted, 0)'
+
+
+@case
+def endpoints_inconsistent(c):
+    tool, rt, rows, env, argv = ra_tree(c, guest_argv_port=10023, serial_leaf='rocknix-qemu-serial-b.sock')
+    executable(c.bin / 'sleep', SLEEP_DOUBLE)
+    c.rows(rows)
+    r = c.run(argv, timeout=60, **env)   # ra_tree named port 10026 and guest b's serial
+    return r.returncode == 2 and 'different guests' in r.stderr, \
+        f'rc {r.returncode}, {(r.stderr.strip() or r.stdout.strip()).splitlines()[-1:]} (want rc 2: the endpoints name different guests)'
+
+
 @case
 def accounts_readback(c):
     tool = c.tool('qa-accounts')

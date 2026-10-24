@@ -57,12 +57,24 @@
 # a repeat needs the dedicated account's softcore progress reset. #464 tracks
 # reset automation; the manual reset remains the fallback until qualified).
 #
+# One QA account serves every guest (G-52, recorded as a design, not a
+# defect): this suite is opt-in, one lane runs it at a time, and the host
+# coordination file says which. Two runs at once would spend and read the
+# same account's progress.
+#
+# The guest: --guest a|b|d derives the port and both sockets as vm-qa does;
+# the four endpoint flags stay for a hand run, and whichever way they come,
+# the guest's own QEMU (its pidfile in the runtime directory) must name that
+# port and both sockets, or the run is refused (exit 2, G-45). The account
+# goes to that host with that key (#977).
+#
 # Exit 0 when every assertion passed, 1 otherwise, 2 on usage or a
 # precondition that could not be checked. A guest that does not answer, a
 # ROM that is not there, a monitor or serial socket that is missing, are
 # FAILs before anything runs -- a guard that cannot run has not passed.
 set -u
 ROOT=$(cd "$(dirname "$0")/.." && pwd)
+exec 7>&1 8>&2   # the run's own stdout and stderr, for the exit trap
 # The key and guest d's sockets where vm-pair and vm-qa keep them for this
 # checkout (D-INFRA-031); each flag below still overrides.
 PAIR_DIR="${VM_PAIR_DIR:-$ROOT/.qa-scratch/vm-pair}"
@@ -99,6 +111,12 @@ declare -A SHA=([tobu]=0a0e8018dbbc8d7f [ninoid]=a40191c169c68e66 [bobl]=025ec44
 while [ $# -gt 0 ]; do
   case "$1" in
     --host) HOST=$2; shift 2 ;;
+    --guest) case "$2" in
+        a) PORT=10022; MONITOR="$RUNTIME/rocknix-qemu-monitor.sock"; SERIAL="$RUNTIME/rocknix-qemu-serial.sock" ;;
+        b) PORT=10023; MONITOR="$RUNTIME/rocknix-qemu-monitor-b.sock"; SERIAL="$RUNTIME/rocknix-qemu-serial-b.sock" ;;
+        d) PORT=10026; MONITOR="$RUNTIME/rocknix-qemu-monitor-d.sock"; SERIAL="$RUNTIME/rocknix-qemu-serial-d.sock" ;;
+        *) echo "ra-offline-test: --guest is a, b or d, not '$2'" >&2; exit 2 ;;
+      esac; shift 2 ;;
     --port) PORT=$2; shift 2 ;;
     --identity) KEY=$2; shift 2 ;;
     --monitor) MONITOR=$2; shift 2 ;;
@@ -114,6 +132,27 @@ while [ $# -gt 0 ]; do
   esac
 done
 [ -z "$GAME" ] || case " $CANDIDATES " in *" $GAME "*) ;; *) echo "ra-offline-test: --game is one of: $CANDIDATES (--list-games)" >&2; exit 2 ;; esac
+# One guest's endpoints (G-45): the QEMU behind the port's pidfile must name
+# this port and both sockets. A port of guest d with guest b's serial socket
+# used to drive two guests as one.
+case "$PORT" in 10022) PIDF="$RUNTIME/rocknix-qemu.pid" ;; 10023) PIDF="$RUNTIME/rocknix-qemu-b.pid" ;; 10026) PIDF="$RUNTIME/rocknix-qemu-d.pid" ;;
+  *) echo "ra-offline-test: port $PORT is none of the QA guests' (10022, 10023, 10026)" >&2; exit 2 ;; esac
+python3 -I - "$PIDF" "$PORT" "$MONITOR" "$SERIAL" <<'ENDPOINTS' || exit 2
+import sys
+from pathlib import Path
+pidfile, port, monitor, serial = sys.argv[1:]
+try:
+    pid = int(Path(pidfile).read_text().strip())
+    argv = [a.decode('utf-8', 'replace') for a in (Path('/proc') / str(pid) / 'cmdline').read_bytes().split(b'\0')]
+except (OSError, ValueError) as error:
+    sys.exit('ra-offline-test: no running guest behind %s (%s), so the endpoints cannot be checked' % (pidfile, error))
+wrong = [what for what, ok in (
+    ('the ssh port %s' % port, any(':%s-:22' % port in a for a in argv)),
+    ('the monitor %s' % monitor, any(a.startswith('unix:%s,' % monitor) for a in argv)),
+    ('the serial %s' % serial, any(a.startswith('unix:%s,' % serial) for a in argv))) if not ok]
+if wrong:
+    sys.exit('ra-offline-test: the endpoints name different guests: pid %d (%s) does not carry %s' % (pid, pidfile, '; '.join(wrong)))
+ENDPOINTS
 SSHO=(-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR -o ConnectTimeout=8 -o BatchMode=yes -p "$PORT" -i "$KEY")
 # Every ssh and scp this tool runs has an execution bound (#976): ConnectTimeout
 # ends a connection that never opens, not a command that never ends. VM_SSH_BOUND
@@ -146,6 +185,22 @@ frames_after_exit() {
 press() { MON "sendkey $1 ${2:-120}"; sleep "$(awk -v h="${2:-120}" -v g="${3:-150}" 'BEGIN{printf "%.3f", (h+g)/1000}')"; }
 FAILS=0; PASSES=0
 check() { if [ "$1" = 0 ]; then echo "  PASS  $2"; PASSES=$((PASSES+1)); else echo "  FAIL  $2"; FAILS=$((FAILS+1)); fi; }
+# A negative check needs a read first (#977): the guest's answer read whole,
+# then the absence. A read that failed used to pass "nothing listens".
+# absent <guest command> <ERE>: 0 when the command ran (its status in its own
+# last line) and its output does not match, 1 when it matches, 2 when the
+# read itself failed.
+absent() {
+  local out rc
+  out=$(S "$1; echo \"read-status=\$?\""); rc=$?
+  [ "$rc" = 0 ] || return 2
+  case "$out" in *"read-status="*) ;; *) return 2 ;; esac
+  printf '%s\n' "${out%read-status=*}" | grep -q -E -- "$2" && return 1
+  return 0
+}
+# field_is <text> <name> <value>: the field is exactly that value, not a
+# prefix of another (flushed=10 is not flushed=1).
+field_is() { [[ " $1 " =~ [^[:alnum:]_]$2=$3([^0-9]|$) ]]; }
 # Nothing read from the guest is printed raw: the account's name is masked
 # and any line shaped like a value is dropped (generic-x64-vm-testing.md).
 ACCOUNT=""
@@ -244,22 +299,31 @@ RA_WAS=$(S '. /etc/profile; get_setting global.retroachievements'); HC_WAS=$(S '
 TOGGLE_WAS=$(S 'raofflineproxy-ctl status 2>/dev/null | sed -n "s/^enabled=//p"')
 say "as found: global.retroachievements=${RA_WAS:-unset} hardcore=${HC_WAS:-unset} toggle enabled=${TOGGLE_WAS:-?}"
 WE_ENABLED=0
+CLEANED=0
+# Each cleanup step's status counts (#977): a guest left with the account or
+# the toggle on is a run that did not pass, whatever came before.
+step() { [ "$1" = 0 ] || { echo "  FAIL  cleanup: $2 (exit $1)"; FAILS=$((FAILS+1)); }; }
 cleanup() {
+  CLEANED=1
   echo "10 cleanup"
   S 'pgrep -f ^/usr/bin/retroarch >/dev/null && /tmp/ra-offline-kill; sleep 2; pkill -f ^/usr/bin/retroarch 2>/dev/null; rm -f /tmp/ra-offline-kill; true' >/dev/null 2>&1
   MON "set_link $NETDEV on"
   SER 'nmcli device connect eth0 >/dev/null 2>&1' 30 >/dev/null
   for i in $(seq 1 20); do S true 2>/dev/null && break; sleep 3; done
   [ -n "${VD_WAS:-}" ] && S "sed -i 's/^video_driver = .*/${VD_WAS}/' /storage/.config/retroarch/retroarch.cfg" >/dev/null 2>&1
-  if [ "${TOGGLE_WAS:-0}" = 1 ]; then S 'raofflineproxy-ctl enable' >/dev/null 2>&1; else S 'raofflineproxy-ctl disable' >/dev/null 2>&1; fi
-  [ "$WE_ENABLED" = 1 ] && S 'raofflineproxy-ctl flushed >/dev/null 2>&1; rm -rf /storage/.config/raofflineproxy' >/dev/null 2>&1
+  if [ "${TOGGLE_WAS:-0}" = 1 ]; then S 'raofflineproxy-ctl enable' >/dev/null 2>&1; step $? "the toggle back on"
+  else S 'raofflineproxy-ctl disable' >/dev/null 2>&1; step $? "the toggle back off"; fi
+  if [ "$WE_ENABLED" = 1 ]; then S 'raofflineproxy-ctl flushed >/dev/null 2>&1; rm -rf /storage/.config/raofflineproxy' >/dev/null 2>&1; step $? "the proxy's folder removed"; fi
   if [ "${ACCT_WAS:-0}" = 1 ]; then
-    "$ROOT/tools/qa-accounts" "$PORT" ra 2>&1 | sed 's/^/  |     put back: /'
+    "$ROOT/tools/qa-accounts" --host "$HOST" --identity "$KEY" --port "$PORT" ra 2>&1 | sed 's/^/  |     put back: /'
+    step "${PIPESTATUS[0]}" "the account put back"
   else
-    "$ROOT/tools/qa-accounts" "$PORT" clear 2>&1 | sed 's/^/  |     /'
+    "$ROOT/tools/qa-accounts" --host "$HOST" --identity "$KEY" --port "$PORT" clear 2>&1 | sed 's/^/  |     /'
+    step "${PIPESTATUS[0]}" "the account cleared"
   fi
   S ". /etc/profile; set_setting global.retroachievements '${RA_WAS:-default}'; set_setting global.retroachievements.hardcore '${HC_WAS:-default}'" >/dev/null 2>&1
-  S 'systemctl restart essway' >/dev/null 2>&1
+  step $? "the RetroAchievements switches put back"
+  S 'systemctl restart essway' >/dev/null 2>&1; step $? "the interface restarted"
   st=$(S 'raofflineproxy-ctl status 2>/dev/null | tr "\n" " "'); link=$(S 'cat /sys/class/net/eth0/operstate 2>/dev/null')
   say "left: ${st}eth0=${link:-?} account cleared; global.retroachievements=${RA_WAS:-unset} hardcore=${HC_WAS:-unset} put back"
   echo; if [ "$FAILS" = 0 ]; then echo "PASSED ($PASSES)"; else echo "FAILED ($FAILS of $((FAILS+PASSES)))"; fi
@@ -272,18 +336,28 @@ cleanup() {
 # was there before (chain 90, 2026-09-29: the clear left the proofs after
 # this test starting one row off).
 ACCT_WAS=0; [ -n "$(S '. /etc/profile; get_setting global.retroachievements.username' 2>/dev/null)" ] && ACCT_WAS=1
+# From the account step on, any exit runs the cleanup once, and its result is the run's (#977).
+# A trap runs inside whatever command it interrupted, under that command's
+# redirections -- `S ... >/dev/null` swallowed the whole cleanup's report when
+# a stop landed there -- so the run's own stdout and stderr, saved at the
+# start, are put back before the cleanup speaks.
+on_exit() { local rc=$?; exec 1>&7 2>&8; [ "$CLEANED" = 1 ] && exit "$rc"; cleanup; local crc=$?; [ "$rc" = 0 ] && exit "$crc"; exit "$rc"; }
+trap on_exit EXIT
+trap 'exit 143' TERM
+trap 'exit 130' INT
 acct_out=$(mktemp) || { echo "FAILED -- no scratch file for the account step"; exit 1; }
-"$ROOT/tools/qa-accounts" "$PORT" ra > "$acct_out" 2>&1; rc=$?
+"$ROOT/tools/qa-accounts" --host "$HOST" --identity "$KEY" --port "$PORT" ra > "$acct_out" 2>&1; rc=$?
 # qa-accounts prints names and never values (its contract), so its line is
 # masked for the account's name but not dropped by the value filter, which
 # would eat it on the word "password".
-check "$rc" "tools/qa-accounts $PORT ra: $(sed "s/${ACCOUNT}/<account>/g" "$acct_out" | head -1)"; rm -f "$acct_out"
+check "$rc" "tools/qa-accounts :$PORT ra: $(sed "s/${ACCOUNT}/<account>/g" "$acct_out" | head -1)"; rm -f "$acct_out"
 [ "$rc" = 0 ] || { echo; echo "FAILED ($FAILS) -- no account; nothing launched"; exit 1; }
 if [ "$CONTROL" = 1 ]; then
   S 'raofflineproxy-ctl disable' >/dev/null 2>&1
   st=$(S 'raofflineproxy-ctl status 2>/dev/null | tr "\n" " "')
   check "$(case "$st" in *"enabled=0 marker=0 service=inactive"*) echo 0 ;; *) echo 1 ;; esac)" "raofflineproxy-ctl status: ${st}(the toggle off)"
-  check "$(S 'netstat -ltn 2>/dev/null | grep -q "127\.0\.0\.1:8080 "'; [ $? != 0 ]; echo $?)" "nothing listens on 127.0.0.1:8080"
+  absent 'netstat -ltn 2>/dev/null' '127\.0\.0\.1:8080 '; r=$?
+  check "$r" "nothing listens on 127.0.0.1:8080$([ "$r" = 2 ] && echo ' -- the read failed, so the absence is unproven')"
 else
   S 'raofflineproxy-ctl enable' >/dev/null 2>&1; WE_ENABLED=1; [ "${TOGGLE_WAS:-0}" = 1 ] && WE_ENABLED=0
   st=$(S 'raofflineproxy-ctl status 2>/dev/null | tr "\n" " "')
@@ -407,7 +481,8 @@ if [ "$CONTROL" = 1 ]; then check "$(case "$hostline" in *retroachievements.org*
 else check "$(case "$hostline" in *127.0.0.1:8080*) echo 0 ;; *) echo 1 ;; esac)" "RetroArch through the proxy: ${hostline:-no 'Using host' line}"; fi
 if [ "$CONTROL" = 0 ]; then
   sleep 8   # the synthetic award fired five seconds into every proxied session before patch 002
-  check "$(S 'grep -q "Awarding achievement 101000001" /var/log/exec.log'; [ $? != 0 ]; echo $?)" "no synthetic 'Casual Only' award (101000001) in the session (D-RA-005)"
+  absent 'cat /var/log/exec.log' 'Awarding achievement 101000001([^0-9]|$)'; r=$?
+  check "$r" "no synthetic 'Casual Only' award (101000001) in the session (D-RA-005)$([ "$r" = 2 ] && echo ' -- the read failed, so the absence is unproven')"
 fi
 [ "$FAILS" = 0 ] || { cleanup; exit 1; }
 PROXYLOG=/storage/.config/raofflineproxy/service.log
@@ -454,16 +529,16 @@ route_tobu() {
 awarded=1; T0=$(now)
 while [ $(( $(now) - T0 )) -lt 240 ]; do
   "route_$PICK"
-  n=$(SER "grep -c 'Awarding achievement $AID' /var/log/exec.log 2>/dev/null" 10)
+  n=$(SER "grep -c -E 'Awarding achievement ${AID}([^0-9]|\$)' /var/log/exec.log 2>/dev/null" 10)
   [ "${n:-0}" != 0 ] 2>/dev/null && [ "${n:-0}" -gt 0 ] && { awarded=0; break; }
 done
 T_AWARD=$(now)
-line=$(SER "grep -m1 'Awarding achievement $AID' /var/log/exec.log" 10 | mask)
+line=$(SER "grep -m1 -E 'Awarding achievement ${AID}([^0-9]|\$)' /var/log/exec.log" 10 | mask)
 check "$awarded" "RetroArch: ${line:-no 'Awarding achievement '$AID' ...' line within 240 s -- the route for $PICK did not reach it}"
 q=$(SER "grep -c 'Achievement $AID: queued_offline' /var/log/exec.log 2>/dev/null" 10)
 if [ "$CONTROL" = 0 ]; then
   check "$([ "${q:-0}" -gt 0 ] 2>/dev/null; echo $?)" "RetroArch: Achievement $AID: queued_offline (the proxy took it)"
-  ql=$(SER "grep 'Queued offline award: achievementId=$AID' $PROXYLOG | tail -1" 10 | mask)
+  ql=$(SER "grep -E 'Queued offline award: achievementId=${AID}([^0-9]|\$)' $PROXYLOG | tail -1" 10 | mask)
   check "$([ -n "$ql" ]; echo $?)" "proxy: ${ql#*INFO }"
 else
   check "$([ "${q:-0}" = 0 ]; echo $?)" "RetroArch: no queued_offline for $AID (no proxy: the award has nowhere to wait)"
@@ -475,8 +550,10 @@ fi
 echo "7  the game ended with the link still down"
 SER '/tmp/ra-offline-kill' 10 >/dev/null
 frames_after_exit exit-offline &
+offline_capture=$!
 gone=1; for i in $(seq 1 30); do [ "$(SER 'pgrep -f ^/usr/bin/retroarch | wc -l' 8)" = 0 ] && { gone=0; break; }; sleep 1; done
-wait
+wait "$offline_capture"; offline_capture_rc=$?
+[ -z "$FRAMES" ] || check "$offline_capture_rc" "the exit-offline capture completed without screenshot errors"
 check "$gone" "RetroArch gone after execute_kill (the interface's exit path ran with eth0 down)"
 check "$([ "$(SER 'pgrep -x emulationstation | wc -l' 8)" = 1 ]; echo $?)" "EmulationStation still up"
 p=$(SER 'raofflineproxy-ctl pending 2>/dev/null; echo "rc=$?"' 10); prc=${p##*rc=}; p=${p%%$'\n'*}
@@ -494,7 +571,7 @@ check "$(S true; echo $?)" "ssh back $(( $(now) - T_UP )) s after set_link on"
 if [ "$CONTROL" = 0 ]; then
   fl=""; for i in $(seq 1 45); do fl=$(S "tail -n +$((LOG0+1)) $PROXYLOG 2>/dev/null | grep -m1 'Flush complete:'" | mask); [ -n "$fl" ] && break; sleep 2; done
   fltext="${fl#*INFO }"; [ -n "$fl" ] || fltext="no 'Flush complete' line within 90 s"
-  check "$(case "$fl" in *"flushed=1"*) echo 0 ;; *) echo 1 ;; esac)" "proxy: ${fltext} ($(( $(now) - T_UP )) s after the link returned)"
+  check "$(field_is "$fl" flushed 1; echo $?)" "proxy: ${fltext} ($(( $(now) - T_UP )) s after the link returned)"
   # The proxy's stamp is taken by the interface's own send card at the link's
   # return (ProxyCards::takeFlushed through the ctl's `flushed`, #305: the
   # card that reports the batch removes it), so a `cat` seconds after the
@@ -538,5 +615,7 @@ wait_log 'achievements active' 60; setline2=$(S 'grep -m1 -o -E "Set [0-9]+: [0-
 ACTIVE1=$(echo "$setline2" | sed -n 's/.*: \([0-9]*\)\/[0-9]* achievements.*/\1/p')
 if [ "$CONTROL" = 0 ]; then check "$([ -n "$ACTIVE0" ] && [ -n "$ACTIVE1" ] && [ "$ACTIVE1" = $((ACTIVE0-1)) ]; echo $?)" "relaunch: ${setline2:-?} -- one fewer active than ${ACTIVE0:-?}/${TOTAL:-?} before"
 else check "$([ -n "$ACTIVE0" ] && [ -n "$ACTIVE1" ] && [ "$ACTIVE1" = "$ACTIVE0" ]; echo $?)" "relaunch: ${setline2:-?} -- the same ${ACTIVE0:-?}/${TOTAL:-?} active as before: the unlock is not there"; fi
-S '/tmp/ra-offline-kill' >/dev/null 2>&1; frames_after_exit exit-online; sleep 3
+S '/tmp/ra-offline-kill' >/dev/null 2>&1; frames_after_exit exit-online; online_capture_rc=$?
+[ -z "$FRAMES" ] || check "$online_capture_rc" "the exit-online capture completed without screenshot errors"
+sleep 3
 cleanup
