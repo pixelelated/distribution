@@ -172,8 +172,13 @@ hash; the fix worktree stays until M7 consumes it. **T3 accepted at hand-back 07
 `fixed-at 3c47325fb2`; #826 closed completed; 14 of 15 ticked, the
 `renovation-status` clause at the merge; its `slices.json` row written when
 this branch takes P1's at integration; #823 and #841 close at the merge; the
-eleven `fix-pending-image` items at the first image). T5 is at its close-out
-after E1 to E8 (all accepted); the coordinator closes #837 at acceptance. **Rule edits by this lane
+eleven `fix-pending-image` items at the first image). **T5 accepted at hand-back 07:2x** (`52e6794ba7`; `reviewed-at 46f6c7d428`,
+`fixed-at 877775e61e`; #837 closed completed; 15 of 16 ticked; the
+coordinator's rows on #652: the container pin at the first M6 build, the three
+base-merge files, the ccache measurement, `areas.json` at the P1 merge). Both
+work lanes idle. **Tree exports go under `/workspace/tmp/m6-coordinator/`,
+never the scratchpad on `/tmp`** (the tmpfs ran out of inodes at 07:13 under
+two lanes' exports). **Rule edits by this lane
 since `8ebaf8daad`** (the ledger the doctrine futro's A7 asks for; posted on
 #651 once T4 is at stage A, and listed here as they happen):
 `8c9b1d4721` `generic-x64-vm-testing.md` +7, lines 1225 to 1231 (`time-to-play`'s
