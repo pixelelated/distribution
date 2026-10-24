@@ -73,7 +73,7 @@ R=${FX}/redir; mkdir -p "$R"
   done; } > "$R/s.sh"
 runin "$R" "$R/s.sh"
 made=$(ls -A "$R" | grep -v -x -e s.sh -e s.sh.out | wc -l)
-hits=$(for f in $(git -C "${TREE}" ls-files "${SA}" | grep -E '\.sh$' | grep -v aethersx2); do src "$f" | grep -E '\[ [^]]*[^-]( <>| >| <) [^]]*\]'; done | wc -l)
+hits=$(git -C "${TREE}" ls-files "${SA}" | grep -E '\.sh$' | grep -v aethersx2 | while IFS= read -r f; do src "$f" | grep -E '\[ [^]]*[^-]( <>| >| <) [^]]*\]'; done | wc -l)
 { [ "${made}" = 0 ] && [ "${hits}" = 0 ]; }
 verdict redirections $? "the ten tests evaluated in a fixture folder make no file (made ${made}); the acceptance grep finds ${hits} outside aethersx2"
 
