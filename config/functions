@@ -1178,7 +1178,7 @@ go_configure_path() {
 # if a path is located it will be set in FOUND_PATH and exit code will be 0.
 find_path() {
   local test_func="$1" search="$2" default="$3"
-  local dir match wildcard=0 ftype
+  local dir match wildcard=0 ftype found
 
   # support wildcard matches
   [[ $search =~ \* || $search =~ \? ]] && wildcard=1
@@ -1199,7 +1199,11 @@ find_path() {
     [[ $dir =~ /devices//packages/$PKG_NAME$ ]] && continue
 
     if [ $wildcard -eq 1 ]; then
-      ls $dir/$search 1>/dev/null 2>&1 && match="$dir/$search" && break
+      # a wildcard matches only entries of the type asked for ($test_func)
+      for found in $dir/$search; do
+        [ $test_func "$found" ] && match="$dir/$search" && break
+      done
+      [ -n "$match" ] && break
     else
       [ $test_func "$dir/$search" ] && match="$dir/$search" && break
     fi
