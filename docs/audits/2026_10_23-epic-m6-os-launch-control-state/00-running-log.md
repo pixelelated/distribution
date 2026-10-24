@@ -371,3 +371,24 @@
   - **unfixed** (`BASE_REF=377f9545d4 --old`, from the tree, 23:34:33-23:43:25, rc 1): 6 checks failed, all in bZ to cc.
   - **fixed** (from the tree, 23:43:59-23:52:47, rc 0): `PASSED`.
 - **Commits:** head `d8d2b5e9c0`, `9011f1e4a0` (#730), `0f7558cff7` (D-WORKFLOW-192).
+
+## [Stage F, host half] 00:00 — the stage-B checks again at the branch tip (`991c10e651`), during the M7 window
+
+The guest was not brought up at the 23:47 return: the tails were finishing on source, and the 00:07 window followed. It was acknowledged on #648 and in the host coordination file at 23:53. The host-side checks need no guest, so they ran now. Output is in `.qa-scratch/t1/checks-f/`.
+
+| Check | Stage B | Stage F (00:00:30-00:00:39) |
+| --- | --- | --- |
+| `tools/pkgcheck rocknix` | 0 | 0 |
+| `tools/settings-modes-test` (the tree's `001-functions`, `chksysconfig`, the image's busybox) | 0, `PASS refuse-rename` | 0, `PASS refuse-rename` |
+| `tools/wait-lock-test` | 0, `PASSED` | 0, `PASSED` |
+| `tools/usb-gadget-test` (host `sh`) | 0, 72/72 | 0, 72/72; and under the image's bash, 0, 72/72 |
+| `tools/rocknix-info-test` | 0, 12 controls | 0, 12 controls |
+| `tools/melonds-upgrade-test` | 0 | 0 |
+| `tools/vocabulary-check` (default) | 0, 163 judged, 0 wrong | 0, 176 judged, 0 wrong (the 13 from A-11b's three scripts) |
+| `tools/vocabulary-check --scripts .../rocknix/sources/scripts` | 0, 128 judged | 0, 141 judged, 0 wrong |
+| `tools/last-good-scripts-test` (`QA_SYSTEM_ROOT`) | 0, `PASSED` | 0, `PASSED` (23:43:59-23:52:47, at `0f7558cff7`, the last code commit) |
+| `tools/box-check --issue N`, #701 and #702 to #762 | - | 0 fail on every one |
+| `tools/lint-audit-artifacts` (resolution) | - | 1: 46 rows still Open, each waiting for its guest or image reading; `--phase pre-issue` PASS |
+
+- **The guest half waits for resource return:** batches q1 (S3's open criteria, S4, S5), q2 (S6) and q3 (S7 and the tails), then `emulator-exit-test --vm` and `time-to-play --vm --quick` with the tree's `runemu.sh`, `setsettings.sh` and `001-functions` bound over the image's for the run. The cycle is driven by `.qa-scratch/t1/proofs/qrun.sh` (`up`, `copy`, `batch qN`, `ttp`, `down`), and the guest goes down between batches when a window asks for it.
+- **A first `vocabulary-check` run** used the local ES checkout, which is not the pin; it showed that checkout's 15 interface failures. The default checkout, `qa-integration` at the pin `16dbac521`, is stage B's and the evidence.
