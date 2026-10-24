@@ -31,7 +31,12 @@ jobs:
         run: sudo apt-get update -q && sudo apt-get install -y -q skopeo
 
       - name: Sign in to the organisation's registry with the workflow token
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | skopeo login ghcr.io -u "${{ github.actor }}" --password-stdin
+        # The token and the actor reach the shell through env:, never through an
+        # expression in the script's text, and the token through stdin (#657 PL-31).
+        env:
+          REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REGISTRY_USER: ${{ github.actor }}
+        run: printf '%s' "$REGISTRY_TOKEN" | skopeo login ghcr.io -u "$REGISTRY_USER" --password-stdin
 
       - name: Copy by digest, preserving it
         env:
