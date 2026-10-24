@@ -347,3 +347,11 @@ GUEST-PROOF: 12:07:56 UTC (s4-guest.out's mtime) -- S4-G1, on the guest. The ima
 
 PROOF: 12:18:15 UTC (s5-split-check.out's mtime; the control's at 12:18:15) -- S5-T1, tools/s5-dolphin-split-check.py 3dde7f4347 -> WORKTREE: start_dolphin_gc.sh and start_dolphin_wii.sh rebuilt by inlining dolphin_common.sh's 9 shared functions and the face-swap function equal the pre-split scripts with exactly the two named edits, PASS both; against c7e3dfcc87 (before S4's swap change) it FAILs at that change (rc 1, the control); /workspace/artifacts/m6-t30-20261024/s5-split-check.out, /workspace/artifacts/m6-t30-20261024/s5-split-check-control.out
 PROOF: 12:18:16 UTC (s5-checks.out's mtime) -- S5-T2, after the removals: git grep finds 0 callers of psp_save_mover.sh or cheevos_duckstation.sh (comment lines only); pkgcheck rc 0 on dolphin-sa, ppsspp-sa, duckstation-sa, supermodel-sa and yabasanshiro-sa; bash -n passes on all 9 changed shell files; /workspace/artifacts/m6-t30-20261024/s5-checks.out
+
+## Stage H, the close (12:32:09 UTC): #872 closed completed; the completion marker; the full lint
+
+- **The coordinator accepted T30 at hand-back** and closed #872 as completed (`closedAt` 2026-10-24T12:30:46Z).
+- **`write-completion.py` first refused:** #872's 41 checkboxes were open. Its body ticks each one when its Phase 7 outcome is recorded; I had recorded all 41 and ticked none. That was my miss. They were ticked with `tick-checkboxes.py` (lines 22-62, readback equal), the miss was said on #872, and the writer was run again.
+- **The marker:** `audit-completion.json` (completed_at 2026-10-24T12:31:39Z) binds `04`, `05`, `tracker-final-readback.json` and `tracker-completion.json` by sha256.
+- **Checks:** `tools/lint-audit-artifacts` on the folder in full mode prints `PASS` (rc 0). `tools/ceremony-check` reads the marker ("audit last 2026-10-24T12:31:39 via #872"). Its rc 1 is the W42 summary, which is M7's week.
+- **The lane is idle.**
