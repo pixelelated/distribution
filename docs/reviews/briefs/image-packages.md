@@ -13,8 +13,21 @@ second line, the per-plan expansion of every field the build reads, the
 record's names checked against `-<digit>`, prose through a quoted heredoc
 -- and every figure below was produced by a command at `8ebaf8daad` (the
 tree) or in the inventory at P1's `2174265e9c` unless it says *branch*. It
-goes through a stranger's proof before dispatch; version 2 records what it
-found. **Each command block sets its own variables** (`D`): a Bash call in
+went through a stranger's proof before dispatch. **Version 2 (2026-10-24):**
+the proof reproduced 98 claims -- 76 right, 9 wrong, 8 partial, 5 uncheckable
+(`/workspace/tmp/m6-coordinator/stranger-t8/report.md`); every wrong and
+partial claim is corrected below. Its chief corrections: **fourteen of the
+485 paths contain spaces**, so every loop reads the path lists with `while
+IFS= read -r` (never `$(cat ...)`), and the (a) count is 87 modified, not
+86; the record's unbuilt names are **the 12 virtual packages and `qcom-abl`**
+-- the thirteen "real" ones have build directories whose version suffixes
+begin with `v` or a letter, which a digit-stripping `sed` cannot see, so the
+record is matched by name prefix; six of T7's seven overrides are here
+(`libevdev` is the OS-scripts area's); `moonlight` makes nine hash pins in
+`make update`'s set; `systemd-analyze` is on the host; the empty-checksum
+grep is rewritten so it can match; the VM tool is
+`projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm`. **Each command
+block sets its own variables** (`D`): a Bash call in
 this harness starts a fresh shell. **This is a currency slice at
 Independent depth, the renovation's first**: it reads the recipes as code
 (the 45 shell scripts, 30 systemd units and 65 configs in the set are code
@@ -74,8 +87,10 @@ carries or has deleted, and runs no bump tool** (`make update`,
   started there (their five build roots' `build/` directories are listed,
   nothing more); every other lane's worktree is `git -C` only. **The rules
   in this worktree are `next`'s except the paths the dispatch comment
-  lists** (for T7 they were seven; this tip adds the coordinator's edits of
-  `engineering-practices.md` and `device-builds.md`, read them). Known
+  lists** (eight on 2026-10-24: P1's `fork-workflow.md` and `instruction-files.md`;
+  the coordinator's `generic-x64-vm-testing.md`, `engineering-practices.md`
+  and `device-builds.md`; M7's `.claude/skills/council/IMPORTED-FROM.md`;
+  `tools/lint-audit-artifacts` with the code-auditor `templates.md`). Known
   stale facts in the rules (the legacy layout, #640) do not cost an hour
   here: every rule the work touches is named in § 3.
 - **Model and effort:** Opus 5.5 (the maintainer, 2026-10-22: *"the work
@@ -167,6 +182,7 @@ open(".qa-scratch/t8/recipes.txt", "w").write("".join(r["path"] + "\n" for r in 
 for r in sorted(t8, key=lambda r: r["path"]): print(r["reach"], r["tier"], r["lines"], r["path"])
 PY
 wc -l .qa-scratch/t8/paths.txt .qa-scratch/t8/recipes.txt                                                                   # 485, 260
+grep -c ' ' .qa-scratch/t8/paths.txt                                                                                         # 14: paths with spaces -- every loop below reads the list with `while IFS= read -r`, never `$(cat ...)`
 ```
 
 Recorded (2026-10-24, at `2174265e9c`'s inventory, the tree at
@@ -184,13 +200,13 @@ source a generic recipe** (`. ${ROOT}/packages/.../package.mk` or
 `c445081a59` and against `upstream/next` (`e0f9deb899`):
 
 ```bash
-P=.qa-scratch/t8/paths.txt; R=.qa-scratch/t8/recipes.txt   # written by the block above
-git diff --name-status c445081a59 8ebaf8daad -- $(cat $P) | awk '{print $1}' | sort | uniq -c            # 11 A, 24 M: the fork's 35 changes (27 recipes: 8 added, 19 edited; 8 other files)
-git diff --name-status upstream/next 8ebaf8daad -- $(cat $P) | awk '{print $1}' | sort | uniq -c        # 31 A (present here, absent upstream), 86 M
-for p in $(git diff --name-status upstream/next 8ebaf8daad -- $(cat $P) | awk '$1=="A"{print $2}' | grep package.mk); do git cat-file -e c445081a59:$p 2>/dev/null && echo "orphan $p" || echo "fork-added $p"; done | awk '{print $1}' | sort | uniq -c   # 11 orphan, 7 fork-added
-git log --oneline c445081a59..upstream/next -- $(cat $P) | wc -l                                         # 40 upstream commits on these paths since the base
-git diff --name-only c445081a59 upstream/next -- $(cat $P) | grep -c package.mk                          # 66 recipes upstream changed since the base
-FRESHNESS_HEAD=8ebaf8daad FRESHNESS_BASE=upstream/next tools/fork-package-freshness --list | tr ' ' '\n' | grep -c '^projects/'   # 34: 11 fork-added, 22 orphans, 1 present upstream (its set is a diff, not a provenance: #644 finding 16)
+P=.qa-scratch/t8/paths.txt; R=.qa-scratch/t8/recipes.txt   # written by the block above; read with xargs -0 or while read -r: 14 paths carry spaces
+tr '\n' '\0' < $P | xargs -0 git diff --name-status c445081a59 8ebaf8daad -- | awk '{print $1}' | sort | uniq -c            # 11 A, 24 M: the fork's 35 changes (27 recipes: 8 added, 19 edited; 8 other files)
+tr '\n' '\0' < $P | xargs -0 git diff --name-status upstream/next 8ebaf8daad -- | awk '{print $1}' | sort | uniq -c        # 31 A (present here, absent upstream), 87 M (one of them `misc/modules/sources/Mount NFS.sh`, a path with a space)
+tr '\n' '\0' < $P | xargs -0 git diff --name-status upstream/next 8ebaf8daad -- | awk -F'\t' '$1=="A"{print $2}' | grep package.mk | while IFS= read -r p; do git cat-file -e c445081a59:"$p" 2>/dev/null && echo "orphan $p" || echo "fork-added $p"; done | awk '{print $1}' | sort | uniq -c   # 11 orphan, 7 fork-added
+tr '\n' '\0' < $P | xargs -0 git log --oneline c445081a59..upstream/next -- | wc -l                                         # 40 upstream commits on these paths since the base
+tr '\n' '\0' < $P | xargs -0 git diff --name-only c445081a59 upstream/next -- | grep -c package.mk                          # 66 recipes upstream changed since the base
+FRESHNESS_HEAD=8ebaf8daad FRESHNESS_BASE=upstream/next tools/fork-package-freshness --list | tr ' ' '\n' | grep -c '^projects/'   # 34: 11 fork-added, 22 orphans, 1 present upstream (its set is a diff, not a provenance: #644 finding 16); 7 of the 11 and 11 of the 22 are in this set, the rest are the cloud and proxy packages' and other areas'
 ```
 
 Recorded: **the fork's 35 changes** are 27 recipes (**8 added:**
@@ -217,56 +233,69 @@ tier (a) is live here where T7's was empty, and **the fork-edited recipes
 upstream also changed are the base merge's conflicts**: the slice names
 them (U-1 of the futro's addendum) before stage C.
 
-**The pins at the hash.** 169 version strings, 41 commit hashes, 50 recipes
-with no `PKG_VERSION` of their own (they source a generic recipe). By
-`PKG_URL`'s host: other 137, no `PKG_URL` 50, github.com 39, freedesktop.org
-16, gitlab 6, gnu.org 5, sourceforge 4, kernel.org 3. **The effective pin is
+**The pins at the hash** (top-level lines, comments stripped): 169 version
+strings, 41 commit hashes, 50 recipes with no top-level `PKG_VERSION` -- 42
+that source a generic recipe and inherit its pin, 3 that set it in a `case`
+branch per device (`moonlight`, `sway`, `wlroots`), 5 virtual packages with
+none. The 50 that source a generic recipe are a different fifty from these:
+8 of them set their own pin after sourcing (the override shape). By
+`PKG_URL`'s host, a coarse first count the lane replaces with the per-plan
+expansion below: github.com 39, freedesktop.org 16 (gitlab.freedesktop.org
+counted under gitlab, 6), gnu.org 5, sourceforge 4, kernel.org 3, no
+top-level `PKG_URL` 50 (the sourcing and `case`-branch recipes), the rest
+`other` (17 of them `PKG_URL=""`, the virtual packages). **The effective pin is
 the override's**, read per plan through `config/options` (`device-builds.md`
 § After rebasing item 3, widened 2026-10-24 to every field the build
-reads): T7's seven -- `opus` 1.5.2 (the generic 1.6.1), `gcc` 15.2.0
+reads): six of T7's seven -- `opus` 1.5.2 (the generic 1.6.1), `gcc` 15.2.0
 (16.2.0), `libfmt` 9.1.0 on every plan but the SM/AMD64 ones (12.2.0;
-#877, fixed in a packet, read only here), `wavpack`, `zlib` and `libevdev`
-with their own URLs, `libfreeaptx` with its own checksum -- are this
-slice's rows, and the 50 sourcing recipes are read for the same shape.
+#877, fixed in a packet, read only here), `wavpack` and `zlib` with their
+own URLs, `libfreeaptx` with its own checksum -- are this slice's rows
+(`libevdev`'s override is `sysutils/`, the OS-scripts area's), and the 50
+sourcing recipes are read for the same shape.
 **Checksums:** every archive recipe is expected to carry `PKG_SHA256`; the
 per-shape count (a top-level line or a `case` branch, and **an empty
 assignment counts as missing**, D-WORKFLOW-196) is run over the 260 before
-any row is written; T5's five (D-WORKFLOW-194: `atf`, `rkbin`,
-`libmali-vulkan`, `sway`) are here or in the devices area -- read T5's E6
-and the branch `52e6794ba7` first so a fixed one is not re-found.
+any row is written; T5's five archive versions (D-WORKFLOW-194) sit in four recipes, two
+of them in this set: **`tools/atf` and `wayland/compositor/sway`** lack a
+checksum at `8ebaf8daad` and gained theirs on T5's branch (`52e6794ba7`,
+E6), not merged here yet; `rkbin`'s override is unreached (T23's) and
+`libmali-vulkan` is `unshipped` (T23's too). So the per-shape count here
+expects **exactly those two** and re-files neither; a third is the lead.
 
 **Three movers, and what each moves (A1).**
 
 | Mover | What it moves | Read how |
 | --- | --- | --- |
 | (a) the base merge (ROCKNIX) | the 450 upstream-carried paths; 66 recipes changed upstream since the base, 11 deleted (the orphans) | `git diff --quiet upstream/next 8ebaf8daad -- <path>` per path; the fork-edited ∩ upstream-changed set is the merge's conflicts, named per recipe with the hunks that collide |
-| `make update` (`scripts/update_packages`) | the dependencies of the `emulators`, `es-themes` and `gamesupport` virtual packages, each to its repository's branch head, less `config/blocklist` (29 lines): **13 of this slice's recipes**, 8 hash-pinned (`box64`, `box86`, `gamecontrollerdb`, `jstest-sdl`, `rocknix-hotkey`, `sdljoytest`, `sdltouchtest`, `sixaxis`); `control-gen` and `portmaster` are blocklisted; it has **never run on the fork** (#644 finding 15) | the three virtual packages' `PKG_DEPENDS_TARGET` through `config/options` for RK3588 (the Makefile's device) and for the three shipped plans; `config/blocklist` read; **`scripts/update_packages` read, never run** (T7's incident: it rewrote a recipe) |
+| `make update` (`scripts/update_packages`) | the dependencies of the `emulators`, `es-themes` and `gamesupport` virtual packages, each to its repository's branch head, less `config/blocklist` (29 lines): 171 names for RK3588 (the Makefile's device; 147, 162 and 185 for the three shipped plans), **13 of this slice's recipes** among them, 9 hash-pinned (`box64`, `box86`, `gamecontrollerdb`, `jstest-sdl`, `rocknix-hotkey`, `sdljoytest`, `sdltouchtest`, `sixaxis`, and `moonlight` through its per-device `case` branch); `control-gen` and `portmaster` are blocklisted; it has **never run on the fork** (#644 finding 15) | the three virtual packages' `PKG_DEPENDS_TARGET` through `config/options` for RK3588 and for the three shipped plans; `config/blocklist` read; **`scripts/update_packages` read, never run** (T7's incident: it rewrote a recipe) |
 | (c) the project | the 27 fork-own recipes (D-WORKFLOW-024: the fork keeps what it introduces current; `tools/fork-package-freshness`'s 11 `projects/` fork-added entries are a subset) and, informationally, the 11 orphans (frozen here while upstream dropped them) and the 41 hash pins | the freshness tool's handlers for the fork-own recipes; the API `compare` for GitHub hash pins; UNKNOWN stays UNKNOWN |
 
 There is no LibreELEC column: these are ROCKNIX's own recipes.
 
-**The record agrees with `shipped`, mostly (A5).** The five M7 build roots,
-read only (`ls <root>/build`, the version suffix stripped **after checking
-the list for names carrying `-<digit>`**, T7's erratum): 232 of the 260
-names have a build directory in at least one root. The 28 without: **12
-virtual packages** (`arm`, `debug`, `es-themes`, `gamesupport`, `image`,
-`initramfs`, `libc`, `linux-drivers`, `linux-firmware`, `network`,
-`swaywm-env`, `synctools`), **3 recipes with no URL of their own**
-(`entware`, `qcom-abl`, `sdl2text`) and **13 real recipes** --
-`armsx2-turnip`, `ecm`, `enet`, `glfw`, `inih`, `inputplumber`,
-`layer-shell-qt`, `libsndfile`, `m8c`, `renderdoc`,
-`rocknix-touchscreen-keyboard`, `speedtest-cli`, `swayimg` -- each settled
-per plan with `config/options` (its effective `PKG_ARCH`, a device
-condition in the recipe or in `image`'s dependency list, or a `shipped`
-claim to question) before its row stands. `btrfs-progs`'s shape (#879) is
-the model.
+**The record agrees with `shipped` (A5).** The five M7 build roots, read
+only (`ls <root>/build`): a build directory is named `<name>-<version>`, and
+**the version can begin with `v` or a letter** (`ecm-v6.16.0`,
+`armsx2-turnip-axfl1-011`, `glfw-e2c9264`, `inih-r62`), so a digit-stripping
+`sed` misreads the listing -- version 1 of this brief did, and called
+thirteen built recipes unbuilt. **Match by name prefix instead**: a recipe
+`<name>` is built in a root when the listing has an entry `<name>-...` and
+no other recipe's name is a prefix of it (`arm` against `armsx2-turnip`:
+check both ways). So read: **247 of the 260 names have a build directory in
+at least one root; the 13 without are the 12 virtual packages** (`arm`,
+`debug`, `es-themes`, `gamesupport`, `image`, `initramfs`, `libc`,
+`linux-drivers`, `linux-firmware`, `network`, `swaywm-env`, `synctools`)
+**and `qcom-abl`** (no URL of its own, a Qualcomm bootloader piece: read
+whether a shipped plan builds it or a device condition holds it back, per
+plan through `config/options`). `btrfs-progs`'s shape (#879) is the model
+for a name the plan lists and `PKG_ARCH` excludes; none of the 260 showed
+it in the first read.
 
 ```bash
-R=/workspace/repos/rocknix.worktrees
-for d in $R/m7-signin-build-20261022-07/build.pixelelated-GENERIC_X64.x86_64 $R/m7-signin-h700-build-20261023-06/build.pixelelated-H700.aarch64 $R/m7-signin-h700-build-20261023-06/build.pixelelated-H700.arm $R/m7-signin-sm8550-build-20261023-03/build.pixelelated-SM8550.aarch64 $R/m7-signin-sm8550-build-20261023-03/build.pixelelated-SM8550.arm; do
-  LC_ALL=C ls "$d/build" | grep -- '-[0-9]' | head -3   # read the shape before stripping
-  LC_ALL=C ls "$d/build" | sed -E 's/-v?[0-9][0-9a-zA-Z._+-]*$//; s/-[0-9a-f]{40}$//' | LC_ALL=C sort -u > ".qa-scratch/t8/built-$(basename $d).txt"; done   # read only; never a process in those trees
-for p in armsx2-turnip ecm enet glfw inih inputplumber layer-shell-qt libsndfile m8c renderdoc rocknix-touchscreen-keyboard speedtest-cli swayimg; do for dev in GENERIC_X64:x86_64 H700:aarch64 SM8550:aarch64; do printf '%s %s ' "$p" "${dev%%:*}"; PROJECT=ROCKNIX DEVICE=${dev%%:*} ARCH=${dev##*:} bash -c '. config/options "$1" >/dev/null 2>&1; printf "arch=%s version=%s\n" "${PKG_ARCH:-any}" "${PKG_VERSION:-none}"' _ "$p"; done; done
+ROOTS=/workspace/repos/rocknix.worktrees
+for d in $ROOTS/m7-signin-build-20261022-07/build.pixelelated-GENERIC_X64.x86_64 $ROOTS/m7-signin-h700-build-20261023-06/build.pixelelated-H700.aarch64 $ROOTS/m7-signin-h700-build-20261023-06/build.pixelelated-H700.arm $ROOTS/m7-signin-sm8550-build-20261023-03/build.pixelelated-SM8550.aarch64 $ROOTS/m7-signin-sm8550-build-20261023-03/build.pixelelated-SM8550.arm; do
+  LC_ALL=C ls "$d/build" > ".qa-scratch/t8/listing-$(basename $d).txt"; done   # read only; never a process in those trees; the raw listing, not a stripped one
+while IFS= read -r p; do n=$(basename "$(dirname "$p")"); hit=0; for l in .qa-scratch/t8/listing-*.txt; do grep -q -E "^${n}-[A-Za-z0-9]" "$l" && hit=1; done; echo "$hit $n"; done < .qa-scratch/t8/recipes.txt | sort | uniq -c | awk '{print $1, $2}' | sort | uniq -c   # 247 with 1, 13 with 0 on 2026-10-24
+for dev in GENERIC_X64:x86_64 H700:aarch64 SM8550:aarch64; do PROJECT=ROCKNIX DEVICE=${dev%%:*} ARCH=${dev##*:} bash -c '. config/options qcom-abl >/dev/null 2>&1; printf "qcom-abl %s arch=%s version=%s url=%s\n" "$1" "${PKG_ARCH:-any}" "${PKG_VERSION:-none}" "${PKG_URL:-none}"' _ "${dev%%:*}"; done
 ```
 
 **The hash.** The slice's bytes are `8ebaf8daad`'s; `reviewed-at:` is the
@@ -352,8 +381,8 @@ the coordinator's; this lane runs it to read.
   to 75; 29 is used twice, #811), then **13**, **22**, **46**, **51**, **75**.
 - Decisions by ID: D-WORKFLOW-184 (Independent for an ordinary code slice),
   D-WORKFLOW-186, D-WORKFLOW-187 (no release gate; every defect a bug; the
-  no-bump rule is this brief's § 2, from D-WORKFLOW-191's *M6 builds
-  nothing*), D-WORKFLOW-164/165, D-WORKFLOW-162, D-WORKFLOW-024,
+  no-bump rule is this brief's § 2 and plan § 5 -- the open row
+  D-WORKFLOW-191 says *M6 builds nothing* in those words), D-WORKFLOW-164/165, D-WORKFLOW-162, D-WORKFLOW-024,
   D-WORKFLOW-193/194/196 (the fetch fails without a checksum; the count per
   shape; an empty assignment is missing), D-WORKFLOW-195 (a seat cut by its
   ceiling: the coordinator's call), D-UI-079, D-INFRA-022, D-INFRA-025/026,
@@ -378,11 +407,11 @@ scripts, 30 units and 65 configs are code), Q1, Q5 and Q7 as rows.
 | # | Question, for this slice | Evidence |
 | --- | --- | --- |
 | Q1 Modernize | A recipe pinned to a retired series or host; a unit or config using a retired directive; the 11 orphans (upstream moved on: what replaced each) | the rows; the orphan table with upstream's replacing commit named |
-| Q2 Standards | `tools/pkgcheck` over the 260 (the tree's copy, then T6's widened copy from this worktree; the baseline counts first); late binding in the 50 sourcing recipes (an override that reads a variable before the load); `bash -n` over the 45 scripts; `systemd-analyze verify` is not on the host: say so; each unit read against `systemd.unit(5)`'s shape by hand | the two `pkgcheck` runs' counts and FAIL list; `bash -n` ok count; a FAIL on an upstream-carried file is `Renovation` with a #585 candidate unless a build or a boot would meet it |
+| Q2 Standards | `tools/pkgcheck` over the 260 (the tree's copy, then T6's widened copy from this worktree; the baseline counts first); late binding in the 50 sourcing recipes (an override that reads a variable before the load); `bash -n` over every shell file (by shebang); `systemd-analyze verify` over a copy of each unit (`/usr/bin/systemd-analyze` is on the host; a dependency it cannot resolve there is a note), and each unit read against `systemd.unit(5)`'s shape | the two `pkgcheck` runs' counts and FAIL list; `bash -n` ok count; a FAIL on an upstream-carried file is `Renovation` with a #585 candidate unless a build or a boot would meet it |
 | Q3 Bugs | A recipe that fails a build from an empty cache (the probe + the mirror + the cache stamps, T7's loops over the 260's archive recipes); an empty or missing checksum per shape; a script that writes where it should not, runs text as a command, or tests the wrong thing (T30's classes: `eval`, `echo | xargs`, redirection-as-comparison, delete-before-link); a unit whose `ExecStart` names a path the image lacks (read against the GENERIC_X64 install tree, `ls` only); #852's class (a write at load time) in any recipe | one `bug` per defect in the code-trace shape; the VM line *Yes* where a stream will prove it on the guest |
 | Q4 Currency | **The table**: one row per recipe (260) with the effective pin per plan (GENERIC_X64, H700, SM8550), its shape, (a) `upstream/next` (`identical` / `differs` with the hunk / `absent-upstream: orphan` / `absent-upstream: fork-added`), the `make update` column (in its set or not, blocklisted or not), (c) the project for the 27 fork-own (the freshness tool's six classes) and for the 11 orphans (what upstream replaced them with), the `compare` distance for GitHub hash pins, and a disposition naming the mover: `current`; `follows the base merge: <hunk>`; `conflict at the base merge: <hunks>`; `orphan: dropped by the base merge; the fork used it for <x>; dependants <none|name>`; `fork's: Backlog bump proposed`; `make update's: moves to <head> if run`; `pinned on purpose`; `unknown: <why>` | § 5's loops; a row never reads `current` on a source whose cell is `not read`; the conflict set named as a list the coordinator reads at integration |
 | Q5 Efficiency | What the fork-own recipes ask of a build (`gcc`'s hold at 15.2.0 and why; `box86`/`lib32`'s 32-bit chain; `gstreamer`'s plugins) -- read, not measured; the installer script's and `111-sway-init`'s cost on the boot path, read | reading only; `not measured` where a number would need a build or a boot |
-| Q6 Dead ends | The 28 unbuilt names settled per plan (12 virtual, 3 no-URL, 13 real: `PKG_ARCH`, a device condition, or a `shipped` claim to question); the 11 orphans' dependants; a unit no target pulls in; a config no script reads | the per-plan expansion outputs; `git grep` for each orphan's name over `projects/ROCKNIX` and `packages`; `grep -rn` of each unit's name over the install tree's `wants/` (read only) |
+| Q6 Dead ends | The 13 unbuilt names settled per plan (12 virtual by construction; `qcom-abl`'s plan or condition read); the 11 orphans' dependants; a unit no target pulls in; a config no script reads | the per-plan expansion outputs; `git grep` for each orphan's name over `projects/ROCKNIX` and `packages`; `grep -rn` of each unit's name over the install tree's `wants/` (read only) |
 | Q7 Clarity | A fork edit that duplicates upstream's later fix (the fork-edited ∩ upstream-changed set read hunk by hunk: `same change, drop ours at the merge` / `different, keep ours` / `conflict`); an override that could be a smaller one; the 8 other fork-own files (a unit, two configs, a script, an autostart, a gamelist) each with what the fork changed and why, from `git log` | one row per fork-edited recipe and per other file, with the merge disposition |
 
 A finding is one question with its evidence; `Renovation` is the category
@@ -441,14 +470,15 @@ cloud or a shared QA backend.
   D=/workspace/repos/pixelelated/distribution.worktrees/m6-image-packages-655
   cd "$D"; mkdir -p .qa-scratch/t8/probe
   wc -l < .qa-scratch/t8/paths.txt; wc -l < .qa-scratch/t8/recipes.txt                                  # 485, 260
-  git diff --stat 8ebaf8daad HEAD -- $(cat .qa-scratch/t8/paths.txt) | tail -1                           # empty on 2026-10-24
-  # (a) ROCKNIX, per path: identical / differs / absent-upstream, and the orphan-or-fork-added split; then the conflict set
-  while read -r p; do if git cat-file -e upstream/next:"$p" 2>/dev/null; then git diff --quiet upstream/next 8ebaf8daad -- "$p" && echo "identical $p" || echo "differs $p"; else git cat-file -e c445081a59:"$p" 2>/dev/null && echo "orphan $p" || echo "fork-added $p"; fi; done < .qa-scratch/t8/paths.txt > .qa-scratch/t8/q4a.txt; cut -d' ' -f1 .qa-scratch/t8/q4a.txt | sort | uniq -c
-  comm -12 <(git diff --name-only c445081a59 8ebaf8daad -- $(cat .qa-scratch/t8/paths.txt) | sort) <(git diff --name-only c445081a59 upstream/next -- $(cat .qa-scratch/t8/paths.txt) | sort) > .qa-scratch/t8/conflicts.txt; wc -l < .qa-scratch/t8/conflicts.txt   # the base merge's conflict candidates: each read hunk by hunk
-  # the effective fields per plan (every field the build reads), for every recipe
-  for dev in GENERIC_X64:x86_64 H700:aarch64 SM8550:aarch64; do while read -r p; do n=$(basename "$(dirname "$p")"); PROJECT=ROCKNIX DEVICE=${dev%%:*} ARCH=${dev##*:} bash -c '. config/options "$1" >/dev/null 2>&1; printf "%s %s version=%s sha=%s arch=%s url=%s\n" "$2" "$1" "${PKG_VERSION:-none}" "${PKG_SHA256:-none}" "${PKG_ARCH:-any}" "${PKG_URL:-none}"' _ "$n" "${dev%%:*}"; done < .qa-scratch/t8/recipes.txt; done > .qa-scratch/t8/effective.txt; grep -c ' sha= ' .qa-scratch/t8/effective.txt; grep -c 'sha=none url=https' .qa-scratch/t8/effective.txt   # 0 and 0 expected: an empty or missing checksum on an archive recipe is a bug
+  tr '\n' '\0' < .qa-scratch/t8/paths.txt | xargs -0 git diff --stat 8ebaf8daad HEAD -- | tail -1         # empty on 2026-10-24 (14 paths carry spaces: never $(cat ...))
+  # (a) ROCKNIX, per path: identical / differs / absent-upstream, and the orphan-or-fork-added split; then the conflict set (11 paths on 2026-10-24: gamescope, cairo, glslang, spirv-tools, gcc, gst-plugins-base, gstreamer and rocknix-abl's recipes; gamelist.xml, NetworkManager.conf, 111-sway-init)
+  while IFS= read -r p; do if git cat-file -e upstream/next:"$p" 2>/dev/null; then git diff --quiet upstream/next 8ebaf8daad -- "$p" && echo "identical $p" || echo "differs $p"; else git cat-file -e c445081a59:"$p" 2>/dev/null && echo "orphan $p" || echo "fork-added $p"; fi; done < .qa-scratch/t8/paths.txt > .qa-scratch/t8/q4a.txt; cut -d' ' -f1 .qa-scratch/t8/q4a.txt | sort | uniq -c   # 87 differs expected
+  LC_ALL=C comm -12 <(tr '\n' '\0' < .qa-scratch/t8/paths.txt | xargs -0 git diff --name-only c445081a59 8ebaf8daad -- | LC_ALL=C sort) <(tr '\n' '\0' < .qa-scratch/t8/paths.txt | xargs -0 git diff --name-only c445081a59 upstream/next -- | LC_ALL=C sort) > .qa-scratch/t8/conflicts.txt; wc -l < .qa-scratch/t8/conflicts.txt   # 11: the base merge's conflict candidates, each read hunk by hunk
+  # the effective fields per plan (every field the build reads), for every recipe; an empty or unset checksum beside a non-git URL is the lead
+  for dev in GENERIC_X64:x86_64 H700:aarch64 SM8550:aarch64; do while IFS= read -r p; do n=$(basename "$(dirname "$p")"); PROJECT=ROCKNIX DEVICE=${dev%%:*} ARCH=${dev##*:} bash -c '. config/options "$1" >/dev/null 2>&1; printf "%s %s version=[%s] sha=[%s] shaset=%s arch=[%s] url=[%s]\n" "$2" "$1" "$PKG_VERSION" "$PKG_SHA256" "${PKG_SHA256+yes}" "${PKG_ARCH:-any}" "$PKG_URL"' _ "$n" "${dev%%:*}"; done < .qa-scratch/t8/recipes.txt; done > .qa-scratch/t8/effective.txt
+  grep -E 'sha=\[\] ' .qa-scratch/t8/effective.txt | grep -E 'url=\[(https?|ftp)://' | grep -v -E 'url=\[[^]]*\.git\]|url=\[git' | sort -u   # on 2026-10-24: atf and sway (T5's E6 fixed them on 52e6794ba7, unmerged here; not re-filed) and nothing else
   # make update's set, for RK3588 and the three shipped plans
-  for dev in RK3588:aarch64 GENERIC_X64:x86_64 H700:aarch64 SM8550:aarch64; do for v in emulators es-themes gamesupport; do PROJECT=ROCKNIX DEVICE=${dev%%:*} ARCH=${dev##*:} bash -c '. config/options "$1" >/dev/null 2>&1; echo $PKG_DEPENDS_TARGET' _ $v; done | tr ' ' '\n' | sort -u > ".qa-scratch/t8/update-set-${dev%%:*}.txt"; done; comm -12 <(sed 's#.*/\([^/]*\)/package.mk#\1#' .qa-scratch/t8/recipes.txt | sort -u) .qa-scratch/t8/update-set-RK3588.txt   # 13 on 2026-10-24
+  for dev in RK3588:aarch64 GENERIC_X64:x86_64 H700:aarch64 SM8550:aarch64; do for v in emulators es-themes gamesupport; do PROJECT=ROCKNIX DEVICE=${dev%%:*} ARCH=${dev##*:} bash -c '. config/options "$1" >/dev/null 2>&1; echo $PKG_DEPENDS_TARGET' _ $v; done | tr ' ' '\n' | LC_ALL=C sort -u > ".qa-scratch/t8/update-set-${dev%%:*}.txt"; done; LC_ALL=C comm -12 <(sed 's#.*/\([^/]*\)/package.mk#\1#' .qa-scratch/t8/recipes.txt | LC_ALL=C sort -u) .qa-scratch/t8/update-set-RK3588.txt   # 13 on 2026-10-24 (171 names in the RK3588 set; 9 of the 13 hash-pinned, moonlight's in a case branch)
   git show 8ebaf8daad:config/blocklist | grep -v -E '^#|^$' | wc -l                                       # 29
   # (c) the freshness tool over the fork-own recipes it lists (read-only; network; UNKNOWN stays UNKNOWN); the GitHub hash pins by compare
   FRESHNESS_HEAD=8ebaf8daad FRESHNESS_BASE=upstream/next tools/fork-package-freshness $(FRESHNESS_HEAD=8ebaf8daad FRESHNESS_BASE=upstream/next tools/fork-package-freshness --list | tr ' ' '\n' | grep '^projects/' | xargs -n1 basename) | tee .qa-scratch/t8/q4c.txt; echo "rc=$?"
@@ -461,16 +491,16 @@ cloud or a shared QA backend.
   for p in $(cat .qa-scratch/t8/recipes.txt); do tools/pkgcheck "$(basename "$(dirname "$p")")" >/dev/null 2>&1 && echo PASS || echo FAIL; done | sort | uniq -c
   git -C /workspace/repos/pixelelated/distribution.worktrees/m6-build-engine-upstream-tools-653 show 44f64842b6:tools/pkgcheck > .qa-scratch/t8/pkgcheck-t6 && chmod +x .qa-scratch/t8/pkgcheck-t6
   for p in $(cat .qa-scratch/t8/recipes.txt); do .qa-scratch/t8/pkgcheck-t6 "$(basename "$(dirname "$p")")" >/dev/null 2>&1 && echo PASS || echo FAIL; done | sort | uniq -c   # the FAIL list is the Q2 lead list; #852's recipe is one
-  # the scripts and the units
-  for f in $(grep -E '\.sh$|/scripts/|/autostart/' .qa-scratch/t8/paths.txt); do head -1 ".qa-scratch/t8/at-hash/$f" | grep -q -E '^#!.*(ba)?sh' && { bash -n ".qa-scratch/t8/at-hash/$f" 2>/dev/null && echo "ok $f" || echo "FAIL $f"; }; done | cut -d' ' -f1 | sort | uniq -c
-  grep -l -E '^\[Unit\]' $(sed 's#^#.qa-scratch/t8/at-hash/#' .qa-scratch/t8/paths.txt) 2>/dev/null | wc -l   # the units, each read by hand (systemd-analyze is not on the host: record it)
-  # the record and the 28 (§ 2's block), then the GENERIC_X64 install tree for every unit's ExecStart path (ls only)
+  # the scripts (every path whose first line is a shell shebang, spaces in names included) and the units
+  while IFS= read -r f; do [ -f ".qa-scratch/t8/at-hash/$f" ] || continue; head -1 ".qa-scratch/t8/at-hash/$f" | grep -q -E '^#!.*(ba)?sh' || continue; bash -n ".qa-scratch/t8/at-hash/$f" 2>/dev/null && echo "ok $f" || echo "FAIL $f"; done < .qa-scratch/t8/paths.txt | cut -d' ' -f1 | sort | uniq -c   # 45 shell files in the inventory; the shebang count may differ: record both
+  while IFS= read -r f; do [ -f ".qa-scratch/t8/at-hash/$f" ] && grep -q -E '^\[Unit\]' ".qa-scratch/t8/at-hash/$f" && echo "$f"; done < .qa-scratch/t8/paths.txt > .qa-scratch/t8/units.txt; wc -l < .qa-scratch/t8/units.txt   # the units; /usr/bin/systemd-analyze IS on the host: `systemd-analyze verify <unit>` on a copy of each, its output recorded (a dependency it cannot resolve on the host is noted, not a finding)
+  # the record and the 13 (§ 2's block), then the GENERIC_X64 install tree for every unit's ExecStart path (ls only)
   I=/workspace/repos/rocknix.worktrees/m7-signin-build-20261022-07/build.pixelelated-GENERIC_X64.x86_64/image/system
-  # sourcing config/options creates build.pixelelated-<DEVICE>.<ARCH>/.cache_package_{local,global} in this worktree (gitignored): remove those directories at the end only after 'find build.pixelelated-* -type f | wc -l' prints 2 per directory
+  # sourcing config/options creates build.pixelelated-<DEVICE>.<ARCH>/.cache_package_{local,global} in this worktree (gitignored, so `git status` does not show them: `ls -d build.pixelelated-*`): remove each at the end only after 'find <dir> -type f | wc -l' prints 2
   ```
 - **The guest**, only for a stream's behaviour claim (stage E) and only
-  after the host file is read: `tools/generic-x64-vm run --headless
-  --daemonize` on the T8 disk, `tools/vm-serial` for the root shell, the
+  after the host file is read: `projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm
+  run --headless --daemonize` (the rule's `VM_TOOL`) on the T8 disk, `tools/vm-serial` for the root shell, the
   census before and after, `tools/vm-stop` by pidfile; frames under
   `/workspace/artifacts/m6-t8-<date>/`; the cycle named on #655 before the
   boot with what it leaves.
@@ -549,15 +579,15 @@ names the artifact that ticks it; the coordinator ticks at hand-back.
 - [ ] `second-opinions/review-plan.json` records `depth: independent`, one reviewer (`gpt`, `openai/gpt-6-astra`, `max`), and the seat's probe and refutation outputs each have a `.provenance.json` beside them whose served model is `openai/gpt-6-astra` by OpenAI (the field quoted on #655); `04` § Second opinion grades every item of the refutation against its artifact and names the packet's size and sha256.
 - [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue (#585 for an upstream-carried file's defect, a Backlog issue in #839's shape for a fork-own bump, the integration for the conflict list), or withdrawn with its reason.
 - [ ] `reviewed-at:` and `fixed-at:` above carry the lane's commits the read and the fixes were made at (the read on `8ebaf8daad`'s bytes; no EmulationStation path), and, after the coordinator closes this issue and the branch merges to `next`, `tools/renovation-status` lists this slice as `closed`.
-- [ ] `01-research-notes.md` § Scope records the read hash, the filter of brief § 2 with its output (485 paths, 20,644 lines; 450 upstream-carried, 35 fork-own; 478 `shipped`, 6 `test`, 1 `n/a`; 260 recipes, or the deltas beside them), the provenance counts (35 fork changes; 18 absent upstream as 11 orphans and 7 fork-added; 66 recipes changed upstream; the conflict set's size), and `git diff --stat 8ebaf8daad HEAD -- $(cat .qa-scratch/t8/paths.txt)` (empty, or each hunk listed with its owner).
+- [ ] `01-research-notes.md` § Scope records the read hash, the filter of brief § 2 with its output (485 paths, 20,644 lines; 450 upstream-carried, 35 fork-own; 478 `shipped`, 6 `test`, 1 `n/a`; 260 recipes; 14 paths with spaces, or the deltas beside them), the provenance counts (35 fork changes; 87 modified against `upstream/next`; 18 absent upstream as 11 orphans and 7 fork-added; 66 recipes changed upstream; the conflict set of 11), and the branch-vs-hash diff over the 485 read with `xargs -0` (empty, or each hunk listed with its owner).
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path, the path in backticks as the first cell: ``grep -c -E '^\| `projects/' 02-forward-audit.md`` prints 485; each row's Q1 to Q7 cells answered or `n/a` with a reason.
-- [ ] `02-forward-audit.md` § Mechanical checks records, with command, exit status and summary line, each of: the branch-vs-hash diff over the slice's paths, the (a) loop with its four counts, the conflict set's derivation and size, the per-plan expansion of every field for the 260 (with the empty-or-missing-checksum count, 0 expected), the `make update` set for RK3588 and the three shipped plans with the 13 named, the freshness tool's run with its exit code and each class, the fetch sweep's status-code histogram, the two `pkgcheck` runs' counts and FAIL lists, the `bash -n` sweep's counts, and the units' count with the note that `systemd-analyze` is not on the host; a check that could not run is recorded with the reason, never as a pass.
+- [ ] `02-forward-audit.md` § Mechanical checks records, with command, exit status and summary line, each of: the branch-vs-hash diff over the slice's paths, the (a) loop with its four counts, the conflict set's derivation and size, the per-plan expansion of every field for the 260 (with the empty-or-unset-checksum rows: `atf` and `sway` expected, T5's, and nothing else), the `make update` set for RK3588 and the three shipped plans with the 13 named, the freshness tool's run with its exit code and each class, the fetch sweep's status-code histogram, the two `pkgcheck` runs' counts and FAIL lists, the `bash -n` sweep's counts by shebang, and the units' count with `systemd-analyze verify`'s outputs; a check that could not run is recorded with the reason, never as a pass.
 - [ ] `04-analysis.md` § Renovation face Q4 carries the currency table: 260 rows (``grep -c -E '^\| `projects/' q4-table.md`` prints 260), each with the effective pin per plan, its shape, the (a), `make update` and (c) cells, and a disposition from § 4 Q4's list that names the mover; **no row reads `current` on a source whose cell is `not read`**; every fork-own BEHIND row is a punch item whose outcome names a Backlog issue in #839's shape.
-- [ ] `04-analysis.md` carries the orphan table (11 rows: the recipe, what the fork used it for, its fork-own dependants or `none` from `git grep`, upstream's replacing commit or `none`), the conflict list (every fork-edited recipe upstream also changed since the base, each with its hunks and `same change` / `different, keep ours` / `conflict`), and § Q6's 28 unbuilt names settled per plan with the `PKG_ARCH` or condition quoted.
+- [ ] `04-analysis.md` carries the orphan table (11 rows: the recipe, what the fork used it for, its fork-own dependants or `none` from `git grep`, upstream's replacing commit or `none`), the conflict list (every fork-edited recipe upstream also changed since the base, each with its hunks and `same change` / `different, keep ours` / `conflict`), and § Q6's 13 unbuilt names settled (the 12 virtual by construction; `qcom-abl` with its plan or condition quoted), the record matched by name prefix with the five listings saved.
 - [ ] `02-forward-audit.md` § The fetch sweep lists every effective `PKG_URL` whose HEAD probe did not answer 200 or a redirect that resolved to the recipe's sha256, with its status, the mirror's answer and its disposition; every gone or mismatched URL is a `bug` issue cited by number; the probe's two controls are recorded.
 - [ ] `02-forward-audit.md` § The #644 findings carries findings 15 and 16 with their dispositions here (15: the `make update` set and its 13 named, never run, `scripts/update_packages`'s `PKG_PATH` line cited; 16: the 11 orphans separated from the 7 fork-added by the base, with the freshness tool's set compared) and names the other findings with their carriers so none is taken here.
 - [ ] Every proof in `02-forward-audit.md` carries a `proved:` cell reading `tree`, `history`, `fixture`, `fix-tree`, `fix-guest` or `fix-pending-image`; ``grep -c 'proved:' 02-forward-audit.md`` equals ``grep -c '^PROOF:' 00-running-log.md``; every guest cycle has its census and `tools/vm-stop` line in `00`.
-- [ ] Every punch item carries `question:`; every `bug` this lane files passes `tools/box-check --issue N`; no file under `projects/` is changed on this branch before a stream brief (`git diff --stat 8ebaf8daad <fixed-at> -- projects packages` shows only stage-E commits), and no `PKG_VERSION` line changes on this branch at all (`git diff 8ebaf8daad <fixed-at> -- projects packages | grep -c '^[-+]PKG_VERSION='` prints 0).
+- [ ] Every punch item carries `question:`; every `bug` this lane files passes `tools/box-check --issue N`; no file under `projects/` is changed on this branch before a stream brief (`git diff --stat 8ebaf8daad <fixed-at> -- projects packages` shows only stage-E commits), and no `PKG_VERSION` line changes on this branch at all (`git diff 8ebaf8daad <fixed-at> -- projects packages | grep -c '^[-+]PKG_VERSION='` prints 0); `tools/pkgcheck` passes on every recipe a stream touched.
 - [ ] No upstream-carried or orphan file is deleted or renamed on this branch (`git diff --diff-filter=DR --name-only 8ebaf8daad <fixed-at> -- projects packages` is empty).
 - [ ] #852's fix is on this branch under a stream brief, proved: `virtual/image`'s recipe writes nothing at global scope (a fresh export sourced through `config/options image` leaves no `build.*/image/system/opt`), and the image root still carries `opt -> /storage/.opt` (`fix-pending-image`, the first image).
 - [ ] The retro exists at `docs/retros/<date>-m6-image-packages.md`, is posted on #655, and says what the slice did to the two time-to-play numbers (nothing, or the boot-path change named).
