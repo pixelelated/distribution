@@ -124,10 +124,12 @@ The one authorized cycle, 19:23 to 19:30 UTC; the full record is in `00` § The 
 | S13 | The small fixes, one commit per tool (#983: G-47, G-62 to G-65, G-68, G-69). Nine cases fail at `facb2ae523` and pass at `95241c0158` | `streams/s13-unfixed.txt`, `streams/s13-fixed.txt` | proved: fix-case |
 | cycle | The stage-E pair cycle: `vm-qa <069fc2704421 image>` with no override; BUILD_ID matches the image's; `tear-down: vm-pair down rc 0`; census 0 after; walks 16/16 hold the frames their steps name (S2, S5, S8) | `cycle-e/vm-qa-report.md`, `cycle-e/walks-vs-steps.txt`, `cycle-e/census-after.txt` | proved: fix-guest |
 | S7-guest | `emulator-exit-test --only A` on guest b ran part A alone: 3 PASS, rc 0 | `cycle-e/s7-exit-only-a-b.txt` | proved: fix-guest |
-| cycle2 | `--only time-to-play` after `327e743189`: the kill is judged by its effect on a guest. The g2g row has no stamp because the product started no exit sync for that repeat; D-QA-062 fails it, where the unfixed tool passed it as `?` | `cycle-e2/vm-qa-report.md`, `cycle-e2/time-to-play.json` | proved: fix-guest |
+| cycle2 | `--only time-to-play` after `327e743189`: the kill is judged by its effect on a guest. The g2g row has no stamp because the product started no exit sync for that repeat; D-QA-062 fails it, where the unfixed tool passed it as `?`. **product #1012** (the coordinator, 23:09): the row fails on this image until the product stamps an exit sync stopped before it starts | `cycle-e2/vm-qa-report.md`, `cycle-e2/time-to-play.json` | proved: fix-guest |
 | S11-guest | The fixed compare over cycle 1's walks: with the 348 proposals inert, 65 boxes are unclaimed, 64 of them the Last Played backdrop that cycle 1's PASS had rested on | `cycle-e/frame-diff-fixed.md` | proved: fix-guest |
 | S11 | `frame-diff` refuses an empty baseline, compares a scoped run's walks only, says what `--min-pixels` left out and refuses a 0x0 PNG; the transfer masks name their screens; the 348 proposals are inert (#980). Six cases fail at `facb2ae523` and pass at `476ab6e69b` | `streams/s11-unfixed.txt`, `streams/s11-fixed.txt` | proved: fix-case |
 | S12 | Refusals survive `-O` in seven tools; the consent test records before it judges (#975, #983). Seven cases fail at `facb2ae523` and pass at `930ea05d70`; for `vm-stop-test` no positive was found | `streams/s12-unfixed.txt`, `streams/s12-fixed.txt` | proved: fix-case |
+| S5b | `vm-qa`'s run scratch is `qa.XXXXXX` in the checkout's runtime directory, removed at exit, so the scripts suite's sockets fit 107 bytes (#979). `scratch-short-and-removed` fails on `facb2ae523` and on the previous `vm-qa` (scratch under the checkout, never removed) and passes at `3eba8ce4b0`; the whole control 78 PASS | `streams/s5b-unfixed.txt`, `streams/s5b-previous.txt`, `streams/s5b-fixed.txt`, `streams/vm-harness-test-3eba8ce4b0.txt` | proved: fix-case |
+| scripts | `last-good-scripts-test` with three scratch locations: under the worktree 326 FAIL, `/workspace/tmp` 319, tmpfs 319. Per case, the last two are identical, and the worktree adds seven `AF_UNIX path too long` (S5b's). The 319 do not depend on where the scratch is: Bug #1015 | `streams/scripts-tmpdir-compare.txt`, `streams/scripts-tmpdir-{wt,ws,rt}.txt` | proved: tool-run |
 | controls | Every control in full at `930ea05d70`: `vm-harness-test` 77 PASS; `vm-pair-test`, `vm-stop-test` and `vm-upgrade-readiness-test` rc 0 | `streams/all-controls-final.txt` | proved: tool-run |
 
 ## The streams' positives
@@ -207,6 +209,37 @@ Each stream's `vm-harness-test` case, run against the unfixed tool (`git archive
 
 S1's files: `streams/s1-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s1-fixed.txt` (7 PASS, 0 FAIL). The claim correction: `streams/s1-claim-correction.txt`. S2's: `streams/s2-unfixed.txt` (0 PASS, 4 FAIL) and `streams/s2-fixed.txt` (4 PASS, 0 FAIL); the whole control, `streams/s1-s2-full.txt` (12 PASS). S3's: `streams/s3-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s3-fixed.txt` (7 PASS, 0 FAIL); the whole control, `streams/s1-s3-full.txt` (19 PASS). S4's: `streams/s4-unfixed.txt` and `streams/s4-fixed.txt` (vm-pair-test and vm-stop-test, rc 0). S5's: `streams/s5-unfixed.txt` (0 PASS, 5 FAIL) and `streams/s5-fixed.txt` (5 PASS); every control after S5, `streams/s1-s5-full.txt`. S6's: `streams/s6-unfixed.txt` (0 PASS, 6 FAIL) and `streams/s6-fixed.txt` (6 PASS). S7's: `streams/s7-unfixed.txt` (0 PASS, 5 FAIL) and `streams/s7-fixed.txt` (5 PASS). S8's: `streams/s8-unfixed.txt` (0 PASS, 6 FAIL) and `streams/s8-fixed.txt` (6 PASS); the baseline's frame counts, `streams/s8-baseline-frame-counts.txt`. S9's: `streams/s9-unfixed.txt` (0 PASS, 6 FAIL) and `streams/s9-fixed.txt` (6 PASS). S10's: `streams/s10-unfixed.txt` and `streams/s10-fixed.txt`; the cycle-found cases, `streams/cycle-found-fixes.txt`; S13's, `streams/s13-unfixed.txt` and `streams/s13-fixed.txt`. `rules-check --quiet` rc 0 and `hooks-test` PASS after `ea2377f1ce`.
 
+## The suites re-run (stage F)
+
+The controls, in full, on the final tree. No guest was up and the ports were free (`port-held-refused` binds 10022):
+
+| Control | Result | Record |
+| --- | --- | --- |
+| `vm-harness-test` (77 cases, new in this slice) | 77 PASS, rc 0 | `streams/vm-harness-test-final.txt` |
+| `vm-pair-test` | 9 launch and 3 whole-script controls, rc 0 | `streams/all-controls-final.txt` |
+| `vm-stop-test` | 8 controls, rc 0 | `streams/all-controls-final.txt` |
+| `vm-upgrade-readiness-test` | 7 controls, rc 0 | `streams/all-controls-final.txt` |
+| the seven S12 tools under `-O` | the 8 S12 cases PASS (refused, or still failing their failing case) | `streams/s12-fixed.txt` |
+
+After S5b (`3eba8ce4b0`), `vm-harness-test` has 78 cases, all PASS, rc 0 (`streams/vm-harness-test-3eba8ce4b0.txt`). All four were run at `930ea05d70`; S11's and S12's cases were captured at `930ea05d70` too. After them, only `6e2d204987` touched a tool, adding comments to three tools beside their guest-side kills, and its port-free gate read 75 PASS.
+
+The cycles' reports, with each row's reason:
+
+| Cycle | Suite rows | Reasons |
+| --- | --- | --- |
+| 1 (`cycle-e/vm-qa-report.md`) | PASS: pair-identity, fresh, round-trip, exit, walks (16/16), frame-diff. SKIP: the six ES suites. FAIL: scripts, wrapper, time-to-play | ES: the pin is unreadable (below; Backlog #1013). wrapper: the RetroArch source is gone from the old build-root paths (host state; #640's family). time-to-play: two defects in this slice's own S6 fix, since fixed (`327e743189`). scripts: seven checks were S5's long scratch path (fixed, `3eba8ce4b0`); 319 fail wherever the scratch is (Bug #1015), below |
+| 2 (`cycle-e2/vm-qa-report.md`) | FAIL: time-to-play | The g2g row has no stamp because the product ran no exit sync: **product #1012** |
+
+**Under D-QA-062 (would fail):** the cycle-1 frame-diff row, read with S11's fixed compare, would fail. 65 boxes are unclaimed once the proposals are inert (`cycle-e/frame-diff-fixed.md`); the baseline is the maintainer's on #346. The record's earlier `time-to-play.md` files with dashes over PASS would fail too, and stand unrewritten.
+
+### The scripts suite's FAIL, settled
+
+The coordinator asked for it on #659 at 22:43: *"settle the scripts FAIL with the two TMPDIR runs before hand-back (if the worktree TMPDIR is the cause, the fix is S5's)"*. `tools/last-good-scripts-test` was run by hand three times from this worktree. Under the worktree's `.qa-scratch/vm-qa-tmp/` it had 1052 PASS and 326 FAIL; under `/workspace/tmp`, 1059 and 319; on tmpfs under `/run/user/1000`, 1059 and 319. All three exited 1.
+
+- **Per case, the `/workspace/tmp` and tmpfs runs are identical.** The worktree run has exactly seven more failures, each `AF_UNIX path too long`: a socket bound under a 107-byte cap, with the worktree path in front of it.
+- **Those seven are S5's**, fixed in `3eba8ce4b0`: the scratch is now `<runtime>/qa.XXXXXX`, 48 bytes here (measured). The longest socket the seven bind adds 27, for 75.
+- **The 319 are not location or filesystem.** They are Bug #1015, under T15's #662. The first is backuptool's staging step, which returns 2. The lead is the host's tools: the run used the Ubuntu busybox and uutils coreutils, because this worktree has no build root. This slice changes nothing in them.
+
 ## Why the six ES rows stayed SKIP in the stage-E cycle
 
 The ES gate (#981, `ca0bf841d2`) reads the image's EmulationStation pin from the build's own commit: `git show 069fc270442134fe…:projects/ROCKNIX/packages/ui/emulationstation/package.mk`. That commit was not in this repository. The read-only fetch was `git fetch origin 069fc270442134fe771258418adf4e666e0473fb`, and origin answered `upload-pack: not our ref`. That answer means origin holds no ref the commit is reachable from. Which branch the image was built from is not recorded here, and no object store this worktree shares holds the commit. So the pin read `(pin unreadable)`, and the six suites that read `ES_SRC` (lifetime, vocabulary, french, quoting, menumap, register) were SKIP with `ES_SRC 16dbac5211, image pins unreadable`.
@@ -218,6 +251,8 @@ Two routes would let a later cycle judge them:
 - record the EmulationStation pin in the image's `.identity.json`, so the gate reads it without the commit.
 
 The second is a change to build identity, `docs/releases/versioning.md`'s and #532's, not this slice's. It is put to the coordinator as a lead.
+
+The coordinator filed it on 2026-10-24 at 23:09 UTC as Backlog #1013, under #800.
 
 ## Findings (stage B)
 

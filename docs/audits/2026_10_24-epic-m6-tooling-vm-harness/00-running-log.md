@@ -536,3 +536,29 @@ PROOF: 23:00 S11 guest: the fixed compare over cycle 1 walks: 65 unclaimed (64 t
 PROOF: 23:05 S11 fix-case: six cases fail at facb2ae523 and pass at 476ab6e69b; the control passes on both -- `streams/s11-unfixed.txt`, `streams/s11-fixed.txt`
 PROOF: 23:05 S12 fix-case: seven cases fail at facb2ae523 and pass at 930ea05d70 (vm-stop-test: no positive found) -- `streams/s12-unfixed.txt`, `streams/s12-fixed.txt`
 PROOF: 23:04 controls tool-run: every control in full at 930ea05d70: vm-harness-test 77 PASS; vm-pair-test, vm-stop-test, vm-upgrade-readiness-test rc 0 -- `streams/all-controls-final.txt`
+
+## 23:29 UTC: the scripts FAIL settled; S5b (#659, #979, #1015)
+
+- **The three runs** (`streams/scripts-tmpdir-compare.txt`; each log is `streams/scripts-tmpdir-{wt,ws,rt}.txt`):
+
+  | TMPDIR | PASS | FAIL | rc |
+  | --- | ---: | ---: | ---: |
+  | under the worktree's `.qa-scratch/vm-qa-tmp/` | 1052 | 326 | 1 |
+  | `/workspace/tmp` | 1059 | 319 | 1 |
+  | tmpfs `/run/user/1000/m6-t12-scripts-probe` | 1059 | 319 | 1 |
+
+  - Per case, the second and third runs are identical.
+  - The worktree run has exactly seven more failures, each `AF_UNIX path too long`.
+- **S5b** (`3eba8ce4b0`): `vm-qa`'s scratch is now `<runtime>/qa.XXXXXX`. A socket under it is 75 bytes against the 107-byte cap, and the exit trap removes it.
+  - The case `scratch-short-and-removed` fails on `facb2ae523` and on the previous `vm-qa`, and passes on the fix.
+  - `vm-harness-test`: 78 PASS.
+  - The seven checks were not re-run under a real `vm-qa` scratch. That they pass on a short path is shown by the tmpfs run's 35-byte root, and by the arithmetic.
+- **The 319** do not depend on location or filesystem. They are filed as Bug #1015 under T15's #662.
+  - The first failure is backuptool's staging step (`write_archive` returns 2).
+  - The lead is the host's tools: the Ubuntu busybox and uutils coreutils were used because this worktree has no build root.
+  - Nothing in this slice touches them.
+- **Recorded:**
+  - `02` has the S5b and scripts rows and § "The scripts suite's FAIL, settled".
+  - PL-06's resolution names both.
+PROOF: 23:29 S5b fix-case: scratch-short-and-removed fails on facb2ae523 and on the previous vm-qa, passes at 3eba8ce4b0; vm-harness-test 78 PASS -- `streams/s5b-unfixed.txt`, `streams/s5b-previous.txt`, `streams/s5b-fixed.txt`, `streams/vm-harness-test-3eba8ce4b0.txt`
+PROOF: 23:29 scripts tool-run: last-good-scripts-test under three scratch locations: 326/319/319 FAIL, the extra seven AF_UNIX path too long; the 319 location-independent (#1015) -- `streams/scripts-tmpdir-compare.txt`

@@ -356,7 +356,7 @@ punch_index:
   source_finding: "F-01, G-01, G-40"
   owner_area: "`tools/vm-qa`"
   tracked: "#966"
-  outcome: open
+  outcome: "resolved"
 - id: PL-02
   severity: Medium
   category: Bug
@@ -364,7 +364,7 @@ punch_index:
   source_finding: "F-02, G-08, G-09, G-10, G-12"
   owner_area: "`tools/time-to-play`"
   tracked: "#967"
-  outcome: open
+  outcome: "resolved"
 - id: PL-03
   severity: Low
   category: Bug
@@ -372,7 +372,7 @@ punch_index:
   source_finding: "F-03, G-49"
   owner_area: "`tools/emulator-exit-test`"
   tracked: "#968"
-  outcome: open
+  outcome: "resolved"
 - id: PL-04
   severity: High
   category: Bug
@@ -380,7 +380,7 @@ punch_index:
   source_finding: "G-02, G-30"
   owner_area: "`tools/vm-qa`, `tools/vm-upgrade-rehearsal`"
   tracked: "#969"
-  outcome: open
+  outcome: "resolved"
 - id: PL-05
   severity: High
   category: Interaction Defect
@@ -388,7 +388,7 @@ punch_index:
   source_finding: "G-27, G-29, F-09 (the shared directory)"
   owner_area: "`tools/vm-pair`, `tools/vm-stop`"
   tracked: "#970"
-  outcome: open
+  outcome: "resolved"
 - id: PL-06
   severity: Medium
   category: Interaction Defect
@@ -396,7 +396,7 @@ punch_index:
   source_finding: "F-09, F-10, G-05, G-17, G-53"
   owner_area: "`tools/vm-pair`, `tools/vm-qa`, `tools/ra-offline-test`, `tools/time-to-play`"
   tracked: "#971"
-  outcome: open
+  outcome: "resolved"
 - id: PL-07
   severity: Medium
   category: Bug
@@ -404,7 +404,7 @@ punch_index:
   source_finding: "F-08, G-37, G-34, G-41"
   owner_area: "`tools/vm-visual-qa`"
   tracked: "#972"
-  outcome: open
+  outcome: "resolved"
 - id: PL-08
   severity: Medium
   category: Bug
@@ -412,7 +412,7 @@ punch_index:
   source_finding: "F-05, G-70"
   owner_area: "`tools/vm-qa`"
   tracked: "#973"
-  outcome: open
+  outcome: "resolved"
 - id: PL-09
   severity: Medium
   category: Bug
@@ -420,7 +420,7 @@ punch_index:
   source_finding: "F-06, G-42, G-43, G-44"
   owner_area: "`tools/vm-qa`"
   tracked: "#974"
-  outcome: open
+  outcome: "resolved"
 - id: PL-10
   severity: Medium
   category: Bug
@@ -428,7 +428,7 @@ punch_index:
   source_finding: "F-04"
   owner_area: "`tools/vm-manager-system-check` (and the class: `ra-ui-test`, `raofflineproxy-consent-test`, `raofflineproxy-installed-native-test`, `vm-pair-test`, `vm-stop-test`, `vm-upgrade-readiness-test`)"
   tracked: "#975"
-  outcome: open
+  outcome: "resolved"
 - id: PL-11
   severity: Medium
   category: Bug
@@ -436,7 +436,7 @@ punch_index:
   source_finding: "G-36, G-32, G-33"
   owner_area: "`tools/vm-serial`, `tools/vm-pair`, `tools/vm-qa`, `tools/emulator-exit-test`, `tools/ra-offline-test`, `tools/time-to-play`, `tools/vm-visual-qa`"
   tracked: "#976"
-  outcome: open
+  outcome: "resolved"
 - id: PL-12
   severity: Medium
   category: Bug
@@ -444,7 +444,7 @@ punch_index:
   source_finding: "G-50, G-51, G-54, G-55, G-56, G-57"
   owner_area: "`tools/ra-offline-test`, `tools/qa-accounts`"
   tracked: "#977"
-  outcome: open
+  outcome: "resolved"
 - id: PL-13
   severity: Medium
   category: Bug
@@ -452,7 +452,7 @@ punch_index:
   source_finding: "G-59, G-60, G-61"
   owner_area: "`tools/device-act`"
   tracked: "#978"
-  outcome: open
+  outcome: "resolved"
 - id: PL-14
   severity: Medium
   category: Bug
@@ -460,7 +460,7 @@ punch_index:
   source_finding: "G-66, G-30 (the rehearsal's stop)"
   owner_area: "`tools/vm-upgrade-rehearsal`"
   tracked: "#979"
-  outcome: open
+  outcome: "resolved"
 - id: PL-15
   severity: Low
   category: Bug
@@ -468,7 +468,7 @@ punch_index:
   source_finding: "F-18, G-19, G-20, G-21, G-22, G-25"
   owner_area: "`tools/frame-diff`, `tools/vm-walks/masks.txt`, `claims.txt`"
   tracked: "#980"
-  outcome: open
+  outcome: "resolved"
 - id: PL-16
   severity: Low
   category: Bug
@@ -476,7 +476,7 @@ punch_index:
   source_finding: "F-07, G-03, G-04, G-07 (narrowed)"
   owner_area: "`tools/vm-qa`"
   tracked: "#981"
-  outcome: open
+  outcome: "resolved"
 - id: PL-17
   severity: Low
   category: Code Quality
@@ -484,7 +484,7 @@ punch_index:
   source_finding: "F-12, G-06, G-71"
   owner_area: "`tools/vm-qa`"
   tracked: "#982"
-  outcome: open
+  outcome: "resolved"
 - id: PL-18
   severity: Low
   category: Code Quality
@@ -492,21 +492,21 @@ punch_index:
   source_finding: "G-11, G-13 to G-16, G-35, G-39, G-47, G-58, G-62 to G-65, G-67, G-68"
   owner_area: "`time-to-play`, `vm-visual-qa`, `vnc-grab.py`, `signin-memory`, `es-launch-memory`, `qa-accounts`, `png-blackout`, `es-untranslated`, `es-syntax-check`, `raofflineproxy-consent-test`, `ra-candidate-games`"
   tracked: "#983"
-  outcome: open
+  outcome: "resolved"
 - id: PL-19
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-14, F-15, F-16"
   owner_area: "`ra-candidate-games`, `es-launch-memory`, `signin-memory`, `font-stems`, `raofflineproxy-installed-native-test`; the `exit`, `lifetime`, `pair-identity`, `time-to-play`, `ra-offline` and `wrapper` suites; `vm-walks/cloud-epic/migration-protocol.sh`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-20
   severity: Low
   category: Renovation
   question: Q5
   source_finding: "F-17, F-19"
   owner_area: "`tools/vm-qa`, `tools/frame-diff`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-21
   severity: Low
   category: Code Quality
@@ -514,47 +514,47 @@ punch_index:
   source_finding: "F-11, F-20"
   owner_area: "`tools/es-syntax-check`, `tools/vm-upgrade-rehearsal`"
   tracked: "deferred: #640 for `es-syntax-check:53`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-22
   severity: Low
   category: Documentation
   question: Q7
   source_finding: "F-13, G-31, G-72, `04` § Q7"
   owner_area: "`.claude/rules/instruction-files.md`, `generic-x64-vm-testing.md`, `vm-first.md`, `release-candidates.md` (all on `next`)"
-  outcome: open
+  outcome: "deferred"
 - id: PL-23
   severity: Low
   category: Renovation
   question: Q2
   source_finding: "G-07, G-23, G-24, G-26, G-28, G-38, G-45, G-46, G-48, G-52, G-69"
   owner_area: "`vm-qa`, `vm-stop`, `vm-visual-qa`, `frame-diff`, `ra-offline-test`, `es-launch-memory`, `font-stems`"
-  outcome: open
+  outcome: "resolved"
 ```
 
 ## Phase 7 resolution gate
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-02 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-03 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-04 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-05 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-06 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-07 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-08 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-09 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-10 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-11 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-12 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-13 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-14 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-15 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-16 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-17 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-18 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-19 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-20 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-21 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-22 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
-| PL-23 | Open | stage D files the issue; a stage-E stream brief or the coordinator's disposition resolves |
+| PL-01 | **Resolved** | `0ecbbb9339` (#966): a SKIP exits 3, an unknown or empty selection 2; S1's cases in 02 |
+| PL-02 | **Resolved** | `7c5d15b2d8`, `a09bfc5718`, `327e743189` (#967, #983); the cycles proved them on guest a. The g2g row fails on this image until the product stamps it: **product #1012** |
+| PL-03 | **Resolved** | `00b8760457` (#968); `--only A` on guest b, `cycle-e/s7-exit-only-a-b.txt` |
+| PL-04 | **Resolved** | `9df1c65c68`, `15b8f11334` (#969); cycle 1's report: BUILD_ID matches, `tear-down: vm-pair down rc 0` |
+| PL-05 | **Resolved** | `33b1bb8845`, `eddd21d7a2` (#970); vm-pair-test and vm-stop-test rc 0 |
+| PL-06 | **Resolved** | `3f5998bbaf`, `373a366e40` (#971); cycle 1 ran with no override, its paths under the worktree and /run/user/1000. The scratch moved to a short `qa.XXXXXX` in the runtime directory, removed at exit, after the scripts suite's seven socket-length FAILs (`3eba8ce4b0`); its other 319 FAILs are location-independent, Bug #1015 |
+| PL-07 | **Resolved** | `ff10d77c28` (#972); walks 16/16 frames equal to their steps, `cycle-e/walks-vs-steps.txt` |
+| PL-08 | **Resolved** | `a68bfadcd5` (#973); cycle 1's walks passed the new reboot wait |
+| PL-09 | **Resolved** | `5edb265e59` (#974); cycle 1's walks seeded the QA remote and passed the endpoint check |
+| PL-10 | **Resolved** | `6ca9da4831`, `6871f964c8`, `b6413b19e8`, `4757b48385`, `29bf33cbb8`, `639b45a8a6`, `5988d06c9a` (#975); for vm-stop-test no positive was found, recorded |
+| PL-11 | **Resolved** | `2e790e7e52`, `1d5dc8a698` (#976); `vm-serial sh false` 1 on guest b, `cycle-e/s8-serial-b-fixed.txt` |
+| PL-12 | **Resolved** | `33efb4d801`, `9a1300f141` (#977); the account path never ran |
+| PL-13 | **Resolved** | `c1569b7bc6` (#978); the device-action log's redaction is the coordinator's at the merge |
+| PL-14 | **Resolved** | `82b5edf1ee`, `f1331aba83` (#979) |
+| PL-15 | **Resolved** | `36138c8da5`, `476ab6e69b` (#980); the fixed compare over cycle 1's walks shows 65 unclaimed boxes, and the baseline move is the maintainer's on #346 |
+| PL-16 | **Resolved** | `813e4dd270`, `ca0bf841d2` (#981); the ES pin was unreadable on this image (02); the lead is Backlog #1013 under #800 |
+| PL-17 | **Resolved** | `3c0b9d53c6`, `fc8754b29b` (#982) |
+| PL-18 | **Resolved** | #983: `a09bfc5718`, `05117efe58`, `9a1300f141`, `930ea05d70`, `3edb5f2b89`, `8e29c6e2cc`, `181b67293a`, `a4ae0aee6c`, `d4ccc8b14b`, `f676d8bb5f`, `95241c0158` |
+| PL-19 | **Deferred** | the coordinator's dispositions, held in Backlog #986: all kept with their callers named (PL-22's packet), except the `ra-candidate-games` retirement put to the maintainer on #346 |
+| PL-20 | **Deferred** | Backlog #987: guest b on demand, the host suites beside the guest suites, the baselines' retention |
+| PL-21 | **Deferred** | `es-syntax-check`'s default root is #640's; the `ROCKNIX_ARTIFACTS` half is resolved by `f1331aba83` (S5) |
+| PL-22 | **Deferred** | Backlog #988, the doctrine packet after T4's merge; S1's three list entries landed in `ea2377f1ce` |
+| PL-23 | **Resolved** | G-24 `36138c8da5`; G-26 recorded as a design and G-28 fixed, both `eddd21d7a2`; G-45 and G-52 `33efb4d801`; G-69 `181b67293a`; G-46 kept as a design, its reason written beside each kill in `6e2d204987`; G-07, G-23, G-38 and G-48 kept as designs (the brief's reasons; G-07 a lead for #50) |

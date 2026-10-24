@@ -1,0 +1,97 @@
+# tools/last-good-scripts-test from the T12 worktree, three scratch locations (#659, #1015)
+# wt: TMPDIR=<worktree>/.qa-scratch/vm-qa-tmp/scripts-probe-wt (ext4, long); ws: /workspace/tmp (ext4); rt: /run/user/1000/m6-t12-scripts-probe (tmpfs)
+wt rc 1: PASS 1052 FAIL 326; started 
+ws rc 1: PASS 1059 FAIL 319; started 
+rt rc 1: PASS 1059 FAIL 319; started 23:16:25
+
+## failing checks per case, ws vs rt (empty = identical)
+## failing checks per case, ws vs wt
+52a53
+>       7 OSError: AF_UNIX path too long
+
+## wt's AF_UNIX failures
+476:OSError: AF_UNIX path too long
+481:OSError: AF_UNIX path too long
+483:    FAIL  the printed command: error: unix socket path too long to bind (>107 bytes): /workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659/.qa-scratch/vm-qa-tmp/scripts-probe-wt/tmp.HJ1UhXvw15/f1/v/m.sock
+484:    FAIL  run (rc 1): QEMU NOT started, sockets , vars ''; error: unix socket path too long to bind (>107 bytes): /workspace/repos/pixelelated/distribution.worktrees/m6-tooling-vm-harness-659/.qa-scratch/vm-qa-tmp/scripts-probe-wt/tmp.HJ1UhXvw15/f1/v/m.sock
+490:OSError: AF_UNIX path too long
+1222:OSError: AF_UNIX path too long
+1229:OSError: AF_UNIX path too long
+
+## failing checks per case (ws)
+      2     A11. PL-012's sibling: --selected with no system picked restores BIOS alone
+      3     A12. #308 claude F-CS-04: cloud_restore under --yes waits for nobody
+      3     A13. #308 claude F-CS-08: the partial-file sweep runs only after a transfer that may have left one
+      1     A14. PL-015 (script half): no content folder derived inside a top-level saves folder
+      2     A15. PL-051 (script half): a command written into the conf's folder values never runs
+      4     A1. PL-001: --match --apply enforces the preview, and a failed listing plans nothing
+      2     A20. #308 claude F-CS-21: the settings phase's listings carry the listing bound
+      2     A21. #308 gpt F-CS-35: an undated legacy archive does not outrank a dated one
+      1     A22. #308 claude F-CS-25: a saves folder at the root backs up without a replaced-saves folder
+      1     A23. #308 gpt F-CS-20: the saves-root record is written by a good run, and a failed write says so
+      1     A24. #308 gpt F-CS-26: a match reports what it removed, not what it planned
+      2     A25. gpt F-CS-02: an N64 .fla save is the saves tier's, never content's
+      2     A26. #308 gpt F-CS-30: after a restore, the scan reads the same files on both sides
+      3     A28. #308 claude F-CS-24: a run cut by the network after it moved files is not a skip
+      1     A29. #308 gpt F-CS-34: the automatic ceiling covers the probe, and nothing runs past it
+      3     A2. PL-012: --all restores every system and BIOS, each its own unit
+      3     A30. claude F-CS-13: a listing that keeps growing is progress to the stall ceiling
+      1     A33. G-A-05 (gpt): nothing in a conf that passes conf_valid runs when it is sourced
+      2     A34. a rules file the player names themselves is theirs: honoured as written
+      2     A35. an apply with no check behind it says the check is missing; checked first, every chosen system is an item
+      3     A36. G-A-09 (gpt): a backup that can keep no record of what it replaced says so where it is read
+      3     A39. G-A-06 (gpt)  G-A-02 (claude): the content scripts read CONTENT_REMOTE as source would, or refuse
+      3     A3. PL-020: an incomplete rules file is never installed, and never synced with
+      1     A40. G-A-07 (gpt)  G-A-03 (claude): every listing --all stands on is read fail-closed
+      2     A41. G-A-10 (gpt): a nested game list is game content in the count as in the transfer
+      1     A42. G-A-04 (gpt): a capture that cannot have the commit lock does not commit
+      3     A43. G-A-08 (gpt)  G-A-13 (claude): progress is files moved, not units completed
+      2     A44. G-A-01 (claude): an automatic run cut by the network after it sent a save is not a skip
+      2     A45. G-A-09 (claude): a probe the automatic ceiling ended is worded as the ceiling
+      1     A46. G-A-08 (claude): a saves folder at the root is not warned about as a nesting
+      2     A47. G-A-14 (claude): a conf the duplicate cleanup rewrote is checked before it is sourced
+      1     A48. the duplicate cleanup removes a repeated value whole, continuation and all
+      3     A49. G-A-07 (claude): a content transfer's leftovers are swept and never sent
+      4     A4. PL-021: pruning keeps the folder and the archive this run wrote, whatever other clocks say
+      2     A50. claude G-A-04: the round-trip reads a settings run's last line with its gate's reader
+      2     A51. PL-002: a control character but a tab anywhere in the conf is refused, by all five readers
+      4     A52. PL-015: bash's escapes inside double quotes are accepted, and a refusal says why in the log
+      1     A53. G2-A-03 (gpt): a content folder set in a form the reader does not read is refused, never read as the root
+      4     A54. PL-004: a safety copy that is not whole never replaces the conf, and no cleanup runs without one
+      2     A56. G2-A-04 (gpt): an apply that cannot spend its plan removes nothing
+      2     A58. G2-A-06 (claude): the stage's collection under the commit lock costs one stat, not one per seal
+      3     A59. PL-034: a capture the launch was let over commits nothing, and writes no save
+      3     A6. PL-028: saves 9 beside a failed settings phase is a run that couldn't finish
+      1     A7. PL-030: --set-systems refuses a name that is not a system folder's
+      6     A8. cloud_capture: retire, the commit lock, the clock query, the quarantine, adopt
+      4     A9. PL-066: a failed game-list pass is a unit that couldn't finish
+      4   ad. a backup does not make a missing earlier-default saves folder (D-CLOUD-172, #363): the offer instead, nothing written
+      6   af. content inactivity across provider retries (#401)
+      2   D (the fix round). stream D's leads of the audit of the fix round: G2-D-01 (claude), G2-D-01, G2-D-02 and G2-D-03 (gpt), S-24 and S-26 (PL-031, PL-033)
+     12 grep:  No such file or directory
+      2   k. backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)
+      7   n. a deliberate cloud_backup ends a transfer that stops making progress at the stall ceiling, and says it couldn't finish (D-CLOUD-126)
+     12   S315. #315: the size-only remote gets --update on every saves pass; every other remote nothing; the detection's edges
+      8 tail: cannot open ' for reading: No such file or directory
+      7 tools line 10171:  No such file or directory
+      9 tools line 1044:  No such file or directory
+      8 tools line 13356:  No such file or directory
+      1 tools line 2311:  No such file or directory
+      9 tools line 2327:  No such file or directory
+      1 tools line 2359:  No such file or directory
+      3 tools line 2379:  No such file or directory
+      5 tools line 2390:  No such file or directory
+      1 tools line 2421:  No such file or directory
+      1 tools line 2423:  No such file or directory
+      2 tools line 2492:  No such file or directory
+      3 tools line 2532:  No such file or directory
+      1 tools line 2573:  No such file or directory
+     24 tools line 6762:  No such file or directory
+      1 tools line 7578:  No such file or directory
+      6 tools line 7581:  No such file or directory
+     17 tools line 8022:  No such file or directory
+      3 tools line 8195:  No such file or directory
+     19 tools line 8215:  No such file or directory
+      3   t. raofflineproxy-ctl scan, topup and ready against the client the tree describes: the refusals, the index rule by account and hash, the probe's own folder and patience, one deadline, the failure verdict, the cap over uncached files, a stop on disable, and the patched client's own predicates (#186 PL-01..05, 12, 17, 23, 24, 25, 28, 30, 33; #190; #194; #199)
+     20   y. audit #307  #308, stream B: backuptool, wifictl, the settings writer and lock, factoryreset, chksysconfig, rocknix-evidence, rocknix-corekeep, runemu and automount
+     16   z. the audit of the fix round, stream B: the conf read as text, a flag's password redacted, the restore's lists and its own control files, a quoted password, the roms mount, the upstream-era move, a zip's stored members, members outside storage the lock's path, the seed list, the Wi-Fi pair

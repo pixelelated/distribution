@@ -103,7 +103,35 @@ I = [
   acc="each lead dispositioned by the coordinator."),
 ]
 
-P7 = {}
+# Phase 7, at stage F (2026-10-24): each item's outcome and its evidence. A
+# fix closes when it is on next (the bug issue, not this table); the commits
+# are on feature/m6-tooling-vm-harness-659, and 02 § The streams' positives
+# holds each case at facb2ae523 and at the fix.
+P7 = {
+  "PL-01": ("Resolved", "`0ecbbb9339` (#966): a SKIP exits 3, an unknown or empty selection 2; S1's cases in 02"),
+  "PL-02": ("Resolved", "`7c5d15b2d8`, `a09bfc5718`, `327e743189` (#967, #983); the cycles proved them on guest a. The g2g row fails on this image until the product stamps it: **product #1012**"),
+  "PL-03": ("Resolved", "`00b8760457` (#968); `--only A` on guest b, `cycle-e/s7-exit-only-a-b.txt`"),
+  "PL-04": ("Resolved", "`9df1c65c68`, `15b8f11334` (#969); cycle 1's report: BUILD_ID matches, `tear-down: vm-pair down rc 0`"),
+  "PL-05": ("Resolved", "`33b1bb8845`, `eddd21d7a2` (#970); vm-pair-test and vm-stop-test rc 0"),
+  "PL-06": ("Resolved", "`3f5998bbaf`, `373a366e40` (#971); cycle 1 ran with no override, its paths under the worktree and /run/user/1000. The scratch moved to a short `qa.XXXXXX` in the runtime directory, removed at exit, after the scripts suite's seven socket-length FAILs (`3eba8ce4b0`); its other 319 FAILs are location-independent, Bug #1015"),
+  "PL-07": ("Resolved", "`ff10d77c28` (#972); walks 16/16 frames equal to their steps, `cycle-e/walks-vs-steps.txt`"),
+  "PL-08": ("Resolved", "`a68bfadcd5` (#973); cycle 1's walks passed the new reboot wait"),
+  "PL-09": ("Resolved", "`5edb265e59` (#974); cycle 1's walks seeded the QA remote and passed the endpoint check"),
+  "PL-10": ("Resolved", "`6ca9da4831`, `6871f964c8`, `b6413b19e8`, `4757b48385`, `29bf33cbb8`, `639b45a8a6`, `5988d06c9a` (#975); for vm-stop-test no positive was found, recorded"),
+  "PL-11": ("Resolved", "`2e790e7e52`, `1d5dc8a698` (#976); `vm-serial sh false` 1 on guest b, `cycle-e/s8-serial-b-fixed.txt`"),
+  "PL-12": ("Resolved", "`33efb4d801`, `9a1300f141` (#977); the account path never ran"),
+  "PL-13": ("Resolved", "`c1569b7bc6` (#978); the device-action log's redaction is the coordinator's at the merge"),
+  "PL-14": ("Resolved", "`82b5edf1ee`, `f1331aba83` (#979)"),
+  "PL-15": ("Resolved", "`36138c8da5`, `476ab6e69b` (#980); the fixed compare over cycle 1's walks shows 65 unclaimed boxes, and the baseline move is the maintainer's on #346"),
+  "PL-16": ("Resolved", "`813e4dd270`, `ca0bf841d2` (#981); the ES pin was unreadable on this image (02); the lead is Backlog #1013 under #800"),
+  "PL-17": ("Resolved", "`3c0b9d53c6`, `fc8754b29b` (#982)"),
+  "PL-18": ("Resolved", "#983: `a09bfc5718`, `05117efe58`, `9a1300f141`, `930ea05d70`, `3edb5f2b89`, `8e29c6e2cc`, `181b67293a`, `a4ae0aee6c`, `d4ccc8b14b`, `f676d8bb5f`, `95241c0158`"),
+  "PL-19": ("Deferred", "the coordinator's dispositions, held in Backlog #986: all kept with their callers named (PL-22's packet), except the `ra-candidate-games` retirement put to the maintainer on #346"),
+  "PL-20": ("Deferred", "Backlog #987: guest b on demand, the host suites beside the guest suites, the baselines' retention"),
+  "PL-21": ("Deferred", "`es-syntax-check`'s default root is #640's; the `ROCKNIX_ARTIFACTS` half is resolved by `f1331aba83` (S5)"),
+  "PL-22": ("Deferred", "Backlog #988, the doctrine packet after T4's merge; S1's three list entries landed in `ea2377f1ce`"),
+  "PL-23": ("Resolved", "G-24 `36138c8da5`; G-26 recorded as a design and G-28 fixed, both `eddd21d7a2`; G-45 and G-52 `33efb4d801`; G-69 `181b67293a`; G-46 kept as a design, its reason written beside each kill in `6e2d204987`; G-07, G-23, G-38 and G-48 kept as designs (the brief's reasons; G-07 a lead for #50)"),
+}
 
 def main():
   out = ["# Punch List — M6.P2 T12, the VM harness", "",
