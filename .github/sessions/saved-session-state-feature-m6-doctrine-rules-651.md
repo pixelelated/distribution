@@ -44,23 +44,13 @@
 
 ## Current focus
 
-**Stage D, paused (2026-10-24 15:2x UTC; the executor).** The audit folder `docs/audits/2026_10_24-epic-m6-doctrine-rules/` holds:
-- `00` to `05`;
-- `second-opinions/review-plan.json` (Local);
-- `tools/t4-q4.py`, `t4-q6.py`, `t4-blocks.py` and `t4-coverage.py`.
+**Stage H, handed back (2026-10-24; the executor).**
+- **The streams:** S1 to S8 are committed and proven (`0faea874de` to `b3c1d0d7c3`).
+- **`reviewed-at: 00e75ab135`, `fixed-at: b3c1d0d7c3`,** written in #651's body.
+- **#912** has 25 checkboxes ticked (16 Resolved, 8 Deferred, 1 Withdrawn). The resolution lint passes with `--issue 912`.
+- **The retro** is `docs/retros/2026-10-24-m6-doctrine-rules.md`.
 
-What stands:
-- 27 findings; 26 proofs (26 = 26); 36 coverage rows; 56 command blocks.
-- The pre-issue lint passes, with `--issue 912` too.
-- **Bugs #904 to #911** (8, by file) and the **audit issue #912**: 25 items, a sub-issue of #651.
-
-**The lane waits** for the coordinator's dispositions and stage-E stream briefs, and edits none of the 36 meanwhile (only its own friction append). During the pause (A6): draft the retro's four answers; the Q5 reader costs are in `04`.
-
-**After the streams:**
-1. Each stream's rule edit, with its failing check first.
-2. Stage F, verification.
-3. Stage G, the retro.
-4. Stage H, the hand-back: `reviewed-at: 00e75ab135`.
+**Waiting on the coordinator:** acceptance by brief § 10, then #912's close. After the close, write `audit-completion.json` from #912's closed readback (T24's `write-completion.py` shape) and run the full lint again. Otherwise the lane is idle.
 
 ## Next commands
 
