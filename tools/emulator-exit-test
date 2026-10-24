@@ -128,6 +128,9 @@ if [ "$VM" = 1 ]; then
   VD=$(S 'grep -E "^video_driver" /storage/.config/retroarch/retroarch.cfg')
   S 'sed -i "s/^video_driver = .*/video_driver = \"gl\"/" /storage/.config/retroarch/retroarch.cfg'
 fi
+# A pkill by an anchored pattern on the guest is kept (G-46, a design): the processes
+# are this test's own, on a disposable QA guest the test owns. engineering-practices.md's
+# pidfile rule governs the host's processes, which this never matches.
 cleanup() {
   S "pkill -TERM -f '^/usr/bin/retroarch' 2>/dev/null; sleep 1; rm -f $ROM $SRM /storage/roms/gb/ExitProbe.rtc /tmp/exit-press /tmp/exit-launch /tmp/exit-rc /tmp/exit-launch.log; rmdir /storage/roms/gb 2>/dev/null; true"
   [ -n "$VD" ] && S "sed -i 's/^video_driver = .*/${VD//\//\\/}/' /storage/.config/retroarch/retroarch.cfg"

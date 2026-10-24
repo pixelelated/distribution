@@ -303,6 +303,9 @@ CLEANED=0
 # Each cleanup step's status counts (#977): a guest left with the account or
 # the toggle on is a run that did not pass, whatever came before.
 step() { [ "$1" = 0 ] || { echo "  FAIL  cleanup: $2 (exit $1)"; FAILS=$((FAILS+1)); }; }
+# A pkill by an anchored pattern on the guest is kept (G-46, a design): the processes
+# are this test's own, on a disposable QA guest the test owns. engineering-practices.md's
+# pidfile rule governs the host's processes, which this never matches.
 cleanup() {
   CLEANED=1
   echo "10 cleanup"

@@ -115,6 +115,8 @@ def main():
         time.sleep(1)
     page = ssh("cat %s 2>/dev/null; tail -2 %s 2>/dev/null | cut -c1-200" % (page_f, log_f))[1]
     loaded = ssh("grep -c 'load finished' %s 2>/dev/null" % log_f)[1].strip() not in ("", "0")
+    # A pkill by exact name on the guest is kept (G-46, a design): the WebKit helpers
+    # are this run's own, on a disposable QA guest; the pidfile rule governs the host.
     ssh("kill $(cat %s) 2>/dev/null; sleep 1; pkill -x WebKitWebProces 2>/dev/null; pkill -x WebKitNetworkPr 2>/dev/null; rm -f %s %s %s; true"
         % (pid_f, page_f, done_f, pid_f), timeout=20)
     free_after = ssh("free -m | awk '/^Mem:/{print $7}'")[1]
