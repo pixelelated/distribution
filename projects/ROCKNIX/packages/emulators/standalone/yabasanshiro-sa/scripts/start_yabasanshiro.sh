@@ -57,7 +57,7 @@ then
 
   MAPPING_FILE="/usr/config/yabasanshiro/devices/keymapv2_${GAMEPAD_NAME}.json"
   if [ -e "${MAPPING_FILE}" ]; then
-    cp ${MAPPING_FILE} ${CONFIG_DIR}/keymapv2.json
+    cp "${MAPPING_FILE}" "${CONFIG_DIR}/keymapv2.json"
   fi
 
   if [ ! -z "${GAMEPADCONFIG}" ]

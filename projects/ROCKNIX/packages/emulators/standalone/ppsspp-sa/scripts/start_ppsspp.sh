@@ -1,6 +1,7 @@
 #!/bin/sh
 # SPDX-License-Identifier: GPL-2.0
 # Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 
 . /etc/profile
 set_kill set "-9 ppsspp"
@@ -102,7 +103,9 @@ fi
 #Retroachievements
 /usr/bin/cheevos_ppsspp.sh
 
-ARG=${1//[\\]/}
+# The path as given: EmulationStation passes it unescaped, so stripping
+# backslashes only broke a path that holds one (F-42)
+ARG="${1}"
 
 # Debugging info:
   echo "GAME set to: ${GAME}"

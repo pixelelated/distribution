@@ -207,6 +207,7 @@ fi
 #       Probably not polite to just delete them automatically, even if they aren't needed anymore.
 
 # Snapshot the installed games, so we can see if one was just installed for later.
+mkdir -p /storage/roms/psvita/vita3k/ux0/app
 APPS_BEFORE=$(ls /storage/roms/psvita/vita3k/ux0/app/ 2>/dev/null)
 NEW_ID=""
 
@@ -224,24 +225,27 @@ case "$GAME" in
         /usr/bin/scan_vita3k.sh
 
         # Get the newly installed game's ID and run it!
-        NEW_ID=$(grep -vxFf <(echo "$APPS_BEFORE") <(ls /storage/roms/psvita/vita3k/ux0/app/) | head -1)
-        /usr/bin/vita3k-sa -F -E -r "${NEW_ID}"
+        NEW_ID=$(grep -vxFf <(echo "$APPS_BEFORE") <(ls /storage/roms/psvita/vita3k/ux0/app/) | head -1 || true)
+        # No new app (a reinstall): nothing to run, rather than -r "" (F-42)
+        [ -n "${NEW_ID}" ] && /usr/bin/vita3k-sa -F -E -r "${NEW_ID}"
 
         # Mark them as installed so they don't get caught by any other scans or get put in the gamelist more than once.
-        mv "${GAME}" "${GAME}.installed"
-        mv "${GAME%.pkg}.txt" "${GAME%.pkg}.txt.installed"
+        # -n: a retired file of the same name is never replaced (F-42)
+        mv -n "${GAME}" "${GAME}.installed"
+        mv -n "${GAME%.pkg}.txt" "${GAME%.pkg}.txt.installed"
         ;;
     *.zip)
         # Vita3K needs to be run in the folder of the game to install if it's a .zip... for some reason.
-        cd "/storage/roms/psvita"
+        # The archive's own folder, so one in a subfolder is found (F-42)
+        cd "$(dirname "${GAME}")"
 
         # Otherwise, reasoning applies similarly for .zip files, but they're packaged with a ZRIF and actually run immediately.
         foot /usr/bin/vita3k-sa -F -E "${ROMNAME}"
         /usr/bin/scan_vita3k.sh
 
         # Store the new game's ID for the check later.
-        NEW_ID=$(grep -vxFf <(echo "$APPS_BEFORE") <(ls /storage/roms/psvita/vita3k/ux0/app/) | head -1)
-        mv "${GAME}" "${GAME%.zip}.installed"
+        NEW_ID=$(grep -vxFf <(echo "$APPS_BEFORE") <(ls /storage/roms/psvita/vita3k/ux0/app/) | head -1 || true)
+        mv -n "${GAME}" "${GAME%.zip}.installed"
         ;;
     *.psvita)
         /usr/bin/vita3k-sa -F -E -r "$(cat "${GAME}")"

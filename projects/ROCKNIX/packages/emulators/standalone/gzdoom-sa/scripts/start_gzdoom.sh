@@ -29,7 +29,8 @@ fi
 SHASUMSRC=$(sha256sum "/usr/config/gzdoom/gzdoom.pk3" | awk '{print $1}')
 SHASUMDST=$(sha256sum "/storage/.config/gzdoom/gzdoom.pk3" | awk '{print $1}')
 
-if [ $SHASUMSRC != $SHASUMDST ]; then
+# Quoted: a missing /storage copy made this a test error, skipping the copy (F-42)
+if [ "$SHASUMSRC" != "$SHASUMDST" ]; then
   cp /usr/config/gzdoom/*.pk3 /storage/.config/gzdoom/
 fi
 

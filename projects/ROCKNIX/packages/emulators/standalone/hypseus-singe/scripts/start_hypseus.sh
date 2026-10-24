@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2021-present Shanti Gilbert (https://github.com/shantigilbert)
 # Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 
 . /etc/profile
 set_kill set "-9 hypseus"
@@ -17,7 +18,9 @@ configfile="${config}/hypinput.ini"
 GAMEPADINFO="$(sdljoytest -skip_loop)"
 JOYNAME=$(echo "${GAMEPADINFO}" | grep "Joystick 0 name " | sed "s|Joystick 0 name ||" | sed "s|'||g")
 
-GPFILE="/usr/share/libretro/autoconfig/${JOYNAME}.cfg"
+# The pad's name is the device's own text: a / in it would leave the
+# autoconfig folder (F-42)
+GPFILE="/usr/share/libretro/autoconfig/${JOYNAME//\//}.cfg"
 
 if [[ -f "${GPFILE}" ]]; then
         # Other keys to consider KEY_SCREENSHOT KEY_QUIT KEY_PAUSE
@@ -62,24 +65,31 @@ if [[ -f "${GPFILE}" ]]; then
             esac
 
             # if the button is in fact a hat extract the number, else use the button number+1
-            if [[ "${button}" == "h"* ]]; then
+            # A value that is neither a hat nor a number is skipped: it would
+            # enter Bash arithmetic, which evaluates subscripts (F-42)
+            if [[ "${button}" =~ ^h[0-9] ]]; then
                 button="0 ${button:1:1}"
+            elif [[ "${button}" =~ ^[0-9]+$ ]]; then
+                button="$((button + 1))"
             else
-                button="$((${button} + 1))"
+                continue
             fi
 
             sed -i "s|${key}.*|${key} = ${keyboard} ${button} |" ${configfile}
         done
 fi # finish auto gamepad
 
+# The .commands file's words are arguments; read, not expanded, so a glob
+# in it stays a word (F-42)
+params=()
 if [[ -f "${dir}/${name}.commands" ]]; then
-    params=$(<"${dir}/${name}.commands")
+    read -r -a params < "${dir}/${name}.commands"
 fi
 
 cd "${config}"
 
 if [[ -f "${dir}/${name}.singe" ]]; then
-    hypseus singe vldp -framefile "${dir}/${name}.txt" -script "${dir}/${name}.singe" -fullscreen -useoverlaysb 2 $params
+    hypseus singe vldp -framefile "${dir}/${name}.txt" -script "${dir}/${name}.singe" -fullscreen -useoverlaysb 2 "${params[@]}"
 else
-    hypseus "${name}" vldp -framefile "${dir}/${name}.txt" -fullscreen -useoverlaysb 2 $params
+    hypseus "${name}" vldp -framefile "${dir}/${name}.txt" -fullscreen -useoverlaysb 2 "${params[@]}"
 fi

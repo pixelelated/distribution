@@ -13,7 +13,10 @@ steam_prepare_storage_and_vdf() {
   mkdir -p /storage/roms/steam/steamapps
   local vdf="/storage/.local/share/Steam/steamapps/libraryfolders.vdf"
   if [ -f "$vdf" ]; then
-    grep -q '"/storage/roms/steam"' "$vdf" || sed -i '$ s/}/\t"1" {"path" "\/storage\/roms\/steam"}\n}/' "$vdf"
+    # The next free index, not always "1" (F-42)
+    local next
+    next=$(grep -c -E '^[[:space:]]*"[0-9]+"' "$vdf")
+    grep -q '"/storage/roms/steam"' "$vdf" || sed -i '$ s/}/\t"'"${next}"'" {"path" "\/storage\/roms\/steam"}\n}/' "$vdf"
   fi
 }
 

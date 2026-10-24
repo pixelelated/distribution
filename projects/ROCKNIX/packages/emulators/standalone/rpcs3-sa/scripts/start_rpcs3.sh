@@ -174,9 +174,15 @@ if [[ "${1}" == *.psn ]]; then
   GAME_PATH="/storage/.config/rpcs3/dev_hdd0/game/${PSNID}/USRDIR/EBOOT.BIN"
 elif [[ "${1}" == *.m3u ]]; then
   #check if path is M3U
+  # The first line, as written: absolute as is, relative to the playlist's
+  # folder (it was prefixed with /roms/ps3/ whatever it said, F-42)
   read -r M3UPATH < "${1}"
-  echo ${M3UPATH}
-  GAME_PATH="/roms/ps3/${M3UPATH}"
+  M3UPATH="${M3UPATH%$'\r'}"
+  echo "${M3UPATH}"
+  case "${M3UPATH}" in
+    /*) GAME_PATH="${M3UPATH}" ;;
+    *)  GAME_PATH="$(dirname "${1}")/${M3UPATH}" ;;
+  esac
 else
   GAME_PATH="${1}"
 fi

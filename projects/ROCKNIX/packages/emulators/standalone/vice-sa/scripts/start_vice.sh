@@ -1,6 +1,7 @@
 #!/bin/sh
 # SPDX-License-Identifier: GPL-2.0
 # Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 
 . /etc/profile
 
@@ -12,7 +13,8 @@ SOURCE_PATH="/usr/config/vice"
 EMU="@EMU@"
 
 ### Get the game we want to start.
-GAME=${1//[\\]/}
+# The path as given (backslashes were stripped, F-42)
+GAME="${1}"
 
 if [ ! -d "/storage/.config/vice" ]
 then

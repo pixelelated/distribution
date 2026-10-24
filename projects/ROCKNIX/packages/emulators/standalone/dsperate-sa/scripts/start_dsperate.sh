@@ -150,8 +150,13 @@ if [[ "${ROM}" == *.7z ]]; then
 	TEMP="/tmp/dsperate"
 	rm -rf "${TEMP}"
 	mkdir -p "${TEMP}"
-	7z x -y -o"${TEMP}" "${ROM}"
-	ROM=$(find "${TEMP}" -maxdepth 1 -type f -name "*.nds" | head -n 1)
+	# The extraction checked, and the .nds found at any depth, in any case (F-42)
+	if ! 7z x -y -o"${TEMP}" "${ROM}"; then
+		echo "dsperate: could not extract ${ROM}"
+		exit 1
+	fi
+	ROM=$(find "${TEMP}" -type f -iname "*.nds" | sort | head -n 1)
+	[ -n "${ROM}" ] || { echo "dsperate: no .nds in ${1}"; exit 1; }
 fi
 
 #Performance handling

@@ -1,6 +1,7 @@
 #!/bin/bash
 # SPDX-License-Identifier: GPL-2.0-or-later
 # Copyright (C) 2023 JELOS (https://github.com/JustEnoughLinuxOS)
+# Copyright (C) 2026-present ROCKNIX (https://github.com/ROCKNIX)
 
 # Source predefined functions and variables
 . /etc/profile
@@ -18,7 +19,8 @@ esac
 
 # check if the file being launched contains "Splore" and if so launch Pico-8 Splore otherwise run the game directly
 shopt -s nocasematch
-if [[ "${1}" == *splore* ]]; then
+# The file's name, not its folders (F-42)
+if [[ "$(basename "${1}")" == *splore* ]]; then
   OPTIONS="-splore"
 else
   OPTIONS="-run"

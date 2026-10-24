@@ -290,5 +290,5 @@ else
   xmlstarlet ed --inplace -u "//open_pad" -v "${GAMEPAD}" ${CEMU_CONFIG_ROOT}/settings.xml
 fi
 
-# Run the emulator
-cemu -g "$@"
+# Run the emulator: the game only (the platform followed it, F-42)
+cemu -g "$1"
