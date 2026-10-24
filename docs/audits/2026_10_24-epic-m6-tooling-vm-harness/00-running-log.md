@@ -126,7 +126,7 @@ PROOF: 19:29 P9 guest: emulator-exit-test --only X prints PASSED, rc 0, with no 
 PROOF: 19:25 P10 guest: the 069fc2704421 image ships no /usr/bin/cloud_migrate_layout, so vm-walks/cloud-epic/migration-protocol.sh refuses on it -- `cycle/guest-checks.txt`
 PROOF: 19:30 P11 guest: tools/vm-stop stops the owned QEMU in 0.25 s and removes its pidfile; the guest held 2,662,384 kB resident on the host after boot -- `cycle/guest-checks.txt`, this log
 
-## [Stage C] 19:36 onward — the second opinion
+## [Stage C] 19:38 onward — the second opinion (stage B committed at 19:38:11)
 
 - **Stage B's documents** are committed in `6cc544cd56`:
   - `02`: the controls, the cycle, 11 proofs, 20 findings and the 60 coverage rows (`grep -c -E '^\| \`tools/'` gives 60);
@@ -154,3 +154,8 @@ PROOF: 19:30 P11 guest: tools/vm-stop stops the owned QEMU in 0.25 s and removes
 - **The refutation:** `timeout 5400 tools/council/run invoke --member gpt --provider openrouter --prompt-file <abs>/gpt-brief.md --output <abs>/gpt-audit.md`, in the background.
   - **What watches it:** the harness's background task, which notifies this session when the call exits, and `/workspace/tmp/m6-t12/refutation-start.txt`, which gets its rc line.
   - **How the watch fails:** a call killed outright writes no rc line. Its output then does not appear.
+- **The refutation finished** (19:41:36 to 20:16:02, `/workspace/tmp/m6-t12/refutation-start.txt`): rc 0, the first attempt.
+  - **The provenance:** `verification PASS`, observed `openai/gpt-6-astra`; `effort_verification PASS`, 44,475 reasoning tokens; `outcome success`.
+  - **The call:** 221,398 prompt tokens and 52,369 completion tokens, USD 2.84.
+  - **The output:** `gpt-audit.md`, 4,256 words, 72 new items (G-01 to G-72), refutations of F-01 to F-20, and what the seat could not judge.
+- **The grading:** a read-only helper checks each G-item's cited lines against the export (`/workspace/tmp/m6-t12/seat-verify.md`). The lane has already read G-02, G-08, G-27, G-37, G-50, G-51, G-59 and G-60 at their lines; each verdict goes into `04` § Second opinion with the artifact that decided it.

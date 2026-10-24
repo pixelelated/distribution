@@ -27,7 +27,7 @@
           "output": "gpt-probe.md"
         }
       ],
-      "status": "probe PASS 19:41:05-19:41:15 (served openai/gpt-6-astra by OpenAI, effort max); refutation pending"
+      "status": "complete: probe PASS 19:41:05-19:41:15 and refutation PASS 19:41:36-20:16:02 on the first attempt (served openai/gpt-6-astra by OpenAI, effort max, 44475 reasoning tokens, outcome success); full packet; graded item by item in 04 \u00a7 Second opinion"
     }
   ],
   "packets": {
@@ -41,5 +41,5 @@
     }
   },
   "written_before_first_call": "2026-10-24",
-  "status": "in progress"
+  "status": "complete"
 }
