@@ -27,7 +27,8 @@
 #   retro     docs/retros/<yyyy-mm-dd>-*.md, or a work-log entry whose heading says retro
 #   futro     docs/futros/<yyyy-mm-dd>-*.md, or a work-log entry whose heading says futro
 #   audit     an issue whose title starts "Audit" or "Code audit" (gh), or docs/audits/<yyyy-mm-dd>-*/
-#   friction  docs/friction-log.md entries: `- <yyyy-mm-dd> HH:MM -- ... -- issue: #N|none`
+#   friction  docs/friction-log.md: every `- <yyyy-mm-dd> ...` line under `## Entries`; its owner is
+#             `issue: #N|guard|none`, else any #N on it, else a guard path in backticks (#905)
 #   weekly    docs/work-logs/<yyyy_mm>-work_logs/<yyyy>-W<ww>-summary.md
 #   monthly   docs/work-logs/<yyyy_mm>-work_logs/SUMMARY.md
 #   index     tools/work-log-index --check
@@ -246,26 +247,71 @@ def main():
     else:
         open_entries = []
         guard_rx = re.compile(r'`(tools/[A-Za-z0-9_./-]+|\.githooks/[A-Za-z0-9_./-]+|\.claude/rules/[A-Za-z0-9_./-]+\.md)`')
-        for line in open(fl, encoding='utf-8'):
-            m = re.match(r'- (\d{4}-\d\d-\d\d) .*issue:\s*(#\d+|none|guard)', line.strip(), re.I)
-            if not m:
+        field_rx = re.compile(r'issue:\s*(#\d+|none|guard)', re.I)
+        # Every `- <yyyy-mm-dd>` line under `## Entries` is an entry, whatever
+        # follows the date, and an indented line right after one continues it.
+        # Until #905 a line without the `issue:` field was skipped, so 125 of
+        # 445 entries could never be owed: the guard failed open. A line under
+        # the heading that is neither is named by its number, not skipped.
+        heading, entries, not_entries, prev = False, [], [], None
+        for n, line in enumerate(open(fl, encoding='utf-8'), 1):
+            if not heading:
+                heading = line.strip() == '## Entries'
                 continue
-            d = dt.date.fromisoformat(m.group(1))
-            what = m.group(2).lower()
+            m = re.match(r'- (\d{4}-\d\d-\d\d)(?!\d)', line.strip())
+            if m:
+                entries.append([m.group(1), line.strip(), line.strip()])
+                prev = 'entry'
+            elif not line.strip():
+                prev = None
+            elif prev == 'entry' and line[:1].isspace():
+                entries[-1][2] += ' ' + line.strip()
+            else:
+                not_entries.append(n)
+                prev = 'other'
+        for date, first, text in entries:
+            try:
+                d = dt.date.fromisoformat(date)
+            except ValueError:
+                open_entries.append(first[:110])   # a date nobody can read is owed
+                continue
+            # The `issue:` field decides where the line carries one (the last
+            # on its first line, as before #905); without it, an issue named
+            # anywhere on the entry owns it, then a guard path, then nothing.
+            field = field_rx.findall(first) or field_rx.findall(text)
+            if field:
+                what = field[-1].lower()
+            elif re.search(r'#\d+', text):
+                what = '#'
+            else:
+                what = 'guard'
             # `issue: guard` is a claim that a tool, hook or rule now catches
             # the shape; it holds only when the line names one, in backticks,
             # that exists -- as a blindspot entry must (audit #258 PL-004).
-            if what == 'guard' and not any(os.path.exists(os.path.join(ROOT, g)) for g in guard_rx.findall(line)):
+            if what == 'guard' and not any(os.path.exists(os.path.join(ROOT, g)) for g in guard_rx.findall(text)):
                 what = 'none'
             if what == 'none' and (today - d).days > FRICTION_ISSUE_DAYS and d >= SINCE:
-                open_entries.append(line.strip()[:110])
-        if open_entries:
+                open_entries.append(first[:110])
+        if not heading:
+            overdue.append(('block', 'friction: docs/friction-log.md has no `## Entries` heading, so no entry was read'))
+            report(False, 'friction', 'no `## Entries` heading in docs/friction-log.md')
+        elif open_entries:
             overdue.append(('block', 'friction: %d entrie(s) older than %d days without an issue or a guard' % (len(open_entries), FRICTION_ISSUE_DAYS)))
             report(False, 'friction', 'OVERDUE: %d entrie(s) without an issue past %d days' % (len(open_entries), FRICTION_ISSUE_DAYS))
             for e in open_entries[:5]:
                 lines.append('             %s' % e)
         else:
             report(True, 'friction', 'every entry since %s has an issue or a guard within %d days' % (SINCE, FRICTION_ISSUE_DAYS))
+        if heading:
+            runs = []
+            for n in not_entries:
+                if runs and runs[-1][1] == n - 1:
+                    runs[-1][1] = n
+                else:
+                    runs.append([n, n])
+            lines.append('             friction: %d entries read, %d lines under ## Entries are not entries%s' % (
+                len(entries), len(not_entries),
+                ': ' + ', '.join('%d' % a if a == b else '%d-%d' % (a, b) for a, b in runs) if runs else ''))
 
     # 3. weekly and monthly summaries
     last_week_end = today - dt.timedelta(days=today.isoweekday())      # last Sunday

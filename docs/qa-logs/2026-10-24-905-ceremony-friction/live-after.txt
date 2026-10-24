@@ -1,0 +1,19 @@
+ceremony-check (clock since 2026-09-21, today 2026-10-24)
+  ok    issues    442 post-adoption fork commits on next cite an issue
+  ok    retro     last 2026-10-15; 2 of 5 active days
+  ok    friction  every entry since 2026-09-21 has an issue or a guard within 3 days
+               friction: 445 entries read, 37 lines under ## Entries are not entries: 171, 173, 175, 177, 488, 490-495, 497-502, 519, 521-528, 530-534, 719, 721-725
+  DUE   weekly    OVERDUE: 2026-W42 summary missing
+  ok    monthly   2026-09 summary present
+  ok    index     work-log index: current
+  ok    register  register-check: 644 IDs, each once; every citation in the live documents names a row
+  ok    rules     every rule file front-mattered and indexed
+  ok    guards    every entry from 52 names a guard in the tree
+  ok    checkboxes box-check: 300 issue(s), 799 open checkbox(es), 0 fail, 9 issue(s) with rows to re-derive against
+  ok    audit     not checked (--no-gh)
+  ok    futro     not checked (--no-gh)
+  ok    hygiene   not checked (--no-gh)
+
+1 overdue. 1 refuse a push of next; every one keeps the fork CI red until its artifact exists:
+  - [push+CI] weekly: 2026-W42 summary missing (docs/work-logs/2026_10-work_logs/2026-W42-summary.md)
+rc=1

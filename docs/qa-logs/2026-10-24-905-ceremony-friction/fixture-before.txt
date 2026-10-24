@@ -1,0 +1,22 @@
+ceremony-check (clock since 2026-09-21, today 2026-10-24)
+  DUE   issues    cannot resolve required history: next
+  ok    retro     last none since the clock started; 0 of 5 active days
+  ok    friction  every entry since 2026-09-21 has an issue or a guard within 3 days
+  DUE   weekly    OVERDUE: 2026-W42 summary missing
+  DUE   monthly   OVERDUE: 2026-09 summary missing
+  DUE   index     work-log index: STALE -- run tools/work-log-index --write
+  DUE   register  FAIL
+  DUE   rules     FAIL  agents  CLAUDE.md is missing; FAIL  agents  AGENTS.md is missing; rules-check: 2 failure(s)
+  ok    checkboxes box-check: 300 issue(s), 799 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+  ok    audit     not checked (--no-gh)
+  ok    futro     not checked (--no-gh)
+  ok    hygiene   not checked (--no-gh)
+
+6 overdue. 6 refuse a push of next; every one keeps the fork CI red until its artifact exists:
+  - [push+CI] issues: cannot resolve required history: next
+  - [push+CI] weekly: 2026-W42 summary missing (docs/work-logs/2026_10-work_logs/2026-W42-summary.md)
+  - [push+CI] monthly: 2026-09 summary missing
+  - [push+CI] index: work-log index: STALE -- run tools/work-log-index --write
+  - [push+CI] register: register-check: no <scratch tree, cut at 120 columns by the tool>
+  - [push+CI] rules: rules-check: 2 failure(s)
+rc=1
