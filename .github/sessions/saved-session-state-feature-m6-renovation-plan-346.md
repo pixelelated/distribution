@@ -55,6 +55,8 @@ today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 **T14 (#661) dispatched at 20:16 UTC (2026-10-24)** to the T3 session from brief v2 `27d8942071` (the state tests, brittleness; one guest cycle authorized if needed; T15's file read, never edited); lane `30da4853bb`. T10 complete at `7182f743ea`. Two lanes run: T12 (T5 session, stage C's seat then D) and T14 (T3 session, stage A). Next for the coordinator: T12's stage-D pause and `t12-streams.md`; then T14's; `t14-accept.sh` is still to write in `t12-accept.sh`'s shape (the five bare-run tests, `build-identity-test --output`, the two stubs).
 
+**T12 (#659) stage E dispatched at 20:57 UTC (2026-10-24)** from `docs/reviews/briefs/t12-streams.md` (`6d9898a493`): thirteen streams (S1 to S3 the runner, S4 before S5 the disk safety then the host state, S6 to S13), one new control `tools/vm-harness-test`, three contract rows D-QA-061 (vm-qa exits 3 over a SKIP), D-QA-062 (time-to-play judges every cell that ran), D-INFRA-031 (the host state belongs to the checkout) put to the maintainer on #346 for veto; Backlogs #986 (PL-19, `ra-candidate-games`'s retirement proposed), #987 (PL-20), #988 (PL-22, rule edits at integration). The lane's stage-D pause was `7774e86cfa` (audit #984, bugs #966 to #983, two High: #969, #970). Its one stage-E cycle is the pair, after S5, held behind the M7 lane's return line: **M7 holds a granted host window (20:44, bounded 22:15 UTC; START 20:57)**; no M6 guest before the RETURN line. T14 (#661) is at stage B (`f3cc73c6a4`). Acceptance: `AUDIT_ISSUE=984 $S/t12-accept.sh <tip> 6d9898a493`.
+
 ## Next commands
 
 ```bash

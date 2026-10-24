@@ -685,10 +685,9 @@ for the coordinator and are dispositioned below.
     their fate is joined to T14's stage-D proposal on that tool (the
     coordinator's, on #661) and nothing is removed here; G-35's `vnc-grab.py`
     fix (S8) lands regardless.
-  - The coordinator files the **Backlog issue** that holds these
+  - The coordinator filed the **Backlog issue #986** that holds these
     dispositions, so *what we deliberately keep, and why* is findable.
-- **PL-20 (the cost):** a **Backlog issue the coordinator files at this
-  pause**: guest `b` on demand (up for `pair-identity` and `--guest b`
+- **PL-20 (the cost):** **Backlog #987, filed at this pause**: guest `b` on demand (up for `pair-identity` and `--guest b`
   only, down after), the host suites beside the guest suites, and the
   accepted baselines' retention (D-INFRA-022; the `du` and count from
   `02`). Not a stream: the saving is 8 GiB of RAM for 33 minutes in a
@@ -696,8 +695,8 @@ for the coordinator and are dispositioned below.
   while S1 to S3 fix its accounting is two changes to one exit code.
 - **PL-21:** `es-syntax-check:53` is #640's (the lane posted it); the
   `ROCKNIX_ARTIFACTS` half is S5.
-- **PL-22 (the rules and the index):** a **Backlog issue the coordinator
-  files at this pause** for the rule edits made at integration in the
+- **PL-22 (the rules and the index):** **Backlog #988, filed at this
+  pause**, for the rule edits made at integration in the
   doctrine packet after T4's merge: the index's six pointers to a rule
   that never names them (`q7-descriptions.txt`), `generic-x64-vm-testing.md:115`'s
   raw `kill` (to `tools/vm-stop` and its exit 3), `vm-first.md:59`'s *four
