@@ -52,8 +52,12 @@ stream briefs, remediation, stage F, the retro, the hand-back.
   GENERIC_X64 configuration files.** Evidence: 6,557 - 1,038 = 5,519, the
   four files' lines summed from the inventory
   (`retroarch.cfg` 855, `retroarch-core-options.cfg` 154, `TATE-MAME
-  2003-Plus.rmp` 27, `retroarch64bit-append.cfg` 2), and the inventory
-  files them under `patches-and-configs`. The row's `10,185 read` is a
+  2003-Plus.rmp` 27, `retroarch64bit-append.cfg` 2). *Erratum (the
+  stranger's proof, 02:20): the reason is their `language` (`config` and
+  `other`, outside the tool's code classes), not their area -- their area is
+  `emulators-and-cores`, and the 21 `patches-and-configs` rows are
+  RetroArch's patches alone. The arithmetic stands; version 2 of the brief
+  says it this way.* The row's `10,185 read` is a
   third figure, the tool's `read_lines` (`tools/renovation-inventory` line
   999: `sum(r["lines"] or 0 for r in code)` over the area's **code** files
   by language, whatever their tier): `recipe`, `shell`, `cmake`, `python`,

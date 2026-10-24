@@ -5,30 +5,40 @@ unit of handoff the plan defines (`docs/reviews/plan-for-the-plan.md` § 7);
 read that document whole before the first command, then this brief whole.
 Every section below is mandatory; a section that does not apply says so and
 why. Where this brief and the checklist on #650 differ, #650 wins and the
-coordinator corrects the brief in the same session. **Version 1
-(2026-10-24):** written after T1's and T2's briefs had each been through a
-futro and a stranger's proof (plan § 3, principle 3), so the shapes those
-found wrong -- a count the executor cannot reproduce, a tool's default that
-names a retired path, a line number quoted from memory, a command whose
-variables do not survive a Bash call, a seam described as agreement where
-the files disagree -- are answered from the start; it goes through the same
-two readings before dispatch, and version 2 records what they found. **Each
+coordinator corrects the brief in the same session. **Version 2
+(2026-10-24):** version 1 (`bc35aef3d8`) was written after T1's and T2's
+briefs had each been through a futro and a stranger's proof (plan § 3,
+principle 3), so the shapes those found wrong -- a count the executor
+cannot reproduce, a tool's default that names a retired path, a line
+number quoted from memory, a command whose variables do not survive a Bash
+call, a seam described as agreement where the files disagree -- were
+answered from the start; it then went through the same two readings
+itself: the area epic's futro (`docs/futros/2026-10-24-m6-emulators-and-cores.md`,
+#798, `179093ffd6`), whose substrate inspection found the image's
+installed set readable on the host, `xmllint` and `xmlstarlet` absent, and
+the order row's `read` figure a third quantity, and whose simulation added
+Q4's two tiers and row classes, the host regeneration's sandbox, the
+patches checked through the API, `deferred:M7-merge`, counts compared not
+asserted, and the `n/a` cell for an unchanged upstream recipe; and a
+stranger's proof (plan § 3, principle 3) that checked some sixty claims by
+command and found thirteen wrong and twelve imprecise. Every one is
+answered in the text below, and the proof is recorded at the end of § 10. **Each
 command block below sets its own variables** (`D`, `B`, `A`): a Bash call
 in this harness starts a fresh shell, only the working directory persists,
 and the fork's tools are run by absolute path from `$D`.
 
 ## 1. Identity
 
-- **Issue:** #650 `M6.P2 E339/T3: emulators-and-cores: RetroArch and the
+- **Issue:** #650 `M6.P2 E798/T3: emulators-and-cores: RetroArch and the
   libretro cores`, slice `emulators-libretro` (`k: 3`) in
   `docs/reviews/slices.json`, third in `docs/reviews/order.md` (§ 2 of the
   order: *"#336's own prerequisite stays third"*; the order's row is on the
-  P1 branch). **Epic:** the area epic for **the emulators and cores**
-  (`emulators-and-cores` in `docs/reviews/areas.json`: T3, T24
-  `emulators-dead-ends`, T30 `emulators-standalone`), filed by the
-  coordinator at this slice's dispatch with its futro, under the renovation
-  epic #339; #650 is re-parented to it and retitled `E<epic>/T3` then
-  (`milestone-phase-naming.md`). **Milestone:** M6 (`M6: Codebase
+  P1 branch). **Epic:** #798, the area epic for **the emulators and cores**
+  (`emulators-and-cores` in `docs/reviews/areas.json`: T3, T30
+  `emulators-standalone`, T24 `emulators-dead-ends`), filed by the
+  coordinator on 2026-10-24 under the renovation epic #339 with its futro
+  as its first comment; #650, #677 and #671 are its sub-issues, retitled
+  `E798/T<k>` (`milestone-phase-naming.md`). **Milestone:** M6 (`M6: Codebase
   renovation`); its body holds the live order; read it first.
   **Predecessors:** #346 (the plan), #641 (the survey, the inventory and the
   order; closed 2026-10-23), T1 #648 and T2 #649 (both accepted at hand-back
@@ -95,7 +105,7 @@ and the fork's tools are run by absolute path from `$D`.
     `a7a3bdda4e` cherry-picked, #636/#638), so `grep -c gemini-argon
     scripts/council-invoke.ts tools/lint-audit-artifacts` prints `7` and `4`;
     T1 and T2 each ran the seat on 2026-10-23 (served `google/gemini-4-argon`
-    by `Google`; T1's call 527 s). The roster's `--member gemini` is never
+    by `Google`; T1's call about nine minutes, 16:25:30 to 16:34:19). The roster's `--member gemini` is never
     called in its place. A seat that fails identity verification is recorded
     as pending, never replaced, and at Extended depth that is the Phase 4.6
     blocker (§ 8).
@@ -131,6 +141,8 @@ git fetch origin && git fetch upstream --no-tags
 git branch --show-current                                            # feature/m6-emulators-libretro-650
 git merge-base --is-ancestor 2174265e9c HEAD || echo "not stacked on the P1 tip: stop"
 git diff --stat next -- .claude CLAUDE.md AGENTS.md   # the files the dispatch comment lists; any other file is STALE
+grep -c 'Renovation face' tools/lint-audit-artifacts; grep -c gemini-argon tools/lint-audit-artifacts   # both non-zero: the merged lint carries P1's renovation face and M7's Argon receipts, the copy T1 and T2 ran
+ls tools/renovation-inventory tools/renovation-status tools/renovation-drift docs/reviews/inventory.json docs/reviews/slices.json   # P1's, present because the branch is stacked on P1 (absent on the coordinator branch)
 git rev-parse --short upstream/next                                  # record it: Q4's upstream, fetched now
 git merge-base next upstream/next                                    # c445081a59 on 2026-10-24; record it
 git diff --quiet 8ebaf8daad HEAD -- projects/ROCKNIX/packages/emulators/libretro projects/ROCKNIX/packages/virtual/emulators && echo "slice bytes are next's at 8ebaf8daad" || echo "the slice's bytes differ from 8ebaf8daad: record the diff --stat and stop (§ 8)"
@@ -206,43 +218,81 @@ P1 tip's `inventory.json`): **344 paths, 31,961 lines; 24 fork-own paths,
 `emulators-and-cores`, 21 in `patches-and-configs`, 29 in
 `generic-packages`; 342 `shipped`, 2 `n/a` (the two rotation-table
 generators, build-time tools).** The order's row prints `344 paths 31,961
-lines 10,185 read 5,519 fork-own 1,670 patch`: its 5,519 is the filter's
-6,557 without the four GENERIC_X64 configuration files (1,038 lines), which
-the inventory files under `patches-and-configs`; the lane records both
-figures and names what its own run puts in "read" (the fork-own lines, the
-fork-written patches, and every upstream-carried file it reads whole for a
-Q3 lead). **Not in the membership, read only where a recipe points at
-them:** the cores' own patch files (57 under eleven `*-lr/patches/`
-directories, `vitaquake2-lr` 8 to `yabasanshiro-lr` 1; `patches-and-configs`
-rows that T42 `patches-shipped` owns); `distributions/ROCKNIX/config/functions`
-(T5's, where `mk_es_systems`, `add_es_system`, `add_emu_core` and
-`add_system_dir` are defined, lines 99 to 140 and on); the 139
-`config/emulators/*.conf` fragments (T5's); `packages/emulators/**` (the
-generic tree's recipes a `projects/` override shadows; `shadowed_by` in the
-inventory); the standalone emulators (`emulators/standalone/**`, T30's).
+lines 10,185 read 5,519 fork-own 1,670 patch`, three figures of the tool's
+own: its **5,519** is the filter's 6,557 without the four GENERIC_X64
+configuration files (1,038 lines), whose `language` is `config` or `other`,
+outside the tool's code classes (their `area` is `emulators-and-cores`; the
+21 `patches-and-configs` rows are RetroArch's patches alone); its **10,185 read** is the inventory's code classes
+summed whatever their tier (`recipe` 147 files 5,443 lines, `shell` 31 /
+3,971, `cmake` 2 / 368, `python` 2 / 245, `udev` 9 / 80, `systemd` 6 / 78;
+`tools/renovation-inventory` line 999), which leaves the **19,518 lines of
+`config`** (the fifteen `retroarch.cfg` sets, the option files and the
+remaps, 96 files), the 1,670 of `patch` and 567 of `other` outside it; its
+**1,670** is RetroArch's 21 patches. This brief's read set is by
+provenance, not by class: the 24 fork-own paths and the 8 fork-written
+patches whole (the GENERIC_X64 configuration included), the 13 upstream
+patches and the 299 upstream-carried paths at Q4 and Q6 first. The lane
+records the three figures beside its own and names any delta. **Not in the membership, read only where a recipe points at
+them:** the cores' own patch files (57, under thirty recipes' `patches/`
+directories, `vitaquake2-lr` 8 and `ppsspp-lr` 7 down to one each;
+`patches-and-configs` rows that T42 `patches-shipped` owns);
+`distributions/ROCKNIX/config/functions` (T5's, where `add_emu_doc` 50,
+`mk_system_doc` 64, `clean_es_cache` 80, `add_emu_core` 88,
+`mk_es_systems` 99, `add_system_dir` 117 and `add_es_system` 127 are
+defined); the 139 `config/emulators/*.conf` fragments (T5's);
+`packages/emulation/**` (the generic tree's 97 emulation paths; the
+inventory's `shadowed_by` is null for every row on both sides, so a shadow
+relation is derived by name where Q6 needs it, a recipe name present in both
+trees); the standalone emulators (`emulators/standalone/**`, T30's).
 
 **Where the code runs on the image.** Nothing here is a process of its own:
 the slice is **recipes, patches and configuration** that decide what the
 image carries and how RetroArch starts. The recipes build `/usr/bin/retroarch`
 (and `/usr/bin/retroarch32` where the arm root exists, `package.mk` 106 to
-116), install the per-device `sources/<DEVICE>/*` into `/usr/config/retroarch`
+114), install the per-device `sources/<DEVICE>/*` into `/usr/config/retroarch`
 (128 to 134; a device without a `sources/` directory fails the build at
 133) and the cores into `/usr/lib/libretro` (each `*-lr` recipe's
 `makeinstall_target`); the `emulators` metapackage's `makeinstall_target`
 (`virtual/emulators/package.mk` 140 to the end) writes
-`/etc/emulationstation/es_systems.cfg` through `add_emu_core` x 584 and
-`add_es_system` x 142 then `mk_es_systems` (line 1726), with every system's
+`/etc/emulationstation/es_systems.cfg` through 583 `add_emu_core` and 142
+`add_es_system` calls, then `mk_es_systems` (line 1726) and `mk_system_doc`
+(1728), with every system's
 launch line `RUNCMD='/usr/bin/runemu.sh %ROM% -P%SYSTEM% --core=%CORE%
 --emulator=%EMULATOR% --controllers="%CONTROLLERSCONFIG%"'` unless the
 system's `config/emulators/<system>.conf` sets `SYSTEM_COMMAND`
-(`functions` 123 to 134), and installs the 24 `sources/*.sh` launchers and
+(`functions` 128 to 141), and installs the 24 `sources/*.sh` launchers and
 installers as `/usr/config/modules/<name>.sh` (`install_script`, 132 to
-138). At run time `runemu.sh` (T1's, read at `efadfea08a`) composes
+138). **All of that installed set is readable on the host without a guest**, from
+the M7 GENERIC_X64 build root's install tree
+`/workspace/repos/rocknix.worktrees/m7-signin-build-20261022-07/build.pixelelated-GENERIC_X64.x86_64/image/system`
+(world-readable, built from `069fc2704421`; read, never written): on
+2026-10-24 it held 116 `usr/lib/libretro/*_libretro.so`, 19
+`usr/config/modules/*.sh`, `usr/config/retroarch/` with the four tracked
+files beside `Flycast.opt`, `Supafaust.opt` and `savefiles/` (other
+recipes' installs), `usr/bin/retroarch` and no `retroarch32`, and the
+generated table at `usr/config/emulationstation/es_systems.cfg` (83,206
+bytes, 2,745 lines; 128 `<system>`, 152 `<emulator name=`, 500 `<core`
+elements) -- `etc/emulationstation/es_systems.cfg` is a symlink to its
+absolute path, dangling in the tree and resolving on the image (#613 is
+T2's lead on the fallback). The `.tar` beside the `.img.gz` in the root's
+`target/` carries the same `SYSTEM`. At run time `runemu.sh` (T1's, read at `efadfea08a`) composes
 `/storage/.config/retroarch/retroarch.cfg` from `/usr/config/retroarch/`
 and the settings, and starts RetroArch with the core; EmulationStation
 (T2's) reads `es_systems.cfg` through `SystemData::loadConfig` and builds
 the command with `FileData::getlaunchCommand`. Both lanes' audits are the
-other sides of this slice's table (§ 3).
+other sides of this slice's table (§ 3). **Two seams the table owns:**
+`RUNCMD` puts `-P%SYSTEM%` right after `%ROM%`, and `runemu.sh` reads the
+system as `${ARGUMENTS##*-P}`, the last `-P` anywhere in the line, so a ROM
+path that contains `-P` is where this table meets T1's open #730
+(`LaunchCommand.h` reads whole tokens, and the two readers differ by
+design); and the table emits exactly five tokens (`%ROM%`, `%SYSTEM%`,
+`%CORE%`, `%EMULATOR%`, `%CONTROLLERSCONFIG%`) while the interface expands
+more (`%BASENAME%`, `%ROM_RAW%`, `%GAMENAME%`, `%SYSTEMNAME%`,
+`%GAMEINFOXML%` are unreached because no system emits them: T2's Q6 rows),
+and reads `es_systems_custom.cfg` and `es_systems_*.cfg` overlays first, an
+unparseable overlay skipping every later one
+(`SystemData::loadAdditionnalConfig`; #613 on the fallback symlink). A Q6
+row each (§ 4), and the first two rows of § 6's interaction audit.
 
 **Five groups, read in this order** (the slice's reason to be third is
 #336 Step 1, which replaces RetroArch under the launcher for the 2D cores;
@@ -254,20 +304,20 @@ each is a lead to re-read, not a verdict:
    `package.mk` (153 lines, fork-own, `overlap: false`): the pin at line 5,
    `bdba046fa6766380bc2457532f38e589df769aaf # v1.22.2 + fixes` (a
    libretro/RetroArch commit of 2026-06-06, after the last release
-   `v1.22.2` of 2025-11-20; the sha256 at 6); the configure options (29 to
+   `v1.22.2` of 2025-11-20; the sha256 at 6); the configure options (28 to
    64: `--disable-qt`, `--enable-kms`, `--enable-ffmpeg`, neon by `ARCH`,
    `librga` for `RK*`, Wayland and the window manager by `DISPLAYSERVER`),
    GL against GLES by `OPENGLES_SUPPORT`/`PREFER_GLES` (66 to 76), Vulkan
    (78 to 83), `pre_configure_target` adding `-DUDEV_TOUCH_SUPPORT` (85 to
    90), `make_target` with its `HAVE_*` list and the hand-rolled `[ $? -eq
-   0 ] && echo ... || exit 1` after each of three makes (92 to 100),
-   `makeinstall_target` (102 to 146: the 32-bit copy from
+   0 ] && echo ... || exit 1` after each of three makes (92 to 99),
+   `makeinstall_target` (101 to 145: the 32-bit copy from
    `${ROOT}/build.${DISTRONAME}-${DEVICE}.arm/install_pkg/retroarch-*`,
    `43d0bc3bf4` of 2026-10-07 the fork's one commit on the file since the
    merge base; the filters; the per-device configuration; the shader
    directories' `.overlay` markers; the achievement sounds and
    `scripts/call_achievements_hooks.sh`), `post_install` enabling five
-   `tmp-*.mount` units (148 to 153). **The 21 patches**: 13 are upstream's
+   `tmp-*.mount` units (147 to 153). **The 21 patches**: 13 are upstream's
    (`0001-Increase-glui-size` to `0010-paths`, `0011-cheevos-sounds`,
    `0012-cheevos-cmd`, `batteryplus/0001-batteryplus-capacity` under
    `PKG_PATCH_DIRS` when `BATTERYPLUS_SUPPORT=yes`, line 26), **8 are the
@@ -281,9 +331,13 @@ each is a lead to re-read, not a verdict:
    `retroarch-0100-ffmpeg9-lavc63.patch`, added on `upstream/next` with the
    multimedia merge `075a7c303b` of 2026-10-17 (Q4's first disposition).
    `autostart/003-logging`, `modprobe.d/usbhid.conf`,
-   `retroarch-assets/package.mk`, `retroarch-joypads/` (the gamepad
-   `*.cfg` files, including names with spaces and a leading space, which
-   every loop over them must quote), `sounds/`, `scripts/`. **The per-device
+   `retroarch-assets/package.mk`, `retroarch-overlays/package.mk`,
+   `retroarch-joypads/` (its `package.mk`, `system.d/tmp-joypads.mount`,
+   and the gamepad `*.cfg` files, 22 with spaces and one with a leading
+   space, which every loop over them must quote),
+   `system.d/tmp-{assets,cores,database,overlays,shaders}.mount`,
+   `tmpfiles.d/retroarch-userdirs.conf`, `udev.d/` (eight rules), `sounds/`,
+   `scripts/`. **The per-device
    configuration**, `sources/<DEVICE>/` for fifteen devices (AMD64,
    GENERIC_X64, H700, RK3326, RK3399, RK3566, RK3576, RK3588, S922X, SM4450,
    SM6115, SM8250, SM8550, SM8650, SM8750; 4 or 5 files each:
@@ -293,23 +347,25 @@ each is a lead to re-read, not a verdict:
    GENERIC_X64 set is fork-own (`cbdb91a517` of 2026-07-01 added it;
    `eb131d112f` #263 D-QA-042 and `a5a03bd9fa` set the surface and the gl
    driver for the guest; `9fd73da845` dropped a dead armhf core-updater
-   URL), the fourteen others upstream-carried. The fork builds four of the
-   fifteen (H700, RK3566, SM8550, GENERIC_X64: `device-builds.md` § Our
-   devices); Q6 says what the others are.
+   URL), the fourteen others upstream-carried. The fork builds five of the
+   fifteen (H700, RK3326, RK3566, SM8550, GENERIC_X64: `device-builds.md`
+   § Our devices); Q6 says what the other ten are.
 2. **The `emulators` metapackage and the launch table**
    (`virtual/emulators/`, 29 paths, `generic-packages`): `package.mk`
    (1,777 lines, fork-own, `overlap: true`; the fork's delta against
-   `upstream/next` is 94 lines): `PKG_EMUS` and `LIBRETRO_CORES` (12 to
-   27), the aarch64 additions (30 to 33), the per-device cases (36 to 105:
-   H700|RK3326, RK3399, RK3566|RK3576, RK3588, S922X, GENERIC_X64 with its
+   `upstream/next` is 94 lines): `PKG_EMUS` (12 to 13) and `LIBRETRO_CORES` (19 to
+   31), the aarch64 additions (34 to 37), the per-device case with eleven
+   arms (40 to 105: H700|RK3326, RK3399, RK3566|RK3576, RK3588, SM6115,
+   SM4450, SM8250, SM8550, SM8650|SM8750, S922X, GENERIC_X64 with its
    `dolphin-sa` comment, AMD64), `X64_SKIP_CORES="parallel-n64-lr
-   flycast2021-lr duckstation-lr idtech-lr"` (107 to 116, *"tracked in
+   flycast2021-lr duckstation-lr idtech-lr"` (107 to 115, *"tracked in
    issue #16"*, which is **closed**: a Q6 and Q7 lead, the comment names a
-   closed issue), the `TARGET_TYPE` split for the GitHub runner (118 to
-   131), `install_script` (132 to 138), and `makeinstall_target` (140 to
+   closed issue), the `TARGET_TYPE` split for the GitHub runner (117 to
+   130), `install_script` (132 to 138), and `makeinstall_target` (140 to
    the end: one function of about 1,630 lines, the README comment at 141
-   to 157, the six `add_system_dir` calls, then 584 `add_emu_core` and 142
-   `add_es_system` calls, `mk_es_systems` at 1726). The 24 `sources/*.sh`
+   to 157, the six `add_system_dir` calls, then 583 `add_emu_core` and 142
+   `add_es_system` calls, `mk_es_systems` at 1726 and `mk_system_doc` at
+   1728). The 24 `sources/*.sh`
    (`Install Steam.sh` **2,755 lines, fork-own**: `6f2eb9c212`,
    `9aaaaa0f64`, `f8636de1d1` of 2026-10-14/15 on `next` rewrote it from
    upstream's `51bebf5e1d`; the M7 lane's unmerged `6101242e14` of
@@ -344,9 +400,11 @@ each is a lead to re-read, not a verdict:
    'projects/ROCKNIX/packages/emulators/libretro/*/*/package.mk' | wc -l`
    prints **151** at `8ebaf8daad`; **146 are in the membership** (131 `*-lr`
    recipes, of which 11 are group 3's fork-own and **120 upstream-carried**;
-   plus `retroarch`, `retroarch-assets`, `libretro-database`, `core-info`,
-   `common-shaders`, `glsl-shaders`, `slang-shaders`, `retropie-shaders`,
-   `neocd_lr`, and `easyrpg-lr`'s three sub-recipes), and **five are not**
+   plus the fifteen others: `retroarch`, `retroarch-assets`,
+   `retroarch-joypads`, `retroarch-overlays`, `libretro-database`,
+   `core-info`, `common-shaders`, `glsl-shaders`, `slang-shaders`,
+   `retropie-shaders`, `neocd_lr`, and `easyrpg-lr`'s four sub-recipes
+   `liblcf`, `libspeexdsp`, `libxmp-lite`, `wildmidi`), and **five are not**
    (`boom3-lr`, `mame2003-lr`, `panda3ds-lr`, `play-lr`, `vitaquake3-lr`:
    their `reach` is outside this slice's rule, so they are T24's table,
    `emulators-dead-ends`; a row each in Q6 says so and reads nothing else
@@ -354,10 +412,20 @@ each is a lead to re-read, not a verdict:
    tags or other (the lane names the seven; `CLAUDE.md`: *"Pin git sources
    with the full commit hash"*). Hosts: 148 `github.com`, one each
    `sourceforge.net`, `gitlab.com`, `rocknix.org`. **Against `upstream/next`
-   on 2026-10-24, exactly one pin differs**: `np2kai-lr` (`d1a40352e2` here,
-   `5939e0c6d5` upstream); every other recipe is byte-equal to upstream's
-   or differs only where group 3 says. These get Q4 and Q6 first (§ 4), and
-   the rest only where a Q3 lead turns up in a recipe that stays.
+   on 2026-10-24, exactly one *pin* differs** (`np2kai-lr`: `d1a40352e2`
+   here, `5939e0c6d5` upstream) **but about 140 recipes differ textually**:
+   upstream's `af70bd435b` added `retroarch` to every core's
+   `PKG_DEPENDS_TARGET` and `aca36dbad7` took it off `mame-lr` again, and
+   eight recipes differ by a few lines more (`emuscv-lr`, `dolphin-lr`,
+   `mame-lr`, `pcsx_rearmed-lr`, `uae4arm-lr`, `vircon32-lr`, `same_cdi-lr`,
+   `np2kai-lr`); upstream also carries what this tree has not:
+   `yabadabadoo-lr/` (a recipe and a patch), `doublecherrygb-lr/patches/001-*`,
+   `flycast2021-lr/patches/02-fix-postprocess-render.patch`,
+   `np2kai-lr/patches/001-libretro-add-ymzadpcm.patch`, a changed
+   `retroarch/sources/RK3566/retroarch.cfg`, and
+   `retroarch-0100-ffmpeg9-lavc63.patch`. Q4 (a) is the 14 commits, and
+   this is their size. These recipes get Q4 and Q6 first (§ 4), and the
+   rest only where a Q3 lead turns up in a recipe that stays.
 5. **The tests and tools that exist for these sources** (fork-only, in
    `tools/`, outside the membership; read for § 5): `tools/retroarch-wrapper-test`
    (compiles `video_thread_wrapper.c`'s posting path out of a build root
@@ -391,16 +459,16 @@ number,title,body`, grepped with word boundaries for `retroarch`,
 options` (the count depends on the pattern, so record the pattern with the
 count).
 
-**The branch scan.** Twelve `origin` branches differ from `next` under the
-two directories (2026-10-24: `build/webkit-254`, `feature/cloud-epic`,
-`feature/cloud-oauth-page-lifetime`, `feature/cloud-setup-entry`,
-`feature/conflict-resolution`, `feature/fast-exit-sync`, `feature/identity`,
-`feature/imageviewer-rescan`, `feature/m7-manual-cloud-folders`,
-`feature/m7-rocknix-20261001`, `feature/match-dialog-width`,
-`feature/progress-tracker`); most are older than `next` on these paths, not
-ahead of it. Record the command and the list in `01-research-notes.md`; a
-branch **ahead** of `next` on a slice path is a lead for the coordinator,
-posted on #650, not a reason to read it.
+**The branch scan**, by one predicate: a branch is *ahead* of `next` on the
+two directories when `git log --oneline next..<branch> -- <the two
+directories>` prints a line. On 2026-10-24, 18 `origin` branches were
+(`feature/m7-player-setup` among them, by the M7 lane's `Install Steam.sh`
+hunk `6101242e14`, so that delta is on `origin` too, not only in the legacy
+checkout); 44 merely *differ* (`git diff --quiet next <branch> -- ...`
+non-zero), most of them older than `next`. Record the predicate, the
+command and the list in `01-research-notes.md`; a branch ahead of `next` on
+a slice path is a lead for the coordinator, posted on #650, not a reason to
+read it.
 
 **The M7 lane's unmerged delta (`next..069fc2704421` in the legacy
 checkout, read-only):** one commit, `6101242e14` (2026-10-18, *"m7:
@@ -408,8 +476,8 @@ integrate reviewed frontend and installer repairs"*), +605/-6 on `Install
 Steam.sh`. The slice reads `next`'s copy. A finding on a line that commit
 changes is recorded with that fact; a punch item that would touch `Install
 Steam.sh` is announced on #650 before any stream brief, so the coordinator
-can order it against the M7 candidate's merge (as #642 did for T1's
-`runemu.sh` hunks). The lane never reads the M7 worktrees for anything else.
+can order it against the M7 candidate's merge (as the coordinator's comment on #642 did for T1's
+F-14 and F-03 on M7's `runemu.sh` hunks). The lane never reads the M7 worktrees for anything else.
 
 **Drift.** `next` is `8ebaf8daad` and has not moved since the survey; the
 M7 candidate's merge will move it. When it does, the coordinator merges
@@ -459,10 +527,9 @@ session's first hour; stage A follows it):
   list leaves its saves, states and `retroarch-core-options.cfg` lines on
   every device that carried it); `change-log.md`; `rclone-cloud-sync.md`
   only for § the save layout (the cores' save and state paths are what the
-  sync moves, D-CLOUD-* in `es-player-text.md`'s tiers); `es-code-traps.md`
-  § What rclone's piped progress actually looks like is not this slice's,
-  but its neighbour § The picture beside a game list names how a theme and
-  `es_systems.cfg` meet. Then the every-session set:
+  sync moves, D-CLOUD-* in `es-player-text.md`'s tiers); the four
+  EmulationStation rules are the interface's, not this slice's, and T2's
+  audit is where the table's consumer is read. Then the every-session set:
   `engineering-practices.md` (§ Change stays inside the fork's lanes,
   D-UI-079; § Check upstream early, D-WORKFLOW-162; § Consider contributing
   every applicable fix upstream, D-WORKFLOW-164/165; § Verify design intent;
@@ -479,7 +546,9 @@ session's first hour; stage A follows it):
   stale facts so they do not cost an hour (#640): the legacy paths in
   `worktrees.md`, `device-builds.md`, `instruction-files.md`, `AGENTS.md`;
   `tools/retroarch-wrapper-test`'s default roots (§ 2 group 5, § 5).
-- `docs/blindspot-register.md` whole, once (73 entries). The entries that
+- `docs/blindspot-register.md` whole, once (74 entries; **74** is this
+  slice's own shape, a fixture or a stub that silently did not engage,
+  added with the futro). The entries that
   touch RetroArch and the cores: **38** (a category-level offer read as a
   standing yes: the exit test on the maintainer's device), **39** (a new
   suite that passed over a table of dashes: `time-to-play` on a guest whose
@@ -512,7 +581,7 @@ session's first hour; stage A follows it):
   `04-analysis.md` § Renovation face Q5 has the launch timed on the guest,
   `setsettings.sh` at 127 ms a launch) and T2's
   `docs/audits/2026_10_23-epic-m6-es-launch-path/` on the T2 branch
-  (`git -C /workspace/repos/pixelelated/distribution.worktrees/m6-es-launch-path-649 show f16cf7fc28:<path>`;
+  (`git -C /workspace/repos/pixelelated/distribution.worktrees/m6-es-launch-path-649 show 7041b0d710:<path>`, its tip at the hand-back; `f16cf7fc28` is its `fixed-at`;
   its `SystemData` rows are how the interface parses `es_systems.cfg`, and
   its D-WORKFLOW-192 seam -- `--netplaymode` and `--mitm-session=` on the
   launch line -- is a token the launch table's `RUNCMD` does not carry and
@@ -548,7 +617,7 @@ session's first hour; stage A follows it):
   submissions deferred; #585 is the queue), D-WORKFLOW-132 and D-QA-012,
   D-WORKFLOW-149, D-QA-007/015, D-QA-021, D-QA-044/045/051.
   `grep -iE 'retroarch|libretro|es_systems' docs/decision-register.md`
-  names 59 rows on 2026-10-24; the list above is the subset a reading of
+  matches 37 rows (61 ID mentions) on 2026-10-24; the list above is the subset a reading of
   this slice re-derives from, not the whole.
 - Issues whose bodies name these files, read for the planned changes and
   the known leads, not as a work queue. **Open:** #336 (the libretro runner;
@@ -573,10 +642,12 @@ session's first hour; stage A follows it):
   read for their history on these files:** #211 (the doubled posted command
   that crashed RetroArch on a handheld; patches 0011 and 0015;
   `tools/retroarch-wrapper-test`), #16 (the GENERIC_X64 build and its
-  `X64_SKIP_CORES`; closed, still named in the recipe's comment), #226 and
-  #228 (a dependency fetched at build time; the compile cache's stale PCH),
-  #117 and #120 (the exit hotkey), #90 and #92 (exit codes), #228's
-  neighbour #227 (`fork-package-freshness`). Every `gh` call carries
+  `X64_SKIP_CORES`; closed, still named in the recipe's comment), #226 (a
+  dependency fetched at build time), #117 (the exit hotkey), #90 and #92
+  (exit codes), #227 (`fork-package-freshness`); and two **open** ones read
+  for the same history: #228 (webkitgtk held at 2.52.6; the compile cache's
+  stale PCH is `device-builds.md`'s lesson) and #120 (the VM runner epic,
+  whose exit-path cell is `tools/emulator-exit-test`). Every `gh` call carries
   `--repo pixelelated/distribution`.
 
 ## 4. The questions
@@ -585,19 +656,23 @@ All seven apply to this slice (plan § 4); none is struck. Provenance decides
 the lens (plan § 3): the 24 fork-own paths and the 8 fork-written patches
 get all seven in full; the 299 upstream-carried paths and the 13 upstream
 patches get **Q4 and Q6 first**, and the rest only where the file stays and
-a lead points at it. The slice's kind is **currency** (`slices.json`), so
+a lead points at it: an upstream-carried recipe's Q1, Q2, Q3 and Q7 cells
+read `n/a: upstream's recipe, unchanged here` unless its Q4 or Q6 row keeps
+the file in question or a Q3 lead names it, and criterion 7 accepts that
+cell (the futro's pre-mortem: sixty style items on 120 recipes nobody
+changes is the failure this prevents). The slice's kind is **currency** (`slices.json`), so
 Q4 is the question the whole slice answers before any other. Per file, the
 evidence that answers each:
 
 | # | Question, for this slice | Evidence |
 | --- | --- | --- |
 | Q1 Modernize | A recipe idiom the rest of the tree has moved past: `make_target` with a hand-rolled status echo after each `make` where the build engine already fails the package on a non-zero exit (RetroArch's 92 to 100); `PKG_TOOLCHAIN="manual"` where a standard toolchain would do; options a current RetroArch no longer reads (`retroarch.cfg` keys renamed or retired between the pin and the configuration's last edit); a `case ${DEVICE}` list repeated where a device option would carry it; Python 2 remnants or hand-rolled parsing in the two rotation tables; a `*.sh` installer that re-implements what `curl`, `tar` or the package manager do | the replacement named with its commit or its upstream line; a RetroArch option checked against the pin's `retroarch.cfg` defaults (`$B/build/retroarch-<pin>/retroarch.cfg`, read-only) |
-| Q2 Standards | `packages/README.md` and `packaging-and-patches.md`, cited by section: late binding (`tools/pkgcheck <pkg>` on **every** recipe in the membership, 146 runs, the loop and its counts recorded); the full-hash pin (the seven that are not, § 2 group 4); `PKG_SHA256` present and matching the pin's tarball where the recipe names a tarball URL; the copyright header with its JELOS/LibreELEC origin and a ROCKNIX line; a patch scoped per device under `patches/<DEVICE>/` where it is device-specific; quoting in `virtual/emulators/package.mk` and the 24 `*.sh` (shellcheck under § 5, each error read at its site before it is a finding, as T1 did); `set -euo pipefail` where the interpreter is bash | the rule and section cited; `pkgcheck`'s output per recipe; shellcheck's line with the lane's verdict |
+| Q2 Standards | `packages/README.md` and `packaging-and-patches.md`, cited by section: late binding (`tools/pkgcheck <pkg>` on **every** recipe the § 5 loop finds, 152 runs: the 151 `package.mk` under `emulators/libretro/` as the glob lists them, the five outside the membership included and recorded as T24's, plus `emulators`; the loop and its counts recorded); the full-hash pin (the seven that are not, § 2 group 4); `PKG_SHA256` present and matching the pin's tarball where the recipe names a tarball URL; the copyright header with its JELOS/LibreELEC origin and a ROCKNIX line; a patch scoped per device under `patches/<DEVICE>/` where it is device-specific; quoting in `virtual/emulators/package.mk` and the 24 `*.sh` (shellcheck under § 5, each error read at its site before it is a finding, as T1 did); `set -euo pipefail` where the interpreter is bash | the rule and section cited; `pkgcheck`'s output per recipe; shellcheck's line with the lane's verdict |
 | Q3 Bugs | Where each unit fails: a recipe that builds on the host and not for the device (an arm-only path, the `build.${DISTRONAME}-${DEVICE}.arm` copy at RetroArch 106 to 116 when the arm root is absent); a core in a device's `LIBRETRO_CORES` whose `add_emu_core` line names another emulator or no system; a system in `add_es_system` whose `config/emulators/<system>.conf` is missing; `mk_es_systems`'s silenced `xmlstarlet`; a `retroarch.cfg` value the device cannot honour (the GENERIC_X64 set against the guest, #263's history); a `*.sh` installer's failure path (`Install Steam.sh` at 2,755 lines: every `set -e` exit and every network failure, the host's answer being a lead and the guest's the proof); the rotation tables' parsing (their four September fixes say where they were wrong); #762's shape repeated for another core's options | a reproduction on the VM or a trace with file:line; the code-auditor evidence floor applies (host reasoning about device behaviour is a lead, not evidence); the generated `es_systems.cfg` on the image diffed against what the table says it should hold |
-| Q4 Package currency | **The slice's question.** Three readings, each a table in `04`: (a) **the fork against ROCKNIX**: every recipe's `PKG_VERSION` against `upstream/next`'s (one differs on 2026-10-24, `np2kai-lr`), and the 14 commits of `c445081a59..upstream/next` on the two directories dispositioned one by one (merged already / not applicable to this fork / to merge, with the reason; the absent `retroarch-0100-ffmpeg9-lavc63.patch` and `af70bd435b`'s dependency change among them), merges included and dispositioned as `merge`; (b) **the pins against the projects**: for each of the 151 recipes, the pinned commit's date and the project's default-branch head date from the GitHub API (148 of them: `gh api repos/<owner>/<repo>/commits/<pin> --jq .commit.committer.date` and `gh api repos/<owner>/<repo>/commits?per_page=1 --jq '.[0].commit.committer.date'`; the three others by hand, with the date checked), the difference in days, and whether `upstream/next` carries the same pin (then the gap is ROCKNIX's to close and the row says `upstream-same`); the script that produces the table is committed under the audit folder with its run's date; (c) **RetroArch itself**: the pin `bdba046fa6` (2026-06-06) against `libretro/RetroArch`'s master head and against its releases (`v1.22.2`, 2025-11-20, is the last; the pin is after it), with the eight fork patches re-tried against master for whether each still applies (`git apply --check` in a scratch clone outside every worktree, read-only on the build root's unpacked source, never a build) | the three tables with their commands and dates; the fetch's hash recorded; `tools/fork-package-freshness` run once and its `--list` recorded to show it covers none of this slice |
-| Q5 Efficiency | What the slice costs the player at launch and exit, which is where RetroArch's start sits (`time-to-play.md`; D-CLOUD-098): the two numbers on the guest beside T1's (0.73 s and 1.01 s with the tree's scripts, 0.64 s and 1.01 s with the image's, n=1) and #336's baseline (1.05 s and 2.03 s); then what in the configuration moves them -- the GENERIC_X64 `retroarch.cfg`'s 855 lines read for the settings that cost at start (`video_shader_enable`, `rewind_enable`, `run_ahead_enabled`, `menu_*` scanning, `audio_latency`, `netplay_*`, `cheevos_*`, `content_history_size`, the core-updater URLs) with each one's cost measured where it can be (toggle, launch, read `time-to-play`'s number again) or named as unmeasured; the cores' build options (`-O` levels, LTO, `PKG_MAKE_OPTS_TARGET`) as leads for a build this lane does not run; at boot, the five `tmp-*.mount` units RetroArch enables | a measurement on the VM (`tools/time-to-play --vm`) or the named absence of one; the configuration key, its value on the image and the pin's default beside it |
-| Q6 Dead ends | Is each unit reached: **by an image the fork builds** (the four devices, `device-builds.md`: a core in no built device's `LIBRETRO_CORES` after the `X64_SKIP_CORES` subtraction is unreached on every fork image -- a row each, with `Already written:` for what the core left on devices that carried it under an earlier image, and the upstream device lists that still reach it, because the fork merges upstream through them, D-WORKFLOW-185's shape, not a removal), **by the table** (a core built but named by no `add_emu_core` line; an `add_emu_core` line whose core is in no device's list; a system with no core; the five recipes outside the membership named as T24's), **by a player path** (a `sources/*.sh` whose emulator is in no built device's `PKG_EMUS`; a `retroarch.cfg` key RetroArch at the pin no longer reads; a `sources/<DEVICE>/` directory for a device the fork does not build -- eleven of fifteen -- kept for upstream, a row each); the recipe comment naming the closed #16 | the reachability table in `04` Q6: one row per `*-lr` recipe (131) with the devices whose list carries it, one per `add_es_system` system (142) with its cores and its `.conf`, one per `sources/*.sh` (24), one per `sources/<DEVICE>/` (15), one per RetroArch patch (21) with the source file it touches at the pin; the search commands and their output; the generated `es_systems.cfg` from the image (§ 5) as the cross-check |
-| Q7 Clarity | Can a reader new to it tell what each unit does and why in one pass: `virtual/emulators/package.mk` at 1,777 lines with a 1,630-line `makeinstall_target` (one responsibility or three: the device lists, the table, the directories); `Install Steam.sh` at 2,755 lines; a recipe whose comment names a closed issue (#16) or a retired path; copies of logic (the five `[ $? -eq 0 ] && echo` blocks; the per-device `retroarch.cfg` files, fifteen copies of 800-odd lines each -- how many lines differ between any two, and whether a device file is a diff against a base in disguise); headers that say where a recipe came from | the specific unit named with what a reader stumbles on; a duplicate named with its original and the diff's size |
+| Q4 Package currency | **The slice's question.** Three readings, each a table in `04`: (a) **the fork against ROCKNIX**: every recipe's `PKG_VERSION` against `upstream/next`'s (one differs on 2026-10-24, `np2kai-lr`), and the 14 commits of `c445081a59..upstream/next` on the two directories dispositioned one by one (merged already / not applicable to this fork / to merge, with the reason; the absent `retroarch-0100-ffmpeg9-lavc63.patch` and `af70bd435b`'s dependency change among them), merges included and dispositioned as `merge`; (b) **the pins against the projects**: for each of the 151 recipes, the pinned commit's date and the project's default-branch head date from the GitHub API (148 of them: `gh api repos/<owner>/<repo>/commits/<pin> --jq .commit.committer.date` and `gh api repos/<owner>/<repo>/commits?per_page=1 --jq '.[0].commit.committer.date'`; the three others by hand, with the date checked), the difference in days, and **a class per row, never an empty cell** (the script asserts every row has one before it writes the table; an empty cell is the scan's own FAIL, blindspot 39): `current`; `behind-upstream` (ROCKNIX's `upstream/next` carries a newer pin: **actionable**, the disposition `to merge` with the upstream commit named); `behind-project` (the project is ahead of both ROCKNIX and the fork: **informational** for an upstream-carried recipe, ROCKNIX's to take; a line on #585 only where the fork introduced or changed the recipe); `upstream-same` beside either; `pin-not-on-project` (the pin's commit is not on the project's default branch: a fork's hash or a force-push, the recipe's `PKG_SITE` read for which); `repo-missing` (the API answers 404: moved, renamed or archived, the `PKG_SITE` quoted). A `to merge` of a core bump names the core's own changelog or commit range read for save, state and option-format changes, cites #10, and is **never applied on this branch** (§ 5): the stream brief decides a bump, because a bump is a build. The script that produces the table is committed under the audit folder with its run's date; (c) **RetroArch itself**: the pin `bdba046fa6` (2026-06-06) against `libretro/RetroArch`'s master head and against its releases (`v1.22.2`, 2025-11-20, is the last; the pin is after it), with the eight fork patches re-tried against master for whether each still applies: the files each patch touches at the pin are fetched from master through the API (`gh api repos/libretro/RetroArch/contents/<path>?ref=master --jq .content | base64 -d`, into a scratch directory of their own under `.qa-scratch/`), and `patch -p1 --dry-run` is run per patch against them; no clone, no build, nothing written in a worktree | the three tables with their commands and dates; the fetch's hash recorded; `tools/fork-package-freshness` run once and its `--list` recorded to show it covers none of this slice |
+| Q5 Efficiency | What the slice costs the player at launch and exit, which is where RetroArch's start sits (`time-to-play.md`; D-CLOUD-098): the two numbers on the guest beside T1's (0.73 s and 1.01 s with the tree's scripts, `--quick`, n=1; 0.64 s median of three, mean 0.67, max 0.76, and 1.01 s with the image's, `--repeat 3`) and #336's baseline (1.05 s and 2.03 s); the GENERIC_X64 `retroarch.cfg` already carries `video_driver = "gl"`, so `--vm`'s driver switch is a no-op on this image and the row says so; then what in the configuration moves them -- the GENERIC_X64 `retroarch.cfg`'s 855 lines read for the settings that cost at start (`video_shader_enable`, `rewind_enable`, `run_ahead_enabled`, `menu_*` scanning, `audio_latency`, `netplay_*`, `cheevos_*`, `content_history_size`, the core-updater URLs) with each one's cost measured where it can be (toggle, launch, read `time-to-play`'s number again) or named as unmeasured; the cores' build options (`-O` levels, LTO, `PKG_MAKE_OPTS_TARGET`) as leads for a build this lane does not run; at boot, the five `tmp-*.mount` units RetroArch enables | a measurement on the VM (`tools/time-to-play --vm`) or the named absence of one; the configuration key, its value on the image and the pin's default beside it |
+| Q6 Dead ends | Is each unit reached: **by an image the fork builds** (the four devices, `device-builds.md`: a core in no built device's `LIBRETRO_CORES` after the `X64_SKIP_CORES` subtraction is unreached on every fork image -- a row each, with `Already written:` for what the core left on devices that carried it under an earlier image, and the upstream device lists that still reach it, because the fork merges upstream through them, D-WORKFLOW-185's shape, not a removal), **by the table** (a core built but named by no `add_emu_core` line; an `add_emu_core` line whose core is in no device's list; a system with no core; the five recipes outside the membership named as T24's), **by a player path** (a `sources/*.sh` whose emulator is in no built device's `PKG_EMUS`; a `retroarch.cfg` key RetroArch at the pin no longer reads; a `sources/<DEVICE>/` directory for a device the fork does not build -- ten of fifteen -- kept for upstream, a row each); **by the interface** (the five tokens the table emits against the ten the interface expands, T2's list, a row per token; the overlay files the interface reads before the table, `es_systems_custom.cfg` and `es_systems_*.cfg`); the recipe comment naming the closed #16 | the reachability table in `04` Q6: one row per `*-lr` recipe (131) with the devices whose list carries it, one per `add_es_system` system (142) with its cores and its `.conf`, one per `sources/*.sh` (24), one per `sources/<DEVICE>/` (15), one per RetroArch patch (21) with the source file it touches at the pin; one per `%TOKEN%` (the five the table emits and the five the interface expands that it does not); the search commands and their output; the generated `es_systems.cfg` from the image (§ 5) as the cross-check; **every count is compared with its differences listed, never asserted equal** (a recipe may install two `.so` or none; the 116 cores on the image against the recipe's list for GENERIC_X64 is a diff, not an equation) |
+| Q7 Clarity | Can a reader new to it tell what each unit does and why in one pass: `virtual/emulators/package.mk` at 1,777 lines with a 1,630-line `makeinstall_target` (one responsibility or three: the device lists, the table, the directories); `Install Steam.sh` at 2,755 lines; a recipe whose comment names a closed issue (#16) or a retired path; copies of logic (the three `[ $? -eq 0 ] && echo` blocks; the fifteen per-device `retroarch.cfg` files, fourteen of 817 to 894 lines and AMD64's of 3,530 -- how many lines differ between any two, and whether a device file is a diff against a base in disguise); headers that say where a recipe came from | the specific unit named with what a reader stumbles on; a duplicate named with its original and the diff's size |
 
 A finding is one question with its evidence; severity and category are the
 code-auditor's, with `Renovation` as the category for Q1, Q5, Q6 and Q7
@@ -672,8 +747,9 @@ QA backend, or a QA guest another lane owns.
   while an M7 window is open; the coordinator's comment on #650 relaying
   M7's `resource return` is the signal this lane acts on**, and the file's
   last `== M7` block is read before any runtime (the first commands print
-  it). On 2026-10-24 at 01:27 the host went to the M7 lane for its H700
-  and SM8550 image builds; the window may still be open at dispatch.
+  it). On 2026-10-24 the M7 lane held the host from 01:33 (requested 01:27)
+  to its return at 02:22 for its H700 and SM8550 image builds; the next
+  window is requested the same way and may be open at dispatch.
   Stage A's reading, the counts, the branch scan, the three Q4 tables'
   commands against GitHub (API calls, not host runtime), `pkgcheck` over the
   recipes and shellcheck need nothing of the host's memory and run now;
@@ -688,22 +764,22 @@ QA backend, or a QA guest another lane owns.
   `069fc270442134fe771258418adf4e666e0473fb` is read from the guest's
   `/etc/os-release` and recorded in `00-running-log.md`; the T1 and T2
   lanes keep copies under `/workspace/artifacts/m6-t1-20261023/` and
-  `/workspace/artifacts/m6-t2-20261023/`, read-only to this lane). **If the
-  M7 window has produced a newer GENERIC_X64 image by dispatch, the
+  `/workspace/artifacts/m6-t2-20261023/`, read-only to this lane). The M7 window of 2026-10-24 built H700 and SM8550, not GENERIC_X64, so this
+  image stands; **if a newer GENERIC_X64 image exists by dispatch, the
   dispatch comment names it instead**; the brief's hashes are the older
   image's and the lane records the one it used. Copy the `.img.gz`, its
   `.sha256` and the `.identity.json` beside it into this lane's own
   artifacts directory first (a fresh `ROCKNIX_ARTIFACTS=/workspace/artifacts/m6-t3-<date>`;
   `sha256sum -c` on the copy; the `.tar` is not needed, no update runs
-  here); never write in the M7 worktree. **Its `SYSTEM` squashfs is this
-  slice's primary artifact for reach**: `tar -xf <img or tar> --wildcards
-  '*/target/SYSTEM'` is not available from an `.img.gz` -- read the squashfs
-  from the running guest instead (`/usr/lib/libretro/*.so`,
-  `/etc/emulationstation/es_systems.cfg`, `/usr/config/retroarch/*`,
-  `/usr/config/modules/*.sh`, `/usr/bin/retroarch`), or `unsquashfs -ll`
-  on a SYSTEM file the lane extracts from the image's partition with
-  `guestfish`/`kpartx`-free tools only if it knows them; the guest is the
-  simpler route and the one this brief expects. Then `generic-x64-vm-testing.md`
+  here); never write in the M7 worktree. **The installed set is read first on the
+  host**, from the build root's `image/system` (§ 2: the cores, the table
+  at `usr/config/emulationstation/es_systems.cfg`, the configuration, the
+  modules, the binary), with the counts of 2026-10-24 (116 cores, 128
+  systems, 152 emulator elements, 500 core elements, 19 modules) as the
+  baseline the lane re-derives; the `.tar` in `target/` holds the same
+  `SYSTEM` for `unsquashfs -ll` if a listing with modes is wanted. **The
+  guest is for what runs**: a launch, a `retroarch.cfg` the running
+  RetroArch honours, a module script's behaviour, `time-to-play`. Then `generic-x64-vm-testing.md`
   § Headless: `gunzip`, `qemu-img convert` to qcow2, `qemu-img resize ...
   16G` (not optional), `projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm
   run --headless --daemonize` **with the lane's own instance paths and
@@ -767,7 +843,8 @@ QA backend, or a QA guest another lane owns.
   and g2g numbers are still the measurement, recorded with that line and
   T1's caveat (the exit sync skips at once, so the second number is not
   like for like with a configured device). **It reboots the guest when it
-  seeds its ROM** (`generic-x64-vm-testing.md`, 2026-10-24): a measurement
+  seeds its ROM or changes the two cloud settings**
+  (`generic-x64-vm-testing.md`, 2026-10-24): a measurement
   of a changed `retroarch.cfg` or table copies the file into place under
   `/storage` or binds it from a `/storage/.config/autostart/` hook, and
   reads the installed file's hash after the run (#797 is the flag that
@@ -788,7 +865,7 @@ QA backend, or a QA guest another lane owns.
   cd "$D"
   for f in $(git ls-files 'projects/ROCKNIX/packages/emulators/libretro/*/package.mk' 'projects/ROCKNIX/packages/emulators/libretro/*/*/package.mk' projects/ROCKNIX/packages/virtual/emulators/package.mk); do
     p=$(basename "$(dirname "$f")"); out=$("$D/tools/pkgcheck" "$p" 2>&1); rc=$?; printf '%s %s %s\n' "$rc" "$p" "$(echo "$out" | grep -c -i fail)"
-  done | sort | uniq -c | sort -rn | head            # pkgcheck over every recipe: 152 runs (151 + emulators); record the rc counts and every non-zero line
+  done | sort | uniq -c | sort -rn | head            # pkgcheck over every recipe: 152 runs (151 + emulators); record the rc counts and every non-zero line, and the path each run printed: the tool checks every `*/<name>/package.mk` under packages/ and projects/ (its line 157) and prints each, so a second path is a second row; on next the three easyrpg-lr sub-recipes print only their own path and `emulators` prints its one path twice
   "$D/tools/fork-package-freshness" --list | tr ' ' '\n' | grep -E 'emulators/' # aethersx2-sa only, T30's: the tool covers none of this slice; record that line
   ```
   - **shellcheck** is not installed on the host. T1 downloaded the
@@ -825,28 +902,68 @@ QA backend, or a QA guest another lane owns.
     over; the pin's commit may be absent from the project (a force-push, a
     fork's hash): then the row says `pin-not-on-project` and the lane reads
     the recipe's `PKG_SITE` for which fork it is;
+  - **a build system that fetches at configure time** (blindspot 47, #226):
+    over the build root's unpacked core sources, read-only,
+    `grep -rl -E 'FetchContent|ExternalProject_Add|git clone|curl |wget ' $B/build/*-lr-*/CMakeLists.txt $B/build/*-lr-*/Makefile* 2>/dev/null | sort`
+    (the pattern recorded with its hits; a hit is a Q3 lead the recipe's
+    `--wrap-mode`/`FETCHCONTENT_FULLY_DISCONNECTED` answer or does not);
   - **the rotation tables** (`rotation-table-fba.py`, `rotation-table-mame.py`):
-    `python3 -I <table> --help` first; they read a core's unpacked sources,
-    which the M7 GENERIC_X64 root holds for the cores it built
-    (`$B/build/mame2003-plus-lr-*/`, `$B/build/fbneo-lr-*/`; read-only):
-    run each against that source with its output to `$ROCKNIX_ARTIFACTS`
-    and diff against what the recipe installed on the image
-    (`/usr/config/retroarch/` or wherever the recipe's `makeinstall_target`
-    puts the table; the recipe says), recorded as the generators' proof;
-  - **the generated table** (Q3, Q6): on the guest,
-    `/etc/emulationstation/es_systems.cfg` read whole (it carries no
-    credential; `xmllint --noout` on the host over a copy, and a count of
-    `<system>`, `<emulator>` and `<core>` elements against the recipe's
-    calls for GENERIC_X64), beside a host regeneration from the tree's
-    functions as the previous bullet describes, the diff recorded;
+    neither takes `--help` (a wrong argument count prints the usage line;
+    anything else is read as a path and the run exits 0 with no table).
+    The recipes say how they are called: `python3
+    ${PKG_DIR}/../rotation-table-mame.py --min 100 ${PKG_BUILD} src/drivers`
+    (`mame2003-plus-lr/package.mk` line 32) and `python3
+    ${PKG_DIR}/../rotation-table-fba.py --min 100 ${PKG_BUILD}`
+    (`fbneo-lr/package.mk` line 43), the output to
+    `${INSTALL}/usr/config/emulationstation/rotation/<core>.txt`. Run each
+    the same way against the M7 root's unpacked source
+    (`$B/build/mame2003-plus-lr-*/` with its `src/drivers`,
+    `$B/build/fbneo-lr-*/`; read-only), the output under
+    `$ROCKNIX_ARTIFACTS`, and diff it against the image's
+    `usr/config/emulationstation/rotation/<core>.txt` in the install tree,
+    recorded as the generators' proof;
+  - **the generated table** (Q3, Q6): the image's
+    `usr/config/emulationstation/es_systems.cfg` from the build root's
+    install tree (it carries no credential), parsed on the host with
+    `python3 -I` and `xml.etree.ElementTree` (**`xmllint` and `xmlstarlet`
+    are not installed on this host**, checked 2026-10-24), the `<system>`,
+    `<emulator>` and `<core>` counts and names listed against the recipe's
+    calls for GENERIC_X64 with the differences named; beside it **a host
+    regeneration** from the tree's own functions: in a scratch directory
+    the lane owns, `bash -e` sourcing `distributions/ROCKNIX/config/functions`
+    with `ROOT=$D`, `ESTMP=<scratch>/estmp`, `INSTALL=<scratch>/install`,
+    `PKG_DIR=$D/projects/ROCKNIX/packages/virtual/emulators`,
+    `DEVICE=GENERIC_X64`, `ARCH=x86_64`, `TARGET_TYPE=` and whatever else
+    `makeinstall_target` reads (the lane lists them from the function's
+    text first), then the recipe's `makeinstall_target` body; the
+    formatted `es_systems.cfg` will be **empty** without `xmlstarlet`, so
+    the comparison is of the pre-format `${ESTMP}/.es_systems.cfg` parsed
+    with `ElementTree` against the image's, by system, emulator and core
+    names; a function that `exit`s (two defaults for one system) is the
+    finding, recorded with its line. Nothing of this touches `/usr` or
+    `/storage` on the host: every path is the scratch's, and the run is
+    recorded as a host run of the build's own shell;
   - **the guest tools above**: `time-to-play` for Q5; `vm-visual-qa` with a
     step file under `tools/vm-walks/` only if a finding needs a frame (a
     RetroArch frame is evidence only when its surface was the panel,
     `generic-x64-vm-testing.md`; the gl driver and `Using resolution` read
     first, blindspots 54, 55, 63);
-  - of `tools/vm-qa`'s suites, none is this slice's own; `exit` is T1's,
-    `quoting`, `menumap`, `french`, `vocabulary` T2's; record that in `02`
-    rather than running the runner, which wants the pair up.
+  - of `tools/vm-qa`'s suites, **`wrapper`** is this slice's (it runs
+    `tools/retroarch-wrapper-test`) and **`time-to-play`** its Q5 cell;
+    `exit` is T1's, `quoting`, `menumap`, `french`, `vocabulary` T2's. Run
+    the two tools directly, as above, rather than through the runner, which
+    wants the pair up; record which in `02`.
+- **A commit may land in a window with its compile queued.** The only
+  compile this slice runs is `tools/retroarch-wrapper-test`'s (and
+  `time-to-play`'s guest); `pkgcheck`, shellcheck, the API tables and the
+  host regeneration are allowed in a window. A recipe or table commit lands
+  with `pkgcheck` done and the running log naming what is queued for the
+  return line; the queued check's line is written under the commit's hash
+  when it runs (T2's retro asked the template to say which; this is the
+  answer for this slice).
+- **A Q5 measurement row names the configuration it ran with**: the sha256
+  of the guest's `/storage/.config/retroarch/retroarch.cfg` after the run,
+  beside the number (blindspots 54, 55, 63; T1's two uncounted runs).
 - **A read is free and goes through the filter.** Every line read back from
   the guest, from an image's config, from `rclone.conf`, `system.cfg`,
   `es_settings.cfg` or `get_setting`, passes `grep -v -i -E
@@ -894,19 +1011,19 @@ stage letters are plan § 6b's.
 
 | Output | Path | Shape | Stage |
 | --- | --- | --- | --- |
-| Running log | `docs/audits/<yyyy_mm_dd>-epic-m6-emulators-libretro/00-running-log.md` | the skill's append-only flight recorder, opened first: the model and effort that ran, `reviewed-at` (the branch `HEAD` at stage A) with `8ebaf8daad` beside it, `upstream/next`'s hash and the merge base the first commands fetch, the host file's state, the image's BUILD_ID, every command with its exit status and time, each stage's entry, every wait | A onward |
+| Running log | `docs/audits/<yyyy_mm_dd>-epic-m6-emulators-libretro/00-running-log.md` | the skill's append-only flight recorder, opened first: the model and effort that ran, `reviewed-at` (the branch `HEAD` at stage A) with `8ebaf8daad` beside it, `upstream/next`'s hash and the merge base the first commands fetch, the host file's state, the image's BUILD_ID, every command with its exit status and time, each stage's entry, every wait; **every guest proof announced on a line that begins `GUEST-PROOF:`** with its time and its script, the token criterion 12 counts | A onward |
 | Research notes | `.../01-research-notes.md` | § Scope: the 344 paths re-derived with the filter of § 2 and the deltas beside the recorded counts (both fork-own figures); the five groups; the interacting subsystems; the branch scan; the M7 delta (one commit) by hunk; the #336 line as drawn; § Phase 1: the closed bugs grep with its pattern and count, the prior audits' counts per folder, upstream's trackers checked (D-WORKFLOW-162: libretro/RetroArch's issues for the eight fork patches' subjects, ROCKNIX's `distribution` PRs for the 14 commits) | A, B |
 | Forward audit | `.../02-forward-audit.md` | Phase 2 over #650's checklist, plus a **coverage table with one row per path** (344 rows; the first cell the path in backticks, so ``grep -c '^| `projects/ROCKNIX/packages/' 02-forward-audit.md`` prints 344; then group, tier, Q1 to Q7 each answered or `n/a` with the reason, and for a fork-own path the fork commits read); § Mechanical checks (every check of § 5 with command, exit status, summary; a check that could not run says why); § Image versus tree (the installed set against the recipes, § 5); § Guest proofs (each saying image or tree, after the recorded diff; each with its `proved:` cell, below) | B onward |
 | Retrospective | `.../03-retrospective.md` | Phase 3 with § 3.5's interaction audit for the seams § 2 names (the table x `runemu.sh`'s parsing, T1's; the table x `SystemData::loadConfig`, T2's; the per-device `retroarch.cfg` x `setsettings.sh`'s writes; the cores' save paths x the sync's layout; the widget patches x the proxy's toasts) and the futro's predictions checked | B |
 | Analysis | `.../04-analysis.md` | Phase 4, then § Finding Verification (4.5), then **§ Renovation face** with one subsection per question Q1 to Q7 (the lint requires all seven), **Q4 carrying the three currency tables** (the fork against ROCKNIX with the 14 dispositions; the 151 pins against the projects with dates and days; RetroArch against master and its releases with the eight patches' `--check` results), Q6 the five reachability tables, Q5 the measurements beside T1's and #336's, then § Second opinions (4.6) with the two seats' leads re-read | B, C |
 | Second opinions | `.../second-opinions/` | `review-plan.json` (written before the first call), `<member>-brief.md`, the outputs, each call's `provenance.json`; the probe of each seat | C |
 | Lint, before D | `tools/lint-audit-artifacts <folder> --phase pre-issue` | prints `PASS pre-issue artifacts (does not certify resolution)`; recorded in the running log | C to D |
-| Punch list | `.../05-punch-list.md` | Phase 5, every item with `question: Q1..Q7` (or `none` with a reason), severity, category (`Renovation` where it is not a defect), where (file:line at `8ebaf8daad`), acceptance; the YAML `punch_index` (`templates.md`); #336-line items marked for `deferred:#336`; a pin bump marked `to merge` with the upstream commit or the project's commit named; a removal with `removal: yes` and its `Already written:` | D |
+| Punch list | `.../05-punch-list.md` | Phase 5, every item with `question: Q1..Q7` (or `none` with a reason), severity, category (`Renovation` where it is not a defect), where (file:line at `8ebaf8daad`), acceptance; the YAML `punch_index` (`templates.md`); #336-line items marked for `deferred:#336`; findings on `Install Steam.sh` marked for `deferred:M7-merge` (the M7 lane's `6101242e14` changes the file; the coordinator re-opens them over the merged file, plan § 8); a pin bump marked `to merge` with the upstream commit or the project's commit named; a removal with `removal: yes` and its `Already written:` | D |
 | Audit issue | GitHub, labels `audit`, `punch-list`, milestone M6, a sub-issue of #650 | `Audit: M6 T3 RetroArch and the libretro cores -- N findings (X critical, Y high)`; one checkbox per item, each agent-verifiable (D-QA-044); `tools/box-check --issue N` run on it and its line recorded | D |
 | Bug issues | GitHub, label `bug`, title `Bug: ...` (`milestone-phase-naming.md` § Reactive), milestone-less and not sub-issues (T1's and T2's shape) | one per defect (D-WORKFLOW-187, D-QA-051): the code trace shape (`release-candidates.md` step 0), the `Can this be done on the VM?` line, a VM-verifiable criterion, `Already written:`; the wrapper test's retired roots is the first, at stage A | A (the tool), D |
 | **The stage-D pause** | #650 | the punch list posted on #650 with the audit issue's number and the `bug` issues' numbers; **the lane waits** while the coordinator writes one remediation brief per stream of related items (plan § 6b stage E: the D-WORKFLOW-056 shape, the files owned, the test first, the `Already written:` line, commits cut from intermediates only after a green run, a stub or a fixture part of the claim; D-WORKFLOW-189) | D to E |
 | Remediation | the branches the stream briefs name | each stream as its brief specifies: a recipe or table change with `pkgcheck` first and the host regeneration of the table where it applies, a `*.sh` change with its shellcheck line and a guest run of the changed path where the guest can run it, a configuration change with its measurement; a `bug` issue's fix carries its `Already written:` and names its two runs | E |
-| Verification | `02-forward-audit.md` appended; `.../audit-completion.json` | every behaviour claim proven on the guest where the image can show it (§ 5), the VM cycle's row in `docs/vm-qa-log.md`; every guest proof's row carries a `proved:` cell with one of `image-set` (the installed set at `069fc2704421`, equal to the tree's for this slice), `fix-host-regen` (a table or recipe fix proven by the host regeneration and `pkgcheck`; the image is the coordinator's), `fix-guest-copy` (a configuration or `*.sh` fix proven by copying the file onto the guest), `fix-pending-image` (nothing but an image can show it: the coordinator proves it at the first image after the merge, plan § 6b stage H); the Phase 7 gate in `05` | F |
+| Verification | `02-forward-audit.md` appended; `.../audit-completion.json` | every behaviour claim proven on the guest where the image can show it (§ 5), the VM cycle's row in `docs/vm-qa-log.md`; every guest proof's row carries a `proved:` cell with one of `image-set` (the installed set at `069fc2704421`, equal to the tree's for this slice), `fix-host-regen` (a table or recipe fix proven by the host regeneration and `pkgcheck`; the image is the coordinator's), `fix-guest-copy` (a configuration or `*.sh` fix proven by copying the file onto the guest), `fix-pending-image` (nothing but an image can show it: the coordinator proves it at the first image after the merge, plan § 6b stage H), or `fix-walk-pending-image` where the fix comes with a walk under `tools/vm-walks/` for the coordinator to run on that image (plan § 6b H; none is expected in this slice); the Phase 7 gate in `05` | F |
 | Retro | `docs/retros/<yyyy-mm-dd>-m6-emulators-libretro.md`, and the same text as a comment on #650 | the mini-retro skill's four answers with its scoped audit, in Instruction-Recommendations mode (plan § 6b G: the scope is epic tier); findings that recur become a rule edit, a tool, a blindspot entry; **what the slice did to the two time-to-play numbers** | G |
 | Hand-back | #650 | `reviewed-at:` (the branch `HEAD` at stage A) and `fixed-at:` (the branch's last commit on the slice's paths) written into #650's body by the executor; one comment naming the branch tip and each artifact by path, the six checker exit codes, and per fix its `proved:` class | H |
 | Lane pointer | `.github/sessions/saved-session-state-feature-m6-emulators-libretro-650.md` | seeded by the coordinator; the executor updates it at every checkpoint: start here, the worktree, current focus, the stage reached, next commands, merge notes | every checkpoint |
@@ -931,12 +1048,12 @@ from this lane's word.
 - [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue, or withdrawn with its reason.
 - [ ] `reviewed-at:` and `fixed-at:` above carry the lane's commits the read and the fixes were made at (the read made with the slice's bytes equal to `next`'s `8ebaf8daad`, the branch on the P1 tip; no EmulationStation path here, so no `fixed-at-es:`), and, after the coordinator closes this issue and the branch merges to `next`, `tools/renovation-status` lists this slice as `closed` (the coordinator's regeneration).
 - [ ] `01-research-notes.md` § Scope records the read hash `8ebaf8daad`, the filter of brief § 2 with its output (344 paths, 31,961 lines, 24 fork-own with 6,557 lines, 299 upstream-carried, 21 vendor-carried with 1,670 lines, or the deltas beside them, and the order row's 5,519 explained), the image's BUILD_ID, the M7 delta (`next..069fc2704421` on the two directories) by hunk, and the #336 line as drawn.
-- [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path, the path in backticks as the first cell: ``grep -c '^| `projects/ROCKNIX/packages/' 02-forward-audit.md`` prints 344; each row's Q1 to Q7 cells answered or `n/a` with a reason.
-- [ ] `02-forward-audit.md` records, with command, exit status and summary line, each of: `tools/pkgcheck` over every recipe in the membership (152 runs, the non-zero lines listed), shellcheck over the shell sources named in § 5, `tools/retroarch-wrapper-test` against the pin's `video_thread_wrapper.c` (plain and `--gated`), the two rotation-table generators against the build root's sources, `xmllint --noout` and the element counts on the guest's `es_systems.cfg` beside the host regeneration's diff, `tools/time-to-play --vm`, and `tools/fork-package-freshness --list`'s line showing it covers none of the slice; a check that could not run is recorded with the reason, never as a pass.
-- [ ] `04-analysis.md` § Renovation face Q4 carries the three currency tables: (a) every recipe's pin against `upstream/next`'s with the one difference named, and the 14 commits of `c445081a59..upstream/next` on the two directories each with a disposition (merged / not applicable / to merge, with the reason); (b) one row per recipe (151) with the pin's date, the project's head date, the days between and whether upstream carries the same pin, produced by a script committed under the audit folder with its run date; (c) RetroArch's pin against master and `v1.22.2`, and `git apply --check` of each of the eight fork patches against master's `video_thread_wrapper.c`, `cheevos`, `gfx/gfx_widgets*` and `command.c`, each result named.
+- [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path, the path in backticks as the first cell: ``grep -c '^| `projects/ROCKNIX/packages/' 02-forward-audit.md`` prints 344; each row's Q1 to Q7 cells answered or `n/a` with a reason (`n/a: upstream's recipe, unchanged here` is a reason for an upstream-carried recipe's Q1, Q2, Q3 and Q7 cells, § 4).
+- [ ] `02-forward-audit.md` records, with command, exit status and summary line, each of: `tools/pkgcheck` over every recipe in the membership (152 runs, the path each printed, the non-zero lines listed), shellcheck over the shell sources named in § 5, `tools/retroarch-wrapper-test` against the pin's `video_thread_wrapper.c` (plain and `--gated`), the two rotation-table generators against the build root's sources, the `FetchContent` grep over the build root's core sources, the `ElementTree` parse and element counts of the image's `es_systems.cfg` beside the host regeneration's diff, `tools/time-to-play --vm` with the configuration's sha256, and `tools/fork-package-freshness --list`'s line showing it covers none of the slice; a check that could not run is recorded with the reason, never as a pass.
+- [ ] `04-analysis.md` § Renovation face Q4 carries the three currency tables: (a) every recipe's pin against `upstream/next`'s with the one difference named, and the 14 commits of `c445081a59..upstream/next` on the two directories each with a disposition (merged / not applicable / to merge, with the reason); (b) one row per recipe (151) with the pin's date, the project's head date, the days between and one class of `current`, `behind-upstream`, `behind-project`, `upstream-same`, `pin-not-on-project`, `repo-missing` (no empty cell; the script's own assertion), produced by a script committed under the audit folder with its run date; every `to merge` of a core bump names the changelog or commit range read and cites #10; (c) RetroArch's pin against master and `v1.22.2`, and `git apply --check` of each of the eight fork patches against master's `video_thread_wrapper.c`, `cheevos`, `gfx/gfx_widgets*` and `command.c`, each result named.
 - [ ] `04-analysis.md` § Renovation face Q5 carries the two time-to-play numbers measured on the guest beside T1's (0.73 s and 1.01 s; 0.64 s and 1.01 s) and #336's baseline (1.05 s and 2.03 s), and for every `retroarch.cfg` key named as a cost either a measured difference or the words `not measured` with why.
 - [ ] `04-analysis.md` § Renovation face Q6 carries the five reachability tables of brief § 4 (131 `*-lr` recipes with the built devices that carry each; 142 systems with their cores and `.conf`; 24 `sources/*.sh` with the built devices whose `PKG_EMUS` names each; 15 `sources/<DEVICE>/` sets; 21 RetroArch patches with the source each touches), each with its search command and output; every row marked unreached by any fork image carries an `Already written:` line and what the unit exposed; the five recipes outside the membership named as T24's.
-- [ ] Every proof on the guest in `02-forward-audit.md` carries a `proved:` cell reading `image-set`, `fix-host-regen`, `fix-guest-copy` or `fix-pending-image` (§ 6, Verification); ``grep -c 'proved:' 02-forward-audit.md`` equals the number of guest proofs the running log lists.
+- [ ] Every proof on the guest in `02-forward-audit.md` carries a `proved:` cell reading `image-set`, `fix-host-regen`, `fix-guest-copy` or `fix-pending-image` (§ 6, Verification); ``grep -c 'proved:' 02-forward-audit.md`` equals ``grep -c '^GUEST-PROOF:' 00-running-log.md`` (the convention of § 6: every guest proof is announced in the running log on a line starting with that token).
 - [ ] Every punch item whose `punch_index` entry carries a `tracked: "#N"` has that `bug` issue carrying the `Can this be done on the VM?` line and a VM-verifiable criterion; every item whose entry carries `removal: yes` has an `Already written:` line in its row; every pin bump is `to merge` or `deferred:` with the commit named, never applied on this branch without a stream brief; `tools/box-check --issue N` passes on the audit issue and on each `bug` issue this lane files.
 - [ ] The retro exists at `docs/retros/<date>-m6-emulators-libretro.md`, is posted on #650, and answers what the slice did to the two time-to-play numbers.
 - [ ] `tools/register-check`, `tools/work-log-index --check`, `tools/rules-check --quiet`, `tools/forbidden-terms-check` and `.githooks/hooks-test` pass on the branch before its merge; the five exit codes pasted on #650.
@@ -944,7 +1061,9 @@ from this lane's word.
 ## 8. Stop conditions
 
 Stop only on: every item of § 7 that is this lane's ticked and the branch
-pushed (the hand-back, § 10); **the stage-D pause** (the punch list and the
+pushed (the hand-back, § 10; criterion 5's `renovation-status` clause and
+the merge are the coordinator's, so that checkbox is not the lane's to
+tick); **the stage-D pause** (the punch list and the
 audit issue posted on #650; the lane waits for the coordinator's stream
 briefs and does no remediation before them, D-WORKFLOW-189; #650's body
 says the same above its checklist); **the Phase 4.6 blocker** (a reviewer
@@ -985,9 +1104,12 @@ the slice is drift, not a stop. An idle session says it is idle on #650.
   -t- -k3 -n | tail -1`) and in the M7 lane's worktree
   (`/workspace/repos/rocknix.worktrees/m7-player-setup/docs/decision-register.md`);
   on 2026-10-24 the highest Decided row on the coordinator branch is
-  D-WORKFLOW-192 (191 is an open row; P1's branch carries 188; the M7 lane
-  holds 171 to 180 unmerged), so **the next Decided row is 193**, checked
-  again on every branch at the time. A row goes at the end of the
+  D-WORKFLOW-192 (191 is an open row; P1's branch carries 188 and 189; T1's
+  and T2's carry 188 to 191; the M7 lane holds 171 to 180 unmerged), so
+  **the next Decided row is 193**, checked again on every branch at the
+  time. The lane's register is the union the stacked branch gives (P1's 188
+  and 189 under the coordinator's 189 to 192), and `tools/register-check`
+  runs on the worktree before the first push. A row goes at the end of the
   `## Decided` table, never after `## Open decisions` (`tools/register-check`
   refuses it there, #646).
 - `tools/ceremony-check` before every push; what it reports as owed by this
@@ -1030,8 +1152,40 @@ Phase 4.6 blocker and the host's return line this brief already names, is a
 defect in this brief: log the friction, and the coordinator fixes the
 template in plan § 7 before the next brief.
 
-**The two readings before dispatch** (plan § 3, principle 3): the area
-epic's futro (`docs/futros/2026-10-24-m6-emulators-and-cores.md`, posted on
-the epic) and a stranger's proof of this brief by a reader with no context
-given this tree and the brief. Version 2 records what each found and where
-it is answered.
+**The two readings before dispatch** (plan § 3, principle 3). The area
+epic's futro (`docs/futros/2026-10-24-m6-emulators-and-cores.md`, #798,
+`179093ffd6`) inspected the substrate and simulated the lane; its findings
+are in § 1's version paragraph and in the text. **The stranger's proof**,
+run 2026-10-24 on version 1 (`bc35aef3d8`) by a reader with no context given
+this tree and the brief, read-only, in 38 minutes: some sixty claims
+checked by command, thirteen wrong (the epic and the retitle already done;
+the GENERIC_X64 configs' area; the 57 patches under thirty directories, not
+eleven; the functions' line numbers; the metapackage's line ranges and its
+eleven case arms; 583 calls, not 584; the fifteen non-core members, not
+twelve; "every other recipe byte-equal" where about 140 differ by
+upstream's dependency line and upstream carries a new core, four patches
+and a changed RK3566 configuration this tree lacks; the branch scan's
+predicate and count; `packages/emulation`, not `packages/emulators`, with a
+null `shadowed_by`; the register grep's 37 rows, not 59; #228 and #120
+open and mis-described; the three status blocks, not five; `xmllint`
+absent; no `--help` on the generators and a second argument for MAME's;
+`vm-qa`'s `wrapper` suite), twelve imprecise (RetroArch's recipe ranges
+off by one; the fifth built device, RK3326; T2's tip one commit past
+`f16cf7fc28`; T1's stage-B numbers medians of three, not n=1; AMD64's
+3,530-line configuration; the window's times; the Argon call's length; an
+`es-code-traps.md` clause that did not say what it was cited for;
+`fix-walk-pending-image` missing from the classes; `time-to-play`'s
+second reboot trigger), twelve questions it would have had to ask (the
+merged lint copy; #650's five criteria against the brief's fifteen; the
+built-device count; the Q4 (c) method; the regeneration's artifact without
+`xmlstarlet`; MAME's drivers directory; the image; the branch-scan
+predicate; the `proved:` classes; criterion 12's denominator; 146 against
+152 `pkgcheck` runs; the register's union), two seams the brief had not
+named (the table's `-P%SYSTEM%` after `%ROM%` against `runemu.sh`'s
+`${ARGUMENTS##*-P}`, T1's #730; the five tokens the table emits against the
+ten the interface expands, and the overlays it reads first, T2's rows), and
+the places this brief disagreed with #650 (five criteria against fifteen;
+no `--no-write` caveat), the plan (the fifth `proved:` class) and itself
+(146 against 152). Version 2 answers each in the text; #650's body carries
+the fifteen criteria and the two never-run switches; the futro's § 1 carries
+an erratum for the configs' area.
