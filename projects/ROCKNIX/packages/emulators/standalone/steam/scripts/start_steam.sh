@@ -251,7 +251,8 @@ steam_launch_bigpicture() {
     steam_touch_calibration_end
     trap - EXIT
     systemctl start essway
-    exit 0
+    # Return, never exit: the wrapper restores binfmt and the dual screen after this.
+    return "${steam_exit_code}"
   else
     FEX /usr/bin/steam -exitsteam
     steam_touch_calibration_begin "${force_orientation}"
@@ -259,10 +260,12 @@ steam_launch_bigpicture() {
     GAMESCOPE_MODE_SAVE_FILE="${gamescope_mode_file}" GAMESCOPE_FAKE_OUTPUT_MM=508x286 ${EMUPERF} \
       gamescope $PREFER_OUTPUT -W "$W" -H "$H" -r "$REFRESH_HZ" --xwayland-count 2 --backend "${gamescope_backend}" --force-orientation "${force_orientation}" ${rotate_clamp} -- \
       FEX /usr/bin/steam -nobigpicture -noverifyfiles -nobootstrapupdate -skipinitialbootstrap -norepairfiles -noshaders "${game_args[@]}"
+    steam_exit_code=$?
     steam_touch_calibration_end
     trap - EXIT
     systemctl start essway
-    exit 0
+    # Return, never exit: the wrapper restores binfmt and the dual screen after this.
+    return "${steam_exit_code}"
   fi
 }
 
