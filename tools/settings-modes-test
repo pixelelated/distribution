@@ -1,13 +1,41 @@
 #!/usr/bin/env python3
-"""#421: real shell writer functions, scratch paths, candidate busybox applets."""
-import argparse, hashlib, json, os, re, shutil, subprocess, tempfile
+"""#421: real shell writer functions, scratch paths, candidate busybox applets.
+
+The busybox must be the candidate's (#997): a path under a build root's
+image/system/ (its BUILD_ID read from that root's etc/os-release), or one
+whose origin --busybox-from names (a BUILD_ID, or `image` on the candidate
+itself, as a guest run passes /usr/bin/busybox). Any other is refused, exit 2;
+--unverified-busybox runs it anyway, marks every line `host busybox, not the
+candidate's` and exits 3, because a run that could not qualify the candidate
+has not passed. Every applet that busybox lists is shimmed (on the image each
+is the busybox's, sh aside, which is bash), so a writer's command runs as the
+device runs it, and the receipt hashes the bytes that ran.
+"""
+import argparse, hashlib, json, os, re, shlex, shutil, subprocess, sys, tempfile
 from pathlib import Path
-p=argparse.ArgumentParser();p.add_argument('--profile',type=Path,required=True);p.add_argument('--chksysconfig',type=Path,required=True);p.add_argument('--busybox',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
+UNVERIFIED="host busybox, not the candidate's"
+def cannot(why):print('settings-modes-test: CANNOT -- '+why,file=sys.stderr);raise SystemExit(2)
+def origin(path,declared,unverified):
+ real=path.resolve()
+ for d in real.parents:
+  if d.name=='system' and d.parent.name=='image':
+   rel=d/'etc/os-release'
+   ids=re.findall(r'^BUILD_ID="?([^"\n]*)"?$',rel.read_text(),re.M) if rel.is_file() and not rel.is_symlink() else []
+   if not ids or not ids[-1]:cannot(f'{path} is under {d} but {rel} names no BUILD_ID')
+   return {'kind':'build-root','root':str(d.parent.parent),'build_id':ids[-1]}
+ if declared:return {'kind':'declared','from':declared}
+ if unverified:return {'kind':'unverified','marker':UNVERIFIED}
+ cannot(f'{path} is not under a build root\'s image/system/; name its origin with --busybox-from <BUILD_ID|image>, or pass --unverified-busybox (exit 3)')
+p=argparse.ArgumentParser(description=__doc__,formatter_class=argparse.RawDescriptionHelpFormatter);p.add_argument('--profile',type=Path,required=True);p.add_argument('--chksysconfig',type=Path,required=True);p.add_argument('--busybox',type=Path,required=True);p.add_argument('--busybox-from',help='the busybox\'s origin when it is not under a build root: a BUILD_ID, or image');p.add_argument('--unverified-busybox',action='store_true',help='run a busybox of no known origin; every line is marked and the exit is 3');p.add_argument('--output',type=Path,required=True);a=p.parse_args()
+src=origin(a.busybox,a.busybox_from,a.unverified_busybox);mark=' -- '+UNVERIFIED if src['kind']=='unverified' else ''
+print('busybox: '+(f"build root {src['root']}, BUILD_ID {src['build_id']}" if src['kind']=='build-root' else f"declared from {src['from']}" if src['kind']=='declared' else UNVERIFIED),flush=True)
 fn=a.profile.read_text();ck=a.chksysconfig.read_text();rows=[]
 with tempfile.TemporaryDirectory(prefix='pixelelated-settings-modes-') as tmp:
- root=Path(tmp);bb=root/'busybox';shutil.copy2(a.busybox,bb);bin=root/'bin';bin.mkdir()
- for applet in ['stat','chmod','cp','mv','awk','sed','head','tail','wc','tr','cut']:
-  f=bin/applet;f.write_text('#!/bin/sh\nexec '+str(bb)+' '+applet+' "$@"\n');f.chmod(0o755)
+ root=Path(tmp);bb=root/'busybox';shutil.copy2(a.busybox,bb);bbsha=hashlib.sha256(bb.read_bytes()).hexdigest();bin=root/'bin';bin.mkdir()
+ applets=[x for x in subprocess.run([str(bb),'--list'],capture_output=True,text=True).stdout.split() if x!='sh']
+ if not {'stat','chmod','cp','mv','awk','sed','mktemp','cat','rm'}<=set(applets):cannot(f'{a.busybox} --list lacks the writers\' applets')
+ for applet in applets:
+  f=bin/applet;f.write_text('#!/bin/sh\nexec '+shlex.quote(str(bb))+' '+applet+' "$@"\n');f.chmod(0o755)
  functions='\n'.join(re.findall(r'^function \w+\(\) \{.*?^\}',fn,re.M|re.S))
  functions+='\n'+'\n'.join(re.findall(r'^\w+\(\) \{.*?^\}',ck,re.M|re.S))
  for operation in ['set_setting','set_settings','del_setting','sort_settings','backup','restore']:
@@ -28,7 +56,7 @@ with tempfile.TemporaryDirectory(prefix='pixelelated-settings-modes-') as tmp:
    expected=oldrecord if operation=='restore' else original if operation=='backup' else b''.join(sorted(original.splitlines(keepends=True))) if operation=='sort_settings' else original.replace(b'qa.setting=older\n',b'')+(b'qa.setting=newer\n'+(b'qa.other=second\n' if operation=='set_settings' else b'') if operation!='del_setting' else b'')
    okay=result.returncode==0 and target.read_bytes()==expected and target.stat().st_mode&0o777==expectedmode
    rows.append({'case':case.name,'pass':okay,'rc':result.returncode,'expected_mode':oct(expectedmode),'actual_mode':oct(target.stat().st_mode&0o777),'bytes_match':target.read_bytes()==expected})
-   print(('PASS ' if okay else 'FAIL ')+case.name,flush=True)
+   print(('PASS ' if okay else 'FAIL ')+case.name+mark,flush=True)
  # Every refused staging action leaves the published file and other file intact.
  for fault in ['symlink','chmod','stat','producer','rename']:
   case=root/('refuse-'+fault);configroot=case/'config';cfgdir=configroot/'system/configs';cfgdir.mkdir(parents=True)
@@ -39,6 +67,6 @@ with tempfile.TemporaryDirectory(prefix='pixelelated-settings-modes-') as tmp:
   command='sort_settings' if fault=='rename' else 'set_setting qa.setting newer'
   result=subprocess.run(['bash','-c',setup+command],capture_output=True,text=True,timeout=15,env={**os.environ,'PATH':str(bin)+':/usr/bin:/bin'})
   okay=result.returncode!=0 and not live.is_symlink() and live.read_bytes()==original and live.stat().st_mode&0o777==0o600 and victim.read_bytes()==b'unchanged\n'
-  rows.append({'case':'refuse-'+fault,'pass':okay,'rc':result.returncode});print(('PASS ' if okay else 'FAIL ')+'refuse-'+fault,flush=True)
-report={'pass':all(x['pass'] for x in rows),'checks':rows,'profile_sha256':hashlib.sha256(a.profile.read_bytes()).hexdigest(),'chksysconfig_sha256':hashlib.sha256(a.chksysconfig.read_bytes()).hexdigest(),'busybox_sha256':hashlib.sha256(a.busybox.read_bytes()).hexdigest()}
-a.output.parent.mkdir(parents=True,exist_ok=True);a.output.write_text(json.dumps(report,indent=2)+'\n');raise SystemExit(0 if report['pass'] else 1)
+  rows.append({'case':'refuse-'+fault,'pass':okay,'rc':result.returncode});print(('PASS ' if okay else 'FAIL ')+'refuse-'+fault+mark,flush=True)
+report={'pass':all(x['pass'] for x in rows),'checks':rows,'profile_sha256':hashlib.sha256(a.profile.read_bytes()).hexdigest(),'chksysconfig_sha256':hashlib.sha256(a.chksysconfig.read_bytes()).hexdigest(),'busybox_sha256':bbsha,'busybox_origin':src,'shimmed_applets':len(applets)}
+a.output.parent.mkdir(parents=True,exist_ok=True);a.output.write_text(json.dumps(report,indent=2)+'\n');raise SystemExit(1 if not report['pass'] else 3 if mark else 0)
