@@ -180,3 +180,11 @@ or another lane's worktree.
 - **`05`:** 66 resolved or withdrawn, 18 deferred; the resolution lint is PASS.
 - **`tools/register-check` fails only on D-WORKFLOW-192.** Its row is on the coordinator's `68a4e05112` (feature/m6-renovation-plan-346), so it passes when that is merged. That tip appears to lack D-WORKFLOW-188, which this branch's register carries (line 722).
 - **What the coordinator does next:** accept per brief § 10, close #648 and the resolved bugs, write `slices.json`, merge, prove the nine fix-pending-image rows at the first image after the merge, write the change log at the merge (retro adjustment 7), and write `audit-completion.json` after #701 is closed.
+
+**Fix-packet stream 806 handed back (2026-10-24, about 04:45 UTC); the lane is idle again.** The coordinator dispatched it to this lane (#806, issuecomment of 04:31; brief `docs/reviews/briefs/fix-packets-802-806.md` on `feature/m6-renovation-plan-346`).
+- **Packet:** branch `fix/m6-806-grep-pcre2` on `origin`, cut from `next` at `8ebaf8daad`. Its worktree is `/workspace/repos/pixelelated/distribution.worktrees/m6-806-grep-pcre2`, which the coordinator removes with `tools/fork-worktree remove` once M7 has consumed it.
+- **Commit:** `ea0af11d07`, *grep: declare pcre2 and enable perl regexps so a build without PCRE fails closed*. It touches only `projects/ROCKNIX/packages/sysutils/grep/package.mk`.
+- **Checks:** pkgcheck exited 0, and `git apply --check` against `8ebaf8daad` exited 0.
+- **Hand-back:** #806 issuecomment-6379901264.
+- **Correction to the brief:** pcre2's target build is static (`BUILD_SHARED_LIBS=OFF`), so the image gains no `libpcre2-8.so`. It gains about 525 KB in `usr/bin/grep` (H700 789,952 B against SM8550 265,312 B).
+- **Waiting on:** the coordinator's *reviewed* on #806. M7's build and install-tree readback are M7's. Nothing is owed from this lane, and no VM, compiler or `npm` is to be launched while M7 holds the host.
