@@ -34,3 +34,12 @@ msgfmt passes. Theme XML changes only the displayName of distribution:rocknix
 to Rasteratops; the stored key and custom splash selection are retained.
 The new splash path has a matching installed SVG and licence. Runtime French
 and English frames remain required; these checks do not claim their fit.
+
+`rc-preflight-t10.py` (T10 S9, #956, 2026-10-24): the acceptance and
+bug-trace cases, run as `python3 -I rc-preflight-t10.py [tools/rc-preflight]`
+with the tool's `run` replaced by a stub tracker and its acceptance file and
+register pointed at constructed files. An unknown kind and a base that is
+neither base are named findings; a trace that is only a heading, and an empty
+`Already written:` line, fail both items; a trace on its heading's own line
+passes; a tracker answer of exactly the limit is CANNOT. Six of its cases fail
+on the tool before the fix.

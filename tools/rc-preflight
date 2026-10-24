@@ -61,7 +61,16 @@
 #
 # (#271: "a PINNED line is a finding the maintainer accepts for this candidate
 # by a register row naming it, or the bump is done first"). A line whose ID is
-# not a decided row accepts nothing, and says so.
+# not a decided row accepts nothing, and says so. A line of another kind, or a
+# base other than the two, or a bug that is not #N, is a finding (#956); a
+# row that does not name the item it accepts, and a line that accepted no
+# finding this run, are notes.
+#
+# One reader judges a bug's trace for both items (#956): a "Code trace"
+# heading with a line of words under it, and an "Already written:" line with
+# words after its colon. A heading alone, or an empty answer, is no trace.
+# The tracker's lists are read to LIMIT; an answer that reaches it may be cut
+# short and is CANNOT, not a pass.
 #
 # Exit 0 when every item is current or accepted; 1 when any finding is not
 # accepted; 2 when any item could not be answered -- a remote that did not
@@ -82,6 +91,10 @@ REGISTER = os.path.join(ROOT, "docs", "decision-register.md")
 ES_PKG = "projects/ROCKNIX/packages/ui/emulationstation/package.mk"
 PROXY_PKG = "projects/ROCKNIX/packages/network/raofflineproxy"
 STATES = ("CURRENT", "PINNED", "BEHIND", "INHERITED", "LOCAL", "UNKNOWN")
+LIMIT = 1000   # the tracker lists' bound; reaching it is CANNOT (#956)
+KINDS = {"package": re.compile(r"^[A-Za-z0-9][A-Za-z0-9._+-]*$"),
+         "base": re.compile(r"^(distribution|emulationstation)$"),
+         "bug": re.compile(r"^#\d+$")}
 
 
 def run(cmd, cwd=None, timeout=600):
@@ -92,23 +105,42 @@ def run(cmd, cwd=None, timeout=600):
         return None, "", str(exc)
 
 
-def decided_ids():
+def decided_rows():
+    """{ID: row text} for the decided table, or None when the register cannot be read."""
     try:
         text = open(REGISTER, encoding="utf-8").read()
     except OSError:
         return None
     decided = text.split("\n## Open decisions", 1)[0]
-    return set(re.findall(r"^\| (D-[A-Z]+-\d+) \|", decided, re.M))
+    return {m.group(1): m.group(0) for m in re.finditer(r"^\| (D-[A-Z]+-\d+) \|.*$", decided, re.M)}
 
 
-def acceptances(ids):
-    """{(kind, item): id} for every line whose ID is a decided row; and the
-    lines that accepted nothing, with why."""
-    ok, bad = {}, []
+def decided_ids():
+    rows = decided_rows()
+    return None if rows is None else set(rows)
+
+
+class Accepted(dict):
+    """The acceptances, remembering which ones a check looked up."""
+    def __init__(self, *a):
+        super().__init__(*a)
+        self.used = set()
+
+    def get(self, key, default=None):
+        if key in self:
+            self.used.add(key)
+        return super().get(key, default)
+
+
+def acceptances(ids, rows=None):
+    """(ok, notes, findings): {(kind, item): id} for every well-formed line
+    whose ID is a decided row; the lines that accepted nothing, with why; and
+    the lines whose kind or item is not one this tool accepts."""
+    ok, bad, findings = Accepted(), [], []
     try:
         lines = open(ACCEPT, encoding="utf-8").read().splitlines()
     except FileNotFoundError:
-        return ok, bad
+        return ok, bad, findings
     for n, raw in enumerate(lines, 1):
         line = raw.strip()
         if not line or line.startswith("#"):
@@ -119,11 +151,54 @@ def acceptances(ids):
             bad.append("line %d: '%s' names no register row" % (n, line.strip()))
             continue
         kind, item, rid = parts[0], parts[1], parts[2]
+        if kind not in KINDS:
+            findings.append("line %d: '%s' is not a kind of acceptance (package, base, bug)" % (n, kind))
+            continue
+        if not KINDS[kind].match(item):
+            findings.append("line %d: %s '%s' is not an item of that kind" % (n, kind, item))
+            continue
         if ids is None or rid not in ids:
             bad.append("line %d: %s %s cites %s, which is not a decided register row" % (n, kind, item, rid))
             continue
+        if rows is not None and item.lstrip("#") not in rows.get(rid, ""):
+            bad.append("line %d: %s %s cites %s, whose row does not name %s" % (n, kind, item, rid, item))
         ok[(kind, item.lstrip("#"))] = rid
-    return ok, bad
+    return ok, bad, findings
+
+
+def check_acceptances(r, ids, rows=None):
+    acc, bad, findings = acceptances(ids, rows)
+    for b in bad:
+        r.add("NOTE", "rc-accept.txt", b)
+    for f in findings:
+        r.add("FAIL", "rc-accept.txt", f)
+    return acc
+
+
+TRACE_HEAD_RE = re.compile(r"^\s*(?:#+\s*|\*\*|[-*]\s*)?code trace\b([^\n]*)$", re.I | re.M)
+TRACE_ANSWER_RE = re.compile(r"^\s*(?:[-*]\s*)?(?:\*\*)?already written(?:\*\*)?\s*[:.]\s*(?:\*\*)?(.*)$", re.I | re.M)
+
+
+def has_trace(text):
+    """A Code trace heading with words after it on its own line (`**Code trace** (...). Found ...`)
+    or a line of words under it before the next heading."""
+    for m in TRACE_HEAD_RE.finditer(text or ""):
+        if len(re.findall(r"\w{2,}", m.group(1))) >= 3:
+            return True
+        for line in text[m.end():].splitlines():
+            t = line.strip()
+            if not t:
+                continue
+            if t.startswith("#"):
+                break
+            if re.search(r"\w{2,}", t) and not TRACE_ANSWER_RE.match(line):
+                return True
+    return False
+
+
+def has_already_written(text):
+    """An Already written line with words after its colon."""
+    return any(re.search(r"\w{2,}", m.group(1)) for m in TRACE_ANSWER_RE.finditer(text or ""))
 
 
 class Report:
@@ -232,7 +307,7 @@ def check_base(r, name, repo, base, target, acc, fetch_cmd, fetched):
 
 def check_bugs(r, acc):
     rc, out, err = run(["gh", "issue", "list", "--repo", "pixelelated/distribution", "--state", "open", "--label", "bug",
-                        "--limit", "300", "--json", "number,title"], timeout=120)
+                        "--limit", str(LIMIT), "--json", "number,title"], timeout=120)
     if rc != 0:
         r.add("CANNOT", "bugs", "the tracker did not answer: %s" % (err or out).strip().splitlines()[-1:])
         return
@@ -241,18 +316,20 @@ def check_bugs(r, acc):
     except ValueError:
         r.add("CANNOT", "bugs", "the tracker's answer was not JSON")
         return
+    if len(issues) >= LIMIT:
+        r.add("CANNOT", "bugs", "the tracker returned %d open bugs, the limit; the list may be cut short" % len(issues))
+        return
     open_ = [i for i in issues if not acc.get(("bug", str(i["number"])))]
     accepted = ["#%d (%s)" % (i["number"], acc[("bug", str(i["number"]))]) for i in issues if acc.get(("bug", str(i["number"])))]
     untraced = []
     for i in issues:
         if not acc.get(("bug", str(i["number"]))):
             continue
-        rc2, out2, err2 = run(["gh", "api", "--paginate", "repos/pixelelated/distribution/issues/%d/comments" % i["number"],
-                               "--jq", ".[].body"], timeout=120)
-        if rc2 != 0:
-            r.add("CANNOT", "bugs", "the tracker did not answer for #%d's comments: %s" % (i["number"], (err2 or out2).strip().splitlines()[-1:]))
+        text, why = issue_text(i["number"])
+        if text is None:
+            r.add("CANNOT", "bugs", "the tracker did not answer for #%d: %s" % (i["number"], why))
             return
-        if not re.search(r"^\s*(#+\s*|\*\*)?code trace\b", out2 or "", re.I | re.M):
+        if not has_trace(text):
             untraced.append("#%d" % i["number"])
     if untraced:
         r.add("FAIL", "bugs", "%d accepted bug(s) whose issue carries no \"Code trace\" comment (#273): %s%s" % (
@@ -271,8 +348,6 @@ def check_bugs(r, acc):
 # gate gets switched off. The four device-round bugs closed at 01:25-01:31 UTC
 # that day predate it; #280's missing answer is #288.
 ALREADY_WRITTEN_SINCE = "2026-09-26T02:45:00Z"
-CODE_TRACE_RE = re.compile(r"^\s*(?:#+\s*|\*\*|[-*]\s*)?code trace\b", re.I | re.M)
-ALREADY_WRITTEN_RE = re.compile(r"^\s*(?:[-*]\s*)?(?:\*\*)?already written(?:\*\*)?\s*[:.]", re.I | re.M)
 
 
 def issue_text(number):
@@ -291,7 +366,7 @@ def check_already_written(r):
     listed = []
     for state in ("open", "closed"):
         rc, out, err = run(["gh", "issue", "list", "--repo", "pixelelated/distribution", "--state", state, "--label", "bug",
-                            "--limit", "300", "--json", "number,closedAt,stateReason"], timeout=120)
+                            "--limit", str(LIMIT), "--json", "number,closedAt,stateReason"], timeout=120)
         if rc != 0:
             r.add("CANNOT", "already written", "the tracker did not answer: %s" % (err or out).strip().splitlines()[-1:])
             return
@@ -299,6 +374,9 @@ def check_already_written(r):
             issues = json.loads(out)
         except ValueError:
             r.add("CANNOT", "already written", "the tracker's answer was not JSON")
+            return
+        if len(issues) >= LIMIT:
+            r.add("CANNOT", "already written", "the tracker returned %d %s bugs, the limit; the list may be cut short" % (len(issues), state))
             return
         for i in issues:
             if state == "closed" and (i.get("stateReason") != "COMPLETED" or (i.get("closedAt") or "") < ALREADY_WRITTEN_SINCE):
@@ -310,12 +388,14 @@ def check_already_written(r):
         if text is None:
             r.add("CANNOT", "already written", "the tracker did not answer for #%d: %s" % (n, why))
             return
-        if not CODE_TRACE_RE.search(text):
+        if not TRACE_HEAD_RE.search(text):
             if state == "closed":
                 untraced.append("#%d" % n)   # an open bug without a trace is the bugs item's finding
             continue
         read += 1
-        if not ALREADY_WRITTEN_RE.search(text):
+        if state == "closed" and not has_trace(text):
+            untraced.append("#%d" % n)       # a heading with nothing under it is no trace
+        if not has_already_written(text):
             missing.append("#%d" % n)
     if missing or untraced:
         parts = []
@@ -358,10 +438,9 @@ def main():
     if a.only:
         # Deliberately no MAY BE CUT verdict for a scoped source check.
         return 2 if any(row[0] == "CANNOT" for row in r.rows) else int(any(row[0] == "FAIL" for row in r.rows))
-    ids = decided_ids()
-    acc, bad = acceptances(ids)
-    for b in bad:
-        r.add("NOTE", "rc-accept.txt", b)
+    rows = decided_rows()
+    ids = None if rows is None else set(rows)
+    acc = check_acceptances(r, ids, rows)
 
     check_packages(r, tree, acc)
     check_base(r, "distribution", tree, "HEAD", "upstream/next", acc,
@@ -403,6 +482,8 @@ def main():
     else:
         r.add("CANNOT", "ceremonies", "ceremony-check did not answer (rc %s)" % rc)
 
+    for key in sorted(set(acc) - acc.used):
+        r.add("NOTE", "rc-accept.txt", "%s %s (%s) accepted no finding this run" % (key[0], key[1], acc[key]))
     fails = [x for x in r.rows if x[0] == "FAIL"]
     cannot = [x for x in r.rows if x[0] == "CANNOT"]
     unchecked = [x for x in r.rows if x[0] == "UNCHECKED"]
