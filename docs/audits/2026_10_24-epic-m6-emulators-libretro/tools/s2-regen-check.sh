@@ -7,6 +7,11 @@
 # core each table names checked against that image's usr/lib/libretro.
 #
 #   s2-regen-check.sh <tree> <outdir>
+#   XS=<xmlstarlet> s2-regen-check.sh <tree> <outdir>
+#
+# XS is the build's own host xmlstarlet (regen-es-systems.sh's third
+# argument); it defaults to <tree>/.qa-scratch/t3-regen/xs/xml, the copy
+# stage B took from the M7 GENERIC_X64 root's toolchain/bin/xml.
 #
 # A system whose games are .sh files (idtech) is excluded from the core check:
 # runemu.sh:488 runs a .sh ROM itself, so its "core" is never loaded.
