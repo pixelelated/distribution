@@ -29,16 +29,17 @@
 lane's post-candidate merge to clear the push guard's W42 gate before
 anything merges to `next` (never `--no-verify`); the order is in § Merge
 notes and § State at 2026-10-24. **Accepted:** P1 (#641), T1 (#648), T2
-(#649), T3 (#650), T5 (#652), T6 (#653); the packet `fix/m6-877-libfmt-sha256`
+(#649), T3 (#650), T5 (#652), T6 (#653), **T7 (#654, `db6597356b`, 11:17)**; the packet `fix/m6-877-libfmt-sha256`
 (`cf3a8d8e62`, reviewed, merges before T5's branch). **Running:** T30
 (#677, Extended) in the T3 session (`m6-t3-emulators`), **stage E** from
 `docs/reviews/briefs/t30-streams.md` (S0 to S5; audit issue #872; its
 hand-backs arrive one per stream on #677, the coordinator accepts each by
-the brief's shape and the whole by brief § 10 at stage H); **T7** (#654,
-Local) in the T5 session (`m6-t5-build-engine`), through stage B into C
-(its stage-D pause is the coordinator's next act there: stream briefs for
-the four dead-URL bugs it files, the fork-introduced BEHIND rows as Backlog
-bumps in #839's shape, the sixteen #645 rows to post). The T1 session
+the brief's shape and the whole by brief § 10 at stage H); **T8** (#655, the image's own
+packages, Independent: the first Independent slice, one GPT-6 Astra
+reviewer through the Facilitator) is being briefed for the T5 session
+(`m6-t5-build-engine`, idle after T7): the area futro gets a T8 addendum,
+then brief v1, a stranger's proof, v2, #655's criteria, a worktree stacked
+on P1 with this tip, the pointer, the dispatch. The T1 session
 (`m6-t1-os-launch`) is idle after #877's packet. **Waiting on the
 maintainer (#346):** T4's dispatch (#651, brief v2 `0921782112`; a third
 lane). **At integration (the coordinator dispatches):** one packet for
@@ -270,7 +271,7 @@ is the narrative; this is the index of what a resuming agent must know.
   disclosure timing; `LOCAL_SSH_KEYS_FILE` in Docker builds; D-SYS-014;
   D-WORKFLOW-191; the `portaudio` re-hosting (#849).
 - **Integration (after the M7 candidate):** P0, P1, T1, T2, T3, T30, **`fix/m6-877-libfmt-sha256` (`cf3a8d8e62`, one commit: the empty `PKG_SHA256` T5's fetch would refuse)**, T5, T6,
-  T7, T4; at integration flip `add_es_system`'s zero-default WARNING to
+  T7 (`db6597356b`), T4; at integration flip `add_es_system`'s zero-default WARNING to
   `return 1` after T3's S2 and regenerate the five tables; the #802/#806/#825
   adaptations; close #823, #841, #845 and the other fixed bugs at the merge;
   the `fix-pending-image` rows are proved on the first image.
