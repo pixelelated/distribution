@@ -205,3 +205,33 @@ PROOF: P8 the index and its rules -- `instruction-files.md` at the hash: 21 of 2
 - **`04` gained the five sections the lint requires.** `tools/lint-audit-artifacts <folder> --phase pre-issue`: `review plan: independent, 2 model perspectives, 1 verified external calls`, then `PASS pre-issue artifacts (does not certify resolution)`.
 - **API budget** before the filing: core 4,939 and GraphQL 4,977.
 - **The stage-D pause:** no file under `tools/` has changed on this branch. The lane waits for the coordinator's stream briefs.
+
+## [Stage E] 21:37 UTC — S2: the shared sandbox and the connections fixture (#992, #999)
+
+- **The dispatch** (#661, 21:30 UTC) and the stream brief (`docs/reviews/briefs/t14-streams.md` at `13242d182a`, read with `git show`, not merged):
+  - PL-09 stays the disposition, and its kill after a refused start is a bug filed at S11;
+  - PL-11's tenth tool is in both #986 and #994;
+  - twelve streams, S2 first, and no guest in stage E.
+- **The test first:** `docs/qa-logs/2026-10-24-state-tests-s2/sandbox-case.py`, run against `git archive 7aa8eac253 -- tools`, exported to `/workspace/tmp/m6-t14/export-D/`.
+  - **Part A:** a probe script through `Fixture.run`.
+  - **Part B:** the whole `--archives-only` run.
+  - **What the caller exports in both:** `TMPDIR` (a host path), `RCLONE_CONFIG` (a stand-in, absent), an `RCLONE_CONFIG_QA_TYPE` remote, `BASH_ENV=/shim/logger` and an exported function.
+  - **Part C:** the connections fixture with a real rclone copied to another path, on a stand-in `HOME`.
+  - **Unfixed: 9 of 10 checks FAIL:**
+    - all four variables and the function reach the script, and `BASH_ENV` is sourced;
+    - `mktemp` fails, and the sandbox sees 39 network interfaces;
+    - cloud-layout gives 0 PASS, 13 FAIL;
+    - the fixture admits the copied rclone and writes the stand-in `HOME`'s default `rclone.conf`.
+- **The fix:**
+  - `2e6639ec57`: `SANDBOX_ENV` (`--clearenv`, `--unshare-net`, `LANG=C`, `TERM=dumb`, `TMPDIR=/tmp`) in `Fixture.run` and the validator's adoption sandbox.
+  - `89efee384c`: the fixture admits real `subprocess` only for a non-ELF shim inside its own directory, and passes `--config`; the table fake's argv shape is unchanged.
+  - **Fixed: 10 of 10:** nothing of the caller's inside; `TMPDIR=/tmp`; loopback only; cloud-layout 13 PASS; the copy refused and nothing written; T15's shim receives `--config <stage>`; the FakeSP shape intact.
+- **The four under the same variables:**
+  - cloud-layout 13/13 (part B);
+  - save-layout `39 PASS, 0 FAIL`;
+  - content-scope 19 PASS, 2 FAIL, the two traversal cases, which are S4's (#993);
+  - the validator's adoption case: a scratch copy cannot supply the `git` history it reads, so it runs under the variables at S3, once the pin no longer refuses 1.75.2.
+- **Bindings, read first (D-QA-058):** each of the four binds the fixture's local `/cloud` alias; none reaches the host's QA backend or a loopback service. So all four unshare the network, and none keeps it.
+- **The lane's `~/.config/rclone/rclone.conf` mtime:** `2026-07-29 05:00:22.58Z` before and after (the mtime only).
+- **For T15 (#662), through the coordinator:** the fixture's change keeps every argv shape T15's FakeSP and its authorize shim use (`last-good-scripts-test:5244-5250`, `:5062-5067`). T15's run was not repeated here.
+PROOF: P9 S2's control -- `docs/qa-logs/2026-10-24-state-tests-s2/sandbox-case.py` with the caller's TMPDIR, RCLONE_CONFIG, an RCLONE_CONFIG_* remote, BASH_ENV and a function exported: at 7aa8eac253 9 of 10 FAIL (`.qa-scratch/t14/s2-unfixed.txt`), fixed 10 of 10 (`s2-fixed.txt`); save-layout 39/39 and content-scope 19/2 (S4's) under the same variables.

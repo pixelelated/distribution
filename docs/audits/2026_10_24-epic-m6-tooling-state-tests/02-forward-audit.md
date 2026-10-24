@@ -147,3 +147,13 @@ No host file line was written, because no guest started. The census was 0 throug
 | P6 | the guest pair refuses every run on this tree | proved: tree |
 | P7 | the no-caller tools by invocation (thirteen, then fourteen after G-15) | proved: tree |
 | P8 | the index rows and their *Detail in* rules: 13 never name the tool | proved: tree |
+
+## The streams' positives
+
+| Stream | Case | At the stage-D tip `7aa8eac253` | Fixed | Commits |
+| --- | --- | --- | --- | --- |
+| S2 (#992, #999) | `docs/qa-logs/2026-10-24-state-tests-s2/sandbox-case.py`: the caller exports `TMPDIR`, `RCLONE_CONFIG`, an `RCLONE_CONFIG_QA_TYPE` remote, `BASH_ENV` and a function; a probe through `Fixture.run`; the whole `--archives-only`; a real rclone copied elsewhere through the connections fixture on a stand-in `HOME` | 9 of 10 FAIL: everything inside, `BASH_ENV` sourced, `mktemp` failing, 39 interfaces, cloud-layout 0/13, the copy admitted and the stand-in default config written | 10 of 10: nothing inside, loopback only, cloud-layout 13/13, the copy refused, nothing written, `--config` passed, the FakeSP shape intact | `2e6639ec57`, `89efee384c` |
+
+| Proof | What it shows | Proved |
+| --- | --- | --- |
+| P9 | S2's control fails at the stage-D tip and passes fixed | proved: fix-case |
