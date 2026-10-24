@@ -63,7 +63,7 @@ Declaring it converts a silent runtime break into a build failure the next time
 someone drops the package. To check an image you already have:
 
 ```bash
-IMG=build.ROCKNIX-<DEVICE>.<ARCH>/image/system
+IMG=build.pixelelated-<DEVICE>.<ARCH>/image/system
 for c in zip unzip rclone qrencode evtest logger; do
   [ -e "$IMG/usr/bin/$c" ] || echo "MISSING: $c"
 done
@@ -103,7 +103,7 @@ Libretro cores are `*-lr` (`packages/emulation/libretro-*`,
 
 ## Where things land
 
-Build work happens in `build.ROCKNIX-<DEVICE>.<ARCH>/`, downloads in
+Build work happens in `build.pixelelated-<DEVICE>.<ARCH>/`, downloads in
 `sources/`, and images in `target/pixelelated-<DEVICE>.<ARCH>-<build-identity>-from-ROCKNIX.tar` —
 all gitignored. Generated per-device core/emulator support lists live in
 `documentation/PER_DEVICE_DOCUMENTATION/<DEVICE>/`.

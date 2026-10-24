@@ -97,7 +97,7 @@ status` shows whose tree it is. Read `target/`'s file time and the image's
 
 Worktrees here are not interchangeable. A feature worktree is a few hundred MB
 of checkout that a clone can rebuild in seconds. A build worktree holds
-`build.ROCKNIX-<DEVICE>.<ARCH>` directories, `sources/` and `target/` — hours of
+`build.pixelelated-<DEVICE>.<ARCH>` directories, `sources/` and `target/` — hours of
 compilation each, none of it in git, none of it recoverable. `git worktree
 remove --force` cannot tell those apart, and `--force` is precisely the flag you
 reach for when the first attempt complains.

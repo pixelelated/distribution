@@ -266,7 +266,7 @@ Enumerate them instead. The signature is a build directory that contains
 compiled output but has no `build_*` stamp:
 
 ```bash
-R=build.ROCKNIX-<DEVICE>.<ARCH>
+R=build.pixelelated-<DEVICE>.<ARCH>
 cd $R/build && for d in */; do d=${d%/}; p=$d
   while [ ! -d "$R/.stamps/$p" ] && [ "${p%-*}" != "$p" ]; do p=${p%-*}; done
   [ -d "$R/.stamps/$p" ] || continue
@@ -676,17 +676,17 @@ Before that the handler logged one line and called `exit()`, so the only
 core the keeper could have caught described the teardown, not the fault.
 
 Both builds' `emulationstation` binaries are unstripped, with debug info,
-in the build root (`build.ROCKNIX-<DEVICE>.<ARCH>/build/emulationstation-<pin>/emulationstation`),
+in the build root (`build.pixelelated-<DEVICE>.<ARCH>/build/emulationstation-<pin>/emulationstation`),
 and both toolchains carry a symboliser -- **the build that produced the
 image, so match the pin in the directory name to the device's BUILD_ID**:
 
 ```bash
 # H700 (aarch64):
-B=/workspace/repos/rocknix.worktrees/devices/build.ROCKNIX-H700.aarch64
+B=/workspace/repos/rocknix.worktrees/devices/build.pixelelated-H700.aarch64
 $B/toolchain/bin/aarch64-rocknix-linux-gnu-addr2line -f -C -i \
   -e $B/build/emulationstation-<pin>/emulationstation 0x<addr> 0x<addr> ...
 # GENERIC_X64:
-X=/workspace/repos/rocknix.worktrees/generic-x64/build.ROCKNIX-GENERIC_X64.x86_64
+X=/workspace/repos/rocknix.worktrees/generic-x64/build.pixelelated-GENERIC_X64.x86_64
 $X/toolchain/bin/llvm-addr2line -f -C -i -e $X/build/emulationstation-<pin>/emulationstation 0x<addr> ...
 ```
 

@@ -143,7 +143,7 @@ the font stays where it was. Build and run from the ES tree with the
 toolchain's cmake and the host compiler:
 
 ```
-B=/workspace/repos/rocknix.worktrees/generic-x64/build.ROCKNIX-GENERIC_X64.x86_64
+B=/workspace/repos/rocknix.worktrees/generic-x64/build.pixelelated-GENERIC_X64.x86_64
 $B/toolchain/bin/cmake -S es-app/tests/unit -B build-tests -DCMAKE_CXX_COMPILER=/usr/bin/g++ \
   -DRAPIDJSON_INCLUDE_DIR=$B/toolchain/x86_64-rocknix-linux-gnu/sysroot/usr/include
 $B/toolchain/bin/cmake --build build-tests --target es-unit-tests && ./build-tests/es-unit-tests
