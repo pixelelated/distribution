@@ -223,6 +223,10 @@
 #                                             # (its log line), again about
 #                                             # one it does not hold, and
 #                                             # fetches it; a miss is a 200
+#     BASE_REF=8ebaf8daad tools/last-good-scripts-test --old
+#                                             # k's two melonDS.toml checks
+#                                             # FAIL: the backuptool before
+#                                             # #887 sends the TOML whole
 #     tools/last-good-scripts-test            # PASSED
 #
 # One FAIL in m that names "the built image" is about the build root on this
@@ -1054,6 +1058,25 @@ printf '[Other]\nToken = %s\n' "${KTOK2}" > "${KS}/.config/test/unknown.ini"
 btk backup; rck1b=${RC}
 [ "${rck1b}" -ne 0 ] && grep -q '^>>> why A SIGN-IN WAS FOUND IN THE BACKUP' "${OUT}" && grep -q 'found 1 line(s) that look like a password or key, in: storage/.config/test/unknown.ini$' "${OUT}" && [ "$(ls "${KS}/roms/backup"/*.tar.gz)" = "${karch}" ]; check $? "the scanner sees a Token = line in a file the strip does not know (test/unknown.ini), and only that one: the backup ends there (#307 PL-005)" "rc ${rck1b}; scanner: $(grep -oE 'found [0-9]+ line[^|]*' "${OUT}" | head -1 | grep . || echo silent); archives: $(ls "${KS}/roms/backup"/*.tar.gz 2>/dev/null | wc -l) -- until #169 its anchor was lower-case only, and the emulators' keys are capitalised"
 rm -f "${KS}/.config/test/unknown.ini"
+# melonDS's own settings file (#887). Config::Save writes melonDS.toml, the
+# table the RetroAchievements patch maps RA_Password and RA_Token into, every
+# minute of achievement play; toml11 writes the keys unindented with quoted
+# strings. The first backup above ran without one and blanked four; this one
+# plants it beside two unrelated sections. The values are short words, so the
+# file at rest is no credential. The copy must arrive with the two keys and
+# their quotes kept and every other line as it was -- `Password = ` alone is
+# not TOML, and melonDS would not read the file.
+KT="${KS}/.config/melonDS/melonDS.toml"
+printf '[Instance0.Audio]\nVolume = 256\n\n[Instance0.RetroAchievements]\nEnabled = true\nUsername = "synth-user"\nPassword = "synth-pass"\nToken = "synth-token"\nHardcoreMode = false\n\n[Instance0.Window0]\nShowOSD = true\n' > "${KT}"
+sed -e 's/^Password = .*/Password = ""/' -e 's/^Token = .*/Token = ""/' "${KT}" > "${K}/melonDS.toml.want"
+btk backup; rck1c=${RC}
+kt_arch=$(ls -t "${KS}/roms/backup"/*.tar.gz 2>/dev/null | head -1)
+KTX="${K}/extract-toml"; rm -rf "${KTX}"; mkdir -p "${KTX}"; [ "${kt_arch}" != "${karch}" ] && tar -xzf "${kt_arch}" -C "${KTX}" 2>/dev/null
+KTG="${KTX}/storage/.config/melonDS/melonDS.toml"
+[ "${rck1c}" -eq 0 ] && [ "${kt_arch}" != "${karch}" ] && cmp -s "${K}/melonDS.toml.want" "${KTG}" && [ "$(diff "${KT}" "${KTG}" | grep -c '^[<>]')" -eq 4 ]; check $? "melonDS.toml travels with Password = \"\" and Token = \"\", the keys and quotes kept and every other line as it was (#887)" "#887: rc ${rck1c}; the archived melonDS.toml $([ -f "${KTG}" ] || echo 'is absent')$(cmp -s "${KT}" "${KTG}" && echo 'is byte-identical to the fixture: the password and token travel'); diff: $(diff "${KT}" "${KTG}" 2>&1 | grep '^[<>]' | tr '\n' '|')"
+! grep -rqE 'synth-(pass|token)' "${KTX}" 2>/dev/null && grep -q 'blanked the RetroAchievements token in 5 emulator settings file(s)' "${OUT}"; check $? "and neither value is in any member, and the log counts five blanked (#887)" "#887: the values are in: $(grep -rlE 'synth-(pass|token)' "${KTX}" 2>/dev/null | sed "s|${KTX}/||" | tr '\n' ' '); log: $(grep -oE 'blanked[^|]*' "${OUT}" | tr '\n' ' ' | grep . || echo silent)"
+! echo "${klist}" | grep -q 'melonDS/melonDS.toml$' && [ "${rck1}" -eq 0 ]; check $? "while the first backup, with no melonDS.toml on the device, carried none and ended rc 0 (#887)" "#887: the first backup carried a melonDS.toml, or ended rc ${rck1}"
+rm -f "${KT}" "${kt_arch}"
 # An archive from before #45: assets, cache, an ini and the player's file,
 # all older. Restoring it must put back the ini and the file and leave the
 # newer image's assets and cache alone.

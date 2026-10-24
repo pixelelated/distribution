@@ -705,6 +705,7 @@ RATOKENFILES=(
 RATOKENSETTINGS=(
     /storage/.config/duckstation/settings.ini   # Token =   (DuckStation's own sign-in; cheevos_duckstation.sh is disabled upstream)
     /storage/.config/melonDS/melonDS.ini        # RA_Token= RA_Password=   (cheevos_melonds.sh)
+    /storage/.config/melonDS/melonDS.toml        # Password = "" Token = ""   (melonDS's Config::Save writes the table the patch maps RA_Password/RA_Token into; #887)
     /storage/.config/flycast/emu.cfg            # Token =   (cheevos_flycast.sh)
     /storage/.config/aethersx2/inis/PCSX2.ini   # Token =   (cheevos_aethersx2.sh)
 )
@@ -1243,14 +1244,17 @@ write_archive() {
         # the value and keep the key, as for retroarch.cfg: the cheevos_*.sh
         # script finds the line and writes the token back at the next
         # launch. No other key in those files ends in Token or Password
-        # (checked against the shipped seeds, 2026-09-13; #169).
+        # (checked against the shipped seeds, 2026-09-13; #169). melonDS.toml
+        # quotes its strings (`Password = "..."`), and a key with nothing
+        # after it is not TOML, so an opening quote is kept and closed:
+        # `Password = ""` (#887; its Config.cpp has no other such key).
         BLANKED=0
         for CANDIDATE in "${RATOKENSETTINGS[@]}"
         do
             if grep -qxF "${CANDIDATE}" "${SECRETLIST}"
             then
                 mkdir -p "${STAGING}${CANDIDATE%/*}"
-                to_log sed -E 's/^([A-Za-z_]*(Token|Password)[[:space:]]*=[[:space:]]*).*$/\1/' "${CANDIDATE}" \
+                to_log sed -E 's/^([A-Za-z_]*(Token|Password)[[:space:]]*=[[:space:]]*)("?).*$/\1\3\3/' "${CANDIDATE}" \
                     > "${STAGING}${CANDIDATE}" || SANITISE_RC=1
                 keep_meta "${CANDIDATE}" "${STAGING}${CANDIDATE}" || SANITISE_RC=1
                 BLANKED=$((BLANKED + 1))
