@@ -379,3 +379,45 @@ PROOF: P24 S7's controls -- `tools/test-fixtures/lint-audit-artifacts/run.sh` on
 - **The real run** (18:46:27Z to 18:46:49Z, core 4,967 → 4,959): rc 1. The verdicts: 10 CURRENT, 4 INHERITED (`gstreamer` among them), 1 LOCAL, 6 PINNED, and BEHIND for `brotli` (1.2.0 → 1.2.1), `ruby` (3.3.12 → 3.3.13), `glib-networking` (2.90.0 → 2.90.1), `webkitgtk` (2.54.1 → 2.54.2) and `raofflineproxy` (15 commits behind `45726b18c6`).
 - **Against `docs/releases/rc-accept.txt`:** six package acceptances still match PINNED rows. `zip` and `spirv-headers` are accepted there but are **not in the fixed set**: `spirv-headers` was counted only because upstream deleted it, and `zip` is not a fork addition since the merge base.
 PROOF: P25 S8's control and runs -- `docs/qa-logs/2026-10-24-package-freshness/run.sh`: the unfixed tool's set `b f`, a missing ref rc 0 (2 FAIL); fixed: `f g`, rc 2, 3 ok PASS (`.qa-scratch/t10/s8/`); the real `--list`: 26 rows, `cmp` equal to stage B's merge-base list; the real run rc 1, five BEHIND rows (/workspace/tmp/m6-t10/s8-real.txt).
+
+### [Stage E] 19:20 — S9: the record checkers (#947 to #957)
+
+- **The coordinator's posts:** 18:49 UTC, S8 accepted and its freshness findings Backlog #963; 18:56 UTC, S9's first three accepted and the twelve SHAPE rows the coordinator's, fixed on its branch and merged into this one at hand-back.
+- **The tests first:** one control per tool, under `docs/qa-logs/2026-10-24-record-checkers/` (`rc-preflight`'s under `docs/qa-logs/2026-10-02-candidate-preflight/`). Each runs against the tool copied into a throwaway root under `.qa-scratch/t10/s9/`, or imported with its tracker stubbed. Run against the tool as it stood before its fix commit:
+
+  | Tool (bug) | Unfixed | Fixed |
+  | --- | --- | --- |
+  | `register-check` (#947) | 5 FAIL of 6 | 6 ok |
+  | `work-log-index` (#949) | 3 FAIL of 5 | 5 ok |
+  | `rules-check` (#948) | 3 FAIL of 3 | 3 ok |
+  | `archaeology` (#950) | 4 FAIL of 6 | 6 ok |
+  | `es-menu-map-check` (#951) | 2 FAIL of 3 | 3 ok |
+  | `vocabulary-check` (#952) | 3 FAIL of 4 | 4 ok |
+  | `prose-check` (#953) | 4 FAIL of 5 | 5 ok |
+  | `release-catalog` (#954) | 6 FAIL of 6 | 6 ok |
+  | `pr-stack-check` (#955) | 5 FAIL of 5 | 5 ok |
+  | `rc-preflight` (#956) | 6 FAIL of 10 | 10 ok |
+  | `renovation-inventory` (#957) | 3 FAIL of 5 | 5 ok |
+  | `renovation-drift` and `-status` (#957) | 8 FAIL of 9 | 9 ok |
+
+  All twelve controls together, on the fixed tools: 67 cases, PASS (`/workspace/tmp/m6-t10/s9-controls.txt`).
+- **The fixes:** one commit per tool, `4228bf4daa` to `4acaf55ceb`, plus the reviews README (`d78f422212`); `02` § S9 has each.
+- **Corrected before it stood:**
+  - `rc-preflight`'s first cut of the one trace reader missed a trace written on its heading's own line. Over the tracker's 294 listed bugs it disagreed with the old reader on 10 closed ones (#305, #306, #315, #325, #529, #548 to #552). After the fix the two agree on all 294, and the control carries the case.
+  - The drift and status control expected shares counted in changed lines; drift counts added plus deleted lines. Its expectations were corrected to the tool's documented arithmetic.
+  - A check added to that control could not fail (`|| true`). It was replaced by an assertion on drift's own output before the commit.
+  - `py_compile` and `renovation-status`'s module loader wrote `tools/__pycache__/` (gitignored). The files were removed by name.
+- **The real runs:**
+  - `register-check`: MISSING 2, SHAPE 12, EDITED 42, rc 1. Unchanged; the coordinator's.
+  - `work-log-index`: `INDEX.md` +21 lines.
+  - `rules-check`: 31 Detail-in pairs, notes.
+  - `es-menu-map-check`: 21 computed-title pages under `guis/`, exit 0.
+  - `vocabulary-check`: 10 scripts, 164 strings judged (the old list 163), 0 wrong.
+  - `prose-check`: over the 35 tracked release and upstream pages, 53 fails before and after; 25 new same-word warnings.
+  - `release-catalog`: two rows changed (`h700-rc-20260920-77e7e97515`'s BUILD_ID, `h700-all-20260924-a84fce38a6`'s Superseded); 395 kept folders without a RECORD.txt.
+  - `rc-preflight`, offline: 9 acceptances, 4 rows that do not name their item.
+  - `renovation-drift`: no slice issue closed.
+  - `renovation-status`: fixed 11, reading 1, unreviewed 34 (45 unreviewed before).
+  - API budget read first: core 4,932 of 5,000 before the tracker reads.
+- **After the stream:** `hooks-test` PASS, `rules-check` rc 0, `register-check` rc 1 as recorded.
+PROOF: P26 S9's controls and runs -- the twelve controls under `docs/qa-logs/2026-10-24-record-checkers/` and `docs/qa-logs/2026-10-02-candidate-preflight/rc-preflight-t10.py`: each fails on its tool before the fix commit (52 FAIL of 67 cases in all) and passes at it (67 ok, `/workspace/tmp/m6-t10/s9-controls.txt`); the real runs above (`/workspace/tmp/m6-t10/s9-*.txt`).

@@ -23,7 +23,7 @@ Every finding is a lead until `04` § Finding Verification and § Second opinion
 | 11 | 04 Q6: the guard table and the tool-caller table | the evidence is here (§ Callers, § The suites, F-rows); the tables are `04`'s | `04` § Q6 |
 | 12 | 04 Q3: the fail-open hunt through the named readers | the evidence is here (F-01 to F-30); the table is `04`'s | `04` § Q3 |
 | 13 | 04 Q7: the personal-path diff entry by entry; three descriptions per guard | P2 (the diff); the description rows are `04`'s | `04` § Q7 |
-| 14 | proof cells in § Proofs = proof lines in 00 | 27 = 27 | § Proofs; `command grep -c` |
+| 14 | proof cells in § Proofs = proof lines in 00 | 28 = 28 | § Proofs; `command grep -c` |
 | 15 | every item `question:`; bugs pass box-check; no member edited before a stream | stage D; `git diff --stat a82d784216 HEAD -- .githooks .github tools` empty | `05` |
 | 16 | the retro | stage G | `docs/retros/` |
 | 17 | the six checks pass before the merge; the lint PASS | stage H | the hand-back |
@@ -612,3 +612,71 @@ The real `--list` has 26 rows, identical to stage B's merge-base list.
 | Proof | What it shows | Proved |
 | --- | --- | --- |
 | P25 | S8's control fails on the unfixed tool and passes on the fixed; the real set equals the merge-base list | proved: fix-case |
+
+### S9: the record checkers (#947 to #957) -- `4228bf4daa` to `4acaf55ceb`, `d78f422212`
+
+One commit and one control per tool. Each control was run against the tool as it stood before its fix commit, and passes at it. The controls are under `docs/qa-logs/2026-10-24-record-checkers/`; `rc-preflight`'s is under `docs/qa-logs/2026-10-02-candidate-preflight/`.
+
+| Bug | Tool | Commit | Control | Unfixed | Fixed |
+| --- | --- | --- | --- | --- | --- |
+| #947 | `register-check` | `4228bf4daa` | `register-check.sh` | 5 FAIL of 6 | 6 ok |
+| #949 | `work-log-index` | `1f7d618069` | `work-log-index.sh` | 3 FAIL of 5 | 5 ok |
+| #948 | `rules-check` | `f7ba5f415c` | `rules-check.py` | 3 FAIL of 3 | 3 ok |
+| #950 | `archaeology` | `3773d7f06a` | `archaeology.sh` | 4 FAIL of 6 | 6 ok |
+| #951 | `es-menu-map-check` | `78884d5f9a` | `es-menu-map-check.sh` | 2 FAIL of 3 | 3 ok |
+| #952 | `vocabulary-check` | `48c656f393` | `vocabulary-check.sh` | 3 FAIL of 4 | 4 ok |
+| #953 | `prose-check` | `9aabdbac20` | `prose-check.sh` | 4 FAIL of 5 | 5 ok |
+| #954 | `release-catalog` | `2035e51ed2` | `release-catalog.sh` | 6 FAIL of 6 | 6 ok |
+| #955 | `pr-stack-check` | `40bdc979a0` | `pr-stack-check.sh` | 5 FAIL of 5 | 5 ok |
+| #956 | `rc-preflight` | `f943c3375d` | `rc-preflight-t10.py` | 6 FAIL of 10 | 10 ok |
+| #957 | `renovation-inventory` | `4acaf55ceb` | `renovation-inventory.py` | 3 FAIL of 5 | 5 ok |
+| #957 | `renovation-drift`, `-status` | `4acaf55ceb` | `renovation-drift-status.sh` | 8 FAIL of 9 | 9 ok |
+
+**What each fix reads now, and its real run:**
+
+- **#952 `vocabulary-check`.** The scripts are derived, not named: every file in the rclone sources and the rocknix scripts directory that prints a `>>> ` line, calls `say_why` or carries a `_("`. An unreadable one exits 2.
+  - The derived list has 10 scripts: the old eight, plus `cloud_scan` and `rocknix-es-thebezelproject`.
+  - 164 strings judged (the old list 163), 0 wrong.
+- **#953 `prose-check`.** The sign-offs match at whitespace and at the line's end. The repeated opener is a warning.
+  - `--self-test` reads three samples copied into `tools/test-fixtures/prose/` (scanned, 0 hits) and gains two cases.
+  - Over the 35 tracked release and upstream pages: 53 fails before and after, and 25 new warnings.
+  - Not changed, as the brief does not name it: lines starting `|`, `<` or `!!!` are still skipped (#953's `:53`).
+- **#954 `release-catalog`.** One space or more after a key, and a first line that is a key line is read as one.
+  - Every mode counts the kept folders that have no RECORD.txt. A missing or recordless artifacts directory exits 2, which `rc-preflight` reads as CANNOT.
+  - The real `--write` changed two rows: `h700-rc-20260920-77e7e97515`'s BUILD_ID (`-` before, `77e7e975150eaf58ff0903302320df3ef301223c` now) and `h700-all-20260924-a84fce38a6`'s Superseded cell.
+- **#955 `pr-stack-check`, after reading #322.** #322 asked for a stack whose last head equals `next`. D-WORKFLOW-079 replaced the stack with one commit per PR on the base, and no final comparison existed. So the lane did both:
+  - the header and `docs/pr-series/map.txt` now describe the one-commit series;
+  - the comparison exists in the shape that still holds: every PR's files together on the base, diffed with `next`, must leave 0 files.
+
+  The other changes:
+  - renames are off in the diff, so a renamed file's deleted old path must be carried;
+  - the EXIT trap has no `git worktree remove --force` (`fork-worktree remove` for this checkout, a plain remove for `--repo`);
+  - an existing `pr-stack/N` is refused, not force-deleted;
+  - the worktree is the primary checkout's sibling.
+
+  The control's throwaway repository has a two-line map and a `git` shim that logs every call. The tool was not run on the fork's repository.
+- **#956 `rc-preflight`.** An acceptance of another kind, a base other than the two, or a bug that is not `#N` is a FAIL under `rc-accept.txt`.
+  - One reader judges a trace for both items: words in the trace and after `Already written:`. Both bug lists read to 1000, and reaching the limit is CANNOT.
+  - The two producer gaps in #956 are the producers' fixes: `box-check` exits 2 on a short or failed read (S5, `66b08a6672`), and freshness exits 2 on a missing ref (S8).
+  - Over the tracker's 294 listed bugs, the old and new readers agree on every one.
+- **#957 the renovation tools.**
+  - `renovation-inventory` compares HEAD and the index as sets, and writes nothing on a failing run. Its control stubs `build`, which stands in for the container planner; `inventory.json` sha256 is `0eda3778` before and after with the fix, and `96d00269` after without it.
+  - `renovation-drift` reads fixed-at from the slice issue, through `slice_issues()` and `fixed_from_issue()`, which `renovation-status` imports.
+  - Drift honours `!` exclusions in the sensitive globs.
+  - Status shows drift's share and its verdict for the slice, and gains `withdrawn` (closed for another reason) and `fixed` (both lines set, the issue open).
+  - Real: drift reports no slice, since none is closed yet; status reads fixed 11, reading 1, unreviewed 34. `inventory.md`'s 5 commits carry no failing run's counts.
+
+**For the coordinator** (reported, not edited):
+- **The register:** `register-check` rc 1. MISSING 2 (D-WORKFLOW-200/201/202, until the hand-back merge), SHAPE 12, EDITED 42 (`/workspace/tmp/m6-t10/s9-register.txt`).
+- **The rule index:** 31 Detail-in pairs whose rule never names the tool (`/workspace/tmp/m6-t10/s9-detail.txt`).
+- **The ES area:** 21 computed-title pages (`/workspace/tmp/m6-t10/s9-emm-list.txt`). A 22nd, `es-app/src/views/SystemView.cpp:552`, is outside the tool's `SOURCE_DIRS`.
+- **The kept folders:** 395 have no RECORD.txt (`release-catalog --unrecorded`). `77e7e97515`'s record writes `built` in lowercase, so its Built cell stays empty.
+- **The acceptance file:** four rows of `rc-accept.txt` do not name their item: `zip` D-WORKFLOW-024, `raofflineproxy-rcheevos` D-RA-029, base `distribution` D-WORKFLOW-161, `spirv-headers` D-WORKFLOW-147.
+- **The status states:** `renovation-status` now has `fixed` and `withdrawn` beyond plan § 9's five states. The 11 accepted slices read `unreviewed` before.
+- **Not changed** (neither the brief nor the criteria name them):
+  - the renovation tools' `subprocess.run` calls have no timeouts;
+  - `prose-check`'s `|`, `<` and `!!!` skip.
+
+| Proof | What it shows | Proved |
+| --- | --- | --- |
+| P26 | S9's twelve controls fail on each tool before its fix commit (52 of 67 cases) and pass at it (67); the real runs as above | proved: fix-case |
