@@ -38,30 +38,15 @@
 
 ## Current focus
 
-**Stages A to G done; the lane hands back on #656 and is idle until the coordinator accepts.**
-- **`reviewed-at`:** `cb8019a10b` (bytes equal to `8ebaf8daad` on all 18).
-- **`fixed-at`:** `00e571b8a8`. Both are set in #656's body.
-- **The fixes,** one commit or two per bug:
-  - #913 `9b071c5d12`, `a9bd346d54`;
-  - #914 `c9e38e2939`, `c4d4c147d0`;
-  - #916 `4a22ed0b41`;
-  - #915 `6a25254359`, `86ef7ae6b1` (the addendum);
-  - #917 `dce53bf0ba`;
-  - #918 `d1a1495bc5`;
-  - #919 `e03fc7982d`;
-  - #921 `e8828c13ad`;
-  - #920 `82840dbc42`;
-  - #922 `39d9fc1e04`;
-  - #923 `c1e799b3b5`;
-  - S8 `ad70390f60`, `00e571b8a8`.
-- **#924:** 21 of 21 ticked: 15 Resolved, 5 Deferred (#925, #640, #927, #528, #926), 1 Withdrawn. The lint prints `PASS`, with 21 PROOF lines and 21 `proved:` cells.
-- **The controls at the tip `3527d977a8`:** all ten pass. The table is in `02` § Stage E.
-- **Open with the coordinator:**
-  - S8's index row and personal-paths entry, which leave with `.githooks/pre-push`'s pattern (#657);
-  - #925's 17 rows, copied from the hand-back;
-  - the reinstallation of `reclaim-swap`, the owner's (D-INFRA-015, #346).
-- **Retro:** `docs/retros/2026-10-24-m6-tooling-build-supervision.md`.
-- **Rule:** prose through a quoted heredoc or the Write tool only.
+**Idle. T9 is accepted on #656 (18:32 UTC), at `bf4445a13c`, the lane's tip with the coordinator's merged.**
+- **The audit is complete:** `docs/audits/2026_10_24-epic-m6-tooling-build-supervision/audit-completion.json`, written by `tools/write-completion.py` from #924's closed readback (closed as completed at 18:32:34Z; 21 ticked, 0 open).
+- **The checks at the marker:**
+  - `tools/lint-audit-artifacts`: `PASS`;
+  - `tools/register-check`: 0;
+  - `tools/ceremony-check`: it reads the marker (`ok audit`), and stays red only on M7's W42 summary.
+- **Still open:** criterion 5's merge clause, until this branch merges to `next` and `tools/renovation-status` lists the slice `closed`.
+- **Nothing runs on this lane.** No process, guest or container was left by it. The scratch under `/workspace/tmp/m6-t9/` (exports, the record replay's copied logs) is disposable.
+- **`reviewed-at` `cb8019a10b`; `fixed-at` `00e571b8a8`.**
 
 ## Next commands
 
