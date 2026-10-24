@@ -10,6 +10,12 @@ import sys
 import tempfile
 import time
 
+
+def require(ok, why):
+    """An assert that survives python -O (#975): a refusal is a raise, not an assert statement."""
+    if not ok:
+        raise AssertionError(why)
+
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--source', type=Path, default=Path(__file__).resolve().with_name('vm-stop'),
                     help='the vm-stop under test (an unfixed copy, for the positives)')
@@ -46,21 +52,21 @@ with tempfile.TemporaryDirectory() as temp:
                 str(pidfile),str(root/'other.qcow2' if case == 'wrong-disk' else disk)],
                 capture_output=True,text=True,timeout=4)
             if case in ['delayed-exit','self-removed-pidfile']:
-                assert result.returncode == 0 and time.monotonic()-start >= 0.19, result
-                assert child.wait(timeout=1) == 0 and not pidfile.exists()
+                require(result.returncode == 0 and time.monotonic()-start >= 0.19, result)
+                require(child.wait(timeout=1) == 0 and not pidfile.exists(), 'line 50')
                 with socket.socket() as listener:
                     listener.bind(('127.0.0.1',port))
                 print('PASS '+case+' waits for exit and immediate port reuse')
             elif case == 'pidfile-changed-under-us':
                 # The guest stopped, but the pidfile at the path is a new inode
                 # (same content): another owner's. Reported, never removed (#970).
-                assert child.wait(timeout=1) == 0, result
-                assert result.returncode == 1 and pidfile.exists() and 'replaced' in result.stderr, result
+                require(child.wait(timeout=1) == 0, result)
+                require(result.returncode == 1 and pidfile.exists() and 'replaced' in result.stderr, result)
                 print('PASS '+case+' reports a pidfile replaced during the stop and keeps it')
             else:
-                assert result.returncode == 1 and child.poll() is None and pidfile.exists(), result
-                assert {'timeout':'retaining pidfile','wrong-disk':'expected disk',
-                        'wrong-process':'not QEMU'}[case] in result.stderr,result.stderr
+                require(result.returncode == 1 and child.poll() is None and pidfile.exists(), result)
+                require({'timeout':'retaining pidfile','wrong-disk':'expected disk',
+                        'wrong-process':'not QEMU'}[case] in result.stderr, result.stderr)
                 print('PASS '+case+' refuses completion and retains live process/pidfile')
             passed += 1
         finally:
@@ -71,15 +77,15 @@ with tempfile.TemporaryDirectory() as temp:
             pidfile.unlink(missing_ok=True)
     # A dead owned PID is an idempotent shutdown.
     pidfile.write_text(str(child.pid)+'\n')
-    assert subprocess.run([str(tool),str(pidfile),str(disk)],capture_output=True).returncode == 0
-    assert not pidfile.exists()
+    require(subprocess.run([str(tool),str(pidfile),str(disk)],capture_output=True).returncode == 0, 'line 74')
+    require(not pidfile.exists(), 'line 75')
     passed += 1
     print('PASS exited PID is an idempotent shutdown')
     # missing-pidfile-exit-3: nothing to stop and nothing verified is not a
     # stop, so a caller about to remove files cannot read it as one (#970).
     disk.write_text('a disk nobody recorded')
     result = subprocess.run([str(tool),str(pidfile),str(disk)],capture_output=True,text=True)
-    assert result.returncode == 3 and disk.exists() and 'nothing to stop' in result.stderr, result
+    require(result.returncode == 3 and disk.exists() and 'nothing to stop' in result.stderr, result)
     passed += 1
     print('PASS missing-pidfile-exit-3 exits 3, says nothing was stopped, removes nothing')
 print('PASS %d vm-stop controls' % passed)

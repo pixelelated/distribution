@@ -1597,6 +1597,19 @@ def optimize_vm_manager_system_check(c):
 
 
 
+@case
+def optimize_vm_stop_test(c):
+    tool = c.tool('vm-stop-test')
+    # Beside the test as well as named: the old test takes no --source and reads its sibling.
+    broken = c.root / 'tools' / 'vm-stop'
+    # Kills at once and lies about everything else: no wait, no refusal, the pidfile kept,
+    # 0 for a missing pidfile. Only the test's own checks can catch it.
+    executable(broken, '#!/bin/sh\n# kills whatever the pidfile names, then claims a clean stop\nkill -9 "$(cat "$1" 2>/dev/null)" 2>/dev/null\nexit 0\n')
+    rc, last = optimized(c, [sys.executable, str(tool), '--source', str(broken)], timeout=60)
+    return rc != 0, f'rc {rc}, {last} (want non-zero against a vm-stop that claims every stop)'
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')
