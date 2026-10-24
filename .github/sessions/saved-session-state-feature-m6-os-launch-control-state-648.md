@@ -188,3 +188,13 @@ or another lane's worktree.
 - **Hand-back:** #806 issuecomment-6379901264.
 - **Correction to the brief:** pcre2's target build is static (`BUILD_SHARED_LIBS=OFF`), so the image gains no `libpcre2-8.so`. It gains about 525 KB in `usr/bin/grep` (H700 789,952 B against SM8550 265,312 B).
 - **Waiting on:** the coordinator's *reviewed* on #806. M7's build and install-tree readback are M7's. Nothing is owed from this lane, and no VM, compiler or `npm` is to be launched while M7 holds the host.
+
+**Fix stream #810 handed back (2026-10-24, about 05:20 UTC).** Stream 806 was reviewed with no change asked; criterion 2 stands as written.
+- **Branch:** `fix/m6-810-lint-local-epic` at `fa6bcdafa8` on `origin`, cut from `8ebaf8daad`. Its worktree is `/workspace/repos/pixelelated/distribution.worktrees/m6-810-lint-local-epic`.
+- **Hand-back:** #810 issuecomment-6380155781.
+- **The change:** `tools/lint-audit-artifacts` accepts `depth: local` outside an `-issue-` folder only with `tier_exception: D-WORKFLOW-184` and a non-empty `reason`. `templates.md` follows.
+- **The script:** `docs/qa-logs/2026-10-24-lint-local-epic/synthetic-810.sh` builds `.qa-scratch/810/`.
+- **Results:** the control fails before and after, and the case fails before and passes after. The regression over `docs/audits/*/` is identical: 21 folders, 17 passing and 4 failing.
+- **Waiting on:** the coordinator's review. Asked on #810: whether the criterion-1 work-log entry should be added on the fix branch.
+
+The lane is idle otherwise. No VM, compiler or `npm` is to be launched while M7 holds the host.
