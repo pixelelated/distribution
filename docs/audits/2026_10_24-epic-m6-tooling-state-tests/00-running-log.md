@@ -159,3 +159,22 @@ PROOF: P5 the validator's empty selection -- `--case no-such-case`: rc 0, `PASS 
 PROOF: P6 the guest pair refuses on this tree -- `cloud_migrate_layout` absent at `8ebaf8daad`; the boundaries test's require (`:709-710`) and the epic's refusal (rc 2).
 PROOF: P7 the thirteen no-caller tools -- `git grep -n -F <name> 8ebaf8daad -- tools .github/workflows .claude/skills .githooks`, per tool: no invocation for thirteen; T15's four call sites and `vm-qa:185` and `fork-checks.yml:50` for the rest.
 PROOF: P8 the index and its rules -- `instruction-files.md` at the hash: 21 of 21 rows; 13 whose *Detail in* rule never names the tool (the per-tool loop over the index and each rule at the hash; its output `.qa-scratch/t14/q7-index.txt`, 13 lines ending `naming it: 0`).
+
+## [Stage C] 20:46 UTC — the seat: the Facilitator, the packet, the probe, the refutation started
+
+- `npm install --prefix tools/council`: rc 0. It warned that install scripts were not run, as in the earlier slices.
+- `tools/council/run verify-pins`: `OK - verifier pins match current files and every re-pin is accountable.` `tools/council/run test`: rc 0, with 39/39, 127/127 and 19/19 passing and 0 failing. `run` sources `~/.config/council/env` itself; the file was not read here.
+- **The packet** (`tools/t14-packet.py`, manifest `second-opinions/packet-manifest.json`): 38 sources, the 32 files among them at **396,588 bytes**, as the brief says, each with its sha256 at its read ref. The rest:
+  - `02`, `03` and `04` whole;
+  - `engineering-practices.md` § Guards must fail closed and `upgrade-and-install.md` § Verify on a device, not on the host, from `next`;
+  - the stage-A run lines.
+
+  The body is 510,784 bytes. `gpt-brief.md` is the ask plus the body, 513528 bytes, sha256 `6ce0b2e7362c71a69cde3ea1e1f1c1d09716c706f03198b8e254ab7c0862a3e6`. The ask puts the brief § 5's four questions first.
+- **The packet's scan, before it was sent:**
+  - `tools/forbidden-terms-check --stdin`: `0 hits on stdin`.
+  - The pre-commit's `SECRET_PATTERNS` (`/usr/bin/grep -a -c -E`): **0 lines** under each of three pattern sets (this branch's `.githooks/secret-patterns`, the primary checkout's, and T10's widened copy on `feature/m6-tooling-guards-657`).
+  - No redaction was needed.
+- **The probe**, 20:45:38 to 20:45:47Z, `--member gpt --provider openrouter`, the one-line prompt: served `openai/gpt-6-astra` by `OpenAI`, effort `max` (230 reasoning tokens). Identity source `provider_response`; verification PASS (semantic), effort PASS, provider PASS. The model's own reply was `READY unknown`; the provider's field is the identity.
+- **The refutation** started with `--per-attempt-timeout-ms 3600000 --total-timeout-ms 10800000`, its log `/workspace/tmp/m6-t14/audit.log`.
+  - **What watches it:** the harness background task that runs it, which delivers its end.
+  - **Its silent mode:** a hung seat is ended only by those timeouts. The failed-seat rule holds: hold, diagnose, one same-slug retry on a transient cause.

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "depth": "independent",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's dispatch on #661 (2026-10-24T20:16:49Z: 'the T3 session (m6-t3-emulators), Opus 5.5 at high effort') and the session's own model metadata (claude-opus-5-5)"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
+      "allow_fallbacks": false,
+      "calls": [
+        {
+          "phase": "refutation",
+          "output": "gpt-audit.md"
+        }
+      ],
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gpt-probe.md"
+        }
+      ],
+      "status": "probe PASS 20:45:47Z (served openai/gpt-6-astra by OpenAI, effort max); refutation running"
+    }
+  ],
+  "packets": {
+    "gpt": {
+      "file": "gpt-brief.md",
+      "bytes": 513528,
+      "sha256": "6ce0b2e7362c71a69cde3ea1e1f1c1d09716c706f03198b8e254ab7c0862a3e6",
+      "manifest": "packet-manifest.json",
+      "content": "the ask (rclone isolation, guest handling, state-check non-disclosure, busybox fallback first), 02, 03 and 04 whole, the two rule sections from next, the 32 files at their read refs line-numbered, the stage-A run lines",
+      "scan": "forbidden-terms-check --stdin 0 hits; SECRET_PATTERNS 0 lines under three pattern sets; no redaction"
+    }
+  }
+}

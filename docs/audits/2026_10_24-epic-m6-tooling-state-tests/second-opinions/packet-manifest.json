@@ -1,0 +1,237 @@
+{
+  "sources": [
+    {
+      "path": "docs/audits/2026_10_24-epic-m6-tooling-state-tests/02-forward-audit.md",
+      "ref": "worktree",
+      "sha256": "00f77f8a53897a678ba41c9b277ff8ae84526a82f143323bb72fc1d59acb6521",
+      "bytes": 19191
+    },
+    {
+      "path": "docs/audits/2026_10_24-epic-m6-tooling-state-tests/03-retrospective.md",
+      "ref": "worktree",
+      "sha256": "653d4f895c73567a707998477a60d4335ad9db71e8b3487320a9559ac3667a61",
+      "bytes": 3896
+    },
+    {
+      "path": "docs/audits/2026_10_24-epic-m6-tooling-state-tests/04-analysis.md",
+      "ref": "worktree",
+      "sha256": "cba0bad0c43c5eb51a3027cf88d9fbd1eca0a389df8d008f9fd0e20d97b68817",
+      "bytes": 26793
+    },
+    {
+      "path": "engineering-practices.md \u00a7 Guards must fail closed (next)",
+      "ref": "next",
+      "sha256": "d5d6714de3c4cd09783250d937bf990107abe44f3d03024f4173bf154adce380",
+      "bytes": 8518
+    },
+    {
+      "path": "upgrade-and-install.md \u00a7 Verify on a device, not on the host (next)",
+      "ref": "next",
+      "sha256": "f165d9b184549651d3182fc2d6ec4868125f8f2fdc8de60a78bfbd4cb3a255c1",
+      "bytes": 2005
+    },
+    {
+      "path": "tools/rasteratops-cloud-layout-test",
+      "ref": "8ebaf8daad",
+      "sha256": "1bf79f2ae318cc87bf85ed285d60f9718ec7a1b7197d478341163765906490b7",
+      "bytes": 72749
+    },
+    {
+      "path": "tools/pixelelated-cloud-validator-test",
+      "ref": "8ebaf8daad",
+      "sha256": "c4c772e76ddd0a8dcf81a3999682d01f3cb69e1163670ab399a53d764a2fc057",
+      "bytes": 21362
+    },
+    {
+      "path": "tools/pixelelated-content-scope-test",
+      "ref": "8ebaf8daad",
+      "sha256": "8443e98717b0d0e7bcc39911ee5ab9b4b9738018384129b202dc64bbbc4a45f9",
+      "bytes": 13451
+    },
+    {
+      "path": "tools/pixelelated-save-layout-test",
+      "ref": "8ebaf8daad",
+      "sha256": "112dc26731968b0a51c38d306819de62ba8ec198b6621f02ba54ab93832a8059",
+      "bytes": 23967
+    },
+    {
+      "path": "tools/pixelelated-vm-cloud-boundaries",
+      "ref": "8ebaf8daad",
+      "sha256": "3d1abd592336410dbd21f3c7168b6cc3ef3d8ae1bf56e25002c7333c49ae2759",
+      "bytes": 42789
+    },
+    {
+      "path": "tools/rasteratops-vm-cloud-epic",
+      "ref": "8ebaf8daad",
+      "sha256": "fa7a93363d61cc03bc9e7521ead5a38ccadac6b682e1c6dc58136912b19aad6e",
+      "bytes": 32291
+    },
+    {
+      "path": "tools/pixelelated-state-check",
+      "ref": "8ebaf8daad",
+      "sha256": "65ab515ec2c0ccdf474f08128cabf1dea774846a8add3725cd05d334b2e1eba6",
+      "bytes": 46327
+    },
+    {
+      "path": "tools/settings-modes-test",
+      "ref": "8ebaf8daad",
+      "sha256": "fc4d166e627474171b648046082a740c062c58cfdfa2fb51ae545ba8f3ef6356",
+      "bytes": 5130
+    },
+    {
+      "path": "tools/melonds-upgrade-test",
+      "ref": "8ebaf8daad",
+      "sha256": "06ff1fb86bbb98bd75f2994a05076b50dbe5dcf6e02be2d26830436614f42112",
+      "bytes": 7111
+    },
+    {
+      "path": "tools/build-identity-test",
+      "ref": "8ebaf8daad",
+      "sha256": "d4aaf4098e3d3c38f48fe429db033c3ed2951070e6fc018d739aef4c84bb9e78",
+      "bytes": 11103
+    },
+    {
+      "path": "tools/nova-led-test",
+      "ref": "8ebaf8daad",
+      "sha256": "3205cc45683a4f1682737182ebff924aada39a5c114464dc7ab8b5dfae30a38f",
+      "bytes": 4605
+    },
+    {
+      "path": "tools/pixelelated-cloud-folder-test",
+      "ref": "8ebaf8daad",
+      "sha256": "33adc3915844f0b8dd3e4fe76d621639305a6b2a9ef24a6d75415f92d81be65c",
+      "bytes": 1159
+    },
+    {
+      "path": "tools/pixelelated-cloud-folder-vm-test",
+      "ref": "8ebaf8daad",
+      "sha256": "2f994ff80115fabbb1c1c04796d52fad4fcdb47f1e6e3a4f50c351ba9ba28316",
+      "bytes": 1251
+    },
+    {
+      "path": "tools/pixelelated-duckstation-capture-test",
+      "ref": "8ebaf8daad",
+      "sha256": "a4ec68da2d94c1669b4ef2b34764a0b2ea4391cbdb8cc904c7fbf7f2194b5396",
+      "bytes": 19954
+    },
+    {
+      "path": "tools/pixelelated-state-check-test",
+      "ref": "8ebaf8daad",
+      "sha256": "6e0b2eb945b913ad0c176dd532586463493e6984240e128ff771ce6264fd3eec",
+      "bytes": 45450
+    },
+    {
+      "path": "tools/rasteratops-candidate-store",
+      "ref": "8ebaf8daad",
+      "sha256": "40acb60cc3fc104dcf958e24becb0bf7bc421b6e5cdf3327655ce55e34ccd6ba",
+      "bytes": 4732
+    },
+    {
+      "path": "tools/rasteratops-identity-check",
+      "ref": "8ebaf8daad",
+      "sha256": "aaeea69402bdf0ce1ab7921d9a75f85bd027d7464f269e468b59c8ed5a139567",
+      "bytes": 8439
+    },
+    {
+      "path": "tools/retroarch-wrapper-test",
+      "ref": "8ebaf8daad",
+      "sha256": "a927c85a87b4d07235c80edcd018732696f3b678989dcf3a336a7bde29f5cf66",
+      "bytes": 9033
+    },
+    {
+      "path": "tools/rocknix-info-test",
+      "ref": "8ebaf8daad",
+      "sha256": "216939fddff1e0e8e040d64a1c35eb4da6ec5823a0018a0917077a72e3362eb7",
+      "bytes": 6767
+    },
+    {
+      "path": "tools/test-fixtures/cloud_connections_fixture.py",
+      "ref": "8ebaf8daad",
+      "sha256": "f670af763d5b646fc3137a28b17515fb8166367ef6e7608361c93791fa36cd4a",
+      "bytes": 1777
+    },
+    {
+      "path": "tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-fail/01-research-notes.md",
+      "ref": "2174265e9c",
+      "sha256": "a86e44b7d4e098e25cb6520cc28c3ef4d356eaf61d4784fa139a975be1700f47",
+      "bytes": 93
+    },
+    {
+      "path": "tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-fail/02-forward-audit.md",
+      "ref": "2174265e9c",
+      "sha256": "6d45a1acf955272dfa07de052a9b342941f5abefa7c77464e01ea2a73f593393",
+      "bytes": 92
+    },
+    {
+      "path": "tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-fail/03-retrospective.md",
+      "ref": "2174265e9c",
+      "sha256": "ce7d9a3c4dd1eb8333de8940d24c1782362023c59c360c3f2df312eeef6c3e3c",
+      "bytes": 92
+    },
+    {
+      "path": "tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-fail/04-analysis.md",
+      "ref": "2174265e9c",
+      "sha256": "ebccc20fa0954d162a441575de5de623f57e3ef376ef952b6d38c7021b83e926",
+      "bytes": 262
+    },
+    {
+      "path": "tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-fail/05-punch-list.md",
+      "ref": "2174265e9c",
+      "sha256": "b17d50a0164d93a8d00d17c6e3a4d1dbb0bd4d011e67ed31a130992e43bf0268",
+      "bytes": 239
+    },
+    {
+      "path": "tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-pass/01-research-notes.md",
+      "ref": "2174265e9c",
+      "sha256": "a86e44b7d4e098e25cb6520cc28c3ef4d356eaf61d4784fa139a975be1700f47",
+      "bytes": 93
+    },
+    {
+      "path": "tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-pass/02-forward-audit.md",
+      "ref": "2174265e9c",
+      "sha256": "6d45a1acf955272dfa07de052a9b342941f5abefa7c77464e01ea2a73f593393",
+      "bytes": 92
+    },
+    {
+      "path": "tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-pass/03-retrospective.md",
+      "ref": "2174265e9c",
+      "sha256": "ce7d9a3c4dd1eb8333de8940d24c1782362023c59c360c3f2df312eeef6c3e3c",
+      "bytes": 92
+    },
+    {
+      "path": "tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-pass/04-analysis.md",
+      "ref": "2174265e9c",
+      "sha256": "b49cbb6bc94161ff82fa7ab3632304aabbd6da9d39ce3931f48a75fb90c63452",
+      "bytes": 568
+    },
+    {
+      "path": "tools/test-fixtures/lint-audit-artifacts/fixture-epic-m6-renovation-pass/05-punch-list.md",
+      "ref": "2174265e9c",
+      "sha256": "02529eb1cf0edc6623567ad8e45e927b72959eab7e907580b4ab908125c116fe",
+      "bytes": 254
+    },
+    {
+      "path": "tools/usb-gadget-test",
+      "ref": "8ebaf8daad",
+      "sha256": "5f95db4c2831a89fbb49a8d5bf128dd3bd2e39e9c3a95a274a1e7af0329178a8",
+      "bytes": 6304
+    },
+    {
+      "path": "tools/wait-lock-test",
+      "ref": "8ebaf8daad",
+      "sha256": "60c49a09c70a299bc5e1f570da447daf9d6ff028930efdaff5eff122945685de",
+      "bytes": 8960
+    },
+    {
+      "path": ".qa-scratch/t14/runs.txt",
+      "ref": "stage-A run lines",
+      "sha256": "ecd67d2c1775a05e11003eeff7e9fe37083394e9785c6f6350fa3b876cb298f3",
+      "bytes": 1834
+    }
+  ],
+  "built_by": "docs/audits/2026_10_24-epic-m6-tooling-state-tests/tools/t14-packet.py",
+  "packet_body_sha256": "992de9897dd5a3c9026b6449d5a967d85083149f765694f6a947a9bc65b2bf45",
+  "packet_body_bytes": 510784,
+  "files_32": 32,
+  "files_32_bytes": 396588
+}
