@@ -205,3 +205,27 @@ PROOF: P16 the audit folders' date format -- `ls docs/audits`: 23 entries, 22 ma
   - Its body's *track 38 of them* was first typed and then counted (38) before filing.
   - `box-check --issue 958`: 44 open checkboxes, 0 fail. The lint with `--issue 958` passes.
 - **The stage-D pause starts here:** the coordinator writes the stream briefs (stage E).
+
+### [Stage E] 18:01-18:08 — S1: the diff reader (#929, #930, #931, #937, #938)
+
+- **The stage-E dispatch** (#657, 18:01 UTC) was read, and the brief `docs/reviews/briefs/t10-streams.md` at `9e0718eeb5` read whole (491 lines) from the coordinator's worktree. There are ten streams, run S1 to S10. Criterion 15 now reads over the 31 member paths.
+- **The tests first:** five new `hooks-test` cases were added and run on the unfixed hooks (`.qa-scratch/t10/s1/before.txt`). All five failed:
+  - *a listed word in a file git treats as binary (#929): expected refused, exited 0*;
+  - *... in a .po file (#930)*, exited 0;
+  - *an added '++ b/' line after a deleted '-- ' line is content, not a header (#931)*, exited 0;
+  - *a # line carrying a listed word, given with git commit -m, is refused (#938)*, exited 0;
+  - *... binary-detected file in a middle commit, gone at the tip (#929)*, exited 0;
+  - *a pr/\* branch adding a personal path git quotes (#937)*: refused, but its `says ... "personal artifacts"` check FAILED.
+- **The fix:**
+  - **the reader:** `guard_added_lines` reads a header only between `diff --git` and the first `@@`, and a `Binary files` line refuses;
+  - **the callers:** they diff with `--text --no-ext-diff --no-textconv`, with no `.po`/`.pot` exemption, and the tip names use `--diff-filter=AMT`;
+  - **the name lists:** every one in `pre-push` is read `-z`, the personal-path match through an associative array;
+  - **`commit-msg`:** it scans every line. The existing case that allowed a listed word on a `#` line now carries a clean one, as the brief's decision directs.
+- **The commits:**
+  - `a00b0ac7bb` (the reader, #929, #930, #931) was cut from an intermediate tree with the `-z`, `commit-msg` and two cases withheld: `hooks-test` PASS, 33 `expect` results;
+  - `d55d34d6e1` (#937, #938) was committed on the final tree: PASS, **35 `expect` results, 51 `ok` lines** (stage A: 29 and 41).
+
+  `mapfile`'s refusal path was checked under `set -u`: a failing diff leaves `rc=1` as the last element, and an empty diff `rc=0`.
+- **Not this lane's:** the EmulationStation fork's `.githooks/guard-lib`, which carries the same reader (its header: *change both together*). It is named for the coordinator; that repository is outside this lane.
+PROOF: P17 S1's cases -- `.githooks/hooks-test` with the five new cases on the unfixed hooks: rc 1, the five named FAIL lines (`.qa-scratch/t10/s1/before.txt`); on the intermediate tree (`a00b0ac7bb`): rc 0, PASS, 33 expect results; on the final tree (`d55d34d6e1`): rc 0, PASS, 35 expect results, 51 ok lines (`.qa-scratch/t10/s1/final.txt`).
+PROOF: P18 S1's history read -- `docs/audits/2026_10_24-epic-m6-tooling-guards/tools/t10-history-scan.sh <worktree> c445081a59..8ebaf8daad /workspace/tmp/m6-t10/history-s1` (18:05:07Z, rc 0, 14 s), the fixed reader with the real lists through `guard_load`, counts and labels only: 27,038,430 added lines and 32,333 message lines; added lines 3 credential-shaped and 77 with a listed word, messages 1 and 3. Every commit carrying a hit predates the guard that would have refused it: the 77 word lines and 3 word messages are in 13 commits dated 2026-08-19 to 2026-09-28T13:58Z, before the wordlist guard `3e70ef9239` (2026-09-28T15:44Z); the credential lines are `9c9305eabf` (2026-08-22, before any scan) and two audit-packet seat diffs of 2026-09-28 (04:25Z, 13:58Z) committed under the audit-packet exemption that `3e70ef9239` removed; the credential message `06846da9ef` (2026-09-28T02:36Z) predates any message scan. No hit is a guard escape. The labels (commit:path:line) are in /workspace/tmp/m6-t10/history-s1/ and in `02` § Stage E for the coordinator.

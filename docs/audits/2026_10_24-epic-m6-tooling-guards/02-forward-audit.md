@@ -23,7 +23,7 @@ Every finding is a lead until `04` § Finding Verification and § Second opinion
 | 11 | 04 Q6: the guard table and the tool-caller table | the evidence is here (§ Callers, § The suites, F-rows); the tables are `04`'s | `04` § Q6 |
 | 12 | 04 Q3: the fail-open hunt through the named readers | the evidence is here (F-01 to F-30); the table is `04`'s | `04` § Q3 |
 | 13 | 04 Q7: the personal-path diff entry by entry; three descriptions per guard | P2 (the diff); the description rows are `04`'s | `04` § Q7 |
-| 14 | proof cells in § Proofs = proof lines in 00 | 18 = 18 | § Proofs; `command grep -c` |
+| 14 | proof cells in § Proofs = proof lines in 00 | 20 = 20 | § Proofs; `command grep -c` |
 | 15 | every item `question:`; bugs pass box-check; no member edited before a stream | stage D; `git diff --stat a82d784216 HEAD -- .githooks .github tools` empty | `05` |
 | 16 | the retro | stage G | `docs/retros/` |
 | 17 | the six checks pass before the merge; the lint PASS | stage H | the hand-back |
@@ -413,3 +413,45 @@ One row per path. A cell names the finding or says `none` with what was read; `n
 | P14 | `fork-package-freshness`'s set against the merge base, the edited recipes, and a missing base ref | proved: tool-run |
 | P15 | the seats' constructed cases: the parser's header state, the date-ordered range, a tag, both shapes on one line, the lowercase and slash-bearing credentials, a listed word in a name, the quoted personal `.po`, the `origin/next` base | proved: tool-run |
 | P16 | the audit folders' date format | proved: tool-run |
+
+## Stage E: the streams
+
+Each stream is from `docs/reviews/briefs/t10-streams.md` at `9e0718eeb5`, with its tests run on the unfixed tool first. Every constructed input is a recipe (a stand-in list, `printf` pieces, a throwaway repository under `.qa-scratch/t10/`).
+
+### S1: the diff reader (#929, #930, #931, #937, #938) -- `a00b0ac7bb`, `d55d34d6e1`
+
+| Case (`.githooks/hooks-test`) | Unfixed (`8ebaf8daad`'s hooks) | Fixed |
+| --- | --- | --- |
+| a listed word in a file git treats as binary (#929) | FAIL: expected refused, exited 0 | ok: refused |
+| a listed word in a binary-detected file in a middle commit, gone at the tip (#929) | FAIL: exited 0 | ok: refused, never prints the word |
+| a listed word in a .po file (#930) | FAIL: exited 0 | ok: refused |
+| an added '++ b/' line after a deleted '-- ' line is content, not a header (#931) | FAIL: exited 0 | ok: refused |
+| a # line carrying a listed word, given with git commit -m, is refused (#938) | FAIL: exited 0 | ok: refused |
+| a pr/* branch adding a personal path git quotes (#937) | refused, but *says "personal artifacts"* FAIL (refused only as unreadable) | ok: refused as a personal path |
+
+`hooks-test`: PASS with 35 `expect` results and 51 `ok` lines (stage A: 29 and 41). The case that allowed a listed word on a `#` line now carries a clean one.
+
+**The history read** (`tools/t10-history-scan.sh`, P18): over `c445081a59..8ebaf8daad`, the fixed reader with the real lists, counts and labels only:
+- **Added lines:** 3 credential-shaped and 77 with a listed word. **Messages:** 1 and 3.
+- **No hit is a guard escape.** Every commit carrying one predates the guard that would have refused it:
+  - the wordlist guard is `3e70ef9239`, 2026-09-28T15:44Z;
+  - the audit-packet exemption it removed covered the two seat diffs;
+  - no message scan existed before it.
+- **For the coordinator, by label** (commit:path:line, never the line):
+  - **The credential lines:**
+    - `9c9305eabf:tools/cloud-test-backend:27` (2026-08-22);
+    - `46d7cd00b5:docs/audits/2026_09_28-milestone-audit-of-the-fix-round/seats/E-tests.diff:189`;
+    - `d047546616:docs/audits/2026_09_28-milestone-audit-of-the-fixes-307/seats/E1.diff:142`.
+  - **The credential message:** `06846da9ef:message:12`.
+  - **The listed-word lines:**
+    - 8 lines each in `46d7cd00b5`, `d047546616` and `cfb861dacd` (seat plans and stream briefs);
+    - 23 in `437ebd09af`, 11 in `b3e5c92559`, 6 in `3f92ab553d`, 3 in `41b4071e92`, 3 in `df316365e6`, 2 in `25cd0cd7ff`, 2 in `a371bb77f8`;
+    - 1 each in `4796a78983`, `62507a4d2f` and `9852981d72`.
+  - **The listed-word messages:** `41b4071e92:message:11`, `a371bb77f8:message:3`, `a371bb77f8:message:4`.
+
+  The full label lists are in `/workspace/tmp/m6-t10/history-s1/`. These lines are in pushed history; whether any is rewritten is the maintainer's, under #312's decision.
+
+| Proof | What it shows | Proved |
+| --- | --- | --- |
+| P17 | S1's five cases fail on the unfixed hooks and pass on the fixed, and the suite stays green on the intermediate tree | proved: fix-case |
+| P18 | the fixed reader over the fork's history: no guard escape | proved: tool-run |
