@@ -8,6 +8,9 @@ PKG_LICENSE="other"
 PKG_SITE="https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/"
 PKG_URL="https://cdn.kernel.org/pub/linux/kernel/firmware/linux-firmware-${PKG_VERSION}.tar.gz"
 PKG_NEED_UNPACK="${PROJECT_DIR}/${PROJECT}/packages/${PKG_NAME} ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/packages/${PKG_NAME}"
+# The firmware list find_file_path reads (makeinstall_target) is outside the
+# package directory, so the stamp names where it can be found (#836).
+PKG_NEED_UNPACK+=" ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/config/kernel-firmware.dat ${PROJECT_DIR}/${PROJECT}/config/kernel-firmware.dat ${DISTRO_DIR}/${DISTRO}/config/kernel-firmware.dat"
 PKG_LONGDESC="kernel-firmware: kernel related firmware"
 PKG_TOOLCHAIN="manual"
 
