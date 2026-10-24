@@ -27,7 +27,7 @@
           "output": "gpt-probe.md"
         }
       ],
-      "status": "running"
+      "status": "refutation succeeded on the first attempt 2026-10-24 09:15:57-09:32:03 (identity, effort max, provider OpenAI: PASS); grading held until the second seat returns (the coordinator's rule on #650)"
     },
     {
       "member": "gemini-argon",
@@ -47,7 +47,7 @@
           "output": "gemini-argon-probe.md"
         }
       ],
-      "status": "running"
+      "status": "HOLD: refutation failed 09:15:57-10:02:20, retries_exhausted_empty_content (attempts 1-3 finish=length at the 65,536-token ceiling, about 57,000 reasoning tokens each; attempt 4 empty, finish=error); identity and provider PASS, effort unverifiable; not transient, so no same-slug retry; the way forward is the coordinator's"
     }
   ]
 }

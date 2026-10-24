@@ -1,0 +1,270 @@
+{
+  "artifact_path": "docs/audits/2026_10_24-epic-m6-emulators-standalone/second-opinions/gemini-argon-audit.md",
+  "source_file_paths": [],
+  "source_file_hashes": [],
+  "facilitator_version": "council-facilitator@1.14.1-pixelelated.2",
+  "prev_verdict_sha256": null,
+  "member": "gemini-argon",
+  "declared_model": "google/gemini-4-argon (OpenRouter, via google-vertex/global, effort=high)",
+  "substrate": "openrouter",
+  "transport": "buffered",
+  "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+  "request": {
+    "started_at": "2026-10-24T09:15:57.437Z",
+    "system_prompt_sha256": null,
+    "user_prompt_sha256": "4c24f7cc03c94eec8a13a1e601c4d7cba5d415e2b45ab8861b38e7abfa9c96fb"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started_at": "2026-10-24T09:15:57.437Z",
+      "duration_ms": 710019,
+      "max_tokens": 65536,
+      "transport": "buffered",
+      "http_status": 200,
+      "outcome": "retry",
+      "outcome_reason": "truncated_content",
+      "model_field": "google/gemini-4-argon",
+      "finish_reason": "length",
+      "content_length": 21464,
+      "tokens": {
+        "prompt": 172626,
+        "completion": 65536,
+        "total": 238162,
+        "reasoning": 57822
+      },
+      "model_identity_source": "provider_response",
+      "served_provider": "Google",
+      "served_provider_observations": [
+        "Google"
+      ],
+      "content_sha256": "04581531824483ecc2dc713812c8b183cd458137873995be07d46087e2650bb8",
+      "usage": {
+        "prompt_tokens": 172626,
+        "completion_tokens": 65536,
+        "total_tokens": 238162,
+        "cost": 1.000612,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.000612,
+          "upstream_inference_prompt_cost": 0.345252,
+          "upstream_inference_completions_cost": 0.65536
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 57822,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_headers": {
+        "content-type": "application/json",
+        "x-generation-id": "gen-1792833358-uruHEJ2XPfCybGjqk4w4"
+      },
+      "generation_id": "gen-1792833358-uruHEJ2XPfCybGjqk4w4",
+      "native_finish_reason": "MAX_TOKENS",
+      "response_body_sha256": "507ab7234f42a2453597bfb2c517c7c2bd356db8ce38983adfa4c84b3520f0d4"
+    },
+    {
+      "attempt": 2,
+      "started_at": "2026-10-24T09:27:48.458Z",
+      "duration_ms": 687367,
+      "max_tokens": 65536,
+      "transport": "buffered",
+      "http_status": 200,
+      "outcome": "retry",
+      "outcome_reason": "truncated_content",
+      "model_field": "google/gemini-4-argon",
+      "finish_reason": "length",
+      "content_length": 22825,
+      "tokens": {
+        "prompt": 172626,
+        "completion": 65536,
+        "total": 238162,
+        "reasoning": 57141
+      },
+      "model_identity_source": "provider_response",
+      "served_provider": "Google",
+      "served_provider_observations": [
+        "Google"
+      ],
+      "wait_before_ms": 1000,
+      "content_sha256": "f67f3e46d470000b068aace3424971447a0e992e7a8a8627ad80bdf469970fc8",
+      "usage": {
+        "prompt_tokens": 172626,
+        "completion_tokens": 65536,
+        "total_tokens": 238162,
+        "cost": 1.000612,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.000612,
+          "upstream_inference_prompt_cost": 0.345252,
+          "upstream_inference_completions_cost": 0.65536
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 57141,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_headers": {
+        "content-type": "application/json",
+        "x-generation-id": "gen-1792834068-g0XM0rsBB8LfWgOBhRdC"
+      },
+      "generation_id": "gen-1792834068-g0XM0rsBB8LfWgOBhRdC",
+      "native_finish_reason": "MAX_TOKENS",
+      "response_body_sha256": "d7cfcf96201f45e8ec6486da32e15ddd01d71553e2f6cd384e29f954381f8b2e"
+    },
+    {
+      "attempt": 3,
+      "started_at": "2026-10-24T09:39:17.827Z",
+      "duration_ms": 719743,
+      "max_tokens": 65536,
+      "transport": "buffered",
+      "http_status": 200,
+      "outcome": "retry",
+      "outcome_reason": "truncated_content",
+      "model_field": "google/gemini-4-argon",
+      "finish_reason": "length",
+      "content_length": 23507,
+      "tokens": {
+        "prompt": 172626,
+        "completion": 65536,
+        "total": 238162,
+        "reasoning": 56784
+      },
+      "model_identity_source": "provider_response",
+      "served_provider": "Google",
+      "served_provider_observations": [
+        "Google"
+      ],
+      "wait_before_ms": 2000,
+      "content_sha256": "6cc09abc142e535397b79447bf4e21dfe71cd63f7257024610baaa01d8c64101",
+      "usage": {
+        "prompt_tokens": 172626,
+        "completion_tokens": 65536,
+        "total_tokens": 238162,
+        "cost": 1.000612,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 1.000612,
+          "upstream_inference_prompt_cost": 0.345252,
+          "upstream_inference_completions_cost": 0.65536
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 56784,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_headers": {
+        "content-type": "application/json",
+        "x-generation-id": "gen-1792834758-X65zRd8d0wuWFwMtU7vj"
+      },
+      "generation_id": "gen-1792834758-X65zRd8d0wuWFwMtU7vj",
+      "native_finish_reason": "MAX_TOKENS",
+      "response_body_sha256": "10ba5c502e47b8fb27581ef478ae9b42855be999928ff3effb435b993533722f"
+    },
+    {
+      "attempt": 4,
+      "started_at": "2026-10-24T09:51:21.572Z",
+      "duration_ms": 658944,
+      "max_tokens": 65536,
+      "transport": "buffered",
+      "http_status": 200,
+      "outcome": "empty_content",
+      "outcome_reason": null,
+      "model_field": "google/gemini-4-argon",
+      "finish_reason": "error",
+      "content_length": 0,
+      "tokens": {
+        "prompt": 0,
+        "completion": 0,
+        "total": 0,
+        "reasoning": 0
+      },
+      "model_identity_source": "provider_response",
+      "served_provider": "Google",
+      "served_provider_observations": [
+        "Google"
+      ],
+      "wait_before_ms": 4000,
+      "usage": {
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "total_tokens": 0,
+        "cost": 0,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0,
+          "upstream_inference_prompt_cost": 0,
+          "upstream_inference_completions_cost": 0
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_headers": {
+        "content-type": "application/json",
+        "x-generation-id": "gen-1792835481-uRMZyZH2ICYAZ6u753bR"
+      },
+      "generation_id": "gen-1792835481-uRMZyZH2ICYAZ6u753bR",
+      "response_body_sha256": "226d0298a89b3b4d2708d5c36efa3036509cbbf68f200c358757abb4d70ccc0e"
+    }
+  ],
+  "final": {
+    "outcome": "retries_exhausted_empty_content",
+    "assurance_tier": "local_capture_provider_attested",
+    "total_duration_ms": 2783080,
+    "retries_used": 3,
+    "verification": {
+      "result": "PASS",
+      "match_kind": "semantic",
+      "declared": "google/gemini-4-argon (OpenRouter, via google-vertex/global, effort=high)",
+      "observed": "google/gemini-4-argon",
+      "model_identity_source": "provider_response"
+    },
+    "effort_verification": {
+      "result": "UNVERIFIABLE",
+      "declared": "high",
+      "evidence": "reasoning_tokens",
+      "observed_reasoning_tokens": null
+    },
+    "provider_verification": {
+      "result": "PASS",
+      "declared": [
+        "Google"
+      ],
+      "evidence": "response_provider_field",
+      "observed": "Google",
+      "observed_providers": [
+        "Google"
+      ]
+    }
+  }
+}
