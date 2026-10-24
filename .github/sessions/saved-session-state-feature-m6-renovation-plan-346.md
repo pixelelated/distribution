@@ -30,7 +30,7 @@ wait for the M7 lane's post-candidate merge to clear the push guard's W42
 gate before anything merges to `next` (never `--no-verify`); the order is in
 § Merge notes and § State at 2026-10-24. **Accepted:** P1 (#641), T1 (#648),
 T2 (#649), T3 (#650), T5 (#652), T6 (#653), T7 (#654, `db6597356b`), T30
-(#677, `f94a6fc62f`; its completion marker is the lane's next act there).
+(#677, `a020b3d375`, its completion marker written and the full lint PASS).
 **Running:** **T8** (#655, Independent) in the T5 session
 (`m6-t5-build-engine`) at **stage E** from `docs/reviews/briefs/t8-streams.md`
 (`7c4867330b`): S1 #852 fixed `43f6a81070`, S2 #893 fixed `4db09f6e2e` and
@@ -242,7 +242,10 @@ is the narrative; this is the index of what a resuming agent must know.
   cycles run under that hold with census lines; every M6 block on the file
   is an `== M6 coordinator -- HH:MM UTC:` ack with the census
   (`pgrep -c -x qemu-system-x86`, M6 pidfiles, compilers). Read the file
-  before any runtime. `/tmp` is a tmpfs that ran out of inodes at 07:13:
+  before any runtime. `upstream/next` moved from `e0f9deb899` to `481c9d0d75`
+  at 13:4x (heroic 2.22.4, one recipe): every slice's (a) read stays a fact
+  about `e0f9deb899`, and the base merge at integration is against the
+  `upstream/next` of that day, with `tools/renovation-drift` run first. `/tmp` is a tmpfs that ran out of inodes at 07:13:
   tree exports and simulated merges go under `/workspace/tmp/m6-coordinator/`
   after `df -i`.
 - **Lanes and sessions.** `m6-t3-emulators` (pane `wN:p6`) ran T3 and T30 and runs T24 in
