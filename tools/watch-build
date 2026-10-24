@@ -52,6 +52,10 @@ class Interrupted(Exception):
     """A signal arrived before the command was started."""
 
 
+class AdmissionRefused(Exception):
+    """The admission guard refused the run; nothing was started."""
+
+
 def log_note(log, text):
     # The runner's own line in the log; a log that cannot be written is
     # already the failure being reported.
@@ -189,7 +193,12 @@ def main():
     code = 125
     try:
         if not args.record_only:
-            guard.admit(receipt, root, run, environment, docker=args.docker)
+            try:
+                guard.admit(receipt, root, run, environment, docker=args.docker)
+            except (OSError, ValueError, LookupError, TypeError, AttributeError, RuntimeError,
+                    subprocess.SubprocessError) as error:
+                # Named as what it is; the run exists, so its code stays 125 (#915).
+                raise AdmissionRefused(error) from error
         if interrupted is not None:
             # A cancellation during admission starts nothing (#917).
             code = 128 + interrupted
@@ -222,6 +231,8 @@ def main():
         code = child.returncode if child.returncode >= 0 else 128 - child.returncode
     except Interrupted as error:
         log_note(log, f'watch-build: {error}\n')
+    except AdmissionRefused as error:
+        log_note(log, f'watch-build: admission refused: {error}\n')
     except (OSError, ValueError, LookupError, TypeError, AttributeError, RuntimeError,
             subprocess.SubprocessError) as error:
         # Stop the payload first: the failure may be the log itself (#917).
