@@ -54,12 +54,10 @@ if [ ! -d "/storage/roms/savestates/nds" ]; then
 fi
 
 #Link savestates to roms/savestates/nds
-rm -rf /storage/.config/drastic/savestates
-ln -sf /storage/roms/savestates/nds /storage/.config/drastic/savestates
+link_storage_dir /storage/.config/drastic/savestates /storage/roms/savestates/nds
 
 #Link saves to roms/nds/saves
-rm -rf /storage/.config/drastic/backup
-ln -sf /storage/roms/nds /storage/.config/drastic/backup
+link_storage_dir /storage/.config/drastic/backup /storage/roms/nds
 
 #Apply ES features to config
 if [ "${HIRES3D}" = "1" ]; then
