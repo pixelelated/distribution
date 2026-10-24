@@ -145,7 +145,7 @@ comment:** a lane's turn ends when it posts a question, so every answer the
 coordinator gives on an issue is also sent as `herdr agent prompt <lane>`,
 the same minute (T1 sat idle 78 minutes on 2026-10-23 after an answer that
 was only a comment). Before calling a lane idle, read its worktree's branch
-and status, not the origin. A prompt that does not flip a lane to `working`
+and status, not the origin. **A seed ends with "do not end a turn on a post that asks nothing; post checkpoints and continue"** (T5 stopped after stage A on 2026-10-24 because its seed's list ended there), and the agent-state watch (`herdr agent get`, every 30 s, idle named at ten minutes) is armed for every working lane. A prompt that does not flip a lane to `working`
 within a minute went nowhere: `herdr agent read <lane>` shows why (a settings or
 usage dialog eats typed text; `herdr agent send-keys <lane> esc`, then the
 prompt, then `send-keys enter`).
