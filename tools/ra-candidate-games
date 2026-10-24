@@ -142,7 +142,9 @@ def check(game_id: int, path: Path, cache: Path) -> int:
     detail = get("API_GetGameExtended.php", {"i": game_id}, cache, f"game-{game_id}")
     console = int(detail.get("ConsoleID") or 0)
     listing = get("API_GetGameHashes.php", {"i": game_id}, cache, f"hashes-{game_id}")
-    known = listing.get("Results", listing if isinstance(listing, list) else [])
+    # The API answers either {"Results": [...]} or a bare list (G-68); the
+    # bare list used to raise on .get before its own case was reached.
+    known = listing if isinstance(listing, list) else listing.get("Results", [])
     ours = ra_md5(path, console)
     print(f"{path.name}")
     print(f"  {detail.get('Title')}  [{detail.get('ConsoleName')}]")

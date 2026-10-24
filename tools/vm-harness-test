@@ -1384,6 +1384,27 @@ def font_stems_reversed(c):
 
 
 
+@case
+def candidate_games_bare_list(c):
+    import importlib.machinery, importlib.util
+    loader = importlib.machinery.SourceFileLoader('vmht_rcg', str(c.tools_from / 'ra-candidate-games'))
+    spec = importlib.util.spec_from_loader(loader.name, loader)
+    mod = importlib.util.module_from_spec(spec)
+    loader.exec_module(mod)
+    rom = c.dir / 'game.gb'
+    rom.write_bytes(b'stand-in')
+    ours = mod.ra_md5(rom, 4)
+    answers = {'API_GetGameExtended.php': {'ConsoleID': 4, 'Title': 'Stand-in', 'ConsoleName': 'GB'},
+               'API_GetGameHashes.php': [{'MD5': ours, 'Name': 'stand-in'}]}
+    mod.get = lambda endpoint, params, cache, name: answers[endpoint]   # never the network
+    try:
+        rc = mod.check(1, rom, c.dir)
+        return rc == 0, f'check() returned {rc} on a bare-list answer holding the ROM\'s hash (want 0)'
+    except AttributeError as e:
+        return False, f'AttributeError on the bare-list answer: {e}'
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')
