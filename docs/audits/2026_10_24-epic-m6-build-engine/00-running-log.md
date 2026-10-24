@@ -108,3 +108,8 @@ PROOF: 04:11-04:31 P13 `get_git`'s cache check accepts `PKG_VERSION` matching a 
 ### [Stage B] 04:31 — Clock correction
 
 - `date -u` read **04:31:01** while the criterion entries were being written, and the entries since the previous reading (04:11:41) had been stamped by estimate as late as 04:50: the same shape as the 03:52 heading. Every stamp written between the two readings is corrected in place to the bracket the two readings support (`after 04:11:41`, `before 04:31:01`, `04:11-04:31`); the order of the entries is the order the work was done. From here, every stamp is a `date -u` reading taken at the moment it is written. A friction line records it (the second time in this lane).
+
+### [Stage B to C] 04:34 — `04-analysis.md` written; the pre-issue lint
+
+- `04-analysis.md` (Phase 4, 4.5 with one lead withdrawn, the renovation face Q1 to Q7 with Q4's two tables, Q5's runs and ccache table, Q6's summary of `q6-tables.md`; § Second opinion pending on the host).
+- `tools/lint-audit-artifacts docs/audits/2026_10_24-epic-m6-build-engine --phase pre-issue`: 5 contract failures, all expected at this stage: the review plan's call evidence (no provenance file yet: Phase 4.6 waits for the host) and `05-punch-list.md` (not yet written: Phase 5 follows 4.6). Every `04` section, the renovation face's Q1 to Q7 included, reads `ok`.
