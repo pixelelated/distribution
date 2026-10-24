@@ -1334,6 +1334,48 @@ def blackout_drops_text(c):
 
 
 
+@case
+def untranslated_fuzzy_ctx(c):
+    import importlib.machinery, importlib.util
+    loader = importlib.machinery.SourceFileLoader('vmht_eu', str(c.tools_from / 'es-untranslated'))
+    spec = importlib.util.spec_from_loader(loader.name, loader)
+    mod = importlib.util.module_from_spec(spec)
+    loader.exec_module(mod)
+    po = ('msgid ""\nmsgstr ""\n\n#, fuzzy\nmsgid "BACK UP"\nmsgstr "SAUVEGARDER"\n\n'
+          'msgctxt "menu"\nmsgid "RESTORE"\nmsgstr "RESTAURER"\n\nmsgid "SAVES"\nmsgstr "SAUVEGARDES"\n')
+    got = mod.parse_po(po)
+    ok = not got.get('BACK UP') and not got.get('RESTORE') and got.get('SAVES') == 'SAUVEGARDES'
+    return ok, f'French read {got} (want none for the fuzzy and the msgctxt entries)'
+
+
+
+@case
+def untranslated_unreadable_source(c):
+    tool = c.tool('es-untranslated')
+    es = c.dir / 'es'
+    for sub in ('es-app/src', 'es-core/src', 'locale/lang/fr/LC_MESSAGES'):
+        (es / sub).mkdir(parents=True)
+    (es / 'locale/lang/fr/LC_MESSAGES/emulationstation2.po').write_text('msgid ""\nmsgstr ""\n')
+    (es / 'es-app/src/Upstream.cpp').write_text('auto u = _("AN UPSTREAM STRING");\n')
+    (es / 'es-core/src/Core.cpp').write_text('auto k = _("A CORE STRING");\n')
+    git = ['git', '-c', 'user.name=vmht', '-c', 'user.email=vmht@invalid', '-c', 'commit.gpgsign=false']
+    subprocess.run(git + ['init', '-q', str(es)], check=True)
+    subprocess.run(git + ['-C', str(es), 'add', '.'], check=True)
+    subprocess.run(git + ['-C', str(es), 'commit', '-q', '-m', 'upstream base'], check=True)
+    # The fork's file, after the base, and unreadable: its string is in no count.
+    src = es / 'es-app/src/Locked.cpp'
+    src.write_text('auto s = _("A FORK STRING");\n')
+    src.chmod(0)
+    try:
+        r = c.run([sys.executable, '-I', str(tool), '--es-src', str(es), '--upstream', 'HEAD'])
+    finally:
+        src.chmod(0o644)
+    text = r.stdout + r.stderr
+    return r.returncode == 2 and 'cannot read 1 source file' in text, \
+        f'rc {r.returncode}, {text.strip().splitlines()[-1:]} (want 2: a source it could not read is no answer)'
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')

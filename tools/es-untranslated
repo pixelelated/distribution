@@ -27,26 +27,39 @@
 import argparse, os, re, subprocess, sys
 
 def parse_po(text):
-    """msgid -> msgstr for a gettext catalogue (single- and multi-line entries; plurals keep msgstr[0])."""
+    """msgid -> msgstr for a gettext catalogue (single- and multi-line entries; plurals keep msgstr[0]).
+
+    A `#, fuzzy` entry and an entry under a msgctxt keep their msgid as a key
+    with no French (G-64): gettext does not use a fuzzy translation, and a
+    context's translation is not the context-free string's."""
     out = {}
-    cur_id = None; cur_str = None; mode = None
+    cur_id = None; cur_str = None; mode = None; fuzzy = False; ctx = False
     def unesc(s):
         return bytes(s, "utf-8").decode("unicode_escape").encode("latin-1").decode("utf-8")
     def flush():
-        nonlocal cur_id, cur_str
+        nonlocal cur_id, cur_str, fuzzy, ctx
         if cur_id is not None:
-            out[cur_id] = cur_str or ""
-        cur_id = None; cur_str = None
+            if fuzzy or ctx:
+                out.setdefault(cur_id, "")
+            else:
+                out[cur_id] = cur_str or ""
+        cur_id = None; cur_str = None; fuzzy = False; ctx = False
     for line in text.splitlines():
         line = line.strip()
+        if line.startswith("#,") and "fuzzy" in line:
+            flush(); fuzzy = True
+            continue
         if not line or line.startswith("#"):
             continue
         m = re.match(r'^(msgid|msgid_plural|msgstr(?:\[\d+\])?|msgctxt)\s+"(.*)"$', line)
         if m:
             key, val = m.group(1), unesc(m.group(2))
-            if key == "msgid":
-                flush(); cur_id = val; mode = "id"
-            elif key == "msgstr" or key == "msgstr[0]":
+            if key == "msgctxt":
+                was_fuzzy = fuzzy; flush(); fuzzy = was_fuzzy; ctx = True; mode = "other"
+            elif key == "msgid":
+                was = (fuzzy, ctx) if cur_id is None else (False, False)
+                flush(); fuzzy, ctx = was; cur_id = val; mode = "id"
+            elif key in ("msgstr", "msgstr[0]"):
                 cur_str = val; mode = "str"
             elif key.startswith("msgstr["):
                 mode = "other"
@@ -62,8 +75,9 @@ def parse_po(text):
     out.pop("", None)
     return out
 
-def source_strings(root):
-    """(msgid, file:line) for every _("...") in es-app/src and es-core/src, adjacent literals joined."""
+def source_strings(root, unreadable=None):
+    """(msgid, file:line) for every _("...") in es-app/src and es-core/src, adjacent literals joined.
+    A file that cannot be read is appended to `unreadable` when given (G-63)."""
     found = {}
     pat = re.compile(r'_\(\s*((?:"(?:[^"\\]|\\.)*"\s*)+)\)')
     for sub in ("es-app/src", "es-core/src"):
@@ -75,6 +89,8 @@ def source_strings(root):
                 try:
                     text = open(p, encoding="utf-8", errors="replace").read()
                 except OSError:
+                    if unreadable is not None:
+                        unreadable.append(p)
                     continue
                 for m in pat.finditer(text):
                     lits = re.findall(r'"((?:[^"\\]|\\.)*)"', m.group(1))
@@ -140,7 +156,15 @@ def main():
                 print("es-untranslated: the upstream source at " + b + " has no _() strings -- not a believable base", file=sys.stderr); return 2
             upstream_src_ids |= set(found)
     print("es-untranslated: upstream base " + ", ".join(b[:9] for b in bases) + (" (merge base of HEAD with " + a.upstream_ref + ")" if not a.upstream else " (given)"))
-    src = source_strings(a.es_src)
+    unreadable = []
+    src = source_strings(a.es_src, unreadable)
+    # The current source is held to what the upstream one is (G-63): a file it
+    # could not read is a check that did not run, and no strings is not a fork
+    # with nothing to translate.
+    if unreadable:
+        print("es-untranslated: cannot read %d source file(s) in %s, first %s" % (len(unreadable), a.es_src, unreadable[0]), file=sys.stderr); return 2
+    if not src:
+        print("es-untranslated: the source at " + a.es_src + " has no _() strings -- not a believable checkout", file=sys.stderr); return 2
     fork = {k: v for k, v in src.items() if k not in upstream_ids and k not in upstream_src_ids}
     upstream_untranslated = sorted((v, k) for k, v in src.items() if k in upstream_src_ids and k not in upstream_ids and not fr.get(k))
     missing = sorted(((v, k) for k, v in fork.items() if not fr.get(k)), key=lambda t: (t[0].split(":")[0], int(t[0].split(":")[1])))
