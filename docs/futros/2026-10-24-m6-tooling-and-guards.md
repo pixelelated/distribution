@@ -491,3 +491,46 @@ find/stop classification by name; A5 § 8 names the handheld, the QA account,
 the pattern kill and `/tmp` as stops; A6 § 9 adds the cycle's own ritual
 (`docs/vm-qa-log.md`); A7 § 10 includes the host checked for a payload left
 behind.
+
+### Errata from the stranger's proof of T12's brief (version 2, 2026-10-24)
+
+A reader with no context reproduced the brief's claims read-only (4 API
+calls; the three no-guest controls run from an export, rc 0 each):
+most held; nine were wrong or partial, corrected in version 2:
+
+- **The host held no image where version 1 pointed.** The `x64-*`
+  directories live under `/workspace/artifacts/rocknix-images/`, not
+  `/workspace/artifacts/`, and their payloads were retired on 2026-10-07
+  (`RECORD.txt`, `SHA256SUMS` and the retirement JSON remain). The newest
+  GENERIC_X64 image present is the M6 lanes' copy of the `069fc2704421`
+  build under `/workspace/artifacts/m6-t1-20261023/` (2,122,289,964 bytes,
+  with its `.identity.json`). A lane following version 1's § 5 would have
+  found nothing to boot; the brief now names the file and its sidecar.
+- **The at-hash line loop sums to 8,813**, not 8,790: `wc -l` counts 23
+  newline bytes inside the three PNGs; the inventory's column, which stores
+  no count for an image, sums to 8,790. Both figures are now in the brief.
+- **Three walk files' last commits** were given as the directory's:
+  `fixtures/system-selected.sh` is `d97f64ddfd` (2026-10-05),
+  `cloud-epic/migration-protocol.sh` `083f4fad86` (2026-10-08),
+  `cloud-epic/vnc-grab.py` `3b9a62d976` (2026-10-02).
+- **`docs/vm-qa-log.md`'s five entries run 2026-10-06 to 2026-10-17**, not
+  "since 2026-10-15"; 13 `### ` sub-entries sit under the 2026-10-09 one.
+- **The report folders:** 27 top-level `docs/qa-logs/` folders hold a
+  `vm-qa` report (61 reports) and 13 a `time-to-play.log`; "ten" was the
+  `*-pixelelated-replacement-NN` subset.
+- **Blindspot 65 names none of the 60** (the proxy's guest script and the
+  shims); fifteen entries name the harness, not sixteen.
+- **Three of the eight "no caller" candidates have callers** by the
+  brief's own criterion: `png-blackout` (a skill instruction), `vm-serial`
+  (rule commands; four callers in the 60), `device-act` (a rule
+  instruction). Five remain: three with index mentions only, two with a
+  descriptive rule paragraph.
+- **`generic-x64-vm-testing.md` names 17 of the 30 scripts**, not "almost
+  all"; the thirteen it does not name are listed in the brief.
+- **The issue ranks hold under every-occurrence counting**; the method is
+  now stated.
+
+And one unknown answered early: **U-1** -- every `pgrep`, `pkill` and
+`kill` in the 60 is guest-side over SSH or serial; no tool finds or stops a
+host QEMU by pattern, and `vm-pair`, `vm-stop` and `vm-qa` carry no
+host-side kill. The lane confirms it and reads `vm-pair down`'s stop path.

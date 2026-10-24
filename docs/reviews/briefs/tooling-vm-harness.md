@@ -5,15 +5,13 @@ unit of handoff the plan defines (`docs/reviews/plan-for-the-plan.md` § 7);
 read that document whole before the first command, then this brief whole.
 Every section below is mandatory; a section that does not apply says so and
 why. Where this brief and the checklist on #659 differ, #659 wins and the
-coordinator corrects the brief in the same session. **Version 1
-(2026-10-24):** written after T9 (#656, the supervision tools) was accepted
+coordinator corrects the brief in the same session. **Version 2 (2026-10-24):** version 1 was written after T9 (#656, the supervision tools) was accepted
 at `bf4445a13c` and while T10 (#657, the guards) runs its streams in the
 other lane; the tooling area's futro
 (`docs/futros/2026-10-24-m6-tooling-and-guards.md`, posted on #903) carries
 this slice's kickoff addendum. Every figure below was produced by a command
 on the tree at `8ebaf8daad`, on P1's tip `2174265e9c` for the inventory, or
-on this host today, and says which; a stranger's proof precedes the dispatch
-and version 2 records what it found. **Each command block sets its own
+on this host today, and says which; a stranger's proof preceded the dispatch (read-only, 4 API calls, the three no-guest controls run from an export), and version 2 records what it found: the host held no image where version 1 pointed (the named `x64-*` directories were retired of their payloads on 2026-10-07; the newest image is the M6 lanes' `069fc2704421` copy), the at-hash line loop counts 23 newline bytes inside the PNGs, three walk files' last commits, the ledger's entry dates and the report-folder count, blindspot 65, three of eight "no caller" candidates that have callers, and the owning rule naming 17 of 30 -- each corrected below and listed in the futro's errata. **Each command block sets its own
 variables** (`D`): a Bash call in this harness starts a fresh shell. **This
 is a read of the fork's VM harness through the lens the order gives it, cost
 against value**: every behaviour proof this fork makes runs through these
@@ -91,12 +89,7 @@ is authorized in § 5 for the claims only a guest can show.
   (`openai/gpt-6-astra`, `openai`, `max`), provider `openrouter`,
   `allow_fallbacks: false`.
 - **The host, read on 2026-10-24 by the coordinator:** M6's since M7's 17:09
-  return; census qemu 0, compilers 0. The newest GENERIC_X64 images on the
-  host are under `/workspace/artifacts/` (`x64-all-20261002-b2378d9c33`,
-  `x64-all-20261001-d9493fe339`, `x64-webkit254-20260925-*`) and the M7
-  lane's QA images under `/workspace/artifacts/rocknix-images/`; **the lane
-  names the image file and its sha256 sidecar before any boot**, and reads
-  its `RECORD.txt` for what it was. T8's guest cycles (`docs/qa-logs/` of
+  return; census qemu 0, compilers 0. The `x64-*` directories under `/workspace/artifacts/rocknix-images/` (104 of them, `x64-all-20261002-b2378d9c33` the newest) **hold no image any more**: their payloads were retired on 2026-10-07 and only `RECORD.txt`, `SHA256SUMS` and the retirement JSON remain (the `webkit254` pair without a `RECORD.txt`). **The newest GENERIC_X64 image present is the M6 lanes' copy of the `069fc2704421` build**, `pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261022T235948Z.g069fc2704421-from-ROCKNIX.img.gz` (2,122,289,964 bytes, 2026-10-23) with its `.identity.json` sidecar, under `/workspace/artifacts/m6-t1-20261023/` (and `m6-t2-20261023/`, `m6-t3-20261024/`); **the lane copies it under `/workspace/tmp/m6-t12/`, checks the sidecar's sha256, and names it before any boot**; the identity sidecar is its record. T8's guest cycles (`docs/qa-logs/` of
   2026-10-24 on `feature/m6-image-packages-655`) are the recorded shape:
   the host file line before, the pidfile under `/workspace/tmp/m6-t12/`,
   `tools/vm-stop` to end it, the census after, the disk retired
@@ -153,7 +146,7 @@ os.makedirs(".qa-scratch/t12", exist_ok=True)
 open(".qa-scratch/t12/paths.txt", "w").write("".join(r["path"] + "\n" for r in sorted(t12, key=lambda r: r["path"])))
 PY
 wc -l < .qa-scratch/t12/paths.txt                                                                        # 60
-while IFS= read -r p; do printf '%6d %s\n' "$(git show 8ebaf8daad:"$p" | wc -l)" "$p"; done < .qa-scratch/t12/paths.txt | awk '{s+=$1; print} END {print s " lines"}'   # 8790 (the PNGs count 0)
+while IFS= read -r p; do printf '%6d %s\n' "$(git show 8ebaf8daad:"$p" | wc -l)" "$p"; done < .qa-scratch/t12/paths.txt | awk '{s+=$1; print} END {print s " lines"}'   # 8813 at the hash: wc -l counts 23 newline bytes inside the three PNGs (8, 3, 12); the inventory stores no line count for an image, so its column sums to 8,790
 ```
 
 Recorded (2026-10-24; the thirty scripts, by size; the last fork commit from
@@ -188,9 +181,9 @@ Recorded (2026-10-24; the thirty scripts, by size; the last fork commit from
 | 66 | `tools/vm-stop-test` | `d97f64ddfd` 2026-10-05 | delayed exit, timeout and wrong-owner controls (#454) |
 | 44 | `tools/device-act` | `f7152d84a4` 2026-09-20 | **a command on a person's device**, recorded with the boot id: read only here, never run (D-QA-015) |
 | 19 | `tools/vm-manager-system-check` | `d97f64ddfd` 2026-10-05 | refuse a manager walk whose system is absent or not selected |
-| 3 | `tools/vm-walks/fixtures/system-selected.sh` | `9aaaaa0f64` 2026-10-15 (the walks directory) | a fixture |
-| 165 | `tools/vm-walks/cloud-epic/migration-protocol.sh` | (the walks directory) | the cloud epic's protocol walk |
-| 83 | `tools/vm-walks/cloud-epic/vnc-grab.py` | (the walks directory) | a frame grab over VNC |
+| 3 | `tools/vm-walks/fixtures/system-selected.sh` | `d97f64ddfd` 2026-10-05 | a fixture |
+| 165 | `tools/vm-walks/cloud-epic/migration-protocol.sh` | `083f4fad86` 2026-10-08 | the cloud epic's protocol walk |
+| 83 | `tools/vm-walks/cloud-epic/vnc-grab.py` | `3b9a62d976` 2026-10-02 | a frame grab over VNC |
 
 **And the thirty text files of the walks:** `tools/vm-walks/suite.txt` (17
 named walks), `claims.txt` (391 claim lines: every box a frame may change,
@@ -208,7 +201,7 @@ proofs of #243). The last commit touching the directory is `9aaaaa0f64`
 **Provenance.** None of the 60 is on `upstream/next` (`git cat-file -e
 upstream/next:<path>` fails for every one). `git log --format=%h
 c445081a59..8ebaf8daad -- <the 60> | wc -l` is **145** fork commits since the
-base (144 without merges); their messages cite #383 (12 times), #258 (7),
+base (144 without merges); their messages cite, counting every occurrence, #383 (12 times), #258 (7),
 #344, #315, #307, #166 and #135 (6 each), #409, #361, #308, #228 and #125 (5
 each) among others -- the harness's own record is #120 (the pair), #133 (the
 five QA clouds), #135 (time to play), #166 (offline achievements), #228
@@ -226,24 +219,15 @@ tools of other slices (`register-check`, `vocabulary-check`,
 of the 60 on every push of `next` (`fork-checks.yml:45-48`: `vm-pair-test`,
 `vm-upgrade-readiness-test`). `release-candidates.md` step 3 names `vm-qa`,
 `frame-diff`, `vm-upgrade-rehearsal` and `ra-offline-test`;
-`generic-x64-vm-testing.md` is the owning rule and names almost all of them;
-thirteen rules name `vm-qa`. **A tool nobody calls** -- not `vm-qa`, not the
-CI, not a rule's instruction, not a skill -- is a Q6 row (the candidates the
-coordinator's read suggests: `ra-candidate-games`, `font-stems`,
-`png-blackout`, `es-launch-memory`, `signin-memory`, `vm-serial`,
-`device-act`, `raofflineproxy-installed-native-test`; the lane decides each
-from the record).
+`generic-x64-vm-testing.md` is the owning rule and names 17 of the 30 scripts (not `device-act`, `es-launch-memory`, `es-syntax-check`, `es-untranslated`, `png-blackout`, `ra-candidate-games`, `raofflineproxy-integration-test`, `signin-memory`, `vm-pair-test`, `vm-upgrade-rehearsal` or the three walk scripts -- a Q7 fact, since the index points several of them at it); thirteen rules name `vm-qa`. **A tool nobody calls** -- not `vm-qa`, not the
+CI, not a rule's instruction, not a skill -- is a Q6 row (the stranger's proof narrowed the coordinator's eight candidates to five: `ra-candidate-games`, `es-launch-memory` and `signin-memory` have index mentions only; `font-stems` and `raofflineproxy-installed-native-test` have a descriptive rule paragraph and no tool, CI or skill caller; the other three have callers -- `png-blackout` a skill instruction's (`developer-relations/SKILL.md:175`), `vm-serial` four callers among the 60 and three outside with rule commands (`generic-x64-vm-testing.md:112-114`), `device-act` a rule instruction's (`engineering-practices.md:814-815`); the lane confirms each from the record).
 
-**The record the lens reads.** `docs/vm-qa-log.md` (361 lines, 5 entries
-since 2026-10-15; the per-cycle ledger `generic-x64-vm-testing.md` names);
-the `vm-qa` reports and `time-to-play.log`s under `docs/qa-logs/` (ten
-folders carry them, e.g. `2026-10-08-pixelelated-replacement-18/qa21/`);
+**The record the lens reads.** `docs/vm-qa-log.md` (361 lines; 5 `## ` entries dated 2026-10-06 to 2026-10-17 and 13 `### ` sub-entries under the 2026-10-09 one; the per-cycle ledger `generic-x64-vm-testing.md` names);
+the `vm-qa` reports and `time-to-play.log`s under `docs/qa-logs/` (27 top-level folders hold a report whose first line is `# vm-qa on`, 61 reports in all, and 13 hold a `time-to-play.log`; ten of the 13 are the `*-pixelelated-replacement-NN` rounds, e.g. `2026-10-08-pixelelated-replacement-18/qa21/`);
 `docs/releases/catalog.md` for which cut each suite ran on; and the
 blindspots that name these tools: **39** (a PASS over missing numbers), 40,
 41 (`vm-pair`), 47, 49 (`es-syntax-check`'s origin), 50 (`ra-offline-test`),
-54 (`font-stems`, `time-to-play`), 55, 56, 57, 59 (`signin-memory`), 61, 63,
-65 (the proxy tests), 71, 74 (`time-to-play`) -- sixteen entries, which is
-the value side of the lens.
+54 (`font-stems`, `time-to-play`), 55, 56, 57, 59 (`signin-memory`), 61, 63, 71, 74 (`time-to-play`) -- fifteen entries, which is the value side of the lens (65 names the proxy's guest script `raofflineproxy-ctl` and the shims, none of the 60, and is read for its class only).
 
 **The hash.** The 60 are read at `8ebaf8daad`'s bytes from the export
 (`.qa-scratch/t12/at-hash/`); `reviewed-at:` is the branch `HEAD` at stage A.
@@ -297,7 +281,7 @@ are the open row).
   D-INFRA-021/022 (retain the record, retire the payload), D-WORKFLOW-038
   (`signin-memory` decided the webkitgtk bump), D-WORKFLOW-155/156 (the
   evidence index beside reviewed frames), D-UI-039 (the menu map and
-  `menumap`). **Blindspots:** the sixteen named in § 2, and the class 8, 13,
+  `menumap`). **Blindspots:** the fifteen named in § 2, and the class 8, 13,
   14, 22 (a probe that cannot report absence), 26, 34 (the guest's busybox).
 - **The guards' recorded positives** (`engineering-practices.md` § The
   positive is recorded where the guard is wired): `time-to-play`'s
@@ -310,8 +294,7 @@ are the open row).
 - **The two leads already on #659 or near it:** none from T4; from T8's and
   T9's reads: the guest census by `pgrep -f` (T9's F-03, fixed in
   `build-preflight`) -- hunt the same shape in `vm-qa`, `vm-pair`, `vm-stop`,
-  `time-to-play`, `ra-offline-test` (how each finds, waits for and stops a
-  QEMU: by pidfile and owned disk, or by pattern?); the `/tmp` roots
+  `time-to-play`, `ra-offline-test` (how each finds, waits for and stops a QEMU: by pidfile and owned disk, or by pattern? -- the stranger's grep found every `pgrep`, `pkill` and `kill` in the 60 to be guest-side over SSH or serial, against RetroArch, EmulationStation, WebKit or rclone, none finding or stopping a host QEMU by pattern, and `vm-pair`, `vm-stop` and `vm-qa` with no host-side kill at all; the lane confirms, and reads `vm-pair down`'s own stop path, since `vm-qa` never names `vm-stop`); the `/tmp` roots
   (`/tmp/rocknix-qemu-monitor-*.sock`, `/tmp/ttp`) against the inode
   exhaustion of 2026-10-24 07:1x (the host file; a tool that exports a tree
   or writes frames under `/tmp` is a Q2 row).
@@ -335,7 +318,7 @@ descriptions of each tool (header, rule, index) against the code.
 | Q3 Bugs | **A proof that can pass without proving**: a suite whose rc 0 does not depend on the thing it measures (the blindspot-39 shape, hunted through every suite: `exit`, `walks`, `frame-diff`, `round-trip`'s call, `ra-offline`, `link`, `fresh`, `pair-identity`); a wait that cannot time out; a frame compared against itself; a claim in `claims.txt` that covers more than its owner meant; a guest the harness loses (the pidfile written after the launch, a stop that does not wait); a kill by pattern | a `bug` per defect, `Already written:` and the VM line, its fix under a stream with a case |
 | Q4 Currency | Not a package slice. The row is the QEMU and Python the tools assume against the host's (`qemu-system-x86_64 --version`, `python3 --version`), and the image versions the record ran against the newest image available | one table |
 | Q5 Efficiency | **The cost side of the lens:** for each of the 17 suites and each standalone measurement, the minutes it takes (from the record's reports and logs: `vm-qa`'s `started`/finished lines, `time-to-play.log`, the five cycles of 2026-10-24), the host it holds (guests, RAM, disk under `/workspace/tmp`), and what runs on every candidate against what is opt-in; the walks' 22 step files by frames captured | the figures with their source, one table |
-| Q6 Dead ends and brittleness | **The value side of the lens:** for each suite, measurement and walk, what it has caught -- the blindspot or issue that names it, the cut it failed (`docs/releases/catalog.md`, `docs/vm-qa-log.md`) -- or **nothing recorded**, which is a finding; **a tool nothing runs** (the eight candidates in § 2, each confirmed or refuted from `vm-qa`, the CI, the rules and the skills); a walk no claim owns or a claim no walk exercises (`claims.txt` 391 lines against `suite.txt`'s 17 and the 22 step files); a fixture nothing reads | the table in `04` § Q6, every row sourced |
+| Q6 Dead ends and brittleness | **The value side of the lens:** for each suite, measurement and walk, what it has caught -- the blindspot or issue that names it, the cut it failed (`docs/releases/catalog.md`, `docs/vm-qa-log.md`) -- or **nothing recorded**, which is a finding; **a tool nothing runs** (the five candidates in § 2 confirmed or refuted from `vm-qa`, the CI, the rules and the skills, and the three the proof found callers for named with them); a walk no claim owns or a claim no walk exercises (`claims.txt` 391 lines against `suite.txt`'s 17 and the 22 step files); a fixture nothing reads | the table in `04` § Q6, every row sourced |
 | Q7 Clarity | The three descriptions of each tool (its header, `generic-x64-vm-testing.md`'s sentence, `instruction-files.md`'s index row) against the code; `vm-qa`'s header list of suites against `SUITES`; `release-candidates.md` step 3 against what `vm-qa` runs by default | the rows; a drift in a rule is a lead for the coordinator |
 
 ## 5. The evidence floor
@@ -352,8 +335,7 @@ floor):
    controls run in the lane's worktree; a GENERIC_X64 guest is the bench for
    a behaviour claim about the harness itself (how `vm-qa` accounts a suite
    that cannot run, what `vm-stop` waits for, what a walk's frames are), and
-   **one cycle is authorized here**: the newest local GENERIC_X64 image named
-   with its sha256 and `RECORD.txt`, one guest (two if a claim needs the pair,
+   **one cycle is authorized here**: the `069fc2704421` image (§ 1) named with the sha256 its `.identity.json` carries, one guest (two if a claim needs the pair,
    said first), the host file line before (`== M6 T12 lane (#659) -- <UTC>:
    census qemu N; one GENERIC_X64 guest from <image>, pidfile
    /workspace/tmp/m6-t12/qemu.pid, <what runs>`), `generic-x64-vm run
@@ -447,7 +429,7 @@ hand-back's words.
 - [ ] `01-research-notes.md` § Scope records the read hash, the filter of brief § 2 with its output (60 paths, 8,790 lines; 60 fork-own; 20 Python, 10 shell, 22 `.steps`, 3 text, 2 Markdown, 3 PNG; reach `n/a` 60, or the deltas beside them), the provenance (145 fork commits since `c445081a59`; none on `upstream/next`), and the branch-vs-hash diff over the 60 (empty, or each hunk listed with its owner).
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path, the path in backticks as the first cell: ``grep -c -E '^\| `tools/' 02-forward-audit.md`` prints 60; each row's Q1 to Q7 cells answered or `n/a` with a reason (a `.steps` file or a PNG answers Q6 and Q7 at least: who replays or reads it, and what claims it).
 - [ ] `02-forward-audit.md` § The controls records every § 5 run with command, exit status and summary line, each with the sentence *a FAIL would mean ...*: `vm-pair-test`, `vm-upgrade-readiness-test`, `vm-stop-test` rc 0; `vm-qa --list` printing 17 names; the usage lines; `es-syntax-check` without a build root exiting 2 and recorded as not a pass; the QEMU find/stop grep and the `/tmp` grep with their lines.
-- [ ] `02-forward-audit.md` § The guest cycle records the one authorized cycle (the image file and its sha256 and `RECORD.txt` line, the host file line before and after, the pidfile, the `vm-qa --skip-up --only <suites>` command with its report's summary and minutes per suite, `tools/vm-stop`'s exit, the census after, the disk and frames retired with the kept frames named) -- or records that no cycle was needed, with the claims that would have needed one listed and marked `proved: tree`.
+- [ ] `02-forward-audit.md` § The guest cycle records the one authorized cycle (the image file and the sha256 its `.identity.json` carries, the host file line before and after, the pidfile, the `vm-qa --skip-up --only <suites>` command with its report's summary and minutes per suite, `tools/vm-stop`'s exit, the census after, the disk and frames retired with the kept frames named) -- or records that no cycle was needed, with the claims that would have needed one listed and marked `proved: tree`.
 - [ ] `00-running-log.md` shows no handheld action, no run of `device-act` or `qa-accounts` against anything real, no guest beyond the one cycle (a second only with a line on #659 quoted), no `link` or `ra-offline` suite, no build, no `fork-worktree sync|remove|repair`, no write under the M7 lane's trees, and the host file's lines before and after the cycle quoted.
 - [ ] `04-analysis.md` § Renovation face Q5 carries the cost table: one row per `vm-qa` suite (17) and per standalone measurement (`time-to-play`, `signin-memory`, `es-launch-memory`, `vm-upgrade-rehearsal`, `ra-ui-test`, the two `raofflineproxy-*` guest tests), each with minutes (from the record's reports or the cycle), the host it holds, and whether it runs on every candidate, opt-in, or nowhere.
 - [ ] `04-analysis.md` § Q6 carries the value table: one row per suite, measurement, walk (17) and fixture, each with its last recorded catch (the blindspot, issue or failed cut, by number and date) or `nothing recorded`, its recorded positive or `none`, and its caller (`vm-qa`, the CI, a rule, a skill) or `nobody`; `claims.txt`'s 391 lines reconciled against `suite.txt`'s 17 walks and the 22 step files (a claim no walk exercises and a walk no claim owns each listed).
@@ -462,8 +444,7 @@ hand-back's words.
 
 Stop only on: every item of § 7 that is this lane's ticked and the branch
 pushed (the hand-back); **the stage-D pause**; an explicit maintainer pause
-on #659; a blocker named on #659 with what is needed (the seat failed, no
-GENERIC_X64 image on the host whose `RECORD.txt` the lane can read, a
+on #659; a blocker named on #659 with what is needed (the seat failed, no GENERIC_X64 image on the host whose identity sidecar the lane can read, a
 control that cannot run for a reason outside the tree, two commands that
 disagree); a branch that differs from `8ebaf8daad` on one of the 60 at
 stage A; or an execution limit, stated as such with the running log
