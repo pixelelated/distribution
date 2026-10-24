@@ -78,7 +78,7 @@ check_hooks_path() {
 
 cmd_list() {
     check_hooks_path
-    git -C "${ROOT}" worktree list --porcelain | awk '/^worktree /{print $2}' | while read -r wt; do
+    git -C "${ROOT}" worktree list --porcelain | awk '/^worktree /{sub(/^worktree /, ""); print}' | while read -r wt; do
         local_art="$(artifacts_in "${wt}")"
         if [ -n "${local_art}" ]; then
             echo "  ${wt}"
@@ -157,7 +157,11 @@ cmd_remove() {
     local wt="" preserve="" force=0
     while [ $# -gt 0 ]; do
         case "${1}" in
-            --preserve) preserve="${2:-}"; shift 2 ;;
+            --preserve)
+                # A bare --preserve used to loop for ever: shift 2 with one
+                # argument left shifts nothing (T10 S4, #940).
+                [ $# -ge 2 ] && [ -n "${2}" ] || { echo "usage: fork-worktree remove <path> [--preserve <dir>] [--force]" >&2; exit 2; }
+                preserve="${2}"; shift 2 ;;
             --force) force=1; shift ;;
             *) wt="${1}"; shift ;;
         esac
@@ -240,30 +244,56 @@ cmd_remove() {
     echo "  removed: ${wt}"
 }
 
+# carry <src-dir> <dst-dir>: every entry of src into dst. An entry dst lacks
+# is moved whole (a build root is one rename); a directory both hold is
+# entered; a file both hold is replaced by src's, which is what the worktree
+# held. A move that fails is named and counted, and its source is kept.
+carry() {
+    local src="${1}" dst="${2}" e base rc=0
+    for e in "${src}"/* "${src}"/.[!.]* "${src}"/..?*; do
+        [ -e "${e}" ] || [ -L "${e}" ] || continue
+        base="${e##*/}"
+        if [ -d "${e}" ] && [ ! -L "${e}" ] && [ -d "${dst}/${base}" ] && [ ! -L "${dst}/${base}" ]; then
+            carry "${e}" "${dst}/${base}" || rc=1
+        elif mv -f -T "${e}" "${dst}/${base}" 2>/dev/null; then
+            moved=$((moved + 1))
+        else
+            echo "  could not carry back: ${e#"${orphan}"/} (kept in ${orphan})" >&2; rc=1
+        fi
+    done
+    return ${rc}
+}
+
 # The recovery for a directory git unregistered but did not delete: stand up a
-# fresh worktree at the same path and carry every untracked thing back.
+# fresh worktree at the same path and carry every path back, untracked files
+# inside tracked directories included (T10 S4, #940: the top-level-only loop
+# left them in the orphan, then deleted it with rm -rf). What cannot be
+# carried stays in the orphan, which is then kept, never deleted.
 cmd_repair() {
     local wt="${1:-}" ref="${2:-next}"
     [ -n "${wt}" ] || { echo "usage: fork-worktree repair <path> [ref]" >&2; exit 1; }
-    wt="$(cd "${wt}" 2>/dev/null && pwd)" || { echo "error: no such directory" >&2; exit 1; }
-    if git -C "${ROOT}" worktree list --porcelain | awk '/^worktree /{print $2}' | grep -qxF "${wt}"; then
+    wt="$(cd "${wt}" 2>/dev/null && pwd -P)" || { echo "error: no such directory" >&2; exit 1; }
+    if git -C "${ROOT}" worktree list --porcelain | awk '/^worktree /{sub(/^worktree /, ""); print}' | grep -qxF "${wt}"; then
         echo "  ${wt} is already a registered worktree; nothing to repair"; exit 0
     fi
-    local orphan="${wt}.orphan.$$"
+    orphan="${wt}.orphan.$$"
     mv "${wt}" "${orphan}" || exit 1
-    if ! git worktree add -q --detach "${wt}" "${ref}"; then
+    if ! git -C "${ROOT}" worktree add -q --detach "${wt}" "${ref}"; then
         mv "${orphan}" "${wt}"; echo "error: could not create worktree; directory restored" >&2; exit 1
     fi
-    local moved=0
-    for entry in "${orphan}"/* "${orphan}"/.[!.]*; do
-        [ -e "${entry}" ] || continue
-        local base; base="$(basename "${entry}")"
-        [ "${base}" = ".git" ] && continue
-        [ -e "${wt}/${base}" ] && continue          # tracked file the checkout just restored
-        mv "${entry}" "${wt}/${base}" && moved=$((moved + 1))
-    done
-    rmdir "${orphan}" 2>/dev/null || rm -rf "${orphan}"
-    echo "  repaired: ${wt} at ${ref}, ${moved} untracked item(s) carried over"
+    moved=0
+    local ok=0
+    # The orphan's .git is the old pointer file, not content; the new worktree has its own.
+    [ -f "${orphan}/.git" ] && mv "${orphan}/.git" "${orphan}.git-pointer"
+    carry "${orphan}" "${wt}" && ok=1
+    find "${orphan}" -depth -type d -empty -delete 2>/dev/null
+    if [ -e "${orphan}" ]; then
+        echo "  repaired: ${wt} at ${ref}, ${moved} item(s) carried over; ${orphan} kept with what could not be carried" >&2
+        exit 1
+    fi
+    [ -f "${orphan}.git-pointer" ] && rm -f -- "${orphan}.git-pointer"
+    [ "${ok}" -eq 1 ] || exit 1
+    echo "  repaired: ${wt} at ${ref}, ${moved} item(s) carried over"
 }
 
 # Bring every build worktree up to next. A branch does not follow next by
@@ -280,7 +310,9 @@ cmd_sync() {
     # build checkouts without anyone noticing. The only ref worth following here
     # is next; testing against something else is not worth that edge.
     local target="next" rc=0
-    git -C "${ROOT}" worktree list --porcelain | awk '/^worktree /{print $2}' | while read -r wt; do
+    # Read through a process substitution, not a pipe, so the loop runs in this
+    # shell and rc reaches the return (T10 S4, #940: it was always 0).
+    while read -r wt; do
         local br; br="$(git -C "${wt}" branch --show-current)"
         case "${br}" in
             build/*) ;;
@@ -301,6 +333,7 @@ cmd_sync() {
             # git status by hand (2026-09-07).
             echo "  SKIP ${wt##*/}: uncommitted changes on ${br} - resolve them first:" >&2
             git -C "${wt}" status --porcelain=v1 --untracked-files=no | sed 's/^/        /' >&2
+            rc=1
             continue
         fi
         # --ff-only: if someone committed on the build branch it has diverged,
@@ -322,8 +355,9 @@ cmd_sync() {
             fi
         else
             echo "  FAILED ${wt##*/}: ${br} has diverged from ${target}; not fast-forwarding" >&2
+            rc=1
         fi
-    done
+    done < <(git -C "${ROOT}" worktree list --porcelain | awk '/^worktree /{sub(/^worktree /, ""); print}')
     return ${rc}
 }
 

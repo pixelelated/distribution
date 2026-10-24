@@ -1,0 +1,88 @@
+#!/bin/bash
+# fork-worktree-test -- tools/fork-worktree's own control (T10 S4, #939, #940;
+# D-WORKFLOW-201). It runs the tool only inside a throwaway repository: the
+# tool finds its repository from its own location ($0/..), so a copy of it is
+# placed in the throwaway's tools/ and every git call it makes lands there,
+# never in the fork's repository or any real worktree.
+#   tools/fork-worktree-test [tool] [scratch-parent]
+#     tool            the fork-worktree to test (default: the one beside this file)
+#     scratch-parent  where the throwaway is made (default: this checkout's .qa-scratch/)
+# Each case prints `ok` or `FAIL`; the run ends PASS (exit 0) or FAIL (1); 2
+# when the throwaway could not be made.
+set -u
+HERE="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
+TOOL="$(readlink -f "${1:-${HERE}/fork-worktree}")"
+PARENT="${2:-${HERE}/../.qa-scratch}"
+mkdir -p "${PARENT}" || exit 2
+SCRATCH="$(mktemp -d -p "$(cd "${PARENT}" && pwd)" fork-worktree-test.XXXXXX)" || exit 2
+trap 'chmod -R u+w "${SCRATCH}" 2>/dev/null; rm -rf "${SCRATCH}"' EXIT
+fail=0
+g() { git -c user.name=t -c user.email=t@t -c commit.gpgsign=false -c core.hooksPath=/dev/null "$@"; }
+check() {  # check <name> <condition>: the condition is evaluated whole, so "a && b" is one test
+  local name="$1"; shift
+  if eval "$*"; then echo "  ok    ${name}"; else echo "  FAIL  ${name}"; sed 's/^/          /' "${SCRATCH}/out" 2>/dev/null | head -6; fail=1; fi
+}
+# Run from inside the throwaway's main checkout, as the tool is run from the
+# primary checkout: a tool that calls git in the caller's directory then meets
+# the same repository its ROOT names, so a refusal is the tool's, not a cd's.
+run() { ( cd "${SCRATCH}/main" && "${SCRATCH}/main/tools/fork-worktree" "$@" ) > "${SCRATCH}/out" 2>&1; }
+
+cd "${SCRATCH}" || exit 2
+git init -q -b main main && cd main || exit 2
+mkdir -p tools docs/deep/er; printf 'build.*\ntarget\nsources\nrelease\n.qa-scratch/\n' > .gitignore
+echo tracked > docs/deep/er/kept.md; echo a > a.txt; g add -A; g commit -q -m base; g branch next
+cp "${TOOL}" tools/fork-worktree && chmod +x tools/fork-worktree   # untracked here, so it resolves ROOT to this repository
+cd "${SCRATCH}" || exit 2
+
+echo '--- remove'
+g -C main worktree add -q "${SCRATCH}/w-edit" -b f-edit; echo 'an edit nobody committed' >> "${SCRATCH}/w-edit/a.txt"
+run remove "${SCRATCH}/w-edit"; rc=$?
+check "an uncommitted edit, remove without --force: refused (rc ${rc})" '[ "${rc}" -ne 0 ]'
+check "the edit is intact" 'grep -q '\''an edit nobody committed'\'' "${SCRATCH}/w-edit/a.txt"'
+run remove "${SCRATCH}/w-edit" --force; rc=$?
+check "the same with --force: removed (rc ${rc})" '[ "${rc}" -eq 0 ] && [ ! -e "${SCRATCH}/w-edit" ]'
+g -C main worktree add -q "${SCRATCH}/w-build" -b f-build; mkdir -p "${SCRATCH}/w-build/build.x"; echo out > "${SCRATCH}/w-build/build.x/obj"
+run remove "${SCRATCH}/w-build"; rc=$?
+check "build output, no --force: refused by the tool (rc ${rc})" '[ "${rc}" -ne 0 ] && grep -q '\''holds build output'\'' "${SCRATCH}/out"'
+check "the build output is intact" '[ -f "${SCRATCH}/w-build/build.x/obj" ]'
+mkdir -p "${SCRATCH}/ro"; chmod 555 "${SCRATCH}/ro"
+run remove "${SCRATCH}/w-build" --preserve "${SCRATCH}/ro"; rc=$?
+check "--preserve to a directory the move cannot write: refused, the path named (rc ${rc})" '[ "${rc}" -ne 0 ] && grep -q '\''build.x'\'' "${SCRATCH}/out"'
+check "nothing was removed" '[ -f "${SCRATCH}/w-build/build.x/obj" ]'
+chmod 755 "${SCRATCH}/ro"
+run remove "${SCRATCH}/w-build" --preserve "${SCRATCH}/w-build/keep"; rc=$?
+check "--preserve into the worktree itself: refused (rc ${rc})" '[ "${rc}" -ne 0 ] && [ -f "${SCRATCH}/w-build/build.x/obj" ]'
+mkdir -p "${SCRATCH}/full/build.x"; echo earlier > "${SCRATCH}/full/build.x/obj"
+run remove "${SCRATCH}/w-build" --preserve "${SCRATCH}/full"; rc=$?
+check "--preserve onto a name already there: refused, neither overwritten (rc ${rc})" '[ "${rc}" -ne 0 ] && grep -q earlier "${SCRATCH}/full/build.x/obj" && [ -f "${SCRATCH}/w-build/build.x/obj" ]'
+run remove "${SCRATCH}/w-build" --preserve "${SCRATCH}/kept"; rc=$?
+check "--preserve to a clean directory: moved, then removed (rc ${rc})" '[ "${rc}" -eq 0 ] && [ -f "${SCRATCH}/kept/build.x/obj" ] && [ ! -e "${SCRATCH}/w-build" ]'
+( cd "${SCRATCH}/main" && timeout 3 "${SCRATCH}/main/tools/fork-worktree" remove "${SCRATCH}/w-x" --preserve ) > "${SCRATCH}/out" 2>&1; rc=$?
+check "--preserve with no directory: a usage error, exit 2, within a second (rc ${rc})" '[ "${rc}" -eq 2 ]'
+g -C main worktree add -q "${SCRATCH}/w-here" -b f-here
+( cd "${SCRATCH}/w-here" && "${SCRATCH}/main/tools/fork-worktree" remove "${SCRATCH}/w-here" > "${SCRATCH}/out" 2>&1 ); rc=$?
+check "remove from inside the target: refused (rc ${rc})" '[ "${rc}" -ne 0 ] && [ -d "${SCRATCH}/w-here" ]'
+
+echo '--- repair'
+g -C main worktree add -q "${SCRATCH}/w-orphan" -b f-orphan
+echo 'untracked, three levels down' > "${SCRATCH}/w-orphan/docs/deep/er/new.md"
+mkdir -p "${SCRATCH}/w-orphan/build.y"; echo out > "${SCRATCH}/w-orphan/build.y/obj"
+echo '..dot' > "${SCRATCH}/w-orphan/..dotted"
+admin="$(git -C "${SCRATCH}/w-orphan" rev-parse --git-dir)"; rm -rf "${admin}"; g -C main worktree prune
+run repair "${SCRATCH}/w-orphan"; rc=$?
+check "repair of an orphan: re-registered (rc ${rc})" '[ "${rc}" -eq 0 ] && g -C main worktree list --porcelain | grep -qx "worktree ${SCRATCH}/w-orphan"'
+check "an untracked file three levels deep is back" 'grep -q '\''three levels down'\'' "${SCRATCH}/w-orphan/docs/deep/er/new.md"'
+check "the build directory is back" '[ -f "${SCRATCH}/w-orphan/build.y/obj" ]'
+check "a name beginning with two dots is back" '[ -f "${SCRATCH}/w-orphan/..dotted" ]'
+check "nothing is left in an orphan directory" '[ -z "$(ls -d "${SCRATCH}"/w-orphan.orphan.* 2>/dev/null)" ]'
+
+echo '--- sync'
+g -C main worktree add -q "${SCRATCH}/w-b1" -b build/one next
+g -C main worktree add -q "${SCRATCH}/w-b2" -b build/two next; echo dirty >> "${SCRATCH}/w-b2/a.txt"
+run sync; rc=$?
+check "sync with one build worktree skipped for uncommitted changes: exit non-zero (rc ${rc})" '[ "${rc}" -ne 0 ] && grep -q '\''SKIP w-b2'\'' "${SCRATCH}/out"'
+git -C "${SCRATCH}/w-b2" checkout -q -- a.txt
+run sync; rc=$?
+check "sync with every build worktree clean: exit 0 (rc ${rc})" '[ "${rc}" -eq 0 ]'
+
+if [ "${fail}" -eq 0 ]; then echo PASS; else echo FAIL; exit 1; fi
