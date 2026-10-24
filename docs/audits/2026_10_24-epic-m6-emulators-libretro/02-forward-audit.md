@@ -137,3 +137,37 @@ The README comment in `makeinstall_target` (`virtual/emulators/package.mk` 150 t
 ### F-07 (Q4): upstream dropped `aethersx2-sa` on 2026-10-18 for a licensing concern; `next` still builds and ships it
 
 `c4d353449e` (`upstream/next`, sunshineinabox, 2026-10-18, *"aethersx2: drop package due to licensing concern"*) removes the recipe, `licenses/AETHERSX2.pdf`, its per-device inis, `Start AetherSX2.sh`, its `es_features.cfg` block, its `rocknix-systems` and `factoryreset` lines, and 27 lines of `virtual/emulators/package.mk`. `next` still carries `aethersx2-sa` in `PKG_EMUS` for RK3399, RK3566/RK3576, RK3588, SM6115, SM4450, SM8250, **SM8550**, SM8650/SM8750 and S922X (`package.mk` 49 to 94), and the `ps2` arm installs `Start AetherSX2.sh`. **SM8550 is a device the fork builds**, so the fork's SM8550 image carries a package its upstream dropped over licensing. This is the first of Q4 (a)'s 14 dispositions, and its decision is not this lane's. The recipe is T30's (`emulators/standalone/aethersx2-sa`). The table lines and `Start AetherSX2.sh` are this slice's. The licence question belongs to #528's gates. **Posted on #650 for the coordinator, with D-UI-079 in view: it removes a player-visible emulator.** Disposition on the punch list: `to merge` pending that word, `Already written:` the PS2 settings and memory cards AetherSX2 left under `/storage` on SM8550 and RK3566 devices.
+
+### F-08 (Q3, Q4): the default PlayStation core on H700, RK3326, RK3566 and SM8550 is not where the launcher loads it
+
+**What the table says:** `virtual/emulators/package.mk` 1165 to 1189 makes `retroarch` / **`pcsx_rearmed32` the `default="true"` `psx` core** on H700|RK3326, RK3576|RK3566 and SM4450|SM8250|SM8550. That is four of the fork's five built devices, and the H700 and SM8550 images' tables carry it (`<core default="true">pcsx_rearmed32</core>`).
+
+**What the launcher loads:** `runemu.sh` (T1's, read-only) switches `RABIN` to `retroarch32` for `pcsx_rearmed32`, `gpsp` and `desmume` on aarch64 (lines 268 to 279). It starts `/usr/bin/${RABIN} -L /tmp/cores/${CORE}_libretro.so` (302). `/tmp/cores` is RetroArch's `tmp-cores.mount`, an overlay whose only lower directory is **`/usr/lib/libretro`**, with `/storage/cores` above it (`emulators/libretro/retroarch/system.d/tmp-cores.mount`). `retroarch32bit-append.cfg`'s `libretro_directory = /usr/lib32/libretro` does not apply, because `-L` names an absolute path.
+
+**What the images carry** (the M7 roots' install trees, built from `08cc7ff6cd`, whose slice bytes are `next`'s except `Install Steam.sh`):
+
+| Image | `usr/lib/libretro/pcsx_rearmed32_libretro.so` | `usr/lib32/libretro/pcsx_rearmed32_libretro.so` | `gpsp`, `desmume` in `usr/lib/libretro` |
+| --- | --- | --- | --- |
+| H700 (`m7-signin-h700-build-20261023-06`) | **absent** | present | present |
+| SM8550 (`m7-signin-sm8550-build-20261023-03`) | **absent** | present | present |
+
+`gpsp-lr` (24) and `desmume-lr` (34) each copy their 32-bit `.so` from `${ROOT}/build.${DISTRONAME}-${DEVICE}.arm/install_pkg/...` into `usr/lib/libretro`. **`pcsx_rearmed-lr` has no such copy**: its `makeinstall_target` installs `pcsx_rearmed32_libretro.so` only in the arm build, which `compat/lib32` then carries into `/usr/lib32`. No other writer puts a core under `/usr/lib/libretro` or `/storage/cores`: `git grep -E '/storage/cores|/tmp/cores'` finds only the mount and the `retroarch.cfg` keys.
+
+**So, as the code and the images read, a PlayStation game launched with the default core on the fork's H700 and SM8550 images asks `retroarch32` to load a file that does not exist**, unless the player has put one in `/storage/cores` (the core updater's upper layer).
+
+**Upstream found and fixed the same defect:** `c9820d0e89` (`upstream/next`, Jacob Cook, 2026-10-04, *"pcsx_rearmed-lr: install the 32-bit core where runemu loads it"*) adds exactly the missing copy. It is one of Q4 (a)'s 14, not on `next`.
+
+**Can this be done on the VM?** No. The guest is x86_64, has no 32-bit RetroArch and no `pcsx_rearmed32` (`psx` there is F-05's). The load failure itself is a device fact. What an agent can verify on the host is the artifact: the file's presence in an arm-enabled image's `usr/lib/libretro`, read from the install tree or the `SYSTEM` squashfs. That is the criterion the bug carries. The verdict here rests on that artifact plus the code path, and the load failure is a lead until a device shows it. **Severity: High** (the default core of a common system on the fork's main handheld). It goes to a `bug` issue at stage D, and to #650 now because the M7 lane is testing an H700 image.
+
+`Already written:` nothing is written by the defect; a player who fetched `pcsx_rearmed32` into `/storage/cores` keeps that copy, which the overlay puts above the image's once the image carries one. That is read both ways, nothing to migrate.
+
+### F-09 (Q4, interaction): the next base merge brings two copies that fail on the fork's build roots, and git merges them cleanly
+
+`git merge-tree --write-tree --name-only next upstream/next` (read-only; result tree `d2df30a92a`): on the slice, exactly **five content conflicts**, all in the fork-own arcade recipes that carry the rotation-table hook (`fbalpha2012-lr`, `fbalpha2019-lr`, `fbneo-lr`, `mame2003-plus-lr`, `mame2010-lr`). Each is the fork's `PKG_DEPENDS_TARGET="toolchain Python3:host"` plus `PKG_NEED_UNPACK` against upstream's `af70bd435b` `PKG_DEPENDS_TARGET="toolchain retroarch"`; the resolution keeps both, `toolchain Python3:host retroarch`. The rest of the slice merges cleanly, including `virtual/emulators/package.mk` (the 29 conflicts tree-wide are outside this slice).
+
+**But the clean part carries a trap.** The fork's ARM compatibility roots are `build.${DISTRONAME}-${DEVICE}.arm` (`43d0bc3bf4`, 2026-10-07; `DISTRONAME="pixelelated"`, `distributions/ROCKNIX/options:17`). Upstream's copies say `build.${DISTRO}-...`, and `DISTRO` is `ROCKNIX` here (`config/options:24`). `next` carries none (`git grep -F 'build.${DISTRO}-' next`: empty). The merged tree carries **two**, both new from upstream:
+
+- `pcsx_rearmed-lr/package.mk:27`, the F-08 fix (`c9820d0e89`);
+- `yabadabadoo-lr/package.mk:46`, the new core (`8704addb6b`).
+
+On a fork build with `ENABLE_32BIT=true` both resolve to `build.ROCKNIX-<DEVICE>.arm`, which does not exist. Their `cp -a` fails, and `set -e` stops the build at that package. **So the fix for F-08 cannot be taken verbatim: the base merge must rewrite those two lines to `${DISTRONAME}`**, as `43d0bc3bf4` did for the other five. A check that would have caught it: `git grep -F 'build.${DISTRO}-'` empty on the merged tree.
