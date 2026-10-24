@@ -5,8 +5,10 @@ unit of handoff the plan defines (`docs/reviews/plan-for-the-plan.md` § 7);
 read that document whole before the first command, then this brief whole.
 Every section below is mandatory; a section that does not apply says so and
 why. Where this brief and the checklist on #671 differ, #671 wins and the
-coordinator corrects the brief in the same session. **Version 1
-(2026-10-24):** written after T3 (#650) and T30 (#677), the area's other two
+coordinator corrects the brief in the same session. **Version 2
+(2026-10-24, after the stranger's proof of version 1 -- 77 claims: 55 right, 13
+wrong, 5 partial, 4 uncheckable -- each wrong one corrected in place and listed
+in the futro addendum's errata):** written after T3 (#650) and T30 (#677), the area's other two
 slices, were accepted, so their Q6 tables are this slice's starting rows;
 every figure below was produced by a command at `8ebaf8daad` (the tree) or
 in the inventory at P1's `2174265e9c` unless it says *branch*. It goes
@@ -51,8 +53,10 @@ nothing**. Prose goes into a log through a quoted heredoc or the Write tool
   created by the coordinator, **stacked on `feature/m6-p1-survey-641` at
   `2174265e9c`** with the coordinator's tip merged in and the lane's
   pointer seeded (the two hashes are in the dispatch comment on #671).
-  **Before that comment exists there is no worktree at that path and none
-  of the first commands can run.** The session is the T3 lane's
+  **The worktree exists (cut 2026-10-24 at `77141a45c7`: P1's `2174265e9c`
+  with the coordinator's `152c4ee3c3` merged, since re-merged at version 2);
+  until the dispatch comment exists the pointer is not seeded, the first
+  command's `cat` fails, and nothing starts.** The session is the T3 lane's
   (`m6-t3-emulators`, pane `wN:p6`), which ran T3 and T30; those worktrees
   stay beside this one, idle, until their merges, and nothing is written
   there. The primary checkout stays on `next` (D-INFRA-025); the legacy
@@ -86,7 +90,7 @@ git branch --show-current                                            # feature/m
 git merge-base --is-ancestor 2174265e9c HEAD || echo "not stacked on the P1 tip: stop"
 test -f docs/reviews/inventory.json || echo "no inventory.json: this is not the lane's worktree (stacked on P1): stop"
 git diff --stat next -- .claude CLAUDE.md AGENTS.md tools/lint-audit-artifacts   # exactly the paths the dispatch comment lists, nothing else
-mkdir -p .qa-scratch/t24/at-hash && git archive 8ebaf8daad packages/emulation projects/ROCKNIX/packages/emulators/libretro | tar -x -C .qa-scratch/t24/at-hash   # the read tree: 86 of its files are the slice's, the rest T3's
+mkdir -p .qa-scratch/t24/at-hash && git archive 8ebaf8daad packages/emulation projects/ROCKNIX/packages/emulators/libretro | tar -x -C .qa-scratch/t24/at-hash   # the read tree, 474 files: 86 are the slice's; the rest are T3's recipes and T40's 16 patch files under packages/emulation
 ls tools/renovation-inventory tools/renovation-status tools/renovation-drift docs/reviews/slices.json   # P1's
 "$D/tools/rules-check"; echo "rc=$?"; "$D/tools/register-check"; echo "rc=$?"; "$D/tools/ceremony-check"; echo "rc=$?"   # rc 1 on 2026-10-24: W42 OVERDUE (M7's week), not this lane's to pay
 git push -u origin feature/m6-emulators-dead-ends-671
@@ -128,13 +132,15 @@ wc -l .qa-scratch/t24/paths.txt .qa-scratch/t24/recipes.txt     # 86, 85
 ```
 
 Recorded (2026-10-24): **86 paths, 2,399 lines; 86 upstream-carried; 84
-`unreached`, 2 `unshipped`; languages recipe 85, cmake 1.** **83 are under
-`packages/emulation/`**: LibreELEC's 79 `libretro-*` recipes (the cores
+`unreached`, 2 `unshipped`; languages recipe 85, cmake 1.** **81 are under
+`packages/emulation/`**: LibreELEC's 77 `libretro-*` cores (the ones
 Kodi's RetroPlayer builds, from `libretro-2048` to `libretro-yabause`),
-`cyclone68000`, `libretro-common` and `rcheevos` (its `package.mk` and one
-cmake file). ROCKNIX builds none of them: it carries its own cores as
-`projects/ROCKNIX/packages/emulators/libretro/<name>-lr` (T3's 151
-recipes), and the inventory's `shadowed_by` is 0 for all 86 because the
+`cyclone68000`, `libretro-common` (the 78th `libretro-*` recipe) and
+`rcheevos` (its `package.mk` and one cmake file) -- 80 recipes and the
+cmake file; with the five ROCKNIX recipes, 86. (Version 1 said 83 and 79;
+§ 2's own block prints 81, and the stranger's proof counted the cores.) ROCKNIX builds none of them: it carries its own cores as
+`projects/ROCKNIX/packages/emulators/libretro/<name>-lr` (151 `package.mk` files in that directory: T3's 137 by its own
+`04`, this slice's five, and the RetroArch frontend's own packages), and the inventory's `shadowed_by` is 0 for all 86 because the
 duplication is by content, not by directory name (`libretro-snes9x` against
 `snes9x-lr`). **5 are ROCKNIX's own recipes** under
 `projects/ROCKNIX/packages/emulators/libretro/`: `boom3-lr` and
@@ -148,11 +154,12 @@ carries their `.so`; only `core-info`'s `.info` files for `boom3`,
 (`libretro-bsnes-hd`, `libretro-bsnes-mercury-performance`, `libretro-bsnes`,
 `libretro-cannonball`, `libretro-dosbox-pure`, `libretro-mame2010`,
 `libretro-mupen64plus-nx`, `libretro-picodrive`, `libretro-scummvm`,
-`libretro-stella`, `panda3ds-lr`, `play-lr`): the patches are T43's rows
-(`patches-dead`); this slice reads none. No path carries a space.
+`libretro-stella`, `panda3ds-lr`, `play-lr`): the patches are T40's rows
+(`patches-dead`, `k: 40`, reach `unreached`; T43 is `patches-unshipped` and
+holds none of these); this slice reads none. No path carries a space.
 
 **Provenance, by git.** Against the base `c445081a59`: **the fork changed
-none of the 86.** Against `upstream/next` (`e0f9deb899`): 81 identical, **5
+none of the 86.** Against `upstream/next` (`e0f9deb899`): 81 identical (the 81 LibreELEC files), **5
 differ**, all by upstream's one commit on these paths since the base,
 `af70bd435b` (*libretro-cores: add retroarch as PKG_DEPENDS_TARGET*), which
 touched the five ROCKNIX recipes -- so the base merge brings that hunk and
@@ -163,7 +170,7 @@ P=.qa-scratch/t24/paths.txt
 tr '\n' '\0' < $P | xargs -0 git diff --name-status c445081a59 8ebaf8daad -- | wc -l                      # 0
 tr '\n' '\0' < $P | xargs -0 git diff --name-status upstream/next 8ebaf8daad -- | awk '{print $1}' | sort | uniq -c   # 5 M
 tr '\n' '\0' < $P | xargs -0 git log --oneline c445081a59..upstream/next -- | cat                          # af70bd435b, one commit
-git log -1 --format='%h %cs' 8ebaf8daad -- packages/emulation/libretro-snes9x/package.mk                  # 2dd698ba24 2026-06-02: the last commit touching a LibreELEC core recipe in this tree
+git log -1 --format='%h %cs' 8ebaf8daad -- packages/emulation/libretro-snes9x/package.mk                  # 2dd698ba24 2026-06-02 for snes9x; the latest touch among the 81 is e46157185c 2026-07-22 (libretro-cannonball): tr '\n' '\0' < $P | xargs -0 git log -1 --format='%h %cs %s' 8ebaf8daad --
 ```
 
 **Where these would run, and do not.** A recipe is built when a plan
@@ -171,7 +178,7 @@ resolves it: `tools/viewplan` for each shipped device, the three virtual
 packages' dependency lists (`make update`'s set, T8's finding: none of the
 86 is in it), the emulators metapackage (`projects/ROCKNIX/packages/virtual/emulators/package.mk`,
 T3's file: the `add_emu_core` rows name `*-lr` recipes, never a
-`packages/emulation/libretro-*`), or a device's `packages/`. The 83 under
+`packages/emulation/libretro-*`), or a device's `packages/`. The 81 under
 `packages/emulation/` arrive by ROCKNIX's merges of LibreELEC master (the
 last on `upstream/next`: `d43d166b7a`, 2026-08-12) and are carried for Kodi,
 which ROCKNIX does not ship; **LibreELEC master still carries them**
@@ -191,7 +198,7 @@ empty; a non-empty result is the first lead.
 
 **The policy on change (plan § 5; D-UI-079's spirit; D-WORKFLOW-187):**
 **an upstream-carried file is not removed, moved or edited by this slice.**
-The 83 LibreELEC files are the base merge's: a proposal to ROCKNIX on #585
+The 81 LibreELEC files are the base merge's: a proposal to ROCKNIX on #585
 (the merge carries a tree ROCKNIX never builds -- the lane counts the files,
 lines and bytes, and names which cores have a ROCKNIX twin and which have
 none; the coordinator posts it) is the whole remedy, and each row's
@@ -246,9 +253,9 @@ and Q7 hang off it, and Q1, Q2, Q3 and Q5 apply as counts.
 | Q2 Standards | `tools/pkgcheck` over the 85 recipes (the tree's copy; T6's widened copy from this worktree as a second pass), the baseline counts first | the two runs' counts and FAIL lists; a FAIL on an upstream-carried recipe is `Renovation` with a #585 candidate |
 | Q3 Bugs | A dead primary `PKG_URL` among the 85 (a HEAD probe without `-L`; the mirror as the second line, T7's method) -- informational for files nothing builds, filed as a `bug` only where ROCKNIX's own five are concerned | the probe's histogram |
 | Q4 Currency | (a) `upstream/next` per path (81 identical, 5 upstream's `af70bd435b`); (b) LibreELEC master per `packages/emulation` recipe through the contents API (identical / moved / absent), serially, the budget read first and last; the five ROCKNIX recipes' pins against their projects as T3's Q4 did | the loops' outputs; a disposition per row naming the mover (the base merge for all 86) |
-| Q5 Efficiency | What the 83 cost the tree (files, lines, bytes: `git ls-tree -r -l`) and the base merge (every conflict-free merge of LibreELEC master re-imports them); `not measured` for a build: nothing builds them | the counts |
+| Q5 Efficiency | What the 81 cost the tree (files, lines, bytes: `git ls-tree -r -l` over the path list; `packages/emulation` whole also holds T40's 16 patch files) and the base merge (every conflict-free merge of LibreELEC master re-imports them); `not measured` for a build: nothing builds them | the counts |
 | Q6 Dead ends | **The table**: one row per path (86) -- `reached by <file:line>` / `unreached`, the plan reads that decided it (`tools/viewplan` per shipped device: absent; the emulators metapackage: no `add_emu_core` names it; `git grep -F <name>` over `projects packages`: the hits, each classed), the record (no build directory by name prefix in the five roots; the `.info` trace in the install trees for the five), the tier, the (a) and (b) states, the disposition (`kept: upstream's; #585 candidate` / `kept: upstream's; no shipped device builds it`), and **`Already written:` on every row** | the commands with outputs; a reached row found by the same commands is the positive control (e.g. `snes9x-lr`) |
-| Q7 Clarity | **The twin map**: for each of the 79 LibreELEC cores, its ROCKNIX `*-lr` twin by name and by source (`PKG_SITE`/`PKG_URL`), or `no twin`; the pins side by side where a twin exists; `libretro-common`'s and `rcheevos`'s standing (ROCKNIX's cores vendor their own) | one table of 79 rows |
+| Q7 Clarity | **The twin map**: for each of the 77 LibreELEC cores, its ROCKNIX `*-lr` twin by name and by source (`PKG_SITE`/`PKG_URL`), or `no twin`; the pins side by side where a twin exists; `libretro-common`'s and `rcheevos`'s standing (ROCKNIX's cores vendor their own) | one table of 77 rows |
 
 A finding is one question with its evidence; `Renovation` is the category
 for everything here that is not a defect; a Q3 finding on a ROCKNIX recipe
@@ -288,27 +295,28 @@ touches a handheld, a cloud, a shared backend, a guest or a build.
   tr '\n' '\0' < .qa-scratch/t24/paths.txt | xargs -0 git diff --stat 8ebaf8daad HEAD -- | tail -1           # empty
   # (a) ROCKNIX
   while IFS= read -r p; do git diff --quiet upstream/next 8ebaf8daad -- "$p" && echo "identical $p" || echo "differs $p"; done < .qa-scratch/t24/paths.txt | cut -d' ' -f1 | sort | uniq -c   # 81 / 5
-  # (b) LibreELEC master for the packages/emulation recipes (83 reads, serial; a 404 is absent, any other non-200 is not-read)
+  # (b) LibreELEC master for the packages/emulation recipes (80 reads -- the recipes under `packages/emulation`, the cmake file aside -- serial; a row says `pin identical`, since only the pin is compared (`libretro-mgba`'s master file differs by a `pre_make_target` at the same pin); a 404 is absent, any other non-200 is not-read)
   gh api rate_limit --jq '.resources.core.remaining'                                                        # start above 1,500
   grep '^packages/emulation/' .qa-scratch/t24/recipes.txt | while IFS= read -r p; do out=$(gh api "repos/LibreELEC/LibreELEC.tv/contents/$p?ref=master" --jq .content 2>.qa-scratch/t24/le/err); rc=$?; if [ $rc -eq 0 ]; then printf '%s\n' "$out" | base64 -d > ".qa-scratch/t24/le/$(echo "$p" | tr / _)"; printf '%s %s\n' "$p" "$(grep -m1 '^PKG_VERSION=' ".qa-scratch/t24/le/$(echo "$p" | tr / _)" | cut -d'"' -f2)"; elif grep -q 'HTTP 404' .qa-scratch/t24/le/err; then echo "$p absent"; else echo "$p not-read"; fi; sleep 0.4; done > .qa-scratch/t24/q4b.txt
   gh api rate_limit --jq '.resources.core.remaining'
   # reachability: the plans, the metapackage, the grep, with snes9x-lr as the control
-  for dev in GENERIC_X64 H700 SM8550; do tools/viewplan $dev 2>/dev/null > ".qa-scratch/t24/plan-$dev.txt" || echo "viewplan $dev: rc $?"; done; grep -c . .qa-scratch/t24/plan-*.txt
-  while IFS= read -r p; do n=$(basename "$(dirname "$p")"); printf '%s plan=%s meta=%s grep=%s\n' "$n" "$(grep -l -x -F "$n" .qa-scratch/t24/plan-*.txt 2>/dev/null | wc -l)" "$(git grep -c -F "$n" 8ebaf8daad -- projects/ROCKNIX/packages/virtual/emulators/package.mk | cut -d: -f2)" "$(git grep -l -F "$n" 8ebaf8daad -- projects packages | grep -v -F "$p" | wc -l)"; done < .qa-scratch/t24/recipes.txt > .qa-scratch/t24/reach.txt; grep -c 'plan=0 meta= grep=0' .qa-scratch/t24/reach.txt   # the fully unreached; every other row is read
-  n=snes9x-lr; printf 'control %s plan=%s\n' "$n" "$(grep -l -x -F "$n" .qa-scratch/t24/plan-*.txt | wc -l)"   # 3: the control reaches
+  for dev in GENERIC_X64:x86_64 H700:aarch64 SM8550:aarch64; do d=${dev%%:*}; PROJECT=ROCKNIX DEVICE=$d ARCH=${dev##*:} tools/viewplan > ".qa-scratch/t24/plan-$d.txt" 2> ".qa-scratch/t24/plan-$d.err" || echo "viewplan $d: rc $?"; done; grep -c . .qa-scratch/t24/plan-*.txt   # the device comes from the environment (DEVICE defaults to SM8550); an argument is a build target and fails the plan; each line is 'step name (wants: ...)'
+  while IFS= read -r p; do n=$(basename "$(dirname "$p")"); printf '%s plan=%s meta=%s grep=%s\n' "$n" "$(awk -v n="$n" '$2==n' .qa-scratch/t24/plan-*.txt 2>/dev/null | wc -l)" "$(git grep -c -F "$n" 8ebaf8daad -- projects/ROCKNIX/packages/virtual/emulators/package.mk | cut -d: -f3)" "$(git grep -l -w -F "$n" 8ebaf8daad -- projects packages | grep -v -F "$p" | wc -l)"; done < .qa-scratch/t24/recipes.txt > .qa-scratch/t24/reach.txt; grep -c 'plan=0 meta= ' .qa-scratch/t24/reach.txt   # the plans and the metapackage decide; the grep column is a lead per hit, classed in the table by the hitting file's reach (the 78 Kodi game.libretro.* addon recipes under packages/mediacenter name every core and are themselves unreached, so grep=0 is rare by construction; -w keeps snes9x from matching snes9x2002)
+  n=snes9x-lr; printf 'control %s plan=%s\n' "$n" "$(awk -v n="$n" '$2==n' .qa-scratch/t24/plan-*.txt | wc -l)"   # 3 expected: the control is in each device's plan; a 0 here is the command, not the core
   # the record, by name prefix (never a stripping sed), and the .info trace
   ROOTS=/workspace/repos/rocknix.worktrees; for d in $ROOTS/m7-signin-build-20261022-07/build.pixelelated-GENERIC_X64.x86_64 $ROOTS/m7-signin-h700-build-20261023-06/build.pixelelated-H700.aarch64 $ROOTS/m7-signin-h700-build-20261023-06/build.pixelelated-H700.arm $ROOTS/m7-signin-sm8550-build-20261023-03/build.pixelelated-SM8550.aarch64 $ROOTS/m7-signin-sm8550-build-20261023-03/build.pixelelated-SM8550.arm; do LC_ALL=C ls "$d/build" > ".qa-scratch/t24/listing-$(basename $d).txt"; done
   while IFS= read -r p; do n=$(basename "$(dirname "$p")"); hit=0; for l in .qa-scratch/t24/listing-*.txt; do grep -q -E "^${n}-[A-Za-z0-9]" "$l" && hit=1; done; echo "$hit $n"; done < .qa-scratch/t24/recipes.txt | cut -d' ' -f1 | sort | uniq -c   # 85 with 0 expected
   grep -q -E '^snes9x-lr-' .qa-scratch/t24/listing-build.pixelelated-GENERIC_X64.x86_64.txt && echo "control: snes9x-lr built"
-  for n in boom3 vitaquake3 mame2003 panda3ds play; do ls $ROOTS/m7-signin-build-20261022-07/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/share/libretro/info/ 2>/dev/null | grep -c -i "^${n}" ; done   # the .info trace T3 named (read only)
+  for n in boom3 boom3_xp vitaquake3 mame2003 panda3ds play; do f=$ROOTS/m7-signin-build-20261022-07/build.pixelelated-GENERIC_X64.x86_64/image/system/usr/lib/libretro/${n}_libretro.info; [ -f "$f" ] && echo "info $n" || echo "no-info $n"; done   # the .info trace T3 named (read only): the 320 .info files live in usr/lib/libretro, not usr/share; all six present; a prefix grep over-matches (mame2003 -> 3)
   # pkgcheck, the tree's copy then T6's widened copy run from this worktree
   for p in $(cat .qa-scratch/t24/recipes.txt); do tools/pkgcheck "$(basename "$(dirname "$p")")" >/dev/null 2>&1 && echo PASS || echo FAIL; done | sort | uniq -c
   git -C /workspace/repos/pixelelated/distribution.worktrees/m6-build-engine-upstream-tools-653 show 44f64842b6:tools/pkgcheck > .qa-scratch/t24/pkgcheck-t6 && chmod +x .qa-scratch/t24/pkgcheck-t6; for p in $(cat .qa-scratch/t24/recipes.txt); do .qa-scratch/t24/pkgcheck-t6 "$(basename "$(dirname "$p")")" >/dev/null 2>&1 && echo PASS || echo FAIL; done | sort | uniq -c
-  # Q5: what the 83 weigh
+  # Q5: what the 81 weigh: the directory whole prints 97 files, 106,103 bytes (T40's 16 patch files inside); the 86 paths print 86 files, 91,552 bytes
   git ls-tree -r -l 8ebaf8daad -- packages/emulation | awk '{s+=$4} END {print NR " files, " s " bytes"}'; tr '\n' '\0' < .qa-scratch/t24/paths.txt | xargs -0 git ls-tree -r -l 8ebaf8daad -- | awk '{s+=$4} END {print NR " files, " s " bytes"}'
   ```
-  (`config/options` is not sourced here; nothing creates a build cache in
-  the worktree. The at-hash export is two directories under `.qa-scratch/`.)
+  (`tools/viewplan` sources `config/options` and writes
+  `build.pixelelated-<DEVICE>.<ARCH>/.cache_package_*` into the worktree,
+  gitignored (`config/path:19`); `pkgcheck` writes nothing. The at-hash export is two directories under `.qa-scratch/`.)
 - **A read is free and goes through the filter** on any log or config read
   from an M7 root.
 
@@ -316,7 +324,7 @@ touches a handheld, a cloud, a shared backend, a guest or a build.
 handheld, a cloud or a shared backend; a process in an M7 worktree; a model
 call; `npm install`; `git remote add`; an archive download (a HEAD probe
 without `-L` at most); a deletion, move or edit of any upstream-carried file
-(every file here is one); a change to a patch (T43's); an edit at stage B;
+(every file here is one); a change to a patch (T40's); an edit at stage B;
 `--no-verify`; bare `git stash`; `git worktree remove --force` or `rm -rf`
 of any worktree; a write in another lane's worktree or under
 `/workspace/repos/rocknix*`; a tree export under `/tmp`; an unquoted
@@ -332,13 +340,13 @@ All in the worktree, committed on its branch with messages that cite `#671`
 | Output | Path | Shape | Stage |
 | --- | --- | --- | --- |
 | Running log | `docs/audits/<yyyy_mm_dd>-epic-m6-emulators-dead-ends/00-running-log.md` | the flight recorder: model and effort, `reviewed-at` with `8ebaf8daad` beside it, every § 5 command with its exit status, the API budget before and after, every `PROOF:` line, each time from `date -u` | A onward |
-| Research notes | `.../01-research-notes.md` | § Scope: the 86 re-derived with § 2's filter and its output, the provenance (0 fork changes; 81 identical, 5 upstream's `af70bd435b`), the branch's deltas from the hash (none expected); § Phase 1: how the 83 arrive and why nothing builds them, in the slice's own words | A, B |
+| Research notes | `.../01-research-notes.md` | § Scope: the 86 re-derived with § 2's filter and its output, the provenance (0 fork changes; 81 identical, 5 upstream's `af70bd435b`), the branch's deltas from the hash (none expected); § Phase 1: how the 81 arrive and why nothing builds them, in the slice's own words | A, B |
 | Forward audit | `.../02-forward-audit.md` | Phase 2 over #671's checklist, plus **a coverage table with one row per path** (86; the first cell the path in backticks so ``grep -c -E '^\| `(packages|projects)/'`` counts them), § Mechanical checks (every § 5 block with command, exit status, summary), § The reachability commands (the plans, the metapackage, the grep, the record, the control); every proof with a `proved:` cell | B, then F |
-| Retrospective | `.../03-retrospective.md` | Phase 3 with § 3.5 for the seams: the base merge x the 83; T3's `*-lr` twins x the 79; T43's patches x the 12 | B |
-| Analysis | `.../04-analysis.md` | Phase 4, § Finding Verification (4.5), **§ Renovation face** Q1 to Q7, **Q6 carrying the reachability table** (86 rows, each with `Already written:`), **Q7 carrying the twin map** (79 rows), Q4 the (a) and (b) states, Q5 the weight; Phase 4.6 `not applicable` with the row cited | C |
+| Retrospective | `.../03-retrospective.md` | Phase 3 with § 3.5 for the seams: the base merge x the 81; T3's `*-lr` twins x the 77; T40's patches x the 12 | B |
+| Analysis | `.../04-analysis.md` | Phase 4, § Finding Verification (4.5), **§ Renovation face** Q1 to Q7, **Q6 carrying the reachability table** (86 rows, each with `Already written:`), **Q7 carrying the twin map** (77 rows), Q4 the (a) and (b) states, Q5 the weight; Phase 4.6 `not applicable` with the row cited | C |
 | Second opinions | `.../second-opinions/review-plan.json` | § 1's Local plan file with `tier_exception` and `reason`; no call | C |
 | Lint, before D | `tools/lint-audit-artifacts <folder> --phase pre-issue` | `PASS pre-issue artifacts (...)` with the `review-plan: local at epic tier under D-WORKFLOW-184` line | C |
-| Punch list | `.../05-punch-list.md` | Phase 5: every item with `question:`; the #585 proposal (the 83 and the twin map's count) as one `Renovation` item whose outcome names the coordinator's post; the five ROCKNIX rows as one item citing T3 | D |
+| Punch list | `.../05-punch-list.md` | Phase 5: every item with `question:`; the #585 proposal (the 81 and the twin map's count) as one `Renovation` item whose outcome names the coordinator's post; the five ROCKNIX rows as one item citing T3 | D |
 | Audit issue | GitHub, labels `audit`, `punch-list`, milestone M6, a sub-issue of #671 | `Audit: M6 T24 emulator recipes and files no shipped image builds -- N findings (...)`; one checkbox per item, agent-first | D |
 | **The stage-D pause** | #671 | the punch list posted; the lane waits for the coordinator's dispositions (no stream is expected: nothing here changes) | D |
 | Verification | `02-forward-audit.md` appended; `audit-completion.json` after the coordinator closes the audit issue | every proof's `proved:` cell one of `tree`, `history`, `tool-run` | F |
@@ -357,13 +365,13 @@ names the artifact that ticks it; the coordinator ticks at hand-back.
 - [ ] `docs/audits/<date>-epic-m6-emulators-dead-ends/` holds `00-running-log.md` and `01-research-notes.md` to `05-punch-list.md`.
 - [ ] `tools/lint-audit-artifacts docs/audits/<date>-epic-m6-emulators-dead-ends/` prints `PASS` (its default `resolution` phase, at close; before stage D the same command with `--phase pre-issue` prints `PASS pre-issue artifacts`), the renovation face included and the line `review-plan: local at epic tier under D-WORKFLOW-184` in its output.
 - [ ] `second-opinions/review-plan.json` records `depth: local`, `reviewers: []`, `tier_exception: D-WORKFLOW-184` and a `reason` naming plan § 6c and `slices.json`'s `k: 24`.
-- [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue (#585 for the proposal, T43's issue for a patch row), or withdrawn with its reason.
+- [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue (#585 for the proposal, T40's issue for a patch row), or withdrawn with its reason.
 - [ ] `reviewed-at:` and `fixed-at:` above carry the lane's commits (the same commit where nothing changed; no EmulationStation path), and, after the coordinator closes this issue and the branch merges to `next`, `tools/renovation-status` lists this slice as `closed`.
 - [ ] `01-research-notes.md` § Scope records the read hash, the filter of brief § 2 with its output (86 paths, 2,399 lines; 86 upstream-carried; 84 `unreached`, 2 `unshipped`; 85 recipes and 1 cmake file, or the deltas beside them), the provenance (0 fork changes since the base; 81 identical to `upstream/next` and 5 differing by upstream's `af70bd435b`), and the branch-vs-hash diff over the 86 (empty, or each hunk listed with its owner).
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path, the path in backticks as the first cell: ``grep -c -E '^\| `(packages|projects)/' 02-forward-audit.md`` prints 86; each row's Q1 to Q7 cells answered or `n/a` with a reason.
-- [ ] `02-forward-audit.md` § Mechanical checks records, with command, exit status and summary line, each of: the branch-vs-hash diff, the (a) loop (81 / 5), the (b) loop (83 rows: identical / moved / absent / not-read, with the API budget before and after), the three `viewplan` reads with the control, the metapackage and `git grep` reads per name, the record by name prefix over the five roots (85 with no build directory, the control built) and the `.info` trace, the two `pkgcheck` runs' counts, and the weight of the 83 (files, lines, bytes); a check that could not run is recorded with the reason, never as a pass.
-- [ ] `04-analysis.md` § Renovation face Q6 carries the reachability table: 86 rows, each with the reads that decided it, the tier, the (a) and (b) states, the disposition (`kept: upstream's; #585 candidate` for the 83, `kept: upstream's; no shipped device builds it` for the five with T3's `Already written:` cited), and **an `Already written:` line on every row**; no row's disposition is a deletion, move or edit.
-- [ ] `04-analysis.md` § Renovation face Q7 carries the twin map: 79 rows (the LibreELEC core, its ROCKNIX `*-lr` twin by name and by source or `no twin`, the two pins where a twin exists); § Q5 states the weight of the 83 in files, lines and bytes.
+- [ ] `02-forward-audit.md` § Mechanical checks records, with command, exit status and summary line, each of: the branch-vs-hash diff, the (a) loop (81 / 5), the (b) loop (80 rows: pin identical / moved / absent / not-read, with the API budget before and after), the three `viewplan` reads with the control, the metapackage and `git grep` reads per name, the record by name prefix over the five roots (85 with no build directory, the control built) and the `.info` trace, the two `pkgcheck` runs' counts, and the weight of the 81 (files, lines, bytes); a check that could not run is recorded with the reason, never as a pass.
+- [ ] `04-analysis.md` § Renovation face Q6 carries the reachability table: 86 rows, each with the reads that decided it, the tier, the (a) and (b) states, the disposition (`kept: upstream's; #585 candidate` for the 81, `kept: upstream's; no shipped device builds it` for the five with T3's `Already written:` cited), and **an `Already written:` line on every row**; no row's disposition is a deletion, move or edit.
+- [ ] `04-analysis.md` § Renovation face Q7 carries the twin map: 77 rows (the LibreELEC core, its ROCKNIX `*-lr` twin by name and by source or `no twin`, the two pins where a twin exists); § Q5 states the weight of the 81 in files, lines and bytes.
 - [ ] Every proof in `02-forward-audit.md` carries a `proved:` cell reading `tree`, `history` or `tool-run`; ``grep -c 'proved:' 02-forward-audit.md`` equals ``grep -c 'PROOF:' 00-running-log.md``.
 - [ ] Every punch item carries `question:`; the #585 proposal is one `Renovation` item whose outcome names the coordinator's post; no file under `packages/` or `projects/` is changed on this branch (`git diff --stat 8ebaf8daad <fixed-at> -- packages projects` is empty, or every hunk is a stream the coordinator briefed), and `git diff --diff-filter=DR --name-only 8ebaf8daad <fixed-at> -- packages projects` is empty.
 - [ ] The retro exists at `docs/retros/<date>-m6-emulators-dead-ends.md`, is posted on #671, and says in those words that the slice did nothing to the two time-to-play numbers.
@@ -395,8 +403,9 @@ a post that asks nothing**.
   coordinator's; T8 runs beside this lane and may take 198.
 - `tools/ceremony-check` before every push; never `--no-verify`; a merge
   with conflicts is checked for markers; the ledgers united by whole
-  entries; **a commit names its paths**; a tree export under
-  `/workspace/tmp/m6-t24/` after `df -i`, never `/tmp`.
+  entries; **a commit names its paths**; the read tree under
+  `.qa-scratch/t24/at-hash/` (§ 1); a whole-tree export, when one is wanted,
+  under `/workspace/tmp/m6-t24/` after `df -i`, never `/tmp`.
 - Commit messages `docs: ...`, with `Refs #671`.
 
 ## 10. Hand-back
@@ -404,7 +413,7 @@ a post that asks nothing**.
 The coordinator accepts by reading, in this order, without re-reviewing:
 #671's checkboxes against their artifacts; the lint's `PASS` line with the
 D-WORKFLOW-184 line; `review-plan.json`; the audit issue's checkboxes all at
-an outcome; the coverage table's row count (86) and the twin map's (79);
+an outcome; the coverage table's row count (86) and the twin map's (77);
 every Q6 row's `Already written:` and no deletion; **re-running on an export
 of the tip under `/workspace/tmp`: the membership block, the (a) loop, the
 record by name prefix and the `pkgcheck` baseline in full, and the (b) read

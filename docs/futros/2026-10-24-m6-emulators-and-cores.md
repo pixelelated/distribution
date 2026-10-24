@@ -491,8 +491,8 @@ addendum missed: `start_hatarisa.sh` is what the generic arm asks for and
 **What we know and assume.** T24 is the area's third and last slice, a
 Local reachability table over **the rest of the area: 86 paths, 2,399
 lines, every one upstream-carried; 84 `unreached`, 2 `unshipped`**. The 86
-are 85 recipes and one cmake file: **83 under `packages/emulation/`** --
-LibreELEC's 79 `libretro-*` core recipes for Kodi's RetroPlayer,
+are 85 recipes and one cmake file: **81 under `packages/emulation/`** --
+LibreELEC's 77 `libretro-*` core recipes for Kodi's RetroPlayer,
 `cyclone68000`, `libretro-common` and `rcheevos` (two files) -- which
 ROCKNIX never builds because it carries its own `*-lr` recipes under
 `projects/ROCKNIX/packages/emulators/libretro/` (T3's set), and **5 ROCKNIX
@@ -503,14 +503,15 @@ GENERIC_X64 skips `idtech-lr`; AMD64 alone builds them), `mame2003-lr`,
 since the base; upstream changed the five ROCKNIX recipes in one commit
 (`af70bd435b`, *libretro-cores: add retroarch as PKG_DEPENDS_TARGET*), so
 tier (a) is 81 identical and 5 differing by upstream's own hunk. LibreELEC
-master still carries the 79 (`libretro-snes9x`'s pin has moved there;
+master still carries the 77 (`libretro-snes9x`'s pin has moved there;
 `libretro-mgba`'s has not): every base merge brings them again, and the
-last commit touching them in this tree is `2dd698ba24` of 2026-06-02.
+last commit touching them in this tree is `e46157185c` of 2026-07-22
+(`libretro-cannonball`; `2dd698ba24` of 2026-06-02 is snes9x's).
 `shadowed_by` is 0 for all 86 because the duplication is by content, not by
 name (`libretro-snes9x` against `snes9x-lr`). Twelve of the 85 recipes carry
-patches (T42's and T43's rows). No path carries a space.
+patches (T40's rows, `patches-dead`). No path carries a space.
 
-**Known unknowns.** U-1 which of the 79 LibreELEC cores have a ROCKNIX
+**Known unknowns.** U-1 which of the 77 LibreELEC cores have a ROCKNIX
 `*-lr` twin and which have none (a core ROCKNIX does not offer at all is a
 different row from a duplicate). U-2 whether anything in `projects/` or a
 device's `packages/` names one of the 83 (`git grep` per name; the inventory
@@ -535,9 +536,9 @@ ROCKNIX never builds; the lane counts it, the coordinator posts it). S-2 it
 removes the five ROCKNIX recipes: no -- ROCKNIX's, AMD64 builds two of them;
 rows with `kept: upstream's; no shipped device builds it`. S-3 it reads
 `shadowed_by` 0 as "nothing duplicated" and misses the 79 twins: U-1 maps
-them by name and by `PKG_SITE`/`PKG_URL`. S-4 it fetches 79 archives to
+them by name and by `PKG_SITE`/`PKG_URL`. S-4 it fetches 77 archives to
 compare: no download; the tree and the API. S-5 it edits a patch under one
-of the 12 patched recipes: T43's rows. S-6 a stripping `sed` on the roots:
+of the 12 patched recipes: T40's rows. S-6 a stripping `sed` on the roots:
 match by name prefix. S-7 `.[-1]` on a long issue's comments without
 `--paginate` (the coordinator's own slip today): `--paginate`. Pre-mortem: the
 table says *86 rows, nothing removed* and the maintainer asks what it was
@@ -554,3 +555,28 @@ serially, with the budget read before and after. A5 the record by name
 prefix over the five roots; the `.info` trace read in the install trees
 (`ls` only). A6 the acceptance re-runs the membership, the (a) loop and the
 record in full and the API read on ten seeded rows.
+
+**Errata from the stranger's proof of version 1 (2026-10-24, 13:10 UTC; 77
+claims: 55 right, 13 wrong, 5 partial, 4 uncheckable), folded into version 2
+of the brief.** Under `packages/emulation/` there are **81** paths, not 83
+(the brief's own block printed 81): **77** `libretro-*` cores, not 79, plus
+`libretro-common`, `cyclone68000` and `rcheevos`' two files; the (b) loop is
+80 reads, the twin map 77 rows. The patches beside the 12 patched recipes are
+**T40's** (`patches-dead`, reach `unreached`), not T43's or T42's. The latest
+commit touching the 81 is `e46157185c` (2026-07-22, `libretro-cannonball`),
+not `2dd698ba24`. The `.info` files live in `usr/lib/libretro/` (320 of
+them), not `usr/share/libretro/info/`, and a prefix grep over-matches
+(`mame2003` -> 3). `tools/viewplan` takes the device from the environment
+(`PROJECT`, `DEVICE`, `ARCH`), not as an argument, and writes
+`.cache_package_*` into the worktree; its lines are `step name (wants: ...)`,
+so a whole-line grep never matches and `awk '$2==n'` is the match. `git grep
+-c` with a revision prints `rev:path:count` (`-f3`), and `git grep -l` without
+`-w` is a substring match (`snes9x` hits `snes9x2002`); the 78 Kodi
+`game.libretro.*` addon recipes name every core and are themselves unreached,
+so a core with no hit at all is rare by construction and the table classes
+each hit by the hitting file's reach. The at-hash export is 474 files, of
+which T40's 16 patch files are not T3's; "T3's 151 recipes" is the count of
+every `package.mk` under `libretro/` (T3's own `04` says 137). The lane
+worktree existed before the dispatch (`77141a45c7`); the pointer did not. Two
+export homes are now one role each: the read tree in `.qa-scratch/t24/at-hash/`,
+whole-tree exports under `/workspace/tmp/m6-t24/`.
