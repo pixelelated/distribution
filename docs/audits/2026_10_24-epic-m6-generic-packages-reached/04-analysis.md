@@ -16,7 +16,7 @@ No pin moved; nothing under `packages/` changed.
 - **F-01:** `libfmt`'s ROCKNIX override empties `PKG_SHA256` for every plan but SM8550's.
 - At `8ebaf8daad` the archive is fetched unverified.
 - At T5's tip, which merges before this branch, GENERIC_X64 and H700 builds die at `libfmt`.
-- The fix is one line: the checksum the live fetch, the cache stamp and ROCKNIX's mirror all agree on. Alternatively, the next base merge deletes the override: it is an orphan that ROCKNIX removed on 2026-10-11 (`6103571f67`).
+- The fix is one line: the checksum the live fetch, the cache stamp and ROCKNIX's mirror all agree on. **#877**, filed by the coordinator, is fixed in the packet `fix/m6-877-libfmt-sha256` at `cf3a8d8e62`, ordered ahead of T5's branch (D-WORKFLOW-196). The override is also an orphan that ROCKNIX removed on 2026-10-11 (`6103571f67`).
 
 **Four primary URLs are gone, and ROCKNIX's mirror covers each one (F-02 to F-05):**
 - `wsdd2`'s repository was deleted;
@@ -27,8 +27,8 @@ No pin moved; nothing under `packages/` changed.
 The rest:
 - **F-06 to F-09:** four fork-introduced recipes are one patch release behind: `brotli`, `ruby`, `glib-networking`, `webkitgtk`.
 - **F-10:** the sixteen fork-own recipes get proposed #645 rows.
-- **F-11:** the record contradicts one plan entry: `btrfs-progs` is absent from the M7 GENERIC_X64 root and image.
-- **F-12:** the inventory cannot see an override's pin.
+- **F-11:** the record contradicts one plan entry: `btrfs-progs` is absent from the M7 GENERIC_X64 root and image, because its override's `PKG_ARCH="aarch64"` excludes it, which the plan reading does not apply (#879).
+- **F-12, withdrawn:** the inventory's `shadowed_by` is right; the effective pin is Q4's.
 - **F-13 to F-15:** three modernization rows:
   - two latent URL series cuts (F-13);
   - 22 http URLs (F-14);
@@ -74,7 +74,7 @@ The rest:
 
 | Risk | Likelihood | Impact | Where |
 | --- | --- | --- | --- |
-| GENERIC_X64 and H700 builds die at `libfmt` once T5's `get_archive` merges | certain, if T5 merges first and nothing changes | every build of two of the three images | F-01 |
+| GENERIC_X64 and H700 builds die at `libfmt` once T5's `get_archive` merges | none once #877's packet merges first, as ordered | every build of two of the three images | F-01, #877 |
 | ROCKNIX drops a file from `sources-v2`, or the release moves | low | four recipes fail from an empty cache; the shared cache still holds each (D-INFRA-022) | F-02 to F-05 |
 | a fork-introduced recipe ships a known-fixed bug of its patch release | low | per recipe | F-06 to F-09 |
 | the PR series meets `packages/**` | certain at the first bucket | the series refused | F-10, #645 |
@@ -97,7 +97,7 @@ Each finding is attacked with what would make it wrong, and what was checked.
   - *Wrong if* `libfmt` is not in those plans: `viewplan` lists `install libfmt` and `build libfmt:host` in GENERIC_X64, H700 and SM8550, and the M7 roots have `libfmt-9.1.0` built for GENERIC_X64 and H700.
   - *Wrong if* the effective value is not empty: the per-plan expansion through `config/options libfmt` prints `-` for `PKG_SHA256` in three plans.
   - *Wrong if* T5's guard does not reach it: `scripts/get:24-53` dispatches an `http*` URL to `get_archive`, whose line 7 at `52e6794ba7` tests `-z "${PKG_SHA256}"` before `_get_file_already_downloaded`.
-  - **Confirmed.** Severity **High**: certain to stop two images' builds once T5 merges, and a one-line fix.
+  - **Confirmed.** Severity **High** at stage B (certain to stop two images' builds once T5 merges); the coordinator's #877 rates it Medium today, since no build at `8ebaf8daad` fails, and this slice takes #877's rating.
 - **F-02** (`wsdd2`).
   - *Wrong if* the 404 is HEAD-specific: a ranged GET is 404, and so is `gh api repos/Netgear/wsdd2`.
   - *Wrong if* the build fails: it does not (the mirror).
@@ -114,10 +114,10 @@ Each finding is attacked with what would make it wrong, and what was checked.
 - **F-11** (`btrfs-progs`).
   - *Wrong if* the M7 root is not the GENERIC_X64 build of the plan: it is `m7-signin-build-20261022-07` at `069fc27044`, whose image tar of 2026-10-23 is in its `target/`.
   - *Wrong if* the M7 tree's image recipe lacks the dependency: its `image/package.mk:14` names `btrfs-progs`.
-  - The cause is not found by reading. **Confirmed as a contradiction, unexplained.** Low, a note for the coordinator (Q6's rule).
+  - The cause was not found at stage B. *Corrected at the coordinator's disposition:* the override `projects/ROCKNIX/packages/sysutils/btrfs-progs/package.mk:6` sets `PKG_ARCH="aarch64"`. **Confirmed as a plan-reading error, the record right;** #879. Low.
 - **F-12** (the inventory and sourcing overrides).
-  - *Wrong if* the inventory has an effective-pin column: it does not (its columns are `tree`, `path`, `area`, `tier`, `tier_note`, `overlap`, `language`, `lines`, `patches`, `last_fork_commit`, `last_upstream_commit`, `reach`, `reachable_by`, `buildable_by`, `shadowed_by`).
-  - **Confirmed.** Low.
+  - *Wrong if* the inventory has an effective-pin column: it does not.
+  - *Wrong if* a missing pin column is a defect at all: the coordinator's disposition is that it is not (`shadowed_by` describes reach, which is right). **Withdrawn**; the effective pin is carried in Q4.
 - **F-13** (the series cut).
   - *Wrong if* the versions cannot reach two digits: GNOME's libsoup minor is at 8, and `${PKG_VERSION:0:3}` of `3.10.0` is `3.1`; ruby's `3.3` series path is the same shape.
   - **Confirmed as latent.** Low.
@@ -163,11 +163,11 @@ Every finding below is `Renovation`.
 
 ### Q3 Bugs
 
-**Five `bug`s, filed at stage D:**
+**Five `bug`s: #877 (F-01, filed by the coordinator and fixed in its packet), and four filed by this lane at stage D, each Low, class *dead primary URL, mirror-covered*:**
 
 | F | Recipe | The defect | Builds from an empty cache today | Copies of the bytes |
 | --- | --- | --- | --- | --- |
-| F-01 | `libfmt` (its override) | `PKG_SHA256=""` for 9.1.0 on every plan but SM8550's | yes, unverified; **no**, after T5's `get_archive` | live fetch, cache stamp, mirror: `5dea48d1...` |
+| F-01, #877 | `libfmt` (its override) | `PKG_SHA256=""` for 9.1.0 on every plan but SM8550's; fixed at `cf3a8d8e62` | yes, unverified; **no**, after T5's `get_archive`, until #877's packet | live fetch, cache stamp, mirror: `5dea48d1...` |
 | F-02 | `wsdd2` | `Netgear/wsdd2` deleted | yes, from the mirror | the mirror and the cache: `b0b6b315...` |
 | F-03 | `newt` | `releases.pagure.org/newt/` serves no archive | yes, from the mirror | mirror, cache: `ef0ca9ee...` |
 | F-04 | `libmpeg2` | the SourceForge project site's file is 404 | yes, from the mirror | mirror, cache: `dee22e89...` |
@@ -195,6 +195,19 @@ No row reads `current` beside a `not read`. Seven same-version rows differ from 
 - `virtual/debug` reads `VALGRIND_SUPPORT` (2026-10-02).
 
 Each arrives with the next base merge.
+
+**The effective pin is not always the recipe's** (`device-builds.md` § After rebasing item 3). Of the 47 ROCKNIX overrides that source one of the 243, these seven change what the build fetches; the table's pin column carries the effective value per plan. T8 (#655) reads the overrides themselves.
+
+| Override | Changes | Effective |
+| --- | --- | --- |
+| `projects/ROCKNIX/packages/audio/opus/package.mk` | `PKG_VERSION`, `PKG_SHA256`, `PKG_URL` | 1.5.2 (the generic recipe 1.6.1) |
+| `projects/ROCKNIX/packages/lang/gcc/package.mk` | `PKG_VERSION`, `PKG_SHA256`, `PKG_URL` | 15.2.0 (16.2.0) |
+| `projects/ROCKNIX/packages/devel/libfmt/package.mk` | `PKG_VERSION`, `PKG_SHA256`, `PKG_URL` in a `case` | 9.1.0 on every plan but SM8550's (12.2.0); #877 |
+| `projects/ROCKNIX/packages/audio/wavpack/package.mk` | `PKG_URL` | GitHub release download |
+| `projects/ROCKNIX/packages/compress/zlib/package.mk` | `PKG_URL` | GitHub release download |
+| `projects/ROCKNIX/packages/sysutils/libevdev/package.mk` | `PKG_URL` | freedesktop.org |
+| `projects/ROCKNIX/packages/audio/libfreeaptx/package.mk` | `PKG_SHA256` | its own checksum over the generic URL |
+
 
 | Recipe path | Name | Pin (effective) | Shape | (a) upstream/next | (b) LibreELEC master | (c) the project | Disposition (the mover) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -281,7 +294,7 @@ Each arrives with the next base merge.
 | `packages/devel/libdisplay-info/package.mk` | `libdisplay-info` | `0.4.0` | version | identical | `0.4.0` (identical) | not read: follows LibreELEC | follows the base merge; LibreELEC master at `0.4.0` |
 | `packages/devel/libevent/package.mk` | `libevent` | `2.1.13` | version | identical | `2.1.13` (identical) | not read: follows LibreELEC | follows the base merge; LibreELEC master at `2.1.13` |
 | `packages/devel/libffi/package.mk` | `libffi` | `3.8.0` | version | identical | `3.8.0` (identical) | not read: follows LibreELEC | follows the base merge; LibreELEC master at `3.8.0` |
-| `packages/devel/libfmt/package.mk` | `libfmt` | GENERIC_X64-x86_64 `9.1.0`; H700-aarch64 `9.1.0`; H700-arm `9.1.0`; SM8550-aarch64 `12.2.0`; SM8550-arm `12.2.0` (a ROCKNIX override's case; the generic recipe `12.2.0`) | version | identical | `12.2.0` (identical) | not read: follows LibreELEC | follows the base merge; LibreELEC master at `12.2.0` (F-01) |
+| `packages/devel/libfmt/package.mk` | `libfmt` | GENERIC_X64-x86_64 `9.1.0`; H700-aarch64 `9.1.0`; H700-arm `9.1.0`; SM8550-aarch64 `12.2.0`; SM8550-arm `12.2.0` (a ROCKNIX override's case; the generic recipe `12.2.0`) | version | identical | `12.2.0` (identical) | not read: follows LibreELEC | follows the base merge; LibreELEC master at `12.2.0` (F-01, #877) |
 | `packages/devel/libtool/package.mk` | `libtool` | `2.6.2` | version | identical | `2.6.2` (identical) | not read: follows LibreELEC | follows the base merge; LibreELEC master at `2.6.2` |
 | `packages/devel/m4/package.mk` | `m4` | `1.4.21` | version | identical | `1.4.21` (identical) | not read: follows LibreELEC | follows the base merge; LibreELEC master at `1.4.21` |
 | `packages/devel/mpc/package.mk` | `mpc` | `1.4.1` | version | identical | `1.4.1` (identical) | not read: follows LibreELEC | follows the base merge; LibreELEC master at `1.4.1` |
@@ -461,12 +474,10 @@ Within the set everything is reached (the inventory's rule). **The class here is
 | `alsa`, `autotools`, `corefonts`, `debug`, `misc-packages`, `toolchain` | shipped | a virtual package has no build directory by construction; each root's `.stamps` holds them where the plan does | the stamps against each plan's `reachable_by` |
 | `ntfs-3g_ntfsprogs` | shipped (GENERIC_X64, H700-aarch64, SM8550-aarch64) | **yes, in all three**: `build/ntfs-3g_ntfsprogs-2022.10.3` and its stamp | `viewplan` for each: `install ntfs-3g_ntfsprogs (wants: toolchain, fuse, libgcrypt)`, and `image`'s wants carry it. The brief's `sed` cut the name to `ntfs` (`03` § 3.3) |
 
-**F-11, the one contradiction by stamps:**
-- `btrfs-progs` is in GENERIC_X64's plan (`install btrfs-progs (wants: toolchain, util-linux, zlib, systemd, lzo)`, and `image`'s wants).
-- The M7 GENERIC_X64 root (`069fc27044`) has no build directory, no stamp and no `mkfs.btrfs` in `image/system`.
-- The H700 and SM8550 roots have all three.
-
-It is a note for the inventory's owner and the M7 lane (the coordinator files it under #657's epic, brief § 4 Q6), not a change here.
+**F-11, the one contradiction by stamps: `btrfs-progs`, claimed shipped on GENERIC_X64 by the plan; excluded by PKG_ARCH; #879.**
+- `viewplan` puts it in GENERIC_X64's plan (`install btrfs-progs (wants: toolchain, util-linux, zlib, systemd, lzo)`, and `image`'s wants).
+- The M7 GENERIC_X64 root (`069fc27044`) has no build directory, no stamp and no `mkfs.btrfs` in `image/system`; the H700 and SM8550 roots have all three.
+- The override `projects/ROCKNIX/packages/sysutils/btrfs-progs/package.mk:6` sets `PKG_ARCH="aarch64"`, and neither `viewplan` nor the inventory applies `PKG_ARCH` (#879, filed by the coordinator). The effective-`PKG_ARCH` sweep over all 243 and five plans finds no other excluded entry (P14). *Stage B called this unexplained; the record was right.*
 
 ### Q7 Clarity and structure
 
@@ -494,7 +505,7 @@ It is a note for the inventory's owner and the M7 lane (the coordinator files it
 - **None of the 16 is a recipe upstream has**, so a move under `projects/ROCKNIX/packages/` shadows nothing.
 - **The three edited upstream recipes** are proposed to ROCKNIX through #585 first, since a contained fix in a generic recipe is a contribution (D-WORKFLOW-164; submission held, D-WORKFLOW-165). The override is each one's fallback.
 - **The rest:**
-  - **F-12:** the inventory records reach, not the pin. The 47 sourcing overrides need an effective-pin column, or a note on the generic row. A lead for #657 (P1's tool).
+  - **F-12, withdrawn:** the inventory records reach, and a sourced generic recipe is reached, so `shadowed_by` 0 is right (the coordinator's disposition); the effective pins are carried in § Q4.
   - **F-13:** `libsoup` and `ruby` derive the release series from the version with `${PKG_VERSION:0:3}`, which reads `3.1` for a `3.10.x`. `glib-networking`'s `${PKG_VERSION%.*}` is the shape that does not break.
   - There are no two recipes for one library (`shadowed_by` 0, and the 47 sourcing overrides are layers, not copies).
   - `PKG_SITE` names the project for every fork-own row.
@@ -508,10 +519,11 @@ It is a note for the inventory's owner and the M7 lane (the coordinator files it
 ### Codification Gaps (needs-new-rule)
 
 - **A count over recipes is a count over effective values** (D-WORKFLOW-194's shape, one step further). The guard is a tool: #844's fetch check, run per plan with `config/options`, would have printed `libfmt`'s empty checksum. That is a proposal to fold into #844's scope, not a new rule.
+- **#844's first check should be the mirror.** Every dead primary URL here (F-02 to F-05), and `portaudio`'s (#849, corrected), builds only because `get_archive` falls back to `${DISTRO_MIRROR}/${PKG_SOURCE_NAME}`. A scheduled fetch check that probes the mirror for every archive first says what every fetch depends on; the primary URL's state is the second line.
 
 ### Recommended Action Sequence
 
-1. F-01 before T5's branch merges (a stream brief; the coordinator's call whether it lands on T5's branch or this one).
+1. F-01 before T5's branch merges: done as #877's packet, ordered ahead of T5.
 2. The #645 rows posted (F-10).
 3. The Backlog bumps filed (F-06 to F-09).
 4. The rest at their owners.

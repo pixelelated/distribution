@@ -132,3 +132,17 @@ PROOF: 10:39 P13 of 75 GitHub repositories the URLs name, 3 renamed, 1 gone, 1 a
   - the three downloaded files removed by their literal paths, and `sources/` removed with `rmdir`;
   - `git status --short` shows no tracked change.
 - **The guard:** prose that names tools is written with the Write or Edit tool, or with a quoted heredoc (`<<'EOF'`), never with an unquoted one. A friction line is in `docs/friction-log.md` (`issue: #654`).
+
+### [Stage C, continued] 10:49 to 10:54 — the coordinator's dispositions of the stage-B leads
+
+- **Read whole:** the coordinator's #654 comment of 10:49 (issuecomment-6383296356), #877, #879 and #849's correction. `cf3a8d8e62`'s `libfmt` recipe was read with `git show` (line 12 carries `5dea48d1...`), as was the `btrfs-progs` override at the hash (`:6` `PKG_ARCH="aarch64"`).
+- **The effective `PKG_ARCH` sweep**, five plans × 243 recipes (10:50:07 to 10:51:16): one plan entry is excluded, `btrfs-progs` on GENERIC_X64, so F-11 has no sibling.
+- **Written:**
+  - `01` § Brief erratum (`ntfs-3g_ntfsprogs`);
+  - `02`: the libfmt row → #877; F-11 corrected; F-12 withdrawn; the `PKG_ARCH` row; P14 and P15;
+  - `03` and `04`: the corrections left visible; § Q4's seven pin-changing overrides by path; `04` § Codification gaps: #844 probes the mirror first;
+  - `05`: PL-01 → #877, Resolved (`fix-tree`); PL-11 → #879, Deferred; PL-12 Withdrawn.
+- **The pre-issue lint:** PASS (10:54).
+
+PROOF: 10:51 P14 the effective `PKG_ARCH` excludes one plan entry of the 243: `btrfs-progs` on GENERIC_X64 -- `probe/arch-<plan>.txt`
+PROOF: 10:52 P15 #877's packet `cf3a8d8e62` gives `libfmt` 9.1.0 the three witnesses' `5dea48d1...` -- `git show cf3a8d8e62:projects/ROCKNIX/packages/devel/libfmt/package.mk`

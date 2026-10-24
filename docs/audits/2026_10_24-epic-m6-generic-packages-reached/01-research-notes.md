@@ -27,3 +27,8 @@ with patches 46 shadowed 0
 | upstream's commits to `packages/` since the base | `git log c445081a59..upstream/next -- packages/` | 0 of 325 |
 
 - **The M7 delta:** none on the 266. M7's tree is the legacy checkout's; the slice is read at `next`'s bytes.
+
+## Brief erratum (recorded at the coordinator's disposition, #654 10:49 UTC)
+
+- **Brief § 2 and § 4 Q6 name seven recipes built in none of the five recorded roots; they are six, the virtual packages.** The seventh, `ntfs-3g_ntfsprogs`, has `build/ntfs-3g_ntfsprogs-2022.10.3` and a stamp in the GENERIC_X64, H700-aarch64 and SM8550-aarch64 roots. The brief's listing block strips a version with `sed -E 's/-[0-9][0-9a-zA-Z._+-]*$//'`, whose match begins at the first `-<digit>` in a directory name. In `ntfs-3g_ntfsprogs-2022.10.3` that is `-3g`, so the name became `ntfs`. It is the only one of the 243 names containing `-<digit>`. The record is read here by each root's `.stamps` instead (`02` § Mechanical checks, P11).
+- **The brief's "the expected count of archive recipes without a checksum here is 0"** holds for the 243 as written. As built, it was one: `libfmt`'s override (#877, D-WORKFLOW-196).

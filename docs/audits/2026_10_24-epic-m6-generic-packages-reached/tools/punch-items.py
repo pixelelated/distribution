@@ -8,7 +8,7 @@ AWF = "nothing on devices or in clouds: a recipe's source is a build input; the 
 AWN = "nothing: a recipe's text or a record; no device or cloud holds anything of it"
 BUMP = "the fork's: a Backlog issue in #839's shape, filed by the coordinator at acceptance for the first build after the M7 candidate; no pin moves in M6 (brief § 2, D-WORKFLOW-187)"
 I = [
- dict(f="F-01", t="`libfmt` 9.1.0 is fetched with an empty `PKG_SHA256`, and T5's `get_archive` refuses it on GENERIC_X64 and H700", sev="High", cat="Interaction Defect", q="Q3", area="a ROCKNIX override of a generic recipe: `projects/ROCKNIX/packages/devel/libfmt`",
+ dict(f="F-01", t="`libfmt` 9.1.0 is fetched with an empty `PKG_SHA256`, and T5's `get_archive` refuses it on GENERIC_X64 and H700", sev="Medium", tracked="#877", cat="Interaction Defect", q="Q3", area="a ROCKNIX override of a generic recipe: `projects/ROCKNIX/packages/devel/libfmt`",
   what="The override is an orphan: ROCKNIX deleted it after the base (`6103571f67`, its PR #3470, 2026-10-11), so the next base merge removes it and `libfmt` becomes 12.2.0 with its checksum on every plan. Whichever lands first decides: if T5's branch (whose `get_archive:7-9` makes the empty value fatal) reaches `next` before the base merge, give the 9.1.0 branch its checksum, `5dea48d1fcddc3ec571ce2058e13910a0d4a6bab4cc09a809d8b1dd1c88ae6f2`, on which the live fetch, the shared cache's stamp and ROCKNIX's mirror agree (trust on first use, as D-WORKFLOW-193's stream did). The register needs a row refining D-WORKFLOW-194's count from five archive versions to six (the coordinator's).",
   where="`projects/ROCKNIX/packages/devel/libfmt/package.mk:11` (the row `packages/devel/libfmt/package.mk`)", ev="P6, P9, P10; `02` § The fetch sweep; `03` § 3.5",
   vm=VMNO, aw="nothing on devices or in clouds: the archive's bytes are a build input. Every GENERIC_X64 and H700 build since ROCKNIX wrote the empty value (`ea767206a2`, 2025-07-19) fetched 9.1.0 unverified; the cache's file `libfmt-9.1.0.tar.gz` and its stamp hold `5dea48d1...`, equal to today's fetch, so nothing already built is suspect on this evidence",
@@ -48,14 +48,14 @@ I = [
   where="`04-analysis.md` § Q7", ev="P2, P3; `02` § The #644 findings (17)", vm=VMT, aw="nothing: no file moves in this slice; a move later changes no installed path (the recipe's install lines are unchanged), so nothing on a device differs",
   acc="#645 carries the sixteen rows with a link to `04` § Q7; `git diff --diff-filter=DR --name-only 8ebaf8daad <fixed-at> -- packages` is empty.", defer="#645"),
  dict(f="F-11", t="`btrfs-progs` is in GENERIC_X64's plan and absent from the M7 GENERIC_X64 root and its image", sev="Low", cat="Renovation", q="Q6", area="the record: the M7 GENERIC_X64 build root and the inventory",
-  what="A note for the inventory's owner and the M7 lane (brief § 4 Q6: the coordinator files it under #657's epic): `viewplan` at the hash and the image recipe name `btrfs-progs`; the root `m7-signin-build-20261022-07` (`069fc27044`) has no build directory, no stamp and no `mkfs.btrfs`; the H700 and SM8550 roots have all three. Not explained by reading.",
+  what="Claimed shipped on GENERIC_X64 by the plan; excluded by `PKG_ARCH`: the override `projects/ROCKNIX/packages/sysutils/btrfs-progs/package.mk:6` sets `PKG_ARCH=\"aarch64\"`, which `viewplan` and the inventory do not apply, so the M7 root (`069fc27044`), with no build directory, stamp or `mkfs.btrfs`, is right. Stage B read it as unexplained; the coordinator found the cause and filed #879 (the inventory). No other plan entry of the 243 is excluded by its effective `PKG_ARCH` (P14).",
   where="`projects/ROCKNIX/packages/virtual/image/package.mk:14`; the root's `.stamps`", ev="P11", vm="Yes, later: the next GENERIC_X64 image's `image/system/usr/sbin` read on the host, or `ls /usr/sbin/mkfs.btrfs` on its guest; not run here (no guest in this slice)",
   aw="the GENERIC_X64 image of 2026-10-23 (`069fc27044`) carries no btrfs tools; nothing written by them exists to inherit",
-  acc="the note is filed under #657's epic, citing this item, with the three reads quoted.", defer="#657"),
+  acc="#879 carries the cause and the regeneration criterion; `04` § Q6's row names it.", defer="#879"),
  dict(f="F-12", t="the inventory's `shadowed_by` cannot see an override that sources the generic recipe; three change the effective pin", sev="Low", cat="Renovation", q="Q7", area="P1's tool: `tools/renovation-inventory`",
   what="47 ROCKNIX overrides source one of the 243; `opus`, `gcc` and `libfmt` set their own version, four their own URL or checksum; six of the 47 are absent on `upstream/next` (`libfreeaptx`, `opus`, `libfmt`, `harfbuzz-icu`, `gst-plugins-bad`, `gnutls`: #644 finding 16's orphans, T8's). Add an effective-pin note (or a `sourced_by` column) so a currency read does not take the generic recipe's pin as the image's. A lead for #657.",
   where="`docs/reviews/inventory.json` (its columns); `sourcing-overrides.txt`", ev="P12", vm=VMT, aw=AWN,
-  acc="#657 carries the lead with this item's text.", defer="#657"),
+  acc="withdrawn: `04` § Q4 carries the seven overrides that change the effective pin, with their paths."),
  dict(f="F-13", t="`libsoup` and `ruby` cut the release series from the version with `${PKG_VERSION:0:3}`", sev="Low", cat="Renovation", q="Q7", area="fork-introduced recipes: `packages/web/libsoup`, `packages/devel/ruby`",
   what="`${PKG_VERSION:0:3}` of `3.10.0` is `3.1`, so the first two-digit minor fetches from the wrong directory and the fetch fails. `glib-networking:6`'s `${PKG_VERSION%.*}` is the shape that holds. A `PKG_URL` line is a fix the table can carry (brief § 2); its test is a fetch of the current version into an empty directory, unchanged sha256.",
   where="`packages/web/libsoup/package.mk:9`; `packages/devel/ruby/package.mk:10`", ev="the read; `04` § Q7", vm=VMT, aw=AWN,
@@ -70,17 +70,21 @@ I = [
   acc="#585's proposal names the five with their current owners.", upstream=True),
 ]
 
-P7 = {}   # (outcome, evidence, proved) by F; filled at Phase 7
+P7 = {   # (outcome, evidence, proved) by F; filled at Phase 7
+ "F-01": ("Resolved", "#877, filed by the coordinator; fixed in the packet `fix/m6-877-libfmt-sha256` at `cf3a8d8e62`, ordered ahead of T5's branch; `cf3a8d8e62:projects/ROCKNIX/packages/devel/libfmt/package.mk:12` reads the three witnesses' `5dea48d1...` (P15); D-WORKFLOW-196", "fix-tree"),
+ "F-11": ("Deferred", "deferred:#879 (the coordinator's, 10:49): the override's `PKG_ARCH=\"aarch64\"` excludes GENERIC_X64; the inventory applies no `PKG_ARCH`; P14 finds no sibling", ""),
+ "F-12": ("Withdrawn", "withdrawn at the coordinator's disposition (#654, 10:49): a sourced generic recipe is live, so `shadowed_by` 0 is right; the effective pins are `04` § Q4's", ""),
+}
 
 def main():
   out = ["# Punch List — M6.P2 T7, the generic packages the image builds", "",
-         "**Local depth** (plan § 6c, D-WORKFLOW-184): no reviewer; Phase 4.5 in `04`. Fifteen items, one High: five `bug`s (PL-01 to PL-05), four Backlog bumps (PL-06 to PL-09), the #645 rows (PL-10), and six `Renovation` rows. Every `where` is at `8ebaf8daad`. Generated by `tools/punch-items.py` from one list, so the items, the `punch_index` and the Phase 7 table agree.", "", "---", ""]
+         "**Local depth** (plan § 6c, D-WORKFLOW-184): no reviewer; Phase 4.5 in `04`. Fifteen items, one Medium and fourteen Low: five `bug`s (PL-01 is #877, the coordinator's, fixed in its packet; PL-02 to PL-05 are this lane's), four Backlog bumps (PL-06 to PL-09), the #645 rows (PL-10), and six `Renovation` rows (PL-12 withdrawn at the coordinator's disposition). Every `where` is at `8ebaf8daad`. Generated by `tools/punch-items.py` from one list, so the items, the `punch_index` and the Phase 7 table agree.", "", "---", ""]
   idx = ["```yaml", "punch_index:"]
   gate = ["## Phase 7 resolution gate", "", "| Item | Outcome | Evidence |", "| --- | --- | --- |"]
   for n, x in enumerate(I, 1):
       pl = f"PL-{n:02d}"
       out += [f"## {pl}: {x['t']}", "", f"- **Severity:** {x['sev']}", f"- **Category:** {x['cat']}", f"- **Question:** {x['q']}", f"- **Source Finding:** {x['f']}", f"- **Owner area:** {x['area']}", f"- **What:** {x['what']}", f"- **Where:** {x['where']}", f"- **Evidence:** {x['ev']}", f"- **Can this be done on the VM?** {x['vm']}", f"- **Already written:** {x['aw']}", f"- **Acceptance:** {x['acc']}"]
-      if x.get("bug"): out.append("- **Bug issue:** filed at stage D")
+      if x.get("bug"): out.append(f"- **Bug issue:** {x.get('tracked', 'filed at stage D')}")
       if x.get("upstream"): out.append("- **Upstream:** a #585 candidate (D-WORKFLOW-164; submission deferred, D-WORKFLOW-165); the coordinator posts it")
       if x.get("defer"): out.append(f"- **Disposition note:** deferred to {x['defer']} at Phase 7")
       out.append("")

@@ -70,7 +70,7 @@ HASH = {n for n in N if re.fullmatch(r"[0-9a-f]{40}", eff["GENERIC_X64-x86_64"][
 assert len(HASH) == 10, HASH
 VIRTUAL = {n for n in N if N[n].startswith("packages/virtual/")}
 # the findings by name, so a row can cite its own (02's F-numbers)
-FIND = {"libfmt": "F-01", "wsdd2": "F-02", "newt": "F-03", "libmpeg2": "F-04", "configtools": "F-05",
+FIND = {"libfmt": "F-01, #877", "wsdd2": "F-02", "newt": "F-03", "libmpeg2": "F-04", "configtools": "F-05",
         "brotli": "F-06", "ruby": "F-07", "glib-networking": "F-08", "webkitgtk": "F-09"}
 RENAMED = {"lm_sensors": "groeck/lm-sensors -> lm-sensors/lm-sensors", "libfreeaptx": "iamthehorker -> regularhunter", "nss-mdns": "lathiat -> avahi"}
 
@@ -138,7 +138,7 @@ def probe_cell(n):
         return "HEAD 404 (a ranged GET too); ROCKNIX's mirror serves the recipe's sha256 (" + FIND[n] + ")"
     f = fetch.get(n, "")
     if f.startswith("sha-match"): r = "fetched: sha256 matches"
-    elif n == "libfmt": r = "fetched: `5dea48d1...`, the recipe has none (" + FIND[n] + ")"
+    elif n == "libfmt": r = "fetched: `5dea48d1...`, the recipe had none; #877, fixed in a packet ahead of T5 (`cf3a8d8e62`, F-01)"
     elif f.startswith("fetch-failed"): r = "fetch failed at the target; ROCKNIX's mirror serves the recipe's sha256 (" + FIND[n] + ")"
     else: r = "fetched: " + f
     extra = f"; repository renamed ({RENAMED[n]})" if n in RENAMED else ""
@@ -151,7 +151,7 @@ def q6_cell(p):
     s = f"{r['reach']}: {len(by)} plan(s), stamped in {len(st)} of their roots"
     miss = [pl for pl in by if n not in stamps[pl]]
     if miss: s += "; no stamp in " + ", ".join(miss) + (" (virtual: by construction)" if n in VIRTUAL else "")
-    if n == "btrfs-progs": s += " (F-11)"
+    if n == "btrfs-progs": s += "; claimed shipped on GENERIC_X64 by the plan; excluded by PKG_ARCH (`aarch64`, its override); #879 (F-11)"
     return s
 
 def q1_cell(p):
@@ -182,7 +182,7 @@ def q5_cell(p):
 
 def q7_cell(p):
     if p in FORK_ADDED or p in FORK_EDITED: return "a #645 row (04 § Q7, F-10)"
-    if p in over: return "n/a; " + str(len(over[p])) + " ROCKNIX override(s) source it (F-12)"
+    if p in over: return "n/a; " + str(len(over[p])) + " ROCKNIX override(s) source it (Q4 carries the effective pin)"
     return "n/a"
 
 def q3_cell(p):
