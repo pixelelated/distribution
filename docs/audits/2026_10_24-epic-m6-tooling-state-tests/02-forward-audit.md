@@ -156,6 +156,7 @@ No host file line was written, because no guest started. The census was 0 throug
 | S1 (#989, #990) | `build-identity-test` on its own run; `docs/qa-logs/2026-10-24-state-tests-s1/identity-reasons-case.sh` (a preparer and an identity policy that refuse for a wrong reason); `identity-check-case.sh` (the tree, an empty gamelist, a shadowed `PKG_LICENSE`) | identity test rc 1, 21/2; any-non-zero credits a wrong reason (57/57); identity check FAIL / PASS / PASS | identity test rc 0, 57/57; a wrong reason fails 2 checks; identity check PASS / FAIL / FAIL | `3c9730bc78`, `648e9ca228` |
 | S3 (#991, #994, #998) | the stage-A refusals and a 9.9.9 scratch recipe; `docs/qa-logs/2026-10-24-state-tests-s3/validator-controls-case.sh` (four product mutations); `--case no-such-case`; `duckstation-case.sh` (a payload that writes a host marker; a `--cases` typo) | both refuse rclone 1.75.2; the four mutations credited; `PASS 0 controls` rc 0; the payload on the host; the typo dropped | both pass with 1.75.2 (30, 31) and refuse 9.9.9; the four failed; rc 2; no host marker; rc 2 | `2f614eef1f`, `6b5cd16160`, `fe41fca9a9` |
 | S4 (#993) | the tree; `docs/qa-logs/2026-10-24-state-tests-s4/scope-cases.sh` (a no-op script, an early-exit script, a `--cases` typo) | 19 PASS, 2 FAIL (the traversals); both mutations credited; the typo dropped | 21 PASS; both mutations failed; rc 2 | `6b41f05962` |
+| S5 (#1004, #1005) | `docs/qa-logs/2026-10-24-state-tests-s5/layout-cases.sh` (a no-op backup; a seeder that never settles; a restore that swallows its listing failure); `save-layout-cases.sh` (a pure-rclone selection with `--busybox`; `--ref` before a current source) | each mutation credited (rc 0); both save-layout runs rc 1 | each mutation failed; both rc 0; the historical matrix 398/0 | `c25f69d19a`, `15bce9aa23` |
 
 | Proof | What it shows | Proved |
 | --- | --- | --- |
@@ -163,3 +164,4 @@ No host file line was written, because no guest started. The census was 0 throug
 | P10 | S1's controls fail at the stage-D tip and pass fixed | proved: fix-case |
 | P11 | S3's controls fail at the stage-D tip and pass fixed | proved: fix-case |
 | P12 | S4's control fails at the stage-D tip and passes fixed | proved: fix-case |
+| P13 | S5's controls fail at the stage-D tip and pass fixed | proved: fix-case |

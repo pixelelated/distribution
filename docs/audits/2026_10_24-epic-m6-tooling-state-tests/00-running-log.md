@@ -289,3 +289,18 @@ PROOF: P11 S3's controls -- #991: the stage-D refusals of 1.75.2, the fixed pass
     - the same exiting 1: the stage-D failure cases pass it, and the fixed ones fail it;
     - `--cases missing-list,no-such-case`: rc 0 at stage D, rc 2 fixed.
 PROOF: P12 S4's control -- `docs/qa-logs/2026-10-24-state-tests-s4/scope-cases.sh` PASS (the stage-D test credits both mutations and the typo; the fixed fails them, rc 2 on the typo); the tree 21/0 fixed against 19/2 at the stage-D tip.
+
+## [Stage E] 22:07 UTC — S5: cloud-layout and save-layout (#1004, #1005)
+
+- **#1004 (`c25f69d19a`): the cloud-layout cases.**
+  - **The legacy case** now requires a new archive: another name, other bytes, the restored sentinel inside.
+  - **`settle_failure`** requires its `--settle` witness and a non-zero caller status.
+  - **`provider_failure`** requires a restore's status to show the failure. A first cut required it of every script, which failed 7 historical backup cases. Read on the historical source, a backup whose layout read failed goes on into the configured folder, copies and reports `COMPLETED`, rc 0 by design. The requirement now covers restores only, with the reason in the code.
+  - **Positives:** `layout-cases.sh` mutates three scripts in scratch roots: a `backup` that writes nothing, a `--seed-folders` that never settles, and a restore that swallows its listing failure (the last two at `22571b47d2`, the parent of `e6645cb5ea` and the last tree with `cloud_migrate_layout`). The stage-D test credits each, rc 0; the fixed one fails each.
+  - **Fixed runs:** the tree's `--archives-only` 13/13; the whole historical matrix **398 PASS, 0 FAIL** (391 s).
+  - **Not changed:** the migration reader-grammar cases (G-31, historical, Low).
+- **#1005 (`15bce9aa23`): save-layout.**
+  - **The fix:** the applets are required of a full run only, and the receipt lists the ref's own files.
+  - **Positives,** in `save-layout-cases.sh`: `--busybox --cases filter-psp` and `--ref a1b0c65165 --cases filter-psp` both exit 1 at stage D and both pass fixed.
+  - **The full suite:** 39/39.
+PROOF: P13 S5's controls -- `docs/qa-logs/2026-10-24-state-tests-s5/layout-cases.sh` PASS (three mutations credited at stage D, failed fixed), `save-layout-cases.sh` PASS (rc 1 both at stage D, rc 0 fixed); the historical matrix 398/0 and the archive cases 13/13 fixed.
