@@ -24,12 +24,12 @@ if [ "${VULKAN_SUPPORT}" = "yes" ]; then
   PKG_MAKE_OPTS_TARGET+=" HAVE_VULKAN=1"
 fi
 
+PKG_MAKE_OPTS_TARGET+=" ARCH=${TARGET_ARCH} HAVE_OPENMP=0 GIT_VERSION=${PKG_VERSION:0:7} HAVE_LTCG=0"
+
 post_unpack() {
   sed -i 's/define CORE_OPTION_NAME "reicast"/define CORE_OPTION_NAME "flycast2021"/g' ${PKG_BUILD}/core/libretro/libretro_core_option_defines.h
   sed -i 's/\-O[23]/-Ofast/' ${PKG_BUILD}/Makefile
 }
-
-PKG_MAKE_OPTS_TARGET+=" ARCH=${TARGET_ARCH} HAVE_OPENMP=0 GIT_VERSION=${PKG_VERSION:0:7} HAVE_LTCG=0"
 
 pre_make_target() {
   export BUILD_SYSROOT=${SYSROOT_PREFIX}
