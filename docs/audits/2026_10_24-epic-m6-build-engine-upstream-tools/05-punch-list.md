@@ -107,51 +107,53 @@ punch_index:
   source_finding: "F-02"
   owner_area: "the recipe lint: `tools/pkgcheck`"
   tracked: "#845"
-  outcome: open
+  outcome: "resolved"
+  proved: "fixture; tool-run"
 - id: PL-02
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-04, F-06"
   owner_area: "upstream's tooling: `tools/`, `distributions/`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-03
   severity: Low
   category: Code Quality
   question: Q3
   source_finding: "F-03"
   owner_area: "another distribution: `distributions/LEIoT/`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-04
   severity: Low
   category: Documentation Gap
   question: Q7
   source_finding: "F-01"
   owner_area: "doctrine: `instruction-files.md`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-05
   severity: Low
   category: Documentation Gap
   question: Q7
   source_finding: "F-05"
   owner_area: "doctrine: `CLAUDE.md`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-06
   severity: Low
   category: Code Quality
   question: Q2
   source_finding: "lead"
   owner_area: "the recipe lint: `tools/pkgcheck`"
-  outcome: open
+  outcome: "resolved"
+  proved: "fixture; tool-run"
 ```
 
 ## Phase 7 resolution gate
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | stage D files the issue; stage E's stream brief or the named issue resolves |
-| PL-02 | Open | stage D files the issue; stage E's stream brief or the named issue resolves |
-| PL-03 | Open | stage D files the issue; stage E's stream brief or the named issue resolves |
-| PL-04 | Open | stage D files the issue; stage E's stream brief or the named issue resolves |
-| PL-05 | Open | stage D files the issue; stage E's stream brief or the named issue resolves |
-| PL-06 | Open | stage D files the issue; stage E's stream brief or the named issue resolves |
+| PL-01 | **Resolved** | `7fa8bafba4` (S1, #845): each argument counts the recipes it reached; one that reached none is named on stderr and the run exits 2, distinct from 1 (a FAIL); the no-argument run unchanged. P11 before and after; P13 (the sweep's 12 FAIL lines unchanged); fixture; tool-run |
+| PL-02 | **Deferred** | deferred:#585, the coordinator's proposal ([2026-10-24 08:28](https://github.com/pixelelated/distribution/issues/585#issuecomment-6382001973)): the 22 unreached rows, F-06's one-job tools, F-02 and F-03; the reach guard filed as #847; nothing deleted (`git diff --diff-filter=D --name-only 8ebaf8daad HEAD -- tools distributions` empty) |
+| PL-03 | **Deferred** | deferred:#585, named in the same proposal ([2026-10-24 08:28](https://github.com/pixelelated/distribution/issues/585#issuecomment-6382001973)); `distributions/LEIoT/kernel_options` unchanged on this branch |
+| PL-04 | **Deferred** | deferred:#651 (T4, the doctrine slice), the coordinator's disposition on #653 |
+| PL-05 | **Deferred** | deferred:#651 (T4, the doctrine slice), the coordinator's disposition on #653 |
+| PL-06 | **Resolved** | `44f64842b6` (S2): 18 names the build sets after a recipe loads, each with its source line in the header; `TOOLCHAIN` and `SYSROOT_PREFIX` derived as not late and left off (P14). P12 before and after; P13: 21 FAIL lines after, the new ones on real recipes leads for T7 and T8 in `02` § Leads from the sweeps, the heredoc parser lead for #657; fixture; tool-run |

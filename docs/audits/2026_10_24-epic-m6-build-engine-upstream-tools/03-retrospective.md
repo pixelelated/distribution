@@ -16,7 +16,7 @@ The table's shape, mostly kept, is the coherent outcome for upstream's tooling (
 - **`engineering-practices.md` § Guards must fail closed:** `tools/pkgcheck` fails it for an unmatched name (F-02).
 - **`engineering-practices.md` § Before deleting a duplicate:** asked of every *unreached* row. What the file guarded, stamped or documented that nothing else does is its `Already written:` line, and none found a trace. No row is deleted (brief § 2).
 - **`engineering-practices.md` § Consider contributing every applicable fix upstream** (D-WORKFLOW-164/165): finding 24's class, F-02 and F-03 are #585 lines; nothing is submitted.
-- **`packaging-and-patches.md`:** the late-binding rule `pkgcheck` enforces is enforced for the names its list carries, and not for `TOOLCHAIN`, `SYSROOT_PREFIX` or `INSTALL` (a lead for #657).
+- **`packaging-and-patches.md`:** the late-binding rule `pkgcheck` enforces is enforced for the names its list carries, and not for every name the build sets after a recipe loads. This line named `TOOLCHAIN`, `SYSROOT_PREFIX` and `INSTALL` until stage E. S2's derivation (`02` P14) found only `INSTALL` late of the three, plus 17 more, and `44f64842b6` adds them.
 - **`instruction-files.md` § The fork's own tools:** `pkgcheck` *(upstream's)* is incomplete (F-01).
 - **`fork-workflow.md` § Personal paths:** none of the 135 is on it. Correctly: the fork-only tools are other slices'.
 - **`bugs-are-agent-first.md` rule 6:** F-02 is contained (a count and a status) and ours to close. F-03 is in a file no fork build reads, so it is upstream's to close.
@@ -53,7 +53,7 @@ The README (274 to 285, the issue table) and the rule (34, 46) say what `pkgchec
 
 What the documents promise and the tool does not do:
 - it says nothing, and exits 0, for a name it does not find (F-02);
-- its list does not hold every late-bound name (a lead).
+- its list does not hold every late-bound name (PL-06; S2, `44f64842b6`, adds 18).
 
 ### Interaction: `tools/docker/*` x the root `Dockerfile` x the `Makefile`'s pinned digest
 

@@ -82,3 +82,22 @@ PROOF: 08:07 P10 Q4 over the 135: 134 identical, 1 differs
 - PL-01's bug **#845** (`Bug: tools/pkgcheck exits 0 when no recipe matches the package name`, label `bug`, no milestone): the code trace, `Already written:`, the VM line, two agent-verifiable checkboxes. `tools/box-check --issue 845`: 2 open, 0 fail.
 - The audit issue **#846** (`Audit: M6 T6 upstream's helper tools and the other distributions -- 6 findings (0 critical, 0 high)`): labels `audit` and `punch-list`, milestone M6, a sub-issue of #653 (read back), one checkbox per item. `tools/box-check --issue 846`: 6 open, 0 fail.
 - `05` carries `tracked: "#845"` and #846. The lane pauses for the coordinator's stream briefs (plan § 6b E) and edits nothing of the 135; `git status --short -- tools distributions` is empty.
+
+### [Stage E] 08:30 to 08:42 — S1 (#845) and S2 (PL-06), from the coordinator's stream briefs (`t6-streams.md`)
+
+- **The sweep before** (08:30:02 to 08:30:35): `tools/pkgcheck` at `8ebaf8daad`, no argument, over this worktree, whose `packages/` and `projects/` equal the hash. It exits 1 with 12 FAIL lines and 43 WARN lines. The brief expected 0 FAIL lines. These 12 already fail on real recipes, so each stream reports a delta; `02` § Leads from the sweeps reads each line.
+- **S1, `7fa8bafba4`:** an argument that reaches no recipe is named on stderr, and the run exits 2. The fixture before and after is P11. The sweep after S1 shows the same 12 lines (08:32:50 to 08:33:23).
+  - The fixture took a relative scratch path, so its first run (08:32:35) failed on its own stderr file and printed exit 1 for every case. That run is discarded; the script now resolves the path first.
+- **S2, `44f64842b6`:** 18 names added to the late-binding list, derived from `config/options:185,197`, `source_package`, `setup_toolchain` and `scripts/build:137,140` (P14).
+  - **Two names left off, against the stream brief's example list.** `TOOLCHAIN` is set before the recipe loads and is never reset. `SYSROOT_PREFIX` changes only after `post_make`; the trial sweep with it listed gave 87 FAIL lines, 66 of them on correct configure options.
+  - The commit message's count of the new lines was amended before any push. It is unpushed; the remote is at `8b65f77482`.
+  - The fixture's two new cases are P12. The sweep after S2 gives 21 FAIL lines (P13). Ten lines are new; one of them replaces `wireplumber:100`'s earlier line. Of the ten:
+    - 3 real (`systemd:105`, `virtual/image:109,110`);
+    - 7 false, from the heredoc parser (14 of all 21 lines are the parser's).
+- **Records corrected:** `03` § 3.2 and § 3.5, from S2's derivation (`TOOLCHAIN` is not late). `05` is regenerated with the Phase 7 outcomes: PL-01 and PL-06 Resolved; PL-02 and PL-03 deferred to #585; PL-04 and PL-05 deferred to #651.
+- `git status --short -- distributions` is empty; under `tools/`, only `tools/pkgcheck` changed. `git diff --diff-filter=D --name-only 8ebaf8daad HEAD -- tools distributions` is empty.
+
+PROOF: 08:32-08:38 P11 `tools/pkgcheck` exits 2 for a name no recipe matches, after S1; 0 before -- `tools/fx-pkgcheck.sh` (#845)
+PROOF: 08:38 P12 a global `${INSTALL}` FAILs after S2 and passed before; global `${TOOLCHAIN}` and `${SYSROOT_PREFIX}` pass throughout -- `tools/fx-pkgcheck.sh`
+PROOF: 08:30-08:39 P13 the sweep over every recipe: FAIL 12, 12, 21; WARN 43 throughout; exit 1 each time
+PROOF: 08:33-08:36 P14 the late names derived from where the build sets them; `TOOLCHAIN` never reset; `SYSROOT_PREFIX` reset after `post_make`, its 66 global uses correct

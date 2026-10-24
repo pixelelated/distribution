@@ -39,7 +39,16 @@ I = [
   defer="#657"),
 ]
 
-P7 = {}
+# Phase 7: (outcome, evidence, proved), keyed by source finding; an item absent here is still Open.
+U585 = "https://github.com/pixelelated/distribution/issues/585#issuecomment-6382001973"
+P7 = {
+ "F-02": ("Resolved", "`7fa8bafba4` (S1, #845): each argument counts the recipes it reached; one that reached none is named on stderr and the run exits 2, distinct from 1 (a FAIL); the no-argument run unchanged. P11 before and after; P13 (the sweep's 12 FAIL lines unchanged)", "fixture; tool-run"),
+ "F-04, F-06": ("Deferred", f"deferred:#585, the coordinator's proposal ([2026-10-24 08:28]({U585})): the 22 unreached rows, F-06's one-job tools, F-02 and F-03; the reach guard filed as #847; nothing deleted (`git diff --diff-filter=D --name-only 8ebaf8daad HEAD -- tools distributions` empty)", ""),
+ "F-03": ("Deferred", f"deferred:#585, named in the same proposal ([2026-10-24 08:28]({U585})); `distributions/LEIoT/kernel_options` unchanged on this branch", ""),
+ "F-01": ("Deferred", "deferred:#651 (T4, the doctrine slice), the coordinator's disposition on #653", ""),
+ "F-05": ("Deferred", "deferred:#651 (T4, the doctrine slice), the coordinator's disposition on #653", ""),
+ "lead": ("Resolved", "`44f64842b6` (S2): 18 names the build sets after a recipe loads, each with its source line in the header; `TOOLCHAIN` and `SYSROOT_PREFIX` derived as not late and left off (P14). P12 before and after; P13: 21 FAIL lines after, the new ones on real recipes leads for T7 and T8 in `02` § Leads from the sweeps, the heredoc parser lead for #657", "fixture; tool-run"),
+}
 
 def main():
   out = ["# Punch List — M6.P2 T6, upstream's helper tools and the other distributions", "",
@@ -58,7 +67,8 @@ def main():
       p7 = P7.get(x["f"])
       if p7:
           idx.append(f"  outcome: \"{p7[0].lower()}\"")
-          gate.append(f"| {pl} | **{p7[0]}** | {p7[1]} |")
+          if p7[2]: idx.append(f"  proved: \"{p7[2]}\"")
+          gate.append(f"| {pl} | **{p7[0]}** | {p7[1]}{'; ' + p7[2] if p7[2] else ''} |")
       else:
           idx.append("  outcome: open")
           gate.append(f"| {pl} | Open | stage D files the issue; stage E's stream brief or the named issue resolves |")
