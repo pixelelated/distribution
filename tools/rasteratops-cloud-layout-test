@@ -302,9 +302,12 @@ def actor_case(f, cell, actor, saves, files, dirs, keep):
 
 def settle_failure(f, rc):
     f.conf('/GAMES','/GAMES/backup', None)
-    put(f.path/'repo/cloud_migrate_layout', f'#!/bin/sh\n[ "$1" = --settle ] && exit {rc}\nprintf "/GAMES\\n/ROCKNIX/Saves\\n"\n', True)
+    put(f.path/'repo/cloud_migrate_layout', f'#!/bin/sh\n[ "$1" = --settle ] && {{ echo settle >> /ctl/settle-called; exit {rc}; }}\nprintf "/GAMES\\n/ROCKNIX/Saves\\n"\n', True)
     before = f.pointers()
     r = f.run('cloud_setup', '--seed-folders')
+    # The settlement ran and its failure reached the caller (#1004): not merely nothing seeded.
+    require((f.path/'ctl/settle-called').exists(), f'settlement never called; caller={r.returncode}')
+    require(r.returncode != 0, f'failed settlement rc={rc} reported success to the caller')
     require(not any((f.path/'cloud').rglob('*')), f'failed settlement rc={rc} seeded cloud; caller={r.returncode}')
     require(f.pointers() == before, 'failed settlement changed pointers')
 
@@ -360,6 +363,11 @@ def provider_failure(f, script, fault_rc=5, features=False, argv=('--yes',)):
     before = (f.path/'cloud/ROCKNIX/Saves/gb/A.srm').read_bytes()
     r = f.run(script, *argv)
     require((f.path/'ctl/fault-fired').exists(), 'fault did not reach production call')
+    # A restore whose discovery failed must say so (#1004). A backup whose layout read failed goes on into
+    # the configured folder and reports its own copy (rc 0 by design: the read was detection, not the
+    # transfer); its case is that the failure did not become absence, asserted below.
+    if script == 'cloud_restore':
+        require(r.returncode != 0, f'{script} swallowed the provider failure: rc {r.returncode}')
     require('>>> offer create-saves-folder' not in r.stdout, f'failed listing became absence in {script}')
     require((f.path/'cloud/ROCKNIX/Saves/gb/A.srm').read_bytes() == before, 'provider failure changed sentinel')
 
@@ -1046,8 +1054,14 @@ def local_archive(f, suffix):
     require(archive.read_bytes()==original, 'restore altered inherited archive')
     r=f.run('backuptool','backup')
     require(r.returncode==0, f'new local backup failed: {r.stdout[-400:]}')
-    names=list((f.path/'storage/roms/backup').glob('*_SETTINGS.tar.gz'))
-    require(any(n.name.endswith('-ROCKNIX_SETTINGS.tar.gz') for n in names), 'display rename changed persisted writer identity')
+    # The new backup is a new archive, not the input kept above (#1004): another name, other bytes,
+    # the restored sentinel inside, and the persisted writer identity.
+    new=[n for n in (f.path/'storage/roms/backup').glob('*_SETTINGS.tar.gz') if n != archive]
+    require(new, 'backup wrote no new archive (only the inherited one is there)')
+    require(all(n.name.endswith('-ROCKNIX_SETTINGS.tar.gz') for n in new), 'display rename changed persisted writer identity')
+    require(all(n.read_bytes() != original for n in new), 'the new archive is the inherited bytes')
+    with tarfile.open(new[0]) as tar:
+        require(tar.extractfile('storage/.config/proof-sentinel').read()==b'settings sentinel\n', 'new backup lacks the restored settings')
 
 
 def main():
