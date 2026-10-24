@@ -38,14 +38,33 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#671` (prose through a quoted heredoc). No runtime
-of any kind is needed: no guest, no compiler, no container, no Facilitator
-call (Local); the network reads are the GitHub contents API for LibreELEC
-master (83 reads, serial, the budget read before and after) and a HEAD
-probe per `PKG_URL` at most. The host is M6's (M7's return at 05:42 on the
-coordination file); this slice does not touch it.
+**Stage A done (2026-10-24 13:41 UTC; the executor; `b7ac3b087b`).** The
+audit folder is `docs/audits/2026_10_24-epic-m6-emulators-dead-ends/`:
+`00-running-log.md` (Phase 0 and Stage A) and `01-research-notes.md`
+§ Scope.
+- The membership matches the brief exactly: 86 paths, 2,399 lines, 84
+  `unreached` and 2 `unshipped`, 85 recipes and 1 cmake file.
+- The fork changed none of them. 81 are identical to `upstream/next` and
+  5 differ by `af70bd435b`.
+- The branch differs from `8ebaf8daad` on none of the 86, so
+  `reviewed-at: 81331b499e`.
+- `upstream/next` moved during the stage-A fetch, from `e0f9deb899` to
+  `481c9d0d75` (heroic only). The (a) loop records both heads.
+
+**Next is stage B**: brief § 5's host-side checks, in this order:
+1. the (a) loop;
+2. the (b) LibreELEC master loop: 80 serial reads, the budget read
+   before and after, `libretro-snes9x` as the control;
+3. the three `viewplan` reads, with `snes9x-lr` as the control;
+4. the metapackage and `git grep` reads;
+5. the record by name prefix over the five M7 roots, and the `.info`
+   trace;
+6. the two `pkgcheck` runs;
+7. the weight.
+
+After that come `02` to `04`, then the lint (`--phase pre-issue`), then
+the stage-D punch list and the pause. No runtime of any kind; the host is
+M6's, and this slice does not touch it.
 
 ## Next commands
 
