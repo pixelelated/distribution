@@ -136,10 +136,89 @@ def invoke(args, expected, category=None, env=None):
                 (SCRUB_EPOCH, SCRUB_EPOCH + 10, SCRUB_EPOCH + 11)))
     report = json.loads(output)
     require(report["status"] == {0: "pass", 1: "blocked", 2: "error"}[expected])
+    if expected == 2:
+        # A refusal, never a crash: the gate names a fault in itself
+        # `reader-failure`, and a control it satisfies proves nothing (#1001).
+        errors = [row["category"] for row in report["checks"] if row["status"] == "error"]
+        require(errors and "reader-failure" not in errors)
     if category:
         require(any(row["category"] == category and row.get("count", 0) > 0
                     for row in report["checks"]))
     return report
+
+
+# Every --self-test control by name, so a registration lost from root_controls
+# or exec_start_controls fails the run rather than shrinking it (#1001). The
+# payload controls are not listed: --payload-tests needs mcopy, absent on the
+# host that wrote this list, so their names were never observed by a run.
+SELF_TEST_CONTROLS = frozenset((
+    "absent-root", "atomic-copy", "bare-runtime-fragments", "clean-first-boot", "clean-image",
+    "cloud-comment-only-still-refuses", "compiled-ra-service", "compiled-service",
+    "compiled-shared-clean-image", "compiled-shared-first-boot", "compiled-shared-no-terminator",
+    "compiled-shared-refuse-case", "compiled-shared-refuse-id", "compiled-shared-refuse-password",
+    "compiled-shared-refuse-prefix", "compiled-shared-refuse-query",
+    "compiled-shared-refuse-suffix", "compiled-shared-retained-upgrade",
+    "compiled-shared-with-private", "compiled-shared-with-ra", "completed-empty-stamp",
+    "configured-remote", "dangling-required", "dolphin-apitoken-default", "dolphin-apitoken-only",
+    "dolphin-apitoken-retained", "duplicate-field", "effective-override", "empty-required",
+    "encrypted-remote", "es-fallback-history", "es-lexical-playcount",
+    "exec-start-autostart-as-argument", "exec-start-command-word", "exec-start-other-shell-script",
+    "exec-start-shipped-wrapper", "exec-start-tree-unit-matches-gate", "exec-start-unparsed",
+    "exec-start-wrapper-other-script", "fifo-required", "history-malformed-count",
+    "history-malformed-date", "history-malformed-xml", "history-playlist",
+    "identical-default-repeat", "imported-history", "invalid-mode", "locale-altered-first-hop",
+    "locale-altered-second-hop", "locale-first-hop-escape", "locale-target-escape",
+    "locale-unrelated-dangling", "malformed-es", "malformed-stamp", "melonds-null-default",
+    "melonds-null-runtime", "melonds-other-key-case-null-is-populated", "melonds-password-only",
+    "melonds-quoted-null-is-populated", "melonds-section-null-is-populated", "melonds-token-only",
+    "melonds-uppercase-null-is-populated", "melonds-username-only", "missing-required",
+    "never-played-zero", "other-emulator-null-is-populated", "player-default", "player-runtime",
+    "ppsspp-achievementstoken-default", "ppsspp-achievementstoken-runtime",
+    "ppsspp-achievementsusername-default", "ppsspp-achievementsusername-runtime",
+    "ppsspp-case-tabs-crlf", "ppsspp-comment-key-unsupported",
+    "ppsspp-conflicting-duplicate-empty-first", "ppsspp-conflicting-duplicate-populated-first",
+    "ppsspp-distinct-spaced-account-key", "ppsspp-duplicate-empty", "ppsspp-duplicate-populated",
+    "ppsspp-empty-accounts", "ppsspp-empty-key", "ppsspp-include", "ppsspp-internal-key-tab",
+    "ppsspp-recovery-sibling", "ppsspp-reference", "ppsspp-repeated-section-conflict",
+    "ppsspp-retained-account", "ppsspp-retained-default-account",
+    "ppsspp-section-spaces-significant", "ppsspp-shipped-AMD64", "ppsspp-shipped-H700",
+    "ppsspp-shipped-RK3326", "ppsspp-shipped-RK3399", "ppsspp-shipped-RK3566",
+    "ppsspp-shipped-RK3576", "ppsspp-shipped-RK3588", "ppsspp-shipped-S922X",
+    "ppsspp-shipped-SM4450", "ppsspp-shipped-SM6115", "ppsspp-shipped-SM8250",
+    "ppsspp-shipped-SM8550", "ppsspp-shipped-SM8650", "ppsspp-shipped-SM8750",
+    "ppsspp-single-quotes-are-literal", "ppsspp-spaced-key-private", "ppsspp-spaces-not-global",
+    "ppsspp-unterminated-double-quote", "ppsspp-wrong-section", "proxy-cache", "qa-name-is-private",
+    "readiness-requires-guest-root", "recovery-copy", "remote-missing-type", "retained-history",
+    "retained-player", "retained-remote", "retained-stamp", "retroarch-blank-default",
+    "retroarch-comment-default-active-account", "retroarch-comment-default-include",
+    "retroarch-comment-default-malformed-assignment", "retroarch-comment-default-nul",
+    "retroarch-comment-default-reference", "retroarch-comment-only-default",
+    "retroarch-comment-only-image", "retroarch-empty-default", "retroarch-include",
+    "retroarch-section-only-default", "retroarch-semicolon-only-default",
+    "runtime-retroarch-comment-only-still-refuses", "runtime-service",
+    "scrub-changed-lines-present", "scrub-clean-image-empty-preseed", "scrub-clean-image-preseed",
+    "scrub-cloud-files-present", "scrub-duplicate-boot-epoch", "scrub-duplicate-family",
+    "scrub-es-files-present", "scrub-first-boot-es-first-refuses",
+    "scrub-first-boot-es-only-refuses", "scrub-malformed-boot-snapshot", "scrub-malformed-count",
+    "scrub-malformed-epoch", "scrub-malformed-uptime", "scrub-marker-symlink",
+    "scrub-missing-family", "scrub-no-adapter-boot-boundary",
+    "scrub-no-adapter-clean-image-preseed", "scrub-no-adapter-current-boot",
+    "scrub-no-adapter-es-history", "scrub-no-adapter-extra-line", "scrub-no-adapter-linked-log",
+    "scrub-no-adapter-malformed-date", "scrub-no-adapter-multiple-files",
+    "scrub-no-adapter-other-content", "scrub-no-adapter-post-scrub-log",
+    "scrub-no-adapter-redactions", "scrub-no-adapter-retained", "scrub-no-adapter-rotation",
+    "scrub-no-adapter-stale-log", "scrub-no-adapter-stale-marker",
+    "scrub-no-adapter-unreadable-log", "scrub-no-boot-snapshot",
+    "scrub-other-filename-still-residue", "scrub-retained-duplicate-family",
+    "scrub-retained-es-first-retry", "scrub-retained-es-only", "scrub-retained-history",
+    "scrub-retained-legacy-family", "scrub-retained-malformed", "scrub-retained-unknown-family",
+    "scrub-unknown-trailing-data", "scrub-unreadable-uptime", "scrub-zero-work-boot-boundary",
+    "scrub-zero-work-current-boot", "scrub-zero-work-future", "scrub-zero-work-reversed-epochs",
+    "scrub-zero-work-stale", "shared-defaults-still-refused", "shared-player-still-refused",
+    "shipped-locale-dangling-clean-image", "shipped-locale-dangling-first-boot",
+    "shipped-locale-materialized", "shipped-locale-materialized-history", "standalone-ini",
+    "standalone-token", "symlink-cycle", "system-comment-only-still-refuses", "unreadable-required",
+    "xml-entity"))
 
 
 UNIT = HERE.parent / "projects/ROCKNIX/packages/sysutils/autostart/system.d/rocknix-autostart.service"
@@ -811,6 +890,8 @@ def main():
     with tempfile.TemporaryDirectory(prefix="pix565-controls-") as directory:
         work = Path(directory)
         rows = root_controls(work) + exec_start_controls()
+        names = [row["case"] for row in rows]
+        require(len(names) == len(set(names)) and set(names) == SELF_TEST_CONTROLS)
         if args.payload_tests:
             rows += payload_controls(work)
     print(json.dumps({"schema": 1, "status": "pass", "control_count": len(rows), "controls": rows}, indent=2))

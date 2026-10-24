@@ -24,6 +24,7 @@ import sys
 import tarfile
 import tempfile
 import xml.etree.ElementTree as ET
+import zlib
 
 
 POLICY = "pixelelated-selected-state-v1"
@@ -891,6 +892,16 @@ def first_boot_ready():
     return boot
 
 
+# The exceptions a reader raises on input it refuses: the gate's own Invalid and
+# the parsers' and the filesystem's errors on malformed, unreadable or truncated
+# input. Anything else (a NameError, TypeError, AttributeError, AssertionError...)
+# is a fault in the gate, reported as `reader-failure` -- still exit 2, still
+# value-free -- so a control cannot be satisfied by a crash it never meant to
+# reach (#1001).
+INPUT_ERRORS = (Invalid, OSError, ValueError, LookupError, EOFError, tarfile.TarError,
+                ET.ParseError, configparser.Error, zlib.error, subprocess.SubprocessError)
+
+
 class Parser(argparse.ArgumentParser):
     def error(self, message):
         # argparse normally echoes supplied argument values.
@@ -923,9 +934,11 @@ def main():
             require(Path("/proc/sys/kernel/random/boot_id").read_text().strip() == boot)
             result["checks"].append({"path": "<first-boot-readiness>", "category": "boot-ready",
                                      "status": "clear", "present": True, "count": 0})
-    except Exception:
+    except Exception as error:
         # Privacy boundary: neither parser messages nor unexpected reader errors
         # may serialize input values. A bug here must refuse, never emit a traceback.
+        if not isinstance(error, INPUT_ERRORS):
+            failure_category = "reader-failure"
         result = {"schema": 1, "policy": POLICY, "status": "error",
                   "error_count": 1, "checks": [{"path": "<input>", "category": failure_category,
                                                 "status": "error", "count": 0}],
