@@ -33,6 +33,7 @@
 # host is the URL's own, and a provider's page is still --url away.
 
 import json
+import os
 import subprocess
 import sys
 import time
@@ -81,15 +82,27 @@ def main():
     if host.startswith("www."):
         host = host[4:]
     free_before = ssh("free -m | awk '/^Mem:/{print $7}'")[1]
-    # the window, detached, its pid recorded
-    ssh("XDG_RUNTIME_DIR=%s WAYLAND_DISPLAY=%s GDK_BACKEND=wayland CLOUD_SIGNIN_PAGE_FILE=/tmp/sm-page CLOUD_SIGNIN_DONE_FILE=/tmp/sm-done "
-        "nohup /usr/bin/cloud-signin-window '%s' '%s' --exit-hint '' >/tmp/signin-memory.log 2>&1 & echo $! > /tmp/signin-memory.pid" % (runtime, display, url, host), timeout=20)
+    # The run's own files (G-47): a token in every name, the markers cleared
+    # first, so a page or a log from an earlier window cannot answer for this one.
+    run = "%d-%d" % (os.getpid(), int(time.time()))
+    page_f, done_f, log_f, pid_f = ("/tmp/sm-page-%s" % run, "/tmp/sm-done-%s" % run,
+                                    "/tmp/signin-memory-%s.log" % run, "/tmp/signin-memory-%s.pid" % run)
+    # The window, detached; its launch's status read, and the guest's clock
+    # in USER_HZ ticks at the launch, so only processes started after it count.
+    rc, t0, err = ssh("rm -f %s %s %s %s; awk '{print int($1*100)}' /proc/uptime; "
+                      "XDG_RUNTIME_DIR=%s WAYLAND_DISPLAY=%s GDK_BACKEND=wayland CLOUD_SIGNIN_PAGE_FILE=%s CLOUD_SIGNIN_DONE_FILE=%s "
+                      "nohup /usr/bin/cloud-signin-window '%s' '%s' --exit-hint '' >%s 2>&1 & echo $! > %s && test -s %s"
+                      % (page_f, done_f, log_f, pid_f, runtime, display, page_f, done_f, url, host, log_f, pid_f, pid_f), timeout=20)
+    if rc != 0 or not t0.strip().isdigit():
+        sys.exit("signin-memory: FAIL -- the window could not be launched on the guest (ssh %d: %s)" % (rc, err[:120]))
+    t0 = t0.strip()
     peaks = {p: 0 for p in PROCS}
     seen = {p: False for p in PROCS}
     samples = []
     for t in range(seconds):
         rc, out, _ = ssh("for p in /proc/[0-9]*; do c=$(cat $p/comm 2>/dev/null); case \"$c\" in cloud-signin-wi|WebKitWebProces|WebKitNetworkPr) "
-                         "echo \"$c $(awk '/^VmRSS/{r=$2} /^VmHWM/{h=$2} END{print r, h}' $p/status)\";; esac; done", timeout=20)
+                         "[ \"$(awk '{print $22}' $p/stat 2>/dev/null)\" -ge %s ] 2>/dev/null || continue; "
+                         "echo \"$c $(awk '/^VmRSS/{r=$2} /^VmHWM/{h=$2} END{print r, h}' $p/status)\";; esac; done" % t0, timeout=20)
         row = {}
         for line in out.splitlines():
             parts = line.split()
@@ -100,9 +113,10 @@ def main():
                 peaks[c] = max(peaks[c], hwm)
         samples.append(row)
         time.sleep(1)
-    page = ssh("cat /tmp/sm-page 2>/dev/null; tail -2 /tmp/signin-memory.log 2>/dev/null | cut -c1-200")[1]
-    loaded = ssh("grep -c 'load finished' /tmp/signin-memory.log 2>/dev/null")[1].strip() not in ("", "0")
-    ssh("kill $(cat /tmp/signin-memory.pid) 2>/dev/null; sleep 1; pkill -x WebKitWebProces 2>/dev/null; pkill -x WebKitNetworkPr 2>/dev/null; true", timeout=20)
+    page = ssh("cat %s 2>/dev/null; tail -2 %s 2>/dev/null | cut -c1-200" % (page_f, log_f))[1]
+    loaded = ssh("grep -c 'load finished' %s 2>/dev/null" % log_f)[1].strip() not in ("", "0")
+    ssh("kill $(cat %s) 2>/dev/null; sleep 1; pkill -x WebKitWebProces 2>/dev/null; pkill -x WebKitNetworkPr 2>/dev/null; rm -f %s %s %s; true"
+        % (pid_f, page_f, done_f, pid_f), timeout=20)
     free_after = ssh("free -m | awk '/^Mem:/{print $7}'")[1]
     total_peak_rss = max((sum(r.values()) for r in samples), default=0)
     ok = seen["cloud-signin-wi"] and seen["WebKitWebProces"] and loaded
@@ -119,9 +133,9 @@ def main():
     if ok:
         print("PASS")
     elif not loaded and seen["cloud-signin-wi"] and seen["WebKitWebProces"]:
-        print("FAIL -- the page never finished loading, so these numbers are a window on its placeholder; read /tmp/signin-memory.log on the guest")
+        print("FAIL -- the page never finished loading, so these numbers are a window on its placeholder; read %s on the guest" % log_f)
     else:
-        print("FAIL -- the window or its web process never appeared; read /tmp/signin-memory.log on the guest")
+        print("FAIL -- the window or its web process never appeared; read %s on the guest" % log_f)
     return 0 if ok else 1
 
 

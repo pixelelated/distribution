@@ -1441,6 +1441,20 @@ def launch_memory_start_time(c):
 
 
 
+@case
+def signin_memory_run_files(c):
+    tool = c.tool('signin-memory')
+    # The guest answers its probes; the launch's own status is 1.
+    # The launch row first: its command also names WAYLAND_DISPLAY=wayland-1.
+    c.rows([('cloud-signin-window', 1, ''), ('BUILD_ID|VERSION', 0, 'BUILD_ID=0123 VERSION=x'),
+            ('wayland-', 0, '/run/user/0 wayland-1'), ('free -m', 0, '1000')])
+    r = c.run([sys.executable, '-I', str(tool), '10022', '--key', str(c.dir / 'k'), '--seconds', '1',
+               '--url', 'https://example.invalid/'], timeout=60)
+    text = r.stdout + r.stderr
+    return r.returncode != 0 and 'could not be launched' in text and '(ssh 1' in text, f'rc {r.returncode}, {text.strip().splitlines()[-1:]} (want a FAIL naming the launch)'
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')
