@@ -436,3 +436,19 @@ fix is a stream of this slice; #877 is read only. A7 the 45 shell scripts,
 guest for any behaviour claim a stream makes. A8 the acceptance re-runs
 the membership, the (a) loop and `pkgcheck` in full, the hash-pin `compare`
 on ten seeded rows, and reads the provenance file's served model.
+
+**Errata to the T8 addendum (version 2 of the brief, after the stranger's
+proof: 98 claims, 76 right, 9 wrong, 8 partial).** The record's "13 real
+recipes without a build directory" was the brief's own `sed` misreading
+version suffixes that begin with `v` or a letter (`ecm-v6.16.0`,
+`glfw-e2c9264`): all thirteen are built; the unbuilt are the 12 virtual
+packages and `qcom-abl` (U-3 collapses to one name). Fourteen of the 485
+paths carry spaces, so every list is read with `while IFS= read -r` or
+`xargs -0`, and the (a) count is 87 modified, not 86. Six of T7's seven
+overrides are in this set (`libevdev`'s is the OS-scripts area's).
+`moonlight`'s per-device `case` pins make nine hash pins in `make update`'s
+set, not eight. `systemd-analyze` is on the host. T5's `atf` and `sway` are
+in this set and lack a checksum at the hash (fixed on T5's unmerged
+branch): the per-shape count expects those two, not zero. The conflict set
+is eleven paths. S-7's locale rule reaches `comm` too: `LC_ALL=C` on both
+sides.
