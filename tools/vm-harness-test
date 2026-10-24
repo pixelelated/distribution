@@ -1405,6 +1405,24 @@ def candidate_games_bare_list(c):
 
 
 
+@case
+def syntax_check_no_substitution(c):
+    tool = c.tool('es-syntax-check')
+    broot = c.dir / 'broot'
+    bd = broot / 'build' / 'emulationstation-0' / '.x86_64-rocknix-linux-gnu'
+    bd.mkdir(parents=True)
+    (broot / 'toolchain' / 'bin').mkdir(parents=True)
+    # A ninja whose compile line names its source in a form the substitution cannot match.
+    executable(broot / 'toolchain' / 'bin' / 'ninja', '#!/bin/sh\necho "true -o x.o -c ../src/Foo.cpp.orig"\n')
+    src = c.dir / 'es' / 'es-app' / 'src' / 'Foo.cpp'
+    src.parent.mkdir(parents=True)
+    src.write_text('int main() { return 0; }\n')
+    r = c.run(['bash', str(tool), '--root', str(broot), str(src)])
+    text = r.stdout + r.stderr
+    return r.returncode == 1 and 'NO-SUB' in text, f'rc {r.returncode}, {text.strip().splitlines()[-1:]} (want 1: the edit would not have been compiled)'
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')

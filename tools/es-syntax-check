@@ -86,13 +86,16 @@ if [ -n "$TREE" ]; then
   [ -d "$TREE/es-core/src" ] && [ -d "$TREE/es-app/src" ] || { echo "es-syntax-check: --tree $TREE has no es-core/src and es-app/src" >&2; exit 2; }
   ESB=$(dirname "$BD"); FARM=$(mktemp -d "${TMPDIR:-/tmp}/es-syntax-farm.XXXXXX"); trap 'rm -rf "$FARM"' EXIT
   for part in es-core es-app; do
-    cp -rs "$ESB/$part/src" "$FARM/$part"
+    # Each step of the farm is read (G-65): a link not made is a header the
+    # compiler takes from the build instead of the tree.
+    cp -rs "$ESB/$part/src" "$FARM/$part" || { echo "es-syntax-check: could not link $ESB/$part/src into the farm" >&2; exit 2; }
     # Every header the worktree has points at the worktree, changed or not,
     # so a header reached by two names is one inode (see the header above);
     # only the changed ones are announced.
     while IFS= read -r h; do
       rel=${h#"$TREE/$part/src/"}
-      mkdir -p "$FARM/$part/$(dirname "$rel")"; ln -sfn "$h" "$FARM/$part/$rel"
+      mkdir -p "$FARM/$part/$(dirname "$rel")" && ln -sfn "$h" "$FARM/$part/$rel" \
+        || { echo "es-syntax-check: could not link $part/src/$rel from the tree into the farm" >&2; exit 2; }
       if [ ! -e "$ESB/$part/src/$rel" ] || ! cmp -s "$h" "$ESB/$part/src/$rel"; then
         echo "  (header) $part/src/$rel from the tree"
       fi
@@ -131,6 +134,10 @@ for f in "${FILES[@]}"; do
   fi
   [ -n "$cmd" ] || { echo "  NO-CMD  $f: ninja has no command for $obj and no sibling to borrow from" >&2; fail=1; continue; }
   new=$(printf '%s' "$cmd" | sed -E "s#-c [^ ]+\.(cpp|cc|cxx)( |\$)#-c ${abs} #; s# -o [^ ]+\.o# #; s# -MF [^ ]+# #; s# -MD # #; s# -MT [^ ]+# #")
+  # The substitution must have put the edited file on the compile line, or
+  # the command compiles the build's own copy and passes over the edit (G-65).
+  case " $new " in *" -c ${abs} "*) ;;
+    *) echo "  NO-SUB  $f: the build's compile line names no source this check could replace, so the edit would not be compiled" >&2; fail=1; continue ;; esac
   # The worktree this .cpp lives in: its es-app/src and es-core/src ahead of
   # the build's -I, so every quoted include is the worktree's (the header
   # above). --tree's farm already does this and comes first.
