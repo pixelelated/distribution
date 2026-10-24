@@ -150,3 +150,93 @@ The slice reads `next`'s copy. A finding on a line these hunks change is recorde
 - **What it retires of the cores' recipes, their pins, their option files and the launch table:** nothing. The runner reads them as RetroArch does.
 - **So:** Q1, Q5 and Q7 findings confined to the menu and widget surface, or to its configuration keys, are carried as `deferred:#336` at Phase 7 unless a stream brief says otherwise. Q2 and Q3 findings there are fixed regardless. Every Q4 and Q6 finding is this slice's in full.
 - **One addition from #336's text:** the exit hotkey and the state commands would move to the runner's socket for the 2D cores. Patches 0011, 0012 and 0015 (the posted-command path, `CMD_*` handling) stay on RetroArch's side for the GL cores, so they are not `deferred:#336`.
+
+## Phase 1 — Research
+
+### 1.1 The spec
+
+The brief, version 2, and #650's fifteen criteria; they are identical except in two places, and #650 wins in both:
+
+- Criterion 9 asks `git apply --check` of the eight fork patches against master, where brief § 4 says `patch -p1 --dry-run`. Both are run; the criterion's form is the cell.
+- Criterion 12 names four `proved:` classes. § 6 adds `fix-walk-pending-image`, and none is expected here.
+
+The slice's kind is **currency**, so Q4 is answered first. Criterion 12 counts the token `proved:` in `02` against lines beginning `GUEST-PROOF:` in `00`. So `proved:` is written in `02` only on guest-proof rows.
+
+### 1.2 The issues, read for planned changes and leads (not a work queue)
+
+State read 2026-10-24 ~02:55 UTC (`gh issue view`):
+
+| Issue | State | What it says for this slice |
+| --- | --- | --- |
+| #336 | open | the runner (Step 1: 2D cores off RetroArch; the GL cores and netplay stay). The line is drawn in § Scope |
+| #762 | open, `bug` | Kronos's options were written to `${RETROARCH_PATH}/Kronos/config/Kronos`, where RetroArch does not read them. T1's stream S2 fixed `setsettings.sh` on its branch. The x86_64 image ships `kronos_libretro.info` but not the core, so the guest cannot run it. This is a Q6 lead (Kronos is in no GENERIC_X64 list) and a Q3 sibling question (any other core whose options file is written outside `config/<core>/`) |
+| #598 | open | Backlog: the standalone emulators against the shipped cores, and their defaults. T30's and this slice's shared question; read, not taken |
+| #196 | open | the state manager discards RetroArch's exit auto save; sits with patch 0018's Auto slot |
+| #369 | open, parked | offer the generic fixes to their projects. #585 is the live queue, and submissions are deferred (D-WORKFLOW-165) |
+| #263 | open | GENERIC_X64: RetroArch's surface is the core's size scaled by sway (`eb131d112f` and `a5a03bd9fa` set 640x480 and gl). Blindspot 54's case |
+| #264 | open | `tools/retroarch-syntax-check`, proposed and not built. A § 5 lead: the patches have no compile check nearer than an image build, except the wrapper test |
+| #255, #251 | open | widget font sizes and the sign-in banner: patches 0014, 0016, 0017, 0019 |
+| #79 | open, `keep an eye on` | the emulator crash list |
+| #10 | open | per-core save-state layout with the core build in the manifest. **Cited on every `to merge` of a core bump** |
+| #21, #24 | open | the core-pins file (`a1dbd21c7f` and `3a56a04f8b` emit `/usr/share/rocknix/core-pins` at image build, in the metapackage) and the conflict adapter |
+| #163 | open, epic | offline achievements through RAOfflineProxy; patches 0011 to 0013 |
+| #585 | open | the upstream contribution queue |
+| #644, #645 | open | the build-path read; findings on the recipes' build engine ride T5 |
+| #613 | open | the `es_systems.cfg` fallback symlink (T2's lead) |
+| #730 | open, `bug` | `CORE` and `EMULATOR` are still cut from the joined argument line (T1's, the launcher side of the `-P` seam) |
+| #211 | closed `bug` | the doubled posted command; patches 0011 and 0015; `tools/retroarch-wrapper-test` |
+| #16 | closed 2026-09-24 | "Closed as delivered in the 2026-09-24 triage (#262, bucket A): GENERIC_X64 landed ... The bare-metal x86_64 question is #230's." **The metapackage's `X64_SKIP_CORES` comment still says the skipped cores are "tracked in issue #16"**, and nothing tracks them now: a Q6/Q7 lead |
+| #226 | closed `bug` | pango fetched cairo (blindspot 47): the `FetchContent` grep |
+| #117, #90, #92 | closed | the exit hotkey and exit codes (T1's side) |
+| #227 | closed | `fork-package-freshness` (D-WORKFLOW-024) |
+| #228 | open | webkitgtk held at 2.52.6 (the compile cache's PCH lesson) |
+| #120 | open, epic | the VM runner; `tools/emulator-exit-test` is its exit cell |
+
+### Closed `bug` issues that name this slice's units (brittleness evidence; leads for sibling sites)
+
+`gh issue list --repo pixelelated/distribution --label bug --state closed --limit 500 --json number,title,body,closedAt` returned **139** issues. The pattern `\b(retroarch|libretro|es_systems|virtual/emulators|rotation-table|core options)\b`, case-insensitive, over title and body, matches **22**:
+
+#52, #80, #117, #119, #162, #176, #209, #211, #221, #225, #239, #246, #248, #249, #275, #280, #288, #295, #296, #306, #310, #584.
+
+Only `retroarch` and `libretro` hit; `es_systems`, `virtual/emulators`, `rotation-table` and `core options` hit none. The ones whose fix is in this slice's paths: #211 and #225 (patches 0011 and 0015); #248 and #288 (the rotation tables); #249 (patch 0018); #295 and #296 (patches 0016 and 0019); #162 (the cheevos patches); #306 (RetroArch 1.22's history location). The rest are the launcher's or the interface's (T1, T2).
+
+### 1.3 Git history
+
+`git log --oneline c445081a59..8ebaf8daad -- <the two directories>` gives **54** commits, 46 of them non-merge and 8 merges. The fork's arc on these paths:
+
+- **2026-08-21** GENERIC_X64 added (`cbdb91a517` the per-device configs; `b3bf4ac176`, `a68b4056c3`, `d4fbdbf615` the skip list; `aa07b621e9` the ppsspp-lr flag).
+- **2026-09-05 to 09-19** the RetroArch patches (`1c4fa3b308` 0011, `d5ea1bdedf` 0013, `5eef6ee32d` 0014, `e5d14d4220` 0015) and the core-pins file (`a1dbd21c7f`, `3a56a04f8b`).
+- **2026-09-23 to 09-28** the rotation tables (`428d44af40`, `9221b4528d`, `65bd183950`, `8e874f87c5`, `d73b0499f8`, `dcb88d933e`, `cbaf461897`, `50d83513fd`) and the widget and Auto-slot patches (0016 to 0019: `443028ff7a`, `eb131d112f`, `24badef3cb`, `8db9042afa`, `a8175c6193`, the eight cuts of 0019, `150a4e1402`, `c2bdcf0797`, `f53264dcb0`, `a81db9971b`).
+- **2026-10-07 to 10-15**: `43d0bc3bf4` (the ARM compatibility roots by distribution name), `63a2090a56` (pin retained game data), `811573dd4e` (standalone Dolphin for GENERIC_X64), `9aaaaa0f64` and `f8636de1d1` (M7's `Install Steam.sh` rewrites).
+
+Each fork-own unit's commits are read with `git log -p` before its lines are judged (Phase 2).
+
+### 1.4 Documentation
+
+The rules read are listed in `00` § Reading. For recipes: `packages/README.md` and `packaging-and-patches.md` (late binding, the full-hash pin, `PKG_SHA256`, the header credits, per-device patch scoping, a shipped script's CLI tools declared as dependencies).
+
+### Upstream's trackers (D-WORKFLOW-162), checked 2026-10-24 ~02:58 UTC
+
+- **RetroArch itself:** master is `deebdf6a4c` (committed 2026-10-24T02:45:49Z). The pin `bdba046fa6` is from 2026-06-06T00:52:09Z (*"video_thread: set wrapper-active flag before underlying driver init so shader-ba..."*). `compare/<pin>...master`: master is **7,623 commits ahead, 0 behind**, so the pin is on master. Releases: `v1.22.2` (2025-11-20) is the last; `v1.22.1` and `v1.22.0` are from 2025-11. The pin is after the last release.
+- **Patch 0011's subject:** RetroArch PR **#19518** (*"video_thread_wrapper: one user-side poster at a time"*, by the fork's author) was **merged to master 2026-09-08T21:03:10Z**, closing #19517. The patch's own header says so. **Against master, 0011 is upstream's**: a Q4 (c) row and the first `--check` to read.
+- **Patch 0015's subject:** issue **#19577** (*"Threaded video: a completed command is dispatched again on the next frame wake..."*, by the fork's author) was closed 2026-09-19 as `not_planned`, the author writing *"Correction, and apologies for the noise: master already fixes this. Please close."* **Against master, 0015's defect is already fixed upstream**: a second Q4 (c) row.
+- **Patch 0018's subject:** PR **#19223** (*"Playlists: Fix state_slot in runtime logs being saved to entry_slot"*), **merged 2026-07-17, after the pin**, touches the runtime log's `state_slot`, which is 0018's second half (`runtime_log_init` restoring the slot). PR #18140 (*"Save state slot improvements"*, merged 2025-08-02) is before the pin. Both are read with 0018's `--check` against master.
+- **Patches 0013, 0014, 0016, 0017, 0019:** searches of RetroArch's issues and pull requests (`widgets message queue font`, `notification backdrop font`, `cheevos offline login`; `is:issue` and `is:pull-request`) find nothing that names their subjects. The nearest is #10411 (*"Widget text improvements"*, 2020). Recorded as none found. These are the fork's own and on #585's queue under D-WORKFLOW-164/165.
+- **ROCKNIX's side of the 14 commits:** the five merges name their pull requests (#3513 multimedia, #3470 core updates, #3304 mmc resume, #3415 gcc-glibc, #3557 ppsspp, the last being `upstream/next`'s tip and touching no slice path). The nine others arrived through those merges.
+
+### 1.5 Prior audits: the provenance map (verdicts sequestered until after Phase 2)
+
+`grep -c -E 'retroarch|libretro|es_systems|virtual/emulators|rotation-table' 05-punch-list.md`, per folder under `docs/audits/` (22 folders, 20 with a `05`). Eight folders have a non-zero count:
+
+| Folder | Count |
+| --- | ---: |
+| `2026_09_24-milestone-rc-round-since-186` | 17 |
+| `2026_10_15-milestone-603-completed-handoff` | 6 |
+| `2026_09_25-milestone-rc-round-since-258` | 5 |
+| `2026_10_14-milestone-m7-next-candidate` | 4 |
+| `2026_09_28-milestone-audit-of-the-fixes-307` | 4 |
+| `2026_09_03-milestone-cloud-sync-tiers` | 3 |
+| `2026_09_28-milestone-audit-of-the-fix-round` | 2 |
+| `2026_09_14-epic-offline-retroachievements` | 1 |
+
+T1's and T2's audits are on their branches (`d3aa6a19c5`, `7041b0d710`) and are read after Phase 2, as the brief says. No verdict from any of them is transcribed here.
