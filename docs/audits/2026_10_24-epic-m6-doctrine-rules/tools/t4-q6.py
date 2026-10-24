@@ -4,7 +4,7 @@
 """t4-q6.py -- the reachability tables of M6 T4 (#651, brief § 4 Q6) and the
 load table of Q5, read from the doctrine at a hash and never typed by hand.
 
-    python3 -I t4-q6.py <read-tree> <tree-list> rules|load|tooltable|blindspots|retired|friction
+    python3 -I t4-q6.py <read-tree> <tree-list> rules|load|pointers|tooltable|blindspots|retired|friction
 
 <read-tree> is the at-hash export (`.qa-scratch/t4/at-hash/`), <tree-list>
 `git ls-tree -r --name-only 8ebaf8daad`. Tool text is read with
@@ -90,6 +90,31 @@ elif mode == "load":
         out.append(f"| `{f}` | {n} | {'every session' if every else 'on a match'} | {len(hit)} |")
     out += ["", "| Area | Rules reaching it |", "| --- | ---: |"] + [f"| {a} | {per_area[a]} |" for a in areas]
     out += ["", f"<!-- load: {len(areas)} areas; every-session lines {tot} -->"]
+elif mode == "pointers":
+    # PL-19: each fork tool's *Detail in* rule must name the tool, unless the row
+    # points the tool at its own header (`<rule>` for `<tool>` assigns a rule to one tool).
+    s2 = read(R + "instruction-files.md")
+    sec = s2[s2.index("## The fork's own tools"):s2.index("**When a rule earns")]
+    named = lambda txt, t: re.search(r"(?<![\w-])" + re.escape(t) + r"(?![\w-])", txt) is not None
+    pairs = bad = own = 0
+    out += ["| Tool | Rule the row points at | The rule names the tool |", "| --- | --- | --- |"]
+    for line in sec.splitlines():
+        if not line.startswith("| `"): continue
+        cells = [c.strip() for c in line.strip("|").split("|")]
+        tools = [t.split(" ")[0].rstrip("/") for t in re.findall(r"`([^`]+)`", cells[0])]
+        cell = cells[-1]
+        for t in tools:
+            m = re.search(r"`([a-z0-9-]+\.md)` for `" + re.escape(t) + "`", cell)
+            if m:
+                rs = [m.group(1)]
+            elif re.search(r"`" + re.escape(t) + r"`: its own header", cell) or ("own header" in cell and not re.search(r"`[a-z0-9-]+\.md`", cell)):
+                own += 1; out.append(f"| `{t}` | its own header | n/a |"); continue
+            else:
+                rs = [r for r in re.findall(r"`([a-z0-9-]+\.md)`", cell) if not re.search(r"`" + re.escape(r) + r"` for `", cell)]
+            for r in rs:
+                pairs += 1; ok = named(read(R + r), t); bad += not ok
+                out.append(f"| `{t}` | `{r}` | {'yes' if ok else '**no**'} |")
+    out += ["", f"<!-- pointers: {pairs} tool-to-rule pairs; the rule never names the tool: {bad}; tools pointed at their own header: {own} -->"]
 elif mode == "tooltable":
     s = read(R + "instruction-files.md")
     sec = s[s.index("## The fork's own tools"):s.index("**When a rule earns")]
@@ -147,7 +172,7 @@ elif mode == "friction":
         out.append(f"| {n} | {m.group(1)} | {why} | {iss} |")
     out += ["", f"<!-- friction: {tot} dated entries; {k} never seen by the check's matcher -->"]
 else:
-    sys.exit("usage: t4-q6.py <read-tree> <tree-list> rules|load|tooltable|blindspots|retired|friction")
+    sys.exit("usage: t4-q6.py <read-tree> <tree-list> rules|load|pointers|tooltable|blindspots|retired|friction")
 
 for l in out:
     if re.search(r"\|\s*\|", l):

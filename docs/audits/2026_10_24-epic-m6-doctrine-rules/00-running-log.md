@@ -133,3 +133,31 @@ PROOF: 14:50 P26 `build.ROCKNIX-` in 8 lines of 4 rules; `config/path:19` and `D
 - **`05-punch-list.md`:** 25 items (5 Medium, 20 Low), each with `question:`, its ladder rung and the next rung's tool, and `tracked:` where an issue exists; the `punch_index`; the Phase 7 table, all `Open`.
 - **`tools/lint-audit-artifacts <folder> --phase pre-issue`:** rc 0, `PASS pre-issue artifacts`, with `review-plan: local at epic tier under D-WORKFLOW-184`.
 - **#912** (`Audit: M6 T4 the binding doctrine -- 25 findings (0 critical, 0 high)`, labels `audit` and `punch-list`, M6, a sub-issue of #651): its first body carried one checkbox, because the generator's title pattern ran across newlines under `re.S`. The body was rebuilt with 25 at once and read back equal except a trailing blank line. The first body is kept as `.qa-scratch/t4/audit-body-912-first.md`. `box-check --issue 912`: 0 fail. `lint-audit-artifacts --phase pre-issue --issue 912`: `PASS pre-issue artifacts`.
+
+### [Stage E] 15:20-15:32 — the eight streams
+
+- **The coordinator's stage E** (#651, 15:20:29Z) set eight streams from `docs/reviews/briefs/t4-streams.md` at `ee029004c6`, read whole with `git -C .../m6-renovation-plan-346 show`. Plan § 6b E was re-read.
+- **S1 to S7 in order**, then S8 once #905's packet was reviewed (15:29:57Z, `9e12014623`). Each stream edited its named paragraphs only and was committed by path, with `git status --short` read before and after. `rules-check --quiet` and `register-check` were rc 0 after each.
+- **Caught before commit:**
+  - long reflowed lines (S1, S2, S4), and stray spaces from a reflow (S4);
+  - a mechanism I asserted from the rule's text, *ES rotates the log*, softened to the rule's words (S3);
+  - `docs/reviews/README.md` dropped from a cell by a pattern that matched rule files only, restored (S7);
+  - a `sed` whose `#` delimiter met `#651`, which changed nothing and was redone in Python.
+- **Each stream's checkpoint** is on #651.
+
+### [Stage F] 15:32-15:37 — the proofs, the outcomes, the ticks
+
+- **`02` § Stage F:** P27 to P35, each check at the hash and at the tip.
+- **The probe for S4** first matched `match it with$`, the line before the corrected include, which was the probe's looseness. The exact old phrases give 5 to 0.
+- **`05` § Phase 7:** 16 Resolved, 8 Deferred, 1 Withdrawn, the coordinator's dispositions. `tools/lint-audit-artifacts <folder> --issue 912` (resolution): `PASS`.
+- **The ticks:** #912's 25 checkboxes and the met criteria on #904 to #910 (all of each, and #905's third only) were ticked with the guarded tool, now in `tools/tick-checkboxes.py`, its path `/workspace/tmp/m6-t4/ticks`. Each body was read back equal, and the evidence is posted on each issue. #911 is untouched (T38).
+
+PROOF: 15:33 P27 S1: the entry files' old sentences, 9 lines at the hash, 0 at `b3c1d0d7c3`; `rules-check --quiet` rc 0
+PROOF: 15:33 P28 S2: `What ships today` 1 to 0; D-CLOUD-130 cited in 0, then 2, of the two rules
+PROOF: 15:33 P29 S3: #907's `/var/log` grep 3 to 0
+PROOF: 15:33 P30 S3: the four tool sentences 3 to 0; `--record-only` 0 to 1
+PROOF: 15:33 P31 S4: the exact old rclone phrases 5 to 0
+PROOF: 15:33 P32 S5: `maxengel` 4 to 2, the two left naming the working ES route
+PROOF: 15:33 P33 S6: `build.ROCKNIX-` 8 to 0
+PROOF: 15:33 P34 S7: `t4-q6.py pointers` 31 unnamed pairs at the hash, 0 at the tip
+PROOF: 15:33 P35 S8: the friction row's shape 0 to 1, matching the reviewed packet's reader at `9e12014623`

@@ -302,6 +302,24 @@ Every proof is a line of `00-running-log.md` with the same number, and its cell 
 | P25 | the blindspot guards | `t4-q6.py blindspots` | 74 entries, 29 twice; every named guard exists | proved: tree |
 | P26 | the `build.ROCKNIX-` names | `grep -c 'build\.ROCKNIX-'` over the 33; `config/path:19`; `DISTRONAME` | 8 lines in 4 rules; the roots are `build.pixelelated-*` | proved: tree |
 
+## Stage F: the streams' proofs (15:33 UTC, at `b3c1d0d7c3`)
+
+The eight streams of `docs/reviews/briefs/t4-streams.md` (`ee029004c6`), each a doctrine edit of the paragraphs its item names, committed by path. Each check runs on the read tree at `8ebaf8daad` and on the tip, so one command shows both the failure and the pass. `tools/rules-check --quiet` and `tools/register-check` are rc 0 after every stream.
+
+| # | What | Command / artifact | Result | Cell |
+| --- | --- | --- | --- | --- |
+| P27 | S1, the entry files (`0faea874de`; #904, PL-01's sentence, PL-03, 04, 06 to 09) | `grep -n -E 'Rasteratops mirror\|OS_VERSION/BUILD_DATE exported\|Only "back up"\|the four principles\|Two (more )?documents' CLAUDE.md AGENTS.md` | 9 lines at the hash, 0 at the tip; `rules-check --quiet` rc 0; `AGENTS.md` 27,556 bytes of 32,768 | proved: fix-tree |
+| P28 | S2, launch over a sync (`97ab0b1e05`; #906, PL-10) | `grep -n 'What ships today' time-to-play.md`; `grep -l D-CLOUD-130` over the two rules | 1 to 0; 0 to 2 | proved: fix-tree |
+| P29 | S3, `/var/log` (`0dbb26c554`; #907, PL-11) | #907's grep over `.claude/rules/*.md` | 3 to 0 | proved: fix-tree |
+| P30 | S3, the four tool sentences and three behaviours (`0dbb26c554`; #908, PL-12, PL-13) | `grep -n -E 'fork-publish-release. converts\|there is no .emustation. unit\|ls --time-style., .realpath.'`; `grep -n 'watch-build --record-only. runner'` | 3 to 0; 0 to 1 | proved: fix-tree |
+| P31 | S4, `rclone-cloud-sync.md` (`fcc7046f0e`; #909, PL-18) | the exact old phrases (`no PKG_SHA256`, `1.74.4`, `exit-4`, `` `--include=*.zip`. ``, *settings backup/restore domain*) | 5 to 0 | proved: fix-tree |
+| P32 | S5, the remotes (`c1e638f2a2`; #910, PL-16) | `grep -n maxengel` over the two rules; `git remote get-url origin`; the ES checkout's `git remote -v` | 4 to 2: the two left name the working `maxengel/emulationstation-next-rocknix` route | proved: fix-tree |
+| P33 | S6, the build roots (`6a4b826b3b`; PL-14) | `grep -n 'build\.ROCKNIX-' .claude/rules/*.md` | 8 to 0 | proved: fix-tree |
+| P34 | S7, the index (`5d6acef77e`; PL-15, PL-19) | `tools/t4-q6.py <tree> <list> pointers`, a mode added at stage F | 31 unnamed pairs at the hash, 0 at the tip (57 pairs, 27 tools at their own header) | proved: tool-run |
+| P35 | S8, the friction row (`b3c1d0d7c3`; #905's third criterion) | `grep -n 'every .- <yyyy-mm-dd>. line under .## Entries.' ceremonies.md`, against the reviewed packet's diff (`git diff 8ebaf8daad 9e12014623 -- tools/ceremony-check`) | 0 to 1; the sentence matches the packet's reader (its header line 30 and lines 250-283) | proved: fix-tree |
+
+**Only the streams and the friction append changed the 36:** `git log --format=%h 9d67c57ab0..b3c1d0d7c3 -- <the 36>` lists the eight stream commits and nothing else (139 insertions, 107 deletions over 13 files). The registers are untouched by the streams.
+
 ## Criterion entries: #651's checklist (= brief § 7), at the end of Phase 2
 
 Each entry names the artifact that will tick it; the coordinator ticks at hand-back. *Met at B* where this phase shows it.
@@ -318,7 +336,7 @@ Each entry names the artifact that will tick it; the coordinator ticks at hand-b
 10. **`04` § Q4, four tables written by a script.** Stage C (`tools/t4-q4.py`).
 11. **`04` § Q5's load table.** Stage C, naming the two time-to-play numbers as untouched.
 12. **`04` § Q6's reachability tables.** Stage C (`tools/t4-q6.py`).
-13. **The proof count.** Each proof above carries its cell; the count of those cells equals the count of the log's proof lines. *Met at B* (26 = 26), re-counted at F.
+13. **The proof count.** Each proof above carries its cell; the count of those cells equals the count of the log's proof lines. *Met at B* (26 = 26), re-counted at F (35 = 35).
 14. **Every punch item's ladder stage; each `tracked:` bug names its sentence; nothing of the 36 changed before a stream.** D and H. `git status --short -- <the 36>` is empty at the end of B (`00`).
 15. **The retro.** G.
 16. **The six exit codes.** H.

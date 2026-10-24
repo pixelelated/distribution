@@ -7,7 +7,7 @@
 
 Each item says the rung of `working-principles.md`'s ladder its rule sits at, and the tool that would hold it at the next rung, or *no tool can*.
 
-**Nothing in the 36 is changed here.** Every edit waits for a stage-E stream brief, one stream per file for the Low wording items (the futro's pre-mortem rule). The audit issue is #912, a sub-issue of #651. The outcomes are open until the coordinator's dispositions after the stage-D pause.
+**Nothing in the 36 is changed here.** Every edit waits for a stage-E stream brief, one stream per file for the Low wording items (the futro's pre-mortem rule). The audit issue is #912, a sub-issue of #651. The outcomes are the coordinator's stage-E dispositions (#651, 15:20 UTC; `docs/reviews/briefs/t4-streams.md` at `ee029004c6`), with the eight streams S1 to S8 committed and proven at stage F.
 
 ---
 
@@ -361,7 +361,7 @@ punch_index:
   source_finding: "F-01"
   owner_area: "the entry files: `AGENTS.md`, `CLAUDE.md`, and `tools/rules-check`"
   tracked: "#904"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-02
   severity: Medium
   category: Code Quality
@@ -369,7 +369,7 @@ punch_index:
   source_finding: "F-02"
   owner_area: "the ceremony state machine: `tools/ceremony-check`, `ceremonies.md`"
   tracked: "#905"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-03
   severity: Low
   category: Code Quality
@@ -377,7 +377,7 @@ punch_index:
   source_finding: "F-03"
   owner_area: "the entry files"
   tracked: "#904"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-04
   severity: Low
   category: Code Quality
@@ -385,7 +385,7 @@ punch_index:
   source_finding: "F-04"
   owner_area: "the entry files"
   tracked: "#904"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-05
   severity: Low
   category: Code Quality
@@ -393,35 +393,35 @@ punch_index:
   source_finding: "F-05"
   owner_area: "`CLAUDE.md`'s rule table and `rules-check`'s `mention`"
   tracked: "#808"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-06
   severity: Low
   category: Renovation
   question: Q7
   source_finding: "F-06"
   owner_area: "`CLAUDE.md`"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-07
   severity: Low
   category: Renovation
   question: Q1
   source_finding: "F-07"
   owner_area: "the entry files and the `Makefile`"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-08
   severity: Low
   category: Renovation
   question: Q2
   source_finding: "F-08"
   owner_area: "the entry files"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-09
   severity: Low
   category: Renovation
   question: Q7
   source_finding: "F-09"
   owner_area: "the entry files and `instruction-files.md`"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-10
   severity: Medium
   category: Code Quality
@@ -429,7 +429,7 @@ punch_index:
   source_finding: "F-10"
   owner_area: "`time-to-play.md`, `least-surprise.md`"
   tracked: "#906"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-11
   severity: Medium
   category: Code Quality
@@ -437,7 +437,7 @@ punch_index:
   source_finding: "F-11"
   owner_area: "`generic-x64-vm-testing.md`, `es-code-traps.md`"
   tracked: "#907"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-12
   severity: Low
   category: Code Quality
@@ -445,28 +445,28 @@ punch_index:
   source_finding: "F-12, F-13, F-14, F-15"
   owner_area: "`generic-x64-vm-testing.md`"
   tracked: "#908"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-13
   severity: Low
   category: Renovation
   question: Q1
   source_finding: "F-16"
   owner_area: "`generic-x64-vm-testing.md`"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-14
   severity: Low
   category: Renovation
   question: Q1
   source_finding: "F-17"
   owner_area: "`device-builds.md`, `packaging-and-patches.md`, `es-code-traps.md`, `worktrees.md`"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-15
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-18"
   owner_area: "`instruction-files.md`"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-16
   severity: Low
   category: Code Quality
@@ -474,7 +474,7 @@ punch_index:
   source_finding: "F-19"
   owner_area: "`fork-workflow.md`, `device-builds.md`"
   tracked: "#910"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-17
   severity: Low
   category: Code Quality
@@ -482,7 +482,7 @@ punch_index:
   source_finding: "F-20"
   owner_area: "`council-substrate-integrity.md`"
   tracked: "#911"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-18
   severity: Medium
   category: Code Quality
@@ -490,28 +490,28 @@ punch_index:
   source_finding: "F-21"
   owner_area: "`rclone-cloud-sync.md`"
   tracked: "#909"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-19
   severity: Low
   category: Renovation
   question: Q7
   source_finding: "F-22"
   owner_area: "`instruction-files.md` and the eight rules it points at"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-20
   severity: Low
   category: Renovation
   question: Q2
   source_finding: "F-23"
   owner_area: "`docs/decision-register.md`, `tools/register-check`"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-21
   severity: Low
   category: Renovation
   question: Q2
   source_finding: "F-24"
   owner_area: "`docs/friction-log.md`"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-22
   severity: Low
   category: Code Quality
@@ -519,7 +519,7 @@ punch_index:
   source_finding: "F-25"
   owner_area: "`docs/blindspot-register.md`"
   tracked: "#811"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-23
   severity: Low
   category: Renovation
@@ -527,14 +527,14 @@ punch_index:
   source_finding: "F-26"
   owner_area: "8 files: `worktrees.md`, `device-builds.md`, `fork-workflow.md`, `instruction-files.md`, `AGENTS.md`, `CLAUDE.md`, `es-code-traps.md`, `generic-x64-vm-testing.md`"
   tracked: "#640"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-24
   severity: Low
   category: Renovation
   question: Q5
   source_finding: "F-27"
   owner_area: "`generic-x64-vm-testing.md`, `rclone-cloud-sync.md`, `engineering-practices.md`, `handheld-evidence.md`'s glob"
-  outcome: "open"
+  outcome: "withdrawn"
 - id: PL-25
   severity: Low
   category: Renovation
@@ -542,35 +542,35 @@ punch_index:
   source_finding: "#644 f18"
   owner_area: "`fork-workflow.md`"
   tracked: "#645"
-  outcome: "open"
+  outcome: "deferred"
 ```
 
 ## Phase 7 resolution gate
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | awaiting the coordinator's dispositions |
-| PL-02 | Open | awaiting the coordinator's dispositions |
-| PL-03 | Open | awaiting the coordinator's dispositions |
-| PL-04 | Open | awaiting the coordinator's dispositions |
-| PL-05 | Open | awaiting the coordinator's dispositions |
-| PL-06 | Open | awaiting the coordinator's dispositions |
-| PL-07 | Open | awaiting the coordinator's dispositions |
-| PL-08 | Open | awaiting the coordinator's dispositions |
-| PL-09 | Open | awaiting the coordinator's dispositions |
-| PL-10 | Open | awaiting the coordinator's dispositions |
-| PL-11 | Open | awaiting the coordinator's dispositions |
-| PL-12 | Open | awaiting the coordinator's dispositions |
-| PL-13 | Open | awaiting the coordinator's dispositions |
-| PL-14 | Open | awaiting the coordinator's dispositions |
-| PL-15 | Open | awaiting the coordinator's dispositions |
-| PL-16 | Open | awaiting the coordinator's dispositions |
-| PL-17 | Open | awaiting the coordinator's dispositions |
-| PL-18 | Open | awaiting the coordinator's dispositions |
-| PL-19 | Open | awaiting the coordinator's dispositions |
-| PL-20 | Open | awaiting the coordinator's dispositions |
-| PL-21 | Open | awaiting the coordinator's dispositions |
-| PL-22 | Open | awaiting the coordinator's dispositions |
-| PL-23 | Open | awaiting the coordinator's dispositions |
-| PL-24 | Open | awaiting the coordinator's dispositions |
-| PL-25 | Open | awaiting the coordinator's dispositions |
+| PL-01 | **Resolved** | `0faea874de` (S1): `AGENTS.md:19-20` says what `tools/rules-check` holds and that the rest is kept by hand (#904's first criterion, by the sentence). The tool half, a `twins` check, is **withdrawn** by the coordinator: the two entry files were deliberately not given one (D-WORKFLOW-045; t4-streams.md § Dispositions) |
+| PL-02 | **Deferred** | deferred:#905, the tool packet `fix/m6-905-ceremony-check-friction` at `9e12014623`, reviewed ([issuecomment-6386036116](https://github.com/pixelelated/distribution/issues/905#issuecomment-6386036116)); the rule half resolved in `b3c1d0d7c3` (S8). #905 stays open until the packet merges |
+| PL-03 | **Resolved** | `0faea874de` (S1): the `mkimage` comment in both files (#904's second criterion); the old grep 0 at the tip |
+| PL-04 | **Resolved** | `0faea874de` (S1): the vocabulary sentence names the three checks (#904's third criterion) |
+| PL-05 | **Deferred** | deferred:#808 (the 29-of-30 table; t4-streams.md § Dispositions) |
+| PL-06 | **Resolved** | `0faea874de` (S1): *the five principles* |
+| PL-07 | **Resolved** | `0faea874de` (S1): `SM4450` (and `GENERIC_X64` in `CLAUDE.md`) in the target lists; `world` as `Makefile:42` has it |
+| PL-08 | **Resolved** | `0faea874de` (S1): the mirror is `ghcr.io/pixelelated/build`; `grep -n 'Rasteratops mirror' CLAUDE.md AGENTS.md` prints nothing |
+| PL-09 | **Resolved** | `0faea874de` (S1): three interface-law documents in all three files |
+| PL-10 | **Resolved** | `97ab0b1e05` (S2): D-CLOUD-130's question in both rules, D-CLOUD-076/109 named as superseded; `What ships today` 1 at the hash, 0 at the tip (#906) |
+| PL-11 | **Resolved** | `0dbb26c554` (S3): the three `/var/log` sentences say what `var-log.mount` does; #907's grep 3 at the hash, 0 at the tip |
+| PL-12 | **Resolved** | `0dbb26c554` (S3): `generic-x64-vm utm`, `realpath` present, `emustation` installed and inactive, `--record-only` (#908) |
+| PL-13 | **Resolved** | `0dbb26c554` (S3): the headless display, the seventeen `SUITES`, the watchdog's home |
+| PL-14 | **Resolved** | `6a4b826b3b` (S6): `build.ROCKNIX-` 8 at the hash, 0 at the tip; three lines keep #640's legacy parent |
+| PL-15 | **Resolved** | `5d6acef77e` (S7): the `cloud-pair-migration` row says retired, matching `tools/cloud-pair-migration:58-62` |
+| PL-16 | **Resolved** | `c1e638f2a2` (S5): the PR command's head is `origin`'s owner; the ES section's `origin` is `pixelelated/emulationstation` (#910) |
+| PL-17 | **Deferred** | deferred:#685 (T38: the file is refreshed by re-review, not edited here; the coordinator's lead, [issuecomment-6385946434](https://github.com/pixelelated/distribution/issues/685#issuecomment-6385946434)); #911 stays open |
+| PL-18 | **Resolved** | `fcc7046f0e` (S4): the five rclone facts; the exact old phrases 5 at the hash, 0 at the tip (#909) |
+| PL-19 | **Resolved** | `5d6acef77e` (S7): `tools/t4-q6.py <tree> <list> pointers` reports 31 unnamed pairs at the hash, 0 at the tip; no rule grew |
+| PL-20 | **Deferred** | deferred:#657 (T10: the column shape and an in-place-edit detector are the tool's; D-QA-040's prefix is an open row's, allowed; the coordinator's lead, [issuecomment-6385946205](https://github.com/pixelelated/distribution/issues/657#issuecomment-6385946205)) |
+| PL-21 | **Deferred** | deferred:#905: the fixed check names the non-entry lines under `## Entries` by number rather than moving them (the coordinator's 15:29 post on #651) |
+| PL-22 | **Deferred** | deferred:#811 (blindspot 29 twice) |
+| PL-23 | **Deferred** | deferred:#640 (the 25 legacy-layout lines change at the cutover) |
+| PL-24 | **Withdrawn** | withdrawn as a stream (t4-streams.md § Dispositions): the every-session load is the maintainer's deliberate design; a narrative/instruction split is put to the maintainer on #346 as an observation by the coordinator; the `docs/**` glob is a T39 (#686) lead |
+| PL-25 | **Deferred** | deferred:#645 (upstream's PR rules enter `fork-workflow.md` when #645 has them) |
