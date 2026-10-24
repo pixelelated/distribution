@@ -38,14 +38,13 @@
 
 ## Current focus
 
-**At the stage-D pause (13:04 UTC); waiting for the coordinator's stream briefs.**
-- `reviewed-at` is `caf1de3727`.
-- The second opinion is done: GPT-6 Astra, probe and refutation both PASS, graded in `04`.
-- **Audit:** #895, seventeen items.
-- **Bugs:** #891 to #894 (this lane's), #890 (the coordinator's), #852 (this slice's stream).
-- **The `glslang` triple:** D-WORKFLOW-198 settles `glslang`; the seat's `spirv-headers` triple is reported for the row.
-- **Next:** the stream briefs on #655, then stage E. #852's stream needs `ln -sfn` inside a hook (G-16).
-- **Prose through Python or a quoted heredoc only.**
+**T8 accepted (#655, 14:46 UTC); the payloads are retired; `audit-completion.json` waits on #895's checkboxes (14:49 UTC).**
+- **Hashes:** `reviewed-at` `caf1de3727`, `fixed-at` `b58489297c`; both are in #655's body. The hand-back was at `13394550d6`.
+- **#895** is closed as completed, but its body reads back 0 ticked and 19 open (last edited 14:36:56, by the lane). `tools/write-completion.py` refuses until it reads back ticked. Asked on #655 at 14:48.
+- **When #895 reads back ticked:** run `python3 -I docs/audits/2026_10_24-epic-m6-image-packages/tools/write-completion.py .` and the full lint, then commit the marker, readback and receipt, set this pointer idle, and post the tip on #655.
+- **Retired** under D-INFRA-022 at 14:49 (`c146da433d`): every payload under `/workspace/artifacts/m6-t8-20261024/` (the directory is removed) and the 4 GiB extraction. Each is listed with its hash in `docs/vm-qa-log.md`. The image's original stays under `m6-t1-20261023/`.
+- **Routed by the coordinator:** #902 (the seven launch scripts), as a packet after T30's branch. The branch merges after T7's.
+- **Rule:** prose through Python or a quoted heredoc only.
 
 ## Next commands
 
