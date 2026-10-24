@@ -1,0 +1,31 @@
+== vm-pair-test
+PASS launcher failure preserves exit17 with no false up message
+PASS zero-exit launcher without PID file is refused
+PASS wrong-process PID is refused
+PASS dead-process PID is refused
+PASS wrong-disk PID is refused
+PASS owned-disk live PID is verified, silent launcher allowed
+PASS failed serial readiness returns immediately from conditional call
+PASS unusable runtime root refuses preflight
+PASS writable runtime root preflight leaves no probe
+PASS disk-held-no-pidfile: rc 1, disk kept True, holder named True
+PASS partial-up-rollback: rc 9, guest a started True, still running False
+PASS down-stops-both: rc 1, guest b stopped True (want rc 1 from a, b stopped)
+PASS 9 VM launch controls and 3 whole-script controls; fixtures are not a real boot claim
+rc 0
+== vm-stop-test
+PASS delayed-exit waits for exit and immediate port reuse
+PASS self-removed-pidfile waits for exit and immediate port reuse
+PASS timeout refuses completion and retains live process/pidfile
+PASS wrong-disk refuses completion and retains live process/pidfile
+PASS wrong-process refuses completion and retains live process/pidfile
+PASS pidfile-changed-under-us reports a pidfile replaced during the stop and keeps it
+PASS exited PID is an idempotent shutdown
+PASS missing-pidfile-exit-3 exits 3, says nothing was stopped, removes nothing
+PASS 8 vm-stop controls
+rc 0
+== ls -la /tmp/rocknix-vm-pair
+total 0
+drwxrwxr-x    2 max  max      40 Oct  3 18:19 .
+drwxrwxrwt 3662 root root 193060 Oct 24 21:25 ..
+== qemu census: 0

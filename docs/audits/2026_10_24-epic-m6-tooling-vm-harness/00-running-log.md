@@ -245,3 +245,29 @@ PROOF: 21:11 S2 fix-case: up-fails-guest-answers, build-id-mismatch, down-at-end
 - **For the cycle:** the build commit `069fc270442134fe…` is not in this repo (`git cat-file -e` fails). Without it the ES pin is unreadable and the six ES suites SKIP, so the run exits 3. The cycle fetches that commit read-only first, or records the SKIPs as the answer.
 - **Already written:** the walks in the record ran against the QA endpoint by construction of their runs. Fixtures seeded by the old runner have no manifest, so a `--skip-up` rerun on such a guest refuses by name until those files are removed. A fresh pair (`vm-pair up`) has none. Nothing on a device.
 PROOF: 21:20 S3 fix-case: reboot-same-boot-id, reboot-es-silent, seed-scp-fails, remote-not-qa, reseed-manifest, overwrite-refused and es-src-mismatch fail at facb2ae523 (0 PASS, 7 FAIL) and pass at ca0bf841d2 (7 PASS, 0 FAIL) -- `streams/s3-unfixed.txt`, `streams/s3-fixed.txt`
+
+## [Stage E] S4: vm-pair and vm-stop (#970)
+
+- **Host state before the stream:** `ls -la /tmp/rocknix-vm-pair` shows an empty directory (`.` and `..` only). The census `pgrep -c -x qemu-system-x86` reads 0. Both are in `streams/s4-fixed.txt`. Whether a past `up` destroyed another session's disk is not in the record.
+- **The fixes, in this order on purpose:**
+  - `33b1bb8845` (vm-pair):
+    - Before `up` or `reimage` removes a disk or its OVMF vars, every process this user can read is checked (an open descriptor on it, or a `qemu-system-*` argv naming it). A hit refuses, naming the pid and the argv's first word.
+    - A partial `up` stops the guest that started and exits with the failed guest's status.
+    - `down` stops both guests and exits with the worst status.
+    - `up` and `reimage` accept 3.
+  - `eddd21d7a2` (vm-stop):
+    - A missing pidfile exits 3 and removes nothing.
+    - One descriptor from the read to the unlink; a replaced pidfile is reported and kept. The remaining window is named in the code.
+    - G-26 is in the header as a design.
+  - **Why vm-pair first:** the old `vm-pair up` runs `stop_one a; stop_one b` under `set -e`, so `vm-stop`'s 3 landing first would have aborted every fresh host's `up`. Each commit's tree ran both controls at rc 0 before it was committed. `vm-pair`'s new cases also pass beside the old `vm-stop`.
+- **Running the controls:** both use `tempfile`, so they ran with `TMPDIR=/workspace/tmp/m6-t12/tmp`, not `/tmp`.
+- **The positives** against `facb2ae523` (`streams/s4-unfixed.txt`):
+  - `disk-held-no-pidfile`: the held disk was deleted.
+  - `partial-up-rollback`: guest a was left running.
+  - `down-stops-both`: guest b was never stopped.
+  - `pidfile-changed-under-us`: rc 0, with the replaced pidfile removed.
+  - `missing-pidfile-exit-3`: rc 0. Checked on its own, because the test stops at its first failed assertion.
+- **After the fixes:** `vm-pair-test` gives 9 launch controls and 3 whole-script controls, rc 0. `vm-stop-test` gives 8 controls, rc 0. No fixture process survived, and the census is 0 (`streams/s4-fixed.txt`).
+- **Still open for the cycle:** `down` exits 0, and the census after is 0.
+- **Already written:** `worktrees.md` and `generic-x64-vm-testing.md` describe stopping through `tools/vm-stop` by pidfile. Exit 3 goes into PL-22's packet, not here.
+PROOF: 21:25 S4 fix-case: disk-held-no-pidfile, partial-up-rollback, down-stops-both, missing-pidfile-exit-3 and pidfile-changed-under-us fail against facb2ae523's vm-pair and vm-stop and pass at eddd21d7a2 (vm-pair-test and vm-stop-test rc 0) -- `streams/s4-unfixed.txt`, `streams/s4-fixed.txt`

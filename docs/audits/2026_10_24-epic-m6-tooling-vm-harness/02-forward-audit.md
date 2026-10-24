@@ -111,6 +111,7 @@ The one authorized cycle, 19:23 to 19:30 UTC; the full record is in `00` § The 
 | S1-claim | The report directory's claim is an O_EXCL file, because this host's mkdir (uutils 0.10.0) answers 0 to two racing calls; `report-dir-claimed` and `two-runs-one-minute` fail at `facb2ae523` and `3c0b9d53c6` and pass at `fc8754b29b` | `streams/s1-claim-correction.txt` | proved: fix-case |
 | S2 | `vm-qa` reads `down` and `up`, compares the guest's BUILD_ID with the image's build, takes the pair down at the end; `fresh` reads the selected port (#969, #981). Four cases fail at `facb2ae523` and pass at `813e4dd270` | `streams/s2-unfixed.txt`, `streams/s2-fixed.txt` | proved: fix-case |
 | S3 | The walks need a new boot id and an answering interface, a checked seeding, the QA cloud as the active remote and a manifest; the ES suites judge only the pinned source (#973, #974, #981). Seven cases fail at `facb2ae523` and pass at `ca0bf841d2` | `streams/s3-unfixed.txt`, `streams/s3-fixed.txt` | proved: fix-case |
+| S4 | `vm-pair` refuses to remove a held disk, rolls a partial `up` back and `down` stops both; `vm-stop` exits 3 on a missing pidfile and keeps a replaced one (#970). Five cases fail at `facb2ae523` and pass at `eddd21d7a2` | `streams/s4-unfixed.txt`, `streams/s4-fixed.txt` | proved: fix-case |
 
 ## The streams' positives
 
@@ -138,8 +139,13 @@ Each stream's `vm-harness-test` case, run against the unfixed tool (`git archive
 | S3 | `reseed-manifest` | `seed-device calls 0, manifest written False` | `seed-device calls 1, manifest written True, walked 1` |
 | S3 | `overwrite-refused` | `copies 1, cloud resets 1, walked 1, named False` | `rc 1, copies 0, cloud resets 0, walked 0, named True` |
 | S3 | `es-src-mismatch` | `rc 0, SKIP row with both hashes False, check ran True` | `rc 3, SKIP row with both hashes True, check ran False` (`ca0bf841d2`) |
+| S4 | `disk-held-no-pidfile` (vm-pair-test) | `rc 9, disk kept False, holder named False` | `rc 1, disk kept True, holder named True` (`33b1bb8845`) |
+| S4 | `partial-up-rollback` (vm-pair-test) | `rc 9, guest a started True, still running True` | `rc 9, guest a started True, still running False` |
+| S4 | `down-stops-both` (vm-pair-test) | `rc 1, guest b stopped False` | `rc 1, guest b stopped True` |
+| S4 | `missing-pidfile-exit-3` (vm-stop-test) | `rc 0` | `exits 3, says nothing was stopped, removes nothing` (`eddd21d7a2`) |
+| S4 | `pidfile-changed-under-us` (vm-stop-test) | `returncode=0`, `down: owned QEMU exited`, the replaced pidfile removed | `reports a pidfile replaced during the stop and keeps it` |
 
-S1's files: `streams/s1-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s1-fixed.txt` (7 PASS, 0 FAIL). The claim correction: `streams/s1-claim-correction.txt`. S2's: `streams/s2-unfixed.txt` (0 PASS, 4 FAIL) and `streams/s2-fixed.txt` (4 PASS, 0 FAIL); the whole control, `streams/s1-s2-full.txt` (12 PASS). S3's: `streams/s3-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s3-fixed.txt` (7 PASS, 0 FAIL); the whole control, `streams/s1-s3-full.txt` (19 PASS). `rules-check --quiet` rc 0 and `hooks-test` PASS after `ea2377f1ce`.
+S1's files: `streams/s1-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s1-fixed.txt` (7 PASS, 0 FAIL). The claim correction: `streams/s1-claim-correction.txt`. S2's: `streams/s2-unfixed.txt` (0 PASS, 4 FAIL) and `streams/s2-fixed.txt` (4 PASS, 0 FAIL); the whole control, `streams/s1-s2-full.txt` (12 PASS). S3's: `streams/s3-unfixed.txt` (0 PASS, 7 FAIL) and `streams/s3-fixed.txt` (7 PASS, 0 FAIL); the whole control, `streams/s1-s3-full.txt` (19 PASS). S4's: `streams/s4-unfixed.txt` and `streams/s4-fixed.txt` (vm-pair-test and vm-stop-test, rc 0). `rules-check --quiet` rc 0 and `hooks-test` PASS after `ea2377f1ce`.
 
 ## Findings (stage B)
 

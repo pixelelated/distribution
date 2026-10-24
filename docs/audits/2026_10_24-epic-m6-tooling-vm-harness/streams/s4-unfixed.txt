@@ -1,0 +1,27 @@
+== vm-pair-test --source facb2ae523's vm-pair
+PASS launcher failure preserves exit17 with no false up message
+PASS zero-exit launcher without PID file is refused
+PASS wrong-process PID is refused
+PASS dead-process PID is refused
+PASS wrong-disk PID is refused
+PASS owned-disk live PID is verified, silent launcher allowed
+PASS failed serial readiness returns immediately from conditional call
+PASS unusable runtime root refuses preflight
+PASS writable runtime root preflight leaves no probe
+FAIL disk-held-no-pidfile: rc 9, disk kept False, holder named False
+FAIL partial-up-rollback: rc 9, guest a started True, still running True
+  stderr: vm-pair: guest b launch failed (9)
+FAIL down-stops-both: rc 1, guest b stopped False (want rc 1 from a, b stopped)
+FAIL disk-held-no-pidfile, partial-up-rollback, down-stops-both
+rc 1
+== vm-stop-test --source facb2ae523's vm-stop
+PASS delayed-exit waits for exit and immediate port reuse
+PASS self-removed-pidfile waits for exit and immediate port reuse
+PASS timeout refuses completion and retains live process/pidfile
+PASS wrong-disk refuses completion and retains live process/pidfile
+PASS wrong-process refuses completion and retains live process/pidfile
+Traceback (most recent call last):
+AssertionError: CompletedProcess(args=['/workspace/tmp/m6-t12/unfixed-tools/vm-stop', '--timeout', '2', '/workspace/tmp/m6-t12/tmp/tmp6vli_zcg/guest.pid', '/workspace/tmp/m6-t12/tmp/tmp6vli_zcg/owned.qcow2'], returncode=0, stdout='down: owned QEMU exited (pid 3546504)\n', stderr='')
+rc 1
+== facb2ae523's vm-stop on a missing pidfile
+rc 0
