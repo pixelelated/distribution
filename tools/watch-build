@@ -13,6 +13,7 @@ import importlib.util
 import fcntl
 import os
 from pathlib import Path
+import select
 import selectors
 import shutil
 import signal
@@ -45,6 +46,33 @@ def active_run(root, relative):
     if (run / 'build.rc').exists():
         raise RuntimeError('inherited build has already finished')
     return run
+
+
+class Interrupted(Exception):
+    """A signal arrived before the command was started."""
+
+
+def log_note(log, text):
+    # The runner's own line in the log; a log that cannot be written is
+    # already the failure being reported.
+    try:
+        log.write(text.encode())
+    except OSError:
+        pass
+
+
+def console_write(data):
+    """Copy to the console in bounded steps; False when it is gone or stalled."""
+    view = memoryview(data)
+    try:
+        out = sys.stdout.fileno()
+        while view:
+            if not select.select([], [out], [], 2)[1]:
+                return False
+            view = view[os.write(out, view[:4096]):]
+    except (OSError, ValueError):
+        return False
+    return True
 
 
 def admission_tool():
@@ -162,6 +190,10 @@ def main():
     try:
         if not args.record_only:
             guard.admit(receipt, root, run, environment, docker=args.docker)
+        if interrupted is not None:
+            # A cancellation during admission starts nothing (#917).
+            code = 128 + interrupted
+            raise Interrupted(f'signal {interrupted} before the command started')
         child = subprocess.Popen(command, env=environment, stdout=subprocess.PIPE,
                                  stderr=subprocess.STDOUT, start_new_session=True,
                                  preexec_fn=lambda: os.umask(build_umask))
@@ -178,18 +210,18 @@ def main():
                     selector.unregister(key.fileobj)
                     break
                 log.write(data)
-                if console:
-                    try:
-                        sys.stdout.buffer.write(data)
-                        sys.stdout.buffer.flush()
-                    except BrokenPipeError:
-                        # Losing a console reader must not lose the durable log.
-                        console = False
+                if console and not console_write(data):
+                    # Losing a console reader, or one that stops reading, must
+                    # not stop the build or lose the durable log (#917).
+                    console = False
+                    atomic(run / 'console-dropped', 'the console stopped reading; the log has everything\n')
         child.wait()
         code = child.returncode if child.returncode >= 0 else 128 - child.returncode
+    except Interrupted as error:
+        log_note(log, f'watch-build: {error}\n')
     except (OSError, ValueError, LookupError, TypeError, AttributeError, RuntimeError,
             subprocess.SubprocessError) as error:
-        log.write(f'watch-build: command launch/output failed: {error}\n'.encode())
+        # Stop the payload first: the failure may be the log itself (#917).
         if child is not None and child.poll() is None:
             os.killpg(child.pid, signal.SIGTERM)
             try:
@@ -197,6 +229,7 @@ def main():
             except subprocess.TimeoutExpired:
                 os.killpg(child.pid, signal.SIGKILL)
                 child.wait()
+        log_note(log, f'watch-build: command launch/output failed: {error}\n')
     finally:
         atomic(run / 'build.rc', str(code) + '\n')
         log.close()
@@ -204,9 +237,17 @@ def main():
         monitor_code = monitor.wait(timeout=args.interval + 10)
     except subprocess.TimeoutExpired:
         monitor.terminate()
-        monitor_code = monitor.wait(timeout=5)
+        try:
+            monitor_code = monitor.wait(timeout=5)
+        except subprocess.TimeoutExpired:
+            # A watcher that will not exit still gets a recorded finish (#917).
+            monitor.kill()
+            monitor_code = monitor.wait()
     errors.close()
-    status = (run / 'build.status').read_text()
+    try:
+        status = (run / 'build.status').read_text()
+    except OSError:
+        status = ''
     if monitor_code != 0 or not status.startswith('state:       finished\n'):
         atomic(run / 'runner-error', 'build result retained, but watcher did not record completion\n')
         print(f'watch-build: monitoring failed; see {run}', file=sys.stderr)
