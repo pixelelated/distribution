@@ -226,3 +226,33 @@ PROOF: 17:00 P14 S2: test-build-preflight passes at the fix and fails against th
 - **At the fix:** rc 0, `36 PASS; 0 FAIL`, 9.7 s (`.qa-scratch/t9/s4-watch-job-fixed.log`).
 
 PROOF: 17:05 P15 S4: test-watch-job passes at the fix with four new cases, each of which fails alone against the unfixed tool -- `.qa-scratch/t9/s4-watch-job-fixed.log`, `.qa-scratch/t9/positives/watch-job-unfixed/`
+
+### S3 (#915; PL-04), 17:07 to 17:13
+
+- **The probe first** (`.qa-scratch/t9/s3/probe-before.log`), on the host:
+  - **A changed plan:** rc 125, no payload, and the run's `build.log` says `watch-build: command launch/output failed: admission plan changed`.
+  - **An unreadable plan:** rc 125, `[Errno 13] Permission denied`.
+  - **The host interpreter with `hashlib.file_digest` deleted** (3.10's hashlib on 3.14): rc 1, and a traceback ending `AttributeError: module 'hashlib' has no attribute 'file_digest'`, raised from `admit` at `build-admission:180`.
+- **Test first:** two cases in `test-build-admission`.
+  - **"A registry that is not an object is a refusal, not a traceback":** `jobs.json` holds `[]`, `data.get` raises `AttributeError`, and the unfixed `watch-build`'s tuples let it out.
+  - **"A hashlib without file_digest (3.10) admits and hashes":** the same deletion as the probe, through `runpy`.
+  - Against the unfixed tools, each fails on its own label (`control-unfixed.log`; `control-unfixed-case2.log`, run from a copy with case 1 removed and deleted after).
+- **The fix** (`6a25254359`):
+  - `digest` in both tools streams 1 MiB blocks into `hashlib.sha256()`, as #492 did. `retention-report`'s archive member uses the same `stream_digest`.
+  - `watch-build`'s two except tuples add `LookupError` and `AttributeError`. No other line of `watch-build` changed (S5's file).
+- **At the fix:**
+  - `test-build-admission`: rc 0, 70 checks.
+  - `test-retention-report`: rc 0, 20 controls.
+  - `test-build-monitor`: rc 0, `36 PASS; 0 FAIL`.
+  - `test-progress.py`: rc 0, `13 PASS; 0 FAIL`.
+  - The 2026-10-04 `test-watch-build.py`: rc 0, `35 PASS; 0 FAIL`.
+- **The 3.10 proof.** The pinned image is local, as `ghcr.io/rocknix/rocknix-build:latest` with the repo digest `sha256:988c0ba5…` (`Makefile:138`).
+  - The census was qemu 0, and the start was posted on the host file at 17:12:32Z.
+  - **The one start:** `docker run --rm --network none --pull never -v /workspace/tmp/m6-t9/s3/container-fixture:/f:ro ghcr.io/rocknix/rocknix-build@sha256:988c0ba5… python3 -I /f/probe.py`, rc 0, Python 3.10.12 with no `file_digest`.
+  - **The fixture:** a 3,145,731-byte random payload and a 6-byte file.
+  - **What it shows:** the fixed `build-admission` and `retention-report` give `63603ed4…a2a9f5` and `4c47b3e8…28e8f`, equal to `sha256sum` and to the host 3.14.4. The unfixed copies raise `AttributeError` there. The completion is on the host file; no container of that image is left.
+- **Two departures from the stream's shape, for the coordinator:**
+  - **The refusal is rc 125, not rc 2.** A refusal inside `admit` is caught by the run's own tuple (`watch-build:164` → `:190`): rc 125, the payload not started, the reason recorded in the run's `build.log` as `watch-build: command launch/output failed: <reason>`, and nothing on stderr but the recording line. rc 2 with `watch-build: <reason>` on stderr belongs to failures before the run directory exists (`:221`). Calling an admission refusal "command launch/output failed", without saying it on stderr, is in S5's region of `watch-build`; it is left to S5 or the coordinator.
+  - **`grep -rn 'file_digest(' tools/` prints one line: `tools/ceremony-check:113`.** It is outside S3's files, and it runs on the host only (the pre-push guard and the fork CI). It is left and named. The two comments and the test's deletion name `file_digest` without a call.
+
+PROOF: 17:13 P16 S3: under the pinned 3.10.12 the fixed tools' hashes equal sha256sum's and 3.14's while the unfixed raise AttributeError; test-build-admission's two new cases pass at the fix and fail against the unfixed tools -- `.qa-scratch/t9/s3/`

@@ -91,6 +91,7 @@ Read only, at 15:45:41 UTC; nothing written under any M7 path (`.qa-scratch/t9/r
 | P13 | S1 (#913): the three watcher controls pass at the fix (13/0, 35/0, rc 0) and each removed-admission copy fails (rc 1); the retention control passes beside a live process named `qemu-system-x86_64` where the unchanged control fails | `.qa-scratch/t9/s1-*.log`, `.qa-scratch/t9/positives/`; `9b071c5d12`, `a9bd346d54` | proved: fix-control |
 | P14 | S2 (#914): `test-build-preflight` passes at the fix (8/0) and fails against the unfixed tool, which stopped the control's own sleeper, read `READY` over a failed census and missed the helper's swap boundary | `.qa-scratch/t9/s2-control-fixed.log`, `.qa-scratch/t9/positives/preflight-unfixed/`; `c9e38e2939` | proved: fix-control |
 | P15 | S4 (#916): `test-watch-job.py` passes at the fix (36/0) with four new cases, each of which fails alone against the unfixed tool | `.qa-scratch/t9/s4-watch-job-fixed.log`, `.qa-scratch/t9/positives/watch-job-unfixed/`; `4a22ed0b41` | proved: fix-control |
+| P16 | S3 (#915): under the pinned image's 3.10.12, the fixed tools hash a 3 MiB and a 6-byte fixture equal to `sha256sum` and to 3.14.4 while the unfixed raise `AttributeError`; `test-build-admission`'s two new cases pass at the fix (70 checks) and fail against the unfixed tools | `.qa-scratch/t9/s3/`; `6a25254359` | proved: fix-control |
 
 ## Findings (stage B)
 
@@ -176,3 +177,13 @@ P14 in the table above.
 The EPERM input is PID 1, because `unshare` is refused here. A PID hidden by another namespace still reads as exited (#506); that limit is named, not fixed.
 
 P15 in the table above.
+
+
+### S3 (#915; PL-04)
+
+| Control | Before (unfixed tools) | After (`6a25254359`) | Positive |
+| --- | --- | --- | --- |
+| `test-build-admission` (+2 cases) | rc 1: a `[]` registry escapes as an `AttributeError` traceback; deleting `file_digest` gives a traceback at `build-admission:180` | rc 0, 70 checks | each case alone against the unfixed tools |
+| the pinned image, `python3` 3.10.12 | the unfixed `digest` raises `AttributeError` | the fixed one equals `sha256sum` and 3.14.4 on both fixture files | the unfixed copies in the same start |
+
+P16 in the table above. A refusal in `admit` is rc 125 and is recorded in the run's log, not rc 2 on stderr (`00` § S3). `tools/ceremony-check:113` keeps its `file_digest` call; it is host-only and outside S3.
