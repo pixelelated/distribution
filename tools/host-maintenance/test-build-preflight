@@ -1,0 +1,90 @@
+#!/usr/bin/env python3
+"""Controls for build-preflight's guest report and memory verdict (#914, D-INFRA-028).
+
+    python3 -I tools/host-maintenance/test-build-preflight [TOOL]
+
+Runs the real tool (or TOOL, a copy) with PATH doubles for pgrep, ps and free.
+The only guest it can see is this control's own sleeper, whose argv[0] is
+qemu-system-x86_64; no real guest, swap or sudo is touched. The sleeper is
+stopped by its PID at the end.
+"""
+import os
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+
+TOOL = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else Path(__file__).resolve().parents[1] / 'build-preflight'
+passed = 0
+
+
+def check(value, label):
+    global passed
+    if not value:
+        raise AssertionError(label)
+    passed += 1
+    print('PASS:', label, flush=True)
+
+
+def executable(path, body):
+    path.write_text(body)
+    path.chmod(0o755)
+
+
+with tempfile.TemporaryDirectory(prefix='pixelelated-preflight-controls-') as tmp:
+    base = Path(tmp)
+    bin_dir = base / 'bin'
+    bin_dir.mkdir()
+    pidfile = base / 'guest' / 'qemu.pid'
+    disk = base / 'guest' / 'guest.qcow2'
+    sleeper = subprocess.Popen(
+        ['qemu-system-x86_64', '-c', 'import time; time.sleep(300)', '-pidfile', str(pidfile),
+         '-drive', 'if=none,id=rocknix,format=qcow2,file=' + str(disk)],
+        executable=sys.executable, start_new_session=True)
+    try:
+        # pgrep answers with this control's sleeper only, or the code it is told to.
+        executable(bin_dir / 'pgrep', '#!/bin/sh\ncase "$PGREP_EXIT" in 0) echo "$PGREP_PIDS";; esac\nexit "$PGREP_EXIT"\n')
+        executable(bin_dir / 'ps', '#!/bin/sh\ncase "$*" in *rss=*) echo 2097152;; *etime=*) echo 01:00;; esac\n')
+        executable(bin_dir / 'free', '#!/bin/sh\n'
+                   'echo "               total        used        free      shared  buff/cache   available"\n'
+                   'echo "Mem:           64000       10000       30000           0       20000       50000"\n'
+                   'echo "Swap:          $SWAP_TOTAL  $SWAP_USED  $SWAP_FREE"\n')
+
+        def run(*args, pgrep_exit=0, swap=(1001, 1, 1000)):
+            env = {'PATH': f'{bin_dir}:{os.environ["PATH"]}', 'LC_ALL': 'C',
+                   'PGREP_PIDS': str(sleeper.pid), 'PGREP_EXIT': str(pgrep_exit),
+                   'SWAP_TOTAL': str(swap[0]), 'SWAP_USED': str(swap[1]), 'SWAP_FREE': str(swap[2])}
+            return subprocess.run([str(TOOL), *args], env=env, capture_output=True, text=True, timeout=30)
+
+        result = run('--stop-vms')
+        check(sleeper.poll() is None, '--stop-vms leaves a listed guest running')
+        check(result.returncode == 1 and 'no longer stops anything' in result.stdout,
+              '--stop-vms says it stops nothing and keeps the verdict nonzero')
+        check(f'tools/vm-stop {pidfile} {disk}' in result.stdout,
+              'each listed guest carries its tools/vm-stop command')
+
+        result = run()
+        check(sleeper.poll() is None and result.returncode == 1 and f'pid {sleeper.pid}' in result.stdout,
+              'a listed guest keeps the verdict nonzero without the flag')
+
+        result = run(pgrep_exit=3)
+        check(result.returncode == 1 and 'ERROR: cannot census guests' in result.stdout
+              and 'READY' not in result.stdout, 'a failed guest census is an error, never no guests')
+
+        result = run(pgrep_exit=1)
+        check(result.returncode == 0 and result.stdout.rstrip().endswith('READY'),
+              'no guest and healthy memory is READY')
+
+        # The helper is healthy while free * 5 >= total (reclaim-swap:143).
+        result = run(pgrep_exit=1, swap=(1001, 801, 200))
+        check(result.returncode == 1 and 'SWAP EXHAUSTED' in result.stdout,
+              'just under a fifth free is exhausted, as the helper counts it')
+        result = run(pgrep_exit=1, swap=(1000, 800, 200))
+        check(result.returncode == 0 and 'SWAP EXHAUSTED' not in result.stdout,
+              'exactly a fifth free is healthy, as the helper counts it')
+    finally:
+        if sleeper.poll() is None:
+            sleeper.terminate()
+            sleeper.wait(timeout=10)
+
+print(f'{passed} PASS; 0 FAIL', flush=True)

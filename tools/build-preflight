@@ -5,7 +5,7 @@
 # build-preflight -- what the machine has before a build takes it.
 #
 #   tools/build-preflight            # report only
-#   tools/build-preflight --stop-vms # also stop running QA guests
+#   tools/build-preflight --stop-vms # accepted; stops nothing (D-INFRA-028)
 #   tools/build-preflight --reclaim-swap # guarded host helper, before a build
 #
 # Builds here are memory-bound, not disk-bound, and the two are easy to
@@ -27,8 +27,10 @@
 #   Disk       reported for completeness; it has never been the limit here.
 #
 # It exits 0 when the machine looks ready, 1 when something is worth fixing
-# first. It never stops a guest without --stop-vms, because a guest may be
-# holding QA state someone is in the middle of.
+# first. It never stops a guest (D-INFRA-028, #914): a guest may be another
+# lane's, holding QA state someone is in the middle of, and a match on a
+# command line is not ownership. It lists each guest with the tools/vm-stop
+# command its owner runs, which stops it by its pidfile and disk and awaits it.
 
 set -u
 STOP_VMS=0
@@ -40,6 +42,7 @@ for option in "$@"; do
         -h|--help)
             echo 'usage: tools/build-preflight [--stop-vms] [--reclaim-swap]'
             echo 'Default is read-only. Reclaim runs the installed fixed-action helper before a build.'
+            echo '--stop-vms is accepted and stops nothing; each guest is listed with its tools/vm-stop command.'
             exit 0 ;;
         *) echo "build-preflight: unknown option: $option" >&2; exit 2 ;;
     esac
@@ -63,8 +66,11 @@ read_memory() {
     [ "$mem_total" -gt 0 ] && [ "$mem_avail" -le "$mem_total" ] &&
         [ "$swap_free" -le "$swap_total" ] && [ "$swap_used" -le "$swap_total" ]
 }
+# Exhausted under a fifth free, compared as the helper compares it
+# (reclaim-swap: healthy while free * 5 >= total), not by a truncated fifth.
+swap_exhausted() { [ "$swap_total" -gt 0 ] && [ $(( swap_free * 5 )) -lt "$swap_total" ]; }
 read_memory || { say 'ERROR: cannot read valid host memory counters'; exit 1; }
-if [ "$RECLAIM_SWAP" = 1 ] && [ "$swap_total" -gt 0 ] && [ "$swap_free" -lt $(( swap_total / 5 )) ]; then
+if [ "$RECLAIM_SWAP" = 1 ] && swap_exhausted; then
     helper=/usr/local/sbin/pixelelated-reclaim-swap
     if [ ! -x "$helper" ]; then
         say '  RECLAIM UNAVAILABLE: install the reviewed tools/host-maintenance helper first.'
@@ -90,7 +96,7 @@ if [ "$swap_total" -eq 0 ]; then
     say '    The guarded helper only recycles an already-active /swap.img; it cannot recover this state.'
     verdict=1
 fi
-if [ "$swap_total" -gt 0 ] && [ "$swap_free" -lt $(( swap_total / 5 )) ]; then
+if swap_exhausted; then
     say "  SWAP EXHAUSTED: ${swap_free}MB of ${swap_total}MB free. There is no cushion;"
     say "    the next spike is an OOM kill rather than a slowdown. To reclaim it:"
     say '      tools/build-preflight --reclaim-swap'
@@ -98,25 +104,42 @@ if [ "$swap_total" -gt 0 ] && [ "$swap_free" -lt $(( swap_total / 5 )) ]; then
     verdict=1
 fi
 
+# pgrep exits 1 for no match; 2 and above mean the census itself failed.
 guests=$(pgrep -f 'qemu-system-x86_64' 2>/dev/null)
-if [ -n "$guests" ]; then
-    say "  QA guests running:"
-    for p in $guests; do
-        rss=$(( $(ps -o rss= -p "$p" 2>/dev/null || echo 0) / 1024 ))
-        [ "$rss" -lt 64 ] && continue
-        mon=$(tr '\0' ' ' < "/proc/$p/cmdline" 2>/dev/null | grep -oE 'monitor-[a-z]\.sock' | head -1)
-        up=$(ps -o etime= -p "$p" 2>/dev/null | tr -d ' ')
-        say "      pid $p  ${mon:-unknown}  ${rss}MB  up ${up}"
-        if [ "$STOP_VMS" = 1 ]; then
-            kill "$p" 2>/dev/null && say "        stopped"
-        fi
+census=$?
+if [ "$census" -ge 2 ]; then
+    say 'ERROR: cannot census guests'
+    exit 1
+fi
+listed=0
+for p in $guests; do
+    rss=$(( $(ps -o rss= -p "$p" 2>/dev/null || echo 0) / 1024 ))
+    [ "$rss" -lt 64 ] && continue
+    mapfile -d '' -t argv < "/proc/$p/cmdline" 2>/dev/null || argv=()
+    mon='' pidfile='' disk=''
+    for ((i = 0; i < ${#argv[@]}; i++)); do
+        case "${argv[$i]}" in
+            -monitor) mon=${argv[$((i + 1))]:-} ;;
+            -pidfile) pidfile=${argv[$((i + 1))]:-} ;;
+            *file=*.qcow2*) [ -n "$disk" ] || disk=$(sed -E 's/.*file=([^,]*).*/\1/' <<<"${argv[$i]}") ;;
+        esac
     done
-    if [ "$STOP_VMS" = 0 ]; then
-        say "    Each is ~2GB, and a build under pressure will kill them before it fails"
-        say "    itself -- one was lost that way on 2026-09-19. Stop the idle ones with"
-        say "    --stop-vms, or leave them knowingly."
-        verdict=1
+    up=$(ps -o etime= -p "$p" 2>/dev/null | tr -d ' ')
+    [ "$listed" = 1 ] || say "  QA guests running:"
+    listed=1
+    say "      pid $p  ${mon:-monitor unknown}  ${rss}MB  up ${up}"
+    if [ -n "$pidfile" ] && [ -n "$disk" ]; then
+        say "        its owner stops it with: tools/vm-stop $pidfile $disk"
+    else
+        say "        no -pidfile and disk on its command line; its owner stops it by its own means"
     fi
+done
+if [ "$listed" = 1 ]; then
+    [ "$STOP_VMS" = 0 ] || say "    --stop-vms: this flag no longer stops anything; stop a guest you own with the command beside it."
+    say "    Each is ~2GB, and a build under pressure will kill them before it fails"
+    say "    itself -- one was lost that way on 2026-09-19. A guest may be another lane's:"
+    say "    stop only your own, with tools/vm-stop, and wait for it to exit."
+    verdict=1
 fi
 
 say ""
