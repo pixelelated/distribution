@@ -7,6 +7,12 @@ from pathlib import Path
 import subprocess
 import tempfile
 
+
+def require(ok, why):
+    """An assert that survives python -O (#975): a refusal is a raise, not an assert statement."""
+    if not ok:
+        raise AssertionError(why)
+
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--rehearsal', type=Path,
                     default=Path(__file__).with_name('vm-upgrade-rehearsal'))
@@ -79,9 +85,9 @@ ssha() {
             ['bash', '-c', shell, 'fixture', str(p), finish, state, expected, transport],
             capture_output=True, text=True, timeout=15)
         observed_polls = int((p / 'polls').read_text())
-        assert (result.returncode, observed_polls) == (code, polls), (
-            case, result.returncode, observed_polls, result.stdout, result.stderr)
-        assert not result.stderr, (case, result.stderr)
-        assert ('PASS storage ready' if code == 0 else 'FAIL storage readiness') in result.stdout, (case, result.stdout)
+        require((result.returncode, observed_polls) == (code, polls), (
+            case, result.returncode, observed_polls, result.stdout, result.stderr))
+        require(not result.stderr, (case, result.stderr))
+        require(('PASS storage ready' if code == 0 else 'FAIL storage readiness') in result.stdout, (case, result.stdout))
         print(f'PASS {case}: return {code}, polls {polls}', flush=True)
 print('PASS 7 storage-readiness controls; actual guest query, synthetic states, no boot claim')

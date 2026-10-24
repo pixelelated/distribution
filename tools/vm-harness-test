@@ -1625,6 +1625,16 @@ def optimize_vm_pair_test(c):
 
 
 
+@case
+def optimize_vm_upgrade_readiness_test(c):
+    tool = c.tool('vm-upgrade-readiness-test')
+    broken = c.dir / 'rehearsal-broken'
+    broken.write_text('#!/bin/bash\nwait_for_storage() {\n  return 0\n}\n')
+    rc, last = optimized(c, [sys.executable, str(tool), '--rehearsal', str(broken)], timeout=60)
+    return rc != 0, f'rc {rc}, {last} (want non-zero against a wait that always says ready)'
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')
