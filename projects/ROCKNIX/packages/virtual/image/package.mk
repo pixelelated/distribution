@@ -106,8 +106,13 @@ fi
 [ "${BATTERYPLUS_SUPPORT}" = "yes" ] && PKG_DEPENDS_TARGET+=" batteryplus"
 
 # Entware support
-mkdir -p ${INSTALL}
-ln -sf /storage/.opt ${INSTALL}/opt
 PKG_DEPENDS_TARGET+=" entware"
 
 true
+
+post_install() {
+  # Entware's /opt lives on /storage. Made at install, not when the recipe is
+  # sourced (#852); -n replaces an existing link rather than linking inside it.
+  mkdir -p ${INSTALL}
+  ln -sfn /storage/.opt ${INSTALL}/opt
+}
