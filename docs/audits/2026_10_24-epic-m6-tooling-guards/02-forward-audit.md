@@ -19,7 +19,7 @@ Every finding is a lead until `04` § Finding Verification and § Second opinion
 | 7 | the coverage table, 31 rows, Q1 to Q7 answered | **done** | § Coverage below |
 | 8 | § The suites, each with command, exit, summary, *a FAIL would mean* | **done** | § The suites |
 | 9 | § The CI: runs, failing steps, 23 workflows, the secret inferred | **done** | § The CI |
-| 10 | no push beyond the lane's branch, no forbidden run, no credential line, no listed word | so far: one push, the lane's own (`5611a4fb62`) | `00`; the folder's scan at stage C |
+| 10 | no push beyond the lane's branch, no forbidden run, no credential line, no listed word, read as the guards' own scans (the coordinator's 17:44 ruling) | every push the lane's own branch; every commit passed the primary checkout's pre-commit; `guard_scan`'s patterns (`SECRET_PATTERNS`) over every file of the folder: **0 lines**; `forbidden-terms-check --stdin` over the folder: **0 hits** (`00`, stage C). The briefs stay in the folder as sent; criterion 10's literal grep counts their copies of the slice's own hooks (8 lines) | `00` § Stage C |
 | 11 | 04 Q6: the guard table and the tool-caller table | the evidence is here (§ Callers, § The suites, F-rows); the tables are `04`'s | `04` § Q6 |
 | 12 | 04 Q3: the fail-open hunt through the named readers | the evidence is here (F-01 to F-30); the table is `04`'s | `04` § Q3 |
 | 13 | 04 Q7: the personal-path diff entry by entry; three descriptions per guard | P2 (the diff); the description rows are `04`'s | `04` § Q7 |
@@ -287,7 +287,7 @@ The draft severities are this reader's, before `04` grades them. "Positive" name
 `fork-worktree:72,74`'s remediation hint names `/workspace/repos/rocknix/.githooks`, which **exists**: it is the M7 lane's legacy checkout, so following the hint would point this clone at another checkout's hooks. `renovation-inventory`'s default `--es` does not exist (it fails closed). *Draft: Low (Q1), deferred to #640.*
 - **Positive:** the tree; the paths tested with `test -e`.
 
-**F-33 — One of the two upstream release scripts (`generate-changelog.sh`) is two upstream commits behind; `generate-release-body.sh` is identical** (`76693a738d`, `71d8932b33`; stage A), **and nothing in this fork runs them.** *Draft: Low (Q4, Q6).* They are upstream-carried, and the merge of `upstream/next` is the build-engine area's.
+**F-33 — One of the two upstream release scripts (`generate-changelog.sh`) is two upstream commits behind (`76693a738d`, `71d8932b33`; stage A), `generate-release-body.sh` is identical, and nothing in this fork runs either.** *Draft: Low (Q4, Q6).* They are upstream-carried, and the merge of `upstream/next` is the build-engine area's.
 - **Positive:** stage A's provenance; the callers table.
 
 **F-34 — `pre-push:337` is `if true; then`, a conditional with no condition; its header still teaches `../rocknix.worktrees/` (F-32).** *Draft: Low. Q7.*

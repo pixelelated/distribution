@@ -41,14 +41,11 @@
 
 ## Current focus
 
-**Stage C done; stage D (the punch list, the bugs, the audit issue) next.**
-- 44 findings, graded in `04` § Second opinion: 6 High, 25 Medium, 13 Low; the map is `.qa-scratch/t10/grades.json` (gitignored; the counts are in `04`).
-- **Ruled by the coordinator at 16:57:**
-  - F-01 and F-11 are `bug`s with constructed positives from a stand-in list and a throwaway repository;
-  - F-04 and F-07 are `bug`s (the 16:33 ruling);
-  - F-16 and F-30 are recorded leads;
-  - `pkgcheck` is #928's.
-- Stage D: write `05` with its YAML index, run the pre-issue lint (it fails today only on `05`'s absence), file the bugs and the audit issue, then pause for the coordinator's stream briefs.
+**The stage-D pause (2026-10-24, after 17:44 UTC).**
+- 29 bugs (#929-#957) and the audit issue #958, 44 checkboxes, a sub-issue of #657.
+- `05` holds 44 items (6 High, 25 Medium, 13 Low); `lint --phase pre-issue` prints PASS.
+- Waiting for the coordinator's stage-E stream briefs. A stream on a hook proves itself with a new `hooks-test` case that fails on the unfixed hook; one on a tool with its fixture.
+- Nothing in `.githooks/`, `.github/` or `tools/` has been edited on this branch (criterion 15).
 
 ## Next commands
 
