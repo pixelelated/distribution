@@ -79,3 +79,4 @@
   - **F-06** is routed to T5 (#652) with this lane's evidence; this lane's side is the recipe comment and the two constructed cases.
   - Nothing owed.
 - Commits `772e116dca`, `8dbe5762bc`, pushed.
+- 03:19 The coordinator: **F-08/F-09 verified and filed as #802** (the maintainer and the M7 lane told; no device run asked). F-08's row references #802; the fix comes with the base merge as `c9820d0e89` adapted to `DISTRONAME`; nothing on this branch. `gh issue view 802` read back.

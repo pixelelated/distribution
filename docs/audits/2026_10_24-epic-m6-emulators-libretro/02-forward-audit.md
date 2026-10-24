@@ -157,7 +157,7 @@ The README comment in `makeinstall_target` (`virtual/emulators/package.mk` 150 t
 
 **Upstream found and fixed the same defect:** `c9820d0e89` (`upstream/next`, Jacob Cook, 2026-10-04, *"pcsx_rearmed-lr: install the 32-bit core where runemu loads it"*) adds exactly the missing copy. It is one of Q4 (a)'s 14, not on `next`.
 
-**Can this be done on the VM?** No. The guest is x86_64, has no 32-bit RetroArch and no `pcsx_rearmed32` (`psx` there is F-05's). The load failure itself is a device fact. What an agent can verify on the host is the artifact: the file's presence in an arm-enabled image's `usr/lib/libretro`, read from the install tree or the `SYSTEM` squashfs. That is the criterion the bug carries. The verdict here rests on that artifact plus the code path, and the load failure is a lead until a device shows it. **Severity: High** (the default core of a common system on the fork's main handheld). It goes to a `bug` issue at stage D, and to #650 now because the M7 lane is testing an H700 image.
+**Can this be done on the VM?** No. The guest is x86_64, has no 32-bit RetroArch and no `pcsx_rearmed32` (`psx` there is F-05's). The load failure itself is a device fact. What an agent can verify on the host is the artifact: the file's presence in an arm-enabled image's `usr/lib/libretro`, read from the install tree or the `SYSTEM` squashfs. That is the criterion the bug carries. The verdict here rests on that artifact plus the code path, and the load failure is a lead until a device shows it. **Severity: High** (the default core of a common system on the fork's main handheld). It goes to a `bug` issue at stage D, and to #650 now because the M7 lane is testing an H700 image. **Tracked as #802**, filed by the coordinator on 2026-10-24 after verifying F-08 and F-09; the maintainer and the M7 lane were told, and no device run was asked. The fix comes with the base merge as `c9820d0e89` adapted to `${DISTRONAME}`; nothing on this branch. The punch item references #802 rather than filing a second bug.
 
 `Already written:` nothing is written by the defect; a player who fetched `pcsx_rearmed32` into `/storage/cores` keeps that copy, which the overlay puts above the image's once the image carries one. That is read both ways, nothing to migrate.
 
@@ -211,3 +211,58 @@ On a fork build with `ENABLE_32BIT=true` both resolve to `build.ROCKNIX-<DEVICE>
 ### F-10 (Q2): `0004-drm-resolution.patch` applies to the pin only with fuzz
 
 At the pin, `patch -p1 --fuzz=0 --dry-run` refuses `0004-drm-resolution.patch` and `git apply --check` refuses it. The build's `patch -p1` (default fuzz 2) applies it, logging `with fuzz`. A patch that holds only by fuzz is the shape `150a4e1402` (2026-09-28, *"widget patches follow the drawn face and apply at fuzz 0"*) cured for the fork's widget patches: fuzz lets a patch land on the wrong lines when the context moves. Upstream-carried (ROCKNIX's patch); fix shape: refresh its context against the pin so it applies at fuzz 0, the same content. Proof: `q4c-patches.sh` at the pin reads `fuzz0=ok` for it. The build's own proof is an image, so `fix-pending-image`.
+
+### `emulators/libretro/retroarch/package.mk` (153 lines, fork-own through `43d0bc3bf4`; read whole at `d606301784`)
+
+History on the slice since the base: `43d0bc3bf4` (2026-10-07, the ARM compatibility roots renamed to `build.${DISTRONAME}`), plus two upstream merges. `upstream/next`'s copy differs only by that rename (F-09). Read line by line:
+
+- **1 to 2, the header:** one line, `Copyright (C) 2024-present ROCKNIX`, the same as upstream's. No JELOS or LibreELEC line, and none is owed unless the recipe came from one. `git log --follow` reaches `9f1fab30f6` (2025-07-13, *"projects: add modifications for ROCKNIX"*, 14 commits in all) and no earlier. Q2 n/a.
+- **10:** `libass` appears twice in `PKG_DEPENDS_TARGET`. Q7, cosmetic (upstream's).
+- **17 to 24:** `arm) true` / `*) PKG_DEPENDS_TARGET+=" empty"`. `empty` is `projects/ROCKNIX/packages/tools/empty`, a placeholder dependency (upstream's idiom). Q7: a reader cannot tell why from the recipe.
+- **26:** `batteryplus` only when `BATTERYPLUS_SUPPORT=yes` (Q4 (c) applies it last, as the build does).
+- **66 to 76:** GLES only when both `OPENGLES_SUPPORT` and `PREFER_GLES` are `yes`, else full GL. GENERIC_X64 and SM8550 set `PREFER_GLES=no`, H700, RK3326 and RK3566 `yes` (their `options`).
+- **92 to 98, Q1 (the brief's own lead):** three `make ...` followed by `[ $? -eq 0 ] && echo "(... ok)" || { echo "(... failed)" ; exit 1 ; }`. The build runs under `set -e` (`config/path:4`), so a failing `make` has already ended the function before the test: the test is dead in both branches. Fix shape: drop the three status lines (F-13).
+- **106 to 114, F-11 below.**
+- **117:** upstream's own `retroarch.cfg` goes to `/etc/retroarch.cfg`. `git grep -n -F '/etc/retroarch.cfg' -- projects packages distributions` (patches excluded) prints nothing, so no script of the tree reads it. RetroArch's own fallback reads it when started with no `--config`, and `runemu.sh` always passes one (302). So it is not reached on the launch path, and its one reader is a hand-started `retroarch`. Q6: kept as RetroArch's default reference; a row, no fix.
+- **129 to 134:** a device with no `sources/<DEVICE>/` fails the build with `Configure retroarch for ${DEVICE}`, which is a guard that fails closed and says why. Q2 PASS.
+- **137 to 138:** `.overlay` markers so the `tmp-*.mount` overlays have a lower directory. **147 to 153:** five mounts enabled (Q5: boot cost read with the units, group 1).
+
+### F-11 (Q3): `retroarch32` is skipped silently whenever the ARM root's install directory is not exactly one
+
+`package.mk` 106 to 112: on aarch64 the recipe installs `/usr/bin/retroarch32` only `if [ -f ${ROOT}/build.${DISTRONAME}-${DEVICE}.arm/install_pkg/retroarch-*/usr/bin/retroarch ]`. Two cases make that test false or an error (`[: too many arguments`), and the build then goes on without the 32-bit RetroArch and without saying so: no arm root at all (an aarch64 build run without its arm half), and two `retroarch-<pin>` install directories left in one root after a pin bump. Every 32-bit core (`pcsx_rearmed32`, `gpsp`, `desmume`, `runemu.sh` 268 to 279) then fails at launch, the same shape as F-08. **Today:** the glob also matches `retroarch-assets-*`, but the full path matches only the real binary. All four live arm roots on the host hold one `retroarch-bdba046fa6` install directory, and the H700 and SM8550 images carry `usr/bin/retroarch32` (14,159,572 and 14,683,872 bytes). So it is latent. Fix shape: on aarch64 with `ENABLE_32BIT=true`, require exactly one match and `exit 1` naming the path otherwise (the 129 to 134 guard's shape). Proof: a constructed arm root with zero and with two install directories, through the recipe's function in a sandbox (`fix-host-regen`'s method). Severity Medium (latent; its failure is silent and costs every 32-bit core).
+
+### The per-device `retroarch.cfg` (fifteen sets; GENERIC_X64's fork-own, read whole for Q2, Q5, Q6, Q7)
+
+**Keys the pinned RetroArch does not read (Q6, Q1).** The test, over every `.c`/`.h` of the pin's unpack in the M7 GENERIC_X64 root (`build/retroarch-bdba046fa6/`): a key is not read when it does not occur as a word anywhere in that source. Generated families are excluded (`input_*_btn|_axis|_mbtn`, `input_device_pN`, `input_libretro_device_pN`, `network_remote_enable_user_pN`, `input_playerN_*`), and a hotkey `input_<bind>` counts as read when `<bind>` occurs (RetroArch stringifies the bind names). The output is `q6-retroarch-cfg-keys-not-read.txt`. **GENERIC_X64: 24 of 855 keys; H700, RK3326, RK3566: 24 each; SM8550: 25; AMD64: 25.** GENERIC_X64's list:
+
+- `check_firmware_before_loading`, `content_history_dir`, `content_show_add`, `cursor_directory`
+- `emuelec_exit_to_kodi`, `video_oga_vertical_enable`: keys of the forks this tree descends from, never upstream RetroArch's
+- `frame_time_counter_reset_after_fastforwarding`, `_after_load_state`, `_after_save_state`
+- `input_duty_cycle`, `input_turbo_default_button`: the turbo keys, renamed
+- `input_movie_record_toggle`, `input_send_debug_info`
+- `menu_show_video_layout`, `video_layout_enable`, `video_layout_path`, `video_layout_selected_view`: the video-layout feature, retired
+- `netplay_stateless_mode`, `playlist_cores`, `playlist_entry_remove`, `resampler_directory`
+- `video_hdr_display_contrast`, `video_hdr_max_nits`, `video_scale_integer_overscale`
+
+**This is a lower bound, not a list of every dead key.** `core_updater_buildbot_url` occurs as a word in the source and is still not read as a setting. `9fd73da845` (#307 PL-076) established that on 2026-09-28 by reading `configuration.c` 1683 to 1684 and dropped it from GENERIC_X64 alone. **The other fourteen profiles still carry it pointing at `.../linux/armhf/latest/`**, including the aarch64 H700, RK3326, RK3566 and SM8550 files (`grep core_updater_buildbot_url sources/*/retroarch.cfg`), which F-12 carries.
+
+### F-12 (Q6, Q1): every shipped `retroarch.cfg` carries 24 or 25 keys the pinned RetroArch never reads, and the armhf core-updater URL on fourteen
+
+The list above. RetroArch ignores an unknown key, so nothing breaks. What it costs:
+
+- **A reader is misled about what is configured.** `content_history_dir` is blindspot 65's case: RetroArch 1.22 writes its history under `playlists/builtin/` (#306), and this key reads as if it set the place.
+- **The renamed keys' values reach nothing.** The turbo pair and `video_hdr_*` probably have successor keys that sit at their defaults; whether the profiles' intent needs carrying to them is read key by key at fix time, from the pin's `configuration.c`.
+
+**`content_history_dir` and `core_updater_buildbot_url` on GENERIC_X64 are the fork's lines**, and the rest are upstream's in all fifteen. Fix shape, the class #307 PL-076 set:
+
+- remove the not-read keys from the GENERIC_X64 profile now;
+- for the fourteen upstream profiles, remove them too, the same lines in every file, which D-UI-079 allows because nothing a player sees changes (RetroArch ignores them today);
+- name each renamed key's successor and its current value in the commit.
+
+Proof: the key test above reads 0 on the edited files, and a guest launch reads the same `retroarch.cfg` behaviour (`fix-guest-copy`). `Already written:` each device copies the profile to `/storage/.config/retroarch/retroarch.cfg` once (9fd73da845's own note), so existing devices keep the dead lines, harmlessly. Read both, nothing to migrate. Q1 / Q6, Low (`Renovation`).
+
+**Q7, the fifteen files as copies:** compared by key and value (`python3 -I`, a dict per file), GENERIC_X64 against H700 differs in 89 keys (55 only in GENERIC_X64, 17 only in H700, 17 with different values). Against RK3326 and RK3566 it differs in 87; against SM8550 in 246. H700 against the other RK families differs in 20 to 33 lines; SM4450 equals SM8250 and SM8550 (0 changed lines) and differs from SM8650/SM8750 by 2. **So at least four of the fifteen are byte-for-byte copies of another** (SM4450, SM8250, SM8550, and SM8650 = SM8750 up to 2 lines), with no base file they derive from: a "diff against a base in disguise", the brief's Q7 question. Not changed here; a Q7 row for the coordinator (the files are upstream's, and folding them is a recipe change across devices the fork does not build).
+
+### F-13 (Q1): RetroArch's `make_target` carries three status checks that `set -e` has made dead
+
+`emulators/libretro/retroarch/package.mk` 92 to 98: each of the three `make` calls (RetroArch, `gfx/video_filters`, `libretro-common/audio/dsp_filters`) is followed by `[ $? -eq 0 ] && echo "(... ok)" || { echo "(... failed)" ; exit 1 ; }`. The recipe's functions run under `set -e` (`config/path:4`). A failing `make` therefore ends `make_target` before the next line, and a succeeding one prints a status the build log already carries. Fix shape: drop the three lines, behaviour unchanged. Proof: `pkgcheck retroarch` rc 0; the build log of the next image shows the three makes; `fix-pending-image`. Q1, Low (`Renovation`). Upstream's lines (#585 candidate).
