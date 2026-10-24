@@ -10,9 +10,14 @@
 #   tools/release-catalog --check        # exit 1 when the page is stale (serval only:
 #                                        #   the artifacts live outside the repo)
 #   tools/release-catalog                # print the table
+#   tools/release-catalog --unrecorded   # list the kept folders that have no RECORD.txt
+#
+# Every mode counts the folders without a RECORD.txt, and exits 2 when the
+# artifacts directory is missing or holds no record at all: a catalog of 0
+# cuts is an unmounted volume, not a history (#954).
 #
 # Reads /workspace/artifacts/rocknix-images/*/RECORD.txt (ARTIFACTS overrides).
-# A RECORD.txt is `KEY<spaces>value` lines with continuation lines indented;
+# A RECORD.txt is `KEY<space(s)>value` lines with continuation lines indented;
 # the keys this reads: BUILD_ID, Built, Replaces, Delta, Proof, Device, Files,
 # Superseded. The standing device facts are the hand-kept page beside the
 # catalog, docs/releases/device-facts.md, which this tool does not write.
@@ -33,10 +38,10 @@ def parse(path):
     key = None
     for line in open(path, encoding='utf-8', errors='replace'):
         line = line.rstrip('\n')
-        if not rec['title'] and not key:
-            rec['title'] = line.strip()
+        m = re.match(r'^([A-Za-z_]+)[ \t]+(.*)$', line)   # one space or more (#954: BUILD_ID with one read as -)
+        if not rec['title'] and not key and not (m and m.group(1) in KEYS):
+            rec['title'] = line.strip()   # a record may open with its BUILD_ID and no title (#954)
             continue
-        m = re.match(r'^([A-Za-z_]+)\s{2,}(.*)$', line)
         if m and m.group(1) in KEYS:
             key = m.group(1)
             rec[key] = m.group(2).strip()
@@ -83,7 +88,21 @@ def render(recs):
 
 
 def main():
+    if not os.path.isdir(ARTIFACTS):
+        print('release-catalog: no artifacts directory at %s (ARTIFACTS overrides)' % ARTIFACTS, file=sys.stderr)
+        return 2
     paths = glob.glob(os.path.join(ARTIFACTS, '*', 'RECORD.txt'))
+    if not paths:
+        print('release-catalog: %s holds no */RECORD.txt; nothing written' % ARTIFACTS, file=sys.stderr)
+        return 2
+    unrecorded = sorted(d for d in os.listdir(ARTIFACTS)
+                        if os.path.isdir(os.path.join(ARTIFACTS, d)) and not os.path.exists(os.path.join(ARTIFACTS, d, 'RECORD.txt')))
+    if '--unrecorded' in sys.argv:
+        for d in unrecorded:
+            print(d)
+        print('release-catalog: %d folder(s) without a RECORD.txt' % len(unrecorded))
+        return 0
+    print('release-catalog: %d folder(s) without a RECORD.txt under %s (--unrecorded lists them)' % (len(unrecorded), ARTIFACTS), file=sys.stderr)
     recs = [parse(p) for p in paths]
     recs.sort(key=lambda r: (r.get('Built', ''), r['folder']), reverse=True)
     text = render(recs)
