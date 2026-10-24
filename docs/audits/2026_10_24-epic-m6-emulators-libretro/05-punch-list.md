@@ -496,6 +496,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing stored: a crafted title would have run once per unlock; no state to migrate
 - **Acceptance:** On the guest, an award through the loopback provider of an achievement titled with $(touch /tmp/t3-hook) leaves /tmp/t3-hook absent, and a stub achievements hook records the title as one argument ($# = 3).
 - **Tracked work:** #825
+- **Disposition note:** S0: fixed at `fac139dd43` (merged `faac89ffc0`); the hook's half proved on the guest (#825 criterion 2), RetroArch's half is fix-pending-image until the first image built with it (#825 criterion 1)
 
 ## PL-033: `99-ninteno-wii-remote.rules` is a misspelt, byte-identical copy of `99-nintendo-wii-remote.rules`
 
@@ -546,7 +547,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-029 | Open | routed to the coordinator; deferred to a named issue at Phase 7 |
 | PL-030 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-031 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-032 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-032 | Deferred | #825: S0: fixed at `fac139dd43` (merged `faac89ffc0`); the hook's half proved on the guest (#825 criterion 2), RetroArch's half is fix-pending-image until the first image built with it (#825 criterion 1) |
 | PL-033 | Open | awaiting the coordinator's stream briefs (stage E) |
 
 ## Machine-readable index
@@ -794,7 +795,8 @@ punch_index:
   source_finding: "G-03"
   owner_area: "RetroArch's patches: the achievement hook"
   tracked: "#825"
-  outcome: open
+  state: fix-pending-image
+  outcome: deferred
 - id: PL-033
   severity: Low
   category: Renovation

@@ -299,7 +299,7 @@ ITEMS = [
   vm="Yes: on the guest with tools/ra-ui-test's loopback provider, an award of an achievement whose title carries a $( ) command, then the command's marker file read",
   aw="nothing stored: a crafted title would have run once per unlock; no state to migrate",
   acc="On the guest, an award through the loopback provider of an achievement titled with $(touch /tmp/t3-hook) leaves /tmp/t3-hook absent, and a stub achievements hook records the title as one argument ($# = 3).",
-  tracked="#825", disp="open", note=""),
+  tracked="#825", disp="deferred", state="fix-pending-image", note="S0: fixed at `fac139dd43` (merged `faac89ffc0`); the hook's half proved on the guest (#825 criterion 2), RetroArch's half is fix-pending-image until the first image built with it (#825 criterion 1)"),
  dict(id="PL-033", sev="Low", cat="Renovation", q="Q7", src="G-04", area="RetroArch's udev rules",
   title="`99-ninteno-wii-remote.rules` is a misspelt, byte-identical copy of `99-nintendo-wii-remote.rules`",
   what="Delete the misspelt copy.",
@@ -352,6 +352,7 @@ for i in ITEMS:
     P(f"- id: {i['id']}\n  severity: {i['sev']}\n  category: {i['cat']}\n  question: {i['q']}\n  source_finding: \"{i['src']}\"\n  owner_area: \"{i['area']}\"")
     if i.get("tracked"): P(f"  tracked: \"{i['tracked']}\"")
     if i.get("removal"): P("  removal: yes")
+    if i.get("state"): P(f"  state: {i['state']}")
     P(f"  outcome: {i['disp']}")
 P("```")
 sys.stdout.write("\n".join(out) + "\n")
