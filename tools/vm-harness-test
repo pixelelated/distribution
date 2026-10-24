@@ -1661,6 +1661,32 @@ def optimize_raofflineproxy_consent_test(c):
 
 
 
+@case
+def consent_records_before_judging(c):
+    # G-67: a request the collector's checks reject is still recorded, with what failed.
+    import importlib.machinery, importlib.util
+    path = c.tool('raofflineproxy-consent-test')
+    loader = importlib.machinery.SourceFileLoader('vmht_consent', str(path))
+    spec = importlib.util.spec_from_loader(loader.name, loader)
+    mod = importlib.util.module_from_spec(spec)
+    import sys as _sys
+    argv, _sys.argv = _sys.argv, [str(path), '--help']
+    try:
+        try:
+            loader.exec_module(mod)
+        except SystemExit:
+            pass
+    finally:
+        _sys.argv = argv
+    judge = getattr(mod, 'judge', None)
+    if judge is None:
+        return False, 'no judge(): the collector asserts inside its handler, before the event is recorded'
+    event = {}
+    problem = judge('POST', '/usage', b'{"counters": {"requests_emulator": 3}}', event)
+    return bool(problem) and event.get('payload_fields') == ['counters'], f'problem {problem!r}, event {event} (want a problem returned and the event filled, not a raise)'
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')

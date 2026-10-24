@@ -131,6 +131,29 @@ CASES = {
 }
 
 
+
+def judge(command, path, body, event):
+    """The collector's checks on one request, made after its event is recorded
+    (G-67): what failed, as a sentence, or None. Never raises."""
+    try:
+        if path == '/usage' and command == 'POST':
+            payload = json.loads(body)
+            event['payload_fields'] = sorted(payload)
+            if payload['counters']['requests_emulator'] != 8:
+                return 'POST /usage: requests_emulator is %r, not 8' % payload['counters']['requests_emulator']
+            if b'QAConsentOnly' in body or b'qa-only' in body:
+                return 'POST /usage: the payload carries a QA-only marker'
+        elif path == '/upload' and command == 'PUT':
+            with zipfile.ZipFile(io.BytesIO(body)) as archive:
+                event['archive_members'] = sorted(archive.namelist())
+                if 'storage_corruption.txt' not in archive.namelist():
+                    return 'PUT /upload: no storage_corruption.txt in the archive'
+                if b'synthetic QA incident' not in archive.read('storage_corruption.txt'):
+                    return 'PUT /upload: storage_corruption.txt lacks the synthetic incident'
+    except (ValueError, KeyError, TypeError, zipfile.BadZipFile) as error:
+        return '%s %s: the body could not be read (%s: %s)' % (command, path, type(error).__name__, error)
+    return None
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True)
@@ -175,20 +198,15 @@ def main():
             event = {'method': self.command, 'path': self.path, 'bytes': len(body),
                      'sha256': hashlib.sha256(body).hexdigest()}
             response, code = b'{}', 200
-            if self.path == '/usage' and self.command == 'POST':
-                payload = json.loads(body)
-                assert payload['counters']['requests_emulator'] == 8
-                assert b'QAConsentOnly' not in body and b'qa-only' not in body
-                event['payload_fields'] = sorted(payload)
-            elif self.path == '/request-upload' and self.command == 'POST':
+            if self.path == '/request-upload' and self.command == 'POST':
                 response = json.dumps({'id': 'qa-upload', 'uploadUrl': endpoint + '/upload'}).encode()
-            elif self.path == '/upload' and self.command == 'PUT':
-                with zipfile.ZipFile(io.BytesIO(body)) as archive:
-                    event['archive_members'] = sorted(archive.namelist())
-                    assert 'storage_corruption.txt' in archive.namelist()
-                    assert b'synthetic QA incident' in archive.read('storage_corruption.txt')
-            else:
+            elif (self.command, self.path) not in (('POST', '/usage'), ('PUT', '/upload')):
                 code = 404
+            # The event is recorded, then judged (G-67): a check that raised in
+            # this handler thread used to lose the event it was about.
+            problem = judge(self.command, self.path, body, event)
+            if problem:
+                event['problem'] = problem
             events.append(event)
             self.send_response(code)
             self.send_header('Content-Length', str(len(response)))
@@ -217,6 +235,8 @@ def main():
                 expected = [] if replay else ([('POST', '/usage')] if usage else []) + (
                     [('POST', '/request-upload'), ('PUT', '/upload')] if logs else [])
                 assert observed == expected, (name, replay, observed, expected)
+                problems = [e['problem'] for e in events[before:] if e.get('problem')]
+                assert not problems, (name, replay, problems)
                 results.append({'case': name, 'replay': replay, 'requests': len(observed)})
                 save(root / 'collector-events.json', events)
                 print('PASS', name, 'restart' if replay else 'first call', len(observed), 'HTTP requests', flush=True)
