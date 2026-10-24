@@ -363,11 +363,17 @@ def provider_failure(f, script, fault_rc=5, features=False, argv=('--yes',)):
     before = (f.path/'cloud/ROCKNIX/Saves/gb/A.srm').read_bytes()
     r = f.run(script, *argv)
     require((f.path/'ctl/fault-fired').exists(), 'fault did not reach production call')
-    # A restore whose discovery failed must say so (#1004). A backup whose layout read failed goes on into
-    # the configured folder and reports its own copy (rc 0 by design: the read was detection, not the
-    # transfer); its case is that the failure did not become absence, asserted below.
+    # A restore whose discovery failed must say so (#1004). A backup whose layout read failed goes on
+    # into the configured folder -- the historical contract the coordinator ruled on #661 (22:08 UTC;
+    # layout detection is retired by D-CLOUD-175): rc 0, COMPLETED, and every copy into the configured
+    # saves folder, never a derived one.
     if script == 'cloud_restore':
         require(r.returncode != 0, f'{script} swallowed the provider failure: rc {r.returncode}')
+    else:
+        require(r.returncode == 0 and 'COMPLETED' in r.stdout, f'{script} after a failed layout read: rc {r.returncode}, no COMPLETED')
+        copies=[l.split() for l in (f.path/'ctl/argv').read_text().splitlines() if l.startswith('copy ')]
+        targets={w for c in copies for w in c if w.startswith('qa:')}
+        require(copies and targets == {'qa:'+OLD+'/Saves/'}, f'{script} copied into {sorted(targets)}, not the configured {OLD}/Saves/')
     require('>>> offer create-saves-folder' not in r.stdout, f'failed listing became absence in {script}')
     require((f.path/'cloud/ROCKNIX/Saves/gb/A.srm').read_bytes() == before, 'provider failure changed sentinel')
 
