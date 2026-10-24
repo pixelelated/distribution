@@ -34,7 +34,23 @@
    and write stage A (the hashes, the counts, the upstream ref, the host
    file's state) before reading a line of the slice.
 
-## Current focus (06:12 UTC update)
+## Current focus (07:04 UTC update)
+
+**Stages E to H are done. The lane waits for the coordinator to close #826, then three last steps.**
+
+- **The streams:** S0 to S6 landed, each accepted on #650.
+  - S0 is `fix/m6-825-cheevos-hook-no-shell` at `fac139dd43`, merged `--no-ff` here as `faac89ffc0`.
+  - `fixed-at: 3c47325fb2` and `reviewed-at: d606301784` are in #650's body.
+- **#826:** 34 items, all with a Phase 7 outcome, all ticked. **Do not close it: the coordinator does.**
+- **Bugs:** #813 to #825 and #841, plus #838, #839 and #842 (the coordinator's). #823 and #841 are fully ticked, for the coordinator to close after the merge.
+- **The record:** the retro is posted (`docs/retros/2026-10-24-m6-emulators-libretro.md`), and so is the stage H hand-back with the fifteen criteria. The five checks exit 0. The full lint passes at `61e7cdae17`.
+- **When the coordinator prompts that #826 is closed:**
+  1. write `docs/audits/2026_10_24-epic-m6-emulators-libretro/audit-completion.json` (`ceremonies.md`: closed and completed tracker readback with its verified timestamp, hash-binding `04`, `05` and the tracker receipts);
+  2. run `tools/ceremony-check` without `--gate`, and the full lint, and post `PASS` on #650;
+  3. update this pointer; idle.
+- **Every time written** in a log is read from `date -u` or a file's mtime (friction log, 06:22).
+
+## Earlier focus (06:12 UTC update)
 
 **Stage D done. The lane is PAUSED for the coordinator's stream briefs (stage E).**
 
