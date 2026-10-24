@@ -254,3 +254,24 @@ PROOF: 11:32:25 UTC (s2-fixtures-WORKTREE.out's mtime; the 017d8f921d run's at 1
 GUEST-PROOF: 11:35:39 UTC (s2-guest.out's mtime) -- S2-G1, the kill cases through runemu.sh with input_sense's killall ${TO_KILL}. The image's scripts: DuckStation kill data "-9 AppRun.wrapped", killall rc 1, AppRun ALIVE; OpenBOR no kill data; hatarisa exit 127 ("No such file"). The fixed scripts: DuckStation "-9 duckstation-qt" rc 0, ended; OpenBOR "-9 OpenBOR" rc 0, ended; hatarisa started on EmuTOS, "-9 hatarisa" rc 0, ended; /workspace/artifacts/m6-t30-20261024/s2-guest.sh, /workspace/artifacts/m6-t30-20261024/s2-guest.out, /workspace/artifacts/m6-t30-20261024/t30/s2/
 GUEST-PROOF: 11:36:35 UTC (s2-g6.out's mtime) -- S2-G2, G6 with a SUBSTITUTE named mupen64plus-simple (a renamed python3, comm "mupen64plus-sim"): the fixed kill line "-9 mupen64plus mupen64plus-simple" ended it; the image's "-9 mupen64plus" left it ALIVE; /workspace/artifacts/m6-t30-20261024/s2-g6.sh, /workspace/artifacts/m6-t30-20261024/s2-g6.out
 GUEST-PROOF: 11:36:30 UTC (s2-hatarisa.out's mtime) -- S2-G3, hatarisa's first frame through the cycle-2 harness, n=3: 0.39 / 0.42 / 0.36 s after the launch call, the frame EmuTOS drawing its banner (opened: hatarisa-fixed-2-first.png); hatarisa had exited by +6 s each time, so no kill was sent there; /workspace/artifacts/m6-t30-20261024/s2-hatarisa.out, /workspace/artifacts/m6-t30-20261024/s2-frames/
+
+## Stage E, S3 (11:48:28 UTC): achievements, the session and the credentials (PL-009, PL-010 #861, PL-021, PL-039 #870, PL-020 #866, PL-034, PL-037)
+
+- **The test first:** `tools/s3-fixtures.sh` (`a64fd36cf4`) runs ppsspp's, flycast's, ARMSX2's, SkyEmu's and DuckStation's achievements scripts whole, plus melonDS's `set_key` lines, under the image's bash, GNU grep and busybox. `get_setting` answers from a fixture file. Every sign-in value is synthetic, and the checks count lines rather than print values; `grep` for the synthetic values in both outputs gives 0. At `03141ed056`: 15 FAIL. Fixed: 15 PASS.
+  - **Tightened:** DuckStation's switch-unset case passed vacuously at the base. The unquoted test, with an empty value, compares `"!"` and `"1"`, which is false, so the script reached rc 1 through the token check instead. The case now requires the disabled branch's own log line.
+- **The changes:**
+  - ppsspp `619e20ced8`, flycast `fd23630624`, armsx2 `ff6f4d9c1e`: a disabled session is published when the switch is off or the token empty (dolphin's `publish_disabled` shape), and the achievements keys are written by `write_section`. That is an awk writer reading the values from the environment, ending the section at the next header, keeping every other key, and replacing the file by temp and rename.
+  - armsx2: its token writer is unchanged inside but wrapped as `write_token`, which is also used to clear the token.
+  - skyemu `d0f95815a1`: `write_private`, temp and rename, mode 0600.
+  - DuckStation `974866ef81`: the quoted test, and PL-037's comment above the disabling line (upstream's `0c3c2b6818`).
+  - melonDS `c4367e12a0`: `set_key` takes raw values and escapes `|`, `\` and `&` only for sed.
+  - aethersx2's script is not touched (PL-025, class 1).
+- **PL-034, decided by reading: confirmed.** Filed as **#887**, for the cloud area.
+  1. `start_melonds.sh:182` deletes `melonDS.toml` on every launch.
+  2. At the pin `906e9ebb27da`, `Config::Load()` then calls `LoadLegacy()`. (`src/frontend/qt_sdl/Config.cpp` was fetched into `/workspace/tmp/m6-t30/fetch/melonds-906e9eb/`, sha256 `3d766f24f684…`; the shared cache holds only `bdd85c9c`.)
+  3. The patch maps `RA_Password` and `RA_Token` into `RetroAchievements.Password` and `.Token` (`000-retro-achievements.patch:7520-7522`).
+  4. The patch's `main.cpp` calls `Config::Save()` every 60 s of a game with an achievements ID (patch line 9879), and `RASettingsDialog.cpp` calls it on accept (line 8851).
+  5. `backuptool:705-710`'s `RATOKENSETTINGS` lists `melonDS.ini` but not `melonDS.toml`.
+- **No guest cycle for S3,** as the brief names: these scripts' emulators are fixture-proved.
+
+PROOF: 11:47:27 UTC (s3-fixtures-WORKTREE.out's mtime; the 03141ed056 run's at 11:47:27) -- S3-F1, tools/s3-fixtures.sh at 03141ed056: 15 FAIL (each of the four scripts keeps the old token signed out and off; flycast's and ARMSX2's empty switch key falls through as enabled, DuckStation's too; the token file keeps its mode and is written twice; a token holding / & and a backslash is mangled; ARMSX2's first section lacks three keys; melonDS's set_key mangles | and \\ on both paths); WORKTREE: 15 PASS, 0 old-token lines and a disabled flag in each, ppsspp's token file mode 600 with one temp write, the bytes intact everywhere, the other keys and sections kept; /workspace/artifacts/m6-t30-20261024/s3-fixtures-03141ed056.out, /workspace/artifacts/m6-t30-20261024/s3-fixtures-WORKTREE.out

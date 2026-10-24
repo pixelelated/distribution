@@ -156,6 +156,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** the old token sits in each emulator's config on devices that hit the state; the fix rewrites it at the next launch (read both, overwrite on use)
 - **Acceptance:** The G9 fixture (switch 1, token empty, a synthetic old token pre-seeded) leaves 0 old-token lines and a disabled flag for each of the four scripts.
 - **Tracked work:** #861
+- **Disposition note:** S3: `619e20ced8`, `fd23630624`, `ff6f4d9c1e`, `d0f95815a1`; S3-F1: 0 old-token lines and a disabled flag in each of the four, switch off and token empty
 
 ## PL-010: Four achievements scripts test `[ ! ${enabled} = 1 ]` unquoted, so an empty key falls through as enabled
 
@@ -171,6 +172,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing beyond PL-009's
 - **Acceptance:** The four scripts with the switch key unset take their disabled branch (a fixture run, rc 1).
 - **Tracked work:** #861
+- **Disposition note:** S3: `fd23630624`, `ff6f4d9c1e`, `974866ef81`; S3-F1: the three take their disabled branch with the key unset; the fourth, cheevos_aethersx2.sh, goes with the base merge (PL-025, class 1), so #861's checkbox waits for it
 
 ## PL-011: Eleven comparisons are written as redirections (`>`, `<>`): each creates or truncates a file in /storage and tests only non-emptiness (one always fails)
 
@@ -326,6 +328,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** the password sits in melonDS.ini on SM8550 handhelds; backups blank it
 - **Acceptance:** A fixture of set_key with a value holding `|` and `\` writes it intact.
 - **Tracked work:** #866
+- **Disposition note:** S3: `c4367e12a0`; S3-F1: | \\ & and / byte for byte on both set_key paths; the password's presence in melonDS.ini stays #866's open half
 
 ## PL-021: PPSSPP's and SkyEmu's token files are written with the default umask, not by temp and rename (PPSSPP's twice)
 
@@ -341,6 +344,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** the existing file keeps its mode until the next write; the fix's write sets 0600
 - **Acceptance:** After the fixture, ppsspp_retroachievements.dat has mode 0600 and was written once.
 - **Tracked work:** #870
+- **Disposition note:** S3: `619e20ced8`, `d0f95815a1`; S3-F1: ppsspp's token file mode 600, one temp write; SkyEmu's mode 600
 
 ## PL-022: The AdvanceMame (cps1 to cps3) and moonlight rows have no script on any image
 
@@ -536,7 +540,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** No: melonDS is not on GENERIC_X64; the patch's config writer can be read, or a host build of melonDS run
 - **Already written:** if confirmed, settings backups that carried melonDS.toml hold the credentials
 - **Acceptance:** The patch's config writer is shown not to write RetroAchievements.Password or .Token to the TOML, or backuptool blanks them there.
-- **Disposition note:** PLAUSIBLE: the classification (bug, open item to test) is the coordinator's
+- **Disposition note:** S3: confirmed by reading (start_melonds.sh:182; Config.cpp at 906e9ebb; patch 7520-7522, 8851, 9879; backuptool:705-710); deferred to #887 (the cloud area)
 
 ## PL-035: The exit hotkey kills every standalone emulator with SIGKILL, so nothing an emulator writes at shutdown is written
 
@@ -582,6 +586,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Can this be done on the VM?** Yes: GENERIC_X64 ships duckstation-sa
 - **Already written:** nothing
 - **Acceptance:** start_duckstation.sh's line 131 carries its reason, or is removed with a guest proof of DuckStation's own sign-in.
+- **Disposition note:** S3: `974866ef81`: the comment above start_duckstation.sh's disabling line names upstream's 0c3c2b6818 and the guest proof its retirement needs; nothing removed
 
 ## PL-038: Xemu's, melonDS's and Dolphin's scripts overwrite or delete the player's settings on every launch
 
@@ -612,6 +617,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** nothing beyond PL-009's
 - **Acceptance:** The G9 fixture with a token holding / & and a backslash writes it intact into each emulator's config.
 - **Tracked work:** #870
+- **Disposition note:** S3: `619e20ced8`, `fd23630624`, `ff6f4d9c1e`, `d0f95815a1`; S3-F1: a token holding / & and a backslash intact in each config; ARMSX2's first section gets its three keys
 
 ## PL-040: ScummVM's first-run seed is unreachable, and generated entry names are not confined to the games folder
 
@@ -655,8 +661,8 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-006 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-007 | Resolved | S0: `dfa9a5a694`; guest S0-G1 (bind-mounted): the crafted file's marker absent, ScummVM refuses the stray word; FOTAQ launches (S0-G2) |
 | PL-008 | Resolved | S0: `46b6601e98`; guest S0-G1 and S0-G2: "Free Doom's Gate.wad" one argument and its title in 0.92-1.00 s; .doom values by fixture (S0-F1) |
-| PL-009 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-010 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-009 | Resolved | S3: `619e20ced8`, `fd23630624`, `ff6f4d9c1e`, `d0f95815a1`; S3-F1: 0 old-token lines and a disabled flag in each of the four, switch off and token empty |
+| PL-010 | Resolved | S3: `fd23630624`, `ff6f4d9c1e`, `974866ef81`; S3-F1: the three take their disabled branch with the key unset; the fourth, cheevos_aethersx2.sh, goes with the base merge (PL-025, class 1), so #861's checkbox waits for it |
 | PL-011 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-012 | Resolved | S1: the helper `ce27f80fa2` and the nine sites `019020d579`..`6da932bc1f`; guest S1-G1 (G8: the card kept, memcards a link) and S1-G2 (G16: the Tools launcher's state survives the game launch); every site by fixture S1-F1 |
 | PL-013 | Deferred | #849: filed by the coordinator; re-graded Low by the coordinator on #677 (the mirror covers an empty-cache build); the cache read, never moved; a second copy under /workspace/tmp/m6-coordinator/preserve/ |
@@ -666,8 +672,8 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-017 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-018 | Resolved | S0: `9b56828bf8`; S0-F1: the crafted pad name creates no marker, a plain name gives the same file (yabasanshiro is not on the GENERIC_X64 image) |
 | PL-019 | Resolved | S0: `861bdbe82b`; S0-F1: no empty password, a spaced password one argument, gopher64's own token preferred; until that token exists, the first sign-in still passes the password on the command line, as gopher64's CLI requires |
-| PL-020 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-021 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-020 | Resolved | S3: `c4367e12a0`; S3-F1: | \\ & and / byte for byte on both set_key paths; the password's presence in melonDS.ini stays #866's open half |
+| PL-021 | Resolved | S3: `619e20ced8`, `d0f95815a1`; S3-F1: ppsspp's token file mode 600, one temp write; SkyEmu's mode 600 |
 | PL-022 | Open | T3's file: the coordinator routes it |
 | PL-023 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-024 | Open | awaiting the coordinator's stream briefs (stage E) |
@@ -680,12 +686,12 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-031 | Resolved | S0: `6894bfd3cd`; S0-F1: the URI and -silent two arguments on both launch lines |
 | PL-032 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-033 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-034 | Open | PLAUSIBLE: the classification (bug, open item to test) is the coordinator's |
+| PL-034 | Deferred | S3: confirmed by reading (start_melonds.sh:182; Config.cpp at 906e9ebb; patch 7520-7522, 8851, 9879; backuptool:705-710); deferred to #887 (the cloud area) |
 | PL-035 | Open | an open item to test (bugs-are-agent-first.md): the coordinator classifies |
 | PL-036 | Resolved | S1: `ee1ecc0a88`; guest S1-G1: a real pak in Paks survives a launch (deleted by the image's script) |
-| PL-037 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-037 | Resolved | S3: `974866ef81`: the comment above start_duckstation.sh's disabling line names upstream's 0c3c2b6818 and the guest proof its retirement needs; nothing removed |
 | PL-038 | Open | awaiting the coordinator's stream briefs (stage E) |
-| PL-039 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-039 | Resolved | S3: `619e20ced8`, `fd23630624`, `ff6f4d9c1e`, `d0f95815a1`; S3-F1: a token holding / & and a backslash intact in each config; ARMSX2's first section gets its three keys |
 | PL-040 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-041 | Open | awaiting the coordinator's stream briefs (stage E) |
 
@@ -770,7 +776,8 @@ punch_index:
   source_finding: "F-09"
   owner_area: "achievements: the session"
   tracked: "#861"
-  outcome: open
+  state: fixture
+  outcome: resolved
 - id: PL-010
   severity: Low
   category: Bug
@@ -778,7 +785,8 @@ punch_index:
   source_finding: "F-10"
   owner_area: "achievements: the session"
   tracked: "#861"
-  outcome: open
+  state: fixture
+  outcome: resolved
 - id: PL-011
   severity: Low
   category: Bug
@@ -861,7 +869,8 @@ punch_index:
   source_finding: "F-21"
   owner_area: "achievements: credentials"
   tracked: "#866"
-  outcome: open
+  state: fixture
+  outcome: resolved
 - id: PL-021
   severity: Low
   category: Standards
@@ -869,7 +878,8 @@ punch_index:
   source_finding: "F-22"
   owner_area: "achievements: credentials"
   tracked: "#870"
-  outcome: open
+  state: fixture
+  outcome: resolved
 - id: PL-022
   severity: Low
   category: Interaction Defect
@@ -971,7 +981,7 @@ punch_index:
   question: Q3
   source_finding: "F-35"
   owner_area: "achievements: credentials"
-  outcome: open
+  outcome: deferred
 - id: PL-035
   severity: Medium
   category: State
@@ -994,7 +1004,8 @@ punch_index:
   question: Q1
   source_finding: "F-38"
   owner_area: "achievements: DuckStation"
-  outcome: open
+  state: tree
+  outcome: resolved
 - id: PL-038
   severity: Low
   category: Bug
@@ -1010,7 +1021,8 @@ punch_index:
   source_finding: "F-40"
   owner_area: "achievements: the session"
   tracked: "#870"
-  outcome: open
+  state: fixture
+  outcome: resolved
 - id: PL-040
   severity: Low
   category: Bug
