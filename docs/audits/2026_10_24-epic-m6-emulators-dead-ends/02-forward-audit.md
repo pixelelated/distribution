@@ -100,6 +100,23 @@ Every proof is a line of `00-running-log.md` with the same number. Its cell read
 | P16 | the twin map | `tools/t24-twin.py`, `tools/t24-tables.py q7` | 77 rows: 52 / 5 / 10 / 10; 12 at the same pin | proved: tool-run |
 | P17 | the five's project pins | T3's `04-analysis.md` at `b3cb4ec8c5`, five rows | `behind-project`, upstream `same`, each pin dated | proved: history |
 
+## Stage F: the re-derivations at the tip (14:11-14:12 UTC)
+
+Re-run after the coordinator's stage-E dispositions on an export of the tip `6e55ad9d26`: `git archive HEAD docs/reviews/inventory.json tools/pkgcheck packages projects` into `/workspace/tmp/m6-t24/tip-6e55ad9d26/` after `df -i` (6,272 files). These are the blocks brief § 10 names for acceptance, with the (b) read on ten rows drawn by `shuf --random-source=<(yes t24)`.
+
+| # | What | Command / artifact | Result | Cell |
+| --- | --- | --- | --- | --- |
+| P18 | the membership and `pkgcheck` on the tip's export | brief § 2's filter and the `pkgcheck` loop, run inside the export (14:11:37) | 86 paths, 2,399 lines, 84 unreached, 2 unshipped; `paths.txt` equal to stage A's; the 86 files byte-equal to the at-hash export (0 differ); 85 PASS | proved: tool-run |
+| P19 | (a) at the tip | the (a) loop, `git diff --quiet $U HEAD` over the export's list | 81 identical, 5 differs, at `e0f9deb899` and at `481c9d0d75` | proved: tree |
+| P20 | the record at the tip | the five roots' `build/` re-listed and `cmp`ed with stage B's; the prefix match over the export's 85 | all five listings unchanged; 85 of 85 unbuilt | proved: tool-run |
+| P21 | (b) on ten seeded rows | `shuf --random-source=<(yes t24)` over the 80, read again (budget 3,630 to 3,618), `cmp` with stage B's copies | 10 of 10 the same as at stage B: `libretro-genplus`, `-uae4arm`, `-mame2010`, `-fceumm`, `-gw`, `-mrboom`, `-beetle-wswan`, `-snes9x2002`, `-vice_x64`, `-sameboy` (8 pin identical with a stamp hunk, 2 byte-identical) | proved: tool-run |
+| P22 | nothing changed under `packages/` or `projects/` | `git diff --stat` and `--diff-filter=DR --name-only` from `8ebaf8daad` to `81331b499e` (`fixed-at`) and to the tip | empty at both; `81331b499e` is an ancestor of the tip | proved: tree |
+
+**Phase 7, re-derived from the tracker and the tree** (05 § Phase 7):
+- PL-01 and PL-02 are on #585 (issuecomment-6385225275), with `05`'s counts.
+- PL-03 is on #857 (issuecomment-6385225482). Its proof, `fix-pending-image`, belongs to the integration packet; it is not a cell of this slice.
+- `tools/lint-audit-artifacts <folder> --issue 900` (resolution phase) prints `PASS`.
+
 ## Criterion entries: #671's checklist (= brief § 7), at the end of Phase 2
 
 Each entry names the artifact that will tick it. The coordinator ticks at hand-back. At stage B, the ones this phase can show are marked *met at B*; the rest wait for their stage.
@@ -114,7 +131,7 @@ Each entry names the artifact that will tick it. The coordinator ticks at hand-b
 8. **§ Mechanical checks.** Every check the criterion lists is in the table above, with its command, exit status and summary line. A check that could not show its claim (the Q3 probe for a pin) says so, never as a pass. *Met at B.*
 9. **`04` § Q6.** The 86-row reachability table, each row with its `Already written:` line and no deletion. Written at C.
 10. **`04` § Q7 and § Q5.** The 77-row twin map and the weight. Written at C.
-11. **The proof count.** Each proof above carries its cell; the count of those cells equals the count of the log's proof lines (17 = 17 at B). *Met at B*, re-counted at F.
+11. **The proof count.** Each proof above carries its cell; the count of those cells equals the count of the log's proof lines (17 = 17 at B; 22 = 22 at F, with P18 to P22). *Met at B*, re-counted at F.
 12. **Every punch item carries `question:`.** The #585 proposal is one `Renovation` item; nothing is changed under `packages/` or `projects/`. Waits for D and H.
 13. **The retro.** Waits for G.
 14. **The six checkers and their exit codes.** Waits for H.

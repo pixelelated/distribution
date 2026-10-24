@@ -5,7 +5,7 @@
 - **PL-02** is the five ROCKNIX recipes, said once with T3 cited.
 - **PL-03** is the one finding outside the 86, in a fork-own line of T3's file.
 
-Nothing in this list deletes, moves or edits a file under `packages/` or `projects/`. The outcomes are open until the coordinator's dispositions after the stage-D pause.
+Nothing in this list deletes, moves or edits a file under `packages/` or `projects/`. The outcomes are the coordinator's dispositions of stage E (#671, 14:10 UTC: no streams). All three are deferred: PL-01 and PL-02 to #585, PL-03 to the #857/#873 integration packet.
 
 ---
 
@@ -31,7 +31,7 @@ Nothing in this list deletes, moves or edits a file under `packages/` or `projec
 - **Can this be done on the VM?** No: these are files no image carries; the tree, the record and the API show it (brief § 5)
 - **Already written:** nothing: no ROCKNIX or fork configuration builds them, there is no build directory in the five roots, and Kodi ships in no image. Every row of `04` § Q6 says so.
 - **Acceptance:** #585 carries the proposal with these counts and a link to `04` § Q6 and § Q7; `git diff --diff-filter=DR --name-only 8ebaf8daad <fixed-at> -- packages/emulation` is empty.
-- **Disposition note:** deferred:#585 at Phase 7, the coordinator's post
+- **Disposition note:** deferred:#585, the coordinator's post ([issuecomment-6385225275](https://github.com/pixelelated/distribution/issues/585#issuecomment-6385225275), 14:11:34 UTC)
 
 ## PL-02: the five ROCKNIX recipes no shipped device builds
 
@@ -50,7 +50,7 @@ Nothing in this list deletes, moves or edits a file under `packages/` or `projec
 - **Can this be done on the VM?** No: no shipped image holds them (P10)
 - **Already written:** no fork image carries their `.so`. `core-info` ships their `.info` files, read only. Every image's `core-pins` names `boom3-lr` and `vitaquake3-lr` (PL-03). Nothing reaches `/storage` or a cloud. ROCKNIX's AMD64 image builds two of them, and pixelelated ships no AMD64 image (T3's `04` § Q6 at `b3cb4ec8c5`).
 - **Acceptance:** the five rows of `04` § Q6 read `kept: upstream's; no shipped device builds it`; `git diff --name-only 8ebaf8daad <fixed-at> -- projects/ROCKNIX/packages/emulators/libretro` is empty; the three named in the #585 proposal, if the coordinator takes them there.
-- **Disposition note:** the coordinator's: `deferred:#585` with PL-01, or `withdrawn` as said once and kept
+- **Disposition note:** deferred:#585 with PL-01: the same post names `mame2003-lr`, `panda3ds-lr` and `play-lr`, and says `boom3-lr` and `vitaquake3-lr` once, kept ([issuecomment-6385225275](https://github.com/pixelelated/distribution/issues/585#issuecomment-6385225275))
 
 ## PL-03: every shipped image's `core-pins` names two cores the image does not hold
 
@@ -67,7 +67,7 @@ Nothing in this list deletes, moves or edits a file under `packages/` or `projec
 - **Can this be done on the VM?** Yes, for a fix: the GENERIC_X64 image's `core-pins`, read on the guest or from its install tree. The finding itself is a read of three install trees.
 - **Already written:** two rows in a read-only image file (`/usr/share/rocknix/core-pins`). No save manifest names either core, because `cloud_capture` writes the pin of the core that ran. Nothing under `/storage` or in a cloud. A fix changes only the next image's file.
 - **Acceptance:** the coordinator's disposition, either a stream on T3's file with the three `core-pins` read back after the next image, or `withdrawn` as harmless with the reason.
-- **Disposition note:** the coordinator's
+- **Disposition note:** deferred to the #857/#873 integration packet (the coordinator's), with the fix this item proposes; its proof is `fix-pending-image`. The lead is on #857 ([issuecomment-6385225482](https://github.com/pixelelated/distribution/issues/857#issuecomment-6385225482), 14:11:36 UTC). Not withdrawn: a table that names what the image does not hold is this slice's class
 
 ## Machine-readable index
 
@@ -80,27 +80,31 @@ punch_index:
   source_finding: "F-01"
   owner_area: "upstream's: `packages/emulation/` (LibreELEC's, via the base merge)"
   tracked: "#585"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-02
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-02"
+  tracked: "#585"
   owner_area: "upstream's: `projects/ROCKNIX/packages/emulators/libretro/` (five recipes)"
-  outcome: "open"
+  outcome: "deferred"
 - id: PL-03
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-03"
+  tracked: "#857"
   owner_area: "fork-own, outside the slice: `virtual/emulators/package.mk:1768` (T3's file)"
-  outcome: "open"
+  outcome: "deferred"
 ```
 
 ## Phase 7 resolution gate
 
+The coordinator's stage-E dispositions (#671, 14:10 UTC: no streams; `fixed-at` = `reviewed-at` = `81331b499e`), each read back from the tracker at 14:12 UTC.
+
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | awaiting the coordinator's #585 post |
-| PL-02 | Open | awaiting the coordinator's disposition |
-| PL-03 | Open | awaiting the coordinator's disposition |
+| PL-01 | **Deferred** | deferred:#585, the coordinator's proposal ([issuecomment-6385225275](https://github.com/pixelelated/distribution/issues/585#issuecomment-6385225275), 14:11:34 UTC). It carries `05` § PL-01's counts (81 files, 2,258 lines, 86,663 bytes; 97 and 106,103 with the patches; 67 of 80 differing at master; 67 of 77 with a twin, the 10 without named; `pkgcheck` 80 PASS, 2 WARN) and links `04` § Q6 and § Q7. `git diff --diff-filter=DR --name-only 8ebaf8daad 81331b499e -- packages/emulation` prints nothing |
+| PL-02 | **Deferred** | deferred:#585 with PL-01: the same post's line names `mame2003-lr`, `panda3ds-lr` and `play-lr` (with `20b7d7ea02` and `9f1fab30f6`) and says `boom3-lr` and `vitaquake3-lr` once, kept. The five rows of `04` § Q6 read `kept: upstream's; no shipped device builds it`. `git diff --name-only 8ebaf8daad 81331b499e -- projects/ROCKNIX/packages/emulators/libretro` prints nothing |
+| PL-03 | **Deferred** | deferred to the #857/#873 integration packet (the coordinator's; lead [issuecomment-6385225482](https://github.com/pixelelated/distribution/issues/857#issuecomment-6385225482), 14:11:36 UTC). The fix is the two names under `idtech-lr`'s `TARGET_ARCH = x86_64` condition (`idtech-lr/package.mk:20-22`), in T3's file `virtual/emulators/package.mk:1768`. Its proof is `fix-pending-image`: the three images' `core-pins`, read from the next images, without the two rows where the `.so` is absent. Nothing changed on this branch |

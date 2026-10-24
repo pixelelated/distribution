@@ -95,3 +95,15 @@ PROOF: 13:51 P17 the five ROCKNIX pins against their projects: T3's `04-analysis
 - `tools/lint-audit-artifacts <folder> --phase pre-issue --issue 900`: `PASS pre-issue artifacts`, with `issue #900 carries a task list (3 items)` and PL-01 to PL-03 referenced.
 - `tools/box-check`: rc 0; `300 issue(s), 825 open checkbox(es), 0 fail`. #900 and #671 are not among its notes.
 - **The stage-D pause:** the dispositions for PL-01 to PL-03 are asked on #671. The lane is idle on this slice until they come.
+
+### [Stage F] 14:10-14:13 — the dispositions read; the re-derivations at the tip
+
+- **The coordinator's stage E** (#671, issuecomment-6385217441, 14:10:48Z): no streams. PL-01 `deferred:#585`; PL-02 `deferred:#585` with PL-01; PL-03 deferred to the #857/#873 integration packet (`fix-pending-image`); `fixed-at` = `reviewed-at` = `81331b499e`.
+- **The posts, read back:** #585 at 14:11:34Z (issuecomment-6385225275), with `05` § PL-01's counts and PL-02's line; #857 at 14:11:36Z (issuecomment-6385225482), with PL-03's lead. At 14:11:16 neither existed yet, and they were read again at 14:12:11.
+- `05` § Phase 7: three **Deferred** rows with links; the `punch_index` reads `deferred` for all three. `tools/lint-audit-artifacts <folder> --issue 900` (resolution): **PASS**.
+
+PROOF: 14:11 P18 the membership and `pkgcheck` re-run inside the tip's export `/workspace/tmp/m6-t24/tip-6e55ad9d26/`: 86 paths, 2,399 lines; the list and the 86 files' bytes equal stage A's; 85 PASS
+PROOF: 14:11 P19 (a) at the tip: 81 identical, 5 differs, against `e0f9deb899` and `481c9d0d75`
+PROOF: 14:11 P20 the record at the tip: the five roots' listings unchanged since stage B (`cmp`), 85 of 85 unbuilt
+PROOF: 14:12 P21 (b) on the ten rows `shuf --random-source=<(yes t24)` draws: 10 of 10 equal to stage B's copies; budget 3,630 to 3,618
+PROOF: 14:13 P22 `git diff --stat` and `--diff-filter=DR` over `packages projects`, from `8ebaf8daad` to `81331b499e` and to the tip: empty

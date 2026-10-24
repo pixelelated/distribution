@@ -38,21 +38,12 @@
 
 ## Current focus
 
-**Stage D, paused (2026-10-24; the executor).** The audit folder `docs/audits/2026_10_24-epic-m6-emulators-dead-ends/` holds `00` to `05`, `second-opinions/review-plan.json` (Local, D-WORKFLOW-184) and `tools/t24-tables.py` and `t24-twin.py`.
-- All 86 rows are unreached and kept, each with its `Already written:` line.
-- The twin map has 77 rows; there are 17 proofs.
-- The pre-issue lint passes, with `--issue 900` too.
-- The audit issue is **#900**, a sub-issue of #671, with 3 Low `Renovation` items:
-  - PL-01, the #585 proposal for the 81;
-  - PL-02, the five ROCKNIX recipes;
-  - PL-03, the `core-pins` rows, in T3's file.
-- The dispositions are asked on #671. **The lane is idle on T24 until the coordinator answers.**
+**Stage H, handed back (2026-10-24; the executor).** The coordinator's stage E (#671, 14:10): no streams, and three deferrals (PL-01 and PL-02 to #585, PL-03 to the #857/#873 packet). `reviewed-at` and `fixed-at` are both `81331b499e`.
+- Stage F is in `02` § Stage F (P18 to P22, 22 = 22).
+- The retro is `docs/retros/2026-10-24-m6-emulators-dead-ends.md`.
+- The resolution lint passes. #900's checkboxes are ticked.
 
-**After the dispositions:**
-1. Record each Phase 7 outcome in `05` and #900.
-2. Run stage F's re-derivations.
-3. Write the retro (G): `docs/retros/2026-10-24-m6-emulators-dead-ends.md`, saying that the slice did nothing to the two time-to-play numbers.
-4. Hand back (H): `reviewed-at: 81331b499e`, and `fixed-at` the tip, since nothing changes; the six checkers.
+**Waiting on the coordinator**: acceptance by brief § 10, then the close of #900. After the close, write `audit-completion.json` from #900's closed readback and run the full lint again (T30's `write-completion.py` shape). The lane is otherwise idle.
 
 ## Next commands
 
