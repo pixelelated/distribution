@@ -493,3 +493,15 @@ PROOF: P26 S12's control -- `docs/qa-logs/2026-10-24-state-tests-s12/fixture-cas
   - **319 are elsewhere;** 61 of them print `flock: applet not found`, an applet the host's busybox lacks and the image's has.
 - **A miss of mine:** S2's control asserted `argv[:2] == ["--config", stage]`, the very shape that broke T15. The consumer was never run before the close-out, although the coordinator's 21:39 ruling asked for exactly this run because a consumer proves a shared fixture.
 PROOF: P27 the fixture follow-up -- `docs/qa-logs/2026-10-24-state-tests-s2/sandbox-case.py`'s two new checks FAIL on the fixture at `89efee384c` (argv `--config <stage> listremotes`; a T15-shaped shim's `config create` never refuses) and pass at `9df25309f3`.
+
+## [Stage H] 23:34 UTC — accepted; the completion marker
+
+- **The coordinator's posts on #661:**
+  - **23:30:** T15's two calls gain `--busybox-from` or `--unverified-busybox` in the integration packet at this branch's merge, and S8's contract stands. Until then, sections ag and ah fail in T15's run, the honest state, as recorded in `02` and #662.
+  - **23:33:** T14 is accepted at the hand-back `7c1d729b57`, with the coordinator's branch merged in at `e8d866507d`. `t14-accept.sh e8d866507d c3abc074c7` passed on an export. #1006 is closed with 23 ticked by name, and 17 of #661's 18 criteria are ticked; the *before its merge* line stays open for the merge packet.
+- **The worktree** was fast-forwarded to `e8d866507d`.
+- **The marker:** `audit-completion.json`, `tracker-completion.json` and `tracker-final-readback.json`, written by `tools/write-completion.py` (T10's writer, copied) from #1006 read back closed/completed at 23:33:17Z, with 23 ticked and 0 open. All three were scanned: `forbidden-terms-check`, 0 hits.
+- **The checks:**
+  - `tools/lint-audit-artifacts` on the folder, and with `--issue 1006`: PASS both.
+  - `tools/ceremony-check`: `audit ok via #1006`, and nothing overdue.
+- **The lane is idle** until the merge, after T12's and before T4's.

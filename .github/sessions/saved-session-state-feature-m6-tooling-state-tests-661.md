@@ -42,9 +42,20 @@
    and the census, whether a build root exists for the busybox applets, the
    host-side runs with their exits and wall times -- before reading a tool.
 
-## Current focus (23:15 UTC update)
+## Current focus (23:34 UTC update)
 
-**Handed back; idle until the coordinator accepts.** The hand-back comment on #661 names the tip and every artifact.
+**Idle until the merge. T14 was accepted by the coordinator at 23:33 UTC (post on #661)** at the hand-back `7c1d729b57`, with the coordinator's branch merged in at `e8d866507d`.
+- #1006 is closed, its 23 checkboxes ticked by name, and 17 of #661's 18 criteria are ticked; the *before its merge* line waits for the merge packet.
+- The completion marker is `docs/audits/2026_10_24-epic-m6-tooling-state-tests/audit-completion.json`, from #1006's closed readback. The full lint gives PASS, and `ceremony-check` gives `audit ok via #1006`.
+- **At the merge (the coordinator's, after T12's and before T4's):**
+  - T15's two writer-test calls gain `--busybox-from` or `--unverified-busybox` (the 23:30 ruling);
+  - `run.sh`'s two fixture lines;
+  - the `docs/releases/` receipts re-read;
+  - the 17 bugs, #1009 and #1011 close as their fixes reach `next`.
+- Nothing runs in this worktree, and nothing is owed by the lane until the coordinator writes on #661.
+
+### The hand-back (23:15 UTC)
+
 
 - **Stage E complete, S1 to S12,** per `docs/reviews/briefs/t14-streams.md` (`13242d182a` on `feature/m6-renovation-plan-346`). Each stream lands with a control under `docs/qa-logs/2026-10-24-state-tests-s<N>/` that passes the stage-D tool (`7aa8eac253`), or the commit before its fix, and fails the fixed one. 27 proofs, 27 `PROOF:` lines in `00`.
 - **The Phase 7 table:**
@@ -74,7 +85,7 @@
   - read every stream's diff and positives, tick #661 and #1006 from the artifacts, and close #1006 when its checkboxes read back ticked;
   - at the merge, after T12's and before T4's: `run.sh`'s two fixture lines, and the re-read of the `docs/releases/` receipts since `d9f428e1a0` against the fixed state check and store;
   - put the removal bundle on #346.
-- **After acceptance (the lane):** `audit-completion.json` from #1006's closed readback, the full lint, and this pointer set idle.
+- **After acceptance (the lane):** done at the update above.
 
 ## Earlier focus
 
