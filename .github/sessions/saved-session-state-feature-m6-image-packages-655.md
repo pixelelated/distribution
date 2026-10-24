@@ -38,13 +38,12 @@
 
 ## Current focus
 
-**T8 accepted (#655, 14:46 UTC); the payloads are retired; `audit-completion.json` waits on #895's checkboxes (14:49 UTC).**
-- **Hashes:** `reviewed-at` `caf1de3727`, `fixed-at` `b58489297c`; both are in #655's body. The hand-back was at `13394550d6`.
-- **#895** is closed as completed, but its body reads back 0 ticked and 19 open (last edited 14:36:56, by the lane). `tools/write-completion.py` refuses until it reads back ticked. Asked on #655 at 14:48.
-- **When #895 reads back ticked:** run `python3 -I docs/audits/2026_10_24-epic-m6-image-packages/tools/write-completion.py .` and the full lint, then commit the marker, readback and receipt, set this pointer idle, and post the tip on #655.
-- **Retired** under D-INFRA-022 at 14:49 (`c146da433d`): every payload under `/workspace/artifacts/m6-t8-20261024/` (the directory is removed) and the 4 GiB extraction. Each is listed with its hash in `docs/vm-qa-log.md`. The image's original stays under `m6-t1-20261023/`.
-- **Routed by the coordinator:** #902 (the seven launch scripts), as a packet after T30's branch. The branch merges after T7's.
-- **Rule:** prose through Python or a quoted heredoc only.
+**T8 complete; the lane is idle (14:51 UTC).**
+- **Accepted** on #655 at 14:46; #895 closed as completed, its nineteen ticked.
+- **The marker:** `docs/audits/2026_10_24-epic-m6-image-packages/audit-completion.json`, from #895's closed readback at 14:51:14. The full lint passes.
+- **Hashes:** `reviewed-at` `caf1de3727`, `fixed-at` `b58489297c`.
+- **Retired:** the guest payloads, under D-INFRA-022, each with its hash in `docs/vm-qa-log.md`. T1's original image is kept.
+- **Open:** #891 and #892 stay open, mirror-covered, deferred to #585. #852's and #893's image halves wait for the first image after the merge. #902 is the coordinator's packet. The worktree stays read only until the coordinator merges it (after T7's, before T4's).
 
 ## Next commands
 

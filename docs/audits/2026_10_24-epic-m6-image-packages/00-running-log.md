@@ -248,3 +248,10 @@ PROOF: 14:03 P19 #894: with no stubs, the 8 MB disk stops at "creating the syste
 
 PROOF: 14:30 P20 #901: the installed disk carries the generated `syslinux.cfg`, not the media's, and boots on it under UEFI (`/proc/cmdline` without `portable`); S3's pre-fix disk, the control, boots on the media's (`portable`) -- `.qa-scratch/t8/s3/s4*-after.txt`, `s4b-boot-cmdline.txt`, the boot frames
 PROOF: 14:19 P21 #899's addendum: with no pad, the installer's serial transcript carries no `get_controls: command not found` -- `.qa-scratch/t8/s3/run-s4-6g.txt`, `run-s4b-6g.txt`
+
+### [Close] 14:46 to 14:51 — accepted, the marker, the payloads retired
+
+- **Accepted** by the coordinator on #655 at 14:46 UTC, at `13394550d6`. #895 is closed as completed.
+- **The marker:** at 14:48, `tools/write-completion.py` refused (`ticked=0 open=19`): the body was last edited at 14:36:56 and the acceptance's ticks had not landed. Put on #655. The coordinator ticked all nineteen and posted an erratum at 14:51.
+- At 14:51:14 the writer read #895 back as closed, completed, 19 ticked and 0 open, and wrote `tracker-final-readback.json`, `tracker-completion.json` and `audit-completion.json`. `tools/lint-audit-artifacts`: `PASS`. `tools/ceremony-check` reads the marker as the last audit.
+- **Retired** under D-INFRA-022 at 14:49 (`c146da433d`): the S3 and S4 payloads, 15,791,276,032 bytes, each listed with its hash in `docs/vm-qa-log.md`.
