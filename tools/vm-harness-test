@@ -970,6 +970,24 @@ def vnc_partial(c):
     return ok, f'{results} (want both to fail on half a frame)'
 
 
+# --- S9: ra-offline-test and qa-accounts (#977, #983) -----------------------------
+# The account path never runs: no call reaches a guest or retroachievements.org,
+# and the accounts file is a stand-in with stand-in words, never the real store.
+
+@case
+def accounts_readback(c):
+    tool = c.tool('qa-accounts')
+    acct = c.dir / 'qa-accounts.standin'
+    acct.write_text('export RA_QA_USER=standin-user\nexport RA_QA_PASSWORD=standin-pass\nexport RA_QA_WEBKEY=standin-key\n')
+    acct.chmod(0o600)
+    # The guest holds a different key: the unfixed reader sees three names set; the fixed one compares.
+    c.rows([('qa-readback', 0, 'global.retroachievements.key '),
+            ('do [ -n "$(get_setting $k)" ]', 0, 'global.retroachievements.username global.retroachievements.password global.retroachievements.key ')])
+    r = c.run([str(tool), '10022', 'ra'], QA_ACCOUNTS=acct, QA_KEY=c.dir / 'key')
+    return r.returncode == 1 and 'global.retroachievements.key' in r.stderr, \
+        f'rc {r.returncode}, {(r.stderr.strip() or r.stdout.strip()).splitlines()[-1:]} (want rc 1 naming the key that differs)'
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')

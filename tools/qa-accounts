@@ -20,6 +20,12 @@
 #   tools/qa-accounts <ssh-port> ra             # RetroAchievements: system.cfg, live
 #   tools/qa-accounts <ssh-port> screenscraper  # ScreenScraper: es_settings.cfg, needs a reboot
 #   tools/qa-accounts <ssh-port> clear          # take both back out
+#   tools/qa-accounts --host root@127.0.0.1 --identity <key> --port 10026 ra
+#
+# --host, --port and --identity say which guest and which key (#977): the
+# account used to go to root@127.0.0.1 with the default key whatever the
+# caller was pointed at. The key defaults to vm-pair's for this checkout
+# (D-INFRA-031), QA_KEY still overriding.
 #
 # Prints the names it set and nothing else. Refuses a file that is not
 # 0600, and a port that is not one of the QA guests' (10022-10029).
@@ -47,17 +53,27 @@
 # on the service owns the folder, and then `clear` names what it left and
 # why and exits 1: the guest is not clean.
 set -uo pipefail
+ROOT=$(cd "$(dirname "$0")/.." && pwd)
 FILE="${QA_ACCOUNTS:-$HOME/.ROCKNIX/qa-accounts}"
-PORT="${1:-}"; WHAT="${2:-}"
-KEY="${QA_KEY:-/tmp/rocknix-vm-pair/qa-key}"
+HOST=root@127.0.0.1
+KEY="${QA_KEY:-${VM_PAIR_DIR:-$ROOT/.qa-scratch/vm-pair}/qa-key}"
+PORT=""; WHAT=""
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --host) HOST=${2:?--host needs a value}; shift 2 ;;
+    --port) PORT=${2:?--port needs a value}; shift 2 ;;
+    --identity) KEY=${2:?--identity needs a value}; shift 2 ;;
+    *) if [ -z "$PORT" ] && [ -z "$WHAT" ] && [[ "$1" =~ ^[0-9]+$ ]]; then PORT=$1; elif [ -z "$WHAT" ]; then WHAT=$1; else echo "qa-accounts: unexpected argument $1" >&2; exit 2; fi; shift ;;
+  esac
+done
 SSHO=(-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR -o ConnectTimeout=8 -o BatchMode=yes)
 case "${PORT}" in 1002[2-9]) ;; *) echo "qa-accounts: <ssh-port> must be a QA guest's (10022-10029)" >&2; exit 2 ;; esac
 case "${WHAT}" in ra|screenscraper|clear) ;; *) echo "qa-accounts: ra, screenscraper or clear" >&2; exit 2 ;; esac
 CFG=/storage/.config/emulationstation/es_settings.cfg
 # What `ra` writes, and the token the interface writes from it.
 RA_KEYS="global.retroachievements.username global.retroachievements.password global.retroachievements.key global.retroachievements.token"
-g() { ssh -n -i "${KEY}" -p "${PORT}" "${SSHO[@]}" root@127.0.0.1 "$@"; }        # nothing on stdin
-feed() { ssh -i "${KEY}" -p "${PORT}" "${SSHO[@]}" root@127.0.0.1 "$@"; }        # the values, on stdin
+g() { ssh -n -i "${KEY}" -p "${PORT}" "${SSHO[@]}" "${HOST}" "$@"; }        # nothing on stdin
+feed() { ssh -i "${KEY}" -p "${PORT}" "${SSHO[@]}" "${HOST}" "$@"; }        # the values, on stdin
 parse() { python3 -c 'import xml.etree.ElementTree as E,sys; E.parse(sys.stdin)' 2>/dev/null; }
 if [ "${WHAT}" = clear ]; then
     g '. /etc/profile; F=/storage/.config/emulationstation/es_settings.cfg; [ -f "$F" ] || exit 3
@@ -104,15 +120,19 @@ if [ "${WHAT}" = ra ]; then
     need RA_QA_USER RA_QA_PASSWORD RA_QA_WEBKEY
     oneline RA_QA_USER RA_QA_PASSWORD RA_QA_WEBKEY
     # key=value lines on stdin; the guest splits at the first = and sets each.
-    printf '%s\n' "global.retroachievements=1" "global.retroachievements.username=${RA_QA_USER}" \
-                  "global.retroachievements.password=${RA_QA_PASSWORD}" "global.retroachievements.key=${RA_QA_WEBKEY}" \
-      | feed '. /etc/profile; while IFS= read -r line; do set_setting "${line%%=*}" "${line#*=}"; done' >/dev/null \
+    lines() { printf '%s\n' "global.retroachievements=1" "global.retroachievements.username=${RA_QA_USER}" \
+                  "global.retroachievements.password=${RA_QA_PASSWORD}" "global.retroachievements.key=${RA_QA_WEBKEY}"; }
+    lines | feed '. /etc/profile; while IFS= read -r line; do set_setting "${line%%=*}" "${line#*=}"; done' >/dev/null \
       || { echo "qa-accounts: the write to :${PORT} failed" >&2; exit 1; }
-    # Report what the device holds, not what was intended.
-    got=$(g '. /etc/profile; for k in global.retroachievements.username global.retroachievements.password global.retroachievements.key; do [ -n "$(get_setting $k)" ] && printf "%s " "$k"; done; exit 0') \
+    # Report what the device holds, not what was intended: each value compared
+    # on the guest with what was sent, over stdin again, and only the names that
+    # differ come back (G-58). Non-empty was not equal, and the switch itself,
+    # global.retroachievements, was never read back.
+    differ=$(lines | feed ': qa-readback; . /etc/profile; while IFS= read -r line; do k=${line%%=*}; [ "$(get_setting "$k")" = "${line#*=}" ] || printf "%s " "$k"; done; exit 0') \
         || { echo "qa-accounts: could not read :${PORT} back" >&2; exit 1; }
-    echo "set on :${PORT}: global.retroachievements=1 ${got}(read by the interface at its next start: reboot the guest)"
-    case "${got}" in *username*password*key*) exit 0 ;; *) echo "qa-accounts: a value did not land" >&2; exit 1 ;; esac
+    [ -z "${differ// /}" ] || { echo "qa-accounts: on :${PORT} these do not hold what was sent: ${differ}" >&2; exit 1; }
+    echo "set on :${PORT}: global.retroachievements=1 global.retroachievements.username global.retroachievements.password global.retroachievements.key, each read back equal (read by the interface at its next start: reboot the guest)"
+    exit 0
 else
     # An account, a developer pair, or both -- whichever the file holds; which
     # combinations ScreenScraper accepts is #66's question (#151 PL-06), and
