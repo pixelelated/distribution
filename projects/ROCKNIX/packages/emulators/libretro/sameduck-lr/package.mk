@@ -2,6 +2,8 @@
 # Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)
 
 PKG_NAME="sameduck-lr"
+# Pinned to 5619abdb01, the head of the project's SameDuck branch, not master.
+# The reason is not recorded (#650 PL-027).
 PKG_VERSION="5619abdb01cee6bedb47599cdb5532c318443b52"
 PKG_SHA256="101bd2876c0b6c63abc91b3971fa1c203c955d4a86a5c54ce6172ee5ab729456"
 PKG_LICENSE="MIT"
