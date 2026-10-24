@@ -27,7 +27,12 @@
 # can jointly explain a region without accepting their bounding-box gaps
 # (#591). Exit 0 when nothing is unclaimed or missing; 1 otherwise; 2 when the
 # baseline directory has no BASELINE.txt -- a check that cannot run has not
-# passed, and says so rather than staying quiet.
+# passed, and says so rather than staying quiet. A BASELINE.txt over no frame
+# at all exits 1 (#980): there is nothing the run was compared with.
+#
+# A run of some walks (vm-qa --walk) is compared with those walks only: the
+# walks that ran are read from the run directory (a walk's frames, or its
+# log), and the baseline's other walks are not MISSING (#980).
 #
 # masks: `<screen-glob> x0 y0 x1 y1 <why...>` per line; pixels inside are
 # not compared (the clock, a progress bar, a sampler's frames). Rectangles
@@ -35,6 +40,9 @@
 # every masked pixel is one this tool can no longer see.
 #
 # claims: `<baseline-build|*> <screen-glob> x0 y0 x1 y1 <issue> <what...>`.
+# A claim whose head is `proposal:<build>` is inert (#980): read, counted and
+# named in the report, never applied, until the marker is removed. A
+# proposal written into this file used to be a live claim.
 # In both files a line that starts with # is a comment; after a rectangle,
 # the rest of the line is its reason, kept whole (so `#252` survives).
 # A claim against another baseline is stale and ignored, and reported so.
@@ -67,6 +75,7 @@ def read_png(path):
     p = 8
     idat = b''
     w = h = depth = ctype = 0
+    seen_ihdr = False
     while p < len(d):
         n = struct.unpack('>I', d[p:p + 4])[0]
         t = d[p + 4:p + 8]
@@ -74,10 +83,14 @@ def read_png(path):
         p += 12 + n
         if t == b'IHDR':
             w, h, depth, ctype = struct.unpack('>IIBB', c[:10])
+            seen_ihdr = True
         elif t == b'IDAT':
             idat += c
         elif t == b'IEND':
             break
+    if not seen_ihdr or w == 0 or h == 0:
+        # A frame of no pixels compares equal to anything of no pixels (G-24).
+        raise ValueError('%s: no image (%dx%d)' % (path, w, h))
     if depth != 8 or ctype not in (2, 6):
         raise ValueError('%s: only 8-bit RGB/RGBA PNG is read (depth %d, colour type %d)' % (path, depth, ctype))
     bpp = 4 if ctype == 6 else 3
@@ -148,7 +161,9 @@ def read_rects(path, with_head):
                 tail = ' '.join(parts[5:]).lstrip('# ')
         except (IndexError, ValueError):
             sys.exit('%s:%d: cannot read `%s`' % (path, ln, body))
-        out.append({'head': head, 'glob': glob, 'rect': (x0, y0, x1, y1), 'tail': tail, 'line': ln})
+        proposal = bool(head) and head.startswith('proposal:')
+        out.append({'head': head[len('proposal:'):] if proposal else head, 'glob': glob, 'rect': (x0, y0, x1, y1),
+                    'tail': tail, 'line': ln, 'proposal': proposal})
     return out
 
 
@@ -281,16 +296,27 @@ def cmd_compare(argv):
         return 2
     masks = read_rects(opts['--masks'], with_head=False)
     claims = read_rects(opts['--claims'], with_head=True)
+    proposals = [c for c in claims if c['proposal']]
+    claims = [c for c in claims if not c['proposal']]
     stale = [c for c in claims if c['head'] not in ('*', bid)]
     live = [c for c in claims if c['head'] in ('*', bid)]
     minpx = int(opts['--min-pixels'])
     bframes = frames_under(base)
+    if not bframes:
+        print('frame-diff: the baseline at %s (build %s) holds no frame, so nothing was compared' % (base, bid))
+        return 1
     rframes = frames_under(run)
+    # The walks this run ran: a walk's frame directory, or its log beside it.
+    ran = {k.split(os.sep, 1)[0] for k in rframes}
+    ran |= {f[:-4] for f in os.listdir(run) if f.endswith('.log')} if os.path.isdir(run) else set()
+    walked = {k.split(os.sep, 1)[0] for k in bframes} & ran
+    bframes = {k: v for k, v in bframes.items() if k.split(os.sep, 1)[0] in ran}
     screens = sorted(set(bframes) | set(rframes))
     lines = []
     unclaimed = 0
     claimed = 0
     missing = 0
+    small = 0
     t0 = time.time()
     for s in screens:
         smasks = rects_for(s, masks)
@@ -311,8 +337,13 @@ def cmd_compare(argv):
                 unclaimed += 1
             continue
         claim_hits = {}
-        boxes = diff_boxes(read_png(bframes[s]), read_png(rframes[s]), smasks,
-                           sclaims, claim_hits)
+        try:
+            boxes = diff_boxes(read_png(bframes[s]), read_png(rframes[s]), smasks,
+                               sclaims, claim_hits)
+        except ValueError as error:
+            lines.append('| `%s` | unreadable: %s | | **FAIL** |' % (s, error))
+            unclaimed += 1
+            continue
         for x0, y0, x1, y1, n, who in sorted(claim_hits.values(), key=lambda hit: (hit[1], hit[0], hit[5]['line'])):
             if n < minpx:
                 continue
@@ -325,6 +356,7 @@ def cmd_compare(argv):
                 unclaimed += 1
                 continue
             if n < minpx:
+                small += 1
                 continue
             where = 'x %d..%d, y %d..%d' % (x0, x1 - 1, y0, y1 - 1)
             # Only unclaimed pixels reached clustering. A reported rectangle
@@ -333,16 +365,22 @@ def cmd_compare(argv):
             unclaimed += 1
     dt = time.time() - t0
     head = ['# frame-diff', '',
-            'baseline `%s` (build %s) against `%s`: %d screens in %.0f s.' % (base, bid, run, len(screens), dt),
-            'masks: %s (%d); claims: %s (%d live, %d stale against another baseline).' % (
-                opts['--masks'] or 'none', len(masks), opts['--claims'] or 'none', len(live), len(stale)),
+            'baseline `%s` (build %s) against `%s`: %d screens of %d walk(s) compared in %.0f s.' % (base, bid, run, len(screens), len(walked), dt),
+            'masks: %s (%d); claims: %s (%d live, %d stale against another baseline, %d inert proposal(s)).' % (
+                opts['--masks'] or 'none', len(masks), opts['--claims'] or 'none', len(live), len(stale), len(proposals)),
             '']
     if lines:
         head += ['| screen | box | pixels | verdict |', '| --- | --- | --- | --- |'] + lines
     else:
-        head += ['Every walked screen is pixel-identical to the baseline outside the masks.']
+        if small:
+            head += ['No box of %d pixel(s) or more differs outside the masks; %d smaller box(es) were not counted (--min-pixels %d).' % (minpx, small, minpx)]
+        else:
+            head += ['Every walked screen is pixel-identical to the baseline outside the masks.']
     verdict = 'PASS' if (unclaimed == 0 and missing == 0) else 'FAIL'
     head += ['', '**%s** -- %d box(es) claimed, %d unclaimed, %d screen(s) missing.' % (verdict, claimed, unclaimed, missing)]
+    if proposals:
+        head.append('- %d inert proposal claim(s), lines %d..%d: not applied until the `proposal:` marker is removed.' % (
+            len(proposals), proposals[0]['line'], proposals[-1]['line']))
     for c in stale:
         head.append('- stale claim, line %d: against baseline `%s`, this one is `%s`: `%s %s` -- prune it.' % (
             c['line'], c['head'], bid, c['glob'], c['tail']))

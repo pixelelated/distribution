@@ -1455,6 +1455,99 @@ def signin_memory_run_files(c):
 
 
 
+def fd(c, *argv):
+    tool = c.tool('frame-diff')
+    r = c.run([sys.executable, '-I', str(tool)] + [str(a) for a in argv], timeout=120)
+    return r.returncode, r.stdout + r.stderr
+
+
+
+def rgb_png(path, w, h, paint=()):
+    """A w x h RGB PNG, grey, with each (x, y) in paint white."""
+    import struct, zlib
+    rows = []
+    for y in range(h):
+        row = bytearray(b'\x40\x40\x40' * w)
+        for (px, py) in paint:
+            if py == y:
+                row[px * 3:px * 3 + 3] = b'\xff\xff\xff'
+        rows.append(b'\x00' + bytes(row))
+    def chunk(kind, body):
+        return struct.pack('>I', len(body)) + kind + body + struct.pack('>I', zlib.crc32(kind + body) & 0xFFFFFFFF)
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    Path(path).write_bytes(b'\x89PNG\r\n\x1a\n' + chunk(b'IHDR', struct.pack('>IIBBBBB', w, h, 8, 2, 0, 0, 0))
+                           + chunk(b'IDAT', zlib.compress(b''.join(rows))) + chunk(b'IEND', b''))
+
+
+
+def baseline(c, frames):
+    base = c.dir / 'base'
+    for rel, (w, h, paint) in frames.items():
+        rgb_png(base / rel, w, h, paint)
+    base.mkdir(exist_ok=True)
+    (base / 'BASELINE.txt').write_text('build b0\n')
+    return base
+
+
+
+@case
+def baseline_empty(c):
+    base = c.dir / 'base'
+    base.mkdir()
+    (base / 'BASELINE.txt').write_text('build b0\n')
+    (c.dir / 'run').mkdir()   # P5's shape: nothing on either side, which read as PASS
+    rc, out = fd(c, 'compare', base, c.dir / 'run')
+    return rc == 1, f'rc {rc}, {out.strip().splitlines()[-1:]} (want 1: a baseline of no frame compares nothing)'
+
+
+
+@case
+def min_pixels_sentence(c):
+    base = baseline(c, {'w/01.png': (8, 8, ())})
+    rgb_png(c.dir / 'run' / 'w' / '01.png', 8, 8, [(2, 2)])
+    rc, out = fd(c, 'compare', base, c.dir / 'run', '--min-pixels', '2')
+    false_claim = 'pixel-identical' in out
+    return not false_claim and 'not counted' in out, f'rc {rc}, says pixel-identical {false_claim} (want the uncounted box said, not identity)'
+
+
+
+@case
+def scoped_compare(c):
+    base = baseline(c, {'a/01.png': (4, 4, ()), 'b/01.png': (4, 4, ())})
+    rgb_png(c.dir / 'run' / 'a' / '01.png', 4, 4)
+    (c.dir / 'run' / 'a.log').write_text('walked\n')
+    rc, out = fd(c, 'compare', base, c.dir / 'run')
+    return rc == 0 and 'of 1 walk(s)' in out, f'rc {rc}, {[l for l in out.splitlines() if "against" in l][:1]} (want walk a alone compared, rc 0)'
+
+
+
+@case
+def png_zero(c):
+    import struct, zlib
+    def chunk(kind, body):
+        return struct.pack('>I', len(body)) + kind + body + struct.pack('>I', zlib.crc32(kind + body) & 0xFFFFFFFF)
+    zero = b'\x89PNG\r\n\x1a\n' + chunk(b'IHDR', struct.pack('>IIBBBBB', 0, 0, 8, 2, 0, 0, 0)) + chunk(b'IDAT', zlib.compress(b'')) + chunk(b'IEND', b'')
+    base = c.dir / 'base'
+    (base / 'w').mkdir(parents=True)
+    (base / 'w' / '01.png').write_bytes(zero)
+    (base / 'BASELINE.txt').write_text('build b0\n')
+    (c.dir / 'run' / 'w').mkdir(parents=True)
+    (c.dir / 'run' / 'w' / '01.png').write_bytes(zero)
+    rc, out = fd(c, 'compare', base, c.dir / 'run')
+    return rc == 1 and 'no image' in out, f'rc {rc}, {out.strip().splitlines()[-1:]} (want 1: a 0x0 PNG is no frame)'
+
+
+
+@case
+def claim_missing_still_fails(c):
+    # The control's control: an unclaimed change still fails.
+    base = baseline(c, {'w/01.png': (8, 8, ())})
+    rgb_png(c.dir / 'run' / 'w' / '01.png', 8, 8, [(1, 1)])
+    rc, out = fd(c, 'compare', base, c.dir / 'run')
+    return rc == 1, f'rc {rc} (want 1: a change no claim covers fails)'
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')
