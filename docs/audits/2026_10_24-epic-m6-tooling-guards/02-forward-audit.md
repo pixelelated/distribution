@@ -23,7 +23,7 @@ Every finding is a lead until `04` § Finding Verification and § Second opinion
 | 11 | 04 Q6: the guard table and the tool-caller table | the evidence is here (§ Callers, § The suites, F-rows); the tables are `04`'s | `04` § Q6 |
 | 12 | 04 Q3: the fail-open hunt through the named readers | the evidence is here (F-01 to F-30); the table is `04`'s | `04` § Q3 |
 | 13 | 04 Q7: the personal-path diff entry by entry; three descriptions per guard | P2 (the diff); the description rows are `04`'s | `04` § Q7 |
-| 14 | proof cells in § Proofs = proof lines in 00 | 22 = 22 | § Proofs; `command grep -c` |
+| 14 | proof cells in § Proofs = proof lines in 00 | 23 = 23 | § Proofs; `command grep -c` |
 | 15 | every item `question:`; bugs pass box-check; no member edited before a stream | stage D; `git diff --stat a82d784216 HEAD -- .githooks .github tools` empty | `05` |
 | 16 | the retro | stage G | `docs/retros/` |
 | 17 | the six checks pass before the merge; the lint PASS | stage H | the hand-back |
@@ -507,3 +507,25 @@ Each stream is from `docs/reviews/briefs/t10-streams.md` at `9e0718eeb5`, with i
 | Proof | What it shows | Proved |
 | --- | --- | --- |
 | P20 | S3's cases fail before the fix and pass after; the tree, history and name reads | proved: fix-case |
+
+### S4: fork-worktree (#939, #940; D-WORKFLOW-201) -- `4b8419002d`, `0c0be666eb`, `d0c88f4528`
+
+| Case (`tools/fork-worktree-test`, a throwaway repository) | The tool at `8ebaf8daad` | Fixed |
+| --- | --- | --- |
+| an uncommitted edit, remove without --force: refused; the edit is intact | FAIL: removed (rc 0), the edit destroyed | ok: refused (rc 128), intact |
+| the same with --force: removed | FAIL (the worktree already gone) | ok |
+| build output, no --force: refused by the tool; intact | ok | ok |
+| --preserve to a directory the move cannot write: refused, the path named; nothing removed | FAIL: removed (rc 0) | ok |
+| --preserve into the worktree itself: refused | FAIL (cascade) | ok |
+| --preserve onto a name already there: refused, neither overwritten | FAIL (cascade) | ok |
+| --preserve to a clean directory: moved, then removed | FAIL (cascade) | ok |
+| --preserve with no directory: a usage error, exit 2, within a second | FAIL: rc 124 (the loop) | ok: rc 2 |
+| remove from inside the target: refused | ok | ok |
+| repair: re-registered; a file three levels deep, the build directory and a `..dotted` name are back; no orphan left | FAIL: the deep file and the `..dotted` name lost | ok |
+| sync with one build worktree skipped for uncommitted changes: exit non-zero; all clean: exit 0 | FAIL: rc 0 | ok: rc 1, then 0 |
+
+The control passes 19 of 19. **`rules-check` reports one failure since S2:** *hook missing tools/fork-newdrive*. The two rule entries' removal is the open question on #657 (T9's index row: *leaves with the hook's pattern (#657)*).
+
+| Proof | What it shows | Proved |
+| --- | --- | --- |
+| P21 | S4's control fails on the unfixed tool and passes on the fixed, the intermediate commit's harness green | proved: fix-case |

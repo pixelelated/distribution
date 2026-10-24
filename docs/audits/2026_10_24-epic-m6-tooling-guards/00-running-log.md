@@ -277,3 +277,26 @@ PROOF: P19 S2's cases -- `.githooks/hooks-test` with the four new cases on the h
   - **History, widened:** credential-shaped added lines rise from 3 to **15**, every one a lowercase assignment the old list could not match.
   - **Names:** 0 of the 126,890 distinct paths ever added carry a listed word.
 PROOF: P20 S3's cases and reads -- `.githooks/hooks-test` on the S2 hooks with S3's cases: rc 1, four FAIL lines (`.qa-scratch/t10/s3/before.txt`); at `148cee2a31`: rc 0, PASS, 44 expect results (`after.txt`); `git grep -I -c -E` over the tree with the hash's list 0 lines, with the widened list 10 (`/workspace/tmp/m6-t10/s3-new-tree-hits.txt`); `t10-history-scan.sh` with the widened list: 15 credential-shaped added lines (was 3), 77 listed-word lines, messages 1 and 3; `git log --name-only -z --diff-filter=AC c445081a59..8ebaf8daad`: 126,890 distinct paths, 0 carrying a listed word (counted through `guard_load`'s list).
+
+### [Stage E] 18:27 — S4: fork-worktree (#939, #940; D-WORKFLOW-201)
+
+- **The coordinator's post at 18:24 UTC:** S3 accepted; its ten tree lines are bug #962 and the history count is with the maintainer on #312, neither this lane's.
+- **How the tool finds its repository, read first:** `ROOT` comes from the tool's own location (`$0/..`), but `remove` and `repair` called `git worktree` in the caller's directory. A copy placed in a throwaway repository's `tools/` resolves to that repository, so the control needs no change to the resolution. The fix also points those two calls at `-C "${ROOT}"`.
+- **A git fact, checked in a throwaway** (git 2.53.0): `git worktree remove` without `--force` removes a worktree holding only ignored files (a gitignored `build.x` deleted silently), and refuses one with an untracked file or a tracked edit (rc 128). So under D-WORKFLOW-201 an ordinary worktree still removes, and the tool's build-output refusal must still run first.
+- **The control first:** `tools/fork-worktree-test`, 19 cases, run on the tool at `8ebaf8daad` (`.qa-scratch/t10/s4/before.txt`). The positives FAILED:
+  - the uncommitted edit was destroyed (rc 0);
+  - `--preserve` to an unwritable directory removed the worktree;
+  - the bare `--preserve` looped until the timeout (rc 124);
+  - repair lost a file three levels deep and a `..dotted` name;
+  - sync exited 0 with a skipped worktree.
+
+  Later FAILs cascade from those (the worktree already gone). Every case runs with the current directory inside the throwaway's `main/`, so a refusal is the tool's and not a `cd`'s.
+- **The fixes:**
+  - `4b8419002d` (remove forces only on `--force`; `--preserve` checks each move, refuses a destination inside the worktree and an existing name; `pwd -P`), cut from an intermediate tree. `hooks-test` PASS there; the control's remove cases passed, its four remaining FAILs being commit 2's.
+  - `0c0be666eb` (repair's recursive carry, keeping the orphan when anything cannot be carried; sync's rc; the usage error), with the control: **19 of 19 ok, PASS**.
+  - `d0c88f4528` (the three lists).
+- **`rules-check` fails on this branch, since S2's `db8ad3958a`:** *hook missing tools/fork-newdrive*. S2 removed the hook pattern (D-INFRA-030), and the `fork-workflow.md` entry and index row remain. On T9's branch (`bf4445a13c`) the index row reads *this row leaves with the hook's pattern (#657)*, and T9 keeps all three. So the two rule entries' removal belongs with S2's, a rule edit S2's brief did not name. The question is on #657.
+
+  This is my miss: `rules-check` was not run after S2. Every later stream now runs it.
+- `worktrees.md` § Removing a worktree, read against the fixed tool: its sentences hold (*refuses if build output is present*, *`--force` only after it has told you what dies*). Left unchanged.
+PROOF: P21 S4's control -- `tools/fork-worktree-test <the tool at 8ebaf8daad> .qa-scratch/t10/s4`: rc 1, the positives FAIL (`.qa-scratch/t10/s4/before.txt`); on the intermediate tool of `4b8419002d`: rc 1 with only repair, sync and the bare-`--preserve` cases failing (`inter.txt`), `hooks-test` PASS; `tools/fork-worktree-test` at `0c0be666eb`: rc 0, 19 ok, PASS (`final.txt`); the throwaway repositories under `.qa-scratch/t10/s4/`, never the fork's.
