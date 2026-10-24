@@ -609,6 +609,30 @@ def no_tmp_writes(c):
 
 
 @case
+def scratch_short_and_removed(c):
+    # The scripts suite binds unix sockets under TMPDIR (107-byte cap), so the run's
+    # scratch is a short directory in the runtime one, used, then removed at exit (#659).
+    import re
+    executable(c.bin / 'mktemp', MKTEMP_DOUBLE)
+    vmqa = c.tool('vm-qa')
+    c.walks()
+    c.rows([('test -s /storage/.config/rclone/rclone.conf', 1, ''), ('cloud_remote active', 0, ''),
+            ('os-release', 0, f'"{GUEST_ID}"'), ('boot_id', 0, '@count')])
+    xdg = c.dir / 'xdg'
+    c.run([str(vmqa), '--skip-up', '--only', 'walks', '--walk', WALK], drop=DEFAULTS, XDG_RUNTIME_DIR=xdg, VMHT_CASE=c.dir)
+    text = c.reports()[0].read_text() if c.reports() else ''
+    m = re.search(r'scratch ([^\s;]+)', text)
+    scratch = m.group(1) if m else ''
+    runtime = Path(scratch).parent
+    short = bool(scratch) and runtime.parent == xdg and runtime.name.startswith('pixelelated-vm-') \
+        and re.fullmatch(r'qa\.[A-Za-z0-9]{6}', Path(scratch).name) is not None
+    used = any(l.split(' ', 1)[1].rstrip('/') == scratch for l in c.calls('mktemp '))
+    gone = bool(scratch) and not Path(scratch).exists()
+    ok = short and used and gone
+    return ok, f'scratch {scratch[len(str(c.dir)):] or "(none)"}: in the runtime directory as qa.XXXXXX {short}, a temp file made in it {used}, removed at exit {gone} (want all three)'
+
+
+@case
 def rehearsal_artifacts_root(c):
     reh = c.tool('vm-upgrade-rehearsal')
     executable(c.bin / 'mkdir', MKDIR_LOGGING)

@@ -186,6 +186,7 @@ exec 9>&2
 pair_down_on_exit() {
   local rc=$? out drc
   exec 2>&9
+  case "${RUN_SCRATCH:-}" in "$RUNTIME"/qa.?*) rm -rf -- "$RUN_SCRATCH" ;; esac
   [ "$PAIR_UP" = 1 ] && [ "$KEEP_UP" = 0 ] || return 0
   PAIR_UP=0
   out=$("$ROOT/tools/vm-pair" down 2>&1); drc=$?
@@ -248,11 +249,16 @@ done
 mkdir -p "$OUT/walks" || { echo "vm-qa: cannot create $OUT/walks" >&2; exit 1; }
 REPORT="$OUT/report.md"
 : > "$REPORT" || { echo "vm-qa: cannot write $REPORT" >&2; exit 1; }
-# The run's scratch files under this checkout, never /tmp (D-INFRA-031): every
-# mktemp here and in the tools this run starts lands in the run's own directory.
-export TMPDIR="$ROOT/.qa-scratch/vm-qa-tmp/$(basename "$OUT")"
+# The run's scratch files in this checkout's runtime directory, never /tmp
+# (D-INFRA-031): every mktemp here and in the tools this run starts lands in the
+# run's own directory. Short on purpose: the scripts suite binds unix sockets
+# under TMPDIR, capped at 107 bytes, and a directory under the checkout overran
+# that in seven of its checks (#659). The runtime directory is memory, so the
+# run removes its scratch at exit; the record is the report directory.
+(umask 077; mkdir -p "$RUNTIME") || { echo "vm-qa: cannot create the runtime directory $RUNTIME" >&2; exit 1; }
+RUN_SCRATCH=$(mktemp -d "$RUNTIME/qa.XXXXXX") || { echo "vm-qa: cannot create the run's scratch directory under $RUNTIME" >&2; exit 1; }
+export TMPDIR="$RUN_SCRATCH"
 SSH_CUT_LOG="$OUT/ssh-cuts.log"
-mkdir -p "$TMPDIR" || { echo "vm-qa: cannot create the run's scratch directory $TMPDIR" >&2; exit 1; }
 # The guest's display, read from its QEMU's own command line (#291): hardware GL through virgl on a host
 # render node, or the software path. The renderer the guest's Mesa then reports is read at the end, from
 # the launch log the exit suite leaves, so a guest that fell back to softpipe says so on its report.
@@ -281,7 +287,7 @@ es_suite() {  # name, log, command... -- run only on the source the image pins
   local head=${ES_HEAD:0:10} pin=${ES_PIN:0:10}
   ROW_NOTE="(ES_SRC ${head:-?}, image pins ${pin:-unreadable})" run_suite "$name" "$log" es_skip
 }
-{ echo "# vm-qa on $BUILD"; echo; echo "started $(date -u '+%Y-%m-%d %H:%M UTC'), guest $GUEST at :$PORT, cloud $BACKEND (port $("$ROOT/tools/cloud-test-backend" port), $("$ROOT/tools/cloud-test-backend" caps)), image ${IMAGE:-(already up)}, display: $DISPLAY_MODE"; echo; echo "BUILD_ID $GUEST_ID -- the image names ${WANT:-nothing (already up)}"; echo; echo "$ES_LINE"; echo; echo "paths: pair $VM_PAIR_DIR; runtime $VM_QEMU_RUNTIME_DIR; QA cloud $CLOUD_QA_STATE; scratch $TMPDIR; key $KEY -- and this report under the report root $ART, which stays where the record keeps every run"; echo; echo "| suite | result | time | log |"; echo "| --- | --- | --- | --- |"; } > "$REPORT"
+{ echo "# vm-qa on $BUILD"; echo; echo "started $(date -u '+%Y-%m-%d %H:%M UTC'), guest $GUEST at :$PORT, cloud $BACKEND (port $("$ROOT/tools/cloud-test-backend" port), $("$ROOT/tools/cloud-test-backend" caps)), image ${IMAGE:-(already up)}, display: $DISPLAY_MODE"; echo; echo "BUILD_ID $GUEST_ID -- the image names ${WANT:-nothing (already up)}"; echo; echo "$ES_LINE"; echo; echo "paths: pair $VM_PAIR_DIR; runtime $VM_QEMU_RUNTIME_DIR; QA cloud $CLOUD_QA_STATE; scratch $TMPDIR (removed at exit); key $KEY -- and this report under the report root $ART, which stays where the record keeps every run"; echo; echo "| suite | result | time | log |"; echo "| --- | --- | --- | --- |"; } > "$REPORT"
 FAILS=0
 SKIPS=0  # a suite that could not run (rc 3) is shown as such, never folded into PASS
 run_suite() {  # name, log, command...
