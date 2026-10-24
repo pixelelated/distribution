@@ -568,10 +568,24 @@ case ",$ONLY," in *,walks,*)
     ensure_fixture || return 1
     ensure_manager_fixture || return 1
   }
+  # A reboot is a new boot id, then an answering EmulationStation, within the
+  # bound (#973). The wait used to sleep and poll pgrep, so a reboot that never
+  # happened, or an interface that never came, walked on regardless.
+  wait_rebooted() {  # the boot id read before the reboot
+    local before=$1 now="" i
+    [ -n "$before" ] || { echo "the boot id could not be read before the reboot"; return 1; }
+    for i in $(seq 1 45); do
+      now=$(SSH 'cat /proc/sys/kernel/random/boot_id' 2>/dev/null) && [ -n "$now" ] && [ "$now" != "$before" ] && break
+      now=""; sleep 3
+    done
+    [ -n "$now" ] || { echo "no new boot within 135 s (the boot id is still $before, or the guest did not answer)"; return 1; }
+    for i in $(seq 1 45); do SSH 'pgrep -x emulationstation >/dev/null' 2>/dev/null && { sleep 10; return 0; }; sleep 3; done
+    echo "a new boot ($now), but EmulationStation did not answer within 135 s"; return 1
+  }
   # Every walk starts from a rebooted guest, which the README names as the
   # one deterministic start; a boot-time dialog is dismissed with B first.
   walk_all() {
-    local rc=0 name legs w pre defpre=""
+    local rc=0 name legs w pre defpre="" boot
     fixture_time walks_ready || return 1
     # tools/vm-walks/suite.txt names the compositions: most walk files are a
     # leg that starts on a screen an earlier leg reaches, so replaying them
@@ -616,8 +630,9 @@ case ",$ONLY," in *,walks,*)
         scp -q -i "$KEY" -P "$PORT" $SSHO "$ROOT/tools/vm-walks/fixtures/system-selected.sh" "root@127.0.0.1:/storage/.config/emulationstation/scripts/system-selected/99-vm-qa.sh" || { rc=1; continue; }
         SSH 'chmod 700 /storage/.config/emulationstation/scripts/system-selected/99-vm-qa.sh' || { rc=1; continue; }
         ;; esac
+      boot=$(SSH 'cat /proc/sys/kernel/random/boot_id' 2>/dev/null)
       SSH 'systemctl reboot' 2>/dev/null; sleep 6
-      for i in $(seq 1 45); do SSH 'pgrep -x emulationstation >/dev/null' 2>/dev/null && break; sleep 3; done; sleep 10
+      wait_rebooted "$boot" || { echo "walk $name: the reboot before it did not complete -- see above"; rc=1; continue; }
       case "$name" in manager-*)
         SSH 'curl -fsS -m 10 http://127.0.0.1:1234/systems' > "$OUT/walks/$name-systems.json"
         selected_system=$(SSH 'cat /storage/.cache/vm-qa-selected-system' 2>/dev/null)

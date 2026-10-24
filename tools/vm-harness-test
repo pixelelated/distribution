@@ -354,6 +354,22 @@ def run_walk(c, rows, **extra):
 
 
 @case
+def reboot_same_boot_id(c):
+    r, text, walked = run_walk(c, walk_rows(boot='same-boot'))
+    log = (c.reports()[0].parent / 'walks.log').read_text() if c.reports() else ''
+    ok = r.returncode == 1 and not walked and 'no new boot' in log
+    return ok, f'rc {r.returncode}, walked {len(walked)}, "no new boot" in walks.log {"no new boot" in log} (want rc 1, no walk)'
+
+
+@case
+def reboot_es_silent(c):
+    r, text, walked = run_walk(c, walk_rows(('pgrep -x emulationstation', 1, '')))
+    log = (c.reports()[0].parent / 'walks.log').read_text() if c.reports() else ''
+    ok = r.returncode == 1 and not walked and 'EmulationStation did not answer' in log
+    return ok, f'rc {r.returncode}, walked {len(walked)}, the reason in walks.log {"EmulationStation did not answer" in log} (want rc 1, no walk)'
+
+
+@case
 def seed_scp_fails(c):
     (c.dir / 'scp-fail').write_text('')
     r, text, walked = run_walk(c, walk_rows(('sha256sum -c', 1, ''), ('test -f /storage/roms/snes/shared.sfc', 1, '')))
