@@ -46,8 +46,13 @@ def check_review_plan(d, milestone, bad, ok):
         require(primary['lab'] not in ('unknown', ''), 'primary model lab is unknown')
         if primary['model'] != 'unknown':
             require(primary['model'].split('/', 1)[0] == primary['lab'], 'primary model and lab disagree')
+        # D-WORKFLOW-184 (#810): a renovation slice whose plan § 6c row says
+        # Local writes an epic-tier folder; it says so in the plan file.
+        tier_exception = bool(depth == 'local' and '-issue-' not in d.name
+                              and plan.get('tier_exception') == 'D-WORKFLOW-184'
+                              and isinstance(plan.get('reason'), str) and plan['reason'].strip())
         if depth == 'local':
-            require('-issue-' in d.name, 'local-only cannot satisfy Epic/Milestone')
+            require('-issue-' in d.name or tier_exception, 'local-only cannot satisfy Epic/Milestone')
         labs, members, outputs = ({primary['lab']}, set(), set())
         for reviewer in reviewers:
             member, model, lab = (reviewer[k] for k in ('member', 'model', 'lab'))
@@ -98,6 +103,8 @@ def check_review_plan(d, milestone, bad, ok):
                 require(receipt['output_file_sha256'] == digest == final['file_artifact_sha256'],
                         'review output digest differs')
         ok(f'review plan: {depth}, {1 + count} model perspectives, {len(outputs)} verified external calls')
+        if tier_exception:
+            ok(f"review-plan: local at epic tier under D-WORKFLOW-184 ({plan['reason'].strip()})")
     except (OSError, ValueError, KeyError, TypeError, AttributeError, AssertionError) as e:
         bad(f"second-opinions/review-plan.json or its call evidence is invalid: {e or 'contract mismatch'}")
 
