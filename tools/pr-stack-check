@@ -8,9 +8,11 @@
 #
 # Reads docs/pr-series/map.txt (one `## title` per PR, in order, then the
 # paths `git checkout <from> -- <path>` takes; `#` comments), makes a throwaway
-# worktree on --base (default upstream/next), and stacks one commit per PR by
-# content from --from (default next): a path that exists on next is checked
-# out, a path next deleted is removed. Then it fails unless
+# worktree on --base (default upstream/next), and builds each PR on the base
+# by itself, one commit by content from --from (default next): a path that
+# exists on next is checked out, a path next deleted is removed. The series is
+# not a stack (D-WORKFLOW-079, which replaced #322's stack): every pr/* branch
+# is one commit on upstream/next. Then it fails unless
 #
 #   0. every PR title obeys upstream's CI rule (`package: text`, 72 chars);
 #   1. every path the map names differs from the base somewhere (a dead line
@@ -18,22 +20,29 @@
 #   2. no personal path (the push guard's PERSONAL_PATTERNS, read from
 #      .githooks/pre-push) is named;
 #   3. every upstream-bound file that differs between the base and next is
-#      carried by exactly one PR -- an uncovered file fails, and so does one
-#      two PRs both name;
-#   4. the last head equals next on every upstream-bound path: zero files
-#      differing under packages/, projects/, scripts/, config/, distributions/,
-#      Makefile and tools/ minus the personal tools.
+#      carried by a PR -- an uncovered file fails. Renames are off, so a
+#      renamed file is its new path and its deleted old path, and both must be
+#      carried. A file two PRs need rides whole in each and is printed as
+#      `shared:` (D-WORKFLOW-079: identical content merges whichever lands
+#      first);
+#   4. every PR's files together on the base equal next on every
+#      upstream-bound path -- the tree upstream holds once every PR has
+#      merged (#322's rule, in the shape D-WORKFLOW-079 left it): zero files
+#      differing under packages/, projects/, scripts/, config/,
+#      distributions/, Makefile and tools/ minus the personal tools.
 #
 # It prints each PR's file list with counts. --keep leaves the worktree and
 # its pr-stack/N branches for cutting the real pr/* branches from; without it
-# the worktree and branches go (tools/fork-worktree remove, which refuses
-# build output, of which a fresh worktree has none). Exit 0 only on PASS;
-# 1 on any failure; 2 on usage or a base next does not contain (merge
-# upstream first, or the diff is not the fork's).
+# the worktree goes (tools/fork-worktree remove for this checkout, which
+# refuses build output; a plain git worktree remove for --repo; never a forced
+# one) and so do the branches it made. It refuses to start over an existing
+# worktree or pr-stack/N branch: a kept stack is somebody's. Exit 0 only on
+# PASS; 1 on any failure; 2 on usage, an existing stack, or a base next does
+# not contain (merge upstream first, or the diff is not the fork's).
 #
 # Why by content and not by commit: fork-workflow.md. Why a tool: #322's
 # rule that the series must leave upstream with exactly the tree that was
-# built and proven; a hand-made stack has no such proof (blindspot 47's
+# built and proven; a hand-made series has no such proof (blindspot 47's
 # shape, seen from the other side).
 set -u
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -51,7 +60,7 @@ while [ $# -gt 0 ]; do
     --drafts) DRAFTS="$2"; shift 2 ;;
     --from) FROM="$2"; shift 2 ;;
     --keep) KEEP=1; shift ;;
-    -h|--help) sed -n '5,40p' "$0"; exit 0 ;;
+    -h|--help) sed -n '5,46p' "$0"; exit 0 ;;
     *) echo "pr-stack-check: unknown argument $1" >&2; exit 2 ;;
   esac
 done
@@ -72,7 +81,7 @@ mapfile -t PERSONAL < <(sed -n '/^PERSONAL_PATTERNS=(/,/^)/p' "${ROOT}/.githooks
 is_personal() { local p; for p in "${PERSONAL[@]}"; do case "$1" in "${p}"*) return 0 ;; esac; done; return 1; }
 
 # Every upstream-bound file that differs between the base and FROM.
-mapfile -t DIFF < <(g diff --name-only "${BASE}" "${FROM}" -- "${ROOTS[@]}" | while read -r f; do is_personal "$f" || echo "$f"; done)
+mapfile -t DIFF < <(g diff --name-only --no-renames "${BASE}" "${FROM}" -- "${ROOTS[@]}" | while read -r f; do is_personal "$f" || echo "$f"; done)
 [ "${#DIFF[@]}" -gt 0 ] || { echo "pr-stack-check: nothing differs between ${BASE} and ${FROM} on the upstream-bound roots"; exit 1; }
 
 # Parse the map: titles and paths, in order.
@@ -118,12 +127,23 @@ for f in "${DIFF[@]}"; do [ -n "${OWNER[$f]:-}" ] || fail "no PR carries $f"; do
 # branch (D-WORKFLOW-079, #333: the ROCKNIX developers closed a series whose
 # tenth branch carried ten commits). The worktree is reset to the base before
 # every PR, so nothing of PR 1 is in PR 2.
-WT="${REPO}/../$(basename "${REPO}").worktrees/pr-stack-check"
-[ "${REPO}" = "${ROOT}" ] && WT="${ROOT}/../rocknix.worktrees/pr-stack-check"
+# The sibling of the primary checkout: <primary>.worktrees/pr-stack-check (worktrees.md).
+COMMON="$(g rev-parse --path-format=absolute --git-common-dir)" || { echo "pr-stack-check: cannot find ${REPO}'s git directory" >&2; exit 2; }
+PRIMARY="$(dirname "${COMMON}")"
+WT="${PRIMARY}.worktrees/pr-stack-check"
 if [ -e "${WT}" ]; then echo "pr-stack-check: ${WT} exists; remove it with tools/fork-worktree remove first" >&2; exit 2; fi
-for i in $(seq 0 "$n"); do g branch -D "pr-stack/$((i+1))" >/dev/null 2>&1 || true; done
+for i in $(seq 0 "$n"); do
+  if g rev-parse -q --verify "refs/heads/pr-stack/$((i+1))" >/dev/null; then
+    echo "pr-stack-check: branch pr-stack/$((i+1)) exists (a kept stack?); delete it by name first" >&2; exit 2
+  fi
+done
 g worktree add -q --detach "${WT}" "${BASE}" || { echo "pr-stack-check: could not add the worktree" >&2; exit 2; }
-cleanup() { if [ "${KEEP}" = 0 ]; then "${ROOT}/tools/fork-worktree" remove "${WT}" >/dev/null 2>&1 || g worktree remove --force "${WT}" >/dev/null 2>&1; for i in $(seq 0 "$n"); do g branch -D "pr-stack/$((i+1))" >/dev/null 2>&1 || true; done; fi; }
+cleanup() {
+  [ "${KEEP}" = 0 ] || return 0
+  if [ "${REPO}" = "${ROOT}" ]; then "${ROOT}/tools/fork-worktree" remove "${WT}" >/dev/null 2>&1; else g worktree remove "${WT}" >/dev/null 2>&1; fi \
+    || echo "pr-stack-check: could not remove ${WT}; it is left for tools/fork-worktree remove" >&2
+  for i in $(seq 0 "$n"); do g branch -D "pr-stack/$((i+1))" >/dev/null 2>&1 || true; done
+}
 trap cleanup EXIT
 BANNED='[Cc]laude|[Aa]nthropic|Generated with|Co-Authored-By|D-[A-Z]+-[0-9]+|tools/[a-z]'
 PLURAL='\b([Ww]e|[Ww]e'"'"'re|[Ww]e'"'"'ve|[Ww]e'"'"'ll|[Oo]ur|[Oo]urs)\b'
@@ -159,8 +179,25 @@ for i in $(seq 0 "$n"); do
   h="$(printf '%s\n' "$body" | grep -n -E '^\*\*[^*]+\*\*|^#+ |^- ' | head -3)"; [ -z "$h" ] || fail "PR $((i+1))'s description carries a template (bold labels, headings or bullets):"$'\n'"$h"
 done
 
+# 4. Every PR's files together on the base, compared with FROM: the tree upstream
+# holds once the whole series has merged. Built and diffed, not inferred from 3.
+echo "== every PR on ${BASE} together, compared with ${FROM}"
+if git -C "${WT}" checkout -q --detach "${BASE}"; then
+  while IFS= read -r f; do
+    [ -n "$f" ] || continue
+    if g cat-file -e "${FROM}:${f}" 2>/dev/null; then git -C "${WT}" checkout -q "${FROM}" -- "$f" || fail "union: could not check out $f"
+    else git -C "${WT}" rm -q -f -- "$f" 2>/dev/null || fail "union: could not remove $f"; fi
+  done < <(printf '%s' "${FILES_OF[@]}" | sort -u)
+  mapfile -t LEFT < <(git -C "${WT}" diff --name-only --no-renames "${FROM}" -- "${ROOTS[@]}" | while read -r f; do is_personal "$f" || echo "$f"; done)
+  for f in "${LEFT[@]}"; do fail "every PR together still differs from ${FROM}: $f"; done
+  [ "${#LEFT[@]}" -eq 0 ] && echo "   0 upstream-bound files differ"
+  git -C "${WT}" checkout -q --detach "${BASE}" 2>/dev/null; git -C "${WT}" reset -q --hard 2>/dev/null
+else
+  fail "union: could not reset the worktree to ${BASE}"
+fi
+
 if [ "${FAIL}" = 0 ]; then
-  echo "pr-stack-check: PASS -- $((n+1)) PRs carry all ${#DIFF[@]} upstream-bound files, each one commit on ${BASE} with a description in the maintainer's voice"
+  echo "pr-stack-check: PASS -- $((n+1)) PRs carry all ${#DIFF[@]} upstream-bound files, each one commit on ${BASE} with a description in the maintainer's voice; every PR on ${BASE} together equals ${FROM}"
   [ "${KEEP}" = 1 ] && echo "kept: ${WT}; branches pr-stack/1..$((n+1)), each on ${BASE} by itself"
   exit 0
 fi

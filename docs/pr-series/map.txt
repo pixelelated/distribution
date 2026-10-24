@@ -4,12 +4,14 @@
 # and is split before it is opened (#333, #335; the developer's words: "we can't be expected to review a PR with 40,000 lines").
 # The upstream series, by content (#322, #256; D-WORKFLOW-064, D-WORKFLOW-066).
 # One section per PR, in order; each names the paths `git checkout next -- <paths>`
-# takes onto the previous head. A path is a file or a directory (everything under
-# it that differs from upstream/next). A file that several buckets touched is
-# listed once, under the first PR that needs it, and its later lines ride along;
-# those are the "shared" lines, marked so the PR description can say so.
-# tools/pr-stack-check reads this file, builds the stack in a throwaway worktree
-# and fails unless the last head equals next on every upstream-bound path.
+# takes onto upstream/next, each PR by itself as one commit (D-WORKFLOW-079: the
+# series is not a stack). A path is a file or a directory (everything under it
+# that differs from upstream/next). A renamed file is two paths, its new one and
+# its deleted old one, and both are named. A file two PRs need rides whole in
+# each; the checker prints it as "shared" so the PR description can say so.
+# tools/pr-stack-check reads this file, builds each PR in a throwaway worktree
+# and fails unless every PR's files together on upstream/next equal next on
+# every upstream-bound path.
 # Personal paths (fork-workflow.md) are never listed and never pass the guard.
 # Provenance: /home/max/.claude/jobs/fc48035c/tmp/path-commits.tsv, 2026-09-29.
 
