@@ -358,3 +358,37 @@ PROOF: 17:50 P18 S6: the six cases pass at the fix and each fails against the un
 - **A consequence named in the commit:** `test-build-admission`'s #597 recovery fixture copied the *current* launcher, while recovery accepts only the reviewed launcher, by `COLLISION_LAUNCHER_SHA256`. The fixture now takes those bytes from their content-addressed blob, `571997938e3d…`, and checks the hash first: rc 0, 73 checks. Recovery itself is unchanged. It binds the launcher an actual #597 owner retained, not the current one.
 
 PROOF: 17:56 P19 S7: test-swap-reclaim (39 OK) and test-submit.py (six rows) pass at the fix; the six signal cases and the print case fail against the unfixed helper, and the two receipt cases against the unfixed launcher -- `.qa-scratch/t9/positives/s7-*.log`, `.qa-scratch/t9/s7-*.log`
+
+### The S3 addendum (#915; `t9-streams.md` at `16fe2b79ac`), 17:58 to 18:02
+
+- **Read first:** the coordinator's 17:36 comment on #915, and the addendum at `16fe2b79ac`. It was done after S6 and S7 and before S8, as asked. The `watch-build` edit waited until no running control copies that file: only `test-watch-job` was left, and it reads `watch-job` alone.
+- **Test first:** in `test-build-admission`:
+  - S3's malformed-registry case now requires `watch-build: admission refused: ` and no `command launch/output failed`;
+  - the `changed plan` mutation, the digest mismatch, requires `admission refused: admission plan changed` and rc 125;
+  - a new case, a command that does not exist, requires `command launch/output failed: ` and no `admission refused`.
+- **Against the runner before the addendum** (an export of `9035ff1def`, `.qa-scratch/t9/positives/addendum-unfixed.log`): the two refusal cases FAIL, and the launch case PASSes, as its wording is unchanged.
+- **The fix** (`86ef7ae6b1`): `admit` is wrapped, and its exceptions are raised as `AdmissionRefused`, which the run's try logs as `watch-build: admission refused: <reason>`. The code stays 125, and no guard's contract changes.
+- **At the fix:**
+  - `test-build-admission`: rc 0, 75 checks;
+  - `test-build-monitor`: 41 PASS;
+  - `test-submit.py`: rc 0.
+
+PROOF: 18:02 P20 the S3 addendum: an admission refusal is logged as `admission refused` (two cases, failing on the runner before it) and a launch failure keeps its wording -- `.qa-scratch/t9/addendum-*.log`, `.qa-scratch/t9/positives/addendum-unfixed.log`
+
+### S8 (PL-10; D-INFRA-030), 18:02 to 18:03
+
+- **The checks before:**
+  - `tools/rules-check --quiet` rc 0;
+  - `git grep -n fork-newdrive -- . ':!.githooks' ':!docs'`: 12 lines;
+  - `.githooks/hooks-test`: PASS.
+- **`ad70390f60`:** `git rm tools/fork-newdrive`.
+- **`00e571b8a8`:** one sentence in `device-builds.md` § Where things live.
+- **Two departures from the brief, each found by its own check:**
+  1. **The personal-paths entry and the index row stay.** With them removed, `rules-check` failed: first `hook names tools/fork-newdrive absent from fork-workflow`, then `index missing tools/fork-newdrive`. The tool requires `fork-workflow.md`'s list and the index to agree with `.githooks/pre-push`'s `PERSONAL_PATTERNS`, which keeps `'tools/fork-newdrive'` until T10 (#657), and `fork-workflow.md` says the list and the hook change together. So `fork-workflow.md` is unchanged, and the index row reads `retired (D-INFRA-030) ... this row leaves with the hook's pattern (#657)`. The three go together, in T10's stream or the integration packet.
+  2. **The grep is not empty.** `git grep -n fork-newdrive -- . ':!.githooks' ':!docs'` prints the index row and the personal-paths entry (departure 1). It also prints ten lines in historical records the brief's exclusions do not cover: two archived session stashes under `.github/sessions/archived/` and a council source snapshot under `research/`. Records are not edited. My first sentence in `device-builds.md` named the path and tripped the grep too, so it was reworded to cite D-INFRA-030 instead.
+- **The checks after:**
+  - `rules-check --quiet` rc 0;
+  - `hooks-test`: PASS;
+  - the grep: the two lines of departure 1 and the ten historical lines, nothing else.
+
+PROOF: 18:03 P21 S8: fork-newdrive is removed; rules-check rc 0 and hooks-test PASS after; the grep holds only the two rows the hook pattern keeps (#657) and historical records -- `.qa-scratch/t9/s8-*.log`

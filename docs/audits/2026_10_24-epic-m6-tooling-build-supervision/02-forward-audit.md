@@ -95,6 +95,8 @@ Read only, at 15:45:41 UTC; nothing written under any M7 path (`.qa-scratch/t9/r
 | P17 | S5 (#917, #918): `test-build-monitor` passes at the fix (41/0); its five new cases fail against the unfixed runner (four FAIL lines, the console case hung to its 30 s timeout) and its lock control, with a fresh admission, fails against a runner without its lock | `.qa-scratch/t9/s5-monitor-fixed.log`, `.qa-scratch/t9/positives/s5/`; `dce53bf0ba`, `d1a1495bc5` | proved: fix-control |
 | P18 | S6 (#919, #921, #920): six cases pass at the fix (`test-build-admission` 73 checks, `test-retention-report` 23) and each fails against the unfixed tools; the record's 665 `admission.json` rows equal their registry rows, and their 665 receipts equal those rows | `.qa-scratch/t9/positives/s6/`, `.qa-scratch/t9/s6-record-rows.txt`; `e03fc7982d`, `e8828c13ad`, `82840dbc42` | proved: fix-control |
 | P19 | S7 (#922, #923): `test-swap-reclaim` (39 OK) and `test-submit.py` (six rows) pass at the fix; against the unfixed helper SIGQUIT, SIGUSR1, SIGUSR2 and SIGALRM end the child during `swapoff` with swap off (rc -3, -10, -12, -14), SIGPIPE goes unacknowledged and the print sits after the checks; against the unfixed launcher a stale `launcher-result.json` is accepted and a signalled worker leaves no result | `.qa-scratch/t9/positives/s7-*.log`; `39d9fc1e04`, `c1e799b3b5` | proved: fix-control |
+| P20 | The S3 addendum (#915): an admission refusal is logged as `watch-build: admission refused: <reason>`, rc 125; the changed-plan and malformed-registry cases fail on the runner before it, and a launch failure keeps `command launch/output failed` | `.qa-scratch/t9/addendum-*.log`, `.qa-scratch/t9/positives/addendum-unfixed.log`; `86ef7ae6b1` | proved: fix-control |
+| P21 | S8 (D-INFRA-030): `tools/fork-newdrive` is removed; `rules-check` rc 0 and `hooks-test` PASS after; the grep holds only the index row and the personal-paths entry that `.githooks/pre-push`'s pattern keeps until #657, and historical records | `.qa-scratch/t9/s8-*.log`; `ad70390f60`, `00e571b8a8` | proved: fix-tree |
 
 ## Findings (stage B)
 
@@ -228,3 +230,8 @@ The registry is the filesystem's, in the user's state directory (`00` § S6 says
 | SIGTERM to the worker | the worker ends; no `launcher-result.json` | forwarded; `runner_returncode` 143, `signals: [15]`, `launcher-signal.json` |
 
 The installed `reclaim-swap` on serval is unchanged until the owner reinstalls it (D-INFRA-015); `build-preflight --reclaim-swap` keeps the installed copy until then. P19 in the table above.
+
+### The S3 addendum and S8
+
+- **Addendum (#915):** `admit`'s exceptions are logged as `admission refused`; the code stays 125. P20.
+- **S8 (PL-10):** the script is retired. Its index row (now "retired") and personal-paths entry stay until `.githooks/pre-push`'s pattern leaves, which is T10's (#657); `rules-check` requires the three to agree. P21.
