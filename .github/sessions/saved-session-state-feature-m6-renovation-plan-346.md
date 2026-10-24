@@ -29,7 +29,8 @@
 lane's post-candidate merge to clear the push guard's W42 gate before
 anything merges to `next` (never `--no-verify`); the order is in § Merge
 notes and § State at 2026-10-24. **Accepted:** P1 (#641), T1 (#648), T2
-(#649), T3 (#650), T5 (#652), T6 (#653), **T7 (#654, `db6597356b`, 11:17)**; the packet `fix/m6-877-libfmt-sha256`
+(#649), T3 (#650), T5 (#652), T6 (#653), **T7 (#654, `db6597356b`, 11:17)**,
+**T30 (#677, `f94a6fc62f`, 12:30; its completion marker next)**; the packet `fix/m6-877-libfmt-sha256`
 (`cf3a8d8e62`, reviewed, merges before T5's branch). **Running:** T30
 (#677, Extended) in the T3 session (`m6-t3-emulators`), **stage E** from
 `docs/reviews/briefs/t30-streams.md` (S0 to S5; audit issue #872; its
@@ -40,10 +41,10 @@ through the Facilitator) **dispatched 12:09 UTC** to the T5 session
 (`m6-t5-build-engine`) from `docs/reviews/briefs/image-packages.md`
 version 2 (`dede8effec`), lane `feature/m6-image-packages-655` at
 `caf1de3727`, worktree `distribution.worktrees/m6-image-packages-655`; its
-stage-D pause is the coordinator's next act there. **Packets:** #877
-(reviewed, before T5's branch); **#887** (`backuptool` blanks `melonDS.toml`;
-`fix/m6-887-melonds-toml-blank`, with the T1 session). **T30** is in S4 of
-six; S0 to S3 accepted on #677. The T1 session
+stage-D pause is the coordinator's next act there. **Packets:** #877 and #890
+(reviewed, the two checksums before T5's branch); **#887** (`backuptool`
+blanks `melonDS.toml`, `c60cdddf8b`, criteria ticked, the whole harness
+re-run pending); **#889** (the scan reads `.toml`; with the T1 session). The T1 session
 (`m6-t1-os-launch`) is idle after #877's packet. **Waiting on the
 maintainer (#346):** T4's dispatch (#651, brief v2 `0921782112`; a third
 lane). **At integration (the coordinator dispatches):** one packet for
