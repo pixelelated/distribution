@@ -6,6 +6,7 @@ folder in a throwaway root under .qa-scratch/.
   python3 -I run.py [ceremony-check] [scratch-parent]
 Each case prints ok or FAIL; the run ends PASS (exit 0) or FAIL (1)."""
 import datetime as dt, hashlib, importlib.machinery, importlib.util, json, os, shutil, subprocess, sys, tempfile
+sys.dont_write_bytecode = True   # importing the tool must not leave tools/__pycache__ behind
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "../../.."))
 TOOL = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "tools/ceremony-check"))
