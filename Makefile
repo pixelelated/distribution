@@ -144,13 +144,16 @@ docker-%: DOCKER_IMAGE_LOCAL := ghcr.io/pixelelated/build:local
 docker-%: DOCKER_WORK_DIR := $(shell if [ -n "${DOCKER_WORK_DIR}" ]; then echo ${DOCKER_WORK_DIR}; else echo "$$(pwd)" ; fi)
 
 # ${HOME}/.ROCKNIX/options is a global options file containing developer and build settings.
-docker-%: GLOBAL_SETTINGS := $(shell if [ -f "${HOME}/.ROCKNIX/options" ]; then echo "-v \"${HOME}/.ROCKNIX/options:${HOME}/.ROCKNIX/options\""; else echo ""; fi)
+# The container reads it and never writes it, so it is mounted read-only.
+docker-%: GLOBAL_SETTINGS := $(shell if [ -f "${HOME}/.ROCKNIX/options" ]; then echo "-v \"${HOME}/.ROCKNIX/options:${HOME}/.ROCKNIX/options:ro\""; else echo ""; fi)
 
 # LOCAL_SSH_KEYS_FILE is a variable that contains the location of the authorized keys file for development build use.  It will be mounted into the container if it exists.
-docker-%: LOCAL_SSH_KEYS_FILE := $(shell if [ -n "${LOCAL_SSH_KEYS_FILE}" ]; then echo "-v \"${LOCAL_SSH_KEYS_FILE}:${LOCAL_SSH_KEYS_FILE}\""; else echo ""; fi)
+# The mount argument has a name of its own: assigning it to LOCAL_SSH_KEYS_FILE
+# itself replaced the exported path with the -v string for the recipe (#837).
+docker-%: LOCAL_SSH_KEYS_MOUNT := $(shell if [ -f "${LOCAL_SSH_KEYS_FILE}" ]; then echo "-v \"${LOCAL_SSH_KEYS_FILE}:${LOCAL_SSH_KEYS_FILE}\""; else echo ""; fi)
 
 # EMULATIONSTATION_SRC is a variable that contains the location of local emulationstation source code. It will be mounted into the container if it exists.
-docker-%: EMULATIONSTATION_SRC := $(shell if [ -n "${EMULATIONSTATION_SRC}" ]; then echo "-v \"${EMULATIONSTATION_SRC}:${EMULATIONSTATION_SRC}\""; else echo ""; fi)
+docker-%: EMULATIONSTATION_SRC_MOUNT := $(shell if [ -d "${EMULATIONSTATION_SRC}" ]; then echo "-v \"${EMULATIONSTATION_SRC}:${EMULATIONSTATION_SRC}\""; else echo ""; fi)
 
 # UID is the user ID of current user - ensures docker sets file permissions properly
 docker-%: UID := $(shell id -u)
@@ -181,7 +184,11 @@ docker-%: BUILD_WATCH=$(if $(filter shell clean distclean package-clean update k
 # If the user issues a `make docker-shell` just start up bash as the shell to run commands
 docker-shell: COMMAND=bash
 
-# Command: builds and saves a docker builder image locally.
+# Command: builds and saves a docker builder image locally, from this tree's
+# Dockerfile, to check that a Dockerfile change builds. No target runs it:
+# every docker-* target runs the pinned digest above, which is also what each
+# image records as BUILDER_VERSION, and the mirror is copied from upstream's
+# container by fork-mirror-build-container, not built here (#837).
 # The build user must also be a member of the "docker" group.
 docker-image-build:
 	$(DOCKER_CMD) buildx create --use
@@ -205,4 +212,4 @@ docker-%:
 	rm -f .env && [ ! -e .env ] || { echo "an older .env cannot be removed: no container started" >&2; exit 1; }; \
 	trap 'rm -f .env' EXIT; trap 'exit 130' INT TERM HUP; \
 	( umask 077 && set -C && ./scripts/get_env > .env ) || { echo "scripts/get_env failed: no container started" >&2; exit 1; }; \
-	BUILD_DIR=$(DOCKER_WORK_DIR) $(BUILD_WATCH) $(DOCKER_CMD) run $(PODMAN_ARGS) $(INTERACTIVE) --init --env-file .env -e RASTERATOPS_BUILD_RUN -e PROJECT -e DEVICE -e ARCH -e BUILDER_NAME=pixelelated-build -e BUILDER_VERSION=$(DOCKER_IMAGE_DIGEST) --rm --user $(UID):$(GID) $(GLOBAL_SETTINGS) $(LOCAL_SSH_KEYS_FILE) $(EMULATIONSTATION_SRC) -v $(PWD):$(DOCKER_WORK_DIR) -w $(DOCKER_WORK_DIR) $(DOCKER_EXTRA_OPTS) $(DOCKER_IMAGE) $(COMMAND)
+	BUILD_DIR=$(DOCKER_WORK_DIR) $(BUILD_WATCH) $(DOCKER_CMD) run $(PODMAN_ARGS) $(INTERACTIVE) --init --env-file .env -e RASTERATOPS_BUILD_RUN -e PROJECT -e DEVICE -e ARCH -e BUILDER_NAME=pixelelated-build -e BUILDER_VERSION=$(DOCKER_IMAGE_DIGEST) --rm --user $(UID):$(GID) $(GLOBAL_SETTINGS) $(LOCAL_SSH_KEYS_MOUNT) $(EMULATIONSTATION_SRC_MOUNT) -v $(PWD):$(DOCKER_WORK_DIR) -w $(DOCKER_WORK_DIR) $(DOCKER_EXTRA_OPTS) $(DOCKER_IMAGE) $(COMMAND)
