@@ -2,6 +2,10 @@
 # Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)
 
 PKG_NAME="yabasanshiro-sa"
+# The pin is the tip of sydarn/yabause's pi4-update and pi4-update-2412
+# branches, not on its default branch master, which does not contain it
+# (GitHub's compare, 2026-10-24). They are named for the Raspberry Pi 4 (ARM)
+# update, which is why the handhelds build them (#872 PL-027).
 PKG_VERSION="a40dace1ae0af3ebd45848549fdf396f40e3930f"
 PKG_LICENSE="GPL-2.0-or-later"
 PKG_SITE="https://github.com/sydarn/yabause"

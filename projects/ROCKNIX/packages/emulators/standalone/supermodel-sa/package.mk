@@ -2,6 +2,9 @@
 # Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)
 
 PKG_NAME="supermodel-sa"
+# The pin is on DirtBagXon/model3emu-code-sinden's arm branch, not on its
+# default branch main, which does not contain it (GitHub's compare, 2026-10-24).
+# Its name marks it as the ARM line, which is why the handhelds build it (#872 PL-027).
 PKG_VERSION="b13fdd5029a246e8f90a1d70e2ed000779fee4f1"
 PKG_SHA256="ff4a925fdf739da08b4e8dd19e09d0a81dda0801fe2d276acf7905073bfa8b96"
 PKG_LICENSE="GPL-3.0-or-later"
