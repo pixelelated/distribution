@@ -82,6 +82,57 @@ def gh_json(args):
         return None, 'gh returned no JSON'
 
 
+GH_CEILING = 1000   # a list cut at this many is refused, never judged (GitHub's search stops at 1000)
+
+
+def gh_total(query):
+    """The tracker's own count for a search query (GraphQL issueCount)."""
+    rc, out, err = sh(['gh', 'api', 'graphql', '-f', 'query=query($q:String!){search(query:$q,type:ISSUE){issueCount}}',
+                       '-f', 'q=' + query, '--jq', '.data.search.issueCount'], timeout=60)
+    if rc != 0:
+        return None, err or ('gh exit %d' % rc)
+    try:
+        return int(out), None
+    except ValueError:
+        return None, 'gh returned no count'
+
+
+def gh_all(args, query):
+    """Every issue a list names, or an error (T10 S5, #943). The list is read
+    with a ceiling far above the tracker and compared with the tracker's own
+    count for the same search, read before and after it; a list shorter than
+    the count, or at the ceiling, has not read every issue. Until 2026-10-24
+    the hygiene line read --limit 200 of 331 and said nothing was owed."""
+    before, err = gh_total(query)
+    if err:
+        return None, err
+    data, err = gh_json(args + ['--limit', str(GH_CEILING)])
+    if err:
+        return None, err
+    after, err = gh_total(query)
+    if err:
+        return None, err
+    if len(data) >= GH_CEILING or not (len(data) == before == after):
+        return None, 'read %d of %d (%d after); a short read is no verdict' % (len(data), before, after)
+    return data, None
+
+
+def file_sha256(path):
+    """sha256 of a file, read in chunks (any Python 3; hashlib.file_digest is 3.11+)."""
+    h = hashlib.sha256()
+    with open(path, 'rb') as stream:
+        for chunk in iter(lambda: stream.read(1 << 20), b''):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+# A heading counts as a marker when it *is* one -- it begins with the
+# ceremony's name -- not when it mentions one (audit #258 PL-004 for the
+# retro; the futro's, T10 S5, #943: "skipped the futro" reset its clock).
+RETRO_MARKER = r'^(mini-?)?retro(spective)?\b'
+FUTRO_MARKER = r'^futro\b'
+
+
 def completed_audit_marker(marker, root, now):
     """Validate an exact Phase 7 completion receipt before it resets cadence."""
     root = Path(root).resolve()
@@ -109,21 +160,20 @@ def completed_audit_marker(marker, root, now):
         path = root / name
         if Path(name).is_absolute() or path.is_symlink() or not path.resolve().is_relative_to(root):
             raise ValueError('unsafe completion evidence path')
-        with path.open('rb') as stream:
-            if hashlib.file_digest(stream, 'sha256').hexdigest() != expected:
-                raise ValueError('completion evidence changed: ' + name)
+        if file_sha256(path) != expected:
+            raise ValueError('completion evidence changed: ' + name)
     issue = json.loads((root / data['tracker_readback']).read_text())
     if not isinstance(issue, dict):
         raise ValueError('audit tracker readback must be a JSON object')
     if (issue.get('number') != data['issue'] or issue.get('state') != 'closed'
             or issue.get('state_reason') != 'completed'
-            or not re.search(r'^\s*- \[x\]', issue.get('body', ''), re.M)
-            or re.search(r'^\s*- \[ \]', issue.get('body', ''), re.M)):
+            or not re.search(r'^\s*[-*+] \[x\]', issue.get('body', ''), re.M)
+            or re.search(r'^\s*[-*+] \[ \]', issue.get('body', ''), re.M)):
         raise ValueError('audit issue is not checked and completed')
     receipt = json.loads((root / data['tracker_completion']).read_text())
     if not isinstance(receipt, dict):
         raise ValueError('tracker completion receipt must be a JSON object')
-    if (receipt.get('result') != 'PASS' or not receipt.get('exact_bodies_and_states')
+    if (receipt.get('result') != 'PASS' or receipt.get('exact_bodies_and_states') is not True
             or data['issue'] not in receipt.get('closed_completed', [])
             or receipt.get('verified_utc') != data['completed_at']):
         raise ValueError('completion time is not the exact verified tracker receipt')
@@ -153,17 +203,23 @@ def work_log_days():
     return days
 
 
-def last_marker(days, word, folder):
-    """The latest date of a docs/<folder>/<date>-*.md file or a work-log heading containing word."""
+def last_marker(days, word, folder, today=None):
+    """The latest date of a docs/<folder>/<date>-*.md file or a work-log heading matching word.
+    A marker dated after today is no marker: a file named 2099-... froze the clock (T10 S5, #943)."""
+    today = today or dt.date.today()
     best = None
     for path in glob.glob(os.path.join(ROOT, 'docs', folder, '*.md')):
         m = re.match(r'(\d{4})-(\d\d)-(\d\d)', os.path.basename(path))
         if m:
-            d = dt.date(*map(int, m.groups()))
-            best = d if best is None or d > best else best
+            try:
+                d = dt.date(*map(int, m.groups()))
+            except ValueError:
+                continue
+            if d <= today:
+                best = d if best is None or d > best else best
     rx = re.compile(word, re.I)
     for d, items in days.items():
-        if any(rx.search(t) for _, t in items):
+        if d <= today and any(rx.search(t) for _, t in items):
             best = d if best is None or d > best else best
     return best
 
@@ -222,11 +278,8 @@ def main():
     if not ok:
         overdue.append(('block', 'issues: ' + message))
 
-    # 1. mini-retro: every RETRO_ACTIVE_DAYS active days
-    # A heading counts as a retro when it *is* one -- it begins with the
-    # ceremony's name -- not when it mentions one ("notes for the retro
-    # later" reset the clock until audit #258 PL-004).
-    last_retro = last_marker(days, r'^(mini-?)?retro(spective)?\b', 'retros')
+    # 1. mini-retro: every RETRO_ACTIVE_DAYS active days (RETRO_MARKER above).
+    last_retro = last_marker(days, RETRO_MARKER, 'retros', today)
     start = max(SINCE, last_retro) if last_retro else SINCE
     since_retro = [d for d in active if d > start]
     n = len(since_retro)
@@ -341,25 +394,35 @@ def main():
     # like the hygiene check below: the fix is a tracker edit, not a file.
     # Blocking since 2026-09-25, when #268's sweep reached 0; a checker that
     # cannot run (gh down) has not passed either.
-    rc, out, err = sh([os.path.join(ROOT, 'tools/box-check'), '--quiet'])
-    last = ((out or err).strip().splitlines() or ['box-check did not run'])[-1]
+    # --no-gh reads no tracker, box-check included (T10 S5, #943: it ran anyway).
+    if use_gh:
+        rc, out, err = sh([os.path.join(ROOT, 'tools/box-check'), '--quiet'])
+        last = ((out or err).strip().splitlines() or ['box-check did not run'])[-1]
+    else:
+        rc, last = 0, 'not checked (--no-gh)'
     report(rc == 0, 'checkboxes', last[:140])
     if rc != 0:
         overdue.append(('ci', 'checkboxes: %s -- tick each with its evidence or reword it to the VM or a named physical fact (issue-tracking.md, D-QA-044)' % last[:100]))
 
     # 6. audits and futros (the tracker)
     if use_gh:
-        data, err = gh_json(['issue', 'list', '--repo', REPO, '--state', 'all', '--limit', '100', '--search',
-                             'Audit in:title', '--json', 'number,title,createdAt'])
+        data, err = gh_all(['issue', 'list', '--repo', REPO, '--state', 'all', '--search',
+                            'Audit in:title', '--json', 'number,title,createdAt,labels'],
+                           'repo:%s is:issue Audit in:title' % REPO)
         last_audit = None
         if err:
             report(False, 'audit', 'gh failed: %s' % err[:80])
             overdue.append(('ci', 'audit: the tracker did not answer (%s)' % err[:60]))
         else:
             for it in data or []:
-                if re.match(r'(Audit|Code audit)\b', it['title']):
+                # The marker's shape: the title and the `audit` label both
+                # (every audit issue since #41 carries it; #129, 2026-09-11,
+                # does not, and an old date does not move the clock).
+                labels = {l.get('name') for l in it.get('labels') or []}
+                if re.match(r'(Audit|Code audit)\b', it['title']) and 'audit' in labels:
                     d = dt.date.fromisoformat(it['createdAt'][:10])
-                    last_audit = d if last_audit is None or d > last_audit else last_audit
+                    if d <= today:
+                        last_audit = d if last_audit is None or d > last_audit else last_audit
             for path in glob.glob(os.path.join(ROOT, 'docs/audits/*')):
                 m = re.match(r'(\d{4})-(\d\d)-(\d\d)', os.path.basename(path))
                 if m:
@@ -380,8 +443,9 @@ def main():
                 except (OSError, ValueError, KeyError, TypeError) as error:
                     overdue.append(('ci', 'audit: invalid completion marker %s: %s' % (marker, error)))
             start = cutoff.date()
-            closed, err2 = gh_json(['issue', 'list', '--repo', REPO, '--state', 'closed', '--limit', '200',
-                                    '--search', 'closed:>=%s reason:completed' % start.isoformat(), '--json', 'number,closedAt'])
+            closed, err2 = gh_all(['issue', 'list', '--repo', REPO, '--state', 'closed',
+                                   '--search', 'closed:>=%s reason:completed' % start.isoformat(), '--json', 'number,closedAt'],
+                                  'repo:%s is:issue is:closed closed:>=%s reason:completed' % (REPO, start.isoformat()))
             if err2:
                 overdue.append(('ci', 'audit: closure tracker did not answer (%s)' % err2[:80]))
             try:
@@ -397,12 +461,15 @@ def main():
                 report(not err2, 'audit', 'last %s%s; %d of %d closed issues, %d of %d days' % (
                     cutoff.isoformat(), ' via ' + completed_by if completed_by else '',
                     nclosed, AUDIT_CLOSED_ISSUES, ndays, AUDIT_DAYS))
-        epics, err = gh_json(['issue', 'list', '--repo', REPO, '--state', 'open', '--label', 'epic', '--limit', '50',
-                              '--json', 'number,title,createdAt'])
+        epics, err = gh_all(['issue', 'list', '--repo', REPO, '--state', 'open', '--label', 'epic',
+                             '--json', 'number,title,createdAt'],
+                            'repo:%s is:issue is:open label:epic' % REPO)
         if err:
+            # A tracker that did not answer has not said nothing is owed (T10 S5, #943).
             report(False, 'futro', 'gh failed: %s' % err[:80])
+            overdue.append(('ci', 'futro: the tracker did not answer (%s)' % err[:60]))
         else:
-            last_futro = last_marker(days, r'\bfutro\b', 'futros')
+            last_futro = last_marker(days, FUTRO_MARKER, 'futros', today)
             missing = []
             for it in epics or []:
                 d = dt.date.fromisoformat(it['createdAt'][:10])
@@ -420,13 +487,15 @@ def main():
         # criterion nobody struck -- #225 closed with five of them. Read from
         # the tracker since the clock; CI red, not push-blocking, since the fix
         # is a tracker edit and not a file.
-        closed_bodies, err = gh_json(['issue', 'list', '--repo', REPO, '--state', 'closed', '--limit', '200',
-                                      '--search', 'closed:>=%s reason:completed' % SINCE.isoformat(), '--json', 'number,body'])
+        closed_bodies, err = gh_all(['issue', 'list', '--repo', REPO, '--state', 'closed',
+                                     '--search', 'closed:>=%s reason:completed' % SINCE.isoformat(), '--json', 'number,body'],
+                                    'repo:%s is:issue is:closed closed:>=%s reason:completed' % (REPO, SINCE.isoformat()))
         if err:
             report(False, 'hygiene', 'gh failed: %s' % err[:80])
+            overdue.append(('ci', 'hygiene: the tracker did not answer (%s)' % err[:60]))
         else:
             with_open = ['#%d' % it['number'] for it in closed_bodies or []
-                         if re.search(r'^\s*- \[ \]', it.get('body') or '', re.M)]
+                         if re.search(r'^\s*[-*+] \[ \]', it.get('body') or '', re.M)]
             if with_open:
                 overdue.append(('ci', 'hygiene: closed as completed with an open checkbox: %s -- tick it with its evidence or strike it with the decision (issue-tracking.md)' % ' '.join(with_open)))
                 report(False, 'hygiene', 'closed-completed issues with an open checkbox: %s' % ' '.join(with_open))
