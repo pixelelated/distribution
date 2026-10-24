@@ -8,7 +8,8 @@ command exactly once?
 
 It extracts send_packet, wait_reply, reply, send_and_wait_user_to_thread and
 the dequeue block of video_thread_loop VERBATIM from the file given (by
-default the H700 build root's), compiles them against small doubles --
+default the tree's pinned source in a build root, an H700 one first),
+compiles them against small doubles --
 pthreads for slock/scond, a stub handle_packet carrying the real
 CUSTOM_COMMAND case -- and drives them: one thread posts a command whose data
 is a LOCAL, as every caller of video_thread_texture_handle does; another sets
@@ -34,25 +35,39 @@ args = [a for a in sys.argv[1:] if not a.startswith("--")]
 if args:
     src_path = Path(args[0])
 else:
-    # The source the image was built from: the H700 build root first (the
-    # handheld's), else the GENERIC_X64 root's, else RETROARCH_SRC; the same
-    # tree is unpacked in each (one PKG_VERSION), and the newest unpack wins.
-    # It used to be the H700 root alone, which lives outside this tree and is
-    # absent on a host that builds only the VM image (audit #258 PL-020).
-    roots = [Path("/workspace/repos/rocknix.worktrees/devices/build.ROCKNIX-H700.aarch64"),
-             Path("/workspace/repos/rocknix.worktrees/generic-x64/build.ROCKNIX-GENERIC_X64.x86_64")]
+    # The source the tree pins, from any build root that unpacked it:
+    # RETROARCH_SRC first, then every worktree of this checkout, then the
+    # legacy clone's build worktrees (D-INFRA-025; #640 retires them). Only
+    # build/retroarch-<pin>/ counts, the pin read from this checkout's own
+    # recipe, so an older unpack is never tested in its place; an H700 root
+    # first (the handheld's), then the newest. The two fixed roots this
+    # replaced named the retired layout and existed on no host (#799).
     import os
+    tree = Path(__file__).resolve().parents[1]
+    recipe = tree / "projects/ROCKNIX/packages/emulators/libretro/retroarch/package.mk"
+    pin = re.search(r'^PKG_VERSION="([0-9a-f]{40})"', recipe.read_text(), re.M) if recipe.exists() else None
+    if not pin:
+        print(f"retroarch-wrapper-test: no full-hash PKG_VERSION in {recipe}", file=sys.stderr)
+        sys.exit(2)
+    pin = pin.group(1)
+    wt = subprocess.run(["git", "-C", str(tree), "worktree", "list", "--porcelain"],
+                        capture_output=True, text=True).stdout
+    parents = [Path(l[len("worktree "):]) for l in wt.splitlines() if l.startswith("worktree ")] or [tree]
+    parents += sorted(Path("/workspace/repos/rocknix.worktrees").glob("*"))
+    roots = [r for p in parents for r in sorted(p.glob("build.*-*.*"))]
+    found = [p for r in roots for p in r.glob(f"build/retroarch-{pin}/gfx/video_thread_wrapper.c")]
     if os.environ.get("RETROARCH_SRC"):
-        roots.insert(0, Path(os.environ["RETROARCH_SRC"]))
-    found = []
-    for r in roots:
-        found += sorted(r.glob("build/retroarch-*/gfx/video_thread_wrapper.c"), key=lambda p: p.stat().st_mtime, reverse=True)
-        found += sorted(r.glob("gfx/video_thread_wrapper.c"))
+        e = Path(os.environ["RETROARCH_SRC"])
+        found = list(e.glob("gfx/video_thread_wrapper.c")) + list(e.glob(f"build/retroarch-{pin}/gfx/video_thread_wrapper.c")) + found
+    else:
+        found.sort(key=lambda p: ("-H700." not in str(p), -p.stat().st_mtime))
     if not found:
-        print("retroarch-wrapper-test: no video_thread_wrapper.c given and none under "
-              + ", ".join(str(r) for r in roots) + " (RETROARCH_SRC names another tree)", file=sys.stderr)
+        print(f"retroarch-wrapper-test: no video_thread_wrapper.c given and none for the pin {pin} in the "
+              f"build.* roots of {len(parents)} checkout(s): {tree}'s worktrees and "
+              "/workspace/repos/rocknix.worktrees/* (RETROARCH_SRC names another tree)", file=sys.stderr)
         sys.exit(2)
     src_path = found[0]
+    print(f"retroarch-wrapper-test: pin {pin}, {len(found)} candidate source(s)")
 print(f"retroarch-wrapper-test: source {src_path}")
 gated = "--gated" in sys.argv
 source = src_path.read_text()
