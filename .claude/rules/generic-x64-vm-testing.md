@@ -949,7 +949,8 @@ tidiness — as the difference between a build that finishes and one that dies
 at its heaviest package.
 
 - `tools/build-preflight` lists what is up, how much each holds, and how long
-  it has been there; `--stop-vms` stops them.
+  it has been there, with the `tools/vm-stop <pidfile> <disk>` command that
+  stops each one; the preflight itself stops nothing (D-INFRA-028, #914).
 - Disk state survives a stop, so taking a guest down costs the running state
   and nothing else. Anything worth keeping should already be off the guest.
 - A guest left up deliberately — mid-QA, holding a fixture someone is using —

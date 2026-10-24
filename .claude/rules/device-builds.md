@@ -460,7 +460,7 @@ is not yet configured; do not describe a detached recorder as an alert
 service. A runner killed outright may leave its command alive: inspect `command.pid`
 before starting a replacement build.
 
-`tools/build-preflight` reports it and `--stop-vms` stops guests explicitly.
+`tools/build-preflight` reports it and lists each guest with the `tools/vm-stop <pidfile> <disk>` command its owner runs; it stops nothing, and `--stop-vms` is accepted but no longer stops anything (D-INFRA-028, #914).
 Before a future cold build, `tools/build-preflight --reclaim-swap` can invoke
 our installed root-owned fixed-target helper (D-INFRA-015, #410). Run this
 **before** the watcher/build; the helper refuses active compilers, watchers
