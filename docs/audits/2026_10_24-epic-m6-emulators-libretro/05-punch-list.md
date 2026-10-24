@@ -218,6 +218,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 - **Already written:** installed copies under /storage/.config/modules on devices keep the old line until the next image re-copies the module
 - **Acceptance:** shellcheck -f gcc on both files reports no SC1128, and head -1 of each is #!/bin/bash.
 - **Tracked work:** #819
+- **Disposition note:** S3: fixed at `5935e3ce8e` (the shebang on line 1 of both; bash -n and shellcheck clean); the next image installs them (#819)
 
 ## PL-014: `0004-drm-resolution.patch` applies to the pin only with fuzz
 
@@ -538,7 +539,7 @@ The lane does not start on these: the coordinator writes one remediation brief p
 | PL-010 | Deferred | #816: class 1: upstream `eeb33c5a37` with the base merge |
 | PL-011 | Resolved | S2: `87e328640d`: st-v only where a core is added; GENERIC_X64 psx defaults to DuckStation standalone; the regenerated five tables have no system without an emulator or a default (#817) |
 | PL-012 | Deferred | #818: S1: fixed at `28968ae585` (pkgcheck rc 1 -> 0); the next image carries sameboy_libretro.so (#818) |
-| PL-013 | Open | awaiting the coordinator's stream briefs (stage E) |
+| PL-013 | Deferred | #819: S3: fixed at `5935e3ce8e` (the shebang on line 1 of both; bash -n and shellcheck clean); the next image installs them (#819) |
 | PL-014 | Open | awaiting the coordinator's stream briefs (stage E) |
 | PL-015 | Deferred | #821: S1: fixed at `b45a4f1f7a` (the full hash; the archive byte-identical, PKG_SHA256 unchanged) (#821) |
 | PL-016 | Open | awaiting the coordinator's stream briefs (stage E) |
@@ -669,7 +670,8 @@ punch_index:
   source_finding: "F-04"
   owner_area: "the launchers: shebangs"
   tracked: "#819"
-  outcome: open
+  state: fix-pending-image
+  outcome: deferred
 - id: PL-014
   severity: Low
   category: Code Quality

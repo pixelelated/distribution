@@ -168,3 +168,7 @@ GUEST-PROOF: 03:35:37 UTC -- P4, tools/time-to-play --vm --no-configure-remote -
   - PROOF: the per-game fallback read in the pinned ES (`FileData.cpp:1954-2025`). A stored `<game>.core` or `<game>.emulator` the system no longer lists is dropped, and the system's default launches.
   - `pkgcheck emulators`: 0 FAIL, one WARN of `next`'s existing class (unknown function).
   - The four items are Resolved, `state: fix-host-regen`.
+- 06:39 **S3, the scripts** (PL-013): `5935e3ce8e`. PL-022 has no site outside `Install Steam.sh`.
+  - PROOF: `head -1` of `Start Azahar.sh` and `Start MelonDS.sh` reads `#!/bin/bash`; `bash -n` rc 0 on both; shellcheck reports 0 SC1128.
+  - Line 2 never bit: the tools system runs `/usr/bin/foot %ROM%`, whose `execvp` falls back to `/bin/sh`, which is bash on the image (`02`, F-04).
+  - PL-013 is Deferred, `state: fix-pending-image`.

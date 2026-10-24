@@ -128,7 +128,7 @@ ITEMS = [
   vm="n/a: shellcheck",
   aw="installed copies under /storage/.config/modules on devices keep the old line until the next image re-copies the module",
   acc="shellcheck -f gcc on both files reports no SC1128, and head -1 of each is #!/bin/bash.",
-  tracked="#819", disp="open", note=""),
+  tracked="#819", disp="deferred", state="fix-pending-image", note="S3: fixed at `5935e3ce8e` (the shebang on line 1 of both; bash -n and shellcheck clean); the next image installs them (#819)"),
  dict(id="PL-014", sev="Low", cat="Code Quality", q="Q2", src="F-10", area="RetroArch's patches",
   title="`0004-drm-resolution.patch` applies to the pin only with fuzz",
   what="Refresh its context against the pin so it applies at fuzz 0, the content unchanged.",
