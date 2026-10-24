@@ -8,7 +8,7 @@
 # host path not mounted) it cannot. Nothing outside the scratch.
 #   duckstation-case.sh <tree> <stage-D tools dir> <rclone> <scratch>
 set -u
-T="$(cd "$1" && pwd)"; OLD="$(cd "$2" && pwd)"; RC="$3"; S="$4"; rm -rf "$S"; mkdir -p "$S"
+T="$(cd "$1" && pwd)"; OLD="$(cd "$2" && pwd)"; RC="$3"; S="$4"; rm -rf "${S:?}"; mkdir -p "$S"
 fail=0
 check() { if [ "$2" = 0 ]; then echo "  ok    $1"; else echo "  FAIL  $1"; fail=1; fi; }
 copy() {  # <src> <dst>: the test, its payload marked

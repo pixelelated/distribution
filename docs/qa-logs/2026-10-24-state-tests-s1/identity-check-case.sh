@@ -6,7 +6,7 @@
 # each case reads the one check line it is about. Nothing outside the scratch.
 #   identity-check-case.sh <repo> <commit> <tool> <es checkout at the pin> <scratch>
 set -u
-R="$(cd "$1" && pwd)"; C="$2"; TOOL="$(readlink -f "$3")"; ES="$4"; S="$5"; rm -rf "$S"; mkdir -p "$S"
+R="$(cd "$1" && pwd)"; C="$2"; TOOL="$(readlink -f "$3")"; ES="$4"; S="$5"; rm -rf "${S:?}"; mkdir -p "$S"
 paths="distributions packages/linux projects/ROCKNIX/packages docs/pixelelated/art LICENSE.md TRADEMARK.md NAMING.md"
 mk() { mkdir -p "$1"; git -C "$R" archive "$C" -- $paths | tar -x -C "$1"; }
 line() { python3 -I "$TOOL" --tree "$1" --es "$ES" 2>&1 | grep -m1 -E "$2" | cut -c1-110; }

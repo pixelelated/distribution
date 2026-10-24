@@ -7,7 +7,7 @@
 # Never the real store. Nothing outside the scratch.
 #   store-cases.sh <tree> <stage-D tools dir> <scratch>
 set -u
-T="$(cd "$1" && pwd)"; OLD="$(cd "$2" && pwd)"; S="$3"; rm -rf "$S"; mkdir -p "$S/in-a" "$S/in-b" "$S/links"
+T="$(cd "$1" && pwd)"; OLD="$(cd "$2" && pwd)"; S="$3"; rm -rf "${S:?}"; mkdir -p "$S/in-a" "$S/in-b" "$S/links"
 fail=0
 check() { if [ "$2" = 0 ]; then echo "  ok    $1"; else echo "  FAIL  $1"; fail=1; fi; }
 printf 'synthetic image A\n' > "$S/in-a/image.img"; printf 'synthetic image B\n' > "$S/in-b/image.img"

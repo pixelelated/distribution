@@ -8,7 +8,7 @@
 # non-zero" (the stage-D rule) must credit them. Nothing outside the scratch.
 #   identity-reasons-case.sh <tree> <scratch>
 set -u
-T="$(cd "$1" && pwd)"; S="$2"; rm -rf "$S"; mkdir -p "$S"
+T="$(cd "$1" && pwd)"; S="$2"; rm -rf "${S:?}"; mkdir -p "$S"
 fail=0
 check() { if [ "$2" = 0 ]; then echo "  ok    $1"; else echo "  FAIL  $1"; fail=1; fi; }
 mkroot() {  # <dir>: config, scripts and the tools the test reaches, copied

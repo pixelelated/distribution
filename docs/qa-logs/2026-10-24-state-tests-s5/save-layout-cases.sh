@@ -6,7 +6,7 @@
 # same pure-rclone selection. Outputs under the scratch only.
 #   save-layout-cases.sh <tree> <stage-D tools dir> <rclone> <busybox> <scratch>
 set -u
-T="$(cd "$1" && pwd)"; OLD="$(cd "$2" && pwd)"; RC="$3"; BB="$4"; S="$5"; rm -rf "$S"; mkdir -p "$S"
+T="$(cd "$1" && pwd)"; OLD="$(cd "$2" && pwd)"; RC="$3"; BB="$4"; S="$5"; rm -rf "${S:?}"; mkdir -p "$S"
 REF=$(git -C "$T" rev-parse --short bc2dceb406^)
 fail=0
 check() { if [ "$2" = 0 ]; then echo "  ok    $1"; else echo "  FAIL  $1"; fail=1; fi; }

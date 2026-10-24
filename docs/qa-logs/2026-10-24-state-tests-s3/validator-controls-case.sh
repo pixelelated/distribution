@@ -9,7 +9,7 @@
 # elapsed check reverted. Nothing outside the scratch.
 #   validator-controls-case.sh <tree> <stage-D tools dir> <rclone> <scratch>
 set -u
-T="$(cd "$1" && pwd)"; OLD="$(cd "$2" && pwd)"; RC="$3"; S="$4"; rm -rf "$S"; mkdir -p "$S"
+T="$(cd "$1" && pwd)"; OLD="$(cd "$2" && pwd)"; RC="$3"; S="$4"; rm -rf "${S:?}"; mkdir -p "$S"
 SRC=projects/ROCKNIX/packages/network/rclone
 BT=projects/ROCKNIX/packages/rocknix/sources/scripts
 fail=0

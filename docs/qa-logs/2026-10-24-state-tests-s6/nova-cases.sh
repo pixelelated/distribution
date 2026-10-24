@@ -8,7 +8,7 @@
 # Nothing outside the scratch.
 #   nova-cases.sh <tree> <stage-D tools dir> <scratch>
 set -u
-T="$(cd "$1" && pwd)"; OLD="$(cd "$2" && pwd)"; S="$3"; rm -rf "$S"; mkdir -p "$S"
+T="$(cd "$1" && pwd)"; OLD="$(cd "$2" && pwd)"; S="$3"; rm -rf "${S:?}"; mkdir -p "$S"
 B="projects/ROCKNIX/packages/hardware/quirks/devices/Retroid Pocket Nova/bin"
 fail=0
 check() { if [ "$2" = 0 ]; then echo "  ok    $1"; else echo "  FAIL  $1"; fail=1; fi; }

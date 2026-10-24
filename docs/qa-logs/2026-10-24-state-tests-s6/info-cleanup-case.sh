@@ -7,7 +7,7 @@
 # Nothing outside the scratch.
 #   info-cleanup-case.sh <tree> <before-follow-up test> <scratch>
 set -u
-T="$(cd "$1" && pwd)"; BEFORE="$(readlink -f "$2")"; S="$3"; rm -rf "$S"; mkdir -p "$S"
+T="$(cd "$1" && pwd)"; BEFORE="$(readlink -f "$2")"; S="$3"; rm -rf "${S:?}"; mkdir -p "$S"
 F=projects/ROCKNIX/packages/rocknix/sources/scripts/rocknix-info
 fail=0
 check() { if [ "$2" = 0 ]; then echo "  ok    $1"; else echo "  FAIL  $1"; fail=1; fi; }

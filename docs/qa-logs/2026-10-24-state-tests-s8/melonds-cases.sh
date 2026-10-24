@@ -9,7 +9,7 @@
 # Each run has its own TMPDIR under the scratch. Nothing outside the scratch.
 #   melonds-cases.sh <tree> <stage-D tools dir> <build root's image/system/usr/bin/busybox> <scratch>
 set -u
-T="$(cd "$1" && pwd)"; OLD="$(cd "$2" && pwd)"; BB="$3"; S="$4"; rm -rf "$S"; mkdir -p "$S"
+T="$(cd "$1" && pwd)"; OLD="$(cd "$2" && pwd)"; BB="$3"; S="$4"; rm -rf "${S:?}"; mkdir -p "$S"
 PU="$T/projects/ROCKNIX/packages/rocknix/sources/post-update"
 fail=0
 check() { if [ "$2" = 0 ]; then echo "  ok    $1"; else echo "  FAIL  $1"; fail=1; fi; }
