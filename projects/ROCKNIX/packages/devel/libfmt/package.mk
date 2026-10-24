@@ -8,7 +8,8 @@ case ${DEVICE} in
     ;;
   *)
     PKG_VERSION="9.1.0"
-    PKG_SHA256=""
+    # 9.1.0's archive, sha256 by trust on first use from the fetch of 2026-10-24, equal to the shared cache's 2026-08-26 stamp and ROCKNIX's mirror (D-WORKFLOW-193/196, #877)
+    PKG_SHA256="5dea48d1fcddc3ec571ce2058e13910a0d4a6bab4cc09a809d8b1dd1c88ae6f2"
     PKG_URL="https://github.com/fmtlib/fmt/archive/${PKG_VERSION}.tar.gz"
     ;;
 esac
