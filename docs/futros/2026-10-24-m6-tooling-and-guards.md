@@ -355,3 +355,51 @@ workflows with one lead for the coordinator; A6 § 8 names the mutating modes
 `gh secret set`) as stops; A7 § 10 runs `hooks-test` on the simulated merge,
 since the coordinator's branch also changes a hook; A8 § 9 the merge order
 (after T9's branch, before T4's).
+
+### Errata from the stranger's proof of T10's brief (version 2, 2026-10-24)
+
+A reader with no context reproduced the brief's claims read-only (8 API
+calls, nothing written outside `/workspace/tmp/m6-coordinator/t10-proof/`):
+most held; six were wrong and two partial, corrected in version 2:
+
+- **The line counts.** The table's "Lines" column was the inventory's
+  (computed on P1's tree): at the read refs `pre-push` is 470 (473 on P1's
+  tip, which adds the three `renovation-*` personal patterns),
+  `lint-audit-artifacts` 394 (426 on P1's: the renovation face,
+  `fc88815ccb`) and `renovation-inventory` 1,597 (the inventory's 1,596
+  predates `00ca350666`); the sum at the read refs is 6,642, the inventory's
+  6,676. Both are now in the brief, labelled. The same fact corrects § 2's
+  claim that the lane's branch differs from the hash on none of the 28: it
+  differs on five (`pre-push`, `lint-audit-artifacts`, `register-check`,
+  `pre-commit`, `hooks-test`), each with a known owner, now listed as the
+  expected shape.
+- **128 fork commits** since the base over the 28, not 92 (125 without
+  merges); the citation ranks (#383 12, #344 and #258 7) were right. The
+  addendum above carries the old figure.
+- **`PERSONAL_PATTERNS`** spans `pre-push:62-188` with 115 quoted entries
+  at the hash (84 `tools/`, 12 `scripts/`), not 62-160 and 92; 62-191 and
+  118 on P1's tip. The rule's 84 `tools/` paths match the hook's 84 by
+  count; the entry-by-entry read stands.
+- **`register-check`** reads 644 IDs on the hash's export, 656 on P1's tip,
+  666 on the coordinator's, 667 on the lane's branch after the merge -- not
+  "667 on the export".
+- **The fork CI** has been red on every run of `next` since 2026-10-19
+  (last green 2026-10-18T11:00Z), not since 10-22; the 2026-10-24 run
+  fails on *ceremonies are not overdue*, the 2026-10-21 run failed on the
+  `box-check` step; 10-22 and 10-23 are the lane's to read.
+- **`generate-changelog.sh`** is not byte-identical to `upstream/next`: one
+  fork hunk (`8a7f33791d`, 2026-09-11) drops the author lookup through
+  `gh api`; `generate-release-body.sh` is identical. The brief had left
+  this as a read to make; it is now the answer, with the hunk's reason as
+  a Q4 row.
+- **Partial: `gh secret list`** fails for this token (`failed`), so the
+  `FORBIDDEN_PATTERNS` secret's existence is inferred from the wordlist
+  workflow's green runs; the brief's command and criterion say so.
+- **Partial: `order.md`'s "6,400 read (6,014 fork-own)"** is P1's own
+  derivation; the inventory's columns give fork-own 6,290 and
+  upstream-carried 386. Quoted as P1's, with the inventory's figures beside.
+- **Not an error:** the lane worktree existed when the proof ran (cut at
+  `50137e3ee0` before the dispatch); the brief said so in the future tense
+  and now says it in the present. `rules-check --help` runs the checks,
+  `forbidden-terms-check --help` treats `--help` as a tree (rc 2): both
+  reproduced, both Q7 rows for the lane.
