@@ -1891,10 +1891,10 @@ release_exclusive_lock() {
 # Execute single command using mutex
 exec_thread_safe() {
   local result
-  acquire_exclusive_lock "${PKG_NAME:exec}" "execcmd"
+  acquire_exclusive_lock "${PKG_NAME:-exec}" "execcmd"
   $@
   result=$?
-  release_exclusive_lock "${PKG_NAME:exec}" "execcmd"
+  release_exclusive_lock "${PKG_NAME:-exec}" "execcmd"
   return ${result}
 }
 
