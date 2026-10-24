@@ -78,7 +78,7 @@ while [ $# -gt 0 ]; do
     --link) LINK=1; shift ;;
     --ra-offline) RA_OFFLINE=1; shift ;;
     --list) printf '%s\n' $SUITES; exit 0 ;;
-    -h|--help) sed -n '5,38p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    -h|--help) awk 'NR >= 5 { if (!/^#/) exit; print }' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;  # the whole header (#982)
     *) IMAGE=$1; shift ;;
   esac
 done
@@ -124,6 +124,12 @@ esac
 [ "$RA_OFFLINE" = 1 ] && ONLY="$ONLY,ra-offline"
 SSH() { ssh -n -i "$KEY" -p "$PORT" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR -o ConnectTimeout=8 -o BatchMode=yes root@127.0.0.1 "$@"; }
 
+# The report root must take a write before anything touches a guest (#982):
+# a report that cannot be written is a run nobody can read.
+T_START=$(date +%s); FIXTURE_S=0
+ART="${ROCKNIX_ARTIFACTS:-/workspace/artifacts}/rocknix-images"
+mkdir -p "$ART" 2>/dev/null && probe=$(mktemp "$ART/.vm-qa-write-XXXXXX" 2>/dev/null) && rm -f "$probe" \
+  || { echo "vm-qa: the report root $ART cannot be written" >&2; exit 1; }
 export CLOUD_QA_BACKEND="$BACKEND"
 "$ROOT/tools/cloud-test-backend" up >/dev/null 2>&1 || { echo "vm-qa: the $BACKEND QA cloud backend did not come up" >&2; exit 1; }
 if [ "$SKIP_UP" = 0 ]; then
@@ -138,14 +144,22 @@ BUILD=$(SSH 'sed -n "s/^BUILD_ID=//p" /etc/os-release' 2>/dev/null | tr -d '"' |
 # matrix is (#133) -- started in the same minute, shared a directory, and the
 # second overwrote the first's report and logs: two runs, one answer, and the
 # surviving report named the other run's cloud.
-OUT="${ROCKNIX_ARTIFACTS:-/workspace/artifacts}/rocknix-images/qa-${BUILD}-${BACKEND}-${GUEST}-$(date +%Y%m%d-%H%M)"
-mkdir -p "$OUT/walks"
+# Seconds in the name, and a mkdir that must create the directory: two runs in
+# one second get two directories (-2, -3, ...), never one shared (#982).
+OUT_BASE="$ART/qa-${BUILD}-${BACKEND}-${GUEST}-$(date +%Y%m%d-%H%M%S)"; OUT=$OUT_BASE; n=1
+until mkdir "$OUT" 2>/dev/null; do
+  n=$((n+1)); OUT="$OUT_BASE-$n"
+  [ "$n" -le 50 ] || { echo "vm-qa: cannot create a report directory under $ART" >&2; exit 1; }
+done
+mkdir -p "$OUT/walks" || { echo "vm-qa: cannot create $OUT/walks" >&2; exit 1; }
 REPORT="$OUT/report.md"
+: > "$REPORT" || { echo "vm-qa: cannot write $REPORT" >&2; exit 1; }
 # The guest's display, read from its QEMU's own command line (#291): hardware GL through virgl on a host
 # render node, or the software path. The renderer the guest's Mesa then reports is read at the end, from
 # the launch log the exit suite leaves, so a guest that fell back to softpipe says so on its report.
 case "$GUEST" in a) PIDF="$RUNTIME"/rocknix-qemu.pid ;; b) PIDF="$RUNTIME"/rocknix-qemu-b.pid ;; *) PIDF="$RUNTIME"/rocknix-qemu-$GUEST.pid ;; esac
 DISPLAY_MODE=$(ps -o args= -p "$(cat "$PIDF" 2>/dev/null)" 2>/dev/null | grep -o -E 'egl-headless,rendernode=[^ ]+' | sed 's/^egl-headless,rendernode=/GL through virgl on /'); DISPLAY_MODE=${DISPLAY_MODE:-software rendering (no GL display)}
+BRINGUP_S=$(( $(date +%s) - T_START ))
 { echo "# vm-qa on $BUILD"; echo; echo "started $(date -u '+%Y-%m-%d %H:%M UTC'), guest $GUEST at :$PORT, cloud $BACKEND (port $("$ROOT/tools/cloud-test-backend" port), $("$ROOT/tools/cloud-test-backend" caps)), image ${IMAGE:-(already up)}, display: $DISPLAY_MODE"; echo; echo "| suite | result | time | log |"; echo "| --- | --- | --- | --- |"; } > "$REPORT"
 FAILS=0
 SKIPS=0  # a suite that could not run (rc 3) is shown as such, never folded into PASS
@@ -156,9 +170,13 @@ run_suite() {  # name, log, command...
   local dt=$(( $(date +%s) - t0 ))
   local res=PASS
   if [ "$rc" = 3 ]; then res="SKIP"; SKIPS=$((SKIPS+1)); elif [ "$rc" != 0 ]; then res="FAIL ($rc)"; FAILS=$((FAILS+1)); fi
-  printf '| %s | %s | %ds | `%s` |\n' "$name" "$res" "$dt" "$(basename "$log")" >> "$REPORT"
+  # A row that cannot be written is a failure counted, not a silent gap (#982).
+  printf '| %s | %s | %ds | `%s` |\n' "$name" "$res" "$dt" "$(basename "$log")" >> "$REPORT" \
+    || { FAILS=$((FAILS+1)); echo "vm-qa: cannot write $name's row to $REPORT" >&2; }
   echo "$name: $res in ${dt}s"
 }
+# Fixture work outside run_suite, timed so the report's minutes are the run's (#982).
+fixture_time() { local t0 rc; t0=$(date +%s); "$@"; rc=$?; FIXTURE_S=$((FIXTURE_S + $(date +%s) - t0)); return $rc; }
 # The scripts harness carries cancel checks that send SIGINT to a run; a
 # background job (this runner under setsid -f, or a harness waiter) has
 # SIGINT ignored at entry, which a child shell cannot undo. Python can --
@@ -348,7 +366,7 @@ case ",$ONLY," in *,time-to-play,*)
   # sync ends at once with YOUR CLOUD STORAGE ISN'T SET UP YET (2026-09-25).
   # tools/time-to-play now fails such a run; this keeps the suite from
   # depending on its order.
-  ensure_remote
+  fixture_time ensure_remote
   run_suite time-to-play "$OUT/time-to-play.log" "$ROOT/tools/time-to-play" \
     --host root@127.0.0.1 --port "$PORT" --identity "$KEY" --monitor "$MON" \
     --backend "$BACKEND" --out "$OUT/time-to-play" --quick --vm \
@@ -434,8 +452,8 @@ folder_walk_witness() {
 }
 
 case ",$ONLY," in *,walks,*)
-  ensure_fixture
-  ensure_manager_fixture
+  fixture_time ensure_fixture
+  fixture_time ensure_manager_fixture
   # Every walk starts from a rebooted guest, which the README names as the
   # one deterministic start; a boot-time dialog is dismissed with B first.
   walk_all() {
@@ -535,7 +553,7 @@ frame_diff_suite() {
   "$ROOT/tools/frame-diff" compare "$base" "$OUT/walks" --masks "$ROOT/tools/vm-walks/masks.txt" --claims "$ROOT/tools/vm-walks/claims.txt" --report "$OUT/frame-diff.md"
 }
 case ",$ONLY," in *,frame-diff,*) run_suite frame-diff "$OUT/frame-diff.log" frame_diff_suite ;; esac
-{ echo; if [ "$FAILS" = 0 ] && [ "$SKIPS" = 0 ]; then echo "**PASSED** -- every suite that ran passed (exit 0)."; elif [ "$FAILS" = 0 ]; then echo "**PASSED with $SKIPS suite(s) SKIPPED** -- a skipped suite could not run (its log says why) and has not passed (exit 3)."; else echo "**FAILED** -- $FAILS suite(s) failed; see the logs beside this file (exit 1)."; fi; echo; echo "finished $(date -u '+%Y-%m-%d %H:%M UTC')"; } >> "$REPORT"
+{ echo; if [ "$FAILS" = 0 ] && [ "$SKIPS" = 0 ]; then echo "**PASSED** -- every suite that ran passed (exit 0)."; elif [ "$FAILS" = 0 ]; then echo "**PASSED with $SKIPS suite(s) SKIPPED** -- a skipped suite could not run (its log says why) and has not passed (exit 3)."; else echo "**FAILED** -- $FAILS suite(s) failed; see the logs beside this file (exit 1)."; fi; echo; echo "finished $(date -u '+%Y-%m-%d %H:%M UTC')"; echo; echo "bring-up ${BRINGUP_S}s, fixture ${FIXTURE_S}s -- outside the suite rows, so the minutes a reader sums are the run's"; } >> "$REPORT" || FAILS=$((FAILS+1))
 # The time-to-play numbers go BELOW the footer, not into the suite table: the
 # table is one row per suite and this cell reports four of its own. No budget
 # row exists yet, so nothing here fails the run -- the numbers are reported

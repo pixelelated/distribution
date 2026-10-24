@@ -163,6 +163,43 @@ def walk_empty(c):
     return r.returncode == 2, f'rc {r.returncode} (want 2)'
 
 
+@case
+def help_whole(c):
+    vmqa = c.tool('vm-qa')
+    names = c.run([str(vmqa), '--list']).stdout.split()
+    h = c.run([str(vmqa), '--help']).stdout
+    missing = [n for n in names if not any(line.lstrip().startswith(n + ' ') or line.lstrip() == n
+                                           for line in h.splitlines())]
+    return bool(names) and not missing, f'{len(names)} names from --list; missing from --help: {missing}'
+
+
+@case
+def report_unwritable(c):
+    vmqa = c.tool('vm-qa')
+    locked = c.dir / 'locked'
+    locked.mkdir()
+    locked.chmod(0o500)
+    try:
+        r = c.run([str(vmqa), '--skip-up', '--only', 'fresh'], ROCKNIX_ARTIFACTS=locked)
+    finally:
+        locked.chmod(0o700)
+    calls = [l for l in c.log.read_text().splitlines() if not l.startswith('backend ')]
+    return r.returncode != 0 and not calls, f'rc {r.returncode}, guest calls {len(calls)} (want non-zero and none)'
+
+
+@case
+def two_runs_one_minute(c):
+    vmqa = c.tool('vm-qa')
+    env = c.env()
+    argv = [str(vmqa), '--skip-up', '--only', 'fresh']
+    procs = [subprocess.Popen(argv, cwd=c.root, env=env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+             for _ in range(2)]
+    for p in procs:
+        p.wait(timeout=60)
+    dirs = sorted(c.art.glob('rocknix-images/qa-*'))
+    return len(dirs) == 2, f'{len(dirs)} report directories (want 2)'
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--case', action='append', help='run only this case (repeatable)')
