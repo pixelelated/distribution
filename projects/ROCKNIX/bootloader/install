@@ -6,20 +6,23 @@
 
 echo "install: building ROCKNIX bootloader for ${DEVICE} (${BOOTLOADER}) ..."
 
+# scripts/image sources this file and runs without set -e, so a failure
+# here must exit: a non-zero return would be ignored and the image built
+# without its loader files (#1090).
+
 # Ensure the bootloader directory exists
-mkdir -p "${INSTALL}/usr/share/bootloader"
+mkdir -p "${INSTALL}/usr/share/bootloader" || exit 1
 
 # Handle different bootloader types
 case "${BOOTLOADER}" in
   syslinux)
     echo "install: installing syslinux bootloader files"
-    if [ -d "${INSTALL}/usr/share/syslinux" ]; then
-      echo "install: copying syslinux files to bootloader location"
-      cp -av "${INSTALL}/usr/share/syslinux"/* "${INSTALL}/usr/share/bootloader/"
-    else
-      echo "install: warning - syslinux files not found in ${INSTALL}/usr/share/syslinux"
-      echo "install: this may indicate syslinux package was not built for this target"
+    if [ ! -d "${INSTALL}/usr/share/syslinux" ]; then
+      echo "install: error - syslinux files not found in ${INSTALL}/usr/share/syslinux (syslinux:target was not installed)" >&2
+      exit 1
     fi
+    echo "install: copying syslinux files to bootloader location"
+    cp -av "${INSTALL}/usr/share/syslinux"/* "${INSTALL}/usr/share/bootloader/" || exit 1
     ;;
     
   grub)

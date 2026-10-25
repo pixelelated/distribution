@@ -1,5 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0
 # Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)
 
-mkdir -p ${RELEASE_DIR}/3rdparty/bootloader
-  cp -a ${INSTALL}/usr/share/bootloader/* ${RELEASE_DIR}/3rdparty/bootloader
+# scripts/image sources this file without set -e: exit on a failed copy, or
+# the release goes out without its loader files (#1090).
+mkdir -p ${RELEASE_DIR}/3rdparty/bootloader || exit 1
+  cp -a ${INSTALL}/usr/share/bootloader/* ${RELEASE_DIR}/3rdparty/bootloader || exit 1
