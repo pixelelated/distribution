@@ -75,6 +75,8 @@ today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 **03:12-03:19 UTC (2026-10-25):** M7's build window granted from 03:12 with no start expiry (GENERIC_X64 then H700 builds, the GENERIC smoke, SM8550 after; M6 runs no guest, compiler or build during it). M7's selective-integration request for #825/#887/#889 answered on the host file at 03:15 (`fac139dd43`, `c60cdddf8b`, `828472eb59`, each one commit on `8ebaf8daad` on its pushed `fix/m6-*` branch). **Register: D-WORKFLOW-206 and 207 are M7's; M6 uses 208 and up** (lanes told). T45 stage B done at `474c434fa4` with fifteen leads and no bug; Backlogs #1044 (fork side) and #1045 (the export refresh) filed for them; the lane is at stage D. T15 at S1 done (#1018 `3037ce6b8c`), #1020 in progress with shape (a).
 
+**T45 (#692) accepted at 03:33 UTC (2026-10-25)** at the hand-back `bbb5f28824`, the coordinator's branch merged in at `cd08f82d07`; #1046 closed (ticked=15 open=0); #692 at 15 of 16 (the pre-merge checker line open until the merge into `next`); Backlogs #1044 and #1045 hold its leads, #1043 the seal keys. The lane's close-out (`audit-completion.json`, the lint with `--issue 1046`, the pointer idle, its scratch removed) was prompted; its merge into `next` comes after T15's, before T4's. `$S/t45-accept.sh` corrected to archive `projects/` for the simulated-merge check. T15 at stage E: #1018 and #1020 committed (`7cb11eb379`), #1029/#1038 then S2 next, the `--old` shape ruled at 03:34 (per-tool provenance under `--old` only).
+
 ## Next commands
 
 ```bash
