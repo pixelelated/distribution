@@ -55,3 +55,24 @@ So: **1 path, 14,238 lines, 1,167,697 bytes** (`git show 8ebaf8daad:tools/last-g
 | `af` | `:14191` | content inactivity across provider retries (#401)"… |
 | `ag` | `:14221` | settings writers retain private file permissions"… |
 | `ah` | `:14229` | melonDS update preserves settings and adds missing hotkeys"… |
+
+## Who runs it
+
+- **`tools/vm-qa`'s `scripts` suite** (`vm-qa:22`, the header row: *the scripts under busybox shims, on the host*), at `:158`: `run_suite scripts "$OUT/scripts.log" python3 -c 'import os, signal, sys; signal.signal(signal.SIGINT, signal.SIG_DFL); signal.signal(signal.SIGPIPE, signal.SIG_DFL); os.execv(...)' tools/last-good-scripts-test`. It is in the default suite list, and `vm-qa:145-150`'s `run_suite` reads the exit: **3 is SKIP, any other non-zero is `FAIL (rc)`, 0 is PASS**. So a run whose only shortfall is a `NOT APPLICABLE` group (exit 0) reads PASS there, a run that cannot run (exit 2) reads `FAIL (2)`, and every M6 worktree's run, on the host's busybox, reads `FAIL (1)`.
+- **By hand, `--old` with a `BASE_REF`,** for the header's twelve failing controls (`:162-226`). At the hash none of them reaches a verdict (`02` § The runs).
+- **`--cloud-layout`** (`:252`) execs `rasteratops-cloud-layout-test` with the remaining options. Section `ae` (`:14177-14190`) calls the same tool in-suite.
+- **Nothing else in the tree invokes it:** `.github/workflows` does not, and `fork-checks.yml` runs neither this nor `vm-qa`.
+
+## The record
+
+- **The last PASS in a `vm-qa` report:** `docs/qa-logs/2026-10-06-pixelelated-replacement-14/qa-18/defaults/scripts.log`.
+  - Its first line: `signals: SigIgn=0000000001000004 SIGINT ignored=0 SIGPIPE ignored=0`.
+  - Its banner: `sed/mv/cp/tr/head/wc/cut/awk: BusyBox v1.36.1 (2026-10-05 03:37:19 UTC) multi-call binary. -- a copy of /workspace/repos/rocknix.worktrees/m7-pixelelated-replacement14/...`, an M7 build root's.
+  - Its last line `PASSED`, with **1,374** `    PASS  ` check lines.
+- **Since then,** every recorded run from an M6 worktree resolved the host's BusyBox 1.37.0 and failed 319 checks:
+  - T12's three `TMPDIR` runs (#1015);
+  - T14's run on 2026-10-24, rc 1, 990 / 323, with two of S2's and two of S8's;
+  - this slice's run 2, rc 1, 994 / 319.
+- **The two runs from this lane under an M7 root's busybox** both pass: run 1 (1,313 / 0 / 0) and the timed run (1,313 / 0 / 0).
+- **The check count moves with the tree:** 1,374 PASS lines at qa-18 (2026-10-06), 1,313 checks here at the hash, 1,313 on T14's branch copy and 1,378 on T12's, as the brief records. The count is a property of a run, not of the text.
+- **`docs/vm-qa-log.md`** names the file on 8 lines.
