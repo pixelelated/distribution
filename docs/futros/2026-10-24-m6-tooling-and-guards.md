@@ -704,3 +704,66 @@ slice's acceptance, not a coordinator edit; A5 § 1 sizes the seat's packet
 by excerpt and lets the seat ask for more; A6 § 8 forbids a shell
 background start and a worktree `TMPDIR` by name; A7 § 8 requires the
 session pointer at every checkpoint (#1014).
+
+### Errata from the stranger's proof of T15's brief (version 2, 2026-10-25)
+
+A reader with no context reproduced the brief's claims read-only (4 API
+calls; the suite not run; 89 claims: 67 verified, 8 wrong, 10 partial, 4
+uncheckable): the file's size and history, the 34 sections' lines, the
+helpers' lines, the eight `|| true`, `set -u` only, the call sites and
+their flags, the two M7 roots and the host's busybox, the registers and
+the issues held; the wrong and partial figures are corrected in version 2,
+and three of them are findings, not errata:
+
+- **`setsid` does not reset an ignored SIGINT.** Version 1 named `setsid -w`
+  as the remedy for the suite's refusal to run as a shell background job
+  (`:260-268`); the stranger tested `-w` and `-f` with SIGINT ignored in
+  the parent and both children kept the bit, so the suite would exit 2
+  either way. The file's own comment at `:264` names `setsid -f` and is
+  wrong on the same point. The remedy is `vm-qa:158`'s launcher, a
+  `python3 -c` that sets SIGINT and SIGPIPE to default and execs; the brief
+  gives it, and § 7 quotes each run's `SIGINT ignored=0` line. The
+  coordinator's two runs happened to start from a shell with SIGINT at
+  default, which is why they ran.
+- **The verdict has a fourth word.** `NOT APPLICABLE` (`:4558`, the
+  retired `cloud_migrate_layout` group, #508) is reported at `:14235` and
+  the run exits 0 `PASSED` when nothing failed or skipped: a group that
+  did not run passes. Version 1 said the verdict already had D-QA-061's
+  shape; Q3's first item now.
+- **The no-busybox case is silent.** `image_tool_source`'s fallback is
+  `command -v busybox || true`: a host with a busybox gets a copy of it
+  and a banner line naming the source; a host with none gets no copy, no
+  wrappers and no banner, and the run proceeds on the host's GNU tools
+  with nothing said. Version 1 said the fallback was "said only in the
+  banner".
+- **Sandboxing starts at section `b`, not `y`:** 60 `bwrap` invocation
+  lines (85 lines carry the word, 24 of them comments), 16 sections before
+  `y` invoke it, `sa_run` is called 150 times, so a run opens more than
+  200 sandboxes; four invocations do `--unshare-net` (`:6108`, `:11890`,
+  `:12285`, `:12303`) where `sa_run` does not; the wrapper lists differ by
+  section, and `flock` is shimmed only in `n` and `t` and called on the
+  host at `:2345` and `:6765`.
+- **`y` is 5,386 lines, not 4,683:** stream B's `y1` to `y4` at
+  `:7796-8905` (1,110) and stream A's cases from `:8906` (4,276).
+- **Twelve `--old` recipes, not five** (`:167-226`): the default
+  `1d1503180d` and eleven more; version 1 named the last five. § 5 and § 7
+  now run all twelve.
+- **Line references:** `skip()` `:302`; the banner `:426`; `image_tool_source`
+  `:381-401`; the copy's comment `:403-414`; the sandbox helpers
+  `:8993-9029` (`sa_tail` and `sa_outcome` included).
+- **The record's figures:** the last PASS ran 01:04-01:37 UTC on
+  2026-10-06; `scripts_pass_lines: 1719` in `qa-18/counts.json` counts
+  lines carrying the word PASS (1,721 by grep), not checks (1,374 in that
+  log); `docs/vm-qa-log.md` names the tool in 8 lines (61 carry `scripts`);
+  T12's worktree-scratch run FAILed 326, the other two 319; T12's compare
+  file and T14's `02` are on their branches only until the merges, so the
+  brief gives `git show` paths.
+- **Unactionable for a stranger, now fixed:** the session pointer the first
+  commands `cat` is seeded by the dispatch and absent before it (said);
+  the `--old` loop covers all twelve.
+
+And the coordinator's two runs of the suite at the hash (§ 2 of version 2):
+under the image's busybox 1,303 PASS / 10 FAIL / 0 SKIP in 514 s; under the
+host's 984 / 329 / 0 in 671 s; 319 checks flip between them (#1015's count),
+and the ten that fail under both are the suite's own vacuous-fixture
+detectors firing in `x` and `y` -- the first thing the lane sorts.
