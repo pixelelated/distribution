@@ -213,7 +213,7 @@ Depth **extended** (`second-opinions/review-plan.json`): the primary (Anthropic,
 
 ### Astra's items, graded against the artifacts
 
-Each grade below comes from re-reading the cited lines at `8ebaf8daad` (09:54-10:10 UTC), not from the seat's wording. The grades are:
+Each grade below comes from re-reading the cited lines at `8ebaf8daad` (09:54-09:57 UTC), not from the seat's wording. The grades are:
 - **confirmed** (the lines show it);
 - **confirmed, re-graded** (they show it, at another severity);
 - **narrowed** (part of it holds);
