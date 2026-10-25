@@ -562,3 +562,14 @@ The shape follows the seat's three distinctions (the 02:36 ruling) and the 03:34
 The run is slower than an ordinary one (1,219 s against 517 s). The sections marked N/A keep executing against empty placeholder scripts, and their stderr carries the noise of that (`/logs/exec.log: No such file or directory`, the missing RetroArch patches). Their checks print `N/A`, never PASS or FAIL.
 
 `34aca64afd` (#1023's second case, `p`'s promised absence) and the twelve-recipe table run after S2's other commits. The table is S2's last step.
+
+### S2, #1021: a history read fails closed at the read (on the donor)
+
+The constructed input is a shallow clone, the coordinator's 04:12 ruling: a clone with the condition the bug is about, not a figure. In each, `417dcd8610` is unreachable (`git cat-file -e 417dcd8610^{commit}`: *Not a valid object name*). Unfixed: `bea0374f3b`, `git clone --depth 2` so that its parent commit could be checked out. Fixed: `70af8e3771`, `--depth 1`. Both run with no `--old`, on the donor root.
+
+| Case | File | Result | Proved |
+| --- | --- | --- | --- |
+| a shallow clone (the positive) | unfixed | rc 1 in 518 s, 1,302 PASS / **10 FAIL** / 0 SKIP / 2 CANNOT. All ten are vacuity detectors downstream of the silent read: `the earlier builds' pass wrote nothing -- the fixture proves nothing`, `still on /storage after a boot:`, `the take-back boot's journal: ''`, `the repair changed: 'nothing'`, `a second run changed the repaired copy`, `the old quirks' next boot left the owner's edit or the unmask: ...`, `the downgrade wrote 0 file(s), -- the fixture proves nothing` (twice), and `G2-F1-01: after a downgrade to the prev/first old quirks and back ...` (twice). Census `cc1plus=0 qemu=0` | proved: tool-run |
+| a shallow clone | fixed | **rc 2 in 127 s**, after 397 PASS: `last-good-scripts-test: CANNOT -- 417dcd8610 is not in this checkout's history (an export or a shallow clone?), so projects/ROCKNIX/packages/hardware/quirks/platforms/GENERIC_X64 cannot be read at it`. Load 24.5 at its end, from M7's build beside it | proved: tool-run |
+
+The same run from a full clone passes `F1.`, `F1r.` and `C.` as before: root-tip at `a286e5b49f`, 1,312 / 0 / 0 / 2 CANNOT, above.

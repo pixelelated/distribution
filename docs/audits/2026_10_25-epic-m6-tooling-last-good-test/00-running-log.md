@@ -322,3 +322,22 @@
   - #1032 `11952dfcf3` (positive in the commit: a driver that raises after its first verdict passes the unfixed check, the fixed one FAILs it).
   - #1037, #1027, #1036 and #1034's constructed cases run after the current queue.
   - #1026 and #1031 are next. #1026's representative set is the five runners that carry 63 of the file's `rc ≠ 0` checks: `p7bt` 27, `sa_run` 18, `c1` 10, `cf1` 6 and `b`'s `bt` (the founding kill and restore).
+
+## [Stage E] 06:02 UTC — S3 to S6's code complete; #1021's positives; the twelve move to the final tip
+
+- **All 22 bugs now have code.** S3:
+  - #1033 `5429e27e72`, #1037 `60066e21f8`, #1027 `65bdd1a717`, #1036 `32ba775765`, #1034 `e155cd4309`, #1032 `11952dfcf3`;
+  - #1026 `812d09e3af` (a witness that the script started, in the six runners that carry 63 of the 71 `rc ≠ 0` checks, and the guarded steps in `b`);
+  - #1031 `b729628ad6` (barriers: a `flock` shim marking the second handler at the lock; a `hold` verb in the helper double).
+  - S5: #1028 `5d1b47deb7` (`--clearenv --unshare-net` in `sa_run` and `sa2_run`).
+  - S4: #1025 `db08ed0953` (`skip_dependents`: 40 missing-dependency branches, 164 dependent check sites named, a reader over the file's own structure).
+  - #1032 `5d1f67ca0b`: `d13a` as well, found while S4's reader listed D's checks.
+  - S6 (#1030) was closed by `3da816ce24` (the coordinator, 04:12).
+- **#1021's positives on the donor** (`02` § S2, #1021): unfixed shallow clone, rc 1 with ten vacuity FAILs; fixed, rc 2 in 127 s at the read, naming `417dcd8610` and the path.
+- **The twelve recipes move to the final tip, `5d1f67ca0b`.** #1023's acceptance asks for them at `fixed-at`, and S3's commits changed `--old` behaviour too (`q`'s fragments read at the ref, #1036). The first queue (215160) was stopped by its process group at 06:00, after `shallow-fixed` and 22 s into `old-1d1503180d` at `a286e5b49f`; nothing of it remained (`pgrep -g` 0, no suite or `bwrap` left).
+- **The second queue** (`/workspace/tmp/m6-t15/s3/queue2.sh`, PID **1008748**, harness task `btiiafr4w`, the same `queue.log`), one run at a time:
+  1. root-final, the full suite at `5d1f67ca0b` (PID 1008765, from 06:01:29);
+  2. #1026's positive: a fake `bwrap` that exits 1 first on PATH, a sandbox that cannot start, on the unfixed file (`11952dfcf3`) and the fixed one;
+  3. #1028's probe: a cut copy of stream A's setup with a script through `sa_run`, the caller exporting `RCLONE_CONFIG`, `RCLONE_CONFIG_QA_TYPE`, `BASH_ENV` and a function; unfixed `b729628ad6`, fixed `5d1f67ca0b`;
+  4. the twelve `--old` recipes at `5d1f67ca0b`.
+- **Still to construct, waiting on the coordinator's answer (#662, 05:52):** the positives that need a proven script altered in a throwaway clone (#1037, #1027, #1036, #1034), and #1031's broken lock and acknowledgement.
