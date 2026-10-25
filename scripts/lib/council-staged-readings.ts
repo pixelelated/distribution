@@ -575,6 +575,7 @@ export async function readSuccessfulReadingCapture({
     receipt.final.outcome === "success" &&
       actual.outcome === "success" &&
       actual.finish_reason !== "length" &&
+      actual.finish_reason !== "content_filter" &&
       capture.output &&
       label(identity.observed) &&
       identity.observed === model &&
