@@ -7236,13 +7236,25 @@ def fx_kill4(L):
     return f
 
 
+def kill5_names(label, osn, keep):
+    """KILL5's archives: `keep` of this device's own planted, the run's own
+    upload, and the newest `keep` of those as what retention leaves. It
+    planted three and expected three whatever CLOUD_BACKUP_KEEP was, so a
+    correct keep of two or five failed and a retention hard-coded to three
+    passed (#1070)."""
+    own = [f"2026_01_{d:02d}-000000-{label}-{osn}_SETTINGS.tar.gz" for d in range(2, 2 + max(keep, 1))]
+    archive = f"2026_02_01-000000-{label}-{osn}_SETTINGS.tar.gz"
+    return own, archive, sorted(own + [archive])[-keep:] if keep > 0 else []
+
+
 def fx_kill5(L):
     """KILL5: `cloud_backup --yes --system-only` killed (SIGKILL) mid-copyto
     of a 6 MiB archive (LINK5's shape). The marker is planted as
-    `<hash of a previous archive> <dest>`; the cloud folder holds three own
-    labelled archives, one other device's, one unlabelled, and a device.json
-    with distinctive bytes. Asserted: the marker is byte-identical; all five
-    planted archives are still there (retention did not run); device.json is
+    `<hash of a previous archive> <dest>`; the cloud folder holds
+    CLOUD_BACKUP_KEEP own labelled archives (#1070), one other device's, one
+    unlabelled, and a device.json with distinctive bytes. Asserted: the marker
+    is byte-identical; every planted archive is still there (retention did not
+    run); device.json is
     unchanged; last-settings-backup is never 0; the re-run writes the marker
     as `<new hash> <dest>`, trims this device's archives to CLOUD_BACKUP_KEEP,
     leaves the others, and there is exactly one device.json.
@@ -7257,14 +7269,13 @@ def fx_kill5(L):
     webdav = backend("backend").strip() == "webdav"
     broot = L.backups
     folder = f"{epath(L.settings_remote)}/{L.device_id}"
-    own = [f"2026_01_0{d}-000000-{L.label}-{L.osn}_SETTINGS.tar.gz" for d in (2, 3, 4)]
+    own, archive, kept = kill5_names(L.label, L.osn, L.keep_n)
     other = f"2026_01_01-000000-Other-Handheld-{L.osn}_SETTINGS.tar.gz"
     unlabelled = f"2026_01_01-000000-{L.osn}_SETTINGS.tar.gz"
     device_json = b'{"id": "planted-by-KILL5", "distinctive": "' + os.urandom(8).hex().encode() + b'"}\n'
     planted = {n: n.encode() for n in own + [other, unlabelled]}
     planted["device.json"] = device_json
     L.plant_cloud(planted, folder)
-    archive = f"2026_02_01-000000-{L.label}-{L.osn}_SETTINGS.tar.gz"
     L.dev.run(f"rm -rf {L.q(broot)}; mkdir -p {L.q(broot)}")
     L.plant_tar(f"{broot}/{archive}", "kill5", blob_mib=6)       # ~30 s in flight at 200k
     body_sha = L.dev.sha(f"{broot}/{archive}")
@@ -7287,7 +7298,8 @@ def fx_kill5(L):
                    f"the marker moved: {after.get('settings-backup.uploaded')!r}")
     cloud = backend_files(folder)
     still = [n for n in own + [other, unlabelled] if n in cloud]
-    f += not check(len(still) == 5, "all five planted archives are still in the folder (retention did not run)",
+    planted_n = len(own) + 2      # this device's CLOUD_BACKUP_KEEP, another device's, the unlabelled one
+    f += not check(len(still) == planted_n, f"all {planted_n} planted archives are still in the folder (retention did not run)",
                    f"planted archives missing after a killed upload: {[n for n in own + [other, unlabelled] if n not in cloud]}")
     f += not check(backend_bytes(f"{folder}/device.json") == device_json, "device.json is unchanged",
                    f"device.json changed on a killed run: {(backend_bytes(f'{folder}/device.json') or b'')[:60]!r}")
@@ -7314,9 +7326,9 @@ def fx_kill5(L):
                        f"the marker now says <hash of the archives> <dest> ({marker2[:12]}... {marker2.split()[-1] if marker2 else ''})",
                        f"the marker after the re-run is {marker2!r}, expected {expect_sum} <dest ending /{L.device_id}>")
         mine = sorted(n for n in cloud2 if re.fullmatch(rf"\d{{4}}_\d\d_\d\d-\d{{6}}-{re.escape(L.label)}-{re.escape(L.osn)}_SETTINGS\.tar\.gz", n))
-        f += not check(mine == sorted(own[1:] + [archive]),
+        f += not check(mine == kept,
                        f"this device's archives trimmed to CLOUD_BACKUP_KEEP={L.keep_n}, oldest first ({mine})",
-                       f"retention left {mine}, expected {sorted(own[1:] + [archive])}")
+                       f"retention left {mine}, expected {kept}")
     f += not check(other in cloud2 and unlabelled in cloud2, "another device's archive and the unlabelled one were left alone",
                    f"RETENTION REMOVED WHAT IS NOT THIS DEVICE'S: {[n for n in (other, unlabelled) if n not in cloud2]}")
     f += not check(cloud2.count("device.json") == 1, "exactly one device.json", f"{cloud2.count('device.json')} device.json")
