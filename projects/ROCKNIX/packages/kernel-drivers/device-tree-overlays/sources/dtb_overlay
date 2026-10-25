@@ -89,7 +89,9 @@ write_dtbo() {
             dtbos+="${PRE}${ol} "
         fi
     done
-    mount -o remount,rw /flash
+    # A failed remount or edit is a failed update: the caller must not
+    # report success, or the setting and the boot line disagree (#1088).
+    mount -o remount,rw /flash || return 1
     if [ "$dtbos" ]; then
         if grep --quiet FDTOVERLAYS /flash/extlinux/extlinux.conf; then
             sed -i "/FDTOVERLAYS/c \ \ FDTOVERLAYS ${dtbos}" /flash/extlinux/extlinux.conf
@@ -99,7 +101,22 @@ write_dtbo() {
     else
         sed -i "/FDTOVERLAYS/d" /flash/extlinux/extlinux.conf
     fi
-    mount -o remount,ro /flash
+    written=$?
+    mount -o remount,ro /flash || echo "warning: /flash stayed writable" >&2
+    return $written
+}
+
+# set_overlay <setting> <value>: save it and rewrite the boot line; on a
+# failed rewrite, put the previous value back and exit non-zero.
+set_overlay() {
+    previous=$(get_setting "$1")
+    set_setting "$1" "$2"
+    if ! write_dtbo; then
+        set_setting "$1" "$previous"
+        echo "could not update /flash/extlinux/extlinux.conf; nothing changed"
+        exit 1
+    fi
+    exit 0
 }
 
 case "$1" in
@@ -132,11 +149,10 @@ case "$1" in
    "set")
         case "$2" in
             "custom")
+                [ "$3" = None ] && set_overlay system.custom_dtbo None
                 for ol in $(list_custom_overlays); do
-		            if [ "$3" = "$ol" ] || [ $3 = None ]; then
-                        set_setting system.custom_dtbo $3
-                        write_dtbo
-                        exit 0
+		            if [ "$3" = "$ol" ]; then
+                        set_overlay system.custom_dtbo "$3"
 		            fi
 		        done
                 echo "dtbo doesn't exist: $3"
@@ -144,11 +160,10 @@ case "$1" in
             ;;
             *)
                 check_valid_specialization $2
+                [ "$3" = None ] && set_overlay "system.$2" None
 	            for ol in $(list_specialized_overlays $2); do
-		            if [ "$3" = "$ol" ] || [ $3 = None ]; then
-                        set_setting system.$2 $3
-                        write_dtbo
-                        exit 0
+		            if [ "$3" = "$ol" ]; then
+                        set_overlay "system.$2" "$3"
 		            fi
 		        done
                 echo "dtbo doesn't exist: $3"
