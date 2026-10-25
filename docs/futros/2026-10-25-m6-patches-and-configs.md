@@ -56,8 +56,7 @@ recipes no plan builds (T24's area), 4 under driver and firmware recipes.
   or review trailers); the 14 header-less files are ROCKNIX's hand-made
   diffs and the only hand rows.
 - *That a dead patch is never a bug.* Class (c) is one: vitaquake2-lr's
-  `x86_64` patch is a real x86 variant (four hunks differ from the `aarch64`
-  one) that has never applied since 2025-07-13, and EmulationStation's
+  `x86_64` patch is a real x86 variant (one hunk of four lines differs from the `aarch64` one -- corrected by the proof) that has never applied since 2025-07-13, and EmulationStation's
   `cpugov.patch` targets a file the ROCKNIX `rocknix` package installs and
   carries a copy-paste slip that has never compiled. A `patches/x86`
   directory would make both apply -- a recipe-tree edit the lane never
@@ -152,3 +151,36 @@ T41/T42 leads by package; the confs as provenance only; the six
 upstream-deleted rows as a third upstream status; the drift check as a
 count. **Filed now:** the epic #1054. **Left for the stranger's proof:**
 every figure above.
+
+### Errata from the stranger's proof of T40's brief (version 2, 2026-10-25)
+
+A read-only reader with no context checked 56 rows of version 1 (38
+verified, 2 wrong, 11 partial, 1 uncheckable; 3 API calls). What version 2
+corrects, each at the place it lands:
+
+1. **Four rows of class (e1) are reached after all.** gcc's and cmake's
+   overrides carry `patches` as a git symlink to the generic directory;
+   `unpack`'s `${PKG_DIR}/patches/*.patch` follows it and applies gcc's three
+   and cmake's one on every image. The inventory never resolves a symlinked
+   `patches` entry: a second tool gap beside #1049, a bug the lane files. So
+   the shadowed non-duplicates are 68, not 72.
+2. **Class (e) is 6 + 16 + 2 + 4**, not 7 + 17 + 4: two ROCKNIX-own rows in
+   unbuilt recipes (panda3ds-lr's gles patch, play-lr's build fix) sit in it
+   unnamed.
+3. **The class-(c) bug sketch had two gaps:** the vitaquake2 patches differ
+   by one hunk of four lines, and a `patches/x86` rename alone would not take
+   effect, because `pre_make_target` passes `platform=` only for aarch64
+   after `unpack:196`; the test image never builds vitaquake2-lr, so the next
+   image proves only the EmulationStation patch, whose slip is a wrong call
+   at run time (not a compile failure) and sits in the non-x86 arm too.
+4. Smaller: "427 live patches" is the device-level kernel count (the
+   override has 20); two of the 14 header-less patches are LibreELEC's;
+   three of the 102 upstream commits are ROCKNIX's own; T24 (#671) is open,
+   not accepted; `get_pkg_directory` spans 1057-1090, the inventory's
+   patch-row rule 447-460, the trailers are 96; #1054 had no futro comment
+   until the dispatch posted it.
+
+Not checked by the proof, and left to the lane's stage A: the generator's
+own counts, the headers' tags and series positions, T23's join at the
+lane's tree.
+

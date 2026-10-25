@@ -7,7 +7,7 @@ area: patches-and-configs
 kind: table
 lens: reachability
 depth: Local
-version: 1
+version: 2
 written: 2026-10-25
 author: the M6 coordinator (Fable 5.1, D-WORKFLOW-189)
 read_refs:
@@ -18,8 +18,7 @@ read_refs:
 
 # T40: the patches and kernel configurations no plan applies (a provenance table)
 
-**Version 1, 2026-10-25, by the coordinator.** A brief for a lane that has
-never seen this project, in the shape of T23's
+**Version 2, 2026-10-25, by the coordinator**, after the stranger's proof of version 1 (a read-only reader with no context, 56 rows: 38 verified, 2 wrong, 11 partial, 1 uncheckable; the corrections are marked **(v2)** where they land and listed in the area futro's errata). Version 1 was written the same day. A brief for a lane that has never seen this project, in the shape of T23's
 (`docs/reviews/briefs/generic-packages-dead-ends.md`, the same lens, the same
 session): a **table slice at Local depth** that **removes nothing and edits
 no patch** (D-WORKFLOW-209). The output is one table of 778 rows -- one per
@@ -51,8 +50,7 @@ by a command run at the hash named beside it (the research notes behind
   § Reachability on `feature/m6-packages-dead-ends-670` is the join target --
   234 of these rows sit inside 117 of its dead units, and its class
   decision on #346 and its decision issue #1048 are where this table's
-  removals, if any, are decided); **T24** (#671, accepted: the emulators'
-  twelve recipes handed their patch directories here); **T5** (#652, the
+  removals, if any, are decided); **T24** (#671, open at `remediating`: its body names T40 as the destination of its patch rows -- the twelve recipes' and panda3ds-lr's and play-lr's -- v2); **T5** (#652, the
   build engine: `scripts/unpack`'s patch selection and `config/functions`'
   `get_pkg_directory` are what makes a patch reached); **T10** (#657:
   `tools/renovation-inventory`'s `selected_patch_dirs` mirrors `unpack`'s
@@ -76,9 +74,7 @@ by a command run at the hash named beside it (the research notes behind
   Makefile target builds` (b); `never selected: a patches/x86_64 directory
   under PATCH_ARCH=x86` (c -- **a bug, filed, fixed by a packet, never
   here**); `inside a T23 dead unit` (d -- the unit's T23 disposition
-  carried, so these rows follow T23's class decision on #346); `dead: a
-  sourced generic recipe's patches, which the live override's globbing never
-  reaches` (e1); `dead: an unbuilt recipe's` (e2); `already deleted at
+  carried, so these rows follow T23's class decision on #346); `dead: a sourced generic recipe's patches, which the live override's globbing never reaches` (e1 -- **only where the override's `patches` is not a symlink to the generic one**: gcc's and cmake's are, so their four rows are *reached after all*, v2); `dead: an unbuilt recipe's` (e2); `reached after all` (the four, a second gap in the inventory tool: it never resolves a symlinked `patches` entry -- a `bug` beside #1049, filed by the lane); `already deleted at
   upstream/next` (the six: strace's two, grub's four, which the next base
   merge settles). The class decision for the 277 and the 234 of (a) and (b)
   is the maintainer's, on #346 beside T23's, put there by the coordinator
@@ -106,9 +102,7 @@ by a command run at the hash named beside it (the research notes behind
   runs its input guests one at a time under its own grant and asks for a
   full build window next; **this slice runs no guest, no build, no compiler,
   no plan generation and no network** -- the classes come from
-  `config/options ""` and `get_pkg_directory` (which make no request; the
-  research pass's `curl` shim was never invoked), `scripts/unpack`, the
-  Makefile, the headers and `git`. Register: the three workflow IDs before
+  `config/options ""` and `get_pkg_directory` (which make no request; the research pass's `curl` shim was never invoked), `scripts/unpack`, the Makefile, the headers and `git`. Register: D-INFRA-032 is the M7 lane's, so an infrastructure row here is D-INFRA-033 or higher (v2). Register: the three workflow IDs before
   209 and D-INFRA-032 are the M7 lane's; 209 the coordinator's; a row this
   slice forces takes **D-WORKFLOW-210 or higher**, D-QA-064, D-INFRA-033.
 
@@ -161,34 +155,27 @@ one script over the saved rows and T23's unit list; they sum to 778 rows and
 
 | Class | Rows | Lines | What it is, and why no plan applies it |
 | --- | ---: | ---: | --- |
-| (a) generic kernel patches | 277 | 92,389 | `packages/linux/patches/{rockchip 187, rockchip-old 48, dvb 39, default 3}`; every device resolves `linux` to `projects/ROCKNIX/packages/linux` (`get_pkg_directory linux` under each device's `config/options`), which neither sources the generic recipe nor shares a patch with it (0 of 277 subjects match the ROCKNIX kernel's 427 live patches); the generic dirs are chosen only by `LINUX=` values other projects' `options` set |
+| (a) generic kernel patches | 277 | 92,389 | `packages/linux/patches/{rockchip 187, rockchip-old 48, dvb 39, default 3}`; every device resolves `linux` to `projects/ROCKNIX/packages/linux` (`get_pkg_directory linux` under each device's `config/options`), which neither sources the generic recipe nor shares a patch with it (0 of 277 subjects match the ROCKNIX kernel override's 20 live patches, nor the 447 kernel patches of every device directory together -- v2); the generic dirs are chosen only by `LINUX=` values other projects' `options` set |
 | (b) other projects' | 234 | 160,488 | 216 patches and the 18 confs under `projects/{Amlogic 94, Allwinner 81, Rockchip 15, Samsung 15, NXP 14, RPi 7, Generic 3, Qualcomm 3, ARM 2}`; the Makefile sets `PROJECT=ROCKNIX` in all 27 of its build lines, so the inventory marks every `projects/<other>/` path unreached before the patch rule is consulted |
 | (c) an arch directory never selected | 5 | 99 | `projects/ROCKNIX/packages/emulators/libretro/vitaquake2-lr/{,vitaquake2-rogue-lr/,vitaquake2-xatrix-lr/,vitaquake2-zaero-lr/}patches/x86_64/001-set-platform.patch` (four, 18 lines each) and `projects/ROCKNIX/packages/ui/emulationstation/patches/x86_64/cpugov.patch` (27 lines): `scripts/unpack` sets `PATCH_ARCH=x86` on x86_64 for every package (lines 127-128), so a `patches/x86_64` directory is never globbed. **Both recipes are live** (EmulationStation reached by GENERIC_X64; vitaquake2-lr buildable by AMD64) -- this class is the slice's bug, § 4 |
 | (d) inside a T23 dead unit | 234 | 63,795 | in 117 of T23's 731 units: 158 rows in *dead, upstream-carried* units, 67 in *shadowed copy, override live*, 9 in *shadowed copy, override dead too* (strace 2, connman 6, grub 1); none in T23's five *reached after all* or its unshipped units |
-| (e) the rest | 28 | 1,137 | (e1) 7 in generic recipes a live override sources -- gcc 3, cmake, readline, fluidsynth: the sourced recipe's `package.mk` row is `shipped`, but `PKG_DIR` is the override's and `unpack` globs `${PKG_DIR}/patches` only (lines 150-154), so the generic `patches/` is never reached; (e2) 17 in LibreELEC `packages/emulation/libretro-*` recipes no plan builds (T24's area); 4 under `linux-driver-addons/dvb/*/patches/disable-pci` and `linux-firmware*` recipes no plan builds |
+| (e) the rest | 28 | 1,137 | (e1) 6 in generic recipes a live override sources -- fluidsynth 1, readline 1, and **gcc 3 and cmake 1, whose overrides' `patches` entries are git symlinks to the generic directories, so `unpack`'s `${PKG_DIR}/patches/*.patch` applies them on every image: reached after all, not dead** (v2; the inventory never resolves a symlinked `patches` entry -- a second tool gap beside #1049, a `bug` the lane files); (e2) 16 in LibreELEC `packages/emulation/libretro-*` recipes no plan builds (T24's area) and **2 ROCKNIX-own rows in unbuilt recipes** (`panda3ds-lr/patches/gles/000-enable-gles.patch`, 270 lines; `play-lr/patches/000-fix-build.patch`, 10 -- v2); 4 under `linux-driver-addons/dvb/*/patches/disable-pci` and `linux-firmware*` recipes no plan builds |
 
 **The headers (760 `.patch`):** 746 are `git format-patch` output (`From
 <40-hex>`, `From:`, `Date:`, `Subject:` all present), 485 carry
-`Signed-off-by:`, 97 a `Link:`, `Reviewed-by:` or `Acked-by:` trailer; the
-14 without a header are ROCKNIX's hand-made diffs (the only hand rows; the
-research notes list them). So the generator fills origin (`From:`), the
+`Signed-off-by:`, 97 a `Link:`, `Reviewed-by:` or `Acked-by:` trailer; the 14 without a header are hand-made diffs (12 ROCKNIX's -- strace, connman, grub's three, panda3ds-lr, play-lr, vitaquake2's four, ES's cpugov -- and 2 LibreELEC's; the only hand rows -- v2). So the generator fills origin (`From:`), the
 subject with its tag (`FROMGIT`, `FROMLIST`, `WIP`, `LOCAL`, `HACK`), the
 series position (`[PATCH n/m]`) and the first target (`diff --git a/`) for
 746 rows unattended.
 
 **The shadowed 74 that are not the kernel's:** `get_pkg_directory` prefers
 the override and `unpack` globs the override's `patches/`, so the generic
-copy's patches never apply. **Only 2 of the 74 are duplicates by content**
-of a patch the override carries (kmod's `fix-pkgconf`, systemd's
-`remove-nonexistant-dependency`, re-homed under the override's naming); the
-other 72 are LibreELEC changes the live ROCKNIX override builds *without* --
+copy's patches never apply. **Only 2 of the 74 are duplicates by content** of a patch the override carries (kmod's `fix-pkgconf`, systemd's `remove-nonexistant-dependency`, re-homed under the override's naming), **4 are applied after all through the symlinked `patches` of gcc and cmake** (v2), and the other **68** are LibreELEC changes the live ROCKNIX override builds *without* --
 a package-currency question for T41's and T42's rows on the overrides, not
 a removal here: T40's row points at the override's row and names the
 patch's subject.
 
-**Upstream since the base:** 0 fork-authored commits on the 778, ever; 102
-upstream commits reach them since 2026-06-01, all through ROCKNIX's merges
-of LibreELEC; **six rows are already deleted at `upstream/next`** (strace's
+**Upstream since the base:** 0 fork-authored commits on the 778, ever; 102 upstream commits reach them since 2026-06-01, 99 through ROCKNIX's merges of LibreELEC and 3 ROCKNIX's own (v2); **six rows are already deleted at `upstream/next`** (strace's
 two, grub's four: `e6da8dad2b` 2026-10-22, `6103571f67` 2026-10-11, neither
 in `next` yet) -- a third upstream status beside *carried* and *merged*,
 which the next base merge settles without a decision.
@@ -222,11 +209,7 @@ recipes (T23's, T24's); the overrides' own patches (T41's, T42's: reach
    to § T43, § T23, § T24; this brief whole; the area futro
    `docs/futros/2026-10-25-m6-patches-and-configs.md`; T23's brief § 1 (the
    removal rule) and its `02-forward-audit.md` § Reachability on its branch.
-3. `scripts/unpack` at `8ebaf8daad` (the patch directory list and
-   `PATCH_ARCH`, lines 120-160), `config/functions` (`get_pkg_directory`,
-   lines 1057-1092), `tools/renovation-inventory` (`selected_patch_dirs`
-   382-401, the patch-row reach at 447-459, the `projects/<other>` rule
-   455-456, the `patches` column 587-597), the Makefile's build lines.
+3. `scripts/unpack` at `8ebaf8daad` (the patch directory list and `PATCH_ARCH`, lines 120-160; the `@DEVICE@` substitution at 196), `config/functions` (`get_pkg_directory`, lines 1057-1090), `tools/renovation-inventory` (`selected_patch_dirs` 382-401, the patch-row reach at 447-460 with the `projects/<other>` rule at 455-456, the `patches` column 587-597), the Makefile's build lines; `git ls-tree -r 8ebaf8daad | awk '$1=="120000"'` for the symlinked `patches` entries (v2).
 4. The live M6 body; #687 (with its comments); #1054 (the epic, its futro
    comment); #339; #346 (the class decision as posted for T23); #1048;
    #670 and its retro; #671 (T24's hand-off); the register rows
@@ -245,18 +228,12 @@ lens and the table as the answer:
   override lacks), and the disposition. The two commands for one quantity:
   the inventory's reach and the lane's own class script over `unpack`'s
   rules and T23's units; a row the script cannot class is a finding.
-- **Q3 Bugs -- class (c).** Five patches under `patches/x86_64` in live
-  recipes that `PATCH_ARCH=x86` never selects: vitaquake2-lr's x86 variant,
-  never applied since `9f1fab30f6` (2025-07-13), four hunks different from
-  the live `aarch64` one; EmulationStation's `cpugov.patch` (upstream
+- **Q3 Bugs -- class (c), and the symlinks.** Five patches under `patches/x86_64` in live recipes that `PATCH_ARCH=x86` never selects: vitaquake2-lr's x86 variant, never applied since `9f1fab30f6` (2025-07-13), one hunk of four lines different from the live `aarch64` one (v2: version 1 said four hunks) -- and a rename alone would not make it take effect, since `pre_make_target` passes `platform=` only for aarch64 after `unpack:196` substitutes `@DEVICE@`, and the test image never builds vitaquake2-lr (reachable by H700 and SM8550 only, buildable by AMD64), so the next image proves only the EmulationStation patch; EmulationStation's `cpugov.patch` (upstream
   `40fce2a089`, 2026-08-20), targeting `100-amd64-freqfunctions`, which the
-  ROCKNIX `rocknix` package installs, with a copy-paste slip
-  (`getAvailableGpuGovernors` calling `get_available_cpu_governors`) that has
-  never compiled. The code trace is `scripts/unpack:127-128` plus the
+  ROCKNIX `rocknix` package installs, with a copy-paste slip (`getAvailableGpuGovernors` calling `get_available_cpu_governors`, a wrong call at run time inside a string the shell would accept; the same slip sits in the patch's non-x86 arm -- v2) that has never applied. The code trace is `scripts/unpack:127-128` plus the
   directory names; the fix is a rename to `patches/x86` and a corrected
   slip, **a packet after the maintainer's word, never this lane's edit**;
-  the proof that the renamed patch applies and compiles is a package build's,
-  an open item to test for the next image (D-QA-051). One `bug` for the
+  the proof that the renamed patch applies, and that the EmulationStation one runs, is a package build's, an open item to test for the next image (D-QA-051); vitaquake2-lr's x86 branch needs its recipe's `pre_make_target` to pass `platform=` on x86 too, which the bug names. **The second bug is the inventory's symlink gap**: gcc's and cmake's overrides carry `patches` as a symlink to the generic directory, `unpack` follows it, and `tools/renovation-inventory` does not -- four rows read unreached that every image applies (a constructed case: a package whose `patches` is a symlink; filed beside #1049). One `bug` for the
   five, or two (the emulator's and the interface's), with `Already
   written:` (nothing on a device: the patch never shipped) and the VM line.
 - **Q1 Modernize -- the class decision, continued.** The 277 and the 234
@@ -266,9 +243,7 @@ lens and the table as the answer:
   LibreELEC-merge conflict shape; 102 upstream commits reach these files
   since June through those merges) and recommends; the coordinator carries
   the counts to #346 beside T23's.
-- **Q4 Package currency -- the 72.** The shadowed patches the live
-  overrides build without, by package (glibc, ffmpeg, bluez, busybox,
-  systemd, ...): each a lead for T41's or T42's row on that override, named
+- **Q4 Package currency -- the 68.** The shadowed patches the live overrides build without, by package (bluez 8, glibc 7, ffmpeg, busybox, systemd, ...): each a lead for T41's or T42's row on that override, named
   with its subject; not answered here.
 - **Q2 Standards:** the 14 header-less hand-made diffs (a patch without a
   `From:`/`Subject:` cannot say what it is for); a `patches/<arch>` directory
@@ -354,7 +329,7 @@ All in the worktree, committed on its branch with messages that cite `#687`
 | Punch list | `.../05-punch-list.md` | Phase 5: every item with `question:`, severity, category, where, acceptance, `Already written:`, the VM line; the YAML `punch_index`; the class decision deferred to #1048/#346, the 72 to T41/T42 by package | D |
 | Audit issue | GitHub, labels `audit`, `punch-list`, milestone M6, a sub-issue of #687 | `Audit: M6 T40 the patches no plan applies -- N findings (...)` | D |
 | Bugs | GitHub, label `bug`, milestone M6 | the class (c) defect(s): the directory the build never selects, the trace, the slip, the open item for the next image's unpack log and compile | D |
-| Retro | `docs/retros/<date>-m6-patches-dead.md`, posted on #687 | the mini-retro; what the slice did to the two time-to-play numbers (nothing); what T41, T42 and T43 inherit (the classes, the 72, the generator) | G |
+| Retro | `docs/retros/<date>-m6-patches-dead.md`, posted on #687 | the mini-retro; what the slice did to the two time-to-play numbers (nothing); what T41, T42 and T43 inherit (the classes, the 68, the generator) | G |
 
 ## 7. Acceptance
 
@@ -369,14 +344,14 @@ hand-back's words.
 - [ ] `second-opinions/review-plan.json` records `depth: local`, `reviewers: []` and the sentence *the lint and the counts are the check*; no `*.provenance.json` from a provider call exists in the folder (`ls second-opinions/ | grep -c provenance` is 0).
 - [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue (the bug, #1048, a T41/T42 lead the coordinator files, or #346), or recorded as a design with its sentence; `tools/box-check --issue <N>` 0 fail; the ticked and open counts read back by name.
 - [ ] `reviewed-at:` and `fixed-at:` above carry the lane's commits; no `.patch`, `.conf`, recipe or tool changes on this branch by the lane: `git diff --stat <dispatch tip> <fixed-at> -- packages projects tools` is empty (D-WORKFLOW-209; the dispatch tip is the one the dispatch comment names).
-- [ ] `01-research-notes.md` § Scope records § 2's block with its output (778 paths, 317,908 lines; 760 `.patch`, 18 `.conf`; 351 shadowed, 277 to the ROCKNIX linux), the five classes' sizes reproduced (277 / 234 / 5 / 234 / 28, summing to 778, or the delta with the command), the header coverage (746 with `From:`+`Subject:`, 14 without, named), the six upstream-deleted rows, the 102 upstream commits since 2026-06-01 and 0 fork-authored.
+- [ ] `01-research-notes.md` § Scope records § 2's block with its output (778 paths, 317,908 lines; 760 `.patch`, 18 `.conf`; 351 shadowed, 277 to the ROCKNIX linux), the five classes' sizes reproduced (277 / 234 / 5 / 234 / 28, summing to 778, with (e) split 6 + 16 + 2 + 4 and the four symlink-applied rows named, or the delta with the command), the header coverage (746 with `From:`+`Subject:`, 14 without, named with their owners), the six upstream-deleted rows, the 102 upstream commits since 2026-06-01 (99 merges, 3 ROCKNIX's own) and 0 fork-authored.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | grep -c -E '^\| `'`` prints `778`.
 - [ ] `02-forward-audit.md` § Provenance carries exactly 778 rows (``awk '/^## Provenance/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | grep -c -E '^\| `'`` prints `778`), each with the § 4 Q6 columns, its class, its header's origin and subject (or `hand-made` for the 14), its upstream status and one of § 1's dispositions; the class (d) rows carry T23's disposition of their unit, read from T23's branch.
-- [ ] `02-forward-audit.md` § The x86_64 five names the five files, quotes `scripts/unpack:127-128`, shows the four-hunk difference between vitaquake2-lr's `x86_64` and `aarch64` patches and the `cpugov.patch` slip, and the `bug` filed for them passes `tools/box-check --issue N` with its VM line (the trace on the host; the renamed patch's application and compile an open item for the next image).
-- [ ] `02-forward-audit.md` § The shadowed 74 lists the 2 content duplicates by name and the 72 by override package with each patch's subject, each a lead for T41's or T42's row, none a removal.
+- [ ] `02-forward-audit.md` § The x86_64 five names the five files, quotes `scripts/unpack:127-128` and `:196`, shows the one-hunk difference between vitaquake2-lr's `x86_64` and `aarch64` patches, the `pre_make_target` arch branch and the `cpugov.patch` slip, and the `bug` filed for them passes `tools/box-check --issue N` with its VM line (the trace on the host; the EmulationStation patch's application an open item for the next image; vitaquake2-lr's for an AMD64 build nobody makes); § The symlinked four names gcc's three and cmake's one with the `ls-tree` mode and `unpack`'s glob, and the second `bug` (the inventory's symlink gap, beside #1049) passes the checker.
+- [ ] `02-forward-audit.md` § The shadowed 74 lists the 2 content duplicates by name, the 4 symlink-applied rows, and the 68 by override package with each patch's subject, each a lead for T41's or T42's row, none a removal.
 - [ ] `02-forward-audit.md` § The runs records the five `get_pkg_directory linux` answers, the Makefile's project count, `unpack`'s directory lines, the x86_64 listing, the header count, T23's unit count (731, read from its branch), the upstream-deleted count and the churn, each with exit, wall time and *a FAIL would mean ...*; a run that cannot be made is `CANNOT` with its reason, never a pass.
 - [ ] `00-running-log.md` shows no build, no guest, no compiler, no plan generation, no `curl` or fetch of any kind, no `tools/council/run invoke`, and no write under `/workspace/repos/rocknix*`, another lane's worktree or `/tmp`.
-- [ ] `04-analysis.md` § Q6 carries the dispositions by class with counts summing to 778; § Q1 the class paragraph for the maintainer (the 277 and the 234 beside T23's 603 units, the LibreELEC-merge conflict shape, 102 upstream commits since June, the six already deleted), ending in the lane's recommendation and the sentence that the decision is the maintainer's; § Q4 the 72 by override.
+- [ ] `04-analysis.md` § Q6 carries the dispositions by class with counts summing to 778; § Q1 the class paragraph for the maintainer (the 277 and the 234 beside T23's 603 units, the LibreELEC-merge conflict shape, 102 upstream commits since June, the six already deleted), ending in the lane's recommendation and the sentence that the decision is the maintainer's; § Q4 the 68 by override.
 - [ ] Every proof in `02-forward-audit.md` carries a `proved:` cell reading `tree`, `history`, `tool-run`, `fixture` or `design`; every punch item carries `question:`; every `bug` passes `tools/box-check --issue N`.
 - [ ] The retro exists at `docs/retros/<date>-m6-patches-dead.md`, is posted on #687, says what the slice did to the two time-to-play numbers (nothing) and what T41, T42 and T43 inherit.
 - [ ] `tools/register-check`, `tools/work-log-index --check`, `tools/rules-check --quiet`, `tools/forbidden-terms-check` and `.githooks/hooks-test` pass on the branch before its merge (after the coordinator's hand-back merge).
