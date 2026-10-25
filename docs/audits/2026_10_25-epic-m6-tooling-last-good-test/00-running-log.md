@@ -400,3 +400,9 @@
 - **11:21, pos-1027-fixed:** the first two "without a state file" cases FAIL (`cfg: ... state_slot = "2" | savestate_auto_load = "false" ...`, the third case's output), the third PASSes, and `FAIL  set_autosave rc 0; cfg: ...` is the no-`-e` check refusing a run whose appendconfig is the wrong case. Where the unfixed file had one joined PASS, the fixed one judges each case. The clones were removed.
 - **11:30, pos-1034-unfixed:** backuptool's member list leaves `system.cfg` out, and `PASS  with the wifi key stripped`: the negated pipeline read nothing from the missing member and took that for an absence. The positive.
 - **11:38, pos-1034-fixed:** `FAIL  the archive carries the wifi key`, where the unfixed file PASSed. The cause: without `system.cfg`, backuptool's own count check refused the backup, no archive was written, and `absent_in`'s tar could not read one. The FAIL is right, and its text, the site's own, was not what happened. So `e8d8fd7dc6` (#1034) has the helpers print a note naming what could not be read, just before the FAIL (the close-out's full run shows it unchanged at the tip). The clones were removed.
+- **11:47, pos-1036-unfixed, four predicates' positives in one run:**
+  - `PASS  the boot pass ran over ... (rc 0)` with the pass ending `false` (wait's status read);
+  - `PASS  samba on: smb.conf is still there` and `PASS  toggle on: raofflineproxy.conf is still there`, with the pass rewriting neither;
+  - `PASS  the client at c7ebd1b6e7 with 19 patch(es) applied in order, each compiled:   File "t15_1036_broken.py", line 1ok`, the compiler's complaint inside the PASS;
+  - `PASS  ... the four scripts under sources/ are mode 100755` with one a symlink (120000) in the index.
+  - Its one FAIL is the toggle-off case, whose marker stays because the alteration disabled the pass's `rm`.
