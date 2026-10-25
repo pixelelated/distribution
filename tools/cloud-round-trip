@@ -6827,6 +6827,14 @@ def finder_cmd(script):
 
 # -- the cells --------------------------------------------------------------------------
 
+def kill1_bad(states):
+    """KILL1's preservation predicate: the files that are neither v1 nor a
+    whole v2. A file the cloud no longer has is a failure on every backend
+    (#1062: it was counted only when torn, so deleting every copy passed
+    "every file in the cloud is v1 or whole v2")."""
+    return {r: s for r, s in states.items() if s == "absent" or s.startswith("TORN")}
+
+
 def fx_kill1(L):
     """KILL1: `cloud_backup --yes --saves-only` killed mid-transfer, twice --
     SIGKILL (1a, nothing runs afterwards) and SIGTERM (1b, the script's trap).
@@ -6843,6 +6851,9 @@ def fx_kill1(L):
     commit=partial); only S3 commits atomically."""
     f = 0
     inplace = caps()["commit"] != "atomic"
+    # Read below for the QA WebDAV server's stale-PUT lock; it was never
+    # assigned here, so KILL1 raised NameError at its re-run (#1062).
+    webdav = backend("backend").strip() == "webdav"
     for variant, sig in (("1a", "KILL"), ("1b", "TERM")):
         L.reset()
         v1 = link_files("savestates/kill1-", ext="state")
@@ -6875,13 +6886,14 @@ def fx_kill1(L):
             g = got.get(rel)
             states[rel] = ("absent" if g is None else "v1" if g == (len(v1[rel]), sha(v1[rel]))
                            else "v2" if g == (len(v2[rel]), sha(v2[rel])) else f"TORN ({g[0]} bytes)")
-        torn = {r: s for r, s in states.items() if s.startswith("TORN")}
-        if torn and inplace:
+        bad = kill1_bad(states)
+        torn = {r: s for r, s in bad.items() if s.startswith("TORN")}
+        if torn and inplace and len(torn) == len(bad):
             print(f"    SKIP  {variant}: {torn} -- this endpoint ({backend('backend').strip()}) writes into the final name and "
                   "keeps what arrived; a real provider resets an aborted PUT. Assert this on MinIO (--backend s3).")
         else:
-            f += not check(not torn, f"{variant}: every file in the cloud is v1 or whole v2 ({states})",
-                           f"{variant}: a truncated file under a final name in the cloud: {torn} (all: {states})")
+            f += not check(not bad, f"{variant}: every file in the cloud is v1 or whole v2 ({states})",
+                           f"{variant}: a file in the cloud is missing or truncated under a final name: {bad} (all: {states})")
         after = L.stamps()
         if sig == "KILL":
             f += not check(after.get("last-backup") == before.get("last-backup"),
