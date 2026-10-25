@@ -344,3 +344,39 @@ pause.
 
 **Futro complete. Ready to proceed to T1's dispatch once the brief's
 version 2 is committed with these edits and the stranger's findings.**
+
+## T22's kickoff (2026-10-25), and the errata from its brief's stranger's proof
+
+T22 (#669, the OS's system services and platform quirks; Extended, two
+seats as T1's) is briefed in `docs/reviews/briefs/os-system-services.md`
+from a read-only research pass (`$S/t22-research.md`, 422 rows). What the
+pass tested of the order's `why`: half right -- `system-utils` selects at
+install time (`package.mk:27-34`; 8 rows / 317 lines shipped by no shipped
+image), while the quirks' platforms are all installed into every image
+with a platform directory of its own (`quirks/package.mk:15-18`) and
+selected at run time by `HW_DEVICE` and `QUIRK_DEVICE` (`/usr/bin/autostart:16-28,
+31-43`; `002-autostart:6-12`), so 213 of 264 platform files are shipped
+bytes that never run on H700, SM8550 or the VM; the brief's reachability
+table carries a *runs on* column. The 29 units all run as root; the read
+tree is three and a half weeks behind upstream in exactly this area (44 M,
+20 D, 42 A and 2 R at `651150fc88`); the inventory's `last_upstream_commit`
+is upstream's tip, not the read tree's.
+
+The stranger's proof (`$S/t22-proof.md`: 70 checks, 26 differed, 41
+reproduced; 21 distinct findings) corrected version 1: the block never
+wrote `paths.txt`; the read set is shell, recipe, systemd, udev and one C
+file (10,898), not python; 23 other sysutils packages; the platforms copy
+is under `:16`'s test; `/usr/bin/autostart` lives in `sysutils/autostart/sources/`
+and both its loops lack `-f`; `:31-43` is the autostart's, not
+`002-autostart`'s; the per-platform count needs `cut -f7`; the units count
+needs the quirks' `system.d/`; `video_sense` is proved by `ls-tree`;
+upstream's busybox carries seven patches that are renames of the
+override's own; `system-utils` installs `autostart/common/*` on every build
+and has no `post_install` -- enablement is a preset's or another
+package's; the 20 D are 9 never upstream's, 2 upstream removed, 9 deleted;
+the A list is 42 plus 2 renames, not 20; `54acd9556f` deletes
+`sysctl.d/rocknix.conf` and does not touch `hang-policy.conf`; util-linux
+is 2.42.4 upstream; `slice_of` is `:1237-1248`; T1's folder has no
+`.run.log` for the GPT seat and no packet manifest (T13's is the model);
+`input_sense` was rewritten in four commits; the GENERIC_X64 quirks in
+eight on 2026-09-28; #797 is not the autostart hook-shape issue.

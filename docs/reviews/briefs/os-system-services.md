@@ -7,7 +7,7 @@ area: os-scripts-and-launch
 kind: read
 lens: security, brittleness
 depth: Extended
-version: 1
+version: 2
 written: 2026-10-25
 author: the M6 coordinator (Fable 5.1, D-WORKFLOW-189)
 read_refs:
@@ -40,7 +40,8 @@ read_refs:
   seats: its #740 lead on `userconfig-setup` is this slice's file and
   #669's one comment; `/bin/sh` is bash 5.3, not dash; its autostart
   fragment rows #723, #750, #751, #752; the `/storage/.config/autostart/`
-  hook shape, #797); **T14** (#661: #1000, `rocknix-autostart.service:9`'s
+  hook shape it recorded in its `04` -- the lane names the issue, if one
+  carries it); **T14** (#661: #1000, `rocknix-autostart.service:9`'s
   argv is a constant `AUTOSTART_WRAPPER` in its tests with a drift check on
   the tree's unit -- a change to that unit here breaks T14's gate unless
   the constant moves with it; #997, busybox's provenance; D-QA-063, the
@@ -77,7 +78,8 @@ read_refs:
   other labs, each through the Facilitator and nothing else**, exactly as
   T1's audit ran them (`docs/audits/2026_10_23-epic-m6-os-launch-control-state/second-opinions/`
   on `feature/m6-os-launch-control-state-648` is the model: a probe and a
-  refutation per seat, each with its `.provenance.json` and `.run.log`;
+  refutation per seat, each with its `.provenance.json`; the packet manifest as T13's
+  `second-opinions/packet-manifest.json` on `feature/m6-cloud-harness-660`;
   `review-plan.json` with two reviewers):
   - **GPT-6 Astra**: `tools/council/run invoke --member gpt --provider
     openrouter ...` at `max` (`openai/gpt-6-astra`, provider pinned to
@@ -140,17 +142,17 @@ No `git fetch` of any kind.
 ## 2. Scope
 
 **422 paths, 16,604 lines; 10,898 lines read by the survey's language rule
-(shell, recipe, systemd, udev, python), 3,002 of them fork-own (24 paths);
+(shell, recipe, systemd, udev and one C file), 3,002 of them fork-own (24 paths);
 0 patch and config lines; upstream-carried 398 paths; reach shipped 422.**
 By group: the quirks 275 paths / 5,275 lines; systemd 41 / 1,732; busybox
-36 / 6,507; `system-utils` 28 / 1,367; `autostart` 5 / 154; 24 other
+36 / 6,507; `system-utils` 28 / 1,367; `autostart` 5 / 154; 23 other
 `sysutils` packages. The membership is `slices.json` k 22's rule on
 `inventory.json` at `2174265e9c`: area `os-scripts-and-launch`, reach
 `shipped`, under `projects/ROCKNIX/packages/sysutils/**` and
 `projects/ROCKNIX/packages/hardware/**`, **minus**
 `projects/ROCKNIX/packages/hardware/quirks/devices/**` (T29's). The tool's
-own `slice_of` (`tools/renovation-inventory:1211-1246`) and the translator
-below agree on the set:
+own `slice_of` (`tools/renovation-inventory:1237-1248`; `load_slices` at
+`:1211-1236`) and the translator below agree on the set:
 
 ```bash
 git show 2174265e9c:docs/reviews/inventory.json | python3 -I -c '
@@ -168,7 +170,7 @@ def rx(g):
     return re.compile("^"+out+"$")
 INC=[rx("projects/ROCKNIX/packages/sysutils/**"), rx("projects/ROCKNIX/packages/hardware/**")]; EXC=rx("projects/ROCKNIX/packages/hardware/quirks/devices/**")
 t=[r for r in rows if r["area"]=="os-scripts-and-launch" and r["reach"]=="shipped" and any(p.match(r["path"]) for p in INC) and not EXC.match(r["path"])]
-READ={"shell","recipe","systemd","udev","python","c","make"}
+READ={"shell","recipe","systemd","udev","c"}   # the survey counts these five as read; the dictionary below has no python or make
 print("paths",len(t),"lines",sum(r["lines"] or 0 for r in t))
 print("read",sum(r["lines"] or 0 for r in t if (r.get("language") or "") in READ),"fork-own read",sum(r["lines"] or 0 for r in t if (r.get("language") or "") in READ and r["tier"]=="fork-own"),"fork-own paths",sum(1 for r in t if r["tier"]=="fork-own"))
 print("tier",dict(collections.Counter(r["tier"] for r in t)),"reach",dict(collections.Counter(r["reach"] for r in t)))
@@ -177,17 +179,18 @@ g=collections.Counter("/".join(r["path"].split("/")[3:5]) for r in t); print("gr
 import os; os.makedirs(".qa-scratch/t22", exist_ok=True)
 open(".qa-scratch/t22/paths.txt","w").write("".join(r["path"]+"\n" for r in sorted(t,key=lambda r:r["path"])))
 print("written", len(t), ".qa-scratch/t22/paths.txt")'
+# (the sorted(..., key=...) above is Python's keyword, not a credential: a reader applying the read filter to this block drops that line and sees nothing written -- run the block raw)
 # paths 422 lines 16604
 # read 10898 fork-own read 3002 fork-own paths 24
 # tier {'upstream-carried': 398, 'fork-own': 24} reach {'shipped': 422}
+# language {'shell': 299, 'recipe': 28, 'other': 7, 'none': 21, 'symlink': 2, 'systemd': 29, 'config': 30, 'c': 1, 'udev': 5}
 # written 422 .qa-scratch/t22/paths.txt
 ```
 
 A different count is a delta to record with the command, not a reason to
-stop. (The `READ` set above is the coordinator's reading of the survey's
-rule; if the printed read figure is not 10,898, the lane prints the
-language dictionary and says which languages make the survey's 10,898,
-then uses that set.) **The read count excludes every `config` file**: the
+stop. (The five read languages are shell, recipe, systemd, udev and the one C
+file, `evtest.c`; the stranger's proof found that set and no other sums
+to 10,898.) **The read count excludes every `config` file**: the
 three busybox configurations (3,648 lines), the sysctls, the tmpfiles and
 the systemd drop-ins are in the slice and in no count the depth was sized
 on; the security lens reads them anyway, so the slice is 16,604 lines of
@@ -195,18 +198,21 @@ reading, not 10,898.
 
 **Two selection mechanisms, and the `why` named only one.**
 *Install-time:* `projects/ROCKNIX/packages/sysutils/system-utils/package.mk:27-34`
-installs the generic scripts and then only `sources/devices/${DEVICE}/*`
-and `sources/autostart/${DEVICE}` -- so **8 rows / 317 lines marked
+installs the generic scripts (`:14-15` also `sources/autostart/common/*`
+on every build) and then only `sources/devices/${DEVICE}/*` and
+`sources/autostart/${DEVICE}` -- so **8 rows / 317 lines marked
 `shipped` are installed by no shipped image** (AMD64's, RK3399's,
 RK3566's, S922X's), the VM installs `GENERIC_X64/video_sense` (fork-own),
 and H700 and SM8550 have no device directory; the device files are copied
 *after* the generic ones into `/usr/bin`, so `RK3399|RK3566|S922X/headphone_sense`
 overwrite the generic one on those builds. *Run-time:* the quirks'
-`package.mk:18` copies **every** `platforms/*` into every image (and `:15`
-every `devices/*`); selection happens at boot by `${HW_DEVICE}` (from
-`/etc/os-release`, written by `scripts/image:156`) in `/usr/bin/autostart:16-27`
-and by `${QUIRK_DEVICE}` (the device-tree model, or DMI vendor and product;
-`autostart/profile.d/002-autostart:6-12`) at `:31-43` -- so **213 of the
+`package.mk:18` copies **every** `platforms/*` into every image that has a
+platform directory of its own (`:16`, true for H700, SM8550 and
+GENERIC_X64; `:15` copies every `devices/*`); selection happens at boot by `${HW_DEVICE}` (from
+`/etc/os-release`, written by `scripts/image:156`) in `/usr/bin/autostart:16-28` (the file is
+`sysutils/autostart/sources/autostart`, 97 lines) and by `${QUIRK_DEVICE}`
+(the device-tree model, or DMI vendor and product, set in
+`autostart/profile.d/002-autostart:6-12`) at `/usr/bin/autostart:31-43` -- so **213 of the
 264 platform files are shipped bytes that never run on H700, SM8550 or the
 VM**. The slice's reachability table carries a third column, **runs on**
 (H700 / SM8550 / VM / none), beside *installed on*, with the line that
@@ -214,17 +220,23 @@ decides each.
 
 **The units: 29 files, 397 lines, none with `User=` or `Group=` -- all
 root.** The lines the security lens reads first: `shell.service` (an
-unauthenticated root shell on tty1, `exec /bin/sh`); `/usr/bin/autostart:71-75`
-running `/storage/.config/autostart/*` as root (and `:50-54` running
-`/usr/lib/autostart/common/*` without the `-f` test the other loops have);
+unauthenticated root shell on tty1, `exec /bin/sh`); `/usr/bin/autostart:71-77`
+running `/storage/.config/autostart/*` as root (the `exec` at `:76`), and
+`:50-54` running `/usr/lib/autostart/common/*` -- neither loop carries an
+`-f` test;
 `cron.service` (crond over `/storage/.cache/cron/crontabs`);
 `udevil-mount@.service` (any inserted medium mounted, then `samba-autoshare`
 in `ExecStartPost`); `userconfig-setup` (#740: copies `authorized_keys` and
 the Wi-Fi files at first boot, and makes a *file* named `/storage/.ssh`);
 `video.service` -> `/usr/bin/video_sense`, which only the GENERIC_X64 and
-RK3399 builds install (blindspot 16's shape: whether the unit is enabled
-on H700 and SM8550 is `systemd/package.mk`'s and `system-utils`'
-`post_install`'s to answer -- read them); `rocknix-autostart.service:9`
+RK3399 builds install (`git ls-tree` of `system-utils/sources/devices/*/video_sense`;
+blindspot 16's shape). **`system-utils/package.mk` has no `post_install`**
+(one function, `makeinstall_target`), `scripts/install` only copies
+`system.d/*`, and no `enable_service` under `sysutils/` or the quirks names
+`video`, `headphones`, `input`, `fancontrol`, `batteryledstatus` or
+`rocknix-autostart.service`: which build enables those six is decided
+elsewhere (a preset, another package) -- `git grep -n -E 'enable_service|preset'
+8ebaf8daad -- projects packages config` answers it, quoted; `rocknix-autostart.service:9`
 (T14's constant). **busybox:** the effective pin is the override's
 **1.36.1** (`busybox/package.mk:7`; a plain-http `PKG_URL` at `:11`); the
 generic LibreELEC recipe says 1.38.0 and is shadowed (#997, T14's);
@@ -232,26 +244,35 @@ generic LibreELEC recipe says 1.38.0 and is shadowed (#997, T14's);
 `:30`, `LOGIN` `:549`, `PASSWD` `:554`, `SU` `:556`, `HTTPD` `:888` with
 `CGI` `:894`, `NC` `:950`, `UDHCPD` `:1010`; `scripts/init` is 1,383
 fork-own lines, PID 1. **The fork-own 24** (3,002 lines): `scripts/init`,
-`input_sense` (539 lines, which upstream has since rewritten twice), the
-five GENERIC_X64 quirks (a developer's tool, D-QA-053, rewritten seven
-times on 2026-09-28 -- a punch item there is a harness item, not a
+`input_sense` (539 lines, which upstream has since rewritten in four
+commits), the
+five GENERIC_X64 quirks (a developer's tool, D-QA-053, rewritten in eight
+commits on 2026-09-28 -- a punch item there is a harness item, not a
 product item), `99-coredump.conf`, `sysctl.d/rocknix.conf`,
 `hang-policy.conf`, and the rest the block lists; the slice names each
 with its last fork commit.
 
 **The read tree is three and a half weeks behind upstream in exactly this
 area.** Merge base `c445081a59` (2026-10-01); at `651150fc88` **44 of the
-422 differ (M), 20 are gone (D: 11 fork-only files upstream never had, 9
-real deletions -- `80-clock.rules`, `99-rocknix-networking.conf`, the
-`file` and `i2c-tools` recipes, the SM6115 and RK3576 sleep hooks), and
-20 are new under the globs (A: busybox patches 0001 to 0006 including
-`0006-prevent-root-weak-passwd`, `075-scanout-offload` for SM8550,
-`games-swap.oomrule`, `20-crash.conf`)**; upstream moved busybox to
-1.38.0, systemd to 261.2, util-linux to 2.42.2, added `games.slice` and
-oomd, replaced core files with journal crash logging (`8bce25b3b7`,
-colliding with the fork's `99-coredump.conf` and D-INFRA-013's keeper),
-shipped the sysctls in the image (`54acd9556f`, colliding with the fork's
-`sysctl.d/rocknix.conf` and `hang-policy.conf`). **Every finding on one of
+422 differ (M), 20 are gone (D: 9 files upstream never had, 2 the fork
+carries that upstream has removed -- `99-coredump.conf` by `8bce25b3b7`,
+`sysctl.d/rocknix.conf` by `54acd9556f` --, and 9 real deletions --
+`80-clock.rules`, `99-rocknix-networking.conf`, the `file` and `i2c-tools`
+recipes, the SM6115 and RK3576 sleep hooks), and 42 are new under the
+globs, plus 2 renames (A: busybox 1.38.0's seven patches, 0001 to 0006
+and 0010, renames of the override's own `busybox-0X-*.patch` -- the fork
+already carries `06-prevent-root-weak-passwd`; `075-scanout-offload` for
+SM8550, six files; `games-swap.oomrule`; `20-crash.conf`; `60-rocknix.conf`;
+and the rest the lane lists)**; upstream moved busybox to 1.38.0, systemd
+to 261.2, util-linux to 2.42.4 (the override; the generic recipe says
+2.42.2 at both hashes), added `games.slice` and oomd, replaced core files
+with journal crash logging (`8bce25b3b7`, which removes the fork's
+`99-coredump.conf` -- D-INFRA-013's keeper), shipped the sysctls in the
+image (`54acd9556f`: `qdisc.conf`, `post-update`, `cdrom.conf`,
+`99-rocknix-networking.conf` and `sysctl.d/rocknix.conf` deleted,
+`60-rocknix.conf` new; `hang-policy.conf` is the fork's own with no
+upstream history), and rewrote `input_sense` in four commits (the fork's
+539-line fork-own copy). **Every finding on one of
 the 44 names the file's state at `651150fc88` beside it**, and a finding
 upstream has already fixed is *settled by the next base merge*, not a
 bug. **The inventory's `last_upstream_commit` is upstream's tip, not the
@@ -304,7 +325,8 @@ proof in `02` (a `proved:` cell: `tree`, `history`, `tool-run`, `fixture`,
   on a build without `video_sense`: a `bug` only if the unit is enabled
   there. #740 is cited, not re-filed.
 - **Q4 Package currency.** busybox 1.36.1 against upstream's 1.38.0 with
-  its six patches (`0006-prevent-root-weak-passwd` named); systemd 255.8
+  its seven patches (renames of the override's own; `06-prevent-root-weak-passwd`
+  already here); systemd 255.8
   in the image against 261.2 upstream; util-linux; the plain-http
   `PKG_URL`; each as the pin at `8ebaf8daad`, at `651150fc88`, and
   `CANNOT (no network)` for the author's release (`tools/fork-package-freshness`
@@ -322,10 +344,10 @@ proof in `02` (a `proved:` cell: `tree`, `history`, `tool-run`, `fixture`,
   `autostart:50-54`; the two selection mechanisms documented nowhere a
   reader of `package.mk` lands; the `last_upstream_commit` column read as
   the tree's (an inventory reading, cited, T10's).
-- **Q1 Modernize.** The `/storage/.config/autostart/` hook shape (#797, a
-  design the coordinator holds); the collisions upstream's next merge
-  brings (`99-coredump.conf` against journal crash logging; the sysctls
-  against `54acd9556f`): what the fork keeps, what it yields -- a design
+- **Q1 Modernize.** The `/storage/.config/autostart/` hook shape (T1's
+  lead, a design the coordinator holds); the collisions upstream's next
+  merge brings (`99-coredump.conf`, which `8bce25b3b7` removes;
+  `sysctl.d/rocknix.conf`, which `54acd9556f` removes for `60-rocknix.conf`): what the fork keeps, what it yields -- a design
   sentence each, deferred to the coordinator, no edit.
 - **Q7 Clarity and structure.** Can a reader tell, from the tree, which
   units run on which device and which quirks a boot selects? Does
@@ -369,15 +391,17 @@ cd "$D"; export TMPDIR=/workspace/tmp/m6-t22/tmp; mkdir -p "$TMPDIR" .qa-scratch
 git show 8ebaf8daad:projects/ROCKNIX/packages/sysutils/system-utils/package.mk | sed -n '24,36p'
 git show 8ebaf8daad:projects/ROCKNIX/packages/hardware/quirks/package.mk | grep -n -E 'cp |platforms|devices' | cut -c1-120
 git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/packages/sysutils/system-utils/sources/devices projects/ROCKNIX/packages/sysutils/system-utils/sources/autostart | sed -E 's#.*/sources/(devices|autostart)/##' | cut -d/ -f1 | sort | uniq -c
-git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/packages/hardware/quirks/platforms | cut -d/ -f6 | sort | uniq -c    # 264 files by platform; the shipped three are GENERIC_X64, H700, SM8550
-git show 8ebaf8daad:projects/ROCKNIX/packages/sysutils/system-utils/sources/scripts/autostart 2>/dev/null | grep -n -E 'HW_DEVICE|QUIRK_DEVICE|/storage/.config/autostart|-f ' | cut -c1-120   # or wherever /usr/bin/autostart is sourced from: find it with git grep -l 'HW_DEVICE' 8ebaf8daad -- projects/ROCKNIX/packages/sysutils
+git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/packages/hardware/quirks/platforms | cut -d/ -f7 | sort | uniq -c    # 264 files by platform; the shipped three are GENERIC_X64, H700, SM8550
+git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/packages/sysutils/system-utils/sources/devices | grep video_sense   # GENERIC_X64 and RK3399
+git show 8ebaf8daad:projects/ROCKNIX/packages/sysutils/autostart/sources/autostart | grep -n -E 'HW_DEVICE|QUIRK_DEVICE|/storage/.config/autostart|-f |exec' | cut -c1-120   # /usr/bin/autostart, 97 lines: 16-28, 31-43, 50-54, 71-77
+git grep -n QUIRK_DEVICE 8ebaf8daad -- projects/ROCKNIX/packages/sysutils | cut -c1-120   # 002-autostart:6-12 sets it
 # the units (expect 29; 0 with User=; the ExecStart lines masked)
-git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/packages/sysutils | grep -E '\.(service|timer|socket|target|mount|path)$' | tee "$TMPDIR/units.txt" | wc -l
+git ls-tree -r --name-only 8ebaf8daad -- projects/ROCKNIX/packages/sysutils projects/ROCKNIX/packages/hardware/quirks/system.d | grep -E '\.(service|timer|socket|target|mount|path)$' | tee "$TMPDIR/units.txt" | wc -l   # 29 (27 under sysutils, led-poweroff and volume-fixup under the quirks)
 for u in $(cat "$TMPDIR/units.txt"); do printf '%s: User=%s Exec=%s\n' "$(basename "$u")" "$(git show "8ebaf8daad:$u" | grep -c '^User=')" "$(git show "8ebaf8daad:$u" | grep -m1 '^ExecStart' | cut -c1-70)"; done | sed -E 's/((token|key|passw[a-z]*|psk|user)[=:])[^ ]*/\1***/Ig'
 # busybox (expect 1.36.1 at :7, http at :11; the flags at the lines named)
 git show 8ebaf8daad:projects/ROCKNIX/packages/sysutils/busybox/package.mk | sed -n '5,12p'
 git show 8ebaf8daad:projects/ROCKNIX/packages/sysutils/busybox/config/busybox-target.conf | grep -n -E '^CONFIG_(FEATURE_SUID|LOGIN|PASSWD|SU|HTTPD|FEATURE_HTTPD_CGI|NC|UDHCPD)=' | cut -c1-60
-# the history with the three identities (expect 87; fork 33; upstream 54) and the upstream delta (expect 44 M, 20 D; the 20 A listed by name)
+# the history with the three identities (expect 87; fork 33; upstream 54) and the upstream delta (expect 44 M, 20 D; the 42 A and 2 R listed by name)
 tr '\n' '\0' < .qa-scratch/t22/paths.txt | xargs -0 git log --no-merges --format='%h %an' --since=2026-06-01 8ebaf8daad -- | tee "$TMPDIR/hist.txt" | wc -l; grep -c -E ' (Max Engel|blitterbot|rasterabot)$' "$TMPDIR/hist.txt"
 tr '\n' '\0' < .qa-scratch/t22/paths.txt | xargs -0 git diff --name-status 8ebaf8daad 651150fc88 -- | awk '{print $1}' | sort | uniq -c
 git diff --name-status 8ebaf8daad 651150fc88 -- projects/ROCKNIX/packages/sysutils projects/ROCKNIX/packages/hardware | grep -v 'quirks/devices/' | grep '^A' | cut -c1-120
@@ -417,13 +441,13 @@ from the artifacts, never from the hand-back's words.
 - [ ] `tools/lint-audit-artifacts docs/audits/<date>-epic-m6-os-system-services/` prints `PASS` (its default `resolution` phase, at close; before stage D the same command with `--phase pre-issue` prints `PASS pre-issue artifacts`), the renovation face included.
 - [ ] `second-opinions/review-plan.json` records `depth: extended` and two reviewers from two other labs (`gpt` / `openai/gpt-6-astra` / `max`; `gemini-argon` / `google/gemini-4-argon` / `high`); each seat's probe and refutation have a `.provenance.json` beside them whose served model is the seat's, whose verification is PASS and whose `facilitator_version` is named; `packet-manifest.json` lists every packet file with its sha256 and the scan's result; a seat that could not run is a named blocker on #669, never a substitute.
 - [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue (a `bug`, a Backlog the coordinator files, #346, #740, #797, #997, #1000, T29's #676), or recorded as a design with its sentence; `tools/box-check --issue <N>` 0 fail; the ticked and open counts read back by name.
-- [ ] `reviewed-at:` and `fixed-at:` above carry the lane's commits; the read is on `8ebaf8daad`'s bytes for the 422 (`git diff --stat 8ebaf8daad <reviewed-at> -- $(cat .qa-scratch/t22/paths.txt)` empty) and nothing under `packages/`, `projects/` or `tools/` changes at stages A to D (`git diff --stat <dispatch tip> <stage-D tip> -- packages projects tools` empty; the dispatch tip is the one the dispatch comment names).
-- [ ] `01-research-notes.md` § Scope records § 2's block with its output (422 paths, 16,604 lines; read 10,898 / fork-own 3,002 / 24 paths; tier 398 / 24; reach 422; written 422), the language dictionary with the `config` files named as read though not counted, the history (87; 33 fork; 54 upstream) and the upstream delta (44 M, 20 D of which 11 fork-only, 20 A), or each delta with its command.
+- [ ] `reviewed-at:` and `fixed-at:` in the checklist's header carry the lane's commits; the read is on `8ebaf8daad`'s bytes for the 422 (`git diff --stat 8ebaf8daad <reviewed-at> -- $(cat .qa-scratch/t22/paths.txt)` empty) and nothing under `packages/`, `projects/` or `tools/` changes at stages A to D (`git diff --stat <dispatch tip> <stage-D tip> -- packages projects tools` empty; the dispatch tip is the one the dispatch comment names).
+- [ ] `01-research-notes.md` § Scope records § 2's block with its output (422 paths, 16,604 lines; read 10,898 / fork-own 3,002 / 24 paths; tier 398 / 24; reach 422; written 422), the language dictionary with the `config` files named as read though not counted, the history (87; 33 fork; 54 upstream) and the upstream delta (44 M; 20 D of which 9 upstream never had, 2 upstream removed, 9 deleted; 42 A and 2 R), or each delta with its command.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | grep -c -E '^\| `'`` prints `422`.
-- [ ] `02-forward-audit.md` § The reachability table carries one row per path (422) with *installed on* and *runs on* (H700 / SM8550 / VM / none) and the deciding line (`system-utils/package.mk:27-34`, `quirks/package.mk:15,18`, `autostart:16-27`, `002-autostart:6-12,31-43`), its counts summing to 422 and naming the 8 install-time rows no shipped image installs and the 213 platform files no shipped unit runs.
-- [ ] `02-forward-audit.md` § The units carries one row per unit (29): the file, `ExecStart` masked, `User=` present or root, the writable path it reads or runs (or none), the guard (or none), and enabled on which build (from `systemd/package.mk`'s and `system-utils`' `post_install`, quoted); `shell.service`, `autostart:71-75` and `:50-54`, `cron.service`, `udevil-mount@.service`, `userconfig-setup` and `video.service` each have their finding or their recorded design with the register searched (`tools/archaeology` quoted).
-- [ ] `02-forward-audit.md` § busybox states the effective pin (1.36.1, `package.mk:7`, the http URL at `:11`, upstream's 1.38.0 with its six patches named) and, for each flagged applet (`SUID`, `LOGIN`, `PASSWD`, `SU`, `HTTPD`+`CGI`, `NC`, `UDHCPD`), the caller in the tree (`git grep` quoted) or `none`.
-- [ ] `02-forward-audit.md` § The upstream delta lists the 44 M with, for every finding on one of them, the file's state at `651150fc88` and whether the finding stands, is narrowed, or is *settled by the next base merge*; the 20 D split 11 fork-only / 9 deleted; the 20 A by name; the two collisions (`99-coredump.conf` against `8bce25b3b7`; the sysctls against `54acd9556f`) each with a design sentence deferred to the coordinator.
+- [ ] `02-forward-audit.md` § The reachability table carries one row per path (422) with *installed on* and *runs on* (H700 / SM8550 / VM / none) and the deciding line (`system-utils/package.mk:14-15,27-34`, `quirks/package.mk:15-18`, `autostart:16-28,31-43`, `002-autostart:6-12`), its counts summing to 422 and naming the 8 install-time rows no shipped image installs and the 213 platform files no shipped unit runs.
+- [ ] `02-forward-audit.md` § The units carries one row per unit (29): the file, `ExecStart` masked, `User=` present or root, the writable path it reads or runs (or none), the guard (or none), and enabled on which build (`system-utils/package.mk` has no `post_install`: the `enable_service` or preset that enables it, found by `git grep -n -E 'enable_service|preset' 8ebaf8daad -- projects packages config`, quoted, or *enabled by nothing in the tree* with that grep's empty result); `shell.service`, `autostart:71-77` and `:50-54`, `cron.service`, `udevil-mount@.service`, `userconfig-setup` and `video.service` each have their finding or their recorded design with the register searched (`tools/archaeology` quoted).
+- [ ] `02-forward-audit.md` § busybox states the effective pin (1.36.1, `package.mk:7`, the http URL at `:11`, upstream's 1.38.0 with its seven patches named as renames of the override's own) and, for each flagged applet (`SUID`, `LOGIN`, `PASSWD`, `SU`, `HTTPD`+`CGI`, `NC`, `UDHCPD`), the caller in the tree (`git grep` quoted) or `none`.
+- [ ] `02-forward-audit.md` § The upstream delta lists the 44 M with, for every finding on one of them, the file's state at `651150fc88` and whether the finding stands, is narrowed, or is *settled by the next base merge*; the 20 D split 9 never upstream's / 2 upstream removed / 9 deleted; the 42 A and 2 R by name; the two collisions (`99-coredump.conf` against `8bce25b3b7`; the sysctls against `54acd9556f`) each with a design sentence deferred to the coordinator.
 - [ ] `02-forward-audit.md` § The guest cycle records the window the coordinator granted on #669 (the comment's time), the image by file name and BUILD_ID, each boot proof's line (the units enabled and their identities, tty1, the autostart order, `userconfig-setup`'s first boot), and the guest stopped by its pidfile -- or states *no window granted yet* with the proofs listed and their checkboxes open.
 - [ ] `02-forward-audit.md` § The runs records every § 5 command with exit, wall time, the figure and *a FAIL would mean ...*; a run that cannot be made is `CANNOT` with its reason, never a pass.
 - [ ] `00-running-log.md` shows no build, no compiler, no plan generation, no fetch, no handheld, no guest outside the granted window, two `tools/council/run invoke` calls (the seats) and every other `tools/council/run` call with `COUNCIL_ENV_FILE=/nonexistent`, and no write under `/workspace/repos/rocknix*`, another lane's worktree or `/tmp`.
