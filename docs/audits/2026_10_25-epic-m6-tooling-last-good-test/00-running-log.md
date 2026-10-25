@@ -376,3 +376,7 @@
 - **07:18, final-old-c15050c897:** rc 1 in 1,283 s, 137 / 343 / 659 N/A / 91 SKIP / 2 CANNOT. Promised `a`, fired; `s t x y z ab` N/A; rclone unverified. Load 9.9 at its end (M7's build). No departure.
 - **07:37, final-old-8707919349:** rc 1 in 1,156 s, 214 / 284 / 641 N/A / 91 SKIP / 2 CANNOT. Promised `h n o`, all fired; `t x y z ab` N/A; rclone unverified. No departure.
 - **07:57, final-old-34aca64afd:** rc 1 in 1,217 s, 232 / 266 / 641 N/A / 91 SKIP / 2 CANNOT. Promised `k p`, both fired; `t x y z ab` N/A; rclone unverified. The census shows `qemu=1` at its end: a guest that is not T15's, which runs none. No departure.
+- **08:03, final-old-717bc04449: a departure.** rc 1 in 328 s, 200 / 123 / 331 N/A, no verdict: `line 8176: D19_IMAGES[0]: unbound variable` in N/A section `x`'s leftover code under `set -u`. A defect of `5a155ed7fc`'s design.
+  - `q`'s promise fired before it (`raofflineproxy.conf is gone ... 007-syncthing inherited CONF from 006-raofflineproxy`): #1022's evidence for `q`.
+  - Fixed at `e430d61cfa`: `set +u` for the rest of an N/A section, and an EXIT trap turning a verdict-less end into `ABORTED ... -- no verdict`, exit 2, proven on a constructed script.
+  - Posted on #662 with (a) the rest of the twelve at `e430d61cfa` from the next boundary, or (b) re-run only the aborted ones afterwards.
