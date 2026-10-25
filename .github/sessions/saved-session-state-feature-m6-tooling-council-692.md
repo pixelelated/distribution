@@ -40,22 +40,16 @@
 
 ## Current focus
 
-**Stages F and G complete; stage H (the hand-back) next** (updated 2026-10-25, 03:25 UTC).
-- **`reviewed-at` `32a34393dd`, `fixed-at` `e1fa041488`**: both on #692's body, read back.
-- **Stage F** (`stage-f/counts.txt`, `stage-f/runs.txt`): the counts, the lint (pre-issue, resolution and `--issue 1046`) and the runs on both trees equal stage A's.
+**Handed back; idle** (2026-10-25, 03:25 UTC). The hand-back comment on #692 names the tip and every artifact.
+- **Commits:** `reviewed-at` `32a34393dd`, `fixed-at` `e1fa041488` (both on #692's body); the hand-back tip is in the comment.
+- **The audit:** `docs/audits/2026_10_25-epic-m6-tooling-council/`. The lint passes in the pre-issue and resolution phases and with `--issue 1046`. #1046's 15 items are at outcomes (#1043, #1044, #1045, two designs).
 - **The retro:** `docs/retros/2026-10-25-m6-tooling-council.md`, posted on #692.
-- **#1046:** 15 items at outcomes (#1043, #1044, #1045, two designs). `box-check` 0 fail.
-- **Running for this lane:** nothing.
+- **The checkers:** `register-check`, `work-log-index --check`, `rules-check --quiet` and `hooks-test` rc 0. `forbidden-terms-check` is the coordinator's: it reads the list this slice may not read.
+- **Running for this lane:** nothing. The clone at the hash (`/workspace/tmp/m6-t45/at-hash`) and `tools/council/node_modules` (gitignored) remain for the coordinator's re-run, or for removal.
 
 ## Next commands
 
-```bash
-D=/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-council-692; A=$D/docs/audits/2026_10_25-epic-m6-tooling-council
-cd "$D" && git status --short && git log --oneline -1
-# Stage B: 02's Provenance (52 rows, a branch column), Reconciliation (the 9 at the hash; the branch's 10), Coverage (52),
-# The runs (copy stage A's table), Proofs; 03 (seams); 04 (Q1 to Q7, Q4 currency, Q6 dead ends); second-opinions/review-plan.json (local).
-# Then the lint with --phase pre-issue (stage C), the punch list and audit issue (stage D, a pause).
-```
+None. The lane waits for the coordinator's acceptance; after it: `audit-completion.json` from #1046's closed readback, and the full lint.
 
 ## Merge notes
 

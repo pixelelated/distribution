@@ -156,3 +156,14 @@
   - `verify-pins`, `drift` and offline `efforts` rc 0 (8 and 7 seats);
   - `test` rc 0: 39/127/19 at the tip, 39/109/19 at the hash.
   - The same as stage A.
+
+## [Stage H] 03:25 UTC — the checkers; the hand-back
+
+- **The checkers on the branch:**
+  - `tools/register-check` rc 0 (680 IDs, every citation resolves);
+  - `tools/work-log-index --check` rc 0;
+  - `tools/rules-check --quiet` rc 0;
+  - `.githooks/hooks-test` rc 0, with its stand-in wordlist and `TMPDIR` under `/workspace/tmp/m6-t45/tmp`; the directory's entry count was unchanged afterwards.
+- **`tools/forbidden-terms-check` was not run here:** it reads `~/.config/rocknix/forbidden-terms`, which brief § 8 forbids this slice to read. It is the coordinator's at acceptance, after the hand-back merge, as criterion 16 orders.
+- **The retro** is posted on #692. **`reviewed-at` `32a34393dd` and `fixed-at` `e1fa041488`** are on #692's body.
+- **The lane is idle** after the hand-back comment.
