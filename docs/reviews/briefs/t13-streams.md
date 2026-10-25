@@ -270,3 +270,22 @@ retro (stage G) and the close-out (stage H) follow the guest cycle, since
 they read its lines; the coordinator closes #1073 when its checkboxes read
 back ticked by name, and merges the branch in its turn (after T12's and
 T15's, before T4's).
+
+## Errata, 2026-10-25 (the coordinator's, after the guest cycle)
+
+- **Step 5b as the coordinator ruled it (06:41) -- A5 and RETENTION with
+  "device b being guest a itself" -- is refused by the harness's own #91
+  guard** (one device id for two devices; both guests carrying one MAC),
+  and rightly: a two-device cell needs two guests. #1057's guest criterion
+  moves to the second window (a guest pair, with the SFTP re-proof).
+- **#1067's `rclone serve sftp` endpoint fails the content tier** (seven
+  checks, `cloud_content_restore scan: the cloud could not be read (rclone
+  exit 5)`) where the old sshd endpoint passed; the host's `serve sftp` is
+  1.60.1-DEV against the image's client 1.75.2. Fix forward ruled (08:12)
+  with the retained donor's own 1.75.2 as the client on the host, a bound
+  of 09:15 UTC and a revert of `94c050ed5a` as the fallback; S1's shape
+  gains: *the endpoint serves with a rclone of the client's generation when
+  one is available, and `caps` prints the server's version*.
+- KILL1 under the 200k throttle exits 124 on both re-runs and lacks the
+  `drained` branch LINK has; A15's two "the log did not name the folder"
+  checks fail on both trees (a stale needle). Stage F fixes with positives.
