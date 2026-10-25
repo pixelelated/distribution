@@ -468,3 +468,11 @@ runs before dispatch; version 2 records what it found.
   history count moves with the hour (T27 printed 28 / 1 / 27 at 08:10 and
   29 / 1 / 28 with `--since='2026-06-01T00:00:00Z'`). The explicit midnight
   cutoff is the command; the acceptance scripts use it.
+
+## Errata (written at acceptance, 2026-10-25)
+
+Found by the lane's read and recorded here so the next device brief does not inherit them (D-WORKFLOW-189: the brief is the coordinator's).
+
+- `mkimage:18-26` does not write `dtb.img`: `scripts/mkimage:22-26` is the Qualcomm branch; the H700's trees reach the image through `mkimage_dtb:88` (T27's PL-11, `02-forward-audit.md` § The loader and the tree).
+- A bare `--since=2026-06-01` reads at the current hour; the r14b run and the acceptance script use `--since='2026-06-01T00:00:00Z'` (PL-11; the same erratum as T11's and T22's).
+- § 4's SIMD column mixes the arm FPU (`crypto-neon-fp-armv8`, `options:17`) with the aarch64 flags (`+crc+fp+simd`, `options:10`); the rule's device table has the same mix -- Backlog #1094 (PL-03). The crypto extension is an open item to test until a `device-facts.md` row reads a unit's `/proc/cpuinfo` in a granted window.
