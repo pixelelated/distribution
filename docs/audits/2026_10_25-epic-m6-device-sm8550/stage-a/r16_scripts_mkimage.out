@@ -1,0 +1,4 @@
+137:if [ "${BOOTLOADER}" = "syslinux" -o "${BOOTLOADER}" = "bcm2835-bootloader" -o "${BOOTLOADER}" = "u-boot" -o "${BOOT
+257:elif [ "${BOOTLOADER}" = "qcom-abl" ]; then
+259:  echo "image: creating bootloader configuration... (qcom-abl)"
+265:    echo "image: skipping qcom-abl. no mkimage script found"

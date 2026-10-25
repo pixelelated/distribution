@@ -1,0 +1,5 @@
+22:  elif [ -f "${RELEASE_DIR}/3rdparty/bootloader/rocknix-u-boot.img" ]; then
+23:    # SM8750, SM8650 & SM8550
+25:    mcopy -o "${RELEASE_DIR}/3rdparty/bootloader/rocknix-u-boot.img" ::
+81:    SM8550|SM8650|SM8750|SM8250|SM6115|SM4450)
+110:  mcopy "${RELEASE_DIR}/3rdparty/bootloader/rocknix_abl" ::

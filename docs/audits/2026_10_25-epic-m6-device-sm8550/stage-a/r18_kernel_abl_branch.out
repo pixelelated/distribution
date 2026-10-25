@@ -1,0 +1,6 @@
+5:    gzip -c "arch/${TARGET_KERNEL_ARCH}/boot/${KERNEL_TARGET}" > "${INSTALL}/.image/kernel.gz"
+6:    for dtb in "arch/${TARGET_KERNEL_ARCH}/boot/dts/"**/*.dtb; do
+7:      if [ -f ${dtb} ]; then
+8:        cat "$dtb" >> "${INSTALL}/.image/kernel.gz"
+12:    python3 "${TOOLCHAIN}/mkbootimg/mkbootimg.py" \
+13:      --kernel "${INSTALL}/.image/kernel.gz" --ramdisk "${INSTALL}/.image/ramdisk" \

@@ -16,12 +16,14 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope (the block of brief § 2 with its output and
-the § 5 runs' figures), this pointer updated, and the day's work-log entry
-headed `#675` (prose through a quoted heredoc or the Write tool).
-`.qa-scratch/` is gitignored and `git status --short` is read before every
-`git add -A`. No network is used except the seat's two keyed invokes.
+**Stage A complete; stage B next** (updated 2026-10-25, 10:33 UTC).
+- **`reviewed-at`:** `458e2bfda1`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-device-sm8550/`, with `00`, `01` (§ Scope) and `stage-a/` (31 runs, all rc 0).
+- **Every brief figure reproduced,** except one delta: the configuration-distance pairs print reversed (r08).
+- **Next (stage B):**
+  - `02`: coverage 29, § The pins 8, § The configuration, § The loader and the tree, § The device trees 16, § The runs (exit, wall, figure, *a FAIL would mean*), findings and proofs;
+  - `03` and `04`.
+- **Then stage C:** the packet (trimmed and scanned, with its manifest), `review-plan.json` (independent, one seat), the probe and the refutation, and the pre-issue lint.
+- **Running for this lane:** nothing.
 
 ## Next commands
 
@@ -61,4 +63,4 @@ host's swap, another lane's worktree, or a guest.
 
 ## Checkpoints
 
-- (none yet; the executor appends one line per stage: the stage, the tip, the time)
+- Stage A: 10:33 UTC (the commit below)

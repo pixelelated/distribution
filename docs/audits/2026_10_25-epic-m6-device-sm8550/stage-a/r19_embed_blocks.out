@@ -1,0 +1,12 @@
+1:elif [ "${DEVICE}" = "SM8250" -o "${DEVICE}" = "H700" -o "${DEVICE}" = "SM8650" -o "${DEVICE}" = "SM8750" ]; then
+2:  elif [ "${TARGET_ARCH}" = "aarch64" -a "${DEVICE}" = "SM8250" ]; then
+3:    mkdir -p ${PKG_BUILD}/external-firmware/qcom/sm8250
+4:    mkdir -p ${PKG_BUILD}/external-firmware/qcom/vpu-1.0
+5:      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/a650_gmu.bin ${PKG_BUILD}/external-firmware/qcom
+6:      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/a650_sqe.fw ${PKG_BUILD}/external-firmware/qcom
+7:      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/sm8250/a650_zap.mbn ${PKG_BUILD}/external-firmware
+8:      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/sm8250/adsp.mbn ${PKG_BUILD}/external-firmware/qco
+9:      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/sm8250/cdsp.mbn ${PKG_BUILD}/external-firmware/qco
+10:      cp $(get_build_dir kernel-firmware)/.copied-firmware/qcom/sm8250/Thundercomm/RB5/* $(get_build_dir kernel-firmw
+11:      cp -Lv $(get_build_dir kernel-firmware)/.copied-firmware/qcom/sm8250/slpi.mbn ${PKG_BUILD}/external-firmware/qc
+13:    FW_LIST="$(find ${PKG_BUILD}/external-firmware -type f | sed 's|.*external-firmware/||' | sort | xargs)"

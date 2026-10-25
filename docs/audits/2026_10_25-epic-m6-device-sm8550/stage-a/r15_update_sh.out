@@ -1,0 +1,9 @@
+10:if [ -z "$BOOT_DISK" ]; then
+12:    /dev/mmcblk*) BOOT_DISK=$(echo $BOOT_PART | sed -e "s,p[0-9]*,,g");;
+19:if [ -d "$SYSTEM_ROOT/usr/share/bootloader/rocknix_abl" ]; then
+20:  mkdir -p $BOOT_ROOT/rocknix_abl
+22:  cp $SYSTEM_ROOT/usr/share/bootloader/rocknix_abl/* $BOOT_ROOT/rocknix_abl
+25:$SYSTEM_ROOT/usr/bin/updateabl
+29:[ -d "$BOOT_ROOT/boot" ] && rm -rf "$BOOT_ROOT/boot"
+30:[ -d "$BOOT_ROOT/EFI" ] && rm -rf "$BOOT_ROOT/EFI"
+37:echo "UPDATE" > /storage/.boot.hint
