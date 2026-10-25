@@ -150,3 +150,13 @@
   - 4 Deferred: #1109, #1099, #1100, #585.
   - PL-09's #585 line is written in `05`. `04` § Q3 carries PL-04's design sentence.
   - **The lint (resolution phase):** `PASS`.
+
+## [Stage E, S1] 11:09 to 11:13 UTC — `bootloader/update.sh` (#1109)
+
+- **The brief:** `ad168e6d55:docs/reviews/briefs/t28-streams.md`, one stream, Independent (the seat not re-run). The unfixed side is `/workspace/tmp/m6-t28/unfixed/update.sh`, the file at `b13d5d8074`, byte-equal to `8ebaf8daad`'s.
+- **The test first** (`stage-e/s1/update-case.sh`): bash in `bwrap` with fixture `/flash`, `/update` and `/storage`, a stub `updateabl` and a recording `rm`. Unfixed, 11:10:35: `updateabl-fail`, `updateabl-slow-fail` and `copy-fail` exit 0 with the hint written and the directories removed, each `UNEXPECTED on fixed`. Committed as `09d2dee162`.
+- **A first run of the "fixed" side at 11:11:08 ran against the unfixed file:** the Edit had been refused because the file had not been read in this session. The verdicts showed it, `UNEXPECTED` throughout. After the read and the edit, the fixed runs at 11:11:26 met all four.
+- **The commit:** `237f2bc438`: a `fail` helper; the copy's and `updateabl`'s exits checked on their own lines; nothing removed or written after a failed step; the success path unchanged. Upstream's file, a contained fix (`bugs-are-agent-first.md` rule 6).
+- **The driver's own fix before the final runs:** a missing `updateabl.calls` (`copy-fail`, fixed) printed a redirect error. The count now defaults to 0 when the file is absent. Every kept output was regenerated with the final driver.
+- **`stage-e/run-all.sh`**, 11:11:53: `run-all: 9 rows, 0 unexpected, 0 could not run`, rc 0 (`stage-e/run-all.out`).
+- **Recorded:** `02` § The streams' positives; `stage-e/README.md`; `05` PL-01 resolved at `237f2bc438`; the lint `PASS`. **Nothing ran on the Nova.**

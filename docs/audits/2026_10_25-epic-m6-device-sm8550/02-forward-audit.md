@@ -161,6 +161,23 @@ How the Nova gets its loader and its tree at `8ebaf8daad`. Nothing here ran on t
 | `0053-add-hynitron-touchscreen.patch.disabled` | 20593 | n/a (a patch) | n/a | n/a | disabled at birth, upstream's, never applied (`scripts/unpack:150-159`) |
 <!-- end t28:trees -->
 
+## The streams' positives
+
+### S1: `bootloader/update.sh` (#1109)
+
+Under `docs/reviews/briefs/t28-streams.md` at `ad168e6d55`. The driver is `stage-e/s1/update-case.sh`: bash in `bwrap`, with fixture `/flash`, `/update` and `/storage`, a stub `updateabl` (exit 0, exit 1, or sleep 2 s then exit 1) and a recording `rm`. The unfixed side is the file at the stage-D tip `b13d5d8074` (8ebaf8daad's bytes).
+
+- **The case first** (`09d2dee162`, `stage-e/s1/out-unfixed/`, 11:10:35 UTC):
+  - against the unfixed file, `updateabl-fail`, `updateabl-slow-fail` and `copy-fail` each exit 0 with `UPDATE` in `.boot.hint`, and `boot/` and `EFI/` removed (the copy case too, after `cp: cannot stat '/update/usr/share/bootloader/rocknix_abl/*'`);
+  - all three read `UNEXPECTED on fixed`. `success` meets both expectations.
+- **The fix** (`237f2bc438`, 13 lines added): a `fail` helper names the step, syncs, remounts `/flash` read-only and exits 1. The copy's and `updateabl`'s exits are captured on their own lines.
+- **After the fix** (`stage-e/s1/out-fixed/`, 11:11:26 UTC):
+  - `updateabl-fail` and `updateabl-slow-fail`: `rc=1 hint=no boot-and-EFI=kept`, console `update.sh: updateabl failed (rc 1); the update is not marked done`.
+  - `copy-fail`: `rc=1 hint=no boot-and-EFI=kept updateabl-runs=0`, console `update.sh: copying the ABL to /flash/rocknix_abl failed (rc 1); the update is not marked done`.
+  - `success`: `rc=0 hint=yes boot-and-EFI=removed updateabl-runs=1 copied-same=yes`.
+- **`stage-e/run-all.sh`** (11:11:53 UTC): the eight side/case rows, plus `success-console: identical on both sides`. It ends `run-all: 9 rows, 0 unexpected, 0 could not run`, rc 0.
+- **What a FAIL would mean:** a failing step still writing the hint or removing the old directories, a step not named, or a success path whose console, copy, `updateabl` count, removals or hint changed.
+
 ## Findings
 
 ### F-01 (Q4; Info; Renovation): the Nova's whole boot path is superseded upstream, settled by the next base merge (#1099)

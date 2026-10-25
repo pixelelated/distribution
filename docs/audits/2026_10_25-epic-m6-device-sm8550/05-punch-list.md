@@ -27,7 +27,8 @@
 - **Already written:** a device whose `updateabl` failed during an update keeps the previous ABL in both slots and `UPDATE` in `.boot.hint`; nothing records the failure, so a fix cannot tell those devices apart, and the next update's checksum compare re-checks both slots anyway
 - **Acceptance:** the coordinator's disposition: a `bug` with a stream (the fixture shows the unfixed `update.sh` exit 0 after a failing `updateabl` and the fixed one non-zero), or a named requirement on #1099's merge
 - **Bug issue:** #1109
-- **Disposition note:** deferred:#1109, the `bug` the lane filed with its trace, `Already written:` line and host fixture ([issuecomment-6396865491](https://github.com/pixelelated/distribution/issues/675#issuecomment-6396865491), 11:07:44 UTC); its fix is stage E's stream S1 (`docs/reviews/briefs/t28-streams.md` at `ad168e6d55`). #1099 carries the requirement into the merge ([issuecomment-6396876866](https://github.com/pixelelated/distribution/issues/1099#issuecomment-6396876866)).
+- **Fix commit:** `237f2bc438` (S1; the case first at `09d2dee162`)
+- **Disposition note:** resolved by S1 at `237f2bc438`; first deferred:#1109, the `bug` the lane filed with its trace, `Already written:` line and host fixture ([issuecomment-6396865491](https://github.com/pixelelated/distribution/issues/675#issuecomment-6396865491), 11:07:44 UTC); its fix is stage E's stream S1 (`docs/reviews/briefs/t28-streams.md` at `ad168e6d55`). #1099 carries the requirement into the merge ([issuecomment-6396876866](https://github.com/pixelelated/distribution/issues/1099#issuecomment-6396876866)).
 
 ## PL-02: the Nova's boot path is superseded upstream; the merge's migration questions
 
@@ -178,11 +179,12 @@
 punch_index:
 - id: PL-01
   tracked: "#1109"
+  fix_commit: "237f2bc438"
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-04"
-  outcome: "deferred:#1109"
+  outcome: "resolved (237f2bc438)"
 - id: PL-02
   tracked: "#1099"
   severity: Info
@@ -242,7 +244,7 @@ The coordinator's stage-D dispositions (#675, [issuecomment-6396865491](https://
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | **Deferred** | deferred:#1109 (the bug; the fix is stage E's S1); #1099 carries the requirement ([issuecomment-6396876866](https://github.com/pixelelated/distribution/issues/1099#issuecomment-6396876866)) |
+| PL-01 | **Resolved** | `237f2bc438`, S1 under `t28-streams.md` (the case first at `09d2dee162`; `stage-e/run-all.sh`: 9 rows, 0 unexpected); bug #1109; #1099 carries the requirement into the merge ([issuecomment-6396876866](https://github.com/pixelelated/distribution/issues/1099#issuecomment-6396876866)) |
 | PL-02 | **Deferred** | deferred:#1099, the lane's comment ([issuecomment-6396876866](https://github.com/pixelelated/distribution/issues/1099#issuecomment-6396876866)) |
 | PL-03 | **Resolved** | recorded at `b13d5d8074`: `02` § The pins, regenerated, `check` 0 |
 | PL-04 | **Resolved** | recorded at `b13d5d8074`, with `04` § Q3's design sentence; #836 cited |
