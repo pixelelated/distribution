@@ -97,6 +97,8 @@ today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 **08:4x-08:5x UTC (2026-10-25):** **T27 accepted** at `78579255e4` (the lane's `0459859b84` with the coordinator's `161effca8f`; report `/workspace/tmp/m6-coordinator/accept-t27.out`; #674 16 of 17 ticked, #1096 closed 14 of 14, #1095 open until `next`; brief errata `db6c8f55cc`; the M6 body updated 08:54); its close-out is prompted to the T5 session (audit-completion.json, the lint with `--issue 1096`, the pointer idle, `/workspace/tmp/m6-t27/` removed, the tip posted on #674). T13's retro proposals housed: Backlog #1097, T22's dispatch line, scoped-audit step 5 at `161effca8f`, the #909 comment. Waiting on T13's stage H (then the hand-back merge, `AUDIT_ISSUE=1073 DISPATCH_TIP=e1d51b3a04 $S/t13-accept.sh <tip> <co tip>` and `$S/t13-accept-e.sh <tip>`, the ticks, `$S/t13-retro-dispositions.md` posted with the acceptance, the close-out), then T22's dispatch.
 
+**08:5x-09:0x UTC (2026-10-25):** **T27 closed out** at `0ac98afe43` (the T5 session idle; the gitignored leftovers stay until retirement). **T13 accepted** at `a7a5bb94aa` (reports `accept-t13-final.out`, `accept-t13e-final.out`; #660 15 of 16, #1073 closed 26 of 26, the 17 bugs open until `next`; Backlog #1098 for the puts' exits); its close-out prompted to the T1 session at 09:01. T25's research digest is being written by a read-only subagent into `$S/t25-research.md` (the brief follows, then the stranger's proof). Next: T13's close-out tip → T22's dispatch (`$S/t22-dispatch.md`: `__TS__` at post time; `__Q__` and `__C__` on its line 7).
+
 ## Next commands
 
 ```bash
