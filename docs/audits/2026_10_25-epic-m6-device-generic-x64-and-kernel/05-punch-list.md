@@ -327,5 +327,5 @@ The coordinator's dispositions, 07:34 UTC on #658.
 | PL-10 | **Deferred** | the coordinator's stage-E stream S3 (#658): one comment in `options` on why `syslinux`; the configuration's provenance line only if #1084 has not landed first |
 | PL-11 | **Deferred** | bug #1087 (the modeswitch half), filed by the lane (box-check 0 fail), stream S3; the bfq half is settled by the next base merge (`651150fc88` carries the fix) |
 | PL-12 | **Deferred** | bug #1088, filed by the lane (box-check 0 fail), stream S4 |
-| PL-13 | **Deferred** | bug #1089, filed by the lane (box-check 0 fail), stream S2 |
+| PL-13 | **Deferred** | bug #1089, filed by the lane (box-check 0 fail); fixed in stream S2 at `594acf48bc`, positives in `02` § The streams' positives; the bug stays open until the fix reaches `next` |
 | PL-14 | **Deferred** | bug #1090, filed by the lane (box-check 0 fail); fixed in stream S1 at `7b8608e7a3`, positives in `02` § The streams' positives; the bug stays open until the fix reaches `next` |

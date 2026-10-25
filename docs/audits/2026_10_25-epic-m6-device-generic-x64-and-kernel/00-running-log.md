@@ -123,3 +123,12 @@
 - **The file's positives, re-run after the last commit, 07:45:48:** missing-syslinux `fixed-expectation-met (rc=1 ...)`; grub `fixed-expectation-met (rc=1 ...)`; present-syslinux `fixed-expectation-met (rc=0 ...)`; `kept-loaders: fixed-expectation-met`; release unwritable and empty `fixed-expectation-met (rc=1 ...)`; normal `fixed-expectation-met (rc=0 ...)`; `bootloaders: every value kept (15 devices at HEAD)`. `bash -n` passes on both files.
 - **Recorded:** `02` § The streams' positives § S1; `stage-e/README.md`; `05` PL-03 and PL-06 Resolved at `f56cbd1c69` and `6e63150105`, PL-14 still Deferred to #1090 with the fix commit named. The lint (resolution phase) passes. #1090 has a comment with the evidence, and `box-check` gives 0 fail.
 - **The diff against the stage-D tip:** `git diff --stat 499628a049 HEAD -- packages projects tools` touches exactly `projects/ROCKNIX/bootloader/install` and `release`. No guest, build or device.
+
+## [Stage E, S2] 07:47 to 07:51 UTC — the launcher (#1089)
+
+- **Read first:** `run_paths`, `socket_answers`, `stale_socket`, `prepare_run`, `qemu_command` and `main`. `next` has not changed the launcher since `8ebaf8daad`. The only callers of the helpers are the launcher itself, `last-good-scripts-test`'s fixture and QA logs' copies. The 2026-09-29 audit had already noted that `stale_socket` returns a Boolean.
+- **The test first** (`stage-e/s2/launcher-case.py`; a sparse 16 GiB qcow2 by `qemu-img`, the host's OVMF, a QEMU stub): unfixed, 07:48:48. `pidfile-symlink`, `socket-swap` and `same-paths` met their unfixed expectations, and their fixed expectations were UNEXPECTED on the unfixed file. The controls held.
+- **The commit:** `594acf48bc`: `pidfile_path` (absolute, not resolved; refuses a symlink, a non-regular file or a non-PID content); `stale_socket` returns the identity; `clear_stale_socket` removes only the judged socket; three distinct paths are required.
+- **The file's positives, re-run after the commit, 07:50:20:** all eight cases `fixed-expectation-met`, and the three refusal controls `unfixed-expectation-met` on the unfixed file. `pgrep -x qemu-system-x86`: 0 before and after. The file parses (`ast.parse`).
+- **Not run:** `tools/last-good-scripts-test` (it compiles host helpers; the brief rules out a compiler). Its socket checks are covered by the refusal controls.
+- **Recorded:** `02` § The streams' positives § S2, `stage-e/README.md`, and `05` PL-13 with the fix commit. #1089 has a comment with the evidence. No guest, build or device.

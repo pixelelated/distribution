@@ -30,3 +30,16 @@ U=<the clone at 499628a049>      # unfixed
 | PL-03 | `sed -n 2p` | `# Copyright (C) 2024-present ROCKNIX (https://github.com/ROCKNIX)` | `# Copyright (C) 2026-present pixelelated (https://github.com/pixelelated)` |
 
 `release-case`'s *sourced-rc* is what `.` returned, which `scripts/image` never reads. The defect is that the image step carried on (`carried-on=yes`), not the sourced status.
+
+## S2: the launcher (#1089)
+
+The driver is `s2/launcher-case.py`, run as `python3 -I -B $S/s2/launcher-case.py <launcher> <side> <case>`, with `<launcher>` = `$U/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm` (unfixed) or `projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm` (fixed). It needs `qemu-img` and the host's OVMF pair. QEMU itself is a stub that refuses to run, and `pgrep -x qemu-system-x86` is read before and after every case.
+
+| Item | Case | Unfixed: the line it prints | Fixed: the line it prints |
+| --- | --- | --- | --- |
+| #1089 | `pidfile-symlink` | `launcher-case pidfile-symlink: unfixed-expectation-met (rc=0 prints-target=yes refused-naming-link=no qemu-before=0 qemu-after=0)` | `launcher-case pidfile-symlink: fixed-expectation-met (rc=1 prints-target=no refused-naming-link=yes qemu-before=0 qemu-after=0)` |
+| #1089 | `socket-swap` | `launcher-case socket-swap: unfixed-expectation-met (raised=no path-present=no live-answers=no ...)` | `launcher-case socket-swap: fixed-expectation-met (raised=yes path-present=yes live-answers=yes ...)` |
+| #1089 | `same-paths` | `launcher-case same-paths: unfixed-expectation-met (rc=0 both-in-command=yes ...)` | `launcher-case same-paths: fixed-expectation-met (rc=1 both-in-command=no ...)` |
+| control | `pidfile-regular` | `... unfixed-expectation-met (rc=0 prints-path=yes ...)` | `... fixed-expectation-met (rc=0 prints-path=yes ...)` |
+| control | `socket-dead` | `... unfixed-expectation-met (raised=no path-present=no ...)` | the same, `fixed-expectation-met` |
+| control | `socket-symlink`, `socket-notsock`, `socket-live` | each `unfixed-expectation-met (raised=yes path-present=yes ...)` | each `fixed-expectation-met (raised=yes path-present=yes ...)` |

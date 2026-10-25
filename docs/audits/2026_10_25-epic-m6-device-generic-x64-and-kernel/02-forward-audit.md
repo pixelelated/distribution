@@ -251,6 +251,21 @@ Commits: `7b8608e7a3` (#1090), `6e63150105` (PL-06), `f56cbd1c69` (PL-03). All c
 
 **Every ROCKNIX device stages something under `usr/share/bootloader`,** so the checked `release` breaks no image that works today. The 14 devices with a `bootloader/update.sh` get it from the `rocknix` package (`projects/ROCKNIX/packages/rocknix/package.mk:52-57`); GENERIC_X64 gets `install`'s syslinux copy. `bash -n` passes on both files after each commit.
 
+### S2: the launcher (#1089)
+
+Commit: `594acf48bc`. The cases ran at 07:48:48 (unfixed) and 07:50:20 UTC (fixed). `pgrep -x qemu-system-x86` read 0 before and after every case, and QEMU was a stub that refuses to run.
+
+| Case | Unfixed (`499628a049`) | Fixed (`594acf48bc`) |
+| --- | --- | --- |
+| `qemu-args --headless --pidfile <link>` | `rc=0`, and `-pidfile` prints the link's target | `rc=1`: `error: .../qemu.pid is a symlink; refusing to let QEMU write its PID through it` |
+| `prepare_run` over a socket judged stale, then replaced by a live listener before the clear | the live socket is removed (`path-present=no`) | `.../mon.sock changed after it was checked (another start bound it?); refusing to remove it ...`; the live socket stays and answers |
+| `--monitor` and `--serial` equal | `rc=0`, both in the command | `rc=1`: `--monitor, --serial and --pidfile must be three different paths: ...` |
+| Control: a plain PID-file path | printed as given | the same |
+| Control: a dead socket | cleared | the same |
+| Controls: a symlink, a non-socket, a live socket at the monitor path | each refused and left | the same |
+
+**What else the change touches.** `tools/vm-pair` (`grep -n VM_TOOL`: `:36`, `:74`) passes three distinct paths per guest (`:63-64`), and QEMU writes its PID files as digits, so `vm-pair`'s starts pass the new checks. The launcher on `next` is unchanged since `8ebaf8daad`. `tools/last-good-scripts-test`'s F1f section exercises the launcher too, but it was **not** run: the suite compiles host helpers (`:290-292`), which the stream brief rules out. The refusal controls above cover what F1f checks of the socket paths. `stale_socket` still returns a truthy value for a stale socket, so a caller testing its truth is unaffected. **What remains:** a window of microseconds between the identity recheck and the `unlink`, and between the PID-file check and QEMU's own open of it. The fix narrows the race; it does not lock.
+
 ## Findings
 
 | ID | Q | Severity | Category | Where | What |
