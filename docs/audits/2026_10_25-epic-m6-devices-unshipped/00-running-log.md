@@ -88,3 +88,11 @@
   - **No stream:** `fixed-at` is the hand-back commit.
 - **`05`:** each item's note, the index (`deferred:#1101`, `deferred:#346`, `resolved` ×3) and the Phase 7 table. **The resolution lint:** `PASS`, and `PASS` with `--issue 1102`.
 - **Stage F:** `stage-f/runs.sh`, 12 steps from 10:13:28 UTC, all exit 0; results in `02` § Stage F.
+
+## [Stage G-H] 10:15 to 10:15 UTC — the retro, the checkers, the hand-back
+
+- **The retro:** `docs/retros/2026-10-25-m6-devices-unshipped.md`, posted on #672 (issuecomment-6396380888). It says the slice did nothing to the two time-to-play numbers and names what T28 inherits.
+- **The friction line:** the typed figures, with the generator as guard.
+- **`04`'s scorecard** is brought up to the hand-back.
+- **The hand-back commit is `fixed-at`.** The six checkers run on it, and their exit codes are in the hand-back comment on #672.
+- **No `tools/council/run` call, guest, build, plan generation, fetch, handheld command or M7 root read** ran in this slice, from stage A to the hand-back.

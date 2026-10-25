@@ -24,15 +24,15 @@
 
 ## Acceptance-criteria scorecard
 
-#672's fourteen criteria (= brief § 7), at stage C before the punch-list issue. *Met* names its artifact; *waits* names the stage that ticks it.
+#672's fourteen criteria (= brief § 7), written at stage C and brought up to the hand-back at stage H. *Met* names its artifact; the coordinator ticks at acceptance.
 
 | # | Criterion | State |
 | --- | --- | --- |
 | 1 | `00` and `01` to `05` | met at stage C: all six files |
-| 2 | the lint `PASS` | pre-issue at stage C (`00`); resolution waits for stage H |
+| 2 | the lint `PASS` | met: pre-issue at stage C; resolution phase and `--issue 1102` at stages F and H (`00`) |
 | 3 | the Local plan; no seat call | met: `second-opinions/review-plan.json`; `00` records no `tools/council/run` |
-| 4 | every punch item at a Phase 7 outcome | waits: stage D onward |
-| 5 | `reviewed-at:` and `fixed-at:` | waits: stage H |
+| 4 | every punch item at a Phase 7 outcome | met: `05` § Phase 7 (PL-01 deferred:#1101, PL-02 deferred:#346, PL-03 to PL-05 resolved as records) |
+| 5 | `reviewed-at:` and `fixed-at:` | met at stage H: #672's body (`b27889bce2`; `fixed-at` the hand-back commit); `renovation-status` after the merge to `next` is the coordinator's |
 | 6 | `01` § Scope | met (`8a13e45fa7`) |
 | 7 | the coverage table, 397 rows, regenerated | met: `02` § Coverage; the grep prints 397; `check` exits 0 |
 | 8 | targets 12, projects 9, pins 10 (+2 cited), trees 53 | met: `02`, asserted by the generator |
@@ -40,8 +40,8 @@
 | 10 | Q6 the unit table, Q7 the duplicate map, Q5 the weight and drift | met: below |
 | 11 | every proof's cell, the count equal to `00`'s | met: 14 and 14 |
 | 12 | every punch item's `question:`; the class proposal one item; no change under `packages/` or `projects/` | met in `05` (pre-issue); the diff is empty |
-| 13 | the retro | waits: stage G |
-| 14 | the five checkers and the lint at hand-back | waits: stage H |
+| 13 | the retro | met: `docs/retros/2026-10-25-m6-devices-unshipped.md`, posted on #672 |
+| 14 | the five checkers and the lint at hand-back | met: the hand-back comment on #672 carries the six exit codes |
 
 ## Risk assessment
 

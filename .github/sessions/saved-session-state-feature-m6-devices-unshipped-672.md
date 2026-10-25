@@ -16,18 +16,11 @@
 
 ## Current focus
 
-**Stage D paused for the coordinator's dispositions** (updated 2026-10-25, 10:09 UTC).
-- **`reviewed-at`:** `b27889bce2`. **The audit:** `docs/audits/2026_10_25-epic-m6-devices-unshipped/` (`00` to `05`, `stage-a/`, `stage-b/`, `tools/t25-tables.py`, `second-opinions/review-plan.json`). **The audit issue:** #1102, under #672.
-- **Items:**
-  - PL-01 (Low): the inventory misses the kernel's unpack edges; a lead.
-  - PL-02: the #346 class proposal.
-  - PL-03: the first widening, held.
-  - PL-04: the fork-own dead copy.
-  - PL-05: the drift, the S922X loader and the atf seam via RK3399.
-- **The lint:** pre-issue `PASS`.
-- **Next:** read the coordinator's dispositions on #672.
-  - Record each outcome in `05`'s index and its Phase 7 table, citing the post.
-  - Run the resolution lint (`--issue 1102`), then stage F (re-verification appended to `02`), stage G (the retro) and stage H (the checkers and the hand-back).
+**Handed back; idle until the coordinator's acceptance** (updated 2026-10-25, 10:15 UTC).
+- **`reviewed-at`:** `b27889bce2`. **`fixed-at`:** the hand-back commit, written in #672's body.
+- **The audit issue:** #1102: PL-01 deferred:#1101, PL-02 deferred:#346, PL-03 to PL-05 resolved as records. The lint `PASS`, also with `--issue 1102`.
+- **The retro:** `docs/retros/2026-10-25-m6-devices-unshipped.md`, posted on #672.
+- **After acceptance:** write `audit-completion.json` with T5's writer, copied to the audit folder's `tools/write-completion.py` with `A` and `ISSUE=1102`, once the coordinator closes #1102.
 - **Running for this lane:** nothing.
 
 ## Next commands
