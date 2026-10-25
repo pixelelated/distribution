@@ -119,3 +119,25 @@
   - The stage-B row said `council-substrate-integrity.md` mandates the two research lints *after every Facilitator call* (Medium).
   - Rules 4 and 5 cover council-research runs, and the rule's adoption note (`:42-46`) says those lints are carried by the source estate only, with a manual fallback. So the drift is that rules 4 and 5 read as unconditional (Low).
   - Corrected in `03`, `04` and `05`, in the stage-B comment on #692 (edited at 03:18:37 UTC, with a note), and in the day's work-log entry.
+
+## [Stage D] to 03:21 UTC — the audit issue #1046; the outcomes by number; the lint PASS in both phases; the pause
+
+- **The coordinator's answer (03:19 UTC on #692):** option (a).
+  - Backlog #1044 (the fork side): F-04, F-05's rule half, F-06, F-10, F-12, F-13, F-15.
+  - Backlog #1045 (the export refresh): F-01, F-02, F-05's export half, F-07, F-09, F-14.
+  - F-03 to #1043; F-08 and F-11 designs; the verifiers' item withdrawn.
+  - The brief's "30 files" was the coordinator's count over both evidence folders; the 13/14 counts stand.
+- **The audit issue:** #1046, `Audit: M6 T45 the council toolchain -- 15 findings (0 critical, 0 high, 2 medium, 13 low; no bug)`.
+  - Labels `audit` and `punch-list`; milestone `M6: Codebase renovation`; a sub-issue of #692 (the sub-issue list reads `1046`).
+  - 15 checkboxes, each naming its Phase 7 outcome by number, unticked for the coordinator.
+  - `tools/box-check --issue 1046`: 0 fail.
+- **`05`'s Phase 7 table** is filled from the answer: 13 Deferred by number and 2 Resolved as designs at `474c434fa4`.
+- **The lint on the folder:**
+  - `--phase pre-issue`: PASS;
+  - the default resolution phase: `PASS`;
+  - `--issue 1046`: `PASS`.
+- **No bug filed:** no run proved a defect.
+- **Two corrections on #692, made in place:**
+  - the stage-B comment's leads count read *Thirteen*; the list has twelve (edited at 03:20:38 UTC, with a note);
+  - its F-05 row (03:18:37, above).
+- **Paused at stage D**, per brief § 8.

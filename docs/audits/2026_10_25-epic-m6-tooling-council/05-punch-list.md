@@ -222,123 +222,123 @@ punch_index:
   question: Q7
   source_finding: "F-01"
   owner_area: "`scripts/council-invoke.ts`, `verifier-pins.json`, the register"
-  outcome: open
+  outcome: "deferred"
 - id: PL-02
   severity: Low
   category: Renovation
   question: Q3
   source_finding: "F-02"
   owner_area: "`scripts/lib/council-verification.ts` (`HISTORICAL_CONTRACTS`, `assertGenesis`), `scripts/lib/council-roster.ts` (`assertRunRoster`)"
-  outcome: open
+  outcome: "deferred"
 - id: PL-03
   severity: Medium
   category: Security
   question: Q2
   source_finding: "F-03"
   owner_area: "`research/council-runs/2026-09-0{5,11}-*/verification/seal-key.local` (not members); `.githooks/` (the guard gap)"
-  outcome: open
+  outcome: "deferred"
 - id: PL-04
   severity: Low
   category: Documentation
   question: Q7
   source_finding: "F-04"
   owner_area: "`.claude/skills/council/IMPORTED-FROM.md` (not a member)"
-  outcome: open
+  outcome: "deferred"
 - id: PL-05
   severity: Low
   category: Documentation
   question: Q7
   source_finding: "F-05"
   owner_area: "`.claude/rules/council-substrate-integrity.md`, `.claude/skills/council-research/SKILL.md` (not members)"
-  outcome: open
+  outcome: "deferred"
 - id: PL-06
   severity: Low
   category: Renovation
   question: Q4
   source_finding: "F-06"
   owner_area: "`tools/council/package.json`, `scripts/council-invoke.ts` (the provenance record)"
-  outcome: open
+  outcome: "deferred"
 - id: PL-07
   severity: Low
   category: Renovation
   question: Q4
   source_finding: "F-07"
   owner_area: "`council-seat-efforts.json`, `scripts/lint-council-seat-efforts.ts`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-08
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-08"
   owner_area: "`scripts/lib/council-mistral-*`, `scripts/council-count-mistral.mjs`, `scripts/setup-council-mistral-tokenizer.mjs`, `scripts/forge-write-status.mjs`, `scripts/owner-queue-lint.mjs`, `scripts/council-stage-*.mjs`, `tools/council/package.json`"
-  outcome: open
+  outcome: "resolved"
 - id: PL-09
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-09"
   owner_area: "`scripts/council-invoke.ts`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-10
   severity: Low
   category: Renovation
   question: Q2
   source_finding: "F-10"
   owner_area: "`tools/council/run`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-11
   severity: Low
   category: Renovation
   question: Q2
   source_finding: "F-11"
   owner_area: "`tools/council/package.json` (npm's behaviour)"
-  outcome: open
+  outcome: "resolved"
 - id: PL-12
   severity: Low
   category: Documentation
   question: Q7
   source_finding: "F-12"
   owner_area: "`tools/council/package.json`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-13
   severity: Low
   category: Renovation
   question: Q3
   source_finding: "F-13"
   owner_area: "`tools/council/run`"
-  outcome: open
+  outcome: "deferred"
 - id: PL-14
   severity: Low
   category: Renovation
   question: Q1
   source_finding: "F-14"
   owner_area: "`.claude/skills/council/IMPORTED-FROM.md` (not a member); the refresh"
-  outcome: open
+  outcome: "deferred"
 - id: PL-15
   severity: Low
   category: Documentation
   question: Q7
   source_finding: "F-15"
   owner_area: "`.claude/rules/council-substrate-integrity.md` (not a member)"
-  outcome: open
+  outcome: "deferred"
 ```
 
 ## Phase 7 resolution gate
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | stage D files the audit issue; the coordinator's answer on #692 names where each lead points |
-| PL-02 | Open | stage D files the audit issue; the coordinator's answer on #692 names where each lead points |
-| PL-03 | Open | stage D files the audit issue; the coordinator's answer on #692 names where each lead points |
-| PL-04 | Open | stage D files the audit issue; the coordinator's answer on #692 names where each lead points |
-| PL-05 | Open | stage D files the audit issue; the coordinator's answer on #692 names where each lead points |
-| PL-06 | Open | stage D files the audit issue; the coordinator's answer on #692 names where each lead points |
-| PL-07 | Open | stage D files the audit issue; the coordinator's answer on #692 names where each lead points |
-| PL-08 | Open | stage D files the audit issue; the coordinator's answer on #692 names where each lead points |
-| PL-09 | Open | stage D files the audit issue; the coordinator's answer on #692 names where each lead points |
-| PL-10 | Open | stage D files the audit issue; the coordinator's answer on #692 names where each lead points |
-| PL-11 | Open | stage D files the audit issue; the coordinator's answer on #692 names where each lead points |
-| PL-12 | Open | stage D files the audit issue; the coordinator's answer on #692 names where each lead points |
-| PL-13 | Open | stage D files the audit issue; the coordinator's answer on #692 names where each lead points |
-| PL-14 | Open | stage D files the audit issue; the coordinator's answer on #692 names where each lead points |
-| PL-15 | Open | stage D files the audit issue; the coordinator's answer on #692 names where each lead points |
+| PL-01 | **Deferred** | Backlog #1045 (the export refresh): the local Facilitator fork's register row and its reconciliation, carried by the coordinator to #346 (D-WORKFLOW-088) |
+| PL-02 | **Deferred** | Backlog #1045: a way to retire a contract, or the written expectation that a completed run is linted at its sealing commit |
+| PL-03 | **Deferred** | #1043 (the coordinator's): the two files removed on its branch at `0fa5a20c5f`; the history question put to the maintainer; the guard gap |
+| PL-04 | **Deferred** | Backlog #1044 (the fork side): `IMPORTED-FROM.md` item 3's files and count |
+| PL-05 | **Deferred** | split: the rule half (rules 4 and 5 carry the adoption note's fallback) to Backlog #1044; the export half (the two council-research lints) to Backlog #1045 |
+| PL-06 | **Deferred** | Backlog #1044: a recorded toolchain resolution, or the lockfile policy's reason beside `.gitignore:67` |
+| PL-07 | **Deferred** | Backlog #1045: the next keyed seat-efforts refresh and its stamp |
+| PL-08 | **Resolved** | a design, recorded at `474c434fa4` (04 § Q6, § Finding Verification): kept because the export carries it (D-WORKFLOW-088); the Bedrock dependency's lead is #1045's scope through the export's Mistral route |
+| PL-09 | **Deferred** | Backlog #1045: a refusal of an inactive member on a single `invoke`, or the rules naming the prose as the guard |
+| PL-10 | **Deferred** | Backlog #1044: the wrapper's header names `COUNCIL_ENV_FILE` and the absent-file behaviour |
+| PL-11 | **Resolved** | a design, recorded at `474c434fa4` (04 § Finding Verification): no effect observed (`test` rc 0 under `tsx` on both trees); recorded as the first clue for a later failure |
+| PL-12 | **Deferred** | Backlog #1044: `tools/council/package.json`'s description |
+| PL-13 | **Deferred** | Backlog #1044: `run test` runs every file and reports any failure |
+| PL-14 | **Deferred** | Backlog #1045: a refresh procedure that keeps the export's pristine bytes for the next diff |
+| PL-15 | **Deferred** | Backlog #1044: the integrity rule's halt list matches the Facilitator's no-retry exits |
