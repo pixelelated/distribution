@@ -43,28 +43,18 @@
    banners, exits, wall times and counts, the five `--old` recipes' exits --
    before reading a section.
 
-## Current focus (05:35 UTC update)
+## Current focus (05:42 UTC update)
 
-**Stage E: S2's code is complete; its runs are stopped for M7's build window.** S1 is complete. S2's commits:
-- #1023 `5a155ed7fc`;
-- #1022 `bea0374f3b`;
-- #1021 `70af8e3771`;
-- #1035 `1dbb668bb2`;
-- #1024 `4bc40d7733`;
-- #1039 `a286e5b49f`.
+**Stage E: S2's code is complete (`a286e5b49f`), and its runs have resumed on M6's donor root** (the coordinator's 05:38 ruling on #662): `QA_SYSTEM_ROOT=/workspace/artifacts/m6-donor/1a0266484423/image/system` (BUILD_ID `1a0266484423`; `SHA256SUMS` two levels up, checked OK). **No M6 run names an M7 root again.** The root change is in `02` § The runs, *The root changes*.
 
-**Nothing is running, and nothing may start that reads an M7 root until M6 answers.** On M7's request I stopped all five T15 run shells at 05:30, by PID, and checked the readback (`00` at 05:35; the report on #662 at 05:32). The `069fc2704421` root will not return (M7, 05:42: it becomes `bcc` under `m7-signin-generic-build-20261025-01`). The open question to M6 on #662 (05:42): (b) `m7-pixelelated-replacement20`'s root (BUILD_ID `1a0266484423`, the same busybox build, rclone 1.75.2), or (c) M7's new root once released. Re-run the baseline on whichever is assigned first.
-
-- **Recorded:** #1023's `1d1503180d` (in `02`) and `34aca64afd` (in `00`). #1039's positive is in `00`.
-- **To re-run, serial, from clones under `/workspace/tmp/m6-t15/s2/`:**
-  - `at1022` (`--old 717bc04449`, then `51e2acece6`);
-  - `shallow-unfixed` and `shallow-fixed` (no `--old`);
-  - `cut/tools/lgst-ghi-{unfixed,fixed}` (`LAST_GOOD_SOURCE_ROOT=<worktree> BASE_REF=1d1503180d --old`);
-  - `cut/tools/lgst-t-fixed` (`BASE_REF=70b6c70ca7 --old`);
-  - `tip` (`a286e5b49f`): the twelve recipes, then the root run.
-  - Then write #1022, #1021, #1035 and #1024's positives and the twelve-recipe table into `02` § S2, and post the S2 checkpoint.
-- **While waiting:** S3's code edits (#1026, #1027, #1031-#1034, #1036, #1037, one commit per bug); their judging runs wait for the root.
-- **The coordinator's rulings in force:** 03:11, 03:34, 03:58 and 04:12 (see `00`).
+- **Running: the queue** `/workspace/tmp/m6-t15/s2/queue.sh`, PID 215160, harness task `bwk8barpr`, one run at a time. `queue.log` beside it carries each run's PID, census, wall time and verdict. The order:
+  1. root-tip (`a286e5b49f`, PID 215185, from 05:40:35);
+  2. `shallow-unfixed`, then `shallow-fixed` (#1021);
+  3. the twelve `--old` recipes at the tip, which give the fixed sides of #1022, #1035 and #1024 too.
+- **At each boundary the queue reads `/tmp/m7-m6-host-coordination-20261023.txt` for a `PAUSE T15` directive** (start of a line or after an entry's header). It finishes the run in flight and starts no other until a later `RESUME T15`. If the session is gone, read `queue.log`; a run with START and no END is in flight or died, so check its PID.
+- **Then:** the checkpoint on #662 after root-tip (banner, verdict, counts), and one at each run as before. When the queue ends: #1022, #1021, #1035 and #1024's positives and the twelve-recipe table into `02` § S2, then the S2 checkpoint.
+- **While waiting:** S3's code edits in the worktree (the queue runs from clones).
+- **The coordinator's rulings in force:** 03:11, 03:34, 03:58, 04:12 and 05:38 (see `00`).
 - **The register:** D-WORKFLOW-206 to 209 and D-INFRA-032 are the M7 lane's; a row here takes D-WORKFLOW-210+, D-QA-064 or D-INFRA-033+. None is planned.
 - **Then S2 to S6, then the close-out** (the brief's last section): the Phase 7 table, `02` § The suites re-run, the lint, `fixed-at:`, the retro, the hand-back, then idle.
 - **Stages A to D** are in `00` (A 00:23-01:10; B `c4a7e98509`; C `4851698b02`; D `2eface0727`: `05`, bugs #1018-#1039, audit issue #1040).

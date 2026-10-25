@@ -108,6 +108,22 @@ Every run is in this worktree, with `TMPDIR=/workspace/tmp/m6-t15/tmp`, started 
 
 The detail is in `00`.
 
+### The root changes, 2026-10-25 05:38 UTC
+
+Every run recorded above under `QA_SYSTEM_ROOT` judged with the root `/workspace/repos/rocknix.worktrees/m7-signin-build-20261022-07/build.pixelelated-GENERIC_X64.x86_64/image/system`, BUILD_ID `069fc270442134fe771258418adf4e666e0473fb`. They stand as recorded.
+
+**Why the root changed.** At about 05:25 the M7 lane, holding M6's 05:22 build grant, could not move its donor cache while T15's shells named that root. T15 stopped its five run shells at 05:30 (#662, 05:32). The M7 lane then renamed the root (`m7-signin-generic-build-20261025-01`) for its `bcc866f1` rebuild, which replaces its `image/system`. The coordinator ruled at 05:38 (#662): **every remaining and re-run T15 run uses M6's own retained donor, and no M6 run names an M7 root again.**
+
+**The donor:** `/workspace/artifacts/m6-donor/1a0266484423/image/system`, written by the M6 coordinator at 05:37 from `m7-pixelelated-replacement20`'s GENERIC_X64 root (each file byte-equal by `cmp`). `RECORD.txt` and `SHA256SUMS` are two levels up. `sha256sum -c` from `image/system` at the lane's start: all three files OK.
+
+| File | SHA-256 | What it is |
+| --- | --- | --- |
+| `usr/bin/busybox` | `79e7b20ddbe5abb6d18690dacc9b31803eb72cea949fce0a52cd9c2888829346` | BusyBox v1.36.1 (2026-10-05 03:37:19 UTC), 574456 bytes, with 146 applet links |
+| `usr/bin/rclone` | `ed887da83d3e2c07ff8a...` (full in `SHA256SUMS`) | rclone v1.75.2, the recipe's `PKG_VERSION` |
+| `etc/os-release` | `f537766379be27c18708...` (full in `SHA256SUMS`) | `BUILD_ID="1a026648442321609b2288c2c9c06803817f9df2"` |
+
+**The busybox's identity with the `069fc2704421` file is argued, not claimed:** the same version string, the same build time (2026-10-05 03:37:19 UTC) and the same size (574456 bytes). The old file is gone, so no `cmp` is possible. Every run from 05:38 names the donor path and `BUILD_ID 1a0266484423` on its banner and in its `tools:` line.
+
 ## The checks that depend on the busybox
 
 Every check whose verdict differs between run 1 (the image's BusyBox 1.36.1) and run 2 (the host's 1.37.0): **319**, each PASS under the image's and FAIL under the host's.
