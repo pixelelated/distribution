@@ -304,3 +304,21 @@
 - **Each step checks the host file for `PAUSE T15` at its boundary,** and writes the census (`pgrep -c -x cc1plus`, `pgrep -c -x qemu-system-x86`, the load) before and after each run to `/workspace/tmp/m6-t15/s2/queue.log`. The queue's PIDs follow in this log once it is started.
 - **The queue:** `/workspace/tmp/m6-t15/s2/queue.sh` on one background shell (the harness task `bwk8barpr`), queue PID **215160**. It started 05:40:35, and its first run, root-tip, is PID **215185**. Each run's PID, start, end, census and verdict go to `queue.log`; if the session is gone, that file and `pgrep -af last-good-scripts-test` are where to look.
 - **A slip of mine, caught at the first boundary:** the first start (queue PID 209913, 05:39:59) paused at once. Its pause test matched any line naming `PAUSE T15`, and the coordinator's 05:38 entry names the convention (*"write PAUSE T15 on this file"*). I stopped it by PID before any run began and tightened the match to a directive: `PAUSE T15` or `RESUME T15` at the start of a line or straight after an entry's header. The new match finds 0 such lines in the host file, and fires on a constructed `== M7 root -- ...: PAUSE T15 ...` line and on a bare `PAUSE T15`. Then I restarted the queue.
+
+## [Stage E] 05:51 UTC — the first run on the donor: root-tip at S2's tip; S3's code so far
+
+- **root-tip** (`a286e5b49f`, a clone, PID 215185): **rc 3 in 517 s, 1,312 PASS / 0 FAIL / 0 SKIP / 2 CANNOT**, census `cc1plus=0 qemu=0 load 1.28` at its end (`4.29` at its start). The banner reads `sed/mv/cp/tr/head/wc/cut/awk: BusyBox v1.36.1 (2026-10-05 03:37:19 UTC) multi-call binary. -- a copy of /workspace/artifacts/m6-donor/1a0266484423/image/system/usr/bin/busybox`. The verdict's lines:
+  - `tools: busybox .../m6-donor/1a0266484423/... ; source: root, BUILD_ID 1a026648442321609b2288c2c9c06803817f9df2`;
+  - `tools: rclone .../m6-donor/... -- v1.75.2; the recipe says v1.75.2`;
+  - `2 CHILD SUITE(S) COULD NOT RUN` (this branch's writer tests; T14 merges first);
+  - `PASSED, 0 SKIPPED, 2 CHILD SUITE(S) NOT EVIDENCE, 0 NOT APPLICABLE`.
+  The counts are S1's end on the `069fc` root, so S2's six commits change no verdict on the tree.
+- **S3's code so far, each committed with its positive or with its run queued:**
+  - #1033 `5429e27e72` (positive in the commit: the static count, 3 then 0; the `set -u` abort);
+  - #1037 `60066e21f8`;
+  - #1027 `65bdd1a717`;
+  - #1036 `32ba775765`;
+  - #1034 `e155cd4309`;
+  - #1032 `11952dfcf3` (positive in the commit: a driver that raises after its first verdict passes the unfixed check, the fixed one FAILs it).
+  - #1037, #1027, #1036 and #1034's constructed cases run after the current queue.
+  - #1026 and #1031 are next. #1026's representative set is the five runners that carry 63 of the file's `rc ≠ 0` checks: `p7bt` 27, `sa_run` 18, `c1` 10, `cf1` 6 and `b`'s `bt` (the founding kill and restore).

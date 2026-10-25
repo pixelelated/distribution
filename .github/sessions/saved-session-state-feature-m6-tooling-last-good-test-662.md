@@ -43,17 +43,17 @@
    banners, exits, wall times and counts, the five `--old` recipes' exits --
    before reading a section.
 
-## Current focus (05:42 UTC update)
+## Current focus (05:51 UTC update)
 
 **Stage E: S2's code is complete (`a286e5b49f`), and its runs have resumed on M6's donor root** (the coordinator's 05:38 ruling on #662): `QA_SYSTEM_ROOT=/workspace/artifacts/m6-donor/1a0266484423/image/system` (BUILD_ID `1a0266484423`; `SHA256SUMS` two levels up, checked OK). **No M6 run names an M7 root again.** The root change is in `02` § The runs, *The root changes*.
 
 - **Running: the queue** `/workspace/tmp/m6-t15/s2/queue.sh`, PID 215160, harness task `bwk8barpr`, one run at a time. `queue.log` beside it carries each run's PID, census, wall time and verdict. The order:
-  1. root-tip (`a286e5b49f`, PID 215185, from 05:40:35);
+  1. root-tip (`a286e5b49f`): done, **rc 3, 1,312 / 0 / 0 / 2 CANNOT, 517 s** (the S1-end counts; the 2 CANNOT are this branch's writer tests until T14 merges);
   2. `shallow-unfixed`, then `shallow-fixed` (#1021);
   3. the twelve `--old` recipes at the tip, which give the fixed sides of #1022, #1035 and #1024 too.
 - **At each boundary the queue reads `/tmp/m7-m6-host-coordination-20261023.txt` for a `PAUSE T15` directive** (start of a line or after an entry's header). It finishes the run in flight and starts no other until a later `RESUME T15`. If the session is gone, read `queue.log`; a run with START and no END is in flight or died, so check its PID.
 - **Then:** the checkpoint on #662 after root-tip (banner, verdict, counts), and one at each run as before. When the queue ends: #1022, #1021, #1035 and #1024's positives and the twelve-recipe table into `02` § S2, then the S2 checkpoint.
-- **While waiting:** S3's code edits in the worktree (the queue runs from clones).
+- **S3's code so far:** #1033 `5429e27e72`, #1037 `60066e21f8`, #1027 `65bdd1a717`, #1036 `32ba775765`, #1034 `e155cd4309`, #1032 `11952dfcf3`. Still to write: #1026 (a witness that the script started: `p7bt`, `sa_run`, `c1`, `cf1`, `bt`) and #1031 (the barriers). The constructed cases for #1037, #1027, #1036 and #1034 run after the current queue; #1033's and #1032's positives are in their commits.
 - **The coordinator's rulings in force:** 03:11, 03:34, 03:58, 04:12 and 05:38 (see `00`).
 - **The register:** D-WORKFLOW-206 to 209 and D-INFRA-032 are the M7 lane's; a row here takes D-WORKFLOW-210+, D-QA-064 or D-INFRA-033+. None is planned.
 - **Then S2 to S6, then the close-out** (the brief's last section): the Phase 7 table, `02` § The suites re-run, the lint, `fixed-at:`, the retro, the hand-back, then idle.
