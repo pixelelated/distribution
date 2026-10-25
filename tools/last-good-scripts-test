@@ -13959,27 +13959,37 @@ SF="${TMP}/s3f"; mkdir -p "${SF}"
 # The grammar (cloud_backup's conf_valid), on canaries the seats wrote (gpt G3-D-01, claude G3-D-02).
 awk '/^conf_valid\(\) *\{/{p=1} p{print} p&&/^\}/{p=0}' "${TMP}/src/cloud_backup" > "${SF}/cv.sh" 2>/dev/null || src_of "${RCLONE_REL}/cloud_backup" "${SF}/cb"; [ -s "${SF}/cv.sh" ] || awk '/^conf_valid\(\) *\{/{p=1} p{print} p&&/^\}/{p=0}' "${SF}/cb" > "${SF}/cv.sh"
 for c in cloud_restore cloud_sync_helper; do src_of "${RCLONE_REL}/${c}" "${SF}/${c}"; awk '/^conf_valid\(\) *\{/{p=1} p{print} p&&/^\}/{p=0}' "${SF}/${c}" > "${SF}/cv-${c}.sh"; done
-cmp -s "${SF}/cv.sh" "${SF}/cv-cloud_restore.sh" && cmp -s "${SF}/cv.sh" "${SF}/cv-cloud_sync_helper.sh"; check $? "conf_valid is one text in cloud_backup, cloud_restore and cloud_sync_helper" "the copies differ"
+# Three empty extracts compare equal (#1037): each must hold the function.
+cv_n=$(grep -l '^conf_valid() *{' "${SF}/cv.sh" "${SF}/cv-cloud_restore.sh" "${SF}/cv-cloud_sync_helper.sh" 2>/dev/null | wc -l)
+[ "${cv_n}" -eq 3 ] && cmp -s "${SF}/cv.sh" "${SF}/cv-cloud_restore.sh" && cmp -s "${SF}/cv.sh" "${SF}/cv-cloud_sync_helper.sh"; check $? "conf_valid is one text in cloud_backup, cloud_restore and cloud_sync_helper" "conf_valid found in ${cv_n} of the 3 extracts, or the copies differ"
 sf_valid() { bash -c ". '${SF}/cv.sh'; conf_valid '$1' || { echo \"why: \${CONF_WHY}\"; exit 1; }"; }
-printf 'SAVESPATH="/storage/roms"\nRANDOM="BASH_VERSINFO[\\$(printf x > /tmp/s3f-ran)0]"\n' > "${SF}/c1"
+printf 'SAVESPATH="/storage/roms"\nRANDOM="BASH_VERSINFO[\\$(printf x > %s/canary-ran)0]"\n' "${SF}" > "${SF}/c1"
 ! sf_valid "${SF}/c1" > "${SF}/o" 2>&1 && grep -q 'a name the shell owns' "${SF}/o"; check $? "RANDOM=... is refused as a name the shell owns (the seat's canary ran when sourced on the host)" "accepted, or another why: $(cat "${SF}/o" | tr '\n' '|' | cut -c1-120)"
 printf 'SAVESPATH="/storage/roms"\nPATH="/tmp/evil"\n' > "${SF}/c2"; ! sf_valid "${SF}/c2" > "${SF}/o" 2>&1 && grep -q 'a name the shell owns' "${SF}/o"; check $? "PATH=... is refused" "accepted"
-printf 'SAVESPATH="/storage/roms"\nRCLONEOPTS="--x \\$(printf y > /tmp/s3f-y)"\n' > "${SF}/c3"; ! sf_valid "${SF}/c3" > "${SF}/o" 2>&1 && grep -q 'followed by' "${SF}/o"; check $? "a backslash-dollar-paren inside double quotes is refused (a literal dollar-paren a shell context could run)" "accepted"
+printf 'SAVESPATH="/storage/roms"\nRCLONEOPTS="--x \\$(printf y > %s/canary-y)"\n' "${SF}" > "${SF}/c3"; ! sf_valid "${SF}/c3" > "${SF}/o" 2>&1 && grep -q 'followed by' "${SF}/o"; check $? "a backslash-dollar-paren inside double quotes is refused (a literal dollar-paren a shell context could run)" "accepted"
 printf 'SAVESPATH="/storage/roms"\nRCLONEOPTS="--filter-from \\"/a b\\" --bwlimit 1M \\$5 \\\\x"\nLOG_LEVEL=INFO\n' > "${SF}/c4"; sf_valid "${SF}/c4" > "${SF}/o" 2>&1; check $? "PL-015's escapes still pass: an escaped quote, a doubled backslash, a backslash-dollar before an ordinary character" "refused: $(cat "${SF}/o" | tr '\n' '|' | cut -c1-120)"
-printf 'SAVESPATH="/storage/roms"\nEXTRA="x"\000#$(printf z > /tmp/s3f-z)\n' > "${SF}/c5"; ! sf_valid "${SF}/c5" > "${SF}/o" 2>&1 && grep -q 'a NUL byte' "${SF}/o"; check $? "a NUL byte in the file is refused before awk reads a truncated record (claude G3-D-02)" "accepted: $(cat "${SF}/o" | tr '\n' '|' | cut -c1-120)"
-[ ! -e /tmp/s3f-ran ] && [ ! -e /tmp/s3f-y ] && [ ! -e /tmp/s3f-z ]; check $? "none of the canaries ran while being judged" "a canary file exists under /tmp"
+printf 'SAVESPATH="/storage/roms"\nEXTRA="x"\000#$(printf z > %s/canary-z)\n' "${SF}" > "${SF}/c5"; ! sf_valid "${SF}/c5" > "${SF}/o" 2>&1 && grep -q 'a NUL byte' "${SF}/o"; check $? "a NUL byte in the file is refused before awk reads a truncated record (claude G3-D-02)" "accepted: $(cat "${SF}/o" | tr '\n' '|' | cut -c1-120)"
+# The canaries write under this run's own fixture (#1037): a fixed host /tmp
+# path is shared by every run, and a stale file from one fails the next.
+[ ! -e "${SF}/canary-ran" ] && [ ! -e "${SF}/canary-y" ] && [ ! -e "${SF}/canary-z" ]; check $? "none of the canaries ran while being judged" "a canary ran: $(ls "${SF}"/canary-* 2>/dev/null | tr '\n' ' ')"
 # sort_settings (001-functions) refuses to install a copy whose producer failed (gpt G3-D-04).
 src_of "${ROCKNIX_REL:-projects/ROCKNIX/packages/rocknix}/profile.d/001-functions" "${SF}/fn" 2>/dev/null || cp "${FN}" "${SF}/fn"
 mkdir -p "${SF}/cfg"; printf 'z=1\nsystem.hostname=MINE\nb=2\na=3\n' > "${SF}/cfg/system.cfg"
-{ sed -n '/^function sort_settings() {/,/^}/p' "${SF}/fn"
+# The case reaches the producer it is about (#1037): prepare_settings_temp is
+# lifted too -- without it the call was 127 and the function returned 1
+# before settings_base ever ran -- the producer leaves a mark, and the status
+# is sort_settings' own 1, not an absent function's 127.
+{ sed -n '/^function prepare_settings_temp() {/,/^}/p; /^function sort_settings() {/,/^}/p' "${SF}/fn"
   cat <<EOS
 wait_lock() { return 0; }
 logger() { echo "logger \$*" >&2; }
 J_CONF="${SF}/cfg/system.cfg"; J_CONF_LOCK="${SF}/cfg/lock"
-settings_base() { printf 'system.hostname=MINE\\nb=2\\n'; return 1; }   # the hostname, then a failure
+settings_base() { : > "${SF}/cfg/producer-ran"; printf 'system.hostname=MINE\\nb=2\\n'; return 1; }   # the hostname, then a failure
 EOS
 } > "${SF}/ss.sh"
-bash -c ". '${SF}/ss.sh'; sort_settings" 2>/dev/null; [ "$(cat "${SF}/cfg/system.cfg" | tr '\n' '|')" = "z=1|system.hostname=MINE|b=2|a=3|" ] && [ ! -e "${SF}/cfg/system.cfg.tmp" ]; check $? "a producer that fails after the hostname line installs nothing: the live file is untouched, no temporary left" "system.cfg is now '$(cat "${SF}/cfg/system.cfg" | tr '\n' '|')'"
+ss_fns=$(grep -c -E '^function (prepare_settings_temp|sort_settings)\(\) \{' "${SF}/ss.sh")
+bash -c ". '${SF}/ss.sh'; sort_settings" 2>/dev/null; ss_rc=$?
+[ "${ss_fns}" -eq 2 ] && [ "${ss_rc}" -eq 1 ] && [ -e "${SF}/cfg/producer-ran" ] && [ "$(cat "${SF}/cfg/system.cfg" | tr '\n' '|')" = "z=1|system.hostname=MINE|b=2|a=3|" ] && [ ! -e "${SF}/cfg/system.cfg.tmp" ]; check $? "a producer that fails after the hostname line installs nothing: the live file is untouched, no temporary left" "system.cfg is now '$(cat "${SF}/cfg/system.cfg" | tr '\n' '|')'"
 # backuptool's zip_stored_ok asserts the CRC column (claude G3-D-01).
 src_of "${ROCKNIX_REL:-projects/ROCKNIX/packages/rocknix}/sources/scripts/backuptool" "${SF}/bt" 2>/dev/null || cp "${BT}" "${SF}/bt"
 grep -q "grep -q 'CRC-32'" "${SF}/bt"; check $? "zip_stored_ok refuses a listing with no CRC column (the image's busybox prints one; a lesser build would pass every member)" "no CRC-32 header check in zip_stored_ok"
@@ -14004,7 +14014,7 @@ printf '[2026-09-28 10:00:00] [INFO] [cloud_remote] rclone config create qa webd
 src_of "projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-ctl" "${SF}/ctl"
 mkdir -p "${SF}/pd"; printf 'B\n' > "${SF}/pd/index-pending"
 bash -c "INDEX_PENDING='${SF}/pd/index-pending'; pending_lock() { return 0; }; pending_unlock() { :; }; $(awk '/^ack_index_pending\(\) *\{/{p=1} p{print} p&&/^\}/{p=0}' "${SF}/ctl"); ack_index_pending A; echo rc=\$?" > "${SF}/o" 2>&1
-grep -q 'rc=1' "${SF}/o" && [ "$(cat "${SF}/pd/index-pending" 2>/dev/null)" = "B" ] && [ -z "$(ls "${SF}/pd"/index-pending.ack.* 2>/dev/null)" ]; check $? "an ack for token A over a marker holding B keeps B in place and leaves no aside file" "$(cat "${SF}/o" | tr '\n' '|'); marker: $(cat "${SF}/pd/index-pending" 2>/dev/null)"
+grep -q '^ack_index_pending() *{' "${SF}/ctl" && grep -qx 'rc=1' "${SF}/o" && [ "$(cat "${SF}/pd/index-pending" 2>/dev/null)" = "B" ] && [ -z "$(ls "${SF}/pd"/index-pending.ack.* 2>/dev/null)" ]; check $? "an ack for token A over a marker holding B keeps B in place and leaves no aside file" "$(cat "${SF}/o" | tr '\n' '|'); marker: $(cat "${SF}/pd/index-pending" 2>/dev/null)"
 printf 'A\n' > "${SF}/pd/index-pending"
 bash -c "INDEX_PENDING='${SF}/pd/index-pending'; pending_lock() { return 0; }; pending_unlock() { :; }; $(awk '/^ack_index_pending\(\) *\{/{p=1} p{print} p&&/^\}/{p=0}' "${SF}/ctl"); ack_index_pending A; echo rc=\$?" > "${SF}/o" 2>&1
 grep -q 'rc=0' "${SF}/o" && [ ! -e "${SF}/pd/index-pending" ]; check $? "an ack for token A over a marker holding A removes it" "$(cat "${SF}/o" | tr '\n' '|')"
