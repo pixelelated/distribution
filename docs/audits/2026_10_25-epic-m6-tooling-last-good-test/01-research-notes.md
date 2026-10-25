@@ -61,7 +61,7 @@ So: **1 path, 14,238 lines, 1,167,697 bytes** (`git show 8ebaf8daad:tools/last-g
 - **`tools/vm-qa`'s `scripts` suite** (`vm-qa:22`, the header row: *the scripts under busybox shims, on the host*), at `:158`: `run_suite scripts "$OUT/scripts.log" python3 -c 'import os, signal, sys; signal.signal(signal.SIGINT, signal.SIG_DFL); signal.signal(signal.SIGPIPE, signal.SIG_DFL); os.execv(...)' tools/last-good-scripts-test`. It is in the default suite list, and `vm-qa:145-150`'s `run_suite` reads the exit: **3 is SKIP, any other non-zero is `FAIL (rc)`, 0 is PASS**. So a run whose only shortfall is a `NOT APPLICABLE` group (exit 0) reads PASS there, a run that cannot run (exit 2) reads `FAIL (2)`, and every M6 worktree's run, on the host's busybox, reads `FAIL (1)`.
 - **By hand, `--old` with a `BASE_REF`,** for the header's twelve failing controls (`:162-226`). At the hash none of them reaches a verdict (`02` § The runs).
 - **`--cloud-layout`** (`:252`) execs `rasteratops-cloud-layout-test` with the remaining options. Section `ae` (`:14177-14190`) calls the same tool in-suite.
-- **Nothing else in the tree invokes it:** `.github/workflows` does not, and `fork-checks.yml` runs neither this nor `vm-qa`.
+- **Nothing else in the tree invokes it.** `git grep -l last-good-scripts-test -- tools .githooks .github/workflows` lists `.githooks/pre-push` (`:88`, the personal-paths list), `tools/cloud-round-trip` (`:743`, a comment), `tools/vm-upgrade-rehearsal` (`:106`, a comment), `tools/vm-qa` and the file itself. No workflow names it or `vm-qa`.
 
 ## The record
 
