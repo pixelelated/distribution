@@ -61,6 +61,16 @@ while [ $# -gt 0 ]; do
     *) break ;;
   esac
 done
+# Options go before the subcommand, and no subcommand takes one after it. The
+# loop above stops at the subcommand, so `up --backend sftp` used to run `up`
+# on the default backend with rc 0 and call that SFTP (#1058); `ls --backend
+# s3` took `--backend` as its path. Refuse it rather than answer for another
+# endpoint.
+for arg in "${@:2}"; do
+  case "${arg}" in
+    --*) echo "error: '${arg}' after '${1:-}': options go before the subcommand (tools/cloud-test-backend --backend <name> ${1:-<subcommand>})" >&2; exit 2 ;;
+  esac
+done
 case "${BACKEND}" in
   webdav|s3|sftp|smb|ftp) ;;
   *) echo "error: unknown backend '${BACKEND}' (webdav, s3, sftp, smb, ftp)" >&2; exit 2 ;;
