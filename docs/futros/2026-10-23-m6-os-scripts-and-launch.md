@@ -380,3 +380,44 @@ is 2.42.4 upstream; `slice_of` is `:1237-1248`; T1's folder has no
 `.run.log` for the GPT seat and no packet manifest (T13's is the model);
 `input_sense` was rewritten in four commits; the GENERIC_X64 quirks in
 eight on 2026-09-28; #797 is not the autostart hook-shape issue.
+
+### T29 kickoff addendum (written with the brief's version 1, 2026-10-25)
+
+Read with the brief `docs/reviews/briefs/os-device-quirks.md`; the research
+digest behind it was taken read-only at `2174265e9c` (lead, not evidence).
+
+- **What we know.** 333 paths, 10,175 lines, 328 upstream's and 5 the
+  fork's (the VM's two quirk files and the Nova's three LED helpers, 389
+  lines); 88 top-level entries (65 directories, 23 aliases); the selection
+  is by the dt `model` (or DMI) matched to a directory name, files directly
+  in the directory only, as root, in glob order; **neither of the
+  maintainer's H700 units has a device entry** (`Anbernic RG35XX SP`,
+  `Anbernic RG-SP`), so only the platform quirks run there; the boards the
+  shipped images boot that do have entries are 70 paths / 2,885 lines
+  (tier B); 18 upstream commits are pending, two of them panel calibration
+  for shipped SM8550 boards.
+- **Assumptions named.** The read is tier B line by line and the rest by
+  its table row; the tree-wide counts are taken unfiltered (the credential
+  filter drops lines with `user` or `key`); no guest cycle is planned (the
+  Nova's helpers have `tools/nova-led-test`; the VM's two files are T22's
+  guest record).
+- **Known unknowns.** (1) Whether anything the owned H700 units need sits
+  in a device entry they never reach (read `platforms/H700/*` by name
+  against the RG40XX and CubeXX entries); (2) which of the 32 sysfs writers
+  in the 266 would fail on a node that is absent (one guard in the tree);
+  (3) whether both `050-game*configs` spellings run on a board that has
+  both.
+- **Patterns.** T22's generated tables with asserted counts; T28's
+  "read a file's device by its match rule, not its name"; T27's and T28's
+  updater contract as the model of a contained fix in upstream's file;
+  the `Already written:` line for every-boot heredoc rewrites.
+- **What could be missed.** A reader counting the 263 carried-by-placement
+  files as dead (D-WORKFLOW-185: a row each); a reader filing the owned
+  units' missing entries as a bug without reading the platform set; a
+  reader asking a unit for a sysfs fact (nothing runs on a unit); a reader
+  taking a `100644` mode as a defect without `package.mk:20`'s `chmod`.
+- **Before execution.** The stranger's proof of version 1; #676 retitled
+  `E695/T29` and re-parented under #695, #695's path cell corrected to the
+  glob, the inventory hash noted; the worktree cut from `2174265e9c` with
+  the coordinator's tip merged; the body rewritten with the sixteen
+  criteria and the VM line; the dispatch to the first idle session.
