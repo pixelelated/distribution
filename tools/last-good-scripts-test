@@ -9379,14 +9379,22 @@ sa_run() { # <fixture> <script> [args...]: the script whole, in the sandbox; std
     local d="$1" s="$2" t0; shift 2
     witness_reset "${d}"; SA_LAST="${d}"
     t0=$(date +%s)
-    RC=$( ( cd "${d}/storage" && setsid -w timeout 180 bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr ${SA_EXTRA[@]+"${SA_EXTRA[@]}"} "${SA_BB[@]}" \
+    # The sandbox starts from nothing (#1028, as T14's S2 did for its tools):
+    # --clearenv drops the caller's RCLONE_*, BASH_ENV and exported functions,
+    # --unshare-net leaves loopback only, and the variables the scripts read
+    # are set by name below. The 179 call sites were searched for a variable
+    # passed in front of the call (only SA_CWD, which sa_run reads itself) and
+    # the harness for an export reaching them (none; SA2_EXTRA's --setenv comes
+    # after --clearenv); the full run under the root is what shows no case
+    # needed the host network or an inherited variable (02).
+    RC=$( ( cd "${d}/storage" && setsid -w timeout 180 bwrap --die-with-parent --clearenv --unshare-net --tmpfs / --ro-bind /usr /usr ${SA_EXTRA[@]+"${SA_EXTRA[@]}"} "${SA_BB[@]}" \
         --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
         --ro-bind /etc /etc --ro-bind "${SA}/profile" /etc/profile \
         --bind "${d}/storage" /storage --bind "${d}/cloud" /cloud --bind "${d}/ctl" /ctl \
         --ro-bind "${SA}/shim" /shim --ro-bind "${SA}/nbin" /nbin --ro-bind "${SA}/rclone.real" /sa/rclone.real \
         --ro-bind "${d}/repo" /repo --bind "${d}/log" /var/log --bind "${d}/varrun" /var/run --bind "${d}/witness" /witness \
         --dev /dev --proc /proc --tmpfs /tmp --chdir "${SA_CWD:-/storage}" \
-        --setenv PATH "/shim:/nbin:/usr/bin:/bin" --setenv HOME /storage \
+        --setenv PATH "/shim:/nbin:/usr/bin:/bin" --setenv HOME /storage --setenv LANG C --setenv TERM dumb \
         bash -c "${WITNESS_EXEC}" "/repo/${s}" "$@" > "${d}/out" 2>&1; echo $? ) 2>/dev/null )
     DT=$(( $(date +%s) - t0 ))
 }
@@ -13038,7 +13046,15 @@ sa2_run() { # sa_run, with /shim2 first on PATH (and in the profile the scripts 
     local d="$1" s="$2" t0; shift 2
     witness_reset "${d}"; SA_LAST="${d}"
     t0=$(date +%s)
-    RC=$( ( cd "${d}/storage" && setsid -w timeout 180 bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr ${SA_EXTRA[@]+"${SA_EXTRA[@]}"} "${SA_BB[@]}" \
+    # The sandbox starts from nothing (#1028, as T14's S2 did for its tools):
+    # --clearenv drops the caller's RCLONE_*, BASH_ENV and exported functions,
+    # --unshare-net leaves loopback only, and the variables the scripts read
+    # are set by name below. The 179 call sites were searched for a variable
+    # passed in front of the call (only SA_CWD, which sa_run reads itself) and
+    # the harness for an export reaching them (none; SA2_EXTRA's --setenv comes
+    # after --clearenv); the full run under the root is what shows no case
+    # needed the host network or an inherited variable (02).
+    RC=$( ( cd "${d}/storage" && setsid -w timeout 180 bwrap --die-with-parent --clearenv --unshare-net --tmpfs / --ro-bind /usr /usr ${SA_EXTRA[@]+"${SA_EXTRA[@]}"} "${SA_BB[@]}" \
         --symlink usr/bin /bin --symlink usr/lib /lib --symlink usr/lib64 /lib64 \
         --ro-bind /etc /etc --ro-bind "${SA2}/profile" /etc/profile \
         --bind "${d}/storage" /storage --bind "${d}/cloud" /cloud --bind "${d}/ctl" /ctl \
@@ -13046,7 +13062,7 @@ sa2_run() { # sa_run, with /shim2 first on PATH (and in the profile the scripts 
         --ro-bind "${d}/repo" /repo --bind "${d}/log" /var/log --bind "${d}/varrun" /var/run --bind "${d}/witness" /witness \
         ${SA2_EXTRA[@]+"${SA2_EXTRA[@]}"} \
         --dev /dev --proc /proc --tmpfs /tmp --chdir "${SA_CWD:-/storage}" \
-        --setenv PATH "/shim2:/shim:/nbin:/usr/bin:/bin" --setenv HOME /storage \
+        --setenv PATH "/shim2:/shim:/nbin:/usr/bin:/bin" --setenv HOME /storage --setenv LANG C --setenv TERM dumb \
         bash -c "${WITNESS_EXEC}" "/repo/${s}" "$@" > "${d}/out" 2>&1; echo $? ) 2>/dev/null )
     DT=$(( $(date +%s) - t0 ))
 }
