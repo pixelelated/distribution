@@ -232,7 +232,8 @@
 # statement about that image and is left to fail rather than softened.
 #
 # Exit 0 when every check passes, 1 otherwise, 2 when it cannot run, 3 when
-# it ran and could not qualify (a SKIP, or --host-diagnostic).
+# it ran and could not qualify (a SKIP, a child suite's CANNOT or UNVERIFIED
+# (#1019), or --host-diagnostic).
 #
 # --host-diagnostic (#1018): without QA_SYSTEM_ROOT or a build root beside the
 # checkout there is no candidate busybox, and the run refuses (exit 2). With
@@ -331,6 +332,21 @@ sigign="$(awk '/^SigIgn:/{print $2}' "/proc/$$/status")"   # $$ is this script, 
 echo "signals: SigIgn=${sigign} SIGINT ignored=$(( (16#${sigign} >> 1) & 1 )) SIGPIPE ignored=$(( (16#${sigign} >> 12) & 1 ))"
 check() { # <0|nonzero> ok-text bad-text
     if [ "$1" -eq 0 ]; then echo "    PASS  ${HOST_MARK}$2"; else echo "    FAIL  ${HOST_MARK}$3"; FAIL=$((FAIL + 1)); fi
+}
+# check_child <rc> <child> ok-text bad-text (#1019): a child suite's own exit
+# carried, not flattened into FAIL -- 0 PASS; 2 CANNOT, the child could not
+# run; 3 UNVERIFIED, it ran and could not qualify; anything else FAIL. Both
+# are counted and named in the verdict, and with no FAIL they make the exit 3
+# (D-QA-063): a case that did not run as evidence inside a suite that did.
+CHILD_CANNOT=0; CHILD_UNVERIFIED=0; CHILD_NAMES=""
+check_child() {
+    case "$1" in
+        2) CHILD_CANNOT=$((CHILD_CANNOT + 1)); CHILD_NAMES="${CHILD_NAMES}${CHILD_NAMES:+; }$2 could not run"
+           echo "    CANNOT  ${HOST_MARK}$2 could not run (exit 2, its reason above), so not: $3" ;;
+        3) CHILD_UNVERIFIED=$((CHILD_UNVERIFIED + 1)); CHILD_NAMES="${CHILD_NAMES}${CHILD_NAMES:+; }$2 unverified"
+           echo "    UNVERIFIED  ${HOST_MARK}$2 ran and could not qualify (exit 3), so not evidence: $3" ;;
+        *) check "$1" "$3" "$4" ;;
+    esac
 }
 
 # One file under test: the working tree's copy, or the base commit's under
@@ -14320,21 +14336,31 @@ done
 echo "  ag. settings writers retain private file permissions"
 # These host helpers need the owned build-drive temporary directory; the
 # bubblewrap device fixtures above intentionally do not inherit host TMPDIR.
-TMPDIR="${TMP}" "${ROOT}/tools/settings-modes-test" --profile "${FN}" --chksysconfig "${CHK}" \
-  --busybox "${BB_HOST}" --output "${TMP}/settings-modes.json"
-check $? "#421: private modes and refused publications" "#421: settings mode regression (details above)"
+# The busybox's origin goes with it (#1019, T14's #997 contract): the run's
+# copy sits under no build root, so the root's BUILD_ID is named, or the host's
+# copy is run unverified. The writer tests are the harness's instruments, from
+# HARNESS_ROOT, as ah's is (LAST_GOOD_SOURCE_ROOT changes the scripts, never the
+# harness): under --old the ref's scripts are judged by the current writer
+# tests (the coordinator, 2026-10-25 03:58 on #662).
+BB_ORIGIN=(--unverified-busybox)
+[ "${BB_KIND}" != host ] && [ -n "${BB_ID}" ] && BB_ORIGIN=(--busybox-from "${BB_ID}")
+TMPDIR="${TMP}" "${HARNESS_ROOT}/tools/settings-modes-test" --profile "${FN}" --chksysconfig "${CHK}" \
+  --busybox "${BB_HOST}" "${BB_ORIGIN[@]}" --output "${TMP}/settings-modes.json"   # --busybox-from <BUILD_ID> | --unverified-busybox
+check_child $? settings-modes-test "#421: private modes and refused publications" "#421: settings mode regression (details above)"
 
 # #526: optional melonDS defaults never erase an owner's configuration.
 echo "  ah. melonDS update preserves settings and adds missing hotkeys"
 src_of projects/ROCKNIX/packages/rocknix/sources/post-update "${TMP}/post-update"
 TMPDIR="${TMP}" python3 "${HARNESS_ROOT}/tools/melonds-upgrade-test" --post-update "${TMP}/post-update" \
-  --busybox "${BB_HOST}" --output "${TMP}/melonds-upgrade.json"
-check $? "#526: preserved configuration and atomic hotkey additions" "#526: melonDS update regression (details above)"
+  --busybox "${BB_HOST}" "${BB_ORIGIN[@]}" --output "${TMP}/melonds-upgrade.json"   # --busybox-from <BUILD_ID> | --unverified-busybox
+check_child $? melonds-upgrade-test "#526: preserved configuration and atomic hotkey additions" "#526: melonDS update regression (details above)"
 
 if [ "${NOT_APPLICABLE}" -ne 0 ]; then echo "${NOT_APPLICABLE} HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS"; fi
 # Whose tools judged the scripts, in the verdict and not only the banner (#1018).
 echo "tools: busybox ${BB_SRC:-none, so the GNU tools of the host}${BB_BANNER:+ -- ${BB_BANNER}}; source: ${BB_KIND}${BB_ID:+, BUILD_ID ${BB_ID}}"
 echo "tools: rclone ${RC_SRC:-none} -- ${RC_GOT:+v}${RC_GOT:-no version}; the recipe says v${RC_WANT}"
+[ $((CHILD_CANNOT + CHILD_UNVERIFIED)) -eq 0 ] || echo "${CHILD_CANNOT} CHILD SUITE(S) COULD NOT RUN, ${CHILD_UNVERIFIED} UNVERIFIED -- ${CHILD_NAMES} (#1019)"
+NOT_RUN=$((SKIPPED + CHILD_CANNOT + CHILD_UNVERIFIED))
 if [ "${HOST_DIAG}" -eq 1 ]; then
     # D-QA-063: 1 over 3 over 0 -- a failure under the host's applets is still
     # a failure; 3 says only that nothing failed; a host run is never 0.
@@ -14342,6 +14368,6 @@ if [ "${HOST_DIAG}" -eq 1 ]; then
     [ "${FAIL}" -eq 0 ] && exit 3
     exit 1
 fi
-if [ "${FAIL}" -eq 0 ] && [ "${SKIPPED}" -eq 0 ]; then echo "PASSED"; exit 0
-elif [ "${FAIL}" -eq 0 ]; then echo "PASSED, ${SKIPPED} SKIPPED -- a check that did not run has not passed"; exit 3
+if [ "${FAIL}" -eq 0 ] && [ "${NOT_RUN}" -eq 0 ]; then echo "PASSED"; exit 0
+elif [ "${FAIL}" -eq 0 ]; then echo "PASSED, ${SKIPPED} SKIPPED, $((CHILD_CANNOT + CHILD_UNVERIFIED)) CHILD SUITE(S) NOT EVIDENCE -- a check that did not run has not passed"; exit 3
 else echo "${FAIL} CHECK(S) FAILED, ${SKIPPED} SKIPPED"; exit 1; fi

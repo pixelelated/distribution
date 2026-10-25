@@ -225,3 +225,18 @@
 - **My count slip:** I first estimated that PL-022's block was 5 checks. It is 4, and the line-by-line diff of the two host runs reconciles exactly (`02`).
 - **The host run's new FAILs in `b`** are backuptool's lock with no `flock` applet: section `b` now judges the busybox it is given, as the other flock-using sections already did. Not a script bug; the host's busybox lacks the applet.
 - **Coordinator, 03:43:** D-WORKFLOW-206 to 208 are the M7 lane's; a row from this slice takes D-WORKFLOW-209+, D-QA-064 or D-INFRA-032.
+
+## [Stage E] 04:07 UTC — S1: #1019 fixed; S1 complete
+
+- **The coordinator's 03:58 ruling:**
+  - (a): a child's CANNOT/UNVERIFIED gives 3 with no FAIL, counted and named;
+  - the `ag` move to `HARNESS_ROOT` is approved, with the `--old` sentence beside it.
+- **The runs** (the table is `02` § S1, #1019):
+  - the unfixed cut copy with T14's tools: both children refuse the run's copy and read FAIL, rc 1 (the positive);
+  - the doubles: both flattened to FAIL (the positive);
+  - fixed with T14's tools: **rc 0**, both PASS, `declared from 069fc2704421...`;
+  - fixed with the doubles: rc 3, CANNOT and UNVERIFIED named;
+  - `--host-diagnostic`: rc 3, both unverified.
+- **S1's end, the full suite under the M7 root at this branch: rc 3, 1,312 / 0 / 0 / 2 CANNOT.** This branch's copies of the two writer tests predate T14's `--busybox-from` (`unrecognized arguments`). With T14 merged, they are the cut copy's two PASSes and the run is 1,314 / 0 / 0. That merge is the coordinator's (T14 merges before this branch).
+- **S1's five bugs** (#1018, #1020, #1029, #1038, #1019) are fixed in four commits. Next is S2: #1021-#1024, #1035, #1039, with the 03:34 `--old` per-tool ruling.
+- **One edit after the end-of-S1 run:** the comment beside the `ag` move gained the coordinator's `--old` sentence. It is comment only; `bash -n` passes, and no line that runs changed.
