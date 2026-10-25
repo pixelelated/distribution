@@ -99,6 +99,8 @@ today:** `.githooks/pre-commit` refuses a conflict marker (#696).
 
 **08:5x-09:0x UTC (2026-10-25):** **T27 closed out** at `0ac98afe43` (the T5 session idle; the gitignored leftovers stay until retirement). **T13 accepted** at `a7a5bb94aa` (reports `accept-t13-final.out`, `accept-t13e-final.out`; #660 15 of 16, #1073 closed 26 of 26, the 17 bugs open until `next`; Backlog #1098 for the puts' exits); its close-out prompted to the T1 session at 09:01. T25's research digest is being written by a read-only subagent into `$S/t25-research.md` (the brief follows, then the stranger's proof). Next: T13's close-out tip → T22's dispatch (`$S/t22-dispatch.md`: `__TS__` at post time; `__Q__` and `__C__` on its line 7).
 
+**09:0x UTC (2026-10-25):** **T13 closed out** at `0b72904621` (the T1 session free). **T22 (#669) dispatched 09:05** to the T1 session: worktree `/workspace/repos/pixelelated/distribution.worktrees/m6-os-system-services-669`, branch `feature/m6-os-system-services-669`, dispatch tip `4a48d388c4` (the coordinator's `1b752289e0` merged at `311c1f7972` after the seed's `3d56c56380`), brief v3 `cc8b6cf2a3`; its guest cycle is granted on #669 on request; acceptance via `$S/t22-accept.sh` with `DISPATCH_TIP=4a48d388c4`. The M6 body carries T13 accepted/closed out and the next action (T22 running; T25's brief, then T28's). The T5 session idles for T25 (#672): research digest in `$S/t25-research.md` (read-only subagent), then the brief `docs/reviews/briefs/devices-unshipped.md`, the stranger's proof from the scratch clone, the worktree cut from `2174265e9c` with the coordinator tip merged, the pointer seed, the dispatch.
+
 ## Next commands
 
 ```bash
