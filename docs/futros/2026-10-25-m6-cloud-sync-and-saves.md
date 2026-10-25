@@ -233,3 +233,21 @@ digest behind it was taken read-only at `2174265e9c` (lead, not evidence).
   with the seventeen criteria and the VM line (Yes: the host, then one
   guest window); the dispatch to the idle T1 session, which ran T13 and
   knows the harness.
+
+### Errata from the stranger's proof of T16's brief (version 2, 2026-10-25)
+
+- A slice's `!` exclusions in `slices.json` are brace globs; a membership
+  block that stands in for `slice_of` must expand braces or it excludes
+  nothing (version 1 wrote 25 paths for a 14-path slice). The block's own
+  count is checked against the order's before anything reads `paths.txt`.
+- An oracle's class list is quoted from the oracle's own record (T13's
+  `04` `:228`), never reconstructed from memory: version 1's both-ends list
+  was wrong in most of its entries.
+- A stamp name is grepped before it is written down: `last-restore` does
+  not exist; the twins write `last-settings-restore` and `last-run`.
+- A lock's holders are read from the files: the capture never takes
+  `cloud_sync.lock`.
+- A `readonly A=1 B=2` line is missed by `^A=`; the exits grep allows the
+  prefix. `comm` and `sort` run under `LC_ALL=C` in every block.
+- A blindspot is glossed by its own title, not by the lesson the author
+  remembers from it (31 and 33 were glossed by other entries' lessons).

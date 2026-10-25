@@ -1,11 +1,9 @@
 # Brief: M6.P2 T16, cloud sync: the sync, backup, restore and capture core (#663)
 
-**Version 1, 2026-10-25, the coordinator's** (D-WORKFLOW-189). Written from a
-read-only research digest taken at `2174265e9c` (P1's tip; for these 14
+**Version 2, 2026-10-25, the coordinator's** (D-WORKFLOW-189; version 1 the same day, corrected by a stranger's proof -- seventeen corrections, listed at the end). Written from a read-only research digest taken at `2174265e9c` (P1's tip; for these 14
 paths the same bytes as `next` at `8ebaf8daad`) and from T22's brief, the
 model of an Extended read slice, and T13's, the sibling whose harness this
-slice is judged by. A stranger's proof runs before dispatch; version 2
-records what it found. Every number below was pasted from a command's
+slice is judged by. The stranger's proof of version 1 ran before dispatch (nine commands, from the scratch clone); this version records what it found. Every number below was pasted from a command's
 output at the hash named beside it; the lane re-derives each one and writes
 the delta where it differs.
 
@@ -20,8 +18,7 @@ the delta where it differs.
   product areas"*; kind read; lens security, brittleness, new
   functionality). **Epic:** #1047 (the cloud area: T13 #660 accepted and
   closed out, this slice, then T17 #664-or-its-number `cloud-setup-content`),
-  whose futro (`docs/futros/2026-10-25-m6-cloud-sync-and-saves.md`) carries a T16
-  kickoff addendum written with this version. **Milestone:** M6.
+  whose futro (`docs/futros/2026-10-25-m6-cloud-sync-and-saves.md`) carries a T16 kickoff addendum written with version 1. T17 is **#664**. **Milestone:** M6.
   **Predecessors:** #346, #641, **T13 #660** (`docs/reviews/briefs/cloud-harness.md`;
   its audit on `feature/m6-cloud-harness-660`: `02-forward-audit.md`
   § Assertion shapes, 79 rows, **the oracle this slice is read against**;
@@ -92,13 +89,17 @@ is the area, the directory and the eleven exclusions, which are T17's):
 
 ```bash
 python3 -I - <<'PY'
-import json, collections, os, fnmatch
+import json, collections, os, fnmatch, re
 inv = json.load(open("docs/reviews/inventory.json")); cols = inv["columns"]
 rows = [dict(zip(cols, r)) for r in inv["rows"]]
 sl = json.load(open("docs/reviews/slices.json"))
 k16 = [s for s in sl["slices"] if s["k"] == 16][0]; sel = k16["select"]
-inc = [g for g in sel["globs"] if not g.startswith("!")]; exc = [g[1:] for g in sel["globs"] if g.startswith("!")]
-def m(p, g): return fnmatch.fnmatchcase(p, g) or fnmatch.fnmatchcase(p, g.replace("/**", "/*")) or p.startswith(g.rstrip("*"))
+def expand(g):   # one level of {a,b} brace alternation, which fnmatch does not know and the inventory's slice_of does
+    mm = re.search(r'\{([^{}]*)\}', g)
+    if not mm: return [g]
+    return [x for alt in mm.group(1).split(",") for x in expand(g[:mm.start()] + alt + g[mm.end():])]
+inc = [x for g in sel["globs"] if not g.startswith("!") for x in expand(g)]; exc = [x for g in sel["globs"] if g.startswith("!") for x in expand(g[1:])]
+def m(p, g): return fnmatch.fnmatchcase(p, g) or (g.endswith("/**") and p.startswith(g[:-2]))
 t16 = [r for r in rows if r["tree"] == "distribution" and r["area"] == "cloud-sync-and-saves"
        and any(m(r["path"], g) for g in inc) and not any(m(r["path"], g) for g in exc)]
 L = lambda rs: sum(r["lines"] or 0 for r in rs)
@@ -125,41 +126,27 @@ holds 25 inventory rows: the other 11 (8,202 lines, every one added since
 the base) are T17's (`cloud_oauth`, `cloud_setup`, `cloud_remote`,
 `cloud_connections.py`, `cloud_content_{backup,restore,transfer}`,
 `cloud_scan`, `cloud_device_id`, `cloud_folder_validate`, `cloud_log_scrub`).
-(The block's glob matcher is a stand-in for `tools/renovation-inventory`'s
-`slice_of`; the lane runs both and records the delta, as T25 did.)
+(The block's glob matcher is a stand-in for `tools/renovation-inventory`'s `slice_of`, which expands braces; version 1's did not and wrote 25 paths; the lane runs both and records the delta, as T25 did.)
 
 **The 14, with what each is** (lines at `8ebaf8daad`; functions by
 `grep -n '^[a-z_]*()'`):
 
 | File | Lines | What it is | Functions / entry | Writes |
 | --- | ---: | --- | --- | --- |
-| `sources/cloud_backup` | 2,510 | the deliberate back up (settings, saves, the automatic `--automatic` sync on exit) | 45; dispatch `:2407`, `:2510` | `last-backup` and the run stamps, the lock `/var/run/cloud_sync.lock` (`take_cloud_lock:457`), `cloud_sync.conf` reads x10 |
-| `sources/cloud_restore` | 2,324 | the deliberate restore; **a copy-twin of `cloud_backup`** (the same function list: `take_cloud_lock`, `bounded_rclone`, `conf_valid`, `load_config`, `record_last_run`, `rules_whole`, `network_lost_during_run`, ...) | 47; dispatch `:2207`, `:2324` | `last-restore`, the same lock |
-| `sources/cloud_capture` | 1,704 | the capture of a session's saves after a game and `--full` at boot: its own `.capture.lock`, a seal under `/storage/.cache/cloud_sync/stage/` | 41; dispatch `:383` | `last-capture`, `capture-failures`, `captured_at`, the stage |
-| `sources/cloud_sync_helper` | 625 | run by `post-update` after an update: the one-shot `.cloud_sync-*-applied` markers, `update_cloud_sync_rules:47`, `update_cloud_sync_config:335`, `conf_valid:240`, `trim_cloud_log:510`, `main:524` | 7 | `/storage/.config/cloud_sync.conf` x16, the markers |
+| `sources/cloud_backup` | 2,510 | the deliberate back up (settings, saves, the automatic `--automatic` sync on exit) | 45; dispatch `:2407`, `:2510` | `last-backup`, `last-settings-backup`, `last-run`; the lock `/var/run/cloud_sync.lock` (`CLOUD_SYNC_LOCK` `:456`, `take_cloud_lock:457`, `flock -n 9` `:460`); `cloud_sync.conf` read in several places |
+| `sources/cloud_restore` | 2,324 | the deliberate restore; **a copy-twin of `cloud_backup`** (39 function names shared; 1,622 differing lines by `diff`; the shared ones include `take_cloud_lock`, `bounded_rclone`, `conf_valid`, `load_config`, `record_last_run`, `rules_whole`, `network_lost_during_run`) | 47; dispatch `:2207`, `:2324` | `last-settings-restore`, `last-run` (there is no `last-restore`); the same lock (`:441`, `:442`, `:445`) |
+| `sources/cloud_capture` | 1,704 | the capture of a session's saves after a game and `--full` at boot: **its own `.capture.lock` only** (`:249`, `flock` fd 8 `:259`; it never takes `cloud_sync.lock`), a seal under `STAGE="${CACHE}/stage"` (`:118`), `EXIT_BOUND_MS=100000` (`:221`) | 40; dispatch `:383` | `last-capture`, `capture-failures`, `captured_at`, the stage |
+| `sources/cloud_sync_helper` | 625 | run by `post-update` after an update: the one-shot `.cloud_sync-*-applied` markers, `update_cloud_sync_rules:47`, `update_cloud_sync_config:335`, `conf_valid:240`, `trim_cloud_log:510`, `main:524` | 7 | `/storage/.config/cloud_sync.conf`, the markers |
 | `sources/cloud_net_ready` | 217 | is the network ready (a default route, NetworkManager's state and connectivity, the carrier); called by `cloud_capture` | 7; dispatch `:63` | nothing |
 | `sources/cloud_saves_root` | 205 | which card the saves are on: `identity:70`, `write_record:94`, `wait_for:106` | 5; dispatch `:117` | `/storage/.cache/cloud_sync/saves-root` (D-CLOUD-158) |
-| `autostart/102-cloud-saves` | 57 | the boot hook: `cloud_log_scrub` (T17's), then a detached `cloud_capture --full`; **no boot sync any more** | none | nothing of its own |
+| `autostart/102-cloud-saves` | 57 | the boot hook: `cloud_log_scrub` (T17's), then a detached `cloud_capture --full`; **no boot sync any more** (its comment also says *Capture takes no lock*, while `cloud_capture` takes `.capture.lock`: a lead) | none | nothing of its own |
 | `sources/rasteratops-settings-archive` | 43 | `select_settings_archives:8`, called by `cloud_restore` | 1 | nothing |
 | `sources/cloud_sync_cleanup_duplicates.sh` | 31 | a cleaner called by `cloud_backup` | none | reads `cloud_sync.conf` |
 | `sources/cloud_sync.conf` / `.defaults` | 160 / 140 | 16 keys and their 16 `DEFAULT_` twins (`SAVESPATH`, `SAVES_REMOTE`, `SETTINGS_*`, `RCLONEOPTS`, `BACKUPMETHOD`/`RESTOREMETHOD`, `CONTENT_REMOTE`, ...); `cloud_sync_helper` appends what is missing | -- | the conf under `/storage/.config/` |
 | `sources/cloud_sync-rules.txt` / `.defaults` | 89 / 100 | the rclone filter file, **an allowlist**: `--delete-excluded` against it is catastrophic (`rclone-cloud-sync.md`) | -- | -- |
-| `package.mk` | 111 | rclone 1.75.2 as a binary zip; installs the 20 scripts; **no game-end hook and no TOOLS entries** | `unpack:50`, `makeinstall_target:61` | -- |
+| `package.mk` | 111 | rclone 1.75.2 as a binary zip; installs 19 scripts by `cp`, the binary and the four configuration files; **no game-end hook and no TOOLS entries** (`:90`, `:102`) | `unpack:50`, `makeinstall_target:61` | -- |
 
-**The three stamp families, and who owns which.** The scripts write
-`last-backup`, `last-restore`, the run stamps (`record_last_run`), and the
-capture's `last-capture`, `capture-failures`, `saves-root` and the stage;
-**`last-sync-<origin>` is EmulationStation's** (0 hits in the 14; written by
-`ThreadedCloudSync` and the cards, read by `tools/es-launch-memory`,
-`ra-offline-test`, `ra-ui-test`: 17 lines in `tools/`). The lock is one
-`flock` on `/var/run/cloud_sync.lock` (its holders: the twins and the
-capture through `take_cloud_lock`; the capture's own `.capture.lock` beside
-it); the exits are `EXIT_LOCK_HELD=75`, `EXIT_NO_NETWORK=69`
-(`cloud_backup:20`), and the bounded run's ceiling is 90 s
-(`bounded_rclone:251`; D-CLOUD-118/121/137). **The rule's § "The game-exit
-sync" still says exit 4** where the script says 69: #909 (T4's) owns that
-drift; the scripts are read as the truth and the rule's stale sentences are
-cited, not re-filed.
+**The three stamp families, and who owns which.** The twins write `last-backup`, `last-settings-backup`, `last-settings-restore` and `last-run` (`record_last_run`, `:716` / `:722`); the capture and `cloud_saves_root` write `last-capture`, `capture-failures`, `saves-root` and the stage; **`last-sync-<origin>` is EmulationStation's** (0 hits in the 14; written by `ThreadedCloudSync` and the cards, read by five tools on 17 lines: `es-launch-memory`, `ra-offline-test`, `ra-ui-test`, `rasteratops-vm-cloud-epic`, `time-to-play`). The locks are two: one `flock` on `/var/run/cloud_sync.lock` held by the twins alone (`take_cloud_lock`), and the capture's `.capture.lock`; the exits are `readonly EXIT_LOCK_HELD=75 EXIT_NO_NETWORK=69` (`cloud_backup:20`, `cloud_restore:21`), and the bounded run's ceiling is `SYNC_CEILING_SECONDS_FALLBACK=90` (`:57` in both twins; D-CLOUD-118/121/137). **The rule's § "The game-exit sync" names 69 and 75 at `:331-333`, and its `:375` still says `tools/cloud-round-trip` "asserts the exit-4 timing"**: #909 (T4's) owns that drift; the scripts are read as the truth and the rule's stale sentences are cited, not re-filed.
 
 **History and the upstream relation.** `git log --no-merges
 --since='2026-06-01T00:00:00Z' 8ebaf8daad -- <the 14>`: **145 commits, every
@@ -178,8 +165,7 @@ keyword-matching entries, 32 closed `bug` issues for `"cloud sync"`): the
 brief states the slice's and names the area's as the order's.
 
 **Who calls the 14 from outside the directory** (`git grep -l` at
-`8ebaf8daad`): `rocknix/sources/post-update` (runs `cloud_sync_helper`;
-`:70-81` removes the legacy `cloud_backup.sh`/`cloud_restore.sh` symlinks),
+`8ebaf8daad`): `rocknix/sources/post-update` (runs `cloud_sync_helper`; its loop at `:81-86` removes the legacy `cloud_backup.sh`/`cloud_restore.sh` symlinks, `rm -f` at `:84`),
 `rocknix/sources/scripts/runemu.sh:572` and `scripts/run` (comments: the
 capture and the exit sync are EmulationStation's `FileData::launchGame`,
 D-UI-095), `backuptool` (comments), and
@@ -220,13 +206,7 @@ D-QA-015 (nothing on a person's device or cloud). The rule
 `rclone-cloud-sync.md` (895 lines, 24 headings) is read whole, with #909's
 caveat.
 
-**The blindspots this slice is read against** (`docs/blindspot-register.md`,
-the entries whose text is about these scripts): **10** (fixing forward
-without the backward fix), **22** (a probe that cannot report absence),
-**28** (two one-way copies as a recency resolver), **31** (a comment is the
-author's claim), **33** (a run that exits 0 after moving nothing), **36**,
-**38** (a run on the maintainer's cloud), **39** (a PASS over missing
-numbers), **43**, **45**, **56**, **62**, **65**, **71**, **72**. Each is a
+**The blindspots this slice is read against** (`docs/blindspot-register.md`, the entries whose text is about these scripts): **10** (fixing forward without the backward fix), **22** (a probe that cannot report absence), **28** (two one-way copies as a recency resolver), **31** (a harness that writes and reads through the same wrong path agrees with itself), **33** (a sentinel exit code borrowed from the wrapped tool's exit-code space), **36** (one backend's semantics mistaken for the contract), **38** (a category-level offer read as a standing yes), **39** (a PASS over a table of dashes), **43** (a safety claim in a header comment, never tested), **45** (proven at a fixture's speed), **56** (a timing run with no cloud to reach), **62** (the writer fixed, what it had written left to heal by play), **65** (a substitute passed where the real input failed), **71** (a fixture seeded a default by its literal name), **72** (a comment held an invariant the code had stopped keeping). Each is a
 question to put to the code, not a finding to copy.
 
 ## 3. Read first
@@ -255,12 +235,7 @@ question to put to the code, not a finding to copy.
   `02-forward-audit.md` § Assertion shapes (the 79 rows and the three
   oracle classes: *both ends*, *synthetic*, *device report*), § Positives
   and § The streams' positives, § The guest cycle, § The second window,
-  § The third window; `04-analysis.md` § Q2 (the oracle verdict) and § Q6;
-  `05-punch-list.md`; `tools/t13-shapes.py` (the table's generator);
-  `stage-e/pos*` (the twelve drivers); and the retro
-  `docs/retros/2026-10-25-m6-cloud-harness.md` § What T16 inherits (the
-  verdicts T16 may trust at `fixed-at` `3a653eaec4` and the ones it may
-  not). **T22's audit** (`git show feature/m6-os-system-services-669:...`):
+  § The third window; `04-analysis.md` § Q2 (the oracle verdict: 78 rows, 24 both ends, 8 device report, `CONTRACT` outside the 78 reading both ends; its `:228` list of the 24) and § Q6; `05-punch-list.md`; `tools/t13-shapes.py` (the table's generator); `stage-e/pos*` (the twelve drivers); and the retro `docs/retros/2026-10-25-m6-cloud-harness.md`, whose bold line *What T16 inherits* (`:42`) carries the verdicts T16 may trust at `fixed-at` `3a653eaec4` and the ones it may not. The audit's tip on that branch is `0b72904621`; in a clone the branch is `origin/feature/m6-cloud-harness-660`. **T22's audit** (`git show feature/m6-os-system-services-669:...`):
   `02` § The guest cycle and § The second window (the window's shape), its
   `second-opinions/` (the two-seat recipe), `tools/t22-packet.py` (the
   packet's scan).
@@ -345,14 +320,7 @@ findings and the dispositions; each seat's probe comes first.
 **The oracle, written into `02` § The oracle.** From T13's § Assertion
 shapes, one row per assertion that reads this slice's scripts: the row, the
 script and function it exercises, the oracle class, and *what makes it
-FAIL* (from T13's § Positives); **the rows that read both ends** (steps 2-7,
-9-12, 14, 17-26, 31-32 of the single-device suite; LINK1/2/6; KILL1/2/15;
-A1-A4, A6-A15; by T13's count 24 of 78) are the verdicts this slice may
-trust at `3a653eaec4` and later; the **synthetic** rows (CAP1-14, the
-planted inputs) prove the path, not the input; the **device-report** rows
-(`run_steps.3/.4/.6/.12/.21/.25`, `prepare_device.1`, `A5`) certify the
-code by its own output and are not evidence about it; A5 and RETENTION
-SKIP (no `cloud_reconcile`, #1057). The table is generated from T13's `02`
+FAIL* (from T13's § Positives); **the rows that read both ends** (T13's `04` `:228`: steps 2, 5, 8, 17, 18, 19, 22, 23, 27, 32; A1, A2, A8, A9, A11, A14, RETENTION; LINK2, LINK3, LINK5, LINK6; KILL1, KILL4 (conditional), KILL5 -- 24 of 78, with `CONTRACT` the 79th row reading both ends) are the verdicts this slice may trust at `3a653eaec4` and later; the **synthetic** rows (46: CAP1-14 and the other planted inputs) prove the path, not the input; the **device-report** rows (8: `run_steps.3/.4/.6/.12/.21/.25`, `prepare_device.1`, `A5`) certify the code by its own output and are not evidence about it; A5 and RETENTION SKIP today (no `cloud_reconcile`, #1057), whatever their class. The table is generated from T13's `02`
 by a script under the audit folder's `tools/` (the generator asserts 79 in,
 N out), not typed. This is #1047's fifth criterion, met here.
 
@@ -400,32 +368,33 @@ wc -l < .qa-scratch/t16/paths.txt                                               
 tr '\n' '\0' < .qa-scratch/t16/paths.txt | xargs -0 git diff --stat 8ebaf8daad HEAD -- | tail -1        # empty
 for p in $(cat .qa-scratch/t16/paths.txt); do printf '%s ' "$(git show "8ebaf8daad:$p" | wc -l)"; done | awk '{s=0; for(i=1;i<=NF;i++) s+=$i; print s}'   # 8316
 # the twins (expect 45 and 47 functions; the shared list; the diff's size)
-R=projects/ROCKNIX/packages/network/rclone/sources
+R=projects/ROCKNIX/packages/network/rclone/sources; export LC_ALL=C
 git show "8ebaf8daad:$R/cloud_backup" | grep -c -E '^[a-z_]+\(\)'; git show "8ebaf8daad:$R/cloud_restore" | grep -c -E '^[a-z_]+\(\)'   # 45 47
-comm -12 <(git show "8ebaf8daad:$R/cloud_backup" | grep -o -E '^[a-z_]+\(\)' | sort) <(git show "8ebaf8daad:$R/cloud_restore" | grep -o -E '^[a-z_]+\(\)' | sort) | wc -l   # the shared names (the lane records the number)
-diff <(git show "8ebaf8daad:$R/cloud_backup") <(git show "8ebaf8daad:$R/cloud_restore") | grep -c -E '^[<>]'   # the divergence in lines (the lane records it)
-git show "8ebaf8daad:$R/cloud_capture" | grep -c -E '^[a-z_]+\(\)'                                      # 41
-# the exits, the lock, the bound (expect EXIT_NO_NETWORK=69, EXIT_LOCK_HELD=75 near :20; take_cloud_lock at :457 / :442; bounded_rclone at :251 / :238)
-git show "8ebaf8daad:$R/cloud_backup" | grep -n -E '^EXIT_[A-Z_]+=|^(take_cloud_lock|bounded_rclone|record_last_run)\(\)' | cut -c1-80
-git show "8ebaf8daad:$R/cloud_restore" | grep -n -E '^EXIT_[A-Z_]+=|^(take_cloud_lock|bounded_rclone|record_last_run)\(\)' | cut -c1-80
+comm -12 <(git show "8ebaf8daad:$R/cloud_backup" | grep -o -E '^[a-z_]+\(\)' | sort) <(git show "8ebaf8daad:$R/cloud_restore" | grep -o -E '^[a-z_]+\(\)' | sort) | wc -l   # 39 shared names
+diff <(git show "8ebaf8daad:$R/cloud_backup") <(git show "8ebaf8daad:$R/cloud_restore") | grep -c -E '^[<>]'   # 1622 differing lines
+git show "8ebaf8daad:$R/cloud_capture" | grep -c -E '^[a-z_]+\(\)'                                      # 40
+# the exits, the lock, the bound (expect readonly EXIT_LOCK_HELD=75 EXIT_NO_NETWORK=69 at :20 / :21; SYNC_CEILING_SECONDS_FALLBACK=90 at :57; take_cloud_lock :457 / :442; bounded_rclone :251 / :238; record_last_run :716 / :722)
+git show "8ebaf8daad:$R/cloud_backup" | grep -n -E '^(readonly )?EXIT_|^SYNC_CEILING|^(take_cloud_lock|bounded_rclone|record_last_run)\(\)' | cut -c1-80
+git show "8ebaf8daad:$R/cloud_restore" | grep -n -E '^(readonly )?EXIT_|^SYNC_CEILING|^(take_cloud_lock|bounded_rclone|record_last_run)\(\)' | cut -c1-80
+git show "8ebaf8daad:$R/cloud_capture" | grep -n -E 'capture.lock|^STAGE=|^EXIT_BOUND_MS|flock' | cut -c1-80   # :118 :221 :249 :259; no cloud_sync.lock
 # the conf's keys against the defaults (expect 16 and 16; every key with a DEFAULT_ twin)
 git show "8ebaf8daad:$R/cloud_sync.conf" | grep -c -E '^[A-Z_]+='; git show "8ebaf8daad:$R/cloud_sync.conf.defaults" | grep -c -E '^DEFAULT_[A-Z_]+='
 comm -3 <(git show "8ebaf8daad:$R/cloud_sync.conf" | grep -o -E '^[A-Z_]+=' | tr -d = | sort) <(git show "8ebaf8daad:$R/cloud_sync.conf.defaults" | grep -o -E '^DEFAULT_[A-Z_]+=' | sed 's/^DEFAULT_//; s/=$//' | sort)   # expect nothing
-# the rules file against its defaults (the lane records the diff's size)
+# the rules file against its defaults (expect 23 differing lines)
 diff <(git show "8ebaf8daad:$R/cloud_sync-rules.txt") <(git show "8ebaf8daad:$R/cloud_sync-rules.txt.defaults") | grep -c -E '^[<>]'
 # the callers outside the directory (expect post-update, runemu.sh, run, backuptool, gamelist.xml)
 git grep -l -E 'cloud_(backup|restore|capture|saves_root|sync_helper|net_ready)' 8ebaf8daad -- projects packages | grep -v 'packages/network/rclone/' | sed 's/^8ebaf8daad://'
 git show 8ebaf8daad:projects/ROCKNIX/packages/misc/modules/sources/gamelist.xml | grep -n 'cloud_' | cut -c1-80   # :64 :76 the dead tool entries
-git show 8ebaf8daad:projects/ROCKNIX/packages/rocknix/sources/post-update | sed -n '70,85p' | grep -n -E 'cloud_|symlink|rm ' | cut -c1-100
-# the stamps: who writes which (expect last-backup/last-restore in the twins; last-capture/capture-failures/saves-root in capture and saves_root; last-sync in none)
-for s in last-backup last-restore last-capture capture-failures saves-root last-sync; do printf '%s: ' "$s"; tr '\n' '\0' < .qa-scratch/t16/paths.txt | xargs -0 git grep -c "$s" 8ebaf8daad -- 2>/dev/null | sed 's/^8ebaf8daad://' | tr '\n' ' '; echo; done
+git show 8ebaf8daad:projects/ROCKNIX/packages/rocknix/sources/post-update | sed -n '78,88p' | grep -n -E 'cloud_|symlink|rm ' | cut -c1-100   # the loop :81-86, rm -f at :84
+# the stamps: who writes which (expect last-backup / last-settings-backup / last-run in cloud_backup; last-settings-restore / last-run in cloud_restore; last-capture / capture-failures in the capture; saves-root in 102-cloud-saves, the capture and cloud_saves_root; last-sync in none)
+for s in last-backup last-settings-backup last-settings-restore last-run last-capture capture-failures saves-root last-sync; do printf '%s: ' "$s"; tr '\n' '\0' < .qa-scratch/t16/paths.txt | xargs -0 git grep -c "$s" 8ebaf8daad -- 2>/dev/null | sed 's/^8ebaf8daad://' | tr '\n' ' '; echo; done
 # the history with the three identities (expect 145 non-merge; 145 fork; 0 other) and the upstream relation (expect empty; 0)
 tr '\n' '\0' < .qa-scratch/t16/paths.txt | xargs -0 git log --no-merges --format='%h %an' --since='2026-06-01T00:00:00Z' 8ebaf8daad -- > "$TMPDIR/hist.txt"; wc -l < "$TMPDIR/hist.txt"; grep -c -E ' (Max Engel|blitterbot|rasterabot)$' "$TMPDIR/hist.txt"
 git diff --stat c445081a59 651150fc88 -- projects/ROCKNIX/packages/network/rclone | tail -1; git log --oneline c445081a59..651150fc88 -- projects/ROCKNIX/packages/network/rclone | wc -l
 tr '\n' '\0' < .qa-scratch/t16/paths.txt | xargs -0 git diff --shortstat c445081a59 8ebaf8daad --                     # 14 files, +6976 / -338
-# T13's oracle (expect 79 rows; 24 both ends, 46 synthetic, 8 device report by T13's count)
+# T13's oracle (expect 81 table lines = header, separator and 79 rows; the Oracle column 25 both ends (CONTRACT among them) / 46 synthetic / 8 device report, some cells marked (reviewed); in a clone the ref is origin/feature/m6-cloud-harness-660, the audit's tip 0b72904621)
 git show feature/m6-cloud-harness-660:docs/audits/2026_10_25-epic-m6-cloud-harness/02-forward-audit.md | awk '/^## Assertion shapes/{p=1;next} /^## /{p=0} p' | grep -c -E '^\| '
-git show feature/m6-cloud-harness-660:docs/audits/2026_10_25-epic-m6-cloud-harness/02-forward-audit.md | awk '/^## Assertion shapes/{p=1;next} /^## /{p=0} p' | grep -o -E '\| (both ends|synthetic|device report) \|' | sort | uniq -c
+git show feature/m6-cloud-harness-660:docs/audits/2026_10_25-epic-m6-cloud-harness/02-forward-audit.md | awk '/^## Assertion shapes/{p=1;next} /^## /{p=0} p' | grep -o -E '\| (both ends|synthetic|device report)( \(reviewed\))? \|' | sed 's/ (reviewed)//' | sort | uniq -c
 # the harness's names for this slice (expect cloud_backup 70, cloud_capture 66, cloud_restore 33, cloud_saves_root 18, 102-cloud-saves 5, cloud_sync_helper 3; cloud_net_ready, rasteratops-settings-archive, cloud_sync_cleanup_duplicates.sh 0)
 for s in cloud_backup cloud_capture cloud_restore cloud_saves_root 102-cloud-saves cloud_sync_helper cloud_net_ready rasteratops-settings-archive cloud_sync_cleanup_duplicates.sh; do printf '%s %s ' "$s" "$(git show 8ebaf8daad:tools/cloud-round-trip | grep -c "$s")"; done; echo
 # the removal rule's own check against the dispatch tip (expect empty)
@@ -446,13 +415,7 @@ bound**:
    `02` § The guest cycle before any verdict below is used, and named
    beside each verdict it touches (T22's PL-05: the image is the M7
    candidate).
-2. The single-device suite over WebDAV whole (`tools/cloud-round-trip`
-   with `--dump` into the window's record; about 2 minutes), its PASS
-   line with its counts and its exit (D-QA-063: 0 is only all ran as
-   evidence); then the hand cells that read both ends of this slice's
-   scripts and have not run since `3a653eaec4` on a guest -- KILL2, KILL15,
-   LINK1/2/6 (T13's three windows ran KILL1, A15, CAP13, KILL5, A5 and
-   RETENTION: cited, not re-run) -- each with `--dump`.
+2. The single-device suite over WebDAV whole (`tools/cloud-round-trip` with `--dump` into the window's record; about 2 minutes), its PASS line with its counts and its exit (D-QA-063: 0 is only all ran as evidence); then the both-ends hand cells of T13's `04` `:228` that have not run on a guest since `3a653eaec4` -- LINK2, LINK3, LINK5, LINK6, KILL4 (conditional), A1, A2, A8, A9, A11, A14 (T13's three windows ran KILL1, KILL5, A15, CAP13, A5 and RETENTION: cited, not re-run) -- each with `--dump`.
 3. One `tools/time-to-play --vm` run if ten minutes remain (the exit sync's
    median against D-CLOUD-119's 3 s; `docs/vm-qa-log.md`'s last figure
    cited either way).
@@ -503,15 +466,15 @@ from the artifacts, never from the hand-back's words.
 - [ ] `docs/audits/<date>-epic-m6-cloud-sync-core/` holds `00-running-log.md` and `01-research-notes.md` to `05-punch-list.md`.
 - [ ] `tools/lint-audit-artifacts docs/audits/<date>-epic-m6-cloud-sync-core/` prints `PASS` (its default `resolution` phase, at close; before stage D the same command with `--phase pre-issue` prints `PASS pre-issue artifacts`), the renovation face included.
 - [ ] `second-opinions/review-plan.json` records `depth: extended` and two reviewers (`gpt`, `openai/gpt-6-astra`, `max`; `gemini-argon`, `google/gemini-4-argon`, `high`); each seat's probe and refutation have a `.provenance.json` beside them whose served model is the seat's, whose verification is PASS and whose `facilitator_version` is named; `packet-manifest.json` lists every packet file with its sha256 and the three scans' results (0 hits), and no `rclone.conf`, QA credential or stamp with a token is in the packet.
-- [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue (a `bug`, a Backlog the coordinator files, #909, #585, T17's issue, T18's or T19's), or recorded as a design with its sentence; `tools/box-check --issue <N>` 0 fail; the ticked and open counts read back by the coordinator.
+- [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue (a `bug`, a Backlog the coordinator files, #909, #585, T17's #664, an ES slice's issue the coordinator names), or recorded as a design with its sentence; `tools/box-check --issue <N>` 0 fail; the ticked and open counts read back by the coordinator.
 - [ ] `reviewed-at:` and `fixed-at:` in the checklist's header carry the lane's commits; the read is on `8ebaf8daad`'s bytes for the 14 (`git diff --stat 8ebaf8daad <reviewed-at> -- $(cat .qa-scratch/t16/paths.txt)` empty) and nothing under `packages/`, `projects/` or `tools/` changes at stages A to D (`git diff --stat <dispatch tip> <stage-D tip> -- packages projects tools` empty).
 - [ ] `01-research-notes.md` § Scope records § 2's block with its output (14 paths, 8,316 lines; read 10 / 7,827; fork-own 14; shipped 14; the directory's 25 rows, 11 of them T17's -- or the deltas beside them), the four unread files named as read, the history (145 non-merge since 2026-06-01, every one a fork identity; the directory at the base's bytes upstream; +6,976 / -338 since the base) and the area figures the order carries named as the area's.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | grep -c -E '^\| `'`` prints `14`.
-- [ ] `02-forward-audit.md` § The functions has one row per function of `cloud_backup`, `cloud_restore` and `cloud_capture` (45 + 47 + 41 = 133, or the counts the block prints), each with its lines, its copy-twin's line or `own`, and the oracle rows that reach it or `unrowed`; the twins' shared function list and their divergence in lines are stated with the `comm` and `diff` counts; every `unrowed` function of the three, and every line of the six smaller scripts and the four files no row reads, is read whole and says so in its row.
-- [ ] `02-forward-audit.md` § The oracle is generated from T13's § Assertion shapes by a script under the audit folder's `tools/` (79 rows in; the rows that read this slice's scripts out, each with the script, the function, the oracle class and *what makes it FAIL*), and `04` § Q2 states the counts (both ends / synthetic / device report) and which verdicts this slice trusts at `3a653eaec4`.
-- [ ] `02-forward-audit.md` § The stamps and locks names the three stamp families with their writers and readers (`last-sync-<origin>` as EmulationStation's, by path), the two locks with their holders and every release path, the exits 69 and 75 and the 90 s bound with their lines, and the `>>> why` sentences each script prints against `es-player-text.md`'s table; § The configuration lists the 16 keys against their 16 defaults (the `comm` prints nothing) and the rules allowlist against its defaults.
+- [ ] `02-forward-audit.md` § The functions has one row per function of `cloud_backup`, `cloud_restore` and `cloud_capture` (45 + 47 + 40 = 132, or the counts the block prints), each with its lines, its copy-twin's line or `own`, and the oracle rows that reach it or `unrowed`; the twins' shared function list (39) and their divergence in lines (1,622) are stated with the `comm` and `diff` counts under `LC_ALL=C`; every `unrowed` function of the three, and every line of the six smaller scripts and the four files no row reads, is read whole and says so in its row.
+- [ ] `02-forward-audit.md` § The oracle is generated from T13's § Assertion shapes by a script under the audit folder's `tools/` (79 rows in, the Oracle column read with its `(reviewed)` marks; the rows that read this slice's scripts out, each with the script, the function, the oracle class and *what makes it FAIL*), and `04` § Q2 states the counts (25 / 46 / 8 of 79, or the deltas), names the 24 both-ends rows of T13's `04` `:228`, and says which verdicts this slice trusts at `3a653eaec4`.
+- [ ] `02-forward-audit.md` § The stamps and locks names the three stamp families with their writers and readers (`last-backup`, `last-settings-backup`, `last-settings-restore` and `last-run` the twins'; `last-capture`, `capture-failures` and `saves-root` the capture's and `cloud_saves_root`'s; `last-sync-<origin>` EmulationStation's, by path, read by five tools), the two locks with their holders (`cloud_sync.lock` the twins' alone; `.capture.lock` the capture's) and every release path, the exits 69 and 75 (`:20` / `:21`) and the 90 s ceiling (`:57`) with their lines, and the `>>> why` sentences each script prints against `es-player-text.md`'s table; § The configuration lists the 16 keys against their 16 defaults (the `comm` prints nothing under `LC_ALL=C`) and the rules allowlist against its defaults (23 differing lines).
 - [ ] `02-forward-audit.md` § The runs records every § 5 command with exit, wall time, the figure and *a FAIL would mean ...*; a run that cannot be made is `CANNOT` with its reason, never a pass.
-- [ ] `02-forward-audit.md` § The guest cycle records the window the coordinator granted on #663 (the comment's time), the image by file name and BUILD_ID, the image-versus-tree diff of the nine installed scripts before any verdict (and every verdict a difference touches named), the suite's PASS line with its counts and exit, each hand cell's verdict with its dump in `guest-cycle/`, the `time-to-play` figure or `CANNOT`, the stop by pidfile and a leftover check of 0; the window's START and RETURN are on #663.
+- [ ] `02-forward-audit.md` § The guest cycle records the window the coordinator granted on #663 (the comment's time), the image by file name and BUILD_ID (read from the guest), the image-versus-tree diff of the nine installed scripts before any verdict (and every verdict a difference touches named), the suite's PASS line with its counts and exit, each hand cell's verdict with its dump in `guest-cycle/`, the `time-to-play` figure or `CANNOT`, the stop by pidfile and a leftover check of 0; the window's START and RETURN are on #663.
 - [ ] `00-running-log.md` shows no build, no compiler, no plan generation, no fetch (the council runtime from `npm install --offline`), no handheld, no hosted or offsite account, no `--real-roms`, no `cloud-census` run, no M7 build root read, guests only inside the granted window, exactly four `tools/council/run invoke` calls (a probe and a refutation per seat), every other `tools/council/run` call with `COUNCIL_ENV_FILE=/nonexistent` (`--help` included), and the VM line.
 - [ ] `04-analysis.md` § Q3 states each bug decision with its trace, its `Already written:` line and its VM line, and says which of D-CLOUD-076 and D-CLOUD-109/130 the read tree implements; § Q2 the twins' and the configuration's findings; § Q6 the `gamelist.xml` tool entries and every uncalled function, removals none; § Q7 the stamp-and-lock clarity answer with #909's drift cited; § Second opinion grades every item of both seats with the seats' words quoted and the re-read lines named.
 - [ ] Every proof in `02-forward-audit.md` carries a `proved:` cell reading `tree`, `history`, `tool-run`, `fixture`, `guest` or `design`; every punch item carries `question:`; every `bug` passes `tools/box-check --issue N` and carries its `Already written:` line.
@@ -580,3 +543,38 @@ is proven.
 (#1047) carries a T16 kickoff addendum written with this version, and a
 stranger's proof of this brief is run by a reader with no context before
 dispatch; version 2 records what each found.
+
+## Version 2: what the stranger's proof found (2026-10-25)
+
+Nine commands from the scratch clone at `2174265e9c`; the per-file line
+counts, the function line numbers, the dispatch lines, the history (145,
+all fork identities), the upstream relation (nil) and every path and tool
+named held. The corrections:
+
+1. The membership block's `!` exclusions are brace globs, which `fnmatch`
+   does not expand: version 1's block wrote 25 paths (the 14 and T17's 11).
+   The block expands braces now, as `slice_of` does.
+2. The both-ends list in § 4 was not T13's: it is T13's `04` `:228` (24 of
+   78), `CONTRACT` the 79th row reading both ends; the oracle grep reads the
+   `(reviewed)` cells; the table has 81 lines (header and separator).
+3. `cloud_capture` has 40 functions; the functions table is 132 rows.
+4. There is no `last-restore`: the twins write `last-backup`,
+   `last-settings-backup`, `last-settings-restore` and `last-run`.
+5. The capture holds only `.capture.lock`; `cloud_sync.lock` is the twins'.
+6. The exits are `readonly EXIT_LOCK_HELD=75 EXIT_NO_NETWORK=69` at `:20` /
+   `:21`; the ceiling is `SYNC_CEILING_SECONDS_FALLBACK=90` at `:57`.
+7. In a clone T13's branch is `origin/...`; the audit's tip is `0b72904621`.
+8. `comm` and `sort` run under `LC_ALL=C`; 39 shared names, 1,622 differing
+   lines, 23 rules-vs-defaults lines are recorded.
+9. The rule names 69 and 75 at `:331-333`; only `:375`'s "exit-4 timing" is
+   stale.
+10. Blindspots 31 and 33 are glossed by their own titles now.
+11. `package.mk` installs 19 scripts by `cp`.
+12. `post-update`'s removal loop is `:81-86`.
+13. The conf-read counts (x10, x16) are dropped: no pattern reproduces them.
+14. `last-sync`'s readers are five tools on 17 lines.
+15. T17 is #664; the ES slices' issues are named by the coordinator when
+    needed.
+16. The retro's *What T16 inherits* is a bold line at `:42`, not a heading.
+17. #663's body still carried P1's five checkboxes and "under epic #339":
+    rewritten at dispatch with § 7's seventeen and the VM line.
