@@ -16,10 +16,11 @@
 
 ## Current focus
 
-**Stage C complete; stage D waiting on two answers on #687** (updated 2026-10-25, 05:38 UTC).
-- **`05`:** 6 items, open; the pre-issue lint passes. **Bug #1056** (the inventory's symlink gap) is filed; `box-check` 0 fail.
-- **Waiting on the coordinator:** (1) class (c), one bug or two; (2) whether the 68 leads defer to #688 and #689 or to a Backlog.
-- **Then stage D:** class (c)'s bug(s), the Phase 7 outcomes, the audit issue, the lint, the pause.
+**Stage D complete; no stage E; stage F next** (updated 2026-10-25, 05:47 UTC).
+- **Bugs:** #1071 (vitaquake2-lr), #1072 (EmulationStation `cpugov`), #1056 (the inventory's symlink gap). `box-check` 0 fail on each.
+- **The audit issue:** #1074 (6 items, each at an outcome). Pointing comments are on #689 (50 leads) and #688 (none).
+- **The lint:** three forms PASS.
+- **Next:** stage F (the counts and the lint at the tip; `fixed-at` into #687's body), G (the retro), H (the hand-back).
 - **Running for this lane:** nothing.
 
 ## Next commands

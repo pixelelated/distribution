@@ -98,3 +98,20 @@
 
 - **#1056:** `tools/renovation-inventory` does not resolve a symlinked `patches` directory (label `bug`, milestone M6). `box-check --issue 1056`: 0 fail. It goes beside #1049, and the fix is T10's set.
 - **Class (c)'s bug waits** for the coordinator's answer on #687: one bug or two.
+
+## [Stage D] to 05:47 UTC — two class (c) bugs, the outcomes, the pointing comments, the audit issue #1074
+
+- **The coordinator's dispositions (05:44 UTC on #687):**
+  - PL-01: two bugs, one per unit;
+  - PL-02: #1056;
+  - PL-03: the 50 to #688 (kernel overrides) and #689 (the rest), the 18 recorded;
+  - PL-04 and PL-06: recorded;
+  - PL-05: #346, the coordinator's post.
+- **Bugs filed by the lane** (label `bug`, milestone M6, `box-check` 0 fail on each). Each carries the dictated line *Already written: nothing inherited -- the patch never applied, so every device carries the unpatched binary; the fix changes what the image ships and reads nothing a device stored*.
+  - **#1071:** vitaquake2-lr's four, with the `pre_make_target` gap; owning area #798.
+  - **#1072:** EmulationStation's `cpugov.patch`, with the slip; owning area #700. It names `pixelelated/emulationstation` (pin `16dbac5211`) as where the source fix could land instead.
+- **The 50 leads:** none of their 26 overrides is a kernel override, so all 50 go to #689. Pointing comments are on #689 (the 50 by override) and #688 (none, with the reason), each naming `02` § The shadowed 74 at `88a648da0d` and PL-03.
+- **`05`'s Phase 7 table:** PL-01, PL-02, PL-03 and PL-05 Deferred (#1071/#1072, #1056, #689, #346); PL-04 and PL-06 Resolved as recorded, at `b1c39c49d4`.
+- **The audit issue:** **#1074**, a sub-issue of #687, with 6 checkboxes, each naming its outcome. `box-check` 0 fail.
+- **The lint:** pre-issue PASS, resolution PASS, `--issue 1074` PASS.
+- **No stage E:** the lane changes no member.
