@@ -15,7 +15,7 @@
 - **Can this be done on the VM?** Yes, on the host: the inventory's rows, a generated plan (`tools/viewplan`, through the `curl` shim), `get_pkg_directory`, `git grep`, or a constructed recipe in a scratch tree; no guest, no device, no build, no fetch (brief § 5)
 - **Already written:** what was written: `inventory.json` at `eb4763e3cc` carries `reach: unreached` for the five units, and every later slice's membership read it; the fixed tool regenerates the inventory, and a slice whose set changes is the coordinator's to re-cut
 - **Acceptance:** a constructed tree with a recipe reached only through a reached recipe's `PKG_DEPENDS_UNPACK` reads `reached` in the tool's output (it reads `unreached` today); the regenerated inventory marks the five units reached
-- **Bug issue:** filed at stage D
+- **Bug issue:** #1049
 
 ## PL-02: `tools/pkgcheck` exits 0 when an argument matches no recipe, so a run that checked nothing reads as clean; the brief's sweep form (`tools/pkgcheck packages/...`) did exactly that
 
@@ -30,7 +30,7 @@
 - **Can this be done on the VM?** Yes, on the host: the inventory's rows, a generated plan (`tools/viewplan`, through the `curl` shim), `get_pkg_directory`, `git grep`, or a constructed recipe in a scratch tree; no guest, no device, no build, no fetch (brief § 5)
 - **Already written:** nothing inherited: a lint writes nothing; what it left is earlier runs' clean verdicts, each of which may have checked nothing if a path was passed
 - **Acceptance:** `tools/pkgcheck packages/addons/tools/jre.zulu` either checks the recipe (its FAIL printed) or exits non-zero naming the unmatched argument, quoted; `tools/pkgcheck nosuchpackage` exits non-zero
-- **Bug issue:** filed at stage D
+- **Bug issue:** #1050
 
 ## PL-03: `packages/graphics/mesa-reusable/package.mk:15` runs `curl` at global scope, so every plan generation, and every build's package scan, makes an HTTPS request to github.com
 
@@ -45,7 +45,7 @@
 - **Can this be done on the VM?** Yes, on the host: the inventory's rows, a generated plan (`tools/viewplan`, through the `curl` shim), `get_pkg_directory`, `git grep`, or a constructed recipe in a scratch tree; no guest, no device, no build, no fetch (brief § 5) (the proof is the shim's log: zero calls after the fix)
 - **Already written:** nothing inherited: a recipe no image builds has written nothing on a device or in a cloud; the tree is the only place it exists
 - **Acceptance:** `tools/viewplan image` with a logging `curl` shim first on `PATH` logs no call, quoted (it logs one today)
-- **Bug issue:** filed at stage D
+- **Bug issue:** #1051
 
 ## PL-04: A host plan without `xmlstarlet` drops H700's bootloader chain in silence: `SUBDEVICES` is read through `xmlstarlet ... 2>/dev/null`, so H700-aarch64 plans 605 names on the host against the container's 611
 
@@ -141,78 +141,78 @@ punch_index:
   question: Q3
   source_finding: "F-01"
   owner_area: "`tools/renovation-inventory` (`compute_reach`)"
-  tracked: "bug issue filed at stage D"
-  outcome: open
+  tracked: "#1049"
+  outcome: "deferred"
 - id: PL-02
   severity: Medium
   category: Bug
   question: Q2
   source_finding: "F-02"
   owner_area: "`tools/pkgcheck` (upstream's)"
-  tracked: "bug issue filed at stage D"
-  outcome: open
+  tracked: "#1050"
+  outcome: "deferred"
 - id: PL-03
   severity: Medium
   category: Bug
   question: Q2
   source_finding: "F-03"
   owner_area: "`packages/graphics/mesa-reusable/package.mk` (upstream-carried, unreached)"
-  tracked: "bug issue filed at stage D"
-  outcome: open
+  tracked: "#1051"
+  outcome: "deferred"
 - id: PL-04
   severity: Low
   category: Renovation
   question: Q3
   source_finding: "F-04"
   owner_area: "`distributions/ROCKNIX/config/functions` (the build engine's)"
-  outcome: open
+  outcome: "deferred"
 - id: PL-05
   severity: Low
   category: Renovation
   question: Q7
   source_finding: "F-06"
   owner_area: "`packages/tools/installer/package.mk` (fork-own)"
-  outcome: open
+  outcome: "deferred"
 - id: PL-06
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-07"
   owner_area: "`projects/ROCKNIX/packages/graphics/spirv-headers/package.mk` (fork-own, D-WORKFLOW-199)"
-  outcome: open
+  outcome: "deferred"
 - id: PL-07
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "F-05"
   owner_area: "`projects/ROCKNIX/packages/rust/cbindgen/package.mk` (fork-own)"
-  outcome: open
+  outcome: "deferred"
 - id: PL-08
   severity: Low
   category: Renovation
   question: Q1
   source_finding: "Q1"
   owner_area: "`packages/` and `projects/ROCKNIX/packages/` (upstream-carried)"
-  outcome: open
+  outcome: "deferred"
 - id: PL-09
   severity: Low
   category: Documentation
   question: Q7
   source_finding: "F-08"
   owner_area: "`docs/reviews/briefs/generic-packages-dead-ends.md` (the coordinator's)"
-  outcome: open
+  outcome: "resolved"
 ```
 
 ## Phase 7 resolution gate
 
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | stage D: the bugs filed, the decision issue named by the coordinator |
-| PL-02 | Open | stage D: the bugs filed, the decision issue named by the coordinator |
-| PL-03 | Open | stage D: the bugs filed, the decision issue named by the coordinator |
-| PL-04 | Open | stage D: the bugs filed, the decision issue named by the coordinator |
-| PL-05 | Open | stage D: the bugs filed, the decision issue named by the coordinator |
-| PL-06 | Open | stage D: the bugs filed, the decision issue named by the coordinator |
-| PL-07 | Open | stage D: the bugs filed, the decision issue named by the coordinator |
-| PL-08 | Open | stage D: the bugs filed, the decision issue named by the coordinator |
-| PL-09 | Open | stage D: the bugs filed, the decision issue named by the coordinator |
+| PL-01 | **Deferred** | bug #1049, filed by the lane; the fix is T10's set (#657), routed by the coordinator |
+| PL-02 | **Deferred** | bug #1050, filed by the lane; the fix is a packet the coordinator routes; the upstream note to #585 is the coordinator's |
+| PL-03 | **Deferred** | bug #1051, filed by the lane; the fix is a packet the coordinator routes (the lane edits no recipe, D-WORKFLOW-209) |
+| PL-04 | **Deferred** | a lead for the coordinator, posted on #670 at stage D, pending the Backlog or the T5-area issue the coordinator names |
+| PL-05 | **Deferred** | the coordinator's decision issue #1048: whether the fork's edit belongs on the override |
+| PL-06 | **Deferred** | bug #1049: its fix marks the row reached; the coordinator hands the row to T8's table |
+| PL-07 | **Deferred** | the coordinator's decision issue #1048: the proposed removal, never made here |
+| PL-08 | **Deferred** | the coordinator's decision issue #1048; the class decision goes to #346 from the coordinator at acceptance |
+| PL-09 | **Resolved** | the coordinator's `0a5676ea5d` (the brief's evidence floor, the `pkgcheck` form, criterion 11) |

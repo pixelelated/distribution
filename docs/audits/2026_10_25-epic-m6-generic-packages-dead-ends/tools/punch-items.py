@@ -7,16 +7,16 @@ HOST = "Yes, on the host: the inventory's rows, a generated plan (`tools/viewpla
 NOTHING = "nothing inherited: a recipe no image builds has written nothing on a device or in a cloud; the tree is the only place it exists"
 
 I = [
- dict(f="F-01", t="`tools/renovation-inventory` does not follow `PKG_DEPENDS_UNPACK`, so five units every plan unpacks read `unreached` (ROCKNIX `spirv-headers`, the three ROCKNIX rust snapshots, generic `binutils-gold`)", sev="Medium", cat="Bug", q="Q3", bug=True,
+ dict(f="F-01", tracked="#1049", t="`tools/renovation-inventory` does not follow `PKG_DEPENDS_UNPACK`, so five units every plan unpacks read `unreached` (ROCKNIX `spirv-headers`, the three ROCKNIX rust snapshots, generic `binutils-gold`)", sev="Medium", cat="Bug", q="Q3", bug=True,
   area="`tools/renovation-inventory` (`compute_reach`)", what="`compute_reach` marks a recipe reached when a reached recipe names it in `PKG_DEPENDS_UNPACK`, through the closure, as it does for `. ${ROOT}/packages/...` sourcing. The fix is T10's set; the lane edits no tool.",
   where="`tools/renovation-inventory` `compute_reach` and its `SOURCED` regex (at `2174265e9c`)", ev="`02` § Disagreements: the namers' lines, the plans, the resolutions on three devices", vm=HOST,
   aw="what was written: `inventory.json` at `eb4763e3cc` carries `reach: unreached` for the five units, and every later slice's membership read it; the fixed tool regenerates the inventory, and a slice whose set changes is the coordinator's to re-cut",
   acc="a constructed tree with a recipe reached only through a reached recipe's `PKG_DEPENDS_UNPACK` reads `reached` in the tool's output (it reads `unreached` today); the regenerated inventory marks the five units reached"),
- dict(f="F-02", t="`tools/pkgcheck` exits 0 when an argument matches no recipe, so a run that checked nothing reads as clean; the brief's sweep form (`tools/pkgcheck packages/...`) did exactly that", sev="Medium", cat="Bug", q="Q2", bug=True,
+ dict(f="F-02", tracked="#1050", t="`tools/pkgcheck` exits 0 when an argument matches no recipe, so a run that checked nothing reads as clean; the brief's sweep form (`tools/pkgcheck packages/...`) did exactly that", sev="Medium", cat="Bug", q="Q2", bug=True,
   area="`tools/pkgcheck` (upstream's)", what="An argument that matches no `package.mk` is an error (non-zero exit, a message naming it), or a full path is accepted as well as a name. A contained fix (D-QA-051 rule 6); the fix is a packet the coordinator routes, not the lane's.",
   where="`tools/pkgcheck:154-160` (the `find ... -path */${arg}/package.mk` loop) and `:169` (`[ ${FAILS} -eq 0 ]`)", ev="`tools/pkgcheck packages/addons/tools/jre.zulu`: rc 0, no output; `tools/pkgcheck tools/jre.zulu`: rc 1 with the FAIL", vm=HOST, aw=NOTHING.replace("a recipe no image builds has written nothing on a device or in a cloud; the tree is the only place it exists", "a lint writes nothing; what it left is earlier runs' clean verdicts, each of which may have checked nothing if a path was passed"),
   acc="`tools/pkgcheck packages/addons/tools/jre.zulu` either checks the recipe (its FAIL printed) or exits non-zero naming the unmatched argument, quoted; `tools/pkgcheck nosuchpackage` exits non-zero"),
- dict(f="F-03", t="`packages/graphics/mesa-reusable/package.mk:15` runs `curl` at global scope, so every plan generation, and every build's package scan, makes an HTTPS request to github.com", sev="Medium", cat="Bug", q="Q2", bug=True,
+ dict(f="F-03", tracked="#1051", t="`packages/graphics/mesa-reusable/package.mk:15` runs `curl` at global scope, so every plan generation, and every build's package scan, makes an HTTPS request to github.com", sev="Medium", cat="Bug", q="Q2", bug=True,
   area="`packages/graphics/mesa-reusable/package.mk` (upstream-carried, unreached)", what="The checksum is pinned in the recipe or read where the package is built, never at parse time; or `scripts/pkgjson` sources recipes with the network unavailable. The lane edits no recipe (D-WORKFLOW-209).",
   where="`packages/graphics/mesa-reusable/package.mk:15`; `scripts/pkgjson:54-55` (every cached recipe sourced)", ev="the `pkgjson` worker with a logging `curl` shim (`stage-a/shim/mesa-reusable-load.txt`); the five plans offline, byte-identical, 5 calls intercepted", vm=HOST + " (the proof is the shim's log: zero calls after the fix)", aw=NOTHING,
   acc="`tools/viewplan image` with a logging `curl` shim first on `PATH` logs no call, quoted (it logs one today)"),
@@ -48,8 +48,20 @@ I = [
   acc="the brief at `0a5676ea5d` and #670's criterion 11 carry the corrected figures and the shim"),
 ]
 
-# Phase 7, written at stage D once the coordinator names the decision issue.
-P7 = {}
+# Phase 7, at stage D (2026-10-25): the three bugs filed by the lane (#1049, #1050, #1051);
+# the coordinator's decision issue #1048 (its answer on #670 at 04:29 UTC) for the proposed
+# removal, the installer question and the class decision, which the coordinator carries to #346.
+P7 = {
+  "PL-01": ("Deferred", "bug #1049, filed by the lane; the fix is T10's set (#657), routed by the coordinator"),
+  "PL-02": ("Deferred", "bug #1050, filed by the lane; the fix is a packet the coordinator routes; the upstream note to #585 is the coordinator's"),
+  "PL-03": ("Deferred", "bug #1051, filed by the lane; the fix is a packet the coordinator routes (the lane edits no recipe, D-WORKFLOW-209)"),
+  "PL-04": ("Deferred", "a lead for the coordinator, posted on #670 at stage D, pending the Backlog or the T5-area issue the coordinator names"),
+  "PL-05": ("Deferred", "the coordinator's decision issue #1048: whether the fork's edit belongs on the override"),
+  "PL-06": ("Deferred", "bug #1049: its fix marks the row reached; the coordinator hands the row to T8's table"),
+  "PL-07": ("Deferred", "the coordinator's decision issue #1048: the proposed removal, never made here"),
+  "PL-08": ("Deferred", "the coordinator's decision issue #1048; the class decision goes to #346 from the coordinator at acceptance"),
+  "PL-09": ("Resolved", "the coordinator's `0a5676ea5d` (the brief's evidence floor, the `pkgcheck` form, criterion 11)"),
+}
 
 def main():
   out = ["# Punch List — M6.P2 T23, the generic packages no image builds", "",

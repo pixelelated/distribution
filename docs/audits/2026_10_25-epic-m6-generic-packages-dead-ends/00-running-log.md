@@ -98,3 +98,18 @@
   - PL-09: the brief's moved figures.
   - Every item carries `question:` and is open.
 - **`tools/lint-audit-artifacts docs/audits/2026_10_25-epic-m6-generic-packages-dead-ends --phase pre-issue`:** `PASS pre-issue artifacts`.
+
+## [Stage D] to 04:32 UTC — three bugs, the audit issue #1052, the outcomes, the lint; the pause
+
+- **The coordinator's answers on #670:** at 04:23, file the `pkgcheck` bug and a second for `mesa-reusable:15`; at 04:29, the four deferrals point at the decision issue #1048.
+- **Bugs filed by the lane** (label `bug`, milestone M6, `tools/box-check` 0 fail on each):
+  - **#1049:** the inventory's `PKG_DEPENDS_UNPACK` gap, with its five cases and a constructed-tree criterion;
+  - **#1050:** `pkgcheck`'s silent pass on an unmatched argument;
+  - **#1051:** `mesa-reusable:15`'s parse-time `curl`.
+- **#1051's sibling grep:** the first form (`[A-Z_]`) printed nothing because `PKG_SHA256` has digits. Re-run with `[A-Z0-9_]`, and with a wider form, each lists exactly `packages/graphics/mesa-reusable/package.mk:15`. #1051's body was corrected before anyone read the first form.
+- **The audit issue:** **#1052**, a sub-issue of #670 (the sub-issue list reads `1052`), with 9 checkboxes, each naming its outcome. `tools/box-check --issue 1052`: 0 fail.
+- **`05`'s Phase 7 table:**
+  - 8 Deferred: to #1049 (PL-01, PL-06), #1050 (PL-02), #1051 (PL-03), #1048 (PL-05, PL-07, PL-08), and PL-04 to #670 pending its issue;
+  - 1 Resolved, by `0a5676ea5d` (PL-09).
+- **The lint on the folder:** `--phase pre-issue` PASS, the default phase `PASS`, `--issue 1052` `PASS`.
+- **Paused at stage D**, per brief § 8. Nothing changed under `packages/`, `projects/` or `tools/`.

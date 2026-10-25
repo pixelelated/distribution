@@ -16,11 +16,16 @@
 
 ## Current focus
 
-**Stage B complete; stage C next** (`05` drafted, the pre-issue lint; then the three bugs and the audit issue at stage D, and the pause). Updated 2026-10-25, 04:27 UTC.
-- **`reviewed-at`:** `27b015c901`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-generic-packages-dead-ends/`. It holds `00` to `04`, `second-opinions/review-plan.json`, `stage-a/`, `stage-b/` and `tools/t23-tables.py`.
-- **The tables:** 731 reachability rows and 1,604 coverage rows, generated. Dispositions: 603 / 94 / 21 / 7 / 5 / 1.
-- **The findings** (`04`): F-01 the inventory's `PKG_DEPENDS_UNPACK` gap (a bug); F-02 `pkgcheck`'s silent pass (a bug); F-03 `mesa-reusable:15`'s `curl` (a bug); F-04 the host plan without `xmlstarlet` (a lead); F-05 `cbindgen` dead (a proposed removal); F-06 `installer` (an edit to a dead copy); F-07 ROCKNIX `spirv-headers` reached; F-08 the brief's moved figures (recorded).
-- **Every plan run uses the curl shim.** No plan was run at stage B.
+**Paused at stage D** (brief § 8; updated 2026-10-25, 04:32 UTC).
+- **Bugs filed by the lane:** #1049 (the inventory's `PKG_DEPENDS_UNPACK` gap), #1050 (`pkgcheck`'s silent pass), #1051 (`mesa-reusable:15`'s `curl`).
+- **The audit issue:** #1052, a sub-issue of #670, with 9 checkboxes, each naming its outcome. `box-check` 0 fail.
+- **Outcomes:** #1049 takes PL-01 and PL-06; #1050 PL-02; #1051 PL-03; #1048 PL-05, PL-07 and PL-08; PL-04 is pending its issue (asked on #670); PL-09 is resolved by `0a5676ea5d`.
+- **The lint:** pre-issue PASS, resolution PASS, `--issue 1052` PASS.
+- **After the pause:**
+  - No stage E: the lane removes nothing and edits nothing.
+  - Stage F: the counts and the lint at the tip, with the plans re-run through the shim; `reviewed-at` `27b015c901` and `fixed-at` into #670's body.
+  - Stage G: the retro, posted on #670 (time to play: nothing; what the #346 decision needs from the table).
+  - Stage H: the hand-back.
 - **Running for this lane:** nothing.
 
 ## Next commands
