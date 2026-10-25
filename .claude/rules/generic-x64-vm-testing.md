@@ -1441,6 +1441,6 @@ unfixed `init` print *Update complete* over an unwritten kernel -- the
 very bug, produced by the fixture. So a case for `init`'s functions runs
 them under that binary (`T22_BUSYBOX=<path> stage-e/s1/drive.sh`), never
 under the host's shell or the image's busybox. M6 retains a copy at
-`/workspace/artifacts/m6-donor/1a0266484423/initramfs-busybox` (sha256
+`/workspace/artifacts/m6-donor/1a0266484423/initramfs/busybox` (named `busybox`: the binary selects its applet from argv[0], so a copy under another name answers *applet not found*) (sha256
 `4ce43643f300b585233e4723aaa3380d79d3b2bbe7a4ffaa540888041dbc13a6`, its
 RECORD.txt line beside it) for the acceptance re-runs.
