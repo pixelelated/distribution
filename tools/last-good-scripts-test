@@ -405,6 +405,23 @@ check() { # <0|nonzero> ok-text bad-text
         case "${FAIL_SECTIONS}" in *" ${SECTION} "*) ;; *) FAIL_SECTIONS="${FAIL_SECTIONS}${SECTION} " ;; esac; fi
 }
 section() { SECTION="$1"; SECTION_NA=""; echo "  $1. $2"; }
+# An absence read from an archive, failing closed (#1034): tar's own status is
+# required, the content lands in an owned file, and grep's no-match status
+# must be exactly 1. `! tar ... | grep -q` turned an unreadable archive or a
+# missing member into a successful absence, and pipefail cannot repair a
+# negated pipeline. Patterns are grep's basic ones, as before.
+ABSENT_N=0
+absent_in() { # <archive> <pattern> [member]: the member (or every member) read whole, the pattern absent
+    ABSENT_N=$((ABSENT_N + 1)); local out="${TMP}/absent.${ABSENT_N}"
+    if [ -n "${3:-}" ]; then tar -xzOf "$1" "$3" > "${out}" 2>/dev/null || return 2
+    else tar -xzOf "$1" > "${out}" 2>/dev/null || return 2; fi
+    grep -q -- "$2" "${out}"; [ $? -eq 1 ]
+}
+absent_listed() { # <archive> <pattern>: the listing read whole, the pattern absent
+    ABSENT_N=$((ABSENT_N + 1)); local out="${TMP}/absent.${ABSENT_N}"
+    tar -tzf "$1" > "${out}" 2>/dev/null || return 2
+    grep -q -- "$2" "${out}"; [ $? -eq 1 ]
+}
 # The header's --old recipes as data (#1023): each ref and the sections whose
 # FAILs it promises. The verdict says which promises fired; a script absent at
 # the ref in a promised section is that promise firing.
@@ -782,7 +799,7 @@ bt backup; rc1=${RC}
 first=$(ls "${ST}/roms/backup"/*.tar.gz 2>/dev/null)
 [ "${rc1}" -eq 0 ] && [ -n "${first}" ] && [ "$(echo "${first}" | wc -l)" -eq 1 ]; check $? "a first backup writes one archive at the root (rc 0)" "rc ${rc1}; root holds: $(ls "${ST}/roms/backup" 2>/dev/null | tr '\n' ' '); out: $(tail -3 "${OUT}" | tr '\n' '|')"
 tar -tzf "${first}" 2>/dev/null | grep -q 'storage/.config/test/f1$'; check $? "and it lists back whole" "archive does not list"
-! tar -xzOf "${first}" storage/.config/system/configs/system.cfg 2>/dev/null | grep -q SECRET; check $? "with the wifi key stripped" "the archive carries the wifi key"
+absent_in "${first}" SECRET storage/.config/system/configs/system.cfg; check $? "with the wifi key stripped" "the archive carries the wifi key"
 sleep 1  # a new stamp, so the second archive has a distinct name
 bt backup; rc2=${RC}
 second=$(ls "${ST}/roms/backup"/*.tar.gz 2>/dev/null)
@@ -1035,11 +1052,11 @@ RC2=$( ( setsid -w bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr \
     bash /repo/backuptool backup > "${OUT2}" 2>&1; echo $? ) 2>/dev/null )
 arc=$(ls "${ST2}/roms/backup"/*.tar.gz 2>/dev/null | head -1)
 [ "${RC2}" -eq 0 ] && [ -n "${arc}" ]; check $? "a backup with rclone.conf in LOCATIONS completes (rc ${RC2})" "rc ${RC2}, archive: '${arc}'"
-! tar -tzf "${arc}" 2>/dev/null | grep -q 'rclone/rclone.conf$'; check $? "rclone.conf is not in the archive" "the archive lists rclone.conf"
+absent_listed "${arc}" 'rclone/rclone.conf$'; check $? "rclone.conf is not in the archive" "the archive lists rclone.conf"
 if grep -q '/storage/.config/rclone/' "${BT}"; then
-    ! tar -tzf "${arc}" 2>/dev/null | grep -q 'storage/.config/rclone/'; check $? "connection selection and interrupted private credential staging never travel in a settings backup (#537)" "a device-only connection file entered the archive"
+    absent_listed "${arc}" 'storage/.config/rclone/'; check $? "connection selection and interrupted private credential staging never travel in a settings backup (#537)" "a device-only connection file entered the archive"
 fi
-! tar -xzOf "${arc}" 2>/dev/null | grep -q 'QA-SECRET-TOKEN'; check $? "and no token travelled in any member" "a member carries the token"
+absent_in "${arc}" 'QA-SECRET-TOKEN'; check $? "and no token travelled in any member" "a member carries the token"
 tar -tzf "${arc}" 2>/dev/null | grep -q 'test/plain.txt$'; check $? "files that are not held back are archived as before" "plain.txt missing"
 grep -q 'rclone.conf held back' "${OUT2}"; check $? "the log says rclone.conf was held back" "no held-back line: $(grep logger "${OUT2}" | tail -2 | tr '\n' ' ')"
 # The scanner knows rclone's key names. Since #307 PL-005 a hit ends the
@@ -1053,7 +1070,7 @@ RC2B=$( ( setsid -w bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr \
     --bind "${ST2}" /storage --ro-bind "${B2}/shim" /shim --ro-bind "${B2}/repo" /repo \
     --dev /dev --proc /proc --tmpfs /tmp \
     bash /repo/backuptool backup > "${OUT2}.leak" 2>&1; echo $? ) 2>/dev/null )
-[ "${RC2B}" -ne 0 ] && grep -q '^>>> why A SIGN-IN WAS FOUND IN THE BACKUP' "${OUT2}.leak" && grep -q 'found 2 line(s) that look like a password or key' "${OUT2}.leak" && [ "$(ls "${ST2}/roms/backup"/*.tar.gz)" = "${arc}" ] && ! tar -xzOf "${arc}" 2>/dev/null | grep -q 'QA-SECRET-PASS'; check $? "the scanner sees the pass= and password2= lines in a file it does not hold back (2 lines), and the backup ends there with the last archive unchanged (#307 PL-005)" "rc ${RC2B}; said: $(grep -E '^>>> why|found [0-9]+ line' "${OUT2}.leak" | tr '\n' ' ' | cut -c1-200); archives: $(ls "${ST2}/roms/backup"/*.tar.gz 2>/dev/null | wc -l)"
+[ "${RC2B}" -ne 0 ] && grep -q '^>>> why A SIGN-IN WAS FOUND IN THE BACKUP' "${OUT2}.leak" && grep -q 'found 2 line(s) that look like a password or key' "${OUT2}.leak" && [ "$(ls "${ST2}/roms/backup"/*.tar.gz)" = "${arc}" ] && absent_in "${arc}" 'QA-SECRET-PASS'; check $? "the scanner sees the pass= and password2= lines in a file it does not hold back (2 lines), and the backup ends there with the last archive unchanged (#307 PL-005)" "rc ${RC2B}; said: $(grep -E '^>>> why|found [0-9]+ line' "${OUT2}.leak" | tr '\n' ' ' | cut -c1-200); archives: $(ls "${ST2}/roms/backup"/*.tar.gz 2>/dev/null | wc -l)"
 rm -f "${ST2}/.config/test/leaky.conf"
 # #221: a clean backup is silent. The keys every shipped retroarch.cfg and
 # Amiberry's conf carry end in "key" or "pass" and are not credentials.
@@ -8266,7 +8283,7 @@ mkdir -p "${P7S}/.config/sbk/archive"; cp "${P7S}/roms/backup/"*.tar.gz "${P7S}/
 tar -C "${P7}" -czf "${P7S}/.config/sbk/archive/2026_01_01-000001-PRE_RESTORE-ROCKNIX_SETTINGS.tar.gz" snapsecret
 p7bt backup
 p7arc2=$(ls "${P7S}/.config/sbk"/*.tar.gz 2>/dev/null | tail -1)
-[ "${RC}" -eq 0 ] && [ -n "${p7arc2}" ] && tar -tzf "${p7arc2}" | grep -q 'storage/.config/test/f1' && ! tar -tzf "${p7arc2}" | grep -q '^storage/.config/sbk/'; check $? "#307 PL-008: LOCATIONS=(/storage/.config) with the backup folder inside it holds no member under the backup folder" "#307 PL-008: rc ${RC}; members under it: $(tar -tzf "${p7arc2}" 2>/dev/null | grep '^storage/.config/sbk/' | tr '\n' ' ' | cut -c1-200)"
+[ "${RC}" -eq 0 ] && [ -n "${p7arc2}" ] && tar -tzf "${p7arc2}" | grep -q 'storage/.config/test/f1' && absent_listed "${p7arc2}" '^storage/.config/sbk/'; check $? "#307 PL-008: LOCATIONS=(/storage/.config) with the backup folder inside it holds no member under the backup folder" "#307 PL-008: rc ${RC}; members under it: $(tar -tzf "${p7arc2}" 2>/dev/null | grep '^storage/.config/sbk/' | tr '\n' ' ' | cut -c1-200)"
 
 # == PL-009: a snapshot that cannot be taken ends the restore before it writes
 p7reset '  /storage/.config/test/*'
@@ -8285,14 +8302,14 @@ p7bt backup
 # == #308 4-backup-restore gpt F-BR-19: a selection of only sanitised files is a backup
 p7reset '  /storage/.config/system/configs/system.cfg'
 p7bt backup
-[ "${RC}" -eq 0 ] && p7list | grep -qx 'storage/.config/system/configs/system.cfg' && ! tar -xzOf "$(p7arc | tail -1)" 2>/dev/null | grep -q SECRET; check $? "#308 4-backup-restore gpt F-BR-19: LOCATIONS=(system.cfg) alone writes an archive holding its sanitised copy (rc ${RC})" "#308 F-BR-19: rc ${RC}; why '$(p7why)'; archive: $(p7list | tr '\n' '|')"
+[ "${RC}" -eq 0 ] && p7list | grep -qx 'storage/.config/system/configs/system.cfg' && absent_in "$(p7arc | tail -1)" SECRET; check $? "#308 4-backup-restore gpt F-BR-19: LOCATIONS=(system.cfg) alone writes an archive holding its sanitised copy (rc ${RC})" "#308 F-BR-19: rc ${RC}; why '$(p7why)'; archive: $(p7list | tr '\n' '|')"
 
 # == PL-005: a sign-in found in the backup ends the run before the archive is named
 p7reset '  /storage/.config/test/*'
 p7bt backup; p7first=$(p7arc)
 printf 'name = probe\npass = QA-SECRET-PASS\n' > "${P7S}/.config/test/leaky.conf"
 p7bt backup
-[ "${RC}" -ne 0 ] && [ "$(p7why)" = "A SIGN-IN WAS FOUND IN THE BACKUP" ] && [ "$(p7arc)" = "${p7first}" ] && ! tar -xzOf "${p7first}" 2>/dev/null | grep -q QA-SECRET && [ -z "$(ls "${P7S}/roms/backup"/*.partial 2>/dev/null)" ] && grep -q 'logger -t backuptool .*1 line' "${P7OUT}"; check $? "#307 PL-005: a pass = line in the selection ends the backup (rc ${RC}, why: $(p7why)); the last archive is the only one, unchanged, no partial left, the log counts one line" "#307 PL-005: rc ${RC}; why '$(p7why)'; archives: $(p7arc | xargs -n1 basename 2>/dev/null | tr '\n' ' '); secret in an archive: $(for a in $(p7arc); do tar -xzOf "$a" 2>/dev/null | grep -c QA-SECRET; done | tr '\n' ' ')"
+[ "${RC}" -ne 0 ] && [ "$(p7why)" = "A SIGN-IN WAS FOUND IN THE BACKUP" ] && [ "$(p7arc)" = "${p7first}" ] && absent_in "${p7first}" QA-SECRET && [ -z "$(ls "${P7S}/roms/backup"/*.partial 2>/dev/null)" ] && grep -q 'logger -t backuptool .*1 line' "${P7OUT}"; check $? "#307 PL-005: a pass = line in the selection ends the backup (rc ${RC}, why: $(p7why)); the last archive is the only one, unchanged, no partial left, the log counts one line" "#307 PL-005: rc ${RC}; why '$(p7why)'; archives: $(p7arc | xargs -n1 basename 2>/dev/null | tr '\n' ' '); secret in an archive: $(for a in $(p7arc); do tar -xzOf "$a" 2>/dev/null | grep -c QA-SECRET; done | tr '\n' ' ')"
 
 # == PL-006: the scan reads the key word in any case, and the shapes the push guard knows
 p7sign() { # <file under test/> <content>: a backup of a selection holding it; FAILs with the item named when it is not refused
@@ -8523,7 +8540,7 @@ cp "${P7S}/.config/system/configs/system.cfg.backup" "${P7S}/.config/system/conf
 printf '<?xml version="1.0"?>\n<config>\n<string name="ThemeSet" value="mine" />\n</config>\n' > "${P7S}/.config/emulationstation/es_settings.cfg"
 printf '<?xml version="1.0"?>\n<config>\n<string name="ScreenScraperPass" value="%s" />\n</config>\n' "${P7FAKE}" > "${P7S}/.config/emulationstation/es_settings.cfg.backup"
 p7bt backup
-[ "${RC}" -eq 0 ] && [ -n "$(p7arc)" ] && ! p7list | grep -qE '\.(backup|tmp)$' && ! tar -xzOf "$(p7arc | tail -1)" 2>/dev/null | grep -q "${P7FAKE}"; check $? "#307 audit G-B-01 (claude): system.cfg.backup, system.cfg.tmp and es_settings.cfg.backup -- the last-good records and a writer's temporary -- are held back like the files they copy, and the planted key is in no member" "#307 audit G-B-01: rc ${RC}; members: $(p7list | grep -E '\.(backup|tmp)$' | tr '\n' ' '); planted value in the archive: $(tar -xzOf "$(p7arc | tail -1)" 2>/dev/null | grep -c "${P7FAKE}")"
+[ "${RC}" -eq 0 ] && [ -n "$(p7arc)" ] && ! p7list | grep -qE '\.(backup|tmp)$' && absent_in "$(p7arc | tail -1)" "${P7FAKE}"; check $? "#307 audit G-B-01 (claude): system.cfg.backup, system.cfg.tmp and es_settings.cfg.backup -- the last-good records and a writer's temporary -- are held back like the files they copy, and the planted key is in no member" "#307 audit G-B-01: rc ${RC}; members: $(p7list | grep -E '\.(backup|tmp)$' | tr '\n' ' '); planted value in the archive: $(tar -xzOf "$(p7arc | tail -1)" 2>/dev/null | grep -c "${P7FAKE}")"
 p7sign app.cfg.backup "password = ${P7FAKE}"; check $? "#307 audit G-B-01 (claude): a .backup copy of another config is scanned like a config" "#307 audit G-B-01: rc ${RC}; why '$(p7why)'; archives: $(p7arc | wc -l) -- *.backup was not read"
 
 # == AUD claude G-B-03 (#307 audit of the fixes): a kebab-case name ending in "sk-" is not an OpenAI key
@@ -8607,7 +8624,7 @@ exec /p7bb/awk "$@"
 EOS
 chmod +x "${P7}/shim/awk"
 p7bt backup
-[ "${RC}" -ne 0 ] && [ "$(p7arc | wc -l)" -eq 1 ] && ! tar -tzf "$(p7arc | tail -1)" 2>/dev/null | grep -q '^storage/roms/backup/'; check $? "#307 audit G-B-04 (gpt): when the backup folder cannot be filtered out, nothing is written (rc ${RC})" "#307 audit G-B-04: rc ${RC}; archives $(p7arc | wc -l); members under the backup folder: $(for a in $(p7arc); do tar -tzf "$a" 2>/dev/null; done | grep -c '^storage/roms/backup/')"
+[ "${RC}" -ne 0 ] && [ "$(p7arc | wc -l)" -eq 1 ] && absent_listed "$(p7arc | tail -1)" '^storage/roms/backup/'; check $? "#307 audit G-B-04 (gpt): when the backup folder cannot be filtered out, nothing is written (rc ${RC})" "#307 audit G-B-04: rc ${RC}; archives $(p7arc | wc -l); members under the backup folder: $(for a in $(p7arc); do tar -tzf "$a" 2>/dev/null; done | grep -c '^storage/roms/backup/')"
 rm -f "${P7}/shim/awk"
 
 # == AUD claude G-B-12 (#307 audit of the fixes): core dumps and evidence bundles never go into a backup
@@ -9085,7 +9102,7 @@ fi
 p7evreset; touch "${P7ES}/.p7-mv-fails"
 p7ev collect
 p7a=$(p7evarcs | head -1)
-[ -n "${p7a}" ] && ! tar -xzOf "${p7a}" 2>/dev/null | grep -q QA-EV-PLANT && tar -xzOf "${p7a}" --wildcards '*/summary.txt' 2>/dev/null | grep -q '1 left out'; check $? "#307 PL-046: exec.log, whose filtered copy could not be moved into place, is left out -- not archived raw -- and the summary counts it left out" "#307 PL-046: rc ${RC}; archive: ${p7a:-none}; plant in it: $(tar -xzOf "${p7a}" 2>/dev/null | grep -c QA-EV-PLANT); summary: $(tar -xzOf "${p7a}" --wildcards '*/summary.txt' 2>/dev/null | grep 'credential filter:' | tail -1)"
+[ -n "${p7a}" ] && absent_in "${p7a}" QA-EV-PLANT && tar -xzOf "${p7a}" --wildcards '*/summary.txt' 2>/dev/null | grep -q '1 left out'; check $? "#307 PL-046: exec.log, whose filtered copy could not be moved into place, is left out -- not archived raw -- and the summary counts it left out" "#307 PL-046: rc ${RC}; archive: ${p7a:-none}; plant in it: $(tar -xzOf "${p7a}" 2>/dev/null | grep -c QA-EV-PLANT); summary: $(tar -xzOf "${p7a}" --wildcards '*/summary.txt' 2>/dev/null | grep 'credential filter:' | tail -1)"
 p7evreset; touch "${P7ES}/.p7-mv-fails" "${P7ES}/.p7-rm-fails"
 p7ev collect
 [ "${RC}" -ne 0 ] && [ -z "$(p7evarcs)" ]; check $? "#307 PL-046: when the raw file can be neither replaced nor removed, no archive is written (rc ${RC})" "#307 PL-046: rc ${RC}; archives: $(p7evarcs | wc -l)"
