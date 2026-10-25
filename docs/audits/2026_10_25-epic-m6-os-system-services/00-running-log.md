@@ -114,3 +114,4 @@ Each run's output is in `.qa-scratch/t22/runs/NN-*.out`, with its exit and wall 
 - `review-plan.json`'s two statuses are complete, with each output's sha256.
 - **Stage D:** `05` holds 28 items (5 Medium, 23 Low). Each item proposes its owner: #346 for upstream-carried lines, #740, a design sentence, *settled by the next base merge*, or a fork `bug` for G-33 (the fork's own). `lint-audit-artifacts --phase pre-issue`: `PASS pre-issue artifacts`.
 - Four Mediums owe a VM proof (PL-01 btrfs, PL-03 the rejected update, PL-04 `debug-shell`, PL-05 the reader count), and so does G-33 (on the host first).
+- **The audit issue** is #1103 (`Audit: M6 T22 the OS's system services and platform quirks -- 28 findings (0 critical, 0 high)`, labels `audit`, `punch-list`, M6), attached as a sub-issue of #669, with 28 checkboxes: `box-check --issue 1103` reads 0 fail.

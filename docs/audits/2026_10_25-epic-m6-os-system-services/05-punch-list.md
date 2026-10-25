@@ -1,6 +1,6 @@
 # Punch list (Phases 5 and 6) — M6.P2 T22, the OS's system services and platform quirks (#669)
 
-There is one item per finding of `04` after both seats' grading (`04` § Second opinion), with the severities graded there. The seats' 46 items are grouped by file under the item that owns them. Every confirmed line but G-33's is in the merge base and in upstream's tree at `651150fc88`, so it is upstream-carried, and its class decision is the maintainer's on #346 (D-WORKFLOW-209). Each item's **Proposed** line is this lane's proposal for the coordinator's stage-D ruling; the audit issue carries one checkbox per item.
+The audit issue is #1103, a sub-issue of #669. There is one item per finding of `04` after both seats' grading (`04` § Second opinion), with the severities graded there. The seats' 46 items are grouped by file under the item that owns them. Every confirmed line but G-33's is in the merge base and in upstream's tree at `651150fc88`, so it is upstream-carried, and its class decision is the maintainer's on #346 (D-WORKFLOW-209). Each item's **Proposed** line is this lane's proposal for the coordinator's stage-D ruling; the audit issue carries one checkbox per item.
 
 ## PL-01: udevil mounts a btrfs medium without nosuid,noexec,nodev, against its own file's rule, or refuses it (the option is not allowed)
 - **Severity:** Medium
