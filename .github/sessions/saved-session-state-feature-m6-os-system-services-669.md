@@ -16,12 +16,20 @@
 
 ## Current focus
 
-**Stage E: streams S1 and S3** under `docs/reviews/briefs/t22-streams.md` (`a6e7a12ad6`); S2 and S4 are struck.
-- **What is behind:** stages A to D, two guest windows (records `guest-cycle/`, `guest-cycle-2/`; both disks retired), both seats graded, `05`'s 28 outcomes, #1103 at 28 of 28, both lints PASS.
-- **The bugs:** #1105 (PL-02) and #1106 (PL-03), whose fixes are S1 in `scripts/init`; #1107 (PL-28), whose fix is S3 in `095-cloud-ssh`.
-- **Each stream:** the case first, under `stage-e/<s>/` (a driver taking the file and `unfixed|fixed`, run against the stage-D tip `0f7ece71e8` and the fixed tree), then the fix, then `02` § The streams' positives and the bug's checkboxes.
-- **Then:** stages F to H (the retro at `docs/retros/2026-10-25-m6-os-system-services.md`; the hand-back with `t22-accept.sh`).
-- Nothing is running.
+**Stage E is done; stages G and H next.**
+- **S3:** `9145b90fac` (#1107).
+- **S1:** `ffd1e34dbd` (#1106), then `6cfe1fdba1` (#1105).
+- **The cases** are under `stage-e/`. `run-all.sh` against the stage-D export and the fixed tree reads 8 of 8. S1 runs under the initramfs busybox (`T22_BUSYBOX`, a copy from the M7 build root, sha256 `4ce43643...`).
+- **`05`:** PL-02, PL-03 and PL-28 resolved at their commits; both lints PASS.
+- **The bugs:** #1105 and #1107 fully ticked. #1106 has two open guest criteria, fix-pending-image rows the coordinator proves at the first image after the merge.
+
+**Next:**
+- the retro, `docs/retros/2026-10-25-m6-os-system-services.md`, posted on #669. Its scoped audit asks of each fix whether its positive exercised the job the fix could break.
+- `fixed-at` on #669;
+- `t22-accept.sh`;
+- the hand-back.
+
+Nothing is running.
 
 ## Next commands
 
