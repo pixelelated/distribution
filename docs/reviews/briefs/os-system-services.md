@@ -484,3 +484,12 @@ order: after T1's and T13's.
 kickoff futro (T1's) gains a section for this slice from the coordinator;
 a stranger's proof of this brief runs before dispatch; version 2 records
 what each found.
+
+## Errata (written at acceptance, 2026-10-25)
+
+Found by the lane's run and recorded here so the next OS brief does not inherit them (D-WORKFLOW-189: the brief is the coordinator's).
+
+- (stage A, 09:10) The brief's unit-user command masks `user[=:]` case-insensitively, so it printed `User=***` for all 29 units and hid the count it was meant to produce; a unit file's `User=` names an account, not a sign-in, and the count is taken with a plain `grep -c '^User='` over the unit files, the mask kept for `ExecStart` text and verdict lines. The lane recorded both runs.
+- (stage A, 09:10) A patch file name under `gptfdisk/patches/` matches the commit scanner's key shape in a listing line; `01` carries a placeholder with the command that shows it. The scanner judges a line after its label, so a file *name* alone should never match -- a lead for T10's guard (#1086's family): check at acceptance whether the listing line put the name where a value goes.
+- (the second window, 10:24) The brief's guest section did not ask for an image-versus-tree check before a guest verdict on a file; the guest was the M7 candidate and its `input_sense` carried `6101242e14`, which the read tree does not. The rule now says it (`generic-x64-vm-testing.md`, `e97a5fafe9`).
+- (stage E) A fixture for `init`'s functions runs under the initramfs busybox, which the brief's § 5 did not name; the lane found it, and the rule now carries it with M6's retained copy (`49e6691b69`).

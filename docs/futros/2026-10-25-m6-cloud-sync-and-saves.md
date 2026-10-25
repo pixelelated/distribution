@@ -188,3 +188,48 @@ the place it lands:
 
 Not checked by the proof, and left to the lane's stage A: the four bare
 tests' runs, the backends' `up`/`down`, the seat.
+
+### T16 kickoff addendum (written with the brief's version 1, 2026-10-25)
+
+Read with the brief `docs/reviews/briefs/cloud-sync-core.md`; the research
+digest behind it was taken read-only at `2174265e9c` (lead, not evidence).
+
+- **What we know.** 14 paths, 8,316 lines, every one the fork's own (145
+  commits since June, all fork identities; upstream carries the directory
+  at the base's bytes and brings nothing); two 2,300-2,500-line copy-twins
+  (`cloud_backup`, `cloud_restore`) and a 1,704-line capture carry 6,538
+  of the 7,827 read lines; T13's assertion table (79 rows: 24 both ends,
+  46 synthetic, 8 device report) is the oracle, and three of the nine
+  scripts are named by no row (`cloud_net_ready`,
+  `rasteratops-settings-archive`, `cloud_sync_cleanup_duplicates.sh`).
+  Three stamp families with three owners, one `flock`, exits 69 and 75, a
+  90 s bound. The order's area figures (+28,279 lines, 451 commits, 19
+  blindspots, 47 bugs) are not the slice's (+6,976 / -338, 145, 15 entries
+  about these scripts, 32 closed bugs for "cloud sync").
+- **Assumptions named.** The guest is the M7 candidate image: the installed
+  scripts are diffed against the read tree before any guest verdict is
+  used (T22's PL-05). The rule `rclone-cloud-sync.md` is under #909's
+  drift (exit 4 against the script's 69): the scripts are read as the
+  truth. D-CLOUD-076 is superseded by 109/130: the lane states which the
+  tree implements and files no bug for the superseded design.
+- **Known unknowns.** (1) How many of the twins' 92 functions are identical
+  by copy, and which divergences are deliberate; (2) which functions no
+  oracle row reaches (the `unrowed` column); (3) whether the exit sync's
+  median on the current image still meets D-CLOUD-119's 3 s (cited from
+  `docs/vm-qa-log.md`, measured once if the window allows).
+- **Patterns.** T22's Extended recipe and guest-cycle conditions; T13's
+  twelve drivers and their `unfixed|fixed` shape for any stream; the
+  `rc=$?` rule and the fixture rule (#307); blindspots 10, 22, 28, 31, 33,
+  38, 39 as questions put to each script.
+- **What could be missed.** A reader taking a device-report row's PASS as
+  a verdict on the code; a reader re-filing the harness's own defects
+  (#1057-#1070 are `tools/`, fixed) as this slice's; a reader running a
+  cell against a person's cloud (blindspot 38: never); a reader reading
+  the twins twice and the small scripts never; a reader measuring time to
+  play on a guest whose RetroArch driver cannot draw (blindspot 39:
+  `tools/time-to-play --vm` puts the guest in the state it needs).
+- **Before execution.** The stranger's proof of version 1; the worktree cut
+  from `2174265e9c` with the coordinator's tip merged; #663's body rewritten
+  with the seventeen criteria and the VM line (Yes: the host, then one
+  guest window); the dispatch to the idle T1 session, which ran T13 and
+  knows the harness.

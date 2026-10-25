@@ -1403,3 +1403,44 @@ cleanup helper is archived in
 `docs/qa-logs/2026-10-13-es-trim-comparison/fixtures/clear-owned-mounts.py`; it
 accepts only that disposable guest's named paths, not arbitrary live-device
 mounts. Never replay its retired owner.
+
+## `systemctl is-enabled` reads `disabled` for every unit the image links itself
+
+The image enables its units at build time by linking them under
+`/usr/lib/systemd/system/*.wants` (`enable_service` in the recipes), not
+through `/etc/systemd/system`, and `systemctl is-enabled <unit>` answers
+`disabled` for every one of them -- on 2026-10-25 for all 29 units of the
+OS layer, including the ones plainly running (T22, #669, PL-20). The
+evidence of enablement on a guest is the `.wants` link
+(`ls -l /usr/lib/systemd/system/*.wants/ | grep <unit>`) or
+`systemctl show -p UnitFileState,ActiveState,WantedBy <unit>`, never
+`is-enabled`'s word. A reader counting "disabled" units from that command
+counts the image's own design as a finding.
+
+## The guest is the candidate image, not the read tree: compare the file before trusting the verdict
+
+A guest boots an image, and an image is one build's bytes: on 2026-10-25
+T22's second window read one `input_sense` reader per device where the
+tree at `8ebaf8daad` starts six, because the `069fc2704421` image was the
+M7 line's build and carried its `6101242e14` fix (#669, PL-05). A guest's
+verdict on a file is a verdict on the installed file. So a window plan
+names, for each proof, the image-versus-tree check that precedes it:
+`diff <(the installed file, read over serial) <(git show <hash>:<path>)`
+(T1's `02` § Image versus tree is the shape), and a difference is written
+beside the verdict before the verdict is used against the read tree.
+
+## An initramfs fixture runs under the initramfs busybox
+
+`/init` runs under busybox ash with busybox's applets, and that busybox is
+the `init` build variant (`build/busybox-1.36.1/.x86_64-rocknix-linux-gnu-init/busybox`
+in a GENERIC_X64 build root), not the image's `/usr/bin/busybox`: its ash
+has no `command` builtin and no `--install`, and its `md5sum` takes `-s`
+where the host's uutils one refuses it. T22's S1 fixture (#669, #1105,
+#1106) met both: a stub that returned 127 from `command -v` made the
+unfixed `init` print *Update complete* over an unwritten kernel -- the
+very bug, produced by the fixture. So a case for `init`'s functions runs
+them under that binary (`T22_BUSYBOX=<path> stage-e/s1/drive.sh`), never
+under the host's shell or the image's busybox. M6 retains a copy at
+`/workspace/artifacts/m6-donor/1a0266484423/initramfs/busybox` (named `busybox`: the binary selects its applet from argv[0], so a copy under another name answers *applet not found*) (sha256
+`4ce43643f300b585233e4723aaa3380d79d3b2bbe7a4ffaa540888041dbc13a6`, its
+RECORD.txt line beside it) for the acceptance re-runs.
