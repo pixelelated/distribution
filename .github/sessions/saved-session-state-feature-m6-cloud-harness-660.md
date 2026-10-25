@@ -16,7 +16,7 @@
 
 ## Current focus
 
-**Stage E done (S1, S2, S3; `fixed-at` `cee4bf481d`, `reviewed-at` `8a2518fa44`, both written into #660's body). The streams' hand-back and the guest-cycle plan are posted on #660, waiting for the coordinator's grant (M7's full build first). 05's gate: 10 Resolved, 6 Open (guest pending), 8 Deferred; pre-issue lint PASS.**
+**Stage E done (S1, S2, S3; `fixed-at` `cee4bf481d`, `reviewed-at` `8a2518fa44`, both written into #660's body). The streams' hand-back and the guest-cycle plan are posted on #660 (https://github.com/pixelelated/distribution/issues/660#issuecomment-6394453385: 8 rows, about 30 minutes, one question on A5/RETENTION same-guest), waiting for the coordinator's answer and grant (M7's full build first). 05's gate: 10 Resolved, 6 Open (guest pending), 8 Deferred; pre-issue lint PASS.**
 
 - **S1** (`cloud-test-backend`): `0cceb65207` #1058, `94c050ed5a` #1067 (its second criterion rewritten under the coordinator's 06:17 ruling and ticked, evidence on #1067), `91267b0dda` #1068, `7345a65e9d` #1060 (backend half).
 - **S2** (`cloud-round-trip`): `7f0e527800` #1066, `1e28ba8f94` #1060 (harness half), `332bda1515` #1062, `539622b9d7` #1063, `09ca086062` #1057, `e71d077882` #1059, `bde357126c` #1064, `f7482f9684` #1065, `0c538b1f74` #1069, `77e7b16193` #1070. Post-S2: `--list` 45; the dead-device case rc 2.
