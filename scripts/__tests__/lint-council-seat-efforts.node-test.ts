@@ -36,7 +36,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { lintSeats } from "../lint-council-seat-efforts.ts";
 import type { LintSeat, SeatFinding, Snapshot } from "../lint-council-seat-efforts.ts";
-import { OPENROUTER_SEATS, SHADOW_OPENROUTER_SEATS, pinEntries } from "../council-invoke.ts";
+import { OPENROUTER_SEATS, SHADOW_OPENROUTER_SEATS, AUDIT_OPENROUTER_SEATS, pinEntries } from "../council-invoke.ts";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(HERE, "../..");
@@ -394,6 +394,7 @@ describe("the shipped CLI and the module boundary", () => {
     const expected = Object.keys({
       ...OPENROUTER_SEATS,
       ...SHADOW_OPENROUTER_SEATS,
+      ...AUDIT_OPENROUTER_SEATS,
     }).length;
     assert.ok(expected > 0, "an empty seat table would make this case vacuous");
     const env = { ...process.env };
@@ -414,7 +415,7 @@ describe("the shipped CLI and the module boundary", () => {
     );
     // scaffold#917: the pinned-seat count is derived from the seat tables, so a pin added or
     // dropped without its served providers moves this assertion rather than hiding.
-    const pinnedSeats = Object.values({ ...OPENROUTER_SEATS, ...SHADOW_OPENROUTER_SEATS }).filter(
+    const pinnedSeats = Object.values({ ...OPENROUTER_SEATS, ...SHADOW_OPENROUTER_SEATS, ...AUDIT_OPENROUTER_SEATS }).filter(
       (s) => pinEntries(s.provider) !== null
     ).length;
     assert.ok(pinnedSeats > 0, "no pinned seat would make the served-provider half vacuous");
