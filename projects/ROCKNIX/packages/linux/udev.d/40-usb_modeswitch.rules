@@ -4,7 +4,7 @@
 ACTION!="add|change", GOTO="end_modeswitch"
 
 # Atheros Wireless / Netgear WNDA3200
-ATTRS{idVendor}=="0cf3", ATTRS{idProduct}=="20ff", RUN+="/usr/bin/eject '/dev/%k'"
+SUBSYSTEM=="block", ATTRS{idVendor}=="0cf3", ATTRS{idProduct}=="20ff", RUN+="/usr/bin/eject '/dev/%k'"
 
 # Realtek RTL8821CU chipset 802.11ac NIC
 #   initial cdrom mode 0bda:1a2b, wlan mode 0bda:c811
