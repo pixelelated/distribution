@@ -378,7 +378,14 @@ command -v setsid >/dev/null || { echo "needs setsid" >&2; exit 2; }
 # Bubblewrap descendants get a private /tmp, so an inherited host-only path
 # makes otherwise valid mktemp calls fail inside the device fixture.
 TMP="$(mktemp -d)" || { echo "cannot create host fixture directory" >&2; exit 2; }
-trap 'rm -rf "${TMP}"' EXIT
+# A run that never reaches its verdict says so (#1023): under set -u an
+# unbound expansion ended the run with rc 1 and no verdict line, which read
+# like an ordinary FAIL (--old 717bc04449 on 2026-10-25, at an N/A section's
+# leftover code). Exit 2, CANNOT, naming the section; the shell's own message
+# just above it names the line. An exit 2 the harness chose (a CANNOT) is left
+# as it is.
+VERDICT_REACHED=0
+trap 'lg_rc=$?; rm -rf "${TMP}"; if [ "${VERDICT_REACHED}" -ne 1 ] && [ "${lg_rc}" -ne 2 ]; then echo "last-good-scripts-test: ABORTED in section ${SECTION:-the harness} (rc ${lg_rc}) -- no verdict; the harness failed, not a script (its message above)" >&2; exit 2; fi' EXIT
 unset TMPDIR
 FAIL=0
 SKIPPED=0
@@ -404,7 +411,7 @@ check() { # <0|nonzero> ok-text bad-text
     if [ "$1" -eq 0 ]; then echo "    PASS  ${HOST_MARK}$2"; else echo "    FAIL  ${HOST_MARK}$3"; FAIL=$((FAIL + 1))
         case "${FAIL_SECTIONS}" in *" ${SECTION} "*) ;; *) FAIL_SECTIONS="${FAIL_SECTIONS}${SECTION} " ;; esac; fi
 }
-section() { SECTION="$1"; SECTION_NA=""; echo "  $1. $2"; }
+section() { SECTION="$1"; SECTION_NA=""; set -u; echo "  $1. $2"; }
 # A missing download takes one rule (#1025): each check that needs it is a
 # counted SKIP by name -- never a FAIL that blames the script, one SKIP
 # standing in for many, or an if with no counted branch -- and the dependency
@@ -593,6 +600,10 @@ old_absent() { # <repo-relative path>
         *) echo "    N/A   ${HOST_MARK}${SECTION} from here: ${1} is absent at ${BASE_REF}, not promised -- not run, never PASS" ;;
     esac
     SECTION_NA="${1} is absent at ${BASE_REF}"; NA_SECTIONS="${NA_SECTIONS}${NA_SECTIONS:+ }${SECTION}"
+    # The section's remaining code still runs against an empty placeholder;
+    # its checks print N/A whatever it does, so an unbound expansion there is
+    # not allowed to end the run. section() restores set -u at the next one.
+    set +u
 }
 # check_child <rc> <child> ok-text bad-text (#1019): a child suite's own exit
 # carried, not flattened into FAIL -- 0 PASS; 2 CANNOT, the child could not
@@ -14858,6 +14869,8 @@ sys.exit(1 if bad else 0)
 EOS
 check $? "#1033: every check call carries three arguments ($(head -1 "${TMP}/checkargs.out"))" "#1033: $(tr '\n' ' ' < "${TMP}/checkargs.out" | cut -c1-400)"
 
+VERDICT_REACHED=1   # the EXIT trap's ABORTED is for a run that never got here (#1023)
+set -u
 if [ "${NOT_APPLICABLE}" -ne 0 ]; then echo "${NOT_APPLICABLE} HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS"; fi
 # Whose tools judged the scripts, in the verdict and not only the banner (#1018).
 echo "tools: busybox ${BB_SRC:-none, so the GNU tools of the host}${BB_BANNER:+ -- ${BB_BANNER}}; source: ${BB_KIND}${BB_ID:+, BUILD_ID ${BB_ID}}"
