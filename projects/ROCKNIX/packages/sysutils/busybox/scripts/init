@@ -823,6 +823,14 @@ check_out_of_space() {
 }
 
 do_cleanup() {
+  # do_cleanup              before a reboot: the staged update is deleted and
+  #                         /storage unmounted, as the reboot needs.
+  # do_cleanup keep <why>   before a normal start: the staged update is kept
+  #                         as <name>.rejected with <why> beside it, and
+  #                         /storage stays mounted -- prepare_sysroot moves it,
+  #                         and a start without it fails every service on it
+  #                         (#1106).
+  local keep="$1" why="$2" f
   StartProgress spinner "Cleaning up... "
 
   # Busybox losetup doesn't have -D option
@@ -850,16 +858,32 @@ do_cleanup() {
     fi
   fi
 
-  rm -f "${UPDATE_TAR}" &>/dev/null
-  rm -f "${UPDATE_IMG_GZ}" &>/dev/null
-  rm -f "${UPDATE_IMG}" &>/dev/null
+  if [ "${keep}" = "keep" ]; then
+    for f in "${UPDATE_TAR}" "${UPDATE_IMG_GZ}" "${UPDATE_IMG}" "${UPDATE_ROOT}/${UPDATE_KERNEL}" "${UPDATE_ROOT}/${UPDATE_SYSTEM}"; do
+      if [ -f "${f}" ]; then
+        mv -f "${f}" "${f}.rejected" && echo "${why}" > "${f}.rejected.reason"
+        echo "The update is kept as ${f##*/}.rejected (${why}); rename it back to try again."
+      fi
+    done
+    rm -rf ${UPDATE_ROOT}/.[0-9a-zA-Z]* &>/dev/null
+    for f in ${UPDATE_ROOT}/*; do
+      case "${f}" in
+        *.rejected|*.rejected.reason) ;;
+        *) rm -rf "${f}" &>/dev/null ;;
+      esac
+    done
+  else
+    rm -f "${UPDATE_TAR}" &>/dev/null
+    rm -f "${UPDATE_IMG_GZ}" &>/dev/null
+    rm -f "${UPDATE_IMG}" &>/dev/null
 
-  rm -rf ${UPDATE_ROOT}/.[0-9a-zA-Z]* &>/dev/null
-  rm -rf ${UPDATE_ROOT}/* &>/dev/null
+    rm -rf ${UPDATE_ROOT}/.[0-9a-zA-Z]* &>/dev/null
+    rm -rf ${UPDATE_ROOT}/* &>/dev/null
 
-  # All previous unmounts were needed to safely unmount storage partition
-  if mountpoint -q /storage; then
-    umount /storage &>/dev/null
+    # All previous unmounts were needed to safely unmount storage partition
+    if mountpoint -q /storage; then
+      umount /storage &>/dev/null
+    fi
   fi
 
   sync
@@ -891,7 +915,7 @@ check_update() {
 
   if [ "${UPDATE_DISABLED}" = "yes" ]; then
     echo "Updating is not supported on netboot"
-    do_cleanup
+    do_cleanup keep "updating is not supported on netboot"
     StartProgress countdown "Normal startup in 5s... " 5 "NOW"
     return 0
   fi
@@ -1015,7 +1039,7 @@ check_update() {
 
   if [ ! -b "/${IMAGE_KERNEL}" -a ! -f "/flash/${IMAGE_KERNEL}" ] || [ ! -f "/flash/${IMAGE_SYSTEM}" ]; then
     echo "Missing (target) ${IMAGE_KERNEL} or ${IMAGE_SYSTEM}!"
-    do_cleanup
+    do_cleanup keep "the installed kernel or SYSTEM is missing"
     StartProgress countdown "Normal startup in 30s... " 30 "NOW"
     return 0
   fi
@@ -1023,7 +1047,7 @@ check_update() {
   # update parts may be symlinks, so check just for existence
   if [ ! -e "${UPDATE_DIR}/${UPDATE_KERNEL}" -o ! -e "${UPDATE_DIR}/${UPDATE_SYSTEM}" ]; then
     echo "Missing (source) ${UPDATE_KERNEL} or ${UPDATE_SYSTEM}!"
-    do_cleanup
+    do_cleanup keep "the update has no kernel or SYSTEM"
     StartProgress countdown "Normal startup in 30s... " 30 "NOW"
     return 0
   fi
@@ -1062,7 +1086,7 @@ check_update() {
 
     if [ "${MD5_FAILED}" -eq "1" ]; then
       echo "md5 check failed!"
-      do_cleanup
+      do_cleanup keep "its md5 check failed"
       StartProgress countdown "Normal startup in 30s... " 30 "NOW"
       return 0
     fi
@@ -1074,7 +1098,7 @@ check_update() {
   # non-booting systems after (for example) an RPi tar is incorrectly applied to an RPi2 system.
   if [ ! -f "${UPDATE_ROOT}/.nocompat" ]; then
     if ! check_is_compatible "${UPDATE_FILENAME}"; then
-      do_cleanup
+      do_cleanup keep "it is not for this device"
       StartProgress countdown "Normal startup in 60s... " 60 "NOW"
       return 0
     fi
@@ -1113,7 +1137,7 @@ check_update() {
     echo "current release, or you must re-size your existing partitions"
     echo "so that the System (FAT) partition is at least 512MB in size."
     echo ""
-    do_cleanup
+    do_cleanup keep "there is not enough room on the system partition"
     StartProgress countdown "Normal startup in 60s... " 60 "NOW"
     return 0
   fi
