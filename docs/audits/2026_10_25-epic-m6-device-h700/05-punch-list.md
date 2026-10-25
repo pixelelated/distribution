@@ -308,6 +308,6 @@ The coordinator's dispositions, 08:39 UTC on #674.
 | PL-09 | **Resolved** | recorded at `6d0e0892e4` as a design: one comment in `options` and one place joining unit, memory, loader and tree, a lead for the coordinator |
 | PL-10 | **Resolved** | recorded at `6d0e0892e4` as a design: one parameterised recipe, deferred to the coordinator; no edit |
 | PL-11 | **Resolved** | recorded at `6d0e0892e4`: both errata the coordinator's, written into the brief at acceptance |
-| PL-12 | **Deferred** | bug #1095, filed by the lane (box-check 0 fail); fixed in stage-E stream S1 (`t27-streams.md` at `64e56a3136`); `init`'s line pointed to T22's #669 |
+| PL-12 | **Deferred** | bug #1095, filed by the lane (box-check 0 fail); fixed in stage-E stream S1 at `22c4838f24`, positives in `02` § The streams' positives; the bug stays open until the fix reaches `next`; `init`'s line pointed to T22's #669 |
 | PL-13 | **Deferred** | #346, the maintainer's: the coordinator put it there beside T22's root-shell findings; the lane writes nothing on #346 |
 | PL-14 | **Deferred** | #672, a lead for T25, in the pointing comment with PL-02's |

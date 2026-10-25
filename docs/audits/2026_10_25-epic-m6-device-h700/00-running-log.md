@@ -77,3 +77,18 @@
 - **The audit issue:** #1096, labels `audit` and `punch-list`, milestone M6, a sub-issue of #674 (`.../674/sub_issues` lists `[1096]`): 14 checkboxes, `box-check` 0 fail. The lint with `--issue 1096`: `PASS`.
 - **The removal rule at the stage-D tip:** `git diff --stat ed7fd0ea50 HEAD -- packages projects tools` is empty.
 - **The pause:** the hand-back of stages A to D on #674; then S1 under the stream brief. No guest, build, compiler, plan generation, fetch, handheld command or `tools/council/run` call at stage D.
+
+## [Stage E, S1] 08:43 to 08:46 UTC — `bootloader/update.sh` (#1095)
+
+- **The brief:** `64e56a3136:docs/reviews/briefs/t27-streams.md`, one stream, Local depth. The unfixed side is `/workspace/tmp/m6-t27/unfixed`, a shared clone with `update.sh` at `70df17982c`, byte-equal to the branch at that tip.
+- **The test first** (`stage-e/s1/update-case.sh`): bash in `bwrap` with fixture `/flash`, `/update`, `/proc/device-tree`, `/sys/class/regulator`, `/storage` and a disk image, plus `mount`, `cp` and `dd` stubs. Unfixed, 08:44:10: remount-fail `rc=0`, copy-fail `rc=0` with `dtb.img` truncated to 1,000 bytes, dd-fail `rc=0`, success `rc=0`. Every fixed expectation was UNEXPECTED on the unfixed file. One driver adjustment: remount-fail's "named" now requires the script's own `update.sh:` line, not the stub's.
+- **The commit:** `22c4838f24`: a `fail` helper; every step checked; `dtb.img.new` renamed into place; the overlays copied only when present; an empty boot disk refused before the `dd`; `UBOOT_BIN` and `VDD_REG_PATH` initialized. Upstream's file, a contained fix as the commit says. `bash -n` passes.
+- **The positives after the commit,** 08:44:37 to 08:45:22: all four cases met on both sides; the controls `ddr3` and `unknown-voltage` the same on both; `stage-e/run-all.sh`: `run-all: 12 rows, 0 unexpected, 0 could not run`, rc 0.
+- **Recorded:** `02` § The streams' positives; `stage-e/README.md`; `05` PL-12 with its fix commit; a comment on #1095; `reviewed-at` `ed7fd0ea50` and `fixed-at` `22c4838f24` in #674's body, read back. **Nothing ran on a unit.**
+
+## [Stages F to H] 08:46 to 08:50 UTC — the re-verification, the retro, the checkers
+
+- **F, 08:46:09:** the brief's block at the tip prints its five lines unchanged. `git diff --stat 8ebaf8daad ed7fd0ea50 -- <the 28>` is empty; `git diff --stat ed7fd0ea50 70df17982c -- packages projects tools` is empty; stage E is `1 file changed, 28 insertions(+), 6 deletions(-)`. Coverage rows: 28.
+- **G:** `docs/retros/2026-10-25-m6-device-h700.md`, posted on #674: what the slice did to the two time-to-play numbers (nothing), and what T28 and T25 inherit.
+- **H, 08:46:41:** `register-check` rc 0 (681 IDs); `work-log-index --check` rc 0; `rules-check --quiet` rc 0; `forbidden-terms-check` rc 0 (`0 hits in 133470 tracked files`); `.githooks/hooks-test` rc 0 (`PASS`).
+- **A work-log entry** for #674, with the index regenerated.

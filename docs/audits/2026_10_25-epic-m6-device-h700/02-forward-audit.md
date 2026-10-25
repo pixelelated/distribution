@@ -163,6 +163,23 @@ Which image a unit takes on a fresh card (DDR3 or DDR4) is the parked question #
 | r15 | the upstream delta | 0 | 0.01 s | 1 D, 2 M | upstream changing another of the 28 |
 | r16 | the removal rule | 0 | 0.01 s | both diffs empty | an edit under `packages/`, `projects/` or `tools/` |
 
+## The streams' positives
+
+### S1: `bootloader/update.sh` (#1095)
+
+Under the coordinator's stream brief (`64e56a3136:docs/reviews/briefs/t27-streams.md`). Commit `22c4838f24`. The cases ran at 08:44:10 (unfixed), 08:44:37 and 08:44:54 (fixed), and all together at 08:45:22 UTC (`stage-e/run-all.sh`: `run-all: 12 rows, 0 unexpected, 0 could not run`). The driver runs the script under bash in `bwrap` with a fixture card; nothing ran on a unit.
+
+| Case | Unfixed (`70df17982c`) | Fixed (`22c4838f24`) |
+| --- | --- | --- |
+| The remount fails (`/flash` read-only) | `rc=0`; the copies fail silently; the loader is still written | `rc=1`: `update.sh: could not remount /flash read-write`; `dtb.img` the old bytes; the disk untouched |
+| The copy of `dtb.img` fails part-way | `rc=0`; **`dtb.img` truncated to 1,000 bytes**; the loader written | `rc=1`: `update.sh: could not write dtb.img; the previous one is unchanged`; `dtb.img` the old bytes; no `dtb.img.*` left behind |
+| The loader's `dd` fails | `rc=0`, nothing said | `rc=1`: `update.sh: could not write the u-boot loader H700_DDR4_u-boot-sunxi-with-spl.bin to /disk.img` |
+| Every step succeeds | `rc=0`; `dtb.img` the new tree; the DDR4 loader at 8 KiB | the same |
+| Control: `vdd-dram` 1.2 V | the DDR3 loader written | the same |
+| Control: `vdd-dram` 1.3 V | `rc=0`, no loader written, the disk untouched | the same |
+
+The thresholds and the dt-id read are unchanged, as the controls show. `init`'s *Boot Files Updated.* line still prints over a non-zero exit; it is T22's file, pointed to on #669.
+
 ## Findings
 
 | ID | Q | Severity | Category | Where | What |
