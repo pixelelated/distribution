@@ -593,8 +593,14 @@ case "${1:-}" in
   reset)
     if fs_backed; then
       # A plain directory, so resetting is a delete and inspecting it is ls.
-      rm -rf "${DATA:?}"/* "${DATA:?}"/.[!.]* 2>/dev/null || true
+      # find reaches every name (the old globs missed ones starting with two
+      # dots), and a delete that left anything is a failure, not an empty
+      # endpoint (#1060).
       mkdir -p "${DATA}"
+      find "${DATA:?}" -mindepth 1 -delete 2>/dev/null || true
+      if [ -n "$(find "${DATA:?}" -mindepth 1 -print -quit 2>/dev/null)" ]; then
+        echo "error: reset left $(find "${DATA:?}" -mindepth 1 | wc -l) entr(y/ies) in ${DATA}; the endpoint is not empty" >&2; exit 1
+      fi
       # The server caches listings for --dir-cache-time (1s); a device that
       # lists within that second still sees what was just deleted. Wait it
       # out here, once, so no caller has to know.
@@ -619,18 +625,30 @@ case "${1:-}" in
         left=$(AWS_ACCESS_KEY_ID="${USER_NAME}" AWS_SECRET_ACCESS_KEY="${PASS}" AWS_EC2_METADATA_DISABLED=true AWS_DEFAULT_REGION=us-east-1 \
           aws --endpoint-url "http://127.0.0.1:$(s3_api_port)" s3api list-objects-v2 --bucket "${S3_BUCKET}" --query 'KeyCount' --output text 2>/dev/null)
         if [ -n "${left}" ] && [ "${left}" != "0" ] && [ "${left}" != "None" ]; then
-          echo "warning: ${left} object(s) survived the reset of ${S3_BUCKET}" >&2
+          echo "error: ${left} object(s) survived the reset of ${S3_BUCKET}; the endpoint is not empty" >&2; exit 1
         fi
       fi
+      # Whatever the AWS CLI can see, rclone must list nothing, and a listing
+      # that fails is not an empty bucket (#1060).
+      left=$(set -o pipefail; s3 lsf -R --files-only "qa-host:${S3_BUCKET}" 2>/dev/null | wc -l) || {
+        echo "error: could not list ${S3_BUCKET} after the reset" >&2; exit 1; }
+      [ "${left}" = 0 ] || { echo "error: ${left} file(s) survived the reset of ${S3_BUCKET}" >&2; exit 1; }
     fi
     echo "reset: endpoint is empty"
     ;;
 
   ls)
     if fs_backed; then
-      ( cd "${DATA}${2:+/$2}" 2>/dev/null && find . -type f -printf '%10s %P\n' | sort -k2 ) || true
+      # A missing data directory is a missing endpoint, never an empty one;
+      # a missing path under a live one is an empty listing (#1060).
+      [ -d "${DATA}" ] || { echo "error: no endpoint state at ${DATA}; 'up' first" >&2; exit 1; }
+      [ -d "${DATA}${2:+/$2}" ] || exit 0
+      ( set -o pipefail; cd "${DATA}${2:+/$2}" && find . -type f -printf '%10s %P\n' | sort -k2 ) || {
+        echo "error: could not list ${DATA}${2:+/$2}" >&2; exit 1; }
     else
-      need rclone; s3 ls "qa-host:${S3_BUCKET}${2:+/$2}" 2>/dev/null || true
+      # rclone's exit is the listing's: a refused or absent server is a
+      # failure, not an empty bucket (#1060).
+      need rclone; s3 ls "qa-host:${S3_BUCKET}${2:+/$2}"
     fi
     ;;
 
