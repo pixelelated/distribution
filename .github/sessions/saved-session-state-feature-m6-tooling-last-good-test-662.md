@@ -43,17 +43,17 @@
    banners, exits, wall times and counts, the five `--old` recipes' exits --
    before reading a section.
 
-## Current focus (03:12 UTC update)
+## Current focus (03:25 UTC update)
 
-**Stage E, S1: #1018 is committed (`3037ce6b8c`).** Next come #1020, then #1029/#1038, then #1019. The stream briefs are `t15-streams.md` at `d717bac312`, read with `git show`; a copy is at `/workspace/tmp/m6-t15/t15-streams.md`. D-QA-063 (`d54b754da3`, the coordinator's branch) sets the exit lattice: 1 over 3 over 0, and a `--host-diagnostic` run is never 0.
-- **#1018's runs** (`02` § The streams' positives; outputs in `/workspace/tmp/m6-t15/s1/`):
-  - unfixed, no root: rc 1, 994/319, nothing naming the host;
-  - fixed refusal: rc 2 in 26 ms;
-  - `--host-diagnostic`: rc 1, all 1,313 lines `HOST:`;
-  - cut copies: rc 3 with no failing case, rc 1 with one injected;
-  - under the M7 root: **rc 0, 1,313/0/0**, `source: root, BUILD_ID 069fc2704421...`.
-- **Nothing is running.** The stage-D clone is at `/workspace/tmp/m6-t15/stageD`, detached at `2eface0727`, with history. The cut copies are in `/workspace/tmp/m6-t15/s1/cut/tools/` (run with `LAST_GOOD_SOURCE_ROOT` set to the worktree).
-- **Next, #1020:** stream A's rclone from the root (`QA_SYSTEM_ROOT/usr/bin/rclone`), and `rclone version` asserted against the recipe's `PKG_VERSION` read through `src_of`. The positive is the `rchost` root (`/workspace/tmp/m6-t15/roots/rchost`, the host's 1.60.1): unfixed 1,313/0; fixed refused or marked.
+**Stage E, S1: #1018 (`3037ce6b8c`) and #1020 (`7cb11eb379`) are committed.** Next come #1029/#1038, then #1019. The stream briefs are `t15-streams.md` at `d717bac312` (the coordinator corrected the 329 at `df404d5650`), read with `git show`; a copy is at `/workspace/tmp/m6-t15/t15-streams.md`. D-QA-063 (`d54b754da3`) sets the lattice, 1 over 3 over 0.
+- **#1018:** refusal rc 2; `--host-diagnostic` rc 1 on a failing case, else 3; under the M7 root 1,313/0/0 (`02` § S1, #1018).
+- **#1020** (the coordinator's 03:11 ruling (a)):
+  - the root's rclone must be the recipe's version (`src_of`), else CANNOT before `a`;
+  - unfixed under `rchost`: rc 0 PASSED; fixed: rc 2;
+  - under the M7 root: rc 0 in 522 s, 1,313/0/0, both `tools:` lines (`02` § S1, #1020).
+- **Open with the coordinator (the #1020 checkpoint):** every positive ref pins rclone 1.75.1 and the GENERIC_X64 roots here carry 1.75.2, so no `--old` run reaches a verdict on this host. S2's #1022/#1023 proofs need an answer.
+- **Nothing is running.** Clones: `/workspace/tmp/m6-t15/stageD` (`2eface0727`) and `/workspace/tmp/m6-t15/s1/pre1020` (`3037ce6b8c`). The cut copies are in `/workspace/tmp/m6-t15/s1/cut/tools/`, run with `LAST_GOOD_SOURCE_ROOT` set to the worktree.
+- **The register:** D-WORKFLOW-206/207 are the M7 lane's; a row here takes D-WORKFLOW-208+, D-QA-064 or D-INFRA-032 (the coordinator, 03:16). None is planned.
 - **Then #1029/#1038:** section `b`'s sandbox binds the copy, and the PL-022 case needs verified provenance, else a counted SKIP.
 - **Then #1019:** `ag`/`ah` with `--busybox-from <BUILD_ID>` or `--unverified-busybox`, and `check_child` (2 → CANNOT, 3 → unverified). T14's tools are staged from `7c1d729b57` under `.qa-scratch/t15/`.
 - **After S1:** the full suite under the root, recorded in `00`.
