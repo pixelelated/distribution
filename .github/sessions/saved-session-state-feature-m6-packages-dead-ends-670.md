@@ -16,16 +16,11 @@
 
 ## Current focus
 
-**Paused at stage D** (brief § 8; updated 2026-10-25, 04:32 UTC).
-- **Bugs filed by the lane:** #1049 (the inventory's `PKG_DEPENDS_UNPACK` gap), #1050 (`pkgcheck`'s silent pass), #1051 (`mesa-reusable:15`'s `curl`).
-- **The audit issue:** #1052, a sub-issue of #670, with 9 checkboxes, each naming its outcome. `box-check` 0 fail.
-- **Outcomes:** #1049 takes PL-01 and PL-06; #1050 PL-02; #1051 PL-03; #1048 PL-05, PL-07 and PL-08; PL-04 is pending its issue (asked on #670); PL-09 is resolved by `0a5676ea5d`.
-- **The lint:** pre-issue PASS, resolution PASS, `--issue 1052` PASS.
-- **After the pause:**
-  - No stage E: the lane removes nothing and edits nothing.
-  - Stage F: the counts and the lint at the tip, with the plans re-run through the shim; `reviewed-at` `27b015c901` and `fixed-at` into #670's body.
-  - Stage G: the retro, posted on #670 (time to play: nothing; what the #346 decision needs from the table).
-  - Stage H: the hand-back.
+**Stages F and G complete; stage H (the hand-back) next** (updated 2026-10-25, 04:35 UTC).
+- **`reviewed-at` `27b015c901`, `fixed-at` `ea19c27dee`**: both on #670's body, read back.
+- **Stage F** (`stage-f/counts.txt`): the plans through the shim are byte-identical to stage A's; the generator's statistics are identical; 1,604 / 731 rows; empty diffs; the lint passes in three forms; `box-check` 0 fail on #1049 to #1052.
+- **The retro:** `docs/retros/2026-10-25-m6-generic-packages-dead-ends.md`, posted on #670.
+- **#1052:** 9 items at outcomes (#1048, #1049, #1050, #1051, #1053, `0a5676ea5d`).
 - **Running for this lane:** nothing.
 
 ## Next commands
