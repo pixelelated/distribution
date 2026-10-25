@@ -16,9 +16,23 @@
       "effort": "max",
       "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
       "allow_fallbacks": false,
-      "calls": [ { "phase": "refutation", "output": "gpt-audit.md" } ],
-      "probes": [ { "phase": "probe", "output": "gpt-probe.md" } ],
-      "status": "pending"
+      "calls": [
+        {
+          "phase": "refutation",
+          "output": "gpt-audit.md"
+        },
+        {
+          "phase": "refutation, second packet (the sections the seat asked for)",
+          "output": "gpt-audit2.md"
+        }
+      ],
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gpt-probe.md"
+        }
+      ],
+      "status": "complete: probe PASS 02:02:31-02:02:39Z; refutation PASS 02:02:52-02:15:31Z (33590 reasoning tokens) and its second packet PASS 02:16:37-02:24:14Z (21576), each on the first attempt, served openai/gpt-6-astra by OpenAI at max, outcome success; 21 findings graded (7 confirmed, 13 confirmed with narrowing, 1 refuted and withdrawn) and G-01 to G-10 added, all accepted, in 04 \u00a7 Second opinion"
     }
   ],
   "packets": {
@@ -29,6 +43,14 @@
       "manifest": "packet-manifest.json",
       "content": "the ask (the busybox fallback and its banner, the sandbox's network, check $? after compound tests, the --old controls' standing, the split), the section index and the groups, 13 excerpts of tools/last-good-scripts-test at 8ebaf8daad line-numbered (1484 lines: the harness, a, b, q, t's patch block and verdict reading, v, the F1 history helpers, the :4271 repair, y4, stream A's setup and sandbox helpers, aa's two-argument check, the call sites and the verdict), 02/03/04 whole, the two rule sections from next",
       "scan": "forbidden-terms-check --stdin 0 hits; SECRET_PATTERNS 0 lines under three pattern sets, each seen to fire on a constructed line; :8004 not carried; no redaction"
+    },
+    "gpt2": {
+      "file": "gpt-brief2.md",
+      "manifest": "packet2-manifest.json",
+      "content": "the 14 ranges the seat named, settings-modes-test and melonds-upgrade-test at 8ebaf8daad and 7c1d729b57, the seat's first reply, the first packet",
+      "scan": "forbidden-terms-check --stdin 0 hits; SECRET_PATTERNS 0 lines under three pattern sets; :8004 not carried; no redaction",
+      "bytes": 479112,
+      "sha256": "570fbcbf0f88db311a1bf8ee1a2d318818043d95827a9163f04588aa55ea50d4"
     }
   }
 }

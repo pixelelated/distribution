@@ -135,3 +135,18 @@
   - **Size:** `gpt-brief2.md` is 479,112 bytes.
   - **Scanned before it was sent:** 0 hits; 0 credential lines under the three sets; `:8004` not carried.
   - **Sent** at 02:16:37Z, with the same timeouts. The harness background task delivers its end.
+
+## [Stage C] 02:26 UTC — the second reply; the grading; the coordinator's 02:24 ruling
+
+- **The coordinator's answer (02:24 UTC; its session had been down from 00:45 to 02:20):** all three `--old` items are bugs of this file.
+  - The two dead refs are fixed to `717bc04449` and `51e2acece6`, proven by running.
+  - `src_of`'s whole-run exit 2 under `--old` becomes NOT APPLICABLE per section, and the run goes on.
+  - `70b6c70ca7`'s `t`: pin the client build, or retire the recipe with the reason.
+  - They are filed at stage D.
+- **The second reply** (`/workspace/tmp/m6-t15/audit2.log`): 02:16:37Z to 02:24:14Z, attempt 1 of 4, `finish=stop`, 6,815 bytes of content (the file is 6,961), 457,661 ms. Served `openai/gpt-6-astra` by OpenAI at `max` (21,576 reasoning tokens); verification, effort and provider PASS. Scanned before it was read: 0 hits and 0 credential lines.
+- **The grading** (`04` § Second opinion):
+  - **The 21 findings:** 7 confirmed, 13 confirmed with narrowing, and 1 refuted. F-08 is **withdrawn**: `NOT APPLICABLE` marks a retirement and is not counted as a pass (`:14235`); the fragile gate behind it is G-05.
+  - **G-01 to G-10** were added by the seat. Each was re-derived by the lane at its lines (`:522`/`:536-541`, `:14224`/`:14231`, `:1781-1789`, `:8852-8860`, `:4553-4559`, `:7320-7357`, `:10326-10333`, `:7771-7776`, `:14224-14233`/`:310`), and all were accepted.
+  - **Two Q3 errors of the first reader are corrected:** `:3329` (agent 2's lead) and `:3053`.
+- **One tension, recorded and not resolved here:** the seat argues against a blanket per-section NOT APPLICABLE for F-05. Its distinctions: an invalid ref → CANNOT; an absent historical feature → a presence-contract FAIL; an unrelated newer section → not applicable; a selected check that cannot run → incomplete, never PASS. The coordinator's 02:24 ruling sets the fix as NOT APPLICABLE per section. The ruling governs; the seat's distinctions go into that bug's acceptance as a lead.
+- **`review-plan.json`** is set complete, recording both calls and the second packet.
