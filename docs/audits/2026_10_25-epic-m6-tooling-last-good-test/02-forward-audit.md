@@ -573,3 +573,15 @@ The constructed input is a shallow clone, the coordinator's 04:12 ruling: a clon
 | a shallow clone | fixed | **rc 2 in 127 s**, after 397 PASS: `last-good-scripts-test: CANNOT -- 417dcd8610 is not in this checkout's history (an export or a shallow clone?), so projects/ROCKNIX/packages/hardware/quirks/platforms/GENERIC_X64 cannot be read at it`. Load 24.5 at its end, from M7's build beside it | proved: tool-run |
 
 The same run from a full clone passes `F1.`, `F1r.` and `C.` as before: root-tip at `a286e5b49f`, 1,312 / 0 / 0 / 2 CANNOT, above.
+
+### S3, #1026: rc non-zero and nothing written requires the script to have run
+
+The constructed input is a sandbox that cannot start: a `bwrap` first on PATH that prints `bwrap: a constructed sandbox that cannot start (#1026)` and exits 1 (`/workspace/tmp/m6-t15/s3/fakebwrap/bwrap`). Each side is a full suite on the donor, from a clone. Unfixed is `11952dfcf3`, the commit before `812d09e3af`; fixed is `5d1f67ca0b`. The comparison (`witness-compare.py` in the lane's scratch) takes each witnessed check's ok-text from the fixed file, up to its first expansion, and looks for it among each run's PASS lines.
+
+| Case | File | Result | Proved |
+| --- | --- | --- | --- |
+| no sandbox can start (the positive) | unfixed | rc 1 in 177 s, 581 PASS / 678 FAIL / 1 SKIP / 2 CANNOT; the fake refused 214 times. **23 of the 64 witnessed checks matched by their text PASS**, among them `b`'s founding cases: `PASS  the run died (rc 1)`, `PASS  a restore whose extraction fails exits non-zero` | proved: tool-run |
+| no sandbox can start | fixed (`5d1f67ca0b`: 63 checks witnessed, plus `b`'s two with their guarded steps) | rc 1 in 217 s, 544 PASS / 715 FAIL / 3 SKIP / 2 CANNOT. **0 of the 64 PASS.** `FAIL  the run exited 0 through a tar that killed the group, or never reached it (started: no, tar reached: no)`; `FAIL  rc 1 from a failed extraction, or the extraction was never reached (started: no, extraction reached: no)` | proved: tool-run |
+| sandboxes that start (the judging run) | fixed, root-final | rc 3, 1,315 / 0 / 0 / 2 CANNOT: every witnessed check passes on the real scripts | proved: tool-run |
+
+The other 41 witnessed checks failed even on the unfixed file under the broken sandbox, because of another conjunct, such as a missing why line. `7987e9cc9f` gave the witness to the remaining eight checks under `nb`, `ev`, `c2`, `p7w`, `p7ev` and `cf3`: 71 of 71. Their positive is the fake-`bwrap` run at the final tip, in the close-out.
