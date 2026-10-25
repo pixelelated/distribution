@@ -1,7 +1,7 @@
 # Session pointer: M6.P2 T22, the OS's system services and platform quirks (#669)
 
 > **Seeded:** 2026-10-25 by the coordinator (Fable 5.1, lane `m6-coordinator`, D-WORKFLOW-189); the executor updates this file **at every checkpoint** (#1014)
-> **Branch:** `feature/m6-os-system-services-669`, stacked on `feature/m6-p1-survey-641` at `2174265e9c` (which carries the P0 branch); the coordinator's tips merged in (`cc8b6cf2a3` at `3d56c56380` (one merge, carrying versions 1 to 3)); the pointer seeded after the second merge
+> **Branch:** `feature/m6-os-system-services-669`, stacked on `feature/m6-p1-survey-641` at `2174265e9c` (which carries the P0 branch); the coordinator's tips merged in (`cc8b6cf2a3` at `311c1f7972` (two merges, `3d56c56380` then `311c1f7972`, carrying versions 1 to 3)); the pointer seeded after the second merge
 > **Worktree:** `/workspace/repos/pixelelated/distribution.worktrees/m6-os-system-services-669`; the T5, T6, T7, T8, T9, T12, T45, T23 and T40 worktrees beside it (`m6-packages-dead-ends-670` read with `git show`, never checked out) (`m6-build-engine-652`, `m6-build-engine-upstream-tools-653`, `m6-generic-packages-reached-654`, `m6-image-packages-655`, `m6-tooling-build-supervision-656`, `m6-tooling-vm-harness-659`, `m6-tooling-council-692`, `m6-packages-dead-ends-670`), idle until their merges; nothing is written there
 > **Primary checkout:** `/workspace/repos/pixelelated/distribution` on `next` (D-INFRA-025); the legacy `/workspace/repos/rocknix` and every `rocknix.worktrees/*` are the M7 lane's: read only, no process started there
 > **Repository:** `pixelelated/distribution`; every `gh` call carries `--repo pixelelated/distribution`
