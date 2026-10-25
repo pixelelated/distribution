@@ -16,12 +16,12 @@
 
 ## Current focus
 
-**At the stage-D pause, rulings applied (06:0x UTC): stage E's shape is agreed (S1 `cloud-round-trip` with #1066 first; S2 `cloud-test-backend` with #1067 first; S3 #1061 and #1081). Waiting for the coordinator's stream brief on #660, and nothing under `tools/` changes before it. The guest window is still held behind M7's full build.**
+**Stage E: S1 done (06:1x UTC, `cloud-test-backend`, 4 commits `0cceb65207` #1058, `94c050ed5a` #1067, `91267b0dda` #1068, `7345a65e9d` #1060's backend half); the S1 checkpoint is posted on #660; S2 (`cloud-round-trip`) next. The brief: `docs/reviews/briefs/t13-streams.md` at `44fdec1e16` (on `feature/m6-renovation-plan-346`; never merged here).**
 
-- Done: stages A-D. The folder holds 00-05 and `second-opinions/` (review plan, packet, probe and refutation with provenance, all PASS); the pre-issue lint PASSes. The seat's 53 items are graded in 04 (F-15..F-26 new). The table: 79 rows, 24/46/8.
-- Filed: bugs **#1057-#1070** and **#1081** (PL-22, the census, after the coordinator's 05:52 ruling 'drop the call'; box-check 0 fail each) and the audit issue **#1073** (24 checkboxes, a sub-issue of #660, box-check 0 fail). PL-16 goes to #1055, PL-18 to #909 (with `paths:` the coordinator's), PL-15 rides on #1059, and PL-17/19/20/21/23/24 go to the coordinator's Backlogs #1075-#1080; 05 and #1073 name them all.
-- A rule broken once and recorded (00 05:21; friction line): `tools/council/run --help` without `COUNCIL_ENV_FILE=/nonexistent`. Reported on #660 in the stage-D post.
-- Next, on the coordinator's word: stage E, one stream per bug or per the brief's grouping, editing only the nine; then F (the guest cycle when granted; 05's Phase 7 outcomes; the resolution lint), G (the retro), the hand-back.
+- The unfixed copy for positives: `/workspace/tmp/m6-t13/unfixed` (a shared clone, `tools/` at `8a2518fa44`). The positives log: `/workspace/tmp/m6-t13/streams-positives.md`, copied into 02 § The streams' positives at each stream's end.
+- **S2's order:** #1066, #1060 (harness half: pair every absence check with a successful listing; also fix the `epath()`/`rpath()` docstrings now that SFTP's prefix is empty), #1062, #1063, #1057, #1059 (with PL-15's capabilities), #1064, #1065 (with the `grep -c ... || echo 0` sweep listed in 02), #1069, #1070. One commit per bug, positive first, against a copy at `8a2518fa44` or an extracted function. After S2: `--list` 45 cells and the dead-device case rc 2.
+- **S3:** #1061 (T10's patterns via `git show feature/m6-tooling-guards-657:.githooks/secret-patterns`, never merged), #1081.
+- **The guest cycle:** its plan is posted on #660 before the grant (controls on the unfixed clone, then the fixed cells, then the suite over WebDAV and SFTP; under 45 minutes). The window opens only on the coordinator's grant.
 
 ## Next commands
 

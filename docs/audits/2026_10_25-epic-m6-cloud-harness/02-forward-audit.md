@@ -259,3 +259,61 @@ One row per tool: the input constructed to make it FAIL, the command, and the FA
 | The rule's no-network sentence is stale | `rclone-cloud-sync.md:375` says "exit-4 timing"; the tool asserts `rc == "69"` at 1469 (#909) | tree |
 | The endpoint's `ls` reports a missing path as empty, rc 0; `run_steps.27`'s and KILL4's absence checks PASS on it | `CLOUD_QA_STATE=/workspace/tmp/m6-t13/no-such-state tools/cloud-test-backend --backend webdav ls`: rc 0, 0 bytes (SFTP the same); lines 629-633, 1567, 1838, 7054-7056 | tool-run |
 | RETENTION's two last checks pass when nothing ran | lines 2451 and 2453: with `cloud_reconcile` absent the head and the device's copy are untouched, so both `check()` calls are true | tree |
+
+## The streams' positives
+
+Stage E (the brief `docs/reviews/briefs/t13-streams.md` at `44fdec1e16`). Each bug's case is run first against the unfixed file (a shared clone at `8a2518fa44`, `/workspace/tmp/m6-t13/unfixed`, `tools/` checked out), then against the fix. Backends always run under the isolation environment; every case is taken down after, and the leftover check is in `00`. `proved:` tool-run for each.
+
+### #1058 (S1): `--backend` after the subcommand
+- unfixed (`8a2518fa44`, clone `/workspace/tmp/m6-t13/unfixed`): `tools/cloud-test-backend up --backend sftp` -> `up: webdav serving /workspace/tmp/m6-t13/state/data at http://127.0.0.1:9080 ...`, **rc 0**, listener `127.0.0.1:9080` (WebDAV's, brought down by `--backend webdav down`)
+- fixed: `up --backend sftp` / `ls --backend s3` / `port --backend sftp` -> `error: '--backend' after '<sub>': options go before the subcommand (...)`, **rc 2** each, 0 listeners; `--backend sftp port` -> 9013 rc 0; `--backend s3 caps` -> `hash=md5 modtime=yes commit=atomic bucket=yes` rc 0; `ls t13` (a path) rc 0
+### #1067 (S1): the SFTP endpoint confined, under a QA identity
+- unfixed (`8a2518fa44`): `--backend sftp up` -> `up: sftp serving <state>/sftp/data at <host-login>@127.0.0.1:9083`; the stanza's `user =` is **the host's own login**; with the QA key, `sftp ... ls -1 /etc` through the endpoint returned **232 entries** and `ls ..` 9 (counts only; no names printed)
+- fixed (`rclone serve sftp` rooted at the data directory, `--authorized-keys`, the generated host key): `up` -> `up: sftp serving <state>/sftp/data at rocknix-qa@127.0.0.1:9083`; stanza user `rocknix-qa` (not the host login); `ls /etc` -> `Can't ls: "/etc" not found`; `ls ..`, `ls ../..`, `ls /` list only the endpoint's (empty) root; `saves-remote` -> `/pixelelated/Saves` (relative now: the endpoint prefix is empty); an `rclone copy` through the endpoint kept the source modtime (`2020-01-02 03:04:05`), and `ls`/`cat` read it back (`caps` `modtime=yes` holds)
+- **stated, not hidden:** rclone does not check the user name under key auth (a spare server on :9084 with `--user rocknix-qa` accepted `rocknix-qa`, another name and the host login with the QA key, rc 0 each); the guarantee is the key plus the confinement to the data directory -- no host account is behind any login
+### #1068 (S1): no stanza from a failed obscure; the S3 config created private
+- shims under `/workspace/tmp/m6-t13/shim1068/`: an `rclone` whose `obscure` exits 1 (all else to `/usr/bin/rclone`), and a `chmod` that does nothing
+- unfixed: `--backend webdav|smb|ftp rclone-conf` with obscure failing -> **rc 0** and `pass = ***` (masked here) equal to the clear QA password, each; `--backend s3 ls` on a fresh state with chmod a no-op -> `s3-host.conf` mode **664**
+- fixed: the same three -> **rc 1**, `error: rclone obscure failed; no stanza written (a clear password never goes in one)`, 0 `pass` lines; with the real rclone each writes an obscured `pass` (the clear value: 0 lines); the S3 config with chmod a no-op -> mode **600**
+### #1060, backend half (S1): ls and reset fail closed
+- unfixed (`8a2518fa44`), state `/workspace/tmp/m6-t13/state-1060`: `--backend webdav ls` with the state missing -> **rc 0, 0 bytes**; `--backend s3 ls` with no MinIO running -> **rc 0, 0 bytes**; `--backend webdav reset` with an undeletable survivor (a file in a mode-555 directory) -> `reset: endpoint is empty`, **rc 0**, 1 file left
+- fixed: `ls` with the state missing -> `error: no endpoint state at <state>/no-such/data; 'up' first`, **rc 1**; `ls no/such/prefix` under live state -> rc 0, 0 bytes (an absent prefix stays empty); `s3 ls` with no MinIO -> **rc 1** with rclone's own error (`dial t...`); `reset` with the survivor -> `error: reset left 2 entr(y/ies) in <state>/data; the endpoint is not empty`, **rc 1**; with it deletable again -> rc 0, 0 left; a `..dotdot` name is removed (the old globs missed it)
+
+**After S1** (06:14 UTC, at `7345a65e9d`), the three backends once each under the isolation environment:
+
+```
+== webdav :9080 06:14:28
+up rc=0 1.0s
+put rc=0
+ls rc=0 lines=1
+ls no/such/prefix rc=0 bytes=0
+cat present rc=0
+cat missing rc=1
+reset: reset: endpoint is empty rc=0
+ls after reset: rc=0 lines=0
+caps: hash=none modtime=no commit=partial bucket=no
+down: down rc=0
+== sftp :9083 06:14:32
+up rc=0 1.1s
+put rc=0
+ls rc=0 lines=1
+ls no/such/prefix rc=0 bytes=0
+cat present rc=0
+cat missing rc=1
+reset: reset: endpoint is empty rc=0
+ls after reset: rc=0 lines=0
+caps: hash=none modtime=yes commit=partial bucket=no
+down: down rc=0
+== s3 :9082 06:14:34
+up rc=0 0.7s
+put rc=0
+ls rc=0 lines=1
+ls no/such/prefix rc=0 bytes=0
+cat present rc=0
+cat missing rc=1
+reset: reset: endpoint is empty rc=0
+ls after reset: rc=0 lines=0
+caps: hash=md5 modtime=yes commit=atomic bucket=yes
+down: down rc=0
+leftover: ss 0 docker 0 rclone-serve 0 minio 0
+```

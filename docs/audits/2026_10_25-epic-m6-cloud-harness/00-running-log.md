@@ -142,3 +142,17 @@ The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_6
 - **The census bug, filed: #1081.** The defect and the fix were re-read first: `tools/cloud-census:76` runs `cloud_device_id`, which writes `ID_FILE=/storage/.config/cloud_sync-device-id` (its line 54, `write_id` at 288), against the tool's own header lines 16-18. `box-check --issue 1081`: 2 open, 0 fail.
 - 05's Tracked fields, its `punch_index` and its Phase 7 gate now name #1075-#1080 and #1081, and PL-22 is a Correctness bug. #1073's body was edited to match; `box-check --issue 1073`: 24 open, 0 fail. The pre-issue lint: `PASS pre-issue artifacts`. 04 § Q6's census row records the ruling.
 - `git status --short -- tools` is empty: nothing under `tools/` has changed.
+
+## 2026-10-25 06:02-06:15 UTC -- stage E, S1 (`cloud-test-backend`) done
+
+- 06:02: the stage-E brief (`t13-streams.md` at `44fdec1e16`, read whole) and the dispatch on #660. S1 is `cloud-test-backend`, S2 `cloud-round-trip`, S3 the small tools; the four guest criteria fold into the held cycle.
+- **The unfixed copy:** `git clone --no-checkout --shared` of this worktree into `/workspace/tmp/m6-t13/unfixed`, with `git checkout 8a2518fa44 -- tools` (no worktree registered, so nothing for `fork-worktree` to remove).
+- **The commits, one per bug, each with its positive in 02 § The streams' positives:**
+  - `0cceb65207` #1058: `--backend` after the subcommand refused, exit 2.
+  - `94c050ed5a` #1067: the SFTP endpoint is `rclone serve sftp` rooted at the data directory under the QA key. `/etc` is not found, the stanza user is `rocknix-qa`, and the endpoint prefix is now empty. Stated in the code: rclone does not check the user name under key auth.
+  - `91267b0dda` #1068: no stanza from a failed `obscure`; the S3 config created under umask 077.
+  - `7345a65e9d` #1060's backend half: `ls` and `reset` fail closed.
+- **Post-S1 run** (06:14 UTC): WebDAV :9080, SFTP :9083 and S3 :9082, each `up`/`put`/`ls`/`ls` of a missing prefix/`cat` present and missing/`reset`/`ls`/`caps`/`down`, all as expected (02).
+- **Leftover check after every case and every commit:** `ss` 0 on 9010-9099, 0 `rocknix-cloud-qa*` containers, 0 `rclone serve`, 0 `minio server`, 0 sshd on `m6-t13`.
+- **A lead for S2:** `cloud-round-trip`'s `epath()` and `rpath()` docstrings describe SFTP's old absolute-path prefix; they are S2's file.
+- Nothing under `tools/` but `cloud-test-backend`; no guest; nothing under `/tmp` or `/workspace/repos/rocknix*`.
