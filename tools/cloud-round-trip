@@ -4598,7 +4598,11 @@ def fx_cap13(p):
     # This call's part of the log, and the warning present or not: `grep -c
     # ... || echo 0` yielded "0\n0" on a log without it, which is neither ""
     # nor "0", so the check passed with no warning logged (#1065).
-    warned = "outside the saves folder" in log_since(a, mark)
+    # The words the image writes: cloud_capture's refusal reads "<path> is not
+    # a path under the saves folder <root>; not recorded" since c42dfb0c40.
+    # The older needle, "outside the saves folder", matched nothing on the
+    # image and passed only through the "0\n0" count (#1065, seen on a guest).
+    warned = "is not a path under the saves folder" in log_since(a, mark)
     f += not check(rc == 1 and probe_there == "yes" and st1_there == "no" and bool(rows) and warned,
                    "(e) a path outside the saves folder is refused the row and the rm (exit 1, the warning logged); the sibling that is this unit's is retired and removed",
                    f"rc {rc}; probe on disk: {probe_there}; state1 on disk: {st1_there}; rows for state1: {len(rows)}; "
