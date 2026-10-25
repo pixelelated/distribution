@@ -389,3 +389,4 @@
 - **09:18, final2-old-cee1656c33 at `e430d61cfa`:** rc 1 in 1,412 s, 311 / 298 / 732 N/A / 0 SKIP / 2 CANNOT. Promised `p r t`, all fired; `x y z ab` N/A (728). No departure.
 - **09:41, final2-old-28a80357ed at `e430d61cfa`:** rc 1 in 1,372 s, 271 / 311 / 755 N/A / 0 SKIP / 2 CANNOT. Promised `r s`, both fired; `t x y z ab` N/A (750). No departure.
 - **10:04, final2-old-3387cf5da0 at `e430d61cfa`:** rc 1 in 1,384 s, 331 / 278 / 733 N/A / 0 SKIP / 2 CANNOT. Promised `t`, fired; `x y z ab` N/A (729). No departure.
+- **10:27, final2-old-655f103cc5 at `e430d61cfa`:** rc 1 in 1,378 s, 339 / 270 / 733 N/A / 0 SKIP / 2 CANNOT. Promised `u v`, both fired; `x y z ab` N/A (729). No departure.
