@@ -240,3 +240,9 @@
 - **S1's end, the full suite under the M7 root at this branch: rc 3, 1,312 / 0 / 0 / 2 CANNOT.** This branch's copies of the two writer tests predate T14's `--busybox-from` (`unrecognized arguments`). With T14 merged, they are the cut copy's two PASSes and the run is 1,314 / 0 / 0. That merge is the coordinator's (T14 merges before this branch).
 - **S1's five bugs** (#1018, #1020, #1029, #1038, #1019) are fixed in four commits. Next is S2: #1021-#1024, #1035, #1039, with the 03:34 `--old` per-tool ruling.
 - **One edit after the end-of-S1 run:** the comment beside the `ag` move gained the coordinator's `--old` sentence. It is comment only; `bash -n` passes, and no line that runs changed.
+
+## [Stage E] 04:12 UTC — #1030's positive, its fix already in #1019's commit
+
+- **`3da816ce24` (#1019) already moved `ag`'s tool to `HARNESS_ROOT`, which is #1030's whole fix** (S6). The coordinator approved the move at 03:58. I made it as part of #1019 before noticing #1030 is its own bug.
+- **Its positive** (the table is `02` § S6, #1030): with `LAST_GOOD_SOURCE_ROOT` naming a checkout without the tool, the unfixed `ag` gives `No such file or directory` and FAIL (rc 1); the fixed one PASSes (rc 0).
+- **S6 therefore has no code commit left.** Put to the coordinator with the S1 checkpoint.

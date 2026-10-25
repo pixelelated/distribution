@@ -43,24 +43,28 @@
    banners, exits, wall times and counts, the five `--old` recipes' exits --
    before reading a section.
 
-## Current focus (03:57 UTC update)
+## Current focus (04:13 UTC update)
 
-**Stage E, S1: #1018 (`3037ce6b8c`), #1020 (`7cb11eb379`), and #1029/#1038 (`4e5b6c6103`) are committed.** #1019 is next, the last of S1; then the full root run; then S2. The stream briefs are `t15-streams.md` at `d717bac312` (the 329 corrected at `df404d5650`), read with `git show`; a copy is at `/workspace/tmp/m6-t15/t15-streams.md`. D-QA-063 (`d54b754da3`) gives 1 over 3 over 0.
-- **Under the M7 root after `4e5b6c6103`: rc 0, 1,314/0/0** (the baseline plus #1029's probe). The positives are in `02` § The streams' positives (S1: #1018; #1020; #1029 and #1038).
-- **The coordinator's 03:34 `--old` ruling, for S2:**
-  - under `--old` only, each tool borrowed from the root (rclone, busybox) is read against the ref's recipe;
-  - a mismatch is named on the banner and the `tools:` line, and its sections count as unverified (stream A for rclone, everything for busybox);
-  - the exit follows D-QA-063;
-  - outside `--old`, the 03:11 CANNOT stands;
-  - a root of a 1.75.1 ref goes into `04` as what would turn the 3s into 0s.
-- **#1019's plan:**
-  - `ag` and `ah` both take their tools from `HARNESS_ROOT` (`ag` used `ROOT`);
-  - they pass `--busybox-from "${BB_ID}"` under a root/build and `--unverified-busybox` under the host;
-  - `check_child` maps 0 to PASS, 2 to CANNOT, 3 to UNVERIFIED (each counted and named), else FAIL;
-  - positives come from a staging clone with T14's tools from `7c1d729b57` and a second with exit-2/exit-3 doubles, cut copies of the file at `4e5b6c6103` (unfixed) and the fix.
-- **Nothing is running.** Clones: `/workspace/tmp/m6-t15/stageD` (`2eface0727`) and `/workspace/tmp/m6-t15/s1/pre1020` (`3037ce6b8c`). The cut copies are in `/workspace/tmp/m6-t15/s1/cut/tools/`.
+**Stage E: S1 is complete.** Its fixes:
+- #1018: `3037ce6b8c`;
+- #1020: `7cb11eb379`;
+- #1029/#1038: `4e5b6c6103`;
+- #1019: `3da816ce24`, which also carries #1030's fix (S6); its positive is recorded in `02` § S6.
+
+**S2 is next:** #1021-#1024, #1035, #1039, with the 03:34 `--old` per-tool ruling. The stream briefs are `t15-streams.md` at `d717bac312` (the 329 corrected at `df404d5650`); a copy is at `/workspace/tmp/m6-t15/t15-streams.md`. D-QA-063 gives 1 over 3 over 0.
+- **S1's end under the M7 root (`3da816ce24`): rc 3, 1,312 / 0 / 0 / 2 CANNOT.** This branch's own copies of the two writer tests predate T14's `--busybox-from`. With T14 merged, those two PASS (the cut copy with T14's tools: rc 0), and the run is 1,314 / 0 / 0.
+- **The coordinator's rulings in force:**
+  - 03:11: outside `--old`, a root whose rclone is not the recipe's is CANNOT;
+  - 03:34: under `--old`, each tool borrowed from the root (rclone, busybox) is read against the ref's recipe; a mismatch is named and its sections are unverified (stream A for rclone, everything for busybox); D-QA-063 gives the exit;
+  - 03:58: a child's 2/3 gives 3 with no FAIL; `ag` from `HARNESS_ROOT`.
+- **Open with the coordinator (the S1 checkpoint):** whether S6 is closed by `3da816ce24` plus its positive; and #1021's history-less positive from a `--depth 1` clone rather than `git archive`.
+- **Nothing is running.** Clones in `/workspace/tmp/m6-t15/`:
+  - `stageD` (`2eface0727`);
+  - `s1/pre1020` (`3037ce6b8c`);
+  - `s1/t14stage` (`4e5b6c6103`, with T14's tools from `7c1d729b57`);
+  - `s1/t14double` (the exit-2/exit-3 doubles);
+  - `s1/nosmt` (no `settings-modes-test`).
 - **The register:** D-WORKFLOW-206 to 208 are the M7 lane's; a row here takes D-WORKFLOW-209+, D-QA-064 or D-INFRA-032. None is planned.
-- **After S1:** the full suite under the root, recorded in `00`.
 - **Then S2 to S6, then the close-out** (the brief's last section): the Phase 7 table, `02` § The suites re-run, the lint, `fixed-at:`, the retro, the hand-back, then idle.
 - **Stages A to D** are in `00` (A 00:23-01:10; B `c4a7e98509`; C `4851698b02`; D `2eface0727`: `05`, bugs #1018-#1039, audit issue #1040).
 

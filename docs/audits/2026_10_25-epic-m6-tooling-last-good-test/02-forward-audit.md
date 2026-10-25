@@ -513,3 +513,12 @@ The positives run in two `git clone --shared` copies detached at `4e5b6c6103` (`
 | this branch's own tools (before T14 merges), the M7 root: the end of S1 | fixed, full suite | **rc 3** in 518 s, 1,312 PASS / 0 FAIL / 0 SKIP / **2 CANNOT**: `settings-modes-test: error: unrecognized arguments: --busybox-from 069fc2704421...`, then `CANNOT  settings-modes-test could not run ...`; the same for melonDS; `2 CHILD SUITE(S) COULD NOT RUN, 0 UNVERIFIED -- ...`. Both provenance lines are as before. With T14 merged, these two are the cut copy's two PASSes above, and the run is 1,314 / 0 / 0 | proved: tool-run |
 
 `grep -n -E 'busybox-from|unverified-busybox' tools/last-good-scripts-test` prints both call sites (`:14348`, `:14355` at this commit), each with its flag comment.
+
+### S6, #1030: `ag` runs the harness's settings-modes-test (the fix landed with #1019)
+
+The fix, `${ROOT}/tools/settings-modes-test` to `${HARNESS_ROOT}/tools/settings-modes-test`, is in `3da816ce24` (#1019), approved by the coordinator at 03:58. It was made there as part of `ag`'s call before the lane saw that #1030 is a separate bug. No separate code commit follows.
+
+| Case | File | Result | Proved |
+| --- | --- | --- | --- |
+| `LAST_GOOD_SOURCE_ROOT` naming a checkout without `tools/settings-modes-test` (a clone at `4e5b6c6103` with that one file removed); the harness in `t14stage` with T14's tools; the M7 root (the positive) | unfixed (`4e5b6c6103`), cut to the harness, `ag`, `ah` and the verdict | rc 1: `.../nosmt/tools/settings-modes-test: No such file or directory`, then `FAIL  #421: settings mode regression (details above)`. The other FAIL is `ah`'s #1019 refusal | proved: tool-run |
+| the same | fixed (`3da816ce24`), cut | rc 0: `PASS  #421: private modes and refused publications`, `PASSED` | proved: tool-run |
