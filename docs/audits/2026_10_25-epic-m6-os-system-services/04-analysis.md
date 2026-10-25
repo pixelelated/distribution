@@ -204,7 +204,72 @@ reading, and T29 inherits their *runs on* column.
 
 ## Second opinion (Phase 4.6)
 
-Depth **extended**, with two seats: GPT-6 Astra at `max` and Gemini 4 Argon at `high`, each a probe and then one refutation, through the Facilitator. *Pending: the seats run after this section is written; their grades replace this line.*
+Depth **extended** (`second-opinions/review-plan.json`): the primary (Anthropic, Opus 5.5) and two reviewers from other labs. Each seat ran its probe first, then its refutation pass, through the Facilitator.
+
+| Seat | Call | Provenance | Served | Outcome |
+| --- | --- | --- | --- | --- |
+| GPT-6 Astra, `max` | `tools/council/run invoke --member gpt --provider openrouter`, brief `second-opinions/gpt-brief.md` (382,673 bytes), under `tools/watch-build --record-only` (`.build-runs/20261025T093302Z-f3543809/`, `build.rc` 0), 09:33:02-09:53:54 | `second-opinions/gpt-audit.md.provenance.json`: `council-facilitator@1.14.1-pixelelated.2`, outcome success, 0 retries, verification PASS (`provider_response`), provider PASS, effort PASS (48,690 reasoning tokens) | `openai/gpt-6-astra` by OpenAI | 34 items of its own (G-01 to G-34) and a grade for each of F-01 to F-16; output sha256 `107d6168aebfbe40d6552e2532e36cc8b103411c918b702776a0e06e9d4d4987` |
+| Gemini 4 Argon, `high` | *pending: its brief is the Astra packet unchanged, a third-reader preamble, and the grades below* | | | |
+
+### Astra's items, graded against the artifacts
+
+Each grade below comes from re-reading the cited lines at `8ebaf8daad` (09:54-10:10 UTC), not from the seat's wording. The grades are:
+- **confirmed** (the lines show it);
+- **confirmed, re-graded** (they show it, at another severity);
+- **narrowed** (part of it holds);
+- **disagree** (with the artifact that refutes it);
+- **not re-read** (carried as a lead, the seat's citation unchecked).
+
+For each item on a file upstream changed, the state at `651150fc88` follows the grade.
+
+| Item | Grade | The lines read, and what they show | At `651150fc88` |
+| --- | --- | --- | --- |
+| G-01 update acceptance | **narrowed, Low** | `init:298-317` sources `/update/etc/os-release`, and `:330-331` runs the update's own `canupdate.sh`, before acceptance; the check is an md5 the package carries (`:1031-1069`), skipped by `.nocheck`. The trigger is a file the owner stages; authenticity is the downloader's business, outside this slice | stands (the update code is unchanged) |
+| G-02 write failures ignored | **confirmed, Medium** | `update_file`'s `dd` status is discarded (`:403`); `update_partition` captures and prints but never tests (`:420-423`); `Update complete` follows regardless (`:1133`) | stands |
+| G-03 no rollback pair | **narrowed: design, Low** | no A/B pair (`:1123-1129`): LibreELEC's architecture, a Q1 item, not a defect | stands |
+| G-04 rejection unmounts `/storage` | **confirmed by trace, Medium** | every rejection calls `do_cleanup` (`:1065,1077,1116`), which unmounts `/storage` (`:861-863`), then returns 0. The boot loop checks no step (`:1312-1314`), and `prepare_sysroot`'s `mount --move /storage` (`:1143`) finds nothing. **What the device boots into is not proven**; the VM can show it (stage an update with a wrong md5) | stands |
+| G-05 empty arch skips both checks | **confirmed, Low** | `:349` gates both checks on both arches being non-empty; the comment (`:348`) calls it deliberate for pre-`os-release` builds | stands |
+| G-06 a bare pair is refused | **confirmed, Low** | `:883` tests only the three archive names; a bare `KERNEL`/`SYSTEM` pair gives an empty string, so it is *unsupported* and deleted (`:886-889`) | stands |
+| G-07 space check order | **confirmed, Low** | `:1101` credits the old SYSTEM's size, and the kernel is written first (`:1123-1127`); the 5 MB minimum (`:1102`) is the margin | stands |
+| G-08 NBD device name | **confirmed, narrowed to Low** | `:205` uses the unset `NBD_DEV` instead of `NBD_DEVS` (`:50,211`); NBD is a netboot path no handheld uses | stands |
+| G-09 iSCSI option reuse | **confirmed, Low** | `option` is never reset in the loop (`:143-174`) | stands |
+| G-10 fsck results | **confirmed, Low** | result 4 after `-y` reboots (`:623-633`); 16 and above continue boot (`:652-654`) | stands |
+| G-11 the repair countdown | **confirmed, Low** | `:618` reads `$?` twice; the second is the first test's status, so any failed `read` (EOF) repairs at once | stands |
+| G-12 init's error shell | **confirmed: design, Low; corrects F-07** | `error()` opens `setsid cttyhack sh` (`:86-99`) on any init error: a second unauthenticated console path besides `textmode` | stands |
+| G-13 `debug-shell.service` enabled | **confirmed in the tree, Medium; corrects F-07** | `systemd/package.mk:332` enables it unconditionally. `enable_service` links it from its `WantedBy=` (`config/functions:1700-1720`), so a root shell on its console starts on every boot. The guest's `.wants` read was filtered to the 29, so it is **not proven on the guest**; the VM can show it | **settled by the next base merge** (`f2379f83b7`, *only start the debug shell when debugging is on*) |
+| G-14 `.configured` after unchecked copies | **confirmed, Low** | `userconfig-setup:17-66` tests nothing before `touch /storage/.configured` | the fork's lines; stands |
+| G-15 the ld.so stamp | **confirmed, Low** | `:76-77` writes the stamp whatever `ldconfig` returned | stands |
+| G-16 the locale copy | **confirmed, Low** | `:80-83` treats the directory's existence as done | stands |
+| G-17 a setting run as a command | **confirmed, Low** | `autostart:93-94` runs `$(get_setting system.cpugovernor)`; T1's F-01 is the same shape in the launch path | stands |
+| G-18 a hook that never returns | **confirmed, Low** | `rocknix-autostart.service` is `Type=oneshot` with no `TimeoutStartSec` (systemd gives oneshots no start timeout by default); the hooks run before the interface starts (`autostart:73-91`) | stands |
+| G-19 stderr not in `boot.log` | **confirmed, Low** | `2>&1 >>${BOOTLOG}` sends stderr to the journal. The guest shows it: s5's errors are in the journal and not in `boot.log` | stands |
+| G-20 the interface's start unchecked | **confirmed, Low** | `autostart:91` backgrounds `systemctl start` and nothing collects it | stands |
+| G-21 `EnvironmentFile=/etc/profile` | **confirmed; corrects `03` § 3.5** | systemd's `EnvironmentFile=` reads `KEY=VALUE` lines and does not run shell; `powerstate.sh:11` is what sources the profile | stands |
+| G-22 the warning threshold | **confirmed, Low** | `powerstate.sh:59-61`: `[[ ${BATLEFT} -le ${AUDIBLEALERT_THRESHOLD} ]]` evaluates a setting as an arithmetic expression (the owner's setting; the owner is root) | stands |
+| G-23 duplicate input readers | **confirmed, Medium** | `input_sense:292` empties the list once, before the retry loop (`:294-330`), so up to six passes append the same devices. The fork's comment at `:290-291` states the intent the code misses. The guest's s2b shows six `input_sense` processes: consistent, not counted against devices | stands (upstream's lines are the same here) |
+| G-24 reload restarts nothing | **confirmed, Low** | the two disconnect patterns are identical (`:105-106`); `get_devices` rebuilds the array, but the readers started at `:347-357` keep running | stands |
+| G-25 hat events filtered out | **confirmed, Low** | `:360` passes only `EV_KEY`, `EV_SW` and `error reading`; the `ABS_HAT0` handlers (`:93-96`) never see an event | stands |
+| G-26 latched repeat on disconnect | **not re-read** | carried as a lead | -- |
+| G-27 a blocking action stalls the loop | **not re-read** | carried as a lead | -- |
+| G-28 wall-clock debounce | **confirmed, Low** | `:216-217` | stands |
+| G-29 `killall` operands | **confirmed, Low** | `:224` runs `killall ${TO_KILL}` unquoted with no `--`; `runemu.sh` (T1's) writes the file | stands |
+| G-30 the mount's failure ignored | **narrowed, Low** | `ExecStart=-` hides a failed mount, and `RemainAfterExit=yes` leaves the unit active; but the rule uses `systemctl restart` (`95-udevil-mount.rules`), so a re-insert does retry | `--no-block` only |
+| G-31 fstrim's stamp | **confirmed, Low** | `fstrim.service:6-7`; off by default (`fstrim.enabled=0`) | stands |
+| G-32 the resolver fallback | **confirmed, Low** | `systemd/package.mk:222-224`: `sed -i` succeeds without a match, so the `\|\| echo` never runs; a build-time item, and its effect depends on the template's line | the recipe changed upstream; not re-read there |
+| G-33 the VM port check | **confirmed, Low (a harness item, D-QA-053)** | `095-cloud-ssh:38` does `tr -cd '0-9'`, so `12x34` is kept as `1234`, against its own comment (`:33-34`) | the fork's own; absent upstream |
+| G-34 update paths not filename-safe | **confirmed, Low** | `ls ... \| head -n 1` (`:872-874`), and unquoted `dd` operands (`:403`) | stands |
+
+**Astra's grades of F-01 to F-16, and what changes:**
+- **F-04 is re-graded Medium,** as Astra argues. An inserted medium is not the owner writing a root hook, and the file's own policy (`udevil.conf:213`) is what btrfs breaks.
+- **F-02 is narrowed** to a Low quoting defect inside a designed interface.
+- **F-03 is narrowed** to a Low hardening question. No caller in the tree does not prove an applet is unused interactively.
+- **F-07's "only on a `textmode` boot" is wrong** (G-12, G-13). The shell findings become one item: three unauthenticated console paths.
+- **F-08 is incomplete.** `scripts/init:1363-1368` also selects factory reset (`reset_oe`, `reset_xbmc`) and restore (an archive in `.restore/`). Those two are **settled by the next base merge**: they were in the merge base, and upstream removed them (`a98a3066f5`).
+- **F-10's wording becomes "not selected by these dispatchers"** (the generator does not resolve symlinks or cross-references).
+- **F-14 adds the `/usr/lib/autostart/${HW_DEVICE}` layer** to the boot order (platform, device, common, the device's own, custom).
+- **F-15's "29 units run as root"** is restated as: no unit declares an identity, and of the 29 files, 23 are services.
+- **F-16 is narrowed:** activation is links, dependencies, conditions and script-driven starts, not links alone.
+- **F-05, F-06, F-09, F-11, F-12 and F-13 stand,** with Astra's narrowings recorded.
 
 ## Quality Self-Check
 

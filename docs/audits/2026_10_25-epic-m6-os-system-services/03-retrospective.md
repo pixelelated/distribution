@@ -75,8 +75,9 @@ writable path the platform did not already have.
 
 `/storage/.config/autostart/*` runs once a boot, as root, after every other
 layer (s5). `/storage/.config/profile.d/*` is sourced by `/etc/profile`. The
-services that source it are `rocknix-autostart`, `powerstate` (as its
-`EnvironmentFile` and again in `powerstate.sh:11`), `network-base-setup`,
+services that source it are `rocknix-autostart`, `powerstate` (by `powerstate.sh:11`; its unit's
+`EnvironmentFile=/etc/profile` reads `KEY=VALUE` lines and runs no shell, Astra's G-21),
+`network-base-setup`,
 `098-deviceutils` and the five sensing scripts, and the interactive shell.
 A broken file there breaks all of them at once. Both directories are the
 player's by design, so the seam is fragility, not exposure.

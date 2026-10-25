@@ -90,3 +90,14 @@ Each run's output is in `.qa-scratch/t22/runs/NN-*.out`, with its exit and wall 
   2. **Astra refutation**, in flight since 09:33:02: `tools/watch-build --record-only -- tools/council/run invoke --member gpt --provider openrouter --prompt-file .../gpt-brief.md --output .../gpt-audit.md --per-attempt-timeout-ms 1800000 --total-timeout-ms 3600000`. **What watches it:** the record `.build-runs/20261025T093302Z-f3543809/` (status, `build.rc`), and the harness's background task, which delivers the exit to this session. If the process is killed outright, the record says `died` and the background task still returns.
   3. **Argon probe** (`--member gemini-argon`, 09:33:15-09:33:21): rc 0, the same facilitator, success, 0 retries. Verification PASS: observed `google/gemini-4-argon` (`provider_response`), provider Google, effort PASS (192 reasoning tokens). Reply `READY Gemini 4 Argon`.
 - **Every other `tools/council/run` call carried `COUNCIL_ENV_FILE=/nonexistent`** (the `--help`s).
+
+## 2026-10-25 09:54-10:12 UTC -- Astra graded; Argon's refutation in flight
+
+- **Astra refutation** finished 09:53:54: watch-build rc 0, `build.rc` 0, state finished. The facilitator printed `attempt=1/4 ... model=openai/gpt-6-astra providers=["OpenAI"] effort=max reasoning=48690 content=25905b finish=stop outcome=success duration=1248877ms`. Provenance: verification PASS (`provider_response`), provider PASS, effort PASS. Output `gpt-audit.md`, sha256 `107d6168aebfbe40d6552e2532e36cc8b103411c918b702776a0e06e9d4d4987`.
+- **Graded** in `04` § Second opinion. Every confirmed item was re-read at its lines: `scripts/init` (`:86-99,143-174,298-331,340-376,394-437,610-666,825-906,1031-1145,1290-1320`), `input_sense` (`:90-106,176-226,280-372`), `userconfig-setup:66-90`, `autostart:78-97`, `systemd/package.mk:215-226,328-334`, `powerstate.sh:50-62`, `095-cloud-ssh:30-46`, and the autostart and udevil units. Upstream's `init` diff was read: the update code is unchanged; the reset and restore markers are removed by `a98a3066f5`.
+- Grades: 26 confirmed (G-02, G-04, G-13 and G-23 at Medium), 6 narrowed, 2 not re-read (G-26, G-27).
+- **Corrected from Astra's reading:**
+  - `03` § 3.5's claim that `EnvironmentFile=/etc/profile` sources the profile (G-21);
+  - F-07's "only on a `textmode` boot" (G-12, G-13);
+  - F-04 to Medium.
+- **Argon refutation**, in flight since 09:58: `tools/watch-build --record-only -- tools/council/run invoke --member gemini-argon --provider openrouter --prompt-file .../gemini-argon-brief.md --output .../gemini-argon-audit.md --per-attempt-timeout-ms 1800000 --total-timeout-ms 3600000`. The brief is 393,701 bytes: Argon's third-reader preamble, the Astra brief unchanged, and `04` § Second opinion appended. It was scanned three ways: 0, 0, 0. **What watches it:** the record `.build-runs/20261025T095741Z-4e1cd8de`, and the harness's background task.
