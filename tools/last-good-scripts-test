@@ -298,6 +298,13 @@ ROOT="$(cd "${LAST_GOOD_SOURCE_ROOT:-${HARNESS_ROOT}}" && pwd)" || exit 2
 BASE_REF="${BASE_REF:-1d1503180d}"
 OLD=0
 [ "${1:-}" = "--old" ] && OLD=1
+# An --old ref that is not a commit here is CANNOT at once, naming it (#1023):
+# a dead ref used to surface as the first src_of's "cannot read", mid-run.
+OLD_FULL=""
+if [ "${OLD}" -eq 1 ]; then
+    OLD_FULL="$(git -C "${ROOT}" rev-parse --verify --quiet "${BASE_REF}^{commit}")" \
+        || { echo "last-good-scripts-test: CANNOT -- BASE_REF ${BASE_REF} is not a commit in ${ROOT}" >&2; exit 2; }
+fi
 
 CHK_REL=projects/ROCKNIX/packages/rocknix/sources/scripts/chksysconfig
 BT_REL=projects/ROCKNIX/packages/rocknix/sources/scripts/backuptool
@@ -330,8 +337,47 @@ skip() { SKIPPED=$((SKIPPED + 1)); echo "    SKIP  ${HOST_MARK}$*"; }
 # process, and awk reads SIGPIPE ignored where this shell has it default.
 sigign="$(awk '/^SigIgn:/{print $2}' "/proc/$$/status")"   # $$ is this script, not the awk
 echo "signals: SigIgn=${sigign} SIGINT ignored=$(( (16#${sigign} >> 1) & 1 )) SIGPIPE ignored=$(( (16#${sigign} >> 12) & 1 ))"
+# Under --old a section whose script the ref predates is NOT APPLICABLE from
+# that point (#1023): its checks print N/A by name and are counted as not run,
+# never PASS. SECTION is the section running now (section() below).
+SECTION=""; SECTION_NA=""; NA_SECTIONS=""; OLD_NA=0; CHECKS=0; FAIL_SECTIONS=" "
 check() { # <0|nonzero> ok-text bad-text
-    if [ "$1" -eq 0 ]; then echo "    PASS  ${HOST_MARK}$2"; else echo "    FAIL  ${HOST_MARK}$3"; FAIL=$((FAIL + 1)); fi
+    if [ -n "${SECTION_NA}" ]; then echo "    N/A   ${HOST_MARK}$2"; OLD_NA=$((OLD_NA + 1)); return 0; fi
+    CHECKS=$((CHECKS + 1))
+    if [ "$1" -eq 0 ]; then echo "    PASS  ${HOST_MARK}$2"; else echo "    FAIL  ${HOST_MARK}$3"; FAIL=$((FAIL + 1))
+        case "${FAIL_SECTIONS}" in *" ${SECTION} "*) ;; *) FAIL_SECTIONS="${FAIL_SECTIONS}${SECTION} " ;; esac; fi
+}
+section() { SECTION="$1"; SECTION_NA=""; echo "  $1. $2"; }
+# The header's --old recipes as data (#1023): each ref and the sections whose
+# FAILs it promises. The verdict says which promises fired; a script absent at
+# the ref in a promised section is that promise firing.
+old_promises() {
+    case "${OLD_FULL}" in
+        1d1503180d*) echo a b c d e f j k l m ;;
+        53f390b1e9*) echo k l m ;;
+        c15050c897*) echo a ;;
+        8707919349*) echo h n o ;;
+        34aca64afd*) echo k p ;;
+        0f7785e6ed*) echo q ;;
+        d79281066c*) echo p ;;
+        cee1656c33*) echo p r t ;;
+        28a80357ed*) echo r s ;;
+        3387cf5da0*) echo t ;;
+        655f103cc5*) echo u v ;;
+        70b6c70ca7*) echo t ;;
+    esac
+}
+# A script absent at BASE_REF (#1023). Before any section it is an input the
+# harness itself needs: CANNOT. In a promised section it is that promise firing:
+# one FAIL. Elsewhere the rest of the section is NOT APPLICABLE by name.
+old_absent() { # <repo-relative path>
+    [ -n "${SECTION}" ] || { echo "last-good-scripts-test: CANNOT -- ${1} is absent at ${BASE_REF}, and the harness needs it" >&2; exit 2; }
+    [ -z "${SECTION_NA}" ] || return 0
+    case " $(old_promises) " in
+        *" ${SECTION} "*) check 1 "" "${1} is absent at ${BASE_REF}: the header's promise for ${SECTION} fires" ;;
+        *) echo "    N/A   ${HOST_MARK}${SECTION} from here: ${1} is absent at ${BASE_REF}, not promised -- not run, never PASS" ;;
+    esac
+    SECTION_NA="${1} is absent at ${BASE_REF}"; NA_SECTIONS="${NA_SECTIONS}${NA_SECTIONS:+ }${SECTION}"
 }
 # check_child <rc> <child> ok-text bad-text (#1019): a child suite's own exit
 # carried, not flattened into FAIL -- 0 PASS; 2 CANNOT, the child could not
@@ -340,6 +386,7 @@ check() { # <0|nonzero> ok-text bad-text
 # (D-QA-063): a case that did not run as evidence inside a suite that did.
 CHILD_CANNOT=0; CHILD_UNVERIFIED=0; CHILD_NAMES=""
 check_child() {
+    [ -z "${SECTION_NA}" ] || { check "$1" "$3" "$4"; return 0; }
     case "$1" in
         2) CHILD_CANNOT=$((CHILD_CANNOT + 1)); CHILD_NAMES="${CHILD_NAMES}${CHILD_NAMES:+; }$2 could not run"
            echo "    CANNOT  ${HOST_MARK}$2 could not run (exit 2, its reason above), so not: $3" ;;
@@ -358,7 +405,10 @@ check_child() {
 # tree whatever the flag said, and their checks had never been seen to fail).
 src_of() { # <repo-relative path> <destination>
     if [ "${OLD}" -eq 1 ]; then
-        git -C "${ROOT}" show "${BASE_REF}:${1}" > "${2}" || { echo "cannot read ${1} at ${BASE_REF}" >&2; exit 2; }
+        if ! git -C "${ROOT}" cat-file -e "${BASE_REF}:${1}" 2>/dev/null; then
+            old_absent "${1}"; : > "${2}"; return 0
+        fi
+        git -C "${ROOT}" show "${BASE_REF}:${1}" > "${2}" || { echo "last-good-scripts-test: CANNOT -- cannot read ${1} at ${BASE_REF}" >&2; exit 2; }
     else
         cp "${ROOT}/${1}" "${2}" || { echo "cannot read ${1}" >&2; exit 2; }
     fi
@@ -468,7 +518,15 @@ if [ "${BB_KIND}" != host ]; then RC_SRC="${BB_SRC%/usr/bin/busybox}/usr/bin/rcl
 else RC_SRC="$(command -v rclone || true)"; fi
 RC_GOT=""
 [ -n "${RC_SRC}" ] && [ -x "${RC_SRC}" ] && RC_GOT="$("${RC_SRC}" version 2>/dev/null | head -1 | sed -n 's/^rclone v//p')"
-if [ "${BB_KIND}" != host ] && [ "${RC_GOT}" != "${RC_WANT}" ]; then
+# Under --old the root is never the ref's build, and that is the control's
+# point: it judges the ref's scripts under the candidate's tools. So a tool
+# whose version is not the ref's recipe's is named, and the sections it judges
+# are unverified -- stream A for rclone, every section for busybox (below) --
+# rather than CANNOT (the coordinator, 2026-10-25 03:34 on #662).
+OLD_RC_NOTE=""
+if [ "${OLD}" -eq 1 ] && [ "${BB_KIND}" != host ] && [ "${RC_GOT}" != "${RC_WANT}" ]; then
+    OLD_RC_NOTE="rclone ${RC_GOT:+v}${RC_GOT:-missing} from the root; the ref's recipe says v${RC_WANT} -- the old scripts under the candidate's rclone"
+elif [ "${BB_KIND}" != host ] && [ "${RC_GOT}" != "${RC_WANT}" ]; then
     echo "last-good-scripts-test: CANNOT -- the root's rclone is ${RC_GOT:+v}${RC_GOT:-missing or unrunnable} (${RC_SRC}) and the recipe$([ "${OLD}" -eq 1 ] && echo " at ${BASE_REF}" || echo " in ${ROOT}") says v${RC_WANT}: a root whose rclone is not the tree's was built from another tree, so its busybox is not this tree's either. Rebuild the root from this tree, or run BASE_REF=<the ref it was built from> --old." >&2
     exit 2
 fi
@@ -490,6 +548,18 @@ if [ -n "${BB_SRC}" ]; then
     BB_HOST="${TMP}/busybox"; BB="/lgst/busybox"
 fi
 BB_BANNER="$([ -n "${BB_HOST}" ] && "${BB_HOST}" 2>&1 | head -1)"
+# Under --old, the busybox against the ref's recipe (the project override's
+# version where there is one, as the image builds it; else the generic one).
+OLD_BB_NOTE=""
+if [ "${OLD}" -eq 1 ] && [ "${BB_KIND}" != host ]; then
+    BB_REL=projects/ROCKNIX/packages/sysutils/busybox/package.mk
+    git -C "${ROOT}" cat-file -e "${BASE_REF}:${BB_REL}" 2>/dev/null || BB_REL=packages/sysutils/busybox/package.mk
+    src_of "${BB_REL}" "${TMP}/busybox.package.mk"
+    BB_WANT="$(sed -n 's/^PKG_VERSION="\([^"]*\)".*/\1/p' "${TMP}/busybox.package.mk" | head -1)"
+    BB_GOT="$(printf '%s\n' "${BB_BANNER}" | sed -n 's/^BusyBox v\([^ ]*\) .*/\1/p')"
+    [ -n "${BB_GOT}" ] && [ "${BB_GOT}" = "${BB_WANT}" ] \
+        || OLD_BB_NOTE="busybox v${BB_GOT:-?} from the root; the ref's recipe (${BB_REL}) says v${BB_WANT:-nothing} -- the old scripts under the candidate's busybox"
+fi
 mkdir -p "${TMP}/bbin"
 if [ -n "${BB}" ]; then
     for a in sed mv cp tr head wc cut awk stat chmod cat; do printf '#!/bin/sh\n[ -x %s ] && exec %s %s "$@"\nexec %s %s "$@"\n' "${BB}" "${BB}" "${a}" "${BB_HOST}" "${a}" > "${TMP}/bbin/${a}"; chmod +x "${TMP}/bbin/${a}"; done
@@ -499,7 +569,7 @@ echo "last-good-scripts-test: $([ "${OLD}" -eq 1 ] && echo "scripts at ${BASE_RE
 [ -n "${BB}" ] && echo "  sed/mv/cp/tr/head/wc/cut/awk: $("${BB_HOST}" 2>&1 | head -1) -- a copy of ${BB_SRC}"
 
 # ---------------------------------------------------------------- a.
-echo "  a. chksysconfig keeps and restores the last good system.cfg"
+section a "chksysconfig keeps and restores the last good system.cfg"
 A="${TMP}/a"; mkdir -p "${A}/cfg/system/configs" "${A}/cfg/retroarch" "${A}/def/system/configs" "${A}/def/retroarch"
 printf 'system.hostname=DEFAULT\n' > "${A}/def/system/configs/system.cfg"
 echo d > "${A}/def/retroarch/retroarch.cfg"; echo d > "${A}/def/retroarch/retroarch-core-options.cfg"
@@ -588,7 +658,7 @@ EXTRACT_ROOT="${A}/root" PATH="${A}/bin:${TMP}/bbin:${PATH}" bash -c ". '${A}/fn
 rm -f "${A}/cfg/.restore-reverted"
 
 # ---------------------------------------------------------------- b.
-echo "  b. backuptool: a kill mid-tar leaves the previous archive; a failed restore puts the snapshot back"
+section b "backuptool: a kill mid-tar leaves the previous archive; a failed restore puts the snapshot back"
 B="${TMP}/b"; ST="${B}/storage"
 mkdir -p "${ST}/.config/system/configs" "${ST}/.config/test" "${ST}/roms/backup" "${B}/shim" "${B}/repo" "${B}/nbin"
 cp "${BT}" "${B}/repo/backuptool"
@@ -709,7 +779,7 @@ bt restore --then-cloud; rcg=${RC}
 [ "${rcg}" -eq 0 ] && [ "$(cat "${ST}/.config/test/f1")" = "file1" ] && [ -e "${ST}/.config/.cloud-journey-pending" ]; check $? "a good restore --then-cloud restores f1 and leaves .cloud-journey-pending" "rc ${rcg}; f1='$(cat "${ST}/.config/test/f1")'; marker: $([ -e "${ST}/.config/.cloud-journey-pending" ] && echo yes || echo no)"
 
 # ---------------------------------------------------------------- c.
-echo "  c. set_setting is one rename; sort_settings refuses an empty result"
+section c "set_setting is one rename; sort_settings refuses an empty result"
 C="${TMP}/c"; mkdir -p "${C}"
 {
     sed -n '/^function wait_lock_say() {/,/^}/p; /^function wait_lock() {/,/^}/p; /^function settings_base() {/,/^}/p; /^function prepare_settings_temp() {/,/^}/p; /^function write_setting_line() {/,/^}/p; /^function del_setting() {/,/^}/p; /^function sort_settings() {/,/^}/p; /^function set_setting() {/,/^}/p; /^function clean_hostname() {/,/^}/p' "${FN}"
@@ -752,7 +822,7 @@ PATH="${TMP}/bbin:${PATH}" bash -c ". '${C}/f.sh'; sort_settings" 2>/dev/null
 [ "$(cat "${C}/system.cfg" | tr '\n' '|')" = "a=1|b=2|system.hostname=X|" ]; check $? "and sorts one that has it" "system.cfg: '$(tr '\n' '|' < "${C}/system.cfg")'"
 
 # ---------------------------------------------------------------- d.
-echo "  d. cloud_sync_helper and the saves scripts keep the config's last good copy; stamps survive a kill"
+section d "cloud_sync_helper and the saves scripts keep the config's last good copy; stamps survive a kill"
 D="${TMP}/d"; DS="${D}/storage"
 mkdir -p "${DS}/.config" "${DS}/.cache" "${D}/usrconfig" "${D}/repo" "${D}/shim"
 for rel in cloud_sync_helper cloud_backup cloud_sync.conf.defaults cloud_sync-rules.txt.defaults; do
@@ -825,7 +895,7 @@ sb bash /repo/stamp.sh
 ls "${DS}/.cache/cloud_sync"/last-backup.tmp.* >/dev/null 2>&1; check $? "and its temp file beside it, not an empty stamp" "no temp file: $(ls "${DS}/.cache/cloud_sync" | tr '\n' ' ')"
 
 # ---------------------------------------------------------------- e.
-echo "  e. nothing a screen can show carries an exit code, a log path, a tool's name or a flag"
+section e "nothing a screen can show carries an exit code, a log path, a tool's name or a flag"
 # The harness's FORBIDDEN regex (docs/audits/2026_09_10-graceful-degradation/
 # kill-fixtures-design.md) over every string literal an echo, a screen-bound
 # log_message, a fail/note/why can print. Log-only lines are skipped: a
@@ -868,7 +938,7 @@ n_hits=$(echo "${hits}" | sed -n 's/^HITS=//p')
 [ "${n_hits}" = "0" ]; check $? "no screen line matches FORBIDDEN across the six scripts" "${n_hits} screen line(s) match FORBIDDEN (listed above)"
 
 
-echo "  f. backuptool: rclone.conf never enters an archive, and the scanner knows rclone's key names (#52)"
+section f "backuptool: rclone.conf never enters an archive, and the scanner knows rclone's key names (#52)"
 # Its own staging tree: the cases above read "the newest archive" and must
 # not find this one.
 B2="${TMP}/f"; ST2="${B2}/storage"
@@ -941,7 +1011,7 @@ ESARC=$(tar -xzOf "${arc}" --wildcards '*/emulationstation/es_settings.cfg' 2>/d
 [ -n "${ESARC}" ] && ! echo "${ESARC}" | grep -q 'QA-SECRET-SS\|QA-SECRET-DEV\|QA-SECRET-IGDB'; check $? "es_settings.cfg is archived without the ScreenScraper passwords or the IGDB client secret (#64, #274)" "archived es_settings.cfg: $(echo "${ESARC}" | grep -c 'QA-SECRET') secret value(s) present, $(echo "${ESARC}" | wc -l) lines"
 echo "${ESARC}" | grep -q 'name="ScreenScraperUser"' && echo "${ESARC}" | grep -q 'name="IGDBClientID"' && echo "${ESARC}" | grep -q 'name="ThemeSet"'; check $? "and its other settings travel (the user names, the client id, the theme)" "archived es_settings.cfg lost a harmless line: $(echo "${ESARC}" | grep -c 'name=') of 4 kept"
 
-echo "  g. the in-script RCLONE_NET_OPTS fallback is the shipped value (#146)"
+section g "the in-script RCLONE_NET_OPTS fallback is the shipped value (#146)"
 # Four scripts carry a constant for a conf the helper has not reached, and
 # their comments promise it equals the shipped RCLONE_NET_OPTS. #107 moved
 # the shipped value to ten low-level retries and left all four at two; on
@@ -956,7 +1026,7 @@ for scr in cloud_backup cloud_restore cloud_content_backup cloud_content_restore
   [ -n "${fb}" ] && [ "${fb}" = "${shipped}" ]; check $? "${scr}: RCLONE_NET_OPTS_FALLBACK is the shipped value" "${scr}: fallback is '${fb:-(none)}', shipped is '${shipped}'"
 done
 
-echo "  h. the rclone wrapper: an automatic run's stalled call ends at the ceiling, a deliberate run's at the stall ceiling (D-CLOUD-118, D-CLOUD-126)"
+section h "the rclone wrapper: an automatic run's stalled call ends at the ceiling, a deliberate run's at the stall ceiling (D-CLOUD-118, D-CLOUD-126)"
 # The wrapper and its helpers are lifted out of cloud_backup (from BASE_REF
 # under --old, as every case does since #151 PL-10) and run against a shim
 # rclone that sleeps. With AUTOMATIC=1 and a deadline 3 s away it must
@@ -995,7 +1065,7 @@ for scr in cloud_backup cloud_restore; do
   [ -n "${fb}" ] && [ "${fb}" = "${shipped_sync}" ]; check $? "${scr}: RCLONE_SYNC_NET_OPTS_FALLBACK is the shipped value" "${scr}: '${fb:-(none)}' vs '${shipped_sync}'"
 done
 
-echo "  i. cloud_net_ready settles on a held default route however NetworkManager judges connectivity"
+section i "cloud_net_ready settles on a held default route however NetworkManager judges connectivity"
 # The RG SP case (2026-09-12): NetworkManager stuck at "connected (site
 # only)" / "limited" with the internet reachable; the helper waited 60 s and
 # said no network. Shims stand in for ip (a default route) and nmcli (that
@@ -1036,7 +1106,7 @@ wait
 [ "${RC_I}" -eq 0 ] && [ "${dt}" -ge 4 ] && [ "${dt}" -lt 12 ] && grep -q '^>>> doing network' "${I}/out"; check $? "a route that arrives while the link comes up: announced, then settled after the grace, before the deadline (rc ${RC_I}, ${dt}s)" "rc ${RC_I} after ${dt}s: $(tr '\n' '|' < "${I}/out" | cut -c1-160)"
 rm -f "${I}/route-up"
 
-echo "  j. cloud_sync_helper migrates the shipped retry bound once, and leaves a hand-tuned value alone (#107)"
+section j "cloud_sync_helper migrates the shipped retry bound once, and leaves a hand-tuned value alone (#107)"
 # The helper rewrites RCLONE_NET_OPTS only while it is exactly the value shipped
 # before #107 (two low-level retries, which failed every Dropbox replacement),
 # once, with a marker; a value somebody tuned by hand is not ours to change.
@@ -1064,7 +1134,7 @@ sb bash /repo/cloud_sync_helper /tmp/helper.log
 grep -q '^SYNC_CEILING_SECONDS=45$' "${DS}/.config/cloud_sync.conf" && grep -q -- '--max-duration 45s ' "${DS}/.config/cloud_sync.conf"; check $? "a ceiling somebody set (45) is left alone, and so is its option string" "conf holds: $(grep -E '^(SYNC_CEILING_SECONDS|RCLONE_SYNC_NET_OPTS)' "${DS}/.config/cloud_sync.conf" | tr '\n' ' ')"
 
 
-echo "  k. backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)"
+section k "backuptool: what the image ships does not travel, and an older archive's copy of it is not put back (#45); a RetroAchievements token travels in no shape (#169)"
 # A fake /usr/config beside the real /usr (bwrap cannot make a mountpoint
 # under a read-only /usr, so /usr is bound a subdirectory at a time). Under
 # /storage/.config: shipped seeds unchanged (cheat.db, test/seed), a file the
@@ -1216,7 +1286,7 @@ btk backup; rck4=${RC}
 [ "${rck4}" -ne 0 ] && [ -z "$(ls "${KS}/roms/backup"/*.tar.gz 2>/dev/null)" ] && grep -q 'could not be filtered' "${OUT}"; check $? "a backup whose list filter dies part-way (grep exit 2) writes nothing and says why in the log" "rc ${rck4}; archives written: $(ls "${KS}/roms/backup"/*.tar.gz 2>/dev/null | wc -l); log: $(grep -o 'could not be filtered[^|]*' "${OUT}" | head -1) -- one line of the list became a backup announced as a success (#151 PL-14)"
 rm -f "${K}/kshim/grep"
 
-echo "  l. a missing cloud folder reads as not there yet whatever the server's words (#142)"
+section l "a missing cloud folder reads as not there yet whatever the server's words (#142)"
 # absent_not_broken, lifted from cloud_content_restore and run against a shim
 # rclone whose cloud holds /QA/Saves and /QA/Content/ROMs and answers every
 # other folder with an FTP-style plain error (exit 1, not rclone's 3). The
@@ -1353,7 +1423,7 @@ RCC=$( ( setsid -w bwrap --die-with-parent --tmpfs / --ro-bind /usr /usr \
 [ "${RCC}" -eq 0 ] && grep -q '^OK qa:' "${OUTC}"; check $? "cloud_setup --check verifies the one remote the shim lists (rc ${RCC})" "rc ${RCC}; out: $(head -2 "${OUTC}" | tr '\n' ' ' | cut -c1-120)"
 LSD=$(grep '^lsd ' "${LC}/rec/argv" 2>/dev/null | head -1)
 echo "${LSD}" | grep -q -- '--retries 1' && echo "${LSD}" | grep -q -- '--low-level-retries 3'; check $? "its probe is bounded to one run and three low-level retries (RCLONE_LIST_OPTS), not rclone's three runs of ten" "lsd was called as: ${LSD:-(never)}"
-echo "  m. the shipped device name becomes this unit's own, once; a player's name is never touched (#50)"
+section m "the shipped device name becomes this unit's own, once; a player's name is never touched (#50)"
 # network-base-setup whole, inside bwrap: a stub /etc/profile that loads the
 # image's 001-functions against a fake system.cfg, a fake /etc/os-release
 # naming the family, and shims for hostnamectl, avahi-set-host-name, logger
@@ -1505,7 +1575,7 @@ esac
 grep -q -E '^[[:space:]]*enable_service avahi-daemon.service' "${M}/repo/avahi-package.mk" && grep -q -E '^After=.*network-base\.service' "${AVAHI_UNIT}"; check $? "the mDNS responder is enabled, and its unit in ${AVAHI_WHERE} orders after network-base (D-NET-003)" "avahi: enabled=$(grep -c -E '^[[:space:]]*enable_service avahi-daemon.service' "${M}/repo/avahi-package.mk"); the unit in ${AVAHI_WHERE} has $(grep -E '^After=' "${AVAHI_UNIT}" || echo 'no After= line') -- avahi's stock unit ships over the fork's unless the recipe removes usr/lib/systemd (#151 PL-01); rebuild avahi and the image"
 grep -q -E '^Before=.*systemd-hostnamed\.service' "${M}/repo/network-base.service" && grep -q -E '^Before=.*NetworkManager\.service' "${M}/repo/network-base.service"; check $? "network-base.service orders itself before systemd-hostnamed and NetworkManager" "network-base.service: $(grep -E '^(Before|After)=' "${M}/repo/network-base.service" | tr '\n' ' ')"
 
-echo "  n. a deliberate cloud_backup ends a transfer that stops making progress at the stall ceiling, and says it couldn't finish (D-CLOUD-126)"
+section n "a deliberate cloud_backup ends a transfer that stops making progress at the stall ceiling, and says it couldn't finish (D-CLOUD-126)"
 # cloud_backup --yes --system-only WHOLE, inside bwrap, against a shim
 # rclone whose copyto hangs, crawls or copies at once into a fake cloud
 # under /tmp/cloud, and answers every listing at once. The conf's bound
@@ -1636,7 +1706,7 @@ nb
 [ "${RC}" -eq 0 ] && [ "${DT}" -ge 15 ] && ! grep -q 'made no progress' "${NLOG}"; check $? "a transfer that keeps moving for longer than the ceiling (15 s of climbing bytes against 9 s) is not ended (rc ${RC}, ${DT}s)" "rc ${RC} after ${DT}s; log: $(grep -o 'made no progress[^|]*' "${NLOG}" | head -1) -- a fixed ceiling ends the transfers a deliberate run exists for"
 rm -f "${N}/run/crawl"
 
-echo "  o. set_setting system.hostname default keeps the line chksysconfig's sentinel reads, empty (D-NET-009)"
+section o "set_setting system.hostname default keeps the line chksysconfig's sentinel reads, empty (D-NET-009)"
 # The functions lifted in c, chksysconfig's in a, and case m's
 # network-base-setup sandbox. `set_setting system.hostname default` deleted
 # the line chksysconfig treats as the sentinel of a usable system.cfg, so
@@ -1667,7 +1737,7 @@ cmp -s "${CFGF}" "${CFGF}.backup"; check $? "and the shutdown-time backup takes 
 cp "${C}/system.cfg" "${MS}/system.cfg"; OUT="${M}/out"
 nbs; [ "$(hn)" = "H700-9a3f" ] && grep -q 'shipped default' "${OUT}"; check $? "network-base-setup then names the unit H700-9a3f and the log says the shipped default was replaced" "system.hostname is '$(hn)'; log: $(grep -o 'device name[^|]*' "${OUT}" | head -1)"
 
-echo "  p. raofflineproxy-ctl: enable records hardcore and turns it off, disable puts it back; both harmless twice (#165, D-RA-002); pending and flushed answer the sync cards (#173); pending-ids and account answer the achievements pages (#180)"
+section p "raofflineproxy-ctl: enable records hardcore and turns it off, disable puts it back; both harmless twice (#165, D-RA-002); pending and flushed answer the sync cards (#173); pending-ids and account answer the achievements pages (#180)"
 # The script whole, under bwrap like backuptool in b: a stub /etc/profile
 # that carries get_setting and set_setting lifted from 001-functions (the
 # real profile sources them the same way) with J_CONF at the fake
@@ -1854,7 +1924,7 @@ ctl flushed; [ "${RC}" -eq 1 ] && [ ! -s "${OUT}" ] && [ ! -e "${PSTAMP}" ]; che
 fi
 
 # ---------------------------------------------------------------- q.
-echo "  q. 099-networkservices: a daemon fragment that sets no CONF inherits none from the fragment before it (#166)"
+section q "099-networkservices: a daemon fragment that sets no CONF inherits none from the fragment before it (#166)"
 # The boot pass sources every /usr/lib/autostart/daemons/* in turn and, for
 # each, removes the marker CONF names before rewriting it from STATE and
 # backgrounding a systemctl start or stop. It never reset the variables
@@ -1962,7 +2032,7 @@ else
     check 1 "" "006-raofflineproxy is absent at ${BASE_REF}: the toggle had no boot pass"
 fi
 
-echo "  r. the launch log carries no credential value: setsettings' Added setting and Fetch lines, runemu's Executing line, the helper's shapes (#176, D-INFRA-010)"
+section r "the launch log carries no credential value: setsettings' Added setting and Fetch lines, runemu's Executing line, the helper's shapes (#176, D-INFRA-010)"
 # setsettings' log, game_setting, clear_setting and add_setting lifted from
 # the script under test and run in a fresh bash against a temp log and
 # appendconfig, get_setting shimmed to hand out a planted password; runemu's
@@ -2051,7 +2121,7 @@ else
     check 1 "" "redact_credentials is absent from 001-functions at ${BASE_REF}: nothing filtered the launch log (#176)"
 fi
 
-echo "  s. rocknix-evidence: every file in the bundle has been through the credential filter, summary.txt says so, and without the filter nothing is collected (#176)"
+section s "rocknix-evidence: every file in the bundle has been through the credential filter, summary.txt says so, and without the filter nothing is collected (#176)"
 # The script whole under bwrap: a fake /storage whose .cache/log is also
 # /var/log (the device's bind mount), fixture logs seeded with the values
 # case r plants -- exec.log's Added setting and Fetch lines, a gopher64
@@ -2135,7 +2205,7 @@ NARCH_AFTER=$(ls "${EVD}"/*-evidence.tar.gz 2>/dev/null | wc -l)
 [ -z "$(ls -d "${EVD}"/*-evidence 2>/dev/null)" ]; check $? "and leaves no half-built directory behind" "left: $(ls -d "${EVD}"/*-evidence 2>/dev/null | tr '\n' ' ')"
 
 # ---------------------------------------------------------------- t.
-echo "  t. raofflineproxy-ctl scan, topup and ready against the client the tree describes: the refusals, the index rule by account and hash, the probe's own folder and patience, one deadline, the failure verdict, the cap over uncached files, a stop on disable, and the patched client's own predicates (#186 PL-01..05, 12, 17, 23, 24, 25, 28, 30, 33; #190; #194; #199)"
+section t "raofflineproxy-ctl scan, topup and ready against the client the tree describes: the refusals, the index rule by account and hash, the probe's own folder and patience, one deadline, the failure verdict, the cap over uncached files, a stop on disable, and the patched client's own predicates (#186 PL-01..05, 12, 17, 23, 24, 25, 28, 30, 33; #190; #194; #199)"
 # The client is built as the package builds it: the pinned tarball from the
 # sources cache (PKG_VERSION in package.mk), the package's patches applied
 # in order (from BASE_REF under --old, so the client is the one that tree
@@ -2958,7 +3028,7 @@ while IFS= read -r line; do
 done < "${T}/predicates.out"
 fi
 
-echo "  u. wifictl current, saved, forget and join read NetworkManager, not the setting; forget says when it dropped the connection; join activates the saved profile and moves the settings onto it (#191)"
+section u "wifictl current, saved, forget and join read NetworkManager, not the setting; forget says when it dropped the connection; join activates the saved profile and moves the settings onto it (#191)"
 # wifictl whole, inside bwrap: a fake wlan0 under /sys/class/net (the script
 # exits 0 without an adapter), a stub /etc/profile with the two settings
 # helpers, and an nmcli shim that answers from a profile table the checks
@@ -3093,7 +3163,7 @@ wctl forget "Home Wi-Fi"
 
 echo
 # ---------------------------------------------------------------- u.
-echo "  v. the save state manager's arguments reach RetroArch as Batocera's launcher carries them (#196, D-UI-057): runemu reads -state_slot, -autosave and -state_file each on its own and takes the path whole; setsettings turns a .auto file into savestate_auto_load and any other into -e <slot>; without -state_file, today's lines byte for byte"
+section v "the save state manager's arguments reach RetroArch as Batocera's launcher carries them (#196, D-UI-057): runemu reads -state_slot, -autosave and -state_file each on its own and takes the path whole; setsettings turns a .auto file into savestate_auto_load and any other into -e <slot>; without -state_file, today's lines byte for byte"
 # parse_savestate_arguments lifted from runemu.sh and called with the argument
 # list the interface's command line becomes after sh -c (the quotes gone, the
 # state file one argument, the controllers value one argument); setsettings'
@@ -3169,7 +3239,7 @@ else
     check 1 "" "setsettings.sh has no --state_file= parser and set_autosave knows no state file (#196)"
 fi
 
-echo "  w. cheevos_armsx2.sh writes one Token line to secrets.ini, however often it runs (#170)"
+section w "cheevos_armsx2.sh writes one Token line to secrets.ini, however often it runs (#170)"
 W="${TMP}/w"; WS="${W}/storage"; WI="${WS}/.config/ARMSX2/inis"
 mkdir -p "${WI}" "${W}/repo" "${W}/shim"
 src_of "projects/ROCKNIX/packages/emulators/standalone/armsx2-sa/scripts/cheevos_armsx2.sh" "${W}/repo/cheevos_armsx2.sh"
@@ -3215,7 +3285,7 @@ printf '[Achievements]\nToken = TOKEN-A\nToken = TOKEN-B\nToken =\nToken = TOKEN
 wr
 [ "$(grep -c '^Token *=' "${WI}/secrets.ini")" -eq 1 ] && grep -q '^Token = TOKEN-NEW$' "${WI}/secrets.ini" && [ "$(grep -cFx '[Achievements]' "${WI}/secrets.ini")" -eq 1 ]; check $? "an upgraded device's four stale Token lines collapse to one on the first launch" "secrets.ini after: $(tr '\n' '|' < "${WI}/secrets.ini")"
 
-echo "  x. the launcher's incremental-save modes, the password's handoff, and the keeper's cut/whole note (#209, #198, #247)"
+section x "the launcher's incremental-save modes, the password's handoff, and the keeper's cut/whole note (#209, #198, #247)"
 # x1. set_savestates maps the interface's three spellings as Batocera's launcher does
 #     (D-UI-083): "" (INCREMENT PER SAVE) on; "2" (DO NOT INCREMENT) off; a legacy "0"
 #     off; and savestate_max_keep is written only when maxincrementalsaves has a value.
@@ -7898,7 +7968,7 @@ done
 # mv, cp, tr, head, wc, cut, awk) first on PATH and the host's for the rest;
 # the runemu parsers are bash alone.
 # grep, sort and gzip are the device's GNU ones, the host's here.
-echo "  y. audit #307 / #308, stream B: backuptool, wifictl, the settings writer and lock, factoryreset, chksysconfig, rocknix-evidence, rocknix-corekeep, runemu and automount"
+section y "audit #307 / #308, stream B: backuptool, wifictl, the settings writer and lock, factoryreset, chksysconfig, rocknix-evidence, rocknix-corekeep, runemu and automount"
 P7="${TMP}/p7"; mkdir -p "${P7}"
 
 # y1. backuptool whole, the device's applets in front of the host's, a fake
@@ -9014,6 +9084,8 @@ PATH="${TMP}/bbin:${PATH}" bash -c ". '${P7AM}/fn.sh'; external_node_present"; p
 # unzip, tar, ...), as in case n. Written before each fix and seen to FAIL
 # on the scripts at 417dcd8610 (BASE_REF=417dcd8610 ... --old).
 echo "  A. audit #307/#308, stream A: the cloud scripts against the image's rclone"
+SA_FIRST=${CHECKS}
+[ -z "${OLD_RC_NOTE}" ] || echo "    (unverified under --old: ${OLD_RC_NOTE})"
 SA="${TMP}/sa"; mkdir -p "${SA}/shim" "${SA}/nbin"
 SA_RCLONE_SRC="${RC_SRC}"   # resolved and version-checked with the busybox (#1020)
 if [ -z "${SA_RCLONE_SRC}" ] || ! cp "${SA_RCLONE_SRC}" "${SA}/rclone.real"; then
@@ -11179,6 +11251,7 @@ printf '%s' "${P7NOTE}" | grep '^dump' | grep -q 'NOT KEPT' && [ ! -e "${P7C}/st
 # grades the tree that audit read: every check below that names a fix FAILs
 # there, and the ones marked "control" PASS both ways (the premise a
 # withdrawal rests on, or a behaviour the fix must keep).
+SA_CHECKS=$((CHECKS - SA_FIRST))   # stream A ends here (#1023: its count, for an unverified rclone)
 echo "  F1r. The audit of the fix round, stream F1 (#309 PL-024; the gpt seat's G2-F1 leads): each check names its item"
 F1R="${TMP}/f1r"; mkdir -p "${F1R}"
 
@@ -13289,7 +13362,7 @@ kill "${HC_HOLDER}" 2>/dev/null; wait "${HC_HOLDER}" 2>/dev/null
 # functions and the settings writer lifted into a fresh bash with the image's
 # sed, mv, cp, tr, head, wc, cut and awk first on PATH (and the image's ln for
 # the lock, G2-B-03), wifictl whole against the nmcli y2 describes.
-echo "  z. the audit of the fix round, stream B: the conf read as text, a flag's password redacted, the restore's lists and its own control files, a quoted password, the roms mount, the upstream-era move, a zip's stored members, members outside storage/, the lock's path, the seed list, the Wi-Fi pair"
+section z "the audit of the fix round, stream B: the conf read as text, a flag's password redacted, the restore's lists and its own control files, a quoted password, the roms mount, the upstream-era move, a zip's stored members, members outside storage/, the lock's path, the seed list, the Wi-Fi pair"
 P7Z="${P7}/z"; mkdir -p "${P7Z}"
 p7zclear() { rm -f "${P7}/shim/tar" "${P7}/shim/unzip" "${P7}/shim/mktemp" "${P7}/shim/mv" "${P7}/shim/date"; P7X=(); }
 p7zclear
@@ -13835,7 +13908,7 @@ grep -q 'rc=0' "${SF}/o" && [ ! -e "${SF}/pd/index-pending" ]; check $? "an ack 
 
 LY="${TMP}/ly"; mkdir -p "${LY}"
 if [ "${MIGRATION_AVAILABLE}" -eq 1 ]; then
-echo "  aa. cloud_migrate_layout --state, --keep and --follow (#353, D-CLOUD-160/161): the layout as facts, a kept folder, the fleet followed"
+section aa "cloud_migrate_layout --state, --keep and --follow (#353, D-CLOUD-160/161): the layout as facts, a kept folder, the fleet followed"
 # The whole tool under bwrap against a shim rclone that answers by path and
 # by flag files: /GAMES or /ROCKNIX/Saves hold a save when the flag says so,
 # /pixelelated/Saves exists when another device has made it, the marker
@@ -14025,7 +14098,7 @@ for lyf in cloud_backup cloud_restore; do
 done
 
 
-echo "  ab. cloud_scan (#350, D-CLOUD-156): the opening scan's three items, the content scan's one, the selected folder facts and the failures said"
+section ab "cloud_scan (#350, D-CLOUD-156): the opening scan's three items, the content scan's one, the selected folder facts and the failures said"
 # The script whole under bwrap, its three sibling reads shimmed beside it (the
 # scripts find siblings next to themselves first), rclone answering an
 # archive listing, ip answering a route unless told not to.
@@ -14233,7 +14306,7 @@ rm -f "${SC}"/rec/*; sc_run --bogus
 [ "${SCRC}" = 2 ] && grep -qE -- '--folder|Unknown scan option' "${SC}/out"; check $? "an unknown mode is refused before a cloud read (rc ${SCRC})" "$(sc_out)"
 rm -f "${SC}"/rec/*
 
-echo "  ac. the Retroid Pocket Nova's ledcontrol (#332): LED BRIGHTNESS writes the LEDs, rgb with no colour set lights white, off zeroes"
+section ac "the Retroid Pocket Nova's ledcontrol (#332): LED BRIGHTNESS writes the LEDs, rgb with no colour set lights white, off zeroes"
 # The quirk script on the host, bash, against a fixture LED_PATH, with get_setting/set_setting shimmed and the
 # stick-colour helper recording its arguments. The old script had no brightness case (the row's call matched
 # nothing) and handed the helper nothing when analogsticks.led was unset.
@@ -14254,7 +14327,7 @@ echo "analogsticks.led=200 255 0 0 0 0 255" >> "${LD}/settings"
 led_run rgb; [ "$(tail -1 "${LD}/helper-argv")" = "200 255 0 0 0 0 255" ]; check $? "rgb with a colour set hands the helper that colour" "helper got: $(tail -1 "${LD}/helper-argv")"
 led_run off; [ "$(led_vals)" = "0 " ] && [ "$(cat "${LD}/sys/multi-ledr2/leds/rgb:r2/multi_intensity")" = "0 0 0" ]; check $? "off zeroes every LED's brightness and colour" "wrote: $(led_vals)"
 
-echo "  ad. a backup does not make a missing earlier-default saves folder (D-CLOUD-172, #363): the offer instead, nothing written"
+section ad "a backup does not make a missing earlier-default saves folder (D-CLOUD-172, #363): the offer instead, nothing written"
 # cloud_backup whole in the sandbox (the alias remote over a local folder), a save on the device, the conf on the
 # stock /GAMES. The cloud has no /GAMES: the run makes nothing, sends nothing, prints the offer and ends 0, so the
 # startup card's SKIPPED - YOUR CLOUD FOLDER ISN'T SET UP YET is true (run 100's case E found the backup half had
@@ -14289,7 +14362,7 @@ rm -rf "${SV}/cloud/GAMES"; sv_conf /pixelelated/Saves /pixelelated/Backups
 sa_run "${SV}" cloud_backup --yes --saves-only
 [ "${RC}" -eq 0 ] && [ -e "${SV}/cloud/pixelelated/Saves/gb/A.srm" ] && ! grep -q '^>>> offer' "${SV}/out"; check $? "the current folder, absent, is still made by the backup (rc ${RC})" "rc ${RC}; out: $(sa_tail "${SV}")"
 
-echo "  ae. cloud folder state table and archive writer/reader contracts (#365, #383)"
+section ae "cloud folder state table and archive writer/reader contracts (#365, #383)"
 # Keep nested host fixtures on the same selected build filesystem.
 layout_args=(--output "${TMP}/cloud-layout")
 if [ "${OLD}" -eq 1 ]; then layout_args+=(--ref "${BASE_REF}")
@@ -14303,7 +14376,7 @@ fi
 "${HARNESS_ROOT}/tools/rasteratops-cloud-layout-test" "${layout_args[@]}"
 check $? "applicable cloud folder/archive contract regressions" "cloud folder/archive contract regressions failed"
 
-echo "  af. content inactivity across provider retries (#401)"
+section af "content inactivity across provider retries (#401)"
 # Run both complete scripts with the candidate tools. A silent copy lasts
 # twelve seconds unless the product ends it; only the configured idle time
 # is shortened, keeping the real six-second grace. The old unguarded calls
@@ -14333,7 +14406,7 @@ for content_script in cloud_content_backup cloud_content_restore; do
 done
 
 # #421: exercise actual writer functions with the same candidate applets.
-echo "  ag. settings writers retain private file permissions"
+section ag "settings writers retain private file permissions"
 # These host helpers need the owned build-drive temporary directory; the
 # bubblewrap device fixtures above intentionally do not inherit host TMPDIR.
 # The busybox's origin goes with it (#1019, T14's #997 contract): the run's
@@ -14349,7 +14422,7 @@ TMPDIR="${TMP}" "${HARNESS_ROOT}/tools/settings-modes-test" --profile "${FN}" --
 check_child $? settings-modes-test "#421: private modes and refused publications" "#421: settings mode regression (details above)"
 
 # #526: optional melonDS defaults never erase an owner's configuration.
-echo "  ah. melonDS update preserves settings and adds missing hotkeys"
+section ah "melonDS update preserves settings and adds missing hotkeys"
 src_of projects/ROCKNIX/packages/rocknix/sources/post-update "${TMP}/post-update"
 TMPDIR="${TMP}" python3 "${HARNESS_ROOT}/tools/melonds-upgrade-test" --post-update "${TMP}/post-update" \
   --busybox "${BB_HOST}" "${BB_ORIGIN[@]}" --output "${TMP}/melonds-upgrade.json"   # --busybox-from <BUILD_ID> | --unverified-busybox
@@ -14358,9 +14431,20 @@ check_child $? melonds-upgrade-test "#526: preserved configuration and atomic ho
 if [ "${NOT_APPLICABLE}" -ne 0 ]; then echo "${NOT_APPLICABLE} HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS"; fi
 # Whose tools judged the scripts, in the verdict and not only the banner (#1018).
 echo "tools: busybox ${BB_SRC:-none, so the GNU tools of the host}${BB_BANNER:+ -- ${BB_BANNER}}; source: ${BB_KIND}${BB_ID:+, BUILD_ID ${BB_ID}}"
-echo "tools: rclone ${RC_SRC:-none} -- ${RC_GOT:+v}${RC_GOT:-no version}; the recipe says v${RC_WANT}"
+echo "tools: rclone ${RC_SRC:-none} -- ${RC_GOT:+v}${RC_GOT:-no version}; the recipe$([ "${OLD}" -eq 1 ] && echo " at ${BASE_REF}") says v${RC_WANT}"
+# What an --old control showed (#1023): the promises that fired, those that did
+# not, the sections the ref predates, and the tools that were not the ref's.
+OLD_UNVERIFIED=0
+if [ "${OLD}" -eq 1 ]; then
+    o_fired=""; o_quiet=""
+    for o in $(old_promises); do case "${FAIL_SECTIONS}" in *" ${o} "*) o_fired="${o_fired} ${o}" ;; *) o_quiet="${o_quiet} ${o}" ;; esac; done
+    echo "--old ${BASE_REF}: promised:$([ -n "$(old_promises)" ] && echo " $(old_promises)" || echo " nothing in the header"); fired:${o_fired:- none}; did not fire:${o_quiet:- none}"
+    [ -z "${NA_SECTIONS}" ] || echo "NOT APPLICABLE at ${BASE_REF}: ${OLD_NA} check(s) in section(s) ${NA_SECTIONS} -- a script the ref predates; not run, never PASS"
+    [ -z "${OLD_RC_NOTE}" ] || { echo "UNVERIFIED under --old: ${OLD_RC_NOTE}; stream A's ${SA_CHECKS:-0} check(s)"; OLD_UNVERIFIED=1; }
+    [ -z "${OLD_BB_NOTE}" ] || { echo "UNVERIFIED under --old: ${OLD_BB_NOTE}; all ${CHECKS} check(s)"; OLD_UNVERIFIED=1; }
+fi
 [ $((CHILD_CANNOT + CHILD_UNVERIFIED)) -eq 0 ] || echo "${CHILD_CANNOT} CHILD SUITE(S) COULD NOT RUN, ${CHILD_UNVERIFIED} UNVERIFIED -- ${CHILD_NAMES} (#1019)"
-NOT_RUN=$((SKIPPED + CHILD_CANNOT + CHILD_UNVERIFIED))
+NOT_RUN=$((SKIPPED + CHILD_CANNOT + CHILD_UNVERIFIED + OLD_NA + OLD_UNVERIFIED))
 if [ "${HOST_DIAG}" -eq 1 ]; then
     # D-QA-063: 1 over 3 over 0 -- a failure under the host's applets is still
     # a failure; 3 says only that nothing failed; a host run is never 0.
@@ -14369,5 +14453,5 @@ if [ "${HOST_DIAG}" -eq 1 ]; then
     exit 1
 fi
 if [ "${FAIL}" -eq 0 ] && [ "${NOT_RUN}" -eq 0 ]; then echo "PASSED"; exit 0
-elif [ "${FAIL}" -eq 0 ]; then echo "PASSED, ${SKIPPED} SKIPPED, $((CHILD_CANNOT + CHILD_UNVERIFIED)) CHILD SUITE(S) NOT EVIDENCE -- a check that did not run has not passed"; exit 3
+elif [ "${FAIL}" -eq 0 ]; then echo "PASSED, ${SKIPPED} SKIPPED, $((CHILD_CANNOT + CHILD_UNVERIFIED)) CHILD SUITE(S) NOT EVIDENCE, ${OLD_NA} NOT APPLICABLE$([ "${OLD_UNVERIFIED}" -eq 1 ] && echo ", A TOOL NOT THE REF'S") -- a check that did not run has not passed"; exit 3
 else echo "${FAIL} CHECK(S) FAILED, ${SKIPPED} SKIPPED"; exit 1; fi

@@ -522,3 +522,27 @@ The fix, `${ROOT}/tools/settings-modes-test` to `${HARNESS_ROOT}/tools/settings-
 | --- | --- | --- | --- |
 | `LAST_GOOD_SOURCE_ROOT` naming a checkout without `tools/settings-modes-test` (a clone at `4e5b6c6103` with that one file removed); the harness in `t14stage` with T14's tools; the M7 root (the positive) | unfixed (`4e5b6c6103`), cut to the harness, `ag`, `ah` and the verdict | rc 1: `.../nosmt/tools/settings-modes-test: No such file or directory`, then `FAIL  #421: settings mode regression (details above)`. The other FAIL is `ah`'s #1019 refusal | proved: tool-run |
 | the same | fixed (`3da816ce24`), cut | rc 0: `PASS  #421: private modes and refused publications`, `PASSED` | proved: tool-run |
+
+### S2, #1023: `--old` reaches a verdict -- CANNOT, a promised FAIL, or NOT APPLICABLE by name
+
+The shape follows the seat's three distinctions (the 02:36 ruling) and the 03:34 per-tool ruling.
+- **An invalid ref is CANNOT at once.**
+- **A script absent at the ref** works in three ways:
+  - in a section the header promises for that ref, it is that promise firing: one FAIL;
+  - in another section, the rest of the section is NOT APPLICABLE by name, its checks printing `N/A`, counted, never PASS;
+  - before any section, an input the harness itself needs is CANNOT.
+- **The header's recipes are now data** (`old_promises`). The verdict says which promises fired and which did not.
+- **Each tool borrowed from the root** (rclone, busybox) is compared with the ref's recipe. A mismatch is named and its sections are unverified, rather than the 03:11 CANNOT, which stands outside `--old`.
+- **The exit** follows D-QA-063.
+- **The 34 section banners** are now `section <letter> "<text>"`, with the same output, which is what tracks the section.
+
+| Case | File | Result | Proved |
+| --- | --- | --- | --- |
+| `BASE_REF=0f7785e6ed --old`, a dead ref (the positive) | unfixed (stage A, `.qa-scratch/t15/old-0f7785e6ed.out`) | exit 2 mid-run, at the first read: `fatal: invalid object name '0f7785e6ed'.` / `cannot read projects/ROCKNIX/packages/rocknix/sources/scripts/chksysconfig at 0f7785e6ed` | proved: tool-run |
+| `BASE_REF=0123456789 --old` and `BASE_REF=0f7785e6ed --old` | fixed | exit 2 in 11 ms and 9 ms, before any fixture: `CANNOT -- BASE_REF 0123456789 is not a commit in <worktree>` (the same for the dead ref) | proved: tool-run |
+| `BASE_REF=1d1503180d --old`, the M7 root (the positive) | unfixed (stage A, `old-1d1503180d.out`) | exit 2 at `s`: `fatal: path '.../rocknix-evidence' exists on disk, but not in '1d1503180d'` / `cannot read ... at 1d1503180d`. No verdict, and sections `s` to `ah` never ran | proved: tool-run |
+| `BASE_REF=1d1503180d --old`, the M7 root | fixed | **exit 1** in 1,219 s, a verdict: 126 PASS / 354 FAIL / 659 `N/A` lines (654 checks plus 5 *from here* lines) / 26 SKIP / 2 CANNOT (`ag`, `ah`: this branch's writer tests, #1019). `--old 1d1503180d: promised: a b c d e f j k l m; fired: a b c d e f j k l m; did not fire: none`. `NOT APPLICABLE at 1d1503180d: 654 check(s) in section(s) s x y z ab -- a script the ref predates; not run, never PASS`. `UNVERIFIED under --old: rclone v1.75.2 from the root; the ref's recipe says v1.75.0 -- the old scripts under the candidate's rclone; stream A's 0 check(s)` (stream A's checks are all inside `y`'s N/A). Each N/A section is named with its script: `s` rocknix-evidence, `x` rocknix-corekeep, `y` rocknix-evidence, `z` cloud_log_scrub, `ab` cloud_scan. The suite's existing absence checks still fire as before: `p` and `t` FAIL with `raofflineproxy-ctl is absent at 1d1503180d: ...` | proved: tool-run |
+
+The run is slower than an ordinary one (1,219 s against 517 s). The sections marked N/A keep executing against empty placeholder scripts, and their stderr carries the noise of that (`/logs/exec.log: No such file or directory`, the missing RetroArch patches). Their checks print `N/A`, never PASS or FAIL.
+
+`34aca64afd` (#1023's second case, `p`'s promised absence) and the twelve-recipe table run after S2's other commits. The table is S2's last step.

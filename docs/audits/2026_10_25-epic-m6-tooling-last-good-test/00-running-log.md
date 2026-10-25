@@ -241,8 +241,24 @@
 - **S1's five bugs** (#1018, #1020, #1029, #1038, #1019) are fixed in four commits. Next is S2: #1021-#1024, #1035, #1039, with the 03:34 `--old` per-tool ruling.
 - **One edit after the end-of-S1 run:** the comment beside the `ag` move gained the coordinator's `--old` sentence. It is comment only; `bash -n` passes, and no line that runs changed.
 
-## [Stage E] 04:12 UTC — #1030's positive, its fix already in #1019's commit
+## [Stage E] 04:08 UTC — #1030's positive, its fix already in #1019's commit
 
 - **`3da816ce24` (#1019) already moved `ag`'s tool to `HARNESS_ROOT`, which is #1030's whole fix** (S6). The coordinator approved the move at 03:58. I made it as part of #1019 before noticing #1030 is its own bug.
 - **Its positive** (the table is `02` § S6, #1030): with `LAST_GOOD_SOURCE_ROOT` naming a checkout without the tool, the unfixed `ag` gives `No such file or directory` and FAIL (rc 1); the fixed one PASSes (rc 0).
 - **S6 therefore has no code commit left.** Put to the coordinator with the S1 checkpoint.
+
+## [Stage E] 04:33 UTC — S2: #1023 fixed (the --old verdict); the coordinator's 04:12 answers
+
+- **The coordinator, 04:12:**
+  - S6 (#1030) is closed by `3da816ce24` with its positive, and a Phase 7 row will cite it;
+  - #1021's positive comes from a `git clone --depth 1` of the tip: a constructed input, which the rule against `git archive` (about figures) does not cover.
+- **#1023:**
+  - an invalid ref is CANNOT at once;
+  - a script absent at the ref is a promised FAIL, or NOT APPLICABLE by name from that point in its section, or CANNOT before any section;
+  - the recipes are data (`old_promises`), and the verdict lists the promises that fired;
+  - each borrowed tool is checked against the ref's recipe, and a mismatch is unverified (the 03:34 ruling);
+  - the 34 banners go through `section()`, with identical output.
+- **Runs:**
+  - the invalid refs: CANNOT in about 10 ms;
+  - **`--old 1d1503180d`: exit 1 in 1,219 s, a verdict where the unfixed file exited 2 at `s`**: all ten promises fired; `s x y z ab` N/A by name (654 checks); rclone v1.75.2 against the ref's v1.75.0 unverified; busybox v1.36.1 matched.
+- **Busybox and rclone at the refs:** the busybox override says 1.36.1 at every ref the suite names, so under `--old` busybox is evidence. Rclone says 1.75.0 (the twelve) or 1.75.1 (the in-section positives), so stream A is unverified at each.
