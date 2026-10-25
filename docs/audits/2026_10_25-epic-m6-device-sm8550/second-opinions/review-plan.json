@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "depth": "independent",
+  "scope": "epic",
+  "primary": {
+    "harness": "Claude Code",
+    "model": "anthropic/claude-opus-5-5",
+    "lab": "anthropic",
+    "identity_source": "the coordinator's dispatch on #675 (2026-10-25T10:31:07Z: 'to the T5 session (m6-t5-build-engine)') and the session's own model metadata (claude-opus-5-5)"
+  },
+  "reviewers": [
+    {
+      "member": "gpt",
+      "model": "openai/gpt-6-astra",
+      "lab": "openai",
+      "effort": "max",
+      "provider": "openrouter, provider pinned to OpenAI, allow_fallbacks false (the installed recipe)",
+      "allow_fallbacks": false,
+      "calls": [
+        {
+          "phase": "refutation",
+          "output": "gpt-audit.md"
+        }
+      ],
+      "probes": [
+        {
+          "phase": "probe",
+          "output": "gpt-probe.md"
+        }
+      ],
+      "status": "planned: probe then refutation, the only two keyed calls (D-WORKFLOW-195)"
+    }
+  ],
+  "packets": {
+    "gpt": {
+      "file": "gpt-brief.md",
+      "bytes": 377172,
+      "sha256": "90fdaca720aa5fa85a7b86783a06df22b441477f1ba7cab51656415d9e705ca9",
+      "manifest": "packet-manifest.json",
+      "content": "the ask, 02/03/04 whole, five context sections, the 28 slice files that are not the .disabled patch, its first 12 lines, the configuration's header and its diff against upstream's copy, the four Qualcomm confs' DRM_MSM and EXTRA_FIRMWARE lines, and 31 excerpts at 8ebaf8daad and 651150fc88; every source passed the masking sed's rule",
+      "scan": "forbidden-terms-check --stdin 0 hits; SECRET_PATTERNS 0 lines under three sets, each shown to fire on a run-time fake line; 2 lines masked (the brief's key=lambda); no redaction"
+    }
+  },
+  "written_before_first_call": "2026-10-25T10:46Z"
+}

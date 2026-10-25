@@ -1,0 +1,536 @@
+{
+  "sources": [
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-device-sm8550/stage-c/ask.md",
+      "ref": "worktree",
+      "kind": "ask",
+      "sha256": "8165c1b475185bc5da02acc1ad4b17011e998cf35471e09b9f86b663c4477da4",
+      "bytes": 4268
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-device-sm8550/02-forward-audit.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "8646bfc613d7f2913e10c4e2f043ae1e68e8f29ef892d4e29d706665745fb8bc",
+      "bytes": 39660
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-device-sm8550/03-retrospective.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "47016751415f7c705da8da6aab99a465237a2ce6775ed6983aebb6fcb2f3d72f",
+      "bytes": 6523
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-device-sm8550/04-analysis.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "c485c87ef664e9347dbb597718d96a005bb2fc5d70f48914c84dc66b103d9fa2",
+      "bytes": 14746
+    },
+    {
+      "path": "docs/reviews/order.md \u00a7 T28",
+      "ref": "2174265e9c",
+      "kind": "context",
+      "sha256": "f7720742fd465db2f3c9f61177b3f04f194fd40016ee56e8fb6212fe24c3428e",
+      "bytes": 656
+    },
+    {
+      "path": "docs/reviews/briefs/device-sm8550.md \u00a7 2 and \u00a7 4",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "53390bf69a4c999d5ad02e8410fe9b74d759284fde29109d38232aa926bb78d9",
+      "bytes": 16966
+    },
+    {
+      "path": "docs/decision-register.md rows D-QA-015, D-QA-023, D-QA-027, D-WORKFLOW-114, D-WORKFLOW-123, D-WORKFLOW-150, D-WORKFLOW-185, D-WORKFLOW-187, D-WORKFLOW-195, D-WORKFLOW-209",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "55b6828a4059b52ff08cd5400c4aec754eb8af886772aa9798b5d39558a0b2a5",
+      "bytes": 11821
+    },
+    {
+      "path": "docs/releases/device-facts.md rows 17-20, 27, 28, 31",
+      "ref": "2174265e9c",
+      "kind": "context",
+      "sha256": "17813942087653069ab6f9dd3e0c590a67336f213c5fa92367240632b9a6c73e",
+      "bytes": 3330
+    },
+    {
+      "path": ".claude/rules/device-builds.md:16-26",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "0335796976a659d08495519b0e20cd4a7d5537529bee291823e311cb49a9e54f",
+      "bytes": 999
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/bootloader/update.sh",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "4de0add4ac4dbb705bc4607294c6b9550daba151af4610b118425692a1a09436",
+      "bytes": 1150
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/config/kernel-firmware.dat",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "485d8e3cceb4503c831cacb88d5cff620188027e37355b3d4d54c4bc8f613bbd",
+      "bytes": 157
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/filesystem/usr/lib/udev/hwdb.d/10-ayaneo.hwdb",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "6a79c953040741dc8592a3fcc6c5b71ea81278c159596e66047e57507496196d",
+      "bytes": 95
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/filesystem/usr/share/inputplumber/capability_maps/ayaneo_mcu_japanese.yaml",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "b1f1ef61d1494c114c03440f31d7de0714b8f9ab44a84f573f2215d68a779876",
+      "bytes": 6573
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/filesystem/usr/share/inputplumber/capability_maps/ayaneo_mcu_xbox.yaml",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "627b970ea5b354fc100ff5ba00176c648defb921600dc7ac5933a6c86bc88507",
+      "bytes": 6572
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/filesystem/usr/share/inputplumber/capability_maps/ayaneo_pocketsmini_gpio.yaml",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "1ff967e1a9c9374ab4ac3c89f4a93d9577eef20f5a1606cc699606d0b33ffd8b",
+      "bytes": 806
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/filesystem/usr/share/inputplumber/capability_maps/ayn_mcu.yaml",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "e5ed2760dadef7182f8ee5766056ea2aa4df06a98da99d19af1f80ae3866c4e4",
+      "bytes": 6629
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/filesystem/usr/share/inputplumber/devices/01-ayaneo-controller-japanese.yaml",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "0e40774e4723789a797e11da552ef436313adc073beb5168180e4b6c2f7fa700",
+      "bytes": 2416
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/filesystem/usr/share/inputplumber/devices/01-ayaneo-controller.yaml",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "5120d714fedfca2a35a355d9287f1fa5dd91f32b05d2d8a700f450d60ec7b1c3",
+      "bytes": 2225
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/filesystem/usr/share/inputplumber/devices/02-ayn-controller.yaml",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "536b9659b9a095b07ff43f16b0b4b9ccf5aa3a3238ed88f01932b4c058c066ab",
+      "bytes": 3263
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/filesystem/usr/share/inputplumber/devices/02-ayn-thor-controller.yaml",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "d7806b0f8f408a9aeb52a2ae7976e314cb432a898a51e667423a752b522bd4d7",
+      "bytes": 1755
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayaneo-pocket-common.dtsi",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "15ab8b86891dbb08e70c2a0a8cf79fb8e56dd30369b0cdfed13d88aac8efea3d",
+      "bytes": 45532
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayaneo-pocketace.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "f0233874bb276ba399106e000eee03f802fddd0d7241d3d31e6177bfe9b1989d",
+      "bytes": 3788
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayaneo-pocketdmg.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "05786692ffb5c9dbba47303f887bf3f422e2debe6102ccec1742afd82e99bd9f",
+      "bytes": 3476
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayaneo-pocketds.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "03b41f661b57d6915a2aeea0132d092838fd521a73d5c8dfcabe428975fa4d87",
+      "bytes": 7347
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayaneo-pocketevo.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "a58d7cd86c12c04a0d88626aa5608b8c065e6d361d7ed239f2e4a1f4e1b3cf1a",
+      "bytes": 2639
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayaneo-pockets1k.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "a1e7a0e81d4b4fa8978a4bc8bcdfc8564576b1f630db1da38e7ffa00630b8b1a",
+      "bytes": 4593
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayaneo-pockets2k.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "3bc17fe490fe28667292f660c948e1e9485bbbb0c40af1768f13c20c9de076d7",
+      "bytes": 4794
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayaneo-pocketsmini.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "8869b5c5da6936323e9f0a346566815f62aad299d3f7e0ae17a785eec3e1721b",
+      "bytes": 4851
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayn-common.dtsi",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "e3760d27f23959da748b0e6bd7c1c8de685acb969c97553003f96f02087c0253",
+      "bytes": 52724
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayn-odin2.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "fa8abae248406efaf1341ba640d8d9e7658a1066272a5d86d2556d494a70b549",
+      "bytes": 9102
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayn-odin2mini.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "49df05b7ee3fedc4abba0ecf5090d54120ed2125f7d86266cfbc27e0605f5d9a",
+      "bytes": 4898
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayn-odin2portal.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "99a67472f8b64f0f96eef6c30111482b8a1e0a9d7d8a38017fb93a8442db3bb7",
+      "bytes": 7342
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-ayn-thor.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "967e898bc97e216e0616be1994848a2619b61cef9d99e6f6ce890bd7917b46f7",
+      "bytes": 11679
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-retroidpocket-rp6-top-dpad.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "69731653eb0fc9c6203b18725e77908ff8f76eacbaba89dbe921970d4392edfe",
+      "bytes": 326
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-retroidpocket-rp6.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "01108d08777672dcfb54c832b9781102395059db00e1910e15619c1bed537328",
+      "bytes": 9700
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-retroidpocket-rpnova.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "48740969e1e5f3926237bdb713d89d3bf0143e78e0a782c6a6621ea04e421a79",
+      "bytes": 755
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/options",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "617477720821616daef0d941a7f84d13d588889fbd8a94100d675dff79e14fc0",
+      "bytes": 2630
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/patches/linux/0053-add-hynitron-touchscreen.patch.disabled:1-12",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "c8341dcbe13ef9d4cfa3a741499170940ee0f5fbbaa81d42afadbdd65529e887",
+      "bytes": 646
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf:1-6",
+      "ref": "8ebaf8daad",
+      "kind": "config header",
+      "sha256": "f0221fa5787325f84ec385bf456c39243d77a2c56e6a251497ff7f055cb5715f",
+      "bytes": 202
+    },
+    {
+      "path": "diff projects/ROCKNIX/devices/SM8550/linux/linux.aarch64.conf 651150fc88..8ebaf8daad",
+      "ref": "8ebaf8daad",
+      "kind": "config diff",
+      "sha256": "b0f036aaa341c5c8abdf2fe548e2ad8221f5cc0a765ae56333708e3dd821766c",
+      "bytes": 616
+    },
+    {
+      "path": "the four confs' DRM_MSM and EXTRA_FIRMWARE lines",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "d7761548ee25f14582272d7c39ae291d2a05f830fc366dd11bd74eca75d04331",
+      "bytes": 200
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux/package.mk:1-120",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "f527885eb9db27863c69e16d0dcb370632b582eb232641feba1f9ffb06fddb52",
+      "bytes": 5667
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux/package.mk:190-290",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "c743a6972c28292acd110945beb570e411395f2e71a039081bfe5fb5b95a2277",
+      "bytes": 8343
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux/package.mk:380-432",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "26fff12bafe3a3493dbbc081b1797cdaa59358dbc1db4c54d192d004caa0f7fd",
+      "bytes": 2373
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux/package.mk:1-60",
+      "ref": "651150fc88",
+      "kind": "excerpt",
+      "sha256": "466d307376013e8a9c01913bf8301abb72f571d2f656b308246b494947d2f757",
+      "bytes": 2952
+    },
+    {
+      "path": "scripts/mkimage:250-270",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "32e02d6b9fe5a403f3565bda6359578e5c4ef1d10e9b217c10c69548e1adb2b4",
+      "bytes": 1021
+    },
+    {
+      "path": "projects/ROCKNIX/bootloader/mkimage:1-113",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "459cdc1893050d83062eba50acab13311798bfc61c9e193cbf757a06023324a0",
+      "bytes": 4692
+    },
+    {
+      "path": "projects/ROCKNIX/bootloader/install:1-75",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "32e9032c8da6437b6a7a14474980a22b28dbdb7f987adeff97444f84a99844e1",
+      "bytes": 3464
+    },
+    {
+      "path": "distributions/ROCKNIX/config/functions:220-235",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "60f2e9561d39791000fb92ef9b3d297593837e32ded3495393e580d92c258ad9",
+      "bytes": 611
+    },
+    {
+      "path": "distributions/ROCKNIX/config/functions:380-400",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "d82d94251c1d63ce3d9f4f9ab660744da232d40f17c87f42776d2685fb0624bd",
+      "bytes": 596
+    },
+    {
+      "path": "projects/ROCKNIX/config.xml:125-150",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "0c077c62c5722919dfdd4b94fd2a5f8da48247edd1618a3a20b0910fa5e41cc3",
+      "bytes": 1139
+    },
+    {
+      "path": "projects/ROCKNIX/config.xml:130-150",
+      "ref": "651150fc88",
+      "kind": "excerpt",
+      "sha256": "9bd0e3c0e819def418bb6067bb6b69fe159616e7c2f81460d98b56b02b9fce09",
+      "bytes": 952
+    },
+    {
+      "path": "scripts/unpack:140-162",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "a7aea306f2c22412c1ef591053b3635baaac98c12de442d1b8e5f66e38cdd472",
+      "bytes": 1347
+    },
+    {
+      "path": "projects/ROCKNIX/packages/rocknix/sources/scripts/updateabl:1-77",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "5ab5ecc197da4c8e09e6d4b53268ceb960c4e067e3f96946db9d36963ef1df26",
+      "bytes": 2612
+    },
+    {
+      "path": "projects/ROCKNIX/packages/rocknix/sources/scripts/updateabl:1-89",
+      "ref": "651150fc88",
+      "kind": "excerpt",
+      "sha256": "711fcf4a12cb08f43294c28bfefac42e89801ddf3c7b3f4f11f0725f7ce08713",
+      "bytes": 2954
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux-firmware/kernel-firmware/package.mk:1-93",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "cc658646f1bb947db8a093f0f15362b14ff7f76a5f4884c3ce515c450decd0ac",
+      "bytes": 3754
+    },
+    {
+      "path": "projects/ROCKNIX/packages/tools/qcom-abl/package.mk:1-11",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "c9b646b2b5b979d8ed8ac3ed4bf328960b4727ad5329b1f2fa5ce163789b1ebc",
+      "bytes": 364
+    },
+    {
+      "path": "projects/ROCKNIX/packages/tools/rocknix-abl/package.mk:1-18",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "c4886a4f27c6488302c185b5f26ef2fded13e64bb27ff8403e01bbd834fdd961",
+      "bytes": 984
+    },
+    {
+      "path": "projects/ROCKNIX/packages/tools/rocknix-abl/sources/README:1-6",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "7b2c9ebbaa411a5999f659093fa8f4c06d80f5fd7115fb8660dab02df45c1dd9",
+      "bytes": 443
+    },
+    {
+      "path": "projects/ROCKNIX/packages/tools/openabl/package.mk:1-18",
+      "ref": "651150fc88",
+      "kind": "excerpt",
+      "sha256": "022ef13864369b60667b4c4016022d7b0a22fc180a601fefe96a4d8e992eea47",
+      "bytes": 1122
+    },
+    {
+      "path": "projects/ROCKNIX/packages/tools/mkbootimg/package.mk:1-18",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "d08a9c78248d90281160777f1a4df28130958f7fd8a24b2da73f4784601387d7",
+      "bytes": 753
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux-firmware/extra-firmware/package.mk:1-25",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "f33dfe5b4ef7c8ef22cd9b88011e97b19d1a57f70d374814060a723ff086459d",
+      "bytes": 1204
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux-firmware/extra-firmware/package.mk:1-25",
+      "ref": "651150fc88",
+      "kind": "excerpt",
+      "sha256": "438b8b39a11ef8fe1a400a81b1478660a1b502ee69aa8c376d74d4911c664684",
+      "bytes": 1204
+    },
+    {
+      "path": "projects/ROCKNIX/packages/tools/inputplumber/package.mk:1-49",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "ca3d91d7864d46a96f76983b5da4d98cda39dc84079452b4f797511d1c6aa14d",
+      "bytes": 1833
+    },
+    {
+      "path": "projects/ROCKNIX/packages/tools/inputplumber/package.mk:1-60",
+      "ref": "651150fc88",
+      "kind": "excerpt",
+      "sha256": "0b98a7152dccea6f4fe974a6ff04db33b5dcf944cff03c66e4c50e4973c27af5",
+      "bytes": 2276
+    },
+    {
+      "path": "projects/ROCKNIX/packages/tools/gamepadcalibration/package.mk:1-40",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "c96ced0061efa600199eb7c46ac29b41fb514a609539d3c80334bb4a693de279",
+      "bytes": 2115
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/bootloader/update.sh:1-43",
+      "ref": "651150fc88",
+      "kind": "excerpt",
+      "sha256": "453659ee2724133403a65f09b7918a11cbdff62579f4145d6eb2c242dadde850",
+      "bytes": 1374
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/options:1-81",
+      "ref": "651150fc88",
+      "kind": "excerpt",
+      "sha256": "b06ddfcd1948ce0f16ff0e95fff7624d8be5bd6bcf8cc7c56abbdbdb129ce184",
+      "bytes": 2630
+    },
+    {
+      "path": "projects/ROCKNIX/packages/virtual/arm-efi/package.mk:1-23",
+      "ref": "651150fc88",
+      "kind": "excerpt",
+      "sha256": "9ea88dd24e78a9b1da62694c5c764d1017d6fdd7114ea86592e575a476b8faad",
+      "bytes": 734
+    },
+    {
+      "path": "distributions/ROCKNIX/options:14-20",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "ed4e314023855f6379a3dc057dbe691266bb31ab3b3a85b076b223fef1f1477b",
+      "bytes": 250
+    },
+    {
+      "path": "distributions/ROCKNIX/options:198-206",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "00528135bf083b6f0b51390b9d64a547c3bda9655dbd931a750eea6043d28824",
+      "bytes": 351
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/autostart/profile.d/002-autostart:1-12",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "5d20680df73dcd3ce8f9ae34e4173473b59453348ad392cb70adc3327bd655bb",
+      "bytes": 491
+    }
+  ],
+  "masked_lines": 2,
+  "packet": {
+    "file": "gpt-brief.md",
+    "bytes": 377172,
+    "sha256": "90fdaca720aa5fa85a7b86783a06df22b441477f1ba7cab51656415d9e705ca9"
+  },
+  "scan": {
+    "forbidden_terms_check_stdin": "0 hits on stdin (rc 0), 10:45:58 UTC",
+    "secret_patterns": [
+      {
+        "set": ".githooks/secret-patterns (this branch)",
+        "sha256_12": "57fd72093984",
+        "lines": 0
+      },
+      {
+        "set": "the primary checkout's .githooks/secret-patterns",
+        "sha256_12": "57fd72093984",
+        "lines": 0
+      },
+      {
+        "set": "T10's widened set, git show feature/m6-tooling-guards-657:.githooks/secret-patterns",
+        "sha256_12": "7295e68fd978",
+        "lines": 0
+      }
+    ],
+    "positive_control": "each set matched a devpassword= line assembled at run time (printf pieces), 1 of 1",
+    "masking": "every source passed the masking sed's rule; 2 lines masked, both in the brief's own \u00a7 2 membership block (`key=lambda` in Python, Context 2); no redaction"
+  }
+}

@@ -87,3 +87,21 @@
 - PROOF: P12, upstream's replacement and the entry's name: r29, b11, b12.
 - PROOF: P13, the device facts: b19.
 - PROOF: P14, the tables regenerated: `g_check`.
+
+## [Stage C] 10:45 UTC onward — the packet, its scan, the seat
+
+- **The packet** (`stage-c/packet.py`, from `stage-c/ask.md`), `second-opinions/gpt-brief.md`: 72 sources, 377,172 bytes, sha256 `90fdaca720aa5fa8...`. Built 10:45:39 UTC.
+  - **Contents:** the ask; `02`, `03` and `04` whole; five context sections (the order's § T28, the brief's § 2 and § 4, 10 register rows, device-facts L17 to L20, L27, L28 and L31 at `2174265e9c`, `device-builds.md:16-26`).
+  - **Line-numbered:** the 28 slice files that are not the `.disabled` patch; that patch's first 12 lines; the configuration's header and its diff against upstream's copy (asserted 7 / 7); the four Qualcomm confs' `DRM_MSM` and `EXTRA_FIRMWARE` lines; and 31 excerpts at `8ebaf8daad` and `651150fc88`.
+  - **Masking:** every source passed the masking `sed`'s rule; **2 lines were masked**, both `key=lambda` in the brief's own § 2 block.
+- **The scan, before sending** (10:45:58):
+  - `forbidden-terms-check --stdin`: 0 hits.
+  - `SECRET_PATTERNS`: 0 lines under this branch's, the primary checkout's and T10's widened sets. Each set matched a `devpassword=` line assembled at run time. No redaction.
+  - Recorded in `packet-manifest.json`'s `scan`.
+- **The plan:** `second-opinions/review-plan.json`: `depth: independent`, one reviewer (`gpt`, `openai/gpt-6-astra`, `max`, pinned to OpenAI, `allow_fallbacks: false`), written before the first call.
+- **The runner's dependencies:** `tools/council/node_modules` was copied from the T27 worktree (gitignored; the tracked `tools/council` is identical to T27's), since a fetch is forbidden. `COUNCIL_ENV_FILE=/nonexistent tools/council/run verify-pins`: `OK`. Earlier, `COUNCIL_ENV_FILE=/nonexistent tools/council/run --help`, also keyless.
+- **The probe**, 10:46:28 to 10:46:38 (keyed; **the first of the seat's two calls**):
+  - `attempt=1/4 http=200 model=openai/gpt-6-astra providers=["OpenAI"] effort=max finish=stop outcome=success`.
+  - Provenance: verification `PASS`, `observed: openai/gpt-6-astra`, `model_identity_source: provider_response`; `council-facilitator@1.14.1-pixelelated.2`.
+  - The reply text is `READY unknown`: the model's own claim, which the provider's identity overrides.
+- **The refutation**, started 10:46:53 UTC (keyed; **the second and last call**), runs as a harness background task. It writes `second-opinions/gpt-audit.md` and `/workspace/tmp/m6-t28/refutation.rc`; the task notifies this session when it ends.

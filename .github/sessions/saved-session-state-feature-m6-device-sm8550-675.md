@@ -16,16 +16,11 @@
 
 ## Current focus
 
-**Stage B complete; stage C next** (updated 2026-10-25, 10:43 UTC).
-- **`reviewed-at`:** `458e2bfda1`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-device-sm8550/`, with `00` to `04`, `stage-a/` (31 runs), `stage-b/` (21 reads) and `tools/t28-tables.py`.
-- **Findings:** eight, F-04 and F-05 Low, the rest Info, no `bug`.
-- **Corrections to the brief:** the Nova's two InputPlumber files and its include chain; r08's pair order; `gamepadcalibration`; `install:50-60`.
-- **Next (stage C):**
-  - the packet: trimmed, scanned with `forbidden-terms-check --stdin`, the pre-commit patterns and T10's widened set, with a sha256 manifest;
-  - `review-plan.json` (independent, gpt, `openai/gpt-6-astra`, `max`);
-  - the probe, then the refutation: the only keyed calls;
-  - `04` § Second opinion; `05`; the pre-issue lint.
-- **Running for this lane:** nothing.
+**Stage C: the refutation is running** (started 10:46:53 UTC).
+- **The packet:** `second-opinions/gpt-brief.md`, 72 sources, scanned 0 hits.
+- **The probe:** PASS.
+- **The refutation:** a harness background task in this session. It writes `second-opinions/gpt-audit.md`, with its exit code in `/workspace/tmp/m6-t28/refutation.rc`. **If the session dies, read the rc file and the log; do not re-run the keyed call** (the seat has exactly two).
+- **Next:** grade the seat's items in `04` § Second opinion; `05`; the pre-issue lint; the stage-C checkpoint. Then stage D.
 
 ## Next commands
 
