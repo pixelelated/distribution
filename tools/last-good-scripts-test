@@ -552,6 +552,11 @@ driver_verdicts() {
     # As sets: a driver may print one ID on several verdicts (t's PL-25 three times).
     want="$(printf '%s\n' "$@" | sort -u | tr '\n' '|')"
     got="$(sed -n -E 's/^(PASS|FAIL) ([^:]*):.*/\2/p' "${out}" | sort -u | tr '\n' '|')"
+    # Each verdict the driver never printed is a FAIL of its own, by name (#1024).
+    local id n_got; n_got=$(sed -n -E 's/^(PASS|FAIL) ([^:]*):.*/\2/p' "${out}" | wc -l)
+    for id in "$@"; do
+        case "|${got}" in *"|${id}|"*) ;; *) check 1 "" "${name}: ${id} did not run (the driver ended rc ${rc} after ${n_got} verdict line(s))" ;; esac
+    done
     [ "${rc}" -eq 0 ] && [ "${got}" = "${want}" ]; check $? "${name} driver exited 0 with its $# verdicts ($(grep -c '^PASS' "${out}") PASS / $(grep -c '^FAIL' "${out}") FAIL)" "${name} driver: rc ${rc}, verdict IDs |${got}| against |${want}|: $(tail -3 "${out}" | tr '\n' '|' | cut -c1-200)"
 }
 # An absence read from an archive, failing closed (#1034): tar's own status is
