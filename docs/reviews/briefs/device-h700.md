@@ -7,7 +7,7 @@ area: devices
 kind: currency
 lens: cost against value
 depth: Independent
-version: 1
+version: 2
 written: 2026-10-25
 author: the M6 coordinator (Fable 5.1, D-WORKFLOW-189)
 read_refs:
@@ -22,8 +22,8 @@ read_refs:
 
 - **Issue:** #674 `M6.P2 E1082/T27: devices: the H700 device (RG35XX SP, RG
   SP)`, slice `device-h700` (`k: 27`) in `docs/reviews/slices.json`,
-  twenty-seventh in `docs/reviews/order.md` (its row: *28 | 12,901 | 327 |
-  0 | Independent*; its `why`: *the maintainer's test handhelds; options,
+  twenty-seventh in `docs/reviews/order.md` (its row at the P1 tip: *28 | 12,901 | 327 (0) |
+  8,129 | Independent*; its `why`: *the maintainer's test handhelds; options,
   device packages (u-boot DDR3/DDR4, the suspend stub), device trees and
   kernel configuration; its fork-written kernel configuration (8,129 lines)
   is read here as a diff against its base (plan § 2)* -- **the last clause
@@ -35,8 +35,9 @@ read_refs:
   first.
 - **Predecessors that bear on these files:** **T11** (#658: the override
   kernel recipe every device builds, `projects/ROCKNIX/packages/linux/package.mk`,
-  whose H700 branch at `:29-35` builds `7.2` and at `:223-240` embeds the
-  rtl_bt/rtw88 firmware and ten `.panel` files into `CONFIG_EXTRA_FIRMWARE`;
+  whose H700 branch at `:29-35` builds `7.2` and at `:223-243` embeds the
+  rtl_bt/rtw88 firmware and ten `.panel` files into `CONFIG_EXTRA_FIRMWARE`
+  (the `--set-str` at `:243`);
   the project `bootloader/mkimage:18-26`, which writes the SUBDEVICE's
   u-boot and copies `device_trees` but never creates `/dtb.img`; its
   `BOOTLOADER=` table, H700 `u-boot`; its membership holds the DDR3 overlay
@@ -87,8 +88,8 @@ read_refs:
   ordinary device slice*): **one seat, GPT-6 Astra at `max`**, a probe
   first, then one refutation pass over one trimmed packet
   (D-WORKFLOW-195), exactly as T11's brief § 1 and T13's stage C: the
-  packet is the 13 read files (`options`, `update.sh`, the two udev rules,
-  the four recipes, the two defconfigs, `kernel-firmware.dat`), the 15 DTS
+  packet is the 8 read files (`options`, `update.sh`, the two udev rules,
+  the four recipes) with the two defconfigs and `kernel-firmware.dat`, the 15 DTS
   (321 lines), the configuration's diff against `upstream/next`'s own copy
   (12 / 13 lines, not the 8,129), `02`, `03` and `04` whole, and the
   context sections (the order's § T27, this brief's § 2 and § 4, the
@@ -125,7 +126,7 @@ No `git fetch` of any kind.
 
 ## 2. Scope
 
-**28 paths, 12,901 lines; 13 read (shell 2 / 147, udev 2 / 3, recipe 4 /
+**28 paths, 12,901 lines; 8 read (shell 2 / 147, udev 2 / 3, recipe 4 /
 177 -- 327 lines, 0 fork-own); the 15 device-tree sources (321 lines) are
 not counted as read by the survey's language rule but are read here all
 the same; upstream-carried 27 paths / 4,772 lines, vendor-carried 1 /
@@ -160,19 +161,17 @@ print("language",dict(collections.Counter((r.get("language") or "none") for r in
 import os; os.makedirs(".qa-scratch/t27", exist_ok=True)
 open(".qa-scratch/t27/paths.txt","w").write("".join(r["path"]+"\n" for r in sorted(t,key=lambda r:r["path"])))
 print("written", len(t), ".qa-scratch/t27/paths.txt")'
+# (the sorted(..., key=...) above is Python's keyword, not a credential: a reader applying the read filter to this block drops that line and sees nothing written -- run the block raw)
 # paths 28 lines 12901
 # read 8 327 fork-own 0
 # tier {'upstream-carried': 27, 'vendor-carried': 1} reach {'shipped': 28}
-# language {'shell': 2, 'config': 1, 'udev': 2, 'devicetree': 15, 'kernel-config': 1, 'none': 2, 'other': 2, 'recipe': 4, ...}
+# language {'shell': 2, 'other': 2, 'udev': 2, 'devicetree': 15, 'kernel-config': 1, 'recipe': 4, 'none': 2}
 # written 28 .qa-scratch/t27/paths.txt
 ```
 
 A different count is a delta to record with the command, not a reason to
-stop. (The `language` line's exact dictionary is the lane's to print; the
-coordinator's read of the rows gives shell 2, udev 2, recipe 4, devicetree
-15, none 2 -- the two defconfigs --, other 2 -- `kernel-firmware.dat` and
-the `.disabled` patch --, kernel-config 1; if the inventory names the
-defconfigs or the `.dat` differently, the printed dictionary is the record.)
+stop. (The two `none` rows are the defconfigs, the two `other` rows
+`kernel-firmware.dat` and the `.disabled` patch.)
 
 **The device, at `8ebaf8daad`.** `options` (84 lines): aarch64
 `TARGET_CPU=cortex-a53`, `TARGET_CPU_FLAGS="+crc+fp+simd"` (no `+crypto`;
@@ -195,7 +194,7 @@ each sysroot's `u-boot-sunxi-with-spl.bin` to
 `u-boot-DDR3` and `u-boot-DDR4` (43 lines each, `v2026.01`, the same
 sha) differ only in `PKG_NAME` and `PKG_UBOOT_CONFIG`
 (`anbernic_rg35xx_h700_lpddr3_defconfig` / `lpddr4`); the two defconfigs
-(35 lines) differ in 13 DRAM lines, `CONFIG_SUNXI_DRAM_H616_LPDDR3` /
+(35 lines) differ in 10 lines a side (§ 5's count prints 20), `CONFIG_SUNXI_DRAM_H616_LPDDR3` /
 `LPDDR4` and `CONFIG_AXP_DCDC3_VOLT` 1200 / 1100; the u-boot patch pairs
 (0001 dram, 0002 axp717 charge-only boot) are byte-identical between the
 two and **outside the slice** (patches-and-configs). The suspend stub
@@ -204,8 +203,9 @@ one stub per memory type from each defconfig; **its line 43 matches the
 credential read filter** (`key=` in a build flag), so a filtered read shows
 54 lines -- read that line with the masking `sed`, never quote it raw.
 
-**Device trees.** 15 fork-tree DTS under `linux/dts/allwinner/` (17 to 44
-lines), each `#include`-ing a mainline board file and carrying
+**Device trees.** 15 fork-tree DTS under `linux/dts/allwinner/` (14 to 44
+lines), 13 of them `#include`-ing a mainline board file and the two
+`rg40xx-*-v2-panel` trees including their fork-tree siblings, each carrying
 `rocknix-dt-id`: the RG SP is `sun50i-h700-anbernic-rg-sp` (model
 "Anbernic RG-SP", `anbernic,rg34xx-sp-v2-panel`, added `fc89fab1a2`
 2026-08-04); the RG35XX SP is mainline's `sun50i-h700-anbernic-rg35xx-sp`
@@ -214,7 +214,7 @@ The kernel recipe copies every built dtb to `usr/share/bootloader/device_trees`
 (`package.mk:419-431`); `bootloader/update.sh:21-32` copies them to
 `/flash` and writes `/dtb.img` from `/proc/device-tree/rocknix-dt-id`;
 `:34-49` reads the `vdd-dram` regulator (1,200,000 µV -> the DDR3
-loader, 1,100,000 -> DDR4) and `dd`s it at seek 8 KiB. The project
+loader, 1,100,000 -> DDR4) and `:55` `dd`s it at `bs=1K seek=8`. The project
 `mkimage` never creates `dtb.img`: a fresh card does not boot until it is
 activated by hand (`docs/device-flashing-runbook.md`, the H700 section).
 
@@ -224,8 +224,8 @@ Kernel Configuration`, 2,104 `=` lines and 4,189 `is not set`; the override
 recipe builds **`7.2`** for `H700|SM4450|SM6115|SM8250|SM8550|SM8650|SM8750`
 (`package.mk:29-35`), `listnewconfig` then `yes "" | kernel_make oldconfig`
 at `:306-316`. Added by upstream (`9f1fab30f6` 2025-07-13, ROCKNIX Team,
-"projects: add modifications for ROCKNIX", +7,773); 62 commits in all, 13
-non-merge since 2026-06-01 (12 upstream's, 1 the fork's). **The fork's
+"projects: add modifications for ROCKNIX", +7,773); 58 non-merge commits in all (64 with merges), 13
+since 2026-06-01 (12 upstream's, 1 the fork's). **The fork's
 edits are six lines in one commit**, `cbf75c0b06` (+6/-5: `WATCHDOG_SYSFS`,
 `PSTORE_CONSOLE`, `PSTORE_RAM`, `SOFTLOCKUP_DETECTOR`, `DETECT_HUNG_TASK`
 `=y`; `DEFAULT_HUNG_TASK_TIMEOUT=120` -- D-SYS-002/003/004). Against
@@ -233,7 +233,7 @@ edits are six lines in one commit**, `cbf75c0b06` (+6/-5: `WATCHDOG_SYSFS`,
 six and upstream's four commits since the merge base: `c0980b2b71`,
 `5f56cd5150`, `6fbefc45c6`, `dcafa74090` 2026-10-22); against the other
 confs in the tree it is far (RK3326 898 / 1,809; RK3566 1,518 / 1,908;
-LibreELEC's Allwinner 1,872 / 1,954; SM8550 1,586 / 1,107). So plan § 2's
+LibreELEC's Allwinner 1,871 / 1,953; SM8550 1,585 / 1,106). So plan § 2's
 *one diff per kernel config against its base* is, here, the diff against
 upstream's copy, with the fork's six lines named; T11's "no base" shape
 does not apply, and the order's *fork-written* is an erratum (the
@@ -255,7 +255,8 @@ T10's).
 **What `upstream/next` (`651150fc88`) already changes:** `D
 filesystem/usr/lib/udev/rules.d/80-clock.rules` (`899193e5af` 2026-10-05,
 "systemd: drop the hwclock udev rules, the kernel sets the clock"), `M
-options` (`e1b7d1f82f` 2026-10-03, the ES ZRAM menu, +5/-1), `M
+options` (+4/-1 by two commits of 2026-10-03: `e1b7d1f82f`, the ES ZRAM
+menu, and `dc14669f69`, the systemd THP policy), `M
 linux.aarch64.conf` (the four commits above); the `.disabled` patch and the
 rest unchanged; the kernel version 7.2, u-boot `v2026.01`, the suspend
 stub's pin unchanged upstream. Upstream's linux recipe (18+/35-) adds
@@ -276,7 +277,8 @@ the wrapper 4, the `.disabled` patch 0).
    readback, `/dtb.img`), `docs/releases/device-facts.md` (the three H700
    rows), `docs/device-testing-policy.md`.
 3. `docs/reviews/plan-for-the-plan.md` § 2, § 6b, § 6c; `docs/reviews/order.md`
-   § T27, § T11, § T28, § T25, § T41; `docs/futros/2026-10-25-m6-devices.md`
+   § T27, § T11, § T28, § T25, § T41 (at the P1 tip `2174265e9c`, where
+   `order.md` and `slices.json` live); `docs/futros/2026-10-25-m6-devices.md`
    with its errata.
 4. The register rows named in § 1, by ID; `docs/blindspot-register.md`
    entries 22, 31, 75.
@@ -374,7 +376,7 @@ cd "$D"; export TMPDIR=/workspace/tmp/m6-t27/tmp; mkdir -p "$TMPDIR" .qa-scratch
 C=projects/ROCKNIX/devices/H700/linux/linux.aarch64.conf
 git show "8ebaf8daad:$C" | sed -n '3p'; git show "8ebaf8daad:$C" | wc -l                          # Linux/arm64 7.2.0; 8129
 git show "651150fc88:$C" > "$TMPDIR/up.conf"; git show "8ebaf8daad:$C" > "$TMPDIR/ours.conf"; echo "removed=$(diff "$TMPDIR/up.conf" "$TMPDIR/ours.conf" | grep -c '^<') added=$(diff "$TMPDIR/up.conf" "$TMPDIR/ours.conf" | grep -c '^>')"
-git log --format='%h %ad %an %s' --date=short c445081a59..8ebaf8daad -- "$C"                        # the fork's: cbf75c0b06
+git log --no-merges --format='%h %ad %an %s' --date=short c445081a59..8ebaf8daad -- "$C"            # the fork's: cbf75c0b06 alone (without --no-merges two merges print too)
 git log --format='%h %ad %an %s' --date=short 8ebaf8daad..651150fc88 -- "$C"                        # upstream's four
 git show 8ebaf8daad:projects/ROCKNIX/packages/linux/package.mk | sed -n '29,35p' | grep -n -E 'H700|PKG_VERSION'   # 7.2
 # the pins (expect v2026.01 twice, the stub's commit, atf's version from its recipe; the same at 651150fc88)
@@ -420,7 +422,7 @@ from the artifacts, never from the hand-back's words.
 - [ ] `tools/lint-audit-artifacts docs/audits/<date>-epic-m6-device-h700/` prints `PASS` (its default `resolution` phase, at close; before stage D the same command with `--phase pre-issue` prints `PASS pre-issue artifacts`), the renovation face included.
 - [ ] `second-opinions/review-plan.json` records `depth: independent` and one reviewer (`gpt`, `openai/gpt-6-astra`, `max`); the probe's and the refutation's outputs have a `.provenance.json` beside them whose served model is the seat's, whose verification is PASS and whose `facilitator_version` is named; `packet-manifest.json` lists every packet file with its sha256 and the scan's result.
 - [ ] The slice's punch-list issue has every item at a Phase 7 outcome: resolved with its commit, deferred to a named issue (a `bug`, a Backlog the coordinator files, #346, #44, #836, T41's #688, T29's #676), or recorded as a design with its sentence; `tools/box-check --issue <N>` 0 fail; the ticked and open counts read back by name.
-- [ ] `reviewed-at:` and `fixed-at:` above carry the lane's commits; the read is on `8ebaf8daad`'s bytes for the 28 (`git diff --stat 8ebaf8daad <reviewed-at> -- $(cat .qa-scratch/t27/paths.txt)` empty) and nothing under `packages/`, `projects/` or `tools/` changes at stages A to D (`git diff --stat <dispatch tip> <stage-D tip> -- packages projects tools` empty; the dispatch tip is the one the dispatch comment names).
+- [ ] `reviewed-at:` and `fixed-at:` in the checklist's header carry the lane's commits; the read is on `8ebaf8daad`'s bytes for the 28 (`git diff --stat 8ebaf8daad <reviewed-at> -- $(cat .qa-scratch/t27/paths.txt)` empty) and nothing under `packages/`, `projects/` or `tools/` changes at stages A to D (`git diff --stat <dispatch tip> <stage-D tip> -- packages projects tools` empty; the dispatch tip is the one the dispatch comment names).
 - [ ] `01-research-notes.md` § Scope records § 2's block with its output (28 paths, 12,901 lines; read 8 files / 327 lines / 0 fork-own; tier 27 / 1; reach 28; written 28), the 15 DTS named as read though not counted, the configuration's diff against `651150fc88`'s copy (12 / 13) and the fork's one commit, the history (29; 1 fork; 28 upstream) and the upstream delta (1 D, 2 M), or each delta with its command.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | grep -c -E '^\| `'`` prints `28`.
 - [ ] `02-forward-audit.md` § The pins has one row per pinned unit (u-boot DDR3, u-boot DDR4, the wrapper, the suspend stub, atf, the kernel): the pin at `8ebaf8daad`, at `651150fc88`, its date and setting commit, and `CANNOT (no network)` for the author's current release with `tools/fork-package-freshness` named as the RC's check.
