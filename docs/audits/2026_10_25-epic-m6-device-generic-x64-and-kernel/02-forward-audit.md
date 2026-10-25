@@ -278,6 +278,24 @@ Commits: `5934e9616c` (#1087) and `22c227d41c` (PL-10). The cases ran at 07:53:0
 
 **What this proves, and what it does not.** The positive uses udev's own matcher on real non-block events, with a substituted identity: the hub's IDs in place of the dongle's. The host has no `0cf3:20ff` dongle, no `umockdev` and no USB block device, so the fixed rule's firing on a real block child is not shown. #1087's first checkbox was reworded in its body to say exactly that, with a comment. **A note on the brief's suggested comment:** it called the guest "a BIOS guest" whose loader `install` copies. The profile boots UEFI (`vm/profile.json` `firmware.type`), `scripts/mkimage` writes both loaders (`:89`, `:179-180`), and `install`'s copy is not what boots (F-05). The comment says that instead.
 
+### S4: `dtb_overlay` (#1088)
+
+Commit: `0c32b2bac6`. The cases ran at 07:56:03 (unfixed) and 07:56:25 to 07:56:39 UTC (fixed). The script runs under bash, as on the image: ROCKNIX's busybox package relinks `/usr/bin/sh` to `bash` (`projects/ROCKNIX/packages/sysutils/busybox/package.mk:171-174`). It runs inside `bwrap` with a tmpfs root holding a fixture `/flash`, because rewriting the path would change the script's `cut -d '/' -f 4`.
+
+| Case | Unfixed (`499628a049`) | Fixed (`0c32b2bac6`) |
+| --- | --- | --- |
+| `set driver-gpu driver-gpu-panthor.dtbo` with the remount failing (`sed: couldn't open temporary file /flash/extlinux/...: Permission denied`) | `rc=0`; the setting names the overlay, and no `FDTOVERLAYS` line is written | `rc=1`: `could not update /flash/extlinux/extlinux.conf; nothing changed`; the setting is back to its previous value |
+| `set driver-gpu None` with no driver-gpu overlay installed and a stale value | `rc=1`: `dtbo doesn't exist: None`; the stale line stays | `rc=0`; the setting is `None` and the `FDTOVERLAYS` line is removed |
+| `set driver-gpu "x y"` / `""` | `[: too many arguments` / `[: =: unary operator expected` on stderr | `dtbo doesn't exist: x y` / `dtbo doesn't exist: `, with no test error |
+| `set driver-gpu -o` | `rc=1`, no test error: under bash, `[ -o = None ]` is a three-argument comparison | the same refusal |
+| Control: a normal `set` | `rc=0`, the line names `/overlays/driver-gpu-panthor.dtbo` | the same |
+
+**One claim narrowed.** #1088's trace (from the seat's G-33) said a value such as `-o` is read as a `test` operator. Under the image's bash it is not: three-argument `[ -o = None ]` compares strings. The empty and spaced arguments are the real defects of the unquoted `$3`, and the fix quotes it everywhere.
+
+### Every positive, re-run at the tip
+
+`stage-e/run-all.sh /workspace/tmp/m6-t11/unfixed <worktree>`, 07:57:36 to 07:57:49 UTC: `run-all: 47 rows, 0 unexpected, 0 could not run`, rc 0. `pgrep -x qemu-system-x86` read 1 before and after. That process is pid 705918, started 07:51:38 with disks under `/workspace/tmp/m6-t13/vm-pair/`: T13's guest cycle, announced on the host file at 07:53 UTC, running its own worktree's launcher. Its count did not change in any case, and this lane started none.
+
 ## Findings
 
 | ID | Q | Severity | Category | Where | What |

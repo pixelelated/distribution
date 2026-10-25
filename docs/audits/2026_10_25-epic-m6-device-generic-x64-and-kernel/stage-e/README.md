@@ -52,3 +52,20 @@ The driver is `s2/launcher-case.py`, run as `python3 -I -B $S/s2/launcher-case.p
 | PL-10 | `s3/options-comment.sh` | `bash $S/s3/options-comment.sh $U/projects/ROCKNIX/devices/GENERIC_X64/options unfixed` -> `options-comment: unfixed-expectation-met (why-named=no)` | `bash $S/s3/options-comment.sh projects/ROCKNIX/devices/GENERIC_X64/options fixed` -> `options-comment: fixed-expectation-met (why-named=yes)` |
 
 `modeswitch-case` needs `udevadm` (udev 259 here) and the host's USB root hub `usb1` (`1d6b:0002`) with its interface `1-0:1.0`. It runs udev's matcher (`udevadm test`, which simulates and runs no `RUN` program) over a copy of the rule with line 7's IDs, and only those, swapped for the hub's. That is a synthetic input, named. The host has no `0cf3:20ff` dongle, no `umockdev` and no USB block device, so the fixed rule's firing on a block child is not shown.
+
+## S4: `dtb_overlay` (#1088)
+
+The driver is `s4/dtb-overlay-case.sh <dtb_overlay> <side> <case>`, with `<dtb_overlay>` = `$U/projects/ROCKNIX/packages/kernel-drivers/device-tree-overlays/sources/dtb_overlay` (unfixed) or `projects/ROCKNIX/packages/kernel-drivers/device-tree-overlays/sources/dtb_overlay` (fixed). It runs the script under bash (the image's `/bin/sh`), inside `bwrap` with a tmpfs root that holds a fixture `/flash`, a stub `/etc/profile.d/001-functions` (settings in `/state`) and a `mount` stub.
+
+| Item | Case | Unfixed: the line it prints | Fixed: the line it prints |
+| --- | --- | --- | --- |
+| #1088 | `remount-fail` | `dtb-overlay-case remount-fail: unfixed-expectation-met (rc=0 setting=(unset)->driver-gpu-panthor.dtbo testerr=no)` | `dtb-overlay-case remount-fail: fixed-expectation-met (rc=1 setting=(unset)->(unset) testerr=no)` |
+| #1088 | `none-clear` | `... none-clear: unfixed-expectation-met (rc=1 setting=driver-gpu-panthor.dtbo->driver-gpu-panthor.dtbo ...)` | `... none-clear: fixed-expectation-met (rc=0 setting=driver-gpu-panthor.dtbo->None ...)` |
+| #1088 | `spaced-arg` | `... spaced-arg: unfixed-expectation-met (rc=1 ... testerr=yes)` | `... spaced-arg: fixed-expectation-met (rc=1 ... testerr=no)` |
+| #1088 | `empty-arg` | `... empty-arg: unfixed-expectation-met (rc=1 ... testerr=yes)` | `... empty-arg: fixed-expectation-met (rc=1 ... testerr=no)` |
+| #1088 | `dash-arg` | `... dash-arg: unfixed-expectation-met (rc=1 ... testerr=no)`: under bash, `[ -o = None ]` is a comparison, not an operator | `... dash-arg: fixed-expectation-met (rc=1 ... testerr=no)` |
+| control | `normal` | `... normal: unfixed-expectation-met (rc=0 setting=(unset)->driver-gpu-panthor.dtbo ...)` | the same, `fixed-expectation-met` |
+
+## Everything at once
+
+`bash $S/run-all.sh $U "$PWD"` runs every row above, on both sides, and ends with `run-all: 47 rows, 0 unexpected, 0 could not run` (exit 0) at `0c32b2bac6`.

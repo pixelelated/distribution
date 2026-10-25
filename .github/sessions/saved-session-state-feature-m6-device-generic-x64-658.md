@@ -16,7 +16,7 @@
 
 ## Current focus
 
-**Stage E: S1, S2 and S3 complete, S4 next** (updated 2026-10-25, 07:54 UTC). The stream brief is `46df9643d3:docs/reviews/briefs/t11-streams.md`, and the unfixed clone is `/workspace/tmp/m6-t11/unfixed` (at `499628a049`). S1: `7b8608e7a3`, `6e63150105`, `f56cbd1c69`. S2: `594acf48bc`. S3: `5934e9616c` (#1087), `22c227d41c` (PL-10). Next: S4, `dtb_overlay` (#1088); then the Phase 7 outcomes, `fixed-at` in #658's body, and stages F to H.
+**Stage E complete; stages F to H next** (updated 2026-10-25, 07:59 UTC). The fix commits are `7b8608e7a3`, `6e63150105`, `f56cbd1c69` (S1), `594acf48bc` (S2), `5934e9616c`, `22c227d41c` (S3) and `0c32b2bac6` (S4). `stage-e/run-all.sh`: 47 rows, 0 unexpected. #658's body: `reviewed-at` `2103f0271d`, `fixed-at` `0c32b2bac6`. The bugs #1087, #1088, #1089 and #1090 have their fix comments; #1086 is T10's. Next: stage F's re-verification, stage G's retro posted on #658, stage H's checkers and the hand-back.
 - **`reviewed-at`:** `2103f0271d`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-device-generic-x64-and-kernel/`, with `00` to `04`, `stage-a/`, `stage-b/` (the 28 runs, the runner, `cfgclass.py`, `coverage.py`) and `second-opinions/review-plan.json` (planned).
 - **The launcher:** the coordinator accepted the resolution at 06:47 UTC (#658): `tools/vm-pair` by full path through `VM_TOOL`; the brief's *by basename* an erratum.
 - **`02`:** 58 coverage rows; § The configuration with the gap measured on the M7 root's built `.config` (read-only; sha256 `e769f2e5...`; the conf unchanged at the M7 head): 18 changed values, 97 set options gone, 137 new, the fork's 10 kept; § The boot files; § The launcher with the design deferred; § The runs (r01 to r28); F-01 to F-10; P1 to P18.

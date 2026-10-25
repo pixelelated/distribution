@@ -142,3 +142,15 @@
 - **The brief's suggested comment was not used as written:** it said "a BIOS guest; the image step's `install` copies it". The profile boots UEFI and `mkimage` writes both loaders, so the comment says that.
 - **#1087's first checkbox was reworded in its body** to the substitute that ran, with the block child's firing left open (`vm-first.md`), and a comment carries the evidence. `box-check`: 0 fail.
 - **Recorded:** `02` § S3, `stage-e/README.md`, `05` PL-10 Resolved and PL-11 with its fix commit. No guest, build or device.
+
+## [Stage E, S4] 07:55 to 07:58 UTC — `dtb_overlay` (#1088); every positive re-run
+
+- **Read first:** the image's `/bin/sh` is bash (`projects/ROCKNIX/packages/sysutils/busybox/package.mk:171-174`). The script's `cut -d '/' -f 4` needs the real `/flash` path, so the fixture is `bwrap` with a tmpfs root, not a path rewrite.
+- **The test first** (`stage-e/s4/dtb-overlay-case.sh`), unfixed, 07:56:03: `remount-fail` rc 0 (the setting changed, no boot line written), `none-clear` rc 1, `spaced-arg` with a test error, `normal` rc 0.
+- **The commit:** `0c32b2bac6`: `write_dtbo` returns the remount's and the edit's failure; `set_overlay` restores the previous value and exits 1; `None` comes before the loop; `$3` is quoted.
+- **Two driver adjustments while running it, neither a change to the expectations' meaning:**
+  - a missing and an empty setting both read as no value, as `get_setting` prints nothing for either;
+  - `empty-arg` and `dash-arg` were added for #1088's third checkbox. `dash-arg` showed the unfixed script does not error on `-o` under bash, which narrows the trace's claim.
+- **The file's positives after the commit, 07:56:39:** all six cases met on both sides, and the fixed expectations UNEXPECTED on the unfixed file. `bash -n` passes.
+- **Every positive, re-run at `0c32b2bac6`** (`stage-e/run-all.sh`, 07:57:36 to 07:57:49): `run-all: 47 rows, 0 unexpected, 0 could not run`, rc 0. A QEMU process was running throughout (`pgrep` 1 before and after): pid 705918, started 07:51:38, T13's guest cycle (`/workspace/tmp/m6-t13/vm-pair/`, announced on the host file at 07:53). It was read with `ps` and `/proc/<pid>/cmdline`, not touched; this lane started no guest.
+- **The stage-E diff:** `git diff --stat 499628a049 0c32b2bac6 -- packages projects tools` touches exactly six files, the brief's: `bootloader/install`, `bootloader/release`, `devices/GENERIC_X64/options`, `devices/GENERIC_X64/vm/generic-x64-vm`, `dtb_overlay` and `40-usb_modeswitch.rules`.

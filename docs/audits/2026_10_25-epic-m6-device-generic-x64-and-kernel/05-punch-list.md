@@ -326,6 +326,6 @@ The coordinator's dispositions, 07:34 UTC on #658.
 | PL-09 | **Resolved** | recorded at `b501bdad67` (`02` F-09); the coordinator carries it into T25's brief (#672) and the merge notes |
 | PL-10 | **Resolved** | `22c227d41c` (stream S3): `options:26` reads `# syslinux: scripts/mkimage writes its BIOS and UEFI loaders, and vm/profile.json boots UEFI`; the configuration's provenance line waits for #1084's regeneration, which rewrites that file |
 | PL-11 | **Deferred** | bug #1087 (the modeswitch half), filed by the lane (box-check 0 fail); fixed in stream S3 at `5934e9616c`, its block-child firing open (no USB block device on the host); the bfq half is settled by the next base merge (`651150fc88` carries the fix) |
-| PL-12 | **Deferred** | bug #1088, filed by the lane (box-check 0 fail), stream S4 |
+| PL-12 | **Deferred** | bug #1088, filed by the lane (box-check 0 fail); fixed in stream S4 at `0c32b2bac6`, positives in `02` § The streams' positives; the bug stays open until the fix reaches `next` |
 | PL-13 | **Deferred** | bug #1089, filed by the lane (box-check 0 fail); fixed in stream S2 at `594acf48bc`, positives in `02` § The streams' positives; the bug stays open until the fix reaches `next` |
 | PL-14 | **Deferred** | bug #1090, filed by the lane (box-check 0 fail); fixed in stream S1 at `7b8608e7a3`, positives in `02` § The streams' positives; the bug stays open until the fix reaches `next` |
