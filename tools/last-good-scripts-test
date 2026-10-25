@@ -2235,7 +2235,12 @@ T="${TMP}/t"; TS="${T}/storage"; TR="${T}/run"; mkdir -p "${TS}/.config/system/c
 PKG_REL=projects/ROCKNIX/packages/network/raofflineproxy/package.mk
 PATCHES_REL=projects/ROCKNIX/packages/network/raofflineproxy/patches
 HELPER_REL=projects/ROCKNIX/packages/network/raofflineproxy/sources/raofflineproxy-cache-indexed
-PIN="$(sed -n 's/^PKG_VERSION="\([0-9a-f]*\)"$/\1/p' "${ROOT}/${PKG_REL}" 2>/dev/null | head -1)"
+# The client pinned where the patches come from (#1024): under --old the
+# ref's pin with the ref's patches, so 70b6c70ca7's t builds the client its
+# patches were written for (the tree's pin took the ref's patches, which do
+# not apply to it, and t's 012 checks never ran). The tarball is the cache's.
+subj "${PKG_REL}"
+PIN="$(sed -n 's/^PKG_VERSION="\([0-9a-f]*\)"$/\1/p' "${SUBJ}" | head -1)"
 TARBALL=""
 for d in "${SOURCES_DIR:-}" /workspace/cache/rocknix-sources "${ROOT}/sources" "${ROOT}"/../*/sources; do
     [ -n "${d}" ] && [ -f "${d}/raofflineproxy/raofflineproxy-${PIN}.tar.gz" ] && { TARBALL="${d}/raofflineproxy/raofflineproxy-${PIN}.tar.gz"; break; }
