@@ -73,7 +73,10 @@ def snapshot(args):
         "echo exit_sync=$(grep -o 'cloudsaves.gameexit=[01]' /storage/.config/system/configs/system.cfg 2>/dev/null | cut -d= -f2); "
         "echo startup_sync=$(grep -o 'cloudsaves.startup=[01]' /storage/.config/system/configs/system.cfg 2>/dev/null | cut -d= -f2); "
         "echo build=$(grep ^BUILD_ID= /etc/os-release | cut -c11-20); "
-        "echo device=$(cloud_device_id 2>/dev/null); "
+        # the stored id, read: the script that makes it writes the file on a
+        # first run and rewrites it when it heals one, and nothing here may
+        # write on the device (#1081)
+        "echo device=$(cat /storage/.config/cloud_sync-device-id 2>/dev/null || echo unset); "
         "echo tz=$(date +%z)"))
     m = dict(l.split("=", 1) for l in meta.splitlines() if "=" in l)
     return {"taken_at": int(time.time()), "root": root, "files": files, "meta": m}
