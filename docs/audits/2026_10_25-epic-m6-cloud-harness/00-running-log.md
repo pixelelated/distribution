@@ -211,3 +211,9 @@ The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_6
 - **Run both ways:** all nine meet the unfixed expectation on the clone at `8a2518fa44` and the fixed one on this tree. A wrong expectation prints `UNEXPECTED` (pos1066 run `fixed`-tree/`unfixed`).
 - **The README's shell rows were run as written,** with each backend down after. Each printed what its row says (#1058 rc 0/2; #1068 rc 0 with the clear value and 664 / rc 1 and 600; #1060 rc 0 empty / rc 1; #1061 1/0; #1065 `0 0`; #1081 1/0).
 - `lint-audit-artifacts --phase pre-issue`: PASS. No change under `tools/`.
+
+## 2026-10-25 07:50-08:11 UTC -- the guest cycle (granted 07:50 on #660)
+
+- START 07:52:28 UTC (qemu 1), guest a booted alone with `tools/vm-pair reimage a` from M6's copy of the image, BUILD_ID `069fc270442134fe771258418adf4e666e0473fb`; the controls from the clone, the fixed cells, 5b, the suite over WebDAV and SFTP, and an unfixed SFTP suite as the comparison; the guest stopped by its pidfile at 08:09:21; the backends down; the leftover check clean (`stage-e/cycle/leftover.txt`); RETURN on #660 at 08:10. Nothing written on the host file.
+- In-window: `a70b4889a3` (#1065, CAP13's needle to the image's words). My slip: the clone was `tools/` only, the first KILL1 control stopped at planting; the rclone sources checked out into the clone and the control re-run.
+- Lines and findings: 02 § The guest cycle. 05 updated (PL-06/08/09/13/14 Resolved; PL-01, PL-11 Open). Retention held pending the #1067 answer (said on RETURN).

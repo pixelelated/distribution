@@ -335,7 +335,7 @@ punch_index:
   question: Q3
   source_finding: "F-15, G-30, G-35"
   tracked: "#1062"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-07
   severity: Medium
   category: Correctness
@@ -349,14 +349,14 @@ punch_index:
   question: Q3
   source_finding: "F-18, G-33"
   tracked: "#1064"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-09
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-19, G-34"
   tracked: "#1065"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-10
   severity: High
   category: Safety
@@ -370,7 +370,7 @@ punch_index:
   question: Q2
   source_finding: "F-21, G-42"
   tracked: "#1067"
-  outcome: "resolved"
+  outcome: "open"
 - id: PL-12
   severity: Low
   category: Security
@@ -384,14 +384,14 @@ punch_index:
   question: Q3
   source_finding: "F-23, G-46"
   tracked: "#1069"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-14
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-24, G-47"
   tracked: "#1070"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-15
   severity: Low
   category: Design
@@ -466,24 +466,24 @@ punch_index:
 
 ## Phase 7 resolution gate
 
-At stage E's end (S1, S2, S3 done; the guest cycle held behind the M7 lane's build). A bug closes when its fix reaches `next` (no closing keyword); the six whose guest criterion waits are Open until the cycle's lines are in 02 § The guest cycle. The non-bug items carry the coordinator's dispositions (#660, 05:22 and 05:52 UTC).
+After the guest cycle (#660: START 07:52, RETURN 08:10 UTC; the record `stage-e/cycle/`, `02` § The guest cycle). A bug closes when its fix reaches `next` (no closing keyword); the six whose guest criterion waits are Open until the cycle's lines are in 02 § The guest cycle. The non-bug items carry the coordinator's dispositions (#660, 05:22 and 05:52 UTC).
 
 | Item | Outcome | Tracked |
 | --- | --- | --- |
-| PL-01 | Open | fixed in `09ca086062` (#1057); its guest criterion (A5 and RETENTION read as SKIP on the QA image) pending the window |
+| PL-01 | Open | fixed in `09ca086062` (#1057); its guest criterion was **not met** on the cycle (#660, 08:10 RETURN): step 5b with device b being guest a itself was refused by the harness's #91 guard (one id, one MAC), rc 2; it needs a two-guest window |
 | PL-02 | Resolved | `0cceb65207` (#1058) |
 | PL-03 | Resolved | `e71d077882`, `cee4bf481d` (#1059: the verdict line, the refusals, the equipment stop; nothing checked exits 3 under the 06:33 UTC ruling) |
 | PL-04 | Resolved | `7345a65e9d` (backend half), `1e28ba8f94` (harness half) (#1060) |
 | PL-05 | Resolved | `1911fee4df` (#1061) |
-| PL-06 | Open | fixed in `332bda1515` (#1062); its guest criterion (KILL1 to its verdict on a QA guest) pending the window |
+| PL-06 | Resolved | `332bda1515` (#1062); on the guest (`a5522b8eb8`, `stage-e/cycle/f-kill1.out`) KILL1 reached its verdict (21 passed, 3 failed: the re-runs exit 124 under the throttle, a new finding for stage F) |
 | PL-07 | Resolved | `539622b9d7` (#1063) |
-| PL-08 | Open | fixed in `bde357126c` (#1064); its guest criterion (the count read on the QA image) pending the window |
-| PL-09 | Open | fixed in `f7482f9684` (#1065); its guest criterion (CAP13 present and absent on a QA guest) pending the window |
+| PL-08 | Resolved | `bde357126c` (#1064); on the guest step 25 read 128 ES paths (`stage-e/cycle/vm-qa-webdav/round-trip.log`) |
+| PL-09 | Resolved | `f7482f9684`, `a70b4889a3` (#1065; the needle corrected in-window to the image's words); on the guest CAP13 PASSED with the warning present and FAILED with it absent (`stage-e/cycle/f-cap13-*.out`) |
 | PL-10 | Resolved | `7f0e527800` (#1066) |
-| PL-11 | Resolved | `94c050ed5a` (#1067; its second criterion rewritten under the 06:17 UTC ruling and ticked from the evidence on #1067) |
+| PL-11 | Open | fixed in `94c050ed5a` (#1067: the confinement proven, the second criterion ticked under the 06:17 ruling), but the guest cycle found a regression: over the new `rclone serve sftp` endpoint the suite fails 7 content-tier checks that the old sshd endpoint passes on the same guest (`stage-e/cycle/vm-qa-sftp/`, `u-suite-sftp.out`); the coordinator's call on #660 (RETURN, 08:10) |
 | PL-12 | Resolved | `91267b0dda` (#1068) |
-| PL-13 | Open | fixed in `0c538b1f74` (#1069); its guest criterion (A15 to its verdict on a QA guest) pending the window |
-| PL-14 | Open | fixed in `77e7b16193` (#1070); its guest criterion (KILL5 at the default keep and at 2 on a QA guest) pending the window |
+| PL-13 | Resolved | `0c538b1f74` (#1069); on the guest A15 reached its verdict with the backup landing (36 passed, 2 failed: two log-wording checks failing on both trees, a separate finding for stage F) |
+| PL-14 | Resolved | `77e7b16193` (#1070); on the guest KILL5 PASSED at keep 3 and at `CLOUD_BACKUP_KEEP=2` (`stage-e/cycle/f-kill5-keep*.out`) |
 | PL-15 | Resolved | `e71d077882` (#1059: the backend's capabilities on the verdict line) |
 | PL-16 | Deferred | #1055, the coordinator's mixed-installation Backlog (05:22 UTC ruling); the tool stays retired |
 | PL-17 | Deferred | #1075 |

@@ -16,18 +16,16 @@
 
 ## Current focus
 
-**Stage E done (S1, S2, S3; `fixed-at` `cee4bf481d`, `reviewed-at` `8a2518fa44`, both written into #660's body). The streams' hand-back and the guest-cycle plan are posted on #660 (https://github.com/pixelelated/distribution/issues/660#issuecomment-6394453385: 8 rows, about 30 minutes, one question on A5/RETENTION same-guest), waiting for the coordinator's answer and grant (M7's full build first). 05's gate: 10 Resolved, 6 Open (guest pending), 8 Deferred; pre-issue lint PASS.**
+**The guest cycle is done** (START 07:52:28, guest stopped 08:09:21, RETURN 08:10 UTC on #660: https://github.com/pixelelated/distribution/issues/660#issuecomment-6395248697). The record is at `a5522b8eb8`+: `stage-e/cycle/` and 02 § The guest cycle. **Waiting for the coordinator's call on #1067's SFTP regression:** (a) fix forward, pinning down the exit 5 with the image's own rclone, then a ~6-minute SFTP-only window; or (b) revert `94c050ed5a` and keep #1067 open.
 
-- **S1** (`cloud-test-backend`): `0cceb65207` #1058, `94c050ed5a` #1067 (its second criterion rewritten under the coordinator's 06:17 ruling and ticked, evidence on #1067), `91267b0dda` #1068, `7345a65e9d` #1060 (backend half).
-- **S2** (`cloud-round-trip`): `7f0e527800` #1066, `1e28ba8f94` #1060 (harness half), `332bda1515` #1062, `539622b9d7` #1063, `09ca086062` #1057, `e71d077882` #1059, `bde357126c` #1064, `f7482f9684` #1065, `0c538b1f74` #1069, `77e7b16193` #1070. Post-S2: `--list` 45; the dead-device case rc 2.
-- **Positives** are in 02 § The streams' positives (drivers under `/workspace/tmp/m6-t13/pos*/`; the unfixed clone `/workspace/tmp/m6-t13/unfixed`).
-- **Guest halves owed by the held cycle:** #1057 (A5/RETENTION SKIP), #1062 (KILL1 to its verdict), #1064 (step 25's count), #1065 (CAP13 present/absent), #1069 (A15 to its verdict), #1070 (KILL5 at the default keep and at 2). The plan goes on #660 before the grant: controls from the unfixed clone, the fixed cells, then the suite over WebDAV and SFTP; under 45 minutes; `VM_PAIR_DIR`/`VM_QEMU_RUNTIME_DIR` under `/workspace/tmp/m6-t13/`; 10022 free and qemu 0 checked at START.
-- **S3:** `1911fee4df` #1061, `bf2832ce5b` #1081; and `cee4bf481d`, #1059's follow-up under the 06:33 ruling (nothing checked exits 3).
-- **The plan is approved (coordinator, 06:37 UTC):** rows 0-7 as posted, plus **step 5b**: `--only A5,RETENTION --second-port 10022`, with device b being **guest a itself**. 02 § The guest cycle must record that b was guest a. About 32 minutes in all, under the 45-minute bound. **Nothing boots before the grant**, which comes on #660 as its own comment at M7's FINAL RETURN; START and RETURN are posted on #660.
-- **The positives are kept on the branch** (06:45 ask): `docs/audits/2026_10_25-epic-m6-cloud-harness/stage-e/`, with nine drivers (`pos<bug>/drive.py <tool> unfixed|fixed`, writing only under `$TMPDIR`, one verdict line last), `shim1068/build.sh` and a README table of all 17 positives. All 18 driver runs met their expectations; the pre-issue lint PASSes.
-- **Retention, ruled (coordinator, 06:52 UTC): nothing is removed before RETURN.** After RETURN, the cycle's compact record goes on the branch first: the vm-qa report, the verdict lines, the named frames, the image identity and the times. Then **remove all of `/workspace/tmp/m6-t13/`, the guest disk included**, recording D-INFRA-022 in 00: the paths retired, their size, and `df` before and after. The acceptance re-run clones its own copy of the old code.
-- **Idle** until the grant; the idle posts are on #660.
-- **After the cycle:** 02 § The guest cycle; the six Open items to Resolved; the default (resolution) lint; then stages F, G (the retro) and H.
+- **Guest criteria met:** #1062 (KILL1 to its verdict), #1064 (128 ES paths), #1065 (CAP13 present PASS / absent FAIL, after `a70b4889a3` corrected the needle in-window), #1069 (A15 to its verdict, the backup lands), #1070 (KILL5 at keep 3 and 2). **Not met:** #1057 (5b refused by the #91 guard; needs two guests).
+- **Found by the cycle, for stage F:**
+  - G-1: #1067's `rclone serve sftp` endpoint fails 7 content-tier checks; the old sshd endpoint passes on the same guest.
+  - G-2: KILL1's re-run exits 124 under the 200k throttle; there is no `drained` branch like LINK's.
+  - G-3: A15's two log-wording checks fail on both trees.
+- **05:** PL-06, 08, 09, 13 and 14 Resolved; PL-01 and PL-11 Open; pre-issue lint PASS.
+- **Retention (06:52 ruling) is held,** as said on RETURN, until the #1067 answer: option (a) may need the clone and the state. Then remove all of `/workspace/tmp/m6-t13/` with the D-INFRA-022 record in 00 (paths, size, df before and after).
+- Then stage F (G-1 to G-3 into 04/05 and the bugs as the coordinator rules), G (the retro, posted on #660), H (the hand-back).
 
 ## Next commands
 
