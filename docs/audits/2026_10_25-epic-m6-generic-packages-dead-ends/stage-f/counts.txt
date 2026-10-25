@@ -1,0 +1,21 @@
+stage F at bf510a0ac9, 2026-10-25 04:34:13 UTC
+GENERIC_X64-x86_64 rc=0 1s Packages loaded : 1435; identical to stage A
+H700-aarch64 rc=0 0s Packages loaded : 1438; identical to stage A
+H700-arm rc=0 1s Packages loaded : 1438; identical to stage A
+SM8550-aarch64 rc=0 0s Packages loaded : 1435; identical to stage A
+SM8550-arm rc=0 1s Packages loaded : 1435; identical to stage A
+curl calls intercepted: 5 (all through the shim; none reached the network)
+generator stats identical to stage A
+Coverage rows: 1604
+Reachability rows: 731
+packages/projects/tools vs dispatch tip: []
+deletes/renames vs dispatch tip: [0]
+packages/projects vs 8ebaf8daad: []
+provenance files: 0
+lint pre-issue: PASS pre-issue artifacts (does not certify resolution)
+lint resolution: PASS
+lint --issue 1052: PASS
+box-check 1049: box-check: 1 issue(s), 2 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+box-check 1050: box-check: 1 issue(s), 2 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+box-check 1051: box-check: 1 issue(s), 2 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against
+box-check 1052: box-check: 1 issue(s), 9 open checkbox(es), 0 fail, 0 issue(s) with rows to re-derive against

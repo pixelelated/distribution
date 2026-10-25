@@ -210,7 +210,7 @@ punch_index:
 | PL-01 | **Deferred** | bug #1049, filed by the lane; the fix is T10's set (#657), routed by the coordinator |
 | PL-02 | **Deferred** | bug #1050, filed by the lane; the fix is a packet the coordinator routes; the upstream note to #585 is the coordinator's |
 | PL-03 | **Deferred** | bug #1051, filed by the lane; the fix is a packet the coordinator routes (the lane edits no recipe, D-WORKFLOW-209) |
-| PL-04 | **Deferred** | a lead for the coordinator, posted on #670 at stage D, pending the Backlog or the T5-area issue the coordinator names |
+| PL-04 | **Deferred** | Backlog #1053, the coordinator's (the build engine's `xmlstarlet` lead; its answer on #670 at 04:33 UTC) |
 | PL-05 | **Deferred** | the coordinator's decision issue #1048: whether the fork's edit belongs on the override |
 | PL-06 | **Deferred** | bug #1049: its fix marks the row reached; the coordinator hands the row to T8's table |
 | PL-07 | **Deferred** | the coordinator's decision issue #1048: the proposed removal, never made here |

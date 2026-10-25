@@ -113,3 +113,14 @@
   - 1 Resolved, by `0a5676ea5d` (PL-09).
 - **The lint on the folder:** `--phase pre-issue` PASS, the default phase `PASS`, `--issue 1052` `PASS`.
 - **Paused at stage D**, per brief § 8. Nothing changed under `packages/`, `projects/` or `tools/`.
+
+## [Stage F] 04:34 to 04:34 UTC — the counts, the plans through the shim and the lint at the tip (no stage E: the coordinator, 04:33 UTC)
+
+- **PL-04** defers to Backlog **#1053** (the coordinator's answer at 04:33). `05` is regenerated and #1052's body updated; `box-check` 0 fail.
+- **At `bf510a0ac9`** (`stage-f/counts.txt`):
+  - The five plans, re-run **through the `curl` shim**, have rc 0 and are byte-identical to stage A's. 5 calls were intercepted and none reached the network. The worktree's ignored set is unchanged.
+  - `tools/t23-tables.py stats` is identical to stage A's.
+  - Coverage rows: 1604. Reachability rows: 731.
+  - `git diff --stat 27b015c901 HEAD -- packages projects tools` is empty; deletes and renames against the dispatch tip: 0. `packages/` and `projects/` equal `8ebaf8daad`.
+  - Provenance files in `second-opinions/`: 0.
+- **The lint:** pre-issue, resolution and `--issue 1052` each print `PASS`. `box-check` gives 0 fail on #1049, #1050, #1051 and #1052.
