@@ -1,0 +1,384 @@
+{
+  "sources": [
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-device-h700/stage-c/ask.md",
+      "ref": "worktree",
+      "kind": "ask",
+      "sha256": "27b5cd7c3953f085c9d77351a1d1f3f484fbcc1eeb4ac07c0c207018741e38d9",
+      "bytes": 3540
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-device-h700/02-forward-audit.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "7cc4e10d7ae7b420a79e87b22d4c7d486b2056af78daa885d744354763e72d3c",
+      "bytes": 28169
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-device-h700/03-retrospective.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "d2f39ad4019ae89edb71ee1a67692af0fae7c85cee9a8f984b5f6843182e97be",
+      "bytes": 3241
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-device-h700/04-analysis.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "273b9cd627a86f800f3a01a4ea3be2dd949946ca999badcbdaee2e3ed3dc85dc",
+      "bytes": 10543
+    },
+    {
+      "path": "docs/reviews/order.md \u00a7 T27",
+      "ref": "2174265e9c",
+      "kind": "context",
+      "sha256": "0afd1042cbaf1d0aae0888d40878fc18f41cc4b8525e9d90307ac0145b97aecb",
+      "bytes": 1099
+    },
+    {
+      "path": "docs/reviews/briefs/device-h700.md \u00a7 2 and \u00a7 4",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "03550b49f0f170f04361f3caded2c21abef98f5d5b2a7286f79583096a8a3288",
+      "bytes": 12567
+    },
+    {
+      "path": "docs/decision-register.md rows D-SYS-002, D-SYS-003, D-SYS-004, D-WORKFLOW-033, D-WORKFLOW-185, D-WORKFLOW-114, D-QA-027, D-WORKFLOW-100, D-WORKFLOW-150, D-WORKFLOW-123, D-WORKFLOW-187, D-WORKFLOW-209, D-WORKFLOW-195, D-WORKFLOW-193, D-WORKFLOW-194",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "25cc867b5beb96ed026a9f1ea429e321fca5d96137da848fc07fd36e90db0906",
+      "bytes": 14695
+    },
+    {
+      "path": "docs/releases/device-facts.md rows 15, 16, 29",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "1d9e521874b3dc7289e29c6091b0db95b3a1aa68deb8c8df29c988592d7ec443",
+      "bytes": 1725
+    },
+    {
+      "path": ".claude/rules/device-builds.md:16-24",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "c3f9600b530b7b0b05b0ea90dc8743f4efba7ad7cff2fa5d0656519d867da1ca",
+      "bytes": 618
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/bootloader/update.sh",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "95172b1841ec6868e77dbb8337738e8f32a02ab3d7e985e005773f6e8ddcc1d4",
+      "bytes": 2031
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/config/kernel-firmware.dat",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "d0f1532de1e7dd8889da4adae6ec9668914d898ede93013cf28444e2527d4138",
+      "bytes": 564
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/filesystem/usr/lib/udev/rules.d/80-clock.rules",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "862b3555e35abe6fdb066ef5ff09c56964b2005da5bc260342ae3faabe9f0209",
+      "bytes": 188
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/filesystem/usr/lib/udev/rules.d/wlan0.powersave.off.rules",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "f83a4e9c618244637663481f0fe826e2b0131516537fbea39077eca97be392ae",
+      "bytes": 122
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg-sp.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "f23c3906a1f18e9a230e7a20356fb27c0a3017cfdd79cf2cf9c3810220b16736",
+      "bytes": 518
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg28xx.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "dd080097685c12b87c5a017c3d83c97bc3863e5a098208212125f514e041a251",
+      "bytes": 540
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg34xx-sp-v2-panel.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "cc9513d57778d117f82c55ed829a9cb8b6526cce1fbc535d013d60f70a70d711",
+      "bytes": 626
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg34xx-sp.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "b5698e91fd4fb3dd03ec1c795b4cdb5b2ad14244b8979c5a1790fec4bd38f5e3",
+      "bytes": 614
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg34xx.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "5ac907a1937b994e1046fb9da3ffbdf96fe96a312aab55e27f5cae721dcbecb1",
+      "bytes": 517
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024-rev6-panel.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "16664e86f3b154fc97e676e5e4ae8b0134bbafac1cdde6d93644c47ba0406231",
+      "bytes": 449
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg35xx-h-rev6-panel.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "9706887a8564618d647bccd4547a4101f6f071bd305df4556ad0b416be4931d5",
+      "bytes": 443
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg35xx-plus-rev6-panel.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "c4aefdd76ec8c33c29a26d93d3e220e20fa04692709a7e4f5598fc9466934126",
+      "bytes": 449
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg35xx-pro.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "3001e388683611bb6be4dab3eae42f92357e433e75b747d0a8514cecf2597184",
+      "bytes": 488
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg35xx-sp-v2-panel.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "98a14d1b5c28bca8822cdcc5b256e049cb22261ae579eac6af717e86566ef26b",
+      "bytes": 439
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg40xx-h-v2-panel.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "9fe439d2caff8507c79fec5a4c58994a41ed85954c1e789d335ad5a95f64a91a",
+      "bytes": 379
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg40xx-h.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "ed864bbde61a3ae998a0312b53d0b7402717324de82ea6e905e1809f33b577e0",
+      "bytes": 926
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg40xx-v-v2-panel.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "d15b1f5d4185fd887affa168a446e6bfec8f1fee626632649757faba72408616",
+      "bytes": 379
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg40xx-v.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "a049afe02f2a0f4c5eda4590e558fabd511ddcda217797b84b101fd706d39116",
+      "bytes": 888
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rgcubexx.dts",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "f1c8362e4e7cf66d45f363f26734321462d733b8b3480b27a6df15de4ec3c262",
+      "bytes": 1095
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/options",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "659087cf800bc07ea4a3e4e05b32b786eac6d3415ea40bd7e4d81444f765b59a",
+      "bytes": 2495
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/packages/h700-suspend-stub/package.mk",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "7d003fe6244a4aaeecb30d5f3347962ce5b1d257c50664f25d7f507355c573b8",
+      "bytes": 2961
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/package.mk",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "a2ae86b1f06d71226ce13146da61bbf6d15ad13749156a6db0e1e7fafed7dec4",
+      "bytes": 2278
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/sources/configs/anbernic_rg35xx_h700_lpddr3_defconfig",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "b237268e1861cf62884b97e1243e523489dadb85b0e155973ffcda1036e5ad3a",
+      "bytes": 1114
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/package.mk",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "5fdf3b8246bc14eb4d346565639e3adebef3d44e5e815cac43a66246edbc01bb",
+      "bytes": 2278
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/sources/configs/anbernic_rg35xx_h700_lpddr4_defconfig",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "607eab067c7705dfe463a85f1ae502d9e55e20489ba27d4d4c9298de26eeba9f",
+      "bytes": 1114
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/packages/u-boot/package.mk",
+      "ref": "8ebaf8daad",
+      "kind": "slice file",
+      "sha256": "da9c07ff6b356606bdafe3297d4ed18bf62f0a405144d0cf49f2bbee9eef1701",
+      "bytes": 1528
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/linux/linux.aarch64.conf:1-6",
+      "ref": "8ebaf8daad",
+      "kind": "config header",
+      "sha256": "f0221fa5787325f84ec385bf456c39243d77a2c56e6a251497ff7f055cb5715f",
+      "bytes": 202
+    },
+    {
+      "path": "diff projects/ROCKNIX/devices/H700/linux/linux.aarch64.conf 651150fc88..8ebaf8daad",
+      "ref": "8ebaf8daad",
+      "kind": "config diff",
+      "sha256": "d87d32ef2f9c81f2ae7edf54cd3fba8bf508726f9c4e2c65206a2efa7b6c2adf",
+      "bytes": 1040
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/patches/linux/0203-sound-soc-Add-sunxi_v2-for-h616-ahub.patch.disabled:1-12",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "6b7d10245d4b86f1917fa78406664ab336bff485c8e1b687b78975af8b58adfb",
+      "bytes": 583
+    },
+    {
+      "path": "projects/ROCKNIX/bootloader/mkimage:1-113",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "459cdc1893050d83062eba50acab13311798bfc61c9e193cbf757a06023324a0",
+      "bytes": 4692
+    },
+    {
+      "path": "projects/ROCKNIX/config.xml:1-50",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "56380f0e4652811b18df9283cc0855070f3535ef10151a6cf3753e568da4c5c3",
+      "bytes": 2942
+    },
+    {
+      "path": "distributions/ROCKNIX/config/functions:215-232",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "c1c8f4a44ef31d08c11073c305e874f0776baee3910bc2dda56fc1302cd91c63",
+      "bytes": 680
+    },
+    {
+      "path": "scripts/unpack:140-162",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "a7aea306f2c22412c1ef591053b3635baaac98c12de442d1b8e5f66e38cdd472",
+      "bytes": 1347
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux/package.mk:15-60",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "05513cd8fdca9fb03b7fba8fbd4e763cad139095cdc4baacaf482d4b377d85d7",
+      "bytes": 2108
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux/package.mk:218-246",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "2804f05db40557b9634ae645b8e0270154b8c710a744e06b255a330fdb8503cb",
+      "bytes": 2811
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux/package.mk:410-432",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "68356abd3cf403bcf509959fb962b05fc9514d7b952075f1bd8543eb2cc2a8c1",
+      "bytes": 983
+    },
+    {
+      "path": "projects/ROCKNIX/packages/tools/atf/package.mk:1-59",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "061d8dcc7ca32552feb6bebfc7000f77aea80123ed4f4a7790cf9faf16e25c67",
+      "bytes": 2483
+    },
+    {
+      "path": "projects/ROCKNIX/packages/tools/atf/package.mk:1-35",
+      "ref": "651150fc88",
+      "kind": "excerpt",
+      "sha256": "5c905cd8a8c93fc447557214e9d40ddefce3819134e5acd0aa858abe9a21473d",
+      "bytes": 1425
+    },
+    {
+      "path": "projects/ROCKNIX/packages/tools/atf/package.mk:1-35",
+      "ref": "feature/m6-build-engine-652",
+      "kind": "excerpt",
+      "sha256": "2ad2ac194b55356c749e54d949b7251199c5e5c860cd2d78e66702b7f29e2f6c",
+      "bytes": 1422
+    },
+    {
+      "path": "scripts/get_archive:1-66",
+      "ref": "feature/m6-build-engine-652",
+      "kind": "excerpt",
+      "sha256": "58c0950b4e512de5cd72803ea6ac7f069ca61882c966ff0f73ba6d5e05f5ae06",
+      "bytes": 2656
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/scripts/init:420-440",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "79067a5989914d762ceb4e3d411109169310cac0d29e50a7a4cbf8094b62beea",
+      "bytes": 547
+    }
+  ],
+  "masked_lines": 4,
+  "packet": {
+    "file": "gpt-brief.md",
+    "bytes": 133289,
+    "sha256": "a36741bf74103e16ed73644a61147404f0d1836607a8faae1ea926198566c740"
+  },
+  "scan": {
+    "forbidden_terms_check_stdin": "0 hits on stdin (rc 0)",
+    "secret_patterns": [
+      {
+        "set": ".githooks/secret-patterns (this branch)",
+        "sha256_12": "57fd72093984",
+        "lines": 0
+      },
+      {
+        "set": "the primary checkout's .githooks/secret-patterns",
+        "sha256_12": "57fd72093984",
+        "lines": 0
+      },
+      {
+        "set": "T10's widened set, git show feature/m6-tooling-guards-657:.githooks/secret-patterns",
+        "sha256_12": "7295e68fd978",
+        "lines": 0
+      }
+    ],
+    "positive_control": "each set matched 1 of 2 lines on a devpassword= line assembled at run time",
+    "masking": "every source passed the masking sed's rule; 4 lines masked: h700-suspend-stub/package.mk:43 (a build flag) and three in the brief's own section 2 (Python's sorted(..., key=...) and its prose)",
+    "redactions": [],
+    "when_utc": "2026-10-25 08:19"
+  }
+}

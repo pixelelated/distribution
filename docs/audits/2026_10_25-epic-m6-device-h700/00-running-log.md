@@ -51,3 +51,11 @@
 - **Findings:** F-01 to F-11, no `bug`. Coverage: 28 rows. `04`: Q1 to Q7.
 - **The lint, pre-issue:** every stage-B section ok; 5 failures, all stage C's (`05`, the seat's provenance).
 - **Nothing against a handheld:** no `ssh`, `scp` or `device-act`. No guest, build, compiler, plan generation, fetch or `tools/council/run` call. Nothing written under `/tmp`, `/workspace/repos/rocknix*`, another lane's worktree, `packages/`, `projects/` or `tools/`.
+
+## [Stage C] 08:20 UTC onward — the packet, its scan, the seat
+
+- **The packet** (`stage-c/packet.py`, from `stage-c/ask.md`), `second-opinions/gpt-brief.md`: 50 sources, 133,289 bytes, sha256 `a36741bf74103e16...`. It holds the ask, `02`, `03` and `04` whole, and five context sections (the order's § T27, the brief's § 2 and § 4, 15 register rows, device-facts L15, L16 and L29, `device-builds.md:16-24`). Then, line-numbered: the 26 slice files that are not the configuration or the `.disabled` patch, the configuration's header and its diff against upstream's copy (asserted 12 / 13), the `.disabled` patch's first 12 lines, and 12 excerpts (`mkimage`, `config.xml`, `functions`, `unpack`, the linux recipe, atf at three refs, T5's `get_archive`, the shipped `init`). **Every source passed the masking `sed`'s rule; 4 lines were masked:** `h700-suspend-stub/package.mk:43`, and three in the brief's own § 2.
+- **The scan, before sending** (08:19:49): `forbidden-terms-check --stdin` 0 hits; `SECRET_PATTERNS` 0 lines under this branch's, the primary checkout's and T10's widened sets, each matching a run-time fake line. No redaction.
+- **The runner's dependencies:** `tools/council/node_modules` was copied locally from the T5 worktree (gitignored; the tracked `tools/council` is identical), since a fetch is forbidden. `COUNCIL_ENV_FILE=/nonexistent tools/council/run verify-pins`: `OK`.
+- **The probe**, 08:20:02 to 08:20:15 (keyed; the first of the seat's two calls): `http=200 model=openai/gpt-6-astra providers=["OpenAI"] effort=max finish=stop outcome=success`. Verification, effort and provider all `PASS`.
+- **The refutation**, started 08:20:30 UTC (keyed; the second and last call), runs as a harness background task. It writes `second-opinions/gpt-audit.md` and `/workspace/tmp/m6-t27/refutation.rc`.
