@@ -16,7 +16,7 @@
 
 ## Current focus
 
-**Stage A complete; stage B next** (updated 2026-10-25, 08:11 UTC).
+**Stage B complete; stage C next** (updated 2026-10-25, 08:18 UTC). `02` (28 coverage rows; § The pins, § The configuration with every line attributed, § The loader and the tree, § The device trees, § The runs with r14b at the midnight cutoff; F-01 to F-11, no bug), `03`, `04` Q1 to Q7 and `review-plan.json` (planned) are written. The lint pre-issue fails only on stage C's pieces. Next: the packet and its scan, the seat, `04` § Second opinion, `05`.
 - **`reviewed-at`:** `ed7fd0ea50`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-device-h700/`, with `00`, `01` (§ Scope) and `stage-a/` (the runner, its 16 outputs and `runs.tsv`).
 - **Scope:** 28 / 12,901; read 8 / 327 / fork-own 0; tier 27 / 1; reach 28. The 15 trees are read too.
 - **The configuration:** 8,129 lines, `Linux/arm64 7.2.0`, 12 / 13 against `651150fc88`'s copy. The fork's `cbf75c0b06` alone since `c445081a59`; upstream's four since.

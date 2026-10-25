@@ -1,0 +1,556 @@
+[
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/bootloader/update.sh",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "shell",
+  "lines": 63,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "2e825afd0c 2026-06-08",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/config/kernel-firmware.dat",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "other",
+  "lines": 18,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "c78399656f 2026-06-15",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/filesystem/usr/lib/udev/rules.d/80-clock.rules",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "udev",
+  "lines": 2,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "899193e5af 2026-10-05",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/filesystem/usr/lib/udev/rules.d/wlan0.powersave.off.rules",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "udev",
+  "lines": 1,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "95e214bcc0 2026-05-24",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg-sp.dts",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "devicetree",
+  "lines": 17,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "fc89fab1a2 2026-08-04",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg28xx.dts",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "devicetree",
+  "lines": 18,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "e366b4407d 2026-09-20",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg34xx-sp-v2-panel.dts",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "devicetree",
+  "lines": 23,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "0ce8eb2725 2026-06-15",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg34xx-sp.dts",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "devicetree",
+  "lines": 23,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "fad6d7d27a 2026-03-27",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg34xx.dts",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "devicetree",
+  "lines": 17,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "fad6d7d27a 2026-03-27",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024-rev6-panel.dts",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "devicetree",
+  "lines": 15,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "fad6d7d27a 2026-03-27",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg35xx-h-rev6-panel.dts",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "devicetree",
+  "lines": 15,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "fad6d7d27a 2026-03-27",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg35xx-plus-rev6-panel.dts",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "devicetree",
+  "lines": 15,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "fad6d7d27a 2026-03-27",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg35xx-pro.dts",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "devicetree",
+  "lines": 17,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "fad6d7d27a 2026-03-27",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg35xx-sp-v2-panel.dts",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "devicetree",
+  "lines": 15,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "fad6d7d27a 2026-03-27",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg40xx-h-v2-panel.dts",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "devicetree",
+  "lines": 14,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "765c0e53ff 2026-04-05",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg40xx-h.dts",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "devicetree",
+  "lines": 38,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "56af713e72 2026-08-10",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg40xx-v-v2-panel.dts",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "devicetree",
+  "lines": 14,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "765c0e53ff 2026-04-05",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rg40xx-v.dts",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "devicetree",
+  "lines": 36,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "56af713e72 2026-08-10",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/linux/dts/allwinner/sun50i-h700-anbernic-rgcubexx.dts",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "devicetree",
+  "lines": 44,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "56af713e72 2026-08-10",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/linux/linux.aarch64.conf",
+  "area": "patches-and-configs",
+  "tier": "vendor-carried",
+  "tier_note": "fork-written",
+  "overlap": true,
+  "language": "kernel-config",
+  "lines": 8129,
+  "patches": null,
+  "last_fork_commit": "cbf75c0b06 2026-09-10",
+  "last_upstream_commit": "dcafa74090 2026-10-22",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/options",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "shell",
+  "lines": 84,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "e1b7d1f82f 2026-10-06",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/packages/h700-suspend-stub/package.mk",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "recipe",
+  "lines": 55,
+  "patches": 0,
+  "last_fork_commit": null,
+  "last_upstream_commit": "93119b3ade 2026-09-21",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/package.mk",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "recipe",
+  "lines": 43,
+  "patches": 2,
+  "last_fork_commit": null,
+  "last_upstream_commit": "3e5495764c 2026-09-22",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR3/sources/configs/anbernic_rg35xx_h700_lpddr3_defconfig",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "none",
+  "lines": 35,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "abdf50bc24 2026-09-22",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/package.mk",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "recipe",
+  "lines": 43,
+  "patches": 2,
+  "last_fork_commit": null,
+  "last_upstream_commit": "3e5495764c 2026-09-22",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/packages/u-boot-DDR4/sources/configs/anbernic_rg35xx_h700_lpddr4_defconfig",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "none",
+  "lines": 35,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "abdf50bc24 2026-09-22",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/packages/u-boot/package.mk",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "recipe",
+  "lines": 36,
+  "patches": 0,
+  "last_fork_commit": null,
+  "last_upstream_commit": "3e5495764c 2026-09-22",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ },
+ {
+  "tree": "distribution",
+  "path": "projects/ROCKNIX/devices/H700/patches/linux/0203-sound-soc-Add-sunxi_v2-for-h616-ahub.patch.disabled",
+  "area": "devices",
+  "tier": "upstream-carried",
+  "tier_note": null,
+  "overlap": false,
+  "language": "other",
+  "lines": 4036,
+  "patches": null,
+  "last_fork_commit": null,
+  "last_upstream_commit": "fad6d7d27a 2026-03-27",
+  "reach": "shipped",
+  "reachable_by": [
+   "H700-aarch64",
+   "H700-arm"
+  ],
+  "buildable_by": [],
+  "shadowed_by": null
+ }
+]

@@ -35,3 +35,19 @@
   - r16: the removal rule; both diffs empty.
 - **A delta, explained:** r14's history printed **28 / 1 / 27**, not the brief's 29 / 1 / 28. `git log --since=2026-06-01` reads a bare date at the current time of day: run at 08:10, it excluded `efae8a5653` ("Update kernel configs", committed 2026-06-01T08:07:03Z). With `--since='2026-06-01T00:00:00Z'` the count is **29; fork 1; upstream 28**, the brief's figure, at any hour. A friction line is written.
 - **Nothing written** under `/tmp`, `/workspace/repos/rocknix*`, another lane's worktree, `packages/`, `projects/` or `tools/`. No guest, build, compiler, plan generation, fetch, handheld command or `tools/council/run` call.
+
+## [Stage B] 08:13 to 08:18 UTC — Phase 1 and 2, `02`, `03`, `04`, the review plan
+
+- **The coordinator's answer** (08:13 UTC, #674): the explicit midnight cutoff is the slice's command; the brief's bare date is the delta, an erratum. r14b (`--since='2026-06-01T00:00:00Z'`, 08:15:34, rc 0) printed 29 / 1 / 28 and was added to `stage-a/runs.tsv`.
+- **Read, recipes through the masking `sed`:**
+  - the 8 read files; the two defconfigs (20 lines apart); `kernel-firmware.dat`; the 15 trees (321 lines);
+  - the configuration's 25 diff lines, each attributed: the fork's `cbf75c0b06` 11, and upstream's `c0980b2b71`, `5f56cd5150`, `6fbefc45c6` and `dcafa74090` 14;
+  - the ROCKNIX `atf` recipe's H700 branch at both hashes and on T5's branch;
+  - the project `mkimage`, `config.xml`'s H700 lists, `device-builds.md:22-23`, and device-facts L15, L16 and L29.
+- **What changed from the brief's reading:**
+  - `mkimage:22-26` is the SM8550/8650/8750 branch; H700's trees come from `mkimage_dtb:88`, and `extlinux.conf` names `/dtb.img` (`:45-50`) (F-11);
+  - atf's H700 branch has no `PKG_SHA256` here: already T5's E6 (`430abc8f66`, D-WORKFLOW-194), but upstream's fix sets other checksums with a new URL, a merge seam (F-02);
+  - the firmware list duplicates the recipe's built-in 13 (F-05).
+- **Findings:** F-01 to F-11, no `bug`. Coverage: 28 rows. `04`: Q1 to Q7.
+- **The lint, pre-issue:** every stage-B section ok; 5 failures, all stage C's (`05`, the seat's provenance).
+- **Nothing against a handheld:** no `ssh`, `scp` or `device-act`. No guest, build, compiler, plan generation, fetch or `tools/council/run` call. Nothing written under `/tmp`, `/workspace/repos/rocknix*`, another lane's worktree, `packages/`, `projects/` or `tools/`.

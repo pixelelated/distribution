@@ -25,4 +25,14 @@
 
 ## Phase 1
 
-To be written at stage B: what each read file does, from the bytes at `8ebaf8daad`.
+What each read file does, from its bytes at `8ebaf8daad`. The rest of the 28 are in `02` § Coverage.
+
+| File | What it does |
+| --- | --- |
+| `options` | The device's knobs: cortex-a53 with `+crc+fp+simd` (aarch64) and a `crypto-neon-fp-armv8` FPU (arm); the `Image` kernel; u-boot with atf `sun50i_h616`; panfrost; Wayland with sway; out-of-tree trees and overlays; zram and swap 0. |
+| `bootloader/update.sh` | On an update: copies the trees and overlays to `/flash`, writes `/dtb.img` from the running tree's dt-id, picks the DDR3 or DDR4 loader by `vdd-dram`'s voltage, and `dd`s it at 8 KiB. |
+| `filesystem/.../80-clock.rules` | Sets the system clock from `rtc0` at boot. |
+| `filesystem/.../wlan0.powersave.off.rules` | Turns off Wi-Fi power saving on the SDIO chip. |
+| `packages/u-boot/package.mk` | The wrapper: depends on `u-boot-<SUBDEVICE>` for each SUBDEVICE and installs each loader as `H700_<sub>_u-boot-sunxi-with-spl.bin`. |
+| `packages/u-boot-DDR3/package.mk`, `u-boot-DDR4/package.mk` | u-boot `v2026.01` built with atf's BL31 for the LPDDR3 and LPDDR4 defconfigs; the loader is staged in the sysroot. |
+| `packages/h700-suspend-stub/package.mk` | Builds one SRAM suspend stub per memory type from each u-boot recipe's defconfig, refusing two with the same DRAM type and clock; atf embeds them. Line 43 is read masked. |
