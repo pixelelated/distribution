@@ -69,7 +69,7 @@ One row per section, as the brief's criterion 7 asks: the section's letter, its 
 | `ag` | `:14221` | settings writers retain private file permissions | **no** | 1 | 0 | 0.4 | none | 0 bwrap, 0 `sa_run`; 0 history |
 | `ah` | `:14229` | melonDS update preserves settings and adds missing hotkeys | **no** | 1 | 0 | 0.1 | none | 0 bwrap, 0 `sa_run`; 0 history |
 
-**The header claims sections `a` to `w` only** (`:7-148`): `x` to `ah`, 11 sections holding 948 of the 1,313 checks, have no claim there. **No `--old` recipe names a FAIL in `w` to `ah`,** and none of the twelve reaches past `s` or `x` (§ The runs). So **20 sections, `s` (or `x`) to `ah`, have no control that runs.**
+**The header claims sections `a` to `w` only** (`:7-148`): `x` to `ah`, 11 sections holding 933 of the 1,313 checks, have no claim there. **No `--old` recipe names a FAIL in `w` to `ah`,** and none of the twelve reaches past `s` or `x` (§ The runs). So **20 sections, `s` (or `x`) to `ah`, have no control that runs.**
 
 ## The runs
 
