@@ -18,8 +18,10 @@ One GENERIC_X64 guest proved the boot behaviour (`02` § The guest cycle).
   - the hook directories `/storage/.config/autostart/` and `/storage/.config/profile.d/`;
   - three boot markers under `/storage`;
   - an inserted medium.
-- **No unauthenticated remote path was found.** The tty1 root shell exists
-  only on a `textmode` boot.
+- **No unauthenticated remote path was found.** Four console or physical
+  paths are root without authentication: a `textmode` boot, `init`'s error
+  shell, `debug-shell.service` (on every boot in the read tree; upstream has
+  fixed it), and `recovery_mode`'s USB export (both seats).
 - **The defects are brittleness and dead lines, all in upstream-carried
   files that stand at `651150fc88`:**
   - the custom autostart loop runs entries without a `-f` test and with an
@@ -41,6 +43,15 @@ One GENERIC_X64 guest proved the boot behaviour (`02` § The guest cycle).
 - **Upstream's next merge** settles the http busybox pin and brings two
   collisions (crash logging and the sysctls), which are deferred as designs
   (F-12, F-13).
+- **The two seats added 46 items** (`04` § Second opinion). Four are
+  Medium, all in upstream-carried code:
+  - the OS update writes the kernel and SYSTEM without checking them (G-02);
+  - a rejected update leaves `/storage` unmounted and deletes the update (G-04);
+  - `debug-shell.service` runs on every boot (G-13);
+  - `input_sense` starts duplicate readers (G-23).
+
+  The rest are Low. Only G-33, the VM's SSH-port check, is the fork's own
+  code.
 
 ## Acceptance-criteria scorecard
 
@@ -75,11 +86,11 @@ an upstream-carried file names the file's state at `651150fc88`.
 | F-01 | Q3 | Low | `autostart`'s `common` and custom loops run each entry with no `-f` test and `${script}` unquoted: a non-executable file or a directory is an error in the journal, and a hook whose name has a space runs another hook with an argument (L-01). Stands at `651150fc88` | proven on the guest |
 | F-02 | Q3 / Q2 | Low (design) | `/etc/profile:19-23` sources `/storage/.config/profile.d/*` into every root service that loads it; guarded by `-f`, `. ${CONFIG}` unquoted (L-02). Stands | trace / read |
 | F-03 | Q3 / Q5 | Low | busybox is setuid root (`package.mk:177,209`; mode 4755 on the guest) with `su`, `login`, `passwd` and `httpd`+CGI enabled, linked and called by nothing in the tree (L-04). The flags stand at `651150fc88` | proven on the guest |
-| F-04 | Q3 | Low | `udevil.conf:233` gives btrfs `compress=zstd:3` alone, against `:213`'s *FOR GOOD SECURITY ... SHOULD ALWAYS INCLUDE: nosuid,noexec,nodev* (L-05); upstream's (`c288a47e62`). Stands. The effective mount is not proven | trace / read |
+| F-04 | Q3 | **Medium** (Astra's re-grade; Argon's G-44 merged) | `udevil.conf:233` gives btrfs `compress=zstd:3` alone, against `:213`'s *FOR GOOD SECURITY ... SHOULD ALWAYS INCLUDE: nosuid,noexec,nodev* (L-05); upstream's (`c288a47e62`). The option is also absent from `allowed_options` (`:245`, G-44), so a btrfs medium either mounts without the three or is refused. Stands. The effective mount is not proven; a loop-backed btrfs on the VM decides | trace / read |
 | F-05 | Q3 / Q6 | Low | `udevil-mount@.service` runs `-/usr/lib/samba/samba-autoshare`, which no shipped image has (SAMBA_SUPPORT=no); the `-` hides the failure (L-06, blindspot 16) | proven on the guest |
 | F-06 | Q3 | Low | #740's `cp ... /storage/.ssh` has a second site at `post-update:54-57`; both are reachable only on a build with `LOCAL_SSH_KEYS_FILE` (L-07). #740 is cited, not re-filed | trace / read |
-| F-07 | Q3 | Low (design) | `shell.service`, an unauthenticated root shell on tty1, only on a `textmode` boot (L-03); no register row | proven on the guest |
-| F-08 | Q3 | Low (design) | markers under `/storage` change root behaviour at boot: `.please_resize_me`, `.cache/volatile-log`, `.cache/debug.rocknix` (L-10) | trace / read |
+| F-07 | Q3 | Low (design), with G-13 at Medium | **Four unauthenticated console or physical paths, not one** (both seats): `shell.service` on a `textmode` boot (L-03); `init`'s `error()` shell (G-12); `debug-shell.service`, enabled on every boot in the read tree (G-13; settled by the next base merge); `recovery_mode`'s USB export of the cards with Vol- held (G-38). No register row | proven on the guest (`shell.service`); trace (the rest) |
+| F-08 | Q3 | Low (design; the reset and restore markers a Low defect) | markers under `/storage` change root behaviour at boot: `.please_resize_me`, `.cache/volatile-log`, `.cache/debug.rocknix` (L-10); and `reset_oe`, `reset_xbmc` and a `.restore/` archive select `factory-reset.target` and `backup-restore.target`, which this image does not have (Argon). Those two are settled by the next base merge (`a98a3066f5`) | trace / read |
 | F-09 | Q6 | Low | cron's two units and `default.d/crond.conf` are on no shipped image (CRON_SUPPORT=no) (L-08) | proven on the guest |
 | F-10 | Q6 / Q5 | Low | 213 platform files (108,294 bytes) ship on every image and run on none; 8 `system-utils` rows are installed by no shipped image | trace / read |
 | F-11 | Q4 | Low | busybox 1.36.1 over http; systemd 255.8; util-linux 2.39.2: upstream has 1.38.0 over https, 261.2 and 2.42.4. The http pin is settled by the next base merge | trace / read |
@@ -127,10 +138,10 @@ The root-and-writable-path findings, each with its bug decision (proposed; stage
 | F-01 | `/storage/.config/autostart/*` | none | `bug` (the guard and quotes are contained, `bugs-are-agent-first.md` rule 6); class decision #346 (upstream-carried) | nothing inherited: the loop reads the directory at each boot and writes nothing |
 | F-02 | `/storage/.config/profile.d/*` | `-f` | design | nothing inherited |
 | F-03 | none (an applet surface) | -- | `bug`-candidate for #346: disable the four applets in the configuration, or a design row | nothing inherited: a configuration choice |
-| F-04 | an inserted btrfs medium | `udevil.conf` | `bug` (#346): the file's own warning; a VM proof of the effective mount is owed (a loop-backed btrfs on the guest) | mounts made under it are transient; nothing on `/storage` |
+| F-04 | an inserted btrfs medium | `udevil.conf` | Medium; #346 (upstream-carried): the file's own warning; a VM proof of the effective mount is owed (a loop-backed btrfs on the guest): it mounts without the three, or is refused (G-44) | mounts made under it are transient; nothing on `/storage` |
 | F-05 | -- | `-` prefix | `bug` (#346): remove the post lines, or ship the script | nothing inherited |
 | F-06 | `/usr/config/ssh` at build | `-e` test | cited on #740 with the second site | on a developer's device built with `LOCAL_SSH_KEYS_FILE`: a file `/storage/.ssh`; #740's own line |
-| F-07 | tty1 on a `textmode` boot | the boot mode | design | -- |
+| F-07 | four console and physical paths (G-12, G-13, G-38) | the boot mode, a boot error, nothing (G-13), a held button | design, except G-13: Medium, settled by the next base merge | -- |
 | F-08 | three markers | -- | design | -- |
 
 ### Q4 Package currency: every pin at both hashes
@@ -209,7 +220,7 @@ Depth **extended** (`second-opinions/review-plan.json`): the primary (Anthropic,
 | Seat | Call | Provenance | Served | Outcome |
 | --- | --- | --- | --- | --- |
 | GPT-6 Astra, `max` | `tools/council/run invoke --member gpt --provider openrouter`, brief `second-opinions/gpt-brief.md` (382,673 bytes), under `tools/watch-build --record-only` (`.build-runs/20261025T093302Z-f3543809/`, `build.rc` 0), 09:33:02-09:53:54 | `second-opinions/gpt-audit.md.provenance.json`: `council-facilitator@1.14.1-pixelelated.2`, outcome success, 0 retries, verification PASS (`provider_response`), provider PASS, effort PASS (48,690 reasoning tokens) | `openai/gpt-6-astra` by OpenAI | 34 items of its own (G-01 to G-34) and a grade for each of F-01 to F-16; output sha256 `107d6168aebfbe40d6552e2532e36cc8b103411c918b702776a0e06e9d4d4987` |
-| Gemini 4 Argon, `high` | *pending: its brief is the Astra packet unchanged, a third-reader preamble, and the grades below* | | | |
+| Gemini 4 Argon, `high` | `tools/council/run invoke --member gemini-argon --provider openrouter`, brief `second-opinions/gemini-argon-brief.md` (393,701 bytes: a third-reader preamble, the Astra brief unchanged, and Astra's grades appended), under `tools/watch-build --record-only` (`.build-runs/20261025T095741Z-4e1cd8de/`, `build.rc` 0), 09:57:41-10:05:08 | `second-opinions/gemini-argon-audit.md.provenance.json`: the same facilitator, outcome success, 0 retries, verification PASS (`provider_response`), provider PASS, effort PASS (30,565 reasoning tokens) | `google/gemini-4-argon` by Google | 12 items of its own (G-35 to G-46); four F-findings re-graded; Astra's grades read again (26 hold; two graded from the packet; five extended); output sha256 `f075e46df8b5945249d1a4d9520977f351ff0909bf86482a1aa9b0740e8fe61a` |
 
 ### Astra's items, graded against the artifacts
 
@@ -246,7 +257,7 @@ For each item on a file upstream changed, the state at `651150fc88` follows the 
 | G-20 the interface's start unchecked | **confirmed, Low** | `autostart:91` backgrounds `systemctl start` and nothing collects it | stands |
 | G-21 `EnvironmentFile=/etc/profile` | **confirmed; corrects `03` § 3.5** | systemd's `EnvironmentFile=` reads `KEY=VALUE` lines and does not run shell; `powerstate.sh:11` is what sources the profile | stands |
 | G-22 the warning threshold | **confirmed, Low** | `powerstate.sh:59-61`: `[[ ${BATLEFT} -le ${AUDIBLEALERT_THRESHOLD} ]]` evaluates a setting as an arithmetic expression (the owner's setting; the owner is root) | stands |
-| G-23 duplicate input readers | **confirmed, Medium** | `input_sense:292` empties the list once, before the retry loop (`:294-330`), so up to six passes append the same devices. The fork's comment at `:290-291` states the intent the code misses. The guest's s2b shows six `input_sense` processes: consistent, not counted against devices | stands (upstream's lines are the same here) |
+| G-23 duplicate input readers | **confirmed, Medium** | `input_sense:292` empties the list once, before the retry loop (`:294-330`), so up to six passes append the same devices. The comment at `:290-291` states the intent the code misses; it is upstream's (`dc5f51ad72`, *input_sense: make the device rescan retry actually run*, 2026-09-11), in the merge base and at `651150fc88`. The guest's s2b shows six `input_sense` processes: consistent, not counted against devices | stands (upstream's lines are the same here) |
 | G-24 reload restarts nothing | **confirmed, Low** | the two disconnect patterns are identical (`:105-106`); `get_devices` rebuilds the array, but the readers started at `:347-357` keep running | stands |
 | G-25 hat events filtered out | **confirmed, Low** | `:360` passes only `EV_KEY`, `EV_SW` and `error reading`; the `ABS_HAT0` handlers (`:93-96`) never see an event | stands |
 | G-26 latched repeat on disconnect | **not re-read** | carried as a lead | -- |
@@ -258,6 +269,42 @@ For each item on a file upstream changed, the state at `651150fc88` follows the 
 | G-32 the resolver fallback | **confirmed, Low** | `systemd/package.mk:222-224`: `sed -i` succeeds without a match, so the `\|\| echo` never runs; a build-time item, and its effect depends on the template's line | the recipe changed upstream; not re-read there |
 | G-33 the VM port check | **confirmed, Low (a harness item, D-QA-053)** | `095-cloud-ssh:38` does `tr -cd '0-9'`, so `12x34` is kept as `1234`, against its own comment (`:33-34`) | the fork's own; absent upstream |
 | G-34 update paths not filename-safe | **confirmed, Low** | `ls ... \| head -n 1` (`:872-874`), and unquoted `dd` operands (`:403`) | stands |
+
+### Argon's items, graded against the artifacts
+
+The third reading, graded the same way (10:05-10:07 UTC by `date -u`; the lines re-read at `8ebaf8daad`).
+
+| Item | Grade | The lines read, and what they show | At `651150fc88` |
+| --- | --- | --- | --- |
+| G-35 `QUIRK_DEVICE` empty in `userconfig-setup` | **confirmed, narrowed to Low (dead code)** | `:7` sources `001-functions`, which sources `/etc/os-release` (`HW_DEVICE`) but not `002-autostart`, so `QUIRK_DEVICE` is empty at `:24-27`. But no `quirks/devices/*/` has a `config/` directory (`git ls-tree`: 0), so nothing is ever missed | stands |
+| G-36 `powerstate` before the LED quirk on first boot | **confirmed, narrowed to Low** | SM8550's `030-led-control` writes `/storage/.config/profile.d/010-led_control` during autostart; `powerstate.service` is `After=userconfig.service`, `Before=rocknix.target`, and sources the profile once (`powerstate.sh:11`). LED variables are unset for the first boot only; later boots read the file | stands |
+| G-37 three loop defects | **confirmed, Low** | an empty `AC_STATUS` makes `[[ ! "" =~ "" ]]` false, so the mode branch never runs without a battery (`:19-20`); no `head -n1` at `:19`; `:71`'s `elif` hangs off the discharge test, so a charging battery above 97% runs `ledcontrol discharging` every 2 s | stands |
+| G-38 `recovery_mode` exports the cards | **confirmed: design, Low; extends F-07** | with Vol- held at boot or `recovery` on the command line (`init:1225-1226`), every `/dev/mmcblk?` becomes a lun of a USB mass-storage gadget (`:537-592`), with no `ro` set. A recovery feature that needs the device in hand | stands |
+| G-39 three `/flash` hooks in PID 1 | **confirmed: design, Low** | `init` sources `post-sysroot.sh` (`:290-292`), `post-flash.sh` (`:714-716`) and `mount-storage.sh` (`:762-764`) from the FAT boot partition | stands |
+| G-40 `/etc` directories linked into `/storage` | **confirmed: design, Low** | `systemd/package.mk:258-276` links `modules-load.d`, `sysctl.d`, `tmpfiles.d`, `udev/rules.d`, `hwdb.d`, four `systemd/*.conf.d` and `journald.conf.d` into `/storage/.config` and `/storage/.cache`. The first-boot ordering half is **not proven** | the recipe changed upstream; not re-read there |
+| G-41 `/etc/hosts` dangling | **confirmed, Low** | `network-base-setup:111-114` removes `/run/rocknix/hosts` and writes it only from `hosts.conf`; the hostname written at `:79` is never added | stands |
+| G-42 `wait` waits for nothing | **confirmed, Low** | `${script}` runs in the foreground (`autostart:53,76`); `098-deviceutils`'s `nohup ... &` jobs are its own children, so `autostart`'s `wait` (`:55,79`) has no jobs | stands |
+| G-43 three `input_sense` defects | **confirmed, Low** | the `if/elif` at `:302-311` counts a key-and-joystick device as keys only, so a joystick-less machine runs all six passes (the cause of G-23's count on the guest); the function-key actions run unquoted (G-17's shape); `kill -34 $(pidof wvkbd-mobintl)` (`:514`) with no process errors and is harmless | stands |
+| G-44 btrfs's default not allowed | **confirmed by reading; merged with F-04** | `compress=zstd:3` is not in `allowed_options` (`:245`), and no `allowed_options_btrfs` exists (`grep`: none), so by `:236-237` udevil may refuse the default. **A btrfs medium either mounts without `nosuid,noexec,nodev` or does not mount; only a VM mount can say which** | stands |
+| G-45 stale unit names | **confirmed, Low** | `usercache.service`: `Before=automount.service autostart.service`; `userconfig.service`: `Before=rocknix-automount.service autostart.service`. No `automount.service` or `autostart.service` exists | stands |
+| G-46 user table | **confirmed, Low** | busybox adds `nobody` with `/bin/sh` (`busybox/package.mk:184`), systemd with `/bin/false` (`systemd/package.mk:322`); `systemd-network` gets `/bin/sh` (`:295`) | stands |
+
+**Argon's corrections to the first reader's grades of Astra:**
+- **G-26 and G-27 are graded from the packet:**
+  - G-26 is confirmed, Low: the repeat subshell keeps its own copy of the pressed flag (`input_sense:151-163`), and no disconnect branch calls `stop_volume_repeat` (`:364-371`).
+  - G-27 is confirmed, Low: the screenshot, MangoHud and guide tools run in the loop without `&` (`:520,529,535`), and a disconnect runs `get_devices` synchronously, which can block for six seconds.
+  - Argon graded G-27 Medium; Low here, because the tools return.
+- **G-04 is extended:** three more sites call `do_cleanup` and return 0 (`:892-896`, `:1015-1021`, `:1023-1028`). `exec 2>/dev/null` (`:63`) is why the failed `mount --move` (`:1143`) is silent before `switch_root` (`:1381`). And `do_cleanup` deletes the staged update even when the message (`:358,370`) has just told the owner to create `.nocompat` and retry.
+- **G-06 is extended:** `do_cleanup` deletes the staged pair (`:858`), and the branding test passes if any one of the three names carries the brand.
+- **G-19 is extended:** every redirect in `autostart` has the order `2>&1 >>${BOOTLOG}` (`:25,40,53,65,76,88,89,91,94`); only `log()` (`:10`) is right.
+- **G-23's count is explained by G-43's `elif`:** the guest has keys and no joystick, so six passes.
+- **G-32 has a second site,** `systemd/package.mk:224` (the fallback DNS).
+
+**Argon's re-grades of the F-findings:**
+- **F-01:** narrowed. An empty directory passes the unexpanded `*` to `:76`. One `[ -f "${script}" ] && "${script}"`, as `:23-26` does, fixes the glob, the directory and the space together.
+- **F-04:** Medium stands, with G-44 merged.
+- **F-07:** a fourth physical path, `recovery_mode` (G-38).
+- **F-08:** re-graded from design to a **Low defect** in the read tree. `factory-reset.target` and `backup-restore.target` exist only under `packages/mediacenter/LibreELEC-settings` (`git ls-tree`), so the markers select units this image does not have, overriding `textmode` and `installer`. **Settled by the next base merge** (`a98a3066f5` removes the selection).
 
 **Astra's grades of F-01 to F-16, and what changes:**
 - **F-04 is re-graded Medium,** as Astra argues. An inserted medium is not the owner writing a root hook, and the file's own policy (`udevil.conf:213`) is what btrfs breaks.

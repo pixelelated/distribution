@@ -1,0 +1,135 @@
+{
+  "artifact_path": "docs/audits/2026_10_25-epic-m6-os-system-services/second-opinions/gemini-argon-audit.md",
+  "output_file_sha256": "f075e46df8b5945249d1a4d9520977f351ff0909bf86482a1aa9b0740e8fe61a",
+  "source_file_paths": [],
+  "source_file_hashes": [],
+  "facilitator_version": "council-facilitator@1.14.1-pixelelated.2",
+  "prev_verdict_sha256": null,
+  "member": "gemini-argon",
+  "declared_model": "google/gemini-4-argon (OpenRouter, via google-vertex/global, effort=high)",
+  "substrate": "openrouter",
+  "transport": "buffered",
+  "endpoint": "https://openrouter.ai/api/v1/chat/completions",
+  "request": {
+    "started_at": "2026-10-25T09:57:41.768Z",
+    "system_prompt_sha256": null,
+    "user_prompt_sha256": "9b7ef58a211f6692693cd37722b96dd964a1987cb9577998bf5fc8f65e66752c"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "started_at": "2026-10-25T09:57:41.768Z",
+      "duration_ms": 444340,
+      "max_tokens": 65536,
+      "transport": "buffered",
+      "http_status": 200,
+      "outcome": "success",
+      "outcome_reason": null,
+      "model_field": "google/gemini-4-argon",
+      "finish_reason": "stop",
+      "content_length": 19302,
+      "tokens": {
+        "prompt": 145559,
+        "completion": 37214,
+        "total": 182773,
+        "reasoning": 30565
+      },
+      "model_identity_source": "provider_response",
+      "served_provider": "Google",
+      "served_provider_observations": [
+        "Google"
+      ],
+      "content_sha256": "f075e46df8b5945249d1a4d9520977f351ff0909bf86482a1aa9b0740e8fe61a",
+      "usage": {
+        "prompt_tokens": 145559,
+        "completion_tokens": 37214,
+        "total_tokens": 182773,
+        "cost": 0.663258,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.663258,
+          "upstream_inference_prompt_cost": 0.291118,
+          "upstream_inference_completions_cost": 0.37214
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 30565,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_headers": {
+        "content-type": "application/json",
+        "x-generation-id": "gen-1792922262-dTbQSPvwoCkEA3bVcQQE"
+      },
+      "generation_id": "gen-1792922262-dTbQSPvwoCkEA3bVcQQE",
+      "native_finish_reason": "STOP",
+      "response_body_sha256": "6da7185152eda0eead2bf1b330802a807476b823cf48a7e49d40ba2702f87d58"
+    }
+  ],
+  "final": {
+    "outcome": "success",
+    "assurance_tier": "local_capture_provider_attested",
+    "total_duration_ms": 444341,
+    "retries_used": 0,
+    "file_artifact_sha256": "f075e46df8b5945249d1a4d9520977f351ff0909bf86482a1aa9b0740e8fe61a",
+    "usage": {
+      "prompt_tokens": 145559,
+      "completion_tokens": 37214,
+      "total_tokens": 182773,
+      "cost": 0.663258,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.663258,
+        "upstream_inference_prompt_cost": 0.291118,
+        "upstream_inference_completions_cost": 0.37214
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 30565,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "tokens": {
+      "prompt": 145559,
+      "completion": 37214,
+      "total": 182773,
+      "reasoning": 30565
+    },
+    "verification": {
+      "result": "PASS",
+      "match_kind": "semantic",
+      "declared": "google/gemini-4-argon (OpenRouter, via google-vertex/global, effort=high)",
+      "observed": "google/gemini-4-argon",
+      "model_identity_source": "provider_response"
+    },
+    "effort_verification": {
+      "result": "PASS",
+      "declared": "high",
+      "evidence": "reasoning_tokens",
+      "observed_reasoning_tokens": 30565
+    },
+    "provider_verification": {
+      "result": "PASS",
+      "declared": [
+        "Google"
+      ],
+      "evidence": "response_provider_field",
+      "observed": "Google",
+      "observed_providers": [
+        "Google"
+      ]
+    }
+  }
+}
