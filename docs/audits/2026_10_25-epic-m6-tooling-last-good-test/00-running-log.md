@@ -341,3 +341,22 @@
   3. #1028's probe: a cut copy of stream A's setup with a script through `sa_run`, the caller exporting `RCLONE_CONFIG`, `RCLONE_CONFIG_QA_TYPE`, `BASH_ENV` and a function; unfixed `b729628ad6`, fixed `5d1f67ca0b`;
   4. the twelve `--old` recipes at `5d1f67ca0b`.
 - **Still to construct, waiting on the coordinator's answer (#662, 05:52):** the positives that need a proven script altered in a throwaway clone (#1037, #1027, #1036, #1034), and #1031's broken lock and acknowledgement.
+
+## [Stage E] 06:13 UTC — root-final; the coordinator's 06:05 answers; the stage-e alteration recipes
+
+- **The coordinator, 06:05 (#662):**
+  - (1) yes to altered throwaway copies for S3's positives, under `/workspace/tmp/m6-t15/s3/<bug>/`, never committed, removed after the run, each a recipe the branch carries (`stage-e/alter-<bug>.sh`) so the acceptance re-run reproduces it;
+  - (2) the twelve at the final tip only. The 06:00 stop of the first queue is recorded at 06:05 above.
+- **root-final at `5d1f67ca0b`** (the second queue's first run, PID 1008765): **rc 3 in 516 s, 1,315 PASS / 0 FAIL / 0 SKIP / 2 CANNOT**, census `cc1plus=0 qemu=0`. That is 1,312, plus #1033's self-check, plus the two checks #1027's split adds. Every strengthened check passes on the real scripts:
+  - #1026's witnesses and `b`'s guarded steps;
+  - #1036's rewritten markers, the pass's own status, `each compiled`, the four `100755` modes;
+  - #1031's two barriers;
+  - #1032's three drivers;
+  - #1033's count (1,259 calls, 0 short).
+- **`stage-e/` in the audit folder:**
+  - `alter-lib.sh` (`change` and `drop_fn`, each failing closed when a change does not apply);
+  - one recipe per positive: `alter-1037.sh`, `alter-1027.sh`, `alter-1034.sh`, `alter-1036.sh` (`q`'s status and markers, `t`'s compile, D21's mode), `alter-1036-gate.sh` (its own clone: CANNOT stops the fixed run), `alter-1036-frag.sh` (`q` cut under `--old 717bc04449`), `alter-1031.sh`;
+  - `run-positives.sh`: per bug, clones at the tip and at the unfixed harness commit, the recipe, both runs on the donor, the target lines into `queue.log`, the clones removed.
+  - Each recipe was dry-run on a fresh clone and its diff read. The first dry run caught two faults of mine in `alter-lib.sh`: `awk -v` ate the pattern's backslashes, so `drop_fn` removed nothing (its own post-check refused it); and the post-check did not fit insertions. Both fixed.
+- **A slip of mine:** the first set of dry clones was removed with `rm -rf -- "${S:?}/dry-$b"` in a loop inside a longer command. That breaks the removal shape: `rm -rf` in its own short command. The paths were guarded and only those clones went. Every later removal is one short command, and the runner's three are one line each.
+- **The positives run after the second queue ends** (a waiter on `QUEUE2 END`, then `run-positives.sh`, serial).
