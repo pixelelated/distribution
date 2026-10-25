@@ -7,8 +7,8 @@ area: tooling-and-guards
 kind: read
 lens: brittleness
 depth: Independent
-version: 1
-written: 2026-10-24
+version: 2
+written: 2026-10-24 (version 1); 2026-10-25 (version 2, after the stranger's proof and the coordinator's two runs at the hash)
 author: the M6 coordinator (Fable 5.1, D-WORKFLOW-189)
 read_refs:
   distribution: 8ebaf8daad
@@ -17,7 +17,7 @@ read_refs:
 
 # T15: the last-good scripts test (`tools/last-good-scripts-test`)
 
-**Version 1, 2026-10-24, by the coordinator.** A brief for a lane that
+**Version 2, 2026-10-25, by the coordinator** (version 1 on 2026-10-24; a stranger's proof found 8 wrong and 10 partial figures, corrected here and listed in the futro's errata). A brief for a lane that
 has never seen this project, in the shape of T14's
 (`docs/reviews/briefs/tooling-state-tests.md`): identity, scope, what to
 read first, the questions, the evidence floor, the outputs, the
@@ -76,9 +76,7 @@ brief precedes dispatch, and version 2 records what it found.
   primary checkout `/workspace/repos/pixelelated/distribution` stays on
   `next` (D-INFRA-025); the legacy checkout and `rocknix.worktrees/*` are the
   M7 lane's, **read only -- and this slice reads one thing there: a build
-  root's `image/system/usr/bin/busybox`, through `QA_SYSTEM_ROOT`, which the
-  suite copies into its own run directory before any sandbox binds it (the
-  file's own comment at `:405-415`)**. **The rules in this worktree are
+  root's `image/system/usr/bin/busybox`, through `QA_SYSTEM_ROOT`, which the suite copies into its own run directory before any sandbox binds it (the file's own comment at `:403-414`)**. **The rules in this worktree are
   `next`'s except the paths the dispatch comment lists.**
 - **Model and effort:** Opus 5.5 (the maintainer, 2026-10-22: *"the work
   will be Opus 5.5"*) at high effort. Record what ran in `00-running-log.md`'s
@@ -94,9 +92,7 @@ brief precedes dispatch, and version 2 records what it found.
   packet (D-WORKFLOW-195). **The packet is one file of 1,167,697 bytes
   (1.11 MiB) at the hash**, which is over any seat's comfortable input: the
   packet is **the file's section index** (the 34 `echo "  <letter>. ..."`
-  lines with their line numbers), **the harness (`:1-430`: the header, the
-  dispatch, the busybox source and the shims), the `check`/`skip`/`src_of`
-  helpers, the sandbox helpers (`sa_new`, `sa_script`, `sa_run`, `:8993-9035`),
+  lines with their line numbers), **the harness (`:1-430`: the header, the dispatch, the busybox source and the shims), the `check`/`skip`/`src_of` helpers, the sandbox helpers (`sa_new`, `sa_script`, `sa_run`, `sa_tail`, `sa_outcome`, `:8993-9029`),
   the four call sites (`:14188`, `:14224`, `:14231`, `:252`) and the verdict
   (`:14236-14238`)**, plus the sections the lane's Q3 names as suspect, each
   whole; the seat is told the file's size and asked which other sections it
@@ -168,41 +164,24 @@ for r in inv["rows"]:
 
 **What the file is** (read at the hash): a bash suite of **34 sections,
 `a` to `ah`** (`grep -n -E '^echo "  [a-z]{1,2}\. ' tools/last-good-scripts-test`:
-`a` at `:429` ... `x` at `:3113`, **`y` at `:7796` (audit #307/#308 stream B,
-4,683 lines)**, **`z` at `:13182` (the fix round's audit, 541 lines)**, `aa`
+`a` at `:429` ... `x` at `:3113`, **`y` at `:7796` (5,386 lines to `:13181`: audit #307/#308 stream B's cases `y1` to `y4` at `:7796-8905`, 1,110 lines, then stream A's `A`-cases from `:8906`, 4,276 lines)**, **`z` at `:13182` (the fix round's audit, 541 lines)**, `aa`
 to `ah` at `:13723-14229`), each a group of `check` calls (`check()` at
 `:309`: `PASS` or `FAIL` and a counter; 120 `check` call sites, many inside
 loops -- T14's run counted 1,313 checks and T12's 1,378 on their branches'
-copies, so the count is a property of a run, not of the text), with
-`skip()` at `:303` (`SKIPPED`, exit 3 at the end: *a check that did not run
-has not passed* -- the verdict at `:14236-14238` already has D-QA-061's
-shape). The harness (`:1-430`): the header lists every section's claim with
+copies, so the count is a property of a run, not of the text), with `skip()` at `:302` (`SKIPPED`, exit 3 at the end: *a check that did not run has not passed* -- the verdict at `:14236-14238` has D-QA-061's three words, **and a fourth: `NOT APPLICABLE` (`:4558`, the retired `cloud_migrate_layout` group, #508) is reported at `:14235` and the run then exits 0 `PASSED` when nothing failed or skipped -- a group that did not run passes, Q3's first item**). The harness (`:1-430`): the header lists every section's claim with
 its issue; the dispatch refuses an unknown option (exit 2) and a run with
 SIGINT ignored (exit 2, `:260-268`); `set -u` only (`:270`; **no `-e`, no
 `pipefail` at the top**); `src_of` (`:320`) lifts each script under test
 from the working tree or, under `--old`, from `BASE_REF` (default
-`1d1503180d`), exit 2 when it cannot; **`image_tool_source` (`:380-400`)**
+`1d1503180d`), exit 2 when it cannot; **`image_tool_source` (`:381-401`)**
 takes `QA_SYSTEM_ROOT` when set (an unusable one is an error, exit 2), else
-globs three build-root layouts (`${ROOT}/../*/build.*`,
-`${ROOT}.worktrees/*/build.*`, `${ROOT}/build.*`), **else `command -v
-busybox || true` -- the host's, silently, said only in the banner at
-`:424`**; the busybox is **copied** into the run (`:416-418`) so an image
-step beside the harness cannot pull it (the 2026-09-25 case the comment
-records, #272) and wrappers for `sed mv cp tr head wc cut awk stat chmod
-cat` are generated (`:420-422`). Sections `y` and after run scripts whole in
-**`bwrap` sandboxes** (`sa_run`, `:9010`: `--tmpfs /`, `--ro-bind /usr`,
-`/etc`, the fixture's `/storage`, `/cloud`, `/ctl`, `/repo`, `/var/log`,
-`/var/run`; **no `--unshare-net`**, so the host network is reachable from
-every sandboxed script -- T14's S2 found the same shape in the four tools
-this file calls); 85 `bwrap` invocations. The file **calls four of T14's
+globs three distro-named build-root layouts (`${ROOT}/../*/build.{ROCKNIX,RASTERATOPS,pixelelated}-*`, `${ROOT}.worktrees/*/build.{...}-*`, `${ROOT}/build.{...}-*`), **else `command -v busybox || true` -- the host's busybox if it has one, silently, named only by the banner at `:426` (`-- a copy of /usr/bin/busybox`); and a host with no busybox at all gets no copy, no wrappers and no banner line, and the run proceeds on the host's GNU tools with nothing said**; the busybox is **copied** into the run (`:416-418`; the comment at `:403-414`) so an image step beside the harness cannot pull it (the 2026-09-25 case the comment records, #272) and wrappers for `sed mv cp tr head wc cut awk stat chmod cat` are generated (`:420-422`) -- **the wrapper list differs by section: `flock`, which the host's 1.37.0 lacks, is shimmed only in `n` and `t` and called on the host at `:2345` and `:6765`**. **Scripts run whole in `bwrap` sandboxes from section `b` on** (16 sections before `y` invoke it; 60 invocation lines in the file, 85 lines carrying the word; `sa_run` at `:9010` -- `--tmpfs /`, `--ro-bind /usr`, `/etc`, the fixture's `/storage`, `/cloud`, `/ctl`, `/repo`, `/var/log`, `/var/run` -- is called 150 times, so a run opens more than 200 sandboxes); **`sa_run` has no `--unshare-net`**, so the host network is reachable from every script it runs (T14's S2 found the same shape in the four tools this file calls), while four other invocations do unshare it (`:6108`, `:11890`, `:12285`, `:12303`) and `:12312` skips without the namespace. The file **calls four of T14's
 tools**: `rasteratops-cloud-layout-test` at `:14188` (and `--cloud-layout`
 execs it at `:252`), `settings-modes-test` at `:14224` and
 `melonds-upgrade-test` at `:14231` -- **both with `--busybox "${BB_HOST}"`,
 the run's own copy of whatever busybox it resolved**, which T14's S8 now
 refuses unless told its provenance -- and `wait-lock-test` is named only in
-a comment (`:148`, `:8608`: the lifting pattern it shares). It embeds Python
-(`:5244-5252`: the connections fixture's `configure`, a shim rclone that
-prints an auth URL and sleeps). Eight `|| true` sites (`:400` the fallback;
+a comment (`:148`, `:8608`: the lifting pattern it shares). The sandbox helpers (`sa_new`, `sa_script`, `sa_run`, `sa_tail`, `sa_outcome`) are `:8993-9029`. It embeds Python (`:5244-5252`: the connections fixture's `configure`, a shim rclone that prints an auth URL and sleeps). Eight `|| true` sites (`:400` the fallback;
 `:10409`, `:13871`, `:13908` counts and greps; the rest in comments or
 guarded).
 
@@ -210,18 +189,20 @@ guarded).
 `python3 -c` wrapper that resets SIGINT and SIGPIPE before exec, PL-025 of
 the fix round's audit), on every default run -- **13 of a default run's 33
 minutes** (T12's Q5 table) -- and the release procedure's step 3 through
-`vm-qa`; by hand with `--old` against a `BASE_REF` for its failing controls
-(the header's recipes, `:160-230`). **Its record:** `docs/vm-qa-log.md` rows
-name it in 61 lines; the last PASS in a `vm-qa` report is **2026-10-06
-01:02-01:41 UTC, qa-18, `scripts_pass_lines: 1719`**, under the image's
-BusyBox 1.36.1 from a build root (#1015's comment); every run since from an
-M6 worktree resolved the host's 1.37.0 and FAILed 319 checks whatever its
-scratch (T12's three `TMPDIR` runs, #1015; T14's run, 323 FAIL with two of
-S2's and two of S8's). **Blindspot 34** (*a check written for the device,
+`vm-qa`; by hand with `--old` against a `BASE_REF` for its failing controls (**the header lists twelve recipes, `:167-226`: the default `1d1503180d` and `53f390b1e9`, `c15050c897`, `8707919349`, `34aca64afd`, `0f7785e6ed`, `d79281066c`, `cee1656c33`, `28a80357ed`, `3387cf5da0`, `655f103cc5`, `70b6c70ca7`**). **Its record:** `docs/vm-qa-log.md` names `last-good-scripts-test` in 8 lines (61 carry the word `scripts`); the last PASS in a `vm-qa` report is **2026-10-06, qa-18 (started 01:04, finished 01:37 UTC), under the image's BusyBox 1.36.1 from a build root** (#1015's comment; `docs/qa-logs/2026-10-06-pixelelated-replacement-14/qa-18/counts.json` says `scripts_pass_lines: 1719`, which counts lines carrying the word PASS -- 1,721 by grep -- while that log's `    PASS  ` check lines number 1,374, so the figure is not a check count); every run since from an M6 worktree resolved the host's 1.37.0 and FAILed 319 checks at every scratch outside the worktree (326 under the worktree's own; T12's three `TMPDIR` runs, #1015; T14's run, 323 FAIL with two of S2's and two of S8's). **Blindspot 34** (*a check written for the device,
 proven only under the host's tools*, 2026-09-10) is this file's founding
 lesson: `tr -d '[:print:][:space:]'` under GNU tr vs busybox tr; the file
 runs `sed mv cp tr head wc cut awk` through the image's busybox for that
 reason, and its own fallback to the host's busybox is the lesson undone.
+
+**The coordinator's two runs at the hash (2026-10-24, 23:4x-00:0x UTC, from an export of `8ebaf8daad` under `/workspace/tmp/m6-coordinator/t15-hash/`, each started with `setsid -w` from a shell whose SIGINT was at its default -- the runs' first line reads `SIGINT ignored=0`; `setsid` itself resets nothing -- and `TMPDIR` under the export):**
+
+| busybox | source | rc | wall | PASS | FAIL | SKIP | FAILs by section |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
+| the image's, v1.36.1 | `QA_SYSTEM_ROOT` = the `069fc2704421` root (`m7-signin-build-20261022-07`), read only | 1 | 514 s | 1,303 | 10 | 0 | `x` 5, `y` 5 |
+| the host's, v1.37.0 (Ubuntu) | the fallback at `:400` | 1 | 671 s | 984 | 329 | 0 | `y` 185, `t` 42, `x` 38, `z` 36, `k` 11, `n` 7, `af` 6, `ad` 4 |
+
+The suite counted 1,313 checks in both runs; **319 checks FAIL under the host's busybox and PASS under the image's** (`diff` of the two runs' verdict lines) -- #1015's count exactly, so the host-busybox run judges the host, not the tree, and 61 of its lines read `flock: applet not found`. **Ten checks FAIL under the image's busybox too**, all in `x` (the launcher's incremental-save modes, #209) and `y` (audit stream B's quirks and downgrade cases), and all of one shape: *the fixture proves nothing* / *the take-back boot's journal: ''* / *the downgrade wrote 0 file(s)* -- the suite's own vacuous-fixture detectors firing, which says a boot-shaped fixture did not run in this host's sandbox rather than that a script is wrong; sorting those ten into the tree's and the fixture's is Q3's first task, and each that is the tree's is a `bug` for its script's lane. Section `ae`'s historical migration matrix reads NOT APPLICABLE (the engine retired by #508; its archive contracts still run). Checks per section (the image run): `y` 448, `x` 350, `z` 92, `t` 80, `p` 38, `k` 25, `ab` 24, `m` 23, the rest under 20 -- `y` and `x` are 61 % of the suite. These are the numbers § 7 expects the lane's stage-A runs to reproduce within the drift of its branch.
 
 **What this slice does not touch:** the scripts the file proves (the OS and
 cloud scripts under `projects/ROCKNIX/packages/`; a defect in one of them
@@ -241,7 +222,7 @@ row's words are a lead); the two M7 build roots (read).
    -- the two rules this file exists to serve.
 2. `docs/reviews/plan-for-the-plan.md` whole; `docs/reviews/order.md` § T15
    and § T14; this brief whole.
-3. The live M6 body; #662 (with its comments); #903 (the epic, its futro
+3. The live M6 body; #662 (with its comments; its session pointer is seeded by the dispatch and absent before it); #903 (the epic, its futro
    comment and the T15 addendum: U-1 to U-6 and A1 to A7); #339; #346 (the
    maintainer's channel: what is open there is not this lane's to decide);
    **#1015** (T12's bug: the 319 FAILs, the busybox lead, the three `TMPDIR`
@@ -255,15 +236,10 @@ row's words are a lead); the two M7 build roots (read).
    #188, #189, #191, #196, #199, #209, #350, #353, #363, #365, #383, #401,
    #421, #526 (the sections' own issues, as the header names them); #640 (the
    legacy paths); #962 (the credential-shaped fixture literal at `:8004`).
-4. The file itself, in this order: the header (`:1-258`), the harness
-   (`:259-430`), one small section whole (`a`, `:429-517`), the sandbox
-   helpers (`:8993-9035`), one sandboxed case (the first A-case under `y`),
+4. The file itself, in this order: the header (`:1-258`), the harness (`:259-430`), one small section whole (`a`, `:429-517`), the first sandboxed section (`b`, `:518-606`), the sandbox helpers (`:8993-9029`), one of stream A's cases under `y` (from `:8906`),
    the four call sites and the verdict (`:14177-14238`); then every section
    for Q6's table.
-5. `docs/qa-logs/2026-10-06-pixelelated-replacement-14/qa-18/defaults/scripts.log`
-   (the last PASS, under the image's busybox: its banner line names the
-   source) beside T12's `docs/audits/2026_10_24-epic-m6-tooling-vm-harness/streams/scripts-tmpdir-compare.txt`
-   and T14's `02` § The suites at the fixed tip (the FAILs under the host's).
+5. `docs/qa-logs/2026-10-06-pixelelated-replacement-14/qa-18/defaults/scripts.log` (the last PASS, under the image's busybox: its banner line names the source; `qa-18/counts.json` beside it) beside T12's `git show d9991735d8:docs/audits/2026_10_24-epic-m6-tooling-vm-harness/streams/scripts-tmpdir-compare.txt` (on `feature/m6-tooling-vm-harness-659` only until its merge) and T14's `02` § The suites at the fixed tip (`git show 7c1d729b57:docs/audits/2026_10_24-epic-m6-tooling-state-tests/02-forward-audit.md`; the FAILs under the host's).
 
 ## 4. The questions
 
@@ -313,9 +289,7 @@ happens when each is absent; what it caught; who runs it; its positives):
   the record shows none); (c) its caller (`vm-qa`'s `scripts` suite for all;
   `--cloud-layout` for `ae`; the `--old` recipes); (d) its positive (a
   `BASE_REF` recipe that FAILs, a constructed input, or `none`). Then the
-  file's split as a Q7 finding, invited by the order: a 14,238-line file
-  whose sections `y` (4,683 lines) and `z` (541) are audit streams' cases
-  pasted in -- what a split by section would cost (the shared harness, the
+  file's split as a Q7 finding, invited by the order: a 14,238-line file whose sections `y` (5,386 lines: stream B's `y1` to `y4` and stream A's cases) and `z` (541) are audit streams' cases pasted in -- what a split by section would cost (the shared harness, the
   shared sandbox helpers, the one busybox copy) and gain.
 - **Q7 Clarity and structure:** the header's 34 claims against the code
   (each section's `echo` line against what its checks assert); the three
@@ -347,9 +321,7 @@ floor):
 
 **The runs, with what the coordinator read on 2026-10-24** (the lane runs
 each at stage A in its worktree and records the exit, the wall time, the
-banner line naming the busybox, and the PASS/FAIL/SKIP counts; a run is
-started **in the foreground or with `setsid -w`** (`:260-268`: a shell
-background job inherits SIGINT ignored and the suite refuses, exit 2);
+banner line naming the busybox, and the PASS/FAIL/SKIP counts; a run is started **with SIGINT at its default** (`:260-268`: a shell background job inherits SIGINT ignored and the suite refuses, exit 2; **`setsid` does not reset an ignored SIGINT -- the stranger tested `-w` and `-f` with it ignored in the parent and both children kept the bit, and the file's own comment at `:264` naming `setsid -f` is wrong on that point** -- so a run that cannot be foreground is started as `vm-qa:158` starts it: `python3 -c 'import os, signal, sys; signal.signal(signal.SIGINT, signal.SIG_DFL); signal.signal(signal.SIGPIPE, signal.SIG_DFL); os.execv(sys.argv[1], sys.argv[1:])' tools/last-good-scripts-test`, and the run's first output line, `signals: SigIgn=... SIGINT ignored=0`, is quoted);
 `TMPDIR` under `/workspace/tmp/m6-t15/`, never `/tmp` and never a path
 under the worktree (T12's seven `AF_UNIX path too long`, #659 S5b):
 
@@ -358,15 +330,16 @@ D=/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-last-good-test-
 cd "$D"; export TMPDIR=/workspace/tmp/m6-t15/tmp; mkdir -p "$TMPDIR" .qa-scratch/t15
 R7=/workspace/repos/rocknix.worktrees/m7-signin-build-20261022-07/build.pixelelated-GENERIC_X64.x86_64/image/system   # the 069fc2704421 image's root, read only
 "$R7/usr/bin/busybox" | head -1; sed -n 's/^BUILD_ID=//p' "$R7/../../etc/os-release" 2>/dev/null || sed -n 's/^BUILD_ID=//p' "$R7/etc/os-release"   # BusyBox v1.36.1; 069fc2704421...
-# run 1: the image's busybox (the suite's design); the coordinator's own run of the hash is in § 2's errata once it lands
-s=$(date +%s); QA_SYSTEM_ROOT="$R7" setsid -w tools/last-good-scripts-test > .qa-scratch/t15/run-image.out 2>&1; echo "image rc=$? $(( $(date +%s) - s ))s $(tail -1 .qa-scratch/t15/run-image.out | cut -c1-80)"; grep -m1 'a copy of' .qa-scratch/t15/run-image.out | cut -c1-160
-# run 2: the host's busybox (the fallback every M6 worktree takes); the coordinator's run at the hash: see § 2
-s=$(date +%s); setsid -w tools/last-good-scripts-test > .qa-scratch/t15/run-host.out 2>&1; echo "host rc=$? $(( $(date +%s) - s ))s $(tail -1 .qa-scratch/t15/run-host.out | cut -c1-80)"; grep -m1 -E 'a copy of|busybox' .qa-scratch/t15/run-host.out | cut -c1-160
+SIGDFL='import os, signal, sys; signal.signal(signal.SIGINT, signal.SIG_DFL); signal.signal(signal.SIGPIPE, signal.SIG_DFL); os.execv(sys.argv[1], sys.argv[1:])'   # vm-qa:158's launcher: SIGINT and SIGPIPE at default, then exec
+# run 1: the image's busybox (the suite's design); the coordinator's run at the hash: 1,303 PASS / 10 FAIL / 0 SKIP in 514 s (§ 2)
+s=$(date +%s); QA_SYSTEM_ROOT="$R7" python3 -c "$SIGDFL" tools/last-good-scripts-test > .qa-scratch/t15/run-image.out 2>&1; echo "image rc=$? $(( $(date +%s) - s ))s $(tail -1 .qa-scratch/t15/run-image.out | cut -c1-80)"; grep -m1 'a copy of' .qa-scratch/t15/run-image.out | cut -c1-160
+# run 2: the host's busybox (the fallback every M6 worktree takes); the coordinator's run at the hash: 984 / 329 / 0 in 671 s (§ 2)
+s=$(date +%s); python3 -c "$SIGDFL" tools/last-good-scripts-test > .qa-scratch/t15/run-host.out 2>&1; echo "host rc=$? $(( $(date +%s) - s ))s $(tail -1 .qa-scratch/t15/run-host.out | cut -c1-80)"; grep -m1 -E 'a copy of|busybox' .qa-scratch/t15/run-host.out | cut -c1-160
 grep -c '    PASS  ' .qa-scratch/t15/run-image.out; grep -c '    FAIL  ' .qa-scratch/t15/run-image.out; grep -c '    SKIP  ' .qa-scratch/t15/run-image.out
 grep -c '    PASS  ' .qa-scratch/t15/run-host.out;  grep -c '    FAIL  ' .qa-scratch/t15/run-host.out;  grep -c '    SKIP  ' .qa-scratch/t15/run-host.out
 diff <(grep -E '^    (PASS|FAIL)' .qa-scratch/t15/run-image.out | sed 's/^    //') <(grep -E '^    (PASS|FAIL)' .qa-scratch/t15/run-host.out | sed 's/^    //') | grep -c '^[<>]'   # the checks whose verdict depends on the busybox: Q3's first list
-# the --old recipes the header promises FAIL (:160-230): each once, with the image's busybox; a recipe that passes is a finding
-for ref in cee1656c33 28a80357ed 3387cf5da0 655f103cc5 70b6c70ca7; do s=$(date +%s); QA_SYSTEM_ROOT="$R7" BASE_REF=$ref setsid -w tools/last-good-scripts-test --old > ".qa-scratch/t15/old-$ref.out" 2>&1; echo "--old $ref rc=$? $(( $(date +%s) - s ))s FAIL=$(grep -c '    FAIL  ' ".qa-scratch/t15/old-$ref.out")"; done
+# the twelve --old recipes the header promises FAIL (:167-226): each once, with the image's busybox; a recipe that passes is a finding
+for ref in 1d1503180d 53f390b1e9 c15050c897 8707919349 34aca64afd 0f7785e6ed d79281066c cee1656c33 28a80357ed 3387cf5da0 655f103cc5 70b6c70ca7; do s=$(date +%s); QA_SYSTEM_ROOT="$R7" BASE_REF=$ref python3 -c "$SIGDFL" tools/last-good-scripts-test --old > ".qa-scratch/t15/old-$ref.out" 2>&1; echo "--old $ref rc=$? $(( $(date +%s) - s ))s FAIL=$(grep -c '    FAIL  ' ".qa-scratch/t15/old-$ref.out")"; done
 tools/last-good-scripts-test --help | head -3; tools/last-good-scripts-test --nosuch; echo "rc=$?"   # 0 and 2
 grep -n '|| true' tools/last-good-scripts-test | cut -c1-120                                            # the eight
 grep -n -E '^set -|pipefail' tools/last-good-scripts-test | head                                        # set -u only
@@ -377,8 +350,7 @@ grep -n -E '/tmp/|rocknix\.worktrees|/workspace/repos/rocknix|HOME' tools/last-g
 
 **The reading, per section:** Q6's row (dependencies, absence effects, last
 catch, caller, positive), from the section's own checks and the record;
-every section whose verdict differed between the two runs is read for
-*which applet* made the difference; `y` and `z` read as what they are (the
+every section whose verdict differed between the two runs is read for *which applet* made the difference (the coordinator's diff: 319 checks, § 2); the ten that FAIL under the image's busybox too (`x` 5, `y` 5, all *the fixture proves nothing* / an empty journal) are sorted into the tree's and the fixture's first; `y` and `z` read as what they are (the
 two audits' punch items as cases) with their item ids mapped to the
 original issues; the four call sites read against T14's fixed tools (`git
 show 7c1d729b57:tools/settings-modes-test`, etc.) for what the contract now
@@ -409,7 +381,7 @@ All in the worktree, committed on its branch with messages that cite `#662`
 | --- | --- | --- | --- |
 | Running log | `docs/audits/<yyyy_mm_dd>-epic-m6-tooling-last-good-test/00-running-log.md` | the flight recorder: the model and effort, `reviewed-at` with `8ebaf8daad` beside it, the host file's last line and the live census at stage A, the two runs with their banners, exits, wall times and counts, every `--old` recipe's exit, every later command with its exit | A onward |
 | Research notes | `.../01-research-notes.md` | § Scope: the one path re-derived with § 2's block and its output, the provenance (408 fork commits, none upstream), the branch's diff from the hash (empty), the 34 sections by line; § Who runs it; § The record (the last PASS and the FAILs since, by busybox) | A |
-| Forward audit | `.../02-forward-audit.md` | Phase 2 over #662's checklist, plus **a coverage table with one row per section under its own `## Coverage` heading** (34; the first cell the section's letter and its first line number), § The runs (the two runs and the five `--old` recipes, each with *a FAIL would mean ...*), § The checks that depend on the busybox (the diff of the two runs' verdict lines, sorted by applet), § Proofs with `proved:` cells | B |
+| Forward audit | `.../02-forward-audit.md` | Phase 2 over #662's checklist, plus **a coverage table with one row per section under its own `## Coverage` heading** (34; the first cell the section's letter and its first line number), § The runs (the two runs and the twelve `--old` recipes, each with *a FAIL would mean ...*), § The checks that depend on the busybox (the diff of the two runs' verdict lines, sorted by applet), § Proofs with `proved:` cells | B |
 | Retrospective | `.../03-retrospective.md` | Phase 3 with § 3.5 for the seams: this file x `vm-qa`'s `scripts` suite x the four T14 tools x the scripts it proves x the busybox source | B |
 | Analysis | `.../04-analysis.md` | Phase 4, § Finding Verification (4.5), § Second opinion (4.6), **§ Renovation face** Q1 to Q7, **Q6 carrying the brittleness table** (34 rows) and **the split proposal**, § Instruction File Recommendations | B, C |
 | Second opinions | `.../second-opinions/` | `review-plan.json` (independent; `gpt` at `max`), the brief, `packet-manifest.json`, the probe prompt, the probe and the refutation with their `.provenance.json`, the packet's scan result | C |
@@ -436,10 +408,10 @@ hand-back's words.
 - [ ] `01-research-notes.md` § Scope records the read hash, § 2's inventory block with its output (1 path, 14,238 lines, 1,167,697 bytes, fork-own, shell, `n/a`), the 408 fork commits (`git log --oneline 8ebaf8daad -- tools/last-good-scripts-test | wc -l`) and the 34 sections with their first line numbers (`grep -n -E '^echo "  [a-z]{1,2}\. '`).
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per section under its own `## Coverage` heading, the section's letter in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | grep -c -E '^\| `[a-z]{1,2}`'`` prints `34`.
 - [ ] `02-forward-audit.md` § The runs records both stage-A runs (`QA_SYSTEM_ROOT` set to a named M7 root's `image/system`, and unset) with command, exit, wall time, the banner line naming the busybox and its source, the PASS/FAIL/SKIP counts, and each with *a FAIL would mean ...*; and § The checks that depend on the busybox lists every check whose verdict differed between the two runs, each with the applet named (`flock` among them if the diff shows it).
-- [ ] `02-forward-audit.md` § The runs records each of the five `--old` recipes of the header (`BASE_REF` `cee1656c33`, `28a80357ed`, `3387cf5da0`, `655f103cc5`, `70b6c70ca7`) run once under the image's busybox with its exit and FAIL count, and names any recipe whose promised FAILs did not fire (a control that stopped controlling is a finding).
-- [ ] `00-running-log.md` shows no handheld action, no real provider or real account touched, no guest, no build, no edit to a script this file proves, no edit to T14's four tools, no write under `/workspace/repos/rocknix*` or `/tmp`, and every suite run started in the foreground or with `setsid -w` (the SIGINT line of each run's output quoted).
+- [ ] `02-forward-audit.md` § The runs records each of the twelve `--old` recipes of the header (`:167-226`: `1d1503180d`, `53f390b1e9`, `c15050c897`, `8707919349`, `34aca64afd`, `0f7785e6ed`, `d79281066c`, `cee1656c33`, `28a80357ed`, `3387cf5da0`, `655f103cc5`, `70b6c70ca7`) run once under the image's busybox with its exit and FAIL count, and names any recipe whose promised FAILs did not fire (a control that stopped controlling is a finding).
+- [ ] `00-running-log.md` shows no handheld action, no real provider or real account touched, no guest, no build, no edit to a script this file proves, no edit to T14's four tools, no write under `/workspace/repos/rocknix*` or `/tmp`, and every suite run started with SIGINT at its default (each run's first output line `signals: SigIgn=... SIGINT ignored=0` quoted).
 - [ ] `04-analysis.md` § Renovation face Q6 carries the brittleness table: one row per section (34), each with (a) its dependencies that are not the thing it proves and what happens when each is absent, (b) its last recorded catch or `nothing recorded`, (c) its caller, (d) its positive or `none`; and § Q6 carries the split proposal with what a split by section would cost and gain, as a lead for the coordinator.
-- [ ] `04-analysis.md` § Q3 hunts the pass-without-proving shape through every section by letter, each with the line read and a constructed input that would pass wrongly or the statement that none can; the eight `|| true` sites, every `check $?` after a compound test, and the `skip()` paths each dispositioned by line.
+- [ ] `04-analysis.md` § Q3 hunts the pass-without-proving shape through every section by letter, each with the line read and a constructed input that would pass wrongly or the statement that none can; the eight `|| true` sites, every `check $?` after a compound test, the `skip()` paths, **the `NOT APPLICABLE` outcome that exits 0 (`:4558`, `:14235`)**, and **the no-busybox case that runs on the host's GNU tools with no banner line** each dispositioned by line; the ten checks that FAIL at the hash under the image's busybox (§ 2) each sorted into the tree's (a `bug` for its script's lane) or the fixture's (a finding here).
 - [ ] `04-analysis.md` § Q7 reads the header's 34 claims against the code (each `echo` line against its checks), the three descriptions (`--help`, `generic-x64-vm-testing.md`'s and `vm-qa`'s words, the index row) against the code, with each drift named as a lead; a rule or index row is never edited here.
 - [ ] `04-analysis.md` § Q5 carries the suite's wall time by section from the stage-A runs (the section `echo` lines' timestamps, or `date` lines the lane adds to its own copy of the output), names which sections carry the 13 minutes, and what a run that resolved the wrong busybox costs.
 - [ ] Every proof in `02-forward-audit.md` carries a `proved:` cell reading `tree`, `history`, `tool-run`, `fix-tree`, `fix-case` (a fix proved by a new or re-run case that failed on the unfixed file and passes on the fixed one, both quoted) or `design`; every cell is one of those six words.
@@ -473,9 +445,7 @@ proves (a `bug` for its lane), to T14's four tools (their fixes are on
 `CLAUDE.md`, `AGENTS.md`, a decided register row or
 `.github/sessions/saved-session-state-next.md`; a write under
 `/workspace/repos/rocknix*` (the M7 roots are read: `QA_SYSTEM_ROOT`
-copies one file out) or `/tmp` (use `/workspace/tmp/m6-t15/`); a suite run
-started as a shell background job (`cmd &`: the suite refuses, and a
-harness-backgrounded run is started with `setsid -w`); a credential-shaped
+copies one file out) or `/tmp` (use `/workspace/tmp/m6-t15/`); a suite run started with SIGINT ignored (`cmd &` in a non-interactive shell: the suite refuses, exit 2; `setsid` does not reset it -- a run that cannot be foreground is started through `vm-qa:158`'s `python3 -c` launcher that sets SIGINT and SIGPIPE to default and execs); a credential-shaped
 literal written anywhere (a fixture is built at run time); `--no-verify`;
 bare `git stash`; `git worktree remove --force` or `rm -rf` on a worktree;
 `rm -rf` on a bare variable path (`"${X:?}"`, or a literal).
@@ -524,8 +494,7 @@ the hash, the diff of the file against the dispatch tip (every hunk a
 stream's), `--help` rc 0 and `--nosuch` rc 2, the two call sites' flags, one
 run of the fixed suite with `QA_SYSTEM_ROOT` set to the `069fc2704421` root
 (its verdict, counts and banner) and one with it unset from a tree with no
-build root (the refusal or the marked exit 3), each started with `setsid
--w`;** `register-check` and `rules-check` on a simulated merge with the
+build root (the refusal or the marked exit 3), each started with SIGINT at its default;** `register-check` and `rules-check` on a simulated merge with the
 coordinator's tip (the ledgers united); the retro's answers; the exit codes.
 The lane posts one hand-back comment naming the tip and each artifact by
 path, writes `reviewed-at:` and `fixed-at:` into #662's body, then says it
