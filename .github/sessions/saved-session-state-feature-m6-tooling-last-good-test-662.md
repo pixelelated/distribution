@@ -43,19 +43,22 @@
    banners, exits, wall times and counts, the five `--old` recipes' exits --
    before reading a section.
 
-## Current focus (02:40 UTC update)
+## Current focus (03:12 UTC update)
 
-**Stage E: S1 in progress** (briefs `t15-streams.md` at `d717bac312`, read with `git show`; a copy is at `/workspace/tmp/m6-t15/t15-streams.md`). #1018's fix is in the working tree, uncommitted until its runs land; the stage-D clone is at `/workspace/tmp/m6-t15/stageD`; the unfixed positive is in `/workspace/tmp/m6-t15/s1/`. Dispatched on #662 at 00:21 UTC; the first commands passed (stacked on P1, the rules differ from `next` in exactly the dispatch's eight paths, the file at the hash with 14238 lines and 1167697 bytes, census 0).
-- **Running:** `docs/audits/2026_10_25-epic-m6-tooling-last-good-test/tools/t15-stage-a.sh`, one sequential background job started at 00:23:16 UTC. It runs the image's busybox (`QA_SYSTEM_ROOT` on the `069fc2704421` root), then the host's, then the twelve `--old` recipes. Each run starts through `vm-qa:158`'s launcher (`SIGINT ignored=0` on the first). The outputs go to `.qa-scratch/t15/run-*.out` and `old-*.out`, and the summary to `/workspace/tmp/m6-t15/stage-a.txt`. Its exit is delivered by the harness to the session; if the session is gone, read the summary file, and the `runner rc` line is the job's end.
-- **Written:** `00-running-log.md` (header and stage A so far), `01-research-notes.md` § Scope (the inventory row, 408 commits, the 34 sections), and the day's work-log entry.
-- **The coordinator's 00:27 ruling (#662):** keep 34 section rows for Coverage and Q6, plus a sub-group table under Q6. The lane found eight capitalised groups, not five (`x`: F1, C, D; `y`: A, F1r, CF; `z`: S315, S3F) and asked whether `x`'s three join the table (00:3x post). All eight are drafted until the coordinator answers.
-- **Run 1 (the image's busybox):** rc 0, 517 s, 1313/0/0. The coordinator's ten image-run FAILs were sorted as the fixture's git-history dependency (an export without `.git`), and put to the coordinator as bug or design (the post at the time above). The sub-group table covers twelve groups (00:33 ruling).
-- **Runs back:** run 2 (host) rc 1, 677 s, 994/319/0: 319 flips, `flock` (150 "applet not found") and the host's rclone 1.60.1-DEV. The twelve `--old` recipes all exit 2: two dead refs (`0f7785e6ed`, `d79281066c`), and ten stopped by `src_of` at `s` or `x`. `70b6c70ca7`'s `t` fires on patch failures, not its `012` checks. Put to the coordinator: three bugs, or (2) design.
-- **Attribution:** `bbhost` 994/319 and `rchost` 1313/0, so all 319 flips are the busybox's and rclone 1.60.1 changes no verdict. Q5: `y` 248 s, `x` 82, `n` 42, `af` 34, `t` 34 of 515. Nothing is running.
-- **Stage B (`c4a7e98509`):** three read-only agents' leads were re-derived where marked. Open with the coordinator: the `--old` question (three bugs, or the exit 2 as design).
-- **Stage C (`4851698b02`):** the packet (13 excerpts, scanned, `:8004` not carried) and the probe PASS. When the refutation lands: grade every item in `04` § Second opinion, run the lint with `--phase pre-issue`, then stage D (`05`, the audit issue, the bugs).
-- **Stages C and D:** the seat PASS (two calls); 21 findings graded (7 confirmed, 13 narrowed, F-08 withdrawn) and G-01 to G-10 accepted. `05`: 24 items, 22 bugs (#1018 to #1039), the audit issue #1040 (a sub-issue of #662). The lint PASS pre-issue. No `tools/` change.
-- **Next:** each run's exit, wall time and counts into `00` and `02` § The runs, then the image/host diff, then the sections read for Q6 and Q3.
+**Stage E, S1: #1018 is committed (`3037ce6b8c`).** Next come #1020, then #1029/#1038, then #1019. The stream briefs are `t15-streams.md` at `d717bac312`, read with `git show`; a copy is at `/workspace/tmp/m6-t15/t15-streams.md`. D-QA-063 (`d54b754da3`, the coordinator's branch) sets the exit lattice: 1 over 3 over 0, and a `--host-diagnostic` run is never 0.
+- **#1018's runs** (`02` § The streams' positives; outputs in `/workspace/tmp/m6-t15/s1/`):
+  - unfixed, no root: rc 1, 994/319, nothing naming the host;
+  - fixed refusal: rc 2 in 26 ms;
+  - `--host-diagnostic`: rc 1, all 1,313 lines `HOST:`;
+  - cut copies: rc 3 with no failing case, rc 1 with one injected;
+  - under the M7 root: **rc 0, 1,313/0/0**, `source: root, BUILD_ID 069fc2704421...`.
+- **Nothing is running.** The stage-D clone is at `/workspace/tmp/m6-t15/stageD`, detached at `2eface0727`, with history. The cut copies are in `/workspace/tmp/m6-t15/s1/cut/tools/` (run with `LAST_GOOD_SOURCE_ROOT` set to the worktree).
+- **Next, #1020:** stream A's rclone from the root (`QA_SYSTEM_ROOT/usr/bin/rclone`), and `rclone version` asserted against the recipe's `PKG_VERSION` read through `src_of`. The positive is the `rchost` root (`/workspace/tmp/m6-t15/roots/rchost`, the host's 1.60.1): unfixed 1,313/0; fixed refused or marked.
+- **Then #1029/#1038:** section `b`'s sandbox binds the copy, and the PL-022 case needs verified provenance, else a counted SKIP.
+- **Then #1019:** `ag`/`ah` with `--busybox-from <BUILD_ID>` or `--unverified-busybox`, and `check_child` (2 → CANNOT, 3 → unverified). T14's tools are staged from `7c1d729b57` under `.qa-scratch/t15/`.
+- **After S1:** the full suite under the root, recorded in `00`.
+- **Then S2 to S6, then the close-out** (the brief's last section): the Phase 7 table, `02` § The suites re-run, the lint, `fixed-at:`, the retro, the hand-back, then idle.
+- **Stages A to D** are in `00` (A 00:23-01:10; B `c4a7e98509`; C `4851698b02`; D `2eface0727`: `05`, bugs #1018-#1039, audit issue #1040).
 
 Not started before 00:22 UTC. The first commit on this branch is the running log's header,
 `01-research-notes.md` § Scope, this pointer updated, and the day's
