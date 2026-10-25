@@ -178,6 +178,26 @@ Under `docs/reviews/briefs/t28-streams.md` at `ad168e6d55`. The driver is `stage
 - **`stage-e/run-all.sh`** (11:11:53 UTC): the eight side/case rows, plus `success-console: identical on both sides`. It ends `run-all: 9 rows, 0 unexpected, 0 could not run`, rc 0.
 - **What a FAIL would mean:** a failing step still writing the hint or removing the old directories, a step not named, or a success path whose console, copy, `updateabl` count, removals or hint changed.
 
+## Stage F: the re-derivations at the tip (11:14:22 to 11:14:31 UTC)
+
+`stage-f/runs.sh`, 12 steps at `59877f5d59`, all exit 0:
+
+| Step | Result |
+| --- | --- |
+| f02 the block | unchanged: `paths 29 lines 28053 {'shipped': 29} {'upstream-carried': 29}`, `read 2 118 fork-own 0`, the directory 85 / 57,561 |
+| f03 the read at `reviewed-at` | `git diff --stat 8ebaf8daad 458e2bfda1 -- <the 29>`: `[]` |
+| f04 the removal rule, stages A to D | `git diff --stat 458e2bfda1 867039c467 -- packages projects tools`: `[]` |
+| f05 stage E | `projects/ROCKNIX/devices/SM8550/bootloader/update.sh`, 13 insertions, the one file |
+| f06 the generated file | `check` same; `counts` unchanged |
+| f07 the greps | coverage 29; 16 proofs and 16 proof lines |
+| f08 `run-all.sh` | `run-all: 9 rows, 0 unexpected, 0 could not run` |
+| f09 the seat's provenance | probe and refutation: verification, effort and provider `PASS`, `openai/gpt-6-astra`, `council-facilitator@1.14.1-pixelelated.2` |
+| f10 the tracker | #1109 open (`bug`); #1108 open (`audit`, `punch-list`, M6), listed under #675; the #1099 comment names #1109; the #1100 comment carries the seven-tree fact |
+| f11 the lint | `--issue 1108`: `PASS` |
+| f12 the checkbox checker | #1109 3 open, 0 fail; #1108 9 open, 0 fail |
+
+Every verdict above stands at the tip.
+
 ## Findings
 
 ### F-01 (Q4; Info; Renovation): the Nova's whole boot path is superseded upstream, settled by the next base merge (#1099)

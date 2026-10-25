@@ -25,15 +25,15 @@
 
 ## Acceptance-criteria scorecard
 
-#675's seventeen criteria (= brief § 7), at stage C before the punch-list issue. *Met* names its artifact; *waits* names the stage that ticks it.
+#675's seventeen criteria (= brief § 7), written at stage C and brought up to the hand-back at stage H. *Met* names its artifact; the coordinator ticks at acceptance.
 
 | # | Criterion | State |
 | --- | --- | --- |
 | 1 | `00` and `01` to `05` | met at stage C |
-| 2 | the lint `PASS` | pre-issue at stage C; resolution waits for stage H |
+| 2 | the lint `PASS` | met: pre-issue at stage C; resolution phase and `--issue 1108` at stages D, F and H |
 | 3 | `review-plan.json` independent, one reviewer; provenance on probe and refutation; the manifest with sha256s and 0 hits | met: `second-opinions/` (both provenance files PASS, `council-facilitator@1.14.1-pixelelated.2`; 72 sources; scan 0 hits) |
-| 4 | every punch item at a Phase 7 outcome; `box-check` 0 fail | waits: stage D onward |
-| 5 | `reviewed-at:` and `fixed-at:`; the 29 at `8ebaf8daad`'s bytes; nothing under `packages/`, `projects/` or `tools/` at A to D | the diffs are empty now (r03, r31); the header lines wait for stage H |
+| 4 | every punch item at a Phase 7 outcome; `box-check` 0 fail | met: `05` § Phase 7 (PL-01 resolved at `237f2bc438`; PL-02, PL-05, PL-09 deferred to #1099, #1100, #585; five recorded); `box-check` 0 fail on #1108 and #1109 |
+| 5 | `reviewed-at:` and `fixed-at:`; the 29 at `8ebaf8daad`'s bytes; nothing under `packages/`, `projects/` or `tools/` at A to D | met: `reviewed-at` `458e2bfda1`, `fixed-at` `237f2bc438` in #675's body; f03 and f04 `[]` |
 | 6 | `01` § Scope | met (`18f6d0b228`) |
 | 7 | the coverage table, 29 rows under `## Coverage` | met: the brief's `awk` and `grep` print 29 |
 | 8 | § The pins, 8 rows | met (generated) |
@@ -43,9 +43,9 @@
 | 12 | § The runs, every § 5 command with exit, wall time, figure and *a FAIL would mean* | met (generated, 31 rows) |
 | 13 | `00` shows no guest, build, handheld command, M7 read or extra keyed call | met: two keyed calls (probe, refutation); `--help` and `verify-pins` keyless |
 | 14 | `04` § Q4, Q3, Q6, Q7 and § Second opinion | met |
-| 15 | every proof's cell; every punch item's `question:`; every `bug` passes `box-check` | 16 proofs; `05` at stage C; no `bug` filed |
-| 16 | the retro | waits: stage G |
-| 17 | the five checkers | waits: stage H |
+| 15 | every proof's cell; every punch item's `question:`; every `bug` passes `box-check` | met: 16 proofs and 16 proof lines; nine `question:` lines; #1109 0 fail, with its `Already written:` line |
+| 16 | the retro | met: `docs/retros/2026-10-25-m6-device-sm8550.md`, posted on #675 |
+| 17 | the five checkers | met: the hand-back comment on #675 carries the exit codes |
 
 ## Risk assessment
 

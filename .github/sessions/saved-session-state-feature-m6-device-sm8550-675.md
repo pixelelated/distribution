@@ -16,9 +16,11 @@
 
 ## Current focus
 
-**Stage D paused for the coordinator's dispositions** (updated 2026-10-25, 11:05 UTC).
-- **The audit issue:** #1108, under #675, 9 items. The lint: pre-issue `PASS`.
-- **Next:** read the dispositions on #675. If PL-01 becomes a `bug` with a stream, run that stream under its brief (T27's S1 shape: a `bwrap` host fixture of `update.sh` with a failing `updateabl` stub, test first). Then record the outcomes in `05`, the resolution lint `--issue 1108`, stage F, the retro and the hand-back.
+**Handed back; idle until the coordinator's acceptance** (updated 2026-10-25, 11:16 UTC).
+- **`reviewed-at`:** `458e2bfda1`. **`fixed-at`:** `237f2bc438` (S1, #1109).
+- **The audit issue:** #1108. PL-01 resolved; PL-02 deferred to #1099, PL-05 to #1100, PL-09 to #585 (the coordinator posts the line at acceptance); the rest recorded.
+- **The retro:** posted on #675.
+- **After acceptance:** write `audit-completion.json` with T5's writer (`A`, `ISSUE=1108`), copied into the audit folder's `tools/`, once #1108 is closed.
 - **Running for this lane:** nothing.
 
 ## Next commands
@@ -59,6 +61,7 @@ host's swap, another lane's worktree, or a guest.
 
 ## Checkpoints
 
+- Stages E-H: 11:16 UTC (the commit below)
 - Stage D: 11:05 UTC (the commit below)
 - Stage C: 11:05 UTC (the commit below)
 - Stage B: 10:43 UTC (the commit below)

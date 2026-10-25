@@ -160,3 +160,14 @@
 - **The driver's own fix before the final runs:** a missing `updateabl.calls` (`copy-fail`, fixed) printed a redirect error. The count now defaults to 0 when the file is absent. Every kept output was regenerated with the final driver.
 - **`stage-e/run-all.sh`**, 11:11:53: `run-all: 9 rows, 0 unexpected, 0 could not run`, rc 0 (`stage-e/run-all.out`).
 - **Recorded:** `02` § The streams' positives; `stage-e/README.md`; `05` PL-01 resolved at `237f2bc438`; the lint `PASS`. **Nothing ran on the Nova.**
+
+## [Stage F] 11:14:22 to 11:14 UTC — the re-derivations at the tip
+
+- `stage-f/runs.sh`, 12 steps, all rc 0. The results are in `02` § Stage F: the block unchanged; the 29 at `reviewed-at` `[]`; stages A to D `[]`; stage E one file; `check` same; 16 / 16; `run-all` 0 unexpected; both provenance files `PASS`; the tracker read back; the lint `PASS`; the checkbox checker 0 fail.
+
+## [Stage G-H] 11:14 to 11:16 UTC — the retro, the scorecard, the hand-back commit
+
+- **The retro:** `docs/retros/2026-10-25-m6-device-sm8550.md`, posted on #675 (issuecomment-6396936695). It says the slice did nothing to the two time-to-play numbers and names what the devices epic's close inherits.
+  - **Its futro row was first written from memory.** It said the addendum *predicted* outcomes. Read at `:322-364`, the addendum names three known unknowns, and one of its facts is wrong ("no msm-id in the trees"). The row was rewritten and the posted comment updated (11:15:50 UTC).
+- **`04`'s scorecard** is brought up to the hand-back. `fixed-at` is `237f2bc438`.
+- **Not run in this slice, from stage A to the hand-back:** a guest, a build, a compiler, a plan generation, a fetch, a command against the Nova or a handheld (`ssh`, `device-act` and `scp` to a unit: none), an M7 build root read. The `tools/council/run invoke` calls were exactly the seat's two.
