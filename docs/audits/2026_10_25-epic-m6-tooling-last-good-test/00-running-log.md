@@ -37,3 +37,41 @@
   - **The mechanism:** the `F1.` and `F1r.` fixtures read earlier builds' quirks from git (`F1_PREV=417dcd8610` `:3200`, `73b20caf86`) through `f1_tree_at` (`:3274`): `git -C "${ROOT}" ls-tree ... 2>/dev/null | while ...; do git show ... || { ...; exit 2; }; done`. Without `.git` the `ls-tree` fails silently: stderr is dropped, and a pipeline's first stage has no `pipefail`. The loop never runs, and its `exit 2` is in the pipeline's subshell, so it could not end the run anyway.
   - The `C.` group's repair fixture reads `git show 417dcd8610:.../mupen64plus.cfg > spliced.cfg 2>/dev/null` (`:4271`) the same way.
   - **What caught them:** each fixture came up empty, and the file's own vacuity detectors fired (*the fixture proves nothing*, *the downgrade wrote 0 file(s)*, *the repair changed: 'nothing'*). The guard held downstream, while the read itself fails open: a Q2 item.
+
+### [Stage A] 01:10 UTC — run 2 and the twelve `--old` recipes back (the runner ended 01:06:41, `runner rc 0`)
+
+- **The coordinator's 00:36 ruling (#662):** the fail-open history read (`f1_tree_at`'s pipeline `exit 2`; `:4271`'s `2>/dev/null`) is a bug for stage D. The worktree run's 1,313/0/0 is the tree's baseline.
+- **Run 2, the host's busybox** (`QA_SYSTEM_ROOT` unset): **rc 1, 677 s, 994 PASS, 319 FAIL, 0 SKIP**, last line `319 CHECK(S) FAILED, 0 SKIPPED`.
+  - First line: `signals: SigIgn=0000000001000004 SIGINT ignored=0 SIGPIPE ignored=0`.
+  - Banner: `sed/mv/cp/tr/head/wc/cut/awk: BusyBox v1.37.0 (Ubuntu 1:1.37.0-7ubuntu1) multi-call binary. -- a copy of /usr/bin/busybox`. Stream A's `rclone:` line names the host's `/usr/bin/rclone`, **v1.60.1-DEV** (`rclone version`), against the recipe's 1.75.2.
+- **The busybox diff:** both runs count 1,313 checks in the same order, so the pairs align by position, and every PASS/PASS pair's text matches.
+  - **319 checks flip, all PASS under the image's and FAIL under the host's** (one more pair differs only because its text carries a literal tab), #1015's count exactly.
+  - By section and group: `y/A` 95, `y` (`y1`-`y4`) 59, `t` 42, `x/D` 33, `y/CF` 26, `z` 24, `z/S315` 12, `k` 11, `n` 7, `af` 6, `ad` 4.
+  - **`flock` is the only missing applet the run names:** 150 `flock: applet not found` lines; the suite's `flock` shims (`n` `:1484`, `t` `:2097`, `y` `:7811`, stream A `:8983`) exec a busybox without it. 61 of the flips print it, and 127 more show its consequence (rc 75, *another sync is already running*, a lock). The other 131 are not yet attributable by text. Stream A also ran on rclone 1.60.1, so two attribution runs follow (below).
+- **The twelve `--old` recipes, under the image's busybox: every one exits 2, and none reaches the verdict.**
+
+| `BASE_REF` | rc | wall | PASS | FAIL | where it stopped |
+| --- | ---: | ---: | ---: | ---: | --- |
+| `1d1503180d` (default) | 2 | 211 s | 73 | 118 | `s`: `rocknix-evidence` is not at the ref |
+| `53f390b1e9` | 2 | 156 s | 123 | 116 | `x`: `rocknix-corekeep` is not at the ref |
+| `c15050c897` | 2 | 213 s | 88 | 103 | `s`: `rocknix-evidence` |
+| `8707919349` | 2 | 156 s | 161 | 78 | `x`: `rocknix-corekeep` |
+| `34aca64afd` | 2 | 70 s | 179 | 60 | `x`: `rocknix-corekeep` |
+| `0f7785e6ed` | 2 | 0 s | 0 | 0 | at once: `fatal: invalid object name '0f7785e6ed'` |
+| `d79281066c` | 2 | 0 s | 0 | 0 | at once: `fatal: invalid object name 'd79281066c'` |
+| `cee1656c33` | 2 | 133 s | 256 | 90 | `x`: `rocknix-corekeep` |
+| `28a80357ed` | 2 | 114 s | 218 | 122 | `x`: `rocknix-corekeep` |
+| `3387cf5da0` | 2 | 118 s | 264 | 85 | `x`: `rocknix-corekeep` |
+| `655f103cc5` | 2 | 121 s | 267 | 82 | `x`: `rocknix-corekeep` |
+| `70b6c70ca7` | 2 | 119 s | 296 | 71 | `x`: `rocknix-corekeep` |
+
+- **Why every recipe stops:** `src_of` (`:320-325`) exits 2 for the whole run when a script is absent at `BASE_REF`. So every section from the first script a ref predates onward never runs as a control: `s` to `ah`, or `x` to `ah`.
+- **The two dead refs** exist nowhere in the repository (`git cat-file -t`: *Not a valid object name*; no branch contains them). They were written into the header by `1a5c066623` (#166) and `67a89cb623` (#173), so they most likely named commits a later history rewrite replaced. **q's and p's pending/flushed controls cannot run.**
+- **The promises against what fired before each stop (FAILs per section):**
+  - **Fired:** `1d1503180d` (`a` 9, `b` 7, `c` 4, `d` 9, `e` 1, `f` 5, `j` 4, `k` 19, `l` 14, `m` 17), `53f390b1e9` (`k` 17, `l` 14, `m` 17), `c15050c897` (`a` 10), `8707919349` (`h` 3, `n` 7, `o` 5), `28a80357ed` (`r` 6, `s` 7), `655f103cc5` (`u` 19 of its 19, `v` 2).
+  - **`34aca64afd`:** `k` 8, four naming the proxy; `p` 1, *raofflineproxy-ctl is absent at 34aca64afd*.
+  - **`cee1656c33`:** `p` 5, `r` 2 (the promise says *three* PL-29 canaries; two FAIL lines carry the planted values), `t` 44.
+  - **`3387cf5da0`:** `t` 46, three FAIL texts naming the helper's verdict and stamp.
+  - **`70b6c70ca7`: the promised control does not fire as promised.** `t`'s client-predicate block cannot build the client at that ref: the tree's patches `003` to `006` *do not apply to the pinned client* ("1 out of 4 hunks FAILED"). So `t`'s 43 FAILs are patch-application failures, and **none of the five `012` checks runs** (0 lines name `012`, against 5 PASS in the baseline).
+- **A slip of mine:** one command wrote `t-img.txt` into the session's scratchpad, which is under `/tmp`, and the brief forbids any write there. It was listed and removed at once. Every T15 scratch file now goes under `/workspace/tmp/m6-t15/`.
+- **Attribution runs, started 01:2x UTC:** two constructed roots under `/workspace/tmp/m6-t15/roots/`, each swapping one dependency of the host run: `bbhost` (the host's busybox with the image's rclone) and `rchost` (the image's busybox with the host's rclone), each with the M7 image's avahi unit and os-release beside it. Then a timed image run for Q5. The runner is `tools/t15-attribution.sh`.
