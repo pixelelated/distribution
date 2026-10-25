@@ -339,6 +339,23 @@ def check(cond, ok, bad):
     return cond
 
 
+# One definition of "skipped" (#1057, #1059): a cell or a check that could not
+# run says so in one SKIP line and is counted, never printed as PASS and never
+# left out of the run's totals.
+SKIPPED = []
+
+
+def skip(why):
+    print(f"    SKIP  {why}")
+    SKIPPED.append(why)
+    return 0
+
+
+def lacks(dev, script):
+    """True when the image under test does not ship `script`."""
+    return not dev.run(f"command -v {shlex.quote(script)} || true", check=False).strip()
+
+
 class Prepared:
     """A device the harness has pointed at the QA endpoint, and what it
     looked like before, so it can be put back whatever happens."""
@@ -611,7 +628,7 @@ def main():
     kill_keys = {k for k, _, _, _ in KILL_FIXTURES}
     kill_local_keys = {k for k, _, _, needs in KILL_FIXTURES if "backend" not in needs}
     only = {k.strip().upper() for k in args.only.split(",")} if args.only else None
-    skipped = []
+    skipped = SKIPPED   # one list: the note below and the verdict read the same skips
     # A run naming only capture fixtures needs no MinIO and no second guest:
     # the producer is network-free, so the backend is asked for nothing. The
     # same for the KILL cells that touch no endpoint (backuptool, set_setting,
@@ -2441,6 +2458,9 @@ def fx_a5(p):
     """A5: a test-only reader answers "this game, newest first, thumbnail,
     producing device, winning side" from the cloud store alone, on a second
     device that never made the decision."""
+    if lacks(p.a, "cloud_reconcile"):
+        return skip("A5: cloud_reconcile is not on this image -- the wizard's apply step from a shell "
+                    "is the open decision D-CLOUD-051, and the cell waits for it (#1057)")
     f = 0
     rel = "savestates/Decided.state1"
     p.both_changed(rel, os.urandom(4001), os.urandom(4002), os.urandom(4003))
@@ -2482,6 +2502,9 @@ def fx_retention(p):
     in the cloud before the winner replaces anything. Killed between the two,
     the loser is in the store, the head is unchanged, the device's copy is
     still its own."""
+    if lacks(p.a, "cloud_reconcile"):
+        return skip("RETENTION: cloud_reconcile is not on this image -- the wizard's apply step from a "
+                    "shell is the open decision D-CLOUD-051, and the cell waits for it (#1057)")
     f = 0
     rel = "saves/Ordered.srm"
     v = {"H0": os.urandom(65536), "HA": os.urandom(65537), "HB": os.urandom(65538)}
@@ -2504,14 +2527,17 @@ def fx_retention(p):
     tail = p.a.run("tail -c 120 /tmp/qa-apply.out 2>/dev/null || true", check=False).strip()
     f += not check(seen, "the loser's record appeared in the store (the kill point)",
                    f"no record.json ever appeared under {store} (apply said: {tail!r})")
+    # The head and the device's copy say something only at the kill point:
+    # with nothing run they hold exactly what both_changed left, and passed
+    # under the FAIL above (#1057).
     if seen:
         stored = [sha(backend_bytes(f"{store}/{r}") or b"") for r in backend_files(store) if not r.endswith("record.json")]
         f += not check(sha(v["HA"]) in stored, "the loser's bytes are in the store, hash-equal",
                        f"the store holds {[name_of(x, v) for x in stored]}, not HA")
-    f += not check(p.cloud_sha(rel) == sha(v["HB"]), "the head is unchanged",
-                   f"the head became {name_of(p.cloud_sha(rel), v)}")
-    f += not check(p.a.sha(p.path(rel)) == sha(v["HA"]), "the device's copy was not replaced before the loser was verified",
-                   f"the device's copy became {name_of(p.a.sha(p.path(rel)), v)}")
+        f += not check(p.cloud_sha(rel) == sha(v["HB"]), "the head is unchanged",
+                       f"the head became {name_of(p.cloud_sha(rel), v)}")
+        f += not check(p.a.sha(p.path(rel)) == sha(v["HA"]), "the device's copy was not replaced before the loser was verified",
+                       f"the device's copy became {name_of(p.a.sha(p.path(rel)), v)}")
     return f
 
 
