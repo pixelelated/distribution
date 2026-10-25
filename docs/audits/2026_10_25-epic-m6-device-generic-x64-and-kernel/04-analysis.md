@@ -6,16 +6,17 @@
 
 The slice's weight is three findings about the QA guest:
 - **It installs all of linux-firmware**, 6,158 files and 2.88 GB in the M7 build root, for a machine with four virtio and HDA devices (F-01, Medium).
-- **Its kernel embeds 1,254 real-GPU firmware files** and builds three real-GPU drivers in, through an upstream block keyed on the architecture (F-02, Low).
+- **Its kernel embeds 1,254 firmware files** (GPU, CPU microcode and NIC) and builds three real-GPU drivers in, through an upstream block keyed on the architecture (F-02, Low).
 - **Its committed configuration is a 6.15.6 file.** It differs from what the build makes of it in 18 values (among them the preemption model), 97 removed and 137 new set options (F-04, Low). The fork's 10 settings survive, and the one proof that read the file holds.
 
 The rest:
 - three standards and clarity findings: `install`'s header (F-03), the UTM text (F-07), and `options` silent on its choices (F-10);
 - two dead ends in `install` (F-05, F-06);
+- four from the second opinion, each re-read: the bfq rule matches partitions, fixed upstream (F-11); `dtb_overlay`'s error paths and edge input (F-12); the launcher's PID-file path follows a symlink (F-13); `install` and `release` mask a failure (F-14);
 - an inventory reach gap in the opposite direction to #1049 and #1056 (F-08);
 - a merge seam with upstream's version case (F-09).
 
-Removals none (D-WORKFLOW-209). The launcher design and every fork-own dead unit are deferred to the coordinator. The seat's grading is at stage C.
+Removals none (D-WORKFLOW-209). The launcher design and every fork-own dead unit are deferred to the coordinator. The seat confirmed the slice's main findings and narrowed several statements, all corrected here. Of its nine new items, two were refuted on the lane's re-read (G-26 by a fixture; G-8, a narrowing, by the configuration), and the rest became F-11 to F-14 or were recorded (G-28).
 
 ## Acceptance-criteria scorecard
 
@@ -47,7 +48,7 @@ Removals none (D-WORKFLOW-209). The launcher design and every fork-own dead unit
 | A proof reads the committed configuration as the guest's and is wrong | Medium: one proof already did (2026-10-11) | a false claim about the guest's kernel | F-04; the regeneration packet and the `modprobe configs` check |
 | A GENERIC_X64 firmware list is added and nothing rebuilds | High until T5's E6 lands | the fix looks done and the image is unchanged | F-01 depends on E6 (`0c786d298e`) |
 | A merge of `next` drops GENERIC_X64 from the version case | Medium at the next upstream merge | the guest builds another kernel under a 6.15.6 file | F-09, for T25 |
-| An unreached `install` branch is reached | Low: no device sets those loaders | a warning and an empty `/usr/share/bootloader`; no `set -e` stops it | F-06 |
+| An unreached `install` branch is reached | Low: no device sets those loaders | a warning and a reported success, with nothing copied (the grub package's own staging stays); no `set -e` stops it | F-06 |
 | The firmware payload grows with linux-firmware | High: `*` takes every new file | a larger guest image each bump | F-01 |
 
 ## Coverage boundary
@@ -63,7 +64,52 @@ Removals none (D-WORKFLOW-209). The launcher design and every fork-own dead unit
 
 ## Second opinion
 
-At stage C: one seat, GPT-6 Astra at `max` through the installed Facilitator, a probe first, then one refutation pass over the packet (`second-opinions/`). Every item will be graded here as confirmed, narrowed, refuted or new, the decisive ones re-read at their lines.
+**The seat:** GPT-6 Astra at `max` through the installed Facilitator (`council-facilitator@1.14.1-pixelelated.2`).
+- **Probe:** 07:08:17-07:08:27 UTC, PASS.
+- **Refutation:** 07:08:52-07:22:52 UTC, first attempt, 31,521 reasoning tokens, finish stop. Served `openai/gpt-6-astra` by OpenAI; verification, effort and provider all PASS.
+- **Packet:** 46 sources, 247,469 bytes, scanned 0 hits (`second-opinions/packet-manifest.json`).
+- **Reply:** `second-opinions/gpt-audit.md`, 36 items.
+
+**The seat's own labels:** 13 confirmed, 14 narrowed, 9 new. **The lane's grades:** 20 confirmed (G-24 sharpened), 11 narrowed, 3 new accepted, and 2 refuted: G-8 by the configuration, G-26 by a fixture. The decisive items were re-read by the lane at their lines (`02` § Stage C re-reads). The rest are marked *accepted on the seat's reading*.
+
+| Item | Seat | Lane's grade | Re-read, and what changed |
+| --- | --- | --- | --- |
+| G-1 | narrowed | **narrowed, accepted** | re-read `package.mk:157-195` and the options: the recipe sets two values and disables what its switches select; on GENERIC_X64 that is swap, CIFS and five iSCSI options. "Four values" corrected in `02`, `03`, `04`. |
+| G-2 | confirmed | **confirmed** | "one reader" now reads "one identified proof"; the recipe itself greps the file (perf, CFG80211) |
+| G-3 | narrowed | **narrowed, accepted** | the regeneration packet now reproduces the whole preparation (`package.mk:146-316`), and its equality expectation is to be verified; the guest's kernel identified first |
+| G-4 | narrowed | **confirmed** | re-read `kernel-firmware/package.mk`: the fallback is `any.dat` plus `${TARGET_ARCH}.dat`, so `any.dat` is not aarch64-only. The coverage row and Q6 corrected. |
+| G-5 | confirmed | **confirmed** | re-read `generic-x64-vm:361-435`: a virtio RNG, xHCI with keyboard and tablet, and the `i6300esb` watchdog besides the profile's four; none loads firmware. F-01 and P15 corrected. |
+| G-6 | narrowed | **narrowed, accepted** | F-01 stays Medium as a build and image efficiency finding; the figure is raw staged bytes, not compressed image growth or boot time, and a list would not remove `.copied-firmware` |
+| G-7 | confirmed | **confirmed** | the payload is mixed (GPU, microcode, NIC); F-02 and the summary corrected |
+| G-8 | narrowed | **refuted** | `CONFIG_CFG80211=m` in both files (`:1662`, `:1669`); the append at `:293-304` needs `=y`, so 1,254 is the whole list (P20) |
+| G-9 | confirmed | **confirmed** | `install:51-58`'s comment says there is "nothing under `/usr/share`", but `rocknix-abl` stages `/usr/share/bootloader/rocknix_abl`; added to F-03's standards point |
+| G-10 | narrowed | **narrowed, accepted** | `release` is safe after normal staging, not unconditionally; its unchecked `cp` is F-14 |
+| G-11 | confirmed | **confirmed** | F-05's scope is guest-runtime; `release` is its build-time consumer, as `02` said |
+| G-12 | narrowed | **narrowed, accepted** | the `grub` branch would warn and report success, and the grub package's own staging stays; `""` is unreachable by `scripts/image:272`'s outer test. F-06 and the risk table corrected. |
+| G-13 | narrowed | **narrowed, accepted** | "the one operational tool"; `last-good-scripts-test` copies and runs the `utm` path in a fixture |
+| G-14 | confirmed | **confirmed** | every flag `vm-pair:74` passes exists with the assumed meaning |
+| G-15 | confirmed | **confirmed** | the design sentence stands; the seat adds "or a shared resolver" for a second operational caller |
+| G-16 | narrowed | **narrowed, answered** | the stamp claim rests on T5's P25 (a fixture: the list changed, the stamp did not), now cited in F-01 |
+| G-17 | narrowed | **narrowed, accepted** | F-02: a mixed payload; the count reconciles (G-8) |
+| G-18 | confirmed | **confirmed** | F-03 is provenance: keep any justified prior credit and add the fork's |
+| G-19 | confirmed | **confirmed** | F-04 Low provenance; removed and new symbol counts are not counts of lost or new features |
+| G-20 | confirmed | **confirmed** | F-05's build-time consumer is real; any removal accounts for `release` |
+| G-21 | narrowed | **narrowed, accepted** | F-06: unused defensive cases are not harmful in themselves; the consequence is a warning and a no-op |
+| G-22 | narrowed | **narrowed, accepted** | F-07 is a support decision, not dead code; the fixture shows packaging, not a Mac boot |
+| G-23 | confirmed | **confirmed** | re-read `device-tree-overlays/package.mk`: the selectors are `:13` and `:20`, not `:8-11`; the citations corrected |
+| G-24 | narrowed | **confirmed, sharpened** | re-read the override's `:1-20` (no sourcing) and upstream's `esac` at `:53` (no default): GENERIC_X64 would get no version, checksum or URL, a broken build. F-09 raised from Info to Low. |
+| G-25 | narrowed | **confirmed** | `73b20caf86` says *re-derived from origin/x64-build-fix*; the Generic conf was already 7.1.2 that day (`872b13a3b3`). The ancestry claim is withdrawn in `02`, `03`, `04`. |
+| G-26 | new | **refuted** | a fixture with `mtools` 4.0.49: `mcopy <dir> ::` without `-s` copies the directory and its contents, rc 0 (P19). T5's P15 had used a file, so this is the first directory test. |
+| G-27 | new | **new, accepted** | the reached masking in `install` and `release` is F-14; `mkimage`'s copies are T5's E1 (#827) |
+| G-28 | new | **narrowed** | no `scripts/cleanup.sh` exists in the tree, so the `\|\| true` is latent; recorded, no item |
+| G-29 | confirmed | **confirmed** | P17 narrowed to the wrapper's prerequisites (one card named in `WLR_DRM_DEVICES`, one virtio child, `virtio_gpu`, at least 64 bits) |
+| G-30 | confirmed | **confirmed** | the serial shell's conditions compose as intended |
+| G-31 | new | **confirmed** | re-read `generic-x64-vm:298`, `:705` against `:143-146`: F-13 |
+| G-32 | new | **new, accepted on the seat's reading** | the non-atomic check and unlink, and identical monitor and serial paths: in F-13 |
+| G-33 | new | **confirmed** | re-read `dtb_overlay:132-156`: F-12 |
+| G-34 | new | **confirmed** | re-read `dtb_overlay:84-103`: F-12 |
+| G-35 | new | **confirmed** | upstream's own fix at `651150fc88` (`SUBSYSTEM=="block", ENV{DEVTYPE}=="disk"`) agrees: F-11 |
+| G-36 | new | **new, accepted on the seat's reading** | in F-11; upstream-carried, no device of ours known to carry the dongle |
 
 ## Finding Verification
 
@@ -78,9 +124,13 @@ Each finding re-read at its lines after `02` was written:
 | F-05 | r28; no `devices/GENERIC_X64/bootloader/`; the shipped `init:432` | stands; it also keeps `release`'s glob filled, so not removable alone |
 | F-06 | r11, r13; `projects/ROCKNIX/packages/tools/grub/package.mk:77-84` | stands |
 | F-07 | `utm-bundle-readme.txt:9-23`; `README.md:4`, `:66-138`; D-QA-053, D-QA-054, D-CLOUD-175 | stands as a question for the coordinator |
-| F-08 | r14; `device-tree-overlays/package.mk:8-11`; the inventory rows | stands |
+| F-08 | r14; `device-tree-overlays/package.mk:13`, `:20`; the inventory rows | stands |
 | F-09 | `651150fc88:projects/ROCKNIX/packages/linux/package.mk:42` (`RK3326\|AMD64)`) and its `esac` at `:53`, no default branch | stands |
-| F-10 | `options:26-27`; the conf's first lines (no provenance comment) | stands |
+| F-10 | `options:26-27`; the conf's first lines; `73b20caf86`'s message | stands, its ancestry claim withdrawn (G-25) |
+| F-11 | `10-bfq-sched.rules:1`; `651150fc88`'s fix; `40-usb_modeswitch.rules` | stands (from the seat) |
+| F-12 | `dtb_overlay:84-163` | stands (from the seat) |
+| F-13 | `generic-x64-vm:142-154`, `:205-217`, `:298`, `:705` | stands (from the seat) |
+| F-14 | `install:16-22`, `:80`; `release:4-5`; `scripts/image:272-289` | stands (from the seat) |
 
 ## Renovation face
 
@@ -89,13 +139,13 @@ Each finding re-read at its lines after `02` was written:
 **(a) The configuration, in three parts** (`02` § The configuration).
 1. **The nearest candidate** is `projects/Generic/linux/linux.x86_64.conf`, 659 lines removed and 351 added. The AMD64 conf (7,671 / 2,980) is not a base.
 2. **The fork's own edits since `73b20caf86`** are 13 lines: `1cd0093d67` (`FW_CFG_SYSFS`, for the advertised ssh port) and `cbf75c0b06` (watchdog and pstore).
-3. **The built-versus-committed gap.** **Stated from the recipe (primary):** the recipe copies the 6.15.6 file and forces four values, then runs `listnewconfig` (`:306`) and `yes "" | kernel_make oldconfig` (`:315`) at 7.1.2. So every symbol 7.1 added takes its default unseen, every dropped one vanishes, and the forced values override the file. **Corroborated** on an M7 root's built file (provenance and transfer argument in `02` § The configuration; accepted by the coordinator, 07:10 UTC):
+3. **The built-versus-committed gap.** **Stated from the recipe (primary):** the recipe copies the 6.15.6 file, sets two values and applies the disables its switches select (here swap, CIFS and iSCSI), then runs `listnewconfig` (`:306`) and `yes "" | kernel_make oldconfig` (`:315`) at 7.1.2. So every symbol 7.1 added takes its default unseen, every dropped one vanishes, and the forced values override the file. **Corroborated** on an M7 root's built file (provenance and transfer argument in `02` § The configuration; accepted by the coordinator, 07:10 UTC):
    - 335 / 641 `diff` lines;
    - 18 changed values: five forced by the recipe, six from the toolchain, seven from 7.1's defaults, including `PREEMPT_VOLUNTARY` -> `PREEMPT` and `PGTABLE_LEVELS` 4 -> 5;
    - 97 set options gone and 137 set options new;
    - **the fork's 10 settings kept.**
 
-   **The regeneration is a packet, an open item.** Run `oldconfig` at 7.1.2 over the file with the recipe's forced values and commit it under its true header. A reviewer compares it with the built `.config` (equal but for paths and toolchain), with the fork's 10, and with a guest's `/proc/config.gz` after `modprobe configs`.
+   **The regeneration is a packet, an open item.** Reproduce the whole configuration preparation at 7.1.2 and commit it under its true header (G-3). A reviewer compares it with the saved `.image/.config` (equal but for paths and toolchain is to be verified, not assumed), with the fork's 10, and with an identified guest's `/proc/config.gz` after `modprobe configs`.
 
 **(b) The launcher.**
 - **The resolution:** `tools/vm-pair` runs it by full path through `VM_TOOL` (`:36`, `:74`), as the rule's two `VM_TOOL=` lines do. The basename appears only in comments and help strings, and nothing resolves it.
@@ -128,6 +178,11 @@ Each finding re-read at its lines after `02` was written:
 - **`install`'s echo branches are the design, not bugs.** H700 is `u-boot` and SM8550 `qcom-abl` (r13). Their loaders are staged by their recipes and written at image time (`install:51-58`; `rocknix-abl/package.mk:13-17`; `H700/packages/u-boot/package.mk:28-34`). `release`'s glob has sources on both (r27).
 - **`systemd-boot` and `*)` are reached by no device**, and neither are `grub` and `""` (r13: every device is `syslinux`, `u-boot` or `qcom-abl`). They are dead ends (Q6), not bugs. Had `grub` been reached, its copy from `/usr/share/grub` would have warned, because ROCKNIX's grub package stages elsewhere (F-06). But it is not reached.
 - **`cpugov.patch`** is #1072's (T40), cited, not re-read.
+- **From the second opinion, each a Low candidate the coordinator dispositions at stage D:**
+  - `dtb_overlay` reports success over a failed boot-file update, and cannot clear a specialization with no installed overlay (F-12). It is upstream-carried and installed on H700; a host fixture could verify a fix.
+  - The bfq rule's partition writes (F-11) are upstream's, fixed at `651150fc88`, and come with the next merge.
+  - The launcher's PID file (F-13) is a QA-host hardening gap.
+- **G-26 is not a bug.** SM8550's `mkimage_abl` copies `rocknix_abl` correctly without `-s` (P19).
 
 ### Q4 Package currency
 
@@ -150,7 +205,7 @@ Each finding re-read at its lines after `02` was written:
   - **8 values differ.**
 
   The four GPU drivers (`DRM_VIRTIO_GPU`, `DRM_AMDGPU`, `DRM_I915`, `DRM_RADEON`, all `=y`) are the Generic conf's too: ours inherits them, it does not add them. Nothing in the diff is an AMD64 handheld's (the AMD64 conf is 7,671 lines away). Which of the 217 are deliberate is not recorded anywhere (F-10).
-- **The overlay package.** One recipe, eight sources; only H700's DDR3 source compiles on a shipped device (`package.mk:8-11`).
+- **The overlay package.** One recipe, eight sources; only H700's DDR3 source compiles on a shipped device (`package.mk:13`, `:20`).
 - **`machine-info`.** Nine lines on every image, one read by WebKitGTK and hostnamed, and wanted on the guest so its frames are the handheld's. No cost.
 - **`install`'s syslinux copy (F-05).** Five files, unread on the guest.
 
@@ -172,7 +227,7 @@ Every unit, removals none (D-WORKFLOW-209).
 | `device-tree-overlays` RK3566, RK3588 and S922X sources | Carried for ROCKNIX's devices; none of ours compiles them (F-08) |
 | `kernel-firmware/extra-firmware` rtl_bt (8) and cirrus (4) | Carried for ROCKNIX's devices; on ours only the guest gets them, through `*` (F-01) |
 | `kernel-firmware/extra-firmware` panels (10) | Live: H700's list and kernel |
-| `firmwares/any.dat` | Carried: the aarch64 fallback; H700 and SM8550 have their own lists |
+| `firmwares/any.dat` | Carried: half of every device's fallback; H700 and SM8550 have their own lists, and on GENERIC_X64 `x86_64.dat`'s `*` already takes everything (G-4) |
 | `linux-drivers/rocknix-joypad` | Live on H700 |
 | `linux-firmware/extra-firmware` | Live on SM8550 |
 
@@ -181,7 +236,7 @@ Every unit, removals none (D-WORKFLOW-209).
 - **What the guest is for.** The serial shell's unit says it (`serial-debug-shell.service:4-14`, D-QA-053), and so does a comment in `options` (`:13-14`). The README opens on *Linux/QEMU and macOS/UTM*, which reads like a product (F-07).
 - **How it is booted.** `vm/README.md` and `profile.json` describe the launcher; T12's harness drives it through `vm-pair`. A reader of the device directory cannot tell that `vm-pair` is the way in; § The launcher's design sentence places that line.
 - **`options`.** It does not say why `BOOTLOADER="syslinux"`: the profile boots UEFI, and `mkimage` writes syslinux's EFI loader from the toolchain (`:179-180`). It does not say why `UBOOT_SYSTEM` is absent, which is a u-boot device's knob (F-10).
-- **The configuration.** Nothing says where it came from (the Generic conf at 6.15.6, `73b20caf86`) or that the build moves it to 7.1.2 (F-04, F-10).
+- **The configuration.** Nothing says where it came from (`73b20caf86` says only *re-derived from origin/x64-build-fix*; the Generic conf is the nearest candidate, not a proven ancestor, G-25) or that the build moves it to 7.1.2 (F-04, F-10).
 
 ## Instruction File Recommendations
 

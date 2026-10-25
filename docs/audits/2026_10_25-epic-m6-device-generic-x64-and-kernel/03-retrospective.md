@@ -8,7 +8,7 @@ Fifty-eight paths: the fork's QA guest and the project's shared kernel and boot 
 - **The H700 overlay package**, and 20 firmware blobs.
 
 Three facts organise it:
-- **The guest is built from a configuration nobody built.** The committed file is a 6.15.6 configuration copied from the Generic conf on 2026-06-30. It became the input to a 7.1.2 build on 2026-08-21 (`dc948f59aa`). Since then the recipe's silent `oldconfig` has produced a different configuration every time, and the committed file records none of it.
+- **The guest is built from a configuration nobody built.** The committed file is a 6.15.6 configuration added on 2026-06-30 (`73b20caf86`, *re-derived from origin/x64-build-fix*), when the in-tree Generic conf was already 7.1.2. It became the input to a 7.1.2 build on 2026-08-21 (`dc948f59aa`). Since then the recipe's silent `oldconfig` has produced a different configuration every time, and the committed file records none of it.
 - **The guest inherits a PC's payload.** Two upstream defaults written for real x86 hardware reach a QEMU guest whose four devices need none of it: `x86_64.dat`'s `*` and the x86 block that embeds GPU firmware in the kernel. Nobody chose this for the guest.
 - **The boot files are mostly upstream's, run by an upstream mechanism.** The one fork file among them, `install`, does real work only on the guest. Elsewhere it echoes by design.
 
@@ -28,7 +28,7 @@ Three facts organise it:
 ## 3.5 The seams
 
 **The recipe x the configuration x `oldconfig`.**
-- The recipe owns four values (initramfs, hostname, swap, CIFS), the firmware list and the version.
+- The recipe owns two set values (initramfs, hostname), the disables its switches select (here swap, CIFS and iSCSI), the firmware list and the version.
 - The configuration owns everything else, at 6.15.6.
 - `oldconfig` silently fills the difference with 7.1's defaults: full preemption instead of voluntary, five-level page tables, and 137 set options the file never names.
 

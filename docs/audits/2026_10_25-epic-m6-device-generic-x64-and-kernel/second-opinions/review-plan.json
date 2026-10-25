@@ -28,14 +28,18 @@
           "output": "gpt-probe.md"
         }
       ],
-      "status": "planned: the probe, then one refutation pass, at stage C"
+      "status": "complete: probe PASS 07:08:17-07:08:27Z and refutation PASS 07:08:52-07:22:52Z on the first attempt (served openai/gpt-6-astra by OpenAI, effort max, 31521 reasoning tokens, outcome success, finish stop); packet scanned 0 hits, no redaction; 36 items graded in 04 \u00a7 Second opinion"
     }
   ],
   "packets": {
     "gpt": {
       "file": "gpt-brief.md",
+      "bytes": 247469,
+      "sha256": "a61ed1b792dbae6225cf0a1e584672213b7c9dba4586e734281dc516ebef7fb2",
       "manifest": "packet-manifest.json",
-      "content": "planned: the ask, 02, 03 and 04 whole, and the read files at 8ebaf8daad line-numbered"
+      "content": "the ask (configuration, firmware, boot files, launcher first), 02, 03 and 04 whole as of 07:05, three context sections (order \u00a7 T11, the brief's \u00a7 2 and \u00a7 4, D-WORKFLOW-185/186/187 and D-QA-053), the 14 read paths, the four bootloader scripts, the conf's header and its diff against the Generic conf, and 19 excerpts at 8ebaf8daad (one at 2174265e9c, one at 651150fc88), line-numbered",
+      "scan": "forbidden-terms-check --stdin 0 hits; SECRET_PATTERNS 0 lines under this branch's, the primary checkout's and T10's widened sets, each shown to fire on a run-time fake line; no redaction"
     }
-  }
+  },
+  "facilitator_version": "council-facilitator@1.14.1-pixelelated.2"
 }
