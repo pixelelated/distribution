@@ -16,12 +16,11 @@
 
 ## Current focus
 
-**Handed back; idle until the coordinator's acceptance** (updated 2026-10-25, 10:15 UTC).
-- **`reviewed-at`:** `b27889bce2`. **`fixed-at`:** the hand-back commit, written in #672's body.
-- **The audit issue:** #1102: PL-01 deferred:#1101, PL-02 deferred:#346, PL-03 to PL-05 resolved as records. The lint `PASS`, also with `--issue 1102`.
-- **The retro:** `docs/retros/2026-10-25-m6-devices-unshipped.md`, posted on #672.
-- **After acceptance:** write `audit-completion.json` with T5's writer, copied to the audit folder's `tools/write-completion.py` with `A` and `ISSUE=1102`, once the coordinator closes #1102.
-- **Running for this lane:** nothing.
+**Idle: T25 accepted and closed out** (updated 2026-10-25, 10:21 UTC).
+- **Accepted** at `68dc79793f`; `reviewed-at` `b27889bce2`, `fixed-at` `2fae567a89`.
+- **#1102** closed completed, 5 of 5; `audit-completion.json` written from its closed readback; the lint `PASS` with `--issue 1102`.
+- **#672:** 13 of 14. The checkers line stays open until the merge into `next`, which is the coordinator's.
+- **Nothing runs for this lane.** The worktree stays idle until `tools/fork-worktree remove` at retirement. T28's brief goes to the first idle session.
 
 ## Next commands
 
