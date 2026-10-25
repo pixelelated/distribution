@@ -32,7 +32,7 @@ The audit's Phase 3: how the 52 members came to be what they are, and where they
 | the export × the push guard's personal paths | `fork-workflow.md`'s list and `PERSONAL_PATTERNS` in `.githooks/pre-push` enumerate the council paths (18 pattern hits by `grep`) | the enumeration is a second copy of the export's path set; a refresh that adds a path must add it there too (Q1) |
 | the export × `.gitignore` | the export's ignore lines merged at 2026-09-30 | the seal-key line arrived after two keys were already committed, and it untracked nothing (F-03, #1043) |
 | the toolchain × the four slices' runs | `tools/council/run invoke` in each slice's Phase 4.6 | every record names `1.14.1-pixelelated.2` (the branch's), the served model and provider, and PASS; none names the npm versions that ran (F-06) |
-| the toolchain × the rules | `adversarial-council.md` (the floor), `council-substrate-integrity.md` (Facilitator only) | the floor holds on both trees. The integrity rule mandates two lints that do not exist (F-05) and names exit 3 alone as the halt (F-15) |
+| the toolchain × the rules | `adversarial-council.md` (the floor), `council-substrate-integrity.md` (Facilitator only) | the floor holds on both trees. The integrity rule's rules 4 and 5 name two council-research lints this tree lacks; its adoption note (`:42-46`) says they are carried by the source estate only and gives a manual fallback (F-05). It names exit 3 alone as the halt (F-15) |
 
 ## 3.6 What the time-to-play numbers have to do with it
 

@@ -9,10 +9,10 @@ The council toolchain on this fork is scaffold's export, and it is accounted for
 - **The seats:** the five sit on `adversarial-council.md`'s floor on both trees.
 - **The record:** all ten seat calls of this week verify identity, effort and provider.
 
-No defect was proven, so this slice files no `bug`. Every finding is either a lead for the coordinator or the export's owner, or a design recorded with its sentence. The two that matter most:
+No defect was proven, so this slice files no `bug`. Every finding is either a lead for the coordinator or the export's owner, or a design recorded with its sentence. The one that matters most, with a smaller drift beside it:
 
 - **F-01: the lane's tree carries a local Facilitator fork** (`1.14.1-pixelelated.2`, #636/#638) that no register row records, while D-WORKFLOW-088 describes the toolchain as scaffold's, refreshed only by copying.
-- **F-05: `council-substrate-integrity.md` mandates two lints that exist in no commit.**
+- **F-05 is a Low drift, not a missing check.** `council-substrate-integrity.md`'s rules 4 and 5 still read as unconditional and name two council-research lints that exist in no commit here. Its own adoption note (`:42-46`) says those lints are carried by the source estate only, and gives the manual check that replaces them.
 
 Outside the slice, two committed council-run seal keys went to the coordinator as #1043 (F-03).
 
@@ -76,7 +76,7 @@ Every finding was checked against the artifact named, not against the brief's or
 | F-02 | a completed current-contract run is unlintable on the current tree after any re-pin (genesis binds the pins), and the local version bump left `1.14.0` runs neither installed nor historical | Low | Q3 | the four lint runs, explicit and by discovery, on both trees; the 09-30 runs pass at `4fa6e04948` | confirmed as a consequence of a design | lead for the export's owner (a way to retire a contract, or the written expectation that a run is linted at its own commit) |
 | F-03 | two council-run HMAC seal keys committed, on `next`, public; outside the 52 | Medium | Q2 | `git ls-files`, `git ls-tree -r next` (unread) | confirmed | deferred to **#1043** (the coordinator's; removed on its branch at `0fa5a20c5f`) |
 | F-04 | `IMPORTED-FROM.md` item 3: *ten literals in the two test files*; the bytes show 7 run-time-built keys, in the routing test and the toolchain test, and none in the seat-efforts test | Low | Q7 | marker counts at the hash (`02` § Reconciliation) | confirmed (7 found; 3 unresolvable without the export's bytes) | lead for the coordinator (a skill file; the lane edits none) |
-| F-05 | `council-substrate-integrity.md` requires `scripts/lint-council-research-provenance.ts` and `scripts/lint-council-research-digests.ts` after every Facilitator call; neither exists in any commit; the `council-research` skill names them too | Medium | Q7 | `git cat-file -e` at the hash and on the branch; `git log --all -- <path>` empty | confirmed | lead for the coordinator (a rule drift, or a missing piece of the export) |
+| F-05 | `council-substrate-integrity.md` rules 4 and 5 tell the orchestrator to run `scripts/lint-council-research-provenance.ts` and `scripts/lint-council-research-digests.ts` in a council-research run; neither exists in any commit, and the `council-research` skill names them too. The rule's adoption note (`:42-46`) says they are carried by the source estate only and gives the manual fallback, so the drift is that rules 4 and 5 read as unconditional | Low | Q7 | `git cat-file -e` at the hash and on the branch; `git log --all -- <path>` empty; the adoption note read | confirmed; first stated as Medium and *a mandate after every call* at stage B (posted 03:15), corrected | lead for the coordinator (the rules carry their own fallback, or the lints come with the next export) |
 | F-06 | no lockfile (by policy, `.gitignore:67`), and no seat provenance record names the `tsx` or Bedrock SDK version that ran | Low | Q4 | `.gitignore:66-67`; `grep -c -i 'tsx\|npm\|bedrock'` of a record prints 0 | confirmed | lead for the export's owner |
 | F-07 | the seat-efforts snapshot is 27 days old (`refreshed_at` `2026-09-28T05:09:37Z`); the branch added the Argon entry from a 2026-10-22 catalogue without moving it | Low | Q4 | the file on both trees; `0ceb2994c5`'s README | confirmed | lead (a fresh reading needs the key) |
 | F-08 | the Mistral counter chain and its requirements, the Bedrock dependency (a Mistral-only backup route), `forge-write-status.mjs` and `owner-queue-lint.mjs`, and the four `council-stage-*` CLIs with no wrapper route | -- | Q6 | the references map (`stage-b/refs.txt`); `council-invoke.ts:108-111`, `:1552-1563` | confirmed | design: kept because the export carries it (D-WORKFLOW-088) |
@@ -174,7 +174,7 @@ Nothing is removed.
 | `tools/council/run` header (`:2-17`) | loads keys from `~/.config/council/env` (0600); the subcommand list; `test` makes no provider calls | the list matches the `case`; `test` is offline | `COUNCIL_ENV_FILE` is not mentioned; the silent skip is not mentioned (F-10) |
 | `tools/council/package.json` `description` | *imported from pfi/pfi-collaboration* | scaffold's export since 2026-09-30 | stale (F-12) |
 | `adversarial-council.md` | the Facilitator at `scripts/council-invoke.ts`, OpenRouter route; the floor | matches; the floor holds on both trees | none on the floor; the branch's audit route is described by `IMPORTED-FROM.md`, not by this rule |
-| `council-substrate-integrity.md` | run `scripts/lint-council-research-provenance.ts` and `-digests.ts` after every call; HALT on exit 3 | neither script exists in any commit; the Facilitator also stops on 6, 7 and (branch) 8 | **F-05**, F-15 |
+| `council-substrate-integrity.md` | rules 4 and 5: run `scripts/lint-council-research-provenance.ts` and `-digests.ts` in a council-research run; HALT on exit 3; the adoption note (`:42-46`): those lints are the source estate's only, check by hand where absent | neither script exists in any commit; the Facilitator also stops on 6, 7 and (branch) 8 | F-05 (the rules read as unconditional; the fallback is only in the preamble), F-15 |
 | `instruction-files.md` rows | `council/`: *verified external reviewer invocation and retained receipts*; the integrity rule's glob names `scripts/council-invoke.ts` and `scripts/lib/council-verification.ts` | matches | none |
 | `IMPORTED-FROM.md` item 3 | ten literals in the two test files | 7 found, in the routing test and the toolchain test | F-04 |
 
@@ -184,7 +184,7 @@ Each drift is a lead; no rule or index row is edited by the lane.
 
 These are proposals for the coordinator; the lane edits no rule.
 
-1. **`council-substrate-integrity.md`:** either restore the two research lints from the export or drop the mandate, and name the Facilitator's other no-retry stops (6, 7, 8) beside exit 3 (F-05, F-15).
+1. **`council-substrate-integrity.md`:** put the adoption note's manual fallback beside rules 4 and 5 (or bring the two research lints with the next export), and name the Facilitator's other no-retry stops (6, 7, 8) beside exit 3 (F-05, F-15).
 2. **`IMPORTED-FROM.md`, or a register row:** record the local Facilitator fork (#636/#638) as a decision, with its reconciliation condition and the expectation that 1.14.0 runs are linted at their own commit (F-01, F-02).
 3. **`engineering-practices.md` § Guards must fail closed:** *capture `rc=$?` on the line after the command, before any substitution.* This is the third instance (friction 2026-10-25 02:59 UTC), meeting the P1 retro's trigger.
 4. **The refresh:** a short procedure, or a check, that re-applies the five adaptations and keeps the export's pristine SUMS-verified bytes outside the tree for the next diff (F-14).
@@ -192,6 +192,6 @@ These are proposals for the coordinator; the lane edits no rule.
 ## Quality self-check
 
 - **Every count re-derived by a command and kept in `stage-a/` or `stage-b/`:** the 52, the four SUMS counts on both trees, the pins (27/30), the test counts (39/109/19, 39/127/19), the 52 coverage rows (the `awk` count).
-- **Two of this slice's readings were wrong at first and are corrected:** the lint/verifier inconsistency (withdrawn; #692 edited at 03:05), and a loop's `rc=0` (friction line).
+- **Three of this slice's readings were wrong at first and are corrected:** the lint/verifier inconsistency (withdrawn; #692 edited at 03:05), F-05's severity and wording (Medium, *after every call*, corrected to Low after reading the rule's adoption note), and a loop's `rc=0` (friction line).
 - **Unverifiable here, and stated as such:** the export's bytes for the 9 (F-04's remaining three literals), any newer export (CANNOT), and a fresh seat-efforts reading (it needs the key).
 - **No member file changed:** `git log --format=%h 32a34393dd..HEAD -- <the 52>` is empty.
