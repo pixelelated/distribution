@@ -1,0 +1,27 @@
+units 731 recipe in set 727
+dispositions {'dead, upstream-carried': 603, 'shadowed copy, override live': 94, 'unshipped': 21, 'shadowed copy, override dead too': 7, 'reached after all': 5, 'fork-own, dead': 1} sum 731
+recipes whose name some plan builds 86 ; of them shadowed (resolved elsewhere) 86 ; resolved to themselves 0
+  by the host plans alone 84
+shadowed_by units with no plan naming the name 3 ['amlogic-boot-fip', 'rkbin', 'weston']
+  by the host plans alone 5 ['swig', 'amlogic-boot-fip', 'atf', 'rkbin', 'weston']
+shadowed_by units 93 rows 260
+basename pairs in the set 11
+   cargo-snapshot -> packages/rust/cargo-snapshot [shadowed copy, override live], projects/ROCKNIX/packages/rust/cargo-snapshot [reached after all] ; resolves to projects/ROCKNIX/packages/rust/cargo-snapshot
+   cbindgen -> packages/rust/cbindgen [shadowed copy, override dead too], projects/ROCKNIX/packages/rust/cbindgen [fork-own, dead] ; resolves to projects/ROCKNIX/packages/rust/cbindgen
+   connman -> packages/network/connman [shadowed copy, override dead too], projects/ROCKNIX/packages/network/connman [dead, upstream-carried] ; resolves to projects/ROCKNIX/packages/network/connman
+   grub -> packages/tools/grub [shadowed copy, override dead too], projects/ROCKNIX/packages/tools/grub [dead, upstream-carried] ; resolves to projects/ROCKNIX/packages/tools/grub
+   qemu -> packages/tools/qemu [shadowed copy, override dead too], projects/ROCKNIX/packages/tools/qemu [dead, upstream-carried] ; resolves to projects/ROCKNIX/packages/tools/qemu
+   rkbin -> packages/tools/rkbin [shadowed copy, override dead too], projects/ROCKNIX/packages/tools/rkbin [unshipped] ; resolves to projects/ROCKNIX/packages/tools/rkbin
+   rust-std-snapshot -> packages/rust/rust-std-snapshot [shadowed copy, override live], projects/ROCKNIX/packages/rust/rust-std-snapshot [reached after all] ; resolves to projects/ROCKNIX/packages/rust/rust-std-snapshot
+   rustc-snapshot -> packages/rust/rustc-snapshot [shadowed copy, override live], projects/ROCKNIX/packages/rust/rustc-snapshot [reached after all] ; resolves to projects/ROCKNIX/packages/rust/rustc-snapshot
+   spirv-headers -> packages/graphics/spirv-headers [shadowed copy, override live], projects/ROCKNIX/packages/graphics/spirv-headers [reached after all] ; resolves to projects/ROCKNIX/packages/graphics/spirv-headers
+   strace -> packages/debug/strace [shadowed copy, override dead too], projects/ROCKNIX/packages/debug/strace [dead, upstream-carried] ; resolves to projects/ROCKNIX/packages/debug/strace
+   weston -> packages/wayland/weston [shadowed copy, override dead too], projects/ROCKNIX/packages/wayland/weston [unshipped] ; resolves to projects/ROCKNIX/packages/wayland/weston
+reached after all:
+   packages/devel/binutils-gold reach unreached named [] via ['packages/devel/binutils:11'] on ['GENERIC_X64', 'H700', 'SM8550']
+   projects/ROCKNIX/packages/graphics/spirv-headers reach unreached named [] via ['projects/ROCKNIX/packages/graphics/glslang:18', 'projects/ROCKNIX/packages/graphics/shaderc:12', 'projects/ROCKNIX/packages/graphics/spirv-tools:18', 'projects/ROCKNIX/packages/lang/llvm:17'] on ['GENERIC_X64', 'H700', 'SM8550']
+   projects/ROCKNIX/packages/rust/cargo-snapshot reach unreached named [] via ['projects/ROCKNIX/packages/rust/cargo:9', 'projects/ROCKNIX/packages/rust/rust:11'] on ['GENERIC_X64', 'H700', 'SM8550']
+   projects/ROCKNIX/packages/rust/rust-std-snapshot reach unreached named [] via ['projects/ROCKNIX/packages/rust/rust:11'] on ['GENERIC_X64', 'H700', 'SM8550']
+   projects/ROCKNIX/packages/rust/rustc-snapshot reach unreached named [] via ['projects/ROCKNIX/packages/rust/rust:11'] on ['GENERIC_X64', 'H700', 'SM8550']
+units in the set named by some PKG_DEPENDS_UNPACK (any namer, by name, any device) 18
+fork-own: [('packages/tools/installer', 'shadowed copy, override live'), ('projects/ROCKNIX/packages/graphics/spirv-headers', 'reached after all'), ('projects/ROCKNIX/packages/rust/cbindgen', 'fork-own, dead')]

@@ -16,11 +16,14 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#670` (prose through a quoted heredoc or the Write
-tool). `.qa-scratch/` is gitignored and `git status --short` is read before
-every `git add -A`. No network is used at all.
+**Stage A complete; stage B next** (updated 2026-10-25, 04:21 UTC).
+- **`reviewed-at`:** `27b015c901`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-generic-packages-dead-ends/`. It holds `00`, `01` (§ Scope), `stage-a/` and `tools/t23-tables.py`, the generator that asserts 1,604, 727 and 731.
+- **Scope:** 1,604 / 95,892 / 1,601 + 3 / 1,565 + 39 / 727 / 260, as the brief says. 731 units, 4 with the recipe outside the set.
+- **Plans:** 593 / 605 / 235 / 672 / 238 on the host. The header has 611 for H700-aarch64; the six are its bootloader chain (`xmlstarlet` absent, `SUBDEVICES` empty).
+- **Dispositions:** 603 dead upstream, 94 shadowed and live, 7 shadowed with the override dead too, 21 unshipped, 5 reached after all, 1 fork-own dead (`cbindgen`).
+- **Every plan run uses the curl shim** (`PATH=/workspace/tmp/m6-t23/shim:$PATH`). Loading `mesa-reusable` calls `curl`; the first five runs (04:12:13-16) reached the network once each, which is recorded in `00` and the friction log.
+- **`pkgcheck`:** the brief's path arguments match nothing (exit 0). The corrected sweep found 4 FAIL in 3 recipes; T6's leads are false positives.
+- **Running for this lane:** nothing.
 
 ## Next commands
 

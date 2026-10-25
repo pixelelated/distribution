@@ -1,0 +1,18 @@
+[WARN] 023: packages/addons/addon-depends/steamlink-depends/steamlink-ffmpeg/package.mk     : intertwined vars & funcs : get_graphicdrivers
+[WARN] 017: packages/addons/addon-depends/steamlink-depends/steamlink-mtdev/package.mk      : intertwined vars & funcs : PKG_CONFIGURE_OPTS_TARGET="--disable-static --enable-shared"
+[WARN] 017: packages/addons/addon-depends/steamlink-depends/steamlink-wayland/package.mk    : intertwined vars & funcs : PKG_MESON_OPTS_TARGET="-Dlibraries=true \
+[WARN] 029: packages/addons/service/tigervnc/package.mk       : unknown function         : _pkg_copy_lib()
+[FAIL] 012: packages/addons/tools/jre.zulu/package.mk         : late binding violation   : ref PKG_SHORTDESC
+[WARN] 022: packages/addons/tools/jre.zulu/package.mk         : unknown function         : _pkg_copy_lib()
+[WARN] 037: packages/audio/wireplumber/package.mk             : intertwined vars & funcs : }
+[FAIL] ---: packages/audio/wireplumber/package.mk             : duplicate function def   : main =
+[FAIL] ---: packages/audio/wireplumber/package.mk             : duplicate function def   : wireplumber.profiles =
+[WARN] 022: packages/devel/shared-mime-info/package.mk        : intertwined vars & funcs : PKG_MESON_OPTS_COMMON="-Dupdate-mimedb=false \
+[FAIL] 014: packages/graphics/mesa-reusable/package.mk        : late binding violation   : ref PKG_SOURCE_NAME
+[WARN] 064: packages/multimedia/ffmpeg/package.mk             : intertwined vars & funcs : get_graphicdrivers
+[WARN] 019: packages/multimedia/media-driver/package.mk       : intertwined vars & funcs : PKG_CMAKE_OPTS_TARGET="-DBUILD_CMRTLIB=OFF \
+[WARN] 127: packages/network/samba/package.mk                 : unknown function         : copy_directory_of_links()
+[WARN] 140: packages/network/samba/package.mk                 : unknown function         : perform_manual_install()
+[WARN] 023: packages/sysutils/v4l-utils/package.mk            : unknown function         : create_multi_keymap()
+[WARN] 025: packages/wayland/lib/wlroots/package.mk           : intertwined vars & funcs : PKG_MESON_OPTS_TARGET="-Dxcb-errors=disabled \
+[WARN] 022: packages/wayland/waylandpp/package.mk             : intertwined vars & funcs : PKG_CMAKE_OPTS_HOST="-DBUILD_SCANNER=ON \

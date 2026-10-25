@@ -1,0 +1,4 @@
+#!/bin/bash
+# T23 shim: records that a recipe load called curl, and fails like an offline host. Never reaches the network.
+printf 'curl called: %s\n' "$*" >> /workspace/tmp/m6-t23/shim/curl.log
+exit 7
