@@ -20,10 +20,6 @@
         {
           "phase": "refutation",
           "output": "gpt-audit.md"
-        },
-        {
-          "phase": "refutation, second packet (the sections the seat asked for)",
-          "output": "gpt-audit2.md"
         }
       ],
       "probes": [
@@ -32,7 +28,15 @@
           "output": "gpt-probe.md"
         }
       ],
-      "status": "complete: probe PASS 02:02:31-02:02:39Z; refutation PASS 02:02:52-02:15:31Z (33590 reasoning tokens) and its second packet PASS 02:16:37-02:24:14Z (21576), each on the first attempt, served openai/gpt-6-astra by OpenAI at max, outcome success; 21 findings graded (7 confirmed, 13 confirmed with narrowing, 1 refuted and withdrawn) and G-01 to G-10 added, all accepted, in 04 \u00a7 Second opinion"
+      "status": "complete: probe PASS 02:02:31-02:02:39Z; refutation PASS 02:02:52-02:15:31Z (33590 reasoning tokens) and its second packet PASS 02:16:37-02:24:14Z (21576), each on the first attempt, served openai/gpt-6-astra by OpenAI at max, outcome success; 21 findings graded (7 confirmed, 13 confirmed with narrowing, 1 refuted and withdrawn) and G-01 to G-10 added, all accepted, in 04 \u00a7 Second opinion",
+      "continuations": [
+        {
+          "of": "refutation",
+          "output": "gpt-audit2.md",
+          "provenance": "gpt-audit2.md.provenance.json",
+          "why": "the second packet the seat asked for under '## Sections I need' (the brief allows it); the same refutation pass, continued"
+        }
+      ]
     }
   ],
   "packets": {
