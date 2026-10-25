@@ -309,8 +309,25 @@ class Serial:
 
 
 def backend(*args):
-    return subprocess.run([BACKEND, *args], capture_output=True, text=True,
-                          check=True).stdout
+    """The QA backend's answer; a failed call is a Fail the runners count,
+    never an empty answer and never an uncaught CalledProcessError (#1060)."""
+    p = subprocess.run([BACKEND, *args], capture_output=True, text=True)
+    if p.returncode != 0:
+        why = (p.stderr.strip().splitlines() or ["no message"])[-1]
+        raise Fail(f"cloud-test-backend {' '.join(args)} exited {p.returncode}: {why}")
+    return p.stdout
+
+
+def backend_listing(path):
+    """`cloud-test-backend ls <path>`'s lines, or a Fail when the listing did
+    not happen. An absent path under a live endpoint lists empty with rc 0;
+    a missing endpoint or a refused server is rc 1 (#1060), and an absence
+    judged on a listing that never looked used to PASS (step 27, KILL4)."""
+    p = subprocess.run([BACKEND, "ls", path], capture_output=True, text=True)
+    if p.returncode != 0:
+        why = (p.stderr.strip().splitlines() or ["no message"])[-1]
+        raise Fail(f"could not list the endpoint at {path!r} (exit {p.returncode}: {why}); an absence on it would prove nothing")
+    return p.stdout.splitlines()
 
 
 def step(name):
@@ -1850,10 +1867,10 @@ def epath(remote_path):
     On WebDAV and FTP the folder is the path; on S3 the first component is
     the bucket and on SMB the share, which the backend's own commands already
     prefix -- passing it again doubled the path, and the seeding step read
-    its note back from a place the device never looked. On SFTP the whole
-    data directory is the prefix, because an sshd running as an ordinary user
-    cannot chroot. The backend states its own prefix rather than the driver
-    guessing from the shape of the path."""
+    its note back from a place the device never looked. SFTP is rooted at its
+    data directory since #1067, like WebDAV (it was the whole data directory
+    while an unprivileged sshd served it). The backend states its own prefix
+    rather than the driver guessing from the shape of the path."""
     path = remote_path.strip()
     pre = endpoint_prefix()
     if pre and path.startswith(pre):
@@ -1863,8 +1880,8 @@ def epath(remote_path):
 
 def rpath(*parts):
     """A remote path for a fixture folder, under whatever root this endpoint
-    needs: nothing on WebDAV and FTP, the bucket on S3, the share on SMB, the
-    data directory on SFTP (#133).
+    needs: nothing on WebDAV, SFTP (since #1067) and FTP, the bucket on S3,
+    the share on SMB (#133).
 
     A hard-coded "/QA-Custom" is a legal folder on Dropbox and an illegal
     bucket name on S3, so cloud_setup refused it and six checks below failed
@@ -1880,15 +1897,13 @@ def backend_bytes(path):
 
 def backend_files(path):
     """Every file under an endpoint path, as paths relative to it."""
-    out = subprocess.run([BACKEND, "ls", path], capture_output=True, text=True).stdout
-    return [line.split(None, 1)[1] for line in out.splitlines() if len(line.split(None, 1)) == 2]
+    return [line.split(None, 1)[1] for line in backend_listing(path) if len(line.split(None, 1)) == 2]
 
 
 def backend_sizes(path):
     """Every file under an endpoint path with its size: {relative path: bytes}."""
-    out = subprocess.run([BACKEND, "ls", path], capture_output=True, text=True).stdout
     sizes = {}
-    for line in out.splitlines():
+    for line in backend_listing(path):
         parts = line.split(None, 1)
         if len(parts) == 2 and parts[0].isdigit():
             sizes[parts[1]] = int(parts[0])
