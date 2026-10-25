@@ -69,7 +69,10 @@ at `8ebaf8daad`, which the stage-D tip carries unchanged for these files.
   mounted after a rejected update and keeps the staged file as .rejected
   (#M)` -- `Refs #N, #M, #669`.
 
-## S2. `input_sense`: the device list is emptied at the start of every retry pass (PL-05; the bug the lane files)
+## S2. `input_sense` -- does not run (PL-05 is the M7 line's `6101242e14`)
+
+**Struck at the second window's RETURN (10:24 UTC).** The image's `input_sense` is not the read tree's: the M7 line's `6101242e14` (*m7: integrate reviewed frontend and installer repairs*) empties the list and the found-flags inside the loop, and the guest shows one reader per device. PL-05 stands as a defect of `8ebaf8daad`'s bytes and is *deferred to the M7 line's integration* (#344): recorded with that commit, no bug, no stream, checked when `next` carries it. What follows is the stream as written before the window, kept for the record.
+
 
 - **File owned:** the `input_sense` script the analysis cites
   (`projects/ROCKNIX/packages/sysutils/system-utils/sources/...`: the lane
@@ -117,7 +120,10 @@ at `8ebaf8daad`, which the stage-D tip carries unchanged for these files.
 - **Commits:** `quirks: GENERIC_X64 095-cloud-ssh refuses a port that is
   not a whole number (#N)` -- `Refs #N, #669`.
 
-## S4, conditional. `udevil.conf`: a btrfs medium mounts with `nosuid,noexec,nodev` (PL-01, only if the window's case 1 mounted without them)
+## S4 -- does not run (the window's case 1 showed a refusal)
+
+**Struck at the second window's RETURN (10:24 UTC).** `udevil` refuses the btrfs medium (`denied 90: option 'compress=zstd:3' is not an allowed option`, by the medium's unit and by `udevil --mount` alike), so no medium mounts without the three options; PL-01 is recorded as a Low on #585 (a filesystem the configuration cannot mount, and a unit that reads `active` after the refusal, G-30). The conditional stream as written before the window follows, for the record.
+
 
 - **Runs only when** the second window's record shows `udevil --mount`
   mounting the loop-backed btrfs filesystem without the three options. If
@@ -139,8 +145,8 @@ at `8ebaf8daad`, which the stage-D tip carries unchanged for these files.
 
 ## Order and hand-back
 
-Stage D's outcomes and the lint first; then S1, S2, S3 (and S4 if it
-runs), each with its case before its fix; then stages F to H as the brief
+Stage D's outcomes and the lint first; then S1 and S3 (S2 and S4 struck
+at the window's RETURN), each with its case before its fix; then stages F to H as the brief
 has them, the retro's scoped audit asking of each fix whether its positive
 exercised the job the fix could break (check 7, step 5). The coordinator
 accepts by `$S/t22-accept.sh` on a clone of the merged tip, plus
