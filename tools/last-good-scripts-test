@@ -399,7 +399,7 @@ echo "signals: SigIgn=${sigign} SIGINT ignored=$(( (16#${sigign} >> 1) & 1 )) SI
 # never PASS. SECTION is the section running now (section() below).
 SECTION=""; SECTION_NA=""; NA_SECTIONS=""; OLD_NA=0; CHECKS=0; FAIL_SECTIONS=" "
 check() { # <0|nonzero> ok-text bad-text
-    if [ -n "${SECTION_NA}" ]; then echo "    N/A   ${HOST_MARK}$2"; OLD_NA=$((OLD_NA + 1)); return 0; fi
+    if [ -n "${SECTION_NA}" ]; then echo "    N/A   ${HOST_MARK}${2:-$3}"; OLD_NA=$((OLD_NA + 1)); return 0; fi   # a check with no ok-text is named by its other
     CHECKS=$((CHECKS + 1))
     if [ "$1" -eq 0 ]; then echo "    PASS  ${HOST_MARK}$2"; else echo "    FAIL  ${HOST_MARK}$3"; FAIL=$((FAIL + 1))
         case "${FAIL_SECTIONS}" in *" ${SECTION} "*) ;; *) FAIL_SECTIONS="${FAIL_SECTIONS}${SECTION} " ;; esac; fi
