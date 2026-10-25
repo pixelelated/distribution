@@ -1,0 +1,5 @@
+  | out: Updating ROCKNIX ABL on SD...
+  | log: rm -rf /flash/boot
+  | log: rm -rf /flash/EFI
+update-case success: fixed-expectation-met (rc=0 hint=yes boot-and-EFI=removed updateabl-runs=1 copied-same=yes named=no)
+rc=0

@@ -1,0 +1,6 @@
+  | out: Updating ROCKNIX ABL on SD...
+  | err: cp: cannot stat '/update/usr/share/bootloader/rocknix_abl/*': No such file or directory
+  | log: rm -rf /flash/boot
+  | log: rm -rf /flash/EFI
+update-case copy-fail: unfixed-expectation-met (rc=0 hint=yes boot-and-EFI=removed updateabl-runs=1 copied-same=no named=no)
+rc=0
