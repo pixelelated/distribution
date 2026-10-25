@@ -124,3 +124,14 @@
   - `git diff --stat 27b015c901 HEAD -- packages projects tools` is empty; deletes and renames against the dispatch tip: 0. `packages/` and `projects/` equal `8ebaf8daad`.
   - Provenance files in `second-opinions/`: 0.
 - **The lint:** pre-issue, resolution and `--issue 1052` each print `PASS`. `box-check` gives 0 fail on #1049, #1050, #1051 and #1052.
+
+## [Stage H] 04:35 UTC — the checkers; the hand-back
+
+- **The checkers on the branch:**
+  - `tools/register-check` rc 0;
+  - `tools/work-log-index --check` rc 0;
+  - `tools/rules-check --quiet` rc 0;
+  - `.githooks/hooks-test` rc 0, with its stand-in wordlist and `TMPDIR` under `/workspace/tmp/m6-t23/tmp`.
+- **`tools/forbidden-terms-check` was not run here:** it reads `~/.config/rocknix/forbidden-terms`, a list this lane does not read. It is the coordinator's at acceptance, as criterion 16 orders.
+- **The retro** is posted on #670. **`reviewed-at` `27b015c901` and `fixed-at` `ea19c27dee`** are on #670's body.
+- **The lane is idle** after the hand-back comment.

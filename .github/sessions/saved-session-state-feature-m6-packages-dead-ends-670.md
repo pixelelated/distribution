@@ -16,25 +16,18 @@
 
 ## Current focus
 
-**Stages F and G complete; stage H (the hand-back) next** (updated 2026-10-25, 04:35 UTC).
-- **`reviewed-at` `27b015c901`, `fixed-at` `ea19c27dee`**: both on #670's body, read back.
-- **Stage F** (`stage-f/counts.txt`): the plans through the shim are byte-identical to stage A's; the generator's statistics are identical; 1,604 / 731 rows; empty diffs; the lint passes in three forms; `box-check` 0 fail on #1049 to #1052.
+**Handed back; idle** (2026-10-25, 04:35 UTC). The hand-back comment on #670 names the tip and every artifact.
+- **Commits:** `reviewed-at` `27b015c901`, `fixed-at` `ea19c27dee` (both on #670's body).
+- **The audit:** `docs/audits/2026_10_25-epic-m6-generic-packages-dead-ends/`. The lint passes in the pre-issue and resolution phases and with `--issue 1052`. #1052's 9 items are at outcomes.
+- **The bugs** #1049, #1050 and #1051 are filed by the lane; the decision issue #1048 and Backlog #1053 are the coordinator's.
 - **The retro:** `docs/retros/2026-10-25-m6-generic-packages-dead-ends.md`, posted on #670.
-- **#1052:** 9 items at outcomes (#1048, #1049, #1050, #1051, #1053, `0a5676ea5d`).
+- **The checkers:** `register-check`, `work-log-index --check`, `rules-check --quiet` and `hooks-test` rc 0. `forbidden-terms-check` is the coordinator's.
+- **Left for the coordinator's re-run:** `/workspace/tmp/m6-t23` (the `curl` shim, the plan build caches, the scratch). Remove it after acceptance, or ask.
 - **Running for this lane:** nothing.
 
 ## Next commands
 
-```bash
-D=/workspace/repos/pixelelated/distribution.worktrees/m6-packages-dead-ends-670
-cd "$D" && git fetch origin && git fetch upstream --no-tags
-git merge-base --is-ancestor 2174265e9c HEAD && echo stacked-on-P1
-git diff --stat next -- .claude CLAUDE.md AGENTS.md tools/lint-audit-artifacts   # exactly the dispatch's paths
-test -f docs/reviews/inventory.json && echo inventory
-tail -3 /tmp/m7-m6-host-coordination-20261023.txt | cut -c1-200; pgrep -x qemu-system-x86 -r R,S,D,T | wc -l
-git log --oneline c445081a59..upstream/next -- packages | wc -l                  # 0
-sed -n '1,140p' docs/reviews/briefs/generic-packages-dead-ends.md
-```
+None. The lane waits for the coordinator's acceptance; after it: `audit-completion.json` from #1052's closed readback, and the full lint.
 
 ## Merge notes
 
