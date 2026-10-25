@@ -157,3 +157,34 @@ assertions first; T16 inherits the table).
 
 **Filed or posted now:** the epic #1047 with these as context. **Left for
 the stranger's proof:** every figure above.
+
+### Errata from the stranger's proof of T13's brief (version 2, 2026-10-25)
+
+A read-only reader with no context checked 76 rows of version 1 (62
+verified, 6 wrong, 8 partial; 7 API calls). What version 2 corrects, each at
+the place it lands:
+
+1. **"46 `step()` calls in the single-device suite" was the whole file's
+   count.** By AST, `run_steps` (lines 623-1716) holds 32, `prepare_device`
+   adds 2 per device, and 12 are the registry runners' headers. The
+   assertion-shape criterion now asks the generator to assert its count
+   against the AST at the hash, with 32 + 2 and the cells as the
+   coordinator's figures, not a bare 46.
+2. **`PAIR_FIXTURES` has 10 cells, not 9** (`RETENTION` is the tenth), so the
+   cells are 44 with SOLO, not 42.
+3. **The rule's `paths:` names four of the nine**, `cloud-capture-stamp-test`
+   among them; the other five load no rule.
+4. **#909 is open with all six checkboxes ticked while the rule on this tree
+   carries all five stale sentences**: a tick without the fix here, for the
+   coordinator to trace.
+5. Smaller: the registries are at 181 and 2458 onward, not 309-1714 (that is
+   the step span); the file grew from 4,953 to 6,989 lines on 2026-09-10,
+   not to 6,700; the 2026-09-15 quotation is a work-log heading, not a
+   friction line; the ledger holds about 55 round-trip verdict lines, the
+   newest including 2026-10-06's *106 PASS* -- a fourth count for one suite;
+   D-CLOUD-051 is an open decision, not a decided row; `vm-qa` also calls
+   the backend's `caps`; the T1 worktree is `m6-os-launch-control-state-648`;
+   D-INFRA-032 became the M7 lane's at 04:47, so M6's next is 033.
+
+Not checked by the proof, and left to the lane's stage A: the four bare
+tests' runs, the backends' `up`/`down`, the seat.

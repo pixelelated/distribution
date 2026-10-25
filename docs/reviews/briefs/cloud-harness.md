@@ -7,7 +7,7 @@ area: cloud-sync-and-saves
 kind: read
 lens: brittleness
 depth: Independent
-version: 1
+version: 2
 written: 2026-10-25
 author: the M6 coordinator (Fable 5.1, D-WORKFLOW-189)
 read_refs:
@@ -17,8 +17,7 @@ read_refs:
 
 # T13: the cloud test harness (a brittleness read of the nine tools that prove the cloud)
 
-**Version 1, 2026-10-25, by the coordinator.** A brief for a lane that has
-never seen this project, in the shape of T14's
+**Version 2, 2026-10-25, by the coordinator**, after the stranger's proof of version 1 (a read-only reader with no context, 76 rows: 62 verified, 6 wrong, 8 partial; the corrections are marked **(v2)** where they land and listed in the area futro's errata). Version 1 was written the same day. A brief for a lane that has never seen this project, in the shape of T14's
 (`docs/reviews/briefs/tooling-state-tests.md`, the state tests: an
 Independent read of tests, with a seat) for **the nine fork-own tools under
 `tools/cloud-*` that prove the cloud slices**. The order's § T13
@@ -60,8 +59,7 @@ version 2 records what it found.
   `rclone-cloud-sync.md` (895 lines), **under the open drift bug #909** (five
   stale rclone facts, one of them this slice's: the rule says the no-network
   step asserts exit-4 timing; the tool asserts exit 69 at lines 1460-1470),
-  and whose `paths:` names three of the nine tools (`cloud-round-trip`,
-  `cloud-test-backend`, `cloud-census`): opening the other six loads no rule.
+  and whose `paths:` names four of the nine tools (`cloud-round-trip`, `cloud-test-backend`, `cloud-census`, `cloud-capture-stamp-test`): opening the other five loads no rule (v2; version 1 said three). **#909 is open with every one of its six checkboxes ticked while the rule on this tree still carries all five stale sentences** -- the lane reads the rule as it is here and names the gap; where #909's fix lives is the coordinator's to find.
   **The policy:** D-QA-058 (local WebDAV, SFTP and MinIO/S3 are the standing
   cloud baseline; no hosted account is a prerequisite), D-CLOUD-181 (an
   integrity verifier binds manifests before and after; a lossy filter is not
@@ -84,10 +82,7 @@ version 2 records what it found.
   created by the coordinator, **stacked on `feature/m6-p1-survey-641` at
   `2174265e9c`** with the coordinator's tip merged in and the lane's pointer
   seeded (the hashes are in the dispatch comment on #660). **Before that
-  comment exists nothing runs in it.** The session is the T1 lane's
-  (`m6-t1-os-launch`), which ran T1 and the #1012 packet; the T1 and
-  `m6-1012-ttp-runner` worktrees stay beside this one, idle, until their
-  merges, and nothing is written there. The primary checkout stays on
+  comment exists nothing runs in it.** The session is the T1 lane's (`m6-t1-os-launch`), which ran T1 and the #1012 packet; the T1 worktree `m6-os-launch-control-state-648` and `m6-1012-ttp-runner` stay beside this one, idle, until their merges, and nothing is written there (v2: the session name is not the worktree's). The primary checkout stays on
   `next` (D-INFRA-025); the legacy checkout and `rocknix.worktrees/*` are the
   M7 lane's, read only. **The rules in this worktree are `next`'s except the
   paths the dispatch comment lists.**
@@ -134,10 +129,7 @@ version 2 records what it found.
   it); the lane asks for it at the end of stage A with what it will run and
   how long, and does stage B's reading meanwhile. `rclone` 1.60.1-DEV,
   `sshd`, `ssh-keygen`, `python3` and `docker` are present on the host;
-  `xmlstarlet` is not (T23's #1053, not this slice's). Register: the three
-  workflow IDs before 209 are the M7 lane's, 209 the coordinator's; a row
-  this slice forces takes **D-WORKFLOW-210 or higher**, D-QA-064,
-  D-INFRA-032.
+  `xmlstarlet` is not (T23's #1053, not this slice's). Register: the three workflow IDs before 209 are the M7 lane's, 209 the coordinator's, and D-INFRA-032 is the M7 lane's too (reserved 04:47); a row this slice forces takes **D-WORKFLOW-210 or higher**, D-QA-064, **D-INFRA-033 or higher** (v2).
 
 First commands:
 
@@ -183,8 +175,8 @@ open(".qa-scratch/t13/paths.txt","w").write("".join(r["path"]+"\n" for r in sort
 
 | Tool | Lines | Last fork commit | Runs against | Oracle | Caller | Recorded run |
 | --- | ---: | --- | --- | --- | --- | --- |
-| `cloud-round-trip` | 7,808 | `bc2dceb406` 2026-10-11 | a guest (or a handheld) over SSH; `cloud-test-backend` on the host; QEMU serial and monitor for the LINK and KILL cells | **both ends**: the device's file against the endpoint's object (`epath()`, the existence-checking `cat`, blindspot 31's fix) | `vm-qa`'s `round-trip` suite (the single-device suite) and the opt-in `link` suite (LINK1-7); CAP (14), KILL (12) and PAIR (9) cells by hand | 6 lines in `docs/vm-qa-log.md`; the newest PASS 2026-10-08, *108 checks each over local WebDAV and SFTP* |
-| `cloud-test-backend` | 920 | `bc2dceb406` | the host: WebDAV `:9010` (`rclone serve webdav`; no hashes, no modtimes, the harshest), S3 `:9012` (MinIO in a container, `quay.io/minio/minio:latest`), SFTP `:9013` (an unprivileged sshd), SMB `:9014` (`dperson/samba:latest`), FTP `:9015` (`pyftpdlib`, pip-installed into a venv at first `up`), a dead port `9011` never bound | none: it is the endpoint; `cat` checks existence first because MinIO's `rclone cat` of a missing key exits 0 | `vm-qa` (`up`, `port`, `rclone-conf`, `shipped-default`, `reset`, `seed-content`, `seed-device`) | rows 37/39 (2026-09-06/07) |
+| `cloud-round-trip` | 7,808 | `bc2dceb406` 2026-10-11 | a guest (or a handheld) over SSH; `cloud-test-backend` on the host; QEMU serial and monitor for the LINK and KILL cells | **both ends**: the device's file against the endpoint's object (`epath()`, the existence-checking `cat`, blindspot 31's fix) | `vm-qa`'s `round-trip` suite (the single-device suite) and the opt-in `link` suite (LINK1-7); CAP (14), KILL (12), PAIR (10) and SOLO (1) cells by hand | about 55 round-trip verdict lines in `docs/vm-qa-log.md` (six carry the tool's literal name); among the newest, 2026-10-06's *106 PASS each over WebDAV, SFTP and MinIO-S3* and the 2026-10-08 work log's *108 checks each over local WebDAV and SFTP* (v2) |
+| `cloud-test-backend` | 920 | `bc2dceb406` | the host: WebDAV `:9010` (`rclone serve webdav`; no hashes, no modtimes, the harshest), S3 `:9012` (MinIO in a container, `quay.io/minio/minio:latest`), SFTP `:9013` (an unprivileged sshd), SMB `:9014` (`dperson/samba:latest`), FTP `:9015` (`pyftpdlib`, pip-installed into a venv at first `up`), a dead port `9011` never bound | none: it is the endpoint; `cat` checks existence first because MinIO's `rclone cat` of a missing key exits 0 | `vm-qa` (`up`, `port`, `rclone-conf`, `shipped-default`, `reset`, `seed-content`, `seed-device`, `caps`) | rows 37/39 (2026-09-06/07) |
 | `cloud-connections-test` | 307 | `bc2dceb406` | the host's Python, importing `cloud_connections` from the package sources into a tempdir | the module itself (no second implementation); the host's rclone, not the device's | nobody | 0 lines |
 | `cloud-census` | 306 | `4533dddc72` 2026-09-07 | **a handheld over SSH** (`--host root@192.168.1.81` in its text): reads `/storage`, the cloud log, the ES log; *the device's own scripts are not run* | reading only | nobody | 0 lines |
 | `cloud-pair-migration` | 243 | `083f4fad86` 2026-10-08 | two guests on `vm-pair` and a backend -- **but it exits 2 before anything** (lines 58-63: *Historical migration proof only (D-CLOUD-175/#508)*; it requires `cloud_migrate_layout`, deleted by `e6645cb5ea` the same day) | -- | nobody | row 32 (2026-10-01, #354's runs 96-99), before its retirement |
@@ -193,28 +185,15 @@ open(".qa-scratch/t13/paths.txt","w").write("".join(r["path"]+"\n" for r in sort
 | `cloud-capture-stamp-test` | 116 | `080ceda7c5` 2026-09-09 | the host's bash over `finish()` lifted out of `cloud_capture` by `sed`, with `date` faked | **its own documented control**: `git show f451252587:...cloud_capture` FAILs | nobody (`cloud-round-trip`'s CAP12 mirrors it) | 0 lines |
 | `cloud-save-integrity-test` | 114 | `1bd4554dc8` | the host; `runpy` over `cloud-save-integrity`; `--rclone <path>` as an independent Dropbox-hash oracle | **a second implementation** (rclone's hash) -- the only tool of the nine whose oracle is not the code under test | nobody | 0 lines |
 
-**Churn, since 2026-06-01 at the hash:** `cloud-round-trip` 90 commits (74 in
-September; 4,953 to 6,700 lines on 2026-09-10 alone; now 77% of the slice;
-461 `check()` calls, 59 `raise Fail`, 46 `step()` calls in the single-device
-suite, 38 `time.sleep` waits of which ten are 2 s, around SSH, serial and
-monitor actions), `cloud-test-backend` 21 (one fix subject),
+**Churn, since 2026-06-01 at the hash:** `cloud-round-trip` 90 commits (74 in September; **4,953 to 6,989 lines on 2026-09-10 alone**, the day's first commit to its last -- v2, version 1 said 6,700; now 77% of the slice; 461 `check()` calls, 59 `raise Fail`, **46 `step()` calls in the file, of which 32 are the single-device suite's (`run_steps`, lines 623-1716), 2 are `prepare_device`'s, run once per device, and 12 are the registry runners' headers** -- v2, by the proof's AST count; 38 `time.sleep` waits of which ten are 2 s, around SSH, serial and monitor actions), `cloud-test-backend` 21 (one fix subject),
 `cloud-pair-migration` 6, `cloud-census` 2, the other five 1 each; 124 in
 all, 6 with a fix or bug subject. **Blindspot and friction entries:** 31
 (the MinIO double bucket, the harness agreeing with itself), 71 (a stale
 fixture name; its stale-name guard re-pointed at `cloud_migrate_layout
---superseded` on 2026-10-02, six days before that script was deleted); the
-friction lines of 2026-09-15 (two guests on one QA folder: *the one
-round-trip FAIL was mine*) and 2026-10-02 (eleven checks failed on a `/GAMES`
-default, #366). **Issues:** no issue has ever been titled after a harness
+--superseded` on 2026-10-02, six days before that script was deleted); the work-log entry of 2026-09-15 (two guests on one QA folder: *the one round-trip FAIL was mine*; a heading, not a friction line -- v2) and the friction line of 2026-10-02 (eleven checks failed on a `/GAMES` default, #366). **Issues:** no issue has ever been titled after a harness
 tool; the 19 `bug` issues naming `cloud-round-trip` are product bugs it
-proved (#53, #141-#143, #315, ...) plus #366. **Three counts for one
-suite:** `vm-qa` line 36 says *27 steps*; the tool has 46 `step()` calls and
-461 `check()` calls; the 2026-10-08 work log says *108 checks*. **Two
-scripts the harness names that do not exist:** `cloud_reconcile` (line 1771,
-`APPLY = "cloud_reconcile --apply --unit {unit} --keep {side}"`, the pair
-registry's apply step; never added to the tree -- `git log --all
---diff-filter=A -- '*cloud_reconcile'` is empty; the comment says *the
-command fails today and the fixtures with it*; D-CLOUD-051 named it) and
+proved (#53, #141-#143, #315, ...) plus #366. **Four counts for one suite:** `vm-qa` line 36 says *27 steps*; the tool's single-device suite has 32 `step()` calls (46 in the file) and 461 `check()` calls; the 2026-10-06 ledger row says *106 PASS*; the 2026-10-08 work log says *108 checks* (v2). **Two
+scripts the harness names that do not exist:** `cloud_reconcile` (line 1771, `APPLY = "cloud_reconcile --apply --unit {unit} --keep {side}"`, the pair registry's apply step; never added to the tree -- `git log --all --diff-filter=A -- '*cloud_reconcile'` is empty; the comment says *the command fails today and the fixtures with it*; the **open** decision D-CLOUD-051 names it, under `## Open decisions`, undated -- v2) and
 `cloud_migrate_layout` (deleted 2026-10-08, still named 8 times by
 `cloud-pair-migration` and 55 times by T15's suite). **A vendored copy of
 the whole tool** sits under `docs/qa-logs/2026-10-07-cloud-validator/`.
@@ -243,9 +222,7 @@ rule (the coordinator's; #909 is open); any device; any person's cloud.
 3. `docs/reviews/plan-for-the-plan.md` whole (§ 4; § 6c on Independent
    depth); `docs/reviews/order.md` § T13, § T16, § T17; this brief whole;
    the area futro; `docs/blindspot-register.md` entries 22, 31, 32, 38, 71.
-4. The nine tools at the hash, `cloud-round-trip` first (its registries at
-   lines 309-1714; `epath()`, `caps()` at 1792, the `check()`/`step()`
-   helpers; `assert_two_devices`; the LINK and KILL classes); then
+4. The nine tools at the hash, `cloud-round-trip` first (the single-device suite `run_steps` at lines 623-1716 and `prepare_device` at 309; the registries `CONTENT_FIXTURES` at 181, `PAIR_FIXTURES` 2458, `SOLO_FIXTURES` 2993, `CAPTURE_FIXTURES` 4527, `LINK_FIXTURES` 5720 and `KILL_FIXTURES` after it; `epath()`, `caps()` at 1792, the `check()`/`step()` helpers; `assert_two_devices`; the LINK and KILL classes -- v2); then
    `cloud-test-backend` (the `up`/`ls`/`down`/`cat`/`port`/`rclone-conf`
    subcommands, the five backends and the dead port); then the seven small
    ones. T14's `02-forward-audit.md` § The runs and its brittleness table
@@ -294,12 +271,9 @@ and the assertion-shape table as the answer T16 and T17 wait for:
   (`cloud-capture-stamp-test`, `cloud-input-test`; T14's busybox rule,
   D-QA-063)? The unpinned `:latest` images and the pip install under the
   standing baseline (D-QA-058).
-- **Q1 Modernize:** the one-file harness (7,808 lines, 77% of the slice,
-  grown 1,747 lines in a day) against the shape T14 found good (one test,
+- **Q1 Modernize:** the one-file harness (7,808 lines, 77% of the slice, grown about 2,000 lines on one day) against the shape T14 found good (one test,
   one subject, one oracle); the registries by hand (CAP, KILL, PAIR) and
-  what wiring them into `vm-qa` would cost in guest minutes; the rule's
-  `paths:` (three of nine) and #909 -- both the coordinator's to change, the
-  lane's to name.
+  what wiring them into `vm-qa` would cost in guest minutes; the rule's `paths:` (four of nine) and #909 -- both the coordinator's to change, the lane's to name.
 - **Q4 Package currency:** `quay.io/minio/minio:latest`,
   `dperson/samba:latest`, `pyftpdlib` unpinned (the version each `up`
   resolved on the day, from the container and the venv), and the host's
@@ -411,7 +385,7 @@ All in the worktree, committed on its branch with messages that cite `#660`
 | --- | --- | --- | --- |
 | Running log | `docs/audits/<yyyy_mm_dd>-epic-m6-cloud-harness/00-running-log.md` | the flight recorder: the model and effort, `reviewed-at` with `8ebaf8daad`, the host file's last line and census before each run, every § 5 command with its exit and wall time, the backends brought up and down, the guest cycle's window (granted when, on what comment) and its lines | A onward |
 | Research notes | `.../01-research-notes.md` | § Scope: the nine re-derived with § 2's block, the churn and the recorded runs, the two never-existing scripts, the retired tool, the rule's `paths:` and #909 | A |
-| Forward audit | `.../02-forward-audit.md` | Phase 2 over #660's checklist; **a coverage table with one row per path under `## Coverage`** (9); **§ Assertion shapes: one row per `step()` of the single-device suite (46) and per CAP, LINK, KILL and PAIR cell (42): the claim, the oracle (both ends / the device's report / synthetic input), the backends where `caps()` marks it, the recorded verdicts**; § The runs (each § 5 run with exit, wall time, *a FAIL would mean ...*); § The guest cycle (the window, the image, the suite's PASS lines with their check counts per backend, or that it waited); § Positives (one row per tool: the constructed input that makes it FAIL, run, or `none`); § Proofs with `proved:` cells | B, then F |
+| Forward audit | `.../02-forward-audit.md` | Phase 2 over #660's checklist; **a coverage table with one row per path under `## Coverage`** (9); **§ Assertion shapes: one row per `step()` of the single-device suite (32 in `run_steps` plus `prepare_device`'s 2) and per registry cell (PAIR 10 -- `RETENTION` included -- SOLO 1, CAP 14, LINK 7, KILL 12: 44), the counts asserted by the generator against the file's AST at the hash (v2): the claim, the oracle (both ends / the device's report / synthetic input), the backends where `caps()` marks it, the recorded verdicts**; § The runs (each § 5 run with exit, wall time, *a FAIL would mean ...*); § The guest cycle (the window, the image, the suite's PASS lines with their check counts per backend, or that it waited); § Positives (one row per tool: the constructed input that makes it FAIL, run, or `none`); § Proofs with `proved:` cells | B, then F |
 | Retrospective | `.../03-retrospective.md` | Phase 3 with § 3.5 for the seams: the harness x `vm-qa`'s suites x the QA backends x the guests x T15's shims x the rule under #909 x `vm-visual-qa` under #972 | B |
 | Analysis | `.../04-analysis.md` | Phase 4 § Finding Verification; § Second opinion (4.6); **§ Renovation face Q1 to Q7, Q2 carrying the oracle table's verdict, Q6 the seven uncalled tools' dispositions and the two scripts, Q4 the unpinned rows**; § Instruction File Recommendations (the rule's `paths:`, #909's five facts, `vm-qa`'s comment -- proposals for the coordinator) | C |
 | Second opinions | `.../second-opinions/` | `review-plan.json` (independent; `gpt` at `max`), `gpt-brief.md`, `packet-manifest.json`, the probe and the refutation with their `.provenance.json` | C |
@@ -436,8 +410,8 @@ hand-back's words.
 - [ ] `reviewed-at:` and `fixed-at:` above carry the lane's commits; the read is on `8ebaf8daad`'s bytes for the nine (`git diff --stat 8ebaf8daad <reviewed-at> -- $(cat .qa-scratch/t13/paths.txt)` empty) and nothing under `tools/` other than the nine changes at any stage (`git diff --stat <dispatch tip> <fixed-at> -- tools | grep -v -E 'tools/cloud-'` prints no file line).
 - [ ] `01-research-notes.md` § Scope records § 2's block with its output (9 paths, 10,165 lines, 9 fork-own, 6 Python and 3 shell, reach `n/a` 9), the 108 fork commits since the base (`git log --oneline c445081a59..8ebaf8daad -- <the 9> | wc -l`), the per-tool churn since 2026-06-01, the two never-existing scripts with the commands that show it, and the retired tool's exit-2 lines.
 - [ ] `02-forward-audit.md` carries a coverage table with exactly one row per path under its own `## Coverage` heading, the path in backticks as the first cell: ``awk '/^## Coverage/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | grep -c -E '^\| `'`` prints `9`.
-- [ ] `02-forward-audit.md` § Assertion shapes carries one row per `step()` of the single-device suite and per CAP, LINK, KILL and PAIR cell (``awk '/^## Assertion shapes/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | grep -c -E '^\| `'`` prints the lane's count, asserted equal to the tool's registries at the hash: 46 plus 42), each with its claim, its oracle (*both ends*, *the device's report*, *synthetic input*), the backends `caps()` marks it on, and its recorded verdicts; the rows whose oracle is the device's own report are listed as a class with a count.
-- [ ] `02-forward-audit.md` § The runs records the four bare tests, the stamp test's documented positive, the retired tool's exit 2, the three backends' `up`/`ls`/`cat`-of-a-missing-object/`down` (each exit; `cat` non-zero), `cloud-round-trip --list`'s cell count, and the three descriptions' counts (`vm-qa`'s comment, the tool's registries, the work log's 108), each with exit, wall time and *a FAIL would mean ...*; a run that cannot be made is `CANNOT` with its reason, never a pass; no backend process or container is left running after the runs (`tools/cloud-test-backend` reports none, or `pgrep` of the sshd/rclone-serve/minio it started is empty, quoted).
+- [ ] `02-forward-audit.md` § Assertion shapes carries one row per `step()` of the single-device suite (`run_steps` plus `prepare_device`) and per registry cell (``awk '/^## Assertion shapes/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | grep -c -E '^\| `'`` prints the lane's count, asserted by its generator against the file's AST and registry literals at the hash -- the coordinator's figures are 32 + 2 steps and 44 cells, PAIR's `RETENTION` included; a delta is stated with the command), each with its claim, its oracle (*both ends*, *the device's report*, *synthetic input*), the backends `caps()` marks it on, and its recorded verdicts; the rows whose oracle is the device's own report are listed as a class with a count.
+- [ ] `02-forward-audit.md` § The runs records the four bare tests, the stamp test's documented positive, the retired tool's exit 2, the three backends' `up`/`ls`/`cat`-of-a-missing-object/`down` (each exit; `cat` non-zero), `cloud-round-trip --list`'s cell count, and the four descriptions' counts (`vm-qa`'s comment, the tool's steps and registries, the ledger's 106, the work log's 108), each with exit, wall time and *a FAIL would mean ...*; a run that cannot be made is `CANNOT` with its reason, never a pass; no backend process or container is left running after the runs (`tools/cloud-test-backend` reports none, or `pgrep` of the sshd/rclone-serve/minio it started is empty, quoted).
 - [ ] `02-forward-audit.md` § The guest cycle records the window the coordinator granted on #660 (the comment's time), the image by file name and BUILD_ID, the single-device suite's PASS/FAIL line and its check count over WebDAV and over SFTP, the CAP cells' lines, and the guest stopped by its pidfile -- or states that no window was granted before the hand-back and which criteria that leaves partial.
 - [ ] `02-forward-audit.md` § Positives carries one row per tool: the constructed input that makes it FAIL, the command, the FAIL line observed, or `none` with why; `cloud-capture-stamp-test`'s and `cloud-save-integrity-test`'s rows cite their runs.
 - [ ] `00-running-log.md` shows no handheld, no hosted account, no `--real-roms`, no `cloud-census` run (read only), no guest outside the granted window, no `tools/council/run invoke` but the one Phase 4.6 call, every other `tools/council/run` call with `COUNCIL_ENV_FILE=/nonexistent`, no write under `/workspace/repos/rocknix*` or `/tmp`, and every credential-shaped line masked.
@@ -507,8 +481,7 @@ The coordinator accepts by reading, in this order, without re-reviewing:
 #660's checkboxes against their artifacts; the lint's `PASS` line; the
 seat's `review-plan.json` and provenance and the packet's recorded scan; the
 audit issue's checkboxes all at an outcome (the ticked and open counts read
-by name); the coverage table's row count (9) and the assertion-shape table's
-count against the registries; **re-running on an export of the tip under
+by name); the coverage table's row count (9) and the assertion-shape table's count against the AST and the registries; **re-running on an export of the tip under
 `/workspace/tmp`: the membership block, the four bare tests and the stamp
 test's positive, the retired tool's exit 2, the three backends' `up`/`cat`
 -of-a-missing-object/`down`, `cloud-round-trip --list`, the empty diffs
