@@ -43,19 +43,23 @@
    banners, exits, wall times and counts, the five `--old` recipes' exits --
    before reading a section.
 
-## Current focus (03:25 UTC update)
+## Current focus (03:57 UTC update)
 
-**Stage E, S1: #1018 (`3037ce6b8c`) and #1020 (`7cb11eb379`) are committed.** Next come #1029/#1038, then #1019. The stream briefs are `t15-streams.md` at `d717bac312` (the coordinator corrected the 329 at `df404d5650`), read with `git show`; a copy is at `/workspace/tmp/m6-t15/t15-streams.md`. D-QA-063 (`d54b754da3`) sets the lattice, 1 over 3 over 0.
-- **#1018:** refusal rc 2; `--host-diagnostic` rc 1 on a failing case, else 3; under the M7 root 1,313/0/0 (`02` § S1, #1018).
-- **#1020** (the coordinator's 03:11 ruling (a)):
-  - the root's rclone must be the recipe's version (`src_of`), else CANNOT before `a`;
-  - unfixed under `rchost`: rc 0 PASSED; fixed: rc 2;
-  - under the M7 root: rc 0 in 522 s, 1,313/0/0, both `tools:` lines (`02` § S1, #1020).
-- **Open with the coordinator (the #1020 checkpoint):** every positive ref pins rclone 1.75.1 and the GENERIC_X64 roots here carry 1.75.2, so no `--old` run reaches a verdict on this host. S2's #1022/#1023 proofs need an answer.
-- **Nothing is running.** Clones: `/workspace/tmp/m6-t15/stageD` (`2eface0727`) and `/workspace/tmp/m6-t15/s1/pre1020` (`3037ce6b8c`). The cut copies are in `/workspace/tmp/m6-t15/s1/cut/tools/`, run with `LAST_GOOD_SOURCE_ROOT` set to the worktree.
-- **The register:** D-WORKFLOW-206/207 are the M7 lane's; a row here takes D-WORKFLOW-208+, D-QA-064 or D-INFRA-032 (the coordinator, 03:16). None is planned.
-- **Then #1029/#1038:** section `b`'s sandbox binds the copy, and the PL-022 case needs verified provenance, else a counted SKIP.
-- **Then #1019:** `ag`/`ah` with `--busybox-from <BUILD_ID>` or `--unverified-busybox`, and `check_child` (2 → CANNOT, 3 → unverified). T14's tools are staged from `7c1d729b57` under `.qa-scratch/t15/`.
+**Stage E, S1: #1018 (`3037ce6b8c`), #1020 (`7cb11eb379`), and #1029/#1038 (`4e5b6c6103`) are committed.** #1019 is next, the last of S1; then the full root run; then S2. The stream briefs are `t15-streams.md` at `d717bac312` (the 329 corrected at `df404d5650`), read with `git show`; a copy is at `/workspace/tmp/m6-t15/t15-streams.md`. D-QA-063 (`d54b754da3`) gives 1 over 3 over 0.
+- **Under the M7 root after `4e5b6c6103`: rc 0, 1,314/0/0** (the baseline plus #1029's probe). The positives are in `02` § The streams' positives (S1: #1018; #1020; #1029 and #1038).
+- **The coordinator's 03:34 `--old` ruling, for S2:**
+  - under `--old` only, each tool borrowed from the root (rclone, busybox) is read against the ref's recipe;
+  - a mismatch is named on the banner and the `tools:` line, and its sections count as unverified (stream A for rclone, everything for busybox);
+  - the exit follows D-QA-063;
+  - outside `--old`, the 03:11 CANNOT stands;
+  - a root of a 1.75.1 ref goes into `04` as what would turn the 3s into 0s.
+- **#1019's plan:**
+  - `ag` and `ah` both take their tools from `HARNESS_ROOT` (`ag` used `ROOT`);
+  - they pass `--busybox-from "${BB_ID}"` under a root/build and `--unverified-busybox` under the host;
+  - `check_child` maps 0 to PASS, 2 to CANNOT, 3 to UNVERIFIED (each counted and named), else FAIL;
+  - positives come from a staging clone with T14's tools from `7c1d729b57` and a second with exit-2/exit-3 doubles, cut copies of the file at `4e5b6c6103` (unfixed) and the fix.
+- **Nothing is running.** Clones: `/workspace/tmp/m6-t15/stageD` (`2eface0727`) and `/workspace/tmp/m6-t15/s1/pre1020` (`3037ce6b8c`). The cut copies are in `/workspace/tmp/m6-t15/s1/cut/tools/`.
+- **The register:** D-WORKFLOW-206 to 208 are the M7 lane's; a row here takes D-WORKFLOW-209+, D-QA-064 or D-INFRA-032. None is planned.
 - **After S1:** the full suite under the root, recorded in `00`.
 - **Then S2 to S6, then the close-out** (the brief's last section): the Phase 7 table, `02` § The suites re-run, the lint, `fixed-at:`, the retro, the hand-back, then idle.
 - **Stages A to D** are in `00` (A 00:23-01:10; B `c4a7e98509`; C `4851698b02`; D `2eface0727`: `05`, bugs #1018-#1039, audit issue #1040).
