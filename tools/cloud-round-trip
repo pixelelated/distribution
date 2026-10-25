@@ -4584,15 +4584,20 @@ def fx_cap13(p):
     probe = "/tmp/cap13-outside-probe"
     a.run(f"printf outside > {probe}")
     st1 = "savestates/gba/Unit.state1"
+    mark = log_mark(a)
     rc, _ = run_rc(a, f"cloud_capture --retire --unlink {shlex.quote(probe)} {shlex.quote(p.path(st1))}")
     m = manifest_of(a) or {}
     rows = [r for r in m.get("retired") or [] if r.get("path") == st1]
     probe_there = a.run(f"[ -e {probe} ] && echo yes || echo no").strip()
     st1_there = a.run(f"[ -e {shlex.quote(p.path(st1))} ] && echo yes || echo no").strip()
-    warned = a.run(f"grep -c 'outside the saves folder' /var/log/cloud_sync.log 2>/dev/null || echo 0").strip()
-    f += not check(rc == 1 and probe_there == "yes" and st1_there == "no" and bool(rows) and warned not in ("", "0"),
+    # This call's part of the log, and the warning present or not: `grep -c
+    # ... || echo 0` yielded "0\n0" on a log without it, which is neither ""
+    # nor "0", so the check passed with no warning logged (#1065).
+    warned = "outside the saves folder" in log_since(a, mark)
+    f += not check(rc == 1 and probe_there == "yes" and st1_there == "no" and bool(rows) and warned,
                    "(e) a path outside the saves folder is refused the row and the rm (exit 1, the warning logged); the sibling that is this unit's is retired and removed",
-                   f"rc {rc}; probe on disk: {probe_there}; state1 on disk: {st1_there}; rows for state1: {len(rows)}; warnings: {warned}")
+                   f"rc {rc}; probe on disk: {probe_there}; state1 on disk: {st1_there}; rows for state1: {len(rows)}; "
+                   f"the warning in this call's log: {'yes' if warned else 'absent'}")
     a.run(f"rm -f {probe}")
     return f
 
