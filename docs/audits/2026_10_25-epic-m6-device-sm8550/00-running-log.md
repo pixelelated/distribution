@@ -133,3 +133,20 @@
   - Attached as a sub-issue of #675; readback lists it under #675.
   - Its body was scanned before filing (`forbidden-terms-check --stdin` 0 hits). `tools/box-check --issue 1108`: 9 open checkboxes, 0 fail.
 - **The pause:** the punch list posted on #675, asking for the coordinator's dispositions, PL-01 and PL-09 especially. No `tools/council/run` call, guest, build or handheld command at stage D.
+
+## [Stage D, outcomes] 11:08 to 11:09 UTC — the bug, the pointers, the outcomes
+
+- **The coordinator's dispositions** (11:07 UTC, #675, issuecomment-6396865491):
+  - PL-01 a bug, its fix stage E's one stream (`docs/reviews/briefs/t28-streams.md` at `ad168e6d55`);
+  - PL-02 to #1099 and PL-05 to #1100, by the lane's comments;
+  - PL-09 a #585 line, not a bug;
+  - the rest recorded, PL-04 with its design sentence.
+- **The bug:** #1109, label `bug`, milestone M6. Its body was scanned before filing (`forbidden-terms-check --stdin` 0 hits; `SECRET_PATTERNS` 0 lines). It carries the code trace, the `Already written:` line as drafted, and the host fixture as its VM line, and names #1095 as the same shape. `box-check --issue 1109`: 3 open, 0 fail.
+- **The pointers**, both scanned 0 hits:
+  - #1099 (issuecomment-6396876866): the requirement for the merged `update.sh`, plus F-01's six questions;
+  - #1100 (issuecomment-6396877061): the seven-tree fact.
+- **`05`:** every item at its outcome.
+  - 5 Resolved, recorded at `b13d5d8074`: PL-03, 04, 06, 07, 08;
+  - 4 Deferred: #1109, #1099, #1100, #585.
+  - PL-09's #585 line is written in `05`. `04` § Q3 carries PL-04's design sentence.
+  - **The lint (resolution phase):** `PASS`.

@@ -26,7 +26,8 @@
 - **Can this be done on the VM?** Yes, on the host: a fixture run of `update.sh` with a failing `updateabl` stub, as T27's S1 did in `bwrap`; nothing on the Nova
 - **Already written:** a device whose `updateabl` failed during an update keeps the previous ABL in both slots and `UPDATE` in `.boot.hint`; nothing records the failure, so a fix cannot tell those devices apart, and the next update's checksum compare re-checks both slots anyway
 - **Acceptance:** the coordinator's disposition: a `bug` with a stream (the fixture shows the unfixed `update.sh` exit 0 after a failing `updateabl` and the fixed one non-zero), or a named requirement on #1099's merge
-- **Disposition note:** open
+- **Bug issue:** #1109
+- **Disposition note:** deferred:#1109, the `bug` the lane filed with its trace, `Already written:` line and host fixture ([issuecomment-6396865491](https://github.com/pixelelated/distribution/issues/675#issuecomment-6396865491), 11:07:44 UTC); its fix is stage E's stream S1 (`docs/reviews/briefs/t28-streams.md` at `ad168e6d55`). #1099 carries the requirement into the merge ([issuecomment-6396876866](https://github.com/pixelelated/distribution/issues/1099#issuecomment-6396876866)).
 
 ## PL-02: the Nova's boot path is superseded upstream; the merge's migration questions
 
@@ -48,7 +49,7 @@
 - **Can this be done on the VM?** No: the merge's first boot on the Nova is a device fact; the source comparison runs on the host
 - **Already written:** nothing proposed here; #1099 owns the slots' line
 - **Acceptance:** #1099 carries a comment linking `02` F-01 with the four added questions
-- **Disposition note:** open
+- **Disposition note:** deferred:#1099, the lane's comment linking `02` F-01, the four migration questions and the ` gpt` argument ([issuecomment-6396876866](https://github.com/pixelelated/distribution/issues/1099#issuecomment-6396876866); disposition [issuecomment-6396865491](https://github.com/pixelelated/distribution/issues/675#issuecomment-6396865491), 11:07:44 UTC). No decision taken here.
 
 ## PL-03: the pins: four identical, two differ, two absent or deleted; the `kernel-firmware` override lags its generic recipe
 
@@ -69,7 +70,7 @@
 - **Can this be done on the VM?** No: a recipe read; the host shows it
 - **Already written:** nothing proposed
 - **Acceptance:** recorded in `02` § The pins; the merge carries the four upstream moves
-- **Disposition note:** open
+- **Disposition note:** resolved as a record at `b13d5d8074`: `02` § The pins; the `kernel-firmware` override's lag cited, outside the slice ([issuecomment-6396865491](https://github.com/pixelelated/distribution/issues/675#issuecomment-6396865491), 11:07:44 UTC).
 
 ## PL-04: none of SM8550's six firmware entries is embedded, unlike SM8250, SM8650 and SM8750; its runtime effect observed only narrowly
 
@@ -86,7 +87,7 @@
 - **Can this be done on the VM?** No: the firmware request timing on the Nova is a device fact; the packaging is read on the host
 - **Already written:** nothing proposed
 - **Acceptance:** recorded as a design question for the coordinator: should SM8550 embed its GPU firmware as its siblings do
-- **Disposition note:** open
+- **Disposition note:** resolved as a record and a design question for the coordinator, written as one sentence in `04` § Q3 with #836 cited; the runtime *observed only narrowly* (lines 17, 18); no change, nothing asked of the Nova ([issuecomment-6396865491](https://github.com/pixelelated/distribution/issues/675#issuecomment-6396865491), 11:07:44 UTC).
 
 ## PL-05: a reader cannot tell from the directory how the Nova boots; seven trees share its Qualcomm identifiers; no runbook section (#1100)
 
@@ -105,7 +106,7 @@
 - **Can this be done on the VM?** No: the ABL's selection rule is on the unit; the identifiers are read on the host
 - **Already written:** nothing
 - **Acceptance:** #1100 carries a comment linking `02` F-05 (the identifier table and the selection question)
-- **Disposition note:** open
+- **Disposition note:** deferred:#1100, the lane's comment carrying the seven-tree fact ([issuecomment-6396877061](https://github.com/pixelelated/distribution/issues/1100#issuecomment-6396877061); disposition [issuecomment-6396865491](https://github.com/pixelelated/distribution/issues/675#issuecomment-6396865491), 11:07:44 UTC).
 
 ## PL-06: the `.disabled` patch: 20,593 lines, 89 % of the bytes, never applied
 
@@ -120,7 +121,7 @@
 - **Can this be done on the VM?** No: a file the build never reads
 - **Already written:** nothing
 - **Acceptance:** recorded; carried in #346's class
-- **Disposition note:** open
+- **Disposition note:** resolved as a record at `b13d5d8074`, under #346's class ([issuecomment-6396865491](https://github.com/pixelelated/distribution/issues/675#issuecomment-6396865491), 11:07:44 UTC).
 
 ## PL-07: thirteen trees and seven input files carried by placement; the Nova's chain and two input files are the shipped unit
 
@@ -136,7 +137,7 @@
 - **Can this be done on the VM?** No: placement is read from the tree
 - **Already written:** nothing
 - **Acceptance:** recorded in `04` § Q6
-- **Disposition note:** open
+- **Disposition note:** resolved as a record at `b13d5d8074`: carried by placement with the brief's correction ([issuecomment-6396865491](https://github.com/pixelelated/distribution/issues/675#issuecomment-6396865491), 11:07:44 UTC).
 
 ## PL-08: two SM8550-naming `bootloader/mkimage` branches never run for SM8550
 
@@ -151,7 +152,7 @@
 - **Can this be done on the VM?** No: dispatch read from the tree
 - **Already written:** nothing
 - **Acceptance:** recorded; the merge settles the branches
-- **Disposition note:** open
+- **Disposition note:** resolved as a record at `b13d5d8074`: the two never-run branches, settled by the next base merge ([issuecomment-6396865491](https://github.com/pixelelated/distribution/issues/675#issuecomment-6396865491), 11:07:44 UTC).
 
 ## PL-09: the Nova's touchscreen selects pinctrl for gpio24/25 while its reset and interrupt are gpio14/15 (found by the seat)
 
@@ -168,78 +169,85 @@
 - **Can this be done on the VM?** No for the effect (the touchscreen is on the unit); yes for the mismatch, a host read of the trees
 - **Already written:** nothing: a tree is rebuilt into every image
 - **Acceptance:** the coordinator's disposition: an open item to test, a Backlog, or an upstream contribution queued on #585 with the two-line change named
-- **Disposition note:** open
+- **Disposition note:** deferred:#585, one line in the queue's shape, written here and posted by the coordinator at acceptance ([issuecomment-6396865491](https://github.com/pixelelated/distribution/issues/675#issuecomment-6396865491), 11:07:44 UTC). **Not a bug.** The line:
+  > **The Nova's touchscreen selects the wrong pinctrl states** (`projects/ROCKNIX/devices/SM8550/linux/dts/qcom/qcs8550-retroidpocket-rp6.dts:365-366`, inherited by `qcs8550-retroidpocket-rpnova.dts`): `touchscreen@38` uses reset gpio14 and interrupt gpio15 (`:359-360`) but selects `ts_p_*`, which `qcs8550-ayn-common.dtsi:1587,1601` defines for gpio24/25. The minimal fix is `ts_s_*` in both lines (`ayn-common.dtsi:1615,1629`), as Thor's secondary touchscreen does (`qcs8550-ayn-thor.dts:390`). Evidence: T28's `stage-c/rereads/c03_g30_touch.out`. Not a bug here (effect unobserved on a tree the VM cannot drive, `bugs-are-agent-first.md` rule 4). **An open item to test:** the Nova's touch input works and does not bounce after resume (line 18 is the frontend only); a wrong mux would show as missing or spurious touches.
 
 ## Machine-readable index
 
 ```yaml
 punch_index:
 - id: PL-01
+  tracked: "#1109"
   severity: Medium
   category: Correctness
   question: Q3
   source_finding: "F-04"
-  outcome: "open"
+  outcome: "deferred:#1109"
 - id: PL-02
+  tracked: "#1099"
   severity: Info
   category: Renovation
   question: Q4
   source_finding: "F-01"
-  outcome: "open"
+  outcome: "deferred:#1099"
 - id: PL-03
   severity: Info
   category: Renovation
   question: Q4
   source_finding: "F-02"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-04
   severity: Info
   category: Renovation
   question: Q3
   source_finding: "F-03"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-05
+  tracked: "#1100"
   severity: Low
   category: Renovation
   question: Q7
   source_finding: "F-05"
-  outcome: "open"
+  outcome: "deferred:#1100"
 - id: PL-06
   severity: Info
   category: Renovation
   question: Q6
   source_finding: "F-06"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-07
   severity: Info
   category: Renovation
   question: Q6
   source_finding: "F-07"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-08
   severity: Info
   category: Renovation
   question: Q6
   source_finding: "F-08"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-09
+  tracked: "#585"
   severity: Low
   category: Correctness
   question: Q3
   source_finding: "F-09"
-  outcome: "open"
+  outcome: "deferred:#585"
 ```
 
 ## Phase 7 resolution gate
 
+The coordinator's stage-D dispositions (#675, [issuecomment-6396865491](https://github.com/pixelelated/distribution/issues/675#issuecomment-6396865491), 11:07:44 UTC), each read back from the tracker at stage F.
+
 | Item | Outcome | Evidence |
 | --- | --- | --- |
-| PL-01 | Open | the coordinator's disposition at the stage-D pause |
-| PL-02 | Open | the coordinator's disposition at the stage-D pause |
-| PL-03 | Open | the coordinator's disposition at the stage-D pause |
-| PL-04 | Open | the coordinator's disposition at the stage-D pause |
-| PL-05 | Open | the coordinator's disposition at the stage-D pause |
-| PL-06 | Open | the coordinator's disposition at the stage-D pause |
-| PL-07 | Open | the coordinator's disposition at the stage-D pause |
-| PL-08 | Open | the coordinator's disposition at the stage-D pause |
-| PL-09 | Open | the coordinator's disposition at the stage-D pause |
+| PL-01 | **Deferred** | deferred:#1109 (the bug; the fix is stage E's S1); #1099 carries the requirement ([issuecomment-6396876866](https://github.com/pixelelated/distribution/issues/1099#issuecomment-6396876866)) |
+| PL-02 | **Deferred** | deferred:#1099, the lane's comment ([issuecomment-6396876866](https://github.com/pixelelated/distribution/issues/1099#issuecomment-6396876866)) |
+| PL-03 | **Resolved** | recorded at `b13d5d8074`: `02` § The pins, regenerated, `check` 0 |
+| PL-04 | **Resolved** | recorded at `b13d5d8074`, with `04` § Q3's design sentence; #836 cited |
+| PL-05 | **Deferred** | deferred:#1100, the lane's comment ([issuecomment-6396877061](https://github.com/pixelelated/distribution/issues/1100#issuecomment-6396877061)) |
+| PL-06 | **Resolved** | recorded at `b13d5d8074` under #346's class; `git diff --diff-filter=DR --name-only 8ebaf8daad b13d5d8074 -- projects/ROCKNIX/devices/SM8550` empty |
+| PL-07 | **Resolved** | recorded at `b13d5d8074`: `tools/t28-tables.py counts` prints the five dispositions, total 29 |
+| PL-08 | **Resolved** | recorded at `b13d5d8074`: `stage-b/b09_mkimage_branches.out` |
+| PL-09 | **Deferred** | deferred:#585, the line in § PL-09, for the coordinator's post at acceptance; not a bug |

@@ -165,6 +165,8 @@ Narrowings made while writing:
 - **F-04 (Medium):** `update.sh:25` ignores `updateabl`'s exit (1 on a missing ELF, partitions or sector size, `updateabl:24-40`). `:27-37` carry on and write `UPDATE`, and `init:427-440` prints *"Boot Files Updated."* whatever happened. Upstream keeps the shape over the BLS files. T27's #1095 shape: a stream or a #1099 requirement, the coordinator's call.
 - **F-09 (Low):** the Nova's touchscreen pinctrl names gpio24/25 for gpio14/15 pins, in an upstream tree. Its effect is unobserved.
 
+**The design question PL-04 leaves for the coordinator, in one sentence:** should SM8550's six `config/kernel-firmware.dat` entries be embedded in the kernel as its three Qualcomm siblings' are (`linux/package.mk:83`, `:208-277`; `CONFIG_DRM_MSM=y` on all four), given that the runtime is *observed only narrowly* (device-facts lines 17 and 18) and #836 already owns the `.dat`'s stamp? No change is made, and nothing is asked of the Nova.
+
 F-03, quoted from both sides:
 - **The list:** `config/kernel-firmware.dat` lists six entries, installed by `kernel-firmware/package.mk:39-70` into the image's firmware directory.
 - **The embed:** the kernel recipe embeds firmware only for `"SM8250" -o "H700" -o "SM8650" -o "SM8750"` (`:83`), in the blocks at `:208-277`. No line names SM8550 outside the version case, at either hash.
