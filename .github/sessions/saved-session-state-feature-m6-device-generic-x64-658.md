@@ -16,11 +16,15 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#658` (prose through a quoted heredoc or the Write
-tool). `.qa-scratch/` is gitignored and `git status --short` is read before
-every `git add -A`. No network is used at all.
+**Stage A complete; stage B next** (updated 2026-10-25, 06:46 UTC).
+- **`reviewed-at`:** `2103f0271d`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-device-generic-x64-and-kernel/`, with `00`, `01` (§ Scope) and `stage-a/`.
+- **Scope:** 58 / 10,418; read 14 / 1,820 / 1,421; tier 11 / 46 / 1; reach 49 / 9; GENERIC_X64 fork-own 1,217 (the order's 989 an erratum).
+- **The configuration:** 659 / 351 against the Generic conf, 7,671 / 2,980 against AMD64. The header says 6.15.6; the recipe builds 7.1.2; `listnewconfig` is at `:306` and `oldconfig` at `:309` and `:315`.
+- **History:** 110 / 40 / 70. **Upstream:** 7 M / 11 D.
+- **The boot files:** `install` (`scripts/image:280`, fork-only, ROCKNIX header), `release` (`:285`), `mkimage` (`scripts/mkimage:225-263`), `rkhelper` (Rockchip u-boot only).
+- **The launcher:** invoked by full path (`tools/vm-pair:36/74`); the basename is only in comments and help text. This delta was put to the coordinator on #658.
+- **No guest, build, plan, fetch or council call so far.** The one seat comes at stage C.
+- **Running for this lane:** nothing.
 
 ## Next commands
 

@@ -1,0 +1,39 @@
+19 functions
+817
+-rwxrwxr-x
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Copyright (C) 2026 ROCKNIX (https://github.com/ROCKNIX)
+no tools/generic-x64-vm
+--- callers:
+tools/time-to-play:368:    frame for half a minute afterwards (generic-x64-vm-testing.md), which
+tools/vm-walks/README.md:141:What the keys mean is in `.claude/rules/generic-x64-vm-testing.md`
+.claude/rules/generic-x64-vm-testing.md:79:`projects/ROCKNIX/devices/GENERIC_X64/vm/profile.json`. The adjacent `generic-x64-vm` tool
+.claude/rules/generic-x64-vm-testing.md:83:VM_TOOL=projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm
+.claude/rules/generic-x64-vm-testing.md:107:VM_TOOL=projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm
+.claude/rules/generic-x64-vm-testing.md:165:permanent MAC, and `generic-x64-vm` gives every guest the profile's fixed
+.claude/rules/generic-x64-vm-testing.md:298:- **`generic-x64-vm --headless` puts the guest on hardware GL through
+tools/cloud-round-trip:4:Drives a ROCKNIX device over SSH - a VM from generic-x64-vm, or real hardware
+tools/cloud-round-trip:504:                    help="the guest's serial console socket, from generic-x64-vm run --headless (default: %(default)s); "
+tools/cloud-round-trip:513:                    help="QEMU's monitor socket, from generic-x64-vm run --headless (default: %(default)s); the power-cut c
+tools/cloud-round-trip:607:                               "a guest from `generic-x64-vm run --headless` has one, a handheld has none")
+tools/renovation-inventory:1434:              "guest (`vm-first.md`, `generic-x64-vm-testing.md` § headless); reading and tables need no guest."
+tools/vm-pair:36:VM_TOOL="$ROOT/projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm"
+tools/last-good-scripts-test:3406:for f in generic-x64-vm profile.json utm-bundle-readme.txt; do src_of "projects/ROCKNIX/devices/GENERIC_X64/vm/${f}"
+tools/last-good-scripts-test:3407:chmod +x "${F1V}/vm/generic-x64-vm"
+tools/last-good-scripts-test:3414:        python3 "${F1V}/vm/generic-x64-vm" "$@" > "${F1V}/out" 2>&1
+tools/last-good-scripts-test:3519:        python3 "${F1V}/probe.py" "${F1V}/vm/generic-x64-vm" "${1}" "${F1V}/disk.qcow2" "${F1V}/code.fd" "${F1V}/var
+tools/last-good-scripts-test:3561:mkdir -p "${F1V}/vm-noreadme"; cp "${F1V}/vm/generic-x64-vm" "${F1V}/vm/profile.json" "${F1V}/vm-noreadme/"
+tools/last-good-scripts-test:3564:    python3 "${F1V}/vm-noreadme/generic-x64-vm" utm "${F1V}/disk.qcow2" --output "${F1V}/broken.zip" > "${F1V}/out" 
+tools/last-good-scripts-test:3571:    bash -c 'umask 077; exec python3 "$1" utm "$2" --output "$3"' _ "${F1V}/vm/generic-x64-vm" "${F1V}/disk.qcow2" "
+--- resolution in the rule:
+79:`projects/ROCKNIX/devices/GENERIC_X64/vm/profile.json`. The adjacent `generic-x64-vm` tool
+83:VM_TOOL=projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm
+107:VM_TOOL=projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm
+268:-> `/run/systemd/resolve/stub-resolv.conf`: two symlinks, and resolved
+276:symlink back (`rm -f /storage/.config/resolv.conf /run/rocknix/resolv.conf;
+277:ln -sf /run/systemd/resolve/stub-resolv.conf /run/rocknix/resolv.conf`). The
+1097:## The interface runs under `essway.service`, and its PATH comes from `/etc/profile`
+1102:`PATH="/usr/bin:/usr/sbin"`) -> `/storage/.config/profile.d/*`, then execs
+1104:changed nothing, and `Environment=PATH=...` on `essway.service` reached `start_es.sh` and
+1105:was reset before the interface ran. A shim that must be first on the interface's PATH (a
