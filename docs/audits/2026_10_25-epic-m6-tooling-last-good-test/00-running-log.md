@@ -372,3 +372,5 @@
 - **`4cb399ba2b` (#1023):** a check with no ok-text printed a bare `N/A`; it now prints its other text. A slip of mine in `5a155ed7fc`, seen in this run's `t`.
 - **06:41, the coordinator:** (a) for #1035. At close-out, tick its checkbox on `i`'s FAIL plus `g`'s ref-read value, and edit its acceptance in the same action to the sentence on #662.
 - **06:56, final-old-53f390b1e9:** rc 1 in 1,152 s, 178 / 320 / 641 N/A / 91 SKIP / 2 CANNOT. Promised `k l m`, all fired; `t x y z ab` N/A; rclone unverified.
+- **06:57, the coordinator:** (b) for the twelve. Post only on a departure from a run's promise, and once with the twelve-recipe table when the twelfth ends; keep `queue.log` and `00` current after every run.
+- **07:18, final-old-c15050c897:** rc 1 in 1,283 s, 137 / 343 / 659 N/A / 91 SKIP / 2 CANNOT. Promised `a`, fired; `s t x y z ab` N/A; rclone unverified. Load 9.9 at its end (M7's build). No departure.
