@@ -452,3 +452,58 @@ in this set and lack a checksum at the hash (fixed on T5's unmerged
 branch): the per-shape count expects those two, not zero. The conflict set
 is eleven paths. S-7's locale rule reaches `comm` too: `LC_ALL=C` on both
 sides.
+
+## Addendum: T23 at its kickoff (2026-10-25, from the brief `docs/reviews/briefs/generic-packages-dead-ends.md` version 1)
+
+**What we know and assume.** T23 is the area's third and last slice, a
+reachability table at Local depth over the 1,604 inventory rows (95,892
+lines) of `generic-packages` whose reach is `unreached` or `unshipped`:
+1,601 upstream-carried, 3 fork-own; 727 recipes in 731 recipe units; 260
+rows in 93 units shadowed by a ROCKNIX override; 39 rows in 21 units
+buildable only by devices the fork does not ship. The order's words were
+*decides the removals*; the brief decides instead that **the lane removes
+nothing and edits no recipe** (D-WORKFLOW-209): the dead set is upstream's
+tree, the fork tracks `upstream/next`, and the futro above already held T7
+to *deletes nothing upstream carries*. The table's product is a
+disposition per unit and the one class decision the coordinator carries to
+the maintainer with the counts. Assumed, and said in the brief: the
+inventory's `reach` is one run of one tool on 2026-10-23
+(`tools/renovation-inventory`, three plans); the lane's own three
+`tools/viewplan` runs are the second command for the same quantity, and a
+disagreement is a finding, never resolved either way in silence.
+
+**Known unknowns.** The order's § T23 said 620 shadowed rows and the column
+at `2174265e9c` holds 260: the table states the hash's figure. `installer`
+is in the GENERIC_X64 plan while its row reads unreached: which directory
+the plan resolves it to decides the row. Eleven files sit under a recipe
+outside the set (unreached files under a reached recipe), which says
+something about the tool's owning-directory rule. The `PKG_DEPENDS_UNPACK`
+closure: 24 of the 727 recipes are named that way, and `spirv-headers` is
+named by three recipes every plan builds, so the inventory's column is wrong
+for it at least; the lane computes the rest. `cbindgen` is named by nothing
+at the hash: possibly the only truly dead fork-own unit.
+
+**Patterns from prior work.** T7's `t7-tables.py` (one generator for every
+table, asserting the counts) and T45's `provenance.py`; the two-commands
+rule from T45 (a column is a claim; the plan is the evidence); T15's
+history-less export lesson, which does not bite here (the plans read
+recipes, not history) but the worktree must be a full tree; T6's late-binding
+sweep whose two unreached hits were parked on #670 for this table.
+
+**What could be missing (the simulation).** A lane reading *decides the
+removals* in the order and deleting 1,601 upstream files: the brief forbids
+every edit under `packages/` and `projects/`, and § 7 checks both diffs
+empty. A lane proving reachability by building a package: forbidden (no
+build, no fetch; plan generation only). A lane matching package names to
+plan lines by eye: the coordinator's own first parse read `build name:kind`
+lines only and found 29 hits, the second read `install name` lines too and
+found 84 -- the brief names the parse, and `get_pkg_directory` decides the
+directory. A lane running `viewplan` with the wrong `ARCH`: the inventory's
+header lists the configs its plans ran under; the brief names the three
+and the lane records the header. The blindspot-75 shape (a count over the
+wrong set) already struck this brief once in draft: the order's 620.
+
+**Adjustments before execution.** The register row D-WORKFLOW-209 (the
+removal rule) written at dispatch; § 2's figures all from `2174265e9c` or
+from a command on the coordinator's tree dated 2026-10-25 and said so; the
+stranger's proof before dispatch.
