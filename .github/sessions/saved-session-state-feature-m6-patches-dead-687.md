@@ -16,11 +16,13 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#687` (prose through a quoted heredoc or the Write
-tool). `.qa-scratch/` is gitignored and `git status --short` is read before
-every `git add -A`. No network is used at all.
+**Stage A complete; stage B next** (updated 2026-10-25, 05:32 UTC).
+- **`reviewed-at`:** `b8cde6f305`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-patches-dead/`. It holds `00`, `01` (§ Scope), `stage-a/` and `tools/t40-tables.py`, the generator that asserts 778, 317,908, 760 and 18.
+- **The classes:** 277 / 234 / 5 / 234 / 28, as the brief says. (e) splits 6 + 16 + 2 + 4; gcc's three and cmake's one are reached after all through symlinks.
+- **Headers:** 746 / 14. **Deleted upstream:** 6. **Churn:** 102 (99 LibreELEC, 3 ROCKNIX); 0 fork-authored.
+- **The shadowed 74:** 2 duplicates, 4 symlink-applied, 68 (12 re-offset, 6 with the context moved, 50 with no counterpart).
+- **No network, no plan generation.** The `curl` shim logged 0 calls.
+- **Running for this lane:** nothing.
 
 ## Next commands
 

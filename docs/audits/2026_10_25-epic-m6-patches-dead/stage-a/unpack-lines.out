@@ -1,0 +1,14 @@
+9:      PATCH_ARCH="x86"
+11:      PATCH_ARCH="${TARGET_KERNEL_PATCH_ARCH:-${TARGET_ARCH}}"
+13:      PATCH_ARCH="${TARGET_PATCH_ARCH:-${TARGET_ARCH}}"
+24:          [ -d ${PKG_DIR}/patches/${patch_dir} ] && PATCH_DIRS_PKG+=" ${PKG_DIR}/patches/${patch_dir}/*.patch"
+25:          [ -d ${PROJECT_DIR}/${PROJECT}/patches/${PKG_NAME}/${patch_dir} ] && PATCH_DIRS_PRJ+=" ${PROJECT_DIR}/${PROJECT}/patches/${PKG_
+26:          [ -d ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/patches/${PKG_NAME}/${patch_dir} ] && PATCH_DIRS_PRJ+=" ${PROJECT_DIR}/${PROJE
+31:    for i in ${PKG_DIR}/patches/*.patch \
+32:      ${PKG_DIR}/patches/${PATCH_ARCH}/*.patch \
+34:      ${PKG_DIR}/patches/${PKG_VERSION}/*.patch \
+35:      ${PKG_DIR}/patches/${PKG_VERSION}/${PATCH_ARCH}/*.patch \
+36:      ${PROJECT_DIR}/${PROJECT}/patches/${PKG_NAME}/*.patch \
+37:      ${PROJECT_DIR}/${PROJECT}/patches/${PKG_NAME}/${PATCH_ARCH}/*.patch \
+39:      ${PROJECT_DIR}/${PROJECT}/patches/${PKG_NAME}/${PKG_VERSION}/*.patch \
+40:      ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/patches/${PKG_NAME}/*.patch; do

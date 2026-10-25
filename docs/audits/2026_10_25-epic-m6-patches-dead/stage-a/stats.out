@@ -1,0 +1,42 @@
+rows 778 lines 317908
+class a: 277 rows, 92389 lines
+class b: 234 rows, 160488 lines
+class c: 5 rows, 99 lines
+class d: 234 rows, 63795 lines
+class e1: 6 rows, 153 lines
+class e2: 22 rows, 984 lines
+class (e) total 28
+(a) by subdir {'default': 3, 'dvb': 39, 'rockchip-old': 48, 'rockchip': 187}
+(b) by project {'ARM': 2, 'Allwinner': 81, 'Amlogic': 94, 'Generic': 3, 'NXP': 14, 'Qualcomm': 3, 'RPi': 7, 'Rockchip': 15, 'Samsung': 15} confs 18
+(d) units 117 by T23 disposition (rows) {'dead, upstream-carried': 158, 'shadowed copy, override live': 67, 'shadowed copy, override dead too': 9}
+   e1 packages/audio/fluidsynth/patches/0001-libsndfile-use-static-libraries.patch 20 | dead: a sourced generic recipe's patches, which the live override's globbing never reaches | 
+   e1 packages/devel/cmake/patches/0001-disable-free-comp-methods.patch 25 | reached after all | projects/ROCKNIX/packages/devel/cmake/patches
+   e1 packages/devel/readline/patches/0001-display-null-prompt.patch 21 | dead: a sourced generic recipe's patches, which the live override's globbing never reaches | 
+   e2 packages/emulation/libretro-bsnes-hd/patches/0001-disable-openmp.patch 42 | dead: an unbuilt recipe's | 
+   e2 packages/emulation/libretro-bsnes-mercury-performance/patches/0001-fix-cross-compile.patch 25 | dead: an unbuilt recipe's | 
+   e2 packages/emulation/libretro-bsnes/patches/0001-Disable-OpenMP.patch 63 | dead: an unbuilt recipe's | 
+   e2 packages/emulation/libretro-cannonball/patches/0041-Set-the-c--17-standard.patch 23 | dead: an unbuilt recipe's | 
+   e2 packages/emulation/libretro-dosbox-pure/patches/0001-Makefile-optimization-and-libs.patch 37 | dead: an unbuilt recipe's | 
+   e2 packages/emulation/libretro-dosbox-pure/patches/0002-cross-compile-fix.patch 39 | dead: an unbuilt recipe's | 
+   e2 packages/emulation/libretro-mame2010/patches/0001-dont-force-objdump.patch 22 | dead: an unbuilt recipe's | 
+   e2 packages/emulation/libretro-mupen64plus-nx/patches/0001-Enable-all-options.patch 141 | dead: an unbuilt recipe's | 
+   e2 packages/emulation/libretro-mupen64plus-nx/patches/0002-Working-Defaults.patch 34 | dead: an unbuilt recipe's | 
+   e2 packages/emulation/libretro-mupen64plus-nx/patches/0003-Fix-compiler-error-with-GCC-15.patch 33 | dead: an unbuilt recipe's | 
+   e2 packages/emulation/libretro-mupen64plus-nx/patches/0004-Fix-compiler-error-on-Windows.patch 32 | dead: an unbuilt recipe's | 
+   e2 packages/emulation/libretro-picodrive/patches/0001-remove-temporary-getoffs.patch 14 | dead: an unbuilt recipe's | 
+   e2 packages/emulation/libretro-scummvm/patches/0001-Fix-missing-library-version.patch 25 | dead: an unbuilt recipe's | 
+   e2 packages/emulation/libretro-scummvm/patches/0002-Move-scummvm.ini-to-writable-save-directory.patch 29 | dead: an unbuilt recipe's | 
+   e2 packages/emulation/libretro-scummvm/patches/0003-fix-armv7-GCC-15.1-internal-compiler-error.patch 25 | dead: an unbuilt recipe's | 
+   e2 packages/emulation/libretro-stella/patches/0001-do-not-use-static-libgcc-libstdc++.patch 29 | dead: an unbuilt recipe's | 
+   e1 packages/lang/gcc/patches/0001-4.8.2-disable-multilib-i386-linux64.patch 18 | reached after all | projects/ROCKNIX/packages/lang/gcc/patches
+   e1 packages/lang/gcc/patches/0002-allow-newer-autoconf.patch 32 | reached after all | projects/ROCKNIX/packages/lang/gcc/patches
+   e1 packages/lang/gcc/patches/0003-crosscompile-badness.patch 37 | reached after all | projects/ROCKNIX/packages/lang/gcc/patches
+   e2 packages/linux-driver-addons/dvb/crazycat/patches/disable-pci/0001-disable-partly-pci.patch 17 | dead: an unbuilt recipe's | 
+   e2 packages/linux-driver-addons/dvb/dvb-latest/patches/disable-pci/0001-disable-partly-pci.patch 17 | dead: an unbuilt recipe's | 
+   e2 packages/linux-firmware/rtl8723bs_bt/patches/0001-Makefile.patch 31 | dead: an unbuilt recipe's | 
+   e2 packages/linux-firmware/rtl8723bs_bt/patches/0002-firmware-path.patch 26 | dead: an unbuilt recipe's | 
+   e2 projects/ROCKNIX/packages/emulators/libretro/panda3ds-lr/patches/gles/000-enable-gles.patch 270 | dead: an unbuilt recipe's | 
+   e2 projects/ROCKNIX/packages/emulators/libretro/play-lr/patches/000-fix-build.patch 10 | dead: an unbuilt recipe's | 
+dispositions {'inside a T23 dead unit (dead, upstream-carried)': 152, 'inside a T23 dead unit (shadowed copy, override live)': 67, "dead: a sourced generic recipe's patches, which the live override's globbing never reaches": 2, 'inside a T23 dead unit (shadowed copy, override dead too)': 9, 'reached after all': 4, "dead: an unbuilt recipe's": 22, 'dead: a generic kernel patch the ROCKNIX override never applies': 277, "dead: another project's, which no Makefile target builds": 234, 'already deleted at upstream/next': 6, 'never selected: a patches/x86_64 directory under PATCH_ARCH=x86': 5}
+shadowed non-kernel 74 ; content duplicates [('packages/sysutils/kmod/patches/0001-fix-pkgconf.patch', 'projects/ROCKNIX/packages/sysutils/kmod/patches/kmod-02_fix-pkgconf.patch'), ('packages/sysutils/systemd/patches/0003-remove-nonexistant-dependency.patch', 'projects/ROCKNIX/packages/sysutils/systemd/patches/systemd-0003-remove-nonexistant-dependency.patch')] ; reached after all through a symlink 4 ; the rest 68 ; of the rest: re-offset 12 context moved 6 no counterpart 50
+headers: with From:+Subject: 746 hand-made 14

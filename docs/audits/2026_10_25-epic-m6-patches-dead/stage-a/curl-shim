@@ -1,0 +1,3 @@
+#!/bin/bash
+printf "curl called: %s\n" "$*" >> /workspace/tmp/m6-t40/shim/curl.log
+exit 7
