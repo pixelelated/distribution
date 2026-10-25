@@ -460,3 +460,13 @@ version 1 held except the first:
     `TARGET_CPU` lines.
 15. The plan is named by path; D-WORKFLOW-188's and 190/209's branches are
     said; the worktree already exists, clean and unmerged.
+
+## Errata (written at acceptance, 2026-10-25)
+
+Found by the lane's run and recorded here so the next table brief does not inherit them (D-WORKFLOW-189: the brief is the coordinator's).
+
+- (stage A, 09:43) The brief's § 2 says `scripts/image:349` names RPi; the line reads `Distro_RPi` in a comment, so the whole-word engine loop counts RPi 2, not 3 (the brief's prose said three places). The sentence stands as prose (a substring reference), the loop's expected figure is 2.
+- (stage B, 10:03) The dead class is 203 rows (172 + 30 + 1), not the brief's 207: the generic `intel-ucode` pair is reached after all through the kernel recipe's unpack (`package.mk:69-72`, `config/functions:789-798`) and AMD64's pair is `unshipped`; `generic-dsi` is compiled for RK3576 too. The inventory's gap is Backlog #1101.
+- (stage B, 10:03) No unshipped `.dts` carries `rocknix-dt-id`; the DTS-by-unit table's dt-id column records the absence (the brief asked for the dt-id as a cell without saying that it may be empty).
+- (stage G, 10:14) The retro's scoped audit says "no futro ran" (SKIP). The devices futro carries a T25 kickoff addendum (`docs/futros/2026-10-25-m6-devices.md` § T25 kickoff addendum, on the coordinator's branch merged into the worktree at `7d61fe0f96`); its predictions (no fork-own defect; a reader taking unshipped for dead; a typed table) are the ones to verify. The brief's § 1 named the futro; the retro did not look.
+- (stage G, the retro's three proposals, housed by the coordinator) table briefs cite an edge sweep beside `buildable_by` with the resolution order; generated tables are generated whole; disposition lists include *reached after all* -- carried into T43's and T41's briefs and the next version of `t25-accept.sh`'s expectations; no rule edit.
