@@ -507,3 +507,45 @@ wrong set) already struck this brief once in draft: the order's 620.
 removal rule) written at dispatch; § 2's figures all from `2174265e9c` or
 from a command on the coordinator's tree dated 2026-10-25 and said so; the
 stranger's proof before dispatch.
+
+### Errata from the stranger's proof of T23's brief (version 2, 2026-10-25)
+
+A read-only reader with no context checked 55 rows of version 1 (38
+verified, 3 wrong, 12 partial, 2 uncheckable; 8 API calls). What version 2
+corrects, each at the place it lands:
+
+1. **"32 shadowed units carry a name no plan builds" was a count over the
+   wrong unit set.** By the brief's own nearest-recipe rule and the three
+   plans it is 5 (swig, amlogic-boot-fip, atf, rkbin, weston), and only 3 of
+   their overrides are themselves dead. The 84 plan-named recipes, all
+   shadowed, reproduce exactly. Blindspot 75's shape, a second time in this
+   brief's drafting: the first grouping was a regex, the second the rule.
+2. **"Upstream-carried" is the inventory's tier, not byte-identity today.**
+   Eleven of the 1,601 differ from `upstream/next`: eight deleted there after
+   the base (`projects/ROCKNIX/packages/{debug/strace,rust/*-snapshot,tools/grub,tools/qemu}`),
+   three modified. Q1's cost paragraph now prices the two groups apart:
+   `packages/` (0 upstream commits since the base) and `projects/ROCKNIX`
+   (moved upstream, in the cheap direction).
+3. **The `tools/` criterion could never have been ticked** against
+   `8ebaf8daad`: the P1 tip adds 15 files there. Every "the lane changes
+   nothing" check is now against the dispatch tip, the lane's own start.
+4. **The `PKG_DEPENDS_UNPACK` evidence was cited from dead copies.** The
+   three generic recipes named by file:line are rows of this slice; the
+   plans build the ROCKNIX overrides, which name `spirv-headers` too. The
+   conclusion stood; the citation did not. The namer grep takes indented
+   declarations (`^\s*PKG_DEPENDS_UNPACK=`, 40 lines, not 38).
+5. **`installer` was already decided by the hash**: `shadowed_by` set, the
+   override's reach `test`.
+6. **Eleven basename pairs sit in the set unmarked** (both copies dead, no
+   `shadowed_by`, since the inventory marks only a built name):
+   `spirv-headers` and `cbindgen` among them. The table resolves every pair
+   with `get_pkg_directory`.
+7. Smaller: the unshipped device list gains AMD64 and RK3399; "453
+   LibreELEC merges" had no reproducible source and is dropped; `openssl`'s
+   recipe is outside the set; T7's generator is under `tools/`; `viewplan`
+   takes a second, not ten; D-WORKFLOW-204 is the status tool's states, not
+   the reach column.
+
+Not checked by the proof, and left to the lane's stage A: the inventory's
+26 container plans (only the header's counts were read); `pkgcheck` over
+the 727; the transitive `PKG_DEPENDS_UNPACK` closure beyond direct naming.
