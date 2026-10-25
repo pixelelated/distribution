@@ -63,3 +63,16 @@ Each run's output is in `.qa-scratch/t22/runs/NN-*.out`, with its exit and wall 
 - Every read went through the masking `sed`. Identities print as `runs-as=` and as uids from `/proc`, so the mask cannot hide a figure. One masked token, `passwd:***` in step 4's applet line, is the mask matching an applet name; its value (`applet=1`, the link) is in the same line.
 - **The only write was step 5,** on the disposable disk: five plants in `/storage/.config/autostart/` (an executable marker, a copy named `40`, one named `40 split`, a mode-644 file, a directory) and one reboot over SSH. The boot id moved from `6d0c5b10-...` to `ed740e10-...`.
 - **Stopped 09:16:25** by `tools/vm-pair down` (`owned QEMU exited (pid 3339623)`). The leftover check reads 0 on every line. The record is every output, in `guest-cycle/` (`s1` to `s6b`, `boot.out`, `down.out`, `leftover.txt`). What it shows goes to `02` § The guest cycle.
+
+## 2026-10-25 09:17 UTC -- the guest disk retired (D-INFRA-022)
+
+- **Retired:** `/workspace/tmp/m6-t22/vm-pair/` (the QA key pair, `vm-a.ovmf-vars.fd`, `vm-a.qcow2` 2,309,881,856 B sha256 `11bf750d38df9bf8764e24eb9ed0ea86dc9d52554a2501ce696b127e37d2ba68`), 2,310,423,016 bytes. Nothing had it open. It was released by RETURN with the record on the branch (`c102a91281`). The hash is provenance only; it makes no claim that the file still exists.
+- **df on /workspace:** 1,643,651,694,592 bytes available before, 1,645,962,080,256 after, a measured recovery of 2,310,385,664 bytes. The isolation directories that remain (`run/`, `tmp/`, `artifacts/`, `cycle/`, `cycle.env`) are kilobytes and go at the hand-back.
+
+## 2026-10-25 09:17-09:45 UTC -- stage B: 02 written
+
+- More host reads (`.qa-scratch/t22/runs/19` to `24`): the 20 D's split, `enable_service`, the applets' callers and the setuid lines, the 44 M with their commits, every unit's Exec lines. Plus targeted reads: `scripts/install`'s copy blocks (`:86-155`), `quirks/package.mk` whole, `098-deviceutils`, `/etc/profile` (`busybox/config/profile:13-23` sources `/storage/.config/profile.d/*`), `scripts/init:1215-1216` and `:1363-1364`, `rocknix/package.mk:36-40` (`LOCAL_SSH_KEYS_FILE`) and `post-update:54-57` (#740's sibling), and the `DEVICE_HAS_HDMI` devices.
+- `tools/t22-reach.py` generates the reachability and coverage tables, and asserts 422 rows, 8 and 213 (no deltas).
+- **My slip:** the generator's first cut cited `scripts/install` lines one to two off (`:85-88` and so on, which are `fi` lines). Corrected against `grep -n` before `02` was written. The cited lines of `system-utils`, busybox, systemd, the quirks, `autostart`, `sleep.sh` and `098-deviceutils` were re-checked against reads made in this session.
+- `02`: § The runs (25 rows), § The reachability table (422), § The units (29), § busybox, § The upstream delta (44 M with each finding's state; 20 D; 42 A and 2 R; C-1 and C-2), § The guest cycle, § Proofs (L-01 to L-15), § Coverage (422).
+- `git diff --stat 4a48d388c4 HEAD -- packages projects tools`: empty.
