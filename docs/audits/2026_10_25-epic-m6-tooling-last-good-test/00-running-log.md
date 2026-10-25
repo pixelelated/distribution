@@ -380,3 +380,4 @@
   - `q`'s promise fired before it (`raofflineproxy.conf is gone ... 007-syncthing inherited CONF from 006-raofflineproxy`): #1022's evidence for `q`.
   - Fixed at `e430d61cfa`: `set +u` for the rest of an N/A section, and an EXIT trap turning a verdict-less end into `ABORTED ... -- no verdict`, exit 2, proven on a constructed script.
   - Posted on #662 with (a) the rest of the twelve at `e430d61cfa` from the next boundary, or (b) re-run only the aborted ones afterwards.
+- **08:05, the coordinator:** (a). At the next boundary, stop the second queue and run the rest of the twelve at `e430d61cfa`, with the positives and the close-out chained after. The first five stand at `5d1f67ca0b`. The ABORTED trap's constructed proof goes in `02` beside #1023's (done).

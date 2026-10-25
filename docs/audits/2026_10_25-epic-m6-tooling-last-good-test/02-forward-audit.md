@@ -563,6 +563,18 @@ The run is slower than an ordinary one (1,219 s against 517 s). The sections mar
 
 `34aca64afd` (#1023's second case, `p`'s promised absence) and the twelve-recipe table run after S2's other commits. The table is S2's last step.
 
+**A departure, and its fix (`e430d61cfa`).** `--old 717bc04449` at `5d1f67ca0b` ended after 328 s with rc 1 and no verdict: `line 8176: D19_IMAGES[0]: unbound variable`. N/A section `x`'s leftover code ran against an empty placeholder, as `5a155ed7fc` designed, and an unbound expansion under `set -u` ended the whole run, silently. Two changes:
+- `old_absent` lifts `set -u` for the rest of an N/A section, and `section()` and the verdict restore it;
+- an EXIT trap turns a run that ends before its verdict, other than by an exit 2 the harness chose, into `ABORTED in section <x> (rc N) -- no verdict`, exit 2.
+
+| Case | Script | Result | Proved |
+| --- | --- | --- | --- |
+| an unbound expansion before the verdict (the positive) | `5d1f67ca0b`, `--old 717bc04449` | rc 1 in 328 s, no verdict line; the last line is the shell's `D19_IMAGES[0]: unbound variable` | proved: tool-run |
+| the same shape, constructed: the fixed file's trap block, `set -u`, `SECTION=x`, then `echo "${A[0]}"` on an empty array | the trap of `e430d61cfa` | `line 7: A[0]: unbound variable`, then `last-good-scripts-test: ABORTED in section x (rc 1) -- no verdict; the harness failed, not a script (its message above)`, **rc 2** | proved: tool-run |
+| a CANNOT the harness chose, constructed: `echo "CANNOT -- something" >&2; exit 2` before the verdict | the same trap | `CANNOT -- something`, rc 2, and no ABORTED line | proved: tool-run |
+
+The first five of the twelve stand at `5d1f67ca0b`, where each reached its verdict. The rest run at `e430d61cfa` (the coordinator's 08:05 (a)).
+
 ### S2, #1021: a history read fails closed at the read (on the donor)
 
 The constructed input is a shallow clone, the coordinator's 04:12 ruling: a clone with the condition the bug is about, not a figure. In each, `417dcd8610` is unreachable (`git cat-file -e 417dcd8610^{commit}`: *Not a valid object name*). Unfixed: `bea0374f3b`, `git clone --depth 2` so that its parent commit could be checked out. Fixed: `70af8e3771`, `--depth 1`. Both run with no `--old`, on the donor root.
