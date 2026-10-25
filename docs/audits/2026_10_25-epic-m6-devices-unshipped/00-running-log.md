@@ -59,3 +59,14 @@
 - PROOF: P12, the 53 trees: `g_trees`.
 - PROOF: P13, the edges and F-01: `g_edges`, b08.
 - PROOF: P14, the coverage and unit tables, regenerated: `g_coverage`, `g_units`, `g_q6`, `g_counts`; `check` 0.
+
+## [Stage C] 10:03 to 10:08 UTC — the Local plan, the punch list, the pre-issue lint
+
+- **The plan:** `second-opinions/review-plan.json`: `depth: local`, `reviewers: []`, `tier_exception: D-WORKFLOW-184`, and the reason naming plan § 6c and `slices.json` `k 25`. **No `tools/council/run` call was made in this slice, keyed or not.**
+- **`05`:** five items, PL-01 (Low) to PL-05 (Info), every one `Open` and every one with `question:`. PL-02 is the #346 class proposal's text, for the coordinator to post.
+- **T27's pointer on #672 (08:41 UTC) answered:**
+  - **PL-02 (the atf seam) reaches this slice through RK3399:** its `u-boot` builds `atf`'s `*)` branch, `696b8e53...` to `6b1d5e89...` upstream. Added to F-05, `03` § 3.5 and PL-05.
+  - **PL-14 (an uppercase compatible):** the same grep over the 53 trees finds one, RK3576's `"cellwise,cw221X"`, matched byte for byte by its driver patch `0006` (`:966`). Not a defect; recorded in `02` § The device trees.
+- **The lint:** `tools/lint-audit-artifacts docs/audits/2026_10_25-epic-m6-devices-unshipped --phase pre-issue` → `PASS pre-issue artifacts (does not certify resolution)`, with the line `review-plan: local at epic tier under D-WORKFLOW-184 (...)`. Re-run after T27's leads were folded in: `PASS`.
+- **`tools/forbidden-terms-check`:** rc 0 over the tree.
+- **The generated files:** `check` same on `02` and `04`.

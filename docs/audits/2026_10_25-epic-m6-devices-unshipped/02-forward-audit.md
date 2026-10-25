@@ -176,6 +176,8 @@ All three arrive with the next base merge (`03` § 3.5).
 
 One row per device-tree source, from the at-hash files: 39 `.dts` and 14 `.dtsi`, every one under an unshipped target, none shipped. **No `.dts` carries a `rocknix-dt-id`.** That property exists in this tree only in H700's sources and `update.sh`, so the dt-id read T27 used does not apply here. The column records its absence, and `model` and the first root `compatible` identify the board. Three `.dtsi` are included by nothing in the slice. They may be included by a kernel patch or by mainline's tree, which this slice does not read (T43's patches).
 
+**Compatible case (T27's PL-14, checked here).** Across the 53 sources, one `compatible` carries an uppercase letter: `rk3576-anbernic-rg-vita-pro.dts:1091`, `"cellwise,cw221X"` (a fuel gauge). Its consumer is RK3576's patch `0006-power-supply-Add-CW221x-battery-fuel-gauge-driver.patch` (T43's row), whose match table reads `.compatible = "cellwise,cw221X"` (`:966`). The string is off the lowercase convention, but it matches its one consumer byte for byte, so it is not a defect. T27's `rg40xx-V` is under H700's directory, outside this slice. Control: the same grep over that file finds its `:10`.
+
 <!-- begin t25:trees -->
 | Tree | Target | Kind | Lines | Local includes | `model` (`.dts`) / family (`.dtsi`) | First root `compatible` (`.dts`) / includers (`.dtsi`) | `rocknix-dt-id` |
 | --- | --- | --- | ---: | --- | --- | --- | --- |
@@ -340,7 +342,9 @@ The rows no image reaches and nothing overrides:
 ### F-05 (Q4; Info; Renovation): 39 rows drifted, 226 files across the targets; the S922X loader moves to mainline upstream
 
 - **The drift.** Against `651150fc88`, 39 of the 397 differ: 38 by upstream commits since the base, and 1 the fork's (F-04). Over the twelve target directories, patches included, the next base merge brings `226 files changed, 14839 insertions(+), 29156 deletions(-)` (b07). The largest are S922X (65 files), SM6115 (59) and RK3566 (32).
-- **The seam worth naming.** S922X's loader moves from the ROCKNIX vendor fork to mainline `v2026.10`, and gains a build dependency on `amlogic-boot-fip`'s tree (§ The pins).
+- **The seams worth naming.**
+  - S922X's loader moves from the ROCKNIX vendor fork to mainline `v2026.10`, and gains a build dependency on `amlogic-boot-fip`'s tree (§ The pins).
+  - **T27's PL-02 reaches RK3399.** RK3399's `u-boot` (a row here) builds `atf`'s BL31 (`u-boot/package.mk:26`, `PKG_BL31="$(get_build_dir atf)/..."`; `options:37-38` `UBOOT_FIRMWARE="rkbin atf"`, `ATF_PLATFORM="rk3399"`). It takes the recipe's `*)` branch (`projects/ROCKNIX/packages/tools/atf/package.mk:22-25`, outside the slice): `2.10.0`, sha256 `696b8e53...` against the `ARM-software` URL at `8ebaf8daad`. Upstream's `6103571f67` (in `651150fc88`) moves the URL to `TrustedFirmware-A` and that branch's checksum to `6b1d5e89...`. A merge takes upstream's URL with both of its checksums. For RK3399 a crossed pair would fail the checksum check, just as T27 found for H700's branch (T27's pointer on #672, 08:41 UTC).
 - **Disposition.** A merge takes upstream's recipe whole; nothing is re-derived here (`05` PL-05).
 
 ### Leads (not findings of this slice)
