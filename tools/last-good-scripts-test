@@ -2458,7 +2458,8 @@ EOS
 # reads, written through the real Storage for the signed-in account, the
 # ROM's path on the patch row), skip (no match), fail (a fetch that did not
 # come back), login (sign-in refused), slow N (N virtual seconds, or the
-# budget and a timeout), wait N (N real seconds), cancel (the interface's
+# budget and a timeout), wait N (N real seconds), hold (a barrier: /run/held,
+# then wait for /run/release, #1031), cancel (the interface's
 # SIGINT to the ctl, then wait to be ended), die -- and ok when there is no
 # line. It records its pid, its jobs and its start and end.
 cat > "${T}/repo/raofflineproxy-cache-indexed" <<'EOS'
@@ -2491,6 +2492,9 @@ for i, raw in enumerate(jobs, start=1):
     if step[0] == "login": failed += 1; say(f"FAIL {i}/{total} {label}: RetroAchievements login required"); continue
     if step[0] == "die": sys.exit(3)
     if step[0] == "wait": time.sleep(float(step[1]))
+    if step[0] == "hold":   # a barrier (#1031): mark that the run is at its jobs, then hold for the harness's release, at most 30 s
+        (run / "held").write_text("held\n"); t_end = time.time() + 30
+        while not (run / "release").exists() and time.time() < t_end: time.sleep(0.05)
     if step[0] == "cancel":
         # The interface's CANCEL (D-UI-078): SIGINT to the ctl, whose pid is
         # the lock file's first line. Sent from here rather than from a
@@ -9197,14 +9201,28 @@ printf '%s' "${P7NOTE}" | grep '^dump' | grep -q 'plus the 1073741824 byte cap';
 P7EXEPATH=""
 
 # == #308 10-packages-and-build gpt F-PB-21: one dump is written at a time
-rm -rf "${P7C}/storage/.cache"; mkdir -p "${P7C}/storage/.cache/log"
-p7ck "{ head -c 1000 /dev/zero; sleep 3; head -c 1000 /dev/zero; }" retroarch 8000 --setenv CORE_MAX_BYTES 1048576 &
-P7A=$!; sleep 1
-p7ck "head -c 100 /dev/zero" emulationstation 8001 --setenv CORE_MAX_BYTES 1048576 &
-P7BK=$!; sleep 1
+# A barrier, not two sleeps (#1031): the first handler's dump stalls after its
+# first chunk until the harness releases it, with its keeper holding the lock
+# (its note, written after flock, is the witness); the second handler's flock
+# is a shim that marks /storage/.at-lock before the real one, so the sample is
+# taken only once the second has reached the contended step.
+rm -rf "${P7C}/storage/.cache"; mkdir -p "${P7C}/storage/.cache/log"; rm -f "${P7C}/storage/.at-lock" "${P7C}/storage/.release"
+printf '#!/bin/sh
+[ -n "${LGST_AT_LOCK:-}" ] && : > "${LGST_AT_LOCK}"
+PATH="${PATH#/shim:}" exec flock "$@"
+' > "${P7C}/shim/flock"; chmod +x "${P7C}/shim/flock"
+p7ck '{ head -c 1000 /dev/zero; n=0; until [ -e /storage/.release ] || [ $n -ge 300 ]; do sleep 0.1; n=$((n + 1)); done; head -c 1000 /dev/zero; }' retroarch 8000 --setenv CORE_MAX_BYTES 1048576 &
+P7A=$!
+p7held=no; for _ in $(seq 1 150); do [ -e "${P7C}/storage/.cache/log/cores/core.retroarch.8000.4242.txt" ] && { p7held=yes; break; }; sleep 0.1; done
+p7ck "head -c 100 /dev/zero" emulationstation 8001 --setenv CORE_MAX_BYTES 1048576 --setenv LGST_AT_LOCK /storage/.at-lock &
+P7BK=$!
+p7at=no; for _ in $(seq 1 150); do [ -e "${P7C}/storage/.at-lock" ] && { p7at=yes; break; }; sleep 0.1; done
+sleep 0.5   # the second handler is now inside flock, or past it if the lock is broken
 p7mid=$([ -e "${P7C}/storage/.cache/log/cores/core.emulationstation.8001.4242.txt" ] && echo yes || echo no)
+: > "${P7C}/storage/.release"
 wait "${P7A}" "${P7BK}" 2>/dev/null
-[ "${p7mid}" = "no" ] && [ -e "${P7C}/storage/.cache/log/cores/core.emulationstation.8001.4242.gz" ] && [ -e "${P7C}/storage/.cache/log/cores/core.retroarch.8000.4242.gz" ]; check $? "#308 10-packages-and-build gpt F-PB-21: a second crash's handler waits while the first is still writing, then keeps its own" "#308 F-PB-21: the second note existed mid-way through the first dump: ${p7mid}; left: $(ls "${P7C}/storage/.cache/log/cores" | tr '\n' ' ')"
+rm -f "${P7C}/shim/flock" "${P7C}/storage/.at-lock" "${P7C}/storage/.release"
+[ "${p7held}" = yes ] && [ "${p7at}" = yes ] && [ "${p7mid}" = "no" ] && [ -e "${P7C}/storage/.cache/log/cores/core.emulationstation.8001.4242.gz" ] && [ -e "${P7C}/storage/.cache/log/cores/core.retroarch.8000.4242.gz" ]; check $? "#308 10-packages-and-build gpt F-PB-21: a second crash's handler waits while the first is still writing, then keeps its own" "#308 F-PB-21: the second note existed mid-way through the first dump: ${p7mid}; left: $(ls "${P7C}/storage/.cache/log/cores" | tr '\n' ' ')"
 
 # == #308 10-packages-and-build gpt F-PB-17: save-state arguments come from their own arguments, never a ROM's name
 P7U2="${P7M}/runemu"; mkdir -p "${P7U2}"
@@ -10676,12 +10694,17 @@ DGM="$(bash -c ". '${DD}/gmr.sh'; games_made_ready '${DD}/gmr-dir' '${DD}/gmr-af
 if [ "${DT_OK}" -eq 1 ]; then
 printf "${DCFG_ON}" > "${TCFG}"; TENV=(--setenv RAOFFLINEPROXY_HISTORY /storage/.config/retroarch/content_history.lpl)
 treset; touch -d '3 hours ago' "${THISTORY}"; touch -d '2 hours ago' "${TMARK}"
-tctl index-offline; printf 'wait 3\nok\n' > "${TR}/helper-plan"; rm -f "${TR}/helper.pid" "${TR}/helper-times"
+# A barrier, not a sleep (#1031): the helper holds at its first job until the
+# second index has written its marker, so the marker is written during the
+# run by construction, and the hold is asserted to have been reached.
+tctl index-offline; printf 'hold\nok\n' > "${TR}/helper-plan"; rm -f "${TR}/helper.pid" "${TR}/helper-times" "${TR}/held" "${TR}/release"
 dbg topup
-for _ in $(seq 1 100); do grep -q '^start' "${TR}/helper-times" 2>/dev/null && break; sleep 0.1; done
+d29held=no; for _ in $(seq 1 150); do [ -e "${TR}/held" ] && { d29held=yes; break; }; sleep 0.1; done
 tctl index-offline; DIO=${RC}
+: > "${TR}/release"
 for _ in $(seq 1 150); do [ -s "${DD}/bg.rc" ] && break; sleep 0.1; done; wait "${DBG}" 2>/dev/null
-[ "${DIO}" -eq 0 ] && [ "$(cat "${DD}/bg.rc" 2>/dev/null)" = "0" ] && [ -e "${TPD}/index-pending" ]; check $? "gpt G-D-03: a marker an index writes while a top-up is at its jobs outlives that top-up (it was not the one the run listed for)" "gpt G-D-03: the run exited $(cat "${DD}/bg.rc" 2>/dev/null); marker: $([ -e "${TPD}/index-pending" ] && echo kept || echo gone) -- the older run acknowledged the newer notification"
+rm -f "${TR}/held" "${TR}/release"
+[ "${d29held}" = yes ] && [ "${DIO}" -eq 0 ] && [ "$(cat "${DD}/bg.rc" 2>/dev/null)" = "0" ] && [ -e "${TPD}/index-pending" ]; check $? "gpt G-D-03: a marker an index writes while a top-up is at its jobs outlives that top-up (it was not the one the run listed for)" "gpt G-D-03: the run exited $(cat "${DD}/bg.rc" 2>/dev/null); marker: $([ -e "${TPD}/index-pending" ] && echo kept || echo gone) -- the older run acknowledged the newer notification"
 grep -q 'listed once for it.*again' "${TLOG}"; check $? "claude G-D-10: the log line says the marker's listing is repeated when a run does not finish" "claude G-D-10: $(grep 'listed once' "${TLOG}" | tail -n 1 | cut -c1-200)"
 rm -f "${TR}/helper-plan"; TENV=()
 fi
