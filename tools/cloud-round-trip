@@ -334,8 +334,14 @@ def step(name):
     print(f"\n=== {name}")
 
 
+# What the run checked, for its last line (#1059): it said PASSED and nothing
+# about how many checks, against which backend, or how many were skipped.
+CHECKS = {"passed": 0, "failed": 0}
+
+
 def check(cond, ok, bad):
     print(f"    {'PASS' if cond else 'FAIL'}  {ok if cond else bad}")
+    CHECKS["passed" if cond else "failed"] += 1
     return cond
 
 
@@ -349,6 +355,23 @@ def skip(why):
     print(f"    SKIP  {why}")
     SKIPPED.append(why)
     return 0
+
+
+def verdict_line(failures, note=""):
+    """The run's last line: the verdict, the backend and its capabilities
+    (#1059, PL-15), and what was counted. A run that checked nothing says so,
+    and is not a pass."""
+    try:
+        name = backend("backend").strip()
+        held = " ".join(f"{k}={v}" for k, v in caps().items())
+    except Fail:
+        name, held = os.environ.get("CLOUD_QA_BACKEND", "webdav"), "capabilities unread"
+    if failures == 0 and CHECKS["passed"] == 0 and CHECKS["failed"] == 0:
+        word = "NOTHING CHECKED"
+    else:
+        word = "PASSED" if failures == 0 else f"{failures} CHECK(S) FAILED"
+    return (f"{word} -- backend {name} ({held}): {CHECKS['passed']} passed, "
+            f"{CHECKS['failed']} failed, {len(SKIPPED)} skipped{note}")
 
 
 def lacks(dev, script):
@@ -388,9 +411,12 @@ def prepare_device(dev, remote, root, args, prepared, which=""):
     if not check(who == "ok", "ssh works", "no shell over ssh"):
         raise Fail(f"no shell over ssh on {dev.host} port {dev.port}")
     have = dev.run("command -v rclone cloud_backup cloud_restore || true")
-    check("rclone" in have and "cloud_backup" in have,
-          "rclone and cloud scripts present",
-          "device is missing rclone or the cloud scripts")
+    # The run stops here: a printed FAIL that the setup walked past was not
+    # counted anywhere (#1059).
+    if not check("rclone" in have and "cloud_backup" in have and "cloud_restore" in have,
+                 "rclone and cloud scripts present",
+                 "device is missing rclone or the cloud scripts"):
+        raise Fail(f"the device lacks rclone or the cloud scripts (command -v found: {have.split() or 'nothing'})")
 
     step(f"point device {which}at the QA bucket" if which else "point the device at the QA bucket")
     # The device's own remote comes back at the end: a device the suite has
@@ -628,6 +654,19 @@ def main():
     kill_keys = {k for k, _, _, _ in KILL_FIXTURES}
     kill_local_keys = {k for k, _, _, needs in KILL_FIXTURES if "backend" not in needs}
     only = {k.strip().upper() for k in args.only.split(",")} if args.only else None
+    # A name that is no fixture, or two-device fixtures with no second device,
+    # is refused before anything runs: either used to end PASSED having
+    # checked nothing (#1059).
+    pair_keys = {k for k, _, _ in PAIR_FIXTURES} | {"CONTRACT"}
+    if only is not None:
+        unknown = sorted(only - pair_keys - cap_keys - solo_keys - link_keys - kill_keys)
+        if unknown:
+            print(f"error: --only names no fixture: {', '.join(unknown)} (tools/cloud-round-trip --list)", file=sys.stderr)
+            return 2
+        if only & pair_keys and not args.second_port:
+            print(f"error: --only names two-device fixtures ({', '.join(sorted(only & pair_keys))}); "
+                  "pass --second-port for the VM pair's guest b", file=sys.stderr)
+            return 2
     skipped = SKIPPED   # one list: the note below and the verdict read the same skips
     # A run naming only capture fixtures needs no MinIO and no second guest:
     # the producer is network-free, so the backend is asked for nothing. The
@@ -666,8 +705,6 @@ def main():
             failures += run_steps(first.dev, root, remote, args, first.settings, first.prev_paths)
         if len(prepared) > 1:
             failures += run_pair(prepared[0].dev, prepared[1].dev, root, remote, args, first.settings)
-        elif only and only - cap_keys - solo_keys - link_keys - kill_keys:
-            print("\n--only names two-device fixtures; pass --second-port for the VM pair's guest b")
         if only and only & solo_keys:
             failures += run_solo(first.dev, root, remote, args, first.settings, only)
         if only and only & cap_keys:
@@ -693,8 +730,9 @@ def main():
         for p in prepared:
             restore_device(p, args, archive)
     note = f" ({'; '.join(skipped)})" if skipped else ""
-    print(f"\n{'PASSED' if failures == 0 else f'{failures} CHECK(S) FAILED'}{note}")
-    return 1 if failures else 0
+    line = verdict_line(failures, note)
+    print(f"\n{line}")
+    return 1 if failures else (2 if line.startswith("NOTHING CHECKED") else 0)
 
 
 def run_steps(dev, root, remote, args, settings, prev_paths):
@@ -744,7 +782,7 @@ def run_steps(dev, root, remote, args, settings, prev_paths):
                               "the allowlist kept excluded files out of the cloud",
                               f"excluded file(s) uploaded: {leaked}")
     else:
-        print("    SKIP  allowlist check - nothing uploaded, so it proves nothing")
+        skip("allowlist check - nothing uploaded, so it proves nothing")
 
     step("a second backup replaces several saves at once")
     # Every saves assertion above this line is about a FIRST upload, and a
@@ -856,7 +894,7 @@ def run_steps(dev, root, remote, args, settings, prev_paths):
                               "and the restorer said it fell back to the newest archive overall",
                               "a pre-label archive was restored without the fallback being logged")
     else:
-        print("    SKIP  archive restore - nothing was uploaded, so it proves nothing")
+        skip("archive restore - nothing was uploaded, so it proves nothing")
 
     # A second backup, against a remote that already holds one. The first
     # transfer always happens, so it cannot detect a comparison that wrongly
@@ -2833,7 +2871,7 @@ fi
             if before != new_id:
                 print(f"          (label {before.rsplit('-', 1)[0]} -> {label}: the label rule, not the hash)")
         else:
-            print(f"    SKIP  recipe check - the guest's own id ({before or 'none'}) is not a healthy one to compare with")
+            skip(f"recipe check - the guest's own id ({before or 'none'}) is not a healthy one to compare with")
         legacy = dev.run("cloud_device_id --legacy").strip()
         f += not check(legacy == f"{hostname}-{expected_hash}",
                        f"--legacy is {legacy}: the hostname and the same hash",
@@ -3681,7 +3719,7 @@ def cap5_cases(a, run, pins, mgba_dv):
                        f"without the override core_build is the image's own mgba-lr pin ({image_pin[:12]}...)",
                        f"image pin {image_pin!r}, recorded {e.get('core_build')!r}")
     else:
-        print("    SKIP  image carries no /usr/share/rocknix/core-pins (predates 27eb3264a2); "
+        skip("image carries no /usr/share/rocknix/core-pins (predates 27eb3264a2); "
               "the map was proven against a planted file")
         e = run("mgba", env="")
         f += not check(e.get("core_build") == "unknown",
@@ -4195,7 +4233,7 @@ def fx_cap9(p):
     f += not check(hits == "0", "static: no flock, no lock file, no rclone, curl or wget in the shipped script's code "
                    "(CAP1 proves it does not block on a held lock and spawns no rclone through PATH, different claims)",
                    f"static: {hits} non-comment line(s) mention flock, cloud_sync.lock, rclone, curl or wget")
-    print("    SKIP  jq-absent branch is not reachable on a read-only /usr; it is covered by code reading, not by this fixture")
+    skip("jq-absent branch is not reachable on a read-only /usr; it is covered by code reading, not by this fixture")
     return f
 
 
@@ -5643,11 +5681,11 @@ class Link:
         telling = [l for l in out2.splitlines() if re.search(r"ERROR|WARN|Failed|failed|exit", l)]
         last = (telling or out2.strip().splitlines() or ["no output"])[-1].strip()[:160]
         if locked and archive_whole and not strict_retry:
-            print("    SKIP  the re-run is refused by the QA WebDAV server's stale-PUT lock (423 Locked) on the same "
+            skip("the re-run is refused by the QA WebDAV server's stale-PUT lock (423 Locked) on the same "
                   "archive name -- a slirp artifact, not the script; the archive is already whole in the cloud. "
                   "Asserted on MinIO (LINK5, 2026-09-13): no lock, the re-run exits 0 and the archive matches after it.")
         elif drained and archive_whole and not strict_retry:
-            print("    SKIP  the re-run was ended by the stall ceiling with rclone's counter at 100%: QEMU's user-mode "
+            skip("the re-run was ended by the stall ceiling with rclone's counter at 100%: QEMU's user-mode "
                   "stack takes the whole body at once and the throttled QA WebDAV server drains it for longer than the "
                   "ceiling, so the counter shows no progress while the upload completes -- the fixture, not the script "
                   "(D-CLOUD-128, 2026-09-13); the archive is already whole in the cloud and is compared again below. "
@@ -5668,7 +5706,7 @@ class Link:
             # On MinIO the same day (519f40aa0c, guest d, 40 s and 120 s
             # outages) this check ran and passed: whole and matching after
             # the cut and after the re-run, the cut PUT's 8.4 MiB discarded.
-            print("    SKIP  the receiving side after the re-run: under the stale-PUT lock the QA WebDAV server's copy "
+            skip("the receiving side after the re-run: under the stale-PUT lock the QA WebDAV server's copy "
                   "changes when the cut connection finally closes; not the script's doing. Asserted on MinIO "
                   "(LINK5, 2026-09-13): whole and matching after the cut and after the re-run.")
         elif receiving:
@@ -6923,7 +6961,7 @@ def fx_kill1(L):
         bad = kill1_bad(states)
         torn = {r: s for r, s in bad.items() if s.startswith("TORN")}
         if torn and inplace and len(torn) == len(bad):
-            print(f"    SKIP  {variant}: {torn} -- this endpoint ({backend('backend').strip()}) writes into the final name and "
+            skip(f"{variant}: {torn} -- this endpoint ({backend('backend').strip()}) writes into the final name and "
                   "keeps what arrived; a real provider resets an aborted PUT. Assert this on MinIO (--backend s3).")
         else:
             f += not check(not bad, f"{variant}: every file in the cloud is v1 or whole v2 ({states})",
@@ -6950,7 +6988,7 @@ def fx_kill1(L):
         whole = all(got2.get(r) == (len(v2[r]), sha(v2[r])) for r in v2)
         locked = webdav and rc2 != 0 and "423 Locked" in log_since(L.dev, mark)
         if locked and whole:
-            print("    SKIP  the re-run met the QA WebDAV server's stale-PUT lock (423 Locked) on the cut file's name; "
+            skip("the re-run met the QA WebDAV server's stale-PUT lock (423 Locked) on the cut file's name; "
                   "everything is v2 in the cloud regardless. Assert idempotency on MinIO/S3.")
         else:
             f += not check(rc2 == 0, f"{variant}: a plain re-run exits 0", f"{variant}: the re-run exits {rc2}")
@@ -7162,7 +7200,7 @@ def fx_kill4(L):
                            f"cloud_backup --system-only UPLOADED A TRUNCATED ARCHIVE as this device's newest: {bad_up} (rc {rc_up}; no integrity check)")
             f += assert_message(out_up, rc_up, L.args.vocabulary, label="settings upload: ")
         else:
-            print("    SKIP  the upload half needs the QA endpoint (run without --only KILL4 alone, or with it prepared)")
+            skip("the upload half needs the QA endpoint (run without --only KILL4 alone, or with it prepared)")
         rc2, out2 = run_rc(L.dev, "backuptool backup")
         L.keep("KILL4", out2)
         roots2 = L.root_archives()
@@ -7244,7 +7282,7 @@ def fx_kill5(L):
     whole = got_body is not None and len(got_body) == body_len and sha(got_body) == body_sha
     locked = webdav and rc2 != 0 and "423 Locked" in log_since(L.dev, mark)
     if locked and whole:
-        print("    SKIP  the re-run met the QA WebDAV server's stale-PUT lock (423 Locked) on the same archive name; "
+        skip("the re-run met the QA WebDAV server's stale-PUT lock (423 Locked) on the same archive name; "
               "the archive is whole in the cloud. The marker/retention checks below are judged on what a locked re-run leaves.")
     else:
         f += not check(rc2 == 0, "a plain re-run exits 0", f"the re-run exits {rc2}: {last_player_line(out2)[:100]!r}")
@@ -7417,7 +7455,7 @@ def fx_kill12(L):
                  ("c", good, "valid"), ("d", os.urandom(4096), "binary garbage")]
         for case, body, shape in cases:
             if body is None:
-                print(f"    SKIP  ({case}) cannot cut this file inside its last line and keep the hostname")
+                skip(f"({case}) cannot cut this file inside its last line and keep the hostname")
                 continue
             print(f"    -- ({case}) system.cfg planted {shape}")
             L.dev.write(SYSCFG, body)
@@ -7818,7 +7856,7 @@ def run_kill(dev, root, remote, args, settings, serial, only, local_only):
                 missing.append(f"a monitor socket at {args.monitor_socket} (--monitor-socket)")
             step(f"{key} -- {title}")
             if missing:
-                print(f"    SKIP  {key} needs {'; '.join(missing)}")
+                skip(f"{key} needs {'; '.join(missing)}")
                 continue
             L.reset()
             L.cleanups = []
