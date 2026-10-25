@@ -360,7 +360,7 @@ def skip(why):
 def verdict_line(failures, note=""):
     """The run's last line: the verdict, the backend and its capabilities
     (#1059, PL-15), and what was counted. A run that checked nothing says so,
-    and is not a pass."""
+    is not a pass, and exits 3 (D-QA-063)."""
     try:
         name = backend("backend").strip()
         held = " ".join(f"{k}={v}" for k, v in caps().items())
@@ -752,7 +752,10 @@ def main():
     note = f" ({'; '.join(skipped)})" if skipped else ""
     line = verdict_line(failures, note)
     print(f"\n{line}")
-    return 1 if failures else (2 if line.startswith("NOTHING CHECKED") else 0)
+    # A run that checked nothing -- every case skipped, or none asked of it --
+    # is 3, vm-qa's SKIP, and never a pass; 2 stays the usage error
+    # (D-QA-063, the coordinator's ruling on #660 at 06:33 UTC).
+    return 1 if failures else (3 if line.startswith("NOTHING CHECKED") else 0)
 
 
 def run_steps(dev, root, remote, args, settings, prev_paths):
