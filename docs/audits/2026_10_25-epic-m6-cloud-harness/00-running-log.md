@@ -131,3 +131,14 @@ The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_6
     - #1073 was first filed with one checkbox (a greedy parse that swallowed the items), then edited to 24.
     - Its PL-22 named a handheld and failed `box-check`; it was reworded to the code fact (`tools/cloud-census:76`). `box-check --issue 1073` now reports 24 open and 0 fail.
 - No guest, no handheld, no hosted account, no `cloud-census` run. The `tools/council/run` calls were the probe and the refutation, plus the keyless ones and the 05:2x breach recorded above. Nothing was written under `/tmp` or `/workspace/repos/rocknix*`.
+
+## 2026-10-25 05:53-05:54 UTC -- the coordinator's stage-D rulings applied
+
+- **05:52, the coordinator on #660:**
+  - the rule break stays recorded (criterion 12 is ticked against 00's 05:21 entry), and its guard is on #1044;
+  - PL-22 is **drop the call**: `cloud-census` reads the stored id file and never runs `cloud_device_id`;
+  - the six Backlogs are filed (PL-17 #1075, PL-19 #1076, PL-20 #1077, PL-21 #1078, PL-23 #1079, PL-24 #1080);
+  - stage E is three streams by tool, #1066 and #1067 first, with the brief to follow; nothing under `tools/` changes before it lands.
+- **The census bug, filed: #1081.** The defect and the fix were re-read first: `tools/cloud-census:76` runs `cloud_device_id`, which writes `ID_FILE=/storage/.config/cloud_sync-device-id` (its line 54, `write_id` at 288), against the tool's own header lines 16-18. `box-check --issue 1081`: 2 open, 0 fail.
+- 05's Tracked fields, its `punch_index` and its Phase 7 gate now name #1075-#1080 and #1081, and PL-22 is a Correctness bug. #1073's body was edited to match; `box-check --issue 1073`: 24 open, 0 fail. The pre-issue lint: `PASS pre-issue artifacts`. 04 § Q6's census row records the ruling.
+- `git status --short -- tools` is empty: nothing under `tools/` has changed.

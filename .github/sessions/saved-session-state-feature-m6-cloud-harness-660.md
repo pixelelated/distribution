@@ -16,10 +16,10 @@
 
 ## Current focus
 
-**At the stage-D pause (05:5x UTC): the stage-D checkpoint is posted on #660; waiting for the coordinator's stage-E stream brief and dispositions. The guest window is still held behind M7's full build.**
+**At the stage-D pause, rulings applied (06:0x UTC): stage E's shape is agreed (S1 `cloud-round-trip` with #1066 first; S2 `cloud-test-backend` with #1067 first; S3 #1061 and #1081). Waiting for the coordinator's stream brief on #660, and nothing under `tools/` changes before it. The guest window is still held behind M7's full build.**
 
 - Done: stages A-D. The folder holds 00-05 and `second-opinions/` (review plan, packet, probe and refutation with provenance, all PASS); the pre-issue lint PASSes. The seat's 53 items are graded in 04 (F-15..F-26 new). The table: 79 rows, 24/46/8.
-- Filed: bugs **#1057-#1070** (box-check 0 fail each) and the audit issue **#1073** (24 checkboxes, a sub-issue of #660, box-check 0 fail). PL-16 goes to #1055, PL-18 to #909, PL-15 rides on #1059; PL-17, 19, 20, 21, 23 and 24 wait for Backlogs the coordinator files; PL-22 waits for a disposition.
+- Filed: bugs **#1057-#1070** and **#1081** (PL-22, the census, after the coordinator's 05:52 ruling 'drop the call'; box-check 0 fail each) and the audit issue **#1073** (24 checkboxes, a sub-issue of #660, box-check 0 fail). PL-16 goes to #1055, PL-18 to #909 (with `paths:` the coordinator's), PL-15 rides on #1059, and PL-17/19/20/21/23/24 go to the coordinator's Backlogs #1075-#1080; 05 and #1073 name them all.
 - A rule broken once and recorded (00 05:21; friction line): `tools/council/run --help` without `COUNCIL_ENV_FILE=/nonexistent`. Reported on #660 in the stage-D post.
 - Next, on the coordinator's word: stage E, one stream per bug or per the brief's grouping, editing only the nine; then F (the guest cycle when granted; 05's Phase 7 outcomes; the resolution lint), G (the retro), the hand-back.
 

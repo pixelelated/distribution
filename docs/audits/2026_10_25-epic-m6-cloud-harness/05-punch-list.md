@@ -1,6 +1,6 @@
 # Punch list (Phases 5 and 6) — M6.P2 T13, the cloud test harness (#660)
 
-The audit issue is #1073, a sub-issue of #660. One item per finding of `04` after the seat's grading (`04` § Second opinion), with the severities graded there. Each proven defect is a `bug` (D-WORKFLOW-187) filed at stage D (#1057 to #1070); its fix is a stage-E stream under a brief the coordinator writes after the stage-D pause. The items that are not bugs are designs, leads or deferrals, each named where it goes.
+The audit issue is #1073, a sub-issue of #660. One item per finding of `04` after the seat's grading (`04` § Second opinion), with the severities graded there. Each proven defect is a `bug` (D-WORKFLOW-187) filed at stage D (#1057 to #1070, and #1081 for PL-22 after the coordinator's ruling); its fix is a stage-E stream under a brief the coordinator writes after the stage-D pause. The items that are not bugs are designs, leads or deferrals, each named where it goes.
 
 ## PL-01: cloud-round-trip: A5 and RETENTION call cloud_reconcile, which has never existed, and RETENTION prints two PASS lines when nothing ran
 - **Severity:** Medium
@@ -203,8 +203,8 @@ The audit issue is #1073, a sub-issue of #660. One item per finding of `04` afte
 - **Where:** `04-analysis.md` (F-07, G-22)
 - **Can this be done on the VM?** No: the tree shows it; no guest is needed
 - **Already written:** nothing
-- **Acceptance:** a lead for `vm-qa` (T12's file) and for `cloud-test-backend`'s `down` (the port sweep is the non-container branch, G-22); deferred to a Backlog the coordinator files (the stage-D question)
-- **Tracked:** pending: a Backlog the coordinator files
+- **Acceptance:** a lead for `vm-qa` (T12's file) and for `cloud-test-backend`'s `down` (the port sweep is the non-container branch, G-22); deferred to #1075, the coordinator's Backlog (the stage-D question)
+- **Tracked:** #1075
 
 ## PL-18: rclone-cloud-sync.md says the no-network step checks exit 4 (the tool asserts 69), and its paths: names four of the nine
 - **Severity:** Low
@@ -227,8 +227,8 @@ The audit issue is #1073, a sub-issue of #660. One item per finding of `04` afte
 - **Where:** `04-analysis.md` (F-09, G-24)
 - **Can this be done on the VM?** No: the tree shows it; no guest is needed
 - **Already written:** nothing
-- **Acceptance:** a lead: each prints whose tools judged; deferred to a Backlog the coordinator files
-- **Tracked:** pending: a Backlog the coordinator files
+- **Acceptance:** a lead: each prints whose tools judged; deferred to #1076, the coordinator's Backlog
+- **Tracked:** #1076
 
 ## PL-20: the QA backends' MinIO and Samba images are unpinned :latest and pyftpdlib is installed unpinned
 - **Severity:** Low
@@ -239,8 +239,8 @@ The audit issue is #1073, a sub-issue of #660. One item per finding of `04` afte
 - **Where:** `04-analysis.md` (F-10, G-25)
 - **Can this be done on the VM?** No: the tree shows it; no guest is needed
 - **Already written:** nothing
-- **Acceptance:** a lead: pin by digest and version, and print the resolved identity in `caps`; deferred to a Backlog the coordinator files
-- **Tracked:** pending: a Backlog the coordinator files
+- **Acceptance:** a lead: pin by digest and version, and print the resolved identity in `caps`; deferred to #1077, the coordinator's Backlog
+- **Tracked:** #1077
 
 ## PL-21: fixed waits stand in for an event at cloud-round-trip:4915, 6692, 7455, 7496 and 7500 (blindspot 32)
 - **Severity:** Low
@@ -251,20 +251,20 @@ The audit issue is #1073, a sub-issue of #660. One item per finding of `04` afte
 - **Where:** `04-analysis.md` (F-11, G-26, G-37)
 - **Can this be done on the VM?** No: the tree shows it; no guest is needed
 - **Already written:** nothing
-- **Acceptance:** leads, none seen failing; deferred to a Backlog the coordinator files with G-37's timing windows
-- **Tracked:** pending: a Backlog the coordinator files
+- **Acceptance:** leads, none seen failing; deferred to #1078, the coordinator's Backlog with G-37's timing windows
+- **Tracked:** #1078
 
 ## PL-22: cloud-census is not read-only: it runs cloud_device_id over SSH on the host it reads (tools/cloud-census:76)
 - **Severity:** Medium
-- **Category:** Safety
+- **Category:** Correctness
 - **Question:** Q6
 - **Source Finding:** F-25, G-48
 - **Owner area:** the cloud test harness
 - **Where:** `04-analysis.md` (F-25, G-48)
 - **Can this be done on the VM?** No: the tree shows it; no guest is needed
-- **Already written:** no record of a run in this project's ledger
-- **Acceptance:** a disposition for the coordinator: keep it as a hand-run read with the write named in its header, or drop the call; it is never run in a slice (D-QA-015)
-- **Tracked:** pending: the coordinator's disposition
+- **Already written:** #1081's *Already written:* line
+- **Acceptance:** the criteria of #1081 (the coordinator's 05:52 UTC ruling on #660: drop the call; stage E's third stream, with #1061)
+- **Tracked:** #1081
 
 ## PL-23: the seat's further leads, accepted on its citations and not re-read: kill witnesses, the vocabulary gate, the litter scan, endpoint health, cleanup outside the verdict, three small tests' blind spots, the verifier's symlinked ancestors
 - **Severity:** Low
@@ -275,8 +275,8 @@ The audit issue is #1073, a sub-issue of #660. One item per finding of `04` afte
 - **Where:** `04-analysis.md` (F-26, G-36, G-37, G-38, G-39, G-41, G-45, G-49, G-50, G-51, G-53)
 - **Can this be done on the VM?** No: the tree shows it; no guest is needed
 - **Already written:** nothing
-- **Acceptance:** deferred to a Backlog the coordinator files, each with its G-number and lines
-- **Tracked:** pending: a Backlog the coordinator files
+- **Acceptance:** deferred to #1079, the coordinator's Backlog, each with its G-number and lines
+- **Tracked:** #1079
 
 ## PL-24: six of the seven uncalled tools have no caller; three host tests could be vm-qa host suites
 - **Severity:** Low
@@ -287,8 +287,8 @@ The audit issue is #1073, a sub-issue of #660. One item per finding of `04` afte
 - **Where:** `04-analysis.md` (04 § Q6)
 - **Can this be done on the VM?** No: the tree shows it; no guest is needed
 - **Already written:** nothing
-- **Acceptance:** the dispositions in 04 § Q6: keep `cloud-connections-test`, `cloud-input-test`, `cloud-capture-stamp-test`, `cloud-save-integrity-test` and `cloud-save-integrity`; the wiring into `vm-qa` is T12's file, deferred to a Backlog the coordinator files
-- **Tracked:** pending: a Backlog the coordinator files
+- **Acceptance:** the dispositions in 04 § Q6: keep `cloud-connections-test`, `cloud-input-test`, `cloud-capture-stamp-test`, `cloud-save-integrity-test` and `cloud-save-integrity`; the wiring into `vm-qa` is T12's file, deferred to #1080, the coordinator's Backlog
+- **Tracked:** #1080
 
 ## Index
 
@@ -411,7 +411,7 @@ punch_index:
   category: Brittleness
   question: Q1
   source_finding: "F-07, G-22"
-  tracked: "pending: a Backlog the coordinator files"
+  tracked: "#1075"
   outcome: "open"
 - id: PL-18
   severity: Low
@@ -425,42 +425,42 @@ punch_index:
   category: Standards
   question: Q2
   source_finding: "F-09, G-24"
-  tracked: "pending: a Backlog the coordinator files"
+  tracked: "#1076"
   outcome: "open"
 - id: PL-20
   severity: Low
   category: Currency
   question: Q4
   source_finding: "F-10, G-25"
-  tracked: "pending: a Backlog the coordinator files"
+  tracked: "#1077"
   outcome: "open"
 - id: PL-21
   severity: Low
   category: Brittleness
   question: Q3
   source_finding: "F-11, G-26, G-37"
-  tracked: "pending: a Backlog the coordinator files"
+  tracked: "#1078"
   outcome: "open"
 - id: PL-22
   severity: Medium
-  category: Safety
+  category: Correctness
   question: Q6
   source_finding: "F-25, G-48"
-  tracked: "pending: the coordinator's disposition"
+  tracked: "#1081"
   outcome: "open"
 - id: PL-23
   severity: Low
   category: Brittleness
   question: Q3
   source_finding: "F-26, G-36, G-37, G-38, G-39, G-41, G-45, G-49, G-50, G-51, G-53"
-  tracked: "pending: a Backlog the coordinator files"
+  tracked: "#1079"
   outcome: "open"
 - id: PL-24
   severity: Low
   category: Renovation
   question: Q6
   source_finding: "04 § Q6"
-  tracked: "pending: a Backlog the coordinator files"
+  tracked: "#1080"
   outcome: "open"
 ```
 
@@ -486,11 +486,11 @@ At the pre-issue phase (stage D): every item is open. The bugs close when their 
 | PL-14 | Open | #1070 |
 | PL-15 | Open | #1059 |
 | PL-16 | Open | #1055 |
-| PL-17 | Open | pending: a Backlog the coordinator files |
+| PL-17 | Open | #1075 |
 | PL-18 | Open | #909 |
-| PL-19 | Open | pending: a Backlog the coordinator files |
-| PL-20 | Open | pending: a Backlog the coordinator files |
-| PL-21 | Open | pending: a Backlog the coordinator files |
-| PL-22 | Open | pending: the coordinator's disposition |
-| PL-23 | Open | pending: a Backlog the coordinator files |
-| PL-24 | Open | pending: a Backlog the coordinator files |
+| PL-19 | Open | #1076 |
+| PL-20 | Open | #1077 |
+| PL-21 | Open | #1078 |
+| PL-22 | Open | #1081 |
+| PL-23 | Open | #1079 |
+| PL-24 | Open | #1080 |
