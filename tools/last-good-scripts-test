@@ -2030,7 +2030,11 @@ while IFS= read -r frag; do
     fi
     src_of "${rel}" "${Q}/daemons/${rel##*/}"
     [ "${rel##*/}" = "006-raofflineproxy" ] && QHAVE_RA=1
-done < <(cd "${ROOT}" && find projects -path '*/daemons/[0-9]*' -type f -printf '%f %p\n' | sort)
+done < <(if [ "${OLD}" -eq 1 ]; then   # the ref's fragments, not the working tree's (#1036)
+             git -C "${ROOT}" ls-tree -r --name-only "${BASE_REF}" -- projects | grep -E '/daemons/[0-9][^/]*$' | while IFS= read -r p; do printf '%s %s\n' "${p##*/}" "${p}"; done | sort
+         else
+             cd "${ROOT}" && find projects -path '*/daemons/[0-9]*' -type f -printf '%f %p\n' | sort
+         fi)
 QFRAGS="$(ls "${Q}/daemons" | tr '\n' ' ')"
 echo "    fragments: ${QFRAGS}"
 {
@@ -2076,27 +2080,32 @@ qpass() { # run the boot pass once; rc in $RC, output in $QOUT, systemctl's log 
         --ro-bind "${Q}/daemons" /usr/lib/autostart/daemons \
         --bind "${QS}" /storage --ro-bind "${Q}/repo" /repo --ro-bind "${Q}/shim" /shim --bind "${Q}/run" /run \
         --dev /dev --proc /proc --tmpfs /tmp --setenv PATH "${QPATH}" \
-        bash -c 'source /repo/099-networkservices; wait' > "${QOUT}" 2>&1; echo $? ) 2>/dev/null )
+        bash -c 'source /repo/099-networkservices; rc=$?; wait; exit "${rc}"' > "${QOUT}" 2>&1; echo $? ) 2>/dev/null )
 }
 # Boot 2 of #166 s. 6: the toggle on in system.cfg, its marker already there
 # from the toggle's own enable, samba on beside it, everything else off.
 printf 'system.hostname=X\nglobal.retroachievements.offlineproxy=1\nsamba.enabled=1\nssh.enabled=0\nsyncthing.enabled=0\n' > "${QCFG}"
-rm -f "${QSVC}"/*; touch "${QSVC}/raofflineproxy.conf" "${QSVC}/smb.conf"
+# The markers start old (#1036): the pass removes each one it owns and
+# rewrites it for a service that is on, so a marker it kept is newer. One the
+# fixture made and the pass never reached is as old as it was.
+QOLD=1000000000
+rm -f "${QSVC}"/*; touch -d "@${QOLD}" "${QSVC}/raofflineproxy.conf" "${QSVC}/smb.conf"
+qfresh() { [ -e "${QSVC}/$1" ] && [ "$(stat -c %Y "${QSVC}/$1")" -gt "${QOLD}" ]; }
 qpass
 [ "${RC}" -eq 0 ]; check $? "the boot pass ran over ${QFRAGS% } (rc ${RC})" "rc ${RC}; output: $(tr '\n' '|' < "${QOUT}" | cut -c1-240)"
-[ -e "${QSVC}/smb.conf" ]; check $? "samba on: smb.conf is still there after the pass" "smb.conf is gone after the pass: a fragment without CONF (004-tailscaled) inherited samba's and removed it; markers left: $(ls "${QSVC}" | tr '\n' ' ')"
+qfresh smb.conf; check $? "samba on: smb.conf is still there after the pass, rewritten by it" "smb.conf is gone after the pass, or the pass never rewrote it: a fragment without CONF (004-tailscaled) inherited samba's and removed it; markers left: $(ls "${QSVC}" | tr '\n' ' ')"
 if [ "${QHAVE_RA}" -eq 1 ]; then
-    [ -e "${QSVC}/raofflineproxy.conf" ]; check $? "toggle on: raofflineproxy.conf is still there after the pass" "raofflineproxy.conf is gone after the pass: 007-syncthing inherited CONF from 006-raofflineproxy and removed it; markers left: $(ls "${QSVC}" | tr '\n' ' ')"
+    qfresh raofflineproxy.conf; check $? "toggle on: raofflineproxy.conf is still there after the pass, rewritten by it" "raofflineproxy.conf is gone after the pass, or the pass never rewrote it: 007-syncthing inherited CONF from 006-raofflineproxy and removed it; markers left: $(ls "${QSVC}" | tr '\n' ' ')"
     grep -qx 'start raofflineproxy started' "${QLOG}"; check $? "and the unit's condition held when its start was processed" "systemctl saw: $(grep raofflineproxy "${QLOG}" | tr '\n' '|')"
     ! grep -q 'condition-unmet' "${QLOG}"; check $? "no start found its marker missing" "systemctl saw: $(tr '\n' '|' < "${QLOG}")"
     [ ! -e "${QSVC}/sshd.conf" ] && grep -qx 'stop sshd' "${QLOG}"; check $? "ssh off: no sshd.conf, sshd stopped (the pass still does its job)" "sshd.conf: $([ -e "${QSVC}/sshd.conf" ] && echo present || echo absent); systemctl saw: $(tr '\n' '|' < "${QLOG}")"
     # Step 7 of the upgrade shape: the toggle off (or never set) and a marker
     # left behind -- the pass removes it and stops the service.
     printf 'system.hostname=X\nglobal.retroachievements.offlineproxy=0\nsamba.enabled=1\n' > "${QCFG}"
-    rm -f "${QSVC}"/*; touch "${QSVC}/raofflineproxy.conf" "${QSVC}/smb.conf"
+    rm -f "${QSVC}"/*; touch -d "@${QOLD}" "${QSVC}/raofflineproxy.conf" "${QSVC}/smb.conf"
     qpass
     [ "${RC}" -eq 0 ] && [ ! -e "${QSVC}/raofflineproxy.conf" ] && grep -qx 'stop raofflineproxy' "${QLOG}"; check $? "toggle off with a marker left behind: the marker is removed and the service stopped (rc ${RC})" "rc ${RC}; marker: $([ -e "${QSVC}/raofflineproxy.conf" ] && echo present || echo gone); systemctl saw: $(tr '\n' '|' < "${QLOG}")"
-    [ -e "${QSVC}/smb.conf" ]; check $? "and samba's marker is still there" "smb.conf gone; markers left: $(ls "${QSVC}" | tr '\n' ' ')"
+    qfresh smb.conf; check $? "and samba's marker is still there, rewritten by the pass" "smb.conf gone or never rewritten; markers left: $(ls "${QSVC}" | tr '\n' ' ')"
 else
     check 1 "" "006-raofflineproxy is absent at ${BASE_REF}: the toggle had no boot pass"
 fi
@@ -2332,7 +2341,9 @@ for prel in ${TPATCHES}; do
         TPATCH_OK=0; check 1 "" "${prel##*/} does not apply to the pinned client: $(tr '\n' '|' < "${T}/patch.out" | cut -c1-200)"
     fi
 done
-[ "${TPATCH_OK}" -eq 1 ]; check $? "the client at ${PIN:0:10} with $(echo "${TPATCHES}" | grep -c .) patch(es) applied in order, each compiled: $(cd "${T}/patched/linux/raofflineproxy" && python3 -m py_compile *.py 2>&1 | head -1 || true)ok" "a patch did not apply; the runs below are against a client the tree does not describe"
+# "each compiled" is part of the predicate (#1036), not a phrase in the text.
+TCOMPILE="$(cd "${T}/patched/linux/raofflineproxy" && python3 -m py_compile *.py 2>&1)"; tc_rc=$?
+[ "${TPATCH_OK}" -eq 1 ] && [ "${tc_rc}" -eq 0 ]; check $? "the client at ${PIN:0:10} with $(echo "${TPATCHES}" | grep -c .) patch(es) applied in order, each compiled" "a patch did not apply, or the patched client does not compile (py_compile rc ${tc_rc}: $(printf '%s' "${TCOMPILE}" | head -2 | tr '\n' '|')); the runs below are against a client the tree does not describe"
 CLIENT="${T}/patched/linux"
 # The upstream subset-award regression runs against exactly the patched
 # source above, including the HTTP queue/flush cases (#384).
@@ -4829,8 +4840,11 @@ if { [ "${OLD}" -eq 1 ] && git -C "${ROOT}" cat-file -e "${BASE_REF}:${RCLONE_RE
     MIGRATION_AVAILABLE=1
 else
     src_of projects/ROCKNIX/packages/network/rclone/package.mk "${CS}/src/rclone-package.mk"
-    if grep -qE '^[[:space:]]*cp[[:space:]]+cloud_migrate_layout([[:space:]]|$)' "${CS}/src/rclone-package.mk"; then
-        echo "cannot test selected source: recipe installs missing cloud_migrate_layout" >&2
+    # Retired means the recipe names no cloud_migrate_layout outside a comment
+    # (#1036, the seat's G-05): any install spelling -- cp -f, install -m --
+    # with the engine missing is CANNOT, not a retirement.
+    if grep -v '^[[:space:]]*#' "${CS}/src/rclone-package.mk" | grep -qw 'cloud_migrate_layout'; then
+        echo "cannot test selected source: recipe names cloud_migrate_layout, which the source does not have" >&2
         exit 2
     fi
     NOT_APPLICABLE=$((NOT_APPLICABLE + 1))
@@ -8057,7 +8071,9 @@ for h in raofflineproxy-ctl raofflineproxy-cache-indexed raofflineproxy-cache-im
     if [ "${OLD}" -eq 1 ]; then m="$(git -C "${ROOT}" ls-tree "${BASE_REF}" -- "${rel}" | awk '{print $1}')"; else m="$(git -C "${ROOT}" ls-files -s -- "${rel}" | awk '{print $1}')"; fi
     DMODES="${DMODES} ${h}=${m:-none}"
 done
-! printf '%s' "${DMODES}" | grep -q '=\(100644\|none\)'; check $? "#308 claude F-RA-17: the four scripts under sources/ are mode 100755 in the tree" "#308 claude F-RA-17: modes:${DMODES}"
+# 100755 exactly, four times (#1036): rejecting only 100644 and none let a
+# symlink's 120000 through.
+[ "$(printf '%s\n' ${DMODES} | grep -c '=100755$')" -eq 4 ]; check $? "#308 claude F-RA-17: the four scripts under sources/ are mode 100755 in the tree" "#308 claude F-RA-17: modes:${DMODES}"
 # ---- audit #307, stream B ----
 # Stream B's cases for audit #307's punch list and #308's sweep, in the
 # files the stream owns: backuptool, wifictl, 001-functions (the settings
