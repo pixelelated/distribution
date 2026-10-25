@@ -467,6 +467,13 @@ chmod +x "${BT}"
 
 # busybox sed/mv/cp from the image when a build root is here, so the rename
 # semantics tested are the device's.
+# subj <repo-relative path>: SUBJ names a fresh copy of a file the run judges
+# -- the tree's, or BASE_REF's under --old -- for a check that reads it rather
+# than runs it (#1035: g, h, i, t, C and the pins graded the working tree under
+# --old). A call, never $( ): src_of marks a section N/A or ends the run, and a
+# subshell would swallow both.
+SUBJ_N=0
+subj() { SUBJ_N=$((SUBJ_N + 1)); mkdir -p "${TMP}/subj"; SUBJ="${TMP}/subj/${SUBJ_N}.${1##*/}"; src_of "${1}" "${SUBJ}"; }
 image_tool_source() {
     local name="$1" b; shift
     if [ -n "${QA_SYSTEM_ROOT:-}" ]; then
@@ -1017,12 +1024,15 @@ section g "the in-script RCLONE_NET_OPTS fallback is the shipped value (#146)"
 # the shipped value to ten low-level retries and left all four at two; on
 # the fallback path (a torn conf, a blanked line) that is #107 back, and no
 # check read the constants (audit 2026-09-12, F-03). A comment is not a check.
-shipped=$(sed -n 's/^DEFAULT_RCLONE_NET_OPTS="\(.*\)"$/\1/p' "${ROOT}/${RCLONE_REL}/cloud_sync.conf.defaults")
+subj "${RCLONE_REL}/cloud_sync.conf.defaults"; G_DEFAULTS="${SUBJ}"
+shipped=$(sed -n 's/^DEFAULT_RCLONE_NET_OPTS="\(.*\)"$/\1/p' "${G_DEFAULTS}")
 [ -n "${shipped}" ]; check $? "cloud_sync.conf.defaults ships RCLONE_NET_OPTS (${shipped})" "no DEFAULT_RCLONE_NET_OPTS line in cloud_sync.conf.defaults"
-conf=$(sed -n 's/^RCLONE_NET_OPTS="\(.*\)"$/\1/p' "${ROOT}/${RCLONE_REL}/cloud_sync.conf")
+subj "${RCLONE_REL}/cloud_sync.conf"
+conf=$(sed -n 's/^RCLONE_NET_OPTS="\(.*\)"$/\1/p' "${SUBJ}")
 [ "${conf}" = "${shipped}" ]; check $? "cloud_sync.conf carries the same value" "cloud_sync.conf has '${conf}'"
 for scr in cloud_backup cloud_restore cloud_content_backup cloud_content_restore; do
-  fb=$(sed -n 's/^RCLONE_NET_OPTS_FALLBACK="\(.*\)"$/\1/p' "${ROOT}/${RCLONE_REL}/${scr}")
+  subj "${RCLONE_REL}/${scr}"
+  fb=$(sed -n 's/^RCLONE_NET_OPTS_FALLBACK="\(.*\)"$/\1/p' "${SUBJ}")
   [ -n "${fb}" ] && [ "${fb}" = "${shipped}" ]; check $? "${scr}: RCLONE_NET_OPTS_FALLBACK is the shipped value" "${scr}: fallback is '${fb:-(none)}', shipped is '${shipped}'"
 done
 
@@ -1059,9 +1069,10 @@ for scr in cloud_backup cloud_restore; do
   bash -c ". <(sed -n '/^why_for() {/,/^}/p' '${H}/${scr}'); AUTOMATIC=0; why_for 124" 2>/dev/null | grep -q "STOPPED ANSWERING"; check $? "${scr}: and on a deliberate run that the cloud stopped answering (TRY AGAIN is in reach)" "${scr}: '$(bash -c ". <(sed -n '/^why_for() {/,/^}/p' '${H}/${scr}'); AUTOMATIC=0; why_for 124" 2>/dev/null)' -- the automatic sync's words, promising a retry nobody scheduled (#153)"
 done
 for scr in cloud_backup cloud_restore cloud_content_backup cloud_content_restore; do :; done
-shipped_sync=$(sed -n 's/^DEFAULT_RCLONE_SYNC_NET_OPTS="\(.*\)"$/\1/p' "${ROOT}/${RCLONE_REL}/cloud_sync.conf.defaults")
+subj "${RCLONE_REL}/cloud_sync.conf.defaults"
+shipped_sync=$(sed -n 's/^DEFAULT_RCLONE_SYNC_NET_OPTS="\(.*\)"$/\1/p' "${SUBJ}")
 for scr in cloud_backup cloud_restore; do
-  fb=$(sed -n 's/^RCLONE_SYNC_NET_OPTS_FALLBACK="\(.*\)"$/\1/p' "${ROOT}/${RCLONE_REL}/${scr}")
+  fb=$(sed -n 's/^RCLONE_SYNC_NET_OPTS_FALLBACK="\(.*\)"$/\1/p' "${H}/${scr}")
   [ -n "${fb}" ] && [ "${fb}" = "${shipped_sync}" ]; check $? "${scr}: RCLONE_SYNC_NET_OPTS_FALLBACK is the shipped value" "${scr}: '${fb:-(none)}' vs '${shipped_sync}'"
 done
 
@@ -1071,17 +1082,18 @@ section i "cloud_net_ready settles on a held default route however NetworkManage
 # said no network. Shims stand in for ip (a default route) and nmcli (that
 # verdict); the helper must settle within the grace, not wait to the deadline.
 I="${TMP}/i"; mkdir -p "${I}/shim"
+src_of "${RCLONE_REL}/cloud_net_ready" "${I}/cloud_net_ready"   # the ref's under --old (#1035)
 printf '#!/bin/sh\ncase "$*" in *"route show default"*) echo "default via 192.168.1.1 dev wlan0" ;; esac\n' > "${I}/shim/ip"
 printf '#!/bin/sh\ncase "$*" in *STATE*) echo "connected (site only)" ;; *CONNECTIVITY*) echo "limited" ;; esac\n' > "${I}/shim/nmcli"
 chmod +x "${I}/shim"/*
 t0=$(date +%s)
-PATH="${I}/shim:${PATH}" bash "${ROOT}/${RCLONE_REL}/cloud_net_ready" --wait 12 > "${I}/out" 2>&1; RC_I=$?
+PATH="${I}/shim:${PATH}" bash "${I}/cloud_net_ready" --wait 12 > "${I}/out" 2>&1; RC_I=$?
 dt=$(( $(date +%s) - t0 ))
 [ "${RC_I}" -eq 0 ]; check $? "connected (site only) + limited settles (rc ${RC_I}, ${dt}s)" "rc ${RC_I} after ${dt}s: $(tail -1 "${I}/out" | cut -c1-120)"
 [ "${dt}" -lt 12 ]; check $? "and before the deadline" "took the whole wait: ${dt}s"
 printf '#!/bin/sh\ncase "$*" in *STATE*) echo "connecting" ;; *CONNECTIVITY*) echo "unknown" ;; esac\n' > "${I}/shim/nmcli"
 t0=$(date +%s)
-PATH="${I}/shim:${PATH}" bash "${ROOT}/${RCLONE_REL}/cloud_net_ready" --wait 3 > "${I}/out" 2>&1; RC_I=$?
+PATH="${I}/shim:${PATH}" bash "${I}/cloud_net_ready" --wait 3 > "${I}/out" 2>&1; RC_I=$?
 [ "${RC_I}" -eq 69 ]; check $? "still connecting at the deadline exits 69" "rc ${RC_I}: $(tail -1 "${I}/out" | cut -c1-120)"
 # The reachable wait (#192, D-CLOUD-136): with no route, a link that is
 # coming up is waited for and announced, one that is not exits at once.
@@ -1089,18 +1101,18 @@ printf '#!/bin/sh\ncase "$*" in *"route show default"*) [ -e "%s/route-up" ] && 
 printf '#!/bin/sh\ncase "$*" in *STATE*) echo "connecting" ;; *CONNECTIVITY*) echo "unknown" ;; esac\n' > "${I}/shim/nmcli"
 chmod +x "${I}/shim"/*; rm -f "${I}/route-up"
 t0=$(date +%s)
-PATH="${I}/shim:${PATH}" bash "${ROOT}/${RCLONE_REL}/cloud_net_ready" --wait 3 > "${I}/out" 2>&1; RC_I=$?
+PATH="${I}/shim:${PATH}" bash "${I}/cloud_net_ready" --wait 3 > "${I}/out" 2>&1; RC_I=$?
 dt=$(( $(date +%s) - t0 ))
 [ "${RC_I}" -eq 69 ] && [ "${dt}" -ge 3 ] && grep -q '^>>> doing network' "${I}/out" && grep -q "didn't come up in time" "${I}/out"; check $? "no route while NetworkManager says connecting: announced, waited the bound, then 69 (rc ${RC_I}, ${dt}s)" "rc ${RC_I} after ${dt}s: $(tr '\n' '|' < "${I}/out" | cut -c1-160)"
 printf '#!/bin/sh\ncase "$*" in *STATE*) echo "disconnected" ;; *CONNECTIVITY*) echo "none" ;; esac\n' > "${I}/shim/nmcli"
 t0=$(date +%s)
-PATH="${I}/shim:${PATH}" bash "${ROOT}/${RCLONE_REL}/cloud_net_ready" --wait 12 > "${I}/out" 2>&1; RC_I=$?
+PATH="${I}/shim:${PATH}" bash "${I}/cloud_net_ready" --wait 12 > "${I}/out" 2>&1; RC_I=$?
 dt=$(( $(date +%s) - t0 ))
 [ "${RC_I}" -eq 69 ] && [ "${dt}" -le 1 ] && ! grep -q '^>>> doing network' "${I}/out" && grep -q "there's no network connection" "${I}/out"; check $? "no route and disconnected (the radio off): 69 at once, nothing announced (rc ${RC_I}, ${dt}s)" "rc ${RC_I} after ${dt}s: $(tr '\n' '|' < "${I}/out" | cut -c1-160)"
 printf '#!/bin/sh\ncase "$*" in *STATE*) [ -e "%s/route-up" ] && echo "connected" || echo "connecting" ;; *CONNECTIVITY*) echo "full" ;; esac\n' "${I}" > "${I}/shim/nmcli"
 ( sleep 2; touch "${I}/route-up" ) &
 t0=$(date +%s)
-PATH="${I}/shim:${PATH}" bash "${ROOT}/${RCLONE_REL}/cloud_net_ready" --wait 12 > "${I}/out" 2>&1; RC_I=$?
+PATH="${I}/shim:${PATH}" bash "${I}/cloud_net_ready" --wait 12 > "${I}/out" 2>&1; RC_I=$?
 dt=$(( $(date +%s) - t0 ))
 wait
 [ "${RC_I}" -eq 0 ] && [ "${dt}" -ge 4 ] && [ "${dt}" -lt 12 ] && grep -q '^>>> doing network' "${I}/out"; check $? "a route that arrives while the link comes up: announced, then settled after the grace, before the deadline (rc ${RC_I}, ${dt}s)" "rc ${RC_I} after ${dt}s: $(tr '\n' '|' < "${I}/out" | cut -c1-160)"
@@ -2599,7 +2611,8 @@ tctl scan; [ "${RC}" -eq 0 ] && grep -qE '^route=scan at=[0-9]+ index=1 total=[0
 rm -f "${TR}/helper-plan"
 # The real helper's badge wait (fork #188): with downloads still queued it
 # returns within its bound and shuts the pool down, dropping the rest.
-PYTHONPATH="${CLIENT}" python3 - "${ROOT}/${HELPER_REL}" <<'EOS' >"${OUT}" 2>"${ERR}"
+subj "${HELPER_REL}"
+PYTHONPATH="${CLIENT}" python3 - "${SUBJ}" <<'EOS' >"${OUT}" 2>"${ERR}"
 import sys, time, importlib.machinery, importlib.util, concurrent.futures as cf
 from raofflineproxy import image_cache
 spec = importlib.util.spec_from_loader("helper", importlib.machinery.SourceFileLoader("helper", sys.argv[1]))
@@ -4188,7 +4201,8 @@ fi
 # source.
 echo "  F2-4. RetroArch's patches: the fork's apply at fuzz 0, the tree compiles, the sharp-size table follows the face that is drawn (#307 PL-032; #308 F-RW-02..10)"
 RA_REL=projects/ROCKNIX/packages/emulators/libretro/retroarch
-RA_PIN="$(sed -n 's/^PKG_VERSION="\([0-9a-f]*\)".*/\1/p' "${ROOT}/${RA_REL}/package.mk" | head -1)"
+subj "${RA_REL}/package.mk"
+RA_PIN="$(sed -n 's/^PKG_VERSION="\([0-9a-f]*\)".*/\1/p' "${SUBJ}" | head -1)"
 RA_TAR=""
 for d in "${SOURCES_DIR:-}" /workspace/cache/rocknix-sources "${ROOT}/sources" "${ROOT}"/../*/sources; do
     [ -n "${d}" ] && [ -f "${d}/retroarch/retroarch-${RA_PIN}.tar.gz" ] && { RA_TAR="${d}/retroarch/retroarch-${RA_PIN}.tar.gz"; break; }
@@ -4483,7 +4497,8 @@ cmp -s "${MR}/s.cfg" "${MR}/player.cfg"; check $? "another device's copy is left
 # hooks and its patches are run in scripts/unpack's order over the pinned
 # source's files: x86_64 comes out without the flag, aarch64 with it.
 echo "  F2-6. ppsspp-lr: the x86_64 strip of -mno-outline-atomics runs after the patches that add it (#308 F-EM-02)"
-PP_PIN="$(sed -n 's/^PKG_VERSION="\([0-9a-f]*\)".*/\1/p' "${ROOT}/${F2P}/emulators/libretro/ppsspp-lr/package.mk" | head -1)"
+subj "${F2P}/emulators/libretro/ppsspp-lr/package.mk"
+PP_PIN="$(sed -n 's/^PKG_VERSION="\([0-9a-f]*\)".*/\1/p' "${SUBJ}" | head -1)"
 PP_SRC=""
 for d in "${SOURCES_DIR:-}" /workspace/cache/rocknix-sources "${ROOT}/sources" "${ROOT}"/../*/sources; do
     [ -n "${d}" ] && [ -f "${d}/ppsspp-lr/ppsspp-lr-${PP_PIN}/CMakeLists.txt" ] && { PP_SRC="${d}/ppsspp-lr/ppsspp-lr-${PP_PIN}"; break; }
@@ -6673,11 +6688,12 @@ grep -q -- '-DENABLE_MINIBROWSER=OFF' "${WK}" && ! grep -q -- '-DENABLE_MINIBROW
 # to the pinned release, dry, as scripts/unpack applies it: `patch` reads
 # the prose before the first --- as a comment. The release's tarball comes
 # from the sources cache; without it the dry run is skipped and says so.
-WKP="${ROOT}/packages/web/webkitgtk/patches"
+WKP="${CS}/wkp"; f1_tree packages/web/webkitgtk/patches "${WKP}"   # the ref's under --old (#1035)
 for wp in "${WKP}"/*.patch; do
     [ -n "$(sed -n '/^--- /q; /[^[:space:]]/p' "${wp}")" ]; check $? "$(basename "${wp}") says what it fixes before its first hunk" "$(basename "${wp}") is a bare hunk: nothing says which build error it fixes, or why it is carried (#308 claude F-RS-26)"
 done
-WKV="$(sed -n 's/^PKG_VERSION="\(.*\)"$/\1/p' "${ROOT}/packages/web/webkitgtk/package.mk" | head -1)"
+subj packages/web/webkitgtk/package.mk
+WKV="$(sed -n 's/^PKG_VERSION="\(.*\)"$/\1/p' "${SUBJ}" | head -1)"
 WKT=""
 for d in "${SOURCES_DIR:-}" /workspace/cache/rocknix-sources "${ROOT}/sources" "${ROOT}"/../*/sources; do
     [ -n "${d}" ] && [ -f "${d}/webkitgtk/webkitgtk-${WKV}.tar.xz" ] && { WKT="${d}/webkitgtk/webkitgtk-${WKV}.tar.xz"; break; }
@@ -6698,7 +6714,12 @@ fi
 # others the recipe installs are (#308 claude F-RS-21). The recipe's chmod
 # 0755 covers the image either way; the mode is what a reviewer reads.
 for f in cloud_oauth cloud_device_id cloud_remote cloud_setup; do
+  if [ "${OLD}" -eq 1 ]; then   # the ref's committed mode, not the index's (#1035)
+    c7m="$(git -C "${ROOT}" ls-tree "${BASE_REF}" -- "${RCLONE_REL}/${f}" | cut -c1-6)"
+    [ "${c7m}" = 100755 ]; check $? "${f} is committed executable at ${BASE_REF}" "${f} is committed as ${c7m:-nothing} at ${BASE_REF} (#308 claude F-RS-21)"
+  else
     [ "$(git -C "${ROOT}" ls-files -s -- "${RCLONE_REL}/${f}" | cut -c1-6)" = 100755 ] && [ -x "${ROOT}/${RCLONE_REL}/${f}" ]; check $? "${f} is committed executable" "${f} is committed as $(git -C "${ROOT}" ls-files -s -- "${RCLONE_REL}/${f}" | cut -c1-6) (#308 claude F-RS-21)"
+  fi
 done
 
 # C8. cloud-signin-window.c. The scripts it runs in the page are C string
@@ -10543,7 +10564,8 @@ fi
 # client): the key is a ConfigSetting of [Achievements], and a non-empty
 # value is handed to rc_client_set_host; and the script names the pin
 # ppsspp-sa's package.mk pins. The launch through the proxy is the guest's.
-PPV="$(sed -n 's/^PKG_VERSION="\([0-9a-f]*\)".*/\1/p' "${ROOT}/projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/package.mk" | head -n 1)"
+subj projects/ROCKNIX/packages/emulators/standalone/ppsspp-sa/package.mk
+PPV="$(sed -n 's/^PKG_VERSION="\([0-9a-f]*\)".*/\1/p' "${SUBJ}" | head -n 1)"
 PPSRC=""; for d in "${SOURCES_DIR:-}" /workspace/cache/rocknix-sources "${ROOT}/sources"; do [ -n "${d}" ] && [ -d "${d}/ppsspp-sa/ppsspp-sa-${PPV}/Core" ] && { PPSRC="${d}/ppsspp-sa/ppsspp-sa-${PPV}"; break; }; done
 grep -q "afbc66a3\|${PPV:0:8}" "${DD}/cheevos_ppsspp.sh" && grep -q "${PPV:0:8}" "${DD}/cheevos_ppsspp.sh"; check $? "claude G-D-11: cheevos_ppsspp.sh names the PPSSPP commit ppsspp-sa pins (${PPV:0:8}) where it cites the source" "claude G-D-11: the script's citation does not name the pin ${PPV:0:8}"
 if [ -n "${PPSRC}" ]; then
