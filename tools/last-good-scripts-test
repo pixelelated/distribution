@@ -7766,7 +7766,8 @@ try:
 finally:
     proxy_service.log_uploader.report_storage_corruption = saved
 EOS
-grep -q '^\(PASS\|FAIL\) ' "${DD}/d13a.out"; check $? "stream D's d13a predicates ran ($(grep -c '^PASS' "${DD}/d13a.out") PASS / $(grep -c '^FAIL' "${DD}/d13a.out") FAIL)" "stream D's d13a predicates printed no verdicts: $(tail -5 "${DD}/d13a.out" | tr '\n' '|' | cut -c1-300)"
+d13a_rc=$?
+driver_verdicts "${DD}/d13a.out" "${d13a_rc}" d13a "F-RA-27 upload opt-in"
 while IFS= read -r line; do
     case "${line}" in
         PASS\ *) check 0 "#308 ${line#PASS }" "" ;;
