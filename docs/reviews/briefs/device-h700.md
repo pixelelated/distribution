@@ -464,3 +464,7 @@ DTS-by-unit table into T28's brief. The merge order: after T11's.
 (#1082) carries the area's kickoff and, in its errata, this slice's
 correction of the configuration guess; a stranger's proof of this brief
 runs before dispatch; version 2 records what it found.
+- **A bare `--since=2026-06-01` is read at the current time of day**: the
+  history count moves with the hour (T27 printed 28 / 1 / 27 at 08:10 and
+  29 / 1 / 28 with `--since='2026-06-01T00:00:00Z'`). The explicit midnight
+  cutoff is the command; the acceptance scripts use it.

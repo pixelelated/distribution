@@ -586,3 +586,7 @@ each found.
   `/workspace/tmp/m6-coordinator/accept-t11.out` (stages A to D at
   `499628a049`) and `accept-t11-final.out` (the merged tip and
   `stage-e/run-all.sh`: 47 rows, 0 unexpected).
+- **A bare `--since=2026-06-01` is read at the current time of day**: the
+  history count moves with the hour (T27 printed 28 / 1 / 27 at 08:10 and
+  29 / 1 / 28 with `--since='2026-06-01T00:00:00Z'`). The explicit midnight
+  cutoff is the command; the acceptance scripts use it.
