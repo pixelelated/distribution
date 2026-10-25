@@ -58,3 +58,11 @@ Nothing ran against a handheld, a person's cloud or a hosted account. `cloud-cen
 The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_64-0.0.1-dev+20261022T235948Z.g069fc2704421-from-ROCKNIX.img.gz` (2,122,289,964 bytes; three copies under `/workspace/artifacts/m6-t{1,2,3}-*`). T12's vm-qa report of 2026-10-24 22:57 (`/workspace/artifacts/rocknix-images/qa-069fc27044-webdav-a-20261024-225716/report.md`) names `BUILD_ID 069fc270442134fe771258418adf4e666e0473fb` and a 52 s bring-up. This tree's `docs/vm-qa-log.md` has no row for it; T12's branch has one (`git show feature/m6-tooling-vm-harness-659:docs/vm-qa-log.md | grep -c 069fc27044` prints 1).
 
 **Stage A done at 05:0x UTC**; the checkpoint and the window request go on #660.
+
+## 2026-10-25 05:07 UTC -- stage B begun while the window waits: the shapes generator
+
+- The checkpoint and window request were posted at 05:0x: https://github.com/pixelelated/distribution/issues/660#issuecomment-6393734808.
+- **Isolation carries into the window:** `vm-qa` calls `cloud-test-backend` with no arguments and exports only `CLOUD_QA_BACKEND` (lines 70, 117-118, 313, 325-326, 397-400), so `CLOUD_QA_STATE`, `CLOUD_QA_PORT` and `CLOUD_QA_NAME` reach it through the environment.
+- `tools/t13-shapes.py` (in this folder, not the repo's `tools/`) is written. It is run as `python3 -I -B tools/t13-shapes.py /workspace/tmp/m6-t13/cloud-round-trip.8ebaf8daad --json .qa-scratch/t13/shapes.json`, against `git show 8ebaf8daad:tools/cloud-round-trip` (`cmp` equal to the worktree's). Result: rc 0, `{"steps": 34, "cells": 44, "rows": 78, "by_oracle_rule": {"both ends": 28, "device report": 19, "synthetic": 31}, "deltas": []}`. Its oracle column is a rule-based first cut, to be reviewed row by row.
+- **Q2 lead:** `caps()` is read at three call sites. Two are in A14's helper (`hash`, lines 2369-2373) and one is in KILL1 (`commit`, line 6786). No step of the single-device suite reads it.
+- **Q7 lead:** the suite's 34 step spans hold 114 `check()` calls; the cells' spans hold 352 (one helper level). The ledger's 106 and the work log's 108 are runtime counts, which loops and branches make differ from the static count.
