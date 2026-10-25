@@ -1,0 +1,40 @@
+
+=== the two devices are two devices, not one id twice (#91)
+    PASS  a is GENERIC-X64-15ca35b6b4, b is GENERIC-X64-0964eed643
+
+=== device a reachable and equipped
+    PASS  ssh works
+    PASS  rclone and cloud scripts present
+
+=== point device a at the QA bucket
+    PASS  active remote is 'qa-cloud', which is what the scripts will use
+    scratch tree /storage/cloud-qa (pass --real-roms to use /storage/roms)
+    SAVES_REMOTE /pixelelated/Saves on the webdav endpoint
+
+=== device b reachable and equipped
+    PASS  ssh works
+    PASS  rclone and cloud scripts present
+
+=== point device b at the QA bucket
+    PASS  active remote is 'qa-cloud', which is what the scripts will use
+    scratch tree /storage/cloud-qa (pass --real-roms to use /storage/roms)
+    SAVES_REMOTE /pixelelated/Saves on the webdav endpoint
+
+=== A5 -- the discarded-saves reader, from the second device
+    SKIP  A5: cloud_reconcile is not on this image -- the wizard's apply step from a shell is the open decision D-CLOUD-051, and the cell waits for it (#1057)
+    PASS  A5 on a: one record each, no litter: system.cfg 226 keys, record .backup; es_settings.cfg 0 keys; 7 last-* stamps, 0 capture line(s), 0 manifest; 0 archive at root, 0 in archive/; saves tree clean of *.partial/*.tmp; cloud 0 settings file(s)
+    PASS  A5 on b: one record each, no litter: system.cfg 226 keys, record .backup; es_settings.cfg 0 keys; 0 last-* stamps, 0 capture line(s), 0 manifest; 0 archive at root, 0 in archive/; saves tree clean of *.partial/*.tmp; cloud 0 settings file(s)
+
+=== RETENTION -- the retention ordering: killed after the loser is stored, before the winner replaces
+    SKIP  RETENTION: cloud_reconcile is not on this image -- the wizard's apply step from a shell is the open decision D-CLOUD-051, and the cell waits for it (#1057)
+    PASS  RETENTION on a: one record each, no litter: system.cfg 226 keys, record .backup; es_settings.cfg 0 keys; 7 last-* stamps, 0 capture line(s), 0 manifest; 0 archive at root, 0 in archive/; saves tree clean of *.partial/*.tmp; cloud 0 settings file(s)
+    PASS  RETENTION on b: one record each, no litter: system.cfg 226 keys, record .backup; es_settings.cfg 0 keys; 0 last-* stamps, 0 capture line(s), 0 manifest; 0 archive at root, 0 in archive/; saves tree clean of *.partial/*.tmp; cloud 0 settings file(s)
+
+=== clean up root@127.0.0.1 port 10022
+    scratch tree and bucket emptied; the device's own remote, paths and settings-backup setting restored
+
+=== clean up root@127.0.0.1 port 10023
+    keep  /storage/roms/vectrex: this run did not create it, so it does not remove it
+    scratch tree and bucket emptied; the device's own remote, paths and settings-backup setting restored
+
+PASSED -- backend webdav (hash=none modtime=no commit=partial bucket=no): 11 passed, 0 failed, 2 skipped (A5: cloud_reconcile is not on this image -- the wizard's apply step from a shell is the open decision D-CLOUD-051, and the cell waits for it (#1057); RETENTION: cloud_reconcile is not on this image -- the wizard's apply step from a shell is the open decision D-CLOUD-051, and the cell waits for it (#1057))

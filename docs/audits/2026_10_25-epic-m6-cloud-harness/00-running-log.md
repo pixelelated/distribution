@@ -225,3 +225,8 @@ The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_6
 - My slip: the first proof wrote fixtures and listed within the 1 s window, so it read rc 3 on the fixed tool too. Rerun with the tool's own settle; the driver goes through `put`.
 - No revert of `94c050ed5a`. Its confinement stands, and the 09:15 bound was met at 08:16.
 
+## 2026-10-25 08:19-08:23 UTC -- the second window (granted 08:12 on #660)
+
+- START 08:20 on #660. The pair came up at 08:19 (`vm-pair up`, M6's image). The SFTP suite on the fixed endpoint gave 108/0/0. A5/RETENTION across two guests gave both cells SKIP on the fixed tree and RETENTION's two vacuous PASS lines on the unfixed tree. The guests were stopped by owned pid at 08:22:43, every backend down, the leftover check clean. Record: `stage-e/cycle2/`, 02 § The second window.
+- Then the host reruns at `7a71af7671`: pos1057 `fixed-expectation-met`, and the SFTP confinement probes (`/etc` and `get /etc/hostname` not found, no file written). #1057's two checkboxes and #1067's first were ticked from these. 05: PL-01 and PL-11 Resolved (16 resolved, 8 deferred, 0 open).
+

@@ -1,0 +1,7 @@
+T13 second window (granted 08:12 UTC on #660; the guest pair, 25 minutes)
+- booted 08:19:07 UTC: tools/vm-pair up <M6 image>, BUILD_ID 069fc270442134fe771258418adf4e666e0473fb; a :10022, b :10023
+- START on #660 08:20 UTC (issuecomment-6395330543)
+- 08:20-08:21 SFTP suite on guest a, endpoint from 7a71af7671: vm-qa --skip-up --only round-trip --backend sftp -> rc 0, 108 passed, 0 failed, 0 skipped (vm-qa-sftp/)
+  guest a's /var/log/cloud_sync.log cleared before the suite, read after (through the credential filter): 0 lines with "rclone exit 5"; its one "could not be read" line is the suite's dead-port case (rclone exit 1, the stanza on 9011) -- guest-a-scan-lines.txt
+- 08:21-08:22 A5,RETENTION across a and b over WebDAV: fixed tree rc 0, both SKIP with the reason (f-a5-retention.out); unfixed clone at 8a2518fa44 rc 1, RETENTION's two PASS lines under its FAIL (u-a5-retention.out)
+- guests stopped by vm-pair down (owned pids) at 08:22:43 UTC; every backend down; leftover check clean (leftover.txt)

@@ -455,3 +455,17 @@ An earlier probe, with no settle after the write, listed nothing on the fixed to
 **The teardown:** `tools/vm-pair down` gave `down: owned QEMU exited (pid 705918)`, the stop by pidfile through `vm-stop`. `--backend webdav down` and `--backend sftp down` both printed `down`. The leftover check at 08:09:21 UTC (`stage-e/cycle/leftover.txt`): qemu 0; `ss -ltn` 0 on 9010-9099 and 0 on 10022; `docker ps -a` 0 `rocknix-cloud-qa*`; 0 sshd on the `m6-t13` config; 0 `rclone serve`; 0 `minio server`.
 
 **My own slip, recorded:** the clone held `tools/` only, so the unfixed backend's `shipped-default` read no defaults file and the first KILL1 control stopped at planting (`put <stage> ''`). I checked out `projects/ROCKNIX/packages/network/rclone/sources` at `8a2518fa44` into the clone and re-ran the control; the first output was overwritten by the re-run. `stage-e/README.md`'s clone command is corrected below.
+
+
+## The second window
+
+**The window:** granted by the coordinator on #660 at 08:12 UTC, after the host proof of #1067's endpoint cache: a guest pair, 25 minutes.
+- **START:** 08:20 UTC on #660. The pair booted at 08:19 with `tools/vm-pair up` from M6's copy of the image (BUILD_ID `069fc270442134fe771258418adf4e666e0473fb`); guest a on :10022, guest b on :10023.
+- **Stopped:** 08:22:43 UTC by `tools/vm-pair down` (`owned QEMU exited` for both pids). Every backend was down, and the leftover check read zero on every line (`stage-e/cycle2/leftover.txt`).
+
+| Step | Unfixed | Fixed | Verdict | Where |
+| --- | --- | --- | --- | --- |
+| the suite over SFTP, endpoint `7a71af7671` | the first cycle: 101 passed, 7 failed in the content tier | `PASSED -- backend sftp (hash=none modtime=yes commit=partial bucket=no): 108 passed, 0 failed, 0 skipped`, rc 0. Guest a's `/var/log/cloud_sync.log` was cleared before the suite and read after, through the credential filter: no `rclone exit 5`, and the one "could not be read" line is the suite's dead-port case (`rclone exit 1`) | **G-1 met:** the regression was the endpoint's cache (02 § #1067, follow-up) | guest (`cycle2/vm-qa-sftp/`, `guest-a-scan-lines.txt`) |
+| A5, RETENTION across a and b over WebDAV (#1057) | `8a2518fa44`: rc 1, `FAIL no record.json ever appeared ... (apply said: "setsid: can't execute 'cloud_reconcile' ...")` with `PASS the head is unchanged` and `PASS the device's copy was not replaced before the loser was verified` under it | rc 0: `SKIP A5: cloud_reconcile is not on this image ...` and `SKIP RETENTION: ...`; no PASS line from inside either cell; `11 passed, 0 failed, 2 skipped` (setup and the per-guest no-litter checks) | **#1057 met** | guest (`cycle2/u-a5-retention.out`, `f-a5-retention.out`) |
+
+G-1's `rclone exit 5` was not reproduced and is not in either cycle's retained record. The first cycle's G-1 text quoted it from the guest log read in-window, and that log was not kept. G-2 and G-3 are not exercised here; they are stage F's.

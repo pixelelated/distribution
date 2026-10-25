@@ -300,7 +300,7 @@ punch_index:
   question: Q3
   source_finding: "F-01, F-02, G-10, G-11"
   tracked: "#1057"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-02
   severity: Low
   category: Correctness
@@ -370,7 +370,7 @@ punch_index:
   question: Q2
   source_finding: "F-21, G-42"
   tracked: "#1067"
-  outcome: "open"
+  outcome: "resolved"
 - id: PL-12
   severity: Low
   category: Security
@@ -470,7 +470,7 @@ After the guest cycle (#660: START 07:52, RETURN 08:10 UTC; the record `stage-e/
 
 | Item | Outcome | Tracked |
 | --- | --- | --- |
-| PL-01 | Open | fixed in `09ca086062` (#1057); its guest criterion was **not met** on the cycle (#660, 08:10 RETURN): step 5b with device b being guest a itself was refused by the harness's #91 guard (one id, one MAC), rc 2; it needs a two-guest window |
+| PL-01 | Resolved | fixed in `09ca086062` (#1057). The first cycle's 5b, with guest a standing in for b, was refused by the #91 guard. In the second window (#660, granted 08:12; `stage-e/cycle2/`), `--only A5,RETENTION --second-port 10023` across two guests gave both cells `SKIP` naming the reconciler and no PASS from inside either cell (rc 0); the unfixed clone on the same pair gave RETENTION's two PASS lines under its FAIL (rc 1); the `seen` gate is `stage-e/pos1057` (control FAIL alone). Both #1057 checkboxes ticked |
 | PL-02 | Resolved | `0cceb65207` (#1058) |
 | PL-03 | Resolved | `e71d077882`, `cee4bf481d` (#1059: the verdict line, the refusals, the equipment stop; nothing checked exits 3 under the 06:33 UTC ruling) |
 | PL-04 | Resolved | `7345a65e9d` (backend half), `1e28ba8f94` (harness half) (#1060) |
@@ -480,7 +480,7 @@ After the guest cycle (#660: START 07:52, RETURN 08:10 UTC; the record `stage-e/
 | PL-08 | Resolved | `bde357126c` (#1064); on the guest step 25 read 128 ES paths (`stage-e/cycle/vm-qa-webdav/round-trip.log`) |
 | PL-09 | Resolved | `f7482f9684`, `a70b4889a3` (#1065; the needle corrected in-window to the image's words); on the guest CAP13 PASSED with the warning present and FAILED with it absent (`stage-e/cycle/f-cap13-*.out`) |
 | PL-10 | Resolved | `7f0e527800` (#1066) |
-| PL-11 | Open | fixed in `94c050ed5a` (#1067: the confinement proven, the second criterion ticked under the 06:17 ruling), but the guest cycle found a regression: over the new `rclone serve sftp` endpoint the suite fails 7 content-tier checks that the old sshd endpoint passes on the same guest (`stage-e/cycle/vm-qa-sftp/`, `u-suite-sftp.out`); the coordinator's call on #660 (RETURN, 08:10) |
+| PL-11 | Resolved | fixed in `94c050ed5a` and `7a71af7671` (#1067). The first commit confines the endpoint (the second criterion ticked under the 06:17 ruling). The first guest cycle found that the new `rclone serve sftp` endpoint failed 7 content-tier checks. The cause was its five-minute directory cache, on 1.60.1 and 1.75.2 alike (02 § #1067, follow-up), and the second commit serves with `--dir-cache-time 1s`. In the second window the SFTP suite passed 108/0/0 (`stage-e/cycle2/vm-qa-sftp/`), and the confinement probes passed again at `7a71af7671`. Both #1067 checkboxes ticked |
 | PL-12 | Resolved | `91267b0dda` (#1068) |
 | PL-13 | Resolved | `0c538b1f74` (#1069); on the guest A15 reached its verdict with the backup landing (36 passed, 2 failed: two log-wording checks failing on both trees, a separate finding for stage F) |
 | PL-14 | Resolved | `77e7b16193` (#1070); on the guest KILL5 PASSED at keep 3 and at `CLOUD_BACKUP_KEEP=2` (`stage-e/cycle/f-kill5-keep*.out`) |
