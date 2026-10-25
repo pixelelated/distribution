@@ -43,24 +43,29 @@
    banners, exits, wall times and counts, the five `--old` recipes' exits --
    before reading a section.
 
-## Current focus (04:50 UTC update)
+## Current focus (05:35 UTC update)
 
-**Stage E, S2 in progress.** S1 is complete (`3037ce6b8c`, `7cb11eb379`, `4e5b6c6103`, `3da816ce24`; #1030/S6 closed by `3da816ce24`, the coordinator at 04:12). S2's code so far:
-- #1023 (`5a155ed7fc`): the `--old` verdict: CANNOT, a promised FAIL, or N/A by name; per-tool versions against the ref;
-- #1022 (`bea0374f3b`): `717bc04449` and `51e2acece6`;
-- #1021 (`70af8e3771`): the history reads fail closed.
+**Stage E: S2's code is complete; its runs are stopped for M7's build window.** S1 is complete. S2's commits:
+- #1023 `5a155ed7fc`;
+- #1022 `bea0374f3b`;
+- #1021 `70af8e3771`;
+- #1035 `1dbb668bb2`;
+- #1024 `4bc40d7733`;
+- #1039 `a286e5b49f`.
 
-#1023's `1d1503180d` positive is in `02`.
+**Nothing is running, and nothing may start that reads an M7 root until M6 answers.** On M7's request I stopped all five T15 run shells at 05:30, by PID, and checked the readback (`00` at 05:35; the report on #662 at 05:32). The open question to M6 on #662: (a) resume on `m7-signin-build-20261022-07` after M7's window, or (b) use `m7-pixelelated-replacement20`'s root.
 
-**Running: one serial chain**, each step in a clone under `/workspace/tmp/m6-t15/s2/`, so the worktree stays editable. Outputs go to `<name>.out`, summaries to `<name>.summary`; the harness delivers each task's end.
-1. `--old 34aca64afd` in `at1023` (task `bfmb3wrxd`);
-2. then `--old 717bc04449` and `--old 51e2acece6` in `at1022` (`bppnm3qop`, waiting on 1's summary);
-3. then the two `--depth` clones, `shallow-unfixed` (`bea0374f3b`) and `shallow-fixed` (`70af8e3771`), no `--old` (`b8n32jgu5`, waiting on 2's last summary).
-
-If the session is gone, read the `*.summary` files: a missing one means its step has not finished or died, so check with `pgrep -af last-good-scripts-test`.
-- **Then:** the docs commit with #1022's and #1021's positives (`02` § S2) and the checkpoint on #662; then #1024, #1035 and #1039; then the twelve-recipe table and the full root run at S2's tip.
-- **The coordinator's rulings in force:** 03:11 (outside `--old`, the wrong rclone is CANNOT); 03:34 (under `--old`, per-tool versions, unverified); 03:58 (a child's 2/3 gives 3; `ag` from `HARNESS_ROOT`); 04:12 (S6 closed; the `--depth 1` clone for #1021).
-- **The register:** D-WORKFLOW-206 to 208 are the M7 lane's; a row here takes D-WORKFLOW-209+, D-QA-064 or D-INFRA-032. None is planned.
+- **Recorded:** #1023's `1d1503180d` (in `02`) and `34aca64afd` (in `00`). #1039's positive is in `00`.
+- **To re-run, serial, from clones under `/workspace/tmp/m6-t15/s2/`:**
+  - `at1022` (`--old 717bc04449`, then `51e2acece6`);
+  - `shallow-unfixed` and `shallow-fixed` (no `--old`);
+  - `cut/tools/lgst-ghi-{unfixed,fixed}` (`LAST_GOOD_SOURCE_ROOT=<worktree> BASE_REF=1d1503180d --old`);
+  - `cut/tools/lgst-t-fixed` (`BASE_REF=70b6c70ca7 --old`);
+  - `tip` (`a286e5b49f`): the twelve recipes, then the root run.
+  - Then write #1022, #1021, #1035 and #1024's positives and the twelve-recipe table into `02` § S2, and post the S2 checkpoint.
+- **While waiting:** S3's code edits (#1026, #1027, #1031-#1034, #1036, #1037, one commit per bug); their judging runs wait for the root.
+- **The coordinator's rulings in force:** 03:11, 03:34, 03:58 and 04:12 (see `00`).
+- **The register:** D-WORKFLOW-206 to 209 and D-INFRA-032 are the M7 lane's; a row here takes D-WORKFLOW-210+, D-QA-064 or D-INFRA-033+. None is planned.
 - **Then S2 to S6, then the close-out** (the brief's last section): the Phase 7 table, `02` § The suites re-run, the lint, `fixed-at:`, the retro, the hand-back, then idle.
 - **Stages A to D** are in `00` (A 00:23-01:10; B `c4a7e98509`; C `4851698b02`; D `2eface0727`: `05`, bugs #1018-#1039, audit issue #1040).
 

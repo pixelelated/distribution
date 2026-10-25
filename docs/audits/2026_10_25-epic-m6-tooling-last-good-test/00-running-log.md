@@ -262,3 +262,30 @@
   - the invalid refs: CANNOT in about 10 ms;
   - **`--old 1d1503180d`: exit 1 in 1,219 s, a verdict where the unfixed file exited 2 at `s`**: all ten promises fired; `s x y z ab` N/A by name (654 checks); rclone v1.75.2 against the ref's v1.75.0 unverified; busybox v1.36.1 matched.
 - **Busybox and rclone at the refs:** the busybox override says 1.36.1 at every ref the suite names, so under `--old` busybox is evidence. Rclone says 1.75.0 (the twelve) or 1.75.1 (the in-section positives), so stream A is unverified at each.
+
+## [Stage E] 05:32 UTC — S2's code complete; the run queue stopped for M7's build window
+
+- **S2's code commits:**
+  - #1023 `5a155ed7fc`;
+  - #1022 `bea0374f3b`;
+  - #1021 `70af8e3771`;
+  - #1035 `1dbb668bb2`;
+  - #1024 `4bc40d7733`: the client's pin through `subj`, so `70b6c70ca7`'s `t` builds its own client (`64d03d3063...`, in the sources cache);
+  - #1039 `a286e5b49f`: the header's 34 claims and positives, `--help`'s `--old` line, and the SIGINT advice.
+  - #1022, #1021, #1035 and #1024 were committed with their runs in flight, each message saying so.
+- **#1039's positive:** under a parent ignoring SIGINT, the unfixed refusal advises `setsid -f`, and `setsid -w` under such a parent still refuses (rc 2). The fixed refusal names a launcher that resets SIGINT.
+- **#1024's record, corrected:** stage A's `t` at `70b6c70ca7` had 43 FAIL and 21 PASS. Five of the FAILs are patches 003, 004, 005, 006 and 009 not applying; the rest follow from the unbuilt client; and no line in `t` names `012`. The commit message's *"43 FAILs were patch failures"* overstated that; the issue's own wording was the source.
+- **#1023's second case (`--old 34aca64afd`, from a clone at `5a155ed7fc`): exit 1 in 1,189 s**, 233 PASS / 265 FAIL / 637 N/A / 26 SKIP / 2 CANNOT. `p`: `FAIL  raofflineproxy-ctl is absent at 34aca64afd: the toggle had no backend`. Both promises fired (`k p`); `x y z ab` were N/A by name; rclone v1.75.2 against v1.75.0 was unverified. The unfixed file stopped at `x`, exit 2 (stage A).
+- **The M7 lane, about 05:25:** its donor-cache move was blocked by T15 shells naming the `m7-signin-build-20261022-07` root, and M6 had granted M7 the build window at 05:22.
+  - The five PIDs it named were all mine (host PID namespace `4026531836`): one running suite (`--old 717bc04449`, process group 3674113) and four waiters that would each have started a suite on that root.
+  - Stopped by PID at 05:30 (SIGTERM): the waiters and their `sleep`s, the outer shell 2555091, and group 3674113.
+  - Readback at 05:31: no process with that root in `QA_SYSTEM_ROOT`, as its working directory, or open; no suite, `bwrap` or `cloud_capture` left; the killed run's scratch removed by its EXIT trap.
+  - Reported to M6 on #662. The `/tmp` handoff file was not written: this lane writes nothing under `/tmp`.
+- **To re-run after the window, serial, about five hours:**
+  - #1022's `717bc04449` and `51e2acece6`;
+  - #1021's two `--depth` clones;
+  - #1035's `g`/`h`/`i` cuts;
+  - #1024's `t` cut;
+  - the twelve recipes and the root run at `a286e5b49f`.
+  - Which root to resume on was put to M6.
+- **The register:** D-WORKFLOW-206 to 209 and D-INFRA-032 are reserved for the M7 lane (the coordinator, 03:16, 03:43 and 04:46). A row from this slice takes D-WORKFLOW-210+, D-QA-064 or D-INFRA-033+.
