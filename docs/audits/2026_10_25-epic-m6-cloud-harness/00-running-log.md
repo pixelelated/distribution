@@ -230,3 +230,16 @@ The image for the guest-cycle request, read only: `pixelelated-GENERIC_X64.x86_6
 - START 08:20 on #660. The pair came up at 08:19 (`vm-pair up`, M6's image). The SFTP suite on the fixed endpoint gave 108/0/0. A5/RETENTION across two guests gave both cells SKIP on the fixed tree and RETENTION's two vacuous PASS lines on the unfixed tree. The guests were stopped by owned pid at 08:22:43, every backend down, the leftover check clean. Record: `stage-e/cycle2/`, 02 § The second window.
 - Then the host reruns at `7a71af7671`: pos1057 `fixed-expectation-met`, and the SFTP confinement probes (`/etc` and `get /etc/hostname` not found, no file written). #1057's two checkboxes and #1067's first were ticked from these. 05: PL-01 and PL-11 Resolved (16 resolved, 8 deferred, 0 open).
 
+## 2026-10-25 08:25 UTC -- retention (the 06:52 ruling, held to the second RETURN by the 08:12 ruling), D-INFRA-022
+
+- **Retired:** all of `/workspace/tmp/m6-t13/`, 4,637,791,555 bytes. Its top level was: 1067-body.md 1067-evidence.md 660-body.md artifacts audit-issue.md audit.log body-1057.md body-1067.md bugs c1057.md c1067.md cloud-round-trip.8ebaf8daad conf-state council-test.out cycle cycle.env cycle2 dead.out diag diag-state handback-streams.md idle.md idle2.md npm-install.out packet passthrough.md patch1066.py pos pos1057 pos1059 pos1060 pos1062 pos1063 pos1064 pos1065.log pos1066 pos1069 pos1070 post-1067host.md probe.log return2.md rulings-applied.md run s1-checkpoint.md s1-post.txt s2-checkpoint.md s2-dead.out scripts secret-patterns.t10 shapes-section.md shim1068 stageA-checkpoint.md stageB-checkpoint.md stageD-pause.md state streams-positives.md tmp u1067.log unfixed verify-pins.out vm-pair. The large payload was `vm-pair/`, two disposable guest disks rebuilt from the image on every `up`:
+  - `vm-a.qcow2`, 2,310,209,536 B, sha256 `97fd5f897f28948f158298fd9dba3669a5033f58851a7908aed3ab4b76a811b5`
+  - `vm-b.qcow2`, 2,309,160,960 B, sha256 `9d64fc5ab1ec6e4e91bd7f7060a8640800f7aff7fd5bb28415ff6e4028cc90e7`
+
+  Those hashes are provenance. They make no claim that the files still exist.
+- **Checked before removal:** nothing in the tree was open by a process or was any process's cwd; every file was owned by this user; no qemu, backend or container of the slice was running (the second window's leftover check, 08:22:43).
+- **Released by:** both RETURNs on #660, with both cycles' compact records on the branch (`stage-e/cycle/` and `stage-e/cycle2/`). Nothing there needed a full disk: a later run regenerates a guest from the image.
+- **df on /workspace:** 1,655,478,046,720 bytes available before, 1,660,111,147,008 after, a measured recovery of 4,633,100,288 bytes (4,418 MiB).
+- **Kept (inputs, not this slice's):** the M6 image under `/workspace/artifacts/m6-t3-20261024/` (2,122,289,964 B) and the donor rclone under `/workspace/artifacts/m6-donor/1a0266484423/`.
+- **Stage F's scratch:** a new `/workspace/tmp/m6-t13/` holding only host drivers' `$TMPDIR` output, removed at the hand-back.
+
