@@ -43,27 +43,23 @@
    banners, exits, wall times and counts, the five `--old` recipes' exits --
    before reading a section.
 
-## Current focus (04:13 UTC update)
+## Current focus (04:50 UTC update)
 
-**Stage E: S1 is complete.** Its fixes:
-- #1018: `3037ce6b8c`;
-- #1020: `7cb11eb379`;
-- #1029/#1038: `4e5b6c6103`;
-- #1019: `3da816ce24`, which also carries #1030's fix (S6); its positive is recorded in `02` § S6.
+**Stage E, S2 in progress.** S1 is complete (`3037ce6b8c`, `7cb11eb379`, `4e5b6c6103`, `3da816ce24`; #1030/S6 closed by `3da816ce24`, the coordinator at 04:12). S2's code so far:
+- #1023 (`5a155ed7fc`): the `--old` verdict: CANNOT, a promised FAIL, or N/A by name; per-tool versions against the ref;
+- #1022 (`bea0374f3b`): `717bc04449` and `51e2acece6`;
+- #1021 (`70af8e3771`): the history reads fail closed.
 
-**S2 is next:** #1021-#1024, #1035, #1039, with the 03:34 `--old` per-tool ruling. The stream briefs are `t15-streams.md` at `d717bac312` (the 329 corrected at `df404d5650`); a copy is at `/workspace/tmp/m6-t15/t15-streams.md`. D-QA-063 gives 1 over 3 over 0.
-- **S1's end under the M7 root (`3da816ce24`): rc 3, 1,312 / 0 / 0 / 2 CANNOT.** This branch's own copies of the two writer tests predate T14's `--busybox-from`. With T14 merged, those two PASS (the cut copy with T14's tools: rc 0), and the run is 1,314 / 0 / 0.
-- **The coordinator's rulings in force:**
-  - 03:11: outside `--old`, a root whose rclone is not the recipe's is CANNOT;
-  - 03:34: under `--old`, each tool borrowed from the root (rclone, busybox) is read against the ref's recipe; a mismatch is named and its sections are unverified (stream A for rclone, everything for busybox); D-QA-063 gives the exit;
-  - 03:58: a child's 2/3 gives 3 with no FAIL; `ag` from `HARNESS_ROOT`.
-- **Open with the coordinator (the S1 checkpoint):** whether S6 is closed by `3da816ce24` plus its positive; and #1021's history-less positive from a `--depth 1` clone rather than `git archive`.
-- **Nothing is running.** Clones in `/workspace/tmp/m6-t15/`:
-  - `stageD` (`2eface0727`);
-  - `s1/pre1020` (`3037ce6b8c`);
-  - `s1/t14stage` (`4e5b6c6103`, with T14's tools from `7c1d729b57`);
-  - `s1/t14double` (the exit-2/exit-3 doubles);
-  - `s1/nosmt` (no `settings-modes-test`).
+#1023's `1d1503180d` positive is in `02`.
+
+**Running: one serial chain**, each step in a clone under `/workspace/tmp/m6-t15/s2/`, so the worktree stays editable. Outputs go to `<name>.out`, summaries to `<name>.summary`; the harness delivers each task's end.
+1. `--old 34aca64afd` in `at1023` (task `bfmb3wrxd`);
+2. then `--old 717bc04449` and `--old 51e2acece6` in `at1022` (`bppnm3qop`, waiting on 1's summary);
+3. then the two `--depth` clones, `shallow-unfixed` (`bea0374f3b`) and `shallow-fixed` (`70af8e3771`), no `--old` (`b8n32jgu5`, waiting on 2's last summary).
+
+If the session is gone, read the `*.summary` files: a missing one means its step has not finished or died, so check with `pgrep -af last-good-scripts-test`.
+- **Then:** the docs commit with #1022's and #1021's positives (`02` § S2) and the checkpoint on #662; then #1024, #1035 and #1039; then the twelve-recipe table and the full root run at S2's tip.
+- **The coordinator's rulings in force:** 03:11 (outside `--old`, the wrong rclone is CANNOT); 03:34 (under `--old`, per-tool versions, unverified); 03:58 (a child's 2/3 gives 3; `ag` from `HARNESS_ROOT`); 04:12 (S6 closed; the `--depth 1` clone for #1021).
 - **The register:** D-WORKFLOW-206 to 208 are the M7 lane's; a row here takes D-WORKFLOW-209+, D-QA-064 or D-INFRA-032. None is planned.
 - **Then S2 to S6, then the close-out** (the brief's last section): the Phase 7 table, `02` § The suites re-run, the lint, `fixed-at:`, the retro, the hand-back, then idle.
 - **Stages A to D** are in `00` (A 00:23-01:10; B `c4a7e98509`; C `4851698b02`; D `2eface0727`: `05`, bugs #1018-#1039, audit issue #1040).
