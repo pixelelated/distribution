@@ -16,11 +16,10 @@
 
 ## Current focus
 
-**Stage D complete; no stage E; stage F next** (updated 2026-10-25, 05:47 UTC).
-- **Bugs:** #1071 (vitaquake2-lr), #1072 (EmulationStation `cpugov`), #1056 (the inventory's symlink gap). `box-check` 0 fail on each.
-- **The audit issue:** #1074 (6 items, each at an outcome). Pointing comments are on #689 (50 leads) and #688 (none).
-- **The lint:** three forms PASS.
-- **Next:** stage F (the counts and the lint at the tip; `fixed-at` into #687's body), G (the retro), H (the hand-back).
+**Stages F and G complete; stage H (the hand-back) next** (updated 2026-10-25, 05:48 UTC).
+- **`reviewed-at` `b8cde6f305`, `fixed-at` `9c3fa25cfb`**: both on #687's body, read back.
+- **Stage F** (`stage-f/counts.txt`): unchanged at the tip; the lint passes in three forms; `box-check` 0 fail on #1056, #1071, #1072 and #1074.
+- **The retro:** `docs/retros/2026-10-25-m6-patches-dead.md`, posted on #687.
 - **Running for this lane:** nothing.
 
 ## Next commands
