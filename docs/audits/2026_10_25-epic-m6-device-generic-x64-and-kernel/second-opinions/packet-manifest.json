@@ -1,0 +1,354 @@
+{
+  "sources": [
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-device-generic-x64-and-kernel/stage-c/ask.md",
+      "ref": "worktree",
+      "kind": "ask",
+      "sha256": "a16dbffbbc5c55a7e00ed727dfe3e324dd28e96896be39c6827933bd41c9351b",
+      "bytes": 4540
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-device-generic-x64-and-kernel/02-forward-audit.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "4071b371a728011068743231ce742b0f2a23abb2d73e1435a8ac42fa33a4bf7d",
+      "bytes": 42674
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-device-generic-x64-and-kernel/03-retrospective.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "8ea45dac6a0b23a7be631998992446ea1c959c97f3fe97dde9c0af4297d9d4c9",
+      "bytes": 5874
+    },
+    {
+      "path": "docs/audits/2026_10_25-epic-m6-device-generic-x64-and-kernel/04-analysis.md",
+      "ref": "worktree",
+      "kind": "first reader",
+      "sha256": "59529740d4a2d05a5d27087848ded424d59020418b05d76d01b554a487d8a17b",
+      "bytes": 18933
+    },
+    {
+      "path": "docs/reviews/order.md \u00a7 T11",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "c4e3fc3da881e9936f3f5f06ce003b38078eea1561dbfe55f064989c6a396d90",
+      "bytes": 1341
+    },
+    {
+      "path": "docs/reviews/briefs/device-generic-x64-and-kernel.md \u00a7 2 and \u00a7 4",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "3a0c4f843b16ac572791b5c5ebe63b05482b30ad99b0b7ca5e7f1208160dc467",
+      "bytes": 13969
+    },
+    {
+      "path": "docs/decision-register.md rows D-WORKFLOW-185/186/187, D-QA-053",
+      "ref": "worktree",
+      "kind": "context",
+      "sha256": "9839a43031eb981e6c4195c9f1c40547346ea23f954418d96a7dc457865d99c8",
+      "bytes": 7322
+    },
+    {
+      "path": "projects/ROCKNIX/devices/GENERIC_X64/filesystem/usr/lib/sway/sway-generic-x64",
+      "ref": "8ebaf8daad",
+      "kind": "read file",
+      "sha256": "0d8196a0466015c18a13ab84cbf4f832e4e4a35c8194122d66e21aa24c0035cc",
+      "bytes": 1672
+    },
+    {
+      "path": "projects/ROCKNIX/devices/GENERIC_X64/filesystem/usr/lib/systemd/system/serial-debug-shell.service",
+      "ref": "8ebaf8daad",
+      "kind": "read file",
+      "sha256": "8995e22a59948b130870e824cb9e86478fed149e81a4225ad91f04d7a06e31c2",
+      "bytes": 1641
+    },
+    {
+      "path": "projects/ROCKNIX/devices/GENERIC_X64/options",
+      "ref": "8ebaf8daad",
+      "kind": "read file",
+      "sha256": "9a49e54e7a37644500274083a38b02f72fc73c6f757e6906e94e2875583f4550",
+      "bytes": 3340
+    },
+    {
+      "path": "projects/ROCKNIX/devices/GENERIC_X64/vm/generic-x64-vm",
+      "ref": "8ebaf8daad",
+      "kind": "read file",
+      "sha256": "09f5bdecf7deda294c443ffcb15de83a5b6222cb47d6add7f4c3ea1fe0221b88",
+      "bytes": 37207
+    },
+    {
+      "path": "projects/ROCKNIX/options",
+      "ref": "8ebaf8daad",
+      "kind": "read file",
+      "sha256": "567fd212d84adc7715693e9a0df368e692a3240f013a374ae284540c9d7f7b1b",
+      "bytes": 1358
+    },
+    {
+      "path": "projects/ROCKNIX/packages/kernel-drivers/device-tree-overlays/package.mk",
+      "ref": "8ebaf8daad",
+      "kind": "read file",
+      "sha256": "7794b8a1657705f508b7107dd87d5d20ed4912a968161d7d29911815245da959",
+      "bytes": 866
+    },
+    {
+      "path": "projects/ROCKNIX/packages/kernel-drivers/device-tree-overlays/sources/dtb_overlay",
+      "ref": "8ebaf8daad",
+      "kind": "read file",
+      "sha256": "c22720ba8bd088fa6fe4fcee6339262c844ea9728a893186b93e6bf09e26317b",
+      "bytes": 4959
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux-drivers/rocknix-joypad/package.mk",
+      "ref": "8ebaf8daad",
+      "kind": "read file",
+      "sha256": "4aafdc7b1b97ea4e6e1b36cbffbf8d848c6bd5ca58d0f12b76d5fa4193177a40",
+      "bytes": 831
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux-firmware/extra-firmware/package.mk",
+      "ref": "8ebaf8daad",
+      "kind": "read file",
+      "sha256": "f33dfe5b4ef7c8ef22cd9b88011e97b19d1a57f70d374814060a723ff086459d",
+      "bytes": 1204
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux-firmware/kernel-firmware/package.mk",
+      "ref": "8ebaf8daad",
+      "kind": "read file",
+      "sha256": "cc658646f1bb947db8a093f0f15362b14ff7f76a5f4884c3ce515c450decd0ac",
+      "bytes": 3754
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux/package.mk",
+      "ref": "8ebaf8daad",
+      "kind": "read file",
+      "sha256": "2419987f2bc772934601696997c184a701d90f20f4d27b3bc36bd782878936d6",
+      "bytes": 22218
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux/udev.d/10-bfq-sched.rules",
+      "ref": "8ebaf8daad",
+      "kind": "read file",
+      "sha256": "f95da633845597607ba9554f462f39bd10e0532644b00e779ae694c55b209ba4",
+      "bytes": 71
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux/udev.d/30-disable-wakeup.rules",
+      "ref": "8ebaf8daad",
+      "kind": "read file",
+      "sha256": "b6eb247c184f2525923e519d38a4f9c74a780e5d10a68c7133b917431170ae12",
+      "bytes": 351
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux/udev.d/40-usb_modeswitch.rules",
+      "ref": "8ebaf8daad",
+      "kind": "read file",
+      "sha256": "87b9d1b616aa16268af94c8b96dd838ded671100499ac23005a11c3952e07052",
+      "bytes": 734
+    },
+    {
+      "path": "projects/ROCKNIX/bootloader/install",
+      "ref": "8ebaf8daad",
+      "kind": "boot script",
+      "sha256": "8e62d63a5182e2dfdbb15eb869cca335baa2c1de5624f74ab60e975975ecd840",
+      "bytes": 3580
+    },
+    {
+      "path": "projects/ROCKNIX/bootloader/mkimage",
+      "ref": "8ebaf8daad",
+      "kind": "boot script",
+      "sha256": "459cdc1893050d83062eba50acab13311798bfc61c9e193cbf757a06023324a0",
+      "bytes": 4692
+    },
+    {
+      "path": "projects/ROCKNIX/bootloader/release",
+      "ref": "8ebaf8daad",
+      "kind": "boot script",
+      "sha256": "7c800a5ab5f040d80df9af46d1f027f75d7bdbed7fbe58102a3bff2ec84558e2",
+      "bytes": 238
+    },
+    {
+      "path": "projects/ROCKNIX/bootloader/rkhelper",
+      "ref": "8ebaf8daad",
+      "kind": "boot script",
+      "sha256": "41726fde1d9f5c24883f29e54cbae40a6cdadd5e5fd5af292fbdd0cdb779c4c5",
+      "bytes": 1752
+    },
+    {
+      "path": "projects/ROCKNIX/devices/GENERIC_X64/linux/linux.x86_64.conf:1-8",
+      "ref": "8ebaf8daad",
+      "kind": "config header",
+      "sha256": "0ff791c532ff33e17296aae877571953137b64049292083426237070a07863ac",
+      "bytes": 257
+    },
+    {
+      "path": "diff Generic conf -> GENERIC_X64 conf",
+      "ref": "8ebaf8daad",
+      "kind": "config diff",
+      "sha256": "dbfe42f4ff4f01470afab7781d262612bccb589ac8d465f567675c6117ac2397",
+      "bytes": 33650
+    },
+    {
+      "path": "scripts/image:268-292",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "3a4b70177d9e092284f4674e35c4fdaf5c4e59e4ccaa24bd66fc1f1b3a221431",
+      "bytes": 787
+    },
+    {
+      "path": "scripts/mkimage:137-182",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "98e941235fbce4f29573616c00ae6a1ebc888e5b01950ce16ec5bde85717831e",
+      "bytes": 2140
+    },
+    {
+      "path": "scripts/mkimage:222-275",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "13b68d027befd4931db491ce1ec5319f57140f7d26c9d7394a3dd0e6f01155b9",
+      "bytes": 2788
+    },
+    {
+      "path": "config/functions:1179-1229",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "42f43782f43778f513dbd7ae3e16dd526f6adc2f23535e45b579a70e3bf9c020",
+      "bytes": 1924
+    },
+    {
+      "path": "packages/virtual/image/package.mk:1-12",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "fd84cbf45d6915bb5e661001972f4e7a61df8be5fe24ecd2ede89c737347336c",
+      "bytes": 711
+    },
+    {
+      "path": "packages/tools/syslinux/package.mk:53-80",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "11b0cb29798d86f07afdfe258d4aded9606647dc808778946965cbe2926bba75",
+      "bytes": 1248
+    },
+    {
+      "path": "packages/tools/installer/scripts/installer:190-205",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "93327eafa662d0f40c7d2d8c1b51b82a6bda789019905b2340e523b5a9765f5e",
+      "bytes": 691
+    },
+    {
+      "path": "packages/tools/installer/scripts/installer:285-300",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "f15b4a0d3f7f817ce227044fc5cbdc0b3a7c7e1e5faf8b377291ab5324ec2b31",
+      "bytes": 576
+    },
+    {
+      "path": "projects/ROCKNIX/packages/tools/grub/package.mk:70-86",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "a07c3cf99c3699503adb720a1ce99f27c13dbc420c1142a5faa3a2de6605b8ef",
+      "bytes": 710
+    },
+    {
+      "path": "projects/ROCKNIX/packages/tools/rocknix-abl/package.mk:1-18",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "c4886a4f27c6488302c185b5f26ef2fded13e64bb27ff8403e01bbd834fdd961",
+      "bytes": 984
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/packages/u-boot/package.mk:20-36",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "7f7ba4c660f734dba604c6ce468be2739a6e2bf6240fdd0e6b957e1fa7d4807d",
+      "bytes": 687
+    },
+    {
+      "path": "projects/ROCKNIX/packages/sysutils/busybox/scripts/init:425-440",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "701943aec28bb65b76cd5f7e30568981bab0a0ba81c026450e1a45cf98b183f9",
+      "bytes": 403
+    },
+    {
+      "path": "tools/vm-pair:30-80",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "9b2cde4cbe4e7a5ee09589ef6ff69371259512013e5d9c92b725e1d7469e0fe5",
+      "bytes": 2920
+    },
+    {
+      "path": "projects/ROCKNIX/devices/AMD64/config/kernel-firmware.dat:1-40",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "34027e44a48b1a842f8c3e097545abcf4a44c440e8c170e50171f07d3e5c7d29",
+      "bytes": 1152
+    },
+    {
+      "path": "projects/ROCKNIX/devices/H700/config/kernel-firmware.dat:1-18",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "d0f1532de1e7dd8889da4adae6ec9668914d898ede93013cf28444e2527d4138",
+      "bytes": 564
+    },
+    {
+      "path": "projects/ROCKNIX/devices/SM8550/config/kernel-firmware.dat:1-8",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "485d8e3cceb4503c831cacb88d5cff620188027e37355b3d4d54c4bc8f613bbd",
+      "bytes": 157
+    },
+    {
+      "path": "tools/renovation-inventory:30-40",
+      "ref": "2174265e9c",
+      "kind": "excerpt",
+      "sha256": "26d8d098e3d2d3dee325f24fe423fb957da436d3cfb46b477265799a56ff9a3d",
+      "bytes": 847
+    },
+    {
+      "path": "docs/qa-logs/2026-10-11-usb-revision/guest02/run.py:1-25",
+      "ref": "8ebaf8daad",
+      "kind": "excerpt",
+      "sha256": "fb4bf3f610946cbad18e6db20dbc80f165714ea4410e9a3584118b15caea83ff",
+      "bytes": 2670
+    },
+    {
+      "path": "projects/ROCKNIX/packages/linux/package.mk:15-60",
+      "ref": "651150fc88",
+      "kind": "excerpt",
+      "sha256": "beda2b8f38c1fe08d659568ee3c12904e95ee36596c5dbfe3da8d287e9daa38a",
+      "bytes": 2118
+    }
+  ],
+  "packet": {
+    "file": "gpt-brief.md",
+    "bytes": 247469,
+    "sha256": "a61ed1b792dbae6225cf0a1e584672213b7c9dba4586e734281dc516ebef7fb2"
+  },
+  "scan": {
+    "forbidden_terms_check_stdin": "0 hits on stdin (rc 0)",
+    "secret_patterns": [
+      {
+        "set": ".githooks/secret-patterns (this branch)",
+        "sha256_12": "57fd72093984",
+        "lines": 0
+      },
+      {
+        "set": "the primary checkout's .githooks/secret-patterns",
+        "sha256_12": "57fd72093984",
+        "lines": 0
+      },
+      {
+        "set": "T10's widened set, git show feature/m6-tooling-guards-657:.githooks/secret-patterns",
+        "sha256_12": "7295e68fd978",
+        "lines": 0
+      }
+    ],
+    "positive_control": "each of the three sets matched 1 of 2 lines on a devpassword= line assembled at run time",
+    "redactions": [],
+    "when_utc": "2026-10-25 07:06-07:07"
+  }
+}

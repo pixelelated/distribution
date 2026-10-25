@@ -16,14 +16,14 @@
 
 ## Current focus
 
-**Stage B complete; stage C next** (updated 2026-10-25, 07:04 UTC).
+**Stage C in flight** (updated 2026-10-25, 07:08:52 UTC): the packet built and scanned (0 hits; `packet-manifest.json`); the probe PASS (07:08:17-07:08:27); the refutation started at 07:08:52 UTC as harness task `bc29oco8c`, writing `second-opinions/gpt-audit.md` and `/workspace/tmp/m6-t11/refutation.rc`. If this session died, read the rc file and `gpt-audit.md.provenance.json`; do not re-run the seat without the coordinator's word. Then grade in `04` § Second opinion, write `05`, run the lint with `--phase pre-issue`.
 - **`reviewed-at`:** `2103f0271d`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-device-generic-x64-and-kernel/`, with `00` to `04`, `stage-a/`, `stage-b/` (the 28 runs, the runner, `cfgclass.py`, `coverage.py`) and `second-opinions/review-plan.json` (planned).
 - **The launcher:** the coordinator accepted the resolution at 06:47 UTC (#658): `tools/vm-pair` by full path through `VM_TOOL`; the brief's *by basename* an erratum.
 - **`02`:** 58 coverage rows; § The configuration with the gap measured on the M7 root's built `.config` (read-only; sha256 `e769f2e5...`; the conf unchanged at the M7 head): 18 changed values, 97 set options gone, 137 new, the fork's 10 kept; § The boot files; § The launcher with the design deferred; § The runs (r01 to r28); F-01 to F-10; P1 to P18.
 - **Findings:** F-01 Medium (the guest installs all of linux-firmware: 6,158 files, 2.88 GB; no `config/kernel-firmware.dat`); F-02 Low (1,254 firmware files embedded in the guest's kernel); F-03 `install`'s header; F-04 the configuration's provenance (not a bug; the regeneration packet); F-05/F-06 `install`'s unread copy and four unreached branches; F-07 the UTM text; F-08 the inventory's over-reported reach; F-09 the version-case merge seam; F-10 `options` and the conf silent on their origin. **No `bug` proven.**
 - **The lint, pre-issue:** every stage-B section ok; 5 failures, all stage C's (`05`, the seat's provenance).
 - **No guest, build, plan, fetch or council call so far.** The one seat comes at stage C.
-- **Running for this lane:** nothing.
+- **Running for this lane:** the refutation (`tools/council/run invoke`, harness task `bc29oco8c`; result in `/workspace/tmp/m6-t11/refutation.rc`).
 
 ## Next commands
 
