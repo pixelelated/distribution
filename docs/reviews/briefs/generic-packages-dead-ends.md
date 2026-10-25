@@ -280,9 +280,7 @@ floor):
    disagree, both are quoted and the disagreement is the finding.
 3. **The bench is the host; no guest, no build, no provider.** **Can this
    be done on the VM? Yes -- on the host: a table of inventory rows, three
-   generated build plans, `git grep` and `pkgcheck`, none of which needs a
-   guest, a device, a compiler or a provider; the network is not used at
-   all** (the plans read the recipes; nothing is fetched). `tools/council/run
+   generated build plans, `git grep` and `pkgcheck`, none of which needs a guest, a device, a compiler or a provider; no source is fetched** -- with one correction from the lane's stage A (04:23 UTC): plan generation sources every recipe, and the unreached `packages/graphics/mesa-reusable/package.mk:15` computes `PKG_SHA256` with a global-scope `curl` of a public checksum, so every `viewplan` run (the coordinator's, the inventory's 26, the lane's first five) made one HTTPS request each; from the lane's stage A on, every plan run goes through a logging `curl` shim first on `PATH`, the calls are counted, and the recipe is a Q2 finding (a network read at parse time, in a recipe no image builds). `tools/council/run
    invoke` is never run.
 4. **What result would have produced a FAIL** is asked of every PASS, in
    writing, in `02`.
@@ -306,8 +304,10 @@ git show 2174265e9c:docs/reviews/inventory.json | python3 -I -c 'import json,sys
 git grep -n -E '^PKG_DEPENDS_UNPACK=' 8ebaf8daad -- packages projects | wc -l
 # the two late-binding leads from T6, read in place
 git show 8ebaf8daad:packages/addons/tools/jre.zulu/package.mk | sed -n '1,14p'; git show 8ebaf8daad:packages/graphics/mesa-reusable/package.mk | sed -n '1,16p'
-# pkgcheck over the 727 recipes (host; records, never fixes)
-n=0; f=0; while read -r p; do case "$p" in */package.mk) n=$((n+1)); tools/pkgcheck "$(dirname "$p")" >/dev/null 2>&1 || f=$((f+1));; esac; done < .qa-scratch/t23/paths.txt; echo "pkgcheck: $n recipes, $f with findings"
+# pkgcheck over the 727 recipes (host; records, never fixes). The lane's stage A found the full-path form checks NOTHING and exits 0
+# (tools/pkgcheck matches -path */packages/<arg>, which find's output never carries for a full path): pass each argument less its
+# first component, and confirm each recipe in the tool's own progress line -- corrected 04:23 UTC
+n=0; f=0; while read -r p; do case "$p" in */package.mk) n=$((n+1)); d=$(dirname "$p"); tools/pkgcheck "${d#*/}" > ".qa-scratch/t23/pkgcheck-$n.out" 2>&1 || f=$((f+1)); grep -q -F "$d" ".qa-scratch/t23/pkgcheck-$n.out" || echo "UNCHECKED $d";; esac; done < .qa-scratch/t23/paths.txt; echo "pkgcheck: $n recipes, $f with findings"
 # the removal rule's own check: nothing changes under packages/ or projects/ on this branch
 git diff --stat 8ebaf8daad HEAD -- packages projects | tail -1      # empty
 # upstream's touch on the dead set since the base (Q1's figure)
@@ -359,7 +359,7 @@ hand-back's words.
 - [ ] `02-forward-audit.md` § Reachability carries exactly 731 rows (``awk '/^## Reachability/{p=1;next} /^## /{p=0} p' 02-forward-audit.md | grep -c -E '^\| `'`` prints `731`), each with the § 6 columns and one of § 1's six dispositions; the shadowed split (the coordinator's 84 plan-named, all shadowed; 5 shadowed units with no plan naming the name, 3 of whose overrides are dead too) is reproduced or its delta stated with the command; the eleven unmarked basename pairs are resolved with `get_pkg_directory` and dispositioned; every unit named by a reached recipe's `PKG_DEPENDS_UNPACK` (the indented grep, the closure through the overrides the plans build) is listed as reached after all (`spirv-headers` among them) and `installer`'s row reads *shadowed copy, override live*.
 - [ ] `02-forward-audit.md` § Disagreements lists every unit where the inventory's `reach` and the lane's plans differ, both quoted; each is a finding on the punch list and, where the tool is wrong, a `bug` on `tools/renovation-inventory` with a constructed case (a recipe reached only through `PKG_DEPENDS_UNPACK`, read as `unreached`), filed with its VM line and passing `tools/box-check --issue N`.
 - [ ] `02-forward-audit.md` § The runs records the five `viewplan` runs (exit, wall time, `Packages loaded`, distinct names, each beside the inventory header's count for the same config), the `get_pkg_directory` reads for the shadowed sample, the `pkgcheck` sweep's counts over the 727 recipes, and T6's two leads judged, each with *a FAIL would mean ...*; a run that cannot be made is `CANNOT` with its reason, never a pass.
-- [ ] `00-running-log.md` shows no build, no guest, no compiler, no `tools/council/run invoke`, no fetch (`get_archive`, `scripts/get`) and no write under `/workspace/repos/rocknix*` or `/tmp`.
+- [ ] `00-running-log.md` shows no build, no guest, no compiler, no `tools/council/run invoke`, no source fetch (`get_archive`, `scripts/get`), and every plan run after the first five through the logging `curl` shim with its call count recorded (the five unshimmed runs of 04:12 and their one checksum read each named; corrected 04:23 UTC), and no write under `/workspace/repos/rocknix*` or `/tmp`.
 - [ ] `04-analysis.md` § Q6 carries the dispositions by class with counts summing to 731, and § Q1 the cost-against-value paragraph for the maintainer (the lines carried, upstream's 0 commits on `packages/` since the base, LibreELEC's route in, the merge cost of a deletion), ending in the lane's recommendation and the sentence that the decision is the maintainer's.
 - [ ] `05-punch-list.md` carries one item per fork-own row (`installer`, `spirv-headers`, `cbindgen`) with its reachability verdict, and for a dead one a proposed removal with `Already written:`, outcome `deferred` to the coordinator; no removal is made.
 - [ ] Every proof in `02-forward-audit.md` carries a `proved:` cell reading `tree`, `history`, `tool-run`, `fixture` or `design`; every punch item carries `question:`; every `bug` passes `tools/box-check --issue N`; no file under `tools/` is changed by the lane (`git diff --stat <dispatch tip> <tip> -- tools` empty: the tool's fix is T10's set; v2 -- the base is the dispatch tip).
