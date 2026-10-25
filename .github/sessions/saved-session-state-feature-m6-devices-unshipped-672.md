@@ -16,12 +16,11 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope (the block of brief § 2 with its output), this
-pointer updated, and the day's work-log entry headed `#672` (prose through a
-quoted heredoc or the Write tool). `.qa-scratch/` is gitignored and
-`git status --short` is read before every `git add -A`. No network is used at
-all.
+**Stage A complete; stage B next** (updated 2026-10-25, 09:42 UTC).
+- **`reviewed-at`:** `b27889bce2`. **The audit folder:** `docs/audits/2026_10_25-epic-m6-devices-unshipped/`, with `00`, `01` (§ Scope) and `stage-a/` (the runner, 17 outputs, `runs.tsv`, `paths.txt`, `rows.tsv`).
+- **Every brief figure reproduced:** 397 / 49,555; 216 / 181; 396 / 1; 25 units; 12 targets; 39 M; 65; 1,424,530 bytes; the control 28 rows. One delta: RPi's `image:349` is a substring.
+- **Next (stage B):** the tables generator under the audit folder's `tools/` (the coverage of 397 and the units of 25), then § The targets (12), § The projects (9), § The pins (10), § The device trees (53), § Mechanical checks, § Positives, `03`, `04` Q1 to Q7.
+- **Running for this lane:** nothing.
 
 ## Next commands
 

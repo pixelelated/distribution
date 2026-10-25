@@ -1,0 +1,397 @@
+unreached	upstream-carried	2	text	[]	None	packages/linux-driver-addons/dvb/crazycat/changelog.txt
+unreached	upstream-carried	None	image	[]	None	packages/linux-driver-addons/dvb/crazycat/icon/icon.png
+unreached	upstream-carried	50	recipe	[]	None	packages/linux-driver-addons/dvb/crazycat/package.mk
+unreached	upstream-carried	2	python	[]	None	packages/linux-driver-addons/dvb/crazycat/source/default.py
+unreached	upstream-carried	28	recipe	[]	None	packages/linux-driver-addons/dvb/depends/media_tree/package.mk
+unreached	upstream-carried	28	recipe	[]	None	packages/linux-driver-addons/dvb/depends/media_tree_cc/package.mk
+unreached	upstream-carried	2	text	[]	None	packages/linux-driver-addons/dvb/digital_devices/changelog.txt
+unreached	upstream-carried	None	image	[]	None	packages/linux-driver-addons/dvb/digital_devices/icon/icon.png
+unreached	upstream-carried	29	recipe	[]	None	packages/linux-driver-addons/dvb/digital_devices/package.mk
+unreached	upstream-carried	2	python	[]	None	packages/linux-driver-addons/dvb/digital_devices/source/default.py
+unreached	upstream-carried	2	text	[]	None	packages/linux-driver-addons/dvb/dvb-latest/changelog.txt
+unreached	upstream-carried	None	image	[]	None	packages/linux-driver-addons/dvb/dvb-latest/icon/icon.png
+unreached	upstream-carried	43	recipe	[]	None	packages/linux-driver-addons/dvb/dvb-latest/package.mk
+unreached	upstream-carried	2	python	[]	None	packages/linux-driver-addons/dvb/dvb-latest/source/default.py
+unreached	upstream-carried	20	recipe	[]	None	packages/linux-firmware/brcmfmac_sdio-firmware-imx/package.mk
+unreached	upstream-carried	8	systemd	[]	None	packages/linux-firmware/brcmfmac_sdio-firmware-imx/system.d/brcmfmac_sdio-firmware@.service
+unreached	upstream-carried	19	udev	[]	None	packages/linux-firmware/brcmfmac_sdio-firmware-imx/udev.d/80-brcmfmac_sdio.rules
+unreached	upstream-carried	17	recipe	[]	None	packages/linux-firmware/brcmfmac_sdio-firmware-rpi/package.mk
+unreached	upstream-carried	1	other	[]	None	packages/linux-firmware/brcmfmac_sdio-firmware/firmwares/any.dat
+unreached	upstream-carried	48	recipe	[]	None	packages/linux-firmware/brcmfmac_sdio-firmware/package.mk
+unreached	upstream-carried	15	shell	[]	None	packages/linux-firmware/brcmfmac_sdio-firmware/scripts/brcmfmac-firmware-setup
+unreached	upstream-carried	11	systemd	[]	None	packages/linux-firmware/brcmfmac_sdio-firmware/system.d/brcmfmac-firmware.service
+unreached	upstream-carried	19	recipe	[]	None	packages/linux-firmware/dvb-firmware/package.mk
+unreached	upstream-carried	36	recipe	[]	None	packages/linux-firmware/firmware-dragonboard/package.mk
+unreached	upstream-carried	36	recipe	[]	None	packages/linux-firmware/firmware-imx/package.mk
+unreached	upstream-carried	12	recipe	[]	None	packages/linux-firmware/intel-ucode/package.mk
+unreached	upstream-carried	154	c	[]	None	packages/linux-firmware/intel-ucode/sources/intel-microcode2ucode.c
+unreached	upstream-carried	17	recipe	[]	projects/ROCKNIX/packages/linux-firmware/iwlwifi-firmware	packages/linux-firmware/iwlwifi-firmware/package.mk
+unreached	upstream-carried	25	other	[]	projects/ROCKNIX/packages/linux-firmware/kernel-firmware	packages/linux-firmware/kernel-firmware/firmwares/any.dat
+unreached	upstream-carried	19	other	[]	projects/ROCKNIX/packages/linux-firmware/kernel-firmware	packages/linux-firmware/kernel-firmware/firmwares/x86_64.dat
+unreached	upstream-carried	83	recipe	[]	projects/ROCKNIX/packages/linux-firmware/kernel-firmware	packages/linux-firmware/kernel-firmware/package.mk
+unreached	upstream-carried	17	recipe	[]	None	packages/linux-firmware/misc-firmware/package.mk
+unreached	upstream-carried	11	recipe	[]	None	packages/linux-firmware/rtl8723bs_bt/package.mk
+unreached	upstream-carried	8	systemd	[]	None	packages/linux-firmware/rtl8723bs_bt/system.d/rtl8723bs_bt-firmware.service
+unreached	upstream-carried	9	udev	[]	None	packages/linux-firmware/rtl8723bs_bt/udev.d/80-rtl8723_bt.rules
+unreached	upstream-carried	17	recipe	[]	None	packages/linux-firmware/wlan-firmware/package.mk
+unreached	fork-own	358	recipe	[]	projects/ROCKNIX/packages/linux	packages/linux/package.mk
+unreached	upstream-carried	5	config	[]	projects/ROCKNIX/packages/linux	packages/linux/sysctl.d/network.conf
+unreached	upstream-carried	1	config	[]	projects/ROCKNIX/packages/linux	packages/linux/sysctl.d/qdisc.conf
+unreached	upstream-carried	18	udev	[]	projects/ROCKNIX/packages/linux	packages/linux/udev.d/40-modeswitch.rules
+unreached	upstream-carried	4	markdown	[]	None	projects/ARM/README.md
+unreached	upstream-carried	18	shell	[]	None	projects/ARM/devices/ARMv7/options
+unreached	upstream-carried	28	shell	[]	None	projects/ARM/devices/ARMv8/options
+unreached	upstream-carried	146	shell	[]	None	projects/ARM/options
+unreached	upstream-carried	11	shell	[]	None	projects/Allwinner/bootloader/canupdate.sh
+unreached	upstream-carried	9	none	[]	None	projects/Allwinner/bootloader/config
+unreached	upstream-carried	10	none	[]	None	projects/Allwinner/bootloader/firmware
+unreached	upstream-carried	4	none	[]	None	projects/Allwinner/bootloader/install
+unreached	upstream-carried	7	none	[]	None	projects/Allwinner/bootloader/mkimage
+unreached	upstream-carried	14	none	[]	None	projects/Allwinner/bootloader/release
+unreached	upstream-carried	45	shell	[]	None	projects/Allwinner/bootloader/update.sh
+unreached	upstream-carried	37	shell	[]	None	projects/Allwinner/devices/A64/options
+unreached	upstream-carried	50	shell	[]	None	projects/Allwinner/devices/H2-plus/options
+unreached	upstream-carried	50	shell	[]	None	projects/Allwinner/devices/H3/options
+unreached	upstream-carried	37	shell	[]	None	projects/Allwinner/devices/H5/options
+unreached	upstream-carried	37	shell	[]	None	projects/Allwinner/devices/H6/options
+unreached	upstream-carried	47	shell	[]	None	projects/Allwinner/devices/R40/options
+unreached	upstream-carried	8	shell	[]	None	projects/Allwinner/filesystem/usr/bin/cputemp
+unreached	upstream-carried	12	shell	[]	None	projects/Allwinner/filesystem/usr/bin/gputemp
+unreached	upstream-carried	93	shell	[]	None	projects/Allwinner/filesystem/usr/bin/install2emmc
+unreached	upstream-carried	2	config	[]	None	projects/Allwinner/filesystem/usr/lib/systemd/sleep.conf.d/memonly.conf
+unreached	upstream-carried	36	config	[]	None	projects/Allwinner/filesystem/usr/share/alsa/cards/H3_Audio_Codec.conf
+unreached	upstream-carried	133	config	[]	None	projects/Allwinner/filesystem/usr/share/alsa/cards/simple-card.conf
+unreached	upstream-carried	36	config	[]	None	projects/Allwinner/filesystem/usr/share/alsa/cards/sun50i-a64-audi.conf
+unreached	upstream-carried	5	other	[]	None	projects/Allwinner/firmwares/brcmfmac_sdio-firmware.dat
+unreached	upstream-carried	26	xml	[]	None	projects/Allwinner/kodi/appliance.xml
+unreached	upstream-carried	66	shell	[]	None	projects/Allwinner/options
+unreached	upstream-carried	5	config	[]	None	projects/Allwinner/packages/linux/modprobe.d/ath9k.conf
+unreached	upstream-carried	16	markdown	[]	None	projects/Amlogic/README.md
+unreached	upstream-carried	7	config	[]	None	projects/Amlogic/bootloader/box.ini
+unreached	upstream-carried	20	shell	[]	None	projects/Amlogic/bootloader/canupdate.sh
+unreached	upstream-carried	5	none	[]	None	projects/Amlogic/bootloader/config
+unreached	upstream-carried	44	none	[]	None	projects/Amlogic/bootloader/install
+unreached	upstream-carried	90	none	[]	None	projects/Amlogic/bootloader/mkimage
+unreached	upstream-carried	25	none	[]	None	projects/Amlogic/bootloader/release
+unreached	upstream-carried	11	other	[]	None	projects/Amlogic/bootloader/scripts/aml_autoscript.src
+unreached	upstream-carried	4	other	[]	None	projects/Amlogic/bootloader/scripts/boot.scr.src
+unreached	upstream-carried	7	other	[]	None	projects/Amlogic/bootloader/scripts/emmc_autoscript.src
+unreached	upstream-carried	11	other	[]	None	projects/Amlogic/bootloader/scripts/s905_autoscript.src
+unreached	upstream-carried	71	shell	[]	None	projects/Amlogic/bootloader/update.sh
+unreached	upstream-carried	32	other	[]	None	projects/Amlogic/config/kernel-firmware.dat
+unreached	upstream-carried	31	shell	[]	None	projects/Amlogic/devices/AMLGX/options
+unreached	upstream-carried	16	shell	[]	None	projects/Amlogic/filesystem/usr/bin/cputemp
+unreached	upstream-carried	1	symlink	[]	None	projects/Amlogic/filesystem/usr/bin/gputemp
+unreached	upstream-carried	22	xml	[]	None	projects/Amlogic/kodi/appliance.xml
+unreached	upstream-carried	79	shell	[]	None	projects/Amlogic/options
+unreached	upstream-carried	24	shell	[]	None	projects/Amlogic/packages/systemd/scripts/cpufreq
+unreached	upstream-carried	120	other	[]	None	projects/Generic/config/ovf.template
+unreached	upstream-carried	1	symlink	[]	None	projects/Generic/devices/Generic-legacy/filesystem
+unreached	upstream-carried	1	shell	[]	None	projects/Generic/devices/Generic-legacy/options
+unreached	upstream-carried	1	symlink	[]	None	projects/Generic/devices/Generic-legacy/patches
+unreached	upstream-carried	1	shell	[]	None	projects/Generic/devices/Generic/options
+unreached	upstream-carried	27	shell	[]	None	projects/Generic/devices/OpenGL/options
+unreached	upstream-carried	27	shell	[]	None	projects/Generic/devices/OpenGLES/options
+unreached	upstream-carried	29	shell	[]	None	projects/Generic/devices/wayland/options
+unreached	upstream-carried	8	config	[]	None	projects/Generic/devices/x11/filesystem/etc/X11/xorg-i915.conf
+unreached	upstream-carried	16	shell	[]	None	projects/Generic/devices/x11/filesystem/usr/bin/intel-fullrange.sh
+unreached	upstream-carried	13	systemd	[]	None	projects/Generic/devices/x11/filesystem/usr/lib/systemd/system/intel-fullrange-resume.service
+unreached	upstream-carried	14	systemd	[]	None	projects/Generic/devices/x11/filesystem/usr/lib/systemd/system/intel-fullrange.service
+unreached	upstream-carried	29	shell	[]	None	projects/Generic/devices/x11/options
+unreached	upstream-carried	52	shell	[]	None	projects/Generic/filesystem/usr/bin/cputemp
+unreached	upstream-carried	1	symlink	[]	None	projects/Generic/filesystem/usr/bin/gputemp
+unreached	upstream-carried	9	shell	[]	None	projects/Generic/filesystem/usr/share/bootloader/canupdate.sh
+unreached	upstream-carried	74	shell	[]	None	projects/Generic/options
+unreached	upstream-carried	2	config	[]	None	projects/Generic/packages/initramfs/config/initramfs.x86_64.conf
+unreached	upstream-carried	5	config	[]	None	projects/Generic/packages/linux/modprobe.d/ath9k.conf
+unreached	upstream-carried	15	markdown	[]	None	projects/NXP/README.md
+unreached	upstream-carried	6	shell	[]	None	projects/NXP/devices/iMX6/bootloader/canupdate.sh
+unreached	upstream-carried	1	none	[]	None	projects/NXP/devices/iMX6/bootloader/config
+unreached	upstream-carried	5	none	[]	None	projects/NXP/devices/iMX6/bootloader/install
+unreached	upstream-carried	26	none	[]	None	projects/NXP/devices/iMX6/bootloader/mkimage
+unreached	upstream-carried	13	none	[]	None	projects/NXP/devices/iMX6/bootloader/release
+unreached	upstream-carried	43	shell	[]	None	projects/NXP/devices/iMX6/bootloader/update.sh
+unreached	upstream-carried	28	shell	[]	None	projects/NXP/devices/iMX6/filesystem/usr/bin/rdu-audio
+unreached	upstream-carried	116	shell	[]	None	projects/NXP/devices/iMX6/filesystem/usr/bin/rdu-network
+unreached	upstream-carried	12	systemd	[]	None	projects/NXP/devices/iMX6/filesystem/usr/lib/systemd/system/rdu-audio.service
+unreached	upstream-carried	13	systemd	[]	None	projects/NXP/devices/iMX6/filesystem/usr/lib/systemd/system/rdu-network.service
+unreached	upstream-carried	195	config	[]	None	projects/NXP/devices/iMX6/filesystem/usr/share/alsa/cards/dw-hdmi-ahb-aud.conf
+unreached	upstream-carried	20	other	[]	None	projects/NXP/devices/iMX6/firmwares/brcmfmac_sdio-firmware.dat
+unreached	upstream-carried	26	shell	[]	None	projects/NXP/devices/iMX6/options
+unreached	upstream-carried	1	none	[]	None	projects/NXP/devices/iMX8/bootloader/config
+unreached	upstream-carried	9	none	[]	None	projects/NXP/devices/iMX8/bootloader/firmware
+unreached	upstream-carried	5	none	[]	None	projects/NXP/devices/iMX8/bootloader/install
+unreached	upstream-carried	8	none	[]	None	projects/NXP/devices/iMX8/bootloader/mkimage
+unreached	upstream-carried	10	none	[]	None	projects/NXP/devices/iMX8/bootloader/release
+unreached	upstream-carried	51	shell	[]	None	projects/NXP/devices/iMX8/bootloader/update.sh
+unreached	upstream-carried	7	shell	[]	None	projects/NXP/devices/iMX8/filesystem/usr/bin/cputemp
+unreached	upstream-carried	7	shell	[]	None	projects/NXP/devices/iMX8/filesystem/usr/bin/gputemp
+unreached	upstream-carried	105	shell	[]	None	projects/NXP/devices/iMX8/filesystem/usr/bin/install2emmc
+unreached	upstream-carried	40	shell	[]	None	projects/NXP/devices/iMX8/options
+unreached	upstream-carried	64	shell	[]	None	projects/NXP/options
+unreached	upstream-carried	45	markdown	[]	None	projects/Qualcomm/devices/Dragonboard/README.md
+unreached	upstream-carried	1	none	[]	None	projects/Qualcomm/devices/Dragonboard/bootloader/config
+unreached	upstream-carried	18	none	[]	None	projects/Qualcomm/devices/Dragonboard/bootloader/install
+unreached	upstream-carried	12	none	[]	None	projects/Qualcomm/devices/Dragonboard/bootloader/release
+unreached	upstream-carried	32	shell	[]	None	projects/Qualcomm/devices/Dragonboard/bootloader/update.sh
+unreached	upstream-carried	98	shell	[]	None	projects/Qualcomm/devices/Dragonboard/options
+unreached	upstream-carried	21	recipe	[]	projects/ROCKNIX/packages/tools/mkbootimg	projects/Qualcomm/devices/Dragonboard/packages/mkbootimg/package.mk
+unshipped	upstream-carried	22	shell	['AMD64-x86_64']	None	projects/ROCKNIX/devices/AMD64/bootloader/update.sh
+unshipped	upstream-carried	62	other	['AMD64-x86_64']	None	projects/ROCKNIX/devices/AMD64/config/kernel-firmware.dat
+unshipped	upstream-carried	5	config	['AMD64-x86_64']	None	projects/ROCKNIX/devices/AMD64/filesystem/etc/NetworkManager/conf.d/DisableMacRandomization.conf
+unshipped	upstream-carried	2	config	['AMD64-x86_64']	None	projects/ROCKNIX/devices/AMD64/filesystem/etc/systemd/system/NetworkManager.service.d/delay.conf
+unshipped	upstream-carried	88	shell	['AMD64-x86_64']	None	projects/ROCKNIX/devices/AMD64/options
+unshipped	upstream-carried	32	recipe	['AMD64-x86_64']	None	projects/ROCKNIX/devices/AMD64/packages/ayn-platform/package.mk
+unshipped	upstream-carried	11	recipe	['AMD64-x86_64']	None	projects/ROCKNIX/devices/AMD64/packages/dmidecode/package.mk
+unshipped	upstream-carried	17	recipe	['AMD64-x86_64']	None	projects/ROCKNIX/devices/AMD64/packages/ectool/package.mk
+unshipped	upstream-carried	2	config	['AMD64-x86_64']	None	projects/ROCKNIX/devices/AMD64/packages/initramfs/config/initramfs.x86_64.conf
+unreached	upstream-carried	11	recipe	[]	None	projects/ROCKNIX/devices/AMD64/packages/intel-ucode/package.mk
+unreached	upstream-carried	154	c	[]	None	projects/ROCKNIX/devices/AMD64/packages/intel-ucode/sources/intel-microcode2ucode.c
+unshipped	upstream-carried	36	recipe	['AMD64-x86_64']	None	projects/ROCKNIX/devices/AMD64/packages/pciutils/package.mk
+unshipped	upstream-carried	20	recipe	['AMD64-x86_64']	None	projects/ROCKNIX/devices/AMD64/packages/ryzenadj/package.mk
+unshipped	upstream-carried	1	config	['AMD64-x86_64']	None	projects/ROCKNIX/devices/AMD64/packages/ryzensmu/modules-load.d/ryzen_smu.conf
+unshipped	upstream-carried	31	recipe	['AMD64-x86_64']	None	projects/ROCKNIX/devices/AMD64/packages/ryzensmu/package.mk
+unshipped	upstream-carried	98	shell	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/bootloader/update.sh
+unshipped	upstream-carried	122	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/retrogame_joypad_s2_f1.dtsi
+unshipped	upstream-carried	86	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-anbernic-rg351m.dts
+unshipped	upstream-carried	145	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-anbernic-rg351v.dts
+unshipped	upstream-carried	163	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-batlexp-g350.dts
+unshipped	upstream-carried	7	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-device-group-r36.dtsi
+unshipped	upstream-carried	955	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-gameconsole-eeclone.dts
+unshipped	upstream-carried	129	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-gameconsole-r33s.dts
+unshipped	upstream-carried	207	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-gameconsole-r36s.dts
+unshipped	upstream-carried	558	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-gameconsole-r3xs.dtsi
+unshipped	upstream-carried	811	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-gameforce-chi.dts
+unshipped	upstream-carried	109	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-magicx-xu-mini-m.dts
+unshipped	upstream-carried	868	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-magicx-xu10.dts
+unshipped	upstream-carried	564	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-odroid-go.dtsi
+unshipped	upstream-carried	237	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-odroid-go2-v11.dts
+unshipped	upstream-carried	235	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-odroid-go2.dts
+unshipped	upstream-carried	290	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-odroid-go3.dts
+unshipped	upstream-carried	41	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-panel-elida-kd35t133.dtsi
+unshipped	upstream-carried	212	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-powkiddy-rgb10.dts
+unshipped	upstream-carried	226	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-powkiddy-rgb10x.dts
+unshipped	upstream-carried	379	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326-powkiddy-rgb20s.dts
+unshipped	upstream-carried	79	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326.dtsi
+unshipped	upstream-carried	985	devicetree	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/linux/dts/rockchip/rk3326s-gkd-pixel2.dts
+unshipped	upstream-carried	86	shell	['RK3326-aarch64', 'RK3326-arm']	None	projects/ROCKNIX/devices/RK3326/options
+unshipped	upstream-carried	46	recipe	['RK3326-aarch64']	None	projects/ROCKNIX/devices/RK3326/packages/u-boot-legacy/package.mk
+unshipped	upstream-carried	1368	none	['RK3326-aarch64']	None	projects/ROCKNIX/devices/RK3326/packages/u-boot-legacy/sources/configs/rocknix_rk3326_defconfig
+unshipped	upstream-carried	80	config	['RK3326-aarch64']	None	projects/ROCKNIX/devices/RK3326/packages/u-boot/config/a_boot.ini
+unshipped	upstream-carried	81	config	['RK3326-aarch64']	None	projects/ROCKNIX/devices/RK3326/packages/u-boot/config/b_boot.ini
+unshipped	upstream-carried	15	text	['RK3326-aarch64']	None	projects/ROCKNIX/devices/RK3326/packages/u-boot/config/extlinux/README.txt
+unshipped	upstream-carried	7	config	['RK3326-aarch64']	None	projects/ROCKNIX/devices/RK3326/packages/u-boot/config/extlinux/extlinux.conf
+unshipped	upstream-carried	12	text	['RK3326-aarch64']	None	projects/ROCKNIX/devices/RK3326/packages/u-boot/config/overlays/README.txt
+unshipped	upstream-carried	4	text	['RK3326-aarch64']	None	projects/ROCKNIX/devices/RK3326/packages/u-boot/config/stock/README.txt
+unshipped	upstream-carried	111	recipe	['RK3326-aarch64']	None	projects/ROCKNIX/devices/RK3326/packages/u-boot/package.mk
+unshipped	upstream-carried	28	devicetree	['RK3326-aarch64']	None	projects/ROCKNIX/devices/RK3326/packages/u-boot/sources/arch/arm/dts/rk3326-odroid-go2-emmc.dtsi
+unshipped	upstream-carried	12	devicetree	['RK3326-aarch64']	None	projects/ROCKNIX/devices/RK3326/packages/u-boot/sources/arch/arm/dts/rk3326-odroid-go2-uart5.dtsi
+unshipped	upstream-carried	127	none	['RK3326-aarch64']	None	projects/ROCKNIX/devices/RK3326/packages/u-boot/sources/configs/rk3326-handheld_defconfig
+unshipped	upstream-carried	397	devicetree	['RK3326-aarch64']	None	projects/ROCKNIX/devices/RK3326/packages/u-boot/sources/dts/upstream/src/arm64/rockchip/rk3326-common-handheld.dts
+unshipped	upstream-carried	79	shell	['RK3399-aarch64', 'RK3399-arm']	None	projects/ROCKNIX/devices/RK3399/bootloader/update.sh
+unshipped	upstream-carried	1349	devicetree	['RK3399-aarch64', 'RK3399-arm']	None	projects/ROCKNIX/devices/RK3399/linux/dts/rockchip/rk3399-anbernic-rg552.dts
+unshipped	upstream-carried	80	shell	['RK3399-aarch64', 'RK3399-arm']	None	projects/ROCKNIX/devices/RK3399/options
+unshipped	upstream-carried	46	recipe	['RK3399-aarch64']	None	projects/ROCKNIX/devices/RK3399/packages/u-boot/package.mk
+unshipped	upstream-carried	67	shell	['RK3566-aarch64', 'RK3566-arm']	None	projects/ROCKNIX/devices/RK3566/bootloader/update.sh
+unshipped	upstream-carried	25	config	['RK3566-aarch64', 'RK3566-arm']	None	projects/ROCKNIX/devices/RK3566/filesystem/usr/share/alsa/ucm2/Anbernic/RG-DS-Plus/HeadphonesHiFi.conf
+unshipped	upstream-carried	9	config	['RK3566-aarch64', 'RK3566-arm']	None	projects/ROCKNIX/devices/RK3566/filesystem/usr/share/alsa/ucm2/Anbernic/RG-DS-Plus/SpeakerHiFi.conf
+unshipped	upstream-carried	10	config	['RK3566-aarch64', 'RK3566-arm']	None	projects/ROCKNIX/devices/RK3566/filesystem/usr/share/alsa/ucm2/Anbernic/RG-DS-Plus/aw88166.conf
+unshipped	upstream-carried	10	config	['RK3566-aarch64', 'RK3566-arm']	None	projects/ROCKNIX/devices/RK3566/filesystem/usr/share/alsa/ucm2/Anbernic/RG-DS-Plus/rk817_hp.conf
+unshipped	upstream-carried	1	config	['RK3566-aarch64', 'RK3566-arm']	None	projects/ROCKNIX/devices/RK3566/filesystem/usr/share/alsa/ucm2/conf.d/aw88166/aw88166.conf
+unshipped	upstream-carried	1	config	['RK3566-aarch64', 'RK3566-arm']	None	projects/ROCKNIX/devices/RK3566/filesystem/usr/share/alsa/ucm2/conf.d/simple-card/rk817_hp.conf
+unshipped	upstream-carried	39	config	['RK3566-aarch64', 'RK3566-arm']	None	projects/ROCKNIX/devices/RK3566/filesystem/usr/share/wireplumber/wireplumber.conf.d/51-anbernic-rg-ds-plus.conf
+unshipped	upstream-carried	933	devicetree	['RK3566-aarch64', 'RK3566-arm']	None	projects/ROCKNIX/devices/RK3566/linux/dts/rockchip/rk3566-powkiddy-rk2023.dtsi
+unshipped	upstream-carried	1347	devicetree	['RK3566-aarch64', 'RK3566-arm']	None	projects/ROCKNIX/devices/RK3566/linux/dts/rockchip/rk3568-anbernic-rg-ds-plus.dts
+unshipped	upstream-carried	1296	devicetree	['RK3566-aarch64', 'RK3566-arm']	None	projects/ROCKNIX/devices/RK3566/linux/dts/rockchip/rk3568-anbernic-rg-ds.dts
+unshipped	upstream-carried	92	shell	['RK3566-aarch64', 'RK3566-arm']	None	projects/ROCKNIX/devices/RK3566/options
+unshipped	upstream-carried	6	config	['RK3566-aarch64', 'RK3566-arm']	None	projects/ROCKNIX/devices/RK3566/packages/linux/modprobe.d/rtw88.conf
+unshipped	upstream-carried	42	recipe	['RK3566-aarch64']	None	projects/ROCKNIX/devices/RK3566/packages/u-boot-Generic/package.mk
+unshipped	upstream-carried	42	recipe	['RK3566-aarch64']	None	projects/ROCKNIX/devices/RK3566/packages/u-boot-Specific/package.mk
+unshipped	upstream-carried	33	recipe	['RK3566-aarch64']	None	projects/ROCKNIX/devices/RK3566/packages/u-boot/package.mk
+unshipped	upstream-carried	51	shell	['RK3576-aarch64', 'RK3576-arm']	None	projects/ROCKNIX/devices/RK3576/bootloader/update.sh
+unshipped	upstream-carried	219	yaml	['RK3576-aarch64', 'RK3576-arm']	None	projects/ROCKNIX/devices/RK3576/filesystem/usr/share/inputplumber/capability_maps/rg_vita_pro_map.yaml
+unshipped	upstream-carried	39	yaml	['RK3576-aarch64', 'RK3576-arm']	None	projects/ROCKNIX/devices/RK3576/filesystem/usr/share/inputplumber/devices/01-rg-vita-pro.yaml
+unshipped	upstream-carried	1465	devicetree	['RK3576-aarch64', 'RK3576-arm']	None	projects/ROCKNIX/devices/RK3576/linux/dts/rockchip/rk3576-anbernic-rg-vita-pro.dts
+unshipped	upstream-carried	89	shell	['RK3576-aarch64', 'RK3576-arm']	None	projects/ROCKNIX/devices/RK3576/options
+unshipped	upstream-carried	44	recipe	['RK3576-aarch64']	None	projects/ROCKNIX/devices/RK3576/packages/u-boot/package.mk
+unshipped	upstream-carried	79	shell	['RK3588-aarch64', 'RK3588-arm']	None	projects/ROCKNIX/devices/RK3588/bootloader/update.sh
+unshipped	upstream-carried	88	shell	['RK3588-aarch64', 'RK3588-arm']	None	projects/ROCKNIX/devices/RK3588/options
+unshipped	upstream-carried	45	recipe	['RK3588-aarch64']	None	projects/ROCKNIX/devices/RK3588/packages/u-boot/package.mk
+unshipped	upstream-carried	66	shell	['S922X-aarch64', 'S922X-arm']	None	projects/ROCKNIX/devices/S922X/bootloader/update.sh
+unshipped	upstream-carried	88	shell	['S922X-aarch64', 'S922X-arm']	None	projects/ROCKNIX/devices/S922X/options
+unshipped	upstream-carried	13	recipe	['S922X-aarch64']	None	projects/ROCKNIX/devices/S922X/packages/amlogic-boot-fip/package.mk
+unshipped	upstream-carried	40	recipe	['S922X-aarch64']	None	projects/ROCKNIX/devices/S922X/packages/u-boot/package.mk
+unshipped	upstream-carried	31	shell	['SM4450-aarch64', 'SM4450-arm']	None	projects/ROCKNIX/devices/SM4450/bootloader/update.sh
+unshipped	upstream-carried	6	other	['SM4450-aarch64', 'SM4450-arm']	None	projects/ROCKNIX/devices/SM4450/config/kernel-firmware.dat
+unshipped	upstream-carried	34	config	['SM4450-aarch64', 'SM4450-arm']	None	projects/ROCKNIX/devices/SM4450/filesystem/usr/share/alsa/ucm2/Anbernic/RG55G1/AnbernicRG55G1.conf
+unshipped	upstream-carried	50	config	['SM4450-aarch64', 'SM4450-arm']	None	projects/ROCKNIX/devices/SM4450/filesystem/usr/share/alsa/ucm2/Anbernic/RG55G1/HiFi.conf
+unshipped	upstream-carried	50	config	['SM4450-aarch64', 'SM4450-arm']	None	projects/ROCKNIX/devices/SM4450/filesystem/usr/share/alsa/ucm2/Retroid/PocketClassic/HiFi.conf
+unshipped	upstream-carried	34	config	['SM4450-aarch64', 'SM4450-arm']	None	projects/ROCKNIX/devices/SM4450/filesystem/usr/share/alsa/ucm2/Retroid/PocketClassic/RetroidPocketClassic.conf
+unshipped	upstream-carried	34	config	['SM4450-aarch64', 'SM4450-arm']	None	projects/ROCKNIX/devices/SM4450/filesystem/usr/share/alsa/ucm2/conf.d/sm8450/AnbernicRG55G1.conf
+unshipped	upstream-carried	34	config	['SM4450-aarch64', 'SM4450-arm']	None	projects/ROCKNIX/devices/SM4450/filesystem/usr/share/alsa/ucm2/conf.d/sm8450/RetroidPocketClassic.conf
+unshipped	upstream-carried	29	yaml	['SM4450-aarch64', 'SM4450-arm']	None	projects/ROCKNIX/devices/SM4450/filesystem/usr/share/inputplumber/capability_maps/anbernic_rg55g1.yaml
+unshipped	upstream-carried	257	yaml	['SM4450-aarch64', 'SM4450-arm']	None	projects/ROCKNIX/devices/SM4450/filesystem/usr/share/inputplumber/capability_maps/ayn_mcu.yaml
+unshipped	upstream-carried	74	yaml	['SM4450-aarch64', 'SM4450-arm']	None	projects/ROCKNIX/devices/SM4450/filesystem/usr/share/inputplumber/devices/01-retroid-classic-controller.yaml
+unshipped	upstream-carried	61	yaml	['SM4450-aarch64', 'SM4450-arm']	None	projects/ROCKNIX/devices/SM4450/filesystem/usr/share/inputplumber/devices/02-anbernic-rg55g1.yaml
+unshipped	upstream-carried	3257	devicetree	['SM4450-aarch64', 'SM4450-arm']	None	projects/ROCKNIX/devices/SM4450/linux/dts/qcom/sm4450-anbernic-rg55g1.dts
+unshipped	upstream-carried	3030	devicetree	['SM4450-aarch64', 'SM4450-arm']	None	projects/ROCKNIX/devices/SM4450/linux/dts/qcom/sm4450-retroid-pocket-classic-revq.dts
+unshipped	upstream-carried	85	shell	['SM4450-aarch64', 'SM4450-arm']	None	projects/ROCKNIX/devices/SM4450/options
+unshipped	upstream-carried	70	other	['SM4450-aarch64', 'SM4450-arm']	None	projects/ROCKNIX/devices/SM4450/topology/AnbernicRG55G1.m4
+unshipped	upstream-carried	68	other	['SM4450-aarch64', 'SM4450-arm']	None	projects/ROCKNIX/devices/SM4450/topology/RetroidPocketClassic.m4
+unshipped	upstream-carried	74	other	['SM4450-aarch64', 'SM4450-arm']	None	projects/ROCKNIX/devices/SM4450/topology/subgraph-device-i2s-playback-mfc.m4
+unshipped	upstream-carried	37	shell	['SM6115-aarch64', 'SM6115-arm']	None	projects/ROCKNIX/devices/SM6115/bootloader/update.sh
+unshipped	upstream-carried	11	other	['SM6115-aarch64', 'SM6115-arm']	None	projects/ROCKNIX/devices/SM6115/config/kernel-firmware.dat
+unshipped	upstream-carried	32	shell	['SM6115-aarch64', 'SM6115-arm']	None	projects/ROCKNIX/devices/SM6115/filesystem/usr/lib/systemd/system-sleep/sleep
+unshipped	upstream-carried	240	yaml	['SM6115-aarch64', 'SM6115-arm']	None	projects/ROCKNIX/devices/SM6115/filesystem/usr/share/inputplumber/capability_maps/mangmi_airx.yaml
+unshipped	upstream-carried	49	yaml	['SM6115-aarch64', 'SM6115-arm']	None	projects/ROCKNIX/devices/SM6115/filesystem/usr/share/inputplumber/devices/40-mangmi_airx.yaml
+unshipped	upstream-carried	30	config	['SM6115-aarch64', 'SM6115-arm']	None	projects/ROCKNIX/devices/SM6115/filesystem/usr/share/wireplumber/wireplumber.conf.d/90-sm6115-s16le.conf
+unshipped	upstream-carried	22	config	['SM6115-aarch64', 'SM6115-arm']	None	projects/ROCKNIX/devices/SM6115/filesystem/usr/share/wireplumber/wireplumber.conf.d/91-suspend-on-idle.conf
+unshipped	upstream-carried	1863	devicetree	['SM6115-aarch64', 'SM6115-arm']	None	projects/ROCKNIX/devices/SM6115/linux/dts/qcom/sm6115-mangmi-air-x-base.dtsi
+unshipped	upstream-carried	17	devicetree	['SM6115-aarch64', 'SM6115-arm']	None	projects/ROCKNIX/devices/SM6115/linux/dts/qcom/sm6115-mangmi-air-x-mq65.dts
+unshipped	upstream-carried	37	devicetree	['SM6115-aarch64', 'SM6115-arm']	None	projects/ROCKNIX/devices/SM6115/linux/dts/qcom/sm6115-mangmi-air-x-mq66.dts
+unshipped	upstream-carried	17	devicetree	['SM6115-aarch64', 'SM6115-arm']	None	projects/ROCKNIX/devices/SM6115/linux/dts/qcom/sm6115-mangmi-air-x-mq66b.dts
+unshipped	upstream-carried	87	shell	['SM6115-aarch64', 'SM6115-arm']	None	projects/ROCKNIX/devices/SM6115/options
+unshipped	upstream-carried	17	recipe	['SM6115-aarch64']	None	projects/ROCKNIX/devices/SM6115/packages/pd-mapper/package.mk
+unshipped	upstream-carried	11	recipe	['SM6115-aarch64']	None	projects/ROCKNIX/devices/SM6115/packages/qrtr/package.mk
+unshipped	upstream-carried	17	recipe	['SM6115-aarch64']	None	projects/ROCKNIX/devices/SM6115/packages/rmtfs/package.mk
+unshipped	upstream-carried	15	recipe	['SM6115-aarch64']	None	projects/ROCKNIX/devices/SM6115/packages/tqftpserv/package.mk
+unshipped	upstream-carried	37	shell	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/bootloader/update.sh
+unshipped	upstream-carried	22	other	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/config/kernel-firmware.dat
+unshipped	upstream-carried	1	udev	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/filesystem/usr/lib/udev/rules.d/99-mangmi-pocket-max.rules
+unshipped	upstream-carried	2	udev	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/filesystem/usr/lib/udev/rules.d/99-retroid-pocket.rules
+unshipped	upstream-carried	2	udev	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/filesystem/usr/lib/udev/rules.d/99-wcd938x-nosleep.rules
+unshipped	upstream-carried	14	udev	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/filesystem/usr/lib/udev/rules.d/99-wsa881x-nosleep.rules
+unshipped	upstream-carried	11	shell	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/filesystem/usr/sbin/quantum
+unshipped	upstream-carried	224	yaml	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/filesystem/usr/share/inputplumber/capability_maps/air_y_pro_mcu.yaml
+unshipped	upstream-carried	241	yaml	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/filesystem/usr/share/inputplumber/capability_maps/pocket_max_mcu.yaml
+unshipped	upstream-carried	248	yaml	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/filesystem/usr/share/inputplumber/capability_maps/retroid_mcu.yaml
+unshipped	upstream-carried	44	yaml	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/filesystem/usr/share/inputplumber/devices/01-retroid-controller.yaml
+unshipped	upstream-carried	35	yaml	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/filesystem/usr/share/inputplumber/devices/02-mangmi-pocket-max.yaml
+unshipped	upstream-carried	35	yaml	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/filesystem/usr/share/inputplumber/devices/03-mangmi-air-y-pro.yaml
+unshipped	upstream-carried	37	config	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/filesystem/usr/share/wireplumber/wireplumber.conf.d/51-ayn-thor-lite.conf
+unshipped	upstream-carried	25	config	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/filesystem/usr/share/wireplumber/wireplumber.conf.d/52-mangmi-hdmi.conf
+unshipped	upstream-carried	21	config	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/filesystem/usr/share/wireplumber/wireplumber.conf.d/52-retroid-pocket-5-hdmi.conf
+unshipped	upstream-carried	1845	devicetree	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/linux/dts/qcom/sm8250-ayn-thorlite.dts
+unshipped	upstream-carried	1404	devicetree	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/linux/dts/qcom/sm8250-mangmi-air-y-pro.dts
+unshipped	upstream-carried	1404	devicetree	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/linux/dts/qcom/sm8250-mangmi-pocket-max.dts
+unshipped	upstream-carried	77	devicetree	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/linux/dts/qcom/sm8250-pwm-fan-cooling.dtsi
+unshipped	upstream-carried	1517	devicetree	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/linux/dts/qcom/sm8250-retroidpocket-common.dtsi
+unshipped	upstream-carried	29	devicetree	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/linux/dts/qcom/sm8250-retroidpocket-flip2-visionox.dts
+unshipped	upstream-carried	47	devicetree	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/linux/dts/qcom/sm8250-retroidpocket-flip2.dts
+unshipped	upstream-carried	26	devicetree	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/linux/dts/qcom/sm8250-retroidpocket-rp5-visionox.dts
+unshipped	upstream-carried	100	devicetree	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/linux/dts/qcom/sm8250-retroidpocket-rp5.dts
+unshipped	upstream-carried	98	devicetree	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/linux/dts/qcom/sm8250-retroidpocket-rpmini.dts
+unshipped	upstream-carried	26	devicetree	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/linux/dts/qcom/sm8250-retroidpocket-rpminiv2.dts
+unshipped	upstream-carried	81	shell	['SM8250-aarch64', 'SM8250-arm']	None	projects/ROCKNIX/devices/SM8250/options
+unshipped	upstream-carried	37	shell	['SM8650-aarch64']	None	projects/ROCKNIX/devices/SM8650/bootloader/update.sh
+unshipped	upstream-carried	9	other	['SM8650-aarch64']	None	projects/ROCKNIX/devices/SM8650/config/kernel-firmware.dat
+unshipped	upstream-carried	252	yaml	['SM8650-aarch64']	None	projects/ROCKNIX/devices/SM8650/filesystem/usr/share/inputplumber/capability_maps/ayaneo_mcu_xbox_standard.yaml
+unshipped	upstream-carried	55	yaml	['SM8650-aarch64']	None	projects/ROCKNIX/devices/SM8650/filesystem/usr/share/inputplumber/devices/01-ayaneo-controller.yaml
+unshipped	upstream-carried	1674	devicetree	['SM8650-aarch64']	None	projects/ROCKNIX/devices/SM8650/linux/dts/qcom/sm8650-ayaneo-common.dtsi
+unshipped	upstream-carried	111	devicetree	['SM8650-aarch64']	None	projects/ROCKNIX/devices/SM8650/linux/dts/qcom/sm8650-ayaneo-ps2.dts
+unshipped	upstream-carried	89	devicetree	['SM8650-aarch64']	None	projects/ROCKNIX/devices/SM8650/linux/dts/qcom/sm8650-konkr-pf.dts
+unshipped	upstream-carried	71	shell	['SM8650-aarch64']	None	projects/ROCKNIX/devices/SM8650/options
+unshipped	upstream-carried	37	shell	['SM8750-aarch64']	None	projects/ROCKNIX/devices/SM8750/bootloader/update.sh
+unshipped	upstream-carried	4	other	['SM8750-aarch64']	None	projects/ROCKNIX/devices/SM8750/config/kernel-firmware.dat
+unshipped	upstream-carried	78	config	['SM8750-aarch64']	None	projects/ROCKNIX/devices/SM8750/filesystem/usr/share/alsa/ucm2/KONKR/PocketFitElite/HiFi.conf
+unshipped	upstream-carried	33	config	['SM8750-aarch64']	None	projects/ROCKNIX/devices/SM8750/filesystem/usr/share/alsa/ucm2/KONKR/PocketFitElite/KONKR-PocketFitElite.conf
+unshipped	upstream-carried	1	config	['SM8750-aarch64']	None	projects/ROCKNIX/devices/SM8750/filesystem/usr/share/alsa/ucm2/conf.d/sm8750/SM8750-KONKR.conf
+unshipped	upstream-carried	248	yaml	['SM8750-aarch64']	None	projects/ROCKNIX/devices/SM8750/filesystem/usr/share/inputplumber/capability_maps/ayn_mcu.yaml
+unshipped	upstream-carried	18	yaml	['SM8750-aarch64']	None	projects/ROCKNIX/devices/SM8750/filesystem/usr/share/inputplumber/capability_maps/konkr_gamepad.yaml
+unshipped	upstream-carried	64	yaml	['SM8750-aarch64']	None	projects/ROCKNIX/devices/SM8750/filesystem/usr/share/inputplumber/capability_maps/konkr_sysbtn.yaml
+unshipped	upstream-carried	57	yaml	['SM8750-aarch64']	None	projects/ROCKNIX/devices/SM8750/filesystem/usr/share/inputplumber/devices/01-ayn-controller.yaml
+unshipped	upstream-carried	47	yaml	['SM8750-aarch64']	None	projects/ROCKNIX/devices/SM8750/filesystem/usr/share/inputplumber/devices/50-konkr_pf_elite.yaml
+unshipped	upstream-carried	1471	devicetree	['SM8750-aarch64']	None	projects/ROCKNIX/devices/SM8750/linux/dts/qcom/cq8725s-ayn-common.dtsi
+unshipped	upstream-carried	352	devicetree	['SM8750-aarch64']	None	projects/ROCKNIX/devices/SM8750/linux/dts/qcom/cq8725s-ayn-odin3.dts
+unshipped	upstream-carried	1711	devicetree	['SM8750-aarch64']	None	projects/ROCKNIX/devices/SM8750/linux/dts/qcom/sm8750-konkr-pf-elite.dts
+unshipped	upstream-carried	71	shell	['SM8750-aarch64']	None	projects/ROCKNIX/devices/SM8750/options
+unshipped	upstream-carried	29	recipe	['S922X-aarch64']	None	projects/ROCKNIX/packages/linux-drivers/RTW88/package.mk
+unshipped	upstream-carried	25	recipe	['SM8650-aarch64']	None	projects/ROCKNIX/packages/linux-drivers/chipone_tddi/package.mk
+unreached	upstream-carried	23	recipe	[]	None	projects/ROCKNIX/packages/linux-drivers/dtbocfg/package.mk
+unshipped	upstream-carried	48	recipe	['RK3326-aarch64']	None	projects/ROCKNIX/packages/linux-drivers/generic-dsi/package.mk
+unshipped	upstream-carried	274	python	['RK3326-aarch64']	None	projects/ROCKNIX/packages/linux-drivers/generic-dsi/scripts/importpanel.py
+unshipped	upstream-carried	696	c	['RK3326-aarch64']	None	projects/ROCKNIX/packages/linux-drivers/generic-dsi/sources/panel-generic-dsi.c
+unshipped	upstream-carried	38	recipe	['RK3326-aarch64', 'RK3566-aarch64', 'RK3576-aarch64', 'S922X-aarch64']	None	projects/ROCKNIX/packages/linux-drivers/mali-bifrost/package.mk
+unshipped	upstream-carried	12	make	['RK3326-aarch64', 'RK3566-aarch64', 'RK3576-aarch64', 'S922X-aarch64']	None	projects/ROCKNIX/packages/linux-drivers/mali-bifrost/sources/Makefile
+unshipped	upstream-carried	18	recipe	['RK3399-aarch64']	None	projects/ROCKNIX/packages/linux-firmware/RTL8188FU-firmware/package.mk
+unshipped	upstream-carried	20	recipe	['RK3588-aarch64']	None	projects/ROCKNIX/packages/linux-firmware/ap6256-firmware/package.mk
+unshipped	upstream-carried	21	recipe	['RK3588-aarch64']	None	projects/ROCKNIX/packages/linux-firmware/ap6611s-firmware/package.mk
+unshipped	upstream-carried	14	recipe	['RK3326-aarch64']	None	projects/ROCKNIX/packages/linux-firmware/esp8089-firmware/package.mk
+unshipped	upstream-carried	18	recipe	['RK3588-aarch64']	None	projects/ROCKNIX/packages/linux-firmware/g610-mali-csffw/package.mk
+unshipped	upstream-carried	14	recipe	['RK3588-aarch64']	None	projects/ROCKNIX/packages/linux-firmware/ibt-firmware/package.mk
+unshipped	upstream-carried	14	recipe	['RK3588-aarch64']	None	projects/ROCKNIX/packages/linux-firmware/iwlwifi-firmware/package.mk
+unreached	upstream-carried	11	shell	[]	None	projects/RPi/bootloader/canupdate.sh
+unreached	upstream-carried	9	text	[]	None	projects/RPi/devices/RPi/config/distroconfig.txt
+unreached	upstream-carried	12	xml	[]	None	projects/RPi/devices/RPi/kodi/appliance.xml
+unreached	upstream-carried	19	shell	[]	None	projects/RPi/devices/RPi/options
+unreached	upstream-carried	9	text	[]	None	projects/RPi/devices/RPi2/config/distroconfig-composite.txt
+unreached	upstream-carried	9	text	[]	None	projects/RPi/devices/RPi2/config/distroconfig.txt
+unreached	upstream-carried	22	shell	[]	None	projects/RPi/devices/RPi2/options
+unreached	upstream-carried	40	text	[]	None	projects/RPi/devices/RPi4/config/config.txt
+unreached	upstream-carried	13	text	[]	None	projects/RPi/devices/RPi4/config/distroconfig-composite.txt
+unreached	upstream-carried	12	text	[]	None	projects/RPi/devices/RPi4/config/distroconfig.txt
+unreached	upstream-carried	14	xml	[]	None	projects/RPi/devices/RPi4/kodi/appliance.xml
+unreached	upstream-carried	36	shell	[]	None	projects/RPi/devices/RPi4/options
+unreached	upstream-carried	30	text	[]	None	projects/RPi/devices/RPi5/config/config.txt
+unreached	upstream-carried	14	text	[]	None	projects/RPi/devices/RPi5/config/distroconfig-composite.txt
+unreached	upstream-carried	13	text	[]	None	projects/RPi/devices/RPi5/config/distroconfig.txt
+unreached	upstream-carried	24	xml	[]	None	projects/RPi/devices/RPi5/kodi/appliance.xml
+unreached	upstream-carried	43	shell	[]	None	projects/RPi/devices/RPi5/options
+unreached	upstream-carried	8	shell	[]	None	projects/RPi/filesystem/usr/bin/cputemp
+unreached	upstream-carried	1	symlink	[]	None	projects/RPi/filesystem/usr/bin/gputemp
+unreached	upstream-carried	3	udev	[]	None	projects/RPi/filesystem/usr/lib/udev/rules.d/80-alsa-preallocsize.rules
+unreached	upstream-carried	24	config	[]	None	projects/RPi/filesystem/usr/share/alsa/cards/RPi-WM8804.conf
+unreached	upstream-carried	37	config	[]	None	projects/RPi/filesystem/usr/share/alsa/cards/bcm2835_alsa.conf
+unreached	upstream-carried	4	xml	[]	None	projects/RPi/kodi/advancedsettings.xml
+unreached	upstream-carried	22	xml	[]	None	projects/RPi/kodi/appliance.xml
+unreached	upstream-carried	87	shell	[]	None	projects/RPi/options
+unreached	upstream-carried	5	config	[]	None	projects/RPi/packages/linux/modprobe.d/ath9k.conf
+unreached	upstream-carried	2	config	[]	None	projects/RPi/packages/linux/modprobe.d/brcmfmac.conf
+unreached	upstream-carried	18	shell	[]	None	projects/RPi/packages/systemd/scripts/cpufreq
+unreached	upstream-carried	55	markdown	[]	None	projects/Rockchip/README.md
+unreached	upstream-carried	16	shell	[]	None	projects/Rockchip/bootloader/canupdate.sh
+unreached	upstream-carried	10	none	[]	None	projects/Rockchip/bootloader/config
+unreached	upstream-carried	22	none	[]	None	projects/Rockchip/bootloader/firmware
+unreached	upstream-carried	51	none	[]	None	projects/Rockchip/bootloader/install
+unreached	upstream-carried	29	none	[]	None	projects/Rockchip/bootloader/mkimage
+unreached	upstream-carried	24	none	[]	None	projects/Rockchip/bootloader/release
+unreached	upstream-carried	89	shell	[]	None	projects/Rockchip/bootloader/update.sh
+unreached	upstream-carried	34	other	[]	None	projects/Rockchip/config/kernel-firmware.dat
+unreached	upstream-carried	8	markdown	[]	None	projects/Rockchip/devices/RK3288/README.md
+unreached	upstream-carried	31	shell	[]	None	projects/Rockchip/devices/RK3288/options
+unreached	upstream-carried	9	markdown	[]	None	projects/Rockchip/devices/RK3328/README.md
+unreached	upstream-carried	36	shell	[]	None	projects/Rockchip/devices/RK3328/options
+unreached	upstream-carried	20	markdown	[]	None	projects/Rockchip/devices/RK3399/README.md
+unreached	upstream-carried	39	shell	[]	None	projects/Rockchip/devices/RK3399/options
+unreached	upstream-carried	17	markdown	[]	None	projects/Rockchip/devices/RK356X/README.md
+unreached	upstream-carried	38	xml	[]	None	projects/Rockchip/devices/RK356X/kodi/appliance.xml
+unreached	upstream-carried	37	shell	[]	None	projects/Rockchip/devices/RK356X/options
+unreached	upstream-carried	8	markdown	[]	None	projects/Rockchip/devices/RK3576/README.md
+unreached	upstream-carried	1	other	[]	None	projects/Rockchip/devices/RK3576/config/kernel-firmware-any.dat
+unreached	upstream-carried	38	xml	[]	None	projects/Rockchip/devices/RK3576/kodi/appliance.xml
+unreached	upstream-carried	37	shell	[]	None	projects/Rockchip/devices/RK3576/options
+unreached	upstream-carried	20	markdown	[]	None	projects/Rockchip/devices/RK3588/README.md
+unreached	upstream-carried	1	other	[]	None	projects/Rockchip/devices/RK3588/config/kernel-firmware-any.dat
+unreached	upstream-carried	38	xml	[]	None	projects/Rockchip/devices/RK3588/kodi/appliance.xml
+unreached	upstream-carried	37	shell	[]	None	projects/Rockchip/devices/RK3588/options
+unreached	upstream-carried	21	shell	[]	None	projects/Rockchip/filesystem/usr/bin/cputemp
+unreached	upstream-carried	21	shell	[]	None	projects/Rockchip/filesystem/usr/bin/gputemp
+unreached	upstream-carried	2	config	[]	None	projects/Rockchip/filesystem/usr/lib/systemd/sleep.conf.d/sleep.conf
+unreached	upstream-carried	12	config	[]	None	projects/Rockchip/filesystem/usr/share/alsa/cards/Analog.conf
+unreached	upstream-carried	34	config	[]	None	projects/Rockchip/filesystem/usr/share/alsa/cards/SPDIF.conf
+unreached	upstream-carried	199	config	[]	None	projects/Rockchip/filesystem/usr/share/alsa/cards/simple-card.conf
+unreached	upstream-carried	29	xml	[]	None	projects/Rockchip/kodi/appliance.xml
+unreached	upstream-carried	77	shell	[]	None	projects/Rockchip/options
+unreached	upstream-carried	24	shell	[]	None	projects/Rockchip/packages/systemd/scripts/cpufreq
+unreached	upstream-carried	7	none	[]	None	projects/Samsung/bootloader/config
+unreached	upstream-carried	11	none	[]	None	projects/Samsung/bootloader/install
+unreached	upstream-carried	43	none	[]	None	projects/Samsung/bootloader/mkimage
+unreached	upstream-carried	8	none	[]	None	projects/Samsung/bootloader/release
+unreached	upstream-carried	36	shell	[]	None	projects/Samsung/bootloader/update.sh
+unreached	upstream-carried	6	other	[]	None	projects/Samsung/config/kernel-firmware.dat
+unreached	upstream-carried	22	shell	[]	None	projects/Samsung/devices/Exynos/options
+unreached	upstream-carried	9	shell	[]	None	projects/Samsung/filesystem/usr/bin/cputemp
+unreached	upstream-carried	1	symlink	[]	None	projects/Samsung/filesystem/usr/bin/gputemp
+unreached	upstream-carried	3	config	[]	None	projects/Samsung/filesystem/usr/config/pulse-daemon.conf.d/daemon.conf
+unreached	upstream-carried	78	script	[]	None	projects/Samsung/filesystem/usr/config/pulse-daemon.conf.d/system.pa
+unreached	upstream-carried	83	shell	[]	None	projects/Samsung/options
