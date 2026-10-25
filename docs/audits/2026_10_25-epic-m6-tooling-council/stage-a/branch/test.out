@@ -1,0 +1,351 @@
+✔ summary preserves unavailable Facilitator usage and supports older provider-only records (0.94488ms)
+✔ five pins, requests, agent declarations, and catalog agree without SDKs or network (11.274549ms)
+✔ consumers use current recipe model matchers, including provider and build rules (0.380539ms)
+✔ unsupported effort, ceiling, and incorrect seat identities fail closed (0.578008ms)
+✔ run-start preserves branch and staged files, keeps keys out of anchors, and retries identically (377.861192ms)
+✔ a real Facilitator invocation against a fake transport captures success and stops on mismatch (712.354491ms)
+✔ partial outputs cannot pass a step or create a seal; per-artifact checks remain usable (435.709959ms)
+✔ pre-seal then immutable seal then full gate works; edited artifacts and ledger truncation fail (911.915758ms)
+✔ ties use previous revised plans, exclude self, and preserve round-1 seals (966.696582ms)
+✔ opted-in consensus appends its inventory without changing prior seals or anchored identity (945.125744ms)
+✔ tampered provenance, unsupported coordinator claims, unsafe paths, and missing pins are rejected (564.405611ms)
+✔ five-seat admission rejects reduced rosters even with a recorded decision (247.225432ms)
+✔ missing keys, source hash drift, ignored sources, and declaration drift stop before network (492.454966ms)
+✔ an exceeding seat ceiling fails only under --strict; an unpinned seat model exits 2 first (293.968878ms)
+✔ changed pins require a new accountable timestamp relative to the review base (28.310096ms)
+✔ unavailable Git cannot turn pin accountability or stale-blob checks into a pass (119.536992ms)
+✔ anchor Git route clears inherited helpers and never carries a token (0.22694ms)
+✔ a remote outside the fork's own repository refuses before creating an anchor or seal key (110.417578ms)
+✔ full offline producer-to-consumer lifecycle builds prompts, seals all steps, and reports actual usage (7133.129594ms)
+✔ unknown served model remains exit 6 and cannot advance a bound run (389.263936ms)
+✔ missing provider reasoning evidence is not a verified effort or permission to continue (397.721076ms)
+✔ a pinned seat served outside its pin exits 7, keeps no content, and halts the run (526.989391ms)
+✔ a pinned seat whose response names no provider is UNVERIFIABLE and cannot advance a bound run (387.141844ms)
+✔ pinned seats commit to exactly the providers their pins admit in the catalogue (0.5367ms)
+✔ grok shadow: five distinct identities, complete lifecycle, non-binding summary (1049.0206ms)
+✔ grok shadow cannot use a definitive contract, lose a member, add a sixth, or change campaign after genesis (286.167601ms)
+✔ deepseek shadow: five distinct identities, complete lifecycle, non-binding summary (1032.687026ms)
+✔ deepseek shadow cannot use a definitive contract, lose a member, add a sixth, or change campaign after genesis (277.10844ms)
+✔ preliminary review projects the same three recipes as the definitive council (0.888308ms)
+✔ preliminary format refuses altered pins, provider routing and completion authority (0.554079ms)
+✔ preliminary evidence cannot satisfy formal admission even with five appended seats (20.305585ms)
+✔ nested research councils retain namespaced anchors, discovery and all verification gates (1176.929244ms)
+✔ historical nested scans are disclosed and explicit paths remain subject to current admission (330.921507ms)
+✔ unversioned research labels retain the dated legacy boundary without hiding malformed versions (567.588659ms)
+✔ default discovery audits old inventory separately from current admission (1094.387341ms)
+✔ run lint refuses an earlier out-of-pin provider behind an allowed final scalar and a planted PASS (508.501505ms)
+✔ mixed-provider SSE is retained and refused by the installed producer (295.98092ms)
+✔ #944: a run sealed under 1.3.1 is historical by its contract on any date; the scan, verify-chain and verify-seals admit it (878.528621ms)
+✔ #944: a historical contract with a newer contract's keys is named historical_manifest_mixed_contract, not council_roster_invalid (434.146894ms)
+ℹ tests 39
+ℹ suites 0
+ℹ pass 39
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 23105.695733
+attempt=1/4 transport=buffered http=200 model=(none) providers=[] content=56b finish=stop outcome=success duration=9ms
+✗ mistral model_identity_unverifiable — content captured, not verified; HALT (provenance: result.txt.provenance.json)
+✔ identity gate: buffered absent response (38.136194ms)
+attempt=1/4 transport=buffered http=200 model=(none) providers=[] content=56b finish=stop outcome=success duration=0ms
+✗ mistral model_identity_unverifiable — content captured, not verified; HALT (provenance: result.txt.provenance.json)
+✔ identity gate: buffered null response (2.389726ms)
+attempt=1/4 transport=buffered http=200 model= providers=[] content=56b finish=stop outcome=success duration=0ms
+✗ mistral model_identity_unverifiable — content captured, not verified; HALT (provenance: result.txt.provenance.json)
+✔ identity gate: buffered empty response (2.154145ms)
+attempt=1/4 transport=buffered http=200 model=    providers=[] content=56b finish=stop outcome=success duration=0ms
+✗ mistral model_identity_unverifiable — content captured, not verified; HALT (provenance: result.txt.provenance.json)
+✔ identity gate: buffered blank response (1.096439ms)
+attempt=1/4 transport=buffered http=200 model=(none) providers=[] content=56b finish=stop outcome=success duration=1ms
+✗ mistral model_identity_unverifiable — content captured, not verified; HALT (provenance: result.txt.provenance.json)
+✔ identity gate: buffered non-string response (1.788643ms)
+attempt=1/4 transport=buffered http=200 model=mistralai/mistral-large-2512 providers=[] content=56b finish=stop outcome=success duration=1ms
+✓ mistral success — wrote 56b to result.txt (provenance: result.txt.provenance.json)
+✔ identity gate: buffered exact response (1.502324ms)
+attempt=1/4 transport=buffered http=200 model=MISTRALAI/MISTRAL-LARGE-2512 providers=[] content=56b finish=stop outcome=success duration=0ms
+✓ mistral success — wrote 56b to result.txt (provenance: result.txt.provenance.json)
+✔ identity gate: buffered semantic response (1.067086ms)
+attempt=1/4 transport=buffered http=200 model=other/model providers=[] content=56b finish=stop outcome=model_mismatch duration=0ms
+✗ mistral model_mismatch_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: FAIL)
+✔ identity gate: buffered mismatch response (1.105646ms)
+attempt=1/4 transport=sse http=200 model=(none) providers=[] content=56b finish=stop outcome=success duration=1ms
+✗ mistral model_identity_unverifiable — content captured, not verified; HALT (provenance: result.txt.provenance.json)
+✔ identity gate: sse absent response (2.473316ms)
+attempt=1/4 transport=sse http=200 model=(none) providers=[] content=56b finish=stop outcome=success duration=0ms
+✗ mistral model_identity_unverifiable — content captured, not verified; HALT (provenance: result.txt.provenance.json)
+✔ identity gate: sse null response (1.420799ms)
+attempt=1/4 transport=sse http=200 model=(none) providers=[] content=56b finish=stop outcome=success duration=0ms
+✗ mistral model_identity_unverifiable — content captured, not verified; HALT (provenance: result.txt.provenance.json)
+✔ identity gate: sse empty response (1.705127ms)
+attempt=1/4 transport=sse http=200 model=    providers=[] content=56b finish=stop outcome=success duration=0ms
+✗ mistral model_identity_unverifiable — content captured, not verified; HALT (provenance: result.txt.provenance.json)
+✔ identity gate: sse blank response (1.196515ms)
+attempt=1/4 transport=sse http=200 model=(none) providers=[] content=56b finish=stop outcome=success duration=0ms
+✗ mistral model_identity_unverifiable — content captured, not verified; HALT (provenance: result.txt.provenance.json)
+✔ identity gate: sse non-string response (1.781803ms)
+attempt=1/4 transport=sse http=200 model=mistralai/mistral-large-2512 providers=[] content=56b finish=stop outcome=success duration=0ms
+✓ mistral success — wrote 56b to result.txt (provenance: result.txt.provenance.json)
+✔ identity gate: sse exact response (2.956522ms)
+attempt=1/4 transport=sse http=200 model=MISTRALAI/MISTRAL-LARGE-2512 providers=[] content=56b finish=stop outcome=success duration=0ms
+✓ mistral success — wrote 56b to result.txt (provenance: result.txt.provenance.json)
+✔ identity gate: sse semantic response (1.154902ms)
+attempt=1/4 transport=sse http=200 model=other/model providers=[] content=56b finish=stop outcome=model_mismatch duration=0ms
+✗ mistral model_mismatch_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: FAIL)
+✔ identity gate: sse mismatch response (0.824386ms)
+✔ identity CLI: buffered HTTP 200 without a model (289.624493ms)
+✔ identity CLI: buffered HTTP 401 without a model (265.293566ms)
+✔ identity CLI: sse HTTP 200 without a model (276.742649ms)
+✔ identity CLI: sse HTTP 401 without a model (262.985981ms)
+attempt=1/4 transport=buffered http=200 model=deepseek/deepseek-v4-pro-0813 providers=["CoreWeave"] effort=max reasoning=2 content=55b finish=stop outcome=success duration=0ms
+✓ deepseek success — wrote 55b to result.txt (provenance: result.txt.provenance.json)
+✔ provider gate: deepseek buffered inside the pin (4.678212ms)
+attempt=1/4 transport=buffered http=200 model=deepseek/deepseek-v4-pro-0813 providers=[" coreweave "] effort=max reasoning=2 content=55b finish=stop outcome=success duration=0ms
+✓ deepseek success — wrote 55b to result.txt (provenance: result.txt.provenance.json)
+✔ provider gate: deepseek buffered inside the pin, other casing (2.781156ms)
+attempt=1/4 transport=buffered http=200 model=deepseek/deepseek-v4-pro-0813 providers=["GMICloud"] effort=max reasoning=2 content=55b finish=stop outcome=provider_mismatch duration=0ms
+✗ deepseek provider_mismatch_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: PASS)
+✔ provider gate: deepseek buffered outside the pin (1.335107ms)
+attempt=1/4 transport=buffered http=200 model=deepseek/deepseek-v4-pro-0813 providers=[] effort=max reasoning=2 content=55b finish=stop outcome=success duration=1ms
+✓ deepseek success — wrote 55b to result.txt (provenance: result.txt.provenance.json)
+✔ provider gate: deepseek buffered absent (0.952602ms)
+attempt=1/4 transport=buffered http=200 model=deepseek/deepseek-v4-pro-0813 providers=[] effort=max reasoning=2 content=55b finish=stop outcome=success duration=1ms
+✓ deepseek success — wrote 55b to result.txt (provenance: result.txt.provenance.json)
+✔ provider gate: deepseek buffered null (0.90765ms)
+attempt=1/4 transport=buffered http=200 model=deepseek/deepseek-v4-pro-0813 providers=[] effort=max reasoning=2 content=55b finish=stop outcome=success duration=0ms
+✓ deepseek success — wrote 55b to result.txt (provenance: result.txt.provenance.json)
+✔ provider gate: deepseek buffered blank (0.88822ms)
+attempt=1/4 transport=buffered http=200 model=deepseek/deepseek-v4-pro-0813 providers=[] effort=max reasoning=2 content=55b finish=stop outcome=success duration=0ms
+✓ deepseek success — wrote 55b to result.txt (provenance: result.txt.provenance.json)
+✔ provider gate: deepseek buffered non-string (0.86953ms)
+attempt=1/4 transport=sse http=200 model=deepseek/deepseek-v4-pro-0813 providers=["CoreWeave","CoreWeave"] effort=max reasoning=2 content=55b finish=stop outcome=success duration=0ms
+✓ deepseek success — wrote 55b to result.txt (provenance: result.txt.provenance.json)
+✔ provider gate: deepseek sse inside the pin (1.117737ms)
+attempt=1/4 transport=sse http=200 model=deepseek/deepseek-v4-pro-0813 providers=[" coreweave "," coreweave "] effort=max reasoning=2 content=55b finish=stop outcome=success duration=0ms
+✓ deepseek success — wrote 55b to result.txt (provenance: result.txt.provenance.json)
+✔ provider gate: deepseek sse inside the pin, other casing (0.900432ms)
+attempt=1/4 transport=sse http=200 model=deepseek/deepseek-v4-pro-0813 providers=["GMICloud","GMICloud"] effort=max reasoning=2 content=55b finish=stop outcome=provider_mismatch duration=0ms
+✗ deepseek provider_mismatch_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: PASS)
+✔ provider gate: deepseek sse outside the pin (0.789332ms)
+attempt=1/4 transport=sse http=200 model=deepseek/deepseek-v4-pro-0813 providers=[] effort=max reasoning=2 content=55b finish=stop outcome=success duration=0ms
+✓ deepseek success — wrote 55b to result.txt (provenance: result.txt.provenance.json)
+✔ provider gate: deepseek sse absent (0.900876ms)
+attempt=1/4 transport=sse http=200 model=deepseek/deepseek-v4-pro-0813 providers=[] effort=max reasoning=2 content=55b finish=stop outcome=success duration=0ms
+✓ deepseek success — wrote 55b to result.txt (provenance: result.txt.provenance.json)
+✔ provider gate: deepseek sse null (0.906436ms)
+attempt=1/4 transport=sse http=200 model=deepseek/deepseek-v4-pro-0813 providers=[] effort=max reasoning=2 content=55b finish=stop outcome=success duration=0ms
+✓ deepseek success — wrote 55b to result.txt (provenance: result.txt.provenance.json)
+✔ provider gate: deepseek sse blank (0.832424ms)
+attempt=1/4 transport=sse http=200 model=deepseek/deepseek-v4-pro-0813 providers=[] effort=max reasoning=2 content=55b finish=stop outcome=success duration=0ms
+✓ deepseek success — wrote 55b to result.txt (provenance: result.txt.provenance.json)
+✔ provider gate: deepseek sse non-string (0.818136ms)
+attempt=1/1 transport=buffered http=200 model=anthropic/claude-fable-5.1-20260831 providers=["Anthropic"] effort=xhigh reasoning=2 content=9b finish=stop outcome=success duration=0ms
+✓ claude success — wrote 9b to named.txt (provenance: named.txt.provenance.json)
+attempt=1/1 transport=buffered http=200 model=anthropic/claude-fable-5.1-20260831 providers=[] effort=xhigh reasoning=2 content=9b finish=stop outcome=success duration=0ms
+✓ claude success — wrote 9b to unnamed.txt (provenance: unnamed.txt.provenance.json)
+✔ provider gate: an unpinned seat records its served provider as NOT_PINNED, never as a pass (1.921724ms)
+▶ served-provider classification (scaffold#917)
+  ✔ a provider outside the pin is provider_mismatch and never retried (0.110175ms)
+  ✔ a model mismatch outranks a provider mismatch, and a missing provider is not a mismatch (0.06271ms)
+  ✔ a caller holding no routing evidence keeps the pre-#917 classification (0.03715ms)
+  ✔ verification: PASS, FAIL, UNVERIFIABLE, NOT_PINNED; names compare trimmed and case-insensitively (0.048893ms)
+  ✔ a pin admits its exact tag and the tags beneath it, never a longer provider slug (0.098788ms)
+  ✔ only OpenRouter recipes read a served provider; a pinned recipe declares what its pin admits (0.06976ms)
+✔ served-provider classification (scaffold#917) (0.575198ms)
+▶ council-invoke Mistral route selection
+  ✔ uses OpenRouter for Mistral when --provider is omitted (374.65871ms)
+  ✔ uses Azure Foundry for Mistral when --provider azure is explicit (352.14181ms)
+  ✔ uses Amazon Bedrock for Mistral when --provider bedrock is explicit (358.632204ms)
+  ✔ rejects SSE transport for members without an SSE recipe (359.698963ms)
+  ✔ rejects EventStream transport for members without a Bedrock EventStream recipe (359.204589ms)
+  ✔ allows Mistral's Bedrock EventStream route to reach AWS env preflight (378.819339ms)
+  ✔ allows Mistral's OpenRouter SSE route to reach OpenRouter env preflight (369.61042ms)
+  ✔ allows Kimi's explicit direct SSE route to reach Azure env preflight (348.209964ms)
+✔ council-invoke Mistral route selection (2901.335672ms)
+▶ openRouterModelMatches — identity gate
+  ✔ accepts anthropic/claude-opus-5-20260723 for anthropic/claude-opus-5 (0.218882ms)
+  ✔ accepts openai/gpt-5.6-sol-20260701 for openai/gpt-5.6-sol (0.045458ms)
+  ✔ accepts google/gemini-3.1-pro-preview-20260219 for google/gemini-3.1-pro-preview (0.020769ms)
+  ✔ accepts moonshotai/kimi-k2.6-20260420 for moonshotai/kimi-k2.6 (0.016181ms)
+  ✔ accepts mistralai/mistral-large-2512 for mistralai/mistral-large-2512 (0.016628ms)
+  ✔ accepts anthropic/claude-fable-5.1-20260831 for anthropic/claude-fable-5.1 (0.016682ms)
+  ✔ accepts openai/gpt-6-astra-20260903 for openai/gpt-6-astra (0.018462ms)
+  ✔ accepts moonshotai/kimi-k3-20260715 for moonshotai/kimi-k3 (0.021424ms)
+  ✔ accepts google/gemini-3.8-flash-20260902 for google/gemini-3.8-flash (0.017054ms)
+  ✔ rejects anthropic/claude-fable-5-20260701 for anthropic/claude-fable-5.1 (0.032702ms)
+  ✔ rejects openai/gpt-6-astra-pro-20260903 for openai/gpt-6-astra (0.030492ms)
+  ✔ rejects openai/gpt-5.6-sol-20260701 for openai/gpt-6-astra (0.017582ms)
+  ✔ rejects moonshotai/kimi-k2.6-20260420 for moonshotai/kimi-k3 (0.015095ms)
+  ✔ rejects google/gemini-3.7-flash-20260813 for google/gemini-3.8-flash (0.016918ms)
+  ✔ rejects google/gemini-3.1-pro-preview-20260219 for google/gemini-3.8-flash (0.020491ms)
+  ✔ rejects openai/gpt-5.6-sol-pro-20260701 for openai/gpt-5.6-sol (0.015809ms)
+  ✔ rejects openai/gpt-5.6-terra-20260701 for openai/gpt-5.6-sol (0.014842ms)
+  ✔ rejects anthropic/claude-opus-4.8-20260528 for anthropic/claude-opus-5 (0.030483ms)
+  ✔ rejects anthropic/claude-fable-5-20260701 for anthropic/claude-opus-5 (0.017578ms)
+  ✔ rejects openai/gpt-5.6-sol-20260701 for anthropic/claude-opus-5 (0.018228ms)
+  ✔ rejects moonshotai/kimi-k2.6-fast-20260101 for moonshotai/kimi-k2.6 (0.015179ms)
+✔ openRouterModelMatches — identity gate (0.825674ms)
+▶ OPENROUTER_RECIPES — per-seat pin, effort, identity
+  ✔ claude: substrate is openrouter (0.089685ms)
+  ✔ claude: body pins anthropic/claude-fable-5.1 + reasoning effort=xhigh (0.061352ms)
+  ✔ claude: modelMatches accepts its live-observed echo (0.025176ms)
+  ✔ gemini: substrate is openrouter (0.014631ms)
+  ✔ gemini: body pins google/gemini-3.8-flash + reasoning effort=high (0.016669ms)
+  ✔ gemini: modelMatches accepts its live-observed echo (0.025161ms)
+  ✔ gpt: substrate is openrouter (0.012823ms)
+  ✔ gpt: body pins openai/gpt-6-astra + reasoning effort=max (0.01902ms)
+  ✔ gpt: modelMatches accepts its live-observed echo (0.013579ms)
+  ✔ kimi: substrate is openrouter (0.011197ms)
+  ✔ kimi: body pins moonshotai/kimi-k3 + reasoning effort=max (0.012238ms)
+  ✔ kimi: modelMatches accepts its live-observed echo (0.018708ms)
+  ✔ mistral: substrate is openrouter (0.012478ms)
+  ✔ mistral: body pins mistralai/mistral-large-2512 (no reasoning) (0.025431ms)
+  ✔ mistral: modelMatches accepts its live-observed echo (0.025822ms)
+  ✔ gpt: body pins the live-verified OpenAI provider (0.04149ms)
+  ✔ kimi: body pins the fast, healthy providers in order with no fallbacks (2026-09-08) at effort max (2026-09-03) (0.028039ms)
+  ✔ every OpenRouter seat requests its full output ceiling on the first attempt (2026-09-03 limits audit) (0.049949ms)
+  ✔ reasoning seats without a provider pin emit no provider field (0.028589ms)
+✔ OPENROUTER_RECIPES — per-seat pin, effort, identity (0.682213ms)
+▶ selectRecipe — provider routing
+  ✔ --provider openrouter → OpenRouter recipe for every member (0.052863ms)
+  ✔ --provider default → OpenRouter recipe for every member (0.034619ms)
+  ✔ --provider direct → direct-provider recipe for every member (0.097758ms)
+✔ selectRecipe — provider routing (0.266958ms)
+✔ muse OpenRouter-only recipe preserves exact identity, native effort, pin, served providers and output reservation (0.200634ms)
+✔ grok OpenRouter-only recipe preserves exact identity, native effort, pin, served providers and output reservation (0.045638ms)
+✔ deepseek OpenRouter-only recipe preserves exact identity, native effort, pin, served providers and output reservation (0.038551ms)
+attempt=1/1 transport=sse http=200 model=meta/muse-spark-1.3 providers=["Meta","Meta"] effort=max reasoning=6 content=4b finish=stop outcome=success duration=1ms
+✓ muse success — wrote 4b to result.txt (provenance: result.txt.provenance.json)
+✔ muse: actual SSE dispatcher requests streaming and preserves chunked identity, provider, usage and content (11.971738ms)
+attempt=1/1 transport=sse http=200 model=x-ai/grok-4.7 providers=["xAI","xAI"] effort=xhigh reasoning=6 content=4b finish=stop outcome=success duration=0ms
+✓ grok success — wrote 4b to result.txt (provenance: result.txt.provenance.json)
+✔ grok: actual SSE dispatcher requests streaming and preserves chunked identity, provider, usage and content (1.526355ms)
+attempt=1/1 transport=sse http=200 model=deepseek/deepseek-v4-pro-0813 providers=["CoreWeave","CoreWeave"] effort=max reasoning=6 content=4b finish=stop outcome=success duration=0ms
+✓ deepseek success — wrote 4b to result.txt (provenance: result.txt.provenance.json)
+✔ deepseek: actual SSE dispatcher requests streaming and preserves chunked identity, provider, usage and content (0.91434ms)
+attempt=1/4 transport=sse http=200 model=deepseek/deepseek-v4-pro-0813 providers=["GMICloud","CoreWeave"] effort=max reasoning=2 content=17b finish=stop outcome=provider_mismatch duration=1ms
+✗ deepseek provider_mismatch_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: PASS)
+✔ complete provider evidence: wrong content then allowed final (1.313505ms)
+attempt=1/4 transport=sse http=200 model=deepseek/deepseek-v4-pro-0813 providers=["CoreWeave","GMICloud"] effort=max reasoning=2 content=17b finish=stop outcome=provider_mismatch duration=1ms
+✗ deepseek provider_mismatch_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: PASS)
+✔ complete provider evidence: allowed content then wrong final (0.842452ms)
+attempt=1/4 transport=sse http=200 model=deepseek/deepseek-v4-pro-0813 providers=["CoreWeave","CoreWeave"] effort=max reasoning=2 content=17b finish=stop outcome=success duration=1ms
+✓ deepseek success — wrote 17b to result.txt (provenance: result.txt.provenance.json)
+✔ complete provider evidence: repeated allowed observations (0.956807ms)
+attempt=1/4 transport=sse http=200 model=deepseek/deepseek-v4-pro-0813 providers=[" coreweave ","COREWEAVE"] effort=max reasoning=2 content=17b finish=stop outcome=success duration=0ms
+✓ deepseek success — wrote 17b to result.txt (provenance: result.txt.provenance.json)
+✔ complete provider evidence: allowed casing and whitespace (0.850438ms)
+attempt=1/4 transport=sse http=200 model=deepseek/deepseek-v4-pro-0813 providers=["GMICloud"] effort=max reasoning=2 content=17b finish=stop outcome=provider_mismatch duration=1ms
+✗ deepseek provider_mismatch_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: PASS)
+✔ complete provider evidence: wrong followed by blank (1.543418ms)
+attempt=1/4 transport=sse http=200 model=deepseek/deepseek-v4-pro-0813 providers=["GMICloud"] effort=max reasoning=2 content=17b finish=stop outcome=provider_mismatch duration=0ms
+✗ deepseek provider_mismatch_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: PASS)
+✔ complete provider evidence: wrong followed by absent (0.928434ms)
+attempt=1/4 transport=sse http=200 model=deepseek/deepseek-v4-pro-0813 providers=[] effort=max reasoning=2 content=17b finish=stop outcome=success duration=0ms
+✓ deepseek success — wrote 17b to result.txt (provenance: result.txt.provenance.json)
+✔ complete provider evidence: all absent or blank (0.865828ms)
+attempt=1/4 transport=sse http=ERR model=deepseek/deepseek-v4-pro-0813 providers=["GMICloud","CoreWeave"] effort=max reasoning=2 content=17b finish=stop outcome=provider_mismatch duration=0ms
+✗ deepseek provider_mismatch_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: PASS)
+✔ complete provider evidence: wrong before stream read error (0.901791ms)
+attempt=1/4 transport=sse http=ERR model=deepseek/deepseek-v4-pro-0813 providers=["GMICloud","CoreWeave"] effort=max reasoning=2 content=17b finish=stop outcome=provider_mismatch duration=100ms
+✗ deepseek provider_mismatch_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: PASS)
+✔ complete provider evidence: wrong before stream timeout (106.876155ms)
+attempt=1/4 transport=sse http=200 model=deepseek/deepseek-v4-pro-0813 providers=["GMICloud","CoreWeave"] effort=max reasoning=2 content=17b finish=stop outcome=provider_mismatch duration=1ms
+✗ deepseek provider_mismatch_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: PASS)
+✔ complete provider evidence: wrong before provider error event (6.922193ms)
+✔ a known provider mismatch is terminal across transport statuses and cannot fall back to its final scalar (0.1835ms)
+attempt=1/4 transport=buffered http=200 model=anthropic/claude-fable-5.1 providers=[] effort=xhigh reasoning=2 content=0b finish=content_filter outcome=content_filtered duration=0ms
+✗ claude content_filtered_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: PASS)
+✔ content filter: buffered empty stops without resend (5.057828ms)
+attempt=1/4 transport=buffered http=200 model=anthropic/claude-fable-5.1 providers=[] effort=xhigh reasoning=2 content=34b finish=content_filter outcome=content_filtered duration=0ms
+✗ claude content_filtered_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: PASS)
+✔ content filter: buffered partial stops without resend (3.013173ms)
+attempt=1/4 transport=buffered http=200 model=(none) providers=[] effort=xhigh reasoning=2 content=0b finish=content_filter outcome=content_filtered duration=0ms
+✗ claude content_filtered_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: UNVERIFIABLE)
+✔ content filter: buffered unknown-model stops without resend (2.372968ms)
+attempt=1/4 transport=buffered http=200 model=different-model providers=[] effort=xhigh reasoning=2 content=0b finish=content_filter outcome=model_mismatch duration=0ms
+✗ claude model_mismatch_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: FAIL)
+✔ content filter: buffered wrong-model stops without resend (0.88501ms)
+attempt=1/4 transport=sse http=200 model=mistralai/mistral-large-2512 providers=[] content=0b finish=content_filter outcome=content_filtered duration=0ms
+✗ mistral content_filtered_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: PASS)
+✔ content filter: sse empty stops without resend (0.887957ms)
+attempt=1/4 transport=sse http=200 model=mistralai/mistral-large-2512 providers=[] content=34b finish=content_filter outcome=content_filtered duration=0ms
+✗ mistral content_filtered_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: PASS)
+✔ content filter: sse partial stops without resend (0.80096ms)
+attempt=1/4 transport=sse http=200 model=(none) providers=[] content=0b finish=content_filter outcome=content_filtered duration=0ms
+✗ mistral content_filtered_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: UNVERIFIABLE)
+✔ content filter: sse unknown-model stops without resend (0.827357ms)
+attempt=1/4 transport=sse http=200 model=different-model providers=[] content=0b finish=content_filter outcome=model_mismatch duration=0ms
+✗ mistral model_mismatch_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: FAIL)
+✔ content filter: sse wrong-model stops without resend (0.783787ms)
+attempt=1/4 transport=sse http=ERR model=mistralai/mistral-large-2512 providers=[] content=0b finish=content_filter outcome=content_filtered duration=1ms
+✗ mistral content_filtered_no_retry — provenance: result.txt.provenance.json (attempts: 1, verification: PASS)
+✔ content filter: sse broken-stream stops without resend (0.831954ms)
+✔ content filter: identity hard stops and unfiltered retry classes stay distinct (0.13705ms)
+✔ Argon is an explicit audit route; council profiles and Flash pin stay unchanged (3.092449ms)
+attempt=1/4 transport=buffered http=200 model=google/gemini-4-argon providers=["Google"] effort=high reasoning=2 content=16b finish=stop outcome=success duration=0ms
+✓ gemini-argon success — wrote 16b to review.txt (provenance: review.txt.provenance.json)
+✔ Argon dispatcher: exact (1.384303ms)
+attempt=1/4 transport=buffered http=200 model=google/gemini-4-argon-20261013 providers=["Google"] effort=high reasoning=2 content=16b finish=stop outcome=success duration=0ms
+✓ gemini-argon success — wrote 16b to review.txt (provenance: review.txt.provenance.json)
+✔ Argon dispatcher: dated (1.201622ms)
+attempt=1/4 transport=buffered http=200 model=google/gemini-3.8-flash providers=["Google"] effort=high reasoning=2 content=16b finish=stop outcome=model_mismatch duration=0ms
+✗ gemini-argon model_mismatch_no_retry — provenance: review.txt.provenance.json (attempts: 1, verification: FAIL)
+✔ Argon dispatcher: wrong-model (1.177257ms)
+attempt=1/4 transport=buffered http=200 model=google/gemini-4-argon providers=["Other"] effort=high reasoning=2 content=16b finish=stop outcome=provider_mismatch duration=0ms
+✗ gemini-argon provider_mismatch_no_retry — provenance: review.txt.provenance.json (attempts: 1, verification: PASS)
+✔ Argon dispatcher: wrong-provider (0.818421ms)
+attempt=1/4 transport=buffered http=200 model=google/gemini-4-argon providers=["Google"] effort=high reasoning=2 content=0b finish=content_filter outcome=content_filtered duration=0ms
+✗ gemini-argon content_filtered_no_retry — provenance: review.txt.provenance.json (attempts: 1, verification: PASS)
+✔ Argon dispatcher: filtered (1.160128ms)
+attempt=1/4 transport=buffered http=200 model=google/gemini-4-argon providers=["Google"] effort=high reasoning=2 content=16b finish=stop outcome=success duration=0ms
+✓ gemini-argon success — wrote 16b to review.txt (provenance: review.txt.provenance.json)
+✔ Argon dispatcher: header-id (1.047487ms)
+attempt=1/1 transport=sse http=200 model=mistralai/mistral-large-2512 providers=[] content=0b finish=content_filter outcome=content_filtered duration=0ms
+✗ mistral content_filtered_no_retry — provenance: review.txt.provenance.json (attempts: 1, verification: PASS)
+✔ SSE retains generation and native refusal diagnostics without publishing them (0.99208ms)
+ℹ tests 127
+ℹ suites 5
+ℹ pass 127
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4412.619446
+▶ output ceiling vs the model's max_completion_tokens
+  ✔ (a) a seat above the model's maximum is output_ceiling_exceeds_model — FAIL under --strict, counted (1.734665ms)
+  ✔ (a) the same seat without --strict is a WARN — still counted, so the summary line still reports it (0.259155ms)
+  ✔ (b) a seat below the model's maximum is output_ceiling_below_model — a NOTE, never counted, strict or not (0.206078ms)
+  ✔ (c) a snapshot entry without max_completion_tokens is output_ceiling_unverified — a NOTE, not the WARN the issue text assumed (0.147626ms)
+  ✔ (c) an explicit null max_completion_tokens (what --refresh writes when the catalogue has none) is the same NOTE (0.140942ms)
+  ✔ (d) a seat exactly at the model's maximum raises no ceiling finding — the silent fourth branch (0.169642ms)
+✔ output ceiling vs the model's max_completion_tokens (3.908964ms)
+▶ reasoning effort
+  ✔ (e) effort "none" skips the effort check, but the ceiling is still checked (0.220488ms)
+  ✔ an effort the model does not advertise is effort_unsupported — FAIL/WARN, counted, both stderr lines in one message (0.236527ms)
+  ✔ a seat can carry a ceiling finding and an effort finding — two findings, ceiling first (0.185983ms)
+✔ reasoning effort (0.895067ms)
+▶ fail-closed and emptiness
+  ✔ (f) a slug absent from the snapshot is model_not_pinned — FAIL, counted, and every later seat stays unchecked (0.246756ms)
+  ✔ (g) an empty seat table checks nothing and finds nothing — the count is what makes emptiness visible (0.087001ms)
+✔ fail-closed and emptiness (0.459435ms)
+▶ served providers vs the catalogue's endpoints (scaffold#917)
+  ✔ (j) declaring exactly the admitted names passes; a provider slug admits its tags, never a longer slug (0.151231ms)
+  ✔ (k) a pinned seat that declares no served providers is served_providers_missing (0.061368ms)
+  ✔ (l) served providers on a seat whose pin does not fail closed is served_providers_without_pin (0.06354ms)
+  ✔ (m) a snapshot with no endpoint list cannot verify the claim — served_providers_unverified, FAIL even without --strict (0.878452ms)
+  ✔ (n) a pin that matches no catalogue endpoint is pin_admits_no_endpoint (0.061565ms)
+  ✔ (o) a declared name the pin does not admit, or an admitted name left out, is served_providers_drift (0.085997ms)
+✔ served providers vs the catalogue's endpoints (scaffold#917) (1.40635ms)
+▶ the shipped CLI and the module boundary
+  ✔ (h) the lint checks every OPENROUTER_SEATS seat against the live snapshot and exits 0 under --strict (72.389958ms)
+  ✔ (i) importing the module runs nothing — zero stderr bytes, no exit code (the entry guard holds) (252.692472ms)
+✔ the shipped CLI and the module boundary (325.460621ms)
+ℹ tests 19
+ℹ suites 5
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 420.96435

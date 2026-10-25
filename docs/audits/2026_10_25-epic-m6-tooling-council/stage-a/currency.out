@@ -1,0 +1,16 @@
+read 2026-10-25 02:58:34 UTC
+tsx latest 4.23.15; time {'4.22.4': '2026-05-31', '4.23.15': '2026-09-20'}
+@aws-sdk/client-bedrock-runtime latest 3.1156.0; time {'3.1073.0': '2026-06-19', '3.1156.0': '2026-10-22'}
+mistral-common latest 1.12.0 2026-09-22
+numpy latest 2.5.4 2026-10-10
+mistral-common 1.11.7 uploaded 2026-07-23
+# Install the base dependency closure; --no-deps omits the Tekken runtime.
+mistral-common==1.11.7
+# Preserve mistral-common's Python <=3.12 NumPy compatibility constraint.
+numpy<2.4; python_version < "3.13"
+scaffold here 20c0a77 2026-08-29
+export commit absent here
+scaffold here corpusVersion 3.29.1
+ours 4.29.1 2026-09-29T05:01:35.211Z
+seat-efforts refreshed_at 2026-09-28T05:09:37Z None
+at hash refreshed_at 2026-09-28T05:09:37Z

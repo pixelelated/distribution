@@ -40,24 +40,33 @@
 
 ## Current focus
 
-Not started. The first commit on this branch is the running log's header,
-`01-research-notes.md` § Scope, this pointer updated, and the day's
-work-log entry headed `#692` (prose through a quoted heredoc or the Write
-tool). `.qa-scratch/` and `tools/council/node_modules/` are gitignored and
-`git status --short` is read before every `git add -A`. The read-only
-registry and tracker reads are the only network; no provider call.
+**Stage A complete; stage B next** (updated 2026-10-25, 03:00 UTC).
+- **`reviewed-at`:** `32a34393dd`, the dispatch tip. The read is `8ebaf8daad`'s bytes for the 52 (`stage-a/paths.txt`).
+- **The audit folder:** `docs/audits/2026_10_25-epic-m6-tooling-council/`. It holds `00-running-log.md` (stage A), `01-research-notes.md` (§ Scope) and `stage-a/`, with every run's output.
+- **The SUMS counts:** 50 listed, 41 / 9 / 2 at the hash and 36 / 14 / 2 on the branch, as the brief says. Pins: 27 at the hash, 30 on the branch. The Facilitator: `1.14.0` at the hash, `1.14.1-pixelelated.2` on the branch.
+- **The runs** (both trees, keyless through `env -u FIREFLIES_API_KEY COUNCIL_ENV_FILE=/nonexistent`):
+  - `npm install`, `verify-pins`, `drift`, offline `efforts` and `test` all rc 0;
+  - tests 39/109/19 at the hash and 39/127/19 on the branch.
+- **Lint:** all four `research/council-runs/` runs fail on both trees.
+- **Clone at the hash:** `/workspace/tmp/m6-t45/at-hash`; `node_modules` are installed in both trees.
+- **Running for this lane:** nothing.
+- **Stage-B leads to read:**
+  - the lint failures against scaffold#944 (`IMPORTED-FROM.md:34`);
+  - routing 127 against the commits' claimed 119;
+  - the seat-efforts `refreshed_at`, unchanged though the branch re-pinned the file;
+  - esbuild's postinstall skipped under npm 11's `allowScripts`;
+  - the `run test` wrapper stops at the first failing file (`set -e`);
+  - the evidence folder `docs/qa-logs/2026-10-22-review-filter-636/` `SHA256SUMS` check;
+  - the missing register row for the local fork, the coordinator's lead to #346.
 
 ## Next commands
 
 ```bash
-D=/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-council-692
-cd "$D" && git fetch origin && git fetch upstream --no-tags
-git merge-base --is-ancestor 2174265e9c HEAD && echo stacked-on-P1
-git diff --stat next -- .claude CLAUDE.md AGENTS.md tools/lint-audit-artifacts   # exactly the dispatch's paths
-test -f docs/reviews/inventory.json && echo inventory
-tail -3 /tmp/m7-m6-host-coordination-20261023.txt | cut -c1-200; pgrep -x qemu-system-x86 -r R,S,D,T | wc -l
-git show 8ebaf8daad:.claude/skills/council/COUNCIL-BUNDLE.SHA256SUMS | wc -l          # 94
-sed -n '1,120p' docs/reviews/briefs/tooling-council.md
+D=/workspace/repos/pixelelated/distribution.worktrees/m6-tooling-council-692; A=$D/docs/audits/2026_10_25-epic-m6-tooling-council
+cd "$D" && git status --short && git log --oneline -1
+# Stage B: 02's Provenance (52 rows, a branch column), Reconciliation (the 9 at the hash; the branch's 10), Coverage (52),
+# The runs (copy stage A's table), Proofs; 03 (seams); 04 (Q1 to Q7, Q4 currency, Q6 dead ends); second-opinions/review-plan.json (local).
+# Then the lint with --phase pre-issue (stage C), the punch list and audit issue (stage D, a pause).
 ```
 
 ## Merge notes

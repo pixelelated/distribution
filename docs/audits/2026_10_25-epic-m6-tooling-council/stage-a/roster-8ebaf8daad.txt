@@ -1,0 +1,7 @@
+claude: { slug: "anthropic/claude-fable-5.1", effort: "xhigh",
+gemini: { slug: "google/gemini-3.8-flash", effort: "high",
+gpt: { slug: "openai/gpt-6-astra", effort: "max",
+provider: { order: ["openai"], allow_fallbacks: false },
+kimi: { slug: "moonshotai/kimi-k3", effort: "max", order: ["modal", "sail-research", "together", "moonshotai"], allow_fallbacks: false,
+muse: { slug: "meta/muse-spark-1.3", effort: "max",
+provider: { order: ["meta"], allow_fallbacks: false },

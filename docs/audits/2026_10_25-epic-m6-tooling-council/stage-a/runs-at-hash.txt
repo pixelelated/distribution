@@ -1,0 +1,16 @@
+== /workspace/tmp/m6-t45/at-hash at 8ebaf8daad (02:56:58 UTC), node v24.21.0, npm 11.19.0
+npm install rc=0 1s; npm warn install-scripts   esbuild@0.28.2 (postinstall: node install.js) npm warn install-scripts npm warn install-scripts Run `npm install-scripts ls` to revie
+tsx bin present
+npm ls rc=0
+├── @aws-sdk/client-bedrock-runtime@3.1156.0
+└── tsx@4.23.15
+
+verify-pins rc=0 0s: OK - verifier pins match current files and every re-pin is accountable.
+drift rc=0 0s: OK - no stale-blob regression detected in council substrate / skill paths.
+efforts rc=0 0s: OK — 7 council seat(s) checked, every effort supported; 5 provider-pinned seat(s) declare exactly the providers the catalogue admits (snapsh
+test rc=0 28s; per file (spec reporter's summaries, in run order):
+  ℹ tests 39 ℹ pass 39 ℹ fail 0 ℹ cancelled 0 ℹ skipped 0
+  ℹ tests 109 ℹ pass 109 ℹ fail 0 ℹ cancelled 0 ℹ skipped 0
+  ℹ tests 19 ℹ pass 19 ℹ fail 0 ℹ cancelled 0 ℹ skipped 0
+  failing lines (✖): 0
+done 02:57:27 UTC
