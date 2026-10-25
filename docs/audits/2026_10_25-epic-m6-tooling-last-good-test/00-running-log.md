@@ -188,3 +188,20 @@
   - fixed under the M7 root: **rc 0, 1,313 / 0 / 0**, with the verdict naming `source: root, BUILD_ID 069fc2704421...`.
 - **The suite under the root after #1018: 1,313 / 0 / 0**, equal to the baseline. Neither the fix nor the G-B-15 probes' new source condition changed any verdict under a root.
 - **The brief's "329" is 319** for a clone with history. The ten are #1021's export case.
+
+## [Stage E] 03:22 UTC — S1: #1020 fixed, with its positive
+
+- **The coordinator's 03:11 ruling (a)** on #662: a root whose rclone is missing, or not the recipe's `PKG_VERSION` read through `src_of`, is CANNOT before section `a`, exit 2, naming both versions and the two ways out. Under `--host-diagnostic` the host's rclone runs marked, with its version in the verdict.
+- **The fix:**
+  - the rclone is the busybox's own root's (`${BB_SRC%/usr/bin/busybox}/usr/bin/rclone`), resolved and checked once, right after the busybox;
+  - stream A uses it rather than a second `image_tool_source` search;
+  - the verdict's second `tools:` line names it, its version and the recipe's;
+  - the header, `--help` and stream A's comment say so.
+- **The runs, one at a time** (the table is `02` § S1, #1020):
+  - unfixed (`3037ce6b8c`, a clone) under `rchost`: **rc 0, PASSED, 1,313 / 0**, with the verdict claiming the M7 BUILD_ID over the host's rclone 1.60.1-DEV;
+  - fixed under `rchost`: rc 2 in 47 ms;
+  - fixed `--old` at `417dcd8610` under the M7 root: rc 2 (the ref's recipe says 1.75.1);
+  - cut copies: rc 3 under `--host-diagnostic`, rc 0 under the M7 root;
+  - **fixed full suite under the M7 root: rc 0 in 522 s, 1,313 / 0 / 0**, both provenance lines.
+- **The `--old` consequence:** every positive ref pins rclone 1.75.1 and every GENERIC_X64 root here carries 1.75.2, so no `--old` run reaches a verdict on this host. Put to the coordinator with the checkpoint, since S2 proves #1022/#1023 with `--old` runs.
+- **Coordinator, 03:16:** D-WORKFLOW-206/207 are reserved for the M7 lane; a row from this slice takes D-WORKFLOW-208+, D-QA-064 or D-INFRA-032. None is planned.

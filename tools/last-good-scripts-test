@@ -240,6 +240,8 @@
 # HOST, and ends NOT DEVICE EVIDENCE: exit 1 when any case failed under the
 # host's tools, 3 only when none did, never 0 (D-QA-063: one exit lattice for
 # every fork suite, 1 over 3 over 0, as T14's --unverified-busybox).
+# The root's rclone must be the recipe's version (#1020), or the run refuses:
+# a root built from another tree is not a candidate of this one.
 HOST_DIAG=0
 if [ "${1:-}" = "--host-diagnostic" ]; then
     HOST_DIAG=1; shift
@@ -263,6 +265,8 @@ refuses (exit 2) rather than judge the scripts with the host's tools.
 Run in the foreground; the full suite requires a usable SIGINT handler.
 QA_SYSTEM_ROOT names the candidate's image/system directory for BusyBox and
 rclone. An unusable explicit input is an error, never a fallback to another build.
+The root's rclone must be the version the rclone recipe names (the ref's under
+--old); a root built from another tree is refused (exit 2).
 LAST_GOOD_SOURCE_ROOT selects a separate source checkout without replacing this
 harness. Historical --old still reads BASE_REF from that checkout.
 USAGE
@@ -433,6 +437,24 @@ fi
 BB_ID=""
 if [ "${BB_KIND}" != host ]; then
     BB_ID="$(sed -n 's/^BUILD_ID=//p' "${BB_SRC%/usr/bin/busybox}/etc/os-release" 2>/dev/null | tail -1 | tr -d '"')"
+fi
+# Whose rclone (#1020): the same system root's as the busybox, never a second
+# search that could land in another build root. Its version must be the
+# recipe's PKG_VERSION, read through src_of so --old reads the ref's: a root
+# whose rclone is not the tree's was built from another tree, so its busybox is
+# not this tree's either, and the whole run is CANNOT, not stream A alone. A
+# recipe that cannot be read is the same CANNOT (src_of exits 2). Under
+# --host-diagnostic the host's rclone runs marked, its version in the verdict.
+src_of "${RCLONE_REL%/sources}/package.mk" "${TMP}/rclone.package.mk"
+RC_WANT="$(sed -n 's/^PKG_VERSION="\([^"]*\)".*/\1/p' "${TMP}/rclone.package.mk" | head -1)"
+[ -n "${RC_WANT}" ] || { echo "last-good-scripts-test: CANNOT -- ${RCLONE_REL%/sources}/package.mk$([ "${OLD}" -eq 1 ] && echo " at ${BASE_REF}") names no PKG_VERSION" >&2; exit 2; }
+if [ "${BB_KIND}" != host ]; then RC_SRC="${BB_SRC%/usr/bin/busybox}/usr/bin/rclone"
+else RC_SRC="$(command -v rclone || true)"; fi
+RC_GOT=""
+[ -n "${RC_SRC}" ] && [ -x "${RC_SRC}" ] && RC_GOT="$("${RC_SRC}" version 2>/dev/null | head -1 | sed -n 's/^rclone v//p')"
+if [ "${BB_KIND}" != host ] && [ "${RC_GOT}" != "${RC_WANT}" ]; then
+    echo "last-good-scripts-test: CANNOT -- the root's rclone is ${RC_GOT:+v}${RC_GOT:-missing or unrunnable} (${RC_SRC}) and the recipe$([ "${OLD}" -eq 1 ] && echo " at ${BASE_REF}" || echo " in ${ROOT}") says v${RC_WANT}: a root whose rclone is not the tree's was built from another tree, so its busybox is not this tree's either. Rebuild the root from this tree, or run BASE_REF=<the ref it was built from> --old." >&2
+    exit 2
 fi
 # The copy, not the build root's file. Every image step deletes image/system
 # and re-installs every package (scripts/image), so a build running beside the
@@ -8937,14 +8959,15 @@ PATH="${TMP}/bbin:${PATH}" bash -c ". '${P7AM}/fn.sh'; external_node_present"; p
 # check and delete is rclone's own, not a shim's idea of it. A shim in front
 # of it records every argv to /ctl/argv and, for a line of /ctl/fail
 # ("<ERE over the argv><tab><exit code>"), fails that call instead: the one
-# listing a flaky link loses, the endpoint that answers nothing. The host's
-# rclone stands in when no build root is here. The image's busybox serves
+# listing a flaky link loses, the endpoint that answers nothing. The rclone is
+# the busybox's root's, checked against the recipe before section a (#1020);
+# the host's stands in only under --host-diagnostic. The image's busybox serves
 # the applets it serves on the device (find, stat, awk, sed, tr, flock, cmp,
 # unzip, tar, ...), as in case n. Written before each fix and seen to FAIL
 # on the scripts at 417dcd8610 (BASE_REF=417dcd8610 ... --old).
 echo "  A. audit #307/#308, stream A: the cloud scripts against the image's rclone"
 SA="${TMP}/sa"; mkdir -p "${SA}/shim" "${SA}/nbin"
-SA_RCLONE_SRC=$(image_tool_source rclone version) || exit 2
+SA_RCLONE_SRC="${RC_SRC}"   # resolved and version-checked with the busybox (#1020)
 if [ -z "${SA_RCLONE_SRC}" ] || ! cp "${SA_RCLONE_SRC}" "${SA}/rclone.real"; then
     echo "    FAIL  no rclone to run the stream A cases against (none in a build root, none on the host)"; FAIL=$((FAIL + 1))
     : > "${SA}/rclone.real"
@@ -14274,6 +14297,7 @@ check $? "#526: preserved configuration and atomic hotkey additions" "#526: melo
 if [ "${NOT_APPLICABLE}" -ne 0 ]; then echo "${NOT_APPLICABLE} HISTORICAL FEATURE GROUP(S) NOT APPLICABLE -- no checks counted as PASS"; fi
 # Whose tools judged the scripts, in the verdict and not only the banner (#1018).
 echo "tools: busybox ${BB_SRC:-none, so the GNU tools of the host}${BB_BANNER:+ -- ${BB_BANNER}}; source: ${BB_KIND}${BB_ID:+, BUILD_ID ${BB_ID}}"
+echo "tools: rclone ${RC_SRC:-none} -- ${RC_GOT:+v}${RC_GOT:-no version}; the recipe says v${RC_WANT}"
 if [ "${HOST_DIAG}" -eq 1 ]; then
     # D-QA-063: 1 over 3 over 0 -- a failure under the host's applets is still
     # a failure; 3 says only that nothing failed; a host run is never 0.
